@@ -47,6 +47,82 @@
     @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-violet-50 text-violet-600 border border-violet-200;
   }
 
+  .matsystem-snitt-shell {
+    background-color: #1c1917;
+    background-image:
+      radial-gradient(circle at 12% 0%, rgb(5 150 105 / 0.16), transparent 30rem),
+      radial-gradient(circle at 100% 38%, rgb(14 165 233 / 0.10), transparent 28rem),
+      repeating-linear-gradient(
+        0deg,
+        transparent 0,
+        transparent 42px,
+        rgb(255 255 255 / 0.025) 43px,
+        transparent 44px
+      );
+  }
+
+  .evidence-line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-radius: 9999px;
+  }
+
+  .evidence-line--observed {
+    background: currentColor;
+  }
+
+  .evidence-line--estimated {
+    background-image: repeating-linear-gradient(
+      90deg,
+      currentColor 0,
+      currentColor 12px,
+      transparent 12px,
+      transparent 18px
+    );
+  }
+
+  .evidence-line--proxy {
+    background-image: repeating-linear-gradient(
+      90deg,
+      currentColor 0,
+      currentColor 3px,
+      transparent 3px,
+      transparent 9px
+    );
+  }
+
+  .evidence-line--illustrative {
+    background-image: repeating-linear-gradient(
+      90deg,
+      currentColor 0,
+      currentColor 16px,
+      transparent 16px,
+      transparent 25px
+    );
+  }
+
+  .evidence-line--gap {
+    height: 5px;
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgb(251 113 133 / 0.85) 0,
+      rgb(251 113 133 / 0.85) 2px,
+      transparent 2px,
+      transparent 7px
+    );
+  }
+
+  .matsystem-snitt-gap {
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgb(255 255 255 / 0.018) 0,
+      rgb(255 255 255 / 0.018) 8px,
+      transparent 8px,
+      transparent 16px
+    );
+  }
+
   /* Scoped styling for rendered markdown (case-avsjekk dybde-undersider). */
   .markdown-body {
     @apply text-sm leading-relaxed text-stone-700;
@@ -101,6 +177,42 @@
   }
   .markdown-body hr {
     @apply my-6 border-stone-200;
+  }
+}
+
+@media (max-width: 1023px) {
+  .matsystem-snitt-stage:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 1.5rem;
+    bottom: -0.75rem;
+    width: 2px;
+    height: 0.75rem;
+    background: rgb(168 162 158 / 0.55);
+  }
+}
+
+@media (min-width: 1024px) {
+  .matsystem-snitt-stage:not(:last-child)::after {
+    content: '›';
+    position: absolute;
+    z-index: 10;
+    top: 2.6rem;
+    right: -0.7rem;
+    color: rgb(168 162 158 / 0.7);
+    font-size: 1rem;
+    line-height: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matsystem-snitt-shell *,
+  .matsystem-snitt-shell *::before,
+  .matsystem-snitt-shell *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
 

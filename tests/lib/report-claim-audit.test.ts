@@ -51,6 +51,49 @@ describe('report claim audit', () => {
 
     assert.deepEqual(issues, [])
   })
+
+  it('accepts a time-qualified Copenhagen series with an explicit method caveat', () => {
+    const issues = auditCitableReportDocuments(
+      baseInput({
+        html: '<p>København hadde 87,7 % økologi i kommunale kjøkken i 2024 og 88 % i 2015; målemetoden er endret.</p>',
+        appendix: 'København: 87,7 % i 2024 og 88 % i 2015; innkjøpsdata, endret målemetode.',
+      }),
+    )
+
+    assert.deepEqual(issues, [])
+  })
+
+  it('blocks conflicting Copenhagen values for the same year', () => {
+    const issues = auditCitableReportDocuments(
+      baseInput({
+        html: '<p>København hadde 87,7 % økologi i kommunale kjøkken i 2024; målemetoden er endret.</p>',
+        readme: 'København 85 % i 2024; endret målemetode.',
+      }),
+    )
+
+    assert.deepEqual(issues.map(issue => issue.code), ['copenhagen_percentage_mismatch'])
+  })
+
+  it('blocks an undated Copenhagen value in a multi-year series', () => {
+    const issues = auditCitableReportDocuments(
+      baseInput({
+        html: '<p>København hadde 87,7 % økologi i kommunale kjøkken i 2024 og 88 % i 2015; målemetoden er endret.</p>',
+        readme: 'København offentlig kjøkkenandel: 85 %.',
+      }),
+    )
+
+    assert.deepEqual(issues.map(issue => issue.code), ['copenhagen_percentage_mismatch'])
+  })
+
+  it('blocks a multi-year Copenhagen comparison without a method caveat', () => {
+    const issues = auditCitableReportDocuments(
+      baseInput({
+        html: '<p>København hadde 87,7 % økologi i kommunale kjøkken i 2024 og 88 % i 2015.</p>',
+      }),
+    )
+
+    assert.deepEqual(issues.map(issue => issue.code), ['copenhagen_percentage_mismatch'])
+  })
 })
 
 function coverageProfile(overrides: Partial<CoverageProfile> = {}): CoverageProfile {

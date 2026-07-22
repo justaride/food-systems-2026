@@ -1,0 +1,404 @@
+{
+ "generert": "2026-07-21",
+ "beskrivelse": "Masterhjerne-status Food Systems 2026 — maskinlesbare nøkkeltall. Alle tall beregnet fra kildefilene angitt i 'kilder'. Internt arbeidsmateriale, ikke claim-locket.",
+ "korpus": {
+  "filer_totalt": 4326,
+  "mb_totalt": 717,
+  "innholdsfiler": 3851,
+  "innhold_mb": 693,
+  "markdown": 2379,
+  "pdf_paa_disk": 120,
+  "app_sider": 51,
+  "npm_scripts": 318,
+  "census": {
+   "Obsidian: Maktkart": {
+    "files": 540,
+    "mb": 0.5
+   },
+   "research/_status (kontroll)": {
+    "files": 532,
+    "mb": 9.0
+   },
+   "(infrastruktur)": {
+    "files": 475,
+    "mb": 24.5
+   },
+   "research/ (øvrig)": {
+    "files": 461,
+    "mb": 136.0
+   },
+   "docs/project (styring)": {
+    "files": 334,
+    "mb": 5.1
+   },
+   "research/external (kildespeil)": {
+    "files": 264,
+    "mb": 6.7
+   },
+   "research/bibliotek": {
+    "files": 243,
+    "mb": 4.5
+   },
+   "scripts/ (motor)": {
+    "files": 236,
+    "mb": 3.5
+   },
+   "research/evidence-pack (PDF-korpus)": {
+    "files": 207,
+    "mb": 420.8
+   },
+   "Obsidian: øvrig": {
+    "files": 174,
+    "mb": 4.8
+   },
+   "Obsidian: Innsiktskart": {
+    "files": 128,
+    "mb": 0.1
+   },
+   "rot & annet": {
+    "files": 69,
+    "mb": 13.0
+   },
+   "docs/ (øvrig)": {
+    "files": 62,
+    "mb": 1.3
+   },
+   "research/analyse": {
+    "files": 41,
+    "mb": 0.7
+   },
+   "research/pdf-downloads": {
+    "files": 33,
+    "mb": 77.8
+   },
+   "research/_plans": {
+    "files": 24,
+    "mb": 0.4
+   },
+   "docs/møter & transkripsjon": {
+    "files": 21,
+    "mb": 0.4
+   },
+   "data & app-artefakter": {
+    "files": 17,
+    "mb": 1.0
+   },
+   "src/ (app)": {
+    "files": 1,
+    "mb": 0.0
+   }
+  }
+ },
+ "kildebibliotek": {
+  "totalt": 1555,
+  "ai_draft": 1427,
+  "review_required": 89,
+  "approved_internal": 35,
+  "blocked": 4,
+  "mangler_tekst": 89,
+  "claim_kandidater": 0,
+  "kilde": "research/_status/library-analysis-ledger.jsonl (2026-07-20)"
+ },
+ "akademisk_evidens": {
+  "rader_db": 417,
+  "reports": 139,
+  "theses": 79,
+  "sourcedocs": 199,
+  "metadata_pct": {
+   "aar": [
+    100,
+    100,
+    85.9
+   ],
+   "institusjon": [
+    100,
+    100,
+    93.0
+   ],
+   "url": [
+    90.6,
+    100,
+    59.3
+   ],
+   "accessdate": [
+    66.2,
+    98.7,
+    39.2
+   ],
+   "doi_pid": [
+    15.8,
+    46.8,
+    5.0
+   ],
+   "arkivert": [
+    null,
+    null,
+    0
+   ],
+   "appraisal": [
+    0,
+    0,
+    0
+   ]
+  },
+  "regresjonsgate": "PASS",
+  "ekstern_beredskap": "NOT READY",
+  "appraisal_status": "0/417 complete current dispositions",
+  "appraisal_next_gate": {
+   "pilot_fulltext_dispositions_pending": 3,
+   "production_workflow": "not_closed",
+   "top_50": "blocked_until_pilot_and_production_gate_close"
+  },
+  "kilde": "research/_status/academic-source-quality-status.json (2026-07-20)"
+ },
+ "siterbarhet": {
+  "field_citations": 244516,
+  "source_citations": 2703,
+  "citable_external": 154,
+  "citable_with_note": 2222,
+  "internal_context": 110,
+  "blocked_unsourced": 217,
+  "acceptance_pack": "11/16 cite-ready, 5 fail-closed",
+  "strict_gate": "PASS",
+  "external_blocking_issues": 0,
+  "academic_readiness": "NOT READY",
+  "gate_note": "Technical citation/source-gate PASS does not imply academic readiness; 217 blocked_unsourced rows remain fail-closed and appraisal is 0/417.",
+  "hhi_2024": 3327,
+  "cr3_2024_pct": 96.6,
+  "kilde": "research/CITABLE-KNOWLEDGE-BASE-STATUS.md (2026-07-21 live readback)"
+ },
+ "dekning": {
+  "aktorer_kartlagt": 1634,
+  "univers_estimert": 1651,
+  "celler": 70,
+  "konfidens": {
+   "hoey": 2,
+   "middels": 9,
+   "lav": 59
+  },
+  "per_domene": {
+   "primaerproduksjon": [
+    350,
+    350
+   ],
+   "lokale-verdikjeder": [
+    251,
+    258
+   ],
+   "foredling-industri": [
+    140,
+    140
+   ],
+   "distribusjon-grossist": [
+    120,
+    120
+   ],
+   "matsvinn-sirkulaer": [
+    104,
+    120
+   ],
+   "regenerativ-praksis": [
+    91,
+    89
+   ],
+   "permakultur-fleraarige": [
+    81,
+    77
+   ],
+   "innsatsfaktorer": [
+    80,
+    80
+   ],
+   "horeca-offentlig": [
+    60,
+    60
+   ],
+   "interesseorg-paraply": [
+    60,
+    60
+   ],
+   "finansiering-investering": [
+    60,
+    60
+   ],
+   "institusjon-finansiering": [
+    49,
+    49
+   ],
+   "fou-institusjon": [
+    44,
+    44
+   ],
+   "handel-dagligvare": [
+    40,
+    40
+   ],
+   "okologi-sertifisering": [
+    40,
+    40
+   ],
+   "virkemiddel-policy": [
+    34,
+    34
+   ],
+   "forbruk": [
+    30,
+    30
+   ]
+  },
+  "kilde": "research/_status/domene-dekning-hull-2026-07-02.md (radsum verifisert)"
+ },
+ "ki_korpus": {
+  "n": 208,
+  "score_snitt": 4.83,
+  "aar": {
+   "2005": 2,
+   "2006": 1,
+   "2010": 1,
+   "2011": 2,
+   "2012": 1,
+   "2013": 2,
+   "2014": 2,
+   "2015": 3,
+   "2016": 7,
+   "2017": 9,
+   "2018": 2,
+   "2019": 7,
+   "2020": 5,
+   "2021": 8,
+   "2022": 9,
+   "2023": 24,
+   "2024": 68,
+   "2025": 48,
+   "2026": 7
+  },
+  "kategorier": {
+   "nou": 4,
+   "konkurransetilsyn": 22,
+   "konsulentrapport": 4,
+   "beredskap": 5,
+   "akademia": 24,
+   "offentlig": 25,
+   "master": 64,
+   "bransje": 27,
+   "juridisk": 3,
+   "phd": 14,
+   "tenketank": 4,
+   "sirkularitet": 2,
+   "oversikt": 10
+  },
+  "andel_2023_2026_pct": 70.7,
+  "kilde": "research/KI-PRIORITY.csv"
+ },
+ "url_helse": {
+  "sjekket": 600,
+  "ok": 506,
+  "blokkert": 49,
+  "doede": 41,
+  "annet": 4,
+  "hoyprioritet_n": 173,
+  "hoyprioritet_doede": 0,
+  "arkivert_pct": 0,
+  "arkivert_pct_scope": "URL-HEALTH/SourceDoc-feltet; ikke samlet SourceCitation-dekning",
+  "source_citation_archive_audit": {
+   "rows": 2703,
+   "external_readiness_rows": 2376,
+   "durable_archive_rows": 568,
+   "external_durable_archive_rows": 521,
+   "external_needs_archive_rows": 1855,
+   "blocking_ids": 1872,
+   "gate": "FAIL"
+  },
+  "kilde": "research/URL-HEALTH.csv"
+ },
+ "pdf_katalog": {
+  "n": 436,
+  "sider": 23559,
+  "gb": 2.02,
+  "kilde": "research/pdf-katalog.json (2026-07-04)"
+ },
+ "database": {
+  "selskaper": 55431,
+  "selskaper_dato": "2026-04-27",
+  "kuratert_graf": {
+   "selskaper": 351,
+   "eierskapskanter": 160,
+   "styreverv": 1800,
+   "relasjoner": 105,
+   "eiendommer": 104,
+   "dato": "2026-07-03"
+  },
+  "subsidier": 179311,
+  "person_profiler": 1354,
+  "prisma_modeller": 48
+ },
+ "datalag": {
+  "sirkularitet_lokker": 25,
+  "sirkularitet_gap": 37,
+  "suksesscase": 14,
+  "fiaskocase": 10,
+  "r9_nivaaer": 10,
+  "naeringsstoff_teknologier": 9,
+  "naeringsstoff_land": [
+   "NO",
+   "SE",
+   "DK",
+   "FI"
+  ],
+  "verdikjede_felt_per_land": {
+   "NO": 73,
+   "IS": 53,
+   "SE": 50,
+   "DK": 47,
+   "FI": 46
+  }
+ },
+ "nordisk_verdikjede_steg": [
+  "Primærproduksjon",
+  "Sjømat",
+  "Foredling",
+  "Distribusjon/grossist",
+  "Detaljhandel",
+  "HoReCa",
+  "Husholdning",
+  "Avfall/sirkularitet"
+ ],
+ "kilderegister": {
+  "sections": {
+   "1. Offentlige dokumenter og Myndighetskilder (Norge)": 7,
+   "2. Nordiske og Internasjonale Myndighetskilder": 11,
+   "3. Forsknings- og Akademiske Kilder": 21,
+   "4. Internasjonale Organisasjoner (Statistikk og Frameworks)": 4,
+   "5. Bransje- og Markedskilder": 4,
+   "6. Kilder tilføyd gjennom kvalitetssikring (mars 2026)": 14,
+   "7. Verdikjede-kartlegging: Kilder (mars 2026)": 31,
+   "8. Bedriftsregistre og Selskapsdata": 13,
+   "9. Desk Research: Konsoliderte Kildebiblioteker (mars 2026)": 0,
+   "10. Perplexity-research: Nye kilder (17. mars 2026)": 20,
+   "11. Perplexity-research: Primærkilder (20. april 2026)": 96,
+   "12. Perplexity-research Runde 2: Sirkularitet, fôr, næringsstoffer og innovasjon (20. april 2026)": 21,
+   "§ 13 Matsvinn, tap og ressurshåndtering — verdikjeden": 14
+  },
+  "total": 256
+ },
+ "organer_modenhet": {
+  "hukommelse": 85,
+  "samvittighet": 92,
+  "sanser": 8,
+  "tidssans": 5,
+  "forestillingsevne": 22,
+  "stemme": 30
+ },
+ "verdict": {
+  "hent_mer": [
+   "menneskedata (Mission 1/2)",
+   "aktivitetssignal 1634 aktorer",
+   "strukturert kildevurdering 0/417",
+   "nordisk paritet FI/IS-finanser"
+  ],
+  "ikke_hent_mer": [
+   "bredde-deepening pa run-floor (unntak: insekt 7/20, matredistribusjon 15/20)",
+   "desk-lukking av ekte C-hull"
+  ]
+ }
+}

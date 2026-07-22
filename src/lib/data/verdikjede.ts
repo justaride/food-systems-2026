@@ -138,7 +138,7 @@ export const verdikjedeStages: VerdikjedeStage[] = [
     title: 'HoReCa og storhusholdning',
     subtitle: 'Hotell, restaurant, catering og offentlig måltid',
     summary:
-      'Nordisk HoReCa representerer 30-45 % av totalt matforbruk. Norge har høyest grossistkonsentrasjon (ASKO Servering ~70 %, aktørrapportert — ikke uavhengig/tilsynsverifisert, DRO-R4-13). Finland og Sverige tilbyr universelt gratis skolemat (siden 1946/1948), mens Norge og Danmark har matpakkekultur. Compass Group dominerer kontraktcatering etter oppkjøp av Fazer Food Services (2020) og 4Service (2024). København har nådd 84 % økologisk mat i 900 offentlige kjøkken. Wolt dominerer matlevering i hele Norden.',
+      'Nordisk HoReCa representerer 30-45 % av totalt matforbruk. Norge har høyest grossistkonsentrasjon (ASKO Servering ~70 %, aktørrapportert — ikke uavhengig/tilsynsverifisert, DRO-R4-13). Finland og Sverige tilbyr universelt gratis skolemat (siden 1946/1948), mens Norge og Danmark har matpakkekultur. Compass Group dominerer kontraktcatering etter oppkjøp av Fazer Food Services (2020) og 4Service (2024). København rapporterer 87,7 % økologiske kommunale matinnkjøp i 2024 mot 88 % i 2015; 2024 bygger på innkjøpsdata, mens 2015 hadde et eldre, blandet målegrunnlag. Tallene er ikke en metodeidentisk trend eller en nasjonal dansk andel. Wolt dominerer matlevering i hele Norden.',
     keyPoints: [
       'Norges foodservice-profittsektor: 76,9 mrd NOK (2024), forventet 92,5 mrd innen 2029',
       'Michelin Guide Nordic 2025: 282 anbefalte restauranter, 6 trestjernes, 39 Green Stars',
@@ -285,7 +285,7 @@ export const verdikjedeStages: VerdikjedeStage[] = [
     title: 'Norsk bedriftsdata',
     subtitle: 'Eierstruktur, maktkonsentrasjon og systemrisiko',
     summary:
-      '14 nøkkelselskaper med samlet omsetning over 800 mrd NOK utgjør kjernen i det norske matsystemet. Familiekontroll dominerer: Johannson (NorgesGruppen 74,4 %), Reitan (REMA 100 %), Hagen (Orkla 25,1 %). Dagligvare-triopolet (NorgesGruppen, Coop, REMA) kontrollerer 96,6 % av markedet — høyest i Europa. Krysseierskap i BAMA (NorgesGruppen 46 % + REMA 20 %, begge CEOer i styret) er uten nordisk parallell. Yara er eneste selskap med direkte statlig kontroll (36,2 %).',
+      '14 nøkkelselskaper med samlet omsetning over 800 mrd NOK utgjør kjernen i det norske matsystemet. Familiekontroll dominerer: Johannson (NorgesGruppen 74,4 %), Reitan (REMA 100 %), Hagen (Orkla 25,1 %). Dagligvare-triopolet (NorgesGruppen, Coop, REMA) har en kontrollert CR3 på 96,6 %, mens omsetnings-HHI er 3 327 (Konkurransetilsynet, 2024). Krysseierskap i BAMA (NorgesGruppen 46 % + REMA 20 %, begge CEOer i styret) er uten nordisk parallell. Yara er eneste selskap med direkte statlig kontroll (36,2 %).',
     keyPoints: [
       'NorgesGruppen kontrollerer ~141 mrd NOK gjennom direkte eierskap og BAMA',
       'Fire familier kontrollerer ~77 % av norsk lakseproduksjon (~127 mrd NOK eksport)',
@@ -319,13 +319,13 @@ export const verdikjedeStages: VerdikjedeStage[] = [
     title: 'Kryssanalyse',
     subtitle: 'Maktkonsentrasjon, flaskehalser og systemrisiko',
     summary:
-      'Synteseanalysen identifiserer syv kritiske flaskehalser, fire systemrisikoer og fem uutnyttede sirkulærøkonomi-muligheter på tvers av verdikjeden. Norge har Nordens høyeste konsentrasjonsgrad i dagligvare (HHI ~3 400), laveste selvforsyningsgrad (47 %) og svakeste beredskapslagre — en farlig kombinasjon. Verdien flyter systematisk fra primærprodusent (1-3 % margin) til detaljist (3-5 %) og sjømateksportør (15-24 %). Fosfat/kali-importavhengigheten er nordisk matsikkerhets største blindsone.',
+      'Synteseanalysen identifiserer syv kritiske flaskehalser, fire systemrisikoer og fem uutnyttede sirkulærøkonomi-muligheter på tvers av verdikjeden. Norge kombinerer høykonsentrert dagligvare (omsetnings-HHI 3 327; CR3 96,6 %) med lav selvforsyning og sentralisert logistikk. Eksakt nordisk rangering av konsentrasjon og selvforsyning avhenger av harmonisert markedsavgrensning og metode. Verdien flyter systematisk fra primærprodusent (1-3 % margin) til detaljist (3-5 %) og sjømateksportør (15-24 %). Fosfat/kali-importavhengigheten er en dokumentert nordisk blindsone.',
     keyPoints: [
-      'Norge har HHI ~3 400 i dagligvare — høyest i Norden og trolig i Europa',
+      'Norsk dagligvare har omsetnings-HHI 3 327 og CR3 96,6 % (2024); nordisk rangering krever felles markedsavgrensning',
       'Yara Porsgrunn er single point of failure for nordisk nitrogenforsyning',
       'Et sammensatt krisescenario kan redusere norsk matproduksjon 25-30 % på en sesong',
       'Biogass-gap: Norge 828 GWh vs. Danmark >8 000 GWh — 9,7x forskjell',
-      'Norges selvforsyningsgrad (47 %) er lavest i Norden, kombinert med svakest beredskap',
+      'Selvforsyning må oppgis med år, definisjon og fôrkorreksjon; beredskap vurderes separat fra én prosentserie',
       'Finlands HVK-modell (9 mnd kornlager + gjødsel + sakorn) bør adopteres av hele Norden',
     ],
     countries: ['NO', 'SE', 'DK', 'FI', 'IS'],

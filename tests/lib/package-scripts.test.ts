@@ -98,6 +98,7 @@ describe('package scripts', () => {
         'npm run compute-coverage',
         'npm run vault:export-db',
         'npm run vault:sync',
+        'npm run compute-masterhjerne',
       ].join(' && '),
     )
   })

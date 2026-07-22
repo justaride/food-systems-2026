@@ -1,109 +1,226 @@
-# Evidence Pack #5: Adoption Track Note
-
-**Prosjekt:** Food Systems 2026
-**Dato:** 25. mars 2026
-**Status:** Utkast v1.0
-
+---
+tittel: "Evidence Pack #5 — Adoption Track Note"
+versjon: "v2.0 closeout draft"
+dato: 2026-07-15
+status: kontrollert internt utkast — ikke godkjent og ikke publiserbart
+gate: human-and-publication-gated
+canonical_master: research/whitepaper/food-systems-2026-synthesis-v2.md
+eier: "Food Systems Transition Group; dokumentforvalter Gabriel"
+bruksregel: "Oversetter kontrollert innsikt til mulige adopsjonsveier. Autoriserer ikke outreach, policyposisjon, pilot, søknad eller publisering."
 ---
 
-## 1. Eksisterende reguleringsverktøy
+# Evidence Pack #5 — Adoption Track Note
 
-### Norge
+> [!important] Intern adopsjonsplan, ikke policyanbefaling
+> Denne noten viser hvordan prosjektets kontrollerte innsikt *kan* tas i bruk dersom de relevante menneske-, partner-, juridiske, finansierings- og publiseringsportene passeres. Den er ikke en tredje faktakilde ved siden av det [kanoniske v2-manuset](../whitepaper/food-systems-2026-synthesis-v2.md).
 
-**Konkurransetilsynet (KT)** er den sentrale håndhevingsmyndigheten. KTs verktøykasse inkluderer:
-- **Konkurranseloven § 10** (forbud mot konkurransebegrensende samarbeid): Hjemmelen bak Prisjeger-vedtaket V2024-4 (21. august 2024), der Coop, NorgesGruppen og Rema ble ilagt 4,9 mrd. NOK i overtredelsesgebyr. Vedtaket ble opprettholdt enstemmig av Konkurranseklagenemnda (V02-2025, august 2025). Rettssaken i Gulating lagmannsrett er berammet i 2026 (36 rettsdager).
-- **Konkurranseloven § 14 — Markedsundersøkelser** (i kraft 1. juli 2025): Nytt proaktivt verktøy som lar KT gripe inn i markeder med svakt fungerende konkurranse uten påviste lovbrudd. Øremerkede 5 mill. kr i 2026-budsjettet. Formelle undersøkelser i dagligvare forventes varslet våren 2026, med fokus på EMV-dominans i ferskvare og innkjøpspriser.
+## 1. Formål og historikk
 
-**Dagligvaretilsynet** håndhever Lov om god handelsskikk i dagligvarekjeden (vedtatt 12. mars 2020, i kraft 1. januar 2021). Tilsynet har 4–5 ansatte, kontor i Porsgrunn. Samarbeidsklimaundersøkelsen 2025 viser positiv trend, men vedvarende fryktkultur blant leverandører. I oktober 2025 foreslo regjeringen å avvikle tilsynet og overføre ansvaret til KT — omstridt av DLF og NHO Mat og Drikke.
+Adoption Track er broen mellom kunnskapsgrunnlaget og mulig anvendelse hos myndigheter, kommuner, forskere, næringsaktører og nordiske partnere. Den skal svare på fire spørsmål:
 
-### Danmark
+1. Hvilket kontrollert problem prøver vi å få noen til å handle på?
+2. Hvem må validere problemet og eie neste steg?
+3. Hvilket avgrenset produkt, verksted eller konsept kan testes?
+4. Hvilke stopplinjer hindrer at intern analyse blir fremstilt som vedtak eller effekt?
 
-**Konkurrence- og Forbrugerstyrelsen (KFST)** håndhever den danske Konkurrenceloven (vedtatt 10. juni 1997). KFST har vært særlig aktiv i fusjonskontroll: Rema/Aldi (godkjent med vilkår 2023), OK/Coop 50 % (godkjent med vilkår juni 2024), Salling/Coop 33 butikker (godkjent mars 2025). KFSTs lokale markedsanalyser — med vekt på reiseavstand og butikktilbud — er mer granulære enn den norske tilnærmingen. Danmark har ikke eget dagligvaretilsyn; leverandørforhold reguleres gjennom frivillig Dagligvarekodeks uten lovs kraft.
+| Versjon | Rolle | Status |
+|---|---|---|
+| 2026-03-25, v1.0 | Første kart over regulatoriske muligheter, offentlige innkjøp og implementeringsveier. | Historisk utkast. Tidsfølsomme antakelser og legacy-claims er ikke gjeldende status. |
+| 2026-07-15, v2.0 | Closeout-versjon av adopsjonsløpet, avledet fra v2-manus, roadmap v0.2, continuation plan og completion register. | Kontrollert intern draft. Alle eksterne handlinger er fortsatt gated. |
 
-### Finland
+V2.0 bevarer dokumentets opprinnelige formål, men fjerner passerte frister, forventede myndighetshandlinger, uverifiserte budsjetter og ferdigformulerte policyposisjoner. En mulighet er bare aktiv når offisiell status er kontrollert på handlingsdato.
 
-**KKV** (Kilpailu- ja kuluttajavirasto) håndhever **konkurranseloven § 4a** (i kraft 1. januar 2014): Dagligvareaktører med over 30 % nasjonal markedsandel anses automatisk som dominerende. Både S Group (48,8 %) og K Group (33,7 %) rammes. Bestemmelsen senker bevisbyrden vesentlig — KKV kan gå direkte til misbruksvurdering uten å bevise dominans. Faktisk håndheving har vært begrenset: ingen bøter eller pålegg siden 2014. KKV publiserte en EMV-rapport i mars 2025 og har pågående undersøkelser av lojalitetsordninger og salgsdatatilgang.
+## 2. Kanon, status og tillatt bruk
 
-### Sverige
+Adoption Track følger denne kjeden:
 
-**Konkurrensverket** publiserte Rapport 2024:5 med gjennomgang av den svenske matverdikjeden. Hovedfunn: konkurransen i butikkleddet er for svak (ICA/Axfood/Coop-oligopol), kjedene opprettholdt prosentuelle marginer gjennom inflasjonskrisen, og Sverige har påfallende lav andel lavprisbutikker (ca. 20 % vs. 40–50 % i Europa). Konkurrensverket anbefaler lettere etablering, økt margintransparens og tiltak mot lojalitetsklausuler i hyresavtaler.
+```text
+kontrollert påstand eller dokumentert gap
+  → navngitt bruker og valideringsspørsmål
+    → datert respons og bruksrett
+      → avgrenset konsept eller workshop
+        → pilot-/prosjekteier, data, juss, budsjett og måleplan
+          → mulig gjennomføring
+            → observert resultat eller dokumentert stopp
+```
 
-### Island
+Gjeldende dokumentroller:
 
-**Samkeppniseftirlitið** overvåker et av Europas mest konsentrerte markeder (Hagar/Festi/Samkaup). Festi/Lyfja-fusjonen ble godkjent juni 2024 med vilkår om operasjonelt skille. Tilsynet peker på vertikal integrasjon (import–grossist–butikk i samme eierskap) som hovedårsak til høye priser. Marginøkning på 29 % (2017–2021) dokumentert.
+| Artefakt | Rolle | Nåstatus |
+|---|---|---|
+| [Synthesis v2](../whitepaper/food-systems-2026-synthesis-v2.md) | Kanonisk intern faglig syntese og kildekart. | `intern-syntese-til-godkjenning`; ikke eksternt siterbar. |
+| [Roadmap v0.2 draft](../../docs/project/mandates/roadmap-food-tg-2026-2029-v0.2-draft.md) | M16-retning, porter og horisonter. | Kontrollert intern draft; ikke vedtatt roadmap. |
+| [Continuation plan](../../docs/project/mandates/continuation-plan-food-tg-2026.md) | M18-valg mellom bevaring, vedlikeholdt plattform og senere observatorium/pilotstøtte. | Organisatorisk hjem, eier og budsjett er ikke besluttet. |
+| [Completion register](../../docs/project/status/food-systems-completion-register-2026-07-15.md) | Kanonisk status for complete, synthesis-needed, human-gated, source-gated, true-C og future. | S-09 lukkes på lokalt syntesenivå av denne revisjonen; menneskeportene består. |
+| [Pilot-brief index](./pilot-briefs/README.md) | Fem kontrollerte workshop-start dossiers. | Ferdige på desk-nivå; ikke partnergodkjente piloter. |
+| [Finance note v2.0](./finance-note.md) | Datert finansieringskart. | Intern kontroll per 2026-07-02; må fersksjekkes før handling. |
 
----
+Ved konflikt gjelder den underliggende kontrollerte kilden og v2-manusets statusgrense. Denne noten kan ikke åpne en claim, endre en aktørstatus eller gjøre en brief til pilot.
 
-## 2. Innkjøpsstandarder og offentlige anskaffelser
+## 3. Kontrollert utgangspunkt for adopsjon
 
-### Norske krav
+### 3.1 Struktur og makt
 
-**30 %-regelen (1. januar 2024):** Klima- og miljøhensyn skal vektes minimum 30 % i alle offentlige anskaffelser — blant de strengeste kravene i Europa. Andelen som oppfyller kravet økte fra 7 % (2023) til 36 % (2025), men varierer sterkt mellom kommuner. DFOs veileder dekker mat som en av fem prioriterte innkjøpskategorier.
+- Norsk dagligvare har et kontrollert **omsetnings-HHI på 3 327** og **CR3 på 96,6 prosent** for 2024. HHI er en indeks; CR3 er en andel. **[K/F i v2; CA-004]**
+- De tre største foretakskategoriene står for **93,4 prosent av 3 849 kartlagte butikker**. Dette er butikkantall, ikke omsetningsandel. **[K/F i v2]**
+- Konsentrasjon finnes også i foredling og vertikalt integrert distribusjon, men struktur dokumenterer ikke intensjon, ulovlighet eller tilgangsnekt. **[F/I i v2]**
+- Den nordiske sammenligningen tåler ikke en uforbeholden ligatabell; markedsavgrensning, år og kildetype varierer. **[F i v2]**
 
-**Gratis skolemat (Stortingsvedtak november 2024):** Alle grunnskoleelever skal få gratis skolemat fra 2026. Kostnad: 450 mill. NOK første år, opptil 3,241 mrd. NOK ved full utrulling. Statsbudsjettet 2026 inneholder kun planleggingsmidler, ingen øremerkede bevilgninger. Potensialet er betydelig: 3,2 mrd. NOK i nye årlige offentlige matinnkjøp vil forme grossistmarkedet.
+**Adopsjonskonsekvens:** Bruk strukturdata til å definere kontrollspørsmål og databehov, ikke til å tilskrive atferd.
 
-**Kommunale matinnkjøp:** Norske kommuner og fylkeskommuner kjøpte mat for over 4,6 mrd. NOK i 2023. Oslo har Handlingsplan for bærekraftige måltider 2022–2025 og deltar i C40 Food Systems Network. Østre Toten er pilotkommune for «Kjøp bærekraftig»-prosjektet.
+### 3.2 Priser og marginer
 
-### Nordiske referansemodeller
+KPI-/PPI-sporet er intern analyse. Indeksene måler ulike ledd og varekurver og er ikke en marginserie. Hypoteser om overvelting, sesongprising eller skjulte gebyrer krever ny replikasjon, regnskapsdata og metodekontroll. **[I i v2]**
 
-**København:** 84 % økologisk mat i 900 offentlige kjøkken (2024), mål 90–100 %. Gjennomført uten budsjettøkninger over 15 år — via opplæring, menyendringer og innkjøpsomstrukturering. Mest dokumenterte modellen for bærekraftig offentlig matinnkjøp globalt.
+**Adopsjonskonsekvens:** Prisarbeidet kan tilbys som et avgrenset forskningsspørsmål eller metodepakke, ikke som ferdig forklaring på hvem som tar verdi.
 
-**Sverige og Finland:** Begge tilbyr gratis lunsj til alle grunnskoleelever (eneste land globalt, med Estland). Sverige serverer 3,4 mill. offentlige måltider daglig; 39 % økologisk. Sveriges mål: 60 % økologisk i offentlige kjøkken innen 2030. Finland har vedtatt strategi for økt andel innenlandsk og ansvarlig mat i offentlige kjøkken.
+### 3.3 Beredskap og selvforsyning
 
-### Systemisk barriere
+Foreløpige 2024-tall illustrerer at norsk selvforsyning må merkes med metode: om lag 45 prosent uten korreksjon for importert kraftfôr og 35 prosent med korreksjon. Det er ikke en komplett resiliensindikator. Logistikkbasen støtter scenarioarbeid, men ikke en påstand om et bevist nasjonalt single point of failure. **[F/I i v2]**
 
-Store rammeavtaler favoriserer de største grossistene (ASKO, Servicegrossistene). EU-regler begrenser muligheten til å kreve lokalt opphav, men det finnes handlingsrom for å vektlegge sesong, miljøprofil og dyrevelferd.
+**Adopsjonskonsekvens:** Koble import, lager, omkobling og logistikk i scenarier med synlige antakelser; ikke bruk én prosent som bevis på robusthet eller kollaps.
 
----
+### 3.4 Sirkularitet og det Norge ikke måler
 
-## 3. Politiske virkemidler under utvikling
+Biomassekaskaden og mattrygghet er prioriteringsporter. Utnyttet restråstoff er ikke automatisk høyverdiutnyttet. Potensial, plan, installert kapasitet, innsamlet mengde, behandlet mengde og realisert sluttbruk er forskjellige størrelser. **[F/I i v2]**
 
-### Funksjonelt og regnskapsmessig skille
+Completion-registeret og v2 dokumenterer blant annet åpne målebehov for oppdrettsslam, realisert N/P/K-retur fra biorest, jordkarbon, pollinator-/insekttrend, nodekapasitet, offentlig matinnkjøp og realisert alternativt proteinvolum. **[I/H; true-C eller source-gated etter felt]**
 
-Menon Economics (i samarbeid med Kvale Advokatfirma) leverte i januar 2026 en utredning om krav til tydeligere skille mellom grossist og detaljist i dagligvarekjeden. Utredningen vurderer regnskapsmessig skille (separat regnskapsføring) og funksjonelt skille (separat ledelse), med erfaringer fra kraft- og telekomsektoren. **Høringsfrist: 17. april 2026.** Tiltak under Meld. St. 4 (2024–2025) «10-punktsplanen».
+**Adopsjonskonsekvens:** Et datagap kan bli et standardiserings- eller forskningsoppdrag. Det skal ikke fylles med proxy for å produsere en komplett figur.
 
-### EMV-regulering og lojalitetsprogrammer
+## 4. Fem workshopspor — ikke pilotportefølje
 
-Regjeringen utreder om kjedenes egne merkevarer (EMV) er så dominerende i enkeltekategorier at de hindrer mangfold og innovasjon. KTs marginstudie del 2 (2025) viser at EMV har 12 prosentpoeng lavere margin enn merkevarer per enhet, men brukes strategisk til å presse merkevareleverandører. Parallelt gjennomgås lojalitetsprogrammer (Trumf, Æ) og deres effekt på prissammenligning og datahøsting.
+De fem dossierene er den kontrollerte juli-køen. Status kan bare løftes gjennom datert beslutningslogg.
 
-### Selvforsyningsmålet
+| Spor | Tillatt adopsjonsprodukt nå | Primære brukere/validatorer | Neste port | Stopplinje |
+|---|---|---|---|---|
+| [Finsk §4a / strukturterskel](./pilot-briefs/01-finnish-4a-structural-threshold.md) | Juridisk og metodisk sammenligningsnotat eller workshopspørsmål. | konkurranserettslig reviewer, myndighet, finsk/nordisk partner | juridisk + nordisk validering | Terskelen er ikke automatisk lovbrudd, bot eller oppsplitting; ingen norsk anbefaling er vedtatt. |
+| [Åpen logistikktilgang](./pilot-briefs/02-open-logistics-access.md) | Avgrenset konseptstudie om tilgang, transparens, servicekrav eller ikke-diskriminering. | uavhengig grossist, offentlig kjøper, logistikkaktør, jurist | brukerbehov + dataeier + juss | Menon/Kvale anbefaler ikke funksjonelt eller regnskapsmessig skille på sitt vurderte grunnlag; blokkering er ikke bevist. |
+| [Plan- og etableringsbarrierer](./pilot-briefs/03-zoning-establishment-barriers.md) | Kommunalt screeningdesign og datakrav. | kommuneplanlegger, eiendoms-/konkurranserettslig reviewer | plan-/eiendomsdata + metode | Butikkantalls-HHI er proxy, ikke bevis på prisvirkning eller ulovlig eksklusjon. |
+| [Logistikkavhengighetsmodell](./pilot-briefs/04-asko-vestby-dependency-model.md) | Modellspesifikasjon for 24 timer, 72 timer og to ukers redusert kapasitet. | logistikk-/beredskapsekspert, dataeier, modellreviewer | rute-/kategori-/bufferdata + modelleier | Modellert eksponering er ikke observert svikt, skyld eller bevist single point of failure. |
+| [Kommunal innkjøpsstandard](./pilot-briefs/05-municipal-procurement-standard.md) | Workshop om baseline, kjøkkenkompetanse, meny, sesong, matsvinn og leverandørkapasitet. | kommune, kjøkken, innkjøpsjurist, leverandør, ernæringsfaglig reviewer | kommune + budsjett + baseline + måleplan | København er en mekanismebenchmark; sertifiseringsandel eller klausul alene beviser ikke overgang. |
 
-Meld. St. 11 (2023–2024) setter mål om 50 % selvforsyningsgrad innen 2030 (opp fra ca. 40 %). Hovedstrategi: økt planteproduksjon for direkte humant konsum og norsk fôr. Meldingen slår fast at alle aktører i verdikjeden — inkludert grossister og dagligvare — må bidra. Kobler selvforsyning til nasjonal matberedskap.
+København kan brukes med den kontrollerte tids- og metodekonteksten i CA-001: 87,7 prosent i 2024 (nesten 88 prosent) og 88 prosent i 2015. Dagens nivå bygger på innkjøpsdata, mens 2015 hadde et eldre, blandet målegrunnlag. Det er et kommunalt kjøkken-/innkjøpsbenchmark, ikke en nasjonal dansk andel eller en metodeidentisk trend.
 
-### Svensk beredskapsliv
+## 5. Målgrupper og valideringsspørsmål
 
-SOU 2024:8 «Livsmedelsberedskap för en ny tid» foreslår ny rammelov for livsmedelsberedskap fra 1. januar 2025, med statlig ansvar for lagring av kritiske innsatsvarer og kommunalt ansvar for lokal matdistribusjon i krisetider.
+Ingen kontakt eller rolle under er autorisert av denne noten. Navn og utsending må godkjennes i prosjektets beslutnings- og outreach-løp.
 
-### EU-transponering
+| Gruppe | Hva prosjektet trenger fra dem | Minimum dokumentasjon |
+|---|---|---|
+| Prosjekt-/programeiere | scope, H1/H2-tolkning, M16–M18-godkjenning, organisatorisk hjem og publiseringsnivå | beslutning, dato, rolle og stopplinje |
+| Norske myndigheter/tilsyn | metodekontroll, tilgjengelige data og riktig juridisk ramme | navngitt fagrolle, skriftlig respons, bruksrett |
+| Nordiske partnere | landdata, definisjoner, tolkning og overførbarhet | land, tema, dato, avgrensning og godkjenning |
+| Leverandører/produsenter | faktisk opplevd barriere, volum, kontrakts-/datagrense og ønsket endring | samtykke, anonymitetsnivå, sitat-/databruksrett |
+| Grossister/logistikkaktører | tjenestebehov, rute-/kapasitetsdata, sensitivitet og realistiske scenarioer | dataeier, aggregeringsnivå og publiseringsgrense |
+| Kommuner/offentlige kjøpere | matspend, måltider, kjøkkenkapasitet, kontrakter, leverandørdeltakelse og matsvinnbaseline | institusjon, år, metode og ansvarlig eier |
+| Forskere/metodereviewere | design, kausalitet, sammenlignbarhet og usikkerhet | navngitt review, interessekonflikt og versjon |
+| Juridisk/personvern | konkurranse, anskaffelser, EØS, persondata, kildevilkår og injurierisiko | kvalifisert vurdering og godkjent publiseringsnivå |
 
-EU UTP-direktiv 2019/633 ble evaluert av Kommisjonen 1. desember 2025. Evalueringen identifiserte behov for økt bevissthet blant bønder, styrket håndheving og bedre grenseoverskridende samarbeid. Et nytt forordningsforslag om myndighetssamarbeid ble fremlagt. Norges lov om god handelsskikk er ikke en direkte gjennomføring av UTP-direktivet, men Advokatforeningen anbefalte i 2025-høringen større harmonisering. Belgias kostprisregulering (kongelige dekreter juli 2024, i kraft oktober 2024) — forbud mot kjøp under produksjonskostnad — er det strengeste europeiske grepet og et mulig referansepunkt for norsk debatt.
+### Standard for valideringshenvendelse
 
----
+Hver henvendelse skal inneholde:
 
-## 4. Implementeringsveier for Food Systems 2026
+1. ett avgrenset spørsmål;
+2. påstanden eller modellen som skal kontrolleres;
+3. kilde, år, systemgrense og usikkerhet;
+4. hva svaret skal brukes til;
+5. ønsket offentlighets-/anonymitetsnivå;
+6. eksplisitt samtykke og bruksrett;
+7. frist, ansvarlig mottaker og rett til korrigering.
 
-### Vei 1: Inn i pågående høringer og utredninger
+## 6. Adopsjonsporter
 
-- **Menon-høringen (frist 17. april 2026):** Levere høringsinnspill om funksjonelt skille basert på prosjektets data om vertikalt integrerte logistikknettverk (ASKO/Rema Distribution/C-Log) og 254 000+ m² lagerkapasitet som etableringshinder.
-- **Markedsundersøkelser (KT, vår 2026):** Tilby prosjektets empiriske grunnlag (3 849 kartlagte butikker, HHI-beregninger, 134-måneders prisserier) som dataunderlag for KTs forestående dagligvareundersøkelser.
+| Port | Minimum for passering | Status 2026-07-15 | Hvis den ikke passeres |
+|---|---|---|---|
+| Evidensport | kilde, locator, metode, dato, status og usikkerhet | delvis per claim | intern baseline forblir intern |
+| Scope-/mandatport | formelt scope, roller, geografisk ambisjon og godkjenning | **åpen — H-03** | operativ retning er ikke TG-vedtak |
+| Stakeholderport | gjennomført intervju med samtykke og bruksrett | **åpen — H-01** | ingen egen stakeholderstemme |
+| Nordisk valideringsport | dokumentert partnerrespons på landdata og tolkning | **åpen — H-02** | ingen partnergodkjent nordisk posisjon |
+| Juridisk/personvernport | kvalifisert kontroll av mekanisme, data og publisering | **åpen — H-07** | ingen bred offentlig person-/maktflate eller juridisk anbefaling |
+| Pilotport | problem-, pilot- og dataeier, off-taker, juss, baseline, måleplan, budsjett og commitment | **åpen — H-05/H-06** | dossier/brief/modell omtales ikke som pilot |
+| Finansieringsport | aktiv call, eligibility, søker, konsortium, rolle, kost og go/no-go | **åpen** | funding-match er ikke finansiering |
+| Event-/publiseringsport | event-go, publisher, claim-gates, rettigheter og publiseringsnivå | **åpen — H-04/H-07** | forberedt materiale er ikke publisert eller levert event |
+| M18-driftsport | organisatorisk hjem, ansvarlig eier, driftsnivå, cash/in-kind, sikkerhet og reviewdato | **åpen — H-03** | dokumentert bevaringsmodus, ingen aktiv videreutvikling |
 
-### Vei 2: Nordisk policy-læring
+Port-ID-ene følger [completion registeret](../../docs/project/status/food-systems-completion-register-2026-07-15.md). At denne lokale revisjonen er ferdig, flytter ikke en human-gated rad.
 
-- **Finsk § 4a-modell for Norge:** Prosjektet dokumenterer at NorgesGruppen (44 %) og Coop (27 %) ville kvalifisert automatisk under en norsk variant av Finlands 30 %-terskel. Anbefaling kan kanaliseres via KT-intervju (Forskningsmisjon 1D) og Stortingets næringskomité.
-- **Københavns innkjøpsmodell:** Dokumentere overførbarheten av 84 %-modellen til norske kommuner som implementerer 30 %-regelen og forbereder skolematinnkjøp.
+## 7. Sekvensering mot closeout og videreføring
 
-### Vei 3: Skolematanbudene som strukturelt vendepunkt
+### Til 31. juli 2026
 
-Gratis skolemat representerer potensielt 3,2 mrd. NOK i nye offentlige matinnkjøp. Anbudsstrukturen avgjør om dette forsterker eller utfordrer NorgesGruppens dominans. Prosjektet kan bidra med analyse av: (a) oppdelte vs. sentraliserte rammeavtaler, (b) krav til transparens i grossistmarginer, og (c) innkjøpskriterier som fremmer leverandørmangfold.
+1. Behandle v2-manus, roadmap v0.2 og continuation plan som kontrollerte interne drafts.
+2. Få eksplisitt eierbeslutning om M16, M17-format og M18-retning eller parkering.
+3. Ikke åpne ny produktfront, automatisk agent eller pilot foran kontrakts-closeout.
+4. Frys og dater den aksepterte pakken; dokumenter hvilke porter som består.
 
-### Vei 4: Koble konsentrasjon til beredskap
+### 0–30 dager etter kontrakten
 
-Meld. St. 11s selvforsyningsmål og SOU 2024:8s beredskapslov gir politisk rom for å argumentere at tre lukkede logistikknettverk som betjener 93 % av butikkene utgjør en beredskapsrisiko. Prosjektet kan levere «dobbel sårbarhet»-analysen (importavhengighet + distribusjonsavhengighet) inn i beredskapsprosesser i alle nordiske land.
+Gjelder også ved bevaring:
 
-### Vei 5: Beskytte Dagligvaretilsynets funksjon
+- utpek midlertidig data-/tilgangsforvalter;
+- dokumenter backup, restore, tilgang og rettingsansvar;
+- stans automatiske eller manuelle oppdateringer uten eier;
+- pris bevaring, vedlikeholdt plattform og observatorium/pilotstøtte;
+- fersksjekk finance note før concept note eller søknadsvalg;
+- loggfør organisatorisk hjem og driftsnivå, eller aktiver bevaringsmodus.
 
-Uavhengig av organisasjonsform (eget tilsyn eller integrert i KT) anbefaler prosjektet at: (a) Lov om god handelsskikk videreføres med øremerkede ressurser, (b) samarbeidsklimaundersøkelsen fortsetter årlig, og (c) leverandørenes reelle klageadgang sikres gjennom anonymitetsvern — dokumentert av fryktkultur-funnene i samarbeidsklimaundersøkelsen 2025.
+### 31–90 dager, bare etter M18-port
 
----
+- gjennomfør stakeholderintervjuer og nordisk partnervalidering;
+- modn eventuelt ett forsknings-/policyopplegg med reell eier;
+- bygg partnerkart og concept note bare mot aktiv, verifisert utlysning;
+- bruk pilotbriefene i et beslutningsverksted, ikke som automatisk pilotstart;
+- velg hvilke data og claims som faktisk kan vedlikeholdes.
 
-*Denne noten kartlegger adopsjonsveier for prosjektets anbefalinger. Krever validering gjennom interessentdialog (se EP #3: Commitment Map).*
+## 8. Måling av adopsjon
+
+Adopsjon måles som dokumentert beslutning og bruk, ikke som antall møter eller sider.
+
+| Trinn | Gyldig bevis | Ikke tilstrekkelig |
+|---|---|---|
+| Forstått | datert readback eller faglig kommentar | dokument sendt |
+| Validert | spesifikk korreksjon/bekreftelse med rolle og scope | høflig interesse |
+| Eiet | navngitt ansvarlig med avsatt tid og myndighet | navn i en ønskeliste |
+| Forpliktet | skriftlig commitment, data-/ressurstilgang og dato | muntlig støtte |
+| Testet | avtalt baseline og gjennomført aktivitet | workshopbrief |
+| Virkning | observert resultat mot måleplan og forbehold | kapasitet, plan eller modellert potensial |
+| Skalert | gjentatt anvendelse med finansiert drift | én pilot eller medieomtale |
+
+### Minimums-KPI-er for den neste fasen
+
+- antall claims med dokumentert ekstern fag-/partnerreview;
+- antall human-gates faktisk lukket med beslutningsbevis;
+- antall pilotspor med komplett eier/data/off-taker/juss/budsjett-felt;
+- andel aktive publiseringsclaims med fersk kilde, locator, metode og dato;
+- tid fra meldt feil til dokumentert korrigering;
+- faktisk finansiert forvalterkapasitet, ikke forventet kapasitet.
+
+Målverdier fastsettes først av valgt organisatorisk hjem. Denne noten oppretter ingen resultatforpliktelse.
+
+## 9. Stopplinjer
+
+- Ingen tidsfølsom lov-, hørings-, budsjett-, program- eller myndighetsstatus brukes uten fersk primærkontroll.
+- Ingen intern analyse omtales som partner-, myndighets- eller fagfellevalidering.
+- Ingen terskel, modell eller strukturdata omtales som bevis på lovbrudd eller intensjon.
+- Ingen butikkantallsandel omtales som omsetningsandel; HHI og CR3 holdes separate.
+- Ingen kapasitet, plan eller potensial omtales som realisert produksjon eller effekt.
+- Ingen utenlandsk benchmark omtales som dokumentert norsk overførbarhet.
+- Ingen stakeholderstemme eller sitat brukes uten samtykke og bruksrett.
+- Ingen finansieringsmatch omtales som aktiv finansiering, søknadsbeslutning eller casevalidering.
+- Ingen brief omtales som pilot før pilotporten er komplett.
+- Ingen aktiv videreutvikling skjer uten organisatorisk hjem, eier og kostnadsramme; fallback er bevaring.
+
+## 10. Sporbarhet
+
+- [Food Systems 2026 synthesis v2](../whitepaper/food-systems-2026-synthesis-v2.md)
+- [Whitepaper redaksjonell sti](../whitepaper/README.md)
+- [Citable acceptance tests](../CITABLE-ACCEPTANCE-TESTS.md)
+- [Roadmap v0.2 draft](../../docs/project/mandates/roadmap-food-tg-2026-2029-v0.2-draft.md)
+- [Continuation plan](../../docs/project/mandates/continuation-plan-food-tg-2026.md)
+- [Completion register](../../docs/project/status/food-systems-completion-register-2026-07-15.md)
+- [Decision log](../../docs/project/mandates/decision-log-food-tg.md)
+- [Pilot-brief index](./pilot-briefs/README.md)
+- [Finance note v2.0](./finance-note.md)
+
+_Lokal syntese kan ferdigstille denne noten, men bare datert menneskelig beslutning kan endre adopsjons-, pilot-, partner-, finansierings- eller publiseringsstatus._
