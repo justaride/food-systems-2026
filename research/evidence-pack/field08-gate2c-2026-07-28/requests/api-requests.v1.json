@@ -1,0 +1,73 @@
+{
+  "documentType": "field08_gate2c_api_request_receipts",
+  "schemaVersion": "1.0.0",
+  "retrievedAt": "2026-07-28",
+  "requests": [
+    {
+      "requestId": "field08.request.eu.eurostat-env-wasfw-2023-dk-fi",
+      "method": "GET",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/env_wasfw?lang=en&freq=A&wst_oper=COL&waste=W091_092_101_FD&nace_r2=TOT&nace_r2=A01_A03_FOOD&nace_r2=C10_C11&nace_r2=G46_G47_FOOD&nace_r2=I55_I56_N-S_FOOD&nace_r2=HH&unit=T&geo=DK&geo=FI&time=2023",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "body": null,
+      "responsePath": "research/evidence-pack/field08-gate2c-2026-07-28/raw/eu-eurostat-env-wasfw-dk-fi-2023.json"
+    },
+    {
+      "requestId": "field08.request.fi.luke-np-balance-metadata",
+      "method": "GET",
+      "url": "https://statdb.luke.fi/PxWeb/api/v1/en/LUKE/08a%20CAP-indikaattorit/06%20Tehokas%20ymp%C3%A4rist%C3%B6nhoito%20ja%20suojelu/03%20Maatalousmaan%20ravinnetase/01_Typpi_fosforitase.px",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "body": null,
+      "responsePath": "research/evidence-pack/field08-gate2c-2026-07-28/raw/fi-luke-np-balance-metadata.json"
+    },
+    {
+      "requestId": "field08.request.fi.luke-np-balance-fi-ax-2024",
+      "method": "POST",
+      "url": "https://statdb.luke.fi/PxWeb/api/v1/en/LUKE/08a%20CAP-indikaattorit/06%20Tehokas%20ymp%C3%A4rist%C3%B6nhoito%20ja%20suojelu/03%20Maatalousmaan%20ravinnetase/01_Typpi_fosforitase.px",
+      "headers": {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "query": [
+          {
+            "code": "ELY-keskus",
+            "selection": {
+              "filter": "item",
+              "values": [
+                "00",
+                "16"
+              ]
+            }
+          },
+          {
+            "code": "Ravinne",
+            "selection": {
+              "filter": "item",
+              "values": [
+                "N",
+                "P"
+              ]
+            }
+          },
+          {
+            "code": "Vuosi",
+            "selection": {
+              "filter": "item",
+              "values": [
+                "2024"
+              ]
+            }
+          }
+        ],
+        "response": {
+          "format": "json-stat2"
+        }
+      },
+      "responsePath": "research/evidence-pack/field08-gate2c-2026-07-28/raw/fi-luke-np-balance-fi-ax-2024.json"
+    }
+  ]
+}

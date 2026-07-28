@@ -60,6 +60,10 @@
     "claimStatus": {
       "enum": ["controlled", "controlled_with_caveat", "internal_candidate", "human_gate"]
     },
+    "aggregationAllowed": {
+      "type": "boolean",
+      "description": "Explicit machine flag. Internal or blocked evidence must remain false; a later reviewed workflow may set true only under its own controlled contract."
+    },
     "facets": { "$ref": "#/$defs/facets" },
     "timeScope": { "$ref": "#/$defs/timeScope" },
     "systemBoundary": { "$ref": "#/$defs/systemBoundary" },
@@ -111,7 +115,7 @@
   "allOf": [
     {
       "if": { "properties": { "objectTypeId": { "const": "knowledge_object.claim" } }, "required": ["objectTypeId"] },
-      "then": { "required": ["claimText", "claimStatus", "coverageCellIds"], "properties": { "id": { "pattern": "^fs:claim:" }, "payloadKind": { "const": "none" } } }
+      "then": { "required": ["claimText", "claimStatus", "coverageCellIds", "aggregationAllowed"], "properties": { "id": { "pattern": "^fs:claim:" }, "payloadKind": { "const": "none" } } }
     },
     {
       "if": { "properties": { "objectTypeId": { "const": "knowledge_object.synthesis" } }, "required": ["objectTypeId"] },
@@ -134,12 +138,28 @@
     {
       "if": { "properties": { "objectTypeId": { "const": "knowledge_object.observation" } }, "required": ["objectTypeId"] },
       "then": {
+        "required": ["aggregationAllowed"],
         "properties": { "id": { "pattern": "^fs:observation:" }, "payloadKind": { "enum": ["stock", "metric_indicator"] } },
         "oneOf": [
           { "properties": { "payloadKind": { "const": "stock" } }, "required": ["stock"] },
           { "properties": { "payloadKind": { "const": "metric_indicator" } }, "required": ["metricIndicator"] }
         ]
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "objectTypeId": { "enum": ["knowledge_object.claim", "knowledge_object.observation"] },
+          "evidence": {
+            "properties": {
+              "citationReadiness": { "enum": ["blocked_unsourced", "internal_context"] }
+            },
+            "required": ["citationReadiness"]
+          }
+        },
+        "required": ["objectTypeId", "evidence"]
+      },
+      "then": { "properties": { "aggregationAllowed": { "const": false } } }
     },
     {
       "if": { "properties": { "objectTypeId": { "const": "knowledge_object.indicator" } }, "required": ["objectTypeId"] },
@@ -324,8 +344,34 @@
         "verificationStatus": { "enum": ["unverified", "needs_review", "machine_verified", "human_verified", "disputed", "rejected", "failed"] },
         "reviewedBy": { "type": "string", "minLength": 1 },
         "reviewedAt": { "type": "string", "format": "date" },
-        "fileHash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+        "fileHash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+        "captureStorage": { "enum": ["git_tracked", "local_external"] },
+        "archiveDurability": { "enum": ["git_pinned", "local_only_at_risk"] },
+        "inspectionNotePath": { "type": ["string", "null"], "minLength": 1 },
+        "reuseReviewState": { "const": "pending" }
       },
+      "allOf": [
+        {
+          "if": { "properties": { "captureStorage": { "const": "git_tracked" } }, "required": ["captureStorage"] },
+          "then": {
+            "required": ["archiveDurability", "inspectionNotePath", "reuseReviewState"],
+            "properties": {
+              "archiveDurability": { "const": "git_pinned" },
+              "inspectionNotePath": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "captureStorage": { "const": "local_external" } }, "required": ["captureStorage"] },
+          "then": {
+            "required": ["archiveDurability", "inspectionNotePath", "reuseReviewState"],
+            "properties": {
+              "archiveDurability": { "const": "local_only_at_risk" },
+              "inspectionNotePath": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      ],
       "anyOf": [
         { "required": ["url"] },
         { "required": ["localPath"] },

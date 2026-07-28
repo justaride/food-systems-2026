@@ -48,6 +48,7 @@ Food Systems Obsidian/.obsidian/types.json
 
 # Research binaries — track metadata/manifests, not the files themselves.
 # Lokale PDF-er beholdes på disk; repo har bare struktur og analyse.
+.private-archive/
 research/**/*.pdf
 research/**/*.pptx
 research/**/*.ppt

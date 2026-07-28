@@ -128,7 +128,9 @@ Wayback er normalt ikke nødvendig når:
 
 ## Git og rå evidensfiler
 
-Git-repoet skal bære metadata, manifests, tekstuttrekk, URL-er, access dates og SHA-256. Store rådokumenter skal ligge i lokal eller ekstern artifact storage.
+Git-repoet skal bære metadata, manifests, prosjektforfattede avgrensede kilde-/lokatornotater, URL-er, access dates og SHA-256. Korte nødvendige tekstutdrag kan bare lagres når rettighetsgrunnlaget og komponentomfanget er dokumentert. Fulltekstuttrekk og store rådokumenter skal ligge utenfor Git i privat, innholdsadressert lokal eller ekstern artifact storage.
+
+Lagringspolicyen er ikke et rettighetsgrunnlag. En senere lisens-, tillatelses- eller arkivbeslutning skal registreres i en append-only archive/rights receipt bundet til capture-ID og eksakt SHA-256; den opprinnelige capture-manifesten skal ikke omskrives til å påstå senere klarering.
 
 Nye PR-er skal ikke legge til:
 

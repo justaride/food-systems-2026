@@ -56,4 +56,6 @@ The generation manifest deliberately points to the source commit rather than the
 
 ## Next gate
 
-Gate 2C should select a small number of high-value observations for controlled evidence ingestion. It must capture immutable source bytes or reproducible API query receipts, create stable source and locator identities, split compound quantitative statements into typed measurements, record contradictions, complete method appraisal, enumerate required child dimensions and obtain the applicable human or rights-holder review. Only a later append-only assessment event may change a coverage cell.
+Gate 2C is implemented in [`gate2c/`](gate2c/README.md) as a bounded five-source evidence-ingestion tranche. It captures immutable source bytes and API request receipts, creates stable source and locator identities, splits compound quantitative statements into typed measurements, preserves contradictions, drafts source appraisals and enumerates pending review gates.
+
+Gate 2C remains internal and human-review pending. It creates no coverage assessment, readiness result or Sápmi subject evidence. Only a later append-only assessment event may change a coverage cell.
