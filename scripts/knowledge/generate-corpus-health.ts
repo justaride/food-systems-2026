@@ -38,11 +38,11 @@ import {
   type ArchiveAuditInput,
 } from '../audit-source-citation-archive-coverage'
 
-const GENERATOR_VERSION = '1.1.0'
+const GENERATOR_VERSION = '1.2.0'
 const SCHEMA_VERSION = 'corpus-evidence-health-v1'
 const THRESHOLDS_VERSION = 'corpus-health-thresholds-v1'
 const SNAPSHOT_DATE = process.env.CORPUS_HEALTH_SNAPSHOT_DATE ?? '2026-07-28'
-const OBSERVED_AT = process.env.CORPUS_HEALTH_OBSERVED_AT ?? '2026-07-28T06:38:28.000Z'
+const OBSERVED_AT = process.env.CORPUS_HEALTH_OBSERVED_AT ?? '2026-07-28T07:04:09.000Z'
 const ROOT = process.cwd()
 
 const GENERATOR_PATH = 'scripts/knowledge/generate-corpus-health.ts'
