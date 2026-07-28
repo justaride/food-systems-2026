@@ -103,6 +103,7 @@ function baseObject(overrides: Record<string, unknown> = {}) {
     summary: 'Draft internal claim awaiting evidence.',
     claimText: 'A draft proposition.',
     claimStatus: 'internal_candidate',
+    aggregationAllowed: false,
     facets: facets(),
     timeScope: { kind: 'snapshot', asOf: '2026-07-26' },
     systemBoundary: { included: ['Commercial meals'], excluded: [], functionalUnit: null },
@@ -141,6 +142,7 @@ function externalNordicClaim() {
     summary: 'Reviewed comparison with explicit geography accounting.',
     claimText: 'The reviewed result represents Norway and Sweden under the declared comparison method.',
     claimStatus: 'controlled',
+    aggregationAllowed: true,
     facets: {
       ...facets(['geo.nordic']),
       representedGeographyIds: ['geo.no', 'geo.se'],
