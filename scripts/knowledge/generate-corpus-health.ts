@@ -753,6 +753,7 @@ function buildAssessment(
   sourceSnapshotIds: string[],
   db: DatabaseRuntime,
   thresholds: JsonObject,
+  supersedesId: string | null,
 ): JsonObject {
   const headMigrations = readdirSync(resolve(ROOT, 'prisma/migrations'))
     .filter((name) => statSync(resolve(ROOT, 'prisma/migrations', name)).isDirectory())
@@ -1328,7 +1329,6 @@ function buildAssessment(
   ]
 
   const assessmentId = `health.assessment.${SNAPSHOT_DATE}.local.${baseCommit.slice(0, 8)}`
-  const supersedesId = process.env.CORPUS_HEALTH_SUPERSEDES_ID ?? null
   const payload: JsonObject = {
     schemaVersion: SCHEMA_VERSION,
     recordKind: 'corpus_evidence_health_assessment',
@@ -1639,6 +1639,22 @@ function mergeAppendOnlyHistory(existing: JsonObject[], assessment: JsonObject):
   return [...existing, assessment]
 }
 
+function resolveSupersedesId(
+  baseCommit: string,
+  checkMode: boolean,
+  existingAssessments: JsonObject[],
+): string | null {
+  if (process.env.CORPUS_HEALTH_SUPERSEDES_ID) return process.env.CORPUS_HEALTH_SUPERSEDES_ID
+  if (!checkMode) return null
+
+  const assessmentId = `health.assessment.${SNAPSHOT_DATE}.local.${baseCommit.slice(0, 8)}`
+  const existing = existingAssessments.find((item) => item.assessmentId === assessmentId)
+  if (!existing) {
+    throw new Error(`Pinned assessment ${assessmentId} is missing from immutable history`)
+  }
+  return typeof existing.supersedesId === 'string' ? existing.supersedesId : null
+}
+
 function resolveBaseCommit(checkMode: boolean): string {
   const explicitBaseCommit = process.env.CORPUS_HEALTH_BASE_COMMIT
   if (explicitBaseCommit) return git(['rev-parse', `${explicitBaseCommit}^{commit}`])
@@ -1682,11 +1698,20 @@ async function generateBundle(checkMode: boolean): Promise<GeneratedBundle> {
     ...sourceSnapshots.map((item) => String(item.snapshotId)),
     String(db.snapshot.snapshotId),
   ]
-  const assessment = buildAssessment(baseCommit, sourceSnapshotSetId, allSnapshotIds, db, thresholds)
+  const existingAssessments = readAssessmentHistory()
+  const supersedesId = resolveSupersedesId(baseCommit, checkMode, existingAssessments)
+  const assessment = buildAssessment(
+    baseCommit,
+    sourceSnapshotSetId,
+    allSnapshotIds,
+    db,
+    thresholds,
+    supersedesId,
+  )
   const assessmentIssues = validateCorpusHealthAssessment(assessment, thresholds, schema)
   if (assessmentIssues.length > 0) throw new Error(`Corpus-health assessment is invalid:\n- ${assessmentIssues.join('\n- ')}`)
 
-  const history = mergeAppendOnlyHistory(readAssessmentHistory(), assessment)
+  const history = mergeAppendOnlyHistory(existingAssessments, assessment)
   const current = withContentHash({
     schemaVersion: SCHEMA_VERSION,
     documentKind: 'corpus_health_current_pointer',
