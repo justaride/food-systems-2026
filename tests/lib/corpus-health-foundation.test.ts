@@ -243,7 +243,15 @@ test('receipt-resolves migration lineage while failing closed on identity, appra
   assert.equal(metric(assessment, 'health_metric.database_migrations').value, 31)
   assert.equal(metric(assessment, 'health_metric.migration_lineage_mismatches').value, 0)
   assert.equal(metric(assessment, 'health_metric.database_only_evidence_identities').value, 18)
+  assert.equal(metric(assessment, 'health_metric.managed_runtime_evidence_identities').value, 17)
+  assert.equal(metric(assessment, 'health_metric.unclassified_database_only_evidence_identities').value, 1)
+  assert.equal(metric(assessment, 'health_metric.missing_managed_runtime_evidence_identities').value, 0)
   assert.equal(metric(assessment, 'health_metric.seed_only_evidence_identities').value, 1)
+
+  const seedIdentityConflict = asObjectArray(assessment.conflicts, 'assessment.conflicts')
+    .find((item) => item.conflictId === 'health.conflict.seed_database_identity')
+  assert.ok(seedIdentityConflict)
+  assert.equal(seedIdentityConflict.status, 'open')
 
   const internalAnalysis = profileVerdict(assessment, 'health_profile.internal_analysis')
   assert.equal(internalAnalysis.readyForProfile, false)
@@ -266,6 +274,9 @@ test('receipt-resolves migration lineage while failing closed on identity, appra
     && item.verdict === 'blocked'
   )))
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').externalRowsNeedingArchive, 1_855)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').managedRuntimeEvidenceIdentities, 17)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').unclassifiedDatabaseOnlyEvidenceIdentities, 1)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').missingManagedRuntimeEvidenceIdentities, 0)
 })
 
 test('recomputes immutable content, source and generation-output hashes', () => {

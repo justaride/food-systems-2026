@@ -22,7 +22,7 @@ This distinction is operationally material:
 
 - the local database is a hash-bound read-only **runtime snapshot**, not production-parity truth;
 - the academic status reproduces on the integrated lineage, while the master status remains a historical aggregate;
-- 18 database evidence identities are absent from current seeds and one seed identity is absent from the database;
+- 18 raw database evidence identities are absent from current seeds, but 17 are declared runtime-managed transcript SourceDocs; one unclassified database-only Thesis, one seed-only official-law SourceDoc and zero missing declared runtime identities remain;
 - the 1,555-row derived library inventory differs from 1,572 persisted analysis rows;
 - 0/417 evidence records have complete current appraisal;
 - 1,855/2,376 external-readiness citations still need durable archive;
@@ -84,7 +84,7 @@ Exit: scope and identity rules approved; canonical lineage named; no existing co
 ### Wave 0.5 — close Gate 1
 
 - Keep schema, all migrations and auditors atomic on the chosen lineage; the current 31/31 migration receipt must remain green.
-- Reconcile 400/417 evidence identities and 1,555/1,572 library identities.
+- Reconcile the classified 400/417 evidence identities (preserving 17 declared runtime-managed SourceDocs while closing one unclassified database-only and one seed-only identity) and the separate 1,555/1,572 library identities.
 - Regenerate academic, master, remediation and vault status surfaces from the pinned snapshot.
 - Rerun citation, appraisal, archive, graph, vault, backup/restore and MCP gates.
 - Add immutable receipts for lineage adoption, human review and every required operational layer.

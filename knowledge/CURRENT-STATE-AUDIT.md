@@ -123,7 +123,7 @@ Review and authorize the constitution, ontology, schemas, readiness thresholds a
 
 ### Gate 1 — reconcile corpus health
 
-The current corpus/evidence-health profile records exact 31/31 migration-name and checksum parity. Keep it fail-closed while resolving the 400/417 seed/runtime identity set, 1,555/1,572 library materialization, mixed-vintage status surfaces, two vault orphans, appraisal zero-state and archive backlog. Regenerate every dependent status artifact from an explicit pinned lineage and vintage. Do not force these controls into food-system coverage cells.
+The current corpus/evidence-health profile records exact 31/31 migration-name and checksum parity. Keep it fail-closed while resolving the classified 400/417 seed/runtime identity set: 18 raw database-only identities contain 17 declared runtime-managed transcript SourceDocs, while one unclassified database-only Thesis, one seed-only official-law SourceDoc and zero missing declared runtime identities remain. Also resolve the separately tracked 1,555/1,572 library materialization, mixed-vintage status surfaces, two vault orphans, appraisal zero-state and archive backlog. Regenerate every dependent status artifact from an explicit pinned lineage and vintage. Do not force these controls into food-system coverage cells.
 
 Gate 1 exit requires a named canonical lineage, exact schema/migration/seed parity, regenerated status surfaces, complete required appraisal and archive work, passing structural gates, and current receipts for backup/restore, MCP read-only behavior, runtime parity and required human review.
 

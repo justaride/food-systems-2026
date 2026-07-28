@@ -24,6 +24,7 @@ import { reports } from '@seeds/reports'
 import { sources } from '@seeds/sources'
 import { theses } from '@seeds/theses'
 import { PrismaClient } from '../../src/generated/prisma/client'
+import { loadManagedTranscriptSourceDocIds } from '../../src/lib/citations/academic-corpus-identity'
 import { candidateLocalFilePaths } from '../../src/lib/local-file-locator'
 import { validateVault } from '../../src/lib/obsidian-vault'
 import {
@@ -32,11 +33,11 @@ import {
   type ArchiveAuditInput,
 } from '../audit-source-citation-archive-coverage'
 
-const GENERATOR_VERSION = '1.0.0'
+const GENERATOR_VERSION = '1.1.0'
 const SCHEMA_VERSION = 'corpus-evidence-health-v1'
 const THRESHOLDS_VERSION = 'corpus-health-thresholds-v1'
 const SNAPSHOT_DATE = process.env.CORPUS_HEALTH_SNAPSHOT_DATE ?? '2026-07-28'
-const OBSERVED_AT = process.env.CORPUS_HEALTH_OBSERVED_AT ?? '2026-07-28T05:32:26.743Z'
+const OBSERVED_AT = process.env.CORPUS_HEALTH_OBSERVED_AT ?? '2026-07-28T06:38:28.000Z'
 const ROOT = process.cwd()
 
 const GENERATOR_PATH = 'scripts/knowledge/generate-corpus-health.ts'
@@ -234,6 +235,18 @@ const SOURCE_DEFINITIONS: SourceDefinition[] = [
     observationMode: 'direct_repository_observation',
     updatedThrough: null,
     caveats: ['Seed identity inventory includes mixed source classes.'],
+  },
+  {
+    snapshotId: 'health.snapshot.managed_transcript_identity',
+    surfaceId: 'managed_transcript_identity_contract',
+    path: 'research/landbrukarena_transcripts',
+    authorityLayer: 'repository_contract',
+    observationMode: 'direct_repository_observation',
+    updatedThrough: null,
+    caveats: [
+      'The manifest, local-ASR fallback manifest and referenced transcript-file presence define the expected runtime-managed SourceDoc identity set.',
+      'Runtime identity classification explains expected materialization differences; it is not evidence appraisal or external-use approval.',
+    ],
   },
   {
     snapshotId: 'health.snapshot.prisma_schema',
@@ -790,7 +803,22 @@ function buildAssessment(
   const seedOnlyEvidenceIds = [...seedIds.entries()].flatMap(([kind, ids]) =>
     [...ids].filter((id) => !databaseIds.get(kind)?.has(id)).map((id) => `${kind}:${id}`),
   )
-  const seedIdentityParity = dbOnlyEvidenceIds.length === 0 && seedOnlyEvidenceIds.length === 0
+  const declaredManagedRuntimeSourceDocIds = loadManagedTranscriptSourceDocIds(ROOT)
+  const managedRuntimeSourceDocIdSet = new Set(declaredManagedRuntimeSourceDocIds)
+  const managedRuntimeEvidenceIds = dbOnlyEvidenceIds.filter((identity) => {
+    const [kind, id] = identity.split(':', 2)
+    return kind === 'SourceDoc' && Boolean(id) && managedRuntimeSourceDocIdSet.has(id)
+  })
+  const unclassifiedDbOnlyEvidenceIds = dbOnlyEvidenceIds.filter(
+    (identity) => !managedRuntimeEvidenceIds.includes(identity),
+  )
+  const databaseSourceDocIds = databaseIds.get('SourceDoc') ?? new Set<string>()
+  const missingManagedRuntimeEvidenceIds = declaredManagedRuntimeSourceDocIds
+    .filter((id) => !databaseSourceDocIds.has(id))
+    .map((id) => `SourceDoc:${id}`)
+  const seedIdentityParity = unclassifiedDbOnlyEvidenceIds.length === 0
+    && seedOnlyEvidenceIds.length === 0
+    && missingManagedRuntimeEvidenceIds.length === 0
 
   const libraryLedger = parseJsonLines('research/_status/library-analysis-ledger.jsonl')
   const libraryLedgerKeys = new Set(libraryLedger.map((row) => `${row.sourceKind}:${row.sourceKey}`))
@@ -818,6 +846,64 @@ function buildAssessment(
     if (!isObject(raw) || !Array.isArray(raw.databaseOnlyIds)) return sum
     return sum + raw.databaseOnlyIds.length
   }, 0)
+  const trackedIdentityCount = (field: string) => trackedDifferences.reduce((sum, raw) => {
+    if (!isObject(raw) || !Array.isArray(raw[field])) return sum
+    return sum + raw[field].length
+  }, 0)
+  const trackedSeedOnly = trackedIdentityCount('seedOnlyIds')
+  const trackedManagedRuntime = trackedIdentityCount('managedRuntimeIds')
+  const trackedUnclassifiedDatabaseOnly = trackedIdentityCount('unclassifiedDatabaseOnlyIds')
+  const trackedMissingManagedRuntime = trackedIdentityCount('missingManagedRuntimeIds')
+  const trackedIdentityStatus = String(trackedParity.identityStatus ?? 'unknown')
+
+  const identitySets = ['Report', 'Thesis', 'SourceDoc'] as const
+  const normalizeIdentityList = (value: unknown): string[] => (
+    Array.isArray(value) ? value.map(String).toSorted() : []
+  )
+  const trackedIdentitySignature = JSON.stringify(
+    trackedDifferences
+      .filter(isObject)
+      .map((difference) => ({
+        set: String(difference.set),
+        databaseOnlyIds: normalizeIdentityList(difference.databaseOnlyIds),
+        seedOnlyIds: normalizeIdentityList(difference.seedOnlyIds),
+        managedRuntimeIds: normalizeIdentityList(difference.managedRuntimeIds),
+        unclassifiedDatabaseOnlyIds: normalizeIdentityList(difference.unclassifiedDatabaseOnlyIds),
+        missingManagedRuntimeIds: normalizeIdentityList(difference.missingManagedRuntimeIds),
+      }))
+      .toSorted((a, b) => a.set.localeCompare(b.set)),
+  )
+  const currentIdentitySignature = JSON.stringify(
+    identitySets
+      .map((set) => {
+        const currentSeedIds = seedIds.get(set) ?? new Set<string>()
+        const currentDatabaseIds = databaseIds.get(set) ?? new Set<string>()
+        const databaseOnlyIds = [...currentDatabaseIds]
+          .filter((id) => !currentSeedIds.has(id))
+          .toSorted()
+        const seedOnlyIds = [...currentSeedIds]
+          .filter((id) => !currentDatabaseIds.has(id))
+          .toSorted()
+        const managedRuntimeIds = set === 'SourceDoc'
+          ? databaseOnlyIds.filter((id) => managedRuntimeSourceDocIdSet.has(id))
+          : []
+        return {
+          set,
+          databaseOnlyIds,
+          seedOnlyIds,
+          managedRuntimeIds,
+          unclassifiedDatabaseOnlyIds: databaseOnlyIds
+            .filter((id) => !managedRuntimeIds.includes(id)),
+          missingManagedRuntimeIds: set === 'SourceDoc'
+            ? declaredManagedRuntimeSourceDocIds
+                .filter((id) => !currentDatabaseIds.has(id))
+                .toSorted()
+            : [],
+        }
+      })
+      .toSorted((a, b) => a.set.localeCompare(b.set)),
+  )
+  const trackedIdentitySetsMatchCurrent = trackedIdentitySignature === currentIdentitySignature
 
   const seedTotal = reports.length + theses.length + sources.length
   const sourceDocUrlCount = sources.filter((row) => typeof row.url === 'string' && row.url.trim()).length
@@ -827,6 +913,12 @@ function buildAssessment(
   const currentAcademicSeedAuditPass = regressionGate === 'pass'
   const trackedStatusMatchesCurrent = trackedAcademicSeedTotal === seedTotal
     && trackedDatabaseOnly === dbOnlyEvidenceIds.length
+    && trackedSeedOnly === seedOnlyEvidenceIds.length
+    && trackedManagedRuntime === managedRuntimeEvidenceIds.length
+    && trackedUnclassifiedDatabaseOnly === unclassifiedDbOnlyEvidenceIds.length
+    && trackedMissingManagedRuntime === missingManagedRuntimeEvidenceIds.length
+    && trackedIdentityStatus === (seedIdentityParity ? 'match' : 'mismatch')
+    && trackedIdentitySetsMatchCurrent
   const academicRegressionMatches = trackedStatusMatchesCurrent && regressionGate === 'pass'
 
   const remediationRows = Math.max(0, fileLineCount('research/REMEDIATION-BACKLOG.csv') - 1)
@@ -901,7 +993,9 @@ function buildAssessment(
       decision: 'observed',
       artifactPath: 'research/_status/academic-source-quality-status.json',
       notes: [
-        `Tracked seed total ${trackedAcademicSeedTotal}; current seed total ${seedTotal}; tracked database-only identities ${trackedDatabaseOnly}; current database-only identities ${dbOnlyEvidenceIds.length}.`,
+        `Tracked seed total ${trackedAcademicSeedTotal}; current seed total ${seedTotal}; tracked raw database-only identities ${trackedDatabaseOnly}; current raw database-only identities ${dbOnlyEvidenceIds.length}.`,
+        `Classified identity state: ${seedIdentityParity ? 'match' : 'mismatch'}; managed runtime ${managedRuntimeEvidenceIds.length}; unclassified database-only ${unclassifiedDbOnlyEvidenceIds.length}; seed-only ${seedOnlyEvidenceIds.length}; missing managed runtime ${missingManagedRuntimeEvidenceIds.length}.`,
+        `Exact normalized classified identity lists match the tracked academic status: ${trackedIdentitySetsMatchCurrent}.`,
         `Academic regression gate: ${regressionGate}; external readiness remains fail-closed independently.`,
       ],
     },
@@ -948,15 +1042,21 @@ function buildAssessment(
       severity: 'blocker',
       status: seedIdentityParity ? 'resolved' : 'open',
       description: seedIdentityParity
-        ? `Current seeds and the database contain the same ${seedTotal} evidence identities.`
-        : `Current seeds contain ${seedTotal} evidence records while the database contains ${db.counts.totalEvidence}; ${dbOnlyEvidenceIds.length} database identities are absent from seeds and ${seedOnlyEvidenceIds.length} seed identities are absent from the database.`,
+        ? `Current seed identities plus ${managedRuntimeEvidenceIds.length} declared runtime-managed SourceDocs reconcile with the database; raw seed and database row totals remain intentionally non-equal.`
+        : `Current seeds contain ${seedTotal} evidence records while the database contains ${db.counts.totalEvidence}. The raw difference contains ${managedRuntimeEvidenceIds.length} declared runtime-managed SourceDocs, ${unclassifiedDbOnlyEvidenceIds.length} unclassified database-only identities, ${seedOnlyEvidenceIds.length} seed-only identities and ${missingManagedRuntimeEvidenceIds.length} missing declared runtime identities.`,
       observations: [
         conflictObservation('Current HEAD seed rows', seedTotal, 'direct_repository_observation', [sourceSnapshotId('report_seeds'), sourceSnapshotId('thesis_seeds'), sourceSnapshotId('source_doc_seeds')]),
         conflictObservation('Local database evidence rows', db.counts.totalEvidence, 'direct_database_observation', ['health.snapshot.database.local']),
+        conflictObservation('Raw database-only identities', dbOnlyEvidenceIds.length, 'derived_comparison', [sourceSnapshotId('report_seeds'), sourceSnapshotId('thesis_seeds'), sourceSnapshotId('source_doc_seeds'), 'health.snapshot.database.local']),
+        conflictObservation('Declared runtime-managed identities', managedRuntimeEvidenceIds.length, 'derived_comparison', [sourceSnapshotId('managed_transcript_identity'), 'health.snapshot.database.local']),
+        conflictObservation('Unclassified database-only identities', unclassifiedDbOnlyEvidenceIds.length, 'derived_comparison', [sourceSnapshotId('managed_transcript_identity'), sourceSnapshotId('report_seeds'), sourceSnapshotId('thesis_seeds'), sourceSnapshotId('source_doc_seeds'), 'health.snapshot.database.local']),
+        conflictObservation('Seed-only identities', seedOnlyEvidenceIds.length, 'derived_comparison', [sourceSnapshotId('report_seeds'), sourceSnapshotId('thesis_seeds'), sourceSnapshotId('source_doc_seeds'), 'health.snapshot.database.local']),
+        conflictObservation('Missing declared runtime-managed identities', missingManagedRuntimeEvidenceIds.length, 'derived_comparison', [sourceSnapshotId('managed_transcript_identity'), 'health.snapshot.database.local']),
       ],
       resolutionRequired: [
-        'Reconcile all database-only and seed-only identities on the chosen canonical lineage.',
-        'Require exact identity parity before reproducible internal analysis.',
+        'Reconcile every unclassified database-only and seed-only identity on the chosen canonical lineage.',
+        'Keep the manifest-derived runtime identity set complete and classify it separately from unexplained database drift.',
+        'Require classified identity parity before reproducible internal analysis; raw row-count equality is neither necessary nor sufficient when managed runtime identities are declared.',
       ],
       resolutionReceiptIds: seedIdentityParity ? [academicAuditReceiptId] : [],
     },
@@ -968,8 +1068,8 @@ function buildAssessment(
       severity: 'high',
       status: trackedStatusMatchesCurrent ? 'resolved' : 'open',
       description: trackedStatusMatchesCurrent
-        ? `The regenerated academic snapshot and current HEAD both describe ${seedTotal} seed rows and ${dbOnlyEvidenceIds.length} database-only identities.`
-        : `The tracked academic snapshot describes ${trackedAcademicSeedTotal} seed rows and ${trackedDatabaseOnly} database-only identities; current HEAD describes ${seedTotal} and ${dbOnlyEvidenceIds.length}.`,
+        ? `The regenerated academic snapshot and current HEAD both describe ${seedTotal} seed rows, ${dbOnlyEvidenceIds.length} raw database-only identities and the same classified managed-runtime boundary.`
+        : `The tracked academic snapshot describes ${trackedAcademicSeedTotal} seed rows and ${trackedDatabaseOnly} raw database-only identities; current HEAD describes ${seedTotal} and ${dbOnlyEvidenceIds.length}, with classified identity components compared separately.`,
       observations: [
         conflictObservation('Tracked status database-only identities', trackedDatabaseOnly, 'reported_status_snapshot', [sourceSnapshotId('academic_status')]),
         conflictObservation('Current HEAD database-only identities', dbOnlyEvidenceIds.length, 'derived_comparison', [sourceSnapshotId('academic_status'), sourceSnapshotId('report_seeds'), sourceSnapshotId('thesis_seeds'), sourceSnapshotId('source_doc_seeds'), 'health.snapshot.database.local']),
@@ -1092,12 +1192,35 @@ function buildAssessment(
       caveats: ['Mixed evidence records; this is not a count of academic publications.'],
       conflictRefs: [conflictIds.seedParity],
     }),
-    metric('health_metric.database_only_evidence_identities', 'Database identities absent from current seeds', dbOnlyEvidenceIds.length, {
+    metric('health_metric.database_only_evidence_identities', 'Raw database identities absent from current seeds', dbOnlyEvidenceIds.length, {
       sourceSnapshotIds: [sourceSnapshotId('report_seeds'), sourceSnapshotId('thesis_seeds'), sourceSnapshotId('source_doc_seeds'), ...dbSnapshot],
       command: 'set comparison by record kind and stable ID',
       observationMode: 'derived_comparison',
       conflictRefs: [conflictIds.seedParity, conflictIds.historicalLineage],
-      caveats: [`Seed-only identities observed: ${seedOnlyEvidenceIds.length}.`],
+      caveats: [
+        `Declared runtime-managed identities within this raw count: ${managedRuntimeEvidenceIds.length}.`,
+        `Unclassified database-only identities: ${unclassifiedDbOnlyEvidenceIds.length}.`,
+        `Seed-only identities observed: ${seedOnlyEvidenceIds.length}.`,
+      ],
+    }),
+    metric('health_metric.managed_runtime_evidence_identities', 'Declared runtime-managed database identities', managedRuntimeEvidenceIds.length, {
+      sourceSnapshotIds: [sourceSnapshotId('managed_transcript_identity'), ...dbSnapshot],
+      command: 'manifest-derived managed runtime SourceDoc identity set comparison',
+      observationMode: 'derived_comparison',
+      conflictRefs: [conflictIds.seedParity],
+      caveats: ['Managed runtime classification explains an expected row-count difference; it does not establish evidence quality or external readiness.'],
+    }),
+    metric('health_metric.unclassified_database_only_evidence_identities', 'Unclassified database identities absent from seeds', unclassifiedDbOnlyEvidenceIds.length, {
+      sourceSnapshotIds: [sourceSnapshotId('report_seeds'), sourceSnapshotId('thesis_seeds'), sourceSnapshotId('source_doc_seeds'), ...dbSnapshot],
+      command: 'raw database-only identities minus the manifest-derived managed runtime identity set',
+      observationMode: 'derived_comparison',
+      conflictRefs: [conflictIds.seedParity],
+    }),
+    metric('health_metric.missing_managed_runtime_evidence_identities', 'Declared runtime-managed identities absent from the database', missingManagedRuntimeEvidenceIds.length, {
+      sourceSnapshotIds: [sourceSnapshotId('managed_transcript_identity'), ...dbSnapshot],
+      command: 'manifest-derived managed runtime SourceDoc identity set comparison',
+      observationMode: 'derived_comparison',
+      conflictRefs: [conflictIds.seedParity],
     }),
     metric('health_metric.seed_only_evidence_identities', 'Seed identities absent from the database', seedOnlyEvidenceIds.length, {
       sourceSnapshotIds: [sourceSnapshotId('report_seeds'), sourceSnapshotId('thesis_seeds'), sourceSnapshotId('source_doc_seeds'), ...dbSnapshot],
@@ -1263,7 +1386,7 @@ function buildAssessment(
     { dimensionId: 'citationReadiness', state: 'mixed', verdict: 'degraded', metricIds: ['health_metric.source_citations', 'health_metric.field_citations', 'health_metric.blocked_citations'], blockerConflictIds: [], limitations: ['Technical citation integrity coexists with blocked rows and zero appraisal.'] },
     { dimensionId: 'appraisal', state: 'none_completed', verdict: 'blocked', metricIds: ['health_metric.evidence_appraisal'], blockerConflictIds: [], limitations: ['No evidence record has complete current appraisal.'] },
     { dimensionId: 'archive', state: 'partial_durable', verdict: 'blocked', metricIds: ['health_metric.archive_durable_rows', 'health_metric.external_rows_needing_archive'], blockerConflictIds: [], limitations: ['The archive gate fails and most external-readiness rows still need durable evidence.'] },
-    { dimensionId: 'identity', state: seedIdentityParity && libraryIdentityParity ? 'parity_verified' : 'conflicts_open', verdict: seedIdentityParity && libraryIdentityParity ? 'pass' : 'blocked', metricIds: ['health_metric.database_only_evidence_identities', 'health_metric.seed_only_evidence_identities', 'health_metric.library_stale_rows'], blockerConflictIds: [conflictIds.seedParity, conflictIds.library].filter((id) => openConflictIds.includes(id)), limitations: [migrationLineageParity ? 'Migration identity is reconciled; seed/runtime and library identity are assessed independently.' : 'Migration identity remains unreconciled.'] },
+    { dimensionId: 'identity', state: seedIdentityParity && libraryIdentityParity ? 'parity_verified' : 'conflicts_open', verdict: seedIdentityParity && libraryIdentityParity ? 'pass' : 'blocked', metricIds: ['health_metric.database_only_evidence_identities', 'health_metric.managed_runtime_evidence_identities', 'health_metric.unclassified_database_only_evidence_identities', 'health_metric.missing_managed_runtime_evidence_identities', 'health_metric.seed_only_evidence_identities', 'health_metric.library_stale_rows'], blockerConflictIds: [conflictIds.seedParity, conflictIds.library].filter((id) => openConflictIds.includes(id)), limitations: [migrationLineageParity ? 'Migration identity is reconciled; classified seed/runtime parity and library materialization parity are assessed independently. Raw seed and database row equality is not required for declared runtime-managed identities.' : 'Migration identity remains unreconciled.'] },
     { dimensionId: 'queueWorkflow', state: 'partially_controlled', verdict: 'pass_with_warnings', metricIds: ['health_metric.gap_program_rows', 'health_metric.gaps_newly_closed', 'health_metric.remediation_rows'], blockerConflictIds: [], limitations: ['Routes exist, but many actions remain source-, method-, owner- or human-gated.'] },
     { dimensionId: 'freshnessVintage', state: 'conflicting_vintages', verdict: 'blocked', metricIds: ['health_metric.remediation_rows'], blockerConflictIds: [conflictIds.remediation, conflictIds.vault].filter((id) => openConflictIds.includes(id)), limitations: ['The academic status is current, but remediation, vault and operational receipts retain different subject vintages.'] },
     { dimensionId: 'structuralIntegrity', state: 'passed_with_warnings', verdict: 'degraded', metricIds: ['health_metric.vault_issues', 'health_metric.head_migrations', 'health_metric.database_migrations', 'health_metric.migration_lineage_mismatches'], blockerConflictIds: [conflictIds.lineage, conflictIds.vault, conflictIds.regression].filter((id) => openConflictIds.includes(id)), limitations: [migrationLineageParity ? 'Migration structure reproduces exactly; the vault validator still reports separate navigation issues.' : 'Migration structure does not reproduce on the pinned lineage.'] },
@@ -1292,11 +1415,16 @@ function buildAssessment(
       profileId: 'health_profile.internal_analysis',
       verdict: 'degraded',
       readyForProfile: false,
-      reasonCodes: ['migration_lineage_reconciled', 'seed_identity_mismatch', 'library_identity_mismatch', 'status_vintage_conflicts'],
+      reasonCodes: [
+        migrationLineageParity ? 'migration_lineage_reconciled' : 'migration_lineage_mismatch',
+        ...(!seedIdentityParity ? ['seed_identity_mismatch'] : []),
+        ...(!libraryIdentityParity ? ['library_identity_mismatch'] : []),
+        'status_vintage_conflicts',
+      ],
       blockingConflictIds: [conflictIds.seedParity, conflictIds.library, conflictIds.remediation, conflictIds.vault].filter((id) => openConflictIds.includes(id)),
       checks: [
         { checkId: 'health_check.analysis.lineage', status: migrationLineageParity ? 'pass' : 'fail', reason: migrationLineageParity ? `All ${headMigrations.length} migration names and SQL checksums match the local database.` : 'Repository and database migrations do not match.' },
-        { checkId: 'health_check.analysis.identity', status: 'fail', reason: `${dbOnlyEvidenceIds.length} database evidence identities and ${staleLibraryKeys.length} library rows are not in current inventories.` },
+        { checkId: 'health_check.analysis.identity', status: seedIdentityParity && libraryIdentityParity ? 'pass' : 'fail', reason: `Evidence identity has ${dbOnlyEvidenceIds.length} raw database-only rows: ${managedRuntimeEvidenceIds.length} declared runtime-managed, ${unclassifiedDbOnlyEvidenceIds.length} unclassified, ${seedOnlyEvidenceIds.length} seed-only and ${missingManagedRuntimeEvidenceIds.length} missing declared-managed. Library identity has ${staleLibraryKeys.length} stale persisted and ${inventoryOnlyLibraryKeys.length} inventory-only rows.` },
         { checkId: 'health_check.analysis.vintage', status: 'warning', reason: 'The academic status now reproduces, while remediation, vault and operational receipts still have mixed vintages.' },
       ],
     },
@@ -1304,12 +1432,12 @@ function buildAssessment(
       profileId: 'health_profile.external_evidence_support',
       verdict: 'blocked',
       readyForProfile: false,
-      reasonCodes: ['evidence_appraisal_zero', 'archive_gate_failed', 'identity_unreconciled', 'human_review_pending'],
+      reasonCodes: ['evidence_appraisal_zero', 'archive_gate_failed', ...(!(seedIdentityParity && libraryIdentityParity) ? ['identity_unreconciled'] : []), 'human_review_pending'],
       blockingConflictIds: [conflictIds.seedParity, conflictIds.library].filter((id) => openConflictIds.includes(id)),
       checks: [
         { checkId: 'health_check.external.appraisal', status: 'fail', reason: `Complete current appraisal is ${db.counts.evidenceAppraisals}/${db.counts.totalEvidence}.` },
         { checkId: 'health_check.external.archive', status: 'fail', reason: `${db.archiveSummary.byReadiness.citable_external.needsArchive + db.archiveSummary.byReadiness.citable_with_note.needsArchive}/${db.archiveSummary.totals.externalReadinessRows} external-readiness citations need durable archive.` },
-        { checkId: 'health_check.external.identity', status: 'fail', reason: 'Migration lineage is reconciled, but evidence and library identities remain unreconciled.' },
+        { checkId: 'health_check.external.identity', status: migrationLineageParity && seedIdentityParity && libraryIdentityParity ? 'pass' : 'fail', reason: migrationLineageParity && seedIdentityParity && libraryIdentityParity ? 'Migration, classified evidence and library identities are reconciled; this does not satisfy appraisal, archive or human-review gates.' : `Migration parity is ${migrationLineageParity}; classified evidence parity is ${seedIdentityParity}; library parity is ${libraryIdentityParity}.` },
         { checkId: 'health_check.external.human', status: 'fail', reason: 'Required named human appraisal and review receipts are absent.' },
       ],
     },
@@ -1317,10 +1445,10 @@ function buildAssessment(
       profileId: 'health_profile.observatory_operations',
       verdict: 'blocked',
       readyForProfile: false,
-      reasonCodes: ['migration_lineage_reconciled', 'identity_unreconciled', 'operational_layers_partially_proven', 'receipts_partial', 'conflicts_open'],
+      reasonCodes: [migrationLineageParity ? 'migration_lineage_reconciled' : 'migration_lineage_mismatch', ...(!(seedIdentityParity && libraryIdentityParity) ? ['identity_unreconciled'] : []), 'operational_layers_partially_proven', 'receipts_partial', 'conflicts_open'],
       blockingConflictIds: openConflictIds,
       checks: [
-        { checkId: 'health_check.operations.reproducibility', status: 'fail', reason: 'Migration and academic status reproduction now pass, but seed/runtime and library materialization identities do not.' },
+        { checkId: 'health_check.operations.reproducibility', status: migrationLineageParity && academicRegressionMatches && seedIdentityParity && libraryIdentityParity ? 'pass' : 'fail', reason: `Migration parity is ${migrationLineageParity}; exact academic identity/status reproduction is ${academicRegressionMatches}; classified seed/runtime parity is ${seedIdentityParity}; library materialization parity is ${libraryIdentityParity}.` },
         { checkId: 'health_check.operations.backup', status: 'unknown', reason: 'Historical local backup/restore evidence exists, but no fresh production or off-node receipt is bound to this assessment.' },
         { checkId: 'health_check.operations.mcp', status: 'unknown', reason: 'Interface instantiation does not prove live queries or a role-enforced read-only boundary.' },
         { checkId: 'health_check.operations.receipts', status: 'fail', reason: 'Machine lineage receipts are present; required fresh operational and human receipts remain incomplete.' },
@@ -1372,6 +1500,12 @@ function buildReport(assessment: JsonObject, db: DatabaseRuntime): string {
   const conflictRows = conflicts
     .map((item) => `| \`${item.conflictId}\` | ${item.severity} | ${item.status} | ${item.title} |`)
     .join('\n')
+  const classifiedEvidenceParity = metricNumber(assessment, 'health_metric.unclassified_database_only_evidence_identities') === 0
+    && metricNumber(assessment, 'health_metric.seed_only_evidence_identities') === 0
+    && metricNumber(assessment, 'health_metric.missing_managed_runtime_evidence_identities') === 0
+  const identityDecision = classifiedEvidenceParity
+    ? `Classified evidence identity is reconciled. The raw difference contains ${metricNumber(assessment, 'health_metric.database_only_evidence_identities')} database-only rows, all ${metricNumber(assessment, 'health_metric.managed_runtime_evidence_identities')} of which are declared runtime-managed identities; raw row-count equality is not required.`
+    : `Classified evidence identity is not reconciled. The raw ${metricNumber(assessment, 'health_metric.database_only_evidence_identities')} database-only rows comprise ${metricNumber(assessment, 'health_metric.managed_runtime_evidence_identities')} declared runtime-managed and ${metricNumber(assessment, 'health_metric.unclassified_database_only_evidence_identities')} unclassified identities; ${metricNumber(assessment, 'health_metric.seed_only_evidence_identities')} seed-only and ${metricNumber(assessment, 'health_metric.missing_managed_runtime_evidence_identities')} missing declared-managed identities remain.`
 
   return `# Gate 1 — corpus and evidence health\n\n` +
     `**Assessment:** \`${assessment.assessmentId}\`\n\n` +
@@ -1379,7 +1513,7 @@ function buildReport(assessment: JsonObject, db: DatabaseRuntime): string {
     `**HEAD:** \`${assessment.baseCommit}\`\n` +
     `**Threshold status:** \`${assessment.baselineAdoptionStatus}\`\n\n` +
     `## Decision\n\n` +
-    `**NO-GO for reproducible internal analysis, external evidence support and observatory operation.** Internal discovery is usable only with explicit caveats. Repository and local-database migration names and SQL checksums are now reconciled (${metricNumber(assessment, 'health_metric.migration_lineage_mismatches')} mismatches across ${metricNumber(assessment, 'health_metric.head_migrations')} migrations), but evidence identity is not: current HEAD has ${metricNumber(assessment, 'health_metric.head_seed_evidence')} seed rows while the local database has ${metricNumber(assessment, 'health_metric.database_evidence')} evidence rows, including ${metricNumber(assessment, 'health_metric.database_only_evidence_identities')} database-only and ${metricNumber(assessment, 'health_metric.seed_only_evidence_identities')} seed-only identities.\n\n` +
+    `**NO-GO for reproducible internal analysis, external evidence support and observatory operation.** Internal discovery is usable only with explicit caveats. Repository and local-database migration names and SQL checksums are reconciled (${metricNumber(assessment, 'health_metric.migration_lineage_mismatches')} mismatches across ${metricNumber(assessment, 'health_metric.head_migrations')} migrations). Current HEAD has ${metricNumber(assessment, 'health_metric.head_seed_evidence')} seed rows and the local database has ${metricNumber(assessment, 'health_metric.database_evidence')} evidence rows. ${identityDecision}\n\n` +
     `This is a corpus/evidence-health assessment, not a food-system coverage assessment. It creates no coverage cells, carries no global score and cannot support a claim that the Nordic food system is fully mapped.\n\n` +
     `## Intended-use verdicts\n\n` +
     `| Profile | Verdict | Ready | Main reason codes |\n|---|---|---:|---|\n${verdictRows}\n\n` +
@@ -1393,7 +1527,7 @@ function buildReport(assessment: JsonObject, db: DatabaseRuntime): string {
     `| Conflict | Severity | Status | Boundary |\n|---|---|---|---|\n${conflictRows}\n\n` +
     `## Resolution sequence\n\n` +
     `1. Keep the receipt-bound 31/31 migration lineage check green as schema and migrations evolve.\n` +
-    `2. Reconcile the ${metricNumber(assessment, 'health_metric.head_seed_evidence')}/${metricNumber(assessment, 'health_metric.database_evidence')} seed/runtime identities, including every database-only and seed-only record.\n` +
+    `2. Reconcile every unclassified database-only, seed-only and missing declared-managed identity while preserving the manifest-derived runtime identity boundary.\n` +
     `3. Reconcile the ${metricNumber(assessment, 'health_metric.library_inventory')}/${metricNumber(assessment, 'health_metric.library_materialization')} library identities.\n` +
     `4. Regenerate or supersede the master, remediation and vault status surfaces from explicit pinned vintages.\n` +
     `5. Complete reviewed appraisal and durable archive work for the required external scope.\n` +
@@ -1733,7 +1867,18 @@ async function generateBundle(checkMode: boolean): Promise<GeneratedBundle> {
     gate1Decision: 'no_go',
     principalBlocker: metricNumber(assessment, 'health_metric.migration_lineage_mismatches') > 0
       ? 'code_database_lineage_mismatch'
-      : 'seed_database_identity_mismatch',
+      : metricNumber(assessment, 'health_metric.unclassified_database_only_evidence_identities') > 0
+          || metricNumber(assessment, 'health_metric.seed_only_evidence_identities') > 0
+          || metricNumber(assessment, 'health_metric.missing_managed_runtime_evidence_identities') > 0
+        ? 'seed_database_identity_mismatch'
+        : metricNumber(assessment, 'health_metric.library_stale_rows') > 0
+            || metricNumber(assessment, 'health_metric.library_inventory_only_rows') > 0
+          ? 'library_inventory_materialization_mismatch'
+          : metricNumber(assessment, 'health_metric.evidence_appraisal') === 0
+            ? 'evidence_appraisal_zero'
+            : metricNumber(assessment, 'health_metric.external_rows_needing_archive') > 0
+              ? 'archive_durability_incomplete'
+              : 'human_and_operational_receipts_incomplete',
     semanticBoundary: SEMANTIC_BOUNDARY,
     profileVerdicts: profileVerdicts.map((item) => ({
       profileId: item.profileId,
@@ -1748,6 +1893,9 @@ async function generateBundle(checkMode: boolean): Promise<GeneratedBundle> {
       headSeedEvidence: metricNumber(assessment, 'health_metric.head_seed_evidence'),
       databaseEvidence: metricNumber(assessment, 'health_metric.database_evidence'),
       databaseOnlyEvidenceIdentities: metricNumber(assessment, 'health_metric.database_only_evidence_identities'),
+      managedRuntimeEvidenceIdentities: metricNumber(assessment, 'health_metric.managed_runtime_evidence_identities'),
+      unclassifiedDatabaseOnlyEvidenceIdentities: metricNumber(assessment, 'health_metric.unclassified_database_only_evidence_identities'),
+      missingManagedRuntimeEvidenceIdentities: metricNumber(assessment, 'health_metric.missing_managed_runtime_evidence_identities'),
       seedOnlyEvidenceIdentities: metricNumber(assessment, 'health_metric.seed_only_evidence_identities'),
       completeEvidenceAppraisals: metricNumber(assessment, 'health_metric.evidence_appraisal'),
       externalRowsNeedingArchive: metricNumber(assessment, 'health_metric.external_rows_needing_archive'),
