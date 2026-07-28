@@ -1,10 +1,10 @@
 {
   "schemaVersion": "corpus-evidence-health-v1",
   "documentKind": "corpus_health_source_snapshot_set",
-  "sourceSnapshotSetId": "health.snapshot_set.2026-07-27.f7148da4",
-  "snapshotDate": "2026-07-27",
-  "observedAt": "2026-07-27T22:15:05.000Z",
-  "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+  "sourceSnapshotSetId": "health.snapshot_set.2026-07-28.95da5847",
+  "snapshotDate": "2026-07-28",
+  "observedAt": "2026-07-28T05:32:26.743Z",
+  "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
   "generatorVersion": "1.0.0",
   "snapshots": [
     {
@@ -14,7 +14,7 @@
       "kind": "file",
       "authorityLayer": "operational_status",
       "observationMode": "reported_status_snapshot",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
       "gitObjectId": "e2cb1e1bb0f7f699ebab4544d6b4fdd288ad6611",
       "gitObjectType": "blob",
       "sha256": "sha256:11325b4f46edc525a5129297fb99c5af3839845397baae6ad12fd6397e0a889f",
@@ -34,17 +34,17 @@
       "kind": "file",
       "authorityLayer": "operational_status",
       "observationMode": "reported_status_snapshot",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
-      "gitObjectId": "cf81a7d159297536ba6a66693f039c0750319329",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
+      "gitObjectId": "426ff71ef36b12482d763b69a73b41b7a3fefe45",
       "gitObjectType": "blob",
-      "sha256": "sha256:06d9b68bae69402738b968d2756750fe7e7e0d1c5fc5e42eb206d9fe5cdb1968",
+      "sha256": "sha256:acb2e9702f485b5ec89cafea0e18b5bb2ccd47eaa3667fcaa04d85cf96e47206",
       "sizeBytes": 36485,
       "fileCount": 1,
       "workingTreeState": "matches_base_commit",
-      "commitDate": "2026-07-22T01:16:31+02:00",
-      "updatedThrough": "2026-07-21T22:13:19.599Z",
+      "commitDate": "2026-07-28T07:50:57+02:00",
+      "updatedThrough": "2026-07-28T05:32:26.743Z",
       "caveats": [
-        "Generated on the divergent database-hardening lineage; not reproducible from current HEAD."
+        "Reproduced on the integrated lineage; regression pass does not imply database identity parity or external readiness."
       ]
     },
     {
@@ -54,7 +54,7 @@
       "kind": "file",
       "authorityLayer": "presentation",
       "observationMode": "reported_status_snapshot",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
       "gitObjectId": "a74a65a8901d7606bd6e36c5e94d8adc0024ed0d",
       "gitObjectType": "blob",
       "sha256": "sha256:1168b50bcdef795b5adae783fda3af26d8d589fceb3ccc3bbede4a0443b3669e",
@@ -64,7 +64,7 @@
       "commitDate": "2026-07-22T01:16:31+02:00",
       "updatedThrough": "2026-07-21T22:41:28.764Z",
       "caveats": [
-        "Aggregate presentation snapshot; inherited lineage and vintage conflicts remain open."
+        "Historical aggregate presentation snapshot; use the current health assessment for operational status."
       ]
     },
     {
@@ -74,14 +74,14 @@
       "kind": "file",
       "authorityLayer": "source_discovery",
       "observationMode": "direct_repository_observation",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
       "gitObjectId": "1aee915930380d34346aaea67e1c42f773ac890c",
       "gitObjectType": "blob",
       "sha256": "sha256:3f10532176b85adcc8d2d0f36009bb821893003637eada5de8cf89f0f349ec70",
       "sizeBytes": 1274067,
       "fileCount": 1,
       "workingTreeState": "matches_base_commit",
-      "commitDate": "2026-07-22T01:16:31+02:00",
+      "commitDate": "2026-07-21T00:21:37+02:00",
       "updatedThrough": "2026-07-21",
       "caveats": [
         "AI drafts and approved-internal rows are not independent evidence appraisal."
@@ -94,7 +94,7 @@
       "kind": "file",
       "authorityLayer": "operational_status",
       "observationMode": "reported_status_snapshot",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
       "gitObjectId": "9dff585dbac1b84cc16443c127ca07a1acc82337",
       "gitObjectType": "blob",
       "sha256": "sha256:8367aaa8cb84d8d896227c515d89df72ce5d4419903d488c77c9de11448e4a01",
@@ -114,7 +114,7 @@
       "kind": "file",
       "authorityLayer": "operational_status",
       "observationMode": "direct_repository_observation",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
       "gitObjectId": "019b26d95b1c745cdaa5a7a38dd7115e9d6f21e5",
       "gitObjectType": "blob",
       "sha256": "sha256:353b9c825ba4d22b9e0d7dbf9f6ace892e7bdd53310ed11290e1cb789d0a3e0a",
@@ -134,7 +134,7 @@
       "kind": "file",
       "authorityLayer": "operational_status",
       "observationMode": "reported_status_snapshot",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
       "gitObjectId": "0f475d3988f26d44a26b2a36e98db471d5a02b1c",
       "gitObjectType": "blob",
       "sha256": "sha256:2a13f2b3f6cf5d8989cb97013ed9684a56c88eb3480514547da53dd45a9cb5ae",
@@ -154,7 +154,7 @@
       "kind": "file",
       "authorityLayer": "operational_status",
       "observationMode": "direct_repository_observation",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
       "gitObjectId": "6f19ca48015881903d6b2655db0a752878d5dc48",
       "gitObjectType": "blob",
       "sha256": "sha256:480c4ad724001dc80157d1ccd188f1a2b28de9d5f96b6b29d0b7ab309192f343",
@@ -174,7 +174,7 @@
       "kind": "file",
       "authorityLayer": "operational_status",
       "observationMode": "reported_status_snapshot",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
       "gitObjectId": "feeb3f0296cb5e1c718c230fab5a6fe2e6e3bfe5",
       "gitObjectType": "blob",
       "sha256": "sha256:cae205e888de0f241ae6c87666f3e53ba788144a53841490ca68786f20900d1a",
@@ -194,15 +194,15 @@
       "kind": "file",
       "authorityLayer": "structured_evidence",
       "observationMode": "direct_repository_observation",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
-      "gitObjectId": "3499225ce97be676428942922e095053a206158f",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
+      "gitObjectId": "766f7d2a9c6c841ce4884289a1377ae7c1c1c412",
       "gitObjectType": "blob",
-      "sha256": "sha256:3794a8bd4422bc2fc38a40313a48e27b00b58ee7a9377248ebfb7203d963e962",
-      "sizeBytes": 218682,
+      "sha256": "sha256:8399b01f842717aa38be28fc6a6b2c0b53419e69ae805eba5219a740747da479",
+      "sizeBytes": 235411,
       "fileCount": 1,
       "workingTreeState": "matches_base_commit",
-      "commitDate": "2026-07-04T20:38:25+02:00",
-      "updatedThrough": "2026-07-04T20:38:25+02:00",
+      "commitDate": "2026-07-21T00:21:37+02:00",
+      "updatedThrough": "2026-07-21T00:21:37+02:00",
       "caveats": [
         "Seed identity inventory; presence is not appraisal."
       ]
@@ -214,15 +214,15 @@
       "kind": "file",
       "authorityLayer": "structured_evidence",
       "observationMode": "direct_repository_observation",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
-      "gitObjectId": "3475112d26fbb6958a7e69cfc29c830cae74c7c6",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
+      "gitObjectId": "7ee3df1dff98d18c12c317755c808cd9ce4ec51c",
       "gitObjectType": "blob",
-      "sha256": "sha256:332d35f7ec591b334046aa8d80ade4abc059dd15d192d4b6a5ae85a47c5dcd2f",
-      "sizeBytes": 99302,
+      "sha256": "sha256:4bec9a5c208e066c6cca8883c18cb1b0d5993e2b7a0e1ee227418b9f7da45c51",
+      "sizeBytes": 101792,
       "fileCount": 1,
       "workingTreeState": "matches_base_commit",
-      "commitDate": "2026-05-25T23:46:19+02:00",
-      "updatedThrough": "2026-05-25T23:46:19+02:00",
+      "commitDate": "2026-07-21T00:21:37+02:00",
+      "updatedThrough": "2026-07-21T00:21:37+02:00",
       "caveats": [
         "Seed identity inventory; presence is not appraisal."
       ]
@@ -234,15 +234,15 @@
       "kind": "file",
       "authorityLayer": "structured_evidence",
       "observationMode": "direct_repository_observation",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
-      "gitObjectId": "db0bb850e184995a7c64d9bba5961004099cdffe",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
+      "gitObjectId": "44da4b7513f5eb34c8ec884b8316a4f32be38ed7",
       "gitObjectType": "blob",
-      "sha256": "sha256:7f8eb86fc18eaf01c9fd8baa030ca0597a0618f927e1078720cff6545380b380",
-      "sizeBytes": 89647,
+      "sha256": "sha256:4ce527bb8fc812cb91546f941986989c3dc7ecc28598fff10ed0d52a0830399e",
+      "sizeBytes": 99144,
       "fileCount": 1,
       "workingTreeState": "matches_base_commit",
-      "commitDate": "2026-06-29T10:46:37+02:00",
-      "updatedThrough": "2026-06-29T10:46:37+02:00",
+      "commitDate": "2026-07-21T00:21:37+02:00",
+      "updatedThrough": "2026-07-21T00:21:37+02:00",
       "caveats": [
         "Seed identity inventory includes mixed source classes."
       ]
@@ -254,17 +254,17 @@
       "kind": "file",
       "authorityLayer": "repository_contract",
       "observationMode": "direct_repository_observation",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
-      "gitObjectId": "dc160b8a818fabf2b2e94c2fd23e356c63c2ce6d",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
+      "gitObjectId": "04cbc34a80c6fb9014b33a6e7c294fb11a6fa7f2",
       "gitObjectType": "blob",
-      "sha256": "sha256:00fcc26d51605c8e63eb2703504a7e54e027219bc98a4d6e439a9ee4cbbd14dd",
-      "sizeBytes": 31695,
+      "sha256": "sha256:c96f757b41054067abd2f45382f2290a6b50ee0fffef919d35e4691a3168ff31",
+      "sizeBytes": 37895,
       "fileCount": 1,
       "workingTreeState": "matches_base_commit",
-      "commitDate": "2026-07-04T14:25:15+02:00",
-      "updatedThrough": "2026-07-04T14:25:15+02:00",
+      "commitDate": "2026-07-21T00:21:37+02:00",
+      "updatedThrough": "2026-07-21T00:21:37+02:00",
       "caveats": [
-        "Current HEAD does not model the EvidenceAppraisal table present in the local database."
+        "Current HEAD models EvidenceAppraisal; table presence does not imply completed appraisal."
       ]
     },
     {
@@ -274,15 +274,15 @@
       "kind": "directory",
       "authorityLayer": "repository_contract",
       "observationMode": "direct_repository_observation",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
-      "gitObjectId": "67035f810a04ef731ae50982686da44b82cc365e",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
+      "gitObjectId": "acea7093780dd5ffcc1e7610c616bda6100b1e40",
       "gitObjectType": "tree",
-      "sha256": "sha256:d09871dcda3d8130983a4268c804d42571f15b48ed9f54813e6463c9705235ce",
-      "sizeBytes": 27927,
-      "fileCount": 15,
+      "sha256": "sha256:9be8fd871f98ab95be686a0a4df15a1e2f9944446dbc2b18aa8282b818debb8a",
+      "sizeBytes": 78174,
+      "fileCount": 32,
       "workingTreeState": "matches_base_commit",
-      "commitDate": "2026-07-04T14:25:15+02:00",
-      "updatedThrough": "2026-07-04T14:25:15+02:00",
+      "commitDate": "2026-07-21T00:21:37+02:00",
+      "updatedThrough": "2026-07-21T00:21:37+02:00",
       "caveats": [
         "Directory set is compared exactly with completed database migrations."
       ]
@@ -294,7 +294,7 @@
       "kind": "directory",
       "authorityLayer": "presentation",
       "observationMode": "direct_repository_observation",
-      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+      "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
       "gitObjectId": "f1353a843b04327b11e321d2ef527d3deac6747c",
       "gitObjectType": "tree",
       "sha256": "sha256:ef34650a34cad46c2c41b809f7f96708e11cc4d3f83753810b81f544d05e650c",
@@ -317,8 +317,8 @@
     "environment": "local",
     "locator": "postgresql://<redacted>",
     "databaseIdentityHash": "sha256:8ba6db43ec799a46e690e47eafc203899ef56dff8ed1064334e5e787bc76c196",
-    "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
-    "observedAt": "2026-07-27T22:15:05.000Z",
+    "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
+    "observedAt": "2026-07-28T05:32:26.743Z",
     "transaction": {
       "isolationLevel": "repeatable_read",
       "transactionReadOnly": true,
@@ -403,8 +403,8 @@
     "caveats": [
       "Local runtime snapshot only; production parity is not proven.",
       "The transaction was read-only, but the configured database role was not proven read-only.",
-      "Database metrics are not reproducible from current HEAD until the divergent migration and seed lineages are reconciled."
+      "Migration names and checksums are compared with the pinned repository lineage in the assessment; seed identity parity is assessed separately."
     ]
   },
-  "contentHash": "sha256:b9655daa0cc3a5623365f10e1cbcbf4033715d99f178c5e29d12792162ab1f4b"
+  "contentHash": "sha256:7ac9350fcffe6bffd08623b28fd7f838d51e0c21ab1c9997c225d8cf114230ad"
 }

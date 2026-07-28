@@ -1,11 +1,11 @@
 {
   "schemaVersion": "corpus-evidence-health-v1",
   "documentKind": "corpus_health_summary",
-  "assessmentId": "health.assessment.2026-07-27.local.f7148da4",
-  "observedAt": "2026-07-27T22:15:05.000Z",
-  "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+  "assessmentId": "health.assessment.2026-07-28.local.95da5847",
+  "observedAt": "2026-07-28T05:32:26.743Z",
+  "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
   "gate1Decision": "no_go",
-  "principalBlocker": "code_database_lineage_mismatch",
+  "principalBlocker": "seed_database_identity_mismatch",
   "semanticBoundary": {
     "kind": "corpus_evidence_health",
     "subjectCoverageClaim": false,
@@ -21,7 +21,7 @@
       "reasonCodes": [
         "bounded_inventory_available",
         "hash_bound_snapshot",
-        "lineage_caveat_required"
+        "migration_lineage_reconciled"
       ]
     },
     {
@@ -29,9 +29,10 @@
       "verdict": "degraded",
       "readyForProfile": false,
       "reasonCodes": [
-        "code_database_lineage_mismatch",
+        "migration_lineage_reconciled",
         "seed_identity_mismatch",
-        "status_not_reproducible"
+        "library_identity_mismatch",
+        "status_vintage_conflicts"
       ]
     },
     {
@@ -50,18 +51,22 @@
       "verdict": "blocked",
       "readyForProfile": false,
       "reasonCodes": [
-        "lineage_unreconciled",
-        "operational_layers_unproven",
-        "receipts_missing",
+        "migration_lineage_reconciled",
+        "identity_unreconciled",
+        "operational_layers_partially_proven",
+        "receipts_partial",
         "conflicts_open"
       ]
     }
   ],
   "keyMetrics": {
-    "headMigrations": 14,
+    "headMigrations": 31,
     "databaseMigrations": 31,
-    "headSeedEvidence": 392,
+    "migrationLineageMismatches": 0,
+    "headSeedEvidence": 400,
     "databaseEvidence": 417,
+    "databaseOnlyEvidenceIdentities": 18,
+    "seedOnlyEvidenceIdentities": 1,
     "completeEvidenceAppraisals": 0,
     "externalRowsNeedingArchive": 1855,
     "currentLibraryInventory": 1555,
@@ -70,19 +75,9 @@
   },
   "openConflicts": [
     {
-      "conflictId": "health.conflict.code_db_lineage",
-      "severity": "blocker",
-      "title": "Current code and local database have divergent migration lineages"
-    },
-    {
       "conflictId": "health.conflict.seed_database_identity",
       "severity": "blocker",
       "title": "Current seed identities and local database evidence identities differ"
-    },
-    {
-      "conflictId": "health.conflict.historical_status_foreign_lineage",
-      "severity": "high",
-      "title": "Tracked academic status describes a foreign seed lineage"
     },
     {
       "conflictId": "health.conflict.library_inventory_materialization",
@@ -98,12 +93,7 @@
       "conflictId": "health.conflict.vault_reported_vs_observed",
       "severity": "high",
       "title": "Completion register and current vault validation disagree"
-    },
-    {
-      "conflictId": "health.conflict.academic_regression_reported_vs_head",
-      "severity": "high",
-      "title": "Tracked academic regression gate does not reproduce on current HEAD"
     }
   ],
-  "contentHash": "sha256:f2d6670fd3064900ac81f67c1da59e6fb7aac5ea7cdc3ee094a097641138e8c1"
+  "contentHash": "sha256:abbe1c386181e61853154e02d0ac568ad7157cbb7d05b184088fb2f3ea1644e6"
 }
