@@ -14,6 +14,10 @@
     "team": { "name": "Team", "description": "Members and roles" },
     "casestatus": { "name": "Case status", "description": "Maturity per case anchor" },
     "aiKunnskap": { "name": "AI knowledge", "description": "Library readiness and review queue" },
+    "masterhjerne": {
+     "name": "Master brain",
+     "description": "Overall knowledge status and data gaps"
+    },
     "moter": { "name": "Meetings", "description": "Meeting summaries and minutes" },
     "kommunikasjon": { "name": "Communication", "description": "Email and correspondence" },
     "mandat": { "name": "Mandate", "description": "Food TG scope, claims and validation" },

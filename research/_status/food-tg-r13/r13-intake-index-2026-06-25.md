@@ -1,7 +1,7 @@
 ---
 tittel: Food TG R13 intake/triageindeks
 dato: 2026-06-25
-status: MAL — fylles per fullført batch
+status: Komplett intern triageindeks — 50/50 prompter, batch 01–13
 scope: Runde 13 batch 01-13, basert på batchrapporter og decision JSONL
 bruksregel: Ikke faktastemme. Ikke batch-output. Ikke whitepaper/deck. Bruk som triagekart for neste kontrollsteg.
 relaterte_filer:
@@ -21,7 +21,7 @@ Denne indeksen grupperer Runde 13-prompter etter mottaksstatus. Den bygger på `
 
 - **Promptrader indeksert:** 50 / 50
 - **Decision-batcher funnet:** batch-01 (R13-GAP-001, R13-GAP-005, R13-WASTE-001, R13-GAP-002), batch-02 (R13-GAP-004, R13-GAP-006, R13-GAP-003, R13-WASTE-002), batch-03 (R13-WASTE-003, R13-WASTE-004, R13-WASTE-005, R13-WASTE-007), batch-04 (R13-WASTE-006, R13-WASTE-008, R13-PROT-006, R13-PROT-007), batch-05 (R13-PROT-001, R13-PROT-002, R13-PROT-003, R13-PROT-004), batch-06 (R13-PROT-005, R13-AKTOR-001, R13-AKTOR-002, R13-AKTOR-003), batch-07 (R13-AKTOR-004, R13-AKTOR-005, R13-AKTOR-006, R13-AKTOR-007), batch-08 (R13-AKTOR-008, R13-PROT-008, R13-INNO-001, R13-INNO-002), batch-09 (R13-INNO-003, R13-INNO-004, R13-INNO-005, R13-INNO-006), batch-10 (R13-INNO-007, R13-OKO-001, R13-OKO-002, R13-OKO-003), batch-11 (R13-OKO-004, R13-OKO-005, R13-OKO-006, R13-OKO-007), batch-12 (R13-LAND-001, R13-LAND-002, R13-LAND-003, R13-LAND-004), batch-13 (R13-LAND-005, R13-LAND-006)
-- **Batcher ikke funnet som decision/report-fil:** batch-13 (ikke startet)
+- **Batcher ikke funnet som decision/report-fil:** ingen; batch-01 til batch-13 er mottaksført.
 - **Arbeidsregel:** alle rader er interne mottaks-/triageposter; ingen rad åpner ekstern claim, DB-skriving, `safe_for_ai_context`, whitepapertekst eller deckstemme.
 - **Overlapp:** samme prompt kan ligge i flere grupper når den både har en hovedgate og en stop-regel.
 

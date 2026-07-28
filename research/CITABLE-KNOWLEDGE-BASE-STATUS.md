@@ -11,6 +11,37 @@ knowledge base usable as a citable external knowledge base. It replaces older
 snapshot interpretation for this workstream. Historical audit counts should be
 treated as stale unless repeated here.
 
+> **Supersession note, 2026-07-15:** The current cite-ready national measure is
+> **revenue HHI 3 327** with **CR3 96.6%** for 2024, as specified in CA-004.
+> Occurrences of HHI 3 445 below describe an older milestone, a dated report or
+> the cross-country store-count proxy; they must not be reused as the current
+> Norwegian revenue HHI.
+
+## 2026-07-21 Live Citation Readback (supersedes all counts below)
+
+The active database was read back with both `npm run db:audit` and
+`npm run db:audit:strict-sources` on 2026-07-21. Both commands exited `0`.
+Current citation coverage is:
+
+- `SourceCitation=2703`
+- `citable_external=154`
+- `citable_with_note=2222`
+- `internal_context=110`
+- `blocked_unsourced=217`
+- `FieldCitation=244516`
+- external blocking citation issues `0`
+
+This is a **technical citation/source-gate result**, not a declaration of
+external academic readiness. The 217 `blocked_unsourced` rows remain
+fail-closed and cannot support external claims; the strict audit passes because
+none is being presented as external-ready. The separate academic quality audit
+still reports `not_ready`, including 0/417 complete current appraisal
+dispositions. Eleven of 1,539 `Document.filePath` values also do not resolve in
+the current checkout and remain warnings for artifact availability.
+
+Counts below are historical unless a later, explicitly dated live readback
+supersedes this section.
+
 ## 2026-06-10 Strict-Gate Re-Greening (supersedes all verification sections below)
 
 Running the operator sequence on `codex/food-tg-mandat-2026-06-09` found the
@@ -302,13 +333,15 @@ Nordic circularity report drift:
   `scripts/audit-citable-reports.ts` now audit the HTML report, appendix,
   sprint README, claim audit, primary-check notes, self-critique, and T3 diff
   note together.
-- The audit blocks inconsistent T3 status text, Copenhagen percentage drift,
+- The audit blocks inconsistent T3 status text, conflicting or undated Copenhagen
+  year/value pairs and multi-year comparisons without a measurement-method caveat,
   README line-count/KB quality claims, HHI/CR3 mislabelling, unresolved weak
   claim markers, and highlighted numerical claims without source or caveat.
 - T3 is now consistently described as completed in v1.2 Phase 8, but as an
   internal method check rather than external validation.
-- Copenhagen public-kitchen organic share is standardized to 85 percent in
-  2024, with peak context where relevant.
+- Copenhagen public-kitchen organic share is standardized to 87.7 percent in
+  2024 (almost 88 percent) and 88 percent in 2015, with the changed measurement
+  basis and municipal scope stated explicitly.
 - Norwegian concentration is labelled as `HHI 3445 (CR3 96,6%)`, not `HHI
   96,6%`.
 - The weak IFRO soy bibliography placeholder was replaced with the concrete

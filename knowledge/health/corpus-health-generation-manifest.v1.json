@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "corpus-evidence-health-v1",
+  "documentKind": "corpus_health_generation_manifest",
+  "generatorVersion": "1.0.0",
+  "generatedAt": "2026-07-27T22:15:05.000Z",
+  "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+  "inputs": [
+    {
+      "path": "scripts/knowledge/generate-corpus-health.ts",
+      "sha256": "sha256:c39649eda59c5b5d74fdc0ac67b8f0456818af3eae56fca9ca9e677900fb67e4",
+      "sizeBytes": 84336
+    },
+    {
+      "path": "knowledge/schema/corpus-evidence-health.schema.v1.json",
+      "sha256": "sha256:7db10066e26b8a589569dd3f937760aa6c7958eb703ec93758d8070b4d0c3cb4",
+      "sizeBytes": 17896
+    },
+    {
+      "path": "knowledge/health/corpus-health-thresholds.v1.json",
+      "sha256": "sha256:5498d209c9cc5eb501946bd8cc77cdfa8a4732c202f96ab9a80ef8ecc659357a",
+      "sizeBytes": 11372
+    }
+  ],
+  "sourceSnapshotSetHash": "sha256:b9655daa0cc3a5623365f10e1cbcbf4033715d99f178c5e29d12792162ab1f4b",
+  "assessmentIds": [
+    "health.assessment.2026-07-27.local.f7148da4"
+  ],
+  "outputs": [
+    {
+      "path": "knowledge/health/corpus-health-source-snapshots.v1.json",
+      "sha256": "sha256:ac38980a4ab9e9a46d0a58f668f9401368bcb822498658d11ae84d0c645146de",
+      "sizeBytes": 16190
+    },
+    {
+      "path": "knowledge/health/corpus-health-assessments.v1.jsonl",
+      "sha256": "sha256:78ae14b1e06466450558c36c8eee19793e402d9c30c8766667eb269fa906a601",
+      "sizeBytes": 29143
+    },
+    {
+      "path": "knowledge/health/corpus-health-current.v1.json",
+      "sha256": "sha256:5bdafa63bba03f9d7e7e413ab759d4394e47ea033e6ec63abc8a100cea9b8c3f",
+      "sizeBytes": 748
+    },
+    {
+      "path": "knowledge/health/corpus-health-summary.v1.json",
+      "sha256": "sha256:6b0d2f5c26b74f314928bcabce3160bffd1f93ed44099c8dc1aa4e21de7578b3",
+      "sizeBytes": 3446
+    },
+    {
+      "path": "knowledge/health/corpus-health-report.v1.md",
+      "sha256": "sha256:488d5e243e11cb2f897a0d9f1d6911e26c014b262639f43a0f1016a8b36bfcac",
+      "sizeBytes": 3740
+    }
+  ],
+  "contentHash": "sha256:560d6e3505a5ed4aa6d2127674924eafec950dcb4d5d1cd3bfe790f0d704ebf8"
+}

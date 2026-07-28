@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masterhjernen — Food Systems 2026 · Kunnskapsstatus 21.07.2026</title>
+<style>
+  :root { color-scheme: light dark; }
+  .viz-root {
+    color-scheme: light;
+    --surface-1:#fcfcfb; --page:#f9f9f7;
+    --ink-1:#0b0b0b; --ink-2:#52514e; --ink-3:#898781;
+    --grid:#e1e0d9; --baseline:#c3c2b7; --border:rgba(11,11,11,0.10);
+    --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100;
+    --seq-100:#cde2fb; --seq-200:#9ec5f4; --seq-250:#86b6ef; --seq-300:#6da7ec; --seq-400:#3987e5; --seq-450:#2a78d6; --seq-550:#1c5cab; --seq-650:#104281;
+    --good:#0ca30c; --warn:#fab219; --serious:#ec835a; --crit:#d03b3b;
+    --good-text:#006300;
+    --wash:rgba(42,120,214,0.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1:#1a1a19; --page:#0d0d0d;
+      --ink-1:#ffffff; --ink-2:#c3c2b7; --ink-3:#898781;
+      --grid:#2c2c2a; --baseline:#383835; --border:rgba(255,255,255,0.10);
+      --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+      --good-text:#0ca30c;
+      --wash:rgba(57,135,229,0.12);
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1:#1a1a19; --page:#0d0d0d;
+    --ink-1:#ffffff; --ink-2:#c3c2b7; --ink-3:#898781;
+    --grid:#2c2c2a; --baseline:#383835; --border:rgba(255,255,255,0.10);
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500;
+    --good-text:#0ca30c;
+    --wash:rgba(57,135,229,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--page); }
+  .viz-root {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: var(--page); color: var(--ink-1);
+    padding: 28px 20px 60px; min-height: 100vh;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; }
+  header.hero { padding: 8px 4px 20px; }
+  .kicker { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color: var(--ink-3); font-weight:600; }
+  h1 { font-size: 30px; font-weight: 700; margin: 6px 0 4px; letter-spacing:-0.01em; }
+  .sub { color: var(--ink-2); font-size: 14.5px; max-width: 860px; line-height:1.5; }
+  .themebtn { float:right; margin-top:-46px; font-size:12px; border:1px solid var(--border); background:var(--surface-1); color:var(--ink-2); border-radius:8px; padding:6px 10px; cursor:pointer; }
+  section { margin-top: 34px; }
+  h2 { font-size: 17px; font-weight: 700; margin-bottom: 3px; }
+  .sectionsub { font-size: 13px; color: var(--ink-2); margin-bottom: 14px; max-width: 900px; line-height:1.45;}
+  .card { background: var(--surface-1); border:1px solid var(--border); border-radius: 14px; padding: 18px 18px 16px; }
+  .grid { display:grid; gap:12px; }
+  .kpis { grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); }
+  .tile .label { font-size: 12px; color: var(--ink-2); }
+  .tile .value { font-size: 27px; font-weight: 650; margin-top:3px; letter-spacing:-0.01em;}
+  .tile .note { font-size: 11.5px; color: var(--ink-3); margin-top: 3px; line-height:1.35;}
+  .hero-num { font-size: 52px; font-weight: 700; letter-spacing:-0.02em; line-height:1; }
+  .verdict { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .vcard { border-left:4px solid var(--baseline); }
+  .vcard .tag { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; }
+  .vcard p { font-size: 12.5px; color: var(--ink-2); margin-top:6px; line-height:1.45; }
+  .chip { display:inline-flex; align-items:center; gap:5px; font-size:11.5px; padding:2px 8px; border-radius: 999px; border:1px solid var(--border); color: var(--ink-2); background: var(--surface-1); }
+  .row { display:flex; gap:12px; flex-wrap:wrap; }
+  .flex1 { flex:1 1 340px; }
+  .legend { display:flex; gap:16px; flex-wrap:wrap; font-size:12px; color:var(--ink-2); margin:8px 0 4px; }
+  .legend .key { display:inline-flex; align-items:center; gap:6px; }
+  .sw { width:10px; height:10px; border-radius:3px; display:inline-block; }
+  table { width:100%; border-collapse: collapse; font-size: 12.5px; }
+  th { text-align:left; color: var(--ink-3); font-weight:600; font-size:11.5px; letter-spacing:.02em; padding:6px 8px; border-bottom:1px solid var(--grid); }
+  td { padding: 7px 8px; border-bottom: 1px solid var(--grid); vertical-align: top; color: var(--ink-2); }
+  td:first-child { color: var(--ink-1); font-weight:600; }
+  tr:last-child td { border-bottom:none; }
+  .num { font-variant-numeric: tabular-nums; text-align:right; }
+  .statuschip { display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:650; padding:2px 8px; border-radius:999px; }
+  .st-good { color:var(--good-text); background: color-mix(in srgb, var(--good) 12%, transparent); }
+  .st-warn { color:var(--ink-1); background: color-mix(in srgb, var(--warn) 18%, transparent); }
+  .st-serious { color:var(--ink-1); background: color-mix(in srgb, var(--serious) 18%, transparent); }
+  .st-crit { color:var(--crit); background: color-mix(in srgb, var(--crit) 12%, transparent); }
+  .meterline { display:grid; grid-template-columns: 205px 1fr 118px; gap:10px; align-items:center; padding:4.5px 0; }
+  .meterline .name { font-size: 12.5px; color: var(--ink-1); font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .meterline .val { font-size: 12px; color: var(--ink-2); text-align:right; font-variant-numeric: tabular-nums; white-space:nowrap;}
+  .track { height: 14px; background: var(--seq-100); border-radius: 4px; position:relative; overflow:hidden; }
+  .fill { position:absolute; left:0; top:0; bottom:0; background: var(--seq-450); border-radius: 0 4px 4px 0; }
+  .gatechain { display:flex; flex-wrap:wrap; gap:0; align-items:stretch; }
+  .gate { flex:1 1 150px; padding:12px 14px; border-left:1px solid var(--grid); min-width:150px;}
+  .gate:first-child { border-left:none; }
+  .gate .gv { font-size:24px; font-weight:700; letter-spacing:-0.01em;}
+  .gate .gl { font-size:11.5px; color:var(--ink-2); margin-top:2px; line-height:1.35;}
+  .gate .gp { font-size:11px; color:var(--ink-3); margin-top:4px;}
+  .stackbar { display:flex; height: 22px; border-radius: 5px; overflow:hidden; gap:2px; background:transparent;}
+  .seg { position:relative; min-width:3px; }
+  .seg span { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; }
+  svg text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .cards3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .icard h3 { font-size: 13.5px; margin-bottom:5px; }
+  .icard p { font-size: 12.5px; color: var(--ink-2); line-height: 1.5; }
+  .icard .src { font-size: 10.5px; color: var(--ink-3); margin-top:8px; word-break: break-all;}
+  .icard .itag { font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color: var(--s1); }
+  .organ { display:grid; grid-template-columns: 150px 1fr 56px; gap:12px; align-items:center; padding:7px 0;}
+  .organ .oname { font-weight:650; font-size:13px; }
+  .organ .onote { grid-column: 1 / -1; font-size:11.5px; color:var(--ink-3); margin:-4px 0 4px; line-height:1.4;}
+  .foot { margin-top:40px; font-size:11.5px; color:var(--ink-3); line-height:1.6; border-top:1px solid var(--grid); padding-top:14px;}
+  .tooltip { position:fixed; pointer-events:none; background:var(--surface-1); border:1px solid var(--border); box-shadow:0 4px 14px rgba(0,0,0,.12); border-radius:8px; padding:7px 10px; font-size:12px; color:var(--ink-1); z-index:50; display:none; max-width:280px;}
+  .mono-note { font-size:11px; color: var(--ink-3); margin-top:8px; }
+  @media (max-width: 640px){ .meterline{grid-template-columns: 130px 1fr 96px;} .themebtn{float:none; margin:8px 0 0;} }
+</style>
+</head>
+<body>
+<div class="viz-root" id="root">
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">Natural State · Food Systems Transition Group · Intern arbeidsstatus</div>
+  <h1>Masterhjernen — samlet kunnskapsstatus</h1>
+  <button class="themebtn" id="themebtn">Bytt lys/mørk</button>
+  <div class="sub">Alt underlag i prosjektet er gjennomgått og sammenstilt per <strong>21. juli 2026</strong>: filkorpuset, kildebiblioteket, databasen (via eksporter og kontrollrapporter), dekningsdashboardet, evidenskvalitetsauditene og planverket. Dette er verktøyets svar på: <em>hva vet vi, hvor godt vet vi det, og hvor bør vi hente inn mer?</em> Internt arbeidsmateriale — ikke claim-locket.</div>
+</header>
+
+<!-- ============ KPI ============ -->
+<section>
+  <h2>Hjernens masse</h2>
+  <div class="sectionsub">Omfanget av det som faktisk ligger i prosjektet i dag (målt direkte på mappen og de synkroniserte DB-artefaktene).</div>
+  <div class="grid kpis" id="kpis"></div>
+</section>
+
+<!-- ============ VERDICT ============ -->
+<section>
+  <h2>Svaret på hovedspørsmålet: bør vi hente inn mer data?</h2>
+  <div class="sectionsub">Ja — men ikke mer av det vi allerede har mye av. Bredden er tilnærmet komplett; det som mangler er <strong>dybde, vurdering, ferskhet og mennesker</strong>. Fire konklusjoner, rangert:</div>
+  <div class="grid verdict" id="verdict"></div>
+</section>
+
+<!-- ============ VALUE CHAIN COVERAGE ============ -->
+<section>
+  <h2>Verdikjededekning — 17 domener, 70 celler, 1 634 aktører</h2>
+  <div class="sectionsub">Kartlagte aktører mot estimert univers per domene (kilde: <code>research/_status/domene-dekning-hull-2026-07-02.md</code> — nyeste hull-rapport; universene bruker et min(20, univers)-gulv, så «full» søyle betyr «gulvet er nådd», ikke «alle finnes»). Konfidens-kolonnen er dekningsdashboardets egen dom: <strong>59 av 70 celler har lav konfidens</strong> — vi har navnene, ikke aktiviteten.</div>
+  <div class="card">
+    <div id="vk"></div>
+    <div class="legend"><span class="key"><span class="sw" style="background:var(--seq-450)"></span>Kartlagt</span><span class="key"><span class="sw" style="background:var(--seq-100)"></span>Estimert univers (rest)</span><span class="key">Konfidens: ● høy · ◐ middels · ○ lav</span></div>
+  </div>
+  <div class="row" style="margin-top:12px;">
+    <div class="card flex1">
+      <div class="tile"><div class="label">Aktørregistreringer med domenetag</div><div class="value">1 634 <span style="font-size:14px; color:var(--ink-3); font-weight:600;">/ 1 651 estimert (99,0 %)</span></div><div class="note">Alle med registerproveniens (Brreg, Økoguiden, offisielle kart) og eksplisitte claim-grenser («actor-gate only»).</div></div>
+    </div>
+    <div class="card flex1">
+      <div class="tile"><div class="label">Dekningskonfidens per celle</div>
+      <div style="margin-top:8px;" class="stackbar" id="confbar"></div>
+      <div class="legend" style="margin-top:8px;"><span class="key"><span class="sw" style="background:var(--seq-550)"></span>Høy (2)</span><span class="key"><span class="sw" style="background:var(--seq-300)"></span>Middels (9)</span><span class="key"><span class="sw" style="background:var(--seq-100)"></span>Lav (59)</span></div>
+      <div class="note" style="font-size:11.5px; color:var(--ink-3); margin-top:4px;">Lav konfidens med fullt gulv = eksistens bekreftet, aktivitet ikke.</div></div>
+    </div>
+    <div class="card flex1">
+      <div class="tile"><div class="label">Nordisk asymmetri — utfylte datafelt i verdikjedemodellen (8 ledd)</div>
+      <div id="nordic" style="margin-top:8px;"></div>
+      <div class="note" style="font-size:11.5px; color:var(--ink-3); margin-top:4px;">Norge har 5-års finanser og 17 kartlagte steg; FI/IS-2025 står bare som uimportert 15+1-kandidatbatch bak kilde-/modellporter, og alle 70 dekningsceller er fortsatt geo=NO.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EVIDENCE QUALITY ============ -->
+<section>
+  <h2>Evidenskvalitet — hvor god er dataen vi står på?</h2>
+  <div class="sectionsub">Kjeden fra råmateriale til siterbar påstand, målt av prosjektets egne porter (<code>audit:citable</code>-kjeden grønn per 2026-07-15; evidenskvalitetsaudit 2026-07-20).</div>
+
+  <div class="card">
+    <div class="kicker" style="margin-bottom:8px;">Siterbarhetskjeden (fail-closed: tomme celler forblir tomme)</div>
+    <div class="gatechain" id="gates"></div>
+    <div class="mono-note">217 <strong>blocked_unsourced</strong> forblir fail-closed og kan ikke støtte eksterne påstander. Strict source gate er grønn fordi eksterne blocking citation issues er 0. Acceptance-pack: 11 av 16 nøkkelpåstander cite-ready, 5 dokumentert fail-closed-blokkert.</div>
+  </div>
+
+  <div class="row" style="margin-top:12px;">
+    <div class="card flex1">
+      <div class="kicker" style="margin-bottom:6px;">Kildeklasser i KI-prioritert korpus (208 rapporter + avhandlinger)</div>
+      <div class="stackbar" id="classbar" style="height:26px;"></div>
+      <div class="legend" id="classlegend"></div>
+      <div class="mono-note">Akademisk lag = 49 % av det prioriterte korpuset (64 masteroppgaver, 24 akademia-rapporter, 14 ph.d.). Snittscore 4,83/5 i KI-prioritet.</div>
+    </div>
+    <div class="card flex1">
+      <div class="kicker" style="margin-bottom:6px;">Ferskhet — publiseringsår i KI-korpuset</div>
+      <div id="years"></div>
+      <div class="mono-note"><strong>70,7 %</strong> av kildene er fra 2023–2026 (uthevet). Halen tilbake til 2005 er bevisste historiske referanser (NOU 2011:4 m.fl.).</div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:12px;">
+    <div class="card flex1" style="flex:1.4 1 420px;">
+      <div class="kicker" style="margin-bottom:6px;">Metadatakvalitet i det akademiske/eksterne laget (417 rader i DB, audit 2026-07-20)</div>
+      <table id="metatable"></table>
+      <div class="mono-note">Regresjonsgate: <span class="statuschip st-good">✓ PASS</span> · Ekstern akademisk beredskap: <span class="statuschip st-crit">✕ NOT READY</span> — hovedårsak: strukturert kildevurdering (appraisal) er 0/417, og seed/DB-paritet har 18 uavklarte identiteter (YouTube-managed + matsvinnloven).</div>
+    </div>
+    <div class="card flex1">
+      <div class="kicker" style="margin-bottom:6px;">Kildebiblioteket — KI-klargjøring av 1 555 kilder</div>
+      <div class="stackbar" id="libbar" style="height:26px;"></div>
+      <div class="legend" id="liblegend"></div>
+      <table style="margin-top:10px;">
+        <tr><td>Godkjent for KI-kontekst</td><td class="num">35</td></tr>
+        <tr><td>I menneskelig review-kø</td><td class="num">89</td></tr>
+        <tr><td>KI-utkast (venter godkjenningsløp)</td><td class="num">1 427</td></tr>
+        <tr><td>Blokkert (skal ikke brukes)</td><td class="num">4</td></tr>
+        <tr><td>Mangler tekstgrunnlag (lav OCR/tekstkvalitet)</td><td class="num">89</td></tr>
+      </table>
+      <div class="mono-note">Flaskehalsen er ikke innsamling — det er <strong>menneskegodkjenning</strong> av det maskinen alt har behandlet.</div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top:12px;">
+    <div class="card flex1">
+      <div class="kicker" style="margin-bottom:6px;">URL-helse i kildegrunnlaget (600 sjekkede lenker)</div>
+      <div class="stackbar" id="urlbar" style="height:22px;"></div>
+      <div class="legend" id="urllegend"></div>
+      <div class="mono-note">Av 173 høyprioritetslenker (P ≥ 4): <strong>0 døde</strong>, 5 blokkert (paywall/robots). Live arkivaudit finner varig kopi for 521 av 2 376 eksternt klare/med-note-siteringer; 1 855 trenger arkiv og gaten feiler med 1 872 blokkerende ID-er. Automatisk arkivering ved første sitering er ikke på plass.</div>
+    </div>
+    <div class="card flex1">
+      <div class="kicker" style="margin-bottom:6px;">PDF- og dokumentkatalog</div>
+      <table>
+        <tr><td>Katalogiserte PDF-er (PDF-KATALOG, 04.07)</td><td class="num">436 · 23 559 sider · 2,0 GB</td></tr>
+        <tr><td>PDF-filer i mappen i dag</td><td class="num">120</td></tr>
+        <tr><td>Tekstspeilede kilder (external/-mirrors)</td><td class="num">264 filer</td></tr>
+        <tr><td>Sentralt kilderegister (APA-format)</td><td class="num">256 oppføringer</td></tr>
+        <tr><td>Analysenotater (pdf-gjennomgang mv.)</td><td class="num">41 filer</td></tr>
+      </table>
+      <div class="mono-note">Differansen 436→120 er arkivflytt/tekstspeiling — «skill lager fra syn»-opprydningen (MASTERPLAN §3.7) er reelt påbegynt, men katalog og disk er ikke i samme takt.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEPTH MATRIX ============ -->
+<section>
+  <h2>Bredde × dybde × ferskhet × kausalitet — dommen per kunnskapslag</h2>
+  <div class="sectionsub">Fra datagap-analysen 2026-07-06 (intern revisjon av alle kontrolldokumenter). Dette er den ærlige profilen: <em>komplett bredde, håndhevet ærlighet, tynn dybde, svak tidsdimensjon, ingen stemmer.</em></div>
+  <div class="card" style="overflow-x:auto;">
+    <table id="depthmatrix"></table>
+  </div>
+</section>
+
+<!-- ============ INSIGHTS ============ -->
+<section>
+  <h2>Innsikter hjernen allerede holder</h2>
+  <div class="sectionsub">Et utvalg av de sterkeste funnene på tvers av underlaget — låste tall er merket. (Endelige formuleringer skal alltid gjennom claim-lock/<code>gate:overclaim</code> før ekstern bruk.)</div>
+  <div class="grid cards3" id="insights"></div>
+</section>
+
+<!-- ============ GAP AGENDA ============ -->
+<section>
+  <h2>Prioritert innhentingsagenda — hva som faktisk bør hentes, i rekkefølge</h2>
+  <div class="sectionsub">Prioritering = (verdi for whitepaper/roadmap) × (lukkbarhet) ÷ (kostnad). Type A = desk research mot åpne kilder · B = krever aktørkontakt/betalt kilde · C = ingen kjent kilde måler dette (hullet er selv et funn).</div>
+  <div class="card" style="overflow-x:auto;">
+    <table id="gaptable"></table>
+    <div class="mono-note"><strong>Bevisst nedprioritert:</strong> mer bredde-deepening i celler på run-floor · URL-helse-restene (vedlikehold) · forsøk på å desk-lukke ekte C-hull (de skal dokumenteres og brukes som funn, ikke jaktes).</div>
+  </div>
+  <div class="card" style="margin-top:12px; overflow-x:auto;">
+    <div class="kicker" style="margin-bottom:6px;">Datakilder å skaffe, forhandle eller overvåke</div>
+    <table id="sourcetable"></table>
+  </div>
+</section>
+
+<!-- ============ ORGANS ============ -->
+<section>
+  <h2>Hjernens organer — modenhet mot målbildet</h2>
+  <div class="sectionsub">Masterplanens diagnose (2026-07-06): hukommelsen og samvittigheten er uvanlig sterke; sanser, tidssans, forestillingsevne og stemme er organene som gjenstår. Vurderingen under er skjønnsmessig (0–100) mot masterplanens eget målbilde.</div>
+  <div class="card" id="organs"></div>
+</section>
+
+<!-- ============ H0 ============ -->
+<section>
+  <h2>Kontraktsklokken — Horisont 0</h2>
+  <div class="sectionsub">Alt annet er underordnet leveransen: kontrakt P25013 løper ut <strong>31. juli 2026</strong>. Whitepaper-syntesen v2 er komplett på internt nivå; det som gjenstår er i all hovedsak <em>menneskegatet</em>.</div>
+  <div class="row">
+    <div class="card" style="flex:0 0 190px; text-align:center;">
+      <div class="label" style="font-size:12px; color:var(--ink-2);">Dager igjen av kontrakten</div>
+      <div class="hero-num" id="daysleft" style="margin-top:6px;">10</div>
+      <div class="note" style="font-size:11.5px; color:var(--ink-3); margin-top:4px;">21.07 → 31.07.2026</div>
+    </div>
+    <div class="card flex1" style="overflow-x:auto;">
+      <table id="h0table"></table>
+    </div>
+  </div>
+</section>
+
+<div class="foot">
+  <strong>Metode og kilder:</strong> Sammenstilt 21.07.2026 av KI-agent på hele prosjektmappen (4 326 filer / 717 MB; 3 851 innholdsfiler når infrastruktur holdes utenfor). Primærgrunnlag: <code>research/_status/academic-source-quality-status.{md,json}</code> (2026-07-20) · <code>research/_status/library-analysis-ledger.jsonl</code> (1 555 kilder) · <code>research/CITABLE-KNOWLEDGE-BASE-STATUS.md</code> (live readback 2026-07-21) · <code>research/_status/domene-dekning-hull-2026-07-02.md</code> (verifisert sum 1 634/1 651) · <code>research/KI-PRIORITY.csv</code> (208) · <code>research/URL-HEALTH.csv</code> (600) · <code>research/pdf-katalog.json</code> (436) · <code>data/vault-export/*</code> (DB-eksport 03.07) · <code>public/data/coverage/profiles.json</code> (03.07) · <code>DATAGAP-ANALYSE-2026-07-06.md</code> · <code>MASTERPLAN-2026-07-06.md</code> · <code>research/whitepaper/gap-list.md</code> (2026-07-15) · <code>research/_status/food-tg-research-backlog-2026-06-25.csv</code> (50 missions).<br>
+  DB-tall (55 431 selskaper, 179 311 subsidier, 244 516 feltsiteringer m.fl.) er hentet fra prosjektets egne kontrollrapporter med datoene angitt — ikke spurt live mot databasen. Intern bruk. Ingen formulering her er claim-locket for ekstern publisering.
+</div>
+
+</div>
+<div class="tooltip" id="tt"></div>
+
+<script>
+const nf = new Intl.NumberFormat('nb-NO');
+const $ = id => document.getElementById(id);
+
+/* ===================== DATA (beregnet 2026-07-21 fra kildefilene i footer) ===================== */
+const DATA = {
+  kpis: [
+    {label:'Filer i prosjektet', value:'4 326', note:'717 MB totalt · 3 851 innholdsfiler (693 MB) utenom infrastruktur'},
+    {label:'Kilder i biblioteket', value:'1 555', note:'library-analysis-ledger 20.07 — alle maskinbehandlet'},
+    {label:'Akademisk/ekstern evidens', value:'417', note:'139 rapporter · 79 avhandlinger · 199 kildedokumenter (DB)'},
+    {label:'Feltsiteringer', value:'244 516', note:'2 703 kildesiteringer; 217 blocked_unsourced forblir fail-closed'},
+    {label:'Selskaper i basen', value:'55 431', note:'(audit 27.04) · 351 i kuratert graf · 160 eierskapskanter · 1 800 styreverv (eksport 03.07)'},
+    {label:'Subsidieposter', value:'179 311', note:'Produksjonstilskudd 2025 (Landbruksdirektoratet; profil 03.07)'},
+    {label:'App-flater', value:'51', note:'sider i Next.js-appen · 318 npm-scripts · egen MCP-server'},
+    {label:'Markdown-notater', value:'2 379', note:'analyser, kildespeil, møter, kontrolldokumenter'},
+  ],
+  verdict: [
+    {level:'crit', icon:'✕', title:'JA — menneskedata (størst hull)', text:'0 gjennomførte intervjuer mot 244 516 feltsiteringer. Mission 1/2-pakkene er beslutningsklare, men personvern, scope, mottaker og review må lukkes før eventuell sending.'},
+    {level:'serious', icon:'⚠', title:'JA — metodegated aktivitetssignal', text:'Registrene bekrefter eksistens, ikke drift. Sjømatutvalget på 270 org.nr. mangler felles entity resolution og domenevis signaldefinisjon; MTB er kapasitet, ikke faktisk biomasse. Ingen rad oppgraderes automatisk.'},
+    {level:'serious', icon:'⚠', title:'JA — strukturert kildevurdering', text:'Metadata er sterk, men appraisal står på 0 av 417. Tre piloter venter navngitt fulltekstreview; produksjonsgaten må lukkes før en topp-50-kø åpnes.'},
+    {level:'good', icon:'✓', title:'NEI — ikke mer bredde nå', text:'Aktørgulvet er nådd (1 634/1 651), universene er estimert per celle, og mer bredde-deepening gir marginal verdi. Unntak: insekt-protein (7/20) og matredistribusjon (15/20) hvis nye kilder dukker opp.'},
+  ],
+  domains: [
+    {name:'Primærproduksjon', mapped:350, uni:350, conf:'lav'},
+    {name:'Lokale verdikjeder', mapped:251, uni:258, conf:'middels'},
+    {name:'Foredling & industri', mapped:140, uni:140, conf:'lav'},
+    {name:'Distribusjon & grossist', mapped:120, uni:120, conf:'lav'},
+    {name:'Matsvinn & sirkulær', mapped:104, uni:120, conf:'lav'},
+    {name:'Regenerativ praksis', mapped:91, uni:89, conf:'lav'},
+    {name:'Permakultur & flerårige', mapped:81, uni:77, conf:'lav'},
+    {name:'Innsatsfaktorer', mapped:80, uni:80, conf:'lav'},
+    {name:'HoReCa & offentlig mat', mapped:60, uni:60, conf:'lav'},
+    {name:'Interesseorg & paraply', mapped:60, uni:60, conf:'lav'},
+    {name:'Finansiering & investering', mapped:60, uni:60, conf:'lav'},
+    {name:'Institusjon & finansiering', mapped:49, uni:49, conf:'middels'},
+    {name:'FoU-institusjoner', mapped:44, uni:44, conf:'lav'},
+    {name:'Handel & dagligvare', mapped:40, uni:40, conf:'lav'},
+    {name:'Økologi & sertifisering', mapped:40, uni:40, conf:'lav'},
+    {name:'Virkemiddel & policy', mapped:34, uni:34, conf:'lav'},
+    {name:'Forbrukerledd', mapped:30, uni:30, conf:'lav'},
+  ],
+  nordic: [ {c:'NO', v:73},{c:'IS', v:53},{c:'SE', v:50},{c:'DK', v:47},{c:'FI', v:46} ],
+  gates: [
+    {v:'244 516', l:'Feltsiteringer (celle → kilde)', p:'live readback 21.07'},
+    {v:'2 703', l:'Kildesiteringer (SourceCitation)', p:'strict gate grønn; akademisk NOT READY'},
+    {v:'2 222', l:'Siterbar med metodenote', p:'citable_with_note'},
+    {v:'154', l:'Siterbar eksternt', p:'citable_external'},
+    {v:'11 / 16', l:'Acceptance-pack cite-ready', p:'5 fail-closed-blokkert'},
+  ],
+  classes: [
+    {name:'Akademisk (master/ph.d./akademia)', n:102, color:'var(--s1)'},
+    {name:'Offentlig & tilsyn', n:59, color:'var(--s2)'},
+    {name:'Bransje', n:27, color:'var(--s3)'},
+    {name:'Tenketank/konsulent/øvrig', n:20, color:'var(--s4)'},
+  ],
+  years: {2005:2,2006:1,2010:1,2011:2,2012:1,2013:2,2014:2,2015:3,2016:7,2017:9,2018:2,2019:7,2020:5,2021:8,2022:9,2023:24,2024:68,2025:48,2026:7},
+  meta: [
+    {felt:'Årstall', r:100, t:100, s:85.9},
+    {felt:'Institusjon/attribusjon', r:100, t:100, s:93.0},
+    {felt:'Gyldig kilde-URL', r:90.6, t:100, s:59.3},
+    {felt:'Tilgangsdato (accessedAt)', r:66.2, t:98.7, s:39.2},
+    {felt:'DOI / varig identifikator', r:15.8, t:46.8, s:5.0},
+    {felt:'SourceDoc.archivedUrl', r:null, t:null, s:0},
+    {felt:'Strukturert kildevurdering', r:0, t:0, s:0},
+  ],
+  lib: [
+    {name:'KI-utkast', n:1427, color:'var(--seq-100)', ink:'var(--ink-1)'},
+    {name:'Review-kø', n:89, color:'var(--seq-300)', ink:'#fff'},
+    {name:'Godkjent for KI-kontekst', n:35, color:'var(--seq-550)', ink:'#fff'},
+    {name:'Blokkert', n:4, color:'var(--crit)', ink:'#fff'},
+  ],
+  url: [
+    {name:'OK', n:506, color:'var(--good)', icon:'✓'},
+    {name:'Blokkert (paywall/robots)', n:49, color:'var(--warn)', icon:'⚠'},
+    {name:'Døde', n:41, color:'var(--crit)', icon:'✕'},
+    {name:'Annet', n:4, color:'var(--baseline)', icon:'·'},
+  ],
+  depth: [
+    {lag:'Konserntrær / norske majors', d:['god','god','god','middels'], dom:'Sterkest lag — 11+ komplette trær, 5-års finanser'},
+    {lag:'Domeneaktører (1 634 · 17 steg)', d:['god','svak','svak','ingen'], dom:'Bredde uten dybde (actor-gate)'},
+    {lag:'Materialstrømmer / N-P-K', d:['ingen','mangler','ingen','ingen'], dom:'Største substanshull — 12 VK4-gap åpne'},
+    {lag:'Nordisk (SE/DK/FI/IS)', d:['svak','svak','middels','svak'], dom:'Asymmetrisk mot NO — FI/IS 15+1 er uimportert og source/model-gated'},
+    {lag:'Lokale verdikjeder (REKO/CSA)', d:['god','svak','svak','svak'], dom:'Eksistens ≠ aktivitet (2022-tall)'},
+    {lag:'Økologi / jordhelse / biodiversitet', d:['middels','svak','middels','svak'], dom:'Ekte type-C-tyngdepunkt (nasjonale målinger finnes ikke)'},
+    {lag:'Makt/eierskap utover majors', d:['middels','svak','middels','middels'], dom:'Type B — founder/aksjonærdata bak betalingsmur'},
+    {lag:'Kvalitativt / menneskelig', d:['ingen','ingen','ingen','ingen'], dom:'0 intervjuer — eneste lag med hard kontraktskobling'},
+  ],
+  insights: [
+    {tag:'Låst tall · CA-004', title:'Dagligvaremakt: HHI 3 327, CR3 96,6 %', text:'Omsetnings-HHI for norsk dagligvare 2024 er kontrollert og cite-ready, med CR3 på 96,6 %. (Eldre 3 445 er historikk/butikkantalls-proxy og skal ikke gjenbrukes.)', src:'research/CITABLE-ACCEPTANCE-TESTS.md · CITABLE-KNOWLEDGE-BASE-STATUS.md'},
+    {tag:'Sårbarhet', title:'ASKO Vestby som systemisk enkeltpunkt', text:'Logistikkavhengigheten er alt formulert som pilotbrief (04-asko-vestby-dependency-model) og peker mot nettverksanalyse av sentralitet som neste modellerte sårbarhetsindikator.', src:'research/evidence-pack/pilot-briefs/'},
+    {tag:'Funn av fravær', title:'«Det Norge ikke måler» — daterte målegrenser', text:'JordVAAK er lansert uten publisert nasjonal baseline; insektserien er for kort for robust trend; korn må skille 82 500 tonn kontrahert mål i 2029 fra 30 000 tonn faktisk lager ved utgangen av 2025. For oppdrettsslam, digestat og øvrige noder er formuleringen «prosjektet har ikke identifisert en harmonisert åpen serie», ikke absolutt fravær.', src:'research/forstaelse/det-norge-ikke-maaler.md · V2 kap. 11'},
+    {tag:'Sirkularitet', title:'25 dokumenterte løkker — 37 dokumenterte hull', text:'Sirkularitetslaget holder 25 eksisterende løkker (med TRL/R-nivå), 37 gap med barrierer og policy-hendler, pluss 14 suksess- og 10 fiaskocase — inkludert konkursledgeren (Rest, Enorm, Mycorena, Infarm).', src:'public/data/food-systems/circularity-loops.json'},
+    {tag:'Dekningskontrollert', title:'0 nordiske styre-interlocks funnet — så langt', text:'Med 118 seter dekket i 14 av 61 selskaper er dette et dekningskontrollert negativt funn, ikke et funn om virkeligheten. Tilgangsruten varierer per land, og ingen nordisk innhentingsadapter eller gratis dekningsdobling er dokumentert.', src:'research/_status/nordic-board-ownership-audit-2026-07-02.md'},
+    {tag:'Marked', title:'Loven alle kjenner, nesten ingen bruker', text:'89–95 % av leverandørene kjenner Lov om god handelsskikk; nesten ingen påberoper seg den. Fryktkultur-mekanismen er sekundærkildebasert — intervjuene (Mission 1) er det som kan gjøre den til egen evidens.', src:'DATAGAP §3.9 · whitepaper §3/§5'},
+    {tag:'Import', title:'Importnodene er kartlagt, kapasitetene er ikke', text:'Fosfat, fôrprotein, fiskeolje, soya, kaffe og kakao er PCQ-kontrollert på hovedserier, men sammenlignbar nodekapasitet mangler. Innsynsavslag er et tilgangsutfall som må reviewes; det beviser ikke automatisk at dataserien ikke finnes.', src:'R13-GAP-001/003 · DATAGAP §3.4'},
+    {tag:'Metode', title:'Ærligheten er håndhevet av kode', text:'Fail-closed-prinsippet står: 217 blocked_unsourced-rader er fortsatt blokkert, eksterne blocking citation issues er 0, og 5 av 16 acceptance-claims er bevisst blokkert. «Kapasitet ≠ realisert volum» håndheves i porter.', src:'MASTERPLAN §7 · audit:citable-kjeden'},
+  ],
+  gaps: [
+    {tier:'Tier 1 — før 31. juli', rows:[
+      ['1','Mission 1-intervjuer (leverandør, produsent, grossist-uavh., kommune, gründer)','B','eier/personvern/review','Beslutningsklart; ikke sendt'],
+      ['2','Mission 2 nordisk partnervalidering (separate SE/DK-tabeller)','B','mottaker/scope/review','4 SE + 5 DK fylt; ikke sendt/partnerbekreftet'],
+      ['3','FI/IS 2025-finanser + metodenote municipal-HHI','A','kilde/modell/PCQ','15+1; canApply:false'],
+      ['4','«Det Norge ikke måler»-boks: dater målegrensen per hull','A/C','claim-review','Datert kandidat, ikke lukket'],
+    ]},
+    {tier:'Tier 2 — Horisont 1 (aug–des 2026): konfidens-oppgradering', rows:[
+      ['5','Aktivitetssignal for frosset sjømatutvalg (120 havbruk + 150 villfisk)','A','entity resolution + signalvalg','MTB ≠ faktisk biomasse'],
+      ['6','Aksjonær-/founder-lag: Skatteetatens aksjonærregister + årsrapportnoter (topp 50)','A/B','innsyn + Proff-abo.',''],
+      ['7','REKO/CSA 2026-aktivitetsstatus: årsmeldinger + admin-survey','A→B','survey-mission',''],
+      ['8','N/P/K-tabellskjelett (VK4-GAP-007): kontrakt/shortlist, ingen fylte Type A-celler','A','primærlokator + PCQ per celle','Legacy-JSON er proxy/modell'],
+      ['9','Alt-protein realisert volum: utvalg/metode mangler','A/B','direkte tonnasje eller actor-gate','Finans er bare aktivitetssignal'],
+      ['10','Innsynsrunde DSB/Landbruksdir. lagerkapasitet + DFØ/KS innkjøpsdata','A/C','avsender/scope/juridisk review','Avslag ≠ automatisk C'],
+    ]},
+    {tier:'Tier 3 — Horisont 2/3 (2027+): design og porter', rows:[
+      ['11','Nordisk MVK-replikering 3×2','A/B','univers/ID/lisens/validator','Importskjelett, ingen operasjonell batch'],
+      ['12','Nordisk styre-/eierskapsdekning 14 → 61 selskaper','A/B','source/access/personvern','Baseline-audit, ingen adapter/prognose'],
+      ['13','Subsektor-HHI som tidsserie','A/B','marked/nevner/konsolidering','Ingen målserie; pilot minst tre år'],
+      ['14','Materialstrømlag v1 + sårbarhetsindeks','A+modell','celleledger + indeks-spec','Full N/P/K forblir H3'],
+      ['15','Kausalitets-caseklasse med evidensgradering','B/hyp.','pilotcase + metodereview','Uvalidert mal; 0 case'],
+      ['16','Kanalfordeling lokalmat','B','taksonomi/kilde/lisens/budsjett','Parkert'],
+    ]},
+  ],
+  sources: [
+    ['Fiskeridirektoratets akvakultur-, landings- og fartøykilder','Kandidatsignal for 270-raders prosjektutvalg','Delvis brukt; kobling/metode mangler','Verifiser per uttrekk'],
+    ['Skatteetatens aksjonærregister','Eier-/founderlag under konserntrærne','Innsyn, arbeidskrevende','Gratis/tid'],
+    ['Proff/Forvalt-abonnement','Roller, engasjementer, regnskap i dybden','Ikke anskaffet','Lav'],
+    ['Mattilsynets tilsynsdata','Aktivitets-/kvalitetssignal foredling & HORECA','Delvis åpen','Gratis'],
+    ['Landbruksdirektoratet PT-mikrodata','Produsentaktivitet, arealbruk','Søknadsbasert','Tid'],
+    ['DFØ/KS innkjøpsdata','Offentlig mat-innkjøpsvolum','Spredt, innsynsrunde','Tid'],
+    ['Matvett/bransjeavtalens 2025-rapport','Matsvinn-baseline','Publiseres løpende','Gratis'],
+    ['Bolagsverket / Virk / PRH og alternativer','Nordisk aktør- og styredybde','Source/access-gated per land','Uavklart lisens/kostnad'],
+    ['Handelsdata (Nielsen/GfK-klasse)','Kanalfordeling, markedsandeler','Kommersiell','Høy — kun ved finansiering'],
+    ['NIBIO JordVAAK/NSCM','SOC-baseline når den kommer','Overvåk halvårlig','Gratis'],
+  ],
+  organs: [
+    {name:'Hukommelse', v:85, note:'48 Prisma-modeller, 1 555 kilder, 51 app-flater, 318 scripts, MCP-server, Obsidian-vault (540 maktkart-noder). Mangler: én kilde til sannhet — katalog/disk/DB i utakt.'},
+    {name:'Samvittighet', v:92, note:'Claim-lock, PCQ, fail-closed, universe-estimat og mottakslogg. 217 blocked_unsourced-rader forblir blokkert; eksterne blocking issues er 0. Mangler: appraisal-laget (0/417) og formalisert fagråd.'},
+    {name:'Sanser', v:8, note:'0 selvoppdagede endringer/mnd. Brreg-endringsagenten er spesifisert (design-notat = handling 7), bygges etter 31. juli. URL-helse kjøres manuelt.'},
+    {name:'Tidssans', v:5, note:'~0 % temporale kanter; kunnskapen er fryst i importøyeblikket. Vedtak: alle nye kanter bitemporale (validFrom/validTo/recordedAt) fra neste migrasjon.'},
+    {name:'Forestillingsevne', v:22, note:'Frøene finnes (emergence-simulation, bootstrap-material-flows, 25 løkker, N/P/K-skjema, HHI-serier) — men ingen kvantifisert strømmodell eller scenariomotor ennå.'},
+    {name:'Stemme', v:30, note:'51 interne flater, hvitbok-flate med proveniens, hybrid-søk, MCP — men 1–2 brukere, ingen offentlig flate, ingen API-forbrukere. Blokkert av personvernpolicy (beslutning §6.2).'},
+  ],
+  h0: [
+    ['M16 — Roadmap-utkast','Roadmap v0.2-draft finnes (docs/project/mandates)','Formell eiergodkjenning','delvis'],
+    ['M17 — Publiser roadmap + offentlig event (uke 20.–26. juli!)','Hvitbok-flate + synthesis v2 komplett internt','Event-go, dato, format, talere — og publiseringsvedtak','kritisk'],
+    ['M18 — Videreføringsplan','Continuation-plan-draft finnes','Organisatorisk hjem, budsjett, finansiering må vedtas','delvis'],
+    ['Mission 1 — intervjuer','Guider og målgrupper klare','Gjennomføring + samtykke + sitatgodkjenning','åpen'],
+    ['Mission 2 — nordisk validering','Valideringstabell fra DB klar','Respons fra Michel/Betina','åpen'],
+    ['Personvern-/publiseringspolicy','Risiko identifisert; publication_tier foreslått','Eierbeslutning + juridisk lesning — blokkerer all offentlig flate','kritisk'],
+    ['NordForsk-søknad (frist 02.12.2026)','Observatoriet-som-infrastruktur-argumentet formulert','Søknadsskisse startes nå (handling 5)','åpen'],
+  ],
+};
+
+/* ===================== RENDER ===================== */
+// KPI tiles
+$('kpis').innerHTML = DATA.kpis.map(k=>`<div class="card tile"><div class="label">${k.label}</div><div class="value">${k.value}</div><div class="note">${k.note}</div></div>`).join('');
+
+// Verdict
+const lv = {crit:['st-crit','var(--crit)'], serious:['st-serious','var(--serious)'], good:['st-good','var(--good)'], warn:['st-warn','var(--warn)']};
+$('verdict').innerHTML = DATA.verdict.map(v=>`<div class="card vcard" style="border-left-color:${lv[v.level][1]}"><span class="tag"><span class="statuschip ${lv[v.level][0]}">${v.icon}</span> ${v.title}</span><p>${v.text}</p></div>`).join('');
+
+// Value chain meters
+const conf = {'høy':'●','middels':'◐','lav':'○'};
+$('vk').innerHTML = DATA.domains.map(d=>{
+  const pct = d.uni? Math.min(100, d.mapped/d.uni*100) : 0;
+  return `<div class="meterline" data-tt="${d.name}: ${nf.format(d.mapped)} kartlagt av ~${nf.format(d.uni)} estimert (${pct.toFixed(0)} %) · konfidens: ${d.conf}">
+    <div class="name">${conf[d.conf]} ${d.name}</div>
+    <div class="track"><div class="fill" style="width:${pct}%"></div></div>
+    <div class="val">${nf.format(d.mapped)} / ${nf.format(d.uni)}</div></div>`;
+}).join('');
+
+// confidence stack (70 cells)
+const confdata = [{n:2,c:'var(--seq-550)',l:'høy'},{n:9,c:'var(--seq-300)',l:'middels'},{n:59,c:'var(--seq-100)',l:'lav'}];
+$('confbar').innerHTML = confdata.map(x=>`<div class="seg" data-tt="${x.l}: ${x.n} av 70 celler" style="flex:${x.n}; background:${x.c}"></div>`).join('');
+
+// nordic bars
+const maxN = Math.max(...DATA.nordic.map(x=>x.v));
+$('nordic').innerHTML = DATA.nordic.map(x=>`<div class="meterline" style="grid-template-columns:34px 1fr 40px;" data-tt="${x.c}: ${x.v} utfylte felt i verdikjedemodellen">
+  <div class="name">${x.c}</div><div class="track" style="height:12px;"><div class="fill" style="width:${x.v/maxN*100}%; background:${x.c==='NO'?'var(--seq-550)':'var(--seq-300)'}"></div></div><div class="val">${x.v}</div></div>`).join('');
+
+// gates
+$('gates').innerHTML = DATA.gates.map((g,i)=>`<div class="gate"><div class="gv" style="color:${['var(--ink-1)','var(--ink-1)','var(--ink-1)','var(--seq-450)','var(--seq-450)'][i]}">${g.v}</div><div class="gl">${g.l}</div><div class="gp">${g.p}</div></div>`).join('');
+
+// class stacked bar
+const ctot = DATA.classes.reduce((a,b)=>a+b.n,0);
+$('classbar').innerHTML = DATA.classes.map(c=>`<div class="seg" data-tt="${c.name}: ${c.n} (${(c.n/ctot*100).toFixed(1)} %)" style="flex:${c.n}; background:${c.color}"><span style="color:#fff;">${c.n}</span></div>`).join('');
+$('classlegend').innerHTML = DATA.classes.map(c=>`<span class="key"><span class="sw" style="background:${c.color}"></span>${c.name}</span>`).join('');
+
+// years histogram (SVG)
+(function(){
+  const ys = Object.entries(DATA.years).map(([y,n])=>({y:+y,n}));
+  const W=520,H=150,P={l:8,r:8,t:14,b:22};
+  const bw = Math.min(24,(W-P.l-P.r)/ys.length - 2);
+  const maxY = Math.max(...ys.map(d=>d.n));
+  let s = `<svg viewBox="0 0 ${W} ${H}" style="width:100%; height:auto;" role="img" aria-label="Publiseringsår for 208 KI-prioriterte kilder">`;
+  [0, 35, 70].forEach(v=>{ const yy=H-P.b-(v/maxY)*(H-P.t-P.b); if(v>0) s+=`<line x1="${P.l}" x2="${W-P.r}" y1="${yy}" y2="${yy}" stroke="var(--grid)" stroke-width="1"/>`;});
+  ys.forEach((d,i)=>{
+    const x = P.l + i*((W-P.l-P.r)/ys.length) + 1;
+    const h = Math.max(2,(d.n/maxY)*(H-P.t-P.b));
+    const y = H-P.b-h;
+    const col = d.y>=2023 ? 'var(--seq-450)' : 'var(--grid)';
+    s += `<rect x="${x}" y="${y}" width="${bw}" height="${h}" fill="${col}" rx="3" ry="3" data-tt="${d.y}: ${d.n} kilder"/>`;
+    s += `<rect x="${x}" y="${H-P.b-2}" width="${bw}" height="2" fill="${col}"/>`;
+    if (d.n===maxY) s += `<text x="${x+bw/2}" y="${y-4}" text-anchor="middle" font-size="10" fill="var(--ink-2)" font-weight="600">${d.n}</text>`;
+    if ([2005,2015,2020,2024,2026].includes(d.y)) s += `<text x="${x+bw/2}" y="${H-7}" text-anchor="middle" font-size="9.5" fill="var(--ink-3)">${d.y}</text>`;
+  });
+  s += `<line x1="${P.l}" x2="${W-P.r}" y1="${H-P.b}" y2="${H-P.b}" stroke="var(--baseline)" stroke-width="1"/></svg>`;
+  $('years').innerHTML = s;
+})();
+
+// meta table (heat)
+(function(){
+  const cols = ['Rapporter (139)','Avhandlinger (79)','Kildedok (199)'];
+  let h = `<tr><th>Metadatafelt</th>${cols.map(c=>`<th class="num">${c}</th>`).join('')}</tr>`;
+  DATA.meta.forEach(m=>{
+    h += `<tr><td>${m.felt}</td>` + [m.r,m.t,m.s].map(v=>{
+      if (v===null) return `<td class="num" style="color:var(--ink-3)">–</td>`;
+      const bg = v===0 ? 'transparent' : `color-mix(in srgb, var(--seq-450) ${Math.round(8+v*0.55)}%, transparent)`;
+      const mark = v===0 ? `<span class="statuschip st-crit" style="font-size:10.5px;">✕ 0 %</span>` : `${v.toFixed(v>=99.95?0:1).replace('.',',')} %`;
+      return `<td class="num" style="background:${bg}">${mark}</td>`;
+    }).join('') + `</tr>`;
+  });
+  $('metatable').innerHTML = h;
+})();
+
+// library stacked
+const ltot = DATA.lib.reduce((a,b)=>a+b.n,0);
+$('libbar').innerHTML = DATA.lib.map(c=>`<div class="seg" data-tt="${c.name}: ${nf.format(c.n)} (${(c.n/ltot*100).toFixed(1)} %)" style="flex:${c.n}; background:${c.color}">${c.n>60?`<span style="color:${c.ink}">${nf.format(c.n)}</span>`:''}</div>`).join('');
+$('liblegend').innerHTML = DATA.lib.map(c=>`<span class="key"><span class="sw" style="background:${c.color}"></span>${c.name}</span>`).join('');
+
+// URL stacked
+const utot = DATA.url.reduce((a,b)=>a+b.n,0);
+$('urlbar').innerHTML = DATA.url.map(c=>`<div class="seg" data-tt="${c.name}: ${c.n} av ${utot}" style="flex:${c.n}; background:${c.color}">${c.n>40?`<span style="color:#fff;">${c.icon} ${c.n}</span>`:''}</div>`).join('');
+$('urllegend').innerHTML = DATA.url.map(c=>`<span class="key"><span class="sw" style="background:${c.color}"></span>${c.icon} ${c.name} (${c.n})</span>`).join('');
+
+// depth matrix
+(function(){
+  const dims = ['Bredde','Dybde','Ferskhet','Kausalitet'];
+  const map = {god:['st-good','✓ god'], middels:['st-warn','~ middels'], svak:['st-serious','⚠ svak'], mangler:['st-crit','✕ mangler'], ingen:['st-crit','✕ ingen']};
+  let h = `<tr><th>Kunnskapslag</th>${dims.map(d=>`<th>${d}</th>`).join('')}<th>Dom</th></tr>`;
+  DATA.depth.forEach(r=>{
+    h += `<tr><td>${r.lag}</td>` + r.d.map(v=>`<td><span class="statuschip ${map[v][0]}">${map[v][1]}</span></td>`).join('') + `<td style="font-size:11.5px;">${r.dom}</td></tr>`;
+  });
+  $('depthmatrix').innerHTML = h;
+})();
+
+// insights
+$('insights').innerHTML = DATA.insights.map(i=>`<div class="card icard"><div class="itag">${i.tag}</div><h3>${i.title}</h3><p>${i.text}</p><div class="src">${i.src}</div></div>`).join('');
+
+// gap tables
+(function(){
+  let h = '';
+  DATA.gaps.forEach(g=>{
+    h += `<tr><th colspan="5" style="padding-top:14px; color:var(--ink-1); font-size:12.5px;">${g.tier}</th></tr>`;
+    h += `<tr><th style="width:26px;">#</th><th>Oppgave</th><th style="width:70px;">Type</th><th style="width:90px;">Gate/metode</th><th>Innsats/merknad</th></tr>`;
+    g.rows.forEach(r=>{ h += `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td style="font-size:11.5px;">${r[3]}</td><td style="font-size:11.5px;">${r[4]}</td></tr>`; });
+  });
+  $('gaptable').innerHTML = h;
+  $('sourcetable').innerHTML = `<tr><th>Kilde</th><th>Gir</th><th>Status</th><th>Kostnad</th></tr>` +
+    DATA.sources.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('');
+})();
+
+// organs
+$('organs').innerHTML = DATA.organs.map(o=>`
+  <div class="organ" data-tt="${o.name}: ${o.v}/100 mot masterplanens målbilde">
+    <div class="oname">${o.name}</div>
+    <div class="track" style="height:12px;"><div class="fill" style="width:${o.v}%"></div></div>
+    <div class="val" style="font-size:12px; color:var(--ink-2); text-align:right; font-variant-numeric:tabular-nums;">${o.v} / 100</div>
+  </div><div class="organ" style="padding:0;"><div class="onote">${o.note}</div></div>`).join('');
+
+// H0 table
+(function(){
+  const map = {kritisk:['st-crit','✕ kritisk'], delvis:['st-warn','~ delvis'], 'åpen':['st-serious','⚠ åpen']};
+  $('h0table').innerHTML = `<tr><th>Milepæl / gate</th><th>Det som finnes</th><th>Det som gjenstår (menneskegatet)</th><th style="width:90px;">Status</th></tr>` +
+    DATA.h0.map(r=>`<tr><td>${r[0]}</td><td style="font-size:11.5px;">${r[1]}</td><td style="font-size:11.5px;">${r[2]}</td><td><span class="statuschip ${map[r[3]][0]}">${map[r[3]][1]}</span></td></tr>`).join('');
+})();
+
+// days left
+(function(){ const end = new Date('2026-07-31T23:59:59'); const now = new Date();
+  $('daysleft').textContent = Math.max(0, Math.ceil((end-now)/86400000)); })();
+
+// tooltip
+const tt = $('tt');
+document.addEventListener('mousemove', e=>{
+  const el = e.target.closest('[data-tt]');
+  if (el){ tt.style.display='block'; tt.textContent = el.getAttribute('data-tt');
+    tt.style.left = Math.min(window.innerWidth-300, e.clientX+14)+'px'; tt.style.top = (e.clientY+16)+'px';
+  } else tt.style.display='none';
+});
+
+// theme toggle
+$('themebtn').addEventListener('click', ()=>{
+  const r = document.documentElement;
+  const cur = r.getAttribute('data-theme');
+  const dark = cur ? cur==='dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  r.setAttribute('data-theme', dark ? 'light' : 'dark');
+});
+</script>
+</div>
+</body>
+</html>

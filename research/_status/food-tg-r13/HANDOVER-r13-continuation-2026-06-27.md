@@ -1,12 +1,19 @@
 ---
 tittel: Food TG R13 — continuation handover
 dato: 2026-06-27
-status: Intern arbeidsnotat — ikke faktastemme
+status: Supersedert historisk arbeidsnotat — ikke faktastemme
 branch: claude/brukerveiledning-readiness-2026-06-18
 formål: La en senere sesjon ta opp R13-kjøringen uten kontekst-tap.
+supersedert_av: research/_status/food-tg-r13/r13-intake-index-2026-06-25.md
+supersedert_dato: 2026-07-15
 ---
 
 # R13 continuation handover (2026-06-27)
+
+> **Supersedert status:** Denne filen bevares som historisk oppskrift fra da 8
+> av 50 prompter var mottatt. R13 er senere mottaksført 50/50 gjennom batch 13.
+> Bruk [r13-intake-index-2026-06-25.md](./r13-intake-index-2026-06-25.md) som
+> gjeldende triage- og statusflate.
 
 ## Hvor vi er
 - **8 / 50** prompts kjørt og mottaksført. Batch **01** og **02** komplett.

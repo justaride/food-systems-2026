@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "corpus-evidence-health-v1",
+  "documentKind": "corpus_health_current_pointer",
+  "assessmentId": "health.assessment.2026-07-27.local.f7148da4",
+  "assessmentContentHash": "sha256:8abe3c56f4af57ad79b27391227d957351329412559b840d6938fd52bfeab5b1",
+  "sourceSnapshotSetId": "health.snapshot_set.2026-07-27.f7148da4",
+  "sourceSnapshotSetHash": "sha256:b9655daa0cc3a5623365f10e1cbcbf4033715d99f178c5e29d12792162ab1f4b",
+  "baselineAdoptionStatus": "proposed",
+  "generatedAt": "2026-07-27T22:15:05.000Z",
+  "warning": "Current pointer only. Read the immutable assessment and its source snapshots; this is not a subject-coverage claim.",
+  "contentHash": "sha256:155e87cdd11fd3a45c1d2d38d551229d9f29ed7690a492cd38ee8b6eb15c68b5"
+}

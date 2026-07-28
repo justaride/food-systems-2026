@@ -10,12 +10,16 @@ Every question states the source type, readiness level, allowed evidence, disall
 - Expected source type: municipal/public procurement source plus audited report package
 - Required citation readiness: `citable_with_note`
 - Must use:
+  - https://www.kk.dk/dagsordener-og-referater/%C3%98konomiudvalget/m%C3%B8de-18032025/referat/punkt-10
+  - https://www.kk.dk/sites/default/files/agenda/93138585-f5a0-47a5-b500-a21cc5033912/816b7e92-7d10-403a-a631-4c742327c643-bilag-2.pdf
+  - https://www.kk.dk/sites/default/files/2025-08/Status%20p%C3%A5%20K%C3%B8benhavn%202025%20UA.pdf
   - public/reports/nordisk-sirkularitetsrapport-2026-05.html
   - docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md
 - Must not use:
-  - Eldre København 84%-formulering uten 2024/peak-kontekst
+  - 85 % i 2024, 85 % i 2015 eller 90 % som oppnådd topp i 2015
+  - København-tallet som generell nasjonal dansk økologiandel
   - Generert README-linjetall eller filstørrelse som kvalitetsbevis
-- Known caveat: Bruk 85% i 2024 og skill det fra peak 90% i 2015; forklar at dette er procurement-benchmark, ikke generell nasjonal DK-andel.
+- Known caveat: Bruk 87,7 % i 2024 (kommunens vedtaksside: nesten 88 %) og 88 % i 2015. Tallene gjelder økologi i Københavns kommunale institusjoner og kjøkken. Dagens nivå bygger på innkjøpsdata, mens 2015-tallet hadde et eldre, blandet målegrunnlag. Dette er ikke en metodeidentisk tidsserie eller en nasjonal dansk økologiandel.
 
 ## CA-002: Kan T3-diffen siteres som ekstern validering av rapportens konklusjoner?
 
@@ -91,12 +95,15 @@ Every question states the source type, readiness level, allowed evidence, disall
 - Expected source type: company or audited report source with scope note
 - Required citation readiness: `citable_with_note`
 - Must use:
+  - https://digitalassets.sallinggroup.com/raw/upload/fl_attachment:Annual%20report%202024%252epdf/external_content_providers/magnolia/next/jcr:c5f40c7a-153b-434d-8d7f-3c1eafb3dafe
   - public/reports/nordisk-sirkularitetsrapport-2026-05.html
   - docs/project/mandates/nordisk-sirkularitetsrapport-appendiks-2026-05.md
 - Must not use:
-  - Halvering
-  - Uten scope-note om food waste percentage og baseline
-- Known caveat: Bruk 2,8% baseline 2015 til 1,8% i 2024 (-34,8%), ikke halvering.
+  - Halvering som realisert reduksjon
+  - -34,8% som reduksjonstall i den eksterne formuleringen
+  - Relativ reduksjon uten eksplisitt avledningsnote fra avrundede endepunkter
+  - Uten scope-note om food waste percentage og dansk virksomhet
+- Known caveat: Bruk 2,8 % i 2015 til 1,8 % i 2024 for Salling Groups danske virksomhet: en nedgang på 1,0 prosentpoeng. Dette er ikke en halvering. Utelat relativ prosent med mindre den eksplisitt avledes fra de avrundede endepunktene.
 
 ## CA-008: Kan eierskaps- og selskapsstrukturer brukes eksternt fra selskapssidene?
 
