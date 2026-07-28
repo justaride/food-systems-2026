@@ -2,9 +2,9 @@
 
 Foundation snapshot: 2026-07-26
 
-Gate 1 corpus-health snapshot: 2026-07-27
+Gate 1 corpus-health snapshot: 2026-07-28
 
-Base commit: `f7148da4bf679b7cbe187a2763a199b6fbba6e35`
+Base commit: pinned by the generated assessment and generation manifest
 
 Status: internal proposal; not externally citable and not an adoption receipt
 
@@ -18,24 +18,24 @@ The new foundation therefore records **6,948 defined scope cells, 117 neutral sc
 
 Gate 1 is now generated as a separate corpus/evidence-health observatory. Its current decision is **NO-GO** for reproducible internal analysis, external evidence support and observatory operation; only internal discovery is `ready_with_warnings`. This does not change the subject-coverage ledger. It explains whether the material can safely support a named use.
 
-## Gate 1 direct readback and lineage blocker
+## Gate 1 direct readback and remaining blockers
 
-The [hash-bound Gate 1 assessment](health/corpus-health-report.v1.md) found that the local database is not reproducible from this branch:
+The [hash-bound Gate 1 assessment](health/corpus-health-report.v1.md) confirms that the canonical branch now contains the database-hardening lineage. Repository migration names and SQL checksums reproduce exactly against the local database, while identity, appraisal, archive and operational gates remain open:
 
-| Direct observation, 2026-07-27 | Current result | Consequence |
+| Direct observation, 2026-07-28 | Current result | Consequence |
 |---|---:|---|
-| HEAD migration directories | 14 | Current code is missing seventeen migrations completed in the local database. |
-| Local database completed migrations | 31 | The schema and migration set match divergent hardening commit `407d984d61fb97392dfc25992c54e6e320e54b2d`; it is not an ancestor of this HEAD. |
-| HEAD seed evidence rows | 392 = 132 reports + 78 theses + 182 SourceDocs | `npm run audit:academic-source-quality` currently exits 1 because SourceDoc URL coverage is 99/182, below the 55% minimum. |
-| Local database evidence rows | 417 = 139 reports + 79 theses + 199 SourceDocs | Twenty-five database identities are absent from current seeds. This is a local runtime snapshot, not production-parity proof. |
+| Repository migration directories | 31 | Names and migration SQL checksums match all 31 completed local-database migrations. This resolves migration lineage only. |
+| Local database completed migrations | 31 | The integrated branch contains hardening commit `407d984d61fb97392dfc25992c54e6e320e54b2d` and its `EvidenceAppraisal` and release-control schema. |
+| Current seed evidence rows | 400 = 139 reports + 78 theses + 183 SourceDocs | The academic regression audit passes on the integrated lineage. Seed presence remains inventory, not appraisal. |
+| Local database evidence rows | 417 = 139 reports + 79 theses + 199 SourceDocs | Eighteen database identities are absent from seeds and one seed identity is absent from the database. This is a local runtime snapshot, not production-parity proof. |
 | Complete current evidence appraisal | 0/417 | External evidence support remains blocked regardless of technical citation integrity. |
 | Durable citation archive | 568/2,703 | 1,855/2,376 external-readiness rows still need durable archive; the archive audit fails. |
 | Current library inventory / persisted analysis | 1,555 / 1,572 | Seventeen persisted identities are stale relative to the current inventory. |
 | Current vault validation | 786 Markdown, 32 canvases, 2 orphan issues | The completion register's earlier green vault statement does not reproduce on this snapshot. Notes remain navigation, not evidence units. |
 
-The tracked `academic-source-quality-status.json` and `public/data/masterhjerne/status.json` were generated from the hardening lineage. They remain useful historical observations, but their passing regression result and 18-record hardening-relative identity difference are **foreign-lineage status**, not current-HEAD proof. Gate 1 preserves both reported and directly observed values as an open conflict instead of choosing whichever looks better.
+The regenerated `academic-source-quality-status.json` now matches the integrated seed and local-database identity readback. `public/data/masterhjerne/status.json` remains a historical aggregate presentation snapshot. Gate 1 keeps reported status separate from direct observations and preserves each assessment's own immutable source-snapshot set.
 
-Seven machine-readable conflicts remain open: code/database lineage, seed/database identity, foreign-lineage academic status, library inventory/materialization, remediation backlog vintage, reported/current vault state, and reported/current academic regression state. No conflict is marked resolved because there is no resolution receipt.
+The seven-record conflict register now has three receipt-resolved machine conflicts—migration lineage, academic-status lineage and academic regression—and four open conflicts: seed/database identity, library inventory/materialization, remediation backlog vintage and reported/current vault state. Machine receipts do not satisfy human adoption, appraisal, production or rights-holder gates.
 
 ## What was evaluated
 
@@ -85,7 +85,7 @@ Primary internal boundaries for this table are documented in:
 - [Norway actor-domain gap report, 2026-07-02](../research/_status/domene-dekning-hull-2026-07-02.md);
 - [the existing thirteen-field map](../Food%20Systems%20Obsidian/1%20Oversikt%20og%20navigasjon/Feltkart%20%E2%80%93%20kunnskapsbasen.md).
 
-These snapshots contain known vintage and lineage conflicts. They remain migration evidence, not normalized current truth. The separate corpus/evidence-health profile is now generated and makes those conflicts explicit; it does not resolve them or promote their numbers into subject coverage.
+These snapshots contain known vintage and identity conflicts. They remain migration evidence, not normalized current truth. The separate corpus/evidence-health profile makes those conflicts explicit and receipt-resolves only exact machine-observable comparisons; it does not promote their numbers into subject coverage.
 
 ## Why “every detail” is not a finite checklist
 
@@ -123,7 +123,7 @@ Review and authorize the constitution, ontology, schemas, readiness thresholds a
 
 ### Gate 1 — reconcile corpus health
 
-The first dated corpus/evidence-health profile is generated. Keep it fail-closed while resolving the 14/31 migration lineage, 392/417 evidence identity set, 1,555/1,572 library materialization, foreign-lineage status snapshots, two vault orphans, appraisal zero-state and archive backlog. Regenerate every dependent status artifact from one pinned lineage. Do not force these controls into food-system coverage cells.
+The current corpus/evidence-health profile records exact 31/31 migration-name and checksum parity. Keep it fail-closed while resolving the 400/417 seed/runtime identity set, 1,555/1,572 library materialization, mixed-vintage status surfaces, two vault orphans, appraisal zero-state and archive backlog. Regenerate every dependent status artifact from an explicit pinned lineage and vintage. Do not force these controls into food-system coverage cells.
 
 Gate 1 exit requires a named canonical lineage, exact schema/migration/seed parity, regenerated status surfaces, complete required appraisal and archive work, passing structural gates, and current receipts for backup/restore, MCP read-only behavior, runtime parity and required human review.
 

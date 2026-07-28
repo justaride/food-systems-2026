@@ -64,13 +64,14 @@ npm run knowledge:check
 
 The [current Gate 1 report](health/corpus-health-report.v1.md) is a separate, hash-bound assessment of inventory, provenance, citation readiness, appraisal, archive durability, identity, queues, freshness, structural integrity, review, operational proof, conflicts, receipts and source snapshots. Its four intended-use profiles are non-additive and carry no overall score.
 
-The 2026-07-27 assessment is **NO-GO** for reproducible internal analysis, external evidence support and observatory operation. Internal discovery is `ready_with_warnings` only. The principal blocker is a divergent code/database lineage: this HEAD has 14 migration directories and 392 seed evidence rows, while the local database has 31 completed migrations and 417 evidence rows. The database matches divergent hardening commit `407d984d61fb97392dfc25992c54e6e320e54b2d`, not this branch.
+The 2026-07-28 assessment is **NO-GO** for reproducible internal analysis, external evidence support and observatory operation. Internal discovery is `ready_with_warnings` only. The canonical branch now contains the hardening lineage, and all 31 repository migration names and SQL checksums match the 31 completed local-database migrations. The principal remaining reproducibility blocker is evidence identity: current seeds contain 400 rows while the local database contains 417, with 18 database-only and one seed-only identity.
 
-The generator keeps direct observations separate from reported status snapshots. In particular, the tracked academic and master status files are retained as foreign-lineage historical observations; they are not silently rewritten as current truth. The assessment also records 0/417 complete evidence appraisals, 568/2,703 durable citation archives, 1,855/2,376 external-readiness citations still needing archive, a 1,555/1,572 library identity difference, and two current vault-validation issues.
+The generator keeps direct observations separate from reported status snapshots. The academic audit now reproduces on the integrated lineage, while the master status remains a historical aggregate rather than current operational truth. The assessment also records 0/417 complete evidence appraisals, 568/2,703 durable citation archives, 1,855/2,376 external-readiness citations still needing archive, a 1,555/1,572 library identity difference, and two current vault-validation issues.
 
 Generated health artifacts are:
 
 - `health/corpus-health-source-snapshots.v1.json` — file, commit and read-only database-query hashes;
+- `health/corpus-health-source-snapshot-history.v1.jsonl` — immutable source-snapshot sets for every assessment vintage;
 - `health/corpus-health-assessments.v1.jsonl` — immutable assessment history;
 - `health/corpus-health-current.v1.json` — hash-bound pointer to the current assessment;
 - `health/corpus-health-summary.v1.json` and `health/corpus-health-report.v1.md` — machine and human readouts;

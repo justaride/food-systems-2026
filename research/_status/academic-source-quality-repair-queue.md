@@ -1,6 +1,6 @@
 # Evidence Source Quality Repair Queue
 
-Generated: 2026-07-20T03:49:32.796Z
+Generated: 2026-07-28T05:32:26.743Z
 
 This queue records missing evidence. It does not manufacture metadata or authorize external use.
 URL checks validate stored syntax and canonical duplicate keys only; they do not make HTTP requests or prove live status, redirects, archive persistence, or availability.

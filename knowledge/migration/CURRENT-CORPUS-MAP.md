@@ -2,9 +2,9 @@
 
 Foundation snapshot date: 2026-07-26
 
-Gate 1 readback date: 2026-07-27
+Gate 1 readback date: 2026-07-28
 
-Base commit: `f7148da4bf679b7cbe187a2763a199b6fbba6e35`
+Base commit: pinned by the generated assessment and generation manifest
 
 Migration state: planned; no existing vault notes or evidence records moved
 
@@ -16,13 +16,13 @@ At this snapshot, the existing vault contains 786 Markdown notes and 32 canvases
 
 ## Gate 1 lineage boundary
 
-The [generated corpus/evidence-health report](../health/corpus-health-report.v1.md) blocks migration against the local database until one canonical lineage is selected. Current HEAD has 14 migration directories and 392 seed evidence rows; the local database has 31 completed migrations and 417 evidence rows. Its seventeen extra migrations, `EvidenceAppraisal` table and release controls match divergent hardening commit `407d984d61fb97392dfc25992c54e6e320e54b2d`.
+The [generated corpus/evidence-health report](../health/corpus-health-report.v1.md) records the hardening lineage as integrated. All 31 repository migration names and SQL checksums match the 31 completed local-database migrations, and `EvidenceAppraisal` plus the release controls are present in the branch. This closes the migration-lineage conflict only; evidence and library identity are still unreconciled.
 
 This distinction is operationally material:
 
-- the local database is a hash-bound read-only **runtime snapshot**, not branch-reproducible or production-parity truth;
-- tracked academic and master status files are foreign-lineage historical snapshots until regenerated;
-- 25 database evidence identities are absent from current seeds;
+- the local database is a hash-bound read-only **runtime snapshot**, not production-parity truth;
+- the academic status reproduces on the integrated lineage, while the master status remains a historical aggregate;
+- 18 database evidence identities are absent from current seeds and one seed identity is absent from the database;
 - the 1,555-row derived library inventory differs from 1,572 persisted analysis rows;
 - 0/417 evidence records have complete current appraisal;
 - 1,855/2,376 external-readiness citations still need durable archive;
@@ -36,7 +36,7 @@ No existing evidence or vault record was mutated to make these surfaces agree. E
 |---|---|---|---|
 | `research/evidence-pack/` | Source locators, downloads, snapshots and evidence notes | Immutable evidence/manifests | Preserve bytes and hashes; reconcile stable source identities; do not copy raw binaries into the wiki. |
 | `research/bibliotek/` | Human and AI source notes and thematic library | Source discovery and evidence processing | Map each note to source IDs and exact locators; keep unreviewed analysis internal. |
-| PostgreSQL/Prisma citation models | Typed documents, citations and field-level provenance on divergent code/database lineages | Structured evidence authority | Select and integrate one canonical lineage first; then reuse exact identities. Do not migrate from the current local runtime snapshot as though it were reproducible from HEAD. |
+| PostgreSQL/Prisma citation models | Typed documents, citations, appraisal and field-level provenance on the integrated migration lineage | Structured evidence authority | Reuse exact identities after seed/runtime reconciliation. Do not treat the current local runtime snapshot as production-parity truth. |
 | `research/whitepaper/food-systems-2026-synthesis-v2.md` | Canonical internal narrative synthesis | Migration input and controlled synthesis | Decompose factual statements into stable claims; compile cross-system pages from those claims; preserve caveats. |
 | `docs/project/status/food-systems-completion-register-2026-07-15.md` | Operational work-status authority | Operational status | Keep authoritative for delivery state; link coverage cells to it without copying or auto-promoting statuses. |
 | `research/_status/domene-dekningsbok.csv` | 70 Norway-only actor inventory cells | Legacy assessment input | Preserve counts and universe caveats; map manually to canonical actor/stage/domain cells; retain `run_floor` semantics. |
@@ -76,15 +76,15 @@ No existing evidence or vault record was mutated to make these surfaces agree. E
 
 - Review and adopt the constitution, ontology, coverage schema and status vector.
 - Keep the foundation and corpus-health thresholds `proposed` until named receipts exist.
-- Reconcile this branch with the divergent database-hardening lineage and live uncommitted evidence/schema work before any database migration.
+- Preserve the integrated hardening lineage and separately audit the live checkout's unrelated uncommitted work before any adoption or merge.
 - Record the current vault file hashes and normalized-name collisions.
 
 Exit: scope and identity rules approved; canonical lineage named; no existing content moved.
 
 ### Wave 0.5 — close Gate 1
 
-- Integrate schema, all migrations, seeds and auditors atomically on the chosen lineage.
-- Reconcile 392/417 evidence identities and 1,555/1,572 library identities.
+- Keep schema, all migrations and auditors atomic on the chosen lineage; the current 31/31 migration receipt must remain green.
+- Reconcile 400/417 evidence identities and 1,555/1,572 library identities.
 - Regenerate academic, master, remediation and vault status surfaces from the pinned snapshot.
 - Rerun citation, appraisal, archive, graph, vault, backup/restore and MCP gates.
 - Add immutable receipts for lineage adoption, human review and every required operational layer.
@@ -146,7 +146,7 @@ The eventual database should store five related records:
 4. `CoverageReview` — immutable named human-review receipt;
 5. `MonitoringRule` — cadence, trigger, staleness threshold and owner.
 
-Existing `SourceDoc`, `SourceCitation`, `FieldCitation`, report, thesis and library-analysis identities remain the intended evidence authorities after lineage reconciliation. `EvidenceAppraisal` exists in the local divergent database but is absent from this HEAD's Prisma model; it cannot be treated as an integrated current-branch authority until the lineage is resolved. The coverage database must reference the reconciled records, not create a second source registry.
+Existing `SourceDoc`, `SourceCitation`, `FieldCitation`, report, thesis, library-analysis and `EvidenceAppraisal` identities are the intended evidence authorities on the integrated migration lineage. Appraisal remains 0/417 and seed/runtime identities remain unreconciled, so the coverage database must reference reviewed, reconciled records rather than create a second source registry.
 
 ## Migration acceptance
 

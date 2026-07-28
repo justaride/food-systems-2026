@@ -16,13 +16,14 @@ Passing a lower profile never implies passing a higher one. Technical citation i
 ## Generated artifacts
 
 - `corpus-health-source-snapshots.v1.json` binds repository files and the read-only database query to hashes;
+- `corpus-health-source-snapshot-history.v1.jsonl` preserves every assessment's immutable source-snapshot set;
 - `corpus-health-assessments.v1.jsonl` is an append-only assessment ledger;
 - `corpus-health-current.v1.json` is a hash-bound pointer, not a mutable truth row;
 - `corpus-health-summary.v1.json` is a compact machine readout;
 - `corpus-health-report.v1.md` is the human-readable Gate 1 report;
 - `corpus-health-generation-manifest.v1.json` hashes generated outputs.
 
-Thresholds are `proposed` until a named human adoption receipt is added. A generator may calculate a current machine verdict, but it cannot adopt thresholds, resolve a conflict, or assert human, partner or rights-holder approval.
+Thresholds are `proposed` until a named human adoption receipt is added. A generator may calculate a current machine verdict and receipt-resolve an exactly reproducible machine-observable conflict, such as migration-name and checksum parity. It cannot adopt thresholds or assert human, partner or rights-holder approval, and a machine receipt cannot close evidence-appraisal, production-parity or human-governance gates.
 
 ## Commands
 
@@ -31,6 +32,6 @@ npm run knowledge:health:generate
 npm run knowledge:health:check
 ```
 
-Generation uses a repeatable-read, transaction-level read-only database snapshot. The database locator is redacted; only a salted-free SHA-256 identity, migration ledger hash, query hash and result hash are stored. `--check` recomputes the full bundle and fails on drift.
+Generation uses a repeatable-read, transaction-level read-only database snapshot. The database locator is redacted; only a salted-free SHA-256 identity, migration ledger hash, query hash and result hash are stored. `--check` recomputes the full bundle against the base commit pinned in the generation manifest, so committed generated outputs remain verifiable while later source or database drift still fails closed.
 
 Historical assessments are immutable. If observations change, create a new assessment that names the prior assessment in `supersedesId`; never rewrite the old event.

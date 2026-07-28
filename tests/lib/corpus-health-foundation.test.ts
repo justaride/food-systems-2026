@@ -168,6 +168,7 @@ function profileVerdict(assessment: JsonObject, profileId: string): JsonObject {
 const schema = readJson('knowledge/schema/corpus-evidence-health.schema.v1.json')
 const thresholds = readJson('knowledge/health/corpus-health-thresholds.v1.json')
 const sourceSnapshots = readJson('knowledge/health/corpus-health-source-snapshots.v1.json')
+const sourceSnapshotHistory = readJsonLines('knowledge/health/corpus-health-source-snapshot-history.v1.jsonl')
 const assessments = readJsonLines('knowledge/health/corpus-health-assessments.v1.jsonl')
 const current = readJson('knowledge/health/corpus-health-current.v1.json')
 const summary = readJson('knowledge/health/corpus-health-summary.v1.json')
@@ -193,7 +194,7 @@ test('keeps corpus health structurally separate from subject coverage and additi
     assert.equal(boundary.globalScorePermitted, false)
   }
 
-  const observedKeys = collectKeys([thresholds, assessments, sourceSnapshots, current, summary])
+  const observedKeys = collectKeys([thresholds, assessments, sourceSnapshots, sourceSnapshotHistory, current, summary])
   for (const forbidden of FORBIDDEN_SCORE_AND_COVERAGE_KEYS) {
     assert.equal(observedKeys.has(forbidden), false, `${forbidden} must not occur in corpus-health artifacts`)
   }
@@ -223,13 +224,32 @@ test('records exactly four named intended-use verdicts under a proposed baseline
   }
 })
 
-test('fails closed on lineage, appraisal and archive readiness', () => {
+test('receipt-resolves migration lineage while failing closed on identity, appraisal and archive readiness', () => {
+  const historicalAssessment = assessments[0] as JsonObject
+  const historicalLineageConflict = asObjectArray(historicalAssessment.conflicts, 'historicalAssessment.conflicts')
+    .find((item) => item.conflictId === 'health.conflict.code_db_lineage')
+  assert.ok(historicalLineageConflict)
+  assert.equal(historicalLineageConflict.status, 'open')
+
   const assessment = assessments.at(-1) as JsonObject
   const lineageConflict = asObjectArray(assessment.conflicts, 'assessment.conflicts')
     .find((item) => item.conflictId === 'health.conflict.code_db_lineage')
   assert.ok(lineageConflict)
-  assert.equal(lineageConflict.status, 'open')
+  assert.equal(lineageConflict.status, 'resolved')
   assert.equal(lineageConflict.severity, 'blocker')
+  assert.ok(Array.isArray(lineageConflict.resolutionReceiptIds))
+  assert.equal(lineageConflict.resolutionReceiptIds.length, 1)
+  assert.equal(metric(assessment, 'health_metric.head_migrations').value, 31)
+  assert.equal(metric(assessment, 'health_metric.database_migrations').value, 31)
+  assert.equal(metric(assessment, 'health_metric.migration_lineage_mismatches').value, 0)
+  assert.equal(metric(assessment, 'health_metric.database_only_evidence_identities').value, 18)
+  assert.equal(metric(assessment, 'health_metric.seed_only_evidence_identities').value, 1)
+
+  const internalAnalysis = profileVerdict(assessment, 'health_profile.internal_analysis')
+  assert.equal(internalAnalysis.readyForProfile, false)
+  assert.ok(asObjectArray(internalAnalysis.checks).some((item) => (
+    item.checkId === 'health_check.analysis.lineage' && item.status === 'pass'
+  )))
 
   const appraisal = metric(assessment, 'health_metric.evidence_appraisal')
   assert.equal(appraisal.value, 0)
@@ -259,6 +279,9 @@ test('recomputes immutable content, source and generation-output hashes', () => 
   }
   for (const assessment of assessments) {
     assertCanonicalContentHash(assessment, `${String(assessment.assessmentId)} canonical content hash`)
+  }
+  for (const snapshotSet of sourceSnapshotHistory) {
+    assertCanonicalContentHash(snapshotSet, `${String(snapshotSet.sourceSnapshotSetId)} canonical content hash`)
   }
 
   for (const snapshot of asObjectArray(sourceSnapshots.snapshots, 'sourceSnapshots.snapshots')) {
@@ -297,13 +320,24 @@ test('resolves the current pointer and every nested source-snapshot reference', 
   assert.equal(summary.assessmentId, current.assessmentId)
   assert.deepEqual(generationManifest.assessmentIds, assessments.map((assessment) => assessment.assessmentId))
   assert.equal(generationManifest.sourceSnapshotSetHash, sourceSnapshots.contentHash)
-
-  const availableSnapshotIds = new Set(
-    asObjectArray(sourceSnapshots.snapshots, 'sourceSnapshots.snapshots')
-      .map((snapshot) => String(snapshot.snapshotId)),
+  assert.ok(sourceSnapshotHistory.length >= 2)
+  const currentSnapshotSets = sourceSnapshotHistory.filter(
+    (snapshotSet) => snapshotSet.sourceSnapshotSetId === current.sourceSnapshotSetId,
   )
-  availableSnapshotIds.add(String(asObject(sourceSnapshots.databaseSnapshot).snapshotId))
+  assert.equal(currentSnapshotSets.length, 1)
+  assert.deepEqual(currentSnapshotSets[0], sourceSnapshots)
+
   for (const assessment of assessments) {
+    const matchingSnapshotSets = sourceSnapshotHistory.filter(
+      (snapshotSet) => snapshotSet.sourceSnapshotSetId === assessment.sourceSnapshotSetId,
+    )
+    assert.equal(matchingSnapshotSets.length, 1, `${String(assessment.assessmentId)} source snapshot set`)
+    const assessmentSnapshotSet = matchingSnapshotSets[0] as JsonObject
+    const availableSnapshotIds = new Set(
+      asObjectArray(assessmentSnapshotSet.snapshots, 'assessmentSnapshotSet.snapshots')
+        .map((snapshot) => String(snapshot.snapshotId)),
+    )
+    availableSnapshotIds.add(String(asObject(assessmentSnapshotSet.databaseSnapshot).snapshotId))
     for (const reference of collectSnapshotRefs(assessment)) {
       assert.ok(availableSnapshotIds.has(reference), `${String(assessment.assessmentId)} references ${reference}`)
     }
@@ -311,12 +345,23 @@ test('resolves the current pointer and every nested source-snapshot reference', 
 
   const issues = validateCorpusHealthBundle({
     sourceSnapshots,
+    sourceSnapshotHistory,
     assessments,
     current,
     summary,
     generationManifest,
   })
   assert.deepEqual(issues, [])
+
+  const missingHistoricalSetIssues = validateCorpusHealthBundle({
+    sourceSnapshots,
+    sourceSnapshotHistory: [sourceSnapshots],
+    assessments,
+    current,
+    summary,
+    generationManifest,
+  })
+  assert.ok(missingHistoricalSetIssues.some((issue) => issue.includes('references missing source snapshot set')))
 })
 
 test('validator rejects content-hash mutation and a rehashed readiness bypass', () => {
