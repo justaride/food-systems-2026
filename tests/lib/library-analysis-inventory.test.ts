@@ -21,7 +21,15 @@ const documents: LibraryInventoryDocument[] = [
     sourceDoc: { id: 'src-1' },
     report: { id: 'report-1' },
     thesis: null,
-    sourceCitations: [{ citationReadiness: 'citable_external' }],
+    sourceCitations: [{
+      id: 'citation-1',
+      sourceClass: 'primary',
+      citationReadiness: 'citable_external',
+      verificationStatus: 'verified',
+      url: 'https://www.oecd.org/report.pdf',
+      archivedUrl: null,
+      accessedAt: '2026-07-19T10:00:00.000Z',
+    }],
   },
 ]
 
@@ -77,6 +85,8 @@ describe('library analysis inventory', () => {
     assert.equal(document?.linkedSourceDocId, 'src-1')
     assert.equal(document?.linkedReportId, 'report-1')
     assert.equal(document?.citationReadiness, 'citable_external')
+    assert.equal(document?.externalCitationEligible, true)
+    assert.match(document?.currentExternalCitationPolicyHash ?? '', /^[a-f0-9]{64}$/)
     assert.match(document?.contentHash ?? '', /^[a-f0-9]{64}$/)
 
     const looseFile = inventory.find(row => row.sourceKind === 'library_file')
@@ -129,18 +139,28 @@ describe('library analysis inventory', () => {
       riskFlags: [],
       claimCandidateCount: 0,
       contentHash: inventory[0]?.contentHash,
+      currentContentHash: null,
       linkedDocumentId: 'doc-1',
       linkedSourceDocId: 'src-1',
       linkedReportId: 'report-1',
       linkedThesisId: null,
       citationReadiness: 'citable_external',
+      externalCitationEligible: true,
+      externalCitationPolicyHash: null,
+      currentExternalCitationPolicyHash: inventory[0]?.currentExternalCitationPolicyHash,
+      reviewStatus: null,
+      reviewedAt: null,
+      reviewer: null,
     })
 
-    const markdown = formatLibraryAnalysisSummaryMarkdown(inventory)
+    const markdown = formatLibraryAnalysisSummaryMarkdown(inventory, {
+      staleRetainedCount: 2,
+    })
     assert.match(markdown, /^# Library Analysis Summary/m)
     assert.match(markdown, /Total sources \| 3/)
     assert.match(markdown, /Review queue \| 2/)
     assert.match(markdown, /Missing text \| 2/)
+    assert.match(markdown, /Stale retained outside live ledger \| 2/)
   })
 
   it('keeps documents with unresolved local file paths in review even when filePath is populated', () => {

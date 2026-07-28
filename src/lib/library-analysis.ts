@@ -14,6 +14,7 @@ export type LibraryAnalysisStatus = (typeof LIBRARY_ANALYSIS_STATUSES)[number]
 export const LIBRARY_ANALYSIS_USAGE_RULES = [
   'internal_background',
   'safe_for_ai_context',
+  'safe_for_external_claims',
   'claim_candidate_review',
   'do_not_use_for_claims',
   'requires_actor_gate',
@@ -100,11 +101,38 @@ export type LibraryAiCard = {
   status: LibraryAnalysisStatus | string
   controlLinks: LibraryAiCardControlLink[]
   riskFlags: string[]
+  externalApprovalEvidence?: {
+    citationPolicyHash: string
+    eligibleCitationIds: string[]
+  }
 }
 
 export type LibraryAiCardValidation = {
   ok: boolean
   issues: string[]
+}
+
+export type LibraryAnalysisExternalApprovalInput = {
+  sourceKind?: string | null
+  sourceKey?: string | null
+  documentId?: string | null
+  status: string
+  usageRule: string
+  reviewStatus?: string | null
+  reviewedAt?: Date | string | null
+  reviewer?: string | null
+  citationReadiness?: string | null
+  contentHash?: string | null
+  currentContentHash?: string | null
+  externalCitationPolicyHash?: string | null
+  currentExternalCitationPolicyHash?: string | null
+  riskFlags: string[]
+  claimCandidateCount?: number
+}
+
+export type LibraryAnalysisExternalApproval = {
+  eligible: boolean
+  blockers: string[]
 }
 
 export type LibraryAnalysisSummaryInput = {
@@ -247,6 +275,9 @@ export function validateLibraryAiCard(card: Partial<LibraryAiCard>): LibraryAiCa
   if (!card.citationStatus?.trim()) issues.push('missing_citation_status')
   if (!card.status || !STATUS_SET.has(card.status)) issues.push('unknown_status')
   if (!card.recommendedUsageRule || !USAGE_RULE_SET.has(card.recommendedUsageRule)) issues.push('unknown_usage_rule')
+  if (card.recommendedUsageRule === 'safe_for_external_claims') {
+    issues.push('external_usage_requires_human_approval')
+  }
   if (!Array.isArray(card.controlLinks) || card.controlLinks.length === 0) issues.push('missing_control_links')
 
   if (!Array.isArray(card.claimCandidates)) {
@@ -256,6 +287,65 @@ export function validateLibraryAiCard(card: Partial<LibraryAiCard>): LibraryAiCa
   }
 
   return { ok: issues.length === 0, issues }
+}
+
+export function assessLibraryAnalysisExternalApproval(
+  record: LibraryAnalysisExternalApprovalInput,
+): LibraryAnalysisExternalApproval {
+  const blockers: string[] = []
+
+  if (record.status !== 'validated') blockers.push('status_not_validated')
+  if (record.usageRule !== 'safe_for_external_claims') blockers.push('usage_rule_not_external')
+  if (record.reviewStatus !== 'approved') blockers.push('review_status_not_approved')
+  if (!hasValidReviewTimestamp(record.reviewedAt) || !record.reviewer?.trim()) {
+    blockers.push('review_provenance_missing')
+  }
+  if (record.citationReadiness !== 'citable_external') {
+    blockers.push('citation_not_citable_external')
+  }
+  if (record.sourceKind !== 'document') blockers.push('source_kind_not_document')
+  if (!record.documentId || record.sourceKey !== `document:${record.documentId}`) {
+    blockers.push('source_binding_invalid')
+  }
+  if (!isSha256(record.contentHash)) blockers.push('content_hash_missing_or_invalid')
+  if (!isSha256(record.currentContentHash)) {
+    blockers.push('current_content_hash_missing_or_invalid')
+  } else if (record.contentHash !== record.currentContentHash) {
+    blockers.push('content_hash_mismatch')
+  }
+  if (!isSha256(record.externalCitationPolicyHash)) {
+    blockers.push('external_citation_policy_hash_missing_or_invalid')
+  }
+  if (!isSha256(record.currentExternalCitationPolicyHash)) {
+    blockers.push('current_external_citation_policy_ineligible')
+  } else if (record.externalCitationPolicyHash !== record.currentExternalCitationPolicyHash) {
+    blockers.push('external_citation_policy_hash_mismatch')
+  }
+  if (record.riskFlags.length > 0) blockers.push('risk_flags_present')
+  if ((record.claimCandidateCount ?? 0) > 0) blockers.push('claim_candidates_present')
+
+  return { eligible: blockers.length === 0, blockers }
+}
+
+export function requiresLibraryAnalysisReview(
+  record: LibraryAnalysisExternalApprovalInput,
+): boolean {
+  return record.reviewStatus === 'queued' ||
+    record.reviewStatus === 'not_reviewed' ||
+    (record.usageRule === 'safe_for_external_claims' && !assessLibraryAnalysisExternalApproval(record).eligible) ||
+    record.status === 'not_started' ||
+    record.status === 'inventory_only' ||
+    record.status === 'review_required'
+}
+
+function hasValidReviewTimestamp(value: Date | string | null | undefined): boolean {
+  if (!value) return false
+  const timestamp = value instanceof Date ? value : new Date(value)
+  return !Number.isNaN(timestamp.getTime())
+}
+
+function isSha256(value: string | null | undefined): boolean {
+  return typeof value === 'string' && /^[a-f0-9]{64}$/.test(value)
 }
 
 export function summarizeLibraryAnalysisRecords(records: LibraryAnalysisSummaryInput[]): LibraryAnalysisSummary {

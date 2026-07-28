@@ -52,6 +52,7 @@ type LibraryAnalysisBadge = {
   reviewRequired: boolean
   claimCandidateCount: number
   riskFlags: string[]
+  externalClaimEligible: boolean
 }
 
 type SearchApiResponse = {
@@ -102,6 +103,7 @@ const AI_STATUS_LABELS: Record<string, string> = {
 
 const AI_USAGE_LABELS: Record<string, string> = {
   safe_for_ai_context: 'trygg AI-kontekst',
+  safe_for_external_claims: 'ekstern godkjenning markert',
   claim_candidate_review: 'claim-review',
   internal_background: 'intern bakgrunn',
   do_not_use_for_claims: 'ikke claim',
@@ -121,7 +123,9 @@ function LibraryAnalysisBadges({ analysis }: { analysis?: LibraryAnalysisBadge |
         {AI_STATUS_LABELS[analysis.status] ?? analysis.status}
       </span>
       <span className="text-[10px] px-1.5 py-0.5 rounded border border-stone-200 bg-white text-stone-500">
-        {AI_USAGE_LABELS[analysis.usageRule] ?? analysis.usageRule}
+        {analysis.usageRule === 'safe_for_external_claims' && analysis.externalClaimEligible
+          ? 'godkjent eksternt'
+          : (AI_USAGE_LABELS[analysis.usageRule] ?? analysis.usageRule)}
       </span>
       {analysis.claimCandidateCount > 0 && (
         <span className="text-[10px] px-1.5 py-0.5 rounded border border-rose-200 bg-rose-50 text-rose-700">

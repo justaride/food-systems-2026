@@ -1,6 +1,11 @@
 import type { Report } from '@/lib/types'
+import { applyReviewedReportAccessDateBatchToSeed } from '../../src/lib/citations/reviewed-report-access-date-batch'
+import { applyReviewedReportProvenanceToSeed } from '../../src/lib/citations/reviewed-provenance-batch'
+import { applyReviewedReportProvenanceCompletionToSeed } from '../../src/lib/citations/reviewed-provenance-completion'
+import { applyReviewedReportProvenanceCorrectionsToSeed } from '../../src/lib/citations/reviewed-report-provenance-corrections'
+import { applyReviewedEtmvReportTitleRepairToSeed } from '../../src/lib/citations/reviewed-etmv-report-title-repair'
 
-export const reports: Report[] = [
+export const reports: Report[] = applyReviewedEtmvReportTitleRepairToSeed(applyReviewedReportProvenanceCorrectionsToSeed(applyReviewedReportProvenanceCompletionToSeed(applyReviewedReportAccessDateBatchToSeed(applyReviewedReportProvenanceToSeed([
   // ═══ NOU / Offentlig (Policy) ═══════════════════════════════════════
 
   {
@@ -859,6 +864,7 @@ export const reports: Report[] = [
     tags: ['nordisk-ministerraad', 'a4-modellen', 'klimamerking', 'avgiftspolitikk', 'mattransformasjon'],
     publisher: 'Nordisk Ministerraad',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
     supportingSources: [
       {
         label: 'Local bibliography note',
@@ -890,6 +896,7 @@ export const reports: Report[] = [
     doi: '10.6027/ANP2018-786',
     publisher: 'Nordic Council of Ministers',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
     supportingSources: [
       {
         label: 'Local circularity framework',
@@ -931,6 +938,7 @@ export const reports: Report[] = [
     doi: '10.6027/TN2017-566',
     publisher: 'Nordic Council of Ministers',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
     supportingSources: [
       {
         label: 'Local bibliography note',
@@ -972,6 +980,7 @@ export const reports: Report[] = [
     doi: '10.6027/Nord2023-003',
     publisher: 'Nordic Council of Ministers',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
     supportingSources: [
       {
         label: 'Local bibliography note',
@@ -1009,6 +1018,7 @@ export const reports: Report[] = [
     doi: '10.6027/nord2025-026',
     publisher: 'Nordic Council of Ministers',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
     supportingSources: [
       {
         label: 'Local bibliography note',
@@ -1047,6 +1057,7 @@ export const reports: Report[] = [
     doi: '10.29219/fnr.v68.10489',
     publisher: 'Food & Nutrition Research',
     provenanceType: 'external_article',
+    accessedAt: '2026-07-19',
     supportingSources: [
       {
         label: 'Local bibliography note',
@@ -1081,6 +1092,7 @@ export const reports: Report[] = [
     doi: '10.29219/fnr.v68.10539',
     publisher: 'Food & Nutrition Research',
     provenanceType: 'external_article',
+    accessedAt: '2026-07-19',
     supportingSources: [
       {
         label: 'Local bibliography note',
@@ -1115,6 +1127,7 @@ export const reports: Report[] = [
     doi: '10.29219/fnr.v68.10792',
     publisher: 'Food & Nutrition Research',
     provenanceType: 'external_article',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'jackson-holm-2024-food-sustainability-dimensions',
@@ -1142,6 +1155,7 @@ export const reports: Report[] = [
     doi: '10.29219/fnr.v68.10450',
     publisher: 'Food & Nutrition Research',
     provenanceType: 'external_article',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'erkkola-2025-nnr-evidence-to-action',
@@ -1169,6 +1183,7 @@ export const reports: Report[] = [
     doi: '10.1017/S0029665125100682',
     publisher: 'Cambridge University Press / Proceedings of the Nutrition Society',
     provenanceType: 'external_article',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'karlstad-declaration-matberedskap-2024',
@@ -1195,6 +1210,7 @@ export const reports: Report[] = [
     tags: ['karlstad-deklarasjonen', 'matberedskap', 'robusthet', 'selvforsyning', 'nordisk', 'forsyningskjeder'],
     publisher: 'Nordisk Ministerraad',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
     supportingSources: [
       {
         label: 'Local bibliography note',
@@ -1208,7 +1224,7 @@ export const reports: Report[] = [
     fullTitle: 'Aftale om Grønt Danmark: landbruks-CO2-avgift og grønn omstilling av dansk arealbruk',
     institution: 'Danmarks regering / Finansministeriet',
     year: 2024,
-    sourceUrl: 'https://fm.dk/nyheder/2024/juni/aftale-om-groent-danmark/',
+    sourceUrl: 'https://regeringen.dk/aktuelt/tidligere-publikationer/aftale-om-et-groent-danmark/',
     reportCategory: 'offentlig',
     country: 'DK',
     keyFindings: [
@@ -1226,6 +1242,7 @@ export const reports: Report[] = [
     tags: ['danmark', 'groent-danmark', 'co2-avgift', 'jordbruk', 'klimapolitikk', 'green-tripartite'],
     publisher: 'Finansministeriet',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
     supportingSources: [
       {
         label: 'Local bibliography note',
@@ -1259,6 +1276,7 @@ export const reports: Report[] = [
     tags: ['danmark', 'soya', 'fôrimport', 'avskoging', 'sporbarhet', 'eudr', 'husdyrproduksjon'],
     publisher: 'University of Copenhagen / IFRO Documentation',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
     supportingSources: [
       {
         label: 'University of Copenhagen news summary',
@@ -1291,6 +1309,7 @@ export const reports: Report[] = [
     tags: ['danmark', 'biogass', 'gassnett', 'sirkularitet', 'fornybar-energi', 'evida'],
     publisher: 'Evida',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'biogas-danmark-outlook-2024',
@@ -1317,6 +1336,7 @@ export const reports: Report[] = [
     tags: ['danmark', 'biogass', 'biometan', 'sirkularitet', 'fosfor', 'nitrogen', 'scenarier', 'biogas-danmark'],
     publisher: 'Biogas Danmark',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'riksrevisionen-2025-jordbrukets-klimatomstallning',
@@ -1343,6 +1363,7 @@ export const reports: Report[] = [
     tags: ['sverige', 'riksrevisionen', 'jordbruk', 'klimautslipp', 'styringsmidler', 'organogen-mark', 'metan'],
     publisher: 'Riksrevisionen',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'naturvardsverket-livsmedelsavfall-sverige-2024',
@@ -1369,6 +1390,7 @@ export const reports: Report[] = [
     tags: ['sverige', 'matsvinn', 'livsmedelsavfall', 'naturvardsverket', 'smed', 'avfall'],
     publisher: 'Naturvardsverket',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'jordbruksverket-livsmedelskonsumtion-sverige-2024',
@@ -1395,6 +1417,7 @@ export const reports: Report[] = [
     tags: ['sverige', 'jordbruksverket', 'matforbruk', 'kosthold', 'kjott', 'meieri', 'frukt-gront'],
     publisher: 'Jordbruksverket',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'finland-nutrition-recommendations-2024',
@@ -1423,6 +1446,7 @@ export const reports: Report[] = [
     isbn: '978-952-408-405-5',
     publisher: 'Terveyden ja hyvinvoinnin laitos',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'luke-peat-soils-roadmap-finland-2024',
@@ -1448,6 +1472,7 @@ export const reports: Report[] = [
     tags: ['finland', 'luke', 'peat-soils', 'torvjord', 'jordbruk', 'klimagassutslipp', 'rewetting'],
     publisher: 'Natural Resources Institute Finland',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'biokierto-biogas-finland-2030-2040-2024',
@@ -1475,6 +1500,7 @@ export const reports: Report[] = [
     tags: ['finland', 'biogass', 'biometan', 'sidestrømmer', 'gjodsel', 'biookonomi', 'sirkularitet'],
     publisher: 'Suomen Biokierto ja Biokaasu ry',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'statistics-finland-biogas-2024',
@@ -1501,6 +1527,7 @@ export const reports: Report[] = [
     tags: ['finland', 'biogass', 'offisiell-statistikk', 'energi', 'avfall', 'landbruk'],
     publisher: 'Statistics Finland',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'valio-sustainability-report-2024',
@@ -1527,6 +1554,7 @@ export const reports: Report[] = [
     tags: ['finland', 'valio', 'meieri', 'klimaprogram', 'biogass', 'suomen-lantakaasu', 'sirkularitet'],
     publisher: 'Valio',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
     supportingSources: [
       {
         label: 'Valio sustainability report 2024 announcement',
@@ -1612,6 +1640,7 @@ export const reports: Report[] = [
     tags: ['beredskap', 'island', 'melmolle', 'saerbarhet', 'geotermisk'],
     publisher: 'Iceland Review / RUV',
     provenanceType: 'external_article',
+    accessedAt: '2026-07-19',
     supportingSources: [
       {
         label: 'Iceland Review om beredskapsmat og University of Iceland',
@@ -1712,6 +1741,7 @@ export const reports: Report[] = [
     tags: ['sirkularitet', 'matsvinn', 'nordisk-ministerraad', 'husholdning', 'maalemetode', 'policy'],
     publisher: 'Nordisk Ministerraad',
     provenanceType: 'external_report',
+    accessedAt: '2026-07-19',
     supportingSources: [
       {
         label: 'Local bibliography note',
@@ -2660,7 +2690,8 @@ export const reports: Report[] = [
     relevance: 'Svenske konkurransetilsynets sammendrag 2024. Komparativt grunnlag for norsk dagligvaretilsyn.',
     tags: ['konkurransetilsyn', 'sverige', 'nordisk', 'sammendrag', 'utp', 'fusjonskontroll', 'konsentrasjon', 'private-label', 'etableringsbarrierer'],
     publisher: 'Konkurrensverket',
-    sourceUrl: 'https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2024-5.pdf',
+    sourceUrl: 'https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2024-5_summary.pdf',
+    accessedAt: '2026-07-19',
   },
 
   // ═══ Nordisk politikk og beredskap ═══════════════════════════════════
@@ -2805,7 +2836,8 @@ export const reports: Report[] = [
     relevance: 'Første årsrapport fra Dagligvaretilsynet etter opprettelsen 2021. Historisk baseline for tilsynsarbeidet.',
     tags: ['konkurransetilsyn', 'arsrapport', 'dagligvaretilsynet', 'handelsskikk'],
     publisher: 'Dagligvaretilsynet',
-    sourceUrl: 'https://www.regjeringen.no/contentassets/a9f933fc2c5c4d8aaed0a267b45a033d/dagligvaretilsynet-arsrapport-for-2022.pdf',
+    sourceUrl: 'https://www.regjeringen.no/contentassets/a9f933fc2c5c4d8aaed0a267b45a033d/arsrapport-2021-for-dagligvaretilsynet-l3728148.pdf',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'dagligvaretilsynet-aarsrapport-2022',
@@ -2837,7 +2869,8 @@ export const reports: Report[] = [
     relevance: 'Dagligvaretilsynets årsrapport 2022. Dokumenterer andre driftsår og tilsynsprioriteringer.',
     tags: ['konkurransetilsyn', 'arsrapport', 'dagligvaretilsynet', 'handelsskikk'],
     publisher: 'Dagligvaretilsynet',
-    sourceUrl: 'https://www.regjeringen.no/contentassets/a9f933fc2c5c4d8aaed0a267b45a033d/arsrapport_dagligvaretilsynet-2023.pdf',
+    sourceUrl: 'https://www.regjeringen.no/contentassets/a9f933fc2c5c4d8aaed0a267b45a033d/dagligvaretilsynet-arsrapport-for-2022.pdf',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'dagligvaretilsynet-aarsrapport-2023',
@@ -2867,7 +2900,8 @@ export const reports: Report[] = [
     relevance: 'Dagligvaretilsynets årsrapport 2023. Dokumenterer håndhevelsesarbeidet og saksstatistikk.',
     tags: ['konkurransetilsyn', 'arsrapport', 'dagligvaretilsynet', 'handelsskikk'],
     publisher: 'Dagligvaretilsynet',
-    sourceUrl: 'https://www.regjeringen.no/contentassets/036ffda0c81e4b3f99456a78ec31df0e/arsrapport-dagligvaretilsynet-2024.pdf',
+    sourceUrl: 'https://www.regjeringen.no/contentassets/a9f933fc2c5c4d8aaed0a267b45a033d/arsrapport_dagligvaretilsynet-2023.pdf',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'dagligvaretilsynet-aarsrapport-2024',
@@ -2899,7 +2933,8 @@ export const reports: Report[] = [
     relevance: 'Dagligvaretilsynets årsrapport 2024. Seneste tilsynsrapport med oppdatert saksstatistikk.',
     tags: ['konkurransetilsyn', 'arsrapport', 'dagligvaretilsynet', 'handelsskikk', 'joint-marketing', 'delisting', 'utp'],
     publisher: 'Dagligvaretilsynet',
-    sourceUrl: 'https://www.regjeringen.no/contentassets/41847427caa14feb8b8578af3d6d45bc/r15-2023-kartlegging-av-egne-merkevarer-og-vertikal-integrasjon-i-dagligvaremarkedet.pdf',
+    sourceUrl: 'https://www.regjeringen.no/contentassets/036ffda0c81e4b3f99456a78ec31df0e/arsrapport-dagligvaretilsynet-2024.pdf',
+    accessedAt: '2026-07-19',
   },
   {
     id: 'emv-kartlegging-2023',
@@ -3515,4 +3550,243 @@ export const reports: Report[] = [
     publisher: 'Soedertaelje Kommun',
     sourceUrl: 'https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1915414',
   },
-]
+
+  // ═══ Authoritatively reconciled external works (2026-07-19) ═══════
+
+  {
+    id: 'konkurransetilsynet-dagligvare-2025',
+    title: 'Dagligvarerapport 2025',
+    fullTitle: 'Konkurransetilsynets Dagligvarerapport 2025',
+    author: 'Konkurransetilsynet',
+    institution: 'Konkurransetilsynet',
+    date: '2026-04-29',
+    year: 2026,
+    sourceUrl: 'https://konkurransetilsynet.no/wp-content/uploads/2026/04/Dagligvarerapport-2025.pdf',
+    reportCategory: 'konkurransetilsyn',
+    country: 'NO',
+    keyFindings: [
+      'Klar reduksjon i eksklusive leieavtaler og negative servitutter på eiendom, noe som styrker etableringskonkurransen.',
+      'Det norske markedet forblir sterkt konsentrert mellom de tre store paraplyaktørene (NorgesGruppen, Coop, Rema 1000) med stabile markedsandeler.',
+      'Innkjøpsprisforskjellene er betydelig redusert siden 2017, men NorgesGruppen oppnår fortsatt lavere priser enn konkurrentene.',
+      'Dagligvaretilsynet legges ned pr 30. april 2026, og ansvaret for god handelsskikk overføres to Konkurransetilsynet for å oppnå faglige synergier.',
+      'Det registreres store lokale variasjoner i konkurransetrykk og butikketablering til tross for nasjonal stabilitet.',
+    ],
+    recommendations: [
+      'Fortsette disiplinerende tilsyn med eiendommer og leiekontrakter for å forhindre konkurransebegrensning.',
+      'Integrere god handelsskikk-håndhevelse tett med det generelle konkurransepolitiske arbeidet.',
+    ],
+    relevance: 'Ekstremt viktig oppdatering for 2026. Dokumenterer den institusjonelle sammenslåingen av Dagligvaretilsynet og Konkurransetilsynet, samt den empiriske effekten av servitutt-forbudet i det norske markedet.',
+    tags: ['konkurranse', 'markedskonsentrasjon', 'eiendom', 'regulering', 'handelsskikk', 'prising'],
+    publisher: 'Konkurransetilsynet',
+    provenanceType: 'external_report',
+    supportingSources: [
+      {
+        label: 'Konkurransetilsynets official report register',
+        url: 'https://konkurransetilsynet.no/publikasjoner/rapporter/',
+        note: 'Lists the 2025 report with publication date 2026-04-29; source nature: official_primary. Identity and locator only; stored findings and recommendations remain unverified pending citation anchors and evidence appraisal.',
+      },
+    ],
+    accessedAt: '2026-07-19',
+  },
+  {
+    id: 'konkurrensverket-etablering-2026',
+    title: 'Åtgärder för att förbättra förutsättningarna för etablering av dagligvarubutiker',
+    fullTitle: 'Åtgärder för att förbättra förutsättningarna för etablering av dagligvarubutiker (Rapport 2026:4)',
+    institution: 'Konkurrensverket',
+    date: '2026-04-16',
+    year: 2026,
+    sourceUrl: 'https://www.konkurrensverket.se/informationsmaterial/rapportlista/atgarder-for-att-forbattra-forutsattningarna-for-etablering-av-dagligvarubutiker/',
+    reportCategory: 'konkurransetilsyn',
+    country: 'SE',
+    keyFindings: [
+      'Hver tredje svenske kommune mangler en lavprisbutikk, noe som begrenser konkurransetrykket lokalt.',
+      'Mangel på attraktive butikklokaler og tomtearealer utgjør et av de mest betydningsfulle etableringshindrene for nye kjeder.',
+      'Svenske kommuner trenger en mer aktiv og konkurransebevisst arealplanlegging for å bryte opp eksisterende butikkmonopoler.',
+    ],
+    recommendations: [
+      'Implementere Konkurrensverkets nye praktiske veiledning for kommunal arealplanlegging.',
+      'Legge til rette for økt tilgang på butikktomter for uavhengige utfordrerkjeder.',
+    ],
+    relevance: 'Tilsvarer den norske diskusjonen om restriktive eiendomsservitutter. Viser at tomte- og lokaltilgang er en universell nordisk barriere som effektivt beskytter dagligvaregigantene mot nyetablering.',
+    tags: ['etableringshindringer', 'konkurranse', 'Sverige', 'eiendom', 'kommunal-planlegging'],
+    publisher: 'Konkurrensverket',
+    provenanceType: 'external_report',
+    supportingSources: [
+      {
+        label: 'Official report PDF',
+        url: 'https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2026-4.pdf',
+        note: 'Konkurrensverket report 2026:4; source nature: official_primary. Cecilia Maxe-Aglinder is listed as contact, not author. Identity and locator only; stored findings and recommendations remain unverified pending citation anchors and evidence appraisal.',
+      },
+    ],
+    accessedAt: '2026-07-19',
+  },
+  {
+    id: 'konkurrensverket-lonsamhet-2025',
+    title: 'Lönsamheten i livsmedelsindustrin, dagligvaruhandeln och dess grossister – en ekonomisk analys',
+    fullTitle: 'Lönsamheten i livsmedelsindustrin, dagligvaruhandeln och dess grossister – en ekonomisk analys (Rapport 2025:3)',
+    author: 'Susanna Sällström Matthews, Ulf Bengtsson och Erik Brockwell',
+    institution: 'Konkurrensverket',
+    date: '2025-06-25',
+    year: 2025,
+    sourceUrl: 'https://www.konkurrensverket.se/informationsmaterial/rapportlista/lonsamheten-i-livsmedelsindustrin-dagligvaruhandeln-och-dess-grossister/',
+    reportCategory: 'konkurransetilsyn',
+    country: 'SE',
+    keyFindings: [
+      'Svensk livsmedelsindustri, grossistledd og dagligvarekjeder har opprettholdt stabil lønnsomhet over tid.',
+      'Lønnsomheten forble stabil selv under perioden med kraftig prisstigning og inflasjon (2021–2023).',
+      'Funnene styrker Konkurrensverkets vurdering av at konkurransen i store deler av den svenske næringsmiddelkjeden er utilstrekkelig.',
+    ],
+    recommendations: [
+      'Gjennomføre tettere overvåking av prisoverveltingsmekanismer fra grossist til detaljist.',
+      'Styrke konkurransefremmende tiltak i svensk næringsmiddelindustri.',
+    ],
+    relevance: 'Svensk kilde som gir empirisk bevis på stabil lønnsomhet under kriser, noe som understøtter hypoteser om markedsmakt og manglende reell priskonkurranse i det nordiske dagligvareoligopolet.',
+    tags: ['lønnsomhet', 'konkurranse', 'Sverige', 'marginer', 'oligopol', 'dagligvare'],
+    publisher: 'Konkurrensverket',
+    provenanceType: 'external_report',
+    supportingSources: [
+      {
+        label: 'Official report PDF',
+        url: 'https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2025-3.pdf',
+        note: 'Konkurrensverket report 2025:3; source nature: official_primary; no DOI assigned. Identity and locator only; stored findings and recommendations remain unverified pending citation anchors and evidence appraisal.',
+      },
+    ],
+    accessedAt: '2026-07-19',
+  },
+  {
+    id: 'livsmedelsforetagen-resiliens-2025',
+    title: 'Recept för resiliens',
+    fullTitle: 'Recept för resiliens',
+    author: 'Livsmedelsföretagen',
+    institution: 'Livsmedelsföretagen',
+    date: '2025-03-07',
+    year: 2025,
+    sourceUrl: 'https://www.livsmedelsforetagen.se/nyheter/recept-for-resiliens-10-atgarder-for-att-starka-sveriges-livsmedelsberedskap/',
+    reportCategory: 'bransje',
+    country: 'SE',
+    keyFindings: [
+      'Økonomisk lønnsomhet i alle ledd av den innenlandske dagligvarekjeden er selve forutsetningen for robust beredskap under krise.',
+      'Sveriges økte beredskapsbevilgninger (over 1 milliard SEK i 2026) må rettes mot kornlagring, drivstoff og insatsvarer for primærprodusenter.',
+      'Nøkkelen til resiliens ligger i å sikre stabil energitilgang, rent vann og logistikk-redundans for foredlingsleddet under langvarig krise.',
+    ],
+    recommendations: [
+      'Etablere strategiske beredskapsavtaler mellom staten og private grossister.',
+      'Styrke den økonomiske lønnsomheten for primærprodusenter for å forhindre gårdsnedleggelser som svekker nasjonal selvforsyning.',
+    ],
+    relevance: 'Brobygger mellom konkurranseforhold og nasjonal beredskap. Understreker at en svekket bondestand direkte truer totalforsvaret, et argument som er høyst overførbart til den norske beredskapsdebatten.',
+    tags: ['beredskap', 'selvforsyning', 'Sverige', 'logistikk', 'jordbruk'],
+    publisher: 'Livsmedelsföretagen',
+    provenanceType: 'external_report',
+    supportingSources: [
+      {
+        label: 'Publisher report PDF',
+        url: 'https://www.livsmedelsforetagen.se/app/uploads/2025/03/recept-for-resiliens-livsmedelsforetagen-mars-2025.pdf',
+        note: 'Source nature: advocacy_position; no DOI assigned and no support for MSB as co-institution. Identity and locator only; stored findings and recommendations remain unverified pending citation anchors and evidence appraisal.',
+      },
+    ],
+    accessedAt: '2026-07-19',
+  },
+  {
+    id: 'livsmedelsverket-skolor-2025',
+    title: 'L 2025 nr 07: Matsvinn i kommunala förskolor och skolor – Kartläggning av matsvinnet 2024',
+    fullTitle: 'L 2025 nr 07: Matsvinn i kommunala förskolor och skolor – Kartläggning av matsvinnet 2024',
+    author: 'Karin Fritz och Per Jonsson',
+    institution: 'Livsmedelsverket',
+    year: 2025,
+    sourceUrl: 'https://www.livsmedelsverket.se/om-oss/publikationer/artiklar/2025/l-2025-nr-07-matsvinn-i-kommunala-forskolor-och-skolor/',
+    reportCategory: 'offentlig',
+    country: 'SE',
+    keyFindings: [
+      'Kartleggingen viser en svak nedgang i matsvinn per porsjon i offentlige barnehager og skoler fra 2022 til 2024.',
+      'Bruk av mer nøyaktige målemetoder gjør det utfordrende å fastslå en entydig trend grunnet svingninger i deltakende kommuner.',
+      'Lanserer den nye svenske handlingsplanen "Fler gör mer" (2026–2030) for å halvere svinnet innen 2030.',
+      'Offentlige måltider representerer et enormt potensial for systematisk volumreduksjon genom menyplanlegging.',
+    ],
+    recommendations: [
+      'Innføre obligatorisk ukentlig måling i alle kommunale kjøkken.',
+      'Integrere svinnreduksjon som fast post i kommunale anbudskrav.',
+    ],
+    relevance: 'Svensk referansecase på sirkulære tiltak i offentlig storkjøkkendrift. Gir praktiske tall og strategisk retning for sirkulære matsystemer.',
+    tags: ['matsvinn', 'offentlig-innkjop', 'Sverige', 'barnehager', 'skoler', 'handlingsplan'],
+    issn: '1104-7089',
+    publisher: 'Livsmedelsverket',
+    provenanceType: 'external_report',
+    supportingSources: [
+      {
+        label: 'Official report PDF',
+        url: 'https://www.livsmedelsverket.se/globalassets/publikationsdatabas/rapporter/2025/l-2025-nr-07-matsvinn-i-kommunala-forskolor-och-skolor.pdf',
+        note: 'Source nature: official_primary; authors and ISSN verified from the report colophon. Identity and locator only; stored findings and recommendations remain unverified pending citation anchors and evidence appraisal.',
+      },
+    ],
+    accessedAt: '2026-07-19',
+  },
+  {
+    id: 'luke-food-waste-diary-2025',
+    title: 'Tackling the challenges of food waste diary studies — Testing strategies with Finnish data',
+    fullTitle: 'Tackling the challenges of food waste diary studies — Testing strategies with Finnish data',
+    author: 'Hanna Hartikainen, Joel Kostensalo, Inkeri Riipi',
+    institution: 'Natural Resources Institute Finland (Luke)',
+    year: 2025,
+    sourceUrl: 'https://jukuri.luke.fi/items/a68528ed-14ce-4a0a-9dcb-1a1d1a777cdf/full',
+    reportCategory: 'akademia',
+    country: 'FI',
+    keyFindings: [
+      'Validerer nøyaktigheten av dagbokstudier (diary studies) brukt til å kartlegge matsvinn på befolkningsnivå i Finland.',
+      'Metodiske utfordringer som underrapportering og registrerings-tretthet kan minimeres ved hjelp av målrettede oppfølgingsstrategier.',
+      'Studien danner det tekniske fundamentet for verifisering og måling innen det helsinkiske "Food Waste Ecosystem (2023–2026)".',
+    ],
+    recommendations: [
+      'Implementere dynamiske, digitale dagbokgrensesnitt for å øke svarprosenten blant yngre forbrukere.',
+      'Kombinere dagbokstudier med direkte avfallsveiing i utvalgte pilotområder.',
+    ],
+    relevance: 'Finsk kjernebidrag innen sirkulær matmetodikk. Nyttig for å forstå målefeil og underrapportering i husholdningssvinn, noe som styrker dataresiliensen i våre egne analyser.',
+    tags: ['matsvinn', 'Finland', 'metodikk', 'atferd', 'sirkulaer'],
+    doi: '10.1016/j.wasman.2025.114844',
+    issn: '0956-053X',
+    publisher: 'Elsevier',
+    provenanceType: 'external_article',
+    supportingSources: [
+      {
+        label: 'DOI record',
+        url: 'https://doi.org/10.1016/j.wasman.2025.114844',
+        note: 'Waste Management volume 202, article 114844; source nature: peer_reviewed; eISSN 1879-2456. Identity and locator only; stored findings and recommendations remain unverified pending citation anchors and evidence appraisal.',
+      },
+    ],
+    accessedAt: '2026-07-19',
+  },
+  {
+    id: 'miljostyrelsen-madspild-2025',
+    title: 'Madaffald i detailhandel og anden fødevaredistribution 2023',
+    fullTitle: 'Madaffald i detailhandel og anden fødevaredistribution 2023 (Miljøprojekt nr. 2304)',
+    author: 'Norion Consult',
+    institution: 'Miljøstyrelsen',
+    date: '2025-05-06',
+    year: 2025,
+    sourceUrl: 'https://mst.dk/publikationer/2025/maj/kortlaegning-af-madaffald-i-detailhandel-og-anden-foedevaredistribution-for-2023',
+    reportCategory: 'konsulentrapport',
+    country: 'DK',
+    keyFindings: [
+      'Total mængde madaffald i detailhandel og fødevaredistribution opgjort til 107 676 tons i 2023, hvoraf 103 906 tons var rent madspild.',
+      'En nominel stigning fra 2019-kortlægningen skyldes primært forbedret datagrundlag, nye brancher (f.eks. servicestationer) og ændrede sorteringsskøn.',
+      'Supermarkeder, discountbutikker og traditionelle købmænd har isoleret set oplevet et reelt fald i mængden af madaffald fra 2019 till 2023.',
+      'Etablerer baselineregistrering for de bindende EU-reduktionsmål for 2030 (30 % reduktion i forhold til gennemsnittet for 2021-2023).',
+    ],
+    recommendations: [
+      'Fokusere målrettet på andre led af kæden (restauranter, catering og husholdninger) for at accelerere svinnreduktionen.',
+      'Rull ut Fødevareministeriets kommende Madspildsstrategi 2.0.',
+    ],
+    relevance: 'Gir det nyeste kvantitative sammenligningsgrunnlaget for dansk dagligvaresvinn, og viser at systematisk arbeid i butikkene gir reelle resultater på tross av forsyningskjede-utfordringer.',
+    tags: ['matsvinn', 'Danmark', 'detailhandel', 'EU-regulering', 'sirkulaer'],
+    isbn: '978-87-7564-001-0',
+    publisher: 'Miljøstyrelsen',
+    provenanceType: 'external_report',
+    supportingSources: [
+      {
+        label: 'Official report PDF',
+        url: 'https://www2.mst.dk/Udgiv/publikationer/2025/04/978-87-7564-001-0.pdf',
+        note: 'Source nature: commissioned_report; prepared by Norion Consult for Miljøstyrelsen; editors Mads Werge, Jonatan H. Bohr and Johanne S. Holm. Identity and locator only; stored findings and recommendations remain unverified pending citation anchors and evidence appraisal.',
+      },
+    ],
+    accessedAt: '2026-07-19',
+  },
+])))))

@@ -1,18 +1,24 @@
 # Sammendrag: EUDR og norsk landbruk (2025)
 
 **Tema:** EUs avskogingsforordning og dens innvirkning på norsk fôrimport
-**Dato:** 11. mars 2026 (Analysert)
-**Kilde:** Miljødirektoratet / Landbruksdirektoratet (Statusrapport 2025)
+**Dato:** 11. mars 2026 (sist analysert; ikke løpende verifisert)
+**Kilde:** Miljødirektoratet / Landbruksdirektoratet; konkret statusdokument er ikke identifisert i notatet.
+**Verifisert locator:** https://www.miljodirektoratet.no/ansvarsomrader/arter-naturtyper/avskogingsforordningen/avskogingsforordningen-eudr/
+**Tilgangsdato:** 19. juli 2026
+
+**Kildestatus:** Dynamisk retts- og implementeringsnotat uten dokumentert tilgangsdato eller presise rettskildeankre.
+**Kilderolle:** Oppdatert myndighetsveiledning og gjeldende rettskilder kan dokumentere status, men eldre sammendrag blir raskt utdaterte.
+**Evidensgrense:** EØS-innlemmelse, norsk virkeområde, frister, produktdekning og plikter må verifiseres mot aktuelle EU- og norske kilder og siteres med tilgangsdato. Inntil en slik oppdatering er hele notatet intern bakgrunn, ikke gjeldende juridisk veiledning.
 
 ---
 
 ## Hovedinnhold i EUDR
-EUs avskogingsforordning (EUDR) forbyr salg av produkter i EU (og EØS) som har bidratt til avskoging etter 31. desember 2020. Dette gjelder spesielt soya, storfekjøtt, kaffe, kakao og trevirke.
+Arbeidsnotatet oppsummerer EUDR som et regelverk for avskogingsrelaterte varer på EU-markedet. Produktliste, skjæringsdato og eventuell anvendelse i Norge/EØS må kontrolleres mot gjeldende rettskilder før bruk.
 
-## Implementering i Norge
-1. **To-sporet løsning:** Norge har innlemmet EØS-relevante deler (kaffe, trevirke etc.), men utreder nå nasjonale forskrifter for soya og storfe for å harmonisere med EU uten å utfordre EØS-avtalens landbruksunntak.
-2. **Geolokalisering:** Det nye, radikale kravet er at hver eneste varebatch må kunne spores tilbake til de nøyaktige **GPS-koordinatene** for den parsellen der råvaren ble dyrket. Dette skal hindre at man "blander inn" ulovlig soya i fôret.
-3. **Norsk posisjon:** Siden norsk landbruk og havbruk allerede bruker sertifisert avskogingsfri soya (gjennom Denofa), er ikke problemet mangel på ren soya, men de enorme **administrative og digitale kostnadene** knyttet til dokumentasjon som EU krever fra utgangen av 2025.
+## Implementering i Norge (historisk arbeidsoppsummering)
+1. **To-sporet løsning:** Notatet beskrev en mulig todelt norsk gjennomføring. Dagens EØS- og forskriftsstatus er ikke verifisert her.
+2. **Geolokalisering:** Notatet fremhevet geolokaliseringsdata for produksjonsarealer som et sentralt dokumentasjonskrav. Nøyaktig plikt, aktørkrets og unntak må hentes fra gjeldende regelverk.
+3. **Norsk posisjon og frister:** Påstandene om avskogingsfri soya, kostnadsvirkninger og en frist «fra utgangen av 2025» er tidsfølsomme og kan ikke gjenbrukes uten ny kontroll.
 
 ## Relevans for Food Systems 2026
-Dette dokumentet viser at systemets sårbarhet ikke bare er økonomisk, men også juridisk og teknologisk. Hvis ikke Norge klarer å rulle ut digitale sporbarhetssystemer raskt nok, risikerer vi handelshindre for norsk kjøtt- og meierieksport til EU.
+Gir et scenario for juridisk og teknologisk sårbarhet knyttet til sporbarhet. Risikoen for konkrete handelshindre må vurderes mot gjeldende regelverk og faktisk norsk gjennomføring.

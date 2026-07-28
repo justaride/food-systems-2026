@@ -20,6 +20,7 @@ type AiKunnskapRecord = {
   projectImplications: string[]
   riskFlags: string[]
   claimCandidateCount: number
+  externalClaimEligible: boolean
   wordCount: number
   updatedAt: string
 }
@@ -43,6 +44,7 @@ const STATUS_LABELS: Record<string, string> = {
 const USAGE_LABELS: Record<string, string> = {
   internal_background: 'Intern bakgrunn',
   safe_for_ai_context: 'Trygg AI-kontekst',
+  safe_for_external_claims: 'Ekstern godkjenning markert',
   claim_candidate_review: 'Claim-review',
   do_not_use_for_claims: 'Ikke claim',
   requires_actor_gate: 'Aktørgate',
@@ -63,9 +65,11 @@ export function AiKunnskapContent({ status, records }: Props) {
 
   return (
     <div className="space-y-5">
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <Metric label="Ferdiggrad" value={`${status.readinessPct}%`} detail={`${status.finished}/${status.total} kilder`} />
-        <Metric label="Review queue" value={status.reviewRequired.toString()} detail="Uklare, claim eller lavtekst" />
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
+        <Metric label="Klassifisert" value={`${status.classificationPct}%`} detail={`${status.processed}/${status.total} kilder`} />
+        <Metric label="Godkjent AI-kontekst" value={status.approvedForAi.toString()} detail="safe_for_ai_context" />
+        <Metric label="Review queue" value={status.pendingReview.toString()} detail="Uklare, claim eller lavtekst" />
+        <Metric label="Ekstern claim-klar" value={status.externalClaimEligible.toString()} detail={status.externalReady ? 'Ekstern port grønn' : 'Ekstern port stengt'} />
         <Metric label="Claim-kandidater" value={status.claimCandidates.toString()} detail="Må via PCQ/claim-lock" />
         <Metric label="Gap" value={`${status.typeB}/${status.typeC}`} detail="Type-B aktørgate / type-C" />
       </div>
@@ -125,7 +129,9 @@ export function AiKunnskapContent({ status, records }: Props) {
                   </td>
                   <td className="px-3 py-3">
                     <span className="rounded border border-stone-200 bg-stone-50 px-2 py-1 text-[10px] text-stone-600">
-                      {USAGE_LABELS[record.usageRule] ?? record.usageRule}
+                      {record.usageRule === 'safe_for_external_claims' && record.externalClaimEligible
+                        ? 'Godkjent eksternt'
+                        : (USAGE_LABELS[record.usageRule] ?? record.usageRule)}
                     </span>
                   </td>
                   <td className="px-3 py-3">

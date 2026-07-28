@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { searchWithDiagnostics, type SearchMode } from '@/lib/queries/search'
 import { isPrismaDataUnavailable } from '@/lib/queries/prisma-errors'
+import { externalHttpUrl } from '@/lib/citations/external-citation-policy'
 
 const VALID_MODES: SearchMode[] = ['keyword', 'semantic', 'hybrid']
 const DEFAULT_LIMIT = 20
@@ -32,7 +33,10 @@ export async function GET(request: NextRequest) {
       fallback: execution.fallback,
       warnings: execution.warnings,
       count: execution.results.length,
-      results: execution.results,
+      results: execution.results.map(result => ({
+        ...result,
+        sourceUrl: externalHttpUrl(result.sourceUrl ?? null),
+      })),
     })
   } catch (error) {
     console.error('[search-api] Search failed', error)

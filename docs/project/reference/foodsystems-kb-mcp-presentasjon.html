@@ -572,25 +572,24 @@
       </div>
       <div class="panel amber">
         <strong>Installatørens ansvar</strong>
-        <p>Sørg for at tilgangen er lesetilgang, at hemmeligheter ikke ligger i repoet, og at Codex/Claude viser serveren som aktiv.</p>
+        <p>Sørg for at tilgangen er lesetilgang, at hemmeligheter ikke ligger i repoet, og at den kontrollerte wrapperen nullstiller arvet AI-, Obsidian- og proxy-miljø før Codex/Claude viser serveren som aktiv.</p>
       </div>
     </div>
     <details>
       <summary>Teknisk detalj: Codex-kommando</summary>
-      <pre><code>codex mcp add foodsystems-kb \
-  --env DATABASE_URL="$DATABASE_URL" \
-  --env OPENAI_API_KEY="$OPENAI_API_KEY" \
-  -- npx tsx mcp/foodsystems-kb/server.ts
+      <pre><code># Opprett først den mode-700 Keychain-wrapperen i FOODSYSTEMS-KB-MCP.md.
+# Wrapperen henter read-only-URL-en ved prosessstart, bruker kontrollert PATH og
+# nullstiller OPENAI/semantisk/Obsidian/proxy-miljø; ikke bruk --env for secrets.
+codex mcp add foodsystems-kb -- "$HOME/.local/bin/foodsystems-kb-mcp"
 
 codex mcp list
 # Restart Codex og åpne /mcp for å sjekke status.</code></pre>
     </details>
     <details>
       <summary>Teknisk detalj: Claude Code-kommando</summary>
-      <pre><code>claude mcp add --transport stdio foodsystems-kb \
-  --env DATABASE_URL="$DATABASE_URL" \
-  --env OPENAI_API_KEY="$OPENAI_API_KEY" \
-  -- npx tsx mcp/foodsystems-kb/server.ts
+      <pre><code># Gjenbruk samme hardenede mode-700 Keychain-wrapper; ikke legg secrets i --env/argv.
+claude mcp add --transport stdio foodsystems-kb \
+  -- "$HOME/.local/bin/foodsystems-kb-mcp"
 
 claude mcp list
 # Start Claude Code i repoet og bruk /mcp for status.</code></pre>

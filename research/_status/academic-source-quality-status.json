@@ -1,0 +1,1145 @@
+{
+  "generatedAt": "2026-07-20T03:49:32.796Z",
+  "scope": {
+    "reportRows": 139,
+    "thesisRows": 78,
+    "sourceDocRows": 183,
+    "totalRows": 400,
+    "database": {
+      "status": "available",
+      "reason": null,
+      "counts": {
+        "reportRows": 139,
+        "thesisRows": 79,
+        "sourceDocRows": 199,
+        "totalRows": 417
+      },
+      "parity": {
+        "status": "mismatch",
+        "identityStatus": "mismatch",
+        "metadataStatus": "match",
+        "differences": [
+          {
+            "set": "Report",
+            "seedRows": 139,
+            "databaseRows": 139,
+            "delta": 0,
+            "matchedRows": 139,
+            "seedOnlyIds": [],
+            "databaseOnlyIds": [],
+            "managedRuntimeIds": [],
+            "unclassifiedDatabaseOnlyIds": [],
+            "missingManagedRuntimeIds": [],
+            "classifiedParity": "match"
+          },
+          {
+            "set": "Thesis",
+            "seedRows": 78,
+            "databaseRows": 79,
+            "delta": 1,
+            "matchedRows": 78,
+            "seedOnlyIds": [],
+            "databaseOnlyIds": [
+              "matsvinnloven-2025"
+            ],
+            "managedRuntimeIds": [],
+            "unclassifiedDatabaseOnlyIds": [
+              "matsvinnloven-2025"
+            ],
+            "missingManagedRuntimeIds": [],
+            "classifiedParity": "mismatch"
+          },
+          {
+            "set": "SourceDoc",
+            "seedRows": 183,
+            "databaseRows": 199,
+            "delta": 16,
+            "matchedRows": 182,
+            "seedOnlyIds": [
+              "src-lov-2025-06-20-103"
+            ],
+            "databaseOnlyIds": [
+              "src-yt--TkOU0IeVq0",
+              "src-yt-6kP1Kfmzm9w",
+              "src-yt-8JZSIH4WC5A",
+              "src-yt-BOQZvBG_LBw",
+              "src-yt-EMeYsB6Vk2Y",
+              "src-yt-SgltfUW8Ymg",
+              "src-yt-UPYj1SNHYdw",
+              "src-yt-USSkCfpjGbM",
+              "src-yt-W2VaX150Uw8",
+              "src-yt-XcV4bZe0J_I",
+              "src-yt-aPzdVR0eaI4",
+              "src-yt-blx_7Jwq0Nc",
+              "src-yt-cvT_rOtTDBo",
+              "src-yt-fc50NCdLhL4",
+              "src-yt-hALbwiwHdOM",
+              "src-yt-n1qF1TRh2d0",
+              "src-yt-nvb9MJdwIzA"
+            ],
+            "managedRuntimeIds": [
+              "src-yt--TkOU0IeVq0",
+              "src-yt-6kP1Kfmzm9w",
+              "src-yt-8JZSIH4WC5A",
+              "src-yt-BOQZvBG_LBw",
+              "src-yt-EMeYsB6Vk2Y",
+              "src-yt-SgltfUW8Ymg",
+              "src-yt-UPYj1SNHYdw",
+              "src-yt-USSkCfpjGbM",
+              "src-yt-W2VaX150Uw8",
+              "src-yt-XcV4bZe0J_I",
+              "src-yt-aPzdVR0eaI4",
+              "src-yt-blx_7Jwq0Nc",
+              "src-yt-cvT_rOtTDBo",
+              "src-yt-fc50NCdLhL4",
+              "src-yt-hALbwiwHdOM",
+              "src-yt-n1qF1TRh2d0",
+              "src-yt-nvb9MJdwIzA"
+            ],
+            "unclassifiedDatabaseOnlyIds": [],
+            "missingManagedRuntimeIds": [],
+            "classifiedParity": "mismatch"
+          }
+        ],
+        "fieldDifferences": [
+          {
+            "set": "Report",
+            "matchedRows": 139,
+            "mismatchedRows": 0,
+            "mismatchedRowIds": [],
+            "mismatchedFields": {}
+          },
+          {
+            "set": "Thesis",
+            "matchedRows": 78,
+            "mismatchedRows": 0,
+            "mismatchedRowIds": [],
+            "mismatchedFields": {}
+          },
+          {
+            "set": "SourceDoc",
+            "matchedRows": 182,
+            "mismatchedRows": 0,
+            "mismatchedRowIds": [],
+            "mismatchedFields": {}
+          }
+        ]
+      },
+      "coverage": [
+        {
+          "set": "Report",
+          "key": "year",
+          "label": "year",
+          "present": 139,
+          "total": 139,
+          "pct": 100,
+          "modeled": true
+        },
+        {
+          "set": "Report",
+          "key": "institution",
+          "label": "institution",
+          "present": 139,
+          "total": 139,
+          "pct": 100,
+          "modeled": true
+        },
+        {
+          "set": "Report",
+          "key": "attribution",
+          "label": "attribution*",
+          "present": 139,
+          "total": 139,
+          "pct": 100,
+          "modeled": true
+        },
+        {
+          "set": "Report",
+          "key": "source_url",
+          "label": "valid absolute http(s) sourceUrl",
+          "present": 126,
+          "total": 139,
+          "pct": 90.64748201438849,
+          "modeled": true
+        },
+        {
+          "set": "Report",
+          "key": "author",
+          "label": "author",
+          "present": 38,
+          "total": 139,
+          "pct": 27.33812949640288,
+          "modeled": true
+        },
+        {
+          "set": "Report",
+          "key": "doi",
+          "label": "valid DOI syntax",
+          "present": 22,
+          "total": 139,
+          "pct": 15.827338129496402,
+          "modeled": true
+        },
+        {
+          "set": "Report",
+          "key": "access_date",
+          "label": "accessedAt",
+          "present": 92,
+          "total": 139,
+          "pct": 66.18705035971223,
+          "modeled": true
+        },
+        {
+          "set": "Report",
+          "key": "provenance_type",
+          "label": "explicit provenanceType",
+          "present": 139,
+          "total": 139,
+          "pct": 100,
+          "modeled": true
+        },
+        {
+          "set": "Report",
+          "key": "external_source_url",
+          "label": "valid absolute http(s) sourceUrl for externally classified rows",
+          "present": 101,
+          "total": 101,
+          "pct": 100,
+          "modeled": true
+        },
+        {
+          "set": "Report",
+          "key": "external_access_date",
+          "label": "accessedAt for externally classified rows",
+          "present": 92,
+          "total": 101,
+          "pct": 91.0891089108911,
+          "modeled": true
+        },
+        {
+          "set": "Report",
+          "key": "duplicate_locator_review",
+          "label": "rows outside duplicate canonical locator groups",
+          "present": 131,
+          "total": 139,
+          "pct": 94.24460431654677,
+          "modeled": true,
+          "note": "8 live rows share canonical stored locator keys within Report."
+        },
+        {
+          "set": "Report",
+          "key": "appraisal_status",
+          "label": "appraisal disposition",
+          "present": 0,
+          "total": 139,
+          "pct": 0,
+          "modeled": true,
+          "note": "Counts complete current reviewed or explicitly excluded dispositions; missing rows and drafts remain open."
+        },
+        {
+          "set": "Report",
+          "key": "structured_appraisal",
+          "label": "complete current structured appraisal or explicit exclusion",
+          "present": 0,
+          "total": 139,
+          "pct": 0,
+          "modeled": true,
+          "note": "Requires a complete reviewed appraisal or complete explicit exclusion bound to the current source hash; Thesis.method alone does not count."
+        },
+        {
+          "set": "Report",
+          "key": "study_design_and_bias",
+          "label": "study design/risk of bias",
+          "present": 0,
+          "total": 139,
+          "pct": 0,
+          "modeled": true,
+          "note": "Requires a complete reviewed appraisal or complete explicit exclusion bound to the current source hash; Thesis.method alone does not count."
+        },
+        {
+          "set": "Report",
+          "key": "external_appraisal_gate",
+          "label": "external appraisal gate",
+          "present": 0,
+          "total": 139,
+          "pct": 0,
+          "modeled": true,
+          "note": "Requires a complete current review plus the conservative appraisal and citation policy; appraisal never upgrades citation readiness."
+        },
+        {
+          "set": "Report",
+          "key": "external_release_disposition",
+          "label": "external gate pass or explicit exclusion",
+          "present": 0,
+          "total": 139,
+          "pct": 0,
+          "modeled": true,
+          "note": "Every record must either pass the conservative external appraisal/citation gate or carry a complete current explicit exclusion; exclusions never authorize external use."
+        },
+        {
+          "set": "Report",
+          "key": "claim_anchor",
+          "label": "claim-level anchor",
+          "present": 0,
+          "total": 139,
+          "pct": 0,
+          "modeled": true,
+          "note": "FieldCitation is modeled; only rows with claimText and a pageRef or quote count as anchored."
+        },
+        {
+          "set": "Report",
+          "key": "external_claim_anchor",
+          "label": "syntactic claim anchor for externally qualified evidence",
+          "present": 0,
+          "total": 0,
+          "pct": 0,
+          "modeled": true,
+          "note": "Only records already passing the independent appraisal/citation gate enter this denominator. A syntactic record anchor does not authorize every claim."
+        },
+        {
+          "set": "Thesis",
+          "key": "year",
+          "label": "year",
+          "present": 79,
+          "total": 79,
+          "pct": 100,
+          "modeled": true
+        },
+        {
+          "set": "Thesis",
+          "key": "institution",
+          "label": "institution",
+          "present": 79,
+          "total": 79,
+          "pct": 100,
+          "modeled": true
+        },
+        {
+          "set": "Thesis",
+          "key": "attribution",
+          "label": "authors",
+          "present": 79,
+          "total": 79,
+          "pct": 100,
+          "modeled": true
+        },
+        {
+          "set": "Thesis",
+          "key": "method",
+          "label": "method",
+          "present": 79,
+          "total": 79,
+          "pct": 100,
+          "modeled": true
+        },
+        {
+          "set": "Thesis",
+          "key": "url",
+          "label": "valid absolute http(s) url",
+          "present": 79,
+          "total": 79,
+          "pct": 100,
+          "modeled": true
+        },
+        {
+          "set": "Thesis",
+          "key": "persistent_identifier",
+          "label": "recognized persistent identifier",
+          "present": 37,
+          "total": 79,
+          "pct": 46.835443037974684,
+          "modeled": true
+        },
+        {
+          "set": "Thesis",
+          "key": "doi",
+          "label": "valid DOI syntax",
+          "present": 1,
+          "total": 79,
+          "pct": 1.2658227848101267,
+          "modeled": true
+        },
+        {
+          "set": "Thesis",
+          "key": "access_date",
+          "label": "accessDate",
+          "present": 78,
+          "total": 79,
+          "pct": 98.73417721518987,
+          "modeled": true
+        },
+        {
+          "set": "Thesis",
+          "key": "appraisal_status",
+          "label": "appraisal disposition",
+          "present": 0,
+          "total": 79,
+          "pct": 0,
+          "modeled": true,
+          "note": "Counts complete current reviewed or explicitly excluded dispositions; missing rows and drafts remain open."
+        },
+        {
+          "set": "Thesis",
+          "key": "structured_appraisal",
+          "label": "complete current structured appraisal or explicit exclusion",
+          "present": 0,
+          "total": 79,
+          "pct": 0,
+          "modeled": true,
+          "note": "Requires a complete reviewed appraisal or complete explicit exclusion bound to the current source hash; Thesis.method alone does not count."
+        },
+        {
+          "set": "Thesis",
+          "key": "study_design_and_bias",
+          "label": "study design/risk of bias",
+          "present": 0,
+          "total": 79,
+          "pct": 0,
+          "modeled": true,
+          "note": "Requires a complete reviewed appraisal or complete explicit exclusion bound to the current source hash; Thesis.method alone does not count."
+        },
+        {
+          "set": "Thesis",
+          "key": "external_appraisal_gate",
+          "label": "external appraisal gate",
+          "present": 0,
+          "total": 79,
+          "pct": 0,
+          "modeled": true,
+          "note": "Requires a complete current review plus the conservative appraisal and citation policy; appraisal never upgrades citation readiness."
+        },
+        {
+          "set": "Thesis",
+          "key": "external_release_disposition",
+          "label": "external gate pass or explicit exclusion",
+          "present": 0,
+          "total": 79,
+          "pct": 0,
+          "modeled": true,
+          "note": "Every record must either pass the conservative external appraisal/citation gate or carry a complete current explicit exclusion; exclusions never authorize external use."
+        },
+        {
+          "set": "Thesis",
+          "key": "claim_anchor",
+          "label": "claim-level anchor",
+          "present": 0,
+          "total": 79,
+          "pct": 0,
+          "modeled": true,
+          "note": "FieldCitation is modeled; only rows with claimText and a pageRef or quote count as anchored."
+        },
+        {
+          "set": "Thesis",
+          "key": "external_claim_anchor",
+          "label": "syntactic claim anchor for externally qualified evidence",
+          "present": 0,
+          "total": 0,
+          "pct": 0,
+          "modeled": true,
+          "note": "Only records already passing the independent appraisal/citation gate enter this denominator. A syntactic record anchor does not authorize every claim."
+        },
+        {
+          "set": "SourceDoc",
+          "key": "year",
+          "label": "year",
+          "present": 171,
+          "total": 199,
+          "pct": 85.92964824120602,
+          "modeled": true
+        },
+        {
+          "set": "SourceDoc",
+          "key": "author",
+          "label": "author",
+          "present": 185,
+          "total": 199,
+          "pct": 92.96482412060301,
+          "modeled": true
+        },
+        {
+          "set": "SourceDoc",
+          "key": "url",
+          "label": "valid absolute http(s) url",
+          "present": 118,
+          "total": 199,
+          "pct": 59.2964824120603,
+          "modeled": true
+        },
+        {
+          "set": "SourceDoc",
+          "key": "doi",
+          "label": "valid DOI syntax",
+          "present": 10,
+          "total": 199,
+          "pct": 5.025125628140704,
+          "modeled": true
+        },
+        {
+          "set": "SourceDoc",
+          "key": "accessed_at",
+          "label": "accessedAt",
+          "present": 78,
+          "total": 199,
+          "pct": 39.19597989949749,
+          "modeled": true
+        },
+        {
+          "set": "SourceDoc",
+          "key": "archived_url",
+          "label": "archivedUrl",
+          "present": 0,
+          "total": 199,
+          "pct": 0,
+          "modeled": true
+        },
+        {
+          "set": "SourceDoc",
+          "key": "provenance_type",
+          "label": "explicit provenanceType",
+          "present": 197,
+          "total": 199,
+          "pct": 98.99497487437185,
+          "modeled": true
+        },
+        {
+          "set": "SourceDoc",
+          "key": "external_url",
+          "label": "valid absolute http(s) url for externally classified rows",
+          "present": 98,
+          "total": 102,
+          "pct": 96.07843137254902,
+          "modeled": true
+        },
+        {
+          "set": "SourceDoc",
+          "key": "external_accessed_at",
+          "label": "accessedAt for externally classified rows",
+          "present": 78,
+          "total": 102,
+          "pct": 76.47058823529412,
+          "modeled": true
+        },
+        {
+          "set": "SourceDoc",
+          "key": "duplicate_locator_review",
+          "label": "rows outside duplicate canonical locator groups",
+          "present": 199,
+          "total": 199,
+          "pct": 100,
+          "modeled": true,
+          "note": "0 live rows share canonical stored locator keys within SourceDoc."
+        },
+        {
+          "set": "SourceDoc",
+          "key": "appraisal_status",
+          "label": "appraisal disposition",
+          "present": 0,
+          "total": 199,
+          "pct": 0,
+          "modeled": true,
+          "note": "Counts complete current reviewed or explicitly excluded dispositions; missing rows and drafts remain open."
+        },
+        {
+          "set": "SourceDoc",
+          "key": "structured_appraisal",
+          "label": "complete current structured appraisal or explicit exclusion",
+          "present": 0,
+          "total": 199,
+          "pct": 0,
+          "modeled": true,
+          "note": "Requires a complete reviewed appraisal or complete explicit exclusion bound to the current source hash; Thesis.method alone does not count."
+        },
+        {
+          "set": "SourceDoc",
+          "key": "study_design_and_bias",
+          "label": "study design/risk of bias",
+          "present": 0,
+          "total": 199,
+          "pct": 0,
+          "modeled": true,
+          "note": "Requires a complete reviewed appraisal or complete explicit exclusion bound to the current source hash; Thesis.method alone does not count."
+        },
+        {
+          "set": "SourceDoc",
+          "key": "external_appraisal_gate",
+          "label": "external appraisal gate",
+          "present": 0,
+          "total": 199,
+          "pct": 0,
+          "modeled": true,
+          "note": "Requires a complete current review plus the conservative appraisal and citation policy; appraisal never upgrades citation readiness."
+        },
+        {
+          "set": "SourceDoc",
+          "key": "external_release_disposition",
+          "label": "external gate pass or explicit exclusion",
+          "present": 0,
+          "total": 199,
+          "pct": 0,
+          "modeled": true,
+          "note": "Every record must either pass the conservative external appraisal/citation gate or carry a complete current explicit exclusion; exclusions never authorize external use."
+        },
+        {
+          "set": "SourceDoc",
+          "key": "claim_anchor",
+          "label": "claim-level anchor",
+          "present": 3,
+          "total": 199,
+          "pct": 1.507537688442211,
+          "modeled": true,
+          "note": "FieldCitation is modeled; only rows with claimText and a pageRef or quote count as anchored."
+        },
+        {
+          "set": "SourceDoc",
+          "key": "external_claim_anchor",
+          "label": "syntactic claim anchor for externally qualified evidence",
+          "present": 0,
+          "total": 0,
+          "pct": 0,
+          "modeled": true,
+          "note": "Only records already passing the independent appraisal/citation gate enter this denominator. A syntactic record anchor does not authorize every claim."
+        }
+      ]
+    }
+  },
+  "urlSyntax": [
+    {
+      "set": "Report",
+      "field": "sourceUrl",
+      "total": 139,
+      "nonEmpty": 126,
+      "validAbsoluteHttpUrl": 126,
+      "invalidNonEmpty": 0,
+      "missing": 13
+    },
+    {
+      "set": "Thesis",
+      "field": "url",
+      "total": 78,
+      "nonEmpty": 78,
+      "validAbsoluteHttpUrl": 78,
+      "invalidNonEmpty": 0,
+      "missing": 0
+    },
+    {
+      "set": "SourceDoc",
+      "field": "url",
+      "total": 183,
+      "nonEmpty": 102,
+      "validAbsoluteHttpUrl": 102,
+      "invalidNonEmpty": 0,
+      "missing": 81
+    }
+  ],
+  "identifierSyntax": [
+    {
+      "set": "Report",
+      "field": "doi",
+      "total": 139,
+      "nonEmpty": 22,
+      "validDoi": 22,
+      "otherPersistentIdentifier": 0,
+      "unrecognizedNonEmpty": 0,
+      "otherPersistentIdentifierSchemes": {
+        "hdl": 0,
+        "diva2": 0,
+        "slu": 0,
+        "urn": 0
+      }
+    },
+    {
+      "set": "Thesis",
+      "field": "doi",
+      "total": 78,
+      "nonEmpty": 37,
+      "validDoi": 1,
+      "otherPersistentIdentifier": 36,
+      "unrecognizedNonEmpty": 0,
+      "otherPersistentIdentifierSchemes": {
+        "hdl": 24,
+        "diva2": 7,
+        "slu": 4,
+        "urn": 1
+      }
+    },
+    {
+      "set": "SourceDoc",
+      "field": "doi",
+      "total": 183,
+      "nonEmpty": 10,
+      "validDoi": 10,
+      "otherPersistentIdentifier": 0,
+      "unrecognizedNonEmpty": 0,
+      "otherPersistentIdentifierSchemes": {
+        "hdl": 0,
+        "diva2": 0,
+        "slu": 0,
+        "urn": 0
+      }
+    }
+  ],
+  "regressionGate": {
+    "status": "pass",
+    "failureCount": 0,
+    "checks": [
+      {
+        "set": "Report",
+        "key": "year",
+        "label": "year",
+        "present": 139,
+        "total": 139,
+        "pct": 100,
+        "min": 100,
+        "minPresent": 0,
+        "target": 100,
+        "regressionPass": true,
+        "targetMet": true
+      },
+      {
+        "set": "Report",
+        "key": "institution",
+        "label": "institution",
+        "present": 139,
+        "total": 139,
+        "pct": 100,
+        "min": 100,
+        "minPresent": 0,
+        "target": 100,
+        "regressionPass": true,
+        "targetMet": true
+      },
+      {
+        "set": "Report",
+        "key": "attribution",
+        "label": "attribution*",
+        "present": 139,
+        "total": 139,
+        "pct": 100,
+        "min": 100,
+        "minPresent": 0,
+        "target": 100,
+        "regressionPass": true,
+        "targetMet": true
+      },
+      {
+        "set": "Report",
+        "key": "source_url",
+        "label": "valid absolute http(s) sourceUrl",
+        "present": 126,
+        "total": 139,
+        "pct": 90.64748201438849,
+        "min": 90,
+        "minPresent": 0,
+        "target": 100,
+        "regressionPass": true,
+        "targetMet": false
+      },
+      {
+        "set": "Report",
+        "key": "author",
+        "label": "author",
+        "present": 38,
+        "total": 139,
+        "pct": 27.33812949640288,
+        "min": 22,
+        "minPresent": 0,
+        "target": 80,
+        "regressionPass": true,
+        "targetMet": false
+      },
+      {
+        "set": "Report",
+        "key": "doi",
+        "label": "valid DOI syntax",
+        "present": 22,
+        "total": 139,
+        "pct": 15.827338129496402,
+        "min": 15,
+        "minPresent": 0,
+        "target": 50,
+        "regressionPass": true,
+        "targetMet": false
+      },
+      {
+        "set": "Report",
+        "key": "access_date",
+        "label": "accessedAt",
+        "present": 92,
+        "total": 139,
+        "pct": 66.18705035971223,
+        "min": 66,
+        "minPresent": 92,
+        "target": 100,
+        "regressionPass": true,
+        "targetMet": false
+      },
+      {
+        "set": "Report",
+        "key": "provenance_type",
+        "label": "explicit provenanceType",
+        "present": 139,
+        "total": 139,
+        "pct": 100,
+        "min": 89,
+        "minPresent": 125,
+        "target": 100,
+        "regressionPass": true,
+        "targetMet": true
+      },
+      {
+        "set": "Thesis",
+        "key": "year",
+        "label": "year",
+        "present": 78,
+        "total": 78,
+        "pct": 100,
+        "min": 100,
+        "minPresent": 0,
+        "target": 100,
+        "regressionPass": true,
+        "targetMet": true
+      },
+      {
+        "set": "Thesis",
+        "key": "method",
+        "label": "method",
+        "present": 78,
+        "total": 78,
+        "pct": 100,
+        "min": 100,
+        "minPresent": 0,
+        "target": 100,
+        "regressionPass": true,
+        "targetMet": true
+      },
+      {
+        "set": "Thesis",
+        "key": "url",
+        "label": "valid absolute http(s) url",
+        "present": 78,
+        "total": 78,
+        "pct": 100,
+        "min": 100,
+        "minPresent": 0,
+        "target": 100,
+        "regressionPass": true,
+        "targetMet": true
+      },
+      {
+        "set": "Thesis",
+        "key": "persistent_identifier",
+        "label": "recognized persistent identifier",
+        "present": 37,
+        "total": 78,
+        "pct": 47.43589743589743,
+        "min": 45,
+        "minPresent": 0,
+        "target": 90,
+        "regressionPass": true,
+        "targetMet": false
+      },
+      {
+        "set": "Thesis",
+        "key": "doi",
+        "label": "valid DOI syntax",
+        "present": 1,
+        "total": 78,
+        "pct": 1.282051282051282,
+        "min": 0,
+        "minPresent": 0,
+        "target": 50,
+        "regressionPass": true,
+        "targetMet": false
+      },
+      {
+        "set": "Thesis",
+        "key": "access_date",
+        "label": "accessDate",
+        "present": 78,
+        "total": 78,
+        "pct": 100,
+        "min": 100,
+        "minPresent": 78,
+        "target": 100,
+        "regressionPass": true,
+        "targetMet": true
+      },
+      {
+        "set": "SourceDoc",
+        "key": "year",
+        "label": "year",
+        "present": 172,
+        "total": 183,
+        "pct": 93.98907103825137,
+        "min": 93,
+        "minPresent": 0,
+        "target": 100,
+        "regressionPass": true,
+        "targetMet": false
+      },
+      {
+        "set": "SourceDoc",
+        "key": "author",
+        "label": "author",
+        "present": 169,
+        "total": 183,
+        "pct": 92.34972677595628,
+        "min": 90,
+        "minPresent": 0,
+        "target": 100,
+        "regressionPass": true,
+        "targetMet": false
+      },
+      {
+        "set": "SourceDoc",
+        "key": "url",
+        "label": "valid absolute http(s) url",
+        "present": 102,
+        "total": 183,
+        "pct": 55.73770491803278,
+        "min": 44,
+        "minPresent": 0,
+        "target": 95,
+        "regressionPass": true,
+        "targetMet": false
+      },
+      {
+        "set": "SourceDoc",
+        "key": "doi",
+        "label": "valid DOI syntax",
+        "present": 10,
+        "total": 183,
+        "pct": 5.46448087431694,
+        "min": 3,
+        "minPresent": 0,
+        "target": 40,
+        "regressionPass": true,
+        "targetMet": false
+      },
+      {
+        "set": "SourceDoc",
+        "key": "accessed_at",
+        "label": "accessedAt",
+        "present": 79,
+        "total": 183,
+        "pct": 43.169398907103826,
+        "min": 41,
+        "minPresent": 76,
+        "target": 100,
+        "regressionPass": true,
+        "targetMet": false
+      },
+      {
+        "set": "SourceDoc",
+        "key": "archived_url",
+        "label": "archivedUrl",
+        "present": 0,
+        "total": 183,
+        "pct": 0,
+        "min": 0,
+        "minPresent": 0,
+        "target": 50,
+        "regressionPass": true,
+        "targetMet": false
+      },
+      {
+        "set": "SourceDoc",
+        "key": "provenance_type",
+        "label": "explicit provenanceType",
+        "present": 181,
+        "total": 183,
+        "pct": 98.90710382513662,
+        "min": 85,
+        "minPresent": 156,
+        "target": 100,
+        "regressionPass": true,
+        "targetMet": false
+      }
+    ],
+    "meaning": "Protects minimum seed-metadata coverage. A pass is not academic or external readiness."
+  },
+  "externalReadiness": {
+    "status": "not_ready",
+    "dimensions": [
+      {
+        "key": "database_scope",
+        "label": "Live database available with seed identity parity",
+        "set": "Corpus",
+        "present": 0,
+        "total": 1,
+        "pct": 0,
+        "target": 100,
+        "status": "gap",
+        "note": "Seed/database identity parity is mismatch; external readiness cannot be granted across mixed scopes."
+      },
+      {
+        "key": "report_provenance",
+        "label": "Explicit evidence provenance",
+        "set": "Report",
+        "present": 139,
+        "total": 139,
+        "pct": 100,
+        "target": 100,
+        "status": "ready",
+        "note": "Unknown Report provenance remains fail-closed; internal syntheses, registers, composite rows, and blocked records do not require an invented work URL."
+      },
+      {
+        "key": "report_locator",
+        "label": "Valid absolute http(s) locator syntax for externally classified rows",
+        "set": "Report",
+        "present": 101,
+        "total": 101,
+        "pct": 100,
+        "target": 100,
+        "status": "ready",
+        "note": "Only Reports explicitly classified as external_report or external_article are in this denominator; URL syntax does not prove live availability."
+      },
+      {
+        "key": "thesis_locator",
+        "label": "Valid absolute http(s) locator syntax",
+        "set": "Thesis",
+        "present": 79,
+        "total": 79,
+        "pct": 100,
+        "target": 100,
+        "status": "ready",
+        "note": "Every externally used thesis needs verified work-level locator metadata; this count validates URL syntax only."
+      },
+      {
+        "key": "source_doc_provenance",
+        "label": "Explicit evidence provenance",
+        "set": "SourceDoc",
+        "present": 197,
+        "total": 199,
+        "pct": 98.99497487437185,
+        "target": 100,
+        "status": "gap",
+        "note": "Unknown SourceDoc provenance remains fail-closed; internal evidence and duplicates do not require a public publication URL."
+      },
+      {
+        "key": "source_doc_locator",
+        "label": "Valid absolute http(s) locator syntax for externally classified rows",
+        "set": "SourceDoc",
+        "present": 98,
+        "total": 102,
+        "pct": 96.07843137254902,
+        "target": 100,
+        "status": "gap",
+        "note": "Only SourceDocs explicitly classified as external publications, official sources, self-reports, commissioned reports, peer-reviewed works, or advocacy positions are in this denominator."
+      },
+      {
+        "key": "duplicate_locator_review",
+        "label": "Rows outside duplicate canonical locator groups",
+        "set": "Corpus",
+        "present": 330,
+        "total": 338,
+        "pct": 97.63313609467455,
+        "target": 100,
+        "status": "gap",
+        "note": "8 Report/SourceDoc live rows share canonical stored locator keys and require record-level duplicate, generic-locator, or misbinding review."
+      },
+      {
+        "key": "report_access_date",
+        "label": "Access date for externally classified rows",
+        "set": "Report",
+        "present": 92,
+        "total": 101,
+        "pct": 91.0891089108911,
+        "target": 100,
+        "status": "gap",
+        "note": "Source policy requires an evidence-based ISO access date for externally used URLs; internal and unknown rows are excluded."
+      },
+      {
+        "key": "thesis_access_date",
+        "label": "Access date",
+        "set": "Thesis",
+        "present": 78,
+        "total": 79,
+        "pct": 98.73417721518987,
+        "target": 100,
+        "status": "gap",
+        "note": "Source policy requires an evidence-based ISO access date for externally used URLs."
+      },
+      {
+        "key": "source_doc_access_date",
+        "label": "Access date for externally classified rows",
+        "set": "SourceDoc",
+        "present": 78,
+        "total": 102,
+        "pct": 76.47058823529412,
+        "target": 100,
+        "status": "gap",
+        "note": "Source policy requires an evidence-based ISO access date for externally used URLs; internal and unknown rows are excluded from this denominator."
+      },
+      {
+        "key": "appraisal_status",
+        "label": "Complete current appraisal disposition",
+        "set": "Corpus",
+        "present": 0,
+        "total": 417,
+        "pct": 0,
+        "target": 100,
+        "status": "gap",
+        "note": "The structured model is active. Missing rows, drafts, stale source hashes, and incomplete reviews remain fail-closed; excluded rows close review disposition but never authorize external use."
+      },
+      {
+        "key": "thesis_method",
+        "label": "Method summary",
+        "set": "Thesis",
+        "present": 79,
+        "total": 79,
+        "pct": 100,
+        "target": 100,
+        "status": "ready",
+        "note": "Method summaries are present but are not a risk-of-bias assessment."
+      },
+      {
+        "key": "study_design",
+        "label": "Complete current structured appraisal or explicit exclusion",
+        "set": "Corpus",
+        "present": 0,
+        "total": 417,
+        "pct": 0,
+        "target": 100,
+        "status": "gap",
+        "note": "Reviewed rows require full-text basis, design, applicability, limitations, risk-of-bias, reviewer provenance, basis citation, and current source hash. Complete current exclusions close the row without authorizing it."
+      },
+      {
+        "key": "external_appraisal_gate",
+        "label": "External-use disposition resolved",
+        "set": "Corpus",
+        "present": 0,
+        "total": 417,
+        "pct": 0,
+        "target": 100,
+        "status": "gap",
+        "note": "0 records currently pass the conservative external gate. Every other row needs a complete current explicit exclusion; exclusions never authorize use, and an appraisal cannot promote a citation."
+      },
+      {
+        "key": "claim_anchor",
+        "label": "Externally qualified records with a syntactic claim anchor",
+        "set": "Corpus",
+        "present": 0,
+        "total": 0,
+        "pct": 0,
+        "target": 100,
+        "status": "gap",
+        "note": "The denominator contains only records already passing the independent appraisal/citation gate and must be non-empty. One claimText plus pageRef/quote is still only a record-level onboarding check; every emitted claim remains separately fail-closed under citation and appraisal policy."
+      }
+    ],
+    "blockers": [
+      "Live database available with seed identity parity: Seed/database identity parity is mismatch; external readiness cannot be granted across mixed scopes.",
+      "Explicit evidence provenance: Unknown SourceDoc provenance remains fail-closed; internal evidence and duplicates do not require a public publication URL.",
+      "Valid absolute http(s) locator syntax for externally classified rows: Only SourceDocs explicitly classified as external publications, official sources, self-reports, commissioned reports, peer-reviewed works, or advocacy positions are in this denominator.",
+      "Rows outside duplicate canonical locator groups: 8 Report/SourceDoc live rows share canonical stored locator keys and require record-level duplicate, generic-locator, or misbinding review.",
+      "Access date for externally classified rows: Source policy requires an evidence-based ISO access date for externally used URLs; internal and unknown rows are excluded.",
+      "Access date: Source policy requires an evidence-based ISO access date for externally used URLs.",
+      "Access date for externally classified rows: Source policy requires an evidence-based ISO access date for externally used URLs; internal and unknown rows are excluded from this denominator.",
+      "Complete current appraisal disposition: The structured model is active. Missing rows, drafts, stale source hashes, and incomplete reviews remain fail-closed; excluded rows close review disposition but never authorize external use.",
+      "Complete current structured appraisal or explicit exclusion: Reviewed rows require full-text basis, design, applicability, limitations, risk-of-bias, reviewer provenance, basis citation, and current source hash. Complete current exclusions close the row without authorizing it.",
+      "External-use disposition resolved: 0 records currently pass the conservative external gate. Every other row needs a complete current explicit exclusion; exclusions never authorize use, and an appraisal cannot promote a citation.",
+      "Externally qualified records with a syntactic claim anchor: The denominator contains only records already passing the independent appraisal/citation gate and must be non-empty. One claimText plus pageRef/quote is still only a record-level onboarding check; every emitted claim remains separately fail-closed under citation and appraisal policy."
+    ],
+    "meaning": "Requires live seed/runtime parity; complete provenance, locator, access-date, and duplicate review; a complete current appraisal or explicit exclusion for every corpus row; and a non-empty externally qualified subset whose records have syntactic claim anchors. Exclusions never authorize use, and every emitted claim remains subject to the independent citation/appraisal gate. URL checks validate syntax only, not network availability."
+  }
+}

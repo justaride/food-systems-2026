@@ -97,11 +97,7 @@ export function buildCitationReadinessRefreshPlan(
     )
     const readinessNeedsUpdate = fromReadiness !== toReadiness
 
-    if (
-      !localOnlyDowngrade &&
-      !sourceClassNeedsUpdate &&
-      (fromReadiness !== 'blocked_unsourced' || !readinessNeedsUpdate)
-    ) {
+    if (!sourceClassNeedsUpdate && !readinessNeedsUpdate) {
       skippedUnchanged += 1
       continue
     }

@@ -10,6 +10,7 @@ const inputs: LibraryAnalysisPdfTextRepairInput[] = [
   {
     sourceKey: 'document:update-large',
     documentId: 'doc-large',
+    existingUpdatedAt: '2026-06-18T11:00:00.000Z',
     title: 'Large PDF',
     path: 'research/large.pdf',
     existingContent: '# Large PDF\n\nPDF document - full text not extracted.',
@@ -21,6 +22,7 @@ const inputs: LibraryAnalysisPdfTextRepairInput[] = [
   {
     sourceKey: 'document:update-small',
     documentId: 'doc-small',
+    existingUpdatedAt: '2026-06-18T11:01:00.000Z',
     title: 'Small PDF',
     path: 'research/small.pdf',
     existingContent: 'Small metadata stub.',
@@ -32,6 +34,7 @@ const inputs: LibraryAnalysisPdfTextRepairInput[] = [
   {
     sourceKey: 'document:no-document',
     documentId: null,
+    existingUpdatedAt: null,
     title: 'Unlinked PDF',
     path: 'research/unlinked.pdf',
     existingContent: '',
@@ -43,6 +46,7 @@ const inputs: LibraryAnalysisPdfTextRepairInput[] = [
   {
     sourceKey: 'document:no-gain',
     documentId: 'doc-no-gain',
+    existingUpdatedAt: '2026-06-18T11:02:00.000Z',
     title: 'Existing Rich PDF',
     path: 'research/rich.pdf',
     existingContent: 'rik '.repeat(240),
@@ -70,6 +74,7 @@ describe('library analysis PDF text repair', () => {
 
     const update = plan.rows.find(row => row.sourceKey === 'document:update-large')
     assert.equal(update?.action, 'update')
+    assert.equal(update?.expectedUpdatedAt, '2026-06-18T11:00:00.000Z')
     assert.equal(update?.newWordCount, 201)
     assert.match(update?.nextContent ?? '', /PDF text extraction/)
     assert.match(update?.nextContent ?? '', /Source PDF: `research\/large\.pdf`/)
@@ -97,6 +102,8 @@ describe('library analysis PDF text repair', () => {
     assert.match(markdown, /^# Library Analysis PDF Text Repair Plan/m)
     assert.match(markdown, /Document.content/)
     assert.match(markdown, /lager ikke claim-kandidater/)
+    assert.match(markdown, /Document\.updatedAt, wordCount og content/)
+    assert.match(markdown, /avbryter hele batchen/)
     assert.match(markdown, /Total rows \| 4/)
     assert.match(markdown, /Update rows \| 2/)
     assert.match(markdown, /Rows shown below: 2 of 4/)

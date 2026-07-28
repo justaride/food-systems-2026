@@ -149,6 +149,23 @@ describe('source citation backfill helpers', () => {
     )
   })
 
+  it('does not upgrade an unknown-provenance URL merely because it has an access date', () => {
+    const plan = buildCitationBackfillPlan([
+      {
+        entityType: 'SourceDoc',
+        entityId: 'src-unknown',
+        fieldPath: 'url',
+        citationText: 'Unclassified source',
+        locator: 'https://example.test/source',
+        sourceClass: 'unknown',
+        accessedAt: '2026-07-19',
+      },
+    ])
+
+    assert.equal(plan.sourceCitationsToCreate[0]?.sourceClass, 'unknown')
+    assert.equal(plan.sourceCitationsToCreate[0]?.citationReadiness, 'blocked_unsourced')
+  })
+
   it('keeps Document filePath citations linked to their Document row', () => {
     const plan = buildCitationBackfillPlan([
       {
