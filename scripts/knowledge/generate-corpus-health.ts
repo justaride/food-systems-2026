@@ -25,6 +25,11 @@ import { sources } from '@seeds/sources'
 import { theses } from '@seeds/theses'
 import { PrismaClient } from '../../src/generated/prisma/client'
 import { loadManagedTranscriptSourceDocIds } from '../../src/lib/citations/academic-corpus-identity'
+import {
+  inspectLibraryAnalysisRetainedHistory,
+  LIBRARY_ANALYSIS_RETAINED_HISTORY_CONTRACT_SHA256,
+  LIBRARY_ANALYSIS_RETAINED_HISTORY_REVIEW_CONTEXT,
+} from '../../src/lib/library-analysis-retained-history-contract'
 import { candidateLocalFilePaths } from '../../src/lib/local-file-locator'
 import { validateVault } from '../../src/lib/obsidian-vault'
 import {
@@ -163,6 +168,18 @@ const SOURCE_DEFINITIONS: SourceDefinition[] = [
     observationMode: 'direct_repository_observation',
     updatedThrough: '2026-07-21',
     caveats: ['AI drafts and approved-internal rows are not independent evidence appraisal.'],
+  },
+  {
+    snapshotId: 'health.snapshot.library_retained_history_contract',
+    surfaceId: 'library_retained_history_contract',
+    path: 'src/lib/library-analysis-retained-history-contract.ts',
+    authorityLayer: 'repository_contract',
+    observationMode: 'direct_repository_observation',
+    updatedThrough: null,
+    caveats: [
+      'The contract classifies exact persisted rows as non-evidentiary retained history; it does not approve deletion, relinking or external use.',
+      'Projection-freshness updates are explicitly outside the retained-history identity contract.',
+    ],
   },
   {
     snapshotId: 'health.snapshot.citable_status',
@@ -308,7 +325,7 @@ const DB_QUERIES = {
     COUNT(*) FILTER (WHERE NOT "isDuplicate" AND NULLIF(BTRIM(COALESCE(url, '')), '') IS NULL AND "documentId" IS NULL)::int AS active_without_url_or_document
     FROM "SourceDoc"`,
   documents: `SELECT id, "filePath" FROM "Document" ORDER BY id`,
-  library: `SELECT "sourceKind", "sourceKey", status, "usageRule", "reviewStatus", "reviewedAt", reviewer, "documentId", "sourceDocId" FROM "LibraryAnalysisRecord" ORDER BY "sourceKind", "sourceKey"`,
+  library: `SELECT id, "sourceKind", "sourceKey", "documentId", "sourceDocId", title, status, "usageRule", "reviewStatus", "contentHash", "reviewedAt", reviewer, "claimCandidates" FROM "LibraryAnalysisRecord" ORDER BY "sourceKind", "sourceKey"`,
   archive: `SELECT
       sc.id,
       sc."citationReadiness"::text AS "citationReadiness",
@@ -825,7 +842,43 @@ function buildAssessment(
   const databaseLibraryKeys = new Set(db.libraryRows.map((row) => `${row.sourceKind}:${row.sourceKey}`))
   const staleLibraryKeys = [...databaseLibraryKeys].filter((key) => !libraryLedgerKeys.has(key)).sort()
   const inventoryOnlyLibraryKeys = [...libraryLedgerKeys].filter((key) => !databaseLibraryKeys.has(key)).sort()
-  const libraryIdentityParity = staleLibraryKeys.length === 0 && inventoryOnlyLibraryKeys.length === 0
+  const libraryRetainedHistoryInspection = inspectLibraryAnalysisRetainedHistory({
+    currentInventory: libraryLedger.map((row) => ({
+      sourceKind: String(row.sourceKind),
+      sourceKey: String(row.sourceKey),
+    })),
+    databaseRows: db.libraryRows.map((row) => ({
+      id: String(row.id),
+      sourceKind: String(row.sourceKind),
+      sourceKey: String(row.sourceKey),
+      documentId: typeof row.documentId === 'string' ? row.documentId : null,
+      sourceDocId: typeof row.sourceDocId === 'string' ? row.sourceDocId : null,
+      title: String(row.title),
+      status: String(row.status),
+      usageRule: String(row.usageRule),
+      reviewStatus: String(row.reviewStatus),
+      contentHash: typeof row.contentHash === 'string' ? row.contentHash : null,
+      reviewedAt: row.reviewedAt instanceof Date || typeof row.reviewedAt === 'string'
+        ? row.reviewedAt
+        : null,
+      reviewer: typeof row.reviewer === 'string' ? row.reviewer : null,
+      claimCandidates: row.claimCandidates,
+    })),
+  })
+  const rawLibraryIdentityParity = staleLibraryKeys.length === 0 && inventoryOnlyLibraryKeys.length === 0
+  const libraryRetainedHistoryControlled = libraryRetainedHistoryInspection.issues.length === 0
+    && libraryRetainedHistoryInspection.summary.currentInventoryRows === libraryLedger.length
+    && libraryRetainedHistoryInspection.summary.persistedRows === db.counts.libraryAnalyses
+    && libraryRetainedHistoryInspection.summary.livePersistedRows === libraryLedger.length
+    && libraryRetainedHistoryInspection.summary.retainedHistoryRows === staleLibraryKeys.length
+    && libraryRetainedHistoryInspection.summary.inventoryOnlyRows === 0
+    && libraryRetainedHistoryInspection.summary.missingCounterpartRows === 0
+  const libraryIdentityParity = rawLibraryIdentityParity || libraryRetainedHistoryControlled
+  const libraryConflictStatus = rawLibraryIdentityParity
+    ? 'resolved'
+    : libraryRetainedHistoryControlled
+      ? 'accepted_tension'
+      : 'open'
   const libraryStatuses = countBy(libraryLedger, 'status')
   const libraryReviewStatuses = countBy(libraryLedger, 'reviewStatus')
   const namedLibraryReviews = libraryLedger.filter((row) => row.reviewedAt && row.reviewer).length
@@ -1008,7 +1061,8 @@ function buildAssessment(
       decision: 'observed',
       artifactPath: 'knowledge/health/corpus-health-generation-manifest.v1.json',
       notes: [
-        `Library identity parity: ${libraryIdentityParity}; stale ${staleLibraryKeys.length}; inventory-only ${inventoryOnlyLibraryKeys.length}.`,
+        `Library identity controlled: ${libraryIdentityParity}; raw parity ${rawLibraryIdentityParity}; live materialized ${libraryRetainedHistoryInspection.summary.livePersistedRows}; retained history ${libraryRetainedHistoryInspection.summary.retainedHistoryRows}; inventory-only ${inventoryOnlyLibraryKeys.length}.`,
+        `Retained-history contract ${LIBRARY_ANALYSIS_RETAINED_HISTORY_CONTRACT_SHA256}; inspection issues ${libraryRetainedHistoryInspection.issues.length}; reported projection-freshness updates ${LIBRARY_ANALYSIS_RETAINED_HISTORY_REVIEW_CONTEXT.projectionFreshnessMaterialUpdates}.`,
         `Vault status agreement: ${vaultStatusMatches}; current issues ${vaultIssues.length}.`,
       ],
     },
@@ -1083,19 +1137,29 @@ function buildAssessment(
     },
     {
       conflictId: conflictIds.library,
-      title: 'Derived library inventory and persisted materialization differ',
+      title: libraryConflictStatus === 'accepted_tension'
+        ? 'Live library identity is exact; persisted retained history is contract-bound'
+        : libraryConflictStatus === 'resolved'
+          ? 'Derived library inventory and persisted materialization are identical'
+          : 'Derived library inventory and persisted materialization differ without a complete contract',
       severity: 'high',
-      status: libraryIdentityParity ? 'resolved' : 'open',
-      description: libraryIdentityParity
-        ? `The tracked inventory and database contain the same ${libraryLedger.length} library identities.`
-        : `The tracked inventory has ${libraryLedger.length} rows while the database has ${db.counts.libraryAnalyses}; ${staleLibraryKeys.length} persisted identities are stale and ${inventoryOnlyLibraryKeys.length} inventory identities are not materialized.`,
+      status: libraryConflictStatus,
+      description: libraryConflictStatus === 'accepted_tension'
+        ? `All ${libraryLedger.length} current inventory identities are materialized. The additional ${libraryRetainedHistoryInspection.summary.retainedHistoryRows} persisted rows exactly match a hash-bound retained-history contract, have no external-use permission and remain outside the live ledger; the equal count of managed transcript SourceDocs is unrelated.`
+        : libraryConflictStatus === 'resolved'
+          ? `The tracked inventory and database contain the same ${libraryLedger.length} library identities with no retained extras.`
+          : `The tracked inventory has ${libraryLedger.length} rows while the database has ${db.counts.libraryAnalyses}; ${staleLibraryKeys.length} persisted identities are outside the live inventory, ${inventoryOnlyLibraryKeys.length} inventory identities are not materialized, and the retained-history inspection reports ${libraryRetainedHistoryInspection.issues.length} issues.`,
       observations: [
         conflictObservation('Current derived library inventory', libraryLedger.length, 'direct_repository_observation', [sourceSnapshotId('library_ledger')]),
         conflictObservation('Persisted LibraryAnalysisRecord rows', db.counts.libraryAnalyses, 'direct_database_observation', ['health.snapshot.database.local']),
+        conflictObservation('Live persisted library identities', libraryRetainedHistoryInspection.summary.livePersistedRows, 'derived_comparison', [sourceSnapshotId('library_ledger'), sourceSnapshotId('library_retained_history_contract'), 'health.snapshot.database.local']),
+        conflictObservation('Contract-bound retained-history rows', libraryRetainedHistoryInspection.summary.retainedHistoryRows, 'derived_comparison', [sourceSnapshotId('library_retained_history_contract'), 'health.snapshot.database.local']),
+        conflictObservation('Retained-history inspection issues', libraryRetainedHistoryInspection.issues.length, 'derived_comparison', [sourceSnapshotId('library_ledger'), sourceSnapshotId('library_retained_history_contract'), 'health.snapshot.database.local']),
       ],
       resolutionRequired: [
-        'Review and prune or explicitly retain stale materialization rows.',
-        'Regenerate the ledger and verify identity parity without promoting AI drafts to appraisal.',
+        'Re-run the exact retained-row ID, identity, content-hash, counterpart and external-use contract whenever the inventory, database or retention policy changes.',
+        'Keep retained history outside the live ledger and do not delete or relink it without a separately reviewed controlled mutation.',
+        `Resolve the separately reported ${LIBRARY_ANALYSIS_RETAINED_HISTORY_REVIEW_CONTEXT.projectionFreshnessMaterialUpdates} metadata-only projection updates without treating them as retained-history identity drift or evidence approval.`,
       ],
       resolutionReceiptIds: libraryIdentityParity ? [repositoryValidationReceiptId] : [],
     },
@@ -1242,12 +1306,61 @@ function buildAssessment(
       observationMode: 'direct_database_observation',
       conflictRefs: [conflictIds.library],
     }),
-    metric('health_metric.library_stale_rows', 'Persisted library rows absent from inventory', staleLibraryKeys.length, {
+    metric('health_metric.library_live_materialization', 'Persisted identities matching the current library inventory', libraryRetainedHistoryInspection.summary.livePersistedRows, {
+      numerator: libraryRetainedHistoryInspection.summary.livePersistedRows,
+      denominator: libraryLedger.length,
+      sourceSnapshotIds: [sourceSnapshotId('library_ledger'), sourceSnapshotId('library_retained_history_contract'), ...dbSnapshot],
+      command: 'exact sourceKind/sourceKey live-inventory comparison',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      conflictRefs: [conflictIds.library],
+    }),
+    metric('health_metric.library_stale_rows', 'Raw persisted library rows absent from the live inventory', staleLibraryKeys.length, {
       sourceSnapshotIds: [sourceSnapshotId('library_ledger'), ...dbSnapshot],
       command: 'sourceKind/sourceKey set comparison',
       observationMode: 'derived_comparison',
       conflictRefs: [conflictIds.library],
-      caveats: [`Inventory-only rows observed: ${inventoryOnlyLibraryKeys.length}.`],
+      caveats: [
+        `Contract-bound retained-history rows: ${libraryRetainedHistoryInspection.summary.retainedHistoryRows}.`,
+        `Inventory-only rows observed: ${inventoryOnlyLibraryKeys.length}.`,
+        'Raw absence from the live inventory is not unexplained drift when the exact retained-history contract passes.',
+      ],
+    }),
+    metric('health_metric.library_retained_history_rows', 'Contract-bound retained library history rows', libraryRetainedHistoryInspection.summary.retainedHistoryRows, {
+      sourceSnapshotIds: [sourceSnapshotId('library_retained_history_contract'), ...dbSnapshot],
+      command: 'exact row ID, identity, content hash, counterpart and usage-boundary inspection',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      conflictRefs: [conflictIds.library],
+      caveats: ['Retained history is excluded from the live ledger and cannot be used as evidence or external approval.'],
+    }),
+    metric('health_metric.library_inventory_only_rows', 'Current library inventory identities absent from persisted rows', inventoryOnlyLibraryKeys.length, {
+      sourceSnapshotIds: [sourceSnapshotId('library_ledger'), ...dbSnapshot],
+      command: 'sourceKind/sourceKey set comparison',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      conflictRefs: [conflictIds.library],
+    }),
+    metric('health_metric.library_retained_history_contract_issues', 'Retained-library-history contract inspection issues', libraryRetainedHistoryInspection.issues.length, {
+      sourceSnapshotIds: [sourceSnapshotId('library_ledger'), sourceSnapshotId('library_retained_history_contract'), ...dbSnapshot],
+      command: 'fail-closed retained-history contract inspection',
+      authorityLayer: 'repository_contract',
+      observationMode: 'derived_comparison',
+      conflictRefs: [conflictIds.library],
+      caveats: libraryRetainedHistoryInspection.issues.length > 0
+        ? [...libraryRetainedHistoryInspection.issues]
+        : [`Contract hash: ${LIBRARY_ANALYSIS_RETAINED_HISTORY_CONTRACT_SHA256}.`],
+    }),
+    metric('health_metric.library_projection_updates_reported', 'Reported metadata-only library projection updates', LIBRARY_ANALYSIS_RETAINED_HISTORY_REVIEW_CONTEXT.projectionFreshnessMaterialUpdates, {
+      sourceSnapshotIds: [sourceSnapshotId('library_retained_history_contract')],
+      command: 'read retained-history review context',
+      authorityLayer: 'operational_status',
+      observationMode: 'reported_status_snapshot',
+      conflictRefs: [],
+      caveats: [
+        'This is a separately reported dry-run freshness count, not a retained-history identity mismatch.',
+        'The updates carry no content-hash change or evidence-approval action in the reviewed dry run; rerun the processor before acting.',
+      ],
     }),
     metric('health_metric.library_named_reviews', 'Library rows with named completed review', namedLibraryReviews, {
       numerator: namedLibraryReviews,
@@ -1386,9 +1499,9 @@ function buildAssessment(
     { dimensionId: 'citationReadiness', state: 'mixed', verdict: 'degraded', metricIds: ['health_metric.source_citations', 'health_metric.field_citations', 'health_metric.blocked_citations'], blockerConflictIds: [], limitations: ['Technical citation integrity coexists with blocked rows and zero appraisal.'] },
     { dimensionId: 'appraisal', state: 'none_completed', verdict: 'blocked', metricIds: ['health_metric.evidence_appraisal'], blockerConflictIds: [], limitations: ['No evidence record has complete current appraisal.'] },
     { dimensionId: 'archive', state: 'partial_durable', verdict: 'blocked', metricIds: ['health_metric.archive_durable_rows', 'health_metric.external_rows_needing_archive'], blockerConflictIds: [], limitations: ['The archive gate fails and most external-readiness rows still need durable evidence.'] },
-    { dimensionId: 'identity', state: seedIdentityParity && libraryIdentityParity ? 'parity_verified' : 'conflicts_open', verdict: seedIdentityParity && libraryIdentityParity ? 'pass' : 'blocked', metricIds: ['health_metric.database_only_evidence_identities', 'health_metric.managed_runtime_evidence_identities', 'health_metric.unclassified_database_only_evidence_identities', 'health_metric.missing_managed_runtime_evidence_identities', 'health_metric.seed_only_evidence_identities', 'health_metric.library_stale_rows'], blockerConflictIds: [conflictIds.seedParity, conflictIds.library].filter((id) => openConflictIds.includes(id)), limitations: [migrationLineageParity ? 'Migration identity is reconciled; classified seed/runtime parity and library materialization parity are assessed independently. Raw seed and database row equality is not required for declared runtime-managed identities.' : 'Migration identity remains unreconciled.'] },
+    { dimensionId: 'identity', state: seedIdentityParity && libraryIdentityParity ? 'parity_verified' : 'conflicts_open', verdict: seedIdentityParity && libraryIdentityParity ? 'pass' : 'blocked', metricIds: ['health_metric.database_only_evidence_identities', 'health_metric.managed_runtime_evidence_identities', 'health_metric.unclassified_database_only_evidence_identities', 'health_metric.missing_managed_runtime_evidence_identities', 'health_metric.seed_only_evidence_identities', 'health_metric.library_live_materialization', 'health_metric.library_retained_history_rows', 'health_metric.library_inventory_only_rows', 'health_metric.library_retained_history_contract_issues'], blockerConflictIds: [conflictIds.seedParity, conflictIds.library].filter((id) => openConflictIds.includes(id)), limitations: [migrationLineageParity ? 'Migration identity is reconciled; classified seed/runtime parity and live library identity are assessed independently. Raw row-count equality is not required for declared runtime-managed evidence or contract-bound retained library history.' : 'Migration identity remains unreconciled.'] },
     { dimensionId: 'queueWorkflow', state: 'partially_controlled', verdict: 'pass_with_warnings', metricIds: ['health_metric.gap_program_rows', 'health_metric.gaps_newly_closed', 'health_metric.remediation_rows'], blockerConflictIds: [], limitations: ['Routes exist, but many actions remain source-, method-, owner- or human-gated.'] },
-    { dimensionId: 'freshnessVintage', state: 'conflicting_vintages', verdict: 'blocked', metricIds: ['health_metric.remediation_rows'], blockerConflictIds: [conflictIds.remediation, conflictIds.vault].filter((id) => openConflictIds.includes(id)), limitations: ['The academic status is current, but remediation, vault and operational receipts retain different subject vintages.'] },
+    { dimensionId: 'freshnessVintage', state: 'conflicting_vintages', verdict: 'blocked', metricIds: ['health_metric.remediation_rows', 'health_metric.library_projection_updates_reported'], blockerConflictIds: [conflictIds.remediation, conflictIds.vault].filter((id) => openConflictIds.includes(id)), limitations: ['The academic status is current, but remediation, vault and operational receipts retain different subject vintages; 15 metadata-only library projection updates are reported separately from identity.'] },
     { dimensionId: 'structuralIntegrity', state: 'passed_with_warnings', verdict: 'degraded', metricIds: ['health_metric.vault_issues', 'health_metric.head_migrations', 'health_metric.database_migrations', 'health_metric.migration_lineage_mismatches'], blockerConflictIds: [conflictIds.lineage, conflictIds.vault, conflictIds.regression].filter((id) => openConflictIds.includes(id)), limitations: [migrationLineageParity ? 'Migration structure reproduces exactly; the vault validator still reports separate navigation issues.' : 'Migration structure does not reproduce on the pinned lineage.'] },
     { dimensionId: 'humanReview', state: 'pending', verdict: 'blocked', metricIds: ['health_metric.library_named_reviews', 'health_metric.evidence_appraisal'], blockerConflictIds: [], limitations: ['No named completed library reviews or evidence appraisals were observed.'] },
     { dimensionId: 'operationalProof', state: 'partially_verified', verdict: 'blocked', metricIds: ['health_metric.database_migrations', 'health_metric.migration_lineage_mismatches'], blockerConflictIds: openConflictIds, limitations: ['The local migration lineage is reproducible, but current production parity, fresh restore, complete role-enforced interface proof and required human gates remain outside this receipt.'] },
@@ -1419,12 +1532,14 @@ function buildAssessment(
         migrationLineageParity ? 'migration_lineage_reconciled' : 'migration_lineage_mismatch',
         ...(!seedIdentityParity ? ['seed_identity_mismatch'] : []),
         ...(!libraryIdentityParity ? ['library_identity_mismatch'] : []),
+        ...(LIBRARY_ANALYSIS_RETAINED_HISTORY_REVIEW_CONTEXT.projectionFreshnessMaterialUpdates > 0 ? ['library_projection_freshness_pending'] : []),
         'status_vintage_conflicts',
       ],
       blockingConflictIds: [conflictIds.seedParity, conflictIds.library, conflictIds.remediation, conflictIds.vault].filter((id) => openConflictIds.includes(id)),
       checks: [
         { checkId: 'health_check.analysis.lineage', status: migrationLineageParity ? 'pass' : 'fail', reason: migrationLineageParity ? `All ${headMigrations.length} migration names and SQL checksums match the local database.` : 'Repository and database migrations do not match.' },
-        { checkId: 'health_check.analysis.identity', status: seedIdentityParity && libraryIdentityParity ? 'pass' : 'fail', reason: `Evidence identity has ${dbOnlyEvidenceIds.length} raw database-only rows: ${managedRuntimeEvidenceIds.length} declared runtime-managed, ${unclassifiedDbOnlyEvidenceIds.length} unclassified, ${seedOnlyEvidenceIds.length} seed-only and ${missingManagedRuntimeEvidenceIds.length} missing declared-managed. Library identity has ${staleLibraryKeys.length} stale persisted and ${inventoryOnlyLibraryKeys.length} inventory-only rows.` },
+        { checkId: 'health_check.analysis.identity', status: seedIdentityParity && libraryIdentityParity ? 'pass' : 'fail', reason: `Evidence identity has ${dbOnlyEvidenceIds.length} raw database-only rows: ${managedRuntimeEvidenceIds.length} declared runtime-managed, ${unclassifiedDbOnlyEvidenceIds.length} unclassified, ${seedOnlyEvidenceIds.length} seed-only and ${missingManagedRuntimeEvidenceIds.length} missing declared-managed. Library identity has ${libraryRetainedHistoryInspection.summary.livePersistedRows}/${libraryLedger.length} live materializations, ${libraryRetainedHistoryInspection.summary.retainedHistoryRows} contract-bound history rows, ${inventoryOnlyLibraryKeys.length} inventory-only rows and ${libraryRetainedHistoryInspection.issues.length} contract issues.` },
+        { checkId: 'health_check.analysis.library_projection', status: LIBRARY_ANALYSIS_RETAINED_HISTORY_REVIEW_CONTEXT.projectionFreshnessMaterialUpdates > 0 ? 'warning' : 'pass', reason: `${LIBRARY_ANALYSIS_RETAINED_HISTORY_REVIEW_CONTEXT.projectionFreshnessMaterialUpdates} metadata-only projection updates were reported by the reviewed dry run; this is separate from live identity and retained history.` },
         { checkId: 'health_check.analysis.vintage', status: 'warning', reason: 'The academic status now reproduces, while remediation, vault and operational receipts still have mixed vintages.' },
       ],
     },
@@ -1445,10 +1560,10 @@ function buildAssessment(
       profileId: 'health_profile.observatory_operations',
       verdict: 'blocked',
       readyForProfile: false,
-      reasonCodes: [migrationLineageParity ? 'migration_lineage_reconciled' : 'migration_lineage_mismatch', ...(!(seedIdentityParity && libraryIdentityParity) ? ['identity_unreconciled'] : []), 'operational_layers_partially_proven', 'receipts_partial', 'conflicts_open'],
+      reasonCodes: [migrationLineageParity ? 'migration_lineage_reconciled' : 'migration_lineage_mismatch', ...(!(seedIdentityParity && libraryIdentityParity) ? ['identity_unreconciled'] : []), ...(LIBRARY_ANALYSIS_RETAINED_HISTORY_REVIEW_CONTEXT.projectionFreshnessMaterialUpdates > 0 ? ['library_projection_freshness_pending'] : []), 'operational_layers_partially_proven', 'receipts_partial', 'conflicts_open'],
       blockingConflictIds: openConflictIds,
       checks: [
-        { checkId: 'health_check.operations.reproducibility', status: migrationLineageParity && academicRegressionMatches && seedIdentityParity && libraryIdentityParity ? 'pass' : 'fail', reason: `Migration parity is ${migrationLineageParity}; exact academic identity/status reproduction is ${academicRegressionMatches}; classified seed/runtime parity is ${seedIdentityParity}; library materialization parity is ${libraryIdentityParity}.` },
+        { checkId: 'health_check.operations.reproducibility', status: migrationLineageParity && academicRegressionMatches && seedIdentityParity && libraryIdentityParity ? 'pass' : 'fail', reason: `Migration parity is ${migrationLineageParity}; exact academic identity/status reproduction is ${academicRegressionMatches}; classified seed/runtime parity is ${seedIdentityParity}; controlled live-plus-retained library identity is ${libraryIdentityParity}.` },
         { checkId: 'health_check.operations.backup', status: 'unknown', reason: 'Historical local backup/restore evidence exists, but no fresh production or off-node receipt is bound to this assessment.' },
         { checkId: 'health_check.operations.mcp', status: 'unknown', reason: 'Interface instantiation does not prove live queries or a role-enforced read-only boundary.' },
         { checkId: 'health_check.operations.receipts', status: 'fail', reason: 'Machine lineage receipts are present; required fresh operational and human receipts remain incomplete.' },
@@ -1521,14 +1636,14 @@ function buildReport(assessment: JsonObject, db: DatabaseRuntime): string {
     `- Evidence appraisal: **${metricNumber(assessment, 'health_metric.evidence_appraisal')}/${db.counts.totalEvidence}** complete current appraisals.\n` +
     `- Archive durability: **${db.archiveSummary.totals.durableArchiveRows}/${db.archiveSummary.totals.rows}** citations have a durable archive; **${db.archiveSummary.byReadiness.citable_external.needsArchive + db.archiveSummary.byReadiness.citable_with_note.needsArchive}/${db.archiveSummary.totals.externalReadinessRows}** external-readiness citations still need one.\n` +
     `- Exact claim locators: **${db.fieldSummary.exactAnchorRows}/${db.fieldSummary.claimTextRows}** claim-text rows also carry a page or quote locator.\n` +
-    `- Library state: **${metricNumber(assessment, 'health_metric.library_inventory')}** current inventory rows versus **${metricNumber(assessment, 'health_metric.library_materialization')}** persisted rows.\n` +
+    `- Library state: **${metricNumber(assessment, 'health_metric.library_live_materialization')}/${metricNumber(assessment, 'health_metric.library_inventory')}** live identities are materialized; the remaining **${metricNumber(assessment, 'health_metric.library_retained_history_rows')}** of **${metricNumber(assessment, 'health_metric.library_materialization')}** persisted rows are exact contract-bound history, with **${metricNumber(assessment, 'health_metric.library_inventory_only_rows')}** inventory-only rows and **${metricNumber(assessment, 'health_metric.library_retained_history_contract_issues')}** contract issues. The separately reported projection-freshness queue contains **${metricNumber(assessment, 'health_metric.library_projection_updates_reported')}** metadata-only updates.\n` +
     `- Vault state: **${metricNumber(assessment, 'health_metric.vault_markdown')}** Markdown notes and **${metricNumber(assessment, 'health_metric.vault_canvas')}** canvases; the current validator reports **${metricNumber(assessment, 'health_metric.vault_issues')}** issues. Counts are navigation signals, not evidence completeness.\n\n` +
     `## Conflict register\n\n` +
     `| Conflict | Severity | Status | Boundary |\n|---|---|---|---|\n${conflictRows}\n\n` +
     `## Resolution sequence\n\n` +
     `1. Keep the receipt-bound 31/31 migration lineage check green as schema and migrations evolve.\n` +
     `2. Reconcile every unclassified database-only, seed-only and missing declared-managed identity while preserving the manifest-derived runtime identity boundary.\n` +
-    `3. Reconcile the ${metricNumber(assessment, 'health_metric.library_inventory')}/${metricNumber(assessment, 'health_metric.library_materialization')} library identities.\n` +
+    `3. Keep the ${metricNumber(assessment, 'health_metric.library_live_materialization')}/${metricNumber(assessment, 'health_metric.library_inventory')} live library identity check exact, revalidate all ${metricNumber(assessment, 'health_metric.library_retained_history_rows')} retained-history rows, and close the separate metadata-only projection-freshness queue.\n` +
     `4. Regenerate or supersede the master, remediation and vault status surfaces from explicit pinned vintages.\n` +
     `5. Complete reviewed appraisal and durable archive work for the required external scope.\n` +
     `6. Prove current backup/restore, MCP role enforcement, runtime parity and required human gates with immutable receipts.\n\n` +
@@ -1871,8 +1986,9 @@ async function generateBundle(checkMode: boolean): Promise<GeneratedBundle> {
           || metricNumber(assessment, 'health_metric.seed_only_evidence_identities') > 0
           || metricNumber(assessment, 'health_metric.missing_managed_runtime_evidence_identities') > 0
         ? 'seed_database_identity_mismatch'
-        : metricNumber(assessment, 'health_metric.library_stale_rows') > 0
+        : metricNumber(assessment, 'health_metric.library_live_materialization') !== metricNumber(assessment, 'health_metric.library_inventory')
             || metricNumber(assessment, 'health_metric.library_inventory_only_rows') > 0
+            || metricNumber(assessment, 'health_metric.library_retained_history_contract_issues') > 0
           ? 'library_inventory_materialization_mismatch'
           : metricNumber(assessment, 'health_metric.evidence_appraisal') === 0
             ? 'evidence_appraisal_zero'
@@ -1901,6 +2017,11 @@ async function generateBundle(checkMode: boolean): Promise<GeneratedBundle> {
       externalRowsNeedingArchive: metricNumber(assessment, 'health_metric.external_rows_needing_archive'),
       currentLibraryInventory: metricNumber(assessment, 'health_metric.library_inventory'),
       persistedLibraryRows: metricNumber(assessment, 'health_metric.library_materialization'),
+      livePersistedLibraryRows: metricNumber(assessment, 'health_metric.library_live_materialization'),
+      retainedLibraryHistoryRows: metricNumber(assessment, 'health_metric.library_retained_history_rows'),
+      libraryInventoryOnlyRows: metricNumber(assessment, 'health_metric.library_inventory_only_rows'),
+      libraryRetainedHistoryContractIssues: metricNumber(assessment, 'health_metric.library_retained_history_contract_issues'),
+      reportedLibraryProjectionUpdates: metricNumber(assessment, 'health_metric.library_projection_updates_reported'),
       vaultIssues: metricNumber(assessment, 'health_metric.vault_issues'),
     },
     openConflicts: (assessment.conflicts as JsonObject[])

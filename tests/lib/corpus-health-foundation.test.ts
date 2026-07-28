@@ -253,6 +253,18 @@ test('receipt-resolves migration lineage while failing closed on identity, appra
   assert.ok(seedIdentityConflict)
   assert.equal(seedIdentityConflict.status, 'open')
 
+  const libraryIdentityConflict = asObjectArray(assessment.conflicts, 'assessment.conflicts')
+    .find((item) => item.conflictId === 'health.conflict.library_inventory_materialization')
+  assert.ok(libraryIdentityConflict)
+  assert.equal(libraryIdentityConflict.status, 'accepted_tension')
+  assert.equal(metric(assessment, 'health_metric.library_inventory').value, 1_555)
+  assert.equal(metric(assessment, 'health_metric.library_live_materialization').value, 1_555)
+  assert.equal(metric(assessment, 'health_metric.library_materialization').value, 1_572)
+  assert.equal(metric(assessment, 'health_metric.library_retained_history_rows').value, 17)
+  assert.equal(metric(assessment, 'health_metric.library_inventory_only_rows').value, 0)
+  assert.equal(metric(assessment, 'health_metric.library_retained_history_contract_issues').value, 0)
+  assert.equal(metric(assessment, 'health_metric.library_projection_updates_reported').value, 15)
+
   const internalAnalysis = profileVerdict(assessment, 'health_profile.internal_analysis')
   assert.equal(internalAnalysis.readyForProfile, false)
   assert.ok(asObjectArray(internalAnalysis.checks).some((item) => (
@@ -277,6 +289,11 @@ test('receipt-resolves migration lineage while failing closed on identity, appra
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').managedRuntimeEvidenceIdentities, 17)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').unclassifiedDatabaseOnlyEvidenceIdentities, 1)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').missingManagedRuntimeEvidenceIdentities, 0)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').livePersistedLibraryRows, 1_555)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').retainedLibraryHistoryRows, 17)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').libraryInventoryOnlyRows, 0)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').libraryRetainedHistoryContractIssues, 0)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').reportedLibraryProjectionUpdates, 15)
 })
 
 test('recomputes immutable content, source and generation-output hashes', () => {

@@ -30,8 +30,11 @@ Thresholds are `proposed` until a named human adoption receipt is added. A gener
 ```bash
 npm run knowledge:health:generate
 npm run knowledge:health:check
+npm run knowledge:library-history:check
 ```
 
 Generation uses a repeatable-read, transaction-level read-only database snapshot. The database locator is redacted; only a salted-free SHA-256 identity, migration ledger hash, query hash and result hash are stored. `--check` recomputes the full bundle against the base commit pinned in the generation manifest, so committed generated outputs remain verifiable while later source or database drift still fails closed.
 
 Historical assessments are immutable. If observations change, create a new assessment that names the prior assessment in `supersedesId`; never rewrite the old event.
+
+The retained-library-history check is a separate read-only control. It requires exact live inventory/materialization parity, verifies every additional persisted row by row ID, identity, content hash, live counterpart and non-external usage boundary, and runs inside a repeatable-read transaction marked `READ ONLY`. Passing it records an accepted, contract-bound history tension; it does not approve deletion, relinking, appraisal or external use. Metadata-only projection updates remain a separate freshness queue.

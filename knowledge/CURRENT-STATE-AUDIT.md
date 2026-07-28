@@ -123,13 +123,15 @@ Review and authorize the constitution, ontology, schemas, readiness thresholds a
 
 ### Gate 1 — reconcile corpus health
 
-The current corpus/evidence-health profile records exact 31/31 migration-name and checksum parity. Keep it fail-closed while resolving the classified 400/417 seed/runtime identity set: 18 raw database-only identities contain 17 declared runtime-managed transcript SourceDocs, while one unclassified database-only Thesis, one seed-only official-law SourceDoc and zero missing declared runtime identities remain. Also resolve the separately tracked 1,555/1,572 library materialization, mixed-vintage status surfaces, two vault orphans, appraisal zero-state and archive backlog. Regenerate every dependent status artifact from an explicit pinned lineage and vintage. Do not force these controls into food-system coverage cells.
+The current corpus/evidence-health profile records exact 31/31 migration-name and checksum parity. Keep it fail-closed while resolving the classified 400/417 seed/runtime identity set: 18 raw database-only identities contain 17 declared runtime-managed transcript SourceDocs, while one unclassified database-only Thesis, one seed-only official-law SourceDoc and zero missing declared runtime identities remain. Library live identity is separately exact at 1,555/1,555; 17 additional persisted rows are exact, non-evidentiary retained history under a pinned contract, while 15 metadata-only projection updates remain a separate freshness warning. Also resolve mixed-vintage status surfaces, two vault orphans, appraisal zero-state and archive backlog. Regenerate every dependent status artifact from an explicit pinned lineage and vintage. Do not force these controls into food-system coverage cells.
 
 Gate 1 exit requires a named canonical lineage, exact schema/migration/seed parity, regenerated status surfaces, complete required appraisal and archive work, passing structural gates, and current receipts for backup/restore, MCP read-only behavior, runtime parity and required human review.
 
 ### Gate 2 — map the thirteen fields
 
-For each legacy field and geography, register exact artifacts, citations, locators, boundaries, represented and missing facets, limitations and review receipts. Leave the state unknown when the evidence is not cell-specific.
+Gate 2A registers the thirteen existing field pages, root map and atlas as exact navigation artifacts without altering the historical scope-registration events. Its 104 political-Nordic and 13 separate Sápmi bindings remain unassessed, non-evidentiary and geography-unknown; Sápmi stays non-additive and rights-holder-review-gated.
+
+Gate 2B must then assess each legacy field and geography with exact citations, locators, boundaries, represented and missing facets, limitations and review receipts. Leave the state unknown when evidence is not cell-specific. Navigation registration is not researched coverage.
 
 ### Gate 3 — prove vertical slices
 

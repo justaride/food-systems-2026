@@ -95,6 +95,8 @@ Operational gap routing is deliberately separate. Closing a task, assigning an o
 - `coverage-source-snapshots.v1.json` — hash-bound artifact snapshot manifest resolved by baseline/artifact snapshot IDs;
 - `coverage-generation-manifest.v1.json` — generation inputs and output hashes, not subject-matter evidence.
 
+The legacy field-page artifact registry lives separately under `../migration/legacy-field-navigation-*.json`. It may route a reader from a legacy coverage cell to an existing field page, root map or atlas node, but its schema fixes every binding to navigation-only, unassessed and non-evidentiary semantics. It is not part of assessment history and cannot change the baseline snapshot, cell state or readiness result.
+
 Project-health reporting is deferred. A `project-health-baseline.v1.json` is intentionally not created until each health fact can cite a tracked canonical artifact with an exact locator, base commit and Git blob ID. Project health must remain separate from subject coverage, and repository evidence must not be presented as live-runtime, partner, rights-holder or external-validation proof.
 
 ## Adoption and update rules

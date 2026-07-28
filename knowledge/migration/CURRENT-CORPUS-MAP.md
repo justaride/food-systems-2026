@@ -16,14 +16,14 @@ At this snapshot, the existing vault contains 786 Markdown notes and 32 canvases
 
 ## Gate 1 lineage boundary
 
-The [generated corpus/evidence-health report](../health/corpus-health-report.v1.md) records the hardening lineage as integrated. All 31 repository migration names and SQL checksums match the 31 completed local-database migrations, and `EvidenceAppraisal` plus the release controls are present in the branch. This closes the migration-lineage conflict only; evidence and library identity are still unreconciled.
+The [generated corpus/evidence-health report](../health/corpus-health-report.v1.md) records the hardening lineage as integrated. All 31 repository migration names and SQL checksums match the 31 completed local-database migrations, and `EvidenceAppraisal` plus the release controls are present in the branch. This closes the migration-lineage conflict only. Classified evidence identity remains unreconciled; live library identity is exact, with the raw persisted difference retained under a separate fail-closed history contract.
 
 This distinction is operationally material:
 
 - the local database is a hash-bound read-only **runtime snapshot**, not production-parity truth;
 - the academic status reproduces on the integrated lineage, while the master status remains a historical aggregate;
 - 18 raw database evidence identities are absent from current seeds, but 17 are declared runtime-managed transcript SourceDocs; one unclassified database-only Thesis, one seed-only official-law SourceDoc and zero missing declared runtime identities remain;
-- the 1,555-row derived library inventory differs from 1,572 persisted analysis rows;
+- all 1,555 derived live library identities are materialized; 17 additional persisted rows exactly match the retained-history contract and remain barred from external use, while 15 metadata-only projection updates are a separate freshness warning;
 - 0/417 evidence records have complete current appraisal;
 - 1,855/2,376 external-readiness citations still need durable archive;
 - the current vault validator reports two orphan issues despite an earlier green completion-register statement.
@@ -84,7 +84,7 @@ Exit: scope and identity rules approved; canonical lineage named; no existing co
 ### Wave 0.5 — close Gate 1
 
 - Keep schema, all migrations and auditors atomic on the chosen lineage; the current 31/31 migration receipt must remain green.
-- Reconcile the classified 400/417 evidence identities (preserving 17 declared runtime-managed SourceDocs while closing one unclassified database-only and one seed-only identity) and the separate 1,555/1,572 library identities.
+- Reconcile the classified 400/417 evidence identities (preserving 17 declared runtime-managed SourceDocs while closing one unclassified database-only and one seed-only identity), keep 1,555/1,555 live library parity exact, revalidate all 17 retained-history rows, and close the separate 15-row projection-freshness queue.
 - Regenerate academic, master, remediation and vault status surfaces from the pinned snapshot.
 - Rerun citation, appraisal, archive, graph, vault, backup/restore and MCP gates.
 - Add immutable receipts for lineage adoption, human review and every required operational layer.
@@ -93,6 +93,8 @@ Exit: internal analysis is reproducible; external and observatory profiles remai
 
 ### Wave 1 — map the thirteen fields
 
+- Generate and validate the separate Gate 2A navigation register for all 13 field notes, the root map and the atlas without rewriting the 117 historical scope-registration events.
+- Keep all 104 political and 13 Sápmi bindings fixed to navigation-only, unassessed, non-evidentiary and geography-unknown semantics; keep Sápmi non-additive and rights-holder-review-gated.
 - Map each field page and the canonical internal synthesis into canonical cells.
 - Register every supporting artifact and explicit limitation.
 - Keep unsupported cells `unassessed`; do not promote by keyword mention.
