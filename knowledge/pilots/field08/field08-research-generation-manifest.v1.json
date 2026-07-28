@@ -1,0 +1,216 @@
+{
+  "documentType": "field08_research_generation_manifest",
+  "schemaVersion": "1.0.0",
+  "generator": "scripts/knowledge/generate-field08-research-candidates.ts",
+  "generatorVersion": "1.0.0",
+  "registerId": "registry.field08_research_candidates.v1",
+  "registryStatus": "draft_candidate_only",
+  "generatedAt": "2026-07-28",
+  "baseCommit": "7aa4d95d45e1633ef2194d1dd17ebff9d4166f61",
+  "commitMarkerSemantics": "This manifest is written last. Its pinned source commit and output hashes must reproduce before the candidate register is accepted. It is not an evidence or coverage receipt.",
+  "inputSnapshots": [
+    {
+      "artifactSnapshotId": "artifact.v1.ba7f1f7c72781793f795",
+      "path": "knowledge/pilots/field08/field08-research-source-map.v1.json",
+      "kind": "file",
+      "baseCommit": "7aa4d95d45e1633ef2194d1dd17ebff9d4166f61",
+      "gitObjectId": "19fee743760fec255e699631b24eaf9a97c1f6ec",
+      "gitObjectType": "blob",
+      "sha256": "sha256:ba7f1f7c72781793f795edd92618507d971d03f6a8341af0cb6a030c5e255677",
+      "sizeBytes": 133356,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/pilots/field08/field08-research-source-map.v1.json",
+          "kind": "file",
+          "sha256": "sha256:3508957b4fd45ed9b3e83e678c796580499249e60ce8e89f651e3b8cd7ba1f26",
+          "sizeBytes": 133356
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.3ae0fd2f957c8930b368",
+      "path": "knowledge/schema/field08-research-source-map.schema.v1.json",
+      "kind": "file",
+      "baseCommit": "7aa4d95d45e1633ef2194d1dd17ebff9d4166f61",
+      "gitObjectId": "71f355a947cb1c58e958c450bea9cac0c9246be8",
+      "gitObjectType": "blob",
+      "sha256": "sha256:3ae0fd2f957c8930b3680e841289b0264700dbc1964a28f6b19cdd4878417c2a",
+      "sizeBytes": 17099,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/schema/field08-research-source-map.schema.v1.json",
+          "kind": "file",
+          "sha256": "sha256:144ab6326425284d93f1296a08e93dfddacc979d5208fbaa1f7a1f11824d71d8",
+          "sizeBytes": 17099
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.c8075807fc0ba4325e22",
+      "path": "knowledge/schema/field08-research-candidate-register.schema.v1.json",
+      "kind": "file",
+      "baseCommit": "7aa4d95d45e1633ef2194d1dd17ebff9d4166f61",
+      "gitObjectId": "c61f26ab6aeac007a8bb3df0eb900efc23f1067c",
+      "gitObjectType": "blob",
+      "sha256": "sha256:c8075807fc0ba4325e22668fa22c3d77aa979c96c27755434f2b716cd21ff988",
+      "sizeBytes": 13973,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/schema/field08-research-candidate-register.schema.v1.json",
+          "kind": "file",
+          "sha256": "sha256:6216f0de57fd5ef88e1220eb0708ef5d0b41d987989bb43559ace522611d7953",
+          "sizeBytes": 13973
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.2ba3730af9bb4e350982",
+      "path": "knowledge/schema/nordic-food-system-ontology.v1.json",
+      "kind": "file",
+      "baseCommit": "7aa4d95d45e1633ef2194d1dd17ebff9d4166f61",
+      "gitObjectId": "6a8579120d2d76825f9e0b0269cf90430630a743",
+      "gitObjectType": "blob",
+      "sha256": "sha256:2ba3730af9bb4e3509825cb3394aa005b41b0e3f1755139768e8141993ee3a5f",
+      "sizeBytes": 100824,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/schema/nordic-food-system-ontology.v1.json",
+          "kind": "file",
+          "sha256": "sha256:2ff71bffefe413e8e467be932c2212e3229182fe86fb25caee1f329d8d3b0c68",
+          "sizeBytes": 100824
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.6064eb8e641ee89d22c4",
+      "path": "knowledge/coverage/coverage-ledger.v1.jsonl",
+      "kind": "file",
+      "baseCommit": "7aa4d95d45e1633ef2194d1dd17ebff9d4166f61",
+      "gitObjectId": "92f6fab42ffc77c2258cc4336309202928329fd3",
+      "gitObjectType": "blob",
+      "sha256": "sha256:6064eb8e641ee89d22c4fcefbbf274738e63c1ff61d6d416ed6c41581086a1bc",
+      "sizeBytes": 14537027,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/coverage/coverage-ledger.v1.jsonl",
+          "kind": "file",
+          "sha256": "sha256:65e42fd460d997fd709b21504a6778811d9dfaa688322af5cdd0be3e66c8b394",
+          "sizeBytes": 14537027
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.af65b870bbb669e3a472",
+      "path": "knowledge/coverage/coverage-assessments-baseline.v1.jsonl",
+      "kind": "file",
+      "baseCommit": "7aa4d95d45e1633ef2194d1dd17ebff9d4166f61",
+      "gitObjectId": "03bafb5b4781ae58160f7758f38b34d947701fe0",
+      "gitObjectType": "blob",
+      "sha256": "sha256:af65b870bbb669e3a4729d8322df1164ed1c5f524ae410f3e59e284d74603983",
+      "sizeBytes": 351481,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/coverage/coverage-assessments-baseline.v1.jsonl",
+          "kind": "file",
+          "sha256": "sha256:ee9f7739aa9a52d99785b051e69830ba084b48d951670b6e3fa2122918e4329d",
+          "sizeBytes": 351481
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.2c787fe7dc38a20699e9",
+      "path": "knowledge/KNOWLEDGE-CONSTITUTION.md",
+      "kind": "file",
+      "baseCommit": "7aa4d95d45e1633ef2194d1dd17ebff9d4166f61",
+      "gitObjectId": "54108d08366ff0402fe21c827fd063e13b60e958",
+      "gitObjectType": "blob",
+      "sha256": "sha256:2c787fe7dc38a20699e971137b71557e9697867004e0596619644b564cd814a6",
+      "sizeBytes": 8964,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/KNOWLEDGE-CONSTITUTION.md",
+          "kind": "file",
+          "sha256": "sha256:92cb9876a11caf58d45394941a2193d8e8932d23387824d0033e5ba97f99ce70",
+          "sizeBytes": 8964
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.929308555666545a5f96",
+      "path": "knowledge/pilots/field08/README.md",
+      "kind": "file",
+      "baseCommit": "7aa4d95d45e1633ef2194d1dd17ebff9d4166f61",
+      "gitObjectId": "f7627bde8283db0bb7c1775b24dbc7b88df00a44",
+      "gitObjectType": "blob",
+      "sha256": "sha256:929308555666545a5f96cb69da30b8a7aede785a7dbcbb4be4d5348753178288",
+      "sizeBytes": 3966,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/pilots/field08/README.md",
+          "kind": "file",
+          "sha256": "sha256:17d912710b4b844630ad8635aabe29a210873479b63a378d313616e2a579ee88",
+          "sizeBytes": 3966
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.9a7e8b9d8e9cd0261638",
+      "path": "scripts/knowledge/generate-field08-research-candidates.ts",
+      "kind": "file",
+      "baseCommit": "7aa4d95d45e1633ef2194d1dd17ebff9d4166f61",
+      "gitObjectId": "06000345c85c639fa5d8841965a660329ed9158f",
+      "gitObjectType": "blob",
+      "sha256": "sha256:9a7e8b9d8e9cd0261638d1c0b15547aa7c038454749090d41de9e25bdea2aa6a",
+      "sizeBytes": 48294,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "scripts/knowledge/generate-field08-research-candidates.ts",
+          "kind": "file",
+          "sha256": "sha256:c30feb17e830efae1d0139d7a99c75bf96c01cbe91847ca17b6244215c1b8a58",
+          "sizeBytes": 48294
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.f040ba77590a3315474b",
+      "path": "scripts/knowledge/generate-coverage-ledger.ts",
+      "kind": "file",
+      "baseCommit": "7aa4d95d45e1633ef2194d1dd17ebff9d4166f61",
+      "gitObjectId": "13835d0ddbfc93d07410792664836227ff554cd4",
+      "gitObjectType": "blob",
+      "sha256": "sha256:f040ba77590a3315474bf5ea2793c0b74d04cd6a94fe0f0bffec98674bf50e27",
+      "sizeBytes": 69769,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "scripts/knowledge/generate-coverage-ledger.ts",
+          "kind": "file",
+          "sha256": "sha256:e12d44b1147f41d17c2e691b80024c4074d31c45809b95bf733b8aa2a87e5dc8",
+          "sizeBytes": 69769
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "path": "knowledge/pilots/field08/field08-research-candidate-register.v1.json",
+      "sha256": "sha256:4722278c20ae652f8db64ceec85ab027fba208919561e58fed49f2ef10eabd3f",
+      "sizeBytes": 407769
+    },
+    {
+      "path": "knowledge/pilots/field08/field08-research-candidate-report.v1.md",
+      "sha256": "sha256:1b3c43413cd3f324ba5537a3f19ea0f38c17db0d5339c2d20f6996dc88e3b9ad",
+      "sizeBytes": 61592
+    }
+  ],
+  "contentHash": "sha256:7b9652ab68c7311e517f6a48c2daa53a4c41fc7b99e6062bb9501efa2236e2f3"
+}
