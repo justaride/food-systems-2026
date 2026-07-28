@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "1.0.0",
+  "baselineId": "baseline.nordic_knowledge_foundation.v1",
+  "snapshotDate": "2026-07-26",
+  "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+  "generatorVersion": "1.1.0",
+  "snapshots": [
+    {
+      "artifactSnapshotId": "artifact.v1.4d5f865f25f48e532274",
+      "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart – kunnskapsbasen.md",
+      "kind": "file",
+      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+      "gitObjectId": "b01367c1514b81b9aea4b925c5b4269a95a334de",
+      "gitObjectType": "blob",
+      "sha256": "sha256:4d5f865f25f48e532274fef12b7d6ec2a9851e4e37d2d44f1db01596dd1d5394",
+      "sizeBytes": 7732,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart – kunnskapsbasen.md",
+          "kind": "file",
+          "sha256": "sha256:3627358db280e5dc1b4f4c2813d8200ea9ec0ae58bd2a3d1f499836825b805e0",
+          "sizeBytes": 7732
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.ba6a7063d05730641053",
+      "path": "research/_status/domene-dekningsbok.csv",
+      "kind": "file",
+      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+      "gitObjectId": "0f66b755e749b4916920293c7a291fd93a62a94b",
+      "gitObjectType": "blob",
+      "sha256": "sha256:ba6a7063d057306410539a3fb8a0d694799d35dae0f758cb1313a017e1bd425e",
+      "sizeBytes": 10996,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "research/_status/domene-dekningsbok.csv",
+          "kind": "file",
+          "sha256": "sha256:91cbf92f0832590339e6bafd37b70d83d7e1563ad8d2308ac8dd0cab9568c963",
+          "sizeBytes": 10996
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.ad1f22110f073ba50e62",
+      "path": "research/norden/nordic-vision-2030-indicator-map-2026-04-29.csv",
+      "kind": "file",
+      "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+      "gitObjectId": "1b07257d696ecae7cb8cedea31e08760f3f413cf",
+      "gitObjectType": "blob",
+      "sha256": "sha256:ad1f22110f073ba50e6271b2d9c88312ce184a1885bd710ab2381054f1a614ad",
+      "sizeBytes": 9710,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "research/norden/nordic-vision-2030-indicator-map-2026-04-29.csv",
+          "kind": "file",
+          "sha256": "sha256:f6c8381f73e6ee7b57ca68af36bd11ea77c37bbe874fb05f431c3a27d56c9924",
+          "sizeBytes": 9710
+        }
+      ]
+    }
+  ],
+  "sourceSnapshotSetHash": "sha256:d6f625a1cc57dd1ea37f6382929a446963e785578b1e6afad2a84c7307dedff6"
+}

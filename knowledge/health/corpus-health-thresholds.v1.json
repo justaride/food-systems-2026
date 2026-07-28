@@ -1,0 +1,202 @@
+{
+  "schemaVersion": "corpus-evidence-health-v1",
+  "documentKind": "corpus_health_thresholds",
+  "thresholdsVersion": "corpus-health-thresholds-v1",
+  "adoptionStatus": "proposed",
+  "effectiveDate": "2026-07-27",
+  "semanticBoundary": {
+    "kind": "corpus_evidence_health",
+    "subjectCoverageClaim": false,
+    "mayPromoteCoverageCells": false,
+    "mayAggregateWithCoverageLedger": false,
+    "globalScorePermitted": false
+  },
+  "dimensionDefinitions": [
+    {
+      "dimensionId": "inventory",
+      "label": "Inventory boundary",
+      "description": "Whether the relevant corpus universe is scoped and enumerated without treating a run floor as exhaustive.",
+      "allowedStates": ["not_assessed", "scope_unknown", "partial", "run_floor", "enumerated", "exhaustive", "not_applicable"],
+      "positiveStates": ["enumerated", "exhaustive"],
+      "blockingStates": ["not_assessed", "scope_unknown"]
+    },
+    {
+      "dimensionId": "provenanceLocator",
+      "label": "Provenance and locators",
+      "description": "Whether evidence can be traced to resolvable, exact and, where required, hash-bound locators.",
+      "allowedStates": ["not_assessed", "missing", "legacy_only", "mixed", "resolvable", "exact_locator_complete", "exact_locator_hash_complete", "not_applicable"],
+      "positiveStates": ["resolvable", "exact_locator_complete", "exact_locator_hash_complete"],
+      "blockingStates": ["not_assessed", "missing"]
+    },
+    {
+      "dimensionId": "citationReadiness",
+      "label": "Citation readiness",
+      "description": "Whether citation classifications and claim locators support the intended use.",
+      "allowedStates": ["not_assessed", "blocked", "internal_only", "mixed", "externally_citable_with_exceptions", "externally_citable_complete", "not_applicable"],
+      "positiveStates": ["externally_citable_with_exceptions", "externally_citable_complete"],
+      "blockingStates": ["not_assessed", "blocked"]
+    },
+    {
+      "dimensionId": "appraisal",
+      "label": "Evidence appraisal",
+      "description": "Whether required sources have a current, reviewed structured appraisal or explicit reviewed exclusion.",
+      "allowedStates": ["not_assessed", "none_completed", "in_progress", "partial_reviewed", "reviewed_for_required_scope", "excluded_not_applicable"],
+      "positiveStates": ["reviewed_for_required_scope", "excluded_not_applicable"],
+      "blockingStates": ["not_assessed", "none_completed"]
+    },
+    {
+      "dimensionId": "archive",
+      "label": "Archive durability",
+      "description": "Whether required evidence has durable, accessible archive copies or verified local hashes where licensing permits.",
+      "allowedStates": ["not_assessed", "locator_only", "partial_durable", "durable_for_required_scope", "hash_verified_for_required_scope", "not_applicable"],
+      "positiveStates": ["durable_for_required_scope", "hash_verified_for_required_scope"],
+      "blockingStates": ["not_assessed", "locator_only"]
+    },
+    {
+      "dimensionId": "identity",
+      "label": "Identity parity",
+      "description": "Whether source, database and artifact identities are reconciled on one declared lineage.",
+      "allowedStates": ["not_assessed", "unreconciled", "conflicts_open", "machine_reconciled", "human_adjudicated", "parity_verified", "not_applicable"],
+      "positiveStates": ["machine_reconciled", "human_adjudicated", "parity_verified"],
+      "blockingStates": ["not_assessed", "unreconciled", "conflicts_open"]
+    },
+    {
+      "dimensionId": "queueWorkflow",
+      "label": "Queue workflow",
+      "description": "Whether research, appraisal and remediation queues have controlled routes and do not masquerade as completed evidence.",
+      "allowedStates": ["not_assessed", "uncontrolled", "partially_controlled", "controlled", "not_applicable"],
+      "positiveStates": ["controlled"],
+      "blockingStates": ["not_assessed", "uncontrolled"]
+    },
+    {
+      "dimensionId": "freshnessVintage",
+      "label": "Freshness and vintage",
+      "description": "Whether audit time, source vintage and subject-matter period are explicit and mutually consistent.",
+      "allowedStates": ["not_assessed", "unknown", "current", "due", "stale", "conflicting_vintages", "not_applicable"],
+      "positiveStates": ["current"],
+      "blockingStates": ["not_assessed", "unknown", "stale", "conflicting_vintages"]
+    },
+    {
+      "dimensionId": "structuralIntegrity",
+      "label": "Structural integrity",
+      "description": "Whether structural checks pass and are reproducible on the declared lineage.",
+      "allowedStates": ["not_assessed", "failed", "passed_with_warnings", "passed_snapshot", "passed_reproducibly", "not_applicable"],
+      "positiveStates": ["passed_snapshot", "passed_reproducibly"],
+      "blockingStates": ["not_assessed", "failed"]
+    },
+    {
+      "dimensionId": "humanReview",
+      "label": "Human review",
+      "description": "Whether required human, partner or rights-holder review is documented by immutable receipts.",
+      "allowedStates": ["not_assessed", "not_required", "pending", "changes_requested", "approved", "rejected"],
+      "positiveStates": ["not_required", "approved"],
+      "blockingStates": ["not_assessed", "pending", "changes_requested", "rejected"]
+    },
+    {
+      "dimensionId": "operationalProof",
+      "label": "Operational proof",
+      "description": "Whether required execution layers are distinguished and verified, including backup, runtime and interface behavior.",
+      "allowedStates": ["not_assessed", "plan_only", "dry_run_only", "executed_unverified", "partially_verified", "verified_for_required_layers", "failed", "not_applicable"],
+      "positiveStates": ["verified_for_required_layers", "not_applicable"],
+      "blockingStates": ["not_assessed", "plan_only", "dry_run_only", "failed"]
+    },
+    {
+      "dimensionId": "conflictControl",
+      "label": "Conflict control",
+      "description": "Whether contradictory status, identity and evidence observations remain visible and receipt-bound when resolved.",
+      "allowedStates": ["not_assessed", "open", "triaged", "resolved", "accepted_tension", "none_observed", "not_applicable"],
+      "positiveStates": ["resolved", "accepted_tension", "none_observed"],
+      "blockingStates": ["not_assessed", "open"]
+    },
+    {
+      "dimensionId": "receiptIntegrity",
+      "label": "Receipt integrity",
+      "description": "Whether required actions and decisions have immutable, resolvable receipts.",
+      "allowedStates": ["not_assessed", "missing", "partial", "complete_for_required_actions", "invalid", "not_applicable"],
+      "positiveStates": ["complete_for_required_actions", "not_applicable"],
+      "blockingStates": ["not_assessed", "missing", "invalid"]
+    },
+    {
+      "dimensionId": "sourceSnapshotIntegrity",
+      "label": "Source snapshot integrity",
+      "description": "Whether every health claim is bound to immutable file, commit and database-query snapshots.",
+      "allowedStates": ["not_assessed", "unbound", "path_only", "commit_bound", "hash_bound", "mismatch", "not_applicable"],
+      "positiveStates": ["commit_bound", "hash_bound"],
+      "blockingStates": ["not_assessed", "unbound", "mismatch"]
+    }
+  ],
+  "profileDefinitions": [
+    {
+      "profileId": "health_profile.internal_discovery",
+      "label": "Internal discovery",
+      "purpose": "Locate and inspect internal material with explicit caveats; this does not authorize external claims.",
+      "aggregationMode": "non_additive",
+      "requiredDimensionIds": ["inventory", "provenanceLocator", "queueWorkflow", "structuralIntegrity", "sourceSnapshotIntegrity"],
+      "readinessPolicy": "all_required_checks_pass_and_no_profile_blocker",
+      "humanGateRequired": false,
+      "canPromoteSubjectCoverage": false
+    },
+    {
+      "profileId": "health_profile.internal_analysis",
+      "label": "Internal analysis",
+      "purpose": "Support reproducible internal analysis on one reconciled corpus and database lineage.",
+      "aggregationMode": "non_additive",
+      "requiredDimensionIds": ["inventory", "provenanceLocator", "citationReadiness", "identity", "freshnessVintage", "structuralIntegrity", "conflictControl", "sourceSnapshotIntegrity"],
+      "readinessPolicy": "all_required_checks_pass_and_no_profile_blocker",
+      "humanGateRequired": false,
+      "canPromoteSubjectCoverage": false
+    },
+    {
+      "profileId": "health_profile.external_evidence_support",
+      "label": "External evidence support",
+      "purpose": "Support externally used claims with exact locators, appraisal, durable evidence, reconciled identity and required review.",
+      "aggregationMode": "non_additive",
+      "requiredDimensionIds": ["provenanceLocator", "citationReadiness", "appraisal", "archive", "identity", "freshnessVintage", "humanReview", "conflictControl", "receiptIntegrity", "sourceSnapshotIntegrity"],
+      "readinessPolicy": "all_required_checks_pass_and_no_profile_blocker",
+      "humanGateRequired": true,
+      "canPromoteSubjectCoverage": false
+    },
+    {
+      "profileId": "health_profile.observatory_operations",
+      "label": "Observatory operations",
+      "purpose": "Operate a reproducible, monitored knowledge observatory with verified operational layers and immutable receipts.",
+      "aggregationMode": "non_additive",
+      "requiredDimensionIds": ["queueWorkflow", "freshnessVintage", "structuralIntegrity", "operationalProof", "conflictControl", "receiptIntegrity", "sourceSnapshotIntegrity"],
+      "readinessPolicy": "all_required_checks_pass_and_no_profile_blocker",
+      "humanGateRequired": true,
+      "canPromoteSubjectCoverage": false
+    }
+  ],
+  "failClosedRules": [
+    {
+      "ruleId": "health_rule.lineage_mismatch",
+      "description": "A code/database migration or seed-identity mismatch blocks reproducible analysis and observatory operation.",
+      "appliesToProfiles": ["health_profile.internal_analysis", "health_profile.external_evidence_support", "health_profile.observatory_operations"],
+      "outcome": "blocked"
+    },
+    {
+      "ruleId": "health_rule.external_appraisal",
+      "description": "External evidence support requires complete current appraisal or explicit reviewed exclusion for the required evidence scope.",
+      "appliesToProfiles": ["health_profile.external_evidence_support"],
+      "outcome": "blocked"
+    },
+    {
+      "ruleId": "health_rule.external_archive",
+      "description": "External evidence support requires durable archive coverage for the required scope.",
+      "appliesToProfiles": ["health_profile.external_evidence_support"],
+      "outcome": "blocked"
+    },
+    {
+      "ruleId": "health_rule.human_gate",
+      "description": "A machine result cannot satisfy a required human, partner or rights-holder gate.",
+      "appliesToProfiles": ["health_profile.external_evidence_support", "health_profile.observatory_operations"],
+      "outcome": "not_ready"
+    },
+    {
+      "ruleId": "health_rule.snapshot_mismatch",
+      "description": "A source or query hash mismatch invalidates every dependent metric and verdict.",
+      "appliesToProfiles": ["health_profile.internal_discovery", "health_profile.internal_analysis", "health_profile.external_evidence_support", "health_profile.observatory_operations"],
+      "outcome": "blocked"
+    }
+  ]
+}
