@@ -1,9 +1,9 @@
 {
   "schemaVersion": "corpus-evidence-health-v1",
   "documentKind": "corpus_health_summary",
-  "assessmentId": "health.assessment.2026-07-28.local.95da5847",
-  "observedAt": "2026-07-28T05:32:26.743Z",
-  "baseCommit": "95da5847f136a0fc41af47e60f38f819ac559d33",
+  "assessmentId": "health.assessment.2026-07-28.local.6fa2b308",
+  "observedAt": "2026-07-28T06:38:28.000Z",
+  "baseCommit": "6fa2b308df968059ed3bd5fc46b7a8ddb232a0c9",
   "gate1Decision": "no_go",
   "principalBlocker": "seed_database_identity_mismatch",
   "semanticBoundary": {
@@ -66,6 +66,9 @@
     "headSeedEvidence": 400,
     "databaseEvidence": 417,
     "databaseOnlyEvidenceIdentities": 18,
+    "managedRuntimeEvidenceIdentities": 17,
+    "unclassifiedDatabaseOnlyEvidenceIdentities": 1,
+    "missingManagedRuntimeEvidenceIdentities": 0,
     "seedOnlyEvidenceIdentities": 1,
     "completeEvidenceAppraisals": 0,
     "externalRowsNeedingArchive": 1855,
@@ -95,5 +98,5 @@
       "title": "Completion register and current vault validation disagree"
     }
   ],
-  "contentHash": "sha256:abbe1c386181e61853154e02d0ac568ad7157cbb7d05b184088fb2f3ea1644e6"
+  "contentHash": "sha256:4a9c24a312f8c3602870f81c9046cbab64e5cced514be7d9a948418bd41c943e"
 }

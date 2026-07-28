@@ -1,15 +1,15 @@
 # Gate 1 — corpus and evidence health
 
-**Assessment:** `health.assessment.2026-07-28.local.95da5847`
+**Assessment:** `health.assessment.2026-07-28.local.6fa2b308`
 
 **Snapshot:** 2026-07-28
 
-**HEAD:** `95da5847f136a0fc41af47e60f38f819ac559d33`
+**HEAD:** `6fa2b308df968059ed3bd5fc46b7a8ddb232a0c9`
 **Threshold status:** `proposed`
 
 ## Decision
 
-**NO-GO for reproducible internal analysis, external evidence support and observatory operation.** Internal discovery is usable only with explicit caveats. Repository and local-database migration names and SQL checksums are now reconciled (0 mismatches across 31 migrations), but evidence identity is not: current HEAD has 400 seed rows while the local database has 417 evidence rows, including 18 database-only and 1 seed-only identities.
+**NO-GO for reproducible internal analysis, external evidence support and observatory operation.** Internal discovery is usable only with explicit caveats. Repository and local-database migration names and SQL checksums are reconciled (0 mismatches across 31 migrations). Current HEAD has 400 seed rows and the local database has 417 evidence rows. Classified evidence identity is not reconciled. The raw 18 database-only rows comprise 17 declared runtime-managed and 1 unclassified identities; 1 seed-only and 0 missing declared-managed identities remain.
 
 This is a corpus/evidence-health assessment, not a food-system coverage assessment. It creates no coverage cells, carries no global score and cannot support a claim that the Nordic food system is fully mapped.
 
@@ -45,7 +45,7 @@ This is a corpus/evidence-health assessment, not a food-system coverage assessme
 ## Resolution sequence
 
 1. Keep the receipt-bound 31/31 migration lineage check green as schema and migrations evolve.
-2. Reconcile the 400/417 seed/runtime identities, including every database-only and seed-only record.
+2. Reconcile every unclassified database-only, seed-only and missing declared-managed identity while preserving the manifest-derived runtime identity boundary.
 3. Reconcile the 1555/1572 library identities.
 4. Regenerate or supersede the master, remediation and vault status surfaces from explicit pinned vintages.
 5. Complete reviewed appraisal and durable archive work for the required external scope.

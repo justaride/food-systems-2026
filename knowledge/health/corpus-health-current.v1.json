@@ -1,12 +1,12 @@
 {
   "schemaVersion": "corpus-evidence-health-v1",
   "documentKind": "corpus_health_current_pointer",
-  "assessmentId": "health.assessment.2026-07-28.local.95da5847",
-  "assessmentContentHash": "sha256:6be632c0e0975fb429db38bfb4450b0820b735c297ad99d6c140c3cd43b77454",
-  "sourceSnapshotSetId": "health.snapshot_set.2026-07-28.95da5847",
-  "sourceSnapshotSetHash": "sha256:7ac9350fcffe6bffd08623b28fd7f838d51e0c21ab1c9997c225d8cf114230ad",
+  "assessmentId": "health.assessment.2026-07-28.local.6fa2b308",
+  "assessmentContentHash": "sha256:8993a3bc41fc845af58721ad5668943165db10bfa98388607113beb699feb38d",
+  "sourceSnapshotSetId": "health.snapshot_set.2026-07-28.6fa2b308",
+  "sourceSnapshotSetHash": "sha256:3a702ba3968432576449ea87dbcf0dc39e69a2cd33094739c5cfe6a5b1fc0b07",
   "baselineAdoptionStatus": "proposed",
-  "generatedAt": "2026-07-28T05:32:26.743Z",
+  "generatedAt": "2026-07-28T06:38:28.000Z",
   "warning": "Current pointer only. Read the immutable assessment and its source snapshots; this is not a subject-coverage claim.",
-  "contentHash": "sha256:9e225697e5202910199a1346555f459005f2708b83d8f898fecd7ed7bf3c8d95"
+  "contentHash": "sha256:ece489b33f287dcb7740819ccf6582ccbfbceab19f91423e4f658e58350ad61b"
 }
