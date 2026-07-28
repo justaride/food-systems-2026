@@ -24,3 +24,4 @@ The compiled wiki has not yet been populated. This index will be generated from 
 - [Completion register](../../docs/project/status/food-systems-completion-register-2026-07-15.md)
 - [Existing Obsidian field map](../../Food%20Systems%20Obsidian/1%20Oversikt%20og%20navigasjon/Feltkart%20%E2%80%93%20kunnskapsbasen.md)
 - [Coverage summary](../coverage/coverage-summary.v1.json)
+- [Field 08 research candidate report](../pilots/field08/field08-research-candidate-report.v1.md)

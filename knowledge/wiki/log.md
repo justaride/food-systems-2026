@@ -25,3 +25,12 @@ Append-only human-readable log. Machine receipts will use immutable records with
 - Fixed every binding to navigation-only, unassessed, non-evidentiary and geography-unknown semantics.
 - Kept Sápmi non-additive and rights-holder-review-gated; registered no Sápmi content representation.
 - Added no claim evidence, appraisal, review receipt or readiness promotion and changed no vault page.
+
+## 2026-07-28 — Gate 2B Field 08 research-candidate pilot
+
+- Added a normalized candidate source map for circularity, food waste, side streams and N-P-K across the eight political geographies.
+- Expanded 34 Field 08 facet targets into 272 political candidate rows and 34 separate Sápmi authority-route rows.
+- Kept Finland and Åland non-additive and marked unresolved territorial sources for boundary reconciliation instead of assigning false coverage.
+- Recorded Greenland's authoritative data gap as unknown, Faroese operator measurements as partial-boundary leads and all source locators as unarchived review candidates.
+- Gave Sápmi zero substantive desk-research credit and registered only authority, consent and data-governance routes.
+- Created no evidence-backed assessment, readiness result, external-ready claim or change to the historical 117 scope-registration events.

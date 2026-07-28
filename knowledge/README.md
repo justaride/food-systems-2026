@@ -18,6 +18,7 @@ It does **not** declare the Nordic food system complete. It defines what must be
 10. [Current-corpus migration map](migration/CURRENT-CORPUS-MAP.md)
 11. [Compiled-wiki index](wiki/index.md)
 12. [Append-only wiki log](wiki/log.md)
+13. [Gate 2B Field 08 research-candidate pilot](pilots/field08/README.md)
 
 ## Canonical boundary
 
@@ -73,6 +74,16 @@ The generator keeps direct observations separate from reported status snapshots.
 The thirteen existing Obsidian field pages are registered separately as navigation artifacts. The generated register binds each field page, the root field map and the atlas canvas to exact repository objects, then creates 104 political-Nordic and 13 separate Sápmi navigation-only bindings. Every binding is forced to remain `unassessed`, `not_evidence`, `geographyRepresentation: unknown` and `coverageImplication: none`. The Sápmi bindings are non-additive and require a rights-holder review before any later substantive assessment.
 
 This registry does not modify the historical 117 scope-registration events, does not claim that any geography appears in the field-page content, and cannot promote a coverage cell. Run `npm run knowledge:navigation:generate` after changing its source map or generator and `npm run knowledge:navigation:check` in validation.
+
+## Gate 2B — Field 08 research candidates
+
+The [Field 08 pilot](pilots/field08/README.md) moves one legacy field beyond navigation without pretending that source discovery is evidence-backed coverage. Its normalized source map contains authoritative source leads, exact candidate locators, source-to-cell boundary judgments, bounded observation candidates, explicit unknowns and next actions for Norway, Sweden, Denmark, Finland, Iceland, the Faroe Islands, Greenland and Åland. Finland and Åland are kept non-additive wherever source boundaries overlap or remain unresolved.
+
+The generator expands the 34 Field 08 ontology facets across all nine profile-local geography cells: 272 political rows and 34 separate Sápmi rows. A row may record a substantive measurement lead, method lead, context lead, boundary-reconciliation requirement, rights-holder route or no candidate. Every state has `coverageImplication: none`; all nine cells remain `unassessed`, and the historical 117 scope-registration events are unchanged.
+
+Sápmi receives zero substantive desk-research credit. Its candidate rows identify authority, consent and data-governance routes only and require an approved rights-holder-led scope, evidence and review process before any later assessment.
+
+Run `npm run knowledge:field08:generate` after committing source changes, then `npm run knowledge:field08:check` to reproduce the pinned register and report. The generated report is the review surface; it is not an evidence, appraisal or adoption receipt.
 
 Generated health artifacts are:
 

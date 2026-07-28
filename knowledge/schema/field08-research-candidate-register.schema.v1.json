@@ -1,0 +1,351 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schemas/field08-research-candidate-register.schema.v1.json",
+  "title": "Field 08 research candidate register",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "documentType",
+    "schemaVersion",
+    "registerId",
+    "registryStatus",
+    "generatedAt",
+    "baseCommit",
+    "generatorVersion",
+    "ontologyVersion",
+    "mapId",
+    "legacyFieldId",
+    "semantics",
+    "baselineGuard",
+    "sourceCandidates",
+    "sourceBindings",
+    "observationCandidates",
+    "geographyCandidates",
+    "facetInventory",
+    "profileSummaries",
+    "recordCounts",
+    "safetySummary",
+    "contentHash"
+  ],
+  "properties": {
+    "documentType": { "const": "field08_research_candidate_register" },
+    "schemaVersion": { "const": "1.0.0" },
+    "registerId": { "const": "registry.field08_research_candidates.v1" },
+    "registryStatus": { "const": "draft_candidate_only" },
+    "generatedAt": { "type": "string", "format": "date" },
+    "baseCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "generatorVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "ontologyVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "mapId": { "const": "map.field08_research_candidates.v1" },
+    "legacyFieldId": { "const": "legacy_field.f08" },
+    "semantics": {
+      "$ref": "https://foodsystems.local/schemas/field08-research-source-map.schema.v1.json#/$defs/semantics"
+    },
+    "baselineGuard": { "$ref": "#/$defs/baselineGuard" },
+    "sourceCandidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://foodsystems.local/schemas/field08-research-source-map.schema.v1.json#/$defs/sourceCandidate"
+      }
+    },
+    "sourceBindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://foodsystems.local/schemas/field08-research-source-map.schema.v1.json#/$defs/sourceBinding"
+      }
+    },
+    "observationCandidates": {
+      "type": "array",
+      "items": {
+        "$ref": "https://foodsystems.local/schemas/field08-research-source-map.schema.v1.json#/$defs/observationCandidate"
+      }
+    },
+    "geographyCandidates": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": { "$ref": "#/$defs/geographyCandidate" }
+    },
+    "facetInventory": {
+      "type": "array",
+      "minItems": 306,
+      "maxItems": 306,
+      "items": { "$ref": "#/$defs/facetInventoryRecord" }
+    },
+    "profileSummaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profile.legacy_field_political", "profile.legacy_field_sapmi_overlap"],
+      "properties": {
+        "profile.legacy_field_political": { "$ref": "#/$defs/profileSummary" },
+        "profile.legacy_field_sapmi_overlap": { "$ref": "#/$defs/profileSummary" }
+      }
+    },
+    "recordCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceCandidates",
+        "sourceBindings",
+        "observationCandidates",
+        "geographyCandidates",
+        "politicalGeographies",
+        "sapmiGeographies",
+        "facetInventoryRows"
+      ],
+      "properties": {
+        "sourceCandidates": { "type": "integer", "minimum": 1 },
+        "sourceBindings": { "type": "integer", "minimum": 1 },
+        "observationCandidates": { "type": "integer", "minimum": 0 },
+        "geographyCandidates": { "const": 9 },
+        "politicalGeographies": { "const": 8 },
+        "sapmiGeographies": { "const": 1 },
+        "facetInventoryRows": { "const": 306 }
+      }
+    },
+    "safetySummary": { "$ref": "#/$defs/safetySummary" },
+    "contentHash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "artifactSnapshotEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "kind", "sha256", "sizeBytes"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "kind": { "const": "file" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "artifactSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactSnapshotId",
+        "path",
+        "kind",
+        "baseCommit",
+        "gitObjectId",
+        "gitObjectType",
+        "sha256",
+        "sizeBytes",
+        "fileCount",
+        "entries"
+      ],
+      "properties": {
+        "artifactSnapshotId": { "type": "string", "pattern": "^artifact\\.v1\\.[a-f0-9]{20}$" },
+        "path": { "type": "string", "minLength": 1 },
+        "kind": { "const": "file" },
+        "baseCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "gitObjectId": { "type": "string", "pattern": "^[a-f0-9]{40,64}$" },
+        "gitObjectType": { "const": "blob" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 0 },
+        "fileCount": { "const": 1 },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": { "$ref": "#/$defs/artifactSnapshotEntry" }
+        }
+      }
+    },
+    "baselineGuard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "historicalAssessmentPath",
+        "historicalAssessmentSnapshot",
+        "historicalEventCount",
+        "field08CellCount",
+        "field08ScopeRegistrationCount",
+        "field08SubjectMatterAssessmentCount",
+        "historicalAssessmentWriteCount"
+      ],
+      "properties": {
+        "historicalAssessmentPath": { "const": "knowledge/coverage/coverage-assessments-baseline.v1.jsonl" },
+        "historicalAssessmentSnapshot": { "$ref": "#/$defs/artifactSnapshot" },
+        "historicalEventCount": { "const": 117 },
+        "field08CellCount": { "const": 9 },
+        "field08ScopeRegistrationCount": { "const": 9 },
+        "field08SubjectMatterAssessmentCount": { "const": 0 },
+        "historicalAssessmentWriteCount": { "const": 0 }
+      }
+    },
+    "candidateState": {
+      "enum": [
+        "substantive_candidate_identified",
+        "method_candidate_identified",
+        "context_candidate_identified",
+        "boundary_reconciliation_required",
+        "rights_holder_route_required",
+        "no_candidate_identified"
+      ]
+    },
+    "facetCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total",
+        "substantiveCandidate",
+        "methodCandidate",
+        "contextCandidate",
+        "boundaryReconciliationRequired",
+        "rightsHolderRouteRequired",
+        "noCandidate"
+      ],
+      "properties": {
+        "total": { "type": "integer", "minimum": 0 },
+        "substantiveCandidate": { "type": "integer", "minimum": 0 },
+        "methodCandidate": { "type": "integer", "minimum": 0 },
+        "contextCandidate": { "type": "integer", "minimum": 0 },
+        "boundaryReconciliationRequired": { "type": "integer", "minimum": 0 },
+        "rightsHolderRouteRequired": { "type": "integer", "minimum": 0 },
+        "noCandidate": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "geographyCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "geographyCandidateId",
+        "geographyId",
+        "profileId",
+        "aggregationClass",
+        "cellId",
+        "geographyBoundaryNote",
+        "sourceBoundaryState",
+        "scopeCompletenessState",
+        "subjectMatterState",
+        "coverageImplication",
+        "readinessResult",
+        "candidateSourceIds",
+        "candidateBindingIds",
+        "observationCandidateIds",
+        "facetCounts",
+        "explicitUnknowns",
+        "nextActions",
+        "proposedOwner",
+        "recheckCadence",
+        "rightsHolderReviewRequired",
+        "humanEvidenceRoute",
+        "assessmentEventCreated",
+        "externalUseAllowed",
+        "contentHash"
+      ],
+      "properties": {
+        "geographyCandidateId": { "type": "string", "pattern": "^field08\\.geography_candidate\\.(no|se|dk|fi|is|fo|gl|ax|sapmi)$" },
+        "geographyId": { "$ref": "https://foodsystems.local/schemas/field08-research-source-map.schema.v1.json#/$defs/geographyId" },
+        "profileId": { "enum": ["profile.legacy_field_political", "profile.legacy_field_sapmi_overlap"] },
+        "aggregationClass": { "enum": ["political_nordic", "sapmi_overlapping"] },
+        "cellId": { "type": "string", "pattern": "^cov\\.v1\\.profile=legacy_field_(political|sapmi_overlap)\\.geography=(no|se|dk|fi|is|fo|gl|ax|sapmi)\\.legacy_fields=f08$" },
+        "geographyBoundaryNote": { "type": "string", "minLength": 12 },
+        "sourceBoundaryState": { "const": "unknown" },
+        "scopeCompletenessState": { "const": "unassessed" },
+        "subjectMatterState": { "const": "unassessed" },
+        "coverageImplication": { "const": "none" },
+        "readinessResult": { "const": null },
+        "candidateSourceIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^field08\\.source\\.[a-z0-9._-]+$" } },
+        "candidateBindingIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^field08\\.binding\\.[a-z0-9._-]+$" } },
+        "observationCandidateIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^field08\\.observation\\.[a-z0-9._-]+$" } },
+        "facetCounts": { "$ref": "#/$defs/facetCounts" },
+        "explicitUnknowns": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 8 } },
+        "nextActions": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 8 } },
+        "proposedOwner": { "type": "string", "minLength": 2 },
+        "recheckCadence": { "enum": ["monthly", "quarterly", "semiannual", "annual", "unscheduled"] },
+        "rightsHolderReviewRequired": { "type": "boolean" },
+        "humanEvidenceRoute": { "enum": ["ordinary_human_review_required", "rights_holder_authority_and_consent_unresolved"] },
+        "assessmentEventCreated": { "const": false },
+        "externalUseAllowed": { "const": false },
+        "contentHash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "facetInventoryRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "facetInventoryId",
+        "geographyId",
+        "profileId",
+        "cellId",
+        "facetDimension",
+        "facetId",
+        "candidateState",
+        "sourceBindingIds",
+        "sourceCandidateIds",
+        "coverageImplication",
+        "readinessPromotionAllowed",
+        "rightsHolderReviewRequired",
+        "contentHash"
+      ],
+      "properties": {
+        "facetInventoryId": { "type": "string", "pattern": "^field08\\.facet_candidate\\.[a-z0-9._=-]+$" },
+        "geographyId": { "$ref": "https://foodsystems.local/schemas/field08-research-source-map.schema.v1.json#/$defs/geographyId" },
+        "profileId": { "enum": ["profile.legacy_field_political", "profile.legacy_field_sapmi_overlap"] },
+        "cellId": { "type": "string", "pattern": "^cov\\.v1\\.profile=legacy_field_(political|sapmi_overlap)\\.geography=(no|se|dk|fi|is|fo|gl|ax|sapmi)\\.legacy_fields=f08$" },
+        "facetDimension": { "enum": ["value_chain_stage", "domain", "outcome", "flow_class", "material_group", "circular_strategy"] },
+        "facetId": { "type": "string", "minLength": 3 },
+        "candidateState": { "$ref": "#/$defs/candidateState" },
+        "sourceBindingIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^field08\\.binding\\.[a-z0-9._-]+$" } },
+        "sourceCandidateIds": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^field08\\.source\\.[a-z0-9._-]+$" } },
+        "coverageImplication": { "const": "none" },
+        "readinessPromotionAllowed": { "const": false },
+        "rightsHolderReviewRequired": { "type": "boolean" },
+        "contentHash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "profileSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "aggregationClass",
+        "geographyCount",
+        "sourceCandidateCount",
+        "bindingCount",
+        "observationCandidateCount",
+        "facetCounts",
+        "coveragePromotionCount",
+        "externalReadyClaimCount"
+      ],
+      "properties": {
+        "aggregationClass": { "enum": ["political_nordic", "sapmi_overlapping"] },
+        "geographyCount": { "type": "integer", "minimum": 1 },
+        "sourceCandidateCount": { "type": "integer", "minimum": 0 },
+        "bindingCount": { "type": "integer", "minimum": 0 },
+        "observationCandidateCount": { "type": "integer", "minimum": 0 },
+        "facetCounts": { "$ref": "#/$defs/facetCounts" },
+        "coveragePromotionCount": { "const": 0 },
+        "externalReadyClaimCount": { "const": 0 }
+      }
+    },
+    "safetySummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "coverageAssessmentEventsCreated",
+        "coverageCellsPromoted",
+        "readinessResultsCreated",
+        "externalReadyClaimsCreated",
+        "politicalSapmiAggregationsCreated",
+        "sapmiSubstantiveCoverageCredit",
+        "historicalCoverageFilesModified"
+      ],
+      "properties": {
+        "coverageAssessmentEventsCreated": { "const": 0 },
+        "coverageCellsPromoted": { "const": 0 },
+        "readinessResultsCreated": { "const": 0 },
+        "externalReadyClaimsCreated": { "const": 0 },
+        "politicalSapmiAggregationsCreated": { "const": 0 },
+        "sapmiSubstantiveCoverageCredit": { "const": 0 },
+        "historicalCoverageFilesModified": { "const": 0 }
+      }
+    }
+  }
+}
