@@ -1,0 +1,592 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schemas/field08-archive-rights-receipt.schema.v1.json",
+  "title": "Field 08 Gate 2C private-archive and rights-review receipt",
+  "description": "One append-only receipt for one exact detached capture. A receipt records a verified private archive copy and either a pending or named-human-reviewed component-level redistribution decision. It does not mutate the historical external-capture manifest or promote evidence readiness.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "documentType",
+    "schemaVersion",
+    "receiptId",
+    "receiptSequence",
+    "status",
+    "supersedesReceiptId",
+    "previousReceiptHash",
+    "issuedAt",
+    "captureIdentity",
+    "archive",
+    "rightsReview",
+    "semantics",
+    "contentHash"
+  ],
+  "properties": {
+    "documentType": { "const": "field08_gate2c_archive_rights_receipt" },
+    "schemaVersion": { "const": "1.0.0" },
+    "receiptId": {
+      "type": "string",
+      "pattern": "^receipt\\.archive_rights\\.field08\\.[a-z0-9][a-z0-9._-]*\\.r[1-9][0-9]*$"
+    },
+    "receiptSequence": { "type": "integer", "minimum": 1 },
+    "status": {
+      "enum": [
+        "archive_verified_rights_pending",
+        "archive_verified_rights_reviewed"
+      ]
+    },
+    "supersedesReceiptId": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "string",
+          "pattern": "^receipt\\.archive_rights\\.field08\\.[a-z0-9][a-z0-9._-]*\\.r[1-9][0-9]*$"
+        }
+      ]
+    },
+    "previousReceiptHash": { "$ref": "#/$defs/nullableSha256" },
+    "issuedAt": { "type": "string", "format": "date-time" },
+    "captureIdentity": { "$ref": "#/$defs/captureIdentity" },
+    "archive": { "$ref": "#/$defs/archive" },
+    "rightsReview": { "$ref": "#/$defs/rightsReview" },
+    "semantics": { "$ref": "#/$defs/semantics" },
+    "contentHash": { "$ref": "#/$defs/sha256" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "receiptSequence": { "const": 1 } },
+        "required": ["receiptSequence"]
+      },
+      "then": {
+        "properties": {
+          "supersedesReceiptId": { "const": null },
+          "previousReceiptHash": { "const": null }
+        }
+      },
+      "else": {
+        "properties": {
+          "supersedesReceiptId": { "type": "string" },
+          "previousReceiptHash": { "$ref": "#/$defs/sha256" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": { "const": "archive_verified_rights_pending" }
+        },
+        "required": ["status"]
+      },
+      "then": {
+        "properties": {
+          "rightsReview": {
+            "properties": { "state": { "const": "pending" } },
+            "required": ["state"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": { "const": "archive_verified_rights_reviewed" }
+        },
+        "required": ["status"]
+      },
+      "then": {
+        "properties": {
+          "rightsReview": {
+            "properties": { "state": { "const": "reviewed" } },
+            "required": ["state"]
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "gitCommit": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "privateArchiveLocation": {
+      "type": "string",
+      "pattern": "^private-archive://[a-z0-9][a-z0-9._/-]*/sha256/[a-f0-9]{64}$"
+    },
+    "nullableUri": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "format": "uri" }
+      ]
+    },
+    "nullableSha256": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/sha256" }
+      ]
+    },
+    "captureIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "captureManifestId",
+        "captureManifestSha256",
+        "captureId",
+        "sourceCandidateId",
+        "artifactSha256",
+        "artifactSizeBytes",
+        "mediaType",
+        "sourceUrl",
+        "accessedAt",
+        "sourceCommit"
+      ],
+      "properties": {
+        "captureManifestId": { "const": "external_captures.field08_gate2c.v1" },
+        "captureManifestSha256": { "$ref": "#/$defs/sha256" },
+        "captureId": {
+          "type": "string",
+          "pattern": "^capture\\.field08\\.[a-z0-9][a-z0-9._-]*$"
+        },
+        "sourceCandidateId": {
+          "type": "string",
+          "pattern": "^field08\\.source\\.[a-z0-9][a-z0-9._-]*$"
+        },
+        "artifactSha256": { "$ref": "#/$defs/sha256" },
+        "artifactSizeBytes": { "type": "integer", "minimum": 1 },
+        "mediaType": { "const": "application/pdf" },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "accessedAt": { "type": "string", "format": "date" },
+        "sourceCommit": { "$ref": "#/$defs/gitCommit" }
+      }
+    },
+    "archiveVerifier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "role"],
+      "properties": {
+        "name": { "type": "string", "minLength": 2 },
+        "role": { "type": "string", "minLength": 2 }
+      }
+    },
+    "objectLock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled", "mode", "retainUntil", "legalHold"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "mode": {
+          "oneOf": [
+            { "type": "null" },
+            { "enum": ["governance", "compliance"] }
+          ]
+        },
+        "retainUntil": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "format": "date-time" }
+          ]
+        },
+        "legalHold": { "type": "boolean" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "enabled": { "const": false } },
+            "required": ["enabled"]
+          },
+          "then": {
+            "properties": {
+              "mode": { "const": null },
+              "retainUntil": { "const": null },
+              "legalHold": { "const": false }
+            }
+          },
+          "else": {
+            "properties": {
+              "mode": { "enum": ["governance", "compliance"] },
+              "retainUntil": { "type": "string", "format": "date-time" }
+            }
+          }
+        }
+      ]
+    },
+    "replica": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "replicaId",
+        "provider",
+        "region",
+        "location",
+        "versionId",
+        "verifiedAt"
+      ],
+      "properties": {
+        "replicaId": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9._-]*$"
+        },
+        "provider": { "type": "string", "minLength": 2 },
+        "region": { "type": "string", "minLength": 2 },
+        "location": { "$ref": "#/$defs/privateArchiveLocation" },
+        "versionId": { "type": "string", "minLength": 1 },
+        "verifiedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "archive": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "storageClass",
+        "durabilityState",
+        "location",
+        "versionId",
+        "storedAt",
+        "verifiedAt",
+        "verifiedBy",
+        "integritySha256",
+        "sizeBytes",
+        "publicAccess",
+        "objectLock",
+        "replicas"
+      ],
+      "properties": {
+        "storageClass": { "const": "private_content_addressed" },
+        "durabilityState": {
+          "enum": ["archive_partial_not_durable", "archive_complete_durable"]
+        },
+        "location": { "$ref": "#/$defs/privateArchiveLocation" },
+        "versionId": { "type": "string", "minLength": 1 },
+        "storedAt": { "type": "string", "format": "date-time" },
+        "verifiedAt": { "type": "string", "format": "date-time" },
+        "verifiedBy": { "$ref": "#/$defs/archiveVerifier" },
+        "integritySha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 1 },
+        "publicAccess": { "const": false },
+        "objectLock": { "$ref": "#/$defs/objectLock" },
+        "replicas": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/replica" }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "durabilityState": { "const": "archive_complete_durable" }
+            },
+            "required": ["durabilityState"]
+          },
+          "then": {
+            "properties": {
+              "objectLock": {
+                "properties": { "enabled": { "const": true } },
+                "required": ["enabled"]
+              },
+              "replicas": { "minItems": 2 }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "objectLock": {
+                "properties": { "enabled": { "const": false } },
+                "required": ["enabled"]
+              }
+            },
+            "required": ["objectLock"]
+          },
+          "then": {
+            "properties": {
+              "durabilityState": { "const": "archive_partial_not_durable" }
+            }
+          }
+        }
+      ]
+    },
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "role",
+        "organization",
+        "conflictOfInterest",
+        "conflictNote"
+      ],
+      "properties": {
+        "name": { "type": "string", "minLength": 2 },
+        "role": { "type": "string", "minLength": 2 },
+        "organization": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "minLength": 2 }
+          ]
+        },
+        "conflictOfInterest": {
+          "enum": ["none_declared", "declared_managed"]
+        },
+        "conflictNote": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "minLength": 1 }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "conflictOfInterest": { "const": "none_declared" }
+            },
+            "required": ["conflictOfInterest"]
+          },
+          "then": { "properties": { "conflictNote": { "const": null } } },
+          "else": { "properties": { "conflictNote": { "type": "string" } } }
+        }
+      ]
+    },
+    "componentDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "componentId",
+        "description",
+        "rightsStatus",
+        "licenseIdentifier",
+        "licenseUrl",
+        "redistribution",
+        "conditions",
+        "permissionEvidenceSha256"
+      ],
+      "properties": {
+        "componentId": {
+          "enum": [
+            "cover",
+            "diagrams_infographics",
+            "pdf_bytes",
+            "photographs_illustrations",
+            "report_text",
+            "tables",
+            "third_party_material"
+          ]
+        },
+        "description": { "type": "string", "minLength": 1 },
+        "rightsStatus": {
+          "enum": [
+            "pending",
+            "license_applies",
+            "permission_granted",
+            "public_domain",
+            "excluded_from_license",
+            "rights_reserved",
+            "unknown",
+            "not_present"
+          ]
+        },
+        "licenseIdentifier": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "minLength": 1 }
+          ]
+        },
+        "licenseUrl": { "$ref": "#/$defs/nullableUri" },
+        "redistribution": {
+          "enum": [
+            "prohibited",
+            "short_quotation_only",
+            "permitted_with_conditions",
+            "permitted",
+            "not_applicable"
+          ]
+        },
+        "conditions": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "permissionEvidenceSha256": { "$ref": "#/$defs/nullableSha256" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "rightsStatus": { "const": "license_applies" } },
+            "required": ["rightsStatus"]
+          },
+          "then": {
+            "properties": {
+              "licenseIdentifier": { "type": "string" },
+              "licenseUrl": { "type": "string", "format": "uri" },
+              "permissionEvidenceSha256": { "const": null }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "rightsStatus": { "const": "permission_granted" } },
+            "required": ["rightsStatus"]
+          },
+          "then": {
+            "properties": {
+              "licenseIdentifier": { "const": null },
+              "licenseUrl": { "const": null },
+              "permissionEvidenceSha256": { "$ref": "#/$defs/sha256" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "rightsStatus": { "const": "excluded_from_license" } },
+            "required": ["rightsStatus"]
+          },
+          "then": {
+            "properties": {
+              "licenseIdentifier": { "type": "string" },
+              "licenseUrl": { "type": "string", "format": "uri" },
+              "permissionEvidenceSha256": { "const": null }
+            }
+          }
+        }
+      ]
+    },
+    "rightsReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "overallRightsStatus",
+        "redistributionStatus",
+        "licensedComponents",
+        "excludedComponents",
+        "components",
+        "reviewer",
+        "rightsEvidenceAccessedAt",
+        "reviewedAt",
+        "reviewEvidenceSha256",
+        "attestation"
+      ],
+      "properties": {
+        "state": { "enum": ["pending", "reviewed"] },
+        "overallRightsStatus": {
+          "enum": [
+            "unknown",
+            "restricted",
+            "licensed",
+            "permission_granted",
+            "public_domain",
+            "mixed"
+          ]
+        },
+        "redistributionStatus": {
+          "enum": ["not_cleared", "component_limited", "cleared"]
+        },
+        "licensedComponents": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/componentId" },
+          "uniqueItems": true
+        },
+        "excludedComponents": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/componentId" },
+          "uniqueItems": true
+        },
+        "components": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "items": { "$ref": "#/$defs/componentDecision" }
+        },
+        "reviewer": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/reviewer" }
+          ]
+        },
+        "rightsEvidenceAccessedAt": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "format": "date-time" }
+          ]
+        },
+        "reviewedAt": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "format": "date-time" }
+          ]
+        },
+        "reviewEvidenceSha256": { "$ref": "#/$defs/nullableSha256" },
+        "attestation": {
+          "oneOf": [
+            { "type": "null" },
+            { "const": "I_REVIEWED_THE_RIGHTS_EVIDENCE_AND_RECORDED_COMPONENT_LEVEL_REDISTRIBUTION_LIMITS" }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "state": { "const": "pending" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "overallRightsStatus": { "const": "unknown" },
+              "redistributionStatus": { "const": "not_cleared" },
+              "licensedComponents": { "maxItems": 0 },
+              "reviewer": { "const": null },
+              "rightsEvidenceAccessedAt": { "const": null },
+              "reviewedAt": { "const": null },
+              "reviewEvidenceSha256": { "const": null },
+              "attestation": { "const": null }
+            }
+          },
+          "else": {
+            "properties": {
+              "reviewer": { "$ref": "#/$defs/reviewer" },
+              "rightsEvidenceAccessedAt": { "type": "string", "format": "date-time" },
+              "reviewedAt": { "type": "string", "format": "date-time" },
+              "reviewEvidenceSha256": { "$ref": "#/$defs/sha256" },
+              "attestation": {
+                "const": "I_REVIEWED_THE_RIGHTS_EVIDENCE_AND_RECORDED_COMPONENT_LEVEL_REDISTRIBUTION_LIMITS"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "componentId": {
+      "enum": [
+        "cover",
+        "diagrams_infographics",
+        "pdf_bytes",
+        "photographs_illustrations",
+        "report_text",
+        "tables",
+        "third_party_material"
+      ]
+    },
+    "semantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "appendOnly",
+        "historicalCaptureManifestMutationAllowed",
+        "publicArchiveAllowed",
+        "externalUsePromotionAllowed",
+        "coveragePromotionAllowed"
+      ],
+      "properties": {
+        "appendOnly": { "const": true },
+        "historicalCaptureManifestMutationAllowed": { "const": false },
+        "publicArchiveAllowed": { "const": false },
+        "externalUsePromotionAllowed": { "const": false },
+        "coveragePromotionAllowed": { "const": false }
+      }
+    }
+  }
+}

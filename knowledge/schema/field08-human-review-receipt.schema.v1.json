@@ -1,0 +1,551 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schemas/field08-human-review-receipt.schema.v1.json",
+  "title": "Field 08 Gate 2C append-only human-review receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "documentType",
+    "schemaVersion",
+    "receiptId",
+    "sequence",
+    "supersedesReceiptId",
+    "previousReceiptHash",
+    "status",
+    "sourceCommit",
+    "evidencePackage",
+    "evidencePackageHash",
+    "reviewGateId",
+    "gateType",
+    "reviewer",
+    "review",
+    "externalGatePassed",
+    "coveragePromotionAllowed",
+    "contentHash"
+  ],
+  "properties": {
+    "documentType": { "const": "field08_human_review_receipt" },
+    "schemaVersion": { "const": "1.0.0" },
+    "receiptId": {
+      "type": "string",
+      "pattern": "^review_receipt\\.field08\\.(boundary-reconciliation|contradiction-resolution|method-appraisal|ordinary-human-review)\\.[0-9]{4}-[0-9]{2}-[0-9]{2}\\.[a-z0-9][a-z0-9._-]*$"
+    },
+    "sequence": { "type": "integer", "minimum": 1 },
+    "supersedesReceiptId": {
+      "type": ["string", "null"],
+      "pattern": "^review_receipt\\.field08\\.(boundary-reconciliation|contradiction-resolution|method-appraisal|ordinary-human-review)\\.[0-9]{4}-[0-9]{2}-[0-9]{2}\\.[a-z0-9][a-z0-9._-]*$"
+    },
+    "previousReceiptHash": { "$ref": "#/$defs/nullableSha256" },
+    "status": { "const": "human_review_recorded" },
+    "sourceCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "evidencePackage": { "$ref": "#/$defs/evidencePackage" },
+    "evidencePackageHash": { "$ref": "#/$defs/sha256" },
+    "reviewGateId": {
+      "enum": [
+        "review_gate.field08.boundary-reconciliation",
+        "review_gate.field08.contradiction-resolution",
+        "review_gate.field08.method-appraisal",
+        "review_gate.field08.ordinary-human-review"
+      ]
+    },
+    "gateType": {
+      "enum": [
+        "boundary_reconciliation",
+        "contradiction_resolution",
+        "method_appraisal",
+        "ordinary_human_review"
+      ]
+    },
+    "reviewer": { "$ref": "#/$defs/reviewer" },
+    "review": {
+      "oneOf": [
+        { "$ref": "#/$defs/boundaryReview" },
+        { "$ref": "#/$defs/contradictionReview" },
+        { "$ref": "#/$defs/methodReview" },
+        { "$ref": "#/$defs/ordinaryReview" }
+      ]
+    },
+    "externalGatePassed": { "const": false },
+    "coveragePromotionAllowed": { "const": false },
+    "contentHash": { "$ref": "#/$defs/sha256" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "sequence": { "const": 1 } }, "required": ["sequence"] },
+      "then": {
+        "properties": {
+          "supersedesReceiptId": { "type": "null" },
+          "previousReceiptHash": { "type": "null" }
+        }
+      },
+      "else": {
+        "properties": {
+          "supersedesReceiptId": { "type": "string" },
+          "previousReceiptHash": { "$ref": "#/$defs/sha256" }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "gateType": { "const": "boundary_reconciliation" } }, "required": ["gateType"] },
+      "then": {
+        "properties": {
+          "reviewGateId": { "const": "review_gate.field08.boundary-reconciliation" },
+          "review": { "$ref": "#/$defs/boundaryReview" }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "gateType": { "const": "contradiction_resolution" } }, "required": ["gateType"] },
+      "then": {
+        "properties": {
+          "reviewGateId": { "const": "review_gate.field08.contradiction-resolution" },
+          "review": { "$ref": "#/$defs/contradictionReview" }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "gateType": { "const": "method_appraisal" } }, "required": ["gateType"] },
+      "then": {
+        "properties": {
+          "reviewGateId": { "const": "review_gate.field08.method-appraisal" },
+          "review": { "$ref": "#/$defs/methodReview" }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "gateType": { "const": "ordinary_human_review" } }, "required": ["gateType"] },
+      "then": {
+        "properties": {
+          "reviewGateId": { "const": "review_gate.field08.ordinary-human-review" },
+          "review": { "$ref": "#/$defs/ordinaryReview" }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "nullableSha256": {
+      "oneOf": [
+        { "$ref": "#/$defs/sha256" },
+        { "type": "null" }
+      ]
+    },
+    "nonBlank": { "type": "string", "minLength": 2, "pattern": "^.*\\S.*$" },
+    "substantive": { "type": "string", "minLength": 20, "pattern": "^.*\\S.*$" },
+    "substantiveArray": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/substantive" },
+      "uniqueItems": true
+    },
+    "artifactBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "fileSha256", "contentHash"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "fileSha256": { "$ref": "#/$defs/sha256" },
+        "contentHash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "intakeBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "fileSha256"],
+      "properties": {
+        "path": { "const": "knowledge/pilots/field08/gate2c/field08-evidence-intake.v1.json" },
+        "fileSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "sourceBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceId", "sourceSha256"],
+      "properties": {
+        "sourceId": { "type": "string", "pattern": "^fs:source:" },
+        "sourceSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "packageLocatorBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceId",
+        "sourceSha256",
+        "acquisitionId",
+        "acquisitionSha256",
+        "citationId",
+        "citationSha256",
+        "captureSha256"
+      ],
+      "properties": {
+        "sourceId": { "type": "string", "pattern": "^fs:source:" },
+        "sourceSha256": { "$ref": "#/$defs/sha256" },
+        "acquisitionId": { "type": "string", "pattern": "^acq\\.field08\\." },
+        "acquisitionSha256": { "$ref": "#/$defs/sha256" },
+        "citationId": { "type": "string", "pattern": "^fs:citation:" },
+        "citationSha256": { "$ref": "#/$defs/sha256" },
+        "captureSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "evidencePackage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hashSemantics",
+        "bindingContract",
+        "sourceCommit",
+        "generationManifest",
+        "reviewManifest",
+        "intake",
+        "sourceBindings",
+        "locatorBindings"
+      ],
+      "properties": {
+        "hashSemantics": { "const": "canonical_json_sorted_keys_v1" },
+        "bindingContract": { "const": "field08_gate2c_source_acquisition_citation_v1" },
+        "sourceCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "generationManifest": {
+          "allOf": [
+            { "$ref": "#/$defs/artifactBinding" },
+            {
+              "properties": {
+                "path": { "const": "knowledge/pilots/field08/gate2c/field08-evidence-generation-manifest.v1.json" }
+              }
+            }
+          ]
+        },
+        "reviewManifest": {
+          "allOf": [
+            { "$ref": "#/$defs/artifactBinding" },
+            {
+              "properties": {
+                "path": { "const": "knowledge/pilots/field08/gate2c/field08-appraisal-review-manifest.v1.json" }
+              }
+            }
+          ]
+        },
+        "intake": { "$ref": "#/$defs/intakeBinding" },
+        "sourceBindings": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/sourceBinding" }
+        },
+        "locatorBindings": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/packageLocatorBinding" }
+        }
+      }
+    },
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "role",
+        "qualifications",
+        "affiliation",
+        "conflictOfInterest",
+        "reviewedAt",
+        "attestation"
+      ],
+      "properties": {
+        "name": { "type": "string", "minLength": 5, "pattern": "^[^\\s]+\\s+[^\\s].*$" },
+        "role": { "$ref": "#/$defs/nonBlank" },
+        "qualifications": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 5, "pattern": "^.*\\S.*$" },
+          "uniqueItems": true
+        },
+        "affiliation": { "$ref": "#/$defs/nonBlank" },
+        "conflictOfInterest": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "details"],
+          "properties": {
+            "status": { "enum": ["none_declared", "declared_managed", "declared_unmanaged"] },
+            "details": { "type": ["string", "null"], "minLength": 10 }
+          },
+          "allOf": [
+            {
+              "if": { "properties": { "status": { "const": "none_declared" } }, "required": ["status"] },
+              "then": { "properties": { "details": { "type": "null" } } },
+              "else": { "properties": { "details": { "type": "string", "minLength": 10 } } }
+            }
+          ]
+        },
+        "reviewedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{3})?Z$"
+        },
+        "attestation": {
+          "const": "I_AM_A_NAMED_HUMAN_REVIEWER_AND_ATTEST_THAT_THE_DECISIONS_IN_THIS_RECEIPT_FAITHFULLY_RECORD_MY_REVIEW"
+        }
+      }
+    },
+    "targetKind": {
+      "enum": ["source", "acquisition", "claim", "observation", "contradiction_set", "appraisal_draft"]
+    },
+    "targetDecisionBase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "targetId",
+        "targetKind",
+        "targetSha256",
+        "disposition",
+        "rationale",
+        "resolution",
+        "amendments",
+        "newSourceRequirements"
+      ],
+      "properties": {
+        "targetId": { "type": "string", "minLength": 1 },
+        "targetKind": { "$ref": "#/$defs/targetKind" },
+        "targetSha256": { "$ref": "#/$defs/sha256" },
+        "disposition": { "type": "string" },
+        "rationale": { "$ref": "#/$defs/substantive" },
+        "resolution": { "type": ["string", "null"], "minLength": 20 },
+        "amendments": { "$ref": "#/$defs/substantiveArray" },
+        "newSourceRequirements": { "$ref": "#/$defs/substantiveArray" }
+      }
+    },
+    "boundaryDecision": {
+      "allOf": [
+        { "$ref": "#/$defs/targetDecisionBase" },
+        {
+          "properties": {
+            "disposition": {
+              "enum": [
+                "verified_as_scoped",
+                "resolved",
+                "amendments_required",
+                "rejected",
+                "retain_open",
+                "needs_new_source",
+                "deferred_insufficient_evidence"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "contradictionDecision": {
+      "allOf": [
+        { "$ref": "#/$defs/targetDecisionBase" },
+        {
+          "properties": {
+            "targetKind": { "const": "contradiction_set" },
+            "disposition": {
+              "enum": [
+                "resolved",
+                "amendments_required",
+                "rejected",
+                "retain_open",
+                "needs_new_source",
+                "deferred_insufficient_evidence"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "ordinaryDecision": {
+      "allOf": [
+        { "$ref": "#/$defs/targetDecisionBase" },
+        {
+          "properties": {
+            "disposition": {
+              "enum": [
+                "verified_as_scoped",
+                "amendments_required",
+                "rejected",
+                "needs_new_source",
+                "deferred_insufficient_evidence"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "locatorDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceId",
+        "sourceSha256",
+        "acquisitionId",
+        "acquisitionSha256",
+        "citationId",
+        "citationSha256",
+        "captureSha256",
+        "disposition",
+        "exactLocatorInspected",
+        "definitionPeriodUnitChecked",
+        "methodUniverseBoundaryChecked",
+        "uncertaintyLimitationsChecked",
+        "rationale",
+        "amendments",
+        "newSourceRequirements"
+      ],
+      "properties": {
+        "sourceId": { "type": "string", "pattern": "^fs:source:" },
+        "sourceSha256": { "$ref": "#/$defs/sha256" },
+        "acquisitionId": { "type": "string", "pattern": "^acq\\.field08\\." },
+        "acquisitionSha256": { "$ref": "#/$defs/sha256" },
+        "citationId": { "type": "string", "pattern": "^fs:citation:" },
+        "citationSha256": { "$ref": "#/$defs/sha256" },
+        "captureSha256": { "$ref": "#/$defs/sha256" },
+        "disposition": {
+          "enum": [
+            "verified_as_scoped",
+            "amendments_required",
+            "rejected",
+            "needs_new_source",
+            "deferred_insufficient_evidence"
+          ]
+        },
+        "exactLocatorInspected": { "type": "boolean" },
+        "definitionPeriodUnitChecked": { "type": "boolean" },
+        "methodUniverseBoundaryChecked": { "type": "boolean" },
+        "uncertaintyLimitationsChecked": { "type": "boolean" },
+        "rationale": { "$ref": "#/$defs/substantive" },
+        "amendments": { "$ref": "#/$defs/substantiveArray" },
+        "newSourceRequirements": { "$ref": "#/$defs/substantiveArray" }
+      }
+    },
+    "appraisal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "basis",
+        "studyDesign",
+        "methodologySummary",
+        "sampleOrCoverage",
+        "applicability",
+        "applicabilityNotes",
+        "limitations",
+        "riskOfBias",
+        "riskOfBiasNotes",
+        "reviewMethod"
+      ],
+      "properties": {
+        "basis": {
+          "enum": ["peer_reviewed", "official_primary", "grey_literature", "internal_material", "other", "unclear"]
+        },
+        "studyDesign": {
+          "enum": [
+            "experimental",
+            "quasi_experimental",
+            "observational",
+            "qualitative",
+            "mixed_methods",
+            "evidence_synthesis",
+            "modelling",
+            "economic_analysis",
+            "legal_policy_analysis",
+            "descriptive_document",
+            "other",
+            "unclear",
+            "not_applicable"
+          ]
+        },
+        "methodologySummary": { "$ref": "#/$defs/substantive" },
+        "sampleOrCoverage": { "$ref": "#/$defs/substantive" },
+        "applicability": { "enum": ["direct", "indirect", "limited", "unclear", "not_applicable"] },
+        "applicabilityNotes": { "$ref": "#/$defs/substantive" },
+        "limitations": { "$ref": "#/$defs/substantiveArray" },
+        "riskOfBias": { "enum": ["low", "some_concerns", "high", "critical", "unclear", "not_applicable"] },
+        "riskOfBiasNotes": { "$ref": "#/$defs/substantive" },
+        "reviewMethod": { "enum": ["full_text", "partial_text", "metadata_only"] }
+      }
+    },
+    "methodDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceId",
+        "sourceSha256",
+        "appraisalDraftId",
+        "appraisalDraftSha256",
+        "disposition",
+        "rationale",
+        "amendments",
+        "newSourceRequirements",
+        "appraisal"
+      ],
+      "properties": {
+        "sourceId": { "type": "string", "pattern": "^fs:source:" },
+        "sourceSha256": { "$ref": "#/$defs/sha256" },
+        "appraisalDraftId": { "type": "string", "pattern": "^appraisal\\.field08\\." },
+        "appraisalDraftSha256": { "$ref": "#/$defs/sha256" },
+        "disposition": {
+          "enum": ["verified_as_scoped", "amendments_required", "rejected", "deferred_insufficient_evidence"]
+        },
+        "rationale": { "$ref": "#/$defs/substantive" },
+        "amendments": { "$ref": "#/$defs/substantiveArray" },
+        "newSourceRequirements": { "$ref": "#/$defs/substantiveArray" },
+        "appraisal": { "$ref": "#/$defs/appraisal" }
+      }
+    },
+    "boundaryReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gateType", "targetDecisions"],
+      "properties": {
+        "gateType": { "const": "boundary_reconciliation" },
+        "targetDecisions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/boundaryDecision" }
+        }
+      }
+    },
+    "contradictionReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gateType", "targetDecisions"],
+      "properties": {
+        "gateType": { "const": "contradiction_resolution" },
+        "targetDecisions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/contradictionDecision" }
+        }
+      }
+    },
+    "methodReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gateType", "sourceAppraisalDecisions"],
+      "properties": {
+        "gateType": { "const": "method_appraisal" },
+        "sourceAppraisalDecisions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/methodDecision" }
+        }
+      }
+    },
+    "ordinaryReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gateType", "targetDecisions", "locatorDecisions"],
+      "properties": {
+        "gateType": { "const": "ordinary_human_review" },
+        "targetDecisions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/ordinaryDecision" }
+        },
+        "locatorDecisions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/locatorDecision" }
+        }
+      }
+    }
+  }
+}
