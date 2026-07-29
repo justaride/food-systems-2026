@@ -1,0 +1,827 @@
+{
+  "documentType": "field08_human_review_pending_template",
+  "schemaVersion": "1.0.0",
+  "templateId": "review_template.field08.ordinary-human-review.v1",
+  "status": "pending_human_review",
+  "sourceCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+  "evidencePackage": {
+    "hashSemantics": "canonical_json_sorted_keys_v1",
+    "bindingContract": "field08_gate2c_source_acquisition_citation_v1",
+    "sourceCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+    "generationManifest": {
+      "path": "knowledge/pilots/field08/gate2c/field08-evidence-generation-manifest.v1.json",
+      "fileSha256": "sha256:7ba5f3b4f7f87515adb48d27d08e912e3452a1f351bd7bd94ee0f70fcbcabe08",
+      "contentHash": "sha256:bdae0b0554043474af910c2a16061b1510502062175d3b1ce2f61b34c0c34c13"
+    },
+    "reviewManifest": {
+      "path": "knowledge/pilots/field08/gate2c/field08-appraisal-review-manifest.v1.json",
+      "fileSha256": "sha256:2585d4faab17d3eb907d77a4a2e0eaa06a1376fc00ad9e7f43fa104e3437922a",
+      "contentHash": "sha256:697e35898bf829568571c21c752983ee6cc55370058a5760af5f9c29b0ca945f"
+    },
+    "intake": {
+      "path": "knowledge/pilots/field08/gate2c/field08-evidence-intake.v1.json",
+      "fileSha256": "sha256:c9565051e248a464c1730599aa743efe0ef5f3a6d2a2f624dcc7ce075d583d3e"
+    },
+    "sourceBindings": [
+      {
+        "sourceId": "fs:source:field08.ax.asub-waste-statistics-2024",
+        "sourceSha256": "sha256:0911985de52b690eaaddaa0ad4c4dce66a15cfb4b92036005e0e0d40bae24b5a"
+      },
+      {
+        "sourceId": "fs:source:field08.eu.eurostat-env-wasfw-2023-dk-fi",
+        "sourceSha256": "sha256:1fc5939217233738e48fcaa3b87ee27db28d09694c3fbdfb1d5bbf40e13075fc"
+      },
+      {
+        "sourceId": "fs:source:field08.fi.luke-np-balance-2024",
+        "sourceSha256": "sha256:d15a3bf66c3db6d342f984e30d1629f759f131cbc6ea005237b33f808fc836dc"
+      },
+      {
+        "sourceId": "fs:source:field08.is.environment-agency-food-waste-2022",
+        "sourceSha256": "sha256:3a329efc2b5ea4941fe1728d2feedbf1fa887b4df29a1302b209f202a6c2a521"
+      },
+      {
+        "sourceId": "fs:source:field08.no.landbruksdirektoratet-food-waste-2024",
+        "sourceSha256": "sha256:b062682e00762b9de258d66188159b9f1e3d54162735c3b30e477cd8c054b291"
+      }
+    ],
+    "locatorBindings": [
+      {
+        "sourceId": "fs:source:field08.ax.asub-waste-statistics-2024",
+        "sourceSha256": "sha256:0911985de52b690eaaddaa0ad4c4dce66a15cfb4b92036005e0e0d40bae24b5a",
+        "acquisitionId": "acq.field08.ax.asub-export-table3",
+        "acquisitionSha256": "sha256:e6c9861f67730ac41ce784444f5314ca86de87b40c21cb980af2e435c22712d8",
+        "citationId": "fs:citation:field08.ax.asub-p13-table3-export",
+        "citationSha256": "sha256:1fc743ecaba8599de5f6cc2ab63bbc25736b811442ecc1a3ff6fb9c0fe6d4d3e",
+        "captureSha256": "sha256:22bab6a3537fca2673ff82dc2de7fa8ecdd7b6f1938a08e6d43de33d199c5e7c"
+      },
+      {
+        "sourceId": "fs:source:field08.ax.asub-waste-statistics-2024",
+        "sourceSha256": "sha256:0911985de52b690eaaddaa0ad4c4dce66a15cfb4b92036005e0e0d40bae24b5a",
+        "acquisitionId": "acq.field08.ax.asub-export-table5",
+        "acquisitionSha256": "sha256:03dcff3b82670370aba056e3af63c197e84ef7a6f2d10c7b029e4af608d26afc",
+        "citationId": "fs:citation:field08.ax.asub-p15-table5-export",
+        "citationSha256": "sha256:d995501201dcd078fcf85ba46903e7931e5c5eab4c08d679b2f5ba28255f591b",
+        "captureSha256": "sha256:22bab6a3537fca2673ff82dc2de7fa8ecdd7b6f1938a08e6d43de33d199c5e7c"
+      },
+      {
+        "sourceId": "fs:source:field08.ax.asub-waste-statistics-2024",
+        "sourceSha256": "sha256:0911985de52b690eaaddaa0ad4c4dce66a15cfb4b92036005e0e0d40bae24b5a",
+        "acquisitionId": "acq.field08.ax.asub-table1-food-waste",
+        "acquisitionSha256": "sha256:8c39035a00446dd75825049314c1573da823dcbb9eee6b58d971b802b0ef91c9",
+        "citationId": "fs:citation:field08.ax.asub-p11-table1-food-waste",
+        "citationSha256": "sha256:b271da1c391c8c9fa01be79fb95009d668d3521c3f8c6c555526257a5b5e9508",
+        "captureSha256": "sha256:22bab6a3537fca2673ff82dc2de7fa8ecdd7b6f1938a08e6d43de33d199c5e7c"
+      },
+      {
+        "sourceId": "fs:source:field08.ax.asub-waste-statistics-2024",
+        "sourceSha256": "sha256:0911985de52b690eaaddaa0ad4c4dce66a15cfb4b92036005e0e0d40bae24b5a",
+        "acquisitionId": "acq.field08.ax.asub-table4-r3",
+        "acquisitionSha256": "sha256:44d119cf6d09c961aa6144f2562a5eb677bcc43d3490747c64d313d900571185",
+        "citationId": "fs:citation:field08.ax.asub-p15-table4-r3",
+        "citationSha256": "sha256:cf85af9d2eb34aeecd0383362c645bd8a150ec730e3041a29e420e843e3c77c0",
+        "captureSha256": "sha256:22bab6a3537fca2673ff82dc2de7fa8ecdd7b6f1938a08e6d43de33d199c5e7c"
+      },
+      {
+        "sourceId": "fs:source:field08.fi.luke-np-balance-2024",
+        "sourceSha256": "sha256:d15a3bf66c3db6d342f984e30d1629f759f131cbc6ea005237b33f808fc836dc",
+        "acquisitionId": "acq.field08.ax.luke-np-balance-2024",
+        "acquisitionSha256": "sha256:3bdef5450c08e9cd68b83116c0d5df750b168d40beb2ef07f1b95ae69f94398d",
+        "citationId": "fs:citation:field08.ax.luke-np-balance-2024",
+        "citationSha256": "sha256:d6143e531b75690b8badfe345383b9f0ad72abe32f4a48f1653bcad49e41e3fd",
+        "captureSha256": "sha256:ad6d6d3669386e9b0d5f7cadaeda327a341d611d4714792b52390ed37c9922ef"
+      },
+      {
+        "sourceId": "fs:source:field08.eu.eurostat-env-wasfw-2023-dk-fi",
+        "sourceSha256": "sha256:1fc5939217233738e48fcaa3b87ee27db28d09694c3fbdfb1d5bbf40e13075fc",
+        "acquisitionId": "acq.field08.eu.eurostat-dk-2023",
+        "acquisitionSha256": "sha256:150bed7b6aa46de0bcfbf7e9dc684a5b42d721faef4396fc80aeafe1c619fbf7",
+        "citationId": "fs:citation:field08.eu.eurostat-dk-2023",
+        "citationSha256": "sha256:7dc63b327befda2b986161734b02739f2ef1fb9e937503d1f0a311f74f6d7d10",
+        "captureSha256": "sha256:8e87e2dde29dd0b3cca341f2d4f04b9dfbf1f20152b0f3073c6af85c0cd511d0"
+      },
+      {
+        "sourceId": "fs:source:field08.eu.eurostat-env-wasfw-2023-dk-fi",
+        "sourceSha256": "sha256:1fc5939217233738e48fcaa3b87ee27db28d09694c3fbdfb1d5bbf40e13075fc",
+        "acquisitionId": "acq.field08.eu.eurostat-fi-2023",
+        "acquisitionSha256": "sha256:6d69341890ab423d19ca132ab14e800935b075bff51ec705a01056b462ef6eaf",
+        "citationId": "fs:citation:field08.eu.eurostat-fi-2023-boundary-unresolved",
+        "citationSha256": "sha256:e0fd70b8c1f1ade4dbfe7e7ee6a75eb4d0fb8a22d3f0e37c1b9eda9e5dc2cc22",
+        "captureSha256": "sha256:8e87e2dde29dd0b3cca341f2d4f04b9dfbf1f20152b0f3073c6af85c0cd511d0"
+      },
+      {
+        "sourceId": "fs:source:field08.fi.luke-np-balance-2024",
+        "sourceSha256": "sha256:d15a3bf66c3db6d342f984e30d1629f759f131cbc6ea005237b33f808fc836dc",
+        "acquisitionId": "acq.field08.fi.luke-np-balance-whole-2024",
+        "acquisitionSha256": "sha256:ecb81a86e40ceda7c5638dcb5c6395223ec1d6d1c7c9c4e7b56b26e9c2fa900e",
+        "citationId": "fs:citation:field08.fi.luke-np-balance-whole-2024",
+        "citationSha256": "sha256:78f8b94171beb22d532bb1f055f076bb17324b2e684f34acfeffd657b4acf4b7",
+        "captureSha256": "sha256:ad6d6d3669386e9b0d5f7cadaeda327a341d611d4714792b52390ed37c9922ef"
+      },
+      {
+        "sourceId": "fs:source:field08.is.environment-agency-food-waste-2022",
+        "sourceSha256": "sha256:3a329efc2b5ea4941fe1728d2feedbf1fa887b4df29a1302b209f202a6c2a521",
+        "acquisitionId": "acq.field08.is.food-waste-abstract",
+        "acquisitionSha256": "sha256:f4e149b80efd4f40096bb4fb912f1388a1c6fb78098938b20df7f6986f14cd63",
+        "citationId": "fs:citation:field08.is.food-waste-2022-abstract",
+        "citationSha256": "sha256:250f2ef3c749f39c56f8dc13ada35c39c9a544eb835718bff0f1d0451883d777",
+        "captureSha256": "sha256:07bf2d6b14b521cd1d1a94f62f116be6c34f784913c8a52910983717b28708ab"
+      },
+      {
+        "sourceId": "fs:source:field08.is.environment-agency-food-waste-2022",
+        "sourceSha256": "sha256:3a329efc2b5ea4941fe1728d2feedbf1fa887b4df29a1302b209f202a6c2a521",
+        "acquisitionId": "acq.field08.is.food-waste-detailed-tables",
+        "acquisitionSha256": "sha256:37e674ea3bfc930b9688c2d69a4887ad88d408a611baefc0e3981d8f2e01377e",
+        "citationId": "fs:citation:field08.is.food-waste-2022-detailed-tables",
+        "citationSha256": "sha256:f98c418ecd279440709e819cf9a88fc6d48066d55f1de422da0d705d653944e4",
+        "captureSha256": "sha256:07bf2d6b14b521cd1d1a94f62f116be6c34f784913c8a52910983717b28708ab"
+      },
+      {
+        "sourceId": "fs:source:field08.is.environment-agency-food-waste-2022",
+        "sourceSha256": "sha256:3a329efc2b5ea4941fe1728d2feedbf1fa887b4df29a1302b209f202a6c2a521",
+        "acquisitionId": "acq.field08.is.food-waste-false-zero",
+        "acquisitionSha256": "sha256:3e16b280885c6a73d17835599089ce173c3c098217cb907aae63a9769fc36a95",
+        "citationId": "fs:citation:field08.is.food-waste-2022-false-zero",
+        "citationSha256": "sha256:fc14725a9bb3ff14d44706d375493adef68925a6a8ce3e306a7edcb07cf2960b",
+        "captureSha256": "sha256:07bf2d6b14b521cd1d1a94f62f116be6c34f784913c8a52910983717b28708ab"
+      },
+      {
+        "sourceId": "fs:source:field08.is.environment-agency-food-waste-2022",
+        "sourceSha256": "sha256:3a329efc2b5ea4941fe1728d2feedbf1fa887b4df29a1302b209f202a6c2a521",
+        "acquisitionId": "acq.field08.is.food-waste-household-share",
+        "acquisitionSha256": "sha256:ed7a74ddf725c9297afe40bce981ff3fc0eae9dc7bab1050237f9ac8d3490fb7",
+        "citationId": "fs:citation:field08.is.food-waste-2022-household-share",
+        "citationSha256": "sha256:5910c01bca52b36be41420892c3412d9b8d95017884ec9f171ed60c22f36b047",
+        "captureSha256": "sha256:07bf2d6b14b521cd1d1a94f62f116be6c34f784913c8a52910983717b28708ab"
+      },
+      {
+        "sourceId": "fs:source:field08.no.landbruksdirektoratet-food-waste-2024",
+        "sourceSha256": "sha256:b062682e00762b9de258d66188159b9f1e3d54162735c3b30e477cd8c054b291",
+        "acquisitionId": "acq.field08.no.landbruksdirektoratet-grain-period",
+        "acquisitionSha256": "sha256:40e4f9f4756d15b6c3f9b3d369ff477de15a774fa755c9c310024a49cf7bf771",
+        "citationId": "fs:citation:field08.no.landbruksdirektoratet-grain-period",
+        "citationSha256": "sha256:286577234337cf8b8622a121796aa0231a679697e17ae658087ef4c32e051347",
+        "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2"
+      },
+      {
+        "sourceId": "fs:source:field08.no.landbruksdirektoratet-food-waste-2024",
+        "sourceSha256": "sha256:b062682e00762b9de258d66188159b9f1e3d54162735c3b30e477cd8c054b291",
+        "acquisitionId": "acq.field08.no.landbruksdirektoratet-milk-unit",
+        "acquisitionSha256": "sha256:2d14c36e653de6adec842cf2b5dc3c3cfdb424ad23a145ac71eb227071f6e1ec",
+        "citationId": "fs:citation:field08.no.landbruksdirektoratet-milk-unit",
+        "citationSha256": "sha256:09bd751fff7336caa8b70f1184cf4a215c6b3260ee5944dad58072b41f4534b6",
+        "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2"
+      },
+      {
+        "sourceId": "fs:source:field08.no.landbruksdirektoratet-food-waste-2024",
+        "sourceSha256": "sha256:b062682e00762b9de258d66188159b9f1e3d54162735c3b30e477cd8c054b291",
+        "acquisitionId": "acq.field08.no.landbruksdirektoratet-p8-prose",
+        "acquisitionSha256": "sha256:cc4d10cf4984117b70a197612d42bf47c8506d2cc01cde454ecd4d41eb86c26f",
+        "citationId": "fs:citation:field08.no.landbruksdirektoratet-p8-prose",
+        "citationSha256": "sha256:d5c545321af7d520a0c29f7ab517a09755086f7044307366e677a8b11b44bea8",
+        "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2"
+      },
+      {
+        "sourceId": "fs:source:field08.no.landbruksdirektoratet-food-waste-2024",
+        "sourceSha256": "sha256:b062682e00762b9de258d66188159b9f1e3d54162735c3b30e477cd8c054b291",
+        "acquisitionId": "acq.field08.no.landbruksdirektoratet-table1",
+        "acquisitionSha256": "sha256:a46f2a16011a377a0912530c2d129cc8414befb4da0ada1d864632fd0193bb48",
+        "citationId": "fs:citation:field08.no.landbruksdirektoratet-p8-table1",
+        "citationSha256": "sha256:1363ac3514d7a31e69497bd7c4f887b722940a3b1b63f258157a1aab76e11054",
+        "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2"
+      },
+      {
+        "sourceId": "fs:source:field08.no.landbruksdirektoratet-food-waste-2024",
+        "sourceSha256": "sha256:b062682e00762b9de258d66188159b9f1e3d54162735c3b30e477cd8c054b291",
+        "acquisitionId": "acq.field08.no.landbruksdirektoratet-table2-share",
+        "acquisitionSha256": "sha256:121b2e1ece06d5a7d19f5a416cec8a4ba7a619a59388ca536a011a5ac20a931a",
+        "citationId": "fs:citation:field08.no.landbruksdirektoratet-p10-table2-share",
+        "citationSha256": "sha256:f513fd77f11ad83fdd16dd01f2cb8a85ba0f8f9f2b73c2d81d60139d739ddb82",
+        "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2"
+      }
+    ]
+  },
+  "evidencePackageHash": "sha256:54fd715ed4088360a84f66309022f2a6e399513692316084f1596ea089a3446a",
+  "reviewGateId": "review_gate.field08.ordinary-human-review",
+  "gateType": "ordinary_human_review",
+  "requiredReviewerRole": "Qualified human food-systems evidence reviewer",
+  "instructions": "Review every acquisition, citation locator, source, claim and measurement against the exact source bytes, definition, period, unit, method, universe, system boundary, uncertainty and limitations. Do not promote coverage or authorize external use from this gate.",
+  "allowedDispositions": [
+    "verified_as_scoped",
+    "amendments_required",
+    "rejected",
+    "needs_new_source",
+    "deferred_insufficient_evidence"
+  ],
+  "targetBindings": [
+    {
+      "targetId": "fs:source:field08.eu.eurostat-env-wasfw-2023-dk-fi",
+      "targetKind": "source",
+      "targetSha256": "sha256:1fc5939217233738e48fcaa3b87ee27db28d09694c3fbdfb1d5bbf40e13075fc"
+    },
+    {
+      "targetId": "fs:source:field08.fi.luke-np-balance-2024",
+      "targetKind": "source",
+      "targetSha256": "sha256:d15a3bf66c3db6d342f984e30d1629f759f131cbc6ea005237b33f808fc836dc"
+    },
+    {
+      "targetId": "fs:source:field08.no.landbruksdirektoratet-food-waste-2024",
+      "targetKind": "source",
+      "targetSha256": "sha256:b062682e00762b9de258d66188159b9f1e3d54162735c3b30e477cd8c054b291"
+    },
+    {
+      "targetId": "fs:source:field08.ax.asub-waste-statistics-2024",
+      "targetKind": "source",
+      "targetSha256": "sha256:0911985de52b690eaaddaa0ad4c4dce66a15cfb4b92036005e0e0d40bae24b5a"
+    },
+    {
+      "targetId": "fs:source:field08.is.environment-agency-food-waste-2022",
+      "targetKind": "source",
+      "targetSha256": "sha256:3a329efc2b5ea4941fe1728d2feedbf1fa887b4df29a1302b209f202a6c2a521"
+    },
+    {
+      "targetId": "acq.field08.eu.eurostat-dk-2023",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:150bed7b6aa46de0bcfbf7e9dc684a5b42d721faef4396fc80aeafe1c619fbf7"
+    },
+    {
+      "targetId": "acq.field08.eu.eurostat-fi-2023",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:6d69341890ab423d19ca132ab14e800935b075bff51ec705a01056b462ef6eaf"
+    },
+    {
+      "targetId": "acq.field08.fi.luke-np-balance-whole-2024",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:ecb81a86e40ceda7c5638dcb5c6395223ec1d6d1c7c9c4e7b56b26e9c2fa900e"
+    },
+    {
+      "targetId": "acq.field08.ax.luke-np-balance-2024",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:3bdef5450c08e9cd68b83116c0d5df750b168d40beb2ef07f1b95ae69f94398d"
+    },
+    {
+      "targetId": "acq.field08.no.landbruksdirektoratet-table1",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:a46f2a16011a377a0912530c2d129cc8414befb4da0ada1d864632fd0193bb48"
+    },
+    {
+      "targetId": "acq.field08.no.landbruksdirektoratet-p8-prose",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:cc4d10cf4984117b70a197612d42bf47c8506d2cc01cde454ecd4d41eb86c26f"
+    },
+    {
+      "targetId": "acq.field08.no.landbruksdirektoratet-grain-period",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:40e4f9f4756d15b6c3f9b3d369ff477de15a774fa755c9c310024a49cf7bf771"
+    },
+    {
+      "targetId": "acq.field08.no.landbruksdirektoratet-milk-unit",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:2d14c36e653de6adec842cf2b5dc3c3cfdb424ad23a145ac71eb227071f6e1ec"
+    },
+    {
+      "targetId": "acq.field08.no.landbruksdirektoratet-table2-share",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:121b2e1ece06d5a7d19f5a416cec8a4ba7a619a59388ca536a011a5ac20a931a"
+    },
+    {
+      "targetId": "acq.field08.ax.asub-table1-food-waste",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:8c39035a00446dd75825049314c1573da823dcbb9eee6b58d971b802b0ef91c9"
+    },
+    {
+      "targetId": "acq.field08.ax.asub-table4-r3",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:44d119cf6d09c961aa6144f2562a5eb677bcc43d3490747c64d313d900571185"
+    },
+    {
+      "targetId": "acq.field08.ax.asub-export-table3",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:e6c9861f67730ac41ce784444f5314ca86de87b40c21cb980af2e435c22712d8"
+    },
+    {
+      "targetId": "acq.field08.ax.asub-export-table5",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:03dcff3b82670370aba056e3af63c197e84ef7a6f2d10c7b029e4af608d26afc"
+    },
+    {
+      "targetId": "acq.field08.is.food-waste-detailed-tables",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:37e674ea3bfc930b9688c2d69a4887ad88d408a611baefc0e3981d8f2e01377e"
+    },
+    {
+      "targetId": "acq.field08.is.food-waste-abstract",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:f4e149b80efd4f40096bb4fb912f1388a1c6fb78098938b20df7f6986f14cd63"
+    },
+    {
+      "targetId": "acq.field08.is.food-waste-false-zero",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:3e16b280885c6a73d17835599089ce173c3c098217cb907aae63a9769fc36a95"
+    },
+    {
+      "targetId": "acq.field08.is.food-waste-household-share",
+      "targetKind": "acquisition",
+      "targetSha256": "sha256:ed7a74ddf725c9297afe40bce981ff3fc0eae9dc7bab1050237f9ac8d3490fb7"
+    },
+    {
+      "targetId": "fs:claim:field08.dk.eurostat-food-waste-total-2023",
+      "targetKind": "claim",
+      "targetSha256": "sha256:647861373cabb7323bd883ac21bc0bbec3379a7f57e889c4d3bc99f15b5c5ecb"
+    },
+    {
+      "targetId": "fs:claim:field08.dk.eurostat-food-waste-primary-2023",
+      "targetKind": "claim",
+      "targetSha256": "sha256:46cf2ef9c42f846985d6d74075c1906901195b5707a13312aef9d653d3c9fda8"
+    },
+    {
+      "targetId": "fs:claim:field08.dk.eurostat-food-waste-manufacturing-2023",
+      "targetKind": "claim",
+      "targetSha256": "sha256:88aec1cea33f8d5d67892fc002fc8017281ab24637f10289028d5f0b471889b7"
+    },
+    {
+      "targetId": "fs:claim:field08.dk.eurostat-food-waste-retail-2023",
+      "targetKind": "claim",
+      "targetSha256": "sha256:f2c92ace18c265de9ecf41c2115c69e2c72469d20ce6f59cea2f0a6787b0e789"
+    },
+    {
+      "targetId": "fs:claim:field08.dk.eurostat-food-waste-foodservice-2023",
+      "targetKind": "claim",
+      "targetSha256": "sha256:c69a218869e8e151a7ff147b53fc9531b8662dd48b77df3d98e9ea2bb755f92a"
+    },
+    {
+      "targetId": "fs:claim:field08.dk.eurostat-food-waste-household-2023",
+      "targetKind": "claim",
+      "targetSha256": "sha256:ff84be7a3d71dd691d84524d4e9065c2dbdb5de93d1937fc87fe5ddebedb1ff0"
+    },
+    {
+      "targetId": "fs:claim:field08.fi.luke-n-balance-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:c723391f6db6af5a8190fe7f790366a69bf75f04c9ea1e849fe9b96f5f39afe0"
+    },
+    {
+      "targetId": "fs:claim:field08.fi.luke-p-balance-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:ead7b8da49b5036323ae56f4e170732ca5f07c280b9b96a90e90c8bde8182e4b"
+    },
+    {
+      "targetId": "fs:claim:field08.ax.luke-n-balance-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:37ec1b778caffc731169e4410e300ee6142c478dd9e8a48ea64158ef48afd11e"
+    },
+    {
+      "targetId": "fs:claim:field08.ax.luke-p-balance-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:2a60ca44130bcf21828e3075d2c276b53d64920d8186f5cbfcfd0b80d5425f36"
+    },
+    {
+      "targetId": "fs:claim:field08.no.food-waste-total-table-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:b03847cfe0fb5d3086f37044e267c16fe78e76aa09d2f22b8366ee2420df1834"
+    },
+    {
+      "targetId": "fs:claim:field08.no.food-waste-total-prose-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:bea85a20851b690aef9123ff47336b35726a335126dfde50b85c5540fac9e697"
+    },
+    {
+      "targetId": "fs:claim:field08.no.food-waste-share-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:5d0470af28bde592227bbe3aba8c5bd0bfd91870eee9c9505e6db44c304f0ac6"
+    },
+    {
+      "targetId": "fs:claim:field08.ax.animal-mixed-food-waste-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:be0009751c07073ace67572404a5b1a299e6a54868184afb4ea15319c767896e"
+    },
+    {
+      "targetId": "fs:claim:field08.ax.r3-animal-mixed-treatment-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:0bcb8990e302e8658e88bc32f8ae1f1d42db6d01370e5893fc69156321456182"
+    },
+    {
+      "targetId": "fs:claim:field08.ax.export-narrative-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:1147e7949eb903a557d53793b66a5d07c68d879a209735147715fc3f36ea87dd"
+    },
+    {
+      "targetId": "fs:claim:field08.ax.export-row-sum-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:e703529f31f955dd185e628748bb6d0dfa5e1756f6b104ad72c4e32b9fa99dba"
+    },
+    {
+      "targetId": "fs:claim:field08.ax.export-table5-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:dd987cfd87ebfb0346792a679185e3b561ce3dc21a52db719637b02c4a60777e"
+    },
+    {
+      "targetId": "fs:claim:field08.is.food-waste-total-2022",
+      "targetKind": "claim",
+      "targetSha256": "sha256:cb534c5b3fa5e0fb6620bd4cae1947e93557f8ebccf5c3634ab48f4a6fbde4b1"
+    },
+    {
+      "targetId": "fs:claim:field08.is.food-waste-primary-2022",
+      "targetKind": "claim",
+      "targetSha256": "sha256:e99cca5833bcdc86902426c3e25e9cc614d0bb8b826615d725c247d996609428"
+    },
+    {
+      "targetId": "fs:claim:field08.is.food-waste-manufacturing-2022",
+      "targetKind": "claim",
+      "targetSha256": "sha256:e76eb23225883cf1a0a10912e93bb3190838bb86bdf36baed3b0fe8b459e02de"
+    },
+    {
+      "targetId": "fs:claim:field08.is.food-waste-retail-2022",
+      "targetKind": "claim",
+      "targetSha256": "sha256:50f5b1757090db3fd5096969c5aaca76e18bc96512c2ad3c23d1d9bf5b3c27fe"
+    },
+    {
+      "targetId": "fs:claim:field08.is.food-waste-foodservice-2022",
+      "targetKind": "claim",
+      "targetSha256": "sha256:2ef29ea365eb6db8e1eaebce4211a3f0a34235c6bda223e7c6a81516833b47d5"
+    },
+    {
+      "targetId": "fs:claim:field08.is.food-waste-household-2022",
+      "targetKind": "claim",
+      "targetSha256": "sha256:e34ab490d6dc104c2f83c9bd72f0c81c1c16739ca11f16d87a70a312dd54f26b"
+    },
+    {
+      "targetId": "fs:claim:field08.is.abstract-manufacturing-2022",
+      "targetKind": "claim",
+      "targetSha256": "sha256:963d5142f7d504cf18b94e3ea094ae6d03a491921a330fb5b8d4be3fbd8f99fe"
+    },
+    {
+      "targetId": "fs:claim:field08.is.abstract-retail-2022",
+      "targetKind": "claim",
+      "targetSha256": "sha256:23de9c09ae425dd2de613553dacb6fd5021b8d90e14bb738732f23f6f8a8dd05"
+    },
+    {
+      "targetId": "fs:claim:field08.is.abstract-foodservice-2022",
+      "targetKind": "claim",
+      "targetSha256": "sha256:bad38aa429f9e3782424675a3e559141c8f934e8dfd94c3089a51a81dc22c716"
+    },
+    {
+      "targetId": "fs:claim:field08.is.abstract-household-share-2022",
+      "targetKind": "claim",
+      "targetSha256": "sha256:a734f514d046f2ab93a8d476b447ec67ff3872cd7090fa697a97559a9f26a97c"
+    },
+    {
+      "targetId": "fs:claim:field08.is.section-household-share-2022",
+      "targetKind": "claim",
+      "targetSha256": "sha256:1682e2e85d4b204f3056a3fbc0b44829eb07495c547d7d29059a623e4193fb88"
+    },
+    {
+      "targetId": "fs:claim:field08.is.aquaculture-false-zero-2022",
+      "targetKind": "claim",
+      "targetSha256": "sha256:b3e63c4a62188ae9e11bd529e45d5513fcf2020664e82512bc95677ffc4ea59b"
+    },
+    {
+      "targetId": "fs:claim:field08.eu.eurostat-fi-boundary-unresolved-2023",
+      "targetKind": "claim",
+      "targetSha256": "sha256:b4169549d549547409aa784f9b88c5c9ff2d2342f220e058ec1a8ad810787c86"
+    },
+    {
+      "targetId": "fs:claim:field08.fi.luke-national-regional-nonadditive-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:d522e08fae174dd417d89164ce037a0fa0d638d210fa1c6b3cf291bfb7d1ab2e"
+    },
+    {
+      "targetId": "fs:claim:field08.no.food-waste-mixed-method-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:a9b1b7f457d5414197e2a6b0feffb9ad87012e1fa8dc549f7156936459dfb8a5"
+    },
+    {
+      "targetId": "fs:claim:field08.ax.r3-does-not-prove-closed-loop-2024",
+      "targetKind": "claim",
+      "targetSha256": "sha256:2b126df3bcae8ff211d4ac14bf0813780a78ae815cb9e3b31c963d4e10117472"
+    },
+    {
+      "targetId": "fs:observation:field08.dk.eurostat-food-waste-total-2023",
+      "targetKind": "observation",
+      "targetSha256": "sha256:2da93424b721267e8d9ae89e99239781703c6c31d8e869247208815dd45ebe48"
+    },
+    {
+      "targetId": "fs:observation:field08.dk.eurostat-food-waste-primary-2023",
+      "targetKind": "observation",
+      "targetSha256": "sha256:e8ea28607e12ae0ac2cb6ef1469d4325df7af78d106a8077bc9affc49819fee4"
+    },
+    {
+      "targetId": "fs:observation:field08.dk.eurostat-food-waste-manufacturing-2023",
+      "targetKind": "observation",
+      "targetSha256": "sha256:639ab13d10f8dc600d6a519ee65fbcce9b2acbd0c7a3760b344cde477c0998fe"
+    },
+    {
+      "targetId": "fs:observation:field08.dk.eurostat-food-waste-retail-2023",
+      "targetKind": "observation",
+      "targetSha256": "sha256:310592c0fbff0696e0f7fcd51eb5f93b7538bf40cc1802623d3ea7762ebefd2c"
+    },
+    {
+      "targetId": "fs:observation:field08.dk.eurostat-food-waste-foodservice-2023",
+      "targetKind": "observation",
+      "targetSha256": "sha256:3e8c581c9c80786d6512cc66f961ef8025bb8b284d4e943fa2a5a3bfa2aa87ad"
+    },
+    {
+      "targetId": "fs:observation:field08.dk.eurostat-food-waste-household-2023",
+      "targetKind": "observation",
+      "targetSha256": "sha256:d090656dece824e53a4cc89b558d104130cad0075fba33489628309f250e2bdf"
+    },
+    {
+      "targetId": "fs:observation:field08.fi.luke-n-balance-2024",
+      "targetKind": "observation",
+      "targetSha256": "sha256:7bc88f54c721958e983477069d4719bdda76a33b50c656cd7337d217180a8986"
+    },
+    {
+      "targetId": "fs:observation:field08.fi.luke-p-balance-2024",
+      "targetKind": "observation",
+      "targetSha256": "sha256:c24627815a7d6d49087896be2fa519a2cfd8bfba632c8738744bc0c05b90379a"
+    },
+    {
+      "targetId": "fs:observation:field08.ax.luke-n-balance-2024",
+      "targetKind": "observation",
+      "targetSha256": "sha256:849c450ec7dda64357927af7e40ee6854cf1a5169f7673a4065160ddc056408a"
+    },
+    {
+      "targetId": "fs:observation:field08.ax.luke-p-balance-2024",
+      "targetKind": "observation",
+      "targetSha256": "sha256:b0ba895cdcfd94dad19aabdfa82fb948aefbea492081e02a36bb49bfc6912522"
+    },
+    {
+      "targetId": "fs:observation:field08.no.food-waste-total-table-2024",
+      "targetKind": "observation",
+      "targetSha256": "sha256:8a678517319bbad683e72ebd4208d36b6128b218846fa950f75a5f84f80862f0"
+    },
+    {
+      "targetId": "fs:observation:field08.no.food-waste-total-prose-2024",
+      "targetKind": "observation",
+      "targetSha256": "sha256:5dac36aced17529e180bf58bc473e9b6ddf80ffd3c1ec320ae65fb0a27bddbab"
+    },
+    {
+      "targetId": "fs:observation:field08.no.food-waste-share-2024",
+      "targetKind": "observation",
+      "targetSha256": "sha256:5f6757da9a559782acc580ccc1f5f2f93519ea5e2a8aa64052e914d4ec140a69"
+    },
+    {
+      "targetId": "fs:observation:field08.ax.animal-mixed-food-waste-2024",
+      "targetKind": "observation",
+      "targetSha256": "sha256:7ad99504e4aab881a9300bc7565e717a60e0f3c8296758cb2d6de9a5ea6e8742"
+    },
+    {
+      "targetId": "fs:observation:field08.ax.r3-animal-mixed-treatment-2024",
+      "targetKind": "observation",
+      "targetSha256": "sha256:74cd57c836386d4818723d45fcc3b5a2f8280d5e57afa4a110ad9fab71316059"
+    },
+    {
+      "targetId": "fs:observation:field08.ax.export-narrative-2024",
+      "targetKind": "observation",
+      "targetSha256": "sha256:11f405197c3342885adcdc49de4627c093e86b67618258ceba2d160e8081648a"
+    },
+    {
+      "targetId": "fs:observation:field08.ax.export-row-sum-2024",
+      "targetKind": "observation",
+      "targetSha256": "sha256:9ab05b6f4f1f4789a7c3add9a601d2a7f6e9510365ee7b7d23afd6962ff3adb6"
+    },
+    {
+      "targetId": "fs:observation:field08.ax.export-table5-2024",
+      "targetKind": "observation",
+      "targetSha256": "sha256:624243cc2079f081791dd9adcc675cdf47197d7f31d118204d773aee6827fd68"
+    },
+    {
+      "targetId": "fs:observation:field08.is.food-waste-total-2022",
+      "targetKind": "observation",
+      "targetSha256": "sha256:6c3f3bea5bdc79d6f576b69e8645f32a8aeabd87babf60f992a28026fee16688"
+    },
+    {
+      "targetId": "fs:observation:field08.is.food-waste-primary-2022",
+      "targetKind": "observation",
+      "targetSha256": "sha256:520afe936c3ec6286143a263a5df4669617270b5970a013e5384e363533d505d"
+    },
+    {
+      "targetId": "fs:observation:field08.is.food-waste-manufacturing-2022",
+      "targetKind": "observation",
+      "targetSha256": "sha256:cbeef84d9743480b3017cd6a7b2875a422f27c39ca08b522cf1b7faabf6744cf"
+    },
+    {
+      "targetId": "fs:observation:field08.is.food-waste-retail-2022",
+      "targetKind": "observation",
+      "targetSha256": "sha256:107df6ba18d5879f72a151b14c8c33c8e98c7dd720e2e9f7ce0dc7b2b1a618ff"
+    },
+    {
+      "targetId": "fs:observation:field08.is.food-waste-foodservice-2022",
+      "targetKind": "observation",
+      "targetSha256": "sha256:ebddbdd8cf5922541625e20bcb93b51ed003f77da1529d297f87267f75e52632"
+    },
+    {
+      "targetId": "fs:observation:field08.is.food-waste-household-2022",
+      "targetKind": "observation",
+      "targetSha256": "sha256:361d52558153159f8710a3e4569ea0d4daed01902bc913840319c295c43ac583"
+    },
+    {
+      "targetId": "fs:observation:field08.is.abstract-manufacturing-2022",
+      "targetKind": "observation",
+      "targetSha256": "sha256:7a52de3b990f749c8f7f154dd1a6d5b182ce31e49f2885d8b293019478665f76"
+    },
+    {
+      "targetId": "fs:observation:field08.is.abstract-retail-2022",
+      "targetKind": "observation",
+      "targetSha256": "sha256:f55cbbfd3bd8a4d50b563e7d7205d9b94e35fa2794d7b0e70858ff4f7d5b1ec6"
+    },
+    {
+      "targetId": "fs:observation:field08.is.abstract-foodservice-2022",
+      "targetKind": "observation",
+      "targetSha256": "sha256:1050f1c201c2e460b28e049c1c5746369e785795d090ca53eba86207f15eb291"
+    },
+    {
+      "targetId": "fs:observation:field08.is.abstract-household-share-2022",
+      "targetKind": "observation",
+      "targetSha256": "sha256:9be954841bd782d2f89bbdaa21ac3f2e9c50729b03c81932a1dbe0d2233f6c5c"
+    },
+    {
+      "targetId": "fs:observation:field08.is.section-household-share-2022",
+      "targetKind": "observation",
+      "targetSha256": "sha256:fd8136102fd089b8a9c465021d0cfb9217375d41e66dea55cd57484616e5dad1"
+    }
+  ],
+  "locatorBindings": [
+    {
+      "sourceId": "fs:source:field08.ax.asub-waste-statistics-2024",
+      "sourceSha256": "sha256:0911985de52b690eaaddaa0ad4c4dce66a15cfb4b92036005e0e0d40bae24b5a",
+      "acquisitionId": "acq.field08.ax.asub-export-table3",
+      "acquisitionSha256": "sha256:e6c9861f67730ac41ce784444f5314ca86de87b40c21cb980af2e435c22712d8",
+      "citationId": "fs:citation:field08.ax.asub-p13-table3-export",
+      "citationSha256": "sha256:1fc743ecaba8599de5f6cc2ab63bbc25736b811442ecc1a3ff6fb9c0fe6d4d3e",
+      "captureSha256": "sha256:22bab6a3537fca2673ff82dc2de7fa8ecdd7b6f1938a08e6d43de33d199c5e7c",
+      "locator": "PDF p. 13 narrative and p. 14 Table 3; Appendix 2 destination total"
+    },
+    {
+      "sourceId": "fs:source:field08.ax.asub-waste-statistics-2024",
+      "sourceSha256": "sha256:0911985de52b690eaaddaa0ad4c4dce66a15cfb4b92036005e0e0d40bae24b5a",
+      "acquisitionId": "acq.field08.ax.asub-export-table5",
+      "acquisitionSha256": "sha256:03dcff3b82670370aba056e3af63c197e84ef7a6f2d10c7b029e4af608d26afc",
+      "citationId": "fs:citation:field08.ax.asub-p15-table5-export",
+      "citationSha256": "sha256:d995501201dcd078fcf85ba46903e7931e5c5eab4c08d679b2f5ba28255f591b",
+      "captureSha256": "sha256:22bab6a3537fca2673ff82dc2de7fa8ecdd7b6f1938a08e6d43de33d199c5e7c",
+      "locator": "PDF p. 15, Table 5, Borttransporterat avfall 2024"
+    },
+    {
+      "sourceId": "fs:source:field08.ax.asub-waste-statistics-2024",
+      "sourceSha256": "sha256:0911985de52b690eaaddaa0ad4c4dce66a15cfb4b92036005e0e0d40bae24b5a",
+      "acquisitionId": "acq.field08.ax.asub-table1-food-waste",
+      "acquisitionSha256": "sha256:8c39035a00446dd75825049314c1573da823dcbb9eee6b58d971b802b0ef91c9",
+      "citationId": "fs:citation:field08.ax.asub-p11-table1-food-waste",
+      "citationSha256": "sha256:b271da1c391c8c9fa01be79fb95009d668d3521c3f8c6c555526257a5b5e9508",
+      "captureSha256": "sha256:22bab6a3537fca2673ff82dc2de7fa8ecdd7b6f1938a08e6d43de33d199c5e7c",
+      "locator": "PDF p. 11, Table 1, animaliskt avfall och blandat matavfall"
+    },
+    {
+      "sourceId": "fs:source:field08.ax.asub-waste-statistics-2024",
+      "sourceSha256": "sha256:0911985de52b690eaaddaa0ad4c4dce66a15cfb4b92036005e0e0d40bae24b5a",
+      "acquisitionId": "acq.field08.ax.asub-table4-r3",
+      "acquisitionSha256": "sha256:44d119cf6d09c961aa6144f2562a5eb677bcc43d3490747c64d313d900571185",
+      "citationId": "fs:citation:field08.ax.asub-p15-table4-r3",
+      "citationSha256": "sha256:cf85af9d2eb34aeecd0383362c645bd8a150ec730e3041a29e420e843e3c77c0",
+      "captureSha256": "sha256:22bab6a3537fca2673ff82dc2de7fa8ecdd7b6f1938a08e6d43de33d199c5e7c",
+      "locator": "PDF p. 15, Table 4, R3+ animaliskt avfall och blandat matavfall"
+    },
+    {
+      "sourceId": "fs:source:field08.fi.luke-np-balance-2024",
+      "sourceSha256": "sha256:d15a3bf66c3db6d342f984e30d1629f759f131cbc6ea005237b33f808fc836dc",
+      "acquisitionId": "acq.field08.ax.luke-np-balance-2024",
+      "acquisitionSha256": "sha256:3bdef5450c08e9cd68b83116c0d5df750b168d40beb2ef07f1b95ae69f94398d",
+      "citationId": "fs:citation:field08.ax.luke-np-balance-2024",
+      "citationSha256": "sha256:d6143e531b75690b8badfe345383b9f0ad72abe32f4a48f1653bcad49e41e3fd",
+      "captureSha256": "sha256:ad6d6d3669386e9b0d5f7cadaeda327a341d611d4714792b52390ed37c9922ef",
+      "locator": "ELY-keskus=16 (Ahvenanmaa); Ravinne=N,P; Vuosi=2024; unit=kg/ha"
+    },
+    {
+      "sourceId": "fs:source:field08.eu.eurostat-env-wasfw-2023-dk-fi",
+      "sourceSha256": "sha256:1fc5939217233738e48fcaa3b87ee27db28d09694c3fbdfb1d5bbf40e13075fc",
+      "acquisitionId": "acq.field08.eu.eurostat-dk-2023",
+      "acquisitionSha256": "sha256:150bed7b6aa46de0bcfbf7e9dc684a5b42d721faef4396fc80aeafe1c619fbf7",
+      "citationId": "fs:citation:field08.eu.eurostat-dk-2023",
+      "citationSha256": "sha256:7dc63b327befda2b986161734b02739f2ef1fb9e937503d1f0a311f74f6d7d10",
+      "captureSha256": "sha256:8e87e2dde29dd0b3cca341f2d4f04b9dfbf1f20152b0f3073c6af85c0cd511d0",
+      "locator": "geo=DK; time=2023; unit=T; waste=W091_092_101_FD; nace_r2=TOT,A01_A03_FOOD,C10_C11,G46_G47_FOOD,I55_I56_N-S_FOOD,HH"
+    },
+    {
+      "sourceId": "fs:source:field08.eu.eurostat-env-wasfw-2023-dk-fi",
+      "sourceSha256": "sha256:1fc5939217233738e48fcaa3b87ee27db28d09694c3fbdfb1d5bbf40e13075fc",
+      "acquisitionId": "acq.field08.eu.eurostat-fi-2023",
+      "acquisitionSha256": "sha256:6d69341890ab423d19ca132ab14e800935b075bff51ec705a01056b462ef6eaf",
+      "citationId": "fs:citation:field08.eu.eurostat-fi-2023-boundary-unresolved",
+      "citationSha256": "sha256:e0fd70b8c1f1ade4dbfe7e7ee6a75eb4d0fb8a22d3f0e37c1b9eda9e5dc2cc22",
+      "captureSha256": "sha256:8e87e2dde29dd0b3cca341f2d4f04b9dfbf1f20152b0f3073c6af85c0cd511d0",
+      "locator": "geo=FI; time=2023; unit=T; waste=W091_092_101_FD; nace_r2=TOT,A01_A03_FOOD,C10_C11,G46_G47_FOOD,I55_I56_N-S_FOOD,HH"
+    },
+    {
+      "sourceId": "fs:source:field08.fi.luke-np-balance-2024",
+      "sourceSha256": "sha256:d15a3bf66c3db6d342f984e30d1629f759f131cbc6ea005237b33f808fc836dc",
+      "acquisitionId": "acq.field08.fi.luke-np-balance-whole-2024",
+      "acquisitionSha256": "sha256:ecb81a86e40ceda7c5638dcb5c6395223ec1d6d1c7c9c4e7b56b26e9c2fa900e",
+      "citationId": "fs:citation:field08.fi.luke-np-balance-whole-2024",
+      "citationSha256": "sha256:78f8b94171beb22d532bb1f055f076bb17324b2e684f34acfeffd657b4acf4b7",
+      "captureSha256": "sha256:ad6d6d3669386e9b0d5f7cadaeda327a341d611d4714792b52390ed37c9922ef",
+      "locator": "ELY-keskus=00 (WHOLE COUNTRY); Ravinne=N,P; Vuosi=2024; unit=kg/ha; response note states Åland is included"
+    },
+    {
+      "sourceId": "fs:source:field08.is.environment-agency-food-waste-2022",
+      "sourceSha256": "sha256:3a329efc2b5ea4941fe1728d2feedbf1fa887b4df29a1302b209f202a6c2a521",
+      "acquisitionId": "acq.field08.is.food-waste-abstract",
+      "acquisitionSha256": "sha256:f4e149b80efd4f40096bb4fb912f1388a1c6fb78098938b20df7f6986f14cd63",
+      "citationId": "fs:citation:field08.is.food-waste-2022-abstract",
+      "citationSha256": "sha256:250f2ef3c749f39c56f8dc13ada35c39c9a544eb835718bff0f1d0451883d777",
+      "captureSha256": "sha256:07bf2d6b14b521cd1d1a94f62f116be6c34f784913c8a52910983717b28708ab",
+      "locator": "PDF p. 4 abstract"
+    },
+    {
+      "sourceId": "fs:source:field08.is.environment-agency-food-waste-2022",
+      "sourceSha256": "sha256:3a329efc2b5ea4941fe1728d2feedbf1fa887b4df29a1302b209f202a6c2a521",
+      "acquisitionId": "acq.field08.is.food-waste-detailed-tables",
+      "acquisitionSha256": "sha256:37e674ea3bfc930b9688c2d69a4887ad88d408a611baefc0e3981d8f2e01377e",
+      "citationId": "fs:citation:field08.is.food-waste-2022-detailed-tables",
+      "citationSha256": "sha256:f98c418ecd279440709e819cf9a88fc6d48066d55f1de422da0d705d653944e4",
+      "captureSha256": "sha256:07bf2d6b14b521cd1d1a94f62f116be6c34f784913c8a52910983717b28708ab",
+      "locator": "PDF pp. 14–16, Tables 1–4 and household section"
+    },
+    {
+      "sourceId": "fs:source:field08.is.environment-agency-food-waste-2022",
+      "sourceSha256": "sha256:3a329efc2b5ea4941fe1728d2feedbf1fa887b4df29a1302b209f202a6c2a521",
+      "acquisitionId": "acq.field08.is.food-waste-false-zero",
+      "acquisitionSha256": "sha256:3e16b280885c6a73d17835599089ce173c3c098217cb907aae63a9769fc36a95",
+      "citationId": "fs:citation:field08.is.food-waste-2022-false-zero",
+      "citationSha256": "sha256:fc14725a9bb3ff14d44706d375493adef68925a6a8ce3e306a7edcb07cf2960b",
+      "captureSha256": "sha256:07bf2d6b14b521cd1d1a94f62f116be6c34f784913c8a52910983717b28708ab",
+      "locator": "PDF pp. 12–13, nonresponse errors and aquaculture false zero"
+    },
+    {
+      "sourceId": "fs:source:field08.is.environment-agency-food-waste-2022",
+      "sourceSha256": "sha256:3a329efc2b5ea4941fe1728d2feedbf1fa887b4df29a1302b209f202a6c2a521",
+      "acquisitionId": "acq.field08.is.food-waste-household-share",
+      "acquisitionSha256": "sha256:ed7a74ddf725c9297afe40bce981ff3fc0eae9dc7bab1050237f9ac8d3490fb7",
+      "citationId": "fs:citation:field08.is.food-waste-2022-household-share",
+      "citationSha256": "sha256:5910c01bca52b36be41420892c3412d9b8d95017884ec9f171ed60c22f36b047",
+      "captureSha256": "sha256:07bf2d6b14b521cd1d1a94f62f116be6c34f784913c8a52910983717b28708ab",
+      "locator": "PDF p. 16, section 3.5"
+    },
+    {
+      "sourceId": "fs:source:field08.no.landbruksdirektoratet-food-waste-2024",
+      "sourceSha256": "sha256:b062682e00762b9de258d66188159b9f1e3d54162735c3b30e477cd8c054b291",
+      "acquisitionId": "acq.field08.no.landbruksdirektoratet-grain-period",
+      "acquisitionSha256": "sha256:40e4f9f4756d15b6c3f9b3d369ff477de15a774fa755c9c310024a49cf7bf771",
+      "citationId": "fs:citation:field08.no.landbruksdirektoratet-grain-period",
+      "citationSha256": "sha256:286577234337cf8b8622a121796aa0231a679697e17ae658087ef4c32e051347",
+      "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2",
+      "locator": "PDF p. 17, section 3.4"
+    },
+    {
+      "sourceId": "fs:source:field08.no.landbruksdirektoratet-food-waste-2024",
+      "sourceSha256": "sha256:b062682e00762b9de258d66188159b9f1e3d54162735c3b30e477cd8c054b291",
+      "acquisitionId": "acq.field08.no.landbruksdirektoratet-milk-unit",
+      "acquisitionSha256": "sha256:2d14c36e653de6adec842cf2b5dc3c3cfdb424ad23a145ac71eb227071f6e1ec",
+      "citationId": "fs:citation:field08.no.landbruksdirektoratet-milk-unit",
+      "citationSha256": "sha256:09bd751fff7336caa8b70f1184cf4a215c6b3260ee5944dad58072b41f4534b6",
+      "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2",
+      "locator": "PDF p. 20, Table 6"
+    },
+    {
+      "sourceId": "fs:source:field08.no.landbruksdirektoratet-food-waste-2024",
+      "sourceSha256": "sha256:b062682e00762b9de258d66188159b9f1e3d54162735c3b30e477cd8c054b291",
+      "acquisitionId": "acq.field08.no.landbruksdirektoratet-p8-prose",
+      "acquisitionSha256": "sha256:cc4d10cf4984117b70a197612d42bf47c8506d2cc01cde454ecd4d41eb86c26f",
+      "citationId": "fs:citation:field08.no.landbruksdirektoratet-p8-prose",
+      "citationSha256": "sha256:d5c545321af7d520a0c29f7ab517a09755086f7044307366e677a8b11b44bea8",
+      "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2",
+      "locator": "PDF p. 8, section 2.1 first paragraph"
+    },
+    {
+      "sourceId": "fs:source:field08.no.landbruksdirektoratet-food-waste-2024",
+      "sourceSha256": "sha256:b062682e00762b9de258d66188159b9f1e3d54162735c3b30e477cd8c054b291",
+      "acquisitionId": "acq.field08.no.landbruksdirektoratet-table1",
+      "acquisitionSha256": "sha256:a46f2a16011a377a0912530c2d129cc8414befb4da0ada1d864632fd0193bb48",
+      "citationId": "fs:citation:field08.no.landbruksdirektoratet-p8-table1",
+      "citationSha256": "sha256:1363ac3514d7a31e69497bd7c4f887b722940a3b1b63f258157a1aab76e11054",
+      "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2",
+      "locator": "PDF p. 8, Table 1, Totalsum 2024"
+    },
+    {
+      "sourceId": "fs:source:field08.no.landbruksdirektoratet-food-waste-2024",
+      "sourceSha256": "sha256:b062682e00762b9de258d66188159b9f1e3d54162735c3b30e477cd8c054b291",
+      "acquisitionId": "acq.field08.no.landbruksdirektoratet-table2-share",
+      "acquisitionSha256": "sha256:121b2e1ece06d5a7d19f5a416cec8a4ba7a619a59388ca536a011a5ac20a931a",
+      "citationId": "fs:citation:field08.no.landbruksdirektoratet-p10-table2-share",
+      "citationSha256": "sha256:f513fd77f11ad83fdd16dd01f2cb8a85ba0f8f9f2b73c2d81d60139d739ddb82",
+      "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2",
+      "locator": "PDF p. 10, Table 2, Jordbrukssektoren Sum"
+    }
+  ],
+  "sourceAppraisalBindings": [],
+  "receiptRequirements": {
+    "appendOnlyJsonl": true,
+    "fullSnapshotPerReceipt": true,
+    "namedHumanRequired": true,
+    "utcTimestampRequired": true,
+    "attestationRequired": true,
+    "supersessionChainRequired": true,
+    "exactBindingsRequired": true
+  },
+  "externalGatePassed": false,
+  "coveragePromotionAllowed": false,
+  "contentHash": "sha256:b49a7e0e8f3adb9a4baa3bfc3a11b744721d78b492986d07a54d953e7147590e"
+}
