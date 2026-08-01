@@ -1,7 +1,7 @@
 # HTML triage — research/ snapshots
 
 > Auto-generert av `scripts/triage-html.ts` — ikke rediger manuelt.
-> Generert: 2026-07-04T16:28:22.185Z
+> Generert: 2026-08-01T02:07:28.173Z
 > Totalt: **29** HTML-filer skannet (utelater `_plans/`, `_status/`, `intake/`)
 
 ## Klassifisering

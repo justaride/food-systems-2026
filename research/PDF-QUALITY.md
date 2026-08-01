@@ -1,62 +1,59 @@
 # PDF-/tekstuttrekkskvalitet — research/
 
 > Auto-generert av `scripts/check-pdf-quality.ts` — ikke rediger manuelt.
-> Generert: 2026-07-04T18:34:46.071Z
+> Generert: 2026-08-01T02:07:11.519Z
 > Catalog: **436** PDFs (kilde: `research/pdf-katalog.json`)
-> Analysert: **435** | Skippet (>50 MB): **1** | Manglende fil: **0**
-> pdftotext: **tilgjengelig (Poppler)**
+> Analysert: **109** | Skippet (>50 MB): **0** | Manglende fil: **327**
+> pdftotext: **IKKE tilgjengelig — kun header-sjekk**
 
 ## Klassifiseringsfordeling
 
 | Klassifisering | Antall | Severity |
 |---|---:|---|
-| scanned | 5 | MEDIUM |
-| low-text | 53 | LOW |
-| skipped-too-large | 1 | LOW |
-| ok | 377 | NONE |
+| missing-file | 327 | MEDIUM |
+| ok | 109 | NONE |
 
 ## Severity-fordeling
 
 | Severity | Antall |
 |---|---:|
-| MEDIUM | 5 |
-| LOW | 54 |
-| NONE | 377 |
+| MEDIUM | 327 |
+| NONE | 109 |
 
 ## Topp 30 verste funn (etter severity)
 
 | # | Severity | Klassifisering | Størrelse (KB) | Ord | Tetthet | Sti |
 |---:|---|---|---:|---:|---:|---|
-| 1 | MEDIUM | scanned | 5819 | 0 | 0 | `…ocess 20.04.26/07_Academic_Research_And_Theses/drager-og-vagene.pdf` |
-| 2 | MEDIUM | scanned | 1 | 0 | 0 | `…cy amid financial challenges - RASTECH MagazineRASTECH Magazine.pdf` |
-| 3 | MEDIUM | scanned | 5819 | 0 | 0 | `evidence-pack/akademia/drager-vagene-2017.pdf` |
-| 4 | MEDIUM | scanned | 207 | 0 | 0 | `…lorisation business _ British Food Journal _ Emerald Publishing.pdf` |
-| 5 | MEDIUM | scanned | 31079 | 287 | 9 | `…s 20.04.26/06_Company_And_Annual_Reports/2021 Impact Report ENG.pdf` |
-| 6 | LOW | low-text | 11324 | 705 | 64 | `…_And_Innovation/Plantagon's Fall_ Lessons for AgTech Innovators.pdf` |
-| 7 | LOW | low-text | 4613 | 295 | 65 | `…Gott & Näringsrikt. 100% Veganskt såklart, för allas bästa!.pdf` |
-| 8 | LOW | low-text | 8882 | 654 | 75 | `…oop må slutte å motarbeide frukt-… _ Framtiden i våre hender.pdf` |
-| 9 | LOW | low-text | 13131 | 1095 | 85 | `…h_And_Theses/Gapet i klimapolitikken _ Framtiden i våre hender.pdf` |
-| 10 | LOW | low-text | 10437 | 1197 | 117 | `…Slik får vi sunn og bærekraftig mat _ Framtiden i våre hender.pdf` |
-| 11 | LOW | low-text | 50505 | 7357 | 149 | `…s 20.04.26/06_Company_And_Annual_Reports/2022 Impact Report ENG.pdf` |
-| 12 | LOW | low-text | 7681 | 1138 | 152 | `…den i våre hender åpner matbutikk! _ Framtiden i våre hender.pdf` |
-| 13 | LOW | low-text | 1803 | 329 | 187 | `…nde næringsklynge innen bioøkonomi og bærekraftig matproduksjon.pdf` |
-| 14 | LOW | low-text | 3286 | 682 | 213 | `…n-makers can manage global crises - Stockholm Resilience Centre.pdf` |
-| 15 | LOW | low-text | 9672 | 2652 | 281 | `…_Research_And_Theses/Meningsbryteren _ Framtiden i våre hender.pdf` |
-| 16 | LOW | low-text | 48053 | 18135 | 386 | `…And_Annual_Reports/Matsmart-Ars-och-hallbarhetsredovisning-2024.pdf` |
-| 17 | LOW | low-text | 2679 | 1274 | 487 | `…how the world leader in insects ended up in receivership — ONEI.pdf` |
-| 18 | LOW | skipped-too-large | 74506 | 0 | 0 | `…20.04.26/07_Academic_Research_And_Theses/ng_arsrapport-2025-web.pdf` |
-| 19 | LOW | low-text | 12824 | 874 | 70 | `…s/Nordmenn vil spise sunnere og mer… _ Framtiden i våre hender.pdf` |
-| 20 | LOW | low-text | 15122 | 1245 | 84 | `…od/Klimakrisen presser norske bønder _ Framtiden i våre hender.pdf` |
-| 21 | LOW | low-text | 12444 | 1049 | 86 | `… er mye penger å tjene på matsvinn _ Framtiden i våre hender.pdf` |
-| 22 | LOW | low-text | 1919 | 164 | 88 | `…vae for green development of the agricultural and food industry.pdf` |
-| 23 | LOW | low-text | 8285 | 724 | 89 | `….04.26/08_Food_Security_Agriculture_And_Seafood/Forsiden - NCCE.pdf` |
-| 24 | LOW | low-text | 12227 | 1093 | 92 | `…ckeld Dreamery Shuts As Plant-Based Decline Foils Funding Plans.pdf` |
-| 25 | LOW | low-text | 11 | 1 | 95 | `…ory of Planned Behavior and Value Belief Norm theory_ _ Skemman.pdf` |
-| 26 | LOW | low-text | 11609 | 1091 | 96 | `…orskning viser at vi kan mangedoble… _ Framtiden i våre hender.pdf` |
-| 27 | LOW | low-text | 12940 | 1235 | 98 | `…larity/Endelig er matsvinnloven her! _ Framtiden i våre hender.pdf` |
-| 28 | LOW | low-text | 1640 | 165 | 103 | `…novation/BioMar _ Powered by Partnership. Driven by Innovation_.pdf` |
-| 29 | LOW | low-text | 6976 | 835 | 123 | `…ity/Vi har et enormt skjult matsvinn _ Framtiden i våre hender.pdf` |
-| 30 | LOW | low-text | 5948 | 725 | 125 | `…ative Protein Companies Have Shut or Been Acquired in Past Year.pdf` |
+| 1 | MEDIUM | missing-file | 1 | 0 | 0 | `…cy amid financial challenges - RASTECH MagazineRASTECH Magazine.pdf` |
+| 2 | MEDIUM | missing-file | 7 | 0 | 0 | `…t_Protein_And_Innovation/Protix - Join the future of food today.pdf` |
+| 3 | MEDIUM | missing-file | 8 | 0 | 0 | `…culture_And_Seafood/Lite kunnskap om hva laksen spiser _ Nofima.pdf` |
+| 4 | MEDIUM | missing-file | 8 | 0 | 0 | `…And_Seafood/Security of supply in Finland - Huoltovarmuuskeskus.pdf` |
+| 5 | MEDIUM | missing-file | 11 | 0 | 0 | `…ory of Planned Behavior and Value Belief Norm theory_ _ Skemman.pdf` |
+| 6 | MEDIUM | missing-file | 53 | 0 | 0 | `…ucing food waste for a green Nordic Region _ Nordic cooperation.pdf` |
+| 7 | MEDIUM | missing-file | 67 | 0 | 0 | `…earch_And_Theses/cheffelo-publicerar-trading-update-for-q1-2026.pdf` |
+| 8 | MEDIUM | missing-file | 78 | 0 | 0 | `pdf-downloads-20-04-26/sf-20260417-0601.pdf` |
+| 9 | MEDIUM | missing-file | 94 | 0 | 0 | `…4_Food_Waste_And_Circularity/Circular economy butterfly diagram.pdf` |
+| 10 | MEDIUM | missing-file | 132 | 0 | 0 | `…icy_Governance_And_Market/KFST - fremtidens detailhandel (2024).pdf` |
+| 11 | MEDIUM | missing-file | 150 | 0 | 0 | `pdf-downloads-20-04-26/nl-20200417-029.pdf` |
+| 12 | MEDIUM | missing-file | 152 | 0 | 0 | `…And_Seafood/Billund Aquaculture _ Bankruptcy _ Factsheet 201509.pdf` |
+| 13 | MEDIUM | missing-file | 162 | 0 | 0 | `…port om krav til åpenhet i dagligvarebransjen - regjeringen.no.pdf` |
+| 14 | MEDIUM | missing-file | 162 | 0 | 0 | `…g is still the future, despite all the recent business failures.pdf` |
+| 15 | MEDIUM | missing-file | 165 | 0 | 0 | `…som motvirker konkurranse i dagligvaremarkedet - regjeringen.no.pdf` |
+| 16 | MEDIUM | missing-file | 170 | 0 | 0 | `…e-reduction-corporate-responsibility-and-national-policies-2024.pdf` |
+| 17 | MEDIUM | missing-file | 181 | 0 | 0 | `…te_And_Circularity/Norways-Food-Waste-Reduction-Governance-2022.pdf` |
+| 18 | MEDIUM | missing-file | 193 | 0 | 0 | `…/ruokavirasto-rehuaineet-lisaaineet-esiseokset-tuonti-2022-2023.pdf` |
+| 19 | MEDIUM | missing-file | 207 | 0 | 0 | `…lorisation business _ British Food Journal _ Emerald Publishing.pdf` |
+| 20 | MEDIUM | missing-file | 216 | 0 | 0 | `…gssvar om endringer i lov om god handelsskikk handheving (2024).pdf` |
+| 21 | MEDIUM | missing-file | 225 | 0 | 0 | `…/approval insect novel food - Food Safety - European Commission.pdf` |
+| 22 | MEDIUM | missing-file | 240 | 0 | 0 | `….26/05_Foodtech_Alt_Protein_And_Innovation/PROMYC, mycoproteins.pdf` |
+| 23 | MEDIUM | missing-file | 243 | 0 | 0 | `…sumer food waste prevention - Food Safety - European Commission.pdf` |
+| 24 | MEDIUM | missing-file | 256 | 0 | 0 | `…eringen - konkurransetilsynet kt tildelingsbrev for 2026 (2024).pdf` |
+| 25 | MEDIUM | missing-file | 260 | 0 | 0 | `…tak for bedre konkurranse i dagligvarebransjen - regjeringen.no.pdf` |
+| 26 | MEDIUM | missing-file | 261 | 0 | 0 | `…s on digestate in a bubble-insulated greenhouse - ScienceDirect.pdf` |
+| 27 | MEDIUM | missing-file | 263 | 0 | 0 | `…04.26/07_Academic_Research_And_Theses/prp202520260004000dddpdfs.pdf` |
+| 28 | MEDIUM | missing-file | 271 | 0 | 0 | `…edish vertical farming company Plantagon International bankrupt.pdf` |
+| 29 | MEDIUM | missing-file | 272 | 0 | 0 | `…_And_Circularity/Food Waste - Food Safety - European Commission.pdf` |
+| 30 | MEDIUM | missing-file | 301 | 0 | 0 | `…4.26/00_Working_Files/Research-Report-Norges-matrevolusjon-2026.pdf` |
 
 ## Alle html-mis-saved (KRITISK — bryter direkte med KI/RAG)
 
@@ -86,7 +83,7 @@
 
 ## Tekstuttrekksmetode
 
-- `pdftotext -enc UTF-8 -q <file> -` (Poppler) brukes for tekstuttrekk.
+- pdftotext er IKKE tilgjengelig på dette systemet. Kun header-baserte klassifikasjoner (`html-mis-saved`, `invalid`) er pålitelige; `scanned`, `low-text` og `encoding-issue` blir ikke detektert.
 - Word density = antall ord (split på whitespace + punctuation) delt på filstørrelse i MB.
 - 60-sekunders timeout per fil; tomstrenger ved feil tolkes som 0 ord.
 

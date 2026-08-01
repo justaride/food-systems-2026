@@ -1,68 +1,68 @@
 # URL Inventory — Food Systems 2026
 
 > Auto-generert av `scripts/inventory-urls.ts` — ikke rediger manuelt.
-> Generert: 2026-05-20T02:09:50.978Z
-> Totalt: **870** URL-forekomster, **600** unike URL-er
+> Generert: 2026-08-01T02:06:57.815Z
+> Totalt: **210** URL-forekomster, **202** unike URL-er
 
 ## Distribusjon per source_type
 
 | source_type | antall |
 |---|---:|
-| report_canonical | 118 |
+| report_canonical | 119 |
 | report_supporting | 13 |
 | thesis | 78 |
-| sourcedoc | 95 |
-| document | 566 |
+| sourcedoc | 0 |
+| document | 0 |
 
 ## Distribusjon per protocol
 
 | protocol | antall |
 |---|---:|
-| https | 859 |
-| http | 11 |
+| https | 207 |
+| http | 3 |
 | other | 0 |
 
 ## Topp 30 domener
 
 | # | domain | antall |
 |---:|---|---:|
-| 1 | r2cdn.perplexity.ai | 78 |
-| 2 | regjeringen.no | 57 |
-| 3 | doi.org | 46 |
-| 4 | nhh.no | 39 |
-| 5 | youtube.com | 36 |
-| 6 | konkurransetilsynet.no | 29 |
-| 7 | hdl.handle.net | 29 |
-| 8 | norden.org | 20 |
-| 9 | pub.norden.org | 15 |
-| 10 | dagligvaretilsynet.no | 13 |
-| 11 | projekter.aau.dk | 12 |
-| 12 | konkurrensverket.se | 9 |
-| 13 | research.cbs.dk | 9 |
-| 14 | kfst.dk | 8 |
-| 15 | stud.epsilon.slu.se | 8 |
-| 16 | openaccess.nhh.no | 8 |
-| 17 | norgesgruppen.no | 7 |
-| 18 | pub.epsilon.slu.se | 7 |
-| 19 | eur-lex.europa.eu | 6 |
-| 20 | diva-portal.org | 6 |
-| 21 | beccle.no | 6 |
-| 22 | aaltodoc.aalto.fi | 6 |
-| 23 | uu.diva-portal.org | 6 |
-| 24 | urn.kb.se | 6 |
-| 25 | nmbu.no | 6 |
-| 26 | hi.no | 6 |
-| 27 | kkv.fi | 5 |
-| 28 | samkeppni.is | 5 |
-| 29 | kesko.fi | 5 |
-| 30 | orbit.dtu.dk | 5 |
+| 1 | regjeringen.no | 19 |
+| 2 | hdl.handle.net | 13 |
+| 3 | nhh.no | 11 |
+| 4 | doi.org | 10 |
+| 5 | konkurransetilsynet.no | 7 |
+| 6 | pub.norden.org | 5 |
+| 7 | norden.org | 4 |
+| 8 | projekter.aau.dk | 4 |
+| 9 | diva-portal.org | 4 |
+| 10 | pub.epsilon.slu.se | 4 |
+| 11 | stud.epsilon.slu.se | 4 |
+| 12 | research.cbs.dk | 4 |
+| 13 | kfst.dk | 3 |
+| 14 | konkurrensverket.se | 3 |
+| 15 | pmc.ncbi.nlm.nih.gov | 3 |
+| 16 | valio.com | 3 |
+| 17 | aaltodoc.aalto.fi | 3 |
+| 18 | bora.uib.no | 3 |
+| 19 | skemman.is | 3 |
+| 20 | uu.diva-portal.org | 3 |
+| 21 | samkeppni.is | 2 |
+| 22 | dagligvaretilsynet.no | 2 |
+| 23 | coop.no | 2 |
+| 24 | norgesgruppen.no | 2 |
+| 25 | asko.no | 2 |
+| 26 | virke.no | 2 |
+| 27 | icelandreview.com | 2 |
+| 28 | uib.no | 2 |
+| 29 | ruokavirasto.fi | 2 |
+| 30 | eur-lex.europa.eu | 2 |
 
 ## KI-prioritet
 
 | Klasse | antall |
 |---|---:|
-| URL-forekomster med priority >= 4.0 | 180 |
-| URL-forekomster med priority < 4.0 eller ukjent | 690 |
+| URL-forekomster med priority >= 4.0 | 206 |
+| URL-forekomster med priority < 4.0 eller ukjent | 4 |
 
 ## Eksempler — topp-prioritet (>= 4.5)
 
@@ -81,8 +81,8 @@
 
 ## Notater
 
-- `Report.sourceUrl` (kanonisk) og `Report.supportingSources[].url` er hentet fra `src/lib/data/reports.ts`.
-- `Thesis.url` er hentet fra `src/lib/data/theses.ts`.
+- `Report.sourceUrl` (kanonisk) og `Report.supportingSources[].url` er hentet fra `prisma/seed-data/reports.ts`.
+- `Thesis.url` er hentet fra `prisma/seed-data/theses.ts`.
 - `SourceDoc.url` og `Document.url` er hentet fra databasen når `DATABASE_URL` er satt. Bruk `npm run inventory-urls -- --no-db` for typed seed-data-only inventar.
 - Kolonnen `source_priority` er slått opp i `research/KI-PRIORITY.csv`. Tom hvis ingen treff.
 - Ingen HTTP-spørringer kjøres her; rens av status håndteres av `scripts/check-urls.ts`.

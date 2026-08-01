@@ -1,8 +1,8 @@
 # KI-priority — Reports + Theses
 
 > Auto-generert av `scripts/compute-ki-priority.ts` — ikke rediger manuelt.
-> Generert: 2026-07-01T02:08:50.743Z
-> Totalt: **208** poster (130 rapporter + 78 avhandlinger)
+> Generert: 2026-08-01T02:06:46.941Z
+> Totalt: **210** poster (132 rapporter + 78 avhandlinger)
 
 ## Score-distribusjon
 
@@ -11,8 +11,8 @@
 | 5.0 | 105 | 58 | 163 |
 | 4.5 | 15 | 20 | 35 |
 | 4.0 | 2 | 0 | 2 |
-| 3.5 | 4 | 0 | 4 |
-| 3.0 | 3 | 0 | 3 |
+| 3.5 | 5 | 0 | 5 |
+| 3.0 | 4 | 0 | 4 |
 | 1.0 | 1 | 0 | 1 |
 
 ## Topp 30
@@ -58,17 +58,17 @@
 | 3.0 | report | oversikt | internal_register | 2025 | Nordisk avhandlingsregister — matpolitikk |
 | 3.0 | report | oversikt | internal_register | 2025 | Offentlig rapportlogg — matsektor |
 | 3.0 | report | oversikt | internal_register | 2025 | NOU-er og stortingsdokumenter — juridisk oversikt |
+| 3.0 | report | oversikt | internal_register | 2026 | Food Systems 2026 interne metode- og figurartefakter |
 | 3.5 | report | oversikt | internal_synthesis | 2025 | Tenketanker og NGO-er i nordisk matdebatt |
 | 3.5 | report | oversikt | internal_synthesis | 2025 | Sirkularitet i nordisk mat — dypanalyse |
 | 3.5 | report | oversikt | internal_synthesis | 2025 | Nordisk matmaktkonsentrasjon — historikk |
 | 3.5 | report | oversikt | internal_synthesis | 2025 | Nordiske mat-tenkere og paavirkernettverk |
+| 3.5 | report | oversikt | internal_synthesis | 2026 | Food Systems 2026 pilot- og finansieringsdossierer |
 | 4.0 | report | tenketank | external_report | 2019 | Stockholm Resilience Centre — Nordic Food Systems |
 | 4.0 | report | bransje | internal_synthesis | 2024 | Merkevarenes historie — Orkla og TINE |
 | 4.5 | thesis | master | external_report | 2006 | Det norske dagligvaremarkedet: relasjoner mellom detaljist og produsent |
 | 4.5 | thesis | master | external_report | 2010 | Consumer-owned retail cooperative in duopoly with horizontally differentiated go |
 | 4.5 | thesis | master | external_report | 2011 | Food Security in Iceland: Present Vulnerabilities, Possible Solutions |
-| 4.5 | thesis | master | external_report | 2012 | Horisontal konkurranse i dagligvaremarkedet: Bruken av egne merkevarer |
-| 4.5 | thesis | master | external_report | 2013 | Nokkelhull pa matvarer — private aktorers okonomiske interesser og konsekvensene |
 
 ## Tolkning av score
 
