@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import {
   chmodSync,
@@ -42,7 +43,11 @@ import {
   LOGICAL_RESTORE_REHEARSAL_TARGET_CLASS,
   canonicalLogicalRestoreCompanionJson,
 } from "../../scripts/knowledge/logical-restore-companion-receipt.mjs";
-import { verifySourceRegistrationLogicalRestoreEvidence } from "../../scripts/knowledge/apply-source-registration-plan";
+import {
+  parseSourceRegistrationApplyArgs,
+  runSourceRegistrationApply,
+  verifySourceRegistrationLogicalRestoreEvidence,
+} from "../../scripts/knowledge/apply-source-registration-plan";
 
 const projectRoot = realpathSync(process.cwd());
 const now = new Date("2026-08-03T03:12:00.000Z");
@@ -55,6 +60,27 @@ const fileBinding = (path: string, label: string) => ({
   path,
   fileSha256: hash(label),
 });
+const verifyReleaseEvidenceBaseArguments = [
+  "--verify-release-evidence",
+  "--primary-corpus-root=/private/test-primary",
+  "--replica-corpus-root=/private/test-replica",
+  "--backup-file=/private/test-backup.dump",
+  "--structural-restore-receipt=/private/test-structural.json",
+  "--logical-restore-companion-receipt=/private/test-companion.json",
+  "--logical-clone-rehearsal-receipt=/private/test-rehearsal.json",
+] as const;
+const verifyReleaseEvidencePinArguments = [
+  `--expected-backup-sha256=${hash("pin-backup")}`,
+  "--expected-backup-bytes=29494452",
+  `--expected-backup-metadata-sha256=${hash("pin-metadata")}`,
+  `--expected-structural-restore-receipt-sha256=${hash("pin-structural")}`,
+  `--expected-logical-restore-companion-receipt-sha256=${hash("pin-companion")}`,
+  `--expected-logical-clone-rehearsal-receipt-file-sha256=${hash("pin-rehearsal-file")}`,
+  `--expected-logical-clone-rehearsal-receipt-self-sha256=${hash("pin-rehearsal-self")}`,
+  `--expected-logical-comparison-proof-sha256=${hash("pin-proof")}`,
+  `--expected-migration-ledger-sha256=${hash("pin-ledger")}`,
+  `--expected-target-fingerprint-sha256=${hash("pin-fingerprint")}`,
+] as const;
 
 const companionSchemaPath = join(
   projectRoot,
@@ -740,4 +766,139 @@ test("tracked schema, code, and runtime binding drift fail closed", () => {
   } finally {
     rmSync(privateRoot, { recursive: true, force: true });
   }
+});
+
+test("verify-release-evidence parser requires all ten pins and leaves apply staging unchanged", () => {
+  assert.throws(
+    () =>
+      parseSourceRegistrationApplyArgs([...verifyReleaseEvidenceBaseArguments]),
+    /--verify-release-evidence requires --expected-backup-sha256/,
+  );
+
+  for (const [
+    index,
+    missingArgument,
+  ] of verifyReleaseEvidencePinArguments.entries()) {
+    const partialPins = verifyReleaseEvidencePinArguments.filter(
+      (_argument, candidateIndex) => candidateIndex !== index,
+    );
+    const missingFlag = missingArgument.slice(0, missingArgument.indexOf("="));
+    assert.throws(
+      () =>
+        parseSourceRegistrationApplyArgs([
+          ...verifyReleaseEvidenceBaseArguments,
+          ...partialPins,
+        ]),
+      new RegExp(
+        `--verify-release-evidence requires ${missingFlag.replace(
+          /[.*+?^${}()|[\]\\]/g,
+          "\\$&",
+        )}`,
+      ),
+      `${missingFlag} must be mandatory in verify mode`,
+    );
+  }
+
+  const verified = parseSourceRegistrationApplyArgs([
+    ...verifyReleaseEvidenceBaseArguments,
+    ...verifyReleaseEvidencePinArguments,
+  ]);
+  assert.equal(verified.mode, "verify_release_evidence");
+  assert.equal(verified.expectedBackupBytes, 29_494_452);
+  assert.equal(verified.expectedBackupSha256, hash("pin-backup"));
+  assert.equal(
+    verified.expectedLogicalCloneRehearsalReceiptSelfSha256,
+    hash("pin-rehearsal-self"),
+  );
+  assert.equal(
+    verified.expectedTargetFingerprintSha256,
+    hash("pin-fingerprint"),
+  );
+
+  assert.throws(
+    () =>
+      parseSourceRegistrationApplyArgs([
+        ...verifyReleaseEvidenceBaseArguments,
+        ...verifyReleaseEvidencePinArguments.filter(
+          (argument) => !argument.startsWith("--expected-backup-sha256="),
+        ),
+        "--expected-backup-sha256=not-a-sha256",
+      ]),
+    /--expected-backup-sha256 must be a lowercase SHA-256/,
+  );
+
+  const stagedApply = parseSourceRegistrationApplyArgs([
+    "--apply",
+    "--primary-corpus-root=/private/test-primary",
+    "--replica-corpus-root=/private/test-replica",
+  ]);
+  assert.equal(stagedApply.mode, "apply");
+  assert.equal(stagedApply.expectedBackupSha256, undefined);
+});
+
+test("verify-release-evidence process stops on missing or partial pins before environment access", () => {
+  const runner = join(
+    projectRoot,
+    "scripts/knowledge/apply-source-registration-plan.ts",
+  );
+  const run = (arguments_: readonly string[]) =>
+    spawnSync(process.execPath, ["--import=tsx", runner, ...arguments_], {
+      cwd: projectRoot,
+      encoding: "utf8",
+      env: {
+        LANG: "C",
+        LC_ALL: "C",
+        NODE_ENV: "test",
+        PATH: process.env.PATH ?? "",
+        TZ: "UTC",
+      },
+    });
+
+  const missing = run(verifyReleaseEvidenceBaseArguments);
+  assert.equal(missing.status, 1);
+  assert.equal(missing.stdout, "");
+  assert.match(
+    missing.stderr,
+    /--verify-release-evidence requires --expected-backup-sha256/,
+  );
+  assert.doesNotMatch(missing.stderr, /DATABASE_URL/);
+
+  const partial = run([
+    ...verifyReleaseEvidenceBaseArguments,
+    ...verifyReleaseEvidencePinArguments.slice(0, -1),
+  ]);
+  assert.equal(partial.status, 1);
+  assert.equal(partial.stdout, "");
+  assert.match(
+    partial.stderr,
+    /--verify-release-evidence requires --expected-target-fingerprint-sha256/,
+  );
+  assert.doesNotMatch(partial.stderr, /DATABASE_URL/);
+
+  const full = run([
+    ...verifyReleaseEvidenceBaseArguments,
+    ...verifyReleaseEvidencePinArguments,
+  ]);
+  assert.equal(full.status, 1);
+  assert.equal(full.stdout, "");
+  assert.match(full.stderr, /DATABASE_URL is required/);
+  assert.doesNotMatch(full.stderr, /--verify-release-evidence requires/);
+});
+
+test("exported verify-release-evidence runner cannot bypass the pin gate", async () => {
+  await assert.rejects(
+    () =>
+      runSourceRegistrationApply({
+        projectRoot,
+        databaseUrl: "postgresql://unused@example.invalid/unused",
+        options: {
+          mode: "verify_release_evidence",
+          manifestPath:
+            "knowledge/corpus/source-registration/source-registration-batch-2026-08-02.v1.json",
+          primaryCorpusRoot: "/private/test-primary",
+          replicaCorpusRoot: "/private/test-replica",
+        },
+      }),
+    /--verify-release-evidence requires --expected-backup-sha256/,
+  );
 });

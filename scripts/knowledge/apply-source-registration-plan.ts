@@ -429,6 +429,71 @@ function requireExactValue(
   if (value !== expected) fail(`${label} must equal the locked runtime value`);
 }
 
+const VERIFY_RELEASE_EVIDENCE_REQUIRED_PINS = [
+  ["expectedBackupSha256", "--expected-backup-sha256", "sha256"],
+  ["expectedBackupBytes", "--expected-backup-bytes", "bytes"],
+  [
+    "expectedBackupMetadataSha256",
+    "--expected-backup-metadata-sha256",
+    "sha256",
+  ],
+  [
+    "expectedStructuralRestoreReceiptSha256",
+    "--expected-structural-restore-receipt-sha256",
+    "sha256",
+  ],
+  [
+    "expectedLogicalRestoreCompanionReceiptSha256",
+    "--expected-logical-restore-companion-receipt-sha256",
+    "sha256",
+  ],
+  [
+    "expectedLogicalCloneRehearsalReceiptFileSha256",
+    "--expected-logical-clone-rehearsal-receipt-file-sha256",
+    "sha256",
+  ],
+  [
+    "expectedLogicalCloneRehearsalReceiptSelfSha256",
+    "--expected-logical-clone-rehearsal-receipt-self-sha256",
+    "sha256",
+  ],
+  [
+    "expectedLogicalComparisonProofSha256",
+    "--expected-logical-comparison-proof-sha256",
+    "sha256",
+  ],
+  [
+    "expectedMigrationLedgerSha256",
+    "--expected-migration-ledger-sha256",
+    "sha256",
+  ],
+  [
+    "expectedTargetFingerprintSha256",
+    "--expected-target-fingerprint-sha256",
+    "sha256",
+  ],
+] as const;
+
+function requireVerifyReleaseEvidencePins(
+  options: Record<string, unknown>,
+): void {
+  for (const [key, flag, kind] of VERIFY_RELEASE_EVIDENCE_REQUIRED_PINS) {
+    const value = options[key];
+    if (value === undefined) {
+      fail(`--verify-release-evidence requires ${flag}`);
+    }
+    if (kind === "bytes") {
+      if (!Number.isSafeInteger(value) || Number(value) <= 0) {
+        fail(`${flag} must be a positive safe integer`);
+      }
+      continue;
+    }
+    if (typeof value !== "string" || !SHA256_PATTERN.test(value)) {
+      fail(`${flag} must be a lowercase SHA-256`);
+    }
+  }
+}
+
 export function parseSourceRegistrationApplyArgs(
   argv: string[],
 ): SourceRegistrationApplyCliOptions {
@@ -487,6 +552,9 @@ export function parseSourceRegistrationApplyArgs(
     fail(
       "explicit absolute --primary-corpus-root and --replica-corpus-root are required",
     );
+  }
+  if (options.mode === "verify_release_evidence") {
+    requireVerifyReleaseEvidencePins(options);
   }
   return options as SourceRegistrationApplyCliOptions;
 }
@@ -5145,6 +5213,11 @@ export async function runSourceRegistrationApply(input: {
   databaseUrl: string;
   options: SourceRegistrationApplyCliOptions;
 }) {
+  if (input.options.mode === "verify_release_evidence") {
+    requireVerifyReleaseEvidencePins(
+      input.options as unknown as Record<string, unknown>,
+    );
+  }
   const plan = loadLockedSourceRegistrationPlan(input.projectRoot);
   const codeBindings = sourceRegistrationApplyCodeBindings(input.projectRoot);
   const launcherAttestation =
