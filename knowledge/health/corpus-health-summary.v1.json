@@ -1,9 +1,9 @@
 {
   "schemaVersion": "corpus-evidence-health-v1",
   "documentKind": "corpus_health_summary",
-  "assessmentId": "health.assessment.2026-08-03.local.d26684eb",
+  "assessmentId": "health.assessment.2026-08-03.local.006986f7",
   "observedAt": "2026-08-03T12:19:47.000Z",
-  "baseCommit": "d26684ebe715e2f2f8bf7f0aeacc53bf5199752d",
+  "baseCommit": "006986f715f3650511d2888f26e0885933787367",
   "gate1Decision": "no_go",
   "principalBlocker": "seed_database_identity_mismatch",
   "semanticBoundary": {
@@ -134,5 +134,5 @@
       "title": "Remediation backlog counts have conflicting vintages"
     }
   ],
-  "contentHash": "sha256:6af87ac078dde713dcb3753dc9a055430daa78587b7200950dcb7bc009f3117c"
+  "contentHash": "sha256:8f247bee2974e2fd13edeb62b8bff723c34bc2ae3b6cbaa548f3686680e0b44d"
 }

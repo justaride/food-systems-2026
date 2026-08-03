@@ -1,10 +1,10 @@
 # Gate 1 — corpus and evidence health
 
-**Assessment:** `health.assessment.2026-08-03.local.d26684eb`
+**Assessment:** `health.assessment.2026-08-03.local.006986f7`
 
 **Snapshot:** 2026-08-03
 
-**HEAD:** `d26684ebe715e2f2f8bf7f0aeacc53bf5199752d`
+**HEAD:** `006986f715f3650511d2888f26e0885933787367`
 **Threshold status:** `proposed`
 
 ## Decision
