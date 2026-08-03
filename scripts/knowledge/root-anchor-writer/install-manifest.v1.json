@@ -1,12 +1,12 @@
 {
   "schemaVersion": "root-anchor-writer-install-v1",
   "packageId": "food-systems-corpus-anchor-root-writer",
-  "packageVersion": "1.0.0",
+  "packageVersion": "1.2.1",
   "writerArtifact": {
     "sourcePath": "scripts/knowledge/root-anchor-writer/corpus-anchor-root-writer.mjs",
     "installPath": "/usr/local/libexec/food-systems-corpus-anchor-writer/corpus-anchor-root-writer.mjs",
-    "sha256": "sha256:fbbabd39a559f0f56f38f2aa92c3f9e72c6f9641a68c14050714519037ebe1d8",
-    "sizeBytes": 49372,
+    "sha256": "sha256:ee639f614331c38d2d29c82655fab7f8757f8af9bf6b15b3c9cfa52015043b2e",
+    "sizeBytes": 57106,
     "mode": "0555",
     "ownerUid": 0
   },
@@ -32,7 +32,19 @@
     "lockFile": ".corpus-event-history-anchors.append.lock",
     "lockMode": "0600"
   },
+  "requestIntake": {
+    "rootPath": "/private/var/db/food-systems-corpus-anchor-requests",
+    "rootMode": "0700",
+    "fileMode": "0400",
+    "ownerUid": 0,
+    "directChildOnly": true,
+    "singleLinkOnly": true,
+    "expectedFileSha256Required": true,
+    "maxFileBytes": 8388608
+  },
   "safetyBoundary": {
+    "callerSelectedExternalRootAllowed": false,
+    "unhashedRequestAllowed": false,
     "repositoryWritesAllowed": false,
     "internalVerificationAppendAllowed": false,
     "automaticLedgerDeletionAllowed": false,

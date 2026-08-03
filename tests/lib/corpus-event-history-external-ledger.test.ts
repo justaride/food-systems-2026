@@ -26,6 +26,7 @@ import {
   requireLatestExternalAnchorBinding,
   requireRequestIsLatestExternalAppend,
   validateCorpusExternalAnchorAppendRequest,
+  validateCorpusExternalAnchorDirectoryEntries,
   validateCorpusExternalAnchorLedgerSnapshot,
   type CorpusExternalAnchorLedgerHead,
   type CorpusExternalAnchorRepositoryBaselineInputs,
@@ -165,6 +166,100 @@ test("prepares a deterministic non-claiming request and validates schema parity"
   }
 });
 
+test("rejects invalid genesis, successor forks, skipped record counts, and baseline drift", () => {
+  const invalidGenesis = candidate({
+    sequence: 3,
+    predecessorRecordSha256: sha("f"),
+    createdAt: "2026-08-04T08:00:00Z",
+  });
+  assert.throws(
+    () =>
+      prepareCorpusExternalAnchorAppendRequest({
+        repositoryAnchorLogPath: ANCHOR_LOG_PATH,
+        repositoryAnchorLogBytes: jsonLines([invalidGenesis]),
+        repositoryBaselineInputs: baselineInputs(),
+        candidate: invalidGenesis,
+        externalSnapshot: null,
+        verifiedAt: "2026-08-04T08:01:00Z",
+      }),
+    /genesis requires candidate sequence 1 with a null predecessor/,
+  );
+
+  const first = firstSnapshot();
+  const repositoryPrefix = [first.firstCandidate, first.request.verification];
+  const forkedCandidate = candidate({
+    sequence: 3,
+    predecessorRecordSha256: sha("f"),
+    createdAt: "2026-08-04T09:00:00Z",
+    eventCount: 1,
+  });
+  assert.throws(
+    () =>
+      prepareCorpusExternalAnchorAppendRequest({
+        repositoryAnchorLogPath: ANCHOR_LOG_PATH,
+        repositoryAnchorLogBytes: jsonLines([
+          ...repositoryPrefix,
+          forkedCandidate,
+        ]),
+        repositoryBaselineInputs: baselineInputs(),
+        candidate: forkedCandidate,
+        externalSnapshot: first.snapshot,
+        verifiedAt: "2026-08-04T09:01:00Z",
+      }),
+    /candidate predecessor does not match the prior trusted verification/,
+  );
+
+  const skippedSequenceCandidate = candidate({
+    sequence: 5,
+    predecessorRecordSha256: first.request.verification.recordSha256,
+    createdAt: "2026-08-04T09:00:00Z",
+    eventCount: 1,
+  });
+  assert.throws(
+    () =>
+      prepareCorpusExternalAnchorAppendRequest({
+        repositoryAnchorLogPath: ANCHOR_LOG_PATH,
+        repositoryAnchorLogBytes: jsonLines([
+          ...repositoryPrefix,
+          skippedSequenceCandidate,
+        ]),
+        repositoryBaselineInputs: baselineInputs(),
+        candidate: skippedSequenceCandidate,
+        externalSnapshot: first.snapshot,
+        verifiedAt: "2026-08-04T09:01:00Z",
+      }),
+    /candidate sequence does not extend the prior repository record count/,
+  );
+
+  const validSuccessor = candidate({
+    sequence: 3,
+    predecessorRecordSha256: first.request.verification.recordSha256,
+    createdAt: "2026-08-04T09:00:00Z",
+    eventCount: 1,
+  });
+  assert.throws(
+    () =>
+      prepareCorpusExternalAnchorAppendRequest({
+        repositoryAnchorLogPath: ANCHOR_LOG_PATH,
+        repositoryAnchorLogBytes: jsonLines([
+          ...repositoryPrefix,
+          validSuccessor,
+        ]),
+        repositoryBaselineInputs: baselineInputs({
+          baseline: {
+            path: "knowledge/corpus/corpus-processing-baseline.v1.json",
+            fileSha256: sha("a"),
+            sizeBytes: 1000,
+          },
+        }),
+        candidate: validSuccessor,
+        externalSnapshot: first.snapshot,
+        verifiedAt: "2026-08-04T09:01:00Z",
+      }),
+    /changes the immutable baseline, processing register, or baseline generation manifest/,
+  );
+});
+
 test("preserves the full external chain and accepts every retained exact pair", () => {
   const first = firstSnapshot();
   const secondCandidate = candidate({
@@ -251,6 +346,71 @@ test("preserves the full external chain and accepts every retained exact pair", 
       verification: first.request.verification,
     }),
     true,
+  );
+});
+
+test("rejects a fully resealed external ledger that changes immutable baseline inputs", () => {
+  const first = firstSnapshot();
+  const secondCandidate = candidate({
+    sequence: 3,
+    predecessorRecordSha256: first.request.verification.recordSha256,
+    createdAt: "2026-08-04T09:00:00Z",
+    eventCount: 1,
+  });
+  const secondRequest = prepareCorpusExternalAnchorAppendRequest({
+    repositoryAnchorLogPath: ANCHOR_LOG_PATH,
+    repositoryAnchorLogBytes: jsonLines([
+      first.firstCandidate,
+      first.request.verification,
+      secondCandidate,
+    ]),
+    repositoryBaselineInputs: baselineInputs(),
+    candidate: secondCandidate,
+    externalSnapshot: first.snapshot,
+    verifiedAt: "2026-08-04T09:01:00Z",
+  });
+  const second = appendRequestToCorpusExternalAnchorSnapshot({
+    request: secondRequest,
+    previousSnapshot: first.snapshot,
+    appendedAt: "2026-08-04T09:02:00Z",
+  });
+  const { recordSha256: _oldRecordSha256, ...secondRecordBody } =
+    second.records[1]!;
+  const driftedRecordBody = {
+    ...secondRecordBody,
+    repositoryBaselineInputs: baselineInputs({
+      processingRegister: {
+        path: "knowledge/corpus/corpus-processing-register.v1.jsonl",
+        fileSha256: sha("a"),
+        sizeBytes: 2000,
+      },
+    }),
+  };
+  const driftedRecord = {
+    ...driftedRecordBody,
+    recordSha256: hashCorpusExternalAnchorLedgerRecord(driftedRecordBody),
+  };
+  const ledgerBytes = Buffer.from(
+    `${JSON.stringify(second.records[0])}\n${JSON.stringify(driftedRecord)}\n`,
+  );
+  const { headSha256: _oldHeadSha256, ...secondHeadBody } = second.head;
+  const driftedHeadBody = {
+    ...secondHeadBody,
+    ledgerFileSha256: rawSha(ledgerBytes),
+    ledgerSizeBytes: ledgerBytes.length,
+    latestRecordSha256: driftedRecord.recordSha256,
+  };
+  const driftedHead = {
+    ...driftedHeadBody,
+    headSha256: hashCorpusExternalAnchorLedgerHead(driftedHeadBody),
+  };
+  assert.throws(
+    () =>
+      validateCorpusExternalAnchorLedgerSnapshot({
+        ledgerBytes,
+        headBytes: Buffer.from(`${JSON.stringify(driftedHead, null, 2)}\n`),
+      }),
+    /changes immutable repository baseline inputs/,
   );
 });
 
@@ -405,17 +565,37 @@ test("rejects user-owned and symlinked external roots and repository-contained r
   );
 });
 
+test("rejects unexpected, temporary and lock entries in the external authority root", () => {
+  assert.doesNotThrow(() => validateCorpusExternalAnchorDirectoryEntries([]));
+  assert.doesNotThrow(() =>
+    validateCorpusExternalAnchorDirectoryEntries([
+      "corpus-event-history-anchors.v1.jsonl",
+      "corpus-event-history-anchors-head.v1.json",
+    ]),
+  );
+  for (const entry of [
+    ".corpus-event-history-anchors.append.lock",
+    ".ledger.tmp-123",
+    "unexpected.json",
+  ]) {
+    assert.throws(
+      () => validateCorpusExternalAnchorDirectoryEntries([entry]),
+      /unexpected entries/,
+    );
+  }
+});
+
 test("parses only explicit prepare, check and verify modes", () => {
   assert.deepEqual(
     parseCorpusExternalAnchorCliArgs([
       "--prepare",
-      "--external-root=/private/var/db/food-systems-anchor",
+      "--external-root=/private/var/db/food-systems-corpus-anchor",
       "--verified-at=2026-08-04T08:01:00Z",
       "--expect-empty-external",
     ]),
     {
       mode: "prepare",
-      externalRoot: "/private/var/db/food-systems-anchor",
+      externalRoot: "/private/var/db/food-systems-corpus-anchor",
       verifiedAt: "2026-08-04T08:01:00Z",
       requestPath: null,
       expectEmptyExternal: true,
@@ -424,7 +604,7 @@ test("parses only explicit prepare, check and verify modes", () => {
   assert.deepEqual(
     parseCorpusExternalAnchorCliArgs([
       "--check-request",
-      "--external-root=/private/var/db/food-systems-anchor",
+      "--external-root=/private/var/db/food-systems-corpus-anchor",
       "--request=/private/tmp/request.json",
     ]).mode,
     "check_request",
@@ -434,7 +614,7 @@ test("parses only explicit prepare, check and verify modes", () => {
       parseCorpusExternalAnchorCliArgs([
         "--prepare",
         "--prepare",
-        "--external-root=/private/var/db/food-systems-anchor",
+        "--external-root=/private/var/db/food-systems-corpus-anchor",
         "--verified-at=2026-08-04T08:01:00Z",
       ]),
     /exactly one command mode/,
@@ -444,7 +624,7 @@ test("parses only explicit prepare, check and verify modes", () => {
       parseCorpusExternalAnchorCliArgs([
         "--prepare",
         "--check-external",
-        "--external-root=/private/var/db/food-systems-anchor",
+        "--external-root=/private/var/db/food-systems-corpus-anchor",
         "--verified-at=2026-08-04T08:01:00Z",
       ]),
     /exactly one command mode/,
@@ -456,6 +636,14 @@ test("parses only explicit prepare, check and verify modes", () => {
         "--external-root=relative",
       ]),
     /must be absolute/,
+  );
+  assert.throws(
+    () =>
+      parseCorpusExternalAnchorCliArgs([
+        "--check-external",
+        "--external-root=/private/var/db/caller-selected-anchor",
+      ]),
+    /fixed production authority/,
   );
   assert.equal(
     CORPUS_EXTERNAL_ANCHOR_LEDGER_SCHEMA_VERSION.endsWith("-v1"),

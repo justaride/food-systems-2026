@@ -91,6 +91,21 @@ function fixtureTarget(
   };
 }
 
+function privateFixtureTarget(pdfBytes: Buffer): PdfExtractionTarget {
+  const target = fixtureTarget(pdfBytes);
+  return {
+    ...target,
+    sourceBinding: {
+      title: target.sourceBinding.title,
+      doi: target.sourceBinding.doi,
+      controlledPrivateLocator: "private://source/fixture.pdf",
+      expectedPdfInfoTitle: target.sourceBinding.expectedPdfInfoTitle,
+      corpusIdentityVerified: false,
+      scopeDisposition: target.sourceBinding.scopeDisposition,
+    },
+  };
+}
+
 function fixtureManifest(
   target: PdfExtractionTarget,
 ): PdfExtractionBatchManifest {
@@ -396,6 +411,36 @@ describe("PDF page extraction qualification", () => {
       () => parseBatchManifest(malformed),
       /Strict batch manifest validation failed/,
     );
+  });
+
+  it("preserves an exclusive controlled-private source locator through technical extraction", () => {
+    const pdfBytes = Buffer.from("%PDF-private-fixture-content");
+    const target = privateFixtureTarget(pdfBytes);
+    const roots = fixtureRoots(pdfBytes);
+    const manifest = fixtureManifest(target);
+    writeFixtureGeneratorInputs(roots.repositoryRoot, manifest);
+    assert.doesNotThrow(() => parseBatchManifest(manifest));
+    const result = runQualificationBatch({
+      ...roots,
+      manifest,
+      checkOnly: false,
+      runner: fixtureToolRunner(pdfBytes.length),
+    });
+    assert.deepEqual(result.results[0]!.pageMap.sourceBinding, {
+      title: "Fixture document",
+      doi: null,
+      controlledPrivateLocator: "private://source/fixture.pdf",
+      corpusIdentityVerified: false,
+      scopeDisposition: "pending_owner_classification",
+    });
+    const summaryDocument = (
+      result.summary.documents as Array<Record<string, unknown>>
+    )[0]!;
+    assert.equal(
+      summaryDocument.controlledPrivateLocator,
+      "private://source/fixture.pdf",
+    );
+    assert.equal("officialUrl" in summaryDocument, false);
   });
 
   it("accepts observed-empty and not-stated PDF metadata title states", () => {

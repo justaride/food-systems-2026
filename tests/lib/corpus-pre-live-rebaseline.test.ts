@@ -877,6 +877,16 @@ test("schema accepts every sealed artifact including a durable transaction journ
 test("rebaseline overlays generate an in-memory 1,565-row bootstrap without changing legacy generators", () => {
   const root = mkdtempSync(join(tmpdir(), "corpus-rebaseline-overlay-"));
   const repositoryRoot = process.cwd();
+  const registerGeneratorPath = join(
+    repositoryRoot,
+    "scripts/knowledge/generate-corpus-processing-register.ts",
+  );
+  const currentStateGeneratorPath = join(
+    repositoryRoot,
+    "scripts/knowledge/generate-corpus-processing-current-state.ts",
+  );
+  const registerGeneratorBefore = readFileSync(registerGeneratorPath);
+  const currentStateGeneratorBefore = readFileSync(currentStateGeneratorPath);
   try {
     const seed = JSON.parse(
       readFileSync(
@@ -1058,23 +1068,13 @@ test("rebaseline overlays generate an in-memory 1,565-row bootstrap without chan
       currentManifest.rebaselineOverlay.noReadinessOrCoveragePromotion,
       true,
     );
-    assert.equal(
-      readFileSync(
-        join(
-          repositoryRoot,
-          "scripts/knowledge/generate-corpus-processing-register.ts",
-        ),
-      ).length,
-      85031,
+    assert.deepEqual(
+      readFileSync(registerGeneratorPath),
+      registerGeneratorBefore,
     );
-    assert.equal(
-      readFileSync(
-        join(
-          repositoryRoot,
-          "scripts/knowledge/generate-corpus-processing-current-state.ts",
-        ),
-      ).length,
-      29317,
+    assert.deepEqual(
+      readFileSync(currentStateGeneratorPath),
+      currentStateGeneratorBefore,
     );
   } finally {
     rmSync(root, { recursive: true, force: true });

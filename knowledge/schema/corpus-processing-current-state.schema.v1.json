@@ -59,9 +59,12 @@
       "required": [
         "technicalQualification",
         "inputManifest",
+        "verifiedInputManifest",
         "sourceAcquisition",
         "identityVerification",
         "sourceAnalysis",
+        "sourceAnalysisWorkflow",
+        "sourceAnalysisPromptTemplate",
         "readyPackage"
       ],
       "properties": {
@@ -81,6 +84,23 @@
           ]
         },
         "inputManifest": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": {
+                      "const": "source_analysis_input_manifest"
+                    }
+                  }
+                }
+              ]
+            },
+            { "type": "null" }
+          ]
+        },
+        "verifiedInputManifest": {
           "oneOf": [
             {
               "allOf": [
@@ -144,6 +164,38 @@
             { "type": "null" }
           ]
         },
+        "sourceAnalysisWorkflow": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "source_analysis_workflow" }
+                  }
+                }
+              ]
+            },
+            { "type": "null" }
+          ]
+        },
+        "sourceAnalysisPromptTemplate": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": {
+                      "const": "source_analysis_prompt_template"
+                    }
+                  }
+                }
+              ]
+            },
+            { "type": "null" }
+          ]
+        },
         "readyPackage": {
           "oneOf": [
             {
@@ -197,9 +249,14 @@
         "artifactType": {
           "enum": [
             "pdf_technical_qualification",
+            "pdf_page_map",
             "source_analysis_input_manifest",
             "source_acquisition_receipt",
             "source_identity_verification",
+            "source_identity_workflow",
+            "source_identity_prompt_template",
+            "source_analysis_workflow",
+            "source_analysis_prompt_template",
             "source_analysis",
             "ready_for_owner_package"
           ]

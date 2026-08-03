@@ -12,12 +12,20 @@ import {
   SOURCE_ANALYSIS_INPUT_PIPELINE_VERSION,
   SOURCE_ANALYSIS_INPUT_SCHEMA_VERSION,
   SourceAnalysisInputRepositoryPathSchema,
+  serializeNormalizedInput,
   verifySourceAnalysisInputManifest,
   type SourceAnalysisInputManifest,
 } from "./source-analysis-input-manifest";
 import {
+  countUnicodeCharacters,
+  countUnicodeWords,
+} from "./pdf-page-extraction-qualification";
+import {
   MODEL_VERSION_NOT_EXPOSED,
   requireVerifiedSourceIdentity,
+  requireVerifiedSourceIdentityWithEvidenceBundle,
+  sourceIdentityVerificationArtifactPath,
+  type SourceIdentityVerificationEvidenceBundle,
   type SourceIdentityVerificationArtifact,
 } from "./source-identity-verification";
 
@@ -30,6 +38,20 @@ export const SOURCE_ANALYSIS_INPUT_ENVELOPE_VERSION =
   "source-analysis-input-envelope-v1" as const;
 export const SOURCE_ANALYSIS_STAGE_PAYLOAD_VERSION =
   "source-analysis-stage-payload-v1" as const;
+export const SOURCE_ANALYSIS_WORKFLOW_ID =
+  "workflow.full_source_analysis.v1" as const;
+export const SOURCE_ANALYSIS_WORKFLOW_VERSION = "1.0.0" as const;
+export const SOURCE_ANALYSIS_WORKFLOW_PATH =
+  "knowledge/corpus/workflows/source-analysis-v1.md" as const;
+export const SOURCE_ANALYSIS_WORKFLOW_FILE_SHA256 =
+  "sha256:9143c6ad9716cc0c71aa1b823b76129d5bd79028a4a9712daeace44cb9d57a63" as const;
+export const SOURCE_ANALYSIS_PROMPT_TEMPLATE_ID =
+  "prompt.full_source_analysis.v1" as const;
+export const SOURCE_ANALYSIS_PROMPT_TEMPLATE_VERSION = "1.0.0" as const;
+export const SOURCE_ANALYSIS_PROMPT_TEMPLATE_PATH =
+  "knowledge/corpus/workflows/source-analysis-prompt-v1.md" as const;
+export const SOURCE_ANALYSIS_PROMPT_TEMPLATE_FILE_SHA256 =
+  "sha256:2a0e61a4d81adcb554c19a40f1e8c0bda2a4d3cf2c0917f92189f793b3c8d351" as const;
 export const SOURCE_ANALYSIS_REQUIRED_STAGES = [
   "full_text_read",
   "locator_grounding",
@@ -252,9 +274,16 @@ const aiRunCore = {
   checkpoints: z.array(sourceAnalysisCheckpointSchema).min(1),
   provider: z.string().min(1).max(200),
   model: z.string().min(1).max(200),
-  workflowRef: z.string().min(1).max(500),
-  workflowVersion: versionSchema,
-  promptTemplateSha256: sha256Schema,
+  workflowRef: z.literal(SOURCE_ANALYSIS_WORKFLOW_ID),
+  workflowVersion: z.literal(SOURCE_ANALYSIS_WORKFLOW_VERSION),
+  workflowPath: z.literal(SOURCE_ANALYSIS_WORKFLOW_PATH),
+  workflowFileSha256: z.literal(SOURCE_ANALYSIS_WORKFLOW_FILE_SHA256),
+  promptTemplateRef: z.literal(SOURCE_ANALYSIS_PROMPT_TEMPLATE_ID),
+  promptTemplateVersion: z.literal(SOURCE_ANALYSIS_PROMPT_TEMPLATE_VERSION),
+  promptTemplatePath: z.literal(SOURCE_ANALYSIS_PROMPT_TEMPLATE_PATH),
+  promptTemplateFileSha256: z.literal(
+    SOURCE_ANALYSIS_PROMPT_TEMPLATE_FILE_SHA256,
+  ),
   workflowSha256: sha256Schema,
   inputTextSha256: sha256Schema,
   inputEnvelope: sourceAnalysisInputEnvelopeSchema,
@@ -746,7 +775,12 @@ export function hashSourceAnalysisPayload(
 export function hashSourceAnalysisWorkflow(input: {
   workflowRef: string;
   workflowVersion: string;
-  promptTemplateSha256: string;
+  workflowPath: string;
+  workflowFileSha256: string;
+  promptTemplateRef: string;
+  promptTemplateVersion: string;
+  promptTemplatePath: string;
+  promptTemplateFileSha256: string;
 }): string {
   return domainSeparatedSourceAnalysisSha256(
     SOURCE_ANALYSIS_WORKFLOW_HASH_DOMAIN,
@@ -980,7 +1014,12 @@ function validateExecution(artifact: SourceAnalysisArtifact): void {
     SourceAnalysisArtifact["analysisExecution"]["runs"][number],
     | "workflowRef"
     | "workflowVersion"
-    | "promptTemplateSha256"
+    | "workflowPath"
+    | "workflowFileSha256"
+    | "promptTemplateRef"
+    | "promptTemplateVersion"
+    | "promptTemplatePath"
+    | "promptTemplateFileSha256"
     | "workflowSha256"
   > | null = null;
 
@@ -996,7 +1035,12 @@ function validateExecution(artifact: SourceAnalysisArtifact): void {
     const expectedWorkflowSha256 = hashSourceAnalysisWorkflow({
       workflowRef: run.workflowRef,
       workflowVersion: run.workflowVersion,
-      promptTemplateSha256: run.promptTemplateSha256,
+      workflowPath: run.workflowPath,
+      workflowFileSha256: run.workflowFileSha256,
+      promptTemplateRef: run.promptTemplateRef,
+      promptTemplateVersion: run.promptTemplateVersion,
+      promptTemplatePath: run.promptTemplatePath,
+      promptTemplateFileSha256: run.promptTemplateFileSha256,
     });
     if (run.workflowSha256 !== expectedWorkflowSha256) {
       fail(
@@ -1006,7 +1050,12 @@ function validateExecution(artifact: SourceAnalysisArtifact): void {
     const workflow = {
       workflowRef: run.workflowRef,
       workflowVersion: run.workflowVersion,
-      promptTemplateSha256: run.promptTemplateSha256,
+      workflowPath: run.workflowPath,
+      workflowFileSha256: run.workflowFileSha256,
+      promptTemplateRef: run.promptTemplateRef,
+      promptTemplateVersion: run.promptTemplateVersion,
+      promptTemplatePath: run.promptTemplatePath,
+      promptTemplateFileSha256: run.promptTemplateFileSha256,
       workflowSha256: run.workflowSha256,
     };
     if (firstWorkflow === null) firstWorkflow = workflow;
@@ -1595,9 +1644,10 @@ export function validateSourceAnalysisBinding(
   return validated;
 }
 
-export function validateSourceAnalysisIdentityReference(
+function validateSourceAnalysisIdentityReferenceFields(
   binding: SourceAnalysisBinding,
   identityArtifact: SourceIdentityVerificationArtifact,
+  requireSharedLifecycleSnapshot: boolean,
 ): SourceAnalysisBinding {
   const identity = requireVerifiedSourceIdentity(identityArtifact);
   const verified = identity.decision.verifiedIdentity;
@@ -1622,11 +1672,12 @@ export function validateSourceAnalysisIdentityReference(
     );
   }
   if (
-    binding.lifecycleRecordId !== identity.binding.lifecycleRecordId ||
-    binding.lifecycleSnapshotSha256 !==
-      identity.binding.lifecycleSnapshotSha256 ||
-    binding.lifecycleSnapshotUpdatedAt !==
-      identity.binding.lifecycleSnapshotUpdatedAt ||
+    (requireSharedLifecycleSnapshot &&
+      (binding.lifecycleRecordId !== identity.binding.lifecycleRecordId ||
+        binding.lifecycleSnapshotSha256 !==
+          identity.binding.lifecycleSnapshotSha256 ||
+        binding.lifecycleSnapshotUpdatedAt !==
+          identity.binding.lifecycleSnapshotUpdatedAt)) ||
     binding.sourceId !== identity.binding.sourceId ||
     binding.sourceId !== verified.sourceId ||
     binding.sourceCanonicalIdentity !== verified.canonicalIdentity ||
@@ -1654,6 +1705,17 @@ export function validateSourceAnalysisIdentityReference(
   return binding;
 }
 
+export function validateSourceAnalysisIdentityReference(
+  binding: SourceAnalysisBinding,
+  identityArtifact: SourceIdentityVerificationArtifact,
+): SourceAnalysisBinding {
+  return validateSourceAnalysisIdentityReferenceFields(
+    binding,
+    identityArtifact,
+    true,
+  );
+}
+
 export function validateSourceAnalysisIdentityVerificationBinding(
   analysisArtifact: SourceAnalysisArtifact,
   identityArtifact: SourceIdentityVerificationArtifact,
@@ -1668,8 +1730,20 @@ export type SourceAnalysisArtifactFile = {
   bytes: Buffer | string;
 };
 
+export type SourceAnalysisNormalizedPageBytes = {
+  pageNumber: number;
+  bytes: Buffer | string;
+};
+
+export type SourceAnalysisExecutionEvidenceInputs = {
+  workflowFile: SourceAnalysisArtifactFile;
+  promptTemplateFile: SourceAnalysisArtifactFile;
+  normalizedPages: readonly SourceAnalysisNormalizedPageBytes[];
+};
+
 export type ValidatedSourceAnalysisInputs = {
   artifact: SourceAnalysisArtifact;
+  predecessorInputManifest: SourceAnalysisInputManifest;
   inputManifest: SourceAnalysisInputManifest;
   identityArtifact: SourceIdentityVerificationArtifact & {
     decision: Extract<
@@ -1677,32 +1751,185 @@ export type ValidatedSourceAnalysisInputs = {
       { state: "verified" }
     >;
   };
-  lifecyclePrestate: CorpusLifecycleRecord;
+  identityVerificationPrestate: CorpusLifecycleRecord;
+  analysisPrestate: CorpusLifecycleRecord;
+  predecessorInputManifestFileSha256: string;
   inputManifestFileSha256: string;
   identityArtifactFileSha256: string;
+  workflowFileSha256: string;
+  promptTemplateFileSha256: string;
+  normalizedInputSha256: string;
+  normalizedInputSerializedSizeBytes: number;
 };
+
+export type ValidatedSourceAnalysisAuthorization =
+  ValidatedSourceAnalysisInputs;
 
 function exactFileBytes(value: Buffer | string): Buffer {
   return typeof value === "string" ? Buffer.from(value, "utf8") : value;
+}
+
+function decodeExactUtf8(bytes: Buffer, label: string): string {
+  try {
+    return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
+  } catch {
+    fail(`${label} is not valid UTF-8`);
+  }
 }
 
 function parseExactJsonFile(
   file: SourceAnalysisArtifactFile,
   label: string,
 ): unknown {
-  let text: string;
-  try {
-    text = new TextDecoder("utf-8", { fatal: true }).decode(
-      exactFileBytes(file.bytes),
-    );
-  } catch {
-    fail(`${label} file is not valid UTF-8`);
-  }
+  const text = decodeExactUtf8(exactFileBytes(file.bytes), `${label} file`);
   try {
     return JSON.parse(text);
   } catch {
     fail(`${label} file is not valid JSON`);
   }
+}
+
+function validateExactSourceAnalysisWorkflowFile(
+  artifact: SourceAnalysisArtifact,
+  workflowFile: SourceAnalysisArtifactFile,
+): string {
+  if (workflowFile.path !== SOURCE_ANALYSIS_WORKFLOW_PATH) {
+    fail(
+      `source-analysis workflow path must be ${SOURCE_ANALYSIS_WORKFLOW_PATH}`,
+    );
+  }
+  const workflowBytes = exactFileBytes(workflowFile.bytes);
+  decodeExactUtf8(workflowBytes, "source-analysis workflow file");
+  const workflowFileSha256 = sourceAnalysisSha256(workflowBytes);
+  if (workflowFileSha256 !== SOURCE_ANALYSIS_WORKFLOW_FILE_SHA256) {
+    fail("source-analysis workflow file bytes do not match the pinned hash");
+  }
+  for (const run of artifact.analysisExecution.runs) {
+    if (
+      run.workflowRef !== SOURCE_ANALYSIS_WORKFLOW_ID ||
+      run.workflowVersion !== SOURCE_ANALYSIS_WORKFLOW_VERSION ||
+      run.workflowPath !== SOURCE_ANALYSIS_WORKFLOW_PATH ||
+      run.workflowFileSha256 !== workflowFileSha256
+    ) {
+      fail(
+        `AI run ${run.runId} does not bind the exact canonical source-analysis workflow file`,
+      );
+    }
+  }
+  return workflowFileSha256;
+}
+
+export function validateSourceAnalysisWorkflowFile(
+  artifactValue: unknown,
+  workflowFile: SourceAnalysisArtifactFile,
+): string {
+  return validateExactSourceAnalysisWorkflowFile(
+    validateSourceAnalysisArtifact(artifactValue),
+    workflowFile,
+  );
+}
+
+function validateExactSourceAnalysisPromptTemplateFile(
+  artifact: SourceAnalysisArtifact,
+  promptTemplateFile: SourceAnalysisArtifactFile,
+): string {
+  if (promptTemplateFile.path !== SOURCE_ANALYSIS_PROMPT_TEMPLATE_PATH) {
+    fail(
+      `source-analysis prompt template path must be ${SOURCE_ANALYSIS_PROMPT_TEMPLATE_PATH}`,
+    );
+  }
+  const bytes = exactFileBytes(promptTemplateFile.bytes);
+  decodeExactUtf8(bytes, "source-analysis prompt template file");
+  const promptTemplateFileSha256 = sourceAnalysisSha256(bytes);
+  if (
+    promptTemplateFileSha256 !== SOURCE_ANALYSIS_PROMPT_TEMPLATE_FILE_SHA256
+  ) {
+    fail(
+      "source-analysis prompt template file bytes do not match the pinned hash",
+    );
+  }
+  for (const run of artifact.analysisExecution.runs) {
+    if (
+      run.promptTemplateRef !== SOURCE_ANALYSIS_PROMPT_TEMPLATE_ID ||
+      run.promptTemplateVersion !== SOURCE_ANALYSIS_PROMPT_TEMPLATE_VERSION ||
+      run.promptTemplatePath !== SOURCE_ANALYSIS_PROMPT_TEMPLATE_PATH ||
+      run.promptTemplateFileSha256 !== promptTemplateFileSha256
+    ) {
+      fail(
+        `AI run ${run.runId} does not bind the exact canonical source-analysis prompt template file`,
+      );
+    }
+  }
+  return promptTemplateFileSha256;
+}
+
+export function validateSourceAnalysisPromptTemplateFile(
+  artifactValue: unknown,
+  promptTemplateFile: SourceAnalysisArtifactFile,
+): string {
+  return validateExactSourceAnalysisPromptTemplateFile(
+    validateSourceAnalysisArtifact(artifactValue),
+    promptTemplateFile,
+  );
+}
+
+export function validateSourceAnalysisNormalizedPageBytes(
+  manifestValue: unknown,
+  normalizedPages: readonly SourceAnalysisNormalizedPageBytes[],
+): {
+  normalizedInputSha256: string;
+  serializedSizeBytes: number;
+} {
+  const manifest = verifySourceAnalysisInputManifest(manifestValue);
+  if (normalizedPages.length !== manifest.pages.length) {
+    fail(
+      "normalized page byte inputs must contain every manifest page exactly once",
+    );
+  }
+
+  const orderedBytes = manifest.pages.map((page, index) => {
+    const supplied = normalizedPages[index];
+    if (!supplied || supplied.pageNumber !== page.pageNumber) {
+      fail(
+        `normalized page byte inputs are missing or out of order at page ${page.pageNumber}`,
+      );
+    }
+    const bytes = exactFileBytes(supplied.bytes);
+    const text = decodeExactUtf8(
+      bytes,
+      `normalized page ${page.pageNumber} bytes`,
+    );
+    const observedSha256 = sourceAnalysisSha256(bytes).slice("sha256:".length);
+    if (
+      observedSha256 !== page.normalizedText.sha256 ||
+      bytes.length !== page.normalizedText.sizeBytes ||
+      countUnicodeCharacters(text) !== page.normalizedText.characterCount ||
+      countUnicodeWords(text) !== page.normalizedText.wordCount
+    ) {
+      fail(
+        `normalized page ${page.pageNumber} bytes, hash, character count or word count do not match the manifest`,
+      );
+    }
+    return bytes;
+  });
+
+  const serialized = serializeNormalizedInput({
+    pages: manifest.pages,
+    normalizedPageBytes: orderedBytes,
+  });
+  if (
+    serialized.sha256 !== manifest.normalizedInput.sha256 ||
+    serialized.serializedSizeBytes !==
+      manifest.normalizedInput.serializedSizeBytes
+  ) {
+    fail(
+      "serialized normalized input bytes do not match the manifest hash and byte count",
+    );
+  }
+  return {
+    normalizedInputSha256: prefixedInputHash(serialized.sha256),
+    serializedSizeBytes: serialized.serializedSizeBytes,
+  };
 }
 
 function prefixedInputHash(value: string): string {
@@ -1733,20 +1960,136 @@ function validateExactManifestLocators(
   }
 }
 
+function stableManifestPromotionBinding(
+  manifest: SourceAnalysisInputManifest,
+): JsonValue {
+  return {
+    processingUnit: manifest.processingUnit,
+    identityKeys: manifest.identityKeys,
+    identityAssociation: {
+      intendedLabel: manifest.identityAssociation.intendedLabel,
+      observedDocumentTitle: manifest.identityAssociation.observedDocumentTitle,
+    },
+    sourceBinding: {
+      title: manifest.sourceBinding.title,
+      doi: manifest.sourceBinding.doi,
+      ...("officialUrl" in manifest.sourceBinding
+        ? { officialUrl: manifest.sourceBinding.officialUrl }
+        : {
+            controlledPrivateLocator:
+              manifest.sourceBinding.controlledPrivateLocator,
+          }),
+      scopeDisposition: manifest.sourceBinding.scopeDisposition,
+    },
+    bindings: manifest.bindings,
+    serialization: manifest.serialization,
+    normalizedInput: manifest.normalizedInput,
+    pages: manifest.pages,
+    totals: manifest.totals,
+    privateStorage: manifest.privateStorage,
+    textIncludedInTrackedArtifact: manifest.textIncludedInTrackedArtifact,
+    readiness: manifest.readiness,
+  } as JsonValue;
+}
+
+function validateInputManifestPromotion(
+  predecessor: SourceAnalysisInputManifest,
+  promoted: SourceAnalysisInputManifest,
+): void {
+  if (
+    predecessor.identityAssociation.state !== "provisional_metadata_match" ||
+    predecessor.sourceBinding.corpusIdentityVerified !== false ||
+    predecessor.workflowEligibility.state !==
+      "identity_verification_candidate" ||
+    predecessor.workflowEligibility.sourceAnalysis.allowed !== false
+  ) {
+    fail(
+      "predecessor input manifest must be the exact provisional identity-verification candidate",
+    );
+  }
+  if (
+    canonicalSourceAnalysisJson(stableManifestPromotionBinding(predecessor)) !==
+    canonicalSourceAnalysisJson(stableManifestPromotionBinding(promoted))
+  ) {
+    fail(
+      "promoted input manifest changes source, content, extraction, text, scope or gate fields outside the identity transition",
+    );
+  }
+}
+
+function validateExactIdentityLifecycleTransition(input: {
+  identityVerificationPrestate: CorpusLifecycleRecord;
+  analysisPrestate: CorpusLifecycleRecord;
+  identity: SourceIdentityVerificationArtifact & {
+    decision: Extract<
+      SourceIdentityVerificationArtifact["decision"],
+      { state: "verified" }
+    >;
+  };
+}): void {
+  const { identityVerificationPrestate, analysisPrestate, identity } = input;
+  if (
+    identityVerificationPrestate.sourceIdentity.identityStatus !==
+      "provisional" ||
+    analysisPrestate.sourceIdentity.identityStatus !== "verified"
+  ) {
+    fail(
+      "lifecycle transition must advance one provisional identity prestate to one verified analysis prestate",
+    );
+  }
+  if (
+    Date.parse(analysisPrestate.updatedAt) < Date.parse(identity.createdAt) ||
+    Date.parse(analysisPrestate.updatedAt) <
+      Date.parse(identityVerificationPrestate.updatedAt)
+  ) {
+    fail(
+      "verified analysis prestate cannot predate the identity artifact or identity-verification prestate",
+    );
+  }
+
+  const expectedAnalysisPrestate = structuredClone(
+    identityVerificationPrestate,
+  );
+  expectedAnalysisPrestate.sourceIdentity.identityStatus = "verified";
+  expectedAnalysisPrestate.sourceIdentity.identityKind =
+    identity.candidateIdentity.identityKind;
+  expectedAnalysisPrestate.sourceIdentity.canonicalIdentity =
+    identity.decision.verifiedIdentity.canonicalIdentity;
+  expectedAnalysisPrestate.updatedAt = analysisPrestate.updatedAt;
+
+  if (
+    canonicalSourceAnalysisJson(
+      expectedAnalysisPrestate as unknown as JsonValue,
+    ) !== canonicalSourceAnalysisJson(analysisPrestate as unknown as JsonValue)
+  ) {
+    fail(
+      "analysis prestate contains changes outside the exact verified-identity lifecycle transition",
+    );
+  }
+}
+
 /**
- * Establishes authorization to run or accept a source analysis. Standalone
- * artifact or manifest validation does not establish this combined binding.
+ * Decision-only replay helper. This is safe only after the same complete
+ * deterministic replay has already accepted the exact identity artifact
+ * through an `identity_verified` event and its full evidence bundle. It does
+ * not establish standalone authorization for source analysis. It still
+ * validates the exact workflow file, prompt-template file and every ordered
+ * normalized page byte used by the analysis execution.
  */
-export function validateSourceAnalysisArtifactWithInputs(
+export function validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
   artifactValue: unknown,
   inputs: {
+    predecessorInputManifestFile: SourceAnalysisArtifactFile;
     inputManifestFile: SourceAnalysisArtifactFile;
     identityArtifactFile: SourceAnalysisArtifactFile;
-    lifecyclePrestate: unknown;
-  },
+    identityVerificationPrestate: unknown;
+    analysisPrestate: unknown;
+  } & SourceAnalysisExecutionEvidenceInputs,
 ): ValidatedSourceAnalysisInputs {
   const artifact = validateSourceAnalysisArtifact(artifactValue);
   if (
+    !repositoryPathSchema.safeParse(inputs.predecessorInputManifestFile.path)
+      .success ||
     !repositoryPathSchema.safeParse(inputs.inputManifestFile.path).success ||
     !repositoryPathSchema.safeParse(inputs.identityArtifactFile.path).success
   ) {
@@ -1755,6 +2098,18 @@ export function validateSourceAnalysisArtifactWithInputs(
     );
   }
 
+  const predecessorManifestBytes = exactFileBytes(
+    inputs.predecessorInputManifestFile.bytes,
+  );
+  const predecessorManifest = verifySourceAnalysisInputManifest(
+    parseExactJsonFile(
+      inputs.predecessorInputManifestFile,
+      "predecessor source-analysis input manifest",
+    ),
+  );
+  const predecessorManifestFileSha256 = sourceAnalysisSha256(
+    predecessorManifestBytes,
+  );
   const manifestBytes = exactFileBytes(inputs.inputManifestFile.bytes);
   const manifest = verifySourceAnalysisInputManifest(
     parseExactJsonFile(
@@ -1771,8 +2126,14 @@ export function validateSourceAnalysisArtifactWithInputs(
     ) as SourceIdentityVerificationArtifact,
   );
   const identityFileSha256 = sourceAnalysisSha256(identityBytes);
-  const lifecycle = validateCorpusLifecycle(inputs.lifecyclePrestate);
-  const lifecycleSnapshotSha256 = hashCorpusLifecycleState(lifecycle);
+  const identityVerificationPrestate = validateCorpusLifecycle(
+    inputs.identityVerificationPrestate,
+  );
+  const identityVerificationPrestateSha256 = hashCorpusLifecycleState(
+    identityVerificationPrestate,
+  );
+  const analysisPrestate = validateCorpusLifecycle(inputs.analysisPrestate);
+  const analysisPrestateSha256 = hashCorpusLifecycleState(analysisPrestate);
 
   if (
     artifact.binding.sourceAnalysisInputManifestPath !==
@@ -1808,6 +2169,24 @@ export function validateSourceAnalysisArtifactWithInputs(
   }
 
   const eligibility = manifest.workflowEligibility.sourceAnalysis;
+  const predecessorReference = eligibility.predecessorInputManifestReference;
+  if (
+    inputs.predecessorInputManifestFile.path ===
+      inputs.inputManifestFile.path ||
+    predecessorReference.path !== inputs.predecessorInputManifestFile.path ||
+    predecessorReference.fileSha256 !==
+      predecessorManifestFileSha256.slice("sha256:".length) ||
+    predecessorReference.schemaVersion !== predecessorManifest.schemaVersion ||
+    predecessorReference.pipelineVersion !==
+      predecessorManifest.pipelineVersion ||
+    predecessorReference.manifestSha256 !== predecessorManifest.manifestSha256
+  ) {
+    fail(
+      "promoted manifest does not reference the exact predecessor manifest path, file hash, version and seal",
+    );
+  }
+  validateInputManifestPromotion(predecessorManifest, manifest);
+
   const identityReference = eligibility.identityArtifactReference;
   const identityFileSha256Raw = identityFileSha256.slice("sha256:".length);
   if (
@@ -1832,22 +2211,70 @@ export function validateSourceAnalysisArtifactWithInputs(
       "source analysis does not bind the exact source-identity artifact path and file hash",
     );
   }
-  validateSourceAnalysisIdentityReference(artifact.binding, identity);
+  validateSourceAnalysisIdentityReferenceFields(
+    artifact.binding,
+    identity,
+    false,
+  );
 
-  const lifecycleReference = eligibility.lifecyclePrestate;
+  const identityLifecycleReference =
+    eligibility.lifecycleTransition.identityVerificationPrestate;
+  const analysisLifecycleReference =
+    eligibility.lifecycleTransition.analysisPrestate;
   if (
-    lifecycleReference.lifecycleRecordId !== lifecycle.recordId ||
-    lifecycleReference.lifecycleSnapshotSha256 !== lifecycleSnapshotSha256 ||
-    lifecycleReference.lifecycleSnapshotUpdatedAt !== lifecycle.updatedAt ||
-    artifact.binding.lifecycleRecordId !== lifecycle.recordId ||
-    artifact.binding.lifecycleSnapshotSha256 !== lifecycleSnapshotSha256 ||
-    artifact.binding.lifecycleSnapshotUpdatedAt !== lifecycle.updatedAt ||
-    identity.binding.lifecycleRecordId !== lifecycle.recordId ||
-    identity.binding.lifecycleSnapshotSha256 !== lifecycleSnapshotSha256 ||
-    identity.binding.lifecycleSnapshotUpdatedAt !== lifecycle.updatedAt
+    identityLifecycleReference.sourceIdentityStatus !== "provisional" ||
+    identityLifecycleReference.lifecycleRecordId !==
+      identityVerificationPrestate.recordId ||
+    identityLifecycleReference.lifecycleSnapshotSha256 !==
+      identityVerificationPrestateSha256 ||
+    identityLifecycleReference.lifecycleSnapshotUpdatedAt !==
+      identityVerificationPrestate.updatedAt ||
+    identity.binding.lifecycleRecordId !==
+      identityVerificationPrestate.recordId ||
+    identity.binding.lifecycleSnapshotSha256 !==
+      identityVerificationPrestateSha256 ||
+    identity.binding.lifecycleSnapshotUpdatedAt !==
+      identityVerificationPrestate.updatedAt
   ) {
     fail(
-      "manifest, identity and source analysis do not bind the exact lifecycle pre-state",
+      "manifest and identity artifact do not bind the exact identity-verification lifecycle prestate",
+    );
+  }
+  if (
+    analysisLifecycleReference.sourceIdentityStatus !== "verified" ||
+    analysisLifecycleReference.lifecycleRecordId !==
+      analysisPrestate.recordId ||
+    analysisLifecycleReference.lifecycleSnapshotSha256 !==
+      analysisPrestateSha256 ||
+    analysisLifecycleReference.lifecycleSnapshotUpdatedAt !==
+      analysisPrestate.updatedAt ||
+    artifact.binding.lifecycleRecordId !== analysisPrestate.recordId ||
+    artifact.binding.lifecycleSnapshotSha256 !== analysisPrestateSha256 ||
+    artifact.binding.lifecycleSnapshotUpdatedAt !== analysisPrestate.updatedAt
+  ) {
+    fail(
+      "manifest and source analysis do not bind the exact verified analysis lifecycle prestate",
+    );
+  }
+  validateExactIdentityLifecycleTransition({
+    identityVerificationPrestate,
+    analysisPrestate,
+    identity,
+  });
+  if (
+    canonicalSourceAnalysisJson({
+      geographyIds: artifact.scope.geographyIds,
+      materialProfileIds: artifact.scope.materialProfileIds,
+      intendedUseProfileIds: artifact.scope.intendedUseProfileIds,
+    }) !==
+    canonicalSourceAnalysisJson({
+      geographyIds: analysisPrestate.scope.geographyIds,
+      materialProfileIds: analysisPrestate.scope.materialProfileIds,
+      intendedUseProfileIds: analysisPrestate.scope.intendedUseProfileIds,
+    })
+  ) {
+    fail(
+      "source-analysis scope does not exactly match the verified analysis lifecycle prestate",
     );
   }
 
@@ -1860,28 +2287,45 @@ export function validateSourceAnalysisArtifactWithInputs(
     !manifest.identityKeys.includes(verifiedIdentity.canonicalIdentity) ||
     manifest.identityAssociation.observedDocumentTitle !==
       identity.observedMetadata.title ||
-    manifest.sourceBinding.title !== identity.observedMetadata.title ||
-    artifact.binding.sourceTitle !== identity.observedMetadata.title ||
-    lifecycle.sourceIdentity.sourceId !== verifiedIdentity.sourceId ||
-    lifecycle.sourceIdentity.canonicalIdentity !==
+    manifest.sourceBinding.title !==
+      identity.candidateIdentity.candidateTitle ||
+    artifact.binding.sourceTitle !==
+      identity.candidateIdentity.candidateTitle ||
+    identityVerificationPrestate.sourceIdentity.sourceId !==
+      verifiedIdentity.sourceId ||
+    analysisPrestate.sourceIdentity.sourceId !== verifiedIdentity.sourceId ||
+    identityVerificationPrestate.sourceIdentity.canonicalIdentity !==
       verifiedIdentity.canonicalIdentity ||
-    lifecycle.sourceIdentity.title !== identity.observedMetadata.title ||
-    lifecycle.sourceIdentity.metadataSha256 !==
+    analysisPrestate.sourceIdentity.canonicalIdentity !==
+      verifiedIdentity.canonicalIdentity ||
+    identityVerificationPrestate.sourceIdentity.title !==
+      identity.candidateIdentity.candidateTitle ||
+    analysisPrestate.sourceIdentity.title !==
+      identity.candidateIdentity.candidateTitle ||
+    identityVerificationPrestate.sourceIdentity.metadataSha256 !==
       identity.binding.sourceMetadataSha256 ||
-    lifecycle.sourceIdentity.contentSha256 !==
+    analysisPrestate.sourceIdentity.metadataSha256 !==
+      identity.binding.sourceMetadataSha256 ||
+    identityVerificationPrestate.sourceIdentity.contentSha256 !==
+      identity.binding.sourceContentSha256 ||
+    analysisPrestate.sourceIdentity.contentSha256 !==
       identity.binding.sourceContentSha256
   ) {
     fail(
       "source, title, canonical identity, metadata or content drift across combined inputs",
     );
   }
-  if (
-    identity.candidateIdentity.candidateLocator.kind !== "official_url" ||
-    identity.candidateIdentity.candidateLocator.url !==
-      manifest.sourceBinding.officialUrl
-  ) {
+  const candidateLocator = identity.candidateIdentity.candidateLocator;
+  const manifestLocatorMatches =
+    candidateLocator.kind === "official_url"
+      ? "officialUrl" in manifest.sourceBinding &&
+        candidateLocator.url === manifest.sourceBinding.officialUrl
+      : "controlledPrivateLocator" in manifest.sourceBinding &&
+        candidateLocator.locator ===
+          manifest.sourceBinding.controlledPrivateLocator;
+  if (!manifestLocatorMatches) {
     fail(
-      "manifest official URL does not match the exact verified identity candidate locator",
+      "manifest source locator does not match the exact verified identity candidate locator",
     );
   }
 
@@ -1897,8 +2341,13 @@ export function validateSourceAnalysisArtifactWithInputs(
     artifact.binding.extractionTextManifestSha256 !== normalizedInputSha256 ||
     identity.extractionBinding.extractedTextManifestSha256 !==
       normalizedInputSha256 ||
-    lifecycle.textAvailability.textSha256 !== normalizedInputSha256 ||
-    lifecycle.textAvailability.state !== artifact.binding.textAvailabilityState
+    identityVerificationPrestate.textAvailability.textSha256 !==
+      normalizedInputSha256 ||
+    analysisPrestate.textAvailability.textSha256 !== normalizedInputSha256 ||
+    identityVerificationPrestate.textAvailability.state !==
+      artifact.binding.textAvailabilityState ||
+    analysisPrestate.textAvailability.state !==
+      artifact.binding.textAvailabilityState
   ) {
     fail(
       "raw PDF or normalized full-text hash drifts across manifest, identity, lifecycle and analysis",
@@ -1948,14 +2397,88 @@ export function validateSourceAnalysisArtifactWithInputs(
       "source analysis cannot start before its verified identity artifact exists",
     );
   }
+  const workflowFileSha256 = validateExactSourceAnalysisWorkflowFile(
+    artifact,
+    inputs.workflowFile,
+  );
+  const promptTemplateFileSha256 =
+    validateExactSourceAnalysisPromptTemplateFile(
+      artifact,
+      inputs.promptTemplateFile,
+    );
+  const normalizedInput = validateSourceAnalysisNormalizedPageBytes(
+    manifest,
+    inputs.normalizedPages,
+  );
+  if (normalizedInput.normalizedInputSha256 !== artifact.binding.textSha256) {
+    fail("exact normalized page bytes do not match the analysis text binding");
+  }
   return {
     artifact,
+    predecessorInputManifest: predecessorManifest,
     inputManifest: manifest,
     identityArtifact: identity,
-    lifecyclePrestate: lifecycle,
+    identityVerificationPrestate,
+    analysisPrestate,
+    predecessorInputManifestFileSha256: predecessorManifestFileSha256,
     inputManifestFileSha256: manifestFileSha256,
     identityArtifactFileSha256: identityFileSha256,
+    workflowFileSha256,
+    promptTemplateFileSha256,
+    normalizedInputSha256: normalizedInput.normalizedInputSha256,
+    normalizedInputSerializedSizeBytes: normalizedInput.serializedSizeBytes,
   };
+}
+
+/**
+ * Standalone authorization boundary for source analysis. It validates the
+ * complete identity evidence bundle and requires that bundle to contain the
+ * exact immutable predecessor manifest used by the analysis. It delegates the
+ * workflow, prompt-template and normalized-page byte checks to the same replay
+ * boundary used after an accepted `identity_verified` event.
+ */
+export function validateSourceAnalysisArtifactWithEvidenceBundle(
+  artifactValue: unknown,
+  inputs: {
+    predecessorInputManifestFile: SourceAnalysisArtifactFile;
+    inputManifestFile: SourceAnalysisArtifactFile;
+    identityArtifactFile: SourceAnalysisArtifactFile;
+    identityVerificationPrestate: unknown;
+    analysisPrestate: unknown;
+    identityEvidenceBundle: SourceIdentityVerificationEvidenceBundle;
+  } & SourceAnalysisExecutionEvidenceInputs,
+): ValidatedSourceAnalysisAuthorization {
+  const predecessorBytes = exactFileBytes(
+    inputs.predecessorInputManifestFile.bytes,
+  );
+  const evidenceCandidateBytes = exactFileBytes(
+    inputs.identityEvidenceBundle.sourceAnalysisInputManifestFile.bytes,
+  );
+  if (
+    inputs.identityEvidenceBundle.sourceAnalysisInputManifestFile.path !==
+      inputs.predecessorInputManifestFile.path ||
+    !evidenceCandidateBytes.equals(predecessorBytes)
+  ) {
+    fail(
+      "identity evidence bundle does not contain the exact predecessor input manifest",
+    );
+  }
+  const verifiedIdentity = requireVerifiedSourceIdentityWithEvidenceBundle(
+    parseExactJsonFile(inputs.identityArtifactFile, "source-identity artifact"),
+    inputs.identityEvidenceBundle,
+  ).identity;
+  if (
+    inputs.identityArtifactFile.path !==
+    sourceIdentityVerificationArtifactPath(verifiedIdentity.artifactSha256)
+  ) {
+    fail(
+      "identity artifact file must use the content-addressed repository path derived from its validated artifact seal",
+    );
+  }
+  return validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
+    artifactValue,
+    inputs,
+  );
 }
 
 export function sealSourceAnalysisArtifact(

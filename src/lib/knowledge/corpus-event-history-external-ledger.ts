@@ -6,6 +6,7 @@ import {
   lstatSync,
   openSync,
   readFileSync,
+  readdirSync,
 } from "node:fs";
 import {
   isAbsolute,
@@ -328,6 +329,54 @@ function revalidateExternalSnapshot(
   });
 }
 
+function requireRequestExtendsExternalSnapshot(input: {
+  request: CorpusExternalAnchorAppendRequest;
+  previousSnapshot: CorpusExternalAnchorLedgerSnapshot | null;
+}): void {
+  const previous = input.previousSnapshot?.records.at(-1);
+  if (!previous) {
+    if (
+      input.request.candidate.sequence !== 1 ||
+      input.request.candidate.predecessorRecordSha256 !== null ||
+      input.request.repositoryAnchorLogPrefix.recordCount !== 1
+    ) {
+      fail(
+        "external-ledger genesis requires candidate sequence 1 with a null predecessor",
+      );
+    }
+    return;
+  }
+  const expectedCandidateSequence =
+    previous.repositoryAnchorLogPrefix.recordCount + 2;
+  if (
+    input.request.candidate.sequence !== expectedCandidateSequence ||
+    input.request.repositoryAnchorLogPrefix.recordCount !==
+      expectedCandidateSequence
+  ) {
+    fail(
+      "append request candidate sequence does not extend the prior repository record count",
+    );
+  }
+  if (
+    input.request.candidate.predecessorRecordSha256 !==
+    previous.verificationRecordSha256
+  ) {
+    fail(
+      "append request candidate predecessor does not match the prior trusted verification",
+    );
+  }
+  if (
+    !exactJson(
+      input.request.repositoryBaselineInputs,
+      previous.repositoryBaselineInputs,
+    )
+  ) {
+    fail(
+      "append request changes the immutable baseline, processing register, or baseline generation manifest",
+    );
+  }
+}
+
 export function prepareCorpusExternalAnchorAppendRequest(input: {
   repositoryAnchorLogPath: string;
   repositoryAnchorLogBytes: Buffer;
@@ -404,10 +453,15 @@ export function prepareCorpusExternalAnchorAppendRequest(input: {
     externalHeadPrecondition,
     preparedAt: input.verifiedAt,
   };
-  return validateCorpusExternalAnchorAppendRequest({
+  const request = validateCorpusExternalAnchorAppendRequest({
     ...body,
     requestSha256: hashCorpusExternalAnchorAppendRequest(body),
   });
+  requireRequestExtendsExternalSnapshot({
+    request,
+    previousSnapshot: externalSnapshot,
+  });
+  return request;
 }
 
 export function validateCorpusExternalAnchorAppendRequest(
@@ -441,6 +495,24 @@ export function validateCorpusExternalAnchorAppendRequest(
   ) {
     fail(
       "append request does not bind the candidate as repository prefix head",
+    );
+  }
+  if (
+    request.externalHeadPrecondition === null &&
+    (candidate.sequence !== 1 ||
+      candidate.predecessorRecordSha256 !== null ||
+      request.repositoryAnchorLogPrefix.recordCount !== 1)
+  ) {
+    fail(
+      "external-ledger genesis requires candidate sequence 1 with a null predecessor",
+    );
+  }
+  if (
+    request.externalHeadPrecondition !== null &&
+    (candidate.sequence < 3 || candidate.predecessorRecordSha256 === null)
+  ) {
+    fail(
+      "non-genesis append request requires a successor candidate and predecessor",
     );
   }
   if (
@@ -496,6 +568,7 @@ export function appendRequestToCorpusExternalAnchorSnapshot(input: {
   if (!exactJson(request.externalHeadPrecondition, observedPrecondition)) {
     fail("external head compare-and-swap precondition mismatch");
   }
+  requireRequestExtendsExternalSnapshot({ request, previousSnapshot });
   const previousRecords = previousSnapshot?.records ?? [];
   if (
     previousRecords.some(
@@ -663,6 +736,8 @@ export function validateCorpusExternalAnchorLedgerSnapshot(input: {
   let predecessor: string | null = null;
   let previousAt: number | null = null;
   let previousRepositoryRecordCount: number | null = null;
+  let repositoryBaselineInputs: CorpusExternalAnchorRepositoryBaselineInputs | null =
+    null;
   for (const [index, record] of records.entries()) {
     if (
       record.sequence !== index + 1 ||
@@ -701,6 +776,14 @@ export function validateCorpusExternalAnchorLedgerSnapshot(input: {
         `external ledger record ${record.sequence} breaks the repository anchor-prefix chain`,
       );
     }
+    if (
+      repositoryBaselineInputs !== null &&
+      !exactJson(repositoryBaselineInputs, record.repositoryBaselineInputs)
+    ) {
+      fail(
+        `external ledger record ${record.sequence} changes immutable repository baseline inputs`,
+      );
+    }
     requests.add(record.requestSha256);
     candidates.add(record.candidateRecordSha256);
     verifications.add(record.verificationRecordSha256);
@@ -710,6 +793,7 @@ export function validateCorpusExternalAnchorLedgerSnapshot(input: {
     previousAt = at;
     previousRepositoryRecordCount =
       record.repositoryAnchorLogPrefix.recordCount;
+    repositoryBaselineInputs ??= record.repositoryBaselineInputs;
   }
   const first = records[0]!;
   const latest = records.at(-1)!;
@@ -815,6 +899,21 @@ function assertNoAppendLock(externalRoot: string): void {
   }
 }
 
+export function validateCorpusExternalAnchorDirectoryEntries(
+  entries: string[],
+): void {
+  const allowed = new Set<string>([
+    CORPUS_EXTERNAL_ANCHOR_LEDGER_FILE,
+    CORPUS_EXTERNAL_ANCHOR_HEAD_FILE,
+  ]);
+  const unexpected = entries.filter((entry) => !allowed.has(entry));
+  if (unexpected.length > 0) {
+    fail(
+      `external root contains unexpected entries: ${unexpected.sort().join(", ")}`,
+    );
+  }
+}
+
 function lstatIfExists(path: string): ReturnType<typeof lstatSync> | null {
   try {
     return lstatSync(path);
@@ -886,6 +985,7 @@ export function loadRootOwnedCorpusExternalAnchorLedger(
 ): CorpusExternalAnchorLedgerSnapshot | null {
   const controlledRoot = assertRootOwnedExternalDirectory(externalRoot);
   assertNoAppendLock(controlledRoot);
+  validateCorpusExternalAnchorDirectoryEntries(readdirSync(controlledRoot));
   const ledgerPath = join(controlledRoot, CORPUS_EXTERNAL_ANCHOR_LEDGER_FILE);
   const headPath = join(controlledRoot, CORPUS_EXTERNAL_ANCHOR_HEAD_FILE);
   const ledgerStat = lstatIfExists(ledgerPath);
@@ -905,6 +1005,7 @@ export function loadRootOwnedCorpusExternalAnchorLedger(
   const ledger = readSecureRootFile(ledgerPath);
   const head = readSecureRootFile(headPath);
   assertNoAppendLock(controlledRoot);
+  validateCorpusExternalAnchorDirectoryEntries(readdirSync(controlledRoot));
   if (
     !sameIdentity(ledger.identity, fileIdentity(ledgerPath)) ||
     !sameIdentity(head.identity, fileIdentity(headPath))
@@ -1029,14 +1130,14 @@ export function requireRequestIsLatestExternalAppend(input: {
   const snapshot = revalidateExternalSnapshot(input.snapshot);
   const latest = snapshot.records.at(-1)!;
   const previousRecords = snapshot.records.slice(0, -1);
-  const expectedPrecondition =
+  const previousSnapshot =
     previousRecords.length === 0
       ? null
-      : currentHeadPrecondition(
-          validateCorpusExternalAnchorLedgerSnapshot(
-            buildExternalLedgerFiles(previousRecords),
-          ),
+      : validateCorpusExternalAnchorLedgerSnapshot(
+          buildExternalLedgerFiles(previousRecords),
         );
+  const expectedPrecondition = currentHeadPrecondition(previousSnapshot);
+  requireRequestExtendsExternalSnapshot({ request, previousSnapshot });
   if (
     !exactJson(request.externalHeadPrecondition, expectedPrecondition) ||
     latest.requestSha256 !== request.requestSha256 ||

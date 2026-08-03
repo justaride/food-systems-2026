@@ -82,16 +82,27 @@ export type PdfPageMapBody = {
   };
   identityKeys: string[];
   identityAssociation: PdfIdentityAssociation;
-  sourceBinding: {
-    title: string;
-    doi: string | null;
-    officialUrl: string;
-    corpusIdentityVerified: false;
-    scopeDisposition:
-      | "pending_owner_classification"
-      | "pending_owner_classification_indirect_context"
-      | "pending_owner_disposition_likely_out_of_scope";
-  };
+  sourceBinding:
+    | {
+        title: string;
+        doi: string | null;
+        officialUrl: string;
+        corpusIdentityVerified: false;
+        scopeDisposition:
+          | "pending_owner_classification"
+          | "pending_owner_classification_indirect_context"
+          | "pending_owner_disposition_likely_out_of_scope";
+      }
+    | {
+        title: string;
+        doi: string | null;
+        controlledPrivateLocator: string;
+        corpusIdentityVerified: false;
+        scopeDisposition:
+          | "pending_owner_classification"
+          | "pending_owner_classification_indirect_context"
+          | "pending_owner_disposition_likely_out_of_scope";
+      };
   extractionEngine: {
     name: "pdftotext";
     version: string;
@@ -234,19 +245,35 @@ const IDENTITY_ASSOCIATION_SCHEMA = z.discriminatedUnion("state", [
     })
     .strict(),
 ]);
-const SOURCE_BINDING_SCHEMA = z
-  .object({
-    title: z.string().min(1),
-    doi: z.string().min(1).nullable(),
-    officialUrl: z.string().url(),
-    corpusIdentityVerified: z.literal(false),
-    scopeDisposition: z.enum([
-      "pending_owner_classification",
-      "pending_owner_classification_indirect_context",
-      "pending_owner_disposition_likely_out_of_scope",
-    ]),
-  })
-  .strict();
+const SOURCE_BINDING_CORE = {
+  title: z.string().min(1),
+  doi: z.string().min(1).nullable(),
+};
+const SOURCE_BINDING_SCOPE_DISPOSITION_SCHEMA = z.enum([
+  "pending_owner_classification",
+  "pending_owner_classification_indirect_context",
+  "pending_owner_disposition_likely_out_of_scope",
+]);
+const SOURCE_BINDING_SCHEMA = z.union([
+  z
+    .object({
+      ...SOURCE_BINDING_CORE,
+      officialUrl: z.string().url().startsWith("https://"),
+      corpusIdentityVerified: z.literal(false),
+      scopeDisposition: SOURCE_BINDING_SCOPE_DISPOSITION_SCHEMA,
+    })
+    .strict(),
+  z
+    .object({
+      ...SOURCE_BINDING_CORE,
+      controlledPrivateLocator: z
+        .string()
+        .regex(/^private:\/\/[a-z0-9][a-z0-9._:/-]*$/),
+      corpusIdentityVerified: z.literal(false),
+      scopeDisposition: SOURCE_BINDING_SCOPE_DISPOSITION_SCHEMA,
+    })
+    .strict(),
+]);
 const LANGUAGE_SIGNAL_SCHEMA = z
   .object({
     state: z.literal("unavailable"),

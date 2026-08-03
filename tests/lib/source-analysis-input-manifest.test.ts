@@ -29,12 +29,16 @@ import {
   type PdfQualificationReceiptBody,
 } from "../../src/lib/knowledge/pdf-page-extraction-qualification";
 import {
+  SOURCE_ANALYSIS_INPUT_PIPELINE_VERSION,
   SOURCE_ANALYSIS_INPUT_READINESS,
+  SOURCE_ANALYSIS_INPUT_SCHEMA_VERSION,
   SourceAnalysisInputManifestSchema,
   SourceAnalysisInputRepositoryPathSchema,
   canonicalNormalizedInputBytes,
   sealSourceAnalysisInputManifest,
   serializeNormalizedInput,
+  sourceAnalysisEligibleWorkflowEligibility,
+  sourceAnalysisNormalizedPagePrivateLocator,
   verifySourceAnalysisInputManifest,
   type SourceAnalysisInputManifest,
 } from "../../src/lib/knowledge/source-analysis-input-manifest";
@@ -54,7 +58,6 @@ import {
   parseSourceAnalysisInputCliArgs,
   writeSourceAnalysisInputBundle,
 } from "../../scripts/knowledge/generate-source-analysis-input-manifests";
-import { sourceAnalysisCombinedInputFixture } from "../fixtures/source-analysis-combined-fixture";
 
 const jsonSchema = JSON.parse(
   readFileSync(SOURCE_ANALYSIS_INPUT_JSON_SCHEMA_PATH, "utf8"),
@@ -304,6 +307,35 @@ function fixture(
 }
 
 describe("source-analysis input manifests", () => {
+  it("derives canonical primary and replica normalized-page locators", () => {
+    const rawPdfSha256 = "a".repeat(64);
+    assert.equal(
+      sourceAnalysisNormalizedPagePrivateLocator({
+        rawPdfSha256,
+        pageNumber: 12,
+        copyId: "primary",
+      }),
+      `private://corpus/pdf-page-extraction/v1/sha256/${rawPdfSha256}/pages/page-0012.normalized.txt`,
+    );
+    assert.equal(
+      sourceAnalysisNormalizedPagePrivateLocator({
+        rawPdfSha256,
+        pageNumber: 12,
+        copyId: "replica",
+      }),
+      `private://bigbrain-corpus/pdf-page-extraction/v1/sha256/${rawPdfSha256}/pages/page-0012.normalized.txt`,
+    );
+    assert.throws(
+      () =>
+        sourceAnalysisNormalizedPagePrivateLocator({
+          rawPdfSha256: "not-a-hash",
+          pageNumber: 1,
+          copyId: "primary",
+        }),
+      /unprefixed SHA-256/,
+    );
+  });
+
   it("uses deterministic, order-sensitive framed serialization", () => {
     const pages = [
       {
@@ -724,10 +756,58 @@ describe("source-analysis input manifests", () => {
   });
 
   it("keeps the synthetic verified positive state aligned in Zod and JSON Schema", () => {
-    const fixture = sourceAnalysisCombinedInputFixture();
-    const manifest = JSON.parse(
-      Buffer.from(fixture.inputManifestFile.bytes).toString("utf8"),
-    ) as SourceAnalysisInputManifest;
+    const roots = fixture();
+    const predecessor = writeSourceAnalysisInputBundle(roots).manifests[0]!;
+    const { manifestSha256: predecessorManifestSha256, ...predecessorBody } =
+      predecessor;
+    const canonicalIdentity = predecessor.identityKeys[0]!;
+    const manifest = sealSourceAnalysisInputManifest({
+      ...predecessorBody,
+      identityAssociation: {
+        state: "verified_identity_match",
+        intendedLabel: predecessor.identityAssociation.intendedLabel,
+        observedDocumentTitle:
+          predecessor.identityAssociation.observedDocumentTitle,
+        sourceId: "source.synthetic.verified",
+        canonicalIdentity,
+        blockerCode: null,
+      },
+      sourceBinding: {
+        ...predecessor.sourceBinding,
+        corpusIdentityVerified: true,
+      },
+      workflowEligibility: sourceAnalysisEligibleWorkflowEligibility({
+        identityArtifactReference: {
+          artifactId: "artifact.source.identity.synthetic",
+          artifactVersion: "1.0.0",
+          path: "knowledge/corpus/source-identity-verification/synthetic.json",
+          fileSha256: "1".repeat(64),
+          artifactSha256: `sha256:${"2".repeat(64)}`,
+          decision: "verified",
+        },
+        predecessorInputManifestReference: {
+          schemaVersion: SOURCE_ANALYSIS_INPUT_SCHEMA_VERSION,
+          pipelineVersion: SOURCE_ANALYSIS_INPUT_PIPELINE_VERSION,
+          path: `${SOURCE_ANALYSIS_INPUT_MANIFEST_DIRECTORY}/${roots.rawPdfSha256}.source-analysis-input-manifest.v1.json`,
+          fileSha256: sha256(prettyJson(predecessor)),
+          manifestSha256: predecessorManifestSha256,
+        },
+        lifecycleTransition: {
+          identityVerificationPrestate: {
+            lifecycleRecordId: "corpus.record.synthetic",
+            lifecycleSnapshotSha256: `sha256:${"3".repeat(64)}`,
+            lifecycleSnapshotUpdatedAt: "2026-08-03T08:03:00Z",
+            sourceIdentityStatus: "provisional",
+          },
+          analysisPrestate: {
+            lifecycleRecordId: "corpus.record.synthetic",
+            lifecycleSnapshotSha256: `sha256:${"4".repeat(64)}`,
+            lifecycleSnapshotUpdatedAt: "2026-08-03T08:09:00Z",
+            sourceIdentityStatus: "verified",
+          },
+        },
+      }),
+    });
     assert.equal(
       SourceAnalysisInputManifestSchema.safeParse(manifest).success,
       true,
@@ -746,6 +826,108 @@ describe("source-analysis input manifests", () => {
     assert.equal(
       manifest.workflowEligibility.sourceAnalysis.combinedValidationRequired,
       true,
+    );
+    assert.equal(
+      manifest.workflowEligibility.sourceAnalysis
+        .predecessorInputManifestReference.manifestSha256,
+      predecessor.manifestSha256,
+    );
+    assert.deepEqual(
+      {
+        identity:
+          manifest.workflowEligibility.sourceAnalysis.lifecycleTransition
+            .identityVerificationPrestate.sourceIdentityStatus,
+        analysis:
+          manifest.workflowEligibility.sourceAnalysis.lifecycleTransition
+            .analysisPrestate.sourceIdentityStatus,
+      },
+      { identity: "provisional", analysis: "verified" },
+    );
+
+    const legacyLifecycleField = structuredClone(manifest) as Record<
+      string,
+      unknown
+    >;
+    const legacyEligibility = (
+      legacyLifecycleField.workflowEligibility as {
+        sourceAnalysis: Record<string, unknown>;
+      }
+    ).sourceAnalysis;
+    delete legacyEligibility.lifecycleTransition;
+    delete legacyEligibility.predecessorInputManifestReference;
+    legacyEligibility.lifecyclePrestate = {
+      lifecycleRecordId: "corpus.record.synthetic",
+      lifecycleSnapshotSha256: `sha256:${"4".repeat(64)}`,
+      lifecycleSnapshotUpdatedAt: "2026-08-03T08:09:00Z",
+    };
+    assert.equal(
+      SourceAnalysisInputManifestSchema.safeParse(legacyLifecycleField).success,
+      false,
+    );
+    assert.equal(Boolean(validateJsonSchema(legacyLifecycleField)), false);
+  });
+
+  it("rejects an internally impossible positive lifecycle transition", () => {
+    const roots = fixture();
+    const predecessor = writeSourceAnalysisInputBundle(roots).manifests[0]!;
+    const { manifestSha256: predecessorManifestSha256, ...predecessorBody } =
+      predecessor;
+    const commonSnapshot = `sha256:${"5".repeat(64)}`;
+    const impossible = sealSourceAnalysisInputManifest({
+      ...predecessorBody,
+      identityAssociation: {
+        state: "verified_identity_match",
+        intendedLabel: predecessor.identityAssociation.intendedLabel,
+        observedDocumentTitle:
+          predecessor.identityAssociation.observedDocumentTitle,
+        sourceId: "source.synthetic.impossible",
+        canonicalIdentity: predecessor.identityKeys[0]!,
+        blockerCode: null,
+      },
+      sourceBinding: {
+        ...predecessor.sourceBinding,
+        corpusIdentityVerified: true,
+      },
+      workflowEligibility: sourceAnalysisEligibleWorkflowEligibility({
+        identityArtifactReference: {
+          artifactId: "artifact.source.identity.impossible",
+          artifactVersion: "1.0.0",
+          path: "knowledge/corpus/source-identity-verification/impossible.json",
+          fileSha256: "6".repeat(64),
+          artifactSha256: `sha256:${"7".repeat(64)}`,
+          decision: "verified",
+        },
+        predecessorInputManifestReference: {
+          schemaVersion: SOURCE_ANALYSIS_INPUT_SCHEMA_VERSION,
+          pipelineVersion: SOURCE_ANALYSIS_INPUT_PIPELINE_VERSION,
+          path: `${SOURCE_ANALYSIS_INPUT_MANIFEST_DIRECTORY}/${roots.rawPdfSha256}.source-analysis-input-manifest.v1.json`,
+          fileSha256: sha256(prettyJson(predecessor)),
+          manifestSha256: predecessorManifestSha256,
+        },
+        lifecycleTransition: {
+          identityVerificationPrestate: {
+            lifecycleRecordId: "corpus.record.synthetic",
+            lifecycleSnapshotSha256: commonSnapshot,
+            lifecycleSnapshotUpdatedAt: "2026-08-03T08:03:00Z",
+            sourceIdentityStatus: "provisional",
+          },
+          analysisPrestate: {
+            lifecycleRecordId: "corpus.record.synthetic",
+            lifecycleSnapshotSha256: commonSnapshot,
+            lifecycleSnapshotUpdatedAt: "2026-08-03T08:09:00Z",
+            sourceIdentityStatus: "verified",
+          },
+        },
+      }),
+    });
+    assert.equal(
+      SourceAnalysisInputManifestSchema.safeParse(impossible).success,
+      true,
+    );
+    assert.equal(Boolean(validateJsonSchema(impossible)), true);
+    assert.throws(
+      () => verifySourceAnalysisInputManifest(impossible),
+      /distinct provisional and verified snapshots/,
     );
   });
 

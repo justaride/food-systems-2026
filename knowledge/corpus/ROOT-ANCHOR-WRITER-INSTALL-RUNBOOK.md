@@ -2,7 +2,7 @@
 
 ## Current state and authority boundary
 
-The writer package is reviewable source only. It has **not** been installed, run as root or used to bind a corpus candidate. No file has been created under `/usr/local/libexec` or `/private/var/db/food-systems-corpus-anchor` by this work.
+The writer package is reviewable source only. It has **not** been installed, run as root or used to bind a corpus candidate. No file has been created under `/usr/local/libexec`, `/private/var/db/food-systems-corpus-anchor` or `/private/var/db/food-systems-corpus-anchor-requests` by this work.
 
 Installation is a separate administrator action. It creates a project-controlled integrity boundary, not independent notarization, a human source review, rights approval or research-completeness evidence. The writer never opens or modifies the repository. It writes only the fixed external ledger directory and never appends the internal `history_anchor_trusted_verification` record.
 
@@ -10,8 +10,8 @@ The package contains only a single Node ES module using `node:` built-ins, its c
 
 | Source artifact                                                      | Audited SHA-256                                                    |         Size |
 | -------------------------------------------------------------------- | ------------------------------------------------------------------ | -----------: |
-| `scripts/knowledge/root-anchor-writer/corpus-anchor-root-writer.mjs` | `fbbabd39a559f0f56f38f2aa92c3f9e72c6f9641a68c14050714519037ebe1d8` | 49,372 bytes |
-| `scripts/knowledge/root-anchor-writer/install-manifest.v1.json`      | `41643cfc941166eb7844f2e1b2142601a8b66bdc60b5831d43a49795e29d0a06` |  1,505 bytes |
+| `scripts/knowledge/root-anchor-writer/corpus-anchor-root-writer.mjs` | `ee639f614331c38d2d29c82655fab7f8757f8af9bf6b15b3c9cfa52015043b2e` | 57,106 bytes |
+| `scripts/knowledge/root-anchor-writer/install-manifest.v1.json`      | `647d830a46e8f42ded64d516760552b0d9a46236b695dce0e222b2a279379fa0` |  1,879 bytes |
 
 Any source edit invalidates these values. Re-run tests and regenerate the manifest and `SHA256SUMS`; never install a package with stale hashes.
 
@@ -20,9 +20,10 @@ Any source edit invalidates these values. Re-run tests and regenerate the manife
 - trusted Node runtime: `/usr/local/bin/node`;
 - writer: `/usr/local/libexec/food-systems-corpus-anchor-writer/corpus-anchor-root-writer.mjs`;
 - installed manifest: `/usr/local/libexec/food-systems-corpus-anchor-writer/install-manifest.v1.json`;
-- external ledger root: `/private/var/db/food-systems-corpus-anchor`.
+- external ledger root: `/private/var/db/food-systems-corpus-anchor`;
+- administrator request-intake root: `/private/var/db/food-systems-corpus-anchor-requests`.
 
-The `/var/...` alias is forbidden because `/var` is a symlink on macOS. The writer also rejects symlinked parents, non-root ownership, group/world-writable secure parents, multiple hard links and unexpected files.
+The `/var/...` alias is forbidden because `/var` is a symlink on macOS. The writer also rejects caller-selected roots, symlinked parents, non-root ownership, group/world-writable secure parents, multiple hard links and unexpected files. The request root is separately root-owned mode `0700`; every accepted request is a direct-child, root-owned, one-link regular file with mode `0400`, and the administrator must pin the SHA-256 of its exact bytes on the append command.
 
 ## Gate 0 — trusted Node runtime
 
@@ -61,7 +62,7 @@ Review the complete writer and manifest before authorizing installation. The che
 
 ## Gate 2 — preflight the fixed targets
 
-No installed target may be a symlink. If the libexec package directory already exists, stop and inspect it rather than overwriting it. If the ledger root already exists, it must be a root-owned `0755` directory containing either no files or exactly the two validated `0444` ledger files. A lock, temporary file, partial ledger or unfamiliar entry is a stop condition.
+No installed target may be a symlink. If the libexec package directory already exists, stop and inspect it rather than overwriting it. If the ledger root already exists, it must be a root-owned `0755` directory containing either no files or exactly the two validated `0444` ledger files. A lock, temporary file, partial ledger or unfamiliar entry is a stop condition. If the request root already exists, it must be a root-owned `0700` directory. Do not adopt or reuse any request file until its owner, mode, link count, direct-child path and exact bytes have been reviewed.
 
 Read-only preflight:
 
@@ -69,7 +70,9 @@ Read-only preflight:
 /usr/bin/stat -f '%Su %Sg %Lp %HT %N' /usr/local /usr/local/libexec 2>/dev/null
 /usr/bin/stat -f '%Su %Sg %Lp %HT %N' /usr/local/libexec/food-systems-corpus-anchor-writer 2>/dev/null
 /usr/bin/stat -f '%Su %Sg %Lp %HT %N' /private/var/db/food-systems-corpus-anchor 2>/dev/null
+/usr/bin/stat -f '%Su %Sg %Lp %HT %N' /private/var/db/food-systems-corpus-anchor-requests 2>/dev/null
 /bin/ls -la /private/var/db/food-systems-corpus-anchor 2>/dev/null
+/bin/ls -la /private/var/db/food-systems-corpus-anchor-requests 2>/dev/null
 ```
 
 Do not use `/tmp`, `$HOME`, a glob or an unresolved environment variable as an installation or ledger target.
@@ -85,18 +88,19 @@ sudo /usr/bin/install -d -o root -g wheel -m 0755 /usr/local/libexec/food-system
 sudo /usr/bin/install -o root -g wheel -m 0555 corpus-anchor-root-writer.mjs /usr/local/libexec/food-systems-corpus-anchor-writer/corpus-anchor-root-writer.mjs
 sudo /usr/bin/install -o root -g wheel -m 0444 install-manifest.v1.json /usr/local/libexec/food-systems-corpus-anchor-writer/install-manifest.v1.json
 sudo /usr/bin/install -d -o root -g wheel -m 0755 /private/var/db/food-systems-corpus-anchor
+sudo /usr/bin/install -d -o root -g wheel -m 0700 /private/var/db/food-systems-corpus-anchor-requests
 ```
 
-If the ledger root already contains data, do not run the last `install -d` command until its ownership, mode and content have been independently validated. The writer will never repair, truncate or adopt an unvalidated directory.
+If either fixed root already contains data, do not run its `install -d` command until ownership, mode and content have been independently validated. The writer will never repair, truncate or adopt an unvalidated directory.
 
 Post-install byte and metadata checks:
 
 ```bash
 sudo /usr/bin/shasum -a 256 /usr/local/libexec/food-systems-corpus-anchor-writer/corpus-anchor-root-writer.mjs /usr/local/libexec/food-systems-corpus-anchor-writer/install-manifest.v1.json
-sudo /usr/bin/stat -f '%Su %Sg %Lp %HT %l %N' /usr/local/libexec/food-systems-corpus-anchor-writer/corpus-anchor-root-writer.mjs /usr/local/libexec/food-systems-corpus-anchor-writer/install-manifest.v1.json /private/var/db/food-systems-corpus-anchor
+sudo /usr/bin/stat -f '%Su %Sg %Lp %HT %l %N' /usr/local/libexec/food-systems-corpus-anchor-writer/corpus-anchor-root-writer.mjs /usr/local/libexec/food-systems-corpus-anchor-writer/install-manifest.v1.json /private/var/db/food-systems-corpus-anchor /private/var/db/food-systems-corpus-anchor-requests
 ```
 
-The hashes must equal Gate 1. The writer must be root-owned `0555`, the manifest root-owned `0444`, both regular files with one hard link, and the ledger root root-owned `0755`.
+The hashes must equal Gate 1. The writer must be root-owned `0555`, the manifest root-owned `0444`, both regular files with one hard link, the ledger root root-owned `0755`, and the request root root-owned `0700`.
 
 ## Gate 4 — installed check
 
@@ -106,24 +110,34 @@ Invoke Node with an empty environment and absolute paths. This avoids inherited 
 sudo /usr/bin/env -i HOME=/var/root PATH=/usr/bin:/bin:/usr/sbin:/sbin /usr/local/bin/node --no-addons --disable-proto=throw /usr/local/libexec/food-systems-corpus-anchor-writer/corpus-anchor-root-writer.mjs check
 ```
 
-Before the first append, the expected status is `initialized: false`, `recordCount: 0`. An existing lock or unexpected file fails closed.
+Before the first append, the expected status is `initialized: false`, `recordCount: 0`. The same check also requires the fixed request-intake root to be present with exact root ownership and mode `0700`. A missing or unsafe request root, existing lock or unexpected ledger entry fails closed.
 
 ## Gate 5 — one controlled append
 
 Do not prepare the old corpus genesis. First complete the controlled registration, post-apply rebaseline and explicit empty event-manifest/genesis initialization. The prepared request must bind that exact candidate plus the exact baseline, processing register and baseline-generation-manifest bytes.
 
-Prepare and save exactly one canonical request as the normal project user. The request must be a regular one-link file reached without symlinks. Then re-run `--check-request` only after the external append; that check remains read-only and does not append the repository verification.
+Prepare and save exactly one canonical request as the normal project user. The administrator must review those exact bytes, install a byte-identical copy as a direct child of the fixed request root with owner `root`, mode `0400` and one hard link, and independently pin its exact SHA-256. The project user cannot write into the mode-`0700` intake directory. Then re-run `--check-request` against the original byte-identical saved file only after the external append; that check remains read-only and does not append the repository verification.
+
+Example administrator intake, where the source path and final filename are replaced only after exact review:
+
+```bash
+sudo /usr/bin/install -o root -g wheel -m 0400 /absolute/reviewed/path/corpus-anchor-request.v1.json /private/var/db/food-systems-corpus-anchor-requests/corpus-anchor-request.v1.json
+sudo /usr/bin/shasum -a 256 /private/var/db/food-systems-corpus-anchor-requests/corpus-anchor-request.v1.json
+sudo /usr/bin/stat -f '%Su %Sg %Lp %HT %l %N' /private/var/db/food-systems-corpus-anchor-requests/corpus-anchor-request.v1.json
+```
+
+The administrator must preserve the returned hash outside the request file and use it literally, with the `sha256:` prefix, in the append command. Do not calculate a new hash after the approval decision without repeating the review.
 
 The administrator append command is:
 
 ```bash
-sudo /usr/bin/env -i HOME=/var/root PATH=/usr/bin:/bin:/usr/sbin:/sbin /usr/local/bin/node --no-addons --disable-proto=throw /usr/local/libexec/food-systems-corpus-anchor-writer/corpus-anchor-root-writer.mjs append --request=/absolute/reviewed/path/corpus-anchor-request.v1.json
+sudo /usr/bin/env -i HOME=/var/root PATH=/usr/bin:/bin:/usr/sbin:/sbin /usr/local/bin/node --no-addons --disable-proto=throw /usr/local/libexec/food-systems-corpus-anchor-writer/corpus-anchor-root-writer.mjs append --request=/private/var/db/food-systems-corpus-anchor-requests/corpus-anchor-request.v1.json --expected-request-sha256=sha256:<64-lowercase-hex-from-administrator-review>
 ```
 
-The request path is illustrative but must be replaced by the exact reviewed canonical request path. The writer:
+The request filename and hash placeholder are illustrative; the root path is fixed and cannot be replaced. The writer:
 
 1. validates its own installed hash and runtime boundary;
-2. reads one canonical request with `O_NOFOLLOW`;
+2. requires the administrator-pinned hash, then reads the fixed-root direct-child request with `O_NOFOLLOW` and verifies its root owner, `0400` mode, one-link identity, stable inode and exact bytes;
 3. creates the root-owned `0600` lock with `O_EXCL | O_NOFOLLOW`;
 4. validates the complete existing ledger/head and compare-and-swap precondition;
 5. rejects replayed request, candidate or verification hashes;
@@ -161,7 +175,7 @@ sudo /usr/bin/stat -f '%Su %Sg %Lp %HT %l %N' /private/var/db/food-systems-corpu
 
 ## Exact uninstall — executable only
 
-These commands remove only the installed writer and its installed manifest. They do **not** remove the external ledger, lock, Node runtime or any repository file:
+These commands remove only the installed writer and its installed manifest. They do **not** remove the external ledger, lock, request-intake root, reviewed request files, Node runtime or any repository file:
 
 ```bash
 sudo /bin/rm -f /usr/local/libexec/food-systems-corpus-anchor-writer/corpus-anchor-root-writer.mjs
@@ -169,11 +183,13 @@ sudo /bin/rm -f /usr/local/libexec/food-systems-corpus-anchor-writer/install-man
 sudo /usr/bin/rmdir /usr/local/libexec/food-systems-corpus-anchor-writer
 ```
 
-Do not add `/private/var/db/food-systems-corpus-anchor` to those commands. If the libexec directory is not empty, `rmdir` must fail and the remaining entry must be reviewed; do not replace it with recursive deletion.
+Do not add `/private/var/db/food-systems-corpus-anchor` or `/private/var/db/food-systems-corpus-anchor-requests` to those commands. If the libexec directory is not empty, `rmdir` must fail and the remaining entry must be reviewed; do not replace it with recursive deletion.
 
 Post-uninstall proof that ledger data remains:
 
 ```bash
 sudo /usr/bin/stat -f '%Su %Sg %Lp %HT %N' /private/var/db/food-systems-corpus-anchor
 sudo /bin/ls -la /private/var/db/food-systems-corpus-anchor
+sudo /usr/bin/stat -f '%Su %Sg %Lp %HT %N' /private/var/db/food-systems-corpus-anchor-requests
+sudo /bin/ls -la /private/var/db/food-systems-corpus-anchor-requests
 ```

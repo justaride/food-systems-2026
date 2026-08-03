@@ -8,11 +8,45 @@ import {
   validateSourceAcquisitionReceipt,
   type SourceAcquisitionReceipt,
 } from "./source-acquisition-receipt";
+import {
+  PdfPageMapSchema,
+  PdfQualificationReceiptSchema,
+  verifySealedPageMap,
+  verifySealedQualificationReceipt,
+  type PdfPageMap,
+  type PdfQualificationReceipt,
+} from "./pdf-page-extraction-qualification";
+import {
+  verifySourceAnalysisInputManifest,
+  type SourceAnalysisInputManifest,
+} from "./source-analysis-input-manifest";
 
 export const SOURCE_IDENTITY_VERIFICATION_SCHEMA_VERSION =
   "source-identity-verification-v1" as const;
 export const SOURCE_IDENTITY_VERIFICATION_ARTIFACT_VERSION = "1.0.0" as const;
 export const MODEL_VERSION_NOT_EXPOSED = "runtime_not_exposed" as const;
+export const SOURCE_IDENTITY_WORKFLOW_ID =
+  "workflow.source_identity_verification.v1" as const;
+export const SOURCE_IDENTITY_WORKFLOW_VERSION = "1.0.0" as const;
+export const SOURCE_IDENTITY_WORKFLOW_PATH =
+  "knowledge/corpus/workflows/source-identity-verification-v1.md" as const;
+export const SOURCE_IDENTITY_PROMPT_TEMPLATE_PATH =
+  "knowledge/corpus/workflows/source-identity-verification-prompt-v1.md" as const;
+export const SOURCE_IDENTITY_PROMPT_TEMPLATE_ID =
+  "prompt.source_identity_verification.v1" as const;
+export const SOURCE_IDENTITY_PROMPT_TEMPLATE_VERSION = "1.0.0" as const;
+export const SOURCE_IDENTITY_VERIFICATION_ARTIFACT_DIRECTORY =
+  "knowledge/corpus/source-identity-verification/artifacts" as const;
+export const SOURCE_IDENTITY_VERIFICATION_ARTIFACT_FILE_SUFFIX =
+  ".source-identity-verification.v1.json" as const;
+export const SOURCE_IDENTITY_WORKFLOW_FILE_SHA256 =
+  "sha256:3c15fc61fd6e6ece0f2539baff7e18802711dbc3ad5dfe6e2917f2af74e9c10a" as const;
+export const SOURCE_IDENTITY_PROMPT_TEMPLATE_SHA256 =
+  "sha256:248a09a027f401d131687214f84f4ff832b8d540bdef3e7535f251db3a018255" as const;
+export const SOURCE_IDENTITY_INPUT_ENVELOPE_SCHEMA_VERSION =
+  "source-identity-verification-input-envelope-v1" as const;
+export const SOURCE_IDENTITY_INPUT_ENVELOPE_HASH_DOMAIN =
+  "food-systems/source-identity-verification-input-envelope/v1\n" as const;
 
 const HASH_PATTERN = /^sha256:[a-f0-9]{64}$/;
 const IDENTIFIER_PATTERN = /^[a-z0-9][a-z0-9._:-]*$/;
@@ -352,8 +386,9 @@ const aiRunCore = {
     .min(1),
   provider: z.string().min(1).max(200),
   model: z.string().min(1).max(200),
-  workflowRef: z.string().min(1).max(500),
-  workflowVersion: versionSchema,
+  workflowRef: z.literal(SOURCE_IDENTITY_WORKFLOW_ID),
+  workflowVersion: z.literal(SOURCE_IDENTITY_WORKFLOW_VERSION),
+  workflowFileSha256: sha256Schema,
   promptTemplateSha256: sha256Schema,
   lifecycleSnapshotSha256: sha256Schema,
   sourceMetadataSha256: sha256Schema,
@@ -451,6 +486,35 @@ export type SourceIdentityVerificationPayload = Pick<
   | "downstreamBoundaries"
 >;
 
+export const SOURCE_IDENTITY_REQUIRED_INPUT_EVIDENCE_TYPES = [
+  "source_acquisition_receipt",
+  "extraction_receipt",
+  "page_map",
+  "source_analysis_input_manifest",
+] as const;
+
+type SourceIdentityRequiredInputEvidenceType =
+  (typeof SOURCE_IDENTITY_REQUIRED_INPUT_EVIDENCE_TYPES)[number];
+
+export type SourceIdentityVerificationInputEnvelope = Pick<
+  SourceIdentityVerificationArtifact,
+  "binding" | "candidateIdentity" | "acquisitionReceipt" | "extractionBinding"
+> & {
+  schemaVersion: typeof SOURCE_IDENTITY_INPUT_ENVELOPE_SCHEMA_VERSION;
+  inputEvidenceAnchors: Array<
+    Pick<
+      SourceIdentityVerificationArtifact["evidenceAnchors"][number],
+      "anchorId" | "evidenceType" | "locator" | "evidenceSha256" | "observedAt"
+    >
+  >;
+  workflow: {
+    workflowRef: typeof SOURCE_IDENTITY_WORKFLOW_ID;
+    workflowVersion: typeof SOURCE_IDENTITY_WORKFLOW_VERSION;
+    workflowFileSha256: string;
+    promptTemplateSha256: string;
+  };
+};
+
 export type SourceIdentityJsonValue =
   | null
   | boolean
@@ -483,12 +547,96 @@ export function sourceIdentitySha256(value: string | Buffer): string {
   return `sha256:${createHash("sha256").update(value).digest("hex")}`;
 }
 
+export function sourceIdentityVerificationArtifactPath(
+  artifactSha256: string,
+): string {
+  if (!HASH_PATTERN.test(artifactSha256)) {
+    fail("identity artifact path requires a prefixed SHA-256 artifact seal");
+  }
+  return (
+    `${SOURCE_IDENTITY_VERIFICATION_ARTIFACT_DIRECTORY}/` +
+    `${artifactSha256.slice("sha256:".length)}` +
+    SOURCE_IDENTITY_VERIFICATION_ARTIFACT_FILE_SUFFIX
+  );
+}
+
 export function hashSourceIdentityVerificationPayload(
   payload: SourceIdentityVerificationPayload,
 ): string {
   return sourceIdentitySha256(
     canonicalSourceIdentityJson(payload as SourceIdentityJsonValue),
   );
+}
+
+function requiredInputEvidenceAnchors(
+  evidenceAnchors: SourceIdentityVerificationArtifact["evidenceAnchors"],
+): SourceIdentityVerificationInputEnvelope["inputEvidenceAnchors"] {
+  return SOURCE_IDENTITY_REQUIRED_INPUT_EVIDENCE_TYPES.map((evidenceType) => {
+    const matches = evidenceAnchors.filter(
+      (anchor) => anchor.evidenceType === evidenceType,
+    );
+    if (matches.length !== 1) {
+      fail(`identity input requires exactly one ${evidenceType} anchor`);
+    }
+    const anchor = matches[0]!;
+    return {
+      anchorId: anchor.anchorId,
+      evidenceType:
+        anchor.evidenceType as SourceIdentityRequiredInputEvidenceType,
+      locator: anchor.locator,
+      evidenceSha256: anchor.evidenceSha256,
+      observedAt: anchor.observedAt,
+    };
+  });
+}
+
+export function sourceIdentityVerificationInputEnvelope(
+  input: Pick<
+    SourceIdentityVerificationArtifact,
+    | "binding"
+    | "candidateIdentity"
+    | "acquisitionReceipt"
+    | "extractionBinding"
+    | "evidenceAnchors"
+  > & {
+    workflow: SourceIdentityVerificationInputEnvelope["workflow"];
+  },
+): SourceIdentityVerificationInputEnvelope {
+  return {
+    schemaVersion: SOURCE_IDENTITY_INPUT_ENVELOPE_SCHEMA_VERSION,
+    binding: input.binding,
+    candidateIdentity: input.candidateIdentity,
+    acquisitionReceipt: input.acquisitionReceipt,
+    extractionBinding: input.extractionBinding,
+    inputEvidenceAnchors: requiredInputEvidenceAnchors(input.evidenceAnchors),
+    workflow: input.workflow,
+  };
+}
+
+export function hashSourceIdentityVerificationInputEnvelope(
+  input: SourceIdentityVerificationInputEnvelope,
+): string {
+  return sourceIdentitySha256(
+    `${SOURCE_IDENTITY_INPUT_ENVELOPE_HASH_DOMAIN}${canonicalSourceIdentityJson(
+      input as SourceIdentityJsonValue,
+    )}`,
+  );
+}
+
+export function sourceIdentityExtractionReceiptId(
+  rawContentSha256: string,
+): string {
+  const raw = rawContentSha256.replace(/^sha256:/, "");
+  if (!/^[a-f0-9]{64}$/.test(raw))
+    fail("cannot derive extraction ID from invalid hash");
+  return `artifact.pdf_extraction.${raw}`;
+}
+
+export function sourceIdentityPageMapId(rawContentSha256: string): string {
+  const raw = rawContentSha256.replace(/^sha256:/, "");
+  if (!/^[a-f0-9]{64}$/.test(raw))
+    fail("cannot derive page-map ID from invalid hash");
+  return `artifact.pdf_page_map.${raw}`;
 }
 
 function assertUnique(values: string[], label: string): void {
@@ -540,6 +688,20 @@ function validateBindings(artifact: SourceIdentityVerificationArtifact): void {
     artifact.extractionBinding.mappedPageCount
   ) {
     fail("page map must represent every expected page");
+  }
+  if (
+    artifact.extractionBinding.extractionReceiptId !==
+    sourceIdentityExtractionReceiptId(artifact.binding.sourceContentSha256)
+  ) {
+    fail(
+      "extraction receipt ID must use the deterministic raw-content convention",
+    );
+  }
+  if (
+    artifact.extractionBinding.pageMapId !==
+    sourceIdentityPageMapId(artifact.binding.sourceContentSha256)
+  ) {
+    fail("page-map ID must use the deterministic raw-content convention");
   }
   const expectedReceiptType =
     artifact.candidateIdentity.candidateLocator.kind === "official_url"
@@ -602,10 +764,16 @@ function validateMatchDimension(
       dimension.expectedValue === null ||
       dimension.observedValue === null ||
       dimension.normalizationStatement === null ||
-      dimension.discrepancyIds.length !== 0
+      dimension.discrepancyIds.length !== 0 ||
+      dimension.expectedValue === dimension.observedValue ||
+      !deterministicNormalizedMatch(
+        dimension.dimension,
+        dimension.expectedValue,
+        dimension.observedValue,
+      )
     ) {
       fail(
-        `${dimension.dimension} normalized match requires both values and normalization disclosure`,
+        `${dimension.dimension} normalized match must satisfy the deterministic dimension policy`,
       );
     }
   } else if (dimension.matchState === "source_not_stated") {
@@ -634,11 +802,83 @@ function validateMatchDimension(
   }
 }
 
+function normalizeBibliographicLabel(value: string): string {
+  return value
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[\p{P}\p{S}]+/gu, " ")
+    .replace(/\s+/gu, " ")
+    .trim();
+}
+
+function normalizeLanguageSet(value: string): string | null {
+  try {
+    const parsed: unknown = JSON.parse(value);
+    if (
+      !Array.isArray(parsed) ||
+      parsed.length === 0 ||
+      parsed.some((item) => typeof item !== "string" || item.length === 0)
+    ) {
+      return null;
+    }
+    const normalized = parsed.map((item) =>
+      (item as string).normalize("NFKC").toLowerCase(),
+    );
+    if (new Set(normalized).size !== normalized.length) return null;
+    return JSON.stringify([...normalized].sort());
+  } catch {
+    return null;
+  }
+}
+
+function normalizeOfficialUrl(value: string): string | null {
+  try {
+    const parsed = new URL(value);
+    if (
+      parsed.protocol !== "https:" ||
+      parsed.username !== "" ||
+      parsed.password !== "" ||
+      parsed.hash !== ""
+    ) {
+      return null;
+    }
+    return parsed.href;
+  } catch {
+    return null;
+  }
+}
+
+function deterministicNormalizedMatch(
+  dimension: SourceIdentityVerificationArtifact["matchDimensions"][number]["dimension"],
+  expectedValue: string,
+  observedValue: string,
+): boolean {
+  if (dimension === "title" || dimension === "publisher") {
+    const expected = normalizeBibliographicLabel(expectedValue);
+    const observed = normalizeBibliographicLabel(observedValue);
+    return expected.length > 0 && expected === observed;
+  }
+  if (dimension === "language") {
+    const expected = normalizeLanguageSet(expectedValue);
+    const observed = normalizeLanguageSet(observedValue);
+    return expected !== null && expected === observed;
+  }
+  if (dimension === "canonical_locator") {
+    const expected = normalizeOfficialUrl(expectedValue);
+    const observed = normalizeOfficialUrl(observedValue);
+    return expected !== null && expected === observed;
+  }
+  return false;
+}
+
 function validateEvidenceAndDimensions(
   artifact: SourceIdentityVerificationArtifact,
 ): void {
   const anchorIds = artifact.evidenceAnchors.map((anchor) => anchor.anchorId);
   const anchorIdSet = new Set(anchorIds);
+  const anchorsById = new Map(
+    artifact.evidenceAnchors.map((anchor) => [anchor.anchorId, anchor]),
+  );
   assertUnique(anchorIds, "evidence-anchor IDs");
   const dimensions = artifact.matchDimensions.map((item) => item.dimension);
   assertUnique(dimensions, "identity-match dimensions");
@@ -716,6 +956,34 @@ function validateEvidenceAndDimensions(
           `${dimension.dimension} references unknown evidence anchor ${anchorId}`,
         );
       }
+    }
+    const evidenceTypes = new Set(
+      dimension.evidenceAnchorIds.map(
+        (anchorId) => anchorsById.get(anchorId)!.evidenceType,
+      ),
+    );
+    if (
+      ["title", "publisher", "publication_date", "language"].includes(
+        dimension.dimension,
+      ) &&
+      !["cover_page", "bibliographic_page"].some((evidenceType) =>
+        evidenceTypes.has(evidenceType as never),
+      )
+    ) {
+      fail(`${dimension.dimension} lacks bibliographic source evidence`);
+    }
+    if (
+      ["canonical_locator", "content_hash"].includes(dimension.dimension) &&
+      !evidenceTypes.has("source_acquisition_receipt")
+    ) {
+      fail(`${dimension.dimension} must cite the source acquisition receipt`);
+    }
+    if (
+      dimension.dimension === "extraction_binding" &&
+      (!evidenceTypes.has("extraction_receipt") ||
+        !evidenceTypes.has("page_map"))
+    ) {
+      fail("extraction binding must cite both extraction receipt and page map");
     }
     for (const discrepancyId of dimension.discrepancyIds) {
       const discrepancy = discrepanciesById.get(discrepancyId);
@@ -829,11 +1097,55 @@ function validateAiExecution(
     "identity_match",
     "decision",
   ];
-  const observedStages = new Set(runs.flatMap((run) => run.stages));
-  for (const stage of requiredStages) {
-    if (!observedStages.has(stage as never))
-      fail(`AI execution is missing stage ${stage}`);
+  const observedStages = runs.flatMap((run) => run.stages);
+  if (JSON.stringify(observedStages) !== JSON.stringify(requiredStages)) {
+    fail("AI stages must occur exactly once in the required order");
   }
+  const firstRun = runs[0]!;
+  if (
+    firstRun.workflowFileSha256 !== SOURCE_IDENTITY_WORKFLOW_FILE_SHA256 ||
+    firstRun.promptTemplateSha256 !== SOURCE_IDENTITY_PROMPT_TEMPLATE_SHA256
+  ) {
+    fail("AI run does not bind the exact v1 workflow and prompt hashes");
+  }
+  for (const anchor of requiredInputEvidenceAnchors(artifact.evidenceAnchors)) {
+    if (Date.parse(anchor.observedAt) > Date.parse(firstRun.startedAt)) {
+      fail(
+        `required input anchor ${anchor.anchorId} postdates the first AI run`,
+      );
+    }
+  }
+  const matchAnchorIds = new Set(
+    artifact.matchDimensions.flatMap(
+      (dimension) => dimension.evidenceAnchorIds,
+    ),
+  );
+  for (const anchor of artifact.evidenceAnchors) {
+    if (
+      matchAnchorIds.has(anchor.anchorId) &&
+      Date.parse(anchor.observedAt) > Date.parse(firstRun.startedAt)
+    ) {
+      fail(
+        `match evidence anchor ${anchor.anchorId} postdates the first AI run`,
+      );
+    }
+  }
+  const expectedInputEnvelopeSha256 =
+    hashSourceIdentityVerificationInputEnvelope(
+      sourceIdentityVerificationInputEnvelope({
+        binding: artifact.binding,
+        candidateIdentity: artifact.candidateIdentity,
+        acquisitionReceipt: artifact.acquisitionReceipt,
+        extractionBinding: artifact.extractionBinding,
+        evidenceAnchors: artifact.evidenceAnchors,
+        workflow: {
+          workflowRef: firstRun.workflowRef,
+          workflowVersion: firstRun.workflowVersion,
+          workflowFileSha256: firstRun.workflowFileSha256,
+          promptTemplateSha256: firstRun.promptTemplateSha256,
+        },
+      }),
+    );
   runs.forEach((run, index) => {
     assertUnique(run.stages, `AI run ${run.runId} stages`);
     for (const [label, actual, expected] of [
@@ -866,6 +1178,17 @@ function validateAiExecution(
     ] as const) {
       if (actual !== expected)
         fail(`AI run ${run.runId} has drifted ${label} hash`);
+    }
+    if (
+      run.workflowRef !== firstRun.workflowRef ||
+      run.workflowVersion !== firstRun.workflowVersion ||
+      run.workflowFileSha256 !== firstRun.workflowFileSha256 ||
+      run.promptTemplateSha256 !== firstRun.promptTemplateSha256
+    ) {
+      fail(`AI run ${run.runId} has drifted workflow binding`);
+    }
+    if (run.inputEnvelopeSha256 !== expectedInputEnvelopeSha256) {
+      fail(`AI run ${run.runId} has drifted canonical input-envelope hash`);
     }
     if (Date.parse(run.startedAt) > Date.parse(run.completedAt)) {
       fail(`AI run ${run.runId} completes before it starts`);
@@ -993,6 +1316,76 @@ export type SourceIdentityAcquisitionValidation = {
   acquisitionProvenanceValidated: true;
 };
 
+export type SourceIdentityArtifactFile = {
+  path: string;
+  bytes: Buffer | string;
+};
+
+export type SourceIdentityVerificationEvidenceBundle = {
+  acquisitionReceiptFile: SourceIdentityArtifactFile;
+  rawContentBytes: Buffer;
+  extractionReceiptFile: SourceIdentityArtifactFile;
+  pageMapFile: SourceIdentityArtifactFile;
+  sourceAnalysisInputManifestFile: SourceIdentityArtifactFile;
+  workflowFile: SourceIdentityArtifactFile;
+  promptTemplateFile: SourceIdentityArtifactFile;
+};
+
+export type SourceIdentityEvidenceBundleValidation =
+  SourceIdentityAcquisitionValidation & {
+    extractionReceipt: PdfQualificationReceipt;
+    pageMap: PdfPageMap;
+    sourceAnalysisInputManifest: SourceAnalysisInputManifest;
+    workflowValidated: true;
+    completeInputEvidenceValidated: true;
+  };
+
+function artifactFileBytes(file: SourceIdentityArtifactFile): Buffer {
+  return typeof file.bytes === "string"
+    ? Buffer.from(file.bytes, "utf8")
+    : file.bytes;
+}
+
+function parseArtifactJson(
+  file: SourceIdentityArtifactFile,
+  label: string,
+): unknown {
+  try {
+    return JSON.parse(
+      new TextDecoder("utf-8", { fatal: true }).decode(artifactFileBytes(file)),
+    );
+  } catch {
+    fail(`${label} is not valid UTF-8 JSON`);
+  }
+}
+
+function inputEvidenceAnchor(
+  artifact: SourceIdentityVerificationArtifact,
+  evidenceType: SourceIdentityRequiredInputEvidenceType,
+): SourceIdentityVerificationArtifact["evidenceAnchors"][number] {
+  const matches = artifact.evidenceAnchors.filter(
+    (anchor) => anchor.evidenceType === evidenceType,
+  );
+  if (matches.length !== 1) {
+    fail(`identity input requires exactly one ${evidenceType} anchor`);
+  }
+  return matches[0]!;
+}
+
+function validateAnchoredArtifactFile(
+  artifact: SourceIdentityVerificationArtifact,
+  evidenceType: SourceIdentityRequiredInputEvidenceType,
+  file: SourceIdentityArtifactFile,
+): void {
+  const anchor = inputEvidenceAnchor(artifact, evidenceType);
+  if (anchor.locator !== file.path) {
+    fail(`${evidenceType} path does not match its exact evidence anchor`);
+  }
+  if (anchor.evidenceSha256 !== sourceIdentitySha256(artifactFileBytes(file))) {
+    fail(`${evidenceType} file hash does not match its exact evidence anchor`);
+  }
+}
+
 export function validateSourceIdentityVerificationWithAcquisitionReceipt(
   identityValue: unknown,
   receiptFile: {
@@ -1109,6 +1502,372 @@ export function validateSourceIdentityVerificationWithAcquisitionReceipt(
   };
 }
 
+export function validateSourceIdentityVerificationWithEvidenceBundle(
+  identityValue: unknown,
+  bundle: SourceIdentityVerificationEvidenceBundle,
+): SourceIdentityEvidenceBundleValidation {
+  const acquisition = validateSourceIdentityVerificationWithAcquisitionReceipt(
+    identityValue,
+    {
+      receiptPath: bundle.acquisitionReceiptFile.path,
+      receiptBytes: bundle.acquisitionReceiptFile.bytes,
+      rawContentBytes: bundle.rawContentBytes,
+    },
+  );
+  const identity = acquisition.identity;
+  validateAnchoredArtifactFile(
+    identity,
+    "source_acquisition_receipt",
+    bundle.acquisitionReceiptFile,
+  );
+  validateAnchoredArtifactFile(
+    identity,
+    "extraction_receipt",
+    bundle.extractionReceiptFile,
+  );
+  validateAnchoredArtifactFile(identity, "page_map", bundle.pageMapFile);
+  validateAnchoredArtifactFile(
+    identity,
+    "source_analysis_input_manifest",
+    bundle.sourceAnalysisInputManifestFile,
+  );
+
+  const extractionValue = parseArtifactJson(
+    bundle.extractionReceiptFile,
+    "extraction receipt",
+  );
+  const extractionParsed =
+    PdfQualificationReceiptSchema.safeParse(extractionValue);
+  if (!extractionParsed.success)
+    fail("extraction receipt schema validation failed");
+  const extractionReceipt = extractionParsed.data;
+  if (!verifySealedQualificationReceipt(extractionReceipt)) {
+    fail("extraction receipt internal seal does not validate");
+  }
+
+  const pageMapValue = parseArtifactJson(bundle.pageMapFile, "page map");
+  const pageMapParsed = PdfPageMapSchema.safeParse(pageMapValue);
+  if (!pageMapParsed.success) fail("page-map schema validation failed");
+  const pageMap = pageMapParsed.data;
+  if (!verifySealedPageMap(pageMap))
+    fail("page-map internal seal does not validate");
+
+  let sourceAnalysisInputManifest: SourceAnalysisInputManifest;
+  try {
+    sourceAnalysisInputManifest = verifySourceAnalysisInputManifest(
+      parseArtifactJson(
+        bundle.sourceAnalysisInputManifestFile,
+        "source-analysis input manifest",
+      ),
+    );
+  } catch {
+    fail("source-analysis input manifest does not validate");
+  }
+
+  const rawHash = identity.binding.sourceContentSha256.replace(/^sha256:/, "");
+  const canonicalIdentity = identity.candidateIdentity.canonicalIdentity;
+  const expectedReceiptPath = `knowledge/corpus/pdf-page-extraction/receipts/${rawHash}.receipt.v1.json`;
+  const expectedPageMapPath = `knowledge/corpus/pdf-page-extraction/page-maps/${rawHash}.page-map.v1.json`;
+  const expectedInputManifestPath = `knowledge/corpus/source-analysis-input-manifests/manifests/${rawHash}.source-analysis-input-manifest.v1.json`;
+  if (bundle.extractionReceiptFile.path !== expectedReceiptPath) {
+    fail(
+      "extraction receipt does not use the deterministic content-addressed path",
+    );
+  }
+  if (bundle.pageMapFile.path !== expectedPageMapPath) {
+    fail("page map does not use the deterministic content-addressed path");
+  }
+  if (
+    bundle.sourceAnalysisInputManifestFile.path !== expectedInputManifestPath
+  ) {
+    fail(
+      "source-analysis input manifest does not use the deterministic content-addressed path",
+    );
+  }
+  if (
+    bundle.rawContentBytes.subarray(0, 5).toString("ascii") !== "%PDF-" ||
+    extractionReceipt.sourceFile.headerMagic !== "%PDF-" ||
+    extractionReceipt.sourceFile.expectedSizeBytes !==
+      bundle.rawContentBytes.length ||
+    extractionReceipt.sourceFile.observedSizeBytes !==
+      bundle.rawContentBytes.length ||
+    extractionReceipt.sourceFile.primaryCopy.sha256 !== rawHash ||
+    extractionReceipt.sourceFile.replicaCopy.sha256 !== rawHash ||
+    extractionReceipt.sourceFile.primaryCopy.sizeBytes !==
+      bundle.rawContentBytes.length ||
+    extractionReceipt.sourceFile.replicaCopy.sizeBytes !==
+      bundle.rawContentBytes.length
+  ) {
+    fail("raw PDF bytes do not match the complete extraction copy binding");
+  }
+
+  for (const [label, processingHash] of [
+    ["extraction receipt", extractionReceipt.processingUnit.rawPdfSha256],
+    ["page map", pageMap.processingUnit.rawPdfSha256],
+    [
+      "source-analysis input manifest",
+      sourceAnalysisInputManifest.processingUnit.rawPdfSha256,
+    ],
+  ] as const) {
+    if (processingHash !== rawHash) fail(`${label} raw-content hash drifted`);
+  }
+  const boundIdentityKeySets = [
+    ["extraction receipt", extractionReceipt.identityKeys],
+    ["page map", pageMap.identityKeys],
+    [
+      "source-analysis input manifest",
+      sourceAnalysisInputManifest.identityKeys,
+    ],
+  ] as const;
+  const expectedIdentityKeys = JSON.stringify(
+    [...extractionReceipt.identityKeys].sort(),
+  );
+  for (const [label, identityKeys] of boundIdentityKeySets) {
+    if (
+      new Set(identityKeys).size !== identityKeys.length ||
+      !identityKeys.includes(canonicalIdentity) ||
+      JSON.stringify([...identityKeys].sort()) !== expectedIdentityKeys
+    ) {
+      fail(`${label} does not bind the exact canonical identity`);
+    }
+  }
+  const expectedIdentityAssociation = canonicalSourceIdentityJson(
+    extractionReceipt.identityAssociation as SourceIdentityJsonValue,
+  );
+  const expectedSourceBinding = canonicalSourceIdentityJson(
+    extractionReceipt.sourceBinding as SourceIdentityJsonValue,
+  );
+  for (const [label, identityAssociation, sourceBinding] of [
+    ["page map", pageMap.identityAssociation, pageMap.sourceBinding],
+    [
+      "source-analysis input manifest",
+      sourceAnalysisInputManifest.identityAssociation,
+      sourceAnalysisInputManifest.sourceBinding,
+    ],
+  ] as const) {
+    if (
+      canonicalSourceIdentityJson(
+        identityAssociation as SourceIdentityJsonValue,
+      ) !== expectedIdentityAssociation ||
+      canonicalSourceIdentityJson(sourceBinding as SourceIdentityJsonValue) !==
+        expectedSourceBinding
+    ) {
+      fail(`${label} identity association or source binding drifted`);
+    }
+  }
+
+  if (
+    identity.extractionBinding.extractionReceiptId !==
+      sourceIdentityExtractionReceiptId(identity.binding.sourceContentSha256) ||
+    identity.extractionBinding.extractionReceiptVersion !==
+      extractionReceipt.pipelineVersion ||
+    identity.extractionBinding.extractionReceiptSha256 !==
+      `sha256:${extractionReceipt.receiptSha256}`
+  ) {
+    fail("extraction receipt identity, version or internal seal drifted");
+  }
+  if (
+    identity.extractionBinding.pageMapId !==
+      sourceIdentityPageMapId(identity.binding.sourceContentSha256) ||
+    identity.extractionBinding.pageMapVersion !== pageMap.pipelineVersion ||
+    identity.extractionBinding.pageMapSha256 !==
+      `sha256:${pageMap.pageMapSha256}`
+  ) {
+    fail("page-map identity, version or internal seal drifted");
+  }
+  if (
+    extractionReceipt.extraction.pageMapSha256 !== pageMap.pageMapSha256 ||
+    extractionReceipt.extraction.pageMapLocator !== bundle.pageMapFile.path ||
+    extractionReceipt.sourceFile.observedSizeBytes !==
+      identity.extractionBinding.rawContentSizeBytes ||
+    extractionReceipt.sourceFile.observedSizeBytes !==
+      bundle.rawContentBytes.length ||
+    extractionReceipt.sourceFile.pageCount !==
+      identity.extractionBinding.expectedPageCount ||
+    extractionReceipt.extraction.extractedPageCount !==
+      identity.extractionBinding.mappedPageCount ||
+    pageMap.expectedPageCount !==
+      identity.extractionBinding.expectedPageCount ||
+    pageMap.extractedPageCount !== identity.extractionBinding.mappedPageCount ||
+    pageMap.pages.length !== identity.extractionBinding.mappedPageCount ||
+    extractionReceipt.extraction.rawTextFileCount !==
+      identity.extractionBinding.mappedPageCount ||
+    extractionReceipt.extraction.normalizedTextFileCount !==
+      identity.extractionBinding.mappedPageCount ||
+    !pageMap.pageSequenceComplete
+  ) {
+    fail("extraction receipt and page-map coverage bindings drifted");
+  }
+  for (let index = 0; index < pageMap.pages.length; index += 1) {
+    const page = pageMap.pages[index]!;
+    const manifestPage = sourceAnalysisInputManifest.pages[index];
+    if (
+      page.pageNumber !== index + 1 ||
+      manifestPage?.pageNumber !== page.pageNumber ||
+      manifestPage.normalizedText.sha256 !== page.normalizedText.sha256 ||
+      manifestPage.normalizedText.sizeBytes !== page.normalizedText.sizeBytes ||
+      manifestPage.normalizedText.characterCount !==
+        page.normalizedText.characterCount ||
+      manifestPage.normalizedText.wordCount !== page.normalizedText.wordCount
+    ) {
+      fail(`normalized page ${index + 1} drifted across extraction inputs`);
+    }
+  }
+  if (
+    extractionReceipt.totals.normalizedSizeBytes !==
+      sourceAnalysisInputManifest.totals.normalizedSizeBytes ||
+    extractionReceipt.totals.normalizedCharacterCount !==
+      sourceAnalysisInputManifest.totals.normalizedCharacterCount ||
+    extractionReceipt.totals.wordCount !==
+      sourceAnalysisInputManifest.totals.wordCount
+  ) {
+    fail("normalized extraction totals drifted across input artifacts");
+  }
+
+  const extractionFileHash = sourceIdentitySha256(
+    artifactFileBytes(bundle.extractionReceiptFile),
+  ).replace(/^sha256:/, "");
+  const pageMapFileHash = sourceIdentitySha256(
+    artifactFileBytes(bundle.pageMapFile),
+  ).replace(/^sha256:/, "");
+  if (
+    sourceAnalysisInputManifest.bindings.extractionReceipt.path !==
+      bundle.extractionReceiptFile.path ||
+    sourceAnalysisInputManifest.bindings.extractionReceipt.fileSha256 !==
+      extractionFileHash ||
+    sourceAnalysisInputManifest.bindings.extractionReceipt.receiptSha256 !==
+      extractionReceipt.receiptSha256 ||
+    sourceAnalysisInputManifest.bindings.pageMap.path !==
+      bundle.pageMapFile.path ||
+    sourceAnalysisInputManifest.bindings.pageMap.fileSha256 !==
+      pageMapFileHash ||
+    sourceAnalysisInputManifest.bindings.pageMap.pageMapSha256 !==
+      pageMap.pageMapSha256
+  ) {
+    fail("source-analysis input manifest artifact bindings drifted");
+  }
+  if (
+    identity.extractionBinding.extractedTextManifestSha256 !==
+      `sha256:${sourceAnalysisInputManifest.normalizedInput.sha256}` ||
+    sourceAnalysisInputManifest.totals.pageCount !==
+      identity.extractionBinding.expectedPageCount ||
+    sourceAnalysisInputManifest.identityAssociation.state !==
+      "provisional_metadata_match" ||
+    sourceAnalysisInputManifest.sourceBinding.corpusIdentityVerified !==
+      false ||
+    sourceAnalysisInputManifest.workflowEligibility.state !==
+      "identity_verification_candidate" ||
+    sourceAnalysisInputManifest.workflowEligibility.identityVerification
+      .allowed !== true ||
+    sourceAnalysisInputManifest.workflowEligibility.sourceAnalysis.allowed !==
+      false
+  ) {
+    fail(
+      "identity verification requires the exact immutable pre-verification input manifest",
+    );
+  }
+
+  const boundSourceLocators = [
+    ["extraction receipt", extractionReceipt.sourceBinding],
+    ["page map", pageMap.sourceBinding],
+    [
+      "source-analysis input manifest",
+      sourceAnalysisInputManifest.sourceBinding,
+    ],
+  ] as const;
+  if (identity.candidateIdentity.candidateLocator.kind === "official_url") {
+    const expectedOfficialUrl = identity.candidateIdentity.candidateLocator.url;
+    for (const [label, sourceBinding] of boundSourceLocators) {
+      if (
+        !("officialUrl" in sourceBinding) ||
+        sourceBinding.officialUrl !== expectedOfficialUrl
+      ) {
+        fail(
+          `${label} must bind the exact official source locator from the identity candidate`,
+        );
+      }
+    }
+  } else {
+    const expectedPrivateLocator =
+      identity.candidateIdentity.candidateLocator.locator;
+    for (const [label, sourceBinding] of boundSourceLocators) {
+      if (
+        !("controlledPrivateLocator" in sourceBinding) ||
+        sourceBinding.controlledPrivateLocator !== expectedPrivateLocator
+      ) {
+        fail(
+          `${label} must bind the exact controlled private locator from the identity candidate`,
+        );
+      }
+    }
+  }
+
+  for (const anchor of identity.evidenceAnchors) {
+    if (!["cover_page", "bibliographic_page"].includes(anchor.evidenceType)) {
+      continue;
+    }
+    const match = /^page:(\d+)$/.exec(anchor.locator);
+    if (!match) fail(`${anchor.evidenceType} anchor must use page:<number>`);
+    const pageNumber = Number(match[1]);
+    const page = sourceAnalysisInputManifest.pages.find(
+      (item) => item.pageNumber === pageNumber,
+    );
+    if (
+      !page ||
+      anchor.evidenceSha256 !== `sha256:${page.normalizedText.sha256}`
+    ) {
+      fail(
+        `${anchor.evidenceType} anchor does not bind the exact normalized page`,
+      );
+    }
+  }
+
+  const workflowBytes = artifactFileBytes(bundle.workflowFile);
+  const workflowText = new TextDecoder("utf-8", { fatal: true }).decode(
+    workflowBytes,
+  );
+  const firstRun = identity.aiExecution.runs[0]!;
+  const promptTemplateBytes = artifactFileBytes(bundle.promptTemplateFile);
+  const promptTemplateText = new TextDecoder("utf-8", { fatal: true }).decode(
+    promptTemplateBytes,
+  );
+  if (
+    bundle.workflowFile.path !== SOURCE_IDENTITY_WORKFLOW_PATH ||
+    sourceIdentitySha256(workflowBytes) !== firstRun.workflowFileSha256 ||
+    !workflowText.includes(`Workflow ID: \`${SOURCE_IDENTITY_WORKFLOW_ID}\``) ||
+    !workflowText.includes(
+      `Workflow version: \`${SOURCE_IDENTITY_WORKFLOW_VERSION}\``,
+    )
+  ) {
+    fail("workflow bytes do not match the exact identity workflow binding");
+  }
+  if (
+    Date.parse(acquisition.acquisitionReceipt.completedAt) >
+    Date.parse(firstRun.startedAt)
+  ) {
+    fail("source acquisition completed after the first AI run started");
+  }
+  if (
+    bundle.promptTemplateFile.path !== SOURCE_IDENTITY_PROMPT_TEMPLATE_PATH ||
+    sourceIdentitySha256(promptTemplateBytes) !==
+      firstRun.promptTemplateSha256 ||
+    !promptTemplateText.includes(SOURCE_IDENTITY_WORKFLOW_ID)
+  ) {
+    fail(
+      "prompt-template bytes do not match the exact identity prompt binding",
+    );
+  }
+
+  return {
+    ...acquisition,
+    extractionReceipt,
+    pageMap,
+    sourceAnalysisInputManifest,
+    workflowValidated: true,
+    completeInputEvidenceValidated: true,
+  };
+}
+
 export function requireVerifiedSourceIdentityWithAcquisitionReceipt(
   identityValue: unknown,
   receiptFile: {
@@ -1131,6 +1890,30 @@ export function requireVerifiedSourceIdentityWithAcquisitionReceipt(
     );
   }
   return validated as SourceIdentityAcquisitionValidation & {
+    identity: SourceIdentityVerificationArtifact & {
+      decision: z.infer<typeof verifiedDecisionSchema>;
+    };
+  };
+}
+
+export function requireVerifiedSourceIdentityWithEvidenceBundle(
+  identityValue: unknown,
+  bundle: SourceIdentityVerificationEvidenceBundle,
+): SourceIdentityEvidenceBundleValidation & {
+  identity: SourceIdentityVerificationArtifact & {
+    decision: z.infer<typeof verifiedDecisionSchema>;
+  };
+} {
+  const validated = validateSourceIdentityVerificationWithEvidenceBundle(
+    identityValue,
+    bundle,
+  );
+  if (validated.identity.decision.state !== "verified") {
+    fail(
+      `identity decision ${validated.identity.decision.state} cannot establish verified identity`,
+    );
+  }
+  return validated as SourceIdentityEvidenceBundleValidation & {
     identity: SourceIdentityVerificationArtifact & {
       decision: z.infer<typeof verifiedDecisionSchema>;
     };

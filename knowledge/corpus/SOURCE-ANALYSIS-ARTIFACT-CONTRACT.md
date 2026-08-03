@@ -18,18 +18,22 @@ This contract is the machine-checkable form of the candidate-analysis step in th
 
 Every artifact binds all of the following:
 
-- exact lifecycle record ID, canonical lifecycle-snapshot hash and snapshot time;
+- exact verified analysis lifecycle record ID, canonical lifecycle-snapshot hash and snapshot time;
+- the immutable verified input-manifest revision and its exact provisional predecessor;
+- the provisional identity-verification pre-state (`L1`) and distinct verified analysis pre-state (`L2`);
 - exact source ID, verified identity state, metadata hash and content hash;
 - exact verified identity-artifact ID, version, hash and canonical identity;
 - exact normalized full-text hash;
 - exact extraction artifact, extraction artifact hash and text-manifest hash;
-- exact AI run IDs, provider, model, model version, workflow, workflow version, prompt hash, input hashes, output hashes and timestamps;
-- exact page or section locator IDs and their normalized text-unit hashes;
+- exact AI run IDs, provider, model, model version, canonical workflow and prompt-template IDs, versions, repository paths, whole-file hashes, input hashes, output hashes and timestamps;
+- exact page or section locator IDs, their normalized text-unit hashes, byte counts, Unicode character counts and word counts;
 - a stable artifact lineage, version, predecessor binding for revisions, analysis-payload hash and complete artifact hash.
 
-The lifecycle snapshot hash is the SHA-256 of its canonical JSON at the point the analysis begins. `validateSourceAnalysisBinding` compares the entire binding object with the expected lifecycle/source/content/text snapshot rather than trusting fields copied from the analysis itself.
+The analysis lifecycle snapshot hash is the SHA-256 of its canonical JSON at the point the analysis begins. The positive manifest separately seals the earlier provisional identity snapshot. `validateSourceAnalysisArtifactWithEvidenceBundle` parses both manifests and the identity artifact from exact file bytes, requires the identity file's content-addressed repository path, validates the complete identity evidence bundle, recomputes file hashes and internal seals, and requires the only lifecycle transition between `L1` and `L2` to be the verified-identity change. It separately receives the canonical workflow bytes, prompt-template bytes and every ordered normalized-page byte, verifies their paths, hashes, UTF-8 validity and declared counts, and recomputes the complete framed normalized input. It compares the complete binding with the expected source, content, text and scope state rather than trusting fields copied from the analysis itself. The narrower `validateSourceAnalysisArtifactAfterReplayVerifiedIdentity` helper is decision-only and may be used solely after the same full deterministic event replay has already validated the exact identity bundle; it is not a standalone authorization boundary.
 
 `validateSourceAnalysisIdentityVerificationBinding` additionally verifies that the named identity artifact is itself sealed and decided `verified`, then rejects source, canonical-identity, metadata, content or extraction drift. Provisional and rejected identity artifacts cannot be used as analysis prerequisites.
+
+The lifecycle and source binding retain the stable candidate/corpus title. A separately observed document title may differ only when the identity artifact has passed the deterministic dimension-specific normalization policy; that observed value stays explicit in the manifest and identity evidence. A caller-written explanation is not enough to establish a normalized match.
 
 When the runtime exposes no exact model build, `modelVersionState` is `runtime_not_exposed` and `modelVersion` must use the explicit `runtime_not_exposed` sentinel. Run timing similarly distinguishes `provider_exact` from an honestly described `coordinator_observed_window`.
 
@@ -72,6 +76,7 @@ Those outcomes can change only in separately receipted lifecycle records. They c
 The JSON Schema and Zod schema enforce the same strict object shape, required fields, closed enums, candidate-only semantics and absence of unknown fields. Runtime validation additionally fails closed on:
 
 - skipped or reordered pages or sections;
+- changed workflow bytes, prompt-template bytes or normalized-page bytes, even when their names are unchanged;
 - mismatched lifecycle, content or text hashes;
 - broken AI-run chronology or output continuity;
 - missing reading, analysis or reconciliation stages;

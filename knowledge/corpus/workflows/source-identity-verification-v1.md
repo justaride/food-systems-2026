@@ -20,9 +20,15 @@ The coordinator must provide and hash-bind all of the following before the run s
 4. one validated acquisition or controlled-private-access receipt;
 5. the validated PDF extraction receipt and page map;
 6. the validated source-analysis input manifest;
-7. this workflow file and its exact SHA-256.
+7. this workflow file and its exact SHA-256;
+8. the separate prompt-template file and its exact SHA-256.
 
-The run must stop if any referenced file, internal seal, identity key, raw-content hash, page-map hash, expected page count, locator or acquisition receipt differs.
+The source-analysis input manifest at this stage must be the immutable
+`identity_verification_candidate` predecessor: provisional identity association,
+unverified source binding and source analysis still closed. A later eligible
+manifest is a distinct revision and is never substituted into this input.
+
+The run must stop if any referenced file, internal seal, identity key, raw-content hash, page-map hash, expected page count, locator, acquisition receipt, workflow or prompt differs. All required file anchors and all page anchors used by a match dimension must predate the first AI run.
 
 ## Exact ordered stages
 
@@ -31,7 +37,8 @@ The run must stop if any referenced file, internal seal, identity key, raw-conte
 3. `identity_match` — assess title, publisher, date, language, locator, content hash and extraction binding exactly once each.
 4. `decision` — choose `verified`, `provisional` or `rejected` from the complete discrepancy set.
 
-Stages must occur once, in this order. A missing, repeated or reordered stage invalidates the run.
+Across all recorded AI runs, the flattened stage sequence must equal this list
+exactly. A missing, repeated or reordered stage invalidates the run.
 
 ## Decision rule
 
@@ -49,4 +56,4 @@ Otherwise return `provisional` or `rejected` with concrete next actions. Never r
 
 Return one strict source-identity-verification payload containing paraphrased metadata observations, evidence locators, match dimensions, discrepancies and the decision. Do not include copied source passages. Keep every downstream review, rights, publication and coverage flag closed.
 
-Record provider, model name, exposed model-version state, coordinator or provider time evidence, prompt hash, input-envelope hash and output hash honestly. Never invent a model build or provider timestamp.
+Record provider, model name, exposed model-version state, coordinator or provider time evidence, exact workflow-file hash, separate prompt-template hash, input-envelope hash and output hash honestly. The input envelope uses the `source-identity-verification-input-envelope-v1` schema and a domain-separated canonical hash. Never invent a model build or provider timestamp.

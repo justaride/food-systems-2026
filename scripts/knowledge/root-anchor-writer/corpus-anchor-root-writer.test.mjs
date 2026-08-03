@@ -24,15 +24,18 @@ import {
   HEAD_FILE,
   LEDGER_FILE,
   LOCK_FILE,
-  appendPreparedRequestForPolicy,
+  REQUEST_FILE_MODE,
+  appendPreparedRequestForTestPolicy,
   checkExternalLedgerForPolicy,
   createTestPolicy,
+  validateLedgerSnapshot,
 } from "./corpus-anchor-root-writer.mjs";
 
 const EVENT_ANCHOR_DOMAIN =
   "food-systems/corpus-processing-event-history-anchor/v1\n";
 const EVIDENCE_DOMAIN = "food-systems/corpus-external-anchor-evidence/v1\n";
 const REQUEST_DOMAIN = "food-systems/corpus-external-anchor-request/v1\n";
+const RECORD_DOMAIN = "food-systems/corpus-external-anchor-record/v1\n";
 const HEAD_DOMAIN = "food-systems/corpus-external-anchor-head/v1\n";
 
 function canonical(value) {
@@ -51,6 +54,10 @@ function hash(domain, value) {
     .update(domain)
     .update(canonical(value))
     .digest("hex")}`;
+}
+
+function rawFileSha256(bytes) {
+  return `sha256:${createHash("sha256").update(bytes).digest("hex")}`;
 }
 
 function seal(domain, value, field) {
@@ -185,15 +192,17 @@ function makeFixture(options = {}) {
   const requestRoot = mkdtempSync(join(parent, "root-anchor-writer-request-"));
   const value = options.request ?? request();
   const requestPath = join(requestRoot, "request.json");
-  writeFileSync(requestPath, `${JSON.stringify(value, null, 2)}\n`, {
-    mode: 0o600,
-  });
+  const requestBytes = Buffer.from(`${JSON.stringify(value, null, 2)}\n`);
+  writeFileSync(requestPath, requestBytes, { mode: REQUEST_FILE_MODE });
   return {
     root,
+    requestRoot,
     requestPath,
+    requestFileSha256: rawFileSha256(requestBytes),
     request: value,
     policy: createTestPolicy({
       externalRoot: root,
+      requestRoot,
       faultInjector: options.faultInjector ?? null,
     }),
   };
@@ -205,8 +214,9 @@ function clock(...values) {
 }
 
 function appendFirst(fixture) {
-  return appendPreparedRequestForPolicy({
+  return appendPreparedRequestForTestPolicy({
     requestPath: fixture.requestPath,
+    expectedRequestFileSha256: fixture.requestFileSha256,
     policy: fixture.policy,
     now: clock("2026-08-04T08:02:00Z", "2026-08-04T08:03:00Z"),
   });
@@ -220,6 +230,215 @@ function currentPrecondition(root) {
     headSha256: head.headSha256,
   };
 }
+
+test("requires the administrator-pinned SHA-256 of the exact request file bytes", () => {
+  const fixture = makeFixture();
+  assert.throws(
+    () =>
+      appendPreparedRequestForTestPolicy({
+        requestPath: fixture.requestPath,
+        policy: fixture.policy,
+      }),
+    /administrator-pinned expected request file SHA-256/,
+  );
+  assert.throws(
+    () =>
+      appendPreparedRequestForTestPolicy({
+        requestPath: fixture.requestPath,
+        expectedRequestFileSha256: sha("f"),
+        policy: fixture.policy,
+      }),
+    /do not match the administrator-pinned expected SHA-256/,
+  );
+  assert.deepEqual(readdirSyncSorted(fixture.root), []);
+});
+
+test("rejects invalid genesis, successor forks, skipped record counts, and baseline drift", () => {
+  const invalidGenesis = makeFixture({
+    request: request({
+      anchorCandidate: candidate({
+        sequence: 3,
+        predecessorRecordSha256: sha("f"),
+      }),
+    }),
+  });
+  assert.throws(
+    () => appendFirst(invalidGenesis),
+    /genesis requires candidate sequence 1 with a null predecessor/,
+  );
+
+  const fixture = makeFixture();
+  appendFirst(fixture);
+  const attempt = (value, expected) => {
+    const bytes = Buffer.from(`${JSON.stringify(value, null, 2)}\n`);
+    chmodSync(fixture.requestPath, 0o600);
+    writeFileSync(fixture.requestPath, bytes);
+    chmodSync(fixture.requestPath, REQUEST_FILE_MODE);
+    assert.throws(
+      () =>
+        appendPreparedRequestForTestPolicy({
+          requestPath: fixture.requestPath,
+          expectedRequestFileSha256: rawFileSha256(bytes),
+          policy: fixture.policy,
+          now: clock("2026-08-04T09:02:00Z", "2026-08-04T09:03:00Z"),
+        }),
+      expected,
+    );
+    assert.equal(checkExternalLedgerForPolicy(fixture.policy).recordCount, 1);
+  };
+  attempt(
+    request({
+      anchorCandidate: candidate({
+        sequence: 3,
+        predecessorRecordSha256: sha("f"),
+        createdAt: "2026-08-04T09:00:00Z",
+        eventCount: 1,
+      }),
+      precondition: currentPrecondition(fixture.root),
+      preparedAt: "2026-08-04T09:01:00Z",
+    }),
+    /candidate predecessor does not match the prior trusted verification/,
+  );
+  attempt(
+    request({
+      anchorCandidate: candidate({
+        sequence: 5,
+        predecessorRecordSha256: fixture.request.verification.recordSha256,
+        createdAt: "2026-08-04T09:00:00Z",
+        eventCount: 1,
+      }),
+      precondition: currentPrecondition(fixture.root),
+      preparedAt: "2026-08-04T09:01:00Z",
+    }),
+    /candidate sequence does not extend the prior repository record count/,
+  );
+  attempt(
+    request({
+      anchorCandidate: candidate({
+        sequence: 3,
+        predecessorRecordSha256: fixture.request.verification.recordSha256,
+        createdAt: "2026-08-04T09:00:00Z",
+        eventCount: 1,
+      }),
+      precondition: currentPrecondition(fixture.root),
+      preparedAt: "2026-08-04T09:01:00Z",
+      baseline: {
+        ...baselineInputs(),
+        baseline: {
+          ...baselineInputs().baseline,
+          fileSha256: sha("a"),
+        },
+      },
+    }),
+    /changes the immutable baseline, processing register, or baseline generation manifest/,
+  );
+});
+
+test("rejects a valid replacement request when the administrator pinned the original file", () => {
+  const fixture = makeFixture();
+  const replacement = request({ preparedAt: "2026-08-04T08:01:30Z" });
+  const replacementBytes = Buffer.from(
+    `${JSON.stringify(replacement, null, 2)}\n`,
+  );
+  chmodSync(fixture.requestPath, 0o600);
+  writeFileSync(fixture.requestPath, replacementBytes);
+  chmodSync(fixture.requestPath, REQUEST_FILE_MODE);
+  assert.throws(
+    () =>
+      appendPreparedRequestForTestPolicy({
+        requestPath: fixture.requestPath,
+        expectedRequestFileSha256: fixture.requestFileSha256,
+        policy: fixture.policy,
+      }),
+    /do not match the administrator-pinned expected SHA-256/,
+  );
+  assert.deepEqual(readdirSyncSorted(fixture.root), []);
+});
+
+test("rejects request hard links, loose modes, nested paths, and overlapping roots", () => {
+  const hardlinkFixture = makeFixture();
+  linkSync(
+    hardlinkFixture.requestPath,
+    join(hardlinkFixture.requestRoot, "request-hardlink.json"),
+  );
+  assert.throws(() => appendFirst(hardlinkFixture), /must have one hard link/);
+
+  const modeFixture = makeFixture();
+  chmodSync(modeFixture.requestPath, 0o600);
+  assert.throws(() => appendFirst(modeFixture), /mode must be exactly 0400/);
+
+  const ownerFixture = makeFixture();
+  const wrongOwnerPolicy = createTestPolicy({
+    externalRoot: ownerFixture.root,
+    requestRoot: ownerFixture.requestRoot,
+    requestFileExpectedUid: (process.getuid?.() ?? 0) + 1,
+  });
+  assert.throws(
+    () =>
+      appendPreparedRequestForTestPolicy({
+        requestPath: ownerFixture.requestPath,
+        expectedRequestFileSha256: ownerFixture.requestFileSha256,
+        policy: wrongOwnerPolicy,
+      }),
+    /owner is invalid/,
+  );
+
+  const nestedFixture = makeFixture();
+  const nestedRoot = join(nestedFixture.requestRoot, "nested");
+  mkdirSync(nestedRoot, { mode: 0o700 });
+  const nestedPath = join(nestedRoot, "request.json");
+  const nestedBytes = readFileSync(nestedFixture.requestPath);
+  writeFileSync(nestedPath, nestedBytes, { mode: REQUEST_FILE_MODE });
+  assert.throws(
+    () =>
+      appendPreparedRequestForTestPolicy({
+        requestPath: nestedPath,
+        expectedRequestFileSha256: rawFileSha256(nestedBytes),
+        policy: nestedFixture.policy,
+      }),
+    /direct file in the fixed request root/,
+  );
+
+  const overlapFixture = makeFixture();
+  const requestRootInsideLedger = join(overlapFixture.root, "requests");
+  mkdirSync(requestRootInsideLedger, { mode: 0o700 });
+  const overlappingPolicy = createTestPolicy({
+    externalRoot: overlapFixture.root,
+    requestRoot: requestRootInsideLedger,
+  });
+  assert.throws(
+    () =>
+      appendPreparedRequestForTestPolicy({
+        requestPath: overlapFixture.requestPath,
+        expectedRequestFileSha256: overlapFixture.requestFileSha256,
+        policy: overlappingPolicy,
+      }),
+    /request root and external root must be disjoint/,
+  );
+});
+
+test("rejects a handcrafted caller-selected policy at the append boundary", () => {
+  const fixture = makeFixture();
+  assert.throws(
+    () =>
+      appendPreparedRequestForTestPolicy({
+        requestPath: fixture.requestPath,
+        expectedRequestFileSha256: fixture.requestFileSha256,
+        policy: {
+          externalRoot: fixture.root,
+          requestRoot: fixture.requestRoot,
+          expectedUid: process.getuid?.() ?? 0,
+          requestRootExpectedUid: process.getuid?.() ?? 0,
+          requestFileExpectedUid: process.getuid?.() ?? 0,
+          requireSecureAncestors: false,
+          requireSecureRequestAncestors: false,
+          faultInjector: null,
+        },
+      }),
+    /policy created by createTestPolicy/,
+  );
+  assert.deepEqual(readdirSyncSorted(fixture.root), []);
+});
 
 test("durably initializes the fixed-format external files without touching repository state", () => {
   const fixture = makeFixture();
@@ -247,6 +466,28 @@ function readdirSyncSorted(path) {
   return readdirSync(path).sort();
 }
 
+test("check fails closed when the fixed request root is absent or insecure", () => {
+  const absentFixture = makeFixture();
+  const absentRequestRoot = `${absentFixture.requestRoot}-absent`;
+  assert.throws(
+    () =>
+      checkExternalLedgerForPolicy(
+        createTestPolicy({
+          externalRoot: absentFixture.root,
+          requestRoot: absentRequestRoot,
+        }),
+      ),
+    /path component is absent/,
+  );
+
+  const insecureFixture = makeFixture();
+  chmodSync(insecureFixture.requestRoot, 0o755);
+  assert.throws(
+    () => checkExternalLedgerForPolicy(insecureFixture.policy),
+    /request root mode must be exactly 0700/,
+  );
+});
+
 test("rejects a replay even when it carries the latest compare-and-swap head", () => {
   const fixture = makeFixture();
   appendFirst(fixture);
@@ -255,15 +496,19 @@ test("rejects a replay even when it carries the latest compare-and-swap head", (
     precondition: currentPrecondition(fixture.root),
     preparedAt: "2026-08-04T08:04:00Z",
   });
-  writeFileSync(fixture.requestPath, `${JSON.stringify(replay, null, 2)}\n`);
+  const replayBytes = Buffer.from(`${JSON.stringify(replay, null, 2)}\n`);
+  chmodSync(fixture.requestPath, 0o600);
+  writeFileSync(fixture.requestPath, replayBytes);
+  chmodSync(fixture.requestPath, REQUEST_FILE_MODE);
   assert.throws(
     () =>
-      appendPreparedRequestForPolicy({
+      appendPreparedRequestForTestPolicy({
         requestPath: fixture.requestPath,
+        expectedRequestFileSha256: rawFileSha256(replayBytes),
         policy: fixture.policy,
         now: clock("2026-08-04T08:05:00Z", "2026-08-04T08:06:00Z"),
       }),
-    /candidate or verification is a replay/,
+    /non-genesis append request|candidate or verification is a replay/,
   );
   assert.equal(existsSync(join(fixture.root, LOCK_FILE)), false);
 });
@@ -279,14 +524,22 @@ test("extends the full chain and rejects a stale compare-and-swap head", () => {
   });
   const stale = request({
     anchorCandidate: secondCandidate,
-    precondition: null,
+    precondition: {
+      recordCount: 1,
+      latestRecordSha256: sha("a"),
+      headSha256: sha("b"),
+    },
     preparedAt: "2026-08-04T09:01:00Z",
   });
-  writeFileSync(fixture.requestPath, `${JSON.stringify(stale, null, 2)}\n`);
+  const staleBytes = Buffer.from(`${JSON.stringify(stale, null, 2)}\n`);
+  chmodSync(fixture.requestPath, 0o600);
+  writeFileSync(fixture.requestPath, staleBytes);
+  chmodSync(fixture.requestPath, REQUEST_FILE_MODE);
   assert.throws(
     () =>
-      appendPreparedRequestForPolicy({
+      appendPreparedRequestForTestPolicy({
         requestPath: fixture.requestPath,
+        expectedRequestFileSha256: rawFileSha256(staleBytes),
         policy: fixture.policy,
         now: clock("2026-08-04T09:02:00Z", "2026-08-04T09:03:00Z"),
       }),
@@ -297,9 +550,13 @@ test("extends the full chain and rejects a stale compare-and-swap head", () => {
     precondition: currentPrecondition(fixture.root),
     preparedAt: "2026-08-04T09:01:00Z",
   });
-  writeFileSync(fixture.requestPath, `${JSON.stringify(current, null, 2)}\n`);
-  appendPreparedRequestForPolicy({
+  const currentBytes = Buffer.from(`${JSON.stringify(current, null, 2)}\n`);
+  chmodSync(fixture.requestPath, 0o600);
+  writeFileSync(fixture.requestPath, currentBytes);
+  chmodSync(fixture.requestPath, REQUEST_FILE_MODE);
+  appendPreparedRequestForTestPolicy({
     requestPath: fixture.requestPath,
+    expectedRequestFileSha256: rawFileSha256(currentBytes),
     policy: fixture.policy,
     now: clock("2026-08-04T09:02:00Z", "2026-08-04T09:03:00Z"),
   });
@@ -316,15 +573,86 @@ test("extends the full chain and rejects a stale compare-and-swap head", () => {
   );
 });
 
+test("rejects a fully resealed ledger that changes immutable baseline inputs", () => {
+  const fixture = makeFixture();
+  appendFirst(fixture);
+  const secondRequest = request({
+    anchorCandidate: candidate({
+      sequence: 3,
+      predecessorRecordSha256: fixture.request.verification.recordSha256,
+      createdAt: "2026-08-04T09:00:00Z",
+      eventCount: 1,
+    }),
+    precondition: currentPrecondition(fixture.root),
+    preparedAt: "2026-08-04T09:01:00Z",
+  });
+  const secondBytes = Buffer.from(
+    `${JSON.stringify(secondRequest, null, 2)}\n`,
+  );
+  chmodSync(fixture.requestPath, 0o600);
+  writeFileSync(fixture.requestPath, secondBytes);
+  chmodSync(fixture.requestPath, REQUEST_FILE_MODE);
+  appendPreparedRequestForTestPolicy({
+    requestPath: fixture.requestPath,
+    expectedRequestFileSha256: rawFileSha256(secondBytes),
+    policy: fixture.policy,
+    now: clock("2026-08-04T09:02:00Z", "2026-08-04T09:03:00Z"),
+  });
+  const records = readFileSync(join(fixture.root, LEDGER_FILE), "utf8")
+    .trimEnd()
+    .split("\n")
+    .map((line) => JSON.parse(line));
+  const driftedRecord = seal(
+    RECORD_DOMAIN,
+    {
+      ...records[1],
+      repositoryBaselineInputs: {
+        ...records[1].repositoryBaselineInputs,
+        processingRegister: {
+          ...records[1].repositoryBaselineInputs.processingRegister,
+          fileSha256: sha("a"),
+        },
+      },
+    },
+    "recordSha256",
+  );
+  const ledgerBytes = Buffer.from(
+    `${JSON.stringify(records[0])}\n${JSON.stringify(driftedRecord)}\n`,
+  );
+  const head = JSON.parse(readFileSync(join(fixture.root, HEAD_FILE), "utf8"));
+  const driftedHead = seal(
+    HEAD_DOMAIN,
+    {
+      ...head,
+      ledgerFileSha256: rawFileSha256(ledgerBytes),
+      ledgerSizeBytes: ledgerBytes.length,
+      latestRecordSha256: driftedRecord.recordSha256,
+    },
+    "headSha256",
+  );
+  assert.throws(
+    () =>
+      validateLedgerSnapshot({
+        ledgerBytes,
+        headBytes: Buffer.from(`${JSON.stringify(driftedHead, null, 2)}\n`),
+      }),
+    /changes immutable repository baseline inputs/,
+  );
+});
+
 test("exclusive lock rejects a racing writer while the first append completes", () => {
   let fixture;
   let raceError = null;
   const faultInjector = (point) => {
     if (point !== "after_lock" || raceError) return;
     try {
-      appendPreparedRequestForPolicy({
+      appendPreparedRequestForTestPolicy({
         requestPath: fixture.requestPath,
-        policy: createTestPolicy({ externalRoot: fixture.root }),
+        expectedRequestFileSha256: fixture.requestFileSha256,
+        policy: createTestPolicy({
+          externalRoot: fixture.root,
+          requestRoot: fixture.requestRoot,
+        }),
         now: clock("2026-08-04T08:02:30Z", "2026-08-04T08:02:31Z"),
       });
     } catch (error) {
@@ -425,8 +753,9 @@ test("rejects a prepared request reached through a symlink", () => {
   symlinkSync(fixture.requestPath, linked);
   assert.throws(
     () =>
-      appendPreparedRequestForPolicy({
+      appendPreparedRequestForTestPolicy({
         requestPath: linked,
+        expectedRequestFileSha256: fixture.requestFileSha256,
         policy: fixture.policy,
         now: clock("2026-08-04T08:02:00Z", "2026-08-04T08:03:00Z"),
       }),
@@ -457,6 +786,18 @@ test("install manifest binds the exact reviewable writer bytes", () => {
     manifest.externalLedger.rootPath,
     "/private/var/db/food-systems-corpus-anchor",
   );
+  assert.equal(
+    manifest.requestIntake.rootPath,
+    "/private/var/db/food-systems-corpus-anchor-requests",
+  );
+  assert.equal(manifest.requestIntake.rootMode, "0700");
+  assert.equal(manifest.requestIntake.fileMode, "0400");
+  assert.equal(manifest.requestIntake.expectedFileSha256Required, true);
+  assert.equal(
+    manifest.safetyBoundary.callerSelectedExternalRootAllowed,
+    false,
+  );
+  assert.equal(manifest.safetyBoundary.unhashedRequestAllowed, false);
   assert.equal(
     manifestBytes.toString("utf8"),
     `${JSON.stringify(manifest, null, 2)}\n`,

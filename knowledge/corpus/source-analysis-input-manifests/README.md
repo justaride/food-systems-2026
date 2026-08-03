@@ -5,7 +5,7 @@ This bundle binds each qualified PDF to the exact ordered normalized page input 
 Each per-PDF manifest binds:
 
 - the raw PDF SHA-256 processing unit;
-- the exact tracked identity association and source binding from extraction qualification;
+- the exact tracked identity association and a strict exclusive source binding from extraction qualification: either one official HTTPS URL or one controlled `private://` locator;
 - a fail-closed workflow decision: a normal metadata match is only an identity-verification candidate, while a blocked legacy alias or an unregistered source candidate is eligible for neither identity verification nor source analysis;
 - when and only when identity has actually been verified, a distinct `source_analysis_eligible` state containing the exact identity-artifact ID, version, repository path, file hash, internal seal and `verified` decision plus the exact lifecycle pre-state record ID, state hash and `updatedAt`;
 - both the tracked file hash and internal seal of its page map and extraction receipt;
@@ -17,7 +17,7 @@ The combined input serialization is versioned in `src/lib/knowledge/source-analy
 
 The portable JSON Schema is `knowledge/schema/source-analysis-input-manifest.schema.v1.json`. Both the runtime Zod contract and JSON Schema reject absolute, parent-traversing, backslash, URI, home-relative, control-character, and non-normalized repository paths.
 
-A manifest by itself does not mean that AI analysis, owner review, independent expert review, partner review, rights-holder review, rights clearance, publication, or coverage promotion has happened. The positive eligibility state also carries `combinedValidationRequired: true`: a consumer must supply and validate the referenced manifest bytes, identity-artifact bytes and lifecycle pre-state together with the source-analysis artifact. Changing an `allowed` boolean or resealing a detached manifest cannot authorize analysis.
+A manifest by itself does not mean that AI analysis, owner review, independent expert review, partner review, rights-holder review, rights clearance, publication, or coverage promotion has happened. The positive eligibility state also carries `combinedValidationRequired: true`: a consumer must supply and validate the referenced manifest bytes, content-addressed identity-artifact bytes and lifecycle pre-state together with the source-analysis artifact, canonical workflow bytes, separate prompt-template bytes and every exact ordered normalized-page byte. Changing an `allowed` boolean or resealing a detached manifest cannot authorize analysis.
 
 ## Checks
 

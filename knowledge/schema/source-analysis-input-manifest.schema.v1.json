@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://foodsystems.local/schema/source-analysis-input-manifest.schema.v1.json",
   "title": "Food Systems source-analysis input manifest v1",
-  "description": "Strict tracked manifest for one raw-PDF processing unit and the exact canonical framed normalized bytes. Source analysis is allowed only by a positive state that references an exact verified identity artifact and lifecycle pre-state; combined validation remains mandatory.",
+  "description": "Strict tracked manifest for one raw-PDF processing unit and the exact canonical framed normalized bytes. Source analysis is allowed only by an immutable positive revision that references its predecessor, an exact verified identity artifact, and distinct provisional and verified lifecycle snapshots; combined validation remains mandatory.",
   "type": "object",
   "required": [
     "schemaVersion",
@@ -165,30 +165,73 @@
       ]
     },
     "sourceBinding": {
-      "type": "object",
-      "required": [
-        "title",
-        "doi",
-        "officialUrl",
-        "corpusIdentityVerified",
-        "scopeDisposition"
-      ],
-      "properties": {
-        "title": { "type": "string", "minLength": 1 },
-        "doi": {
-          "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "title",
+            "doi",
+            "officialUrl",
+            "corpusIdentityVerified",
+            "scopeDisposition"
+          ],
+          "properties": {
+            "title": { "type": "string", "minLength": 1 },
+            "doi": {
+              "anyOf": [
+                { "type": "string", "minLength": 1 },
+                { "type": "null" }
+              ]
+            },
+            "officialUrl": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://"
+            },
+            "corpusIdentityVerified": { "type": "boolean" },
+            "scopeDisposition": {
+              "enum": [
+                "pending_owner_classification",
+                "pending_owner_classification_indirect_context",
+                "pending_owner_disposition_likely_out_of_scope"
+              ]
+            }
+          },
+          "additionalProperties": false
         },
-        "officialUrl": { "type": "string", "format": "uri" },
-        "corpusIdentityVerified": { "type": "boolean" },
-        "scopeDisposition": {
-          "enum": [
-            "pending_owner_classification",
-            "pending_owner_classification_indirect_context",
-            "pending_owner_disposition_likely_out_of_scope"
-          ]
+        {
+          "type": "object",
+          "required": [
+            "title",
+            "doi",
+            "controlledPrivateLocator",
+            "corpusIdentityVerified",
+            "scopeDisposition"
+          ],
+          "properties": {
+            "title": { "type": "string", "minLength": 1 },
+            "doi": {
+              "anyOf": [
+                { "type": "string", "minLength": 1 },
+                { "type": "null" }
+              ]
+            },
+            "controlledPrivateLocator": {
+              "type": "string",
+              "pattern": "^private://[a-z0-9][a-z0-9._:/-]*$"
+            },
+            "corpusIdentityVerified": { "type": "boolean" },
+            "scopeDisposition": {
+              "enum": [
+                "pending_owner_classification",
+                "pending_owner_classification_indirect_context",
+                "pending_owner_disposition_likely_out_of_scope"
+              ]
+            }
+          },
+          "additionalProperties": false
         }
-      },
-      "additionalProperties": false
+      ]
     },
     "workflowEligibility": {
       "oneOf": [
@@ -270,7 +313,8 @@
                 "blockerCode",
                 "combinedValidationRequired",
                 "identityArtifactReference",
-                "lifecyclePrestate"
+                "predecessorInputManifestReference",
+                "lifecycleTransition"
               ],
               "properties": {
                 "allowed": { "const": true },
@@ -296,19 +340,71 @@
                   },
                   "additionalProperties": false
                 },
-                "lifecyclePrestate": {
+                "predecessorInputManifestReference": {
                   "type": "object",
                   "required": [
-                    "lifecycleRecordId",
-                    "lifecycleSnapshotSha256",
-                    "lifecycleSnapshotUpdatedAt"
+                    "schemaVersion",
+                    "pipelineVersion",
+                    "path",
+                    "fileSha256",
+                    "manifestSha256"
                   ],
                   "properties": {
-                    "lifecycleRecordId": { "$ref": "#/$defs/id" },
-                    "lifecycleSnapshotSha256": {
-                      "$ref": "#/$defs/prefixedHash"
+                    "schemaVersion": { "const": "1.0.0" },
+                    "pipelineVersion": { "const": "1.0.0" },
+                    "path": { "$ref": "#/$defs/repositoryPath" },
+                    "fileSha256": { "$ref": "#/$defs/hash" },
+                    "manifestSha256": { "$ref": "#/$defs/hash" }
+                  },
+                  "additionalProperties": false
+                },
+                "lifecycleTransition": {
+                  "type": "object",
+                  "required": [
+                    "identityVerificationPrestate",
+                    "analysisPrestate"
+                  ],
+                  "properties": {
+                    "identityVerificationPrestate": {
+                      "type": "object",
+                      "required": [
+                        "lifecycleRecordId",
+                        "lifecycleSnapshotSha256",
+                        "lifecycleSnapshotUpdatedAt",
+                        "sourceIdentityStatus"
+                      ],
+                      "properties": {
+                        "lifecycleRecordId": { "$ref": "#/$defs/id" },
+                        "lifecycleSnapshotSha256": {
+                          "$ref": "#/$defs/prefixedHash"
+                        },
+                        "lifecycleSnapshotUpdatedAt": {
+                          "$ref": "#/$defs/dateTime"
+                        },
+                        "sourceIdentityStatus": { "const": "provisional" }
+                      },
+                      "additionalProperties": false
                     },
-                    "lifecycleSnapshotUpdatedAt": { "$ref": "#/$defs/dateTime" }
+                    "analysisPrestate": {
+                      "type": "object",
+                      "required": [
+                        "lifecycleRecordId",
+                        "lifecycleSnapshotSha256",
+                        "lifecycleSnapshotUpdatedAt",
+                        "sourceIdentityStatus"
+                      ],
+                      "properties": {
+                        "lifecycleRecordId": { "$ref": "#/$defs/id" },
+                        "lifecycleSnapshotSha256": {
+                          "$ref": "#/$defs/prefixedHash"
+                        },
+                        "lifecycleSnapshotUpdatedAt": {
+                          "$ref": "#/$defs/dateTime"
+                        },
+                        "sourceIdentityStatus": { "const": "verified" }
+                      },
+                      "additionalProperties": false
+                    }
                   },
                   "additionalProperties": false
                 }

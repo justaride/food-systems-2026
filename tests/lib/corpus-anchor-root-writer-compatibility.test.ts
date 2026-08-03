@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import {
   chmodSync,
   mkdtempSync,
@@ -11,7 +12,8 @@ import { join } from "node:path";
 import test from "node:test";
 
 import {
-  appendPreparedRequestForPolicy,
+  REQUEST_FILE_MODE,
+  appendPreparedRequestForTestPolicy,
   createTestPolicy,
 } from "../../scripts/knowledge/root-anchor-writer/corpus-anchor-root-writer.mjs";
 import {
@@ -99,13 +101,15 @@ test("self-contained root writer is byte-compatible with the repository contract
   chmodSync(externalRoot, 0o755);
   const requestRoot = mkdtempSync(join(parent, "root-writer-compat-request-"));
   const requestPath = join(requestRoot, "request.json");
-  writeFileSync(requestPath, `${JSON.stringify(request, null, 2)}\n`, {
-    mode: 0o600,
-  });
+  const requestBytes = Buffer.from(`${JSON.stringify(request, null, 2)}\n`);
+  writeFileSync(requestPath, requestBytes, { mode: REQUEST_FILE_MODE });
   const times = ["2026-08-04T10:02:00Z", "2026-08-04T10:03:00Z"];
-  appendPreparedRequestForPolicy({
+  appendPreparedRequestForTestPolicy({
     requestPath,
-    policy: createTestPolicy({ externalRoot }),
+    expectedRequestFileSha256: `sha256:${createHash("sha256")
+      .update(requestBytes)
+      .digest("hex")}`,
+    policy: createTestPolicy({ externalRoot, requestRoot }),
     now: () => times.shift() ?? "2026-08-04T10:03:00Z",
   });
   const observed = validateCorpusExternalAnchorLedgerSnapshot({

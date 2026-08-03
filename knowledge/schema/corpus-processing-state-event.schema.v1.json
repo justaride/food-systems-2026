@@ -71,9 +71,14 @@
         "artifactType": {
           "enum": [
             "pdf_technical_qualification",
+            "pdf_page_map",
             "source_analysis_input_manifest",
             "source_acquisition_receipt",
             "source_identity_verification",
+            "source_identity_workflow",
+            "source_identity_prompt_template",
+            "source_analysis_workflow",
+            "source_analysis_prompt_template",
             "source_analysis",
             "ready_for_owner_package"
           ]
@@ -273,7 +278,11 @@
           "required": [
             "acquisitionReceiptRef",
             "sourceContentRef",
-            "identityArtifactRef"
+            "identityArtifactRef",
+            "pageMapRef",
+            "workflowRef",
+            "promptTemplateRef",
+            "verifiedInputManifestRef"
           ],
           "properties": {
             "acquisitionReceiptRef": {
@@ -293,6 +302,48 @@
                 {
                   "properties": {
                     "artifactType": { "const": "source_identity_verification" }
+                  }
+                }
+              ]
+            },
+            "pageMapRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": { "artifactType": { "const": "pdf_page_map" } }
+                }
+              ]
+            },
+            "workflowRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "source_identity_workflow" }
+                  }
+                }
+              ]
+            },
+            "promptTemplateRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": {
+                      "const": "source_identity_prompt_template"
+                    }
+                  }
+                }
+              ]
+            },
+            "verifiedInputManifestRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": {
+                      "const": "source_analysis_input_manifest"
+                    }
                   }
                 }
               ]
@@ -339,6 +390,8 @@
             "analysisArtifactRef",
             "identityArtifactRef",
             "inputManifestRef",
+            "analysisWorkflowRef",
+            "analysisPromptTemplateRef",
             "executionBinding",
             "lifecycleRun",
             "stageEvidence"
@@ -371,6 +424,28 @@
                   "properties": {
                     "artifactType": {
                       "const": "source_analysis_input_manifest"
+                    }
+                  }
+                }
+              ]
+            },
+            "analysisWorkflowRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "source_analysis_workflow" }
+                  }
+                }
+              ]
+            },
+            "analysisPromptTemplateRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": {
+                      "const": "source_analysis_prompt_template"
                     }
                   }
                 }

@@ -11,13 +11,13 @@
     },
     {
       "path": "scripts/knowledge/qualify-pdf-page-extraction.ts",
-      "sha256": "eb5884e3e7d07c654015e9f90d9aed68e81998e1f73e3a982235c12fa2d81d01",
-      "sizeBytes": 64856
+      "sha256": "f381ac046c49e9a409244f9b1a917840ac4b21430d49d2f794b995eb9963d614",
+      "sizeBytes": 66786
     },
     {
       "path": "src/lib/knowledge/pdf-page-extraction-qualification.ts",
-      "sha256": "83a1e7882c06a0bc92c962f8c41613df9f1c1438c4867b693a97ed3db48b6584",
-      "sizeBytes": 19139
+      "sha256": "0ca9e2b08d52c40243c3ecd1209eeaf3a4902d157411c8b8a0636bb301436add",
+      "sizeBytes": 19993
     }
   ],
   "outputs": [
@@ -189,5 +189,5 @@
     "openBlockersAreNotTechnicalCheckFailures": true,
     "technicalFailurePublishesTrackedBundle": false
   },
-  "generationManifestSha256": "cb54360c7ce4cfbec0154363ca5ec70824cde3d2ec0a32a7ff2cad222db24a93"
+  "generationManifestSha256": "0b1ee2084cff297a6284a67bc3fef08b072be61a48d977de8580a47b7d30dcd7"
 }

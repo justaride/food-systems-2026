@@ -712,6 +712,7 @@
         "modelVersion",
         "workflowRef",
         "workflowVersion",
+        "workflowFileSha256",
         "promptTemplateSha256",
         "lifecycleSnapshotSha256",
         "sourceMetadataSha256",
@@ -745,9 +746,16 @@
         "model": { "type": "string", "minLength": 1, "maxLength": 200 },
         "modelVersionState": { "enum": ["exact", "runtime_not_exposed"] },
         "modelVersion": { "type": "string", "minLength": 1, "maxLength": 200 },
-        "workflowRef": { "type": "string", "minLength": 1, "maxLength": 500 },
-        "workflowVersion": { "$ref": "#/$defs/version" },
-        "promptTemplateSha256": { "$ref": "#/$defs/hash" },
+        "workflowRef": {
+          "const": "workflow.source_identity_verification.v1"
+        },
+        "workflowVersion": { "const": "1.0.0" },
+        "workflowFileSha256": {
+          "const": "sha256:3c15fc61fd6e6ece0f2539baff7e18802711dbc3ad5dfe6e2917f2af74e9c10a"
+        },
+        "promptTemplateSha256": {
+          "const": "sha256:248a09a027f401d131687214f84f4ff832b8d540bdef3e7535f251db3a018255"
+        },
         "lifecycleSnapshotSha256": { "$ref": "#/$defs/hash" },
         "sourceMetadataSha256": { "$ref": "#/$defs/hash" },
         "sourceContentSha256": { "$ref": "#/$defs/hash" },

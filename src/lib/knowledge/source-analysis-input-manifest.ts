@@ -76,6 +76,26 @@ export const SOURCE_ANALYSIS_INPUT_PRIVATE_STORAGE = {
   ],
 } as const;
 
+export function sourceAnalysisNormalizedPagePrivateLocator(input: {
+  rawPdfSha256: string;
+  pageNumber: number;
+  copyId: "primary" | "replica";
+}): string {
+  if (!/^[a-f0-9]{64}$/.test(input.rawPdfSha256)) {
+    throw new Error("Normalized-page locator requires an unprefixed SHA-256");
+  }
+  if (!Number.isInteger(input.pageNumber) || input.pageNumber < 1) {
+    throw new Error("Normalized-page locator requires a positive page number");
+  }
+  const copy = SOURCE_ANALYSIS_INPUT_PRIVATE_STORAGE.copies.find(
+    (item) => item.copyId === input.copyId,
+  );
+  if (!copy) throw new Error(`Unsupported private copy: ${input.copyId}`);
+  return copy.normalizedPageLocatorTemplate
+    .replace("{rawPdfSha256}", input.rawPdfSha256)
+    .replace("{pageNumber:0000}", String(input.pageNumber).padStart(4, "0"));
+}
+
 const SHA256_SCHEMA = z.string().regex(/^[a-f0-9]{64}$/);
 const PREFIXED_SHA256_SCHEMA = z.string().regex(/^sha256:[a-f0-9]{64}$/);
 const IDENTIFIER_SCHEMA = z.string().regex(/^[a-z0-9][a-z0-9._:-]*$/);
@@ -156,7 +176,6 @@ export const SourceAnalysisInputIdentityAssociationSchema =
 const sourceBindingCore = {
   title: z.string().min(1),
   doi: z.string().min(1).nullable(),
-  officialUrl: z.string().url(),
 };
 const scopeDispositionSchema = z.enum([
   "pending_owner_classification",
@@ -164,25 +183,36 @@ const scopeDispositionSchema = z.enum([
   "pending_owner_disposition_likely_out_of_scope",
 ]);
 
-export const SourceAnalysisInputSourceBindingSchema = z.discriminatedUnion(
-  "corpusIdentityVerified",
-  [
+function sourceBindingSchema(corpusIdentityVerified: boolean) {
+  const verificationState = corpusIdentityVerified
+    ? z.literal(true)
+    : z.literal(false);
+  return z.union([
     z
       .object({
         ...sourceBindingCore,
-        corpusIdentityVerified: z.literal(false),
+        officialUrl: z.string().url().startsWith("https://"),
+        corpusIdentityVerified: verificationState,
         scopeDisposition: scopeDispositionSchema,
       })
       .strict(),
     z
       .object({
         ...sourceBindingCore,
-        corpusIdentityVerified: z.literal(true),
+        controlledPrivateLocator: z
+          .string()
+          .regex(/^private:\/\/[a-z0-9][a-z0-9._:/-]*$/),
+        corpusIdentityVerified: verificationState,
         scopeDisposition: scopeDispositionSchema,
       })
       .strict(),
-  ],
-);
+  ]);
+}
+
+export const SourceAnalysisInputSourceBindingSchema = z.union([
+  sourceBindingSchema(false),
+  sourceBindingSchema(true),
+]);
 
 const verifiedIdentityArtifactReferenceSchema = z
   .object({
@@ -195,11 +225,36 @@ const verifiedIdentityArtifactReferenceSchema = z
   })
   .strict();
 
-const lifecyclePrestateReferenceSchema = z
+const predecessorInputManifestReferenceSchema = z
   .object({
-    lifecycleRecordId: IDENTIFIER_SCHEMA,
-    lifecycleSnapshotSha256: PREFIXED_SHA256_SCHEMA,
-    lifecycleSnapshotUpdatedAt: DATE_TIME_SCHEMA,
+    schemaVersion: z.literal(SOURCE_ANALYSIS_INPUT_SCHEMA_VERSION),
+    pipelineVersion: z.literal(SOURCE_ANALYSIS_INPUT_PIPELINE_VERSION),
+    path: PATH_SCHEMA,
+    fileSha256: SHA256_SCHEMA,
+    manifestSha256: SHA256_SCHEMA,
+  })
+  .strict();
+
+const lifecycleSnapshotReferenceCore = {
+  lifecycleRecordId: IDENTIFIER_SCHEMA,
+  lifecycleSnapshotSha256: PREFIXED_SHA256_SCHEMA,
+  lifecycleSnapshotUpdatedAt: DATE_TIME_SCHEMA,
+};
+
+const lifecycleTransitionSchema = z
+  .object({
+    identityVerificationPrestate: z
+      .object({
+        ...lifecycleSnapshotReferenceCore,
+        sourceIdentityStatus: z.literal("provisional"),
+      })
+      .strict(),
+    analysisPrestate: z
+      .object({
+        ...lifecycleSnapshotReferenceCore,
+        sourceIdentityStatus: z.literal("verified"),
+      })
+      .strict(),
   })
   .strict();
 
@@ -251,7 +306,9 @@ export const SourceAnalysisInputWorkflowEligibilitySchema =
             blockerCode: z.null(),
             combinedValidationRequired: z.literal(true),
             identityArtifactReference: verifiedIdentityArtifactReferenceSchema,
-            lifecyclePrestate: lifecyclePrestateReferenceSchema,
+            predecessorInputManifestReference:
+              predecessorInputManifestReferenceSchema,
+            lifecycleTransition: lifecycleTransitionSchema,
           })
           .strict(),
       })
@@ -296,7 +353,10 @@ export function sourceAnalysisEligibleWorkflowEligibility(input: {
   identityArtifactReference: z.infer<
     typeof verifiedIdentityArtifactReferenceSchema
   >;
-  lifecyclePrestate: z.infer<typeof lifecyclePrestateReferenceSchema>;
+  predecessorInputManifestReference: z.infer<
+    typeof predecessorInputManifestReferenceSchema
+  >;
+  lifecycleTransition: z.infer<typeof lifecycleTransitionSchema>;
 }): Extract<
   SourceAnalysisInputWorkflowEligibility,
   { state: "source_analysis_eligible" }
@@ -309,7 +369,9 @@ export function sourceAnalysisEligibleWorkflowEligibility(input: {
       blockerCode: null,
       combinedValidationRequired: true,
       identityArtifactReference: input.identityArtifactReference,
-      lifecyclePrestate: input.lifecyclePrestate,
+      predecessorInputManifestReference:
+        input.predecessorInputManifestReference,
+      lifecycleTransition: input.lifecycleTransition,
     },
   };
 }
@@ -672,6 +734,41 @@ export function verifySourceAnalysisInputManifest(
     ) {
       throw new Error(
         "Verified source-analysis eligibility requires the exact positive association, source and combined-validation state",
+      );
+    }
+    const eligibility = manifest.workflowEligibility.sourceAnalysis;
+    const identityPrestate =
+      eligibility.lifecycleTransition.identityVerificationPrestate;
+    const analysisPrestate = eligibility.lifecycleTransition.analysisPrestate;
+    if (
+      identityPrestate.lifecycleRecordId !== analysisPrestate.lifecycleRecordId
+    ) {
+      throw new Error(
+        "Source-analysis input manifest lifecycle transition must stay on one lifecycle record",
+      );
+    }
+    if (
+      identityPrestate.lifecycleSnapshotSha256 ===
+      analysisPrestate.lifecycleSnapshotSha256
+    ) {
+      throw new Error(
+        "Source-analysis input manifest lifecycle transition must bind distinct provisional and verified snapshots",
+      );
+    }
+    if (
+      Date.parse(identityPrestate.lifecycleSnapshotUpdatedAt) >
+      Date.parse(analysisPrestate.lifecycleSnapshotUpdatedAt)
+    ) {
+      throw new Error(
+        "Source-analysis input manifest verified lifecycle snapshot cannot predate identity verification pre-state",
+      );
+    }
+    if (
+      eligibility.predecessorInputManifestReference.manifestSha256 ===
+      manifest.manifestSha256
+    ) {
+      throw new Error(
+        "Source-analysis input manifest revision cannot name itself as its predecessor",
       );
     }
   } else {

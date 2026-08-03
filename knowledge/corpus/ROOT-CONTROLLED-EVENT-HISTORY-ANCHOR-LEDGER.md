@@ -12,13 +12,16 @@ No current genesis candidate is prepared or written by this implementation. The 
 
 - `src/lib/knowledge/corpus-event-history-external-ledger.ts` defines and validates prepared requests, append records, the full chain, the latest-head sidecar, secure filesystem reads and the current-state verifier callback.
 - `knowledge/schema/corpus-event-history-external-anchor-ledger.schema.v1.json` is the structural schema. Runtime domain hashes and cross-record checks remain mandatory.
-- `scripts/knowledge/manage-corpus-external-anchor-ledger.ts` supports `--prepare`, `--check-external`, `--check-request` and `--verify-current-state`.
+- `scripts/knowledge/manage-corpus-external-anchor-ledger.ts` supports `--prepare`, `--check-external`, `--check-request` and `--verify-current-state`, but accepts only the fixed production external root.
+- `scripts/knowledge/root-anchor-writer/corpus-anchor-root-writer.mjs` is the separately reviewable root-writer source. Its install manifest fixes the runtime, install path, external root, request-intake root, modes and self-hash. It is source only: it has not been installed or run as root.
 
 The tracked script never creates, changes or deletes the external ledger. It also never appends the prepared verification to the repository anchor log. There is deliberately no `--append`, `--install`, `sudo`, authentication or ownership-changing mode. Running user-controlled repository code as root would collapse the boundary this ledger is meant to create.
 
 ## External filesystem contract
 
-The external root must be an absolute canonical path outside the repository. Every path component must be a real root-owned directory, never a symlink, and no component may be group- or world-writable. The external root mode is exactly `0755` so the normal project process can read proofs but cannot write them.
+The only production external root is `/private/var/db/food-systems-corpus-anchor`. Every path component must be a real root-owned directory, never a symlink, and no component may be group- or world-writable. The external root mode is exactly `0755` so the normal project process can read proofs but cannot write them. Caller-selected alternate roots are not authority.
+
+The separate administrator intake root is `/private/var/db/food-systems-corpus-anchor-requests`, root-owned mode `0700`. The root writer accepts only a direct-child, root-owned, one-link regular request file with mode `0400`, stable identity and a SHA-256 supplied separately by the administrator over those exact file bytes. The request file cannot select either root.
 
 On macOS, `/var` is a symlink and is therefore rejected. Use the canonical `/private/var/...` spelling shown below; accepting the convenient alias would weaken the no-symlink rule.
 
@@ -30,28 +33,29 @@ The fixed files are:
 | `corpus-event-history-anchors-head.v1.json` | root-owned regular file, one hard link, mode `0444`, canonical pretty JSON                     |
 | `.corpus-event-history-anchors.append.lock` | absent for every read; a separately controlled writer uses an exclusive root-owned `0600` lock |
 
-The verifier opens files with no-follow semantics, checks identity and size before and after reading, rejects an active or stale lock, validates every domain-separated self-hash and predecessor, hashes the complete ledger bytes, and requires the head to match the exact count, first record, latest record, latest candidate and latest verification. Every external record carries the prepared baseline, register and baseline-generation-manifest path/hash/size bindings unchanged. A partial append, stale head, replacement race, truncation, duplicate binding, baseline substitution or rollback to a head that no longer matches the repository fails closed.
+The verifier opens files with no-follow semantics, checks identity and size before and after reading, rejects an active or stale lock, validates every domain-separated self-hash and predecessor, hashes the complete ledger bytes, and requires the head to match the exact count, first record, latest record, latest candidate and latest verification. Genesis is sequence 1 with no predecessor. Every later candidate is exactly two repository records after the preceding candidate, names the preceding trusted-verification hash as predecessor, and carries byte-identical baseline, register and baseline-generation-manifest bindings. A partial append, stale head, replacement race, truncation, duplicate binding, baseline substitution, post-genesis baseline drift, fork or rollback to a head that no longer matches the repository fails closed.
 
 ## Controlled append protocol
 
-The root administrator needs a separately installed and reviewed writer outside this user-writable checkout. That writer is not part of the current implementation. Its transaction must:
+The root administrator needs the reviewed writer installed outside this user-writable checkout. Version 1.2.1 of that writer exists as source and tests in the repository, but no installation, administrator approval, request intake, append or live ledger exists. Its transaction must:
 
-1. create the fixed lock exclusively and refuse an existing lock;
-2. re-read and validate the complete ledger and head after locking;
-3. compare the prepared request's `externalHeadPrecondition` with the exact current head, or require both ledger files to be absent when the precondition is `null`;
-4. reject a repeated request, candidate or verification hash;
-5. append one canonical record with a contiguous sequence, predecessor hash and non-regressing timestamp;
-6. build a new head over the complete new ledger bytes;
-7. write root-owned `0444` temporary files, make them durable and replace ledger then head while holding the lock;
-8. re-read the resulting pair and remove the lock only after exact verification succeeds.
+1. accept only the fixed external and request roots, validate the request's root ownership, `0400` mode, one-link direct-child path and stable bytes, and require the separate administrator-pinned request-file hash;
+2. create the fixed lock exclusively and refuse an existing lock;
+3. re-read and validate the complete ledger and head after locking;
+4. compare the prepared request's `externalHeadPrecondition` with the exact current head, or require both ledger files to be absent when the precondition is `null`;
+5. reject a repeated request, candidate or verification hash and reject any successor that does not extend the exact prior trusted verification and immutable baseline bindings;
+6. append one canonical record with a contiguous sequence, predecessor hash and non-regressing timestamp;
+7. build a new head over the complete new ledger bytes;
+8. write root-owned `0444` temporary files, make them durable and replace ledger then head while holding the lock;
+9. re-read the resulting pair and remove the lock only after exact verification succeeds.
 
 The compare-and-swap head plus exclusive lock protects concurrent writers. A crash between ledger and head replacement leaves a mismatch or lock and therefore stops readers; recovery is a separate root-controlled operation, never an automatic project-side rewrite.
 
-After the external append, `--check-request` verifies that the saved request is exactly the new external head and emits the already prepared `verificationRecord`. A separate controlled repository append writer must then compare the request's exact repository prefix, append only that one canonical record, and update the event checkpoint transactionally. Copying a hash into the repository without the successful external check does not create trust.
+After the external append, `--check-request` verifies that the original byte-identical saved request is exactly the new external head and emits the already prepared `verificationRecord`. A separate controlled repository append writer must then compare the request's exact repository prefix, append only that one canonical record, and update the event checkpoint transactionally. That repository-side writer is not implemented yet. Copying a hash into the repository without the successful external check does not create trust.
 
 ## User-side commands after rebaseline
 
-All commands are read-only except that `--prepare` emits a request to standard output. Use the canonical root-owned path chosen by the administrator.
+All commands are read-only except that `--prepare` emits a request to standard output. The displayed `--external-root` value is mandatory and fixed; another absolute directory is rejected rather than treated as an alternate authority.
 
 The preceding bootstrap replacement and its stoplines are defined in [CORPUS-PRE-LIVE-REBASELINE.md](CORPUS-PRE-LIVE-REBASELINE.md). The next request must use the rebaseline outputs; it binds the exact new baseline, processing register, baseline-generation manifest and new genesis candidate. An old candidate or request is not reusable.
 

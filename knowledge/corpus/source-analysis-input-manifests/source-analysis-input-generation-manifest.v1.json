@@ -155,8 +155,8 @@
     },
     {
       "path": "knowledge/schema/source-analysis-input-manifest.schema.v1.json",
-      "sha256": "33d0e99dec79c701192ca4acacbb7ce96c5f8c551cc793c9334ee5090c0e6b56",
-      "sizeBytes": 18909
+      "sha256": "4c16b6033df411f68f4f9893a1c5a8f561e5bf30697756d20b7ae25c93961df5",
+      "sizeBytes": 22552
     },
     {
       "path": "scripts/knowledge/generate-source-analysis-input-manifests.ts",
@@ -165,13 +165,13 @@
     },
     {
       "path": "src/lib/knowledge/pdf-page-extraction-qualification.ts",
-      "sha256": "83a1e7882c06a0bc92c962f8c41613df9f1c1438c4867b693a97ed3db48b6584",
-      "sizeBytes": 19139
+      "sha256": "0ca9e2b08d52c40243c3ecd1209eeaf3a4902d157411c8b8a0636bb301436add",
+      "sizeBytes": 19993
     },
     {
       "path": "src/lib/knowledge/source-analysis-input-manifest.ts",
-      "sha256": "1f2cbc1ba6aee76398f33c0ab4d6c4ed1e932d66476b95965ccf75864c2b3c78",
-      "sizeBytes": 22318
+      "sha256": "cc2fe378b66978a7d5299bcfdd7adbe3a4bbac117a6e5a3ff1f22af1d9cfe32a",
+      "sizeBytes": 25737
     }
   ],
   "outputs": [
@@ -271,5 +271,5 @@
     "publicationReady": false,
     "coveragePromotionAllowed": false
   },
-  "generationManifestSha256": "17ac9c09bf5b5bc16e04042a2b3d4acc48e8f1010dec9cad17afa445ff31a72c"
+  "generationManifestSha256": "018f252810830283cc31cf1143a310e3af039de74d0a4142dd08ab53119b1dc1"
 }

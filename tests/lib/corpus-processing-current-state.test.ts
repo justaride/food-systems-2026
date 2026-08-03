@@ -19,11 +19,22 @@ import {
   requireTrustedCorpusHumanReviewerAuthentication,
   sealCorpusReadyPackage,
   sealCorpusProcessingStateEvent,
+  sourceAnalysisVerifiedInputManifestPath,
   validateCorpusCurrentState,
   validateCorpusProcessingStateEvent,
   type CorpusArtifactReference,
   type CorpusProcessingStateEvent,
 } from "../../src/lib/knowledge/corpus-processing-current-state";
+import {
+  SOURCE_ANALYSIS_PROMPT_TEMPLATE_FILE_SHA256,
+  SOURCE_ANALYSIS_PROMPT_TEMPLATE_ID,
+  SOURCE_ANALYSIS_PROMPT_TEMPLATE_PATH,
+  SOURCE_ANALYSIS_PROMPT_TEMPLATE_VERSION,
+  SOURCE_ANALYSIS_WORKFLOW_FILE_SHA256,
+  SOURCE_ANALYSIS_WORKFLOW_ID,
+  SOURCE_ANALYSIS_WORKFLOW_PATH,
+  SOURCE_ANALYSIS_WORKFLOW_VERSION,
+} from "../../src/lib/knowledge/source-analysis-artifact";
 
 const CONTENT =
   "1bc1fae8f24d37f08704fc4cbfdc57e5c4f258125d1bfbfa3d13867d933da7fc";
@@ -32,6 +43,32 @@ const RECEIPT_PATH = `knowledge/corpus/pdf-page-extraction/receipts/${CONTENT}.r
 const MANIFEST_PATH = `knowledge/corpus/source-analysis-input-manifests/manifests/${CONTENT}.source-analysis-input-manifest.v1.json`;
 const BASELINE_MANIFEST_SHA = `sha256:${"a".repeat(64)}`;
 const BASELINE_REGISTER_SHA = `sha256:${"b".repeat(64)}`;
+
+test("derives only the exact content-addressed verified-manifest revision path", () => {
+  const rawPdfSha256 = "1".repeat(64);
+  const manifestSha256 = "2".repeat(64);
+  assert.equal(
+    sourceAnalysisVerifiedInputManifestPath({
+      rawPdfSha256,
+      manifestSha256,
+    }),
+    `knowledge/corpus/source-analysis-input-manifest-revisions/${rawPdfSha256}/${manifestSha256}.source-analysis-input-manifest.v1.json`,
+  );
+  for (const invalid of [
+    `sha256:${rawPdfSha256}`,
+    rawPdfSha256.slice(1),
+    "g".repeat(64),
+  ]) {
+    assert.throws(
+      () =>
+        sourceAnalysisVerifiedInputManifestPath({
+          rawPdfSha256: invalid,
+          manifestSha256,
+        }),
+      /unprefixed SHA-256/,
+    );
+  }
+});
 
 const lifecycleJsonSchema = JSON.parse(
   readFileSync(
@@ -298,6 +335,79 @@ test("accepts only a sealed four-type event contract in both runtime and JSON sc
     () => validateCorpusProcessingStateEvent(identityWithoutAcquisition),
     /acquisitionReceiptRef|sourceContentRef/,
   );
+
+  const inputRef = event.payload.inputManifestRef;
+  const identityEvent = sealCorpusProcessingStateEvent({
+    ...event,
+    eventType: "identity_verified",
+    eventId: "event.identity.schema.complete",
+    payload: {
+      acquisitionReceiptRef: {
+        ...inputRef,
+        artifactType: "source_acquisition_receipt",
+      },
+      sourceContentRef: {
+        artifactType: "source_content",
+        artifactId: `artifact.source_content.${CONTENT}`,
+        artifactVersion: "1.0.0",
+        locator: `private://corpus/sha256/${CONTENT}.pdf`,
+        contentSha256: `sha256:${CONTENT}`,
+        sizeBytes: 32,
+      },
+      identityArtifactRef: {
+        ...inputRef,
+        artifactType: "source_identity_verification",
+      },
+      pageMapRef: { ...inputRef, artifactType: "pdf_page_map" },
+      workflowRef: {
+        ...inputRef,
+        artifactType: "source_identity_workflow",
+      },
+      promptTemplateRef: {
+        ...inputRef,
+        artifactType: "source_identity_prompt_template",
+      },
+      verifiedInputManifestRef: inputRef,
+    },
+  });
+  assert.equal(
+    validateEventJsonSchema(identityEvent),
+    true,
+    JSON.stringify(validateEventJsonSchema.errors),
+  );
+  assert.doesNotThrow(() => validateCorpusProcessingStateEvent(identityEvent));
+  for (const requiredRef of [
+    "pageMapRef",
+    "workflowRef",
+    "promptTemplateRef",
+    "verifiedInputManifestRef",
+  ] as const) {
+    const missing = structuredClone(identityEvent) as unknown as {
+      payload: Record<string, unknown>;
+    };
+    delete missing.payload[requiredRef];
+    assert.equal(validateEventJsonSchema(missing), false, requiredRef);
+    assert.throws(
+      () => validateCorpusProcessingStateEvent(missing),
+      new RegExp(requiredRef),
+    );
+  }
+  for (const [requiredRef, wrongType] of [
+    ["pageMapRef", "source_identity_workflow"],
+    ["workflowRef", "pdf_page_map"],
+    ["promptTemplateRef", "source_identity_verification"],
+    ["verifiedInputManifestRef", "source_analysis"],
+  ] as const) {
+    const wrong = structuredClone(identityEvent) as unknown as {
+      payload: Record<string, { artifactType: string }>;
+    };
+    wrong.payload[requiredRef]!.artifactType = wrongType;
+    assert.equal(validateEventJsonSchema(wrong), false, requiredRef);
+    assert.throws(
+      () => validateCorpusProcessingStateEvent(wrong),
+      new RegExp(requiredRef),
+    );
+  }
 });
 
 test("seals a ready package without conflating it with owner approval", () => {
@@ -429,6 +539,22 @@ test("rejects a source-analysis event that tries to skip cross_check into owner 
       analysisArtifactRef: artifactRef("source_analysis"),
       identityArtifactRef: artifactRef("source_identity_verification"),
       inputManifestRef: artifactRef("source_analysis_input_manifest"),
+      analysisWorkflowRef: {
+        artifactType: "source_analysis_workflow" as const,
+        artifactId: SOURCE_ANALYSIS_WORKFLOW_ID,
+        artifactVersion: SOURCE_ANALYSIS_WORKFLOW_VERSION,
+        path: SOURCE_ANALYSIS_WORKFLOW_PATH,
+        fileSha256: SOURCE_ANALYSIS_WORKFLOW_FILE_SHA256,
+        artifactSha256: SOURCE_ANALYSIS_WORKFLOW_FILE_SHA256,
+      },
+      analysisPromptTemplateRef: {
+        artifactType: "source_analysis_prompt_template" as const,
+        artifactId: SOURCE_ANALYSIS_PROMPT_TEMPLATE_ID,
+        artifactVersion: SOURCE_ANALYSIS_PROMPT_TEMPLATE_VERSION,
+        path: SOURCE_ANALYSIS_PROMPT_TEMPLATE_PATH,
+        fileSha256: SOURCE_ANALYSIS_PROMPT_TEMPLATE_FILE_SHA256,
+        artifactSha256: SOURCE_ANALYSIS_PROMPT_TEMPLATE_FILE_SHA256,
+      },
       executionBinding: {
         processingUnitSha256: state.lifecycle.sourceIdentity.contentSha256!,
         executionSha256: `sha256:${"7".repeat(64)}`,

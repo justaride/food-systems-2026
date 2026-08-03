@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import {
   existsSync,
@@ -29,6 +30,7 @@ import {
   type CorpusProcessingCurrentState,
   type CorpusSourceContentReference,
   type ResolveCorpusArtifact,
+  type ResolveCorpusNormalizedText,
   type ResolveCorpusSourceContent,
   type VerifyCorpusHumanReviewerAuthentication,
 } from "../../src/lib/knowledge/corpus-processing-current-state";
@@ -68,6 +70,31 @@ type FileDescriptor = {
   path: string;
   sha256: string;
   sizeBytes: number;
+};
+
+export type CorpusResolvedEventEvidence = {
+  trackedArtifacts: Array<{
+    artifactType: CorpusArtifactReference["artifactType"];
+    artifactId: string;
+    artifactVersion: string;
+    path: string;
+    fileSha256: string;
+    sizeBytes: number;
+  }>;
+  sourceContents: Array<{
+    artifactId: string;
+    artifactVersion: string;
+    locator: string;
+    contentSha256: string;
+    sizeBytes: number;
+  }>;
+  normalizedTextUnits: Array<{
+    locator: string;
+    contentSha256: string;
+    sizeBytes: number;
+  }>;
+  absolutePrivatePathsPersisted: false;
+  sourceTextPersisted: false;
 };
 
 type Baseline = {
@@ -122,6 +149,96 @@ function rawSha256(value: string | Buffer): string {
 
 function prefixedSha256(value: string | Buffer): string {
   return `sha256:${rawSha256(value)}`;
+}
+
+function exactEvidenceEntry<T extends JsonObject>(
+  entries: Map<string, T>,
+  key: string,
+  value: T,
+): void {
+  const existing = entries.get(key);
+  if (
+    existing &&
+    canonicalCorpusJson(existing as CorpusCanonicalJsonValue) !==
+      canonicalCorpusJson(value as CorpusCanonicalJsonValue)
+  ) {
+    throw new Error(`Resolved event evidence changed for ${key}`);
+  }
+  entries.set(key, value);
+}
+
+export function createRecordingCorpusEvidenceResolvers(input: {
+  resolveArtifact: ResolveCorpusArtifact;
+  resolveSourceContent: ResolveCorpusSourceContent;
+  resolveNormalizedText: ResolveCorpusNormalizedText;
+}): {
+  resolveArtifact: ResolveCorpusArtifact;
+  resolveSourceContent: ResolveCorpusSourceContent;
+  resolveNormalizedText: ResolveCorpusNormalizedText;
+  snapshot: () => CorpusResolvedEventEvidence;
+} {
+  const trackedArtifacts = new Map<
+    string,
+    CorpusResolvedEventEvidence["trackedArtifacts"][number]
+  >();
+  const sourceContents = new Map<
+    string,
+    CorpusResolvedEventEvidence["sourceContents"][number]
+  >();
+  const normalizedTextUnits = new Map<
+    string,
+    CorpusResolvedEventEvidence["normalizedTextUnits"][number]
+  >();
+  return {
+    resolveArtifact: (reference) => {
+      const resolved = input.resolveArtifact(reference);
+      const bytes = Buffer.isBuffer(resolved.bytes)
+        ? resolved.bytes
+        : Buffer.from(resolved.bytes, "utf8");
+      exactEvidenceEntry(trackedArtifacts, reference.path, {
+        artifactType: reference.artifactType,
+        artifactId: reference.artifactId,
+        artifactVersion: reference.artifactVersion,
+        path: reference.path,
+        fileSha256: prefixedSha256(bytes),
+        sizeBytes: bytes.length,
+      });
+      return resolved;
+    },
+    resolveSourceContent: (reference) => {
+      const bytes = input.resolveSourceContent(reference);
+      exactEvidenceEntry(sourceContents, reference.locator, {
+        artifactId: reference.artifactId,
+        artifactVersion: reference.artifactVersion,
+        locator: reference.locator,
+        contentSha256: prefixedSha256(bytes),
+        sizeBytes: bytes.length,
+      });
+      return bytes;
+    },
+    resolveNormalizedText: (locator) => {
+      const bytes = input.resolveNormalizedText(locator);
+      exactEvidenceEntry(normalizedTextUnits, locator, {
+        locator,
+        contentSha256: prefixedSha256(bytes),
+        sizeBytes: bytes.length,
+      });
+      return bytes;
+    },
+    snapshot: () => ({
+      trackedArtifacts: [...trackedArtifacts.values()].sort((a, b) =>
+        a.path.localeCompare(b.path),
+      ),
+      sourceContents: [...sourceContents.values()].sort((a, b) =>
+        a.locator.localeCompare(b.locator),
+      ),
+      normalizedTextUnits: [...normalizedTextUnits.values()].sort((a, b) =>
+        a.locator.localeCompare(b.locator),
+      ),
+      absolutePrivatePathsPersisted: false,
+      sourceTextPersisted: false,
+    }),
+  };
 }
 
 function domainHash(domain: string, value: CorpusCanonicalJsonValue): string {
@@ -346,9 +463,32 @@ export function resolveTrackedArtifact(root: string): ResolveCorpusArtifact {
         `Artifact is not a regular tracked file: ${reference.path}`,
       );
     }
+    try {
+      execFileSync(
+        "git",
+        [
+          "-C",
+          canonicalRoot,
+          "ls-files",
+          "--error-unmatch",
+          "--",
+          reference.path,
+        ],
+        { stdio: "ignore" },
+      );
+    } catch {
+      throw new Error(`Artifact is not Git-tracked: ${reference.path}`);
+    }
     const bytes = readFileSync(canonicalPath);
+    const byteOnlyArtifact =
+      reference.artifactType === "source_identity_workflow" ||
+      reference.artifactType === "source_identity_prompt_template" ||
+      reference.artifactType === "source_analysis_workflow" ||
+      reference.artifactType === "source_analysis_prompt_template";
     return {
-      value: parseJson(reference.path, bytes.toString("utf8")),
+      value: byteOnlyArtifact
+        ? bytes.toString("utf8")
+        : parseJson(reference.path, bytes.toString("utf8")),
       fileSha256: prefixedSha256(bytes),
       bytes,
     };
@@ -421,6 +561,73 @@ export function resolveTrackedSourceContent(
       );
     }
     return readFileSync(canonicalPath);
+  };
+}
+
+export function resolveControlledNormalizedText(): ResolveCorpusNormalizedText {
+  return (locator: string) => {
+    let rootEnvironmentVariable: string;
+    let relativePath: string;
+    if (locator.startsWith("private://corpus/")) {
+      rootEnvironmentVariable = "FOOD_SYSTEMS_PRIVATE_CORPUS_ROOT";
+      relativePath = locator.slice("private://corpus/".length);
+    } else if (locator.startsWith("private://bigbrain-corpus/")) {
+      rootEnvironmentVariable = "FOOD_SYSTEMS_PRIVATE_CORPUS_REPLICA_ROOT";
+      relativePath = locator.slice("private://bigbrain-corpus/".length);
+    } else {
+      throw new Error(`Unsupported normalized-text locator: ${locator}`);
+    }
+    const configuredRoot = process.env[rootEnvironmentVariable];
+    if (!configuredRoot) {
+      throw new Error(
+        `${rootEnvironmentVariable} is required for source-analysis events`,
+      );
+    }
+    const allowedRoot = realpathSync(configuredRoot);
+    const absolutePath = resolve(allowedRoot, relativePath);
+    const lexicalRelativePath = relative(allowedRoot, absolutePath);
+    if (
+      lexicalRelativePath === ".." ||
+      lexicalRelativePath.startsWith(`..${sep}`)
+    ) {
+      throw new Error(
+        `Normalized-text path escapes its allowed root: ${locator}`,
+      );
+    }
+    const canonicalPath = realpathSync(absolutePath);
+    const canonicalRelativePath = relative(allowedRoot, canonicalPath);
+    if (
+      canonicalPath !== absolutePath ||
+      canonicalRelativePath === ".." ||
+      canonicalRelativePath.startsWith(`..${sep}`)
+    ) {
+      throw new Error(
+        `Normalized-text path traverses a symlink or escapes its allowed root: ${locator}`,
+      );
+    }
+    const before = lstatSync(canonicalPath);
+    if (
+      !before.isFile() ||
+      before.isSymbolicLink() ||
+      before.nlink !== 1 ||
+      (before.mode & 0o777) !== 0o400
+    ) {
+      throw new Error(
+        `Normalized text must be a private 0400 single-link regular file: ${locator}`,
+      );
+    }
+    const bytes = readFileSync(canonicalPath);
+    const after = lstatSync(canonicalPath);
+    if (
+      before.dev !== after.dev ||
+      before.ino !== after.ino ||
+      before.size !== after.size ||
+      before.mtimeMs !== after.mtimeMs ||
+      bytes.length !== after.size
+    ) {
+      throw new Error(`Normalized text changed while being read: ${locator}`);
+    }
+    return bytes;
   };
 }
 
@@ -520,6 +727,7 @@ function buildGenerationManifest(
   root: string,
   baseline: Baseline,
   eventManifest: CorpusStateEventManifest,
+  resolvedEventEvidence: CorpusResolvedEventEvidence,
   outputs: GeneratedArtifact[],
 ): JsonObject {
   const inputPaths = [
@@ -556,6 +764,7 @@ function buildGenerationManifest(
     commitMarkerSemantics:
       "The generation manifest is renamed last. Consumers must verify every listed input and output before using the projection.",
     inputs: inputPaths.map((path) => fileDescriptor(root, path)),
+    resolvedEventEvidence,
     outputs: outputs.map(generatedDescriptor),
   };
 }
@@ -617,6 +826,11 @@ export function buildCorpusCurrentStateArtifacts(
     verifyTrustedAnchor: options.verifyTrustedEventHistoryAnchor,
     requireCurrentCheckpointTrusted: events.length > 0,
   });
+  const evidenceResolvers = createRecordingCorpusEvidenceResolvers({
+    resolveArtifact: resolveTrackedArtifact(root),
+    resolveSourceContent: resolveTrackedSourceContent(root),
+    resolveNormalizedText: resolveControlledNormalizedText(),
+  });
   const states = projectCorpusCurrentState({
     baselineId: baseline.baselineId,
     baselineManifestSha256: prefixedSha256(
@@ -625,8 +839,9 @@ export function buildCorpusCurrentStateArtifacts(
     baselineRegisterSha256: prefixedSha256(baselineRegisterContent),
     baselineRows,
     events,
-    resolveArtifact: resolveTrackedArtifact(root),
-    resolveSourceContent: resolveTrackedSourceContent(root),
+    resolveArtifact: evidenceResolvers.resolveArtifact,
+    resolveSourceContent: evidenceResolvers.resolveSourceContent,
+    resolveNormalizedText: evidenceResolvers.resolveNormalizedText,
     verifyHumanReviewerAuthentication:
       options.verifyHumanReviewerAuthentication,
   });
@@ -657,6 +872,7 @@ export function buildCorpusCurrentStateArtifacts(
     root,
     baseline,
     eventManifest,
+    evidenceResolvers.snapshot(),
     outputs,
   );
   return {

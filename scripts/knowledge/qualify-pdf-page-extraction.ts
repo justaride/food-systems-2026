@@ -70,10 +70,9 @@ const EXTRACTION_ARGUMENTS_TEMPLATE = [
   "-",
 ] as const;
 
-type SourceBinding = {
+type SourceBindingCore = {
   title: string;
   doi: string | null;
-  officialUrl: string;
   expectedPdfInfoTitle:
     { state: "observed"; value: string } | { state: "not_stated" };
   corpusIdentityVerified: false;
@@ -82,6 +81,27 @@ type SourceBinding = {
     | "pending_owner_classification_indirect_context"
     | "pending_owner_disposition_likely_out_of_scope";
 };
+
+type SourceBinding = SourceBindingCore &
+  ({ officialUrl: string } | { controlledPrivateLocator: string });
+
+function sourceLocatorFields(
+  binding: SourceBinding,
+): { officialUrl: string } | { controlledPrivateLocator: string } {
+  return "officialUrl" in binding
+    ? { officialUrl: binding.officialUrl }
+    : { controlledPrivateLocator: binding.controlledPrivateLocator };
+}
+
+function technicalSourceBinding(binding: SourceBinding) {
+  return {
+    title: binding.title,
+    doi: binding.doi,
+    ...sourceLocatorFields(binding),
+    corpusIdentityVerified: false as const,
+    scopeDisposition: binding.scopeDisposition,
+  };
+}
 
 export type PdfExtractionTarget = {
   targetId: string;
@@ -171,28 +191,54 @@ export const PdfExtractionBatchManifestSchema = z
             expectedSizeBytes: z.number().int().positive(),
             expectedPageCount: z.number().int().positive(),
             expectedEncrypted: z.literal(false),
-            sourceBinding: z
-              .object({
-                title: z.string().min(1),
-                doi: z.string().min(1).nullable(),
-                officialUrl: z.string().url(),
-                expectedPdfInfoTitle: z.discriminatedUnion("state", [
-                  z
-                    .object({
-                      state: z.literal("observed"),
-                      value: z.string().max(500),
-                    })
-                    .strict(),
-                  z.object({ state: z.literal("not_stated") }).strict(),
-                ]),
-                corpusIdentityVerified: z.literal(false),
-                scopeDisposition: z.enum([
-                  "pending_owner_classification",
-                  "pending_owner_classification_indirect_context",
-                  "pending_owner_disposition_likely_out_of_scope",
-                ]),
-              })
-              .strict(),
+            sourceBinding: z.union([
+              z
+                .object({
+                  title: z.string().min(1),
+                  doi: z.string().min(1).nullable(),
+                  officialUrl: z.string().url().startsWith("https://"),
+                  expectedPdfInfoTitle: z.discriminatedUnion("state", [
+                    z
+                      .object({
+                        state: z.literal("observed"),
+                        value: z.string().max(500),
+                      })
+                      .strict(),
+                    z.object({ state: z.literal("not_stated") }).strict(),
+                  ]),
+                  corpusIdentityVerified: z.literal(false),
+                  scopeDisposition: z.enum([
+                    "pending_owner_classification",
+                    "pending_owner_classification_indirect_context",
+                    "pending_owner_disposition_likely_out_of_scope",
+                  ]),
+                })
+                .strict(),
+              z
+                .object({
+                  title: z.string().min(1),
+                  doi: z.string().min(1).nullable(),
+                  controlledPrivateLocator: z
+                    .string()
+                    .regex(/^private:\/\/[a-z0-9][a-z0-9._:/-]*$/),
+                  expectedPdfInfoTitle: z.discriminatedUnion("state", [
+                    z
+                      .object({
+                        state: z.literal("observed"),
+                        value: z.string().max(500),
+                      })
+                      .strict(),
+                    z.object({ state: z.literal("not_stated") }).strict(),
+                  ]),
+                  corpusIdentityVerified: z.literal(false),
+                  scopeDisposition: z.enum([
+                    "pending_owner_classification",
+                    "pending_owner_classification_indirect_context",
+                    "pending_owner_disposition_likely_out_of_scope",
+                  ]),
+                })
+                .strict(),
+            ]),
             identityAssociation: PDF_IDENTITY_ASSOCIATION_SCHEMA,
           })
           .strict(),
@@ -747,13 +793,7 @@ export function qualifyPdfTarget(input: {
     );
   }
 
-  const sourceBinding = {
-    title: input.target.sourceBinding.title,
-    doi: input.target.sourceBinding.doi,
-    officialUrl: input.target.sourceBinding.officialUrl,
-    corpusIdentityVerified: false as const,
-    scopeDisposition: input.target.sourceBinding.scopeDisposition,
-  };
+  const sourceBinding = technicalSourceBinding(input.target.sourceBinding);
   const pageMap = sealPageMap({
     schemaVersion: PDF_PAGE_EXTRACTION_SCHEMA_VERSION,
     artifactType: "pdf_page_extraction_map",
@@ -1046,7 +1086,11 @@ const SUMMARY_SCHEMA = z
           rawPdfSha256: z.string().regex(SHA256_PATTERN),
           title: z.string().min(1),
           doi: z.string().min(1).nullable(),
-          officialUrl: z.string().url(),
+          officialUrl: z.string().url().startsWith("https://").optional(),
+          controlledPrivateLocator: z
+            .string()
+            .regex(/^private:\/\/[a-z0-9][a-z0-9._:/-]*$/)
+            .optional(),
           qualificationState: z.enum([
             "technical_extraction_passed",
             "technical_extraction_passed_with_warnings",
@@ -1065,7 +1109,19 @@ const SUMMARY_SCHEMA = z
           pageMapSha256: z.string().regex(SHA256_PATTERN),
           receiptSha256: z.string().regex(SHA256_PATTERN),
         })
-        .strict(),
+        .strict()
+        .superRefine((document, context) => {
+          if (
+            (document.officialUrl === undefined) ===
+            (document.controlledPrivateLocator === undefined)
+          ) {
+            context.addIssue({
+              code: "custom",
+              message:
+                "Document summary requires exactly one official or controlled private locator",
+            });
+          }
+        }),
     ),
     semantics: PdfExtractionBatchManifestSchema.shape.semantics,
     summarySha256: z.string().regex(SHA256_PATTERN),
@@ -1354,7 +1410,7 @@ export function runQualificationBatch(input: {
       rawPdfSha256: result.target.expectedSha256,
       title: result.target.sourceBinding.title,
       doi: result.target.sourceBinding.doi,
-      officialUrl: result.target.sourceBinding.officialUrl,
+      ...sourceLocatorFields(result.target.sourceBinding),
       qualificationState: result.receipt.qualificationState,
       scopeDisposition: result.target.sourceBinding.scopeDisposition,
       pageCount: result.receipt.sourceFile.pageCount,
@@ -1719,13 +1775,7 @@ export function checkTrackedQualificationBundle(input: {
       );
     }
     const expectedIdentityKeys = [...target.identityKeys].sort();
-    const expectedSourceBinding = {
-      title: target.sourceBinding.title,
-      doi: target.sourceBinding.doi,
-      officialUrl: target.sourceBinding.officialUrl,
-      corpusIdentityVerified: false as const,
-      scopeDisposition: target.sourceBinding.scopeDisposition,
-    };
+    const expectedSourceBinding = technicalSourceBinding(target.sourceBinding);
     const expectedTotals = {
       rawSizeBytes: pageMap.pages.reduce(
         (sum, page) => sum + page.rawText.sizeBytes,
@@ -1806,7 +1856,7 @@ export function checkTrackedQualificationBundle(input: {
       rawPdfSha256: target.expectedSha256,
       title: target.sourceBinding.title,
       doi: target.sourceBinding.doi,
-      officialUrl: target.sourceBinding.officialUrl,
+      ...sourceLocatorFields(target.sourceBinding),
       qualificationState: receipt.qualificationState,
       scopeDisposition: target.sourceBinding.scopeDisposition,
       pageCount: receipt.sourceFile.pageCount,

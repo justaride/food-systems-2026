@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
+import { execFileSync } from "node:child_process";
 import {
+  chmodSync,
   existsSync,
+  linkSync,
   mkdirSync,
   mkdtempSync,
   readFileSync,
@@ -15,8 +18,10 @@ import test from "node:test";
 import {
   CORPUS_CURRENT_STATE_PATHS,
   buildCorpusCurrentStateArtifacts,
+  createRecordingCorpusEvidenceResolvers,
   initializeEmptyCorpusStateEventLog,
   parseCorpusCurrentStateCliArgs,
+  resolveControlledNormalizedText,
   resolveTrackedArtifact,
   writeOrCheckCorpusCurrentStateArtifacts,
 } from "../../scripts/knowledge/generate-corpus-processing-current-state";
@@ -149,5 +154,134 @@ test("rejects an artifact reached through a symlinked parent outside the reposit
         artifactSha256: `sha256:${"b".repeat(64)}`,
       }),
     /symlink or escapes repository root/,
+  );
+});
+
+test("resolves identity workflow and prompt artifacts as immutable bytes without JSON parsing", () => {
+  const root = mkdtempSync(
+    join(tmpdir(), "corpus-current-state-byte-artifact-"),
+  );
+  const content = "Workflow ID: `workflow.source_identity_verification.v1`\n";
+  const path = "knowledge/corpus/workflows/source-identity-fixture.md";
+  write(root, path, content);
+  execFileSync("git", ["-C", root, "init", "--quiet"]);
+  execFileSync("git", ["-C", root, "add", "--", path]);
+  const resolver = resolveTrackedArtifact(root);
+  for (const artifactType of [
+    "source_identity_workflow",
+    "source_identity_prompt_template",
+    "source_analysis_workflow",
+    "source_analysis_prompt_template",
+  ] as const) {
+    const resolved = resolver({
+      artifactType,
+      artifactId: `artifact.${artifactType}.fixture`,
+      artifactVersion: "1.0.0",
+      path,
+      fileSha256: `sha256:${"a".repeat(64)}`,
+      artifactSha256: `sha256:${"b".repeat(64)}`,
+    });
+    assert.equal(resolved.value, content);
+    assert.deepEqual(resolved.bytes, Buffer.from(content, "utf8"));
+  }
+});
+
+test("records every dynamically resolved event input without persisting source text or absolute private paths", () => {
+  const artifactBytes = Buffer.from('{"sealed":true}\n', "utf8");
+  const sourceBytes = Buffer.from("private source bytes", "utf8");
+  const normalizedBytes = Buffer.from("normalized private text\n", "utf8");
+  const recording = createRecordingCorpusEvidenceResolvers({
+    resolveArtifact: () => ({
+      value: { sealed: true },
+      fileSha256: "sha256:ignored-by-recording-wrapper",
+      bytes: artifactBytes,
+    }),
+    resolveSourceContent: () => sourceBytes,
+    resolveNormalizedText: () => normalizedBytes,
+  });
+  const artifactRef = {
+    artifactType: "source_analysis" as const,
+    artifactId: "artifact.analysis.recording.fixture",
+    artifactVersion: "1.0.0",
+    path: "knowledge/corpus/source-analysis/recording.fixture.json",
+    fileSha256: `sha256:${"a".repeat(64)}`,
+    artifactSha256: `sha256:${"b".repeat(64)}`,
+  };
+  const sourceRef = {
+    artifactType: "source_content" as const,
+    artifactId: "artifact.source_content.recording.fixture",
+    artifactVersion: "1.0.0",
+    locator: "private://corpus/sha256/recording.fixture.pdf",
+    contentSha256: `sha256:${"c".repeat(64)}`,
+    sizeBytes: sourceBytes.length,
+  };
+  recording.resolveArtifact(artifactRef);
+  recording.resolveArtifact(artifactRef);
+  recording.resolveSourceContent(sourceRef);
+  recording.resolveNormalizedText(
+    "private://corpus/pdf-page-extraction/v1/sha256/recording/pages/page-0001.normalized.txt",
+  );
+  const snapshot = recording.snapshot();
+  assert.equal(snapshot.trackedArtifacts.length, 1);
+  assert.equal(snapshot.sourceContents.length, 1);
+  assert.equal(snapshot.normalizedTextUnits.length, 1);
+  assert.equal(snapshot.absolutePrivatePathsPersisted, false);
+  assert.equal(snapshot.sourceTextPersisted, false);
+  assert.equal(
+    JSON.stringify(snapshot).includes(normalizedBytes.toString("utf8")),
+    false,
+  );
+  assert.equal(JSON.stringify(snapshot).includes("/Users/"), false);
+});
+
+test("reads normalized text only from a stable private 0400 single-link file", () => {
+  const root = mkdtempSync(join(tmpdir(), "corpus-normalized-text-root-"));
+  const relativePath =
+    "pdf-page-extraction/v1/sha256/" +
+    `${"a".repeat(64)}/pages/page-0001.normalized.txt`;
+  const absolutePath = join(root, relativePath);
+  write(root, relativePath, "Exact normalized text\n");
+  chmodSync(absolutePath, 0o400);
+  const previous = process.env.FOOD_SYSTEMS_PRIVATE_CORPUS_ROOT;
+  process.env.FOOD_SYSTEMS_PRIVATE_CORPUS_ROOT = root;
+  try {
+    const resolveNormalizedText = resolveControlledNormalizedText();
+    const locator = `private://corpus/${relativePath}`;
+    assert.deepEqual(
+      resolveNormalizedText(locator),
+      Buffer.from("Exact normalized text\n", "utf8"),
+    );
+    chmodSync(absolutePath, 0o600);
+    assert.throws(() => resolveNormalizedText(locator), /private 0400/);
+    chmodSync(absolutePath, 0o400);
+    const hardlinkPath = join(root, "page-hardlink.txt");
+    linkSync(absolutePath, hardlinkPath);
+    assert.throws(() => resolveNormalizedText(locator), /single-link/);
+  } finally {
+    if (previous === undefined) {
+      delete process.env.FOOD_SYSTEMS_PRIVATE_CORPUS_ROOT;
+    } else {
+      process.env.FOOD_SYSTEMS_PRIVATE_CORPUS_ROOT = previous;
+    }
+  }
+});
+
+test("rejects a regular in-root artifact that is not Git-tracked", () => {
+  const root = mkdtempSync(join(tmpdir(), "corpus-current-state-untracked-"));
+  const path = "knowledge/corpus/untracked.json";
+  write(root, path, '{"sealed":true}\n');
+  execFileSync("git", ["-C", root, "init", "--quiet"]);
+  const resolver = resolveTrackedArtifact(root);
+  assert.throws(
+    () =>
+      resolver({
+        artifactType: "source_analysis",
+        artifactId: "artifact.untracked.fixture",
+        artifactVersion: "1.0.0",
+        path,
+        fileSha256: `sha256:${"a".repeat(64)}`,
+        artifactSha256: `sha256:${"b".repeat(64)}`,
+      }),
+    /not Git-tracked/,
   );
 });

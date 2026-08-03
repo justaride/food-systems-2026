@@ -50,6 +50,9 @@ import {
 type JsonObject = { [key: string]: JsonValue };
 type JsonValue = string | number | boolean | null | JsonObject | JsonValue[];
 
+export const CORPUS_EXTERNAL_ANCHOR_PRODUCTION_ROOT =
+  "/private/var/db/food-systems-corpus-anchor" as const;
+
 type RepositoryAnchorContext = {
   anchorLogBytes: Buffer;
   records: CorpusEventHistoryAnchorRecord[];
@@ -450,6 +453,11 @@ export function parseCorpusExternalAnchorCliArgs(
     fail("exactly one non-empty --external-root is required");
   }
   if (!isAbsolute(externalRoots[0]!)) fail("external root must be absolute");
+  if (externalRoots[0] !== CORPUS_EXTERNAL_ANCHOR_PRODUCTION_ROOT) {
+    fail(
+      `external root must be the fixed production authority ${CORPUS_EXTERNAL_ANCHOR_PRODUCTION_ROOT}`,
+    );
+  }
   const mode = selected[0]![1];
   const expectEmptyExternal = args.includes("--expect-empty-external");
   if (args.filter((arg) => arg === "--expect-empty-external").length > 1) {

@@ -21,7 +21,7 @@ exact source identity and bytes
 
 Every arrow needs a receipt. A later step may use only the exact output hash from the preceding step. A filename, word count, stored summary, triage card or successful OCR run is never proof that the source was read and understood.
 
-The executable prompt contracts are [source identity verification v1](workflows/source-identity-verification-v1.md) and [full source analysis v1](workflows/source-analysis-v1.md). Their exact file hashes must be recorded in each run; a similarly named ad-hoc prompt is not the same workflow.
+The executable workflow contracts are [source identity verification v1](workflows/source-identity-verification-v1.md) and [full source analysis v1](workflows/source-analysis-v1.md). Their separate canonical prompt templates are [source identity prompt v1](workflows/source-identity-verification-prompt-v1.md) and [full source-analysis prompt v1](workflows/source-analysis-prompt-v1.md). Each run must bind the exact ID, version, repository path and file hash of both the workflow and its prompt template; a similarly named ad-hoc prompt is not the same execution.
 
 ## When full-text AI processing is complete
 
@@ -30,7 +30,7 @@ A source can be marked `full_text` only when all of the following are true:
 1. the source identity and input-byte hash are fixed;
 2. every expected page, slide, sheet, transcript segment or record is represented in the input manifest;
 3. extraction warnings and low-text or image-only units have been inspected and either resolved or recorded as limitations;
-4. the AI run records its exact input manifest, workflow and available model identity, and explicitly says when the runtime does not expose an exact model build;
+4. the AI run records its exact input manifest, workflow bytes, prompt-template bytes, every ordered normalized-unit byte and available model identity, and explicitly says when the runtime does not expose an exact model build;
 5. the output artifact is hash-bound to that run and contains the required sections below;
 6. the output passes structural and cross-reference checks;
 7. no page or record is silently skipped;
@@ -58,6 +58,8 @@ Each source-analysis artifact must record:
 
 The tracked v1 source-analysis artifact contains paraphrases and exact locators, not quotations or retained source text. If a later controlled translation or quotation artifact is needed to audit interpretation, it must remain separate, identify its method and pass the applicable rights rules before reuse.
 
+The stable corpus title and the title observed in a document are distinct fields. A verified normalized title match is accepted only when a deterministic dimension-specific rule produces the same ordered title tokens; a free-form AI explanation cannot turn unrelated titles into the same identity.
+
 ## Reconciliation is part of processing
 
 Reading a source is not finished when a standalone summary exists. The analysis must compare its candidates with the current knowledge base:
@@ -84,6 +86,7 @@ Rights clearance, privacy, safety, legal review, publication approval and covera
 - A failed source cannot partially publish a success receipt.
 - Batch manifests list exact inputs and expected outputs; the generation manifest is written last.
 - Portable checks validate tracked metadata. Full private checks additionally verify controlled source and extracted-text copies without placing private paths or content in Git.
+- Reading one controlled private source copy for identity replay does not promote the lifecycle claim to `private_live_verified`. That stronger state requires a separately designed and receipted live verification of the required private copies.
 - Progress reporting distinguishes pages extracted, sources AI-read, identities owner-reviewed, externally validated items and coverage-promoted cells.
 
 ## Exhaustive acquisition boundary

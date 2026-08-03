@@ -488,7 +488,12 @@
         "modelVersion",
         "workflowRef",
         "workflowVersion",
-        "promptTemplateSha256",
+        "workflowPath",
+        "workflowFileSha256",
+        "promptTemplateRef",
+        "promptTemplateVersion",
+        "promptTemplatePath",
+        "promptTemplateFileSha256",
         "workflowSha256",
         "inputTextSha256",
         "inputEnvelope",
@@ -523,9 +528,22 @@
         "model": { "type": "string", "minLength": 1, "maxLength": 200 },
         "modelVersionState": { "enum": ["exact", "runtime_not_exposed"] },
         "modelVersion": { "type": "string", "minLength": 1, "maxLength": 200 },
-        "workflowRef": { "type": "string", "minLength": 1, "maxLength": 500 },
-        "workflowVersion": { "$ref": "#/$defs/version" },
-        "promptTemplateSha256": { "$ref": "#/$defs/hash" },
+        "workflowRef": { "const": "workflow.full_source_analysis.v1" },
+        "workflowVersion": { "const": "1.0.0" },
+        "workflowPath": {
+          "const": "knowledge/corpus/workflows/source-analysis-v1.md"
+        },
+        "workflowFileSha256": {
+          "const": "sha256:9143c6ad9716cc0c71aa1b823b76129d5bd79028a4a9712daeace44cb9d57a63"
+        },
+        "promptTemplateRef": { "const": "prompt.full_source_analysis.v1" },
+        "promptTemplateVersion": { "const": "1.0.0" },
+        "promptTemplatePath": {
+          "const": "knowledge/corpus/workflows/source-analysis-prompt-v1.md"
+        },
+        "promptTemplateFileSha256": {
+          "const": "sha256:2a0e61a4d81adcb554c19a40f1e8c0bda2a4d3cf2c0917f92189f793b3c8d351"
+        },
         "workflowSha256": { "$ref": "#/$defs/hash" },
         "inputTextSha256": { "$ref": "#/$defs/hash" },
         "inputEnvelope": { "$ref": "#/$defs/inputEnvelope" },

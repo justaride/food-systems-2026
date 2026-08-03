@@ -929,6 +929,7 @@ export function prepareSourceRegistrationInputs(input: {
           "unregistered_source_candidate" ||
         inputManifest.identityAssociation.blockerCode !==
           "database_registration_required" ||
+        !("officialUrl" in inputManifest.sourceBinding) ||
         inputManifest.sourceBinding.officialUrl !== target.source.officialUrl ||
         inputManifest.workflowEligibility.sourceAnalysis.allowed !== false ||
         inputManifest.totals.pageCount !== target.source.pageCount

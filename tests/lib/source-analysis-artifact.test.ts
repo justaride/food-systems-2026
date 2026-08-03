@@ -5,11 +5,20 @@ import test from "node:test";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 
+import { hashCorpusLifecycleState } from "../../src/lib/knowledge/corpus-processing-lifecycle";
 import {
   SOURCE_ANALYSIS_ARTIFACT_VERSION,
   SOURCE_ANALYSIS_MODEL_VERSION_NOT_EXPOSED,
+  SOURCE_ANALYSIS_PROMPT_TEMPLATE_FILE_SHA256,
+  SOURCE_ANALYSIS_PROMPT_TEMPLATE_ID,
+  SOURCE_ANALYSIS_PROMPT_TEMPLATE_PATH,
+  SOURCE_ANALYSIS_PROMPT_TEMPLATE_VERSION,
   SOURCE_ANALYSIS_REQUIRED_STAGES,
   SOURCE_ANALYSIS_SCHEMA_VERSION,
+  SOURCE_ANALYSIS_WORKFLOW_FILE_SHA256,
+  SOURCE_ANALYSIS_WORKFLOW_ID,
+  SOURCE_ANALYSIS_WORKFLOW_PATH,
+  SOURCE_ANALYSIS_WORKFLOW_VERSION,
   hashSourceAnalysisCheckpoint,
   hashSourceAnalysisFinalOutput,
   hashSourceAnalysisInputEnvelope,
@@ -22,18 +31,25 @@ import {
   sourceAnalysisSha256,
   sourceAnalysisStagePayload,
   validateSourceAnalysisArtifact,
-  validateSourceAnalysisArtifactWithInputs,
+  validateSourceAnalysisArtifactAfterReplayVerifiedIdentity,
+  validateSourceAnalysisArtifactWithEvidenceBundle,
   validateSourceAnalysisBinding,
+  validateSourceAnalysisNormalizedPageBytes,
+  validateSourceAnalysisPromptTemplateFile,
+  validateSourceAnalysisWorkflowFile,
   type SourceAnalysisBinding,
   type SourceAnalysisCheckpoint,
   type SourceAnalysisArtifact,
+  type SourceAnalysisExecutionEvidenceInputs,
 } from "../../src/lib/knowledge/source-analysis-artifact";
 import {
   sealSourceAnalysisInputManifest,
   sourceAnalysisInputWorkflowEligibility,
   type SourceAnalysisInputManifest,
 } from "../../src/lib/knowledge/source-analysis-input-manifest";
+import { sourceIdentityVerificationArtifactPath } from "../../src/lib/knowledge/source-identity-verification";
 import { sourceAnalysisCombinedInputFixture } from "../fixtures/source-analysis-combined-fixture";
+import { corpusProcessingFullChainFixture } from "../fixtures/corpus-processing-full-chain-fixture";
 
 const HASH = Object.fromEntries(
   "abcdefghijklmnopqrstuvwxyz0123456789"
@@ -44,6 +60,13 @@ const HASH = Object.fromEntries(
     ]),
 ) as Record<string, string>;
 
+const SOURCE_ANALYSIS_WORKFLOW_BYTES = readFileSync(
+  SOURCE_ANALYSIS_WORKFLOW_PATH,
+);
+const SOURCE_ANALYSIS_PROMPT_TEMPLATE_BYTES = readFileSync(
+  SOURCE_ANALYSIS_PROMPT_TEMPLATE_PATH,
+);
+
 const jsonSchema = JSON.parse(
   readFileSync(
     "knowledge/schema/source-analysis-artifact.schema.v1.json",
@@ -53,6 +76,98 @@ const jsonSchema = JSON.parse(
 const ajv = new Ajv2020({ allErrors: true, strict: false });
 addFormats(ajv);
 const validateJsonSchema = ajv.compile(jsonSchema);
+
+function syntheticNormalizedPages(): Array<{
+  pageNumber: number;
+  bytes: Buffer;
+}> {
+  return [
+    {
+      pageNumber: 1,
+      bytes: Buffer.from(
+        "Synthetic cover and declared report identity.\n",
+        "utf8",
+      ),
+    },
+    {
+      pageNumber: 2,
+      bytes: Buffer.from(
+        "Synthetic method, result, limitation and reconciliation evidence.\n",
+        "utf8",
+      ),
+    },
+  ];
+}
+
+type CombinedReplayInputs = ReturnType<
+  typeof sourceAnalysisCombinedInputFixture
+> &
+  SourceAnalysisExecutionEvidenceInputs;
+
+function combinedReplayInputs(): CombinedReplayInputs {
+  const fixture = sourceAnalysisCombinedInputFixture();
+  const analysisPrestate = structuredClone(fixture.analysisPrestate);
+  analysisPrestate.sourceIdentity.contentHashEvidenceState =
+    fixture.identityVerificationPrestate.sourceIdentity.contentHashEvidenceState;
+  analysisPrestate.sourceIdentity.contentHashVerifiedAt =
+    fixture.identityVerificationPrestate.sourceIdentity.contentHashVerifiedAt;
+  const analysisPrestateSha256 = hashCorpusLifecycleState(analysisPrestate);
+  const currentManifest = JSON.parse(
+    Buffer.from(fixture.inputManifestFile.bytes).toString("utf8"),
+  ) as SourceAnalysisInputManifest;
+  if (
+    currentManifest.workflowEligibility.state !== "source_analysis_eligible"
+  ) {
+    throw new Error("Combined fixture must contain an eligible input manifest");
+  }
+  const eligibleWorkflow = currentManifest.workflowEligibility;
+  const { manifestSha256: _manifestSeal, ...manifestBody } = currentManifest;
+  const inputManifest = sealSourceAnalysisInputManifest({
+    ...manifestBody,
+    workflowEligibility: {
+      ...eligibleWorkflow,
+      sourceAnalysis: {
+        ...eligibleWorkflow.sourceAnalysis,
+        lifecycleTransition: {
+          ...eligibleWorkflow.sourceAnalysis.lifecycleTransition,
+          analysisPrestate: {
+            ...eligibleWorkflow.sourceAnalysis.lifecycleTransition
+              .analysisPrestate,
+            lifecycleSnapshotSha256: analysisPrestateSha256,
+          },
+        },
+      },
+    },
+  });
+  const inputManifestBytes = Buffer.from(
+    `${JSON.stringify(inputManifest, null, 2)}\n`,
+    "utf8",
+  );
+  return {
+    ...fixture,
+    inputManifestFile: {
+      ...fixture.inputManifestFile,
+      bytes: inputManifestBytes,
+    },
+    analysisPrestate,
+    binding: {
+      ...fixture.binding,
+      sourceAnalysisInputManifestFileSha256:
+        sourceAnalysisSha256(inputManifestBytes),
+      sourceAnalysisInputManifestSha256: `sha256:${inputManifest.manifestSha256}`,
+      lifecycleSnapshotSha256: analysisPrestateSha256,
+    },
+    workflowFile: {
+      path: SOURCE_ANALYSIS_WORKFLOW_PATH,
+      bytes: SOURCE_ANALYSIS_WORKFLOW_BYTES,
+    },
+    promptTemplateFile: {
+      path: SOURCE_ANALYSIS_PROMPT_TEMPLATE_PATH,
+      bytes: SOURCE_ANALYSIS_PROMPT_TEMPLATE_BYTES,
+    },
+    normalizedPages: syntheticNormalizedPages(),
+  };
+}
 
 function fixtureArtifact(): SourceAnalysisArtifact {
   const locators: SourceAnalysisArtifact["locators"] = [
@@ -430,9 +545,14 @@ function fixtureArtifact(): SourceAnalysisArtifact {
       completedAt: "2026-08-02T12:15:00Z",
     };
   const workflow = {
-    workflowRef: "workflow.source.analysis.v1",
-    workflowVersion: "1.0.0",
-    promptTemplateSha256: HASH.k!,
+    workflowRef: SOURCE_ANALYSIS_WORKFLOW_ID,
+    workflowVersion: SOURCE_ANALYSIS_WORKFLOW_VERSION,
+    workflowPath: SOURCE_ANALYSIS_WORKFLOW_PATH,
+    workflowFileSha256: SOURCE_ANALYSIS_WORKFLOW_FILE_SHA256,
+    promptTemplateRef: SOURCE_ANALYSIS_PROMPT_TEMPLATE_ID,
+    promptTemplateVersion: SOURCE_ANALYSIS_PROMPT_TEMPLATE_VERSION,
+    promptTemplatePath: SOURCE_ANALYSIS_PROMPT_TEMPLATE_PATH,
+    promptTemplateFileSha256: SOURCE_ANALYSIS_PROMPT_TEMPLATE_FILE_SHA256,
   };
   const workflowSha256 = hashSourceAnalysisWorkflow(workflow);
   const inputEnvelope = sourceAnalysisInputEnvelope(binding, workflowSha256);
@@ -613,7 +733,12 @@ function resealExecution(
   const workflow = {
     workflowRef: run.workflowRef,
     workflowVersion: run.workflowVersion,
-    promptTemplateSha256: run.promptTemplateSha256,
+    workflowPath: run.workflowPath,
+    workflowFileSha256: run.workflowFileSha256,
+    promptTemplateRef: run.promptTemplateRef,
+    promptTemplateVersion: run.promptTemplateVersion,
+    promptTemplatePath: run.promptTemplatePath,
+    promptTemplateFileSha256: run.promptTemplateFileSha256,
   };
   run.workflowSha256 = hashSourceAnalysisWorkflow(workflow);
   run.inputTextSha256 = artifact.binding.textSha256;
@@ -662,9 +787,9 @@ function resealExecution(
   return sealSourceAnalysisArtifact(body);
 }
 
-function combinedArtifact(inputs = sourceAnalysisCombinedInputFixture()): {
+function combinedArtifact(inputs = combinedReplayInputs()): {
   artifact: SourceAnalysisArtifact;
-  inputs: ReturnType<typeof sourceAnalysisCombinedInputFixture>;
+  inputs: CombinedReplayInputs;
 } {
   const artifact = structuredClone(fixtureArtifact());
   const manifest = JSON.parse(
@@ -672,7 +797,7 @@ function combinedArtifact(inputs = sourceAnalysisCombinedInputFixture()): {
   ) as SourceAnalysisInputManifest;
   artifact.binding = inputs.binding;
   artifact.scope = {
-    ...inputs.lifecyclePrestate.scope,
+    ...inputs.analysisPrestate.scope,
     sourceLanguageCodes: ["en"],
   };
   artifact.locators = manifest.pages.map((page) => ({
@@ -714,8 +839,8 @@ function combinedArtifact(inputs = sourceAnalysisCombinedInputFixture()): {
 }
 
 function withBlockedManifest(
-  fixture: ReturnType<typeof sourceAnalysisCombinedInputFixture>,
-): ReturnType<typeof sourceAnalysisCombinedInputFixture> {
+  fixture: CombinedReplayInputs,
+): CombinedReplayInputs {
   const manifest = JSON.parse(
     Buffer.from(fixture.inputManifestFile.bytes).toString("utf8"),
   ) as SourceAnalysisInputManifest;
@@ -763,12 +888,213 @@ function assertStructuralParity(value: unknown, expected: boolean): void {
   );
 }
 
+function exactCombinedNormalizedInput(): {
+  manifest: SourceAnalysisInputManifest;
+  normalizedPages: Array<{ pageNumber: number; bytes: Buffer }>;
+} {
+  const fixture = sourceAnalysisCombinedInputFixture();
+  const manifest = JSON.parse(
+    Buffer.from(fixture.inputManifestFile.bytes).toString("utf8"),
+  ) as SourceAnalysisInputManifest;
+  return {
+    manifest,
+    normalizedPages: syntheticNormalizedPages(),
+  };
+}
+
 test("accepts one exact, sealed full-text AI analysis in Zod and JSON Schema", () => {
   const artifact = fixtureArtifact();
   assertStructuralParity(artifact, true);
   assert.deepEqual(validateSourceAnalysisArtifact(artifact), artifact);
   assert.equal(artifact.analysis.claims[0]?.representation, "paraphrase");
   assert.equal(artifact.gates.coverage.automaticPromotionAllowed, false);
+});
+
+test("binds every run to the exact canonical workflow and prompt-template files", () => {
+  const artifact = fixtureArtifact();
+  assert.equal(
+    validateSourceAnalysisWorkflowFile(artifact, {
+      path: SOURCE_ANALYSIS_WORKFLOW_PATH,
+      bytes: SOURCE_ANALYSIS_WORKFLOW_BYTES,
+    }),
+    SOURCE_ANALYSIS_WORKFLOW_FILE_SHA256,
+  );
+  assert.equal(
+    validateSourceAnalysisPromptTemplateFile(artifact, {
+      path: SOURCE_ANALYSIS_PROMPT_TEMPLATE_PATH,
+      bytes: SOURCE_ANALYSIS_PROMPT_TEMPLATE_BYTES,
+    }),
+    SOURCE_ANALYSIS_PROMPT_TEMPLATE_FILE_SHA256,
+  );
+
+  assert.throws(
+    () =>
+      validateSourceAnalysisWorkflowFile(artifact, {
+        path: SOURCE_ANALYSIS_WORKFLOW_PATH,
+        bytes: Buffer.concat([
+          SOURCE_ANALYSIS_WORKFLOW_BYTES,
+          Buffer.from("changed\n", "utf8"),
+        ]),
+      }),
+    /workflow file bytes do not match the pinned hash/,
+  );
+  assert.throws(
+    () =>
+      validateSourceAnalysisWorkflowFile(artifact, {
+        path: "knowledge/corpus/workflows/not-the-workflow.md",
+        bytes: SOURCE_ANALYSIS_WORKFLOW_BYTES,
+      }),
+    /workflow path must be/,
+  );
+  assert.throws(
+    () =>
+      validateSourceAnalysisWorkflowFile(artifact, {
+        path: SOURCE_ANALYSIS_WORKFLOW_PATH,
+        bytes: Buffer.alloc(0),
+      }),
+    /workflow file bytes do not match the pinned hash/,
+  );
+  assert.throws(
+    () =>
+      validateSourceAnalysisPromptTemplateFile(artifact, {
+        path: SOURCE_ANALYSIS_PROMPT_TEMPLATE_PATH,
+        bytes: Buffer.concat([
+          SOURCE_ANALYSIS_PROMPT_TEMPLATE_BYTES,
+          Buffer.from("changed\n", "utf8"),
+        ]),
+      }),
+    /prompt template file bytes do not match the pinned hash/,
+  );
+  assert.throws(
+    () =>
+      validateSourceAnalysisPromptTemplateFile(artifact, {
+        path: "knowledge/corpus/workflows/not-the-prompt.md",
+        bytes: SOURCE_ANALYSIS_PROMPT_TEMPLATE_BYTES,
+      }),
+    /prompt template path must be/,
+  );
+
+  const missingWorkflowFileHash = structuredClone(
+    artifact,
+  ) as unknown as Record<string, unknown>;
+  const execution = missingWorkflowFileHash.analysisExecution as Record<
+    string,
+    unknown
+  >;
+  const runs = execution.runs as Array<Record<string, unknown>>;
+  delete runs[0]!.workflowFileSha256;
+  assertStructuralParity(missingWorkflowFileHash, false);
+
+  const wrongWorkflowFileHash = structuredClone(artifact) as unknown as Record<
+    string,
+    unknown
+  >;
+  const wrongWorkflowExecution =
+    wrongWorkflowFileHash.analysisExecution as Record<string, unknown>;
+  const wrongWorkflowRuns = wrongWorkflowExecution.runs as Array<
+    Record<string, unknown>
+  >;
+  wrongWorkflowRuns[0]!.workflowFileSha256 = HASH.z!;
+  assertStructuralParity(wrongWorkflowFileHash, false);
+
+  const wrongPromptFileHash = structuredClone(artifact) as unknown as Record<
+    string,
+    unknown
+  >;
+  const wrongPromptExecution = wrongPromptFileHash.analysisExecution as Record<
+    string,
+    unknown
+  >;
+  const wrongPromptRuns = wrongPromptExecution.runs as Array<
+    Record<string, unknown>
+  >;
+  wrongPromptRuns[0]!.promptTemplateFileSha256 = HASH.z!;
+  assertStructuralParity(wrongPromptFileHash, false);
+});
+
+test("recomputes exact normalized page bytes, counts, order and serialized input", () => {
+  const exact = exactCombinedNormalizedInput();
+  assert.deepEqual(
+    validateSourceAnalysisNormalizedPageBytes(
+      exact.manifest,
+      exact.normalizedPages,
+    ),
+    {
+      normalizedInputSha256: `sha256:${exact.manifest.normalizedInput.sha256}`,
+      serializedSizeBytes: exact.manifest.normalizedInput.serializedSizeBytes,
+    },
+  );
+
+  const changed = structuredClone(exact.normalizedPages);
+  changed[0]!.bytes = Buffer.from("Changed page bytes.\n", "utf8");
+  assert.throws(
+    () => validateSourceAnalysisNormalizedPageBytes(exact.manifest, changed),
+    /bytes, hash, character count or word count do not match/,
+  );
+  assert.throws(
+    () =>
+      validateSourceAnalysisNormalizedPageBytes(
+        exact.manifest,
+        exact.normalizedPages.slice(0, 1),
+      ),
+    /must contain every manifest page exactly once/,
+  );
+  assert.throws(
+    () =>
+      validateSourceAnalysisNormalizedPageBytes(
+        exact.manifest,
+        [...exact.normalizedPages].reverse(),
+      ),
+    /missing or out of order at page 1/,
+  );
+  assert.throws(
+    () =>
+      validateSourceAnalysisNormalizedPageBytes(exact.manifest, [
+        ...exact.normalizedPages,
+        { pageNumber: 3, bytes: Buffer.from("Extra page.\n", "utf8") },
+      ]),
+    /must contain every manifest page exactly once/,
+  );
+  const invalidUtf8 = structuredClone(exact.normalizedPages);
+  invalidUtf8[0]!.bytes = Buffer.from([0xc3, 0x28]);
+  assert.throws(
+    () =>
+      validateSourceAnalysisNormalizedPageBytes(exact.manifest, invalidUtf8),
+    /normalized page 1 bytes is not valid UTF-8/,
+  );
+
+  const { manifestSha256: _countSeal, ...countBody } = structuredClone(
+    exact.manifest,
+  );
+  countBody.pages[0]!.normalizedText.characterCount += 1;
+  countBody.pages[0]!.normalizedText.wordCount += 1;
+  countBody.totals.normalizedCharacterCount += 1;
+  countBody.totals.wordCount += 1;
+  const countDrift = sealSourceAnalysisInputManifest(countBody);
+  assert.throws(
+    () =>
+      validateSourceAnalysisNormalizedPageBytes(
+        countDrift,
+        exact.normalizedPages,
+      ),
+    /character count or word count do not match/,
+  );
+
+  const { manifestSha256: _inputSeal, ...inputBody } = structuredClone(
+    exact.manifest,
+  );
+  inputBody.normalizedInput.sha256 = sourceAnalysisSha256(
+    "wrong-serialized-input",
+  ).slice("sha256:".length);
+  const serializedInputDrift = sealSourceAnalysisInputManifest(inputBody);
+  assert.throws(
+    () =>
+      validateSourceAnalysisNormalizedPageBytes(
+        serializedInputDrift,
+        exact.normalizedPages,
+      ),
+    /serialized normalized input bytes do not match/,
+  );
 });
 
 test("does not confuse technical full-text eligibility with actual AI reading", () => {
@@ -1046,25 +1372,190 @@ test("detects payload changes and an invalid named artifact seal", () => {
 
 test("accepts one synthetic positive manifest only through the combined exact-input validator", () => {
   const { artifact, inputs } = combinedArtifact();
-  const validated = validateSourceAnalysisArtifactWithInputs(artifact, inputs);
+  const validated = validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
+    artifact,
+    inputs,
+  );
   assert.equal(
     validated.inputManifest.workflowEligibility.sourceAnalysis.allowed,
     true,
   );
   assert.equal(validated.identityArtifact.decision.state, "verified");
   assert.equal(
-    validated.lifecyclePrestate.recordId,
+    validated.identityVerificationPrestate.sourceIdentity.identityStatus,
+    "provisional",
+  );
+  assert.equal(
+    validated.analysisPrestate.sourceIdentity.identityStatus,
+    "verified",
+  );
+  assert.equal(
+    validated.analysisPrestate.recordId,
     artifact.binding.lifecycleRecordId,
+  );
+  assert.notEqual(
+    validated.identityArtifact.binding.lifecycleSnapshotSha256,
+    artifact.binding.lifecycleSnapshotSha256,
+  );
+});
+
+test("standalone evidence authorization requires the identity content-addressed repository path", () => {
+  const chain = corpusProcessingFullChainFixture();
+  const canonicalInputs = {
+    predecessorInputManifestFile: {
+      path: chain.identityFixture.candidateInputManifestPath,
+      bytes: chain.identityFixture.candidateInputManifestBytes,
+    },
+    inputManifestFile: {
+      path: chain.verifiedInputManifestPath,
+      bytes: chain.verifiedInputManifestBytes,
+    },
+    identityArtifactFile: {
+      path: chain.identityFixture.identityArtifactPath,
+      bytes: chain.identityFixture.identityArtifactBytes,
+    },
+    identityVerificationPrestate: chain.identityFixture.lifecycleL1,
+    analysisPrestate: chain.lifecycleL2,
+    identityEvidenceBundle: chain.identityFixture.bundle,
+    ...chain.analysisExecutionEvidence,
+  };
+  const canonical = validateSourceAnalysisArtifactWithEvidenceBundle(
+    chain.analysisArtifact,
+    canonicalInputs,
+  );
+  assert.equal(
+    canonicalInputs.identityArtifactFile.path,
+    sourceIdentityVerificationArtifactPath(
+      canonical.identityArtifact.artifactSha256,
+    ),
+  );
+
+  const arbitraryIdentityPath =
+    "knowledge/corpus/source-identity-verification/artifacts/arbitrary-valid-bytes.source-identity-verification.v1.json";
+  const { manifestSha256: _manifestSeal, ...manifestBody } =
+    chain.verifiedInputManifest;
+  if (manifestBody.workflowEligibility.state !== "source_analysis_eligible") {
+    assert.fail("Full-chain fixture must contain an eligible input manifest");
+  }
+  const arbitraryManifest = sealSourceAnalysisInputManifest({
+    ...manifestBody,
+    workflowEligibility: {
+      ...manifestBody.workflowEligibility,
+      sourceAnalysis: {
+        ...manifestBody.workflowEligibility.sourceAnalysis,
+        identityArtifactReference: {
+          ...manifestBody.workflowEligibility.sourceAnalysis
+            .identityArtifactReference,
+          path: arbitraryIdentityPath,
+        },
+      },
+    },
+  });
+  const arbitraryManifestBytes = Buffer.from(
+    `${JSON.stringify(arbitraryManifest, null, 2)}\n`,
+    "utf8",
+  );
+  const arbitraryArtifactDraft = structuredClone(chain.analysisArtifact);
+  arbitraryArtifactDraft.binding.sourceAnalysisInputManifestFileSha256 =
+    sourceAnalysisSha256(arbitraryManifestBytes);
+  arbitraryArtifactDraft.binding.sourceAnalysisInputManifestSha256 = `sha256:${arbitraryManifest.manifestSha256}`;
+  arbitraryArtifactDraft.binding.sourceIdentityVerificationArtifactPath =
+    arbitraryIdentityPath;
+  const arbitraryArtifact = resealExecution(
+    arbitraryArtifactDraft,
+    chain.analysisArtifact.analysisExecution.runs[0]!.checkpoints.map(
+      (checkpoint) => checkpoint.completedAt,
+    ),
+  );
+  const arbitraryReplayInputs = {
+    ...canonicalInputs,
+    inputManifestFile: {
+      path: chain.verifiedInputManifestPath,
+      bytes: arbitraryManifestBytes,
+    },
+    identityArtifactFile: {
+      path: arbitraryIdentityPath,
+      bytes: chain.identityFixture.identityArtifactBytes,
+    },
+  };
+
+  assert.doesNotThrow(() =>
+    validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
+      arbitraryArtifact,
+      arbitraryReplayInputs,
+    ),
+  );
+  assert.throws(
+    () =>
+      validateSourceAnalysisArtifactWithEvidenceBundle(
+        arbitraryArtifact,
+        arbitraryReplayInputs,
+      ),
+    /content-addressed repository path derived from its validated artifact seal/,
+  );
+});
+
+test("decision-only replay still requires exact workflow, prompt and normalized-page bytes", () => {
+  const workflowDrift = combinedArtifact();
+  workflowDrift.inputs.workflowFile = {
+    ...workflowDrift.inputs.workflowFile,
+    bytes: Buffer.concat([
+      SOURCE_ANALYSIS_WORKFLOW_BYTES,
+      Buffer.from("changed\n", "utf8"),
+    ]),
+  };
+  assert.throws(
+    () =>
+      validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
+        workflowDrift.artifact,
+        workflowDrift.inputs,
+      ),
+    /workflow file bytes do not match the pinned hash/,
+  );
+
+  const promptDrift = combinedArtifact();
+  promptDrift.inputs.promptTemplateFile = {
+    ...promptDrift.inputs.promptTemplateFile,
+    bytes: Buffer.concat([
+      SOURCE_ANALYSIS_PROMPT_TEMPLATE_BYTES,
+      Buffer.from("changed\n", "utf8"),
+    ]),
+  };
+  assert.throws(
+    () =>
+      validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
+        promptDrift.artifact,
+        promptDrift.inputs,
+      ),
+    /prompt template file bytes do not match the pinned hash/,
+  );
+
+  const pageDrift = combinedArtifact();
+  pageDrift.inputs.normalizedPages = pageDrift.inputs.normalizedPages.map(
+    (page, index) =>
+      index === 0
+        ? { ...page, bytes: Buffer.from("Changed page.\n", "utf8") }
+        : page,
+  );
+  assert.throws(
+    () =>
+      validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
+        pageDrift.artifact,
+        pageDrift.inputs,
+      ),
+    /normalized page 1 bytes, hash, character count or word count/,
   );
 });
 
 test("rejects a fully sealed but source-analysis-ineligible manifest", () => {
-  const blockedInputs = withBlockedManifest(
-    sourceAnalysisCombinedInputFixture(),
-  );
+  const blockedInputs = withBlockedManifest(combinedReplayInputs());
   const { artifact } = combinedArtifact(blockedInputs);
   assert.throws(
-    () => validateSourceAnalysisArtifactWithInputs(artifact, blockedInputs),
+    () =>
+      validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
+        artifact,
+        blockedInputs,
+      ),
     /workflowEligibility\.sourceAnalysis\.allowed must be true/,
   );
 });
@@ -1153,7 +1644,7 @@ test("combined validation rejects fabricated locators and manifest page-order dr
   const resealedFabricated = resealExecution(fabricated);
   assert.throws(
     () =>
-      validateSourceAnalysisArtifactWithInputs(
+      validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
         resealedFabricated,
         first.inputs,
       ),
@@ -1167,7 +1658,7 @@ test("combined validation rejects fabricated locators and manifest page-order dr
   const resealedReordered = resealExecution(reordered);
   assert.throws(
     () =>
-      validateSourceAnalysisArtifactWithInputs(
+      validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
         resealedReordered,
         second.inputs,
       ),
@@ -1175,7 +1666,36 @@ test("combined validation rejects fabricated locators and manifest page-order dr
   );
 });
 
-test("combined validation rejects identity-file and lifecycle-prestate drift", () => {
+test("combined validation rejects predecessor, identity-file and both lifecycle-prestate drifts", () => {
+  const scopeDrift = combinedArtifact();
+  const driftedScopeArtifact = structuredClone(scopeDrift.artifact);
+  driftedScopeArtifact.scope.geographyIds = ["geo.se"];
+  assert.throws(
+    () =>
+      validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
+        resealExecution(driftedScopeArtifact),
+        scopeDrift.inputs,
+      ),
+    /scope does not exactly match the verified analysis lifecycle prestate/,
+  );
+
+  const predecessorDrift = combinedArtifact();
+  predecessorDrift.inputs.predecessorInputManifestFile = {
+    ...predecessorDrift.inputs.predecessorInputManifestFile,
+    bytes: Buffer.concat([
+      Buffer.from(predecessorDrift.inputs.predecessorInputManifestFile.bytes),
+      Buffer.from("\n"),
+    ]),
+  };
+  assert.throws(
+    () =>
+      validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
+        predecessorDrift.artifact,
+        predecessorDrift.inputs,
+      ),
+    /exact predecessor manifest path, file hash, version and seal/,
+  );
+
   const identityDrift = combinedArtifact();
   identityDrift.inputs.identityArtifactFile = {
     ...identityDrift.inputs.identityArtifactFile,
@@ -1186,24 +1706,38 @@ test("combined validation rejects identity-file and lifecycle-prestate drift", (
   };
   assert.throws(
     () =>
-      validateSourceAnalysisArtifactWithInputs(
+      validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
         identityDrift.artifact,
         identityDrift.inputs,
       ),
     /exact validated identity artifact file and seal/,
   );
 
-  const lifecycleDrift = combinedArtifact();
-  lifecycleDrift.inputs.lifecyclePrestate = {
-    ...lifecycleDrift.inputs.lifecyclePrestate,
+  const identityLifecycleDrift = combinedArtifact();
+  identityLifecycleDrift.inputs.identityVerificationPrestate = {
+    ...identityLifecycleDrift.inputs.identityVerificationPrestate,
     updatedAt: "2026-08-03T08:03:30Z",
   };
   assert.throws(
     () =>
-      validateSourceAnalysisArtifactWithInputs(
-        lifecycleDrift.artifact,
-        lifecycleDrift.inputs,
+      validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
+        identityLifecycleDrift.artifact,
+        identityLifecycleDrift.inputs,
       ),
-    /exact lifecycle pre-state/,
+    /exact identity-verification lifecycle prestate/,
+  );
+
+  const analysisLifecycleDrift = combinedArtifact();
+  analysisLifecycleDrift.inputs.analysisPrestate = {
+    ...analysisLifecycleDrift.inputs.analysisPrestate,
+    updatedAt: "2026-08-03T08:10:45Z",
+  };
+  assert.throws(
+    () =>
+      validateSourceAnalysisArtifactAfterReplayVerifiedIdentity(
+        analysisLifecycleDrift.artifact,
+        analysisLifecycleDrift.inputs,
+      ),
+    /exact verified analysis lifecycle prestate/,
   );
 });

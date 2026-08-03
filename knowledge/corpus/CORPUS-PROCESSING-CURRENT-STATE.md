@@ -21,11 +21,15 @@ The generated surfaces are:
 ## Four event types
 
 1. `technical_text_extracted` validates the sealed PDF qualification receipt and sealed normalized-input manifest, then records text availability only.
-2. `identity_verified` revalidates the exact acquisition receipt and raw source bytes, then validates the identity artifact against the current lifecycle, source, content, extraction and input-manifest bindings.
-3. `source_analysis_applied` validates the analysis, identity and input artifacts, applies one explicitly bound execution to one identity, and stops at `cross_check`.
+2. `identity_verified` validates the complete evidence bundle: acquisition receipt, raw PDF, extraction receipt, page map, immutable candidate manifest, workflow bytes, prompt bytes and content-addressed identity artifact. It then creates a separate, content-addressed verified-manifest reference; the candidate manifest is never overwritten. Reading one controlled private source copy here does not upgrade a recorded two-copy attestation to `private_live_verified`.
+3. `source_analysis_applied` validates the analysis, exact verified identity, verified manifest and its candidate predecessor. It also requires the canonical analysis-workflow reference, separate prompt-template reference and every exact ordered normalized-page byte, then recomputes the framed full input. Replay supplies the provisional identity pre-state (`L1`) captured before event 2 and compares it with the verified analysis pre-state (`L2`) after event 2, applies one explicitly bound execution to one identity and stops at `cross_check`.
 4. `source_role_owner_confirmed_ready_package` atomically validates Gabriel's source-role receipt through a separately configured trusted authentication verifier, validates a sealed ready package, then advances AI processing to `ready_for_owner`.
 
 The fourth event does not equal owner approval. Owner review, independent validation, partner validation, rights-holder validation, rights clearance, publication and coverage promotion remain separate receipted lifecycle gates.
+
+Each projected row therefore keeps two distinct manifest pointers after identity verification: `inputManifest` is the immutable technical/candidate input, while `verifiedInputManifest` is the immutable eligible revision. Their paths, whole-file hashes and internal seals must all differ. Only the verified revision can be used by event 3.
+
+`scripts/knowledge/create-verified-source-analysis-input-manifest-revision.ts` is the deterministic producer for that second file. It validates the candidate manifest, verified identity artifact, provisional `L1` and verified `L2`; preserves the exact source, extraction, page, text and closed-readiness fields; and writes only to the derived content-addressed revision path using exclusive, byte-idempotent semantics. It does not append an event or make the revision active by itself.
 
 ## Chain and conflict rules
 
@@ -39,6 +43,8 @@ Every event seals its canonical body and binds:
 
 Projection aborts before replacing any outputs if it encounters an invalid self-hash, stale pre-state, duplicate event, identity fork, global-chain break, global timestamp regression, orphan target, artifact file-hash mismatch, resolver value/byte mismatch, symlink escape, invalid artifact seal or lifecycle/permission inconsistency. A successful run therefore has an empty conflict queue; rejected input is not published as a partial current state.
 
+The generation manifest records both the fixed repository inputs and every event input actually resolved during replay. The latter is split into tracked artifact bytes, controlled source-content locators/hashes and controlled normalized-text locators/hashes. It never retains source text or absolute private filesystem paths. An empty event log therefore has three explicit empty resolved-evidence lists rather than an implied claim that dynamic inputs do not exist.
+
 ## Append-prefix and trust-anchor boundary
 
 The event manifest alone is not treated as proof of history. A separate anchor-record log alternates between:
@@ -49,6 +55,8 @@ The event manifest alone is not treated as proof of history. A separate anchor-r
 Every later candidate must extend the previously verified event prefix. Rewriting or truncating an earlier prefix breaks its recorded hash. A self-hashed candidate or a self-declared verification is still not trust: for every non-empty current checkpoint, replay requires the external verifier callback to accept every verification record in the chain. That verifier must recognize the exact checkpoint as authentic **and not superseded by a later trusted checkpoint**. The tracked command has no verifier configured and therefore fails closed on a non-empty log.
 
 The current empty genesis has one explicit `history_anchor_candidate` and no trusted verification. That bootstrap exception is permitted only because there have never been live events and there are zero state changes. It is not external notarization, and the project does not claim that an independent third party currently preserves this anchor. A local full rollback to the bootstrap files cannot be disproved by self-hashes alone. Before the first live event, the genesis candidate must therefore receive separately preserved evidence and a trusted verification record; the trusted verifier then becomes the non-superseded-head authority. The new event checkpoint must receive its own verification before it can be projected.
+
+The reviewable root-writer v1.2.1 source fixes the production ledger root, a separate root-only request-intake root and an administrator-pinned request-file hash. Its successor rules require the prior trusted-verification hash and immutable baseline/register/generation bindings. It has not been installed or run, and no external ledger exists. A separate repository-side trusted-verification appender and transactional live event-batch writer are still required before the first live event; copying a verification record by hand is not an accepted workflow.
 
 ## Hash and human-evidence boundaries
 

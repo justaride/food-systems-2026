@@ -23,9 +23,17 @@ import {
   SOURCE_IDENTITY_MATCH_DIMENSIONS,
   SOURCE_IDENTITY_VERIFICATION_ARTIFACT_VERSION,
   SOURCE_IDENTITY_VERIFICATION_SCHEMA_VERSION,
+  SOURCE_IDENTITY_PROMPT_TEMPLATE_SHA256,
+  SOURCE_IDENTITY_WORKFLOW_FILE_SHA256,
+  SOURCE_IDENTITY_WORKFLOW_ID,
+  SOURCE_IDENTITY_WORKFLOW_VERSION,
+  hashSourceIdentityVerificationInputEnvelope,
   hashSourceIdentityVerificationPayload,
   sealSourceIdentityVerificationArtifact,
+  sourceIdentityExtractionReceiptId,
+  sourceIdentityPageMapId,
   sourceIdentitySha256,
+  sourceIdentityVerificationInputEnvelope,
   type SourceIdentityVerificationArtifact,
 } from "../../src/lib/knowledge/source-identity-verification";
 import {
@@ -42,6 +50,8 @@ const IDENTITY_PATH =
   "knowledge/corpus/source-identity-verification/synthetic-authority-report.identity.v1.json";
 const MANIFEST_PATH =
   "knowledge/corpus/source-analysis-input-manifests/manifests/synthetic-authority-report.source-analysis-input-manifest.v1.json";
+const PREDECESSOR_MANIFEST_PATH =
+  "knowledge/corpus/source-analysis-input-manifests/manifests/synthetic-authority-report.provisional.source-analysis-input-manifest.v1.json";
 const EXTRACTION_PATH =
   "knowledge/corpus/pdf-page-extraction/receipts/synthetic-authority-report.receipt.v1.json";
 const PAGE_MAP_PATH =
@@ -120,24 +130,34 @@ function identityFixture(input: {
         observedAt: "2026-08-03T08:01:00Z",
       },
       {
-        anchorId: "anchor.official",
-        evidenceType: "official_landing_page",
-        locator: OFFICIAL_URL,
-        evidenceSha256: sourceIdentitySha256("synthetic-official-locator"),
+        anchorId: "anchor.acquisition",
+        evidenceType: "source_acquisition_receipt",
+        locator:
+          "knowledge/corpus/source-acquisition-receipts/receipts/synthetic-report.https.v1.json",
+        evidenceSha256: sourceIdentitySha256("synthetic-acquisition-file"),
         observedAt: "2026-08-03T08:02:00Z",
       },
       {
         anchorId: "anchor.receipt",
         evidenceType: "extraction_receipt",
-        locator: "artifact.extraction.synthetic",
-        evidenceSha256: input.extractionReceiptSha256,
+        locator: EXTRACTION_PATH,
+        evidenceSha256: sourceIdentitySha256(
+          "synthetic-extraction-receipt-file",
+        ),
         observedAt: "2026-08-03T08:03:00Z",
       },
       {
         anchorId: "anchor.page.map",
         evidenceType: "page_map",
-        locator: "artifact.page.map.synthetic",
-        evidenceSha256: input.pageMapSha256,
+        locator: PAGE_MAP_PATH,
+        evidenceSha256: sourceIdentitySha256("synthetic-page-map-file"),
+        observedAt: "2026-08-03T08:03:00Z",
+      },
+      {
+        anchorId: "anchor.input.manifest",
+        evidenceType: "source_analysis_input_manifest",
+        locator: MANIFEST_PATH,
+        evidenceSha256: sourceIdentitySha256("synthetic-input-manifest-file"),
         observedAt: "2026-08-03T08:03:00Z",
       },
     ];
@@ -160,8 +180,8 @@ function identityFixture(input: {
       exact("publisher", "Synthetic Food Authority", ["anchor.cover"]),
       exact("publication_date", "2025-07-01", ["anchor.cover"]),
       exact("language", '["en"]', ["anchor.cover"]),
-      exact("canonical_locator", OFFICIAL_URL, ["anchor.official"]),
-      exact("content_hash", input.rawPdfSha256, ["anchor.receipt"]),
+      exact("canonical_locator", OFFICIAL_URL, ["anchor.acquisition"]),
+      exact("content_hash", input.rawPdfSha256, ["anchor.acquisition"]),
       exact(
         "extraction_binding",
         `${input.extractionReceiptSha256}|${input.pageMapSha256}`,
@@ -193,6 +213,70 @@ function identityFixture(input: {
       publicationReady: false,
       coveragePromotionAllowed: false,
     };
+  const binding: SourceIdentityVerificationArtifact["binding"] = {
+    lifecycleRecordId: "corpus.record.synthetic",
+    lifecycleSnapshotSha256: input.lifecycleSnapshotSha256,
+    lifecycleSnapshotUpdatedAt: "2026-08-03T08:03:00Z",
+    sourceId: SOURCE_ID,
+    sourceMetadataSha256: sourceIdentitySha256("synthetic-metadata"),
+    sourceContentSha256: input.rawPdfSha256,
+    lifecycleSourceIdentityStatus: "provisional",
+  };
+  const candidateIdentity: SourceIdentityVerificationArtifact["candidateIdentity"] =
+    {
+      identityKind: "database_record",
+      canonicalIdentity: CANONICAL_IDENTITY,
+      candidateLocator: { kind: "official_url", url: OFFICIAL_URL },
+      candidateTitle: TITLE,
+      candidatePublisher: "Synthetic Food Authority",
+      candidatePublicationDate: "2025-07-01",
+      candidateLanguageCodes: ["en"],
+      status: "provisional",
+    };
+  const acquisitionReceipt: SourceIdentityVerificationArtifact["acquisitionReceipt"] =
+    {
+      receiptId: "receipt.source.acquisition.synthetic",
+      receiptVersion: "1.0.0",
+      receiptType: "controlled_https_fetch",
+      receiptPath:
+        "knowledge/corpus/source-acquisition-receipts/receipts/synthetic-report.https.v1.json",
+      receiptFileSha256: sourceIdentitySha256("synthetic-acquisition-file"),
+      receiptSha256: sourceIdentitySha256("synthetic-acquisition-receipt"),
+    };
+  const extractionBinding: SourceIdentityVerificationArtifact["extractionBinding"] =
+    {
+      extractionReceiptId: sourceIdentityExtractionReceiptId(
+        input.rawPdfSha256,
+      ),
+      extractionReceiptVersion: "1.0.0",
+      extractionReceiptSha256: input.extractionReceiptSha256,
+      pageMapId: sourceIdentityPageMapId(input.rawPdfSha256),
+      pageMapVersion: "1.0.0",
+      pageMapSha256: input.pageMapSha256,
+      rawContentSha256: input.rawPdfSha256,
+      rawContentSizeBytes: 1_024,
+      extractedTextManifestSha256: input.normalizedInputSha256,
+      expectedPageCount: 2,
+      mappedPageCount: 2,
+      pageSequenceComplete: true,
+    };
+  const promptTemplateSha256 = SOURCE_IDENTITY_PROMPT_TEMPLATE_SHA256;
+  const workflowFileSha256 = SOURCE_IDENTITY_WORKFLOW_FILE_SHA256;
+  const inputEnvelopeSha256 = hashSourceIdentityVerificationInputEnvelope(
+    sourceIdentityVerificationInputEnvelope({
+      binding,
+      candidateIdentity,
+      acquisitionReceipt,
+      extractionBinding,
+      evidenceAnchors,
+      workflow: {
+        workflowRef: SOURCE_IDENTITY_WORKFLOW_ID,
+        workflowVersion: SOURCE_IDENTITY_WORKFLOW_VERSION,
+        workflowFileSha256,
+        promptTemplateSha256,
+      },
+    }),
+  );
   const verificationPayloadSha256 = hashSourceIdentityVerificationPayload({
     observedMetadata,
     canonicalLocatorEvidence: {
@@ -222,53 +306,15 @@ function identityFixture(input: {
       predecessorArtifactSha256: null,
       changeSummary: null,
     },
-    binding: {
-      lifecycleRecordId: "corpus.record.synthetic",
-      lifecycleSnapshotSha256: input.lifecycleSnapshotSha256,
-      lifecycleSnapshotUpdatedAt: "2026-08-03T08:03:00Z",
-      sourceId: SOURCE_ID,
-      sourceMetadataSha256: sourceIdentitySha256("synthetic-metadata"),
-      sourceContentSha256: input.rawPdfSha256,
-      lifecycleSourceIdentityStatus: "provisional",
-    },
-    candidateIdentity: {
-      identityKind: "database_record",
-      canonicalIdentity: CANONICAL_IDENTITY,
-      candidateLocator: { kind: "official_url", url: OFFICIAL_URL },
-      candidateTitle: TITLE,
-      candidatePublisher: "Synthetic Food Authority",
-      candidatePublicationDate: "2025-07-01",
-      candidateLanguageCodes: ["en"],
-      status: "provisional",
-    },
-    acquisitionReceipt: {
-      receiptId: "receipt.source.acquisition.synthetic",
-      receiptVersion: "1.0.0",
-      receiptType: "controlled_https_fetch",
-      receiptPath:
-        "knowledge/corpus/source-acquisition-receipts/receipts/synthetic-report.https.v1.json",
-      receiptFileSha256: sourceIdentitySha256("synthetic-acquisition-file"),
-      receiptSha256: sourceIdentitySha256("synthetic-acquisition-receipt"),
-    },
+    binding,
+    candidateIdentity,
+    acquisitionReceipt,
     acquisitionProvenanceBoundary: {
       state: "receipt_reference_only",
       combinedReceiptValidationRequired: true,
       standaloneValidationEstablishesProvenance: false,
     },
-    extractionBinding: {
-      extractionReceiptId: "artifact.extraction.synthetic",
-      extractionReceiptVersion: "1.0.0",
-      extractionReceiptSha256: input.extractionReceiptSha256,
-      pageMapId: "artifact.page.map.synthetic",
-      pageMapVersion: "1.0.0",
-      pageMapSha256: input.pageMapSha256,
-      rawContentSha256: input.rawPdfSha256,
-      rawContentSizeBytes: 1_024,
-      extractedTextManifestSha256: input.normalizedInputSha256,
-      expectedPageCount: 2,
-      mappedPageCount: 2,
-      pageSequenceComplete: true,
-    },
+    extractionBinding,
     observedMetadata,
     canonicalLocatorEvidence: {
       kind: "official_url",
@@ -298,9 +344,10 @@ function identityFixture(input: {
           model: "gpt-5",
           modelVersionState: "runtime_not_exposed",
           modelVersion: MODEL_VERSION_NOT_EXPOSED,
-          workflowRef: "workflow.source.identity.verification",
-          workflowVersion: "1.0.0",
-          promptTemplateSha256: sourceIdentitySha256("identity-prompt"),
+          workflowRef: SOURCE_IDENTITY_WORKFLOW_ID,
+          workflowVersion: SOURCE_IDENTITY_WORKFLOW_VERSION,
+          workflowFileSha256,
+          promptTemplateSha256,
           lifecycleSnapshotSha256: input.lifecycleSnapshotSha256,
           sourceMetadataSha256: sourceIdentitySha256("synthetic-metadata"),
           sourceContentSha256: input.rawPdfSha256,
@@ -309,9 +356,7 @@ function identityFixture(input: {
           ),
           extractionReceiptSha256: input.extractionReceiptSha256,
           pageMapSha256: input.pageMapSha256,
-          inputEnvelopeSha256: sourceIdentitySha256(
-            "synthetic-identity-input-envelope",
-          ),
+          inputEnvelopeSha256,
           predecessorOutputSha256: null,
           outputSha256: verificationPayloadSha256,
           timeEvidence: "coordinator_observed_window",
@@ -329,9 +374,11 @@ function identityFixture(input: {
 }
 
 export function sourceAnalysisCombinedInputFixture(): {
+  predecessorInputManifestFile: SourceAnalysisArtifactFile;
   inputManifestFile: SourceAnalysisArtifactFile;
   identityArtifactFile: SourceAnalysisArtifactFile;
-  lifecyclePrestate: ReturnType<typeof validateCorpusLifecycle>;
+  identityVerificationPrestate: ReturnType<typeof validateCorpusLifecycle>;
+  analysisPrestate: ReturnType<typeof validateCorpusLifecycle>;
   binding: SourceAnalysisBinding;
 } {
   const normalized = normalizedFixture();
@@ -340,7 +387,7 @@ export function sourceAnalysisCombinedInputFixture(): {
   const extractionReceiptSha256Raw = rawSha256("synthetic-extraction-receipt");
   const pageMapSha256Raw = rawSha256("synthetic-page-map");
   const normalizedInputSha256 = prefixed(normalized.normalizedInput.sha256);
-  const lifecyclePrestate = structuredClone(
+  const identityLifecycleDraft = structuredClone(
     buildInitialCorpusLifecycle({
       recordId: "corpus.record.synthetic",
       sourceId: SOURCE_ID,
@@ -359,7 +406,7 @@ export function sourceAnalysisCombinedInputFixture(): {
       fileAvailable: false,
     }),
   );
-  lifecyclePrestate.textAvailability = {
+  identityLifecycleDraft.textAvailability = {
     state: "full_text",
     textSha256: normalizedInputSha256,
     characterCount: normalized.pages.reduce(
@@ -369,10 +416,14 @@ export function sourceAnalysisCombinedInputFixture(): {
     extractionMethod: "born_digital",
     observedAt: "2026-08-03T08:03:00Z",
   };
-  const lifecycle = validateCorpusLifecycle(lifecyclePrestate);
-  const lifecycleSnapshotSha256 = hashCorpusLifecycleState(lifecycle);
+  const identityVerificationPrestate = validateCorpusLifecycle(
+    identityLifecycleDraft,
+  );
+  const identityLifecycleSnapshotSha256 = hashCorpusLifecycleState(
+    identityVerificationPrestate,
+  );
   const identity = identityFixture({
-    lifecycleSnapshotSha256,
+    lifecycleSnapshotSha256: identityLifecycleSnapshotSha256,
     rawPdfSha256,
     normalizedInputSha256,
     extractionReceiptSha256: prefixed(extractionReceiptSha256Raw),
@@ -381,43 +432,47 @@ export function sourceAnalysisCombinedInputFixture(): {
   const identityBytes = prettyBytes(identity);
   const identityFileSha256Raw = rawSha256(identityBytes);
   const identityArtifactFile = { path: IDENTITY_PATH, bytes: identityBytes };
-  const workflowEligibility = sourceAnalysisEligibleWorkflowEligibility({
-    identityArtifactReference: {
-      artifactId: identity.artifactId,
-      artifactVersion: identity.artifactVersion,
-      path: IDENTITY_PATH,
-      fileSha256: identityFileSha256Raw,
-      artifactSha256: identity.artifactSha256,
-      decision: "verified",
-    },
-    lifecyclePrestate: {
-      lifecycleRecordId: lifecycle.recordId,
-      lifecycleSnapshotSha256,
-      lifecycleSnapshotUpdatedAt: lifecycle.updatedAt,
-    },
-  });
-  const manifest = sealSourceAnalysisInputManifest({
+
+  const analysisLifecycleDraft = structuredClone(identityVerificationPrestate);
+  analysisLifecycleDraft.sourceIdentity.identityStatus = "verified";
+  analysisLifecycleDraft.sourceIdentity.identityKind =
+    identity.candidateIdentity.identityKind;
+  analysisLifecycleDraft.sourceIdentity.canonicalIdentity =
+    identity.decision.state === "verified"
+      ? identity.decision.verifiedIdentity.canonicalIdentity
+      : CANONICAL_IDENTITY;
+  analysisLifecycleDraft.updatedAt = "2026-08-03T08:10:30Z";
+  const analysisPrestate = validateCorpusLifecycle(analysisLifecycleDraft);
+  const analysisLifecycleSnapshotSha256 =
+    hashCorpusLifecycleState(analysisPrestate);
+
+  const predecessorManifest = sealSourceAnalysisInputManifest({
     schemaVersion: SOURCE_ANALYSIS_INPUT_SCHEMA_VERSION,
     artifactType: "source_analysis_input_manifest",
     pipelineVersion: SOURCE_ANALYSIS_INPUT_PIPELINE_VERSION,
     processingUnit: { algorithm: "sha256", rawPdfSha256: rawPdfSha256Raw },
     identityKeys: [CANONICAL_IDENTITY],
     identityAssociation: {
-      state: "verified_identity_match",
+      state: "provisional_metadata_match",
       intendedLabel: TITLE,
       observedDocumentTitle: TITLE,
-      sourceId: SOURCE_ID,
-      canonicalIdentity: CANONICAL_IDENTITY,
       blockerCode: null,
     },
     sourceBinding: {
       title: TITLE,
       doi: null,
       officialUrl: OFFICIAL_URL,
-      corpusIdentityVerified: true,
+      corpusIdentityVerified: false,
       scopeDisposition: "pending_owner_classification",
     },
-    workflowEligibility,
+    workflowEligibility: {
+      state: "identity_verification_candidate",
+      identityVerification: { allowed: true, blockerCode: null },
+      sourceAnalysis: {
+        allowed: false,
+        blockerCode: "verified_identity_required",
+      },
+    },
     bindings: {
       pageMap: {
         path: PAGE_MAP_PATH,
@@ -442,6 +497,64 @@ export function sourceAnalysisCombinedInputFixture(): {
     textIncludedInTrackedArtifact: false,
     readiness: SOURCE_ANALYSIS_INPUT_READINESS,
   });
+  const predecessorManifestBytes = prettyBytes(predecessorManifest);
+  const predecessorInputManifestFile = {
+    path: PREDECESSOR_MANIFEST_PATH,
+    bytes: predecessorManifestBytes,
+  };
+
+  const workflowEligibility = sourceAnalysisEligibleWorkflowEligibility({
+    identityArtifactReference: {
+      artifactId: identity.artifactId,
+      artifactVersion: identity.artifactVersion,
+      path: IDENTITY_PATH,
+      fileSha256: identityFileSha256Raw,
+      artifactSha256: identity.artifactSha256,
+      decision: "verified",
+    },
+    predecessorInputManifestReference: {
+      schemaVersion: predecessorManifest.schemaVersion,
+      pipelineVersion: predecessorManifest.pipelineVersion,
+      path: PREDECESSOR_MANIFEST_PATH,
+      fileSha256: rawSha256(predecessorManifestBytes),
+      manifestSha256: predecessorManifest.manifestSha256,
+    },
+    lifecycleTransition: {
+      identityVerificationPrestate: {
+        lifecycleRecordId: identityVerificationPrestate.recordId,
+        lifecycleSnapshotSha256: identityLifecycleSnapshotSha256,
+        lifecycleSnapshotUpdatedAt: identityVerificationPrestate.updatedAt,
+        sourceIdentityStatus: "provisional",
+      },
+      analysisPrestate: {
+        lifecycleRecordId: analysisPrestate.recordId,
+        lifecycleSnapshotSha256: analysisLifecycleSnapshotSha256,
+        lifecycleSnapshotUpdatedAt: analysisPrestate.updatedAt,
+        sourceIdentityStatus: "verified",
+      },
+    },
+  });
+  const { manifestSha256: _predecessorSeal, ...predecessorBody } =
+    predecessorManifest;
+  const manifest = sealSourceAnalysisInputManifest({
+    ...predecessorBody,
+    identityAssociation: {
+      state: "verified_identity_match",
+      intendedLabel: TITLE,
+      observedDocumentTitle: TITLE,
+      sourceId: SOURCE_ID,
+      canonicalIdentity: CANONICAL_IDENTITY,
+      blockerCode: null,
+    },
+    sourceBinding: {
+      title: TITLE,
+      doi: null,
+      officialUrl: OFFICIAL_URL,
+      corpusIdentityVerified: true,
+      scopeDisposition: "pending_owner_classification",
+    },
+    workflowEligibility,
+  });
   const manifestBytes = prettyBytes(manifest);
   const inputManifestFile = { path: MANIFEST_PATH, bytes: manifestBytes };
   const binding: SourceAnalysisBinding = {
@@ -450,9 +563,9 @@ export function sourceAnalysisCombinedInputFixture(): {
     sourceAnalysisInputManifestSchemaVersion: manifest.schemaVersion,
     sourceAnalysisInputManifestPipelineVersion: manifest.pipelineVersion,
     sourceAnalysisInputManifestSha256: prefixed(manifest.manifestSha256),
-    lifecycleRecordId: lifecycle.recordId,
-    lifecycleSnapshotSha256,
-    lifecycleSnapshotUpdatedAt: lifecycle.updatedAt,
+    lifecycleRecordId: analysisPrestate.recordId,
+    lifecycleSnapshotSha256: analysisLifecycleSnapshotSha256,
+    lifecycleSnapshotUpdatedAt: analysisPrestate.updatedAt,
     sourceId: SOURCE_ID,
     sourceTitle: TITLE,
     sourceCanonicalIdentity: CANONICAL_IDENTITY,
@@ -483,9 +596,11 @@ export function sourceAnalysisCombinedInputFixture(): {
     pageMapSha256: prefixed(pageMapSha256Raw),
   };
   return {
+    predecessorInputManifestFile,
     inputManifestFile,
     identityArtifactFile,
-    lifecyclePrestate: lifecycle,
+    identityVerificationPrestate,
+    analysisPrestate,
     binding,
   };
 }

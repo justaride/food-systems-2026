@@ -14,16 +14,18 @@ Read and structurally analyse one complete, verified source input. The result ma
 
 The coordinator must call the combined validator with exact file bytes and validate and hash-bind:
 
-1. the exact baseline or current lifecycle pre-state;
-2. the exact verified source-identity artifact and its validated acquisition/private-access receipt;
-3. the exact source-analysis input manifest;
-4. the canonical framed input bytes produced from every ordered page in that manifest;
-5. this workflow file and its exact SHA-256;
-6. any predecessor analysis artifacts used for cross-source reconciliation.
+1. the exact provisional identity-verification lifecycle pre-state (`L1`);
+2. the exact distinct verified analysis lifecycle pre-state (`L2`);
+3. the exact verified source-identity artifact whose full evidence bundle was accepted by the preceding `identity_verified` event;
+4. the immutable candidate input manifest used for identity verification;
+5. the separate immutable `source_analysis_eligible` manifest revision;
+6. the canonical framed input bytes produced from every ordered page in that manifest;
+7. this workflow file and its exact SHA-256;
+8. any predecessor analysis artifacts used for cross-source reconciliation.
 
-The source-analysis artifact names the manifest schema/pipeline version, repository path, file SHA-256 and internal manifest seal. It separately names the identity artifact ID/version, repository path, file SHA-256 and internal artifact seal. The manifest's positive eligibility state must name those same identity fields with `decision: verified`, plus the exact lifecycle record ID, domain-separated state hash and `updatedAt`.
+The source-analysis artifact names the verified manifest's schema/pipeline version, repository path, file SHA-256 and internal seal. That manifest names the exact predecessor path, file hash, version and seal; the two files must be immutable-distinct. It separately names the identity artifact ID/version, repository path, file SHA-256 and internal artifact seal. The positive eligibility state must name those same identity fields with `decision: verified`, the exact provisional `L1` reference and the distinct verified `L2` reference.
 
-The validator parses both files as fatal UTF-8 JSON, validates both internal seals, validates the identity decision and validates the lifecycle object before comparison. The source ID, title, canonical identity, metadata hash, raw-PDF/content hash, normalized full-text hash, extraction receipt path/file hash/seal, page-map path/file hash/seal, page count, ordered page numbers and every normalized text-unit hash must all agree. `workflowEligibility.sourceAnalysis.allowed` must be exactly `true`; all other eligibility states stop the run.
+The validator parses both manifests and the identity artifact as fatal UTF-8 JSON, validates every internal seal, validates the identity decision and validates both lifecycle objects before comparison. The source ID, title, canonical identity, metadata hash, raw-PDF/content hash, normalized full-text hash, extraction receipt path/file hash/seal, page-map path/file hash/seal, page count, ordered page numbers, scope and every normalized text-unit hash must all agree. `workflowEligibility.sourceAnalysis.allowed` must be exactly `true`; all other eligibility states stop the run.
 
 ## Exact ordered stages
 
@@ -56,4 +58,4 @@ Return one strict source-analysis payload plus honest AI-run provenance. All ext
 
 ## Current live stopline
 
-The contract now supports a synthetic positive end-to-end case, but none of the five live input manifests is eligible. Three require an actual validated identity artifact; two remain blocked on legacy-alias scope mismatch. No live full-text analysis, owner review or promotion is asserted by this contract work.
+The tracked corpus currently contains 15 PDF input units and none is source-analysis eligible. Three are identity-verification candidates, ten require controlled database registration, and two remain blocked on legacy-alias scope mismatch. No live full-text analysis, owner review or promotion is asserted by this contract work.

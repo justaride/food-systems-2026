@@ -16,18 +16,10 @@ import {
   unlinkSync,
   writeFileSync,
 } from "node:fs";
-import {
-  dirname,
-  isAbsolute,
-  join,
-  normalize,
-  parse,
-  relative,
-  sep,
-} from "node:path";
+import { isAbsolute, join, normalize, parse, relative, sep } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
-export const WRITER_VERSION = "1.0.0";
+export const WRITER_VERSION = "1.2.1";
 export const SCHEMA_VERSION = "corpus-event-history-external-anchor-ledger-v1";
 export const PROJECT_ID = "food-systems-2026";
 export const LEDGER_ID = "food-systems.corpus-event-history";
@@ -39,6 +31,12 @@ export const FIXED_WRITER_PATH = `${FIXED_INSTALL_DIRECTORY}/corpus-anchor-root-
 export const FIXED_INSTALL_MANIFEST_PATH = `${FIXED_INSTALL_DIRECTORY}/install-manifest.v1.json`;
 export const FIXED_NODE_PATH = "/usr/local/bin/node";
 export const FIXED_EXTERNAL_ROOT = "/private/var/db/food-systems-corpus-anchor";
+export const FIXED_REQUEST_ROOT =
+  "/private/var/db/food-systems-corpus-anchor-requests";
+
+export const REQUEST_ROOT_MODE = 0o700;
+export const REQUEST_FILE_MODE = 0o400;
+export const MAX_REQUEST_FILE_BYTES = 8 * 1024 * 1024;
 
 export const LEDGER_FILE = "corpus-event-history-anchors.v1.jsonl";
 export const HEAD_FILE = "corpus-event-history-anchors-head.v1.json";
@@ -466,6 +464,24 @@ export function validatePreparedRequest(value) {
     fail("request repository prefix does not end at the candidate");
   }
   if (
+    value.externalHeadPrecondition === null &&
+    (candidate.sequence !== 1 ||
+      candidate.predecessorRecordSha256 !== null ||
+      value.repositoryAnchorLogPrefix.recordCount !== 1)
+  ) {
+    fail(
+      "external-ledger genesis requires candidate sequence 1 with a null predecessor",
+    );
+  }
+  if (
+    value.externalHeadPrecondition !== null &&
+    (candidate.sequence < 3 || candidate.predecessorRecordSha256 === null)
+  ) {
+    fail(
+      "non-genesis append request requires a successor candidate and predecessor",
+    );
+  }
+  if (
     verification.sequence !== candidate.sequence + 1 ||
     verification.predecessorRecordSha256 !== candidate.recordSha256 ||
     verification.candidateRecordSha256 !== candidate.recordSha256 ||
@@ -663,6 +679,7 @@ export function validateLedgerSnapshot({ ledgerBytes, headBytes }) {
   let predecessor = null;
   let previousAt = null;
   let previousRepositoryCount = null;
+  let repositoryBaselineInputs = null;
   for (const [index, record] of records.entries()) {
     if (
       record.sequence !== index + 1 ||
@@ -689,6 +706,14 @@ export function validateLedgerSnapshot({ ledgerBytes, headBytes }) {
         `ledger record ${record.sequence} breaks the repository prefix chain`,
       );
     }
+    if (
+      repositoryBaselineInputs !== null &&
+      !exactJson(repositoryBaselineInputs, record.repositoryBaselineInputs)
+    ) {
+      fail(
+        `ledger record ${record.sequence} changes immutable repository baseline inputs`,
+      );
+    }
     const appendedAt = Date.parse(record.appendedAt);
     if (previousAt !== null && appendedAt < previousAt) {
       fail(`ledger record ${record.sequence} regresses time`);
@@ -701,6 +726,7 @@ export function validateLedgerSnapshot({ ledgerBytes, headBytes }) {
     predecessor = record.recordSha256;
     previousAt = appendedAt;
     previousRepositoryCount = record.repositoryAnchorLogPrefix.recordCount;
+    repositoryBaselineInputs ??= record.repositoryBaselineInputs;
   }
   const first = records[0];
   const latest = records.at(-1);
@@ -767,6 +793,50 @@ function headPrecondition(snapshot) {
     : null;
 }
 
+function requireRequestExtendsSnapshot(request, previousSnapshot) {
+  const previous = previousSnapshot?.records.at(-1);
+  if (!previous) {
+    if (
+      request.candidate.sequence !== 1 ||
+      request.candidate.predecessorRecordSha256 !== null ||
+      request.repositoryAnchorLogPrefix.recordCount !== 1
+    ) {
+      fail(
+        "external-ledger genesis requires candidate sequence 1 with a null predecessor",
+      );
+    }
+    return;
+  }
+  const expectedCandidateSequence =
+    previous.repositoryAnchorLogPrefix.recordCount + 2;
+  if (
+    request.candidate.sequence !== expectedCandidateSequence ||
+    request.repositoryAnchorLogPrefix.recordCount !== expectedCandidateSequence
+  ) {
+    fail(
+      "append request candidate sequence does not extend the prior repository record count",
+    );
+  }
+  if (
+    request.candidate.predecessorRecordSha256 !==
+    previous.verificationRecordSha256
+  ) {
+    fail(
+      "append request candidate predecessor does not match the prior trusted verification",
+    );
+  }
+  if (
+    !exactJson(
+      request.repositoryBaselineInputs,
+      previous.repositoryBaselineInputs,
+    )
+  ) {
+    fail(
+      "append request changes the immutable baseline, processing register, or baseline generation manifest",
+    );
+  }
+}
+
 function requireRequestIsLatest(request, snapshot) {
   const latest = snapshot.records.at(-1);
   const previousRecords = snapshot.records.slice(0, -1);
@@ -774,6 +844,7 @@ function requireRequestIsLatest(request, snapshot) {
     previousRecords.length === 0
       ? null
       : validateLedgerSnapshot(buildLedgerFiles(previousRecords));
+  requireRequestExtendsSnapshot(request, previousSnapshot);
   if (
     !exactJson(
       request.externalHeadPrecondition,
@@ -813,6 +884,7 @@ function appendRequestToSnapshot(request, previousSnapshot, appendedAt) {
   ) {
     fail("external head compare-and-swap precondition mismatch");
   }
+  requireRequestExtendsSnapshot(request, previousSnapshot);
   const previousRecords = previousSnapshot?.records ?? [];
   if (
     previousRecords.some(
@@ -920,24 +992,63 @@ function sameIdentity(left, right) {
   return exactJson(fileIdentity(left), fileIdentity(right));
 }
 
-function assertExternalRoot(policy) {
-  const components = assertNoSymlinkPath(policy.externalRoot);
-  const target = lstatSync(policy.externalRoot);
-  if (!target.isDirectory()) fail("external root is not a directory");
-  if (target.uid !== policy.expectedUid) fail("external root owner is invalid");
-  if ((target.mode & 0o777) !== 0o755) {
-    fail("external root mode must be exactly 0755");
+function pathIsWithin(root, path) {
+  const relation = relative(root, path);
+  return (
+    relation === "" || (relation !== ".." && !relation.startsWith(`..${sep}`))
+  );
+}
+
+function assertSecureDirectory({
+  path,
+  expectedUid,
+  expectedMode,
+  requireSecureAncestors,
+  label,
+}) {
+  const components = assertNoSymlinkPath(path);
+  const target = lstatSync(path);
+  if (!target.isDirectory()) fail(`${label} is not a directory`);
+  if (target.uid !== expectedUid) fail(`${label} owner is invalid`);
+  if ((target.mode & 0o777) !== expectedMode) {
+    fail(`${label} mode must be exactly 0${expectedMode.toString(8)}`);
   }
-  if (policy.requireSecureAncestors) {
+  if (requireSecureAncestors) {
     for (const component of components) {
       const stat = lstatSync(component);
-      if (stat.uid !== policy.expectedUid) {
+      if (stat.uid !== expectedUid) {
         fail(`secure path component has the wrong owner: ${component}`);
       }
       if ((stat.mode & 0o022) !== 0) {
         fail(`secure path component is group- or world-writable: ${component}`);
       }
     }
+  }
+}
+
+function assertExternalRoot(policy) {
+  assertSecureDirectory({
+    path: policy.externalRoot,
+    expectedUid: policy.expectedUid,
+    expectedMode: 0o755,
+    requireSecureAncestors: policy.requireSecureAncestors,
+    label: "external root",
+  });
+}
+
+function assertRequestRoot(policy) {
+  assertSecureDirectory({
+    path: policy.requestRoot,
+    expectedUid: policy.requestRootExpectedUid,
+    expectedMode: REQUEST_ROOT_MODE,
+    requireSecureAncestors: policy.requireSecureRequestAncestors,
+    label: "request root",
+  });
+  if (
+    pathIsWithin(policy.externalRoot, policy.requestRoot) ||
+    pathIsWithin(policy.requestRoot, policy.externalRoot)
+  ) {
+    fail("request root and external root must be disjoint");
   }
 }
 
@@ -974,18 +1085,33 @@ function readSecureFile(path, policy, expectedMode) {
   }
 }
 
-function readPreparedRequest(path, policy) {
+function readPreparedRequest(path, policy, expectedRequestFileSha256) {
+  requireSha256(
+    expectedRequestFileSha256,
+    "administrator-pinned expected request file SHA-256",
+  );
+  assertRequestRoot(policy);
   assertNoSymlinkPath(path);
-  const relation = relative(policy.externalRoot, path);
+  const relation = relative(policy.requestRoot, path);
   if (
     relation === "" ||
-    (!relation.startsWith(`..${sep}`) && relation !== "..")
+    relation === ".." ||
+    relation.startsWith(`..${sep}`) ||
+    relation.includes(sep)
   ) {
-    fail("prepared request must be outside the external ledger root");
+    fail("prepared request must be a direct file in the fixed request root");
   }
   const before = lstatSync(path);
-  if (!before.isFile() || before.nlink !== 1) {
-    fail("prepared request must be a single-link regular file");
+  if (!before.isFile()) fail("prepared request must be a regular file");
+  if (before.uid !== policy.requestFileExpectedUid) {
+    fail("prepared request owner is invalid");
+  }
+  if ((before.mode & 0o777) !== REQUEST_FILE_MODE) {
+    fail("prepared request mode must be exactly 0400");
+  }
+  if (before.nlink !== 1) fail("prepared request must have one hard link");
+  if (before.size < 1 || before.size > MAX_REQUEST_FILE_BYTES) {
+    fail("prepared request size is outside the fixed safety limit");
   }
   const descriptor = openSync(path, constants.O_RDONLY | constants.O_NOFOLLOW);
   try {
@@ -995,12 +1121,20 @@ function readPreparedRequest(path, policy) {
     const afterPath = lstatSync(path);
     if (
       !openedBefore.isFile() ||
+      openedBefore.uid !== policy.requestFileExpectedUid ||
+      (openedBefore.mode & 0o777) !== REQUEST_FILE_MODE ||
       openedBefore.nlink !== 1 ||
       !sameIdentity(openedBefore, openedAfter) ||
       !sameIdentity(openedAfter, afterPath) ||
       bytes.length !== openedBefore.size
     ) {
       fail("prepared request changed while it was read");
+    }
+    const requestFileSha256 = rawSha256(bytes);
+    if (requestFileSha256 !== expectedRequestFileSha256) {
+      fail(
+        "prepared request bytes do not match the administrator-pinned expected SHA-256",
+      );
     }
     let value;
     try {
@@ -1014,7 +1148,7 @@ function readPreparedRequest(path, policy) {
     if (bytes.toString("utf8") !== `${JSON.stringify(request, null, 2)}\n`) {
       fail("prepared request is not canonical pretty JSON");
     }
-    return request;
+    return { request, requestFileSha256 };
   } finally {
     closeSync(descriptor);
   }
@@ -1124,7 +1258,7 @@ function writeDurableTemporary(path, bytes, policy) {
   }
 }
 
-function acquireLock(policy, request, startedAt) {
+function acquireLock(policy, request, requestFileSha256, startedAt) {
   const lockPath = join(policy.externalRoot, LOCK_FILE);
   assertNoSymlinkPath(lockPath, { finalMayBeAbsent: true });
   let descriptor;
@@ -1146,6 +1280,7 @@ function acquireLock(policy, request, startedAt) {
   const lockBody = {
     schemaVersion: "corpus-external-anchor-writer-lock-v1",
     pid: process.pid,
+    requestFileSha256,
     requestSha256: request.requestSha256,
     startedAt,
   };
@@ -1205,22 +1340,38 @@ function callFault(policy, point) {
   policy.faultInjector?.(point);
 }
 
+const TEST_POLICY_BRAND = Symbol("root-anchor-writer-test-policy");
+
 /**
+ * Test-only dependency injection. Production never calls this function and
+ * never accepts an external-root argument from the CLI.
+ *
  * @param {{
  *   externalRoot: string;
+ *   requestRoot: string;
  *   expectedUid?: number;
+ *   requestRootExpectedUid?: number;
+ *   requestFileExpectedUid?: number;
  *   faultInjector?: ((point: string) => void) | null;
  * }} input
  */
 export function createTestPolicy({
   externalRoot,
+  requestRoot,
   expectedUid = process.getuid?.() ?? 0,
+  requestRootExpectedUid = expectedUid,
+  requestFileExpectedUid = expectedUid,
   faultInjector = null,
 }) {
   return {
+    [TEST_POLICY_BRAND]: true,
     externalRoot,
+    requestRoot,
     expectedUid,
+    requestRootExpectedUid,
+    requestFileExpectedUid,
     requireSecureAncestors: false,
+    requireSecureRequestAncestors: false,
     faultInjector,
   };
 }
@@ -1229,6 +1380,7 @@ export function checkExternalLedgerForPolicy(
   policy,
   { allowEmpty = true } = {},
 ) {
+  assertRequestRoot(policy);
   const snapshot = loadExternalState(policy, { allowEmpty });
   return snapshot
     ? {
@@ -1242,13 +1394,18 @@ export function checkExternalLedgerForPolicy(
     : { initialized: false, recordCount: 0 };
 }
 
-export function appendPreparedRequestForPolicy({
+function appendPreparedRequestWithPolicy({
   requestPath,
+  expectedRequestFileSha256,
   policy,
   now = () => new Date().toISOString(),
 }) {
   assertExternalRoot(policy);
-  const request = readPreparedRequest(requestPath, policy);
+  const { request, requestFileSha256 } = readPreparedRequest(
+    requestPath,
+    policy,
+    expectedRequestFileSha256,
+  );
   const startedAt = now();
   requireDateTime(startedAt, "writer lock time");
   let lock = null;
@@ -1266,7 +1423,7 @@ export function appendPreparedRequestForPolicy({
     `.corpus-event-history-anchors.${suffix}.head.tmp`,
   );
   try {
-    lock = acquireLock(policy, request, startedAt);
+    lock = acquireLock(policy, request, requestFileSha256, startedAt);
     callFault(policy, "after_lock");
     const previous = loadExternalState(policy, {
       allowEmpty: true,
@@ -1311,6 +1468,7 @@ export function appendPreparedRequestForPolicy({
     success = true;
     return {
       status: "external_anchor_append_committed",
+      requestFileSha256,
       requestSha256: request.requestSha256,
       recordCount: observed.head.recordCount,
       latestRecordSha256: observed.head.latestRecordSha256,
@@ -1337,6 +1495,16 @@ export function appendPreparedRequestForPolicy({
   }
 }
 
+/**
+ * Test-only append seam. The production CLI always uses the two fixed roots.
+ */
+export function appendPreparedRequestForTestPolicy(input) {
+  if (input?.policy?.[TEST_POLICY_BRAND] !== true) {
+    fail("test append requires a policy created by createTestPolicy");
+  }
+  return appendPreparedRequestWithPolicy(input);
+}
+
 function validateInstallManifest(value) {
   exactKeys(
     value,
@@ -1348,6 +1516,7 @@ function validateInstallManifest(value) {
       "installManifest",
       "nodeRuntime",
       "externalLedger",
+      "requestIntake",
       "safetyBoundary",
     ],
     "install manifest",
@@ -1442,8 +1611,52 @@ function validateInstallManifest(value) {
   requireLiteral(value.externalLedger.lockFile, LOCK_FILE, "lock file");
   requireLiteral(value.externalLedger.lockMode, "0600", "lock mode");
   exactKeys(
+    value.requestIntake,
+    [
+      "rootPath",
+      "rootMode",
+      "fileMode",
+      "ownerUid",
+      "directChildOnly",
+      "singleLinkOnly",
+      "expectedFileSha256Required",
+      "maxFileBytes",
+    ],
+    "manifest.requestIntake",
+  );
+  requireLiteral(
+    value.requestIntake.rootPath,
+    FIXED_REQUEST_ROOT,
+    "request rootPath",
+  );
+  requireLiteral(value.requestIntake.rootMode, "0700", "request rootMode");
+  requireLiteral(value.requestIntake.fileMode, "0400", "request fileMode");
+  requireLiteral(value.requestIntake.ownerUid, 0, "request ownerUid");
+  requireLiteral(
+    value.requestIntake.directChildOnly,
+    true,
+    "request directChildOnly",
+  );
+  requireLiteral(
+    value.requestIntake.singleLinkOnly,
+    true,
+    "request singleLinkOnly",
+  );
+  requireLiteral(
+    value.requestIntake.expectedFileSha256Required,
+    true,
+    "request expectedFileSha256Required",
+  );
+  requireLiteral(
+    value.requestIntake.maxFileBytes,
+    MAX_REQUEST_FILE_BYTES,
+    "request maxFileBytes",
+  );
+  exactKeys(
     value.safetyBoundary,
     [
+      "callerSelectedExternalRootAllowed",
+      "unhashedRequestAllowed",
       "repositoryWritesAllowed",
       "internalVerificationAppendAllowed",
       "automaticLedgerDeletionAllowed",
@@ -1534,28 +1747,55 @@ function validateInstalledPackage() {
 function productionPolicy() {
   return {
     externalRoot: FIXED_EXTERNAL_ROOT,
+    requestRoot: FIXED_REQUEST_ROOT,
     expectedUid: 0,
+    requestRootExpectedUid: 0,
+    requestFileExpectedUid: 0,
     requireSecureAncestors: true,
+    requireSecureRequestAncestors: true,
     faultInjector: null,
   };
 }
 
 function parseCli(args) {
   if (args.length === 1 && args[0] === "check") {
-    return { mode: "check", requestPath: null };
+    return {
+      mode: "check",
+      requestPath: null,
+      expectedRequestFileSha256: null,
+    };
   }
-  if (
-    args.length === 2 &&
-    args[0] === "append" &&
-    args[1].startsWith("--request=") &&
-    args[1].slice("--request=".length) !== ""
-  ) {
-    const requestPath = args[1].slice("--request=".length);
+  if (args.length === 3 && args[0] === "append") {
+    const options = new Map();
+    for (const option of args.slice(1)) {
+      const separator = option.indexOf("=");
+      if (!option.startsWith("--") || separator < 3) {
+        fail("append options must use --name=value syntax");
+      }
+      const name = option.slice(2, separator);
+      const value = option.slice(separator + 1);
+      if (value === "" || options.has(name)) {
+        fail("append options must be present exactly once and non-empty");
+      }
+      options.set(name, value);
+    }
+    if (
+      options.size !== 2 ||
+      !options.has("request") ||
+      !options.has("expected-request-sha256")
+    ) {
+      fail("append requires only --request and --expected-request-sha256");
+    }
+    const requestPath = options.get("request");
     if (!isAbsolute(requestPath)) fail("request path must be absolute");
-    return { mode: "append", requestPath };
+    const expectedRequestFileSha256 = requireSha256(
+      options.get("expected-request-sha256"),
+      "expected request file SHA-256",
+    );
+    return { mode: "append", requestPath, expectedRequestFileSha256 };
   }
   fail(
-    "usage: corpus-anchor-root-writer.mjs check | append --request=/absolute/path",
+    "usage: corpus-anchor-root-writer.mjs check | append --request=/fixed-request-root/file.json --expected-request-sha256=sha256:<64 lowercase hex>",
   );
 }
 
@@ -1572,8 +1812,9 @@ function main() {
           humanContentValidationClaimed: false,
           independentExternalNotarizationClaimed: false,
         }
-      : appendPreparedRequestForPolicy({
+      : appendPreparedRequestWithPolicy({
           requestPath: options.requestPath,
+          expectedRequestFileSha256: options.expectedRequestFileSha256,
           policy,
         });
   process.stdout.write(`${JSON.stringify(result, null, 2)}\n`);
