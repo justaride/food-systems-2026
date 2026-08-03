@@ -75,7 +75,8 @@ export const CORPUS_PENDING_EVENT_TRANSACTION_KIND =
 export const CORPUS_PENDING_EVENT_REQUIRED_IDENTITY_COUNT = 1565 as const;
 export const CORPUS_PENDING_EVENT_FINAL_COMMIT_MARKER =
   CORPUS_CURRENT_STATE_PATHS.eventHistoryAnchors;
-export const CORPUS_PENDING_EVENT_MAX_INPUT_BYTES = 8 * 1024 * 1024;
+export const CORPUS_PENDING_EVENT_MAX_EVENT_BYTES = 8 * 1024 * 1024;
+export const CORPUS_PENDING_EVENT_MAX_PLAN_BYTES = 64 * 1024 * 1024;
 
 export const CORPUS_PENDING_EVENT_IMPLEMENTATION_PATHS = Object.freeze([
   "package.json",
@@ -420,6 +421,7 @@ function readStableOutsideFile(
   repositoryRoot: string,
   path: string,
   label: string,
+  maximumBytes = CORPUS_PENDING_EVENT_MAX_EVENT_BYTES,
 ): StableOutsideFile {
   assertAbsoluteOutsideRepository(repositoryRoot, path, label);
   const filesystemRoot = parse(path).root;
@@ -439,7 +441,7 @@ function readStableOutsideFile(
     before.nlink !== 1 ||
     (mode !== 0o400 && mode !== 0o600) ||
     before.size < 1 ||
-    before.size > CORPUS_PENDING_EVENT_MAX_INPUT_BYTES
+    before.size > maximumBytes
   ) {
     fail(
       `${label} must be a 0400/0600 one-link regular file within the size limit`,
@@ -1535,7 +1537,12 @@ export function readCorpusPendingEventAppendPlanFile(
   planPath: string,
 ): CorpusPendingEventAppendPlan {
   const root = canonicalRoot(repositoryRoot);
-  const file = readStableOutsideFile(root, planPath, "pending-event plan file");
+  const file = readStableOutsideFile(
+    root,
+    planPath,
+    "pending-event plan file",
+    CORPUS_PENDING_EVENT_MAX_PLAN_BYTES,
+  );
   const plan = validateCorpusPendingEventAppendPlan(
     parseJson("pending-event plan file", file.bytes),
   );

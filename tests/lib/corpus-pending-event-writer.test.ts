@@ -20,6 +20,7 @@ import test from "node:test";
 
 import {
   appendRequestToCorpusExternalAnchorSnapshot,
+  createCorpusExternalAnchorVerifier,
   prepareCorpusExternalAnchorAppendRequest,
   type CorpusExternalAnchorLedgerSnapshot,
 } from "../../src/lib/knowledge/corpus-event-history-external-ledger";
@@ -38,6 +39,7 @@ import {
 import {
   CORPUS_CURRENT_STATE_PATHS,
   buildCorpusCurrentStateArtifacts,
+  buildCorpusPendingEventTransitionArtifacts,
 } from "../../scripts/knowledge/generate-corpus-processing-current-state";
 import {
   readAndValidateRepositoryAnchorContext,
@@ -391,6 +393,47 @@ test("plans and atomically installs only one pending event checkpoint", async ()
     });
     assert.equal(context.latestVerification, null);
     assert.equal(context.latestCandidate.eventCount, 1);
+    const previousPair = context.pairs.at(-1)!;
+    const transition = buildCorpusPendingEventTransitionArtifacts(
+      fixture.repositoryRoot,
+      {
+        eventLogBytes: readFileSync(
+          join(fixture.repositoryRoot, CORPUS_CURRENT_STATE_PATHS.events),
+        ),
+        eventManifestBytes: readFileSync(
+          join(
+            fixture.repositoryRoot,
+            CORPUS_CURRENT_STATE_PATHS.eventManifest,
+          ),
+        ),
+        eventHistoryAnchorBytes: readFileSync(
+          join(
+            fixture.repositoryRoot,
+            CORPUS_CURRENT_STATE_PATHS.eventHistoryAnchors,
+          ),
+        ),
+        verifyTrustedEventHistoryAnchor: createCorpusExternalAnchorVerifier({
+          snapshot: fixture.snapshot,
+          latestCandidate: previousPair.candidate,
+          latestVerification: previousPair.verification,
+          latestRepositoryBaselineInputs: context.repositoryBaselineInputs,
+        }),
+      },
+    );
+    assert.equal(transition.previousTrusted.events.length, 0);
+    assert.equal(transition.pending.events.length, 1);
+    for (const path of [
+      CORPUS_CURRENT_STATE_PATHS.currentState,
+      CORPUS_CURRENT_STATE_PATHS.summary,
+      CORPUS_CURRENT_STATE_PATHS.conflictQueue,
+      CORPUS_CURRENT_STATE_PATHS.generationManifest,
+    ]) {
+      const generated = transition.previousTrusted.bundle.find(
+        (artifact) => artifact.path === path,
+      );
+      assert.ok(generated);
+      assert.deepEqual(Buffer.from(generated.content, "utf8"), before[path]);
+    }
     assert.throws(
       () =>
         buildCorpusCurrentStateArtifacts(fixture.repositoryRoot, {

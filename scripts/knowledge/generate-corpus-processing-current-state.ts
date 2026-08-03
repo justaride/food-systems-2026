@@ -156,6 +156,15 @@ export type CorpusPendingEventCheckpointArtifacts = {
   eventHistoryAnchorBytes: Buffer;
 };
 
+export type CorpusPendingEventTransitionArtifacts = {
+  pending: CorpusCurrentStateArtifacts;
+  previousTrusted: CorpusCurrentStateArtifacts;
+  pendingEvent: CorpusProcessingStateEvent;
+  previousEventLogBytes: Buffer;
+  previousEventManifestBytes: Buffer;
+  previousEventHistoryAnchorBytes: Buffer;
+};
+
 function rawSha256(value: string | Buffer): string {
   return createHash("sha256").update(value).digest("hex");
 }
@@ -340,6 +349,36 @@ function eventManifestSha256(
   );
 }
 
+function buildEventManifest(input: {
+  events: CorpusProcessingStateEvent[];
+  eventLogBytes: Buffer;
+  initializedAt: string;
+  semantics: CorpusStateEventManifest["semantics"];
+}): CorpusStateEventManifest {
+  const first = input.events.at(0);
+  const last = input.events.at(-1);
+  const body: Omit<CorpusStateEventManifest, "manifestSha256"> = {
+    schemaVersion: "1.0.0",
+    manifestId: "corpus-processing-state-event-manifest.v1",
+    eventLog: {
+      path: CORPUS_CURRENT_STATE_PATHS.events,
+      sha256: rawSha256(input.eventLogBytes),
+      sizeBytes: input.eventLogBytes.length,
+    },
+    eventCount: input.events.length,
+    firstEventSha256: first?.eventSha256 ?? null,
+    lastEventSha256: last?.eventSha256 ?? null,
+    highWatermarkOccurredAt: last?.occurredAt ?? null,
+    eventSetSha256: eventSetSha256(input.events),
+    initializedAt: input.initializedAt,
+    semantics: input.semantics,
+  };
+  return {
+    ...body,
+    manifestSha256: eventManifestSha256(body),
+  };
+}
+
 function validateEventManifest(
   value: unknown,
   events: unknown[],
@@ -522,26 +561,12 @@ export function buildCorpusPendingEventCheckpointArtifacts(input: {
     Buffer.from(input.sealedEventBytes),
   ]);
   const events = [...currentEvents, event];
-  const manifestBody: Omit<CorpusStateEventManifest, "manifestSha256"> = {
-    schemaVersion: "1.0.0",
-    manifestId: "corpus-processing-state-event-manifest.v1",
-    eventLog: {
-      path: CORPUS_CURRENT_STATE_PATHS.events,
-      sha256: rawSha256(eventLogBytes),
-      sizeBytes: eventLogBytes.length,
-    },
-    eventCount: events.length,
-    firstEventSha256: events[0]?.eventSha256 ?? null,
-    lastEventSha256: event.eventSha256,
-    highWatermarkOccurredAt: event.occurredAt,
-    eventSetSha256: eventSetSha256(events),
+  const eventManifest = buildEventManifest({
+    events,
+    eventLogBytes,
     initializedAt: currentManifest.initializedAt,
     semantics: currentManifest.semantics,
-  };
-  const eventManifest: CorpusStateEventManifest = {
-    ...manifestBody,
-    manifestSha256: eventManifestSha256(manifestBody),
-  };
+  });
   const eventManifestBytes = Buffer.from(prettyJson(eventManifest), "utf8");
   const sealedCandidate = sealCorpusEventHistoryAnchorRecord({
     schemaVersion: CORPUS_EVENT_HISTORY_ANCHOR_SCHEMA_VERSION,
@@ -1162,6 +1187,111 @@ export function buildCorpusProposedPendingCurrentStateArtifacts(
     );
   }
   return artifacts;
+}
+
+/**
+ * Reconstructs the immediately preceding trusted checkpoint from a repository
+ * that contains exactly one additional pending event candidate. This is used
+ * by the second-phase finalizer to prove that the four still-published derived
+ * files are the byte-exact projection of the prior trusted prefix before it
+ * replaces them with the newly verified projection.
+ */
+export function buildCorpusPendingEventTransitionArtifacts(
+  root: string,
+  input: {
+    eventLogBytes: Buffer;
+    eventManifestBytes: Buffer;
+    eventHistoryAnchorBytes: Buffer;
+    verifyTrustedEventHistoryAnchor: VerifyTrustedCorpusEventHistoryAnchor;
+  },
+): CorpusPendingEventTransitionArtifacts {
+  const eventLogBytes = Buffer.from(input.eventLogBytes);
+  const eventManifestBytes = Buffer.from(input.eventManifestBytes);
+  const eventHistoryAnchorBytes = Buffer.from(input.eventHistoryAnchorBytes);
+  const pending = buildCorpusProposedPendingCurrentStateArtifacts(root, {
+    eventLogBytes,
+    eventManifestBytes,
+    eventHistoryAnchorBytes,
+    verifyTrustedEventHistoryAnchor: input.verifyTrustedEventHistoryAnchor,
+  });
+  const events = pending.events.map(validateCorpusProcessingStateEvent);
+  const pendingEvent = events.at(-1);
+  if (!pendingEvent || events.length < 1) {
+    throw new Error("Pending transition has no event to finalize");
+  }
+  if (!eventLogBytes.equals(Buffer.from(jsonLines(events), "utf8"))) {
+    throw new Error("Pending transition event log is not canonical JSONL");
+  }
+
+  const baseline = readBaseline(root);
+  const currentManifest = validateEventManifest(
+    parseJson(
+      CORPUS_CURRENT_STATE_PATHS.eventManifest,
+      new TextDecoder("utf-8", { fatal: true }).decode(eventManifestBytes),
+    ),
+    events,
+    baseline.observedAt,
+    eventLogBytes,
+  );
+  if (
+    !eventManifestBytes.equals(Buffer.from(prettyJson(currentManifest), "utf8"))
+  ) {
+    throw new Error(
+      "Pending transition event manifest is not canonical pretty JSON",
+    );
+  }
+
+  const records = pending.eventHistory.records;
+  const latestCandidate = records.at(-1);
+  const previousVerification = records.at(-2);
+  const previousCandidate = records.at(-3);
+  if (
+    latestCandidate?.recordType !== "history_anchor_candidate" ||
+    previousVerification?.recordType !==
+      "history_anchor_trusted_verification" ||
+    previousCandidate?.recordType !== "history_anchor_candidate" ||
+    latestCandidate.eventCount !== events.length ||
+    previousCandidate.eventCount !== events.length - 1 ||
+    pendingEvent.globalSequence !== events.length
+  ) {
+    throw new Error(
+      "Pending transition is not exactly one event beyond a trusted checkpoint",
+    );
+  }
+
+  const previousEvents = events.slice(0, -1);
+  const previousEventLogBytes = Buffer.from(jsonLines(previousEvents), "utf8");
+  const previousEventManifest = buildEventManifest({
+    events: previousEvents,
+    eventLogBytes: previousEventLogBytes,
+    initializedAt: currentManifest.initializedAt,
+    semantics: currentManifest.semantics,
+  });
+  const previousEventManifestBytes = Buffer.from(
+    prettyJson(previousEventManifest),
+    "utf8",
+  );
+  const previousEventHistoryAnchorBytes = Buffer.concat(
+    records.slice(0, -1).map(canonicalJsonLine),
+  );
+  const previousTrusted = buildCorpusCurrentStateArtifactsInternal(root, {
+    eventLogBytes: previousEventLogBytes,
+    eventManifestBytes: previousEventManifestBytes,
+    eventHistoryAnchorBytes: previousEventHistoryAnchorBytes,
+    verifyTrustedEventHistoryAnchor: input.verifyTrustedEventHistoryAnchor,
+    allowPendingCheckpoint: false,
+  });
+  if (previousTrusted.events.length !== previousEvents.length) {
+    throw new Error("Previous trusted transition replay changed event count");
+  }
+  return {
+    pending,
+    previousTrusted,
+    pendingEvent,
+    previousEventLogBytes,
+    previousEventManifestBytes,
+    previousEventHistoryAnchorBytes,
+  };
 }
 
 function atomicWriteBundle(root: string, bundle: GeneratedArtifact[]): void {

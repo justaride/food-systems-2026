@@ -110,8 +110,8 @@
     },
     {
       "path": "scripts/knowledge/generate-corpus-processing-current-state.ts",
-      "sha256": "9d9dff1f6409319859b44e65c8ba8a3418af0956efe1b12d12114b5d2d03b001",
-      "sizeBytes": 46310
+      "sha256": "fbddd54c1805bf1fa7166364f37cb677fc1618b72fd227291dd7fd547a3f3144",
+      "sizeBytes": 50928
     }
   ],
   "resolvedEventEvidence": {
