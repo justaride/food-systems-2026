@@ -377,6 +377,24 @@ test('receipt-resolves migration lineage while failing closed on identity, appra
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').libraryInventoryOnlyRows, 0)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').libraryRetainedHistoryContractIssues, 0)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').reportedLibraryProjectionUpdates, 15)
+
+  const pdfOpenIdentityBlockers = metric(assessment, 'health_metric.pdf_open_identity_blockers')
+  const pdfOpenAliasBlockers = metric(assessment, 'health_metric.pdf_open_alias_blockers')
+  const pdfOpenUnregisteredCandidates = metric(
+    assessment,
+    'health_metric.pdf_open_unregistered_source_candidate_blockers',
+  )
+  assert.equal(pdfOpenIdentityBlockers.value, 12)
+  assert.equal(pdfOpenAliasBlockers.value, 2)
+  assert.equal(pdfOpenUnregisteredCandidates.value, 10)
+  assert.equal(
+    Number(pdfOpenIdentityBlockers.value),
+    Number(pdfOpenAliasBlockers.value) + Number(pdfOpenUnregisteredCandidates.value),
+  )
+  const summaryMetrics = asObject(summary.keyMetrics, 'summary.keyMetrics')
+  assert.equal(summaryMetrics.pdfOpenIdentityBlockers, 12)
+  assert.equal(summaryMetrics.pdfOpenAliasBlockers, 2)
+  assert.equal(summaryMetrics.pdfOpenUnregisteredSourceCandidateBlockers, 10)
 })
 
 test('recomputes immutable content, source and generation-output hashes', () => {
