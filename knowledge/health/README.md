@@ -13,6 +13,25 @@ Corpus health answers whether material can be found, traced, appraised, archived
 
 Passing a lower profile never implies passing a higher one. Technical citation integrity does not replace appraisal. A URL does not replace an exact locator or durable archive. A draft, queue, dry-run or generated note does not become evidence merely because it is indexed.
 
+## Whole-corpus processing baseline
+
+Gate 1 now reads the manifest-bound corpus-processing register as the declared whole-corpus baseline. It validates every lifecycle record and independently derives its permissions instead of trusting old review labels. The current baseline contains 1,555 unique active identities. Of these, 1,537 bind exact source-content hashes representing 554,322,165 bytes; 11 known files are missing from the repository and 18 identities have no file locator. Content deduplication produces 1,467 processing units.
+
+These are inventory and integrity facts only. Current full-text lifecycle completion is 0/1,555. Gabriel's owner review is 0/1,555. Owner-confirmed source roles, independent expert validations, partner validations, rights-holder validations, rights clearances, publication approvals, external-use permissions and separate coverage approvals are all zero. AI can perform and document the processing work, but it cannot silently turn that work into Gabriel's decision or another person's independent, partner or rights-holder validation.
+
+The tracked PDF batch contains fifteen technically qualified PDF units, zero technical failures and 772/772 expected pages. Technical extraction emitted 272,545 words, with 35 warning pages and twelve open identity blockers: two legacy-alias scope blockers and ten unregistered-source candidate blockers. These numbers prove only that the tracked extraction artifacts cross-bind correctly. They do not mean that AI has read or analyzed the documents, that the ten candidates are registered corpus sources, that Gabriel has reviewed them, or that rights, publication or coverage gates have passed. Portable tracked validation is complete; live verification of private archive roots was not performed and requires explicit private-root inputs.
+
+The canonical review contract has eight independent layers: AI processing, owner review, independent expert validation, partner validation, rights-holder validation, rights clearance, publication and coverage promotion. The five legacy Gate 2C statuses retain an unclassified human-review component. Only the machine-checked part of `machine_checked_human_review_pending` maps to AI processing. A legacy human-status label creates zero canonical human approvals until named signer identity, gate role, authority or qualifications, affiliation, conflict declaration and exact scope are evidenced.
+
+The health generator binds and validates these inputs before it may report the counts:
+
+- corpus-processing summary, generation manifest and full lifecycle register;
+- lifecycle TypeScript contract and JSON Schema;
+- canonical review-layer contract and JSON Schema;
+- PDF extraction summary and generation manifest, whose own checker validates the full tracked page-map, receipt and blocker bundle.
+
+Any hash mismatch, unexpected schema field, invalid lifecycle, mismatched derived permission or changed Gate 2C mapping fails closed.
+
 ## Generated artifacts
 
 - `corpus-health-source-snapshots.v1.json` binds repository files and the read-only database query to hashes;
@@ -23,7 +42,7 @@ Passing a lower profile never implies passing a higher one. Technical citation i
 - `corpus-health-report.v1.md` is the human-readable Gate 1 report;
 - `corpus-health-generation-manifest.v1.json` hashes generated outputs.
 
-Thresholds are `proposed` until a named human adoption receipt is added. A generator may calculate a current machine verdict and receipt-resolve an exactly reproducible machine-observable conflict, such as migration-name and checksum parity. It cannot adopt thresholds or assert human, partner or rights-holder approval, and a machine receipt cannot close evidence-appraisal, production-parity or human-governance gates.
+Thresholds are `proposed` until a named human adoption receipt is added. A generator may calculate a current machine verdict and receipt-resolve an exactly reproducible machine-observable conflict, such as migration-name and checksum parity. It cannot adopt thresholds or assert owner, independent expert, partner or rights-holder approval. A machine receipt cannot close evidence-appraisal, rights, publication, production-parity or human-governance gates, and publication never automatically promotes subject coverage.
 
 ## Commands
 

@@ -46,7 +46,7 @@ import {
 } from '../audit-source-citation-archive-coverage'
 import { checkTrackedQualificationBundle } from './qualify-pdf-page-extraction'
 
-const GENERATOR_VERSION = '1.3.0'
+const GENERATOR_VERSION = '1.4.0'
 const SCHEMA_VERSION = 'corpus-evidence-health-v1'
 const THRESHOLDS_VERSION = 'corpus-health-thresholds-v1'
 const SNAPSHOT_DATE = process.env.CORPUS_HEALTH_SNAPSHOT_DATE ?? '2026-07-28'
@@ -397,7 +397,9 @@ export type Gate1KnowledgeInputs = {
     extractedPages: number
     extractedWords: number
     warningPages: number
-    openAliasBlockers: number
+    openIdentityBlockers: number
+    legacyAliasScopeBlockers: number
+    unregisteredSourceCandidateBlockers: number
     aiAnalysisComplete: boolean
     ownerReviewComplete: boolean
     independentValidationComplete: boolean
@@ -1016,7 +1018,11 @@ export function loadGate1KnowledgeInputs(repositoryRoot = ROOT): Gate1KnowledgeI
     throw new Error('PDF extraction generation manifest semantics are missing')
   }
   const pdfSummary = trackedPdf.summary
-  requireExact(pdfSummary.openBlockerCount, pdfSummary.legacyAliasScopeMismatchCount, 'Open PDF alias blockers')
+  requireExact(
+    pdfSummary.openBlockerCount,
+    pdfSummary.legacyAliasScopeMismatchCount + pdfSummary.unregisteredSourceCandidateCount,
+    'Open PDF identity blockers',
+  )
   requireExact(pdfSummary.technicalFailureCount, 0, 'Tracked PDF technical failures')
   requireExact(pdfSummary.semantics.technicalExtractionOnly, true, 'PDF technical-extraction boundary')
   requireExact(pdfSummary.semantics.privateTextStorageOnly, true, 'PDF private-text boundary')
@@ -1058,7 +1064,9 @@ export function loadGate1KnowledgeInputs(repositoryRoot = ROOT): Gate1KnowledgeI
       extractedPages: pdfSummary.totals.pageCount,
       extractedWords: pdfSummary.totals.wordCount,
       warningPages: pdfSummary.totals.warningPageCount,
-      openAliasBlockers: pdfSummary.openBlockerCount,
+      openIdentityBlockers: pdfSummary.openBlockerCount,
+      legacyAliasScopeBlockers: pdfSummary.legacyAliasScopeMismatchCount,
+      unregisteredSourceCandidateBlockers: pdfSummary.unregisteredSourceCandidateCount,
       aiAnalysisComplete: pdfSummary.semantics.aiAnalysisComplete,
       ownerReviewComplete: pdfSummary.semantics.ownerReviewComplete,
       independentValidationComplete: pdfSummary.semantics.independentValidationComplete,
@@ -2118,7 +2126,7 @@ function buildAssessment(
       command: 'strict portable validation of tracked PDF qualification bundle',
       authorityLayer: 'structured_evidence',
       observationMode: 'derived_comparison',
-      caveats: ['The two open alias/scope blockers are not technical extraction failures.'],
+      caveats: [`The ${pdf.openIdentityBlockers} open identity blockers are not technical extraction failures.`],
     }),
     metric('health_metric.pdf_extracted_pages', 'Pages technically extracted from the tracked PDF batch', pdf.extractedPages, {
       numerator: pdf.extractedPages,
@@ -2128,7 +2136,7 @@ function buildAssessment(
       command: 'cross-check expected page counts, page maps and qualification receipts',
       authorityLayer: 'structured_evidence',
       observationMode: 'derived_comparison',
-      caveats: ['The page count proves extraction coverage of this five-document batch only, not semantic reading or Nordic food-system coverage.'],
+      caveats: [`The page count proves extraction coverage of this ${pdf.technicalUnits}-document batch only, not semantic reading or Nordic food-system coverage.`],
     }),
     metric('health_metric.pdf_extracted_words', 'Words emitted by technical PDF text extraction', pdf.extractedWords, {
       unit: 'words',
@@ -2147,15 +2155,35 @@ function buildAssessment(
       authorityLayer: 'operational_status',
       observationMode: 'derived_comparison',
     }),
-    metric('health_metric.pdf_open_alias_blockers', 'Open PDF legacy-alias scope blockers', pdf.openAliasBlockers, {
-      numerator: pdf.openAliasBlockers,
+    metric('health_metric.pdf_open_identity_blockers', 'Open PDF identity-registration blockers', pdf.openIdentityBlockers, {
+      numerator: pdf.openIdentityBlockers,
       denominator: pdf.technicalUnits,
       unit: 'blockers',
       sourceSnapshotIds: pdfExtractionSnapshotIds,
-      command: 'validate blocker queue count and alias-scope mismatch count',
+      command: 'validate blocker queue count against the sum of every recognized identity-blocker class',
       authorityLayer: 'operational_status',
       observationMode: 'derived_comparison',
-      caveats: ['Open identity/scope blockers are kept separate from technical extraction failures.'],
+      caveats: ['Open identity blockers are kept separate from technical extraction failures and from completed source registration.'],
+    }),
+    metric('health_metric.pdf_open_alias_blockers', 'Open PDF legacy-alias scope blockers', pdf.legacyAliasScopeBlockers, {
+      numerator: pdf.legacyAliasScopeBlockers,
+      denominator: pdf.technicalUnits,
+      unit: 'blockers',
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'validate the legacy-alias scope-mismatch subset of the blocker queue',
+      authorityLayer: 'operational_status',
+      observationMode: 'derived_comparison',
+      caveats: ['Legacy aliases require an explicit owner scope disposition before identity binding.'],
+    }),
+    metric('health_metric.pdf_open_unregistered_source_candidate_blockers', 'Open PDF unregistered-source candidate blockers', pdf.unregisteredSourceCandidateBlockers, {
+      numerator: pdf.unregisteredSourceCandidateBlockers,
+      denominator: pdf.technicalUnits,
+      unit: 'blockers',
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'validate the unregistered-source candidate subset of the blocker queue',
+      authorityLayer: 'operational_status',
+      observationMode: 'derived_comparison',
+      caveats: ['Technical extraction does not register a candidate as a canonical corpus identity.'],
     }),
     metric('health_metric.pdf_ai_analysis_complete', 'Tracked PDF batch has completed AI analysis', pdf.aiAnalysisComplete, {
       sourceSnapshotIds: pdfExtractionSnapshotIds,
@@ -2485,7 +2513,7 @@ function buildAssessment(
 
   const dimensions: JsonObject[] = [
     { dimensionId: 'inventory', state: 'enumerated', verdict: 'pass_with_warnings', metricIds: ['health_metric.corpus_active_identities', 'health_metric.corpus_content_hash_bound_identities', 'health_metric.corpus_hash_bound_bytes', 'health_metric.pdf_technical_units', 'health_metric.library_inventory', 'health_metric.database_evidence', 'health_metric.vault_markdown'], blockerConflictIds: [], limitations: ['The declared 1,555-identity active corpus baseline is exhaustively enumerated and manifest-bound, but this is not an exhaustive universe of Nordic food-system subjects or sources.'] },
-    { dimensionId: 'provenanceLocator', state: 'mixed', verdict: 'degraded', metricIds: ['health_metric.corpus_missing_repository_files', 'health_metric.corpus_no_locator_identities', 'health_metric.corpus_known_identity_alias_mismatches', 'health_metric.pdf_open_alias_blockers', 'health_metric.documents_resolved', 'health_metric.exact_claim_anchors'], blockerConflictIds: [], limitations: ['Some lifecycle identities lack reachable repository files or locators, two PDF aliases remain scope-blocked, and most claim text lacks page or quote anchors.'] },
+    { dimensionId: 'provenanceLocator', state: 'mixed', verdict: 'degraded', metricIds: ['health_metric.corpus_missing_repository_files', 'health_metric.corpus_no_locator_identities', 'health_metric.corpus_known_identity_alias_mismatches', 'health_metric.pdf_open_identity_blockers', 'health_metric.pdf_open_alias_blockers', 'health_metric.pdf_open_unregistered_source_candidate_blockers', 'health_metric.documents_resolved', 'health_metric.exact_claim_anchors'], blockerConflictIds: [], limitations: [`Some lifecycle identities lack reachable repository files or locators; ${pdf.legacyAliasScopeBlockers} PDF aliases remain scope-blocked; ${pdf.unregisteredSourceCandidateBlockers} extracted PDF candidates remain unregistered; and most claim text lacks page or quote anchors.`] },
     { dimensionId: 'citationReadiness', state: 'mixed', verdict: 'degraded', metricIds: ['health_metric.source_citations', 'health_metric.field_citations', 'health_metric.blocked_citations'], blockerConflictIds: [], limitations: ['Technical citation integrity coexists with blocked rows and zero appraisal.'] },
     { dimensionId: 'appraisal', state: 'none_completed', verdict: 'blocked', metricIds: ['health_metric.evidence_appraisal'], blockerConflictIds: [], limitations: ['No evidence record has complete current appraisal.'] },
     { dimensionId: 'archive', state: 'partial_durable', verdict: 'blocked', metricIds: ['health_metric.archive_durable_rows', 'health_metric.external_rows_needing_archive'], blockerConflictIds: [], limitations: ['The archive gate fails and most external-readiness rows still need durable evidence.'] },
@@ -2627,7 +2655,7 @@ function buildReport(assessment: JsonObject, db: DatabaseRuntime): string {
     `- Active baseline: **${metricNumber(assessment, 'health_metric.corpus_active_identities')}** unique identities; **${metricNumber(assessment, 'health_metric.corpus_content_hash_bound_identities')}** bind exact source-content hashes representing **${metricNumber(assessment, 'health_metric.corpus_hash_bound_bytes')} bytes**. **${metricNumber(assessment, 'health_metric.corpus_missing_repository_files')}** known files are missing and **${metricNumber(assessment, 'health_metric.corpus_no_locator_identities')}** identities have no locator.\n` +
     `- Processing queue: **${metricNumber(assessment, 'health_metric.corpus_deduplicated_processing_units')}** content-deduplicated units; full-text processing is **${metricNumber(assessment, 'health_metric.corpus_full_text_complete')}/${metricNumber(assessment, 'health_metric.corpus_active_identities')}** and owner-confirmed source roles are **${metricNumber(assessment, 'health_metric.corpus_source_role_owner_confirmed')}/${metricNumber(assessment, 'health_metric.corpus_active_identities')}**.\n` +
     `- Human and authorization gates: Gabriel owner review **${metricNumber(assessment, 'health_metric.corpus_owner_reviewed')}**; independent expert validation **${metricNumber(assessment, 'health_metric.corpus_independently_validated')}**; partner validation **${metricNumber(assessment, 'health_metric.corpus_partner_validated')}**; rights-holder validation **${metricNumber(assessment, 'health_metric.corpus_rights_holder_validated')}**; rights clearance **${metricNumber(assessment, 'health_metric.corpus_rights_cleared')}**; publication approval **${metricNumber(assessment, 'health_metric.corpus_publication_approved')}**; separate coverage approval **${metricNumber(assessment, 'health_metric.corpus_coverage_approved')}**.\n` +
-    `- Tracked PDF extraction: **${metricNumber(assessment, 'health_metric.pdf_technical_units')}** technical units with **${metricNumber(assessment, 'health_metric.pdf_technical_failures')} technical failures**, **${metricNumber(assessment, 'health_metric.pdf_extracted_pages')}/${metricNumber(assessment, 'health_metric.pdf_extracted_pages')} pages**, **${metricNumber(assessment, 'health_metric.pdf_extracted_words')} extracted words**, **${metricNumber(assessment, 'health_metric.pdf_warning_pages')} warning pages** and **${metricNumber(assessment, 'health_metric.pdf_open_alias_blockers')} open alias blockers**. These are extraction-volume facts, not AI reading or semantic analysis.\n` +
+    `- Tracked PDF extraction: **${metricNumber(assessment, 'health_metric.pdf_technical_units')}** technical units with **${metricNumber(assessment, 'health_metric.pdf_technical_failures')} technical failures**, **${metricNumber(assessment, 'health_metric.pdf_extracted_pages')}/${metricNumber(assessment, 'health_metric.pdf_extracted_pages')} pages**, **${metricNumber(assessment, 'health_metric.pdf_extracted_words')} extracted words**, **${metricNumber(assessment, 'health_metric.pdf_warning_pages')} warning pages** and **${metricNumber(assessment, 'health_metric.pdf_open_identity_blockers')} open identity blockers**: **${metricNumber(assessment, 'health_metric.pdf_open_alias_blockers')}** legacy alias/scope blockers and **${metricNumber(assessment, 'health_metric.pdf_open_unregistered_source_candidate_blockers')}** unregistered-source candidate blockers. These are extraction-volume facts, not AI reading or semantic analysis.\n` +
     `- PDF receipt boundary: portable tracked validation is **${String(findMetric(assessment, 'health_metric.pdf_portable_tracked_validation_supported').value)}**; live private-archive verification in this run is **${String(findMetric(assessment, 'health_metric.pdf_private_verification_performed').value)}**. AI analysis, owner review, independent validation, rights clearance, publication readiness and coverage permission all remain false for this batch.\n` +
     `- Legacy Gate 2C: **${metricNumber(assessment, 'health_metric.legacy_gate2c_status_only_canonical_human_approvals')}** canonical human approvals are created by status alone. All **${metricNumber(assessment, 'health_metric.legacy_gate2c_unclassified_mappings')}** legacy mappings retain an unclassified human-review component until signer authority, gate role and exact scope are evidenced.\n\n` +
     `## Intended-use verdicts\n\n` +
@@ -2643,7 +2671,7 @@ function buildReport(assessment: JsonObject, db: DatabaseRuntime): string {
     `## Resolution sequence\n\n` +
     `1. Process the ${metricNumber(assessment, 'health_metric.corpus_deduplicated_processing_units')} deduplicated corpus units through exact full-text, claim and cross-check receipts; do not treat PDF extraction volume as reading completion.\n` +
     `2. Record Gabriel's owner review separately from independent expert, partner and rights-holder validation, then complete rights, publication and coverage decisions only where required.\n` +
-    `3. Resolve the ${metricNumber(assessment, 'health_metric.corpus_missing_repository_files')} missing files, ${metricNumber(assessment, 'health_metric.corpus_no_locator_identities')} no-locator identities and ${metricNumber(assessment, 'health_metric.pdf_open_alias_blockers')} PDF alias blockers.\n` +
+    `3. Resolve the ${metricNumber(assessment, 'health_metric.corpus_missing_repository_files')} missing files, ${metricNumber(assessment, 'health_metric.corpus_no_locator_identities')} no-locator identities and ${metricNumber(assessment, 'health_metric.pdf_open_identity_blockers')} PDF identity blockers (${metricNumber(assessment, 'health_metric.pdf_open_alias_blockers')} legacy alias/scope and ${metricNumber(assessment, 'health_metric.pdf_open_unregistered_source_candidate_blockers')} unregistered candidates).\n` +
     `4. Keep the receipt-bound 31/31 migration lineage check green as schema and migrations evolve.\n` +
     `5. Reconcile every unclassified database-only, seed-only and missing declared-managed identity while preserving the manifest-derived runtime identity boundary.\n` +
     `6. Keep the ${metricNumber(assessment, 'health_metric.library_live_materialization')}/${metricNumber(assessment, 'health_metric.library_inventory')} live library identity check exact, revalidate all ${metricNumber(assessment, 'health_metric.library_retained_history_rows')} retained-history rows, and close the separate metadata-only projection-freshness queue.\n` +
@@ -3030,7 +3058,12 @@ async function generateBundle(checkMode: boolean): Promise<GeneratedBundle> {
       pdfExtractedPages: metricNumber(assessment, 'health_metric.pdf_extracted_pages'),
       pdfExtractedWords: metricNumber(assessment, 'health_metric.pdf_extracted_words'),
       pdfWarningPages: metricNumber(assessment, 'health_metric.pdf_warning_pages'),
+      pdfOpenIdentityBlockers: metricNumber(assessment, 'health_metric.pdf_open_identity_blockers'),
       pdfOpenAliasBlockers: metricNumber(assessment, 'health_metric.pdf_open_alias_blockers'),
+      pdfOpenUnregisteredSourceCandidateBlockers: metricNumber(
+        assessment,
+        'health_metric.pdf_open_unregistered_source_candidate_blockers',
+      ),
       pdfAiAnalysisComplete: findMetric(assessment, 'health_metric.pdf_ai_analysis_complete').value,
       pdfOwnerReviewComplete: findMetric(assessment, 'health_metric.pdf_owner_review_complete').value,
       pdfIndependentValidationComplete: findMetric(assessment, 'health_metric.pdf_independent_validation_complete').value,
