@@ -22,11 +22,15 @@ import {
   CORPUS_EVENT_HISTORY_ANCHOR_SCHEMA_VERSION,
   sealCorpusEventHistoryAnchorRecord,
   validateCorpusEventHistoryAnchorChain,
+  validateCorpusEventHistoryAnchorRecord,
+  type CorpusEventHistoryAnchorCandidate,
   type VerifyTrustedCorpusEventHistoryAnchor,
 } from "../../src/lib/knowledge/corpus-processing-event-history";
 import {
   projectCorpusCurrentState,
+  validateCorpusProcessingStateEvent,
   type CorpusArtifactReference,
+  type CorpusProcessingStateEvent,
   type CorpusProcessingCurrentState,
   type CorpusSourceContentReference,
   type ResolveCorpusArtifact,
@@ -141,6 +145,15 @@ export type CorpusCurrentStateArtifacts = {
   conflictQueue: JsonObject[];
   eventHistory: ReturnType<typeof validateCorpusEventHistoryAnchorChain>;
   bundle: GeneratedArtifact[];
+};
+
+export type CorpusPendingEventCheckpointArtifacts = {
+  event: CorpusProcessingStateEvent;
+  eventLogBytes: Buffer;
+  eventManifest: CorpusStateEventManifest;
+  eventManifestBytes: Buffer;
+  anchorCandidate: CorpusEventHistoryAnchorCandidate;
+  eventHistoryAnchorBytes: Buffer;
 };
 
 function rawSha256(value: string | Buffer): string {
@@ -328,10 +341,10 @@ function eventManifestSha256(
 }
 
 function validateEventManifest(
-  root: string,
   value: unknown,
   events: unknown[],
   expectedInitializedAt: string,
+  eventLogBytes: Buffer,
 ): CorpusStateEventManifest {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
     throw new Error("Corpus state event manifest must be an object");
@@ -360,8 +373,11 @@ function validateEventManifest(
     manifest.manifestId,
     "corpus-processing-state-event-manifest.v1",
   );
-  assert.equal(manifest.eventLog.path, CORPUS_CURRENT_STATE_PATHS.events);
-  validateFileDescriptor(root, manifest.eventLog, "Event log");
+  assert.deepEqual(manifest.eventLog, {
+    path: CORPUS_CURRENT_STATE_PATHS.events,
+    sha256: rawSha256(eventLogBytes),
+    sizeBytes: eventLogBytes.length,
+  });
   assert.equal(
     manifest.eventCount,
     events.length,
@@ -387,6 +403,188 @@ function validateEventManifest(
   const { manifestSha256, ...body } = manifest;
   assert.equal(manifestSha256, eventManifestSha256(body));
   return manifest;
+}
+
+function canonicalJsonLine(value: unknown): Buffer {
+  return Buffer.from(`${JSON.stringify(value)}\n`, "utf8");
+}
+
+function parseOneCanonicalEvent(bytes: Buffer): CorpusProcessingStateEvent {
+  const values = parseJsonLines(
+    "sealed pending event input",
+    new TextDecoder("utf-8", { fatal: true }).decode(bytes),
+  );
+  if (values.length !== 1) {
+    throw new Error("Pending checkpoint requires exactly one sealed event");
+  }
+  const event = validateCorpusProcessingStateEvent(values[0]);
+  if (!bytes.equals(canonicalJsonLine(event))) {
+    throw new Error("Pending checkpoint event input is not canonical JSONL");
+  }
+  return event;
+}
+
+function parseCanonicalAnchorRecords(bytes: Buffer) {
+  const values = parseJsonLines(
+    CORPUS_CURRENT_STATE_PATHS.eventHistoryAnchors,
+    new TextDecoder("utf-8", { fatal: true }).decode(bytes),
+  );
+  const records = values.map(validateCorpusEventHistoryAnchorRecord);
+  const canonicalBytes = Buffer.concat(records.map(canonicalJsonLine));
+  if (!bytes.equals(canonicalBytes)) {
+    throw new Error("Event-history anchor log is not canonical JSONL");
+  }
+  return records;
+}
+
+/**
+ * Pure byte builder for one already sealed event. External trust in the
+ * previous verification is deliberately outside this function and remains a
+ * mandatory responsibility of the transactional writer.
+ */
+export function buildCorpusPendingEventCheckpointArtifacts(input: {
+  currentEventLogBytes: Buffer;
+  currentEventManifestBytes: Buffer;
+  currentEventHistoryAnchorBytes: Buffer;
+  sealedEventBytes: Buffer;
+  expectedInitializedAt: string;
+  candidateCreatedAt: string;
+}): CorpusPendingEventCheckpointArtifacts {
+  const currentEventLogBytes = Buffer.from(input.currentEventLogBytes);
+  const currentEvents = parseJsonLines(
+    CORPUS_CURRENT_STATE_PATHS.events,
+    new TextDecoder("utf-8", { fatal: true }).decode(currentEventLogBytes),
+  ).map(validateCorpusProcessingStateEvent);
+  if (
+    !currentEventLogBytes.equals(Buffer.from(jsonLines(currentEvents), "utf8"))
+  ) {
+    throw new Error("Current event log is not canonical JSONL");
+  }
+  const currentManifestValue = parseJson(
+    CORPUS_CURRENT_STATE_PATHS.eventManifest,
+    new TextDecoder("utf-8", { fatal: true }).decode(
+      input.currentEventManifestBytes,
+    ),
+  );
+  const currentManifest = validateEventManifest(
+    currentManifestValue,
+    currentEvents,
+    input.expectedInitializedAt,
+    currentEventLogBytes,
+  );
+  if (
+    !Buffer.from(input.currentEventManifestBytes).equals(
+      Buffer.from(prettyJson(currentManifest), "utf8"),
+    )
+  ) {
+    throw new Error("Current event manifest is not canonical pretty JSON");
+  }
+  const records = parseCanonicalAnchorRecords(
+    Buffer.from(input.currentEventHistoryAnchorBytes),
+  );
+  const latestRecord = records.at(-1);
+  if (
+    !latestRecord ||
+    latestRecord.recordType !== "history_anchor_trusted_verification"
+  ) {
+    throw new Error(
+      "Pending checkpoint requires a latest trusted-verification record and no pending candidate",
+    );
+  }
+
+  const event = parseOneCanonicalEvent(Buffer.from(input.sealedEventBytes));
+  if (event.eventType === "source_role_owner_confirmed_ready_package") {
+    throw new Error(
+      "Pending checkpoint v1 rejects source_role_owner_confirmed_ready_package",
+    );
+  }
+  const latestEvent = currentEvents.at(-1);
+  if (
+    event.globalSequence !== currentEvents.length + 1 ||
+    event.previousGlobalEventSha256 !== (latestEvent?.eventSha256 ?? null)
+  ) {
+    throw new Error(
+      "Pending checkpoint event does not exactly extend the global event chain",
+    );
+  }
+  if (
+    !Number.isFinite(Date.parse(input.candidateCreatedAt)) ||
+    Date.parse(input.candidateCreatedAt) < Date.parse(event.occurredAt) ||
+    Date.parse(input.candidateCreatedAt) < Date.parse(latestRecord.verifiedAt)
+  ) {
+    throw new Error(
+      "Pending checkpoint candidate time predates its event or previous verification",
+    );
+  }
+
+  const eventLogBytes = Buffer.concat([
+    currentEventLogBytes,
+    Buffer.from(input.sealedEventBytes),
+  ]);
+  const events = [...currentEvents, event];
+  const manifestBody: Omit<CorpusStateEventManifest, "manifestSha256"> = {
+    schemaVersion: "1.0.0",
+    manifestId: "corpus-processing-state-event-manifest.v1",
+    eventLog: {
+      path: CORPUS_CURRENT_STATE_PATHS.events,
+      sha256: rawSha256(eventLogBytes),
+      sizeBytes: eventLogBytes.length,
+    },
+    eventCount: events.length,
+    firstEventSha256: events[0]?.eventSha256 ?? null,
+    lastEventSha256: event.eventSha256,
+    highWatermarkOccurredAt: event.occurredAt,
+    eventSetSha256: eventSetSha256(events),
+    initializedAt: currentManifest.initializedAt,
+    semantics: currentManifest.semantics,
+  };
+  const eventManifest: CorpusStateEventManifest = {
+    ...manifestBody,
+    manifestSha256: eventManifestSha256(manifestBody),
+  };
+  const eventManifestBytes = Buffer.from(prettyJson(eventManifest), "utf8");
+  const sealedCandidate = sealCorpusEventHistoryAnchorRecord({
+    schemaVersion: CORPUS_EVENT_HISTORY_ANCHOR_SCHEMA_VERSION,
+    recordType: "history_anchor_candidate" as const,
+    anchorId: `anchor.event-history.pending.${event.eventSha256.slice("sha256:".length)}`,
+    sequence: records.length + 1,
+    predecessorRecordSha256: latestRecord.recordSha256,
+    eventLogPrefix: {
+      path: CORPUS_CURRENT_STATE_PATHS.events,
+      fileSha256: prefixedSha256(eventLogBytes),
+      sizeBytes: eventLogBytes.length,
+    },
+    eventCount: events.length,
+    firstEventSha256: eventManifest.firstEventSha256,
+    lastEventSha256: eventManifest.lastEventSha256,
+    eventSetSha256: eventManifest.eventSetSha256,
+    eventManifest: {
+      path: CORPUS_CURRENT_STATE_PATHS.eventManifest,
+      fileSha256: prefixedSha256(eventManifestBytes),
+      sizeBytes: eventManifestBytes.length,
+      manifestSha256: eventManifest.manifestSha256,
+    },
+    createdAt: input.candidateCreatedAt,
+  });
+  const anchorCandidate =
+    validateCorpusEventHistoryAnchorRecord(sealedCandidate);
+  if (anchorCandidate.recordType !== "history_anchor_candidate") {
+    throw new Error(
+      "Pending checkpoint builder produced a non-candidate record",
+    );
+  }
+  const eventHistoryAnchorBytes = Buffer.concat([
+    Buffer.from(input.currentEventHistoryAnchorBytes),
+    canonicalJsonLine(anchorCandidate),
+  ]);
+  return {
+    event,
+    eventLogBytes,
+    eventManifest,
+    eventManifestBytes,
+    anchorCandidate,
+    eventHistoryAnchorBytes,
+  };
 }
 
 function readBaseline(root: string): Baseline {
@@ -733,7 +931,7 @@ function buildGenerationManifest(
   eventManifest: CorpusStateEventManifest,
   resolvedEventEvidence: CorpusResolvedEventEvidence,
   outputs: GeneratedArtifact[],
-  eventHistoryAnchorBytes?: Buffer,
+  proposedInputBytes: ReadonlyMap<string, Buffer> = new Map(),
 ): JsonObject {
   const inputPaths = [
     BASELINE_PATH,
@@ -769,31 +967,23 @@ function buildGenerationManifest(
     commitMarkerSemantics:
       "The generation manifest is renamed last. Consumers must verify every listed input and output before using the projection.",
     inputs: inputPaths.map((path) =>
-      fileDescriptor(
-        root,
-        path,
-        path === CORPUS_CURRENT_STATE_PATHS.eventHistoryAnchors
-          ? eventHistoryAnchorBytes
-          : undefined,
-      ),
+      fileDescriptor(root, path, proposedInputBytes.get(path)),
     ),
     resolvedEventEvidence,
     outputs: outputs.map(generatedDescriptor),
   };
 }
 
-export function buildCorpusCurrentStateArtifacts(
+function buildCorpusCurrentStateArtifactsInternal(
   root: string,
   options: {
     verifyTrustedEventHistoryAnchor?: VerifyTrustedCorpusEventHistoryAnchor;
     verifyHumanReviewerAuthentication?: VerifyCorpusHumanReviewerAuthentication;
-    /**
-     * Proposed canonical anchor-log bytes used only for validation and output
-     * construction. This lets a transactional writer build the exact derived
-     * bundle before it changes the repository anchor file.
-     */
+    eventLogBytes?: Buffer;
+    eventManifestBytes?: Buffer;
     eventHistoryAnchorBytes?: Buffer;
-  } = {},
+    allowPendingCheckpoint: boolean;
+  },
 ): CorpusCurrentStateArtifacts {
   const baseline = readBaseline(root);
   verifyBaselineGeneration(root, baseline);
@@ -805,25 +995,27 @@ export function buildCorpusCurrentStateArtifacts(
     BASELINE_REGISTER_PATH,
     baselineRegisterContent,
   );
-  const eventContent = readFileSync(
-    resolve(root, CORPUS_CURRENT_STATE_PATHS.events),
-    "utf8",
+  const eventLogBytes = options.eventLogBytes
+    ? Buffer.from(options.eventLogBytes)
+    : readFileSync(resolve(root, CORPUS_CURRENT_STATE_PATHS.events));
+  const eventContent = new TextDecoder("utf-8", { fatal: true }).decode(
+    eventLogBytes,
   );
   const events = parseJsonLines(
     CORPUS_CURRENT_STATE_PATHS.events,
     eventContent,
   );
-  const eventManifestContent = readFileSync(
-    resolve(root, CORPUS_CURRENT_STATE_PATHS.eventManifest),
-  );
+  const eventManifestContent = options.eventManifestBytes
+    ? Buffer.from(options.eventManifestBytes)
+    : readFileSync(resolve(root, CORPUS_CURRENT_STATE_PATHS.eventManifest));
   const eventManifest = validateEventManifest(
-    root,
     parseJson(
       CORPUS_CURRENT_STATE_PATHS.eventManifest,
       eventManifestContent.toString("utf8"),
     ),
     events,
     baseline.observedAt,
+    eventLogBytes,
   );
   const eventHistoryAnchorBytes = options.eventHistoryAnchorBytes
     ? Buffer.from(options.eventHistoryAnchorBytes)
@@ -836,7 +1028,7 @@ export function buildCorpusCurrentStateArtifacts(
       eventHistoryAnchorBytes.toString("utf8"),
     ),
     eventLogPath: CORPUS_CURRENT_STATE_PATHS.events,
-    eventLogBytes: Buffer.from(eventContent, "utf8"),
+    eventLogBytes,
     events,
     eventSetSha256,
     currentEventManifest: {
@@ -845,7 +1037,8 @@ export function buildCorpusCurrentStateArtifacts(
       manifestSha256: eventManifest.manifestSha256,
     },
     verifyTrustedAnchor: options.verifyTrustedEventHistoryAnchor,
-    requireCurrentCheckpointTrusted: events.length > 0,
+    requireCurrentCheckpointTrusted:
+      !options.allowPendingCheckpoint && events.length > 0,
   });
   const evidenceResolvers = createRecordingCorpusEvidenceResolvers({
     resolveArtifact: resolveTrackedArtifact(root),
@@ -895,7 +1088,11 @@ export function buildCorpusCurrentStateArtifacts(
     eventManifest,
     evidenceResolvers.snapshot(),
     outputs,
-    eventHistoryAnchorBytes,
+    new Map([
+      [CORPUS_CURRENT_STATE_PATHS.events, eventLogBytes],
+      [CORPUS_CURRENT_STATE_PATHS.eventManifest, eventManifestContent],
+      [CORPUS_CURRENT_STATE_PATHS.eventHistoryAnchors, eventHistoryAnchorBytes],
+    ]),
   );
   return {
     states,
@@ -911,6 +1108,60 @@ export function buildCorpusCurrentStateArtifacts(
       },
     ],
   };
+}
+
+export function buildCorpusCurrentStateArtifacts(
+  root: string,
+  options: {
+    verifyTrustedEventHistoryAnchor?: VerifyTrustedCorpusEventHistoryAnchor;
+    verifyHumanReviewerAuthentication?: VerifyCorpusHumanReviewerAuthentication;
+    /**
+     * Proposed canonical anchor-log bytes used only for validation and output
+     * construction. This lets a trusted-verification appender build the exact
+     * derived bundle before it changes the repository anchor file.
+     */
+    eventHistoryAnchorBytes?: Buffer;
+  } = {},
+): CorpusCurrentStateArtifacts {
+  return buildCorpusCurrentStateArtifactsInternal(root, {
+    ...options,
+    allowPendingCheckpoint: false,
+  });
+}
+
+/**
+ * Replays an exact proposed event/log/manifest/candidate bundle in memory.
+ * It requires the proposed head to remain untrusted and never writes derived
+ * current-state artifacts. Normal generation above still rejects that head.
+ */
+export function buildCorpusProposedPendingCurrentStateArtifacts(
+  root: string,
+  input: {
+    eventLogBytes: Buffer;
+    eventManifestBytes: Buffer;
+    eventHistoryAnchorBytes: Buffer;
+    verifyTrustedEventHistoryAnchor: VerifyTrustedCorpusEventHistoryAnchor;
+  },
+): CorpusCurrentStateArtifacts {
+  const artifacts = buildCorpusCurrentStateArtifactsInternal(root, {
+    eventLogBytes: input.eventLogBytes,
+    eventManifestBytes: input.eventManifestBytes,
+    eventHistoryAnchorBytes: input.eventHistoryAnchorBytes,
+    verifyTrustedEventHistoryAnchor: input.verifyTrustedEventHistoryAnchor,
+    allowPendingCheckpoint: true,
+  });
+  const latestRecord = artifacts.eventHistory.records.at(-1);
+  if (
+    artifacts.events.length === 0 ||
+    artifacts.eventHistory.currentCheckpointTrusted ||
+    latestRecord?.recordType !== "history_anchor_candidate" ||
+    latestRecord.eventCount !== artifacts.events.length
+  ) {
+    throw new Error(
+      "Proposed pending replay must end at one unverified current candidate",
+    );
+  }
+  return artifacts;
 }
 
 function atomicWriteBundle(root: string, bundle: GeneratedArtifact[]): void {
@@ -1078,10 +1329,10 @@ export function initializeGenesisCorpusEventHistoryAnchor(root: string): void {
     "utf8",
   );
   const manifest = validateEventManifest(
-    root,
     parseJson(CORPUS_CURRENT_STATE_PATHS.eventManifest, manifestContent),
     events,
     baseline.observedAt,
+    Buffer.from(eventContent, "utf8"),
   );
   atomicWriteBundle(root, [
     {

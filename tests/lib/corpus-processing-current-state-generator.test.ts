@@ -21,9 +21,15 @@ import {
   sealCorpusEventHistoryAnchorRecord,
   type CorpusEventHistoryAnchorCandidate,
 } from "../../src/lib/knowledge/corpus-processing-event-history";
+import {
+  CORPUS_STATE_EVENT_SCHEMA_VERSION,
+  sealCorpusProcessingStateEvent,
+  validateCorpusProcessingStateEvent,
+} from "../../src/lib/knowledge/corpus-processing-current-state";
 
 import {
   CORPUS_CURRENT_STATE_PATHS,
+  buildCorpusPendingEventCheckpointArtifacts,
   buildCorpusCurrentStateArtifacts,
   createRecordingCorpusEvidenceResolvers,
   initializeEmptyCorpusStateEventLog,
@@ -101,6 +107,143 @@ test("builds the exact derived bundle from a proposed trusted anchor append with
     sha256: createHash("sha256").update(proposed).digest("hex"),
     sizeBytes: proposed.length,
   });
+});
+
+test("builds one canonical pending event checkpoint after a trusted head", () => {
+  const currentAnchorBytes = readFileSync(
+    join(repositoryRoot, CORPUS_CURRENT_STATE_PATHS.eventHistoryAnchors),
+  );
+  const genesis = JSON.parse(
+    currentAnchorBytes.toString("utf8").trimEnd(),
+  ) as CorpusEventHistoryAnchorCandidate;
+  const verification = sealCorpusEventHistoryAnchorRecord({
+    schemaVersion: CORPUS_EVENT_HISTORY_ANCHOR_SCHEMA_VERSION,
+    recordType: "history_anchor_trusted_verification" as const,
+    verificationId: "verification.pending.builder.fixture",
+    sequence: 2,
+    predecessorRecordSha256: genesis.recordSha256,
+    candidateRecordSha256: genesis.recordSha256,
+    verifierId: "verifier.pending.builder.fixture",
+    method: "controlled_project_identity" as const,
+    evidenceSha256: `sha256:${"d".repeat(64)}`,
+    verifiedAt: "2026-08-02T21:00:00Z",
+  });
+  const trustedAnchorBytes = Buffer.concat([
+    currentAnchorBytes,
+    Buffer.from(`${JSON.stringify(verification)}\n`, "utf8"),
+  ]);
+  const currentState = JSON.parse(
+    readFileSync(
+      join(repositoryRoot, CORPUS_CURRENT_STATE_PATHS.currentState),
+      "utf8",
+    ).split("\n")[0]!,
+  ) as {
+    recordId: string;
+    identityKey: string;
+    baselineBinding: { baselineRowSha256: string };
+    stateVersion: number;
+    previousIdentityEventSha256: string | null;
+    stateSha256: string;
+    lifecycleSha256: string;
+  };
+  const occurredAt = "2026-08-03T00:00:00Z";
+  const event = sealCorpusProcessingStateEvent({
+    schemaVersion: CORPUS_STATE_EVENT_SCHEMA_VERSION,
+    eventType: "technical_text_extracted" as const,
+    eventId: "event.pending.builder.fixture",
+    globalSequence: 1,
+    previousGlobalEventSha256: null,
+    identitySequence: 1,
+    previousIdentityEventSha256: currentState.previousIdentityEventSha256,
+    target: {
+      recordId: currentState.recordId,
+      identityKey: currentState.identityKey,
+      baselineRowSha256: currentState.baselineBinding.baselineRowSha256,
+      preStateVersion: currentState.stateVersion,
+      preStateSha256: currentState.stateSha256,
+      preStateLifecycleSha256: currentState.lifecycleSha256,
+    },
+    occurredAt,
+    payload: {
+      qualificationReceiptRef: {
+        artifactType: "pdf_technical_qualification" as const,
+        artifactId: "artifact.pdf_extraction.fixture",
+        artifactVersion: "1.0.0",
+        path: "knowledge/corpus/fixtures/qualification.json",
+        fileSha256: `sha256:${"1".repeat(64)}`,
+        artifactSha256: `sha256:${"2".repeat(64)}`,
+      },
+      inputManifestRef: {
+        artifactType: "source_analysis_input_manifest" as const,
+        artifactId: "artifact.source_analysis_input.fixture",
+        artifactVersion: "1.0.0",
+        path: "knowledge/corpus/fixtures/input-manifest.json",
+        fileSha256: `sha256:${"3".repeat(64)}`,
+        artifactSha256: `sha256:${"4".repeat(64)}`,
+      },
+      textAvailability: {
+        state: "full_text" as const,
+        textSha256: `sha256:${"5".repeat(64)}`,
+        characterCount: 123,
+        extractionMethod: "born_digital" as const,
+        observedAt: occurredAt,
+      },
+    },
+  });
+  const sealedEventBytes = Buffer.from(
+    `${JSON.stringify(validateCorpusProcessingStateEvent(event))}\n`,
+    "utf8",
+  );
+  const checkpoint = buildCorpusPendingEventCheckpointArtifacts({
+    currentEventLogBytes: readFileSync(
+      join(repositoryRoot, CORPUS_CURRENT_STATE_PATHS.events),
+    ),
+    currentEventManifestBytes: readFileSync(
+      join(repositoryRoot, CORPUS_CURRENT_STATE_PATHS.eventManifest),
+    ),
+    currentEventHistoryAnchorBytes: trustedAnchorBytes,
+    sealedEventBytes,
+    expectedInitializedAt: "2026-08-02T20:58:11Z",
+    candidateCreatedAt: "2026-08-03T00:00:01Z",
+  });
+
+  assert.deepEqual(checkpoint.eventLogBytes, sealedEventBytes);
+  assert.equal(checkpoint.eventManifest.eventCount, 1);
+  assert.equal(checkpoint.eventManifest.lastEventSha256, event.eventSha256);
+  assert.equal(checkpoint.anchorCandidate.sequence, 3);
+  assert.equal(
+    checkpoint.anchorCandidate.predecessorRecordSha256,
+    verification.recordSha256,
+  );
+  assert.equal(checkpoint.anchorCandidate.eventCount, 1);
+  assert.deepEqual(
+    checkpoint.eventHistoryAnchorBytes.subarray(0, trustedAnchorBytes.length),
+    trustedAnchorBytes,
+  );
+});
+
+test("pending checkpoint byte builder rejects a still-pending repository head", () => {
+  const currentEventLogBytes = readFileSync(
+    join(repositoryRoot, CORPUS_CURRENT_STATE_PATHS.events),
+  );
+  const currentEventManifestBytes = readFileSync(
+    join(repositoryRoot, CORPUS_CURRENT_STATE_PATHS.eventManifest),
+  );
+  const currentEventHistoryAnchorBytes = readFileSync(
+    join(repositoryRoot, CORPUS_CURRENT_STATE_PATHS.eventHistoryAnchors),
+  );
+  const input = {
+    currentEventLogBytes,
+    currentEventManifestBytes,
+    currentEventHistoryAnchorBytes,
+    sealedEventBytes: Buffer.from("{}\n", "utf8"),
+    expectedInitializedAt: "2026-08-02T20:58:11Z",
+    candidateCreatedAt: "2026-08-03T00:00:01Z",
+  };
+  assert.throws(
+    () => buildCorpusPendingEventCheckpointArtifacts(input),
+    /latest trusted-verification record/,
+  );
 });
 
 test("initializes a sealed empty event log once and refuses to overwrite it", () => {
