@@ -46,6 +46,7 @@ import {
   validateLogicalRestoreCompanionReceipt,
 } from "../../scripts/knowledge/logical-restore-companion-receipt.mjs";
 import {
+  canonicalControlledEvidenceUtcTimestamp,
   controlledCloneOwnershipComment,
   controlledCloneDigestDatabaseUrl,
   controlledLogicalRestoreSignalExitCode,
@@ -394,6 +395,30 @@ test("timestamps require exact millisecond UTC form and internal ordering", () =
       }),
     /stale when consumed/,
   );
+});
+
+test("whole-second backup evidence time canonicalizes to the strict receipt form", () => {
+  assert.equal(
+    canonicalControlledEvidenceUtcTimestamp("2026-08-03T00:15:01Z"),
+    "2026-08-03T00:15:01.000Z",
+  );
+  assert.equal(
+    canonicalControlledEvidenceUtcTimestamp("2026-08-03T00:15:01.123Z"),
+    "2026-08-03T00:15:01.123Z",
+  );
+  for (const invalid of [
+    "2026-02-30T00:15:01Z",
+    "2026-08-03T00:15:01+00:00",
+    "2026-08-03T00:15:01.1Z",
+    "2026-08-03T00:15:01.12Z",
+    "2026-08-03T00:15:01.1234Z",
+    "2026-08-03T00:15:01",
+  ]) {
+    assert.throws(
+      () => canonicalControlledEvidenceUtcTimestamp(invalid),
+      /evidence timestamp is invalid/,
+    );
+  }
 });
 
 test("hash, equality, count, and tool-binding tampering fail closed", () => {

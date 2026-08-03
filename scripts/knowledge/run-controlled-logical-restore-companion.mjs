@@ -196,15 +196,29 @@ function nonNegativeInteger(value, label, { positive = false } = {}) {
   return value;
 }
 
-function timestamp(value, label) {
+export function canonicalControlledEvidenceUtcTimestamp(
+  value,
+  label = "evidence timestamp",
+) {
   if (typeof value !== "string" || !ISO_UTC_PATTERN.test(value)) {
     fail("EVIDENCE_TIME", `${label} is invalid`);
   }
   const parsed = Date.parse(value);
-  if (!Number.isFinite(parsed) || new Date(parsed).toISOString() !== value) {
+  if (!Number.isFinite(parsed)) {
     fail("EVIDENCE_TIME", `${label} is invalid`);
   }
-  return parsed;
+  const canonical = new Date(parsed).toISOString();
+  const wholeSecond = canonical.endsWith(".000Z")
+    ? canonical.replace(/\.000Z$/, "Z")
+    : canonical;
+  if (value !== canonical && value !== wholeSecond) {
+    fail("EVIDENCE_TIME", `${label} is invalid`);
+  }
+  return canonical;
+}
+
+function timestamp(value, label) {
+  return Date.parse(canonicalControlledEvidenceUtcTimestamp(value, label));
 }
 
 function canonicalEqual(left, right) {
@@ -977,7 +991,10 @@ async function loadAndVerifyBackupEvidence(paths) {
     backup: {
       dumpBytes: dump.bytes,
       dumpSha256: dump.sha256,
-      metadataCreatedAtUtc: metadata.createdAtUtc,
+      metadataCreatedAtUtc: canonicalControlledEvidenceUtcTimestamp(
+        metadata.createdAtUtc,
+        "backup metadata creation time",
+      ),
       metadataFormat: metadata.format,
       metadataSha256,
       metadataVersion: metadata.version,
