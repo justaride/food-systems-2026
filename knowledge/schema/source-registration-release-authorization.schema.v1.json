@@ -1,0 +1,252 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/source-registration-release-authorization.schema.v1.json",
+  "title": "Source registration release authorization v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format",
+    "version",
+    "algorithm",
+    "keyId",
+    "body",
+    "signatureBase64"
+  ],
+  "properties": {
+    "format": {
+      "const": "foodsystems-source-registration-release-authorization"
+    },
+    "version": { "const": 1 },
+    "algorithm": { "const": "Ed25519" },
+    "keyId": {
+      "const": "ed25519-spki-sha256:e22fee895bf45398983485329a23cb2e53b18f44480a6c837ff3ae5c9444a35b"
+    },
+    "body": { "$ref": "#/$defs/body" },
+    "signatureBase64": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9+/]{86}==$"
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+    },
+    "body": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authorizationId",
+        "scope",
+        "operator",
+        "issuedAtUtc",
+        "notBeforeUtc",
+        "expiresAtUtc",
+        "nonce",
+        "mutation",
+        "bindings",
+        "restoreProof"
+      ],
+      "properties": {
+        "authorizationId": { "$ref": "#/$defs/uuid" },
+        "scope": {
+          "const": "source-registration.new-official-2026-08-02.exact-apply"
+        },
+        "operator": { "$ref": "#/$defs/operator" },
+        "issuedAtUtc": { "$ref": "#/$defs/timestamp" },
+        "notBeforeUtc": { "$ref": "#/$defs/timestamp" },
+        "expiresAtUtc": { "$ref": "#/$defs/timestamp" },
+        "nonce": { "$ref": "#/$defs/sha256" },
+        "mutation": { "$ref": "#/$defs/mutation" },
+        "bindings": { "$ref": "#/$defs/bindings" },
+        "restoreProof": { "$ref": "#/$defs/restoreProof" }
+      }
+    },
+    "operator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operatorId",
+        "authorityClass",
+        "exactApplyAuthorized",
+        "humanApprovalClaimed",
+        "ownerExactHashReviewClaimed",
+        "expertValidationClaimed",
+        "rightsHolderApprovalClaimed",
+        "keyCustody"
+      ],
+      "properties": {
+        "operatorId": {
+          "const": "codex-ai:food-systems-2026-local-operator"
+        },
+        "authorityClass": {
+          "const": "codex_ai_local_operator_pre_human_validation"
+        },
+        "exactApplyAuthorized": { "const": true },
+        "humanApprovalClaimed": { "const": false },
+        "ownerExactHashReviewClaimed": { "const": false },
+        "expertValidationClaimed": { "const": false },
+        "rightsHolderApprovalClaimed": { "const": false },
+        "keyCustody": {
+          "const": "local_owner_accessible_file_not_hardware_backed"
+        }
+      }
+    },
+    "mutation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "action",
+        "acknowledgement",
+        "databaseRole",
+        "documentCreatesMax",
+        "libraryAnalysisRecordCreatesMax",
+        "controlledMutationAuditCreatesMax",
+        "otherDatabaseWritesAuthorized",
+        "lifecyclePromotionAuthorized",
+        "sourceAnalysisPromotionAuthorized",
+        "externalUseAuthorized"
+      ],
+      "properties": {
+        "action": { "const": "register_exact_locked_official_sources" },
+        "acknowledgement": {
+          "const": "REGISTER_10_LOCKED_OFFICIAL_SOURCES_PLAN_631FEF2595BF"
+        },
+        "databaseRole": { "const": "foodsystems" },
+        "documentCreatesMax": { "const": 10 },
+        "libraryAnalysisRecordCreatesMax": { "const": 10 },
+        "controlledMutationAuditCreatesMax": { "const": 1 },
+        "otherDatabaseWritesAuthorized": { "const": false },
+        "lifecyclePromotionAuthorized": { "const": false },
+        "sourceAnalysisPromotionAuthorized": { "const": false },
+        "externalUseAuthorized": { "const": false }
+      }
+    },
+    "bindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "planSha256",
+        "planFileSha256",
+        "beforeSnapshotSha256",
+        "databaseIdentityUuid",
+        "sourceDatabaseName",
+        "applyContractSha256",
+        "dependencyStateSha256",
+        "operationKey",
+        "codeBindingsSha256",
+        "databaseTargetSha256",
+        "databaseCatalogSha256",
+        "contentStateSha256",
+        "backupSha256",
+        "backupBytes",
+        "backupMetadataSha256",
+        "structuralRestoreReceiptSha256",
+        "logicalRestoreCompanionReceiptSha256",
+        "logicalCloneRehearsalReceiptFileSha256",
+        "logicalCloneRehearsalReceiptSelfSha256",
+        "completedMigrationLedgerSha256",
+        "targetFingerprintSha256",
+        "targetSetSha256"
+      ],
+      "properties": {
+        "planSha256": { "$ref": "#/$defs/sha256" },
+        "planFileSha256": { "$ref": "#/$defs/sha256" },
+        "beforeSnapshotSha256": { "$ref": "#/$defs/sha256" },
+        "databaseIdentityUuid": { "$ref": "#/$defs/uuid" },
+        "sourceDatabaseName": { "const": "foodsystems" },
+        "applyContractSha256": { "$ref": "#/$defs/sha256" },
+        "dependencyStateSha256": { "$ref": "#/$defs/sha256" },
+        "operationKey": {
+          "type": "string",
+          "pattern": "^source-registration-new-official-v1:[a-f0-9]{64}$"
+        },
+        "codeBindingsSha256": { "$ref": "#/$defs/sha256" },
+        "databaseTargetSha256": { "$ref": "#/$defs/sha256" },
+        "databaseCatalogSha256": { "$ref": "#/$defs/sha256" },
+        "contentStateSha256": { "$ref": "#/$defs/sha256" },
+        "backupSha256": { "$ref": "#/$defs/sha256" },
+        "backupBytes": { "type": "integer", "minimum": 1 },
+        "backupMetadataSha256": { "$ref": "#/$defs/sha256" },
+        "structuralRestoreReceiptSha256": { "$ref": "#/$defs/sha256" },
+        "logicalRestoreCompanionReceiptSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "logicalCloneRehearsalReceiptFileSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "logicalCloneRehearsalReceiptSelfSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "completedMigrationLedgerSha256": { "$ref": "#/$defs/sha256" },
+        "targetFingerprintSha256": { "$ref": "#/$defs/sha256" },
+        "targetSetSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "restoreProof": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceContentStateSha256",
+        "restoredContentStateSha256",
+        "contentMatch",
+        "restoredDatabaseDropped",
+        "restoredDatabaseAbsenceConfirmed",
+        "postRehearsalCloneFullStateMatched",
+        "sourceStillMatchedAfterRehearsal",
+        "structuralRestoreCompletedAtUtc",
+        "logicalRestoreCompanionCompletedAtUtc",
+        "logicalComparisonProofSha256",
+        "logicalCloneRehearsalOperationKey",
+        "logicalCloneRehearsalRuntimeAttestationSha256",
+        "logicalCloneRehearsalCompletedAtUtc",
+        "restoreRunnerSha256",
+        "backupVerifierSha256",
+        "backupContractHelperSha256",
+        "databaseLogicalDigestSha256",
+        "psqlBinarySha256",
+        "psqlRuntimeClosureSha256"
+      ],
+      "properties": {
+        "sourceContentStateSha256": { "$ref": "#/$defs/sha256" },
+        "restoredContentStateSha256": { "$ref": "#/$defs/sha256" },
+        "contentMatch": { "const": true },
+        "restoredDatabaseDropped": { "const": true },
+        "restoredDatabaseAbsenceConfirmed": { "const": true },
+        "postRehearsalCloneFullStateMatched": { "const": true },
+        "sourceStillMatchedAfterRehearsal": { "const": true },
+        "structuralRestoreCompletedAtUtc": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "logicalRestoreCompanionCompletedAtUtc": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "logicalComparisonProofSha256": { "$ref": "#/$defs/sha256" },
+        "logicalCloneRehearsalOperationKey": {
+          "type": "string",
+          "pattern": "^source-registration-logical-clone-rehearsal-v1:[a-f0-9]{64}$"
+        },
+        "logicalCloneRehearsalRuntimeAttestationSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "logicalCloneRehearsalCompletedAtUtc": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "restoreRunnerSha256": { "$ref": "#/$defs/sha256" },
+        "backupVerifierSha256": { "$ref": "#/$defs/sha256" },
+        "backupContractHelperSha256": { "$ref": "#/$defs/sha256" },
+        "databaseLogicalDigestSha256": { "$ref": "#/$defs/sha256" },
+        "psqlBinarySha256": { "$ref": "#/$defs/sha256" },
+        "psqlRuntimeClosureSha256": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}

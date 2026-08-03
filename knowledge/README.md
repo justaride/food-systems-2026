@@ -15,10 +15,15 @@ It does **not** declare the Nordic food system complete. It defines what must be
 7. [Coverage summary](coverage/coverage-summary.v1.json)
 8. [Gate 1 corpus/evidence-health report](health/corpus-health-report.v1.md)
 9. [Corpus/evidence-health contract](schema/corpus-evidence-health.schema.v1.json)
-10. [Current-corpus migration map](migration/CURRENT-CORPUS-MAP.md)
-11. [Compiled-wiki index](wiki/index.md)
-12. [Append-only wiki log](wiki/log.md)
-13. [Gate 2B Field 08 research-candidate pilot](pilots/field08/README.md)
+10. [Whole-corpus processing baseline](corpus/README.md)
+11. [Source-analysis protocol](corpus/SOURCE-ANALYSIS-PROTOCOL.md)
+12. [Source-discovery protocol](corpus/SOURCE-DISCOVERY-PROTOCOL.md)
+13. [Controlled source-acquisition workflow](corpus/workflows/controlled-source-acquisition-v1.md)
+14. [Independent review-layer contract](review/REVIEW-LAYER-CONTRACT.md)
+15. [Current-corpus migration map](migration/CURRENT-CORPUS-MAP.md)
+16. [Compiled-wiki index](wiki/index.md)
+17. [Append-only wiki log](wiki/log.md)
+18. [Gate 2B Field 08 research-candidate pilot](pilots/field08/README.md)
 
 ## Canonical boundary
 
@@ -51,7 +56,21 @@ The generator reads the ontology and proposed baseline manifest, verifies every 
 - `coverage/coverage-source-snapshots.v1.json` — SHA-256 and Git-object provenance for every declared baseline input;
 - `coverage/coverage-generation-manifest.v1.json` — final commit marker and output hashes.
 
-`knowledge:check` also compiles the relevant JSON Schemas, validates ontology and cross-record membership rules, validates the generated coverage/provenance graph, and recomputes the corpus-health bundle from its source snapshots. Generated files must not be edited manually. During proposal review, change the ontology or baseline manifest and regenerate them. After approval, the v1 baseline manifest and event file are immutable; corrections require new content-addressed events with `supersedesId`.
+`knowledge:check` also verifies the review and lifecycle contracts, the exact whole-corpus register, the portable PDF qualification bundle, relevant JSON Schemas, ontology and cross-record membership rules, the generated coverage/provenance graph, and the corpus-health bundle from its source snapshots. Generated files must not be edited manually. During proposal review, change the ontology or baseline manifest and regenerate them. After approval, the v1 baseline manifest and event file are immutable; corrections require new content-addressed events with `supersedesId`.
+
+## Whole-corpus processing baseline
+
+The [whole-corpus work surface](corpus/README.md) binds the active database inventory to **1,555 unique source identities** with zero identity/content-set parity failures. Of these, 1,526 have repository files, eleven have separately protected recovery captures, eighteen have no current source locator or bytes, and 1,537 are bound to a content hash. Content duplicates reduce the work to 1,467 full-text processing units without merging identities.
+
+The honest readiness state is still zero: zero completed full-text AI analyses, zero owner-confirmed source roles, zero owner-reviewed sources, zero external-use-ready sources and zero coverage promotions. This is intentional. Existing summaries, word counts, earlier AI cards and technical extraction cannot be relabelled as complete reading.
+
+The current technical PDF batch qualifies fifteen unique byte streams covering 772 pages and 272,545 extracted words. It contains 35 warning pages, including one blank page and twenty low-text pages, with no technical failures. Three established sources are candidates for formal identity verification. Two legacy aliases remain blocked by identity mismatch, and ten newly acquired official sources remain blocked until controlled database registration. All fifteen remain ineligible for source analysis. Technical extraction is not AI analysis.
+
+Thirteen exact acquisition receipts now bind three previously identified and ten newly discovered official PDF byte streams to their credential-free HTTPS fetches and protected primary/replica archive copies. The ten new sources remain unregistered candidates: receipt, archive and extraction evidence do not create a database identity, establish source authority, approve an interpretation or promote coverage.
+
+The operating model now has eight independent axes: AI processing; Gabriel's owner review; independent expert validation; partner validation; rights-holder validation; rights clearance; publication; and coverage promotion. Gabriel may approve internal project use with disclosed AI assistance. His owner receipt cannot substitute for an independent expert, partner or rights-holder decision. A source reaches the database, wiki, Obsidian and platform only through typed, inspectable projections from this chain.
+
+Portable checks run as part of `knowledge:check`. Live database and private-archive checks are explicit because a committed report must never pretend that a local protected archive was inspected everywhere.
 
 ## Generated corpus/evidence health
 

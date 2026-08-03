@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.0.0",
+  "receiptType": "pdf_page_extraction_technical_qualification",
+  "pipelineVersion": "1.0.0",
+  "qualificationState": "technical_extraction_passed_identity_blocked",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8"
+  },
+  "identityKeys": [
+    "candidate:source.no.dagligvaretilsyn.annual-report-2025"
+  ],
+  "identityAssociation": {
+    "state": "unregistered_source_candidate",
+    "intendedLabel": "Dagligvaretilsynet årsrapport 2025",
+    "observedDocumentTitle": "Årsrapport for Dagligvaretilsynet 2025",
+    "blockerCode": "database_registration_required"
+  },
+  "sourceBinding": {
+    "title": "Årsrapport for Dagligvaretilsynet 2025",
+    "doi": null,
+    "officialUrl": "https://www.regjeringen.no/contentassets/036ffda0c81e4b3f99456a78ec31df0e/arsrapport-dagligvaretilsynet-2025.pdf",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_classification"
+  },
+  "sourceFile": {
+    "expectedSizeBytes": 1247932,
+    "observedSizeBytes": 1247932,
+    "headerMagic": "%PDF-",
+    "encryptionState": "not_encrypted",
+    "pageCount": 55,
+    "pdfVersion": "1.7",
+    "primaryCopy": {
+      "locator": "private://corpus/sha256/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.pdf",
+      "sha256": "1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8",
+      "sizeBytes": 1247932,
+      "fileMode": "0400",
+      "verified": true
+    },
+    "replicaCopy": {
+      "locator": "private://bigbrain-corpus/sha256/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.pdf",
+      "sha256": "1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8",
+      "sizeBytes": 1247932,
+      "fileMode": "0400",
+      "verified": true
+    }
+  },
+  "extraction": {
+    "pdfinfoVersion": "26.04.0",
+    "pdftotextVersion": "26.04.0",
+    "argumentsTemplate": [
+      "-f",
+      "{page}",
+      "-l",
+      "{page}",
+      "-enc",
+      "UTF-8",
+      "-eol",
+      "unix",
+      "-nopgbrk",
+      "{input_pdf}",
+      "-"
+    ],
+    "pageMapLocator": "knowledge/corpus/pdf-page-extraction/page-maps/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.page-map.v1.json",
+    "pageMapSha256": "fac8cc8ad85119056cde2136245558d7b663c8ceda9eb79b9f85ab0c7bf2010e",
+    "extractedPageCount": 55,
+    "rawTextFileCount": 55,
+    "normalizedTextFileCount": 55,
+    "primaryPrivateOutputVerified": true,
+    "replicaPrivateOutputVerified": true
+  },
+  "totals": {
+    "rawSizeBytes": 92565,
+    "rawCharacterCount": 90960,
+    "normalizedSizeBytes": 92510,
+    "normalizedCharacterCount": 90905,
+    "wordCount": 12113,
+    "warningPageCount": 4,
+    "blankPageCount": 0,
+    "lowTextPageCount": 4
+  },
+  "warningSummary": [
+    {
+      "code": "low_extracted_text",
+      "pageCount": 4,
+      "pageNumbers": [
+        1,
+        27,
+        28,
+        54
+      ]
+    }
+  ],
+  "languagePolicy": {
+    "pageLanguageDetection": "not_computed",
+    "reason": "no_version_pinned_reliable_detector_configured"
+  },
+  "semantics": {
+    "technicalExtractionOnly": true,
+    "fullTextStoredInRepository": false,
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentValidationComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "receiptSha256": "0190ad1c9b1f5ff1ab0211ae6009db9eac9779d04dd10418f4cb55753a0ef1bb"
+}

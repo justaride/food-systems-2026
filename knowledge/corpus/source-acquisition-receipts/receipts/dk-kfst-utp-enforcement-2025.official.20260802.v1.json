@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "source-acquisition-receipt-v1",
+  "artifactType": "source_acquisition_receipt",
+  "receiptId": "receipt.source.acquisition.dk-kfst-utp-enforcement-2025.official.20260802.v1",
+  "receiptVersion": "1.0.0",
+  "sourceId": "source.dk.kfst.utp-enforcement-2025",
+  "tool": {
+    "name": "food-systems-controlled-curl-http2-fetch-adapter",
+    "version": "1.0.0",
+    "workflowRef": "knowledge/corpus/workflows/controlled-source-acquisition-v1.md",
+    "workflowVersion": "1.0.0"
+  },
+  "startedAt": "2026-08-02T23:18:29.849Z",
+  "completedAt": "2026-08-02T23:18:30.026Z",
+  "receiptSha256": "sha256:bc39839f46f506c164224ef1285b5c5cc93153f8bd4ff0b8ab08546568425fdc",
+  "acquisitionType": "controlled_https_fetch",
+  "requestedLocator": "https://kfst.dk/media/tugboea2/20260629-aarlig-rapport-om-haandhaevelsesaktiviteter-i-henhold-til-utp-direktivet-i-2025-a.pdf",
+  "finalLocator": "https://kfst.dk/media/tugboea2/20260629-aarlig-rapport-om-haandhaevelsesaktiviteter-i-henhold-til-utp-direktivet-i-2025-a.pdf",
+  "request": {
+    "method": "GET",
+    "redirectMode": "manual",
+    "credentialsMode": "omit",
+    "maximumRedirects": 5
+  },
+  "redirectChain": [],
+  "response": {
+    "status": 200,
+    "contentType": "application/pdf",
+    "contentLengthBytes": 173750,
+    "bodySizeBytes": 173750,
+    "bodySha256": "sha256:2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad",
+    "observedAt": "2026-08-02T23:18:29.849Z"
+  }
+}

@@ -1,0 +1,275 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactType": "source_analysis_input_generation_manifest",
+  "pipelineVersion": "1.0.0",
+  "inputs": [
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761.page-map.v1.json",
+      "sha256": "617953e0d4aac01b1e3d5800df998bc8b08ef82b2c481334374afce323ad991b",
+      "sizeBytes": 24325
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/1bc1fae8f24d37f08704fc4cbfdc57e5c4f258125d1bfbfa3d13867d933da7fc.page-map.v1.json",
+      "sha256": "90031f6a3c8806dca746664a785ae58ba50dbd7de9f2105126662e04d0089a18",
+      "sizeBytes": 48075
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0.page-map.v1.json",
+      "sha256": "5c51eeb94a873ed86d3e39512627cd1a3a39830fd9a2a259e8764a3a335e1e85",
+      "sizeBytes": 25720
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.page-map.v1.json",
+      "sha256": "768740200b09c0f6ab17cfafcd4ee35695fc9999df25618fd453f87d267508fd",
+      "sizeBytes": 70820
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.page-map.v1.json",
+      "sha256": "fe8250bc22a83ab4118ca9cc301525479706250eef76440dddaaec743f5e237c",
+      "sizeBytes": 11940
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01.page-map.v1.json",
+      "sha256": "47fa6a28b68f409d0dc95acef3ef5ebed1801aa009e7d89bda5312508c5dd4be",
+      "sizeBytes": 31926
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148.page-map.v1.json",
+      "sha256": "de1b91b7a388097500d4ee54fe29ce9807c4d09e59fa79670264c3ca356688b3",
+      "sizeBytes": 4512
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025.page-map.v1.json",
+      "sha256": "9c2fc46635d3bd01c2a6a8babe04483937b78ee3e3a3a5c4dcca168addffcd79",
+      "sizeBytes": 22493
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142.page-map.v1.json",
+      "sha256": "401df6dbd34ce40a08cf46813eb239b3508d3be6611fb4149f015468e542ff23",
+      "sizeBytes": 24367
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/7df8505be38d4a8b7ea1a2661dd04dc761a945944df4d23d7812ce76a60ad59e.page-map.v1.json",
+      "sha256": "09916c53498f595036c2c0ff967f1a0a45423c9d27105c9e270952c276c687b0",
+      "sizeBytes": 30671
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42.page-map.v1.json",
+      "sha256": "45ac6191ed0e056513252241f835526b94964715080f2514c59812026b304844",
+      "sizeBytes": 15585
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e.page-map.v1.json",
+      "sha256": "34e44f5fcae1fde7cdfdd840a809f2d69d19abecce99a53e2a2a15ee81584f38",
+      "sizeBytes": 187501
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7.page-map.v1.json",
+      "sha256": "ba0fa69d37382c927812b8558f255821b88db8bfabe9fdcc338c9eb71c7fc595",
+      "sizeBytes": 190067
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c.page-map.v1.json",
+      "sha256": "5392ae87da8757df52af5753c9ae5cd80f5e526b552b515c24751b151faee977",
+      "sizeBytes": 142369
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303.page-map.v1.json",
+      "sha256": "6bf2a4ab8e94f69ca8725eb00cfd496fa407873256b0696af2f7c9e356f28598",
+      "sizeBytes": 166023
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761.receipt.v1.json",
+      "sha256": "3c9954ab78bff89f6269e8fde0579208e93f809df9f729ae989a9f11cfdf5b0b",
+      "sizeBytes": 3378
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/1bc1fae8f24d37f08704fc4cbfdc57e5c4f258125d1bfbfa3d13867d933da7fc.receipt.v1.json",
+      "sha256": "1e39fb04cd4d8cc6fa2fac8874c89005701397e1715ef54b150111483f817f4d",
+      "sizeBytes": 3385
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0.receipt.v1.json",
+      "sha256": "66f21d9df1d1eb5190fa8dde2f109e997b0a8d3cf2ec8d3aa8fbd6810d1709dc",
+      "sizeBytes": 3435
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.receipt.v1.json",
+      "sha256": "8a957d62cfcdb39512eac5f8c55796eb45d847c29c5f76e4732c67bf24dd2634",
+      "sizeBytes": 3493
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.receipt.v1.json",
+      "sha256": "79c86c71f979960c7694df7394768c3ec7c57d4048ce56444d0e045c69d8f503",
+      "sizeBytes": 3525
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01.receipt.v1.json",
+      "sha256": "e0173edec981878df0fa111ad08f0b7f32ba412133df1bccc41c8f64b03b2217",
+      "sizeBytes": 3512
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148.receipt.v1.json",
+      "sha256": "6225bf7f5c56e62053df2de6747c7dfd403f922600242bc405c70573931536c9",
+      "sizeBytes": 3507
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025.receipt.v1.json",
+      "sha256": "45a5709b40e5a7cc5fa20c27e5321b7e0461c8ae73184ba0a4f3e082515d7b1e",
+      "sizeBytes": 3944
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142.receipt.v1.json",
+      "sha256": "09725f748d7611484182b228eeb33495d9552c07e3c479860a30f5d7f6986945",
+      "sizeBytes": 3421
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/7df8505be38d4a8b7ea1a2661dd04dc761a945944df4d23d7812ce76a60ad59e.receipt.v1.json",
+      "sha256": "ec4c7152c1ae107875089e4522c62247e645fd96b9e39cd159d99a0d020403c3",
+      "sizeBytes": 3495
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42.receipt.v1.json",
+      "sha256": "d174cb5209ecf48400a147bdaa8b357686f220f0844c201fb77c22c101321512",
+      "sizeBytes": 3324
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e.receipt.v1.json",
+      "sha256": "bbb2721709331be16433c25036c5166418a7f6d0097a1ea12eb818ac69a7ef30",
+      "sizeBytes": 3568
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7.receipt.v1.json",
+      "sha256": "1d184e39489f2ceb27cbe06def1db92ebe56824b15374049b13c65d9db1686d4",
+      "sizeBytes": 3699
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c.receipt.v1.json",
+      "sha256": "57dd8bfd1a557b0ffd2a19e0bf0eaa4b26024670684af3cb6d17b44fe2a8d33c",
+      "sizeBytes": 3585
+    },
+    {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303.receipt.v1.json",
+      "sha256": "e5f9d65df432a56243e1c9cc7600b1553d0c59954526729dd514acab30870a3c",
+      "sizeBytes": 3478
+    },
+    {
+      "path": "knowledge/schema/source-analysis-input-manifest.schema.v1.json",
+      "sha256": "33d0e99dec79c701192ca4acacbb7ce96c5f8c551cc793c9334ee5090c0e6b56",
+      "sizeBytes": 18909
+    },
+    {
+      "path": "scripts/knowledge/generate-source-analysis-input-manifests.ts",
+      "sha256": "764fedc8e9c2f03c9752b41ccefcdab1ebe85eb1b045e1233e965de4962948a4",
+      "sizeBytes": 46027
+    },
+    {
+      "path": "src/lib/knowledge/pdf-page-extraction-qualification.ts",
+      "sha256": "83a1e7882c06a0bc92c962f8c41613df9f1c1438c4867b693a97ed3db48b6584",
+      "sizeBytes": 19139
+    },
+    {
+      "path": "src/lib/knowledge/source-analysis-input-manifest.ts",
+      "sha256": "1f2cbc1ba6aee76398f33c0ab4d6c4ed1e932d66476b95965ccf75864c2b3c78",
+      "sizeBytes": 22318
+    }
+  ],
+  "outputs": [
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761.source-analysis-input-manifest.v1.json",
+      "sha256": "a1a79fd4efbe2c884fd381f2282c3185df2c7b6a81c1ed10e1c29315b4d23ed5",
+      "sizeBytes": 8740
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/1bc1fae8f24d37f08704fc4cbfdc57e5c4f258125d1bfbfa3d13867d933da7fc.source-analysis-input-manifest.v1.json",
+      "sha256": "2f7b7dcb82e1b930fe45b885fa23e5ddb8f46007a668af10fd077aa22c77fe58",
+      "sizeBytes": 13295
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0.source-analysis-input-manifest.v1.json",
+      "sha256": "69b434033b05f3bd7951766aca791e760efd63325d7479b6d2a7343e30a67909",
+      "sizeBytes": 9187
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.source-analysis-input-manifest.v1.json",
+      "sha256": "a5b2c5d065be5e5ee098840e43c0dddc1bc37f61d78f63f3d01aa61f163fd061",
+      "sizeBytes": 17735
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.source-analysis-input-manifest.v1.json",
+      "sha256": "a230acef2e37cbdf6c95d194abb6fd29ef64d4c9d21fec24f1334c9eed07cfb2",
+      "sizeBytes": 6510
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01.source-analysis-input-manifest.v1.json",
+      "sha256": "11839eb60ef2a70b106ee06bf453f491ed5083cefa222a8406bcd46cd0727c20",
+      "sizeBytes": 10295
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148.source-analysis-input-manifest.v1.json",
+      "sha256": "98fdff47d5cde84615d6c4580a1f48dae4c2529103f0ae29bbffc6365bc2c12f",
+      "sizeBytes": 5179
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025.source-analysis-input-manifest.v1.json",
+      "sha256": "7ba8d6195c06572cc81ad636e0770268bfe346a1a7380b471f0ac637f01e1327",
+      "sizeBytes": 8442
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142.source-analysis-input-manifest.v1.json",
+      "sha256": "3ea4e4e9db9f6c8ce6a5d8cf48b590f955ebe72ff16652e4516ea45f0b4d6e0f",
+      "sizeBytes": 8812
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/7df8505be38d4a8b7ea1a2661dd04dc761a945944df4d23d7812ce76a60ad59e.source-analysis-input-manifest.v1.json",
+      "sha256": "2dfa2b862d5b2ec7cf9a2134cd1ba491ae2b6a0faa42364ecd2f66bd1cc3d38c",
+      "sizeBytes": 10069
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42.source-analysis-input-manifest.v1.json",
+      "sha256": "877d1cf78ea1d782d9880c0c25071245116313787930aaf71bdcd695df92680d",
+      "sizeBytes": 7148
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e.source-analysis-input-manifest.v1.json",
+      "sha256": "b00108049c3772401f5c2c9b5ca27f25f10c5619b01e324257de9e197125ea50",
+      "sizeBytes": 40289
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7.source-analysis-input-manifest.v1.json",
+      "sha256": "3d90091408e929f97fde49df5ce68cdff455e3fd64696333e0e5c34293bd074d",
+      "sizeBytes": 40921
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c.source-analysis-input-manifest.v1.json",
+      "sha256": "50fdabc3efd898741574c420a704c7fd8e69ff39c785810652b6f506c3d2e447",
+      "sizeBytes": 31566
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/manifests/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303.source-analysis-input-manifest.v1.json",
+      "sha256": "9d376ed7fc6ab455363361a17d491c456fe7172a0b00876d306180e2ea16760d",
+      "sizeBytes": 36111
+    },
+    {
+      "path": "knowledge/corpus/source-analysis-input-manifests/source-analysis-input-summary.v1.json",
+      "sha256": "581bfcf42c1ba788422985969c077b3e429a716e2bb2e153a1ac0ba3f1c48582",
+      "sizeBytes": 12256
+    }
+  ],
+  "outputSetSha256": "740fb4a9060e4a54d86b6e0bafeb9636092ae541ca7b8a3138f51c8ae961d863",
+  "semantics": {
+    "portableTrackedValidationSupported": true,
+    "privateValidationRequiresBothArchiveRoots": true,
+    "privateFilesWrittenByThisPipeline": false,
+    "sourceTextIncludedInTrackedArtifacts": false,
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentExpertReviewComplete": false,
+    "partnerReviewComplete": false,
+    "rightsHolderReviewComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "generationManifestSha256": "17ac9c09bf5b5bc16e04042a2b3d4acc48e8f1010dec9cad17afa445ff31a72c"
+}

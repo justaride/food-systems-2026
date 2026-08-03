@@ -1,0 +1,984 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/source-registration-apply-receipt.schema.v1.json",
+  "title": "Locked source-registration apply receipt",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "artifactType",
+    "receiptState",
+    "contractScope",
+    "contractVersion",
+    "contractSha256",
+    "operationKey",
+    "plan",
+    "codeBindings",
+    "authorization",
+    "releaseAuthorization",
+    "releaseEvidence",
+    "liveContentState",
+    "databaseTarget",
+    "databaseCatalog",
+    "auditDurability",
+    "dependencyStateSha256",
+    "targetSetSha256",
+    "afterSnapshot",
+    "rows",
+    "readiness",
+    "contentBoundary",
+    "summarySha256"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "source-registration-apply-receipt-v1" },
+    "artifactType": { "const": "source_registration_apply_receipt" },
+    "receiptState": { "const": "exact_apply_committed" },
+    "contractScope": {
+      "const": "source-registration.new-official-2026-08-02.apply-v1"
+    },
+    "contractVersion": { "const": "1.0.0" },
+    "contractSha256": { "$ref": "#/$defs/sha256" },
+    "operationKey": { "$ref": "#/$defs/safeText" },
+    "plan": {
+      "type": "object",
+      "required": ["path", "fileSha256", "planSha256", "beforeSnapshotSha256"],
+      "properties": {
+        "path": {
+          "const": "knowledge/corpus/source-registration/source-registration-dry-run-plan-2026-08-03.v1.json"
+        },
+        "fileSha256": {
+          "const": "7a8de0151ad9d0c77bb7bb47a01c3bd08922805e933a5b379aea3dd59b84def9"
+        },
+        "planSha256": {
+          "const": "631fef2595bf8f9e897485c1f064654716a3bdb2591bbfb20227370d496a4e2f"
+        },
+        "beforeSnapshotSha256": {
+          "const": "77ac2b8fb968b573f53448522d1bf121012d9b19f3ab8f131b23e599e53d44b5"
+        }
+      },
+      "additionalProperties": false
+    },
+    "codeBindings": {
+      "type": "object",
+      "required": [
+        "runtime",
+        "runner",
+        "launcher",
+        "runtimeLauncherTest",
+        "logicalCloneRehearsalRuntime",
+        "logicalCloneRehearsalJsonSchema",
+        "logicalCloneRehearsalTest",
+        "logicalCloneRehearsalCommandRunner",
+        "logicalRestoreCompanionValidator",
+        "logicalRestoreCompanionJsonSchema",
+        "logicalRestoreCompanionTest",
+        "controlledLogicalRestoreCompanionRunner",
+        "pdfQualificationRuntime",
+        "sourceAcquisitionRuntime",
+        "sourceAnalysisInputRuntime",
+        "databaseLogicalStateDigest",
+        "databaseLogicalStateDigestTest",
+        "nodeRuntimeClosureManifest",
+        "nodeRuntimeClosureVerifier",
+        "nodeRuntimeClosureVerifierTest",
+        "psqlRuntimeClosureManifest",
+        "psqlRuntimeClosureVerifier",
+        "psqlRuntimeClosureVerifierTest",
+        "restoreRunner",
+        "releaseAuthorizationVerifier",
+        "releaseAuthorizationJsonSchema",
+        "releaseAuthorizationContract",
+        "releaseAuthorizationPublicKey",
+        "releaseAuthorizationVerifierTest",
+        "releaseAuthorizationSigner",
+        "releaseAuthorizationSignerTest",
+        "jsonSchema",
+        "contractDocument",
+        "backupVerifier",
+        "backupContractHelper",
+        "packageLock",
+        "prismaGeneratedClientTree",
+        "runtimeEnvironment"
+      ],
+      "properties": {
+        "runtime": { "$ref": "#/$defs/fileBinding" },
+        "runner": { "$ref": "#/$defs/fileBinding" },
+        "launcher": { "$ref": "#/$defs/fileBinding" },
+        "runtimeLauncherTest": { "$ref": "#/$defs/fileBinding" },
+        "logicalCloneRehearsalRuntime": {
+          "$ref": "#/$defs/fileBinding"
+        },
+        "logicalCloneRehearsalJsonSchema": {
+          "$ref": "#/$defs/fileBinding"
+        },
+        "logicalCloneRehearsalTest": { "$ref": "#/$defs/fileBinding" },
+        "logicalCloneRehearsalCommandRunner": {
+          "$ref": "#/$defs/fileBinding"
+        },
+        "logicalRestoreCompanionValidator": {
+          "$ref": "#/$defs/fileBinding"
+        },
+        "logicalRestoreCompanionJsonSchema": {
+          "$ref": "#/$defs/fileBinding"
+        },
+        "logicalRestoreCompanionTest": {
+          "$ref": "#/$defs/fileBinding"
+        },
+        "controlledLogicalRestoreCompanionRunner": {
+          "$ref": "#/$defs/fileBinding"
+        },
+        "pdfQualificationRuntime": { "$ref": "#/$defs/fileBinding" },
+        "sourceAcquisitionRuntime": { "$ref": "#/$defs/fileBinding" },
+        "sourceAnalysisInputRuntime": { "$ref": "#/$defs/fileBinding" },
+        "databaseLogicalStateDigest": { "$ref": "#/$defs/fileBinding" },
+        "databaseLogicalStateDigestTest": { "$ref": "#/$defs/fileBinding" },
+        "nodeRuntimeClosureManifest": { "$ref": "#/$defs/fileBinding" },
+        "nodeRuntimeClosureVerifier": { "$ref": "#/$defs/fileBinding" },
+        "nodeRuntimeClosureVerifierTest": { "$ref": "#/$defs/fileBinding" },
+        "psqlRuntimeClosureManifest": { "$ref": "#/$defs/fileBinding" },
+        "psqlRuntimeClosureVerifier": { "$ref": "#/$defs/fileBinding" },
+        "psqlRuntimeClosureVerifierTest": { "$ref": "#/$defs/fileBinding" },
+        "restoreRunner": { "$ref": "#/$defs/fileBinding" },
+        "releaseAuthorizationVerifier": { "$ref": "#/$defs/fileBinding" },
+        "releaseAuthorizationJsonSchema": { "$ref": "#/$defs/fileBinding" },
+        "releaseAuthorizationContract": { "$ref": "#/$defs/fileBinding" },
+        "releaseAuthorizationPublicKey": { "$ref": "#/$defs/fileBinding" },
+        "releaseAuthorizationVerifierTest": { "$ref": "#/$defs/fileBinding" },
+        "releaseAuthorizationSigner": { "$ref": "#/$defs/fileBinding" },
+        "releaseAuthorizationSignerTest": { "$ref": "#/$defs/fileBinding" },
+        "jsonSchema": { "$ref": "#/$defs/fileBinding" },
+        "contractDocument": { "$ref": "#/$defs/fileBinding" },
+        "backupVerifier": { "$ref": "#/$defs/fileBinding" },
+        "backupContractHelper": { "$ref": "#/$defs/fileBinding" },
+        "packageLock": { "$ref": "#/$defs/fileBinding" },
+        "prismaGeneratedClientTree": { "$ref": "#/$defs/treeBinding" },
+        "runtimeEnvironment": { "$ref": "#/$defs/runtimeAttestation" }
+      },
+      "additionalProperties": false
+    },
+    "authorization": {
+      "type": "object",
+      "required": [
+        "operatorId",
+        "ownerScopeAuthorizationRef",
+        "exactOperatorAuthorizationRef",
+        "databaseRole",
+        "ownerScopeMeaning",
+        "ownerScopeExactPlanHashReviewed",
+        "ownerScopeApplyAuthorized",
+        "exactOperatorMeaning",
+        "exactOperatorApplyAuthorized",
+        "signedReleaseAuthorizationMeaning",
+        "signedReleaseAuthorizationRequired"
+      ],
+      "properties": {
+        "operatorId": {
+          "const": "codex-ai:food-systems-2026-local-operator"
+        },
+        "ownerScopeAuthorizationRef": {
+          "const": "owner-scope:food-systems-2026-bounded-project-work"
+        },
+        "exactOperatorAuthorizationRef": {
+          "type": "string",
+          "pattern": "^exact-plan-operator:codex-ai:food-systems-2026-local-operator;plan-sha256:[a-f0-9]{64};apply-contract-sha256:[a-f0-9]{64};database-target-sha256:[a-f0-9]{64};database-catalog-sha256:[a-f0-9]{64};runtime-attestation-sha256:[a-f0-9]{64};authorization-envelope-sha256:[a-f0-9]{64}$"
+        },
+        "databaseRole": { "const": "foodsystems" },
+        "ownerScopeMeaning": { "const": "bounded_project_scope_only" },
+        "ownerScopeExactPlanHashReviewed": { "const": false },
+        "ownerScopeApplyAuthorized": { "const": false },
+        "exactOperatorMeaning": { "const": "descriptive_cli_label_only" },
+        "exactOperatorApplyAuthorized": { "const": false },
+        "signedReleaseAuthorizationMeaning": {
+          "const": "ed25519_exact_apply_authorization_controls_mutation"
+        },
+        "signedReleaseAuthorizationRequired": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "releaseAuthorization": {
+      "type": "object",
+      "required": [
+        "envelopeSha256",
+        "keyId",
+        "algorithm",
+        "authorizationId",
+        "authorizationScope",
+        "acknowledgement",
+        "operatorId",
+        "databaseRole",
+        "operatorAuthorityClass",
+        "humanApprovalClaimed",
+        "ownerExactHashReviewClaimed",
+        "expertValidationClaimed",
+        "rightsHolderApprovalClaimed",
+        "authorizedAtUtc",
+        "notBeforeUtc",
+        "expiresAtUtc",
+        "nonceSha256",
+        "planSha256",
+        "planFileSha256",
+        "beforeSnapshotSha256",
+        "databaseIdentityUuid",
+        "sourceDatabaseName",
+        "applyContractSha256",
+        "dependencyStateSha256",
+        "operationKey",
+        "codeBindingsSha256",
+        "databaseTargetSha256",
+        "databaseCatalogSha256",
+        "contentStateSha256",
+        "backupSha256",
+        "backupBytes",
+        "backupMetadataSha256",
+        "structuralRestoreReceiptSha256",
+        "logicalRestoreCompanionReceiptSha256",
+        "logicalCloneRehearsalReceiptFileSha256",
+        "logicalCloneRehearsalReceiptSelfSha256",
+        "completedMigrationLedgerSha256",
+        "targetFingerprintSha256",
+        "targetSetSha256",
+        "structuralRestoreCompletedAtUtc",
+        "logicalRestoreCompanionCompletedAtUtc",
+        "logicalComparisonProofSha256",
+        "logicalCloneRehearsalOperationKey",
+        "logicalCloneRehearsalRuntimeAttestationSha256",
+        "logicalCloneRehearsalCompletedAtUtc",
+        "restoreRunnerSha256",
+        "backupVerifierSha256",
+        "backupContractHelperSha256",
+        "databaseLogicalDigestSha256",
+        "psqlBinarySha256",
+        "psqlRuntimeClosureSha256",
+        "restoredDatabaseDropped",
+        "restoredDatabaseAbsenceConfirmed",
+        "postRehearsalCloneFullStateMatched",
+        "sourceStillMatchedAfterRehearsal",
+        "documentCreatesMax",
+        "libraryAnalysisRecordCreatesMax",
+        "controlledMutationAuditCreatesMax",
+        "otherDatabaseWritesAuthorized",
+        "lifecyclePromotionAuthorized",
+        "sourceAnalysisPromotionAuthorized",
+        "externalUseAuthorized"
+      ],
+      "properties": {
+        "envelopeSha256": { "$ref": "#/$defs/sha256" },
+        "keyId": { "$ref": "#/$defs/safeText" },
+        "algorithm": { "const": "Ed25519" },
+        "authorizationId": { "$ref": "#/$defs/uuid" },
+        "authorizationScope": {
+          "const": "source-registration.new-official-2026-08-02.exact-apply"
+        },
+        "acknowledgement": {
+          "const": "REGISTER_10_LOCKED_OFFICIAL_SOURCES_PLAN_631FEF2595BF"
+        },
+        "operatorId": {
+          "const": "codex-ai:food-systems-2026-local-operator"
+        },
+        "databaseRole": { "const": "foodsystems" },
+        "operatorAuthorityClass": {
+          "const": "codex_ai_local_operator_pre_human_validation"
+        },
+        "humanApprovalClaimed": { "const": false },
+        "ownerExactHashReviewClaimed": { "const": false },
+        "expertValidationClaimed": { "const": false },
+        "rightsHolderApprovalClaimed": { "const": false },
+        "authorizedAtUtc": { "$ref": "#/$defs/dateTime" },
+        "notBeforeUtc": { "$ref": "#/$defs/dateTime" },
+        "expiresAtUtc": { "$ref": "#/$defs/dateTime" },
+        "nonceSha256": { "$ref": "#/$defs/sha256" },
+        "planSha256": {
+          "const": "631fef2595bf8f9e897485c1f064654716a3bdb2591bbfb20227370d496a4e2f"
+        },
+        "planFileSha256": {
+          "const": "7a8de0151ad9d0c77bb7bb47a01c3bd08922805e933a5b379aea3dd59b84def9"
+        },
+        "beforeSnapshotSha256": {
+          "const": "77ac2b8fb968b573f53448522d1bf121012d9b19f3ab8f131b23e599e53d44b5"
+        },
+        "databaseIdentityUuid": {
+          "const": "90e3e24d-230f-42f7-b178-5bcd5b861e84"
+        },
+        "sourceDatabaseName": { "const": "foodsystems" },
+        "applyContractSha256": { "$ref": "#/$defs/sha256" },
+        "dependencyStateSha256": { "$ref": "#/$defs/sha256" },
+        "operationKey": { "$ref": "#/$defs/safeText" },
+        "codeBindingsSha256": { "$ref": "#/$defs/sha256" },
+        "databaseTargetSha256": {
+          "const": "56afe01ba2f7acafa069c55e5cef1b7f380ae7d3a6f77b01da72509ce652ee5f"
+        },
+        "databaseCatalogSha256": {
+          "const": "7d8bdb71153177983fbe5d191b06a1cb3d8635e5b0f91a1d0eff0a0e942f8e10"
+        },
+        "contentStateSha256": { "$ref": "#/$defs/sha256" },
+        "backupSha256": { "$ref": "#/$defs/sha256" },
+        "backupBytes": { "$ref": "#/$defs/positiveInteger" },
+        "backupMetadataSha256": { "$ref": "#/$defs/sha256" },
+        "structuralRestoreReceiptSha256": { "$ref": "#/$defs/sha256" },
+        "logicalRestoreCompanionReceiptSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "logicalCloneRehearsalReceiptFileSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "logicalCloneRehearsalReceiptSelfSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "completedMigrationLedgerSha256": { "$ref": "#/$defs/sha256" },
+        "targetFingerprintSha256": { "$ref": "#/$defs/sha256" },
+        "targetSetSha256": { "$ref": "#/$defs/sha256" },
+        "structuralRestoreCompletedAtUtc": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "logicalRestoreCompanionCompletedAtUtc": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "logicalComparisonProofSha256": { "$ref": "#/$defs/sha256" },
+        "logicalCloneRehearsalOperationKey": { "$ref": "#/$defs/safeText" },
+        "logicalCloneRehearsalRuntimeAttestationSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "logicalCloneRehearsalCompletedAtUtc": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "restoreRunnerSha256": { "$ref": "#/$defs/sha256" },
+        "backupVerifierSha256": { "$ref": "#/$defs/sha256" },
+        "backupContractHelperSha256": { "$ref": "#/$defs/sha256" },
+        "databaseLogicalDigestSha256": { "$ref": "#/$defs/sha256" },
+        "psqlBinarySha256": { "$ref": "#/$defs/sha256" },
+        "psqlRuntimeClosureSha256": {
+          "const": "993193f3570f3ebad21b69af81c8099edf1bfa7f23492d6e9e489e7a351368aa"
+        },
+        "restoredDatabaseDropped": { "const": true },
+        "restoredDatabaseAbsenceConfirmed": { "const": true },
+        "postRehearsalCloneFullStateMatched": { "const": true },
+        "sourceStillMatchedAfterRehearsal": { "const": true },
+        "documentCreatesMax": { "const": 10 },
+        "libraryAnalysisRecordCreatesMax": { "const": 10 },
+        "controlledMutationAuditCreatesMax": { "const": 1 },
+        "otherDatabaseWritesAuthorized": { "const": false },
+        "lifecyclePromotionAuthorized": { "const": false },
+        "sourceAnalysisPromotionAuthorized": { "const": false },
+        "externalUseAuthorized": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "releaseEvidence": {
+      "type": "object",
+      "required": [
+        "sourceDatabaseName",
+        "backupSha256",
+        "backupBytes",
+        "backupMetadataSha256",
+        "structuralRestoreReceiptSha256",
+        "databaseIdentityUuid",
+        "completedMigrationCount",
+        "completedMigrationLedgerSha256",
+        "targetFingerprintSha256",
+        "coreCounts",
+        "backupCreatedAtUtc",
+        "structuralRestoreCompletedAtUtc",
+        "logicalRestoreCompanion",
+        "logicalCloneRehearsal",
+        "verification"
+      ],
+      "properties": {
+        "sourceDatabaseName": { "const": "foodsystems" },
+        "backupSha256": { "$ref": "#/$defs/sha256" },
+        "backupBytes": { "$ref": "#/$defs/positiveInteger" },
+        "backupMetadataSha256": { "$ref": "#/$defs/sha256" },
+        "structuralRestoreReceiptSha256": { "$ref": "#/$defs/sha256" },
+        "databaseIdentityUuid": { "$ref": "#/$defs/uuid" },
+        "completedMigrationCount": { "$ref": "#/$defs/positiveInteger" },
+        "completedMigrationLedgerSha256": { "$ref": "#/$defs/sha256" },
+        "targetFingerprintSha256": { "$ref": "#/$defs/sha256" },
+        "coreCounts": { "$ref": "#/$defs/coreCounts" },
+        "backupCreatedAtUtc": { "$ref": "#/$defs/dateTime" },
+        "structuralRestoreCompletedAtUtc": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "logicalRestoreCompanion": {
+          "type": "object",
+          "required": [
+            "receiptFileSha256",
+            "completedAtUtc",
+            "logicalComparisonStartedAtUtc",
+            "logicalComparisonCompletedAtUtc",
+            "logicalComparisonProofSha256",
+            "source",
+            "restored",
+            "postRehearsalVerifiedAtUtc",
+            "postRehearsalCloneFullStateMatched",
+            "sourceStillMatched",
+            "cloneDatabaseDropped",
+            "cloneDatabaseAbsenceConfirmed"
+          ],
+          "properties": {
+            "receiptFileSha256": { "$ref": "#/$defs/sha256" },
+            "completedAtUtc": { "$ref": "#/$defs/dateTime" },
+            "logicalComparisonStartedAtUtc": {
+              "$ref": "#/$defs/dateTime"
+            },
+            "logicalComparisonCompletedAtUtc": {
+              "$ref": "#/$defs/dateTime"
+            },
+            "logicalComparisonProofSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "source": { "$ref": "#/$defs/logicalEvidenceState" },
+            "restored": { "$ref": "#/$defs/logicalEvidenceState" },
+            "postRehearsalVerifiedAtUtc": {
+              "$ref": "#/$defs/dateTime"
+            },
+            "postRehearsalCloneFullStateMatched": { "const": true },
+            "sourceStillMatched": { "const": true },
+            "cloneDatabaseDropped": { "const": true },
+            "cloneDatabaseAbsenceConfirmed": { "const": true }
+          },
+          "additionalProperties": false
+        },
+        "logicalCloneRehearsal": {
+          "type": "object",
+          "required": [
+            "receiptFileSha256",
+            "receiptSelfSha256",
+            "operationKey",
+            "runtimeAttestationSha256",
+            "rehearsalStartedAtUtc",
+            "rehearsalCompletedAtUtc",
+            "targetSetSha256",
+            "exactProductionTargetExercised",
+            "productionAuthorizationUsed",
+            "transactionRolledBack",
+            "rollbackAbsenceConfirmed"
+          ],
+          "properties": {
+            "receiptFileSha256": { "$ref": "#/$defs/sha256" },
+            "receiptSelfSha256": { "$ref": "#/$defs/sha256" },
+            "operationKey": {
+              "type": "string",
+              "pattern": "^source-registration-logical-clone-rehearsal-v1:[a-f0-9]{64}$"
+            },
+            "runtimeAttestationSha256": { "$ref": "#/$defs/sha256" },
+            "rehearsalStartedAtUtc": { "$ref": "#/$defs/dateTime" },
+            "rehearsalCompletedAtUtc": { "$ref": "#/$defs/dateTime" },
+            "targetSetSha256": {
+              "const": "41c41a249cc54f0cad6cb4906a5b97b9d755bcd27d8830a990ed1d4eecb7264f"
+            },
+            "exactProductionTargetExercised": { "const": false },
+            "productionAuthorizationUsed": { "const": false },
+            "transactionRolledBack": { "const": true },
+            "rollbackAbsenceConfirmed": { "const": true }
+          },
+          "additionalProperties": false
+        },
+        "verification": {
+          "type": "object",
+          "required": [
+            "metadataVersion",
+            "structuralRestoreReceiptVersion",
+            "logicalRestoreCompanionReceiptVersion",
+            "logicalCloneRehearsalSchemaVersion",
+            "structuralVerifierPassed",
+            "structuralRestoreCleanupPassed",
+            "logicalRestoreCompanionValidated",
+            "logicalCloneRehearsalValidated",
+            "logicalRestoreCleanupPassed",
+            "evidenceFilesUnchanged"
+          ],
+          "properties": {
+            "metadataVersion": { "const": 2 },
+            "structuralRestoreReceiptVersion": { "const": 1 },
+            "logicalRestoreCompanionReceiptVersion": { "const": 1 },
+            "logicalCloneRehearsalSchemaVersion": {
+              "const": "source-registration-logical-clone-rehearsal-v1"
+            },
+            "structuralVerifierPassed": { "const": true },
+            "structuralRestoreCleanupPassed": { "const": true },
+            "logicalRestoreCompanionValidated": { "const": true },
+            "logicalCloneRehearsalValidated": { "const": true },
+            "logicalRestoreCleanupPassed": { "const": true },
+            "evidenceFilesUnchanged": { "const": true }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "liveContentState": {
+      "type": "object",
+      "required": [
+        "contentStateSha256",
+        "logicalStateSha256",
+        "relationCount",
+        "totalRowCount",
+        "sequenceRowCount",
+        "allPublicDataRelationsLocked",
+        "signedRestoreDigestMatched",
+        "checkedImmediatelyBeforeMutation"
+      ],
+      "properties": {
+        "contentStateSha256": { "$ref": "#/$defs/sha256" },
+        "logicalStateSha256": { "$ref": "#/$defs/sha256" },
+        "relationCount": { "$ref": "#/$defs/positiveInteger" },
+        "totalRowCount": { "$ref": "#/$defs/nonnegativeInteger" },
+        "sequenceRowCount": { "$ref": "#/$defs/nonnegativeInteger" },
+        "allPublicDataRelationsLocked": { "const": true },
+        "signedRestoreDigestMatched": { "const": true },
+        "checkedImmediatelyBeforeMutation": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "databaseTarget": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "databaseName",
+        "systemIdentifier",
+        "serverAddressCidr",
+        "serverPort",
+        "serverVersionNum",
+        "databaseTargetSha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "source-registration-database-target-v1" },
+        "databaseName": { "const": "foodsystems" },
+        "systemIdentifier": { "const": "7620055716543368057" },
+        "serverAddressCidr": { "const": "127.0.0.1/32" },
+        "serverPort": { "const": 5432 },
+        "serverVersionNum": { "const": 160013 },
+        "databaseTargetSha256": {
+          "const": "56afe01ba2f7acafa069c55e5cef1b7f380ae7d3a6f77b01da72509ce652ee5f"
+        }
+      },
+      "additionalProperties": false
+    },
+    "databaseCatalog": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "scope",
+        "catalogSha256",
+        "relationCount",
+        "nonInternalTriggerCount",
+        "generatedExpressionFunctionCount",
+        "unexpectedWriteSurfaceCount"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "source-registration-database-catalog-v2" },
+        "scope": {
+          "const": "public.Document+LibraryAnalysisRecord+ControlledMutationAudit+DatabaseIdentity"
+        },
+        "catalogSha256": {
+          "const": "7d8bdb71153177983fbe5d191b06a1cb3d8635e5b0f91a1d0eff0a0e942f8e10"
+        },
+        "relationCount": { "const": 4 },
+        "nonInternalTriggerCount": { "const": 8 },
+        "generatedExpressionFunctionCount": { "const": 2 },
+        "unexpectedWriteSurfaceCount": { "const": 0 }
+      },
+      "additionalProperties": false
+    },
+    "auditDurability": {
+      "type": "object",
+      "required": [
+        "state",
+        "independentlyImmutable",
+        "ownerTamperable",
+        "externalRootAnchorRequired",
+        "externalRootAnchorState"
+      ],
+      "properties": {
+        "state": { "const": "trigger_protected_append_only_current_state" },
+        "independentlyImmutable": { "const": false },
+        "ownerTamperable": { "const": true },
+        "externalRootAnchorRequired": { "const": true },
+        "externalRootAnchorState": { "const": "pending" }
+      },
+      "additionalProperties": false
+    },
+    "dependencyStateSha256": { "$ref": "#/$defs/sha256" },
+    "targetSetSha256": { "$ref": "#/$defs/sha256" },
+    "afterSnapshot": {
+      "type": "object",
+      "required": [
+        "databaseIdentityUuid",
+        "completedMigrationCount",
+        "planStyleMigrationLedgerSha256",
+        "backupStyleMigrationLedgerSha256",
+        "preApplyTargetFingerprintSha256",
+        "afterApplyTargetFingerprintSha256",
+        "targetSetSha256",
+        "documentRowsSha256",
+        "libraryAnalysisRowsSha256",
+        "dependencyRowsSha256",
+        "dependencyRowCount",
+        "counts",
+        "afterSnapshotSha256"
+      ],
+      "properties": {
+        "databaseIdentityUuid": { "$ref": "#/$defs/uuid" },
+        "completedMigrationCount": { "$ref": "#/$defs/positiveInteger" },
+        "planStyleMigrationLedgerSha256": { "$ref": "#/$defs/sha256" },
+        "backupStyleMigrationLedgerSha256": { "$ref": "#/$defs/sha256" },
+        "preApplyTargetFingerprintSha256": { "$ref": "#/$defs/sha256" },
+        "afterApplyTargetFingerprintSha256": { "$ref": "#/$defs/sha256" },
+        "targetSetSha256": { "$ref": "#/$defs/sha256" },
+        "documentRowsSha256": { "$ref": "#/$defs/sha256" },
+        "libraryAnalysisRowsSha256": { "$ref": "#/$defs/sha256" },
+        "dependencyRowsSha256": { "$ref": "#/$defs/sha256" },
+        "dependencyRowCount": { "const": 0 },
+        "counts": {
+          "type": "object",
+          "required": [
+            "documents",
+            "libraryAnalysisRecords",
+            "controlledMutationAuditsBeforeAppend",
+            "controlledMutationAuditsAfterAppend"
+          ],
+          "properties": {
+            "documents": { "$ref": "#/$defs/nonnegativeInteger" },
+            "libraryAnalysisRecords": { "$ref": "#/$defs/nonnegativeInteger" },
+            "controlledMutationAuditsBeforeAppend": {
+              "$ref": "#/$defs/nonnegativeInteger"
+            },
+            "controlledMutationAuditsAfterAppend": {
+              "$ref": "#/$defs/nonnegativeInteger"
+            }
+          },
+          "additionalProperties": false
+        },
+        "afterSnapshotSha256": { "$ref": "#/$defs/sha256" }
+      },
+      "additionalProperties": false
+    },
+    "rows": {
+      "type": "object",
+      "required": [
+        "documentCreates",
+        "libraryAnalysisRecordCreates",
+        "controlledMutationAuditCreates",
+        "privateRecoveryRegisterWrites",
+        "corpusRegisterWrites",
+        "lifecycleEventWrites",
+        "citationCreates",
+        "appraisalCreates"
+      ],
+      "properties": {
+        "documentCreates": { "const": 10 },
+        "libraryAnalysisRecordCreates": { "const": 10 },
+        "controlledMutationAuditCreates": { "const": 1 },
+        "privateRecoveryRegisterWrites": { "const": 0 },
+        "corpusRegisterWrites": { "const": 0 },
+        "lifecycleEventWrites": { "const": 0 },
+        "citationCreates": { "const": 0 },
+        "appraisalCreates": { "const": 0 }
+      },
+      "additionalProperties": false
+    },
+    "readiness": {
+      "type": "object",
+      "required": [
+        "identityVerified",
+        "sourceAnalysisAllowed",
+        "ownerReviewComplete",
+        "rightsCleared",
+        "externalUseAllowed",
+        "coveragePromotionAllowed"
+      ],
+      "properties": {
+        "identityVerified": { "const": false },
+        "sourceAnalysisAllowed": { "const": false },
+        "ownerReviewComplete": { "const": false },
+        "rightsCleared": { "const": false },
+        "externalUseAllowed": { "const": false },
+        "coveragePromotionAllowed": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "contentBoundary": {
+      "type": "object",
+      "required": [
+        "sourceTextStoredInAudit",
+        "privateAbsolutePathsStoredInAudit",
+        "credentialBearingTextStoredInAudit",
+        "documentContentReconstructedFromExactPrivateNormalizedPages",
+        "bothPrivateCopiesReverifiedUnderLock"
+      ],
+      "properties": {
+        "sourceTextStoredInAudit": { "const": false },
+        "privateAbsolutePathsStoredInAudit": { "const": false },
+        "credentialBearingTextStoredInAudit": { "const": false },
+        "documentContentReconstructedFromExactPrivateNormalizedPages": {
+          "const": true
+        },
+        "bothPrivateCopiesReverifiedUnderLock": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "summarySha256": { "$ref": "#/$defs/sha256" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+    },
+    "dateTime": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+    },
+    "safeText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000,
+      "pattern": "^[^\\u0000-\\u001f\\u007f]+$"
+    },
+    "portablePath": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+    },
+    "positiveInteger": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "nonnegativeInteger": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "fileBinding": {
+      "type": "object",
+      "required": ["path", "fileSha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/portablePath" },
+        "fileSha256": { "$ref": "#/$defs/sha256" }
+      },
+      "additionalProperties": false
+    },
+    "treeBinding": {
+      "type": "object",
+      "required": ["path", "treeSha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/portablePath" },
+        "treeSha256": { "$ref": "#/$defs/sha256" }
+      },
+      "additionalProperties": false
+    },
+    "resolvedTree": {
+      "type": "object",
+      "required": [
+        "entryCount",
+        "fileCount",
+        "path",
+        "rootKind",
+        "symlinkCount",
+        "totalFileBytes",
+        "treeSha256"
+      ],
+      "properties": {
+        "entryCount": { "$ref": "#/$defs/positiveInteger" },
+        "fileCount": { "$ref": "#/$defs/positiveInteger" },
+        "path": { "$ref": "#/$defs/portablePath" },
+        "rootKind": { "const": "resolved_external_symlink" },
+        "symlinkCount": { "$ref": "#/$defs/nonnegativeInteger" },
+        "totalFileBytes": { "$ref": "#/$defs/positiveInteger" },
+        "treeSha256": { "$ref": "#/$defs/sha256" }
+      },
+      "additionalProperties": false
+    },
+    "runtimeAttestation": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "launcher",
+        "localClosure",
+        "node",
+        "nodeModules",
+        "prismaGeneratedClient",
+        "psql",
+        "runtimeAttestationSha256"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "source-registration-runtime-attestation-v1"
+        },
+        "launcher": {
+          "type": "object",
+          "required": ["path", "fileSha256"],
+          "properties": {
+            "path": {
+              "const": "scripts/knowledge/launch-locked-source-registration-apply.mjs"
+            },
+            "fileSha256": { "$ref": "#/$defs/sha256" }
+          },
+          "additionalProperties": false
+        },
+        "localClosure": {
+          "type": "object",
+          "required": [
+            "closureSha256",
+            "entryCount",
+            "roots",
+            "totalFileBytes"
+          ],
+          "properties": {
+            "closureSha256": { "$ref": "#/$defs/sha256" },
+            "entryCount": { "$ref": "#/$defs/positiveInteger" },
+            "roots": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "const": "scripts/knowledge/apply-source-registration-plan.ts"
+                },
+                {
+                  "const": "scripts/knowledge/run-source-registration-logical-clone-rehearsal.ts"
+                },
+                {
+                  "const": "scripts/knowledge/launch-locked-source-registration-apply.mjs"
+                },
+                {
+                  "const": "scripts/knowledge/database-logical-state-digest.mjs"
+                },
+                {
+                  "const": "scripts/knowledge/verify-psql-runtime-closure.mjs"
+                },
+                {
+                  "const": "scripts/knowledge/verify-node-runtime-closure.mjs"
+                },
+                {
+                  "const": "scripts/knowledge/generate-source-registration-plan.ts"
+                }
+              ],
+              "items": false,
+              "minItems": 7,
+              "maxItems": 7
+            },
+            "totalFileBytes": { "$ref": "#/$defs/positiveInteger" }
+          },
+          "additionalProperties": false
+        },
+        "node": {
+          "type": "object",
+          "required": [
+            "arch",
+            "binaryFileSha256",
+            "platform",
+            "runtimeClosureManifestSha256",
+            "runtimeClosureSha256",
+            "runtimeClosureVerifierFileSha256",
+            "version"
+          ],
+          "properties": {
+            "arch": { "$ref": "#/$defs/safeText" },
+            "binaryFileSha256": { "$ref": "#/$defs/sha256" },
+            "platform": { "$ref": "#/$defs/safeText" },
+            "runtimeClosureManifestSha256": { "$ref": "#/$defs/sha256" },
+            "runtimeClosureSha256": {
+              "const": "0382c34b2669ec93e84f2c6280be36ac5071e93d0a793d6845707726cfffb504"
+            },
+            "runtimeClosureVerifierFileSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "version": { "$ref": "#/$defs/safeText" }
+          },
+          "additionalProperties": false
+        },
+        "nodeModules": {
+          "allOf": [
+            { "$ref": "#/$defs/resolvedTree" },
+            {
+              "type": "object",
+              "properties": { "path": { "const": "node_modules" } }
+            }
+          ]
+        },
+        "prismaGeneratedClient": {
+          "allOf": [
+            { "$ref": "#/$defs/resolvedTree" },
+            {
+              "type": "object",
+              "properties": {
+                "path": { "const": "src/generated/prisma" }
+              }
+            }
+          ]
+        },
+        "psql": {
+          "type": "object",
+          "required": [
+            "binaryFileSha256",
+            "runtimeClosureManifestSha256",
+            "runtimeClosureSha256",
+            "runtimeClosureVerifierFileSha256",
+            "version"
+          ],
+          "properties": {
+            "binaryFileSha256": { "$ref": "#/$defs/sha256" },
+            "runtimeClosureManifestSha256": { "$ref": "#/$defs/sha256" },
+            "runtimeClosureSha256": {
+              "const": "993193f3570f3ebad21b69af81c8099edf1bfa7f23492d6e9e489e7a351368aa"
+            },
+            "runtimeClosureVerifierFileSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "version": { "$ref": "#/$defs/safeText" }
+          },
+          "additionalProperties": false
+        },
+        "runtimeAttestationSha256": { "$ref": "#/$defs/sha256" }
+      },
+      "additionalProperties": false
+    },
+    "logicalEvidenceState": {
+      "type": "object",
+      "required": [
+        "contentStateSha256",
+        "logicalStateSha256",
+        "relationCount",
+        "totalRowCount",
+        "sequenceRowCount"
+      ],
+      "properties": {
+        "contentStateSha256": { "$ref": "#/$defs/sha256" },
+        "logicalStateSha256": { "$ref": "#/$defs/sha256" },
+        "relationCount": { "$ref": "#/$defs/positiveInteger" },
+        "totalRowCount": { "$ref": "#/$defs/positiveInteger" },
+        "sequenceRowCount": { "$ref": "#/$defs/nonnegativeInteger" }
+      },
+      "additionalProperties": false
+    },
+    "coreCounts": {
+      "type": "object",
+      "required": [
+        "ControlledMutationAudit",
+        "DatabaseIdentity",
+        "Document",
+        "EvidenceAppraisal",
+        "FieldCitation",
+        "LibraryAnalysisRecord",
+        "Report",
+        "SourceCitation",
+        "SourceDoc",
+        "Thesis"
+      ],
+      "properties": {
+        "ControlledMutationAudit": { "$ref": "#/$defs/nonnegativeInteger" },
+        "DatabaseIdentity": { "const": 1 },
+        "Document": { "$ref": "#/$defs/nonnegativeInteger" },
+        "EvidenceAppraisal": { "$ref": "#/$defs/nonnegativeInteger" },
+        "FieldCitation": { "$ref": "#/$defs/nonnegativeInteger" },
+        "LibraryAnalysisRecord": { "$ref": "#/$defs/nonnegativeInteger" },
+        "Report": { "$ref": "#/$defs/nonnegativeInteger" },
+        "SourceCitation": { "$ref": "#/$defs/nonnegativeInteger" },
+        "SourceDoc": { "$ref": "#/$defs/nonnegativeInteger" },
+        "Thesis": { "$ref": "#/$defs/nonnegativeInteger" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

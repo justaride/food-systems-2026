@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "source-acquisition-receipt-v1",
+  "artifactType": "source_acquisition_receipt",
+  "receiptId": "receipt.source.acquisition.etmv-2024.official.20260802.v1",
+  "receiptVersion": "1.0.0",
+  "sourceId": "source.6ec8c49122842040d6819a22",
+  "tool": {
+    "name": "food-systems-controlled-https-fetch-adapter",
+    "version": "1.0.0",
+    "workflowRef": "knowledge/corpus/workflows/controlled-source-acquisition-v1.md",
+    "workflowVersion": "1.0.0"
+  },
+  "startedAt": "2026-08-02T23:07:40.037Z",
+  "completedAt": "2026-08-02T23:07:40.360Z",
+  "receiptSha256": "sha256:f1c321b093b6fa60730df5a0246cfc2ce4c0c6899cfc479be89bece8570dc2b1",
+  "acquisitionType": "controlled_https_fetch",
+  "requestedLocator": "https://www.ruokavirasto.fi/globalassets/etmv/etmv-toimintakertomus-2024.pdf",
+  "finalLocator": "https://www.ruokavirasto.fi/globalassets/etmv/etmv-toimintakertomus-2024.pdf",
+  "request": {
+    "method": "GET",
+    "redirectMode": "manual",
+    "credentialsMode": "omit",
+    "maximumRedirects": 5
+  },
+  "redirectChain": [],
+  "response": {
+    "status": 200,
+    "contentType": "application/pdf",
+    "contentLengthBytes": 739748,
+    "bodySizeBytes": 739748,
+    "bodySha256": "sha256:136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761",
+    "observedAt": "2026-08-02T23:07:40.038Z"
+  }
+}

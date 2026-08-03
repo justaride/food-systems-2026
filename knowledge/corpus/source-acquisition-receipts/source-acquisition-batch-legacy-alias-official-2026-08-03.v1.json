@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "batchId": "source-acquisition.legacy-alias-official-byte-check.2026-08-03.v1",
+  "purpose": "Fresh controlled HTTPS byte verification for two already registered Nordic Council documents whose retained local filenames carry misleading legacy aliases. The receipts bind the exact official bytes to the canonical lifecycle source IDs; they do not by themselves verify interpretation, clear rights, authorize publication or promote coverage.",
+  "tool": {
+    "name": "food-systems-controlled-curl-http2-fetch-adapter",
+    "version": "1.0.0",
+    "workflowRef": "knowledge/corpus/workflows/controlled-source-acquisition-v1.md",
+    "workflowVersion": "1.0.0"
+  },
+  "sources": [
+    {
+      "receiptId": "receipt.source.acquisition.nord2024-023.official.20260803.v1",
+      "sourceId": "source.2f6d99113777178fdc50a228",
+      "requestedLocator": "https://pub.norden.org/nord2024-023/nord2024-023.pdf",
+      "expectedBodySha256": "sha256:7df8505be38d4a8b7ea1a2661dd04dc761a945944df4d23d7812ce76a60ad59e",
+      "expectedBodySizeBytes": 1991731,
+      "archivePortablePath": "sha256/7df8505be38d4a8b7ea1a2661dd04dc761a945944df4d23d7812ce76a60ad59e.pdf",
+      "archiveMode": "require_existing",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/nord2024-023.official.20260803.v1.json",
+      "transport": "curl_http2"
+    },
+    {
+      "receiptId": "receipt.source.acquisition.nord2025-010.official.20260803.v1",
+      "sourceId": "source.d7e6ddc7f9ba1394d24b1f15",
+      "requestedLocator": "https://pub.norden.org/nord2025-010/nord2025-010.pdf",
+      "expectedBodySha256": "sha256:358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01",
+      "expectedBodySizeBytes": 6855999,
+      "archivePortablePath": "sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01.pdf",
+      "archiveMode": "require_existing",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/nord2025-010.official.20260803.v1.json",
+      "transport": "curl_http2"
+    }
+  ]
+}

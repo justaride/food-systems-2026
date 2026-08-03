@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/corpus-processing-event-history-anchor.v1.json",
+  "title": "Food Systems corpus event-history anchor record",
+  "description": "A separate hash-chained candidate/verification record. Candidate hashes are not trusted merely because they are present; a configured verifier must authenticate every verification before a non-empty checkpoint can be projected.",
+  "oneOf": [
+    { "$ref": "#/$defs/candidate" },
+    { "$ref": "#/$defs/trustedVerification" }
+  ],
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "identifier": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]*$" },
+    "dateTime": { "type": "string", "format": "date-time" },
+    "repositoryPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!~)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!.*\\\\)(?!.*(?:^|/)\\.{1,2}(?:/|$)).+$"
+    },
+    "fileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "fileSha256", "sizeBytes"],
+      "properties": {
+        "path": { "$ref": "#/$defs/repositoryPath" },
+        "fileSha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "manifestBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "fileSha256", "sizeBytes", "manifestSha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/repositoryPath" },
+        "fileSha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 0 },
+        "manifestSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordType",
+        "anchorId",
+        "sequence",
+        "predecessorRecordSha256",
+        "eventLogPrefix",
+        "eventCount",
+        "firstEventSha256",
+        "lastEventSha256",
+        "eventSetSha256",
+        "eventManifest",
+        "createdAt",
+        "recordSha256"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "corpus-processing-event-history-anchor-v1"
+        },
+        "recordType": { "const": "history_anchor_candidate" },
+        "anchorId": { "$ref": "#/$defs/identifier" },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "predecessorRecordSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "eventLogPrefix": { "$ref": "#/$defs/fileBinding" },
+        "eventCount": { "type": "integer", "minimum": 0 },
+        "firstEventSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "lastEventSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "eventSetSha256": { "$ref": "#/$defs/sha256" },
+        "eventManifest": { "$ref": "#/$defs/manifestBinding" },
+        "createdAt": { "$ref": "#/$defs/dateTime" },
+        "recordSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "trustedVerification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordType",
+        "verificationId",
+        "sequence",
+        "predecessorRecordSha256",
+        "candidateRecordSha256",
+        "verifierId",
+        "method",
+        "evidenceSha256",
+        "verifiedAt",
+        "recordSha256"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "corpus-processing-event-history-anchor-v1"
+        },
+        "recordType": {
+          "const": "history_anchor_trusted_verification"
+        },
+        "verificationId": { "$ref": "#/$defs/identifier" },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "predecessorRecordSha256": { "$ref": "#/$defs/sha256" },
+        "candidateRecordSha256": { "$ref": "#/$defs/sha256" },
+        "verifierId": { "$ref": "#/$defs/identifier" },
+        "method": {
+          "enum": [
+            "controlled_project_identity",
+            "cryptographic_signature",
+            "verified_external_identity"
+          ]
+        },
+        "evidenceSha256": { "$ref": "#/$defs/sha256" },
+        "verifiedAt": { "$ref": "#/$defs/dateTime" },
+        "recordSha256": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}

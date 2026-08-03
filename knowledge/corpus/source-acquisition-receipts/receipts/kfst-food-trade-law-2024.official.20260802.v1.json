@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "source-acquisition-receipt-v1",
+  "artifactType": "source_acquisition_receipt",
+  "receiptId": "receipt.source.acquisition.kfst-food-trade-law-2024.official.20260802.v1",
+  "receiptVersion": "1.0.0",
+  "sourceId": "source.e52f956527577470f5052aba",
+  "tool": {
+    "name": "food-systems-controlled-https-fetch-adapter",
+    "version": "1.0.0",
+    "workflowRef": "knowledge/corpus/workflows/controlled-source-acquisition-v1.md",
+    "workflowVersion": "1.0.0"
+  },
+  "startedAt": "2026-08-02T23:07:40.368Z",
+  "completedAt": "2026-08-02T23:07:40.751Z",
+  "receiptSha256": "sha256:c5f8eb03a1337ba4d087a9b01d2c49a6f3e07c099f267d74b739bb4b4cdf6497",
+  "acquisitionType": "controlled_https_fetch",
+  "requestedLocator": "https://kfst.dk/media/3wxbfqqe/20241120-evaluering-af-foedevarehandelsloven-2024.pdf",
+  "finalLocator": "https://kfst.dk/media/3wxbfqqe/20241120-evaluering-af-foedevarehandelsloven-2024.pdf",
+  "request": {
+    "method": "GET",
+    "redirectMode": "manual",
+    "credentialsMode": "omit",
+    "maximumRedirects": 5
+  },
+  "redirectChain": [],
+  "response": {
+    "status": 200,
+    "contentType": "application/pdf",
+    "contentLengthBytes": 1780666,
+    "bodySizeBytes": 1780666,
+    "bodySha256": "sha256:1bc1fae8f24d37f08704fc4cbfdc57e5c4f258125d1bfbfa3d13867d933da7fc",
+    "observedAt": "2026-08-02T23:07:40.368Z"
+  }
+}

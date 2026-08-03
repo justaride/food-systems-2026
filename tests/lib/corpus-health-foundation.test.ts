@@ -12,7 +12,10 @@ import { fileURLToPath } from 'node:url'
 import test from 'node:test'
 
 import {
+  assertManifestEntryMatchesBytes,
   canonicalSha256,
+  loadGate1KnowledgeInputs,
+  parseCorpusProcessingSummary,
   validateCorpusHealthAssessment,
   validateCorpusHealthBundle,
 } from '../../scripts/knowledge/generate-corpus-health'
@@ -173,6 +176,84 @@ const assessments = readJsonLines('knowledge/health/corpus-health-assessments.v1
 const current = readJson('knowledge/health/corpus-health-current.v1.json')
 const summary = readJson('knowledge/health/corpus-health-summary.v1.json')
 const generationManifest = readJson('knowledge/health/corpus-health-generation-manifest.v1.json')
+
+test('strictly binds the whole-corpus lifecycle, Gate 2C review contract and PDF extraction boundary', () => {
+  const inputs = loadGate1KnowledgeInputs(root)
+
+  assert.equal(inputs.corpus.activeIdentities, 1_555)
+  assert.equal(inputs.corpus.contentHashBoundIdentities, 1_537)
+  assert.equal(inputs.corpus.repositoryHashBoundBytes, 518_097_991)
+  assert.equal(inputs.corpus.privateRecoveryHashBoundBytes, 36_224_174)
+  assert.equal(inputs.corpus.hashBoundBytes, 554_322_165)
+  assert.equal(inputs.corpus.missingRepositoryFiles, 11)
+  assert.equal(inputs.corpus.noLocatorIdentities, 18)
+  assert.equal(inputs.corpus.deduplicatedProcessingUnits, 1_467)
+  assert.equal(inputs.corpus.fullTextComplete, 0)
+  assert.equal(inputs.corpus.sourceRoleOwnerConfirmed, 0)
+  assert.equal(inputs.corpus.ownerReviewed, 0)
+  assert.equal(inputs.corpus.independentlyValidated, 0)
+  assert.equal(inputs.corpus.partnerValidated, 0)
+  assert.equal(inputs.corpus.rightsHolderValidated, 0)
+  assert.equal(inputs.corpus.rightsCleared, 0)
+  assert.equal(inputs.corpus.publicationApproved, 0)
+  assert.equal(inputs.corpus.externalUseReady, 0)
+  assert.equal(inputs.corpus.coverageApproved, 0)
+  assert.equal(inputs.corpus.summary.roles.knownIdentityAliasMismatches, 2)
+
+  assert.equal(inputs.review.canonicalLayerCount, 8)
+  assert.equal(inputs.review.unclassifiedLegacyMappingCount, 5)
+  assert.equal(inputs.review.legacyStatusOnlyCanonicalHumanApprovals, 0)
+
+  assert.equal(inputs.pdf.technicalUnits, 5)
+  assert.equal(inputs.pdf.technicallyQualifiedUnits, 5)
+  assert.equal(inputs.pdf.technicalFailures, 0)
+  assert.equal(inputs.pdf.extractedPages, 214)
+  assert.equal(inputs.pdf.extractedWords, 59_220)
+  assert.equal(inputs.pdf.warningPages, 8)
+  assert.equal(inputs.pdf.openAliasBlockers, 2)
+  assert.equal(inputs.pdf.aiAnalysisComplete, false)
+  assert.equal(inputs.pdf.ownerReviewComplete, false)
+  assert.equal(inputs.pdf.independentValidationComplete, false)
+  assert.equal(inputs.pdf.rightsCleared, false)
+  assert.equal(inputs.pdf.publicationReady, false)
+  assert.equal(inputs.pdf.coveragePromotionAllowed, false)
+  assert.equal(inputs.pdf.portableTrackedValidationSupported, true)
+  assert.equal(inputs.pdf.privateVerificationPerformed, false)
+})
+
+test('rejects malformed or widened corpus-processing summaries', () => {
+  const raw = readJson('knowledge/corpus/corpus-processing-summary.v1.json')
+  assert.doesNotThrow(() => parseCorpusProcessingSummary(raw))
+
+  const wrongCount = structuredClone(raw)
+  asObject(wrongCount.activeCorpus).total = '1555'
+  assert.throws(() => parseCorpusProcessingSummary(wrongCount), /Corpus processing summary is invalid/)
+
+  const widened = structuredClone(raw)
+  widened.unreviewedCoverageClaim = true
+  assert.throws(() => parseCorpusProcessingSummary(widened), /Unrecognized key/)
+})
+
+test('fails closed when manifest-bound corpus bytes drift', () => {
+  const manifest = readJson('knowledge/corpus/corpus-processing-generation-manifest.v1.json')
+  const rawEntry = asObjectArray(manifest.outputs, 'corpus manifest outputs')
+    .find((entry) => entry.path === 'knowledge/corpus/corpus-processing-summary.v1.json')
+  assert.ok(rawEntry)
+  const entry = {
+    path: String(rawEntry.path),
+    sha256: String(rawEntry.sha256),
+    sizeBytes: Number(rawEntry.sizeBytes),
+  }
+  const bytes = readFileSync(resolve(root, entry.path))
+  assert.doesNotThrow(() => assertManifestEntryMatchesBytes(entry, bytes, 'summary'))
+
+  const staleBytes = Buffer.from(bytes)
+  staleBytes[0] = staleBytes[0] === 0x7b ? 0x5b : 0x7b
+  assert.throws(
+    () => assertManifestEntryMatchesBytes(entry, staleBytes, 'summary'),
+    /does not match manifest entry/,
+  )
+})
 
 test('keeps corpus health structurally separate from subject coverage and additive scoring', () => {
   const definitions = asObject(schema.$defs, 'schema.$defs')

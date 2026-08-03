@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0.0",
+  "batchId": "source-acquisition.sweden-utp-evaluation-http2-retry.2026-08-02.v1",
+  "purpose": "Controlled HTTP/2 retry after the authority returned HTTP 403 to the first HTTP/1.1 GET. The original batch stopped without creating or overwriting this receipt.",
+  "tool": {
+    "name": "food-systems-controlled-curl-http2-fetch-adapter",
+    "version": "1.0.0",
+    "workflowRef": "knowledge/corpus/workflows/controlled-source-acquisition-v1.md",
+    "workflowVersion": "1.0.0"
+  },
+  "sources": [
+    {
+      "receiptId": "receipt.source.acquisition.sweden-utp-evaluation-2025-5.official.20260802.v1",
+      "sourceId": "source.5a8352e619335e8855972527",
+      "requestedLocator": "https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2025-5.pdf",
+      "expectedBodySha256": "sha256:d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c",
+      "expectedBodySizeBytes": 1309168,
+      "archivePortablePath": "sha256/d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c.pdf",
+      "archiveMode": "require_existing",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/sweden-utp-evaluation-2025-5.official.20260802.v1.json",
+      "transport": "curl_http2"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "1.0.0",
+  "receiptType": "pdf_page_extraction_technical_qualification",
+  "pipelineVersion": "1.0.0",
+  "qualificationState": "technical_extraction_passed_identity_blocked",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7"
+  },
+  "identityKeys": [
+    "candidate:source.eu.utp-evaluation-support-study-2025"
+  ],
+  "identityAssociation": {
+    "state": "unregistered_source_candidate",
+    "intendedLabel": "EU UTP evaluation support study 2025",
+    "observedDocumentTitle": "Evaluation support study of the EU Directive 2019/633 on unfair trading practices",
+    "blockerCode": "database_registration_required"
+  },
+  "sourceBinding": {
+    "title": "Evaluation support study of the EU Directive 2019/633 on unfair trading practices in business-to-business relationships in the agricultural and food supply chain — Final Report",
+    "doi": "10.2762/2191333",
+    "officialUrl": "https://op.europa.eu/o/opportal-service/download-handler?format=pdf&identifier=e1044a53-cc06-11f0-8da2-01aa75ed71a1&language=en&productionSystem=cellar",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_classification"
+  },
+  "sourceFile": {
+    "expectedSizeBytes": 3409774,
+    "observedSizeBytes": 3409774,
+    "headerMagic": "%PDF-",
+    "encryptionState": "not_encrypted",
+    "pageCount": 150,
+    "pdfVersion": "1.6",
+    "primaryCopy": {
+      "locator": "private://corpus/sha256/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7.pdf",
+      "sha256": "c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7",
+      "sizeBytes": 3409774,
+      "fileMode": "0400",
+      "verified": true
+    },
+    "replicaCopy": {
+      "locator": "private://bigbrain-corpus/sha256/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7.pdf",
+      "sha256": "c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7",
+      "sizeBytes": 3409774,
+      "fileMode": "0400",
+      "verified": true
+    }
+  },
+  "extraction": {
+    "pdfinfoVersion": "26.04.0",
+    "pdftotextVersion": "26.04.0",
+    "argumentsTemplate": [
+      "-f",
+      "{page}",
+      "-l",
+      "{page}",
+      "-enc",
+      "UTF-8",
+      "-eol",
+      "unix",
+      "-nopgbrk",
+      "{input_pdf}",
+      "-"
+    ],
+    "pageMapLocator": "knowledge/corpus/pdf-page-extraction/page-maps/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7.page-map.v1.json",
+    "pageMapSha256": "8c2f572c0680362d14606bef639caef09d6216248e7b50cba6b76ec656538b3d",
+    "extractedPageCount": 150,
+    "rawTextFileCount": 150,
+    "normalizedTextFileCount": 150,
+    "primaryPrivateOutputVerified": true,
+    "replicaPrivateOutputVerified": true
+  },
+  "totals": {
+    "rawSizeBytes": 498519,
+    "rawCharacterCount": 496164,
+    "normalizedSizeBytes": 498369,
+    "normalizedCharacterCount": 496014,
+    "wordCount": 76020,
+    "warningPageCount": 1,
+    "blankPageCount": 0,
+    "lowTextPageCount": 1
+  },
+  "warningSummary": [
+    {
+      "code": "low_extracted_text",
+      "pageCount": 1,
+      "pageNumbers": [
+        150
+      ]
+    }
+  ],
+  "languagePolicy": {
+    "pageLanguageDetection": "not_computed",
+    "reason": "no_version_pinned_reliable_detector_configured"
+  },
+  "semantics": {
+    "technicalExtractionOnly": true,
+    "fullTextStoredInRepository": false,
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentValidationComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "receiptSha256": "43ea79e545e116bb764baf99a281364cbc0121deeb1886e1353e73934a95b3ed"
+}

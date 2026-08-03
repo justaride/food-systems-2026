@@ -1,0 +1,551 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/source-analysis-input-manifest.schema.v1.json",
+  "title": "Food Systems source-analysis input manifest v1",
+  "description": "Strict tracked manifest for one raw-PDF processing unit and the exact canonical framed normalized bytes. Source analysis is allowed only by a positive state that references an exact verified identity artifact and lifecycle pre-state; combined validation remains mandatory.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "artifactType",
+    "pipelineVersion",
+    "processingUnit",
+    "identityKeys",
+    "identityAssociation",
+    "sourceBinding",
+    "workflowEligibility",
+    "bindings",
+    "serialization",
+    "normalizedInput",
+    "pages",
+    "totals",
+    "privateStorage",
+    "textIncludedInTrackedArtifact",
+    "readiness",
+    "manifestSha256"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "artifactType": { "const": "source_analysis_input_manifest" },
+    "pipelineVersion": { "const": "1.0.0" },
+    "processingUnit": { "$ref": "#/$defs/processingUnit" },
+    "identityKeys": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "identityAssociation": { "$ref": "#/$defs/identityAssociation" },
+    "sourceBinding": { "$ref": "#/$defs/sourceBinding" },
+    "workflowEligibility": { "$ref": "#/$defs/workflowEligibility" },
+    "bindings": { "$ref": "#/$defs/bindings" },
+    "serialization": { "$ref": "#/$defs/serialization" },
+    "normalizedInput": { "$ref": "#/$defs/normalizedInput" },
+    "pages": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/page" }
+    },
+    "totals": { "$ref": "#/$defs/totals" },
+    "privateStorage": { "$ref": "#/$defs/privateStorage" },
+    "textIncludedInTrackedArtifact": { "const": false },
+    "readiness": { "$ref": "#/$defs/readiness" },
+    "manifestSha256": { "$ref": "#/$defs/hash" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "prefixedHash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[a-z0-9.-]+)?$"
+    },
+    "dateTime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+    },
+    "repositoryPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*[~:])(?!.*\\\\)(?!.*//)(?!\\s)(?!.*\\s$)(?!.*[\\u0000-\\u001f\\u007f]).+$",
+      "not": { "pattern": "(^|/)\\.\\.?($|/)" }
+    },
+    "processingUnit": {
+      "type": "object",
+      "required": ["algorithm", "rawPdfSha256"],
+      "properties": {
+        "algorithm": { "const": "sha256" },
+        "rawPdfSha256": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    },
+    "identityAssociation": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "state",
+            "intendedLabel",
+            "observedDocumentTitle",
+            "blockerCode"
+          ],
+          "properties": {
+            "state": { "const": "provisional_metadata_match" },
+            "intendedLabel": { "type": "string", "minLength": 1 },
+            "observedDocumentTitle": { "type": "string", "minLength": 1 },
+            "blockerCode": { "type": "null" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "state",
+            "intendedLabel",
+            "observedDocumentTitle",
+            "blockerCode"
+          ],
+          "properties": {
+            "state": { "const": "unregistered_source_candidate" },
+            "intendedLabel": { "type": "string", "minLength": 1 },
+            "observedDocumentTitle": { "type": "string", "minLength": 1 },
+            "blockerCode": { "const": "database_registration_required" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "state",
+            "intendedLabel",
+            "observedDocumentTitle",
+            "blockerCode"
+          ],
+          "properties": {
+            "state": { "const": "blocked_legacy_alias_scope_mismatch" },
+            "intendedLabel": { "type": "string", "minLength": 1 },
+            "observedDocumentTitle": { "type": "string", "minLength": 1 },
+            "blockerCode": { "const": "legacy_alias_scope_mismatch" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "state",
+            "intendedLabel",
+            "observedDocumentTitle",
+            "sourceId",
+            "canonicalIdentity",
+            "blockerCode"
+          ],
+          "properties": {
+            "state": { "const": "verified_identity_match" },
+            "intendedLabel": { "type": "string", "minLength": 1 },
+            "observedDocumentTitle": { "type": "string", "minLength": 1 },
+            "sourceId": { "$ref": "#/$defs/id" },
+            "canonicalIdentity": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "blockerCode": { "type": "null" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "sourceBinding": {
+      "type": "object",
+      "required": [
+        "title",
+        "doi",
+        "officialUrl",
+        "corpusIdentityVerified",
+        "scopeDisposition"
+      ],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "doi": {
+          "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }]
+        },
+        "officialUrl": { "type": "string", "format": "uri" },
+        "corpusIdentityVerified": { "type": "boolean" },
+        "scopeDisposition": {
+          "enum": [
+            "pending_owner_classification",
+            "pending_owner_classification_indirect_context",
+            "pending_owner_disposition_likely_out_of_scope"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "workflowEligibility": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["state", "identityVerification", "sourceAnalysis"],
+          "properties": {
+            "state": { "const": "identity_verification_candidate" },
+            "identityVerification": {
+              "type": "object",
+              "required": ["allowed", "blockerCode"],
+              "properties": {
+                "allowed": { "const": true },
+                "blockerCode": { "type": "null" }
+              },
+              "additionalProperties": false
+            },
+            "sourceAnalysis": {
+              "type": "object",
+              "required": ["allowed", "blockerCode"],
+              "properties": {
+                "allowed": { "const": false },
+                "blockerCode": { "const": "verified_identity_required" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["state", "identityVerification", "sourceAnalysis"],
+          "properties": {
+            "state": { "const": "blocked_identity_association" },
+            "identityVerification": {
+              "type": "object",
+              "required": ["allowed", "blockerCode"],
+              "properties": {
+                "allowed": { "const": false },
+                "blockerCode": {
+                  "enum": [
+                    "legacy_alias_scope_mismatch",
+                    "database_registration_required"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            "sourceAnalysis": {
+              "type": "object",
+              "required": ["allowed", "blockerCode"],
+              "properties": {
+                "allowed": { "const": false },
+                "blockerCode": { "const": "identity_association_blocked" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["state", "identityVerification", "sourceAnalysis"],
+          "properties": {
+            "state": { "const": "source_analysis_eligible" },
+            "identityVerification": {
+              "type": "object",
+              "required": ["allowed", "blockerCode"],
+              "properties": {
+                "allowed": { "const": true },
+                "blockerCode": { "type": "null" }
+              },
+              "additionalProperties": false
+            },
+            "sourceAnalysis": {
+              "type": "object",
+              "required": [
+                "allowed",
+                "blockerCode",
+                "combinedValidationRequired",
+                "identityArtifactReference",
+                "lifecyclePrestate"
+              ],
+              "properties": {
+                "allowed": { "const": true },
+                "blockerCode": { "type": "null" },
+                "combinedValidationRequired": { "const": true },
+                "identityArtifactReference": {
+                  "type": "object",
+                  "required": [
+                    "artifactId",
+                    "artifactVersion",
+                    "path",
+                    "fileSha256",
+                    "artifactSha256",
+                    "decision"
+                  ],
+                  "properties": {
+                    "artifactId": { "$ref": "#/$defs/id" },
+                    "artifactVersion": { "$ref": "#/$defs/version" },
+                    "path": { "$ref": "#/$defs/repositoryPath" },
+                    "fileSha256": { "$ref": "#/$defs/hash" },
+                    "artifactSha256": { "$ref": "#/$defs/prefixedHash" },
+                    "decision": { "const": "verified" }
+                  },
+                  "additionalProperties": false
+                },
+                "lifecyclePrestate": {
+                  "type": "object",
+                  "required": [
+                    "lifecycleRecordId",
+                    "lifecycleSnapshotSha256",
+                    "lifecycleSnapshotUpdatedAt"
+                  ],
+                  "properties": {
+                    "lifecycleRecordId": { "$ref": "#/$defs/id" },
+                    "lifecycleSnapshotSha256": {
+                      "$ref": "#/$defs/prefixedHash"
+                    },
+                    "lifecycleSnapshotUpdatedAt": { "$ref": "#/$defs/dateTime" }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "bindings": {
+      "type": "object",
+      "required": ["pageMap", "extractionReceipt"],
+      "properties": {
+        "pageMap": {
+          "type": "object",
+          "required": ["path", "fileSha256", "pageMapSha256"],
+          "properties": {
+            "path": { "$ref": "#/$defs/repositoryPath" },
+            "fileSha256": { "$ref": "#/$defs/hash" },
+            "pageMapSha256": { "$ref": "#/$defs/hash" }
+          },
+          "additionalProperties": false
+        },
+        "extractionReceipt": {
+          "type": "object",
+          "required": ["path", "fileSha256", "receiptSha256"],
+          "properties": {
+            "path": { "$ref": "#/$defs/repositoryPath" },
+            "fileSha256": { "$ref": "#/$defs/hash" },
+            "receiptSha256": { "$ref": "#/$defs/hash" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "serialization": {
+      "type": "object",
+      "required": [
+        "id",
+        "charset",
+        "pageOrder",
+        "pageSequence",
+        "preambleUtf8",
+        "pageDelimiterUtf8",
+        "pageHeaderEncoding",
+        "pageHeaderFields",
+        "pageHeaderTerminatorHex",
+        "pagePayload",
+        "pagePayloadBoundary",
+        "trailerDelimiterUtf8",
+        "trailerEncoding",
+        "trailerFields",
+        "trailerTerminatorHex"
+      ],
+      "properties": {
+        "id": { "const": "normalized-page-bytes-framed-v1" },
+        "charset": { "const": "utf-8" },
+        "pageOrder": { "const": "ascending_page_number" },
+        "pageSequence": { "const": "contiguous_from_1" },
+        "preambleUtf8": {
+          "const": "food-systems/source-analysis-normalized-input/v1\n"
+        },
+        "pageDelimiterUtf8": {
+          "const": "\n--food-systems-normalized-page-v1--\n"
+        },
+        "pageHeaderEncoding": { "const": "canonical_json_utf8" },
+        "pageHeaderFields": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "normalizedSha256" },
+            { "const": "pageNumber" },
+            { "const": "sizeBytes" }
+          ],
+          "items": false,
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "pageHeaderTerminatorHex": { "const": "0a" },
+        "pagePayload": { "const": "exact_normalized_utf8_file_bytes" },
+        "pagePayloadBoundary": { "const": "sizeBytes_from_page_header" },
+        "trailerDelimiterUtf8": {
+          "const": "\n--food-systems-normalized-input-end-v1--\n"
+        },
+        "trailerEncoding": { "const": "canonical_json_utf8" },
+        "trailerFields": {
+          "type": "array",
+          "prefixItems": [{ "const": "pageCount" }],
+          "items": false,
+          "minItems": 1,
+          "maxItems": 1
+        },
+        "trailerTerminatorHex": { "const": "0a" }
+      },
+      "additionalProperties": false
+    },
+    "normalizedInput": {
+      "type": "object",
+      "required": ["algorithm", "sha256", "serializedSizeBytes"],
+      "properties": {
+        "algorithm": { "const": "sha256" },
+        "sha256": { "$ref": "#/$defs/hash" },
+        "serializedSizeBytes": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "page": {
+      "type": "object",
+      "required": ["pageNumber", "normalizedText"],
+      "properties": {
+        "pageNumber": { "type": "integer", "minimum": 1 },
+        "normalizedText": {
+          "type": "object",
+          "required": ["sha256", "sizeBytes", "characterCount", "wordCount"],
+          "properties": {
+            "sha256": { "$ref": "#/$defs/hash" },
+            "sizeBytes": { "type": "integer", "minimum": 0 },
+            "characterCount": { "type": "integer", "minimum": 0 },
+            "wordCount": { "type": "integer", "minimum": 0 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "totals": {
+      "type": "object",
+      "required": [
+        "pageCount",
+        "normalizedSizeBytes",
+        "normalizedCharacterCount",
+        "wordCount"
+      ],
+      "properties": {
+        "pageCount": { "type": "integer", "minimum": 1 },
+        "normalizedSizeBytes": { "type": "integer", "minimum": 0 },
+        "normalizedCharacterCount": { "type": "integer", "minimum": 0 },
+        "wordCount": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "privateStorage": {
+      "type": "object",
+      "required": [
+        "normalizedPageRelativePathTemplate",
+        "rawPdfRelativePathTemplate",
+        "expectedFileMode",
+        "copies"
+      ],
+      "properties": {
+        "normalizedPageRelativePathTemplate": {
+          "const": "pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+        },
+        "rawPdfRelativePathTemplate": {
+          "const": "sha256/{rawPdfSha256}.pdf"
+        },
+        "expectedFileMode": { "const": "0400" },
+        "copies": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "object",
+              "required": [
+                "copyId",
+                "rootEnvironmentVariable",
+                "rawPdfLocatorTemplate",
+                "normalizedPageLocatorTemplate"
+              ],
+              "properties": {
+                "copyId": { "const": "primary" },
+                "rootEnvironmentVariable": {
+                  "const": "FOOD_SYSTEMS_PRIVATE_CORPUS_ROOT"
+                },
+                "rawPdfLocatorTemplate": {
+                  "const": "private://corpus/sha256/{rawPdfSha256}.pdf"
+                },
+                "normalizedPageLocatorTemplate": {
+                  "const": "private://corpus/pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "copyId",
+                "rootEnvironmentVariable",
+                "rawPdfLocatorTemplate",
+                "normalizedPageLocatorTemplate"
+              ],
+              "properties": {
+                "copyId": { "const": "replica" },
+                "rootEnvironmentVariable": {
+                  "const": "FOOD_SYSTEMS_PRIVATE_CORPUS_REPLICA_ROOT"
+                },
+                "rawPdfLocatorTemplate": {
+                  "const": "private://bigbrain-corpus/sha256/{rawPdfSha256}.pdf"
+                },
+                "normalizedPageLocatorTemplate": {
+                  "const": "private://bigbrain-corpus/pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+                }
+              },
+              "additionalProperties": false
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "additionalProperties": false
+    },
+    "readiness": {
+      "type": "object",
+      "required": [
+        "aiAnalysisComplete",
+        "ownerReviewComplete",
+        "independentExpertReviewComplete",
+        "partnerReviewComplete",
+        "rightsHolderReviewComplete",
+        "rightsCleared",
+        "publicationReady",
+        "coveragePromotionAllowed"
+      ],
+      "properties": {
+        "aiAnalysisComplete": { "const": false },
+        "ownerReviewComplete": { "const": false },
+        "independentExpertReviewComplete": { "const": false },
+        "partnerReviewComplete": { "const": false },
+        "rightsHolderReviewComplete": { "const": false },
+        "rightsCleared": { "const": false },
+        "publicationReady": { "const": false },
+        "coveragePromotionAllowed": { "const": false }
+      },
+      "additionalProperties": false
+    }
+  }
+}

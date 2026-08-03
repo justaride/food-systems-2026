@@ -1,0 +1,153 @@
+{
+  "schemaVersion": "1.0.0",
+  "registerId": "corpus-private-recovery-candidates.v1",
+  "captureRecordedOn": "2026-08-02",
+  "purpose": "Metadata-only recovery candidates for active corpus identities whose repository locator is still missing. These records do not prove repository availability, full-text processing, owner review, rights clearance, or publication readiness.",
+  "storageVerificationContract": {
+    "requiredCopies": [
+      "private_primary",
+      "bigbrain_private_replica"
+    ],
+    "bothCopiesSha256MatchCandidate": true,
+    "bothCopiesSizeBytesMatchCandidate": true,
+    "bothCopiesFileMode": "0400",
+    "verificationRecordedOn": "2026-08-02"
+  },
+  "candidates": [
+    {
+      "identityKey": "document:cmppajyqy0002njvmeo5z64yk",
+      "canonicalPath": "research/evidence-pack/akademia/bojo-2023.pdf",
+      "sha256": "d9928637cd694fa88bbccecc4815b9d4e2d755548de4acaa11eed1be67590fc9",
+      "sizeBytes": 1424509,
+      "internalLocator": "private://corpus/sha256/d9928637cd694fa88bbccecc4815b9d4e2d755548de4acaa11eed1be67590fc9",
+      "replicaClass": "bigbrain_private_archive",
+      "repositoryAvailable": false,
+      "fullTextReviewed": false,
+      "rightsState": "pending_not_cleared"
+    },
+    {
+      "identityKey": "document:cmppajyr60004njvmkuyujbnd",
+      "canonicalPath": "research/evidence-pack/akademia/van-straten-2025.pdf",
+      "sha256": "bdea33e5bcd5a7856f887f99d23f4a316b0a103147e637cf2f9f3280f857e984",
+      "sizeBytes": 1414993,
+      "internalLocator": "private://corpus/sha256/bdea33e5bcd5a7856f887f99d23f4a316b0a103147e637cf2f9f3280f857e984",
+      "replicaClass": "bigbrain_private_archive",
+      "repositoryAvailable": false,
+      "fullTextReviewed": false,
+      "rightsState": "pending_not_cleared"
+    },
+    {
+      "identityKey": "document:cmppajys2000bnjvm18kstw5z",
+      "canonicalPath": "research/evidence-pack/akademia/mirza-2016.pdf",
+      "sha256": "bcb5a729e9af6498ee724354fac8f134f3def8e3228cab93c30a92ce6bd24f62",
+      "sizeBytes": 1237339,
+      "internalLocator": "private://corpus/sha256/bcb5a729e9af6498ee724354fac8f134f3def8e3228cab93c30a92ce6bd24f62",
+      "replicaClass": "bigbrain_private_archive",
+      "repositoryAvailable": false,
+      "fullTextReviewed": false,
+      "rightsState": "pending_not_cleared"
+    },
+    {
+      "identityKey": "document:cmppajyrr0008njvm72f0l3n2",
+      "canonicalPath": "research/evidence-pack/akademia/bueso-bordils-2021.pdf",
+      "sha256": "f205d6672731ba7461d2b38166fa8765ed218ed22589f303a24bd817d87cdfd4",
+      "sizeBytes": 1441362,
+      "internalLocator": "private://corpus/sha256/f205d6672731ba7461d2b38166fa8765ed218ed22589f303a24bd817d87cdfd4",
+      "replicaClass": "bigbrain_private_archive",
+      "repositoryAvailable": false,
+      "fullTextReviewed": false,
+      "rightsState": "pending_not_cleared"
+    },
+    {
+      "identityKey": "document:cmppajyrz000anjvm40x9zv8t",
+      "canonicalPath": "research/evidence-pack/akademia/lund-beijer-2026.pdf",
+      "sha256": "69ab0da8cb3f598f61ba71c76eb806183316325bf66dd032867d29fe47976ee8",
+      "sizeBytes": 1080713,
+      "internalLocator": "private://corpus/sha256/69ab0da8cb3f598f61ba71c76eb806183316325bf66dd032867d29fe47976ee8",
+      "replicaClass": "bigbrain_private_archive",
+      "repositoryAvailable": false,
+      "fullTextReviewed": false,
+      "rightsState": "pending_not_cleared"
+    },
+    {
+      "identityKey": "document:cmppajyu3000onjvmqmv7ycxt",
+      "canonicalPath": "research/evidence-pack/tenketank/norden-policy-2024.pdf",
+      "sha256": "d760f6d96053dde383086bcc40a3b80984d4247d8cd141114e751f1d012a34d3",
+      "sizeBytes": 16947946,
+      "internalLocator": "private://corpus/sha256/d760f6d96053dde383086bcc40a3b80984d4247d8cd141114e751f1d012a34d3",
+      "replicaClass": "bigbrain_private_archive",
+      "repositoryAvailable": false,
+      "fullTextReviewed": false,
+      "rightsState": "pending_not_cleared"
+    },
+    {
+      "identityKey": "document:cmppajyue000rnjvmxrad483t",
+      "canonicalPath": "research/evidence-pack/nordisk/etmv-toimintakertomus-2024.pdf",
+      "sha256": "136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761",
+      "sizeBytes": 739748,
+      "internalLocator": "private://corpus/sha256/136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761",
+      "replicaClass": "bigbrain_private_archive",
+      "repositoryAvailable": false,
+      "fullTextReviewed": false,
+      "rightsState": "pending_not_cleared"
+    },
+    {
+      "identityKey": "document:cmppajyvb0012njvmnphhze07",
+      "canonicalPath": "research/evidence-pack/nordisk/karlstad-declaration-2024.pdf",
+      "sha256": "7df8505be38d4a8b7ea1a2661dd04dc761a945944df4d23d7812ce76a60ad59e",
+      "sizeBytes": 1991731,
+      "internalLocator": "private://corpus/sha256/7df8505be38d4a8b7ea1a2661dd04dc761a945944df4d23d7812ce76a60ad59e",
+      "replicaClass": "bigbrain_private_archive",
+      "repositoryAvailable": false,
+      "fullTextReviewed": false,
+      "rightsState": "pending_not_cleared",
+      "identityReview": {
+        "state": "required",
+        "currentTitle": "UNESCO Biosphere Reserves — A Path to Local Holistic Sustainability (Nord 2024:023)",
+        "legacyAlias": "karlstad-declaration-2024.pdf",
+        "warning": "The current title and authoritative source identify the UNESCO Biosphere Reserves report, while the legacy repository alias says Karlstad Declaration. The alias is misleading and must not drive classification.",
+        "provisionalScopeDisposition": "contextual_pending_owner"
+      }
+    },
+    {
+      "identityKey": "document:cmppajyve0013njvmw7zok4yr",
+      "canonicalPath": "research/evidence-pack/nordisk/nordic-food-alert-2025.pdf",
+      "sha256": "358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01",
+      "sizeBytes": 6855999,
+      "internalLocator": "private://corpus/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01",
+      "replicaClass": "bigbrain_private_archive",
+      "repositoryAvailable": false,
+      "fullTextReviewed": false,
+      "rightsState": "pending_not_cleared",
+      "identityReview": {
+        "state": "required",
+        "currentTitle": "Beyond Zero — Nordic Architecture on the Road Towards Renewed Practices (Nord 2025:010)",
+        "legacyAlias": "nordic-food-alert-2025.pdf",
+        "warning": "The current title and authoritative source identify the Beyond Zero architecture report, while the legacy repository alias says Nordic Food Alert. The alias is misleading and must not drive classification.",
+        "provisionalScopeDisposition": "likely_out_of_scope_pending_owner"
+      }
+    },
+    {
+      "identityKey": "document:cmppajyxz001snjvmjzin1ww1",
+      "canonicalPath": "research/evidence-pack/nordisk/konkurrensverket-2025-5-livsmedelsutredning.pdf",
+      "sha256": "d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c",
+      "sizeBytes": 1309168,
+      "internalLocator": "private://corpus/sha256/d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c",
+      "replicaClass": "bigbrain_private_archive",
+      "repositoryAvailable": false,
+      "fullTextReviewed": false,
+      "rightsState": "pending_not_cleared"
+    },
+    {
+      "identityKey": "document:cmppajyyw0021njvmam1pbay7",
+      "canonicalPath": "research/evidence-pack/nordisk/kfst-foedevarehandelslov-evaluering-2024.pdf",
+      "sha256": "1bc1fae8f24d37f08704fc4cbfdc57e5c4f258125d1bfbfa3d13867d933da7fc",
+      "sizeBytes": 1780666,
+      "internalLocator": "private://corpus/sha256/1bc1fae8f24d37f08704fc4cbfdc57e5c4f258125d1bfbfa3d13867d933da7fc",
+      "replicaClass": "bigbrain_private_archive",
+      "repositoryAvailable": false,
+      "fullTextReviewed": false,
+      "rightsState": "pending_not_cleared"
+    }
+  ]
+}

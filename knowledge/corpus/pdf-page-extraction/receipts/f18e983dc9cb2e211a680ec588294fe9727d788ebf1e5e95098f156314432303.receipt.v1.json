@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "1.0.0",
+  "receiptType": "pdf_page_extraction_technical_qualification",
+  "pipelineVersion": "1.0.0",
+  "qualificationState": "technical_extraction_passed_identity_blocked",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303"
+  },
+  "identityKeys": [
+    "candidate:source.eu.swd-2025-405"
+  ],
+  "identityAssociation": {
+    "state": "unregistered_source_candidate",
+    "intendedLabel": "European Commission SWD(2025) 405",
+    "observedDocumentTitle": "Evaluation of Directive (EU) 2019/633 on unfair trading practices",
+    "blockerCode": "database_registration_required"
+  },
+  "sourceBinding": {
+    "title": "Evaluation of Directive (EU) 2019/633 on unfair trading practices — SWD(2025) 405 final",
+    "doi": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025SC0405",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_classification"
+  },
+  "sourceFile": {
+    "expectedSizeBytes": 2317481,
+    "observedSizeBytes": 2317481,
+    "headerMagic": "%PDF-",
+    "encryptionState": "not_encrypted",
+    "pageCount": 131,
+    "pdfVersion": "1.7",
+    "primaryCopy": {
+      "locator": "private://corpus/sha256/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303.pdf",
+      "sha256": "f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303",
+      "sizeBytes": 2317481,
+      "fileMode": "0400",
+      "verified": true
+    },
+    "replicaCopy": {
+      "locator": "private://bigbrain-corpus/sha256/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303.pdf",
+      "sha256": "f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303",
+      "sizeBytes": 2317481,
+      "fileMode": "0400",
+      "verified": true
+    }
+  },
+  "extraction": {
+    "pdfinfoVersion": "26.04.0",
+    "pdftotextVersion": "26.04.0",
+    "argumentsTemplate": [
+      "-f",
+      "{page}",
+      "-l",
+      "{page}",
+      "-enc",
+      "UTF-8",
+      "-eol",
+      "unix",
+      "-nopgbrk",
+      "{input_pdf}",
+      "-"
+    ],
+    "pageMapLocator": "knowledge/corpus/pdf-page-extraction/page-maps/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303.page-map.v1.json",
+    "pageMapSha256": "d86bfe83ee2eb4fe430a507f205d59c27d18d41679974200e8be4bb3bffad0ad",
+    "extractedPageCount": 131,
+    "rawTextFileCount": 131,
+    "normalizedTextFileCount": 131,
+    "primaryPrivateOutputVerified": true,
+    "replicaPrivateOutputVerified": true
+  },
+  "totals": {
+    "rawSizeBytes": 370292,
+    "rawCharacterCount": 369675,
+    "normalizedSizeBytes": 370161,
+    "normalizedCharacterCount": 369544,
+    "wordCount": 56554,
+    "warningPageCount": 1,
+    "blankPageCount": 0,
+    "lowTextPageCount": 1
+  },
+  "warningSummary": [
+    {
+      "code": "low_extracted_text",
+      "pageCount": 1,
+      "pageNumbers": [
+        15
+      ]
+    }
+  ],
+  "languagePolicy": {
+    "pageLanguageDetection": "not_computed",
+    "reason": "no_version_pinned_reliable_detector_configured"
+  },
+  "semantics": {
+    "technicalExtractionOnly": true,
+    "fullTextStoredInRepository": false,
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentValidationComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "receiptSha256": "0751147cb2ba11a73c7c536c286a064cfe8eac4e3ecf3545d1ebdd488a7c84b6"
+}

@@ -1,0 +1,467 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/private-recovery-acquisition-plan.schema.v1.json",
+  "title": "Food Systems private-recovery acquisition exact plan v1",
+  "description": "Full exact read-only plan for preserving 11 recovery rows, appending 10 portable rows and creating 10 canonical controlled-private receipts plus one commit receipt.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "artifactType",
+    "planVersion",
+    "contractScope",
+    "contractVersion",
+    "contractSha256",
+    "mode",
+    "preparedAt",
+    "operationKey",
+    "inputBindings",
+    "recoveryRegister",
+    "targets",
+    "applyReceipt",
+    "summary",
+    "planSha256"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "private-recovery-acquisition-plan-v1" },
+    "artifactType": { "const": "private_recovery_acquisition_exact_plan" },
+    "planVersion": { "const": "1.0.0" },
+    "contractScope": {
+      "const": "private-recovery-acquisition.new-official-2026-08-03.v1"
+    },
+    "contractVersion": { "const": "1.0.0" },
+    "contractSha256": { "$ref": "#/$defs/hash" },
+    "mode": { "const": "read_only_plan_with_explicit_apply_gate" },
+    "preparedAt": { "$ref": "#/$defs/dateTime" },
+    "operationKey": {
+      "type": "string",
+      "pattern": "^private-recovery-acquisition-v1:[a-f0-9]{64}$"
+    },
+    "inputBindings": {
+      "type": "object",
+      "required": [
+        "sourceRegistrationPlan",
+        "sourceRegistrationApplyAudit",
+        "implementation"
+      ],
+      "properties": {
+        "sourceRegistrationPlan": {
+          "allOf": [
+            { "$ref": "#/$defs/fileBinding" },
+            {
+              "type": "object",
+              "required": ["planSha256", "targetSetSha256"],
+              "properties": {
+                "planSha256": { "$ref": "#/$defs/hash" },
+                "targetSetSha256": { "$ref": "#/$defs/hash" }
+              }
+            }
+          ],
+          "unevaluatedProperties": false
+        },
+        "sourceRegistrationApplyAudit": {
+          "$ref": "#/$defs/databaseAuditBinding"
+        },
+        "implementation": {
+          "type": "array",
+          "minItems": 10,
+          "maxItems": 10,
+          "items": { "$ref": "#/$defs/implementationBinding" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "recoveryRegister": {
+      "type": "object",
+      "required": [
+        "path",
+        "before",
+        "after",
+        "appendCount",
+        "existingCandidateCountPreserved"
+      ],
+      "properties": {
+        "path": {
+          "const": "knowledge/corpus/corpus-private-recovery-candidates.v1.json"
+        },
+        "before": { "$ref": "#/$defs/registerSnapshot" },
+        "after": { "$ref": "#/$defs/registerSnapshot" },
+        "appendCount": { "const": 10 },
+        "existingCandidateCountPreserved": { "const": 11 }
+      },
+      "additionalProperties": false
+    },
+    "targets": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": { "$ref": "#/$defs/plannedTarget" }
+    },
+    "applyReceipt": {
+      "type": "object",
+      "required": ["file", "internalReceiptSha256", "receipt"],
+      "properties": {
+        "file": { "$ref": "#/$defs/fileBinding" },
+        "internalReceiptSha256": { "$ref": "#/$defs/hash" },
+        "receipt": {
+          "$ref": "https://foodsystems.local/schema/private-recovery-acquisition-apply-receipt.schema.v1.json"
+        }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "targetCount",
+        "beforeCandidateCount",
+        "appendedCandidateCount",
+        "afterCandidateCount",
+        "controlledPrivateReceiptCount",
+        "databaseWrites",
+        "rebaselineRuns",
+        "sourceTextStored",
+        "privateAbsolutePathsStored",
+        "fullTextReviewedPromotions"
+      ],
+      "properties": {
+        "targetCount": { "const": 10 },
+        "beforeCandidateCount": { "const": 11 },
+        "appendedCandidateCount": { "const": 10 },
+        "afterCandidateCount": { "const": 21 },
+        "controlledPrivateReceiptCount": { "const": 10 },
+        "databaseWrites": { "const": 0 },
+        "rebaselineRuns": { "const": 0 },
+        "sourceTextStored": { "const": false },
+        "privateAbsolutePathsStored": { "const": false },
+        "fullTextReviewedPromotions": { "const": 0 }
+      },
+      "additionalProperties": false
+    },
+    "planSha256": { "$ref": "#/$defs/hash" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "bareHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "dateTime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+    },
+    "portablePath": {
+      "type": "string",
+      "pattern": "^[a-z0-9](?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*//)(?!.*\\\\)[a-zA-Z0-9._/-]*$"
+    },
+    "fileBinding": {
+      "type": "object",
+      "required": ["path", "fileSha256", "sizeBytes"],
+      "properties": {
+        "path": { "$ref": "#/$defs/portablePath" },
+        "fileSha256": { "$ref": "#/$defs/hash" },
+        "sizeBytes": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "databaseAuditBinding": {
+      "type": "object",
+      "required": [
+        "auditId",
+        "auditSha256",
+        "operationKey",
+        "contractScope",
+        "contractSha256",
+        "planSha256",
+        "beforeSnapshotSha256",
+        "afterSnapshotSha256",
+        "dependencyStateSha256",
+        "databaseIdentityUuid",
+        "targetFingerprintSha256",
+        "summarySha256",
+        "recordedAt",
+        "receiptState",
+        "exactDocumentRows",
+        "exactLibraryAnalysisRows",
+        "controlledMutationAuditRows"
+      ],
+      "properties": {
+        "auditId": { "type": "string", "minLength": 1, "maxLength": 2000 },
+        "auditSha256": { "$ref": "#/$defs/hash" },
+        "operationKey": { "type": "string", "minLength": 1, "maxLength": 2000 },
+        "contractScope": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "contractSha256": { "$ref": "#/$defs/hash" },
+        "planSha256": { "$ref": "#/$defs/hash" },
+        "beforeSnapshotSha256": { "$ref": "#/$defs/hash" },
+        "afterSnapshotSha256": { "$ref": "#/$defs/hash" },
+        "dependencyStateSha256": { "$ref": "#/$defs/hash" },
+        "databaseIdentityUuid": { "type": "string", "format": "uuid" },
+        "targetFingerprintSha256": { "$ref": "#/$defs/hash" },
+        "summarySha256": { "$ref": "#/$defs/hash" },
+        "recordedAt": {
+          "oneOf": [{ "$ref": "#/$defs/dateTime" }, { "type": "null" }]
+        },
+        "receiptState": { "const": "exact_apply_committed" },
+        "exactDocumentRows": { "const": 10 },
+        "exactLibraryAnalysisRows": { "const": 10 },
+        "controlledMutationAuditRows": { "const": 1 }
+      },
+      "additionalProperties": false
+    },
+    "implementationBinding": {
+      "allOf": [
+        { "$ref": "#/$defs/fileBinding" },
+        {
+          "type": "object",
+          "required": ["role"],
+          "properties": {
+            "role": {
+              "enum": [
+                "private_recovery_runtime",
+                "private_recovery_runner",
+                "private_recovery_plan_schema",
+                "private_recovery_apply_schema",
+                "private_recovery_contract",
+                "source_acquisition_runtime",
+                "source_acquisition_schema",
+                "source_registration_plan_runtime",
+                "source_registration_apply_runtime",
+                "source_registration_apply_runner"
+              ]
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false
+    },
+    "recoveryRow": {
+      "type": "object",
+      "required": [
+        "identityKey",
+        "canonicalPath",
+        "sha256",
+        "sizeBytes",
+        "internalLocator",
+        "replicaClass",
+        "repositoryAvailable",
+        "fullTextReviewed",
+        "rightsState"
+      ],
+      "properties": {
+        "identityKey": { "type": "string", "pattern": "^document:.+" },
+        "canonicalPath": { "$ref": "#/$defs/portablePath" },
+        "sha256": { "$ref": "#/$defs/bareHash" },
+        "sizeBytes": { "type": "integer", "minimum": 1 },
+        "internalLocator": {
+          "type": "string",
+          "pattern": "^private://corpus/sha256/[a-f0-9]{64}$"
+        },
+        "replicaClass": { "const": "bigbrain_private_archive" },
+        "repositoryAvailable": { "const": false },
+        "fullTextReviewed": { "const": false },
+        "rightsState": { "const": "pending_not_cleared" },
+        "identityReview": {
+          "type": "object",
+          "required": [
+            "state",
+            "currentTitle",
+            "legacyAlias",
+            "warning",
+            "provisionalScopeDisposition"
+          ],
+          "properties": {
+            "state": { "const": "required" },
+            "currentTitle": { "type": "string", "minLength": 1 },
+            "legacyAlias": { "type": "string", "minLength": 1 },
+            "warning": { "type": "string", "minLength": 1 },
+            "provisionalScopeDisposition": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "existingRecoveryCandidate": {
+      "allOf": [{ "$ref": "#/$defs/recoveryRow" }]
+    },
+    "recoveryRegister": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "registerId",
+        "captureRecordedOn",
+        "purpose",
+        "storageVerificationContract",
+        "candidates"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "1.0.0" },
+        "registerId": { "const": "corpus-private-recovery-candidates.v1" },
+        "captureRecordedOn": { "$ref": "#/$defs/date" },
+        "purpose": { "type": "string", "minLength": 1, "maxLength": 2000 },
+        "storageVerificationContract": {
+          "type": "object",
+          "required": [
+            "requiredCopies",
+            "bothCopiesSha256MatchCandidate",
+            "bothCopiesSizeBytesMatchCandidate",
+            "bothCopiesFileMode",
+            "verificationRecordedOn"
+          ],
+          "properties": {
+            "requiredCopies": {
+              "type": "array",
+              "prefixItems": [
+                { "const": "private_primary" },
+                { "const": "bigbrain_private_replica" }
+              ],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "bothCopiesSha256MatchCandidate": { "const": true },
+            "bothCopiesSizeBytesMatchCandidate": { "const": true },
+            "bothCopiesFileMode": { "const": "0400" },
+            "verificationRecordedOn": { "$ref": "#/$defs/date" }
+          },
+          "additionalProperties": false
+        },
+        "candidates": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/existingRecoveryCandidate" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "registerSnapshot": {
+      "type": "object",
+      "required": [
+        "file",
+        "candidateCount",
+        "manifestReceiptSha256",
+        "document"
+      ],
+      "properties": {
+        "file": { "$ref": "#/$defs/fileBinding" },
+        "candidateCount": { "type": "integer", "minimum": 0 },
+        "manifestReceiptSha256": { "$ref": "#/$defs/hash" },
+        "document": { "$ref": "#/$defs/recoveryRegister" }
+      },
+      "additionalProperties": false
+    },
+    "copyAttestation": {
+      "type": "object",
+      "required": [
+        "copyId",
+        "storageRootId",
+        "storageClass",
+        "locator",
+        "portablePath",
+        "contentSha256",
+        "sizeBytes",
+        "fileMode",
+        "verifiedAt"
+      ],
+      "properties": {
+        "copyId": { "enum": ["primary", "replica"] },
+        "storageRootId": { "$ref": "#/$defs/id" },
+        "storageClass": { "$ref": "#/$defs/id" },
+        "locator": {
+          "type": "string",
+          "pattern": "^private://[a-z0-9][a-z0-9._:/-]*$"
+        },
+        "portablePath": { "$ref": "#/$defs/portablePath" },
+        "contentSha256": { "$ref": "#/$defs/hash" },
+        "sizeBytes": { "type": "integer", "minimum": 1 },
+        "fileMode": { "const": "0400" },
+        "verifiedAt": { "$ref": "#/$defs/dateTime" }
+      },
+      "additionalProperties": false
+    },
+    "copyPair": {
+      "type": "object",
+      "required": [
+        "targetId",
+        "lifecycleSourceId",
+        "primary",
+        "replica",
+        "distinctStorageRoots",
+        "distinctFiles",
+        "contentHashesMatch",
+        "sizesMatch",
+        "rootModes",
+        "absoluteRootsStored"
+      ],
+      "properties": {
+        "targetId": { "$ref": "#/$defs/id" },
+        "lifecycleSourceId": { "$ref": "#/$defs/id" },
+        "primary": {
+          "allOf": [
+            { "$ref": "#/$defs/copyAttestation" },
+            { "properties": { "copyId": { "const": "primary" } } }
+          ]
+        },
+        "replica": {
+          "allOf": [
+            { "$ref": "#/$defs/copyAttestation" },
+            { "properties": { "copyId": { "const": "replica" } } }
+          ]
+        },
+        "distinctStorageRoots": { "const": true },
+        "distinctFiles": { "const": true },
+        "contentHashesMatch": { "const": true },
+        "sizesMatch": { "const": true },
+        "rootModes": { "const": "0700" },
+        "absoluteRootsStored": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "plannedTarget": {
+      "type": "object",
+      "required": [
+        "targetId",
+        "canonicalIdentityKey",
+        "lifecycleSourceId",
+        "recoveryRow",
+        "recoveryRowSha256",
+        "privateCopies",
+        "acquisitionReceipt"
+      ],
+      "properties": {
+        "targetId": { "$ref": "#/$defs/id" },
+        "canonicalIdentityKey": { "type": "string", "pattern": "^document:.+" },
+        "lifecycleSourceId": { "$ref": "#/$defs/id" },
+        "recoveryRow": { "$ref": "#/$defs/recoveryRow" },
+        "recoveryRowSha256": { "$ref": "#/$defs/hash" },
+        "privateCopies": { "$ref": "#/$defs/copyPair" },
+        "acquisitionReceipt": {
+          "type": "object",
+          "required": ["file", "internalReceiptSha256", "receipt"],
+          "properties": {
+            "file": { "$ref": "#/$defs/fileBinding" },
+            "internalReceiptSha256": { "$ref": "#/$defs/hash" },
+            "receipt": {
+              "$ref": "https://foodsystems.local/schema/source-acquisition-receipt.schema.v1.json#/$defs/controlledPrivateAccess"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "root-anchor-writer-install-v1",
+  "packageId": "food-systems-corpus-anchor-root-writer",
+  "packageVersion": "1.0.0",
+  "writerArtifact": {
+    "sourcePath": "scripts/knowledge/root-anchor-writer/corpus-anchor-root-writer.mjs",
+    "installPath": "/usr/local/libexec/food-systems-corpus-anchor-writer/corpus-anchor-root-writer.mjs",
+    "sha256": "sha256:fbbabd39a559f0f56f38f2aa92c3f9e72c6f9641a68c14050714519037ebe1d8",
+    "sizeBytes": 49372,
+    "mode": "0555",
+    "ownerUid": 0
+  },
+  "installManifest": {
+    "sourcePath": "scripts/knowledge/root-anchor-writer/install-manifest.v1.json",
+    "installPath": "/usr/local/libexec/food-systems-corpus-anchor-writer/install-manifest.v1.json",
+    "mode": "0444",
+    "ownerUid": 0
+  },
+  "nodeRuntime": {
+    "path": "/usr/local/bin/node",
+    "minimumMajor": 20,
+    "rootOwned": true,
+    "noSymlink": true,
+    "writableByNonRoot": false
+  },
+  "externalLedger": {
+    "rootPath": "/private/var/db/food-systems-corpus-anchor",
+    "rootMode": "0755",
+    "ledgerFile": "corpus-event-history-anchors.v1.jsonl",
+    "headFile": "corpus-event-history-anchors-head.v1.json",
+    "dataFileMode": "0444",
+    "lockFile": ".corpus-event-history-anchors.append.lock",
+    "lockMode": "0600"
+  },
+  "safetyBoundary": {
+    "repositoryWritesAllowed": false,
+    "internalVerificationAppendAllowed": false,
+    "automaticLedgerDeletionAllowed": false,
+    "humanValidationClaimed": false,
+    "independentNotarizationClaimed": false
+  }
+}

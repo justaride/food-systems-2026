@@ -19,6 +19,7 @@ import { pathToFileURL } from 'node:url'
 import { PrismaPg } from '@prisma/adapter-pg'
 import Ajv2020 from 'ajv/dist/2020.js'
 import addFormats from 'ajv-formats'
+import { z } from 'zod'
 
 import { reports } from '@seeds/reports'
 import { sources } from '@seeds/sources'
@@ -31,14 +32,21 @@ import {
   LIBRARY_ANALYSIS_RETAINED_HISTORY_REVIEW_CONTEXT,
 } from '../../src/lib/library-analysis-retained-history-contract'
 import { candidateLocalFilePaths } from '../../src/lib/local-file-locator'
+import {
+  deriveCorpusLifecyclePermissions,
+  validateCorpusLifecycle,
+  type CorpusLifecyclePermissions,
+  type CorpusLifecycleRecord,
+} from '../../src/lib/knowledge/corpus-processing-lifecycle'
 import { validateVault } from '../../src/lib/obsidian-vault'
 import {
   auditSourceCitationArchiveCoverage,
   summarizeSourceCitationArchiveAudit,
   type ArchiveAuditInput,
 } from '../audit-source-citation-archive-coverage'
+import { checkTrackedQualificationBundle } from './qualify-pdf-page-extraction'
 
-const GENERATOR_VERSION = '1.2.0'
+const GENERATOR_VERSION = '1.3.0'
 const SCHEMA_VERSION = 'corpus-evidence-health-v1'
 const THRESHOLDS_VERSION = 'corpus-health-thresholds-v1'
 const SNAPSHOT_DATE = process.env.CORPUS_HEALTH_SNAPSHOT_DATE ?? '2026-07-28'
@@ -55,6 +63,27 @@ const CURRENT_PATH = 'knowledge/health/corpus-health-current.v1.json'
 const SUMMARY_PATH = 'knowledge/health/corpus-health-summary.v1.json'
 const REPORT_PATH = 'knowledge/health/corpus-health-report.v1.md'
 const GENERATION_MANIFEST_PATH = 'knowledge/health/corpus-health-generation-manifest.v1.json'
+const CORPUS_PROCESSING_SUMMARY_PATH = 'knowledge/corpus/corpus-processing-summary.v1.json'
+const CORPUS_PROCESSING_MANIFEST_PATH = 'knowledge/corpus/corpus-processing-generation-manifest.v1.json'
+const CORPUS_PROCESSING_REGISTER_PATH = 'knowledge/corpus/corpus-processing-register.v1.jsonl'
+const REVIEW_LAYER_CONTRACT_PATH = 'knowledge/review/review-layer-contract.v1.json'
+const REVIEW_LAYER_SCHEMA_PATH = 'knowledge/schema/review-layer-contract.schema.v1.json'
+const CORPUS_LIFECYCLE_CONTRACT_PATH = 'src/lib/knowledge/corpus-processing-lifecycle.ts'
+const CORPUS_LIFECYCLE_SCHEMA_PATH = 'knowledge/schema/corpus-processing-lifecycle.schema.v1.json'
+const PDF_EXTRACTION_SUMMARY_PATH = 'knowledge/corpus/pdf-page-extraction/pdf-page-extraction-summary.v1.json'
+const PDF_EXTRACTION_MANIFEST_PATH = 'knowledge/corpus/pdf-page-extraction/pdf-page-extraction-generation-manifest.v1.json'
+
+const GATE1_KNOWLEDGE_INPUT_PATHS = [
+  CORPUS_PROCESSING_SUMMARY_PATH,
+  CORPUS_PROCESSING_MANIFEST_PATH,
+  CORPUS_PROCESSING_REGISTER_PATH,
+  REVIEW_LAYER_CONTRACT_PATH,
+  REVIEW_LAYER_SCHEMA_PATH,
+  CORPUS_LIFECYCLE_CONTRACT_PATH,
+  CORPUS_LIFECYCLE_SCHEMA_PATH,
+  PDF_EXTRACTION_SUMMARY_PATH,
+  PDF_EXTRACTION_MANIFEST_PATH,
+] as const
 
 const PROFILE_IDS = [
   'health_profile.internal_discovery',
@@ -130,6 +159,254 @@ type GeneratedBundle = {
   report: string
   generationManifest: JsonObject
   serialized: Record<string, string>
+}
+
+const nonnegativeIntegerSchema = z.number().int().nonnegative()
+const bareSha256Schema = z.string().regex(/^[a-f0-9]{64}$/)
+const prefixedSha256Schema = z.string().regex(/^sha256:[a-f0-9]{64}$/)
+const manifestEntrySchema = z.object({
+  path: z.string().min(1),
+  sha256: bareSha256Schema,
+  sizeBytes: nonnegativeIntegerSchema,
+}).strict()
+
+const corpusProcessingSummarySchema = z.object({
+  schemaVersion: z.literal('1.0.0'),
+  summaryId: z.literal('corpus-processing-summary.v1'),
+  generatorVersion: z.string().min(1),
+  observedAt: z.string().datetime(),
+  ledgerObservedAt: z.string().datetime(),
+  activeCorpus: z.object({
+    total: nonnegativeIntegerSchema,
+    expected: nonnegativeIntegerSchema,
+    identityUnique: z.boolean(),
+    bySourceKind: z.object({
+      document: nonnegativeIntegerSchema,
+      library_file: nonnegativeIntegerSchema,
+      report: nonnegativeIntegerSchema,
+      source_doc: nonnegativeIntegerSchema,
+      thesis: nonnegativeIntegerSchema,
+    }).strict(),
+    authoritativeInventorySnapshot: z.object({
+      path: z.string().min(1),
+      snapshotId: z.string().min(1),
+      observedAt: z.string().datetime(),
+      identityContentSetSha256: bareSha256Schema,
+      sourceKindCountsSha256: bareSha256Schema,
+      ledgerSha256: bareSha256Schema,
+      portableSnapshotBindingVerified: z.boolean(),
+      liveDatabaseVerifiedThisRun: z.boolean(),
+    }).strict(),
+  }).strict(),
+  retainedHistoryBoundary: z.object({
+    total: nonnegativeIntegerSchema,
+    nonAdditive: z.boolean(),
+    externalUseAllowed: z.boolean(),
+    contractSha256: bareSha256Schema,
+  }).strict(),
+  repositoryFiles: z.object({
+    byState: z.object({
+      missing: nonnegativeIntegerSchema,
+      no_locator: nonnegativeIntegerSchema,
+      present: nonnegativeIntegerSchema,
+    }).strict(),
+    byMediaType: z.object({
+      'application/pdf': nonnegativeIntegerSchema,
+      'application/vnd.openxmlformats-officedocument.presentationml.presentation': nonnegativeIntegerSchema,
+      'text/csv': nonnegativeIntegerSchema,
+      'text/markdown': nonnegativeIntegerSchema,
+      'text/plain': nonnegativeIntegerSchema,
+      'text/typescript': nonnegativeIntegerSchema,
+      unknown: nonnegativeIntegerSchema,
+    }).strict(),
+    present: nonnegativeIntegerSchema,
+    unavailable: nonnegativeIntegerSchema,
+    lifecycleContentHashBound: nonnegativeIntegerSchema,
+    repositoryContentHashesVerified: nonnegativeIntegerSchema,
+    privateCaptureContentHashesRecorded: nonnegativeIntegerSchema,
+    contentHashUnavailable: nonnegativeIntegerSchema,
+    filesystemSnapshotSha256: bareSha256Schema,
+  }).strict(),
+  privateRecovery: z.object({
+    recorded: z.object({
+      candidateCount: nonnegativeIntegerSchema,
+      captureRecordedOn: z.string().date(),
+      primaryHashAndSizeAttestations: nonnegativeIntegerSchema,
+      replicaHashAndSizeAttestations: nonnegativeIntegerSchema,
+      attestedCopyFileMode: z.string().min(1),
+      semantics: z.string().min(1),
+    }).strict(),
+    liveVerifiedThisRun: z.object({
+      performed: z.boolean(),
+      primaryCopiesVerified: nonnegativeIntegerSchema,
+      replicaCopiesVerified: nonnegativeIntegerSchema,
+      verifiedCandidateCount: nonnegativeIntegerSchema,
+    }).strict(),
+    rightsPendingNotCleared: nonnegativeIntegerSchema,
+    rightsCleared: nonnegativeIntegerSchema,
+    repositoryPresencePromotions: nonnegativeIntegerSchema,
+    fullTextReviewPromotions: nonnegativeIntegerSchema,
+  }).strict(),
+  roles: z.object({
+    byRole: z.object({
+      generated_projection: nonnegativeIntegerSchema,
+      internal_synthesis: nonnegativeIntegerSchema,
+      operational_control: nonnegativeIntegerSchema,
+      primary_evidence: nonnegativeIntegerSchema,
+      unknown: nonnegativeIntegerSchema,
+    }).strict(),
+    provisionalMachineClassifications: nonnegativeIntegerSchema,
+    knownIdentityAliasMismatches: nonnegativeIntegerSchema,
+    ownerConfirmed: nonnegativeIntegerSchema,
+  }).strict(),
+  queues: z.object({
+    missingFiles: nonnegativeIntegerSchema,
+    roleClassification: nonnegativeIntegerSchema,
+    fullTextProcessingUnits: nonnegativeIntegerSchema,
+    fullTextIdentitiesPending: nonnegativeIntegerSchema,
+    ownerReview: nonnegativeIntegerSchema,
+    normalizedPathDuplicateGroups: nonnegativeIntegerSchema,
+    contentHashDuplicateGroups: nonnegativeIntegerSchema,
+  }).strict(),
+  duplicateReview: z.object({
+    normalizedPathGroups: nonnegativeIntegerSchema,
+    normalizedPathIdentities: nonnegativeIntegerSchema,
+    contentHashGroups: nonnegativeIntegerSchema,
+    contentHashIdentities: nonnegativeIntegerSchema,
+    automaticActions: nonnegativeIntegerSchema,
+  }).strict(),
+  readiness: z.object({
+    fullTextComplete: nonnegativeIntegerSchema,
+    ownerReviewed: nonnegativeIntegerSchema,
+    internalKnowledgeReady: nonnegativeIntegerSchema,
+    externalUseReady: nonnegativeIntegerSchema,
+    coveragePromotionAllowed: nonnegativeIntegerSchema,
+  }).strict(),
+  semantics: z.object({
+    noFullTextInference: z.string().min(1),
+    ownerReview: z.string().min(1),
+    retainedHistory: z.string().min(1),
+    duplicates: z.string().min(1),
+    privateCapture: z.string().min(1),
+    liveVerification: z.string().min(1),
+    authoritativeInventory: z.string().min(1),
+  }).strict(),
+}).strict()
+
+const corpusProcessingManifestSchema = z.object({
+  schemaVersion: z.literal('1.0.0'),
+  generator: z.literal('scripts/knowledge/generate-corpus-processing-register.ts'),
+  generatorVersion: z.string().min(1),
+  observedAt: z.string().datetime(),
+  ledgerObservedAt: z.string().datetime(),
+  activeCorpusExpectedRows: nonnegativeIntegerSchema,
+  retainedHistoryExpectedRows: nonnegativeIntegerSchema,
+  retainedHistoryNonAdditive: z.boolean(),
+  filesystemSnapshotSha256: bareSha256Schema,
+  commitMarkerSemantics: z.string().min(1),
+  inputs: z.array(manifestEntrySchema).min(1),
+  outputs: z.array(manifestEntrySchema).min(1),
+}).strict()
+
+const corpusProcessingRegisterRowSchema = z.object({
+  recordId: z.string().min(1),
+  repositoryFile: z.object({
+    candidateRepositoryPaths: z.array(z.string()),
+    extension: z.string().nullable(),
+    locator: z.string().nullable(),
+    mediaType: z.string().nullable(),
+    resolvedRepositoryPath: z.string().nullable(),
+    sha256: bareSha256Schema.nullable(),
+    sizeBytes: nonnegativeIntegerSchema.nullable(),
+    state: z.enum(['present', 'missing', 'no_locator']),
+  }).strict(),
+  privateRecoveryCandidate: z.object({
+    canonicalPath: z.string().min(1),
+    fullTextReviewed: z.boolean(),
+    identityKey: z.string().min(1),
+    identityReview: z.object({
+      currentTitle: z.string().min(1),
+      legacyAlias: z.string().min(1),
+      provisionalScopeDisposition: z.string().min(1),
+      state: z.string().min(1),
+      warning: z.string().min(1),
+    }).strict().optional(),
+    internalLocator: z.string().min(1),
+    replicaClass: z.string().min(1),
+    repositoryAvailable: z.boolean(),
+    rightsState: z.string().min(1),
+    sha256: bareSha256Schema,
+    sizeBytes: nonnegativeIntegerSchema,
+  }).strict().nullable(),
+  lifecycle: z.unknown(),
+  permissions: z.unknown(),
+}).passthrough()
+
+const corpusLifecyclePermissionsSchema = z.object({
+  aiReadyForOwnerReview: z.boolean(),
+  sourceRoleOwnerConfirmed: z.boolean(),
+  ownerApprovedForInternalUse: z.boolean(),
+  independentlyValidated: z.boolean(),
+  independentValidationRequirementSatisfied: z.boolean(),
+  partnerValidated: z.boolean(),
+  partnerValidationRequirementSatisfied: z.boolean(),
+  rightsHolderValidated: z.boolean(),
+  rightsHolderValidationRequirementSatisfied: z.boolean(),
+  rightsClearedForInternalUse: z.boolean(),
+  rightsClearedForExternalPublication: z.boolean(),
+  publicationIndependentGatesSatisfied: z.boolean(),
+  externalUseAllowed: z.boolean(),
+  coveragePromotionAllowed: z.boolean(),
+  blockers: z.array(z.string()),
+}).strict()
+
+export type CorpusProcessingSummary = z.infer<typeof corpusProcessingSummarySchema>
+type CorpusProcessingManifestEntry = z.infer<typeof manifestEntrySchema>
+
+export type Gate1KnowledgeInputs = {
+  corpus: {
+    summary: CorpusProcessingSummary
+    activeIdentities: number
+    contentHashBoundIdentities: number
+    repositoryHashBoundBytes: number
+    privateRecoveryHashBoundBytes: number
+    hashBoundBytes: number
+    missingRepositoryFiles: number
+    noLocatorIdentities: number
+    deduplicatedProcessingUnits: number
+    fullTextComplete: number
+    sourceRoleOwnerConfirmed: number
+    ownerReviewed: number
+    independentlyValidated: number
+    partnerValidated: number
+    rightsHolderValidated: number
+    rightsCleared: number
+    publicationApproved: number
+    externalUseReady: number
+    coverageApproved: number
+  }
+  review: {
+    canonicalLayerCount: number
+    unclassifiedLegacyMappingCount: number
+    legacyStatusOnlyCanonicalHumanApprovals: number
+  }
+  pdf: {
+    technicalUnits: number
+    technicallyQualifiedUnits: number
+    technicalFailures: number
+    extractedPages: number
+    extractedWords: number
+    warningPages: number
+    openAliasBlockers: number
+    aiAnalysisComplete: boolean
+    ownerReviewComplete: boolean
+    independentValidationComplete: boolean
+    rightsCleared: boolean
+    publicationReady: boolean
+    coveragePromotionAllowed: boolean
+    portableTrackedValidationSupported: boolean
+    privateVerificationPerformed: boolean
+  }
 }
 
 const SOURCE_DEFINITIONS: SourceDefinition[] = [
@@ -292,6 +569,93 @@ const SOURCE_DEFINITIONS: SourceDefinition[] = [
     updatedThrough: null,
     caveats: ['Vault notes and canvases are navigation artifacts, not researched coverage units.'],
   },
+  {
+    snapshotId: 'health.snapshot.corpus_processing_summary',
+    surfaceId: 'corpus_processing_summary',
+    path: CORPUS_PROCESSING_SUMMARY_PATH,
+    authorityLayer: 'operational_status',
+    observationMode: 'direct_repository_observation',
+    updatedThrough: null,
+    caveats: [
+      'The summary is accepted only when its generation manifest and full lifecycle register validate exactly.',
+      'Inventory and processing counts do not establish subject coverage, full-text reading or human approval.',
+    ],
+  },
+  {
+    snapshotId: 'health.snapshot.corpus_processing_manifest',
+    surfaceId: 'corpus_processing_manifest',
+    path: CORPUS_PROCESSING_MANIFEST_PATH,
+    authorityLayer: 'repository_contract',
+    observationMode: 'direct_repository_observation',
+    updatedThrough: null,
+    caveats: ['The manifest binds generation inputs and outputs; generation itself creates no review or readiness decision.'],
+  },
+  {
+    snapshotId: 'health.snapshot.corpus_processing_register',
+    surfaceId: 'corpus_processing_register',
+    path: CORPUS_PROCESSING_REGISTER_PATH,
+    authorityLayer: 'structured_evidence',
+    observationMode: 'direct_repository_observation',
+    updatedThrough: null,
+    caveats: ['Lifecycle records are validated independently; identity enumeration is not researched completeness.'],
+  },
+  {
+    snapshotId: 'health.snapshot.review_layer_contract',
+    surfaceId: 'review_layer_contract',
+    path: REVIEW_LAYER_CONTRACT_PATH,
+    authorityLayer: 'repository_contract',
+    observationMode: 'direct_repository_observation',
+    updatedThrough: null,
+    caveats: ['Legacy Gate 2C status labels remain unclassified until signer authority and gate role are evidenced.'],
+  },
+  {
+    snapshotId: 'health.snapshot.review_layer_schema',
+    surfaceId: 'review_layer_schema',
+    path: REVIEW_LAYER_SCHEMA_PATH,
+    authorityLayer: 'repository_contract',
+    observationMode: 'direct_repository_observation',
+    updatedThrough: null,
+    caveats: ['Schema validity constrains review records but does not create a review receipt.'],
+  },
+  {
+    snapshotId: 'health.snapshot.corpus_processing_lifecycle_contract',
+    surfaceId: 'corpus_processing_lifecycle_contract',
+    path: CORPUS_LIFECYCLE_CONTRACT_PATH,
+    authorityLayer: 'repository_contract',
+    observationMode: 'direct_repository_observation',
+    updatedThrough: null,
+    caveats: ['The lifecycle contract separates AI processing, owner review, validation, rights, publication and coverage.'],
+  },
+  {
+    snapshotId: 'health.snapshot.corpus_processing_lifecycle_schema',
+    surfaceId: 'corpus_processing_lifecycle_schema',
+    path: CORPUS_LIFECYCLE_SCHEMA_PATH,
+    authorityLayer: 'repository_contract',
+    observationMode: 'direct_repository_observation',
+    updatedThrough: null,
+    caveats: ['Schema validity is necessary but not sufficient evidence that any processing or review stage occurred.'],
+  },
+  {
+    snapshotId: 'health.snapshot.pdf_page_extraction_summary',
+    surfaceId: 'pdf_page_extraction_summary',
+    path: PDF_EXTRACTION_SUMMARY_PATH,
+    authorityLayer: 'structured_evidence',
+    observationMode: 'direct_repository_observation',
+    updatedThrough: null,
+    caveats: [
+      'Page and word totals are technical extraction volume only, not evidence that AI read, analyzed or understood the documents.',
+      'Technical qualification creates no owner, expert, rights, publication or coverage approval.',
+    ],
+  },
+  {
+    snapshotId: 'health.snapshot.pdf_page_extraction_manifest',
+    surfaceId: 'pdf_page_extraction_manifest',
+    path: PDF_EXTRACTION_MANIFEST_PATH,
+    authorityLayer: 'repository_contract',
+    observationMode: 'direct_repository_observation',
+    updatedThrough: null,
+    caveats: ['Portable tracked validation is distinct from live verification of private archive roots.'],
+  },
 ]
 
 const DB_QUERIES = {
@@ -385,6 +749,328 @@ export function canonicalSha256(value: unknown): string {
 
 export function sha256Text(value: string | Buffer): string {
   return `sha256:${createHash('sha256').update(value).digest('hex')}`
+}
+
+function sha256Bare(value: string | Buffer): string {
+  return createHash('sha256').update(value).digest('hex')
+}
+
+function requireExact(actual: unknown, expected: unknown, label: string): void {
+  if (canonicalJson(actual) !== canonicalJson(expected)) {
+    throw new Error(`${label} mismatch: expected ${canonicalJson(expected)}, received ${canonicalJson(actual)}`)
+  }
+}
+
+export function parseCorpusProcessingSummary(value: unknown): CorpusProcessingSummary {
+  const result = corpusProcessingSummarySchema.safeParse(value)
+  if (!result.success) {
+    throw new Error(`Corpus processing summary is invalid: ${result.error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`).join('; ')}`)
+  }
+  return result.data
+}
+
+export function assertManifestEntryMatchesBytes(
+  entry: CorpusProcessingManifestEntry,
+  bytes: string | Buffer,
+  label: string,
+): void {
+  const actualSize = Buffer.byteLength(bytes)
+  const actualSha256 = sha256Bare(bytes)
+  if (entry.sizeBytes !== actualSize || entry.sha256 !== actualSha256) {
+    throw new Error(`${label} does not match manifest entry ${entry.path}`)
+  }
+}
+
+function readJsonAt(repositoryRoot: string, path: string): unknown {
+  return JSON.parse(readFileSync(resolve(repositoryRoot, path), 'utf8')) as unknown
+}
+
+function uniqueManifestPaths(entries: CorpusProcessingManifestEntry[], label: string): void {
+  const paths = entries.map((entry) => entry.path)
+  if (new Set(paths).size !== paths.length) throw new Error(`${label} paths must be unique`)
+}
+
+function countPermission(
+  records: Array<{ lifecycle: CorpusLifecycleRecord; permissions: CorpusLifecyclePermissions }>,
+  key: keyof CorpusLifecyclePermissions,
+): number {
+  return records.filter(({ permissions }) => permissions[key] === true).length
+}
+
+export function loadGate1KnowledgeInputs(repositoryRoot = ROOT): Gate1KnowledgeInputs {
+  const rawSummary = readJsonAt(repositoryRoot, CORPUS_PROCESSING_SUMMARY_PATH)
+  const summary = parseCorpusProcessingSummary(rawSummary)
+  const manifestResult = corpusProcessingManifestSchema.safeParse(
+    readJsonAt(repositoryRoot, CORPUS_PROCESSING_MANIFEST_PATH),
+  )
+  if (!manifestResult.success) {
+    throw new Error(`Corpus processing generation manifest is invalid: ${manifestResult.error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`).join('; ')}`)
+  }
+  const manifest = manifestResult.data
+  uniqueManifestPaths(manifest.inputs, 'Corpus processing manifest input')
+  uniqueManifestPaths(manifest.outputs, 'Corpus processing manifest output')
+  for (const [kind, entries] of [
+    ['input', manifest.inputs],
+    ['output', manifest.outputs],
+  ] as const) {
+    for (const entry of entries) {
+      const bytes = readFileSync(resolve(repositoryRoot, entry.path))
+      assertManifestEntryMatchesBytes(entry, bytes, `Corpus processing ${kind}`)
+    }
+  }
+  for (const requiredPath of [
+    CORPUS_LIFECYCLE_CONTRACT_PATH,
+    CORPUS_PROCESSING_REGISTER_PATH,
+    CORPUS_PROCESSING_SUMMARY_PATH,
+  ]) {
+    const entrySet = requiredPath === CORPUS_LIFECYCLE_CONTRACT_PATH ? manifest.inputs : manifest.outputs
+    if (!entrySet.some((entry) => entry.path === requiredPath)) {
+      throw new Error(`Corpus processing manifest does not bind ${requiredPath}`)
+    }
+  }
+  requireExact(manifest.generatorVersion, summary.generatorVersion, 'Corpus generator version')
+  requireExact(manifest.observedAt, summary.observedAt, 'Corpus observation time')
+  requireExact(manifest.ledgerObservedAt, summary.ledgerObservedAt, 'Corpus ledger observation time')
+  requireExact(manifest.activeCorpusExpectedRows, summary.activeCorpus.expected, 'Expected active corpus rows')
+  requireExact(manifest.retainedHistoryExpectedRows, summary.retainedHistoryBoundary.total, 'Expected retained-history rows')
+  requireExact(manifest.retainedHistoryNonAdditive, summary.retainedHistoryBoundary.nonAdditive, 'Retained-history additive boundary')
+  requireExact(manifest.filesystemSnapshotSha256, summary.repositoryFiles.filesystemSnapshotSha256, 'Corpus filesystem snapshot')
+
+  const registerSource = readFileSync(resolve(repositoryRoot, CORPUS_PROCESSING_REGISTER_PATH), 'utf8')
+  const registerRows = registerSource
+    .split(/\r?\n/)
+    .filter((line) => line.trim() !== '')
+    .map((line, index) => {
+      let raw: unknown
+      try {
+        raw = JSON.parse(line) as unknown
+      } catch (error) {
+        throw new Error(`${CORPUS_PROCESSING_REGISTER_PATH}:${index + 1} is not valid JSON: ${String(error)}`)
+      }
+      const rowResult = corpusProcessingRegisterRowSchema.safeParse(raw)
+      if (!rowResult.success) {
+        throw new Error(`${CORPUS_PROCESSING_REGISTER_PATH}:${index + 1} is invalid: ${rowResult.error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`).join('; ')}`)
+      }
+      const lifecycle = validateCorpusLifecycle(rowResult.data.lifecycle)
+      const permissions = deriveCorpusLifecyclePermissions(lifecycle)
+      const recordedPermissions = corpusLifecyclePermissionsSchema.parse(rowResult.data.permissions)
+      requireExact(recordedPermissions, permissions, `${rowResult.data.recordId} derived lifecycle permissions`)
+      requireExact(lifecycle.recordId, rowResult.data.recordId, `${rowResult.data.recordId} lifecycle identity`)
+      return {
+        ...rowResult.data,
+        lifecycle,
+        permissions,
+      }
+    })
+
+  const recordIds = registerRows.map((row) => row.recordId)
+  requireExact(new Set(recordIds).size, recordIds.length, 'Unique lifecycle record IDs')
+  requireExact(summary.activeCorpus.identityUnique, true, 'Active corpus identity uniqueness declaration')
+  requireExact(registerRows.length, summary.activeCorpus.total, 'Active corpus register row count')
+  requireExact(registerRows.length, summary.activeCorpus.expected, 'Active corpus expected row count')
+
+  const repositoryStates = { missing: 0, no_locator: 0, present: 0 }
+  const roleCounts = {
+    generated_projection: 0,
+    internal_synthesis: 0,
+    operational_control: 0,
+    primary_evidence: 0,
+    unknown: 0,
+  }
+  let contentHashBoundIdentities = 0
+  let repositoryHashBoundBytes = 0
+  let privateRecoveryHashBoundBytes = 0
+  let fullTextComplete = 0
+  let sourceRoleMachineProvisional = 0
+  let publicationApproved = 0
+  let coverageApproved = 0
+  for (const row of registerRows) {
+    repositoryStates[row.repositoryFile.state] += 1
+    roleCounts[row.lifecycle.sourceIdentity.sourceRole] += 1
+    if (row.lifecycle.sourceRoleConfirmationStatus.state === 'machine_provisional') {
+      sourceRoleMachineProvisional += 1
+    }
+    if (row.lifecycle.aiProcessingStatus.completedStages.includes('full_text')) fullTextComplete += 1
+    if (row.lifecycle.publicationStatus.approvalReceipt !== null) publicationApproved += 1
+    if (row.lifecycle.coverageStatus.approvalReceipt !== null) coverageApproved += 1
+
+    const contentSha256 = row.lifecycle.sourceIdentity.contentSha256
+    if (contentSha256 === null) continue
+    prefixedSha256Schema.parse(contentSha256)
+    contentHashBoundIdentities += 1
+    const bareHash = contentSha256.slice('sha256:'.length)
+    if (
+      row.repositoryFile.state === 'present'
+      && row.repositoryFile.sha256 === bareHash
+      && row.repositoryFile.sizeBytes !== null
+    ) {
+      repositoryHashBoundBytes += row.repositoryFile.sizeBytes
+    } else if (
+      row.privateRecoveryCandidate !== null
+      && row.privateRecoveryCandidate.sha256 === bareHash
+    ) {
+      privateRecoveryHashBoundBytes += row.privateRecoveryCandidate.sizeBytes
+    } else {
+      throw new Error(`${row.recordId} has a lifecycle content hash without matching repository or private-recovery bytes`)
+    }
+  }
+
+  const sourceRoleOwnerConfirmed = countPermission(registerRows, 'sourceRoleOwnerConfirmed')
+  const ownerReviewed = countPermission(registerRows, 'ownerApprovedForInternalUse')
+  const independentlyValidated = countPermission(registerRows, 'independentlyValidated')
+  const partnerValidated = countPermission(registerRows, 'partnerValidated')
+  const rightsHolderValidated = countPermission(registerRows, 'rightsHolderValidated')
+  const rightsCleared = countPermission(registerRows, 'rightsClearedForInternalUse')
+  const externalUseReady = countPermission(registerRows, 'externalUseAllowed')
+  const coverageAllowed = countPermission(registerRows, 'coveragePromotionAllowed')
+
+  requireExact(repositoryStates, summary.repositoryFiles.byState, 'Repository state counts')
+  requireExact(repositoryStates.present, summary.repositoryFiles.present, 'Present repository files')
+  requireExact(repositoryStates.missing + repositoryStates.no_locator, summary.repositoryFiles.unavailable, 'Unavailable repository files')
+  requireExact(contentHashBoundIdentities, summary.repositoryFiles.lifecycleContentHashBound, 'Lifecycle content-hash bindings')
+  requireExact(roleCounts, summary.roles.byRole, 'Corpus source-role counts')
+  requireExact(sourceRoleMachineProvisional, summary.roles.provisionalMachineClassifications, 'Provisional source-role classifications')
+  requireExact(sourceRoleOwnerConfirmed, summary.roles.ownerConfirmed, 'Owner-confirmed source roles')
+  requireExact(fullTextComplete, summary.readiness.fullTextComplete, 'Full-text lifecycle completions')
+  requireExact(ownerReviewed, summary.readiness.ownerReviewed, 'Owner-reviewed lifecycle records')
+  requireExact(externalUseReady, summary.readiness.externalUseReady, 'External-use-ready lifecycle records')
+  requireExact(coverageAllowed, summary.readiness.coveragePromotionAllowed, 'Coverage-promotion lifecycle records')
+  requireExact(registerRows.length - fullTextComplete, summary.queues.fullTextIdentitiesPending, 'Full-text pending identities')
+  requireExact(registerRows.length - ownerReviewed, summary.queues.ownerReview, 'Owner-review queue identities')
+  requireExact(registerRows.length - sourceRoleOwnerConfirmed, summary.queues.roleClassification, 'Source-role confirmation queue identities')
+
+  const reviewContract = readJsonAt(repositoryRoot, REVIEW_LAYER_CONTRACT_PATH)
+  const reviewSchema = readJsonAt(repositoryRoot, REVIEW_LAYER_SCHEMA_PATH)
+  if (!isObject(reviewContract) || !isObject(reviewSchema)) {
+    throw new Error('Review-layer contract and schema must be JSON objects')
+  }
+  const reviewAjv = new Ajv2020({ allErrors: true, strict: false })
+  addFormats(reviewAjv)
+  const validateReview = reviewAjv.compile(reviewSchema)
+  if (!validateReview(reviewContract)) {
+    throw new Error(`Review-layer contract is invalid: ${reviewAjv.errorsText(validateReview.errors, { separator: '; ' })}`)
+  }
+  const expectedLayerIds = [
+    'ai_processing',
+    'owner_review',
+    'independent_expert_validation',
+    'partner_validation',
+    'rights_holder_validation',
+    'rights_clearance',
+    'publication',
+    'coverage_promotion',
+  ]
+  const reviewLayers = Array.isArray(reviewContract.layers) ? reviewContract.layers.filter(isObject) : []
+  requireExact(reviewLayers.map((layer) => String(layer.layerId)).toSorted(), expectedLayerIds.toSorted(), 'Canonical review layers')
+  const legacyMappings = Array.isArray(reviewContract.legacyMappings)
+    ? reviewContract.legacyMappings.filter(isObject)
+    : []
+  requireExact(legacyMappings.length, 5, 'Legacy Gate 2C mapping count')
+  for (const mapping of legacyMappings) {
+    requireExact(
+      mapping.canonicalReviewLayerResolution,
+      'unresolved_until_receipt_actor_and_gate_role_classified',
+      `${String(mapping.sourceStatus)} review-layer resolution`,
+    )
+    const assignments = Array.isArray(mapping.canonicalAssignments)
+      ? mapping.canonicalAssignments.filter(isObject)
+      : []
+    const expectedAssignments = mapping.sourceStatus === 'machine_checked_human_review_pending'
+      ? [{ layerId: 'ai_processing', status: 'ai_processed' }]
+      : []
+    requireExact(assignments, expectedAssignments, `${String(mapping.sourceStatus)} canonical assignments`)
+  }
+  const legacyReceiptPolicy = isObject(reviewContract.legacyReceiptPolicy)
+    ? reviewContract.legacyReceiptPolicy
+    : {}
+  requireExact(legacyReceiptPolicy.canonicalLayerId, null, 'Legacy receipt default canonical layer')
+  requireExact(legacyReceiptPolicy.statusAloneCreatesCanonicalApproval, false, 'Legacy status-only approval policy')
+  requireExact(legacyReceiptPolicy.unclassifiedLegacyReceiptCreatesCanonicalApproval, false, 'Unclassified legacy receipt approval policy')
+  requireExact(legacyReceiptPolicy.externalUseAllowed, false, 'Legacy receipt external-use policy')
+  requireExact(legacyReceiptPolicy.coveragePromotionAllowed, false, 'Legacy receipt coverage policy')
+  requireExact(
+    Array.isArray(legacyReceiptPolicy.allowedCanonicalLayerIds)
+      ? legacyReceiptPolicy.allowedCanonicalLayerIds.map(String).toSorted()
+      : [],
+    ['owner_review', 'independent_expert_validation', 'partner_validation', 'rights_holder_validation'].toSorted(),
+    'Legacy receipt allowed classified review layers',
+  )
+  requireExact(
+    Array.isArray(legacyReceiptPolicy.requiredClassificationEvidence)
+      ? legacyReceiptPolicy.requiredClassificationEvidence.map(String).toSorted()
+      : [],
+    [
+      'named_signer_identity',
+      'gate_required_reviewer_role',
+      'qualifications_or_role_authority',
+      'affiliation',
+      'conflict_declaration',
+      'exact_scope_binding',
+    ].toSorted(),
+    'Legacy receipt classification evidence',
+  )
+
+  const trackedPdf = checkTrackedQualificationBundle({ repositoryRoot })
+  const pdfGenerationManifest = readJsonAt(repositoryRoot, PDF_EXTRACTION_MANIFEST_PATH)
+  if (!isObject(pdfGenerationManifest) || !isObject(pdfGenerationManifest.semantics)) {
+    throw new Error('PDF extraction generation manifest semantics are missing')
+  }
+  const pdfSummary = trackedPdf.summary
+  requireExact(pdfSummary.openBlockerCount, pdfSummary.legacyAliasScopeMismatchCount, 'Open PDF alias blockers')
+  requireExact(pdfSummary.technicalFailureCount, 0, 'Tracked PDF technical failures')
+  requireExact(pdfSummary.semantics.technicalExtractionOnly, true, 'PDF technical-extraction boundary')
+  requireExact(pdfSummary.semantics.privateTextStorageOnly, true, 'PDF private-text boundary')
+  requireExact(pdfGenerationManifest.semantics.portableTrackedValidationSupported, true, 'Portable PDF validation support')
+  requireExact(pdfGenerationManifest.semantics.privateStorageValidationRequiresArchiveRoots, true, 'Private PDF archive validation boundary')
+  requireExact(trackedPdf.privateVerificationPerformed, false, 'Portable PDF private verification state')
+
+  return {
+    corpus: {
+      summary,
+      activeIdentities: registerRows.length,
+      contentHashBoundIdentities,
+      repositoryHashBoundBytes,
+      privateRecoveryHashBoundBytes,
+      hashBoundBytes: repositoryHashBoundBytes + privateRecoveryHashBoundBytes,
+      missingRepositoryFiles: repositoryStates.missing,
+      noLocatorIdentities: repositoryStates.no_locator,
+      deduplicatedProcessingUnits: summary.queues.fullTextProcessingUnits,
+      fullTextComplete,
+      sourceRoleOwnerConfirmed,
+      ownerReviewed,
+      independentlyValidated,
+      partnerValidated,
+      rightsHolderValidated,
+      rightsCleared,
+      publicationApproved,
+      externalUseReady,
+      coverageApproved,
+    },
+    review: {
+      canonicalLayerCount: reviewLayers.length,
+      unclassifiedLegacyMappingCount: legacyMappings.length,
+      legacyStatusOnlyCanonicalHumanApprovals: 0,
+    },
+    pdf: {
+      technicalUnits: pdfSummary.targetCount,
+      technicallyQualifiedUnits: pdfSummary.technicallyQualifiedCount,
+      technicalFailures: pdfSummary.technicalFailureCount,
+      extractedPages: pdfSummary.totals.pageCount,
+      extractedWords: pdfSummary.totals.wordCount,
+      warningPages: pdfSummary.totals.warningPageCount,
+      openAliasBlockers: pdfSummary.openBlockerCount,
+      aiAnalysisComplete: pdfSummary.semantics.aiAnalysisComplete,
+      ownerReviewComplete: pdfSummary.semantics.ownerReviewComplete,
+      independentValidationComplete: pdfSummary.semantics.independentValidationComplete,
+      rightsCleared: pdfSummary.semantics.rightsCleared,
+      publicationReady: pdfSummary.semantics.publicationReady,
+      coveragePromotionAllowed: pdfSummary.semantics.coveragePromotionAllowed,
+      portableTrackedValidationSupported: Boolean(
+        pdfGenerationManifest.semantics.portableTrackedValidationSupported,
+      ),
+      privateVerificationPerformed: trackedPdf.privateVerificationPerformed,
+    },
+  }
 }
 
 function withContentHash<T extends JsonObject>(value: T): T & { contentHash: string } {
@@ -783,8 +1469,27 @@ function buildAssessment(
   sourceSnapshotIds: string[],
   db: DatabaseRuntime,
   thresholds: JsonObject,
+  knowledgeInputs: Gate1KnowledgeInputs,
   supersedesId: string | null,
 ): JsonObject {
+  const corpus = knowledgeInputs.corpus
+  const review = knowledgeInputs.review
+  const pdf = knowledgeInputs.pdf
+  const corpusProcessingSnapshotIds = [
+    sourceSnapshotId('corpus_processing_summary'),
+    sourceSnapshotId('corpus_processing_manifest'),
+    sourceSnapshotId('corpus_processing_register'),
+    sourceSnapshotId('corpus_processing_lifecycle_contract'),
+    sourceSnapshotId('corpus_processing_lifecycle_schema'),
+  ]
+  const reviewContractSnapshotIds = [
+    sourceSnapshotId('review_layer_contract'),
+    sourceSnapshotId('review_layer_schema'),
+  ]
+  const pdfExtractionSnapshotIds = [
+    sourceSnapshotId('pdf_page_extraction_summary'),
+    sourceSnapshotId('pdf_page_extraction_manifest'),
+  ]
   const headMigrations = readdirSync(resolve(ROOT, 'prisma/migrations'))
     .filter((name) => statSync(resolve(ROOT, 'prisma/migrations', name)).isDirectory())
     .sort()
@@ -1217,6 +1922,291 @@ function buildAssessment(
 
   const dbSnapshot = ['health.snapshot.database.local']
   const metrics: JsonObject[] = [
+    metric('health_metric.corpus_active_identities', 'Active whole-corpus identities', corpus.activeIdentities, {
+      numerator: corpus.activeIdentities,
+      denominator: corpus.summary.activeCorpus.expected,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'strict manifest validation plus lifecycle-register row and identity count',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      caveats: ['This enumerates the declared active corpus baseline; it does not prove Nordic food-system subject completeness.'],
+    }),
+    metric('health_metric.corpus_content_hash_bound_identities', 'Active identities bound to source-content hashes', corpus.contentHashBoundIdentities, {
+      numerator: corpus.contentHashBoundIdentities,
+      denominator: corpus.activeIdentities,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'validate every lifecycle record and count non-null source content hashes',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.corpus_hash_bound_bytes', 'Hash-bound source bytes represented by lifecycle identities', corpus.hashBoundBytes, {
+      unit: 'bytes',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'sum exact repository or private-recovery byte sizes matching lifecycle content hashes',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      caveats: [
+        `Repository-bound bytes: ${corpus.repositoryHashBoundBytes}.`,
+        `Private-recovery metadata-bound bytes: ${corpus.privateRecoveryHashBoundBytes}; portable generation does not verify the private files live.`,
+        'Byte volume does not imply full-text processing, understanding, appraisal or coverage.',
+      ],
+    }),
+    metric('health_metric.corpus_missing_repository_files', 'Active identities with a known but missing repository file', corpus.missingRepositoryFiles, {
+      numerator: corpus.missingRepositoryFiles,
+      denominator: corpus.activeIdentities,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'validated lifecycle-register repository state count',
+      authorityLayer: 'operational_status',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.corpus_no_locator_identities', 'Active identities without a file locator', corpus.noLocatorIdentities, {
+      numerator: corpus.noLocatorIdentities,
+      denominator: corpus.activeIdentities,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'validated lifecycle-register repository state count',
+      authorityLayer: 'operational_status',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.corpus_known_identity_alias_mismatches', 'Known corpus identity or legacy-alias mismatches', corpus.summary.roles.knownIdentityAliasMismatches, {
+      numerator: corpus.summary.roles.knownIdentityAliasMismatches,
+      denominator: corpus.activeIdentities,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'read manifest-bound identity-review queue count',
+      authorityLayer: 'operational_status',
+      caveats: ['A legacy filename or alias must not determine source role or subject scope.'],
+    }),
+    metric('health_metric.corpus_deduplicated_processing_units', 'Content-deduplicated full-text processing units', corpus.deduplicatedProcessingUnits, {
+      unit: 'processing_units',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'manifest-bound corpus processing queue count',
+      authorityLayer: 'operational_status',
+      caveats: ['A processing unit is a queued unit of work, not a completed reading or researched knowledge unit.'],
+    }),
+    metric('health_metric.corpus_full_text_complete', 'Lifecycle identities with completed full-text processing', corpus.fullTextComplete, {
+      numerator: corpus.fullTextComplete,
+      denominator: corpus.activeIdentities,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'validate every lifecycle and count completed full_text stages',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      caveats: ['Stored word counts, summaries, triage cards and technical extraction do not satisfy this lifecycle stage.'],
+    }),
+    metric('health_metric.corpus_source_role_owner_confirmed', 'Lifecycle identities with owner-confirmed source role', corpus.sourceRoleOwnerConfirmed, {
+      numerator: corpus.sourceRoleOwnerConfirmed,
+      denominator: corpus.activeIdentities,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'derive permissions from every validated lifecycle record',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      caveats: [`Machine-provisional source-role classifications: ${corpus.summary.roles.provisionalMachineClassifications}.`],
+    }),
+    metric('health_metric.corpus_owner_reviewed', 'Lifecycle identities approved for internal use by Gabriel', corpus.ownerReviewed, {
+      numerator: corpus.ownerReviewed,
+      denominator: corpus.activeIdentities,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'derive owner-approval permission from exact lifecycle receipts',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      caveats: ['Project-owner approval is separate from independent expert, partner and rights-holder validation.'],
+    }),
+    metric('health_metric.corpus_independently_validated', 'Lifecycle identities independently expert-validated', corpus.independentlyValidated, {
+      numerator: corpus.independentlyValidated,
+      denominator: corpus.activeIdentities,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'derive independent-validation permission from exact qualified reviewer receipts',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.corpus_partner_validated', 'Lifecycle identities partner-validated', corpus.partnerValidated, {
+      numerator: corpus.partnerValidated,
+      denominator: corpus.activeIdentities,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'derive partner-validation permission from exact lifecycle receipts',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.corpus_rights_holder_validated', 'Lifecycle identities rights-holder-validated', corpus.rightsHolderValidated, {
+      numerator: corpus.rightsHolderValidated,
+      denominator: corpus.activeIdentities,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'derive rights-holder validation from exact authority-bound lifecycle receipts',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      caveats: ['Rights-holder validation is a separate decision from rights clearance.'],
+    }),
+    metric('health_metric.corpus_rights_cleared', 'Lifecycle identities with rights cleared for a declared internal use', corpus.rightsCleared, {
+      numerator: corpus.rightsCleared,
+      denominator: corpus.activeIdentities,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'derive rights clearance from exact lifecycle authority receipts',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.corpus_publication_approved', 'Lifecycle identities with an exact publication approval receipt', corpus.publicationApproved, {
+      numerator: corpus.publicationApproved,
+      denominator: corpus.activeIdentities,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'count exact publication approval receipts in validated lifecycle records',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.corpus_external_use_ready', 'Lifecycle identities currently allowed for external use', corpus.externalUseReady, {
+      numerator: corpus.externalUseReady,
+      denominator: corpus.activeIdentities,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'derive fail-closed external-use permission from all lifecycle gates',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.corpus_coverage_approved', 'Lifecycle identities with a separate coverage-promotion approval', corpus.coverageApproved, {
+      numerator: corpus.coverageApproved,
+      denominator: corpus.activeIdentities,
+      unit: 'identities',
+      sourceSnapshotIds: corpusProcessingSnapshotIds,
+      command: 'count exact coverage-assessment receipts in validated lifecycle records',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      caveats: ['This health metric reports approval receipts only and cannot itself create or promote a subject-coverage cell.'],
+    }),
+    metric('health_metric.legacy_gate2c_unclassified_mappings', 'Legacy Gate 2C status mappings awaiting signer-role classification', review.unclassifiedLegacyMappingCount, {
+      unit: 'mappings',
+      sourceSnapshotIds: reviewContractSnapshotIds,
+      command: 'validate canonical review contract and inspect all legacy mappings',
+      authorityLayer: 'repository_contract',
+      observationMode: 'derived_comparison',
+      caveats: ['The machine-checked component maps only to AI processing; every legacy human status remains unclassified.'],
+    }),
+    metric('health_metric.legacy_gate2c_status_only_canonical_human_approvals', 'Canonical human approvals created by legacy Gate 2C status alone', review.legacyStatusOnlyCanonicalHumanApprovals, {
+      numerator: review.legacyStatusOnlyCanonicalHumanApprovals,
+      denominator: review.unclassifiedLegacyMappingCount,
+      unit: 'approvals',
+      sourceSnapshotIds: reviewContractSnapshotIds,
+      command: 'apply fail-closed legacy receipt classification policy',
+      authorityLayer: 'repository_contract',
+      observationMode: 'derived_comparison',
+      caveats: ['A human-review label is not an owner, independent expert, partner or rights-holder approval without signer authority, gate role and exact scope evidence.'],
+    }),
+    metric('health_metric.pdf_technical_units', 'PDF units in the tracked technical-extraction batch', pdf.technicalUnits, {
+      numerator: pdf.technicallyQualifiedUnits,
+      denominator: pdf.technicalUnits,
+      unit: 'raw_pdf_sha256_units',
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'strict portable validation of tracked PDF qualification bundle',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      caveats: ['Technical qualification is not AI reading, evidence appraisal, human validation, rights clearance or coverage.'],
+    }),
+    metric('health_metric.pdf_technical_failures', 'Technical failures in the tracked PDF extraction batch', pdf.technicalFailures, {
+      numerator: pdf.technicalFailures,
+      denominator: pdf.technicalUnits,
+      unit: 'raw_pdf_sha256_units',
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'strict portable validation of tracked PDF qualification bundle',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      caveats: ['The two open alias/scope blockers are not technical extraction failures.'],
+    }),
+    metric('health_metric.pdf_extracted_pages', 'Pages technically extracted from the tracked PDF batch', pdf.extractedPages, {
+      numerator: pdf.extractedPages,
+      denominator: pdf.extractedPages,
+      unit: 'pages',
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'cross-check expected page counts, page maps and qualification receipts',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      caveats: ['The page count proves extraction coverage of this five-document batch only, not semantic reading or Nordic food-system coverage.'],
+    }),
+    metric('health_metric.pdf_extracted_words', 'Words emitted by technical PDF text extraction', pdf.extractedWords, {
+      unit: 'words',
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'sum manifest-bound per-document extraction receipts',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      caveats: ['Word volume is extraction output only and must never be reported as AI reading, understanding, review or coverage.'],
+    }),
+    metric('health_metric.pdf_warning_pages', 'Technically extracted PDF pages carrying warnings', pdf.warningPages, {
+      numerator: pdf.warningPages,
+      denominator: pdf.extractedPages,
+      unit: 'pages',
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'sum warning pages in manifest-bound extraction summary',
+      authorityLayer: 'operational_status',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.pdf_open_alias_blockers', 'Open PDF legacy-alias scope blockers', pdf.openAliasBlockers, {
+      numerator: pdf.openAliasBlockers,
+      denominator: pdf.technicalUnits,
+      unit: 'blockers',
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'validate blocker queue count and alias-scope mismatch count',
+      authorityLayer: 'operational_status',
+      observationMode: 'derived_comparison',
+      caveats: ['Open identity/scope blockers are kept separate from technical extraction failures.'],
+    }),
+    metric('health_metric.pdf_ai_analysis_complete', 'Tracked PDF batch has completed AI analysis', pdf.aiAnalysisComplete, {
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'read strict extraction semantics after portable bundle validation',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.pdf_owner_review_complete', 'Tracked PDF batch has completed owner review', pdf.ownerReviewComplete, {
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'read strict extraction semantics after portable bundle validation',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.pdf_independent_validation_complete', 'Tracked PDF batch has completed independent validation', pdf.independentValidationComplete, {
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'read strict extraction semantics after portable bundle validation',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.pdf_rights_cleared', 'Tracked PDF batch has completed rights clearance', pdf.rightsCleared, {
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'read strict extraction semantics after portable bundle validation',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.pdf_publication_ready', 'Tracked PDF batch is publication-ready', pdf.publicationReady, {
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'read strict extraction semantics after portable bundle validation',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.pdf_coverage_promotion_allowed', 'Tracked PDF batch permits coverage promotion', pdf.coveragePromotionAllowed, {
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'read strict extraction semantics after portable bundle validation',
+      authorityLayer: 'structured_evidence',
+      observationMode: 'derived_comparison',
+      caveats: ['This boolean is false; corpus health cannot change that state.'],
+    }),
+    metric('health_metric.pdf_portable_tracked_validation_supported', 'Tracked PDF bundle validates portably from repository artifacts', pdf.portableTrackedValidationSupported, {
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'strictly validate generation self-hash, inputs, outputs, page maps, receipts and blocker queue',
+      authorityLayer: 'repository_contract',
+      observationMode: 'derived_comparison',
+    }),
+    metric('health_metric.pdf_private_verification_performed', 'Private PDF archive roots verified during this portable health run', pdf.privateVerificationPerformed, {
+      sourceSnapshotIds: pdfExtractionSnapshotIds,
+      command: 'portable tracked qualification check without private archive-root arguments',
+      authorityLayer: 'operational_status',
+      observationMode: 'derived_comparison',
+      caveats: ['Private storage verification requires explicit archive roots and remains false in a portable tracked run.'],
+    }),
     metric('health_metric.head_migrations', 'HEAD migration directories', headMigrations.length, {
       sourceSnapshotIds: [sourceSnapshotId('prisma_migrations')],
       command: 'find prisma/migrations -mindepth 1 -maxdepth 1 -type d',
@@ -1494,19 +2484,19 @@ function buildAssessment(
   ]
 
   const dimensions: JsonObject[] = [
-    { dimensionId: 'inventory', state: 'run_floor', verdict: 'pass_with_warnings', metricIds: ['health_metric.library_inventory', 'health_metric.database_evidence', 'health_metric.vault_markdown'], blockerConflictIds: [], limitations: ['Several bounded inventories are enumerated, but no exhaustive whole-corpus universe is declared.'] },
-    { dimensionId: 'provenanceLocator', state: 'mixed', verdict: 'degraded', metricIds: ['health_metric.documents_resolved', 'health_metric.exact_claim_anchors'], blockerConflictIds: [], limitations: ['Most claim text lacks page or quote anchors; URL presence alone is insufficient.'] },
+    { dimensionId: 'inventory', state: 'enumerated', verdict: 'pass_with_warnings', metricIds: ['health_metric.corpus_active_identities', 'health_metric.corpus_content_hash_bound_identities', 'health_metric.corpus_hash_bound_bytes', 'health_metric.pdf_technical_units', 'health_metric.library_inventory', 'health_metric.database_evidence', 'health_metric.vault_markdown'], blockerConflictIds: [], limitations: ['The declared 1,555-identity active corpus baseline is exhaustively enumerated and manifest-bound, but this is not an exhaustive universe of Nordic food-system subjects or sources.'] },
+    { dimensionId: 'provenanceLocator', state: 'mixed', verdict: 'degraded', metricIds: ['health_metric.corpus_missing_repository_files', 'health_metric.corpus_no_locator_identities', 'health_metric.corpus_known_identity_alias_mismatches', 'health_metric.pdf_open_alias_blockers', 'health_metric.documents_resolved', 'health_metric.exact_claim_anchors'], blockerConflictIds: [], limitations: ['Some lifecycle identities lack reachable repository files or locators, two PDF aliases remain scope-blocked, and most claim text lacks page or quote anchors.'] },
     { dimensionId: 'citationReadiness', state: 'mixed', verdict: 'degraded', metricIds: ['health_metric.source_citations', 'health_metric.field_citations', 'health_metric.blocked_citations'], blockerConflictIds: [], limitations: ['Technical citation integrity coexists with blocked rows and zero appraisal.'] },
     { dimensionId: 'appraisal', state: 'none_completed', verdict: 'blocked', metricIds: ['health_metric.evidence_appraisal'], blockerConflictIds: [], limitations: ['No evidence record has complete current appraisal.'] },
     { dimensionId: 'archive', state: 'partial_durable', verdict: 'blocked', metricIds: ['health_metric.archive_durable_rows', 'health_metric.external_rows_needing_archive'], blockerConflictIds: [], limitations: ['The archive gate fails and most external-readiness rows still need durable evidence.'] },
     { dimensionId: 'identity', state: seedIdentityParity && libraryIdentityParity ? 'parity_verified' : 'conflicts_open', verdict: seedIdentityParity && libraryIdentityParity ? 'pass' : 'blocked', metricIds: ['health_metric.database_only_evidence_identities', 'health_metric.managed_runtime_evidence_identities', 'health_metric.unclassified_database_only_evidence_identities', 'health_metric.missing_managed_runtime_evidence_identities', 'health_metric.seed_only_evidence_identities', 'health_metric.library_live_materialization', 'health_metric.library_retained_history_rows', 'health_metric.library_inventory_only_rows', 'health_metric.library_retained_history_contract_issues'], blockerConflictIds: [conflictIds.seedParity, conflictIds.library].filter((id) => openConflictIds.includes(id)), limitations: [migrationLineageParity ? 'Migration identity is reconciled; classified seed/runtime parity and live library identity are assessed independently. Raw row-count equality is not required for declared runtime-managed evidence or contract-bound retained library history.' : 'Migration identity remains unreconciled.'] },
-    { dimensionId: 'queueWorkflow', state: 'partially_controlled', verdict: 'pass_with_warnings', metricIds: ['health_metric.gap_program_rows', 'health_metric.gaps_newly_closed', 'health_metric.remediation_rows'], blockerConflictIds: [], limitations: ['Routes exist, but many actions remain source-, method-, owner- or human-gated.'] },
+    { dimensionId: 'queueWorkflow', state: 'partially_controlled', verdict: 'pass_with_warnings', metricIds: ['health_metric.corpus_deduplicated_processing_units', 'health_metric.corpus_full_text_complete', 'health_metric.corpus_source_role_owner_confirmed', 'health_metric.gap_program_rows', 'health_metric.gaps_newly_closed', 'health_metric.remediation_rows'], blockerConflictIds: [], limitations: ['The corpus is routed into deduplicated processing and review queues, but zero full-text stages and zero owner source-role confirmations are complete.'] },
     { dimensionId: 'freshnessVintage', state: 'conflicting_vintages', verdict: 'blocked', metricIds: ['health_metric.remediation_rows', 'health_metric.library_projection_updates_reported'], blockerConflictIds: [conflictIds.remediation, conflictIds.vault].filter((id) => openConflictIds.includes(id)), limitations: ['The academic status is current, but remediation, vault and operational receipts retain different subject vintages; 15 metadata-only library projection updates are reported separately from identity.'] },
     { dimensionId: 'structuralIntegrity', state: 'passed_with_warnings', verdict: 'degraded', metricIds: ['health_metric.vault_issues', 'health_metric.head_migrations', 'health_metric.database_migrations', 'health_metric.migration_lineage_mismatches'], blockerConflictIds: [conflictIds.lineage, conflictIds.vault, conflictIds.regression].filter((id) => openConflictIds.includes(id)), limitations: [migrationLineageParity ? 'Migration structure reproduces exactly; the vault validator still reports separate navigation issues.' : 'Migration structure does not reproduce on the pinned lineage.'] },
-    { dimensionId: 'humanReview', state: 'pending', verdict: 'blocked', metricIds: ['health_metric.library_named_reviews', 'health_metric.evidence_appraisal'], blockerConflictIds: [], limitations: ['No named completed library reviews or evidence appraisals were observed.'] },
+    { dimensionId: 'humanReview', state: 'pending', verdict: 'blocked', metricIds: ['health_metric.corpus_owner_reviewed', 'health_metric.corpus_independently_validated', 'health_metric.corpus_partner_validated', 'health_metric.corpus_rights_holder_validated', 'health_metric.legacy_gate2c_status_only_canonical_human_approvals', 'health_metric.pdf_owner_review_complete', 'health_metric.library_named_reviews', 'health_metric.evidence_appraisal'], blockerConflictIds: [], limitations: ["Gabriel's project-owner review is zero and remains distinct from independent expert, partner and rights-holder validation, which are also zero. Legacy Gate 2C human-status labels remain unclassified and create no canonical approval."] },
     { dimensionId: 'operationalProof', state: 'partially_verified', verdict: 'blocked', metricIds: ['health_metric.database_migrations', 'health_metric.migration_lineage_mismatches'], blockerConflictIds: openConflictIds, limitations: ['The local migration lineage is reproducible, but current production parity, fresh restore, complete role-enforced interface proof and required human gates remain outside this receipt.'] },
     { dimensionId: 'conflictControl', state: openConflictIds.length > 0 ? 'open' : 'resolved', verdict: openConflictIds.length > 0 ? 'blocked' : 'pass', metricIds: [], blockerConflictIds: openConflictIds, limitations: [`${conflicts.length - openConflictIds.length} conflict records are receipt-resolved; ${openConflictIds.length} remain open.`] },
-    { dimensionId: 'receiptIntegrity', state: 'partial', verdict: 'degraded', metricIds: [], blockerConflictIds: [], limitations: ['Machine receipts cover lineage and current audit observations; they do not satisfy external appraisal, production, human, partner or rights-holder gates.'] },
+    { dimensionId: 'receiptIntegrity', state: 'partial', verdict: 'degraded', metricIds: ['health_metric.corpus_rights_cleared', 'health_metric.corpus_publication_approved', 'health_metric.corpus_external_use_ready', 'health_metric.corpus_coverage_approved', 'health_metric.pdf_portable_tracked_validation_supported', 'health_metric.pdf_private_verification_performed'], blockerConflictIds: [], limitations: ['Machine receipts cover lineage, lifecycle validation and the portable PDF bundle. They do not satisfy owner, expert, partner, rights-holder, rights-clearance, publication or coverage gates; private archive roots were not verified in this portable run.'] },
     { dimensionId: 'sourceSnapshotIntegrity', state: 'hash_bound', verdict: 'pass', metricIds: [], blockerConflictIds: [], limitations: ['This assessment binds file snapshots and the read-only database result to hashes; it does not prove production parity.'] },
   ]
 
@@ -1515,10 +2505,10 @@ function buildAssessment(
       profileId: 'health_profile.internal_discovery',
       verdict: 'ready_with_warnings',
       readyForProfile: true,
-      reasonCodes: ['bounded_inventory_available', 'hash_bound_snapshot', 'migration_lineage_reconciled'],
+      reasonCodes: ['active_corpus_enumerated', 'bounded_inventory_available', 'hash_bound_snapshot', 'migration_lineage_reconciled'],
       blockingConflictIds: [],
       checks: [
-        { checkId: 'health_check.discovery.inventory', status: 'pass', reason: 'The principal file, seed, ledger, vault and database inventories are discoverable.' },
+        { checkId: 'health_check.discovery.inventory', status: 'pass', reason: `The declared active corpus baseline contains ${corpus.activeIdentities} unique lifecycle identities, of which ${corpus.contentHashBoundIdentities} are bound to source-content hashes; subject completeness is explicitly not implied.` },
         { checkId: 'health_check.discovery.locators', status: 'warning', reason: 'Discovery locators exist, but exact claim anchors and durable copies remain incomplete.' },
         { checkId: 'health_check.discovery.snapshot', status: 'pass', reason: 'Every observation is bound to a content or query-result hash.' },
         { checkId: 'health_check.discovery.boundary', status: 'pass', reason: 'Internal discovery is explicitly barred from promoting coverage or external readiness.' },
@@ -1533,6 +2523,7 @@ function buildAssessment(
         ...(!seedIdentityParity ? ['seed_identity_mismatch'] : []),
         ...(!libraryIdentityParity ? ['library_identity_mismatch'] : []),
         ...(LIBRARY_ANALYSIS_RETAINED_HISTORY_REVIEW_CONTEXT.projectionFreshnessMaterialUpdates > 0 ? ['library_projection_freshness_pending'] : []),
+        ...(corpus.fullTextComplete === 0 ? ['whole_corpus_full_text_zero'] : []),
         'status_vintage_conflicts',
       ],
       blockingConflictIds: [conflictIds.seedParity, conflictIds.library, conflictIds.remediation, conflictIds.vault].filter((id) => openConflictIds.includes(id)),
@@ -1540,6 +2531,7 @@ function buildAssessment(
         { checkId: 'health_check.analysis.lineage', status: migrationLineageParity ? 'pass' : 'fail', reason: migrationLineageParity ? `All ${headMigrations.length} migration names and SQL checksums match the local database.` : 'Repository and database migrations do not match.' },
         { checkId: 'health_check.analysis.identity', status: seedIdentityParity && libraryIdentityParity ? 'pass' : 'fail', reason: `Evidence identity has ${dbOnlyEvidenceIds.length} raw database-only rows: ${managedRuntimeEvidenceIds.length} declared runtime-managed, ${unclassifiedDbOnlyEvidenceIds.length} unclassified, ${seedOnlyEvidenceIds.length} seed-only and ${missingManagedRuntimeEvidenceIds.length} missing declared-managed. Library identity has ${libraryRetainedHistoryInspection.summary.livePersistedRows}/${libraryLedger.length} live materializations, ${libraryRetainedHistoryInspection.summary.retainedHistoryRows} contract-bound history rows, ${inventoryOnlyLibraryKeys.length} inventory-only rows and ${libraryRetainedHistoryInspection.issues.length} contract issues.` },
         { checkId: 'health_check.analysis.library_projection', status: LIBRARY_ANALYSIS_RETAINED_HISTORY_REVIEW_CONTEXT.projectionFreshnessMaterialUpdates > 0 ? 'warning' : 'pass', reason: `${LIBRARY_ANALYSIS_RETAINED_HISTORY_REVIEW_CONTEXT.projectionFreshnessMaterialUpdates} metadata-only projection updates were reported by the reviewed dry run; this is separate from live identity and retained history.` },
+        { checkId: 'health_check.analysis.corpus_processing', status: corpus.fullTextComplete === corpus.activeIdentities ? 'pass' : 'fail', reason: `Full-text lifecycle completion is ${corpus.fullTextComplete}/${corpus.activeIdentities}; the ${pdf.extractedPages} extracted PDF pages and ${pdf.extractedWords} extracted words are technical output only and do not change this count.` },
         { checkId: 'health_check.analysis.vintage', status: 'warning', reason: 'The academic status now reproduces, while remediation, vault and operational receipts still have mixed vintages.' },
       ],
     },
@@ -1547,13 +2539,14 @@ function buildAssessment(
       profileId: 'health_profile.external_evidence_support',
       verdict: 'blocked',
       readyForProfile: false,
-      reasonCodes: ['evidence_appraisal_zero', 'archive_gate_failed', ...(!(seedIdentityParity && libraryIdentityParity) ? ['identity_unreconciled'] : []), 'human_review_pending'],
+      reasonCodes: ['evidence_appraisal_zero', 'archive_gate_failed', 'owner_review_zero', 'independent_validation_zero', 'rights_clearance_zero', ...(!(seedIdentityParity && libraryIdentityParity) ? ['identity_unreconciled'] : []), 'human_review_pending'],
       blockingConflictIds: [conflictIds.seedParity, conflictIds.library].filter((id) => openConflictIds.includes(id)),
       checks: [
         { checkId: 'health_check.external.appraisal', status: 'fail', reason: `Complete current appraisal is ${db.counts.evidenceAppraisals}/${db.counts.totalEvidence}.` },
         { checkId: 'health_check.external.archive', status: 'fail', reason: `${db.archiveSummary.byReadiness.citable_external.needsArchive + db.archiveSummary.byReadiness.citable_with_note.needsArchive}/${db.archiveSummary.totals.externalReadinessRows} external-readiness citations need durable archive.` },
         { checkId: 'health_check.external.identity', status: migrationLineageParity && seedIdentityParity && libraryIdentityParity ? 'pass' : 'fail', reason: migrationLineageParity && seedIdentityParity && libraryIdentityParity ? 'Migration, classified evidence and library identities are reconciled; this does not satisfy appraisal, archive or human-review gates.' : `Migration parity is ${migrationLineageParity}; classified evidence parity is ${seedIdentityParity}; library parity is ${libraryIdentityParity}.` },
-        { checkId: 'health_check.external.human', status: 'fail', reason: 'Required named human appraisal and review receipts are absent.' },
+        { checkId: 'health_check.external.human', status: 'fail', reason: `Gabriel owner approvals are ${corpus.ownerReviewed}/${corpus.activeIdentities}; independent expert validations ${corpus.independentlyValidated}; partner validations ${corpus.partnerValidated}; rights-holder validations ${corpus.rightsHolderValidated}. Legacy Gate 2C labels create ${review.legacyStatusOnlyCanonicalHumanApprovals} canonical human approvals.` },
+        { checkId: 'health_check.external.authorization', status: 'fail', reason: `Rights-cleared lifecycle identities: ${corpus.rightsCleared}; publication approvals: ${corpus.publicationApproved}; external-use-ready identities: ${corpus.externalUseReady}; separate coverage approvals: ${corpus.coverageApproved}.` },
       ],
     },
     {
@@ -1566,7 +2559,7 @@ function buildAssessment(
         { checkId: 'health_check.operations.reproducibility', status: migrationLineageParity && academicRegressionMatches && seedIdentityParity && libraryIdentityParity ? 'pass' : 'fail', reason: `Migration parity is ${migrationLineageParity}; exact academic identity/status reproduction is ${academicRegressionMatches}; classified seed/runtime parity is ${seedIdentityParity}; controlled live-plus-retained library identity is ${libraryIdentityParity}.` },
         { checkId: 'health_check.operations.backup', status: 'unknown', reason: 'Historical local backup/restore evidence exists, but no fresh production or off-node receipt is bound to this assessment.' },
         { checkId: 'health_check.operations.mcp', status: 'unknown', reason: 'Interface instantiation does not prove live queries or a role-enforced read-only boundary.' },
-        { checkId: 'health_check.operations.receipts', status: 'fail', reason: 'Machine lineage receipts are present; required fresh operational and human receipts remain incomplete.' },
+        { checkId: 'health_check.operations.receipts', status: 'fail', reason: `Machine lineage and portable tracked-PDF receipts are present; private archive verification is ${pdf.privateVerificationPerformed}, while required fresh operational and human receipts remain incomplete.` },
       ],
     },
   ]
@@ -1630,6 +2623,13 @@ function buildReport(assessment: JsonObject, db: DatabaseRuntime): string {
     `## Decision\n\n` +
     `**NO-GO for reproducible internal analysis, external evidence support and observatory operation.** Internal discovery is usable only with explicit caveats. Repository and local-database migration names and SQL checksums are reconciled (${metricNumber(assessment, 'health_metric.migration_lineage_mismatches')} mismatches across ${metricNumber(assessment, 'health_metric.head_migrations')} migrations). Current HEAD has ${metricNumber(assessment, 'health_metric.head_seed_evidence')} seed rows and the local database has ${metricNumber(assessment, 'health_metric.database_evidence')} evidence rows. ${identityDecision}\n\n` +
     `This is a corpus/evidence-health assessment, not a food-system coverage assessment. It creates no coverage cells, carries no global score and cannot support a claim that the Nordic food system is fully mapped.\n\n` +
+    `## Whole-corpus processing boundary\n\n` +
+    `- Active baseline: **${metricNumber(assessment, 'health_metric.corpus_active_identities')}** unique identities; **${metricNumber(assessment, 'health_metric.corpus_content_hash_bound_identities')}** bind exact source-content hashes representing **${metricNumber(assessment, 'health_metric.corpus_hash_bound_bytes')} bytes**. **${metricNumber(assessment, 'health_metric.corpus_missing_repository_files')}** known files are missing and **${metricNumber(assessment, 'health_metric.corpus_no_locator_identities')}** identities have no locator.\n` +
+    `- Processing queue: **${metricNumber(assessment, 'health_metric.corpus_deduplicated_processing_units')}** content-deduplicated units; full-text processing is **${metricNumber(assessment, 'health_metric.corpus_full_text_complete')}/${metricNumber(assessment, 'health_metric.corpus_active_identities')}** and owner-confirmed source roles are **${metricNumber(assessment, 'health_metric.corpus_source_role_owner_confirmed')}/${metricNumber(assessment, 'health_metric.corpus_active_identities')}**.\n` +
+    `- Human and authorization gates: Gabriel owner review **${metricNumber(assessment, 'health_metric.corpus_owner_reviewed')}**; independent expert validation **${metricNumber(assessment, 'health_metric.corpus_independently_validated')}**; partner validation **${metricNumber(assessment, 'health_metric.corpus_partner_validated')}**; rights-holder validation **${metricNumber(assessment, 'health_metric.corpus_rights_holder_validated')}**; rights clearance **${metricNumber(assessment, 'health_metric.corpus_rights_cleared')}**; publication approval **${metricNumber(assessment, 'health_metric.corpus_publication_approved')}**; separate coverage approval **${metricNumber(assessment, 'health_metric.corpus_coverage_approved')}**.\n` +
+    `- Tracked PDF extraction: **${metricNumber(assessment, 'health_metric.pdf_technical_units')}** technical units with **${metricNumber(assessment, 'health_metric.pdf_technical_failures')} technical failures**, **${metricNumber(assessment, 'health_metric.pdf_extracted_pages')}/${metricNumber(assessment, 'health_metric.pdf_extracted_pages')} pages**, **${metricNumber(assessment, 'health_metric.pdf_extracted_words')} extracted words**, **${metricNumber(assessment, 'health_metric.pdf_warning_pages')} warning pages** and **${metricNumber(assessment, 'health_metric.pdf_open_alias_blockers')} open alias blockers**. These are extraction-volume facts, not AI reading or semantic analysis.\n` +
+    `- PDF receipt boundary: portable tracked validation is **${String(findMetric(assessment, 'health_metric.pdf_portable_tracked_validation_supported').value)}**; live private-archive verification in this run is **${String(findMetric(assessment, 'health_metric.pdf_private_verification_performed').value)}**. AI analysis, owner review, independent validation, rights clearance, publication readiness and coverage permission all remain false for this batch.\n` +
+    `- Legacy Gate 2C: **${metricNumber(assessment, 'health_metric.legacy_gate2c_status_only_canonical_human_approvals')}** canonical human approvals are created by status alone. All **${metricNumber(assessment, 'health_metric.legacy_gate2c_unclassified_mappings')}** legacy mappings retain an unclassified human-review component until signer authority, gate role and exact scope are evidenced.\n\n` +
     `## Intended-use verdicts\n\n` +
     `| Profile | Verdict | Ready | Main reason codes |\n|---|---|---:|---|\n${verdictRows}\n\n` +
     `## Critical evidence boundary\n\n` +
@@ -1641,12 +2641,13 @@ function buildReport(assessment: JsonObject, db: DatabaseRuntime): string {
     `## Conflict register\n\n` +
     `| Conflict | Severity | Status | Boundary |\n|---|---|---|---|\n${conflictRows}\n\n` +
     `## Resolution sequence\n\n` +
-    `1. Keep the receipt-bound 31/31 migration lineage check green as schema and migrations evolve.\n` +
-    `2. Reconcile every unclassified database-only, seed-only and missing declared-managed identity while preserving the manifest-derived runtime identity boundary.\n` +
-    `3. Keep the ${metricNumber(assessment, 'health_metric.library_live_materialization')}/${metricNumber(assessment, 'health_metric.library_inventory')} live library identity check exact, revalidate all ${metricNumber(assessment, 'health_metric.library_retained_history_rows')} retained-history rows, and close the separate metadata-only projection-freshness queue.\n` +
-    `4. Regenerate or supersede the master, remediation and vault status surfaces from explicit pinned vintages.\n` +
-    `5. Complete reviewed appraisal and durable archive work for the required external scope.\n` +
-    `6. Prove current backup/restore, MCP role enforcement, runtime parity and required human gates with immutable receipts.\n\n` +
+    `1. Process the ${metricNumber(assessment, 'health_metric.corpus_deduplicated_processing_units')} deduplicated corpus units through exact full-text, claim and cross-check receipts; do not treat PDF extraction volume as reading completion.\n` +
+    `2. Record Gabriel's owner review separately from independent expert, partner and rights-holder validation, then complete rights, publication and coverage decisions only where required.\n` +
+    `3. Resolve the ${metricNumber(assessment, 'health_metric.corpus_missing_repository_files')} missing files, ${metricNumber(assessment, 'health_metric.corpus_no_locator_identities')} no-locator identities and ${metricNumber(assessment, 'health_metric.pdf_open_alias_blockers')} PDF alias blockers.\n` +
+    `4. Keep the receipt-bound 31/31 migration lineage check green as schema and migrations evolve.\n` +
+    `5. Reconcile every unclassified database-only, seed-only and missing declared-managed identity while preserving the manifest-derived runtime identity boundary.\n` +
+    `6. Keep the ${metricNumber(assessment, 'health_metric.library_live_materialization')}/${metricNumber(assessment, 'health_metric.library_inventory')} live library identity check exact, revalidate all ${metricNumber(assessment, 'health_metric.library_retained_history_rows')} retained-history rows, and close the separate metadata-only projection-freshness queue.\n` +
+    `7. Complete reviewed appraisal, durable archive work, fresh backup/restore proof, MCP role enforcement and runtime parity for each required use.\n\n` +
     `Gate 2 may now register the thirteen legacy fields as neutral artifact and navigation records because the canonical migration lineage is integrated. Those registrations must remain non-evidentiary and cannot promote coverage until reviewed against exact coverage cells.\n`
 }
 
@@ -1926,6 +2927,7 @@ async function generateBundle(checkMode: boolean): Promise<GeneratedBundle> {
   const schema = JSON.parse(readFileSync(resolve(ROOT, SCHEMA_PATH), 'utf8')) as JsonObject
   const thresholds = JSON.parse(readFileSync(resolve(ROOT, THRESHOLDS_PATH), 'utf8')) as JsonObject
   const db = await queryDatabase(baseCommit)
+  const knowledgeInputs = loadGate1KnowledgeInputs(ROOT)
   const sourceSnapshots = SOURCE_DEFINITIONS.map((definition) => snapshotSource(definition, baseCommit))
   const sourceSnapshotSetId = `health.snapshot_set.${SNAPSHOT_DATE}.${baseCommit.slice(0, 8)}`
   const sourceSnapshotSet = withContentHash({
@@ -1955,6 +2957,7 @@ async function generateBundle(checkMode: boolean): Promise<GeneratedBundle> {
     allSnapshotIds,
     db,
     thresholds,
+    knowledgeInputs,
     supersedesId,
   )
   const assessmentIssues = validateCorpusHealthAssessment(assessment, thresholds, schema)
@@ -2003,6 +3006,39 @@ async function generateBundle(checkMode: boolean): Promise<GeneratedBundle> {
       reasonCodes: item.reasonCodes,
     })),
     keyMetrics: {
+      corpusActiveIdentities: metricNumber(assessment, 'health_metric.corpus_active_identities'),
+      corpusContentHashBoundIdentities: metricNumber(assessment, 'health_metric.corpus_content_hash_bound_identities'),
+      corpusHashBoundBytes: metricNumber(assessment, 'health_metric.corpus_hash_bound_bytes'),
+      corpusMissingRepositoryFiles: metricNumber(assessment, 'health_metric.corpus_missing_repository_files'),
+      corpusNoLocatorIdentities: metricNumber(assessment, 'health_metric.corpus_no_locator_identities'),
+      corpusKnownIdentityAliasMismatches: metricNumber(assessment, 'health_metric.corpus_known_identity_alias_mismatches'),
+      corpusDeduplicatedProcessingUnits: metricNumber(assessment, 'health_metric.corpus_deduplicated_processing_units'),
+      corpusFullTextComplete: metricNumber(assessment, 'health_metric.corpus_full_text_complete'),
+      corpusSourceRoleOwnerConfirmed: metricNumber(assessment, 'health_metric.corpus_source_role_owner_confirmed'),
+      corpusOwnerReviewed: metricNumber(assessment, 'health_metric.corpus_owner_reviewed'),
+      corpusIndependentlyValidated: metricNumber(assessment, 'health_metric.corpus_independently_validated'),
+      corpusPartnerValidated: metricNumber(assessment, 'health_metric.corpus_partner_validated'),
+      corpusRightsHolderValidated: metricNumber(assessment, 'health_metric.corpus_rights_holder_validated'),
+      corpusRightsCleared: metricNumber(assessment, 'health_metric.corpus_rights_cleared'),
+      corpusPublicationApproved: metricNumber(assessment, 'health_metric.corpus_publication_approved'),
+      corpusExternalUseReady: metricNumber(assessment, 'health_metric.corpus_external_use_ready'),
+      corpusCoverageApproved: metricNumber(assessment, 'health_metric.corpus_coverage_approved'),
+      legacyGate2cUnclassifiedMappings: metricNumber(assessment, 'health_metric.legacy_gate2c_unclassified_mappings'),
+      legacyGate2cStatusOnlyCanonicalHumanApprovals: metricNumber(assessment, 'health_metric.legacy_gate2c_status_only_canonical_human_approvals'),
+      pdfTechnicalUnits: metricNumber(assessment, 'health_metric.pdf_technical_units'),
+      pdfTechnicalFailures: metricNumber(assessment, 'health_metric.pdf_technical_failures'),
+      pdfExtractedPages: metricNumber(assessment, 'health_metric.pdf_extracted_pages'),
+      pdfExtractedWords: metricNumber(assessment, 'health_metric.pdf_extracted_words'),
+      pdfWarningPages: metricNumber(assessment, 'health_metric.pdf_warning_pages'),
+      pdfOpenAliasBlockers: metricNumber(assessment, 'health_metric.pdf_open_alias_blockers'),
+      pdfAiAnalysisComplete: findMetric(assessment, 'health_metric.pdf_ai_analysis_complete').value,
+      pdfOwnerReviewComplete: findMetric(assessment, 'health_metric.pdf_owner_review_complete').value,
+      pdfIndependentValidationComplete: findMetric(assessment, 'health_metric.pdf_independent_validation_complete').value,
+      pdfRightsCleared: findMetric(assessment, 'health_metric.pdf_rights_cleared').value,
+      pdfPublicationReady: findMetric(assessment, 'health_metric.pdf_publication_ready').value,
+      pdfCoveragePromotionAllowed: findMetric(assessment, 'health_metric.pdf_coverage_promotion_allowed').value,
+      pdfPortableTrackedValidationSupported: findMetric(assessment, 'health_metric.pdf_portable_tracked_validation_supported').value,
+      pdfPrivateVerificationPerformed: findMetric(assessment, 'health_metric.pdf_private_verification_performed').value,
       headMigrations: metricNumber(assessment, 'health_metric.head_migrations'),
       databaseMigrations: metricNumber(assessment, 'health_metric.database_migrations'),
       migrationLineageMismatches: metricNumber(assessment, 'health_metric.migration_lineage_mismatches'),
@@ -2048,7 +3084,7 @@ async function generateBundle(checkMode: boolean): Promise<GeneratedBundle> {
     generatorVersion: GENERATOR_VERSION,
     generatedAt: OBSERVED_AT,
     baseCommit,
-    inputs: [GENERATOR_PATH, SCHEMA_PATH, THRESHOLDS_PATH].map((path) => {
+    inputs: [...new Set([GENERATOR_PATH, SCHEMA_PATH, THRESHOLDS_PATH, ...GATE1_KNOWLEDGE_INPUT_PATHS])].map((path) => {
       const source = readFileSync(resolve(ROOT, path))
       return { path, sha256: sha256Text(source), sizeBytes: source.length }
     }),

@@ -1,0 +1,414 @@
+{
+  "schemaVersion": "1.0.0",
+  "batchId": "pdf-page-extraction.recovered-and-new-official-2026-08-02.v1",
+  "observedOn": "2026-08-02",
+  "processingUnit": "raw_pdf_sha256",
+  "purpose": "Technical page-preserving extraction qualification for five privately recovered PDFs and ten newly acquired official source candidates. The ten new sources remain explicitly unregistered. This batch does not establish corpus identity, AI analysis, owner review, rights clearance, publication readiness, or coverage promotion.",
+  "semantics": {
+    "technicalExtractionOnly": true,
+    "privateTextStorageOnly": true,
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentValidationComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "targets": [
+    {
+      "targetId": "pdf-recovery.etmv-2024",
+      "identityKeys": ["document:cmppajyue000rnjvmxrad483t"],
+      "legacyAlias": "etmv-toimintakertomus-2024.pdf",
+      "expectedSha256": "136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761",
+      "expectedSizeBytes": 739748,
+      "expectedPageCount": 18,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "Elintarvikemarkkinavaltuutetun toimintakertomus 2024",
+        "doi": null,
+        "officialUrl": "https://www.ruokavirasto.fi/globalassets/etmv/etmv-toimintakertomus-2024.pdf",
+        "expectedPdfInfoTitle": {
+          "state": "observed",
+          "value": "Elintarvikemarkkinavaltuutetuntoimintakertomus"
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_classification"
+      },
+      "identityAssociation": {
+        "state": "provisional_metadata_match",
+        "intendedLabel": "ETMV toimintakertomus 2024",
+        "observedDocumentTitle": "Elintarvikemarkkinavaltuutetun toimintakertomus 2024",
+        "blockerCode": null
+      }
+    },
+    {
+      "targetId": "pdf-recovery.karlstad-legacy-alias",
+      "identityKeys": ["document:cmppajyvb0012njvmnphhze07"],
+      "legacyAlias": "karlstad-declaration-2024.pdf",
+      "expectedSha256": "7df8505be38d4a8b7ea1a2661dd04dc761a945944df4d23d7812ce76a60ad59e",
+      "expectedSizeBytes": 1991731,
+      "expectedPageCount": 23,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "UNESCO Biosphere Reserves — A Path to Local Holistic Sustainability (Nord 2024:023)",
+        "doi": "10.6027/nord2024-023",
+        "officialUrl": "https://pub.norden.org/nord2024-023/nord2024-023.pdf",
+        "expectedPdfInfoTitle": {
+          "state": "observed",
+          "value": "nord2024-023"
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_classification_indirect_context"
+      },
+      "identityAssociation": {
+        "state": "blocked_legacy_alias_scope_mismatch",
+        "intendedLabel": "Karlstad Declaration 2024",
+        "observedDocumentTitle": "UNESCO Biosphere Reserves — A Path to Local Holistic Sustainability (Nord 2024:023)",
+        "blockerCode": "legacy_alias_scope_mismatch"
+      }
+    },
+    {
+      "targetId": "pdf-recovery.nordic-food-alert-legacy-alias",
+      "identityKeys": ["document:cmppajyve0013njvmw7zok4yr"],
+      "legacyAlias": "nordic-food-alert-2025.pdf",
+      "expectedSha256": "358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01",
+      "expectedSizeBytes": 6855999,
+      "expectedPageCount": 24,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "Beyond Zero — Nordic Architecture on the Road Towards Renewed Practices (Nord 2025:010)",
+        "doi": "10.6027/nord2025-010",
+        "officialUrl": "https://pub.norden.org/nord2025-010/nord2025-010.pdf",
+        "expectedPdfInfoTitle": {
+          "state": "observed",
+          "value": "Beyond Zero – Nordic Architecture on the Road Towards Renewed Practices"
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_disposition_likely_out_of_scope"
+      },
+      "identityAssociation": {
+        "state": "blocked_legacy_alias_scope_mismatch",
+        "intendedLabel": "Nordic Food Alert 2025",
+        "observedDocumentTitle": "Beyond Zero — Nordic Architecture on the Road Towards Renewed Practices (Nord 2025:010)",
+        "blockerCode": "legacy_alias_scope_mismatch"
+      }
+    },
+    {
+      "targetId": "pdf-recovery.kfst-food-trading-law-2024",
+      "identityKeys": ["document:cmppajyyw0021njvmam1pbay7"],
+      "legacyAlias": "kfst-foedevarehandelslov-evaluering-2024.pdf",
+      "expectedSha256": "1bc1fae8f24d37f08704fc4cbfdc57e5c4f258125d1bfbfa3d13867d933da7fc",
+      "expectedSizeBytes": 1780666,
+      "expectedPageCount": 37,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "Evaluering af fødevarehandelsloven 2024",
+        "doi": null,
+        "officialUrl": "https://kfst.dk/media/3wxbfqqe/20241120-evaluering-af-foedevarehandelsloven-2024.pdf",
+        "expectedPdfInfoTitle": {
+          "state": "observed",
+          "value": "Evaluering af fødevarehandelsloven 2024"
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_classification"
+      },
+      "identityAssociation": {
+        "state": "provisional_metadata_match",
+        "intendedLabel": "KFST Evaluering af fødevarehandelsloven 2024",
+        "observedDocumentTitle": "Evaluering af fødevarehandelsloven 2024",
+        "blockerCode": null
+      }
+    },
+    {
+      "targetId": "pdf-recovery.konkurrensverket-2025-5",
+      "identityKeys": ["document:cmppajyxz001snjvmjzin1ww1"],
+      "legacyAlias": "konkurrensverket-2025-5-livsmedelsutredning.pdf",
+      "expectedSha256": "d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c",
+      "expectedSizeBytes": 1309168,
+      "expectedPageCount": 112,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "Utvärdering av lagen om förbud mot otillbörliga handelsmetoder — Konkurrensverkets rapportserie 2025:5",
+        "doi": null,
+        "officialUrl": "https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2025-5.pdf",
+        "expectedPdfInfoTitle": {
+          "state": "observed",
+          "value": "Utvärdering av lagen om förbud mot otillbörliga handelsmetoder. Konkurrensverkets rapportserie 2025:5."
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_classification"
+      },
+      "identityAssociation": {
+        "state": "provisional_metadata_match",
+        "intendedLabel": "Konkurrensverket rapport 2025:5",
+        "observedDocumentTitle": "Utvärdering av lagen om förbud mot otillbörliga handelsmetoder — Konkurrensverkets rapportserie 2025:5",
+        "blockerCode": null
+      }
+    },
+    {
+      "targetId": "pdf-candidate.fi-etmv-annual-2025",
+      "identityKeys": ["candidate:source.fi.etmv.annual-report-2025"],
+      "legacyAlias": "finland-etmv-annual-report-2025.pdf",
+      "expectedSha256": "7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142",
+      "expectedSizeBytes": 836553,
+      "expectedPageCount": 18,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "Elintarvikemarkkinavaltuutetun toimintakertomus 2025",
+        "doi": null,
+        "officialUrl": "https://www.ruokavirasto.fi/globalassets/etmv/etmv_toimintakertomus_2025.pdf",
+        "expectedPdfInfoTitle": {
+          "state": "observed",
+          "value": "Elintarvikemarkkinavaltuutetuntoimintakertomus"
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_classification"
+      },
+      "identityAssociation": {
+        "state": "unregistered_source_candidate",
+        "intendedLabel": "ETMV toimintakertomus 2025",
+        "observedDocumentTitle": "Elintarvikemarkkinavaltuutetun toimintakertomus 2025",
+        "blockerCode": "database_registration_required"
+      }
+    },
+    {
+      "targetId": "pdf-candidate.dk-kfst-utp-enforcement-2025",
+      "identityKeys": ["candidate:source.dk.kfst.utp-enforcement-2025"],
+      "legacyAlias": "denmark-kfst-utp-enforcement-2025.pdf",
+      "expectedSha256": "2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad",
+      "expectedSizeBytes": 173750,
+      "expectedPageCount": 8,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "Fødevarehandelsloven — Årlig rapport om håndhævelsesaktiviteter i 2025",
+        "doi": null,
+        "officialUrl": "https://kfst.dk/media/tugboea2/20260629-aarlig-rapport-om-haandhaevelsesaktiviteter-i-henhold-til-utp-direktivet-i-2025-a.pdf",
+        "expectedPdfInfoTitle": {
+          "state": "observed",
+          "value": "Fødevarehandelsloven – Årlig rapport om håndhævelsesaktiviteter i 2025"
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_classification"
+      },
+      "identityAssociation": {
+        "state": "unregistered_source_candidate",
+        "intendedLabel": "KFST UTP-håndhævelsesrapport 2025",
+        "observedDocumentTitle": "Fødevarehandelsloven — Årlig rapport om håndhævelsesaktiviteter i 2025",
+        "blockerCode": "database_registration_required"
+      }
+    },
+    {
+      "targetId": "pdf-candidate.no-dagligvaretilsyn-annual-2025",
+      "identityKeys": [
+        "candidate:source.no.dagligvaretilsyn.annual-report-2025"
+      ],
+      "legacyAlias": "norway-dagligvaretilsyn-annual-report-2025.pdf",
+      "expectedSha256": "1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8",
+      "expectedSizeBytes": 1247932,
+      "expectedPageCount": 55,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "Årsrapport for Dagligvaretilsynet 2025",
+        "doi": null,
+        "officialUrl": "https://www.regjeringen.no/contentassets/036ffda0c81e4b3f99456a78ec31df0e/arsrapport-dagligvaretilsynet-2025.pdf",
+        "expectedPdfInfoTitle": {
+          "state": "observed",
+          "value": "Årsrapport for Dagligvaretilsynet               2025"
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_classification"
+      },
+      "identityAssociation": {
+        "state": "unregistered_source_candidate",
+        "intendedLabel": "Dagligvaretilsynet årsrapport 2025",
+        "observedDocumentTitle": "Årsrapport for Dagligvaretilsynet 2025",
+        "blockerCode": "database_registration_required"
+      }
+    },
+    {
+      "targetId": "pdf-candidate.is-grocery-prices-2026-1",
+      "identityKeys": [
+        "candidate:source.is.competition-authority.grocery-prices-2026-1"
+      ],
+      "legacyAlias": "iceland-grocery-prices-2026-1.pdf",
+      "expectedSha256": "528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025",
+      "expectedSizeBytes": 3494455,
+      "expectedPageCount": 16,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "Dagvöruverð á Íslandi — Þróun og alþjóðlegur samanburður, umræðuskjal nr. 1/2026",
+        "doi": null,
+        "officialUrl": "https://www.samkeppni.is/wp-content/uploads/2026/06/Samkeppniseftirlitid-Dagvoruverd-og-samanburdur-vid-utlond.pdf",
+        "expectedPdfInfoTitle": {
+          "state": "observed",
+          "value": ""
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_classification"
+      },
+      "identityAssociation": {
+        "state": "unregistered_source_candidate",
+        "intendedLabel": "Samkeppniseftirlitið umræðuskjal 1/2026",
+        "observedDocumentTitle": "Dagvöruverð á Íslandi — Þróun og alþjóðlegur samanburður",
+        "blockerCode": "database_registration_required"
+      }
+    },
+    {
+      "targetId": "pdf-candidate.is-grocery-prices-2026-1-method",
+      "identityKeys": [
+        "candidate:source.is.competition-authority.grocery-prices-2026-1-method"
+      ],
+      "legacyAlias": "iceland-grocery-prices-2026-1-method-note.pdf",
+      "expectedSha256": "4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148",
+      "expectedSizeBytes": 78520,
+      "expectedPageCount": 2,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "Minnisblað um gögn og aðferðafræði umræðuskjals nr. 1/2026 — Dagvöruverð og samanburður við útlönd",
+        "doi": null,
+        "officialUrl": "https://www.samkeppni.is/wp-content/uploads/2026/06/Minnisblad-um-gogn-og-adferdafraedi-umraeduskjals-nr.-1-2026-1.pdf",
+        "expectedPdfInfoTitle": {
+          "state": "not_stated"
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_classification"
+      },
+      "identityAssociation": {
+        "state": "unregistered_source_candidate",
+        "intendedLabel": "Samkeppniseftirlitið metodevedlegg til 1/2026",
+        "observedDocumentTitle": "Minnisblað um gögn og aðferðafræði umræðuskjals nr. 1/2026 — Dagvöruverð og samanburður við útlönd",
+        "blockerCode": "database_registration_required"
+      }
+    },
+    {
+      "targetId": "pdf-candidate.eu-utp-evaluation-support-study-2025",
+      "identityKeys": ["candidate:source.eu.utp-evaluation-support-study-2025"],
+      "legacyAlias": "eu-utp-evaluation-support-study-2025.pdf",
+      "expectedSha256": "c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7",
+      "expectedSizeBytes": 3409774,
+      "expectedPageCount": 150,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "Evaluation support study of the EU Directive 2019/633 on unfair trading practices in business-to-business relationships in the agricultural and food supply chain — Final Report",
+        "doi": "10.2762/2191333",
+        "officialUrl": "https://op.europa.eu/o/opportal-service/download-handler?format=pdf&identifier=e1044a53-cc06-11f0-8da2-01aa75ed71a1&language=en&productionSystem=cellar",
+        "expectedPdfInfoTitle": {
+          "state": "observed",
+          "value": "DATA"
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_classification"
+      },
+      "identityAssociation": {
+        "state": "unregistered_source_candidate",
+        "intendedLabel": "EU UTP evaluation support study 2025",
+        "observedDocumentTitle": "Evaluation support study of the EU Directive 2019/633 on unfair trading practices",
+        "blockerCode": "database_registration_required"
+      }
+    },
+    {
+      "targetId": "pdf-candidate.eu-com-2025-728",
+      "identityKeys": ["candidate:source.eu.com-2025-728"],
+      "legacyAlias": "eu-utp-evaluation-com-2025-728.pdf",
+      "expectedSha256": "8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42",
+      "expectedSizeBytes": 264162,
+      "expectedPageCount": 11,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "Evaluation of the Unfair Trading Practices Directive — COM(2025) 728 final",
+        "doi": null,
+        "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025DC0728",
+        "expectedPdfInfoTitle": {
+          "state": "not_stated"
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_classification"
+      },
+      "identityAssociation": {
+        "state": "unregistered_source_candidate",
+        "intendedLabel": "European Commission COM(2025) 728",
+        "observedDocumentTitle": "Evaluation of the Unfair Trading Practices Directive",
+        "blockerCode": "database_registration_required"
+      }
+    },
+    {
+      "targetId": "pdf-candidate.eu-swd-2025-405",
+      "identityKeys": ["candidate:source.eu.swd-2025-405"],
+      "legacyAlias": "eu-utp-evaluation-swd-2025-405.pdf",
+      "expectedSha256": "f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303",
+      "expectedSizeBytes": 2317481,
+      "expectedPageCount": 131,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "Evaluation of Directive (EU) 2019/633 on unfair trading practices — SWD(2025) 405 final",
+        "doi": null,
+        "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025SC0405",
+        "expectedPdfInfoTitle": {
+          "state": "not_stated"
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_classification"
+      },
+      "identityAssociation": {
+        "state": "unregistered_source_candidate",
+        "intendedLabel": "European Commission SWD(2025) 405",
+        "observedDocumentTitle": "Evaluation of Directive (EU) 2019/633 on unfair trading practices",
+        "blockerCode": "database_registration_required"
+      }
+    },
+    {
+      "targetId": "pdf-candidate.se-competition-supervision-2026-3",
+      "identityKeys": [
+        "candidate:source.se.competition-authority.supervision-report-2026-3"
+      ],
+      "legacyAlias": "konkurrensverket-tillsyn-2025-rapport-2026-3.pdf",
+      "expectedSha256": "9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e",
+      "expectedSizeBytes": 1454264,
+      "expectedPageCount": 148,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "Konkurrensverkets tillsynsverksamhet 2025 — Rapport 2026:3",
+        "doi": null,
+        "officialUrl": "https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2026-3.pdf",
+        "expectedPdfInfoTitle": {
+          "state": "observed",
+          "value": "Konkurrensverkets tillsynsverksamhet 2025. Konkurrensverkets rapportserie 2026:3."
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_classification"
+      },
+      "identityAssociation": {
+        "state": "unregistered_source_candidate",
+        "intendedLabel": "Konkurrensverkets tillsynsverksamhet 2025",
+        "observedDocumentTitle": "Konkurrensverkets tillsynsverksamhet 2025 — Rapport 2026:3",
+        "blockerCode": "database_registration_required"
+      }
+    },
+    {
+      "targetId": "pdf-candidate.se-gronsakshuset-judgment-20479-24",
+      "identityKeys": ["candidate:source.se.court.gronsakshuset-20479-24"],
+      "legacyAlias": "gronsakshuset-dom-20479-24.pdf",
+      "expectedSha256": "1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0",
+      "expectedSizeBytes": 463871,
+      "expectedPageCount": 19,
+      "expectedEncrypted": false,
+      "sourceBinding": {
+        "title": "Förvaltningsrätten i Stockholm, mål nr 20479-24 — Grönsakshuset",
+        "doi": null,
+        "officialUrl": "https://www.konkurrensverket.se/globalassets/dokument/otillborliga-handelsmetoder/domar/dom_forvr-stockholm-mal-nr-20479-24_gronsakshuset.pdf",
+        "expectedPdfInfoTitle": {
+          "state": "observed",
+          "value": "Förvaltningsrätten i Stockholm, mål nr 20479-24 – Grönsakshuset"
+        },
+        "corpusIdentityVerified": false,
+        "scopeDisposition": "pending_owner_classification"
+      },
+      "identityAssociation": {
+        "state": "unregistered_source_candidate",
+        "intendedLabel": "Grönsakshuset, Förvaltningsrätten mål 20479-24",
+        "observedDocumentTitle": "Förvaltningsrätten i Stockholm, mål nr 20479-24 — Grönsakshuset",
+        "blockerCode": "database_registration_required"
+      }
+    }
+  ]
+}

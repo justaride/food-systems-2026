@@ -2,7 +2,9 @@
 
 Foundation snapshot: 2026-07-26
 
-Gate 1 corpus-health snapshot: 2026-07-28
+Whole-corpus processing baseline: 2026-08-02
+
+Gate 1 corpus-health snapshot: bound by the generated current-assessment pointer
 
 Base commit: pinned by the generated assessment and generation manifest
 
@@ -16,7 +18,29 @@ The strongest current assets are navigation, Norway-heavy actor and power mappin
 
 The new foundation therefore records **6,948 defined scope cells, 117 neutral scope-registration events, zero evidence-backed coverage assessments and zero cells complete for their required readiness profile**. That is the honest starting line, not a finding that the corpus contains no knowledge.
 
-Gate 1 is now generated as a separate corpus/evidence-health observatory. Its current decision is **NO-GO** for reproducible internal analysis, external evidence support and observatory operation; only internal discovery is `ready_with_warnings`. This does not change the subject-coverage ledger. It explains whether the material can safely support a named use.
+The whole-corpus register now gives us a second honest starting line: **1,555 exact active source identities, 1,467 content-addressed processing units, and zero sources promoted as fully AI-processed, owner-reviewed, externally ready or coverage-bearing**. The inventory is controlled; the reading programme is not complete.
+
+Gate 1 is generated as a separate corpus/evidence-health observatory. Its current decision remains **NO-GO** for reproducible internal analysis, external evidence support and observatory operation; only internal discovery is `ready_with_warnings`. This does not change the subject-coverage ledger. It explains whether the material can safely support a named use.
+
+## Whole-corpus processing baseline
+
+The [generated whole-corpus register](corpus/README.md) now matches the live database inventory exactly: 1,555 unique identities across 1,534 documents, three loose library files, six reports, eleven SourceDocs and one thesis, with zero identity/content-set parity failures. Seventeen retained-history rows remain separate, non-additive and unavailable for external use.
+
+The byte and locator boundary is explicit:
+
+| Baseline record, 2026-08-02 | Result | Meaning |
+| --- | ---: | --- |
+| Repository files present | 1,526 | Present bytes are available for controlled processing; presence is not reading. |
+| Protected recovery captures | 11 | The tracked register records primary and replica attestations. A portable run does not re-open either archive; the explicit live private check must verify both copies, and rights remain pending. |
+| No source locator or bytes | 18 | Acquisition or identity repair is still required. |
+| Content-hash-bound identities | 1,537 | Exact bytes can be reconciled without claiming relevance or quality. |
+| Full-text processing units after hash deduplication | 1,467 | Repeated bytes can be processed once while all source identities remain distinct. |
+| Provisional machine roles | 1,431 | 567 primary evidence, 666 internal synthesis, 185 operational control and 13 generated projections; another 124 roles are unknown. All 1,555 still require Gabriel's exact role decision. |
+| Full-text AI analyses / owner reviews / external-ready sources / coverage promotions | 0 / 0 / 0 / 0 | Earlier summaries and technical extraction are not relabelled as completed research. |
+
+The first recovered-PDF technical batch qualifies five unique byte streams covering 214 pages and 59,220 words. Eight low-text cover or end pages are visible warnings, and two legacy aliases do not match the recovered documents. This is technical preparation only; structured full-text analysis and review remain separate steps.
+
+The [review-layer contract](review/REVIEW-LAYER-CONTRACT.md) now separates AI processing, Gabriel's owner decision, independent expert validation, partner validation, rights-holder validation, rights clearance, publication and coverage promotion. Legacy Gate 2C `human_review_*` states remain unclassified until the actual signer, authority, qualifications, affiliation, conflicts and exact scope are known. A status name alone cannot be converted into Gabriel's approval or an independent review.
 
 ## Gate 1 direct readback and remaining blockers
 
@@ -30,12 +54,12 @@ The [hash-bound Gate 1 assessment](health/corpus-health-report.v1.md) confirms t
 | Local database evidence rows | 417 = 139 reports + 79 theses + 199 SourceDocs | Eighteen database identities are absent from seeds and one seed identity is absent from the database. This is a local runtime snapshot, not production-parity proof. |
 | Complete current evidence appraisal | 0/417 | External evidence support remains blocked regardless of technical citation integrity. |
 | Durable citation archive | 568/2,703 | 1,855/2,376 external-readiness rows still need durable archive; the archive audit fails. |
-| Current library inventory / persisted analysis | 1,555 / 1,572 | Seventeen persisted identities are stale relative to the current inventory. |
-| Current vault validation | 786 Markdown, 32 canvases, 2 orphan issues | The completion register's earlier green vault statement does not reproduce on this snapshot. Notes remain navigation, not evidence units. |
+| Current library inventory / persisted analysis | 1,555 active + 17 retained history | The 17 additional rows are exact, hash-bound, non-additive history with no external-use permission; they are not active-corpus research. |
+| Current vault validation | Portable vault check passes | Explicit inbound links now connect the insight map to the insight and actor registers. Structural validity still does not turn notes into evidence units. |
 
 The regenerated `academic-source-quality-status.json` now matches the integrated seed and local-database identity readback. `public/data/masterhjerne/status.json` remains a historical aggregate presentation snapshot. Gate 1 keeps reported status separate from direct observations and preserves each assessment's own immutable source-snapshot set.
 
-The seven-record conflict register now has three receipt-resolved machine conflicts—migration lineage, academic-status lineage and academic regression—and four open conflicts: seed/database identity, library inventory/materialization, remediation backlog vintage and reported/current vault state. Machine receipts do not satisfy human adoption, appraisal, production or rights-holder gates.
+Machine receipts can resolve exact technical comparisons such as migration lineage, academic-status lineage, academic regression and corpus identity parity. Private-copy hashes require the separate live archive check; that result is a time-bounded operational observation, not a timeless fact persisted by the portable summary. None of these checks satisfies owner adoption, evidence appraisal, production parity, independent validation, partner validation or rights-holder gates.
 
 ## What was evaluated
 
@@ -123,7 +147,9 @@ Review and authorize the constitution, ontology, schemas, readiness thresholds a
 
 ### Gate 1 — reconcile corpus health
 
-The current corpus/evidence-health profile records exact 31/31 migration-name and checksum parity. Keep it fail-closed while resolving the classified 400/417 seed/runtime identity set: 18 raw database-only identities contain 17 declared runtime-managed transcript SourceDocs, while one unclassified database-only Thesis, one seed-only official-law SourceDoc and zero missing declared runtime identities remain. Library live identity is separately exact at 1,555/1,555; 17 additional persisted rows are exact, non-evidentiary retained history under a pinned contract, while 15 metadata-only projection updates remain a separate freshness warning. Also resolve mixed-vintage status surfaces, two vault orphans, appraisal zero-state and archive backlog. Regenerate every dependent status artifact from an explicit pinned lineage and vintage. Do not force these controls into food-system coverage cells.
+The current corpus/evidence-health profile records exact 31/31 migration-name and checksum parity. Keep it fail-closed while resolving the classified 400/417 seed/runtime identity set: 18 raw database-only identities contain 17 declared runtime-managed transcript SourceDocs, while one unclassified database-only Thesis, one seed-only official-law SourceDoc and zero missing declared runtime identities remain. Library live identity is exact at 1,555/1,555, with 17 additional persisted rows held as exact, non-evidentiary retained history under a pinned contract and 15 metadata-only projection updates kept as a separate freshness warning.
+
+The new whole-corpus register adds the actual reading boundary: process all 1,467 content units, reconcile the result back to all 1,555 identities, resolve repository restoration and rights for the eleven recovery-only captures, acquire or repair the eighteen identities with no source bytes, classify both alias mismatches, and obtain Gabriel's exact source-role and owner-review receipts. Complete AI processing cannot close appraisal, archive, independent, partner, rights-holder, publication or coverage gates. Regenerate every dependent status artifact from an explicit pinned lineage and vintage. Do not force these controls into food-system coverage cells.
 
 Gate 1 exit requires a named canonical lineage, exact schema/migration/seed parity, regenerated status surfaces, complete required appraisal and archive work, passing structural gates, and current receipts for backup/restore, MCP read-only behavior, runtime parity and required human review.
 
@@ -132,6 +158,8 @@ Gate 1 exit requires a named canonical lineage, exact schema/migration/seed pari
 Gate 2A registers the thirteen existing field pages, root map and atlas as exact navigation artifacts without altering the historical scope-registration events. Its 104 political-Nordic and 13 separate Sápmi bindings remain unassessed, non-evidentiary and geography-unknown; Sápmi stays non-additive and rights-holder-review-gated.
 
 Gate 2B must then assess each legacy field and geography with exact citations, locators, boundaries, represented and missing facets, limitations and review receipts. Leave the state unknown when evidence is not cell-specific. Navigation registration is not researched coverage.
+
+Gate 2C classifies review authority without rewriting legacy receipts. Work produced by Gabriel and AI may receive Gabriel's internal owner decision. Independent expert, partner and rights-holder requirements remain named later gates wherever the intended use or subject matter requires them.
 
 ### Gate 3 — prove vertical slices
 

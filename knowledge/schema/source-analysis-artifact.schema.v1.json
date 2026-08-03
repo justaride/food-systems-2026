@@ -1,0 +1,1287 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/source-analysis-artifact.schema.v1.json",
+  "title": "Food Systems source-analysis artifact v1",
+  "description": "Strict, pre-review artifact for a hash-bound full-text AI reading and candidate analysis. Runtime validation adds canonical hash, continuity, chronology and cross-reference checks.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "artifactType",
+    "artifactId",
+    "artifactVersion",
+    "lineageId",
+    "continuity",
+    "binding",
+    "scope",
+    "sourceTextPolicy",
+    "fullTextEligibility",
+    "locators",
+    "actualFullTextReading",
+    "analysisExecution",
+    "analysis",
+    "gates",
+    "analysisPayloadSha256",
+    "createdAt",
+    "artifactSha256"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "source-analysis-artifact-v1" },
+    "artifactType": { "const": "source_analysis" },
+    "artifactId": { "$ref": "#/$defs/id" },
+    "artifactVersion": { "$ref": "#/$defs/version" },
+    "lineageId": { "$ref": "#/$defs/id" },
+    "continuity": { "$ref": "#/$defs/continuity" },
+    "binding": { "$ref": "#/$defs/binding" },
+    "scope": { "$ref": "#/$defs/scope" },
+    "sourceTextPolicy": { "$ref": "#/$defs/sourceTextPolicy" },
+    "fullTextEligibility": { "$ref": "#/$defs/fullTextEligibility" },
+    "locators": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/locator" }
+    },
+    "actualFullTextReading": { "$ref": "#/$defs/actualFullTextReading" },
+    "analysisExecution": { "$ref": "#/$defs/analysisExecution" },
+    "analysis": { "$ref": "#/$defs/analysis" },
+    "gates": { "$ref": "#/$defs/gates" },
+    "analysisPayloadSha256": { "$ref": "#/$defs/hash" },
+    "createdAt": { "$ref": "#/$defs/dateTime" },
+    "artifactSha256": { "$ref": "#/$defs/hash" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[a-z0-9.-]+)?$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "repositoryPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*[~:])(?!.*\\\\)(?!.*//)(?!\\s)(?!.*\\s$)(?!.*[\\u0000-\\u001f\\u007f]).+$",
+      "not": { "pattern": "(^|/)\\.\\.?($|/)" }
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "dateTime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+    },
+    "shortText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 800
+    },
+    "mediumText": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 1600
+    },
+    "idArray": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "locatorIdArray": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "hashArray": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/hash" }
+    },
+    "continuity": {
+      "type": "object",
+      "required": [
+        "kind",
+        "predecessorArtifactId",
+        "predecessorArtifactVersion",
+        "predecessorArtifactSha256",
+        "changeSummary"
+      ],
+      "properties": {
+        "kind": { "enum": ["initial", "revision"] },
+        "predecessorArtifactId": {
+          "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+        },
+        "predecessorArtifactVersion": {
+          "anyOf": [{ "$ref": "#/$defs/version" }, { "type": "null" }]
+        },
+        "predecessorArtifactSha256": {
+          "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }]
+        },
+        "changeSummary": {
+          "anyOf": [
+            { "type": "string", "minLength": 10, "maxLength": 800 },
+            { "type": "null" }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "binding": {
+      "type": "object",
+      "required": [
+        "sourceAnalysisInputManifestPath",
+        "sourceAnalysisInputManifestFileSha256",
+        "sourceAnalysisInputManifestSchemaVersion",
+        "sourceAnalysisInputManifestPipelineVersion",
+        "sourceAnalysisInputManifestSha256",
+        "lifecycleRecordId",
+        "lifecycleSnapshotSha256",
+        "lifecycleSnapshotUpdatedAt",
+        "sourceId",
+        "sourceTitle",
+        "sourceCanonicalIdentity",
+        "sourceIdentityStatus",
+        "sourceIdentityVerificationArtifactId",
+        "sourceIdentityVerificationArtifactVersion",
+        "sourceIdentityVerificationArtifactPath",
+        "sourceIdentityVerificationArtifactFileSha256",
+        "sourceIdentityVerificationArtifactSha256",
+        "sourceIdentityVerificationDecision",
+        "sourceMetadataSha256",
+        "sourceContentSha256",
+        "rawPdfSha256",
+        "textSha256",
+        "textAvailabilityState",
+        "extractionArtifactId",
+        "extractionArtifactVersion",
+        "extractionArtifactSha256",
+        "extractionArtifactPath",
+        "extractionArtifactFileSha256",
+        "extractionTextManifestSha256",
+        "pageMapPath",
+        "pageMapFileSha256",
+        "pageMapSha256"
+      ],
+      "properties": {
+        "sourceAnalysisInputManifestPath": { "$ref": "#/$defs/repositoryPath" },
+        "sourceAnalysisInputManifestFileSha256": { "$ref": "#/$defs/hash" },
+        "sourceAnalysisInputManifestSchemaVersion": { "const": "1.0.0" },
+        "sourceAnalysisInputManifestPipelineVersion": { "const": "1.0.0" },
+        "sourceAnalysisInputManifestSha256": { "$ref": "#/$defs/hash" },
+        "lifecycleRecordId": { "$ref": "#/$defs/id" },
+        "lifecycleSnapshotSha256": { "$ref": "#/$defs/hash" },
+        "lifecycleSnapshotUpdatedAt": { "$ref": "#/$defs/dateTime" },
+        "sourceId": { "$ref": "#/$defs/id" },
+        "sourceTitle": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "sourceCanonicalIdentity": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "sourceIdentityStatus": { "const": "verified" },
+        "sourceIdentityVerificationArtifactId": { "$ref": "#/$defs/id" },
+        "sourceIdentityVerificationArtifactVersion": {
+          "$ref": "#/$defs/version"
+        },
+        "sourceIdentityVerificationArtifactPath": {
+          "$ref": "#/$defs/repositoryPath"
+        },
+        "sourceIdentityVerificationArtifactFileSha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "sourceIdentityVerificationArtifactSha256": { "$ref": "#/$defs/hash" },
+        "sourceIdentityVerificationDecision": { "const": "verified" },
+        "sourceMetadataSha256": { "$ref": "#/$defs/hash" },
+        "sourceContentSha256": { "$ref": "#/$defs/hash" },
+        "rawPdfSha256": { "$ref": "#/$defs/hash" },
+        "textSha256": { "$ref": "#/$defs/hash" },
+        "textAvailabilityState": {
+          "enum": ["full_text", "structured_content"]
+        },
+        "extractionArtifactId": { "$ref": "#/$defs/id" },
+        "extractionArtifactVersion": { "$ref": "#/$defs/version" },
+        "extractionArtifactSha256": { "$ref": "#/$defs/hash" },
+        "extractionArtifactPath": { "$ref": "#/$defs/repositoryPath" },
+        "extractionArtifactFileSha256": { "$ref": "#/$defs/hash" },
+        "extractionTextManifestSha256": { "$ref": "#/$defs/hash" },
+        "pageMapPath": { "$ref": "#/$defs/repositoryPath" },
+        "pageMapFileSha256": { "$ref": "#/$defs/hash" },
+        "pageMapSha256": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "geographyIds",
+        "materialProfileIds",
+        "intendedUseProfileIds",
+        "sourceLanguageCodes"
+      ],
+      "properties": {
+        "geographyIds": { "$ref": "#/$defs/idArray" },
+        "materialProfileIds": { "$ref": "#/$defs/idArray" },
+        "intendedUseProfileIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "sourceLanguageCodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/id" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "sourceTextPolicy": {
+      "type": "object",
+      "required": ["longSourceTextIncluded", "directQuotesIncluded", "policy"],
+      "properties": {
+        "longSourceTextIncluded": { "const": false },
+        "directQuotesIncluded": { "const": false },
+        "policy": { "const": "paraphrases_and_locators_only" }
+      },
+      "additionalProperties": false
+    },
+    "extractionWarning": {
+      "type": "object",
+      "required": [
+        "warningId",
+        "code",
+        "disposition",
+        "statement",
+        "affectedLocatorIds"
+      ],
+      "properties": {
+        "warningId": { "$ref": "#/$defs/id" },
+        "code": { "$ref": "#/$defs/id" },
+        "disposition": {
+          "enum": ["accepted_limitation", "resolved_before_reading"]
+        },
+        "statement": { "$ref": "#/$defs/mediumText" },
+        "affectedLocatorIds": { "$ref": "#/$defs/locatorIdArray" }
+      },
+      "additionalProperties": false
+    },
+    "fullTextEligibility": {
+      "type": "object",
+      "required": [
+        "state",
+        "basis",
+        "identityHashBound",
+        "contentHashBound",
+        "textHashBound",
+        "expectedUnitCount",
+        "extractionWarnings",
+        "unresolvedBlockingWarningCount",
+        "evaluatedAt"
+      ],
+      "properties": {
+        "state": { "const": "eligible" },
+        "basis": { "enum": ["full_text", "structured_content"] },
+        "identityHashBound": { "const": true },
+        "contentHashBound": { "const": true },
+        "textHashBound": { "const": true },
+        "expectedUnitCount": { "type": "integer", "minimum": 1 },
+        "extractionWarnings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/extractionWarning" }
+        },
+        "unresolvedBlockingWarningCount": { "const": 0 },
+        "evaluatedAt": { "$ref": "#/$defs/dateTime" }
+      },
+      "additionalProperties": false
+    },
+    "locator": {
+      "type": "object",
+      "required": [
+        "locatorId",
+        "locatorType",
+        "label",
+        "pageStart",
+        "pageEnd",
+        "sectionPath",
+        "normalizedTextSha256"
+      ],
+      "properties": {
+        "locatorId": { "$ref": "#/$defs/id" },
+        "locatorType": { "enum": ["page", "section"] },
+        "label": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "pageStart": {
+          "anyOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }]
+        },
+        "pageEnd": {
+          "anyOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }]
+        },
+        "sectionPath": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "maxLength": 300 }
+        },
+        "normalizedTextSha256": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    },
+    "actualFullTextReading": {
+      "type": "object",
+      "required": [
+        "state",
+        "scope",
+        "runIds",
+        "inputTextSha256",
+        "expectedUnitCount",
+        "readUnitCount",
+        "readLocatorIds",
+        "sequenceComplete",
+        "completedAt"
+      ],
+      "properties": {
+        "state": { "const": "complete" },
+        "scope": { "const": "entire_normalized_text" },
+        "runIds": { "$ref": "#/$defs/locatorIdArray" },
+        "inputTextSha256": { "$ref": "#/$defs/hash" },
+        "expectedUnitCount": { "type": "integer", "minimum": 1 },
+        "readUnitCount": { "type": "integer", "minimum": 1 },
+        "readLocatorIds": { "$ref": "#/$defs/locatorIdArray" },
+        "sequenceComplete": { "const": true },
+        "completedAt": { "$ref": "#/$defs/dateTime" }
+      },
+      "additionalProperties": false
+    },
+    "inputEnvelope": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "sourceAnalysisInputManifest",
+        "sourceIdentityVerificationArtifact",
+        "lifecyclePrestate",
+        "workflowSha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "source-analysis-input-envelope-v1" },
+        "sourceAnalysisInputManifest": {
+          "type": "object",
+          "required": [
+            "path",
+            "fileSha256",
+            "manifestSha256",
+            "normalizedInputSha256"
+          ],
+          "properties": {
+            "path": { "$ref": "#/$defs/repositoryPath" },
+            "fileSha256": { "$ref": "#/$defs/hash" },
+            "manifestSha256": { "$ref": "#/$defs/hash" },
+            "normalizedInputSha256": { "$ref": "#/$defs/hash" }
+          },
+          "additionalProperties": false
+        },
+        "sourceIdentityVerificationArtifact": {
+          "type": "object",
+          "required": [
+            "path",
+            "fileSha256",
+            "artifactId",
+            "artifactVersion",
+            "artifactSha256"
+          ],
+          "properties": {
+            "path": { "$ref": "#/$defs/repositoryPath" },
+            "fileSha256": { "$ref": "#/$defs/hash" },
+            "artifactId": { "$ref": "#/$defs/id" },
+            "artifactVersion": { "$ref": "#/$defs/version" },
+            "artifactSha256": { "$ref": "#/$defs/hash" }
+          },
+          "additionalProperties": false
+        },
+        "lifecyclePrestate": {
+          "type": "object",
+          "required": [
+            "lifecycleRecordId",
+            "lifecycleSnapshotSha256",
+            "lifecycleSnapshotUpdatedAt"
+          ],
+          "properties": {
+            "lifecycleRecordId": { "$ref": "#/$defs/id" },
+            "lifecycleSnapshotSha256": { "$ref": "#/$defs/hash" },
+            "lifecycleSnapshotUpdatedAt": { "$ref": "#/$defs/dateTime" }
+          },
+          "additionalProperties": false
+        },
+        "workflowSha256": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    },
+    "stagePayload": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "stage",
+        "inputEnvelopeSha256",
+        "sourceAnalysisInputManifestSha256",
+        "orderedLocatorIds",
+        "orderedTextUnitSha256s",
+        "resultPayloadSha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "source-analysis-stage-payload-v1" },
+        "stage": {
+          "enum": [
+            "full_text_read",
+            "locator_grounding",
+            "structured_analysis",
+            "reconciliation"
+          ]
+        },
+        "inputEnvelopeSha256": { "$ref": "#/$defs/hash" },
+        "sourceAnalysisInputManifestSha256": { "$ref": "#/$defs/hash" },
+        "orderedLocatorIds": { "$ref": "#/$defs/locatorIdArray" },
+        "orderedTextUnitSha256s": { "$ref": "#/$defs/hashArray" },
+        "resultPayloadSha256": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    },
+    "checkpoint": {
+      "type": "object",
+      "required": [
+        "stage",
+        "inputSha256",
+        "predecessorCheckpointSha256",
+        "stagePayload",
+        "stagePayloadSha256",
+        "outputSha256",
+        "completedAt"
+      ],
+      "properties": {
+        "stage": {
+          "enum": [
+            "full_text_read",
+            "locator_grounding",
+            "structured_analysis",
+            "reconciliation"
+          ]
+        },
+        "inputSha256": { "$ref": "#/$defs/hash" },
+        "predecessorCheckpointSha256": {
+          "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }]
+        },
+        "stagePayload": { "$ref": "#/$defs/stagePayload" },
+        "stagePayloadSha256": { "$ref": "#/$defs/hash" },
+        "outputSha256": { "$ref": "#/$defs/hash" },
+        "completedAt": { "$ref": "#/$defs/dateTime" }
+      },
+      "additionalProperties": false
+    },
+    "aiRun": {
+      "type": "object",
+      "required": [
+        "runId",
+        "stages",
+        "checkpoints",
+        "provider",
+        "model",
+        "modelVersionState",
+        "modelVersion",
+        "workflowRef",
+        "workflowVersion",
+        "promptTemplateSha256",
+        "workflowSha256",
+        "inputTextSha256",
+        "inputEnvelope",
+        "inputEnvelopeSha256",
+        "predecessorOutputSha256",
+        "outputSha256",
+        "timeEvidence",
+        "timeEvidenceExplanation",
+        "startedAt",
+        "completedAt"
+      ],
+      "properties": {
+        "runId": { "$ref": "#/$defs/id" },
+        "stages": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "full_text_read",
+              "locator_grounding",
+              "structured_analysis",
+              "reconciliation"
+            ]
+          }
+        },
+        "checkpoints": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/checkpoint" }
+        },
+        "provider": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "model": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "modelVersionState": { "enum": ["exact", "runtime_not_exposed"] },
+        "modelVersion": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "workflowRef": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "workflowVersion": { "$ref": "#/$defs/version" },
+        "promptTemplateSha256": { "$ref": "#/$defs/hash" },
+        "workflowSha256": { "$ref": "#/$defs/hash" },
+        "inputTextSha256": { "$ref": "#/$defs/hash" },
+        "inputEnvelope": { "$ref": "#/$defs/inputEnvelope" },
+        "inputEnvelopeSha256": { "$ref": "#/$defs/hash" },
+        "predecessorOutputSha256": {
+          "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }]
+        },
+        "outputSha256": { "$ref": "#/$defs/hash" },
+        "timeEvidence": {
+          "enum": ["provider_exact", "coordinator_observed_window"]
+        },
+        "timeEvidenceExplanation": {
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 800
+        },
+        "startedAt": { "$ref": "#/$defs/dateTime" },
+        "completedAt": { "$ref": "#/$defs/dateTime" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "modelVersionState": { "const": "runtime_not_exposed" }
+            }
+          },
+          "then": {
+            "properties": { "modelVersion": { "const": "runtime_not_exposed" } }
+          }
+        },
+        {
+          "if": { "properties": { "modelVersionState": { "const": "exact" } } },
+          "then": {
+            "properties": {
+              "modelVersion": { "not": { "const": "runtime_not_exposed" } }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "analysisExecution": {
+      "type": "object",
+      "required": ["executionMode", "runs", "finalOutputSha256"],
+      "properties": {
+        "executionMode": { "const": "ai_assisted" },
+        "runs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/aiRun" }
+        },
+        "finalOutputSha256": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    },
+    "overview": {
+      "type": "object",
+      "required": [
+        "purpose",
+        "summary",
+        "sourceRoleCandidate",
+        "sourceRoleStatus",
+        "systemBoundary",
+        "periodStatement",
+        "notAssessed"
+      ],
+      "properties": {
+        "purpose": { "$ref": "#/$defs/mediumText" },
+        "summary": { "type": "string", "minLength": 20, "maxLength": 2000 },
+        "sourceRoleCandidate": {
+          "enum": [
+            "primary_evidence",
+            "internal_synthesis",
+            "generated_projection",
+            "operational_control",
+            "unknown"
+          ]
+        },
+        "sourceRoleStatus": { "const": "machine_provisional" },
+        "systemBoundary": { "$ref": "#/$defs/mediumText" },
+        "periodStatement": { "$ref": "#/$defs/mediumText" },
+        "notAssessed": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/mediumText" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "claim": {
+      "type": "object",
+      "required": [
+        "claimId",
+        "claimType",
+        "proposition",
+        "representation",
+        "support",
+        "locatorIds",
+        "supportingTextUnitSha256s",
+        "limitations",
+        "machineConfidence",
+        "promotionState"
+      ],
+      "properties": {
+        "claimId": { "$ref": "#/$defs/id" },
+        "claimType": { "$ref": "#/$defs/id" },
+        "proposition": { "type": "string", "minLength": 10, "maxLength": 1000 },
+        "representation": { "const": "paraphrase" },
+        "support": { "enum": ["direct", "indirect"] },
+        "locatorIds": { "$ref": "#/$defs/locatorIdArray" },
+        "supportingTextUnitSha256s": { "$ref": "#/$defs/hashArray" },
+        "limitations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/shortText" }
+        },
+        "machineConfidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "promotionState": { "const": "candidate_only" }
+      },
+      "additionalProperties": false
+    },
+    "measure": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind", "value"],
+          "properties": {
+            "kind": { "const": "point" },
+            "value": { "type": "number" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "lower", "upper"],
+          "properties": {
+            "kind": { "const": "range" },
+            "lower": { "type": "number" },
+            "upper": { "type": "number" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "numerator", "denominator"],
+          "properties": {
+            "kind": { "const": "ratio" },
+            "numerator": { "type": "number" },
+            "denominator": { "type": "number", "exclusiveMinimum": 0 }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "quantitativeObservation": {
+      "type": "object",
+      "required": [
+        "observationId",
+        "statement",
+        "representation",
+        "measure",
+        "unit",
+        "universe",
+        "period",
+        "method",
+        "uncertaintyStatement",
+        "locatorIds",
+        "supportingTextUnitSha256s",
+        "promotionState"
+      ],
+      "properties": {
+        "observationId": { "$ref": "#/$defs/id" },
+        "statement": { "type": "string", "minLength": 10, "maxLength": 1000 },
+        "representation": { "const": "paraphrase" },
+        "measure": { "$ref": "#/$defs/measure" },
+        "unit": {
+          "type": "object",
+          "required": ["code", "label", "currencyCode"],
+          "properties": {
+            "code": { "$ref": "#/$defs/id" },
+            "label": { "type": "string", "minLength": 1, "maxLength": 200 },
+            "currencyCode": {
+              "anyOf": [
+                { "type": "string", "pattern": "^[A-Z]{3}$" },
+                { "type": "null" }
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "universe": {
+          "type": "object",
+          "required": [
+            "description",
+            "populationSize",
+            "sampleSize",
+            "geographyIds",
+            "inclusionCriteria",
+            "exclusions"
+          ],
+          "properties": {
+            "description": { "$ref": "#/$defs/mediumText" },
+            "populationSize": {
+              "anyOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }]
+            },
+            "sampleSize": {
+              "anyOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }]
+            },
+            "geographyIds": { "$ref": "#/$defs/idArray" },
+            "inclusionCriteria": { "$ref": "#/$defs/mediumText" },
+            "exclusions": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/shortText" }
+            }
+          },
+          "additionalProperties": false
+        },
+        "period": {
+          "type": "object",
+          "required": ["statement", "startDate", "endDate"],
+          "properties": {
+            "statement": { "$ref": "#/$defs/mediumText" },
+            "startDate": {
+              "anyOf": [{ "$ref": "#/$defs/date" }, { "type": "null" }]
+            },
+            "endDate": {
+              "anyOf": [{ "$ref": "#/$defs/date" }, { "type": "null" }]
+            }
+          },
+          "additionalProperties": false
+        },
+        "method": {
+          "type": "object",
+          "required": ["measurementBasis", "statement", "calculationStatement"],
+          "properties": {
+            "measurementBasis": {
+              "enum": ["source_reported", "analyst_calculated"]
+            },
+            "statement": { "$ref": "#/$defs/mediumText" },
+            "calculationStatement": {
+              "anyOf": [
+                { "type": "string", "minLength": 10, "maxLength": 800 },
+                { "type": "null" }
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "uncertaintyStatement": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 800
+        },
+        "locatorIds": { "$ref": "#/$defs/locatorIdArray" },
+        "supportingTextUnitSha256s": { "$ref": "#/$defs/hashArray" },
+        "promotionState": { "const": "candidate_only" }
+      },
+      "additionalProperties": false
+    },
+    "actor": {
+      "type": "object",
+      "required": [
+        "candidateId",
+        "name",
+        "actorType",
+        "roleStatement",
+        "identityState",
+        "existingEntityId",
+        "locatorIds",
+        "promotionState"
+      ],
+      "properties": {
+        "candidateId": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "actorType": { "$ref": "#/$defs/id" },
+        "roleStatement": { "$ref": "#/$defs/mediumText" },
+        "identityState": {
+          "enum": ["unresolved", "provisional_match", "verified_match"]
+        },
+        "existingEntityId": {
+          "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+        },
+        "locatorIds": { "$ref": "#/$defs/locatorIdArray" },
+        "promotionState": { "const": "candidate_only" }
+      },
+      "additionalProperties": false
+    },
+    "policy": {
+      "type": "object",
+      "required": [
+        "candidateId",
+        "name",
+        "policyType",
+        "jurisdictionGeographyIds",
+        "statusStatement",
+        "identityState",
+        "existingEntityId",
+        "locatorIds",
+        "promotionState"
+      ],
+      "properties": {
+        "candidateId": { "$ref": "#/$defs/id" },
+        "name": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "policyType": { "$ref": "#/$defs/id" },
+        "jurisdictionGeographyIds": { "$ref": "#/$defs/idArray" },
+        "statusStatement": { "$ref": "#/$defs/mediumText" },
+        "identityState": {
+          "enum": ["unresolved", "provisional_match", "verified_match"]
+        },
+        "existingEntityId": {
+          "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+        },
+        "locatorIds": { "$ref": "#/$defs/locatorIdArray" },
+        "promotionState": { "const": "candidate_only" }
+      },
+      "additionalProperties": false
+    },
+    "relationship": {
+      "type": "object",
+      "required": [
+        "relationshipId",
+        "subjectEntityRef",
+        "predicate",
+        "objectEntityRef",
+        "direction",
+        "statement",
+        "locatorIds",
+        "machineConfidence",
+        "promotionState"
+      ],
+      "properties": {
+        "relationshipId": { "$ref": "#/$defs/id" },
+        "subjectEntityRef": { "$ref": "#/$defs/id" },
+        "predicate": { "$ref": "#/$defs/id" },
+        "objectEntityRef": { "$ref": "#/$defs/id" },
+        "direction": { "enum": ["directed", "bidirectional", "unclear"] },
+        "statement": { "$ref": "#/$defs/mediumText" },
+        "locatorIds": { "$ref": "#/$defs/locatorIdArray" },
+        "machineConfidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "promotionState": { "const": "candidate_only" }
+      },
+      "additionalProperties": false
+    },
+    "flow": {
+      "type": "object",
+      "required": [
+        "flowId",
+        "flowType",
+        "fromEntityRef",
+        "toEntityRef",
+        "direction",
+        "statement",
+        "materialProfileIds",
+        "quantitativeObservationIds",
+        "locatorIds",
+        "promotionState"
+      ],
+      "properties": {
+        "flowId": { "$ref": "#/$defs/id" },
+        "flowType": { "enum": ["material", "financial", "information"] },
+        "fromEntityRef": { "$ref": "#/$defs/id" },
+        "toEntityRef": { "$ref": "#/$defs/id" },
+        "direction": {
+          "enum": ["source_to_target", "bidirectional", "unclear"]
+        },
+        "statement": { "$ref": "#/$defs/mediumText" },
+        "materialProfileIds": { "$ref": "#/$defs/idArray" },
+        "quantitativeObservationIds": { "$ref": "#/$defs/idArray" },
+        "locatorIds": { "$ref": "#/$defs/locatorIdArray" },
+        "promotionState": { "const": "candidate_only" }
+      },
+      "additionalProperties": false
+    },
+    "methodFinding": {
+      "type": "object",
+      "required": ["methodId", "methodType", "statement", "locatorIds"],
+      "properties": {
+        "methodId": { "$ref": "#/$defs/id" },
+        "methodType": { "$ref": "#/$defs/id" },
+        "statement": { "$ref": "#/$defs/mediumText" },
+        "locatorIds": { "$ref": "#/$defs/locatorIdArray" }
+      },
+      "additionalProperties": false
+    },
+    "limitation": {
+      "type": "object",
+      "required": [
+        "limitationId",
+        "origin",
+        "category",
+        "statement",
+        "effectOnInterpretation",
+        "locatorIds"
+      ],
+      "properties": {
+        "limitationId": { "$ref": "#/$defs/id" },
+        "origin": { "enum": ["source_reported", "analyst_identified"] },
+        "category": { "$ref": "#/$defs/id" },
+        "statement": { "$ref": "#/$defs/mediumText" },
+        "effectOnInterpretation": { "$ref": "#/$defs/mediumText" },
+        "locatorIds": { "$ref": "#/$defs/locatorIdArray" }
+      },
+      "additionalProperties": false
+    },
+    "cannotSupport": {
+      "type": "object",
+      "required": ["boundaryId", "statement", "reason", "locatorIds"],
+      "properties": {
+        "boundaryId": { "$ref": "#/$defs/id" },
+        "statement": { "$ref": "#/$defs/mediumText" },
+        "reason": { "$ref": "#/$defs/mediumText" },
+        "locatorIds": { "$ref": "#/$defs/locatorIdArray" }
+      },
+      "additionalProperties": false
+    },
+    "conflictOfInterest": {
+      "type": "object",
+      "required": ["state", "statement", "locatorIds"],
+      "properties": {
+        "state": {
+          "enum": ["reported_none", "reported_present", "not_reported"]
+        },
+        "statement": { "$ref": "#/$defs/mediumText" },
+        "locatorIds": { "$ref": "#/$defs/locatorIdArray" }
+      },
+      "additionalProperties": false
+    },
+    "otherSourceEvidence": {
+      "type": "object",
+      "required": [
+        "sourceId",
+        "sourceContentSha256",
+        "analysisArtifactId",
+        "analysisArtifactVersion",
+        "analysisArtifactSha256",
+        "locatorIds"
+      ],
+      "properties": {
+        "sourceId": { "$ref": "#/$defs/id" },
+        "sourceContentSha256": { "$ref": "#/$defs/hash" },
+        "analysisArtifactId": { "$ref": "#/$defs/id" },
+        "analysisArtifactVersion": { "$ref": "#/$defs/version" },
+        "analysisArtifactSha256": { "$ref": "#/$defs/hash" },
+        "locatorIds": { "$ref": "#/$defs/locatorIdArray" }
+      },
+      "additionalProperties": false
+    },
+    "crossSourceFinding": {
+      "type": "object",
+      "required": [
+        "findingId",
+        "topic",
+        "statement",
+        "thisSourceLocatorIds",
+        "otherSourceEvidence",
+        "status"
+      ],
+      "properties": {
+        "findingId": { "$ref": "#/$defs/id" },
+        "topic": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "statement": { "$ref": "#/$defs/mediumText" },
+        "thisSourceLocatorIds": { "$ref": "#/$defs/locatorIdArray" },
+        "otherSourceEvidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/otherSourceEvidence" }
+        },
+        "status": { "const": "open_candidate" }
+      },
+      "additionalProperties": false
+    },
+    "internalInconsistency": {
+      "type": "object",
+      "required": [
+        "findingId",
+        "topic",
+        "statement",
+        "locatorIds",
+        "supportingTextUnitSha256s",
+        "status"
+      ],
+      "properties": {
+        "findingId": { "$ref": "#/$defs/id" },
+        "topic": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "statement": { "$ref": "#/$defs/mediumText" },
+        "locatorIds": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "supportingTextUnitSha256s": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/hash" }
+        },
+        "status": { "const": "open_candidate" }
+      },
+      "additionalProperties": false
+    },
+    "openQuestion": {
+      "type": "object",
+      "required": [
+        "questionId",
+        "question",
+        "rationale",
+        "locatorIds",
+        "followUpSourceClasses",
+        "blocking"
+      ],
+      "properties": {
+        "questionId": { "$ref": "#/$defs/id" },
+        "question": { "$ref": "#/$defs/mediumText" },
+        "rationale": { "$ref": "#/$defs/mediumText" },
+        "locatorIds": { "$ref": "#/$defs/locatorIdArray" },
+        "followUpSourceClasses": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "blocking": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "ontologyCandidate": {
+      "type": "object",
+      "required": [
+        "candidateId",
+        "objectType",
+        "preferredLabel",
+        "proposedOntologyIds",
+        "basis",
+        "locatorIds",
+        "status",
+        "automaticPromotion"
+      ],
+      "properties": {
+        "candidateId": { "$ref": "#/$defs/id" },
+        "objectType": {
+          "enum": [
+            "actor",
+            "policy",
+            "relationship",
+            "flow",
+            "material",
+            "term",
+            "method"
+          ]
+        },
+        "preferredLabel": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300
+        },
+        "proposedOntologyIds": { "$ref": "#/$defs/idArray" },
+        "basis": { "$ref": "#/$defs/mediumText" },
+        "locatorIds": { "$ref": "#/$defs/locatorIdArray" },
+        "status": { "const": "candidate_only" },
+        "automaticPromotion": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "coverageCandidate": {
+      "type": "object",
+      "required": [
+        "candidateId",
+        "coverageCellId",
+        "rationale",
+        "evidenceClaimIds",
+        "evidenceObservationIds",
+        "locatorIds",
+        "state",
+        "automaticPromotion"
+      ],
+      "properties": {
+        "candidateId": { "$ref": "#/$defs/id" },
+        "coverageCellId": { "$ref": "#/$defs/id" },
+        "rationale": { "$ref": "#/$defs/mediumText" },
+        "evidenceClaimIds": { "$ref": "#/$defs/idArray" },
+        "evidenceObservationIds": { "$ref": "#/$defs/idArray" },
+        "locatorIds": { "$ref": "#/$defs/locatorIdArray" },
+        "state": { "const": "candidate_only" },
+        "automaticPromotion": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "analysis": {
+      "type": "object",
+      "required": [
+        "overview",
+        "claims",
+        "quantitativeObservations",
+        "actors",
+        "policies",
+        "relationships",
+        "flows",
+        "sourceAppraisal",
+        "reconciliation",
+        "ontologyCandidates",
+        "coverageCandidates"
+      ],
+      "properties": {
+        "overview": { "$ref": "#/$defs/overview" },
+        "claims": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/claim" }
+        },
+        "quantitativeObservations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/quantitativeObservation" }
+        },
+        "actors": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/actor" }
+        },
+        "policies": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/policy" }
+        },
+        "relationships": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/relationship" }
+        },
+        "flows": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/flow" }
+        },
+        "sourceAppraisal": {
+          "type": "object",
+          "required": [
+            "methods",
+            "limitations",
+            "conflictOfInterest",
+            "cannotSupport"
+          ],
+          "properties": {
+            "methods": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/methodFinding" }
+            },
+            "limitations": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/limitation" }
+            },
+            "conflictOfInterest": { "$ref": "#/$defs/conflictOfInterest" },
+            "cannotSupport": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/cannotSupport" }
+            }
+          },
+          "additionalProperties": false
+        },
+        "reconciliation": {
+          "type": "object",
+          "required": [
+            "internalInconsistencies",
+            "corroborations",
+            "contradictions",
+            "openQuestions"
+          ],
+          "properties": {
+            "internalInconsistencies": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/internalInconsistency" }
+            },
+            "corroborations": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/crossSourceFinding" }
+            },
+            "contradictions": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/crossSourceFinding" }
+            },
+            "openQuestions": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/openQuestion" }
+            }
+          },
+          "additionalProperties": false
+        },
+        "ontologyCandidates": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ontologyCandidate" }
+        },
+        "coverageCandidates": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/coverageCandidate" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "closedGate": {
+      "type": "object",
+      "required": ["complete", "state", "receiptId"],
+      "properties": {
+        "complete": { "const": false },
+        "state": { "enum": ["not_requested", "pending"] },
+        "receiptId": { "type": "null" }
+      },
+      "additionalProperties": false
+    },
+    "gates": {
+      "type": "object",
+      "required": [
+        "ownerReview",
+        "independentExpertValidation",
+        "partnerValidation",
+        "rightsHolderValidation",
+        "rightsReview",
+        "publication",
+        "coverage"
+      ],
+      "properties": {
+        "ownerReview": { "$ref": "#/$defs/closedGate" },
+        "independentExpertValidation": { "$ref": "#/$defs/closedGate" },
+        "partnerValidation": { "$ref": "#/$defs/closedGate" },
+        "rightsHolderValidation": { "$ref": "#/$defs/closedGate" },
+        "rightsReview": {
+          "type": "object",
+          "required": ["complete", "state", "receiptId"],
+          "properties": {
+            "complete": { "const": false },
+            "state": { "const": "pending_review" },
+            "receiptId": { "type": "null" }
+          },
+          "additionalProperties": false
+        },
+        "publication": {
+          "type": "object",
+          "required": ["complete", "state", "receiptId"],
+          "properties": {
+            "complete": { "const": false },
+            "state": { "const": "internal_only" },
+            "receiptId": { "type": "null" }
+          },
+          "additionalProperties": false
+        },
+        "coverage": {
+          "type": "object",
+          "required": [
+            "complete",
+            "state",
+            "receiptId",
+            "automaticPromotionAllowed"
+          ],
+          "properties": {
+            "complete": { "const": false },
+            "state": { "const": "candidate" },
+            "receiptId": { "type": "null" },
+            "automaticPromotionAllowed": { "const": false }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

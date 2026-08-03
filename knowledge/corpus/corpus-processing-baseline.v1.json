@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "baselineId": "whole-corpus-processing-baseline.v1",
+  "observedAt": "2026-08-02T20:58:11Z",
+  "ledgerObservedAt": "2026-07-28T05:32:26.743Z",
+  "expectedActiveRows": 1555,
+  "expectedRetainedHistoryRows": 17,
+  "retainedHistoryNonAdditive": true,
+  "authoritativeInventorySnapshot": {
+    "path": "knowledge/corpus/corpus-live-inventory-snapshot.v1.json",
+    "snapshotId": "library-analysis-live-inventory.v1",
+    "observedAt": "2026-08-02T21:38:56.421Z",
+    "activeRows": 1555,
+    "identityContentSetSha256": "54b9cbd2f8fdca27845f27490155f556db6371f9a96f6445a90fd1cfe0c179cf",
+    "sourceKindCountsSha256": "b9dc26d0acb81750025a81f840c3708d787c7d556939498e06d779a87ee491c2",
+    "ledgerSha256": "3f10532176b85adcc8d2d0f36009bb821893003637eada5de8cf89f0f349ec70"
+  },
+  "purpose": "Pins the deterministic observation instant and corpus boundaries for the first whole-corpus processing register. It does not assert full-text completion, owner review, external validation, rights clearance, publication readiness, or coverage promotion."
+}

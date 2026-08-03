@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "source-acquisition-receipt-v1",
+  "artifactType": "source_acquisition_receipt",
+  "receiptId": "receipt.source.acquisition.nord2025-010.official.20260803.v1",
+  "receiptVersion": "1.0.0",
+  "sourceId": "source.d7e6ddc7f9ba1394d24b1f15",
+  "tool": {
+    "name": "food-systems-controlled-curl-http2-fetch-adapter",
+    "version": "1.0.0",
+    "workflowRef": "knowledge/corpus/workflows/controlled-source-acquisition-v1.md",
+    "workflowVersion": "1.0.0"
+  },
+  "startedAt": "2026-08-03T00:24:30.785Z",
+  "completedAt": "2026-08-03T00:24:31.162Z",
+  "receiptSha256": "sha256:3164fba6245cd5a8be7a36682895d4c3454477af3f58605df5892366af18531a",
+  "acquisitionType": "controlled_https_fetch",
+  "requestedLocator": "https://pub.norden.org/nord2025-010/nord2025-010.pdf",
+  "finalLocator": "https://pub.norden.org/nord2025-010/nord2025-010.pdf",
+  "request": {
+    "method": "GET",
+    "redirectMode": "manual",
+    "credentialsMode": "omit",
+    "maximumRedirects": 5
+  },
+  "redirectChain": [],
+  "response": {
+    "status": 200,
+    "contentType": "application/pdf",
+    "contentLengthBytes": 6855999,
+    "bodySizeBytes": 6855999,
+    "bodySha256": "sha256:358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01",
+    "observedAt": "2026-08-03T00:24:30.785Z"
+  }
+}

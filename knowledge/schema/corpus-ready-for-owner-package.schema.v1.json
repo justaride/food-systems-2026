@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/corpus-ready-for-owner-package.v1.json",
+  "title": "Food Systems ready-for-owner package",
+  "description": "Self-hashed bridge from a cross-checked source analysis and authenticated source-role receipt to the ready_for_owner AI-processing checkpoint. It is not owner approval.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "artifactType",
+    "artifactId",
+    "artifactVersion",
+    "lifecyclePreStateSha256",
+    "sourceAnalysisArtifactSha256",
+    "sourceRoleReceiptSha256",
+    "createdAt",
+    "artifactSha256"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "corpus-ready-for-owner-package-v1" },
+    "artifactType": { "const": "ready_for_owner_package" },
+    "artifactId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]*$" },
+    "artifactVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[a-z0-9.-]+)?$"
+    },
+    "lifecyclePreStateSha256": { "$ref": "#/$defs/sha256" },
+    "sourceAnalysisArtifactSha256": { "$ref": "#/$defs/sha256" },
+    "sourceRoleReceiptSha256": { "$ref": "#/$defs/sha256" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "artifactSha256": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+  }
+}

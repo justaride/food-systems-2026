@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "1.0.0",
+  "manifestId": "corpus-processing-current-state-generation-manifest.v1",
+  "generator": "scripts/knowledge/generate-corpus-processing-current-state.ts",
+  "generatorVersion": "1.0.0",
+  "baselineId": "whole-corpus-processing-baseline.v1",
+  "baselineObservedAt": "2026-08-02T20:58:11Z",
+  "eventHighWatermarkOccurredAt": null,
+  "commitMarkerSemantics": "The generation manifest is renamed last. Consumers must verify every listed input and output before using the projection.",
+  "inputs": [
+    {
+      "path": "knowledge/corpus/corpus-processing-baseline.v1.json",
+      "sha256": "7525bd494bfa6a4481e4c97702c9b9dbb64ae6c2f48bbfce563cbb82413afb38",
+      "sizeBytes": 1075
+    },
+    {
+      "path": "knowledge/corpus/corpus-processing-generation-manifest.v1.json",
+      "sha256": "3eb14e520700ba7b1c3d5116cd500f3e73b29b4937b5e58c8b570f733ce4d486",
+      "sizeBytes": 3944
+    },
+    {
+      "path": "knowledge/corpus/corpus-processing-register.v1.jsonl",
+      "sha256": "3b1d475bd3adda4693eb1687cf0a4b19121b7ed110631c22981891937174a41f",
+      "sizeBytes": 11454538
+    },
+    {
+      "path": "src/lib/knowledge/corpus-processing-lifecycle.ts",
+      "sha256": "03fcb30e7cce6b9c2f134b19e95ed47ab57e662d4f3c1741da20f0d5d5697e21",
+      "sizeBytes": 84094
+    },
+    {
+      "path": "src/lib/knowledge/corpus-processing-event-history.ts",
+      "sha256": "31145c60c6692f310a73bb18b0836fd35d2f31656b00b01dd1d7e834a323a370",
+      "sizeBytes": 10929
+    },
+    {
+      "path": "src/lib/knowledge/corpus-processing-current-state.ts",
+      "sha256": "cd540282c3c793e424eceee5f523d169e81ff9d7eab9aef33a34a0f22d16c124",
+      "sizeBytes": 55412
+    },
+    {
+      "path": "src/lib/knowledge/pdf-page-extraction-qualification.ts",
+      "sha256": "83a1e7882c06a0bc92c962f8c41613df9f1c1438c4867b693a97ed3db48b6584",
+      "sizeBytes": 19139
+    },
+    {
+      "path": "src/lib/knowledge/source-analysis-input-manifest.ts",
+      "sha256": "1f2cbc1ba6aee76398f33c0ab4d6c4ed1e932d66476b95965ccf75864c2b3c78",
+      "sizeBytes": 22318
+    },
+    {
+      "path": "src/lib/knowledge/source-acquisition-receipt.ts",
+      "sha256": "336e30d462d04f4d9e08eea55aa59a2acb8c2d237c6ee950061260ea6656afa9",
+      "sizeBytes": 12037
+    },
+    {
+      "path": "src/lib/knowledge/source-identity-verification.ts",
+      "sha256": "3b8f219b6f255d17a50ded683229c2b2a50679be6efd4bb5ed470565d8089099",
+      "sizeBytes": 37602
+    },
+    {
+      "path": "src/lib/knowledge/source-analysis-artifact.ts",
+      "sha256": "1455b248e9f518bea817dc5b39d1ee48be3fa1120c870abe820aa37f1f9e6299",
+      "sizeBytes": 64761
+    },
+    {
+      "path": "knowledge/schema/corpus-processing-lifecycle.schema.v1.json",
+      "sha256": "a5467f4fb2726d52f9ee0f1c8942b179bc4f81b58ed622009cde73e89fd4e752",
+      "sizeBytes": 83816
+    },
+    {
+      "path": "knowledge/schema/corpus-processing-event-history-anchor.schema.v1.json",
+      "sha256": "c27c83b34df1c16a2ad5f5b02400655556aee8b9712e2fd6328fd32a6db97cec",
+      "sizeBytes": 4421
+    },
+    {
+      "path": "knowledge/schema/corpus-processing-state-event.schema.v1.json",
+      "sha256": "49d663ec6f378a14d1429e9a95ef51bd1835235582fc6dc265ea661b17240d24",
+      "sizeBytes": 20329
+    },
+    {
+      "path": "knowledge/schema/corpus-processing-current-state.schema.v1.json",
+      "sha256": "badca24e81ed7f50a95e866347fe01b066e9d95b0468529d0dde98a83ba13fcd",
+      "sizeBytes": 9812
+    },
+    {
+      "path": "knowledge/schema/corpus-ready-for-owner-package.schema.v1.json",
+      "sha256": "43cc28c439053b92301cef26b16cca009cf7a5d757922cfe102367ae3d744435",
+      "sizeBytes": 1415
+    },
+    {
+      "path": "knowledge/schema/source-acquisition-receipt.schema.v1.json",
+      "sha256": "634c17c3dfe895d226c15187a9c97b29411749200c1134835f6db361dfd35ac8",
+      "sizeBytes": 10163
+    },
+    {
+      "path": "knowledge/corpus/corpus-processing-state-events.v1.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sizeBytes": 0
+    },
+    {
+      "path": "knowledge/corpus/corpus-processing-state-event-manifest.v1.json",
+      "sha256": "3f2cc19845147fe62dd8d6085bb03fbf9e18825b7923effd4e5a9f4fec3def1f",
+      "sizeBytes": 792
+    },
+    {
+      "path": "knowledge/corpus/corpus-processing-state-event-history-anchors.v1.jsonl",
+      "sha256": "a726947593aee52d09837ae048d8840e26891c385fc01e9e964ed0a154ecdf27",
+      "sizeBytes": 1001
+    },
+    {
+      "path": "scripts/knowledge/generate-corpus-processing-current-state.ts",
+      "sha256": "ed5425728b3842c6317193b082727f19e373fda231d20b0208f9cd65bf8316bb",
+      "sizeBytes": 29317
+    }
+  ],
+  "outputs": [
+    {
+      "path": "knowledge/corpus/corpus-processing-current-state.v1.jsonl",
+      "sha256": "30c703c52ed72540023092ff87afa2569a85fa36141f9f7af6ce32f6021f683d",
+      "sizeBytes": 9532433
+    },
+    {
+      "path": "knowledge/corpus/corpus-processing-current-state-summary.v1.json",
+      "sha256": "5f31047ded3b7dcc321b76dde200647fd54fa1595fecd0fc29cd2e2a5137f8c2",
+      "sizeBytes": 1526
+    },
+    {
+      "path": "knowledge/corpus/corpus-processing-state-conflict-queue.v1.jsonl",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "sizeBytes": 0
+    }
+  ]
+}
