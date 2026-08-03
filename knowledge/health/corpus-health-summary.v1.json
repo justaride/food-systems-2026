@@ -1,9 +1,9 @@
 {
   "schemaVersion": "corpus-evidence-health-v1",
   "documentKind": "corpus_health_summary",
-  "assessmentId": "health.assessment.2026-07-28.local.e9babbc2",
-  "observedAt": "2026-07-28T07:04:09.000Z",
-  "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+  "assessmentId": "health.assessment.2026-08-03.local.d26684eb",
+  "observedAt": "2026-08-03T12:19:47.000Z",
+  "baseCommit": "d26684ebe715e2f2f8bf7f0aeacc53bf5199752d",
   "gate1Decision": "no_go",
   "principalBlocker": "seed_database_identity_mismatch",
   "semanticBoundary": {
@@ -19,6 +19,7 @@
       "verdict": "ready_with_warnings",
       "readyForProfile": true,
       "reasonCodes": [
+        "active_corpus_enumerated",
         "bounded_inventory_available",
         "hash_bound_snapshot",
         "migration_lineage_reconciled"
@@ -32,6 +33,7 @@
         "migration_lineage_reconciled",
         "seed_identity_mismatch",
         "library_projection_freshness_pending",
+        "whole_corpus_full_text_zero",
         "status_vintage_conflicts"
       ]
     },
@@ -42,6 +44,9 @@
       "reasonCodes": [
         "evidence_appraisal_zero",
         "archive_gate_failed",
+        "owner_review_zero",
+        "independent_validation_zero",
+        "rights_clearance_zero",
         "identity_unreconciled",
         "human_review_pending"
       ]
@@ -61,6 +66,41 @@
     }
   ],
   "keyMetrics": {
+    "corpusActiveIdentities": 1555,
+    "corpusContentHashBoundIdentities": 1537,
+    "corpusHashBoundBytes": 554322165,
+    "corpusMissingRepositoryFiles": 11,
+    "corpusNoLocatorIdentities": 18,
+    "corpusKnownIdentityAliasMismatches": 2,
+    "corpusDeduplicatedProcessingUnits": 1467,
+    "corpusFullTextComplete": 0,
+    "corpusSourceRoleOwnerConfirmed": 0,
+    "corpusOwnerReviewed": 0,
+    "corpusIndependentlyValidated": 0,
+    "corpusPartnerValidated": 0,
+    "corpusRightsHolderValidated": 0,
+    "corpusRightsCleared": 0,
+    "corpusPublicationApproved": 0,
+    "corpusExternalUseReady": 0,
+    "corpusCoverageApproved": 0,
+    "legacyGate2cUnclassifiedMappings": 5,
+    "legacyGate2cStatusOnlyCanonicalHumanApprovals": 0,
+    "pdfTechnicalUnits": 15,
+    "pdfTechnicalFailures": 0,
+    "pdfExtractedPages": 772,
+    "pdfExtractedWords": 272545,
+    "pdfWarningPages": 35,
+    "pdfOpenIdentityBlockers": 12,
+    "pdfOpenAliasBlockers": 2,
+    "pdfOpenUnregisteredSourceCandidateBlockers": 10,
+    "pdfAiAnalysisComplete": false,
+    "pdfOwnerReviewComplete": false,
+    "pdfIndependentValidationComplete": false,
+    "pdfRightsCleared": false,
+    "pdfPublicationReady": false,
+    "pdfCoveragePromotionAllowed": false,
+    "pdfPortableTrackedValidationSupported": true,
+    "pdfPrivateVerificationPerformed": false,
     "headMigrations": 31,
     "databaseMigrations": 31,
     "migrationLineageMismatches": 0,
@@ -80,7 +120,7 @@
     "libraryInventoryOnlyRows": 0,
     "libraryRetainedHistoryContractIssues": 0,
     "reportedLibraryProjectionUpdates": 15,
-    "vaultIssues": 2
+    "vaultIssues": 0
   },
   "openConflicts": [
     {
@@ -92,12 +132,7 @@
       "conflictId": "health.conflict.remediation_vintage",
       "severity": "warning",
       "title": "Remediation backlog counts have conflicting vintages"
-    },
-    {
-      "conflictId": "health.conflict.vault_reported_vs_observed",
-      "severity": "high",
-      "title": "Completion register and current vault validation disagree"
     }
   ],
-  "contentHash": "sha256:b79a6db19db39d9bfcb425af0f91222c0a21f7a0c09c358fc4b36c58d1a97734"
+  "contentHash": "sha256:6af87ac078dde713dcb3753dc9a055430daa78587b7200950dcb7bc009f3117c"
 }
