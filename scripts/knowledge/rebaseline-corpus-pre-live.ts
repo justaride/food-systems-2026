@@ -50,8 +50,32 @@ import {
   sourceRegistrationApplyContractSha256,
   sourceRegistrationApplyDependencyStateSha256,
   sourceRegistrationApplyOperationKey,
+  sourceRegistrationApplyTargetSetSha256,
   type SourceRegistrationControlledMutationAudit,
 } from "../../src/lib/knowledge/source-registration-apply";
+import {
+  PRIVATE_RECOVERY_ACQUISITION_AFTER_COUNT,
+  PRIVATE_RECOVERY_ACQUISITION_APPLY_RECEIPT_PATH,
+  PRIVATE_RECOVERY_ACQUISITION_BEFORE_COUNT,
+  PRIVATE_RECOVERY_ACQUISITION_DEFAULT_PLAN_PATH,
+  PRIVATE_RECOVERY_ACQUISITION_REGISTER_PATH,
+  PRIVATE_RECOVERY_ACQUISITION_SOURCE_PLAN_PATH,
+  PRIVATE_RECOVERY_ACQUISITION_TARGET_COUNT,
+  VerifiedPrivateCopyPairSchema,
+  canonicalPrivateRecoveryJson,
+  privateRecoveryFileBinding,
+  privateRecoverySha256,
+  serializePrivateRecoveryJson,
+  validatePrivateRecoveryAcquisitionPlan,
+  validatePrivateRecoveryDatabaseAuditBinding,
+  type PrivateRecoveryAcquisitionPlan,
+  type PrivateRecoveryImplementationBinding,
+  type VerifiedPrivateCopyPair,
+} from "../../src/lib/knowledge/private-recovery-acquisition";
+import {
+  validateSourceRegistrationPlan,
+  type SourceRegistrationPlan,
+} from "../../src/lib/knowledge/source-registration-plan";
 import {
   CORPUS_CURRENT_STATE_PATHS,
   buildCorpusCurrentStateArtifacts,
@@ -82,6 +106,12 @@ import {
   verifyLockedPlanInputs,
   type SourceRegistrationApplyDatabaseState,
 } from "./apply-source-registration-plan";
+import {
+  classifyPrivateRecoveryFilesystemState,
+  readSafeProjectFile,
+  verifyPrivateRecoveryCopies,
+  type FilesystemBundleState,
+} from "./manage-private-recovery-acquisition";
 import { SOURCE_REGISTRATION_PATHS } from "./generate-source-registration-plan";
 import {
   LIBRARY_ANALYSIS_LEDGER_PATH,
@@ -97,6 +127,52 @@ export const CORPUS_PRE_LIVE_REBASELINE_SCHEMA_PATH =
   "knowledge/schema/corpus-pre-live-rebaseline.schema.v1.json" as const;
 export const CORPUS_PRE_LIVE_REBASELINE_CONTRACT_PATH =
   "knowledge/corpus/CORPUS-PRE-LIVE-REBASELINE.md" as const;
+
+const REQUIRED_PRIVATE_RECOVERY_IMPLEMENTATION_BINDINGS: Array<{
+  role: PrivateRecoveryImplementationBinding["role"];
+  path: string;
+}> = [
+  {
+    role: "private_recovery_apply_schema",
+    path: "knowledge/schema/private-recovery-acquisition-apply-receipt.schema.v1.json",
+  },
+  {
+    role: "private_recovery_contract",
+    path: "knowledge/corpus/PRIVATE-RECOVERY-ACQUISITION-CONTRACT.md",
+  },
+  {
+    role: "private_recovery_plan_schema",
+    path: "knowledge/schema/private-recovery-acquisition-plan.schema.v1.json",
+  },
+  {
+    role: "private_recovery_runner",
+    path: "scripts/knowledge/manage-private-recovery-acquisition.ts",
+  },
+  {
+    role: "private_recovery_runtime",
+    path: "src/lib/knowledge/private-recovery-acquisition.ts",
+  },
+  {
+    role: "source_acquisition_runtime",
+    path: "src/lib/knowledge/source-acquisition-receipt.ts",
+  },
+  {
+    role: "source_acquisition_schema",
+    path: "knowledge/schema/source-acquisition-receipt.schema.v1.json",
+  },
+  {
+    role: "source_registration_apply_runner",
+    path: "scripts/knowledge/apply-source-registration-plan.ts",
+  },
+  {
+    role: "source_registration_apply_runtime",
+    path: "src/lib/knowledge/source-registration-apply.ts",
+  },
+  {
+    role: "source_registration_plan_runtime",
+    path: "src/lib/knowledge/source-registration-plan.ts",
+  },
+];
 
 const EMPTY_SHA256 =
   "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
@@ -180,6 +256,15 @@ export function parseCorpusPreLiveRebaselineArgs(
   ) {
     throw new Error(
       "Corpus rebaseline requires explicit primary and replica corpus roots or both private-root environment variables",
+    );
+  }
+  if (
+    mode !== "recover" &&
+    (!isAbsolute(values.primaryCorpusRoot!) ||
+      !isAbsolute(values.replicaCorpusRoot!))
+  ) {
+    throw new Error(
+      "Corpus rebaseline private corpus roots must be supplied as raw absolute paths",
     );
   }
   if (mode === "apply" && (!values.planFile || !values.acknowledgement)) {
@@ -547,11 +632,65 @@ type DatabaseInspection = ReturnType<
   transaction: SourceRegistrationApplyDatabaseState["transaction"];
 };
 
+const EXPECTED_POST_RECOVERY_LOCKED_REGISTER_ERROR =
+  "Locked source-registration apply refused: private recovery register differs from locked plan";
+
+export function assertExpectedPostRecoveryLockedRegisterError(
+  error: unknown,
+): void {
+  if (
+    !(error instanceof Error) ||
+    error.message !== EXPECTED_POST_RECOVERY_LOCKED_REGISTER_ERROR
+  ) {
+    throw error;
+  }
+}
+
+function verifyLockedRegistrationInputsAfterPrivateRecovery(input: {
+  root: string;
+  options: CorpusPreLiveRebaselineCliOptions;
+  sourceRegistrationPlan: SourceRegistrationPlan;
+  privateRecoveryPlan: PrivateRecoveryAcquisitionPlan;
+}): void {
+  const lockedRegister =
+    input.sourceRegistrationPlan.beforeSnapshot.privateRecoveryRegister;
+  const recoveryBefore = input.privateRecoveryPlan.recoveryRegister.before;
+  if (
+    input.privateRecoveryPlan.inputBindings.sourceRegistrationPlan
+      .planSha256 !== input.sourceRegistrationPlan.planSha256 ||
+    lockedRegister.path !== recoveryBefore.file.path ||
+    lockedRegister.fileSha256 !== recoveryBefore.file.fileSha256 ||
+    lockedRegister.candidateCount !== recoveryBefore.candidateCount
+  ) {
+    throw new Error(
+      "Committed private recovery does not start at the locked source-registration register",
+    );
+  }
+  try {
+    verifyLockedPlanInputs({
+      projectRoot: input.root,
+      manifestPath:
+        input.options.registrationManifestPath ??
+        SOURCE_REGISTRATION_PATHS.batch,
+      primaryCorpusRoot: input.options.primaryCorpusRoot,
+      replicaCorpusRoot: input.options.replicaCorpusRoot,
+      plan: input.sourceRegistrationPlan,
+    });
+  } catch (error) {
+    assertExpectedPostRecoveryLockedRegisterError(error);
+    return;
+  }
+  throw new Error(
+    "Corpus rebaseline expected the exact committed 11 -> 21 private-recovery register transition",
+  );
+}
+
 async function observeDatabaseAndLedger(input: {
   root: string;
   options: CorpusPreLiveRebaselineCliOptions;
   ledgerContent: string;
   observedAt: string;
+  privateRecoveryPlan: PrivateRecoveryAcquisitionPlan;
 }): Promise<{
   observation: CorpusPreLiveRebaselineDatabaseObservation;
   liveRows: Awaited<ReturnType<typeof loadLibraryAnalysisInventoryFromClient>>;
@@ -568,13 +707,11 @@ async function observeDatabaseAndLedger(input: {
     contractSha256: sourceRegistrationApplyContractSha256(),
     dependencyStateSha256,
   });
-  verifyLockedPlanInputs({
-    projectRoot: input.root,
-    manifestPath:
-      input.options.registrationManifestPath ?? SOURCE_REGISTRATION_PATHS.batch,
-    primaryCorpusRoot: input.options.primaryCorpusRoot,
-    replicaCorpusRoot: input.options.replicaCorpusRoot,
-    plan: registrationPlan,
+  verifyLockedRegistrationInputsAfterPrivateRecovery({
+    root: input.root,
+    options: input.options,
+    sourceRegistrationPlan: registrationPlan,
+    privateRecoveryPlan: input.privateRecoveryPlan,
   });
   const contents = reconstructLockedDocumentContents({
     projectRoot: input.root,
@@ -851,12 +988,370 @@ function newBaseline(
   };
 }
 
+function privateRecoveryCanonical(value: unknown): string {
+  return canonicalPrivateRecoveryJson(value as never);
+}
+
+function assertPrivateRecoveryCopyDistinction(
+  copies: VerifiedPrivateCopyPair,
+): void {
+  if (
+    copies.primary.storageRootId === copies.replica.storageRootId ||
+    copies.primary.locator === copies.replica.locator ||
+    copies.primary.copyId !== "primary" ||
+    copies.replica.copyId !== "replica" ||
+    !copies.distinctStorageRoots ||
+    !copies.distinctFiles
+  ) {
+    throw new Error(
+      `${copies.targetId}: private recovery primary and replica must remain distinct`,
+    );
+  }
+}
+
+function normalizedPrivateRecoveryCopies(
+  copies: VerifiedPrivateCopyPair,
+): VerifiedPrivateCopyPair {
+  return {
+    ...copies,
+    primary: { ...copies.primary, verifiedAt: "2026-01-01T00:00:00.000Z" },
+    replica: { ...copies.replica, verifiedAt: "2026-01-01T00:00:00.000Z" },
+  };
+}
+
+/**
+ * This assertion operates on an already schema-validated recovery plan. It is
+ * exported so the rebaseline-specific stopline can be tested independently of
+ * a live database and private archive.
+ */
+export function assertCommittedPrivateRecoveryEvidence(input: {
+  plan: PrivateRecoveryAcquisitionPlan;
+  filesystemState: FilesystemBundleState;
+  liveCopies: VerifiedPrivateCopyPair[];
+  liveVerifiedAt: string;
+}): void {
+  const { plan } = input;
+  if (input.filesystemState !== "committed") {
+    throw new Error(
+      "Corpus rebaseline requires the complete committed private-recovery bundle",
+    );
+  }
+  if (
+    plan.summary.beforeCandidateCount !==
+      PRIVATE_RECOVERY_ACQUISITION_BEFORE_COUNT ||
+    plan.summary.afterCandidateCount !==
+      PRIVATE_RECOVERY_ACQUISITION_AFTER_COUNT ||
+    plan.recoveryRegister.before.candidateCount !==
+      PRIVATE_RECOVERY_ACQUISITION_BEFORE_COUNT ||
+    plan.recoveryRegister.after.candidateCount !==
+      PRIVATE_RECOVERY_ACQUISITION_AFTER_COUNT ||
+    plan.recoveryRegister.before.document.candidates.length !==
+      PRIVATE_RECOVERY_ACQUISITION_BEFORE_COUNT ||
+    plan.recoveryRegister.after.document.candidates.length !==
+      PRIVATE_RECOVERY_ACQUISITION_AFTER_COUNT
+  ) {
+    throw new Error(
+      "Corpus rebaseline requires the exact private-recovery 11 -> 21 row transition",
+    );
+  }
+  if (
+    plan.summary.targetCount !== PRIVATE_RECOVERY_ACQUISITION_TARGET_COUNT ||
+    plan.summary.controlledPrivateReceiptCount !==
+      PRIVATE_RECOVERY_ACQUISITION_TARGET_COUNT ||
+    plan.targets.length !== PRIVATE_RECOVERY_ACQUISITION_TARGET_COUNT ||
+    plan.applyReceipt.receipt.receiptState !== "exact_file_bundle_committed" ||
+    plan.applyReceipt.receipt.controlledPrivateReceipts.length !==
+      PRIVATE_RECOVERY_ACQUISITION_TARGET_COUNT
+  ) {
+    throw new Error(
+      "Corpus rebaseline requires exactly ten controlled-private receipts and the final apply receipt",
+    );
+  }
+  const registrationRecordedAt =
+    plan.inputBindings.sourceRegistrationApplyAudit.recordedAt;
+  const registrationTime = Date.parse(registrationRecordedAt ?? "");
+  const preparedTime = Date.parse(plan.preparedAt);
+  if (!registrationRecordedAt || !Number.isFinite(registrationTime)) {
+    throw new Error(
+      "Private-recovery proof requires a timestamped source-registration audit",
+    );
+  }
+  if (!Number.isFinite(preparedTime) || preparedTime < registrationTime) {
+    throw new Error(
+      "Private-recovery plan and receipts must be prepared after source registration",
+    );
+  }
+  for (const target of plan.targets) {
+    const evidenceTimes = [
+      target.privateCopies.primary.verifiedAt,
+      target.privateCopies.replica.verifiedAt,
+      target.acquisitionReceipt.receipt.startedAt,
+      target.acquisitionReceipt.receipt.completedAt,
+    ];
+    if (
+      evidenceTimes.some(
+        (value) =>
+          !Number.isFinite(Date.parse(value)) ||
+          Date.parse(value) !== preparedTime ||
+          Date.parse(value) < registrationTime,
+      )
+    ) {
+      throw new Error(
+        `${target.targetId}: recovery receipt is not exactly bound to the post-registration verification run`,
+      );
+    }
+  }
+
+  if (
+    input.liveCopies.length !== PRIVATE_RECOVERY_ACQUISITION_TARGET_COUNT ||
+    !Number.isFinite(Date.parse(input.liveVerifiedAt))
+  ) {
+    throw new Error(
+      "Corpus rebaseline requires ten fresh private-copy re-verifications",
+    );
+  }
+  const plannedCopies = plan.targets.map((target) => target.privateCopies);
+  input.liveCopies.forEach((rawLiveCopies, index) => {
+    const liveCopies = VerifiedPrivateCopyPairSchema.parse(rawLiveCopies);
+    const planned = VerifiedPrivateCopyPairSchema.parse(plannedCopies[index]);
+    assertPrivateRecoveryCopyDistinction(liveCopies);
+    assertPrivateRecoveryCopyDistinction(planned);
+    if (
+      Date.parse(liveCopies.primary.verifiedAt) !==
+        Date.parse(input.liveVerifiedAt) ||
+      Date.parse(liveCopies.replica.verifiedAt) !==
+        Date.parse(input.liveVerifiedAt) ||
+      privateRecoveryCanonical(normalizedPrivateRecoveryCopies(liveCopies)) !==
+        privateRecoveryCanonical(normalizedPrivateRecoveryCopies(planned))
+    ) {
+      throw new Error(
+        `${liveCopies.targetId}: current private copies differ from the frozen recovery proof`,
+      );
+    }
+  });
+}
+
+function assertPrivateRecoveryFileBinding(input: {
+  root: string;
+  binding: { path: string; fileSha256: string; sizeBytes: number };
+  label: string;
+}): CorpusPreLiveRebaselineFileBinding {
+  const bytes = readSafeProjectFile(input.root, input.binding.path);
+  const actual = privateRecoveryFileBinding(input.binding.path, bytes);
+  const expected = {
+    path: input.binding.path,
+    fileSha256: input.binding.fileSha256,
+    sizeBytes: input.binding.sizeBytes,
+  };
+  if (privateRecoveryCanonical(actual) !== privateRecoveryCanonical(expected)) {
+    throw new Error(
+      `${input.label} file binding drifted: ${input.binding.path}`,
+    );
+  }
+  return corpusPreLiveRebaselineFileBinding(input.binding.path, bytes);
+}
+
+function inspectCommittedPrivateRecoveryBundle(input: {
+  root: string;
+  primaryCorpusRoot: string;
+  replicaCorpusRoot: string;
+  verifiedAt?: string;
+}): {
+  plan: PrivateRecoveryAcquisitionPlan;
+  sourceRegistrationPlan: SourceRegistrationPlan;
+  compareAndSwapInputs: CorpusPreLiveRebaselineFileBinding[];
+} {
+  let planBytes: Buffer;
+  try {
+    planBytes = readSafeProjectFile(
+      input.root,
+      PRIVATE_RECOVERY_ACQUISITION_DEFAULT_PLAN_PATH,
+    );
+  } catch (error) {
+    throw new Error(
+      `Committed private-recovery plan is absent or unsafe: ${(error as Error).message}`,
+    );
+  }
+  let rawPlan: unknown;
+  try {
+    rawPlan = JSON.parse(planBytes.toString("utf8"));
+  } catch (error) {
+    throw new Error(
+      `Invalid private-recovery acquisition plan JSON: ${(error as Error).message}`,
+    );
+  }
+  const plan = validatePrivateRecoveryAcquisitionPlan(rawPlan);
+  if (!planBytes.equals(serializePrivateRecoveryJson(plan))) {
+    throw new Error(
+      "Private-recovery acquisition plan does not use the controlled exact serialization",
+    );
+  }
+  const implementationRolePaths = plan.inputBindings.implementation.map(
+    ({ role, path }) => ({ role, path }),
+  );
+  if (
+    privateRecoveryCanonical(implementationRolePaths) !==
+    privateRecoveryCanonical(REQUIRED_PRIVATE_RECOVERY_IMPLEMENTATION_BINDINGS)
+  ) {
+    throw new Error(
+      "Private-recovery acquisition plan does not bind the exact implementation dependency paths",
+    );
+  }
+  const filesystemState = classifyPrivateRecoveryFilesystemState({
+    projectRoot: input.root,
+    plan,
+    planFileSha256: privateRecoverySha256(planBytes),
+  });
+
+  const sourcePlanBytes = readSafeProjectFile(
+    input.root,
+    PRIVATE_RECOVERY_ACQUISITION_SOURCE_PLAN_PATH,
+  );
+  const sourcePlan = validateSourceRegistrationPlan(
+    JSON.parse(sourcePlanBytes.toString("utf8")),
+  );
+  const currentSourcePlanBinding = {
+    ...privateRecoveryFileBinding(
+      PRIVATE_RECOVERY_ACQUISITION_SOURCE_PLAN_PATH,
+      sourcePlanBytes,
+    ),
+    planSha256: sourcePlan.planSha256,
+    targetSetSha256: `sha256:${sourceRegistrationApplyTargetSetSha256(sourcePlan)}`,
+  };
+  if (
+    privateRecoveryCanonical(currentSourcePlanBinding) !==
+    privateRecoveryCanonical(plan.inputBindings.sourceRegistrationPlan)
+  ) {
+    throw new Error(
+      "Private-recovery source-registration plan binding drifted",
+    );
+  }
+  plan.targets.forEach((target, index) => {
+    const sourceTarget = sourcePlan.targets[index];
+    if (
+      !sourceTarget ||
+      sourceTarget.targetId !== target.targetId ||
+      sourceTarget.lifecycleSourceId !== target.lifecycleSourceId ||
+      privateRecoveryCanonical(sourceTarget.intendedPrivateRecoveryRow) !==
+        privateRecoveryCanonical(target.recoveryRow)
+    ) {
+      throw new Error(
+        `${target.targetId}: private-recovery target differs from the locked source-registration target`,
+      );
+    }
+  });
+  const verifiedAt = input.verifiedAt ?? new Date().toISOString();
+  const liveCopies = verifyPrivateRecoveryCopies({
+    projectRoot: input.root,
+    sourceRegistrationPlan: sourcePlan,
+    primaryCorpusRoot: input.primaryCorpusRoot,
+    replicaCorpusRoot: input.replicaCorpusRoot,
+    observedAt: verifiedAt,
+  });
+  assertCommittedPrivateRecoveryEvidence({
+    plan,
+    filesystemState,
+    liveCopies,
+    liveVerifiedAt: verifiedAt,
+  });
+
+  const bindings = new Map<string, CorpusPreLiveRebaselineFileBinding>();
+  const add = (binding: CorpusPreLiveRebaselineFileBinding) => {
+    const existing = bindings.get(binding.path);
+    if (existing && canonicalJson(existing) !== canonicalJson(binding)) {
+      throw new Error(
+        `Conflicting private-recovery CAS binding: ${binding.path}`,
+      );
+    }
+    bindings.set(binding.path, binding);
+  };
+  add(
+    corpusPreLiveRebaselineFileBinding(
+      PRIVATE_RECOVERY_ACQUISITION_DEFAULT_PLAN_PATH,
+      planBytes,
+    ),
+  );
+  for (const [binding, label] of [
+    [plan.inputBindings.sourceRegistrationPlan, "Source-registration plan"],
+    [plan.recoveryRegister.after.file, "Private-recovery register"],
+    ...plan.targets.map(
+      (target) =>
+        [target.acquisitionReceipt.file, "Controlled-private receipt"] as const,
+    ),
+    [plan.applyReceipt.file, "Private-recovery apply receipt"],
+    ...plan.inputBindings.implementation.map(
+      (binding) => [binding, "Private-recovery implementation"] as const,
+    ),
+  ] as const) {
+    add(
+      assertPrivateRecoveryFileBinding({
+        root: input.root,
+        binding,
+        label,
+      }),
+    );
+  }
+  if (
+    !bindings.has(PRIVATE_RECOVERY_ACQUISITION_REGISTER_PATH) ||
+    !bindings.has(PRIVATE_RECOVERY_ACQUISITION_APPLY_RECEIPT_PATH) ||
+    bindings.size !==
+      4 +
+        PRIVATE_RECOVERY_ACQUISITION_TARGET_COUNT +
+        REQUIRED_PRIVATE_RECOVERY_IMPLEMENTATION_BINDINGS.length
+  ) {
+    throw new Error(
+      "Private-recovery CAS set is not the exact plan, source plan, register, ten receipts, apply receipt, and ten implementation files",
+    );
+  }
+  return {
+    plan,
+    sourceRegistrationPlan: sourcePlan,
+    compareAndSwapInputs: [...bindings.values()].sort((left, right) =>
+      left.path.localeCompare(right.path, "en"),
+    ),
+  };
+}
+
+function assertPrivateRecoveryAuditMatchesObservation(input: {
+  plan: PrivateRecoveryAcquisitionPlan;
+  sourceRegistrationPlan: SourceRegistrationPlan;
+  sourceRegistrationAudit: SourceRegistrationControlledMutationAudit;
+}): void {
+  validatePrivateRecoveryDatabaseAuditBinding({
+    binding: input.plan.inputBindings.sourceRegistrationApplyAudit,
+    audit: input.sourceRegistrationAudit,
+    sourceRegistrationPlan: input.sourceRegistrationPlan,
+  });
+}
+
+export function inspectCommittedPrivateRecoveryAcquisition(input: {
+  root: string;
+  primaryCorpusRoot: string;
+  replicaCorpusRoot: string;
+  sourceRegistrationAudit: SourceRegistrationControlledMutationAudit;
+  verifiedAt?: string;
+}): {
+  plan: PrivateRecoveryAcquisitionPlan;
+  compareAndSwapInputs: CorpusPreLiveRebaselineFileBinding[];
+} {
+  const bundle = inspectCommittedPrivateRecoveryBundle(input);
+  assertPrivateRecoveryAuditMatchesObservation({
+    ...bundle,
+    sourceRegistrationAudit: input.sourceRegistrationAudit,
+  });
+  return {
+    plan: bundle.plan,
+    compareAndSwapInputs: bundle.compareAndSwapInputs,
+  };
+}
+
 function collectCasInputs(input: {
   root: string;
   oldBootstrap: CorpusPreLiveRebaselineNamedBootstrapBindings;
   currentLedger: CorpusPreLiveRebaselineFileBinding;
   proposedOutputs: CorpusPreLiveRebaselineOutput[];
   sourceRegistrationCodeBindings: unknown;
+  privateRecoveryInputs: CorpusPreLiveRebaselineFileBinding[];
 }): CorpusPreLiveRebaselineFileBinding[] {
   const replacePaths = new Set(
     input.proposedOutputs.map((output) => output.path),
@@ -927,6 +1422,7 @@ function collectCasInputs(input: {
   if (sourceRegistrationFileBindingCount === 0) {
     throw new Error("Source-registration receipt binds no code files");
   }
+  for (const binding of input.privateRecoveryInputs) add(binding);
   const outputs = outputMap(input.proposedOutputs);
   for (const manifestPath of [
     CORPUS_PROCESSING_PATHS.generationManifest,
@@ -989,11 +1485,21 @@ export async function buildCorpusPreLiveRebaselinePackage(input: {
       "Library ledger still equals the old bootstrap; export the exact post-registration ledger first",
     );
   }
+  const privateRecovery = inspectCommittedPrivateRecoveryBundle({
+    root: input.root,
+    primaryCorpusRoot: input.options.primaryCorpusRoot,
+    replicaCorpusRoot: input.options.replicaCorpusRoot,
+  });
   const observed = await observeDatabaseAndLedger({
     root: input.root,
     options: input.options,
     ledgerContent,
     observedAt: input.observedAt,
+    privateRecoveryPlan: privateRecovery.plan,
+  });
+  assertPrivateRecoveryAuditMatchesObservation({
+    ...privateRecovery,
+    sourceRegistrationAudit: observed.inspection.audit,
   });
   if (observed.liveRows.length !== old.baseline.expectedActiveRows + 10) {
     throw new Error(
@@ -1101,6 +1607,7 @@ export async function buildCorpusPreLiveRebaselinePackage(input: {
     currentLedger,
     proposedOutputs: outputs,
     sourceRegistrationCodeBindings: observed.inspection.summary.codeBindings,
+    privateRecoveryInputs: privateRecovery.compareAndSwapInputs,
   });
   const proposedOutputs = outputs.map((output) =>
     corpusPreLiveRebaselineFileBinding(output.path, output.content),
@@ -1159,15 +1666,35 @@ export async function buildCorpusPreLiveRebaselinePackage(input: {
       externalAnchorNextStep:
         "prepare_new_external_request_against_new_baseline_register_generation_manifest_and_genesis_candidate",
     });
-  const reobserveDatabase = async () =>
-    (
-      await observeDatabaseAndLedger({
-        root: input.root,
-        options: input.options,
-        ledgerContent: readText(input.root, CORPUS_PROCESSING_LEDGER_PATH),
-        observedAt: input.observedAt,
-      })
-    ).observation;
+  const reobserveDatabase = async () => {
+    const refreshedPrivateRecovery = inspectCommittedPrivateRecoveryBundle({
+      root: input.root,
+      primaryCorpusRoot: input.options.primaryCorpusRoot,
+      replicaCorpusRoot: input.options.replicaCorpusRoot,
+    });
+    const refreshed = await observeDatabaseAndLedger({
+      root: input.root,
+      options: input.options,
+      ledgerContent: readText(input.root, CORPUS_PROCESSING_LEDGER_PATH),
+      observedAt: input.observedAt,
+      privateRecoveryPlan: refreshedPrivateRecovery.plan,
+    });
+    assertPrivateRecoveryAuditMatchesObservation({
+      ...refreshedPrivateRecovery,
+      sourceRegistrationAudit: refreshed.inspection.audit,
+    });
+    if (
+      canonicalCorpusPreLiveRebaselineJson(
+        refreshedPrivateRecovery.compareAndSwapInputs,
+      ) !==
+      canonicalCorpusPreLiveRebaselineJson(privateRecovery.compareAndSwapInputs)
+    ) {
+      throw new Error(
+        "Private-recovery proof changed before corpus rebaseline commit",
+      );
+    }
+    return refreshed.observation;
+  };
   return { plan, outputs, finalManifest, reobserveDatabase };
 }
 

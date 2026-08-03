@@ -281,8 +281,12 @@ function parseJsonLines(path: string, content: string): unknown[] {
     });
 }
 
-function fileDescriptor(root: string, path: string): FileDescriptor {
-  const content = readFileSync(resolve(root, path));
+function fileDescriptor(
+  root: string,
+  path: string,
+  overrideBytes?: Buffer,
+): FileDescriptor {
+  const content = overrideBytes ?? readFileSync(resolve(root, path));
   return { path, sha256: rawSha256(content), sizeBytes: content.length };
 }
 
@@ -729,6 +733,7 @@ function buildGenerationManifest(
   eventManifest: CorpusStateEventManifest,
   resolvedEventEvidence: CorpusResolvedEventEvidence,
   outputs: GeneratedArtifact[],
+  eventHistoryAnchorBytes?: Buffer,
 ): JsonObject {
   const inputPaths = [
     BASELINE_PATH,
@@ -763,7 +768,15 @@ function buildGenerationManifest(
     eventHighWatermarkOccurredAt: eventManifest.highWatermarkOccurredAt,
     commitMarkerSemantics:
       "The generation manifest is renamed last. Consumers must verify every listed input and output before using the projection.",
-    inputs: inputPaths.map((path) => fileDescriptor(root, path)),
+    inputs: inputPaths.map((path) =>
+      fileDescriptor(
+        root,
+        path,
+        path === CORPUS_CURRENT_STATE_PATHS.eventHistoryAnchors
+          ? eventHistoryAnchorBytes
+          : undefined,
+      ),
+    ),
     resolvedEventEvidence,
     outputs: outputs.map(generatedDescriptor),
   };
@@ -774,6 +787,12 @@ export function buildCorpusCurrentStateArtifacts(
   options: {
     verifyTrustedEventHistoryAnchor?: VerifyTrustedCorpusEventHistoryAnchor;
     verifyHumanReviewerAuthentication?: VerifyCorpusHumanReviewerAuthentication;
+    /**
+     * Proposed canonical anchor-log bytes used only for validation and output
+     * construction. This lets a transactional writer build the exact derived
+     * bundle before it changes the repository anchor file.
+     */
+    eventHistoryAnchorBytes?: Buffer;
   } = {},
 ): CorpusCurrentStateArtifacts {
   const baseline = readBaseline(root);
@@ -806,13 +825,15 @@ export function buildCorpusCurrentStateArtifacts(
     events,
     baseline.observedAt,
   );
+  const eventHistoryAnchorBytes = options.eventHistoryAnchorBytes
+    ? Buffer.from(options.eventHistoryAnchorBytes)
+    : readFileSync(
+        resolve(root, CORPUS_CURRENT_STATE_PATHS.eventHistoryAnchors),
+      );
   const eventHistory = validateCorpusEventHistoryAnchorChain({
     records: parseJsonLines(
       CORPUS_CURRENT_STATE_PATHS.eventHistoryAnchors,
-      readFileSync(
-        resolve(root, CORPUS_CURRENT_STATE_PATHS.eventHistoryAnchors),
-        "utf8",
-      ),
+      eventHistoryAnchorBytes.toString("utf8"),
     ),
     eventLogPath: CORPUS_CURRENT_STATE_PATHS.events,
     eventLogBytes: Buffer.from(eventContent, "utf8"),
@@ -874,6 +895,7 @@ export function buildCorpusCurrentStateArtifacts(
     eventManifest,
     evidenceResolvers.snapshot(),
     outputs,
+    eventHistoryAnchorBytes,
   );
   return {
     states,

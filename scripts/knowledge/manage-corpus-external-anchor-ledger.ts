@@ -1,6 +1,15 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
-import { lstatSync, readFileSync, realpathSync } from "node:fs";
+import {
+  closeSync,
+  constants,
+  fstatSync,
+  lstatSync,
+  openSync,
+  readFileSync,
+  realpathSync,
+  type Stats,
+} from "node:fs";
 import {
   dirname,
   isAbsolute,
@@ -52,8 +61,9 @@ type JsonValue = string | number | boolean | null | JsonObject | JsonValue[];
 
 export const CORPUS_EXTERNAL_ANCHOR_PRODUCTION_ROOT =
   "/private/var/db/food-systems-corpus-anchor" as const;
+export const CORPUS_EXTERNAL_ANCHOR_MAX_REQUEST_FILE_BYTES = 8 * 1024 * 1024;
 
-type RepositoryAnchorContext = {
+export type RepositoryAnchorContext = {
   anchorLogBytes: Buffer;
   records: CorpusEventHistoryAnchorRecord[];
   pairs: Array<{
@@ -358,7 +368,29 @@ export function readAndValidateRepositoryAnchorContext(input: {
   };
 }
 
-function readPreparedRequest(path: string): CorpusExternalAnchorAppendRequest {
+export type CorpusExternalAnchorPreparedRequestFile = {
+  absolutePath: string;
+  bytes: Buffer;
+  fileSha256: string;
+  sizeBytes: number;
+  request: CorpusExternalAnchorAppendRequest;
+};
+
+function sameStableFileState(left: Stats, right: Stats): boolean {
+  return (
+    left.dev === right.dev &&
+    left.ino === right.ino &&
+    left.size === right.size &&
+    left.mode === right.mode &&
+    left.nlink === right.nlink &&
+    left.mtimeMs === right.mtimeMs &&
+    left.ctimeMs === right.ctimeMs
+  );
+}
+
+export function readCorpusExternalAnchorPreparedRequestFile(
+  path: string,
+): CorpusExternalAnchorPreparedRequestFile {
   if (
     !isAbsolute(path) ||
     normalize(path) !== path ||
@@ -377,20 +409,72 @@ function readPreparedRequest(path: string): CorpusExternalAnchorAppendRequest {
     }
   }
   const stat = lstatSync(path);
-  if (stat.isSymbolicLink() || !stat.isFile()) {
-    fail("prepared request must be a regular non-symlink file");
+  const mode = stat.mode & 0o777;
+  if (
+    stat.isSymbolicLink() ||
+    !stat.isFile() ||
+    stat.nlink !== 1 ||
+    (mode !== 0o400 && mode !== 0o600)
+  ) {
+    fail(
+      "prepared request must be a one-link regular non-symlink file with mode 0400 or 0600",
+    );
   }
-  const bytes = readFileSync(path);
+  if (
+    stat.size < 1 ||
+    stat.size > CORPUS_EXTERNAL_ANCHOR_MAX_REQUEST_FILE_BYTES
+  ) {
+    fail("prepared request size is outside the fixed safety limit");
+  }
+  const descriptor = openSync(
+    path,
+    constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0),
+  );
+  let bytes: Buffer;
+  try {
+    const openedBefore = fstatSync(descriptor);
+    const pathAfterOpen = lstatSync(path);
+    if (
+      !openedBefore.isFile() ||
+      openedBefore.nlink !== 1 ||
+      !sameStableFileState(stat, openedBefore) ||
+      !sameStableFileState(openedBefore, pathAfterOpen)
+    ) {
+      fail("prepared request changed while it was opened");
+    }
+    bytes = readFileSync(descriptor);
+    const openedAfter = fstatSync(descriptor);
+    const pathAfterRead = lstatSync(path);
+    if (
+      bytes.length !== openedAfter.size ||
+      !sameStableFileState(openedBefore, openedAfter) ||
+      !sameStableFileState(openedAfter, pathAfterRead)
+    ) {
+      fail("prepared request changed while it was read");
+    }
+  } finally {
+    closeSync(descriptor);
+  }
   const request = validateCorpusExternalAnchorAppendRequest(
     parseJson(path, bytes),
   );
   if (bytes.toString("utf8") !== `${JSON.stringify(request, null, 2)}\n`) {
     fail("prepared request file is not canonical pretty JSON");
   }
-  return request;
+  return {
+    absolutePath: path,
+    bytes,
+    fileSha256: prefixedSha256(bytes),
+    sizeBytes: bytes.length,
+    request,
+  };
 }
 
-function requireRequestMatchesRepository(input: {
+function readPreparedRequest(path: string): CorpusExternalAnchorAppendRequest {
+  return readCorpusExternalAnchorPreparedRequestFile(path).request;
+}
+
+export function requireRequestMatchesRepository(input: {
   request: CorpusExternalAnchorAppendRequest;
   context: RepositoryAnchorContext;
 }): void {

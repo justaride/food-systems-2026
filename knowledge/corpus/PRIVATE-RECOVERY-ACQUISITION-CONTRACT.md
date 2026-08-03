@@ -59,6 +59,12 @@ read-only prerequisites pass. `--apply` additionally requires both the exact
 plan self-hash and the strong acknowledgement derived from that self-hash.
 
 Operator-supplied database and private-root locations are never serialized.
+Both private-root arguments must be raw absolute paths that resolve to their
+own canonical real directories. Each root must be wholly outside the canonical
+repository root: neither the repository nor a private root may contain the
+other. The primary and replica roots must also be non-nested as well as distinct
+directories. A repository-local `private/` folder is not a private archive for
+this operation.
 The only supported writer is the CLI in
 `scripts/knowledge/manage-private-recovery-acquisition.ts`; calling its lower
 level file writer without the CLI's live-input verifier is outside this
@@ -90,6 +96,25 @@ for this comparison and are never serialized by this operation.
 Existing intermediate or leaf symlinks are rejected. Tracked and private leaf
 hard links are rejected. Output paths are portable and must remain inside the
 canonical project root.
+
+For every tracked or private leaf read, mode, link count, device, inode, size,
+modification time and change time must match across the path check, opened file
+descriptor and final path/descriptor checks. The canonical root and every
+existing ancestor are checked again before the leaf descriptor closes. After
+the first twenty private-copy reads, all twenty leaves are reopened, rehashed
+and compared with their complete first-pass physical metadata in one collective
+final barrier. Both private root directories are then reopened; canonical path,
+mode, device, inode, link count, size, modification time and change time must
+still match the initial observations, and the outside/non-nested boundary is
+checked again. A hash match alone is not sufficient if file or root metadata
+changed during the verification window.
+
+Plan, apply and check require an exclusive maintenance window under a trusted
+local account for both private roots. The path and descriptor barriers reject
+static or persistent swaps. Node on macOS has no `openat2`-style API that can
+make a path-based reader a hostile same-account sandbox if an attacker can swap
+an ancestor and restore it entirely between checks; that operating boundary is
+therefore explicit rather than presented as cryptographic proof.
 
 ## Durable mutation protocol
 

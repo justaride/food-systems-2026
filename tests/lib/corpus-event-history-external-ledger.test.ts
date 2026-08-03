@@ -2,10 +2,13 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import {
   chmodSync,
+  linkSync,
   mkdtempSync,
   readFileSync,
   realpathSync,
+  rmSync,
   symlinkSync,
+  writeFileSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -38,7 +41,11 @@ import {
   type CorpusEventHistoryAnchorCandidate,
   type CorpusEventHistoryAnchorRecord,
 } from "../../src/lib/knowledge/corpus-processing-event-history";
-import { parseCorpusExternalAnchorCliArgs } from "../../scripts/knowledge/manage-corpus-external-anchor-ledger";
+import {
+  CORPUS_EXTERNAL_ANCHOR_MAX_REQUEST_FILE_BYTES,
+  parseCorpusExternalAnchorCliArgs,
+  readCorpusExternalAnchorPreparedRequestFile,
+} from "../../scripts/knowledge/manage-corpus-external-anchor-ledger";
 
 const ANCHOR_LOG_PATH =
   "knowledge/corpus/corpus-processing-state-event-history-anchors.v1.jsonl";
@@ -582,6 +589,67 @@ test("rejects unexpected, temporary and lock entries in the external authority r
       () => validateCorpusExternalAnchorDirectoryEntries([entry]),
       /unexpected entries/,
     );
+  }
+});
+
+test("reads one exact stable prepared-request file and rejects unsafe file states", () => {
+  const directory = mkdtempSync(
+    join(realpathSync(tmpdir()), "anchor-request-"),
+  );
+  const requestPath = join(directory, "request.json");
+  const requestBytes = Buffer.from(
+    `${JSON.stringify(firstSnapshot().request, null, 2)}\n`,
+    "utf8",
+  );
+  try {
+    writeFileSync(requestPath, requestBytes, { mode: 0o600 });
+    const read = readCorpusExternalAnchorPreparedRequestFile(requestPath);
+    assert.equal(read.absolutePath, requestPath);
+    assert.equal(read.fileSha256, rawSha(requestBytes));
+    assert.equal(read.sizeBytes, requestBytes.length);
+    assert.deepEqual(read.request, firstSnapshot().request);
+
+    chmodSync(requestPath, 0o644);
+    assert.throws(
+      () => readCorpusExternalAnchorPreparedRequestFile(requestPath),
+      /mode 0400 or 0600/,
+    );
+    chmodSync(requestPath, 0o600);
+
+    const hardLinkPath = join(directory, "hard-link.json");
+    linkSync(requestPath, hardLinkPath);
+    assert.throws(
+      () => readCorpusExternalAnchorPreparedRequestFile(requestPath),
+      /one-link regular/,
+    );
+    rmSync(hardLinkPath);
+
+    const symlinkPath = join(directory, "symlink.json");
+    symlinkSync(requestPath, symlinkPath);
+    assert.throws(
+      () => readCorpusExternalAnchorPreparedRequestFile(symlinkPath),
+      /must not cross a symlink/,
+    );
+
+    const emptyPath = join(directory, "empty.json");
+    writeFileSync(emptyPath, "", { mode: 0o600 });
+    assert.throws(
+      () => readCorpusExternalAnchorPreparedRequestFile(emptyPath),
+      /fixed safety limit/,
+    );
+
+    const oversizedPath = join(directory, "oversized.json");
+    writeFileSync(
+      oversizedPath,
+      Buffer.alloc(CORPUS_EXTERNAL_ANCHOR_MAX_REQUEST_FILE_BYTES + 1),
+      { mode: 0o600 },
+    );
+    assert.throws(
+      () => readCorpusExternalAnchorPreparedRequestFile(oversizedPath),
+      /fixed safety limit/,
+    );
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
   }
 });
 

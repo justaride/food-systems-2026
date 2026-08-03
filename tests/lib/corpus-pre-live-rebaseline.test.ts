@@ -6,6 +6,7 @@ import {
   mkdtempSync,
   mkdirSync,
   readFileSync,
+  realpathSync,
   renameSync,
   rmSync,
   statSync,
@@ -16,6 +17,8 @@ import {
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import test from "node:test";
+
+const canonicalTmpdir = realpathSync(tmpdir());
 
 import Ajv2020 from "ajv/dist/2020";
 import addFormats from "ajv-formats";
@@ -62,8 +65,14 @@ import {
   LIVE_INVENTORY_SNAPSHOT_PATH,
   buildLiveInventorySnapshot,
 } from "../../scripts/knowledge/generate-corpus-processing-register";
+import type {
+  PrivateRecoveryAcquisitionPlan,
+  VerifiedPrivateCopyPair,
+} from "../../src/lib/knowledge/private-recovery-acquisition";
 import {
+  assertCommittedPrivateRecoveryEvidence,
   assertCorpusPreLiveRebaselineNoPromotion,
+  assertExpectedPostRecoveryLockedRegisterError,
   inspectPreLiveBootstrap,
   parseCorpusPreLiveRebaselineArgs,
 } from "../../scripts/knowledge/rebaseline-corpus-pre-live";
@@ -73,6 +82,8 @@ const observedAt = "2026-08-03T12:00:00.000Z";
 const existingPath = "knowledge/corpus/rebaseline-fixture.txt";
 const oldContent = "old bootstrap\n";
 const nextContent = "new bootstrap\n";
+const privateRecoveryPreparedAt = "2026-08-03T12:00:00.000Z";
+const privateRecoveryRegistrationAt = "2026-08-03T11:59:00.000Z";
 
 const safetyBoundary = {
   databaseMutationPerformed: false as const,
@@ -118,6 +129,94 @@ const sourceRegistration = {
   },
 };
 
+function privateRecoveryCopiesFixture(): VerifiedPrivateCopyPair[] {
+  return Array.from({ length: 10 }, (_, index) => {
+    const digest = ((index % 14) + 1).toString(16).repeat(64);
+    const portablePath = `sha256/${digest}.pdf`;
+    return {
+      targetId: `registration.fixture-${index}`,
+      lifecycleSourceId: `source.fixture-${index}`,
+      primary: {
+        copyId: "primary",
+        storageRootId: "private_primary",
+        storageClass: "private_primary",
+        locator: `private://primary/${portablePath}`,
+        portablePath,
+        contentSha256: `sha256:${digest}`,
+        sizeBytes: index + 1,
+        fileMode: "0400",
+        verifiedAt: privateRecoveryPreparedAt,
+      },
+      replica: {
+        copyId: "replica",
+        storageRootId: "bigbrain_private_replica",
+        storageClass: "bigbrain_private_archive",
+        locator: `private://replica/${portablePath}`,
+        portablePath,
+        contentSha256: `sha256:${digest}`,
+        sizeBytes: index + 1,
+        fileMode: "0400",
+        verifiedAt: privateRecoveryPreparedAt,
+      },
+      distinctStorageRoots: true,
+      distinctFiles: true,
+      contentHashesMatch: true,
+      sizesMatch: true,
+      rootModes: "0700",
+      absoluteRootsStored: false,
+    };
+  });
+}
+
+function privateRecoveryEvidencePlanFixture(): PrivateRecoveryAcquisitionPlan {
+  const copies = privateRecoveryCopiesFixture();
+  return {
+    preparedAt: privateRecoveryPreparedAt,
+    inputBindings: {
+      sourceRegistrationApplyAudit: {
+        recordedAt: privateRecoveryRegistrationAt,
+      },
+    },
+    summary: {
+      targetCount: 10,
+      beforeCandidateCount: 11,
+      afterCandidateCount: 21,
+      controlledPrivateReceiptCount: 10,
+    },
+    recoveryRegister: {
+      before: {
+        candidateCount: 11,
+        document: { candidates: Array.from({ length: 11 }, () => ({})) },
+      },
+      after: {
+        candidateCount: 21,
+        document: { candidates: Array.from({ length: 21 }, () => ({})) },
+      },
+    },
+    targets: copies.map((privateCopies, index) => ({
+      targetId: privateCopies.targetId,
+      privateCopies,
+      acquisitionReceipt: {
+        file: {
+          path: `knowledge/corpus/source-acquisition-receipts/receipts/fixture-${index}.json`,
+        },
+        receipt: {
+          startedAt: privateRecoveryPreparedAt,
+          completedAt: privateRecoveryPreparedAt,
+        },
+      },
+    })),
+    applyReceipt: {
+      receipt: {
+        receiptState: "exact_file_bundle_committed",
+        controlledPrivateReceipts: copies.map((value) => ({
+          targetId: value.targetId,
+        })),
+      },
+    },
+  } as unknown as PrivateRecoveryAcquisitionPlan;
+}
+
 function write(root: string, path: string, content: string): void {
   const target = join(root, path);
   mkdirSync(dirname(target), { recursive: true });
@@ -125,7 +224,9 @@ function write(root: string, path: string, content: string): void {
 }
 
 function preLiveInspectionFixture(repositoryRoot: string): string {
-  const root = mkdtempSync(join(tmpdir(), "corpus-rebaseline-inspection-"));
+  const root = mkdtempSync(
+    join(canonicalTmpdir, "corpus-rebaseline-inspection-"),
+  );
   const corpusManifestPath =
     "knowledge/corpus/corpus-processing-generation-manifest.v1.json";
   const currentManifestPath =
@@ -324,7 +425,7 @@ function transactionPathsAbsent(root: string): void {
 }
 
 test("seals and rejects tampering in observations, plans, history, and manifests", () => {
-  const root = mkdtempSync(join(tmpdir(), "corpus-rebaseline-seal-"));
+  const root = mkdtempSync(join(canonicalTmpdir, "corpus-rebaseline-seal-"));
   try {
     const value = fixture(root);
     validateCorpusPreLiveRebaselineDatabaseObservation(value.observation);
@@ -372,7 +473,7 @@ test("seals and rejects tampering in observations, plans, history, and manifests
 });
 
 test("commits a fully staged, revalidated bundle and cleans its transaction data", async () => {
-  const root = mkdtempSync(join(tmpdir(), "corpus-rebaseline-commit-"));
+  const root = mkdtempSync(join(canonicalTmpdir, "corpus-rebaseline-commit-"));
   try {
     const value = fixture(root);
     await commitCorpusPreLiveRebaseline({
@@ -406,9 +507,63 @@ test("commits a fully staged, revalidated bundle and cleans its transaction data
   }
 });
 
+test("transaction requires one canonical root and rejects a live root inode swap", async () => {
+  const root = mkdtempSync(
+    join(canonicalTmpdir, "corpus-rebaseline-root-binding-"),
+  );
+  const alias = `${root}-alias`;
+  const movedRoot = `${root}-moved`;
+  try {
+    const value = fixture(root);
+    symlinkSync(root, alias, "dir");
+    await assert.rejects(
+      commitCorpusPreLiveRebaseline({
+        root: alias,
+        plan: value.plan,
+        acknowledgement: corpusPreLiveRebaselineApplyAcknowledgement(
+          value.plan.planSha256,
+        ),
+        outputs: value.outputs,
+        finalManifest: value.manifest,
+        revalidateDatabaseObservation: async () => value.observation,
+      }),
+      /canonical.*symlink/,
+    );
+    unlinkSync(alias);
+
+    await assert.rejects(
+      commitCorpusPreLiveRebaseline({
+        root,
+        plan: value.plan,
+        acknowledgement: corpusPreLiveRebaselineApplyAcknowledgement(
+          value.plan.planSha256,
+        ),
+        outputs: value.outputs,
+        finalManifest: value.manifest,
+        revalidateDatabaseObservation: async () => value.observation,
+        testFaultInjector: (point) => {
+          if (point !== "staging_complete") return;
+          renameSync(root, movedRoot);
+          mkdirSync(root, { mode: 0o700 });
+        },
+      }),
+      /root identity changed/,
+    );
+    rmSync(root, { recursive: true, force: true });
+    renameSync(movedRoot, root);
+    assert.equal(readFileSync(join(root, existingPath), "utf8"), oldContent);
+  } finally {
+    if (existsSync(alias)) unlinkSync(alias);
+    rmSync(root, { recursive: true, force: true });
+    rmSync(movedRoot, { recursive: true, force: true });
+  }
+});
+
 test("wrong acknowledgement and CAS drift leave every output untouched", async () => {
   for (const scenario of ["ack", "cas"] as const) {
-    const root = mkdtempSync(join(tmpdir(), `corpus-rebaseline-${scenario}-`));
+    const root = mkdtempSync(
+      join(canonicalTmpdir, `corpus-rebaseline-${scenario}-`),
+    );
     try {
       const value = fixture(root);
       if (scenario === "cas") write(root, existingPath, "drifted\n");
@@ -448,9 +603,11 @@ test("wrong acknowledgement and CAS drift leave every output untouched", async (
 });
 
 test("apply refuses a target reached through a symlinked repository parent", async () => {
-  const root = mkdtempSync(join(tmpdir(), "corpus-rebaseline-symlink-root-"));
+  const root = mkdtempSync(
+    join(canonicalTmpdir, "corpus-rebaseline-symlink-root-"),
+  );
   const outside = mkdtempSync(
-    join(tmpdir(), "corpus-rebaseline-symlink-outside-"),
+    join(canonicalTmpdir, "corpus-rebaseline-symlink-outside-"),
   );
   try {
     const value = fixture(root);
@@ -488,7 +645,9 @@ test("apply refuses a target reached through a symlinked repository parent", asy
 });
 
 test("database drift after durable staging automatically rolls back", async () => {
-  const root = mkdtempSync(join(tmpdir(), "corpus-rebaseline-db-drift-"));
+  const root = mkdtempSync(
+    join(canonicalTmpdir, "corpus-rebaseline-db-drift-"),
+  );
   try {
     const value = fixture(root);
     chmodSync(join(root, existingPath), 0o640);
@@ -523,7 +682,7 @@ test("explicit recovery cleans crashes before the prepared journal without touch
     "staging_complete",
   ] as const) {
     const root = mkdtempSync(
-      join(tmpdir(), `corpus-rebaseline-${crashPoint}-`),
+      join(canonicalTmpdir, `corpus-rebaseline-${crashPoint}-`),
     );
     try {
       const value = fixture(root);
@@ -573,7 +732,9 @@ test("explicit recovery cleans crashes before the prepared journal without touch
 });
 
 test("explicit recovery rolls a crash-partial bundle back to the exact old bytes", async () => {
-  const root = mkdtempSync(join(tmpdir(), "corpus-rebaseline-crash-partial-"));
+  const root = mkdtempSync(
+    join(canonicalTmpdir, "corpus-rebaseline-crash-partial-"),
+  );
   try {
     const value = fixture(root);
     chmodSync(join(root, existingPath), 0o640);
@@ -639,7 +800,9 @@ test("explicit recovery rolls a crash-partial bundle back to the exact old bytes
 });
 
 test("recovery recognizes a complete manifest-last bundle after a final crash", async () => {
-  const root = mkdtempSync(join(tmpdir(), "corpus-rebaseline-crash-complete-"));
+  const root = mkdtempSync(
+    join(canonicalTmpdir, "corpus-rebaseline-crash-complete-"),
+  );
   try {
     const value = fixture(root);
     await assert.rejects(
@@ -698,7 +861,9 @@ test("recovery recognizes a complete manifest-last bundle after a final crash", 
 });
 
 test("recovery refuses an unexpected target state instead of guessing", async () => {
-  const root = mkdtempSync(join(tmpdir(), "corpus-rebaseline-crash-tamper-"));
+  const root = mkdtempSync(
+    join(canonicalTmpdir, "corpus-rebaseline-crash-tamper-"),
+  );
   try {
     const value = fixture(root);
     await assert.rejects(
@@ -750,7 +915,9 @@ test("recovery refuses an unexpected target state instead of guessing", async ()
 });
 
 test("recovery refuses unknown transaction data before deleting any evidence", async () => {
-  const root = mkdtempSync(join(tmpdir(), "corpus-rebaseline-data-tamper-"));
+  const root = mkdtempSync(
+    join(canonicalTmpdir, "corpus-rebaseline-data-tamper-"),
+  );
   try {
     const value = fixture(root);
     await assert.rejects(
@@ -823,7 +990,7 @@ test("recovery refuses unknown transaction data before deleting any evidence", a
 });
 
 test("schema accepts every sealed artifact including a durable transaction journal", async () => {
-  const root = mkdtempSync(join(tmpdir(), "corpus-rebaseline-schema-"));
+  const root = mkdtempSync(join(canonicalTmpdir, "corpus-rebaseline-schema-"));
   try {
     const schema = JSON.parse(
       readFileSync(
@@ -875,7 +1042,7 @@ test("schema accepts every sealed artifact including a durable transaction journ
 });
 
 test("rebaseline overlays generate an in-memory 1,565-row bootstrap without changing legacy generators", () => {
-  const root = mkdtempSync(join(tmpdir(), "corpus-rebaseline-overlay-"));
+  const root = mkdtempSync(join(canonicalTmpdir, "corpus-rebaseline-overlay-"));
   const repositoryRoot = process.cwd();
   const registerGeneratorPath = join(
     repositoryRoot,
@@ -1096,6 +1263,132 @@ test("empty bootstrap has zero events and one unverified genesis candidate", () 
   assert.equal(anchors[0]!.verificationState, undefined);
 });
 
+test("pre-live gate accepts one exact committed post-registration recovery proof", () => {
+  const plan = privateRecoveryEvidencePlanFixture();
+  assert.doesNotThrow(() =>
+    assertCommittedPrivateRecoveryEvidence({
+      plan,
+      filesystemState: "committed",
+      liveCopies: privateRecoveryCopiesFixture(),
+      liveVerifiedAt: privateRecoveryPreparedAt,
+    }),
+  );
+});
+
+test("pre-live gate rejects a missing recovery row or receipt", () => {
+  const missingRow = privateRecoveryEvidencePlanFixture();
+  missingRow.recoveryRegister.after.document.candidates.pop();
+  assert.throws(
+    () =>
+      assertCommittedPrivateRecoveryEvidence({
+        plan: missingRow,
+        filesystemState: "committed",
+        liveCopies: privateRecoveryCopiesFixture(),
+        liveVerifiedAt: privateRecoveryPreparedAt,
+      }),
+    /exact private-recovery 11 -> 21 row transition/,
+  );
+
+  const missingReceipt = privateRecoveryEvidencePlanFixture();
+  missingReceipt.applyReceipt.receipt.controlledPrivateReceipts.pop();
+  assert.throws(
+    () =>
+      assertCommittedPrivateRecoveryEvidence({
+        plan: missingReceipt,
+        filesystemState: "committed",
+        liveCopies: privateRecoveryCopiesFixture(),
+        liveVerifiedAt: privateRecoveryPreparedAt,
+      }),
+    /exactly ten controlled-private receipts/,
+  );
+  assert.throws(
+    () =>
+      assertCommittedPrivateRecoveryEvidence({
+        plan: privateRecoveryEvidencePlanFixture(),
+        filesystemState: "resumable",
+        liveCopies: privateRecoveryCopiesFixture(),
+        liveVerifiedAt: privateRecoveryPreparedAt,
+      }),
+    /complete committed private-recovery bundle/,
+  );
+});
+
+test("pre-live gate rejects stale private-copy hashes and locators", () => {
+  const staleHash = privateRecoveryCopiesFixture();
+  staleHash[0]!.primary.contentSha256 = `sha256:${hash("e")}`;
+  assert.throws(
+    () =>
+      assertCommittedPrivateRecoveryEvidence({
+        plan: privateRecoveryEvidencePlanFixture(),
+        filesystemState: "committed",
+        liveCopies: staleHash,
+        liveVerifiedAt: privateRecoveryPreparedAt,
+      }),
+    /current private copies differ from the frozen recovery proof/,
+  );
+
+  const staleLocator = privateRecoveryCopiesFixture();
+  staleLocator[0]!.primary.locator = `private://primary/sha256/${hash("e")}.pdf`;
+  assert.throws(
+    () =>
+      assertCommittedPrivateRecoveryEvidence({
+        plan: privateRecoveryEvidencePlanFixture(),
+        filesystemState: "committed",
+        liveCopies: staleLocator,
+        liveVerifiedAt: privateRecoveryPreparedAt,
+      }),
+    /current private copies differ from the frozen recovery proof/,
+  );
+});
+
+test("pre-live gate preserves primary-replica distinction and chronology", () => {
+  const sameRoot = privateRecoveryCopiesFixture();
+  sameRoot[0]!.primary.storageRootId = sameRoot[0]!.replica.storageRootId;
+  assert.throws(
+    () =>
+      assertCommittedPrivateRecoveryEvidence({
+        plan: privateRecoveryEvidencePlanFixture(),
+        filesystemState: "committed",
+        liveCopies: sameRoot,
+        liveVerifiedAt: privateRecoveryPreparedAt,
+      }),
+    /primary and replica must remain distinct/,
+  );
+
+  const predatingPlan = privateRecoveryEvidencePlanFixture();
+  predatingPlan.inputBindings.sourceRegistrationApplyAudit.recordedAt =
+    "2026-08-03T12:01:00.000Z";
+  assert.throws(
+    () =>
+      assertCommittedPrivateRecoveryEvidence({
+        plan: predatingPlan,
+        filesystemState: "committed",
+        liveCopies: privateRecoveryCopiesFixture(),
+        liveVerifiedAt: privateRecoveryPreparedAt,
+      }),
+    /must be prepared after source registration/,
+  );
+});
+
+test("post-recovery registration verification admits only the exact locked-register transition", () => {
+  assert.doesNotThrow(() =>
+    assertExpectedPostRecoveryLockedRegisterError(
+      new Error(
+        "Locked source-registration apply refused: private recovery register differs from locked plan",
+      ),
+    ),
+  );
+  assert.throws(
+    () =>
+      assertExpectedPostRecoveryLockedRegisterError(
+        new Error(
+          "Locked source-registration apply refused: source-registration input bindings differ from the locked plan",
+        ),
+      ),
+    /source-registration input bindings differ/,
+  );
+});
+
 test("CLI defaults to read-only planning and makes apply/recovery explicit", () => {
   const env: NodeJS.ProcessEnv = {
     NODE_ENV: "test",
@@ -1103,6 +1396,26 @@ test("CLI defaults to read-only planning and makes apply/recovery explicit", () 
     FOOD_SYSTEMS_PRIVATE_CORPUS_REPLICA_ROOT: "/private/replica",
   };
   assert.equal(parseCorpusPreLiveRebaselineArgs([], env).mode, "plan");
+  assert.throws(
+    () =>
+      parseCorpusPreLiveRebaselineArgs([], {
+        NODE_ENV: "test",
+        FOOD_SYSTEMS_PRIVATE_CORPUS_ROOT: "relative/primary",
+        FOOD_SYSTEMS_PRIVATE_CORPUS_REPLICA_ROOT: "/private/replica",
+      }),
+    /raw absolute paths/,
+  );
+  assert.throws(
+    () =>
+      parseCorpusPreLiveRebaselineArgs(
+        [
+          "--primary-corpus-root=/private/primary",
+          "--replica-corpus-root=relative/replica",
+        ],
+        { NODE_ENV: "test" },
+      ),
+    /raw absolute paths/,
+  );
   assert.throws(
     () => parseCorpusPreLiveRebaselineArgs(["--apply"], env),
     /requires --plan-file and --ack/,
@@ -1154,7 +1467,7 @@ test("pre-live inspection refuses event, trust-anchor, and prior-history state",
     }
   }
   const historyRoot = mkdtempSync(
-    join(tmpdir(), "corpus-rebaseline-existing-history-"),
+    join(canonicalTmpdir, "corpus-rebaseline-existing-history-"),
   );
   try {
     write(historyRoot, CORPUS_PRE_LIVE_REBASELINE_HISTORY_PATH, "{}\n");
@@ -1166,7 +1479,7 @@ test("pre-live inspection refuses event, trust-anchor, and prior-history state",
     rmSync(historyRoot, { recursive: true, force: true });
   }
   const orphanDataRoot = mkdtempSync(
-    join(tmpdir(), "corpus-rebaseline-orphan-data-"),
+    join(canonicalTmpdir, "corpus-rebaseline-orphan-data-"),
   );
   try {
     mkdirSync(

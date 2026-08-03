@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import {
   chmodSync,
   existsSync,
@@ -14,6 +15,12 @@ import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
+
+import {
+  CORPUS_EVENT_HISTORY_ANCHOR_SCHEMA_VERSION,
+  sealCorpusEventHistoryAnchorRecord,
+  type CorpusEventHistoryAnchorCandidate,
+} from "../../src/lib/knowledge/corpus-processing-event-history";
 
 import {
   CORPUS_CURRENT_STATE_PATHS,
@@ -48,6 +55,52 @@ test("builds and checks the deterministic empty-event projection for all baselin
     CORPUS_CURRENT_STATE_PATHS.generationManifest,
   );
   writeOrCheckCorpusCurrentStateArtifacts(repositoryRoot, first, true);
+});
+
+test("builds the exact derived bundle from a proposed trusted anchor append without changing the anchor file", () => {
+  const anchorPath = join(
+    repositoryRoot,
+    CORPUS_CURRENT_STATE_PATHS.eventHistoryAnchors,
+  );
+  const before = readFileSync(anchorPath);
+  const candidate = JSON.parse(
+    before.toString("utf8").trimEnd(),
+  ) as CorpusEventHistoryAnchorCandidate;
+  const verification = sealCorpusEventHistoryAnchorRecord({
+    schemaVersion: CORPUS_EVENT_HISTORY_ANCHOR_SCHEMA_VERSION,
+    recordType: "history_anchor_trusted_verification" as const,
+    verificationId: "verification.generator.override.fixture",
+    sequence: candidate.sequence + 1,
+    predecessorRecordSha256: candidate.recordSha256,
+    candidateRecordSha256: candidate.recordSha256,
+    verifierId: "verifier.generator.override.fixture",
+    method: "controlled_project_identity" as const,
+    evidenceSha256: `sha256:${"e".repeat(64)}`,
+    verifiedAt: candidate.createdAt,
+  });
+  const proposed = Buffer.from(
+    `${before.toString("utf8")}${JSON.stringify(verification)}\n`,
+    "utf8",
+  );
+
+  const artifacts = buildCorpusCurrentStateArtifacts(repositoryRoot, {
+    eventHistoryAnchorBytes: proposed,
+    verifyTrustedEventHistoryAnchor: () => true,
+  });
+
+  assert.equal(artifacts.eventHistory.currentCheckpointTrusted, true);
+  assert.deepEqual(readFileSync(anchorPath), before);
+  const generationManifest = JSON.parse(artifacts.bundle.at(-1)!.content) as {
+    inputs: Array<{ path: string; sha256: string; sizeBytes: number }>;
+  };
+  const binding = generationManifest.inputs.find(
+    (input) => input.path === CORPUS_CURRENT_STATE_PATHS.eventHistoryAnchors,
+  );
+  assert.deepEqual(binding, {
+    path: CORPUS_CURRENT_STATE_PATHS.eventHistoryAnchors,
+    sha256: createHash("sha256").update(proposed).digest("hex"),
+    sizeBytes: proposed.length,
+  });
 });
 
 test("initializes a sealed empty event log once and refuses to overwrite it", () => {

@@ -10,6 +10,7 @@ import {
   openSync,
   readdirSync,
   readFileSync,
+  realpathSync,
   renameSync,
   rmdirSync,
   unlinkSync,
@@ -54,6 +55,17 @@ const BINDING_SET_HASH_DOMAIN =
   "food-systems-2026:corpus-pre-live-rebaseline-binding-set:v1\0";
 const TRANSACTION_JOURNAL_HASH_DOMAIN =
   "food-systems-2026:corpus-pre-live-rebaseline-transaction-journal:v1\0";
+
+type CorpusPreLiveRebaselineRootBinding = {
+  device: number;
+  inode: number;
+  mode: number;
+};
+
+const activeRootBindings = new Map<
+  string,
+  CorpusPreLiveRebaselineRootBinding
+>();
 
 const SHA256_PATTERN = /^[a-f0-9]{64}$/;
 const PREFIXED_SHA256_PATTERN = /^sha256:[a-f0-9]{64}$/;
@@ -666,16 +678,66 @@ export function corpusPreLiveRebaselineBindingSetSha256(
   );
 }
 
+function inspectCanonicalRoot(
+  root: string,
+): CorpusPreLiveRebaselineRootBinding {
+  if (!root || !isAbsolute(root) || resolve(root) !== root) {
+    throw new Error(
+      "Corpus rebaseline root must be an absolute normalized path",
+    );
+  }
+  let canonical: string;
+  try {
+    canonical = realpathSync(root);
+  } catch (error) {
+    throw new Error(
+      `Corpus rebaseline root cannot be resolved: ${(error as Error).message}`,
+    );
+  }
+  if (canonical !== root) {
+    throw new Error(
+      "Corpus rebaseline root must be canonical and must not traverse a symlink",
+    );
+  }
+  const stat = lstatSync(root);
+  if (!stat.isDirectory() || stat.isSymbolicLink()) {
+    throw new Error("Corpus rebaseline root is not a regular directory");
+  }
+  return {
+    device: stat.dev,
+    inode: stat.ino,
+    mode: stat.mode,
+  };
+}
+
+function assertActiveRootBinding(root: string): void {
+  const current = inspectCanonicalRoot(root);
+  const expected = activeRootBindings.get(root);
+  if (
+    expected &&
+    (current.device !== expected.device ||
+      current.inode !== expected.inode ||
+      current.mode !== expected.mode)
+  ) {
+    throw new Error(
+      "Corpus rebaseline root identity changed during the transaction",
+    );
+  }
+}
+
 function projectFile(root: string, path: string): string {
   portablePathSchema.parse(path);
+  assertActiveRootBinding(root);
   const target = resolve(root, path);
-  const resolvedRoot = resolve(root);
-  if (target !== resolvedRoot && !target.startsWith(`${resolvedRoot}/`)) {
+  const resolvedRoot = root;
+  const relation = relative(resolvedRoot, target);
+  if (
+    relation === "" ||
+    relation === ".." ||
+    relation.startsWith(`..${sep}`) ||
+    isAbsolute(relation)
+  ) {
     throw new Error(`Rebaseline path escaped repository root: ${path}`);
-  }
-  const rootStat = lstatSync(resolvedRoot);
-  if (!rootStat.isDirectory() || rootStat.isSymbolicLink()) {
-    throw new Error("Corpus rebaseline root is not a regular directory");
   }
   let ancestor = resolvedRoot;
   const parentRelative = relative(resolvedRoot, dirname(target));
@@ -1423,8 +1485,18 @@ export async function commitCorpusPreLiveRebaseline(input: {
 }
 
 function rootOrThrow(root: string): string {
-  if (!root || !isAbsolute(root)) {
-    throw new Error("Corpus rebaseline root must be absolute");
+  const binding = inspectCanonicalRoot(root);
+  const existing = activeRootBindings.get(root);
+  if (
+    existing &&
+    (existing.device !== binding.device ||
+      existing.inode !== binding.inode ||
+      existing.mode !== binding.mode)
+  ) {
+    throw new Error(
+      "Corpus rebaseline root identity differs from its active binding",
+    );
   }
+  activeRootBindings.set(root, binding);
   return root;
 }

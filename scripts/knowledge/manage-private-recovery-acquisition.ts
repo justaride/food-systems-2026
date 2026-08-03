@@ -17,6 +17,7 @@ import {
   unlinkSync,
   writeSync,
 } from "node:fs";
+import type { Stats } from "node:fs";
 import { dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -299,8 +300,16 @@ function resolveProjectPath(projectRoot: string, portablePath: string): string {
   return target;
 }
 
-function assertExistingAncestorsSafe(root: string, target: string): void {
+function assertExistingAncestorsSafe(root: string, target: string): Stats {
   assertInside(root, target);
+  const rootStats = lstatSync(root);
+  if (
+    !rootStats.isDirectory() ||
+    rootStats.isSymbolicLink() ||
+    realpathSync(root) !== root
+  ) {
+    fail(`controlled root is no longer a canonical directory: ${root}`);
+  }
   const relation = relative(root, target);
   let cursor = root;
   for (const segment of relation.split(sep).filter(Boolean)) {
@@ -310,6 +319,7 @@ function assertExistingAncestorsSafe(root: string, target: string): void {
     if (stats.isSymbolicLink())
       fail(`symlink path component rejected: ${cursor}`);
   }
+  return rootStats;
 }
 
 function ensureSafeParentDirectory(
@@ -356,14 +366,56 @@ function readDescriptorFully(descriptor: number, size: number): Buffer {
   return result;
 }
 
+type StableRegularFileMetadata = {
+  dev: number;
+  ino: number;
+  mode: number;
+  nlink: number;
+  size: number;
+  mtimeMs: number;
+  ctimeMs: number;
+};
+
+function regularFileMetadata(stats: Stats): StableRegularFileMetadata {
+  return {
+    dev: stats.dev,
+    ino: stats.ino,
+    mode: stats.mode,
+    nlink: stats.nlink,
+    size: stats.size,
+    mtimeMs: stats.mtimeMs,
+    ctimeMs: stats.ctimeMs,
+  };
+}
+
+function assertRegularFileMetadataUnchanged(input: {
+  path: string;
+  phase: string;
+  expected: StableRegularFileMetadata;
+  actual: Stats;
+}): void {
+  if (
+    !input.actual.isFile() ||
+    JSON.stringify(regularFileMetadata(input.actual)) !==
+      JSON.stringify(input.expected)
+  ) {
+    fail(`file metadata changed ${input.phase}: ${input.path}`);
+  }
+}
+
 function readRegularFileNoFollow(input: {
   root: string;
   path: string;
   requireSingleLink: boolean;
   requiredMode?: number;
-}): { bytes: Buffer; stats: ReturnType<typeof fstatSync> } {
-  const root = realpathSync(input.root);
-  assertExistingAncestorsSafe(root, input.path);
+  testOnlyAfterOpenVerificationHook?: () => void;
+}): { bytes: Buffer; stats: Stats } {
+  const suppliedRoot = resolve(input.root);
+  const root = realpathSync(suppliedRoot);
+  if (root !== suppliedRoot) {
+    fail(`controlled root must not traverse a symlink: ${input.root}`);
+  }
+  const rootBefore = assertExistingAncestorsSafe(root, input.path);
   const before = lstatSync(input.path);
   if (!before.isFile() || before.isSymbolicLink())
     fail("expected a regular file");
@@ -378,28 +430,39 @@ function readRegularFileNoFollow(input: {
       `file mode for ${input.path} must be ${input.requiredMode.toString(8).padStart(4, "0")}`,
     );
   }
+  const expectedMetadata = regularFileMetadata(before);
   const descriptor = openSync(input.path, constants.O_RDONLY | O_NOFOLLOW);
   try {
     const opened = fstatSync(descriptor);
-    if (
-      !opened.isFile() ||
-      opened.dev !== before.dev ||
-      opened.ino !== before.ino ||
-      opened.size !== before.size ||
-      opened.nlink !== before.nlink
-    ) {
-      fail(`file changed during safe open: ${input.path}`);
-    }
+    assertRegularFileMetadataUnchanged({
+      path: input.path,
+      phase: "during safe open",
+      expected: expectedMetadata,
+      actual: opened,
+    });
+    input.testOnlyAfterOpenVerificationHook?.();
     const bytes = readDescriptorFully(descriptor, opened.size);
     const after = fstatSync(descriptor);
+    assertRegularFileMetadataUnchanged({
+      path: input.path,
+      phase: "while being hashed",
+      expected: expectedMetadata,
+      actual: after,
+    });
+    const pathAfter = lstatSync(input.path);
+    assertRegularFileMetadataUnchanged({
+      path: input.path,
+      phase: "before closing the verified path",
+      expected: expectedMetadata,
+      actual: pathAfter,
+    });
+    const rootAfter = assertExistingAncestorsSafe(root, input.path);
     if (
-      after.dev !== opened.dev ||
-      after.ino !== opened.ino ||
-      after.size !== opened.size ||
-      after.mtimeMs !== opened.mtimeMs ||
-      after.nlink !== opened.nlink
+      rootBefore.dev !== rootAfter.dev ||
+      rootBefore.ino !== rootAfter.ino ||
+      (rootBefore.mode & 0o777) !== (rootAfter.mode & 0o777)
     ) {
-      fail(`file changed while being hashed: ${input.path}`);
+      fail(`controlled root changed while reading: ${root}`);
     }
     return { bytes, stats: after };
   } finally {
@@ -426,7 +489,63 @@ type PrivateRoot = {
   storageClass: string;
   device: string;
   inode: string;
+  mode: string;
+  nlink: number;
+  size: number;
+  mtimeMs: number;
+  ctimeMs: number;
 };
+
+function pathIsSameOrNested(parent: string, candidate: string): boolean {
+  const relation = relative(parent, candidate);
+  return (
+    relation === "" ||
+    (!relation.startsWith(`..${sep}`) &&
+      relation !== ".." &&
+      !isAbsolute(relation))
+  );
+}
+
+function assertPrivateRootBoundaries(input: {
+  projectRoot: string;
+  primaryRoot: PrivateRoot;
+  replicaRoot: PrivateRoot;
+}): void {
+  for (const privateRoot of [input.primaryRoot, input.replicaRoot]) {
+    if (
+      pathIsSameOrNested(input.projectRoot, privateRoot.path) ||
+      pathIsSameOrNested(privateRoot.path, input.projectRoot)
+    ) {
+      fail(
+        `private corpus root ${privateRoot.id} must be outside and non-overlapping with the project root`,
+      );
+    }
+  }
+  if (
+    pathIsSameOrNested(input.primaryRoot.path, input.replicaRoot.path) ||
+    pathIsSameOrNested(input.replicaRoot.path, input.primaryRoot.path)
+  ) {
+    fail("primary and replica corpus roots must not be nested");
+  }
+}
+
+function assertPrivateRootUnchanged(
+  before: PrivateRoot,
+  after: PrivateRoot,
+): void {
+  if (
+    before.path !== after.path ||
+    before.device !== after.device ||
+    before.inode !== after.inode ||
+    before.mode !== after.mode ||
+    before.nlink !== after.nlink ||
+    before.size !== after.size ||
+    before.mtimeMs !== after.mtimeMs ||
+    before.ctimeMs !== after.ctimeMs
+  ) {
+    fail(`private corpus root ${before.id} changed during copy verification`);
+  }
+}
 
 function inspectPrivateRoot(input: {
   path: string;
@@ -449,20 +568,33 @@ function inspectPrivateRoot(input: {
     path: real,
     device: String(stats.dev),
     inode: String(stats.ino),
+    mode: (stats.mode & 0o777).toString(8).padStart(4, "0"),
+    nlink: stats.nlink,
+    size: stats.size,
+    mtimeMs: stats.mtimeMs,
+    ctimeMs: stats.ctimeMs,
   };
 }
+
+export type PrivateRecoveryLeafVerification = {
+  contentSha256: string;
+  sizeBytes: number;
+  device: string;
+  inode: string;
+  mode: number;
+  nlink: number;
+  mtimeMs: number;
+  ctimeMs: number;
+};
 
 export function readPrivateRecoveryLeaf(input: {
   rootPath: string;
   portablePath: string;
   expectedSha256: string;
   expectedSizeBytes: number;
-}): {
-  contentSha256: string;
-  sizeBytes: number;
-  device: string;
-  inode: string;
-} {
+  /** Unit-test fault injection used to prove the post-open metadata gate. */
+  testOnlyAfterOpenVerificationHook?: () => void;
+}): PrivateRecoveryLeafVerification {
   portablePathSchema.parse(input.portablePath);
   const root = realpathSync(input.rootPath);
   const target = resolve(root, input.portablePath);
@@ -472,6 +604,7 @@ export function readPrivateRecoveryLeaf(input: {
     path: target,
     requireSingleLink: true,
     requiredMode: 0o400,
+    testOnlyAfterOpenVerificationHook: input.testOnlyAfterOpenVerificationHook,
   });
   const contentSha256 = privateRecoverySha256(bytes);
   if (
@@ -487,15 +620,71 @@ export function readPrivateRecoveryLeaf(input: {
     sizeBytes: bytes.length,
     device: String(stats.dev),
     inode: String(stats.ino),
+    mode: stats.mode & 0o777,
+    nlink: stats.nlink,
+    mtimeMs: stats.mtimeMs,
+    ctimeMs: stats.ctimeMs,
   };
 }
 
+export type PrivateRecoveryLeafBatchInput = {
+  leafId: string;
+  rootPath: string;
+  portablePath: string;
+  expectedSha256: string;
+  expectedSizeBytes: number;
+};
+
+export function readAndRevalidatePrivateRecoveryLeafBatch(input: {
+  leaves: PrivateRecoveryLeafBatchInput[];
+  /** Unit-test fault injection used to prove the collective final barrier. */
+  testOnlyAfterInitialVerificationHook?: () => void;
+}): Map<string, PrivateRecoveryLeafVerification> {
+  if (
+    input.leaves.length === 0 ||
+    new Set(input.leaves.map((leaf) => leaf.leafId)).size !==
+      input.leaves.length
+  ) {
+    fail("private leaf batch must contain unique leaf IDs");
+  }
+  const first = new Map(
+    input.leaves.map((leaf) => [
+      leaf.leafId,
+      readPrivateRecoveryLeaf({
+        rootPath: leaf.rootPath,
+        portablePath: leaf.portablePath,
+        expectedSha256: leaf.expectedSha256,
+        expectedSizeBytes: leaf.expectedSizeBytes,
+      }),
+    ]),
+  );
+  input.testOnlyAfterInitialVerificationHook?.();
+  for (const leaf of input.leaves) {
+    const current = readPrivateRecoveryLeaf({
+      rootPath: leaf.rootPath,
+      portablePath: leaf.portablePath,
+      expectedSha256: leaf.expectedSha256,
+      expectedSizeBytes: leaf.expectedSizeBytes,
+    });
+    if (JSON.stringify(first.get(leaf.leafId)) !== JSON.stringify(current)) {
+      fail(
+        `private leaf changed before the collective barrier: ${leaf.leafId}`,
+      );
+    }
+  }
+  return first;
+}
+
 export function verifyPrivateRecoveryCopies(input: {
+  projectRoot: string;
   sourceRegistrationPlan: SourceRegistrationPlan;
   primaryCorpusRoot: string;
   replicaCorpusRoot: string;
   observedAt: string;
+  /** Unit-test fault injection used to prove the 20-file final barrier. */
+  testOnlyAfterInitialCopyVerificationHook?: () => void;
 }): VerifiedPrivateCopyPair[] {
+  const projectRoot = canonicalProjectRoot(input.projectRoot);
   const plan = validateSourceRegistrationPlan(input.sourceRegistrationPlan);
   const observedAt = z
     .string()
@@ -511,13 +700,14 @@ export function verifyPrivateRecoveryCopies(input: {
     id: REPLICA_ROOT_ID,
     storageClass: "bigbrain_private_archive",
   });
+  assertPrivateRootBoundaries({ projectRoot, primaryRoot, replicaRoot });
   if (
     primaryRoot.device === replicaRoot.device &&
     primaryRoot.inode === replicaRoot.inode
   ) {
     fail("primary and replica corpus roots must be distinct directories");
   }
-  return plan.targets.map((target) => {
+  const leafInputs = plan.targets.flatMap((target) => {
     const row = target.intendedPrivateRecoveryRow;
     const portablePath =
       target.artifactEvidence.privateVerification.rawPdfPortablePath;
@@ -527,18 +717,35 @@ export function verifyPrivateRecoveryCopies(input: {
       );
     }
     const expectedSha256 = `sha256:${row.sha256}`;
-    const primary = readPrivateRecoveryLeaf({
-      rootPath: primaryRoot.path,
-      portablePath,
-      expectedSha256,
-      expectedSizeBytes: row.sizeBytes,
-    });
-    const replica = readPrivateRecoveryLeaf({
-      rootPath: replicaRoot.path,
-      portablePath,
-      expectedSha256,
-      expectedSizeBytes: row.sizeBytes,
-    });
+    return [
+      {
+        leafId: `${target.targetId}:primary`,
+        rootPath: primaryRoot.path,
+        portablePath,
+        expectedSha256,
+        expectedSizeBytes: row.sizeBytes,
+      },
+      {
+        leafId: `${target.targetId}:replica`,
+        rootPath: replicaRoot.path,
+        portablePath,
+        expectedSha256,
+        expectedSizeBytes: row.sizeBytes,
+      },
+    ];
+  });
+  const physicalCopies = readAndRevalidatePrivateRecoveryLeafBatch({
+    leaves: leafInputs,
+    testOnlyAfterInitialVerificationHook:
+      input.testOnlyAfterInitialCopyVerificationHook,
+  });
+  const copies: VerifiedPrivateCopyPair[] = plan.targets.map((target) => {
+    const row = target.intendedPrivateRecoveryRow;
+    const portablePath =
+      target.artifactEvidence.privateVerification.rawPdfPortablePath;
+    const expectedSha256 = `sha256:${row.sha256}`;
+    const primary = physicalCopies.get(`${target.targetId}:primary`)!;
+    const replica = physicalCopies.get(`${target.targetId}:replica`)!;
     if (primary.device === replica.device && primary.inode === replica.inode) {
       fail(`${target.targetId}: primary and replica resolve to the same file`);
     }
@@ -575,6 +782,24 @@ export function verifyPrivateRecoveryCopies(input: {
       absoluteRootsStored: false,
     };
   });
+  const primaryRootAfter = inspectPrivateRoot({
+    path: input.primaryCorpusRoot,
+    id: PRIMARY_ROOT_ID,
+    storageClass: "private_primary",
+  });
+  const replicaRootAfter = inspectPrivateRoot({
+    path: input.replicaCorpusRoot,
+    id: REPLICA_ROOT_ID,
+    storageClass: "bigbrain_private_archive",
+  });
+  assertPrivateRootUnchanged(primaryRoot, primaryRootAfter);
+  assertPrivateRootUnchanged(replicaRoot, replicaRootAfter);
+  assertPrivateRootBoundaries({
+    projectRoot,
+    primaryRoot: primaryRootAfter,
+    replicaRoot: replicaRootAfter,
+  });
+  return copies;
 }
 
 function currentImplementationBindings(
@@ -759,12 +984,14 @@ function validatePlanSourceAndImplementation(input: {
 }
 
 function validateCurrentCopiesAgainstPlan(input: {
+  projectRoot: string;
   plan: PrivateRecoveryAcquisitionPlan;
   sourceRegistrationPlan: SourceRegistrationPlan;
   primaryCorpusRoot: string;
   replicaCorpusRoot: string;
 }): void {
   const live = verifyPrivateRecoveryCopies({
+    projectRoot: input.projectRoot,
     sourceRegistrationPlan: input.sourceRegistrationPlan,
     primaryCorpusRoot: input.primaryCorpusRoot,
     replicaCorpusRoot: input.replicaCorpusRoot,
@@ -1317,6 +1544,7 @@ async function verifyLivePlanInputs(input: {
     plan: input.plan,
   });
   validateCurrentCopiesAgainstPlan({
+    projectRoot: input.projectRoot,
     plan: input.plan,
     sourceRegistrationPlan: sourcePlan,
     primaryCorpusRoot: input.primaryCorpusRoot,
@@ -1370,6 +1598,7 @@ async function generatePlan(options: PrivateRecoveryAcquisitionCliOptions) {
     fail("plan generation requires the exact 11-row recovery baseline");
   }
   const copies = verifyPrivateRecoveryCopies({
+    projectRoot,
     sourceRegistrationPlan: source.plan,
     primaryCorpusRoot: options.primaryCorpusRoot!,
     replicaCorpusRoot: options.replicaCorpusRoot!,

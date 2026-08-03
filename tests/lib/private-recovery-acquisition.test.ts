@@ -5,6 +5,8 @@ import {
   mkdtempSync,
   mkdirSync,
   readFileSync,
+  realpathSync,
+  renameSync,
   rmSync,
   symlinkSync,
   unlinkSync,
@@ -76,7 +78,9 @@ import {
   applyPreparedPrivateRecoveryAcquisitionPlan,
   classifyPrivateRecoveryFilesystemState,
   parsePrivateRecoveryAcquisitionArgs,
+  readAndRevalidatePrivateRecoveryLeafBatch,
   readPrivateRecoveryLeaf,
+  verifyPrivateRecoveryCopies,
 } from "../../scripts/knowledge/manage-private-recovery-acquisition";
 
 const projectRoot = process.cwd();
@@ -792,6 +796,19 @@ test("tamper, audit drift and absolute private payloads fail closed", () => {
 
 test("CLI defaults read-only and requires two independent exact apply gates", () => {
   assert.throws(
+    () =>
+      parsePrivateRecoveryAcquisitionArgs(
+        [
+          "--check",
+          "--primary-corpus-root=relative/primary",
+          "--replica-corpus-root=/private/replica",
+        ],
+        "/tmp/project",
+        { DATABASE_URL: "test-database-url" },
+      ),
+    /explicit absolute --primary-corpus-root/,
+  );
+  assert.throws(
     () => parsePrivateRecoveryAcquisitionArgs([], "/tmp/project", {}),
     /requires DATABASE_URL/,
   );
@@ -847,6 +864,76 @@ test("CLI defaults read-only and requires two independent exact apply gates", ()
   );
 });
 
+test("private roots must be outside the repository and non-nested", () => {
+  const project = realpathSync(
+    mkdtempSync(join(tmpdir(), "private-root-project-")),
+  );
+  const externalReplica = realpathSync(
+    mkdtempSync(join(tmpdir(), "private-root-replica-")),
+  );
+  const externalPrimary = realpathSync(
+    mkdtempSync(join(tmpdir(), "private-root-primary-")),
+  );
+  const localPrimary = join(project, "private-primary");
+  const nestedReplica = join(externalPrimary, "nested-replica");
+  const containedProject = join(externalPrimary, "contained-project");
+  mkdirSync(localPrimary, { mode: 0o700 });
+  mkdirSync(nestedReplica, { mode: 0o700 });
+  mkdirSync(containedProject, { mode: 0o700 });
+  chmodSync(externalPrimary, 0o700);
+  chmodSync(externalReplica, 0o700);
+  try {
+    assert.throws(
+      () =>
+        verifyPrivateRecoveryCopies({
+          projectRoot: project,
+          sourceRegistrationPlan: sourcePlan,
+          primaryCorpusRoot: localPrimary,
+          replicaCorpusRoot: externalReplica,
+          observedAt: "2026-08-03T12:00:00.000Z",
+        }),
+      /outside and non-overlapping with the project root/,
+    );
+    assert.throws(
+      () =>
+        verifyPrivateRecoveryCopies({
+          projectRoot: project,
+          sourceRegistrationPlan: sourcePlan,
+          primaryCorpusRoot: externalPrimary,
+          replicaCorpusRoot: nestedReplica,
+          observedAt: "2026-08-03T12:00:00.000Z",
+        }),
+      /must not be nested/,
+    );
+    assert.throws(
+      () =>
+        verifyPrivateRecoveryCopies({
+          projectRoot: containedProject,
+          sourceRegistrationPlan: sourcePlan,
+          primaryCorpusRoot: externalPrimary,
+          replicaCorpusRoot: externalReplica,
+          observedAt: "2026-08-03T12:00:00.000Z",
+        }),
+      /outside and non-overlapping with the project root/,
+    );
+    assert.throws(
+      () =>
+        verifyPrivateRecoveryCopies({
+          projectRoot: project,
+          sourceRegistrationPlan: sourcePlan,
+          primaryCorpusRoot: "relative/private-primary",
+          replicaCorpusRoot: externalReplica,
+          observedAt: "2026-08-03T12:00:00.000Z",
+        }),
+      /must be absolute/,
+    );
+  } finally {
+    rmSync(project, { recursive: true, force: true });
+    rmSync(externalReplica, { recursive: true, force: true });
+    rmSync(externalPrimary, { recursive: true, force: true });
+  }
+});
+
 test("private leaf verifier rejects wrong mode, symlinks, hard links and tamper", () => {
   const root = mkdtempSync(join(tmpdir(), "private-leaf-test-"));
   chmodSync(root, 0o700);
@@ -893,6 +980,55 @@ test("private leaf verifier rejects wrong mode, symlinks, hard links and tamper"
     );
     unlinkSync(hard);
 
+    assert.throws(
+      () =>
+        readPrivateRecoveryLeaf({
+          rootPath: root,
+          portablePath: "sha256/fixture.pdf",
+          expectedSha256,
+          expectedSizeBytes: content.length,
+          testOnlyAfterOpenVerificationHook: () => chmodSync(leaf, 0o600),
+        }),
+      /file metadata changed while being hashed/,
+    );
+    chmodSync(leaf, 0o400);
+
+    const movedDirectory = join(root, "sha256-moved");
+    assert.throws(
+      () =>
+        readPrivateRecoveryLeaf({
+          rootPath: root,
+          portablePath: "sha256/fixture.pdf",
+          expectedSha256,
+          expectedSizeBytes: content.length,
+          testOnlyAfterOpenVerificationHook: () => {
+            renameSync(directory, movedDirectory);
+            symlinkSync(movedDirectory, directory, "dir");
+          },
+        }),
+      /symlink path component rejected/,
+    );
+    unlinkSync(directory);
+    renameSync(movedDirectory, directory);
+
+    const movedRoot = `${root}-moved`;
+    assert.throws(
+      () =>
+        readPrivateRecoveryLeaf({
+          rootPath: root,
+          portablePath: "sha256/fixture.pdf",
+          expectedSha256,
+          expectedSizeBytes: content.length,
+          testOnlyAfterOpenVerificationHook: () => {
+            renameSync(root, movedRoot);
+            symlinkSync(movedRoot, root, "dir");
+          },
+        }),
+      /controlled root is no longer a canonical directory/,
+    );
+    unlinkSync(root);
+    renameSync(movedRoot, root);
+
     const symlink = join(directory, "symlink.pdf");
     symlinkSync(leaf, symlink);
     assert.throws(() =>
@@ -931,6 +1067,54 @@ test("private leaf verifier rejects wrong mode, symlinks, hard links and tamper"
           expectedSizeBytes: content.length,
         }),
       /differs from the exact content binding/,
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("private leaf batch revalidates every earlier file at one final barrier", () => {
+  const root = mkdtempSync(join(tmpdir(), "private-leaf-batch-"));
+  chmodSync(root, 0o700);
+  const directory = join(root, "sha256");
+  mkdirSync(directory, { mode: 0o700 });
+  const firstBytes = Buffer.from("first controlled private fixture", "utf8");
+  const secondBytes = Buffer.from("second controlled private fixture", "utf8");
+  const firstPath = join(directory, "first.pdf");
+  const secondPath = join(directory, "second.pdf");
+  writeFileSync(firstPath, firstBytes, { mode: 0o400 });
+  writeFileSync(secondPath, secondBytes, { mode: 0o400 });
+  chmodSync(firstPath, 0o400);
+  chmodSync(secondPath, 0o400);
+  const leaves = [
+    {
+      leafId: "target.first:primary",
+      rootPath: root,
+      portablePath: "sha256/first.pdf",
+      expectedSha256: privateRecoverySha256(firstBytes),
+      expectedSizeBytes: firstBytes.length,
+    },
+    {
+      leafId: "target.second:primary",
+      rootPath: root,
+      portablePath: "sha256/second.pdf",
+      expectedSha256: privateRecoverySha256(secondBytes),
+      expectedSizeBytes: secondBytes.length,
+    },
+  ];
+  try {
+    assert.equal(
+      readAndRevalidatePrivateRecoveryLeafBatch({ leaves }).size,
+      leaves.length,
+    );
+    assert.throws(
+      () =>
+        readAndRevalidatePrivateRecoveryLeafBatch({
+          leaves,
+          testOnlyAfterInitialVerificationHook: () =>
+            chmodSync(firstPath, 0o600),
+        }),
+      /mode.*0400/,
     );
   } finally {
     rmSync(root, { recursive: true, force: true });
