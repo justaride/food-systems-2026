@@ -3,6 +3,7 @@
 import { spawn } from "node:child_process";
 import { createHash, randomBytes, randomUUID } from "node:crypto";
 import {
+  chmodSync,
   closeSync,
   constants,
   createReadStream,
@@ -11,9 +12,12 @@ import {
   fsyncSync,
   linkSync,
   lstatSync,
+  mkdtempSync,
   openSync,
+  readSync,
   readFileSync,
   realpathSync,
+  rmdirSync,
   unlinkSync,
   writeFileSync,
 } from "node:fs";
@@ -62,11 +66,31 @@ import {
   validateLogicalRestoreCompanionReceipt,
 } from "./logical-restore-companion-receipt.mjs";
 import {
-  PSQL_RUNTIME_CLOSURE_MANIFEST_PATH,
-  PSQL_RUNTIME_CLOSURE_MANIFEST_SHA256,
-  PSQL_RUNTIME_CLOSURE_SHA256,
+  POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_MANIFEST_PATH,
+  POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_MANIFEST_SHA256,
+  POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256,
   verifyPsqlRuntimeClosure,
 } from "./verify-psql-runtime-closure.mjs";
+import {
+  POSTGRESQL_EXTENSION_RUNTIME_CLOSURE_MANIFEST_PATH,
+  POSTGRESQL_EXTENSION_RUNTIME_CLOSURE_MANIFEST_SHA256,
+  POSTGRESQL_EXTENSION_RUNTIME_CLOSURE_SHA256,
+  verifyPostgresqlExtensionRuntimeClosure,
+} from "./verify-postgresql-extension-runtime-closure.mjs";
+import {
+  LOGICAL_RESTORE_EXTENSION_INITIALIZER_FIXED_PLAN_SHA256,
+  LOGICAL_RESTORE_EXTENSION_INITIALIZER_PURPOSE,
+  LOGICAL_RESTORE_EXTENSION_INITIALIZER_REQUEST_FORMAT,
+  canonicalExtensionInitializerJson,
+  extensionInitializerCleanEnvironment,
+  extensionInitializerSha256,
+  extensionInitializerVerificationSql,
+  sealExtensionInitializerRequest,
+  validateExtensionInitializerAttestation,
+  validateExtensionInitializerObservedState,
+  validateExtensionInitializerRequest,
+  validateExtensionInitializerSourceState,
+} from "./run-logical-restore-extension-initializer.mjs";
 
 export const CONTROLLED_LOGICAL_RESTORE_ACK =
   "I_HAVE_VERIFIED_LOGICAL_RESTORE_CLONE_IS_DISPOSABLE";
@@ -95,9 +119,77 @@ const ISO_UTC_PATTERN = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/;
 const SAFE_DATABASE_NAME = /^foodsystems_restore_[a-z0-9_]+$/;
 const MAX_JSON_BYTES = 16 * 1024 * 1024;
 const MAX_COMMAND_OUTPUT_BYTES = 16 * 1024 * 1024;
+export const CONTROLLED_ARCHIVE_CATALOG_INPUT_POLICY =
+  "validated_pg_restore_catalog";
+export const CONTROLLED_RESTORE_USE_LIST_POLICY =
+  "validated_pg_restore_use_list_fd3";
+export const CONTROLLED_EXTENSION_INITIALIZER_DIAGNOSTIC_POLICY =
+  "validated_extension_initializer_diagnostic";
+const CONTROLLED_EXTENSION_INITIALIZER_EXACT_DIAGNOSTICS = Object.freeze(
+  [
+    [
+      "EXTENSION_INITIALIZER_ATTESTATION",
+      "EXTENSION_INITIALIZER_ATTESTATION",
+      1,
+    ],
+    ["EXTENSION_INITIALIZER_FAILURE", "EXTENSION_INITIALIZER_FAILED", 1],
+    ["EXTENSION_INITIALIZER_MUTATION", "EXTENSION_INITIALIZER_MUTATION", 1],
+    ["EXTENSION_INITIALIZER_PREFLIGHT", "EXTENSION_INITIALIZER_PREFLIGHT", 1],
+    ["EXTENSION_INITIALIZER_REQUEST", "EXTENSION_INITIALIZER_REQUEST", 1],
+    ["EXTENSION_INITIALIZER_RUNTIME", "EXTENSION_INITIALIZER_RUNTIME", 1],
+    ["EXTENSION_INITIALIZER_SIGNAL", "HANDLED_SIGNAL", 143],
+    ["EXTENSION_INITIALIZER_VERIFY", "EXTENSION_INITIALIZER_VERIFY", 1],
+  ].map(([brokerCode, controlledCode, exitCode]) =>
+    Object.freeze({
+      bytes: Buffer.from(
+        `[logical-restore-extension-initializer] ERROR ${brokerCode}\n`,
+        "utf8",
+      ),
+      controlledCode,
+      exitCode,
+    }),
+  ),
+);
+const CONTROLLED_COMMAND_PHASE_CODES = new Set([
+  "CATALOG_COMMAND_FAILED",
+  "CLONE_CREATE_COMMAND_FAILED",
+  "CLONE_EXTENSION_VERIFY_COMMAND_FAILED",
+  "CLONE_INITIALIZE_COMMAND_FAILED",
+  "CLONE_PREFLIGHT_COMMAND_FAILED",
+  "CLONE_REHEARSAL_COMMAND_FAILED",
+  "CLONE_RESTORE_COMMAND_FAILED",
+]);
+const MAX_RESTORE_LIST_BYTES = 1024 * 1024;
+const MAX_EXTENSION_INITIALIZER_REQUEST_BYTES = 16 * 1024;
+const EXTENSION_INITIALIZER_REQUEST_DIRECTORY_PREFIX =
+  "foodsystems-extension-initializer-request-";
+const CONTROLLED_RESTORE_SELECTION_DOMAIN =
+  "food-systems-2026:logical-restore-selection:v1\0";
+const CONTROLLED_RESTORE_EXTENSIONS = Object.freeze([
+  Object.freeze({
+    comment:
+      "text similarity measurement and index searching based on trigrams",
+    name: "pg_trgm",
+    schema: "public",
+    version: "1.6",
+  }),
+  Object.freeze({
+    comment: "vector data type and ivfflat and hnsw access methods",
+    name: "vector",
+    schema: "public",
+    version: "0.8.2",
+  }),
+]);
 const MAX_REHEARSAL_RECEIPT_AGE_MS = 24 * 60 * 60 * 1000;
 const MAX_REHEARSAL_DURATION_MS = 15 * 60 * 1000;
 const MAX_FUTURE_SKEW_MS = 5 * 60 * 1000;
+const SOURCE_REGISTRATION_RUNTIME_ENVELOPE_DOMAIN =
+  "food-systems-2026:source-registration-runtime-envelope:v1\0";
+const SOURCE_REGISTRATION_RUNTIME_ATTESTATION_DOMAIN =
+  "food-systems-2026:source-registration-runtime-attestation:v1\0";
+const LOGICAL_RESTORE_COMPANION_LAUNCH_PURPOSE = "logical_restore_companion";
+const CONTROLLED_REHEARSAL_ATTESTATION_DIRECTORY_PREFIX =
+  "foodsystems-logical-rehearsal-attestation-";
 const SOURCE_REGISTRATION_BATCH_PATH =
   "knowledge/corpus/source-registration/source-registration-batch-2026-08-02.v1.json";
 const CORE_COUNT_KEYS = Object.freeze([
@@ -126,13 +218,23 @@ const PROJECT_BINDING_PATHS = Object.freeze({
   backupVerifier: "scripts/verify-database-backup.sh",
   companionReceiptSchema:
     "knowledge/schema/database-logical-restore-companion-receipt.schema.v1.json",
+  companionTest: "tests/lib/database-logical-restore-companion.test.ts",
   companionReceiptValidator:
     "scripts/knowledge/logical-restore-companion-receipt.mjs",
   companionRunner:
     "scripts/knowledge/run-controlled-logical-restore-companion.mjs",
   databaseLogicalDigest: "scripts/knowledge/database-logical-state-digest.mjs",
-  psqlRuntimeManifest: PSQL_RUNTIME_CLOSURE_MANIFEST_PATH,
+  psqlRuntimeManifest: POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_MANIFEST_PATH,
   psqlRuntimeVerifier: "scripts/knowledge/verify-psql-runtime-closure.mjs",
+  postgresqlExtensionRuntimeManifest:
+    POSTGRESQL_EXTENSION_RUNTIME_CLOSURE_MANIFEST_PATH,
+  postgresqlExtensionRuntimeVerifier:
+    "scripts/knowledge/verify-postgresql-extension-runtime-closure.mjs",
+  postgresqlExtensionInitializer:
+    "scripts/knowledge/run-logical-restore-extension-initializer.mjs",
+  postgresqlExtensionInitializerTest:
+    "tests/lib/logical-restore-extension-initializer.test.ts",
+  packageJson: "package.json",
   sourceRegistrationApplyRuntime:
     "src/lib/knowledge/source-registration-apply.ts",
   sourceRegistrationApplyRunner:
@@ -148,6 +250,7 @@ const PROJECT_BINDING_PATHS = Object.freeze({
   sourceRegistrationLogicalCloneRehearsalCommandRunner:
     "scripts/knowledge/run-source-registration-logical-clone-rehearsal.ts",
   structuralRestoreRunner: "scripts/restore-database-backup-drill.sh",
+  tsxRuntimeConfig: "knowledge/runtime/source-registration-tsx.runtime.json",
 });
 
 class ControlledLogicalRestoreError extends Error {
@@ -228,6 +331,176 @@ function canonicalEqual(left, right) {
   );
 }
 
+function validateControlledSourceRegistrationRuntimeAttestation(attestation) {
+  const value = exactObject(
+    attestation,
+    [
+      "launcher",
+      "localClosure",
+      "node",
+      "nodeModules",
+      "postgresqlToolset",
+      "prismaGeneratedClient",
+      "runtimeAttestationSha256",
+      "schemaVersion",
+    ],
+    "launcher runtime attestation",
+  );
+  sha256(
+    value.runtimeAttestationSha256,
+    "launcher runtime attestation SHA-256",
+  );
+  if (value.schemaVersion !== "source-registration-runtime-attestation-v1") {
+    fail("LAUNCHER_ATTESTATION", "launcher runtime schema differs");
+  }
+  const { runtimeAttestationSha256, ...attestationBody } = value;
+  if (
+    runtimeAttestationSha256 !==
+    logicalRestoreCompanionSha256(
+      `${SOURCE_REGISTRATION_RUNTIME_ATTESTATION_DOMAIN}${canonicalLogicalRestoreCompanionJson(
+        attestationBody,
+      )}`,
+    )
+  ) {
+    fail("LAUNCHER_ATTESTATION", "launcher runtime attestation differs");
+  }
+  return value;
+}
+
+export function validateControlledLogicalRestoreLauncherEnvelope(
+  value,
+  { expectedParentPid = process.ppid } = {},
+) {
+  const envelope = exactObject(
+    value,
+    ["attestation", "envelopeSha256", "launcherPid", "launchPurpose"],
+    "launcher runtime attestation envelope",
+  );
+  if (
+    !Number.isSafeInteger(expectedParentPid) ||
+    expectedParentPid <= 0 ||
+    envelope.launcherPid !== expectedParentPid ||
+    envelope.launchPurpose !== LOGICAL_RESTORE_COMPANION_LAUNCH_PURPOSE ||
+    typeof envelope.envelopeSha256 !== "string" ||
+    !SHA256_PATTERN.test(envelope.envelopeSha256)
+  ) {
+    fail("LAUNCHER_ATTESTATION", "launcher runtime identity is invalid");
+  }
+  const expectedEnvelopeSha256 = logicalRestoreCompanionSha256(
+    `${SOURCE_REGISTRATION_RUNTIME_ENVELOPE_DOMAIN}${canonicalLogicalRestoreCompanionJson(
+      {
+        attestation: envelope.attestation,
+        launcherPid: envelope.launcherPid,
+        launchPurpose: envelope.launchPurpose,
+      },
+    )}`,
+  );
+  if (envelope.envelopeSha256 !== expectedEnvelopeSha256) {
+    fail("LAUNCHER_ATTESTATION", "launcher runtime envelope differs");
+  }
+  return validateControlledSourceRegistrationRuntimeAttestation(
+    envelope.attestation,
+  );
+}
+
+export function controlledNestedRehearsalRuntimeEnvelope(
+  attestation,
+  { launcherPid = process.pid } = {},
+) {
+  if (!Number.isSafeInteger(launcherPid) || launcherPid <= 0) {
+    fail("REHEARSAL_LAUNCHER_ATTESTATION", "nested launcher PID is invalid");
+  }
+  const body = {
+    attestation:
+      validateControlledSourceRegistrationRuntimeAttestation(attestation),
+    launcherPid,
+  };
+  return {
+    ...body,
+    envelopeSha256: logicalRestoreCompanionSha256(
+      `${SOURCE_REGISTRATION_RUNTIME_ENVELOPE_DOMAIN}${canonicalLogicalRestoreCompanionJson(
+        body,
+      )}`,
+    ),
+  };
+}
+
+function readControlledLogicalRestoreLauncherAttestation(env) {
+  const fdRaw = env.SOURCE_REGISTRATION_LAUNCH_ATTESTATION_FD;
+  const launcherPidRaw = env.SOURCE_REGISTRATION_LAUNCHER_PID;
+  if (
+    fdRaw !== "3" ||
+    typeof launcherPidRaw !== "string" ||
+    !/^[1-9][0-9]*$/.test(launcherPidRaw) ||
+    Number(launcherPidRaw) !== process.ppid
+  ) {
+    fail("LAUNCHER_REQUIRED", "locked launcher evidence is required");
+  }
+  let bytes;
+  try {
+    bytes = readFileSync(Number(fdRaw));
+  } catch {
+    fail("LAUNCHER_ATTESTATION", "launcher runtime evidence is unreadable");
+  }
+  if (bytes.length === 0 || bytes.length > 100_000) {
+    fail(
+      "LAUNCHER_ATTESTATION",
+      "launcher runtime evidence has an unsafe size",
+    );
+  }
+  const attestation = validateControlledLogicalRestoreLauncherEnvelope(
+    requireCanonicalJson(bytes, "launcher runtime attestation envelope"),
+    { expectedParentPid: process.ppid },
+  );
+  const expectedPins = {
+    LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_LAUNCHER_SHA256:
+      attestation.launcher?.fileSha256,
+    LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_LOCAL_RUNTIME_CLOSURE_SHA256:
+      attestation.localClosure?.closureSha256,
+    LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_NODE_BINARY_SHA256:
+      attestation.node?.binaryFileSha256,
+    LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_NODE_MODULES_TREE_SHA256:
+      attestation.nodeModules?.treeSha256,
+    LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_NODE_RUNTIME_CLOSURE_SHA256:
+      attestation.node?.runtimeClosureSha256,
+    LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_NODE_RUNTIME_MANIFEST_SHA256:
+      attestation.node?.runtimeClosureManifestSha256,
+    LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_NODE_RUNTIME_VERIFIER_SHA256:
+      attestation.node?.runtimeClosureVerifierFileSha256,
+    LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_PRISMA_CLIENT_TREE_SHA256:
+      attestation.prismaGeneratedClient?.treeSha256,
+    LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_POSTGRESQL_TOOLSET_CLOSURE_SHA256:
+      attestation.postgresqlToolset?.closureSha256,
+    LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_POSTGRESQL_TOOLSET_MANIFEST_SHA256:
+      attestation.postgresqlToolset?.manifestSha256,
+    LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_POSTGRESQL_TOOLSET_VERIFIER_SHA256:
+      attestation.postgresqlToolset?.verifierFileSha256,
+    LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_RUNTIME_ATTESTATION_SHA256:
+      attestation.runtimeAttestationSha256,
+  };
+  for (const [name, expected] of Object.entries(expectedPins)) {
+    if (
+      typeof expected !== "string" ||
+      !SHA256_PATTERN.test(expected) ||
+      env[name] !== expected
+    ) {
+      fail("LAUNCHER_ATTESTATION", "launcher runtime pin differs");
+    }
+  }
+  if (
+    attestation.node?.version !== process.version ||
+    attestation.node?.platform !== process.platform ||
+    attestation.node?.arch !== process.arch ||
+    attestation.node?.binaryFileSha256 !==
+      logicalRestoreCompanionSha256(
+        readFileSync(realpathSync(process.execPath)),
+      )
+  ) {
+    fail("LAUNCHER_ATTESTATION", "active Node runtime differs");
+  }
+  return attestation;
+}
+
 function requireCanonicalJson(bytes, label) {
   let value;
   let text;
@@ -279,6 +552,21 @@ function assertAbsolutePathValue(path, label) {
   }
 }
 
+function stableFileIdentity(stats, path) {
+  return {
+    ctimeNs: stats.ctimeNs,
+    dev: stats.dev,
+    gid: stats.gid,
+    ino: stats.ino,
+    mode: stats.mode,
+    mtimeNs: stats.mtimeNs,
+    nlink: stats.nlink,
+    path,
+    size: stats.size,
+    uid: stats.uid,
+  };
+}
+
 function privateFileIdentity(path, label) {
   assertAbsolutePathValue(path, label);
   let stats;
@@ -299,14 +587,7 @@ function privateFileIdentity(path, label) {
     fail("PRIVATE_FILE_INVALID", `${label} is not a canonical private file`);
   }
   assertOutsideProject(resolved, label);
-  return {
-    dev: stats.dev,
-    ino: stats.ino,
-    mode: stats.mode,
-    mtimeNs: stats.mtimeNs,
-    path: resolved,
-    size: stats.size,
-  };
+  return stableFileIdentity(stats, resolved);
 }
 
 function sameFileIdentity(left, right) {
@@ -316,6 +597,16 @@ function sameFileIdentity(left, right) {
     left.mode === right.mode &&
     left.mtimeNs === right.mtimeNs &&
     left.size === right.size
+  );
+}
+
+function sameStableFileIdentity(left, right) {
+  return (
+    sameFileIdentity(left, right) &&
+    left.ctimeNs === right.ctimeNs &&
+    left.gid === right.gid &&
+    left.nlink === right.nlink &&
+    left.uid === right.uid
   );
 }
 
@@ -334,13 +625,13 @@ function readStablePrivateFile(path, label) {
       constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0),
     );
     const before = fstatSync(descriptor, { bigint: true });
-    if (!sameFileIdentity(expected, before)) {
+    if (!sameStableFileIdentity(expected, before)) {
       fail("PRIVATE_FILE_CHANGED", `${label} changed before it was read`);
     }
     const bytes = readFileSync(descriptor);
     const after = fstatSync(descriptor, { bigint: true });
     if (
-      !sameFileIdentity(expected, after) ||
+      !sameStableFileIdentity(expected, after) ||
       BigInt(bytes.length) !== expected.size
     ) {
       fail("PRIVATE_FILE_CHANGED", `${label} changed while it was read`);
@@ -357,7 +648,11 @@ function readStablePrivateFile(path, label) {
   }
 }
 
-async function hashStableFile(path, label, { privateFile = false } = {}) {
+export async function hashStableFile(
+  path,
+  label,
+  { privateFile = false } = {},
+) {
   const expected = privateFile
     ? privateFileIdentity(path, label)
     : (() => {
@@ -377,14 +672,7 @@ async function hashStableFile(path, label, { privateFile = false } = {}) {
         ) {
           fail("TOOL_FILE_INVALID", `${label} is not a canonical regular file`);
         }
-        return {
-          dev: stats.dev,
-          ino: stats.ino,
-          mode: stats.mode,
-          mtimeNs: stats.mtimeNs,
-          path: resolved,
-          size: stats.size,
-        };
+        return stableFileIdentity(stats, resolved);
       })();
   let descriptor;
   try {
@@ -393,7 +681,7 @@ async function hashStableFile(path, label, { privateFile = false } = {}) {
       constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0),
     );
     const before = fstatSync(descriptor, { bigint: true });
-    if (!sameFileIdentity(expected, before)) {
+    if (!sameStableFileIdentity(expected, before)) {
       fail("FILE_CHANGED", `${label} changed before hashing`);
     }
     const hash = createHash("sha256");
@@ -408,7 +696,7 @@ async function hashStableFile(path, label, { privateFile = false } = {}) {
       bytes += BigInt(chunk.length);
     }
     const after = fstatSync(descriptor, { bigint: true });
-    if (!sameFileIdentity(expected, after) || bytes !== expected.size) {
+    if (!sameStableFileIdentity(expected, after) || bytes !== expected.size) {
       fail("FILE_CHANGED", `${label} changed while hashing`);
     }
     return {
@@ -1024,7 +1312,66 @@ function resolveCanonicalExecutable(name) {
   return resolved;
 }
 
-async function loadToolBindings() {
+export function validateControlledPostgresqlToolsetBinding({
+  binarySha256,
+  closure,
+  expectedClosureSha256,
+  expectedManifestSha256,
+  expectedVerifierSha256,
+  manifestFileSha256,
+  verifierFileSha256,
+}) {
+  const binaries = exactObject(
+    binarySha256,
+    ["createdb", "dropdb", "pgRestore", "psql"],
+    "PostgreSQL toolset binary bindings",
+  );
+  const closureTools = exactObject(
+    closure.toolFileSha256,
+    ["createdb", "dropdb", "pgRestore", "psql"],
+    "PostgreSQL toolset closure bindings",
+  );
+  for (const [label, value] of Object.entries({
+    ...Object.fromEntries(
+      Object.entries(binaries).map(([key, value]) => [`binary.${key}`, value]),
+    ),
+    ...Object.fromEntries(
+      Object.entries(closureTools).map(([key, value]) => [
+        `closure.${key}`,
+        value,
+      ]),
+    ),
+    closureSha256: closure.closureSha256,
+    expectedClosureSha256,
+    expectedManifestSha256,
+    expectedVerifierSha256,
+    manifestFileSha256,
+    manifestSha256: closure.manifestSha256,
+    psqlFileSha256: closure.psqlFileSha256,
+    verifierFileSha256,
+  })) {
+    sha256(value, `PostgreSQL toolset ${label}`);
+  }
+  if (
+    closureTools.createdb !== binaries.createdb ||
+    closureTools.dropdb !== binaries.dropdb ||
+    closureTools.pgRestore !== binaries.pgRestore ||
+    closureTools.psql !== binaries.psql ||
+    closure.psqlFileSha256 !== binaries.psql ||
+    closure.closureSha256 !== POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256 ||
+    closure.manifestSha256 !==
+      POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_MANIFEST_SHA256 ||
+    manifestFileSha256 !== POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_MANIFEST_SHA256 ||
+    expectedClosureSha256 !== closure.closureSha256 ||
+    expectedManifestSha256 !== closure.manifestSha256 ||
+    expectedVerifierSha256 !== verifierFileSha256
+  ) {
+    fail("PSQL_RUNTIME_BINDING", "PostgreSQL toolset runtime bindings differ");
+  }
+  return true;
+}
+
+async function loadToolBindings(input) {
   const projectFacts = {};
   for (const [key, relativePath] of Object.entries(PROJECT_BINDING_PATHS)) {
     const path = realpathSync(join(PROJECT_ROOT, relativePath));
@@ -1055,31 +1402,65 @@ async function loadToolBindings() {
   let closure;
   try {
     closure = await verifyPsqlRuntimeClosure({
-      expectedClosureSha256: PSQL_RUNTIME_CLOSURE_SHA256,
-      expectedManifestSha256: PSQL_RUNTIME_CLOSURE_MANIFEST_SHA256,
+      expectedClosureSha256: POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256,
+      expectedManifestSha256:
+        POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_MANIFEST_SHA256,
       manifestPath: realpathSync(
-        join(PROJECT_ROOT, PSQL_RUNTIME_CLOSURE_MANIFEST_PATH),
+        join(PROJECT_ROOT, POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_MANIFEST_PATH),
       ),
     });
   } catch (error) {
     throw safeFailure(
       error,
       "PSQL_RUNTIME_CLOSURE",
-      "psql runtime closure verification failed",
+      "PostgreSQL toolset runtime closure verification failed",
+    );
+  }
+  validateControlledPostgresqlToolsetBinding({
+    binarySha256: {
+      createdb: createdb.sha256,
+      dropdb: dropdb.sha256,
+      pgRestore: pgRestore.sha256,
+      psql: psql.sha256,
+    },
+    closure,
+    expectedClosureSha256:
+      input.expectedSourceRegistrationPostgresqlToolsetClosureSha256,
+    expectedManifestSha256:
+      input.expectedSourceRegistrationPostgresqlToolsetManifestSha256,
+    expectedVerifierSha256:
+      input.expectedSourceRegistrationPostgresqlToolsetVerifierSha256,
+    manifestFileSha256: projectFacts.psqlRuntimeManifest.sha256,
+    verifierFileSha256: projectFacts.psqlRuntimeVerifier.sha256,
+  });
+  let extensionClosure;
+  try {
+    extensionClosure = verifyPostgresqlExtensionRuntimeClosure({
+      expectedClosureSha256: POSTGRESQL_EXTENSION_RUNTIME_CLOSURE_SHA256,
+      expectedManifestSha256:
+        POSTGRESQL_EXTENSION_RUNTIME_CLOSURE_MANIFEST_SHA256,
+      manifestPath: realpathSync(
+        join(PROJECT_ROOT, POSTGRESQL_EXTENSION_RUNTIME_CLOSURE_MANIFEST_PATH),
+      ),
+    });
+  } catch (error) {
+    throw safeFailure(
+      error,
+      "POSTGRESQL_EXTENSION_RUNTIME_CLOSURE",
+      "PostgreSQL extension runtime closure verification failed",
     );
   }
   if (
-    closure.psqlFileSha256 !== psql.sha256 ||
-    closure.closureSha256 !== PSQL_RUNTIME_CLOSURE_SHA256 ||
-    closure.manifestSha256 !== PSQL_RUNTIME_CLOSURE_MANIFEST_SHA256 ||
-    projectFacts.psqlRuntimeManifest.sha256 !==
-      PSQL_RUNTIME_CLOSURE_MANIFEST_SHA256
+    projectFacts.postgresqlExtensionRuntimeManifest.sha256 !==
+    POSTGRESQL_EXTENSION_RUNTIME_CLOSURE_MANIFEST_SHA256
   ) {
-    fail("PSQL_RUNTIME_BINDING", "psql runtime bindings differ");
+    fail(
+      "POSTGRESQL_EXTENSION_RUNTIME_BINDING",
+      "PostgreSQL extension runtime manifest binding differs",
+    );
   }
   return {
     executables: {
-      createdbPath,
       dropdbPath,
       pgRestorePath,
       psqlPath,
@@ -1091,6 +1472,13 @@ async function loadToolBindings() {
         backupVerifierSha256: projectFacts.backupVerifier.sha256,
         companionReceiptSchemaSha256:
           projectFacts.companionReceiptSchema.sha256,
+        postgresqlToolsetCreatedbBinarySha256: createdb.sha256,
+        postgresqlExtensionInitializerTestSha256:
+          projectFacts.postgresqlExtensionInitializerTest.sha256,
+        postgresqlExtensionRuntimeManifestSha256:
+          extensionClosure.manifestSha256,
+        postgresqlExtensionRuntimeVerifierSha256:
+          projectFacts.postgresqlExtensionRuntimeVerifier.sha256,
         sourceRegistrationLogicalCloneRehearsalTestSha256:
           projectFacts.sourceRegistrationLogicalCloneRehearsalTest.sha256,
         structuralRestoreRunnerSha256:
@@ -1100,7 +1488,6 @@ async function loadToolBindings() {
         companionReceiptValidatorSha256:
           projectFacts.companionReceiptValidator.sha256,
         companionRunnerSha256: projectFacts.companionRunner.sha256,
-        createdbBinarySha256: createdb.sha256,
         databaseLogicalDigestSha256: projectFacts.databaseLogicalDigest.sha256,
         dropdbBinarySha256: dropdb.sha256,
         pgRestoreBinarySha256: pgRestore.sha256,
@@ -1108,6 +1495,9 @@ async function loadToolBindings() {
         psqlRuntimeClosureSha256: closure.closureSha256,
         psqlRuntimeManifestSha256: closure.manifestSha256,
         psqlRuntimeVerifierSha256: projectFacts.psqlRuntimeVerifier.sha256,
+        postgresqlExtensionInitializerSha256:
+          projectFacts.postgresqlExtensionInitializer.sha256,
+        postgresqlExtensionRuntimeClosureSha256: extensionClosure.closureSha256,
         sourceRegistrationApplyRunnerSha256:
           projectFacts.sourceRegistrationApplyRunner.sha256,
         sourceRegistrationApplyRuntimeSha256:
@@ -1137,7 +1527,6 @@ async function assertToolBindingsStable(toolBindings) {
     }
   }
   for (const [key, toolKey] of [
-    ["createdbPath", "createdbBinarySha256"],
     ["dropdbPath", "dropdbBinarySha256"],
     ["pgRestorePath", "pgRestoreBinarySha256"],
     ["psqlPath", "psqlBinarySha256"],
@@ -1161,17 +1550,26 @@ async function assertToolBindingsStable(toolBindings) {
       expectedManifestSha256:
         toolBindings.tools.executedTools.psqlRuntimeManifestSha256,
       manifestPath: realpathSync(
-        join(PROJECT_ROOT, PSQL_RUNTIME_CLOSURE_MANIFEST_PATH),
+        join(PROJECT_ROOT, POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_MANIFEST_PATH),
       ),
     });
   } catch (error) {
     throw safeFailure(
       error,
       "TOOL_DRIFT",
-      "psql runtime closure changed during the comparison",
+      "PostgreSQL toolset runtime closure changed during the comparison",
     );
   }
   if (
+    closure.toolFileSha256.createdb !==
+      toolBindings.tools.contextBindings
+        .postgresqlToolsetCreatedbBinarySha256 ||
+    closure.toolFileSha256.dropdb !==
+      toolBindings.tools.executedTools.dropdbBinarySha256 ||
+    closure.toolFileSha256.pgRestore !==
+      toolBindings.tools.executedTools.pgRestoreBinarySha256 ||
+    closure.toolFileSha256.psql !==
+      toolBindings.tools.executedTools.psqlBinarySha256 ||
     closure.psqlFileSha256 !==
       toolBindings.tools.executedTools.psqlBinarySha256 ||
     closure.closureSha256 !==
@@ -1179,7 +1577,43 @@ async function assertToolBindingsStable(toolBindings) {
     closure.manifestSha256 !==
       toolBindings.tools.executedTools.psqlRuntimeManifestSha256
   ) {
-    fail("TOOL_DRIFT", "psql runtime closure changed during the comparison");
+    fail(
+      "TOOL_DRIFT",
+      "PostgreSQL toolset runtime closure changed during the comparison",
+    );
+  }
+  let extensionClosure;
+  try {
+    extensionClosure = verifyPostgresqlExtensionRuntimeClosure({
+      expectedClosureSha256:
+        toolBindings.tools.executedTools
+          .postgresqlExtensionRuntimeClosureSha256,
+      expectedManifestSha256:
+        toolBindings.tools.contextBindings
+          .postgresqlExtensionRuntimeManifestSha256,
+      manifestPath: realpathSync(
+        join(PROJECT_ROOT, POSTGRESQL_EXTENSION_RUNTIME_CLOSURE_MANIFEST_PATH),
+      ),
+    });
+  } catch (error) {
+    throw safeFailure(
+      error,
+      "TOOL_DRIFT",
+      "PostgreSQL extension runtime closure changed during the comparison",
+    );
+  }
+  if (
+    extensionClosure.closureSha256 !==
+      toolBindings.tools.executedTools
+        .postgresqlExtensionRuntimeClosureSha256 ||
+    extensionClosure.manifestSha256 !==
+      toolBindings.tools.contextBindings
+        .postgresqlExtensionRuntimeManifestSha256
+  ) {
+    fail(
+      "TOOL_DRIFT",
+      "PostgreSQL extension runtime closure changed during the comparison",
+    );
   }
 }
 
@@ -1321,6 +1755,21 @@ function assertExpectedSourceRegistrationPins(input, facts, toolBindings) {
       "source-registration rehearsal test differs from its expected pin",
     );
   }
+  if (
+    toolBindings.projectFacts.companionReceiptSchema.sha256 !==
+      input.expectedCompanionReceiptSchemaSha256 ||
+    toolBindings.projectFacts.companionTest.sha256 !==
+      input.expectedCompanionTestSha256 ||
+    toolBindings.projectFacts.packageJson.sha256 !==
+      input.expectedSourceRegistrationPackageJsonSha256 ||
+    toolBindings.projectFacts.tsxRuntimeConfig.sha256 !==
+      input.expectedSourceRegistrationTsxConfigSha256
+  ) {
+    fail(
+      "EXPECTED_PRELOAD_CONTEXT_BINDING",
+      "companion preload context differs from an expected pin",
+    );
+  }
 }
 
 function logicalCloneRehearsalBinding(receipt, receiptFileSha256) {
@@ -1413,7 +1862,7 @@ function parseLogicalCloneRehearsalCallback(stdout) {
   return value;
 }
 
-function controlledRehearsalLauncherEnvironment({
+export function controlledRehearsalChildEnvironment({
   cloneDatabaseUrl,
   logicalComparisonProof,
   input,
@@ -1442,9 +1891,25 @@ function controlledRehearsalLauncherEnvironment({
     SOURCE_REGISTRATION_REHEARSAL_OUTPUT_FILE: input.rehearsalOutputPath,
     SOURCE_REGISTRATION_REHEARSAL_PRIMARY_CORPUS_ROOT: input.primaryCorpusRoot,
     SOURCE_REGISTRATION_REHEARSAL_REPLICA_CORPUS_ROOT: input.replicaCorpusRoot,
+    SOURCE_REGISTRATION_LAUNCH_ATTESTATION_FD: "3",
+    SOURCE_REGISTRATION_LAUNCHER_PID: String(process.pid),
     TMPDIR: "/tmp",
+    TSX_TSCONFIG_PATH: realpathSync(
+      join(PROJECT_ROOT, PROJECT_BINDING_PATHS.tsxRuntimeConfig),
+    ),
     TZ: "UTC",
   };
+}
+
+export function controlledRehearsalCodePinArguments(toolBindings) {
+  const facts = toolBindings.projectFacts;
+  return [
+    `--apply-runner-sha256=${facts.sourceRegistrationApplyRunner.sha256}`,
+    `--rehearsal-runtime-sha256=${facts.sourceRegistrationLogicalCloneRehearsalRuntime.sha256}`,
+    `--rehearsal-schema-sha256=${facts.sourceRegistrationLogicalCloneRehearsalSchema.sha256}`,
+    `--rehearsal-test-sha256=${facts.sourceRegistrationLogicalCloneRehearsalTest.sha256}`,
+    `--rehearsal-command-runner-sha256=${facts.sourceRegistrationLogicalCloneRehearsalCommandRunner.sha256}`,
+  ];
 }
 
 function validateRehearsalReceiptValue({
@@ -1529,7 +1994,32 @@ function validateRehearsalReceiptValue({
   return receipt;
 }
 
-async function prepareSourceRegistrationRehearsal({ input, toolBindings }) {
+export async function executeControlledReattestedNestedRehearsal({
+  reattestRuntime,
+  runNestedChild,
+}) {
+  if (
+    typeof reattestRuntime !== "function" ||
+    typeof runNestedChild !== "function"
+  ) {
+    fail(
+      "REHEARSAL_RUNTIME_ATTESTATION",
+      "nested rehearsal runtime callbacks are invalid",
+    );
+  }
+  const runtimeAttestation = await reattestRuntime();
+  try {
+    return await runNestedChild(runtimeAttestation);
+  } finally {
+    await reattestRuntime();
+  }
+}
+
+async function prepareSourceRegistrationRehearsal({
+  input,
+  launcherAttestation,
+  toolBindings,
+}) {
   validatePrivateOutputPath(
     input.rehearsalOutputPath,
     "logical-clone rehearsal receipt output",
@@ -1563,8 +2053,16 @@ async function prepareSourceRegistrationRehearsal({ input, toolBindings }) {
   let codeBindings;
   let plan;
   try {
-    codeBindings =
-      applyRunner.sourceRegistrationApplyCodeBindings(PROJECT_ROOT);
+    codeBindings = applyRunner.sourceRegistrationApplyCodeBindings(
+      PROJECT_ROOT,
+      launcherAttestation,
+    );
+    if (!canonicalEqual(launcherAttestation, codeBindings.runtimeEnvironment)) {
+      fail(
+        "LAUNCHER_ATTESTATION",
+        "launcher runtime differs from the companion runtime",
+      );
+    }
     plan = applyRunner.loadLockedSourceRegistrationPlan(PROJECT_ROOT);
     applyRunner.verifyLockedPlanInputs({
       manifestPath: SOURCE_REGISTRATION_BATCH_PATH,
@@ -1657,25 +2155,52 @@ async function prepareSourceRegistrationRehearsal({ input, toolBindings }) {
     );
   };
 
-  return {
-    async assertRuntimeStable() {
-      let current;
+  const assertRuntimeStable = async ({ full = false } = {}) => {
+    await assertToolBindingsStable(toolBindings);
+    let currentAttestation = launcherAttestation;
+    if (full) {
       try {
-        current =
+        currentAttestation =
           applyRunner.sourceRegistrationRuntimeAttestation(PROJECT_ROOT);
       } catch (error) {
         throw safeFailure(
           error,
           "REHEARSAL_RUNTIME_DRIFT",
-          "source-registration runtime could not be re-attested",
+          "source-registration runtime could not be fully re-attested",
         );
       }
-      if (!canonicalEqual(current, codeBindings.runtimeEnvironment)) {
+      if (!canonicalEqual(currentAttestation, launcherAttestation)) {
         fail(
           "REHEARSAL_RUNTIME_DRIFT",
           "source-registration runtime attestation changed",
         );
       }
+    }
+    let current;
+    try {
+      current = applyRunner.sourceRegistrationApplyCodeBindings(
+        PROJECT_ROOT,
+        currentAttestation,
+      );
+    } catch (error) {
+      throw safeFailure(
+        error,
+        "REHEARSAL_RUNTIME_DRIFT",
+        "source-registration runtime could not be re-attested",
+      );
+    }
+    if (!canonicalEqual(current, codeBindings)) {
+      fail(
+        "REHEARSAL_RUNTIME_DRIFT",
+        "source-registration runtime code bindings changed",
+      );
+    }
+    return currentAttestation;
+  };
+
+  return {
+    async assertRuntimeStable() {
+      await assertRuntimeStable();
     },
     async run({ cloneDatabaseUrl, logicalComparisonProof, signal }) {
       const { logicalComparisonProofSha256, ...proofBody } =
@@ -1698,25 +2223,45 @@ async function prepareSourceRegistrationRehearsal({ input, toolBindings }) {
         input.rehearsalOutputPath,
         "logical-clone rehearsal receipt output",
       );
-      const result = await runControlledNonInterruptibleNestedCommand({
-        abortSignal: signal,
-        args: [
-          realpathSync(
-            join(
-              PROJECT_ROOT,
-              PROJECT_BINDING_PATHS.sourceRegistrationLauncher,
-            ),
-          ),
-          "--rehearse-logical-clone",
-        ],
-        environment: controlledRehearsalLauncherEnvironment({
-          cloneDatabaseUrl,
-          input,
-          logicalComparisonProof: sharedProof,
-          toolBindings,
-        }),
-        executable: realpathSync(process.execPath),
-        cwd: PROJECT_ROOT,
+      const cloneConnection = parsePostgresUrl(
+        cloneDatabaseUrl,
+        "logical-clone rehearsal database URL",
+      );
+      if (
+        !cloneConnection.databaseName.startsWith(
+          CONTROLLED_LOGICAL_RESTORE_CLONE_PREFIX,
+        )
+      ) {
+        fail(
+          "REHEARSAL_DATABASE_TARGET",
+          "nested rehearsal database is not a disposable logical clone",
+        );
+      }
+      const result = await executeControlledReattestedNestedRehearsal({
+        reattestRuntime: () => assertRuntimeStable({ full: true }),
+        runNestedChild: (currentAttestation) =>
+          runControlledAttestedNestedRehearsalCommand({
+            abortSignal: signal,
+            args: [
+              "--import=tsx",
+              realpathSync(
+                join(
+                  PROJECT_ROOT,
+                  PROJECT_BINDING_PATHS.sourceRegistrationLogicalCloneRehearsalCommandRunner,
+                ),
+              ),
+              ...controlledRehearsalCodePinArguments(toolBindings),
+            ],
+            environment: controlledRehearsalChildEnvironment({
+              cloneDatabaseUrl,
+              input,
+              logicalComparisonProof: sharedProof,
+              toolBindings,
+            }),
+            executable: realpathSync(process.execPath),
+            cwd: PROJECT_ROOT,
+            runtimeAttestation: currentAttestation,
+          }),
       });
       const callback = parseLogicalCloneRehearsalCallback(result.stdout);
       const binding = readAndBind(sharedProof);
@@ -1737,8 +2282,7 @@ async function prepareSourceRegistrationRehearsal({ input, toolBindings }) {
       return binding;
     },
     async reverify(expectedLogicalComparisonProof) {
-      await assertToolBindingsStable(toolBindings);
-      await this.assertRuntimeStable();
+      await assertRuntimeStable();
       return readAndBind(expectedLogicalComparisonProof);
     },
   };
@@ -1812,15 +2356,43 @@ export function controlledCloneDigestDatabaseUrl(adminDatabaseUrl, cloneName) {
   if (!SAFE_DATABASE_NAME.test(cloneName)) {
     fail("CLONE_NAME", "generated clone name is not safe");
   }
-  return cloneDatabaseUrl(
-    parsePostgresUrl(adminDatabaseUrl, "restore admin database URL"),
-    cloneName,
+  const connection = parsePostgresUrl(
+    adminDatabaseUrl,
+    "restore admin database URL",
   );
+  if (
+    connection.databaseName !== "postgres" ||
+    connection.user !== "foodsystems"
+  ) {
+    fail("DATABASE_TARGET", "restore connection role differs");
+  }
+  return cloneDatabaseUrl(connection, cloneName);
 }
 
-function controlledCloneName(now = new Date()) {
+export function controlledCloneName(ownershipToken, now = new Date()) {
+  if (
+    !OWNERSHIP_TOKEN_PATTERN.test(ownershipToken) ||
+    !(now instanceof Date) ||
+    !Number.isFinite(now.valueOf())
+  ) {
+    fail("CLONE_OWNERSHIP", "clone ownership token is invalid");
+  }
   const date = now.toISOString().slice(0, 10).replaceAll("-", "");
-  return `${CONTROLLED_LOGICAL_RESTORE_CLONE_PREFIX}${date}_${randomBytes(12).toString("hex")}`;
+  const tokenBoundSuffix = logicalRestoreCompanionSha256(
+    `${CONTROLLED_LOGICAL_RESTORE_NAME_DOMAIN}${ownershipToken}`,
+  ).slice(0, 24);
+  return `${CONTROLLED_LOGICAL_RESTORE_CLONE_PREFIX}${date}_${tokenBoundSuffix}`;
+}
+
+function cloneNameMatchesOwnershipToken(databaseName, ownershipToken) {
+  if (!OWNERSHIP_TOKEN_PATTERN.test(ownershipToken)) return false;
+  const match = new RegExp(
+    `^${CONTROLLED_LOGICAL_RESTORE_CLONE_PREFIX}\\d{8}_([a-f0-9]{24})$`,
+  ).exec(databaseName);
+  const expectedSuffix = logicalRestoreCompanionSha256(
+    `${CONTROLLED_LOGICAL_RESTORE_NAME_DOMAIN}${ownershipToken}`,
+  ).slice(0, 24);
+  return match?.[1] === expectedSuffix;
 }
 
 function cloneNameSha256(cloneName) {
@@ -1838,21 +2410,211 @@ function ownershipMarkerSha256(ownershipToken) {
   );
 }
 
-async function runCommand({
+function readExactDescriptorBytes(descriptor, byteCount, code, message) {
+  if (
+    !Number.isInteger(descriptor) ||
+    descriptor < 0 ||
+    !Number.isSafeInteger(byteCount) ||
+    byteCount <= 0 ||
+    byteCount > MAX_RESTORE_LIST_BYTES
+  ) {
+    fail(code, message);
+  }
+  const bytes = Buffer.allocUnsafe(byteCount);
+  let offset = 0;
+  try {
+    while (offset < byteCount) {
+      const read = readSync(
+        descriptor,
+        bytes,
+        offset,
+        byteCount - offset,
+        offset,
+      );
+      if (read <= 0) fail(code, message);
+      offset += read;
+    }
+  } catch (error) {
+    throw safeFailure(error, code, message);
+  }
+  return bytes;
+}
+
+export function parseControlledExtensionInitializerDiagnostic(
+  stderrBytes,
+  exitCode,
+) {
+  if (!Buffer.isBuffer(stderrBytes) || !Number.isInteger(exitCode)) return null;
+  for (const candidate of CONTROLLED_EXTENSION_INITIALIZER_EXACT_DIAGNOSTICS) {
+    if (
+      candidate.exitCode === exitCode &&
+      stderrBytes.equals(candidate.bytes)
+    ) {
+      return candidate.controlledCode;
+    }
+  }
+  return null;
+}
+
+/**
+ * @param {{
+ *   args: string[],
+ *   auxiliaryDescriptor?: number,
+ *   auxiliaryDescriptorIdentity?: import("node:fs").BigIntStats,
+ *   auxiliaryDescriptorPolicy?: string,
+ *   auxiliaryDescriptorSha256?: string,
+ *   cwd?: string,
+ *   environment: NodeJS.ProcessEnv,
+ *   executable: string,
+ *   inheritedDescriptor?: number,
+ *   failureDiagnosticPolicy?: string,
+ *   inputEarlyClosePolicy?: string,
+ *   inputFile?: string,
+ *   inputIdentity?: import("node:fs").BigIntStats,
+ *   inputText?: string,
+ *   signal?: AbortSignal,
+ * }} options
+ */
+export async function runControlledCommand({
   args,
-  cwd,
+  auxiliaryDescriptor = undefined,
+  auxiliaryDescriptorIdentity = undefined,
+  auxiliaryDescriptorPolicy = undefined,
+  auxiliaryDescriptorSha256 = undefined,
+  cwd = undefined,
   environment,
   executable,
-  inputFile,
-  inputIdentity,
-  inputText,
-  signal,
+  failureDiagnosticPolicy = undefined,
+  inheritedDescriptor = undefined,
+  inputEarlyClosePolicy = undefined,
+  inputFile = undefined,
+  inputIdentity = undefined,
+  inputText = undefined,
+  signal = undefined,
 }) {
-  if (inputFile && inputText !== undefined) {
+  if (
+    (inputFile && inputText !== undefined) ||
+    (inheritedDescriptor !== undefined &&
+      (inputFile ||
+        inputText !== undefined ||
+        auxiliaryDescriptor !== undefined)) ||
+    (auxiliaryDescriptor !== undefined && !inputFile)
+  ) {
     fail("COMMAND_INPUT", "controlled command input is ambiguous");
+  }
+  const acceptsCatalogEpipe =
+    inputEarlyClosePolicy === CONTROLLED_ARCHIVE_CATALOG_INPUT_POLICY &&
+    Boolean(inputFile) &&
+    inputText === undefined &&
+    inheritedDescriptor === undefined &&
+    Array.isArray(args) &&
+    args.length === 1 &&
+    args[0] === "--list" &&
+    basename(executable) === "pg_restore";
+  if (inputEarlyClosePolicy !== undefined && !acceptsCatalogEpipe) {
+    fail(
+      "COMMAND_INPUT",
+      "controlled input early-close policy is not an exact pg_restore catalog operation",
+    );
+  }
+  const acceptsRestoreUseList =
+    auxiliaryDescriptorPolicy === CONTROLLED_RESTORE_USE_LIST_POLICY &&
+    Number.isInteger(auxiliaryDescriptor) &&
+    auxiliaryDescriptor >= 3 &&
+    auxiliaryDescriptorIdentity !== undefined &&
+    typeof auxiliaryDescriptorSha256 === "string" &&
+    SHA256_PATTERN.test(auxiliaryDescriptorSha256) &&
+    Boolean(inputFile) &&
+    inputText === undefined &&
+    inheritedDescriptor === undefined &&
+    inputEarlyClosePolicy === undefined &&
+    Array.isArray(args) &&
+    args.length === 7 &&
+    args[0] === "--exit-on-error" &&
+    args[1] === "--no-owner" &&
+    args[2] === "--no-acl" &&
+    args[3] === "--no-comments" &&
+    args[4] === "--single-transaction" &&
+    args[5] === "--use-list=/dev/fd/3" &&
+    /^--dbname=foodsystems_restore_[a-z0-9_]+$/.test(args[6]) &&
+    basename(executable) === "pg_restore";
+  const acceptsExtensionInitializerDiagnostic =
+    failureDiagnosticPolicy ===
+      CONTROLLED_EXTENSION_INITIALIZER_DIAGNOSTIC_POLICY &&
+    inheritedDescriptor !== undefined &&
+    inputFile === undefined &&
+    inputText === undefined &&
+    auxiliaryDescriptor === undefined &&
+    Array.isArray(args) &&
+    args.length === 1 &&
+    realpathSync(args[0]) ===
+      realpathSync(
+        join(
+          PROJECT_ROOT,
+          PROJECT_BINDING_PATHS.postgresqlExtensionInitializer,
+        ),
+      ) &&
+    realpathSync(executable) === realpathSync(process.execPath);
+  if (
+    failureDiagnosticPolicy !== undefined &&
+    !acceptsExtensionInitializerDiagnostic
+  ) {
+    fail(
+      "COMMAND_INPUT",
+      "controlled failure diagnostic policy is not an exact extension initializer operation",
+    );
+  }
+  if (
+    (auxiliaryDescriptor !== undefined ||
+      auxiliaryDescriptorIdentity !== undefined ||
+      auxiliaryDescriptorSha256 !== undefined ||
+      auxiliaryDescriptorPolicy !== undefined) &&
+    !acceptsRestoreUseList
+  ) {
+    fail(
+      "COMMAND_INPUT",
+      "controlled auxiliary descriptor is not an exact pg_restore use-list operation",
+    );
+  }
+  let auxiliaryBefore;
+  if (acceptsRestoreUseList) {
+    try {
+      auxiliaryBefore = fstatSync(auxiliaryDescriptor, { bigint: true });
+    } catch {
+      fail("RESTORE_LIST_DESCRIPTOR", "restore use-list descriptor is invalid");
+    }
+    const currentUid = process.getuid?.();
+    if (
+      !sameStableFileIdentity(auxiliaryDescriptorIdentity, auxiliaryBefore) ||
+      !auxiliaryBefore.isFile() ||
+      auxiliaryBefore.isSymbolicLink() ||
+      auxiliaryBefore.nlink !== 0n ||
+      (Number(auxiliaryBefore.mode) & 0o777) !== 0o400 ||
+      auxiliaryBefore.size <= 0n ||
+      auxiliaryBefore.size > BigInt(MAX_RESTORE_LIST_BYTES) ||
+      (currentUid !== undefined && auxiliaryBefore.uid !== BigInt(currentUid))
+    ) {
+      fail("RESTORE_LIST_DESCRIPTOR", "restore use-list descriptor is invalid");
+    }
+    const auxiliaryBytes = readExactDescriptorBytes(
+      auxiliaryDescriptor,
+      Number(auxiliaryBefore.size),
+      "RESTORE_LIST_DESCRIPTOR",
+      "restore use-list descriptor bytes differ",
+    );
+    if (
+      logicalRestoreCompanionSha256(auxiliaryBytes) !==
+      auxiliaryDescriptorSha256
+    ) {
+      fail(
+        "RESTORE_LIST_DESCRIPTOR",
+        "restore use-list descriptor hash differs",
+      );
+    }
   }
   let child;
   let inputDescriptor;
+  let inputStreamDescriptor;
   try {
     child = spawn(executable, args, {
       cwd,
@@ -1862,6 +2624,8 @@ async function runCommand({
         inputFile || inputText !== undefined ? "pipe" : "ignore",
         "pipe",
         "pipe",
+        ...(inheritedDescriptor === undefined ? [] : [inheritedDescriptor]),
+        ...(auxiliaryDescriptor === undefined ? [] : [auxiliaryDescriptor]),
       ],
     });
   } catch (error) {
@@ -1908,22 +2672,50 @@ async function runCommand({
         constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0),
       );
       const before = fstatSync(inputDescriptor, { bigint: true });
-      if (!sameFileIdentity(inputIdentity, before)) {
+      if (!sameStableFileIdentity(inputIdentity, before)) {
         fail("DUMP_CHANGED", "backup dump changed before command input");
       }
+      inputStreamDescriptor = openSync(
+        inputFile,
+        constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0),
+      );
+      const streamBefore = fstatSync(inputStreamDescriptor, { bigint: true });
+      if (!sameStableFileIdentity(inputIdentity, streamBefore)) {
+        fail("DUMP_CHANGED", "backup dump changed before command streaming");
+      }
       const stream = createReadStream(inputFile, {
-        autoClose: false,
-        fd: inputDescriptor,
+        autoClose: true,
+        fd: inputStreamDescriptor,
         start: 0,
       });
-      inputCompletion = pipeline(stream, child.stdin).then(() => {
-        const after = fstatSync(inputDescriptor, { bigint: true });
-        if (!sameFileIdentity(inputIdentity, after)) {
-          fail("DUMP_CHANGED", "backup dump changed during command input");
-        }
-      });
+      inputStreamDescriptor = undefined;
+      inputCompletion = pipeline(stream, child.stdin)
+        .catch((error) => {
+          if (
+            !acceptsCatalogEpipe ||
+            !error ||
+            typeof error !== "object" ||
+            error.code !== "EPIPE"
+          ) {
+            throw error;
+          }
+        })
+        .then(() => {
+          const after = fstatSync(inputDescriptor, { bigint: true });
+          if (!sameStableFileIdentity(inputIdentity, after)) {
+            fail("DUMP_CHANGED", "backup dump changed during command input");
+          }
+        });
     } catch (error) {
       child.kill("SIGTERM");
+      if (inputStreamDescriptor !== undefined) {
+        closeSync(inputStreamDescriptor);
+        inputStreamDescriptor = undefined;
+      }
+      if (inputDescriptor !== undefined) {
+        closeSync(inputDescriptor);
+        inputDescriptor = undefined;
+      }
       throw safeFailure(
         error,
         "DUMP_STREAM",
@@ -1953,18 +2745,78 @@ async function runCommand({
   } finally {
     if (inputDescriptor !== undefined) closeSync(inputDescriptor);
   }
-  if (
-    overflow ||
-    result.code !== 0 ||
-    result.exitSignal ||
-    Buffer.concat(stderr).toString("utf8").trim() !== ""
-  ) {
+  if (acceptsRestoreUseList) {
+    let auxiliaryAfter;
+    try {
+      auxiliaryAfter = fstatSync(auxiliaryDescriptor, { bigint: true });
+    } catch {
+      fail("RESTORE_LIST_DESCRIPTOR", "restore use-list descriptor changed");
+    }
+    if (
+      !sameStableFileIdentity(auxiliaryBefore, auxiliaryAfter) ||
+      auxiliaryAfter.nlink !== 0n
+    ) {
+      fail("RESTORE_LIST_DESCRIPTOR", "restore use-list descriptor changed");
+    }
+    const auxiliaryBytes = readExactDescriptorBytes(
+      auxiliaryDescriptor,
+      Number(auxiliaryAfter.size),
+      "RESTORE_LIST_DESCRIPTOR",
+      "restore use-list descriptor bytes changed",
+    );
+    if (
+      logicalRestoreCompanionSha256(auxiliaryBytes) !==
+      auxiliaryDescriptorSha256
+    ) {
+      fail(
+        "RESTORE_LIST_DESCRIPTOR",
+        "restore use-list descriptor hash changed",
+      );
+    }
+  }
+  const extensionInitializerDiagnostic =
+    acceptsExtensionInitializerDiagnostic &&
+    !overflow &&
+    !result.exitSignal &&
+    stdoutBytes === 0
+      ? parseControlledExtensionInitializerDiagnostic(
+          Buffer.concat(stderr),
+          result.code,
+        )
+      : null;
+  if (extensionInitializerDiagnostic) {
+    fail(
+      extensionInitializerDiagnostic,
+      "extension initializer failed with a controlled diagnostic",
+    );
+  }
+  if (overflow || result.code !== 0 || result.exitSignal || stderrBytes !== 0) {
     fail("COMMAND_FAILED", "a controlled database command failed closed");
   }
   return {
     stderr: Buffer.concat(stderr).toString("utf8"),
     stdout: Buffer.concat(stdout).toString("utf8"),
   };
+}
+
+export async function runControlledCommandPhase({ code, operation }) {
+  if (
+    !CONTROLLED_COMMAND_PHASE_CODES.has(code) ||
+    typeof operation !== "function"
+  ) {
+    fail("CONTROLLED_FAILURE", "controlled command phase is invalid");
+  }
+  try {
+    return await operation();
+  } catch (error) {
+    if (
+      error instanceof ControlledLogicalRestoreError &&
+      ["COMMAND_FAILED", "COMMAND_START"].includes(error.code)
+    ) {
+      fail(code, "controlled database command phase failed closed");
+    }
+    throw error;
+  }
 }
 
 /**
@@ -1975,6 +2827,7 @@ async function runCommand({
 export async function runControlledNonInterruptibleNestedCommand({
   abortSignal,
   args,
+  attestationDescriptor,
   cwd,
   environment,
   executable,
@@ -1982,31 +2835,814 @@ export async function runControlledNonInterruptibleNestedCommand({
   if (abortSignal?.aborted) {
     fail("HANDLED_SIGNAL", "handled signal interrupted before nested launch");
   }
-  const result = await runCommand({
+  let before;
+  try {
+    before = fstatSync(attestationDescriptor, { bigint: true });
+  } catch {
+    fail(
+      "REHEARSAL_LAUNCHER_ATTESTATION",
+      "nested rehearsal attestation descriptor is required",
+    );
+  }
+  const currentUid = process.getuid?.();
+  if (
+    !before.isFile() ||
+    before.isSymbolicLink() ||
+    before.nlink !== 0n ||
+    (Number(before.mode) & 0o777) !== 0o400 ||
+    (currentUid !== undefined && before.uid !== BigInt(currentUid)) ||
+    before.size <= 0n ||
+    before.size > 100_000n ||
+    environment.SOURCE_REGISTRATION_LAUNCH_ATTESTATION_FD !== "3" ||
+    environment.SOURCE_REGISTRATION_LAUNCHER_PID !== String(process.pid)
+  ) {
+    fail(
+      "REHEARSAL_LAUNCHER_ATTESTATION",
+      "nested rehearsal attestation descriptor is invalid",
+    );
+  }
+  const result = await runControlledCommand({
     args,
     cwd,
     environment,
     executable,
+    inheritedDescriptor: attestationDescriptor,
   });
+  const after = fstatSync(attestationDescriptor, { bigint: true });
+  if (!sameFileIdentity(before, after) || after.nlink !== 0n) {
+    fail(
+      "REHEARSAL_LAUNCHER_ATTESTATION",
+      "nested rehearsal attestation descriptor changed",
+    );
+  }
   return {
     ...result,
     abortObservedAfterCompletion: Boolean(abortSignal?.aborted),
   };
 }
 
-function assertArchiveCatalog(catalog) {
+export async function runControlledAttestedNestedRehearsalCommand({
+  abortSignal,
+  args,
+  cwd,
+  environment,
+  executable,
+  runtimeAttestation,
+}) {
+  const canonicalExecutable = realpathSync(executable);
+  if (canonicalExecutable !== realpathSync(process.execPath)) {
+    fail(
+      "REHEARSAL_EXECUTABLE",
+      "nested rehearsal must use the active absolute Node executable",
+    );
+  }
+  const envelope = controlledNestedRehearsalRuntimeEnvelope(
+    runtimeAttestation,
+    { launcherPid: process.pid },
+  );
+  const bytes = Buffer.from(
+    `${canonicalLogicalRestoreCompanionJson(envelope)}\n`,
+    "utf8",
+  );
+  if (bytes.length === 0 || bytes.length > 100_000) {
+    fail(
+      "REHEARSAL_LAUNCHER_ATTESTATION",
+      "nested rehearsal attestation envelope has an unsafe size",
+    );
+  }
+  const temporaryRoot = realpathSync("/tmp");
+  const directory = realpathSync(
+    mkdtempSync(
+      join(temporaryRoot, CONTROLLED_REHEARSAL_ATTESTATION_DIRECTORY_PREFIX),
+    ),
+  );
+  chmodSync(directory, 0o700);
+  const envelopePath = join(directory, "runtime-attestation.json");
+  let descriptor;
+  let parentDescriptor;
+  let writer;
+  try {
+    const parentStats = lstatSync(directory, { bigint: true });
+    const currentUid = process.getuid?.();
+    if (
+      dirname(directory) !== temporaryRoot ||
+      !basename(directory).startsWith(
+        CONTROLLED_REHEARSAL_ATTESTATION_DIRECTORY_PREFIX,
+      ) ||
+      !parentStats.isDirectory() ||
+      parentStats.isSymbolicLink() ||
+      (Number(parentStats.mode) & 0o777) !== 0o700 ||
+      (currentUid !== undefined && parentStats.uid !== BigInt(currentUid))
+    ) {
+      fail(
+        "REHEARSAL_LAUNCHER_ATTESTATION",
+        "nested rehearsal attestation parent is invalid",
+      );
+    }
+    parentDescriptor = openSync(
+      directory,
+      constants.O_RDONLY |
+        (constants.O_DIRECTORY ?? 0) |
+        (constants.O_NOFOLLOW ?? 0),
+    );
+    writer = openSync(
+      envelopePath,
+      constants.O_CREAT |
+        constants.O_EXCL |
+        constants.O_WRONLY |
+        (constants.O_NOFOLLOW ?? 0),
+      0o600,
+    );
+    writeFileSync(writer, bytes);
+    fchmodSync(writer, 0o400);
+    fsyncSync(writer);
+    closeSync(writer);
+    writer = undefined;
+    descriptor = openSync(
+      envelopePath,
+      constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0),
+    );
+    fsyncSync(descriptor);
+    const pathStats = lstatSync(envelopePath, { bigint: true });
+    const descriptorStats = fstatSync(descriptor, { bigint: true });
+    if (
+      !sameFileIdentity(pathStats, descriptorStats) ||
+      descriptorStats.nlink !== 1n ||
+      (Number(descriptorStats.mode) & 0o777) !== 0o400 ||
+      descriptorStats.size !== BigInt(bytes.length)
+    ) {
+      fail(
+        "REHEARSAL_LAUNCHER_ATTESTATION",
+        "nested rehearsal attestation file is invalid",
+      );
+    }
+    unlinkSync(envelopePath);
+    fsyncSync(parentDescriptor);
+    const unlinked = fstatSync(descriptor, { bigint: true });
+    if (!sameFileIdentity(descriptorStats, unlinked) || unlinked.nlink !== 0n) {
+      fail(
+        "REHEARSAL_LAUNCHER_ATTESTATION",
+        "nested rehearsal attestation did not become private",
+      );
+    }
+    return await runControlledNonInterruptibleNestedCommand({
+      abortSignal,
+      args,
+      attestationDescriptor: descriptor,
+      cwd,
+      environment,
+      executable: canonicalExecutable,
+    });
+  } finally {
+    if (writer !== undefined) closeSync(writer);
+    if (descriptor !== undefined) closeSync(descriptor);
+    try {
+      unlinkSync(envelopePath);
+    } catch (error) {
+      if (!error || error.code !== "ENOENT") {
+        throw safeFailure(
+          error,
+          "REHEARSAL_LAUNCHER_ATTESTATION",
+          "nested rehearsal attestation cleanup failed",
+        );
+      }
+    }
+    if (parentDescriptor !== undefined) closeSync(parentDescriptor);
+    rmdirSync(directory);
+  }
+}
+
+export function assertControlledArchiveCatalog(catalog) {
   if (typeof catalog !== "string" || catalog.length === 0) {
     fail("ARCHIVE_CATALOG", "backup archive catalog is empty");
   }
   for (const relation of REQUIRED_ARCHIVE_RELATIONS) {
     const escaped = relation.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     const pattern = new RegExp(
-      `(?:^|\\n)[^\\n]*\\sTABLE\\s+public\\s+${escaped}(?:\\s|$)`,
+      `(?:^|\\n)\\d+;\\s+\\d+\\s+\\d+\\s+TABLE\\s+public\\s+${escaped}(?:\\s|$)`,
     );
     if (!pattern.test(catalog)) {
       fail("ARCHIVE_CATALOG", "backup archive is missing a required relation");
     }
   }
+}
+
+export function buildControlledRestoreSelection(catalog) {
+  assertControlledArchiveCatalog(catalog);
+  if (
+    !catalog.endsWith("\n") ||
+    catalog.includes("\r") ||
+    catalog.includes("\0") ||
+    Buffer.byteLength(catalog) > MAX_RESTORE_LIST_BYTES
+  ) {
+    fail("RESTORE_LIST_CATALOG", "restore archive catalog bytes differ");
+  }
+  const extensionCounts = new Map(
+    CONTROLLED_RESTORE_EXTENSIONS.map(({ name }) => [name, 0]),
+  );
+  const commentCounts = new Map(
+    CONTROLLED_RESTORE_EXTENSIONS.map(({ name }) => [name, 0]),
+  );
+  let extensionEntryCount = 0;
+  let commentEntryCount = 0;
+  const tocIds = new Set();
+  const filteredLines = catalog.split("\n").map((line) => {
+    if (line.length === 0) return line;
+    if (line.startsWith(";")) {
+      if (/^;\d+;/.test(line)) {
+        fail(
+          "RESTORE_LIST_CATALOG",
+          "restore archive contains a disabled entry",
+        );
+      }
+      return line;
+    }
+    const entry = line.match(/^(\d+);\s+(\d+)\s+(\d+)\s+(.+)$/);
+    if (!entry || tocIds.has(entry[1])) {
+      fail("RESTORE_LIST_CATALOG", "restore archive entry grammar differs");
+    }
+    tocIds.add(entry[1]);
+    const extension = line.match(
+      /^\d+;\s+\d+\s+\d+\s+EXTENSION\s+-\s+(\S+)\s*$/,
+    );
+    if (extension) {
+      extensionEntryCount += 1;
+      if (!extensionCounts.has(extension[1])) {
+        fail("RESTORE_LIST_CATALOG", "restore archive extension set differs");
+      }
+      extensionCounts.set(extension[1], extensionCounts.get(extension[1]) + 1);
+      return `;${line}`;
+    }
+    const comment = line.match(
+      /^\d+;\s+\d+\s+\d+\s+COMMENT\s+-\s+EXTENSION\s+(\S+)\s*$/,
+    );
+    if (/^COMMENT(?:\s|$)/.test(entry[4])) {
+      commentEntryCount += 1;
+      if (!comment || !commentCounts.has(comment[1])) {
+        fail("RESTORE_LIST_CATALOG", "restore archive comment set differs");
+      }
+      commentCounts.set(comment[1], commentCounts.get(comment[1]) + 1);
+    }
+    return line;
+  });
+  if (
+    extensionEntryCount !== CONTROLLED_RESTORE_EXTENSIONS.length ||
+    commentEntryCount !== CONTROLLED_RESTORE_EXTENSIONS.length ||
+    [...extensionCounts.values()].some((count) => count !== 1) ||
+    [...commentCounts.values()].some((count) => count !== 1)
+  ) {
+    fail("RESTORE_LIST_CATALOG", "restore archive extension entries differ");
+  }
+  const filteredCatalog = filteredLines.join("\n");
+  const body = {
+    catalogSha256: logicalRestoreCompanionSha256(catalog),
+    commentEntryCount,
+    excludedExtensionCount: extensionEntryCount,
+    filteredCatalog,
+    filteredCatalogSha256: logicalRestoreCompanionSha256(filteredCatalog),
+    policy: CONTROLLED_RESTORE_USE_LIST_POLICY,
+  };
+  return Object.freeze({
+    ...body,
+    selectionSha256: logicalRestoreCompanionSha256(
+      `${CONTROLLED_RESTORE_SELECTION_DOMAIN}${canonicalLogicalRestoreCompanionJson(
+        body,
+      )}`,
+    ),
+  });
+}
+
+export function createControlledRestoreListCapability(selection) {
+  const selectionKeys = [
+    "catalogSha256",
+    "commentEntryCount",
+    "excludedExtensionCount",
+    "filteredCatalog",
+    "filteredCatalogSha256",
+    "policy",
+    "selectionSha256",
+  ];
+  const selectionBody =
+    selection && typeof selection === "object" && !Array.isArray(selection)
+      ? Object.fromEntries(
+          selectionKeys
+            .filter((key) => key !== "selectionSha256")
+            .map((key) => [key, selection[key]]),
+        )
+      : null;
+  if (
+    !selection ||
+    typeof selection !== "object" ||
+    Array.isArray(selection) ||
+    JSON.stringify(Object.keys(selection).sort()) !==
+      JSON.stringify([...selectionKeys].sort()) ||
+    !SHA256_PATTERN.test(selection.catalogSha256) ||
+    selection.excludedExtensionCount !== 2 ||
+    selection.commentEntryCount !== 2 ||
+    selection.policy !== CONTROLLED_RESTORE_USE_LIST_POLICY ||
+    typeof selection.filteredCatalog !== "string" ||
+    !SHA256_PATTERN.test(selection.filteredCatalogSha256) ||
+    logicalRestoreCompanionSha256(selection.filteredCatalog) !==
+      selection.filteredCatalogSha256 ||
+    !SHA256_PATTERN.test(selection.selectionSha256) ||
+    selection.selectionSha256 !==
+      logicalRestoreCompanionSha256(
+        `${CONTROLLED_RESTORE_SELECTION_DOMAIN}${canonicalLogicalRestoreCompanionJson(
+          selectionBody,
+        )}`,
+      )
+  ) {
+    fail("RESTORE_LIST_CAPABILITY", "restore use-list selection differs");
+  }
+  const bytes = Buffer.from(selection.filteredCatalog, "utf8");
+  if (bytes.length <= 0 || bytes.length > MAX_RESTORE_LIST_BYTES) {
+    fail("RESTORE_LIST_CAPABILITY", "restore use-list bytes differ");
+  }
+  const temporaryRoot = realpathSync("/tmp");
+  const directory = realpathSync(
+    mkdtempSync(join(temporaryRoot, "foodsystems-logical-restore-list-")),
+  );
+  chmodSync(directory, 0o700);
+  const path = join(directory, "restore.list");
+  let descriptor;
+  let parentDescriptor;
+  let writer;
+  try {
+    const directoryPathStats = lstatSync(directory, { bigint: true });
+    parentDescriptor = openSync(
+      directory,
+      constants.O_RDONLY |
+        (constants.O_DIRECTORY ?? 0) |
+        (constants.O_NOFOLLOW ?? 0),
+    );
+    const directoryDescriptorStats = fstatSync(parentDescriptor, {
+      bigint: true,
+    });
+    const currentUid = process.getuid?.();
+    if (
+      !directoryPathStats.isDirectory() ||
+      !sameStableFileIdentity(directoryPathStats, directoryDescriptorStats) ||
+      (Number(directoryDescriptorStats.mode) & 0o777) !== 0o700 ||
+      (currentUid !== undefined &&
+        directoryDescriptorStats.uid !== BigInt(currentUid))
+    ) {
+      fail("RESTORE_LIST_CAPABILITY", "restore use-list directory differs");
+    }
+    writer = openSync(
+      path,
+      constants.O_CREAT |
+        constants.O_EXCL |
+        constants.O_WRONLY |
+        (constants.O_NOFOLLOW ?? 0),
+      0o600,
+    );
+    writeFileSync(writer, bytes);
+    fchmodSync(writer, 0o400);
+    fsyncSync(writer);
+    closeSync(writer);
+    writer = undefined;
+    const pathBefore = lstatSync(path, { bigint: true });
+    const pathAfterWrite = lstatSync(path, { bigint: true });
+    descriptor = openSync(
+      path,
+      constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0),
+    );
+    const linked = fstatSync(descriptor, { bigint: true });
+    const readBytes = readExactDescriptorBytes(
+      descriptor,
+      Number(linked.size),
+      "RESTORE_LIST_CAPABILITY",
+      "restore use-list descriptor bytes differ",
+    );
+    const pathAfterRead = lstatSync(path, { bigint: true });
+    if (
+      !sameStableFileIdentity(pathBefore, pathAfterWrite) ||
+      !sameStableFileIdentity(pathAfterWrite, linked) ||
+      !sameStableFileIdentity(linked, pathAfterRead) ||
+      linked.nlink !== 1n ||
+      (Number(linked.mode) & 0o777) !== 0o400 ||
+      !readBytes.equals(bytes) ||
+      logicalRestoreCompanionSha256(readBytes) !==
+        selection.filteredCatalogSha256
+    ) {
+      fail("RESTORE_LIST_CAPABILITY", "restore use-list file differs");
+    }
+    unlinkSync(path);
+    fsyncSync(parentDescriptor);
+    const unlinked = fstatSync(descriptor, { bigint: true });
+    if (!sameFileIdentity(linked, unlinked) || unlinked.nlink !== 0n) {
+      fail(
+        "RESTORE_LIST_CAPABILITY",
+        "restore use-list did not become private",
+      );
+    }
+    closeSync(parentDescriptor);
+    parentDescriptor = undefined;
+    rmdirSync(directory);
+    let open = true;
+    return Object.freeze({
+      close() {
+        if (!open) return;
+        open = false;
+        closeSync(descriptor);
+      },
+      descriptor,
+      identity: unlinked,
+      filteredCatalogSha256: selection.filteredCatalogSha256,
+    });
+  } catch (error) {
+    if (descriptor !== undefined) closeSync(descriptor);
+    if (writer !== undefined) closeSync(writer);
+    if (parentDescriptor !== undefined) closeSync(parentDescriptor);
+    try {
+      unlinkSync(path);
+    } catch {}
+    try {
+      rmdirSync(directory);
+    } catch {}
+    throw safeFailure(
+      error,
+      "RESTORE_LIST_CAPABILITY",
+      "restore use-list capability could not be created",
+    );
+  }
+}
+
+export async function runControlledSelectedRestoreCommand({
+  databaseName,
+  environment,
+  executable,
+  inputFile,
+  inputIdentity,
+  selection,
+  signal = undefined,
+}) {
+  if (!SAFE_DATABASE_NAME.test(databaseName)) {
+    fail("CLONE_NAME", "generated clone name is not safe");
+  }
+  const capability = createControlledRestoreListCapability(selection);
+  try {
+    return await runControlledCommand({
+      args: [
+        "--exit-on-error",
+        "--no-owner",
+        "--no-acl",
+        "--no-comments",
+        "--single-transaction",
+        "--use-list=/dev/fd/3",
+        `--dbname=${databaseName}`,
+      ],
+      auxiliaryDescriptor: capability.descriptor,
+      auxiliaryDescriptorIdentity: capability.identity,
+      auxiliaryDescriptorPolicy: CONTROLLED_RESTORE_USE_LIST_POLICY,
+      auxiliaryDescriptorSha256: capability.filteredCatalogSha256,
+      environment,
+      executable,
+      inputFile,
+      inputIdentity,
+      signal,
+    });
+  } finally {
+    capability.close();
+  }
+}
+
+export function createControlledExtensionInitializerRequestCapability(request) {
+  validateExtensionInitializerRequest(request, {
+    expectedParentPid: process.pid,
+    now: new Date(request.issuedAtUtc),
+  });
+  const bytes = Buffer.from(
+    `${canonicalExtensionInitializerJson(request)}\n`,
+    "utf8",
+  );
+  if (
+    bytes.length <= 0 ||
+    bytes.length > MAX_EXTENSION_INITIALIZER_REQUEST_BYTES
+  ) {
+    fail(
+      "EXTENSION_INITIALIZER_REQUEST",
+      "extension initializer request bytes differ",
+    );
+  }
+  const temporaryRoot = realpathSync("/tmp");
+  const directory = realpathSync(
+    mkdtempSync(
+      join(temporaryRoot, EXTENSION_INITIALIZER_REQUEST_DIRECTORY_PREFIX),
+    ),
+  );
+  chmodSync(directory, 0o700);
+  const path = join(directory, "request.json");
+  let descriptor;
+  let parentDescriptor;
+  let writer;
+  try {
+    const directoryPathStats = lstatSync(directory, { bigint: true });
+    parentDescriptor = openSync(
+      directory,
+      constants.O_RDONLY |
+        (constants.O_DIRECTORY ?? 0) |
+        (constants.O_NOFOLLOW ?? 0),
+    );
+    const directoryDescriptorStats = fstatSync(parentDescriptor, {
+      bigint: true,
+    });
+    const currentUid = process.getuid?.();
+    if (
+      !directoryPathStats.isDirectory() ||
+      !sameStableFileIdentity(directoryPathStats, directoryDescriptorStats) ||
+      (Number(directoryDescriptorStats.mode) & 0o777) !== 0o700 ||
+      (currentUid !== undefined &&
+        directoryDescriptorStats.uid !== BigInt(currentUid))
+    ) {
+      fail(
+        "EXTENSION_INITIALIZER_REQUEST",
+        "extension initializer request directory differs",
+      );
+    }
+    writer = openSync(
+      path,
+      constants.O_CREAT |
+        constants.O_EXCL |
+        constants.O_WRONLY |
+        (constants.O_NOFOLLOW ?? 0),
+      0o600,
+    );
+    writeFileSync(writer, bytes);
+    fchmodSync(writer, 0o400);
+    fsyncSync(writer);
+    closeSync(writer);
+    writer = undefined;
+    const pathBefore = lstatSync(path, { bigint: true });
+    descriptor = openSync(
+      path,
+      constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0),
+    );
+    const linked = fstatSync(descriptor, { bigint: true });
+    const descriptorBytes = readExactDescriptorBytes(
+      descriptor,
+      Number(linked.size),
+      "EXTENSION_INITIALIZER_REQUEST",
+      "extension initializer request descriptor differs",
+    );
+    const pathAfter = lstatSync(path, { bigint: true });
+    if (
+      !sameStableFileIdentity(pathBefore, linked) ||
+      !sameStableFileIdentity(linked, pathAfter) ||
+      linked.nlink !== 1n ||
+      (Number(linked.mode) & 0o777) !== 0o400 ||
+      !descriptorBytes.equals(bytes)
+    ) {
+      fail(
+        "EXTENSION_INITIALIZER_REQUEST",
+        "extension initializer request file differs",
+      );
+    }
+    unlinkSync(path);
+    fsyncSync(parentDescriptor);
+    const unlinked = fstatSync(descriptor, { bigint: true });
+    if (!sameFileIdentity(linked, unlinked) || unlinked.nlink !== 0n) {
+      fail(
+        "EXTENSION_INITIALIZER_REQUEST",
+        "extension initializer request did not become private",
+      );
+    }
+    closeSync(parentDescriptor);
+    parentDescriptor = undefined;
+    rmdirSync(directory);
+    let open = true;
+    return Object.freeze({
+      close() {
+        if (!open) return;
+        open = false;
+        closeSync(descriptor);
+      },
+      descriptor,
+      identity: unlinked,
+      requestSha256: request.requestSha256,
+      sha256: logicalRestoreCompanionSha256(bytes),
+    });
+  } catch (error) {
+    if (descriptor !== undefined) closeSync(descriptor);
+    if (writer !== undefined) closeSync(writer);
+    if (parentDescriptor !== undefined) closeSync(parentDescriptor);
+    try {
+      unlinkSync(path);
+    } catch {}
+    try {
+      rmdirSync(directory);
+    } catch {}
+    throw safeFailure(
+      error,
+      "EXTENSION_INITIALIZER_REQUEST",
+      "extension initializer request capability could not be created",
+    );
+  }
+}
+
+function parseControlledExtensionInitializerAttestation(stdout) {
+  if (
+    typeof stdout !== "string" ||
+    !stdout.endsWith("\n") ||
+    stdout.slice(0, -1).includes("\n")
+  ) {
+    fail(
+      "EXTENSION_INITIALIZER_ATTESTATION",
+      "extension initializer callback differs",
+    );
+  }
+  let value;
+  try {
+    value = JSON.parse(stdout.slice(0, -1));
+  } catch {
+    fail(
+      "EXTENSION_INITIALIZER_ATTESTATION",
+      "extension initializer callback JSON differs",
+    );
+  }
+  if (`${canonicalExtensionInitializerJson(value)}\n` !== stdout) {
+    fail(
+      "EXTENSION_INITIALIZER_ATTESTATION",
+      "extension initializer callback is not canonical",
+    );
+  }
+  return value;
+}
+
+export async function runControlledExtensionInitializer({
+  abortSignal,
+  cloneIdentity,
+  ownershipComment,
+  toolBindings,
+}) {
+  if (
+    !isPlainObject(cloneIdentity) ||
+    !Number.isSafeInteger(cloneIdentity.databaseOid) ||
+    cloneIdentity.databaseOid <= 0 ||
+    typeof cloneIdentity.databaseName !== "string" ||
+    !SAFE_DATABASE_NAME.test(cloneIdentity.databaseName) ||
+    cloneIdentity.databaseOwner !== "foodsystems" ||
+    cloneIdentity.connectionLimit !== 0 ||
+    cloneIdentity.serverVersionNum !== "160013" ||
+    cloneIdentity.systemIdentifier !== "7620055716543368057" ||
+    typeof ownershipComment !== "string" ||
+    ownershipComment !== cloneIdentity.ownershipComment
+  ) {
+    fail(
+      "EXTENSION_INITIALIZER_REQUEST",
+      "extension initializer clone identity differs",
+    );
+  }
+  const request = sealExtensionInitializerRequest({
+    clone: {
+      databaseName: cloneIdentity.databaseName,
+      databaseOid: cloneIdentity.databaseOid,
+      databaseOwner: cloneIdentity.databaseOwner,
+      ownershipComment,
+    },
+    cluster: {
+      serverVersionNum: cloneIdentity.serverVersionNum,
+      systemIdentifier: cloneIdentity.systemIdentifier,
+    },
+    format: LOGICAL_RESTORE_EXTENSION_INITIALIZER_REQUEST_FORMAT,
+    issuedAtUtc: new Date().toISOString(),
+    nonce: randomBytes(32).toString("hex"),
+    parentPid: process.pid,
+    purpose: LOGICAL_RESTORE_EXTENSION_INITIALIZER_PURPOSE,
+    version: 1,
+  });
+  validateExtensionInitializerRequest(request, {
+    expectedParentPid: process.pid,
+  });
+  const brokerPath = realpathSync(
+    join(PROJECT_ROOT, PROJECT_BINDING_PATHS.postgresqlExtensionInitializer),
+  );
+  const nodePath = realpathSync(process.execPath);
+  const [brokerFacts, nodeFacts] = await Promise.all([
+    hashStableFile(brokerPath, "extension initializer broker"),
+    hashStableFile(nodePath, "extension initializer Node runtime"),
+  ]);
+  if (
+    brokerFacts.sha256 !==
+      toolBindings.projectFacts.postgresqlExtensionInitializer.sha256 ||
+    nodeFacts.sha256 !==
+      toolBindings.tools.executedTools.sourceRegistrationNodeBinarySha256
+  ) {
+    fail(
+      "EXTENSION_INITIALIZER_RUNTIME",
+      "extension initializer launch binding differs",
+    );
+  }
+  const expectedRuntimeFacts = {
+    brokerSha256: brokerFacts.sha256,
+    extensionClosureSha256:
+      toolBindings.tools.executedTools.postgresqlExtensionRuntimeClosureSha256,
+    extensionManifestSha256:
+      toolBindings.tools.contextBindings
+        .postgresqlExtensionRuntimeManifestSha256,
+    psqlClosureSha256:
+      toolBindings.tools.executedTools.psqlRuntimeClosureSha256,
+    psqlManifestSha256:
+      toolBindings.tools.executedTools.psqlRuntimeManifestSha256,
+    psqlSha256: toolBindings.tools.executedTools.psqlBinarySha256,
+  };
+  const capability =
+    createControlledExtensionInitializerRequestCapability(request);
+  try {
+    const before = fstatSync(capability.descriptor, { bigint: true });
+    if (!sameStableFileIdentity(capability.identity, before)) {
+      fail(
+        "EXTENSION_INITIALIZER_REQUEST",
+        "extension initializer request descriptor changed",
+      );
+    }
+    let result;
+    try {
+      result = await runControlledCommand({
+        args: [brokerPath],
+        environment: extensionInitializerCleanEnvironment(),
+        executable: nodePath,
+        failureDiagnosticPolicy:
+          CONTROLLED_EXTENSION_INITIALIZER_DIAGNOSTIC_POLICY,
+        inheritedDescriptor: capability.descriptor,
+        signal: abortSignal,
+      });
+    } catch (error) {
+      throw safeFailure(
+        error,
+        "EXTENSION_INITIALIZER_FAILED",
+        "extension initializer failed closed",
+      );
+    }
+    const after = fstatSync(capability.descriptor, { bigint: true });
+    if (!sameStableFileIdentity(before, after)) {
+      fail(
+        "EXTENSION_INITIALIZER_REQUEST",
+        "extension initializer request descriptor changed",
+      );
+    }
+    const bytes = readExactDescriptorBytes(
+      capability.descriptor,
+      Number(after.size),
+      "EXTENSION_INITIALIZER_REQUEST",
+      "extension initializer request bytes changed",
+    );
+    if (logicalRestoreCompanionSha256(bytes) !== capability.sha256) {
+      fail(
+        "EXTENSION_INITIALIZER_REQUEST",
+        "extension initializer request hash changed",
+      );
+    }
+    const attestation = parseControlledExtensionInitializerAttestation(
+      result.stdout,
+    );
+    validateExtensionInitializerAttestation(attestation, {
+      expectedRequest: request,
+      expectedRuntimeFacts,
+      now: new Date(),
+    });
+    if (
+      attestation.fixedMutationPlanSha256 !==
+      LOGICAL_RESTORE_EXTENSION_INITIALIZER_FIXED_PLAN_SHA256
+    ) {
+      fail(
+        "EXTENSION_INITIALIZER_ATTESTATION",
+        "extension initializer fixed plan differs",
+      );
+    }
+    return Object.freeze({ attestation, request });
+  } finally {
+    capability.close();
+  }
+}
+
+/**
+ * @param {{
+ *   environment: NodeJS.ProcessEnv,
+ *   executable: string,
+ *   inputFile: string,
+ *   inputIdentity: import("node:fs").BigIntStats,
+ *   signal?: AbortSignal,
+ * }} options
+ */
+export async function runControlledArchiveCatalogCommand({
+  environment,
+  executable,
+  inputFile,
+  inputIdentity,
+  signal = undefined,
+}) {
+  const result = await runControlledCommand({
+    args: ["--list"],
+    environment,
+    executable,
+    inputEarlyClosePolicy: CONTROLLED_ARCHIVE_CATALOG_INPUT_POLICY,
+    inputFile,
+    inputIdentity,
+    signal,
+  });
+  assertControlledArchiveCatalog(result.stdout);
+  return result;
 }
 
 function databaseExistsSql(databaseName) {
@@ -2048,11 +3684,283 @@ function databaseOwnershipCommentSql(databaseName, ownershipToken) {
   return `COMMENT ON DATABASE ${databaseName} IS '${controlledCloneOwnershipComment(ownershipToken)}';`;
 }
 
-function databaseOwnershipQuerySql(databaseName) {
+function createLockedDatabaseSql(databaseName) {
   if (!SAFE_DATABASE_NAME.test(databaseName)) {
     fail("CLONE_NAME", "generated clone name is not safe");
   }
-  return `SELECT COALESCE((SELECT shobj_description(oid, 'pg_database') FROM pg_database WHERE datname = '${databaseName}'), '');`;
+  return `CREATE DATABASE ${databaseName} WITH TEMPLATE = template0 OWNER = foodsystems ENCODING = 'UTF8' CONNECTION LIMIT = 0;`;
+}
+
+function databaseCloneIdentitySql(databaseName) {
+  if (!SAFE_DATABASE_NAME.test(databaseName)) {
+    fail("CLONE_NAME", "generated clone name is not safe");
+  }
+  return `SELECT json_build_object(
+    'activeSessions', (SELECT count(*)::int FROM pg_stat_activity WHERE datid = d.oid),
+    'allowConnections', d.datallowconn,
+    'connectionLimit', d.datconnlimit,
+    'databaseName', d.datname,
+    'databaseOid', d.oid::bigint,
+    'databaseOwner', pg_get_userbyid(d.datdba),
+    'encoding', pg_encoding_to_char(d.encoding),
+    'isTemplate', d.datistemplate,
+    'ownershipComment', COALESCE(shobj_description(d.oid, 'pg_database'), ''),
+    'serverVersionNum', current_setting('server_version_num'),
+    'systemIdentifier', (SELECT system_identifier::text FROM pg_control_system())
+  )::text
+  FROM pg_database d
+  WHERE d.datname = '${databaseName}';`;
+}
+
+function databaseCloneDropIdentitySql(databaseName) {
+  if (!SAFE_DATABASE_NAME.test(databaseName)) {
+    fail("CLONE_NAME", "generated clone name is not safe");
+  }
+  return `SELECT COALESCE((
+    SELECT json_build_object(
+      'activeSessions', (SELECT count(*)::int FROM pg_stat_activity WHERE datid = d.oid),
+      'allowConnections', d.datallowconn,
+      'connectionLimit', d.datconnlimit,
+      'databaseName', d.datname,
+      'databaseOid', d.oid::bigint,
+      'databaseOwner', pg_get_userbyid(d.datdba),
+      'encoding', pg_encoding_to_char(d.encoding),
+      'isTemplate', d.datistemplate,
+      'ownershipComment', COALESCE(shobj_description(d.oid, 'pg_database'), ''),
+      'serverVersionNum', current_setting('server_version_num'),
+      'systemIdentifier', (SELECT system_identifier::text FROM pg_control_system())
+    )::text
+    FROM pg_database d
+    WHERE d.datname = '${databaseName}'
+  ), 'null');`;
+}
+
+function databaseCloneAbsenceSql(databaseName, databaseOid) {
+  if (!SAFE_DATABASE_NAME.test(databaseName)) {
+    fail("CLONE_NAME", "generated clone name is not safe");
+  }
+  if (!Number.isSafeInteger(databaseOid) || databaseOid <= 0) {
+    fail("CLONE_IDENTITY", "disposable clone OID is invalid");
+  }
+  return `SELECT json_build_object(
+    'databaseNameExists', EXISTS (SELECT 1 FROM pg_database WHERE datname = '${databaseName}'),
+    'databaseOidExists', EXISTS (SELECT 1 FROM pg_database WHERE oid = ${databaseOid}::oid),
+    'serverVersionNum', current_setting('server_version_num'),
+    'systemIdentifier', (SELECT system_identifier::text FROM pg_control_system())
+  )::text;`;
+}
+
+function databaseConnectionIdentitySql() {
+  return `SELECT json_build_object(
+    'currentDatabase', current_database(),
+    'currentUser', current_user,
+    'currentUserCreateDb', (SELECT rolcreatedb FROM pg_roles WHERE rolname = current_user),
+    'currentUserSuper', (SELECT rolsuper FROM pg_roles WHERE rolname = current_user),
+    'serverVersionNum', current_setting('server_version_num'),
+    'sessionUser', session_user,
+    'systemIdentifier', (SELECT system_identifier::text FROM pg_control_system())
+  )::text;`;
+}
+
+export function validateControlledDatabaseConnectionIdentity(
+  value,
+  expectedDatabaseName,
+) {
+  const identity = exactObject(
+    value,
+    [
+      "currentDatabase",
+      "currentUser",
+      "currentUserCreateDb",
+      "currentUserSuper",
+      "serverVersionNum",
+      "sessionUser",
+      "systemIdentifier",
+    ],
+    "controlled database connection identity",
+  );
+  if (
+    (!["foodsystems", "postgres"].includes(expectedDatabaseName) &&
+      !SAFE_DATABASE_NAME.test(expectedDatabaseName)) ||
+    identity.currentDatabase !== expectedDatabaseName ||
+    identity.currentUser !== "foodsystems" ||
+    identity.sessionUser !== "foodsystems" ||
+    identity.currentUserCreateDb !== true ||
+    identity.currentUserSuper !== false ||
+    identity.serverVersionNum !== "160013" ||
+    identity.systemIdentifier !== "7620055716543368057"
+  ) {
+    fail("DATABASE_TARGET", "database connection identity differs");
+  }
+  return Object.freeze(identity);
+}
+
+function parseControlledSingleJsonLine(stdout, code, label) {
+  if (
+    typeof stdout !== "string" ||
+    !stdout.endsWith("\n") ||
+    stdout.slice(0, -1).includes("\n")
+  ) {
+    fail(code, `${label} output differs`);
+  }
+  try {
+    return JSON.parse(stdout.slice(0, -1));
+  } catch {
+    fail(code, `${label} JSON differs`);
+  }
+}
+
+function validateControlledCloneIdentity(value, databaseName, ownershipToken) {
+  const identity = exactObject(
+    value,
+    [
+      "activeSessions",
+      "allowConnections",
+      "connectionLimit",
+      "databaseName",
+      "databaseOid",
+      "databaseOwner",
+      "encoding",
+      "isTemplate",
+      "ownershipComment",
+      "serverVersionNum",
+      "systemIdentifier",
+    ],
+    "disposable clone identity",
+  );
+  if (
+    identity.activeSessions !== 0 ||
+    identity.allowConnections !== true ||
+    identity.connectionLimit !== 0 ||
+    identity.databaseName !== databaseName ||
+    !Number.isSafeInteger(identity.databaseOid) ||
+    identity.databaseOid <= 0 ||
+    identity.databaseOwner !== "foodsystems" ||
+    identity.encoding !== "UTF8" ||
+    identity.isTemplate !== false ||
+    identity.ownershipComment !==
+      controlledCloneOwnershipComment(ownershipToken) ||
+    identity.serverVersionNum !== "160013" ||
+    identity.systemIdentifier !== "7620055716543368057"
+  ) {
+    fail("CLONE_IDENTITY", "disposable clone identity differs");
+  }
+  return Object.freeze(identity);
+}
+
+export function verifyControlledCloneDropIdentity({
+  actualIdentity,
+  expectedIdentity,
+  ownershipToken,
+}) {
+  if (actualIdentity === null) return "already_absent";
+  if (!isPlainObject(actualIdentity) || !isPlainObject(expectedIdentity)) {
+    fail("CLONE_IDENTITY", "disposable clone drop identity is unavailable");
+  }
+  const expectedKeys = [
+    "activeSessions",
+    "allowConnections",
+    "connectionLimit",
+    "databaseName",
+    "databaseOid",
+    "databaseOwner",
+    "encoding",
+    "isTemplate",
+    "ownershipComment",
+    "serverVersionNum",
+    "systemIdentifier",
+  ];
+  if (
+    JSON.stringify(Object.keys(actualIdentity).sort()) !==
+      JSON.stringify([...expectedKeys].sort()) ||
+    !Number.isSafeInteger(actualIdentity.activeSessions) ||
+    actualIdentity.activeSessions < 0 ||
+    actualIdentity.allowConnections !== true ||
+    ![0, 1].includes(actualIdentity.connectionLimit) ||
+    actualIdentity.databaseName !== expectedIdentity.databaseName ||
+    actualIdentity.databaseOid !== expectedIdentity.databaseOid ||
+    actualIdentity.databaseOwner !== expectedIdentity.databaseOwner ||
+    actualIdentity.encoding !== expectedIdentity.encoding ||
+    actualIdentity.isTemplate !== false ||
+    actualIdentity.ownershipComment !==
+      controlledCloneOwnershipComment(ownershipToken) ||
+    actualIdentity.ownershipComment !== expectedIdentity.ownershipComment ||
+    actualIdentity.serverVersionNum !== expectedIdentity.serverVersionNum ||
+    actualIdentity.systemIdentifier !== expectedIdentity.systemIdentifier
+  ) {
+    fail(
+      "CLONE_IDENTITY",
+      "disposable clone identity was not verified before drop",
+    );
+  }
+  return "owned";
+}
+
+export function verifyControlledCloneAbsence({
+  actualAbsence,
+  expectedIdentity,
+}) {
+  const absence = exactObject(
+    actualAbsence,
+    [
+      "databaseNameExists",
+      "databaseOidExists",
+      "serverVersionNum",
+      "systemIdentifier",
+    ],
+    "disposable clone absence",
+  );
+  if (
+    !isPlainObject(expectedIdentity) ||
+    absence.databaseNameExists !== false ||
+    absence.databaseOidExists !== false ||
+    absence.serverVersionNum !== expectedIdentity.serverVersionNum ||
+    absence.systemIdentifier !== expectedIdentity.systemIdentifier
+  ) {
+    fail("CLEANUP_ABSENCE", "disposable clone absence was not verified");
+  }
+  return true;
+}
+
+export function controlledCloneDropCommandArgs(databaseName) {
+  if (!SAFE_DATABASE_NAME.test(databaseName)) {
+    fail("CLONE_NAME", "generated clone name is not safe");
+  }
+  return Object.freeze([
+    "--maintenance-db=postgres",
+    "--if-exists",
+    databaseName,
+  ]);
+}
+
+export function verifyControlledCloneRecoveryIdentity({
+  actualIdentity,
+  databaseName,
+  ownershipToken,
+}) {
+  if (actualIdentity === null) {
+    return Object.freeze({ identity: null, markerRequired: false });
+  }
+  if (
+    !isPlainObject(actualIdentity) ||
+    databaseName !== actualIdentity.databaseName ||
+    !cloneNameMatchesOwnershipToken(databaseName, ownershipToken)
+  ) {
+    fail("CLONE_IDENTITY", "disposable clone recovery identity differs");
+  }
+  const expectedMarker = controlledCloneOwnershipComment(ownershipToken);
+  if (!["", expectedMarker].includes(actualIdentity.ownershipComment)) {
+    fail("CLONE_IDENTITY", "disposable clone recovery marker differs");
+  }
+  const identity = validateControlledCloneIdentity(
+    { ...actualIdentity, ownershipComment: expectedMarker },
+    databaseName,
+    ownershipToken,
+  );
+  return Object.freeze({
+    identity,
+    markerRequired: actualIdentity.ownershipComment === "",
+  });
 }
 
 function createProductionOperations({
@@ -2063,11 +3971,57 @@ function createProductionOperations({
   executables,
   ownershipToken,
   rehearsalContext,
+  sourceConnection,
+  toolBindings,
 }) {
   const adminEnvironment = libpqEnvironment(adminConnection);
+  const sourceEnvironment = libpqEnvironment(sourceConnection);
+  let cloneIdentity;
+  let extensionInitialization;
+  let sourceExtensionState;
   let rehearsalLogicalComparisonProof;
+  let restoreSelection;
+  async function readCloneDropIdentity(databaseName) {
+    const identityResult = await runControlledCommand({
+      args: [
+        "-X",
+        "-A",
+        "-t",
+        "-q",
+        "-v",
+        "ON_ERROR_STOP=1",
+        "-c",
+        databaseCloneDropIdentitySql(databaseName),
+      ],
+      environment: adminEnvironment,
+      executable: executables.psqlPath,
+    });
+    return parseControlledSingleJsonLine(
+      identityResult.stdout,
+      "CLONE_IDENTITY",
+      "disposable clone drop identity",
+    );
+  }
+
+  async function verifyConnectionIdentity(connection, environment) {
+    const result = await runControlledCommand({
+      args: ["-X", "-A", "-t", "-q", "-v", "ON_ERROR_STOP=1"],
+      environment,
+      executable: executables.psqlPath,
+      inputText: `${databaseConnectionIdentitySql()}\n`,
+      signal: abortSignal,
+    });
+    return validateControlledDatabaseConnectionIdentity(
+      parseControlledSingleJsonLine(
+        result.stdout,
+        "DATABASE_TARGET",
+        "database connection identity",
+      ),
+      connection.databaseName,
+    );
+  }
   async function databaseExists(databaseName, signal) {
-    const result = await runCommand({
+    const result = await runControlledCommand({
       args: [
         "-X",
         "-A",
@@ -2103,34 +4057,81 @@ function createProductionOperations({
       }
     },
     async catalog() {
-      const result = await runCommand({
-        args: ["--list"],
+      await Promise.all([
+        verifyConnectionIdentity(sourceConnection, sourceEnvironment),
+        verifyConnectionIdentity(adminConnection, adminEnvironment),
+      ]);
+      const result = await runControlledArchiveCatalogCommand({
         environment: adminEnvironment,
         executable: executables.pgRestorePath,
         inputFile: dumpPath,
         inputIdentity: dumpIdentity,
         signal: abortSignal,
       });
-      assertArchiveCatalog(result.stdout);
-    },
-    async create(databaseName) {
-      await runCommand({
-        args: [
-          "--maintenance-db=postgres",
-          "--template=template0",
-          "--encoding=UTF8",
-          databaseName,
-        ],
-        environment: adminEnvironment,
-        executable: executables.createdbPath,
+      restoreSelection = buildControlledRestoreSelection(result.stdout);
+      const sourceStateResult = await runControlledCommand({
+        args: ["-X", "-A", "-t", "-q", "-v", "ON_ERROR_STOP=1"],
+        environment: sourceEnvironment,
+        executable: executables.psqlPath,
+        inputText: `${extensionInitializerVerificationSql()}\n`,
         signal: abortSignal,
       });
-      await runCommand({
+      sourceExtensionState = validateExtensionInitializerSourceState(
+        parseControlledSingleJsonLine(
+          sourceStateResult.stdout,
+          "EXTENSION_INITIALIZER_SOURCE_STATE",
+          "source extension state",
+        ),
+        { databaseName: sourceConnection.databaseName },
+      );
+    },
+    async create(databaseName) {
+      await runControlledCommand({
         args: ["-X", "-A", "-t", "-q", "-v", "ON_ERROR_STOP=1"],
         environment: adminEnvironment,
         executable: executables.psqlPath,
-        inputText: `${databaseOwnershipCommentSql(databaseName, ownershipToken)}\n`,
+        inputText: `${createLockedDatabaseSql(databaseName)}\n${databaseOwnershipCommentSql(
+          databaseName,
+          ownershipToken,
+        )}\n`,
+        signal: abortSignal,
       });
+      const identityResult = await runControlledCommand({
+        args: [
+          "-X",
+          "-A",
+          "-t",
+          "-q",
+          "-v",
+          "ON_ERROR_STOP=1",
+          "-c",
+          databaseCloneIdentitySql(databaseName),
+        ],
+        environment: adminEnvironment,
+        executable: executables.psqlPath,
+        signal: abortSignal,
+      });
+      cloneIdentity = validateControlledCloneIdentity(
+        parseControlledSingleJsonLine(
+          identityResult.stdout,
+          "CLONE_IDENTITY",
+          "disposable clone identity",
+        ),
+        databaseName,
+        ownershipToken,
+      );
+    },
+    async initialize(databaseName) {
+      if (!cloneIdentity || cloneIdentity.databaseName !== databaseName) {
+        fail("CLONE_IDENTITY", "disposable clone identity is unavailable");
+      }
+      extensionInitialization = await runControlledExtensionInitializer({
+        abortSignal,
+        cloneIdentity,
+        ownershipComment: controlledCloneOwnershipComment(ownershipToken),
+        toolBindings,
+      });
+      return extensionInitialization.attestation.attestationSha256;
     },
     async digest(databaseUrl) {
       if (abortSignal?.aborted) {
@@ -2154,7 +4155,51 @@ function createProductionOperations({
       }
     },
     async drop(databaseName) {
-      const marker = await runCommand({
+      let actualIdentity = await readCloneDropIdentity(databaseName);
+      if (!cloneIdentity) {
+        const recovered = verifyControlledCloneRecoveryIdentity({
+          actualIdentity,
+          databaseName,
+          ownershipToken,
+        });
+        if (recovered.identity === null) return "already_absent";
+        if (recovered.markerRequired) {
+          await runControlledCommand({
+            args: ["-X", "-A", "-t", "-q", "-v", "ON_ERROR_STOP=1"],
+            environment: adminEnvironment,
+            executable: executables.psqlPath,
+            inputText: `${databaseOwnershipCommentSql(
+              databaseName,
+              ownershipToken,
+            )}\n`,
+          });
+          actualIdentity = await readCloneDropIdentity(databaseName);
+        }
+        cloneIdentity = validateControlledCloneIdentity(
+          actualIdentity,
+          databaseName,
+          ownershipToken,
+        );
+      }
+      const decision = verifyControlledCloneDropIdentity({
+        actualIdentity,
+        expectedIdentity: cloneIdentity,
+        ownershipToken,
+      });
+      if (decision === "already_absent") return decision;
+      // Ordinary DROP DATABASE owns the server-side race: PostgreSQL takes the
+      // database lock, waits for regular sessions, and only interrupts a
+      // conflicting autovacuum worker. Deliberately do not use --force.
+      await runControlledCommand({
+        args: controlledCloneDropCommandArgs(databaseName),
+        environment: adminEnvironment,
+        executable: executables.dropdbPath,
+      });
+      return decision;
+    },
+    async confirmAbsent(databaseName) {
+      if (!cloneIdentity) return !(await databaseExists(databaseName));
+      const result = await runControlledCommand({
         args: [
           "-X",
           "-A",
@@ -2163,45 +4208,136 @@ function createProductionOperations({
           "-v",
           "ON_ERROR_STOP=1",
           "-c",
-          databaseOwnershipQuerySql(databaseName),
+          databaseCloneAbsenceSql(databaseName, cloneIdentity.databaseOid),
         ],
         environment: adminEnvironment,
         executable: executables.psqlPath,
       });
-      const actualComment = marker.stdout.trim();
-      const markerMatches =
-        actualComment === controlledCloneOwnershipComment(ownershipToken);
-      const decision = verifyControlledCloneOwnershipMarker({
-        actualComment,
-        databaseExists: markerMatches
-          ? true
-          : await databaseExists(databaseName),
-        ownershipToken,
+      return verifyControlledCloneAbsence({
+        actualAbsence: parseControlledSingleJsonLine(
+          result.stdout,
+          "CLEANUP_ABSENCE",
+          "disposable clone absence",
+        ),
+        expectedIdentity: cloneIdentity,
       });
-      if (decision === "already_absent") return decision;
-      await runCommand({
-        args: ["--maintenance-db=postgres", "--if-exists", databaseName],
-        environment: adminEnvironment,
-        executable: executables.dropdbPath,
-      });
-      return decision;
-    },
-    async confirmAbsent(databaseName) {
-      return !(await databaseExists(databaseName));
     },
     async restore(databaseName) {
-      await runCommand({
-        args: [
-          "--exit-on-error",
-          "--no-owner",
-          "--no-acl",
-          `--dbname=${databaseName}`,
-        ],
+      if (!restoreSelection) {
+        fail("RESTORE_LIST_CATALOG", "restore selection is not available");
+      }
+      if (
+        !extensionInitialization ||
+        extensionInitialization.request.clone.databaseName !== databaseName ||
+        !sourceExtensionState ||
+        !restoreSelection
+      ) {
+        fail(
+          "EXTENSION_INITIALIZER_ATTESTATION",
+          "extension initializer attestation is unavailable",
+        );
+      }
+      await verifyConnectionIdentity(
+        { databaseName },
+        libpqEnvironment(adminConnection, databaseName),
+      );
+      await runControlledSelectedRestoreCommand({
+        databaseName,
         environment: libpqEnvironment(adminConnection, databaseName),
         executable: executables.pgRestorePath,
         inputFile: dumpPath,
         inputIdentity: dumpIdentity,
+        selection: restoreSelection,
         signal: abortSignal,
+      });
+    },
+    async verifyExtensions(databaseName) {
+      if (
+        !extensionInitialization ||
+        extensionInitialization.request.clone.databaseName !== databaseName
+      ) {
+        fail(
+          "EXTENSION_INITIALIZER_ATTESTATION",
+          "extension initializer attestation is unavailable",
+        );
+      }
+      const result = await runControlledCommand({
+        args: ["-X", "-A", "-t", "-q", "-v", "ON_ERROR_STOP=1"],
+        environment: libpqEnvironment(adminConnection, databaseName),
+        executable: executables.psqlPath,
+        inputText: `${extensionInitializerVerificationSql()}\n`,
+        signal: abortSignal,
+      });
+      const observed = validateExtensionInitializerObservedState(
+        parseControlledSingleJsonLine(
+          result.stdout,
+          "EXTENSION_INITIALIZER_VERIFY",
+          "post-restore extension state",
+        ),
+        {
+          request: extensionInitialization.request,
+        },
+      );
+      if (
+        observed.extensionStateSha256 !==
+          extensionInitialization.attestation.extensionStateSha256 ||
+        observed.extensionStateSha256 !==
+          sourceExtensionState.extensionStateSha256 ||
+        !canonicalEqual(
+          observed.extensions,
+          extensionInitialization.attestation.extensions,
+        ) ||
+        !canonicalEqual(observed.extensions, sourceExtensionState.extensions)
+      ) {
+        fail(
+          "EXTENSION_INITIALIZER_VERIFY",
+          "post-restore extension state differs",
+        );
+      }
+      const sourceStateResult = await runControlledCommand({
+        args: ["-X", "-A", "-t", "-q", "-v", "ON_ERROR_STOP=1"],
+        environment: sourceEnvironment,
+        executable: executables.psqlPath,
+        inputText: `${extensionInitializerVerificationSql()}\n`,
+        signal: abortSignal,
+      });
+      const sourceReverified = validateExtensionInitializerSourceState(
+        parseControlledSingleJsonLine(
+          sourceStateResult.stdout,
+          "EXTENSION_INITIALIZER_SOURCE_STATE",
+          "source extension state recheck",
+        ),
+        { databaseName: sourceConnection.databaseName },
+      );
+      if (!canonicalEqual(sourceReverified, sourceExtensionState)) {
+        fail(
+          "EXTENSION_INITIALIZER_SOURCE_STATE",
+          "source extension state changed",
+        );
+      }
+      return Object.freeze({
+        attestationSha256:
+          extensionInitialization.attestation.attestationSha256,
+        catalogSha256: restoreSelection.catalogSha256,
+        connectionLimitAfter:
+          extensionInitialization.attestation.target.connectionLimitAfter,
+        connectionLimitBefore:
+          extensionInitialization.attestation.target.connectionLimitBefore,
+        excludedExtensionCount: restoreSelection.excludedExtensionCount,
+        extensionStateSha256: observed.extensionStateSha256,
+        extensions: observed.extensions,
+        filteredCatalogSha256: restoreSelection.filteredCatalogSha256,
+        fixedMutationPlanSha256:
+          extensionInitialization.attestation.fixedMutationPlanSha256,
+        postRestoreVerified: true,
+        requestSha256: extensionInitialization.request.requestSha256,
+        selectionPolicy: restoreSelection.policy,
+        selectionSha256: restoreSelection.selectionSha256,
+        skippedCommentCount: restoreSelection.commentEntryCount,
+        sourceExtensionStateSha256: sourceReverified.extensionStateSha256,
+        sourceStateMatched: true,
+        transactionCommitted:
+          extensionInitialization.attestation.transactionCommitted,
       });
     },
     async rehearse({ cloneDatabaseUrl, logicalComparisonProof }) {
@@ -2550,6 +4686,7 @@ function buildReceipt({
   cloneName,
   comparisonCompletedAtUtc,
   comparisonStartedAtUtc,
+  extensionInitialization,
   logicalCloneRehearsal,
   logicalComparisonProofSha256,
   ownershipMarkerDigest,
@@ -2566,6 +4703,7 @@ function buildReceipt({
     version: LOGICAL_RESTORE_COMPANION_RECEIPT_VERSION,
     canonicalJsonFormat: LOGICAL_RESTORE_COMPANION_CANONICAL_JSON,
     evidenceClass: LOGICAL_RESTORE_COMPANION_EVIDENCE_CLASS,
+    extensionInitialization,
     completedAtUtc: cleanupCompletedAtUtc,
     backup,
     structuralRestore,
@@ -2651,19 +4789,39 @@ export async function executeLogicalRestoreComparisonSession({
   let comparisonCompletedAtUtc;
   let logicalCloneRehearsal;
   let logicalComparisonProof;
+  let extensionInitialization;
   let postRehearsalRestoredSummary;
   let postRehearsalSourceSummary;
   let postRehearsalVerifiedAtUtc;
   let sourceSummary;
   let restoredSummary;
   try {
-    await operations.assertAbsent(cloneName);
+    await runControlledCommandPhase({
+      code: "CLONE_PREFLIGHT_COMMAND_FAILED",
+      operation: () => operations.assertAbsent(cloneName),
+    });
     await operations.assertContinue?.();
     cleanupArmed = true;
-    await operations.create(cloneName);
+    await runControlledCommandPhase({
+      code: "CLONE_CREATE_COMMAND_FAILED",
+      operation: () => operations.create(cloneName),
+    });
     createdFresh = true;
     await operations.assertContinue?.();
-    await operations.restore(cloneName);
+    await runControlledCommandPhase({
+      code: "CLONE_INITIALIZE_COMMAND_FAILED",
+      operation: () => operations.initialize(cloneName),
+    });
+    await operations.assertContinue?.();
+    await runControlledCommandPhase({
+      code: "CLONE_RESTORE_COMMAND_FAILED",
+      operation: () => operations.restore(cloneName),
+    });
+    await operations.assertContinue?.();
+    extensionInitialization = await runControlledCommandPhase({
+      code: "CLONE_EXTENSION_VERIFY_COMMAND_FAILED",
+      operation: () => operations.verifyExtensions(cloneName),
+    });
     await operations.assertContinue?.();
     comparisonStartedAtUtc = clock().toISOString();
     const firstSourceDigest = await operations.digest(sourceDatabaseUrl);
@@ -2713,10 +4871,14 @@ export async function executeLogicalRestoreComparisonSession({
       source: sourceSummary,
       structuralRestore,
     });
-    logicalCloneRehearsal = await operations.rehearse({
-      cloneDatabaseUrl: operations.cloneDatabaseUrl(cloneName),
-      comparisonCompletedAtUtc,
-      logicalComparisonProof,
+    logicalCloneRehearsal = await runControlledCommandPhase({
+      code: "CLONE_REHEARSAL_COMMAND_FAILED",
+      operation: () =>
+        operations.rehearse({
+          cloneDatabaseUrl: operations.cloneDatabaseUrl(cloneName),
+          comparisonCompletedAtUtc,
+          logicalComparisonProof,
+        }),
     });
     assertLogicalCloneRehearsalBinding({
       binding: logicalCloneRehearsal,
@@ -2770,6 +4932,22 @@ export async function executeLogicalRestoreComparisonSession({
     if (!canonicalEqual(postDigestRehearsal, logicalCloneRehearsal)) {
       fail("REHEARSAL_DRIFT", "logical-clone rehearsal receipt changed");
     }
+    const postRehearsalExtensionInitialization =
+      await runControlledCommandPhase({
+        code: "CLONE_EXTENSION_VERIFY_COMMAND_FAILED",
+        operation: () => operations.verifyExtensions(cloneName),
+      });
+    if (
+      !canonicalEqual(
+        extensionInitialization,
+        postRehearsalExtensionInitialization,
+      )
+    ) {
+      fail(
+        "EXTENSION_INITIALIZER_VERIFY",
+        "extension initialization proof changed after rehearsal",
+      );
+    }
     postRehearsalVerifiedAtUtc = clock().toISOString();
     await operations.assertContinue?.();
   } catch (error) {
@@ -2799,6 +4977,7 @@ export async function executeLogicalRestoreComparisonSession({
   if (primaryFailure) throw primaryFailure;
   if (
     !createdFresh ||
+    !extensionInitialization ||
     !ownershipMarkerVerifiedBeforeDrop ||
     !logicalCloneRehearsal ||
     !logicalComparisonProof ||
@@ -2840,6 +5019,7 @@ export async function executeLogicalRestoreComparisonSession({
     cloneName,
     comparisonCompletedAtUtc,
     comparisonStartedAtUtc,
+    extensionInitialization,
     logicalCloneRehearsal,
     logicalComparisonProofSha256:
       logicalComparisonProof.logicalComparisonProofSha256,
@@ -2889,6 +5069,14 @@ function controlledEnvironmentInput(env) {
     expectedMetadataSha256: requiredEnvironment(
       env,
       "LOGICAL_RESTORE_EXPECTED_METADATA_SHA256",
+    ),
+    expectedCompanionReceiptSchemaSha256: requiredEnvironment(
+      env,
+      "LOGICAL_RESTORE_EXPECTED_COMPANION_RECEIPT_SCHEMA_SHA256",
+    ),
+    expectedCompanionTestSha256: requiredEnvironment(
+      env,
+      "LOGICAL_RESTORE_EXPECTED_COMPANION_TEST_SHA256",
     ),
     expectedSourceRegistrationApplyRunnerSha256: requiredEnvironment(
       env,
@@ -2951,9 +5139,32 @@ function controlledEnvironmentInput(env) {
         env,
         "LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_PRISMA_CLIENT_TREE_SHA256",
       ),
+    expectedSourceRegistrationPostgresqlToolsetClosureSha256:
+      requiredEnvironment(
+        env,
+        "LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_POSTGRESQL_TOOLSET_CLOSURE_SHA256",
+      ),
+    expectedSourceRegistrationPostgresqlToolsetManifestSha256:
+      requiredEnvironment(
+        env,
+        "LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_POSTGRESQL_TOOLSET_MANIFEST_SHA256",
+      ),
+    expectedSourceRegistrationPostgresqlToolsetVerifierSha256:
+      requiredEnvironment(
+        env,
+        "LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_POSTGRESQL_TOOLSET_VERIFIER_SHA256",
+      ),
     expectedSourceRegistrationRuntimeAttestationSha256: requiredEnvironment(
       env,
       "LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_RUNTIME_ATTESTATION_SHA256",
+    ),
+    expectedSourceRegistrationPackageJsonSha256: requiredEnvironment(
+      env,
+      "LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_PACKAGE_JSON_SHA256",
+    ),
+    expectedSourceRegistrationTsxConfigSha256: requiredEnvironment(
+      env,
+      "LOGICAL_RESTORE_EXPECTED_SOURCE_REGISTRATION_TSX_CONFIG_SHA256",
     ),
     expectedStructuralCompletedAtUtc: requiredEnvironment(
       env,
@@ -2997,6 +5208,11 @@ function controlledEnvironmentInput(env) {
   });
   sha256(input.expectedDumpSha256, "expected dump SHA-256");
   sha256(input.expectedMetadataSha256, "expected metadata SHA-256");
+  sha256(
+    input.expectedCompanionReceiptSchemaSha256,
+    "expected companion receipt schema SHA-256",
+  );
+  sha256(input.expectedCompanionTestSha256, "expected companion test SHA-256");
   for (const [key, value] of Object.entries(input)) {
     if (key.startsWith("expectedSourceRegistration")) {
       sha256(value, `${key} SHA-256`);
@@ -3024,6 +5240,8 @@ export async function runControlledLogicalRestoreCompanion({
   abortSignal,
   env = process.env,
 } = {}) {
+  const launcherAttestation =
+    readControlledLogicalRestoreLauncherAttestation(env);
   const input = controlledEnvironmentInput(env);
   validatePrivateOutputPath(input.outputPath);
   validatePrivateOutputPath(
@@ -3040,14 +5258,25 @@ export async function runControlledLogicalRestoreCompanion({
   );
   if (
     adminConnection.databaseName !== "postgres" ||
+    sourceConnection.databaseName !== "foodsystems" ||
+    sourceConnection.user !== "foodsystems" ||
+    adminConnection.user !== "foodsystems" ||
+    sourceConnection.password !== adminConnection.password ||
     sourceConnection.host !== adminConnection.host ||
-    sourceConnection.port !== adminConnection.port
+    sourceConnection.port !== adminConnection.port ||
+    sourceConnection.sslmode !== adminConnection.sslmode
   ) {
     fail(
       "DATABASE_TARGET",
       "source and restore admin endpoints are not the controlled target",
     );
   }
+  const toolBindings = await loadToolBindings(input);
+  const rehearsalContext = await prepareSourceRegistrationRehearsal({
+    input,
+    launcherAttestation,
+    toolBindings,
+  });
   const evidence = await loadAndVerifyBackupEvidence(input);
   if (
     evidence.backup.dumpBytes !== input.expectedDumpBytes ||
@@ -3066,11 +5295,6 @@ export async function runControlledLogicalRestoreCompanion({
   if (sourceConnection.databaseName !== evidence.metadata.source.databaseName) {
     fail("DATABASE_TARGET", "source database differs from backup metadata");
   }
-  const toolBindings = await loadToolBindings();
-  const rehearsalContext = await prepareSourceRegistrationRehearsal({
-    input,
-    toolBindings,
-  });
   const ownershipToken = randomBytes(32).toString("hex");
   const operations = createProductionOperations({
     abortSignal,
@@ -3080,9 +5304,14 @@ export async function runControlledLogicalRestoreCompanion({
     executables: toolBindings.executables,
     ownershipToken,
     rehearsalContext,
+    sourceConnection,
+    toolBindings,
   });
-  await operations.catalog();
-  const cloneName = controlledCloneName();
+  await runControlledCommandPhase({
+    code: "CATALOG_COMMAND_FAILED",
+    operation: () => operations.catalog(),
+  });
+  const cloneName = controlledCloneName(ownershipToken);
   return executeLogicalRestoreComparisonSession({
     backup: evidence.backup,
     cloneName,
@@ -3097,7 +5326,7 @@ export async function runControlledLogicalRestoreCompanion({
           rechecked.structuralRestore,
           evidence.structuralRestore,
         ) ||
-        !sameFileIdentity(rechecked.dumpIdentity, evidence.dumpIdentity)
+        !sameStableFileIdentity(rechecked.dumpIdentity, evidence.dumpIdentity)
       ) {
         fail("EVIDENCE_DRIFT", "backup evidence changed during the comparison");
       }

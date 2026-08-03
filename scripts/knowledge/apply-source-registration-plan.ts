@@ -52,7 +52,9 @@ import {
   SOURCE_REGISTRATION_APPLY_LOCKED_PLAN_SHA256,
   SOURCE_REGISTRATION_APPLY_LOCKED_TARGET_SET_SHA256,
   SOURCE_REGISTRATION_APPLY_LOCKED_NODE_RUNTIME_CLOSURE_SHA256,
-  SOURCE_REGISTRATION_APPLY_LOCKED_PSQL_RUNTIME_CLOSURE_SHA256,
+  SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256,
+  SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256,
+  SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256,
   SOURCE_REGISTRATION_APPLY_PLAN_PATH,
   SOURCE_REGISTRATION_BACKUP_CORE_COUNT_KEYS,
   SourceRegistrationApplyCodeBindingsSchema,
@@ -170,11 +172,12 @@ export const SOURCE_REGISTRATION_APPLY_PATHS = {
   nodeRuntimeClosureVerifier:
     "scripts/knowledge/verify-node-runtime-closure.mjs",
   nodeRuntimeClosureVerifierTest: "tests/lib/node-runtime-closure.test.ts",
-  psqlRuntimeClosureManifest:
+  postgresqlToolsetRuntimeClosureManifest:
     "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-03.v1.json",
-  psqlRuntimeClosureVerifier:
+  postgresqlToolsetRuntimeClosureVerifier:
     "scripts/knowledge/verify-psql-runtime-closure.mjs",
-  psqlRuntimeClosureVerifierTest: "tests/lib/psql-runtime-closure.test.ts",
+  postgresqlToolsetRuntimeClosureVerifierTest:
+    "tests/lib/psql-runtime-closure.test.ts",
   restoreRunner: "scripts/restore-database-backup-drill.sh",
   releaseAuthorizationVerifier:
     "scripts/knowledge/source-registration-release-authorization.mjs",
@@ -247,9 +250,9 @@ export type SourceRegistrationApplyCliOptions = {
   nodeRuntimeClosureManifestFileSha256?: string;
   nodeRuntimeClosureVerifierFileSha256?: string;
   nodeRuntimeClosureVerifierTestFileSha256?: string;
-  psqlRuntimeClosureManifestFileSha256?: string;
-  psqlRuntimeClosureVerifierFileSha256?: string;
-  psqlRuntimeClosureVerifierTestFileSha256?: string;
+  postgresqlToolsetRuntimeClosureManifestFileSha256?: string;
+  postgresqlToolsetRuntimeClosureVerifierFileSha256?: string;
+  postgresqlToolsetRuntimeClosureVerifierTestFileSha256?: string;
   restoreRunnerFileSha256?: string;
   releaseAuthorizationVerifierFileSha256?: string;
   releaseAuthorizationSchemaFileSha256?: string;
@@ -265,9 +268,12 @@ export type SourceRegistrationApplyCliOptions = {
   nodeRuntimeClosureSha256?: string;
   nodeModulesTreeSha256?: string;
   runtimeLocalClosureSha256?: string;
-  psqlBinaryFileSha256?: string;
-  psqlVersion?: string;
-  psqlRuntimeClosureSha256?: string;
+  postgresqlToolsetCreatedbBinaryFileSha256?: string;
+  postgresqlToolsetDropdbBinaryFileSha256?: string;
+  postgresqlToolsetPgRestoreBinaryFileSha256?: string;
+  postgresqlToolsetPsqlBinaryFileSha256?: string;
+  postgresqlToolsetPsqlVersion?: string;
+  postgresqlToolsetRuntimeClosureSha256?: string;
   runtimeAttestationSha256?: string;
   databaseTargetSha256?: string;
   databaseCatalogSha256?: string;
@@ -345,12 +351,12 @@ const valueFlags = {
     "nodeRuntimeClosureVerifierFileSha256",
   "--node-runtime-closure-verifier-test-file-sha256=":
     "nodeRuntimeClosureVerifierTestFileSha256",
-  "--psql-runtime-closure-manifest-file-sha256=":
-    "psqlRuntimeClosureManifestFileSha256",
-  "--psql-runtime-closure-verifier-file-sha256=":
-    "psqlRuntimeClosureVerifierFileSha256",
-  "--psql-runtime-closure-verifier-test-file-sha256=":
-    "psqlRuntimeClosureVerifierTestFileSha256",
+  "--postgresql-toolset-runtime-closure-manifest-file-sha256=":
+    "postgresqlToolsetRuntimeClosureManifestFileSha256",
+  "--postgresql-toolset-runtime-closure-verifier-file-sha256=":
+    "postgresqlToolsetRuntimeClosureVerifierFileSha256",
+  "--postgresql-toolset-runtime-closure-verifier-test-file-sha256=":
+    "postgresqlToolsetRuntimeClosureVerifierTestFileSha256",
   "--restore-runner-file-sha256=": "restoreRunnerFileSha256",
   "--release-authorization-verifier-file-sha256=":
     "releaseAuthorizationVerifierFileSha256",
@@ -373,9 +379,17 @@ const valueFlags = {
   "--node-runtime-closure-sha256=": "nodeRuntimeClosureSha256",
   "--node-modules-tree-sha256=": "nodeModulesTreeSha256",
   "--runtime-local-closure-sha256=": "runtimeLocalClosureSha256",
-  "--psql-binary-file-sha256=": "psqlBinaryFileSha256",
-  "--psql-version=": "psqlVersion",
-  "--psql-runtime-closure-sha256=": "psqlRuntimeClosureSha256",
+  "--postgresql-toolset-createdb-binary-file-sha256=":
+    "postgresqlToolsetCreatedbBinaryFileSha256",
+  "--postgresql-toolset-dropdb-binary-file-sha256=":
+    "postgresqlToolsetDropdbBinaryFileSha256",
+  "--postgresql-toolset-pg-restore-binary-file-sha256=":
+    "postgresqlToolsetPgRestoreBinaryFileSha256",
+  "--postgresql-toolset-psql-binary-file-sha256=":
+    "postgresqlToolsetPsqlBinaryFileSha256",
+  "--postgresql-toolset-psql-version=": "postgresqlToolsetPsqlVersion",
+  "--postgresql-toolset-runtime-closure-sha256=":
+    "postgresqlToolsetRuntimeClosureSha256",
   "--runtime-attestation-sha256=": "runtimeAttestationSha256",
   "--database-target-sha256=": "databaseTargetSha256",
   "--database-catalog-sha256=": "databaseCatalogSha256",
@@ -1050,21 +1064,41 @@ export function verifySourceRegistrationLogicalRestoreEvidence(input: {
       runtime.prismaGeneratedClient.treeSha256,
       "source-registration Prisma generated client tree",
     ],
-    [executed.psqlBinarySha256, runtime.psql.binaryFileSha256, "psql binary"],
+    [
+      companion.tools.contextBindings
+        .postgresqlToolsetCreatedbBinarySha256,
+      runtime.postgresqlToolset.toolFileSha256.createdb,
+      "PostgreSQL toolset createdb binary",
+    ],
+    [
+      executed.dropdbBinarySha256,
+      runtime.postgresqlToolset.toolFileSha256.dropdb,
+      "PostgreSQL toolset dropdb binary",
+    ],
+    [
+      executed.pgRestoreBinarySha256,
+      runtime.postgresqlToolset.toolFileSha256.pgRestore,
+      "PostgreSQL toolset pg_restore binary",
+    ],
+    [
+      executed.psqlBinarySha256,
+      runtime.postgresqlToolset.toolFileSha256.psql,
+      "PostgreSQL toolset psql binary",
+    ],
     [
       executed.psqlRuntimeClosureSha256,
-      runtime.psql.runtimeClosureSha256,
-      "psql runtime closure",
+      runtime.postgresqlToolset.closureSha256,
+      "PostgreSQL toolset runtime closure",
     ],
     [
       executed.psqlRuntimeManifestSha256,
-      runtime.psql.runtimeClosureManifestSha256,
-      "psql runtime manifest",
+      runtime.postgresqlToolset.manifestSha256,
+      "PostgreSQL toolset runtime manifest",
     ],
     [
       executed.psqlRuntimeVerifierSha256,
-      runtime.psql.runtimeClosureVerifierFileSha256,
-      "psql runtime verifier",
+      runtime.postgresqlToolset.verifierFileSha256,
+      "PostgreSQL toolset runtime verifier",
     ],
     [
       context.companionReceiptSchemaSha256,
@@ -1835,10 +1869,12 @@ export function verifyExactSourceRegistrationReleaseAuthorization(input: {
       input.codeBindings.backupContractHelper.fileSha256,
     databaseLogicalDigestSha256:
       input.codeBindings.databaseLogicalStateDigest.fileSha256,
+    // Compatibility fields required by the signed release-authorization v1 envelope.
     psqlBinarySha256:
-      input.codeBindings.runtimeEnvironment.psql.binaryFileSha256,
+      input.codeBindings.runtimeEnvironment.postgresqlToolset.toolFileSha256
+        .psql,
     psqlRuntimeClosureSha256:
-      input.codeBindings.runtimeEnvironment.psql.runtimeClosureSha256,
+      input.codeBindings.runtimeEnvironment.postgresqlToolset.closureSha256,
     restoredDatabaseDropped:
       input.releaseEvidence.logicalRestoreCompanion.cloneDatabaseDropped,
     restoredDatabaseAbsenceConfirmed:
@@ -1885,7 +1921,13 @@ export function sourceRegistrationRuntimeAttestation(
   const result = spawnSync(process.execPath, [launcher, "--attest-only"], {
     cwd: projectRoot,
     encoding: "utf8",
-    env: process.env,
+    env: {
+      LANG: "C",
+      LC_ALL: "C",
+      PATH: process.env.PATH ?? "/usr/bin:/bin:/usr/sbin:/sbin",
+      TMPDIR: "/tmp",
+      TZ: "UTC",
+    } as unknown as NodeJS.ProcessEnv,
     maxBuffer: 1_000_000,
   });
   if (
@@ -1971,8 +2013,14 @@ export function readSourceRegistrationLauncherAttestation(): SourceRegistrationR
 
 export function sourceRegistrationApplyCodeBindings(
   projectRoot: string,
+  inheritedRuntimeEnvironment?: SourceRegistrationRuntimeAttestation,
 ): SourceRegistrationApplyCodeBindings {
-  const runtimeEnvironment = sourceRegistrationRuntimeAttestation(projectRoot);
+  const runtimeEnvironment =
+    inheritedRuntimeEnvironment === undefined
+      ? sourceRegistrationRuntimeAttestation(projectRoot)
+      : validateSourceRegistrationRuntimeAttestation(
+          inheritedRuntimeEnvironment,
+        );
   const codeBindings = SourceRegistrationApplyCodeBindingsSchema.parse({
     runtime: fileBinding(projectRoot, SOURCE_REGISTRATION_APPLY_PATHS.runtime),
     runner: fileBinding(projectRoot, SOURCE_REGISTRATION_APPLY_PATHS.runner),
@@ -2048,17 +2096,17 @@ export function sourceRegistrationApplyCodeBindings(
       projectRoot,
       SOURCE_REGISTRATION_APPLY_PATHS.nodeRuntimeClosureVerifierTest,
     ),
-    psqlRuntimeClosureManifest: fileBinding(
+    postgresqlToolsetRuntimeClosureManifest: fileBinding(
       projectRoot,
-      SOURCE_REGISTRATION_APPLY_PATHS.psqlRuntimeClosureManifest,
+      SOURCE_REGISTRATION_APPLY_PATHS.postgresqlToolsetRuntimeClosureManifest,
     ),
-    psqlRuntimeClosureVerifier: fileBinding(
+    postgresqlToolsetRuntimeClosureVerifier: fileBinding(
       projectRoot,
-      SOURCE_REGISTRATION_APPLY_PATHS.psqlRuntimeClosureVerifier,
+      SOURCE_REGISTRATION_APPLY_PATHS.postgresqlToolsetRuntimeClosureVerifier,
     ),
-    psqlRuntimeClosureVerifierTest: fileBinding(
+    postgresqlToolsetRuntimeClosureVerifierTest: fileBinding(
       projectRoot,
-      SOURCE_REGISTRATION_APPLY_PATHS.psqlRuntimeClosureVerifierTest,
+      SOURCE_REGISTRATION_APPLY_PATHS.postgresqlToolsetRuntimeClosureVerifierTest,
     ),
     restoreRunner: fileBinding(
       projectRoot,
@@ -2127,10 +2175,10 @@ export function sourceRegistrationApplyCodeBindings(
       runtimeEnvironment.node.runtimeClosureManifestSha256 ||
     codeBindings.nodeRuntimeClosureVerifier.fileSha256 !==
       runtimeEnvironment.node.runtimeClosureVerifierFileSha256 ||
-    codeBindings.psqlRuntimeClosureManifest.fileSha256 !==
-      runtimeEnvironment.psql.runtimeClosureManifestSha256 ||
-    codeBindings.psqlRuntimeClosureVerifier.fileSha256 !==
-      runtimeEnvironment.psql.runtimeClosureVerifierFileSha256
+    codeBindings.postgresqlToolsetRuntimeClosureManifest.fileSha256 !==
+      runtimeEnvironment.postgresqlToolset.manifestSha256 ||
+    codeBindings.postgresqlToolsetRuntimeClosureVerifier.fileSha256 !==
+      runtimeEnvironment.postgresqlToolset.verifierFileSha256
   ) {
     fail("static code bindings differ from the pre-import runtime attestation");
   }
@@ -3881,7 +3929,7 @@ export async function verifyLiveDatabaseContentAgainstSignedRestore(input: {
     digest.contentStateSha256 !==
       input.releaseAuthorization.contentStateSha256 ||
     digest.tool.psqlFileSha256 !==
-      input.runtimeAttestation.psql.binaryFileSha256 ||
+      input.runtimeAttestation.postgresqlToolset.toolFileSha256.psql ||
     target.databaseName !==
       SOURCE_REGISTRATION_APPLY_LOCKED_DATABASE_TARGET.databaseName ||
     target.systemIdentifier !==
@@ -4849,19 +4897,19 @@ export function validateExactApplyOptions(input: {
     "--node-runtime-closure-verifier-test-file-sha256",
   );
   requireExactSha(
-    options.psqlRuntimeClosureManifestFileSha256,
-    codeBindings.psqlRuntimeClosureManifest.fileSha256,
-    "--psql-runtime-closure-manifest-file-sha256",
+    options.postgresqlToolsetRuntimeClosureManifestFileSha256,
+    codeBindings.postgresqlToolsetRuntimeClosureManifest.fileSha256,
+    "--postgresql-toolset-runtime-closure-manifest-file-sha256",
   );
   requireExactSha(
-    options.psqlRuntimeClosureVerifierFileSha256,
-    codeBindings.psqlRuntimeClosureVerifier.fileSha256,
-    "--psql-runtime-closure-verifier-file-sha256",
+    options.postgresqlToolsetRuntimeClosureVerifierFileSha256,
+    codeBindings.postgresqlToolsetRuntimeClosureVerifier.fileSha256,
+    "--postgresql-toolset-runtime-closure-verifier-file-sha256",
   );
   requireExactSha(
-    options.psqlRuntimeClosureVerifierTestFileSha256,
-    codeBindings.psqlRuntimeClosureVerifierTest.fileSha256,
-    "--psql-runtime-closure-verifier-test-file-sha256",
+    options.postgresqlToolsetRuntimeClosureVerifierTestFileSha256,
+    codeBindings.postgresqlToolsetRuntimeClosureVerifierTest.fileSha256,
+    "--postgresql-toolset-runtime-closure-verifier-test-file-sha256",
   );
   requireExactSha(
     options.restoreRunnerFileSha256,
@@ -4972,25 +5020,44 @@ export function validateExactApplyOptions(input: {
     "--runtime-local-closure-sha256",
   );
   requireExactSha(
-    options.psqlBinaryFileSha256,
-    runtime.psql.binaryFileSha256,
-    "--psql-binary-file-sha256",
-  );
-  requireExactValue(
-    options.psqlVersion,
-    runtime.psql.version,
-    "--psql-version",
+    options.postgresqlToolsetCreatedbBinaryFileSha256,
+    runtime.postgresqlToolset.toolFileSha256.createdb,
+    "--postgresql-toolset-createdb-binary-file-sha256",
   );
   requireExactSha(
-    options.psqlRuntimeClosureSha256,
-    runtime.psql.runtimeClosureSha256,
-    "--psql-runtime-closure-sha256",
+    options.postgresqlToolsetDropdbBinaryFileSha256,
+    runtime.postgresqlToolset.toolFileSha256.dropdb,
+    "--postgresql-toolset-dropdb-binary-file-sha256",
+  );
+  requireExactSha(
+    options.postgresqlToolsetPgRestoreBinaryFileSha256,
+    runtime.postgresqlToolset.toolFileSha256.pgRestore,
+    "--postgresql-toolset-pg-restore-binary-file-sha256",
+  );
+  requireExactSha(
+    options.postgresqlToolsetPsqlBinaryFileSha256,
+    runtime.postgresqlToolset.toolFileSha256.psql,
+    "--postgresql-toolset-psql-binary-file-sha256",
+  );
+  requireExactValue(
+    options.postgresqlToolsetPsqlVersion,
+    runtime.postgresqlToolset.psqlVersion,
+    "--postgresql-toolset-psql-version",
+  );
+  requireExactSha(
+    options.postgresqlToolsetRuntimeClosureSha256,
+    runtime.postgresqlToolset.closureSha256,
+    "--postgresql-toolset-runtime-closure-sha256",
   );
   if (
-    runtime.psql.runtimeClosureSha256 !==
-    SOURCE_REGISTRATION_APPLY_LOCKED_PSQL_RUNTIME_CLOSURE_SHA256
+    runtime.postgresqlToolset.closureSha256 !==
+      SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256 ||
+    runtime.postgresqlToolset.manifestSha256 !==
+      SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256 ||
+    runtime.postgresqlToolset.verifierFileSha256 !==
+      SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256
   ) {
-    fail("psql runtime closure differs from the reviewed closure");
+    fail("PostgreSQL toolset runtime differs from the reviewed closure");
   }
   requireExactSha(
     options.runtimeAttestationSha256,

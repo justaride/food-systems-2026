@@ -12,6 +12,7 @@
     "comparison",
     "completedAtUtc",
     "evidenceClass",
+    "extensionInitialization",
     "format",
     "limitations",
     "logicalCloneRehearsal",
@@ -69,6 +70,89 @@
         },
         "receiptSha256": { "$ref": "#/$defs/sha256" },
         "receiptVersion": { "const": 1 }
+      }
+    },
+    "extensionInitialization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "attestationSha256",
+        "catalogSha256",
+        "connectionLimitAfter",
+        "connectionLimitBefore",
+        "excludedExtensionCount",
+        "extensionStateSha256",
+        "extensions",
+        "filteredCatalogSha256",
+        "fixedMutationPlanSha256",
+        "postRestoreVerified",
+        "requestSha256",
+        "selectionPolicy",
+        "selectionSha256",
+        "skippedCommentCount",
+        "sourceExtensionStateSha256",
+        "sourceStateMatched",
+        "transactionCommitted"
+      ],
+      "properties": {
+        "attestationSha256": { "$ref": "#/$defs/sha256" },
+        "catalogSha256": { "$ref": "#/$defs/sha256" },
+        "connectionLimitAfter": { "const": 1 },
+        "connectionLimitBefore": { "const": 0 },
+        "excludedExtensionCount": { "const": 2 },
+        "extensionStateSha256": { "$ref": "#/$defs/sha256" },
+        "extensions": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/extensionInitializationRow" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "comment": {
+                      "const": "text similarity measurement and index searching based on trigrams"
+                    },
+                    "name": { "const": "pg_trgm" },
+                    "version": { "const": "1.6" }
+                  }
+                }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/extensionInitializationRow" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "comment": {
+                      "const": "vector data type and ivfflat and hnsw access methods"
+                    },
+                    "name": { "const": "vector" },
+                    "version": { "const": "0.8.2" }
+                  }
+                }
+              ]
+            }
+          ],
+          "items": false
+        },
+        "filteredCatalogSha256": { "$ref": "#/$defs/sha256" },
+        "fixedMutationPlanSha256": {
+          "const": "fad5781af5501d12d2104f865cf158a068db787cc42ddb25934dccede8c56af7"
+        },
+        "postRestoreVerified": { "const": true },
+        "requestSha256": { "$ref": "#/$defs/sha256" },
+        "selectionPolicy": {
+          "const": "validated_pg_restore_use_list_fd3"
+        },
+        "selectionSha256": { "$ref": "#/$defs/sha256" },
+        "skippedCommentCount": { "const": 2 },
+        "sourceExtensionStateSha256": { "$ref": "#/$defs/sha256" },
+        "sourceStateMatched": { "const": true },
+        "transactionCommitted": { "const": true }
       }
     },
     "comparison": {
@@ -299,6 +383,10 @@
             "backupContractHelperSha256",
             "backupVerifierSha256",
             "companionReceiptSchemaSha256",
+            "postgresqlToolsetCreatedbBinarySha256",
+            "postgresqlExtensionInitializerTestSha256",
+            "postgresqlExtensionRuntimeManifestSha256",
+            "postgresqlExtensionRuntimeVerifierSha256",
             "sourceRegistrationLogicalCloneRehearsalTestSha256",
             "structuralRestoreRunnerSha256"
           ],
@@ -306,6 +394,18 @@
             "backupContractHelperSha256": { "$ref": "#/$defs/sha256" },
             "backupVerifierSha256": { "$ref": "#/$defs/sha256" },
             "companionReceiptSchemaSha256": { "$ref": "#/$defs/sha256" },
+            "postgresqlToolsetCreatedbBinarySha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "postgresqlExtensionInitializerTestSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "postgresqlExtensionRuntimeManifestSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "postgresqlExtensionRuntimeVerifierSha256": {
+              "$ref": "#/$defs/sha256"
+            },
             "sourceRegistrationLogicalCloneRehearsalTestSha256": {
               "$ref": "#/$defs/sha256"
             },
@@ -318,7 +418,6 @@
           "required": [
             "companionReceiptValidatorSha256",
             "companionRunnerSha256",
-            "createdbBinarySha256",
             "databaseLogicalDigestSha256",
             "dropdbBinarySha256",
             "pgRestoreBinarySha256",
@@ -326,6 +425,8 @@
             "psqlRuntimeClosureSha256",
             "psqlRuntimeManifestSha256",
             "psqlRuntimeVerifierSha256",
+            "postgresqlExtensionInitializerSha256",
+            "postgresqlExtensionRuntimeClosureSha256",
             "sourceRegistrationApplyRunnerSha256",
             "sourceRegistrationApplyRuntimeSha256",
             "sourceRegistrationLauncherSha256",
@@ -344,7 +445,6 @@
           "properties": {
             "companionReceiptValidatorSha256": { "$ref": "#/$defs/sha256" },
             "companionRunnerSha256": { "$ref": "#/$defs/sha256" },
-            "createdbBinarySha256": { "$ref": "#/$defs/sha256" },
             "databaseLogicalDigestSha256": { "$ref": "#/$defs/sha256" },
             "dropdbBinarySha256": { "$ref": "#/$defs/sha256" },
             "pgRestoreBinarySha256": { "$ref": "#/$defs/sha256" },
@@ -352,6 +452,12 @@
             "psqlRuntimeClosureSha256": { "$ref": "#/$defs/sha256" },
             "psqlRuntimeManifestSha256": { "$ref": "#/$defs/sha256" },
             "psqlRuntimeVerifierSha256": { "$ref": "#/$defs/sha256" },
+            "postgresqlExtensionInitializerSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "postgresqlExtensionRuntimeClosureSha256": {
+              "$ref": "#/$defs/sha256"
+            },
             "sourceRegistrationApplyRunnerSha256": {
               "$ref": "#/$defs/sha256"
             },
@@ -426,6 +532,30 @@
       "type": "string",
       "format": "date-time",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+    },
+    "extensionInitializationRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "comment",
+        "memberCount",
+        "memberInventorySha256",
+        "name",
+        "owner",
+        "relocatable",
+        "schema",
+        "version"
+      ],
+      "properties": {
+        "comment": { "type": "string", "minLength": 1 },
+        "memberCount": { "type": "integer", "minimum": 1 },
+        "memberInventorySha256": { "$ref": "#/$defs/sha256" },
+        "name": { "type": "string", "minLength": 1 },
+        "owner": { "const": "gabrielfreeman" },
+        "relocatable": { "const": true },
+        "schema": { "const": "public" },
+        "version": { "type": "string", "minLength": 1 }
+      }
     },
     "digest": {
       "type": "object",

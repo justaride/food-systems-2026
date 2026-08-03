@@ -56,10 +56,14 @@ export const SOURCE_REGISTRATION_APPLY_DATABASE_CATALOG_SCOPE =
   "public.Document+LibraryAnalysisRecord+ControlledMutationAudit+DatabaseIdentity" as const;
 export const SOURCE_REGISTRATION_APPLY_LOCKED_DATABASE_CATALOG_SHA256 =
   "7d8bdb71153177983fbe5d191b06a1cb3d8635e5b0f91a1d0eff0a0e942f8e10" as const;
-export const SOURCE_REGISTRATION_APPLY_LOCKED_PSQL_RUNTIME_CLOSURE_SHA256 =
-  "993193f3570f3ebad21b69af81c8099edf1bfa7f23492d6e9e489e7a351368aa" as const;
+export const SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256 =
+  "2f102d12bb738a5ec935e52a76cb6b156e58d86ef8e56a2bef3711c087de7bf0" as const;
+export const SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256 =
+  "7d0ac827430cd0d60c3884ac98fc5769223861fee17a18dd9375b10852fd8fdb" as const;
+export const SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256 =
+  "f5f0fb008f87f26246d39fbc3583742da49d3b257a0658178486d78e2d7ec0c7" as const;
 export const SOURCE_REGISTRATION_APPLY_LOCKED_NODE_RUNTIME_CLOSURE_SHA256 =
-  "0382c34b2669ec93e84f2c6280be36ac5071e93d0a793d6845707726cfffb504" as const;
+  "464410ef7bbe3c4da7468973f47a43442b51ef7ff3455d810dcf8f3b7ae4e434" as const;
 
 const APPLY_CONTRACT_HASH_DOMAIN =
   "food-systems-2026:source-registration-apply-contract:v1\0";
@@ -488,9 +492,17 @@ const runtimeAttestationBodySchema = z
         closureSha256: bareSha256Schema,
         entryCount: z.number().int().positive(),
         roots: z.tuple([
+          z.literal("package.json"),
+          z.literal("knowledge/runtime/source-registration-tsx.runtime.json"),
           z.literal("scripts/knowledge/apply-source-registration-plan.ts"),
           z.literal(
             "scripts/knowledge/run-source-registration-logical-clone-rehearsal.ts",
+          ),
+          z.literal(
+            "scripts/knowledge/run-controlled-logical-restore-companion.mjs",
+          ),
+          z.literal(
+            "scripts/knowledge/logical-restore-receipt-pair-journal.mjs",
           ),
           z.literal(
             "scripts/knowledge/launch-locked-source-registration-apply.mjs",
@@ -522,15 +534,26 @@ const runtimeAttestationBodySchema = z
     prismaGeneratedClient: resolvedTreeBindingSchema.extend({
       path: z.literal("src/generated/prisma"),
     }),
-    psql: z
+    postgresqlToolset: z
       .object({
-        binaryFileSha256: bareSha256Schema,
-        runtimeClosureManifestSha256: bareSha256Schema,
-        runtimeClosureSha256: z.literal(
-          SOURCE_REGISTRATION_APPLY_LOCKED_PSQL_RUNTIME_CLOSURE_SHA256,
+        closureSha256: z.literal(
+          SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256,
         ),
-        runtimeClosureVerifierFileSha256: bareSha256Schema,
-        version: safeControlTextSchema,
+        manifestSha256: z.literal(
+          SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256,
+        ),
+        psqlVersion: safeControlTextSchema,
+        toolFileSha256: z
+          .object({
+            createdb: bareSha256Schema,
+            dropdb: bareSha256Schema,
+            pgRestore: bareSha256Schema,
+            psql: bareSha256Schema,
+          })
+          .strict(),
+        verifierFileSha256: z.literal(
+          SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256,
+        ),
       })
       .strict(),
   })
@@ -678,7 +701,11 @@ export const SourceRegistrationReleaseAuthorizationSchema = z
     backupContractHelperSha256: bareSha256Schema,
     databaseLogicalDigestSha256: bareSha256Schema,
     psqlBinarySha256: bareSha256Schema,
-    psqlRuntimeClosureSha256: bareSha256Schema,
+    // Compatibility field name from release-authorization v1; value is the
+    // complete PostgreSQL toolset closure, not a psql-only closure.
+    psqlRuntimeClosureSha256: z.literal(
+      SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256,
+    ),
     restoredDatabaseDropped: z.literal(true),
     restoredDatabaseAbsenceConfirmed: z.literal(true),
     postRehearsalCloneFullStateMatched: z.literal(true),
@@ -774,13 +801,13 @@ export const SourceRegistrationApplyCodeBindingsSchema = z
     nodeRuntimeClosureVerifierTest: z
       .object({ path: portablePathSchema, fileSha256: bareSha256Schema })
       .strict(),
-    psqlRuntimeClosureManifest: z
+    postgresqlToolsetRuntimeClosureManifest: z
       .object({ path: portablePathSchema, fileSha256: bareSha256Schema })
       .strict(),
-    psqlRuntimeClosureVerifier: z
+    postgresqlToolsetRuntimeClosureVerifier: z
       .object({ path: portablePathSchema, fileSha256: bareSha256Schema })
       .strict(),
-    psqlRuntimeClosureVerifierTest: z
+    postgresqlToolsetRuntimeClosureVerifierTest: z
       .object({ path: portablePathSchema, fileSha256: bareSha256Schema })
       .strict(),
     restoreRunner: z
@@ -1028,8 +1055,12 @@ export function sourceRegistrationApplyContractManifest(): SourceRegistrationJso
       requiredGeneratedExpressionFunctionCount: 2,
       unexpectedWriteSurfaceCount: 0,
     },
-    lockedPsqlRuntimeClosureSha256:
-      SOURCE_REGISTRATION_APPLY_LOCKED_PSQL_RUNTIME_CLOSURE_SHA256,
+    lockedPostgresqlToolsetRuntimeClosureSha256:
+      SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256,
+    lockedPostgresqlToolsetRuntimeManifestSha256:
+      SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256,
+    lockedPostgresqlToolsetRuntimeVerifierSha256:
+      SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256,
     lockedNodeRuntimeClosureSha256:
       SOURCE_REGISTRATION_APPLY_LOCKED_NODE_RUNTIME_CLOSURE_SHA256,
     apply: {
@@ -1101,9 +1132,9 @@ export function sourceRegistrationApplyContractManifest(): SourceRegistrationJso
       "node_runtime_closure_manifest",
       "node_runtime_closure_verifier",
       "node_runtime_closure_verifier_test",
-      "psql_runtime_closure_manifest",
-      "psql_runtime_closure_verifier",
-      "psql_runtime_closure_verifier_test",
+      "postgresql_toolset_runtime_closure_manifest",
+      "postgresql_toolset_runtime_closure_verifier",
+      "postgresql_toolset_runtime_closure_verifier_test",
       "restore_runner",
       "ed25519_release_authorization_verifier",
       "ed25519_release_authorization_schema",
@@ -1119,7 +1150,7 @@ export function sourceRegistrationApplyContractManifest(): SourceRegistrationJso
       "package_lock",
       "generated_prisma_client_tree",
       "node_binary_recursive_runtime_and_installed_node_modules_tree",
-      "psql_binary_and_version",
+      "postgresql_toolset_four_binaries_and_psql_version",
     ],
     transitiveLockedPlanBindings:
       "registration plan runtime, generator, database schema and all source inputs are sealed by the locked plan and dependency-state hash",
@@ -1577,9 +1608,10 @@ export function validateSourceRegistrationApplyMutationSummary(
     releaseAuthorization.databaseLogicalDigestSha256 !==
       summary.codeBindings.databaseLogicalStateDigest.fileSha256 ||
     releaseAuthorization.psqlBinarySha256 !==
-      summary.codeBindings.runtimeEnvironment.psql.binaryFileSha256 ||
+      summary.codeBindings.runtimeEnvironment.postgresqlToolset.toolFileSha256
+        .psql ||
     releaseAuthorization.psqlRuntimeClosureSha256 !==
-      summary.codeBindings.runtimeEnvironment.psql.runtimeClosureSha256 ||
+      summary.codeBindings.runtimeEnvironment.postgresqlToolset.closureSha256 ||
     releaseAuthorization.restoredDatabaseDropped !==
       evidence.logicalRestoreCompanion.cloneDatabaseDropped ||
     releaseAuthorization.restoredDatabaseAbsenceConfirmed !==

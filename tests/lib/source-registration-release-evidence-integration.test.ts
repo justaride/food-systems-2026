@@ -18,6 +18,9 @@ import test from "node:test";
 import {
   SOURCE_REGISTRATION_APPLY_LOCKED_PLAN_FILE_SHA256,
   SOURCE_REGISTRATION_APPLY_LOCKED_PLAN_SHA256,
+  SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256,
+  SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256,
+  SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256,
   SOURCE_REGISTRATION_APPLY_LOCKED_TARGET_SET_SHA256,
   type SourceRegistrationApplyCodeBindings,
 } from "../../src/lib/knowledge/source-registration-apply";
@@ -150,15 +153,33 @@ function makeCodeBindings(): SourceRegistrationApplyCodeBindings {
       "scripts/restore-database-backup-drill.sh",
       "restore-runner",
     ),
+    postgresqlToolsetRuntimeClosureManifest: {
+      path: "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-03.v1.json",
+      fileSha256:
+        SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256,
+    },
+    postgresqlToolsetRuntimeClosureVerifier: {
+      path: "scripts/knowledge/verify-psql-runtime-closure.mjs",
+      fileSha256:
+        SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256,
+    },
+    postgresqlToolsetRuntimeClosureVerifierTest: fileBinding(
+      "tests/lib/psql-runtime-closure.test.ts",
+      "postgresql-toolset-verifier-test",
+    ),
     runtimeEnvironment: {
       schemaVersion: "source-registration-runtime-attestation-v1",
       launcher,
       localClosure: {
         closureSha256: hash("local-runtime-closure"),
-        entryCount: 7,
+        entryCount: 11,
         roots: [
+          "package.json",
+          "knowledge/runtime/source-registration-tsx.runtime.json",
           "scripts/knowledge/apply-source-registration-plan.ts",
           "scripts/knowledge/run-source-registration-logical-clone-rehearsal.ts",
+          "scripts/knowledge/run-controlled-logical-restore-companion.mjs",
+          "scripts/knowledge/logical-restore-receipt-pair-journal.mjs",
           "scripts/knowledge/launch-locked-source-registration-apply.mjs",
           "scripts/knowledge/database-logical-state-digest.mjs",
           "scripts/knowledge/verify-psql-runtime-closure.mjs",
@@ -194,12 +215,20 @@ function makeCodeBindings(): SourceRegistrationApplyCodeBindings {
         totalFileBytes: 1,
         treeSha256: hash("prisma-tree"),
       },
-      psql: {
-        binaryFileSha256: hash("psql-binary"),
-        runtimeClosureManifestSha256: hash("psql-manifest"),
-        runtimeClosureSha256: hash("psql-runtime-closure"),
-        runtimeClosureVerifierFileSha256: hash("psql-verifier"),
-        version: "psql (PostgreSQL) 16.13",
+      postgresqlToolset: {
+        closureSha256:
+          SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256,
+        manifestSha256:
+          SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256,
+        psqlVersion: "psql (PostgreSQL) 16.13",
+        toolFileSha256: {
+          createdb: hash("createdb-binary"),
+          dropdb: hash("dropdb-binary"),
+          pgRestore: hash("pg-restore-binary"),
+          psql: hash("psql-binary"),
+        },
+        verifierFileSha256:
+          SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256,
       },
       runtimeAttestationSha256: hash("runtime-attestation"),
     },
@@ -360,12 +389,58 @@ function writeArtifactPair(privateRoot: string, variant: string) {
   const rehearsalPath = join(privateRoot, `${variant}-rehearsal.json`);
   writePrivateFile(rehearsalPath, rehearsalBytes);
   const rehearsalFileSha256 = sha256(rehearsalBytes);
+  const extensions = [
+    {
+      comment:
+        "text similarity measurement and index searching based on trigrams",
+      memberCount: 74,
+      memberInventorySha256: hash(`pg-trgm-members:${variant}`),
+      name: "pg_trgm",
+      owner: "gabrielfreeman",
+      relocatable: true,
+      schema: "public",
+      version: "1.6",
+    },
+    {
+      comment: "vector data type and ivfflat and hnsw access methods",
+      memberCount: 135,
+      memberInventorySha256: hash(`vector-members:${variant}`),
+      name: "vector",
+      owner: "gabrielfreeman",
+      relocatable: true,
+      schema: "public",
+      version: "0.8.2",
+    },
+  ];
+  const extensionStateSha256 = sha256(
+    canonicalLogicalRestoreCompanionJson(extensions),
+  );
 
   const companion = {
     format: LOGICAL_RESTORE_COMPANION_RECEIPT_FORMAT,
     version: 1,
     canonicalJsonFormat: LOGICAL_RESTORE_COMPANION_CANONICAL_JSON,
     evidenceClass: LOGICAL_RESTORE_COMPANION_EVIDENCE_CLASS,
+    extensionInitialization: {
+      attestationSha256: hash(`extension-attestation:${variant}`),
+      catalogSha256: hash(`restore-catalog:${variant}`),
+      connectionLimitAfter: 1,
+      connectionLimitBefore: 0,
+      excludedExtensionCount: 2,
+      extensionStateSha256,
+      extensions,
+      filteredCatalogSha256: hash(`filtered-catalog:${variant}`),
+      fixedMutationPlanSha256:
+        "fad5781af5501d12d2104f865cf158a068db787cc42ddb25934dccede8c56af7",
+      postRestoreVerified: true,
+      requestSha256: hash(`extension-request:${variant}`),
+      selectionPolicy: "validated_pg_restore_use_list_fd3",
+      selectionSha256: hash(`restore-selection:${variant}`),
+      skippedCommentCount: 2,
+      sourceExtensionStateSha256: extensionStateSha256,
+      sourceStateMatched: true,
+      transactionCommitted: true,
+    },
     completedAtUtc: timestamp(11),
     backup: {
       dumpBytes: backup.dumpBytes,
@@ -385,20 +460,26 @@ function writeArtifactPair(privateRoot: string, variant: string) {
     comparison: {
       startedAtUtc: timestamp(6),
       completedAtUtc: timestamp(7),
-      source: companionDigest(source, runtime.psql.binaryFileSha256),
-      restored: companionDigest(restored, runtime.psql.binaryFileSha256),
+      source: companionDigest(
+        source,
+        runtime.postgresqlToolset.toolFileSha256.psql,
+      ),
+      restored: companionDigest(
+        restored,
+        runtime.postgresqlToolset.toolFileSha256.psql,
+      ),
       contentStateEqual: true,
       logicalStateEqual: false,
       logicalComparisonProofSha256:
         logicalComparisonProof.logicalComparisonProofSha256,
       postRehearsalClone: companionDigest(
         restored,
-        runtime.psql.binaryFileSha256,
+        runtime.postgresqlToolset.toolFileSha256.psql,
       ),
       postRehearsalCloneFullStateMatched: true,
       postRehearsalSource: companionDigest(
         source,
-        runtime.psql.binaryFileSha256,
+        runtime.postgresqlToolset.toolFileSha256.psql,
       ),
       postRehearsalVerifiedAtUtc: timestamp(10),
       relationCountEqual: true,
@@ -461,6 +542,14 @@ function writeArtifactPair(privateRoot: string, variant: string) {
         backupVerifierSha256: codeBindings.backupVerifier.fileSha256,
         companionReceiptSchemaSha256:
           codeBindings.logicalRestoreCompanionJsonSchema.fileSha256,
+        postgresqlToolsetCreatedbBinarySha256:
+          runtime.postgresqlToolset.toolFileSha256.createdb,
+        postgresqlExtensionInitializerTestSha256:
+          codeBindings.logicalCloneRehearsalTest.fileSha256,
+        postgresqlExtensionRuntimeManifestSha256:
+          runtime.postgresqlToolset.manifestSha256,
+        postgresqlExtensionRuntimeVerifierSha256:
+          runtime.postgresqlToolset.verifierFileSha256,
         sourceRegistrationLogicalCloneRehearsalTestSha256:
           codeBindings.logicalCloneRehearsalTest.fileSha256,
         structuralRestoreRunnerSha256: codeBindings.restoreRunner.fileSha256,
@@ -470,16 +559,19 @@ function writeArtifactPair(privateRoot: string, variant: string) {
           codeBindings.logicalRestoreCompanionValidator.fileSha256,
         companionRunnerSha256:
           codeBindings.controlledLogicalRestoreCompanionRunner.fileSha256,
-        createdbBinarySha256: hash("createdb-binary"),
         databaseLogicalDigestSha256:
           codeBindings.databaseLogicalStateDigest.fileSha256,
-        dropdbBinarySha256: hash("dropdb-binary"),
-        pgRestoreBinarySha256: hash("pg-restore-binary"),
-        psqlBinarySha256: runtime.psql.binaryFileSha256,
-        psqlRuntimeClosureSha256: runtime.psql.runtimeClosureSha256,
-        psqlRuntimeManifestSha256: runtime.psql.runtimeClosureManifestSha256,
-        psqlRuntimeVerifierSha256:
-          runtime.psql.runtimeClosureVerifierFileSha256,
+        dropdbBinarySha256: runtime.postgresqlToolset.toolFileSha256.dropdb,
+        pgRestoreBinarySha256:
+          runtime.postgresqlToolset.toolFileSha256.pgRestore,
+        psqlBinarySha256: runtime.postgresqlToolset.toolFileSha256.psql,
+        psqlRuntimeClosureSha256: runtime.postgresqlToolset.closureSha256,
+        psqlRuntimeManifestSha256: runtime.postgresqlToolset.manifestSha256,
+        psqlRuntimeVerifierSha256: runtime.postgresqlToolset.verifierFileSha256,
+        postgresqlExtensionInitializerSha256:
+          codeBindings.controlledLogicalRestoreCompanionRunner.fileSha256,
+        postgresqlExtensionRuntimeClosureSha256:
+          runtime.postgresqlToolset.closureSha256,
         sourceRegistrationApplyRunnerSha256: codeBindings.runner.fileSha256,
         sourceRegistrationApplyRuntimeSha256: codeBindings.runtime.fileSha256,
         sourceRegistrationLauncherSha256: codeBindings.launcher.fileSha256,
@@ -750,6 +842,30 @@ test("tracked schema, code, and runtime binding drift fail closed", () => {
       "drifted-node-binary",
     );
     cases.push([runtimeDrift, /Node binary binding differs/]);
+
+    for (const [tool, label] of [
+      ["createdb", "createdb"],
+      ["dropdb", "dropdb"],
+      ["pgRestore", "pg_restore"],
+      ["psql", "psql"],
+    ] as const) {
+      const toolDrift = structuredClone(codeBindings);
+      toolDrift.runtimeEnvironment.postgresqlToolset.toolFileSha256[tool] =
+        hash(`drifted-${tool}-binary`);
+      cases.push([
+        toolDrift,
+        new RegExp(`PostgreSQL toolset ${label} binary binding differs`),
+      ]);
+    }
+
+    const closureDrift = structuredClone(codeBindings);
+    closureDrift.runtimeEnvironment.postgresqlToolset.closureSha256 = hash(
+      "drifted-postgresql-toolset-closure",
+    ) as typeof closureDrift.runtimeEnvironment.postgresqlToolset.closureSha256;
+    cases.push([
+      closureDrift,
+      /PostgreSQL toolset runtime closure binding differs/,
+    ]);
 
     const attestationDrift = structuredClone(codeBindings);
     attestationDrift.runtimeEnvironment.runtimeAttestationSha256 = hash(

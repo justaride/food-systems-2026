@@ -80,9 +80,9 @@
         "nodeRuntimeClosureManifest",
         "nodeRuntimeClosureVerifier",
         "nodeRuntimeClosureVerifierTest",
-        "psqlRuntimeClosureManifest",
-        "psqlRuntimeClosureVerifier",
-        "psqlRuntimeClosureVerifierTest",
+        "postgresqlToolsetRuntimeClosureManifest",
+        "postgresqlToolsetRuntimeClosureVerifier",
+        "postgresqlToolsetRuntimeClosureVerifierTest",
         "restoreRunner",
         "releaseAuthorizationVerifier",
         "releaseAuthorizationJsonSchema",
@@ -134,9 +134,15 @@
         "nodeRuntimeClosureManifest": { "$ref": "#/$defs/fileBinding" },
         "nodeRuntimeClosureVerifier": { "$ref": "#/$defs/fileBinding" },
         "nodeRuntimeClosureVerifierTest": { "$ref": "#/$defs/fileBinding" },
-        "psqlRuntimeClosureManifest": { "$ref": "#/$defs/fileBinding" },
-        "psqlRuntimeClosureVerifier": { "$ref": "#/$defs/fileBinding" },
-        "psqlRuntimeClosureVerifierTest": { "$ref": "#/$defs/fileBinding" },
+        "postgresqlToolsetRuntimeClosureManifest": {
+          "$ref": "#/$defs/fileBinding"
+        },
+        "postgresqlToolsetRuntimeClosureVerifier": {
+          "$ref": "#/$defs/fileBinding"
+        },
+        "postgresqlToolsetRuntimeClosureVerifierTest": {
+          "$ref": "#/$defs/fileBinding"
+        },
         "restoreRunner": { "$ref": "#/$defs/fileBinding" },
         "releaseAuthorizationVerifier": { "$ref": "#/$defs/fileBinding" },
         "releaseAuthorizationJsonSchema": { "$ref": "#/$defs/fileBinding" },
@@ -346,7 +352,7 @@
         "databaseLogicalDigestSha256": { "$ref": "#/$defs/sha256" },
         "psqlBinarySha256": { "$ref": "#/$defs/sha256" },
         "psqlRuntimeClosureSha256": {
-          "const": "993193f3570f3ebad21b69af81c8099edf1bfa7f23492d6e9e489e7a351368aa"
+          "const": "2f102d12bb738a5ec935e52a76cb6b156e58d86ef8e56a2bef3711c087de7bf0"
         },
         "restoredDatabaseDropped": { "const": true },
         "restoredDatabaseAbsenceConfirmed": { "const": true },
@@ -800,7 +806,7 @@
         "node",
         "nodeModules",
         "prismaGeneratedClient",
-        "psql",
+        "postgresqlToolset",
         "runtimeAttestationSha256"
       ],
       "properties": {
@@ -832,11 +838,21 @@
             "roots": {
               "type": "array",
               "prefixItems": [
+                { "const": "package.json" },
+                {
+                  "const": "knowledge/runtime/source-registration-tsx.runtime.json"
+                },
                 {
                   "const": "scripts/knowledge/apply-source-registration-plan.ts"
                 },
                 {
                   "const": "scripts/knowledge/run-source-registration-logical-clone-rehearsal.ts"
+                },
+                {
+                  "const": "scripts/knowledge/run-controlled-logical-restore-companion.mjs"
+                },
+                {
+                  "const": "scripts/knowledge/logical-restore-receipt-pair-journal.mjs"
                 },
                 {
                   "const": "scripts/knowledge/launch-locked-source-registration-apply.mjs"
@@ -855,8 +871,8 @@
                 }
               ],
               "items": false,
-              "minItems": 7,
-              "maxItems": 7
+              "minItems": 11,
+              "maxItems": 11
             },
             "totalFileBytes": { "$ref": "#/$defs/positiveInteger" }
           },
@@ -879,7 +895,7 @@
             "platform": { "$ref": "#/$defs/safeText" },
             "runtimeClosureManifestSha256": { "$ref": "#/$defs/sha256" },
             "runtimeClosureSha256": {
-              "const": "0382c34b2669ec93e84f2c6280be36ac5071e93d0a793d6845707726cfffb504"
+              "const": "464410ef7bbe3c4da7468973f47a43442b51ef7ff3455d810dcf8f3b7ae4e434"
             },
             "runtimeClosureVerifierFileSha256": {
               "$ref": "#/$defs/sha256"
@@ -908,25 +924,37 @@
             }
           ]
         },
-        "psql": {
+        "postgresqlToolset": {
           "type": "object",
           "required": [
-            "binaryFileSha256",
-            "runtimeClosureManifestSha256",
-            "runtimeClosureSha256",
-            "runtimeClosureVerifierFileSha256",
-            "version"
+            "closureSha256",
+            "manifestSha256",
+            "psqlVersion",
+            "toolFileSha256",
+            "verifierFileSha256"
           ],
           "properties": {
-            "binaryFileSha256": { "$ref": "#/$defs/sha256" },
-            "runtimeClosureManifestSha256": { "$ref": "#/$defs/sha256" },
-            "runtimeClosureSha256": {
-              "const": "993193f3570f3ebad21b69af81c8099edf1bfa7f23492d6e9e489e7a351368aa"
+            "closureSha256": {
+              "const": "2f102d12bb738a5ec935e52a76cb6b156e58d86ef8e56a2bef3711c087de7bf0"
             },
-            "runtimeClosureVerifierFileSha256": {
-              "$ref": "#/$defs/sha256"
+            "manifestSha256": {
+              "const": "7d0ac827430cd0d60c3884ac98fc5769223861fee17a18dd9375b10852fd8fdb"
             },
-            "version": { "$ref": "#/$defs/safeText" }
+            "psqlVersion": { "$ref": "#/$defs/safeText" },
+            "toolFileSha256": {
+              "type": "object",
+              "required": ["createdb", "dropdb", "pgRestore", "psql"],
+              "properties": {
+                "createdb": { "$ref": "#/$defs/sha256" },
+                "dropdb": { "$ref": "#/$defs/sha256" },
+                "pgRestore": { "$ref": "#/$defs/sha256" },
+                "psql": { "$ref": "#/$defs/sha256" }
+              },
+              "additionalProperties": false
+            },
+            "verifierFileSha256": {
+              "const": "f5f0fb008f87f26246d39fbc3583742da49d3b257a0658178486d78e2d7ec0c7"
+            }
           },
           "additionalProperties": false
         },

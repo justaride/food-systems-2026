@@ -47,7 +47,9 @@ import {
   SOURCE_REGISTRATION_APPLY_LOCKED_PLAN_FILE_SHA256,
   SOURCE_REGISTRATION_APPLY_LOCKED_PLAN_SHA256,
   SOURCE_REGISTRATION_APPLY_LOCKED_NODE_RUNTIME_CLOSURE_SHA256,
-  SOURCE_REGISTRATION_APPLY_LOCKED_PSQL_RUNTIME_CLOSURE_SHA256,
+  SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256,
+  SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256,
+  SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256,
   SOURCE_REGISTRATION_APPLY_LOCKED_TARGET_SET_SHA256,
   SOURCE_REGISTRATION_APPLY_OWNER_SCOPE_AUTHORIZATION_REF,
   buildSourceRegistrationApplyMutationSummary,
@@ -178,15 +180,17 @@ const sourceApplyCodeBindings: SourceRegistrationApplyCodeBindings = {
     "tests/lib/node-runtime-closure.test.ts",
     "a",
   ),
-  psqlRuntimeClosureManifest: fileBinding(
-    "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-03.v1.json",
-    "8",
-  ),
-  psqlRuntimeClosureVerifier: fileBinding(
-    "scripts/knowledge/verify-psql-runtime-closure.mjs",
-    "9",
-  ),
-  psqlRuntimeClosureVerifierTest: fileBinding(
+  postgresqlToolsetRuntimeClosureManifest: {
+    path: "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-03.v1.json",
+    fileSha256:
+      SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256,
+  },
+  postgresqlToolsetRuntimeClosureVerifier: {
+    path: "scripts/knowledge/verify-psql-runtime-closure.mjs",
+    fileSha256:
+      SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256,
+  },
+  postgresqlToolsetRuntimeClosureVerifierTest: fileBinding(
     "tests/lib/psql-runtime-closure.test.ts",
     "a",
   ),
@@ -245,10 +249,14 @@ const sourceApplyCodeBindings: SourceRegistrationApplyCodeBindings = {
     },
     localClosure: {
       closureSha256: hash("7"),
-      entryCount: 12,
+      entryCount: 13,
       roots: [
+        "package.json",
+        "knowledge/runtime/source-registration-tsx.runtime.json",
         "scripts/knowledge/apply-source-registration-plan.ts",
         "scripts/knowledge/run-source-registration-logical-clone-rehearsal.ts",
+        "scripts/knowledge/run-controlled-logical-restore-companion.mjs",
+        "scripts/knowledge/logical-restore-receipt-pair-journal.mjs",
         "scripts/knowledge/launch-locked-source-registration-apply.mjs",
         "scripts/knowledge/database-logical-state-digest.mjs",
         "scripts/knowledge/verify-psql-runtime-closure.mjs",
@@ -285,13 +293,20 @@ const sourceApplyCodeBindings: SourceRegistrationApplyCodeBindings = {
       totalFileBytes: 1,
       treeSha256: hash("6"),
     },
-    psql: {
-      binaryFileSha256: hash("a"),
-      runtimeClosureManifestSha256: hash("8"),
-      runtimeClosureSha256:
-        SOURCE_REGISTRATION_APPLY_LOCKED_PSQL_RUNTIME_CLOSURE_SHA256,
-      runtimeClosureVerifierFileSha256: hash("9"),
-      version: "psql (PostgreSQL) 16.13 (Homebrew)",
+    postgresqlToolset: {
+      closureSha256:
+        SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256,
+      manifestSha256:
+        SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256,
+      psqlVersion: "psql (PostgreSQL) 16.13 (Homebrew)",
+      toolFileSha256: {
+        createdb: hash("7"),
+        dropdb: hash("8"),
+        pgRestore: hash("9"),
+        psql: hash("a"),
+      },
+      verifierFileSha256:
+        SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256,
     },
     runtimeAttestationSha256: hash("b"),
   },
@@ -529,9 +544,11 @@ function sourceRegistrationAuditFixture(plan: SourceRegistrationPlan) {
     databaseLogicalDigestSha256:
       sourceApplyCodeBindings.databaseLogicalStateDigest.fileSha256,
     psqlBinarySha256:
-      sourceApplyCodeBindings.runtimeEnvironment.psql.binaryFileSha256,
+      sourceApplyCodeBindings.runtimeEnvironment.postgresqlToolset
+        .toolFileSha256.psql,
     psqlRuntimeClosureSha256:
-      sourceApplyCodeBindings.runtimeEnvironment.psql.runtimeClosureSha256,
+      sourceApplyCodeBindings.runtimeEnvironment.postgresqlToolset
+        .closureSha256,
     restoredDatabaseDropped: true as const,
     restoredDatabaseAbsenceConfirmed: true as const,
     postRehearsalCloneFullStateMatched: true as const,

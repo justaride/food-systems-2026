@@ -17,17 +17,17 @@ export const NODE_RUNTIME_CLOSURE_VERSION = 1;
 export const NODE_RUNTIME_CLOSURE_DOMAIN =
   "food-systems-2026:node-runtime-closure:v1\0";
 export const NODE_RUNTIME_CLOSURE_SHA256 =
-  "0382c34b2669ec93e84f2c6280be36ac5071e93d0a793d6845707726cfffb504";
+  "464410ef7bbe3c4da7468973f47a43442b51ef7ff3455d810dcf8f3b7ae4e434";
 export const NODE_RUNTIME_CLOSURE_MANIFEST_PATH =
   "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-08-03.v1.json";
 export const NODE_RUNTIME_CLOSURE_MANIFEST_SHA256 =
-  "ce9cf8f7820d55d973f6935b98c468c716288b28dc345a4125a80bccdb814943";
+  "9c262c5438fb5c6bad4b002b2516c45d3b935c6a2481e3841fd28b5d03d8e8f8";
 export const NODE_RUNTIME_FILE_SHA256 =
   "08dad0581f00a0cabf4d49ec92ca1f25fdfd01c2c18fa8e92b35f04d4c24c164";
 export const BOUND_SYSTEM_RUNTIME_CLOSURE_MANIFEST_SHA256 =
-  "d06073d91bb7da04318b0a95ce2d482369f336af69599cca7daa14fa614819e6";
+  "7d0ac827430cd0d60c3884ac98fc5769223861fee17a18dd9375b10852fd8fdb";
 export const BOUND_SYSTEM_RUNTIME_CLOSURE_SHA256 =
-  "993193f3570f3ebad21b69af81c8099edf1bfa7f23492d6e9e489e7a351368aa";
+  "2f102d12bb738a5ec935e52a76cb6b156e58d86ef8e56a2bef3711c087de7bf0";
 
 const SHA256_PATTERN = /^[a-f0-9]{64}$/;
 const NODE_VERSION = "v26.0.0";
@@ -37,7 +37,7 @@ const SYSTEM_DYLIB_REFERENCE_COUNT = 6;
 const SYSTEM_DYLD_CACHE_FILE_COUNT = 13;
 const SYSTEM_DYLD_CACHE_BYTES = 5_800_706_048;
 const RESOLUTION =
-  "recursive_macho_load_commands_non_system_bytes_plus_bound_psql_system_dyld_closure";
+  "recursive_macho_load_commands_non_system_bytes_plus_bound_postgresql_toolset_system_dyld_closure";
 const FORBIDDEN_EXACT_ENVIRONMENT = new Set([
   "NODE_EXTRA_CA_CERTS",
   "NODE_OPTIONS",
@@ -331,23 +331,24 @@ function parseManifest(bytes) {
     [
       "dyldCacheBytes",
       "dyldCacheFileCount",
-      "psqlRuntimeClosureManifestSha256",
-      "psqlRuntimeClosureSha256",
+      "postgresqlToolsetRuntimeClosureManifestSha256",
+      "postgresqlToolsetRuntimeClosureSha256",
     ],
     "systemRuntimeBinding",
   );
   sha256(
-    system.psqlRuntimeClosureManifestSha256,
-    "systemRuntimeBinding psqlRuntimeClosureManifestSha256",
+    system.postgresqlToolsetRuntimeClosureManifestSha256,
+    "systemRuntimeBinding postgresqlToolsetRuntimeClosureManifestSha256",
   );
   sha256(
-    system.psqlRuntimeClosureSha256,
-    "systemRuntimeBinding psqlRuntimeClosureSha256",
+    system.postgresqlToolsetRuntimeClosureSha256,
+    "systemRuntimeBinding postgresqlToolsetRuntimeClosureSha256",
   );
   if (
-    system.psqlRuntimeClosureManifestSha256 !==
+    system.postgresqlToolsetRuntimeClosureManifestSha256 !==
       BOUND_SYSTEM_RUNTIME_CLOSURE_MANIFEST_SHA256 ||
-    system.psqlRuntimeClosureSha256 !== BOUND_SYSTEM_RUNTIME_CLOSURE_SHA256 ||
+    system.postgresqlToolsetRuntimeClosureSha256 !==
+      BOUND_SYSTEM_RUNTIME_CLOSURE_SHA256 ||
     system.dyldCacheFileCount !== SYSTEM_DYLD_CACHE_FILE_COUNT ||
     system.dyldCacheBytes !== SYSTEM_DYLD_CACHE_BYTES
   ) {

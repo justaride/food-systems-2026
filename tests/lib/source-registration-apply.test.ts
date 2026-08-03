@@ -33,7 +33,9 @@ import {
   SOURCE_REGISTRATION_APPLY_LOCKED_NODE_RUNTIME_CLOSURE_SHA256,
   SOURCE_REGISTRATION_APPLY_LOCKED_PLAN_FILE_SHA256,
   SOURCE_REGISTRATION_APPLY_LOCKED_PLAN_SHA256,
-  SOURCE_REGISTRATION_APPLY_LOCKED_PSQL_RUNTIME_CLOSURE_SHA256,
+  SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256,
+  SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256,
+  SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256,
   SOURCE_REGISTRATION_APPLY_LOCKED_TARGET_SET_SHA256,
   SOURCE_REGISTRATION_APPLY_OWNER_SCOPE_AUTHORIZATION_REF,
   SourceRegistrationAfterSnapshotSchema,
@@ -167,15 +169,17 @@ const codeBindings: SourceRegistrationApplyCodeBindings = {
     "tests/lib/node-runtime-closure.test.ts",
     "d",
   ),
-  psqlRuntimeClosureManifest: fileBinding(
-    "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-03.v1.json",
-    "8",
-  ),
-  psqlRuntimeClosureVerifier: fileBinding(
-    "scripts/knowledge/verify-psql-runtime-closure.mjs",
-    "9",
-  ),
-  psqlRuntimeClosureVerifierTest: fileBinding(
+  postgresqlToolsetRuntimeClosureManifest: {
+    path: "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-03.v1.json",
+    fileSha256:
+      SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256,
+  },
+  postgresqlToolsetRuntimeClosureVerifier: {
+    path: "scripts/knowledge/verify-psql-runtime-closure.mjs",
+    fileSha256:
+      SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256,
+  },
+  postgresqlToolsetRuntimeClosureVerifierTest: fileBinding(
     "tests/lib/psql-runtime-closure.test.ts",
     "a",
   ),
@@ -234,10 +238,14 @@ const codeBindings: SourceRegistrationApplyCodeBindings = {
     },
     localClosure: {
       closureSha256: hash("7"),
-      entryCount: 11,
+      entryCount: 12,
       roots: [
+        "package.json",
+        "knowledge/runtime/source-registration-tsx.runtime.json",
         "scripts/knowledge/apply-source-registration-plan.ts",
         "scripts/knowledge/run-source-registration-logical-clone-rehearsal.ts",
+        "scripts/knowledge/run-controlled-logical-restore-companion.mjs",
+        "scripts/knowledge/logical-restore-receipt-pair-journal.mjs",
         "scripts/knowledge/launch-locked-source-registration-apply.mjs",
         "scripts/knowledge/database-logical-state-digest.mjs",
         "scripts/knowledge/verify-psql-runtime-closure.mjs",
@@ -274,13 +282,20 @@ const codeBindings: SourceRegistrationApplyCodeBindings = {
       totalFileBytes: 1,
       treeSha256: hash("6"),
     },
-    psql: {
-      binaryFileSha256: hash("a"),
-      runtimeClosureManifestSha256: hash("8"),
-      runtimeClosureSha256:
-        SOURCE_REGISTRATION_APPLY_LOCKED_PSQL_RUNTIME_CLOSURE_SHA256,
-      runtimeClosureVerifierFileSha256: hash("9"),
-      version: "psql (PostgreSQL) 16.13 (Homebrew)",
+    postgresqlToolset: {
+      closureSha256:
+        SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256,
+      manifestSha256:
+        SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256,
+      psqlVersion: "psql (PostgreSQL) 16.13 (Homebrew)",
+      toolFileSha256: {
+        createdb: hash("7"),
+        dropdb: hash("8"),
+        pgRestore: hash("9"),
+        psql: hash("a"),
+      },
+      verifierFileSha256:
+        SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256,
     },
     runtimeAttestationSha256: hash("b"),
   },
@@ -514,9 +529,10 @@ function receiptFixture() {
     backupContractHelperSha256: codeBindings.backupContractHelper.fileSha256,
     databaseLogicalDigestSha256:
       codeBindings.databaseLogicalStateDigest.fileSha256,
-    psqlBinarySha256: codeBindings.runtimeEnvironment.psql.binaryFileSha256,
+    psqlBinarySha256:
+      codeBindings.runtimeEnvironment.postgresqlToolset.toolFileSha256.psql,
     psqlRuntimeClosureSha256:
-      codeBindings.runtimeEnvironment.psql.runtimeClosureSha256,
+      codeBindings.runtimeEnvironment.postgresqlToolset.closureSha256,
     restoredDatabaseDropped: true as const,
     restoredDatabaseAbsenceConfirmed: true as const,
     postRehearsalCloneFullStateMatched: true as const,
@@ -1039,12 +1055,12 @@ test("apply option gate requires every exact plan, code, authority, and evidence
       codeBindings.nodeRuntimeClosureVerifier.fileSha256,
     nodeRuntimeClosureVerifierTestFileSha256:
       codeBindings.nodeRuntimeClosureVerifierTest.fileSha256,
-    psqlRuntimeClosureManifestFileSha256:
-      codeBindings.psqlRuntimeClosureManifest.fileSha256,
-    psqlRuntimeClosureVerifierFileSha256:
-      codeBindings.psqlRuntimeClosureVerifier.fileSha256,
-    psqlRuntimeClosureVerifierTestFileSha256:
-      codeBindings.psqlRuntimeClosureVerifierTest.fileSha256,
+    postgresqlToolsetRuntimeClosureManifestFileSha256:
+      codeBindings.postgresqlToolsetRuntimeClosureManifest.fileSha256,
+    postgresqlToolsetRuntimeClosureVerifierFileSha256:
+      codeBindings.postgresqlToolsetRuntimeClosureVerifier.fileSha256,
+    postgresqlToolsetRuntimeClosureVerifierTestFileSha256:
+      codeBindings.postgresqlToolsetRuntimeClosureVerifierTest.fileSha256,
     restoreRunnerFileSha256: codeBindings.restoreRunner.fileSha256,
     releaseAuthorizationVerifierFileSha256:
       codeBindings.releaseAuthorizationVerifier.fileSha256,
@@ -1078,10 +1094,19 @@ test("apply option gate requires every exact plan, code, authority, and evidence
       codeBindings.runtimeEnvironment.nodeModules.treeSha256,
     runtimeLocalClosureSha256:
       codeBindings.runtimeEnvironment.localClosure.closureSha256,
-    psqlBinaryFileSha256: codeBindings.runtimeEnvironment.psql.binaryFileSha256,
-    psqlVersion: codeBindings.runtimeEnvironment.psql.version,
-    psqlRuntimeClosureSha256:
-      codeBindings.runtimeEnvironment.psql.runtimeClosureSha256,
+    postgresqlToolsetCreatedbBinaryFileSha256:
+      codeBindings.runtimeEnvironment.postgresqlToolset.toolFileSha256.createdb,
+    postgresqlToolsetDropdbBinaryFileSha256:
+      codeBindings.runtimeEnvironment.postgresqlToolset.toolFileSha256.dropdb,
+    postgresqlToolsetPgRestoreBinaryFileSha256:
+      codeBindings.runtimeEnvironment.postgresqlToolset.toolFileSha256
+        .pgRestore,
+    postgresqlToolsetPsqlBinaryFileSha256:
+      codeBindings.runtimeEnvironment.postgresqlToolset.toolFileSha256.psql,
+    postgresqlToolsetPsqlVersion:
+      codeBindings.runtimeEnvironment.postgresqlToolset.psqlVersion,
+    postgresqlToolsetRuntimeClosureSha256:
+      codeBindings.runtimeEnvironment.postgresqlToolset.closureSha256,
     runtimeAttestationSha256:
       codeBindings.runtimeEnvironment.runtimeAttestationSha256,
     databaseTargetSha256:
@@ -1158,6 +1183,39 @@ test("apply option gate requires every exact plan, code, authority, and evidence
     [
       "controlledLogicalRestoreCompanionRunnerFileSha256",
       "--controlled-logical-restore-companion-runner-file-sha256",
+    ],
+    [
+      "postgresqlToolsetRuntimeClosureManifestFileSha256",
+      "--postgresql-toolset-runtime-closure-manifest-file-sha256",
+    ],
+    [
+      "postgresqlToolsetRuntimeClosureVerifierFileSha256",
+      "--postgresql-toolset-runtime-closure-verifier-file-sha256",
+    ],
+    [
+      "postgresqlToolsetRuntimeClosureVerifierTestFileSha256",
+      "--postgresql-toolset-runtime-closure-verifier-test-file-sha256",
+    ],
+    [
+      "postgresqlToolsetCreatedbBinaryFileSha256",
+      "--postgresql-toolset-createdb-binary-file-sha256",
+    ],
+    [
+      "postgresqlToolsetDropdbBinaryFileSha256",
+      "--postgresql-toolset-dropdb-binary-file-sha256",
+    ],
+    [
+      "postgresqlToolsetPgRestoreBinaryFileSha256",
+      "--postgresql-toolset-pg-restore-binary-file-sha256",
+    ],
+    [
+      "postgresqlToolsetPsqlBinaryFileSha256",
+      "--postgresql-toolset-psql-binary-file-sha256",
+    ],
+    ["postgresqlToolsetPsqlVersion", "--postgresql-toolset-psql-version"],
+    [
+      "postgresqlToolsetRuntimeClosureSha256",
+      "--postgresql-toolset-runtime-closure-sha256",
     ],
   ] as const satisfies ReadonlyArray<
     readonly [keyof typeof validOptions, string]

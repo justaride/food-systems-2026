@@ -1,10 +1,32 @@
 {
-  "format": "foodsystems-psql-runtime-closure",
-  "version": 1,
+  "format": "foodsystems-postgresql-toolset-runtime-closure",
+  "version": 2,
   "platform": "darwin",
   "architecture": "arm64",
   "psqlVersion": "psql (PostgreSQL) 16.13 (Homebrew)",
-  "resolution": "recursive_macho_load_commands_non_system_bytes_plus_complete_arm64e_dyld_subcache_set",
+  "resolution": "recursive_builtin_macho_load_commands_non_system_bytes_plus_complete_arm64e_dyld_subcache_set",
+  "toolRoots": [
+    {
+      "name": "createdb",
+      "loaderPath": "/opt/homebrew/bin/createdb",
+      "realPath": "/opt/homebrew/Cellar/postgresql@16/16.13/bin/createdb"
+    },
+    {
+      "name": "dropdb",
+      "loaderPath": "/opt/homebrew/bin/dropdb",
+      "realPath": "/opt/homebrew/Cellar/postgresql@16/16.13/bin/dropdb"
+    },
+    {
+      "name": "pg_restore",
+      "loaderPath": "/opt/homebrew/bin/pg_restore",
+      "realPath": "/opt/homebrew/Cellar/postgresql@16/16.13/bin/pg_restore"
+    },
+    {
+      "name": "psql",
+      "loaderPath": "/opt/homebrew/bin/psql",
+      "realPath": "/opt/homebrew/Cellar/postgresql@16/16.13/bin/psql"
+    }
+  ],
   "loaderAliases": [
     {
       "loaderPath": "/opt/homebrew/Cellar/krb5/1.22.2/lib/libcom_err.3.0.dylib",
@@ -27,6 +49,18 @@
       "realPath": "/opt/homebrew/Cellar/openssl@3/3.6.3/lib/libcrypto.3.dylib"
     },
     {
+      "loaderPath": "/opt/homebrew/bin/createdb",
+      "realPath": "/opt/homebrew/Cellar/postgresql@16/16.13/bin/createdb"
+    },
+    {
+      "loaderPath": "/opt/homebrew/bin/dropdb",
+      "realPath": "/opt/homebrew/Cellar/postgresql@16/16.13/bin/dropdb"
+    },
+    {
+      "loaderPath": "/opt/homebrew/bin/pg_restore",
+      "realPath": "/opt/homebrew/Cellar/postgresql@16/16.13/bin/pg_restore"
+    },
+    {
       "loaderPath": "/opt/homebrew/bin/psql",
       "realPath": "/opt/homebrew/Cellar/postgresql@16/16.13/bin/psql"
     },
@@ -35,24 +69,12 @@
       "realPath": "/opt/homebrew/Cellar/gettext/1.0/lib/libintl.8.dylib"
     },
     {
-      "loaderPath": "/opt/homebrew/opt/krb5/lib/libcom_err.3.0.dylib",
-      "realPath": "/opt/homebrew/Cellar/krb5/1.22.2/lib/libcom_err.3.0.dylib"
-    },
-    {
       "loaderPath": "/opt/homebrew/opt/krb5/lib/libgssapi_krb5.2.2.dylib",
       "realPath": "/opt/homebrew/Cellar/krb5/1.22.2/lib/libgssapi_krb5.2.2.dylib"
     },
     {
-      "loaderPath": "/opt/homebrew/opt/krb5/lib/libk5crypto.3.1.dylib",
-      "realPath": "/opt/homebrew/Cellar/krb5/1.22.2/lib/libk5crypto.3.1.dylib"
-    },
-    {
-      "loaderPath": "/opt/homebrew/opt/krb5/lib/libkrb5.3.3.dylib",
-      "realPath": "/opt/homebrew/Cellar/krb5/1.22.2/lib/libkrb5.3.3.dylib"
-    },
-    {
-      "loaderPath": "/opt/homebrew/opt/krb5/lib/libkrb5support.1.1.dylib",
-      "realPath": "/opt/homebrew/Cellar/krb5/1.22.2/lib/libkrb5support.1.1.dylib"
+      "loaderPath": "/opt/homebrew/opt/lz4/lib/liblz4.1.dylib",
+      "realPath": "/opt/homebrew/Cellar/lz4/1.10.0/lib/liblz4.1.10.0.dylib"
     },
     {
       "loaderPath": "/opt/homebrew/opt/openssl@3/lib/libcrypto.3.dylib",
@@ -69,6 +91,10 @@
     {
       "loaderPath": "/opt/homebrew/opt/readline/lib/libreadline.8.dylib",
       "realPath": "/opt/homebrew/Cellar/readline/8.3.3/lib/libreadline.8.3.dylib"
+    },
+    {
+      "loaderPath": "/opt/homebrew/opt/zstd/lib/libzstd.1.dylib",
+      "realPath": "/opt/homebrew/Cellar/zstd/1.5.7_1/lib/libzstd.1.5.7.dylib"
     }
   ],
   "homebrewObjects": [
@@ -103,6 +129,11 @@
       "sha256": "672b97f5f3c04b54ef0cdfa7cf3b2df795bebb49236d2294a792dd59ff891fc7"
     },
     {
+      "path": "/opt/homebrew/Cellar/lz4/1.10.0/lib/liblz4.1.10.0.dylib",
+      "bytes": 178048,
+      "sha256": "be3414171e667ff38a542d6dcdef1e2f0f04028e4a6080f2c164afff38b0d9b7"
+    },
+    {
       "path": "/opt/homebrew/Cellar/openssl@3/3.6.3/lib/libcrypto.3.dylib",
       "bytes": 4846032,
       "sha256": "34bc039f5c725691e757ef42d26f1709830b18046c3ad6d93985153c83d0bbbc"
@@ -111,6 +142,21 @@
       "path": "/opt/homebrew/Cellar/openssl@3/3.6.3/lib/libssl.3.dylib",
       "bytes": 884992,
       "sha256": "4c3c554adc8ace6ec2245b4962b181451d245edfab92c3a09fc7b3be094e7438"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/postgresql@16/16.13/bin/createdb",
+      "bytes": 135296,
+      "sha256": "4d903ba229ba993a2803ff36981a7890abfbaa097ed64548d59b6932e0a860b3"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/postgresql@16/16.13/bin/dropdb",
+      "bytes": 135024,
+      "sha256": "34f7f2143da5c450981806df325f14a71377d6b7bc5b6a9a78267254c1b38eb9"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/postgresql@16/16.13/bin/pg_restore",
+      "bytes": 268912,
+      "sha256": "973d13de60c55dbc374390fe87027f9434bddffe7b0abd27b4e947e6639feb0d"
     },
     {
       "path": "/opt/homebrew/Cellar/postgresql@16/16.13/bin/psql",
@@ -126,6 +172,11 @@
       "path": "/opt/homebrew/Cellar/readline/8.3.3/lib/libreadline.8.3.dylib",
       "bytes": 314272,
       "sha256": "7d74566dcbd3f64a5ec6266c8285e48f0214a9d2f36ad5f158b4282a3f10b9a9"
+    },
+    {
+      "path": "/opt/homebrew/Cellar/zstd/1.5.7_1/lib/libzstd.1.5.7.dylib",
+      "bytes": 649648,
+      "sha256": "e2847c4613b386683c234913ae3b7b04299254096caf7616e3b3cd9bb97a39ab"
     }
   ],
   "systemDylibReferences": [
@@ -136,7 +187,8 @@
     "/usr/lib/libSystem.B.dylib",
     "/usr/lib/libiconv.2.dylib",
     "/usr/lib/libncurses.5.4.dylib",
-    "/usr/lib/libresolv.9.dylib"
+    "/usr/lib/libresolv.9.dylib",
+    "/usr/lib/libz.1.dylib"
   ],
   "systemDyldCache": {
     "root": "/System/Volumes/Preboot/Cryptexes/OS/System/Library/dyld",
@@ -208,5 +260,5 @@
       }
     ]
   },
-  "closureSha256": "993193f3570f3ebad21b69af81c8099edf1bfa7f23492d6e9e489e7a351368aa"
+  "closureSha256": "2f102d12bb738a5ec935e52a76cb6b156e58d86ef8e56a2bef3711c087de7bf0"
 }

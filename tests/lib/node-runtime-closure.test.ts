@@ -4,6 +4,7 @@ import { resolve } from "node:path";
 import test from "node:test";
 
 import {
+  BOUND_SYSTEM_RUNTIME_CLOSURE_MANIFEST_SHA256,
   BOUND_SYSTEM_RUNTIME_CLOSURE_SHA256,
   NODE_RUNTIME_CLOSURE_DOMAIN,
   NODE_RUNTIME_CLOSURE_MANIFEST_PATH,
@@ -13,6 +14,10 @@ import {
   nodeRuntimeClosureSha256,
   verifyNodeRuntimeClosure,
 } from "../../scripts/knowledge/verify-node-runtime-closure.mjs";
+import {
+  POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_MANIFEST_SHA256,
+  POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256,
+} from "../../scripts/knowledge/verify-psql-runtime-closure.mjs";
 
 const manifestPath = resolve(NODE_RUNTIME_CLOSURE_MANIFEST_PATH);
 const supportedRuntime =
@@ -51,6 +56,17 @@ test("tracked Node manifest has the pinned file and domain-separated closure has
       `${NODE_RUNTIME_CLOSURE_DOMAIN}${canonicalNodeRuntimeClosureJson(body)}`,
     ),
     NODE_RUNTIME_CLOSURE_SHA256,
+  );
+});
+
+test("Node runtime binds the same verified PostgreSQL toolset closure", () => {
+  assert.equal(
+    BOUND_SYSTEM_RUNTIME_CLOSURE_MANIFEST_SHA256,
+    POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_MANIFEST_SHA256,
+  );
+  assert.equal(
+    BOUND_SYSTEM_RUNTIME_CLOSURE_SHA256,
+    POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256,
   );
 });
 

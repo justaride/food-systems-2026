@@ -4,7 +4,7 @@
   "platform": "darwin",
   "architecture": "arm64",
   "nodeVersion": "v26.0.0",
-  "resolution": "recursive_macho_load_commands_non_system_bytes_plus_bound_psql_system_dyld_closure",
+  "resolution": "recursive_macho_load_commands_non_system_bytes_plus_bound_postgresql_toolset_system_dyld_closure",
   "loaderAliases": [
     {
       "loaderPath": "/opt/homebrew/Cellar/brotli/1.2.0/lib/libbrotlicommon.1.dylib",
@@ -263,10 +263,10 @@
     "/usr/lib/libz.1.dylib"
   ],
   "systemRuntimeBinding": {
-    "psqlRuntimeClosureManifestSha256": "d06073d91bb7da04318b0a95ce2d482369f336af69599cca7daa14fa614819e6",
-    "psqlRuntimeClosureSha256": "993193f3570f3ebad21b69af81c8099edf1bfa7f23492d6e9e489e7a351368aa",
+    "postgresqlToolsetRuntimeClosureManifestSha256": "7d0ac827430cd0d60c3884ac98fc5769223861fee17a18dd9375b10852fd8fdb",
+    "postgresqlToolsetRuntimeClosureSha256": "2f102d12bb738a5ec935e52a76cb6b156e58d86ef8e56a2bef3711c087de7bf0",
     "dyldCacheFileCount": 13,
     "dyldCacheBytes": 5800706048
   },
-  "closureSha256": "0382c34b2669ec93e84f2c6280be36ac5071e93d0a793d6845707726cfffb504"
+  "closureSha256": "464410ef7bbe3c4da7468973f47a43442b51ef7ff3455d810dcf8f3b7ae4e434"
 }

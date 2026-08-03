@@ -38,6 +38,10 @@ export const LOGICAL_RESTORE_REHEARSAL_TARGET_SET_SHA256 =
   "41c41a249cc54f0cad6cb4906a5b97b9d755bcd27d8830a990ed1d4eecb7264f";
 export const LOGICAL_RESTORE_REHEARSAL_OPERATION_DOMAIN =
   "food-systems-2026:source-registration-logical-clone-rehearsal-operation:v1\0";
+export const LOGICAL_RESTORE_EXTENSION_INITIALIZER_FIXED_PLAN_SHA256 =
+  "fad5781af5501d12d2104f865cf158a068db787cc42ddb25934dccede8c56af7";
+export const LOGICAL_RESTORE_EXTENSION_SELECTION_POLICY =
+  "validated_pg_restore_use_list_fd3";
 
 const SHA256_PATTERN = /^[a-f0-9]{64}$/;
 const ISO_UTC_PATTERN = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
@@ -54,6 +58,7 @@ const TOP_LEVEL_KEYS = Object.freeze([
   "comparison",
   "completedAtUtc",
   "evidenceClass",
+  "extensionInitialization",
   "format",
   "limitations",
   "logicalCloneRehearsal",
@@ -75,6 +80,35 @@ const STRUCTURAL_RESTORE_KEYS = Object.freeze([
   "receiptFormat",
   "receiptSha256",
   "receiptVersion",
+]);
+const EXTENSION_INITIALIZATION_KEYS = Object.freeze([
+  "attestationSha256",
+  "catalogSha256",
+  "connectionLimitAfter",
+  "connectionLimitBefore",
+  "excludedExtensionCount",
+  "extensionStateSha256",
+  "extensions",
+  "filteredCatalogSha256",
+  "fixedMutationPlanSha256",
+  "postRestoreVerified",
+  "requestSha256",
+  "selectionPolicy",
+  "selectionSha256",
+  "skippedCommentCount",
+  "sourceExtensionStateSha256",
+  "sourceStateMatched",
+  "transactionCommitted",
+]);
+const EXTENSION_INITIALIZATION_ROW_KEYS = Object.freeze([
+  "comment",
+  "memberCount",
+  "memberInventorySha256",
+  "name",
+  "owner",
+  "relocatable",
+  "schema",
+  "version",
 ]);
 const COMPARISON_KEYS = Object.freeze([
   "completedAtUtc",
@@ -169,7 +203,6 @@ const CLEANUP_KEYS = Object.freeze([
 export const LOGICAL_RESTORE_COMPANION_EXECUTED_TOOL_KEYS = Object.freeze([
   "companionReceiptValidatorSha256",
   "companionRunnerSha256",
-  "createdbBinarySha256",
   "databaseLogicalDigestSha256",
   "dropdbBinarySha256",
   "pgRestoreBinarySha256",
@@ -177,6 +210,8 @@ export const LOGICAL_RESTORE_COMPANION_EXECUTED_TOOL_KEYS = Object.freeze([
   "psqlRuntimeClosureSha256",
   "psqlRuntimeManifestSha256",
   "psqlRuntimeVerifierSha256",
+  "postgresqlExtensionInitializerSha256",
+  "postgresqlExtensionRuntimeClosureSha256",
   "sourceRegistrationApplyRunnerSha256",
   "sourceRegistrationApplyRuntimeSha256",
   "sourceRegistrationLauncherSha256",
@@ -196,6 +231,10 @@ export const LOGICAL_RESTORE_COMPANION_CONTEXT_BINDING_KEYS = Object.freeze([
   "backupContractHelperSha256",
   "backupVerifierSha256",
   "companionReceiptSchemaSha256",
+  "postgresqlToolsetCreatedbBinarySha256",
+  "postgresqlExtensionInitializerTestSha256",
+  "postgresqlExtensionRuntimeManifestSha256",
+  "postgresqlExtensionRuntimeVerifierSha256",
   "structuralRestoreRunnerSha256",
   "sourceRegistrationLogicalCloneRehearsalTestSha256",
 ]);
@@ -464,6 +503,96 @@ export function validateLogicalRestoreCompanionReceipt(
     structural.completedAtUtc,
     "receipt.structuralRestore.completedAtUtc",
   );
+
+  const extensionInitialization = exactObject(
+    receipt.extensionInitialization,
+    EXTENSION_INITIALIZATION_KEYS,
+    "receipt.extensionInitialization",
+  );
+  for (const key of [
+    "attestationSha256",
+    "catalogSha256",
+    "extensionStateSha256",
+    "filteredCatalogSha256",
+    "fixedMutationPlanSha256",
+    "requestSha256",
+    "selectionSha256",
+    "sourceExtensionStateSha256",
+  ]) {
+    sha256(
+      extensionInitialization[key],
+      `receipt.extensionInitialization.${key}`,
+    );
+  }
+  const expectedExtensions = [
+    {
+      comment:
+        "text similarity measurement and index searching based on trigrams",
+      name: "pg_trgm",
+      version: "1.6",
+    },
+    {
+      comment: "vector data type and ivfflat and hnsw access methods",
+      name: "vector",
+      version: "0.8.2",
+    },
+  ];
+  if (
+    extensionInitialization.connectionLimitBefore !== 0 ||
+    extensionInitialization.connectionLimitAfter !== 1 ||
+    extensionInitialization.excludedExtensionCount !== 2 ||
+    extensionInitialization.skippedCommentCount !== 2 ||
+    extensionInitialization.selectionPolicy !==
+      LOGICAL_RESTORE_EXTENSION_SELECTION_POLICY ||
+    extensionInitialization.fixedMutationPlanSha256 !==
+      LOGICAL_RESTORE_EXTENSION_INITIALIZER_FIXED_PLAN_SHA256 ||
+    extensionInitialization.postRestoreVerified !== true ||
+    extensionInitialization.sourceStateMatched !== true ||
+    extensionInitialization.transactionCommitted !== true ||
+    extensionInitialization.sourceExtensionStateSha256 !==
+      extensionInitialization.extensionStateSha256 ||
+    !Array.isArray(extensionInitialization.extensions) ||
+    extensionInitialization.extensions.length !== expectedExtensions.length
+  ) {
+    fail("extension initialization proof differs");
+  }
+  for (const [
+    index,
+    extension,
+  ] of extensionInitialization.extensions.entries()) {
+    const row = exactObject(
+      extension,
+      EXTENSION_INITIALIZATION_ROW_KEYS,
+      `receipt.extensionInitialization.extensions[${index}]`,
+    );
+    const expected = expectedExtensions[index];
+    nonNegativeInteger(
+      row.memberCount,
+      `receipt.extensionInitialization.extensions[${index}].memberCount`,
+      { positive: true },
+    );
+    sha256(
+      row.memberInventorySha256,
+      `receipt.extensionInitialization.extensions[${index}].memberInventorySha256`,
+    );
+    if (
+      row.name !== expected.name ||
+      row.version !== expected.version ||
+      row.comment !== expected.comment ||
+      row.schema !== "public" ||
+      row.owner !== "gabrielfreeman" ||
+      row.relocatable !== true
+    ) {
+      fail("extension initialization row differs");
+    }
+  }
+  if (
+    logicalRestoreCompanionSha256(
+      canonicalLogicalRestoreCompanionJson(extensionInitialization.extensions),
+    ) !== extensionInitialization.extensionStateSha256
+  ) {
+    fail("extension initialization state hash differs");
+  }
 
   const comparison = exactObject(
     receipt.comparison,

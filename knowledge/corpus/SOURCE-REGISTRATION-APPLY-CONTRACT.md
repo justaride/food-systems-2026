@@ -4,6 +4,8 @@
 
 This is a separately reviewable, fail-closed writer for the exact ten pending targets in the locked source-registration plan. The default mode is read-only. The existence of the writer, a broad project instruction, an operator label or a valid backup does **not** authorize a mutation. This implementation has not been run with `--apply`.
 
+`--apply` and the standalone `--rehearse-logical-clone` mode are deliberately quarantined in this revision. The launcher returns `APPLY_TRUSTED_ENTRYPOINT_REQUIRED` or `REHEARSAL_TRUSTED_ENTRYPOINT_REQUIRED` before reading their database credential or private inputs. Neither public mode has a supported execution path until the purpose-bound FD3/FD4/FD5 trust-anchor and execution-snapshot protocol used by the logical-restore companion has been generalized, tested and independently reviewed for that purpose. The trusted logical-restore companion may run only the fixed internal rehearsal child described below; that narrow nested path does not unquarantine either public launcher mode.
+
 The only permitted first transaction is:
 
 - create exactly 10 `Document` rows from the locked projections and reconstructed private normalized-page bytes;
@@ -41,7 +43,7 @@ Both modes require explicit absolute private roots. No private absolute path is 
 
 The structural backup verifier and helper are file-hash bound before use, copied byte-for-byte into a private temporary directory, executed from those exact copies, checked unchanged after execution and removed. Their child receives a fixed minimal environment without the database credential or launcher capability.
 
-Host utilities invoked by the structural shell verifier (`pg_restore`, the shell, `awk`, `mktemp`, `grep`, `rm` and the available SHA-256 utility) remain an explicit operating-system toolchain trust boundary; they are not all recursively closure-attested by this contract. Exact verifier/helper bytes plus the strong Node and `psql` closures do not imply a complete host-utility closure.
+`pg_restore` is now covered together with `psql`, `createdb` and `dropdb` by the strong PostgreSQL toolset closure. Other host utilities invoked by the structural shell verifier (the shell, `awk`, `mktemp`, `grep`, `rm` and the available SHA-256 utility) remain an explicit operating-system toolchain trust boundary; they are not recursively closure-attested by this contract. Exact verifier/helper bytes plus the strong Node and PostgreSQL closures do not imply a complete host-utility closure.
 
 Read-only example with operator-supplied private locations:
 
@@ -54,7 +56,7 @@ node --import=tsx scripts/knowledge/apply-source-registration-plan.ts \
 
 ## Sole mutation authority
 
-An exact, fresh Ed25519-signed release-authorization envelope is the sole mutation authority. The verifier accepts only the pinned public key and key ID, a strict schema and the exact expected claim set. The signed body binds the plan, semantic contract, operation key, dependency state, code bindings, runtime attestation, database target, reviewed catalog, target set, live logical content state, backup and structural-restore evidence, logical-restore companion file/completion, nested rehearsal file/self hashes, rehearsal operation key/runtime/completion, logical-comparison proof, post-rehearsal source/clone match flags, strong `psql` closure, the pinned Codex AI operator, exact database role `foodsystems`, validity window, unique authorization ID, exact acknowledgement and all false human/rights/readiness claims. The authorization ID is idempotent only against the exact current database receipt state; no global consumption claim is made before an independent external anchor exists.
+An exact, fresh Ed25519-signed release-authorization envelope is one mandatory mutation authority, but it is intentionally insufficient while the trusted apply entrypoint remains quarantined. The verifier accepts only the pinned public key and key ID, a strict schema and the exact expected claim set. The signed body binds the plan, semantic contract, operation key, dependency state, code bindings, runtime attestation, database target, reviewed catalog, target set, live logical content state, backup and structural-restore evidence, logical-restore companion file/completion, nested rehearsal file/self hashes, rehearsal operation key/runtime/completion, logical-comparison proof, post-rehearsal source/clone match flags, the strong four-binary PostgreSQL toolset closure, the pinned Codex AI operator, exact database role `foodsystems`, validity window, unique authorization ID, exact acknowledgement and all false human/rights/readiness claims. The authorization ID is idempotent only against the exact current database receipt state; no global consumption claim is made before an independent external anchor exists.
 
 The broad owner/project scope remains a truthful scope record only. The CLI `exact-plan-operator:` reference is a descriptive, hash-bound label only. Neither field grants authority, and neither can replace the signed envelope. The exact database role must equal PostgreSQL `current_user`, must not have MCP/read-only naming semantics and must prove the required table privileges.
 
@@ -64,27 +66,35 @@ This is a drift, accident and fail-closed control for a non-compromised workstat
 
 ## Pre-import runtime boundary
 
-Apply may start only through the builtins-only launcher:
+The former direct repository command is not an authorized apply entrypoint:
 
 ```text
 node scripts/knowledge/launch-locked-source-registration-apply.mjs --apply <all-exact-pins>
 ```
 
-Direct runner apply is refused. Before `tsx`, Prisma or project code is imported, the launcher verifies and self-hashes:
+It now fails closed before private input use. Direct runner apply is also refused. A future supported apply must start from an independently prepared, audited, mode-`0400` launcher copy in a fixed mode-`0700` `/tmp` directory. Its external bootstrap must start absolute Node in a clean pre-Node environment, pass the same executing inode as FD3, canonical unlinked public pins as FD4 and canonical unlinked purpose-bound secret input as FD5. The copied launcher must create and attest a private execution snapshot, match all caller-frozen pins and only then read FD5.
+
+The logical-restore companion already uses this trusted path. Before its secret descriptor is read, the copied builtins-only launcher verifies and self-hashes:
 
 - the exact Node version, platform, architecture, executable and recursively resolved Homebrew Mach-O runtime closure;
 - the complete resolved external `node_modules` tree;
 - the complete generated Prisma-client tree;
-- the local project import closure for the launcher, apply runner, controlled rehearsal command runner, logical database digest and runtime verifiers;
-- the exact `psql` executable and its recursive Homebrew loader closure plus the bound system dyld-cache closure.
+- the local project import closure for the launcher, apply runner, controlled logical-restore companion, receipt-pair recovery journal, controlled rehearsal command runner, logical database digest and runtime verifiers;
+- the exact `psql`, `pg_restore`, `createdb` and `dropdb` executables and their recursive Homebrew loader closure plus the bound system dyld-cache closure.
 
-Every inherited `NODE_*`, `OPENSSL_*`, `PRISMA_*`, `TSX_*`, `DOTENV_CONFIG_*`, `DYLD_*` and `LD_*` variable, and any Node execution flag cause the launcher to refuse. The runner does not auto-load the project `.env`; `DATABASE_URL` must be supplied explicitly to the launcher and is the only inherited credential forwarded. Launcher-only variables are recreated exactly for the unlinked, read-only attestation descriptor passed to the runner. The launcher recomputes the complete attestation after the child exits and refuses any drift.
+Every inherited `NODE_*`, `OPENSSL_*`, `PRISMA_*`, `TSX_*`, `DOTENV_CONFIG_*`, `DYLD_*` and `LD_*` variable, and any Node execution flag cause the launcher to refuse. The runner does not auto-load the project `.env`. Launcher-only variables are recreated exactly for the unlinked, read-only attestation descriptor passed to the companion. The launcher recomputes the complete snapshot attestation after the child exits and refuses any drift. Protection against a preloaded module executing before this JavaScript begins is an external clean-bootstrap requirement; an in-process environment check cannot establish that fact retroactively.
+
+The logical-restore companion is reachable only through the fixed launcher mode `--logical-restore-companion`. Before the `tsx` preload receives database URLs, private roots or evidence paths, the copied builtins-only parent requires every caller-frozen Node, `node_modules`, Prisma, launcher, local-closure, apply, rehearsal and PostgreSQL-toolset pin to equal the snapshot's attested bytes. It then launches only the fixed companion runner with an exact environment allowlist and a fresh unlinked mode-`0400` descriptor whose self-hashed envelope is purpose-bound to `logical_restore_companion`. The child checks descriptor continuity, parent PID, purpose, inner attestation self-hash, caller runtime pins and active Node binary before it reads evidence or constructs any database operation. This child envelope is a continuity and misuse guard, not independent authentication against a hostile same-UID process. Direct companion execution is refused. Companion stdout is withheld until the parent has re-attested the complete runtime after child exit.
+
+The trusted companion does not invoke the quarantined standalone rehearsal launcher mode. Immediately before its nested rehearsal child, it re-verifies all companion tool bindings, fully recomputes the source-registration runtime attestation and requires the result and code bindings to equal the inherited snapshot. It then starts the exact rehearsal runner directly with the active absolute Node executable, the pinned `tsx` runtime configuration and all five exact rehearsal code pins. The child receives a newly created canonical, unlinked, mode-`0400` FD3 envelope containing only the inherited runtime attestation, the companion PID and the domain-separated envelope self-hash. The companion verifies descriptor mode, link count and file identity around the child; the existing rehearsal parser verifies the exact envelope shape, parent PID and both hashes before private work. Its exact environment contains the disposable clone URL, proof, private corpus roots and output path, but never the production source URL or restore-admin URL. The companion repeats the full runtime and tool re-attestation after the child, including on child failure. Database-free integration and attack tests cover the accepted envelope, missing or misidentified descriptors, wrong mode or link count, descriptor drift, wrong parent or purpose and an inner-hash-tampered runtime.
+
+The two private companion receipts are published through a persistent, hash- and inode-bound pair journal. The rehearsal receipt is promoted first and the companion final is the sole commit marker. A later invocation that finds a committed pair preserves the receipts and journal, returns the fixed nonzero diagnostic `COMPANION_RECEIPTS_ALREADY_COMMITTED`, and never synthesizes a PASS; separate full release-evidence validation must establish whether that preserved pair is usable. Recovery removes only exact journal-owned uncommitted staging/orphan paths before replay; replacements and corrupt journals fail closed. The journal contains basenames, hashes and filesystem identities, never private absolute paths.
 
 All declared runtime, generator-import, schema, authorization, restore, backup, test, package-lock and generated-tree bindings in the `codeBindings` envelope are folded into one code-bindings hash, then into the dependency-state hash and operation key. This explicitly includes the launcher integration test that proves the minimal environment, dotenv isolation and both strong runtime verifiers. Apply requires each declared current value as an explicit pin and rehashes it under lock.
 
 ## Mandatory apply gates
 
-`--apply` is unreachable unless every explicit gate matches:
+These gates remain the frozen specification for the future trusted apply path. In the current revision they are not reachable at all because the launcher quarantine runs first. Once the purpose-bound trusted entrypoint exists, `--apply` must remain unreachable unless every explicit gate matches:
 
 1. acknowledgement `REGISTER_10_LOCKED_OFFICIAL_SOURCES_PLAN_631FEF2595BF`;
 2. all locked plan, before-state, database identity, database target and catalog pins;
@@ -102,7 +112,7 @@ No implicit flag, inherited environment authority, broad instruction or MCP data
 
 The exact production target is not treated as rehearsable: any committed test write there would itself be the first exact mutation. Before authorization can be frozen, the controlled backup/restore lifecycle must therefore run the shared 10 + 10 + audit mutation core against its disposable logical clone while that clone still exists. The rehearsal uses `Serializable`, verifies all physical `Document` columns and the generated search vector, appends the surrogate audit inside the transaction, deliberately throws a dedicated rollback sentinel, and then proves in a separate read-only transaction that counts returned to baseline and all target and rehearsal-audit rows are absent.
 
-This is explicitly a `logical_clone_surrogate`, not the exact production target. Its canonical private receipt records `exactProductionTargetExercised: false`, `productionAuthorizationUsed: false`, `transactionRolledBack: true` and `firstExactMutationRemainsLive: true`. The controlled runner launches the locked rehearsal command path and binds the rehearsal runtime, schema, test, command runner, apply-runner hash, exact target-set hash, runtime attestation, logical-comparison proof and rehearsal receipt file/self hashes. The companion then re-digests the clone and source, proves the clone still fully matches and the source has not moved, and only then proves clone drop/absence. An ad hoc import or a rehearsal after the clone has already been dropped is not acceptable evidence.
+This is explicitly a `logical_clone_surrogate`, not the exact production target. Its canonical private receipt records `exactProductionTargetExercised: false`, `productionAuthorizationUsed: false`, `transactionRolledBack: true` and `firstExactMutationRemainsLive: true`. The controlled runner launches the locked internal rehearsal command path through the nested FD3 trust handoff described above and binds the rehearsal runtime, schema, test, command runner, apply-runner hash, exact target-set hash, runtime attestation, logical-comparison proof and rehearsal receipt file/self hashes. The public standalone rehearsal flag remains quarantined. The companion then re-digests the clone and source, proves the clone still fully matches and the source has not moved, and only then proves clone drop/absence. An ad hoc import or a rehearsal after the clone has already been dropped is not acceptable evidence.
 
 ## Transaction, complete live-state CAS and replay behavior
 
