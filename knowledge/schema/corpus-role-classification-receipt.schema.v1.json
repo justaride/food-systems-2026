@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schemas/corpus-role-classification-receipt.schema.v1.json",
+  "title": "Corpus role-classification decision receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "documentType",
+    "schemaVersion",
+    "receiptId",
+    "queuePath",
+    "identityKey",
+    "previousRole",
+    "proposedRole",
+    "queueRowSha256",
+    "decidedBy",
+    "decidedByDetail",
+    "decidedAt",
+    "confidence",
+    "reasoning",
+    "policyVersion",
+    "contentHash"
+  ],
+  "properties": {
+    "documentType": { "const": "corpus_role_classification_receipt" },
+    "schemaVersion": { "const": "1.0.0" },
+    "receiptId": {
+      "type": "string",
+      "pattern": "^role_receipt\\.corpus\\.[0-9]{4}-[0-9]{2}-[0-9]{2}\\.[a-z0-9][a-z0-9._-]*$"
+    },
+    "queuePath": {
+      "const": "knowledge/corpus/corpus-role-classification-queue.v1.jsonl"
+    },
+    "identityKey": { "type": "string", "pattern": "^document:[a-z0-9]+$" },
+    "previousRole": { "$ref": "#/$defs/role" },
+    "proposedRole": { "$ref": "#/$defs/role" },
+    "queueRowSha256": { "$ref": "#/$defs/sha256" },
+    "decidedBy": { "enum": ["ai", "ai_panel", "owner"] },
+    "decidedByDetail": {
+      "oneOf": [
+        { "$ref": "#/$defs/aiDetail" },
+        { "$ref": "#/$defs/panelDetail" },
+        { "$ref": "#/$defs/ownerDetail" }
+      ]
+    },
+    "decidedAt": { "type": "string", "format": "date-time" },
+    "confidence": { "enum": ["high", "medium", "low"] },
+    "reasoning": { "type": "string", "minLength": 20, "pattern": "^.*\\S.*$" },
+    "policyVersion": { "const": "2026-08-04" },
+    "contentHash": { "$ref": "#/$defs/sha256" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "decidedBy": { "const": "ai" } }, "required": ["decidedBy"] },
+      "then": { "properties": { "decidedByDetail": { "$ref": "#/$defs/aiDetail" } } }
+    },
+    {
+      "if": { "properties": { "decidedBy": { "const": "ai_panel" } }, "required": ["decidedBy"] },
+      "then": { "properties": { "decidedByDetail": { "$ref": "#/$defs/panelDetail" } } }
+    },
+    {
+      "if": { "properties": { "decidedBy": { "const": "owner" } }, "required": ["decidedBy"] },
+      "then": { "properties": { "decidedByDetail": { "$ref": "#/$defs/ownerDetail" } } }
+    }
+  ],
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "role": {
+      "enum": ["primary_evidence", "internal_synthesis", "operational_control", "unknown", "generated_projection"]
+    },
+    "agentId": { "type": "string", "minLength": 3, "pattern": "^[^\\s]+$" },
+    "aiDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agentId"],
+      "properties": { "agentId": { "$ref": "#/$defs/agentId" } }
+    },
+    "panelVote": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["agentId", "proposedRole", "reasoning"],
+      "properties": {
+        "agentId": { "$ref": "#/$defs/agentId" },
+        "proposedRole": { "$ref": "#/$defs/role" },
+        "reasoning": { "type": "string", "minLength": 20, "pattern": "^.*\\S.*$" }
+      }
+    },
+    "panelDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unanimous", "votes"],
+      "properties": {
+        "unanimous": { "const": true },
+        "votes": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "$ref": "#/$defs/panelVote" }
+        }
+      }
+    },
+    "ownerDetail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner"],
+      "properties": { "owner": { "type": "string", "minLength": 2, "pattern": "^.*\\S.*$" } }
+    }
+  }
+}
