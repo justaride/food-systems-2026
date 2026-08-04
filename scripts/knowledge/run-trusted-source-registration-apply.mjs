@@ -158,6 +158,16 @@ function descriptorNumber(environment, name, expected) {
   return expected;
 }
 
+function assertTrustedDescriptorBinding({ descriptor, publicDescriptor, secretDescriptor }) {
+  if (
+    descriptor !== TRUSTED_SOURCE_REGISTRATION_FDS.launcher ||
+    publicDescriptor !== TRUSTED_SOURCE_REGISTRATION_FDS.publicPins ||
+    secretDescriptor !== TRUSTED_SOURCE_REGISTRATION_FDS.secretInput
+  ) {
+    fail("trusted descriptors must be bound to FD3, FD4 and FD5");
+  }
+}
+
 export function forbiddenEnvironmentNames(environment = process.env) {
   return Object.keys(environment)
     .filter(
@@ -291,6 +301,15 @@ export function verifyTrustedLauncherDescriptor({
   ) {
     fail("launcher parent is not directly below /tmp");
   }
+  const assertParentSingleton = () => {
+    if (
+      canonicalJson(readdirSync(parent).sort(byteSort)) !==
+      canonicalJson([basename(path)])
+    ) {
+      fail("launcher parent is not a singleton directory");
+    }
+  };
+  assertParentSingleton();
   if (expectedSha256 !== undefined) assertHash(expectedSha256, "launcher");
   const bytes = readDescriptorBytes(descriptor, stats.size);
   const afterRead = fstatSync(descriptor);
@@ -298,12 +317,11 @@ export function verifyTrustedLauncherDescriptor({
     !sameFileIdentity(stats, afterRead) ||
     afterRead.nlink !== 1 ||
     (afterRead.mode & 0o777) !== 0o400 ||
-    canonicalJson(readdirSync(parent).sort(byteSort)) !==
-      canonicalJson([basename(path)]) ||
     sha256(bytes) !== (expectedSha256 ?? sha256File(path))
   ) {
     fail("launcher bytes changed before trust was established");
   }
+  assertParentSingleton();
   return { bytes, path, parent, stats };
 }
 
@@ -651,6 +669,7 @@ export function requireTrustedSourceRegistrationEntrypoint({
   descriptorNumber(environment, TRUSTED_SOURCE_REGISTRATION_ENVIRONMENT_NAMES.launcherFd, 3);
   descriptorNumber(environment, TRUSTED_SOURCE_REGISTRATION_ENVIRONMENT_NAMES.publicPinsFd, 4);
   descriptorNumber(environment, TRUSTED_SOURCE_REGISTRATION_ENVIRONMENT_NAMES.secretInputFd, 5);
+  assertTrustedDescriptorBinding({ descriptor, publicDescriptor, secretDescriptor });
   if (
     environment[TRUSTED_SOURCE_REGISTRATION_ENVIRONMENT_NAMES.bootstrapPid] !==
     String(process.ppid)
@@ -734,17 +753,33 @@ export function runTrustedSourceRegistrationProbe({
   runtimeAttestation,
   childMode = "--trusted-child-probe",
 } = {}) {
-  const trusted = requireTrustedSourceRegistrationEntrypoint({
-    environment,
-    execArgv,
-    launcherPath,
-    descriptor,
-    publicDescriptor,
-    secretDescriptor,
-    projectRoot,
-    runtimeAttestation,
-  });
-  const before = trusted.attestation;
+  // The parent owns arbitrary open descriptors and maps them to the child's
+  // fixed FD3/FD4/FD5 slots through spawnSync(stdio). The trusted entrypoint
+  // itself is exercised in the child, where the strict numeric binding above
+  // applies. Keep the parent preflight limited to non-secret environment and
+  // process bindings; it must not pretend that its local descriptor numbers
+  // are the child's fixed slots.
+  assertCleanBootstrapEnvironment(environment, execArgv);
+  for (const name of [
+    "DATABASE_URL",
+    "FOOD_SYSTEMS_PRIVATE_CORPUS_ROOT",
+    "FOOD_SYSTEMS_PRIVATE_CORPUS_REPLICA_ROOT",
+  ]) {
+    if (Object.hasOwn(environment, name)) fail(`${name} must not be inherited`);
+  }
+  descriptorNumber(environment, TRUSTED_SOURCE_REGISTRATION_ENVIRONMENT_NAMES.launcherFd, 3);
+  descriptorNumber(environment, TRUSTED_SOURCE_REGISTRATION_ENVIRONMENT_NAMES.publicPinsFd, 4);
+  descriptorNumber(environment, TRUSTED_SOURCE_REGISTRATION_ENVIRONMENT_NAMES.secretInputFd, 5);
+  if (
+    environment[TRUSTED_SOURCE_REGISTRATION_ENVIRONMENT_NAMES.bootstrapPid] !==
+    String(process.ppid)
+  ) {
+    fail("trusted bootstrap parent PID differs");
+  }
+  if (environment[TRUSTED_SOURCE_REGISTRATION_ENVIRONMENT_NAMES.expectedPurpose] !== TRUSTED_SOURCE_REGISTRATION_PURPOSE) {
+    fail("trusted purpose binding is absent");
+  }
+  const before = runtimeAttestation ?? computeTrustedRuntimeAttestation({ projectRoot, launcherPath });
   let result;
   let after;
   try {
