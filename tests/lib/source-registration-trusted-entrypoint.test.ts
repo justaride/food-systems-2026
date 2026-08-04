@@ -134,10 +134,10 @@ function closeFixture(value: ReturnType<typeof fixture>) {
   }
 }
 
-test("accepts a purpose-bound FD3/FD4/FD5 envelope", () => {
+test("rejects process-local descriptor overrides before accepting an envelope", () => {
   const value = fixture();
   try {
-    const result = requireTrustedForTest({
+    assert.throws(() => requireTrustedForTest({
       descriptor: value.launcherFd,
       environment: asProcessEnv(value.environment),
       execArgv: [],
@@ -145,9 +145,24 @@ test("accepts a purpose-bound FD3/FD4/FD5 envelope", () => {
       publicDescriptor: value.publicFd,
       runtimeAttestation: value.attestation,
       secretDescriptor: value.secretFd,
-    });
-    assert.equal(result.publicPins.purpose, TRUSTED_SOURCE_REGISTRATION_PURPOSE);
-    assert.equal(result.secretInput.DATABASE_URL, "in-memory-only");
+    }), /FD3, FD4 and FD5/);
+  } finally {
+    closeFixture(value);
+  }
+});
+
+test("checks the launcher parent singleton before and after reading", () => {
+  const value = fixture();
+  try {
+    const extraPath = join(value.root, "unexpected-entry");
+    writeFileSync(extraPath, "unexpected\n", { mode: 0o400 });
+    chmodSync(extraPath, 0o400);
+    assert.throws(() =>
+      verifyTrustedLauncherDescriptor({
+        descriptor: value.launcherFd,
+        launcherPath: value.launcherPath,
+      }),
+    /singleton/);
   } finally {
     closeFixture(value);
   }
@@ -287,7 +302,7 @@ test("rejects every forbidden inherited prefix and every Node execution flag", (
   assert.throws(() => assertCleanBootstrapEnvironment(asProcessEnv({}), ["--require=bad"]));
 });
 
-test("does not read FD5 when an earlier public/runtime check fails", () => {
+test("does not read FD5 when descriptor binding fails", () => {
   const value = fixture();
   let secretRead = 0;
   try {
