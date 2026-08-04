@@ -44,6 +44,12 @@ Each arrow requires evidence of its own. A later state is never inferred from an
 
 The bounded acquisition and recursive discovery rules are in [SOURCE-DISCOVERY-PROTOCOL.md](SOURCE-DISCOVERY-PROTOCOL.md). Exact network receipt and two-copy archive controls are in the [controlled source-acquisition workflow](workflows/controlled-source-acquisition-v1.md). The detailed reading and reconciliation rules are in [SOURCE-ANALYSIS-PROTOCOL.md](SOURCE-ANALYSIS-PROTOCOL.md). The independent review axes are defined in [REVIEW-LAYER-CONTRACT.md](../review/REVIEW-LAYER-CONTRACT.md).
 
+## Platform assumption: macOS filesystem layout (F3)
+
+The verification suite currently assumes the macOS filesystem layout. In particular, the test `rejects user-owned and symlinked external roots ...` expects `/var/db` to be a symlink to `/private/var/db`; the external anchor path `/private/var/db/...` is macOS-specific. On Linux the test fails with `ENOENT` instead of reaching the intended symlink rejection. QA validation on 3 August 2026 was 10/10 green once the expected layout was replicated.
+
+Consequently, “portable verification suite” currently means “portable on macOS”. This is a deliberate choice while the production environment is the workstation, but it must be addressed before CI or Linux operation. A future hardening pass should add an early layout check with a clear message such as “this test requires macOS layout: /var/db -> /private/var/db” rather than exposing a bare `ENOENT`. This change needs the normal review of the test/code-binding surface. Finding F7 (Unicode normalization) is the other known platform binding.
+
 ## Generated register
 
 The main generated surfaces are:
