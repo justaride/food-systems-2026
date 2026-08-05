@@ -1,0 +1,14 @@
+{
+ "hentet": "2026-08-05",
+ "kilder": {
+  "fiskerivarer": "https://www.mattilsynet.no/godkjente-produkter-og-virksomheter/fisk-og-fiskerivarer-fish-and-fishery-products-virksomheter-som-h%C3%A5ndterer-fiskerivarer-fishery-establishments",
+  "forvarer": "https://www.mattilsynet.no/godkjente-produkter-og-virksomheter/forvare-feed-sector-approved-and-registered-feedcompanies",
+  "animalie_seksjon4": "https://www.mattilsynet.no/godkjente-produkter-og-virksomheter/animaliebiprodukter-animal-by-products-seksjon-section-IV-bearbedingsanlegg-processing-plants"
+ },
+ "antallOrgnrPerListe": {
+  "fiskerivarer": 753,
+  "forvarer": 0,
+  "animalie_seksjon4": 0
+ },
+ "treff": {}
+}

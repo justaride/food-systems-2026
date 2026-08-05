@@ -1,0 +1,5043 @@
+{
+ "837000602": {
+  "navn": "0000 NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": false,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": null,
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "816022932": {
+  "navn": "1814 NORD AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "897392232": {
+  "navn": "4SERVICE GRUPPEN AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 7,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 5,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-09-30"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "913422082": {
+  "navn": "ALGINOR ASA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "ASA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 18,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 18,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "913117883": {
+  "navn": "ASKO AGDER AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 332,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 332,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "884133572": {
+  "navn": "ASKO BYGG VESTBY AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 8,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 8,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "813612992": {
+  "navn": "ASKO MOLDE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 136,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 136,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "912015238": {
+  "navn": "ASKO ØST AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 318,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 318,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "914183332": {
+  "navn": "BAKEHUSET AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 1120,
+  "antallUnderenheter": 12,
+  "aktiveUnderenheter": 12,
+  "ansatteIUnderenheter": 1120,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "914224314": {
+  "navn": "BAMA GRUPPEN AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 519,
+  "antallUnderenheter": 3,
+  "aktiveUnderenheter": 3,
+  "ansatteIUnderenheter": 519,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "816488362": {
+  "navn": "BANAN II AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "818481152": {
+  "navn": "BARENTS SEAWEED AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "912589455": {
+  "navn": "CERNOVA TRADING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "812977032": {
+  "navn": "COOP INNLANDET EIENDOM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "819784922": {
+  "navn": "COOP NORGE STAVANGER EIENDOM II AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "889775912": {
+  "navn": "COOP RAUFOSS KJØPESENTER AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "825091912": {
+  "navn": "COOP ØKONOM EIENDOM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "911608103": {
+  "navn": "FELLESKJØPET AGRI SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 2828,
+  "antallUnderenheter": 181,
+  "aktiveUnderenheter": 181,
+  "ansatteIUnderenheter": 2800,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "893136932": {
+  "navn": "GEODATA AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 220,
+  "antallUnderenheter": 3,
+  "aktiveUnderenheter": 3,
+  "ansatteIUnderenheter": 220,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "876862522": {
+  "navn": "HANSA BORG AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 313,
+  "antallUnderenheter": 4,
+  "aktiveUnderenheter": 4,
+  "ansatteIUnderenheter": 313,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "815664582": {
+  "navn": "HOLDBART AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 405,
+  "antallUnderenheter": 26,
+  "aktiveUnderenheter": 26,
+  "ansatteIUnderenheter": 405,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "814055922": {
+  "navn": "I K LYKKE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "913283805": {
+  "navn": "JOH. JOHANNSON KAFFE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 38,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 38,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "913344162": {
+  "navn": "KAVLI HOLDING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 12,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 12,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "910629085": {
+  "navn": "LANTMANNEN CEREALIA AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 158,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 158,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "886813082": {
+  "navn": "LERØY VEST AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 241,
+  "antallUnderenheter": 14,
+  "aktiveUnderenheter": 14,
+  "ansatteIUnderenheter": 238,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "817580122": {
+  "navn": "MARSTEIN SEAWEED AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "821186382": {
+  "navn": "MIMIRO HOLDING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "911610744": {
+  "navn": "MOWI FEED AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 99,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 99,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "819731322": {
+  "navn": "NORGESGRUPPEN ASA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "ASA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 154,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 154,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "882578402": {
+  "navn": "NORGESGRUPPEN DETALJ AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 29,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 29,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "881452642": {
+  "navn": "NORGESGRUPPEN EIENDOM BUSKERUD AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "811793442": {
+  "navn": "NORGESGRUPPEN MIDT-NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "883743512": {
+  "navn": "NORGESGRUPPEN REGNSKAP AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 115,
+  "antallUnderenheter": 5,
+  "aktiveUnderenheter": 5,
+  "ansatteIUnderenheter": 115,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "885719422": {
+  "navn": "NORGESMØLLENE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 159,
+  "antallUnderenheter": 4,
+  "aktiveUnderenheter": 4,
+  "ansatteIUnderenheter": 159,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "913755855": {
+  "navn": "NORPRI AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 73,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 73,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "822659292": {
+  "navn": "NORWEGIAN SEAWEED AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "912262510": {
+  "navn": "ODA NORWAY AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 1164,
+  "antallUnderenheter": 5,
+  "aktiveUnderenheter": 5,
+  "ansatteIUnderenheter": 1164,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "910747711": {
+  "navn": "ORKLA ASA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "ASA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 73,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 73,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "911161419": {
+  "navn": "ORKLA FOOD INGREDIENTS AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 28,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 28,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "911161230": {
+  "navn": "ORKLA HOME & PERSONAL CARE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 210,
+  "antallUnderenheter": 3,
+  "aktiveUnderenheter": 3,
+  "ansatteIUnderenheter": 210,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "912692094": {
+  "navn": "PIERRE ROBERT GROUP AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 51,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 51,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "885209432": {
+  "navn": "PRIMA SLAKT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 5,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 5,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "912609987": {
+  "navn": "REITAN AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 28,
+  "antallUnderenheter": 3,
+  "aktiveUnderenheter": 3,
+  "ansatteIUnderenheter": 24,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "883409442": {
+  "navn": "REMA 1000 AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "894759372": {
+  "navn": "REMA DISTRIBUSJON NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 1034,
+  "antallUnderenheter": 6,
+  "aktiveUnderenheter": 6,
+  "ansatteIUnderenheter": 1034,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "894625902": {
+  "navn": "ST1 BIOKRAFT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 16,
+  "antallUnderenheter": 3,
+  "aktiveUnderenheter": 3,
+  "ansatteIUnderenheter": 12,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "885316522": {
+  "navn": "UNIL AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 176,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 176,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "917619727": {
+  "navn": "2CW GRUPPEN AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "920871372": {
+  "navn": "AIRTEC  DANMARK A/S",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "UTLA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": false,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": null,
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "920535763": {
+  "navn": "AKER BIOMARINE ASIA LTD",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "UTLA",
+  "registrertIForetaksregisteret": false,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": false,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": null,
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "919117060": {
+  "navn": "ANIMALIA AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 91,
+  "antallUnderenheter": 4,
+  "aktiveUnderenheter": 4,
+  "ansatteIUnderenheter": 91,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "914827922": {
+  "navn": "AQUAPRO AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "917378819": {
+  "navn": "ARCTIC SEAWEED AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "918710507": {
+  "navn": "ASKO HEDMARK AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 385,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 385,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "921332017": {
+  "navn": "AURORA SEAWEED AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "915334504": {
+  "navn": "BIO3 AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 5,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 5,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "921042434": {
+  "navn": "BIOSIRK NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 92,
+  "antallUnderenheter": 5,
+  "aktiveUnderenheter": 5,
+  "ansatteIUnderenheter": 92,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "916635001": {
+  "navn": "CARGILL INC",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "NUF",
+  "registrertIForetaksregisteret": false,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": false,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": null,
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "916047967": {
+  "navn": "COOP EIENDOM ROGALAND AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "917853908": {
+  "navn": "COOP HORDALAND EIENDOM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "915300219": {
+  "navn": "COOP MIDT-NORGE EIENDOM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "919784814": {
+  "navn": "COOP NORGE LANGHUS EIENDOM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "919784725": {
+  "navn": "COOP NORGE TRONDHEIM EIENDOM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "915190715": {
+  "navn": "DEBIO MARKED AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 11,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 11,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "915442552": {
+  "navn": "FELLESKJØPET ROGALAND AGDER SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 576,
+  "antallUnderenheter": 27,
+  "aktiveUnderenheter": 27,
+  "ansatteIUnderenheter": 576,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "921995938": {
+  "navn": "HELGELAND SEAWEED AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "917809755": {
+  "navn": "INVERTAPRO AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "914791723": {
+  "navn": "ISS FACILITY SERVICES AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 7482,
+  "antallUnderenheter": 613,
+  "aktiveUnderenheter": 613,
+  "ansatteIUnderenheter": 6955,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": [
+   {
+    "orgnr": "996204782",
+    "antallTilsyn": 8,
+    "sisteDato": "17012025",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "Kulturkafeen Brattvåg"
+   },
+   {
+    "orgnr": "995946874",
+    "antallTilsyn": 6,
+    "sisteDato": "14112019",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "Statens Hus kantine "
+   },
+   {
+    "orgnr": "919846569",
+    "antallTilsyn": 2,
+    "sisteDato": "07052026",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Dora Kaffebar"
+   }
+  ]
+ },
+ "921979819": {
+  "navn": "JOH JOHANNSON HANDEL AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "918293477": {
+  "navn": "JOH JOHANNSON INVEST AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "918579176": {
+  "navn": "K. THORSTEINSSON OG CO EHF",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "UTLA",
+  "registrertIForetaksregisteret": false,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": false,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": null,
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "921761929": {
+  "navn": "KUKRAFT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "919818824": {
+  "navn": "KVERVA AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 20,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 20,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "919702974": {
+  "navn": "MATSENTRALEN NORGE",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "FLI",
+  "registrertIForetaksregisteret": false,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": 6,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 6,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "916146337": {
+  "navn": "MOWI MARKETS NORWAY AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 230,
+  "antallUnderenheter": 3,
+  "aktiveUnderenheter": 3,
+  "ansatteIUnderenheter": 230,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "fiskerivarer",
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "919441879": {
+  "navn": "MOWI NORWAY FOU AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "921668236": {
+  "navn": "MOWI SEAWATER NORWAY AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 42,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 42,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "919645636": {
+  "navn": "NATURAL STATE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 20,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 20,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "920428959": {
+  "navn": "NORGESGRUPPEN FINANS AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": 22,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 22,
+  "regnskapTilgjengelig": null,
+  "regnskapApiFeil": "HTTP 500 fra Brreg (serverfeil, verifisert ved retry 2026-08-05)",
+  "sisteRegnskapsperiode": null,
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "920341659": {
+  "navn": "NORGESGRUPPEN FINANS HOLDING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": null,
+  "regnskapApiFeil": "HTTP 500 fra Brreg (serverfeil, verifisert ved retry 2026-08-05)",
+  "sisteRegnskapsperiode": null,
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "916286074": {
+  "navn": "NORGESGRUPPEN FORNYBAR AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "916325010": {
+  "navn": "NORINSECT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 12,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 12,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "916335784": {
+  "navn": "NORWAY SEAWEED AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "915990487": {
+  "navn": "ODD REITAN PRIVATE HOLDING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "916170858": {
+  "navn": "ORKLA FOODS NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 1170,
+  "antallUnderenheter": 12,
+  "aktiveUnderenheter": 12,
+  "ansatteIUnderenheter": 1167,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "fiskerivarer",
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "915994415": {
+  "navn": "REITAN EIENDOM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 48,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 47,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "914526647": {
+  "navn": "REITAN RETAIL AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 54,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 54,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "917114684": {
+  "navn": "REKAP 1 AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "914670705": {
+  "navn": "Ringnes AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 328,
+  "antallUnderenheter": 9,
+  "aktiveUnderenheter": 9,
+  "ansatteIUnderenheter": 324,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "921275730": {
+  "navn": "SMART SEAWEED SOLUTIONS AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "916329717": {
+  "navn": "STRAND UNIKORN AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 104,
+  "antallUnderenheter": 7,
+  "aktiveUnderenheter": 7,
+  "ansatteIUnderenheter": 97,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "922876878": {
+  "navn": "SUMMA EQUITY AB",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "NUF",
+  "registrertIForetaksregisteret": false,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": false,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": null,
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "915123678": {
+  "navn": "TELEMARK EIENDOM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "917203261": {
+  "navn": "TOO GOOD TO GO NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 17,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 17,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "921757131": {
+  "navn": "UNO-X MOBILITY NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 96,
+  "antallUnderenheter": 299,
+  "aktiveUnderenheter": 299,
+  "ansatteIUnderenheter": 91,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "917339937": {
+  "navn": "VESTERÅLEN SEAWEED AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "928679969": {
+  "navn": "ALGAVIDA AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "931863444": {
+  "navn": "ARCTIC INDUSTRIES AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "928103668": {
+  "navn": "ARCTIC NATURAL NUTRITION AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "925216534": {
+  "navn": "ASKO MARITIME AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "925109185": {
+  "navn": "ASKO MAT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 7,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 7,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "929228723": {
+  "navn": "ASKO NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 109,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 109,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "930622974": {
+  "navn": "ASKO OSLOFJORD AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 495,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 495,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "923622845": {
+  "navn": "ASKO ROGALAND AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 378,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 378,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "933129950": {
+  "navn": "ASKO VESTFOLD TELEMARK AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 218,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 218,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "926751352": {
+  "navn": "ATOS BELGIUM NV",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "NUF",
+  "registrertIForetaksregisteret": false,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": false,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": null,
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "923030891": {
+  "navn": "ATTVIN NÆRING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 6,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 6,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "929975200": {
+  "navn": "AUSTEVOLL SEAFOOD ASA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "ASA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "927116758": {
+  "navn": "BACASSA SEAWEED AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "937843860": {
+  "navn": "BIOMAR A.S.",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 287,
+  "antallUnderenheter": 3,
+  "aktiveUnderenheter": 3,
+  "ansatteIUnderenheter": 287,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "923456570": {
+  "navn": "BOKASHI NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "938701237": {
+  "navn": "CANICA AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": 7,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 7,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "932144336": {
+  "navn": "CARES WORKPLACE SERVICES AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 671,
+  "antallUnderenheter": 113,
+  "aktiveUnderenheter": 113,
+  "ansatteIUnderenheter": 584,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-09-01",
+   "tilDato": "2025-08-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": [
+   {
+    "orgnr": "935548349",
+    "antallTilsyn": 1,
+    "sisteDato": "10092025",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Grut Kaffebar"
+   }
+  ]
+ },
+ "938786054": {
+  "navn": "COOP MIDT-NORGE SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 3056,
+  "antallUnderenheter": 138,
+  "aktiveUnderenheter": 138,
+  "ansatteIUnderenheter": 3035,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": [
+   {
+    "orgnr": "873176652",
+    "antallTilsyn": 11,
+    "sisteDato": "12052026",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "COOP OBS LADE KAFETERIA"
+   },
+   {
+    "orgnr": "973176927",
+    "antallTilsyn": 8,
+    "sisteDato": "06062024",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "COOP OBS Kafeteria City Syd"
+   },
+   {
+    "orgnr": "977360250",
+    "antallTilsyn": 11,
+    "sisteDato": "19022026",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "OBS kafé Amfi Steinkjer"
+   },
+   {
+    "orgnr": "996516717",
+    "antallTilsyn": 4,
+    "sisteDato": "04022025",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "Obs! Kafe"
+   },
+   {
+    "orgnr": "985754950",
+    "antallTilsyn": 4,
+    "sisteDato": "31012025",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "Coop Kafe Kolvereid"
+   },
+   {
+    "orgnr": "994774921",
+    "antallTilsyn": 8,
+    "sisteDato": "01102024",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "COOP Extra kafe"
+   }
+  ]
+ },
+ "938497257": {
+  "navn": "COOP NORD SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 1676,
+  "antallUnderenheter": 66,
+  "aktiveUnderenheter": 66,
+  "ansatteIUnderenheter": 1667,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": [
+   {
+    "orgnr": "999277837",
+    "antallTilsyn": 7,
+    "sisteDato": "03062026",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "Kafé Bolaget 5379"
+   },
+   {
+    "orgnr": "992377720",
+    "antallTilsyn": 9,
+    "sisteDato": "04092025",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "OBS Harstad kafé 5260"
+   },
+   {
+    "orgnr": "992377038",
+    "antallTilsyn": 11,
+    "sisteDato": "02102024",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "OBS Kafé Tromsø"
+   }
+  ]
+ },
+ "936560288": {
+  "navn": "COOP NORGE SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 2412,
+  "antallUnderenheter": 10,
+  "aktiveUnderenheter": 10,
+  "ansatteIUnderenheter": 2412,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "937557922": {
+  "navn": "EL-GIGANTEN LOGISTIK AB",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "UTLA",
+  "registrertIForetaksregisteret": false,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": false,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": null,
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "934039254": {
+  "navn": "FINNFJORD AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 184,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 184,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "936661386": {
+  "navn": "FJORDLAND AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 70,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 70,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "937070632": {
+  "navn": "GRILSTAD AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 534,
+  "antallUnderenheter": 5,
+  "aktiveUnderenheter": 5,
+  "ansatteIUnderenheter": 534,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "fiskerivarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "940379016": {
+  "navn": "HOFF SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 175,
+  "antallUnderenheter": 4,
+  "aktiveUnderenheter": 4,
+  "ansatteIUnderenheter": 175,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "937305354": {
+  "navn": "LACO AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "925745855": {
+  "navn": "LILLEBORG AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 113,
+  "antallUnderenheter": 6,
+  "aktiveUnderenheter": 6,
+  "ansatteIUnderenheter": 109,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-09-30"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "922997748": {
+  "navn": "LYNGEN SEAWEED AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "926875701": {
+  "navn": "MARTIN & SERVERA AB",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "NUF",
+  "registrertIForetaksregisteret": false,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": false,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": null,
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "930183350": {
+  "navn": "NORDIC CIRCULAR HOTSPOT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "926994387": {
+  "navn": "NORGESGRUPPEN AGDER AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "935480507": {
+  "navn": "NORGESGRUPPEN EIENDOM MIDT-NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "931186744": {
+  "navn": "NORSK BUTIKKDRIFT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 43,
+  "antallUnderenheter": 7,
+  "aktiveUnderenheter": 7,
+  "ansatteIUnderenheter": 42,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "937270062": {
+  "navn": "NORSK GJENVINNING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 781,
+  "antallUnderenheter": 39,
+  "aktiveUnderenheter": 39,
+  "ansatteIUnderenheter": 780,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "926655779": {
+  "navn": "NORTHERN LIGHTS JV DA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "DA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 30,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 30,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "938752648": {
+  "navn": "NORTURA SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 4306,
+  "antallUnderenheter": 31,
+  "aktiveUnderenheter": 31,
+  "ansatteIUnderenheter": 4298,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "932256134": {
+  "navn": "ODA GROUP AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "932176076": {
+  "navn": "ORKLA EIENDOM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 12,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 12,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "930097705": {
+  "navn": "ORKLA FOODS AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 31,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 31,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "930097683": {
+  "navn": "ORKLA HEALTH HOLDING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 21,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 21,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "930097748": {
+  "navn": "ORKLA SNACKS AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 22,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 22,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "926501836": {
+  "navn": "PRONOFA ASA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "ASA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 9,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 9,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "923534717": {
+  "navn": "SALMAR OCEAN AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 4,
+  "aktiveUnderenheter": 4,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "932324997": {
+  "navn": "SELVÆR SEAWEED AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "933444724": {
+  "navn": "SERVICEGROSSISTENE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 35,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 35,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "927894254": {
+  "navn": "SJØTROLL AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 16,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 16,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": [
+   {
+    "orgnr": "927953927",
+    "antallTilsyn": 2,
+    "sisteDato": "23062026",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Kafe Skuret"
+   }
+  ]
+ },
+ "925470996": {
+  "navn": "SMARTSOIL BIOTECH AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 6,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 6,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "930258008": {
+  "navn": "STORCASH NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 236,
+  "antallUnderenheter": 14,
+  "aktiveUnderenheter": 14,
+  "ansatteIUnderenheter": 233,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "935948878": {
+  "navn": "VERMINORD AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "979334109": {
+  "navn": "ASKO MIDT-NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 403,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 403,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "979655215": {
+  "navn": "ASKO NORD AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 300,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 300,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "979487916": {
+  "navn": "ASKO VEST AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 586,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 586,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "981384016": {
+  "navn": "BAMA BLOMSTER HOLDING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "976565967": {
+  "navn": "BAMA INDUSTRI AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 385,
+  "antallUnderenheter": 4,
+  "aktiveUnderenheter": 4,
+  "ansatteIUnderenheter": 385,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "959657769": {
+  "navn": "BAMA INTERNATIONAL AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "965437150": {
+  "navn": "BAMA LOGISTIKK AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 20,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 20,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "980322939": {
+  "navn": "CANICA INVESTOR AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "961922976": {
+  "navn": "CERMAQ NORWAY AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 1322,
+  "antallUnderenheter": 14,
+  "aktiveUnderenheter": 14,
+  "ansatteIUnderenheter": 1322,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-04-01",
+   "tilDato": "2025-03-31"
+  },
+  "mattilsynGodkjenninger": [
+   "fiskerivarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "958457952": {
+  "navn": "CERNOVA AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "952507729": {
+  "navn": "COMPASS GROUP NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 4667,
+  "antallUnderenheter": 561,
+  "aktiveUnderenheter": 561,
+  "ansatteIUnderenheter": 4042,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-10-01",
+   "tilDato": "2025-09-30"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": [
+   {
+    "orgnr": "932902656",
+    "antallTilsyn": 1,
+    "sisteDato": "19122024",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "CiCi Osteria"
+   },
+   {
+    "orgnr": "929431340",
+    "antallTilsyn": 1,
+    "sisteDato": "01072026",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "Compass Group Norge AS 7340 Nygaarden Kantine"
+   },
+   {
+    "orgnr": "920688187",
+    "antallTilsyn": 1,
+    "sisteDato": "17062025",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Seven"
+   },
+   {
+    "orgnr": "928899853",
+    "antallTilsyn": 2,
+    "sisteDato": "21042026",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Cici Osteria Tollgården"
+   },
+   {
+    "orgnr": "929346025",
+    "antallTilsyn": 1,
+    "sisteDato": "17112023",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "Prensa Pintxos"
+   },
+   {
+    "orgnr": "929982290",
+    "antallTilsyn": 1,
+    "sisteDato": "26012026",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Haandtryk"
+   },
+   {
+    "orgnr": "925601853",
+    "antallTilsyn": 6,
+    "sisteDato": "04072024",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Molto Trattoria"
+   },
+   {
+    "orgnr": "932724286",
+    "antallTilsyn": 2,
+    "sisteDato": "28042026",
+    "sisteKarakter": "2",
+    "navnISmilefjes": "Slabberas"
+   },
+   {
+    "orgnr": "989556258",
+    "antallTilsyn": 4,
+    "sisteDato": "04112024",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Avd. 7558 Bardufoss Velferdskantine"
+   },
+   {
+    "orgnr": "996228630",
+    "antallTilsyn": 1,
+    "sisteDato": "14032023",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "Velferdskantine Ramsund"
+   },
+   {
+    "orgnr": "933720233",
+    "antallTilsyn": 1,
+    "sisteDato": "04102024",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Kojachi"
+   },
+   {
+    "orgnr": "933277534",
+    "antallTilsyn": 2,
+    "sisteDato": "18032026",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Poppel"
+   },
+   {
+    "orgnr": "974715724",
+    "antallTilsyn": 4,
+    "sisteDato": "12062024",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Avd. 7561 Skjold Velferdskantine"
+   }
+  ]
+ },
+ "981397568": {
+  "navn": "COOP FINNMARK SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 424,
+  "antallUnderenheter": 34,
+  "aktiveUnderenheter": 34,
+  "ansatteIUnderenheter": 416,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "979419287": {
+  "navn": "COOP INNLANDET SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 1024,
+  "antallUnderenheter": 71,
+  "aktiveUnderenheter": 71,
+  "ansatteIUnderenheter": 1019,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": [
+   {
+    "orgnr": "998902118",
+    "antallTilsyn": 12,
+    "sisteDato": "16102024",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "Coop Obs! kafe"
+   },
+   {
+    "orgnr": "997205170",
+    "antallTilsyn": 10,
+    "sisteDato": "15112024",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "Coop Obs! Olrud Kafe"
+   },
+   {
+    "orgnr": "973144723",
+    "antallTilsyn": 11,
+    "sisteDato": "08042026",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Coop Obs! kafeteria"
+   }
+  ]
+ },
+ "946231819": {
+  "navn": "COOP NORDLAND SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 1257,
+  "antallUnderenheter": 87,
+  "aktiveUnderenheter": 87,
+  "ansatteIUnderenheter": 1237,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": [
+   {
+    "orgnr": "976099524",
+    "antallTilsyn": 10,
+    "sisteDato": "09072024",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Kafe City Nord"
+   },
+   {
+    "orgnr": "997889215",
+    "antallTilsyn": 3,
+    "sisteDato": "05072023",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "Havnecafeen Brønnøysund"
+   }
+  ]
+ },
+ "942763654": {
+  "navn": "COOP NORDVEST SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 2249,
+  "antallUnderenheter": 133,
+  "aktiveUnderenheter": 133,
+  "ansatteIUnderenheter": 2223,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": [
+   {
+    "orgnr": "973171380",
+    "antallTilsyn": 10,
+    "sisteDato": "30062026",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Coop Obs Kafe "
+   },
+   {
+    "orgnr": "995159341",
+    "antallTilsyn": 7,
+    "sisteDato": "16012026",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Coop Extra Kafe, avd 130 Coop Sogn og Fjordane "
+   }
+  ]
+ },
+ "966833300": {
+  "navn": "COOP SØRVEST SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 3051,
+  "antallUnderenheter": 138,
+  "aktiveUnderenheter": 138,
+  "ansatteIUnderenheter": 3047,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": [
+   {
+    "orgnr": "992374683",
+    "antallTilsyn": 7,
+    "sisteDato": "17122024",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "Obs Arendal Avd  Kafeteria"
+   }
+  ]
+ },
+ "950264799": {
+  "navn": "COOP VESTVIKEN SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 687,
+  "antallUnderenheter": 38,
+  "aktiveUnderenheter": 38,
+  "ansatteIUnderenheter": 682,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "953452626": {
+  "navn": "COOP ØKONOM SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 1059,
+  "antallUnderenheter": 48,
+  "aktiveUnderenheter": 48,
+  "ansatteIUnderenheter": 1058,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "948432617": {
+  "navn": "COOP ØST SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 4163,
+  "antallUnderenheter": 183,
+  "aktiveUnderenheter": 183,
+  "ansatteIUnderenheter": 4159,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": [
+   {
+    "orgnr": "873071532",
+    "antallTilsyn": 9,
+    "sisteDato": "24012025",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "Coop Obs Kafe Slitu"
+   },
+   {
+    "orgnr": "992378409",
+    "antallTilsyn": 10,
+    "sisteDato": "13022025",
+    "sisteKarakter": "1",
+    "navnISmilefjes": "Coop Obs  Kafe Rygge Storsenter "
+   }
+  ]
+ },
+ "975856844": {
+  "navn": "FISKÅ MØLLE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 204,
+  "antallUnderenheter": 6,
+  "aktiveUnderenheter": 6,
+  "ansatteIUnderenheter": 204,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "976502744": {
+  "navn": "FJORDKJØKKEN AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 190,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 190,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "fiskerivarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "945958405": {
+  "navn": "GARTNERHALLEN SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 22,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 22,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "967247359": {
+  "navn": "GRAMINOR AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 60,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 60,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "977199611": {
+  "navn": "INFINITUM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 102,
+  "antallUnderenheter": 5,
+  "aktiveUnderenheter": 5,
+  "ansatteIUnderenheter": 102,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "975959171": {
+  "navn": "KIWI NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "977263646": {
+  "navn": "KJØPMANNSHUSET NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 135,
+  "antallUnderenheter": 10,
+  "aktiveUnderenheter": 10,
+  "ansatteIUnderenheter": 125,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "960329856": {
+  "navn": "KVERVA INDUSTRIER AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "975350940": {
+  "navn": "LERØY SEAFOOD GROUP ASA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "ASA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 243,
+  "antallUnderenheter": 7,
+  "aktiveUnderenheter": 7,
+  "ansatteIUnderenheter": 233,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "977213193": {
+  "navn": "MENON ECONOMICS AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 94,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 94,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "977066727": {
+  "navn": "MENY AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 109,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 109,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "964118191": {
+  "navn": "MOWI ASA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "ASA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 2654,
+  "antallUnderenheter": 80,
+  "aktiveUnderenheter": 80,
+  "ansatteIUnderenheter": 2650,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "fiskerivarer",
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "975871096": {
+  "navn": "NORGESFÔR AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 13,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 13,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "971047917": {
+  "navn": "NORGESGRUPPEN DATA AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 333,
+  "antallUnderenheter": 3,
+  "aktiveUnderenheter": 3,
+  "ansatteIUnderenheter": 333,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "976542223": {
+  "navn": "NORGESGRUPPEN EIENDOM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 19,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 19,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "976769511": {
+  "navn": "NORGESGRUPPEN SERVICEHANDEL AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 23,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 23,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "977389666": {
+  "navn": "NORGESGRUPPEN VEST AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "975960714": {
+  "navn": "NORGESGRUPPEN VESTFOLD TELEMARK AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "962977006": {
+  "navn": "NORSK DYREMAT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 76,
+  "antallUnderenheter": 3,
+  "aktiveUnderenheter": 3,
+  "ansatteIUnderenheter": 76,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "980411133": {
+  "navn": "NORSK KYLLING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 531,
+  "antallUnderenheter": 4,
+  "aktiveUnderenheter": 4,
+  "ansatteIUnderenheter": 531,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "961056268": {
+  "navn": "NOVA SEA AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 331,
+  "antallUnderenheter": 14,
+  "aktiveUnderenheter": 14,
+  "ansatteIUnderenheter": 325,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "fiskerivarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "971142138": {
+  "navn": "O KAVLI AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 159,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 159,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "940712580": {
+  "navn": "ORKLA SNACKS NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 503,
+  "antallUnderenheter": 3,
+  "aktiveUnderenheter": 3,
+  "ansatteIUnderenheter": 503,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "979491514": {
+  "navn": "REITAN EIENDOM DRIFT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "982254604": {
+  "navn": "REMA 1000 NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 545,
+  "antallUnderenheter": 14,
+  "aktiveUnderenheter": 14,
+  "ansatteIUnderenheter": 541,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "960514718": {
+  "navn": "SALMAR ASA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "ASA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 67,
+  "antallUnderenheter": 3,
+  "aktiveUnderenheter": 3,
+  "ansatteIUnderenheter": 67,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "966840528": {
+  "navn": "SALMAR FARMING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 1340,
+  "antallUnderenheter": 34,
+  "aktiveUnderenheter": 34,
+  "ansatteIUnderenheter": 1340,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "fiskerivarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "977047587": {
+  "navn": "STEIN ERIK HAGEN AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "947942638": {
+  "navn": "TINE SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 4929,
+  "antallUnderenheter": 93,
+  "aktiveUnderenheter": 93,
+  "ansatteIUnderenheter": 4893,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": [
+   {
+    "orgnr": "973064673",
+    "antallTilsyn": 12,
+    "sisteDato": "16042025",
+    "sisteKarakter": "0",
+    "navnISmilefjes": "Ostebaren"
+   }
+  ]
+ },
+ "992714409": {
+  "navn": "BAMA BLOMSTER SOURCING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 147,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 147,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "995244071": {
+  "navn": "BAMA PAKKERIER AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "995518333": {
+  "navn": "BAMA STORKJØKKEN AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 361,
+  "antallUnderenheter": 10,
+  "aktiveUnderenheter": 10,
+  "ansatteIUnderenheter": 361,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "985052441": {
+  "navn": "COOP EIENDOM VEST AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "982594421": {
+  "navn": "COOP HORDALAND SA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "SA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 1484,
+  "antallUnderenheter": 69,
+  "aktiveUnderenheter": 69,
+  "ansatteIUnderenheter": 1484,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "988445177": {
+  "navn": "COOP NORGE EIENDOM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 39,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 39,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "989085557": {
+  "navn": "COOP NORGE STAVANGER EIENDOM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "997800419": {
+  "navn": "COOP NORGE TROMSØ EIENDOM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "985402779": {
+  "navn": "DELI DE LUCA NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 21,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 21,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "987643935": {
+  "navn": "DENOFA AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 89,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 89,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "984460198": {
+  "navn": "DIPLOM-IS AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 432,
+  "antallUnderenheter": 7,
+  "aktiveUnderenheter": 7,
+  "ansatteIUnderenheter": 428,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "986619968": {
+  "navn": "ICA SVERIGE AB",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "NUF",
+  "registrertIForetaksregisteret": false,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": false,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": null,
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "983522025": {
+  "navn": "JOH JOHANNSON EIENDOM AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "985461791": {
+  "navn": "KAVLI NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "985131406": {
+  "navn": "KIWI MINIDRIFT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 144,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 144,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "995915820": {
+  "navn": "KJØPMANNSHUSET BUTIKKDRIFT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "985940460": {
+  "navn": "LERØY AURORA AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 309,
+  "antallUnderenheter": 10,
+  "aktiveUnderenheter": 10,
+  "ansatteIUnderenheter": 302,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "986392858": {
+  "navn": "LERØY HAVFISK AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 25,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 25,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "985848718": {
+  "navn": "LERØY MIDT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 517,
+  "antallUnderenheter": 22,
+  "aktiveUnderenheter": 22,
+  "ansatteIUnderenheter": 508,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "995548194": {
+  "navn": "LERØY NORWAY SEAFOODS AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 581,
+  "antallUnderenheter": 13,
+  "aktiveUnderenheter": 13,
+  "ansatteIUnderenheter": 573,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "fiskerivarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "989578790": {
+  "navn": "MENY BUTIKKDRIFT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "984980744": {
+  "navn": "NG EIENDOM VESTFOLD TELEMARK AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "989278835": {
+  "navn": "NOFIMA AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 354,
+  "antallUnderenheter": 6,
+  "aktiveUnderenheter": 6,
+  "ansatteIUnderenheter": 354,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "fiskerivarer",
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "997754123": {
+  "navn": "NORFERSK AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 127,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 127,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "988597627": {
+  "navn": "NORGES SJØMATRÅD AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 72,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 72,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "997747054": {
+  "navn": "NORGESGRUPPEN EIENDOM HOLDING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "997732863": {
+  "navn": "NORGESGRUPPEN EIENDOM REGION AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "989009001": {
+  "navn": "NORGESGRUPPEN EIENDOMSKAPITAL AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "995666553": {
+  "navn": "NORGESGRUPPEN EIENDOMSUTVIKLING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "983392970": {
+  "navn": "NORGESGRUPPEN FELLESTJENESTER AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "997732812": {
+  "navn": "NORGESGRUPPEN MERKEVARE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "987570067": {
+  "navn": "NORGESGRUPPEN MØRE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "990236186": {
+  "navn": "NORGESGRUPPEN NORD AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "992318899": {
+  "navn": "NORIDANE FOODS AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 7,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 7,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "995643316": {
+  "navn": "NORILIA AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 57,
+  "antallUnderenheter": 5,
+  "aktiveUnderenheter": 5,
+  "ansatteIUnderenheter": 54,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "993450782": {
+  "navn": "NTF KLUBBEN VED ICA NORGE AS LOGISTIKK AVD TRONDHEIM",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "FLI",
+  "registrertIForetaksregisteret": false,
+  "registrertIMvaregisteret": false,
+  "antallAnsatte": null,
+  "antallUnderenheter": 0,
+  "aktiveUnderenheter": 0,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": false,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": null,
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "986519904": {
+  "navn": "ORKLA HEALTH AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 195,
+  "antallUnderenheter": 3,
+  "aktiveUnderenheter": 3,
+  "ansatteIUnderenheter": 195,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "fiskerivarer",
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "996888142": {
+  "navn": "ORKLA HOUSE CARE NORGE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 65,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 65,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "991742255": {
+  "navn": "ORKLA IT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 125,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 125,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "993924741": {
+  "navn": "OSLO ECONOMICS AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 99,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 99,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "984661185": {
+  "navn": "POSTEN BRING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 10237,
+  "antallUnderenheter": 133,
+  "aktiveUnderenheter": 133,
+  "ansatteIUnderenheter": 10237,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "982423767": {
+  "navn": "Q-MEIERIENE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 352,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 352,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "983415652": {
+  "navn": "REITAN CONVENIENCE AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 6,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 6,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "983415660": {
+  "navn": "REITAN CONVENIENCE NORWAY AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 92,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 92,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "994674099": {
+  "navn": "REMA INDUSTRIER AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "993491780": {
+  "navn": "SEAWEED SOLUTIONS AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 11,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 11,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "988044113": {
+  "navn": "SKRETTING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 340,
+  "antallUnderenheter": 3,
+  "aktiveUnderenheter": 3,
+  "ansatteIUnderenheter": 340,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "987390689": {
+  "navn": "TELESPOR AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 10,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 10,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "988247111": {
+  "navn": "UNO-X MOBILITY AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 5,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 5,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "986228608": {
+  "navn": "YARA INTERNATIONAL ASA",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "ASA",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 535,
+  "antallUnderenheter": 2,
+  "aktiveUnderenheter": 2,
+  "ansatteIUnderenheter": 535,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2024-01-01",
+   "tilDato": "2024-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "999221963": {
+  "navn": "EMIRO AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ },
+ "998232058": {
+  "navn": "FELLESKJØPET FORUTVIKLING AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": 13,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 13,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [
+   "forvarer"
+  ],
+  "smilefjesTilsyn": []
+ },
+ "997898397": {
+  "navn": "MATVETT AS",
+  "statusBrreg": "aktiv",
+  "organisasjonsform": "AS",
+  "registrertIForetaksregisteret": true,
+  "registrertIMvaregisteret": true,
+  "antallAnsatte": null,
+  "antallUnderenheter": 1,
+  "aktiveUnderenheter": 1,
+  "ansatteIUnderenheter": 0,
+  "regnskapTilgjengelig": true,
+  "regnskapApiFeil": null,
+  "sisteRegnskapsperiode": {
+   "fraDato": "2025-01-01",
+   "tilDato": "2025-12-31"
+  },
+  "mattilsynGodkjenninger": [],
+  "smilefjesTilsyn": []
+ }
+}

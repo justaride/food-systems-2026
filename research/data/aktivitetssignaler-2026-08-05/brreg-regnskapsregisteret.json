@@ -1,0 +1,2864 @@
+{
+ "hentet": "2026-08-05",
+ "kilde": "data.brreg.no/regnskapsregisteret",
+ "regnskap": {
+  "811793442": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 184298432.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "812977032": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 286505.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "813612992": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2869751105.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "814055922": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "815664582": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 579112420.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "816022932": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 0.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "816488362": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": -460734.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "817580122": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 0.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "818481152": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 0.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "819731322": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 674269000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "819784922": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 18264390.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "821186382": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "822659292": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 253179.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "825091912": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "837000602": {
+   "antallRegnskap": 0,
+   "http404": true
+  },
+  "876862522": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1284679000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "881452642": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "882578402": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 40074628.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "883409442": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1898000000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "883743512": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 134878818.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "884133572": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 143863777.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "885209432": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 711718866.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "885316522": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 11644118052.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "885719422": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1222799000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "886813082": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2623653435.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "889775912": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 25416207.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "893136932": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 574688866.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "894625902": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 132236465.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "894759372": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 37829471880.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "897392232": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-09-30"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 59737243.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "910629085": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1165541000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "910747711": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 292000000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "911161230": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1725908000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "911161419": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 156689000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "911608103": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 15685645000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "911610744": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 747190000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "912015238": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 6314675441.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "912262510": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 4032814444.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "912589455": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 230862000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "912609987": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 4138000000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "912692094": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 362671000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "913117883": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 6571359492.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "913283805": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1281150353.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "913344162": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 95715000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "913422082": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 164359.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "913755855": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 180167415.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "914183332": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2151259956.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "914224314": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 12863801000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "914526647": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1820000000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "914670705": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 6886589000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "914791723": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 5739892893.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "914827922": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1694719.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "915123678": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1169073.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "915190715": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 13690174.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "915300219": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "915334504": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "915442552": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 3795000000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "915990487": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 7169000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "915994415": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 24000000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "916047967": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "916146337": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2257159000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "916170858": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 5806768000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "916286074": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 45304407.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "916325010": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 4983758.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "916329717": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1389545000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "916335784": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 0.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "916635001": {
+   "antallRegnskap": 0,
+   "http404": true
+  },
+  "917114684": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1166000000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "917203261": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 48480464.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "917339937": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 139200.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "917378819": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 3508449.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "917619727": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 0.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "917809755": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 3279982.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "917853908": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "918293477": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "918579176": {
+   "antallRegnskap": 0,
+   "http404": true
+  },
+  "918710507": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 8689221278.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "919117060": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 198375116.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "919441879": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 247000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "919645636": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 20856855.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "919702974": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 13837220.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "919784725": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 36418827.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "919784814": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 74706488.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "919818824": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 111160000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "920341659": {
+   "error": "HTTP 500 fra Brreg (serverfeil, verifisert ved retry 2026-08-05)"
+  },
+  "920428959": {
+   "error": "HTTP 500 fra Brreg (serverfeil, verifisert ved retry 2026-08-05)"
+  },
+  "920535763": {
+   "antallRegnskap": 0,
+   "http404": true
+  },
+  "920871372": {
+   "antallRegnskap": 0,
+   "http404": true
+  },
+  "921042434": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 545599742.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "921275730": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "921332017": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "921668236": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1597132000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "921757131": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 15660018000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "921761929": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "921979819": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "921995938": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "922876878": {
+   "antallRegnskap": 0,
+   "http404": true
+  },
+  "922997748": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 213900.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "923030891": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 73258149.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "923456570": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 5187033.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "923534717": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 10358245.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "923622845": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 7827099195.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "925109185": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 4717246.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "925216534": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 9751279.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "925470996": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1181787.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "925745855": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-09-30"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 433349000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "926501836": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "926655779": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 457254000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "926751352": {
+   "antallRegnskap": 0,
+   "http404": true
+  },
+  "926875701": {
+   "antallRegnskap": 0,
+   "http404": true
+  },
+  "926994387": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 219044262.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "927116758": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 874.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "927894254": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 4480874.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "928103668": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 820677.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "928679969": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 0.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "929228723": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 524186809.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "929975200": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2751000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "930097683": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 51040000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "930097705": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 134616000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "930097748": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 228209000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "930183350": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 5215465.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "930258008": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2071911849.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "930622974": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 17270421151.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "931186744": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 10483633000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "931863444": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2512186.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "932144336": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-09-01",
+    "tilDato": "2025-08-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 708306594.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "932176076": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 28660186.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "932256134": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "932324997": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 8081.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "933129950": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 6466784907.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "933444724": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 207367005.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "934039254": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1210694237.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "935480507": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "935948878": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "936560288": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 66836000000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "936661386": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2133712000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "937070632": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2129397000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "937270062": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 3404378328.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "937305354": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 3749000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "937557922": {
+   "antallRegnskap": 0,
+   "http404": true
+  },
+  "937843860": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 9112830000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "938497257": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 4820682000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "938701237": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 16219366.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "938752648": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 24807403000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "938786054": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 9152992000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "940379016": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 776874902.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "940712580": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2781689000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "942763654": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 6283811000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "945958405": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 4234661000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "946231819": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 3625843000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "947942638": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 24228808000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "948432617": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 9663149000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "950264799": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1464906827.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "952507729": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-10-01",
+    "tilDato": "2025-09-30"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2157010932.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "953452626": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2581693000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "958457952": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 0.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "959657769": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "960329856": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1705383000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "960514718": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 228000000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "961056268": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 4941792000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "961922976": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-04-01",
+    "tilDato": "2025-03-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 6446312000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "962977006": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 394731461.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "964118191": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1887000000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "965437150": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 428474000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "966833300": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 7955060000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "966840528": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 14702664000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "967247359": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 103033592.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "971047917": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1636067811.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "971142138": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 425904000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "975350940": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 441953000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "975856844": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2830136558.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "975871096": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 925500468.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "975959171": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1842636760.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "975960714": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 290744334.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "976502744": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 704191763.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "976542223": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 31099137.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "976565967": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1537757619.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "976769511": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 85136520.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "977047587": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "977066727": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 513911180.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "977199611": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 4591658027.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "977213193": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 168957401.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "977263646": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 572652034.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "977389666": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 409642032.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "979334109": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 7468587619.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "979419287": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2834144771.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "979487916": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 12381504249.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "979491514": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 37906791.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "979655215": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 5878840846.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "980322939": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "980411133": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2310872803.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "981384016": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 3550000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "981397568": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1602725312.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "982254604": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 5889627000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "982423767": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2566610000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "982594421": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 4261219000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "983392970": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "983415652": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 288000000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "983415660": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 737880000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "983522025": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 6412141.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "984460198": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1272179845.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "984661185": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 14354000000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "984980744": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "985052441": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2796717.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "985131406": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 845847939.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "985402779": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 92994504.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "985461791": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "985848718": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 5427632000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "985940460": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 3682876175.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "986228608": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 4201000000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "986392858": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 39038000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "986519904": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2024256000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "986619968": {
+   "antallRegnskap": 0,
+   "http404": true
+  },
+  "987390689": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 54368522.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "987570067": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 57643608.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "987643935": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2638416000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "988044113": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 12762592000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "988247111": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 429000000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "988445177": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 38241609.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "988597627": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 686133000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "989009001": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "989085557": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 12665634.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "989278835": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 710718000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "989578790": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "990236186": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 121720240.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "991742255": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 856655000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "992318899": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 700958071.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "992714409": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 846007351.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "993450782": {
+   "antallRegnskap": 0,
+   "http404": true
+  },
+  "993491780": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 5679606.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "993924741": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 184466493.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "994674099": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 169630000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "995244071": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "995518333": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2024-01-01",
+    "tilDato": "2024-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2253516000.0,
+   "aarTilgjengelig": [
+    "2024"
+   ]
+  },
+  "995548194": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1363501000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "995643316": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 406579827.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "995666553": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 3151669.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "995915820": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "996888142": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 494015000.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "997732812": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "997732863": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "997747054": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": null,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "997754123": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 2248774932.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "997800419": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 21923960.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "997898397": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 9223971.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "998232058": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 26166841.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  },
+  "999221963": {
+   "antallRegnskap": 1,
+   "sistePeriode": {
+    "fraDato": "2025-01-01",
+    "tilDato": "2025-12-31"
+   },
+   "sisteRegnskapstype": "SELSKAP",
+   "sumDriftsinntekterSiste": 1461982.0,
+   "aarTilgjengelig": [
+    "2025"
+   ]
+  }
+ }
+}
