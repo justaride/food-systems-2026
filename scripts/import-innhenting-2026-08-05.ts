@@ -73,6 +73,7 @@ async function main() {
       const f = hard[j]
       const citId = `cit-innh-2026-08-05-${pad(i + 1)}-${pad(j + 1)}`
       const yr = Number.parseInt(String(f.year ?? p.year ?? ''), 10)
+      const repoPath = join(DIR, p.stagedPath) // repo-rot-relativ sti så systemets verifiserer resolver
       const valUnit = [f.value, f.unit].filter(hasVal).join(' ')
       const notes = [
         `basis=${f.basis}`,
@@ -81,30 +82,30 @@ async function main() {
         valUnit ? `verdi=${valUnit}` : null,
       ].filter(Boolean).join('; ')
 
+      const citData = {
+        sourceClass: classOf(p.sourceKind) as any,
+        citationReadiness: 'internal_context' as any,
+        verificationStatus: 'needs_review' as any,
+        citationText: `${f.claim}${valUnit ? ` [${valUnit}]` : ''}. Kilde: ${p.source ?? p.title} (${p.year ?? '?'}), ${f.locator ?? 'uten lokator'}. Basis: ${f.basis}.`.slice(0, 2000),
+        title: p.title ?? null,
+        publisher: p.publisher ?? null,
+        author: p.source ?? null,
+        year: Number.isNaN(yr) ? null : yr,
+        url: p.url ?? null,
+        localPath: repoPath,
+        fileHash,
+        hashAlgorithm: 'sha256',
+        pageRef: f.locator ?? null,
+        quote: String(f.claim ?? '').slice(0, 2000),
+        accessedAt: ACCESSED,
+        captureMethod: 'innhenting-2026-08-05',
+        notes,
+        sourceDocId: srcId,
+      }
       await prisma.sourceCitation.upsert({
         where: { id: citId },
-        update: {},
-        create: {
-          id: citId,
-          sourceClass: classOf(p.sourceKind) as any,
-          citationReadiness: 'internal_context' as any,
-          verificationStatus: 'needs_review' as any,
-          citationText: `${f.claim}${valUnit ? ` [${valUnit}]` : ''}. Kilde: ${p.source ?? p.title} (${p.year ?? '?'}), ${f.locator ?? 'uten lokator'}. Basis: ${f.basis}.`.slice(0, 2000),
-          title: p.title ?? null,
-          publisher: p.publisher ?? null,
-          author: p.source ?? null,
-          year: Number.isNaN(yr) ? null : yr,
-          url: p.url ?? null,
-          localPath: p.stagedPath,
-          fileHash,
-          hashAlgorithm: 'sha256',
-          pageRef: f.locator ?? null,
-          quote: String(f.claim ?? '').slice(0, 2000),
-          accessedAt: ACCESSED,
-          captureMethod: 'innhenting-2026-08-05',
-          notes,
-          sourceDocId: srcId,
-        },
+        update: { localPath: repoPath, fileHash, pageRef: citData.pageRef, notes },
+        create: { id: citId, ...citData },
       })
       nCit++
     }
