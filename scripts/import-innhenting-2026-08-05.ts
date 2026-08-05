@@ -70,7 +70,6 @@ async function main() {
         url: p.url ?? null,
         doi: p.doi ?? null,
         publisher: p.publisher ?? null,
-        provenanceType: 'primary_evidence',
         accessedAt: ACCESSED,
       },
     })
