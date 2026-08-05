@@ -1,0 +1,454 @@
+WHAT EFFECT
+CAN ALGORITHMS
+HAVE ON
+COMPETITION?
+The Norwegian Competition
+Authority's market survey on the
+use of monitoring and pricing
+algorithms.
+REPORT
+
+2021
+
+This is an English translation of the main parts of
+a report published by the Norwegian Competition
+Authority ("the Competition Authority") in
+Norwegian. It contains the introduction of the
+report, its main findings and a concluding
+summary, which corresponds to chapter 1, 3 and
+4 in the original report.
+
+1
+
+1. Introduction
+Technological developments have provided companies with new tools for market surveillance and
+market adaptation. In particular, the increased amount of data available and the development of
+processing power capable of analysing large amounts of data have enabled companies to gain a
+deeper insight into market conditions in an automated manner, through the use of different types of
+algorithms. Algorithms can be used for a variety of tasks, and can be defined as "a set of operations
+which, if followed, provides a specific result, i.e. a formula for performing a task or solving a
+problem". 1
+The use of algorithms may be beneficial to both consumers and businesses. Algorithms can be used,
+among other things, to provide updated information to consumers. So-called price comparison sites,
+which give consumers the opportunity to easily compare prices and product characteristics from
+different providers, are typically based on the use of algorithms. Companies, for their part, can e.g.
+use algorithms to respond efficiently to changing market conditions.
+At the same time, there are some concerns that companies might be able to utilise the information
+they collect through the use of algorithms in a way that weakens competition. Competition is
+important to ensure consumers access to the best possible goods and services at the lowest possible
+prices. The uncertainty companies face with regard to how competitors will act in the marketplace is
+a crucial driving force for effective competition. The use of algorithms as automated market
+surveillance tools can reduce or eliminate this uncertainty, and thereby weaken competition.
+Competitive harm can occur, for example, if algorithms enable competitors to immediately gain
+access to updated information about each other's prices and, thereby, to respond quickly to price
+changes. When a company knows that its competitors will detect and respond to price reductions
+immediately, it becomes less likely that the company in question will be able to increase its turnover
+by reducing its prices. As a result, it will be less likely to reduce its prices in the first place.
+The various types of algorithms and their use have received increasing attention in recent years,
+from competition authorities and in academia. A number of reports addressing this issue have been
+published by, among others, the OECD, the UK Competition and Markets Authority (CMA) and a joint
+report published by the French and German competition authorities. The European Commission, the
+Portuguese Competition Authority and the Danish Competition Authority have also conducted
+market research regarding the use of algorithms.
+In the Competition Authority's opinion, this is an important topic. More knowledge is needed about
+the prevalence and use of algorithms among companies operating in Norway. The Competition
+Authority has therefore conducted a market survey among companies in selected industries, where
+the use of algorithms is considered to be most relevant. The purpose of the survey has primarily
+been to provide an indication of the prevalence and use of these tools in Norwegian markets. The
+report does not assess the extent to which the use of monitoring and pricing algorithms may be legal
+or illegal under the Norwegian Competition Act.
+In this survey, the Competition Authority has mainly focused on monitoring and pricing algorithms. A
+monitoring algorithm is an algorithm that collects information about the range of products offered
+by competitors, i.e. their prices and other product characteristics. A pricing algorithm is an algorithm
+that automatically sets prices. There are also other types of algorithms that may affect competition
+that are not covered by this survey. This includes, for example, ranking algorithms, which determines
+Meld. St. 9 (2018–2019) "Wholesale and retail trade – when the customer is always online", White Paper
+from the Ministry of Trade, Industry and Fisheries, page 116.
+
+1
+
+1
+
+the order in which products are presented to customers. Another example is algorithms used by
+suppliers to monitor the pricing of their retailers.
+The Competition Authority's survey shows that it is relatively common among companies operating
+in Norway to use monitoring algorithms. In total, 55 percent of the respondents stated that they use
+monitoring algorithms, or engage in other forms of automated monitoring. However, pricing
+algorithms are less commonly used, as only 20 percent of the respondents stated that they use this
+type of algorithms. The survey also indicates that algorithms that make use of artificial intelligence
+are not widespread.
+This report is based on information gathered by the Norwegian Competition Authority, reports from
+other competition authorities and other literature.
+3 Main Findings
+This section sets out how respondents to the Competition Authority's survey use monitoring and
+pricing algorithms. The use of monitoring algorithms and pricing algorithms, respectively, are
+presented separately, although monitoring and pricing algorithms are often sold as part of the same
+package, or are used simultaneously. First, the methodology and the selection of respondents are
+described.
+3.1 Methodology and selection of respondents
+The Competition Authority gathered market information by way of questionnaires sent to a number
+of companies that sell goods and services to Norwegian consumers, to suppliers of pricing and
+monitoring algorithms and to providers of price comparison services. 2
+One of the purposes of the survey has been to gather information regarding the general prevalence
+of monitoring and pricing algorithms. Such algorithms are closely linked to e-commerce, as
+monitoring algorithms are used to retrieve information from the internet. The Competition
+Authority has therefore mainly focused on market operators with online stores 3, and on goods and
+services consumers for a large part shop on the internet. 4 Respondents of the survey are therefore
+sellers of various categories of consumer goods or providers of services. The main categories from
+which respondents were selected are: retailers in sports equipment, clothing, cosmetics, electronics,
+building materials, tools, interior products, kitchens, furniture, groceries, wide selection 5, providers
+of car rental services and flights as well as pharmacies and opticians. From each category, 3-5
+respondents were selected, in total 54 respondents.
+Where market shares or sufficient turnover figures were available, the largest operators were
+selected. Where turnover figures were not available, alternative methods were used for selecting
+respondents, such as the visibility in web searches in the product category concerned. The selection
+thus includes some of the most visited online stores in Norway. 6
+The Competition Authority notes that the findings presented in the report give an indication of the
+extent to which companies with operations in Norway use monitoring and pricing algorithms.
+Requests for information were sent to the respondents on the basis of Section 24 of Competition Act.
+Although information obtained from online stores may also be relevant to use in physical stores, cf. chapter
+2.1.
+4
+As of the second quarter, digital equipment, clothing and shoes, and hobbies are the largest part of the retail
+trade. See Statistics Norway, "Large increase in e-commerce".
+5
+Companies with a wide selecion, offer products in many different product categories.
+6
+Ehandel.com, "Here are the online stores with the most visits in Norway".
+2
+3
+
+2
+
+Figure 2 also shows which method respondents use for automatically obtaining competitor
+information. As shown in Figure 2, 25 per cent of the respondents use their own monitoring
+algorithm, while 14 per cent use external data sources, such as a price comparison service.
+Moreover, 16 per cent of the respondents use both data obtained through their own monitoring
+algorithm and data obtained from an external data source. This means that 46 per cent of
+respondents that use automated monitoring tools, collected data themselves, while 25 per cent only
+use an external data source, and 29 per cent use a combination of the two methods.
+The Portuguese Competition Authority found in a similar survey conducted in 2019, that 37 percent
+of the respondents used monitoring algorithms. 9 The European Commission, which has also
+examined the use of algorithms, found that about half of the respondents systematically monitored
+competitors' prices, and that 67 per cent of these respondents did so through the use of their own
+software. 10 This means that about a third of the respondents in the Commission's survey used
+monitoring algorithms.
+Respondents that use monitoring algorithms are spread across most of the sectors included in the
+survey. In some sectors, all or most of the respondents state that they use monitoring algorithms,
+while in other industries no respondents state that they use such algorithms. Thus, users of
+monitoring algorithms sell different types of goods and services. However, monitoring algorithms
+seem to be more prevalent among companies that sell products that are easy to compare, for
+example due to a common serial number or other identification from the manufacturer.
+The respondents themselves state that the purpose of market monitoring is to check that their own
+prices are in line with the position they wish to have on the market. Respondents state, among other
+things, that information is used to "ensure that we offer competitive prices", to "monitor
+competitors' prices and, if desirable, to adjust our own prices" and to "ensure that our prices are
+correctly set in the market we want to position ourselves in".
+Furthermore, respondents state that they collect various types of information about their
+competitors. This includes information about prices, inventories, promotions/special offers, the
+range of products offered by competitors, variations in products, such as colour and size, popularity
+(number of clicks) and shipping costs.
+Price is the variable that is monitored by most respondents, followed by information about
+inventories. Some of the respondents state that they collect information about competitors'
+inventories to check that products are actually available for purchase at the stated prices. Some
+companies monitor the range of products of competitors to follow how competitors' product offers
+evolve. Companies also gather information about whether products are sold during promotional
+campaigns or at discounted prices, and, in that regard, also obtain information about previous price
+levels, if available.
+Monitoring algorithms make it possible to collect information about competitors on a continuous
+basis and the frequency with which respondents in the survey collect data varies. Some of the
+respondents state that they collect updates several times a day, while others collect information one
+or more times a week. The most common among the respondents is to gather information about
+9
+
+Autoridade da Concorrência (2019), “Digital ecosystems, Big Data and Algorithms - issues paper”, page 44.
+EU-Commission (2017), “Final report on the e-commerce Sector Inquiry - Accompanying Staff Working
+Document”, Page 175.
+
+10
+
+4
+
+competitors' activities on a daily basis. There might be a difference between how often information
+is collected and how often this information is actually used by the respondents. For example, one
+respondent states that it collects data daily, but reviews it on a weekly basis.
+For a large number of respondents, the monitoring of competitors' prices is part of their assessment
+of whether to adjust their own prices. Of the respondents that use monitoring algorithms, 86 per
+cent state that information concerning competitor prices is included in the assessment of whether
+their own prices should be adjusted. The European Commission and the Portuguese Competition
+Authority found similar results, the corresponding figures in those surveys being 78 and 76.6 per
+cent respectively. 11 Some of these market players change prices manually, while others change
+prices automatically.
+The Competition Authority has thus found that it is relatively common for market players to use
+monitoring algorithms to gain access to detailed and updated data on each other's activities.
+3.3 The use of pricing algorithms
+The survey shows that significantly fewer respondents use automated pricing compared to the
+number of respondents that use monitoring algorithms. There are in total ten companies,
+corresponding to 20 per cent of all respondents, that state that they use automated pricing
+algorithms. This is illustrated in Figure 3. These respondents are mostly spread across different
+sectors, although in some sectors several respondents make use of pricing algorithms. Respondents
+that use pricing algorithms usually also use monitoring algorithms.
+Figure 3 – The use of automated pricing algorithms
+
+Do you use automated pricing algorithms?
+20 %
+
+Yes
+No
+
+80 %
+
+11
+
+EU Commission (2017), "Final report on the e-commerce Sector Inquiry - Accompanying Staff Working
+Document", page 175 and Autoridade da Concorrência (2017), "Digital ecosystems, Big Data and Algorithms Issues paper", page 44.
+
+5
+
+In the Portuguese survey, the competition authorities found that 7.9 per cent of the respondents
+used automated pricing algorithms. 12 In its inquiry, the European Commission found that eight per
+cent of the respondents that used monitoring algorithms automatically adjusted their own prices in
+response to information about competitors, while 27 per cent of these respondents changed prices
+both manually and automatically. 13 This indicates that approximately eleven per cent of the
+respondents had access to automated pricing tools. 14
+Several respondents that do not use automatic pricing directly, nevertheless state that they have
+this functionality integrated in the solution they have acquired without using it. Several also state
+that the pricing software they use proposes a new price, but that price adjustments must be
+approved manually before becoming operative. For example, one respondent states “We use
+software that automatically proposes a new price, based on a user-defined set of rules, as well as
+different inputs such as competitor prices. The way in which the software is set up in [Company
+Name], all "simulations" with price proposals must be reviewed and approved by employees in
+[Company Name]'s pricing department. Proposals can be adjusted to a price other than the proposed
+price, or be removed in their entirety. The software can adjust prices with fewer steps of control and
+approval than [Company Name]'s current practice, but this is not relevant for [Company Name]”.
+In contrast to monitoring algorithms, which only concern the collection of information, automatic
+pricing means that companies expose themselves to a risk in the form incorrect pricing or deviations
+from the desired pricing strategy. One of the respondents states: “… we are planning to acquire a
+system that recommends prices, based on insights from competitors, business rules and algorithms.
+No retailer would use such a system for fully automatic pricing as the potential for very costly
+erroneous pricing is large”.
+Pricing algorithms can be programmed to use a range of different pricing strategies, from simple
+pricing rules to more advanced algorithms that use artificial intelligence when setting prices.
+Moreover, pricing rules may vary from product to product, making it possible to use different pricing
+strategies for different products. Thus, companies can make strategic decisions in this regard. They
+could e.g. decide which products that should have the lowest prices and which products that should
+follow the prices of given competitors, while prices can be set manually for other products and
+product groups based on other factors. Several respondents state that they do not use pricing
+algorithms on the entire product range, and that only part of their products are priced automatically.
+Respondents have explained in more detail how their pricing algorithms work in practice. They state,
+among other things, that the algorithm "sets prices based on competitors' prices and stock levels", or
+that an algorithm "works on the basis of business rules, typically if you want to be x % above or below
+competitors". One respondent writes that its algorithm “creates price groups. Each group has a filter
+defining which products that are included in the group. For each group, pricing rules determine the
+
+12
+
+Autoridade da Concorrência (2019), "Digital ecosystems, Big Data and Algorithms", page 45.
+EU Commission (2017), "Final report on the e-commerce Sector Inquiry - Accompanying Staff Working
+Document", page 175.
+14
+343 respondents used monitoring algorithms. Of these, eight per cent adjusted prices automatically, while 27
+per cent adjusted prices both manually and automatically. This amounts to 120 respondents, which corresponds
+to eleven per cent of the total 1051 respondents.
+13
+
+6
+
+proposed price (e.g. "follow market price"). Each group have restrictions, e.g. minimum 20 % profit.
+We decide which competitors that are taken into account in each price group”.
+As the excerpts above illustrate, respondents use pricing algorithms in different ways. The most
+common seems to be that the pricing algorithm sets prices based on the prices of a competitor.
+Among the respondents, some use pricing algorithms to set prices above, below or equal to a
+competitor's prices, often within a given range of minimum and/or maximum prices. Other pricing
+strategies used by respondents are to set prices so that a given product margin is maintained, or
+profits are maximized. There are also some respondents that set prices based on given
+characteristics of competitors, for example, whether a competitor has the item in stock.
+Furthermore, some pricing algorithms set prices based on a predefined set of prices. Other factors
+that are taken into account in some of the respondents pricing algorithms are purchase prices,
+shipping prices and the stock levels of items in physical stores.
+The Competition Authority has also examined the extent to which algorithms in one way or another
+make use of artificial intelligence. Very few respondents state that their pricing algorithms use an
+element of artificial intelligence. These respondents state that the artificial intelligence element
+included in the algorithm calculates profitable price points, or estimates how many units that will be
+sold at different price points. It would thus appear that the use of such algorithms are not very
+widespread today.
+The findings of the Competition Authority's survey further indicate that personalised pricing occurs
+to a very limited extent, as few respondents state that they set personalised prices. However, some
+respondents state that they set prices based on certain categories of customers, such as student
+prices.
+
+7
+
+Based on the sample of respondents, the extent of automatic pricing seems to be relatively limited
+today. The fact that several respondents are already using software that includes this functionality,
+may nevertheless suggest that such usage can be expected to increase in the years ahead. To the
+Competition Authority, it would appear that Amazon's possible entry to Norway 15, would make it
+even more likely that the use of different types of algorithms will increase in the coming years.
+Amazon
+Amazon operates a digital marketplace on which companies can sell their products. The platform
+offers a wide range of products for sale from a number of companies, including Amazon itself.
+Amazon has gradually grown to become one of the world's largest companies.
+Concerns have been expressed in several countries that Amazon has a significant amount of market
+power, and the European Commission, among others, has opened an investigation concerning
+possible competition law infringements.1
+Amazon is not established in Norway, but started operations in Sweden in October 2020. Despite
+the fact that Amazon does not have a Norwegian online store, it is still one of the most visited online
+stores in Norway.2
+Both monitoring and pricing algorithms are in use on the Amazon platform. Algorithms are provided
+both by Amazon3 and by third-party suppliers.4 It is therefore reasonable to assume that the use of
+algorithms is widespread among the companies that are active on this platform. Issues related to
+the use of algorithms will thus also be relevant for companies that have started, or will start using
+the Amazon platform.
+1
+
+European Commission, Antitrust: Commission sends Statement of Objections to Amazon for the use of nonpublic independent seller data and opens second investigation into its e-commerce business practices.
+2
+Ehandel.com, "Here are the online stores with the most visits in Norway".
+3
+"Amazon Marketplace Web Service" and "Amazon Seller Central"
+4
+"For example RepricerExpress, etc.
+
+4 Summary
+Competition authorities both in Norway and internationally are concerned about the emergence of
+algorithms, their areas of use and how the use of algorithms may affect competition. Market players'
+use of different types of algorithms may be beneficial for both consumers and businesses.
+Algorithms enable businesses to become more efficient, for example by ensuring that popular
+products are available to consumers. At the same time, there is a concern that algorithms in various
+ways may limit competition. The basic challenges with regard to the use of algorithms are related to
+the increased frequency with which price information is exchanged, the more precise nature of this
+information, and the stabilizing effect this may have on markets where coordination potentially can
+be realized.
+The Competition Authority has therefore conducted a survey to examine the extent to which, and in
+what way, monitoring and pricing algorithms are used by companies operating in Norway. The
+15
+
+Amazon is expected to enter the Norwegian market, but it is not clear if or when it will happen. See for
+example Shifter.no, "Confirmed: Amazon will expand to Norway" and Ehandel.com, "Predict Norwegian Amazon
+launch this year:" If they decide to take something, they will take it "".
+
+8
+
+survey has found that the use monitoring algorithms is relatively common, but that fewer market
+players use pricing algorithms. In some industries, the use of algorithms is very widespread, while in
+other industries few or no players at all use such tools. Given technological developments and
+continued increases in e-commerce, there is reason to believe that the proportion of companies that
+use algorithms in their businesses will increase in the time ahead.
+The surveys by the European Commission and the Portuguese competition authorities have been
+carried out somewhat differently from the Competition Authority's survey. It has also been some
+time since the European Commission's survey was conducted, which may mean that the share of
+companies that use monitoring and pricing algorithms, respectively, has changed since then. A
+comparison of the results can nevertheless give an indication of the use of monitoring and pricing
+algorithms in Norway relative to other European countries. Of the respondents in the Competition
+Authority's survey, 55 per cent use monitoring algorithms and 20 per cent use pricing algorithms.
+The surveys of the European Commission and the Portuguese competition authorities indicate that
+about a third of the responding companies use monitoring algorithms, and about ten per cent use
+pricing algorithms. Thus, the surveys appear to indicate that it is relatively more common to use
+monitoring and pricing algorithms in Norway than in other European countries.
+The findings from the Competition Authority's survey show that companies use monitoring
+algorithms to obtain updated and detailed information about their competitors, and, in some cases,
+this information is part of a pricing algorithm that automatically updates prices in response to
+changes in competitor prices. Whether algorithms can harm competition will depend on several
+factors, including the specific characteristics of the market in which they are used. However, the
+survey has revealed some findings, which, in the Competition Authority's view, may make
+competitive harm resulting from the use of algorithms more probable.
+The Competition Authority has found that it is relatively common to use monitoring algorithms, and
+that its use is more widespread in some industries than in others. When competitors have access to
+detailed and up-to-date information about each other's activities, it may, for example, become less
+attractive to reduce prices, since price reductions will be detected immediately by competitors.
+The Competition Authority has also found that it is relatively common for companies that have
+implemented pricing algorithms to use fairly simple pricing strategies. By repeated interaction in the
+market, where competitors quickly can respond to each other's price changes by using pricing
+algorithms, such simple pricing strategies might be easily understood by competitors. This can
+reduce competition because market players know to a greater extent how competitors set their
+prices, which leads to less uncertainty in their own pricing.
+If several companies use the same pricing algorithm with the same "set of rules" in the algorithm,
+competition may be reduced. In such a case, competitors may react in the same way to a given
+event in the market, which leads to increased predictability between these companies. This may
+increase the risk of coordination.
+Based on the findings from the survey, it seems that it is not very common to use self-learning
+algorithms. Therefore, the concern that self-learning algorithms on their own could find that it is
+better to coordinate than to compete does not seem to be particularly relevant at this point in time.
+The Competition Authority's opinion is, nevertheless, that such a concern may become more
+relevant if self-learning algorithms are implemented by market participants to a greater extent in the
+future.
+
+9
+
+The Competition Authority's concerns related to algorithms are not primarily based on observations
+from the actual use of this type of tools, but are rather related to general concerns regarding the use
+of algorithms, as presented in Chapter 2.3. The previously mentioned reports from the OECD, the
+British, Danish, Portuguese, German and French competition authorities, and the European
+Commission, provide a thorough insight into how algorithms may affect competition.
+The Competition Authority's survey shows that both monitoring and pricing algorithms are in use
+among market players in Norway. Such algorithms may affect competition negatively in some cases.
+It is therefore important that companies that use, or consider using, algorithms are conscious about
+the functionality offered in the algorithm. The use of algorithms may harm competition and
+constitute a violation of the Competition Act. The Competition Authority draws attention to the fact
+that each individual market player is responsible for ensuring that its conduct is within the
+boundaries of competition law as it stands at any point in time. This also applies to the use of
+algorithms, and also when buying such services from a third party.
+Against this background, the Competition Authority encourages companies, which either have
+implemented or plan to implement algorithms, to be aware of why they choose to use a given
+algorithm, and what effect this algorithm may have on competition in the market. If the aim of
+implementing the algorithm primarily is to achieve more stable or predictable market conditions for
+the company, and not to ensure consumers more competitive prices or to increase the availability of
+its products, this may indicate that the implementation of the algorithm should be reconsidered, or
+that the relevant algorithm should be adjusted. This will especially be the case in markets where
+conditions are already conducive to coordination, for example markets with few competitors, stable
+demand, symmetry between market participants and homogeneous products. For companies
+operating in such markets, it is of particular importance to be conscious about their own use of
+algorithms.
+Similarly, developers of algorithms are also encouraged to be aware of the competitive implications
+that various functionality in this type of tools may have. Among other things, developers should be
+aware of how software is designed to behave in markets, and how information obtained through an
+algorithm from one market player can be used in the pricing of another market player.
+The competitive consequences of using algorithms will depend on a specific assessment of each
+individual case. The technological development related to the use of algorithms is happening rapidly,
+and these assessments may therefore also change over time.
+
+10
+
+List of references
+Assad, S., Clark, R., Ershov, D. og Xu, L. (2020). "Algorithmic Pricing and Competition: Empirical
+Evidence from the German Retail Gasoline Market". CESifo Working Paper No. 8521.
+Autoridade da Concorrência (2019). "Digital ecosystems, Big Data and Algorithms".
+Autorité de la concurrence og Bundeskartellamt (2019). "Algorithms and Competition".
+Calvano, E., Calzolari, G., Denicolò, V. og Pastorello, S. (2020). "Artificial Intelligence, Algorithmic
+Pricing, and Collusion". American Economic Review, 110 (10): 3267-97.
+Competition and Markets Authority (2018). "Pricing Algorithms - Economic working paper on the use
+of algorithms to facilitate collusion and personalised pricing".
+Ehandel.com (2020). "Her er nettbutikkene med flest besøk i Norge". https://no.ehandel.com/herer-nettbutikkene-med-flest-besok-i-norge (lest 13.01.2021).
+Ehandel.com (2021). "Spår norsk Amazon-lansering i år". https://no.ehandel.com/spar-norskamazonlansering-i-ar-hvis-de-bestemmer-seg-for-a-ta-noe-tar-de-det (lest 13.01.2021).
+Eisen, M. (2011). "Amazon's $23,698,655.93 book about flies".
+http://www.michaeleisen.org/blog/?p=358 (lest 13.01.2021).
+EU-kommisjonen (2004). "Guidelines on the assessment of horizontal mergers under the Council
+Regulation on the control of concentrations between undertakings".
+EU-kommisjonen (2017). "Final report on the e-commerce Sector Inquiry – Accompanying Staff
+Working Document".
+EU-kommisjonen (2020). "Antitrust: Commision sends Statement of Objections to Amazon for the
+use of non-public independent seller data and opens second investigation into its e-commerce
+business practices". https://ec.europa.eu/commission/presscorner/detail/en/ip_20_2077 (lest
+13.01.2021).
+Ezrachi og Stucke (2015). "Artificial Intelligence & Collusion: When Computers Inhibit Competition".
+Konkurrence- og Forbrugerstyrelsen (2021). "Prisalgoritmer og deres betydning for konkurrencen"
+OECD (2017). "Algorithms and Collusion - Background Note by the Secretariat".
+Regjeringen (2018). "Handelsnæringen – når kunden alltid har nett". Meld. St. 9 (2018/2019).
+Shifter.no (2020). "Bekreftet: Amazon skal utvide til Norge". https://shifter.no/nyheter/bekreftetamazon-skal-utvide-til-norge/188344 (lest 13.01.2021).
+SSB (2020). "Stor økning i netthandelen". https://www.ssb.no/varehandel-og-tjenesteyting/artiklerog-publikasjoner/mer-netthandel-mindre-butikkhandel (lest 13.01.2021).
+
+11
+
+Zander Kaaes gate 7
+5015 Bergen
+Norway
+T: +47 55 59 75 00
+Konkurransetilsynet.no
+
+Zander Kaaes gate 7
+5015 Bergen
+Norway
+T: +47 55 59 75 00
+Konkurransetilsynet.no
+
+

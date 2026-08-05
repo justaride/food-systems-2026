@@ -1,0 +1,66 @@
+SOURCE-URL: https://www.nibio.no/tema/jord/organisk-avfall-som-gjodsel/fiskeslam
+RETRIEVED: 2026-08-05
+---
+ Fiskeslam - Nibio 
+ property="og:url" content="https://www.nibio.no/tema/jord/organisk-avfall-som-gjodsel/fiskeslam"
+ Fiskeslam 
+ Fiskeslam 
+ <img src="/tema/jord/organisk-avfall-som-gjodsel/fiskeslam/_/image/5b51ede6-e891-4c46-b343-d60f1eaf1487:21fb4dd1ac0aab3c0edb8c48a1529fed236ccc60/max-1280/oppdrettsanlegg%20rvp2013-4323.jpg.jpeg?quality=60"
+ Fiskeslam er et avfallsprodukt fra oppdrettsnæringen som består av ekskrementer og fôrspill 
+ Hvert år står oppdrettsnæringen for tap av ca. 66.000 tonn nitrogen og 14.000 tonn fosfor i sjøen ( Broch &amp; Ellingsen 2020 ). Fiskeslam er ekskrementer og fôrrester som blir samlet opp. Oppsamlet fiskeslam står for bare ca. 2 % av total mengde ekskrementer og fôrrester ( Aas &amp; Åsgard 2017 ). I dag er nemlig kun landbaserte oppdrettere pålagt å samle opp fiskeslam før avløpsvannet slippes ut i sjøen. 
+ Kravet om oppsamling av fiskeslam skal sørge for at kystområder med lav bæreevne ikke blir overbelastet. På landbaserte resirkuleringsanlegg (RAS) oppstår fiskeslam også uavhengig av forurensingslovens krav til utslipp, når vannet renses før det gjenbrukes. 
+ Den landbaserte produksjonen består hovedsakelig av produksjon av settefisk, inntil fisken er stor nok til å settes ut i merdene. Oppsamlet fiskeslam er derfor for det meste fra ferskvannsbasert smoltproduksjon, men siden fisken gradvis vennes til saltvann før utsett (postsmolt), kan slammet inneholde noe salt. Det er i dag ikke vanlig å samle opp fiskeslam fra matfiskproduksjon som for det meste foregår i åpne merder. 
+ Den totale fiskeslammengden som blir fanget opp er forventet å øke på grunn av økt individvekt på land før de settes ut, etablering av anlegg med matfiskproduksjon på land og utviklingen av lukkede og semi-lukkede anlegg i sjø. 
+ Avvanning og behandling av fiskeslam foregår i flere steg: Først blir vannet renset med trommelfilter, fulgt av avvanning med båndfilter eller gjennom sedimentering. I noen tilfeller brukes kjemiske polymerer som hjelpemiddel for å samle og binde fiskeslammet i større partikler, før videre avvanning med sentrifuge eller skruepresse til rundt 30 % tørrstoff. I de fleste tilfeller blir fiskeslammet deretter tørket termisk til rundt 90 % tørrstoff, og lagret i storsekker. Alternativt kan fiskeslam behandles i biogassanlegg, med både biogass og biorest som sluttprodukter. 
+ Fiskeslam inneholder betydelige mengder nitrogen og fosfor og kan derfor brukes som gjødsel, slik at nitrogen og fosfor føres tilbake til kretsløpet. Fiskeslam inneholder derimot lite kalium, som også er et plantenæringsstoff plantene trenger mye av. 
+ For gjødselprodusenter og brukere av gjødsla er det viktig med god kunnskap om gjødseleffekten, hvis fiskeslam skal gå fra å være avfall til ressurs. Våre forsøk viser at fiskeslam har potensial som nitrogengjødsel til korn, men at det er stor variasjon mellom ulike produkter. Det gjelder også for fiskeslam fra samme settefiskanlegg. &nbsp; 
+ En del av fosforet i fiskeslam fra settefiskanlegg består av stabile kalsiumfosfater som ikke er direkte tilgjengelig for plantene. I våre forsøk var fosforgjødseleffekten til tørket fiskeslam lavere enn fosforgjødseleffekten til husdyrgjødsel. 
+ Næringsstoffsammensetningen i fiskeslam er ubalansert sammenlignet med plantenes behov. Nitrogen- og kaliuminnholdet er for lavt i forhold til fosforinnholdet. Fiskeslam bør derfor kombineres med andre kilder for nitrogen og kalium. 
+ Foreløpig kan fiskeslam bare brukes som gjødsel i konvensjonelt jordbruk i Norge og utenfor EU, siden fiskeslam ikke er en godkjent ingrediens i organisk EU-gjødsel. Fiskeslam er heller ikke en godkjent ingrediens i økologisk gjødsel. Noe tørket fiskeslam fra settefiskanlegg inngår allerede i kommersiell gjødselproduksjon. 
+ title="Potensialet for resirkulering av fosfor i oppdrettsnæringen"
+ style="background-image:url(&#39;/tema/jord/organisk-avfall-som-gjodsel/fiskeslam/_/image/cf3f4e5b-5b58-491f-a947-b06bb2d0b61d:736401f4441433c2f4536a46d26bcaf5beef8420/max-400/Eva_Brod.jpg?quality=60&#39;) !important;"> 
+ style="background-image:url(&#39;/tema/jord/organisk-avfall-som-gjodsel/fiskeslam/_/image/0f36aaf5-b24f-4281-b6f2-4318c184f96a:856994c0a29d2737aaceff9d7a1c23652b5df3ce/max-400/Linn%20Solli.jpg?quality=60&#39;) !important;"> 
+ style="background-image:url(&#39;/tema/jord/organisk-avfall-som-gjodsel/fiskeslam/_/image/cf3f4e5b-5b58-491f-a947-b06bb2d0b61d:736401f4441433c2f4536a46d26bcaf5beef8420/max-400/Eva_Brod.jpg?quality=60&#39;) !important;"> 
+ style="background-image:url(&#39;/tema/jord/organisk-avfall-som-gjodsel/fiskeslam/_/image/0f36aaf5-b24f-4281-b6f2-4318c184f96a:856994c0a29d2737aaceff9d7a1c23652b5df3ce/max-400/Linn%20Solli.jpg?quality=60&#39;) !important;"> 
+ Fiskeslam fra smolt- og postsmoltproduksjon som gjødsel – Vurdering av kjemiske analyser (2010 – 2023)
+ Brod, E. & Øgaard, A.F. 2023. Fiskeslam fra smolt- og postsmoltproduksjon som gjødsel – Vurdering av kjemiske analyser (2010 – 2023) (Forskningsrapport). Tilgjengelig fra: https://hdl.handle.net/11250/3099201. 
+ title="Til dokument for Fiskeslam fra smolt- og postsmoltproduksjon som gjødsel – Vurdering av kjemiske analyser (2010 – 2023)" data-document-type="Forskningsrapport">
+ Organiske avfallsprodukt som gjødsel – Bestemmelse av nitrogeneffekten
+ Henriksen, T., Kristoffersen, A., Øgaard, A.F. & Brod, E. 2023. Organiske avfallsprodukt som gjødsel – Bestemmelse av nitrogeneffekten (Forskningsrapport). Tilgjengelig fra: https://hdl.handle.net/11250/3068643. 
+ title="Til dokument for Organiske avfallsprodukt som gjødsel – Bestemmelse av nitrogeneffekten" data-document-type="Forskningsrapport">
+ Fiskeslam som nitrogengjødsel til korn - Resultater fra FishBash prosjektet
+ Brod, E. 2021. Fiskeslam som nitrogengjødsel til korn - Resultater fra FishBash prosjektet (Forskningsrapport). Tilgjengelig fra: https://hdl.handle.net/11250/2763347. 
+ title="Til dokument for Fiskeslam som nitrogengjødsel til korn - Resultater fra FishBash prosjektet" data-document-type="Forskningsrapport">
+ Fosforeffekt av organisk avfall
+ Brod, E. & Øgaard, A.F. 2021. Fosforeffekt av organisk avfall (Forskningsrapport). Tilgjengelig fra: https://hdl.handle.net/11250/2729942. 
+ title="Til dokument for Fosforeffekt av organisk avfall" data-document-type="Forskningsrapport">
+ Tror klimaavgift kan åpne for fiskeslam som gjødsel. En varslet avgift på mineralgjødsel kan gjøre det mer aktuelt å satse på organisk gjødsel, mener forsker.
+ Brod, E. & Fenstad, A. 2021. Tror klimaavgift kan åpne for fiskeslam som gjødsel. En varslet avgift på mineralgjødsel kan gjøre det mer aktuelt å satse på organisk gjødsel, mener forsker. (Intervju). 
+ Bruk av tørket slam fra settefiskanlegg som gjødsel i norsk landbruk
+ Cabell, J., Brod, E., Ellingsen, J., Løes, A., Standal, I.B., Tordnes, B. & Vivestad, H. 2019. Bruk av tørket slam fra settefiskanlegg som gjødsel i norsk landbruk (Forskningsrapport). Tilgjengelig fra: https://hdl.handle.net/11250/2630914. 
+ title="Til dokument for Bruk av tørket slam fra settefiskanlegg som gjødsel i norsk landbruk" data-document-type="Forskningsrapport">
+ Her gjødsler de åkeren med fiskeskitt - Tester om lakseslam kan erstatte mineralgjødsel
+ Brod, E. & Fenstad, A. 2019. Her gjødsler de åkeren med fiskeskitt - Tester om lakseslam kan erstatte mineralgjødsel (Intervju). 
+ Drying or anaerobic digestion of fish sludge: Nitrogen fertilisation effects and logistics
+ Brod, E., Oppen, J., Kristoffersen, A., Haraldsen, T. & Krogstad, T. 2017. Drying or anaerobic digestion of fish sludge: Nitrogen fertilisation effects and logistics (Vitenskapelig artikkel). Tilgjengelig fra: https://doi.org/10.1007/s13280-017-0927-5. 
+ title="Til dokument for Drying or anaerobic digestion of fish sludge: Nitrogen fertilisation effects and logistics" data-document-type="Vitenskapelig artikkel">
+ Application of fish sludge as fertiliser to agricultural land can contribute to closing nutrient cycles in fish farming. The effect of different treatment technologies on the nitrogen fertilisation effects of fish sludge was studied by a bioassay with barley (Hordeum vulgare), an incubation and a field experiment. Dried fish sludge resulted in relative agronomic efficiency of 50–80% compared with mineral fertiliser. The anaerobic digestate based on fish sludge (20 vol%) and dairy manure did not increase nitrogen uptake in barley. Increasing the ratio of fish sludge in the digestate increased the fertilisation effect, but requires optimisation of the biogas process. A simple logistics analysis conducted for a case hatchery showed that on-site drying and co-digestion of fish sludge in a central biogas plant can be regarded as equal in terms of costs. Norway can become an exporter of fish sludge-based recycling fertilisers if current regulations are modified to facilitate nutrient recycling. 
+ Fiskeslam som nitrogengjødsel. Effekt av ulike behandlingsteknologier
+ Brod, E., Haraldsen, T. & Krogstad, T. 2016. Fiskeslam som nitrogengjødsel. Effekt av ulike behandlingsteknologier (Forskningsrapport). Tilgjengelig fra: https://hdl.handle.net/11250/2418973. 
+ title="Til dokument for Fiskeslam som nitrogengjødsel. Effekt av ulike behandlingsteknologier" data-document-type="Forskningsrapport">
+ Har kartlagt organiske miljøgifter i fiskeslam 
+ Alle fiskeslamprøvene som ble analysert inneholdt organiske miljøgifter, men i lavere konsentrasjoner enn det som er gjennomsnittet for norsk avløpsslam. 
+ Kan gjødsel basert på fiskeslam bli en fremtidig eksportartikkel? 
+ Norge produserer store mengder fiskeslam som i stor grad «forsvinner» i havet. Nå undersøker forskerne hvordan man kan utnytte denne viktige ressursen bedre i fremtiden. 
+ Fiskeslam har variabel effekt som nitrogengjødsel 
+ Fiskeslam har mer variabel gjødseleffekt enn tidligere antatt. Det gjelder også fiskeslam fra samme settefiskanlegg. For å kunne utnytte de verdifulle avfallsressursene best mulig, er det viktig at man først sjekker kvaliteten. 
+ Visste du at det er store mengder viktige næringsstoffer i fiskeslam, kubæsj og matavfall? At avføring fra husdyra benyttes som gjødsel, er ikke noe nytt. Bondens gull kjenner vi eimen av hver vår på landsbygda. Men forskerne mener det er et stort uutnyttet potensiale i uthenting av næringsstoffer. 
+ Kan ei blanding av myse, marint fiskeslam og kumøkk bli til biogass? Det spørsmålet håper forskarar å finne svar på. For å lukkast må dei finne den rette blandingsmengda og unngå at det blir for mykje salt att i restproduktet. 
+ Når søppelbilen drives av kumøkk, fiskeslam og matavfall 
+ Et nytt forsøk viser at tørket avføring og fôrrester fra fisk fungerer bedre som gjødsel enn det som er igjen etter biogassproduksjon av fiskeslam og husdyrgjødsel. 
+ Husdyrgjødsel + fiskeslam = biogass 
+ 20 prosent fiskeslam blandet med husdyrgjødsel kan gjøre det lønnsomt å produsere biogass på norske gårder. Oppsamling av fiskeslam kan også redusere avfallsproblemer i oppdrettsnæringen og bidra til å løse fosforkrisa. 
+ Store fosfortap i norsk akvakultur 
+ Hvert år går rundt 70 prosent av fosforet som tilføres fiskeoppdrettsanlegg tapt. – Sløsing av en svært begrenset ressurs, sier forskere og etterlyser bedre teknologi for fosforutnyttelse og en sterkere politisk styring av næringens vekst. 
+ Landbruket må satse på resirkulering av fosfor 
+ Ein stor del av fosforet i matvaresystemet hamnar i avfall, og det som blir resirkulert som gjødsel gjev ofte dårleg effekt. Det kjem fram i ei ny doktoravhandling som etterlyser strengare politisk regulering og betre teknologi for å fange opp og behandle resirkulert fosfor. 

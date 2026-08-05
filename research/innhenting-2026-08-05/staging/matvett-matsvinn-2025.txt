@@ -1,0 +1,2326 @@
+Matsvinn i norske husholdninger
+
+
+
+
+Matsvinn i norske husholdninger
+   - Oppdaterte matkastetall og forbrukerundersøkelser med
+     anbefalinger til veien videre
+
+
+
+
+Forfattere                                Rapportnummer   Årstall
+SIGRID MØYNER HOHLE OG AINA STENSGÅRD     OR.28.24        2024
+ISBN NR.                        ISSN NR.    RAPPORTTYPE       TILGJENGELIGHET
+ 978-82-7520-952-6              2703-8610   Oppdragsrapport   Åpen
+
+
+
+
+PROSJEKTNUMMER
+3467
+
+PROSJEKTNAVN
+Matsvinn 2023
+
+OPPDRAGSGIVER
+Matvett
+
+KVALITETSSIKRER
+Lina Plataniti
+
+ANTALL SIDER
+39
+
+EMNEORD
+Matsvinn, Forbruker, Årsaker, Atferd
+Matsvinn i norske husholdninger
+
+
+
+
+    1 Sammendrag
+Overordnede funn
+
+For første gang siden 2020 foreligger nye matkastetall for husholdningene basert på en sammenstilling av
+kommunale plukkanalyser. I tillegg gjennomføres det årlige forbrukerundersøkelser som gir dypere innblikk
+i hvilke matvarer som kastes, tilstand på maten og årsaker til at den kastes. I undersøkelsen for 2024 ble
+også forbrukernes motivasjon, mulighet og evner knyttet til matsvinn kartlagt.
+
+Estimater basert på plukkanalysene viser at nordmenn kastet 35 kg mat i gjennomsnitt per person i 2023.
+Matsvinnet er dermed redusert med 18 % fra 2016 til 2023. Mesteparten av reduksjonen er oppnådd de
+siste årene, det vil si mellom 2020 og 2023 (-12 %). Det er fremdeles et stykke igjen til 50 % reduksjon innen
+2030, som er hovedmålet i bransjeavtalen. Det er likevel positivt at utviklingen peker i riktig retning.
+
+Matsvinnet er redusert for alle mattyper, og mest for de relativt dyre- og klimaintensive varegruppene som
+kjøtt, fisk og meierivarer. Matvarene som det kastes mest av er fortsatt det samme som foregående år:
+måltidsrester (37 %), frukt og grønnsaker (26 %) og bakervarer (20 %). Forbrukerundersøkelsen viser at det i
+tillegg kastes mye flytende matsvinn i avløpet, slik som drikkevarer og flytende meieri.
+
+Resultatene fra forbrukerundersøkelsen tyder på at de eldste aldersgruppene (60 år+) kaster minst mat,
+som i tidligere års undersøkelser. Aldersgruppen i midten (40-59 år) kaster mest, mens de under 40 år
+befinner seg i midten. De under 40 år har hatt størst reduksjon i selvrapportert matsvinn siden 2022.
+
+Årets forbrukerundersøkelse kartla også vaner og atferd knyttet til de «fem kritiske matsvinnøyeblikkene»:
+planlegging, innkjøp, lagring, tilbereding og spising/rydding. Resultatene tyder på at vaner i alle øyeblikkene
+henger sammen med mengde matsvinn, men at vaner i forbindelse med tilbereding og spising/rydding er
+viktigst. Enkeltvanene som henger sterkest sammen med lavt matsvinn er å bruke mat som er til overs til
+nye måltider framfor å tilberede helt nye måltider, å unngå rester ved å spise opp måltidet og å spise
+rester. Funnene kan tyde på at for å redusere matsvinn i hjemmet, er et av de viktigste tiltakene å ha en
+«Plan B» for restene som uunngåelig oppstår. Denne planen bør legges når man handler mat, slik at man
+tar høyde for å bruke de samme råvarene til flere måltider for å minimere restene.
+
+Relevant innsikt for realisering av Matsvinnutvalgets anbefalinger
+
+Det overordnede målet med årets forbrukerrapport er i tillegg til å få oversikt over faktisk matsvinn fra
+husholdningene, å gi mer utfyllende kunnskap til Matsvinnutvalgets forbrukerrettede anbefalinger (se
+Matsvinnutvalget, 2023). Med utgangspunkt i resultatene i denne rapporten, trekkes følgende områder
+fram som viktige når utvalgets anbefalinger skal følges opp:
+
+    1. Oppskalering av pågående innsats
+
+Det norske arbeidet for redusert matsvinn er drevet av mange aktører, og det er gjennomført en rekke
+tiltak rettet mot å redusere forbrukersvinnet. Samtidig må reduksjonstakten trappes opp. Tiltakene som
+anbefales i denne rapporten er ikke nye. De er tiltak som i større eller mindre grad allerede har vært
+gjennomført, men som må forsterkes og oppskaleres slik at de får reell effekt på matsvinnet. For selv om
+mye er gjort i Norge, har matsvinnarbeidet primært fokusert på matsvinnet i matbransjen, og mange av de
+forbrukerrettede tiltakene har vært drevet av enkeltaktører. Anbefalingene fra denne rapporten bør derfor
+også følges opp med tilstrekkelige ressurser i form av mennesker og økonomiske midler. Like viktig er det at
+matbransjen, lokale myndigheter, nasjonale myndigheter og andre interesseaktører samarbeider for å sikre
+bred implementering og rekkevidde av tiltakene.
+
+
+
+i
+Matsvinn i norske husholdninger
+
+
+
+    2. Kvantumsrabatter og størrelse på forbrukerpakninger (tiltak 6 og 7 under aktsomhetskravet):
+
+Resultatene fra undersøkelsen tyder ikke på at kvantumsrabatter er en viktig driver for matsvinn. Samtidig
+er det behov for mer innsikt i hvordan kvantumsrabatter påvirker matsvinnet i Norge, samt hvordan disse
+rabattene praktiseres i dag. For varer der kvantumsrabatter kan bidra til økt svinn i husholdningene, slik
+som frisk frukt og grønnsaker, kan andre prismekanismer vurderes. For eksempel kan personlige tilbud
+bidra til mindre matsvinn enn kvantumsrabatter samtidig som man sikrer rimelig frukt og grønt til alle. Ved
+vurdering av tiltak rettet mot kvantumsrabatter bør disse ses opp mot mulige negative konsekvenser for
+økonomisk vanskeligstilte grupper og aspekter knyttet til folkehelsen. For å unngå at forbrukere kjøper mer
+enn de trenger, kan mer treffsikre virkemidler handle om å:
+
+    •   Hjelpe forbrukerne med å planlegge innkjøp.
+    •   Hjelpe forbrukerne med å beregne hvor mye de trenger.
+    •   Tilby flere pakningsstørrelser for brød, flytende meieri og grønnsaker.
+
+For det siste punktet er det også behov for mer kunnskap om hvilke løsninger som tilbys i markedet i dag,
+samt mulige barrierer eller drivere knyttet til bruken av dem (som for eksempel pris, tilgjengelighet m.m).
+
+    3. Holdbarhetsmerking
+
+Det anbefales å gjennomgå praksis for holdbarhet og utvikle en veileder for optimal holdbarhetsmerking
+for varer som ofte blir kastet på grunn av dato. Tidligere undersøkelser har vist at dette først og fremst
+gjelder kjølt pålegg, egg og meieriprodukter.
+
+Samtidig er det viktig å merke seg at potensialet for tiltaket kan være begrenset, ettersom mesteparten av
+maten som kastes i husholdningene er varegrupper som i mindre grad er omfattet av datomerking, som
+brød/bakervarer, frukt og grønnsaker samt gryte- og tallerkenrester. I tillegg kan det være mange
+bakenforliggende årsaker eller rotårsaker til at en matvare må kastes som følge av utgått dato. Dette er lite
+utforsket i litteraturen, og det anbefales derfor å gjennomføre eksperimentelle studier for å kartlegge
+rotårsakene til at mat kastes på grunn av utgått dato.
+
+Til tross for at resultatene fra forbrukerundersøkelsen og andre studier ikke viser en direkte sammenheng
+mellom supplerende holdbarhetsmerking som "ofte god etter" og matsvinn, kan supplerende merking være
+viktig for nye forbrukergrupper (for eksempel unge), som ikke kjenner forskjellen mellom «best før» og
+«siste forbruksdag».
+
+    4. Nudging, informasjonskampanjer og praktiske verktøy
+
+Resultater fra forbrukerundersøkelsen tyder på at matsvinn særlig henger sammen med vaner knyttet til
+bruk av mat som er til overs etter måltider. I tillegg rapporterer mange at de sjelden fjerner skadede deler
+av maten og bruker resten, eller bruker mat med redusert kvalitet. Mulige virkemidler for å øke evne,
+mulighet og motivasjon knyttet til å bruke opp rester og mat med redusert kvalitet er:
+
+    •   Informasjonskampanjer rettet mot å:
+            o Gi forbrukere økt kunnskap om:
+                   ▪ korrekt oppbevaring og riktig og fristende bruk av rester.
+                   ▪ Bruk av mat med redusert kvalitet.
+            o Peke på gevinster knyttet til bruk av rester med fokus på tidsmessige og økonomiske
+               argumenter.
+            o Skreddersy informasjonskampanjer/tips rettet mot barnefamilier knyttet til å ha en Plan B
+               for bruk av rester.
+
+
+
+                                                ii of 54
+Matsvinn i norske husholdninger
+
+
+
+            o  Styrke barn og unges kunnskap og evner om matsvinn og det å bruke opp matvarer og
+               rester fra måltider.
+    •   Innovasjoner, nudging og praktiske verktøy rettet mot å:
+            o Skape en positiv sosial norm knyttet til å bruke rester fra råvarer og måltider.
+            o Hjelpe forbrukere med å ha en Plan B for det man handler og har i kjøleskapet gjennom tips
+               og oppskrifter.
+            o Tilby fleksible oppskrifter som er mindre rigide og som inviterer til å bruke det man har.
+            o Fysiske eller visuelle påminnelser/instruksjoner til å bruke opp, som «bruk-den-opp-teip»
+               eller digitale verktøy som holder oversikt over mat man har hjemme.
+
+I tillegg til å bruke opp rester og mat med redusert kvalitet er det også viktig å definere
+informasjonskampanjer, nudge, innovasjoner og verktøy for å unngå at det oppstår rester.
+
+
+
+
+                                               iii of 54
+Matsvinn i norske husholdninger
+
+
+
+
+Innholdsfortegnelse
+1       Sammendrag .............................................................................................................................................i
+2       Innledning................................................................................................................................................ 1
+        2.1 Om rapporten .................................................................................................................................. 1
+3       Bakgrunn ................................................................................................................................................. 2
+        3.1 Matsvinn som samfunnsproblem .................................................................................................... 2
+        3.2 Målet med årets rapport ................................................................................................................. 2
+4       Resultater ................................................................................................................................................ 4
+        4.1 Overordnet om maten vi kaster ...................................................................................................... 4
+               4.1.1 Mengde matsvinn basert på plukkanalyser .......................................................................... 4
+               4.1.2 Selvrapportert mengde matsvinn ......................................................................................... 6
+            4.1.3 Tilstanden på maten som kastes .......................................................................................... 7
+            4.1.4 Årsaker til matsvinn .............................................................................................................. 8
+            4.1.5 Matsvinn og alder ...............................................................................................................10
+        4.2 Kjøpsøyeblikket og matsvinn ......................................................................................................... 12
+            4.2.1 Mat som kastes som følge av kjøpsøyeblikket ...................................................................12
+            4.2.2 Vaner og muligheter for de som kaster mat som følge av kjøpsøyeblikket .......................14
+        4.3 Holdbarhetsmerking og matsvinn ................................................................................................. 15
+            4.3.1 Supplerende holdbarhetsmerking ......................................................................................15
+            4.3.2 Kunnskap om datomerking .................................................................................................16
+        4.4 Mulighet, evne og motivasjon knyttet til matsvinn ...................................................................... 20
+               4.4.1 Bakgrunn om mulighet, evne og motivasjon ......................................................................20
+               4.4.2 Evne og mulighet i de fem kritiske matsvinnøyeblikkene ..................................................21
+               4.4.3 Individuelle forskjeller i evne og mulighet..........................................................................25
+               4.4.4 Sammenheng mellom evne og mulighet og matsvinn .......................................................26
+            4.4.5 Motivasjon ..........................................................................................................................27
+5       Veien videre .......................................................................................................................................... 30
+        5.1 Oppsummering .............................................................................................................................. 30
+        5.2 Anbefalinger og videre arbeid mot 2030....................................................................................... 30
+               5.2.1 Kvantumsrabatter og forbrukerpakninger .........................................................................31
+            5.2.2 Holdbarhetsmerking ...........................................................................................................32
+            5.2.3 Nudging, informasjonskampanjer og praktiske verktøy .....................................................33
+6       Referanser ............................................................................................................................................. 36
+Vedlegg 1: Datagrunnlag og metodikk ............................................................................................................ 40
+Vedlegg 2: Spørreundersøkelsen..................................................................................................................... 42
+
+
+
+
+iv
+    2 Innledning
+
+       2.1 Om rapporten
+Denne rapporten er utarbeidet av Norsk institutt for bærekraftsforskning (NORSUS) i samarbeid med
+Matvett, og er delfinansiert av Barne- og familiedepartementet og av Klima- og Miljødepartementet over
+strategi for sirkulær økonomi.
+
+Matvett er mat- og serveringsbransjens selskap for å forebygge og redusere matsvinn og er ansvarlig for
+rapporteringen i henhold til bransjeavtalen om reduksjon av matsvinn på vegne av NHO Mat og Drikke, DLF,
+DMF, NHO Reiseliv og Virke som er deres eiere.
+
+Matsvinnarbeidet i husholdningsleddet startet som en del av ForMat-prosjektet og er videreført i Matvetts
+arbeid med årlige forbrukerundersøkelser siden 2010, utvikling av ulike forbrukerverktøy på matvett.no
+samt informasjonskampanjer og deltakelse på arrangementer. Rapporten viser resultatene fra
+forbrukerundersøkelsen gjennomført i 2024. I denne oppgir norske husholdninger hva de har kastet av mat,
+årsaker til at maten ble kastet samt atferd og kunnskap knyttet til matsvinn. Årets undersøkelse kartlegger
+også motivasjon, evne og mulighet knyttet til reduksjon av matsvinn. I tillegg samles demografisk
+informasjon om husholdningene, som kan ses i sammenheng med de matsvinnrelaterte spørsmålene.
+
+På grunn av endret metodikk for måling av selvrapportert matsvinn i 2022 dekker denne rapporten kun
+utviklingen for 2022, 2023 og 2024.
+
+I rapporten oppsummeres også funn fra plukkanalyser gjennomført i 2023, som gir et bilde av faktisk
+matsvinn i befolkningen.
+    3 Bakgrunn
+
+        3.1 Matsvinn som samfunnsproblem
+Matkasting er et globalt samfunns- og bærekraftproblem (FAO, 2013; HLPE, 2014). I 2023 ble det kastet
+over 451 600 tonn spiselig mat i Norge, og omtrent 40 % av dette matsvinnet oppstod i husholdningsleddet
+(Stensgård, 2024a).
+
+Norge har forpliktet seg til FNs bærekraftmål, der mål 12.3 omfatter at matsvinnet (food waste) fra
+dagligvarehandel og husholdninger skal halveres innen 2030 (UN, 2015). EU-kommisjonen har utarbeidet et
+forslag til lovlig bindende mål for reduksjon av matsvinn i EU som også vil gjelde for EØS-land (European
+Commission, 2023). I Norge har myndigheter og bransjeaktører signert «Bransjeavtalen for reduksjon av
+matsvinn», der partene blant annet forpliktes til å halvere matsvinnet innen 2030 samt å bidra til at
+matsvinnet i husholdningene blir halvert (Regjeringen, 2017).
+
+Matsvinnet som oppstår i husholdningene ble kun redusert med 6 % fra 2015-2020 (Partene i
+bransjeavtalen, 2021). For å oppnå Norges egne målsettinger samt internasjonale forpliktelser, må vi
+innrette tiltak for å redusere og forebygge matsvinn i husholdningene. Matsvinnutvalget lanserte sin
+rapport i januar 2024, med konkrete anbefalinger og tiltak for å sikre at Norge skal nå halveringsmålet
+innen 2030 (Matsvinnutvalget, 2023). Mange av de foreslåtte forbrukerrettede tiltakene fra rapporten
+bygger på et større EU-prosjekt som ble avsluttet sommeren 2023, og inkluderer blant annet
+informasjonskampanjer, nudging og praktiske verktøy (Candeal et al., 2023).
+
+
+
+        3.2 Målet med årets rapport
+Det overordnede målet med årets forbrukerrapport er å gi mer dybde til matsvinnutvalgets
+forbrukerrettede anbefalinger (se Matsvinnutvalget, 2023), herunder å bidra til å klargjøre hva
+anbefalingene rettet mot matsvinnet i husholdningene kan bety i praksis for bedrifter og myndigheter.
+
+Utvalget anbefalte totalt 35 ulike tiltak og virkemidler, hvor følgende tiltak er forventet å påvirke
+forbrukernes matsvinn:
+
+    •   1.1 Innføring av aktsomhetskrav med eksempler på tiltak som kan inngå i en aktsomhetsvurdering:
+             o 5. Unngå salg av varer med tap
+             o 6. Unngå kvantumsrabatter
+             o 7. Forbrukerpakninger for single husholdninger
+             o 8. Påvirke de 5 kritiske matsvinnøyeblikkene
+    •   2.3. Nasjonalt kompetansesenter
+    •   3.1. Økt og standardisert rapportering iht. bransjeavtalen
+    •   6.1. Gjennomgå praksis for holdbarhet og utvikle veileder for optimal holdbarhetsmerking
+    •   6.3. Revidere regelverk for merking
+    •   9.5. Innlemme mat og måltider i relevante utdanninger
+    •   9.7. Nasjonale og lokale informasjonskampanjer mot forbrukerne
+    •   9.8. Nudging, praktiske verktøy og innovasjoner
+
+
+2
+Årets forbrukerrapport skal:
+
+    1) Adressere hvilke varegrupper som er mest relevant med tanke på å begrense kvantumsrabatter og
+       å tilby single forbrukerpakninger (tiltak 6 og 7 under aktsomhetskravet).
+    2) Adressere mulige effekter av supplerende holdbarhetsmerking, økt holdbarhet og endring av
+       datomerking fra «siste forbruksdag» til «best før» (tiltak 6.1 og 6.3).
+    3) Kartlegge mulige vinklinger på nudging, informasjonskampanjer og praktiske verktøy (tiltak 8 under
+       aktsomhetskravet og tiltak 9.7 og 9.8), ved å grave mer i forbrukernes muligheter og evne for å
+       kaste mindre mat innen de fem kritiske matsvinnøyeblikkene.
+
+
+
+
+3
+                     4 Resultater
+
+                      4.1 Overordnet om maten vi kaster
+Dette kapittelet gir en overordnet oppsummering av resultatene fra plukkanalysene og
+forbrukerundersøkelsene.
+
+4.1.1 Mengde matsvinn basert på plukkanalyser
+På vegne av Matvett og Klima- og miljødepartementet (KLD) er det gjennomført en oppdatert
+sammenstilling av plukkanalyser fra husholdningsleddet for beregning av nasjonalt matsvinntall for 2023.
+Metodikken, datagrunnlaget og resultatene fra denne sammenstillingen er dokumentert i detalj i en egen
+rapport (Stensgård, 2024b). Dette delkapittelet oppsummerer hovedresultatene fra plukkanalysene.
+
+Det er estimert at total mengde matsvinn i husholdningsleddet utgjorde rundt 222 300 tonn i 2016 og
+193 200 tonn i 2023. Dette tilsvarer henholdsvis 42,6 kg/innbygger i 2016 og 35 kg/innbygger i 2023. Den
+estimerte mengden matsvinn for husholdningsleddet har dermed blitt redusert med ca. 18 %, målt i kg
+matsvinn per innbygger.
+
+Fordelingen av matsvinnet for sju ulike varegrupper er vist i Figur 4-1. De største varegruppene i 2023 er
+måltidsrester (37 %), frukt og grønnsaker (26 %) og brød og bakervarer
+(20 %).
+
+
+                                42,6 kg                           -6%
+                     45                                           40,3 kg                       - 18 %
+                     40           4,1                                                           35,0 kg
+
+
+
+
+    kg / innbygger
+                                                                   6,2
+                     35
+                                                                                                     3,0
+                                  13,8
+                     30
+                                                                   12,5
+                     25                                                                              12,8
+                                  2,2
+                     20           2,8                              2,1
+                                                                                                     1,0
+                                                                   2,3                               1,7
+                     15           9,5
+                                                                   8,8                               9,0
+                     10
+
+                      5           9,3                              7,3                               7,0
+                      0
+                                 2016                             2020                           2023
+
+        Brød og bakervarer        Frukt og grønt   Kjøtt   Fisk    Meieriprodukter   Måltidsrester     Annet nyttbart
+
+
+Figur 4-1                  Fordeling av matsvinn målt i kg/innbygger for ulike varegrupper i husholdningene
+
+Samtlige varegrupper er redusert fra 2016 til 2023, men merk at utviklingen i matsvinnet på
+varegruppenivå er usikkert, da denne utviklingen er basert på et mindre antall plukkanalyser. Det kan se ut
+til at matsvinnet er særlig redusert for relativt dyre varer som kjøtt (-38 %), fisk (-58 %) og meierivarer (-53
+
+4
+%). Målt i kg er reduksjonen størst for brød og bakervarer (- 2,3 kg/innbygger), meieriprodukter (- 1,2
+kg/innbygger), annet nyttbart (-1,1 kg/innbygger) og kjøtt (- 1,1 kg/innbygger).
+
+Det er vanskelig å knytte direkte sammenheng mellom utviklingen i matsvinnet i husholdningene og ulike
+tiltak, årsaker eller trender i samfunnet, ettersom dette er to uavhengige observasjoner.
+
+Det er likevel nærliggende å tro at matsvinnet i husholdningene kan ha blitt redusert som følge av noen få
+større endringer i perioden 2016 til 2023. Viktige faktorer kan være den pågående dyrtiden, generelt økt
+bevissthet om matsvinn som problem, konkrete svinnreduserende tiltak knyttet til produkt og emballasje
+fra matbransjen, samt at matsvinn er stadig mer aktualisert både nasjonalt og internasjonalt de siste årene
+(Poppe & Kempson, 2023; Steinnes & Hebrok, 2019).
+
+I tillegg til mengde matsvinn er også mengde matavfall, samt klimaavtrykket og det økonomiske tapet
+knyttet til matsvinnet estimert:
+
+    •   Matavfallet inkluderer både nyttbare og ikke-nyttbare deler av matavfallet. Det er beregnet at
+        matavfallet for husholdningsleddet utgjorde ca. 80,2 kg/innbygger i 2016 og ca. 70,7 kg/innbygger i
+        2023. Dette tilsvarer en reduksjon på 12 %, målt i kg matsvinn per innbygger.
+
+At matavfallet er redusert mindre enn matsvinnet (12 % mot 18 %) henger sammen med at den ikke-
+nyttbare andelen av matavfallet (som kaffegrut, skall, bein og kjerner) kun er redusert med 5 %. Vi kaster
+med andre ord nesten like mye ikke-nyttbare deler som før.
+
+    •   Det er estimert at total mengde matsvinn i husholdningene stod for et klimaavtrykk tilsvarende
+        rundt 535 000 tonn CO2-ekv. i 2016 og 415 000 tonn CO2-ekv. i 2023. Klimaavtrykket knyttet til
+        matsvinnet er dermed redusert med ca. 22 % i perioden 2016 til 2023. Det er estimert at det
+        økonomiske tapet knyttet til matsvinnet i husholdningene utgjorde rundt 13 milliarder kroner i
+        2016 og 11 milliarder kroner i 2023 (målt i 2015-kroner). Det økonomiske tapet knyttet til
+        matsvinnet er dermed redusert med ca. 16 % i perioden 2016 til 2023.
+
+At klimaavtrykket og det økonomiske tapet knyttet til matsvinnet viser noe ulike reduksjonsverdier
+sammenliknet med matsvinnet, skyldes ulik utvikling for relativt dyre og klimaintensive varer som kjøtt og
+meieriprodukter, sammenliknet med for eksempel brød og bakervarer. Merk også at beregningene av det
+økonomiske tapet og klimaavtrykket er svært usikre ettersom det ikke fins detaljert informasjon om
+sammensetningen av matsvinnet. Det er for eksempel stor forskjell på klimaavtrykket og kostnadene for
+kyllingkjøtt sammenlignet med storfekjøtt, men matsvinnstatistikken skiller ikke på disse to kjøtt-typene.
+
+
+
+
+5
+4.1.2 Selvrapportert mengde matsvinn
+I tillegg til plukkanalysene gjennomføres årlige spørreundersøkelser. Disse undersøkelsene egner seg ikke til
+å beregne nasjonale matkastetall, men er godt egnet til å undersøke hvorfor folk kaster mat, hvem som
+kaster mat og hvordan vi kan kaste mindre.
+
+I 2022, 2023 og 2024 er forbrukerne spurt om hvorvidt de har kastet ulike mat- og drikkevarer i løpet av
+den siste uken. Figur 4-2 viser fordelingen av mengde selvrapportert matsvinn for ulike varegrupper, målt i
+gram matsvinn per person og uke, for undersøkelsen i 2022, 2023 og 2024.
+
+                                                                               -3%
+                                                                                                           - 10 %
+
+
+
+
+    Gram matsvinn/uke og person
+
+
+
+
+                                               2022                           2023                          2024
+
+                                  Brød og bakervarer               Ferske grønnsaker og salater     Flytende meierivarer
+                                  Drikkevarer                      Poteter og potetprodukter        Fersk frukt og bær
+                                  Kjøtt                            Pasta                            Fisk og fiskeprodukter
+                                  Annet
+
+Figur 4-2                                   Gjennomsnittlig mengde selvrapportert matsvinn per person og uke i 2022, 2023 og 2024 1.
+
+Figuren viser at mengden selvrapportert matsvinn er redusert fra 2022 til 2024 (-10 %). Dette er en
+statistisk signifikant reduksjon, med en p-verdi på 0,01 (tohalet t-test).
+
+Funnene fra spørreundersøkelsen er sammenfallende med resultatene for plukkanalysene, som også viser
+en reduksjon i matsvinnet. Plukkanalysene viser 12 % reduksjon mellom årene 2020 og 2023, som er en
+større reduksjon enn det som fremkommer i spørreundersøkelsene, men dekker også en lengre
+tidsperiode.
+
+Likhetstrekkene indikerer først og fremst at spørreundersøkelsene bidrar til å beskrive overordnede trender
+i matsvinnutviklingen. Dette er også i tråd med hva forskerne bak metodikken sier. Resultatene
+korresponderer også med plukkanalysene med tanke på varegrupper. Det vil si at matvarene som flest
+forbrukere oppgir å kaste, også er matvarene det kastes mest av totalt. Unntaket er flytende matsvinn
+(drikkevarer og flytende meieri) som ikke fanges opp av plukkanalyser ettersom dette matsvinnet kastes i
+
+
+1
+  Merk at figuren ikke viser y-aksen med antall gram kastet per person. Dette er fordi selvrapportering av matsvinn fører
+til underrapportering av faktisk mengde, og dermed gir et feilaktig inntrykk av faktisk mengde (se Kommentarer til
+datakvalitet for husholdningene under kapittel 2).
+
+6
+avløpet (f.eks. kald kaffe som helles i vasken) (Stensgård, Prestrud, Callewaert, & Booto, 2022). Matvarer
+fra kategoriene drikkevarer og flytende meieri utgjør til sammen 26 % av det selvrapporterte matsvinnet i
+2024. Det kan tyde på at ca. en fjerdedel av matsvinnet havner i avløpet, og at en betydelig andel av
+matsvinnet i husholdningene derfor ikke fanges opp i plukkanalyser. Dette er i tråd med en liknende studie
+fra Sverige, som viser at mengde mat kastet via avløpet er estimert til hele 26 kg/person og år (Andersson &
+Stålhandske, 2020).
+
+I 2022 oppgav 24 % av respondentene at de ikke hadde kastet mat eller drikkevarer den siste uken. Denne
+andelen økte til 26 % i 2023 og er også 26 % i 2024.
+
+Figuren viser videre at brød og bakevarer er matvarene som norske forbrukere oppgir å ha kastet mest av
+(19 %), etterfulgt av ferske grønnsaker og salater (17 %), annet2 (15 %), flytende meierivarer (14 %) og
+drikkevarer (12 %).
+
+Vi ser også at sammensetningen av det selvrapporterte matsvinnet er relativt likt i 2022 og 2023, men at
+enkelte varegrupper er særlig redusert (kjøtt (-33 %), fersk frukt og bær (-24 %) og flytende meierivarer (-22
+%). Det er bare varegruppene pasta (+38 %) og annet (+10 %) som har økt.
+
+4.1.3 Tilstanden på maten som kastes
+Forbrukerundersøkelsen gir også informasjon om tilstanden på maten som kastes. For hver
+matvarekategori forbrukerne oppga å ha kastet i løpet av den siste uken, ble de spurt hvilken kategori
+mesteparten av den kastede matvaren tilhørte: Helt ubrukt mat, delvis brukte matrester, måltidsrester eller
+rester etter lagring. Resultatene presenteres i Figur 4-3.
+
+        Brød og bakervarer
+
+      Ferske grønnsaker og…
+
+                     Annet
+
+            Flytende meieri
+
+                Drikkevarer
+
+    Potet og potetprodukter
+
+         Fersk frukt og bær
+
+                      Pasta
+
+                       Kjøtt
+
+      Fisk og fiskeprodukter
+
+                                                Total matsvinn per matvarekategori
+
+
+              Helt ubrukt mat    Delvis brukte matvarer    Måltidsrester    Rester etter lagring
+
+
+Figur 4-3          Tilstand på maten som ble kastet i de ulike matvarekategoriene i 2024.
+
+
+
+2
+ «Annet» inkluderer langtidsholdbare varer som godteri, fryste varer, nøtter, tørket frukt, snacks og hermetikk, samt
+pålegg, kjøtterstatninger, sauser, ost og egg.
+
+7
+Figuren viser at tilstanden på matsvinnet avhenger av matvarekategori:
+
+Brød og bakervarer, ferske grønnsaker og salater, flytende meieri, drikkevarer og fersk frukt og bær blir ofte
+kastet helt eller delvis ubrukt. Poteter og potetprodukter og pasta kastes ofte som måltidsrester eller rester
+etter lagring. Tilstanden på maten som kastes er relativt lik i 2022, 2023 og 2024.
+
+4.1.4 Årsaker til matsvinn
+For hver matvarekategori forbrukerne oppga å ha kastet, ble de spurt om den viktigste årsaken (kun ett
+alternativ kunne velges). Figur 4-4 viser hvor stor andel rapportert mengde matsvinn som er knyttet til de
+ulike årsakene.
+
+                 Jeg glemte maten i kjøleskap eller annet sted                                                     17,8 %
+                                      Andre årsaker – spesifiser                                          13,4 %
+           Varen hadde kort holdbarhet/ var dårlig ved innkjøp                                            13,3 %
+                                 Jeg ville heller spise noe annet                                10,7 %
+                                              Jeg kjøpte for mye                           9,1 %
+                   Maten ble dårlig før jeg rakk å spise det opp                         8,7 %
+      Rester fra tallerken som jeg ikke kunne servere på nytt                            8,3 %
+                             Maten ble oppbevart feil hjemme                     4,2 %
+                        Det var for lite mat igjen til å ta vare på              4,2 %
+                          Jeg hadde ikke tid til å bruke restene               3,6 %
+                  Jeg visste ikke hva jeg skulle bruke restene til       2,2 %
+                              Produktet var ikke som forventet           2,1 %
+                                       Emballasjen var for dårlig      1,0 %
+           Jeg visste ikke hvordan jeg skulle ta vare på restene      0,8 %
+                                         Maten ble tilberedt feil     0,6 %
+                                                                          Andel matsvinn per uke og person
+
+
+Figur 4-4              Andel av rapportert mengde matsvinn per årsak (2024).
+
+Årsakene som oppgis hyppigst, uavhengig av varegruppe:
+
+       •     Jeg glemte maten i kjøleskap eller annet sted (17,8 %)
+       •     Andre årsaker3 (13,4 %)
+       •     Varen hadde kort holdbarhet/var dårlig ved innkjøp (13,3 %)
+       •     Jeg ville heller spise noe annet (10,7 %)
+
+Årsakene som oppgis sjeldnest, uavhengig av varegruppe:
+
+       •     Emballasjen var for dårlig (1 %)
+       •     Jeg visste ikke hvordan jeg skulle ta vare på restene (0,8 %)
+       •     Maten ble tilberedt feil (0,6 %)
+
+
+
+
+3
+    Dette var et fritekstfelt der forbrukerne kunne oppgi årsakene selv. Se ordskyer på side 10 for mer info.
+
+8
+Helt overordnet er årsaksbildet for 2024 relativt likt som i 2022 og 2023, med kun små forskyvninger
+mellom de ulike årsakene.
+
+Årsakene forbrukerne oppga varierte også for ulike varegrupper. Figur 4-5 nedenfor viser hvordan total
+mengde matsvinn fordeler seg mellom de ulike årsakene for de ulike varegruppene.
+
+              Jeg glemte maten i kjøleskap eller annet sted
+                                    Andre årsaker – spesifiser
+      Varen hadde kort holdbarhet/ var dårlig ved innkjøp
+                              Jeg ville heller spise noe annet
+                                            Jeg kjøpte for mye
+               Maten ble dårlig før jeg rakk å spise det opp
+    Rester fra tallerken som jeg ikke kunne servere på nytt
+                           Maten ble oppbevart feil hjemme
+                     Det var for lite mat igjen til å ta vare på
+                       Jeg hadde ikke tid til å bruke restene
+              Jeg visste ikke hva jeg skulle bruke restene til
+                           Produktet var ikke som forventet
+                                    Emballasjen var for dårlig
+       Jeg visste ikke hvordan jeg skulle ta vare på restene
+                                       Maten ble tilberedt feil
+                                                                       Mengde matsvinn per person og uke
+         Brød og bakervarer                        Ferske grønnsaker og salater      Flytende meierivarer
+         Drikkevarer                               Poteter og potetprodukter         Fersk frukt og bær
+         Kjøtt                                     Pasta og ris                      Fisk og fiskeprodukter
+         Annet
+
+Figur 4-5              Total mengde selvrapportert matsvinn per årsak og varegruppe (2024).
+
+En svakhet er at årsaken «andre årsaker» er knyttet til en relativt stor andel av det selvrapporterte
+matsvinnet. Dette tyder på at de forhåndsdefinerte kategoriene ikke treffer årsakene som forbrukerne
+forbinder med matkastingen. Figur 4-6 viser en ordsky utarbeidet i «Word art» basert på kodede åpne svar
+under kategorien «andre årsaker» for de største varegruppene innenfor årsaken (brød og bakervarer,
+flytende meierivarer, drikkevarer og ferske grønnsaker).
+
+
+
+
+9
+Ordsky andre årsaker brød og bakervarer                Ordsky andre årsaker flytende meierivarer
+
+
+
+
+Ordsky andre årsaker drikkevarer                       Ordsky andre årsaker friske grønnsaker
+
+
+
+
+  Figur 4-6        Ordsky basert på kodede åpne svar under «Andre årsaker» for brød og bakervarer, flytende
+  meierivarer, drikkevarer og ferske grønnsaker.
+
+  Ordskyene viser at symptomårsaker som mugg, gammelt, tørt, sur og råtten går igjen for samtlige
+  varegrupper. Symptomårsaker er ikke grunnleggende årsaker i seg selv, men i stedet et resultat av
+  rotårsaker. At en matvare blir muggen, tørr eller gammel kan for eksempel skyldes at man har kjøpt for
+  mye mat.
+
+  Ordskyen viser også at noen rotårsaker som «glemt», «for mye produkt i emballasjen» «for lite til å ta vare
+  på» (illustrert med «for lite») også gjør seg gjeldende her.
+
+  4.1.5 Matsvinn og alder
+  Det er store forskjeller i mengde matsvinn for ulike aldersgrupper, og over lang tid har det vært kjent at de
+  unge kaster mest, mens de eldre kaster minst (Stensgård et al., 2023).
+
+  I 2023 kunne vi observere en endring i denne trenden, der den yngste gruppen (de under 30 år) reduserte
+  det selvrapporterte matsvinnet betydelig (-23 %) sammenliknet med 2022, samtidig som aldersgruppen
+  mellom 40 og 50 år hadde en kraftig økning (+39 %). Denne nye trenden der de mellomaldrene
+  aldersgruppene kaster mest, mens de yngste kaster nest mest og de eldste kaster minst, har fortsatt i 2024,
+  illustrert i Figur 4-7.
+
+
+
+
+  10
+                                                                          + 33 %
+
+
+
+
+     Gram matsvinn/uke og person
+                                            - 23 %
+                                                                                            -8%
+                                                           - 34 %
+
+
+                                                                                                        - 10 %
+                                                                                                                         -8%
+
+
+
+
+                                   2022 2023 2024 2022 2023 2024 2022 2023 2024 2022 2023 2024 2022 2023 2024 2022 2023 2024
+                                       18-29          30-39          40-49          50-59          60-69          70 +
+
+
+Figur 4-7        Matsvinn for ulike aldersgrupper og ulike matvarekategorier, per person per uke i 2022, 2023 og
+2024. Dataetikettene over stolpene viser prosentvis utvikling fra 2022 til 2024.
+
+Forbrukere mellom 40 og 50 år har høyest mengde selvrapportert matsvinn, mens matsvinnet er lavest hos
+dem over 60 år. I tillegg har de mellom 30 og 40 år redusert det selvrapporterte matsvinnet mest fra 2023
+til 2024 (-21 %). Samtlige aldersgrupper, unntatt de mellom 40 og 50 år, har redusert det selvrapporterte
+matsvinnet gjennom perioden.
+
+Merk at det er mellom 138 og 189 respondenter innenfor de ulike aldersgruppene, hvilket betyr at
+resultatene per aldersgruppe er usikre ettersom utvalget per aldersgruppe ikke er så stort.
+
+Forskjellen i mengde mat kastet for de ulike aldersgruppene er størst fra 2022 til 2023. Fra den første
+undersøkelsen ble gjennomført i mai 2022 frem til den andre undersøkelsen ble gjennomført i juni 2023
+økte matprisene med 15 %. Til sammenlikning var prisøkningen «bare» på 2 % mellom den andre
+undersøkelsen i juni 2023 og den tredje undersøkelsen i april 2024 ((NIBIO, 2024)
+
+En rapport fra SIFO om dyrtiden viser også at de som er økonomisk utsatt i snitt er yngre enn de som er
+økonomisk trygge. Rapporten viser også at mange av dem som har økonomiske utfordringer som følge av
+dyrtiden har endret kjøpevaner for mat og generell sløsing (Poppe & Kempson, 2023).
+
+Det er nærliggende å tro at den generelle reduksjonen i matsvinnet skyldes prisøkningen på mat. Videre
+kan man se for seg at «dyrtiden», som har påvirket de yngre i større grad, på grunn av større lån og
+trangere økonomi, også har bidratt til at de yngre har redusert sitt matsvinn mest.
+
+Det er derimot vanskelig å forstå hva økningen fra 2022 til 2023 for gruppen 40-49 år skyldes.
+
+
+
+
+11
+          4.2 Kjøpsøyeblikket og matsvinn
+Dette kapittelet tar sikte på å adressere hvilke varegrupper som er mest relevant med tanke på å begrense
+kvantumsrabatter og å tilby single forbrukerpakninger (tiltak 6 og 7 under aktsomhetskravet).
+
+4.2.1 Mat som kastes som følge av kjøpsøyeblikket
+I matsvinnutvalgets anbefaling om innføring av et aktsomhetskrav ble det også foreslått ulike tiltak som kan
+være relevante i bedriftenes aktsomhetsvurdering og inngå som eksempler på beste praksis. To av disse
+punktene omfatter kjøpsøyeblikket:
+    • Vurdere hvordan kvantumsrabatter, som f.eks. «3 for 2» på matvarer med begrenset holdbarhet
+        påvirker matsvinnet i hele verdikjeden.
+    • Vurdere hvordan utvalget av ulike forbrukerpakninger påvirker matsvinnet i hele verdikjeden,
+        herunder om det fins løsninger tilpasset single husholdninger både for frukt og grønt, brød og
+        flytende meieriprodukter.
+
+For å undersøke hvordan dette kan løses i praksis har vi forsøkt å grave dypere i hva som kjennetegner
+respondentene som har kastet en vare fordi de har «kjøpt for mye» samt hvilke varer dette gjelder. For å få
+et best mulig datagrunnlag er svarene fra både 2023 og 2024 inkludert i analysene. I 2023 og 2024 var det
+henholdsvis 120 og 117 respondenter som oppga at de hadde kastet mat som følge av at de har kjøpt for
+mye den siste uken.
+
+Spørreundersøkelsene fra 2023 og 2024 viser at ca. 9 % av det selvrapporterte matsvinnet oppstår som
+følge av at man har kjøpt for mye mat (se kap. 4.1). Figur 4-8 viser selvrapportert mengde matsvinn per
+person og uke i 2023 og 2024 knyttet til årsaken «kjøpt for mye» fordelt på spesifikke årsaker og
+varegrupper.
+
+
+     Jeg kjøpte mer mat enn jeg hadde tenkt fordi
+                jeg ble fristet i butikken
+
+
+       Jeg kjøpte mer mat enn jeg hadde tenkt på
+            grunn av mengdetilbud i butikken
+
+
+       Jeg glemte at jeg hadde produktet hjemme
+
+
+
+            Jeg feilberegnet hvor mye jeg trengte
+
+
+ Forpakningen var større enn jeg trengte, så jeg
+           klarte ikke spise opp alt
+
+                                                                Gram matsvinn per person og uke
+         Brød og bakervarer                    Ferske grønnsaker og salater       Flytende meierivarer
+         Drikkevarer                           Poteter og potetprodukter          Fersk frukt og bær
+         Kjøtt                                 Pasta                              Fisk og fiskeprodukter
+         Annet
+
+Figur 4-8       Gram matsvinn per person og uke knyttet til årsaken «kjøpt for mye» fordelt på spesifikke årsaker
+og varegruppe (2023 og 2024).
+
+12
+Figuren viser at det primært er brød og bakervarer, frukt og grønnsaker, flytende meieriprodukter samt
+drikkevarer som oppgis å kastes som følge av at forbrukerne har kjøpt for mye mat. Mesteparten av dette
+matsvinnet skyldes at forpakningen var for stor (39 % fordi man har kjøpt for mye), 31 % pga. feilberegning
+av hvor mye man trengte og 19 % glemt at man hadde produktet hjemme).
+
+4.2.1.1 Forbrukerpakninger og planlegging
+Resultatene indikerer at det ligger et potensial i å tilby mindre forbrukerpakninger for brød, melk og
+grønnsaker. Resultatene fra årsakskartleggingen henger også godt sammen med tilstanden på maten som
+forbrukerne oppgir å kaste (Figur 4-3) der brød og bakervarer, ferske grønnsaker samt flytende meieri i
+større grad kastes i helt ubrukt eller delvis brukt tilstand. Funnene fra undersøkelsen er i tråd med
+litteraturen som viser at mindre forbrukerpakninger har et potensial for redusert matsvinn. I sin metastudie
+fant Wikström, Williams, Trischler, and Rowe (2019) at betydningen av pakningsstørrelser for matsvinn er
+produktavhengig. De fant blant annet også at brød, melk og frukt og grønnsaker er varegrupper som bør
+tilbys i mindre forpakninger.
+
+Resultatene indikerer også at folk trenger hjelp til å beregne hvor mye de trenger, særlig for disse tre
+produktgruppene. Det er noe overraskende, ettersom flytende meierivarer og brød/bakervarer er noe
+mange nordmenn spiser daglig (Helsedirektoratet, 2021), og man kunne derfor tro at dette generelt er
+varer som er enkle å beregne. Samtidig er det snakk om en relativt liten andel av det selvrapporterte
+matsvinnet (ca. 3 %). Derfor kan også feilberegningene være knyttet til «unormale» hendelser, som for
+eksempel at man har hatt besøk eller tilberedt måltider man ikke lager så ofte.
+
+4.2.1.2 Kvantumsrabatter og fristelser i butikk
+Fristelser i butikken (4 %) og mengdetilbud i butikken (7 %) utgjør en mindre andel av det selvrapporterte
+matsvinnet sammenliknet med de tre andre rotårsakene.
+
+Ifølge spørreundersøkelsene står altså kvantumsrabatter og fristelser i butikk for kun 1 % av det
+selvrapporterte matsvinnet. Dette kan indikere at tiltak rettet mot kvantumsrabatter og andre
+promoteringer som bidrar til fristelser i butikk, såkalte «impulskjøp», ikke vil ha så stor effekt på det norske
+matsvinnet. Samtidig er de selvrapporterte mengdene og årsakene fra spørreundersøkelsene usikre, og det
+kan derfor være klokt å undersøke hva andre studier har konkludert med.
+
+En metastudie fra 2021 viste at forskningen knyttet til sammenhengen mellom kvantumsrabatter/andre
+priskampanjer i butikk er sprikende (Tsalis, Jensen, Wakeman, & Aschemann-Witzel, 2021). Forskerne fant
+at halvparten av studiene konkluderer med at priskampanjer fører til økt matsvinn, mens den andre
+halvparten konkluderer med at de som kjøper mat på priskampanjer kaster mindre enn gjennomsnittet.
+Forskerne argumenterer for at antakelsen om at priskampanjer bidrar til økt matsvinn er en forenkling og
+at forholdet mellom priskampanjer og matsvinn er betinget av flere trekk knyttet til den enkelte forbruker,
+som prisbevissthet, holdninger, verdier og identitet.
+
+Som en oppfølgning til denne studien gjorde forskerne i Danmark en ny studie der de samlet inn
+matkastetall via plukkanalyser og innkjøp via kvitteringer fra 118 husholdninger over en periode på tre uker
+(Tsalis, Boutrup Jensen, & Aschemann-Witzel, 2024). Dette er den første studien som ikke baserer seg på
+selvrapportert matsvinn og/eller bruk av priskampanjer.
+
+Forskerne fant at husholdningene som kjøpte mest mat på priskampanjer også kastet mindre mat. Det var
+altså ikke bruken av priskampanjer som bidro til økt matsvinn. I stedet fant forskerne at størrelse på
+husholdningen og ferdigheter knyttet til mat bidro til økt matsvinn.
+
+13
+4.2.2 Vaner og muligheter for de som kaster mat som følge av kjøpsøyeblikket
+Respondentene som oppgir å ha kastet mat som følge av å ha kjøpt for mye, oppgir også å kaste betydelig
+mer mat generelt sammenlignet med dem som ikke har kastet mat som følge av å ha kjøpt for mye. Totalt
+kaster de ca. 1,5 ganger mer.
+
+Det er ingen forskjell i alder eller kjønn for de som kaster mat som følge av at de har kjøpt for mye, men vi
+kan se noen forskjeller i handlevaner. De som oppgir å ha kastet mat som følge av at de har kjøpt for mye,
+handler betydelig mer take-away-mat og bruker matkasser oftere. De dyrker eller jakter i mindre grad enn
+de andre, og har noe hyppigere handleturer.
+
+For å få en bedre forståelse av vanene til de som kjøper for mye, kan vi sammenlikne vanene til de som
+oppgir å kaste mat som følge av at de har kjøpt for mye, med de som ikke gjør det. I denne
+sammenlikningen ser vi at de som har kjøpt for mye, i mindre grad oppgir å ha følgende vaner:
+
+     •   Bruke mat med redusert kvalitet (tørt brød, slappe grønnsaker e.l.).
+     •   Tilberede akkurat riktig mengde mat.
+     •   Planlegge hvordan jeg skal få spist opp uplanlagte matrester.
+     •   Bruke matrester til nye måltider fremfor å tilberede helt nye måltider.
+
+Det er altså primært vaner knyttet til tilberedning av mat og håndtering av matrester (legge en plan og
+spise opp) som skiller seg ut for de som kaster mat som følge av at de har kjøpt for mye.
+
+Vi kan også se på forskjellen i opplevd mulighet for de som kaster mat på grunn av utgått dato og de som
+ikke gjør det. Følgende oppleves som vanskeligere for de som kaster mat som følge av at de har kjøpt for
+mye:
+
+     •   Tilberede akkurat riktig mengde mat.
+     •   Kjøpe akkurat riktig mengde.
+     •   Planlegge hvordan jeg skal få spist opp uplanlagte matrester.
+     •   Fjerne mugg/skadet del av maten og bruke resten.
+     •   Bruke matrester til nye måltider fremfor å tilberede helt nye måltider.
+     •   Bruke mat med redusert kvalitet (tørt brød, slappe grønnsaker e.l.).
+
+Det er altså primært opplevd mulighet knyttet til tilberedning av mat, å kjøpe riktig mengde og håndtering
+av matrester og rester av råvarer (legge en plan og spise opp) som skiller seg ut for de som kaster mat som
+følge av at de har kjøpt for mye.
+
+
+
+
+14
+                           4.3 Holdbarhetsmerking og matsvinn
+Dette kapittelet tar sikte på å adressere mulige effekter av supplerende holdbarhetsmerking, økt
+holdbarhet og endring av datomerking fra «siste forbruksdag» til «best før» (tiltak 6.1 og 6.3).
+
+4.3.1 Supplerende holdbarhetsmerking
+Supplerende holdbarhetsmerking kan være å legge til «ofte god etter» ved best før-merking. Hensikten
+med supplerende holdbarhetsmerking er å hjelpe forbruker med å forstå datomerkingen bedre. Dette
+tiltaket har forbrukere tidligere pekt på som noe matbransjen kan gjøre for å hjelpe dem med å kaste
+mindre mat (Stensgård et al., 2022).
+
+For å undersøke effekten av supplerende holdbarhetsmerking, ble det gjennomført et lite eksperiment i
+undersøkelsen i 2023 og 2024. Respondentene ble vist et bilde av en melkekartong der holdbarhetsdatoen
+hadde passert. To ulike varianter ble testet: holdbarhetsdatoen var passert for to dager siden i 2023-
+spørreundersøkelsen, og for fire dager siden i 2024-spørreundersøkelsen. Halvparten av respondentene ble
+vist et bilde med supplerende holdbarhetsmerking («ofte god etter»), mens halvparten ikke så noen
+tilleggsmerking. Etter å ha sett bildet, ble respondentene spurt: «Se for deg at du skal bruke melk i dag, og
+finner melken på bildet i kjøleskapet ditt. Hva gjør du?». Resultatet fra eksperimentet er vist i Figur 4-9.
+                           90%                                                                81%                     82%
+                                             75%                       77%
+                           80%
+                           70%
+                           60%
+
+
+
+
+Andell respondenter
+                           50%
+                           40%
+                           30%         20%                       18%
+                           20%                                                          13%                     11%
+                                                   5%                        5%                     6%                      8%
+                           10%
+                            0%
+                                      Tilleggsmerking        Uten tilleggsmerking       Tilleggsmerking      Uten tilleggsmerking
+                                                    2 dager (2023)                                    4 dager (2024)
+                      Bruker melka slik den er     Ser, lukter og evt. smaker på melka for å vurdere om den kan brukes   Kaster melka
+
+
+
+
+Figur 4-9                            Eksperiment om supplerende holdbarhetsmerking (2023).
+
+Resultatene viste ingen forskjell mellom gruppene som fikk tilleggsmerking og de som ikke fikk det. I begge
+gruppene valgte et flertall å se, lukte og evt. smake på melken for å vurdere om den kunne brukes,
+uavhengig av om melkekartongen hadde tilleggsmerking eller ikke. Kun et mindretall valgte å kaste melken.
+Det var noen flere som ville kastet melken i 2024-studien, hvor holdbarhetsdatoen var forbigått med 4
+dager, sammenlignet med når den var forbigått med 2 dager.
+
+
+
+
+15
+Disse resultatene er i tråd med andre studier som heller ikke har funnet noen effekt av supplerende
+merking i tillegg til «best før»-dato. I en studie fra Østerrike skulle forbrukere vurdere yoghurt som hadde
+gått ut på dato i en «ekte» setting, i et laboratorium. Yoghurten var merket med en «best før»-dato som
+var passert med 10 dager. For halvparten av deltakerne var yoghurten i tillegg merket med et «se, lukt,
+smak»-symbol. Resultatene viste at tilleggsmerkingen verken førte til økt bruk, eller til at man
+så/luktet/smakte mer. Imidlertid oppga deltakerne i studien at de foretrakk tilleggsmerking framfor kun
+datomerking (Wallnoefer, Meixner, & Riefler, 2024). En annen studie fant ingen effekt av tilleggsmerking
+for «best før»-datomerking. Den fant derimot at færre brukte produkter som var med merket «bruk innen»
+når de var tilleggsmerket med «bruk før eller på datoen; ikke bruk etter datoen», og et ikon med en «stopp-
+hånd» (Zeinstra, Meijboom, de Rosa Spierings, & van Bergen, 2023).
+
+Det er mye fokus på hvilke ord som skal brukes for å kommunisere holdbarhetsdato til konsumenter. En
+studie som benyttet eye-tracking, viste at forbrukere viet betydelig mer oppmerksomhet til den angitte
+datoen, enn til tekstfrasen ved siden av (sell by/best if used by/use by), da de ble bedt om å vurdere om de
+ville beholde eller kaste innholdet i en melkeflaske. Halvparten av avgjørelsene ble tatt uten å i det hele tatt
+ha fiksert blikket på tekstfrasen (Badiger, Katz, Simons, & Roe, 2023). Det tyder på at den numeriske
+datomerkingen har større betydning for avgjørelser enn ledsagende tekst.
+
+Den manglende effekten av tilleggsmerking i våre studier, kan skyldes at et flertall av forbrukerne allerede
+kjenner betydningen av «best før», og har for vane å bruke sansene for å vurdere om produktet kan brukes.
+Det underbygges av at et stort flertall anga å ville se, lukte og smake på produktet uansett om
+tilleggsmerkingen var der eller ikke. I Norge merkes allerede noen produkter med «ofte god etter» eller
+«se, lukt, smak», og mange forbrukere vil allerede ha innarbeidet en vane med å bruke sansene for å
+vurdere produktet. Det kan likevel være viktig å beholde tilleggsmerking for å opprettholde forbrukeres
+bevissthet og vane, og for å veilede nye forbrukere som kommer til, som yngre forbrukere.
+
+En annen grunn til manglende effekt i våre studier, kan være at melka bare hadde passert
+holdbarhetsdatoen med fire dager. Kanskje ville tilleggsmerkingen hatt en større effekt dersom det var
+lenger siden holdbarhetsdatoen. Derimot fant Wallnoefer et al. (2024) ingen effekt av tilleggsmerking selv
+når holdbarhetsdatoen var passert med ti dager, noe som antyder at lengre tid ikke vil ha noe å si.
+
+4.3.2 Kunnskap om datomerking
+For å måle kunnskap om forbrukernes atferd og holdninger knyttet til datomerking, skulle forbrukerne
+vurdere flere påstander om holdbarhet og datomerking. Figur 4-10 viser hvordan forbrukerne svarte på
+spørsmål om atferd knyttet til de to holdbarhetsmerkingene.
+
+
+
+
+16
+                          100 %
+                           90 %
+                                                                                        29%                           25%
+                                                                                                     32%
+                           80 %      43%             43%              38%
+
+
+
+
+     Andel respondenter
+                           70 %
+                           60 %                                                                                       34%
+                                                                                        37%
+                           50 %                                                                      35%
+                                                                      38%
+                           40 %
+                                     41%             40%
+                           30 %                                                                                       18%
+                                                                                        13%          13%
+                           20 %                                       13%
+                                                                                        16%          13%              13%
+                           10 %     10%              10%
+                                                      5%               8%                                              9%
+                                     5%               2%               3%               7%            7%
+                            0%       1%
+                                    2022             2023             2024              2022         2023             2024
+                                  Jeg kaster alltid mat som er gått ut på dato    Jeg kaster alltid mat som er gått ut på dato
+                                               merket «Best før»                         merket «Siste forbruksdato»
+
+                                    Meget enig      Enig      Verken enig eller uenig        Uenig   Meget uenig
+
+
+Figur 4-10                        Atferd knyttet til datomerking i 2022, 2023 og 2024.
+
+Som figuren viser, er et flertall uenig eller meget uenig i at de alltid kaster mat som er gått ut på dato når
+den er merket «Best før». I resultatene fra årets undersøkelse er det derimot noen flere som alltid kaster
+(meget enig eller enig), sammenlignet med i 2022 og 2023. For mat som har gått ut på dato og er merket
+med «Siste forbruksdato», er det bare én av fem som alltid kaster (meget enig eller enig). Nesten seks av ti
+oppgir at de er uenig eller meget uenig i at de alltid kaster. Andelen som ikke alltid kaster, har gått noe ned
+sammenlignet med i 2022 og 2023.
+
+Figuren under viser hvordan forbrukerne svarte på spørsmål om holdninger knyttet til dato.
+
+
+
+
+17
+                          100 %                                                            1%
+                                                                                           3%              2%               6%
+                                                         17%                               7%              9%
+                           90 %        20%                               21%                                                8%
+                           80 %                                                                            16%
+                                                                                                                           16%
+
+
+
+
+     Andel respondenter
+                           70 %                                                            37%
+                                                         30%
+                                       32%                               31%
+                           60 %
+                                                                                                           38%             35%
+                           50 %
+                           40 %                          26%             22%
+                                       21%
+                           30 %
+                                                                                           52%
+                           20 %                                                                            36%             36%
+                                       20%               21%             18%
+                           10 %
+                                         6%              6%              8%
+                            0%
+                                       2022              2023           2024               2022            2023            2024
+                                   Jeg er skeptisk til å spise rester eller mat som Jeg bruker alltid sansene (ser, lukter, smaker)
+                                  har gått ut på dato på grunn av risikoen for å bli for å avgjøre hvorvidt mat bør kastes eller ikke
+                                                          syk.
+
+                            Meget enig            Enig           Verken enig eller uenig           Uenig            Meget uenig
+
+Figur 4-11                           Holdninger knyttet til datomerking i 2022, 2023 og 2024.
+
+En femtedel av respondentene er skeptiske til å bruke rester eller mat gått ut på dato på grunn av risikoen
+for å bli syk. Resultatene er ganske like som for 2022 og 2023. Selv om mange angir å bruke sansene for å
+avgjøre om mat bør kastes eller ikke, har andelen som gjør dette gått ned sammenlignet med 2022.
+
+For å måle kunnskap om datomerking, ble forbrukerne også spurt om hva de oppfatter at datomerkingene
+«best før» og «siste forbruksdag» betyr. Resultatene vises i Figur 4-12.
+
+                          100 %          3%              3%              3%                6%              5%              4%
+                           90 %
+                           80 %
+
+
+
+
+     Andel respondenter
+                           70 %                                                            42%             48%             52%
+                           60 %
+                           50 %        94%               93%             92%
+                           40 %
+                           30 %
+                                                                                           52%             47%
+                           20 %                                                                                            44%
+                           10 %
+                            0%          3%               4%              5%
+                                       2022              2023           2024               2022            2023           2024
+                                   Hva passer best med din oppfatning av «best       Hva passer best med din oppfatning av «siste
+                                               før»-datomerking?                             forbruksdag»-datomerking?
+
+
+     Ingen av alternativene stemmer med min oppfatning                           Betyr at maten kan være spiselig etter passert dato
+     Angir siste dagen maten trygt kan spises
+
+
+Figur 4-12                           Forbrukernes kunnskap om datomerking i 2022, 2023 og 2024.
+
+
+
+
+18
+Et stort flertall tolker «best før» i korrekt betydning, som at maten kan være spiselig etter angitt dato. Litt
+over halvparten tolker derimot «siste forbruksdag» uriktig på samme måte. Det er noen flere sammenliknet
+med 2022 og 2023.
+
+Disse resultatene kan tyde på at mange mistolker merkingen «siste forbruksdag». Det er i tråd med
+internasjonale studier, som også har funnet at mange forbrukere ikke forstår forskjellen mellom «siste
+forbruksdag»- og «best før»-utløpsdatoer (Aschemann-Witzel, De Hooge, Amani, Bech-Larsen, &
+Oostindjer, 2015; Neff et al., 2019; Patra, Feng, & Howard, 2022).
+
+Resultatene av vår studie viser derimot en betydelig bedre forståelse av «best før» enn av «siste
+forbruksdag». En alternativ tolkning av resultatene er derfor at norske forbrukere kjenner forskjellen
+mellom de to begrepene og vet betydningen av «siste forbruksdag», men at de selv mener at maten noen
+ganger kan være spiselig etter passert dato, også for varer merket «siste forbruksdag». For å få klarhet i
+dette, kan framtidige spørreskjemaer skille mellom a) hva man tror merkingene er ment å bety, og b) egen
+atferd.
+
+
+
+
+19
+        4.4 Mulighet, evne og motivasjon knyttet til matsvinn
+I dette kapittelet presenteres funn fra spørreundersøkelsen knyttet til nordmenns motivasjon, vaner og
+opplevde evner knyttet til å kaste mindre mat, etter en kort oppsummering av MOA, som er det teoretiske
+rammeverket bak disse spørsmålene i spørreundersøkelsen.
+
+4.4.1 Bakgrunn om mulighet, evne og motivasjon
+Rammeverket «Motivation, Opportunity, Ability           Faktaboks: MOA-rammeverket
+(MOA)» eller motivasjon, mulighet og evne på
+norsk, anses å være et nyttig rammeverk for å forstå    • MOA-rammeverket (Motivation, Opportunity, Ability) er
+forbrukeratferd med tanke på miljøspørsmål, slik          en modell for å forstå og forklare bærekraftig
+som for eksempel matkasting (van Geffen, van              forbrukeratferd, som ofte er brukt i
+                                                          matsvinnforskningen.
+Herpen, Sijtsema, & van Trijp, 2020; Vittuari et al.,
+                                                        • Ifølge modellen må tre komponenter være til stede til å
+2023). Dette er også et rammeverk som EU-
+                                                          fremme atferdsendring:
+kommisjonen anbefaler å bruke i sin siste rapport
+om hvordan redusere forbrukersvinnet (Candeal et          o Motivasjon: De indre drivkreftene som får folk til å
+al., 2023). De grunnleggende prinsippene bak                  handle, som personlige verdier, miljøbevissthet, eller
+rammeverket er at for å endre atferd, må både                 økonomiske insentiver.
+                                                          o Muligheter (Opportunity): Praktiske forhold som gjør
+motivasjon, mulighet og evne være til stede
+                                                              det lettere eller vanskeligere å gjennomføre en
+(Ölander & Thøgersen, 1995). Rammeverket er i
+                                                              handling, som informasjon, tid og tilgjengelige
+stor grad en utvidelse av det anerkjente
+                                                              ressurser.
+rammeverket «Theory of Planned Behavior» (Ajzen,          o Evne (Ability): Evne og kapasitet til å utføre
+1985), men vektlegger i større grad evne og reell             handlingen, inkludert kunnskap og ferdigheter.
+mulighet i form av vaner, kunnskap og grad av
+                                                        Kilder: Ölander og Thøgersen (1995)
+tilgjengelighet/bekvemmelighet som en mulig
+forklaring på intensjon-handling-gapet, som ofte gjør seg gjeldende i miljøspørsmål.
+
+Matsvinn er et såkalt «wicked» problem, og er ofte et utilsiktet resultat av å balansere mange ulike og ofte
+konkurrerende mål, som oppstår i forbindelse med mat (van Geffen et al., 2020). Ettersom motivasjonen til
+å ikke kaste mat påvirkes av alle de ulike målene mennesker har i forbindelse med mat i hverdagen (spise
+sunt, spise trygg mat, spise noe godt, spise noe aller liker, ikke bruke for mye penger på mat, etc.), må
+målet om å kaste mindre mat samsvare med – eller overgå – de andre målene, dersom vi skal klare å kaste
+mindre. Ettersom personlige mål (som å spise sunnere, spare tid eller kose seg) ofte er nærere og mer
+umiddelbare sammenliknet med å for eksempel ikke kaste mat på grunn negative miljøeffekter, kan det å
+ikke kaste mat fort bli et utkonkurrert mål i en travel hverdag (ibid).
+
+Mye av den senere matsvinnforskningen peker derfor på at det er viktig å gjøre det mulig for folk å ikke
+kaste mat, og samtidig ivareta deres øvrige matrelaterte mål. Evne og mulighet kan derfor se ut til å være
+særlig viktige faktorer for matkasting (Candeal et al., 2023; Davison, van, van Herpen, & Sharp, 2020; van
+Geffen et al., 2020).
+
+Det er foreløpig forsket relativt lite på mulighet og evne knyttet til matsvinn. Veselá, Králiková, and
+Kubíčková (2023) peker blant annet på at det er et særlig behov for å undersøke i hvilken grad, og på
+hvilken måte, matkunnskap og matvaner påvirker matsvinnet i husholdningene. De fleste studiene om mat
+og vaner er fokusert på helse (f.eks. hvordan implementere sunne vaner) eller handlevaner i butikk
+(hvordan få folk til å kjøpe noe).
+
+20
+I årets spørreundersøkelse er det lagt til nye spørsmål om opplevd mulighet, evne og motivasjon. Målet er å
+kartlegge i hvilken grad nordmenn opplever å ha mulighet, evne og motivasjon til å kaste mindre mat, og
+hvordan dette henger sammen med selvrapportert matsvinn.
+
+4.4.2 Evne og mulighet i de fem kritiske matsvinnøyeblikkene
+I EU-kommisjonens rapport om forbrukersvinn, påpekes at matsvinn er knyttet til avgjørelser som
+forbrukere gjør i fem stadier: planlegging, innkjøp, oppbevaring, tilbereding og spising (Candeal et al.,
+2023). Stadiene omtales av Matsvinnutvalget (2023) som de fem kritiske matsvinnøyeblikkene.
+Spørreskjemaet kartlegger respondentenes evne og mulighet for å redusere matsvinn innen hvert av disse
+matsvinnøyeblikkene.
+
+Evne handler i MOA-rammeverket om individets evner til å gjøre det han eller hun har intensjon om, og
+innebærer vaner og kunnskap om oppgaven (Ölander & Thøgersen, 1995). For å kaste mindre mat, kan
+evner være vaner og kunnskap knyttet til for eksempel å bruke opp mat som er til overs, enten fra måltider
+eller delvis brukte råvare, å vurdere om mat er dårlig før man kaster den, og å kjøpe og tilberede riktig
+mengde mat. Mulighet handler i MOA-rammeverket om hvorvidt situasjonen rundt individet muliggjør
+atferden (ibid), og kan for eksempel dreie seg om man har tilstrekkelig tid, tilgang på fryser eller om
+nærbutikken selger forpakninger av passe størrelse for behovet man har.
+
+Spørreundersøkelsen kartla evner og mulighet knyttet til de fem matkasteøyeblikkene ved at
+respondentene skulle ta stilling til en rekke ulike handlinger (se Tabell 4-1). Respondentene anga hvor ofte
+de gjorde handlingen, som et mål på vanen deres. Videre skulle de angi hvor enkelt eller vanskelig de
+vanligvis synes det er å gjøre dette. Svarene om hvor vanskelig/enkel handlingen er, kan reflektere mulighet
+til å gjøre noe, men også hvor god kunnskap man har om oppgaven. Dermed gir resultatene om vaner og
+opplevd vanskelighetsgrad en indikasjon på respondentenes muligheter og evner til å gjøre ulike handlinger
+i de fem matsvinnøyeblikkene.
+
+
+
+
+21
+4.4.2.1 Forbrukernes vaner
+Tabellen nedenfor viser hvor ofte respondentene anga å ha gjort de ulike handlingene i forrige uke.
+Tabell 4-1: Vaner i de fem kritiske matsvinnøyeblikkene: Hyppighet
+
+Matsvinn-                                                                                                            7-
+               Handling                                                   1- Aldri 2     3      4      5      6
+øyeblikk                                                                                                             Alltid
+               Planlegge måltider flere dager i forveien                  10 %    12 %   15 %   19 %   22 %   10 %   12 %
+               Sjekke hva jeg har før handleturen                         2%      3%     7%     11 %   24 %   22 %   32 %
+Planlegging
+               Lage handleliste før handleturen                           6%      4%     6%     9%     19 %   21 %   35 %
+               Kommunisere med de jeg bor sammen med for å
+               planlegge innkjøp og måltider                              13 %    2%     5%     15 %   18 %   20 %   27 %
+               Planlegge hvordan jeg skal få spist opp uplanlagte
+               matrester                                                  4%      5%     10 %   20 %   24 %   19 %   19 %
+               Kjøpe noe jeg ikke har planlagt fordi det var på tilbud    3%      5%     11 %   21 %   33 %   20 %   8%
+               Unngå å kjøpe noe jeg har fra før                          1%      3%     9%     22 %   24 %   22 %   18 %
+Innkjøp
+               Kjøpe matvarer med lengst mulig holdbarhet                 2%      3%     7%     20 %   23 %   21 %   24 %
+               Kjøpe noe jeg ikke har planlagt fordi det fristet          2%      6%     14 %   28 %   32 %   13 %   5%
+               Kjøpe akkurat riktig mengde                                2%      4%     16 %   30 %   30 %   13 %   6%
+               Kjøpe mest mulig rimelig/billig mat                        2%      5%     9%     22 %   24 %   21 %   17 %
+               Holde oversikt over hva jeg har i kjøleskapet eller
+               matskapet                                                  1%      2%     5%     15 %   27 %   27 %   23 %
+Lagring        Oppbevare maten riktig                                     1%      0%     3%     10 %   23 %   32 %   31 %
+               Sjekke utløpsdatoen på maten i kjøleskapet eller
+               matskapet                                                  2%      3%     6%     13 %   26 %   27 %   24 %
+               Bruke fryseren                                             1%      1%     3%     6%     18 %   27 %   44 %
+               Tilberede akkurat riktig mengde mat                        2%      4%     12 %   22 %   28 %   20 %   13 %
+               Bruke målebeger eller liknende (f.eks. kopp) for å måle
+               opp riktig mengde mat                                      13 %    10 %   14 %   19 %   18 %   15 %   11 %
+               Bruke mat med begrenset holdbarhet først, fremfor
+Tilbereding    mat med lengre holdbarhet                                  2%      2%     4%     12 %   22 %   25 %   34 %
+               Lage mat som alle liker/vil spise                          1%      1%     3%     11 %   26 %   30 %   30 %
+               Bruke matrester til nye måltider fremfor å tilberede
+               helt nye måltider                                          2%      5%     8%     15 %   26 %   23 %   21 %
+               Bruke egne sanser for å vurdere om maten var god           1%      2%     3%     11 %   20 %   27 %   36 %
+               Fjerne mugg/skadet del av maten og bruke resten            27 %    12 %   12 %   15 %   16 %   9%     9%
+               Bruke mat med redusert kvalitet (tørt brød, slappe
+               grønnsaker e.l.)                                           7%      11 %   15 %   23 %   20 %   13 %   11 %
+               Utforske nye retter og matvarer                            5%      8%     14 %   23 %   27 %   16 %   8%
+               Lage det som frister mest akkurat da                       1%      4%     11 %   30 %   32 %   17 %   6%
+Spising/       Spise matrester                                            1%      3%     6%     15 %   28 %   24 %   24 %
+rydding        Spise opp måltidet (unngå rester)                          1%      2%     7%     15 %   25 %   28 %   22 %
+               Ta godt vare på matrester etter måltid slik at de holder
+               seg                                                        1%      2%     5%     13 %   22 %   27 %   31 %
+
+
+Resultatene viser at for de fleste handlingene rapporterer over halvparten av respondentene å gjøre disse
+ganske ofte (svaralternativ 5, 6 eller 7). Hvis man slår sammen handlingene for hvert matkasteøyeblikk, er
+
+22
+stadiene hvor handlingene oftest gjøres Lagring (M = 5.6) og Spising/rydding (M = 5.4). Enkelthandlingene
+under stadiet Innkjøp gjøres derimot minst ofte (M = 4.1)4.
+
+Enkelthandlinger som respondentene rapporterer å gjøre oftest:
+
+     1. Å bruke fryseren (Lagring)
+     2. Oppbevare maten riktig (Lagring)
+     3. Bruke egne sanser for å vurdere om maten var god (Tilbereding)
+
+Enkelthandlinger som respondentene rapportere å gjøre minst ofte:
+
+     1. Fjerne mugg/skadet del av maten og bruke resten (Tilbereding)
+     2. Planlegge måltider flere dager i forveien (Planlegging)
+     3. Bruke målebeger eller liknende (f.eks. kopp) for å måle opp riktig mengde mat (Tilbereding)
+
+
+
+
+4
+ Påstandene i spørreskjemaet dekker handlinger som er antatt å kunne føre til redusert matsvinn, med unntak av
+«Kjøpe noe jeg ikke har planlagt fordi det frister», «Kjøpe noe jeg ikke har planlagt fordi det var på tilbud», som er
+antatt å føre til økt matsvinn. I samleskåren er svarene på disse to påstandene reversert kodet.
+
+23
+4.4.2.2 Forbrukernes vurdering av hvor enkle/vanskelige handlingene er
+Respondentene anga også hvor enkel eller vanskelig de synes handlingen er, oppsummert i tabellen under.
+Tabell 4-2 Vaner i de fem kritiske matsvinnøyeblikkene: Vurdert vanskelighetsgrad
+
+                                                                      1-                                          7-
+Matsvinn-      Handling                                               Veldig    2     3      4      5      6      Veldig
+øyeblikk                                                              vanskelig                                   enkelt
+               Planlegge måltider flere dager i forveien              5%       6%     15 %   19 %   22 %   15 %   16 %
+               Sjekke hva jeg har før handleturen                     1%       2%     5%     11 %   20 %   25 %   36 %
+Planlegging
+               Lage handleliste før handleturen                       2%       2%     5%     11 %   19 %   20 %   41 %
+               Kommunisere med de jeg bor sammen med for å
+               planlegge innkjøp og måltider                          5%       1%     5%     14 %   21 %   20 %   34 %
+               Planlegge hvordan jeg skal få spist opp uplanlagte
+               matrester                                              2%       3%     10 %   19 %   25 %   20 %   22 %
+               Kjøpe noe jeg ikke har planlagt fordi det var på tilbud 2 %     3%     10 %   21 %   26 %   19 %   20 %
+               Unngå å kjøpe noe jeg har fra før                      1%       2%     10 %   23 %   25 %   20 %   20 %
+Innkjøp
+               Kjøpe matvarer med lengst mulig holdbarhet             1%       1%     5%     19 %   23 %   23 %   28 %
+               Kjøpe noe jeg ikke har planlagt fordi det fristet      2%       3%     11 %   24 %   28 %   17 %   14 %
+               Kjøpe akkurat riktig mengde                            4%       7%     16 %   24 %   25 %   14 %   10 %
+               Kjøpe mest mulig rimelig/billig mat                    2%       4%     10 %   25 %   26 %   17 %   16 %
+               Holde oversikt over hva jeg har i kjøleskapet eller
+               matskapet                                              1%       2%     5%     15 %   22 %   26 %   28 %
+Lagring        Oppbevare maten riktig                                 1%       1%     4%     10 %   22 %   30 %   32 %
+               Sjekke utløpsdatoen på maten i kjøleskapet eller
+               matskapet                                              0%       2%     4%     12 %   18 %   28 %   36 %
+               Bruke fryseren                                         1%       1%     3%     8%     13 %   23 %   53 %
+               Tilberede akkurat riktig mengde mat                    3%       5%     12 %   21 %   26 %   18 %   15 %
+               Bruke målebeger eller liknende (f.eks. kopp) for å
+               måle opp riktig mengde mat                             4%       6%     12 %   21 %   21 %   16 %   20 %
+               Bruke mat med begrenset holdbarhet først, fremfor
+Tilbereding    mat med lengre holdbarhet                              0%       1%     4%     13 %   23 %   24 %   34 %
+               Lage mat som alle liker/vil spise                      2%       2%     5%     13 %   23 %   24 %   31 %
+               Bruke matrester til nye måltider fremfor å tilberede
+               helt nye måltider                                      2%       4%     10 %   18 %   22 %   20 %   25 %
+               Bruke egne sanser for å vurdere om maten var god       2%       2%     4%     11 %   23 %   23 %   36 %
+               Fjerne mugg/skadet del av maten og bruke resten        19 %     12 %   13 %   17 %   17 %   10 %   13 %
+               Bruke mat med redusert kvalitet (tørt brød, slappe
+               grønnsaker e.l.)                                       5%       10 %   16 %   21 %   20 %   14 %   15 %
+               Utforske nye retter og matvarer                        2%       5%     10 %   25 %   26 %   16 %   17 %
+               Lage det som frister mest akkurat da                   1%       1%     5%     26 %   30 %   21 %   17 %
+Spising/       Spise matrester                                        1%       2%     5%     15 %   24 %   21 %   32 %
+rydding        Spise opp måltidet (unngå rester)                      1%       3%     6%     16 %   22 %   24 %   28 %
+               Ta godt vare på matrester etter måltid slik at de
+               holder seg                                             1%       2%     5%     13 %   21 %   24 %   34 %
+
+
+
+
+24
+Generelt ble mange handlinger vurdert som relativt enkle av mange respondenter. For de fleste
+handlingene svarer over halvparten svaralternativ 5, 6 eller 7. Hvis man slår sammen handlingene for hvert
+matkasteøyeblikk, er det handlingene som handler om Innkjøp som er vurdert som vanskeligst (M = 3.9) 5,
+etterfulgt av Tilberedning (M = 5.0). Handlinger knyttet til Spising/Rydding (M = 5.5) og Lagring (M = 5.7) er
+vurdert som enklest. Nedenfor vises hvilke enkelthandlinger som vurderes som enklest og vanskeligst.
+
+Enkelthandlinger vurdert som enklest:
+
+     1. Bruke fryseren (Lagring)
+     2. Sjekke utløpsdatoen på maten i kjøleskapet eller matskapet (Lagring)
+     3. Oppbevare maten riktig (Lagring)
+
+Enkelthandlinger vurdert som vanskeligst:
+
+     1. Fjerne mugg/skadet del av maten og bruke resten (Tilbereding)
+     2. Bruke mat med redusert kvalitet (tørt brød, slappe grønnsaker e.l.) (Tilbereding)
+     3. Kjøpe akkurat riktig mengde (Innkjøp)
+
+Som resultatene viser, er det til en viss grad de samme handlingene som gjøres ofte og oppleves som minst
+vanskelige, og de samme handlingene som gjøres sjeldnere og oppleves som vanskeligst.
+
+4.4.3 Individuelle forskjeller i evne og mulighet
+Hvilke vaner man har i de ulike handlingsøyeblikkene, og hvor vanskelig man opplever at handlingene er, vil
+avhenge av en rekke faktorer, inkludert boforhold og husholdningsstørrelse. Det er forskjell i vaner for
+respondenter med og uten hjemmeboende barn under 18 år, og for respondenter som bor alene
+sammenlignet med dem som bor sammen med noen.
+
+Tendensen er at de med hjemmeboende barn vurderer mange av handlingene knyttet til Lagring,
+Tilbereding og Spising/rydding som vanskeligere, og rapporterer å gjøre disse mindre, sammenlignet med
+dem uten hjemmeboende barn. De vurderer særlig det å lage mat alle liker, å bruke matrester og å spise
+opp måltidet som vanskeligere enn det de uten barn gjør.
+
+De som bor alene, rapporterer å gjøre flere av handlingene oftere enn dem som bor sammen med noen.
+Dette gjelder både Lagring (holde oversikt i kjøleskapet) og flere av handlingene som handler om rester fra
+måltider og å bruke mat med redusert kvalitet (tørt brød, slappe grønnsaker e.l.): å bruke rester, unngå
+rester og å ta godt vare på rester. De vurderer også flere av handlingene som enklere sammenliknet med
+de som bor flere sammen. De synes blant annet det er enklere å planlegge hvordan få spist opp uplanlagte
+rester, å oppbevare maten riktig, å holde oversikt i kjøleskapet, og å tilberede riktig mengde mat.
+
+Handlinger vurdert som vanskeligst, var å fjerne mugg/skadet del av maten og bruke resten, samt å bruke
+mat med redusert kvalitet. For disse handlingene er det aldersforskjeller. Aldersgruppa 40-49 år fjerner
+mugg/skadet del av maten i minst grad, og vurderer det som vanskeligst. De som er under 40 år gjør dette i
+noen større grad, og fra 50 år og oppover øker andelen som gjør dette for hvert tiår. Det er samme tendens
+
+
+
+
+5
+  Svarene for «Kjøpe noe jeg ikke har planlagt fordi det frister» og «Kjøpe noe jeg ikke har planlagt fordi det var på
+tilbud» er reversert kodet.
+
+25
+for bruk av mat med redusert kvalitet. Respondenter under 50 år oppgir å bruke mat med redusert kvalitet i
+mindre grad enn dem over 50 år, og andelen som gjør dette øker i aldersgruppene over 50 år.
+
+Disse funnene er viktige, fordi de peker på at ulike grupper i befolkningen kan ha behov for ulike
+virkemidler for å hjelpes med å redusere matsvinn. Dette diskuteres nærmere i kapittel 5.
+
+4.4.4 Sammenheng mellom evne og mulighet og matsvinn
+For å utforme virkemidler som hjelper forbrukere til å kaste mindre mat, er det viktig ikke bare å vite hvilke
+vaner forbrukerne har i dag og hva de opplever som vanskelig, men også hvilken sammenheng det er
+mellom ulike vaner og faktisk matsvinn. For å lykkes i å redusere matsvinnet, bør virkemidler styrke vanene
+som bidrar til mindre kasting av mat. Hva gjør forbrukerne som kaster minst mat? Dette kan vi få innsikt i
+ved å undersøke sammenhengen mellom respondentenes vaner og deres selvrapporterte matsvinn, i en
+korrelasjonsanalyse.
+
+Vaner som henger sammen med lavere matsvinn
+
+Det er en sammenheng mellom de fleste handlingene respondentene ble spurt om, og selvrapportert
+matsvinn. Det er særlig vaner i forbindelse med Tilbereding og Spising/rydding som henger sammen med
+mindre mat kastet.
+
+Enkeltvanene som er sterkest koblet til å rapportere å kaste lite mat6:
+
+     1.   Å bruke matrester til nye måltider framfor å tilberede helt nye måltider (Tilbereding)
+     2.   Å spise opp måltidet (unngå rester) (Spising/rydding)
+     3.   Å spise matrester (Spising/rydding)
+     4.   Å ta godt vare på matrester etter måltid slik at de holder seg (Lagring)
+     5.   Å planlegge hvordan å få spist opp uplanlagte matrester (Planlegging)
+
+Respondentene som rapporterer å ofte gjøre disse handlingene, rapporterer i gjennomsnitt å kaste mindre
+mat, sammenlignet med dem som sjeldent eller aldri gjør disse handlingene. Vanene som henger sammen
+med redusert matsvinn, er derfor særlig knyttet til bruk av rester, både måltidsrester og rester fra råvarer.
+Funnet er i tråd med tidligere studier som har funnet at gjenbruk av rester er viktig for å unngå matsvinn
+(Aschemann-Witzel et al., 2015; Principato, Mattia, Di Leo, & Pratesi, 2021), og at planlegging av restebruk
+og riktig oppbevaring av rester er negativt linket til matsvinn (Stancu, Haugaard, & Lähteenmäki, 2016;
+Zainal & Hassan, 2019; Aschemann-Witzel et al., 2015; Principato et al., 2021)
+
+Implikasjoner: Plan B er viktig
+
+En mulig tolkning av resultatene er at det er vanskelig å helt unngå at rester oppstår, når man samtidig skal
+ivareta andre mål knyttet til måltider, som variert og tilstrekkelig mat, og å ikke bruke for mye tid på
+planlegging og tilbereding. Det som skiller dem som får mye og lite matsvinn, er dermed primært knyttet til
+hvorvidt man lykkes i å «sluse» overflødig mat til nye bruksområder og dermed minimerer svinn. Har man
+en Plan B?
+
+
+
+
+6
+ Korrelasjoner mellom r = -.28 og r = -.36, p <.001, mellom hvor ofte respondentene oppgir å gjøre handlingen, og
+antall matvarekategorier de oppgir å kaste.
+
+26
+Planlegging et viktig steg for å oppnå atferdsendring (Schwarzer, Lippke, & Luszczynska, 2011). Innenfor
+atferdsteori skilles det ofte mellom handlingsplanlegging («action planning») og mestringsplanlegging
+(«coping planning»). Handlingsplanlegging handler om å planlegge den ønskede atferden, for eksempel i
+form av «når, hvor og hvordan man skal gjøre noe». Dette kan innebære å skrive en handleliste for hva man
+skal kjøpe etter jobb. Mestringsplanlegging handler om å planlegge for situasjonene der ikke alt går som
+planlagt, med en Plan B. Hva gjør man dersom middagen ikke blir spist opp, eller hvis man finner en slapp
+gulrot bakerst i kjøleskapet? Det kan altså være vel så viktig å ha en plan for utfordringer som kan oppstå,
+som å ha en plan for «det ventede».
+
+Hvorvidt man bruker opp rester av råvarer eller rester fra måltider, påvirkes av hvilke andre mål man har,
+især knyttet til å unngå matsvinn, å holde seg sunn og frisk, og å tilby gode måltider til familien, finner
+Aloysius, Ananda, Mitsis, and Pearson (2023) i en litteraturgjennomgang. Bekymring for helse og risiko for å
+bli syk, og at rester oppfattes som uappetittlige og kjedelige, kan hindre mer bruk av rester. Dessuten kan
+en negativ sosial norm knyttet til restemat gjøre folk mindre villige til å spise eller servere rester til andre.
+For at forbrukere skal produsere mindre rester og gjenbruke dem, er evner viktige: å vite hva andre i
+familien liker, å kunne beregne riktig mengde mat, å kunne behandle og oppbevare restene riktig, og å
+kunne lage nye retter med rester (ibid).
+
+Selv om vaner knyttet til innkjøp ikke er like sterkt koblet til matkasting7 som atferd i de andre
+matsvinnøyeblikkene, betyr det ikke at innkjøpsvaner er uviktige. Tidligere studier har funnet at
+måltidsplanlegging og å lage en (mental) handleliste kan bidra til redusert matsvinn (Principato, Secondi, &
+Pratesi, 2015; Stefan, Van Herpen, Tudoran, & Lähteenmäki, 2013). Hvor mye rester som oppstår, vil
+dessuten avhenge av innkjøp og planlegging.
+
+Vaner som henger sammen med matsvinn i ulike grupper
+
+Hva som er mest effektivt for å redusere matsvinnet hjemme, kan variere med blant annet livssituasjon og
+bosituasjon. Korrelasjonsanalyser blant ulike grupper i befolkningen viser at noen vaner henger sammen
+med matsvinn uavhengig av alder og bosituasjon: å bruke matrester til nye måltider framfor å tilberede helt
+nye måltider, og å bruke/unngå rester, er viktig for alle aldersgrupper, og for dem med og uten
+hjemmeboende barn. For dem med hjemmeboende barn, er det i tillegg ekstra viktig å planlegge hvordan å
+få spist opp uplanlagte matrester. For eldre (60 år+) og de uten hjemmeboende barn, er det også viktig å
+oppbevare maten riktig. For dem uten hjemmeboende barn, er det også ekstra viktig å holde oversikt over
+hva man har i kjøleskapet eller matskapet.
+
+Merk at analysene kun viser sammenhenger, men ikke årsakssammenhenger. Det er dermed ikke
+automatisk slik at å gjøre disse handlingene vil redusere matsvinn. Det kan også være slik at de som ofte
+gjør handlingene, har lavere matsvinn av andre årsaker.
+
+4.4.5 Motivasjon
+For å kartlegge forbrukernes motivasjon knyttet til å ikke kaste mat, skulle deltakerne ta stilling til 14
+påstander som handlet om ulike grunner til å ikke kaste mat. I MOA-rammeverket er motivasjon delt inn i
+tre hovedtyper (Ölander & Thøgersen, 1995), som påstandene er ment å favne: opplevd atferdskontroll
+
+
+7
+ Det var svake, men signifikante korrelasjoner mellom antall matvarekategorier kastet og «Kjøpe akkurat riktig
+mengde» (r = -.21), «Kjøpe noe jeg ikke har planlagt fordi det fristet» (r = -.16) og «Unngå å kjøpe noe jeg har fra før» (r
+= -14).
+
+27
+(f.eks. «Det er vanskelig å ikke kaste mat), sosiale normer (f.eks. «Mine nærmeste forventer at jeg ikke
+kaster mat»), og holdning («Jeg ønsker å kaste mindre mat») Figuren under viser hvor enige eller uenige
+deltakerne anga å være i påstandene.
+
+            Det koster meg for mye tid og arbeid å ikke kaste mat*
+                              Matrester har liten økonomisk verdi*
+     Ved å kaste mindre kan jeg bidra til å stoppe klimaendringene.
+                          Vi kan alle bidra til å redusere matsvinnet
+               Det er viktig å inspirere andre til å kaste mindre mat
+                                      Jeg mener at mat er verdifullt
+                 Det er fordelaktig for meg selv å kaste mindre mat
+                                     Jeg ønsker å kaste mindre mat
+                                 Mine valg har en effekt på miljøet
+                         Jeg har selv ansvaret for maten jeg kaster
+                      Jeg kan selv påvirke hvor mye mat jeg kaster
+                                 Det er vanskelig å ikke kaste mat*
+                  Jeg kaster mindre mat sammenliknet med andre.
+                   Mine nærmeste forventer at jeg ikke kaster mat
+
+                                                                        0%       20 %         40 %      60 %   80 %   100 %
+
+                                         1- Helt uenig    2     3       4    5   6      7 - Helt enig
+
+
+Figur 4-13          Ulike typer motivasjon til å ikke kaste mat blant forbrukerne.
+
+Generelt har mange av deltakere en høy motivasjon til å ikke kaste mat. Over halvparten svarer 6 eller 7
+(helt enig) for de fleste av påstandene. Dette er i tråd med andre studier som også finner at de fleste ikke
+ønsker å kaste mat (Graham-Rowe, Jessop, & Sparks, 2014; Richter & Bokelmann, 2018).
+
+Påstanden det er størst enighet om, er «Jeg mener at mat er verdifullt». I tråd med dette, er svært få enige
+i at matrester har liten økonomisk verdi. Det kan tyde på en sterk økonomisk motivasjon til å ikke kaste mat
+blant forbrukere i 2024, noe dyrtid og økte matvarepriser kan ha bidratt til.
+
+Ettersom matsvinn ofte er et utilsiktet resultat av å balansere mange ulike og ofte konkurrerende mål, kan
+det være nyttig å synligjøre hvordan redusert matsvinn kan bidra til å oppnå andre mål man har knyttet til
+mat, som for eksempel økonomiske besparelser ved å kaste mindre mat.
+
+Det er også en stor andel som er enige i at vi alle kan bidra til å redusere matsvinnet (63 % helt enige) og at
+«det er fordelaktig for meg selv å kaste mindre mat» (52 % helt enige).
+
+Påstandene som måler sosial norm knyttet til matsvinn, er det noe mindre enighet om. Omtrent en
+tredjedel er helt eller delvis enige i at deres nærmeste forventer at de ikke kaster mat (svarer 6 eller 7).
+Omtrent halvparten er helt eller delvis enig i at de kaster mindre mat sammenlignet med andre.
+
+De fleste opplever atferdskontroll knyttet til matsvinn. Et stort flertall er helt eller delvis enig i at de selv har
+ansvaret for maten de kaster, og at de selv kan påvirke hvor mye mat de kaster.
+
+
+
+
+28
+4.4.5.1 Individuelle forskjeller i motivasjon
+Type og grad av motivasjon kan variere i ulike grupper. I tidligere spørreundersøkelser, hvor motivasjon ble
+målt med andre spørsmål, var eldre respondenter litt mer opptatt av økonomiske motiver for å ikke kaste
+mat, og kvinner var litt mer opptatt av miljø og sosiale hensyn enn menn (Stensgård et al., 2023).
+
+Som et mål på generell motivasjon, ble det opprettet en gjennomsnittsskår for alle påstandene for
+motivasjon, hvor 1 er lavest mulig og 7 er høyest mulig skår8. I gjennomsnitt er det en relativt høy
+motivasjon i utvalget (M = 5.6, SD = 0.9). Det er derimot forskjeller mellom grupper.
+
+Forskjeller mellom kjønn
+Motivasjonen er signifikant høyere hos kvinner (M = 5.7, SD = 0.9) enn for menn (M = 5.5, SD = 0.9). Kvinner
+er i større grad enig i at de kan bidra til å stoppe klimaendringene ved å redusere eget matsvinn, og at deres
+valg har en effekt på miljøet. Dette er i tråd med undersøkelser som viser at kvinner bryr seg mer om klima
+og i større grad oppgir å ha ansvar for å kutte egne utslipp (CICERO, 2023), og rapporterer å gjøre en rekke
+klimatiltak i større grad enn det menn gjør, inkludert å kaste mindre mat (Livgard, 2023). Videre viser
+resultatene at kvinner i større grad ønsker å kaste mindre mat, er mer enige i at det er fordelaktig for dem
+selv å kaste mindre mat, og mener det er viktigere å inspirere andre til å kaste mindre mat, sammenlignet
+med menn. Menn er derimot mer enige i at matrester har liten økonomisk verdi. Disse funnene tyder på at
+det kan være særlig viktig å øke menns motivasjonen til å kutte matsvinn.
+
+Undersøkelsen viser ingen forskjell mellom kvinner og menn i selvrapportert matsvinn for mengde kastet
+mat. Kvinner oppgir derimot å kaste noen flere matvarekategorier enn menn. Dette står tilsynelatende i
+konflikt med kvinners høyere motivasjon til å kaste mindre mat. En mulig forklaring er at kvinner i langt
+større grad oppgir å ha ansvar for både innkjøp, matlaging og rydding, sammenlignet med menn. Det er
+derfor mulig at mennene underrapporterer matsvinn i større grad enn kvinnene, siden de kvinnelige
+respondentene er «tettere på» matsvinnet og har større oversikt over det reelle matsvinnet. I realiteten
+bør matsvinnet for menn og kvinner som bor sammen være likt, siden respondentene bes angi mengde mat
+kastet totalt i husholdningen.
+
+Forskjeller mellom aldersgrupper
+Motivasjonen øker med alder. Det er lavest motivasjon i aldersgruppene 18-49 år, med økende motivasjon i
+høyere aldersgrupper.
+
+Forskjeller mellom forbrukere med og uten barn
+Motivasjonen er høyere hos forbrukere uten hjemmeboende barn (M = 5.6, SD = 0.9) enn hos dem uten
+barn (M = 5.4, SD = 1.0). De med barn angir i større grad at det koster dem tid og arbeid å ikke kaste mat,
+og at det er vanskelig å ikke kaste mat. De er i mindre grad enige i at de selv har ansvaret for maten de
+kaster, og at de selv kan påvirke hvor mye mat de kaster. De mener også i mindre grad at de kaster mindre
+mat sammenlignet med andre, og er mindre enige i at deres nærmeste forventer at de ikke kaster mat. De
+er også noe mindre enige i at mat er verdifullt. Det er ingen signifikant forskjell mellom dem med og uten
+barn i hvorvidt man ønsker å kaste mindre mat. Barnefamilier kan dermed være motivert til å kaste mindre
+mat, men oppleve å ha mindre kontroll.
+
+
+
+
+8
+ Spørsmålene er formulert slik at høy grad av enighet angir høy motivasjon, med unntak av for tre påstander med * i
+Figur 4-13. Disse svarene ble reversert kodet før en sumskåre ble beregnet.
+
+29
+     5 Veien videre
+
+        5.1 Oppsummering
+For første gang siden 2020 er plukkanalyser som viser matsvinnet i norske husholdninger sammenstilt.
+Estimater basert på plukkanalysene viser at matsvinnet i husholdningene var 193 200 tonn i 2023,
+tilsvarende 35 kg/innbygger. Dette er en nedgang på 18 % siden 2016. Det betyr at vi er på rett vei for å nå
+målet i bransjeavtalen om en 50 % reduksjon innen 2030, men at matsvinnet fortsatt må reduseres
+betydelig.
+
+Resultatene fra forbrukerundersøkelsen viser at matsvinnet varierer mellom ulike grupper i befolkningen,
+og eldre respondenter rapporterer å kaste minst. Mulige årsaker til forskjellene inkluderer ulike vaner i
+befolkningen. Vaner knyttet til de kritiske matsvinnøyeblikkene tilbereding og spising/rydding ser særlig ut
+til å ha sammenheng med matsvinn, men også vaner innen planlegging, innkjøp og lagring henger sammen
+med hvor mye mat man kaster. Særlig vaner som handler om å bruke opp og/eller unngå rester er viktige.
+
+
+
+        5.2 Anbefalinger og videre arbeid mot 2030
+Hovedmålet med denne rapporten er å gi mer dybde til matsvinnutvalgets forbrukerrettede anbefalinger,
+og å spesifisere hva anbefalingene kan bety i praksis for bedrifter og myndigheter. Basert på resultatene fra
+forbrukerundersøkelsen og plukkanalysene, følger en diskusjon for hvordan matsvinnutvalgets anbefalinger
+kan følges opp. Tre punkter adresseres: 1) Kvantumsrabatter og forbrukerpakninger, 2)
+Holdbarhetsmerking, og 3) Nudging, informasjonskampanjer og praktiske verktøy.
+
+Det norske arbeidet for redusert matsvinn har vart lenge og er drevet av både myndighetene, matbransjen
+og andre viktige interesseaktører, som blant annet Framtiden i Våre Hender, Spisoppmaten, Matsentralen
+og TooGoodToGo. I løpet av de siste ti årene er det gjennomført en rekke tiltak rettet mot forbrukersvinnet
+med ulike avsendere og vinklinger. Samtidig peker matsvinnutvalget på at reduksjonstakten må trappes
+opp (Matsvinnutvalget, 2023). Denne rapporten kommer med anbefalinger om noen konkrete tiltak som
+kan bidra til å halvere matsvinnet i husholdningene. Tiltakene som anbefales er ikke nye, og er tiltak som i
+større eller mindre grad allerede har vært gjennomført, men som må forsterkes og oppskaleres slik at de
+får reell effekt på matsvinnet.
+
+Et større EU-prosjekt peker på nasjonal og regional forankring av matsvinnarbeidet på myndighetsnivå samt
+bred implementering med mange avsendere som viktige suksessfaktorer for å oppnå redusert matsvinn i
+husholdningene (Candeal et al., 2023). Selv om mye er gjort i Norge, viser også en kartlegging av
+virkemidler for redusert matsvinn i europeiske land at det norske arbeidet skiller seg noe fra landene som
+har lykkes med å få ned forbrukersvinnet (Stensgård, 2023). Det norske arbeidet har nemlig primært
+fokusert på matsvinnet i matbransjen. Selv om det også er mange aktører som jobber med å redusere
+matsvinnet i Norge, jobber de fleste aktørene individuelt. Nederland er ett av landene i Europa som kan
+vise til størst nedgang i matsvinnet i husholdningene. Ifølge dem selv er en av deres suksessfaktorer at
+forebyggingsarbeidet drives som et samarbeid mellom nasjonale myndigheter, lokale myndigheter,
+matbransjen, skoler, barnehager, avfallsselskap og en rekke ulike aktører (Schrijnen, 2024). I tillegg har de
+en dedikert ressurs hos myndighetene som jobber med matsvinnforebygging og har et stort
+
+
+30
+kommunikasjonsbudsjett (ibid). Anbefalingene fra denne rapporten bør derfor også følges opp med
+tilstrekkelige ressurser i form av mennesker og økonomiske midler. Like viktig er det at matbransjen, lokale
+myndigheter, nasjonale myndigheter og andre interesseaktører samarbeider for å sikre bred
+implementering og rekkevidde.
+
+5.2.1 Kvantumsrabatter og forbrukerpakninger
+Selv om litteraturen på området spriker, indikerer funnene fra spørreundersøkelsen at kvantumsrabatter
+ikke er en drivende faktor for matsvinnet i husholdningene. Dette understøttes også av en ny dansk studie,
+som den eneste av sitt slag, har analysert sammenhengen mellom reelle innkjøpsvaner (kvitteringer) og
+matkasting (plukkanalyser) (Tsalis et al., 2024). Et eventuelt forbud mot kvantumsrabatter vil bidra til økte
+enhetspriser og i neste omgang økte matpriser. I en tid der stadig flere trenger mathjelp (Poppe &
+Kempson, 2023), kan det være risiko for at tiltaket vil ramme de fattigste uten å ha noen særlig effekt på
+matsvinnet. Dersom kvantumsrabatter og andre priskampanjer i butikk skal begrenses bør man parallelt
+sikre at det ikke går ut over matsikkerheten til utsatte grupper. Samtidig har vi ikke funnet statistikk over
+hvem som hovedsakelig benytter seg av priskampanjer og kvantumsrabatter. Dersom det primært er
+husholdninger med god økonomi som bruker disse tilbudene, vil potensielle negative effekter av et forbud
+være begrenset.
+
+Et annet viktig aspekt er hvilken type mat som selges via kvantumsrabatter. Når kvantumsrabatter brukes
+for å øke salget av varer med kort holdbarhet som heller ikke er sannsynlig å bli konsumert i løpet av kort
+tid, er det nærliggende å tro at kvantumsrabatter kan bidra til økt svinn i husholdningene. Figur 4-8
+indikerer at friske grønnsaker, frukt, brød/bakervarer og drikkevarer i størst grad kastes som følge av
+mengdetilbud eller fristelser i butikk. Frisk fukt og grønnsaker er typiske varer som kan ha risiko for økt
+svinn ved kvantumsrabatter (Livsmedelsverket 2021). Samtidig er det en potensiell målkonflikt knyttet til å
+begrense kvantumsrabatter på frukt/grønt med målet om økt konsum av frukt og grønnsaker
+("Grøntløftet," 2024). Her har kjedene andre prismekanismer de ofte bruker for disse varene, slik som
+priskutt, personlige tilbud, eller redusert pris via medlemskap. Det anbefales derfor at frisk frukt og
+grønnsaker unngås å selges via kvantumsrabatter, så lenge andre prismekanismer kan bidra til lave priser.
+
+For andre varegrupper trengs det mer innsikt om hvordan kvantumsrabatter påvirker matsvinnet i Norge
+samt hvordan disse rabattene brukes i dag. Ved vurdering av tiltak rettet mot kvantumsrabatter må mulige
+negative effekter knyttet til mattilgangen for utsatte grupper og aspekter knyttet til folkehelsen vurderes.
+
+Resultatene våre viser at «for mye produkt i emballasjen» er den største årsaken til at forbrukerne kaster
+mat fordi de har kjøpt for mye. Dette gjelder særlig for brød og bakervarer, flytende meieriprodukter og
+friske grønnsaker, og er i tråd med tidligere forskning(Brennan et al., 2021). I Norge blir vi stadig flere
+singelhusholdninger og færre personer per husholdning(SSB, 2024). For å unngå matsvinn er det viktig at
+tilbudet av forpakningsstørrelser følger husholdningenes behovsutvikling. Vi har ikke funnet statistikk som
+viser hvordan tilbudet av ulike pakningsstørrelser for disse produktene har utviklet seg i løpet av de siste
+årene. Det tilbys i dag grønnsaker i løsvekt, grønnsaker i mindre pakningsstørrelser, melk i 0,5 liters
+kartonger og små brød. Vi kjenner likevel ikke til kiloprisen for disse varene, tilgjengeligheten av varene på
+tvers av ulike kjeder og regioner samt hvilke produktvarianter som tilbys i mindre pakningsstørrelser.
+Videre arbeid burde undersøke hvorvidt tilbudet av pakningsstørrelser samsvarer med behovet og evt. hva
+som er barrierene for at folk ikke tar i bruk løsningene som finnes.
+
+Når det gjelder kjøpsøyeblikket kan det også se ut til at utfordringene ligger i at mange synes det er
+vanskelig å kjøpe riktig mengde mat. Feilberegning av hvor mye man trenger og å glemme at man har
+
+31
+produktet hjemme er viktige rotårsaker til at forbrukerne kjøper for mye mat. Dette kan tyde på at et viktig
+grep for å unngå at man kjøper for mye vil være å hjelpe forbrukerne med å planlegge samt beregne hvor
+mye de trenger.
+
+5.2.2 Holdbarhetsmerking
+Selv om undersøkelsen ikke finner noen effekt av supplerende holdbarhetsmerking på hvorvidt forbrukere
+vil se, lukte eller smake på produktet for å vurdere om det kan brukes, kan dette likevel være et viktig
+virkemiddel for nye forbrukere (for eksempel unge). Virkemiddelet har heller ingen negative sideeffekter,
+og tidligere studier viser at folk er positive til supplerende holdbarhetsmerking.
+
+En rekke studier har pekt på holdbarhetsdato som en viktig årsak til matsvinn (Commission, 2018; Patra et
+al., 2022). I tidligere studier gjort av Matvett, har forbrukere angitt «utgått dato» som en av de viktigste
+årsakene til at de kaster mat (Stensgård et al., 2022). En rapport fra Europakommisjonen anslår at opptil 10
+% av matsvinnet i husholdningene kan tilskrives datomerking. Både denne og andre rapporter baserer seg
+på selvrapportering. Som bevis for at datomerking påvirker matsvinn, vises det til studier som har
+dokumentert at forbrukere har dårlig forståelse eller blander sammen betydningen av ulike datomerkinger,
+og at forbrukere ofte oppgir «gått ut på dato» som årsak til at mat ble kastet (Commission, 2018). Dette er
+problematisk, ettersom det at en matvare må kastes som følge av utgått dato, kan være en konsekvens av
+andre bakenforliggende årsaker, der dato kun er en symptomårsak.
+
+I de senere års spørreundersøkelser har vi valgt å ikke inkludere «utgått dato» som en mulig årsak til
+matsvinn. Rotårsakene til at maten kastes kan være mange, som at man har kjøpt for mye og ikke rakk å
+bruke opp alt før holdbarhetsdatoen var nådd, at man glemte maten i kjøleskapet fram til
+holdbarhetsdatoen var forbigått eller at man ikke likte maten og lot den ligge til den måtte kastes på grunn
+av utgått dato.
+
+Det er derfor viktig å også gjennomføre eksperimentelle studier for å kartlegge rotårsakene til at utgått
+dato faktisk fører til matsvinn, og adressere disse i tillegg til datomerking.
+
+Det er likevel flere tiltak knyttet til datomerking som kan redusere matsvinn, som å tilby forbrukerne varer
+med lengst mulig holdbarhet. Det anbefales derfor å følge opp Matsvinnutvalgets tiltak 6.1 om å
+gjennomgå praksis for holdbarhet og utvikle en veileder for optimal holdbarhetsmerking. Dette er særlig
+relevant for varer som ofte blir kastet på grunn av dato, herunder kjølt pålegg, egg og meieriprodukter
+(Commission, 2018).
+
+Samtidig er det viktig å merke seg at mesteparten av maten som kastes i husholdningene er varegrupper
+som i mindre grad er omfattet av datomerking, nemlig brød/bakervarer, frukt og grønnsaker samt gryte- og
+tallerkenrester. Potensialet for tiltaket kan derfor være begrenset.
+
+Det er også viktig å jobbe videre med kunnskapsheving rundt tolkning av dato, eventuelt med bedre
+merking. Dette kan for eksempel oppnås gjennom bruk av visuelle «cues» (Zeinstra, Bos-Brouwers, van
+Bergen, Meijboom, & van der Haar, 2021; Zeinstra et al., 2023) og fargekoder. For å øke mattrygghet, kan
+det være viktig å gi supplerende informasjon for produkter merket “siste forbruksdag”, så færre bruker
+disse produktene (Zeinstra et al., 2021).
+
+Selv om våre og andre studier ikke har funnet at færre velger å kaste mat merket «best før» når den
+ledsages av supplerende merking, kan supplerende merking være viktig for nye forbrukergrupper (for
+eksempel unge), som ikke kjenner forskjellen mellom «best før» og «siste forbruksdag».
+
+32
+5.2.3 Nudging, informasjonskampanjer og praktiske verktøy
+Matsvinnutvalget (2023) foreslår at mulige virkemidler for å redusere matsvinn hos forbruker er
+informasjonskampanjer (Tiltak 9.7) og nudging, praktiske verktøy og innovasjoner (Tiltak 9.8). I tillegg
+foreslås innføring av aktsomhetskrav, hvor eksempler på tiltak som kan inngå i en aktsomhetsvurdering er
+tiltak som påvirker de kritiske matsvinnøyeblikkene: planlegging, innkjøp, tilbereding, lagring og
+spising/rydding. (Tiltak 8 under aktsomhetskravet).
+
+Informasjonskampanjer, nudging, verktøy og innovasjoner kan bidra til å redusere matsvinn gjennom å
+adressere barrierene knyttet til forbrukernes motivasjon, evne og mulighet. Nudging handler om å legge til
+rette for atferd gjennom å gjøre endringer i omgivelsene hvor mennesker tar valg: i valgarkitekturen (Thaler
+& Sunstein, 2021), og kan særlig styrke forbrukeres mulighet. For at virkemidlene skal fungere, er det viktig
+at de treffer «der skoen trykker», og styrker atferden som faktisk har effekt på matsvinn. Vi vil derfor
+komme med anbefalinger for virkemidlene basert på hvilke evner og muligheter i de kritiske
+matsvinnøyeblikkene som er viktige for redusert matsvinn.
+
+Resultatene tyder på at særlig evner og mulighet knyttet til matrester er viktig for matsvinn. Bruk av rester
+går på tvers av flere av matsvinnøyeblikkene: Planlegging (å planlegge hvordan man skal få spist opp rester
+av råvarer og måltider), Lagring (å ta godt vare på rester), Tilbereding (å ta utgangspunkt i rester fra
+råvarer/måltider når man lager mat) og Spising/rydding (å spise rester, og å unngå rester ved å spise opp).
+Forbrukerne som oppgir å kaste mye, gjør disse handlingene sjeldnere, sammenlignet med forbrukere som
+oppgir å kaste lite. De syns også handlingene er vanskeligere. Det tyder på at virkemidler som hjelper
+forbrukere til å ha en Plan B for restene som uunngåelig oppstår, kan være viktige for å redusere
+forbrukermatsvinn.
+
+Et annet funn fra undersøkelsen er at mange syns det er vanskelig å fjerne mugg/skadet del av maten og
+bruke resten, og dette er enkelthandlingen som færrest gjør. Mange syns også det er vanskelig å bruke mat
+med redusert kvalitet. Det kan tyde på at det er behov for virkemidler som gir forbrukere kunnskap og hjelp
+i bruk av mat med redusert kvalitet.
+
+Vi foreslår mulige virkemidler for å øke forbrukeres evne, mulighet og motivasjon knyttet til å bruke rester
+fra råvarer og måltider og mat med redusert kvalitet, delt inn i 1) informasjonskampanjer, 2) innovasjoner,
+nudge og verktøy.
+
+Informasjonskampanjer
+
+     •   Bruk av rester: Informasjonskampanjer kan gi forbrukere kunnskap om korrekt oppbevaring og
+         riktig og fristende bruk av rester. Vanlige folk/matinfluensere som er gode på bruk av rester og å ha
+         en Plan B kan komme med konkrete tips. Hvordan går de fram når de planlegger måltider og lager
+         middag? Hvordan oppbevarer de og holder oversikt over rester? Stadig flere matbransjeaktører og
+         influensere kommer med slike tips, og det gis ut kokebøker som har fokus på å bruke opp og spare
+         penger. I tillegg har Matvett ukentlige restetips i sosiale medier. Utfordringen er at det er mange
+         som konkurrerer om folks oppmerksomhet og det er behov for en nasjonal informasjonskampanje
+         der mange ulike aktører deler det samme budskapet over tid.
+     •   Bruk av mat med redusert kvalitet: Forbrukerne kan få opplæring og veiledning i trygg bruk av
+         matvarer som er mugne/skadet eller av redusert kvalitet. Dette kan også formidles av influensere
+         eller kampanjer, evt. via apper og informasjon direkte på emballasjen for det konkrete produktet.
+
+
+
+33
+      •    Gevinster: Forbrukere har mange ulike mål knyttet til mat, som å spise sunt, sikre at maten er trygg
+           osv. Det kan føre til konflikt når det gjelder bruk av rester. Informasjonskampanjer kan peke på
+           gevinster knyttet til bruk av rester, som at man sparer tid og penger, at redusert matbudsjett kan gi
+           mer penger til andre ting, og at man føler seg bra når man spiser opp maten og gjør noe for miljøet
+           (Aloysius et al., 2023). Siden de fleste i spørreundersøkelsen var enige i at matrester har en
+           økonomisk verdi, og matprisene er høye, kan økonomiske argumenter være særlig effektive.
+      •    Barnefamilier: Informasjonskampanjer bør tilpasses målgruppen, og ikke være en generell liste
+           over alle mulige tiltak (Schmidt, 2016). En spesifikk målgruppe som kan få skreddersydde råd, er de
+           med barn som bor hjemme. Barnefamilier syns særlig det er vanskeligere å lage mat alle liker, å
+           bruke matrester og å spise opp måltidet, sammenlignet med dem uten barn.
+           Informasjonskampanjer/tips rettet mot småbarnsfamilier kan handle om bruk av rester det ofte
+           oppstår mye av i barnefamilier, bruk av rester i matpakker, god kommunikasjon med
+           barnehage/skole/skolefritidsordning om matservering og barnas appetitt de ulike måltidene.
+           Familier med små barn kan ha andre utfordringer knyttet til mat og matrester enn dem med større
+           barn, så budskap kan skreddersys disse gruppene. En studie gjennomført av Nofima i samarbeid
+           med Matvett i Sustainable Eaters-prosjektet viste at det å gjennomføre matsvinnsamtaler i
+           husholdningen kan være en effektiv måte å oppnå felles forståelse om hvordan matsvinnet kan
+           reduseres og at alle må bidra.
+      •    Opplæring for barn og unge: Styrker man barns kunnskap og evner om matsvinn og bruk av rester,
+           kan de ta med vanene hjem. Barn og ungdom kan påvirke atferd og holdninger til familien sin, blant
+           annet når det gjelder miljøatferd og innkjøp (Singh, Sahadev, Oates, & Alevizou, 2020). Informasjon,
+           inspirasjon og opplæring rettet mot barn/ungdom kan dermed gi vaner og kunnskap som smitter
+           over på resten av familien. Dette kan være en måte å nå forbrukere i aldersgruppen 40-49 år, siden
+           dette er aldersgruppa hvor flest har hjemmeboende barn9. Dette er samtidig aldersgruppen som
+           oppgir å kaste mest mat, er den eneste med økende mengde selvrapportert matsvinn, og som i
+           minst grad bruker skadet mat. Det er utviklet mange ressurser til bruk i skole og barnehage,
+           utfordringen er å få læringsstedene til å inkludere temaet som en naturlig del av en travel
+           skolehverdag.
+
+Innovasjoner, nudge og verktøy
+
+      •    Reste-utfordring: Matvett er allerede i gang med å teste nudging rettet mot forbrukere for å
+           redusere matsvinn fra husholdningene. Høsten 2024 er 300 nordmenn med på «Matvett-
+           utfordringen», hvor de velger tre mattyper som de skal prøve å ikke kaste de neste åtte ukene.
+           Halvparten av deltakerne får daglige SMS for å registrere om de klarte å ikke kaste eller ikke, samt
+           ukentlige SMS nudge/oppmuntringer. En «Reste-utfordring» som handler spesifikt om å bruke
+           rester kan være en videreføring av kampanjen. Deltakerne kan hjelpes på veien med ressurser,
+           oppskrifter, tips til praktiske løsninger og inspirasjon fra hverandre. Gjøres utfordringen sosial, med
+           oppfordring til å dele triks og suksesshistorier med hverandre, kan dette redusere den negative
+           sosiale normen knyttet til restemat (Aloysius et al., 2023)
+      •    Plan B-tips og -oppskrifter: Matvett har allerede verktøy som hjelper forbrukere til å bruke rester,
+           som kan promoteres og videreutvikles. Brukopp-leksikonet gir forbrukere tips til bruk av matvarer
+           det typisk oppstår rester fra, slik som brød, pasta, ris og grøt. I måltidsplanleggeren kan man søke i
+
+
+
+9
+    57 % av respondentene i aldersgruppa 40-49 år har hjemmeboende barn under 18 år.
+
+34
+         oppskrifter med utgangspunkt i råvarer man har til overs og med oppfordring til å i stor grad bruke
+         det man har. Denne kan bygges ut med flere oppskrifter.
+     •   Fleksible oppskrifter: Oppskrifter med fleksible ingredienslister og som oppfordrer til å bruke
+         rester, kan hjelpe forbrukere til å bruke opp rester. Dette ble testet i en studie hvor husholdninger
+         fikk bestemme én dag i uka de skulle tilberede et måltid med mat de allerede hadde.
+         Husholdningene fikk verktøy for å gjøre mat som snart ville bli dårlig mer synlig, og fleksible
+         oppskrifter («flexipies»). Matsvinnet gikk ned hos dem som var med på intervensjonen, og var
+         fortsatt lavere tre uker etter intervensjonen (Candeal et al., 2023). Et eksempel fra matbransjen er
+         «redd restene» med TORO, som både har kommunisert tips på emballasjen og gjennom en egen
+         nettjeneste. Matinfluensere og kokker kan også promotere fleksible oppskrifter og oppskrifter med
+         rester.
+     •   Påminnelser: Forbrukere kan få fysiske eller visuelle påminnelser/instruksjoner til å bruke rester.
+         Eksempler er «bruk-den-opp-teip» som kan festes på matvarer som må brukes snart. I en
+         intervensjon skulle forbrukere bruke tapen til å markere et sted og/eller individuelle matprodukter
+         som måtte brukes. I tillegg skulle de en gang i uken tilberede et måltid med utgangspunkt i mat i
+         kjøleskapet/matskapet som måtte brukes opp. Intervensjonen ga en 40 % nedgang i matavfall i
+         husholdningene, med en enda større økning for fersk frukt, grønnsaker og kjøtt (50 %) (Candeal et
+         al., 2023). Påminnere kan også være digitale verktøy som holder oversikt over mat man har
+         hjemme.
+
+I tillegg til virkemidler som kan øke forbrukernes bruk av rester etter råvarer og måltider, og bruk av mat
+med redusert kvalitet, bør man videreføre virkemidler rettet mot alle de fem kritiske matsvinnøyeblikkene
+planlegging, innkjøp, lagring, tilbereding og spising/rydding, siden vaner innen alle øyeblikkene disse henger
+sammen med matsvinn. Virkemidler kan bidra til at det oppstår mindre rester. Dette kan f.eks. være
+informasjonskampanjer, nudging, innovasjoner og verktøy rettet mot produkt og emballasje, apper og
+løsninger som gjør det enklere å holde oversikt/planlegge eller større systeminnovasjoner som endrer hva
+vi spiser, hvordan vi handler og hvordan vi oppbevarer maten hjemme.
+
+
+
+
+35
+     6 Referanser
+Ajzen, I. (1985). From intentions to actions: A theory of planned behavior. In Action control: From cognition
+         to behavior (pp. 11-39): Springer.
+Aloysius, N., Ananda, J., Mitsis, A., & Pearson, D. (2023). Why people are bad at leftover food management?
+         A systematic literature review and a framework to analyze household leftover food waste generation
+         behavior. Appetite, 186, 106577.
+Andersson, T., & Stålhandske, S. (2020). Matavfall i Sverige: Uppkomst och behandling 2018. Retrieved from
+         https://www.naturvardsverket.se/Documents/publ-filer/8800/978-91-620-8861-3.pdf?pid=26710
+Aschemann-Witzel, J., De Hooge, I., Amani, P., Bech-Larsen, T., & Oostindjer, M. (2015). Consumer-Related
+         Food Waste: Causes and Potential for Action. Sustainability, 7(6). doi:10.3390/su7066457
+Badiger, A., Katz, T., Simons, C. T., & Roe, B. E. (2023). When considering whether to waste food, consumers
+         focus attention on food label dates rather than phrases. Waste Management, 168, 230-234.
+Brennan, L., Langley, S., Verghese, K., Lockrey, S., Ryder, M., Francis, C., . . . Hill, A. (2021). The role of
+         packaging in fighting food waste: A systematised review of consumer perceptions of packaging.
+         Journal of Cleaner Production, 281, 125276.
+Candeal, T., Brüggemann, N., Bruns, H., Casonato, C., Diercxsens, C., García-Herrero, L., . . . Sala, S. (2023).
+         Tools, best practices, and recommendations to reduce consumer food waste – A compendium,
+         Publications Office of the European Union. Retrieved from Luxembourg:
+         https://publications.jrc.ec.europa.eu/repository/handle/JRC133004
+CICERO. (2023). Kvinner mer klimaopptatte og positive til virkemidler enn menn. Retrieved from
+         https://cicero.oslo.no/no/ciceros-klimaundersokelse/forskjeller-mellom-grupper/kjonn
+Commission, E. (2018). Market study on date marking and other information provided on food labels and
+         food waste prevention. Retrieved from
+Davison, S., van, G., van Herpen, E., & Sharp, A. (2020). Applying Behaviour Change Methods to Food Waste.
+         In.
+Proposal for a DIRECTIVE OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL amending Directive
+         2008/98/EC on waste, (2023).
+FAO. (2013). Food Wastage Footprint. Impacts on Natural Resources. Summary Report. Retrieved from
+         Rome: https://www.fao.org/3/i3347e/i3347e.pdf
+Graham-Rowe, E., Jessop, D. C., & Sparks, P. (2014). Identifying motivations and barriers to minimising
+         household food waste. Resources, Conservation and Recycling, 84, 15-23.
+         doi:https://doi.org/10.1016/j.resconrec.2013.12.005
+Grøntløftet. (2024). Retrieved from www.grøntløftet.no
+Helsedirektoratet. (2021). Utviklingen i norsk kosthold 2020. Matforsyningsstatistikk. Retrieved from
+         https://www.helsedirektoratet.no/rapporter/utviklingen-i-norsk-
+         kosthold/Utviklingen%20i%20norsk%20kosthold%202020%20%E2%80%93%20Fullversjon.pdf/_/atta
+         chment/inline/1414ae4c-73b8-46e4-a7e1-
+         4d18caca1d54:4bc25080bbead9da0a9119cf678f6cb355d58f0c/Utviklingen%20i%20norsk%20kosth
+         old%202020%20%E2%80%93%20Fullversjon.pdf
+HLPE. (2014). Food losses and waste in the context of sustainable food systems. A report by the High Level
+         Panel of Experts on Food Security and Nutrition of the Committee on World Food Security, . Retrieved
+         from Rome: https://www.fao.org/3/i3901e/i3901e.pdf
+Livgard, E. F. (2023). Klimabarometeret 2023: Befolkningens holdninger til klima og klimapolitikk. Retrieved
+         from https://kantar.no/globalassets/fra-webnodes/ekspertiseomrader/politikk-og-
+         samfunn/klimabarometer/2023/klimabarometer-2023_presentasjon_for-publisering.pdf
+Matsvinnutvalget. (2023). Rapport fra matsvinnutvalget - Anbefalinger til helhetlige tiltak og virkemidler.
+         Retrieved from
+
+36
+         https://www.regjeringen.no/contentassets/5a5cadf8907a4f4c94740d23d7c4c6e4/rapport-fra-
+         matsvinnutvalget-anbefalinger-til-helhetlige-tiltak-og-virkemidler-31.12.23.pdf
+Neff, R. A., Spiker, M., Rice, C., Schklair, A., Greenberg, S., & Leib, E. B. (2019). Misunderstood food date
+         labels and reported food discards: A survey of US consumer attitudes and behaviors. Waste
+         Management, 86, 123-132.
+NIBIO. (2024). Matpriser. Retrieved from https://www.nibio.no/tema/landbruksokonomi/matpriser.
+         Retrieved 04.10.2024 https://www.nibio.no/tema/landbruksokonomi/matpriser
+Partene i bransjeavtalen. (2021). Hovedrapport 2020 - Bransjeavtalen om reduksjon av matsvinn. Retrieved
+         from
+         https://www.regjeringen.no/contentassets/6b7122fce366433ca028c230b57605ae/no/pdfs/hovedra
+         pport-2020-bransjeavtalen-om-reduksjon-av-m.pdf
+Patra, D., Feng, S., & Howard, J. W. (2022). Confusion of food-date label with food safety—implications for
+         food waste. Current Opinion in Food Science, 48, 100917.
+Poppe, C., & Kempson, E. (2023). Dyrtid 4: Det er ikke over ennå. Husholdenes økonomiske trygghet i august
+         2023 (SIFO-rapport;11-2023). Retrieved from https://oda.oslomet.no/oda-
+         xmlui/handle/11250/3091870
+Principato, L., Mattia, G., Di Leo, A., & Pratesi, C. A. (2021). The household wasteful behaviour framework: A
+         systematic review of consumer food waste. Industrial Marketing Management, 93, 641-649.
+Principato, L., Secondi, L., & Pratesi, C. A. (2015). Reducing food waste: an investigation on the behaviour of
+         Italian youths. British Food Journal, 117(2), 731-748.
+Regjeringen. (2017). Bransjeavtale om reduksjon av matsvinn. Regjeingen.no Retrieved from
+         https://www.regjeringen.no/no/aktuelt/avtale-om-a-redusere-matsvinn/id2558931/
+Richter, B., & Bokelmann, W. (2018). The significance of avoiding household food waste – A means-end-chain
+         approach. Waste Management, 74, 34-42. doi:https://doi.org/10.1016/j.wasman.2017.12.012
+Russell, S. V., Young, C. W., Unsworth, K. L., & Robinson, C. (2017). Bringing habits and emotions into food
+         waste behaviour. Resources, Conservation and Recycling, 125, 107-114.
+         doi:https://doi.org/10.1016/j.resconrec.2017.06.007
+Schmidt, K. (2016). Explaining and promoting household food waste-prevention by an environmental
+         psychological based intervention study. Resources, Conservation and Recycling, 111, 53-66.
+Schrijnen, M. (2024). Food Waste Free Week in the Netherlands. Retrieved from EU Platform on Food Losses
+         and Food Waste, Consumer food waste prevention sub-group meeting 24.10.2024:
+         https://food.ec.europa.eu/food-safety/food-waste/eu-actions-against-food-waste/eu-platform-
+         food-losses-and-food-waste/thematic-sub-groups/consumer-food-waste-prevention_en
+Schwarzer, R., Lippke, S., & Luszczynska, A. (2011). Mechanisms of health behavior change in persons with
+         chronic illness or disability: the Health Action Process Approach (HAPA). Rehabilitation psychology,
+         56(3), 161.
+Shu, Y., Roe, B. E., & Bender, K. (2021). Adapting, refining and expanding a validated questionnaire to
+         measure food waste in US households. MethodsX, 8, 101377.
+Singh, P., Sahadev, S., Oates, C. J., & Alevizou, P. (2020). Pro-environmental behavior in families: A reverse
+         socialization perspective. Journal of Business Research, 115, 110-121.
+SSB. (2024). Familier og husholdninger: Privathusholdninger, personer i privathusholdninger og personer per
+         privathusholdning 2005 - 2024
+. Retrieved from https://www.ssb.no/statbank/table/09747/. Available from SSB Statistikkbanken
+         https://www.ssb.no/statbank/table/09747/
+Stancu, V., Haugaard, P., & Lähteenmäki, L. (2016). Determinants of consumer food waste behaviour: Two
+         routes to food waste. Appetite, 96, 7-17. doi:https://doi.org/10.1016/j.appet.2015.08.025
+
+
+
+
+37
+Stefan, V., Van Herpen, E., Tudoran, A. A., & Lähteenmäki, L. (2013). Avoiding food waste by Romanian
+         consumers: The importance of planning and shopping routines. Food Quality and Preference, 28(1),
+         375-381.
+Steinnes, K. K., & Hebrok, M. (2019). Kunnskapsoppsummering om temaet matsvinn på forbrukernivå i Norge
+         og Europa (8270635006). Retrieved from https://oda.oslomet.no/oda-xmlui/handle/10642/9043
+Stensgård, A. (2023). Virkemidler for forebygging og reduksjon av matsvinn Europa. Retrieved from
+         https://norsus.no/publikasjon/virkemidler-for-forebygging-og-reduksjon-av-matsvinn-europa/
+Stensgård, A. (2024a). Faktaark om matsvinn i Norge 2023 (OR.31.24 ).
+Stensgård, A. (2024b). Sammenstilling av plukkanalyser for husholdningsleddet 2023 (OR.24.24 ).
+Stensgård, A., Berntsen, I. C., Hohle, S. M., & Callewaert, P. (2023). Kartleggingsrapport for matbransjen og
+         forbrukerleddet (OR.02.23). Retrieved from Fredrikstad:
+         https://www.matvett.no/uploads/documents/OR.02.23-Kartleggingsrapport-for-matbransjen-og-
+         forbrukerleddet.pdf
+Stensgård, A., Prestrud, K., Callewaert, P., & Booto, G. (2022). Kartleggingsrapport for matbransjen,
+         undervisning- og omsorgsektoren og forbrukerleddet (OR.48.21). Retrieved from Fredrikstad:
+         https://www.matvett.no/uploads/documents/OR.48.21-Kartleggingsrapport-for-matbransjen-
+         undervisning-og-omsorgssektoren-og-forbrukerleddet.pdf
+Thaler, R. H., & Sunstein, C. R. (2021). Nudge: The Final Edition: Penguin Books Limited.
+Tsalis, G., Boutrup Jensen, B., & Aschemann-Witzel, J. (2024). The relationship between retail price
+         promotions and household-level food waste: Busting the myth with behavioural data? Waste
+         Management, 173, 29-39. doi:https://doi.org/10.1016/j.wasman.2023.10.032
+Tsalis, G., Jensen, B. B., Wakeman, S. W., & Aschemann-Witzel, J. (2021). Promoting Food for the Trash Bin?
+         A Review of the Literature on Retail Price Promotions and Household-Level Food Waste.
+         Sustainability, 13(7). doi:10.3390/su13074018
+UN. (2015). The Sustainable Development Goals (SDGs). Retrieved from https://www.undp.org/sustainable-
+         development-goals
+van Geffen, L., van Herpen, E., Sijtsema, S., & van Trijp, H. (2020). Food waste as the consequence of
+         competing motivations, lack of opportunities, and insufficient abilities. Resources, Conservation &
+         Recycling: X, 5, 100026. doi:https://doi.org/10.1016/j.rcrx.2019.100026
+van Herpen, E., van der Lans, I. A., Holthuysen, N., Nijenhuis-de Vries, M., & Quested, T. E. (2019). Comparing
+         wasted apples and oranges: An assessment of methods to measure household food waste. Waste
+         Management, 88, 71-84. doi:https://doi.org/10.1016/j.wasman.2019.03.013
+van Herpen, E., van Geffen, L., Nijenhuis-de Vries, M., Holthuysen, N., van der Lans, I., & Quested, T. (2019).
+         A validated survey to measure household food waste. MethodsX, 6, 2767-2775.
+         doi:https://doi.org/10.1016/j.mex.2019.10.029
+van Herpen, E., Wijnen, T., Quested, T., Reynolds, C., & Sharda, N. (2023). Convenient tools and social norms:
+         Measuring the effectiveness of an intervention to reduce household food waste. Journal of Cleaner
+         Production, 429, 139604. doi:https://doi.org/10.1016/j.jclepro.2023.139604
+Veselá, L., Králiková, A., & Kubíčková, L. (2023). From the shopping basket to the landfill: Drivers of consumer
+         food waste behaviour. Waste Management, 169, 157-166.
+         doi:https://doi.org/10.1016/j.wasman.2023.07.002
+Vittuari, M., Garcia Herrero, L., Masotti, M., Iori, E., Caldeira, C., Qian, Z., . . . Sala, S. (2023). How to reduce
+         consumer food waste at household level: A literature review on drivers and levers for behavioural
+         change. Sustainable Production and Consumption, 38, 104-114.
+         doi:https://doi.org/10.1016/j.spc.2023.03.023
+Wallnoefer, L. M., Meixner, O., & Riefler, P. (2024). Look-smell-taste labels on food date marking: Assessing
+         their effectiveness for reducing food waste at a consumer level as part of the European Green Deal.
+         Food Quality and Preference, 105253.
+
+
+38
+Wikström, F., Williams, H., Trischler, J., & Rowe, Z. (2019). The Importance of Packaging Functions for Food
+         Waste of Different Products in Households. Sustainability, 11(9). doi:10.3390/su11092641
+Zainal, D., & Hassan, K. A. (2019). Factors Influencing household food waste behaviour in Malaysia. Int. J. Res.
+         Bus. Econ. Manag, 3(3), 56-71.
+Zeinstra, G., Bos-Brouwers, H., van Bergen, G., Meijboom, S., & van der Haar, S. (2021). The influence of date
+         marking related visual cues on consumers’ interpretation and choices to discard or use food: two
+         consumer studies in The Netherlands. Retrieved from
+Zeinstra, G., Meijboom, S., de Rosa Spierings, K. M., & van Bergen, G. (2023). Does extra on-pack information
+         impact consumers’ understanding of expiry dates and food waste behaviour?: Insights from a real-life
+         experiment in The Netherlands. Retrieved from
+Ölander, F., & Thøgersen, J. (1995). Understanding of consumer behaviour as a prerequisite for
+         environmental protection. Journal of consumer policy, 18, 345-385.
+
+
+
+
+39
+Vedlegg 1: Datagrunnlag og metodikk
+Definisjon av matsvinn
+Bransjeavtalens definisjon av matsvinn er lagt til grunn for spørreundersøkelsen i denne rapporten:
+
+ "Matsvinn omfatter alle nyttbare deler av mat produsert for mennesker, men som enten kastes
+ eller tas ut av matkjeden til andre formål enn menneskeføde, fra tidspunktet når dyr og planter
+ er slaktet eller høstet." (Regjeringen, 2017)
+
+
+Definisjonen omfatter med andre ord kun spiselige deler av mat som kastes, og inkluderer ikke uspiselige
+deler som bein, kjerner og skall. En annen viktig del av den norske definisjonen er at matsvinn også
+inkluderer mat som gis til dyr. Figur 0-1 illustrerer forskjellen mellom nyttbart (spiselig) og ikke-nyttbart
+(uspiselig) matavfall. I tillegg illustrerer figuren når overskuddsmat anses å være matsvinn.
+
+
+
+
+Figur 0-1      Illustrasjon av nyttbart (spiselig) og ikke-nyttbart (uspiselig) matavfall, samt når mat blir til
+matsvinn med tanke på ressursutnyttelse
+
+Til høyre vises ressurspyramiden for mat, hvor overskuddsmat regnes som matsvinn dersom det går til
+forbrenning, biogass eller dyrefôr. Til venstre vises hvilke deler av maten som anses som matsvinn. De ikke-
+nyttbare delene av maten, slik som bein, skall og kjerner er ikke matsvinn, mens de nyttbare delene som vi
+kan spise er matsvinn. Hva som er «nyttbart» er ofte uproblematisk, men i enkelte tilfeller kan det være
+utfordrende å skille på dette. Denne rapporten går ikke inn i dybden på potensielle gråsoner knyttet til
+definisjonen eller mulig effekt av at respondentene kan ha feiltolket definisjonen, men for å sikre best
+mulig forståelse av definisjonen inkluderte skjemaet en innledende tekst om dette (se Vedlegg 1).
+
+
+
+
+40
+Utvalg, datagrunnlag og metodikk
+Forbrukerundersøkelsene gjennomføres årlig av Matvett og NORSUS ved hjelp av Norstat elektroniske
+spørreskjemaer (web-paneler). Utvalget utgjør ca. 1 000 respondenter hvert år som er representative for
+norske forbrukere. Undersøkelsen ble gjennomført i mai/juni i 2022, juni 2023 og april/mai 2024. Det ble
+innhentet tillatelse til å behandle persondata fra Sikt10.
+
+Se Vedlegg 1 for spørsmålene og påstandene benyttet i spørreundersøkelsen. Metodikken for
+kvantifiseringen av matsvinn bygger på en internasjonalt anerkjent metode for kartlegging av matsvinn via
+selvrapportering (van Herpen, van Geffen, et al., 2019). I spørreundersøkelsen stilles spørsmål om type og
+mengde mat- og drikkevarer kastet, tilstand på kastet mat/drikke samt årsaker til at maten er kastet. I
+tillegg inneholder spørreundersøkelsen spørsmål/påstander som skal måle respondentenes kunnskap,
+holdninger og atferd knyttet til holdbarhetsmerking, motivasjon knyttet til reduksjon av matsvinn samt
+evner og mulighet i de fem kritiske matsvinnøyeblikkene (planlegging innkjøp, lagring, tilbereding og
+spising/rydding). Spørsmålene bygger på tidligere studier om matsvinn som har sett på en eller flere av
+elementene motivasjon, mulighet og evne (som f.eks. van Herpen, Wijnen, Quested, Reynolds, and Sharda
+(2023) og Russell, Young, Unsworth, and Robinson (2017). Forbrukerundersøkelsene kartlegger
+selvrapportert matsvinn, som kan avvike fra faktisk matsvinn. I den siste sammenstillingen av plukkanalyser
+foreligger estimater for det faktiske matsvinnet som oppstår i husholdningene Resultatene fra den siste
+sammenstillingen er også inkludert i denne rapporten.
+
+Kommentarer til datakvalitet for husholdninger
+
+Det er kjent at selvrapportering fører til at forbrukerne underrapporterer eget matsvinn. Likevel har
+selvrapportert matsvinn en sterk sammenheng med faktisk matsvinn, slik at tallene kan si noe om relative
+mengder matsvinn (van Herpen, van der Lans, Holthuysen, Nijenhuis-de Vries, & Quested, 2019).
+Resultatene for selvrapportert matsvinn kan derfor brukes til å sammenlikne over tid, mellom varegrupper
+og mellom ulike forbrukertyper (Shu, Roe, & Bender, 2021), men er mindre egnet til å si noe om absolutt
+mengde matsvinn. I resultatdelen for husholdningene er derfor y-aksen som viser gram matsvinn per
+person fjernet for flere figurer, fordi disse verdiene gir et urealistisk bilde av faktisk mengde matsvinn.
+
+Analyse
+Respondentene oppga mengde matsvinn per uke og matvarekategori i ulike enheter, slik som
+serveringsskjeer (tilsvarende 50 gram). Angitt mengde ble regnet om til gram matsvinn per person i
+husholdningen ved å multiplisere mengden med angitt antall gram enheten tilsvarer og dele på antall
+personer angitt å bo i husholdningen.
+
+Resultatene ble analysert med statistiske metoder som t-test og variansanalyse (ANOVA).
+
+
+
+
+10
+     Kunnskapssektorens tjenesteleverandør
+
+41
+Vedlegg 2: Spørreundersøkelsen
+I undersøkelsen fikk respondentene først informasjon om at undersøkelsen «handler om all mat og drikke
+din husholdning har kastet i løpet av den siste uken.» Deretter fikk de informasjon om hvilken type mat og
+drikke dette inkluderer (matvarer de har kjøpt, matvarer de har dyrket hjemme, matvarer som er forringet,
+etc.), og hvilke matvarer spørreskjemaet ikke handler om (ikke-spiselige deler mat og matprodukter kastet
+utenfor hjemmet). De besvarte så en rekke spørsmål og påstander med mål om å få kunnskap om
+forbrukernes selvrapporterte matsvinn, samt atferd, holdninger og kunnskap knyttet til oppbevaring og
+bruk av mat.
+
+
+Spørsmål
+
+     1. Matsvinn: Mengde og tilstand
+        For å estimere hvor mye forbrukerne kastet av ulike mat- og drikkevarer, samt tilstanden på
+        matsvinnet, besvarte respondentene en rekke spørsmål. Spørsmålene er en bearbeidet versjon av
+        spørreundersøkelsen utviklet av van Herpen, van Geffen, et al. (2019) for å måle matsvinn i
+        husholdninger. Spørsmålene er oversatt fra engelsk til norsk av Nofima.
+
+     a) Varegrupper som er kastet
+         Respondentene ble presentert for en liste (se under) med ulike mat- og drikkevarer og ble bedt om
+         å merke av for «mat- og drikkevarene som er kastet i din husholdning den siste uken. For blandede
+         retter (gryteretter, supper, wok, pizza, sushi osv.), angi hovedingrediensene separat.»
+         Respondentene ble minnet om å oppgi alle typer mat som de hadde kastet, også mat som var blitt
+         dårlig.
+     1. Ferske grønnsaker (rå og varmebehandlet) og salater
+     2. Fersk frukt og bær
+     3. Ikke-ferske grønnsaker, frukt og bær (fryste/glass/hermetisert/tørket)
+     4. Potetprodukter (poteter, potetstappe, pommes frites o.l.) (Potetgull rapporteres under godteri,
+         desserter og snacks)
+     5. Pasta (både fersk og tørket)
+     6. Ris og andre kornprodukter (korn, granola, müsli, flakes, grøtblandinger, lefser, tacoskjell,
+         couscous, gryn, quinoa o.l.)
+     7. Bønner, linser, kikerter, tofu, kjøtterstatninger. o.l.
+     8. Kjøtt (Kjøttpålegg rapporteres under pålegg)
+     9. Fisk og fiskeprodukter (Fiskepålegg rapportens under pålegg)
+     10. Pålegg (kjøttpålegg i skiver, fiskepålegg, søtt pålegg, o.l.)
+     11. Brød og bakervarer (brød, boller, pitabrød, hvitløksbaguette, brødskive osv.)
+     12. Flytende meierivarer (melk, yoghurt, rømme, kesam, smør o.l.)
+     13. Ost (gulost, revet ost, brunost, blåmuggost, brie, fetaost osv.).
+     14. Egg og eggeretter (eggerøre, omelett osv.)
+     15. Supper, sauser, oljer og dressinger (brun saus, béarnaise, ketchup, majones, olivenolje, remulade
+         o.l.)
+     16. Godteri, desserter og snacks (potetgull, kjeks, sjokolade, kaker, iskrem o.l.)
+     17. Drikkevarer (juice, saft, øl, vin, kaffe, te, brus o.l.)
+     18. Jeg har ikke kastet mat eller drikkevarer den siste uken
+
+42
+     b) Matsvinnmengde og -kategori
+        På neste side fikk respondentene først presentert fire ulike kategorier for matsvinn, med en
+        utfyllende forklaring for hver kategori: 1) Helt ubrukt mat, 2) Delvis brukt mat, 3) Måltidsrester og
+        4) Rester etter lagring.
+
+De fikk så opp én og én av matvarekategoriene de hadde angitt å kaste i løpet av den siste uken. For hver
+matvarekategori besvarte de følgende spørsmål:
+
+Mengde
+
+I din husholdning, hvor mye [matvarekategori] ble kastet totalt den siste uken?
+
+Respondentene anga mengde kastet mat i enheter som var tilpasset matvarekategorien. For eksempel ble
+de bedt om å angi antall serveringsskjeer kastet for ferske grønnsaker og salater. En serveringsskje var
+definert som 50 gram eller 3 spiseskjeer. Mengde kastet kjøtt ble angitt i porsjoner, hvor «En porsjon
+refererer til ett kyllingbryst, en biff, osv.).»
+
+For hver matvarekategori ble det oppgitt et eksempel på hvor mye den angitte enheten tilsvarte for den
+aktuelle matvaren. For eksempel at en serveringsskje grønnsaker «tilsvarer en liten bifftomat, eller en halv
+løk». Respondentene anga mengde fra en liste alternativer som varierte per varekategori, for eksempel:
+
+     •      Mindre enn én serveringsskje
+     •      1 til 2 serveringsskjeer
+     •      3 til 4 serveringsskjeer
+     •      5 til 6 serveringsskjeer
+     •      Mer enn 6 serveringsskjeer
+
+Kategori
+Respondentene skulle angi hvilken kategori mesteparten av de kastede [matvarekategori] tilhørte. De
+kunne kun velge ett av følgende alternativer:
+
+                 •       Helt ubrukt mat
+                 •       Delvis brukt mat
+                 •       Måltidsrester
+                 •       Rester etter lagring
+
+Årsak
+
+Respondentene anga den viktigste årsaken til at maten ble kastet, fra en liste av ulike alternativer.
+Alternativene varierte ut fra hvilken kategori respondentene hadde angitt at varen tilhørte. For matvarer
+som var angitt å være «helt ubrukt mat», ble for eksempel følgene alternativer presentert:
+
+                 •       Varen var dårlig ved innkjøp
+                 •       Varen hadde kort holdbarhet ved innkjøp
+                 •       Maten ble oppbevart feil hjemme
+                 •       Jeg glemte maten i kjøleskap eller annet sted
+                 •       Jeg ville heller spise noe annet
+                 •       Jeg kjøpte for mye:
+
+
+43
+         Ved valg av denne årsaken: Hvorfor kjøpte du for mye?
+                        o Jeg feilberegnet hvor mye jeg trengte
+                        o Jeg glemte at jeg hadde produktet hjemme
+                        o Jeg kjøpte mer mat enn jeg hadde tenkt på grunn av mengdetilbud i butikken
+                        o Jeg kjøpte mer mat enn jeg hadde tenkt fordi jeg ble fristet i butikken
+                        o Forpakningen var større enn jeg trengte, så jeg klarte ikke spise opp alt
+                •       Emballasjen var for dårlig
+                •       Produktet var ikke som forventet
+                •       Andre årsaker – spesifiser____________
+
+     2. Generelle matvaner
+        Forbrukernes matvaner ble målt ved at respondentene anga hvor enig eller uenig de var i
+        påstandene nedenfor, på en skala fra 1 (meget enig) til 5 (meget uenig).
+            • Jeg har hovedansvaret for innkjøp av mat i husholdningen
+            • Jeg har hovedansvaret for matlaging i husholdningen
+            • Jeg har hovedansvaret for å rydde opp etter middag i husholdningen
+
+I tillegg ble forbrukerne spurt om:
+
+     •   Hvor ofte gjør din husholdning matinnkjøp? (åtte svaralternativer, fra Flere ganger om dagen til
+         Sjeldnere enn 1 gang i uka)
+     •   Huk av hvor din husholdning regelmessig skaffer mat (flere valg er mulig) (Svaralternativer: Butikk,
+         netthandel, matkasse, take away, rekoring/direkte fra bonde, Selvdyrket, selvhøstet eller eget
+         jakt/fiske, Annet (beskriv))
+     •   Hvor mye tid bruker din husholdning på tilbereding av middag per dag? (syv svaralternativer, fra 0-
+         10 minutter til Over 50 minutter)
+     •   Hvor mye penger bruker din husholdning på mat i måneden? (åtte svaralternativer, fra Under 2000
+         kr per måned til Over 12 000 kr per måned)
+
+
+Motivasjon
+
+         Forbrukernes motivasjon knyttet til å ikke kaste mat ble kartlagt ved at respondentene anga hvor
+         enig eller enig de var i påstandene nedenfor, på en skala fra 1 (helt uenig) til 7 (helt enig)
+             • Mine nærmeste forventer at jeg ikke kaster mat.
+             • Jeg kaster mindre mat sammenliknet med andre.
+             • Det er vanskelig å ikke kaste mat.
+             • Jeg kan selv påvirke hvor mye mat jeg kaster.
+             • Jeg har selv ansvaret for maten jeg kaster.
+             • Mine valg har en effekt på miljøet.
+             • Jeg ønsker å kaste mindre mat.
+             • Det er fordelaktig for meg selv å kaste mindre mat.
+             • Jeg mener at mat er verdifullt.
+             • Det er viktig å inspirere andre til å kaste mindre mat.
+             • Vi kan alle bidra til å redusere matsvinnet.
+             • Ved å redusere eget matsvinn kan jeg bidra til å stoppe klimaendringene.
+
+
+44
+           •   Matrester har liten økonomisk verdi.
+           •   Det koster meg for mye i form av tid og arbeid å ikke kaste mat.
+
+
+
+Opplevd mulighet og vaner
+
+       Forbrukernes vaner ble målt ved at respondentene anga hvor ofte de gjorde følgende handlinger
+       forrige uke, fra 1 (aldri) til 7 (alltid). Videre ble opplevd mulighet/vanskelighetsgrad knyttet til
+       handlingene målt på neste side, ved at respondentene fikk se den samme listen med handlinger, og
+       skulle angi hvor vanskelig de vanligvis opplever dette som, fra 1 (veldig vanskelig) til 7 (veldig
+       enkelt).
+           • Planlegge måltider flere dager i forveien
+           • Sjekke hva jeg har før handleturen
+           • Lage handleliste før handleturen
+           • Kommunisere med de jeg bor sammen med for å planlegge innkjøp og måltider
+           • Planlegge hvordan jeg skal få spist opp uplanlagte matrester
+           • Kjøpe noe jeg ikke har planlagt fordi det var på tilbud
+           • Unngå å kjøpe noe jeg har fra før
+           • Kjøpe matvarer med lengst mulig holdbarhet
+           • Kjøpe noe jeg ikke har planlagt fordi det fristet
+           • Kjøpe akkurat riktig mengde
+           • Kjøpe mest mulig rimelig/billig mat
+           • Holde oversikt over hva jeg har i kjøleskapet eller matskapet
+           • Oppbevare maten riktig
+           • Sjekke utløpsdatoen på maten i kjøleskapet eller matskapet
+           • Bruke fryseren
+           • Tilberede akkurat riktig mengde mat
+           • Bruke målebeger eller liknende (f.eks. kopp) for å måle opp riktig mengde mat
+           • Bruke mat med begrenset holdbarhet først, fremfor mat med lengre holdbarhet
+           • Lage mat som alle liker/vil spise
+           • Bruke matrester til nye måltider fremfor å tilberede helt nye måltider
+           • Bruke egne sanser for å vurdere om maten var god
+           • Fjerne mugg/skadet del av maten og bruke resten
+           • Bruke mat med redusert kvalitet (tørt brød, slappe grønnsaker e.l.)
+           • Utforske nye retter og matvarer
+           • Lage det som frister mest akkurat da
+           • Spise matrester
+           • Spise opp måltidet (unngå rester)
+           • Ta godt vare på matrester etter måltid slik at de holder seg
+
+
+Holdbarhetsmerking
+
+       For å måle forbrukernes holdninger og atferd knyttet til holdbarhetsmerking, anga respondentene
+       hvor enig eller uenig de var i fire påstander, på en skala fra 1 (meget enig) til 5 (meget uenig).
+
+
+45
+            •   Jeg er skeptisk til å spise rester eller mat som har gått ut på dato på grunn av risikoen for å
+                bli syk.
+            •   Jeg bruker alltid sansene (ser, lukter, smaker) fremfor å se på datomerkingen for å avgjøre
+                hvorvidt mat bør kastes eller ikke
+            •   Jeg kaster alltid mat som er gått ut på dato merket «Siste forbruksdato»
+            •   Jeg kaster alltid mat som er gått ut på dato merket «Best før»
+
+For å måle forbrukernes atferd knyttet til supplerende holdbarhetsmerking ble halvparten av
+respondentene vist en illustrasjon av en melkepakke som hadde gått ut på dato for fire dager siden med
+supplerende holdbarhetsmerking, mens den resterende halvparten ble vist en illustrasjon av en
+melkepakke som hadde gått ut på dato for fire dager siden uten supplerende holdbarhetsmerking. Begge
+gruppene ble stilt ett spørsmål:
+
+            •   Se for deg at du skal bruke melk i dag, og finner melka på bildet i kjøleskapet ditt. Hva gjør
+                du?
+
+Spørsmålet ble besvart ved å velge ett av tre svaralternativer: 1) Bruker melka slik den er, 2) Ser, lukter og
+evt. smaker på melka for å vurdere om den kan brukes, 3) Kaster melka.
+
+        For å kartlegge forbrukernes kunnskap knyttet til holdbarhetsmerking, ble forbrukerne stilt to
+        spørsmål:
+            • Hva passer best med din oppfatning av «best før»-datomerking?
+            • Hva passer best med din oppfatning av «siste forbruksdag»-datomerking?
+        Begge spørsmålene ble besvart med ett av tre svaralternativer: 1) Angir siste dagen maten trygt kan
+        spises, 2) Betyr at maten kan være spiselig etter passert dato, 3) Ingen av alternativene stemmer
+        med min oppfatning .
+
+
+Bakgrunnsvariabler
+
+Til slutt besvarte respondentene spørsmål knyttet til utdannelse, arbeids- og bosituasjon:
+
+            •   Hva er din alder?
+            •   Hva er ditt kjønn?
+            •   Hvilken kommune bor du i?
+            •   Fylke
+            •   Landsdeler
+            •   Hva er din høyeste fullførte utdannelse?
+            •   Hvordan vil du beskrive din daglige situasjon? (flere svaralternativer)
+            •   Hvilken sektor jobber du i?
+            •   Hvor mange personer er det i husstanden?
+            •   Hvor mange personer er det i husstanden under 18 √•r?
+            •   Når er de hjemmeboende barna under 18 født?
+            •   Hva er husstandens bruttoinntekt (f√∏r skatt)?
+            •   Hvordan vil du beskrive din daglige situasjon?
+            •   Bor du i? (Hvilke av følgende passer best for deg? (Bor alene, Bor med venner/ i kollektiv,
+                Bor med samboer/ ektefelle uten barn, Bor med samboer/ ektefelle med barn, Bor alene
+                med barn, Bor hos mine foreldre, Annet)
+
+46
+     •   Hva er husstandens bruttoinntekt før skatt?
+
+
+
+
+47
+Visjonen til NORSUS Norsk institutt for bærekraftsforskning AS, tidligere Østfoldforskning AS, er å bidra til
+bærekraftig samfunnsutvikling. Vi utvikler kunnskap og metoder for å forstå og implementere bærekraft
+bedre i samfunnet. Sammen med bedrifter og offentlige aktører kartlegger og reduserer vi
+miljøbelastninger, ofte med økonomisk gevinst. Slik bidrar vi til å bevege samfunnet i en bærekraftig
+retning.
+
+
+
+
+48
+

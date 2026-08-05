@@ -1,0 +1,418 @@
+SOURCE-URL: https://doi.org/10.1017/sus.2024.35
+RETRIEVED: 2026-08-05 (innhenting D-alternativt_protein)
+
+Global Sustainability                                Offshoring insect farms may jeopardize
+cambridge.org/sus
+                                                     Europe’s food sovereignty
+                                                     Ren Ryba
+                                                     Animal Ask, Unit 10, The Linen House, 253 Kilburn Lane, London W10 4BQ, UK
+Commentary
+Cite this article: Ryba R (2024). Offshoring           Abstract
+insect farms may jeopardize Europe’s food
+sovereignty. Global Sustainability 7, e31, 1–7.
+                                                       Non-technical summary. Given increasing global political, security and economic challenges,
+https://doi.org/10.1017/sus.2024.35                    politicians in the European Union (EU) are seeking to reduce the EU’s dependence on
+                                                       imports, including feed for farmed livestock. While insect farming has been suggested as
+Received: 28 February 2024                             an advantageous source of livestock feed is the insect farming industry, the sector has not
+Revised: 2 May 2024
+Accepted: 5 June 2024
+                                                       met optimistic expectations. In particular, labor and electricity costs are driving insect com-
+                                                       panies offshore, including to Asia and the United States. This paper explores ways that the EU
+Keywords:                                              could solve this problem, the most promising of which is to expand the EU’s production of
+food security; Hermetia illucens; insect               maize and soy.
+farming; Musca domestica; offshoring; Tenebrio
+                                                       Technical summary. In the context of the Russian invasion of Ukraine and increasing global
+molitor
+                                                       destabilization, policy makers within the European Union have expressed the need to reduce
+Author for correspondence:                             the bloc’s dependence on imported agricultural products such as livestock feed. One industry
+Ren Ryba                                               that has been promoted as an advantageous source of livestock feed is insect agriculture.
+Email: info@animalask.org
+                                                       However, the insect industry’s growth has not kept pace with optimistic expectations, and
+                                                       high labor and electricity costs in Europe appear to be driving major insect companies to
+                                                       expand production offshore. One solution may involve supporting the automation of insect
+                                                       farming, though automation may have harmful social consequences by reducing employment
+                                                       and exacerbating inequality. A more promising solution could involve bringing additional
+                                                       land under cultivation to expand domestic production of maize and soy, and the most up-
+                                                       to-date estimates suggest that doing so may even offer environmental benefits over insect
+                                                       production.
+                                                       Social media summary. Insect farming has been offered as a solution to EU food security, but
+                                                       labor and power costs complicate the picture.
+
+
+
+                                                     1. Introduction
+                                                     In recent years, few topics have generated as much academic interest and popular optimism as
+                                                     insect farming. Proponents of insect farming have drawn attention to ways that insect produc-
+                                                     tion could benefit environmental sustainability, food system resilience, and local producers
+                                                     (IPIFF, 2023). These benefits, together with the potential for significant economic returns,
+                                                     have drawn venture capital and research effort to support the nascent insect farming industry
+                                                     (Halloran et al., 2018; Rabobank, 2021).
+                                                         However, to deliver any benefits, the insect production industry still has substantial barriers
+                                                     to overcome. These include logistical challenges, food safety concerns, the disposal of frass
+                                                     (insect waste), and competition with conventional livestock farming for key inputs such as
+                                                     high-quality feed (Grasso & Bordiga, 2023; Smetana, 2023; Thrastardottir et al., 2021).
+                                                         While insects farmed for human consumption have attracted headlines, insect production
+                                                     in the Global North is almost entirely used to produce animal food and feed. The market share
+                                                     of insects farmed for human consumption is ‘negligible’, according to a recent Rabobank
+                                                     report (Rabobank, 2021). Rather, almost all insects in Europe and North America are farmed
+                                                     to produce feed for pets, farmed fish, and farmed poultry (Halloran et al., 2018). The main
+                                                     insects farmed for feed are larvae of three species: black soldier flies (Hermetia illucens), yellow
+                                                     mealworms (Tenebrio molitor), and house flies (Musca domestica) (Grasso & Bordiga, 2023;
+© The Author(s), 2024. Published by                  Halloran et al., 2018).
+Cambridge University Press. This is an Open              In the European Union (EU), narratives around the sustainability and social implications of
+Access article, distributed under the terms of
+                                                     insect farming need to be understood in the context of the EU’s food strategies and emerging
+the Creative Commons Attribution licence
+(http://creativecommons.org/licenses/by/4.0/),       geopolitical crises. The key document outlining the EU’s objectives is the farm to fork strategy,
+which permits unrestricted re-use, distribution      which aims to ensure that the food system is having a positive impact on the environment,
+and reproduction, provided the original article      food security, public health, and economic returns.
+is properly cited.                                       The EU’s agricultural strategy can be situated in the context of global trends. While human-
+                                                     ity is capable of feeding itself, transformations are needed to ensure that food production is
+                                                     inclusive and sustainable (Vos & Bellù, 2019). The EU sees itself as a major contributor to
+                                                     food security, sustainability, and justice around the world (Maggio et al., 2016). The
+                                                     Commission’s 2022 communication made frequent reference to global food security, food
+
+
+
+https://doi.org/10.1017/sus.2024.35 Published online by Cambridge University Press
+           2                                                                                                                                      Ren Ryba
+
+
+           assistance, and support to countries in need, and ‘the transition         studies and news articles (Thrastardottir et al., 2021). In contrast,
+           towards sustainable, resilient and fair food systems in the EU            IPIFF’s members produced around 9,500 tonnes of insect feed
+           and globally’ (European Commission, 2022). The EU can indeed              products in 2022 (IPIFF, 2023). Even accounting for insects pro-
+           exercise power over the direction of the global food system. Such         duced for human consumption (currently a negligible market
+           power can be exercised directly, through the EU’s own agricultural        share (Rabobank, 2021)) and producers that are not members
+           production and provision of food aid, or indirectly, by setting           of IPIFF, it is difficult to see how the insect farming industry
+           standards and regulations that are subsequently adopted by pro-           would achieve the 100-fold growth required to reach 1 million
+           ducers and governments in other countries (the ‘Brussels effect’)         tonnes by next year. The online forecasting aggregation platform
+           (Bradford, 2020; Maggio et al., 2016). Therefore, the EU’s policy         Metaculus currently predicts that 47,000 tonnes of insect protein
+           response to any agricultural issue – including insect production –        will be used as feed in Europe in 2028 (Metaculus, 2024). This
+           will need to pay attention to the EU’s role in the global commu-          more modest prediction, which still expects the insect farming
+           nity and its stated desire to improve sustainability and social just-     industry to expand by several times over the next few years, is
+           ice around the world.                                                     only a couple of percent of the IPIFF’s original prediction for
+               More urgently, the attention of the EU’s policy makers has            2030.
+           been drawn by the geopolitical and humanitarian crisis that is                There are many factors contributing to the insect industry’s
+           the Russian invasion of Ukraine. Beyond the immense human                 struggle to meet expectations, including regulatory hurdles and
+           suffering, the war is also shining a light on fractures in the EU’s       unresolved logistical challenges (Grasso & Bordiga, 2023).
+           food systems. These fractures have motivated the EU’s policy              However, one important observation is that many small-scale
+           makers and institutions to identify areas where the bloc can              startups are struggling to scale up their production to a commer-
+           improve its food self-sufficiency. French President Emmanuel              cial level. There is a high turnover; the majority of insect produ-
+           Macron expressed this view concisely, as reported by Politico             cers wind down or go bankrupt within five years (Larouche et al.,
+           (Wax, 2022): ‘We can no longer depend on others to feed                   2023; Thrastardottir et al., 2021). There appear to be some under-
+           ourselves’.                                                               lying economic dynamics that are preventing startups from
+               A communication from the European Commission empha-                   expanding and reaching commercial production volumes.
+           sized that while the EU is actually self-sufficient in most of its
+           food, it is not self-sufficient in key inputs into its food production
+                                                                                     3. Europe’s insect farms are moving offshore
+           (European Commission, 2022). This is something of a paradox;
+           while the EU is largely self-sufficient in food outputs, the EU           Offshoring occurs when production is fragmented into separate
+           relies heavily on imports for animal feed, including soybean and          production processes carried out by different companies in differ-
+           maize, and energy. As such, the EU has begun to pursue policies           ent countries (whether or not those companies have the same
+           to improve its self-sufficiency in these essential inputs (European       owner). Offshoring is a result of the integration of the global
+           Commission, 2022).                                                        economy. The past decades have seen a growing importance of
+               To progress the policy goal of food self-sufficiency, the EU          offshoring in the EU in particular (Radło, 2017).
+           established a ‘Contingency plan for ensuring food supply and                  Likewise, we may be witnessing the beginning of offshoring in
+           food security in times of crisis’. As part of this, the EU also estab-    the EU’s insect agriculture industry. Europe’s biggest insect com-
+           lished the European Food Security Crisis Preparedness and                 panies have recently announced plans to expand production out-
+           Response Mechanism (EFSCM), a group of Member State repre-                side of Europe (Figure 1). France-based Ÿnsect has announced
+           sentatives, stakeholder organizations, and other experts, to sup-         deals with Jord Producers and Ardent Meals to expand insect pro-
+           port coordination across sectors and Member States                        duction in the Midwest of the United States, and Ÿnsect has also
+           (Bertolozzi-Caredio et al., 2023; European Commission, 2024).             announced a deal with Mexico City-based Corporativo Kosmos to
+               Under the contingency plan and the EFSCM, there has been a            expand production in Mexico. Meanwhile, Netherlands-based
+           large amount of resources invested into mapping the EU’s agricul-         Protix and France-based InnovaFeed likewise have plans to
+           tural supply chain, identifying weaknesses, and addressing those          expand into the United States. InnovaFeed has also announced
+           weaknesses with policy solutions (Bertolozzi-Caredio et al.,              plans to expand into South-East Asia (Roussange, 2022; Ÿnsect,
+           2023; European Commission, 2024; Loi et al., 2024). One such              2022).
+           study concluded that the most significant risk to the EU’s food               The decision to move insect production outside of the EU may
+           self-sufficiency is the high costs and low availability of inputs,        be driven by the economic realities of insect agriculture. The
+           including energy and feed for livestock and aquaculture                   financial details of insect farming operations are often kept secret,
+           (Bertolozzi-Caredio et al., 2023). In particular, the livestock and       but we can glean some information from the seminal economic
+           aquaculture sectors depend on imported feed ingredients, such             studies on the finances of this industry (Halloran et al., 2018;
+           as soymeal (Loi et al., 2024). This pursuit of self-sufficiency in        Niyonsaba et al., 2023a; 2023b; Thrastardottir et al., 2021).
+           the EU may pose a challenge when considered alongside current                 Two major cost components in insect production are labor and
+           trends in the insect farming industry.                                    energy. To date, the only study to provide empirical evidence on the
+                                                                                     finances of insect farms in Europe is a study of seven T. molitor
+                                                                                     farms in the Netherlands. In this study, labor emerged as one of
+           2. The sluggish start of the insect industry
+                                                                                     the biggest cost components, ranging between 677 and 2913
+           So far, insect production has not kept pace with optimistic projec-       EUR/tonne production when the farmer’s own labor was included
+           tions. In 2019, the industry body International Platform of Insects       (Niyonsaba et al., 2023a). Labor costs were exceeded on some
+           for Food and Feed (IPIFF) projected that the annual production            farms only by the major upfront investments for buildings and
+           of all insect proteins (including for human consumption) would            machinery. Manual labor is required when caring for larvae
+           reach 1 million tonnes by 2025 and 3 million tonnes by 2030               (e.g. moving eggs into crates, feeding larvae, harvesting larvae, clean-
+           (IPIFF, 2019). This projection was widely cited by both academic          ing crates, and replacing beetles) and for other on-farm processes,
+
+
+
+https://doi.org/10.1017/sus.2024.35 Published online by Cambridge University Press
+            Global Sustainability                                                                                                                                      3
+
+
+
+
+                                                                                                            Figure 1. Offshoring of European insect production may
+                                                                                                            be driven by Europe’s higher costs for energy and
+                                                                                                            agricultural wages. Insect production requires specific
+                                                                                                            temperatures (top), electricity (middle), and manual
+                                                                                                            labor (bottom), which are cheaper to obtain in North
+                                                                                                            America and South-East Asia. The dashed lines in the
+                                                                                                            top graph represent approximate optimal temperatures
+                                                                                                            for rearing larvae of black soldier flies and yellow
+                                                                                                            mealworms. Data: Climatic Research Unit, University of
+                                                                                                            East Anglia (crudata.uea.ac.uk, ODbL 1.0 licence); Global
+                                                                                                            Petrol Prices (globalpetrolprices.com, CC BY-NC-ND 3.0
+                                                                                                            licence), International Labour Organization (ilostat.ilo.org,
+                                                                                                            CC BY 4.0 licence).
+
+
+
+
+            such as administration, transport, and marketing (Grasso & Bordiga,      and humidity level needs to be maintained within a relatively narrow
+            2023; Niyonsaba et al., 2023a). Given the high costs of labor, insect    range. Suitable temperatures tend to be relatively high (27–40 °C,
+            industry stakeholders have identified high labor costs and low levels    depending on species) (Grasso & Bordiga, 2023). Electricity is also
+            of automation as main barriers to the expansion of insect produc-        needed for slaughtering insects, which may involve energy-intensive
+            tion (Niyonsaba et al., 2023b). Therefore, in developed countries,       processes such as freezing, oven baking, or blending; processing dead
+            the profits of insect production may only exceed that of conven-         insects; and storing substrates and other perishable products (Grasso
+            tional animal protein sources when insect farms reduce wage costs        & Bordiga, 2023). Furthermore, for farms that invest in automation,
+            by becoming highly automated (Halloran et al., 2018).                    we can expect the costs of electricity to increase accordingly.
+               When it comes to energy, there are several on-farm processes             Critically, labor and electricity tend to cost more in Europe
+            that contribute to farms’ electricity demands. The temperature           than in other insect-producing regions (Figure 2). Consider the
+
+
+
+https://doi.org/10.1017/sus.2024.35 Published online by Cambridge University Press
+           4                                                                                                                                                             Ren Ryba
+
+
+
+
+           Figure 2. The largest European insect farmers are expanding overseas. Key destinations include the United States, Mexico, and South-East Asia (Roussange, 2022;
+           Watson, 2023; Ynsect, 2022).
+
+
+
+           labor costs of 677 to 2913 EUR per tonne production, reported for                      that there is a huge potential for Innovafeed’s technology and plat-
+           T. molitor farms in the Netherlands (Niyonsaba et al., 2023a).                         form to be rolled out in Southeast Asia, given the tropical climate
+           These costs suggest that a move from the Netherlands (with                             which is conducive for the black soldier fly’. Alexandre de Caters,
+           labor costs of 3841 USD per month for agricultural work;                               the Belgian co-founder of insect company Entobel, gives a similar
+           Figure 2) to, say, Thailand (198 USD per hour) could save a pro-                       reason when explaining his choice to base his company in
+           ducer between 642 and 2762 EUR in labor costs for every tonne of                       Vietnam (Watson, 2023): ‘It quickly became obvious that Europe
+           production (91%). Of course, this is a simplified calculation, but it                  was not the place to start for the simple reason that black soldier
+           illustrates the important fact that insect producers can save lots of                  flies are tropical insects. […] We plan to grow further inside
+           money for every tonne of production by moving to countries where                       Vietnam, but the bigger facilities would likely be outside Vietnam
+           labor – often producers’ largest cost component – is cheaper.                          in countries with tropical weather and a stable supply of feedstock
+               Moreover, the higher temperatures in many insect-producing                         such as Indonesia and Malaysia’. And Ankit Alok Bagaria, CEO of
+           South-East Asian countries would reduce the difference between                         India-based company Loopworm that aims to produce insect-based
+           the ambient air temperature and the optimal temperature for                            aquaculture feed, emphasizes the role of both labor and energy costs
+           insect growth, thereby reducing the electricity required by insect                     (Fletcher, 2023): ‘In Europe the labour cost is very high and, as the
+           farms in the first place. One study on mealworms farmed by                             climate is not so suitable for insect growth, [European producers]
+           the company Ÿnsect in France found that producing 1 kg of                              have to customise and modulate the climate in their farms’.
+           fresh insects uses 1.152 kWh at farm gate and 8.940 kWh at pro-
+           cessing plant gate (Thévenot et al., 2018). In France, with energy
+                                                                                                  4. Discussion
+           costs of 0.136 USD per kWh in 2019, 1 tonne of fresh insects
+           would thus cost the producer 157 USD (at farm gate) or 1216                            If the EU’s insect companies find the idea of moving offshore
+           USD (at processing plant gate) in energy costs alone. Much of                          attractive, how could policy makers respond? Could the automa-
+           this cost comes from maintaining the rearing room at 28 °C in                          tion of the insect industry, as some companies are pursuing,
+           a country where ambient temperatures average around 10 °C                              improve the efficiency and sustainability of the EU’s food produc-
+           (mean for Lille, France from 2009 to 2013; Figure 2) (Thévenot                         tion (Thrastardottir et al., 2021)?
+           et al., 2018). In contrast, ambient temperatures in Vũng Tàu,
+           Vietnam, and Bangalore, India are 28.1 and 25.8 °C, respectively
+                                                                                                  4.1 Automation
+           (Figure 2). As such, production in Vietnam or India rather than
+           Western Europe enables the producer to avoid this substantial cost                     While automation can reduce labor costs, it would also bring a
+           component. The United States does not necessarily have a warmer                        series of trade-offs. First, automation would, by definition, reduce
+           climate, but that country does have cheaper electricity and would                      the ability of insect farms to contribute to employment
+           therefore still represent a cost saving for producers (Figure 2).                      (Heckmann et al., 2019). The irony is that local employment
+               The economic reality of labor and energy costs, and the resulting                  has been promoted by industry stakeholders as one potential
+           incentive to move insect production offshore, is a topic about which                   benefit of insect farming in the first place (Grasso & Bordiga,
+           stakeholders within the insect industry are candid. The investor Tan                   2023; IPIFF, 2023). Second, as mechanical and electrical energy
+           Shao Ming, when discussing his support for Innovafeed’s plans to                       is a major component of insect farms’ energy use, automation
+           expand in Southeast Asia, reports (ABC Impact, 2022): ‘We believe                      may increase energy consumption (Kok, 2021). Third,
+
+
+
+https://doi.org/10.1017/sus.2024.35 Published online by Cambridge University Press
+            Global Sustainability                                                                                                                        5
+
+
+            automation could have different impacts on the demand for con-               Crop modelling reveals that there are large areas of central and
+            trasting types of labor. While this is a complex debate, it is plaus-    eastern Europe that are feasible for soy production (Rotundo
+            ible that automation of agricultural production – in the strict          et al., 2024). Producing soy in the EU could reduce greenhouse
+            sense of deliberately finding ways to reduce the need for human          gas emissions by reducing the production and transport of envir-
+            labor – could have a disproportionate impact on low-skilled              onmentally costly Brazilian soy (Rotundo et al., 2024;
+            labor and could exacerbate economic inequality (Krenz et al.,            Schilling-Vacaflor & Gustafsson, 2024). Likewise, maize production
+            2021; Rijnks et al., 2022). One analysis of Dutch yellow mealworm        appears to have a disproportionately low carbon footprint in Europe
+            farms found that producers often hire low-skilled laborers who           when compared to maize production around the world (Holka &
+            ‘have difficulties qualifying for a regular job’ (Niyonsaba et al.,      Bieńkowski, 2020). Since this policy response would involve
+            2023a). Therefore, automation of Europe’s insect farms could dis-        simply expanding production, rather than supporting an entirely
+            proportionately harm otherwise vulnerable agricultural workers.          new sector, this policy response may have higher public support.
+            On the other hand, it is possible that automation could improve              In contrast, the environmental benefits of insect production
+            the efficiency of production, though this would hinge on how             may have been overstated (Biteau et al., 2024). The most
+            automation is applied in practice (Krenz et al., 2021; Rijnks            up-to-date comparisons have found that producing compound
+            et al., 2022).                                                           animal feed using insects typically requires more energy and pro-
+                In any case, we should be cautious about how food produc-            duces a larger carbon footprint than the production of animal
+            tion technology can impact different members of society in dif-          feed using soy and grains (Smetana, 2023; Quang Tran et al.,
+            ferent ways. Large, perhaps multinational, companies are more            2022). The promise of insect farms to deliver environmental ben-
+            likely to have the capital and expertise to invest in automation         efits hinges on the ability to feed insects using food waste and to
+            than small, local startups (Thrastardottir et al., 2021).                use insect waste to produce fertilizer. In practice, both of these
+            Automation may simply end up replicating the trend towards               ideas still face significant logistical, economic, and safety hurdles
+            concentration of agricultural production in the hands of a few           before they can be applied at industrial scales (Biteau et al., 2024).
+            large companies – beyond the direct implications for social just-        This is why large insect companies operating today overwhelm-
+            ice, this could increase popular suspicion of this new type of           ingly prefer the same high-quality inputs, including grains, that
+            food production (Mohorcich & Reese, 2019; Piet, 2017). As                are already sought by other sectors (Biteau et al., 2024). When
+            such, while automation could indeed reduce high labor costs              high-quality feeds are used as an input for insect production,
+            from the perspective of the industry, automation may create              this simply adds an additional trophic level to the food chain,
+            new problems for society that would render this policy response          thus increasing the overall environmental impact (Roffeis et al.,
+            counterproductive.                                                       2020; Smetana, 2023).
+                It is unclear whether European consumers would accept live-              For these reasons, bringing additional land under cultivation
+            stock fed with insect-based feeds. One literature review drew an         in the EU – which has been encouraged by the European
+            optimistic conclusion, finding that societal attitudes would not         Commission (2022) – appears to be a practicable and environ-
+            be a barrier to the use of insects as livestock feed (Sogari et al.,     mentally beneficial policy option.
+            2019). In contrast, a recent qualitative study drew more nuanced
+            conclusions, with participants expressing concerns about impacts
+                                                                                     4.3 The impact of climate change
+            on sustainability, pathogen transmission, and animal welfare
+            (Bunker & Zscheischler, 2023). History provides the example of           It is worth mentioning how climate change may influence things.
+            genetically modified foods; companies were confident in the              Higher average temperatures could slightly reduce the need for
+            environmental benefits that genetic modification could bring,            insect farmers to pay for heating costs, and Europe may see a
+            and these companies were thus unprepared for popular backlash            modest decrease in electricity prices (Pilli-Sihvola et al., 2010;
+            (Mohorcich & Reese, 2019). Popular fears and backlash may be             van Ruijven et al., 2019). On the other hand, positive impacts
+            exacerbated if production involves complicated technology and            of climate change may be concentrated in the disproportionately
+            is controlled by a few large companies, and this is exactly the          wealthy areas of Europe, whereas less wealthy states in Southern
+            path that would be followed by an industry looking to automate           Europe may see higher energy demand and electricity prices
+            production of a novel agricultural output (Amato et al., 2023;           (Pilli-Sihvola et al., 2010; van Ruijven et al., 2019). Moreover,
+            Mohorcich & Reese, 2019). As the popular backlash against gen-           temperature increases will also be observed in North America
+            etically modified foods reveals, consumer education and commu-           and Asia, so offshoring production may remain equally attractive
+            nication are an important step in securing social approval               to insect producers as it is today.
+            (Mohorcich & Reese, 2019; Sogari et al., 2019). That said, invest-           It is plausible that widespread adoption of renewable energy
+            ing in consumer education may be unattractive to investors, with         sources could improve the picture for European insect produc-
+            a former insect company co-founder stating (Badeski, 2023):              tion. There are concepts for insect farms that rely on side-stream
+            ‘Spending venture equity dollars on an uphill battle to educate          heat or on-site renewable energy production (Smetana, 2023;
+            customers is not a good use of capital’.                                 Grasso & Bordiga 2023). However, such concepts are limited to
+                                                                                     small-scale production, and one life-cycle assessment concluded
+                                                                                     that ‘it is unlikely that on-site renewables will be a solution for
+            4.2 Expanding domestic maize and soy production
+                                                                                     all insect producers’ (Smetana et al., 2019). Also, switching to
+            A more feasible policy response may be to bring additional land          renewable energy sources would equally benefit other forms of
+            into cultivation, thereby increasing domestic production of              feed production, so insect farming would not have a particular
+            maize and soy (European Commission, 2022). At first glance, it           advantage in this regard (Paris et al., 2022).
+            might appear that insect production might offer environmental                To conclude, we can see that relying on insect production may
+            benefits over crop production. However, a detailed look at the           result in the EU simply replacing soy and maize imports with
+            underlying dynamics leads to a counter-intuitive conclusion.             insect protein imports, which could jeopardize the EU’s pursuit
+
+
+
+https://doi.org/10.1017/sus.2024.35 Published online by Cambridge University Press
+           6                                                                                                                                                               Ren Ryba
+
+
+           of food self-sufficiency. In contrast, expanding domestic crop pro-                      IPIFF. (2023). IPIFF Perspectives on the evolution of the European insect sector
+           duction may be the best policy solution for the EU to improve its                           towards 2030: Current EU regulatory status, existing opportunities and pro-
+           agricultural self-sufficiency while preserving agricultural employ-                         spects for development. IPIFF. https://ipiff.org/wp-content/uploads/2023/11/
+                                                                                                       IPIFF-Brochure-1-1.pdf
+           ment and public support.
+                                                                                                    Kok, R. (2021). Preliminary project design for insect production: Part 1 – over-
+           Acknowledgments. N/A.                                                                       all mass and energy/heat balances. Journal of Insects as Food and Feed, 7(5),
+                                                                                                       499–509.
+           Author contributions. N/A.                                                               Krenz, A., Prettner, K., & Strulik, H. (2021). Robots, reshoring, and the lot of
+                                                                                                       low-skilled workers. European Economic Review, 136, 103744.
+           Funding statement. This research received no specific grant from any fund-               Larouche, J., Campbell, B., Hénault-Éthier, L., Banks, I. J., Tomberlin, J. K.,
+           ing agency, commercial, or not-for-profit sectors.                                          Preyer, C., Deschamps, M.-H., & Vandenberg, G. W. (2023). The edible
+                                                                                                       insect sector in Canada and the United States. Animal Frontiers: The
+           Competing interests. The author declares no conflict of interest.                           Review Magazine of Animal Agriculture, 13(4), 16–25.
+                                                                                                    Loi, A., Gentile, M., Bradley, D., Christodoulou, M., Bracken, J., Knuuttila, M.,
+           Research transparency and reproducibility. N/A.
+                                                                                                       Niemi, J., & Wejberg, H. (2024). The dependency of the EU’s food system on
+                                                                                                       inputs and their sources. Directorate-General for Internal Policies; European
+           References
+                                                                                                       Parliament’s Committee on Agriculture and Rural Development. https://
+           ABC Impact. (2022). Singapore’s ABC Impact Backs French Biotechnology                       www.europarl.europa.eu/RegData/etudes/STUD/2024/747272/IPOL_STU
+              Company Innovafeed in USD 250M Round to Support Global Growth and                        (2024)747272_EN.pdf
+              Expansion. ABC Impact. https://abcimpact.com.sg/media-release/singapores-             Maggio, A., Tine, V. C., & Malingreau, J.-P. (2016). Global food security:
+              abc-impact-backs-french-biotechnology-company-innovafeed-in-usd-250m-                    Assessing trends in view of guiding future EU policies. Foresight (Los
+              round-to-support-global-growth-and-expansion/                                            Angeles, California ), 18(5), 551–560.
+           Amato, M., Riverso, R., Palmieri, R., Verneau, F., & La Barbera, F. (2023).              Metaculus. (2024). In the year 2028, how many tonnes of insect protein will be
+              Stakeholder beliefs about alternative proteins: A systematic review.                     used as animal feed for livestock, poultry and fish in Europe? Metaculus.
+              Nutrients, 15(4), 837. https://doi.org/10.3390/nu15040837                                https://www.metaculus.com/questions/3421/in-the-year-2028-how-many-
+           Badeski, M. (2023). Investment insights for the insect industry: Perspectives               tonnes-of-insect-protein-will-be-used-as-animal-feed-for-livestock-poultry-
+              from an exited founder. https://perma.cc/ML9R-QNDW                                       and-fish-in-europe/
+           Bertolozzi-Caredio, D., Severini, S., Pierre, G., & Zinnanti, C. (2023). Risks and       Mohorcich, J., & Reese, J. (2019). Cell-cultured meat: Lessons from GMO
+              vulnerabilities in the EU food supply chain. https://www.ccrup.eu/wp-                    adoption and resistance. Appetite, 143, 104408. https://doi.org/10.1016/
+              content/uploads/2023/11/risks-and-vulnerabilities-in-the-eu-food-supply-                 j.appet.2019.104408
+              chain-KJ0423968ENN.pdf                                                                Niyonsaba, H. H., Groeneveld, I. L., Vermeij, I., Höhler, J., van der Fels-Klerx,
+           Biteau, C., Bry-Chevalier, T., Crummett, D., Ryba, R., & Jules, M. S. (2024).               H. J., & Meuwissen, M. P. M. (2023a). Profitability of insect production for
+              Insect-based livestock feeds are unlikely to become economically viable in               T. molitor farms in the Netherlands. Journal of Insects as Food and Feed,
+              the near future. Food and Humanity, 3(100383), 100383. https://doi.org/                  -1(aop), 1–8.
+              10.1016/j.foohum.2024.100383                                                          Niyonsaba, H. H., Hohler, J., Van Der Fels-Klerx, H. J., Slijper, T., Alleweldt, F.,
+           Bradford, A. (2020). The Brussels effect: How the European Union rules the                  Kara, S., Zanoli, R., Costa, A. I. A., Peters, M., & Meuwissen, M. P. M.
+              world. Oxford University Press.                                                          (2023b). Barriers, risks and risk management strategies in European insect
+           Bunker, I., & Zscheischler, J. (2023). Societal acceptability of insect-based live-         supply chains. Journal of Insects as Food and Feed, 9(6), 691–705.
+              stock feed: A qualitative study from Europe. Journal of Agricultural &                Paris, B., Vandorou, F., Balafoutis, A. T., Vaiopoulos, K., Kyriakarakos, G.,
+              Environmental Ethics, 36(4), 23.                                                         Manolakos, D., & Papadakis, G. (2022). Energy use in open-field
+           European Commission. (2022). Communication from the Commission to the                       agriculture in the EU: A critical review recommending energy efficiency
+              European Parliament, the European Council, the Council, the European                     measures and renewable energy sources adoption. Renewable and
+              Economic and Social Committee and the Committee of the Regions:                          Sustainable Energy Reviews, 158, 112098. https://doi.org/10.1016/j.rser.
+              Safeguarding food security and reinforcing the resilience of food systems                2022.112098
+              (No. COM(2022) 133 final). European Commission. https://eur-lex.                      Piet, L. (2017). Concentration of the agricultural production in the EU: the two
+              europa.eu/legal-content/EN/TXT/?uri=CELEX%3A52022DC0133                                  sides of a coin. https://ageconsearch.umn.edu/record/261439/
+           European Commission. (2024). State of Food Security in the EU: A qualitative             Pilli-Sihvola, K., Aatola, P., Ollikainen, M., & Tuomenvirta, H. (2010). Climate
+              assessment of food supply and food security in the EU within the framework               change and electricity consumption—Witnessing increasing or decreasing
+              of the EFSCM (No. 2). DG Agriculture and Rural Development. https://                     use and costs?. Energy Policy, 38(5), 2409–2419.
+              agriculture.ec.europa.eu/common-agricultural-policy/agri-food-supply-chain/           Rabobank. (2021). No Longer crawling: Insect protein to Come of age in the
+              ensuring-global-food-supply-and-food-security_en                                         2020s. Rabobank.
+           Fletcher, R. (2023). India’s first insect-for-aquafeed farmer. The Fish Site. https://   Radło, M.-J. (2017). Offshoring and outsourcing as new challenges for industry
+              thefishsite.com/articles/indias-first-insect-for-aquafeed-farmer-loopworm                in the EU. In A. A. Ambroziak (Ed.), The New Industrial Policy of the
+           Grasso, S., & Bordiga, M. (2023). Edible insects processing for food and feed:              European Union (pp. 67–85). Springer International Publishing.
+              From startups to mass production. CRC Press.                                          Rijnks, R. H., Crowley, F., & Doran, J. (2022). Regional variations in automa-
+           Halloran, A., Flore, R., Vantomme, P., & Roos, N. (2018). Edible insects in sus-            tion job risk and labour market thickness to agricultural employment.
+              tainable food systems. Springer International Publishing.                                Journal of Rural Studies, 91, 10–23.
+           Heckmann, L.-H., Andersen, J. L., Eilenberg, J., Fynbo, J., Miklos, R., Jensen,          Roffeis, M., Fitches, E. C., Wakefield, M. E., Almeida, J., Alves Valada, T. R.,
+              A. N., Nørgaard, J. V., & Roos, N. (2019). A case report on inVALUABLE:                  Devic, E., Koné, N., Kenis, M., Nacambo, S., Koko, G. K. D., Mathijs, E.,
+              Insect value chain in a circular bioeconomy. Journal of Insects as Food and              Achten, W. M. J., & Muys, B. (2020). Ex-ante life cycle impact assessment
+              Feed, 5(1), 9–13.                                                                        of insect based feed production in West Africa. Agricultural Systems, 178,
+           Holka, M., & Bieńkowski, J. (2020). Carbon footprint and life-cycle costs of                102710. https://doi.org/10.1016/j.agsy.2019.102710
+              maize production in conventional and non-inversion tillage systems.                   Rotundo, J. L., Marshall, R., Mccormick, R., Truong, S. K., Styles, D., Gerde, J.
+              Agronomy, 10(12), 1877. https://doi.org/10.3390/agronomy10121877                         A., Gonzalez-Escobar, E., Carmo-Silva, E., Janes-Bassett, V., Logue, J.,
+           IPIFF. (2019). The European insect sector today: Challenges, opportunities and              Annicchiarico, P., de Visser, C., Dind, A., Dodd, I. C., Dye, L., Long, S.
+              regulatory landscape. IPIFF. https://www.sustainabilityconsult.com/down                  P., Lopes, M. S., Pannecoucque, J., Reckling, M., … Rufino, M. C. (2024).
+              loads-blanks/our-work/150-ipiff-vision-paper-on-the-future-of-the-insect-                European soybean to benefit people and the environment. Scientific
+              sector-towards-2030/file                                                                 Reports, 14(1), 7612. https://doi.org/10.1038/s41598-024-57522-z
+
+
+
+
+https://doi.org/10.1017/sus.2024.35 Published online by Cambridge University Press
+            Global Sustainability                                                                                                                                             7
+
+
+            Roussange, G. (2022). Innovafeed lève 250 millions pour devenir le leader des         Europe, with emphasis on Iceland. Foods (Basel, Switzerland), 10(11),
+              protéines à base d’insectes. Les Echos. https://www.lesechos.fr/start-up/           2744. https://doi.org/10.3390/foods10112744
+              deals/innovafeed-leve-250-millions-pour-devenir-le-leader-des-proteines-a-        Tran, H. Q., Nguyen, T. T., Prokešová, M., Gebauer, T., Van Doan, H., &
+              base-dinsectes-1794629                                                              Stejskal, V. (2022). Systematic review and meta-analysis of production per-
+            Schilling-Vacaflor, A., & Gustafsson, M.-T. (2024). Integrating human rights in       formance of aquaculture species fed dietary insect meals. Reviews in
+              the sustainability governance of global supply chains: Exploring the defor-         Aquaculture, 14(3), 1637–1655.
+              estation-land tenure nexus. Environmental Science and Policy, 154, 103690.        van Ruijven, B. J., De Cian, E., & Sue Wing, I. (2019). Amplification of future
+              https://doi.org/10.1016/j.envsci.2024.103690                                        energy demand growth due to climate change. Nature Communications,
+            Smetana, S. (2023). Circularity and environmental impact of edible insects.           10(1), 2762. https://doi.org/10.1038/s41467-019-10399-3
+              Journal of Insects as Food and Feed, 9(9), 1111–1114.                             Vos, R., & Bellù, L. G. (2019). Chapter 2 – global trends and challenges to food
+            Smetana, S., Schmitt, E., & Mathys, A. (2019). Sustainable use of Hermetia            and agriculture into the 21st century. In C. Campanhola, & S. Pandey
+              illucens insect biomass for feed and food: Attributional and consequential          (Eds.), Sustainable food and agriculture (pp. 11–30). Academic Press.
+              life cycle assessment. Resources, Conservation and Recycling, 144,                Watson, E. (2023). Entobel opens largest insect protein production facility in
+              285–296.                                                                            Asia, targets aquaculture. AgFunderNews. https://agfundernews.com/entobel-
+            Sogari, G., Amato, M., Biasato, I., Chiesa, S., & Gasco, L. (2019). The potential     opens-largest-insect-protein-production-facility-in-asia-targets-aquaculture
+              role of insects as feed: A multi-perspective review. Animals: An Open Access      Wax, E. (2022). Putin’s war seduces Europe’s farmers away from green deal.
+              Journal from MDPI, 9(4), 119. https://doi.org/10.3390/ani9040119                    Politico. https://www.politico.eu/article/ukraine-russia-war-eu-food-farmer-
+            Thévenot, A., Rivera, J. L., Wilfart, A., Maillard, F., Hassouna, M.,                 green-deal-corn-fertilizer/
+              Senga-Kiesse, T., Le Féon, S., & Aubin, J. (2018). Mealworm meal for ani-         Ÿnsect. (2022). Press releases: Ÿnsect opens first mealworm farm in the US
+              mal feed: Environmental assessment and sensitivity analysis to guide future         and enters local premium chicken feed market after Jord joins its production
+              prospects. Journal of Cleaner Production, 170, 1260–1267.                           platform. Ÿnsect. https://www.ynsect.com/2022/03/29/ynsect-opens-first-
+            Thrastardottir, R., Olafsdottir, H. T., & Thorarinsdottir, R. I. (2021). Yellow       mealworm-farm-in-the-us-and-enters-local-premium-chicken-feed-market-
+              mealworm and black soldier fly Larvae for feed and food production in               after-jord-joins-its-production-platform/
+
+
+
+
+https://doi.org/10.1017/sus.2024.35 Published online by Cambridge University Press
+

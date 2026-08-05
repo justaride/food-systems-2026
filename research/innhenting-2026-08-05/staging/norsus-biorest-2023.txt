@@ -1,0 +1,967 @@
+Biorest fra marine råstoffer og husdyrgjødsel:
+Klimapåvirkning og gjenvinning av nitrogen
+og fosfor
+
+
+
+
+FORFATTERE                          RAPPORTNUMMER   ÅRSTALL
+KARI-ANNE LYNG, ANNA WOODHOUSE OG   OR 48.23        2023
+
+STINE SAMSONSTUEN
+ISBN NR.                            ISSN NR.                      RAPPORTTYPE         TILGJENGELIGHET
+ 978-82-7520-930-4                   2703-8610                    Oppdragsrapport     Åpen
+
+
+
+
+PROSJEKTNUMMER
+3146
+
+PROSJEKTNAVN
+Biorest fra nye marine råstoffer og husdyrgjødsel: Bruksanbefalinger for landbruket
+
+OPPDRAGSGIVER
+Landbruksdirektoratet
+
+REFERANSE
+74919/2020
+
+KVALITETSSIKRER
+Hanne Møller
+
+ANTALL SIDER
+29
+
+EMNEORD
+Biogass, biorest, biogjødsel, materialstrømsanalyse (MFA)
+
+BILDE FORSIDE
+Anna Woodhouse
+
+
+
+
+Takk til Eva Brod i NIBIO for gjennomlesing av rapporten.
+Biorest fra marine råstoffer og husdyrgjødsel: Klimapåvirkning og gjenvinning av
+nitrogen og fosfor
+
+
+Sammendrag
+I Norge har biogass- og biorestproduksjon i hovedsak vært basert på matavfall og avløpsslam som råstoff. De
+siste årene har det imidlertid vært økt interesse for å benytte husdyrgjødsel og de marine råstoffene
+fiskeslam og fiskeensilasje. En god utnyttelse av bioresten er avgjørende for å oppnå en maksimal miljønytte
+av verdikjeden for biogass. Biorest inneholder nyttige næringsstoffer som nitrogen og fosfor, og kan brukes
+til å erstatte mineralgjødsel.
+
+Denne rapporten ser på hva som er tilgjengelig informasjon om klimagassutslipp i livsløpet til
+gjødselprodukter og vurderer potensialet for bruk av biorest fra husdyrgjødsel og marine råstoffer som
+biogjødsel i landbruket. Dette er gjort ved å analysere muligheten for at biogjødselen kan erstatte ubehandlet
+husdyrgjødsel og mineralgjødsel, hvordan dette kan bidra til gjenvinning av nitrogen og fosfor tilbake til
+matproduksjon.
+
+Analysene av resirkulering av nitrogen og fosfor i biorest viser at det er et stort potensial for at biorest fra
+husdyrgjødsel kan erstatte husdyrgjødsel og at biorest fra marine råstoff kan erstatte mineralgjødsel. Med
+de mengdene som produseres per i dag kan alt i prinsippet benyttes i landbruket. Dersom biogass- og
+biorestproduksjonen øker betraktelig er det i enkelte regioner en risiko for at det er mer fosfor i bioresten
+enn det landbruket kan utnytte.
+
+Gjennomgang av klimagassutslipp i livsløpet til gjødselprodukter viser at beregningene er kompliserte og
+nøkkeltall er lite tilgjengelige. Dette gjør det utfordrende for gårdbrukere å gjøre en vurdering av hvordan
+ulike gjødselprodukter påvirker gården og produktenes miljøfotavtrykk.
+
+Basert på dette har prosjektet kommet frem til følgende anbefalinger:
+
+    •   Miljøbelastningen til gjødselproduktene bør dokumenteres slik at det er lettere å sammenlikne
+        miljøprestasjonen til biorest med husdyrgjødsel og mineralgjødsel. Dette krever både
+        metodeutvikling og fremskaffelse og innsamling av flere data. Dette arbeidet skal videreføres i
+        forskningsprosjektet Circulizer.
+    •   De ulike regionene i Norge har svært ulike gjødselbehov. På et nasjonalt nivå er det stort potensial
+        for at bioresten kan erstatte mineralgjødsel, men i flere regioner er fosforbehovet begrenset og kan
+        bli enda mer begrenset med et oppdatert gjødselregelverk. Det er derfor et stort behov for regionale
+        betraktninger for å sikre at bioresten kan utnyttes på en god måte
+    •   Det bør gjennomføres mer forskning og utvikling på teknologier og metoder som kan tilpasse
+        egenskapene til bioresten mer til brukerbehovet. Dersom ikke landbruket kan ta imot all bioresten
+        som produseres i fremtidige biogassanlegg, kan det være aktuelt å utforske andre høyverdige
+        anvendelser av biorest, for eksempel insekts- og algeproduksjon. Dagens regelverk tillater ikke dette,
+        men det kan endre seg i fremtiden.
+    •   Det bør vurderes om det kan være hensiktsmessig å etablere en kunnskapshub for biorest som kan
+        være et bindeledd mellom biogassanleggene og gårdbrukere for å sikre god kvalitet og god
+        dokumentasjon på gjødselproduktene.
+
+Denne rapporten er en av sluttrapportene fra prosjektet Biorest fra nye marine råstoffer og husdyrgjødsel
+som er finansiert av Landbrukets Klima- og miljøprogram (KMP). Prosjektet er gjennomført i samarbeid med
+NIBIO og Norges Bondelag.
+
+
+
+
+                                                       i
+Biorest fra marine råstoffer og husdyrgjødsel: Klimapåvirkning og gjenvinning av
+nitrogen og fosfor
+
+
+
+Innholdsfortegnelse
+Sammendrag ..................................................................................................................................................... i
+1        Innledning .............................................................................................................................................. 3
+2        Resirkulering av nitrogen og fosfor i biorest .......................................................................................... 5
+         2.1 Bruk av nitrogen og fosfor fra mineralgjødsel og husdyrgjødsel .................................................... 5
+         2.2 Gjødselpotensial fra biorest produsert fra marine råstoffer og husdyrgjødsel ............................... 7
+         2.3 Hvordan kan biorest fra husdyrgjødsel og marine råstoffer bidra til å øke sirkulariteten til
+             gjødselsystemet? ............................................................................................................................ 8
+         2.4 Regionaliserte analyser................................................................................................................. 10
+         2.5 Næringsstoffer på avveie .............................................................................................................. 13
+         2.6 Oppsummering resirkulering av næringsstoffer ........................................................................... 13
+3        Klimagassutslipp fra livsløpet til gjødselprodukter ............................................................................... 15
+         3.1 Livsløpet til gjødselproduktene .................................................................................................... 15
+         3.2 Produksjon av mineralgjødsel (nitrogen og fosfor) ....................................................................... 16
+         3.3 Metode for beregning av direkte utslipp fra gjødsel .................................................................... 18
+         3.4 Lagring og spredning av husdyrgjødsel ......................................................................................... 19
+         3.5 Biorest brukt som gjødsel ............................................................................................................. 20
+         3.6 Oppsummering klimagassutslipp .................................................................................................. 21
+4        Konklusjon og anbefalinger .................................................................................................................. 23
+5        Referanser ............................................................................................................................................ 24
+               ........................................................................................................................................................ 27
+Vedlegg 2 ........................................................................................................................................................ 28
+
+
+
+
+                                                                                   ii
+1 Innledning
+Denne rapporten er en av sluttrapportene fra prosjektet Biorest fra nye marine råstoffer
+og husdyrgjødsel som er finansiert av Landbrukets Klima- og miljøprogram (KMP).
+Prosjektet er gjennomført i samarbeid med NIBIO og Norges Bondelag.
+
+Bakgrunnen for prosjektet har vært den økte interessen for å benytte husdyrgjødsel og
+marine råstoffer, slik som fiskeslam og fiskeensilasje, til biogassproduksjon. De marine
+råstoffene er rike på fett og protein, og har dermed et stort metangasspotensial
+(Gebauer et al., 2016). Samtidig kan det høye fettinnholdet føre til en ubalanse i
+prosessen som kan føre til at metanproduksjonen stopper opp (Morken et al., 2017).
+Det er derfor nødvendig å kombinere de fettrike råstoffene med andre råstoff med
+lavere fettinnhold, slik som husdyrgjødsel.
+
+Egenskapene til bioresten, som er et biprodukt av biogassproduksjon, påvirkes av hvilke
+råstoff som brukes i prosessen. En god utnyttelse av bioresten en viktig forutsetning for
+å oppnå høyest mulig utslippsreduksjoner og en god ressursutnyttelse i verdikjeden for
+biogass. Frem til nå har norske biogassanlegg i hovedsak erfaring med å benytte
+avløpsslam og matavfall til biogassproduksjon, og kunnskap og erfaringer knyttet til bruk
+av biorest som gjødsel er basert på disse råstoffene. Bioresten inneholder viktige
+næringsstoffer som nitrogen og fosfor og kan brukes til å erstatte mineralgjødsel.
+Imidlertid kan mangel på kunnskap og dokumentasjon skape usikkerhet og skepsis til om
+bioresten er trygg å bruke som gjødsel, og om den inneholder de næringsstoffene som
+jordbruksarealet har behov for. Denne usikkerheten representerer en barriere for økt
+biogassproduksjon.
+
+I tillegg er det lite kunnskap om hvilke miljøfordeler bruk av biorest som biogjødsel kan
+gi, sammenliknet med andre gjødselprodukter, og hvor mye mineralgjødsel som kan
+erstattes av biorest. Dette gjør det utfordrende for gårdbrukere å gjøre en vurdering av
+hvordan ulike gjødselprodukter påvirker gårdens miljøfotavtrykk.
+
+Målet for prosjektet har derfor vært å øke kunnskapen om bruk av marine råstoffer i
+kombinasjon med husdyrgjødsel. I NIBIOs rapport Biorest fra marine råstoffer: Kjemisk
+sammensetning og gjødselkvalitet (Brod, 2023), gis det oppdatert informasjon om
+egenskapene til bioresten i form av nitrogen, fosfor og tungmetallinnhold. I denne
+rapporten fokuseres det på klimagassutslipp i livsløpet til gjødselprodukter og
+potensialet for at bioresten kan erstatte mineralgjødsel og ubehandlet husdyrgjødsel.
+
+I denne rapporten definerer vi biogass og biorest som likeverdige produkter fra den
+anaerobe utråtningsprosessen. Biorest kan ha ulike anvendelsesområder og kan
+benyttes både som toppdekke til deponi, jordforbedring på grøntarealer og som gjødsel
+i landbruket. Denne rapporten fokuserer på bruk av biorest som gjødsel i landbruket.
+Ordet biogjødsel er brukt om biorest som brukes som gjødsel.
+Kapittel 2 analyserer mulighetene for å resirkulere nitrogen og fosfor fra biorest fra
+husdyrgjødsel og marine råstoffer tilbake til matproduksjon. I kapittel 3 gis en
+beskrivelse av klimagassutslipp i livsløpet til de ulike gjødselproduktene: mineralgjødsel,
+husdyrgjødsel og biogjødsel. Konklusjoner og anbefalinger gis i kapittel 4.
+2 Resirkulering av nitrogen og fosfor i biorest
+I dette kapittelet analyseres potensialet for at biorest fra marine råstoffer kan erstatte
+mineralgjødsel og at biorest fra husdyrgjødsel kan erstatte (ubehandlet) husdyrgjødsel.
+Dette er gjort ved å innhente informasjon om årlig bruk av mineralgjødsel og
+husdyrgjødsel i Norge, kartlegge mengde biorest generert fra husdyrgjødsel og marine
+råstoffer ved norske biogassanlegg, og deretter vurdere hvor stor andel av de
+konvensjonelle gjødselproduktene som bioresten kan erstatte. Analysene er først
+gjennomført på landsbasis, og deretter på regionsnivå. Analysene tar utgangspunkt i
+mengdene biorest som ble produsert i 2022. Til slutt diskuteres konsekvenser av en
+mulig fremtidig økning i biogass- og biorestproduksjon.
+
+
+
+2.1 Bruk av nitrogen og fosfor fra mineralgjødsel og
+    husdyrgjødsel
+For å få et bilde av potensialet for at biorest kan erstatte de nåværende gjødseltypene,
+ble den totale mengden nitrogen og fosfor som benyttes i landbruket per år kartlagt.
+Mengdene er basert på SSBs gjødselundersøkelse fra 2018 (Kolle og Oguz-Alper, 2020).
+Det finnes også statistikk fra 2020, men siden grunnlaget er mindre detaljert (ikke fordelt
+på regioner og arealtyper), ble det besluttet å bruke gjødselundersøkelsen fra 2018.
+Endringene i bruk av gjødsel de siste årene er relativt små (SSB, 2021). I 2018 var det
+dessuten svært lite produksjon av biorest fra husdyrgjødsel og marine råstoffer, og dette
+danner derfor et godt grunnlag for å se på hvor mye som kan erstattes. Statistikken
+inkluderer nitrogen og fosforgjødsel benyttet på fulldyrka eng, overflatedyrka eng,
+innmarksbeite, utmarksbeite og åpen åker.
+
+Den totale mengden nitrogen (tot-N) og fosfor benyttet som gjødsel (husdyrgjødsel og
+mineralgjødsel) i landbruket er illustrert i Figur 2-1. Illustrasjonene er laget i
+materialstrømsanalyseverktøyet Stan (Cencic et al., 2008). Nitrogen og fosfor fra
+husdyrgjødsel er vist som en sirkulær strøm fordi dette representerer næringsstoffer fra
+sidestrømmer i matproduksjonen som resirkuleres tilbake til matsystemet.
+Mineralgjødsel er illustrert som en lineær strøm siden dette produseres fra nitrogengass
+og fra fosfor som er hentet ut fra gruver.
+Figur 2-1 Tonn nitrogen og fosfor benyttet i landbruket i form av mineralgjødsel og
+husdyrgjødsel (basert på tall fra Kolle og Oguz-Alper (2020))
+
+Mengden nitrogen brukt som gjødsel utgjorde 132 730 tonn i 2018, hvorav 97 570 tonn
+var mineralgjødsel og 35 160 tonn var husdyrgjødsel. Mengden fosfor var 15 610 tonn,
+hvorav 7 120 tonn var husdyrgjødsel og 8 490 var mineralgjødsel. Men andre ord
+utgjorde mineralgjødsel 74% av N og 54% av P. En kan dermed konkludere med at
+nitrogenforbruket i 2018 var 26% sirkulært og fosforforbruket var 46% sirkulært når en
+ser på gjødselsystemet i Norge.
+
+
+
+2.2 Gjødselpotensial fra biorest produsert fra marine råstoffer
+    og husdyrgjødsel
+I følge den norske biogasstatistikken ble det produsert 86 000 tonn tørrstoff biorest i
+2022 (Norwaste, 2023). Ifølge statistikken ble litt over 80% av tørrstoffet brukt som
+biogjødsel i landbruket (ca. 70 000 tonn). En betydelig andel av bioresten avvannes før
+den utnyttes. En stor andel av nitrogenet og noe av fosforet vil ende opp i vann-
+fraksjonen. I de fleste tilfellene sendes dette vannet til renseanlegg og blir dermed ikke
+utnyttet. Det vil si at en viss andel av fosforet og nitrogenet ikke hadde noen reell
+anvendelse.
+
+I denne rapporten har vi tatt utgangspunkt i at all nitrogenet og fosforet i bioresten i
+prinsippet kan benyttes som gjødsel. Vi fokuserer kun på bioresten som er produsert fra
+husdyrgjødsel og marine råstoffer. Mengden nitrogen og fosfor ble beregnet ved hjelp
+av mengdene husdyrgjødsel, fiskeensilasje og settefiskslam til biogassproduksjon,
+oppgitt i biogasstatistikken i 2022 (Norwaste, 2023). Innhold av nitrogen og fosfor i de
+ulike råstoffene ble estimert ved hjelp av litteratur og analysedata (se Vedlegg 2). Siden
+mengden nitrogen og fosfor ikke endrer seg gjennom den anaerobe utråtnings-
+prosessen i et biogassanlegg, ble det antatt at mengden nitrogen og fosfor i bioresten
+tilsvarer mengde nitrogen og fosfor i råstoffene. Gjødselpotensialet for 2022 er
+presentert i Figur 2-2. Det er ulik usikkerhet knyttet til estimatene, for eksempel er
+estimatene for husdyrgjødsel relativt sikre, mens estimatene for fiskeensilasje er meget
+usikre.
+             4500
+             4000
+             3500
+             3000
+
+   tonn/år
+             2500
+             2000
+             1500
+             1000
+              500
+                0
+                    Husdyrgjødsel              Fiskeensilasje            Settefiskslam
+                                      Nitrogen       Fosfor
+
+Figur 2-2 Gjødselpotensial (tonn nitrogen og fosfor/år) for biorest produsert i 2022
+
+Beregningene viser at det totale gjødselpotensialet til biorest produsert fra
+husdyrgjødsel, fiskeensilasje og settefiskslam i 2022 var på 4 302 tonn og 1 177 tonn
+fosfor. Alle råstoffene kan ha store variasjoner i egenskaper, og det er derfor stor
+usikkerhet knyttet til tallene. De kan likevel gi en indikasjon på størrelsesordenen
+sammenliknet med det totale forbruket av nitrogen og fosfor som gjødsel i landbruket.
+
+
+
+
+2.3 Hvordan kan biorest fra husdyrgjødsel og marine råstoffer
+    bidra til å øke sirkulariteten til gjødselsystemet?
+Dersom det forutsettes at all bioresten som ble produsert fra husdyrgjødsel, fiskeslam
+og fiskeensilasje i 2022 brukes i landbruket, vil behovet for mineralgjødsel reduseres,
+som vist i Figur 2-3. Det er antatt at biorest fra husdyrgjødsel erstatter ubehandlet
+husdyrgjødsel, mens biorest fra de marine substratene kan erstatte mineralgjødsel.
+Videre er det forutsatt at 100% av P i biorest kan erstatte mineralgjødsel-P, mens 70%
+av N i biorest kan erstatte mineral-N som tilsvarer den antatte andelen plantetilgjengelig
+N. Analysene er gjennomført ved hjelp av materialstrømsanalyseverktøyet Stan (Cencic
+et al., 2008).
+Figur 2-3 Tonn nitrogen og fosfor fordelt på ulike gjødseltyper dersom all biorest fra
+husdyrgjødsel og marine råstoffer benyttes som gjødsel i landbruket
+
+Dersom all biorest produsert fra husdyrgjødsel, fiskeslam og fiskeensilasje i 2022, ble
+benyttet i landbruket som erstatning for mineralgjødsel, kunne dette potensielt
+redusere nitrogen fra mineralgjødsel med 3% og fosfor fra mineralgjødsel med 7%. Da
+ville mengden mineralgjødsel utgjøre 71% av nitrogenforbruket og 51% av
+fosforforbruket. Dette viser at det er et potensial for å øke andelen biorest som erstatter
+mineralgjødsel. Sirkulariteten til nitrogen og fosfor i gjødselsystemet vil økes til
+henholdsvis 32 og 49%.
+Dersom det blir en sterk økning i biogassproduksjon, er det en risiko for at utnyttelse av
+biorest kan bli en begrensende faktor. Våre beregninger viser at dette sannsynligvis ikke
+vil være et problem på et nasjonalt nivå: Dersom andelen marine råstoffer tidobles
+sammenliknet med i dag og all bioresten brukes som gjødsel i landbruket, vil det fortsatt
+være behov for mineralgjødsel. For nitrogen ble andelen mineralgjødsel estimert til å
+være redusert til 53% for nitrogen og 16% for fosfor.
+
+Svakheten med denne beregningen er at biorest fra matavfall og avløpsslam ikke er
+inkludert, siden det er utenfor rammene av dette prosjektet. En stor andel av matavfall
+og husdyrgjødsel går allerede til biogassproduksjon og brukes allerede som gjødsel. Det
+er ikke sannsynlig at disse råstofftypene vil øke like mye. I tillegg har avløpsslam større
+begrensninger knyttet til bruksområder på grunn av gjødselvareforskriften, i tillegg til at
+fosforet er mindre tilgjengelig på grunn av bruk av fellingskjemikalier.
+
+En annen svakhet er at analysen tar utgangspunkt i gjødselmengdene som ble benyttet
+i 2018. Med en fremtidig innstramming i gjødselregelverket vil den totale
+gjødselmengden måtte reduseres. Modellen som er benyttet for å gjøre disse
+beregningene kan forbedres ved å bruke oppdaterte tall i fremtidige analyser.
+
+Resultatene fra analysene ovenfor viser at fosfor vil bli en begrensende faktor før
+nitrogen. Siden det er kostbart å transportere biorest over store avstander, er de samme
+analysene gjennomført med en oppsplitting på regioner.
+
+
+
+2.4 Regionaliserte analyser
+I de regionaliserte analysene er det tatt utgangspunkt i regionene som er brukt i SSBs
+gjødselundersøkelse (Kolle og Oguz-Alper, 2020). Det ble valgt å fokusere på fosfor,
+siden dette ble identifisert til å være den begrensende faktoren for bruk av biorest i
+landbruket i forrige delkapittel.
+
+I Figur 3-4 vises bruk av fosfor i mineralgjødsel og husdyrgjødsel fordelt på syv regioner
+i Norge, der tallene er hentet fra gjødselundersøkelsen (Kolle og Oguz-Alper, 2020).
+Tallene avviker noe fra den nasjonale oversikten, trolig på grunn av avrunding.
+Figur 2-4 Bruk av fosfor i husdyrgjødsel og mineralgjødsel fra gjødselundersøkelsen (basert på
+Kolle og Oguz-Alper (2020)
+
+Fordelingen viser at regionene hvor det er størst potensial for at fosfor i biorest kan
+erstatte mineralgjødsel er i Innlandet og det sentrale Østlandsområdet (Viken, Vestfold
+og Innlandet), fordi de regionene har høyest forbruk av mineralgjødsel. Potensialet er
+lavest i Rogaland, Agder og Telemark, Nord-Norge og Vestlandet, som har størst andel
+av fosfor fra husdyrgjødsel.
+
+Den norske biogasstatistikken er på et nasjonalt nivå, og har ikke en fordeling av råstoff
+på fylkesbasis. En fordeling av mengden biorest generert fra husdyrgjødsel og marine
+råstoffer i de ulike områdene er derfor basert på informasjon fra Landbruksdirektoratet,
+Miljødirektoratet og forfatterne av rapportens kunnskap om lokaliseringen til norske
+biogassanlegg (se Vedlegg 2).
+
+Potensialet for gjenvinning av fosfor dersom biorest fra husdyrgjødsel og marine
+råstoffer brukes som biogjødsel i landbruket vises i figuren nedenfor. Det understrekes
+at dette må ansees som et potensial fordi bioresten per i dag ikke nødvendigvis utnyttes
+som biogjødsel.
+Figur 2-5 Tonn nitrogen og fosfor fordelt på ulike gjødseltyper dersom all biorest fra
+husdyrgjødsel og marine råstoffer benyttes som gjødsel i landbruket
+
+Analysene viser at det fortsatt er behov for betydelige mengder mineralgjødsel i alle
+regionene og at det per i dag er et stort potensial for at biorest fra marine råstoffer kan
+erstatte mineralgjødsel. Det kan likevel bli en begrensning dersom en stor andel av de
+planlagte anleggene blir realisert.
+
+I Trøndelag, som er den av regionene som per i dag har størst andel biogass- og
+biorestproduksjon fra marine råstoffer, kan forbruket av fosfor i mineralgjødsel
+reduseres med over 40% hvis all bioresten brukes som gjødsel i landbruket. Dette viser
+også at dersom produksjon av biorest fra marine råstoffer økes med mer enn 250% vil
+det være mer fosfor i bioresten enn den mengden fosfor som brukes av landbruket i dag.
+Det betyr at dersom det etableres flere anlegg kan en risikere at det vil bli produsert mer
+biogjødsel enn det landbruket i regionen har bruk for. Dette gjelder i enda større grad
+dersom gjødselvareforskriften revideres og det blir strengere krav knyttet til bruk av
+fosforgjødsel.
+
+Anleggene som nylig har fått innvilget støtte fra Enova til å bygge biogass vil i hovedsak
+lokaliseres i Vestland, Agder og Nordland. Av disse er det Agder og Telemark som er
+regionen med lavest forbruk av mineralgjødsel (410 tonn fosfor per år), og dermed
+lavest potensial for erstatning. I Vestlandet er det et årlig forbruk på 950 tonn fosfor fra
+mineralgjødsel per år, som viser at det er noe potensial for at biorest kan erstatte dette.
+Forbruket er imidlertid lavere enn i Trøndelag, som vil si at det er begrenset hvor mange
+biogassanlegg som kan bygges uten at det blir utfordrende å få avsetning av fosfor.
+
+Nord-Norge har et lavere forbruk av fosfor i form av mineralgjødsel enn både Trøndelag
+og Vestlandet med 750 tonn per år. Også her vil det være begrenset hvor mange
+biogassanlegg som kan bygges.
+
+Rogaland er regionen med lavest forbruk av fosfor i form av mineralgjødsel. Bruk av
+fosfor i husdyrgjødsel er derimot relativt høyt.
+
+Resultatene fra denne analysen viser viktigheten av regionale analyser og viser også
+behovet for å utvikle teknologi og løsninger som i større grad gjør at
+næringssammensetningen i bioresten kan tilpasses behovet til brukeren dersom en
+størst mulig andel av næringsstoffene i biorest skal resirkuleres tilbake til
+matproduksjon. Biogassbransjen bør også utforske annen høyverdig utnyttelse av
+bioresten dersom den ikke kan brukes som gjødsel i landbruket.
+
+
+
+2.5 Næringsstoffer på avveie
+Det er viktig å være oppmerksom på at nitrogen og fosforressursene i biorest fra marine
+råstoffer ikke oppstår eller produseres i biogassanlegget, men er til stede i
+avfallsressursene som brukes som råstoff inn i anleggene.
+
+Det finnes tre ulike måter å håndtere disse ressursene:
+
+    •   Ingen håndtering, der næringsstoffene slippes ut i naturen med risiko for at de
+        bidrar til overgjødsling av elver, fjorder og hav.
+    •   Håndtering som sikrer at næringsstoffene ikke havner på avveie.
+    •   Håndtering som sikrer at næringsstoffene ikke havner på avveie og utnyttes på
+        en slik måte at de erstatter andre produkter.
+
+Eventuelle miljøgevinster ved å gå fra ingen håndtering til en håndtering der
+næringstoffene utnyttes er ikke inkludert i analysene i denne rapporten, men dette bør
+undersøkes nærmere i fremtidige prosjekter.
+
+
+
+2.6 Oppsummering resirkulering av næringsstoffer
+Bruk av marine råstoffer til biogassproduksjonen kan gjøre at forholdet mellom nitrogen
+og fosfor blir mer ubalansert med tanke på det plantene trenger, enn dersom det brukes
+matavfall som råstoff til biogassproduksjon (Brod, 2023). Dette viser at det er viktig at
+biogassanleggene har en god plan for utnyttelse av bioresten og at de har forståelse for
+hva som er behovet til de som skal bruke bioresten, både når det gjelder
+produktegenskaper og dokumentasjon.
+Dette indikerer også at det bør gjøres mer innovasjon og utvikling av nye produkter fra
+bioresten som i større grad er tilpasset eller er skreddersydd til brukerbehovet.
+Biogassanlegg kan representere en løsning for å oppnå en bedre fordeling av
+næringsstoffene slik at de ender opp der det er mest behov for dem og å sikre at de ikke
+kommer på avveie. Dette krever et samarbeid mellom de som genererer avfall- og
+gjødselressursene, biogassanlegget og de som skal bruke bioresten.
+
+Det kan være krevende for biogassanlegg å ha kompetanse på både den anaerobe
+utråtningsprosessen, håndtering av gass og gjødselkvalitet. Det kan være behov for en
+kunnskapshub som kan assistere både biogassanlegg og gårdbrukere, både med tanke
+på gjødselkvalitet og begrensninger med tanke på fosfor og tungmetallinnhold, og å
+sikre at det er god nok dokumentasjon av egenskapene til produktene.
+3 Klimagassutslipp fra livsløpet til
+  gjødselprodukter
+Alle produkter har et livsløp, og i hvert livsløpstrinn skjer det aktiviteter som krever
+energi- og/eller materialbruk og som kan føre til at det genereres avfall og utslipp til luft,
+vann eller jord. Dette gjelder også livsløpet til gjødselprodukter. Siden bruk av biorest
+fra marine råstoffer som gjødsel har vært lite utbredt til nå, er det lite kunnskap om
+miljøpåvirkningene knyttet til dette. I dette kapitelet gis derimot en beskrivelse av
+klimagassutslippene i livsløpet til mineralgjødsel, husdyrgjødsel og biorest fra
+husdyrgjødsel.
+
+
+
+3.1 Livsløpet til gjødselproduktene
+Som illustrert i Figur 3-1 kan livsløpet til gjødselproduktene deles opp i tre hovedfaser:
+råvareuttak og produksjon, distribusjon og lagring, og spredning. Når man tolker
+resultater fra utslippsberegninger for gjødselprodukter, er det viktig å være bevisst på
+hvilke faser i livsløpet som er inkludert i analysen, og om resultatene kun inkluderer
+direkte utslipp fra gjødselproduktet, eller om det også inkluderer belastninger fra
+energibruk i de ulike livsløpsfasene.
+
+
+
+
+ Råvareuttak og                                 Distribusjon og                     Spredning
+  produksjon                                        lagring
+
+
+Figur 3-1 Livsløpet til gjødselprodukter
+
+Mens mineralgjødsel krever uttak av nye råvarer, er husdyrgjødsel og biorest basert på
+avfalls- eller overskuddsressurser. Ved beregning av utslipp fra produksjonen av
+husdyrgjødsel og biorest må det derfor tas stilling til hvordan disse skal allokeres mellom
+de ulike produktene: melk og kjøtt for husdyrgjødsel og biogass for biorest.
+
+Husdyrmøkk genereres kontinuerlig på en gård og må lagres frem til spredetidspunkt.
+Under lagringen dannes klimagassutslipp i form av lystgass (N2O) og metan (CH4).
+
+Når både husdyrgjødsel og mineralgjødsel tilføres jorden skjer det utslipp av N2O og
+ammoniakk (NH3). Det slippes normalt ut bare noen få kg N2O per hektar og år, men de
+er av stor betydning fra et klimaperspektiv fordi N2O er en relativt kraftig drivhusgass,
+nesten 300 ganger sterkere enn karbondioksid (CO2) i et hundre-års perspektiv.
+Utslippene skyldes nitrifikasjon- og denitrifikasjonsprosesser. N2O-utslippene er
+avhengig av mange faktorer slik som jordens N-konsentrasjon, N-mengder,
+jordtemperatur, jordfuktighet og arealbruk og forvaltning (Signor og Cerri, 2013).
+N2O fra jord bidrar sammen med enterisk metan fra husdyr til en svært stor del av
+landbrukets klimapåvirkning. Globalt bidrar landbruket med om lag 60 % av det totale
+menneskeskapte utslippet av lystgass (Ciais et al., 2013). Den høyeste andelen av totale
+utslipp av jordbruksjord kommer fra bruk av mineral nitrogengjødsel (Wójcik-Gront,
+2020). Ifølge Norsk nasjonal inventarrapport (NIR) fra 2022 stammet om lag 79 % av de
+totale norske utslippene av N2O fra landbruket i 2020 (NIR, 2022).
+
+
+
+3.2 Produksjon av mineralgjødsel (nitrogen og fosfor)
+Produksjon av nitrogengjødsel krever store mengder fossil energi, da det meste av N-
+gjødsel er laget av nitrogengass (N2) og omdannelsen til en biologisk aktiv form er
+ekstremt energikrevende. Sammen med de betydelige utslippene som skjer under og
+etter spredning av gjødselen bidrar dette til at mineralgjødsel generelt utgjør en
+betydelig andel av landbrukets klimagassutslipp sett i et livsløpsperspektiv. Hoffman et
+al. (2018) estimerte at 45 % av den totale energibruken til en konvensjonell
+kornproduksjon stammer fra syntetisk N-produksjon og for norske forhold kan det være
+opptil 50 % (Korsaeth et al., 2013). Produksjonen har imidlertid blitt mye mer
+energieffektiv med årene og ny renseteknologi har blitt introdusert i produksjonen av
+nitrogengjødsel, som bidrar til lavere lystgassutslipp (Walling and Vaneeckhaute, 2020).
+Tabell 3-1 viser klimafotavtrykket til ammoniumnitrat, som er den vanligste
+mineralgjødselen på markedet.
+Tabell 3-1 Klimafotavtrykk for produksjon av ammoniumnitrat.
+
+                   Emisjonsfaktor,
+      Land                                      Kilde
+                   kg CO2ekv/kg N
+     Europa              3.5             Brentrup et al, 2016
+                                      Skowronska and Filipek,
+     Europa              6.2
+                                              2014
+
+ Storbritannia           6.5             Elsayed et al., 2003
+
+                                        Kongshaug and Tech,
+  Vest-Europa            6.8
+                                               1998
+   Sverige og                            Davis and Haglund,
+                          7
+  Vest-Europa                                   1999
+   Nederland             7.1             Kramer et al., 1999
+
+ Storbritannia           7.2            Williams et al., 2010
+
+      USA                7.5            Brentrup et al., 2016
+
+    Russland              8             Brentrup et al., 2016
+
+      Kina               10.3           Brentrup et al., 2016
+Dette viser at utslippene varierer mellom 3,5 til 10,3 kg CO2-ekvivalenter/kg N
+produsert, avhengig av produksjonsmetode og produksjonssted.
+
+Fosfor i mineralgjødsel utvinnes fra fosfatstein og importeres fra land som Marokko,
+Russland og Kina. Klimafotavtrykk for ulike fosforgjødsel vises i
+
+Tabell 3-2.
+Tabell 3-2 Klimafotavtrykk for produksjon fosforgjødsel.
+
+ Gjødseltype           Emisjonsfaktor, Land                             Kilde
+                       kg CO2ekv/kg P
+ Ammoniumfosfat        1.3-1.8         Sverige og Vest-Europa (5)     Davis       and
+                                                                      Haglund, 1999
+                       1.4/1.7/2.89        Europa/Russland/USA/Kina Brentrup et al.,
+                                                                      2016
+                       6.4                 Sørøstlige USA             Albaugh et al.,
+                                                                      2012
+                       7.8-8.9             Kina                       Zhang et al.,
+                                                                      2017
+ Enkelt                0.6                 Storbritannia              Williams et al.,
+ superfosfat                                                          2010
+                       1                   Sverige og Vest-Europa (5) Davis       and
+                                                                      Haglund, 1999
+ Trippel               0.4-0.54            Europa/Russland/USA/Kina Brentrup et al.,
+ superfosfat                                                          2016
+                       1                   Sverige og Vest-Europa (5) Davis       and
+                                                                      Haglund, 1999
+                       1.1                 Brasil                     da Silva and
+                                                                      Kulay, 2005
+                       1.2                 Storbritannia                Williams et al.,
+                                                                        2010
+                       1.6                 Europa                       Skowronska
+                                                                        and     Filipek,
+                                                                        2014
+
+
+EU har utviklet en livssyklusbasert metodikk for å beregne miljøpåvirkningen av
+produkter, kalt Product Environmental footprint method (PEF). Hvert produkt som skal
+analyseres har sine egne kategoriregler, kalt PEFCR. I veiledningen om hvordan man
+utvikler en PEFCR skal nitrogentap til luft beregnes ut ifra bondens nitrogentilførsel på
+åkeren og ekskludert eksterne kilder (f.eks. avsetning fra regn og nitrogenfiksering fra
+luften). Utslippsfaktoren for N2O (både for mineralgjødsel og husdyrgjødsel; direkte og
+indirekte) er 6 kg CO2ekvivalenter/ kg N pr kg tilført gjødsel, omregnet fra kg N2O til kg
+CO2ekv ved å multiplisere 0.022 kg N2O/ kg N med karakteriseringsfaktoren 273 kg CO2-
+ekvivalenter/kg N2O (IPCC, 2021; EC, 2017; FEFAC, 2018). For fosfortap til vann gjelder
+0.05 kg P/kg P tilført.
+
+
+
+3.3 Metode for beregning av direkte utslipp fra gjødsel
+I Norge er det i liten grad utført målinger av utslipp fra lagring og spredning av gjødsel.
+Ved beregning av utslipp må man derfor benytte seg av estimater og utslippsfaktorer.
+
+FNs klimapanel (IPCC) sammenstiller og evaluerer jevnlig den nåværende vitenskapelige
+kunnskapen på klimaområdet. IPCC er for tiden inne i sin sjette evalueringssyklus og har
+utviklet retningslinjer for å hjelpe land med å gjennomføre fullstendige og pålitelige
+inventarer av sine nasjonale klimagassutslipp i forbindelse med klimarapportering.
+Retningslinjene er basert på dagens kunnskapsstatus og oppdateres fortløpende.
+Utslippsfaktorene og modellene beskrevet i retningslinjene brukes ikke bare i
+klimarapportering, men også ved andre anledninger, for eksempel når landbrukets
+klimagassutslipp skal beregnes. Metodene for å estimere utslipp (og fjerning) for hver
+klimagass kan ha ulike grader av kompleksitet som er representert ved nivåer. Tre nivåer
+representerer den økende kompleksiteten til metodene. Tier 1 (T1) er den enkleste
+metoden, der beregningen av utslipp innebærer en multiplikasjon av aktivitetsdata
+(f.eks. antall dyr) med en standard utslippsfaktor som er basert på IPCC’s retningslinjer
+for National Inventory of Greenhouse Gas Utslipp (IPCC, 2006, utslippsfaktorene
+oppdateres ofte, sist i 2021). En utslippsfaktor (EF) uttrykker utslippet som frigjøres av
+en spesifikk og standard mengde aktivitet eller innsats. Tier 2 (T2) bruker samme
+metodiske tilnærming som Tier 1, men bruker EF-er og andre parametere som er
+landsspesifikke. Landsspesifikke EFer og parametere kan trenge mer detaljerte
+aktivitetsdata for spesifikke regioner og spesialiserte arealbrukskategorier. Tier 3 (T3) er
+den mest robuste metodikken for utslippsberegninger og er basert på modeller eller
+målinger. Som et resultat gir Tier 3-metoder estimater mindre usikkerhet enn lavere
+nivåer, men det gir også en økning i kompleksiteten til måleprosesser og analyser.
+Landsspesifikke utslippsfaktorer kan bare utledes når det er tilstrekkelig tilgjengelighet
+av N2O-måledata og tilstrekkelige stratifiserte aktivitetsdata, og er derfor vanskelige for
+mange land å oppnå (Mathivanan et al., 2021). Ved beregning av N 2O-utslipp i dag
+brukes generelt nivå 1 (Tier 1) i IPCC. For N2O og CH4 utslipp fra gjødselhåndtering bruker
+Norge Tier 2.
+
+De indirekte N2O-utslippene er beregnet som en lineær funksjon av mengden reaktivt
+nitrogen (nitrat, ammoniakk) som går tapt fra jorda. Ifølge denne modellen forventes
+N2O-utslippene å være høyere jo mer nitrogen som tilføres jorda eller går tapt fra jorda.
+Utslippsfaktoren brukt som standard for IPCC ble utledet fra et begrenset antall
+observasjoner, men representerer en gjennomsnittsverdi over alle jordtyper,
+klimaforhold og forvaltningspraksis. Siden N2O-utslipp er svært følsomme for alle disse
+faktorene, er det en høy grad av usikkerhet knyttet til utslippsfaktoren. I tillegg tar
+utslippsfaktormetoden ikke hensyn til mange av forvaltningspraksisene som potensielt
+kan redusere N2O-utslipp (f.eks. gjødseltidspunkt, splitting av gjødselpåføringer, bruk av
+nitrifikasjonshemmere, applikasjonsdybde).
+Tier 1-metoden er imidlertid ment for inventar av klimagassutslipp på nasjonalt nivå, det
+vil si NIR-rapportene, og den er ikke tilrettelagt for beregninger på avlingsnivå eller for
+å vurdere effekter av dyrkingstiltak (Berglund og Wallman, 2011). Modellen tar kun
+hensyn til nitrogenstrømmene, og størrelsen på utslippene påvirkes av en rekke andre
+faktorer. I sammenstillinger av resultater fra feltforsøk er det ikke alltid en klar
+sammenheng mellom nitrogenutslipp og lystgassutslipp, i hvert fall ikke ved relativt lave
+gjødslingsnivåer (<100 kg mineralgjødselnitrogen per hektar) (Kasimir Klemedtsson,
+2010). Nitrogenet som tilføres via gjødsling er kun en liten del av alt nitrogenet som
+finnes og omsettes i jorda. En avling som vokser godt og som effektivt tar opp nitrogen,
+etterlater lite plantetilgjengelig nitrogen igjen til mikroorganismene.
+
+
+
+3.4 Lagring og spredning av husdyrgjødsel
+Husdyrgjødsel avgir klimagassutslipp ved både lagring og spredning dersom den ikke
+spres rett etter produksjon. Ved lagring produseres både metan- og lystgassutslipp.
+Metanproduksjonen er avhengig av andelen flyktige faste stoffer (%VS, volatile solids) i
+gjødselen,     gjødselens     kapasitet     til   å     produsere      metan,     samt
+gjødselhåndteringssystemet. Lystgass dannes delvis direkte via nitrifikasjon og
+denitrifikasjon av nitrogenet som finnes i stallgjødselen, delvis indirekte via tap av
+ammoniakk og ulike nitrogenoksider som omdannes til lystgass i andre deler av
+økosystemet. Utslipp av lystgass fra gjødsellager påvirkes av nitrogeninnhold, mengde
+uorganisk nitrogen (ammonium-nitrogen) og type gjødsellager. Ved spredning varierer
+utslippene av lystgass avhengig av parametere som gjødseltype, sprede-teknikk,
+tidspunkt for spredning, vanninnblanding, nedmolding, avling, nedbrytningstid og vær.
+
+Se tabell 3-3 som viser til utslippsfaktorer og figur 3-2 viser en oversikt over stegvis
+beregning av atmosfærisk nitrogen og metan fra lager og spredning.
+Figur 3-2 Forenklet oversikt over stegvis beregning av atmosfærisk nitrogen og metan fra lager
+og spredning basert på Carbon Limits (2020a; 2020b).
+
+
+
+3.5 Biorest brukt som gjødsel
+Fordelen med å produsere biogass fra husdyrgjødsel er at utslippene fra lagring av
+husdyrgjødsel unngås eller reduseres kraftig. Dersom dette skal oppnås er det viktig at
+ubehandlet gjødsel og biorest håndteres på en god måte. Dette innebærer en god
+utråtningsprosess slik at mesteparten av metanpotensialet omformes til biogass, og at
+det eventuelt gjøres tiltak på biogassanlegget og ved lagring av bioresten for å unngå
+utslipp av resterende metan. Dersom dette ikke gjøres er det en risiko for at bioresten
+fortsetter å slippe ut klimagasser som metan og lystgass.
+
+I IPCC er utslippsfaktoren for metan ved lagring av biorest avhengig av type lager (IPCC
+2019). Utslipp av metan under lagring er sterkt relatert til temperatur. Høy temperatur
+på bioresten og høyt innhold av aktive metandannende mikrober er faktorer som
+favoriserer metandannelse også under lagring, spesielt i begynnelsen av lagring.
+Risikoen for utslipp er størst om sommeren på grunn av høye lufttemperaturer. Svenske
+målinger har vist at biorest fra storfe som ble lagret om sommeren hadde større
+metantap enn storfegjødsel som ikke var utråtnet. Å lagre biorest fra storfe om
+sommeren og spre det om høsten hadde seks til syv ganger større innvirkning på
+klimaavtrykket enn å lagre det om vinteren og spre det om våren (Rodhe et al., 2013).
+Lystgassutslippene for lagring av biorest anses som lave, IPCC regner med en
+utslippsfaktor på 0,006% per kg biorest for direkte lystgassutslipp (IPCC, 2019).
+
+
+
+3.6 Oppsummering klimagassutslipp
+Beregninger av klimagassutslipp fra de ulike gjødselproduktene er kompliserte, og
+nøkkeltall for utslipp per tonn gjødsel er i liten grad tilgjengelig. Dette gjør det
+utfordrende for gårdbrukere å gjøre en vurdering av hvordan ulike gjødselprodukter
+påvirker gården og produktenes klimagassregnskap. En oppsummering av
+utslippsfakturene beskrevet i de foregående avsnittene er gitt i Tabell 3-3.
+Tabell 3-3 Utslipp av metan og lystgass ved lagring og spredning av 1 kg total-N. BAT = best
+available technology
+
+                    Mineral-           Storfe            Gris        Biorest      Biorest
+                    gjødsel
+                                    ubehandlet       ubehandlet       storfe        gris
+                                      gjødsel          gjødsel
+
+ Utslipp fra        4 (BAT)/7            0                0             0            0
+ produksjon
+
+ Utslipp fra            0                8                12            3            5
+ lagring
+
+ Utslipp fra            5                6                6             7            7
+ spredning
+
+ Utslipp totalt    9 (BAT)/12            14               18            10          12
+
+
+
+Beregningene for husdyrgjødsel i Tabell 3-3 er basert på Carbon Limits (2020a; 2020b)
+og tar hensyn til type gjødsellager og spredemetoder. Det er brukt et nasjonalt
+gjennomsnitt for fordelingen mellom ulike typer gjødsellager og spredemetoder, basert
+på gjødselundersøkelsen (Kolle og Oguz-Alper, 2020).
+
+Beregningene inkluderer ikke belastningen fra produksjon av bioresten, det vil si
+energibruk og eventuelle utslipp knyttet til den anaerobe utråtningsprosessen. Hvis
+dette skal inkluderes, må miljøbelastningene til utråtningsprosessen allokeres mellom
+biogassen og bioresten, enten basert på økonomi, energi eller masse (tørrstoff).
+
+Ved vurdering av klimagassutslipp fra biorest fra husdyrgjødsel bør det også tas stilling
+til hvorvidt utslippsreduksjonene fra lagring av husdyrgjødsel bør fordeles mellom kjøtt
+og melk fra husdyrproduksjon og biogjødselproduktet. Dette er ikke gjort i resultatene
+som er vist i tabell 3-3.
+
+Innhold av fosfor i gjødsel og biorest medfører ikke klimagassutslipp fra lagring og
+spredning. Produksjon av fosfor i mineralgjødsel avhenger av produksjonsprosess og
+sted som vist i Tabell 2-2. Selv om fosforgjødsel ikke avgir klimagasser kan den gi
+avrenninger som bidrar til overgjødsling. Potensielle effekter av dette er ikke kvantifisert
+i denne rapporten, men i fremtiden vil det være viktig å veie ulike miljøkategorier opp
+mot hverandre.
+
+Det finnes per i dag ikke metoder som er tilpasset beregning av klimagassutslipp fra
+biorest fra marine råstoffer, til tross for at flere anlegg benytter, eller har planer om å
+benytte, disse råstoffene og levere bioresten til landbruket.
+
+Sammenstillingen i dette kapittelet viser et stort behov for å utvikle kunnskap og
+beregningsregler knyttet til å estimere miljøbelastningen til biogjødsel som produkt.
+Dette skal blant annet gjøres i forskningsprosjektet Circulizer, som er en oppfølger av
+dette prosjektet. Der skal det gjennomføres livsløpsanalyser av biogjødselprodukter, og
+resultatene vil gjøres tilgjengelig i landbrukets klimakalkulator.
+4 Konklusjon og anbefalinger
+Bakgrunnen for dette prosjektet har vært den store interessen for å benytte marine
+råstoffer som fiskeslam og fiskeensilasje til biogassproduksjon. Kunnskap om
+egenskaper og bruk av biorest har hittil vært basert på biorest fra matavfall og
+avløpsslam.
+
+Analysene som er gjennomført i denne rapporten gir følgene konklusjon og
+anbefalinger:
+
+   •   Informasjon om miljøbelastningen til gjødselprodukter er lite tilgjengelig. Dette
+       gjør det utfordrende for gårdbrukere å gjøre en vurdering av hvordan ulike
+       gjødselprodukter påvirker gården og produktenes miljøfotavtrykk. Det er derfor
+       behov for å utvikle mer kunnskap og metoder for å beregne miljøbelastningen
+       til ulike gjødselprodukter i et livsløpsperspektiv. Det vil også være viktig å veie
+       ulike miljøutfordringer, slik som klimagassutslipp, ressursutnyttelse og
+       overgjødsling, opp mot hverandre. Arbeidet med dette vil videreføres i
+       forskningsprosjektet Circulizer, som er en oppfølger av dette prosjektet.
+   •   Fosfor kan bli en begrensende faktor for bruk av biorest (og dermed økt
+       biogassproduksjon) i noen regioner i Norge. Siden det er kostbart å transportere
+       biorest over store avstander, er det nødvendig å utnytte biogjødsel på arealer i
+       relativt kort avstand til biogassanlegget. Når man skal se på potensialet for bruk
+       av biogjødsel er det derfor nødvendig med regionale analyser.
+   •   Det bør gjennomføres mer forskning og utvikling på teknologier og metoder som
+       kan tilpasse egenskapene til bioresten mer til brukerbehovet. Det kan også være
+       aktuelt å se nærmere på andre anvendelser av biorest, for eksempel insekts- og
+       algeproduksjon. Dagens regelverk tillater ikke dette, men det kan endre seg i
+       fremtiden.
+   •   Siden det kan være krevende for biogassanlegg å ha all kompetanse som er
+       nødvendig for å forstå alle aspekter innenfor gjødsling, bør det vurderes om det
+       bør etableres en kunnskapshub for biorest som kan være et bindeledd mellom
+       biogassanleggene og gårdbrukere for å sikre god kvalitet og god dokumentasjon
+       på gjødselproduktene.
+5 Referanser
+Albaugh, T.J., Vance, E.D., Gaudreault, C., Fox, T.R., Allen, H.L., Stape, J.L., Rubilar, R. A.,
+2012. Carbon emissions and sequestration from fertilization of pine in the southeastern
+United States. Forest Sci. 58, 419–429
+
+Berglund, M and Wallman, M., 2011. Utsläpp av växthusgaser i växtodling, underlag till
+klimatcertifiering, Rapport 2011:1
+
+Brentrup, F., Kusters, J., Lammel, J., Barraclough, P., Kuhlmann, H., 2004. Environmental
+impact assessment of agricultural production systems using the life cycle assessment
+(LCA) methodology - II. The application to N fertilizer use in winter wheat production
+systems. European Journal of Agronomy, 20: 265–279
+
+Brod, E. 2023. Biorest fra marine råstoffer: Kjemisk sammensetning og gjødselkvalitet.
+NIBIO rapport 9/140/2023.
+
+Carbon Limits, 2020a. Calculation of atmospheric nitrogen emissions from manure in
+Norwegian agriculture. Technical description of the revised model. Project for
+Miljødirektoratet.M-1848|2020.
+https://www.miljodirektoratet.no/globalassets/publikasjoner/m1848/m1848.pdf
+
+Carbon Limits, 2020b.Greenhouse gas emissions from biogas production from manure
+in Norwegian Agriculture. Technical description of the revised model. Project for
+Miljødirektoratet.M-1849|2020.
+https://www.miljodirektoratet.no/globalassets/publikasjoner/m1849/m1849.pdf
+
+Cencic, O.; Rechberger, H., Material Flow Analysis with Software STAN. Journal of
+Environmental Engineering and Management 2008, 18, (1), 5.
+
+Ciais, P.; Sabine, C.; Bala, G.; Bopp, L.; Brovkin, V.; Canadell, J.; Chhabra, A.; DeFries, R.;
+Galloway, J.; Heimann, M.; et al. Carbon and Other Biogeochemical Cycles. In Climate
+Change 2013: The Physical Science Basis. Contribution of Working Group I to the Fifth
+Assessment Report of the Intergovernmental Panel on Climate Change; Cambridge
+University Press: Cambridge, UK; New York, NY, USA, 2013
+
+Davis, J., Haglund, C., 1999. Life cycle inventory (LCI) of fertiliser production: fertiliser
+products used in Sweden and Western Europe. SIK Institutet för livsmedel och bioteknik,
+Göteborg, Sverige
+
+EC; European Commission (2017). PEFCR Guidance document, - Guidance for the
+development of Product Environmental Footprint Category Rules (PEFCRs), version 6.3,
+December 14, 2017.
+
+Elsayed, M., Matthews, R., Mortimer, N., 2003. Carbon and Energy Balances for a Range
+of Biofuels Options. AEA Technology
+
+FEFAC. (2018). PEFCR Feed for Food Producing Animals. First public version (v4.1).
+Available at:
+https://ec.europa.eu/environment/eussd/smgp/PEFCR_OEFSR_en.htm
+
+Gebauer R, Cabell JF, Ween O (2016) Biogassproduksjon fra settefiskslam i sentraliserte
+og desentraliserte biogassanlegg. NIBIO rapport 2(121).
+
+Hoffman, E., Cavigelli, M.A., Camargo, G., Ryan, M., Ackroyd, V.J., Richard, T.L., Mirsky,
+S., 2018. Energy use and greenhouse gas emissions in organic and conventional grain
+crop production: Accounting for nutrient inflows, Agricultural Systems, 162:89-96
+
+IPCC. (2021). Climate Change 2021: The Physical Science Basis. Contribution of Working
+Group I to the Sixth Assessment Report of the Intergovernmental Panel on Climate
+Change. Retrieved from Cambridge University Press.
+
+Kasimir Klemedtsson, Å., 2010. Hur mycket lustgas blir det vid odling av biobränslen på
+åkermark i Sverige? ER 2010:16, Energimyndigheten
+
+Kolle, S.O., Oguz-Alper, M., 2020. Bruk av gjødselressurser i jordbruket 2018.
+Metodebeskrivelse og resultater fra en utvalgsbasert undersøkelse (Use of fertilizer
+resources in agriculture 2018. Method description and results from a sample-based
+survey).
+
+Kongshaug, G., 1998. Energy consumption and greenhouse gas emissions in fertilizer
+production. In: IFA Tech. Conf., Marrakech, Morocco, 1998. Int. Fertilizer Industry Assoc.
+
+Korsaeth, A. Jacobsen, Z., A.-G., Roer, A-G., Henriksen, T.M., Sonesson, U., Bonesmo, H.,
+Skjelvåg, A.O., Strømman, A.H., 2012. Environmental life cycle assessment of cereal and
+bread production in Norway, Acta Agriculturae Scandinavica, Section A – Animal Science,
+62:4, 242-253, DOI: 10.1080/09064702.2013.783619
+
+Kramer, K.J., Moll, H.C., Nonhebel, S., 1999. Total greenhouse gas emissions related to
+the Dutch crop production system. Agric. Ecosyst. Environ. 72, 9–16
+
+Mathivanan, G.P., Eysholdt, M., Zinnbauer, M., Rösemann, C., Fuss, R., 2021. New N2O
+emission factors for crop residues and fertiliser inputs to agricultural soils in Germany,
+Agriculture, Ecosystems and Environment, 322, 107640
+
+Morken, J., Briseid, T., Hovland, J., Lyng, K.-A. & Kvande, I. (2017). Veileder for
+biogassanlegg - mulighetsstudie, planlegging og drift. REALTEK Rapport 56.
+
+NIR, 2022. Greenhouse Gas Emissions 1990-2020, National Inventory Report. The
+Norwegian Environment Agency, Statistics Norway, Norwegian Institute of Bioeconomy
+Research
+
+Norwaste 2023: Norsk biogasstatistikk. https://norwaste.no/biogasstatistikk-2022/
+
+Rodhe, L., Ascue, J., Tersmeden, M., Willén, A., Nordberg, Å., Salomon, E. och Sundberg,
+M. 2013 Växthusgaser från rötad och orötad nötflytgödsel vid lagring och efter spridning
+– samt bestämning av ammoniakavgång och skörd i vårkorn. Rapport 413 Lantbruk &
+Industri. JTI – Institutet för jordbruks och miljöteknik Uppsala.
+
+Signor, D.; Cerri, C.E.P. 2013. Nitrous oxide emissions in agricultural soils: A review.
+Pesquisa Agropecuária Tropical, 43, 322–338
+Skowronska, M., Filipek, T., 2014. Life cycle assessment of fertilizers: a review. Int.
+Agrophys. 28, 101–110
+
+SSB, 2021. Små endringar i mengd gjødsel brukt i jordbruket. https://www.ssb.no/jord-
+skog-jakt-og-fiskeri/jordbruk/artikler/sma-endringar-i-mengd-gjodsel-brukt-i-
+jordbruket
+
+Williams, A.G., Audsley, E., Sandars, D.L., 2010. Environmental burdens of producing
+bread wheat, oilseed rape and potatoes in England and Wales using simulation and
+system modelling. Int. J. Life Cycle Assess. 15, 855–868
+
+Walling, E., Vaneeckhaute, C., 2020. Greenhouse gas emissions from inorganic and
+organic fertilizer production and use: A review of emission factors and their variability.
+Journal of Environmental Management, 276:111211
+
+Wójcik-Gront, E., 2020. Analysis of Sources and Trends in Agricultural GHG Emissions
+from Annex I Countries, Atmosphere 11: 392 https://doi.org/10.3390/atmos11040392
+
+Zhang, F., Wang, Q., Hong, J., Chen, W., Qi, C., Ye, L., 2017. Life cycle assessment of
+diammonium-and monoammonium-phosphate fertilizer production in China. J. Clean.
+Prod. 141, 1087–1094.
+Husdyrgjødsel, spredning av 1kg N fra husdyrgjødsel                                              Storfe           Gris
+N for spreadning                                                                                           1,00           1,00
+Kg N lagret                                                                                                1,16           1,24
+Direkte N2O fra lager                                                                                      1,81           0,31
+Indirekte N2O from lager (leaching)                                                                        0,09           0,04
+Indirekte N2O from lager fra fordamping (atmospheric deposition)                                           0,77           0,99
+Direkte N2O fra spredning av husdyrgjødsel                                                                 4,29           4,29
+Indirekte tap av N2O fra fordamping ved spredning av husdyrgjødsel                                         1,08           1,31
+Indirekte tap av N2O fra avrenning (leaching and runoff) ved spredning av husdyrgjødsel                    0,71           0,71
+CH4 fra lager                                                                                              5,72          10,92
+Virkningsgrad                                                                                              0,36           0,33
+Sum                                                                                                       14,46          18,56
+
+
+
+
+Biorest, spredning av 1 kg N fra biorest                                                         Storfe           Gris
+N for spredning, biorest                                                                                   1,00           1,00
+Kg N lagret                                                                                                1,11           1,23
+Direct N2O fra lager av husdyrgjødsel (pre-storage)                                                        0,35           0,06
+Indirekte N2O fra avrenning (leaching) fra lager av husdyrgjødsel (pre-storage)                            0,04           0,01
+Indirekte N2O fra fordamping (atmospheric deposition) fra lager av husdyrgjødsel (pre-storage)             0,46           0,82
+N2O fra lager av biorest (digestate)                                                                       0,53           0,26
+Direkte N2O fra spredning av biorest (digestate)                                                           4,29           4,29
+Indirekte N2O fra fordamping ved spredning av biorest                                                      1,58           1,89
+Indirekte N2O fra avrenning ved spredning av biorest                                                       0,71           0,71
+CH4 fra lager av husdyrgjødsel (pre-storage)                                                               1,88           3,68
+CH4 fra biogassproduksjon (AD reactor)                                                                    11,48          18,05
+CH4 fra lager av biorest                                                                                   0,23           0,50
+Virkningsgrad                                                                                              0,79           0,39
+Sum inkl utslipp av CH4 fra biogassproduksjon                                                             21,55          30,27
+Sum eksl utslipp av CH4 fra biogassproduksjon                                                             10,07          12,23
+Vedlegg 2
+Tabell 5-1 Beregning av gjødselpotensial fra biorest produsert fra matavfall, husdyrgjødsel,
+fiskeensilasje og settefiskslam
+
+                                                                                       kg
+               Tonn tørrstoff/år                                                       P/tonn
+               Referanse:        Kilde          kg N/ tonn TS                          TS             Tonn
+               Norwaste,2023     næringsinnhold substrat       Tonn N/ år              substrat       P/år
+                                 Daugstad m.fl.
+Husdyrgjødsel              6 544 (2012)                   49,2         322                      9,4          61
+                                 Vivekanand
+Fiskeensilasje           19 537 (2018)                   198,1       3 871                     28,5      556
+                                 Brod og
+Settefiskslam              1 867 Øgaard (2023)            58,3         109                     24,9       46
+Totalt                   87 310                                     11 145                             1 177
+
+
+Antatt regional fordeling av bruk av marine råstoff til biogassproduksjon er estimert ved
+hjelp av informasjon fra Miljødirektoratet og forfatternes kunnskap om
+biogassproduksjon i Norge.
+Tabell 5-2 Regional fordeling for bruk av marine råstoff
+
+Rogaland                  3%
+Buskerud                  4%
+Innlandet                 3%
+Trøndelag                90 %
+Totalt                  100 %
+
+
+Antatt regional fordeling av husdyrgjødsel til biogass ble estimert ved hjelp av
+informasjon fra Landbruksdirektoratet.
+Tabell 5-3 Regional fordeling av husdyrgjødsel til biogassproduksjon
+
+Viken                            9%
+Agder                            2%
+Vestfold og
+Telemark                       67 %
+Vestland                       12 %
+Møre og Romsdal                 8%
+Innlandet                       1%
+Troms og Finnmark               1%
+Trøndelag                       1%
+Totalt                        100 %
+Referanser
+
+Brod, E. og Øgaard, A. F (2023): Fiskeslam fra smolt- og postsmoltproduksjon som
+gjødsel. Vurdering av kjemiske analyser (2010 – 2023). NIBIO rapport 9/123/2023.
+
+Daugstad, K., Kristoffersen, A.Ø. og Nesheim, L. (2012). Næringsinnhold i husdyrgjødsel.
+Analyser av husdyrgjødsel frå storfe, sau, svin og fjørfe 2006-2011. Bioforsk Report. Vol
+7 Nr. 24 2012
+
+Vivekanand V, Mulat DG, Eijsink VGH, Horn SJ (2018) Chemical composition, mineral
+content and amino acid and lipid profiles in bones from various fish species. Bioresource
+Technology 249, 35-41
+Visjonen til NORSUS Norsk institutt for bærekraftsforskning AS, tidligere
+Østfoldforskning AS, er å bidra til bærekraftig samfunnsutvikling. Vi utvikler
+kunnskap og metoder for å forstå og implementere bærekraft bedre i samfunnet.
+Sammen med bedrifter og offentlige aktører kartlegger og reduserer vi
+miljøbelastninger, ofte med økonomisk gevinst. Slik bidrar vi til å bevege
+samfunnet i en bærekraftig retning.
+

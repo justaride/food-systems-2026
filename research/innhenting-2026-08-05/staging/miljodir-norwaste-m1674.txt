@@ -1,0 +1,1849 @@
+                       Norwaste-rapport 3-2019
+
+
+
+
+Kommersielt tilgjengelige torvfrie råvarer til
+dyrkingsmedier
+
+
+Miljødirektoratet M-1674|2020
+
+
+
+Rapport 3-2019
+
+
+
+
+                                 Side 1
+                                     Norwaste-rapport 3-2019
+
+
+
+
+Rapportnummer:      2/2019                                Oppdragsgiver:        Miljødirektoratet
+
+Tittel:             Kommersielt tilgjengelige torvfrie    Distribusjon:         Åpen
+                    råvarer til dyrkingsmedier
+
+
+
+Forfattere:         Henrik Lystad                         Antall sider:         44
+                    Malin Granlund
+                    Ingrid Reppe Staveland                Antall vedlegg:       4
+
+                                                          Kontaktperson         Malin Granlund
+
+
+Utdrag:
+Utvinning av torv og bruk av torvbaserte produkter medfører betydelige lokale naturinngrep og
+klimagassutslipp. Regjeringen har derfor bedt Miljødirektoratet utarbeide en plan for utfasing av bruk
+av torv til private forbrukere innen 2025 og til proffmarkedet innen 2030.
+Utfasing av torv i dyrkingsmedier byr på utfordringer som må løses før konklusjonene om og når dette
+er realistisk å gjennomføre kan tas. Denne kartleggingen er basert på tidligere utredninger på
+området, annen tilgjengelig informasjon og innspill fra aktører som utvikler, produserer, selger og selv
+bruker torv og torvfrie dyrkingsmedier.
+Fremskaffede tall og kunnskap om tilgang på råvarer til økt produksjon av alternative substrater med
+bedre miljøegenskaper enn torv viser at det er sannsynlig at det vil være tilstrekkelig tilgang på
+substrater av tilstrekkelig kvalitet og mengde til å erstatte torv i dyrkingsmedier til privatmarkedet i
+løpet av en periode på 5 år. Dette er også et budskap som flere aktører som er kontaktet i dette
+prosjektet har delt.
+Tilgangen på råvarer er også tilstrekkelig for å kunne produsere substrater til å dekke behovene i
+anleggsbransjen og gartnerisektoren. For anleggsbransjen kan torv erstattes av kompost og ulike typer
+biorest/avløpsslam. For gartneribransjen er kvaliteten av avgjørende betydning. Her vil en måtte
+vurdere kvalitet og egnethet for alternative dyrkingsmedier for hver enkelt dyrkingssort/plantetype og
+det må utvikles nye substrater enn de som er tilgjengelig på markedet i dag.
+
+
+
+          Emneord: Torv, dyrkingsmedium, kompost,                     Geografi: Norge
+                   trefiber
+
+     Prosjektleder: Malin Granlund                              Kontrollert av: Henrik Lystad
+
+
+
+
+                                                 Side 2
+                                     Norwaste-rapport 3-2019
+
+
+
+
+Innhold
+1.  Innledning                                                                       5
+    1.1. Bakgrunn                                                                    5
+    1.2. Metode og avgrensing                                                        5
+2. Torvbaserte dyrkingsmedier                                                        6
+  2.1. Torvomsetning i Norge                                                         6
+  2.2. Torvens egenskaper                                                            7
+    2.2.1.   Klimaeffekt ved uttak og bruk av torv                                   7
+  2.3. Bruksområder for torv                                                         8
+    2.3.1.   Torv i dyrkingsmedier til private                                       8
+  2.4. Torv i proffbransjen                                                          9
+    2.4.1.   Torv i anleggsjord                                                     10
+3. Erstatningssubstrater for torv                                                   11
+  3.1. Krav til organiske gjødselvarer og dyrkingsmedier i gjødselvareforskriften   11
+  3.2. Kompost                                                                      13
+    3.2.1.   Dagens råvarer til kompost                                             13
+    3.2.2.   Produsert mengde kompost                                               15
+    3.2.3.   Bruksområder for kompost                                               16
+  3.3. Biorest                                                                      16
+  3.4. Kokosfiber                                                                   17
+  3.5. Biokull                                                                      17
+  3.6. Bearbeidet trefiber                                                          19
+4. Tilgangen på råvarer til torvfrie substrater                                     20
+  4.1. Matavfall                                                                    20
+  4.2. Hageavfall                                                                   21
+  4.3. Bark                                                                         22
+  4.4. Husdyrgjødsel                                                                22
+  4.5. Ull og talle                                                                 23
+  4.6. Fiskeslam                                                                    23
+  4.7. Trevirke                                                                     23
+5. Priser                                                                           25
+6. Merkeordning for dyrkingsmedier                                                  27
+  6.1. Er det behov for en merkeordning for dyrkingsmedier i Norge?                 27
+7. FOU og innovasjon                                                                30
+8. Utfasing av torvbruk i Norge                                                     34
+9. Støtteordninger for utvikling av alternative substrater                          37
+
+
+
+
+                                                 Side 3
+                                      Norwaste-rapport 3-2019
+
+
+
+
+Begrepsliste
+Betydningen av begreper som er brukt i denne rapporten følger under. Der offisiell definisjon foreligger
+er denne brukt.
+
+Anleggsjord: et mineralsk basert dyrkingsmedium av minst to råvarer, som egner seg til
+bruk i grøntanlegg (jfr B.3 i NS 2890)
+Biogjødsel: Flytende biorest, brukt som gjødsel
+Biorest: Restproduktet etter biogassprodusksjon der mikroorganismer produserer metan ved anaerob
+nedbryting av organisk materiale. Foreligger normalt i avvannet form.
+Blandet dyrkingsmedium: et organisk dyrkingsmedium av minst to råvarer, som egner seg
+til bruk i potter, kasser og krukker (jfr. B.2 i NS 2890)
+Dyrkingsmedium: Grunnsubstans av naturlige eller kunstige produkter som enkeltvis eller i blanding,
+uten eller med tilsatte næringsstoffer eller annen tilsetning, skal brukes til dyrking av planter.
+(Gjødselvareforskriften)
+Gjødsel: Produkt som har til hovedoppgave å tilføre næringsstoffer til planter.
+Hjemmekompost: Kompost produsert og brukt på eget eller leid areal. Selvprodusert kompost som
+spres på arealer hvor det dyrkes vekster for omsetning regnes ikke som hjemmekompost når årlig
+produksjon av kompost overstiger 1 tonn tørrstoff (TS). (gjødselvareforskriften)
+Husdyrgjødsel: Faeceseller urin, med eller uten strø, fra husdyr
+Jord: Naturlige løsavleiringer av uorganisk og/eller organisk materiale
+Jordforbedringsmiddel: Produkter som bare eller vesentlig virker gagnlig på jordas/dyrkingsmediets
+kjemiske, fysiske og biologiske tilstand og derved indirekte på planteveksten.
+Kompost: Resultatet av en mikrobiell nedbrytningsprosess som organisk avfall gjennomgår med tilgang
+til luft.
+Råvare: inngår i en produksjon, kan forandre egenskapene gjennom for eksempel nedbrytning
+Substrat: Ingrediens i et dyrkingsmedium
+Torvbasert: I denne rapporten; produkter med mer enn 50 volum-% andel torv.
+Torvfritt: Dyrkingsmedium med 0 % torv
+
+
+
+
+                                                  Side 4
+                                       Norwaste-rapport 3-2019
+
+
+
+
+1. Innledning
+       1.1.     Bakgrunn
+Utvinning av torv og bruk av torvbaserte produkter medfører betydelige lokale naturinngrep og
+klimagassutslipp. Regjeringen har derfor bedt Miljødirektoratet utarbeide en plan for utfasing av bruk av
+torv til private forbrukere innen 2025 og til proffmarkedet innen 2030.
+
+På bakgrunn av Klima- og miljødepartementets oppdrag til Miljødirektoratet (18/1732-1) har
+Miljødirektoratet tildelt Norwaste oppgaven å kartlegge kommersielt tilgjengelige vekst- og
+dyrkingsmedier, med tilstrekkelig kvalitet og mindre klima- og miljøbelastning enn torv.
+De torvfrie produktene skal ha en mindre miljøbelastning enn torvproduktene som i dag brukes i
+utstrakt grad. Kartleggingen skal synliggjøre hvor store mengder torvfrie vekst- og dyrkingsmedier det er
+behov for på det kommersielle markedet for å kunne gjennomføre utfasing av torvsubstrater innen
+planlagt tidsrom, hhv 2025 for privatmarkedet og 2030 for proffmarkedet. I tillegg til å se på mengdene,
+og i hvilken grad det er realistisk å erstatte produktene innen nevnte tidsrom, skal kostnadsbildet og
+prisene vurderes.
+
+       1.2.     Metode og avgrensing
+Denne kartleggingen er basert på tidligere utredninger på området, annen tilgjengelig informasjon og
+innspill fra aktører som utvikler, produserer, selger og selv bruker torv og torvfrie dyrkingsmedier. Det er
+sendt ut en spørreundersøkelse til ca. 50 aktører med spørsmål om produkter, volumer og pris. I tillegg
+til at det er gjennomført intervjuer, møter og befaringer med andre som har gitt nødvendige og nyttige
+innspill til problemstillingen. Imidlertid er ikke alle henvendelsene besvart, noe som har gjort særlig
+mengdesammenstillingen utfordrende. Faktagrunnlaget det er tatt utgangspunkt i er derfor basert på
+foreliggende undersøkelser og rapporter, Avfall Norges kompostundersøkelse og befaringer og direkte
+kontakt med relevante aktører i bransjen, i tillegg til de sammenstilte resultatene fra
+spørreundersøkelsen som ble utsendt.
+
+Usikkerheter
+På grunn av utfordringer vedrørende informasjonsinnhenting i oppdraget er det knyttet noen
+usikkerheter til datagrunnlaget for kartleggingen. På langt nær alle respondentene til
+spørreundersøkelsen som ble utsendt har svart. Datagrunnlaget er derfor basert på den informasjonen
+som er kommet inn fra de som svarte på undersøkelsen, nettsøk, direkte henvendelser, besøk og
+telefonsamtaler med relevante aktører i tillegg til informasjon fra Miljødirektoratet.
+Det er observert at mengdene torv er varierende i de ulike kildene. Dette er en usikkerhet som er
+drøftet i mengdekapittelet.
+
+
+
+
+                                                   Side 5
+                                               Norwaste-rapport 3-2019
+
+
+
+
+2. Torvbaserte dyrkingsmedier
+Det har vært gjennomført flere kartlegginger av både uttak av torv og torvbaserte produkter i markedet.
+De viktigste er sammenstilt her, supplert med innhentet informasjon fra aktørene i markedet.
+
+
+          2.1.     Torvomsetning i Norge
+Det foreligger ingen fullstendig offisiell statistikk over torvproduksjonen eller omsetningen i Norge, kun
+over import av torv og planter med dyrkingsmedium. Det foreligger dermed ikke offisielle tall på
+hverken uttak av torv eller på omsatt mengde torv. Vurderinger omkring behovet for
+erstatningssubstrater må derfor ta utgangspunkt i ulike typer kartlegginger og andre kilder.
+
+I en spørreundersøkelse blant de største aktørene i bransjen 2017 kommer Hjellnes Consult fram til
+totalt 289 000 m3 pakkede produkter med torv omsatt/år1. Tallene baserer seg på svar fra 20 av totalt 46
+kontaktede virksomheter. En kartlegging gjort av Menon i 2017 viser at de 12 eksisterende torvuttakene
+hentet ut årlig ca. 332 000 m3 torv2.
+
+Norske Torv- og Jordprodusenters Bransjeforbund har til Miljødirektoratet anslått bruken av
+dyrkingsmedier i Norge til å ligge på ca. 500 000 m3 årlig hvorav 400 000 m3 er torv. Av denne mengden
+anslår torvbransjen at 100 000 m3 omsettes i proffmarkedet og 300 000 m3 i privatmarkedet.
+
+Statistikken over import av torv viser at det i 2018 ble importert ca. 25 000 tonn til det norske markedet.
+Mengden fordelte seg på henholdsvis 20 127 tonn torv og torvstrø og 4 810 tonn torvbriketter.
+Statistikken oppgis i vekt, dersom det tas utgangspunkt i at 1 m3 veier 500 kg tilsier dette ca. 40 000 m3
+torv og torvstrø. Norske Torv- og Jordprodusenters Bransjeforbund anslår importen av torvbaserte
+dyrkingsmedier (sekk) til å være ca. 100 000 m3.
+
+I tillegg kommer import av planter i potte der torv er brukt som dyrkingsmedium. SSBs statistikk over
+importerte planter/blomster med “jordklump eller annet vekstmedium” viser at det i 2018 ble importert
+ca. 10,5 millioner planter med vekstmedium fordelt på 5,7 tonn, som tilsier drøye 500 gram pr enhet.
+Denne vekten inkluderer imidlertid plante og potte. Dersom det tas utgangspunkt i at det er brukt torv
+som dyrkingsmedium og at hver potte i snitt er fylt med 0,5 liter dyrkingsmedium utgjør planteimporten
+et torvvolum på ca. 5 000 m3.
+
+Tabell 1: Antatt fordeling av bruken hos private og proffbransjen
+
+    Årlig forbruk av torv til privatforbruk          300 000 m3
+
+    Årlig forbruk av torv til proffbransjen          100 000 m3
+
+
+1
+  Øverås, H & Hansen, T.I. (2017): “Kartlegging av eksisterende dyrkingsmedier og jordforbedringsprodukter på det
+norske markedet”, Hjellnes Consult rapport, M-786/2017
+2
+  Magnussen, K. & Ruge, I.A. (2017): “KONSEKVENSER FOR TORVNÆRINGEN I NORGE AV EN UTFASING AV BRUK
+AV TORV“, MENONPUBLIKASJON NR. 63/2017, M-838/2017
+
+
+
+
+                                                             Side 6
+                                          Norwaste-rapport 3-2019
+
+
+
+
+Basert på disse resultatene velger vi i det videre å ta utgangspunkt i følgende tall for omsetning av
+torvbaserte dyrkingsmedier og lignende produkter3. Det understrekes at dette er estimater.
+
+Utover disse mengdene omsettes det en del torv og torvlignende (moldrik) jord som oppstår som
+overskuddsmasser fra ulike bygge- og anleggsprosjekter. Særlig samferdselsprosjekter som veibygging
+bidrar til at store mengder skogsjord fjernes og må avhendes på egnet måte. Entreprenørbransjen
+utnytter dette til å blande inn torven og moldjorda i anleggsjord. Disse mengdene er ikke kartlagt i dette
+prosjektet. Klima- og miljøeffektene ved bruk av slik torv og moldholdig jord er vesentlig bedre enn ved
+ordinært torvuttak ettersom massene uansett skal flyttes på, og da juridisk sett normalt har blitt avfall.
+
+
+        2.2.      Torvens egenskaper
+Torv er en naturressurs som har vært benyttet som dyrkingsmedium i lang tid. Torven har gode
+egenskaper i form av å holde godt på vann, er renslig å jobbe med, støver lite, gir god struktur og gode
+vekstforhold til det som plantes og dyrkes. Den kan tilsettes nødvendig gjødning og tilpasses som
+dyrkingsmedium til de aller fleste vekster.
+
+Hovedfunksjonen til torven er å gi planterøttene en matrix å vokse i, som har de riktige jordfysiske
+egenskapene. Torven tilfører ikke plantene næring selv. Fra naturens side er det bare myrplanter som
+trenger torv, andre vekster har behov for jord eller sand.
+
+               2.2.1.      Klimaeffekt ved uttak og bruk av torv
+Uttak og bruk av torv er forbundet med klimagassutlipp. Østfoldforskning har estimert dette utslippet
+for norske forhold til å ligge på til sammen 288 kg CO2-ekvivalenter pr m3 torv for produksjon,
+distribusjon og bruk4. Internasjonale studier har kommet til lavere tall, mens tidligere studier i Norge
+bekrefter tallene og kommer til høyere tall for bruksfasen5.
+
+Også produksjon og bruk av alternative materialer vil være forbundet med klimagassutslipp.
+Utslippsreduksjonene ved bruk av "alternative materialer" vil tilsvare utslipp fra mengden torv som
+erstattes.
+
+
+
+
+3
+  Volum og ferskvekt (våtvekt) av torv vil variere. Torv er kompakterbart, det betyr at volumet av en viss mengde
+torv kan endre seg avhengig av hvordan den håndteres. I tillegg varierer fuktighetsinnholdet i torven avhengig av
+været under høstingen, dette påvirker volumvekten av torven. Den mest presise mengdeangivelsen ville vært
+tørrvekt, men denne benyttes ikke i bransjen.
+4
+  Tellnes, L.G. et al. 2018: Erstatningsmaterialer for torv Kartlegging av klima- og miljøeffekter (Østfoldforskning)
+5
+  Grønlund et al. (2010): CO2-opptak i jord og vegetasjon, Bioforsk-rapport 162/2010. I rapporten beregnes utslipp
+forbundet med ca. 20 000 da arealer til å være 22 357 tonn CO2-ekvivalenter. I tillegg kommer utslipp fra høstet
+volum (såkalt off-site). Samme studien anslår disse til å være ca. 183 kg per m3 torv. Med 400 000 m3 gir dette i
+størrelsesområde 73 200 tonn CO2-ekvivalenter Distribusjon er ikke tatt med i disse beregningene.
+
+
+
+
+                                                        Side 7
+                                        Norwaste-rapport 3-2019
+
+
+
+
+       2.3.      Bruksområder for torv
+              2.3.1.     Torv i dyrkingsmedier til private
+De fysiske egenskaper er blant de viktigste kravene til et blandet dyrkingsmedium, og også
+hovedårsaken til at torv til nå har vært den mest foretrukne innsatsvaren. Et blandet dyrkingsmedium
+må ha tilstrekkelig med luftfylte porer som sørger for tilgang på oksygen og vannlagringsevne. Optimalt
+har et slik substrat > 85 vol.% porevolum, hvorav ca. 20-30 vol.% er luftkapasitet og 60-70 vol.% er total
+vannlagringsevne6. Dyrkingsmediet må også være lett å vanne opp. Dyrkingsmediet må i tillegg ha
+optimal pH tilpasset plantens behov, for plen og flere typer hageplanter er optimal pH 6-7 mens for
+rhododendron er optimal pH 4,5-5. Det bør heller ikke ha for høy ledningsevne (saltkonsentrasjon) slik
+at det er mulig å tilpasse gjødslingen etter kulturplantenes behov. Dyrkingsmediet bør ikke konkurrere
+med planten om næringsstoffene eller være forurenset med miljøgifter, ugrasfrø, patogener mm. Lav
+egenvekt er viktig for logistikk og omsetteligheten. Av praktiske årsaker er det derfor ønskelig at
+tettheten ikke overstiger 300 kg per m3. 7
+
+Bruksområder for torvbaserte blandete dyrkingsmedier
+Torvbaserte dyrkingsmedier har ulike spesifikasjoner og/eller produktnavn. Det er en tendens i
+markedet at det lages stadig flere produkter tilpasset ulike formål og bruksområder.
+Likevel kan det antas at forbrukerne bruker et og samme produkt til ulike bruksområder.
+
+En måte å dele opp bruksområdene på er i tre kategorier:
+   - Bruk som dyrkingsmedium til potteplanting, balkongkasser mv.
+   - Bruk som dyrkingsmedium til å anlegge ny jord i hagen
+   - Jordforbedring i hage (plen, busker og bed)
+
+Kunnskap om anvendelsen av de ulike typene torvbaserte vekst- og dyrkingsmedier til de ulike
+bruksområdene, kan danne et mer nyansert utgangspunkt for å vurdere muligheter for å erstatte disse
+med torvfrie alternativer enn ved utelukkende å vurdere mengder og kvalitet.
+
+Det foreligger lite kunnskap om hva privatpersoner bruker sekkene med dyrkingsmedier til. For å anslå
+fordelingen på de ulike bruksområdene for de ulike produkttypene med blandede dyrkingsmedier, ble et
+utvalg bestående av fagpersoner fra Det Norske Hageselskap, to kompostprodusenter og en
+anleggsgartner bedt om å vurdere bruksområdene (kategoriene over) til en liste av produkter i
+markedet. Vurderingene ble slått sammen med volumer til produktene fra en av markedsaktørene og
+sammenstilt, som vist i Tabell 2.
+
+Anslagene er basert på erfaringer fra et utvalg fagpersoner, og er gjenstand for diskusjon og tolkning.
+Likevel gir de en pekepinn om at blandete dyrkingsmedier har ulike bruksområder, og at bruk til
+potteplanting, balkongkasser mv utgjør det største volumet, men at bruk til nye arealer, beplantning,
+
+6
+ Garcia-Gomez m.fl. 2002
+7
+ Carlile WR, Cattivello C, Zaccheo P (2015) Organic growing media: Constituents and properties. Vadose Zone
+Journal doi: 10.2136/vzj2014.09.0125
+
+
+
+
+                                                     Side 8
+                                             Norwaste-rapport 3-2019
+
+
+
+
+kjøkkenhage og jordforbedring i hage også utgjør vesentlige volumer. Dette er bruksområder det stilles
+andre krav til, og der torven kan erstattes av flere alternativer.
+
+Tabell 2: Anslått fordeling på bruksområder for torvbaserte dyrkingsmedier i privatmarkedet.
+
+ Type produkt                             Dyrkingsmedium          Dyrkingsmedium          Jordforbedring i
+                                          i potter,               i hage                  hage
+                                          balkongkasser           (Nye arealer,
+                                          mv.                     beplanting,
+                                                                  kjøkkenhage)
+
+ Anslått fordeling på bruksområder
+ for alle torvbaserte                           60-70%                  20-30%                    10-20%
+ dyrkingsmedier
+
+ Sum anslåtte mengder basert på
+                                           180 - 210 000 m3          60 - 70 000 m3            30 - 60 000 m3
+ volumer i markedet
+
+
+
+
+        2.4.       Torv i proffbransjen
+Utfasing av torv på proffmarkedet utgjør en større utfordring enn på privatmarkedet.
+Særlig gjelder dette gartneribransjen. Her stilles det store krav til forutsigbarheten til vekst- og
+dyrkingsmediet. Små avvik i dyrkingsmediet kan gi vesentlige inntektsfall i en konkurranseutsatt bransje
+med pressede marginer. Det betyr at økte produksjonskostnader for norske produsenter vil gjøre
+norskproduserte urter, bær og grønnsaker mindre konkurransedyktige, med mindre de samme krav kan
+stilles til utenlandsk produserte produkter.
+
+Blant kvalitets og funksjonskrav gartnernæringen stiller til dyrkingsmediet er at det skal:
+    ● ha jevn kvalitet på produkt fra innkjøp til innkjøp
+                                                                   Ravnsborg Gård AS er en av ca 10
+    ● gi jevn, forventet plantevekst over tid
+                                                                   produsenter av urteplanter til
+    ● være rent, med minimalt innslag av ugress og sopp            detaljhandel og restaurantbransjen. På
+    ● være porøst og luftig for god rotvekst                       Ravnsborg i Asker produseres ca. 2,2
+    ● ha god evne til å holde på vann, samt drenere bort           millioner planter årlig. Det produseres
+        overskuddsvann                                             idag på gjødslet torv fra Degernes i 12
+    ● gi plantene god fysisk forankring                            cm-potter. Urteproduksjon er
+    ● være tilgjengelig                                            presisjonsdyrking. Det er relativt korte
+    ● være fornuftig priset                                        bestillingsfrister fra kundene og derfor er
+                                                                              forutsigbarhet på vekstperiode vesentlig.
+                                                                              Ravnsborg produserer i dag utelukkende
+Andre dyrkingsmedier enn torv er allerede i bruk i dag.
+                                                                              med torv og mineralgjødsel, dette
+Kokosfiber brukes allerede som alternativ til torv i mange
+                                                                              kvalifiserer til Nyt Norge-merket.
+grønnsaksgartnerier, og kokosfibre er relevant som                            Tidligere har man på bestilling produsert
+                                                                              økologisk med hønsegjødsel, etter
+                                                                              kravene i Debio.
+
+
+
+
+                                                            Side 9
+                                          Norwaste-rapport 3-2019
+
+
+
+
+alternativ til torv i potter også8. Steinull brukes i dag blant annet enkelte steder til dyrking av agurk og
+salat. Ulike typer kompost blir også prøvd ut9.
+
+Mengder
+Importen av torv til det norske markedet er ifølge SSB sin importstatistikk for 2018 ca 25 000 tonn
+fordelt på torv og torvstrø på 20 127 tonn og 4 810 tonn torvbriketter. Statistikken oppgis i vekt, dersom
+det tas utgangspunkt i at 1 m3 veier 500 kg tilsier dette ca. 40 000 m3 torvstrø og ca. 10 000 m3
+torvbriketter. Torvbransjen opplyser at 100 000 m3 av den samlete omsetningen av torv omsettes i
+proffmarkedet.
+
+
+
+              2.4.1.      Torv i anleggsjord
+I motsetning til blandede dyrkingsmedier som kjøpes i sekker hos hagesentre og lignende, er anleggsjord
+i hovedsak mineralbasert jord som kan ha innblandet et organisk substrat. For anleggsjord beskriver
+NIBIO at “torvmaterialet som brukes i anleggsjord ikke behøver å ha de samme egenskapene som det
+som brukes i blandede dyrkingsmedier, og det tas også ut på en annen måte. Det er vanlig å ta ut torv til
+anleggsjord i hele dybden av myra på en gang med gravemaskin. Noen produsenter av torv til blandede
+dyrkingsmedier tar ut de nederste lagene av myra for bruk til anleggsjord, men det er også eksempler på
+uttak av torv ved renmassedeponier, utvikling av næringsområder og utbygging av veier og
+jernbanestrekninger. Tilgangen på torv til anleggsjord varierer svært mellom ulike deler av landet.”
+(Nibio 2017). Det kan være aktuelt vurdere utnyttelse av denne torven, som uansett tas ut, til
+dyrkingsmedier i proffmarkedet.
+
+Det finnes ingen tilgjengelig statistikk på bruk av anleggsjord i Norge, da dette kun er
+rapporteringspliktig når blandingen inneholder en avfallsbasert komponent. NIBIO anslår mengden
+produsert anleggsjord årlig til å være over 1 million m3.10 Bruken av torv fra konsesjonsbelagte
+uttaksarealer til produksjon av anleggsjord formodes å være forholdsvis begrenset, og inngår i de
+anslåtte volumene i kapittel 2.1.
+
+
+
+
+8
+  https://veksthus.nlr.no/fagartikler/torvfri/
+9
+  https://lindum.no/nyheter/for-miljoets-skyld/de-gronneste-tomatene/ og
+https://meny.no/Kampanjer/Matskatter-fra-Norge/matskatter-fra-buskerud/Snarum-Gartneri/
+10
+   Brod, E. og Haraldsen, T.K., 2017, “Miljøvennlige jordblandinger – klima, resirkulering og bruksområder”, NIBIO-
+rapport 151/2017. M-901
+
+
+
+
+                                                      Side 10
+                                        Norwaste-rapport 3-2019
+
+
+
+
+3. Erstatningssubstrater for torv
+Det foreligger en rekke alternative substrater til torv i markedet i dag. I dette kapittelet diskuteres krav
+som stilles til disse, egnethet, dagens produksjon og tilgjengelighet, samt pris og forventet utvikling.
+For en mer inngående drøfting av egenskaper til de ulike alternativene henvises det til rapport fra NIBIO
+(2017)10.
+
+De ulike substratalternativene har ulike egenskaper, tilgjengelighet og pris. Å erstatte torv, som i dag er
+den foretrukne organiske hovedingrediensen i blandete dyrkingsmedier, krever flere forhold. Basert på
+innspill fra bransjen, oppsummeres de viktigste forholdene her:
+    ● Funksjon
+    ● Pris
+    ● Kvalitet (renhet, fravær av uønskede stoffer og organismer, næringsinnhold og tilgjengelighet)
+    ● Tilgjengelighet og produksjonsforhold
+    ● Miljøforhold
+
+Funksjonen som torven fyller, må erstattes på en tilstrekkelig god måte. Det betyr imidlertid ikke at
+substratet eller produktet må være likt det torvbaserte produktet. Eksempelvis har komposten andre
+egenskaper enn torv, som gjør den vesentlig mer egnet som et jordforbedringsmiddel enn torv. Mer om
+dette er beskrevet blant annet i NIBIO sin rapport til Miljødirektoratet fra 201710.
+
+
+
+       3.1.      Krav til organiske gjødselvarer og dyrkingsmedier i
+                 gjødselvareforskriften
+Dagens gjødselvareforskrift stiller en rekke krav til produsenter av gjødselvarer, jordforbedringsmiddel,
+jordblandinger mv. av organisk opphav. Kravene er rettet mot blant annet produksjon, kvalitet på
+sluttproduktet, merking, lagring og bruk.
+Forskriften gjelder organiske gjødselvarer i sin helhet, men en rekke av reguleringene gjelder særskilt for
+avfallsbaserte råvarer, avløpsslam og husdyrgjødsel.
+Relevant for vurderingen av mengdepotensialet fra alternativer til torv er særlig kvalitetskrav og
+eventuelle begrensninger som gis av regelverket. Torv brukes etter gjennomgangen over (Tabell 2) både
+som ingrediens i dyrkingsmedium og som jordforbedringsmiddel.
+
+Kvalitetskrav til avfallsbaserte råvarer
+§ 10 i gjødselvareforskriften stiller egne krav til råvarene som er listet opp i vedlegg 4 (avfallsbaserte
+råvarer og husdyrgjødsel). Forskriften stiller krav om:
+  1.     Tungmetaller (etter maksimumsgrenser for tungmetaller klassifiseres produktene i
+         kvalitetsklasse 0-III)
+  2.     Organiske miljøgifter, plantevernmidler o.a.
+  3.     Hygienisering (for animalske biprodukter gjelder ytterligere krav)
+
+
+
+
+                                                    Side 11
+                                             Norwaste-rapport 3-2019
+
+
+
+
+     4.    Stabilisering (produktet må være stabilisert slik at de ikke forårsaker luktulemper eller andre
+           miljøproblemer ved lagring og bruk)
+     5.    Spiredyktige frø (floghavre)
+     6.    Plast, glass o.a. fremmedlegemer (Totalinnholdet av plast, glass eller metallbiter > 4 mm skal
+           ikke utgjøre mer enn 0,5 vektprosent av totalt tørrstoff).
+     7.    krav til råvarer
+     8.    krav til jordblandinger
+     9.    krav til kalkingsmidler
+
+Av kravene over er det forskjellige utfordringer knyttet til ulike alternative råvarer. Avfallsbasert
+kompost kan ha utfordringer med synlig plast, selv om dette ikke går utover grenseverdien. Også kravet
+til stabilitet kan være en utfordring i produksjonen, særlig for kompost laget av matavfall og andre
+næringsrike råvarer.
+
+Et av kravene som stilles særskilt til jordblandinger (§10-8) er at de:
+     ● skal være godt egnet til dyrking av planter og må ikke ha veksthemmende effekt og
+     ● kun kan bestå av opptil 30 volumprosent (før blanding) av avfallsbaserte opphavsmaterialer
+         etter vedlegg 4 i forskriften.
+     ● Jord må ikke tas fra deponi, industriområder eller lignende arealer som kan være forurenset
+         med tungmetaller eller andre miljøgifter.
+I veilederen til gjødselvareforskriften er det presisert at disse kravene gjelder for anleggsjord og ikke for
+blandete dyrkingsmedier11.
+
+I §2 om virkeområdet angis det at dyrkingsmedier og bruk i private hager ikke er regulert av kravene til
+lagring og bruk, herunder bruksbegrensninger. Det betyr at bestemmelsene om kvalitetsklasser og
+bruksområder i §27 ikke gjelder for store deler av privatmarkedet som torv i dag dekker. For de tilfeller
+der anleggsjord med råvarer som er omfattet av forskriften brukes utenfor private hager, gjelder
+kravene til lagring og bruk. Det betyr at produkter i kvalitetsklasse I-III skal legges ut i lag på maksimalt
+fem centimeters tykkelse og blandes inn i jorda på bruksstedet. Årsaken til dette er at reglene for
+tungmetallbaserte kvalitetsklasser (§ 10.1) og tilhørende bruksrestriksjoner (§ 27) er basert på
+langsiktige risikovurderinger for produksjonsarealer i jordbruket.
+
+Det er for øvrig verdt å merke seg at gjødselvareforskriften er under revisjon12. Revidert forskrift
+forventes å stille strengere krav til at bruk av organiske gjødselvarer ikke medfører overgjødsling, særlig
+av fosfor. Dette kan få betydning for innblanding av visse typer komposter og annet basert på
+næringsrikt avfall.
+
+
+
+
+11
+     Veiledning til forskrift 4. juli 2003 nr. 951 om gjødselvarer mv. av organisk opphav (1/2019)
+12
+     Landbrukdsdirektoratet 2018: Forslag til nye forskrifter levert: Gjødsel – større ressurs, mindre ulempe
+
+
+
+
+                                                         Side 12
+                                      Norwaste-rapport 3-2019
+
+
+
+
+       3.2.     Kompost
+Kompost dannes ved naturlig nedbrytning av organisk materiale ved tilførsel av luft. Det er sånn sett
+naturens egen måte å lage jord på. Næringsinnholdet og andre kvaliteter ved komposten bestemmes av
+hvilke organiske materialer som er opphavsmaterialet til komposten. Dette er også avgjørende for
+bruksområdene for komposten om det skulle være som såjord eller som påfyll til potteplanten eller bruk
+til opparbeidelse av nye arealer som kjøkkenhager eller bed.
+
+Fordi kompost dannes ved mikrobiell nedbrytning, vil en moden kompost inneholde en stor mengde
+mikroorganismer. Disse mikroorganismene er positive for jorda og bidrar til en sakte frigivelse av
+næringsstoffer. Dette gjør at behovet for ettergjødsling er vesentlig redusert i jordblandinger og
+dyrkingsmedier der kompost er brukt.
+
+Kompost består av en andel stabile humusforbindelser med svært
+                                                                          Vermikompost er produktet av
+lang nedbrytningstid. Bruk av kompost i stedegen jord gir dermed en       markkompostering, der organisk
+viss karbonlagringseffekt. Brukt i blandede dyrkingsmedier betyr          materiale nedbrytes og
+dette at en stabil kompost ikke i like stor grad må etterfylles for å     omdannes ved hjelp av
+opprettholde volumet.                                                     kompostmark, og kan også lages
+                                                                          på basis av biorest fra et
+Kompost inneholder de fleste makro- og mikronæringsstoffene som           biogassanlegg som etterpå har
+planten trenger og frigir disse gradvis. Avhengig av råvaren til          blitt foret til kompostmark.
+komposten kan næringsinnholdet og saltinnholdet (ledningsevne)            Resultatet er en mer findelt og
+                                                                          næringsrik kompost enn f.eks.
+imidlertid være i høyeste laget for planten. De fleste
+                                                                          hagekompost.
+bruksanbefalingene for ufortynnet kompost i handelen er derfor
+basert på en innblanding av andre substrater.
+
+
+
+              3.2.1.    Dagens råvarer til kompost
+SSBs statistikk over avfallshåndtering viser at det i 2018 ble produsert kompost fra 244 000 tonn av ulike
+typer organisk avfall. Tabellen under viser fordeling på avfallstyper.
+Samtidig viser SSBs 2018 kommune-stat-rapportering (KOSTRA) at kommunene har rapportert inn et
+vesentlig høyere tall for mengde hageavfall til kompostering (142 000 mot 78 000 tonn).
+Forskjellen skyldes trolig i hovedsak at avfallshåndteringsstatistikken hentes fra anlegg som har
+godkjenning som avfallsanlegg. At mengden matavfall til kompostering er lavere i Kostra-statistikken
+skyldes trolig at noe næringsavfall inngår i den andre statistikken.
+
+
+
+
+                                                  Side 13
+                                                            Norwaste-rapport 3-2019
+
+
+
+
+Tabell 3: Mengder til kompostering i Norge 2018, basert på ulike datakilder (avrundet til nærmeste 1000 t)
+
+ Komposterte mengder organisk                               SSB               SSB KOSTRA                        Avfall Norges    Sannsynlig
+ råvarer 2018 (t)                                           avfallsstatistikk (husholdnings                     kompost-         mengde
+                                                                              avfall)                           undersøkelse
+
+ Matavfall og annet våtorganisk                                           85 000                       75 000           64 000          85 000
+ avfall
+
+ Park- og hageavfall                                                      78 000                      142 000         119 000         161 000*)
+
+ Husdyrgjødsel (inkl hestegjødsel)                                          9 000                                        7 000           9 000
+
+ Fiskeslam og annet marint avfall                                           2 000                                        2 000           2 000
+
+ Avløpsslam                                                               51 000                                        94 000          94 000
+
+ Annet organisk avfall                                                    19 000                        4 000           17 000          19 000
+
+ Total mengde kompostert 2018                                           244 000                       221 000         302 000          370 000
+*) SSB oppgir at det også er rapportert inn 19 000 tonn park- og hageavfall fra næringslivet i 2018
+
+
+
+
+I tabellen er det også tatt med tall fra Avfall Norges årlige kompostundersøkelse som i 2019 fikk inn svar
+fra 43 komposteringsanlegg av totalt 80 anlegg. Denne viser for de fleste avfallstypene lavere tall, som
+naturlig kan forklares med at ikke alle har svart eller er blitt spurt. Imidlertid viser denne undersøkelsen
+et høyere tall for avløpsslam til kompost.
+
+Siden forskjellene i statistikken best kan forklares med generell underrapportering mener vi den beste
+tilnærmingen er å bruke høyeste verdi for hver avfallstype. Dette er vist i tabellens siste kolonne. For
+kategorien hageavfall er det i tillegg lagt til 19 000 tonn til Kostra-tallet på 142 000 tonn, innrapportert
+som næringsavfall.
+Basert på denne tilnærmingen anslår vi at det ble kompostert 370 000 tonn organisk avfall i Norge 2018.
+Også dette tallet innebærer sannsynligvis en viss underrapportering. I KOSTRA-statistikken fremgår det
+at innrapporteringen fra kommunene er noe varierende. For 2018 har 29 kommuner ikke rapportert inn
+innsamlede/komposterte mengder hageavfall. Siden så godt som alle kommuner i Norge har i dag et
+tilbud om mottak og noen også henting av hageavfall anses det som lite sannsynlig at 29 kommuner ikke
+har samlet inn hageavfall i 2018. Dette underbygges av at det er ulike kommuner som rapporterer null
+innsamlet hageavfall fra år til år. En annen mulig kilde til underrapportering kan være at anleggseierne
+ikke rapporterer inn strukturmateriale som kjøpes inn til prosessen. Dette er mest aktuelt for råvarer
+med høyt vanninnhold og der det ikke er tilstrekkelig tilgang på annet tørr råvare, som hageavfall eller
+rent trevirke.
+
+
+
+
+                                                                               Side 14
+                                              Norwaste-rapport 3-2019
+
+
+
+
+                3.2.2.       Produsert mengde kompost
+Det eksisterer ingen offisiell statistikk over faktisk mengde produsert kompost. Etter at Mattilsynet for
+en del år siden sluttet å utgi statistikker over omsetning av registrerte avfallsbaserte produkter, er
+kompostundersøkelsen fra Avfall Norge derfor det beste datagrunnlaget. Anleggene som har deltatt i
+undersøkelsen har i sum tatt imot ca. 220 000 tonn organisk avfall og har oppgitt en levert produksjon i
+2018 på ca. 190 000 tonn kompostbaserte produkter, inkludert anleggsjord og dyrkingsmedier.
+Ved kompostering av organisk materiale blir en del av det organiske materialet brutt ned og omdannet
+til stabile humusforbindelser. Dette gir sammen med en fordampning av vanninnhold ved våte råvarer
+en betydelig vektreduksjon i forhold til mengde råvare. Kompostering av hageavfall gir som eksempel en
+typisk reduksjon i volum på ca. 90% og en vektreduksjon på ca. 40%13. At det i undersøkelsen er
+rapportert inn en produksjonsmengde på nesten 90 % av vekten av behandlete råvarer kan tyde på at
+inputråvarer som strukturmaterialer ikke er rapportert inn, eller at det i de innrapporterte mengdene
+også inngår andre innsatsvarer, som sand og torv (for anleggsjord). Komposteringsanleggene tilsetter
+strukturmaterialer til kompostering av særlig våte og finpartikulærte råvarer, som matavfall og
+avløpsslam. Dersom man ikke har hageavfall tilgjengelig kan dette være oppmalt trevirke, treflis eller
+bark. De 43 respondentene har angitt en samlet behandlingskapasitet på ca. 440 000 tonn i året.
+
+Tabell 4 viser inndeling i ulike typer produkter rapportert fra kompostanleggene, sammen med et anslag
+over hva den estimerte produksjonen fra et årlig mottak på 370 000 tonn utgjør. Forutsettes en
+tilsvarende produksjon og distribusjon på produkttyper for den øvrige produksjonen gir dette en samlet
+produksjon på ca. 320 000 tonn for 2018.
+
+Tabell 4: Produksjon av kompostbaserte produkter 2018, innrapportert og beregnet totalt for Norge (kilde: Avfall Norges
+spørreundersøkelse 2019)
+
+ Leverte mengder kompostbaserte                   Innrapportert produksjon,                 Beregnet total produksjon
+                                               (basert på innrapportert 220 000 t råvare)     (basert på 370 000 t råvare)
+ produkter 2018 (t)
+
+ Levert ren kompost                                                            85 000                                 112 000
+
+ Levert hage- og plenjord                                                      87 000                                 147 000
+
+ Levert bed- og pottejord (i bulk)                                             11 000                                  19 000
+
+ Levert anleggsjord                                                            21 000                                  36 000
+
+ Levert posepakket produkt                                                       5 000                                   8 000
+ (blandede dyrkingsmedier)
+
+ Sum leverte produkter                                                        191 000                                 320 000
+
+
+
+
+13
+     Harald Aanes, Oslo kommune, pers. medd.
+
+
+
+
+                                                             Side 15
+                                                        Norwaste-rapport 3-2019
+
+
+
+
+                       3.2.3.           Bruksområder for kompost
+Basert på kompostens egenskaper er det i tabellen under foreslått i hvilken grad kompost er egnet til å
+erstatte torven i de ulike funksjonsområdene blandete dyrkingsmedier, gitt tilfredsstillende kvalitet. Det
+understrekes at kompostkvalitet vil variere avhengig av råvaretype og -kvalitet.
+Aktørene som i dag blander inn kompost i sin produksjon av blandede dyrkingsmedier i sekker i dag er
+tydelige på at de største utfordringene med avfallsbasert kompost er forutsigbar og tilstrekkelig kvalitet.
+Eksempler på utfordringer med kvaliteten er innhold av fremmedlegemer og salter, for avfallsbasert
+kompost, og høyt innhold av næringsstoffer for kompost basert på matavfall og visse deler
+husdyrgjødsel. Dette omtales nærmere i kapittel 4
+
+Tabell 5: Kompostens potensielle egnethet til å erstatte torv i blandete dyrkingsmedier
+
+  Type produkt                        Dyrkingsmedium               Dyrkingsmedium i             Jordforbedring i
+                                           potter,                       hage                        hage
+                                     balkongkasser mv.            (Nye arealer, beplanting
+                                                                     og kjøkkenhage)
+
+  Kompost                               godt egnet*), som
+                                                                    godt egnet*), som
+                                     tilsatsmiddel i blandet                                    svært godt egnet
+                                                                      tilsatsmiddel
+                                         dyrkingsmedium
+*) Gitt tilfredsstillende kvalitet
+
+
+
+
+            3.3.            Biorest
+Biorest er fiberresten som tas ut av en biogassreaktor, foreligger normalt i avvannet form fra
+biogassanlegg. Avvannet biorest brukes i dag både som jordforbedringsmiddel med gjødseleffekt til
+landbruket og som ingrediens i jordblandinger. I tillegg kan biogjødsel og biorest brukes direkte i
+drivhusproduksjon, slik dette i dag gjøres hos Reklima i Tønsberg (se kapittel 7).
+Utråtnet avløpsslam foreligger normalt i avvannet form. Avløpsslam brukes i dag som
+jordforbedringsmiddel med gjødseleffekt på dyrket mark og til produksjon av jordblandinger. Utråtnet
+avløpsslam tillates ikke brukt i blandete dyrkingsmedier i dag, men kan brukes i jordblandinger i private
+hager mv.
+
+Tabell 6: Biorest sin potensielle egnethet til å erstatte torv i blandete dyrkingsmedier
+
+  Type produkt                 Dyrkingsmedium                  Dyrkingsmedium i              Jordforbedring i hage
+                               potter,                         hage
+                               balkongkasser mv.               (Nye arealer, beplanting,
+                                                               kjøkkenhage)
+
+  Biorest og                                                      delvis egnet, som
+  avløpsslam                              ukjent                    tilsatsmiddel                    egnet
+                                                                         (bulk)
+Utfordringer ved bruk av avvannet biorest i blandet dyrkingsmedium består blant annet i produktets
+klebrige konsistens, samt at bioresten ikke er biologisk stabilisert. For flytende biogjødsel utgjør
+vannmengden en utfordring. Regelverket setter i tillegg begrensninger for hva biorest fra avløpsslam kan
+brukes til.
+
+
+
+
+                                                                       Side 16
+                                               Norwaste-rapport 3-2019
+
+
+
+
+         3.4.       Kokosfiber
+Kokosfiber er et biprodukt fra foredling av kokosnøtten. I prosessen blir
+nøttene blant annet vasket og kvernet opp og fibrene brukes til ulike
+formål. Egenskapene til kokosfiber som substrat i dyrkingsmedier er
+tilsvarende egenskapene til torv, det gir struktur, er lett og holder på
+vann.
+Kokosfiber har i flere år vært i bruk i enkelte dyrkingsmedier på markedet,
+både som eneste organiske komponent i såkalte «coir», som tørket og
+kompakterte puter o.l. De siste årene har produsenter av sekkevare også begynt å bruke kokosfiber som
+substrat sammen med andre substrater i torvfri sekkevare.
+Klima og miljøbelastningen ved å benytte kokosfiber er blant annet relatert til vannforbruk ved vasking
+av kokosfiber, øvrig prosessering og transport, noe som primært foregår med skip. Sammenstillingen
+som Østfoldforskning har gjort for Miljødirektoratet viser at klimagassutslippene ved fremstilling av
+kokosfibre og transport til Norge er vesentlig lavere enn for uttak av torv i Norge. 4
+
+SSB opplyser at det ikke er noen statistikk over importert kokosfiber til Norge. Det er derfor vanskelig å
+kartlegge mengdene på markedet i dag. Hageland oppgir at de har ett produkt med innhold av
+kokosfiber i sin portefølje, men skal fase ut dette produktet ila 2020. Plantasjen faser også ut sine
+produkter med kokosfiber ila 2020. Clas Ohlson har briketter produsert av sammenpresset kokosfiber.
+Tilsynelatende kan det se ut som kokosfiber som dyrkingsmedium blir faset ut hos de forhandlerne som
+er kontaktet.
+
+Tabell 7: Kokosfiber egnethet til å erstatte torv i blandete dyrkingsmedier
+
+ Type produkt         Dyrkingsmedium                 Dyrkingsmedium i            Jordforbedring i hage
+                      potter,                        hage
+                      balkongkasser mv.              (Nye arealer, beplanting,
+                                                     kjøkkenhage)
+
+ kokosfiber             Godt egnet (fyllstoff)            Egnet (fyllstoff)           Delvis egnet
+
+
+
+
+         3.5.           Biokull
+Biokull er et heterogent og biologisk/kjemisk stabilt materiale med høyt karboninnhold. Det er
+produsert med pyrolyseteknologi fra forskjellig type organisk materiale, ikke bare tre, og kan brukes til
+en rekke anvendelser innenfor miljø og landbruk. Biokull er i prinsippet det samme som trekull – eller
+grillkull.
+
+Biokullet er et lett materiale (ca. 250 g/L), er svært porøst, har høy vannlagringsevne og god
+dreneringsevne. Kjemisk sammensetning i biokullet (herunder innhold av miljøgifter og næringsstoffer)
+vil variere avhengig av råvarer som er brukt og pyrolyseprosessen. Ved bruk av for eksempel nitrogenrikt
+
+
+
+
+                                                              Side 17
+                                                Norwaste-rapport 3-2019
+
+
+
+
+råstoff som husdyrgjødsel og avløpsslam vil en betydelig andel av nitrogenet gå tapt som gass. En
+viktigere egenskap til biokullet enn næringsinnholdet selv, er biokullets evne til å fange næringsstoffer
+når det blandes med annet næringsrikt materiale. Det er påvist positive synergier ved å blande biokull
+med kompost, biogassrest eller blautgjødsel. Biokullets høye pH (ofte rundt pH 9) gjør at en må basere
+seg på å balansere pH ved tilsetting av syre eller sur komponent.
+Biokull er 5-10 ganger dyrere enn torv og egenskapene til biokullet kan være ulikt fra en produsent til en
+annen. Det er relativt liten erfaring ved bruk av biokull i spesifikke kulturer.
+
+Hos Skjærgaarden Gartneri i Åsgårdstrand står Norges første biokullanlegg. Gartneriet er det første
+demonstrasjonsanlegget for biokull i Norge og er installert i samarbeid med forskningsprosjektet
+CAPTURE+ som ledes av Sintef14.
+
+I Sandnes kommune bruker de en blanding av kompost, biokull og grus for urban beplanting. Høy
+vannlagringsevne hevdes her å gi fordeler i forbindelse med overvannsbehandling i fortettede
+byområder. I dag blir biokull i storskala benyttet i bl.a. urban beplantning i Stockholm.
+
+Aktøren Standard Bio leverer i dag ca. 60 m3 biokull på det norske markedet. Det understrekes at
+produksjonen ikke er ordentlig i gang og det foregår mange forsøk. I et forsøksprosjekt som foregår ut
+vinteren 2020 estimeres det en årlig produksjon på 1 200 tonn biokull og 7 000 - 9 000 tonn såkalt
+forkullet produkt. Dette produseres med tilsvarende råvare og teknologi, men prosessen avbrytes
+tidligere enn ved produksjon av biokull.
+
+Tabell 8: Biokulls potensielle egnethet til å erstatte torv i blandete dyrkingsmedier
+
+ Type produkt            Dyrkingsmedium               Dyrkingsmedium i                  Jordforbedring i hage
+                         potter,                      hage
+                         balkongkasser mv.            (Nye arealer, beplanting,
+                                                      kjøkkenhage)
+
+ biokull                     Godt egnet (som
+                         tilsatsmiddel sammen           Egnet (tilsatsmiddel)                Delvis egnet
+                         med andre substrater)
+
+
+Mengdepotensialet for biokull i Norge er stort. Aktørene opplyser imidlertid at det hverken er
+økonomisk eller agronomisk gunstig å blande inn mer enn max 15% i en jordblanding eller
+dyrkingsmedium. Blant råvarer til å lage biokull nevnes rejekt og biorest fra biogassproduksjon, husdyr-
+og laksegjødsel, samt avfallsstrømmer fra industrien.
+
+
+
+
+14 https://www.sintef.no/globalassets/sintef-teknologi-og-samfunn/avdelinger/arbeids-og-naringsliv/capture-biokull-som-
+
+klimatiltak-8-sept.pdf
+
+
+
+
+                                                               Side 18
+                                                Norwaste-rapport 3-2019
+
+
+
+
+         3.6.       Bearbeidet trefiber
+Trefiber har til nå i liten grad blitt anvendt direkte som
+ingrediens i blandete dyrkingsmedier.
+Med basis i bearbeidet treflis fra Hunton i Gjøvik ser flere aktører
+nå på muligheten for å anvende dette materialet som substrat i
+blandet dyrkingsmedium til privatmarkedet og direkte som
+dyrkingsmedium til ulike typer planter i gartnerinæringen.
+Primært bruker de gran. Råvaren til dette produktet er avfall fra
+sagbruk, det opplyses at ca. 45% av tømmeret blir avfall, da det
+kun er kjernen i tømmerstokken som foredles til plank. I 2018 ble
+det ifølge SSB hogget 8 millioner m3 gran i Norge.
+
+Trefiberen fra Hunton er hygienisert og finpartikulær. Den er
+også svært lett, homogen og fri for fremmedlegemer og miljøgifter. Det gjenstår mer forskning på
+trefiberets evne til å holde seg stabilt under hele dyrkningsperioden, og testing i storskala på dyrking av
+ulike vekster som proffmarkedet leverer, for å kunne si at trefiber også erstatter alle funksjonene og
+egenskapene til torv som dyrkingsmedium.
+
+For bruk i blandet dyrkingsmedium mot privatmarkedet vil det trolig være viktig å oppnå en jordlignende
+farge i jordblandingen. Videre må man sikre seg mot at trefiberen ikke brytes ned og “stjeler”
+næringsstoffer fra resten av blandingen.
+Til nå er produktet testet mot proffmarkedet og enkelte sorter i gartnerinæringen, blant annet jordbær.
+Det jobbes imidlertid også med en resept rettet inn mot privatmarkedet.
+
+Varedeklarasjonen for dette produktet er vedlagt som vedlegg 2.
+
+Tabell 9: Vurdering av egnethet til trefiber til å erstatte torv i blandete dyrkingsmedier
+
+ Type produkt          Dyrkingsmedium                 Dyrkingsmedium i               Jordforbedring i hage
+                       potter,                        hage
+                       balkongkasser mv.              (Nye arealer, beplanting,
+                                                      kjøkkenhage)
+
+ bearbeidet                Mulig godt egnet                   Mulig egnet
+                                                                                             Lite egnet
+ trefiber                     (fyllstoff)                   (tilsatsmiddel)
+
+
+
+
+                                                               Side 19
+                                        Norwaste-rapport 3-2019
+
+
+
+
+4. Tilgangen på råvarer til torvfrie substrater
+Sammenstillingen i kapittel 3 viser at ulike organiske avfalls- og biprodukter i dag brukes i produksjon av
+organiske gjødselvarer, jordforbedringsmiddel og dyrkingsmedier. Bruk som substrat til blandete
+dyrkingsmedier er i dag begrenset.
+Det er flere jordprodusenter som har fokus på produktutvikling og tester ut om ulike substrat egner seg
+som råvare i torvfrie eller -reduserte dyrkingsmedier. Dersom de nyutviklede dyrkingsmediene viser seg
+egnede, vil det kunne ha stor betydning for tilgangen på torvfrie dyrkingsmedier fremover.
+Noen av disse endringene er drøftet nedenfor. Gjennomgangen er begrenset til norske råvarer med
+størst potensial for økt bruk til produksjon av substrater til dyrkingsmedier.
+
+
+       4.1.      Matavfall
+Ifølge avfallsstatistikken fra SSB ble det i 2018 samlet inn 201 000 tonn matavfall og annet våtorganisk
+avfall (unntatt park- og hageavfall) fra husholdninger og 191 000 tonn fra tjenesteytende næring.
+Av dette ble ifølge avfallshåndteringsstatistikken til SSB 85 000 tonn kompostert. Siden innføring av
+kildesortering av matavfall har det vært en utvikling mot stadig mer behandling i biogassanlegg og i dag
+går mesteparten av det innsamlede matavfallet til produksjon av biogass og biorest.
+
+Matavfallskompost er næringsrik og kan inneholde salter i konsentrasjoner som overgår det planter kan
+tåle. Den bør derfor kun brukes i mindre mengder i dyrkingsmedier. I tillegg kan matavfallskompost
+inneholde mindre mengder fremmedlegemer som glass, plast og metaller. Matavfallskompost er derfor
+trolig best egnet til jordforbedring, evt anlegging av ny hagejord.
+
+Miljødirektoratet har foreslått for Klima- og miljødepartementet en obligatorisk utsortering av matavfall
+fra husholdninger og tjenestytende næringer for å nå kommende nasjonale forpliktelser om
+materialgjenvinning, reduserte klimagassutslipp og svare ut kommende EU-mål. En slik endring er
+beregnet å gi netto økt innsamling av matavfall og annet våtorganisk avfall på 237 000 tonn utover det
+som samles inn i dag15.
+
+Det forventes at utviklingen i retning mot mer biogass vil fortsette, slik at endringen i hovedsak vil gi økt
+mengder biogjødsel/biorest og reduserte mengder matavfallskompost. Dersom betalingsvilligheten for
+kompost øker og avsetningsmulighetene for våt og avvannet biorest i de områdene og for de mengdene
+som skal håndtere den økte kapasiteten blir vanskelig, kan det tenkes at flere anlegg begynner å
+etterkompostere bioresten. Dette er vanlig praksis i flere EU-land, som Tyskland og Italia16.
+
+
+
+
+15
+   https://www.miljodirektoratet.no/globalassets/publikasjoner/M1114/M1114.pdf (tallet er fratrukket rejekt fra
+forbehandlingen)
+16
+   ECN Status report 2019 – European Bio-waste Management
+
+
+
+
+                                                     Side 20
+                                           Norwaste-rapport 3-2019
+
+
+
+
+          4.2.      Hageavfall
+I statistikken til SSB framgår det at om lag 161 000 tonn park- og hageavfall er innrapportert for 2018.
+Ikke alt dette blir kompostert, noe sendes også som grot (grovfraksjonen etter kverning) til
+bioenergianlegg. Varierende lønnsomhet for produksjon av bioenergi de siste årene har ført til at denne
+andelen grot til bioenergianlegg ser ut til å være på vei ned.
+Det er 29 kommuner som ikke rapporterer inn innsamlede mengder park-og hageavfall og det er derfor
+sannsynlig at SSB det for 2018 i realiteten ble samlet inn mer enn 161 000 tonn hageavfall til behandling.
+
+Ved å følge EUs reviderte avfallsrammedirektiv vil Norge måtte materialgjenvinne vesentlig mer av avfall
+fra husholdninger og lignende næringsavfall framover - kravene for 2025, 2030 og 2035 er henholdsvis
+55 %, 60 % og 65 % ombruk og materialgjenvinning. Dette vil føre til at Norge og norske kommuner vil
+øke oppmerksomheten mot fraksjoner som kan øke dette tallet. I gjennomsnitt ble det samlet inn ca. 27
+kg hageavfall pr innbygger i 2018, mens det i kommuner med høy innsamlingsgrad ble samlet inn rundt
+100 kg pr innbygger. Dersom en kommune gjennom tiltak kan øke sin innsamling med ca. 40-50 kg
+hageavfall, vil det kunne tilsvare ca. 10 % økt materialgjenvinningsgrad for kommunen17. Tiltak for å øke
+innsamlet mengde par- og hageavfall kan være å etablere flere mottak for denne avfallstypen, øke
+bemanningen på gjenvinningsstasjoner og innføre gratis levering der det ikke allerede er innført. Det
+mest effektive er trolig å innføre tilbud om henting av hageavfallet. Flere kommuner har innført dette.
+Store bykommuner har gode erfaringer med å samle inn juletrær.
+
+Hjemmekompost
+Hageavfall som ikke samles blir enten lagt igjen på stedet som gjødsel og jordforbedring (som plengress),
+dumpet i naturen eller lagt i tradisjonelle, åpne kompostbinger for kompostering.
+I tillegg driver en liten del av befolkningen hjemmekompostering av sitt eget matavfall i isolerte
+komposteringsbeholdere.
+Hjemmekompost fra en åpen binge er i motsetning til hageavfallskompost fra et storskala anlegg ikke fri
+for spiredyktige frø. Bortsett fra dette har både denne og hjemmekompost fra matavfall de samme
+egenskapene og bruksområdene.
+
+Det foreligger ikke noen statistikk på omfanget av produksjonen av denne komposten. Dersom en går ut
+i fra at hageeierne i Norge håndterer omtrent halvparten så mye som det som leveres til kommunale
+hageavfallsmottak i sine egne hager, betyr dette en samlet mengde hageavfall på i størrelsesorden
+71 000 tonn. Med økt fortetting av boliger er det trolig at interessen for hjemmekompostering er
+avtagende grunnet færre egnede steder å ha kompostbinger.
+
+
+
+
+17
+     Gjennomsnittlig mengde husholdningsavfall i Norge var 421 kg pr innbygger i 2018. SSB, 24.10.2019.
+
+
+
+
+                                                        Side 21
+                                         Norwaste-rapport 3-2019
+
+
+
+
+       4.3.      Bark
+Det foreligger det mye eldre norsk forskningsbasert kunnskap i Norge om bark og barkkompost som
+dyrkingsmedium18. I de senere årene har det vært lite aktivitet og kunnskapsbygging omkring bark til
+kompost.
+Skaaret Landskap bruker i dag barkkompost som innblanding i anleggsjordproduksjon for å øke
+vannlagringsevne og skape en luftigere jord.
+Kompostert bark har mange egenskaper som hagekompost, men kan på grunn av lav pH og høyt
+manganinnhold være mindre egnet til vanlig plantejord i potter, krukker og urner. Revet og finsortert
+bark opplyses at kan brukes som innblanding i kompostjord i stedet for torv.
+
+
+
+       4.4.      Husdyrgjødsel
+
+Hestegjødsel
+I Avfall Norges kompostundersøkelse er det registrert kun få aktører som retter seg mot
+hestegjødselkompostering. I følge NIBIO er hestegjødsel godt egnet for kompostering til substrat til
+innblanding i dyrkingsmedium10. Obligatorisk registrering i Nasjonalt hesteregister er innført fra 2017 av
+dyrehelsemessige årsaker. Mattilsynet opplyser at det desember 2019 er registrert 82 146 hester, men
+opplyser at det trolig er vesentlige mørketall.
+
+Det er, basert på generell boligfortetting, grunn til å tro at en stadig større andel hester holdes i større
+staller med redusert tilgang til egne spredearealer. Gjødselvareforskriften angir strenge regler for lagring
+og spredning av hestegjødsel. Lagring av hestegjødsel utendørs medfører fare for forurensning og
+smittefare i vassdrag. Dersom gjødsla skal brukes til andre formål eller fraktes ut av distriktet, må den
+behandles etter animaliebiproduktregelverket. Blant tillatte behandlingsmuligheter er kompostering
+under kontrollerte forhold19. Komposteringsanlegg rundt i Norge rapporterer om økt tilgang på
+hestegjødsel fra stalleiere. En oversikt over løsninger for håndtering av hestegjødsel er tatt med i en
+rapport fra Norsøk (2017)20.
+
+Dersom bare 25 % av det totale antall registrerte hester i Norge holder til i staller uten tilgang til
+spredearealer gir dette et potensial for kompostering på i størrelsesorden 164 000 tonn basert på et
+gjennomsnitt på 8 tonn gjødsel pr hest årlig20.
+
+Storfegjødsel
+Kugjødselkompost omsettes som substrat i dyrkingsmedier i dag, og føres av de fleste hagesentre.
+Tradisjonelt har dette vært laget som et langstidkompostert produkt av kugjødsel og torv.
+
+
+18
+   Solbraa, K (1986) Bark as a growth medium. Acta Horticulturae 178: 129-136
+19
+   Forskriften angir en standardmetode. I tillegg kan Mattilsynet godkjenne andre metoder for kompostering av
+lavrisiko (kategori III) avfall og husdyrgjødsel.
+20
+   McKinnon K. et al., (Norsøk, 2017): Hestemøkk som gjødselkilde – god håndtering for tilbakeføring til
+dyrkingsjord
+
+
+
+
+                                                     Side 22
+                                              Norwaste-rapport 3-2019
+
+
+
+
+Med animaliebiproduktregelverket må også denne gjødsla behandles etter godkjent metode, som sikrer
+hygienisering og stiller krav til kvalitet i sluttproduktet.
+
+Med innføringen av en tilskuddsordning i 2015 for husdyrgjødsel som brukes til å produsere biogass, har
+dette blitt stadig mer populært å levere inn husdyrgjødsel til biogassanlegg21. I dag er det en rekke
+biogassanlegg etablert og under planlegging og bygging rundt i Norge for behandling av husdyrgjødsel,
+primært fra storfe. Støttebeløpet utgjør i 2019 for en melkeku kr 1937.
+Det mest aktuelle måten å bruke biogjødsla fra et biogassanlegg som behandler storfegjødsel og annen
+husdyrgjødsel er å ta denne tilbake å spre den på jorda på samme måten som husdyrgjødsla ville blitt
+spredd.
+
+Stortinget opprettholdt i gjennomgangen av Stortingsmelding 45 (16/17) om avfall og sirkulærøkonomi
+sin målsetting om at 30 % av husdyrgjødsla skal brukes til biogassproduksjon. Dette målet er man
+fortsatt svært langt fra å nå.
+
+
+           4.5.      Ull og talle
+En kartlegging fra Norsøk peker på at lavverdig ull har potensiale til å bli en bærekraftig ressurs. Når
+ullen ikke er av god nok kvalitet til å brukes til spinning eller annen videreforedling, finnes det andre
+muligheter for å øke verdien. Ull inneholder plantenæringsstoffer som nitrogen, fosfor, svovel og
+kalium. I utenlandske forsøk har ull vært rapportert brukt som ingrediens i dyrkingsmedier til
+potteforsøk og på friland til ulike vekster med tilfredsstillende resultat. Ull komposteres med fordel
+sammen med talle22. Det er ikke lykkes å skaffe tall på tilgjengelige mengder ull og talle i Norge.
+
+
+           4.6.      Fiskeslam
+Flere aktører undersøker for tiden om slam fra fiskeoppdrett kan være en råvare til produksjon av
+blandete dyrkingsmedier, enten gjennom tørking, utråtning, kompostering eller gjennom produksjon av
+biokull/forkullet produkt.
+
+Norge produserte i 2018 nærmere 1,4 millioner tonn oppdrettsfisk. Anslag tilsier at dette generer i
+størrelsesorden 280 000 t slam-tørrstoff, hvis det hadde blitt samlet opp. Mesteparten av forrester og
+faeces fra fôringen går imidlertid ut i fjorden gjennom åpne merder. Det pågår imidlertid en trend mot
+lukkete anlegg og annen teknologi for å samle opp slammet.
+
+
+           4.7.      Trevirke
+I dag brukes ren flis som strø i husdyrhold, som dermed sammen med husdyrgjødsla blir et biprodukt
+som kan brukes til kompost- og jordproduksjon. Flis brukes også som strukturmateriale inn i
+kompostering av våtere strømmer, som matavfall. Trevirke har imidlertid i liten grad blitt anvendt
+direkte som ingrediens i vekst- og dyrkingsmedier.
+
+
+21
+     Forskrift om tilskudd for levering av husdyrgjødsel til biogassanlegg
+22
+     McKinnon, K. et al. (2019), Norsøk-rapport nr.1, 2019: «All ull er verdifull»
+
+
+
+
+                                                           Side 23
+                                         Norwaste-rapport 3-2019
+
+
+
+
+Hunton har en ny fabrikk med stor produksjonskapasitet på Gjøvik og de opplyser om at de kan levere
+trefiber produsert av trevirke i stort volum fra dags dato. Dette er snakk om hygienisert trefiber. Norske
+sagbruk benytter kun det innerste trevirket til produksjon av plank og
+bygningsmaterialer, noe som gir store mengder biprodukt. Det er
+dette biproduktet som brukes til produksjon av trefiber og det
+opplyses om at i mengde er dette tilstrekkelig til å dekke behovet for
+dyrkingsmedier både pakket i sekk og bulk i Norge - gitt at trefiber
+tilfredsstiller krav til dyrkingsmedier. Trefiber kan både brukes som
+substrat i et blandet dyrkingsmedie, men også med rett gjødsling
+brukes som dyrkingsmedium alene.
+
+Det oppstår store mengder overskuddsvirke fra skogdrift, blant annet
+flis fra tresliperier, sagbruk. I 2018 ble det ifølge SSB avvirket ca. 10,8
+millioner m3 skogsvirke.
+
+Avfallstrevirke
+Avfallstrevirke anvendes i dag i hovedsak til bioenergiproduksjon, og i noen grad som strukturmateriale i
+kompostering og til produksjon av sponplater. Ifølge SSBs avfallsregnskap oppsto det totalt 1 347 000
+tonn avfallstrevirke i 2014. Mesteparten av treavfallet oppsto i industrien, de private husholdningene og
+i bygg- og anleggsbransjen. SSB sine tall fra avfallsregnskapet i 2018 viser imidlertid en mengde
+avfallstrevirke på 778 000 tonn. En forklaring til forskjellen i oppgitte mengder fra 2014 til 2018 er at SSB
+har lagt om metoden for beregning av statistikken fra varetilførselsmetoden til tall innhentet fra
+behandlingsanlegg. Dermed ble beregningen endret fra genererte mengder avfall til mengde faktisk
+behandlet på anleggene.
+
+Det trevirket som er behandlet kan være aktuelt som råvare til produksjon av biokull. Rent
+avfallstrevirke kan benyttes til dyrkingsmedium ved produksjon av fiber.
+
+
+
+
+                                                     Side 24
+                                              Norwaste-rapport 3-2019
+
+
+
+
+5. Priser
+Leverandører av dyrkingsmedier til privatmarkedet domineres i stor grad av hagesentre og annen type
+detaljhandel som for eksempel Europris-kjeden. Dagligvarekjedene har også dyrkingsmedier i mindre
+sekker (typisk 8-10L) og i noen utstrekning større sekker som sesongvare. Enkelte jord- og
+torvprodusenter leverer i både bulk og sekk til privatmarkedet, men det alt vesentlige selges som
+sekkeprodukter gjennom detaljhandelen. Forhandlerne tilbyr ulike produkter, gjerne som egne
+merkevarer. Utviklingen ser ut til å gå mot stadig flere spesialiserte produkter. Spesialprodukter er
+generelt høyere priset enn basisproduktene.
+
+Sammenstillingen i dette kapittelet er basert på offentlig tilgjengelig prisinformasjon, direkte kontakt
+med større leverandører og Avfall Norges kartlegging av kompostmarkedet.
+Oversikt over produktprisene er vedlagt i sin helhet i vedlegg 1.
+
+
+
+
+Figur 1: Sammenstilling av priser på blandete dyrkingsmedier fordelt på produktstørrelse
+
+
+Figur 1 viser gjennomsnittspriser for torvbaserte og torvfrie produkter fordelt på produktstørrelse.
+Prisberegningen er basert på innhentede priser på totalt 87 ulike produkter, hvorav 30 torvfrie. Det er
+skilt mellom følgende produkter:
+     ● 8-20 liter sekker som enkelt kan tas med i handlekurven hos dagligvaren
+     ● 30-50 liter sekker, som i størst grad selges på hagesentre og som forutsetter biltransport
+     ● bulkvare direkte hos produsent.
+Generelt koster det mest pr. liter vekstmedium i små forpakninger og minst når det kjøpes uemballert i
+bulk.
+
+
+
+
+                                                            Side 25
+                                          Norwaste-rapport 3-2019
+
+
+
+
+Det er en forskjell på torvbaserte og torvfrie dyrkingsmedier, torvfritt er dyrere på de sekkepakkede
+produktene. Merprisen for torvfrie produkter utgjør i gjennomsnitt 50 øre/kg for produktene i kategori
+sekkevare 30-50 liter og 2,10 kr/kg i kategorien 8-20 liter.
+Når det gjelder bulk er prisene imidlertid annerledes, her er det vesentlig rimeligere med torvfritt.
+Det gjøres oppmerksom på datagrunnlaget for torvbasert produkt kun utgjøres av et produkt.
+
+Prisforskjellen på torvfrie dyrkingsmedier fra avfallsselskapene er relativt stor, med en variasjon fra
+gratis til nesten 600 kroner pr m3. Gjennomsnittlig pris for bulkprodukt fra de avfallsselskapene som har
+svart er ca. 300 kroner pr m3.
+
+Når det gjelder prising av kompost fra kommunale avfallsselskaper må det tas hensyn til at hele
+komposteringsvirksomheten inngår i et selvkostregnskap for håndtering av husholdningsavfall. Det betyr
+at utgiftene for fremstilling av komposten dekkes av inntekter fra salg av kompost og fra de kommunale
+avfallsgebyrene. Det betyr at prisene ikke behøver å gjenspeile produksjonskostnadene. Det kan være
+flere grunner til at kompostprodusenter selger unna bulk vare rimelig. Siden komposten er laget av
+innbyggernes råvarer (hageavfall, matavfall etc.) ønsker man å oppmuntre til økt kildesortering og
+levering av hageavfall ved å vise at det fører til gode produkter. Andre hensyn kan være å få solgt ut
+årets produksjon eller at produktet har lav kvalitet.
+
+Avfall Norge har i flere år spurt kompostanleggseiere om utvikling i prisene og etterspørsel. Siden dette
+ble startet for 5 år siden har det vært en tydelig tendens til både økt etterspørsel og betalingsvillighet i
+markedet23.
+
+
+
+
+23
+     http://kurs.avfallnorge.no/nyheter.cfm?pArticleId=36239&pArticleCollectionId=2556
+
+
+
+
+                                                      Side 26
+                                               Norwaste-rapport 3-2019
+
+
+
+
+6. Merkeordning for dyrkingsmedier
+Merkeordninger for produkter er en anerkjent måte å opplyse forbruker om hva de kjøper og kan bidra
+til økt omsetning av produkter av høy kvalitet, og som ivaretar hensyn til miljø og andre forhold.
+
+Den mest kjente miljømerkeordningen i Norge er Svanemerket, som er felles nordisk merkeordning.
+Svanemerket forvaltes i Norge av Stiftelsen Miljømerking. Innenfor Svanemerket finnes det ingen
+merkeordning for dyrkingsmedier eller jordforbedringsmiddel. Miljømerking opplyser at det ikke har
+vært stor etterspørsel etter dette, verken fra forbrukere eller produsenter av dyrkingsmedier. På
+Miljømerking sine sider settes det opp følgende spørsmål som stilles før man beslutter å utarbeide
+miljøkrav for en spesiell produktgruppe innenfor Nordisk Miljømerking:
+    ● Er det et stort miljøproblem knyttet til produktet?
+    ● Går det an å oppnå miljøforbedring av varen eller tjenesten så mye at det vil utgjøre en forskjell
+        på det svanemerkede produktet og "vanlige" produkter innenfor produktgruppen?
+    ● Kan miljømerkingen påvirke valget av produkter og utviklingen av produkter på sikt?
+
+Den europeiske miljømerkeordningen Ecolabel (i Norge kalles det EU-blomsten) har en merkeordning
+for dyrkingsmedier og jordforbedringsmidler24. Det er for tiden imidlertid kun 6 produsenter som er
+sertifisert med Ecolabel i Europa. Produsentene kommer fra Danmark, Hellas og Spania og har ulike
+produkter innenfor denne kategorien. De danske produktene er basert på varmebehandlet hestegjødsel
+og kjøttbeinmel (jordforbedringsmidler). Stiftelsen Miljømerking forvalter også EU-blomsten i Norge.
+
+For å oppnå EU Ecolabel eller EU-blomsten på produktene er det et sett
+med kriterier som må oppfylles. Blant kriteriene som stilles er at:
+    ● produktet ikke skal inneholde torv
+    ● mengden fremmedlegemer som glass, metall og plast >2mm ikke
+         skal overstige 0,5% tørrvekt
+    ● produktet skal inneholde minst 30% organisk materiale eller
+         inneholde mineralbestandeler utvunnet med minimum 30%
+         materialgjenvunnet materiale.
+Det fullstendige kriteriesettet er vedlagt som vedlegg 2.
+
+
+           6.1.      Er det behov for en merkeordning for dyrkingsmedier i Norge?
+Det er registrert en blandet interesse for miljømerking av produktene fra produsenter av
+dyrkingsmediers side, (både torvfrie og torvbaserte). Flere produsenter har i forbindelse med dette
+arbeidet opplyst at det med dagens marginer på dyrkingsmedier ikke er rom for en ekstra kostnad til
+sertifisering av et miljømerke.
+
+
+
+24
+     Revision of the EU Ecolabel Criteria for Soil Improvers and Growing Media, Europa kommissionen:
+https://ec.europa.eu/environment/ecolabel/documents/gmsim/si_gm_eu_ecolabel_technical_report_june2015.pdf
+
+
+
+
+                                                             Side 27
+                                             Norwaste-rapport 3-2019
+
+
+
+
+En merkeordning, som informerer forbruker om dyrkingsmediets og jordforbedringsmiddelets faktiske
+innhold ønskes derimot velkomment fra flere produsenter. Det ble identifisert flere mulige måter å
+merke denne produktkategorien på.
+Nedenfor er en punktliste med innkomne forslag.
+    ● produktet er basert på bærekraftig og fornybare råvarer
+    ● opplyse om %-vis torvinnhold
+    ● forbrukervennlig varedeklarasjon
+    ● kakediagram med torvinnhold (tilsvarende grovhet på brød)
+    ● datomerking med “bør brukes før” for å sikre at produktet holder det som loves.
+
+Eksempelvis har brød en merkeordning som viser grovhet for brødproduktet.
+Denne merkeordningen ble utarbeidet av NHO Mat og Drikke og Baker- og Konditorbransjens
+Landsforening i samarbeid med Forbrukerrådet, daværende Sosial- og helsedirektoratet og
+Mattilsynet i 2006. Det er frivillig for mel- og bakeribransjen å benytte seg av merkeordningen.
+
+
+
+
+Figur 2. Merkeordning for grovhet på brød.
+
+
+Overførbarheten av denne merkeordningen til dyrkingsmedier kan være til stede dersom det kan
+etableres en skala som er lett å forstå og forbrukerne kan identifisere seg med skalaen på samme
+måte som for grovhet i brød.
+
+Forbrukerne har i dette prosjektet ikke blitt spurt. Likevel er det grunn til å tro at bevisstheten rundt
+bruk av torv ikke er like stor som den er for å spise grovt brød. Samtidig vil en slik merkeordning ta
+tid å bygge opp, og bør derfor også få virke noen år. Ved en utfasing av torv i 2025 vil det ikke
+lenger være behov for en slik merkeordning. De fleste produsentene ser også ut til å komme med
+stadig flere produkter som er 100 % torvfrie.
+
+Merking av dyrkingsmedier og jordforbedringsmidler for privatmarkedet bør generelt være enhetlig og
+forståelig. En endring i gjødselvareforskriftens §15 om deklarasjonsbestemmelser som angir krav om
+prosentvist innhold av for eksempel torv og næringsstoffer i dyrkingsmedier kan være nødvendig.
+Privatmarkedet må bevisstgjøres om hva de ulike produktene inneholder for at de skal vite hva som
+brukes i hager, bed og krukker.
+
+Når det gjelder innspill fra kompostprodusenter om datomerking på sekkebaserte dyrkingsmedier
+
+
+
+
+                                                       Side 28
+                                        Norwaste-rapport 3-2019
+
+
+
+
+kommer det av at pakkede blandinger med kompost ikke vil ha samme holdbarhetstid som torv.
+Kompost er levende materiale, og vil derfor kunne forandre egenskapene over tid.
+
+Oppsummert er det antakelig både for kort tid for at en merkeordning med skala for torvinnhold av
+typen grovhetsgrad på brød gi grovhetsskalaen vil ha særlig effekt, samtidig som en slik skala kan virke
+mot hensikten om å styrke torvfrie alternativer.
+Siden tilbudet av torvfrie alternativer er sterkt økende, er det trolig mer effektivt å stimulere til økt bruk
+av kun 100 % torvfrie dyrkingsmedier. Dette kan oppnås gjennom en merkeordning av den typen EU-
+blomsten.
+
+
+
+
+                                                    Side 29
+                                           Norwaste-rapport 3-2019
+
+
+
+
+7. FOU og innovasjon
+Nedenfor er det samlet et utvalg av eksisterende forskning og utvikling på alternative dyrkingsmedier.
+Selv om sammenstillingen bare er et utvalg viser den at det pågår en hel del forskning og utvikling både
+med utgangspunkt i alternative råvare og substrater både inn mot privat og proffmarkedet. Dette bidrar
+til å og øke sannsynligheten for at tilgangen på nye substrater vil bli bedre innen 2025.
+Likevel er det behov for mer storskala testing på grønnsaker og blomster i proffbransjen på alternative
+dyrkingsmedier til torv. Finansiell støtte til gjennomføring av storskala dyrkingsforsøk oppgis å være
+avgjørende for at dette gjennomføres. Bransjen er opptatt av at som produserende virksomheter er det
+lite rom for testing eller produksjon av blomster/vekster på andre typer dyrkingsmedier enn det som er
+garantert å gi gode resultater.
+
+Kompost, biorest og biogjødsel – Lindum m.fl, Reklima og NLR
+Lindum, Greve Biogass og Randesund Hagesenter samarbeider om produktutvikling og oppgir å kunne
+ha et produkt basert på kompost fra park- og hageavfall blandet med biorest fra biogassanlegg på
+markedet i løpet av 2021.25
+Foreløpige resultater oppgis å være lovende og med bruk av teknologien på flere anlegg rundt i Norge er
+kapasiteten estimert til å kunne dekke ca. 300 000 m3. Produktet skal kunne leveres både i bulk, men
+også pakket i sekk solgt av andre distributører.
+
+I Tønsberg er det etablert et fullskala pilotveksthus for tomater basert på ny teknologi og fornybare
+råvarer. Bak selskapet Reklima står Veksthusgruppen, Greve Biogass, Vesar, Lindum, BBBLS og Air
+Liquide. Pilotproduksjonen foregår i et lukket veksthus, koblet til Den Magiske Fabrikken.
+Biogassanlegget behandler matavfallet til ca 1 000 000 nordmenn og organisk avfall fra lokale bønder. I
+anlegget erstattes torv, kunstgjødsel og fossil CO₂ med kompost, biogjødsel og grønn CO₂.26
+
+
+NLR Viken har i 2018 testet ut torvfrie og torvreduserte alternativer til ulike potteplanter.
+Medieblandingene var hagekompost, hagekompost blandet med perlite i ulike forhold, hagekompost
+blandet med kokos, hagekompost med biokull, kokos blandet med torv og kokos blandet med
+vermikompost i ulike forhold. Blandingene ble testet ut på fire krydderurter og fem blomster. Alle
+vekstmedieblandinger så ut til å kunne gi god plantevekst. Resultatene var stort sett gode, men det ble
+rapportert om store forskjell i vannholdningsevne.27
+
+
+Husdyrgjødsel og fiskeslam - Mafigold
+Mafigold - Projsektet 'Husdyrgjødsel og fiskeslam, fra problem til bondens gull (Manure, fish sludge,
+food wastes, from problem to farmers gold: MAFIGOLD)' har som overordnet mål å utnytte
+avfallsprodukter fra land- og havbruk for bedre avlinger, samtidig som klimagassutslipp reduseres28.
+Blant annet skal prosjektet se på tekniske løsninger for avvanning, avsalting, tørking og logistikk for
+
+25
+   Pers. meddelelse
+26
+   https://www.reklima.no/
+27
+   https://veksthus.nlr.no/fagartikler/torvfri/
+28
+   https://www.nibio.no/prosjekter/mafigold
+
+
+
+
+                                                     Side 30
+                                          Norwaste-rapport 3-2019
+
+
+
+
+fiskeslam, husdyrgjødsel og fiberrest fra matavfallsbehandling (WP1). Basert på råstoffene skal man
+komponere fullverdige gjødselprodukter, blandede dyrkingsmedium og jordforbedringsprodukter som
+samsvarer best mulig med plantenes næringsbehov (WP2).
+
+
+Trefiber - Subtech, Organic Plus m.fl.
+Målsetningene i SUBTECH, som ledes av NIBIO og er finansiert over Grofondet, er å utvikle og teste
+vekstmedier basert på trefiber, både rene og i blanding med torv, biokull og mikroorganismer, som gir et
+billigere og bedre alternativ som vekstsubstrat enn torv og kokos.29
+Dette skal føre til:
+1. Økt kunnskap om dyrkingsegenskaper hos nye vekstmedier.
+2. Tilpasset dyrkingsteknikk ved dyrking av hagebruksvekster i nye vekstmedier.
+3. Implementering i norsk gartnernæring
+
+Hunton er partner i forskningsprosjektet sammen med andre sentrale aktører som NIBIO, NLR,
+NORGRO, Gartnerhallen, Ekeberg Myhrene og Grønt Skifte, og vil ha oppstart 1.kvartal 2020. Trefiber fra
+Hunton er også testet i et tidligere prosjekt, «Bærkraft» med forsøk på jordbær, over to sesonger.
+Tidlige resultater tyder på at bruk av fiber som dyrkingsmedium gir god rotvekst og noe større avling enn
+med kokos og torv, imidlertid er det ikke tilstrekkelig for å kunne anbefale det til jordbærdyrkere uten
+flere forsøk.
+
+Nibio Ås og Nibio Apelsvoll har også høsten 2019 satt i gang større testing av ulike blandinger av
+dyrkingsmedier for dyrking av petunia, gulrot og tomater, hhv 90 planter av hver sort, der trefiber inngår
+som en av komponentene. Resultatene skal foreligge ila våren 2020.
+
+
+Nordsøk deltar i Organic Plus30. Arbeidspakke 5 inkluderer alternativer til bruk av torv i
+hagebruksprodukter. Her jobbes det i hovedsak med bearbeiding av trevirke av ulikt opphav, de ulike
+tretypene varierer fra land til land som deltar i prosjektet. Det blir imidlertid ikke arbeidet med
+kommersiell tilgjengelighet eller økonomi i prosjektet. Kommersielle aktører er ikke påkoblet prosjektet
+så videre utvikling til kommersielle produkter vil eventuelt skje i etterkant.
+
+
+Biokull - Decarbonize, Roaf m.fl.
+I prosjektet Decarbonize skal det utvikles torvfrie dyrkingsmedier som skal selges i sekk. Deltagere i
+prosjektet er i tillegg til Standard Bio, SINTEF, PFI-Rise, Universitetet i Sørørst Norge (USN), Bioner og
+Felleskjøpet/Nordic Garden. Det er definert noen kriterier for at sluttproduktet som skal havne på
+markedet.
+Produktet vil bestå av biokull produsert av ulikt organisk materiale som for eksempel:
+     ● rest fra biogassproduksjon (pre reject, reject og råtneresten).
+     ● rest fra treindustrien (bark, flis, papirslam)
+
+
+29
+     http://www.grofondet.no/aktuelle-prosjekter/subtech-nye-baerekraftige-vekstmedier-som-erstatning-for-torv/
+30
+     https://organic-plus.net/
+
+
+
+
+                                                      Side 31
+                                       Norwaste-rapport 3-2019
+
+
+
+
+     ●   avfallstyper som hage avfall, forurenset papir, ikke gjenvinnbar plast, returvirke, mineraler,
+         returjord, leire og andre mineraler.
+     ●   husdyrgjødsel – hestegjødsel, talle, dekantert blautgjødsel og lakseslam.
+
+Biokull produsert på disse fraksjonene skal blandes med diverse mineraler fra maskinsand, naturlige
+mineraler/finstoff og fritt mineralsk materiale fra pukk, gruve, prosess og betong industri.
+
+Tidsaspektet for å få produktene på markedet er noe usikkert, men det foregår dyrkingstester vinteren
+2019/2020 og skal testet for salg hos Nordic Garden sommeren 2020. Det estimeres en
+produksjonsmengde på ca. 5 000 tonn ila siste halvår 2020 og 10 000 tonn i 2021.
+
+Gjennom støtteordning fra Akershus fylkeskommune for klimagassreduserende tiltak31 gjennomfører
+ROAF en mulighetsstudie hvor de ser på hele produksjonskjeden for biokull fra bruk av ulike råstoff, til
+selve produksjonen og anlegg samt avsetning og mulige samarbeidspartnere. Intensjonen er å få et
+pyrolyseanlegg hos ROAF som kan behandle ulike biofraksjoner av avfall, herunder returtre og
+grotfraksjon fra kompostproduksjon, og evt. en andel av impregnert trevirke som ikke er farlig avfall.
+Planen er å blande biokullet inn i kompostprodukter som Roaf også produserer. I denne sammenhengen
+vil biokullet fungere som et jordforbedringsmiddel. Det skal blandes inn i ulike volumer for å kunne tilby
+forskjellige produkter med ulik funksjon, i første omgang på bulkmarkedet.
+
+
+Mose Sphagnum - Biolan Oy
+Biolan er et Finsk selskap som har jobbet med å erstatte torv i dyrkingsmedier i flere år. Virksomheten er
+basert på kompostprodukter, delvis med bruk av torv. 32
+Biolan forsker blant annet på bruk av levende Sphagnum mose. Den skal ha gode kvaliteter som substrat
+i dyrkingsmedium og innhøstingen hevdes å være bærekraftig ettersom Sphagnum mosen vokser 1 cm i
+året og en ny innhøsting dermed kan gjøres etter 15 år.
+De har 2 produkter til privatmarkedet som er helt torvfrie i tillegg til produkter for proffmarkedet. Det
+skal også testes med trefiber som substrat i dyrkingsmedier. Biolan Oy opplyser at de har produkter
+klare for eksport til Norge, men prosjektet har ikke identifisert disse produktene i norske utsalg i sine
+undersøkelser.
+
+Humus/fulvin - Felleskjøpet
+Felleskjøpet Agri SA ved avd. Park og Anlegg har startet med å tilby humus/fulvin-produkter basert på
+Leonardite for å begrense bruk av torv, forbedre produkter med torv og forbedre eksisterende jord med
+torv33. Dette er utvunnet fra mineraler / kull fra Syd Afrika og Ecofarma har utviklet produktene for å
+kunne effektivisere matproduksjon, forbedre naturlig jord hos bonden og øke kvalitet på maten.34
+
+
+
+31
+   https://www.akershus.no/nyheter/?article_id=204664
+32
+   https://www.biolan.com/
+33
+   https://www.felleskjopet.no/park-og-anlegg/
+34
+   http://www.ecofarma.se/?lang=en
+
+
+
+
+                                                   Side 32
+                                      Norwaste-rapport 3-2019
+
+
+
+
+Felleskjøpet har registrert 5 produkter i Norge som har vært solgt til golf og fotball siden 2015. Humus +
+N og Ca til jord OG Fulvin + K og mikro til planter er flytende produkter og skal sprøytes ut.
+
+Det er planlagt forskning i felt i Norge på tilsetning av disse produktene gjennom jordforbedring,
+gjødselprogram, innblanding i jord, ensillering og gjennom kraftfor. Felleskjøpets leverandør er Ecofarma
+Organic Nordic AB.
+
+I et samarbeid mellom Felleskjøpet, Vital Analyse og Ecofarma jobbes det også for å finne de beste
+alternativer for fremtiden når det gjelder dyrkingsmedier.
+
+
+
+
+                                                  Side 33
+                                                         Norwaste-rapport 3-2019
+
+
+
+
+8. Utfasing av torvbruk i Norge
+Nedenstående sammenstilling oppsummerer dagens tilgjengelighet på utvalgte alternative substrater til
+torv i blandete dyrkingsmedier. Tilgang til råvarer for økt produksjon er også sammenstilt, sammen med
+en vurdering av substratets egnethet til ulik bruk og teknologisk modenhet, basert på gjennomgang i
+tidligere kapitler.
+
+Tabell 10. Alternative substrater: produksjon, tilgjengelighet, egnethet og teknologisk modenhet
+ Substrat                Beregnede          Tilgang på            Bruksområde/egn           Teknologisk              Alternativ/konkurrerende
+                         mengder            råvarer               ethet                     modenhet /               anvendelse av råvaren
+                         2018                                                               begrensninger
+
+ Hageavfallskom          161 000*)          Forventes             Tilsatsstoff i            Tilgjengelig, men        Ingen kompostering/bruk
+ post                                       økende.               dyrkingsmedium            varierende kvalitet      som bioenergi.
+                                                                  (privat og proff),        Profesjonalisering og    For kompost er
+                                                                  jordforbedring            FoU på produkt-          konkurrerende
+                                                                                            kvalitet kan øke         anvendelse grøntanlegg,
+                                                                                            tilliten i markedet.     landbruk
+
+ Husdyrkompost           9 000*)            Stor tilgang          Tilsatsstoff i            Tilgjengelig             Ingen behandling.
+                                                                  dyrkingsmedium            Dels begrensede          Biogass (subsidiert)
+                                                                  (privat og proff),        erfaringer
+                                                                  jordforbedring
+
+ Øvrig kompost           200 000*)          Stor tilgang          Tilsatsstoff i            Tilgjengelig, men        Ingen behandling. Diverse
+ (matavfall,                                (eks biorest,         dyrkingsmedium            varierende kvalitet og
+ slam, bark                                 bark,                 (privat og proff),        egnethet.
+ fiskeslam, ull                             fiskeslam, ull)       jordforbedring            Tidels begrensede
+ etc)                                                                                       erfaringer,
+                                                                                            kvalitetsutfordringer
+                                                                                            må løses
+
+ Biokull                 lite               Stor tilgang          Tilsatsstoff i            Uensartete produkter.    For råvarene:
+                                            (eks trevirke,        dyrkingsmedium            Produktutvikling,        Kompostering, biogass,
+                                            hageavfall)           (privat og proff),        kvalitetssikring og      bioenergi.
+                                                                  jordforbedring            dokumentasjon.           For biokullet: høyverdige
+                                                                                                                     produkter som aktivt kull
+
+
+ Kokosfiber              ukjent             import                Tilsatsstoff i            Tilgjengelig, men mer
+                                                                  dyrkingsmedium            FoU og erfaring på
+                                                                  (privat og proff)         produktkvalitet og
+                                                                                            innblanding
+
+ Bearbeidet              0                  Tilstrekkelig         Tilsatsstoff i            Produktutvikling og      Ingen behandling
+ trefiber                                   tilgang               dyrkingsmedium            pilottesting pågår.      Bygningsmateriale
+                                                                  (privat og proff)
+*) Mengder til kompostering. Produsert mengde kompost er i størrelsesområde 50 % av tilført mengde.
+
+
+
+
+                                                                          Side 34
+                                       Norwaste-rapport 3-2019
+
+
+
+
+Ved vurderingen av tilgjengeligheten til om alternative substrater kan erstatte torv til dyrkingsmedier
+innen 2025 for privatmarkedet og proffsektoren innen 2030, er det viktig å ta hensyn til at dagens
+produksjon av substrater allerede har en avsetning. Dette gjelder spesielt for kompost.
+
+Dagens anvendelsesområder for hageavfallskompost (anleggsjord, direktesalg til private abonnenter
+osv) kan imidlertid med stor sannsynlighet vike plassen for en mer høyverdig anvendelse til blandet
+dyrkingsmedier primært i sekk, men også bulk. Mengdene til dagens anvendelsessområder vil da måtte
+erstattes av andre produkter, dette kan være produkter basert på avløpsslam, biorest eller
+husdyrgjødsel. En slik dreining vil også understøttes av at det gir et bedre klimaregnskap når komposten
+direkte erstatter torv. Samtidig er det grunn til å forvente økende mengder hage- og parkavfall som
+følge av økt fokus på materialgjenvinningsgrad hos norske kommuner.
+
+For øvrige råvarer til kompost er det liten begrensning på tilgangen, men snarere et spørsmål om
+økonomi og kapasitet. Dersom produksjonen basert på ulike typer husdyrgjødsel skal øke vesentlig, må
+det være økonomisk interessant for aktørene og det må bygges opp kompetanse som gjør at
+kvalitetskravene i markedet kan nås.
+
+Det er lite produksjon av biokull i Norge i dag, men flere aktører vurderer å bygge anlegg. Biokull ser ut
+til å kunne være et verdifullt substrat (<50 %), men potensialet og omfanget er avhengig av videre
+produkttesting og utvikling, samt hvor konkurransedyktig substratet er på pris.
+
+Kokosfiber er i dag et av de få tilgjengelige alternative substrater som kan brukes som fyllstoff (>50 %) i
+blandete dyrkingsmedier. Tilgangen på kokosfiber anses ikke som begrenset på tross av import, men
+som beskrevet tidligere i rapporten er det flere forhandlere som går bort fra kokosfiber i
+dyrkingsmedier.
+
+Bearbeidet trefiber ser ut til å være et lovende substrat basert på norsk fornybar råvare, som kan brukes
+som fyllstoff med mer enn 50 % i et vekstmedium. Det gjenstår forskning og utvikling for å kunne bringe
+produktet ut i markedet. Tilgangen på råvare er nærmest ubegrenset i forhold til behovet i Norge. Det
+betyr at det her også ligger et potensial for eksport.
+
+Tilgjengelighet av torvfrie alternativer til ulike bruksområder
+Tabell 2 illustrerer en antatt bruk av sekkepakkede torvbaserte dyrkingsmedier solgt til privatmarkedet.
+Av et angitt markedsvolum på 300 000 m3 blandet dyrkingsmedium er det anslått en bruk i størrelsorden
+90-130 000 m3 brukt som jordforbedring i hage og anlegging av nye arealer, kjøkkenbed og lignende.
+Som ovenstående Tabell 10 viser er de fleste kompostprodukter og flere andre torvfrie alternativer godt
+egnet til dette formålet.
+
+Tabell 2 anslår et bruksvolum på ca 180 – 210 000 m3 for potteplanter, balkongkasser og lignende. Dette
+volumet er mer krevende å erstatte med dagens alternativer og volumer av denne størrelsen er ikke
+tilgjengelig i dag, muligens med unntak av kokosfiber. Det foregår en rekke forskning og produktutvikling
+på området, og tilgangen på råvarer er rikelig for flere av områdene det satses på. Det er en viss
+
+
+
+
+                                                   Side 35
+                                       Norwaste-rapport 3-2019
+
+
+
+
+usikkerhet knyttet til kvaliteten til de torvfrie alternativene, spesielt når det skal tilpasses
+privatmarkedet og selges i sekk. Hvordan de ulike torvfrie dyrkingsmediene egner seg som
+sekkeprodukter er det i dag ikke tilstrekkelig dokumentasjon på. Det jobbes hos flere produsenter av
+torvfrie dyrkingsmedier med denne utfordringen.
+Dette gir grunn til å anslå at torv i blandete dyrkingsmedier til private kan erstattes innenfor en
+tidshorisont på noen år, eksempelvis 2025. Dette er også et budskap som flere aktører som er kontaktet
+i dette prosjektet har delt. Dette forutsetter trolig en kombinasjon av langsiktig politikk og støtte til
+forskning og utvikling. Trolig forutsetter det også utvikling av andre substratalternativer enn kompost.
+For proffmarkedet er det anslått et volum på ca 100 000 m3 i året. Kvalitetskravene i gartneribransjen er
+på områder strengere enn i det private sekkemarkedet, men samtidig er mulighetene til å ta i bruk nye
+produksjonsmetoder delvis større. Det foreligger ikke nok dokumentasjon fra forskning og utvikling til at
+aktørene i bransjen i dag er trygge på at det på kort tid foreligger like gode alternativer til torv for alle
+formål.
+Gjennomgangen av utviklingsprosjekter viser at det pågår lovende utvikling også innenfor
+gartnerbransjen. Den største utfordringen antas å være å utvikle alternativer som gir like god kvalitet og
+samopprettholder og eventuelt styrker konkurransekraften til en konkurranseutsatt næring. Dersom
+dyrere torvfrie alternativer skal brukes kan det skape ulike konkurransevilkår mot tilsvarende
+produksjon i utlandet. En utfasing av torv vil her mest sannsynlig måtte basere seg på utvikling av nye
+substratalternativer. Her vil en også måtte vurdere kvalitet og egnethet for alternative dyrkingsmedier
+for hver enkelt dyrkingssort/plantetype.
+
+
+
+
+                                                   Side 36
+                                       Norwaste-rapport 3-2019
+
+
+
+
+9. Støtteordninger for utvikling av alternative
+   substrater
+Flere av de nye substratene har høyere produksjonskostnader enn torv og må i tillegg bære
+utviklingskostnader. Som vist tidligere pågår det en del forskning og utvikling.
+Erfaringene fra noen års salg av torvfrie produkter viser at disse er dyrere og utgjør en liten andel av det
+totale markedet. Selv om nye råvarer, økte volumer og økt etterspørsel fra markedet kan senke
+produksjonskostnadene er det lite sannsynlig at mengden torvfrie substrater vil øke vesentlig i et
+tidsperspektiv på fem år uten at ekstra virkemidler settes inn.
+
+Blant virkemidler er i dette prosjektet begrenset til bruken av støttemidler til FoU og i hvilken grad disse
+benyttes.
+
+Støtteordninger:
+Generelt er det særlig behov for mer storskala testing i proffbransjen på alternative dyrkingsmedier til
+torv. Finansiell støtte til gjennomføring av storskala dyrkingsforsøk oppgis å være avgjørende for at
+dette gjennomføres.
+
+Det er i dag en rekke støtteordninger som kan benyttes i forbindelse med finansiering av forskning og
+utviklingsprosjekter, klimareduserende tiltak eller andre tiltak som kan være relevante ifm utvikling av
+alternative dyrkningsmedier. Noen av disse er listet opp i dette kapittelet, med tilhørende lenker.
+Grofondet
+http://www.grofondet.no/om-fondet/
+
+Klimasats-støtte for å redusere klimagassutslipp.
+https://www.miljodirektoratet.no/aktuelt/nyheter/2019/november-2019/kommuner-kan-soke-258-
+millioner-til-klimatiltak/
+
+Støtteordninger for kommunale klimatiltak
+https://www.miljokommune.no/Documents/Klima/stotteordninger.pdf
+
+Grønne støtteordninger er en nettside som informerer om ulike støtteordninger som både offentlig og
+private aktører kan søke på.
+https://bgreen.no/gronne-stotteordninger/
+
+Aktørene som er kontaktet i dette prosjektet oppgir at støtteordningene i varierende grad blir benyttet.
+Blant årsaker til at de ikke benyttes, er kompliserte søknad- og rapporteringsprosesser. I tillegg
+oppleves det at enkelte støtteordninger ikke er godt nok kjent - og derfor ikke blir benyttet.
+
+
+
+
+                                                   Side 37
+                                     Norwaste-rapport 3-2019
+
+
+
+
+Vedlegg/tilleggsopplysning
+Vedlegg 1: Oversikt over priser på dyrkingsmedier
+Vedlegg 2: Hunton trefiber, varedeklarasjon
+Vedlegg 3: Varedeklarasjon for veksttorv fra Gausdal
+Vedlegg 4: kriteriesett for EU-blomst for dyrkingsmedier Landhandleri
+
+
+
+
+                                                Side 38
+Norwaste-rapport 3-2019
+
+
+
+
+          Side 39
+            Norwaste-rapport 3-2019
+
+
+
+
+Vedlegg 2
+
+
+
+
+                      Side 40
+Norwaste-rapport 3-2019
+
+
+
+
+          Side 41
+                                    Norwaste-rapport 3-2019
+
+
+
+
+Vedlegg 3
+Varedeklarasjon for veksttorv fra Gausdal Landhandleri
+
+
+
+
+                                               Side 42
+                                    Norwaste-rapport 3-2019
+
+
+
+
+Vedlegg 4
+Kriterier for miljømerking av dyrkingsmedier med EU Ecolabel
+
+
+
+
+                                               Side 43
+Norwaste-rapport 3-2019
+
+
+
+
+          Side 44
+

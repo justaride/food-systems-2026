@@ -1,0 +1,2267 @@
+RAPPORT
+
+KONKURRANSE I DAGLIGVAREMARKEDET
+- KONKURRANSE I ALLE LEDD
+
+Øvrige
+Joker Nærbutikken
+
+Bunnpris
+
+Annet NG
+KIWI
+Bunnpris
+
+Rema 1000
+
+Rema 1000
+NorgesGruppen
+
+Spesialbutikker
+
+Netthandel
+
+Coop
+
+Obs
+
+Meny
+
+Coop Mega
+Spar/Eurospar
+
+Coop Prix
+
+Coop Marked
+Extra
+
+Matkroken
+Annet Coop
+
+KBS og serveringssteder
+
+MENON-PUBLIKASJON NR. 33/2018
+Av Kristina Wifstad, Torbjørn Bull Jenssen, Lars Stemland Eide, Leo A. Grünfeld og Erland Skogli
+
+Innhold
+SAMMENDRAG
+
+2
+
+1.
+
+INNLEDNING OG BAKGRUNN
+
+6
+
+2.
+
+DAGLIGVAREMARKEDET, STRUKTUR OG PÅVIRKNINGEN PÅ KONKURRANSE
+
+7
+
+2.1
+
+Verdikjeden og det nasjonale dagligvaremarkedet
+
+7
+
+2.1.1 Leverandørleddet
+
+8
+
+2.1.2 Grossistleddet
+
+10
+
+2.1.3 Dagligvarebutikkene
+
+12
+
+2.2
+
+Sammenligning av markedet i de nordiske landene
+
+13
+
+2.3
+
+Hva selges i dagligvarebutikkene?
+
+14
+
+2.3.1 Salgskanaler for mat og drikkevarer
+
+16
+
+2.3.2 Salgskanaler for ikke-spiselige varer
+
+20
+
+2.4
+
+Et lokalt eller nasjonalt dagligvaremarked?
+
+22
+
+3.
+
+ANALYSER AV VAREUTVALGET I NORSK DAGLIGVARE
+
+26
+
+3.1
+
+Vareutvalget i Norge relativt til i Sverige
+
+26
+
+3.2
+
+Vareutvalget i Norge over tid
+
+27
+
+4.
+
+GEOGRAFI OG NORSK BUTIKKSTRUKTUR
+
+28
+
+4.1
+
+Sammenhengen mellom geografi, konkurranse og butikkstørrelse
+
+28
+
+4.2
+
+Sammenheng mellom geografi og utenlandske etableringer
+
+30
+
+5.
+
+ANALYSER AV PRISUTVIKLING OG DRIFTSMARGINER
+
+32
+
+5.1
+
+Prisutviklingen
+
+32
+
+5.2
+
+Driftsmarginer
+
+34
+
+6.
+
+KONKURRANSE
+
+38
+
+6.1
+
+Konkurranse mellom få aktører gir ikke nødvendigvis svak konkurranse
+
+38
+
+6.2
+
+Kjøpermakt vs. selgermakt
+
+39
+
+6.3
+
+Konkurranse på ulike nivåer i dagligvaremarkedet
+
+40
+
+7.
+
+KONKLUSJON
+
+44
+
+REFERANSELISTE
+
+46
+
+VEDLEGG: DATAGRUNNLAG OG BEREGNING AV DRIFTSMARGINER OG DRIFTSKOSTNADERS ANDEL AV OMSETNING
+
+48
+
+MENON ECONOMICS
+
+1
+
+RAPPORT
+
+Sammendrag
+I det offentlige ordskiftet hevdes det ofte at konkurransen er svak. Dette begrunnes gjerne i påstander om høye
+priser og dårlig vareutvalg sammenlignet med andre land, uten at man skiller mellom ulike årsakssammenhenger
+ved hjelp av empiriske studier.
+Med dette utgangspunktet har Menon på oppdrag fra Virke Dagligvarehandel vurdert graden av konkurranse i
+det norske dagligvaremarkedet. Rapportens formål er å bidra til en mer opplyst debatt om
+konkurranseforholdene i markedet ved å belyse konkurranseaspektene fra en rekke perspektiver.
+Menon har gjennomført en gjennomgang av eksisterende empiri og konklusjonen vår er klar: Selv om det bare
+finnes fire såkalte paraplyaktører innen dagligvarehandel i Norge (REMA 1000, Coop, NorgesGruppen og
+Bunnpris) og man dermed kan snakke om «høy konsentrasjon» i konkurranseøkonomisk sammenheng, finner vi
+ikke støtte i vårt datagrunnlag for hypotesen om at konkurransen er svak
+Flere utredninger har sett på tilstøtende problemstillinger tidligere:
+Oslo Economics (2017) har nylig ferdigstilt en rapport hvor det fokuseres på etableringshindre i detaljistleddet.
+Rapporten vurderer ikke konkurransesituasjonen i markedet eksplisitt. Den identifiserer utnyttelse av
+stordriftsfordeler i innkjøp som det viktigste etableringshindret. Grunnen er at marginene er lave for
+detaljistleddet, samtidig som varekostnadene utgjør en svært stor andel av totalkostnadene. Videre understreker
+rapporten at stordriftsfordelene knyttet til innkjøp «forsterker de etablerte aktørenes insentiver til å stjele
+markedsandeler av hverandre – slik at gevinstene isolert sett er betydningsfulle for konkurransedynamikken i
+markedet».
+Matkjedeutvalget (NOU 2011:4) så på maktrelasjonene i verdikjeden for mat. Utvalget beskrev en rekke aspekter
+ved dynamikken og konkurransen i markedet. Om konkurransen skriver utvalget blant annet at «kjøpermakt i
+utgangspunktet er positivt for å balansere ut selgermakt.». Videre kommenteres det at varierende
+markedsandeler over tid «kan tolkes som om konkurransen i det norske markedet er tilfredsstillende.» Samtidig
+hevdet utvalget at Kiwi jevnt over fremstår som dyrere enn Rema og at det er en indikasjon på at
+konkurransesituasjonen i markedet ikke er tilfredsstillende.
+Konkurransetilsynet gjennomførte i 2009 en analyse av konkurransen i Norge og viet en egen seksjon til
+konkurransen i dagligvarebransjen. Analysen beskriver sentrale deler av dynamikken, og drøfter mulige
+utfordringer og risikomomenter, men studien vurderte ikke hvorvidt det var svak konkurranse eller ei. Den trakk
+imidlertid frem viktigheten av å skille mellom den nasjonale og lokale konkurransen i dagligvaremarkedet. Videre
+trakk Konkurransetilsynet, som Oslo Economics (2017), frem leverandørkonsentrasjonen som problematisk og
+påpekte at vertikal integrasjon mellom detaljist og grossistleddet har bidratt til utnyttelse av
+effektivitetsgevinster.
+Denne rapporten bygger videre på utredningene beskrevet over, men går lengre i å eksplisitt vurdere hvorvidt
+det er grunn til å tro at det er svak konkurranse i grossist- og detaljistleddet i dagligvaremarkedet i dag.
+For å avdekke konkurransesituasjonen starter vi med en beskrivelse av verdikjeden og aktørbildet for å gi en
+oversikt over markedsdynamikken. I tråd med rapportene over finner vi at konsentrasjonen er høy i alle ledd i
+verdikjeden. Paraplyaktørenes størrelse (NorgesGruppen, Coop, REMA 1000 og Bunnpris) og integrasjon i
+leverandørleddet bidrar således til å motvirke den selgermakten leverandørene har gjennom sine sterke
+varemerker, samtidig som forhandlingene indirekte er en vesentlig drivkraft for konkurransen i
+
+MENON ECONOMICS
+
+2
+
+RAPPORT
+
+dagligvaremarkedet. Lange avstander og spredt bosetting gjør det videre mer lønnsomt å samle
+distribusjonsvirksomheten på et fåtall aktører.
+Konsentrasjonen i detaljistleddet i Norge samsvarer i stor grad med situasjonen i våre naboland Sverige,
+Danmark og Finland. Forskjellen ligger hovedsakelig i mangelen på flere små og/eller internasjonale aktører i det
+norske dagligvaremarkedet. Store utenlandske aktører har forsøkt å etablere seg i Norge, men kombinasjonen
+av særnorske forhold og en tøff konkurransesituasjon førte til at de ga opp den norske satsingen. Den svenske
+dagligvaregiganten ICA trakk seg fra det norske markedet i 2014 etter mange år med lav lønnsomhet. Det samme
+gjorde tyske Lidl i 2008, etter kort tid i det norske markedet. NorgesGruppen, REMA 1000 og Coop konkurrerer
+derimot fortsatt i både det danske og svenske dagligvaremarkedet.
+Videre ser vi nærmere på utfordringene ved å avgrense hvilke aktører som inngår i «dagligvaremarkedet» og
+viser at det er langt flere enn fire aktører som konkurrerer om å selge «dagligvarer». Ofte benyttes det en
+totalsortimentstilnærming i avgrensningene av det relevante produktmarkedet for dagligvarer, hvilket indikerer
+at dagligvarebutikken kun konkurrerer med andre dagligvarebutikker. Det finnes derimot en rekke alternative
+utsalgssteder som tilbyr de samme varene som dagligvarebutikkene, herunder kiosk, bensin og servicehandel,
+bredsortimentsbutikker som Europris, grensehandel samt mindre aktører som spesialforretninger for mat og
+drikke. Netthandel gir videre rom for nye dagligvareaktører og representerer samtidig en ny salgskanal, skaper
+nye tjenester og økt press fra utenlandske aktører. Dagligvarebutikkenes salg av varer vi typisk assosierer med
+faghandel, eksempelvis blomster og bøker, bidrar på den annen side til at dagligvarebutikkene i økende grad blir
+et alternativ til blomsterbutikken og bokhandelen. Den økende tendensen til bransjeglidning kan virke
+disiplinerende på konkurransen i flere marked.
+Neste utfordring er avgrensningen av det relevante geografiske markedet, hvor vi viser at konkurransen i
+markedet foregår på flere nivåer i tillegg til paraplyaktørenes nasjonale konkurranse. I likhet med tidligere
+analyser og omtaler av blant annet Konkurransetilsynet, argumenterer vi her for at det både er lokale og
+nasjonale dimensjoner av konkurransen i dagligvaremarkedet. Innkjøpssamarbeid, felles grunnsortiment,
+nasjonale kampanjer og nasjonale maksimalpriser er eksempler på den nasjonale dimensjonen. Videre viser
+brukerundersøkelser at nærhet er det viktigste kriteriet i forbrukernes valg av butikk, hvilket tilsier at
+konkurransen mellom butikker i stor grad er lokal. Kjedene og butikkenes handlingsrom til å tilpasse seg etter
+det lokale markedet er derfor av stor betydning for konkurransen lokalt. Intervjuer med aktørene indikerer at
+flere av kjedene har handlingsrom til å gjøre lokale tilpasninger, og at kjedene konkurrerer, selv om de er medlem
+av samme paraply. Tilsvarende har butikksjefer innenfor en rekke av de ulike kjedekonseptene rom for å tilpasse
+seg den lokale konkurransen.
+Deretter undersøker vi forhold som typisk er forbundet med svak konkurranse. Vi ser på vareutvalget,
+butikktetthet, prisutvikling og marginutvikling.
+Våre analyser av vareutvalget i norske dagligvarebutikker støtter ikke en hypotese om at svak konkurranse i
+dagligvaremarkedet har resultert i et dårlig vareutvalg. SIFOs analyse av vareutvalget i norske
+dagligvarebutikker (SIFO, 2016) viser at vareutvalget i en gjennomsnittlig norsk matbutikk har vokst med 30
+prosent fra 2008 til 2015, og da særlig for ferskvarer som kjøtt, egg, frukt og bær. Sammenlignet med svenske
+dagligvarebutikker finner SIFO at det norske vareutvalget er vesentlig lavere enn svenskenes. Analysen har dog
+noen metodiske svakheter som påvirker resultatet, blant annet ved at en rekke ferskvarer ikke er inkludert i
+analysen. Tidligere studier Menon har gjennomført viser på sin side at det norske vareutvalget ikke er vesentlig
+dårligere enn det svenske når man sammenlikner butikker av lik størrelse. Utvalget av ferskvarer er større i
+Norge, mens utvalget av meieri- og langtidsholdbare varer er bedre i Sverige. Norske butikker er også
+
+MENON ECONOMICS
+
+3
+
+RAPPORT
+
+gjennomgående mindre enn svenske, hvilket i stor grad forklarer hvorfor det gjennomsnittlige vareutvalget er
+lavere i Norge.
+Høy butikktetthet per innbygger støtter heller ikke en hypotese om svak konkurranse i dagligvaremarkedet.
+Det langt høyere butikktetthet i Norge enn i Sverige (og ellers i Europa). Funn fra tidligere analyser Menon har
+gjennomført viser at det er en sterk negativ sammenheng mellom befolkningstetthet og butikktetthet i både
+Norge og Sverige. Bosetningsmønsteret i Norge er dermed trolig den viktigste årsaken til at vi har mange og små
+butikker i Norge. Uten effektiv lokal konkurranse ville dagligvarekjedene kunnet tjene mer på færre og større
+butikker, lengre vekk fra kundene. Den høye butikktettheten i Norge sikrer derimot at folk får lettere tilgang til
+dagligvarer der de bor, og er samtidig en indikasjon på at flere aktører kjemper om det samme kundegrunnlaget.
+Hadde konkurransen i dagligvaremarkedet vært svak, ville vi forventet å se tegn til økte priser og marginer.
+Utviklingene i prisen for matvarer og drikkevarer gir ingen indikasjoner på at konkurransesituasjonen i det
+norske dagligvaremarkedet har forverret seg de siste ti årene. Vi har sett på utviklingen i konsumprisindeksen
+for mat og drikkevarer, sammenlignet med den generelle prisveksten og tilsvarende utviklingen i Sverige,
+Danmark, Finland og EU-samlet. Sammenlignet med den generelle konsumprisveksten, har prisene for matvarer
+og alkoholfrie drikkevarer hatt en lavere vekst de siste ti årene. Sammenlignet med andre land er det kun Finland
+som har hatt en lignende utvikling som Norge.
+I likhet med tidligere funn finner heller ikke vi støtte for svak konkurranse i våre analyser av
+dagligvaremarkedet lønnsomhet. Våre analyser av driftsmarginene viser at dagligvarebutikkene i gjennomsnitt
+har hatt en driftsmargin på 1,9 prosent i perioden 2007-2016, grossistene 2,2-2,9 prosent og produsentene
+(leverandørene) 3,6 prosent. Til sammenligning har øvrig detaljhandel hatt en gjennomsnittlig driftsmargin på
+3,2 prosent i samme periode. Tidligere analyser viser også at driftsmarginene i detaljist/grossistleddet ikke er
+høyere i Norge enn i andre land. Videre er det store variasjoner innad i hver gruppe. Varekostnadene utgjør en
+betydelig andel av omsetningen både i detaljist- og grossistleddet, også sammenlignet med øvrig detaljhandel.
+Dette understreker betydningen av innkjøpsbetingelsene, og stordriftsfordeler som viktige drivere for
+dagligvareaktørenes mulighet til å tilby lave priser. Andre analyser har vist at også egenkapitalrentabiliteten er
+lavere innen dagligvare enn i annen varehandel (Gabrielsen et al., 2013).
+Våre eksempler og analyser gir altså lite støtte til argumenter om at konkurransen i dagligvaremarkedet i
+Norge er lav, selv om markedet domineres av tre store og én mindre paraplyaktør. Vi argumenterer for at et
+slikt syn på konkurransen i dagligvaremarkedet i stor grad bygger på en misoppfatning om at få aktører
+nødvendigvis resulterer i en svak konkurranse. Økonomisk teori tilsier at så lite som to aktører i et marked, likevel
+kan gi et utfall som er sammenfallende med priser under fullkommen konkurranse, under de riktige
+forutsetningene. Videre kan kjøpermakt fra få aktører i ett ledd i en verdikjede kunne motvirke konsekvensene
+av svak konkurranse høyere opp i verdikjeden. Ettersom større volum gir grunnlag for bedre innkjøpsbetingelser
+hos leverandørene, gir dette sterke insentiver til å kapre nye markedsandeler. Muligheten til å utnytte
+stordriftsfordeler i forhandlinger med leverandørene er således en sentral driver for konkurransen i markedet.
+Høy konsentrasjon, etableringsbarrierer som stordriftsfordeler og integrert grossist/detaljistledd øker faren for
+stilltiende samarbeid. Samtidig gjør antall varer og priser i dagligvaremarkedet et slikt samarbeid utfordrende.
+Endringer i de ulike aktørene og kjedenes markedsandeler over tid, lave driftsmarginer, ulik lønnsomhet blant
+aktørene og hyppige priskriger er videre tegn på at et slikt samarbeid ikke eksisterer i markedet i dag.
+Formålet med denne rapporten er å teste validiteten av enkelte «sannheter» om dagligvaremarkedet.
+Tidsrommet som er viet til utarbeidelse av denne rapporten har satt begrensninger for hvor omfattende og
+dyptgående våre analyser er. Resultatene og eksemplene løftet frem i denne rapporten understreker derimot
+
+MENON ECONOMICS
+
+4
+
+RAPPORT
+
+viktigheten og behovet for bredt anlagte og grundige empiriske analyser av konkurransesituasjonen, og
+mekanismene som driver konkurransen i markedet, før man eventuelt iverksetter tiltak med den hensikt å styrke
+konkurransen. For eksempel kan tiltak som begrenser aktørenes mulighet til å utnytte stordriftsfordeler bidra til
+å redusere aktørenes insentiver til å kapre markedsandeler, ettersom stordriftsfordelene er en viktig del av
+aktørenes mulighet til å konkurrere på pris og deres evne til å effektivisere driften. De potensielle effektene dette
+gir, må i så tilfelle vurderes opp mot nytten av at vi potensielt får flere mindre dagligvareaktører, og kostnadene
+gjennomføring og oppfølging av tiltaket vil ha.
+
+MENON ECONOMICS
+
+5
+
+RAPPORT
+
+1. Innledning og bakgrunn
+I 2016 konstaterte regjeringen at «konkurransen i dagligvaremarkedet er for dårlig».1 Man ønsket å identifisere
+grep som kunne øke antallet aktører og satte i gang en ekstern utreding av «Etableringshindre i
+dagligvaresektoren». Rapporten konkluderte med at utnyttelse av stordriftsfordeler i innkjøp er den viktigste
+årsaken til at det er krevende for nye aktører å gå inn i markedet. Som tittelen på oppdraget fra regjeringen viser,
+var mandatet for utredningen å analysere forhold som gjør det vanskelig for nye aktører å tre inn i det nasjonale
+markedet. Mandatet var med andre ord ikke å analysere den samlede konkurransedynamikken, i og rund
+dagligvaresektoren, ei heller å vurdere om det er samfunnsøkonomisk effektivt med flere aktører enn dagens
+situasjon.
+I kjølvannet av denne utredningen har enkelte politikere nok en gang gått ut og konkludert med at konkurransen
+i dagligvaresektoren er for svak, at prisene er for høye og vareutvalget for dårlig. Representanter fra både Høyre
+og Arbeiderpartiet har fremmet forslag om relativt drastiske tiltak i form av prisregulering for å fjerne
+stordriftsfordelene i innkjøp, med mål om å gjøre det lettere for flere aktører å operere i det norske markedet.2
+Hvorvidt slike tiltak vil fremme eller svekke konkurransen i markedet og hvorvidt dette vil føre til et bedre eller
+dårligere resultat for forbrukerne er imidlertid ikke analysert. Før man eventuelt velger å gå videre med denne
+typen drastiske inngrep må disse spørsmålene besvares gjennom empiriske, faglig funderte studier: Er det faktisk
+korrekt at konkurransen er svak? Er prisene høye og vareutvalget dårlig som en følge av dette? Denne rapporten
+er et bidrag i denne retningen.
+Når konkurranse i dagligvaremarkedet skal drøftes er det vesentlig å først klargjøre hva «dagligvaremarkedet»
+er: Ofte fremstilles dagligvaresektoren som ett nasjonalt marked, hvor det relevante produktmarkedet er knyttet
+til et bredt produktutvalg, totalsortiment. 3 I denne rapporten viser vi at det er egenskaper ved
+dagligvaremarkedet som tilsier at denne fremstillingen ikke gir et fullstendig bilde av den faktiske
+konkurransesituasjonen. I kapittel 2 starter vi med en drøfting av hva som menes med dagligvaremarkedet og
+går gjennom viktige kjennetegn og aspekter ved dette. Deretter, i kapittel 3, 4 og 5, ser vi på viktige aspekter som
+ofte kan knyttes til konkurransesituasjonen i et marked i. God konkurranse vil typisk resultere i:
+•
+
+Lavest mulig pris for sluttkunder
+
+•
+
+Best mulig vareutvalg
+
+•
+
+Enkel tilgang
+
+•
+
+God kvalitet på varer og service
+
+I kapittel 3 ser vi på bredden av vareutvalget. I kapittel 4 ser vi på butikktetthet og tilgjengelighet. I kapittel 5 ser
+vi på prisutvikling og marginer. Avslutningsvis analyserer vi konkurransesituasjonen i kapittel 6. Til slutt
+gjennomfører vi en kort oppsummerende drøfting i kapittel 7.
+
+1 https://www.regjeringen.no/no/aktuelt/bedre-konkurransen-i-dagligvarekjeden/id2479824/
+2https://www.aftenposten.no/okonomi/i/ddbB6w/Hoyre-vil-utrede-drastiske-tiltak-i-matmarkedet-for-a-fa-flere-
+
+matbutikker-pa-nett
+3Totalsortimentstilnæringen brukes ettersom kundene gjerne ønsker å kjøpe flere produkter hver gang de handler
+dagligvarer. Konkurransetilsynet har brukt totalsortimentstilnærmingen i sin avgrensning av det relevante
+produktmarkedet for å vurdere de konkurransebegrensende virkningene i flere saker, jf. Vedtak V2015-24 Coop Norge
+Handels - ICA Norge AS og Vedtak V2008-10 Rema 1000 AS - Lidl Norge GmbH
+
+MENON ECONOMICS
+
+6
+
+RAPPORT
+
+2. Dagligvaremarkedet, struktur og påvirkningen på
+konkurranse
+Begrepet «marked» benyttes gjerne i flere ulike sammenhenger. Det kan være beskrivelser av en næring,
+forbruker-grupper, geografiske markeder, varer og lignende. Av dette følger det at definisjonen av et marked kan
+variere avhengig av hvilke dimensjoner en velger å avgrense markedet etter.
+I det såkalte «Matkjedeutvalgets» utredning omtales dagligvaremarkedet som et ledd i verdikjeden for mat, og
+beskriver herunder paraplyaktørenes virksomhet innen grossist og detaljistleddet (NOU, 2011: 4). I Oslo
+Economics’ rapport om etableringshindre i dagligvaresektoren er beskrivelsen av aktørene i dagligvaremarkedet
+også begrenset til de fire paraplyaktørene NorgesGruppen, REMA 1000, Coop og Bunnpris, og deres virksomhet
+(Oslo Economics, 2017). Videre inneholder rapporten en beskrivelse av verdikjeden for dagligvarer,
+konkurransepress fra tilgrensende sektorer, vareutvalg og sammenligning med andre land i samme kapittelet
+med tittel «Markedsstruktur».
+I konkurransesammenheng er det vanlig å avgrense et marked ut fra hvilke aktører som opererer i samme
+produktmarked og samme geografiske marked. For dagligvaremarkedet kan dette være en utfordring. For det
+første omsettes dagligvarer, herunder matvarer og husholdningsartikler, i flere kanaler som kiosk og bensinstasjoner, spesialbutikker for mat og drikke, serveringssteder, faghandel og i økende grad nettbutikker. For det
+andre selger dagligvarebutikkene i økende grad også varer utover dagligvarer, som for eksempel kjøkkenutstyr,
+bøker, blomster og småelektrisk utstyr. I dagligvarekartet i Virkes rapport Dagligvarehandel 2017 ser man på
+dagligvare- og matmarkedet samlet og inkluderer dermed øvrige salgskanaler for mat og drikke. For det tredje
+er det både nasjonale og lokale dimensjoner i konkurransen i dagligvaremarkedet. I dette kapittelet ser vi
+nærmere på disse utfordringene og hva det har å si for tolkningen av konkurransesituasjonen i dagligvaremarkedet. Vi begynner med en kort beskrivelse av verdikjeden i dagligvaremarkedet.
+
+2.1 Verdikjeden og det nasjonale dagligvaremarkedet
+Den norske verdikjeden for dagligvarer preges av store enkeltaktører i alle ledd. Ettersom dagligvarebutikkene
+utgjør den største salgskanalen for dagligvarer er det gjerne disse det blir tatt utgangspunkt i når man omtaler
+dagligvaremarkedet og dets verdikjede. Følger vi denne tilnærmingen kan dagligvaremarkedets verdikjede og
+omsetningen i sluttleddet illustreres som i figuren under.
+
+MENON ECONOMICS
+
+7
+
+RAPPORT
+
+Figur 1: Dagligvaremarkedets verdikjede og aktørers markedsandeler i 2016. Kilde: Menon og Dagligvarerapporten 2018,
+Nielsen
+
+Som figuren over illustrerer kan verdikjeden brytes ned i tre ledd:
+1.
+
+Leverandører/produsenter
+
+2.
+
+Grossister/distributører
+
+3.
+
+Dagligvarebutikker (detaljister).
+
+Basert på dagligvarebutikkenes omsetning ser vi av at de tre store paraplyaktørene NorgesGruppen, Coop Norge
+og REMA 1000 har betydelige markedsandeler i sluttleddet. Den samlede omsetningen i dagligvarebutikkene i
+2017 var 171,3 milliarder kroner. Av dette har NorgesGruppen den største markedsandelen på 43,1 prosent,
+etterfulgt av Coop (29,7 prosent) og REMA 1000 (23,4 prosent). Videre har Bunnpris en markedsandel på 3,8
+prosent, mens øvrige dagligvarebutikker kun utgjør 0,1 prosent av den totale omsetningen i dagligvarebutikkene.
+De tre største paraplyaktørene driver virksomhet i alle ledd i verdikjeden. I beskrivelser av dagligvaremarkedet
+vises det ofte til de tre paraplyaktørenes posisjon i butikkleddet og tilstedeværelse i hele verdikjeden. Flere
+hevder at begge disse forholdene indikerer en skjev maktbalanse i verdikjeden, som kan være truende for
+konkurransen i markedet. 4 For å undersøke dette ser vi grundigere på de ulike leddene i verdikjeden.
+
+2.1.1 Leverandørleddet
+Leverandørleddet består av aktørene som produserer og videreselger produktene som selges i dagligvarebutikkene. Tidligere var det leverandørene selv som distribuerte varene ut til dagligvarebutikkene. Per i dag er
+det kun Tine og Ringnes som selv står for distribusjonen til butikkene. Det norske importvernet på landbruksvarer
+skjermer enkelte produktgrupper for konkurranse fra utlandet og har bidratt til en høy konsentrasjon i
+leverandørleddet for flere landbruksvarer i Norge. I Matkjedeutvalgets undersøkelser av 18 utvalgte
+produktgrupper i 2011 beregnet de markedsandelen til de tre største leverandørene til over 60 prosent i samtlige
+18 produktgrupper, og til mer enn 80 prosent i 10 av 18 (NOU, 2011:4). Videre finner de at det i majoriteten av
+de 18 produktgruppene er slik at den største leverandøren har minst 50 prosent markedsandel. Høy
+konsentrasjon er heller ikke begrenset til produktgrupper som er omfattet av importvernet, selv om de ser en
+tendens til at konsentrasjonen er høyere for disse. Videre vises det til at konsentrasjonen i leverandørleddet i
+
+4 Blant annet trekkes dette frem i Matkjedeutvalgets rapport (NOU 2011: 4).
+
+MENON ECONOMICS
+
+8
+
+RAPPORT
+
+Norge er høy også sammenlignet med andre land. Menons studie av vareutvalget i sammenlignbare butikker i
+Norge og Sverige indikerer det samme. Blant de 10 butikk-parene (Meny og Hemköp, Kiwi og Willy Hemma) som
+ble undersøkt, hadde de norske butikkene i gjennomsnitt 57 prosent færre leverandører enn de svenske (Menon,
+2016). Særlig gjaldt dette kategoriene sukkervarer, meieriprodukter, brød og ferskt kjøtt. De norske butikkene
+hadde derimot flere leverandører av øl, brus og sjømat.
+I sin årsberetning for 2016 viser Nortura til en markedsandel på om lag 70 prosent i varegruppen pølser og 57
+prosent i varegruppen ferskt kjøttpålegg i 2016.5 Av melk som inngår i produksjon av meieriprodukter, utgjorde
+Tines andel 79,2 prosent av totalen i 2017 (Landbruksdirektoratet, 2018). Andre eksempler på store leverandører
+er Ringnes og Coca Cola Company innen drikkevarer, BAMA innen frukt og grønt, samt Orkla, Procter & Gamble
+(med blant annet merkene Gillette og Oral-B) og Mondelez (representert med Kraft Foods og Freia).
+Det er også en rekke mellomstore og små aktører i leverandørleddet. NorgesGruppen har tidligere vist at de har
+i overkant av 1100 leverandører, hvorav rundt 470 er store norske eller internasjonale leverandører og 650 er
+lokale og regionale leverandører. Videre oppgir de at de ti største står for ca. halvparten av selskapets innkjøp.6
+Kartleggingen av matindustrien i Norge gir et lignende bilde. Nibio (2017) viser at norsk matindustri i 2016 bestod
+av 2175 bedrifter, hvorav 95 prosent var små eller mellomstore.7 Disse står for 48 prosent av omsetning og
+verdiskapingen i matindustrien, det vil si at over halvparten av omsetningen knyttes til fem prosent av bedriftene.
+Disse beregningene viser at et fåtall store aktører står for en stor del av omsetningen i industrien.
+Samtidig har alle de store paraplyaktørene gitt uttrykk for at de ønsker å øke innkjøp fra lokale produsenter i tråd
+med regjeringens mål. Tall fra norskmat.no viser også at omsetningen av lokalmat og drikke i dagligvarebutikkene
+er mer enn doblet siden 2010, fra 2,3 milliarder til 4,9 milliarder i 2017. Foreløpig er dette en liten del av
+omsetningen i dagligvarebutikkene, men veksten viser at det i økende grad gis plass til de små leverandørene
+også.
+De tradisjonelle produsentene/leverandørene har også møtt økende konkurranse fra paraplyaktørenes
+eierinteresser i produsentleddet og satsing på egne merkevarer (EMV) de siste årene. SIFOs analyse fra 2016
+viser at andelen EMV i norsk dagligvare, målt i verdi, har økt fra 9,2 til 16,8 prosent fra 2010 til 2015 (SIFO, 2016).
+Veksten har vært spesielt stor for ferske varer. Tall fra Nielsen viser likevel at EMV-andelen i Norge er relativt lav
+sammenlignet med andre europeiske land. Sveits har den største andelen med 45 prosent, mens Sverige og
+Danmark i snitt har en EMV-andel på 25 prosent.
+Store selgere krever store kjøpere
+Paraplyaktørenes konsentrasjon og eierskap i verdikjeden trekkes ofte frem som et argument for at det er
+begrenset konkurranse i dagligvaremarkedet. I den sammenhengen vises det gjerne til den historiske utviklingen
+i dagligvaremarkedet med overgangen fra mange selvstendige kjøpmenn og selvstendige grossister til et fåtall
+paraplyaktører med integrert grossistvirksomhet og eierinteresser i produsent/leverandørleddet. Det er
+
+5 Summen av Priors og Gildes markedsandel i varegruppene. Norturas Årsberetning 2017, s.18
+6http://www.norgesgruppen.no/globalassets/konkurranse_2017.pdf og
+
+http://www.norgesgruppen.no/globalassets/dette-er-norgesgruppen/forhandlinger_2016-10-24.pdf
+7 Små og mellomstore bedrifter er her definert som bedrifter med mindre enn 100 ansatte. Det fremgår ikke av NIBIOs
+rapport hvorvidt det er tatt hensyn til om de små og mellomstore bedriftene eies av store bedrifter i disse beregningene.
+Det er heller ikke NIBIOs hensikt å måle konsentrasjonen i matindustri markedet, deres beregninger bør derfor ikke
+tolkes som dette.
+
+MENON ECONOMICS
+
+9
+
+RAPPORT
+
+imidlertid gode argumenter for at endringen er et resultat av effektiviseringsprosesser og utnyttelse av
+stordriftsfordeler, som igjen er en forutsetning for lave priser ut mot forbrukerne.
+Høy konsentrasjon i deler av leverandørleddet i Norge gir leverandørene betydelig selgermakt. Tilstedeværelsen
+av store aktører på kjøpersiden kan derfor skape en bedre maktbalanse i markedet. Dette er blant annet
+fremhevet i Konkurransetilsynets høringssvar til Matkjedeutvalget:
+«Utviklingen mot færre og sterkere paraplyaktører har gitt kjedene kjøpermakt. Kjedene har også tatt i
+bruk virkemidler som har styrket deres kjøpermakt ytterligere, herunder økt bruk av kjedenes egne merkevarer.
+Kjøpermakten har kjedene benyttet som en motvekt til store leverandørers selgermakt, og har på den måten
+skaffet seg bedre innkjøpsbetingelser.» - Konkurransetilsynet (2011), s. ii
+Gode innkjøpsbetingelser er nødvendig for å tilby kundene et bredt vareutvalg til lave priser. Som vi viser i
+kapittel 5 er dagligvarebutikkenes varekostnader den desidert største kostnadskomponenten, slik at gode
+innkjøpsbetingelser er en forutsetning for at dagligvarebutikkene skal kunne tilby lave priser og samtidig tjene
+penger. I forhandlinger med leverandørene er den enkelte kjøperens størrelse en sentral del av deres
+forhandlingsmakt; større volum gir muligheter for bedre innkjøpsbetingelser. Dette gir igjen paraplyaktørene et
+insentiv til å konkurrere og kapre kunder (volum) fra hverandre.
+Paraplyaktørenes eierskapsinteresser i produsentleddet og økt bruk av egne merkevarer er også med på å
+motvirke leverandørenes selgermakt, da det gir paraplyaktørene en mulighet til å tilby sine kunder et alternativ
+til leverandørens merkevarer. Paraplyaktørenes størrelse, eierinteresser i produsentleddet og bruk av EMV
+bidrar til å motvirke den selgermakten leverandørene har gjennom sine sterke varemerker. Samtidig er
+forhandlingene indirekte en vesentlig driver til konkurransen i dagligvaremarkedet.
+Et risikomoment med store paraplyaktører er faren for at de kan oppnå selgermakt overfor forbrukere. Dersom
+de gjør dette vil kjøpermakten deres overfor leverandørene kun flytte overskuddet fra leverandørene over til
+paraplyaktørene, uten at forbrukere får ta del i besparelsene. Denne faren øker dersom konkurransen er svak
+mellom paraplyaktørene og deres butikkjeder. I så tilfelle ville trolig markedsandelene til paraplyaktørene og
+deres butikkjeder forholdt seg relativt stabilt, og driftsmarginene vært relativt høye.
+Konkurransetilsynet (2011) viser imidlertid til at endringer i paraplyaktørenes markedsandeler og gjennomsnittlige marginer indikerer at bedrede innkjøpsbetingelser for paraplyaktørene sannsynligvis kommer
+forbrukeren til gode. Herunder vises det til at tre aktører med relativt lik markedsandel i utgangspunktet, ICA,
+Coop og NorgesGruppen, har utviklet seg ulikt over en 15 års periode. REMA 1000s vekst fra å være en relativt
+liten aktør til å være på høyde med Coop trekkes også frem. ICA trakk seg ut av det norske markedet i 2015
+nettopp på grunn av lav lønnsomhet, og solgte de fleste av sine butikker til Coop. Som vi vil se i kapittel 5, støttes
+våre analyser av Konkurransetilsynets vurdering av at prismarginene i dagligvaremarkedet er lave. En del av
+dynamikken beskrevet over vil også utdypes og drøftes nærmere i kapittel 6.
+
+2.1.2 Grossistleddet
+Grossistleddet er her definert som aktørene som kjøper inn varer fra leverandørene, og har ansvaret for lager og
+logistikkvirksomheten til dagligvarekjedene. Leverandørene leverer sine varer til grossistene. I dag er
+grossistleddet i Norge en integrert del av paraplyorganisasjonene. NorgesGruppen har ASKO, REMA 1000 har
+REMA Distribusjon og Coop Norge sørger for innkjøp og distribusjon til dagligvarebutikkene i Coop. Etter
+strukturendringene i dagligvaremarkedet på 90-tallet er det ikke lenger noen uavhengige fullsortimentsgrossister
+i Norge (Konkurransetilsynet, 2011). Leverandører og andre dagligvarekjeder/butikker må derfor i stor grad
+
+MENON ECONOMICS
+
+10
+
+RAPPORT
+
+bruke en av grossistene til de tre paraplyaktørene for å nå ut til dagligvarebutikkenes kunder. Bunnpris har for
+eksempel de siste ti årene hatt innkjøpsavtaler med både NorgesGruppen og REMA 1000.
+Paraplyorganisasjonenes grossistvirksomhet leverer også til andre aktører. Unntaket er Coop Norge som kun
+leverer varer til egne butikker. ASKO og REMA Distribusjon er i dag de eneste landsdekkende grossistene til kiosk
+og servicehandel. ASKO er videre den største grossisten til storhusholdning etterfulgt av Servicegrossistene. I
+sistnevnte er REMA 1000 involvert gjennom et innkjøpssamarbeid.
+Grossist- og distribusjonsvirksomheten er også en integrert del av dagligvarekjedene i Danmark og Sverige, og i
+de tre største dagligvarekjedene i Finland. Den vertikale integrasjonen er således ikke noe som er unikt for Norge.
+Færre aktører bidrar til effektivitetsgevinster
+Paraplyorganisasjonenes eierskap i grossistleddet problematiseres i Matkjedeutvalgets utredning om maktforholdene i dagligvaremarkedet. Det kan også argumenteres for at paraplyorganisasjonenes integrering av
+grossistleddet er et resultat av effektivitetsforbedring. Effektivitetsgevinstene påpekes blant annet av
+Konkurransetilsynet i sin rapport om konkurransen i Norge:
+Den tette vertikale integrasjonen mellom grossist og detaljist har bidratt til å realisere
+effektivitetsgevinster i leddene for innkjøp og distribusjon.
+– Konkurransetilsynet (2009), Konkurranse i Norge, s. 117
+Paraplyorganisasjonenes eierskap i grossistleddet gir direkte kontakt mellom leverandørene og dagligvarebutikkene, og bidrar til å styrke forhandlingsmakten omtalt over. Videre er det kostnadseffektivt å samle flere
+varer i en og samme kanal, slik at det er mindre behov for å frakte varer i halvtomme lastebiler. Topografien og
+befolkningsstrukturen i Norge forsterker de potensielle effektivitetsgevinstene ved å samle varestrømmen, da
+varene skal fraktes over store strekninger og til mange steder hvor kundegrunnlaget og således varebehovet er
+lavere. Samtidig er det effektiviserende for dagligvarebutikkene å ha et mindretall av distributører, herunder
+deres bestillingssystem og leveransetidspunkter, å forholde seg til. Oslo Economics (2017) peker på at
+dagligvareaktørene selv opplever en effektivisering av varestrømmen som følge av stordriftsfordeler knyttet til
+distribusjon og lagerløsninger, sammen med muligheten til automatisering og forbedrede IT- og driftssystemer.
+Konkurransetilsynet viser videre til at den tette integrasjonen også kan være et etableringshinder i detaljmarkedet ettersom det gjør nye og mindre aktører avhengig av et innkjøpssamarbeid med en av de store.
+Alternativet er å etablere en uavhengig grossistvirksomhet og distribusjonsvirksomhet, hvilket er utfordrende i
+mangel av andre uavhengige detaljister (kundegrunnlag). Bunnpris er et eksempel på en uavhengig
+dagligvareaktør som ikke har egen grossistvirksomhet og derfor er avhengig av et innkjøpssamarbeid med en av
+de store. De siste ti årene har Bunnpris vekslet mellom et innkjøpssamarbeid med NorgesGruppen og REMA
+1000.
+Bunnpris’ forhandlingsrunder med REMA 1000 og NorgesGruppen om innkjøpssamarbeidet indikerer at de store
+paraplyaktørene søker etter samarbeid med mindre aktører. Selv mindre aktører som Bunnpris gir de store
+paraplyaktørene muligheten til å forhandle med leverandørene om et større volum, og øker dermed deres
+kjøpermakt. Bunnpris utnytter dermed volumkonkurransen mellom de større paraplyaktørene. Konkurranselovgivningen gir ingen mulighet til innkjøpssamarbeid mellom større aktører. For eksempel ble NorgesGruppen
+og ICAs ønske om å inngå en samarbeidsavtale om felles innkjøp, grossistvirksomhet og distribusjon stoppet av
+Konkurransetilsynet i 2013. Selv om Bunnpris’ tilfelle og NorgesGruppen og ICAs forsøk på samarbeid viser at de
+store paraplyaktørene er villig til å gi tilgang til leveranser fra sine konkurrenter vil dette avhengighetsforholdet
+
+MENON ECONOMICS
+
+11
+
+RAPPORT
+
+likevel innebære en etableringsbarriere for nye aktører. Dette følger av at de etablerte grossistene har mulighet
+til å hente inn tapt lønnsomhet i detaljistleddet, slik at lønnsomheten til nye aktører begrenses. Alternativet hvor
+den nye aktøren blir nødt til å etablere seg i flere ledd samtidig, øker dermed kostnaden ved å etablere seg i
+markedet. Integrasjonen i grossist/detaljistleddet er således et tveegget sverd ettersom det både representerer
+en effektiviseringsgevinst og en potensiell etableringsbarriere for nye aktører.
+
+2.1.3 Dagligvarebutikkene
+Dagligvarebutikkene er det siste leddet i verdikjeden for mat og drikke, og utgjør dagligvaremarkedets
+kontaktpunkt ut til forbrukeren. Ifølge tall fra Nielsen fantes det 3843 dagligvarebutikker i Norge i 2017, de fleste
+av disse er i dag med i en av 16 butikkjeder som en filial eid av butikkjeden, eller gjennom franchisekontrakter
+med en av disse. Franchisekontrakter innebærer at kjøpmannen selv eier butikken, men betaler for å bruke en
+konseptprofil (f.eks. Meny) og samarbeider om innkjøp, markedsføring og andre støttetjenester. Andelen
+kjøpmannseide butikker varierer mellom hver paraplyaktør og butikkjede. REMA 1000 drives hovedsakelig
+gjennom franchise-avtaler. I Coop Norge styres virksomheten først og fremst gjennom 91 ulike samvirkelag. I
+tillegg har Coop rundt 160 kjøpmannseide butikker etter oppkjøpet av ICA. I NorgesGruppen er rundt 60 prosent
+av butikkene kjøpmannseide, hvorav andelen er størst for butikkjedene Spar, Joker og Nærbutikken.
+I figuren under har vi fremstilt markedsandelene til de ulike butikkjedene i 2016.
+
+Figur 2: Dagligvarebutikkenes markedsandeler fordelt på ulike butikkjeder. Kilde: Dagligvarerapporten 2018, Nielsen
+
+Butikkjedene blir ofte inndelt i ulike segment; lavpris, supermarked, nærbutikk og hypermarked. REMA 1000 har
+kun én butikkjede som opererer innen lavprissegmentet. Bunnpris karakteriseres også vanligvis som en kjede i
+lavprissegmentet, selv om Bunnpris også har kjedekonseptet Bunnpris & Gourmet med et større vareutvalg og
+som strengt tatt tilhører supermarkedssegmentet. NorgesGruppen har kjedekonsept i alle segment, med unntak
+av Hypermarked. Coops konseptkjeder finner vi i samtlige segment, hvorav Coop OBS! er den eneste kjeden
+innen Hypermarked i Norge. Disse kjedene er igjen fordelt på nesten 4000 ulike butikker som skiller seg fra
+hverandre blant annet i form av størrelse, vareutvalg, eierstruktur og tilleggstjenester. Kjedene og deres
+tilknyttede butikker er samtidig spredt rundt i hele Norges land og i stor grad styrt av hver sin butikksjef eller
+kjøpmann.
+Strukturen i sluttleddet i dagligvaremarkedet og konkurransen her krever en grundigere gjennomgang enn en
+beskrivelse av tre store og en liten paraplyaktør og konkurransen dem imellom. I resten av dette kapittelet vil vi
+
+MENON ECONOMICS
+
+12
+
+RAPPORT
+
+derfor se nærmere på hvor særegent eierskapsstrukturen i det norske dagligvaremarkedet er sammenlignet med
+våre naboland, hvilke alternativer forbrukere har til å kjøpe «dagligvarer» i andre salgskanaler og på hvilket
+geografisk nivå aktørene i dagligvaremarkedet konkurrerer. I kapittel 3-5 ser vi nærmere på i hvilken grad
+eierstrukturen i det norske dagligvaremarkedet har ført til et dårlig vareutvalg og høye priser, før vi i kapittel 6
+kommer tilbake til strukturen i sluttleddet i dagligvaremarkedet og hva dette har å si for konkurransen.
+
+2.2 Sammenligning av markedet i de nordiske landene
+Konsentrasjonen innen dagligvarehandel fremstilles ofte som noe særegent for det norske dagligvaremarkedet.
+Sammenlignet med dagligvaremarkedet i Sverige, Danmark og Finland fremstår derimot ikke det norske
+markedet som spesielt konsentrert. For å illustrere dette presenterer vi i figuren under markedsandelen til den
+største dagligvareaktøren i hvert land, samt Herfindahl-Hirschman-indeksen (HHI).8 HHI er et vanlig mål på
+konsentrasjonene i et marked, og fanger også opp størrelsen til de øvrige aktørene i markedet.
+
+Figur 3: De største aktørenes markedsandel i de nordiske landene i 2016, HHI i Skandinavia og Finland. Kilde: Oslo
+Economics (2017), Tabell 4-1 s.38
+
+Figurene over viser at dagligvaremarkedet i våre naboland har relativt lik konsentrasjon som i Norge.
+Sammenlignet med disse landene fremstår dermed NorgesGruppens markedsandel i 2016 på 42,3 prosent som
+relativt normalt. Det er kun i Danmark hvor den største dagligvareaktøren (Coop Danmark) har en lavere
+markedsandel i 2016. I Sverige hadde ICA en markedsandel på over 50 prosent i 2016, mens finnenes S-ryhmä
+har en markedsandel på 47,2 prosent i 2016. Også basert på Herfindahl-Hirschman-indeksen er det kun i
+Danmark at konsentrasjonen i dagligvaremarkedet er lavere enn i Norge.
+Av figuren under ser vi også at antall aktører er begrenset i Danmark, Sverige og Finland, i likhet med Norge.
+
+8 Herfindahl-Hirschman-indeksen (HHI) er et vanlig mål på konsentrasjonen i et marked. Den måles ved å ta summen
+
+av kvadratet til aktørenes markedsandel, dvs. 𝐻𝐻𝐼 = ∑𝑛𝑖=1 𝑠𝑖2 der 𝑠𝑖2 er markedsandelen til aktør i. Dersom det kun er
+én aktør i markedet er HHI= 10 000, mens et marked med ti aktører som hver har en markedsandel på 10 prosent vil ha
+en HHI på 1000. En HHI på over 2500 viser til et marked med høy konsentrasjon, HHI mellom 1500 og 2500 anses som
+moderat markedskonsentrasjon, og en HHI under 1500 tolkes som et marked med lav konsentrasjon.
+
+MENON ECONOMICS
+
+13
+
+RAPPORT
+
+Figur 4: Omsetning i dagligvarebutikkene fordelt på aktører i Skandinavia og Finland 2016. Kilde: Tall hentet fra Oslo
+Economics (2017), Tabell 4-1 s.38
+
+Finland skiller seg ut ved at dagligvaremarkedet domineres av to store aktører og samtidig rommer en rekke små.
+Norge skiller seg også ut til en viss grad. De tre største aktørene i Norge er mer jevnstore enn de tre største i de
+tre andre landene. I motsetning til Danmark og Finland spesielt har det norske dagligvaremarkedet betraktelig
+færre aktører. Det er heller ingen internasjonale aktører som de tyske butikkjedene Lidl og Aldi i Norge. Både
+tyske Lidl og svenske ICA har derimot forsøkt å etablere seg i Norge, uten å lykkes. Utenlandske aktørers
+begrensede muligheter til å dra nytte av innkjøpsavtaler de har utenfor Norge som følge av Norges ønske om å
+beskytte norsk landbruk trekkes ofte frem som en av grunnene til at disse aktørene ikke har fått det til i Norge, i
+motsetning til i våre naboland.9 Det er ikke gitt at trusselen fra mange små aktører med et sterkt ønske om å
+vokse skaper et større konkurransepress enn konkurransen fra jevnstore aktører. Det er derfor vanskelig å
+avgjøre hvorvidt det norske markedets mangel på mindre aktører tilsier at konkurransen er lavere her enn i våre
+tre naboland.
+
+2.3 Hva selges i dagligvarebutikkene?
+En viktig forutsetning for å avgrense et marked i konkurransesammenheng er definisjonen av det relevante
+produktmarkedet. I omtaler om konkurransesituasjonen i dagligvaremarkedet benyttes gjerne en totalsortimentstilnærming. Det vil si at dagligvaremarkedet avgrenses til de aktørene som tilbyr et bredt vareutvalg
+av matvarer og husholdningsvarer.
+Dagligvarebutikkene representerer imidlertid kun én salgskanal for de varene butikkene selger. Samtidig utvider
+dagligvarebutikkene stadig sitt sortiment i forsøk på å vinne markedsandeler (NOU, 2017: 17). I dette kapittelet
+gjennomgår vi eksempler på andre salgskanaler, deres størrelse og vekst der disse tallene er tilgjengelig. Vi har
+derimot ikke empirisk grunnlag for å si noe om hvor sterkt konkurransepress disse alternativene skaper.
+I figuren under har vi fordelt dagligvarebutikkenes omsetning fordelt på varegrupper.
+
+9 Se blant annet http://www.konkurransetilsynet.no/nb-NO/aktuelt/nyheter/2017/kronikk-unik-kjedemakt-i-norge/
+
+MENON ECONOMICS
+
+14
+
+RAPPORT
+
+Figur 5: Salg i dagligvarebutikkene fordelt på varegrupper 2017. Kilde: Nielsen ScanTrack TSR, Helår 2017
+
+Basert på tall fra Nielsen utgjør mat og drikkevarer rundt 84 prosent av dagligvarebutikkenes omsetning. Fordelt
+på ulike produktgrupper er ferskmat den største, etterfulgt av drikkevarer, langtidsholdbar mat og meieriprodukter. Ikke-spiselige dagligvarer (non-food) utgjør til sammen kun 16 prosent. Herunder er det særlig aviser
+og tobakksvarer som er største varegruppe, etterfulgt av vaske- og husholdningsartikler og produkter til personlig
+pleie.
+I rapporten Dagligvarehandelen 2017, som utgis av hovedorganisasjonen Virke, benyttes betegnelsen
+«dagligvare- og matmarkedet». Basert på deres fremstilling kan omsetning i mat- og dagligvaremarkedet
+illustreres som i figuren under.
+
+Figur 6: Omsetning i mat- og dagligvaremarkedet i 2016 fordelt på ulike aktører og bransjer, samt utvikling fra 2015-2016.
+Kilde: Dagligvarehandelen 2017 utgitt av Virke dagligvare, tallgrunnlag basert på SSB (2017) og Nielsen (2017)
+
+Øvrige
+35,4 %
+
+Reitan
+18,5 %
+
+Milliarder NOK
+
+Coop
+16,5 %
+
+180
+160
+140
+120
+100
+80
+60
+40
+20
+-
+
+40,2 %
+
+3,9 %
+
+6,0 %
+
+5,6 %
+
+-1,9 %
+
+6,3 %
+
+5,1 %
+
+-2,0 %
+
+45%
+40%
+35%
+30%
+25%
+20%
+15%
+10%
+5%
+0%
+-5%
+
+Omsetningsvekst 2015-2016
+
+Omsetning og vekst fra 2015 til 2016
+
+Bunnpris
+2,4 %
+
+NorgesGruppen
+27,2 %
+
+280 mrd. NOK
+Omsetning 2015
+
+Omsetning 2016
+
+Vekst 2015-2016
+
+Salg av dagligvarer og matvarer gjennom de tre minste salgskanalene er i rapporten Dagligvarehandelen 2017
+oppgitt til mellom 2 og 2,5 milliarder kroner, for spesialforretninger for mat og drikke er det oppgitt en samlet
+omsetning på 3,8 milliarder i 2016, mens omsetningen via grensehandel og KBS-aktørene er oppgitt til
+henholdsvis 9 milliarder og 12,8 milliarder. Salg av mat og drikke via serveringssteder er oppgitt til 76,5 milliarder
+kroner. Sammenlignet med dagligvaremarkedets omsetning på 170 milliarder fremstår de øvrige salgskanalene
+som relativt små. Veksten er derimot høyere i de øvrige salgskanalene, sett bort fra veksten i grensehandel og
+
+MENON ECONOMICS
+
+15
+
+RAPPORT
+
+KBS-markedet. Dette illustrerer at forbrukere også bruker de alternative salgskanalene i økende grad, selv om
+disse fortsatt er små i konkurransen med de store dagligvareaktørene.
+
+2.3.1 Salgskanaler for mat og drikkevarer
+Samler vi de ulike salgskanalene for mat og drikke fra eksemplene over kan vi fremstille konkurransen i markedet
+for mat og drikke slik:
+
+Figur 7: Dagligvarebutikkenes konkurrenter innen salg av mat og drikke
+
+Kiosk,
+bensin og
+servicehandel
+Spesialiserte
+matvarebutikker
+
+Faghandel
+
+Vinmonopolet
+
+Netthandel
+
+Dagligvarebutikker
+
+Butikker
+med bredt
+vareutvalg
+
+Grensehandel
+
+Taxfree
+
+Serveringssteder
+
+Som figuren illustrerer konkurrerer dagligvarebutikkene med en rekke andre utsalgssteder om salg av mat og
+drikke til konsumenter. Salget av mat- og drikkevarer i 2017 fra paraplyaktørene alene utgjorde om lag
+136 milliarder kroner. Hvordan disse 136 milliardene fordeler seg på ulike varegrupper er gjengitt i figuren under.
+
+MENON ECONOMICS
+
+16
+
+RAPPORT
+
+Figur 8: Salg av mat- og drikkevarer i 2017 fordelt på varegrupper. Kilde: Nielsen ScanTrack TSR, Helår 2017.
+
+I Forbrukerrådets undersøkelse fra 2013 svarte rundt 70 prosent av respondentene at de handler mat og drikke
+i andre steder enn i dagligvarebutikkene. På spørsmål om hvor oppga 33 prosent at de handlet i Sverige, 24
+prosent at de handlet på bakeri og 16 prosent at de handlet i Fiskerihandel eller i delikatessebutikk/
+spesialforretninger.
+Tall fra SSB viser at nordmenn drar på drøyt åtte millioner grensehandelsturer i året. I snitt brukes det rundt 1300
+kroner på mat hver tur, hvilket tilsvarer mer enn 10 milliarder kroner i året (Menon, 2017). Tilsvarende viser en
+spørreundersøkelse nylig gjennomført av NHH at 58,9 prosent har handlet i Sverige siste året. 10 Østfoldingene
+handlet mest (92 prosent), men blant de spurte bosatt i fylkene Hedmark, Oslo, Akershus og Vestfold var andelen
+over 70 prosent. Ifølge undersøkelsen utgjorde kjøttbaserte produkter rundt 30 prosent av handlekurven,
+etterfulgt av mineralvann (10,6 prosent), osteprodukter (9,8 prosent) og godteri (6,8 prosent). Butikkene på
+andre siden av svenskegrensen fremstår således som en konkurrent til de norske dagligvareaktørene, spesielt i
+Østfold.
+Salget av ferskmat og drikke utgjør hoveddelen av dagligvarebutikkenes salgsinntekter. Spesialbutikker innen
+mat og drikkevarer som bakeri, fiskehandel, lokale slaktere og grønnsakhandlere har lenge vært et alternativ til
+dagligvarebutikkene i Norge, spesielt i byene. Ifølge analyser presentert i Detaljhandelsboken 2018 har det vært
+en høyere prosentvis vekst i omsetningen i spesialbutikkene enn dagligvarebutikkene i perioden 2010-2015 (22,5
+prosent mot 19, 8prosent). 11 En samlet omsetning på 3,8 milliarder kroner i 2016 gjør denne salgskanalen relativt
+liten sammenlignet med dagligvareaktørenes nærmere 75 milliarder kroner i omsetning av fersk mat og drikkevarer i 2017. Økt fokus på kortreiste, bærekraftige og sunne matvarer samt nye internasjonale matvaner kan
+likevel være en del av forklaringen på hvorfor omsetningen i salgskanalen har økt.
+
+10 FOOD 2018 Surveygjennomgang, presentasjon av Frode Steed, professor NHH, på NNHs årlige FOOD konferanse.
+
+Tilgjengelig via https://www.nhh.no/kalender/konferanser/food/
+11 Basert på tall fra SSBs Strukturstatistikk for varehandel
+
+MENON ECONOMICS
+
+17
+
+RAPPORT
+
+Økende interesse for lokalmat og drikke skaper konkurransepress fra mindre aktører
+Omsetningen av lokalmat og drikke i dagligvarehandelen har mer enn doblet seg siden 2010 og ligger i dag
+på 4,9 milliarder kroner. Til sammenligning er salget av lokalmat gjennom andre salgskanaler som
+gårdsutsalg, markedsplasser, torg og serveringsnæringen anslått til 1 milliard kroner (Innovasjon Norge).
+En av disse andre salgskanalene er Bondens marked. I dag finnes Bondens marked rundt 20 steder i Norge.
+Omsetningen av varer gjennom Bondens marked har vokst hvert år siden oppstarten i 2003. I 2016 ble det
+omsatt varer for i underkant av 70 millioner kroner.
+Et annet eksempel er mathallene i de større byene. Mathallen i Oslo fylte fem år i 2017, siden åpningen har
+6 millioner mennesker besøkt lokalet ved Akerselva i Oslo. På sine hjemmesider viser Aspelin Ramm til en
+omsetning på 172 millioner kroner i 2016.
+Kilde: norskmat.no (omsetningstall fra Nielsen Scan Track), HANEN Årsmelding 2016, http://www.aspelinramm.no/6-millionerbesokende-pa-5-ar/
+
+Kiosk, bensinstasjoner og servicehandel (KBS) hadde en samlet omsetning på 12,6 milliarder kroner i 2016, og
+har de siste årene sett en nedgang i både butikkomsetning og antall utsalgssteder. Et økende utvalg kioskvarer
+og lengre åpningstider og søndagsåpne butikker gjør at dagligvarebutikkene reduserer KBS-aktørenes fortrinn i
+salg av dagligvarer. Økt konkurransepress fra dagligvarebutikkene trekkes derfor frem som en forklarende årsak
+til omstillingene i KBS-sektoren (Oslo Economics, 2017). Stadig flere ferdigretter og mat-i-farta-produkter i
+dagligvarebutikkene er med på å forsterke denne bransjeglidningen. I den forbindelse er det verdt å nevne at
+paraplyaktørene REMA 1000 og NorgesGruppen er involvert i store deler av KBS-markedet12, enten gjennom
+eierskap og/eller som distributør av varer til utsalgsstedene.
+Den samlede omsetningen fra serveringssteder var på 76,5 milliarder kroner i 2016, hvilket er på størrelse med
+dagligvareaktørenes salg av fersk mat og drikkevarer. Etableringen av nye aktører som Foodora gjør det enklere
+å erstatte middagsinnkjøp med bestilling av mat fra serveringssteder. Videre bidrar tidsklemma til en økende
+etterspørsel etter måltider vi ikke trenger å bruke tid for å tilberede. Igjen er det økende tilbudet av ferdigretter
+og mat-i-farta i dagligvarebutikkene et eksempel på økende bransjeglidning mellom særlig take-away segmentet
+i serveringsbransjen, kioskhandel og dagligvare.
+
+12 NorgesGruppen eier MIX og Deli De Luca, og er grossistleverandør for bensinstasjonene Best og Esso. REMA 1000
+
+eier Narvesen og 7-Eleven, og er grossistleverandør til bensinstasjonene Circle K, St1, Uno-X gruppen og Shell 7-Eleven.
+
+MENON ECONOMICS
+
+18
+
+RAPPORT
+
+Endrede forbruksvaner og introduksjon av nye konsepter skaper bransjeglidning
+Ferdigmat har i flere år vært en av kategoriene i dagligvare som vokser mest. Med en omsetning på
+1,5 milliarder i 2016 har Fjordland en markedsandel på 50 prosent. I 2018 varsler Fjordland tidenes satsing
+med blant annet lansering av LITT MAT (spiseklare mellommåltider) og MERSMAK (ferske ferdigretter).
+Den nye aktøren Foodora gjør det enklere for forbrukerne å kjøpe middagen fra restaurantene fremfor
+dagligvarebutikkene. Foodora etablerte seg i Norge i Oslo i 2015, og utvidet til Bergen og Stavanger i 2016 og
+2017. Gjennom en enkel app sørger Foodora for bestilling og hjemlevering av mat fra over 200 restauranter.
+Høsten 2017 lanserte Foodora en ny pick-up-tjeneste som gjør at kundene kan kjøpe kaffe, hvetebakst,
+frokost- og lunsjretter i kaféen når ordren er klar, eller til ønsket hentetidspunkt. Ved lansering var 23 kaféer
+med i satsingen. I 2016 hadde selskapet en omsetning på 32 millioner kroner.
+Kilde: Fjordlands hjemmesider, Foodoras hjemmesider
+
+Netthandel med mat representerer en relativt ny og foreløpig liten salgskanal for dagligvarer. De små
+dagligvareaktørene på nett vokser derimot kraftig. I 2016 handlet syv prosent dagligvarer på internett, hvilket
+nærmest er en dobling fra 2015 (4 prosent). I Oslo er andelen så høy som 15 prosent (Forbrukerrådet, 2016;
+Virke, 2017b). Netthandel åpner også opp for økt konkurranse fra utenlandske aktører. For eksempel kjøper
+norske forbrukere allerede store mengder sjokolade og sukkervarer over nett av utenlandske aktører som
+maxgodis.se og Yoolando.com.1314 Avgiftsøkningen på sjokolade og sukkervarer iverksatt i år sammen med
+reglene om momsfri import under 350 kroner vil trolig øke salget av sukkervarer i denne kanalen.
+Kraftig vekst i dagligvarehandel på nett
+Netthandel er mest utbredt i sentrale områder, som en naturlig følge av kostnader knyttet til logistikk. Innad
+i de sentrale områdene er dermed andelen høyere. Netthandel med mat har vokst fra 783 millioner kroner i
+2014 til 2,1 milliarder kroner i 2016 (Virke, 2017a). De største aktørene er Kolonial.no, Godt levert og Adams
+matkasse, hvorav de to sistnevnte slo seg sammen til en aktør i 2017. I 2016 hadde disse to en samlet
+omsetning på 720 millioner kroner, mens Kolonial.no hadde en omsetning på 424 millioner kroner. I tillegg
+til disse store er det en rekke mindre aktører som kolonihagen og kokkeløren.no.
+På tross av at netthandel utgjør en relativt liten andel av omsetningen knyttet til mat er det god grunn til å
+tro at konkurransen i denne salgskanalen vil øke. Analyseselskapet Nielsen anslår netthandelen med mat
+allerede i 2019 vil utgjøre 7,5 milliarder kroner. I tråd med økt konkurranse fra disse nye dagligvareaktørene
+har flere av dagligvarekjedene nå begynt å tilby netthandel. Lønnsomhetspotensialet for dagligvarehandel
+over nett er derimot foreløpig usikkert. Nylig valgte aktørene marked.no og Brødboksen å legge ned driften
+som følge av manglende lønnsomhet.
+Som utsalgssted for alkoholholdig drikke møter dagligvarebransjen en konkurrent i Vinmonopolet. I tillegg til
+alkoholfrie drikkevarer er salget av øl det som øker mest på Vinmonopolet. I tråd med økt salg satser
+Vinmonopolet videre på denne varegruppen gjennom egne avdelinger for øl og lanseringen av konseptet +ØL.
+
+13 https://e24.no/naeringsliv/dagligvarebransjen/slik-unngaar-nordmenn-sukkerskatten/24249096
+14 I den sammenheng er det verdt å merke seg at dagligvarekjedene henger langt etter øvrig varehandel hva angår
+
+netthandel. Med unntak av fargehandel har dagligvare den laveste andelen kjeder med nettbutikk, kun 18 prosent, mot
+et snitt i varehandel på 65 prosent (Virke, 2017c).
+
+MENON ECONOMICS
+
+19
+
+RAPPORT
+
+Nordmenns etterspørsel etter øl har også bidratt til en vekst i antall mikrobryggerier rundt om i landet, og gitt
+dagligvarebutikkene og Vinmonopolet en ny konkurrent i salg av øl, Gulating.
+Mikrobrygg i egne butikker
+Bryggeriet Gulating ble etablert i 2011. Selv opplevde de distribusjon via dagligvarekjedene som utfordrende
+og valgte derfor å skape sin egen. I 2014 åpnet første Gulating ølutsalg. I dag har Gulating rundt 30 ølutsalg
+rundt om i Norge som tilbyr et stort utvalg av håndverksbrygget øl fra lokale, nasjonale og internasjonale
+bryggerier. I 2016 hadde Gulating Gruppen en omsetning på 38 millioner kroner. Ifølge gruppens nettsider
+jobber de mot en omsetning på 156,5 millioner i 2021. Dette inkluderer franchiseinntekter, egne ølutsalg,
+egne puber og grossistleddet GulEng. Gruppen har også en egen netthandelsløsning.
+De fleste alternative utsalgsstedene for mat og drikke er fremdeles små, men flere av dem kan vise til en høyere
+vekst enn dagligvareaktørene de siste årene. Vi har derimot ikke gjort noen empiriske undersøkelser som går i
+dybden på konkurransen mellom de alternative utsalgsstedene. Vi har derfor ikke grunnlag til å vurdere hvor
+sterk eller disiplinerende konkurransen fra disse alternative utsalgsstedene er.
+
+2.3.2 Salgskanaler for ikke-spiselige varer
+Som vi nevnte innledningsvis i delkapittelet utgjør ikke-spiselige varer (non-food) enn så lenge en relativt liten
+andel av dagligvareaktørenes omsetning, kun 16 prosent. Salg av tobakksvarer er den største varegruppen,
+etterfulgt av vaske- og husholdningsartikler. Fordelingen av salget i paraplyorganisasjonenes dagligvarebutikker
+i 2017 på ulike varegrupper er gjengitt i figuren under.
+
+Figur 9: Salg av ikke-spiselige varer i 2017 fordelt på varegrupper (Mrd. NOK, eks. mva). Kilde: Nielsen ScanTrack TSR, Helår
+2017
+
+For en rekke varer innen non-food er dagligvareaktørene først og fremst en utfordrer til faghandel, i motsetning
+til i salg av mat og drikkevarer hvor dagligvarekjedene har en betydelig posisjon allerede. Konkurransepresset
+dagligvareaktørene skaper i de nye markedene de beveger seg inn i, kan komme forbrukerne til gode i form av
+lavere priser og større utvalg. De mange ulike gruppene av konkurrenter dagligvarebutikkene møter for disse
+varegruppene er oppsummert i figuren under.
+
+MENON ECONOMICS
+
+20
+
+RAPPORT
+
+Figur 10: Konkurrenter i salg av ikke-spiselige produkter solgt i dagligvarebutikker
+
+Elektronikk
+
+Kiosk,
+bensin og
+service
+
+Blomsterbutikker
+
+Kjøkkenutstyr
+
+Dyrebutikker
+
+Butikker
+med bredt
+vareutvalg
+
+Jernvarehandel
+Dagligvarebutikker
+
+Klesbutikker
+
+Bokhandel
+
+Utenlandshandel
+
+Belysning
+Kosmetikk
+
+Helsekost
+
+Som figurene viser blir konkurranseflatene spesielt mange og herunder beviset på bransjeglidningene tydeligere
+når vi kun ser på ikke-spiselige varer.
+Butikkjedene med bredt varesortiment konkurrerer med dagligvarebutikkene, både på salg av matvarer og ikkespiselige varer (non-food). Disse aktørene, som eksempelvis Europris, Nille og nyetablerte Normal, blir sjeldent
+inkludert i omtaler av dagligvaremarkedet på tross av at varene som selges her i stor grad overlapper med varene
+som selges i dagligvarebutikkene. Europris har i dag vokst frem til en relativt stor norsk kjede med rundt 240
+butikker fordelt over hele landet. I 2016 hadde kjeden en omsetning på 5 milliarder kroner. 15 Til sammenligning
+var omsetningen til Bunnpris 6,5 milliarder i 2017 (Dagligvarerapporten 2018, Nielsen). Mindre fokus på de deler
+av matmarkedet som omfattes av det norske importvernet gjør denne typen aktører mindre avhengig av norske
+leverandører og innkjøpsbetingelsene deres. Denne bransjen kan således være en gylden mulighet for
+utenlandske aktører å komme inn på det norske markedet, slik den danske kjeden Normal nettopp har gjort.
+Butikkjeden Normal startet i Danmark, utvidet til Norge i 2017 og til Sverige i 2018. Normal satser på salg av
+både kjente merkevarer, samt et skiftende varesortiment til unormale faste priser. I Danmark har kjeden
+åpnet rundt 80 butikker siden oppstart i 2013. I 2017 ble kjeden kåret til årets gaselle i Danmark som følge
+av den voldsomme veksten og kunne vise til en omsetning på 665 milliarder DKK i 2016 (proff.dk)
+I 2017 åpnet kjeden sin første butikk i Norge, i Kristiansand. Per i dag har de 12 butikker i Norge, som ut fra
+informasjon fra deres hjemmesider vil utvides til 24 butikker allerede i løpet av våren 2018.
+
+15 Europris’ årsrapport for 2016
+
+MENON ECONOMICS
+
+21
+
+RAPPORT
+
+For ikke-spiselige varer finner vi flere av de samme konkurrentene som innen mat og drikke, det vil si kiosk og
+servicehandel, grensehandel, taxfree-handel og butikkhandel med bredt vareutvalg. Utover dette er
+konkurrentene blant ikke-spiselige varer i stor grad aktører som er spesialisert på én varegruppe. Salg av blomster
+er i dag en av de største underkategoriene av ikke-spiselige varer i dagligvarebutikkene, når vi ser bort fra
+tobakksvarer. Her møter de samtidig sterk konkurranse fra store kjente og spesialiserte aktører som Mester
+Grønn og Plantasjen. Dagligvarebutikkenes utvalg av kosmetikk og hårprodukter stiller de i konkurranse mot
+aktører som Vita, Kicks, Hennes & Mauritz og netthandelsaktøren Blivakker.no. Videre er dagligvarebutikkenes
+utvalg av undertøy først og fremst et alternativ til turen til klesbutikken, på samme måte som apotekvarer i
+butikken også sparer kunden for en ekstra tur til apoteket dersom behovet begrenser seg til nesespray eller
+hodepinetabletter.
+Dagligvarebutikkenes vareutvalg innen ikke-spiselige varer understreker bransjeglidningene innen varehandel,
+som gjør at stadig flere aktører konkurrerer om at de samme kundene skal gjøre sine innkjøp nettopp hos dem.16
+Videre viser det at dagligvareaktørene stadig må utvide hvilke produkter de skal tilby sine kunder for å vokse. I
+Coops årsrapport for 2016 vises det blant annet til Coop Extras egne faghandelsseksjoner som en viktig
+bidragsyter til veksten butikkjeden har hatt de siste årene.
+Bransjeglidninger og konkurrenter i tilgrensende sektorer virker disiplinerende på enhver aktør. Manglende
+oppfølging fra dagligvarebutikkene av forbrukeres endrede vaner og ønsker kan fort bety vekst for delikatessebutikker, Europris og Gulating på bekostning av dagligvarebutikkene. Tilsvarende må blomsterbutikker,
+elektronikkhandel og jernvarehandel følge dagligvarebutikkenes endringer i vareutvalg og priser nøye for å
+unngå å miste deler av sitt kundegrunnlag. Dette skaper en dynamikk og konkurransesituasjon i handelsnæringen
+som trolig er fordelaktig for oss som forbrukere.
+
+2.4 Et lokalt eller nasjonalt dagligvaremarked?
+Beskrivelser av dagligvaremarkedet fokuserer ofte på at det er tre store og én mindre paraplyaktør i Norge. I så
+måte fremstår det som om dagligvaremarkedet hovedsakelig er et nasjonalt marked hvor alle beslutninger og
+kniving om markedsandeler foregår mellom tre-fire aktører. Dette er imidlertid en sannhet med modifikasjoner.
+En stor del av konkurransen i dagligvaremarkedet er lokal. For eksempel ble Coops oppkjøp av ICA godkjent av
+Konkurransetilsynet under forutsetningen om at et utvalg av butikker i enkelte lokalmarkeder ble solgt til
+NorgesGruppen og Bunnpris (Konkurransetilsynet, 2015).
+Hadde paraplyaktørene kun vært opptatt av konkurransen på et nasjonalt nivå, er det mindre opplagt hvorfor
+vareutvalg, butikkstørrelser og åpningstider varierer ulike steder i landet. Forklaringen på variasjonene er at
+dagligbutikkene konkurrerer om kundene i begrensede lokale markeder hvor kundenes preferanser, tilstedeværelsen av andre dagligvarebutikker og varetilbudet fra annen varehandel avgjør hvilke priser, åpningstider,
+vareutvalg og tilleggstjenester dagligvarebutikken må ha for å være konkurransedyktig.
+
+16
+
+Videre finnes det en rekke andre utsalgssteder som selger matvarer, men hvor dette ikke representerer
+hovedvaregruppen deres. Den svenske møbelgiganten IKEA har både egen restaurant og en egen «dagligvareavdeling» i sine varehus. Flere møbel- og interiørbutikker har også te og kaffe som en naturlig del av sitt vareutvalg.
+XXL, Elkjøp, TGR og Søstrene Grene har også et begrenset utvalg av mat- og drikkevarer i flere av sine utsalgssteder. Å
+si at disse er i sterkt konkurranse med dagligvarebutikkenes salg av matvare blir søkt, men det illustrerer derimot
+bransjeglidningene i varehandelen.
+
+MENON ECONOMICS
+
+22
+
+RAPPORT
+
+Norske forbrukeres handlemønster og kriterier for valg av butikk viser at forbrukerne hovedsakelig ser
+dagligvaremarkedet som et lokalt marked. Som vist i figurene under viser Forbrukerrådets befolkningsundersøkelse fra desember 2016 at nordmenn handler dagligvarer flere ganger i uken og hovedsakelig velger
+butikk basert på beliggenhet.
+
+Figur 11: Nordmenn handler ofte og nærme. Kilde: Forbrukerrådets befolkningsundersøkelse 2016
+
+Nærmere 4 av 5 forbrukere i undersøkelsen oppga at de handler hver dag eller flere ganger i uken. På spørsmål
+om hva som er den viktigste årsaken til hvorfor de handler på den butikken de vanligvis gjør, fremstår nærhet
+som klart viktigste kriteriet. Utover reiseavstand ser vi at tilgang på varene vi trenger, oversiktlighet, lave priser
+og tilgang til parkering påvirker vår beslutning. I underkant av halvparten av forbrukerne som svarte på
+forbrukerrådets spørreundersøkelse oppga at de handlet i forskjellige butikker når de handlet «hverdagsmat» og
+«helgemat». For helgeinnkjøpene er nærhet like viktig som tilgang på varene vi trenger (vareutvalg). I hverdagen
+er nærhet fortsatt klart viktigst, mens parkeringsmuligheter og lave priser fremstår som viktigere enn
+sammenlignet med helgehandelen.
+At nærhet oppfattes som et viktig kriterium er logisk. Mat og dagligvarer oppfattes som nødvendighetsgoder. I
+tillegg handler nordmenn ofte, slik at reisekostnadene forbrukerne har knyttet til reisetid frem og tilbake til
+butikken blir uforholdsmessig høye dersom vi må reise langt hver gang. Våre reelle substitusjonsmuligheter er
+dermed de butikkene som ligger i nærheten av hverandre eller langs vår daglige reiserute. Denne logikken har
+Konkurransetilsynet også fulgt i deres avgrensning av det relevante geografiske marked for dagligvarer
+(Konkurransetilsynet, 2008; Konkurransetilsynet, 2015). Muligheter til å endre og avgrense priser, åpningstider
+og antall varelinjer geografisk trekkes frem som indikatorer for en lokal dimensjon i konkurransen om salg av
+dagligvarer gjennom dagligvarebutikkene.
+Konkurransen mellom dagligvarebutikkene finner vi helt ned på gateplan. Har en butikk åpningstider fra 7-23,
+bør kjøpmannen i butikken like ved ha noe annet å tilby sine kunder, som et bredere vareutvalg og bedre service,
+dersom han fortsatt vil begrense åpningstiden til 9-20. Hvis ikke risikerer hun eller han å miste en del av
+kundegrunnlaget i nærområdet fordi butikken med lange åpningstiden gir kundene et større tidsrom å foreta
+dagligvarehandlingen sin på. Enhver kjøpmann eller butikksjef har også sterke insentiver til å være den beste
+butikken i gata, for å sikre egen lønnsomhet og de ansattes arbeidsplass, uavhengig av om den nærmeste
+butikken tilhører samme konsern og butikkjede.
+
+MENON ECONOMICS
+
+23
+
+RAPPORT
+
+Kundemassens begrensede vilje til å forflytte seg lange strekninger for å jakte etter de beste prisene, varene og
+den beste servicen hver gang de handler tilsier at konkurransen mellom dagligvarebutikkene begrenses til det
+lokale markedet. Som en konsekvens av dette vil konkurranseintensiteten variere i ulike lokale markeder. Der
+hvor befolkningstettheten er lav og kundemassen liten, kan nærbutikken ha relativt få, om ingen, konkurrenter
+i nærheten. I den grad en ny kjøpmann eller en butikkjede ikke ser en mulighet til å vinne hele eller store deler
+av kundegrunnlaget har nærbutikken større mulighet til å bestemme vareutvalg og priser som øker lønnsomheten i butikken, sammenlignet med steder hvor kundegrunnlaget er stort. Teoretisk sett vil dette handlingsrommet begrenses da høye marginer også tiltrekker konkurrerende aktører. Vi har derimot ikke grunnlag for å
+påstå at denne trusselen er reell i alle lokale markeder. I tillegg er det pristak innenfor mange av de forskjellige
+dagligvarekjedene, som forhindrer kjøpmenn fra å ta ut ekstra høye priser i lokalmarkeder med svak
+konkurranse.
+Konkurransetilsynet viser til både lokale og nasjonale dimensjoner i konkurransen i dagligvaremarkedet
+(Konkurransetilsynet, 2008;2009;2015). Årlig forhandler paraplyaktørene og leverandørene om hvilke varer som
+skal få adgang til paraplyaktørenes butikker påfølgende år og til hvilke betingelser. Denne forhandlingen
+refereres ofte til som høstjakta. Forenklet handler disse forhandlingene om prisen på varen, sortiment for de
+respektive kjedene (bestående av en obligatorisk og en frivillig del), varelinjerabatter og samarbeidsbonuser fra
+leverandørene.17
+Disse forhandlingene foregår hovedsakelig mellom konsernet hos paraplyaktørene og de største leverandørene.
+Her bestemmes grunnsortimentet som skal inngå i samtlige butikker i butikkjedene, og ofte planer for varenes
+plasseringer i hyllene (planogram). Videre forhandler butikkjedene ytterligere med leverandørene og/eller de
+regionale avdelingene seg imellom om deres innkjøpsbetingelser.
+Innkjøpspriser bestemmes derfor i stor grad sentralt, og fastsetter deretter veiledende priser for butikkene og
+kjedene, enten i form av maksimale nasjonalpriser eller priser med rom for avvik. Samtidig gjøres det avtaler om
+nasjonale kampanjer og markedsføring. Butikksjefene og kjøpmennene i hver enkelt butikk har likevel rom til å
+bestemme deler av eget sortiment gjennom den frivillige delen av sortimentet og kan foreslå å gjøre egne avtaler
+med lokale leverandører, selv om disse avtalene ofte må godkjennes sentralt/regionalt. Hver butikk har også rom
+til å tilpasse deler av vareplassering, markedsføring og priser lokalt i varierende grad.18
+Tilstedeværelsen av lokal priskonkurranse på tross av sentralbestemte innkjøpspriser kan illustreres av et sitat
+fra Konkurransetilsynets vurdering av Coops oppkjøp av ICA:
+«Selv om flere av dagligvarekjedene fastsetter nasjonale maksimalpriser, innebærer teknologiutviklingen i dagligvaremarkedet, for eksempel gjennom økt bruk av elektroniske hylleforkanter, at dagligvarekjedene enklere kan fastsette prisene ut fra konkurransesituasjonen i hvert lokale marked.»
+-
+
+Konkurransetilsynet V2015-24 avsnitt (74)
+
+Det er blant annet et velkjent faktum at de ulike dagligvareaktørene har egne prisjegere som sjekker
+konkurrentenes priser lokalt. De elektroniske hylleforkantene gjør det videre til en enkel prosess å endre prisene
+
+17 Varelinjerabatter er rabatter i kroner eller prosent av en enkelt varelinje. Samarbeidsbonuser er ikke knyttet til varen,
+
+men er ytelser, gjerne rabatter av det totale innkjøpet fra en leverandør, som benyttes til samarbeid om markedsføring
+(joint marketing, JM), kategoriprosjekter og mer generelle utviklingsprosjekter. (NOU 2011: 4)
+18Informasjonene er hentet fra intervjuer med innkjøps- og kjedesjefer i NorgesGruppen, Coop og Bunnpris. Dette
+samsvarer også med omtaler av den lokale handlefriheten slik omtalt i Konkurransetilsynet (2009), Konkurransetilsynet
+(2011) og Konkurransetilsynet (2015).
+
+MENON ECONOMICS
+
+24
+
+RAPPORT
+
+i den enkelte butikken etter tilbakemelding fra prisjegerne. Den nasjonale dimensjonen av konkurransen gir et
+stort antall av små og store dagligvarebutikker den samme kjøpermakten i forhandlinger med de største
+leverandørene. Innkjøpssamarbeidet mellom butikkene tilknyttet samme paraplyaktører, samvirkelag eller
+butikkjede gir like innkjøpsbetingelser, nasjonale kampanjer og et samsvarende grunnsortiment i de ulike
+butikkene rundt om i landet. Butikkenes kjedetilhørighet setter visse begrensninger på hvilke varer og priser
+butikkene kan tilby sine kunder, men det er likevel opp til hver kjøpmann og butikksjef å trekke kundene over til
+sin butikk. Butikkjedene er derfor avhengig av å gi disse rom til å tilpasse vareutvalget, vareplassering og priser
+til kundemassen og konkurransesituasjonen i det lokale markedet. Videre er servicenivået og kundeopplevelsen
+i aller høyeste grad opp til sjefen og de ansatte i hver butikk.
+På å tross av at dagligvaremarkedet ofte omtales ut fra de nasjonale paraplyaktørenes posisjon, er kundenes
+substitusjonsmulighet og således dagligvarebutikkenes kamp om kundene i stor grad lokalt betinget. Dette gir
+rom for store variasjoner i konkurranseintensiteten innad i ulike lokale markeder.
+
+MENON ECONOMICS
+
+25
+
+RAPPORT
+
+3. Analyser av vareutvalget i norsk dagligvare
+Mange hevder at det er dårlig vareutvalg i norske dagligvarebutikker, og at dette skyldes svak
+konkurranse. Vareutvalget i norske butikker har imidlertid økt betraktelig de senere årene. Veksten
+har vært særlig kraftig for ferskvarer som kjøtt, egg, frukt og bær.
+Sammenliknet med Sverige er vareutvalget av ferskvarer faktisk større i Norge, i sammenliknbare
+butikker. Utvalget av langtidsholdbare varer og meieriprodukter er derimot større i de svenske
+butikkene. Det er betydelige forskjeller i vareutvalg for enkeltkategorier. For mange kategorier er
+utvalget best i Norge. For andre er utvalget best i Sverige. Totalt nuller disse forskjellene hverandre
+nesten ut.
+
+3.1 Vareutvalget i Norge relativt til i Sverige
+Det hevdes ofte at vareutvalget i norsk dagligvare er vesentlig dårligere enn det svenske og at dette er en
+indikator på svak konkurranse. Det er imidlertid ikke riktig at vareutvalget i Norge er systematisk dårligere i Norge
+enn i Sverige.
+De som hevder at det norske vareutvalget er dårlig henviser typisk til analysene gjennomført av SIFO (2016) og
+Matkjedeutvalget (2011), som sammenlikner utvalget i Norge og Sverige. Begge disse studiene konkluderer med
+dårlig utvalg i Norge, men de har store svakheter. Et stort problem er at viktige varegrupper er utelatt i
+sammenlikningene.
+SIFO-analysen har f.eks. hverken med fersk fisk, ferskt kjøtt, frukt og grønt eller øl når de sammenligner
+vareutvalget i norske og svenske dagligvarebutikker (kategorier som de tar med når de ser på utviklingen i Norge
+isolert). I stedet for disse inkluderte SIFO-analysen produktkategorier som brus, vann med kullsyre, ris og pasta.
+Gruppene som var med utgjorde under halvparten av omsetningen i dagligvarebutikkene og gir derfor et
+mangelfullt bilde. Problemet er tilsvarende for matkjedeutvalget som også så på et begrenset utvalg av
+produktkategorier, som til sammen utgjorde mindre enn halvparten av dagligvareomsetningen.
+Videre er det problematisk at man typisk sammenlikner gjennomsnittsbutikker når man vurderer det norske
+vareutvalget. Den gjennomsnittlige dagligvarebutikken i Norge er vesentlig mindre enn den gjennomsnittlige
+butikken i Sverige. Resultatet er derfor at man i stor grad fanger opp forskjellene i butikkstørrelse når man
+sammenlikner gjennomsnittsbutikkene. Den gjennomsnittlige dagligvarebutikken i Sverige er rundt dobbelt så
+stor som den gjennomsnittlige butikken i Norge. Hypermarkedenes (den største typen dagligvarebutikker) andel
+av den samlede omsetningen i dagligvarebutikkene er for eksempel syv prosent i Norge mot 38 prosent i Sverige
+(Menon, 2016).
+Menon har tidligere gjennomført en studie hvor vi analyserte forskjellene i vareutvalget mellom Norge og Sverige
+i sammenliknbare butikker (Menon 2016). I denne analyserte vi forskjellene i vareutvalget innenfor 96 forskjellige
+produktkategorier i 20 butikker.19 Et viktig funn i denne analysen var at det var betydelig variasjon mellom de
+ulike produktkategoriene. Vareutvalget var vesentlig større i Norge for en rekke kategorier, mens det var større
+
+19 For å kunne sammenlikne butikker av lik størrelse utarbeidet vi et datasett som inneholder komplett informasjon om
+
+utvalget av mat og drikke for 20 ulike butikker; fem Meny og fem Kiwi-butikker som ble matchet opp mot fem Henköpog Willys Hemma-butikker i Sverige. Butikkene ble matchet butikker innenfor et tilsvarende konsept, størrelse og
+omsetning. Analysen ble begrenset til butikker fra NorgesGruppen og Axfood som følge av tilgang på data.
+
+MENON ECONOMICS
+
+26
+
+RAPPORT
+
+i Sverige for andre. Totalt nullet disse effektene hverandre nesten ut, men med litt større utvalg i Sverige. En
+gjennomgående forskjell var imidlertid at utvalget av ferskvarer var større i de norske butikkene. Unntaket var
+for meierivarer og ferske småbrød, hvor utvalget var større i de svenske butikkene. Tilsvarende var utvalget av
+langtidsholdbare varer høyere i de svenske butikkene. Unntaket var for øl, hvor utvalget var vesentlig større i de
+norske butikkene (både med og uten alkohol).
+Dette funnet illustreres i figuren under. I figuren vises forskjellene i vareutvalg mellom de norske Meny-butikkene
+og de svenske Hemköp-butikkene, og for de norske Kiwi-butikken og de svenske Willys Hemma-butikkene.
+
+Figur 12: Forskjeller i vareutvalg mellom sammenliknbare Norske og Svenske butikker, fordelt på produktkategorier. Kilde:
+Menon 2017
+
+3.2 Vareutvalget i Norge over tid
+I SIFOs rapport fra 2016, så man også på utviklingen i det norske vareutvalget over tid. Den viste at utvalget for
+kategoriene SIFO så på hadde økt med 30 prosent fra 2008 til 2015, samtidig som lavprisbutikker har økt sine
+markedsandeler. Mens SIFO hadde utelatt en rekke viktige ferskvarer i sammenlikningen med Sverige, var disse
+med når de så på utviklingen i Norge over tid. SIFO-studien kunne derfor avdekke at veksten i vareutvalg har vært
+særlig kraftig for ferskvarer som kjøtt, egg, frukt og bær. I tillegg har den prosentvise veksten vært høy for flere
+langtidsholdbare varer som kaffe, øl (både med og uten alkohol) og brus.
+Med kraftig vekst i vareutvalget, og et relativt godt vareutvalg i norske butikker, sammenliknet med tilsvarende
+svenske butikker, er det vanskelig å finne støtte for en hypotese om at det er dårlig vareutvalg som skyldes svak
+konkurranse. I stedet peker funnene beskrevet over i retning av at butikkene må ha hatt insentiver til å ta inn og
+tilby et stadig bredere spekter av produkter. Det gjennomsnittlige vareutvalget i norske butikker er riktignok
+vesentlig mindre enn det gjennomsnittlige svenske, men dette skyldes i hovedsak forskjeller i butikkstørrelse
+(Menon 2016). I neste kapittel ser vi på hva det er som kan forklare hvorfor norske butikker i snitt er så små.
+
+MENON ECONOMICS
+
+27
+
+RAPPORT
+
+4. Geografi og norsk butikkstruktur
+Norge er blant de landene i Europa med flest dagligvarebutikker per innebygger. Vår analyse finner
+en sterk negativ sammenheng mellom befolkningstetthet og butikktetthet. Det er altså grunn til å
+tro at det er spredt bosetting som er den viktigste årsaken til at vi har mange og dermed små butikker
+i Norge. Dette sikrer at folk får tilgang til dagligvarer der de bor, og er en indikasjon på konkurranse.
+Nye butikker legges innenfor handelssonen til eksisterende, i forsøk på å kapre kunder og
+markedsandeler.
+Med mindre butikker enn i f.eks. Sverige blir utvalget i hver butikk smalere, men skulle vi hatt den
+samme butikkstrukturen i Norge som i Sverige, må over 900 dagligvarebutikker legges ned. Så lenge
+folk bor spredt, og konkurransen sikrer at butikker legges i nærheten av hverandre er det en lite
+sannsynlig utvikling på kort sikt.
+
+4.1 Sammenhengen mellom geografi, konkurranse og butikkstørrelse
+Figuren under viser at det i 2017 var 3843 dagligvarebutikker i Norge i 2017. Netto økning fra 2015 var på 37
+butikker.
+
+Figur 13: Utvikling antall dagligvarebutikker i Norge. Kilde: Dagligvarerapporten 2018, Nielsen
+4 500
+
+4 108
+
+4 047
+
+4 007
+
+3 981
+
+3 975
+
+3 917
+
+3 899
+
+3 899
+
+3 806
+
+3 814
+
+3 843
+
+2009
+
+2010
+
+2011
+
+2012
+
+2013
+
+2014
+
+2015
+
+2016
+
+2017
+
+4 000
+3 500
+3 000
+2 500
+2 000
+1 500
+1 000
+500
+0
+2007
+
+2008
+
+Som vi ser av figuren over har det vært et jevnt fall i antall butikker over den siste tiårsperioden. Fra 2007 til 2017
+har totalantallet falt med 6,5 prosent. Samtidig har befolkningen økt med 12 prosent. Dette betyr at det stadig
+blir færre butikker per innebygger. Videre har samlet omsetning i dagligvarebutikkene økt med 46 prosent
+(Dagligvarerapporten 2018, Nielsen)i samme periode, hvilket vil si at butikkene i snitt blir større.20 Dette kan
+være en medvirkende årsak til den observerte veksten i det gjennomsnittlige vareutvalget.
+
+20 Det er vanlig å måle størrelse i kvadratmeter, men for en dagligvarebutikk er det omsetning og antall kunder som er
+
+det viktigste målet.
+
+MENON ECONOMICS
+
+28
+
+RAPPORT
+
+Det er imidlertid stor forskjell på butikktettheten i Norge og i Sverige. I 2015 var det 7,5 butikker per innebygger
+i Norge, mens det var 5,7 i Sverige (Menon 2016). Det er altså rundt 30 prosent flere dagligvarebutikker per
+innebygger i Norge enn i Sverige.
+For å forstå hvorfor det er så stor forskjell mellom butikktettheten i Norge og Sverige, er det naturlig å se til
+geografi. I figuren under har vi plottet befolkningstettheten mot butikktettheten i samtlige norske og svenske
+kommuner.
+
+Figur 14: Sammenhengen mellom butikktetthet (butikker/innebygger) og befolkningstetthet (innebygger/kvm.) i norske
+og svenske kommuner. Kilde: Menon (2016)
+
+Som vi ser av figuren er det en tydelig statistisk sammenheng mellom lav befolkningstetthet og høy butikktetthet.
+Det betyr at det er færre kunder per butikk i tynt befolkede kommuner og flere per butikk i tett befolkede
+kommuner. Våre analyser viser også at det er langt flere kommuner med høy butikktetthet enn i Sverige.
+Butikktettheten på små steder med vanskelig fremkommelighet kan være opptil 70 butikker per 10 000
+innbyggere. Dette gjelder både for Norge og Sverige. En mulig forklaring på den relativt høye norske
+butikktettheten er dermed den spredte bosettingen og relativt lave befolkningstettheten. Selv når vi
+sammenlikner tettbygde strøk er befolkningstettheten typisk høyere i Sverige. I Oslo var for eksempel
+befolkningstettheten 1550 innbyggere per kvadratkilometer, mens den i Stockholm var på 4935 innbyggere per
+kvadratkilometer i 2015. Butikktettheten i Oslo var da på 5,6 butikker per 10 000 innbyggere, mens den var på
+4,5 i Stockholm.
+Det er i denne sammenhengen verdt å merke seg at den høye butikktettheten trolig ikke kan forklares av spredt
+bosetting alene. Det er derimot en rekke eksempler på lokale markeder hvor flere dagligvarebutikker etableres
+nærmest vegg i vegg for å konkurrere om et begrenset kundegrunnlag, slik for eksempel Kiwi, Coop Extra og
+Rema har gjort på Skreia. Hadde konkurransen i disse lokalmarkedene vært svak, ville vi trolig hatt færre butikker
+og større avstander. Dette ville vært mer lønnsomt for næringen samlet, men redusert nytten for forbrukerne.
+
+MENON ECONOMICS
+
+29
+
+RAPPORT
+
+På Skreia i Oppland kjemper tre butikker om et marked på 100 millioner
+Mange sitter inne med den oppfatningen om at tre store paraplykjeder i det norske dagligvaremarkedet, og
+kun én mindre utfordrer gir lav konkurranse. Butikktettheten og tilstedeværelsen av butikkjeder med
+tilknytning til samtlige av paraplyaktørene i utallige lokale markeder i Norge vitner derimot om noe annet.
+På Toten, nærmere bestemt Skreia er de tre lavpriskjedene Kiwi, Coop Extra og REMA 1000 etablert bortimot
+vegg-i-vegg. Innen en avstand på ti minutters kan dermed de 1000 innbyggerne i tettstedet velge mellom tre
+ulike dagligvarebutikker. De tre konkurrende butikkene kjemper her om et marked på rundt 100 millioner
+kroner. Til sammenligning har dagligvarebutikkene i Norge en gjennomsnittlig omsetning på 40-50 millioner,
+hvilket tilsier at et marked på 100 millioner gir plass til to dagligvarebutikker. I en årrekke var dette også
+tilfelle på Skreia, som hadde en Spar og en Rimi-butikk. Sparbutikken ble etter hvert omprofilert til en
+Kiwibutikk, og etter Coops oppkjøp av ICA ble Rimi-butikken til Coop Extra. For halvannet år siden hev REMA
+1000 seg inn i kampen om disse 1000 innbyggernes dagligvarehandel, og åpnet butikk 100 meter fra Coop
+Extra.
+De tre butikkene konkurrerer også med butikkene i nærliggende handelsområder som Lena. Tre butikker, i
+stedet for to styrker det lokale markedet på Skreia og kan dermed hindre handelslekkasjer over til
+nærliggende områder og til og med trekke kundene derfra. Over tid kan denne dynamikken gi rom for tre
+dagligvarebutikker. Den nyeste av de tre kjøpmennene på Skreia sier likevel i et intervju med Dagens
+næringsliv at målet er at det kun skal stå igjen to butikker på Skreia. Av slike mål blir det sterkt konkurranse
+av.
+Kilde: Dagligvareslaget om Toten, DN (27.februar 2018)
+
+4.2 Sammenheng mellom geografi og utenlandske etableringer
+I delkapittelet over så vi på sammenhengen mellom spredt bosetting, lokal konkurranse og butikktetthet. I dette
+delkapittelet vil vi se på sammenhengen mellom geografi og utenlandske etableringer. Som vi kommenterte i
+kapittel 2.2 er det ikke særnorsk med høy konsentrasjon blant paraplyaktørene dagligvaremarkedet. Et trekk som
+imidlertid er slående og påpekt av blant annet Konkurransetilsynet,21 er mangelen på utenlandske aktører som
+er tilstede.
+Konkurransetilsynet trekker frem importvernet som en mulig årsak. Varer med høy importtoll utgjør imidlertid
+kun rundt 29 prosent av dagligvareomsetningen ifølge tall fra Orkla, basert på Nielsen og gjengitt i Oslo
+Economics (2017). Det betyr at over 70 prosent av omsetningen ikke er underlagt høy importtoll og enkelt kunne
+blitt importert til Norge, hvis en utenlandsk aktør ville etablert seg her. Det er derfor sannsynlig at det også er
+andre årsaker til at vi ikke har utenlandske aktører i det norske markedet i dag.
+For det første er Norge et lite marked, i utkanten av Europa. Videre er det utfordrende å drive effektiv logistikk i
+et langstrakt land, med spredt bosetting. På kontinentet kan man sette opp store sentrallager som kan tjene
+store kundegrupper. I Norge er man i tillegg avhengig av å håndtere mange mindre lagre spredt over store
+avstander.
+
+21 Kronikk: Unik kjedemakt i Norge?» http://www.konkurransetilsynet.no/nb-NO/aktuelt/nyheter/2017/kronikk-unik-
+
+kjedemakt-i-norge/
+
+MENON ECONOMICS
+
+30
+
+RAPPORT
+
+Norges demografi og beliggenhet bidrar til økte kostnader og redusert lønnsomhet av å gå inn i Norge. Når man
+i tillegg tar med skatter og særavgifter, som reduserer lønnsomheten ytterligere er det ikke overaskende at vi
+ikke har store utenlandske aktører, med små markedsander, slik det f.eks. er i Sverige og Danmark. Carrefour
+prøvde seg i Norge med noen få butikker i 2003, i et samarbeid med NorgesGruppen. Lidl prøvde seg med en
+rekke butikker i 2004 til 2008, og ICA hadde en stor posisjon i mange år. Alle har måttet legge ned fordi de ikke
+har klart å tjene penger. Geografi og bosetningsmønster alene kan derimot ikke forklare hvorfor utenlandske
+aktører ikke er tilstede i begrensede deler av det norske dagligvaremarkedet. En aktør som Aldi kunne for
+eksempel dra nytte av sitt distribusjonsnettverk i vestre del av Sverige for å betjene Østlandet i Norge. Manglende
+kjøpekraft i forhandlinger med sterke norske leverandører, sammen med norske forbrukeres preferanser for
+kjente merkevarer trekkes frem som en hovedårsak til at Lidl ikke lykkes i det norske markeder. Som vi omtalte i
+kapittel 2.1.1 er og har andelen egne merkevarer vært lav i Norge sammenlignet med andre land, slik at nasjonale
+og internasjonale merkevarer står relativt sterkt. Norske forbrukeres manglende etterspørsel etter Lidls ukjente,
+men billige merkevarer løftes derfor frem som en av flere forklaringer til hvorfor Lidl ikke lykkes i det norske
+markedet (Utgård, 2008).
+Importvernet, som gjør det dyrere å ta inn egne varer, er nok noe av forklaringen, men det er grunn til å tro at
+geografi, markedsstørrelse og effektivitet hos de norske aktørene er vel så viktig. Sverige har nesten en dobbelt
+så stor befolkning som Norge og de bor mye mer sentralisert (Menon, 2016). Danmark er flatt og grenser mot
+Tyskland, slik at logistikken blir enklere for Aldi og Lidl. Lidl og Aldi er store aktører med over 10 000 butikker
+hver, og likevel har både REMA og NorgesGruppen (50 prosent eierskap i Dagrofa) større markedsandeler i
+Danmark enn de to tyske gigantene til sammen. Det er neppe på grunn av det norske importvernet.
+
+MENON ECONOMICS
+
+31
+
+RAPPORT
+
+5. Analyser av prisutvikling og driftsmarginer
+Det har vært en svakere prisvekst for mat og drikkevarer enn for andre konsumvarer de siste ti årene.
+I Sverige og Danmark har utviklingen vært motsatt. I EU har veksten for mat og drikke og andre
+konsumvarer vært nesten lik, mens den for Finland har falt, som i Norge.
+Driftsmarginene er lave for butikkhandel med mat og drikkevarer, både sammenlignet med annen
+varehandel og sammenliknet med andre ledd i verdikjeden.
+
+5.1 Prisutviklingen
+Norsk dagligvare består av en vertikal leverandørstruktur
+fra produksjon til grossist til detaljist, hvor flere av
+aktørene er vertikalt integrerte. Lav konkurranse i ett av
+
+Figur 15: Prisutviklingen på matvarer og alkoholfrie
+drikkevarer relativt til den generelle prisutviklingen i
+Norge i samme periode. Kilde: Menon, 2018 og SSB
+
+leddene gir aktørene her mulighet til å ta ut en høyere
+
+1,02
+
+margin i dette leddet. Ettersom de fleste aktører i
+
+1,01
+
+næringslivet er profittmaksimerende, ville vi derfor
+
+1,00
+
+forvente å se en økning i priser dersom konkurransen ble
+svekket.
+
+0,99
+0,98
+
+For å vurdere dette har vi sett på utviklingen i den årlige
+konsumprisindeksen for mat og drikke relativt til den
+generelle
+
+konsumprisindeksen,
+
+begge
+
+justert
+
+for
+
+avgiftsendringer.22 Figuren til høyre viser utviklingen i
+
+0,97
+0,96
+0,95
+
+konsumpriser på matvarer og alkoholfrie drikkevarer
+relativt til den generelle prisutviklingen i landet de siste ti
+årene. Her ser vi tydelig at prisnivået i dagligvarebransjen har hatt en lavere vekst enn den generelle
+prisutviklingen i Norge de siste ti årene. Vi ser at vi den relative prisveksten i mat og alkoholfrie drikkevarer har
+variert over tid. De siste årene ser vi at den prisveksten for mat og alkoholfrie drikkevarer økte sett opp mot de
+generelle konsumprisene i 2014 og 2015, men at denne trenden har snudd igjen i 2016 og 2017. Dersom andelen
+importvarer i varegruppen som utgjør konsumprisindeksen for mat og drikke avviker fra andelen i varegruppene
+i den generelle konsumprisindeksen, kan valutakurser forklare deler av variasjonen i den relative prisutviklingen.
+Ut i fra denne utviklingen er det likevel vanskelig å argumentere for at konkurransesituasjonen innen dagligvare
+i Norge har forverret seg de siste ti årene. Blant annet viser SSBs årlige KPI-indekser at mens konsumprisene
+totalt vokste med to prosent fra 2016 til 2017, har konsumprisene for mat og alkoholfrie drikkevarer stått på
+stedet hvil samme periode. Det er derimot store variasjoner gjennom sesongen, og mellom ulike varegrupper.
+Ser vi på den månedlige prisutviklingen ser vi at prisene på mat og alkoholfrie drikkevarer varierer i større grad
+enn utviklingen i totale konsumpriser. Endringer i pris skyldes for eksempel kampanjer hos dagligvarekjedene,
+priskriger mellom kjedene eller endrede innkjøpspriser fra leverandører. Prissvingene innen mat og drikke ser
+videre ut til å variere mer gjennom året nå enn før. Som illustrert i figuren under er variasjonene gjennom
+sesongene store. Deler av dette kan forklares av at konkurransen i markedet stadig slår ut i priskrig mellom
+kjedene, særlig i tilknytning til høytider som jul og påske. Stadig mer bruk av priskriger mellom aktørene i
+markedet kan være en av forklaringene på at prisutviklingen på mat og alkoholfrie drikkevarer samlet sett har
+
+22 Konsumprisindeks Matvarer og alkoholfrie drikkevarer/ Konsumprisindeks totalt, begge justert for avgiftsendringer
+
+MENON ECONOMICS
+
+32
+
+RAPPORT
+
+vært lavere enn den generelle konsumprisindeksen de siste ti årene. Implementering av elektroniske
+hylleforkanter i dagligvarebutikkene gjør det også enklere å endre priser ofte. NorgesGruppen viser blant annet
+til at Kiwi i snitt gjorde rundt 1300 prisendringer hver uke i 2016.23 Priskrigene er et godt eksempel på at aktørene
+i markedet i stor grad bruker pris som et virkemiddel i konkurransen.
+
+Figur 16: Prisutvikling på matvarer og alkoholfrie drikkevarer, 2008M01=100. Kilde: Menon, 2018 og SSB
+125
+120
+115
+110
+105
+
+KPI-JA Totalindeks(2008M01=100)
+
+2017M12
+
+2017M08
+
+2017M04
+
+2016M12
+
+2016M08
+
+2016M04
+
+2015M12
+
+2015M08
+
+2015M04
+
+2014M12
+
+2014M08
+
+2014M04
+
+2013M12
+
+2013M08
+
+2013M04
+
+2012M12
+
+2012M08
+
+2012M04
+
+2011M12
+
+2011M08
+
+2011M04
+
+2010M12
+
+2010M08
+
+2010M04
+
+2009M12
+
+2009M08
+
+2009M04
+
+2008M12
+
+2008M08
+
+2008M04
+
+2007M12
+
+100
+
+KPI-JA Matvarer og alkoholfrie drikkevarer(2008M01=100)
+
+Fruktpriskrigene
+SSBs konsumprisindekser for ulike konsumgrupper viser at det særlig prisene på frukt og grønt, sukkervarer
+og sjokolade, og delvis kjøtt som har variert kraftig i løpet av året. De såkalte «priskrigene» på frukt og grønt
+og lavpriskjedenes kniving om å være billigst på frukt og grønt finner vi flere eksempler på de siste to årene.
+Januar 2016 lanserte Kiwi 7,5 prosent rabatt på all fersk frukt og grønt til sine fordelskunder. Dagen etter
+svarte REMA 1000 med å kutte sine priser på frukt og grønt med 10 prosent for alle sine kunder.
+Rundt påsketider er det appelsinprisene som står for tur. I 2016 satte Kiwi ned prisen på appelsiner til 2,90
+kr/kg, som et motsvar til REMA 1000s kutt i smågodtprisene. En time senere kostet appelsinene 2,80kr/kg i
+REMA 1000s butikker, samtidig ble prisene på Kiwi kuttet til 2,80 kr/frukt. Meny fulgte så opp med 2,50 kr/kg
+for appelsiner i sine butikker.
+Året etter, 4. Januar 2017, lanserte REMA 1000 sitt bonusprogram Æ. Gjennom mobilappen lovet de 10
+prosent rabatt på de ti varene kunden handlet mest i tillegg til 10 prosent rabatt på frukt og grønt. Bare timer
+senere hadde både Kiwi og Coop svart med å senke sine priser på frukt og grønt. Kiwi doblet bonusen de
+allerede hadde til sine Kiwi Pluss kunder fra 7,5 prosent til 15 prosent, mens Coop innførte 11 prosent rabatt
+på frukt og grønt i Coop Ekstra og Obs! butikker for brukere av deres app. Da REMA 1000 senere økte rabatten
+fra 10 til 20 prosent i en begrenset periode, svarte Kiwi med å øke sin rabatt til 25 prosent i samme periode.
+
+23 http://burgy.no/globalassets/dette-er-norgesgruppen/dagligvarepriser_2017.pdf
+
+MENON ECONOMICS
+
+33
+
+RAPPORT
+
+Det at prisutviklingen på norsk dagligvare har vært lavere enn den generelle prisutviklingen i Norge kan på sin
+side skyldes forhold som ligger utenfor konkurransesituasjonen, som for eksempel teknologiutvikling eller lavere
+verdensmarkedspriser. I en global verden er det liten grunn til å tro at slike makroøkonomiske forhold vil treffe
+Norge spesielt. Vi har derfor sammenlignet den relative prisutviklingen i Norge med den relative prisutviklingen
+i resten av landene i Norden og EU som helhet, presentert i Figur 17 nedenfor.
+
+Figur 17: Utvikling i pris på mat og drikke relativt til generell konsumpris i utvalgte land 2008-2017. Kilde: Menon, SSB
+
+Figur 17 viser at prisene på matvarer og alkoholfrie drikkevarer har vokst fem prosent mer enn den generelle
+prisveksten i Sverige de siste ti årene. Også i EU som helhet ligger veksten på matvarer og alkoholfrie drikkevarer
+noe høyere enn den generelle prisveksten, men forskjellen er liten. Det er faktisk kun Finland av de
+sammenlignbare landene som har en lignende utvikling som Norge. Dette indikerer at prisutviklingen innen
+dagligvare i Norge ikke skyldes internasjonale trender eller teknologiutvikling.
+
+5.2 Driftsmarginer
+Videre har vi undersøkt marginene til dagligvarebutikkene.24 Som tidligere nevnt kan de store
+dagligvareaktørenes kjøpermakt bidra til lavere innkjøpspriser i møte med store aktører i leverandørleddet.
+Dersom det er lav konkurranse mellom dagligvareaktørene på detaljistleddet vil aktørene ha insentiver til å holde
+prisene ut til forbrukeren relativt høye og beholde fordelen av de lave innkjøpsprisene selv. I så tilfelle vil vi
+forvente å se at detaljistenes marginer er relativt høye. Vi har derfor sammenlignet de gjennomsnittlige
+driftsmarginene i dagligvarebutikkene og øvrig detaljhandel i perioden 2007-2016.25 Resultatet er gjengitt i
+figuren under.
+
+24 Det ville her også vært relevant å undersøke egenkapitalrentabilitet. Dette er av flere årsaker komplekse beregninger,
+
+og vi har ikke hatt mulighet til å gjennomføre dette innenfor tidsrammen av dette prosjektet.
+25 Dagligvarehandel er her definert som næringskode 47.111 Butikkhandel med bredt vareutvalg med hovedvekt på
+nærings- og nytelsesmidler. Annen detaljhandel er definert som øvrige deler av næringskode 47: Detaljhandel, unntatt
+med motorvogner. Nærmere beskrivelse av datagrunnlag, metode og definisjoner finnes i vedlegg.
+
+MENON ECONOMICS
+
+34
+
+RAPPORT
+
+Figur 18: Gjennomsnittlig driftsmarginer i dagligvarebutikker og øvrig detaljhandel for perioden 2007-2016. Kilde: Menon,
+Bisnode (2018)
+
+Som figuren over viser er dagligvarebutikkenes gjennomsnittlige driftsmargin beregnet til 1,9 prosent i perioden
+2007-2016. Dette er lavt, også sammenlignet med øvrige deler av detaljhandel. Den vektede driftsmarginen for
+dagligvarebutikkene varierer noe fra år til år, men har generelt ligget mellom 1,5 og 2 prosent i hele perioden.
+Blant annet finner vi at klesbutikkene i gjennomsnitt har hatt en driftsmargin på over fem prosent i samme
+periode og sportsbutikkene i underkant av 4 prosent. For detaljhandel samlet, med unntak av
+dagligvarebutikkene, har gjennomsnittet i samme perioden vært 3,2 prosent.
+Dagligvarebutikkene er kun siste ledd i verdikjeden. Vi har derfor gjort tilsvarende beregning for de øvrige delene
+av verdikjedene. Ettersom paraplyaktørene REMA 1000, NorgesGruppen og Coop selv står for egen
+grossistvirksomhet, har vi fordelt selskapene innen engroshandel med mat og drikke i to grupper; en gruppe for
+selskapene som inngår i paraplyaktørenes konsern, og en gruppe for øvrige engrosvirksomhet innen mat og
+drikke.26 I figuren under er gjennomsnittlig driftsmargin i perioden 2007 til 2016 for selskapene i de ulike leddene
+i verdikjeden gjengitt.
+
+26 Engroshandel med mat og drikke inkluderer ikke engroshandel av alkoholholdige drikkevarer og tobakksvarer da
+
+deres marginer avviker kraftig fra den øvrige engrosvirksomheten. Se vedlegg for nærmere omtale av definisjonen av
+de ulike bransjegruppene.
+
+MENON ECONOMICS
+
+35
+
+RAPPORT
+
+Figur 19: Gjennomsnittlig driftsmargin i ulike ledd i verdikjeden for perioden 2007-2016. Kilde: Menon, Bisnode (2018)
+
+Av figuren ser vi at produsentleddet i gjennomsnitt har den høyeste driftsmarginen, mens den er lavest for
+dagligvarebutikkene. Våre beregninger gir heller ingen indikasjon på at de store dagligvareaktørene henter ut
+overskuddet i grossistleddet. Driftsmargin i engrosvirksomhet blant selskapene med tilknytning til
+paraplyaktørene har i gjennomsnitt ligget på 2,2 prosent i perioden, men svinger betraktelig fra år til år.
+Driftsmarginene i annen engrosvirksomhet av mat og drikke har i gjennomsnitt ligget på 2,9 prosent. Det er
+derimot store forskjeller mellom de ulike selskapene i alle ledd. Resultatene oppgitt i dagligvareaktørenes
+årsrapporter for 2016 viser likevel til relativt lave driftsmarginer. NorgesGruppens årsrapport for 2016 viser til
+en driftsmargin på fire prosent for hele konsernet, tre prosent for detaljhandel, 1,7 prosent innen
+engrosvirksomhet og 5,4 prosent innen merkevare (produkter). Hverken Coop eller REMA 1000 har en
+tilsvarende segmentfordeling i sine årsrapporter for 2016. Regnskapet gjengitt i årsrapportene for 2016 viser en
+driftsmargin for Coop Norge konsern på 1,6 prosent og 4,8 prosent i driftsmargin for REMA 1000s virksomhet i
+Norge innen handel.
+Til sammenligning viser Tines årsrapport en driftsmargin på 8,7 prosent, mens Norturas driftsmargin var på kun
+2,4 prosent i 2016. For segmentet Branded consumer goods viser tallene i Orklas årsrapport for 2016 til en
+driftsmargin på 11 prosent, da også inkludert virksomhet i andre land enn Norge.
+Samtidig er det viktig å understreke at inntekter og kostnadene over driftsregnskapet ikke nødvendigvis gir et
+fullstendig bilde over virksomhetenes lønnsomhet, eller eiernes avkastning. Samtlige ledd i verdikjeden er også
+avhengig av å investere i innovative løsninger for å møte kundenes behov, vedlikeholde merkevaren(e) de har
+bygget opp og effektivisere drift. Videre er dagligvaremarkedet karakterisert med høy, stabil omsetning og høy
+omløpshastighet, hvilket gjør at lav driftsmargin fortsatt kan gi høy avkastning på anvendt kapital. Alternative
+lønnsomhetsmål som egenkapitalrentabilitet og totalkapitalrentabilitet fanger i større grad opp denne typen
+forhold.
+Tidligere undersøkelser av lønnsomheten i dagligvaremarkedet støtter våre funn.27 Konkurransetilsynet (2011)
+beregnet paraplyaktørenes vektede driftsmargin til 1,8 prosent i 2008 og viser videre til en økning til 2,4 prosent
+i 2010. Videre oppgir de at gjennomsnittlig driftsmargin i Sverige lå på noe over 4 prosent, og i Storbritannia over
+4,5 prosent. I en artikkelsamling fra NILF (2011) har Vagstad (2011) blant annet sammenlignet driftsmarginen i
+dagligvarehandel i Norge med andre land. Han beregner driftsmarginen i dagligvarehandel i Norge til 3,2 prosent
+
+27 Se for eksempel Konkurransetilsynet (2011), Vagstad(2011), NHO(2012), NOU(2013:6) eller IBA(2017)
+
+MENON ECONOMICS
+
+36
+
+RAPPORT
+
+i 2007, mot 4,47 prosent i EU og 2,7 prosent i Sverige. Analysen av driftsmarginer, totalkapitalrentabilitet og
+egenkapitalrentabilitet i dagligvaremarkedet, varehandel, industri og næringsmiddelindustri er oppdatert i
+Gabrielsen et al. (2013)28. Her fant de en lavere driftsmargin i dagligvarehandel sammenlignet med de øvrige
+næringene for perioden 2001 til 2010. Deres analyser av rentabilitetsutviklingen viser at dagligvarehandel i
+gjennomsnitt har hatt en lavere totalkapitalrentabilitet, 7,3 prosent, enn varehandel (8,7 prosent) og
+næringsmiddelindustrien (8,3 prosent) i perioden 1999-2010. Hva gjelder egenkapitalrentabiliteten var
+gjennomsnittet for dagligvarer, 13,2 prosent, fortsatt lavere enn varehandel (15,6 prosent). Tidligere analyser av
+ulike lønnsomhetsmål viser dermed at lønnsomheten er relativ lav i det norske dagligvaremarkedet.
+En nærmere titt på selskapenes driftsregnskap viser at varekostnaden er det desidert største kostnadsdriveren,
+slik gjengitt i figuren under.
+
+Figur 20: Driftskostnader29 som andel av omsetning (gjennomsnitt for perioden 2007-2016). Kilde: Menon, Bisnode (2018)
+
+I gjennomsnitt utgjør varekostnadene i dagligvarebutikkene 75 prosent av omsetningen. Igjen avviker dette noe
+fra øvrig detaljhandel. Varekostnadene utgjør en enda høyere andel av omsetningen blant engrosvirksomheten.
+Varekostnadens andel av både dagligvarebutikkens og engrosvirksomhetens omsetning poengterer at gode
+innkjøpsbetingelser og effektiv vareflyt er en viktig forutsetning for dagligvareaktørenes mulighet til å senke
+utsalgsprisene til forbrukeren.
+
+28 Analysen ser på perioden mellom 1999 og 2010.
+29 Varekostnader er her definert som regnskapspostene vareforbruk og beholdningsendringer. Disse regnskapspostene
+
+inkluderer også frakt og offentlige avgifter med unntak av merverdiavgift. Lønnskostnader inkluderer alle former for
+godtgjørelse til selskapets ansatte, arbeidsgiveravgift og pensjon. Øvrige driftskostnader består av regnskapspostene
+avskrivninger, nedskrivninger og andre driftskostnader. Se vedlegg for nærmere beskrivelse om datagrunnlag og
+metode.
+
+MENON ECONOMICS
+
+37
+
+RAPPORT
+
+6. Konkurranse
+Konkurranse er ikke et mål i seg selv sett fra et samfunnsøkonomisk perspektiv. Målet er høyest
+samfunnsøkonomisk effektivitet og et best mulig tilbud til konsumentene. Konkurranse vil ofte være
+en egnet mekanisme i økonomien for å realisere dette. Kapitlene ovenfor indikerer at det er hard
+konkurranse i det norske dagligvaremarkedet. Det er en misforståelse å hevde at få aktører
+nødvendigvis gir svak konkurranse. Som vi diskuterer nedenfor kan så lite som to aktører faktisk gi
+samme utfall i form av pris og kvalitet som under fullkommen konkurranse. I tillegg vil kjøpermakt
+fra få aktører i ett ledd i en verdikjede kunne motvirke konsekvensene av svak konkurranse høyere
+oppe i verdikjeden.
+
+6.1 Konkurranse mellom få aktører gir ikke nødvendigvis svak konkurranse
+Dagligvaremarkedet i Norge består av tre store og én liten paraplyaktør, noe som i økonomisk teori kan beskrives
+som et oligopol. Noe av misforståelsen i ordskiftet om konkurransesituasjonen bygger på en tanke om at få
+aktører nødvendigvis gir svak konkurranse og lav konsumentvelferd. Dette er imidlertid ikke riktig. Få aktører kan
+gi utslag i svak konkurranse og høye priser, men kan også ende i knallhard konkurranse og lave priser. Utfallet er
+avhengig av om de få aktørene konkurrer eller samarbeider, og om de konkurrerer på pris (Bertrand, 1883) eller
+kvantum (Cournot, 1838).
+Ved Bertrand-konkurranse er pris den avgjørende konkurransefaktoren, og den dominerende strategien er å
+prise lavere enn konkurrentene og dermed stjele deres kunder. Utfallet av dette er at man vil oppnå samme pris
+og konsumentoverskudd som ved fullstendig konkurranse. Bertrand-konkurranse er ofte beskrivende for
+næringer hvor kapasitet og volum er enkelt å justere og produktene er homogene.
+Selv om man teoretisk kan ende med fullstendig konkurranse med få aktører, kan få aktører også være
+problematisk selv ved priskonkurranse. Færre aktører øker nemlig sannsynligheten for prissamarbeid.
+Dagligvaremarkedet har noen karakteristikker som tilsier fare for stilltiende samarbeid, som blant annet høy
+konsentrasjon, etableringsbarrierer og relativt homogene produkter. Konkurransetilsynet gjorde en vurdering av
+denne problematikken i 2009 (Konkurransetilsynet, 2009) og kom fram til at det ville være utfordrende å få til
+prissamarbeid i et marked med så mange produkter og priser. Konkurransetilsynet har i tillegg gjort flere tiltak
+for å hindre informasjonsflyten rundt konkurrentenes priser, blant annet ved å redusere gjennomsiktigheten i
+rapporteringen fra AC Nilsen (Konkurransetilsynet, 2009) og råd til Forbrukerrådet rundt utarbeiding av
+prisportal for dagligvare.
+Dersom kapasitet og volum er vanskelig å justere er ofte Cournot-konkurranse en mer beskrivende modellering
+av konkurransesituasjonen. Ved Cournot-konkurranse er det kvantitet som er den avgjørende
+konkurransefaktoren. Det generelle utfallet ved Cournot-konkurranse er at de ulike aktørene har insentiver til å
+begrense eget volum, slik at man til slutt ender opp i en likevekt hvor prisen i markedet er høyere enn
+marginalkostnaden, og konsumentoverskuddet er lavere enn ved fullstendig konkurranse.
+Innsikten fra Bertrand og Cournot kan kombineres i en to-periodes modell som er mer beskrivende for
+dagligvaremarkedet enn en av modellene alene (Kreps & Scheinkman, 1983). Tanken er at konkurransen mellom
+eksisterende butikker best kan beskrives som priskonkurranse (Bertrand). Samtidig vil aktørene i markedet først
+bestemme kapasiteten sin i form av antall butikker. Man vil dermed ende opp med en to-periodes modell hvor
+man i første periode bestemmer kapasitet, mens man i andre periode vil konkurrere på pris gitt den kapasiteten
+
+MENON ECONOMICS
+
+38
+
+RAPPORT
+
+man har. Resultatet vil være at man ender opp med det samme utfallet som man ville gjort ved Cournotkonkurranse, noe som altså vil gi en uheldig konkurransesituasjon fra et samfunnsøkonomisk perspektiv.
+En del av innsikten fra Kreps og Scheinkman (1983) er at få aktører ikke er så problematisk når kapasiteten
+allerede er bestemt. Man vil da konkurrere med pris som variabel, og dermed ønske å underby konkurrenten så
+langt det lar seg gjøre. Problemet er heller at man bevisst vil velge underkapasitet og dermed redusere tilbudet,
+noe som igjen kan redusere konsumentvelferden.
+Problemet med å modellere det norske dagligvaremarkedet på denne måten er at det ikke synes å gi en
+tilstrekkelig beskrivelse av den faktiske konkurransesituasjonen, hvor vi blant annet ser lave marginer i forhold
+til sammenlignbare næringer og lav relativ prisutvikling på dagligvare sammenlignet med andre land, som
+diskutert i kapittel 5. En mulig årsak er at Kreps og Scheinkman-modellen ikke tar inn over seg fallende
+marginalkostnad – de rabattene og stordriftsfordelene dagligvareaktørene får ved økte volumer. Denne
+gevinsten fra større volumer vil insentivere aktørene til å etablere større kapasitet i et forsøk på å kapre
+markedsandeler. Så fremt det ikke er koordinering mellom aktørene vil alle gjøre dette, slik at ingen faktisk ender
+opp med å kapre ekstra andeler. Dette kan i så fall resultere i en overetablering.
+Det er vanskelig å empirisk identifisere hvorvidt det er en overetablering av dagligvarebutikker i det norske
+markedet. Det er imidlertid liten tvil om at butikktettheten er høy og at dagligvareaktørene kunne økt sine
+markedsandeler betydelig uten store ugjenkallelige investeringer. Dersom dette faktisk er et uttrykk for
+overetablering i markedet, vil ikke kapasitetstilpasningene fra «første periode» være bindende. Utfallet vil i så
+fall bli det samme som med ren priskonkurranse (Bertrand-konkurranse), og kunne forklare det sterke
+priskonkurransefokuset i detaljistleddet i dagligvaremarkedet.
+Observasjon av dagens dagligvaremarked, med blant annet lave marginer i detaljistleddet og hyppige priskriger,
+kan indikere at mekanismen beskrevet over, med fallende marginalkostnad som fører til sterkere konkurranse
+og lavere priser, er reell. Samtidig er det usikkert hvor stor effekten er. Dette er derfor noe som bør utredes
+ytterligere før man eventuelt gjennomfører tiltak som demper paraplyaktørenes insentiver til å stjele
+markedsandeler av hverandre. Slike tiltak kan potensielt dempe konkurransen for å gi livets rett til konkurrenter
+som i utgangspunktet ikke er konkurransedyktige.
+
+6.2 Kjøpermakt vs. selgermakt
+En annen misforståelse knyttet til høy konsentrasjon på grossist-/detaljistnivået innen dagligvare er at høy
+konsentrasjon gir utslag i markedsmakt, og at markedsmakt nødvendigvis er skadelig for samfunnet. Vi diskuterte
+dette i kapittel 2, men utdyper analysen ytterligere her.
+Markedsmakt kan deles inn i både kjøpermakt og selgermakt. Selgermakt er problematisk i de fleste tilfeller, og
+fører typisk til høyere priser og er ofte skadelig for samfunnet. Dersom dagligvareaktørene har selgermakt vil de
+ta et høyt varepåslag som vil resultere i høye marginer og et dårligere tilbud til konsumentene. Som vi har
+diskutert i kapitlene ovenfor ser det ikke ut til at dette er tilfellet i dagligvaremarkedet i dag.
+Utnyttelse av kjøpermakt vil på sin side svært ofte være positivt for konsumentene (se blant annet
+Konkurransetilsynet (2016), Gabrielsen et al. (2013) og Von der Fehr (2011)), noe som vi også diskuterte i kapittel
+2.1.1. Dersom leverandørleddet har stor selgermakt, for eksempel som et resultat av få aktører og sterke
+merkevarer, samtidig som grossist-/detaljistleddet har lav kjøpermakt, vil leverandørene kunne utnytte
+markedsmakten sin til å presse opp prisene og dermed også egne marginer og profitt. Dette vil gi utslag i høyere
+innkjøpskostnader for grossist-/detaljistleddet, noe som igjen vil føre til høyere priser til konsumentene.
+
+MENON ECONOMICS
+
+39
+
+RAPPORT
+
+Leverandørindustrien i Norge er preget av relativt få aktører med sterke merkevarer, og har dermed også relativt
+sterk selgermakt. Vi har tidligere vist at leverandørleddet har høyere driftsmarginer enn detaljistleddet, og
+Gabrielsen et al. (2013) viser i tillegg at også egenkapitalrentabiliteten er høyere her. Vi er derfor avhengige av
+at grossist-/detaljistleddet har sterk kjøpermakt for å motvirke selgermakt i leverandørleddet. Ettersom høy
+konsentrasjon gir sterkere kjøpermakt, vil høy konsentrasjon i grossist-/detaljistleddet isolert sett gi positive
+utslag for konsumentene, ved at man oppveier leverandørenes selgermakt med høyere kjøpermakt.
+
+6.3 Konkurranse på ulike nivåer i dagligvaremarkedet
+Konkurranse på kjedenivå
+Dagligvaremarkedet i Norge består av mer enn 16 kjeder, som grovt kan fordeles i de fire kategoriene lavpris,
+supermarked, nærbutikk og hypermarked basert på egenskaper. Lavprissegmentet tilbyr et mer begrenset
+vareutvalg til lave priser. Supermarkedenes fortrinn ligger i et bredere vareutvalg og et fokus på en god
+handleopplevelse. Nærbutikker er butikker i mindre tettbebodde strøk, hvor tilgjengelighet er det viktigste, mens
+hypermarked tilbyr et enda større vareutvalg enn supermarkedene og beveger seg ofte utover det som er et
+klassisk dagligvaresortiment.
+
+Figur 21: Butikkjedenes omsetningsandel i 2017 fordelt på segment. Kilde: Dagligvarerapporten 2018, Nielsen
+
+Ettersom kjedene er kategorisert i de ulike segmentene basert på egenskaper, er det også klart at konkurransen
+mellom de ulike kjedene er størst innad i et segment Dette ser vi blant annet igjen i aksjonsmønsteret til de ulike
+
+MENON ECONOMICS
+
+40
+
+RAPPORT
+
+aktørene, hvor det blant annet stort sett er lavprisaktører som responderer på andre lavprisaktørers
+kampanjer.30
+Selv om priskonkurransen er hardest innad i segmentene, eksisterer det også konkurranse mellom segmentene.
+Ser vi på utviklingen innen de ulike segmentene over tid ser vi at markedsandelen til lavprissegmentet har økt
+med rundt 15 prosentpoeng bare siden 2009. Dette på bekostning av butikkjedene i de andre segmentene.
+Denne utviklingen kan ha flere årsaker. En mulighet er at konsumentene kan ha blitt mer prissensitive over tid, 31
+slik at pris har blitt en viktigere konkurransefaktor. En annen kan være at lavprissegmentet i større grad har
+nærmet seg vareutvalget til supermarkedene med stadig bedre ferskvareutvalg. Ifølge SIFOs analyser av
+utviklingen i vareutvalget i norske dagligvarebutikker er det nettopp lavprisbutikkene som har hatt den høyeste
+veksten i antall produkter i perioden fra 2008 til 2015 (SIFO, 2016).
+
+Figur 22: Markedsandeler i ulike segmenter over tid. Kilde: Dagligvarerapporten 2018, Nielsen
+
+I Norge er ikke forskjellen mellom lavprissegmentet og supermarkedene like stor som i andre land. Våre
+lavpriskjeder er såkalte soft-discount lavpriskjeder, hvor vareutvalget er større og prisene generelt noe høyere
+enn såkalte «hard-discount» aktører som Lidl. Supermarkedenes fordel er ofte ting som ferskvaredisker og et
+større vareutvalg enn det vi finner i lavpriskjedene. Flere ferskvarer og varer generelt gjør derimot
+driftskostnadene høyere og gir supermarkedene mindre rom for å konkurrere med lavpriskjedene på pris.
+Som tidligere nevnt oppgir 46 prosent at de handler «hverdagsmat» og «helgemat» i forskjellige butikker
+(Forbrukerrådet, 2016). For helgehandelen er et ekstra bredt vareutvalg vesentlig viktigere enn i
+hverdagshandelen, mens pris er vesentlig viktigere når det kommer til hverdagshandelen. Videre ser vi også at
+lavpriskjedene stadig utfordrer supermarkedenes vareutvalg. Et godt eksempel på dette er Coops butikkjede
+Extra, hvis slagord er «Extra stort utvalg til Extra lave priser». Medieaktørers fokus på priskriger for å omtale
+konkurransen i dagligvaremarkedet begrenses ofte til lavpriskjedene REMA 1000, Coop Extra og Kiwi. Ettersom
+de tre tilhører hver sin paraplyaktør forsterkes inntrykket av at konkurransen i dagligvaremarkedet hovedsakelig
+foregår mellom de tre konsernene. Konkurransen mot de andre 13 butikkjedene er derimot lite omtalt.
+
+30 Se for eksempel: https://www.vg.no/forbruker/mat-og-drikke/jul/matkjedene-varsler-nye-kutt-nekter-aa-avblaase-
+
+priskrigen/a/23575141/
+31 Markedsanalyser fra 2015, har tidligere vist at viktigheten av pris og kampanjer for å tiltrekke seg kunder har økt
+over tid
+
+MENON ECONOMICS
+
+41
+
+RAPPORT
+
+Kiwi jakter etter helgehandelen til supermarkedene, på bekostning av Meny og Spar
+Forbrukernes verdsettelse av et stort vareutvalg og lavere prisfokus i helgehandelen gjør denne til en viktig
+del av supermarkedenes omsetning, og deres evne til å konkurrere mot lavpriskjedenes priser. Både Meny
+og Spar bruker derfor typisk tilbud på helgens middagsfavoritter for å trekke kunder til butikken i helgene.
+Øverst på listen over norske middagsfavoritter står pizza og taco. For flere år siden startet derfor
+butikkjeden Meny kampanjer rettet mot fredags-tacoen, med kampanjer i form av eget nettbasert tacospill
+og «Tacofredag hele helgen» med lavere priser på taco-produkter i helgene. I dag er tre-for-to tilbud på
+Peppes’ pizzas «Lag Peppes hjemme»-produkter et av Menys «Fast knallkjøp». Tilsvarende har Spar-kjeden
+nå 40 prosent rabatt på taco-produkter fra Santa Maria og Old El Paso! fredag og lørdag.
+
+I februar i år annonserte Kiwi at de ville kutte de faste prisene på en rekke produkter til hjemmelaget pizza
+og taco med mellom 10 og 40 prosent. Det vil si middagsfavorittene både Meny og Spar lenge har brukt i
+markedsføringen mot sine kunder. Dette er et tydelig signal fra lavpriskjeden Kiwi at de ønsker en andel av
+supermarkedenes helgehandel. I jakten på markedsandeler spiller det således liten rolle for Kiwi om disse
+tas innad i samme segment, fra kjeder eid av Coop, REMA 1000 og Bunnpris eller fra de andre kjedene i
+NorgesGruppen.
+
+Konkurranse på butikknivå
+I Norge har vi nesten 4000 dagligvarebutikker spredt over hele landet, med nesten like mange konkurrerende
+butikksjefer. Hver sjef gjør sitt ytterste for å tiltrekke seg kunder ved å tilby god service og etterspurt utvalg til
+gunstige priser. I tillegg tilbys det i mange butikker alternative tjenester som post og bank i butikk, tipping og
+varelevering.
+Nordmenn handler ofte og prioriterer butikker som ligger nærme. I tillegg bor vi spredt og over hele landet. Den
+ekstremt høye butikktettheten i Norge er dermed et utrykk for at konkurransen i dagligvaremarkedet sikrer at
+man følger kundenes ønsker og tilbys dagligvarer der man bor. Med svak konkurranse ville vi hatt færre butikker
+og større avstander. Dette ville vært mer lønnsomt for næringen samlet, men redusert nytten for forbrukerne.
+
+MENON ECONOMICS
+
+42
+
+RAPPORT
+
+Av de om lag 4000 butikkene er det også en god andel som drives og eies av lokale kjøpmenn. I NorgesGruppen
+vises det til at rundt 60 prosent av deres 1800 dagligvarebutikker er eid av selvstendige kjøpmenn. Altså er det
+kun i de resterende 40 prosentene butikksjefen og øvrige ansatte er ansatt av NorgesGruppens butikkjeder.
+REMA 1000s butikker drives hovedsakelig som franchise, som vil si at butikksjefene er selvstendig
+næringsdrivende, men driver virksomheten på grunnlaget som er utviklet av REMA-konsernet, som for eksempel
+vareinnkjøp, distribusjon og utforming. I Bunnpris er om lag 180 av 250 butikker kjøpmannseid. Coop på sin side
+består av 91 samvirkelag som drifter og eier Coops butikker i hele Norge. Etter oppkjøpet av ICA har de også
+rundt 160 butikker som er franchisedrevet. 32
+Som del av en kjede er man underlagt noen restriksjoner fra kjedenivå. Ofte har man et grunnsortiment som alle
+butikkene i en kjede må føre, i tillegg til at mange av kjedene operer med en nasjonalt satt makspris. På tross av
+dette har den enkelte kjøpmann stor grad av frihet til å gjøre egne strategiske valg, både når det kommer til
+åpningstider, varesortiment, priser og kampanjer. Dette handlingsrommet gir kjøpmennene mulighet til å
+konkurrere med alle andre aktører innenfor det lokale markedet, også mot butikker som hører til samme kjede.
+Et eksempel på dette er tettheten av Bunnprisbutikker i Trondheim sentrum. Her ligger de ulike butikkene i
+åpenbar konkurranse med hverandre, og gjør strategiske valg for at konsumentene skal velge dem over andre.
+Konkurransen skjer både i form av varesortiment, som for eksempel en butikk som spesialiserer seg på et godt
+ølutvalg, eller i form av priser, ettersom Bunnpriskjeden kun gir restriksjoner i form av makspriser.
+I hovedsak drar dermed alle butikkene i samme paraplyaktør nytte av kjøpermakten til en av de tre
+paraplyaktørene, samtidig som de har mulighet til å konkurrere med de andre dagligvarebutikker lokalt på pris,
+butikkutforming, vareutvalg og service.
+
+32 Aktørenes årsrapport for 2016
+
+MENON ECONOMICS
+
+43
+
+RAPPORT
+
+7. Konklusjon
+I media fremstilles ofte det norske dagligvaremarkedet som ett nasjonalt marked, med svak konkurranse, høye
+priser og dårlig utvalg. Mange peker på at det er få store paraplyaktører, og konkluder med at det derfor
+automatisk må være svak konkurranse. Hvorvidt konkurransen faktisk er svak eller ikke, er det få som undersøker
+eller dokumenterer. Hvorvidt vareutvalget er dårlig eller ikke og hvorvidt prisene er høye eller ikke, gitt
+strukturelle forhold, er det også få som undersøker eller dokumenterer. I denne rapporten har vi sett på nettopp
+disse spørsmålene i et forsøk på å undersøke hva som faktisk er situasjonen i det norske dagligvaremarkedet.
+For å avdekke konkurransesituasjonen starter vi med en beskrivelse av verdikjeden og aktørbildet for å gi en
+oversikt over markedsdynamikken. I tråd med tidligere utredninger finner vi at konsentrasjonen er høy i alle ledd
+i verdikjeden. Paraplyaktørenes størrelse, og integrasjon i leverandørleddet bidrar således til å motvirke den
+selgermakten leverandørene har gjennom sine sterke varemerker, samtidig som forhandlingene indirekte er en
+vesentlig driver til konkurransen i dagligvaremarkedet. Lange avstander og spredt befolkning gjør det videre mer
+lønnsomt å samle distribusjonsvirksomheten på et fåtall aktører.
+Konsentrasjonen i detaljistleddet i Norge samsvarer i stor grad med situasjonen i våre naboland Sverige, Danmark
+og Finland. Forskjellen ligger hovedsakelig i mangelen av mange små og/eller internasjonale aktører i det norske
+dagligvaremarkedet. Store utenlandske aktører har forsøkt å etablere seg i Norge, men kombinasjonen av
+særnorske forhold og en tøff konkurransesituasjon førte til at de måtte gi opp den norske satsingen.
+Videre ser vi nærmere på utfordringene ved å avgrense hvilke aktører som inngår i «dagligvaremarkedet». En
+rekke alternative utsalgssteder tilbyr de samme varene som dagligvarebutikkene, herunder kiosk, bensin og
+servicehandel, bredsortimentsbutikker som Europris, grensehandel samt mindre aktører som spesialforretninger
+for mat og drikke. Netthandel gir videre rom for nye dagligvareaktører og representerer samtidig en ny
+salgskanal, skaper nye tjenester og økt press fra utenlandske aktører. Samtidig virker bransjeglidninger
+disiplinerende på konkurransen både i dagligvaremarkedet og i tilgrensende markeder.
+Deretter undersøker vi forhold som typisk er forbundet med svak konkurranse. Vi ser på vareutvalget,
+butikktetthet, prisutvikling og marginutvikling.
+Tidligere studier Menon har gjennomført viser at det norske vareutvalget ikke er vesentlig dårligere enn det
+svenske når man sammenlikner butikker av lik størrelse. Utvalget av ferskvarer er større i Norge, mens utvalget
+av meieri og langtidsholdbart er bedre i Sverige. Videre er det langt høyere butikktetthet i Norge enn i Sverige
+(og ellers i Europa). Norske butikker er gjennomgående mindre enn svenske, hvilket i stor grad også forklarer
+hvorfor det gjennomsnittlige vareutvalget er lavere i Norge. Disse funnene støtter ikke en hypotese om at svak
+konkurranse i dagligvaremarkedet har resultert i et dårlig vareutvalg.
+Hadde konkurransen i dagligvaremarkedet vært svak, ville vi forventet å se tegn til dette i form av økte priser og
+høye marginer. Vi har derfor sett på utviklingen i konsumprisindeksen for mat og drikkevarer, sammenlignet med
+den generelle prisveksten og tilsvarende utviklingen i Sverige, Danmark, Finland og EU-samlet. Sammenlignet
+med den generelle konsumprisveksten, har prisene for matvarer og alkoholfrie drikkevarer hatt en lavere vekst
+de siste ti årene. Sammenlignet med andre land er det kun Finland som har hatt en lignende utvikling som Norge.
+Dette indikerer at prisutviklingen innen dagligvare i Norge ikke skyldes internasjonale trender eller
+teknologiutvikling. Utviklingene i prisen for matvarer og drikkevarer gir dermed ingen indikasjoner på at
+konkurransesituasjonen i det norske dagligvaremarkedet har forverret seg de siste ti årene.
+
+MENON ECONOMICS
+
+44
+
+RAPPORT
+
+Våre analyser av driftsmarginene finner at dagligvarebutikkene i gjennomsnitt har hatt en driftsmargin på 1,9
+prosent i perioden 2007-2016, grossistene 2,2-2,9 prosent og produsentene 3,6 prosent. Til sammenligning har
+øvrig detaljhandel hatt en gjennomsnittlig driftsmargin på 3,2 prosent i samme periode. Andre analyser har vist
+at også egenkapitalrentabiliteten er lavere innen dagligvare enn i annen varehandel (Gabrielsen et al., 2013).
+Disse funnene stemmer lite overens med en historie om dårlig konkurranse i markedet.
+Våre eksempler og analyser gir altså liten støtte til argumenter om at konkurransen i dagligvaremarkedet i Norge
+er lav, selv om fire paraplyaktører utgjør 99,9 prosent av markedet. Vi argumenterer for at denne oppfattelsen
+om dagligvaremarkedet i stor grad bygger på en misoppfatning om at få aktører nødvendigvis resulterer i en svak
+konkurranse. Økonomisk teori tilsier derimot at så lite som to aktører i et marked, likevel kan ende i fullkommen
+konkurranse under de riktige forutsetningene. Videre kan kjøpermakt fra få aktører i ett ledd i en verdikjede
+kunne motvirke konsekvensene av svak konkurranse høyere opp i verdikjeden. Ettersom større volum gir
+grunnlag for bedre innkjøpsbetingelser hos leverandørene, gir dette sterke insentiver til å kapre nye
+markedsandeler. Muligheten til å utnytte stordriftsfordeler i forhandlinger med leverandørene er således en
+sentral driver for konkurransen i markedet.
+Høy konsentrasjon, etableringsbarrierer som stordriftsfordeler og integrert grossist/detaljistledd øker faren for
+stilltiende samarbeid. Samtidig gjør antall varer og priser i dagligvaremarkedet et slikt samarbeid utfordrende.
+Endringer i de ulike aktørene og kjedenes markedsandeler over tid, lave driftsmarginer, ulik lønnsomhet blant
+aktørene og hyppige priskriger er videre tegn på at et slikt samarbeid ikke eksisterer i markedet i dag.
+
+MENON ECONOMICS
+
+45
+
+RAPPORT
+
+Referanseliste
+Bertrand, J. (1883). Theorie Mathematique de la Richesse Sociale. Journal des Savants pp. 499-508.
+Cournot, A. (1838). Researches into the Mathematical Principles of the Theory of Wealth
+Forbrukerrådet (2013), Dagligvareundersøkelsen 2013. Tilgjengelig her:
+https://www.forbrukerradet.no/undersokelse/2013/dagligvareundersokelsen/
+Forbrukerrådet (2016), Forbrukerrådets befolkningsundersøkelsen desember 2016:
+https://fil.forbrukerradet.no/wp-content/uploads/2017/03/tabeller-dagligvarer-og-mobil-des-2016.pdf
+Gabrielsen, Steen, Sørgard og Vagstad. (2013). Kjøpermakt i Dagligvaresektoren. Utredning skrevet på oppdrag
+av Fornyings-, Administrasjons- og Kirkedepartementet.
+IBA (2017), Detaljhandelsboken 2018,
+Innovasjon Norge, Vekst og samarbeid er nøkkelen til økt lokalmatomsetning, pressemelding 14.januar 2016
+Konkurransetilsynet (2008), Vedtak V2008-10 Rema 1000 AS - Lidl Norge GmbH
+Konkurransetilsynet (2009), Konkurranse i Norge
+Konkurransetilsynet (2011), Konkurransetilsynets høringssvar til Matkjedeutvalgets rapport (NOU 2011:4)
+Konkurransetilsynet (2015), Vedtak V2015-24 Coop Norge Handels - ICA Norge AS
+Konkurransetilsynet v. Søgard og Eikin. (2016). Skader ikke konkurransen. Kronikk i BT. Hentet fra:
+http://www.konkurransetilsynet.no/nb-NO/aktuelt/artiklar-og-innlegg/skader-ikke-konkurransen/
+Kreps og Scheinkman. (1983). Quantity precommitment and Bertrand competition yield Cournot outcomes. The
+Bell Journal of Economics (1983): 326-337.
+Landbruksdirektoratet (2018), Markedsrapport 2017 – Vurdering av markedene for norske landbruksvarer,
+Rapport nr. 4/2018
+Menon (2016), Utvalget av mat og drikke i norsk og svensk dagligvare – En analyse av sammenliknbare
+butikker, Menon-publikasjon nr. 56/2016, tilgjengelig via: https://www.menon.no/wp-content/uploads/201656-Utvalget-av-mat-og-drikke-i-svensk-og-norsk-dagligvare.pdf
+Menon (2017), Effektene av økende norsk grensehandel – tapte arbeidsplasser, verdiskaping og inntekter til
+stat og kommune, tilgjengelig via: https://www.menon.no/wp-content/uploads/2017-87-Grensehandel-taptearbeidsplasser-og-offentlige-inntekter-for-Norge.pdf
+NHO (2012), Status i varehandelen – En oversikt over detalj- og engroshandel, NHO Handel
+NIBIO (2016), Mat og industri 2016 – Status og utvikling i norsk matindustri
+NIBIO (2017), Mat og industri 2017 – Status og utvikling i norsk matindustri
+NILF (2011), Dagligvarehandel og mat – Perspektiver på verdikjedene for matvarer, artikkelsamling. Særlig
+Vagstad (2011), Lønnsomhet i leveringskjeden for matvarer
+
+MENON ECONOMICS
+
+46
+
+RAPPORT
+
+NILF (2013), Dagligvarehandel og mat
+NOU (2011:4), Mat makt og avmakt – om styrkeforholdene i verdikjeden for mat
+NOU (2013:6), God handelsskikk i dagligvarekjeden
+NOU (2017:17), På ein søndag? – Reglane om søndagshandel og konsekvensene av endringar
+Oslo Economics (2017), Etableringshindringer i dagligvaresektoren, 2017-46
+SIFO (2016) Vareutvalg av mat og drikke i norske dagligvarebutikker: Utvikling, egne merkevarer og
+sammenligning med Sverige, Oppdragsrapport nr. 7 - 2016
+Virke (2015), Dagligvarehandelen 2015
+Virke (2017a), Dagligvarehandelen 2017
+Virke (2017b), KBS-rapporten 2017/2018
+Virke (2017c), Handelsrapporten 2017/2018
+Utgår(2008), Lidl i Norge: Problematisk etablering med varig effekter, Artikkel skrevet i NILF(2008),
+Dagligvarehandel og mat 2008, NILF rapport 2008-1
+
+MENON ECONOMICS
+
+47
+
+RAPPORT
+
+Vedlegg: Datagrunnlag og beregning av driftsmarginer og
+driftskostnaders andel av omsetning
+Beregninger av driftsmargin og driftskostnadenes andel av omsetning er gjort basert på Menons
+regnskapsdatabase. Menons regnskapsdatabase er består av regnskapstall, selskap- og aksjonærinformasjon fra
+Brønnøysundsregisterne. Selskap som ikke er rapporteringspliktige til Brønnøysundsregisterne (eks.
+enkeltmannsforetak) er ikke inkludert i disse tallene. Bisnode Norge AS er Menons leverandør av disse dataene.
+Driftsmargin er beregnet ut fra samlet driftsresultat dividert på samlet omsetning per år i alle selskap i samme
+næringskode. I den grad ulike selskap kjøper varer og tjenester fra hverandre innad i samme næringskode, kan
+dette føre til at samlet omsetning overvurderes ettersom verdien av den samme varen/tjenesten telles flere
+ganger. I slike tilfeller vil driftsmargin undervurderes. Driftsmarginen fra år til år påvirkes sterkt av endringer i
+enkeltselskapers regnskap i enkelte år, vi har derfor valgt å gjengi gjennomsnittlig driftsmargin for perioden 20072016.
+Samme metode er benyttet for å beregne driftskostnadenes andel av omsetning. Varekostnader er her definert
+som regnskapspostene vareforbruk og beholdningsendringer. Disse regnskapspostene inkluderer også frakt og
+offentlige avgifter med unntak av merverdiavgift. Lønnskostnader inkluderer alle former for godtgjørelse til
+selskapets ansatte, arbeidsgiveravgift og pensjon. Øvrige driftskostnader består av regnskapspostene
+avskrivninger, nedskrivninger og andre driftskostnader.
+Tallene inkluderer ikke merverdiavgift.
+Bransjeinndelingen følger hovedsakelig SSBs standard for næringsgruppering:
+•
+
+Butikkhandel dagligvarer: 47.111 Butikkhandel med bredt vareutvalg med hovedvekt på nærings- og
+nytelsesmidler
+
+•
+
+Butikkhandel møbler: 47.591 Butikkhandel med møbler
+
+•
+
+Butikkhandel sport: 47.641 Butikkhandel med sportsutstyr
+
+•
+
+Butikkhandel klær: 47.710 Butikkhandel med klær
+
+•
+
+Total detaljhandel (eks. dagligvare): 47 Detaljhandel, unntatt med motorvogner, ekskludert 47.111
+
+•
+
+Produsenter mat og drikke: 10 Produksjon av nærings- og nytelsesmiddel og 11 Produksjon av
+drikkevarer
+
+•
+
+Engros mat og drikke: 463 Engroshandel med nærings- og nytelsesmidler ekskludert 46.341
+Engroshandel med vin og brennevin og 46.350 Engroshandel med tobakksvarer.
+o
+
+Dagligvare: Selskaper i eid av Reitangruppen, Coop og NorgesGruppen, Eks. ASKO, Bama, Coop
+Norge SA. Eierskapet er identifisert ut fra selskapets ultimate eier, konsernspiss. Konsernspiss
+er her definert som en overordnet juridisk enhet, som ikke kontrolleres direkte eller indirekte
+av en annen juridisk enhet, og som kontrollerer et eller flere foretak.
+
+o
+
+Andre: Øvrige selskaper innen Engros mat og drikke.
+
+MENON ECONOMICS
+
+48
+
+RAPPORT
+
+T
+
+Menon Economics analyserer økonomiske problemstillinger og gir råd til bedrifter, organisasjoner og myndigheter.
+Vi er et medarbeidereiet konsulentselskap som opererer i grenseflatene mellom økonomi, politikk og marked.
+Menon kombinerer samfunns- og bedriftsøkonomisk kompetanse innenfor fagfelt som samfunnsøkonomisk
+lønnsomhet, verdsetting, nærings- og konkurranseøkonomi, strategi, finans og organisasjonsdesign. Vi benytter
+forskningsbaserte metoder i våre analyser og jobber tett med ledende akademiske miljøer innenfor de fleste
+fagfelt. Alle offentlige rapporter fra Menon er tilgjengelige på vår hjemmeside www.menon.no.
++47 909 90 102 | post@menon.no | Sørkedalsveien 10 B, 0369 Oslo | menon.no
+
+MENON ECONOMICS
+
+49
+
+RAPPORT
+
+
