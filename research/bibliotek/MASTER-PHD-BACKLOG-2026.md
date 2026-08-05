@@ -30,7 +30,7 @@ Dette dokumentet inneholder en liste over nylig identifiserte akademiske arbeide
 
 | Forfatter(e) | År | Institusjon | Tittel | Relevans & Lenke |
 | :--- | :--- | :--- | :--- | :--- |
-| **Forventet utgivelse** | 2025 | Diverse | *Den nye Matsvinnloven (2026) og forretningsmodeller* | Analyse av hvordan loven fra mai 2025 endrer incentivene for donasjon vs. nedprising. |
+| **Avvist syntetisk identitet** | 2025 | — | *matsvinnloven-2025* | Ingen verifiserbar oppgave finnes. Ikke bruk som akademisk kilde. Den virkelige kilden er lovtekst `LOV-2025-06-20-103`, modellert separat som offentlig primærkilde. |
 | **Linh Duong** | 2025 | Aalto (FI) | *Common Grocery Self-Service Checkout Failures That Customers Can Resolve Without Employee Assistance* | Identifiserer friksjonspunkter i selvbetjente kasser. <br> **URL:** [aaltodoc.aalto.fi](https://aaltodoc.aalto.fi/server/api/core/bitstreams/ce6b7288-aee5-4a7c-bb7f-f238d138b282/content) |
 | **Milla Rislakki** | 2024 | JYU (FI) | *Promoting the Planetary Health Diet in Grocery Retail* | Sammenligner hvordan Lidl, S-Group og K-Group dytter (nudging) forbrukere. <br> **URL:** [jyx.jyu.fi](https://jyx.jyu.fi/bitstreams/c9740803-06d7-4578-a30e-ff576b6eb7bb/download) |
 | **Aisling Grace Hagan** | 2025 | UT/Nordisk | *The Impact of Food Loss and Waste Reduction Practices on Consumer Grocery Store Choice* | Undersøker om forbrukere faktisk velger butikk basert på matsvinn-sertifiseringer. |

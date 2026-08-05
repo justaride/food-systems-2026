@@ -25,7 +25,9 @@ Importert fôr har Finland som foregangsland (USD 390M VC i alternativ-protein,
 Valio-kooperativets soya-fase-ut). Matsvinn har Finland igjen på husholdningsnivå
 (22 kg/cap mot Danmarks 41 kg/cap) og Norges bransjeavtale på detaljhandelsnivå
 (-42% siden 2015). Strukturell konkurranse-terskel har Finlands Konkurranselov
-§4a 30%-regel som tydelig modell mot Norges verdens høyeste HHI (3445).
+§4a 30%-regel som en tydelig strukturell modell i et norsk marked med
+omsetnings-HHI 3 327 (Konkurransetilsynet, 2024). Nordisk rangering må fortsatt
+presenteres med metodeforbehold og harmonisert markedsavgrensning.
 
 Biogass og økologisk scorer 10 av 12 — fortsatt høyt — men har lavere enten
 nordisk samarbeidspotensial (biogass er nasjonalt infrastruktur-valg) eller

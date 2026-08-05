@@ -100,7 +100,7 @@ Hver seksjon = ett kort: **fet tittel** + kort beskrivelse (fra `messages/no.jso
 - 8 tematiske klynger · 35 seksjoner
 - 13 konsern med full eierskaps-/styredekning
 - 3 849 butikker · 1 782 havbrukslokaliteter · 357 kommuner
-- Markedskonsentrasjon dagligvare: NorgesGruppen 48,4 % · Coop 27,1 % · Reitan 18,0 % · Bunnpris 6,6 % (HHI 3 445)
+- Dagligvarekonsentrasjon: kontrollert omsetnings-HHI 3 327 og CR3 96,6 % (Konkurransetilsynet, 2024). Butikkandeler og omsetningsandeler skal vises som separate serier.
 - ~1 229 forskningsdokumenter · 23 strukturerte datasett
 
 ## Byggeprosedyre i Miro (når connector er autorisert)

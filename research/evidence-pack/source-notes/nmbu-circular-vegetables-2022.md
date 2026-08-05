@@ -1,7 +1,7 @@
 # Source locator: nmbu-circular-vegetables-2022
 
 Title: Barriers and drivers to a circular economy for vegetables in the Norwegian food sector
-Source URL: https://agris.fao.org/search/en/providers/122576/records/6474afcaf2e6fe92b3632ace
+Source URL: https://hdl.handle.net/11250/3030715
 Local status: locator note
 Created: 2026-07-02
 

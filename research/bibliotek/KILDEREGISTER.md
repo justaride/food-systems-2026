@@ -18,7 +18,7 @@ Dette registeret inneholder alle primære og sekundære kilder benyttet i de fir
 
 *   **Lovverk og Utredninger:**
     *   *Lov om god handelsskikk i dagligvarekjeden* (LOV-2020-04-17-33). Lovdata.no.
-    *   *Matsvinnloven* (LOV-2025-06-20-42). Lovdata.no (Ikrafttredelse 2026).
+    *   *Lov om forebygging og reduksjon av matsvinn (matsvinnloven)* (LOV-2025-06-20-103). Lovdata.no. Gjeldende ikrafttredelsesstatus må kontrolleres mot Lovdata.
     *   NOU 2011:4. *Mat, makt og avmakt — om styrkeforholdene i verdikjeden for mat*. Oslo: Departementenes servicesenter.
     *   Høie-utvalget (2026). *Matsystemutvalgets delrapport: Bærekraft og helse i norsk matpolitikk*. Oslo: NOU-utkast.
 
@@ -27,7 +27,7 @@ Dette registeret inneholder alle primære og sekundære kilder benyttet i de fir
     *   Regjeringen – LMD: [regjeringen.no/no/dep/lmd](https://www.regjeringen.no/no/dep/lmd/)
     *   Konkurransetilsynet: [konkurransetilsynet.no](https://konkurransetilsynet.no/)
     *   Lovdata – Lov om god handelsskikk: [lovdata.no/dokument/NL/lov/2020-04-17-33](https://lovdata.no/dokument/NL/lov/2020-04-17-33)
-    *   Lovdata – Matsvinnloven: [lovdata.no/dokument/NL/lov/2025-06-20-42](https://lovdata.no/dokument/NL/lov/2025-06-20-42)
+    *   Lovdata – Matsvinnloven: [lovdata.no/dokument/NL/lov/2025-06-20-103](https://lovdata.no/dokument/NL/lov/2025-06-20-103)
 
 ---
 

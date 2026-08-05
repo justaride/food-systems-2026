@@ -138,7 +138,7 @@ for name, desc, rel in REGULATORER:
 # (id-title, del, claim, links)
 INNSIKTER = [
     ("I01 Triopolet – 93,4 % av butikkene", 1,
-     "Tre paraplykjeder kontrollerer 93,4 % av Norges dagligvarebutikker: NorgesGruppen 48,4 %, Coop 27,1 %, Reitan 18,0 % (Bunnpris 6,6 %). HHI ≈ 3 445 — langt over grensen for «høykonsentrert» (2 500).",
+     "Tre paraplykjeder står bak 93,4 % av Norges dagligvarebutikker. Dette er en butikkantallserie, ikke omsetningsandeler. Kontrollert omsetnings-HHI er 3 327 og CR3 er 96,6 % for 2024; seriene skal ikke blandes.",
      ["NorgesGruppen", "Coop Norge", "Reitan Retail", "Bunnpris", "Ledd 5 – Dagligvare og detaljhandel"]),
     ("I02 4,9 mrd-boten", 1,
      "I august 2024 ble kjedene bøtelagt 4,9 milliarder kroner for ulovlig prissamarbeid. Likevel: bøtene alene endrer ikke systemet.",
@@ -243,7 +243,7 @@ note(f"{BASE}/Innsikter/Systemteori-perspektivene.md", "Systemteori-perspektiven
 
 # ================================================================ 4. NORDEN
 NORDEN = {
-    "Norge": "Høyest topp-3 i Norden (93,4 %), HHI ≈ 3 445, selvforsyning 44 %, tilsyn foreslått nedlagt. Casen dette prosjektet står i.",
+    "Norge": "Høykonsentrert dagligvare: butikkantall-topp-3 93,4 %, kontrollert omsetnings-HHI 3 327 og CR3 96,6 % for 2024. Nordisk HHI-rangering krever harmonisert markedsavgrensning.",
     "Sverige": "På vei mot duopol: ICA og Axfood konsoliderer, Coop faller. Estimert HHI ~3 300 (hedged).",
     "Danmark": "Moteksemplet: synkende konsentrasjon, fem reelle aktører, selvforsyning ~300 %. Også sirkulær frontløper (biogass: 8 100 GWh/år).",
     "Finland": "Konsentrasjonsekstremet (S-gruppen/Kesko-duopol) men sterkest regulering: § 4a automatisk dominansvurdering ved 30 %. Gratis skolemat som institusjonell loop.",
