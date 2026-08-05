@@ -77,3 +77,8 @@ node_modules.old*/
 
 # Slettemappe med store tarball-snapshots (~929 MB)
 /masterhjerne/_to_delete/
+
+# Reproduserbar bulk-data fra åpne registre (hentes på nytt via dokumenterte endepunkter/skript)
+research/data/fiskeridirektoratet-2026-08-05/fangstdata_2026.csv.zip
+research/data/fiskeridirektoratet-2026-08-05/fisketillatelser-med-fartoytilknytning-kvotestorrelser.xlsx
+research/data/aktivitetssignaler-2026-08-05/mattilsynet-smilefjes-tilsyn.csv
