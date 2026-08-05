@@ -68,3 +68,12 @@ docs/**/*.pdf
 
 # Stale node_modules-katalog fra npm-reset
 node_modules.old*/
+
+# Feil-eksporterte side-bilder dumpet i repo-rota (--001.png … --NNN.png)
+/--*.png
+
+# Privat arkiv (mode 700, skal ikke inn i git)
+/.private-archive/
+
+# Slettemappe med store tarball-snapshots (~929 MB)
+/masterhjerne/_to_delete/
