@@ -1,0 +1,133 @@
+# Source: https://www.kth.se/plenty/news-events/plenty/designing-a-more-sustainable-future-annelise-de-jong-s-research-journey-1.1468818
+# Retrieved via curl 2026-08-05 (HTTP 200)
+
+Designing a More Sustainable Future: Annelise de Jong’s Research Journey | KTH
+
+Skip to main content
+
+Home
+
+About
+
+Work Packages
+
+Partners
+
+News & Events
+
+Contact
+
+KTH
+Plenty
+News & Events
+News
+
+News & Events
+
+Close
+
+News & Events
+
+News & Events
+
+News & Events
+
+News
+
+Calendar of Events
+
+Designing a More Sustainable Future: Annelise de Jong’s Research Journey
+Rethinking everyday life through sustainable design and systems change
+
+Published Apr 12, 2026
+
+At KTH Royal Institute of Technology and IVL Swedish Environmental Research Institute, Dr. Annelise de Jong is rethinking what sustainability really means in practice. By combining design, behavioral insights, and systems thinking, de Jong explores how everyday choices, from how we eat to how we consume, can shift toward more sustainable ways of living, without compromising quality of life.
+
+Designing a More Sustainable Future: Annelise de Jong’s Research Journey
+At KTH Royal Institute of Technology and IVL Swedish Environmental Research Institute, Dr. Annelise de Jong is shaping a vision of sustainability that goes far beyond technological innovation. Her work sits at the intersection of design, human behavior, and societal transformation, exploring not just what we create, but how we live.
+De Jong’s academic journey began with a PhD in Industrial Design from Delft University of Technology, where she developed a deep understanding of how design influences everyday human behavior. Initially grounded in product design and design thinking, her research gradually expanded toward a broader systems perspective.
+
+In her free time, de Jong enjoys the outdoors, growing food, fishing, hiking, skiing, and kayaking. Indoors, she likes hands-on projects like renovating furniture, reflecting her passion for sustainable living.
+
+This shift marked a turning point: rather than focusing solely on individual products, de Jong began examining the larger structures shaping consumption, policies, cultural norms, and economic systems. Since joining IVL in 2019, alongside her affiliation with KTH, she has combined research, teaching, and student supervision to further this holistic approach.
+At the core of de Jong’s work lies a fundamental question:
+How can society reduce resource use without compromising quality of life?
+Her research explores sustainable consumption by focusing on real-life practices, how people cook, shop, and live. Instead of treating sustainability as a purely technical challenge, de Jong investigates‘how society can shift towards more sustainable and resourceful ways of producing, consuming and living’
+Key areas of her work include:
+
+Sustainable consumption and reduced resource use
+
+Circular economy practices such as reuse and sharing
+
+The role of design, policy, and behavior in sustainability transitions
+
+By understanding daily habits and decision-making processes, de Jong de Jong aims to scale up systems that already work on sustainable choices.
+De Jong is also a co-workpackage leader to the PLENTY project, where she focuses on sustainable food systems. Her work emphasizes that transforming how we produce and consume food requires more than technological innovation, it demands coordinated action across society.
+“A system perspective is required,” she explains, underscoring the need to connect industry, policymakers, and consumers.
+Within PLENTY, her research centers on WP3:
+
+Societal transition for new food solutions
+
+Collaboration between stakeholders
+
+Supporting the transition to circular food systems
+
+This approach highlights a crucial insight: sustainable change happens not in isolation, but through interconnected systems.
+A defining feature of de Jong’s career is her ability to bridge the gap between academia and real-world application. At IVL, she works in a setting specifically designed to translate research into practical solutions that can be implemented across society.
+Her connection to KTH further strengthens this role, enabling interdisciplinary collaboration and contributing to both research and education. By operating across these environments, de Jong ensures that sustainability research does not remain theoretical, but actively shapes policy, industry practices, and everyday life.
+Throughout her work, de Jong emphasizes collaboration as a cornerstone of sustainability. Complex challenges, such as climate change and resource scarcity, cannot be solved by a single discipline or sector.
+Projects like PLENTY bring together researchers, companies, and policymakers to co-create solutions that are both innovative and scalable. This cross-sector cooperation allows ideas to move from theory to practice, ensuring meaningful and lasting impact.
+Looking ahead, de Jong envisions a future where sustainability is embedded in everyday life. Her work shifts the focus from technological advancement alone to the broader question of how we live.
+Her vision includes:
+
+Encouraging reduced and more mindful consumption
+
+Enabling circular systems where resources are reused and repurposed
+
+Designing environments that make sustainable choices easier and more accessible
+
+This represents a broader transformation in sustainability research, from asking “What can we produce?” to asking “How should we live?”
+Through her interdisciplinary approach, de Jong is helping redefine sustainability for the modern world. By combining design thinking, behavioral insights, and systems-level research, she contributes to a future where sustainability is not an afterthought, but an integral part of everyday life.
+Her work serves as a reminder that meaningful change begins not only with innovation, but with rethinking the systems and habits that shape our daily lives.
+
+News
+
+Belongs to : Plenty
+
+Last changed : Apr 12, 2026
+
+KTH
+
+Study at KTH
+Research
+Cooperation
+About KTH
+Student at KTH
+Alumni
+KTH Intranet
+
+Organisation
+
+KTH Library
+KTH Schools
+Competence centres
+President and management
+University Administration
+
+Services
+
+Timetables
+Course and programme directory
+Webmail
+Learning management system (Canvas)
+
+Contact
+
+KTH Royal Institute of Technology SE-100 44 Stockholm Sweden +46 8 790 60 00
+
+Contact KTH
+Work at KTH
+Press and media
+About KTH website
+
+To page top

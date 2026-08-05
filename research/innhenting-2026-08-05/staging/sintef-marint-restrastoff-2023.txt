@@ -1,0 +1,1914 @@
+2024:00583 - Åpen
+
+
+
+
+  Rapport
+
+  Analyse marint restråstoff 2023
+  Tilgjengelighet og anvendelse av marint restråstoff fra norsk
+  fiskeri- og havbruksnæring
+
+  Forfattere
+  Magnus Myhre og Roger Richardsen, SINTEF Ocean AS
+  Ragnar Nystøyl, Gunn Strandheim, Kontali Analyse AS
+
+
+
+
+  Foto: SINTEFs raffineringsanlegg for marine oljer
+
+
+
+
+ SINTEF Ocean AS
+
+ 2024-06-14
+SINTEF Ocean AS            Rapport
+Postadresse:
+Postboks 118
+9252 Tromsø
+
+
+                           Analyse marint restråstoff 2023
+Sentralbord: 464 15 000
+
+ocean@sintef.no
+www.sintef.no/ocean
+Foretaksregister:
+                           Tilgjengelighet og anvendelse av marint restråstoff fra norsk fiskeri- og
+NO 937 357 370 MVA         havbruksnæring
+
+ EMNEORD:                 VERSJON                                                      DATO
+ Marint restråstoff       1.0                                                          2024-06-14
+ Tilførsel
+ Anvendelse               FORFATTER(E)
+ Tiltak                   Magnus Myhre og Roger Richardsen, SINTEF Ocean AS
+                          Ragnar Nystøyl, Gunn Strandheim, Kontali Analyse AS
+
+
+                          OPPDRAGSGIVER(E)                                             OPPDRAGSGIVERS REF.
+                          Fiskeri- og havbruksnæringens forskningsfinansiering         Lars Lovund / 901844
+
+                          PROSJEKTNR                                                   ANTALL SIDER OG VEDLEGG:
+                          302007613                                                    37 + 12
+
+                          SAMMENDRAG
+
+                          Marint restråstoff – en stadig viktigere ressurs
+                          Rapporten gir en oversikt over mengder restråstoff som oppstod fra norsk fiskeri- og
+                          havbruksnæringen i 2023. Hvor mye som ble utnyttet og hvordan restråstoffet ble
+                          anvendt til ulike produktgrupper og formål. I tillegg er det gjort et estimat på den
+                          overordnede økonomiske omsetningen av marint restråstoff i norsk industri, samt samlet
+                          innspill til tiltak for økt utnyttelse av marint restråstoff i fremtiden.
+
+                          I 2023 oppstod det ca. 1,14 million tonn restråstoff fra tilgjengelig råstoff på ca. 3,2
+                          millioner tonn fra fiskeri- og havbruksnæringen. Omtrent 88 % av restråstoffet er beregnet
+                          utnyttet (1 003 000 tonn) og anvendes mer eller mindre prosessert som ingredienser inn
+                          i ulike typer humant konsum, fôr, eller biogass/energi. Omtrent 133 000 tonn ble ikke
+                          utnyttet dette året, hovedsakelig fra hvitfisksektoren hvor fisken sløyes eller prosesseres
+                          om bord på fartøyene uten at restråstoffet bringes på land.
+
+
+                          UTARBEIDET AV                                                SIGNATUR
+                          Magnus Myhre                                                    Magnus Myhre
+                                                                                      Magnus Myhre (Jun 11, 2024 09:41 GMT+2)
+
+
+
+                          KONTROLLERT AV                                               SIGNATUR
+                          Robert Wolff
+
+                          GODKJENT AV                                                  SIGNATUR
+                          Ana Carvajal                                                    Ana K. Carvajal
+                                                                                       Ana K. Carvajal (Jun 14, 2024 10:54 GMT+2)
+
+
+
+                          RAPPORTNR          ISBN                  GRADERING           GRADERING DENNE SIDE
+                          2024:00583         978-82-14-07214-3     Åpen                Åpen
+
+
+
+
+                                                                                                                                    1 av 50
+Innholdsfortegnelse
+
+1   Sammendrag ................................................................................................................................. 3
+    1.1 Resultater – tilgjengelig restråstoff................................................................................................ 3
+    1.2 Anvendelse av restråstoff .............................................................................................................. 4
+
+2   Innledning ..................................................................................................................................... 5
+
+3   Verdikjedebeskrivelse og definisjoner ............................................................................................ 6
+    3.1 Definisjoner .................................................................................................................................... 9
+
+4   Metode ....................................................................................................................................... 11
+
+5   Resultater ................................................................................................................................... 12
+    5.1 Tilgjengelig restråstoff ................................................................................................................. 12
+    5.2 Hvitfisksektor ............................................................................................................................... 13
+          5.2.1 Fordeling kyst – hav ......................................................................................................... 15
+          5.2.2 Omsatt mel/olje fra norske fartøy i 2023 ........................................................................ 16
+    5.3 Havbruk (torsk) ............................................................................................................................ 17
+    5.4 Pelagisk sektor ............................................................................................................................. 18
+    5.5 Skalldyr ......................................................................................................................................... 20
+    5.6 Havbruk (laksefisk) ....................................................................................................................... 21
+    5.7 Utvikling fra 2018 til 2023 av tilgjengelig restråstoff ................................................................... 23
+    5.8 Oppsummering - Tilgjengelig restråstoff og utnyttelsesgrad ...................................................... 25
+    5.9 Anvendelse av restråstoff ............................................................................................................ 27
+          5.9.1 Utnyttelse ........................................................................................................................ 27
+          5.9.2 Anvendelse inn i prosesser .............................................................................................. 28
+          5.9.3 Produktgrupper ............................................................................................................... 29
+          5.9.4 Anvendelseskategori ....................................................................................................... 30
+          5.9.5 Utvikling fra 2019 til 2023 innen anvendelse av restråstoff............................................ 32
+    5.10 Overordnede økonomiske beregninger ....................................................................................... 33
+          5.10.1 Brutto eksport-omsetningsverdier av marint restråstoff ................................................ 34
+          5.10.2 Markeds- og prisutvikling ................................................................................................ 35
+
+6   Tiltak for økt ivaretakelse og utnyttelse ....................................................................................... 37
+
+7   Kilder/referanser ......................................................................................................................... 38
+    7.1 Litteratur ...................................................................................................................................... 38
+    7.2 Statistikk ....................................................................................................................................... 38
+
+A   Vedlegg: Metode, detaljert .......................................................................................................... 39
+
+B   Vedlegg: Tabeller ......................................................................................................................... 47
+
+                                                                                                                                                 2 av 50
+1 Sammendrag
+Marint restråstoff er en viktig ressurs og bidrar til stor verdiskaping i norsk sjømatnæring. Det aller meste blir i dag
+utnyttet på en god måte. Likevel er det et potensial for å øke utnyttelsesgraden ytterligere. Fortsatt er potensialet størst
+innenfor hvitfisksektoren. Aktørene i sjømatnæringen, sammen med myndigheter, interesseorganisasjoner og FoU-
+miljøene, har et stort fokus på å finne bærekraftige løsninger for å øke utnyttelsen. Av den grunn er det nødvending å
+utarbeide en god oversikt over den totale råstoffmengden, hvor det oppstår og hvordan den kan anvendes, som et
+grunnlag for beslutningsstøtte. Målet med denne rapporten er å gi en oversikt over tilgjengelighet av, og hvilke
+varestrømmer som oppstår fra, marint restråstoff. Årets rapport er nummer 12 i rekken av tilsvarende rapporter,
+finansiert av Fiskeri- og Havbruksnæringens Forskningsfinansiering (FHF) siden 2013.
+
+1.1 Resultater – tilgjengelig restråstoff
+I 2023 utgjorde råstoffgrunnlaget fra sjømatnæringen ca. 3,2 millioner tonn. Fra dette er det beregnet at tilgjengelig
+restråstoff for videre anvendelse var ca. 1,14 million tonn. Våre beregninger viser at 88 %, eller i overkant av 1 million
+tonn av det tilgjengelige restråstoffet ble utnyttet i 2023. Tilgjengelig restråstoff økte med 1 % fra året før, mens
+utnyttelsesgraden økte med ett prosentpoeng sammenlignet med 2022. Økningen har i særlig grad vært drevet frem av
+en videre god utvikling i utnyttelse av restråstoff fra hvitfisksektoren, men også større tilgjengelighet av restråstoff fra
+pelagisk sektor hvor utnyttelsen av restråstoff fortsatt er meget høy. I Tabell 1-1 under er tallene for de ulike sektorene
+sammenstilt.
+Tabell 1-1: Tabellen viser sektorvis fordeling av råstoffgrunnlag og tilgjengelig restråstoff fra norsk sjømatnæring i 2023.
+                                           Hvitfisk*   Pelagisk fisk**    Havbruk (laksefisk)   Skalldyr               Total
+
+Råstoffgrunnlag (tonn)                     673 000     904 000            1 587 000             69 000                 3 233 000
+Tilgjengelig restråstoff (tonn)            288 000     286 000            545 000               16 000                 1 135 000
+Prosentvis andel restråstoff               43 %        32 %               34 %                  23 %                   35 %
+Utnyttet restråstoff (tonn)                196 000     286 000            511 000               9 000                  1 002 000
+Prosentvis andel restråstoff utnyttet      68 %        100 %              94 %                  56 %                   88 %
+*Inkluderer havbruk med torsk
+**Omfatter artene sild, makrell og lodde
+
+
+
+
+For 2023 er det beregnet ca. 133 000 tonn som ikke-utnyttet restråstoff. Dette oppstod hovedsakelig i hvitfisksektoren
+som kan knyttes til manglende teknologiske løsninger og ulønnsomme rammebetingelser for å bringe restråstoffet til
+land. Samtidig synes det å være en positiv utvikling hvor stadig bedre teknologiløsninger blir introdusert i nye havgående
+fartøy. For 2023 er det beregnet en utnyttelsesgrad på 68 % for hvitfisksektoren, som er opp ett prosentpoeng
+sammenlignet med 2022.
+
+
+Fritt blod fra havbruk med laksefisk er som for tidligere år en ressurs som ikke utnyttes i særlig grad, men behandles for
+det meste som en del av prosessvannet som oppstår i slakteriene. Det er beregnet at mengde fritt blod tilgjengelig fra
+denne sektoren var 33 300 tonn i 2023.
+
+
+
+
+                                                                                                                                   3 av 50
+1.2 Anvendelse av restråstoff
+Restråstoffmengden som oppstår fra fiskeri- og havbruksnæringen anvendes inn i ulike produksjoner. Noe går direkte
+til konsum som ferske eller frosne sjømatprodukter, mens det aller meste går gjennom en eller annen form for
+prosessering. Omtrent 51 % av det samlede restråstoffet gikk i 2023 til ensilering som første ledd i prosesseringen av
+sluttprodukter som fiskefôr, husdyrfôr og biogass/energi.
+Store og stadig voksende volum fra havbruk med laksefisk har gitt grunnlag også for en voksende industri basert på
+prosessering av ferskt restråstoff for ekstraksjon av særlig lakseolje, men også proteinhydrolysat. Fra 2021 til 2022 ble
+det beregnet en sterk økning på ca. 13 %, mens det fra 2022 til 2023 var mer stabilt med en mindre økning på 1 %.
+Volum til tradisjonelt fiskemel og -oljeproduksjon, drevet av pelagisk restråstoff var som året før stabilt fra foregående
+år, med en liten nedgang på 1 %. Til tross for en stabil høy andel filetering i pelagisk sektor også i 2023 var råstoffbasen
+dette året lavere enn tidligere som i sum gjorde at bidraget til denne anvendelse gikk ned. Dette ble delvis dekket opp
+av en svak økning fra hvitfisksektoren.
+Av volum utnyttet restråstoff ble det produsert ca. 485 000 tonn
+produkter, som fordeler seg på humant konsum, fôr og biogass. I 2023
+utgjorde humant konsum ca. 14 %, fordelt mellom sjømatprodukter med
+                                                                                                                 14 %
+12 % (eksempelvis tørkede fiskehoder, lever, rogn, tunger og buklist fra
+laksefileter), mens tran og proteinekstrakter utgjorde 2 %. Andelen
+volum til humant konsum har økt godt de siste årene. Toppnoteringen
+                                                                                                                        64 %
+så langt kom i 2022 med 75 000 tonn produkter produsert, mens det i
+2023 ble en liten nedgang til ca. 68 000 tonn, drevet av mindre
+tilgjengelig råstoff fra hvitfisksektoren med nedgang i kvoter for torsk                                                       21 %
+dette året.
+Den største kategorien de siste årene, også i 2023 med 64 %, var ulike Figur 1-1 Figuren viser produktfordeling av
+komponenter til fôr, mens en relativt stabil andel på rundt 20 % de siste utnyttet restråstoff.
+årene har gått til biogassproduksjon. I hovedsak er dette råstoff fra
+havbruk med laksefisk som faller inn under animaliebiproduktregelverket som kategori-2 materiale, noe som begrenser
+anvendelsen.
+
+
+
+
+Figur 1-1: Figuren viser hvordan anvendelsen av marint restråstoff fra fiskeri- og havbruksnæringen var i 2023
+
+Visningsverktøy for å forenkle uttrekk av historisk data i forbindelse med marint restråstoff er oppdatert med 2023-tall.
+Følg linken for å se nærmere på verktøyet: https://www.marintrestrastoff.no/.
+
+
+
+
+                                                                                                                          4 av 50
+2 Innledning
+Marint restråstoff er en viktig ressurs og bidrar til stor verdiskaping i norsk sjømatnæring. Det aller meste av restråstoffet
+blir i dag utnyttet på en god måte, men det er fortsatt mulig å øke dette ytterligere. Fortsatt er potensialet størst
+innenfor hvitfisksektoren. Det er også en stadig voksende marin ingrediensindustri i Norge som ønsker å øke
+anvendelsen av norsk restråstoff inn i sin produksjon. Utarbeidelse av gode oversikter over mengder med restråstoff og
+hvor dette oppstår, samt hvordan det anvendes, er et viktig hjelpemiddel i arbeidet med å ta hånd om og utnytte
+restråstoffet. For å optimalisere verdiskapingen av det restråstoffet som allerede utnyttes, er det viktig med gode
+oversikter. Kompleksiteten øker nedover i restråstoff-verdikjeden, og det er til dels krevende å holde oversikt over
+varestrømmene, produkter, produktkategorier og markeder.
+Stiftelsen RUBIN gjorde allerede i 1991 et overslag over varestrøm- og verdiskapingsanalyse innen utnyttelse av
+restråstoff. FHF tok over RUBINs rolle i næringen etter at stiftelsen ble lagt ned i 20111, inkludert ansvaret for å få
+utarbeidet analyser for tilgang og anvendelse av marint restråstoff. FHF har tidligere finansiert videreutvikling av
+analyseverktøy som ligger til grunn for de årlige analyser.
+
+
+Målsettingen med prosjektet er at det skal gi en årlig oversikt over:
+           Tilgang til marint restråstoff fra norsk fiskeri- og havbruksnæring
+           Varestrømmer for anvendelse av råstoffet
+           Analyse av mulige tiltak som kan tilrettelegge for, eller stimulere til, økt anvendelse av tilgjengelig restråstoff
+           Restråstoffindustrien i et makroøkonomisk perspektiv
+           Tiltak som kan tilrettelegge for, eller stimulere til, økt utnyttelse og anvendelse av marint restråstoff
+
+
+Prosjektet har følgende referansegruppe oppnevnt av FHF:
+           Jørgen Seliussen, Pelagia
+           Ingvild Dahlen, Lerøy Norway Seafoods
+           Thomas Hoff, Scanbio
+           Kyrre Dahle, Sjømat Norge
+
+
+Prosjektgruppen består av representanter fra SINTEF Ocean AS og Kontali Analyse AS.
+Analysen har til hensikt å gi næringsaktører og andre interessenter en oversikt over varestrømmer og muligheter for
+aktivitet som kan gi økt lønnsomhet i næringen, og være en stimulerende faktor for dette.
+Denne rapporten presenterer en oversikt over tilgang og anvendelse av marint restråstoff for året 2023. I tillegg er det
+gjort et estimat på den overordnede økonomiske omsetningen av marint restråstoff i norsk industri, samt et lite
+skråblikk på enkelte områder hvor det er potensial for økt utnyttelse i årene som kommer.
+Årets rapport inngår i en del av prosjektpakken Restråstoffanalyser 2023-2025: Tilgjengelighet og anvendelse av marint
+restråstoff fra norsk fiskeri og havbruksnæring2.
+
+
+
+
+1 https://www.rubin.no/index.php/no/publikasjoner/prosjektrapporter/generelle-prosjekter
+
+
+2 https://www.fhf.no/prosjekter/prosjektbasen/901844/
+
+
+
+
+                                                                                                                       5 av 50
+3 Verdikjedebeskrivelse og definisjoner
+Verdikjeden for utnyttelse av restråstoff er kompleks og omfattende. Dette inkluderer mange produkter og prosesser,
+samt ulike industrier. Analysen omfatter i hovedsak utnyttelse av restråstoff fra den norske fiskeri- og
+havbruksnæringen. Tilgjengelig restråstoff deles inn i det som oppstår "til havs" innen de tradisjonelle fiskeriene og det
+som oppstår mer kystnært fra både fiskeri og oppdrett.
+Restråstoffet konserveres på ulike måter før det går inn i en rekke prosesser der det viktigste er separering av fett og
+protein, til produksjon av fiskemel og -olje. Markedet kan beskrives både ved hjelp av inndeling i produktgrupper og
+anvendelseskategorier. I vedlegg til metodekapitlet (vedlegg A) vil det bli redegjort mer i detalj for kompleksiteten i
+denne industrien og hvordan tallene er fremskaffet.
+En forenklet fremstilling er forsøkt gitt i Figur 3-1 under.
+
+
+
+
+Figur 3-1: Figuren illustrerer verdikjeden for utnyttelse av marint restråstoff og viktige informasjonskilder
+
+Figur 3-2 og Figur 3-3 på de neste sidene viser kompleksiteten i "restråstoff"-verdikjeden og sammenhengen mellom
+det som oppstår av restråstoff og hvordan det anvendes.
+
+
+
+
+                                                                                                                 6 av 50
+                               FANGST                                                      MOTTAK                         FOREDLING                      FOREDLING                        SALG / EKSPORT                        HUMANT KONSUM
+                        NORSKE KVOTER / FARTØY                                             FRYSING                      KONVENSJONELL                     FILET etc.                     PRIMÆRPRODUKT                       EKSPORT       INNENLANDS
+                                 LANDINGER I NORGE                                                                                                                                                     Innenlands         - Hoder, kjaker, tunger etc.
+       LANDINGER
+                                                                                           Hvitfisk                                                                                Eksport
+                      Havgående Flåte             Kystnær Flåte                                                              - Saltfisk               - Torsk/Hysefilet                                  konsum           - Rogn, lever etc.
+                                       - Hvitfisk                                                                           - Klippfisk                   -Sildefilet       - Fersk/frossen hel                           - Andre sjøamtprodukter
+                                                                                           Pelagisk
+
+     UTENFOR NORGE
+                                      - Pelagisk                                                                             - Tørrfisk                       etc.          - Fersk/frossen filet
+                                  - Reker / Skalldyr (Krabbe)                                                                                                               - Saltet/tørket                                       FARMASØYTISK
+                                                                                     Reker/Skalldyr
+                                                                                                                                                                            - Annen tilberedt av filet                    - Ingredienser til Kosmetikk
+                                                                                                                                                                                                                          - Kosttilskudd etc.
+
+
+                                                                                                                                                                                    HOVEDPROSESSER                                       FÒR
+                                                                                                                                                                                 RESTRÅSTOFF FRA FISKERI                  - Fiskefor
+                     IKKE UTNYTTET                                                                                                                                          - Videreforedling / Pakking                   - Landbruksfór / Petfood
+                      RESTRÅSTOFF                                                            UTNYTTET RESTRÅSTOFF                                                           - Separering av olje og protein (ensilasje)   - Pelsdyrfór
+                            - Slo                          - Slo                                 - Slo                 -Ryggbein/flekking            - Ryggbein/filet       - Separering av olje / Proteinkonsentrasjon
+                          - Hoder                         - Hoder                               - Hoder                     - Avskjær                - Skinn / Skall        - Separering olje/protein - fersk                          ENERGI
+                           - Blod                          -Lever                                -Lever                                              - Buklapp              - Fiskemel & -olje                            - Biogass
+                     - Rygger / Avskjær                -Rogn / Melke                         -Rogn / Melke                                           - Hale / Avskjær       - Fraksjonering/Isolering komponenter         - Forbrenningsolje
+                       - Nedgradert                      -Avskjær                               -Blod                                                - Nedgradert           - Fryst pelsdyrfòr
+                                                                                           - Mage / Avskjær                                                                 - Energiprosess                                            GJØDSEL
+                                                                                                         TILSTAND                                                           - Gjødsel                                     - Tilskudd i plantenæring,
+                                                       Ikke anvendt        Fersk / Kjølt              Fryst                      Ensilert                   Annet           - Annen /Teknisk anvendelse                     i matjord etc.
+
+                                                                                                                                                                                        PRODUKTGRUPPE
+                                                                                                                                                                            - Konsumprodukt / Sjømatprodukt                      ANNEN / TEKNISK
+                                                                                                                                                                            - Olje                                        - Fett / Olje til garvingav skinn
+                                             FANGST                                                                        ANNEN IMPORT                                     - Mel                                         - Fett / Olje til maling/gummi
+                                UTENLANDSKE KVOTER / FARTØY                                                                                                                 - FPH
+                                        LANDINGER I NORGE                                                     - Eks. - Import av skallreker (for pilling i Norge)           - FPC                                                 IKKE ANVENDT
+                          - Primært frossen hodekappet hvitfisk i Nord                                        - Eks. - Import av Stillehavstorsk - for filetering i Norge   - Isolater
+ .                        - Pelagisk til Konsum / Reduksjon i Midt / Sør
+
+
+
+
+Figur 3-2: Figuren viser flytskjema for restråstoff fra fiskeri
+
+
+
+
+                                                                                                                                                                            7 av 50
+                   SETTEFISK / MATFISK                               SLAKTING                       FOREDLING                        SALG / EKSPORT                        HUMANT KONSUM
+                                                                                                                                    PRIMÆRPRODUKT                       EKSPORT       INNENLANDS
+                             -Laks                                       -Laks                        -Laks                                       Innenlands         - Hoder, Buklist
+                                                                                                                               Eksport
+                            - Ørret                                     - Ørret                      - Ørret                                        konsum           - Rogn etc.
+                            - Torsk                                     - Torsk                      - Torsk           - Fersk/frossen hel                           - Andre sjøamtprodukter
+                        - Annen Marin                               - Annen Marin                    - Skjell          - Fersk/frossen filet
+                            - Skjell                                                                                   - Røkt laks                                           FARMASØYTISK
+                                                                                                                       - Annen tilberedt av filet                    - Kosttilskudd
+                                                                                                                                                                     - Ingredienser til Kosmetikk
+                                                                                                                                                                     - etc.
+                                                                                                                               HOVEDPROSESSER
+                                                                                                                           RESTRÅSTOFF FRA HAVBRUK                                  FÒR
+                                                                                                                       - Videreforedling / Pakking                   - Fiskefor
+ IKKE UTNYTTET                                                                                                         - Separering av olje og protein (ensilasje)   - Landbruksfór / Petfood
+                                                         TILGANG - UTNYTTET RESTRÅSTOFF
+  RESTRÅSTOFF                                                                                                          - Separering av olje / Proteinkonsentrasjon   - Pelsdyrfór
+     - Fòrrester                 - Dødfisk / Ensilasje               - Slo                           - Hoder           - Separering olje/protein - fersk
+     - Avføring                                                      - Hoder                         - Avskjær         - Fiskemel & -olje                                         ENERGI
+(- Dødfisk m/medisin)                                                - Ryggbein                      - Buklister       - Fraksjonering/Isolering komponenter         - Biogass
+                                                                     - Rogn                          - Skinn           - Fryst pelsdyrfòr                            - Forbrenningsolje
+                                                                     - Blod                          - Blokk / Farse   - Energiprosess
+                                                                     - Nedgradert                    - Skall           - Gjødsel                                                 GJØDSEL
+                                                                                                                       - Annen /Teknisk anvendelse                   - Tilskudd i plantenæring, i
+                                                                              TILSTAND                                                                               matjord etc
+
+                                 Ikke anvendt       Fersk / Kjølt             Fryst      Ensilert              Annet             PRODUKTGRUPPE
+                                                                                                                       - Konsumprodukt / Sjømatprodukt                      ANNEN / TEKNISK
+                                                                                                                       - Olje                                        - Fett / Olje til garvingav skinn
+                                                                                                                       - Mel                                         - Fett / Olje til maling/gummi
+                                                                 IMPORT                                                - FPH
+                                                            - Import ensilasje                                         - FPC                                                 IKKE ANVENDT
+                                                                                                                       - Isolater
+
+
+
+
+Figur 3-3: Figuren viser flytskjema for restråstoff fra havbruk
+
+
+
+
+                                                                                                                                   8 av 50
+3.1 Definisjoner
+FHF og Lovdata har etablert følgende definisjoner som grunnlag for arbeidet:
+
+Råstoffgrunnlag:
+Analysen skal gjelde all villfanget og oppdrett fisk, skalldyr og bløtdyr fra kvoter/konsesjoner i norske farvann og/eller
+landet og/eller prosessert i Norge.
+Marint restråstoff:
+Som restråstoff defineres det som ikke er primære hovedprodukt ved anvendelse av et råstoff. Primære råstoffer er fisk
+og skalldyr (krepsdyr og bløtdyr) som oppdrettes og fanges fra norske kvoter i norske farvann og/eller landes i Norge.
+Kategori 2 materiale:
+Oppdrettsfisk som dør før slakting som en følge av sykdom, såkalt dødfisk, er definert til å være en kategori 2 biprodukt
+som ikke er lovlig å selge til humant konsum eller fôr til matproduserende dyr. Kategori 2 materiale kan med visse unntak
+benyttes til produksjon av fôrmiddel til pelsdyrfôr (ikke-matproduserende dyr), produksjon av bioenergi, gjødsel eller
+jordforbedringsmiddel3. Kategori 2 materiale fra sjømatnæringen kommer tilnærmet 100 % fra havbruk (laks og ørret).
+Kategori 3 materiale:
+Restråstoff som oppstår ved et fiskeslakteri, fiskemottak eller fiskeforedlingsanlegg kan håndteres videre etter
+næringsmiddelhygieneforskriften og da kalles det fortsatt restråstoff. Disse sluttproduktene er tillatt solgt til humant
+konsum eller til fôr til matproduserende dyr. Restråstoff som oppstår ved et fiskeslakteri, fiskemottak eller
+fiskeforedlingsanlegg håndteres og prosesserer i henhold til animaliebiproduktregelverket4 og som defineres som et
+biprodukt kategori 3 kan som regel anvendes til fôr til matproduserende dyr, men ikke til humant konsum. Det finnes
+tilfeller hvor fisk blir Kategori 3 selv om den ikke er slaktet for humant konsum. Oppdrettsfisk som dør av andre årsaker
+enn en smittsom sykdom, som for eksempel ved oksygenmangel, alge- eller manetinvasjon vil også kunne være kategori
+3 materiale. For fisk som dør av algeoppblomstring er det foreløpig bestemt kun benyttes til biogass og
+komposteringsanlegg til tross for at dette inngår som kategori 3, da det er manglende kunnskap omkring algetoksiner.
+Ensilering (syrehydrolyse)
+Restråstoffet brytes ned ved hjelp av syre som tilsettes. Dette innebærer lav pH (3,5 – 4,5), endogene enzymer og
+temperatur over 5 grader. Den vanligste syren som benyttes i dag er maursyre, men dette forbeholder at produkter
+produsert kun kan brukes til fôrproduksjon. Andre syrer som kan benyttes er saltsyre, svovelsyre, salpetersyre,
+fosforsyre, propionsyre og eddiksyre. Metoden er enklere og mindre kostbar enn for eksempel enzymatisk hydrolyse.
+Enzymatisk hydrolyse
+Metoden kverner restråstoff med tilsetting av vann og enzymer som arbeider i en viss tid under bestemente
+temperaturforhold. Dette fører til at restråstoffet brytes ned, og en kan skille ut vannløselige proteiner, sedimenter
+(uløselige proteiner, lipider, evt. bein) og fiskeolje som ulike ingredienser. Resultatene fra enzymatisk hydrolyse
+avhenger av hvilke type og mengde enzymer som er benyttet, hydrolysetid og -temperatur, og mengde vann tilsatt.
+Ensilasje
+Benevnelse på dyre og plantemateriale som brytes ned ved hjelp av ensilering (syrehydrolyse). Maursyre benyttes til å
+forhindre bakterieveksten i fiskemassen ved at surhetsgraden senkes (pH<4). Prosessen vil bidra til å skille ut olje,
+fiskeproteinkonsentrat og grakse.
+
+
+
+
+3 https://lovdata.no/dokument/SF/forskrift/2016-09-14-1064/*#*
+
+4 https://lovdata.no/dokument/SF/forskrift/2016-09-14-1064/*#*
+
+
+
+
+                                                                                                                 9 av 50
+Fiskemel
+Fiskemel produseres av restråstoff fra prosessert konsumfisk eller hel industrifisk (tobis, øyepål, kolmule, lodde etc.)
+som går direkte til fiskemelfabrikkene. Råstoffet varmes opp, presses, males og tørkes. Prosessen skiller råstoffet i tre
+fraksjoner; tørrstoff (fiskemel), fett (fiskeolje) og vann (returneres til omgivelsene). Produksjonen av fiskemel baserer
+seg hovedsakelig på restråstoff fra pelagisk sektor.
+FPC – Fish Protein Consentrate:
+Oppkonsentrering av proteinfraksjon etter at oljen fra ensilasjen er separert ut. Vann fjernes ved avdamping slik at
+limvannet oppnår et tørrstoffinnhold på ca. 40 – 50 %.
+FPH – Fish Protein Hydrolysate:
+Prosess hvor ferskt restråstoff tilsettes spesifikke enzymer for kontrollert nedbryting av proteiner som gir muligheten
+til å ekstrahere spesifikke peptider eller aminosyrer for spesielle produkter og markeder. Enzymene som tilsettes har
+funksjonen til en saks ved at de klipper proteinene opp i mindre vannløselige peptider. Vann kan deretter fjernes via
+tørking for å oppnå det proteinrike pulveret. Eksempelvis vil produksjon av lukt- og smaksnøytrale produkter til
+helsekost og annen human anvendelse normalt betinge brukt av helt ferskt råstoff og FPH som prosessmetode.
+
+
+
+
+                                                                                                               10 av 50
+4 Metode
+Metoden som er benyttet er beskrevet i detalj i Vedlegg A.
+For å estimere tilgjengelig restråstoff er det benyttet offentlig tilgjengelig statistikk der de viktigste kildene er
+Fiskeridirektoratet, Statistisk Sentralbyrå (SSB) og Norges Sjømatråd. Når det gjelder anvendelse av restråstoff er det
+meste av opplysningene innhentet fra bedriftene selv da det finnes svært begrenset offentlig statistikk på dette
+området. I tillegg benyttes detaljert statistikk fra Norges Sjømatråd, og informasjon fra fiskesalgslagene.
+
+
+
+
+                                                                                                             11 av 50
+5 Resultater
+5.1 Tilgjengelig restråstoff
+I 2023 var totalt råstoffgrunnlag på ca. 3,2 millioner tonn levende vekt. Fra dette er det beregnet at det oppstod ca.
+1,14 million tonn med restråstoff hvorav ca. 88 % ble utnyttet (Tabell 5-1).
+
+Hovedproduktene av norsk sjømat blir i stor grad solgt som enten rundfrossen fisk (makrell, sild, lodde), som hel, sløyd
+fisk (laks, ørret og hvitfisk), eller fileterte og flekte produkter (sild, laks og torsk). I oversikten under er det kun tatt med
+hvitfisk som er landet av norske fartøyer, og landinger i Norge av pelagiske arter.
+
+I årets rapport er det valgt å ekskludere enkelte pelagiske arter som går direkte til oppmaling i råstoffgrunnlaget, for å
+utelukkende inkluderer råstoff fra arter hvor det i dag er tilstedeværelse av bearbeiding i norsk industri, og dermed
+potensial for oppstandelse av restråstoff. Råstoffgrunnlag fra pelagisk sektor inkluderer derfor nå kun sild, makrell og
+lodde. Dette gjør at tallet er betydelig lavere enn gitt i tidligere versjoner av rapporten.
+
+Tabell 5-1: Tabellen viser sektorvis fordeling av råstoffgrunnlag og tilgjengelig restråstoff fra norsk sjømatnæring i 2023.
+                                           Hvitfisk*       Pelagisk fisk**        Havbruk (laksefisk)   Skalldyr       Total
+
+Råstoffgrunnlag (tonn)                     673 000         904 000                1 587 000             69 000         3 233 000
+Tilgjengelig restråstoff (tonn)            288 000         286 000                545 000               16 000         1 135 000
+Prosentvis andel restråstoff               43 %            32 %                   34 %                  23 %           35 %
+Utnyttet restråstoff (tonn)                196 000         286 000                511 000               9 000          1 002 000
+Prosentvis andel restråstoff utnyttet      68 %            100 %                  94 %                  56 %           88 %
+*Inkluderer havbruk med torsk
+**Omfatter artene sild, makrell og lodde
+
+
+
+
+Figur 5-1: Figuren viser råstoffgrunnlag og tilgjengelig restråstoff fordelt på sektor i 2023.
+Kilde: Fiskeridirektoratet, SSB, Norges Sjømatråd, salgslagene, Kontali Analyse og SINTEF
+*Omfatter artene sild, makrell og lodde
+
+
+
+
+Figur 5-2: Figuren viser totalt tilgjengelig restråstoff fordelt på sektor og måned i 2023
+Kilde: Fiskeridirektoratet, SSB, Norges Sjømatråd, Salgslagene, Kontali Analyse og SINTEF
+*Omfatter artene sild, makrell og lodde
+
+
+
+
+                                                                                                                               12 av 50
+5.2 Hvitfisksektor
+Restråstoff oppstår når fisken bearbeides og videreforedles. De mest kjente restråstoffproduktene er hoder, tunger,
+lever, rogn og melke. Andre aktuelle produkter er avskjær, skinn og bein, rygger, mager, tarmer og svømmeblære. Blod
+fra hvitfisk er også et mulig produkt, men oppstår så fragmentert og spredt at det er utfordrende å ta vare på. Vi har
+derfor valgt å ikke ta dette med som tilgjengelig restråstoff.
+I 2023 oppstod det ca. 288 000 tonn restråstoff fra norske fiskerier basert på hvitfisk. Av dette oppstod
+243 000 tonn til havs eller ved landing/mottak, mens 45 000 tonn oppstod som rygger eller avskjær fra produksjon av
+saltfisk/klippfisk/filet på land. Av totalt tilgjengelig restråstoff er det beregnet at ca. 93 000 tonn ikke ble utnyttet.
+Utnyttet restråstoff er beregnet til ca. 195 000 tonn, tilsvarende 68 %.
+Tilgjengelig restråstoff fra hvitfisksektoren opplevde en nedgang på 6 % i 2023 ned sammenlignet med 2022. Nedgangen
+kan i stor grad knyttes til reduserte kvoter på torsk, men dette ble delvis oppveid av økte kvoter og landinger av sei.
+Utnyttelsesgraden gikk derimot opp med ett prosentpoeng sammenlignet med året før, og den positive trenden med
+økende utnyttelse av tilgjengelige volum observert de siste årene opprettholdes.
+Hoder utgjorde den største andelen av tilgjengelig restråstoff med 36 %, lever og slo utgjorde henholdsvis 17 % og 18
+%, mens rygger og avskjær (inkludert skinn) fra foredling bidro med 16 % (se Figur 5-3). Rogn og melke er beregnet i
+tillegg til annen slo i 3-4 måneder av året når artene gyter, og stod for ca. 13 % sammenlagt av totalen i 2023.
+
+
+
+
+Figur 5-3: Figuren viser tilgjengelig restråstoff fra hvitfisksektoren fordelt på ulike fraksjoner fra 2020-2023
+Kilde: Fiskeridirektoratet, SSB, Salgslagene, Kontali Analyse og SINTEF
+
+
+
+
+                                                                                                                   13 av 50
+Figur 5-4: Torskehoder og slo fra hvitfisk (Foto: Magnus Myhre/SINTEF Ocean)
+
+En del av restråstoffet som landes føres ikke på seddel, selv om Norges Råfisklag har presisert at salg av hoder og annet
+restråstoff skal komme frem på landingsseddel. Det antas derfor at det landes og omsettes et større volum enn det som
+kommer frem i statistikken, som dermed er hensyntatt i beregningene.
+Den største andelen av restråstoffet blir separert fra fisken til havs eller på landanleggene og blir hovedsakelig landet i
+perioden januar – april under torskefiskeriene i de nordligste fylkene (Figur 5-5). Det er også i denne perioden de store
+andelene av restråstoff oppstår, slik som hoder, slo, lever, rogn og melke.
+
+
+
+
+Figur 5-5: Figuren viser totalt tilgjengelig restråstoff fordelt på fraksjon og måned i 2023
+Kilde: Fiskeridirektoratet, SSB, Salgslagene, Kontali Analyse og SINTEF
+
+Mengden rygger fra salt- og klippfiskproduksjon, samt avskjær fra filetproduksjon, hadde i 2023 en nedgang på 2 %
+sammenlignet med foregående år, og endte på ca. 45 000 tonn. Dette inkluderer avskjær fra ombordproduksjon av filet.
+Restråstoffet oppstår gjennom hele året, men er størst i tilknytning til sesongtoppene i fisket, nærmere bestemt i
+februar og mars, og senere i oktober-november.
+En stor andel av restråstoffet som oppstår i Møre og Romsdal er avskjær og rygger fra bearbeidingsindustrien (Figur 5-
+6). Industrien i Møre og Romsdal kjøper betydelige volum råstoff fra særlig nordlige deler av landet, som fører til at slo,
+lever og hoder fra dette råstoffgrunnlaget oppstår i et annet fylke enn der den videre bearbeiding med flekking eller
+filetering skjer. Også i andre fylker er det kjøp og salg av råstoff mellom bedrifter.
+
+
+
+
+                                                                                                                14 av 50
+Figur 5-6: Figurene viser tilgjengelig restråstoff fra hvitfisk fordelt på fylke i 2023
+Kilde: Fiskeridirektoratet, SSB, Salgslagene, Kontali Analyse og SINTEF
+
+I tillegg til råstoffgrunnlaget fra norske fartøy, blir det levert hvitfisk fra utenlandske fartøyer i Norge. I 2023 tilsvarte
+dette ca. 77 000 tonn rundvekt. I hovedsak er dette havgående fartøyer hvor hoder, slo, lever og rogn i stor grad ikke
+blir landet/utnyttet, men kastet over bord. Det er valgt å ikke inkludert dette i de foregående tallene, siden restråstoffet
+som landes med hovedproduktet i Norge representerer svært små volum og oppstår med bakgrunn i utenlandske
+kvoter. Grunnen til å opplyse om dette er for å vise potensialet for videre anvendelse som kunne vært tilført norsk
+industri. Det er beregnet at restråstoffmengden i 2023 fra utenlandske fartøy var ca. 35 000 tonn, hvorav ca. 1 300 tonn
+ble omsatt sammen med fisken, og da hovedsakelig som rogn, lever og hoder. Tallene er inkludert i Figur 5-21, senere i
+rapporten, hvor det ses nærmere på restråstoff som ikke utnyttes.
+
+5.2.1 Fordeling kyst – hav
+Kystflåten består av fartøy fra 10 til 28 meter og driver fiske i kystnære farvann, som regel uten utstyr med mulighet for
+foredling eller innfrysing av fangst. Den norske havfiskeflåten består av fartøy over 28 meter og inkluderer trålere,
+autolinebåter og pelagiske fartøy. Frysetrålere og autolinebåter fryser fangsten om bord og kan dermed strekke turene
+over lengre perioder enn ferskfisktrålere og pelagiske fartøy. Havfiskeflåten opererer i havområder langt fra land i norsk
+økonomisk sone og i Svalbardsonen. I tillegg forekommer det fiske i andre lands soner og i internasjonalt farvann. I de
+senere år er flåten over 28 meter utvidet med et betydelig antall store kystfartøy som til dels drifter i kystnære farvann,
+hovedsakelig med garn og snurrevad. Vi har i det følgende valgt å beregne denne gruppen som en egen fartøygruppe
+(stor kyst).
+Potensialet for økt utnyttelse er størst i den havgående flåten. Samtidig, i likhet med andre flåtegrupper, er utviklingen
+for denne flåtegruppen at stadig mer utnyttes og da særlig i form av mel-/oljeproduksjon i nyere fartøy. I 2023 oppstod
+det ca. 129 000 tonn restråstoff i den havgående flåten som drifter med trål og autoline. Det ble produsert rundt 4 300
+tonn fiskemel om bord i fartøyene og levert 1 400 tonn ensilasje. Dette tilsvarer mellom 20 000 og 30 000 tonn rest-
+råstoff. I tillegg ble det i denne gruppen omsatt ca. 3 400 tonn restråstoff hovedsakelig i form av hoder. Det resterende
+oppstår etter landing og under bearbeiding i den konvensjonelle industrien i form av avskjær og rygger. En stor del av
+råstoffet fra den havgående flåten blir eksportert uten videre bearbeiding i Norge, noe som fører til at det også oppstår
+restråstoff i andre land, slik som Kina, Polen og Litauen. I gruppe stor kyst oppstod det ca. 78 000 tonn med restråstoff.
+Av dette er det beregnet at ca. 75 000 tonn ble utnyttet. Det har vært en bra økning de siste årene drevet av en økende
+andel landinger som rundfisk. I gruppen liten kyst oppstod det ca. 80 000 hvorav 77 000 tonn ble utnyttet.
+Tabell 5-2: Tabellen viser estimert fordeling av liten og stor kystflåte og havgående flåte i tonn i 2023
+
+
+                                    Liten kyst       Stor kyst (28 m+)          Havgående flåte (trål, autoline) Totalt
+Oppstått restråstoff                      80 000                     78 000                               130 000 288 000
+Utnyttet                                  77 000                     75 000                                41 000 193 000
+Ikke utnyttet                              3 000                      3 000                                89 000 95 000
+Kilde: Fiskeridirektoratet, SSB, Salgslagene, Kontali Analyse og SINTEF
+*Grunnen til at volum utnyttet og ikke-utnyttet i denne tabellen avviker noe fra hva som skrives ellers i rapporten, er både avrundinger og innblanding av volum
+restråstoff fra havbruk med torsk i anvendelsesstatistikken.
+
+
+                                                                                                                                                           15 av 50
+5.2.2 Omsatt mel/olje fra norske fartøy i 2023
+Norge har en moderne trålerflåte bestående av ca. 40 havgående fartøy som fisker torsk, sei og hyse. Hovedsakelig
+produseres det fryst fisk etter sløying og hodekapping. Det er i dag tre fabrikktrålere og fire autolinere som fileterer
+hvitfisk om bord i Norge. Flere fartøy har konsesjon, men på grunn av lav lønnsomhet blir de ikke utnyttet5.
+For den nyere havgående flåten er det en trend at fartøy investerer i kapasitet for prosessering via ensilerings- eller mel-
+og oljeproduksjon. Dette er samtidig forbundet med økte investeringskostnader og kan kreve ekstra bemanning for å
+håndtere driften. Fra 2021 til 2022 sank ombordprodusert fiskemel og fiskeolje med hhv. 16 % og 13 %, til 4 031 tonn
+og 865 tonn. I 2023 var det ni fartøyer som produserte og omsatte fiskemel og fiskeolje fra restråstoff oppstått om bord.
+Disse produserte nærmere 4 300 tonn fiskemel og 990 tonn fiskeolje som var en økning på hhv. 6 % og 14 % fra året før.
+Fartøyene med høyest produksjon av fiskemel i 2023 var Ramoen (1 033 tonn), Granit (980 tonn) og Langøy (497 tonn),
+alle fabrikktrålere. Sammenlignet med produksjon i 2022 økte produksjonen på Ramoen med 36 % i 2023. For Granit og
+Langøy gikk produksjonen hhv. ned med 4 % og opp med 32 %.
+På ensilasje er det i hovedsak ett fartøy med stabile, høye leveranser de siste årene. Nordstar leverte i 2023 i overkant
+av 1 500 tonn, en 15 % økning fra året før. Totalt ble det omsatt 1 875 tonn ensilasje i 2023, en økning på 2 % fra året
+før.
+
+
+Tabell 5-3: Tabellen viser landinger fra Norske fartøy med ombordproduksjon av fiskemel, fiskeolje og ensilasje, i tonn, fra 2021-2023
+(Kilde: Fiskeridirektoratet, Kontali Analyse og SINTEF)
+
+                       Fiskemel                               Fiskeolje                  Ensillasje
+Fartøy                       2021         2022        2023         2021    2022   2023        2021        2022   2023
+Ramoen                       1.076              757   1.033          243    170    251
+Granit                       1.156         1.017       980           277    151    170
+Langøy                         415              376    497            37     42     51
+Sunderøy                       384              436    353           134    144    143
+Havbryn                        532              333    323            98    105     88
+Havstrand                      540              359    321            32     61     57
+Gadus Poseidon                 269              280    303            72     90    110
+Gadus Neptun                   215              246    259            47     45     58
+Gadus Njord                    199              227    214            55     57     58
+Nordstar                                                                                       1151       1390   1542
+Kongsfjord                                                                                                 148    333
+Breidtind                                                                                             0    302
+Senja                                                                                            169
+Total                       4.786         4.031 4.284               995     865   986         1320        1840   1875
+
+Havfiskeflåten har de siste årene utnyttet mellom 25 % og 30 % av restråstoffet som oppstår, hvor en betydelig del
+knyttes til ombordproduksjon av fiskemel, fiskeolje og ensilasje. En kartlegging av denne delen av flåten med tanke på
+fasiliteter for ombordproduksjon, basert på fiskeridirektoratets fartøyregister, viser at potensialet er større enn dagens
+produksjon. Det er per i dag flere fartøy med utstyr for ombordproduksjon som ikke produserer fiskemel og -olje.
+Tendensen er at nyere havfiskefartøy er tilrettelagt for større utnyttelse av restråstoff, mens eldre fartøy i mindre grad
+har denne muligheten og heller ikke har kapasitet til å lagre store mengder restråstoff.
+Fiskemelet som produseres i havfiskeflåten går hovedsakelig som ingrediens til produksjon av fiskefôr, og i noe grad
+også til fôr for svin og fjørfe. Produktet fra havfiskeflåten tilbys i det samme markedet som fiskemel produsert i den
+landbasert fiskeindustri, og oppnår derfor noenlunde samme markedspris.
+
+
+
+5
+    https://www.norwegianfrozenatsea.no/fleet
+
+
+
+                                                                                                                          16 av 50
+5.3 Havbruk (torsk)
+Havbruk med torsk ble forsøkt for noen år tilbake, men ble så fulgt opp av en rekke konkurser på grunn av blant annet
+biologiske faktorer, problemer med fôr og lave priser i markedet. Parallelt med oppskaleringen og en påfølgende
+nedskalering av havbruk med torsk, har Nofima oppretthold forskning på område.
+Sammenlignet med havbruk med laksefisk, er slaktevolumene (HOG-vekt) for torsk fortsatt beskjedene med ca. 10 000
+tonn i 2023. Dette er likevel en betydelig økning fra 2021, da volum endte på 1 600 tonn, og en dobling fra 2022 da
+volum endte på ca. 5 000 tonn.
+Ifølge akvakulturregisteret er det registrert rundt 15 aktører med kommersielle matfisktillatelse i sjø for havbruk med
+torsk. Majoriteten av tillatelsene finnes i Trøndelag med ca 33 000 tonn, fulgt av Møre og Romsdal med knapt 30 000
+tonn (Feil! Fant ikke referansekilden.). Tilbakemeldingene fra noen utvalgte aktører er at driften så langt går etter
+planen og problemene fra "fase 1" nå i stor grad er løst.
+Hovedproduktet fra havbruk med torsk er i stor grad som sløyd og hodekappet (HOG). Omtrent 20 % av slaktevolum
+blir til restråstoff. Lever utgjør alene ca. 10 % av slaktevolumet, og er ansett som det mest verdifulle restråstoffet. Lever
+tilbys i stor grad til markeder for humant konsum i Asia, men også som hermetiserte produkter eller direkte til
+prosessering av fiskeolje. I 2023 er det beregnet at omtrent 2 400 tonn restråstoff oppstod fra sektoren, hvorav alt ble
+utnyttet.
+Da produkter av oppdrettstorsk som eksporteres ikke skilles fra villfanget torsk i handelsstatistikken, er det valgt å
+inkludere oppdrettstorsk under hvitfisk inntil sektoren får unike varenummer. Slik det er nå er både volum av villfanget
+og oppdrettet torsk blandet som gjør det umulig å skille de to produktene fra hverandre med tanke på anvendelse.
+
+
+
+
+Figur 5-7: Geografisk fordeling av tillat kapasitet for havbruk med torsk i Norge
+(Kilde: Fiskeridirektoratet, 2023).
+
+
+
+
+                                                                                                                  17 av 50
+5.4 Pelagisk sektor
+Utgangspunktet for beregninger av oppstått volum restråstoff fra pelagisk sektor er artene sild og makrell, mens lodde
+inkluderes når det er tilgjengelig. De øvrige artene (tobis, øyepål, kolmule etc.) går inn i fiskemel/-olje industrien, hvor
+100 % av råstoffgrunnlaget blir utnyttet gjennom oppmaling. Det oppstår dermed ikke restråstoff fra disse artene.
+I 2023 ble det levert ca. 545 000 tonn pelagisk råstoff direkte til mel- og oljeproduksjon i Norge. Det meste av dette var
+fra artene kolmule, øyepål, tobis, lodde og sild, i hovedsak med opprinnelse fra norske landinger (81 %). Gode priser på
+råstoff til denne industrien gjør at også en del av de typiske konsumartene som sild og makrell blir solgt til mel og
+oljeprodusenter (42 000 tonn nordsjøsild og 14 000 tonn NVG sild i 2023). Det ble også omsatt ca. 33 000 tonn makrell
+til mel og oljeproduksjon, noe som er heller uvanlig i Norge. Dette var i hovedsak fra Færøyske fartøy.
+Makrell blir i hovedsak solgt rundfrossen, men en økende andel har vært brukt i filetproduksjon de siste årene. I 2023
+var mengden restråstoff fra filetering av makrell stabil fra 2022, på ca. 14 000 tonn.
+En del av loddevolumet går til utvinning av lodderogn, mens de øvrige bestanddelene av lodda går til mel- og
+oljeproduksjon. I 2023 er det beregnet at det ble produsert mellom 2 600 og 3 000 tonn med lodderogn. Restråstoff fra
+denne produksjonen er beregnet inn i mengde oppstått i pelagisk sektor.
+Det største volumet av restråstoff i pelagisk sektor oppstår fra filetering av sild. I 2023 er det beregnet at mellom 75 og
+80 % av sildevolumet til humant konsum ble filetert. I takt med stigende priser på mel og olje øker også verdien av
+avskjær som råstoff til denne industrien. Restråstoff fra filetering av sild oppstår i hovedsak ved landanleggene i
+hovedsesongene januar – mars og oktober – desember. I 2023 kjøpte den pelagiske konsumindustrien i Norge ca. 482
+000 tonn sild.
+Totalt oppstod det nærmere 286 000 tonn restråstoff innen pelagisk sektor i 2023.
+
+
+
+
+Figur 5-8: Figuren viser tilgjengelig restråstoff fra filetering av sild og makrell fordelt på måned i 2023
+(Kilde: Fiskeridirektoratet, Norges Sildesalgslag, SSB, Kontali Analyse og SINTEF)
+
+
+
+
+                                                                                                                 18 av 50
+For hver av de tre største regionene Nordland, Vestland og Møre og Romsdal oppstod det mellom 62 000 og 71 000
+tonn restråstoff fra pelagisk sektor (hovedsakelig sild og lodde) i 2023. I Troms og Finnmark og Rogaland oppstod det
+henholdsvis 42 000 tonn og 24 000 tonn (se Figur 5-9).
+
+
+
+
+Figur 5-9: Figurene viser tilgjengelig restråstoff fra filetering av sild og makrell fordelt på fylke i 2023
+(Kilde: Fiskeridirektoratet, Norges Sildesalgslag, SSB, Kontali Analyse og SINTEF)
+
+I dag går den samlede mengden av restråstoff fra filetering av sild og makrell til samme anvendelse, uten at de ulike
+fraksjonene blir separert. En fordeling av denne mengden på ulike fraksjoner er vist i Figur 5-10.
+
+
+
+
+Figur 5-10: Figuren viser tilgjengelig restråstoff fra filetering av sild og makrell fordelt på fraksjoner fra 2021-2023
+(Kilde: Fiskeridirektoratet, Norges Sildesalgslag, SSB, Kontali Analyse og SINTEF)
+
+
+
+
+Figur 5-11: Makrellhoder (Foto: Jannicke Remme/SINTEF Ocean)
+
+
+
+
+                                                                                                                           19 av 50
+5.5 Skalldyr
+Det ble landet ca. 69 000 tonn reker, taskekrabbe, snøkrabbe og kongekrabbe i 2023. Fra dette oppstod det ca. 16 000
+tonn restråstoff. Reker utgjorde ca. 53 000 tonn av landingene og av dette er det beregnet ca. 17 500 tonn med
+restråstoff, kalkulert til ca. 13 000 tonn etter avvanning. De største volumene av både reker og kongekrabbe blir landet
+i Troms og Finnmark. Beregnet utnyttet restråstoffmengde av skalldyr utgjør omtrent 9 400 tonn, 56 % av beregnet
+restråstoffmengde.
+De siste årene har utnyttelsesgraden i skalldyrsektoren variert både opp og ned, som en naturlig konsekvens av at dette
+er en mindre næring med færre aktører. Utnyttelsesvolumet i 2023 er på et stabilt til økende nivå sammenlignet med
+de siste årene, som forteller om en næring som vokser og er i utvikling.
+
+
+
+
+                                                                                                              20 av 50
+5.6 Havbruk (laksefisk)
+Totalt slaktet kvantum av laks og ørret i Norge i 2023 var ca. 1 445 000 (ikke medberegnet dødfisk) tonn rund, bløgget
+vekt. Målt i levende vekt, og lagt sammen med beregnet mengde dødfisk og utkast, utgjorde dette et råstoffgrunnlag
+på ca. 1 587 000 tonn. Av dette utgjorde restråstoffet nærmere 545 000 tonn, hvorav 94 % ble utnyttet.
+Det er kun fritt blod som ikke utnyttes fra havbruk med laksefisk i dag. Blodrand går sammen med slo. I 2023 er fritt
+blod fra sektoren beregnet til 33 300 tonn.
+Tabell 5-4: Tabellen viser restråstoff fra havbruk (matfisk, laks og ørret) i tonn fordelt på fraksjoner i 2023
+(Kilde: Fiskeridirektoratet, SSB, Norges Sjømatråd, Kontali Analyse, SINTEF)
+
+
+Type biråstoff                     Totalt oppstått            Ikke utnyttet        Utnyttet
+Dødfisk                                       141 800                          0       141 800
+Blod                                            33 300                   33 300                0
+Utkast                                          16 000                         0        16 000
+Slo                                           179 000                          0       179 300
+Hoder                                           42 000                         0        41 800
+Rygg og spol                                    45 400                         0        45 400
+Skinn                                           32 100                         0        32 100
+Buklist                                         20 900                         0        20 900
+Div. avskjær                                    34 000                         0        34 000
+Total                                         544 500                    33 300        511 300
+
+Det største volumet av restråstoff fra havbruk med laksefisk oppstår på slakteriene (42 % i 2023), og majoriteten av
+dette er slo (33 %). Mens andelen restråstoff som oppstår i videreforedling har vært økende de siste årene var det en
+liten nedgang i 2023, på ett prosentpoeng, til 32 %. Hoder, rygger og spol utgjør de største fraksjonene.
+Totalt 26 % av restråstoffet kommer fra matfiskanleggene som dødfisk. Kvantum restråstoff per måned henger i stor
+grad sammen med månedlig slaktet volum, og de største volumene restråstoff fra slakteriene oppstår i perioden
+september-november (Figur 5-12). Tilgjengelig restråstoff fra sektoren i 2023 var stabil sammenlignet med 2022.
+
+
+
+
+Figur 5-12: Figuren viser restråstoff havbruk med laksefisk fordelt på måned i 2023
+(Kilde: Fiskeridirektoratet, SSB, Norges Sjømatråd, Kontali Analyse, SINTEF)
+
+
+
+
+                                                                                                                  21 av 50
+Figur 5-13: Figurene viser tilgjengelig restråstoff fra havbruk med laksefisk fordelt på fraksjoner, mengde og andeler, fra 2020-2023
+(Kilde: Fiskeridirektoratet, SSB, Kontali Analyse og SINTEF)
+
+
+
+
+Figur 5-14: Laksehoder (Foto: Jannicke Remme/SINTEF Ocean)
+
+Fylkene Vestland, Trøndelag, Møre og Romsdal og Nordland har størst andel av restråstoff fra slakteri. Dette medfører
+at den geografiske fordelingen av hvor restråstoffet oppstår ikke er lik den geografiske fordelingen av
+matfiskproduksjonen.
+
+
+
+
+Figur 5-15: Figurene viser restråstoff fra havbruk med laksefisk fordelt på fylker i 2023
+(Kilde: Fiskeridirektoratet, SSB, Norges Sjømatråd, Kontali Analyse, SINTEF)
+
+
+
+
+                                                                                                                          22 av 50
+5.7 Utvikling fra 2018 til 2023 av tilgjengelig restråstoff
+Fra 2018 til 2023 var det en nedgang på 10 % i mengden tilgjengelig restråstoff i hvitfisksektoren, mens for pelagisk
+sektor og havbruk med laksefisk var det en økning på hhv. 40 og 28 %. Svingninger i tilgjengelig restråstoffvolum innen
+fiskeri skyldes variasjoner i kvotene samt varierende bearbeidingsgrad. Produksjonsutviklingen innen havbruk med
+laksefisk samt økt bearbeidingsgrad har gitt en jevn vekst i tilgjengelig restråstoff fra denne delen av næringen og er
+sammen med pelagisk sektor hovedårsak til den totale økningen i tilgjengelig restråstoff de siste årene.
+Tilgjengelig restråstoff fra skalldyrsektoren har økt jevnt i perioden, fra ca. 11 000 til i underkant av 20 000 tonn de siste
+årene.
+
+
+
+
+Figur 5-16: Figuren viser utvikling i tilgjengelig restråstoff fordelt på sektor fra 2017-2023
+(Kilde: Fiskeridirektoratet, SSB, Norges Sjømatråd, Salgslagene, Kontali Analyse og SINTEF)
+
+I pelagisk sektor er volum tilgjengelig og utnyttet restråstoff lik, da alt som blir prosessert i Norge blir utnyttet. Volum
+utnyttet restråstoff fra denne sektoren steg derfor i takt med tilgjengelig restråstoff sammenlignet med 2018 (+40 %). I
+havbruk med laksefisk har det de siste årene vært en økning mens det i 2023 ble observert en utflating. Økningen i
+restråstoff fra sektoren i perioden fra 2018 til 2023 var på 28 %.
+For hvitfisksektoren, hvor tilgjengelig restråstoff har sunket i perioden, har derimot utnyttelsen økt fra 60 % i 2018 til
+68 % i 2023. Dette er drevet av økt ivaretakelse av restråstoff i fangstleddet og god markedsutvikling av produktene
+med økende etterspørsel og stigende priser. Tilgjengelig restråstoff fra skalldyrsektoren har økt i takt med økte
+landinger. Forskning og utviklingsarbeid har bidratt til å utnytte mer av restråstoffet de siste årene, blant annet til
+produkter av høyere verdi for humant konsum.
+
+
+
+
+Figur 5-17: Figuren viser utvikling i utnyttet restråstoff fordelt på sektor fra 2018-2023
+(Kilde: Fiskeridirektoratet, SSB, Norges Sjømatråd, Salgslagene, Kontali Analyse og SINTEF))
+
+
+
+
+                                                                                                                   23 av 50
+Figur 5-18: Figuren viser utvikling i tilgjengelig og utnyttet volum restråstoff fra skalldyrsektoren fra 2012 til 2023.
+(Kilde: Fiskeridirektoratet, SSB, Norges Sjømatråd, Salgslagene, Kontali Analyse og SINTEF)
+
+
+
+
+Figur 5-19: Figuren viser utvikling i utnyttet restråstoff per sektor prosentvis fra 2018-2023.
+(Kilde: Fiskeridirektoratet, SSB, Norges Sjømatråd, Salgslagene, Kontali Analyse og SINTEF)
+
+
+
+
+                                                                                                                           24 av 50
+5.8 Oppsummering - Tilgjengelig restråstoff og utnyttelsesgrad
+Utnyttelsesgraden innen hvitfisksektoren opplevde en økning på ett prosentpoeng i 2023 som ga et resultat på 68 %.
+Dermed opprettholdt sektoren en høy utnyttelse som i 2022, sammenlignet med tidligere år, både før og i løpet av
+COVID-19. (Figur 5-20). Det meste av volumet i hvitfisksektoren kommer fra fartøy i kystflåten, men en jevnt økende
+andel blir også tatt vare på av havgående fartøy.
+Som for tidligere år utnyttes alt av pelagisk restråstoff i 2023. En må tilbake til 2012 for å finne noen få tonn pelagisk
+restråstoff som ikke ble utnyttet. I hovedsak oppstår dette fra filetering av sild.
+
+Innen havbruk med laksefisk er det fortsatt kun blod som ikke utnyttes, som betyr en samlet utnyttelsesgrad i 2023
+beregnet til 94 %.
+
+Utnyttelsesgraden innen skalldyrsektoren var på 56 % i 2023, som var en økning fra 52 % i 2022.
+
+Samlet for alle sektorer økte utnyttelsesgraden med ett prosentpoeng fra 2022, og endte på 88 % i 2023. Dette er den
+høyeste utnyttelsesgraden registrert siden arbeidet med restråstoffanalysen startet. Hovedgrunnen til økningen kan
+tilskrives en kombinasjon av bedre utnyttelse i hvitfisk- og havbrukssektoren, samt høyere tilgjengelighet av volum
+restråstoff i pelagisk og havbruk med laksefisk.
+
+
+
+
+Figur 5-20: Figuren viser utnyttelsesgrad av restråstoff fordelt på sektor i 2023
+(Kilde: Kontali Analyse, SINTEF)
+
+
+
+
+                                                                                                                25 av 50
+Ser en nærmere på tallene i 2023 på kombinasjonen av sektor og fraksjonstyper, var det blod fra havbruk med laksefisk,
+samt lever, hoder og rogn fra hvitfisk, som utgjorde de største volumene av ikke-utnyttet restråstoff, med hhv. ca.
+33 300 tonn, 21 700 tonn, 20 000 tonn og 16 500 tonn. I Figur 5-21 er også det beregnede volumet restråstoff fra
+utenlandske fartøyer som landet hovedproduktene i Norge inkludert.
+
+
+
+
+Figur 5-21: Figuren viser ikke-utnyttet restråstoff fordelt på fraksjon og sektor i 2023
+(Kilde: Kontali Analyse, SINTEF)
+*Hovedsakelig hoder og slo
+
+
+
+
+Figur 5-22: Ulike fraksjoner av restråstoff fra hvitfisk (Foto: Jannicke Remme/SINTEF Ocean)
+
+
+
+
+                                                                                                            26 av 50
+5.9 Anvendelse av restråstoff
+5.9.1 Utnyttelse
+Totalt er det beregnet at omtrent 1 million tonn restråstoff ble utnyttet fra norsk fiskeri- og havbruksnæring i 2023, en
+økning på 2 % sammenlignet med 2022. Dette er i hovedsak knyttet til økt bearbeidingsgrad av sild i pelagisk sektor,
+med økende priser for avskjær til mel- og oljeproduksjon som gjør det attraktivt å filetere større volum i Norge. I tillegg
+er det nå større etterspørsel etter filetprodukter av sild i utenlandske markeder enn tidligere. Fordelingen av totalt
+utnyttet restråstoff fordelt på de ulike sektorene er angitt i Figur 5-23.
+Mesteparten av restråstoffet utnyttes av marin ingrediensindustri. I hovedsak blir dette benyttet til produkter innenfor
+fôr- og konsummarkedet, som ingrediens eller som konsumprodukter av lever, rogn, buklist, smakstilsettinger, etc.
+Foreløpig blir lite av det norske restråstoffet utnyttet inn i høyere betalende markeder som kosttilskudd-, kosmetikk-
+eller farmasimarkedet. Imidlertid har det vært, og fortsatt er flere industrielle aktører som bidrar til FoU-arbeid med
+tanke på å løfte marine (hydrolyserte) proteiner inn i human ernæring. I dette kapitlet vil utnyttelsen av det norske
+restråstoffet bli belyst med tanke på prosesser for anvendelse og produktgruppe.
+
+
+
+
+Figur 5-23: Figuren viser mengde og andel utnyttet restråstoff fordelt på sektor i 2023
+(Kilde: Kontali Analyse, SINTEF)
+
+
+
+
+                                                                                                                27 av 50
+5.9.2 Anvendelse inn i prosesser
+Restråstoff som oppstår fra fiskeri- og havbruksnæringen anvendes inn i ulike produksjoner. Det største volumet går
+gjennom en form for prosessering, mens noe går direkte til konsum som ferskt eller frossent sjømatprodukt eller som
+et mer bearbeidet konsumprodukt (proteinekstrakter, tran og marine oljer til helsekost). I Figur 5-24 er de ulike
+prosessene gruppert i hovedkategorier. Prosessene innen en gruppering er til dels ulike og kan variere fra bedrift til
+bedrift. Det foregår også kjøp og salg av råstoff og produkter mellom bedriftene som gjør at det er komplisert å holde
+oversikt over samtlige varestrømmer.
+Som tidligere år gikk den største andelen av tilgjengelig restråstoff til anvendelse innenfor ensilasje, og i 2023 var
+andelen 51 %, en økning på tre prosentpoeng fra både 2022 og 2021. Deretter følger anvendelse til fiskemel- og olje
+(18 %), hvor det i hovedsak er pelagisk avskjær som inngår. Selv med en økning i andel sild til filetering i 2023 ble det en
+nedgang i volumandel fra pelagisk sektor til denne anvendelsen, særlig drevet av mindre råstoff av sild, makrell og lodde
+sammenlignet med 2022. Volum fra hvitfisksektoren så en liten økning fra 2022 som bidro til å stabilisere totalvolumet.
+Store og stabile volumer fra havbruk med laksefisk har gitt grunnlag for en voksende industri basert på prosessering av
+ferskt råstoff for ekstraksjon av fersk lakseolje og FPH, mel eller FPC. Volummessig er denne anvendelsen den tredje
+største i 2023 på 183 000 tonn, jevnt fra 2022. Antall aktører er stabil, men det investeres betydelig i både forskning og
+utviklingsprosesser i denne delen av bransjen. Mens majoriteten av dette volumet ender som ingredienser i ulike
+fôrprodukter fokuseres det stort i forskning på lukt og smaksnøytrale peptider som kan inngå i human helsekost eller
+farmasiprodukter.
+Mengde marint restråstoff anvendt til direkte eller indirekte konsum har økt jevnt de siste årene og oppnådde i 2023
+en andel på ca. 12 %. Sett i form av volum var det en 10 % nedgang fra 2022, særlig drevet av nedgang i torskekvoter
+som resulterte i mindre tilgjengelighet av hoder, rygger og svømmeblære som er høyt ettertraktet til konsum utenfor
+norske grenser. Til tross for en nedgang fra 2022 til 2023 har det vært en positiv utvikling de siste årene for
+konsummarkedene.
+Som for tidligere år er det noen tusen tonn rekeskall som utnyttes inn i produksjon av kitin/chitosan og
+oppmaling/tørking til rekeskallmel som også inngår til humant konsum, gjerne via kosttilskudd.
+
+
+
+
+Figur 5-24: Figuren viser restråstoff anvendt etter hovedprosess, råstoffvolum i tonn, i 2023
+(Kilde: Bedrifter, SINTEF)
+
+
+
+
+                                                                                                                 28 av 50
+5.9.3 Produktgrupper
+Figur 5-25 viser de viktigste produktgruppene basert på marint restråstoff i 2023. Via prosessering i industrileddet ble
+ca. 1 million tonn restråstoff omgjort til produkter og halvfabrikata tilsvarende ca. 485 000 tonn.
+Marine oljer var i 2023 den største produktgruppen, summert til ca. 128 000 tonn. Dette var en svak oppgang fra 2022
+da volumet endte på ca. 124 000 tonn. Kategorien inneholder fiskeoljer både fra pelagisk, hvitfisk og laksefisk til ulik
+anvendelse i markedet. Mens det observeres en svak nedgang både for hvitfisk og havbruk med laksefisk til denne
+anvendelsen i 2023, var den en økning fra pelgisk sektor. Økningen kan ses i sammenheng med den stadige økningen i
+sildefiletering, også i 2023, hvor avskjær er høyt etterspurt og godt betalt.
+FPC sammen med FPH, har i lengre tid vært den største produktgruppen målt i produktvekt. I 2023 utgjorde dette til
+sammen ca. 117 000 tonn, noe som var en mindre nedgang fra 2022, da det ble rapportert ca. 146 000 tonn. Nedgangen
+i 2023 skyldtes i hovedsak av at mer av restråstoff fra havbruk med laksefisk oppstod som kategori-2-råstoff, som ble
+benyttet til energianvendelse. I tillegg ble det oppdaget en mindre beregningsfeil i datasettet i fjorårets tall hvor omtrent
+15 000 tonn ble dobbelttelt. Det faktiske tallet for 2022 er nærmere 130 000 tonn, noe som gir en nedgang på 10 % i
+2023.
+Hvor det tidligere var en økende andel av proteinfraksjonen fra fersk prosessering av lakseslo/avskjær som gikk til tørket
+hydrolysert protein, har det de siste årene vært stabilt til synkende. I 2023 endte dette på
+1 000 tonn, som var en halvering fra 2022. Tørket proteinhydrolysat av laks er blant annet etterspurt hos globale pet-
+food-produsenter.
+Omtrent 68 000 tonn var konsumprodukter i 2023, i form av sjømatprodukter, tran og ekstrakter. Dette var en nedgang
+fra 2022 da volumet var 75 000 tonn, men en oppgang fra både 2020 og 2021. Som nevnt i forrige kapittel (5.9.2) var
+årsaken til nedgangen i 2023 i hovedsak drevet av reduserte kvoter for torsk hvor majoriteten av volumet oppstår. Det
+finnes også produksjoner av eksempelvis functional food, kosmetikk, kosttilskudd og farmasiprodukter, men rent
+volummessig er disse produktene små i forhold til bulkproduktene.
+
+
+
+
+Figur 5-25: Figuren viser produktgrupper basert på marint restråstoff, produktvekt i tonn, i 2023.
+(Kilde: Bedrifter, SINTEF)
+Merk: Bioenergianvendelse er estimert med tanke på råstoffvekt inn til denne anvendelsen
+
+
+
+
+                                                                                                                  29 av 50
+5.9.4 Anvendelseskategori
+Produkter basert på norsk marint restråstoff går i hovedsak til tre anvendelser: direkte og indirekte humant konsum,
+fôr og energi/biogass (Figur 5-26). Historisk sett har hvitfisksektoren uten tvil generert mest av både direkte og indirekte
+human konsumprodukter. I 2023 var det derimot svært jevnt mellom hvitfisk og havbruk med laksefisk til direkte
+konsumanvendelse, som inkluderer blant annet tørkede hoder, rygger, lever, rogn og bellyflaps til utenlandske
+markeder. Bidraget fra begge sektorer endte på ca. 27 000 tonn i 2023. Volum fra havbruk med laksefisk økte med
+16 % fra 2022 til 2023, mens for hvitfisksektoren ble det registrert en nedgang på 28 %. Samlet sett sank volumet til
+direkte konsumanvendelse med 6 000 tonn fra 2022 til 2023 til ca. 60 000 tonn. Dette til tross for at også pelagisk sektor,
+i likhet med havbruk med laksefisk, økte sitt bidrag fra ca. 4 000 tonn til 5 000 tonn dette året, særlig drevet av
+lodderogn.
+‘Indirekte’ konsumprodukter inkluderer lever (tran), smakstilsettinger i næringsmidler (ekstrakter), kosttilskudd og
+farmasøytiske produkter, hvor anvendelsen sank med 1 000 tonn i 2023, til 8 000 tonn. Volumet baserer seg særlig på
+restråstoff fra hvitfisk- og skalldyrsektoren. I dag er det blant annet etablert selskaper som har fått markedsmessig
+gjennomslag for kollagentabletter/pulver som helsekost. Kollagenet utvinnes fra torskeskinn i hovedsak, men det er
+også økende etterspørsel etter lakseskinn for denne anvendelsen. På grunn av den store etterspørselen etter (volum)
+fiskeskinn og en relativt lav bearbeidelsesgrad i Norge hvor skinnet blir med hovedproduktet ut av landet, importeres
+betydelige mengder fra andre land, særlig EU, for å dekke produksjonsbehovet. Det er også et økende marked for blant
+annet torskerygger og svømmeblære, da særlig i Asia, til både supper og sauser.
+Den største markedsanvendelsen for marint restråstoff fra norsk industri er fôr, som inkluderer fiskefôr, husdyrfôr,
+kjæledyrfôr og pelsdyrfôr. I 2023 ble det ble produsert ca. 312 000 tonn fôrprodukter.
+Det er hovedsakelig kategori 2 ensilasje fra dødfisk laks som anvendes til forbrenningsanlegg eller biogass. Anvendelsen
+har økt markert siden 2015, særlig på grunn av ekstra håndtering av fisken ved sykdoms- og lusebehandling. En
+signifikant andel av volumet til biogassproduksjon eksporteres til Danmark, men det har i de siste årene vært en økt
+aktivitet i Norge på området, med forsøk på etablering av flere anlegg.
+
+
+    Produktkategori                                     Nivå                              Produksjon / andel
+
+
+    Humant konsum
+    Sjømatprodukter (direkte)
+
+    Tran, proteinekstrakter, m.m.                                                            68 000 t / 14 %
+    (indirekte)
+
+    Fôr
+    Fiskefôr, husdyrfôr,                                                                     312 000 t / 64 %
+    kjæledyrfôr og pelsdyrfôr
+
+
+     Biogass
+                                                                                               103 000 t / 21 %
+
+Figur 5-26: Figuren viser hovedmarkedsområder, rangert fra topp til bunn med fokus på økt verdiskaping fra restråstoff i
+matproduksjon til nye produkter. Produktvekt i tonn, i 2023. (Kilde: Bedrifter, SINTEF6).
+
+
+
+
+6 Anvendelse til biogass/-energi/gjødsel er inkludert som oppgitt volum restråstoff inn
+
+
+
+
+                                                                                                                  30 av 50
+Figur 5-27 viser at fiskefôr er den største fôrkategorien rent volummessig. Mens hydrolysert marint protein fra
+restråstoff av laks kan benyttes i laksefôr (mindre enn 10 kDa, ref. animaliebiproduktforskriften7) selges det i særlig grad
+som fôr til andre marine arter, eksempelvis seabass og seabream i Sør-Europa. FPC fra restråstoff av pelagiske arter og
+torskefisk er viktige ingredienser i den norske fiskefôrproduksjonen til havbruk med laksefisk. Fra 2022 til 2023 økte
+volumet til fiskefôr med ca. 1 %. Til tross for at værefenomenent El Niño er over for denne gang og fiskefelt igjen åpnes
+utenfor Sør-Amerika, så antas det at etterspørselen etter særlig pelagiske arter med høyt innhold av essensielle fettsyrer
+(f.eks. omega-3) vil være høy også i årene som kommer, som igjen kan fortsette å presse prisene i verdensmarkedet.
+Etter fiskefôr følger den globale pet-food-industrien som har økt signifikant de siste årene. Siden 2019 har mengden
+produsert til denne anvendelsen økt fra omtrent 39 000 tonn til 48 000 tonn i 2023. En del av forklaringen antas å være
+den betydelige økningen av kjæledyr per husholdning i både Norge og Europa i 2020 og 2021 forbundet med COVID-19.
+En ringvirkning av skifte i volumstrømmer fra kategori-3 til kategori-2 restråstoff fra havbruk med laksefisk førte i 2023
+til en nedgang i mengden tilført husdyrfôr. Mens kategorien i 2022 oppnådde et volum på ca. 70 000 tonn, var dette
+redusert til i underkant av 40 000 tonn i 2023.
+Marint restråstoff som ingrediens til fôr til pelsdyrnæringen i Skandinavia har hatt en sterkt synkende kurve i tråd med
+generelle konjunkturer for denne næringen de siste årene. Politisk er det vedtatt forbud mot norsk pelsdyroppdrett,
+som ytterligere har redusert denne anvendelsen. Selv om forbudet ikke blir iverksatt før 2025, kommuniseres det fra
+norsk næring at volumene synker og snart vil være fraværende. Hovedmarkedene for volumet til pelsdyrfôr i 2023 (jevnt
+fra 2022) er fortsatt Finland og Danmark.
+
+
+
+
+Figur 5-27: Figuren viser spesifisering av markedssegmenter for fôranvendelser, produktvekt i tonn, i 2023
+(Kilde: Bedrifter, SINTEF)
+
+Flere norske selskaper jobber med FoU på dokumentasjon av helseeffekter av marine proteiner og muligheten til å
+utvikle høyverdiprodukter til forbrukermarkedet, som kan bidra til å styrke marin ingrediensindustrien på sikt. Ved at
+flere vender seg mot forbrukermarkedet, i tillegg til et økende behov fra fôrmarkedene behøves det dermed nye kilder
+til marine omega-3-fettsyrer i fôret, som kan hentes fra blant annet mikroalger, som større, kommersielle aktører
+allerede har introdusert.
+Både tørrstoffinnhold og proteininnhold i de ulike proteinproduktene varierer en god del, og det er i prinsippet
+proteinandelen fôrfirmaene betaler for. Det må derfor presiseres at i denne undersøkelsen er proteinproduktene ikke
+justert for ulikt tørrstoffinnhold og proteinandel. Oljen er mer standardisert med hensyn til innhold. For oljene basert
+på restråstoff er det en utfordring at oppdrettsfisk inneholder mindre omega-3 fettsyrer enn for noen år tilbake.
+
+
+
+7
+ Animaliebiproduktforskriften, vedlegg X, kapittel II, avsnitt 5
+
+(https://lovdata.no/dokument/SF/forskrift/2016-09-14-1064/KAPITTEL_12-2-1-20#KAPITTEL_12-2-1-20
+
+
+
+
+                                                                                                                 31 av 50
+5.9.5 Utvikling fra 2019 til 2023 innen anvendelse av restråstoff
+Figur 5-28 viser utviklingen innen ulike produktgrupper fra 2019 til 2023. Mengden marine oljer har vært jevnt stigende
+til stabil i perioden, drevet av større tilgang på råstoff fra havbruk med laksefisk). Kategorien innbefatter både olje fra
+pelagisk restråstoff og lakseolje utvunnet fra ferskt restråstoff fra de store laksepakkeriene. Marine oljer fra
+restråstoffindustrien er viktige og verdifulle ingredienser for fiskefôrindustrien, både i Norge og deler av Sør-Europa. I
+Norge inngår olje og proteiner fra hvitfisk og pelagiske arter i en sirkulær økonomi som viktig fôringrediens til havbruk
+med laksefisk. Lakseolje og proteiner fra restråstoff av laks blir i vesentlig grad fôringrediens til oppdrett av andre marine
+arter (seabass / seabream). Lakseolje fra ferskt hydrolysert slo ble i 2013 igjen tillatt brukt tilbake i fôr til laksefisk. Dette
+benyttes til en viss grad, uten at vi har eksakte tall for slik anvendelse.
+
+Ensilasjeindustrien produserer stabile volum av fiskeproteinkonsentrat (i tillegg til olje). Volumene oppgitt i denne
+rapporten, anvendt til ensilasje, er eksklusivt importert råstoff (vesentlig Færøyene/Island). Mengden fiskemel fra
+restråstoff (eksklusivt ordinært fiskemel fra oppmaling av hel fisk) har variert de årene, særlig drevet av tilgang til
+pelagisk råstoff. Mens det var en markant økning fra 2019 til 2020 (+33 %), har det siden den gang vært stabilt rundt ca.
+60 000 tonn i året. Mens majoriteten av melet produseres på landanlegg, er det også produksjon ombord på enkelte
+trålere i hvitfisksektoren. Foreløpig er det ikke store volum, men en positiv trend hvor den havgående flåte
+eksperimenterer med metoder for å ivareta sløyesvinn og avskjær fra prosessering om bord. I 2023 var det en oppgang
+på 6 % i produksjonen av mel ombord fra året før, til ca. 4 200 tonn. Til tross for dette var det en nedgang fra volumet i
+2021 (-10 %) var det høyt i en historisk sammenheng.
+
+Direkte konsumanvendelse har økt jevnt de siste årene. Siden 2019 har det beveget seg fra ca. 49 000 tonn til ca.
+60 000 tonn. Økningen de siste årene er hovedsakelig basert på et økende fokus på full utnyttelse av råstoffet ved å ta
+vare på et høyere antall fraksjoner som selges til etterspørrende markeder, særlig utenfor Norges grenser. Noen av
+produktene er iselje (torskemelke), torskemager, og rygger med svømmeblære, som selges til Asia, og særlig Sør-Korea,
+samt tørkede torskehoder til Afrika, særlig Nigeria.
+
+
+
+
+Figur 5-28: Figuren viser historisk utvikling av produktgrupper basert på marint restråstoff, i tonn, fra 2019-2023
+(Kilde: Bedrifter, SINTEF)
+
+
+
+
+                                                                                                                       32 av 50
+5.10 Overordnede økonomiske beregninger
+Verdiskapende økonomisk aktivitet med grunnlag i bruk av restråstoff, er et samspill mellom etablerte verdikjeder og
+industristruktur i det som utgjør den norske sjømatnæring. Dette omfatter flåten for fiske og fangst, fiskeindustrien på
+land og salg-/eksportleddet. I tillegg, og ikke minst viktig, er det utviklet og etablert en rekke selskaper som vi har valgt
+å betegne som 'spesialindustri marint restråstoff'. Sammen utgjør disse en totalitet som har stor økonomisk betydning.
+Denne industrien inkluderer alt fra spesialisert logistikk og bulkprosessering av større volum (f.eks. prosessanlegg for
+ensilasje), til spissfaglige bioteknologibedrifter for ekstraksjon av marine proteiner eller fettsyrefraksjoner fra olje (f.eks.
+omega-3) for humant konsum eller farmasiformål. Se Figur 6-1.
+I havbruksnæringen hvor råvaren produseres, er industrileddet i stor grad integrert med produksjonsleddet. I tillegg er
+også restråstoffprosessering ofte en del av samme selskapsstruktur. På basis av dette er det vurdert utfordrende å skille
+ut spesifikke kostnader for første og andre ledd i verdikjeden, for en eventuell dokumentasjon av økonomisk resultat
+og verdiskaping gjennomgående for næringen. Dette krever detaljert innsyn av produktkalkyler hos representative
+utvalg av enkeltbedrifter som ikke anses hensiktsmessig eller mulig i denne sammenheng.
+     Havbruk            Pelagisk   Hvitfisk         Skalldyr
+
+
+    Fiskeri                           Fiskeindustri – primærledd                            Industri – spesialisert marint restråstoff Salg/realisering verdiskaping
+    (N=600+)                          (N= ~300)                                             (N=~45)                                              Norsk marked                     Eksport
+    1) Halvfabrikat                                                                         Mel og oljefabrikker (tradisjonell)
+                                      1) Halvfabrikat
+     Mel, olje eller                  Filetavskjær fra sild og makrell                    Råtranprosessering         Tranraffinering for
+                                                                                                                       produksjon av                              Medisintran, fettsyrer
+    råensilasje omsettes
+    til spesialiserte                  Halvfabrikata: Råtran til raffiering                                           omega-3 til humant
+    enheter av industrien                                                                                              konsum
+                                       Dyrefòr: Avskjær, slo, rygger, hoder (div. arter)
+                                                                                            Ensilasjeforedling          Fiskeproteinkonsentrat
+    2) Produkter for                  2) Produkter for humant konsum                                                                             FPC fra pelagisk til laksefôr   Fôr til agrisektor
+                                                                                                                       og oljeseparasjon
+    humant konsum
+                                       Konsumvarer: Hoder, rygger, avskjær, rogn,                                     til fôr
+     Omsettes via norsk              melke, lever, tunge, skall etc.
+    fiskeindustri                                                                                                      Biokjemikalier,                Pepton, peptider, enzym, collagen, functional food-
+                                       Halvfabrikata: Rogn                                                            protein, enzym og              humant
+                                                                                                                       finkjemikalier som
+                                                                                                                                                      Startfôr yngel, chitosan, farmasi-grade omega 3,
+                                                                                                                       fôrtilsetning eller
+    Havbruk                           Industri - slakting/foredling                                                    human helsekost
+                                                                                                                                                      Marine fosfolipider, medisintran, mm
+
+    (N=~75)                           (N=80+)
+    Vertikalt integrerte
+    selskap
+                                      1) Humant konsum:
+                                                                                                                                                                  Fôr til ørret/marine arter
+                                       Bellyflaps, hoder, torskelever, farse
+
+                                      2) K3-biprodukt                                             Hydrolyse              Laksemel                                      Pet-food
+                                       Slo, hoder, avskjær                                       fersk lakseslo         Lakseolje
+
+                                      3) K2-biprodukt                                                                  Biogass/bioenergi
+                                                                                                                                                                                                      Danmark
+                                       Utkast, dødfisk
+
+
+
+
+Figur 6-1: Figuren viser næringsstruktur for bedrifter involvert i restråstoffindustrien i Norge.
+Kilde: SINTEF/Kontali/bedrifter
+
+Det er imidlertid av interesse å dokumentere en overordnet økonomisk verdi av marint restråstoff, en utvidelse av den
+etablerte rapporteringen av mengde og vareflyt på et nasjonalt plan. Som en begynnelse på et arbeid som nå også
+innebærer kartlegging av økonomiske effekter og utviklingstendenser på nasjonalt plan, har en valgt å fokusere på to
+ledd:
+                   Verdi av selve råstoffet inn til foredling. I 2023 er dette beregnet til hele 1 003 000 tonn, som er et rekordstort
+                    volum tilgjengelig for bearbeiding og verdiskaping. I 2022 var råstofftilgangen på om lag 980 000 tonn.
+                   Eksportverdi og omsetning innenlands fra industrileddet, inklusive det vi har navngitt som den spesialiserte
+                    marine ingrediensindustrien. Produktvekten ut fra industrileddene utgjør etter våre beregninger på basis av
+                    oppgitte data fra industrien, 485 000 tonn8.
+Metodikken benyttet for å estimere sluttverdi av marint restråstoff tar utgangspunkt i produktmatrisen benyttet hvert
+år i rapportering av vareflyt (volum). Dette er som kjent spesifisert på hovedgrupper av produkter, med fordeling og
+
+
+
+
+8
+    I produktvekt fra industrien inngår om lag 25 000 tonn råensilasje og proteingrakse fra K2-råstoff fra laks til biogassproduksjon.
+
+
+                                                                                                                                                                                                            33 av 50
+type råstoff basert på hvitfisk, pelagisk, havbruk med laksefisk og skalldyr. Matrisen viser at produsert mengde fra
+industrien summert tilsvarer 485 000 tonn av de 1 003 000 tonn utnyttet inn. Se Figur 5-29.
+Verdiestimatet er da gjort ved å gjennomgå hver produktgruppe basert på innhentede gjennomsnittspriser.
+Gjennomsnittspriser er enten godt dokumentert via eksportstatistikk per respektive varenummer, eller, som også er en
+helt nødvendig forutsetning, innhentet fra industriaktører via personlig kommunikasjon. Samlet sett gir dette, etter
+prosjektgruppens mening, et rimelig estimat på hva denne delen av næringen utgjør også i økonomisk forstand.
+
+5.10.1 Brutto eksport-omsetningsverdier av marint restråstoff
+Beregningene viser at førstehåndsverdien av marint restråstoff fra norsk sjømatnæring samlet sett endte på ca. 4,5
+milliarder kroner i 2023. Dette er det samme tallet som ble rapportert i fjorårets rapport for 2022, men her har det blitt
+oppdaget at enkelte verdier var estimert noe høyt. Førstehåndsverdi for 2022 er derfor satt til ca. 4 milliarder kroner.
+Med en verdiøkning på hele 3,8 milliarder kroner, summeres produkter basert på marint restråstoff fra norsk
+sjømatnæring til en samlet bruttoverdi omsatt på ca. 8,3 milliarder kroner i 2023 (se Figur 6-2). Det betyr at brutto
+omsetningsverdi har vokst hele 10 % fra året før, i tråd med våre prognoser i forrige rapport. Hovedgrunnene til
+utviklingen er beskrevet i et eget delkapittel (Kap 5.10.2 Markeds -og prisutvikling).
+
+
+
+
+Figur 6-2: Figurene viser førstehånds- og salg/eksportverdi av marint restråstoff fordelt på næringssektor (2022-2023, i mrd NOK).
+Kilde: SINTEF/Kontali/bedrifter
+
+55 % av samlet produksjonsverdi kommer fra den fiskeribaserte delen av næringen, mens restråstoff fra havbruk med
+laksefisk utgjør 45 %, målt til vel 3,7 milliarder kroner i 2023. I tråd med generell økning i havbruk med laksefisk, og
+reduserte kvoter innen torskefiskeriene, registrerer vi en viss økning i omsetning fra havbruk med laksefisk, og en viss
+nedgang fra fiskeridelen.
+
+
+
+
+Figur 6-3: Figuren viser salg/eksportverdi av marint restråstoff fordelt på produktgrupper i 2022 og 2023 (mrd NOK).
+Kilde: SINTEF/Kontali/bedrifter
+
+
+
+
+                                                                                                                       34 av 50
+5.10.2 Markeds- og prisutvikling
+Store prisøkninger på marine oljer
+På grunn av El Niño-effekten i Sør-Atlanteren utenfor Peru og Chile ble det betydelig reduserte kvoter på fisket etter
+anchoveta i Peru i 2022 og særlig 2023. Særlig prisene for fiskeolje økte betydelig, der stort innholdet av omega-3-
+fettsyrer gjør at denne oljen også er den mest attraktive oljen som råstoff til den globale raffineringsindustri for
+produksjon av omega-3 produkter til humant konsum. Også prisene på fiskemel gikk opp, hvor Kina etterspør store
+volumer fôringredienser til kylling, egg og svinekjøttproduksjon i konkurranse med tilsvarende produksjon i Europa. I
+tillegg er det stor etterspørsel fra en konkurransedyktig europeisk akvakultursektor innen havbruk med laksefisk.
+De globale markedsprisene på fiskemel og fiskeolje (fra Peru og Chile) fungerer som en base-line for stort sett alt av
+tilsvarende produkt basert på annet lignede råstoff. Slik også for lakseolje, fiskeproteinkonsentrat (FPC) og laksemel
+produsert av ferskt restråstoff. Prisene korrelerer tilnærmet perfekt, hvor nivåforskjellene er basert på varierende
+innhold av omega-3 eller omega-6 for olje, og innhold og (delvis) sammensetning av aminosyrer-/protein i mel eller FPC.
+I hovedsak på grunn av redusert tilbud og fortsatt god etterspørsel har særlig prisene på marin fiskeolje steget sterkt:
+Fra 2022 til 2023 økte produsentprisene mellom 30 og 60 %. Prisveksten er fortsatt større sammenlignet med pris i
+2021. Ved at vi bruker norsk eksportstatistikk må en også legge inn en "valutaeffekt" som forklaringsfaktor i det faktum
+at verdien av norsk krone har svekket seg markert i forhold til handelsvaluta som USD og EUR.
+Også fiskemel og marine proteiner har hatt betydelige prisøkninger av samme grunn som marine lipider. Samtidig har
+prisøkningen vært mer moderat for fiskemelprodukter (10 til 17 % fra 2022 til 2023), som sannsynligvis skyldes at
+proteiner kan hentes fra en rekke plantebaserte kilder som erstatning eller substitutt til marine proteiner i fôr til både
+husdyr og akvatisk produksjon av mat eller kjæledyrfôr.
+Prisnedgang for luksusprodukter til humant konsum
+Det er interessant å registrere at selv om det meste av produkter fra marint restråstoff har hatt en sterk prisoppgang
+de siste par år, er det prisnedgang på en rekke rogn-/kaviar produkter. Nær dobling av mengde lodderogn eksportert i
+2023 (2 657 tonn) sammenlignet med året før har gitt hele 60 % lavere gjennomsnittspris enn i 2022. Samtidig er også
+pris på silderogn svekket med ca. 40 % til tross for en viss nedgang i eksportert volum.
+Årsaken til svekkede priser kan forklares med at 2023 var første året hvor det nærmest på global basis ble "dyrtid" for
+de fleste produkter, ikke minst produkter for humant konsum. Kraftig oppgang i rentenivået for å temme globale
+inflasjonstall medførte nedgang i disponibel inntekt for husholdningene. At usikre økonomiske forhold for privat konsum
+går ut over etterspørselen av de dyreste produktene i vanlige folks husholdning, må regnes som en forventet effekt.
+Heldigvis er det allerede våren 2024 tegn til at global inflasjon og kostnadsvekst er under kontroll, og allerede i 2024
+ventes bedring av folks kjøpekraft.
+Europa dominerende markedsområde
+En gjennomgang av eksportstatistikken for de relevante produktkategorier viser at EU er det absolutt største markedet
+for de fleste store bulkprodukter av marint restråstoff fra Norge. Dette gjelder særlig produkter som
+(fiske-)mel, fiskeproteinkonsentrat fra ensilasjeindustri og fiskeolje produsert fra laks, hvitfisk og pelagisk råstoff.
+Det er også en voksende etterspørsel etter olje og proteinprodukter produsert fra pelagisk råstoff eller fra hvitfisk fra
+norske fabrikker som produserer fôr til laks. I tillegg er det de siste årene etablert norsk biogassindustri som har stor
+interesse av ensilasjeråstoffet fra kategori-2–råstoff av laks. Her har dansk industri vært – og fremdeles er – en
+dominerende mottaker. Tilnærmet 99 % av eksport av olje og proteinkonsentrat av nedgradert råstoff (kategori-1 /
+kategori-2) gikk til Danmark i 2023, totalt vel 130 000 tonn. Et lite, men bedre betalende marked for K2-olje er til
+tekniske-industriell bruk, eksempelvis garving av skinn som bilindustrien er sluttbruker til.
+Laksemel produsert fra ferskt råstoff er svært etterspurt i kjæledyrmarkedet. Særlig laksemel finner god etterspørsel
+fra internasjonale selskaper med produksjon av fôrprodukter til kjæledyr. Slike finnes i stor grad i UK, USA, Spania og
+Danmark.
+
+
+
+                                                                                                               35 av 50
+Lakseolje fra K3-råstoff har god etterspørsel som fôringrediens til oppdrett av andre marine arter, særlig seabass og
+seabream i land som Tyrkia og Hellas. Noe går også til Danmark, formodentlig til ørretfôr og fôr til landbruksindustrien.
+
+Raffinering av råtran foregår i hovedsak i Norge og Sverige, og konsumproduktene konkurrerer i en "jungel" av omega-
+3 produkter globalt. Torskelevertran har historisk vært omsatt i Skandinavia som primært markedsområde. Norge og
+Island produserer også en del seilevertran. Denne går i stor grad til teknisk bruk og dyrefôr.
+
+Konsumproduktene produsert av marint restråstoff har i stor grad avsetning i asiatiske marked, samt USA. Rogn av
+lodde og sild er særlig etterspurt i Japan og østlige deler av Europa. Russland og Ukraina, m.fl. var tidligere også viktige
+markeder for silderogn. Det samme gjelder også buklister fra filetering og frosne hoder fra laks . Vietnam er største
+mottaksland (7 100 tonn) i Asia forrige år, hvor også Filippinene importerte over 1 000 tonn. Ellers er det land i østlige
+deler av Europa som importerer det meste utenom, med Ukraina som største importør (6 200 tonn) i tillegg til Litauen,
+Estland og Kasakhstan.
+
+Torsk- og rognkjeksrogn som råstoff foredles i stor grad i Norge, Sverige og Danmark. I hovedsak omsettes dette
+gjennom detaljhandelen i samme geografiske område, med små nisjer i USA og andre land i Europa.
+
+Oppsummert og så langt i 2024
+Samlet sett kan en vurdere 2023 som nokså nært et økonomisk rekordår. Global knapphet på marine oljer og til dels
+også marine proteiner har gitt stor økning i omsetning for aktørene spesialisert på utnyttelse og prosessering av
+biprodukter. Samtidig har svak norsk valuta medført særlig prisøkning på produkter til konsummarkedene, i likhet med
+øvrig sjømateksport fra Norge.
+Inn i første halvår av 2024 er det god etterspørsel etter marine oljer og protein. Fortsatt vekst i global
+akvakulturproduksjon (og da særlig havbruk) vil generelt sørge for god etterspørsel etter marine proteiner og fiskeoljer
+til global fôrindustrien. På kort sikt vil det kunne komme korreksjoner i pris på slutten av 2024 eller mest sannsynlig i
+2025 – hvis kvotene i de største pelagiske fiskeriene til fiskemelindustrien Sør-Amerika normaliseres. Pris til sluttbruker
+– særlig i konsummarkedet - er nok svært nær en "smertegrense" i forhold til betalingsevne og/eller -vilje, for
+konsumprodukter av sjømat. Marine produkter har likevel flere spesialnisjer og en rekke spesifikke anvendelser i det
+globale markedet. Så langt tror vi på derfor på en stabilisering i de nærmeste to årene, heller enn store svingninger opp
+eller ned som kan medføre særlige økonomiske utfordringer for industrien.
+
+
+
+
+                                                                                                                 36 av 50
+6 Tiltak for økt ivaretakelse og utnyttelse
+Gjennom årene viser beregningene at utnyttelsen av marint restråstoff, med opprinnelse i norsk sjømatnæring har økt
+fra i overkant av 70 % i 2012 til 88 % i 2023. Til tross for en meget positiv utvikling, er det alltid rom for forbedring.
+Lakseblod
+Som eneste gjenstående fraksjon i havbruk med laksefisk har blodvann i flere år fått økende oppmerksomhet. Med høyt
+innhold av lettfordøyelig protein og rik på mineraler i form av jern, er det flere grunnet til at dette produktet er
+ettertraktet. Frem til i det siste har det vært vanskelig å hente ut produktet på en god måte.
+I tråd med hvordan produksjonen av laksefisk i norsk havbruksnæring har utviklet seg har mengden tilgjengelig blod økt.
+Omtrent 2 % av laksens vekt er antatt å bestå av blod. De siste årene har en dermed potensielt tilgjengelig i overkant av
+30 000 – 35 000 tonn nasjonalt. Ulike forskningsinstitutter har i flerfoldige år hatt søkelyset på lakseblod, inkludert
+Nofima9 og SINTEF10.
+I tillegg til FoU, så har også industrien selv tatt initiativ for å se nærmere på problemstillingen som har vært en plage i
+over 20 år. Derfor var det gledelig å høre at Lerøy har fått et gjennombrudd i sitt arbeid i samarbeid med FoU-miljøer
+ved å lansere produktet SalmoFer11,12. Produktet beskrives som både verdens første jerningrediens fra laks, men også
+den første i sitt slag, og er et resultat av den nyopprettede avdelingen internt i Lerøy som har fått navnet 100 % Fish,
+hvor full utnyttelse av ressursene naturligvis er i fokus. Produktet vil være ingrediens i kosttilskudd.
+Lerøy forteller at det foreløpig kun hentes råstoff, eller blod, fra ett av deres anlegg, men at de sikter på å installere
+nødvendig infrastruktur også på andre lokasjoner så raskt det lar seg gjøre. Fremover vil det også bli undersøkt hvorvidt
+en klarer å oppnå stabil kvalitet på råstoffet inn til produksjon, i tillegg til å se på muligheten for å utvikle volumprodukter
+av råvare med noe lavere kvalitet.
+
+
+
+
+9
+    https://nofima.no/resultater/lakseblod-kan-hjelpe-mot-jernmangel/
+10
+     https://www.fhf.no/prosjekter/prosjektbasen/901763/
+11
+     https://www.salmofer.com/
+12
+     https://www.leroyseafood.com/no/om-leroy/nyheter/nyttiggjor-seg-av/
+
+                                                                                                                     37 av 50
+7 Kilder/referanser
+
+7.1 Litteratur
+Olafsen, T., Richardsen, R., Nystøyl, R., Strandheim , G., Kosmo, J.P. (2013). Analyse marint restråstoff, 2012. SINTEF
+rapport A24531. SINTEF Fiskeri og havbruk/ Kontali Analyse AS
+Olafsen, T., Richardsen, R., Nystøyl, R., Strandheim , G., Kosmo, J.P. (2014). Analyse av marint restråstoff 2013. SINTEF
+rapport A 26097. SINTEF Fiskeri og havbruk/ Kontali Analyse AS
+Richardsen, R. (2014). Norsk marin ingrediensindustri. Struktur, økonomi og utviklingstrekk 2007-2013. SINTEF
+rapport A 26402. SINTEF Fiskeri og havbruk.
+Richardsen, R., Nystøyl, R., Strandheim, G., Marthinussen, A. (2015). Analyse av marint restråstoff 2014. SINTEF rapport
+A 26863. SINTEF Fiskeri og havbruk og Kontali Analyse AS.
+Richardsen, R., Nystøyl, R., Strandheim, G., Marthinussen, A. (2016). Analyse av marint restråstoff 2015. SINTEF rapport
+A 27704. SINTEF Fiskeri og havbruk og Kontali Analyse AS.
+Richardsen, R., Nystøyl,R., Strandheim, G., Marthinussen, A. (2017). Analyse av marint restråstoff, 2016. SINTEF rapport
+OC2017A-095. SINTEF Ocean og Kontali Analyse AS.
+Richardsen, R., Myhre, M., Nystøyl,R., Strandheim, G. (2018). Analyse av marint restråstoff, 2017. SINTEF rapport
+2018:00693. SINTEF Ocean og Kontali Analyse AS.
+Richardsen, R., Myhre, M. Nystøyl,R., Strandheim, G. (2019). Analyse av marint restråstoff, 2018. SINTEF rapport
+2019:00475. SINTEF Ocean og Kontali Analyse AS.
+Myhre, M, Richardsen, R., Nystøyl, R., Strandheim, G. (2020). Analyse av marint restråstoff, 2019. SINTEF rapport
+2020:00904. SINTEF Ocean og Kontali Analyse AS.
+Myhre, M, Richardsen, R., Nystøyl, R., Strandheim, G. (2021). Analyse av marint restråstoff, 2020. SINTEF rapport
+2021:00633. SINTEF Ocean og Kontali Analyse AS.
+Myhre, M, Richardsen, R., Nystøyl, R., Strandheim, G. (2022). Analyse av marint restråstoff, 2021. SINTEF rapport
+2022:00501. SINTEF Ocean og Kontali Analyse AS.
+Myhre, M, Richardsen, R., Nystøyl, R., Strandheim, G. (2023). Analyse av marint restråstoff, 2022. SINTEF rapport
+2023:01209. SINTEF Ocean og Kontali Analyse AS.
+
+
+
+7.2 Statistikk
+
+        Fiskeridirektoratet
+        Fiskesalgslagene
+        Norges Sjømatråd
+        SSB – Statistisk Sentralbyrå
+        Personlig kommunikasjon til fiskeindustri og selskaper med forretningsområde marine ingredienser.
+
+
+
+
+                                                                                                               38 av 50
+A Vedlegg: Metode, detaljert
+
+Tilgjengelig restråstoff
+
+
+Fiskeri - hvitfisk
+Benyttede kilder:
+        Fiskeridirektoratets fangst- og anvendelsesstatistikk av landet fangst fordelt på år, art, måned og fylke.
+        Eksportstatistikk fra SSB
+        Gjeldende omregningsfaktorer fra Fiskeridirektoratet.
+        Statistikk salgslagene.
+
+Metodikk:
+Tabellen under viser omregningsfaktorer brukt i beregninger av ulike typer av restråstoff som oppstår. Det er beregnet
+et høyere mageinnhold på fisk rundt den tiden på året da de ulike fiskeslag produserer rogn og melke. For rogn og melke
+er det brukt en omregningsfaktor på 0,1.
+
+
+
+
+Kilde: RUBIN Rapport nr. 003/58
+
+
+
+
+                                                                                                                39 av 50
+Restråstoff fra fiskeriene
+Det er beregnet hva som totalt oppstår fra fiskeflåten, og det er estimert hva som oppstår kystnært/på land og til havs.
+Grunnlagsdata for beregning av hva som oppstår er fisk omregnet til rund vekt i Fiskeridirektoratets statistikk. Ut fra
+landet kvantum rund vekt, fiskens tilstand ved landing og ved å bruke omregningsfaktorer beregnes hva som totalt
+oppstår av slo, hoder, lever, rogn og melke fra fiskeriene.
+
+
+Beregningene har blitt utført med følgende dimensjoner:
+        Art (torsk, sei, hyse, blåkveite, lange, brosme, uer og steinbit)
+        Måned
+
+        Fylke
+        Flåtegrupper
+
+
+Beregning av rygger og avskjær fra foredlingsindustrien
+Utgangspunkt her er eksport av filet, klippfisk og saltfisk fra SSB. Restråstoff her er avskjær fra filetindustri og rygger fra
+saltfisk/klippfisk produksjon.
+        Produkt regnes om til rund vekt.
+        Avskjær beregnes av filetprodukter
+        Rygger beregnes av saltfisk/klippfiskprodukter
+        Dataene sammenlignes med Fiskeridirektoratets anvendelsesstatistikk, men det er lagt mest vekt på
+         eksportdata da det ifølge Fiskeridirektoratet er unøyaktigheter i utfyllingen av den variabelen som omhandler
+         anvendelse.
+
+
+Geografisk fordeling beregnes på grunnlag av Fiskeridirektoratets anvendelsesstatistikk. Utgangspunktet er anvendelse
+som går til filet og til saltfisk/klippfisk fordelt på fylker.
+Vi mener dataene er gode nok til å gi et totalbilde av hvor/når foredlingen oppstår. Ut fra dette beregnes en prosentvis
+fordeling mellom de fire fylker som i hovedsak foredler hvitfisk (klippfisk/saltfisk, filetindustri). Disse fylkene er
+Finnmark, Troms, Nordland og Møre og Romsdal.
+
+
+Beregning av hva som ikke utnyttes
+Fiskens tilstand ved landing sier hva som har blitt skilt fra fisken før den kommer til land. Førstehåndsstatistikken viser
+også hva som er levert av restråstoff, og det er da grunnlag for å kunne beregne hva som ikke utnyttes.
+
+
+Tilstand og hva som oppstår av restråstoff beregnes:
+        Levering av fisk sløyd uten hode vil gi følgende restråstoff: slo, hode, lever og eventuelt rogn og melke som
+         antas dumpet.
+        Levering av fisk sløyd med hode vil gi følgende restråstoff: slo, lever og eventuelt rogn og melke som antas
+         dumpet.
+
+
+                                                                                                                    40 av 50
+        «Ulike fileteringsgrader» - vil gi følgende restråstoff: slo, hode, lever, avskjær og eventuelt rogn/melke som
+         antas dumpet.
+        Er fisken levert rund vil det ikke oppstå restråstoff som ikke utnyttes før landing.
+
+
+
+Levering av restråstoff ved landing trekkes fra:
+     Omsetning/salg av lever, rogn og hoder trekkes ut fra det som oppstår når fisken leveres ved landanlegg.
+     Det som da blir igjen er det som faktisk ikke utnyttes.
+
+
+Det som utnyttes/ilandføres er differansen mellom hva som totalt oppstår ved landing og videreforedling og hva som
+antas dumpet. Det kan argumenteres for at denne metodikken kanskje under-estimerer mengden av restråstoff som
+faktisk utnyttes fra kystflåten i landets nordligste fylker. Såkalt egensløying av spesielt torsk i vintersesongen, medfører
+gjerne at hoder, og evt. noe slo blir «satt igjen» ved brukene, uten at dette blir registrert over seddel, slik metodikken
+forutsetter for å fange dette opp
+
+
+
+Fiskeri - pelagisk
+Benyttede kilder:
+        Omsetningsstatistikk fra Norges Sildesalgslag (NSSL) fordelt på kjøper, fylke og måned.
+        Månedlig eksportstatistikk fra SSB
+        Månedlige eksportdata fra SSB fordelt på fylke (ufullstendige data)
+        Årlig eksportdata fra Norges Sjømatråd fordelt på fylke (ufullstendige data)
+        Gjeldende omregningsfaktorer fra Fiskeridirektoratet.
+        Kontakt/innspill fra næringsaktører.
+
+Metodikk:
+Det er i hovedsak to tilnærminger som er benyttet for å beregne hva som oppstår av restråstoff fra sildefisk i Norge:
+1) Beregning av hva som oppstår ut ifra månedlige eksportdata fordelt på de ulike fileteringsgrader.
+   a) Regne om til rund vekt
+   b) På basis av rund vekt å beregne hva som oppstår av hode, slo, avskjær og rygger og totalt.
+   c) Legge til avskjær levert NSSL
+
+
+2) Beregning av hva som oppstår ut fra månedlige landingsdata fordelt på fylke.
+   a) Trekke ut en viss andel av landingene som antas å gå til filetproduksjon (70 %)
+   b) Fordele landinger på måned og fylke.
+   c) Beregne avskjær av landinger med en faktor på 0,54.
+   d) Legge til avskjær levert NSSL
+
+Metode 2 gir det mest korrekt bilde på når restråstoffet oppstår og hvor. Den første metoden gir kanskje et bedre
+grunnlag for å benytte riktig omregningsfaktor da denne er splittet på ulike typer filet.
+
+
+
+Fiskeri - skalldyr
+        Benyttede kilder:
+             o Fiskeridirektoratets fangst og anvendelsesstatistikk av landet fangst fordelt på år, art, måned og
+                 fylke.
+
+                                                                                                                 41 av 50
+Metodikk:
+        Grunnlagsdata for beregning av hva som oppstår er totale landinger av krabbe og reke i Norge.
+        Beregner ved hjelp av omregningsfaktorer hva som totalt oppstår av skall fra disse. (ikke inndelt i ulike
+         fraksjoner klo-skall, burskall mm.)
+
+
+Havbruk – laks og ørret
+Dødfisk fra matfiskanlegg (Kategori 2 materiale)
+Benyttede kilder:
+        Fiskeridirektoratet: Biomassestatistikk: Innrapportert beholdning av fisk fordelt på måned, fylke og art.
+        Fiskeridirektoratet: Biomassestatistikk: Innrapporterte svinntall fordelt på måned, fylke og art.
+Metodikk:
+Innrapportert antall dødfisk per fylke per måned hentet fra rapporten «Innrapporterte svinntall fordelt på måned, fylke
+og art» og multiplisert med inngående snittvekt per fylke per måned fra rapporten «Innrapportert beholdning av fisk
+fordelt på måned, fylke og art». Da det ikke oppgis snittvekt eller biomasse i innrapporterte svinntall er 70 % av
+inngående snittvekt per måned per fylke på innrapportert beholdning da det antas at snittvekt på dødfisk er
+gjennomgående lavere enn snittvekt på stående biomasse. Innrapporterte svinntall er delt inn i kategoriene dødfisk,
+rømt utkast og annet. Av disse oppstår dødfisk på matfiskanlegget og beregnes som restråstoff der, mens utkast oppstår
+på slakteri og beregnes som restråstoff der. Rømt og annet forutsettes som ikke tilgjengelig restråstoff. Beregnet
+dødfiskvolum vil omfatte kategori 2 materiale.
+
+
+Dødfisk fra settefiskanlegg (Kategori 2 materiale)
+Benyttede kilder:
+        Fiskeridirektoratet: Statistikk for akvakultur: Tap i produksjonen 1998 - 2023.
+Metodikk:
+Innrapportert antall tapt fisk per fylke hentet fra rapporten «Tap i produksjonen 1997 - 2023» (tap i 2023 estimert) og
+fordelt likt per måned. Deretter multiplisert med estimert vekt på tapt fisk.
+
+
+Utkast fra slakteri
+Benyttede kilder:
+        Fiskeridirektoratet: Biomassestatistikk: Uttak av fisk til slakt 2023.
+        Fiskeridirektoratet: Biomassestatistikk: Innrapporterte svinntall fordelt på måned, fylke og art.
+        Kontali Analyse AS: Slakteristruktur 2023.
+
+Metodikk:
+Innrapportert antall utkast per fylke per måned hentet fra rapporten «Innrapporterte svinntall fordelt på måned, fylke
+og art» og multiplisert med snittvekt slakt hentet fra rapporten «Uttak av fisk til slakt 2023». Det gir biomasse utkast
+per fylke per måned basert på rapportering fra matfiskanlegg. Det kan diskuteres om snittvekt på slakt er lik snittvekt
+på utkast, men da det ikke finnes gode offentlige data på selve utkastet er snittvekt slakt det nærmeste en kommer.
+Pga. at utkast oppstår på slakteri, og ikke på matfiskanlegg er det nødvendig med en omfordeling av utkast per fylke. En
+komplett liste over alle slakteri i Norge med tilhørende slaktevolum er utarbeidet for å refordele utkast per fylke, mens
+månedsfordelingen per fylke er valgt å benyttes slik det går frem av rapporteringen fra matfiskanlegg.
+
+                                                                                                               42 av 50
+Slo fra slakteri
+Benyttede kilder:
+        Fiskeridirektoratet: Biomassestatistikk: Uttak av fisk til slakt 2023.
+        Kontali Analyse AS: Slakteristruktur 2023.
+        Omregningsfaktorer
+
+
+Metodikk:
+Innrapportert uttak av fisk til slakt per fylke per måned hentet fra rapporten «Uttak av slaktet fisk i 2023 – Tall spesifisert
+på art, fylke og utsett». Dataene er benyttet til å lage fordeling av slaktevolum per måned for hvert enkelt fylke.
+«Slakteristruktur 2023» gir den fylkesvise fordelingen av slakt i 2023, og sammen med månedsfordelingen gir dette
+slaktevolum per fylke per måned. Videre er omregningsfaktor benyttet for å finne volum slo per fylke per måned.
+Hode fra slakteri
+Benyttede kilder:
+        Fiskeridirektoratet: Biomassestatistikk: Uttak av fisk til slakt 2023.
+        Kontali Analyse AS: Slakteristruktur 2023.
+        Norges Sjømatråd: Eksport av laks i 2023.
+        Omregningsfaktorer
+Metodikk:
+Innrapportert uttak av fisk til slakt per fylke per måned hentet fra rapporten «Uttak av slaktet fisk i 2023–tall spesifisert
+på art, fylke og utsett». Dataene er benyttet til å lage fordeling av slaktevolum per måned for hvert enkelt fylke.
+«Slakteristruktur 2023» gir den fylkesvise fordelingen av slakt i 2023, og sammen med månedsfordelingen gir dette
+slaktevolum per fylke per måned. Videre er andel hodekappet av totaleksporten og estimert andel hodekappet av
+innenlandskonsum benyttet for å sette en andel hodekappet fisk per måned av totalt slaktet volum i måned. Det er
+forutsatt at andel hodekappet fisk er lik i hvert fylke. Videre er omregningsfaktor benyttet for å finne volum hode per
+fylke per måned.
+Hode fra foredling
+Benyttede kilder:
+        Kontali Analyse AS: Foredlingsstruktur 2023.
+        Norges Sjømatråd: Eksport av laks i 2023.
+        Omregningsfaktorer
+
+
+Metodikk:
+Eksportstatistikk og estimert innenlandskonsum er benyttet til å beregne kvantum videreforedlet per måned, og
+«foredlingsstruktur 2023» brukt til å fordele per fylke. Videre er omregningsfaktor benyttet for å finne volum hode per
+fylke per måned.
+
+
+Rygg og halefinne fra foredling
+Benyttede kilder:
+        Kontali Analyse AS: Foredlingsstruktur 2023.
+        Norges Sjømatråd: Eksport av laks i 2023.
+        Omregningsfaktorer
+
+                                                                                                                    43 av 50
+Metodikk:
+Eksportstatistikk og estimert innenlandskonsum er benyttet til å beregne kvantum videreforedlet per måned, og”
+foredlingsstruktur 2023” brukt til å fordele per fylke. Videre er omregningsfaktor benyttet for å finne volum rygg og spol
+per fylke per måned.
+
+
+Annet avskjær filet fra foredling
+Benyttede kilder:
+        Kontali Analyse AS: Foredlingsstruktur 2023.
+        Norges Sjømatråd: Eksport av laks i 2023.
+        Omregningsfaktorer
+Metodikk:
+Eksportstatistikk og estimert innenlands konsum er benyttet til å beregne kvantum videreforedlet per måned, og
+«foredlingsstruktur 2023» brukt til å fordele per fylke. Videre er omregningsfaktor benyttet for å finne volum annet
+avskjær fra filet per fylke per måned.
+
+
+Skinn fra foredling
+Benyttede kilder:
+        Kontali Analyse AS: Foredlingsstruktur 2023.
+        Norges Sjømatråd: Eksport av laks i 2023.
+        Omregningsfaktorer
+Metodikk:
+Eksportstatistikk og estimert innenlands konsum er benyttet til å beregne kvantum videreforedlet per måned, og
+«foredlingsstruktur 2023» brukt til å fordele per fylke. Videre er omregningsfaktor benyttet for å finne volum skinn per
+fylke per måned. Andel filet/porsjoner som skinnes er estimert på bakgrunn av samtaler med aktører.
+
+
+Buklist fra foredling
+Benyttede kilder:
+        Kontali Analyse AS: Foredlingsstruktur 2023.
+        Norges Sjømatråd: Eksport av laks i 2023.
+        Omregningsfaktorer
+Metodikk:
+Eksportstatistikk og estimert innenlands konsum er benyttet til å beregne kvantum videreforedlet per måned, og
+«foredlingsstruktur 2023» brukt til å fordele per fylke. Videre er omregningsfaktor (verktøy: kan velge %-andel buklist)
+benyttet for å finne volum skinn per fylke per måned.
+Andel filet/porsjoner som det skjæres buklist av er estimert på bakgrunn av samtaler med aktører (verktøy: kan velge
+%-andel av fryst filet/porsjoner som det skjæres buklist av og % andel av fersk filet/porsjoner som det skjæres buklist
+av).
+
+
+
+
+                                                                                                               44 av 50
+Omregningsfaktorer (basis wfe)
+ Type restråstoff    Laks     Ørret
+
+ Slo                11,5 %     12,0 %
+
+ Hoder              11,0 %      9,0 %
+
+ Rygg og spol       12,0 %     12,0 %
+ Skinn              12,0 %     12,0 %
+
+ Buklist             7,0 %      6,0 %
+
+ Div. avskjær        9,0 %      8,5 %
+
+ Total              62,5 %     59,5 %
+
+
+
+ Type restråstoff    Laks    Ørret
+
+ Blod                2,0 % 2,0 %
+
+
+
+Idet slo oppstår ved slakteriene, blir dette ofte tilsatt syre, og lagret på tanker i frem til henting av ensilasjen som
+oppstår. I noen tilfeller vil det også være noe innblanding av vann i tillegg til syren som tilsettes, blant annet for å oppnå
+tilstrekkelig viskositet for pumping etc. Innveide tonnasje ensilasje er et sentralt referansepunkt og kontrollpunkt også
+for avstemmingen av hva som oppstår av slo. En vet at mengden slo i fisken vil variere noe både etter årstid, og kan
+også variere fra anlegg til anlegg. Andelen som vi har beregnet for slo, vil dermed inkludere evt. syre og vanninnhold fra
+ensileringsprosessen. Andel reelt slo vil derfor være noe lavere enn det tabellen ovenfor indikerer.
+I 2019 ble andelen fritt blod justert fra 2,6 % til 2 % av rundvekt. Dette etter innspill fra aktører i havbruksnæringen,
+som begrunnet det med en vekting av tørrutblødning ved gravitasjon utgjør i underkant av 2 %, mens utblødning i
+vannkar i flere tilfeller utgjør over 2 %. Det er flere forskningsprosjekter som arbeider med å finne gode løsninger for
+anvendelse av fritt blod, som vil kunne bidra til at havbruksnæringen oppnår 100 % utnyttelse av restråstoff i nær
+fremtid.
+
+Anvendelse av restråstoff
+Innen anvendelsesområdet finnes det mye mindre offentlig tilgjengelig statistikk enn ved beregning av hva som oppstår
+av restråstoff, og tilnærmingen er derfor avhengig av kvalitativ kjennskap til næringen. Her er man svært avhengig av
+informasjon fra bedrifter som utnytter restråstoffet – enten det er fiskeforedlingsindustrien eller den marine
+ingrediensindustrien.
+Noen av de utfordringene man støter på i arbeidet med å skaffe seg god og pålitelig informasjon om
+produkt/produktgruppe for anvendelse av restråstoff er at kvantifisering av varestrømmene er forbundet med
+betydelige utfordringer om en ønsker dette på et mest nøyaktig nivå. Blant annet vil en del av "output" fra bedriftene
+være blandet med helt råstoff. Mest typiske eksempel er fiskemel- og oljefabrikker som er stor avtaker av avskjær fra
+filetering av pelagisk råstoff, hvor produktene i offisiell statistikk ikke skilles fra "ordinært råstoff" som hel sild/lodde,
+etc. Tilsvarende utfordringer vil en ha ved at samme produkt (volum) kan gå gjennom flere ledd i verdikjeden, for
+rensing, raffinering og klargjøring for sluttmarkedet. I og for seg verdiskapende, men kun bedriftsintern informasjon kan
+avklare riktige volum-anslag. Dette gjelder særlig marine oljer (både fra pelagisk råstoff og laks) hvor både nasjonalt
+produsert råstoff og importert blandes som grunnlag for økonomisk verdiskaping. I dette prosjektet indentifiseres og
+kvantifiseres varestrømmene av norsk råstoff, og det er derfor påkrevet med innhenting av bedriftsinterne estimat for
+å gi et noenlunde korrekt anslag av produktgrupper og anvendelseskategorier (markeder) iht. prosjektets
+hovedmålsetting.
+
+
+
+
+                                                                                                                   45 av 50
+En annen utfordring er at ved produksjon av eksempelvis ferske oljer, som ansees som bedriftens hovedprodukt, oppstår
+det også en proteinfraksjon ut av produksjonsprosessen som enten bedriften selv lager et eget produkt av eller de selger
+proteinfraksjonen videre til en annen aktør, eksempelvis de som foredler ensilasje. Det er derfor viktig å unngå
+dobbelttelling av denne typen råstoff. Det samme gjelder innen produksjon av pelsdyrfôr der mye av pelsdyrfôret
+produseres på pelsdyrfôrkjøkken som igjen kjøper innsatsfaktorer av andre. Også her er det viktig å unngå
+dobbelttelling.
+Når det gjelder produkter innen kategorien "marine ingredienser" har vi et visst grunnlag for varestrøm allerede ved at
+prosjektet "Verdiskaping i norsk marin ingrediensindustri" gjennom direkte henvendelser til enkeltaktører har skaffet
+seg bedriftsinterne data over produksjonsvolumene. Dette gjelder spesielt produktkategorien marine oljer, og gir
+således ikke dekning for alle aktuelle produktkategorier. Deler av marin ingrediensindustrien som for eksempel baserer
+seg på bioteknologisk metodikk for enzymer eller andre finkjemikalier heller enn raffinering/foredling av restråstoff, er
+ikke med i denne undersøkelsen.
+Restråstoff som rogn, lever, hoder, mager, buklist, etc. vil i stor grad omsettes som konsumprodukter. De aller fleste av
+disse vil i hovedsak eksporteres og kunne kvantifiseres via eksportstatistikken. Dette er varegrupper med små volum,
+og vi vet at det er lite konsekvent føring av rett varenummer på små kvantum. Tallene fra eksportstatistikken er derfor
+usikre. Enkelte produkter, som for eksempel lever nyttes både innenlands og til eksport, og med ulike
+produktanvendelser, eksempelvis direkte konsum, til hermetikk, til tran-produksjon, med mer. For slike produktgrupper
+har det vært nødvendig med direkte intervju med nøkkelinformanter i den enkelte bedrift, kombinert med kvalifiserte
+overslag over innenlands konsum. Innenlands konsum av restråstoff dekkes delvis av statistisk materiale fra Norsk
+sjømatråd som lager en årlig rapport over sjømatkonsum innenlands basert på engros- og detaljisthandelsstatistikk,
+men også denne statistikken er det knyttet svakheter til når volumene blir små og produktene sammensatte.
+Fiskeridirektoratet har via salgslagene også en del statistikk knyttet til førstehåndsomsetningen på omsatt mengde
+restråstoff som blir benyttet inn i analysen.
+Oppsummert har vi i foreliggende rapport kartlagt anvendelsen av marint restråstoff basert på tilgjengelig statistikk fra
+SSB, Fiskeridirektoratet og Norsk sjømatråd, supplert med en rekke telefonintervju til nøkkelinformanter i bedrifter i
+ulike deler av næringen. Selv om vi etterspør bedriftsinterne data har vi i stor grad møtt velvilje og interesse fra
+næringsaktørene. Dataene blir behandlet strengt konfidensielt.
+
+
+
+
+                                                                                                               46 av 50
+B Vedlegg: Tabeller
+Figurer og tabeller til kapittel 5
+Tallgrunnlag Figur 5-3:Totalt tilgjengelig restråstoff fordelt på art og fraksjon
+(Kilde: Fiskeridirektoratet, SSB, Salgslagene, Kontali Analyse og SINTEF)
+
+              Hoder          Slo          Lever         Rogn        Melke           Avskjær/Rygger Totalt                        %
+Torsk            57 200       26 000        17 400       12 200       10 600                        21 540      144 940         53 %
+Sei              20 000       17 800        20 300          4 000       4 000                       15 960       82 060         24 %
+Hyse             16 390          4 600       6 330          2 700       2 600                        2 490       35 110         12 %
+Blåkveite          1 300           800           700           50            50                      1 330            4 230      2%
+Lange              2 700         1 300       1 400            400           400                      3 760            9 960      4%
+Brosme             2 600         1 000       1 400            300           400                            30         5 730      3%
+Uer                1 900         1 200           200          160           160                        -              3 620      1%
+Steinbit           1 800           240           300          100           100                        -              2 540      1%
+Totalt         103 890        52 940        48 030       19 910       18 310                        45 110      288 000 100 %
+
+Tallgrunnlag Figur 5-9: Restråstoff fra filetering av sild, fordelt per måned og fylke
+(Kilde: Fiskeridirektoratet, Norges Sildesalgslag, SSB, Kontali Analyse og SINTEF)
+
+                           Jan        Feb         Mar       Apr Mai         Jun         Jul         Aug         Sep      Okt          Nov      Des       Totalt
+Nordland                     26 400      8 800     400        0         0           0     700          100        800 13 300 20 900                  0     71 400
+Vestland                     12 500      7 100 1 300          0     600      5 000 2 100             6 400       5 400        9 600 13 600      900        64 500
+Møre og Romsdal              15 400 14 700 2 970              0         0    1 100            20     2 700       2 700        9 700 11 900 1 100           62 290
+Troms og Finnmark 14 700                 5 900          0     0         0           0     110          470        370         6 120 13 900 1 000           42 570
+Rogaland                      1 900      2 300     240        0     800      3 500        600        6 300       4 000        2 400    2 300         0     24 340
+Trøndelag                     4 500      5 190     800        0     200      1 200              0    2 000       1 500        3 100    2 600    100        21 190
+Totalt                       75 400 43 990 5 710              0 1 600 10 800 3 530 17 970 14 770 44 220 65 200 3 100 286 000
+
+Tallgrunnlag Figur 5-12: Restråstoff fra havbruk (laks og ørret), fordelt per måned
+(Kilde: Fiskeridirektoratet, SSB, Norges Sjømatråd, Kontali Analyse, SINTEF)
+
+                       Jan         Feb      Mar         Apr       Mai         Jun             Jul     Aug         Sep         Okt      Nov       Des        Totalt
+Slo               13 000 11 700 12 900 11 400 12 300 13 700 14 000 18 600 18 800 20 000 18 270 14 750 179 420
+Dødfisk           13 200 11 900 11 810 10 160 11 780                        9 600       7 000 10 200 14 300 10 900 12 800 17 710 141 360
+Rygg og spol        3 900     3 600      4 000     3 500       3 640        3 810       3 100        3 750      3 900     4 000       4 210    4 010       45 420
+Hoder               3 600     3 300      3 700     3 200       3 330        3 500       2 840        3 460      3 600     3 690       3 900    3 670       41 790
+Div avskjær         2 900     2 700      3 000     2 620       2 700        2 800       2 300        2 800      2 920     2 990       3 150    3 000       33 880
+Blod                2 400     2 180      2 400     2 100       2 280        2 500       2 600        3 450      3 500     3 690       3 400    2 700       33 200
+Skinn               2 760     2 600      2 800     2 500       2 600        2 700       2 200        2 700      2 750     2 800       3 000    2 830       32 240
+Buklist             1 800     1 700      1 800     1 630       1 670        1 800       1 400        1 700      1 800     1 800       2 000    1 850       20 950
+Utkast              1 100     1 100      1 000          910    1 300        1 200       1 000        1 150      1 730     2 170       2 100    1 230       15 990
+Total             44 660 40 780 43 410 38 020 41 600 41 610 36 440 47 810 53 300 52 040 52 830 51 750 544 000
+
+
+
+
+                                                                                                                                                         47 av 50
+Tallgrunnlag Tabell 5-1: Tabellen viser sektorvis fordeling av råstoffgrunnlag og tilgjengelig restråstoff fra norsk
+sjømatnæring i 2023. Totalt tilgjengelig restråstoff fordelt per sektor og måned.
+(Kilde: Fiskeridirektoratet, SSB, Norges Sjømatråd, Salgslagene, Kontali Analyse og SINTEF)
+
+   Måned         Hvitfisk Pelagisk fisk Havbruk                 Total
+Januar            19 900           75 400        44 700        140 000
+Februar           38 000           43 990        40 700        122 690
+Mars              60 000            5 710        43 400        109 110
+April             42 000               -         38 000          80 000
+Mai               19 000            1 600        41 600          62 200
+Juni              18 900           10 800        41 600          71 300
+Juli              13 990            3 530        37 000          54 520
+August            14 500           17 970        47 800          80 270
+September         14 600           14 770        53 000          82 370
+Oktober           13 700           44 220        52 000        109 920
+November          18 100           65 200        52 800        136 100
+Desember          15 400            3 100        51 800          70 300
+Total            288 090         286 290       544 400       1 119 000
+
+
+
+
+                                                                                                          48 av 50
+Tabeller og figur til kapittel 5.2 og sammendrag
+
+
+
+
+                                                   49 av 50
+Datagrunnlag til figurer i kapittel 5.9
+
+Restråstoff anvendt inn i ulike produksjoner (tonn)
+                                                                        2021         2022       2023
+Fi s kemel - og fi skeol jeproduks jon, tra di s jonel l                188 000      187 000    184 100
+Foredl i ng a v ens i l a sje                                           435 000      478 000    509 300
+Pel s dyrfôrproduksjon, fros sent                                         7 700        5 000      4 700
+Ol je- og protei nproduks jon ba s ert på fers kt rås toff (ha vbruk)   160 000      181 000    184 400
+Konsum: Sjøma tprodukter                                                 90 000      108 000     94 700
+Konsum: Tra n, ekstra kter                                               25 000       27 000     26 400
+Di vers e                                                                      500      800       1 000
+Total                                                                   906 000      987 000   1 005 000
+
+Produktgrupper basert på marint restråstoff (produktvekt - tonn)
+                                                                        2021         2022       2023
+Ma ri ne ol jer                                                         126 000      124 000    128 300
+Konsum: Tra n, ekstra kter                                                8 000        9 000      8 100
+Konsum: Sjøma tprodukter                                                 55 000       66 000     59 800
+Mel                                                                      59 000       63 000     62 500
+Fi s keprotei nhydrol ys a t (FPH)                                        4 000        2 000      1 000
+Fi s keprotei nkonsentra t (FPC)                                        130 000      146 000    116 100
+Pel s dyrfôr                                                              7 000        5 000      4 700
+Total (inkl. råstoff til energianvendelse)                              389 000      415 000    381 000
+
+Mengde resråstoff som utnyttes fordelt på sektor (inn)
+                                                                        2021         2022       2023
+Hvi tfi s k                                                             175 200      205 000    195 600
+Pel a gi s k fi sk                                                      226 200      263 000    287 700
+Oppdrett                                                                496 300      512 000    511 000
+Skal l dyr                                                                7 600        9 000      9 300
+Total (inkl. råstoff til energianvendelse)                              905 000      989 000   1 004 000
+
+Spesifikasjon av fôrmarkeder (produktvekt - tonn)
+                                                                        2021         2022       2023
+Fi s kefôr (i nkl . l a ks og a ndre mari ne arter)                     201 600      218 000    221 000
+Pel s dyrfôr                                                              7 600        5 000      4 700
+Hus dyrfôr                                                               73 900       70 000     38 400
+Pet-food/fôr ti l kjæl edyr                                              43 500       47 000     48 000
+Total                                                                   327 000      340 000    312 000
+
+
+
+
+                                                                                                           50 av 50
+Teknologi for et bedre samfunn
+          www.sintef.no
+

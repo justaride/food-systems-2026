@@ -1,0 +1,1057 @@
+Organisation for Economic Co-operation and Development
+
+DAF/COMP/AR(2025)28
+Unclassified
+
+English - Or. English
+27 May 2025
+
+Directorate for Financial and Enterprise Affairs
+COMPETITION COMMITTEE
+
+Annual Report on Competition Policy Developments in Norway
+-- 2024 --
+
+This report is submitted by Norway to the Competition Committee FOR INFORMATION.
+
+JT03567175
+OFDE
+
+This document, as well as any data and map included herein, are without prejudice to the status of or sovereignty over any territory, to the
+delimitation of international frontiers and boundaries and to the name of any territory, city or area.
+
+2  DAF/COMP/AR(2025)28
+
+Table of contents
+Norway ................................................................................................................................................................... 3
+Executive summary ............................................................................................................................................... 3
+1.1. Summary of new legal provisions of competition law and related legislation ............................................. 4
+1.2. Other relevant measures, including new guidelines ..................................................................................... 5
+1.3. Government proposals for new legislation ................................................................................................... 5
+2. Enforcement of competition legislation/rules and policies ............................................................................. 6
+2.1. Action against anticompetitive practices, including agreements and abuse of dominant position ............... 6
+2.2. Mergers and acquisitions .............................................................................................................................. 9
+3. Proposals for regulatory reforms, trade- and industrial policies etc. ......................................................... 13
+3.1. Cooperating bodies ..................................................................................................................................... 13
+3.2. International cooperation ............................................................................................................................ 13
+3.3. Expressing competition concerns related to existing or proposed regulations ........................................... 14
+4. Resources of the competition authority ......................................................................................................... 15
+4.1. Resources overall ....................................................................................................................................... 15
+4.2. Human resources (person-years) applied to mergers, anti-cartels, dominance-related issues and
+advocacy ............................................................................................................................................................ 15
+4.3. Organisational development ....................................................................................................................... 15
+5. Summaries of or references to new reports and studies on competition policy issues............................... 16
+Margin study 2024 – Part 1 ............................................................................................................................... 16
+Margin study 2024 – Part 2 ............................................................................................................................... 16
+Joint Nordic report 2024: Competition and labour markets .............................................................................. 17
+Studies on competition policy issues ................................................................................................................. 17
+
+FIGURES
+Figure 2.1. Notifications of mergers and acquisitions – January 2019 – December 2024 (3 months running average)
+
+11
+
+TABLES
+Table 2.1. Investigative Work Activities 2014-2024
+
+7
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+DAF/COMP/AR(2025)28  3
+
+Norway
+Executive summary
+1.
+The goal of competition policy in Norway is to promote competition and efficient
+use of society's resources, thus stimulating productivity and innovation to the benefit of
+consumers and businesses. An integral part of this policy is to ensure that markets function
+well, allowing businesses to compete on equal terms and offer better products and services.
+Ultimately, this contributes to increased value creation and sustainable use of resources.
+2.
+Several important legal and policy developments occurred in 2024. To ensure a
+modern and future-proof competition policy, the Government appointed an expert
+committee in September 2024 to conduct a comprehensive review of the Competition Act.
+The review will consider developments in EU/EEA competition law, sustainability,
+digitalisation and national security. The committee is expected to deliver its report 1.
+December 2025.
+3.
+A regulation prohibiting the use of restrictive covenants that prevent the
+establishment of grocery stores came into effect on 1 January 2024. The regulation applies
+to new covenants from that date and is intended to reduce barriers to entry by addressing
+the grocery chains' use of legal restrictions on competing retail activity.
+4.
+In December 2024, the Norwegian Parliament adopted an amendment to the
+Competition Act granting the Norwegian Competition Authority (NCA hereafter) a new
+enforcement tool – market investigation – which will be used to improve competition and
+increase consumer welfare. The new provisions will enter into force 1 July 2025. Currently,
+the NCA can only intervene in cases involving a breach of the Competition Act. Market
+investigation changes this by allowing the Authority, following a thorough investigation,
+to adopt behavioural or structural remedies to strengthen competition if serious competition
+problems are identified.
+5.
+The NCA enforces the Competition Act and supervises competition in various
+markets. Important tasks for the NCA in this regard are effective enforcement of the
+prohibitions against anti-competitive agreements and abuse of dominant position in the
+Competition Act, merger control and active advocacy work. The NCA also endeavours to
+be a centre of competence in competition-related matters.
+6.
+In its work to control and assess concentrations, the NCA carefully reviews mergers
+and acquisitions that might impede effective competition. In 2024, the Authority received
+and assessed 151 merger notifications, of which 97 percent were cleared within 25 working
+days.
+7.
+Some of the more important merger cases, potential abuse of dominance and cartel
+cases are mentioned in this report.
+8.
+The grocery sector in Norway has a high degree of concentration in most parts of
+the value chain. This sector has therefore been a priority for the Norwegian Government
+and the NCA for several years. The Government has implemented several measures, and is
+considering additional ones, to strengthen competition in this sector. Examples are
+assessments of private labels and the supply of wholesale and distribution services. The
+NCA's activities include enforcement, market analyses, and various forms of advocacy to
+strengthen competition in the grocery sector.
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+4  DAF/COMP/AR(2025)28
+9.
+Notably, in August, the NCA concluded the so-called ‘price hunter case’ by
+imposing a total of NOK 4.9 billion (USD 462 million)1 in fines on the three largest grocery
+chains in Norway, NorgesGruppen, Coop and Rema 1000 for breaching the Competition
+Act. The Authority found evidence that the grocery chains' cooperation on extensive price
+monitoring in each other's stores was illegal.
+10.
+As part of its broader efforts to promote competition in the grocery sector, the
+Government tasked the NCA in 2023 with analysing purchasing prices, gross and operating
+margins, and profitability across the sector’s industry-, wholesale- and retail level. The
+analysis, presented in June 2024, showed a continued narrowing of differences in
+purchasing prices. The findings revealed no evidence that grocery retailers had exploited
+the COVID-19 pandemic or the war in Ukraine to increase prices. However, the analysis
+did indicate that profitability remains higher than would be expected in a market
+characterized by strong competition.
+11.
+The NCA's Grocery Report for 2023 provides a broader assessment of the
+competitive situation in the market. The report, which was presented in early 2024,
+attracted significant media attention. Among other things, it evaluates the grocery chains'
+store establishment strategies and the degree of local competition.
+12.
+By the end of 2024, the NCA had a total of 99 employees, including staff on
+temporary leave.
+13.
+In February 2025, Gjermund Nese was appointed Acting Director General of the
+NCA.
+
+1.1. Summary of new legal provisions of competition law and related legislation
+14.
+Market investigation. In December 2024, the Norwegian Parliament adopted
+legislative amendments establishing a legal framework for market investigations in the
+Competition Act. The new provisions, which will enter into force on 1 July 2025, will give
+the NCA a new legal instrument to address serious competition concerns, even in the
+absence of an infringement of competition law. The new instrument draws inspiration from
+corresponding frameworks in the UK and Iceland, and it supplements the existing
+enforcement instruments in the Norwegian Competition Act. It is intended to address
+broader market dysfunctions, not just focusing on anti-competitive behaviour by individual
+companies.
+15.
+The new provisions will enable the NCA to initiate a market investigation if there
+are indications that competition within a market is, or is at risk of, being significantly
+restricted. A draft decision to conduct a market investigation shall be subject to a public
+hearing before a final opening decision may be adopted by the NCA. Following a thorough
+analysis of the competitive conditions in the market in question the NCA may, if it finds
+that the competition is significantly restricted or at risk of being significantly restricted,
+impose any behavioural or structural remedies considered necessary to eliminate or
+mitigate the restrictions. Any measures must be proportionate and not go further than
+necessary.
+16.
+Market investigations can be used in any sector. There are, however, extensive
+exemptions applicable to the agriculture and fisheries sectors, analogous to those
+established for the prohibitions on anti-competitive agreements and the abuse of a dominant
+position.
+
+1
+
+The exchange rate in this document is per 19. March 2025.
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+DAF/COMP/AR(2025)28  5
+
+17.
+A decision made by the NCA imposing remedies in conclusion of a market
+investigation can be challenged before the Norwegian Competition Tribunal.
+18.
+Interest on administrative fines. The Ministry of Trade, Industry and Fisheries
+adopted a regulation on the accrual of interest on administrative fines for infringements of
+the Competition Act. The regulation supplements Section 29 (5) of the Act, and applies
+retroactively from 1 January 2023. The regulation aims to strengthen the effectiveness of
+the Act by incentivising undertaking to pay fines on time. It also ensures more equal
+treatment between undertakings and the state by entitling undertaking to interest payments
+in cases where an imposed fine is later reduced or annulled following an appeal or court
+decision. The regulation is aligned with similar rules under EU/EEA. A new regulation
+which clarifies the rules related calculation and payment of interest was adopted in
+November 2024, and retroactively entered into force January 2023. The regulation clarified
+the Government’s obligation to repay collected fines to the undertakings with interest if the
+fine is reduced or repealed after payment is made.
+
+1.2. Other relevant measures, including new guidelines
+19.
+Regulation on prohibition of the use of restrictive covenants that limit the
+establishment of grocery businesses. In January 2024 a new regulation came into force
+that applies to the establishment of new restrictive covenants from that date and does not
+cover covenants already in place prior to the regulation's entry into force. The regulation is
+primarily intended to cover covenants that restrict the establishment of grocery operations
+on properties owned by others. Such rights are typically established through leasing
+agreements or purchase.
+20.
+In 2024, the NCA conducted new analysis to map the extent of restrictive covenants
+used by the grocery chains. It included the covenants established by companies that directly
+or indirectly control, or are controlled by, NorgesGruppen, Rema, Coop and Bunnpris. The
+investigations revealed that the market players held restrictive covenants established before
+the regulation took effect, and that there were some plans to remove them. Some actors had
+already started the process of removing the covenants after being called out by the NCA.
+Furthermore, the investigation found that several partners of the grocery chains have
+imposed restrictive covenants in favour of the grocery chains. As access to suitable
+premises constitutes a significant barrier to entry in the grocery market, the NCA will
+continue its efforts to gain a better overview of the chains' control over properties that may
+be used for grocery shops.
+21.
+
+No new guidelines were introduced in 2024.
+
+1.3. Government proposals for new legislation
+22.
+Expert committee to review and modernise the Competition Act. In September
+2024, the Government appointed an expert committee to conduct a comprehensive review
+and modernisation of the Competition Act, which has been in force since 2004 and was last
+the object of an extensive review more than a decade ago. The aim of the review is to ensure
+that the competition legislation remains an effective instrument, and is aligned with broader
+developments in case law, EU/EEA competition policy, and societal and market trends.
+23.
+The committee has been tasked with undertaking a holistic revision of the legal
+framework to reflect significant economic and structural changes, particularly those driven
+by digitalisation, which has led to more complex and wide-ranging competition cases.
+Other key issues that will be assessed include:
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+6  DAF/COMP/AR(2025)28
+•
+
+Review the objective of the Competition Act in light of developments in national
+and EU/EEA competition policy
+
+•
+
+Potential amendments to the merger control regime, including whether rules to
+safeguard specific societal interests such as national security, geopolitical
+considerations and sustainability should be enacted
+
+•
+
+The functioning of the Competition Appeals Tribunal and the broader appeals
+system
+
+•
+
+Potential improvements to procedural rules and amendments to the sanctions for
+breach of the Act
+
+•
+
+Potential amendments to section 14 of the Act, which gives the Government
+authority to adopt regulations restricting anti-competitive terms, agreements and
+conduct
+
+24.
+The committee is led by Kristin Hjelmaas Valla, partner in the law firm Kvale, and
+is composed of legal and economic experts from both academia and private practice. One
+member has been nominated by each of the following: the NCA, the Confederation of
+Norwegian Enterprise (NHO), and the Norwegian Confederation of Trade Unions (LO).
+The committee will deliver its recommendations in an Official Report (NOU) to the
+Ministry of Trade, Industry and Fisheries by December 2025.
+
+2. Enforcement of competition legislation/rules and policies
+25.
+According to the Competition Act, the primary responsibilities of the NCA are as
+follows:
+•
+
+Monitor adherence by businesses and industry to the Competition Act’s
+prohibitions against anti-competitive cooperation and abuse of a dominant position
+
+•
+
+Ensure that mergers, acquisitions, and other forms of concentrations do not
+significantly restrict competition
+
+•
+
+Implement measures to increase the transparency of markets
+
+•
+
+Enforce Articles 53 and 54 of the EEA Agreement
+
+•
+
+Call attention to any restrictive effects on competition of public measures and,
+where appropriate, submit proposals to the relevant public authorities aimed at
+promoting competition and facilitating market access by new competitors
+
+26.
+The NCA may impose civil sanctions in the form of administrative fines on
+undertakings that infringe the competition rules. In addition, the Competition Act includes
+provisions on penalties for individuals. However, no individuals have been penalised
+pursuant to the Competition Act as of 2004.
+
+2.1. Action against anticompetitive practices, including agreements and abuse of
+dominant position
+2.1.1. Summary of activities
+27.
+The Authority endeavours to work broadly, with various types of cases in a diverse
+range of markets of importance to the Norwegian consumers.
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+DAF/COMP/AR(2025)28  7
+
+28.
+Tip-offs, complaints, and leniency applications are important to ensure the greatest
+possible direct and indirect effects of enforcement. Through targeted informational
+measures, the NCA has experienced an increase in tip-offs related to possible infringement
+of the Competition Act.
+29.
+Moreover, the NCA has adopted a more proactive approach to uncovering cartels.
+Several projects on uncovering cartels ex officio have been initiated since 2017. In addition,
+the NCA aims at utilizing the possibilities that digital tools provide, using new sources and
+methods for data analysis for the detection of cartels.
+30.
+
+A summary of activities is presented below.
+
+Table 2.1. Investigative Work Activities 2014-2024
+Cases / locations
+
+2015
+
+2016
+
+2017
+
+2018
+
+2019
+
+2020
+
+2021
+
+2022
+
+2023
+
+2024
+
+Securing evidence, cf. section 25 of the
+Competition Act
+
+1/2
+
+1/3
+
+3/3
+
+2/10
+
+2/6
+
+1/2
+
+2/8
+
+3/112
+
+0
+
+1/4
+
+Depositions (formal statements),
+cf. section 24 of the Competition Act
+
+5/45
+
+4/17
+
+4/20
+
+4/34
+
+6/39
+
+3/6
+
+0
+
+1/5
+
+4/14
+
+1/2
+
+31.
+The Norwegian Competition Act has had provisions on leniency since 2004. The
+threshold for seeking leniency appears to be relatively low, and some of the NCA's larger
+cases were instigated by leniency applications. However, surveys in previous years have
+indicated a lack of knowledge about- the possibility to apply for leniency among business
+leaders in Norway. To address this, the NCA has intensified its communication efforts
+through media channels regarding the leniency programme and the possibility for
+anonymous tip-offs.
+32.
+In 2024, the NCA received 33 tip-offs concerning competition-restricting public
+measures which were subject to further examination. These tip-offs s contributed to the
+NCA’s ability to carry out the tasks under Section 9 e of the Competition Act, which
+involves pointing out competition-restricting effects of public measures. If required by the
+NCA, the body responsible for the measure shall respond to the NCA within a specified
+deadline. The response shall, among other things, explain how competitive considerations
+will be addressed.
+33.
+Additionally, the NCA received 455 tip-offs concerning possible infringements of
+Sections 10 and 11 of the Competition Act, which address illegal cooperation between
+undertakings and abuse of a dominant position, respectively.
+34.
+To further evaluate the follow-up of received tip-offs, an internal tip-off group has
+been established with participants from the NCAs three market departments.
+
+2.1.2. Description of significant cases, including those with international
+implications
+35.
+Market for driving training. In November 2024, the NCA carried out
+unannounced inspections at several driving schools based on a suspicion of illegal
+collaboration in violation of Section 10 of the Competition Act. The inspections aimed to
+2
+
+The number is different from the previous annual report because evidence collection in one case
+was counted twice.
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+8  DAF/COMP/AR(2025)28
+confirm or reject this suspicion. The district court approved the NCAs petition to collect
+evidence (dawn raid), and relevant material was seized for further examination.
+36.
+Market for relocation services. In September 2021, the NCA started an
+investigation among undertakings in the market for relocation services. In April 2024, the
+NCA issued a statement of objections in the case.
+37.
+Market for financial services. In February 2022, the NCA carried out
+unannounced inspections (dawn raid) at KLP due to suspicion of a violation of Section 11
+of the Competition Act, which pertains to abuse of a dominant position in the market. KLP
+plays a crucial role in providing pensions for over 900 000 Norwegian consumers in the
+public sector. The company's total managed assets range between NOK 700 billion and 1
+trillion (66 billion to 94 billion USD), depending on the time period. The suspicion relates
+to KLP’s possible anticompetitive conduct in the market for occupational pensions.
+Relevant materials were seized to confirm or reject the suspicion of a breach of the
+prohibition against abuse of dominant position in section 11 of the Competition Act. The
+investigation is ongoing.
+38.
+As part of the case, the NCA has sought legal clarification of the scope of legal
+privilege under the Competition Act for documents prepared by in-house lawyers. The case
+is scheduled to be heard by the Court of Appeal in late April 2025.
+39.
+Health-related market. In May 2021, the NCA initiated an investigation, and
+conducted a dawn-raid at the facilities of the undertakings involved. The investigation was
+based on suspicion relating to illegal exchange of competition-sensitive information
+between the parties, in violation of Section 10 of the Competition Act. After thorough
+investigation, the NCA did not find sufficient grounds to take the case further and decided
+to close the investigation in June 2024. However, the Authority will continue to monitor
+the market closely, as it consists of a limited number of players with strong positions across
+multiple levels of the value chain.
+40.
+‘Price hunters’ in the grocery market. The NCA has prioritised monitoring
+competition in the grocery market for many years. The market is highly concentrated both
+at the wholesale and retail level. Competition challenges in this market have a significant
+impact on Norwegian consumers, as it is crucial to avoid unnecessary price increases. In
+2023, the NCA continued its investigations in the grocery market, assessing the substantial
+materials seized in a dawn raid conducted in 2018. The core of the case relates to an
+agreement between the grocery chains, which allowed them to access each other’s stores
+to collect shelf price information for use in comparative advertising. The NCA learned that
+each chain had developed an organisation of ‘price hunters’ to collect prices from
+competing grocery stores.
+41.
+Following increased activity of ‘price hunting’, the NCA examined the grocery
+chains’ pricing and information flows in 2016, including the practice of collecting price
+information from competing stores. That examination led the Authority to conduct
+unannounced inspections at NorgesGruppen, Coop, Rema 1000 and Bunnpris’ premises in
+2018 on the suspicion of exchange of strategic information between these grocery chains.
+After further investigation, the NCA decided not to proceed with the case against Bunnpris.
+42.
+In December 2020, the NCA issued a statement of objections stating that it
+considered imposing fines totalling NOK 21 billion (USD 1.9 billion) on NorgesGruppen,
+Coop and Rema 1000. The NCA suspected that the grocery chains violated the prohibition
+against anti-competitive cooperation. The preliminary assessments indicated that the
+grocery chains had cooperated in a manner that may have led to higher grocery prices for
+Norwegian consumers. The parties submitted their responses in late February 2022.
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+DAF/COMP/AR(2025)28  9
+
+43.
+In February 2024, the NCA dropped the accusation that the price hunter activities
+constituted a restriction of competition by object. However, the NCA continued
+investigating whether the collaboration restricted competition by effect – a less serious
+offence.
+44.
+In August 2024, the NCA concluded that the collaboration between the
+NorgesGruppen, Coop and Rema 1000 constituted an infringement of the Competition Act
+and imposed fines totalling NOK 4.9 billion (USD 462 million). The investigation found
+that the grocery chains' cooperation in allowing extensive price-tracking activities in each
+other's store harmed competition by increasing price transparency between competitors
+without providing benefits to consumers.
+45.
+The alleged illegal cooperation lasted from January 2011 until at least April 2018,
+when the NCA conducted dawn raids at the grocery chains' offices. During this period,
+price-tracking activities intensified, allowing the chains to track competitors prices multiple
+times per day. The investigation found that this practice contributed to reduced price
+competition, as grocery chains could anticipate competitors' price reactions, making price
+increases more attractive and price reductions less effective.
+46.
+The following fines were imposed: i) NorgesGruppen NOK 2.3 billion (USD 216.2
+million), ii) Coop NOK 1.3 billion (USD 122.2 million), iii) Rema 1000 1.3 billion (USD
+122.2 million).
+47.
+The grocery chains were also ordered to cease cooperation and any similar practices
+with equivalent effects.
+48.
+
+The NCA decision has been appealed to the Competition Appeal Tribunal.
+
+2.1.3. Summary of development in cases that were appealed
+49.
+The NCA's decisions to impose administrative fines can be appealed to the
+Competition Appeal Tribunal. The Tribunal shall consider appeals against all decisions
+pursuant to the Competition Act, i.a. rulings in merger cases, fines for abuse of dominance
+and collusive behaviour, as well as decisions relating to access to file and duty to provide
+information. Decisions by the Competition Tribunal may be appealed to the designated
+appeals court, Gulating Appeals Court, and ultimately to the Supreme Court.
+50.
+A legislative amendment which entered into force in July 2023 grants the NCA the
+right to appeal decisions by the Tribunal in cases regarding anti-competitive collusion
+(section 10), abuse of dominant position (section 11), obligation to cease anti-competitive
+conduct (section 12), regulations adopted by the Government pursuant (section 14) and
+article 53 and 54 of the EEA agreement, cf. section 39 nr. 6. The NCA did not appeal any
+cases in 2024. The NCA cannot appeal the Tribunal’s decisions in merger cases.
+
+2.2. Mergers and acquisitions
+51.
+An important task for the NCA is to assess and prohibit concentrations that will
+significantly impede effective competition. To fulfil this task, the NCA has been equipped
+with three different tools: i) the general notification rules for transactions exceeding the
+thresholds, ii) the extended duty to provide information regarding transactions and iii) the
+power to impose notification requirements on any transactions or minority acquisitions
+(call-in option).
+52.
+The first tool is the most important in merger control, according to which the
+acquirer of control or merging parties have a duty to notify the NCA about any
+concentrations, such as mergers, acquisitions, agreements and full-functioning joint
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+10  DAF/COMP/AR(2025)28
+ventures by which they acquire control of other undertakings, if the combined annual
+turnover of the undertakings concerned exceeds NOK 1 billion (USD 94 million) in
+Norway.
+53.
+The NCA can impose an extended disclosure requirement on certain undertakings
+in sectors and industries that are characterised by structural issues and a high degree of
+concentration. The requirement entails that the undertaking is required to inform the NCA
+when they acquire control of or merge with another undertaking operating in specified
+markets or industries, even if the notification thresholds are not exceeded. For some
+undertakings, the disclosure requirements also cover acquisition of minority shareholdings.
+A breach of the requirement can be sanctioned with an administrative fine. The NCA may
+use the call-in option to impose a duty to file a merger notification if it finds that the
+transaction should be further examined.
+54.
+The NCA also has the authority to impose a duty to notify any concentration or a
+minority acquisition, if it has reason to suspect that the transaction will impact competition
+or if other factors indicate that the Authority should examine the case more closely (callin). The NCA must use the call-in option within a deadline of three months from the
+conclusion of the transaction agreement or acquisition of control. This tool is particularly
+relevant when analysing established firms that acquire start-ups and in preventing killer
+acquisitions.
+55.
+If the transaction exceeds the notification thresholds or the NCA has imposed a
+duty to notify, it is subject to a stand-still obligation until clearance, and the NCA may
+sanction illegal implementation with an administrative fine.
+56.
+In addition to assessing notified mergers, the NCA monitors mergers that
+previously have been approved with remedies. In most of these cases, a monitoring trustee,
+appointed by the NCA, ensures that the conditions are met.
+
+2.2.1. Statistics on number, size and type of mergers notified and/or assessed
+under competition law
+57.
+In 2024, the NCA received 151 notifications, compared to 113 in 2023. Notably,
+73 percent of the notifications (111) are so-called simplified notifications, relating to
+concentrations that are not likely to affect competition negatively.
+58.
+In 2021 and 2022, the NCA received a record number of merger notifications. A
+plausible explanation for this increase may be that many firms had a difficult time during
+the pandemic. In 2023, however, the number dropped back to pre-pandemic levels. In 2024
+the number of notifications rose again, likely driven by increased economic uncertainty and
+market adjustments.
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+DAF/COMP/AR(2025)28  11
+
+Figure 2.1. Notifications of mergers and acquisitions – January 2019 – December 2024 (3 months
+running average)
+
+59.
+The NCA aims at managing merger cases efficiently and provide businesses with a
+speedy resolution. By focusing on front-loading resources in each case, the NCA has been
+able to handle cases more efficiently, freeing up internal resources for other prioritized
+cases.
+60.
+Of the 151 notifications of mergers and acquisitions received by the NCA in 2024,
+147 were closed within 25 working days, i.e. 97,3 percent. For the NCA, thorough control
+of concentrations is an important part of its work. Notwithstanding, efficient clearance has
+proved to be beneficial for the involved parties and contributed to increased predictability
+and swiftness in the merger control.3
+
+2.2.2. Summary of significant cases
+61.
+The NCA has the power to require businesses in highly concentrated markets, such
+as power production and the grocery market, to inform the Authority of all acquisitions. By
+monitoring these markets closely, the NCA can stay informed of new developments and
+potential competition issues. The NCA periodically evaluates whether such obligations
+should be imposed on additional market participants. For more information on this subject,
+see subsection 1.2 and the introduction of subsection 2.2.
+62.
+In April 2024, the NCA assessed the merger between TGS Newco and PGS, two
+companies operating in in the market for geophysical services, with a primary focus on
+seismic data. After issuing a statement of potential intervention and conducting a thorough
+analysis, the NCA concluded that the merger would not impede effective competition. The
+case was therefore closed.
+63.
+In September 2024, the NCA prohibited Norva24 Vest's acquisition of Vitek
+Miljø. In August, the NCA issued a notice stating that intervention could be necessary. The
+decision was based on concerns that the merger would significantly weaken competition in
+3
+
+As the NCA receive notifications throughout the year, sometimes there is an overlap over
+the years when the cases are registered in our systems.
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+12  DAF/COMP/AR(2025)28
+the market for emptying and flushing services in the former Hordaland region. The two
+companies are already the largest providers of these services in the area and are each other's
+closest competitors. The acquisition would have led to increased market concentration,
+reducing competitive pressure, which could have resulted in higher prices and lower service
+quality for private, public and business customers. In January 2025, the Competition
+Appeals Board upheld the NCA's decision to prohibit the merger.
+64.
+In November 2024, Saferoad withdrew its merger notification for the
+acquisition of Ze Bra Holding. Both companies operate in the market for road marking.
+The NCA had issued a notice indicating that intervention could be necessary, as the
+acquisition could reduce the number of competitors in the market. Saferoad is already the
+largest player in the market, and the merger could have negatively impacted prices and
+conditions for the customers. Following these concerns, Saferoad chose to withdraw its
+notification.
+
+2.2.3. Extended disclosure agreements
+65.
+The aim of the disclosure requirements mentioned in section 2.2 is to prevent
+acquisitions by large companies of smaller market players that harm competition.
+66.
+In 2024, the NCA imposed disclosure requirements for some new markets and
+undertakings. Currently, the following markets and undertakings are subject to extended
+disclosure requirements:
+•
+
+Motor fuel retailing: Uno-X Mobility, St1 Norge AS, Certas Energy Norway AS,
+Circle K Norge AS, YX Norge AS
+
+•
+
+Electricity generation: Statkraft AS, Eviny AS, Skagerak Energi AS, Å Energi AS
+and Hafslund Kraft AS
+
+•
+
+Waste management and recycling: Norsk Gjenvinning Norge AS
+
+•
+
+Grocery store chains: Norgesgruppen ASA, Coop Norge SA, Rema 1000 and
+Bunnpris IK Lykke AS
+
+•
+
+Newspapers: Amedia AS, Polaris Media ASA and Schibsted ASA
+
+•
+
+Home security systems: Verisure AS and Sector Alarm Group AS
+
+•
+
+Laundry services: Nor Tekstil AS
+
+•
+
+Garden centres: Plantasjen Norge ASA
+
+•
+
+Suppliers of concrete: Nordic Concrete Group AS, Heidelberg Materials Norway
+AS and Unicon AS
+
+•
+
+Accounting systems: Visma AS
+
+•
+
+Online marketplaces: Schibsted ASA
+
+•
+
+Charging services for electric cars: Mer Norway AS, Circle K Norge AS, Eviny
+Elektrifisering AS, Recharge AS and Tesla Norway AS
+
+•
+
+Sport equipment: Sport Holding AS
+
+67.
+The NCA regularly considers whether it is necessary to impose disclosure
+requirements on other market players.
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+DAF/COMP/AR(2025)28  13
+
+3. Proposals for regulatory reforms, trade- and industrial policies etc.
+3.1. Cooperating bodies
+68.
+The NCA holds regular meetings for information and contact purposes with sector
+regulators such as the Financial Supervisory Authority of Norway, the Norwegian
+Communications Authority, the Norwegian Water Resources and Energy Directorate, the
+Norwegian Consumer Authority, and the Norwegian Consumer Council. The contact with
+some of these bodies is formalised by cooperation agreements which provide a better
+framework to exchange information. Meetings are both on regular and ad hoc basis,
+depending on whether there are cases where both competition policy and sector-based
+regulations are essential. Moreover, the NCA has continued to maintain good relations with
+other public institutions throughout 2024.
+
+3.2. International cooperation
+69.
+The NCA prioritizes international cooperation, with the European Competition
+Network (ECN), Nordic network, the International Competition Network (ICN) and the
+OECD as the most important networks. The NCA aims to be an active contributor to these
+networks, submits written contributions for the OECD Competition Committee and
+presents cases in ECN Working Groups.
+70.
+The Agreement on the European Economic Area (EEA) makes Norway an integral
+part of the European single market. The EEA links the EU member states and three of the
+member states of the European Free Trade Association (EFTA) (Iceland, Liechtenstein and
+Norway) into an internal market governed by the same basic rules. Thus, the agreement
+entails the free movement of goods, services, capital and persons. The agreement also
+entails common rules for competition, public procurement and state aid, in order to ensure
+equal and fair conditions of competition between companies throughout the EEA. As a
+result of the single market, many cases concerning anti-competitive conduct include
+companies that operate across borders, affecting consumers in many countries. Thus, active
+participation in the ECN is particularly important to Norway and the NCA.
+71.
+In its enforcement of the EEA competition rules, the NCA has regular contact with
+the EFTA Surveillance Authority (ESA) concerning ongoing cases with a cross-border
+dimension, to ensure consistent application and enforcement of article 53 and 54 of the
+EEA Agreement (corresponding to TFEU article 101 and 102). In 2021, ESA launched the
+EFTA Competition Network. The network has also been active with webinars, capacity
+building seminars and physical meetings on policy-oriented issues in 2024.
+72.
+Another important cooperation arena is the Nordic cooperation, which is
+formalized in an agreement between the Nordic Competition Authorities and facilitates
+effective cooperation on cross-border enforcement. The cooperation also comprises
+informal contact through various networks, a biannual meeting between the DGs and an
+annual meeting focusing on topical enforcement related issues. In 2024, the annual Nordic
+meeting between the competition authorities took place in Turku, Finland.
+73.
+In 2024 and 2025 the NCA cooperated with the other Nordic competition
+authorities in organizing two webinar series, each consisting of four webinars, covering
+issues decided by the Antimonopoly Committee of Ukraine (AMCU).
+74.
+The NCA is an active participant in the ICN. From 2021 till 2024 the NCA was a
+co-chair of the ICN Merger Working Group, after having served as a co-chair for its
+Advocacy Working Group.
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+14  DAF/COMP/AR(2025)28
+75.
+In addition, the NCA also has informal cooperation with other authorities on a
+bilateral basis.
+
+3.3. Expressing competition concerns related to existing or proposed regulations
+76.
+According to section 9 of the Competition Act, the NCA shall supervise
+competition in all markets, by implementing measures to promote market transparency,
+and by calling attention to any restrictive effects on competition caused by public measures.
+77.
+In this regard, the NCA advocates for changes in regulations in order to facilitate
+competition through lower entry barriers, new business models, and stronger incentives to
+compete.
+78.
+Anti-competitive regulations exist in a number of different areas, and the NCA has
+taken steps to address them. One of these steps is to include a a function on the NCA's
+website that allows the general public to submit encrypted submissions regarding perceived
+regulatory restrictions on competition. The tip-offs are first reviewed by an internal taskforce, and then considered for prioritisation by the relevant market department.
+79.
+Further, it is a key part of the NCA’s advocacy efforts to raise awareness of the
+importance of competition and to influence a competitive culture across markets. The
+NCA's advocacy efforts are particularly directed towards small and medium sized
+enterprises, as surveys have documented a clear need for increased awareness of and
+familiarity with competition law.
+80.
+In 2024, the NCA has been active in its advocacy work and received significant
+media attention. The Authority continues to be active in the media, explaining the
+importance of effective enforcement of the competition legislation and its direct impact on
+consumers. In addition to TV appearances and interviews, the NCA’s employees published
+11 op-eds on topical issues. Additionally, the NCA released 1 podcast episode and
+produced 4 webcasts presenting basic knowledge on competition law. These webcasts are
+particularly relevant for small and medium-sized enterprises.
+81.
+Notably, media analytics and a survey indicate that the NCA has been highly visible
+in 2024 with 4652 media news items referencing the NCA.
+82.
+As a consultative body in public hearings, the NCA assess if the impact on
+competition is considered appropriately when new policies are proposed. The Authority
+prioritises consultations where its influence is most likely to result in a positive outcome
+for competition. This approach has proven to be effective use of resources. In 2024, the
+NCA submitted 12 hearing statements to various ministries and authorities regarding
+proposed legal amendments on a broad range of topics.
+83.
+The Authority has continued to develop separate thematic webpages about
+prioritized markets or markets in which the Authority has additional tasks. The NCA had
+developed such thematic webpages for the taxi market, the fuels market, the digital
+economy, sustainable development and competition, and the grocery market.
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+DAF/COMP/AR(2025)28  15
+
+4. Resources of the competition authority
+4.1. Resources overall
+4.1.1. Annual budget
+84.
+The annual budget for the NCA for 2024 was NOK 142.9 million (USD 13.4
+million).
+
+4.1.2. Number of employees (person-years):
+85.
+In 2024, the NCA's personnel resources amounted to 87.4 person-years, including
+administrative staff and PR-staff.
+86.
+Number of employees (not person-years) as per 31 December 2024 amounted to 99
+(including staff on temporary leave), including:
+•
+
+36 economists
+
+•
+
+34 lawyers
+
+•
+
+3 investigators
+
+•
+
+1 data scientist
+
+•
+
+23 other professionals and support staff (HR, IT and information management,
+PR/communications, finance, organisation development)
+
+4.2. Human resources (person-years) applied to mergers, anti-cartels, dominancerelated issues and advocacy
+87.
+The NCA's case handling is primarily organised around sectors of the economy,
+with case handlers working in market departments responsible for specific markets. All
+case handlers work on different types of competition cases within their allocated market
+department.
+88.
+Specialised legal and economic support along with quality assurance, is provided
+by the legal director's team and the chief economist's team, respectively.
+89.
+All case handlers may engage in advocacy work. The Department of
+Communications and PR works closely with other departments to maximize media
+outreach related to case outcomes and advocacy work.
+90.
+Skill development is a priority for all employees, with the NCA successfully
+building a staff of highly qualified and experienced case handlers. A key focus in 2024 has
+been competence development, particularly in leadership at different levels within the
+organisation and project management.
+
+4.3. Organisational development
+91.
+In 2024, the NCA implemented an organisational restructuring to strengthen
+competition law enforcement. The investigative department was dissolved, and
+investigative staff were fully integrated into the market departments. Each market
+department now has its own dedicated investigation team, ensuring a more comprehensive
+approach to case handling from case initiation to decision.
+92.
+The restructuring aims to create a more holistic investigation process, with
+investigators working more closely with case handlers throughout the case lifecycle. The
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+16  DAF/COMP/AR(2025)28
+investigative teams continue to focus on cartel and abuse of dominance cases, as well as
+international network activities. Additionally, the staff retains specialist knowledge in
+forensic IT. Developing and integrating investigative expertise across the organisation
+remains a key priority in 2025, with the full effects of the restructuring expected to be
+measurable over time.
+93.
+Moreover, the NCA established a new unit for data and analysis to enhance digital
+capabilities. The unit is responsible for managing the machine learning platform and
+contributing to advanced analyses of both internal and external data. It plays a central role
+in driving digital transformation, handling large data volumes, and developing visualisation
+tools.
+94.
+The continued development of digital expertise will remain a key priority in 2025.
+This unit will also be responsible for large-scale projects that require specialised digital
+expertise.
+
+5. Summaries of or references to new reports and studies on competition policy issues
+Margin study 2024 – Part 14
+95.
+In May 2024, the NCA published the first part of the margin study, mandated by
+the Ministry of Trade, Industry and Fisheries to enhance insight into profitability and
+competition dynamics in the grocery sector. The study examines the profitability of
+selected suppliers and the three largest grocery chains – NorgesGruppen, Rema 1000 and
+Coop – which operate at both the wholesale- and retail level – over the period 2017 to 2022.
+96.
+The study is based on financial data from a range of suppliers across different
+product markets, as well as the three largest grocery chains. The NCA calculated gross
+margins, operating margins, and return on net operating assets to assess profitability trends
+in the grocery sector.
+97.
+The study finds no clear evidence that grocery chains or suppliers exploited external
+crises such as the COVID-19 pandemic or the war in Ukraine to increase prices or boost
+profits. While groceries prices rose by 8.9 percent between December 2021 and December
+2022, the study shows that operating margins and returns on capital declined in 2022,
+returning to pre-pandemic levels.
+98.
+However, the study reveals consistently high profitability across the grocery value
+chain, exceeding what would typically be expected in a market characterised by intense
+competition and low barriers to entry. These results are consistent with previous
+assessments done by the NCA, which have pointed to limited competition in the Norwegian
+grocery market due to high market concentration and significant structural barriers.
+
+Margin study 2024 – Part 25
+99.
+In January 2025, the NCA published the second part of the margin study, mandated
+by the Ministry of Trade, Industry and Fisheries as part of ongoing efforts to assess
+competition in the grocery sector. The study analyses margins on product-level of selected
+market participants in the grocery value chain over the period 2020 to the first half of 2023.
+4
+
+https://konkurransetilsynet.no/wp-content/uploads/2024/05/Rapport-marginstudie.pdf
+
+5
+
+https://konkurransetilsynet.no/wp-content/uploads/2025/01/Del-2.-Kartlegging-av-marginer-vedbruk-av-informasjon-pa-produktniva.pdf
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+DAF/COMP/AR(2025)28  17
+
+The same information was obtained for the grocery chains' private label products. The study
+is based on data from branded and private label suppliers, as well as from the same grocery
+chains as in Part 1 of the study. This study presents gross margins and contribution margins
+for suppliers and gross margins for grocery chains, offering a more granular perspective of
+pricing and profitability than Part 1 of the study.
+100. The study finds substantial variation in profitability across product categories, with
+some segments, such as snacks and confectionery showing high margins, while others –
+particularly meat and seafood private label products showed low or even negative margins.
+The NCA also finds that on average the grocery chains achieved 12 percent lower margins
+on private label products compared to branded ones.
+101. While the COVID-19 pandemic initially led to increased sales volumes and
+revenues, the report found that profit margins remained stable. After 2022, the input costs
+and prices increased, volumes declined, and supplier margins decreased, while retail
+margins remained largely unchanged. The results from this study support the conclusions
+of the previous part and provide additional evidence for assessing structural conditions and
+potential barriers to effective competition in the grocery sector.
+
+Joint Nordic report 2024: Competition and labour markets6
+102. In April 2024, the Nordic competition authorities published a joint report on
+competition in labour markets. The report examines how agreements between firms such
+as no-poach agreements and wage-fixing agreements may harm both workers and
+consumers and constitute infringements of competition law.
+103. The report found that such agreements can reduce the labour mobility and
+bargaining power for employees, distort efficient resource allocation, and in turn reduce
+competition in the downstream markets. While collective bargaining agreements
+negotiated by trade unions are exempt from competition law in the Nordic countries, the
+report focuses on agreements that fall outside these exemptions.
+104. The report draws on economic theory, legal frameworks and enforcement of
+competition law related to labour markets and includes a survey of Norwegian companies
+indicating that no-poach agreements are not uncommon in parts of the Norwegian labour
+market. It also outlines recent enforcement actions taken by Nordic and European
+authorities against anti-competitive conduct in labour markets and calls for increased
+awareness and enforcement in this area.
+
+Studies on competition policy issues
+105. Since 2014, the NCA has administered a research funding scheme in the fields of
+competition economics and competition law. These funds are allocated through the national
+budget proposed by the government, and adopted by the Parliament The research grant is
+open for applicants from all institutional backgrounds. The aim of the grant program is to
+encourage and support research that contributes to the development of effective
+competition policy and enforcement in Norway, and to enhance the competitiveness of
+Norwegian firms in the global market. The NCA continues to disseminate findings through
+its website, academic journals and both internal and external seminars
+
+6
+
+https://konkurransetilsynet.no/wp-content/uploads/2024/04/Competition-and-Labour-marketsJoint-Nordic-report-2024.pdf
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+18  DAF/COMP/AR(2025)28
+106. This funding has contributed to strengthening Norwegian academic capacity in
+these disciplines and has generated valuable insights for the enforcement and policy work.
+Since 2022, research funding has been allocated through dedicated funds within the NCA's
+annual budget.
+107. In 2024, the NCA supported ongoing research projects covering topics such as
+competition in the grocery market, cartel policy, the media market, and digital platforms.
+A total of NOK 2.4 million (USD 0.225 million) in grants was awarded to three new
+projects, including studies on sustainability and competition in digital platform markets.
+An overview of new, ongoing, and completed projects in 2024 is available on the NCA's
+website.7
+
+7
+
+https://konkurransetilsynet.no/forskning/forskningsrapporter/
+
+ANNUAL REPORT ON COMPETITION POLICY DEVELOPMENTS IN NORWAY
+Unclassified
+
+

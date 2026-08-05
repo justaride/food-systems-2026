@@ -1,0 +1,1517 @@
+THE NORWEGIAN COMPETITION AUTHORITY'S MARGIN STUDY 2024
+
+Part 2. Survey of margins using product-level information
+
+1
+
+Content
+Summary ..................................................................................................................................................2
+1
+
+Introduction .......................................................................................................................................3
+
+2
+
+Method ..............................................................................................................................................6
+2.1
+2.1.1
+
+Sample scope and delimitations ..........................................................................................6
+
+2.1.2
+
+Scope and delimitations of the analyses .............................................................................7
+
+2.2
+
+4
+
+Gross suppliers margin ........................................................................................................9
+
+2.2.2
+
+Contribution margin at the supplier level .............................................................................9
+
+2.2.3
+
+Gross margin in the wholesale and retail segments ..........................................................10
+Summary method ...................................................................................................................10
+
+Data Collection ...............................................................................................................................10
+3.1
+
+Data sample for branded Products ........................................................................................11
+
+3.2
+
+Data sample for privat label products ....................................................................................12
+
+Results ............................................................................................................................................12
+4.1
+
+Suppliers ................................................................................................................................12
+
+4.1.1
+
+Gross margins ....................................................................................................................13
+
+4.1.2
+
+Contribution margins ..........................................................................................................14
+
+4.2
+
+Grocery chains .......................................................................................................................15
+
+4.2.1
+
+Sales volume and turnover ................................................................................................15
+
+4.2.2
+
+Development in purchase and consumer prices ...............................................................17
+
+4.2.3
+
+Gross margin......................................................................................................................18
+
+4.3
+
+Product Categories ................................................................................................................19
+
+4.3.1
+
+Non-alcoholic beverages ...................................................................................................20
+
+4.3.2
+
+Chocolate and snacks........................................................................................................23
+
+4.3.3
+
+Meat ...................................................................................................................................26
+
+4.3.4
+
+Egg .....................................................................................................................................27
+
+4.3.5
+
+Seafood ..............................................................................................................................28
+
+4.4
+5
+
+Description of margin target framework ...................................................................................9
+
+2.2.1
+
+2.3
+3
+
+Delimitation ..............................................................................................................................6
+
+Summary ................................................................................................................................28
+
+Summary of the Norwegian Competition Authority's Margin Study 2024 ......................................29
+
+2
+
+Summary
+The Norwegian Competition Authority has been commissioned by the Ministry of Trade, Industry and
+Fisheries to map margins in the grocery industry. This has been conducted by using product-level
+information from a selection of firms in the supplier- and grocery chain levels within the value chain
+for groceries. For the survey, the Norwegian Competition Authority has collected data on prices, costs,
+sales volume and sales at product level for a broad range of branded products in the grocery market.
+Similar data has been collected for the grocery chains' private label products (PL). Based on this
+information, the Norwegian Competition Authority has calculated various margin measures for the
+period from 2020 to the first half of 2023 (the mapped period including gross and contribution margins
+for suppliers, as well as gross margins for the combined wholesale and retail operations of the grocery
+chains.
+Gross margins indicate the mark-up applied over the cost of goods at various stages in the value chain,
+while contribution margins account for other variable costs associated with producing a unit. The
+survey offers insight into how these margins evolved during a period of significant changes in both
+demand and cost. During the surveyed period, the market was initially impacted first by increased
+demand during the COVID-19 pandemic (2020-2021), followed by rising costs due to Russia's invasion
+of Ukraine (2022). The absolute levels of the margin measures provide limited information for making
+further conclusions about the competitive landscape.
+The survey reveals that the gross and contribution margins for the branded consumer goods from the
+suppliers included in the survey remained stable from 2020 to 2021, with a slight decline following
+2021. Additionally, the survey highlights that there was significant variation in the margins among
+different suppliers. The Norwegian Competition Authority notes that the cost of goods represented
+between 70 and 95 percent of the variable production costs, making it the largest expense for
+suppliers during the surveyed period.
+Furthermore, the Norwegian Competition Authority finds that the grocery chains' gross margins for
+the branded consumer goods surveyed remained stable throughout the period, apart from seasonal
+fluctuations. There was also significant variation in the grocery chains' gross margins across the
+product portfolios of different suppliers and between various product categories. Different products
+in a grocery store come with varying costs, which means that the chains may require different margin
+levels to cover these costs. This variation is likely also influenced by the level of price sensitivity among
+consumers for different products.
+In the "chocolate and snacks" category, the grocery chains had high gross margins for both branded
+and private label products included in the survey. The "meat" and "seafood" categories are examples
+where the survey reveals very low, and sometimes negative, gross margins for private label products.
+The survey also shows that, during the analyzed period, the grocery chains' gross margins for private
+label products were about 12 percentage points lower than those for the surveyed branded products.
+It is important to note that certain key private label product categories, not mapped for branded
+products, had very low margins, contributing to the overall lower margin for private labels compared
+to branded products. Additionally, the survey indicates significant variation in the grocery chains' gross
+margins across the surveyed product categories for both private label and branded products.
+The Norwegian Competition Authority observes that the participants in the sample had relatively
+stable costs, prices, and margins from the beginning of the COVID-19 pandemic until the end of 2021.
+However, due to increased sales volumes in grocery stores during the pandemic, both suppliers and
+grocery chains, saw higher earnings during this period. Following the outbreak of the war in Ukraine
+in February 2022, both costs and prices in the market surged rapidly, while sales volumes declined
+post-pandemic. During this period, suppliers’ margins decreased, while grocery chains’ margins
+remained stable.
+In conclusion, no new information has emerged in sub-report 2 that alters the findings of sub-report
+1.
+
+3
+
+1
+
+Introduction
+
+On 2 October 2023, the Norwegian Competition Authority was commissioned by the Ministry of Trade,
+Industry and Fisheries (NFD) to investigate the rise in prices for food and beverages, including margins
+in the various parts of the value chain for groceries. 1 The Authority's investigation consists of two subreports, which are collectively referred to as the "Competition Authority's margin study". Sub-report
+1 is a survey of profitability at the enterprise level, while sub-report 2 is a mapping of margins using
+product-level information.
+The Norwegian Competition Authority published interim report 1 on 8 May 2024. In that report, the
+Norwegian Competition Authority mapped the profitability of a selection of firms in the grocery
+market by examining gross margins, operating margins and returns at the enterprise level. The survey
+showed that several of the firms at the supplier and retail level generally had high profitability in
+operations in the period 2017 to 2022. Furthermore, both operating margins and returns for suppliers
+and grocery chains increased during the corona pandemic but fell back to the same level as before the
+pandemic in 2022. The return of the grocery chains' wholesale companies was not significantly higher
+than the normal return. However, the Norwegian Competition Authority found that the results were
+consistent with weak competition and significant barriers to entry.2
+This interim report (sub-report 2) presents the Norwegian Competition Authority's mapping of
+margins on groceries at different stages of the value chain, using information at product level.
+Box 1 contains the NFD's mission description for sub-report 2.
+
+1 Letter from the Ministry of Trade, Industry and Fisheries on 2 October 2023. The report is also announced in
+
+a press release from the Ministry of Trade, Industry and Fisheries on 13 January 2023: The Government will
+investigate price formation in the grocery industry - regjeringen.no, in the supplementary letter of allocation
+from the Ministry of Trade, Industry and Fisheries to the Norwegian Competition Authority on 1 February
+2023, as well as in the Revised National Budget 2023 Prop. 118 S (2022-2023), page 118.
+2 See Profitability calculations at the enterprise level.
+
+4
+
+The Ministry of Trade, Industry and Fisheries' description of the assignment
+Mapping of margins at the product level.
+"In the margin survey, the Norwegian Competition Authority will map margins for firms at the supplier,
+wholesaler and retail level in the value chain for food and groceries. As part of the survey, prices and margins
+for the chains' private labels (PL) will be mapped and then compared with prices and margins for independent
+brands. The audit shall be based on the definition of private label set out in the report "Mapping of own
+brands and vertical integration in the grocery market" prepared by Samfunnsøkonomisk Analysis on behalf
+of the Ministry of Trade, Industry and Fisheries.
+In order to assess competitive conditions and uncover how changes in prices and costs are passed on in the
+value chain, the Norwegian Competition Authority shall use several complementary margin measures at the
+supplier, wholesaler and retail level. In addition to calculating various margin measures at the product level,
+the Norwegian Competition Authority will comment on the implications of empirical findings.
+Gross margins can shed light on how the overall margin of grocery chains, which cover both the wholesale
+and retail levels, develops when net purchase prices change, and how this affects consumer prices. Calculating
+gross margins for the retail level, given as the difference between consumer price and wholesale price, can in
+turn provide additional insight into how changes in net purchase prices affect grocery chains' margins.
+In the margin survey, it will be appropriate to use the product range used in the work of mapping purchasing
+conditions. The product range is extensive and covers a long period of time from 2017 to 2022. In order for
+the product range to be representative, it must be supplemented with a representative selection of private
+label products, which are comparable to the independent brands already included in the range."
+
+Excerpt: Letter from the Ministry of Trade, Industry and Fisheries to the Norwegian Competition
+Authority
+Text Box 1
+
+Mission description from the Ministry of Trade, Industry and Fisheries
+
+The background for NFD's assignment is the sharp increase in grocery prices in recent years. The
+reasons for the price increases are complex and may be influenced by various factors such as global
+uncertainty, rising inflation, the COVID-19 pandemic and the war in Ukraine. Figur 1 Shows consumer
+price developments on food in Norway compared to Sweden and Denmark, as well as the average for
+the EU countries, through the corona pandemic and the outbreak of the war in Ukraine.
+
+5
+
+Figur 1
+
+Consumer price index for food in Norway, EU27, Sweden and Denmark over the period
+2020 to June 2023, where January 2020 = 100. Data source: Eurostat (linke)
+
+The chart shows that there was virtually no rise in grocery prices during the pandemic in 2020 and
+2021, but a substantial rise in prices since the outbreak of the Ukraine war in 2022. Similarly, figures
+from Statistics Norway show that producer prices increased significantly in 2021, while consumer
+prices remained stable. In 2022, both producer prices and consumer prices increased sharply.
+Consumer prices rose by 11.5 per cent 3 from December 2021 to December 2022. The increase in
+consumer prices continued into 2023 and was 11.1 percent higher in the first half of 2023 compared
+to the first half of 2022. 4,5
+The corona pandemic led to Norway being more or less in lockdown from March 2020 and into 2022. 6
+During the lockdown, grocery chains experienced a positive volume effect as a result of increased
+demand.
+As the pandemic measures were gradually lifted, the war in Ukraine broke out. The outbreak of war
+led to price increases for raw materials such as grain and cooking oil, and also exacerbated an already
+ongoing energy crisis in Europe. Overall, this resulted in significant increases in production costs in the
+period 2021 and 2022.7
+In sub-report 2, the Norwegian Competition Authority has used information on prices, costs, sales
+volumes and sales of individual products from a selection of firms for the period 2020 to 30 June 2023.8
+On this basis, the Norwegian Competition Authority has mapped gross and contribution margins for
+branded consumer goods suppliers ("suppliers") and gross margins for the grocery chains' wholesale
+and retail segment as a whole. In addition, the Norwegian Competition Authority has collected
+3 CPI up 5.9 per cent in the last twelve months in December – Statistics Norway, accessed 11 December 2024.
+4 Large increase in turnover in grocery trade – Statistics Norway, read 11 December 2024.
+
+5 See also sub-report 1, "Profitability calculations at enterprise level", for background information on the
+
+grocery market and further details on price developments during the period that are also relevant to subreport 2.
+6 See an overview of pandemic-related measures at regjeringen.no, read 11 December 2024.
+7 See sub-report 1 "Profitability calculations at enterprise level", chapter 2.4.2.
+8 Due to a lack of data for the period prior to 2020 from certain firms, the Norwegian Competition Authority's
+analyses are limited to the period 2020 to the first half of 2023, cf. Chapter 3.
+
+6
+
+information on the grocery chains' private label (PL) and mapped the corresponding margin measures
+for the grocery chains' private label products as for branded products. 9
+Based on the information obtained, the Norwegian Competition Authority has mapped the following:
+•
+
+The development in suppliers' gross and contribution margins, and the grocery chains' gross
+margins.
+
+•
+
+Compared the development in prices and the grocery chains' gross margin on branded
+products with the corresponding development for private label products.
+
+•
+
+Price and margin development of private label products in key private label product
+categories.
+
+Information on prices, costs, sales volume and turnover is competition-sensitive information that it is
+of great importance that competitors, customers and suppliers of the companies in question are not
+aware of. In this report, the Norwegian Competition Authority has therefore made calculations at an
+overall level so that the results do not reveal business-sensitive information about the firms covered
+by the survey. This means that it is not possible to present more detailed descriptions of the
+development of the margin measures.
+In Chapter 1, the Norwegian Competition Authority will 2 give an account of the method used in subreport 2, and then describe the data basis on which the Norwegian Competition Authority has based
+the mapping in chapter 3. In Chapter Feil! Fant ikke referansekilden. results from the survey are
+presented. Finally, the results from sub-report 1 and sub-report 2 in the Authority's margin study 2024
+are summarised in chapter 5.
+
+2
+
+Method
+
+The purpose of this interim report is to map margins, both overall for all products in the sample, and
+collectively within individual product categories, at the supplier and grocery chain level for branded
+products and at the grocery chain for private label products. The method used by the Norwegian
+Competition Authority is presented below.
+The Norwegian Competition Authority's survey in sub-report 2 is a descriptive investigation. It is
+therefore emphasised that the margin measures cannot be interpreted causally without further
+analysis, as there may be several factors that may affect the size and development of the margin
+measures. Among other things, the firms gross and contribution margins may have been affected by
+a number of factors at their own level and other levels in the value chain, including changes in costs,
+regulations, fluctuations in demand, strategic adjustments in operations, changes in market power,
+etc.
+In chapter Feil! Fant ikke referansekilden. explains how the Norwegian Competition Authority has
+delimited the analyses, including how the Norwegian Competition Authority has delimited which parts
+of the value chain and which firms are to be covered by the sample, and which analyses are to be
+carried out. In chapter 2.2 describes the margin measures used by the Norwegian Competition
+Authority for different product categories in the various parts of the value chain. The method is
+summarized in chapter 2.3.
+
+2.1
+
+Delimitation
+
+2.1.1
+
+Sample scope and delimitations
+
+The Norwegian Competition Authority's survey covers the supplier and grocery chain segments
+(retailer and wholesaler combined) in the value chain for groceries. These segments individually and
+9 The Norwegian Competition Authority has used the same definition of private label as in the report "Mapping
+
+of private labels and vertical integration in the grocery market" (2023), prepared by Socio-economic Analysis
+on behalf of the NFD.
+
+7
+
+collectively account for a variable, but consistently high share of value creation in the value chain for
+groceries.
+The delimitation means that production segments further up the value chain are not covered by the
+mapping. This applies firstly to the production of agricultural goods and various input markets for
+agricultural production. Furthermore, markets for first-hand sales of agricultural products, and in
+some cases primary processing of agricultural products, are also not included in the survey.
+The Norwegian Competition Authority's selection of suppliers has been selected on the basis of their
+relatively high turnover, strong brands and are among the same suppliers from whom the Norwegian
+Competition Authority has previously obtained figures for calculating differences in purchase prices. 10
+Suppliers of private label products are not included in the survey.
+At the grocery chain level, the survey focuses only on the three major grocery chains. The Norwegian
+Competition Authority's data collection includes the sales of products from the suppliers in the survey,
+as well as the sales of private label products by these chains. Smaller firms, such as Bunnpris and Oda,
+as well as non-traditional grocery retailers that also sell groceries, are not included in the survey. The
+same exclusion applies to sales to institutional households, kiosks, and petrol stations.
+2.1.2
+
+Scope and delimitations of the analyses
+
+Unweighted average prices measure firms pricing of their products in isolation11, while volumeweighted prices take into account the actual sales volume of each product. 12 Volume-weighted
+measures therefore take into account consumption patterns, and consequently the firms total
+revenues and costs.13
+Figur 2 shows unweighted and volume-weighted14 indexed half-yearly development in consumer
+prices for the brands included in the Norwegian Competition Authority's sample. 15 Index is set at 100
+in the first half of 2020. The lines in the chart are interpreted as a percentage development from the
+base half of the first half of 2020, for both the leveraged and volume-weighted consumer price index.
+
+10 See, for example, the press release from 14 June 2024: Differences in purchase prices further reduced.
+11 In the calculation of the leverage average consumer price across products, the price of all products is
+
+assigned the same weight. A product with a relatively low sales volume is then just as important as one with a
+relatively high sales volume.
+12 In the calculation of weighted average consumer price across products, the consumer price of a product with
+a relatively high sales volume is given greater weight than the consumer price of a product with a relatively
+low sales volume. Similar weighting is used by Statistics Norway in the calculation of the consumer price index;
+This is how Statistics Norway calculates the price development of food products – Statistics Norway, accessed
+11 December 2024.
+13 The grocery market consists of many different products that are phased in and out of the range, and which
+are sold more or less in different periods. With volume-weighted averages, changes in margins and prices can
+therefore be the result of sales volumes being moved between products or product categories that have
+different margin levels, rather than actual margin and price changes for the individual products.
+14 Sales volume is measured in the number of units sold.
+15 The data basis is described in more detail in Chapter 3.
+
+8
+
+Figur 2
+
+Unweighted and volume-weighted indexed half-yearly development in grocery chains'
+consumer prices for brands in the period first half of 2020 to first half of 2023 (first half
+of 2020 = 100). Data basis: The Norwegian Competition Authority's selection of grocery
+chains' consumer prices for branded goods.
+
+The unweighted developmentt in consumer prices reveals that the price increase for groceries in the
+sample closely mirrored the rise in Norway's consumer price index for food from 2020 to the first
+half of 2023 (see Figure 1). The volume-weighted price development followed the same trend as the
+unweighted price, but was on average 5.8 percentage points lower than the unweighted during the
+period.
+This report focuses exclusively on volume-weighted measures to provide insight into actual prices,
+costs, and margins at various stages of the value chain. For simplicity, volume-weighted averages will
+hereafter be referred to as "averages."
+In order to avoid disclosing trade secrets, it has been necessary to conduct the Norwegian Competition
+Authority's investigations at an overall level. Combined with the use of volume-weighted measures,
+this means that the results reflect overall price and margin trends for the grocery chains and the
+surveyed suppliers. However, this methodology may be influenced by shifts in sales volumes, such as
+between products within a category, across categories within a chain concept, between chain
+concepts within a grocery firm, or across different grocery firms.
+For example, if the price of a single product in a category increases, the average price for that category
+will also rise. However, if some customers switch to another product in the same category that has
+not increased in price, the impact of the price increase on the average price will be reduced. This is
+because the product with the higher price will account for a smaller share of the total sales volume
+after the switch. As a result, the Norwegian Competition Authority's findings may underestimate the
+actual price increase experienced by customers who do not switch to a different product.
+Furthermore, two of the grocery chains, Coop and Norgesgruppen, organize their grocery operations
+into different chain concepts. During the period 2020 to 2023, customers shifted some of their
+consumption from more expensive chain concepts to low-price concepts.16 Given that the low-price
+16 Internally in Coop and Norgesgruppen, the low-price concepts Extra and Kiwi have increased their revenue
+
+shares from 53.2 and 51.2 percent respectively in 2020 to 59.2 and 55.4 percent in 2023. The calculations are
+from the Grocery Report 2024 (Nielsen IQ), published March 2024, pages 44 and 45.
+
+9
+
+concepts have lower prices than other chain concepts, this means that the overall results may show a
+somewhat more moderate price development compared to the development within each individual
+chain concept. Customers who have not changed their chain concept during the period may therefore
+experience a stronger price increase than what appears from the Norwegian Competition Authority's
+results.17
+
+2.2
+
+Description of margin target framework
+
+2.2.1
+
+Gross suppliers margin
+
+In order to map the size of the mark-up charged by suppliers in addition to the cost of goods, the
+Norwegian Competition Authority calculates the suppliers' gross margins. A supplier's gross margin is
+defined as the difference between the supplier's achieved sales price to the grocery chains ("net
+price") and cost of goods, as a proportion of the net price, and is stated as a percentage.
+
+Gross Margin 𝐿 =
+
+Net price − Cost of goods
+× 100 %
+Net price
+
+(1)
+
+The net price is determined by subtracting all relevant discounts and fees from the supplier's base
+price to the grocery chain. This includes wholesale discounts, line-item discounts, cooperation
+bonuses, campaign discounts, joint marketing funds, and any other applicable discounts. Additionally,
+any excise duties are also deducted from the net price.18.19
+Costs of goods include the supplier's purchases of raw materials, semi-finished products20 and other
+ingredients.21 In a ready-made pizza, for example, goods costs can include the purchase costs for flour,
+tomato sauce, cheese and various types of toppings. For suppliers who import finished products for
+resale, the cost of goods will be the purchase price of the finished product.
+2.2.2
+
+Contribution margin at the supplier level
+
+In order to map the size of the mark-up charged by suppliers in addition to variable production costs,
+the Norwegian Competition Authority calculates the suppliers' contribution margins. A supplier's
+contribution margin is defined as the difference between the supplier's net price22 and variable cost
+of production, as a percentage of the net price, and is expressed as a percentage.
+
+Constribution margin =
+
+Net price − Variable cost of production
+× 100 %
+Net price
+
+(2)
+
+17 The Norwegian Competition Authority has not obtained information on goods sold for the various chain
+
+concepts under Coop and Norgesgruppen, and is therefore unable to investigate the extent to which the
+change in chain composition affects the results.
+18 These include excise duties on sugary goods and alcoholic goods.
+19 The only discount that is not deducted in the calculation of net price is the discount for merchandising. In
+the opinion of the Norwegian Competition Authority, this discount is largely the individual supplier's payment
+for the grocery chains' quid pro quo. A similar method is used in the Norwegian Competition Authority's survey
+of differences in purchase prices, see e.g. press release from 14 June 2024: Differences in purchase prices
+further reduced.
+20 Semi-finished products are products that have been partially processed, but not finished, and that are used
+as input goods in further production.
+21 Packaging is not normally included as part of the cost of goods, even though it constitutes purchased goods
+that are used to manufacture the finished product, in the same way as costs of goods. For some suppliers,
+costs of goods also include packaging and will be included in the gross margin for these.
+22 See description in chapter 2.2.1.
+
+10
+
+Variable costs of production include, in addition to costs of goods23, other variable costs that are
+necessary to produce the individual products. Other variable costs may include wages for labour in
+production, costs related to maintenance of production assets, costs for energy and other supplies
+related to production (water, gas, etc.), as well as costs for packaging and quality control.
+The costs included in the supplier's reporting of other variable costs vary from supplier to supplier.
+This is because the suppliers covered by the survey produce different products with varying degrees
+of processing, and therefore have different costs associated with production.
+2.2.3
+
+Gross margin in the wholesale and retail segments
+
+In order to map the grocery chains' mark-up in excess of the purchase price, the Norwegian
+Competition Authority calculates the grocery chains' gross margin. The grocery chains' business
+consists of both wholesale and retail activities. The Norwegian Competition Authority has calculated
+the gross margin for the wholesale and retail sectors combined. 24
+The grocery chains' gross margin is defined as the difference between the consumer price and the
+grocery chain's purchase price, as a share of the consumer price of the product and is stated as a
+percentage.
+
+Gross margin 𝐷 =
+
+Consumer price − Purchase price
+× 100 %
+Consumer price
+
+(3)
+
+The purchase price is the price the grocery chain pays the supplier for the product after discounts and
+bonuses have been deducted. As an estimate of the grocery chain's purchase price of branded
+products, the Norwegian Competition Authority has used the supplier's net price 25.26 For the products
+that are subject to excise duties, excise duty is added to the net price from the supplier.
+
+2.3
+
+Summary method
+
+The Norwegian Competition Authority's mapping of margins is limited to the supplier and grocery
+chain (wholesale and retail combined) in the value chain for groceries.
+The survey is also limited to analyses based on volume-weighted averages.
+The method used is the calculation of various margin measures, including gross margins for suppliers
+and grocery chains, as well as contribution margins for suppliers.
+
+3
+
+Data Collection
+
+On 22 September 2023, the Norwegian Competition Authority sent information orders to 16 suppliers
+from 11 companies/groups, 27 as well as to the grocery chains Coop, Norgesgruppen and Rema. The 16
+suppliers were chosen on the basis of their relatively high turnover and strong brands, and are the
+
+23 See description in chapter 2.2.1.
+24 The Norwegian Competition Authority has not received sufficient figures from all grocery chains to calculate
+
+separate gross margins for the wholesale and retail operations.
+25 See description in chapter 2.2.1.
+26 For branded products, the different grocery chains have reported purchase prices in different ways for
+products from the same supplier, which means that their purchase prices cannot be used in the Norwegian
+Competition Authority's calculations. The differences are mainly due to the fact that the three chains use
+different operating models with varying structures for profile and chain houses, which affect the internal price
+reporting.
+27 Nortura (Gilde Norsk Kjøtt BA and Prior Norway BA), Tine SA, Orkla (Orkla Foods Norway AS, Orkla
+Confectionery & Snacks Norway AS, Orkla Health AS and Orkla Home and Personal Care AS), Ringnes AS, Mills
+AS, Maarud AS, Kavli AS (incl. Q-meieriene), Scandza (Sørlandschips AS and Synnøve Finden AS), Lerum AS,
+Coca-Cola Europacific Partner Norway AS and Mondelez Norway AS.
+
+11
+
+same suppliers that have been included in the Norwegian Competition Authority's mapping of
+differences in purchase prices since it began in 2019. 28
+In the order to disclose information, the suppliers were asked to submit information on average
+prices29 and costs, as well as the total sales volume and turnover for each individual product sold to
+each of the three grocery chains in the period 2017 to 30 June 2023. The grocery chains were asked
+to submit information on average prices and costs, as well as total sales volume 30 and turnover for
+each individual product sold in their stores, purchased from the same 16 suppliers during the
+mentioned time period. The grocery chains were also asked to submit similar information for each
+private label product sold in their stores in the period 2019 to 30 June 2023.
+Following feedback from several suppliers regarding the availability of information and the timing of
+its submission, revised information disclosure orders were issued to suppliers and grocery chains on 1
+November 2023 and 10 November 2023, respectively. As part of this revision, the Norwegian
+Competition Authority engaged in discussions with the suppliers to clarify the time periods and
+intervals (monthly, quarterly, semi-annual, or annual) for which the requested information was
+available. Based on this feedback, the Norwegian Competition Authority requested data on a monthly,
+quarterly, or semi-annual basis for the period from 2019 to 30 June 2023. Due to challenges faced by
+some firms in providing the requested information at the required quality, the Norwegian Competition
+Authority decided to exclude five suppliers from the survey. As a result, the Norwegian Competition
+Authority's dataset includes information from eleven suppliers.
+Due to a lack of data for the period prior to 2020 from certain firms, the Norwegian Competition
+Authority's analyses are limited to the period 2020 to the first half of 2023 (the mapped period).
+The Norwegian Competition Authority's data cover31 around 33 per cent of the grocery chains' total
+turnover for the surveyed period. 32 It is the Norwegian Competition Authority's assessment that the
+firms in the data cover a broad and differentiated selection of the products that have been sold in
+Norwegian grocery stores during the period in question. As mentioned, the selection of suppliers is
+also based on turnover size, which ensures that the survey includes products with high turnover. The
+following describes the data basis for branded products and private label products.
+
+3.1
+
+Data sample for branded Products
+
+The data set for branded consumer goods products consists of average costs of goods, other variable
+costs, discounts, excise duties, net prices, volume and turnover from eleven different suppliers for the
+period 2020 to 2022, and from nine suppliers for the first half of 2023.33 Exceptions to this are the
+calculations for suppliers' gross margins, which are based on information from seven suppliers. 34 For
+the three grocery chains, the data basis for brands includes average purchase prices, consumer prices,
+sales volume and sales for products from the surveyed suppliers in the same period.
+
+28 Since 2017, the Norwegian Competition Authority has mapped differences in the purchase prices of Coop,
+
+Norgesgruppen and Rema from a selection of suppliers. See, for example, the press release from 14 June 2024:
+Differences in purchase prices further reduced.
+29 All prices collected are stated without Value added tax (VAT).
+30 Sales volume is measured in the number of units sold.
+31 This includes both branded and private label products collectively.
+32 The calculation is based on the turnover after the adjustments in the data sample made in Chapter 3.1 and
+3.2 below.
+33 This is due to insufficient data quality or lack of access to data at five suppliers in the period 2020 to 2022
+and two more suppliers in the first half of 2023. Furthermore, there are several firms who did not have the
+requested figures for 2019.
+34 The remaining suppliers have not provided figures for cost of goods that enable gross margins to be
+calculated.
+
+12
+
+The Norwegian Competition Authority has linked product-level data from suppliers with product-level
+data from the grocery chains based on EAN codes. 35 The Norwegian Competition Authority has made
+some necessary corrections to ensure a sufficiently good data foundation. These are mainly related to
+corrections to EAN codes and packaging, as well as some corrections to various price and cost targets.
+Hereinafter, the linked data from suppliers and grocery chains is referred to as the "data sample" or
+"sample". Throughout the period 2020 to 2022, the selection consists of an average of around 2700
+product lines per year and around 2200 product lines in the first half of 2023. 36 These had an average
+annual turnover of around NOK 43 billion in the period 2020 to 2022 and a turnover in the first half of
+2023 of just under NOK 21 billion.
+
+3.2
+
+Data sample for privat label products
+
+The data basis for private label products consists, with a few exceptions,37 of the three grocery chains'
+average purchase prices, consumer prices, sales volume and turnover for all private label products
+sold in the period 2020 to the first half of 2023. The Norwegian Competition Authority has calculated
+consumer prices on the basis of the stated sales volume and turnover. 38
+The Norwegian Competition Authority has made some corrections to ensure a sufficiently good data
+basis. The corrections involve minor changes to various price and cost measurements, as well as
+corrections to EAN codes. After the Authority's adjustments, the data basis for private label consists
+of around 5,000 products per year. These had an average annual turnover of just under NOK 30 billion.
+
+4
+
+Results
+
+The results of the Norwegian Competition Authority's survey of margins for selected suppliers and
+grocery chains are presented below. The results are presented both collectively for all products in the
+sample, and aggregated for individual product categories.
+The measures at the overall level provide information about the overall margin development for the
+sample, while the measures at the product category level provide the mapping with more information
+about the margin development for each product category. The mapping is done for branded products
+and private label products at the grocery chain level, and for branded products at the supplier level.
+Results for suppliers' overall gross margins and contribution margins are presented in chapter Feil!
+Fant ikke referansekilden., results for the grocery chains' overall gross margins in the sample in
+Chapter 4.2, and results for selected product categories in chapters 4.3. The Norwegian Competition
+Authority's results are summarized in chapter 4.4.
+
+4.1
+
+Suppliers
+
+In the following, the Norwegian Competition Authority will present results for gross margins and
+contribution margins for selected suppliers at an overall level.
+In sub-report 1, the Norwegian Competition Authority mapped the suppliers' gross margins and
+operating margins at the enterprise level. Sub-report 2 presents results for suppliers' margins using
+
+35 For some products, it has not been possible to link the product between the supplier and the grocery chain
+
+based on an EAN code. The reasons for this are, among other things, that suppliers and grocery chains can
+operate with different EAN codes or different package sizes.
+36 After the link up between supplier and grocery, the data sample covers 93 per cent of the eleven suppliers'
+sales and 94 per cent of the grocery chains' sales for the same suppliers' products. Some of the products that
+are not linked consist of sales through fresh and hot food counters and other loose weight sales, as well as
+products made for institutional households, but which were sold to both institutional households and through
+groceries.
+37 The exceptions are fruit and vegetables and other loose goods.
+38 Some of the chains had challenges in providing information on consumer prices as well as in providing
+information from 2019, which the Norwegian Competition Authority initially requested.
+
+13
+
+product-level information.39 Information about the suppliers' overall margins provides a basis for
+further discussion related to margins for product categories, and together with the results from subreport 1, provides a more complete picture of the margin development for the surveyed suppliers and
+grocery chains during the surveyed period.
+4.1.1
+
+Gross margins
+
+The suppliers' gross margins show the proportion of the net price that remains after the cost of goods
+has been deducted. The gross margin is intended to cover both profit and other costs in addition to
+cost of goods. A gross margin of 50 percent means that suppliers have 50 percent of net price to cover
+production costs, fixed costs, and profits.
+Figur 3 shows half-yearly gross margins for seven suppliers in the period 2020 to the first half of 2023.
+
+Figur 3
+
+Average gross margin for seven suppliers, for each half-year in the period 2020 to the
+first half of 2023. The green marker shows the gross margin of each supplier.
+
+Decline in gross margins after 2021
+•
+
+The average gross margin was relatively stable from the first half of 2020 to the second half
+of 2021. After 2021, the margin gradually fell from 55 to 52 percent.
+
+•
+
+At the same time as suppliers' gross margin decreased from 2022, net prices increased. This
+indicates that the increased net prices, see Figur 640, was mainly due to increased costs of
+goods.
+
+Significant variation in gross margins across suppliers
+39 The gross margins in sub-report 1 and sub-report 2 differ in that excise duties (e.g. sugar and alcohol taxes)
+
+have been deducted from the sales price to the suppliers, cf. Chapter 2.2.1, while these are included in the
+suppliers' sales revenues and thus the margin measure in sub-report 1. All other things being equal, this will
+result in somewhat lower gross margins in sub-report 2 compared with sub-report 1. Furthermore, there is
+also a difference in that the selection of suppliers does not completely overlap in the two sub-reports, and that
+sub-report 2 does not cover the full range of goods for the suppliers. The operating margins in sub-report 1
+include a number of fixed costs. The operating margins in sub-report 1 will therefore be lower than the
+coverage margins in sub-report 2, and it is therefore not natural to compare these directly.
+40 Net price is in Figur 6 referred to as "The chains' purchase price – brand"
+
+14
+
+•
+
+Gross margins varied significantly across suppliers and were between 40 and 75 per cent in
+the period surveyed.
+
+•
+
+Variation in gross margins between suppliers is to be expected, cf. sub-report 1. Since gross
+margins are intended to cover costs in excess of the cost of goods, it will typically depend on
+the degree of processing of products, and on the input factors used in the individual supplier's
+production.41 At the same time, some of the observed variation may also be due to differences
+in market power. A supplier with higher market power will be able to charge more in profit,
+and thus a higher gross margin, than a supplier of similar products with less market power.
+
+4.1.2
+
+Contribution margins
+
+The suppliers' contribution margins show the proportion of the suppliers' net price that is not used to
+cover costs of goods and other variable costs. The difference between a supplier's gross margin and
+contribution margin is therefore the other variable costs. A contribution margin of 50 per cent means
+that the suppliers have 50 per cent of the net price to cover other costs and profits.
+Figur 4 shows half-yearly contribution margins for eleven suppliers in the period 2020 to 2022. The
+margin measure for the first half of 2023 includes nine suppliers. 42
+
+Figur 4
+
+Average contribution margin for eleven suppliers, for each half-year in the period 2020
+to 2022, and for nine suppliers in the first half of 2023. The blue marker shows the
+contribution margin of the individual supplier.
+
+Costs of goods accounted for the majority of suppliers' costs
+•
+
+The average contribution margin was relatively stable at around 47 per cent from the first half
+of 2020 to the second half of 2021. As for the gross margin, a stable contribution margin
+indicates that some of the increase in net price in the surveyed period was due to increased
+costs of goods, and also to increased other variable costs. After 2021, the contribution margins
+fell from 47 to 44 percent.
+
+41 Among other things, a firm that purchases raw materials for its own production will probably need higher
+
+gross margins than a firm that buys highly processed products.
+42 See chapter 3.1 for a description of the supplier pool.
+
+15
+
+•
+
+Furthermore, the suppliers' half-yearly contribution margins varied between 30 and 70 per
+cent.
+
+•
+
+For the suppliers for which gross margins have been calculated, the cost of goods and goods
+accounted for between 70 and 95 per cent of the cover costs in the period. Other variable
+costs in production accounted for the rest. The development in the cost of goods thus had a
+major impact on the development in contribution margins.
+
+4.2
+
+Grocery chains
+
+In the following, the Norwegian Competition Authority will present results for the grocery chains' sales
+volume and turnover, developments in purchase and consumer prices, as well as gross margins for
+both branded goods and private label products at an overall level.
+In the Norwegian Competition Authority's survey, the data for private label products includes all
+private label items sold during the period, with a few exceptions, while the dataset for branded
+products is based on a selection of suppliers, as outlined in Chapter 2.3. Due to differences in product
+portfolios between private label and branded products, as well as the significance of brands, these
+two categories may differ across several dimensions. This could influence the results, so the overall
+findings for prices and gross margins of branded and private label products should be interpreted with
+caution.
+In sub-report 1, the Norwegian Competition Authority mapped gross margins for the retail and
+wholesale sectors, respectively, as well as operating margins at the retail level. Sub-report 2 presents
+the gross margin for the retail and wholesale sectors as a whole. The results for brands include
+products from the selected suppliers in the survey.
+4.2.1
+
+Sales volume and turnover
+
+Figur 5 shows the development in the grocery chains' total sales volume and turnover for products
+from eleven suppliers, for each half-year in the period 2020 to 2022, and from nine suppliers for the
+first half of 2023. In addition, the development in sales volume and turnover for the chains' private
+label products is shown.43
+
+43 The Norwegian Competition Authority's survey does not cover the entire product range of the grocery
+
+chains. The results therefore do not describe the total development of sales volume and turnover in the
+market during the surveyed period.
+
+16
+
+Figur 5
+
+Grocery chains' sales volume and turnover for brands from eleven suppliers for each
+half-year in the period 2020 to 2022, from nine suppliers in the first half of 2023, and
+for private label products for each half-year in the period 2020 to the first half of 2023.
+
+Sales volume and turnover for branded products had seasonal variations
+•
+
+Both sales volume and revenue for branded consumer goods fluctuated significantly during
+the period, with generally lower sales volumes and sales in the first half of the year compared
+to the second half of the year. The private label products had a more stable development in
+sales volume and sales without clear seasonal fluctuations. This shows that private label and
+branded products had different demand fluctuations 44, with branded products having
+increased sales in connection with the Christmas season, among other things.
+
+Revenue increased more than sales volume for private label products
+•
+
+Sales volume and sales for branded consumer goods had a downward trend throughout the
+period. This is in line with lower turnover in the grocery market as a whole after the corona
+pandemic.45
+
+•
+
+For private label, sales increased by about 20 percent during the period, with the majority of
+the increase occurring in 2022. The sales volume had a more stable development. Increased
+sales and a relatively stable sales volume mean an increase in the average consumer price in
+the period. This may be due to both the fact that each individual product became more
+expensive, and/or that consumption shifted from cheaper to more expensive private label
+products.46
+
+44 See the development of seasonal fluctuations in the wholesale and retail trade segment at Statistics Norway:
+
+07129: Wholesale and retail trade index, by industry, month and statistical variable. StatBank, accessed 11
+December 2024.
+45 The overall development in sales volume in the grocery market is described on page 39 of the Grocery
+Report 2024 (Nielsen IQ), published March 2024. The grocery report shows that the total grocery market
+decreased by 0.5 percent from 2020 to 2021 and by a further 2.8 percent from 2021 to 2022.
+46 Seen in the context of a reduction in the total sales volume in the grocery market from 2020 to 2022; The
+Grocery Report 2024 (Nielsen IQ), it is reasonable to believe that the share of private label products of the
+total sales volume increased at the expense of branded products in the period. However, it cannot be ruled
+
+17
+
+4.2.2
+
+Development in purchase and consumer prices
+
+Figur 6 shows half-yearly purchase and consumer prices in NOK for both branded and private label
+products in the period 2020 to the first half of 2023. The average prices in the chart include the entire
+product range in the Norwegian Competition Authority's survey. The development in these prices may
+therefore be affected by the fact that products went in and out of the assortment during the period.
+Since the figure shows average prices for a wide range of different products, the size of the presented
+branded and private label prices is not directly comparable.
+
+Figur 6
+
+Average purchase and consumer prices for brands for each half year in the period 2020
+to 2022, as well as for private label products in the period 2020 to the first half of 2023.
+
+Lower average prices for brands in 2021 compared to both 2020 and 2022
+•
+
+The Norwegian Competition Authority finds falling consumer prices for branded products in
+the period 2020 to 2021. Some of the price reduction may be due to tax reductions on sugary
+non-alcoholic beverages.47 Through 2022, the consumer price of branded consumer goods
+rose by 8 per cent, which is somewhat lower than the development calculated by Eurostat in
+Figur 1.48
+
+•
+
+Purchase prices for branded consumer goods generally followed a similar development as
+consumer prices.
+
+Stronger price increase for private label products than for branded products
+•
+
+From the first half of 2021, purchase and consumer prices for private label products increased
+more than the prices of branded products. The war in Ukraine broke out in February 2022,
+
+out that there was also a substitution from the mapped branded products to branded products that are not
+included in the Authority's sample.
+47 See chapter 4.3.1 for further information on the phasing out of excise duties on sweets and non-alcoholic
+beverages.
+48 The Norwegian Competition Authority's calculated inflation deviates somewhat from Eurostat's inflation of
+11.2 per cent for the period December 2021 to December 2022. This is partly due to different data sources and
+methods for index calculation.
+
+18
+
+right after the price adjustment window earlier that month.49 The difference in price increase
+between brands and private label may therefore be due to the fact that suppliers' net prices
+were only adjusted for the increased costs as a result of the war in Ukraine in connection with
+the price adjustment window in July 2022.
+4.2.3
+
+Gross margin
+
+The grocery chains' gross margin shows the grocery chains' gross margin for wholesale and retail
+combined. It shows the proportion of the grocery chains' sales revenue that remains after the cost of
+goods has been covered. A gross margin of 30 percent means that grocery chains have 30 percent of
+the consumer price to cover other costs in the wholesale and retail business, 50 as well as profits.
+Figur 7 shows the grocery chains' semi-annual gross margin for branded products from eleven
+suppliers in the period 2020 to 2022, and from nine suppliers in the first half of 2023. Green markers
+show the grocery chains' gross margin for the products of each of the eleven suppliers. In addition,
+the grocery chains' semi-annual gross margins without direct suppliers are shown. 51 The dotted line
+shows the semi-annual gross margin for the chains' private label products in the period 2020 to the
+first half of 2023.
+
+Figur 7
+
+Average gross margin for eleven suppliers for each half-year in the period 2020 to 2022,
+for nine suppliers in 2020 to 2022, and for private label products in the period 2020 to
+the first half of 2023. Green markers show the gross margin for products from each
+supplier.
+
+Stable development in gross margins throughout the period
+
+49 In 2001, the then four large grocery chains (Coop, Hakon Gruppen, Norgesgruppen and Rema), as well as
+
+DLF, agreed on an industry agreement where suppliers' prices would be changed to three specific dates a year.
+In 2005, 1 February and 1 July were left as the two dates for price adjustment. The industry agreement was
+terminated in 2005, but the industry has nevertheless continued with the two fixed dates for list price
+adjustments from suppliers. See also the Norwegian Competition Authority's report on price adjustment
+windows from 2023: Utredning-om-prisjusteringsvinduer-2023.pdf.
+50 Apart from the cost of goods, the largest cost items for the wholesale business are freight costs and labour
+costs, and for the retail business, labour costs, rent costs, marketing and electricity.
+51 A direct supplier distributes goods directly to stores without using the wholesale level.
+
+19
+
+•
+
+The grocery chains' average gross margin for branded consumer goods was relatively stable
+during the surveyed period, at between 31 and 33 per cent. The margin had seasonal
+fluctuations with a somewhat higher margin in the first half of the year compared with the
+second half of the year.52 The grocery chains' average gross margin less direct suppliers had a
+similar development, but the level of this margin was about 8 to 10 percentage points higher.
+
+•
+
+The grocery chains' gross margin for private label was on average 12 percentage points lower
+than the gross margin for the eleven suppliers during the period first half of 2020 to second
+half of 2022, but otherwise had a similar development during the period as for branded
+products. It is emphasised that some important product categories within private label, which
+have not been mapped for branded products, had very low margins and therefore contributed
+to an overall lower margin for private label than for branded products; 4.3.
+
+Significant variation in gross margins across the different suppliers' product portfolios
+
+4.3
+
+•
+
+The grocery chains' gross margin for product portfolios from the various suppliers shows large
+variations within each six months, and over time. Gross margins ranged from approximately
+20 percent to up to 60 percent, with the majority exceeding 40 percent.
+
+•
+
+Variation in the grocery chains' gross margins for different supplier portfolios is to be
+expected. The suppliers had products with different properties in their range, which gave the
+grocery chains different costs associated with offering the different suppliers' products. For
+example, large and heavy products, or products that had to be kept cool during transport, will
+be more expensive to transport. Frozen and refrigerated goods will require more space in the
+stores and have a higher electricity consumption than, for example, dry goods. Furthermore,
+products with a short shelf life (and especially at a low turnover rate) may have had higher
+costs related to wastage.
+
+•
+
+A high gross margin may also be associated with products with relatively low prices, where
+the same profit in NOK accounted for a larger share of the sales price. 53 In addition, it is
+conceivable that variations in the grocery chains' gross margins between products from
+different suppliers may be due to the fact that the grocery chains may have had lower margins
+on products that are assumed to be important for getting consumers into the store compared
+to products that consumers are less price-conscious about.
+
+Product Categories
+
+The survey shows that the grocery chains' gross margins for both branded consumer goods and private
+label products have been relatively stable throughout the period. For branded products, it was around
+30 percent, and for private label products around 20 percent, as shown in Figur 7.54
+However, there was considerable variation in price and margin development within different product
+categories for both branded consumer goods and private label products. Different grocery products
+consist of different raw materials and ingredients, and also have different degrees of processing and
+thus different requirements for input factors in production. Furthermore, different products have
+different consumption patterns, depending on whether the product is a dinner product or a snack
+product. It is therefore possible that changes in demand during the COVID-19 pandemic, and price
+increases for several raw materials and input factors following the outbreak of the war in Ukraine,
+affected prices and costs differently for different product categories.
+In order to shed light on possible variations across product categories, the Norwegian Competition
+Authority will present five product categories. For the first two categories, the results include sales
+52 However, for the first half of 2023, the gross margin was lower than the second half of 2022.
+53 In terms of kroner, these products do not necessarily constitute the most profitable products for the grocery
+
+chains.
+54 The grocery chains' gross margin is slightly above 40 per cent if suppliers who deliver directly to stores are
+excluded.
+
+20
+
+volumes, revenues, and margin trends for both branded and private label products. For each product
+category, the analysis examines changes in suppliers' variable production costs, the grocery chains'
+purchase prices (suppliers' net price), and consumer price trends for both branded and private label
+products within the category. Additionally, the development of grocery chains' purchase prices for
+private label products in each category is also presented.55,56,57 In the last three categories, only results
+for private label products are presented.58
+In order to avoid the disclosure of business-sensitive information, it has been necessary to put
+together relatively broad product categories. Within the different product categories, there is varying
+degrees of overlap between branded and private label products. The differences may include different
+product types and package sizes. This also implies varying degrees of substitutability between the
+products. The degree of comparability between brands and private label therefore varies from
+product category to product category.59
+Results may be affected by products entering and leaving the assortment during the period. The
+Norwegian Competition Authority has therefore, for each product category, examined the
+development in purchase and consumer prices for branded products sold under the same EAN code
+throughout the period, and compared these with developments in purchase and consumer prices
+based on the entire product range. The development in purchase and consumer prices for the two
+data samples was mainly similar. 60 In the following, therefore, only results are shown for the entire
+product range.61
+In chapter 4.3.1 until 4.3.2 results are presented for the first two product categories, including both
+branded products and private label products. In chapter 4.3.3 until 4.3.5 results are presented for the
+last three product categories for private label products.
+4.3.1
+
+Non-alcoholic beverages
+
+The category "Non-alcoholic beverages" includes a wide range of different beverages, such as soft
+drinks, juices, juices, sparkling water and energy drinks. In total, the category includes 352 branded
+products and 323 private label products. Among the branded products, the best-selling products were
+various soft drink products and then energy drinks.62 Among the private label products in the category,
+
+55 Since the average prices in each product category are volume-weighted, price changes for individual
+
+products will not be shown in the charts. For example, a price increase for an individual product may be far
+smaller in the figure as some consumers switch to cheaper products in the same category. Price changes
+shown in the figure will therefore appear less than what consumers experience in the store.
+56 The Norwegian Competition Authority's survey does not cover suppliers of private label products. It is
+therefore not possible to follow price changes for these goods further back in the value chain.
+57 The product categories presented have been selected, among other things, because the categories include
+products from a sufficient number of brand suppliers, so that it is possible to anonymize the results (minimum
+three).
+58 For business-sensitive information, branded product results for these categories aren't presented.
+59 An example of a product category that the Norwegian Competition Authority has mapped is the category
+"non-alcoholic beverages", cf. Chapter 4.3.1. In order not to disclose trade secrets, a sufficient number of
+suppliers must be included in the category, and therefore the category covers both soft drinks, cordials, juices,
+etc. This means that branded products to a greater extent consisted of soft drinks, while private label products
+to a greater extent consisted of juice and sparkling water.
+60 Some relatively limited deviations in level occurred.
+61 The same has not been done for private label products as minor adjustments are made to private label
+products from period to period, such as minor changes in package size or packaging, which means that the
+product may be given a new EAN code and thus makes it difficult to follow the products through several
+periods.
+62 The product category includes suppliers who have direct deliveries of products to stores. The grocery chains'
+gross margin for these products corresponds to the gross margin at the retail level, and not the total gross
+margin for retailers and wholesalers as for the other suppliers. This is assumed to result in a lower margin than
+if the grocery chains were also to cover costs related to the wholesale business.
+
+21
+
+there were a number of similar products as for brands, but also a significantly larger proportion of
+juices and sparkling water.
+Non-alcoholic beverages constituted the largest category in the data basis for branded products. The
+category accounted for 20 and 22 per cent of total sales and sales volume for brands in the period,
+respectively. This means that the category had a significant impact on the chains' overall gross margin
+for the branded goods products in the sample, see Figur 7. private label products in the category
+accounted for 5 and 9 per cent of total sales and sales volume for private label respectively over the
+period.
+Figur 8 shows the grocery chains' half-yearly sales volume and turnover in the non-alcoholic beverages
+product category for both branded and private label products in the period 2020 to the first half of
+2023.
+
+Figur 8
+
+Sales volume and turnover for brands and private label in the non-alcoholic beverages
+category, for each half-year in the period 2020 to the first half of 2023.
+
+Sales volume and revenue were several times higher for branded products than for private label
+products
+•
+
+Grocery chains' sales of private label products were significantly lower than sales of branded
+products in the product category. Both the high sales volume and the turnover of branded
+products, compared to private label, indicate that in non-alcoholic beverages, branded
+products is important for both grocery chains and consumers. Furthermore, branded
+consumer goods products had seasonal fluctuations, while private label development was
+relatively stable.63
+
+Figur 9 shows grocery chains' semi-annual purchase and consumer prices for branded products and
+private label products, as well as suppliers' variable production costs for branded products, in the
+category non-alcoholic beverages in the period 2020 to the first half of 2023. 64
+63 In 2021, however, turnover fell from the first to the second half of the year. This is due to a reduction in
+
+average prices, which offset the increase in volume in the period. See also Figur 9 below.
+64 Since the figure shows average prices for a wide range of different products, the size of the presented
+branded and private label product prices is not directly comparable.
+
+22
+
+Figur 9
+
+Average purchase and consumer prices for brands and private label, as well as suppliers'
+variable production costs for brands, in the non-alcoholic beverages category, for each
+half year in the period 2020 to the first half of 2023.
+
+Fall in consumer prices after abolition of sugar tax
+•
+
+From the first half of 2020 to the second half of 2021, the consumer price of branded products
+fell by 26 percent. The fall came at the same time as the abolition of the excise duty on sugarcontaining products (the "sugar tax") in June 2021. 65In66 the same period, grocery chains had
+several large campaigns on different types of soft drinks, which may have amplified the fall in
+the prices of branded products. 67
+
+•
+
+For private label products in the category the price fall after the abolition of the sugar tax, was
+weaker than for branded products. This is probably due to the fact that the private label
+products had a significantly larger proportion of juices and sugar-free mineral water products,
+which is consistent with the fact that the purchase prices of the private label products did not
+have the same price fall.
+
+Figur 10 shows the grocery chains' half-yearly gross margin for brands and private label, respectively,
+as well as suppliers' contribution margin for branded products, in the product category non-alcoholic
+beverages in the period 2020 to the first half of 2023.
+
+65 For information related to the removal of the sugar tax, see the article on the Norwegian Institute of Public
+
+Health, "No clear effect on reduced cross-border trade, even though the "sugar tax" was removed",
+19.01.2023, read 11 December 2024.
+66 The average excise duty per product was reduced from NOK 6.9 in the second half of 2020 to NOK 2.1 in the
+second half of 2021. The remaining excise duties persisted throughout the period and were linked to a deposit
+arrangement with Infinitum.
+67 See, for example, the article on vg.no, "Price war on soft drinks", 28 June 2021, read 11 December 2024.
+
+23
+
+Figur 10
+
+Grocery chains' average gross margins for brands and private label, as well as suppliers'
+average contribution margins for brands, in the non-alcoholic beverages product
+category, for each half-year in the period 2020 to the first half of 2023.
+
+Suppliers' margins decreased during the period
+•
+
+During the surveyed period, the suppliers' contribution margins fell by 6 percentage points,
+which means that the suppliers earned less per unit sold during the period. At the same time
+as the margin fell, a larger volume was sold, see Figur 8.
+
+•
+
+The increased demand coincided with the abolition of the sugar tax, as well as the grocery
+chains' campaigns on soft drinks. In the first half of 2023, the volume fell back to almost the
+same level as in the first half of 2020, see Figur 8.
+
+Increasing gross margins for grocery chains in the period
+•
+
+4.3.2
+
+The grocery chains' gross margin for branded goods and private label increased by 6 and 5
+percentage points respectively. From the first half of 2020 to the second half of 2021, the
+increase in gross margin coincided with a reduction in purchase prices more than consumer
+prices, see Figur 9. The further increase in gross margin after the second half of 2021 coincided
+with consumer prices increasing more than the chains' purchase prices.
+Chocolate and snacks
+
+The category "Chocolate and snacks" includes various types of chocolate, candy, chips and other types
+of snacks (popcorn, nuts, various chocolate products, etc.). For brands, a total of 299 products sold
+during the period are included, while for private label, 244 products are included. Among branded
+products, there was a larger share of chocolate products and potato chips. These product groups were
+also found among private label, but different types of nuts were the most sold private label products.
+Branded consumer goods in the category accounted for 9 per cent of both total sales and sales volume
+for brands over the period. Correspondingly, private label products in the category accounted for 4
+and 5 per cent respectively of total sales and sales volume for private label over the period.
+Figur 11 shows the grocery chains' half-yearly sales volume and turnover in the product category
+chocolate and snacks for branded products and private label products, respectively, in the period 2020
+to 2022 for branded products and 2020 to the first half of 2023 for private label.
+
+24
+
+Figur 11
+
+Sales volume and revenue for brands and private label in the chocolate and snacks
+category, for each half-year in the period 2020 to 2022 for brands, and in the period
+2020 to the first half of 2023 for private label.
+
+Sales volume and revenue were significantly higher for branded products than private label products
+•
+
+Within this product category, grocery chains' sales of branded products were significantly
+higher than sales of private label. The high sales volume and sales of branded products,
+compared to private label, show that branded products in chocolate and snacks were
+important for the grocery chains and consumers during the surveyed period.
+
+Figur 12 shows grocery chains' semi-annual purchase and consumer prices for branded and private
+label products, as well as suppliers' variable production costs for brands, in the chocolate and snacks
+category in the period 2020 to 2022. In addition, the grocery chains' semi-annual purchase and
+consumer prices for private label products in the first half of 2023 are shown. 68
+
+68 Since the figure shows average prices for a wide range of different products, the size of the presented
+
+branded and private label product prices is not directly comparable.
+
+25
+
+Figur 12
+
+Average purchase and consumer prices for branded products and private label products
+in the chocolate and snack category, for each half-year in the period 2020 to 2022 for
+brands and 2020 to the first half of 2023 for private label, and suppliers' semi-annual
+average variable production costs for brands in the period 2020 to 2022.
+
+Higher consumer prices for branded products than private label products
+•
+
+The grocery chains' purchase price for branded products was on average about NOK 1 higher
+than the purchase price for private label products in the chocolate and snacks category during
+the period. At the same time, the consumer price for branded products was on average more
+than NOK 6 higher than the consumer price for private label products. This shows that grocery
+chains on average earned more per sold unit of branded label than per sold unit of private
+label in the category of chocolate and snacks.
+
+•
+
+In addition to the fact that branded products accounted for the largest part of sales in the
+category, see Figur 11, supports the above that branded products were important products
+for the grocery chains in the chocolate and snacks category during the surveyed period.
+
+Figur 13 shows the grocery chains' gross margins and suppliers' contribution margins for branded
+labels in the product category chocolate and snacks for each half year in the period 2020 to 2022, and
+the grocery chains' gross margin for private label products in the period 2020 to the first half of 2023.
+
+26
+
+Figur 13
+
+Grocery chains' average gross margins for branded and private label in the chocolate
+and snacks product category, for each half-year in the period 2020 to 2022 for branded
+labels and 2020 to the first half of 2023 for private label, and suppliers' average
+contribution margins for each half-year in the period 2020 to 2022.
+
+The grocery chains had high gross margins in the chocolate and snacks category
+•
+
+The grocery chains' gross margins for both branded and private label products were
+significantly above the overall levels for the surveyed products, see Figur 7. For branded
+products, gross margins in the period ranged from 51 percent to 56 percent for branded
+products and 42 and 46 percent for private label products.
+
+•
+
+The grocery chains' gross margins for branded label consumer goods had a declining trend in
+the period. From the first half of 2020 to the second half of 2021, the gross margin for branded
+products decreased by approximately 5 percentage points. For private label products, the
+gross margin increased during the corona pandemic but was reduced to approximately the
+same level as the first half of 2021 in the first half of 2023.
+
+Suppliers had increased contribution margins in 2021
+•
+
+From the first half of 2020 to the second half of 2021, suppliers' contribution margins
+increased by 18 per cent.69 This was due to an increase in the net price excluding excise duty
+more than the suppliers' variable production costs, see Figur 12.
+
+•
+
+From the second half of 2021 to the second half of 2022, both the supplier's net price and
+variable production costs increased and resulted in contribution margins in the first half of
+2022 returning to approximately the same level as in the first half of 2020.
+
+4.3.3
+
+Meat
+
+The category 'Meat' includes all types of processed and pure cuts of meat, excluding minced meat and
+ground meat, whether fresh or frozen. The top-selling products in this category include various packs
+of bacon, whole cuts of meat, burgers, and sausages. In total, 804 private label products are included.
+
+69 The coverage margins are calculated based on the net price excluding excise duty.
+
+27
+
+Figur 14 shows the grocery chains' purchase and consumer prices, as well as sales volume and
+turnover, for each half-year in the period 2020 to the first half of 2023.
+
+Figur 14
+
+Average purchase and consumer prices, as well as sales and sales volume, for private
+label products in the meat category, for each half year in the period 2020 to the first
+half of 2023.
+
+Grocery chains' gross margins on meat were close to zero
+•
+4.3.4
+
+Purchase and consumer prices of meat had an increasing trend throughout the period. At the
+same time, the grocery chains' gross margin on products was close to zero.
+Egg
+
+The category "Eggs" includes fresh eggs in different package sizes. A total of 36 private label products
+are included.
+Figur 15 shows the grocery chains' purchase and consumer prices, as well as sales volume and
+turnover, for each half-year in the period 2020 to the first half of 2023.
+
+Figur 15
+
+Average purchase and consumer prices, as well as sales and sales volumes, for private
+label products in the egg category, for each half-year in the period 2020 to the first half
+of 2023.
+
+Increase in turnover, sales volume and consumer prices for eggs, but fall in grocery chains' gross
+margin
+•
+
+Consumer prices for eggs increased by about 8 per cent from the first half of 2020 to the first
+half of 2022, while purchase prices increased by 26 per cent. From the first half of 2022 to the
+first half of 2023, consumer prices increased by approximately 16 per cent, while purchase
+prices rose slightly less in this period, with an increase of 13 per cent. In total, grocery chains'
+purchase prices increased by 42 per cent throughout the period. In the same period, sales
+volume increased by 22 percent and sales by 53 percent.
+
+28
+
+•
+
+4.3.5
+
+The grocery chains' gross margin for eggs gradually fell from 17 percent in the first half of 2020
+to 3 percent in the first half of 2022. In the second half of 2022 and the first half of 2023, the
+gross margin was 6-7 percent. The fall in gross margin coincided with a higher increase in
+purchase prices than consumer prices.
+Seafood
+
+The "Seafood" category consists of both fresh and frozen fish and shellfish products. It includes whole
+fillets as well as more processed items such as fish cakes and fish gratin. Additionally, the category
+features various fish toppings, including smoked salmon and trout. The best-selling products are
+portion-sized salmon fillets. In total, 420 private label products are included in this category.
+Figur 16 shows the grocery chains' purchase and consumer prices, as well as sales volume and
+turnover, for each half-year in the period 2020 to the first half of 2023.
+
+Figur 16
+
+Average purchase and consumer prices, as well as sales and volumes, for private label
+products in the seafood category, for each half-year in the period 2020 to the first half
+of 2023.
+
+Significant price increase for seafood after the outbreak of the Ukraine war, but low and falling gross
+margin
+
+4.4
+
+•
+
+Consumer prices for seafood were stable during the corona pandemic. After the outbreak of
+the war in Ukraine, the consumer price increased by 16 percent, while the purchase price
+increased by 30 percent. In the same period, feed costs for salmon and electricity costs
+increased significantly.70
+
+•
+
+The grocery chains' gross margin for seafood was between 6-8 per cent from the first half of
+2020 to the second half of 2022, from which it fell significantly in the first half of 2023 to
+around minus 3 per cent.
+
+•
+
+The sales volume for seafood was relatively stable during the corona pandemic. From the first
+half of 2022 to the first half of 2023, the volume increased by approximately 8 per cent. The
+volume increase coincided with the period when consumer prices and purchase prices for
+seafood increased, while the gross margin fell and became negative.
+
+Summary
+
+In Chapter Feil! Fant ikke referansekilden. the Norwegian Competition Authority presents the overall
+gross and contribution margins for suppliers. Chapter 4.2 includes data on total sales volume and
+revenue, overall purchase and consumer prices, as well as overall gross margins for grocery chains for
+both branded and private label products in the sample. Additionally, Chapter 4.3 provides details for
+selected product categories, including sales volume, revenue, consumer and purchase prices for both
+
+70 See, among other things, chapter 2.4.2 in sub-report 1, as well as the article on ilaks.no, "Feed price to new
+
+high: It has never been more expensive to feed salmon", 9 March 2022, read 11 December 2024.
+
+29
+
+branded and private label products, suppliers' variable production costs and contribution margins for
+branded products, and the grocery chains' gross margins for both types of products.
+It is important to note that the Authority's survey is descriptive in nature, and the margin measures
+mentioned above cannot be interpreted causally without further analysis. The survey reveals that the
+selected suppliers' gross and contribution margins remained stable from 2020 to 2021, with a slight
+decline after 2021. Costs of goods were the largest expense, representing 70-95 percent of variable
+production costs. Changes in the cost of goods likely had a significant impact on suppliers' contribution
+margins. The survey also shows considerable variation in gross margins across suppliers, which is
+expected given that suppliers offer different products with varying degrees of processing and different
+input factors.
+Furthermore, the survey highlights that grocery chains' gross margins for private label products were,
+on average, about 12 percentage points lower than for branded products during the surveyed period.
+Certain key private label categories, which were not represented among the surveyed branded
+products, had very low margins and therefore contributed to a lower overall margin for private label
+products. The grocery chains' gross margin for branded consumer goods in the sample remained
+relatively stable, though with seasonal fluctuations. However, there was considerable variation in the
+grocery chains' gross margins across different suppliers' product portfolios and product categories.
+This variation could be attributed to differences in transportation and handling costs for various
+products, as well as how price-sensitive consumers are for certain items.
+The survey also shows significant variation in price and margin developments across different product
+categories. In the "non-alcoholic beverages" category, the consumer price for branded products
+decreased following the abolition of the sugar tax in 2021. While suppliers' contribution margins
+decreased over the surveyed period, grocery chains' gross margins increased. In the "chocolate and
+snacks" category, grocery chains' gross margins for both branded and private label products were
+substantially higher than their overall gross margin for the entire product range. Suppliers'
+contribution margins in this category rose in 2021 but declined in 2022.
+In examining different product categories, the Norwegian Competition Authority finds that branded
+products played an important role for grocery chains in several categories, with significantly higher
+sales volumes and revenues compared to private label products. For the "meat", "eggs", and
+"seafood" categories, the Norwegian Competition Authority mapped price and margin developments
+for private label products. These categories represent a large share of turnover in the private label
+sample and thus influence the average gross margin for private label products.
+In the "meat" category, the grocery chains' gross margin was close to zero throughout the surveyed
+period. In the "eggs" category, the gross margin declined from approximately 17 percent to about 67 percent, coinciding with the purchase price increasing more than the consumer price. The gross
+margin for the grocery chains in the "seafood" category fell from 6-8 percent to a negative 3 percent
+between 2022 and the first half of 2023.
+
+5
+
+Summary of the Norwegian Competition Authority's Margin Study 2024
+
+Through the profitability survey at the enterprise level (sub-report 1) and the margin analysis at the
+product level (sub-report 2), the Norwegian Competition Authority has mapped the margin
+development and profitability of a selection of firms across the supplier, wholesaler, and retail levels
+within Norway's grocery market. The two interim reports complement each other, providing valuable
+insights into profitability and margin trends during a period marked by significant market shifts:
+heightened demand during the COVID-19 pandemic in 2020 and 2021, followed by a sharp rise in
+prices triggered by the outbreak of the war in Ukraine in 2022.
+
+30
+
+During the pandemic years of 2020 and 2021, grocery demand surged, leading to increased sales for
+both grocery chains and suppliers. Overall, the Norwegian Competition Authority's survey reveals that
+the gross and contribution margins of the surveyed suppliers remained stable throughout the
+pandemic period. Similarly, the grocery chains' gross margins for the surveyed brands were stable,
+with some seasonal fluctuations, but no significant changes were observed as a result of the pandemic
+itself.
+Although margins remained stable, both suppliers and grocery chains saw an increase in profitability
+during the pandemic, as outlined in interim report 1. A key factor contributing to this rise in
+profitability is likely the significant boost in sales volume driven by the increased demand during these
+years.
+In late February 2022, Russia's invasion of Ukraine marked the beginning of significant disruptions. In
+the aftermath, prices for a wide range of goods and input factors surged, leading to an increase in
+food prices not only in Norway but across the entire EU, see Figur 1.
+From January 2022 to June 2023, grocery prices rose by 20.2 per cent,71 while the gross and
+contribution margins of the suppliers in the survey fell by 5-6 per cent. The grocery chains' gross
+margin for the sample was approximately unchanged in the same period.
+In Interim Report 1, the Norwegian Competition Authority found that profitability for suppliers
+decreased in 2022, with the average return reaching its lowest level for the period between 2017 and
+2022. However, despite this drop, most suppliers still maintained good profitability throughout the
+year. Similarly, profitability for grocery chains also declined in 2022, returning to levels seen before
+the pandemic.
+In Sub-Report 2, the Norwegian Competition Authority observed that grocery chains' gross margins
+for private label products during the surveyed period were, on average, approximately 12 percentage
+points lower than those for branded products. It's important to note that some key product categories
+within private label, which were not represented in the branded product sample, had very low
+margins, thus contributing to the overall lower margins for private label compared to branded
+products.
+Both Sub-Report 1 and Sub-Report 2 highlight considerable variation in margins across different
+suppliers. This variation is expected, as the suppliers in the sample operate in different product
+markets and have varying degrees of product processing. Additionally, the competitive dynamics
+within these markets influence suppliers' ability to generate profits. In Sub-Report 2, it was found that
+the cost of goods accounted for between 70% and 95% of variable production costs, making it the
+largest expense for suppliers during the surveyed period.
+Sub-Report 2 also revealed significant variations in the grocery chains' gross margins across the
+product portfolios of different suppliers. Notably, there was considerable variation between product
+categories for both branded and private label products. For example, in the "chocolate and snacks"
+category, grocery chains experienced high gross margins for both branded and private label products.
+Conversely, in categories like "meat," "eggs," and "seafood," grocery chains experienced low, and in
+some cases, negative gross margins on private label products.
+The findings in Sub-Report 2 further emphasize the importance of brands to grocery chains in several
+product categories, with branded products consistently achieving significantly higher sales volumes
+and revenue compared to private label products.
+Previously, the Norwegian Competition Authority has assessed that competition in the Norwegian
+grocery market as weak, partly as a result of high concentration, high barriers to entry and high
+prices.72 The results of the margin study do not alter this assessment. However, it is important to note
+71 See Statistics Norway's table "03013: Consumer price index, by consumption group", accessed 11 December
+
+2024.
+72 See, for example, the Norwegian Competition Authority's grocery report for 2022 and the Norwegian
+Competition Authority's grocery report for 2023.
+
+31
+
+that sub-report 2 focuses on the margin development within specific product categories for both
+branded and private label products. As such, the findings are not intended to draw broader
+conclusions about competition in the grocery market as a whole.
+
+

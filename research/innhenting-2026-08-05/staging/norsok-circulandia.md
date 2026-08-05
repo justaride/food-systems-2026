@@ -1,0 +1,67 @@
+# Source: https://www.norsok.no/en/news/2026/norsoek-inn-i-europeisk-storsatsing-for-sirkulaere-matsystemer-circulandia
+# Retrieved via curl 2026-08-05 (HTTP 200)
+
+>> --> NORSØK joins major European initiative for circular food systems: CIRCULANDIA - News - Norsøk (en) Hopp til hovedinnhold Search
+NO
+|
+EN
+
+EN
+
+NO
+
+EN
+
+About Norsøk
+
+Staff
+
+Projects
+
+Events
+
+News
+Menu Search
+NO
+|
+EN
+
+EN
+
+NO
+
+EN
+
+About Norsøk
+
+Staff
+
+Projects
+
+Events
+
+News
+
+Vacancies
+
+For students
+Norsøk Gunnars veg 6, 6630 Tingvoll Organization No. 969 840 383
+post@norsok.no
+
++47 930 09 884
+Send invoice to:
+faktura@norsok.no
+
+Privacy Statement
+Close NORSØK joins major European initiative for circular food systems: CIRCULANDIA How can we connect urban and rural areas – both in practice and within nature's own cycles? That is the core question driving CIRCULANDIA, a new European collaborative project aimed at developing and testing solutions for regenerative agriculture and circular economy. The project aims to link the value chains for local food production, organic waste, and packaging – making them circular and economically viable.
+SoilEffects field trial at NORSØK, established in 2011. (Photo: Vegard Botterli)
+Forfatter:
+
+Vegard Botterli
+
+Published: 20 January 2026 11:07
+
+Updated: 21 April 2026 11:29
+European collaboration – from demonstration to regional rollout CIRCULANDIA is structured as a European "learning system". Some locations act as demonstrators (where solutions are developed and tested first), while others serve as replicators (where solutions are adapted and put to use in new contexts). NORSØK is responsible for adapting knowledge to local conditions in the region Møre og Romsdal, so that more resources within local food production can be recycled and contribute to new value creation. Where does NORSØK fit in? Our role in CIRCULANDIA Mapping and evaluation of regenerative methods One of the first major work packages involves systematising and comparing existing frameworks and tools for regenerative agriculture – both in Europe and internationally. Here, NORSØK contributes alongside the Finnish Baltic Sea Action Group (BSAG) Criteria and assessment systems Tools for advisory services and implementation Where gaps, overlaps, or needs for harmonisation exist What works best across different countries, production types, and value chains This is important because regenerative agriculture today often consists of many good initiatives – but unclear shared definitions and inconsistent documentation . The project aims to support more precise practice and better comparability. Knowledge from Europe to Møre og Romsdal Møre og Romsdal County Council will work on introducing methods and models from European partners into a Norwegian context. Here, NORSØK will: Support the adaptation and testing of regenerative models and nutrient management solutions Contribute to the development of courses and training, in collaboration with a local agricultural college Connect experiences from European demonstrations to practical regional implementation This is not about "copying" Finland or France. It is about translating solutions. Climate, soil, farm structures, value chains, regulations, and geography are different – and must be taken seriously. Tools, handbooks, and training CIRCULANDIA will develop concrete tools for use by municipalities, advisory services, farmers, and industry stakeholders. Several of the key ones are linked to NORSØK: Handbooks on regenerative agriculture tailored to local conditions Tools and guidelines for circular nutrient management A modular training programme for regenerative farming Measuring climate emissions from space CIRCULANDIA places great emphasis on being able to document the climate effects of regenerative agriculture in a more precise and scalable way. The project will therefore further develop and test a satellite-based monitoring solution (MRV – monitoring, reporting, and verification) capable of measuring changes in land use and estimating emissions and carbon uptake, including carbon storage in soil. The satellite measurements will be tested across 100 hectares of agricultural land in Møre og Romsdal, before being verified with ground-based measurements. The goal is to achieve a stronger and more verifiable basis for assessing the climate impact of agricultural measures, whilst also making it easier to track developments over time and compare results across countries. Turning diversity into a resource CIRCULANDIA takes a clear systems perspective. Transitions to more sustainable methods happen faster and have greater impact when agronomy, markets, municipalities, and policy develop in the same direction. The project therefore connects regenerative farming and soil health, local food systems and public procurement, reusable packaging and consumer behaviour. Not least, it tests solutions across regions and European networks. This is precisely where the strength of European collaboration lies – when multiple regions test solutions in parallel, we can learn what actually works, what needs to be adapted, and how measures can be scaled. Related articles News Agriculture Food 18. jan 2024 Local food in Møre and Romsdal: A collaboration project for farmers and chefs News Agriculture 14. nov 2022 Soil and the term regenerative News Agriculture Environment 28. jun 2023 Enhancing soil conservation and regenerative practices to maximize carbon storage and minimize greenhouse gas emissions. News Agriculture Environment 09. nov 2021 Sustainable utilization of MARine resources to foster GREEN plant production in Europe - MARIGREEN News Agriculture Food Environment 11. aug 2023 Transforming Marine Residuals into Energy and Sustainable Fertilizer (CIRCULIZER) Go to top Gunnars veg 6, 6630 Tingvoll
+Organization No. 969 840 383 Privacy Statement
+Contact us post@norsok.no +47 930 09 884 Invoice Email faktura@norsok.no Økobloggen Tingvoll Økopark Agropub Cookie Control Icon

@@ -1,0 +1,2895 @@
+RAPPORT
+
+KARTLEGGING AV TILGANG TIL
+DAGLIGVAREGROSSISTTJENESTER
+
+MENON-PUBLIKASJON NR. 177/2024
+Av Erland Skogli, Erika Karttinen, Kristoffer Midttømme, Odin Dager Moe, Karen Ruud Berg og Bjørn
+Olav Johansen (UiB)
+
+Forord
+Menon i samarbeid med Bjørn Olav Johansen (UiB) har på vegne av Nærings- og fiskeridepartementet (NFD)
+kartlagt tilgangen til grossisttjenester i det norske dagligvaremarkedet. Vi ønsker å takke NFD for et spennende
+oppdrag. Partner Erland Skogli har vært prosjektansvarlig og Erika Karttinen operativ prosjektleder. Odin Dager
+Moe og Karen Ruud Berg har vært prosjektmedarbeidere. Kristoffer Midttømme har vært kvalitetssikrer.
+
+______________________
+
+Desember 2024
+Erland Skogli
+
+Erika Karttinen
+
+Prosjektansvarlig
+
+Prosjektleder
+
+Menon Economics
+
+Menon Economics
+
+MENON ECONOMICS
+
+1
+
+RAPPORT
+
+Innhold
+SAMMENDRAG
+
+3
+
+1
+
+INNLEDNING
+
+5
+
+1.1
+
+Mandat for oppdraget
+
+5
+
+1.2
+
+Metode og data som er anvendt i kartleggingen
+
+6
+
+1.3
+
+Avgrensninger
+
+6
+
+2
+
+DAGLIGVAREGROSSIST- OG DISTRIBUSJONSTJENESTER
+
+7
+
+2.1
+
+Grossist- og distribusjonstjenester
+
+7
+
+2.2
+
+Grossistprinsippet
+
+8
+
+3
+
+VERDIKJEDEN I NORSK DAGLIGVARE
+
+9
+
+3.1
+
+Detaljistleddet i dagligvarebransjen
+
+9
+
+3.2
+
+Grossistleddet i dagligvarebransjen
+
+11
+
+3.3
+
+Leverandørleddet
+
+13
+
+3.4
+
+Dagligvaregrossisttjenester i Sverige, Danmark og Finland
+
+14
+
+4
+
+ØKONOMISK TEORI OM VERTIKAL INTEGRASJON
+
+15
+
+4.1
+
+Potensielle effektivitetsgevinster
+
+15
+
+4.2
+
+Vertikal integrasjon og begrensning av konkurranse
+
+15
+
+4.3
+
+Konklusjon
+
+20
+
+5
+
+ERFARINGER KNYTTET TIL TILGANG TIL DAGLIGVAREGROSSISTTJENESTER I NORGE
+
+22
+
+5.1
+
+Alternativ for innkjøp av dagligvarer i dag
+
+22
+
+5.2
+
+Hvordan oppleves tilgangen for detaljister i dag?
+
+24
+
+5.3
+
+Hva oppgir de integrerte grossistene om tilgangen?
+
+26
+
+5.4
+
+Hvordan oppleves tilgangen for leverandører i dag?
+
+27
+
+6
+
+DISKUSJON OG KONKLUSJON
+
+29
+
+6.1
+
+Konkurransefortrinn for de integrerte grossistene
+
+29
+
+6.2
+
+Alternativer til de integrerte grossistene
+
+31
+
+6.3
+
+Tilgang til grossisttjenester for frittstående detaljister i dag
+
+33
+
+6.4
+
+Etableringsbarrierer for nye detaljister
+
+36
+
+6.5
+
+Tilgang for leverandører
+
+37
+
+6.6
+
+Oppsummerende vurdering
+
+38
+
+REFERANSELISTE
+
+41
+
+VEDLEGG A - INTERVJUGUIDER
+
+46
+
+MENON ECONOMICS
+
+2
+
+RAPPORT
+
+Sammendrag
+Nærings- og fiskeridepartementet har gitt Menon i oppdrag å gjennomføre en kartlegging av tilgangen til
+grossisttjenester i dagligvarebransjen. Det er særlig behov for å undersøke om det er reell tilgang til
+grossisttjenester for nye aktører, og om det er realistisk at konkurrerende grossistnettverk kan etableres ved
+siden av de eksisterende grossistnettverkene til dagligvarekjedene. Kartleggingen vil være en del av grunnlaget
+for regjeringens videre arbeid med å styrke konkurransen i dagligvarebransjen. Kartleggingen er gjennomført
+som en intervjustudie.
+Grossist- og distribusjonstjenester i dagligvaremarkedet omfatter vareflyt mellom produsenter eller
+leverandører og detaljister. I denne rapporten deler vi aktørene innen grossist- og distribusjonsvirksomhet i fire
+kategorier: fullsortimentsgrossister, spesialgrossister, direktedistributører og importører. I Norge går
+majoriteten av dagligvarer gjennom fullsortimentsgrossister. I grossistleddet er det tre store vertikalt integrerte
+fullsortimentsgrossister i dag (ASKO, REMA Distribusjon og Coop Distribusjon). I tillegg finnes det også noen
+mindre grossister og importører som leverer supplerende sortiment til butikkene.
+Gjennom intervjuene vi har gjennomført i forbindelse med oppdraget fremkommer det at samtlige frittstående
+dagligvaredetaljister kjøper høyvolumprodukter fra de integrerte grossistene. Av de integrerte grossistene, er
+det ASKO og REMA Distribusjon som i stor skala har distribusjon av varer til ikke-integrerte aktører. Enkelte
+detaljister oppgir videre at ASKO er deres eneste reelle alternativ for høyvolumprodukter i dag.
+Ingen av detaljistene vi har intervjuet, oppgir at de har blitt nektet tilgang til grossisttjenester. Det er derimot
+variasjon mellom uavhengige detaljister i hvorvidt vilkårene for tilgang oppleves som gode eller ikke i dag. Noen
+oppgir å kunne forhandle frem konkurransedyktige vilkår, mens andre opplever at de får høyere priser og mer
+begrenset vareutvalg enn konkurrentene. De integrerte grossistene oppgir at de ønsker å tilby tilgang til
+uavhengige detaljister ettersom dette øker deres volum og gjør at de kan utnytte skalafordelene i
+grossisttjenestene i større grad. Videre oppgir de integrerte grossistene at de gir samme avtalevilkår til eksterne
+detaljister som til egne detaljister.
+Vi har ikke i løpet av kartleggingen fått informasjon som tilsier at leverandører har blitt nektet tilgang til
+grossisttjenester. Det er variasjon også blant leverandører i hvorvidt vilkårene for grossisttilgangen oppleves som
+gode i dag. Leverandører vi har intervjuet problematiserer at man i liten grad kan konkurranseutsette
+grossisttjenestene i dag, fordi man er pålagt å levere gjennom de integrerte grossistene hvis man skal selge
+produkter til de integrerte detaljistene. Flere leverandører oppgir også at distribusjonspåslagene til de integrerte
+grossistene oppleves som høye, og de oppgir mistanker om at distribusjonspåslagene er høyere for merkevarer
+enn for EMV. Det oppgis også at det er lav grad av transparens om prissetting av distribusjonstjenester. Samtidig
+oppgir enkelte andre leverandører vi har intervjuet at et scenario der kjedene benytter seg av flere grossister
+hadde vært mer ressurskrevende, og at effektiviteten i grossistleddet mest sannsynlig også kommer
+leverandørene til gode.
+De vertikalt integrerte fullsortimentsgrossistene er de eneste konkurransedyktige kanalene for detaljister for de
+fleste høyvolumvarene i norsk dagligvare i dag. Fullsortimentsgrossistenes skalafordeler gjør at de har lavest
+priser, og det er derfor utfordrende for andre å konkurrere. På grunn av skalafordelene knyttet til
+grossistbransjen, høye etableringskostnader og importvernet, er det i dag høye etableringsbarrierer for nye
+grossister. Vi vurderer at det kun vil være mulig for en stor aktør å etablere egen grossisttjeneste, og selv en slik
+aktør kan ikke forvente å være konkurransedyktig på flere år. For mindre aktører, er den eneste muligheten til å
+
+MENON ECONOMICS
+
+3
+
+RAPPORT
+
+få tak i høyvolumprodukter i dagligvaresektoren til en konkurransedyktig pris, å gå gjennom en av de integrerte
+grossistene.
+På grunn av dette er det viktig å vurdere tilgangen uavhengige detaljister og leverandører har til de vertikalt
+integrerte grossistene. Basert på kartleggingen av tilgang til grossisttjenester finner vi ikke tilfeller av tilgangsnekt
+for grossist- og distribusjonstjenester, hverken for detaljister eller leverandører. Samtidig fremkommer det at
+selv om noen detaljister har flere alternative grossister, er det flere av de mindre detaljistene som oppgir at ASKO
+i dag er deres eneste reelle alternativ. Videre opplever flere leverandører at det ikke finnes et marked for
+grossisttjenester og at de er pålagt å bruke kjedenes integrerte grossister, noe leverandørene oppgir gir
+paraplykjedene stor forhandlingsmakt knyttet til betingelser.
+Vi observerer likevel flere positive trender i grossistmarkedet. Detaljister trekker frem at konkurransepresset i
+markedet har økt gjennom Reitan-gruppens etablering av storhusholdningsgrossisten Kolly, og at de nå har blitt
+et mer relevant alternativ for flere. Videre vurderer vi også at etableringen av DLVRY viser at det er mulig å
+etablere en større ny aktør i grossistmarkedet, selv om DLVRY i dag hovedsakelig leverer til
+storhusholdningsmarkedet. Enkelte detaljister har også i løpet av kartleggingen oppgitt at de ser en positiv
+utvikling i tilgangen på grossisttjenester, og noen går så langt som å si at tilgangen mest sannsynlig aldri har vært
+bedre enn i dag.
+Utover tilgangen til grossisttjenester er det også flere faktorer som påvirker etableringsmulighetene for nye
+detaljister, slik som tilgang til butikklokaler og importbarrierer. Importvernet er en viktig hindring for etablering
+av nye detaljister og grossister, ettersom dette gjør det utfordrende for en utenlandsk konkurrent å ta med seg
+egne varer fra utlandet. Det gjør det også mer utfordrende for nye detaljister uten egen grossisttjeneste å finne
+alternativer til de integrerte grossistene. Dette er forhold som ikke inngår i kartleggingen som presenteres i
+denne rapporten.
+Videre er konsentrasjonen høy på både grossist- og detaljistleddet, som er vertikalt integrerte. Vår vurdering er
+at leverandørenes utfordringer, som vi forstår at handler om deres forhandlingsstyrke mot grossist- og
+detaljistleddet, ikke vil løses før konsentrasjonen reduseres på både grossist- og detaljistleddet. Flere grossister
+vil hjelpe lite så lenge konsentrasjonen på detaljistleddet opprettholdes, og flere detaljister vil hjelpe lite så lenge
+konsentrasjonen på grossistleddet opprettholdes. For å styrke leverandørenes forhandlingsmakt behøves
+egentlig flere store vertikalt integrerte grossist-detaljister, eller både flere grossister og flere detaljister.
+Uten en gjennomgang av interne dokumenter og avtaler mellom partene kan vi ikke konkludere med hvorvidt
+oppgitte forskjeller i vilkår for tilgang representerer forsøk på vertikal utestengelse eller om det skyldes
+merkostnader ved å levere til enkelte detaljister/hente varer fra enkelte leverandører. Gjennom vår kartlegging
+har vi ikke kunnet påvise en markedssvikt i grossistmarkedet for dagligvarer som tilsier at tilgangen til slike
+tjenester bør reguleres.
+
+MENON ECONOMICS
+
+4
+
+RAPPORT
+
+1 Innledning
+1.1 Mandat for oppdraget
+Det fremgår av Hurdalsplattformen at regjeringen ønsker å sikre en bedre maktbalanse i verdikjeden for mat
+gjennom bedre tilsyn, større åpenhet og mer rettferdig fordeling av verdiene i hele verdikjeden. For å nå dette
+målet er det viktig med effektiv konkurranse.
+Grossist- og distribusjonstjenester i dagligvaremarkedet omfatter vareflyt mellom produsenter eller
+leverandører og detaljister. Manglende tilgang til grossisttjenester kan føre til utestengelser både oppstrøms og
+nedstrøms i verdikjeden for mat. Dette kan bidra til etableringsbarrierer for nye aktører og føre til svekket
+konkurranse. Stordriftsfordeler knyttet til grossisttjenester og vertikal integrasjon i verdikjeden for mat kan føre
+til etableringshindringer knyttet til grossisttjenester. Samtidig er det uklart i hvilken grad dette utgjør en
+konkurranseutfordring i dagligvarebransjen i Norge.
+Eventuelle reguleringer av tilgang til grossisttjenester kan medføre utilsiktede virkninger, som for eksempel
+svekkede insentiver til å utvikle egne grossistnettverk. I tillegg er det betydelige kostnader ved å håndheve slike
+reguleringer.
+Et godt kunnskapsgrunnlag er nødvendig for å kunne vurdere om det er behov for reguleringer. Nærings- og
+fiskeridepartementet har derfor gitt Menon i oppdrag å gjennomføre en kartlegging av tilgangen til
+grossisttjenester i dagligvarebransjen. Det er særlig behov for å undersøke om det er reell tilgang til
+grossisttjenester for nye aktører, og om det er realistisk at konkurrerende grossistnettverk kan etablere seg ved
+siden av de eksisterende grossistnettverkene til dagligvarekjedene. Kartleggingen vil være en del av grunnlaget
+for regjeringens videre arbeid med å styrke konkurransen i dagligvarebransjen.
+Rapporten skal blant annet vurdere og beskrive følgende:
+•
+
+Relevante markeder (blant annet grossistmarkedet), markedsaktørene og tilgrensende markeder.
+
+•
+
+Hvilke utfordringer aktører i markedet opplever med tilgang til grossist- og distribusjonsløsninger.
+
+•
+
+Hvorvidt aktører i markedet opplever at de blir nektet tilgang til grossist- og distribusjonsløsninger.
+
+•
+
+Hvilke realistiske muligheter nye og ikke-etablerte dagligvareaktører (potensielle aktører) har for å
+få tilgang til grossist- og distribusjonsløsninger.
+
+•
+
+Om det er forskjeller med tanke på ønske om og behov for tilgang til grossist- og
+distribusjonsløsninger avhengig av om det er en større eller mindre potensiell ny aktør som ønsker
+å etablere seg.
+
+•
+
+Hvorvidt det er geografiske forskjeller med hensyn til hvordan tilgangen til grossist- og
+distribusjonstjenester er.
+
+•
+
+Hvorvidt
+
+aktører
+
+opplever
+
+at
+
+de
+
+tilbys
+
+tilgang
+
+til
+
+dagligvarekjedenes
+
+grossist-
+
+og
+
+distribusjonsløsninger på andre vilkår enn de som gis til eget salgsledd.
+•
+
+Hvorvidt det er realistisk at et konkurrerende grossistnettverk som gir tilbud til frittstående
+detaljister kan etablere seg ved siden av de eksisterende grossistnettverkene.
+
+•
+
+Positive og negative konsekvenser for konkurransen og ressursutnyttelsen i dagligvarebransjen som
+følge av vertikal integrasjon.
+
+MENON ECONOMICS
+
+5
+
+RAPPORT
+
+1.2 Metode og data som er anvendt i kartleggingen
+Mandatet for oppdraget spesifiserer at utreder skal innhente informasjon fra et representativt utvalg
+dagligvarekjeder, detaljister, leverandører, produsenter og grossister. Aktuelle intervjuobjekter er aktører som
+nylig har klart å etablere seg i Norge, aktører som har hatt vanskeligheter med etablering, små detaljister,
+utenlandske aktører (potensielle aktører fra utlandet), leverandører, produsenter, små dagligvaregrossister og
+grossister som er aktive i tilgrensende markeder (f.eks. grossister innenfor servicehandel og storhusholdning),
+samt bransjeorganisasjoner.
+Vi har totalt gjennomført 29 intervjuer med 44 informanter. Disse har vært representanter for uavhengige
+detaljister, uavhengige grossister, integrerte grossister, netthandelsaktører, leverandører og produsenter. Vi har
+også intervjuet, bransjeorganisasjoner, Dagligvaretilsynet, Konkurransetilsynet, Konkurrensverket i Sverige,
+Konkurrence- og Forbrugerstyrelsen i Danmark samt The Food Market Ombudsman i Finland. I tillegg til
+intervjuene har vi også innhentet informasjon over epost fra to aktører som ikke ønsket å stille til intervju.
+Vi har valgt å ikke offentliggjøre en liste over intervjuobjekter fra kartleggingen. Dette valget er gjort fordi
+kartleggingen omhandler konkurranse- og forretningssensitive temaer. Vi vurderer at anonymiteten til
+informantene er viktig for å sikre et godt datagrunnlag for kartleggingen; uten den kunne vi risikert at
+informantene hadde vært mindre villige til å dele viktig informasjon.
+Intervjuguidene som ble benyttet i kartleggingen er tilgjengelige i vedlegg A. Alle intervjuobjektene mottok den
+aktuelle intervjuguiden før intervjuene fant sted. Intervjuene ble nøye dokumentert, og referatene ble sendt til
+intervjuobjektene for gjennomgang og korrigering. Vi har også gjennomført sitatsjekk av enkelte deler av
+rapporten der spesifikke aktører er sitert, samt evaluert all informasjon som ble vurdert som potensielt
+forretningssensitiv. I tillegg har enkelte aktører mottatt oppfølgingsspørsmål via e-post etter intervjuene.
+I tillegg til intervjuene har vi brukt offentlig tilgjengelig informasjon slik som nyhetsartikler og høringssvar. Vi har
+også brukt tidligere utredninger og regnskapsdata.
+
+1.3 Avgrensninger
+Vi har ikke fått tilgang til avtaler grossister har med andre aktører gjennom oppdraget. Vi har derfor ikke hatt
+anledning til å direkte vurdere disse avtalevilkårene, eller for eksempel sammenligne vilkårene de integrerte
+grossistene har med forskjellige kunder. Dette har heller ikke vært en del av oppdragets mandat.
+Grossisttjenester for dagligvarer ytes til både dagligvareleverandører og detaljister. Denne utredningen har
+følgelig kartlagt grossistenes tilbud både oppstrøms og nedstrøms. Utredningen har likevel hatt hovedfokus på
+grossisttilgangen for uavhengige og nye detaljister. Utredningen handler ikke om andre faktorer som påvirker
+leverandørene, slik som forhandlinger om hylleplass eller virkninger av EMV. Slike forhold nevnes der hvor det
+er relevant for tilgangen til grossisttjenester, men vurderes altså ikke direkte.
+
+MENON ECONOMICS
+
+6
+
+RAPPORT
+
+2 Dagligvaregrossist- og distribusjonstjenester
+Grossist- og distribusjonstjenester i dagligvaremarkedet omfatter vareflyt mellom produsenter eller
+leverandører og detaljister. Vi deler aktørene innen grossist- og distribusjonsvirksomhet i fire
+kategorier: fullsortimentsgrossister, spesialgrossister, direktedistributører og importører. I Norge
+går majoriteten av dagligvarer gjennom fullsortimentsgrossister. Hensikten med å bruke
+grossisttjenester er i korte trekk å få bedre innkjøpsbetingelser og øke effektiviteten i verdikjeden.
+Høy butikktetthet og langstrakte avstander gjør grossistprinsippet spesielt viktig i Norge.
+
+2.1 Grossist- og distribusjonstjenester
+Distribusjons- og grossistvirksomhet omfatter vareflyten fra produsenter eller leverandører til detaljister, og er
+derfor essensielle komponenter i forsyningskjeden for dagligvarer. Innkjøp, lagring og videresalg er
+kjerneaktivitetene i grossistvirksomheten, mens transport klassifiseres som distribusjonsvirksomheten. I det
+norske dagligvaremarkedet er grossist- og distribusjonsaktivitetene integrerte, med større aktører som fungerer
+både som grossister og distributører. I figuren under viser vi hvordan dagligvarer kan distribueres fra produsent
+til detaljist og forbruker gjennom ulike kanaler.
+
+Figur 2-1: Illustrasjon av forskjellige distribusjonskanaler for dagligvare.
+Netthandel direkte fra leverandør
+
+Dagligvarebutikk på nett
+
+Detaljist
+
+Leverandør
+
+Råvareprodusent
+
+Sentrallager
+
+Regionallager
+
+Direktedistribusjon
+Gårdsutsalg/bondens marked
+
+Dagligvarer distribueres fra råvareprodusent til forbruker på flere forskjellige måter, som illustrert i figuren over.
+Vi deler grossist- og distribusjonsvirksomhet inn i fire typer. Direktedistribusjon skjer når leverandører, som TINE
+og Ringnes, leverer direkte til detaljister, uten mellomledd. Fullsortimentsgrossister er grossister som
+transporterer varer fra leverandører til detaljister, og tilbyr hele sortimentet med varelinjer som detaljisten
+trenger. Spesialgrossister er derimot grossister som kan levere et supplerende sortiment, utover det som tilbys
+av fullsortimentsgrossister, men kan ikke selv levere hele sortimentet detaljister trenger. Importører er på sin
+side grossister som importerer utenlandske varelinjer som ikke tilbys av innenlandske leverandører eller
+grossister. Importørene videreselger de importerte varene til grossister og/eller detaljister.
+Den ruten som mesteparten av varene i norsk dagligvare tar i dag, begynner hos råvareprodusentene og går
+deretter gjennom et foredlingsledd, bestående av produsenter eller leverandører. Her bearbeides råvarene til
+
+MENON ECONOMICS
+
+7
+
+RAPPORT
+
+ferdige produkter. Produktene blir deretter transportert til en fullsortimentsgrossist og blir plassert i ett eller
+flere av grossistens lagre. Fullsortimentsgrossisten håndterer flesteparten av varelinjene og leverer dem videre
+til dagligvarebutikkene, før de sendes videre til butikker og ender opp hos forbrukerne. Netthandel har ytterligere
+tilgjengeliggjort dagligvarer, enten ved salg direkte fra leverandør eller via grossist og netthandler. I tillegg er det
+vareveier som gir forbrukere muligheten til å kjøpe direkte fra råvareprodusenter gjennom omsetningskanaler
+for lokalprodusert mat som for eksempel «REKO-ringer» og gårdsutsalg.
+En av de sentrale rollene grossistene har er å sikre at butikker får de riktige varene til riktig tid, i ønsket kvalitet
+og på en effektiv måte. For å oppnå dette har de store grossistene i dag omfattende IT-systemer. Systemene
+legger til rette for kontinuerlig informasjonsflyt mellom de ulike aktørene i verdikjeden, og bidrar på denne
+måten til økt effektivitet i verdikjeden. Et konkret eksempel er automatisk kontroll av vareetterspørsel i butikk.
+Gjennom automatiserte prosesser melder systemet i hver enkelt butikk inn behov for varepåfyll, noe som både
+kan spare detaljistene for manuelt arbeid, og bidra til å redusere svinn. I tillegg til IT-systemer har flere grossister
+investert i automatiserte lagerprosesser, noe som også kan bidra til å redusere kostnadene i verdikjeden. For å
+muliggjøre automatisering og bedre vareflyt, har også innføring av standarder vært viktige, ettersom global
+produktidentifikasjon forenkler transport med universelle lastepaller.
+
+2.2 Grossistprinsippet
+Overordnet er hensikten med grossistjenester innenfor dagligvare at detaljister slipper å forhandle med hver
+enkelt leverandør om ulike varer, og heller kan kjøpe et bredt utvalg varer av én eller flere grossister. Grossister
+kjøper nemlig inn store partier med varer fra produsenter eller leverandører, som fordeles i mindre varepartier
+for videresalg til detaljister. Når produktene kjøpes inn i store kvanta, kan grossister oppnå bedre innkjøpspriser
+enn hva hver enkelt detaljist kan.
+Grossister kan også oppnå stordriftsfordeler som bidrar til å redusere kostnadene i verdikjeden. For det første
+tilbyr grossister sentraliserte lagringstjenester med stor kapasitet, noe som i seg selv kan være mer
+kostnadseffektivt enn om hver detaljist skulle hatt egne, mindre lagre. For det andre har store grossister ofte
+også flere små regionale lagre, som reduserer avstandene fra grossistlager til detaljist. For det tredje kan
+grossistene tilby et bredere varesortiment enn leverandørene selv, noe som bidrar til å øke fyllingsgraden i
+transporten. Dette kan være kostnadseffektivt både for leverandør, og for detaljist.
+Lange avstander, spredt befolkning og mange butikker, slik som i Norge, gjør gevinstene ved å samle varer inn i
+større transportpartier større. I 2023 var det 3 812 dagligvarebutikker i Norge, som tilsvarer 6,9 butikker per
+10 000 innbyggere. Ser vi kun på Nord-Norge, er dette tallet 9,8.1 Til sammenlikning finnes det 3 186
+dagligvarebutikker i Sverige2, og befolkningen er dobbelt så stor som i Norge.
+Det har vært en utvikling mot økt bruk av grossisttjenester de siste tiårene. Mens det tidligere var vanligere med
+direktedistribusjon av varer fra produsent til detaljist, har flere nå gått over til å bruke grossister. Utviklingen fra
+direktedistribusjon til grossistdistribusjon i Norge begynte å skyte fart på 1980- og 1990-tallet. Dette gjorde at
+grossistene i større grad begynte å ta over distribusjonen fra produsentene, som tidligere hadde leveranser
+direkte til butikkene. Utover 90-tallet begynte integrasjonen mellom grossist- og detaljistleddet.3
+
+1 (Statistisk Sentralbyrå, 2024) (NIQ, 2024)
+2
+
+(Sverige, 2024)
+
+3 (Nervik, 2019)
+
+MENON ECONOMICS
+
+8
+
+RAPPORT
+
+3 Verdikjeden i norsk dagligvare
+De tre hovedleddene i verdikjeden for dagligvarer er leverandører/produsenter, grossister og
+detaljister. Detaljistene er enten fysiske dagligvarebutikker eller andre utsalgssteder/kanaler for
+dagligvare. NorgesGruppen, Coop og REMA 1000 er de tre største aktørene innen tradisjonell
+dagligvare, med 96,6 prosent markedsandel av fysiske fullsortimentsbutikker. I grossistleddet er det
+tre store vertikalt integrerte fullsortimentsgrossister i dag (ASKO, REMA Distribusjon og Coop
+Distribusjon). I tillegg finnes det også noen mindre grossister og importører som leverer supplerende
+sortiment til butikkene. På leverandør- og produsentsiden avhenger antall aktører av
+produktkategori. I mange produktkategorier finnes det kun få leverandører i dag.
+I dette kapittelet gjennomgår vi kort de tre leddene i verdikjeden og de største aktørene, med særlig fokus på
+detaljist- og grossistleddet.
+
+3.1 Detaljistleddet i dagligvarebransjen
+3.1.1 Fysiske dagligvarebutikker
+Ifølge NIQ (2024) sto fysiske dagligvarebutikker (også omtalt som tradisjonell dagligvare) for en omsetning på
+215 milliarder i 2023. Dette omfatter kun omsetning til dagligvarekjedene, og ikke mindre uavhengige
+dagligvarebutikker. NorgesGruppen, Coop og REMA 1000 er de tre største aktørene innen tradisjonell dagligvare.
+Sammen utgjorde disse tre totalt 96,6 prosent av det tradisjonelle dagligvaremarkedet på detaljistnivå. 4
+Bunnpris er den største aktøren som ikke er integrert oppover i verdikjeden, og har en markedsandel på 3,4
+prosent. I tillegg til Bunnpris finnes det også flere små og uavhengige dagligvarebutikker i markedet. Disse utgjør
+imidlertid en liten andel totalt.
+Dagligvarebutikker kan organiseres på ulike måter, og er enten eid og drevet av kjedene selv eller av en
+kjøpmann. Kjøpmenn kan ha franchisekontrakter med dagligvarekjedene. Franchisekontrakter innebærer at
+kjøpmannen selv eier butikken, men betaler for å bruke en konseptprofil (f.eks. REMA 1000) og samarbeider om
+innkjøp, markedsføring og andre støttetjenester. Franchisetakere kan skifte mellom ulike kjeder, både innen
+samme paraplykjede og mellom paraplykjeder. Når en kontraktsperiode mellom franchisegiver- og taker går ut,
+har franchisetakeren frihet til å bytte til et annet butikkonsept. Det må derimot legges til at når franchisetaker
+først har valgt paraplykjede, er franchisetakeren gjenstand for relativt strenge sortimentskrav. Franchisetakeren
+har derfor liten grad av frihet i valg av sortiment. 5 Dette er dog som følge av valg av butikkjede, og handler ikke
+primært om forhold ved den enkelte grossist.
+Andelen kjøpmannseide butikker varierer mellom hver paraplyaktør og butikkjede. REMA 1000 drives
+hovedsakelig gjennom franchiseavtaler6, mens omtrent halvparten av Coop sine butikker er franchisedrevet.7
+Coops organisasjonsform skiller seg fra de andre kjedene ved at de er organisert som et samvirkelag eid av
+medlemmene. Halvparten av butikkene drives av ulike samvirkelag rundt om i landet.8 Kombinasjonen av å
+operere med både samvirkelag og frittstående franchisetakere kom etter oppkjøpet av ICA i 2015. I
+
+4 NIQ (2024)
+5 Dette varierer også mellom paraplykjedene, og mellom de ulike konseptene i hver paraplykjede.
+6 (Rema 1000, 2024)
+7
+
+(Coop, 2024)
+
+8 (Coop, 2024)
+
+MENON ECONOMICS
+
+9
+
+RAPPORT
+
+NorgesGruppen er 54 prosent av butikkene kjøpmannseide, og andelen kjøpmannseide butikker er størst for
+kjedene Spar, Joker og Nærbutikken.9
+
+3.1.2 Andre utsalgskanaler og endringer i markedet
+Ettersom de fysiske dagligvarebutikkene utgjør en stor del av markedet for dagligvarer, er det ofte disse man tar
+utgangspunkt i når bransjen beskrives. Salg av dagligvarer gjennom andre kanaler enn de fysiske butikkene
+utgjorde likevel 15,5 prosent av all dagligvareomsetning i 2023. Disse kanalene inkluderer netthandel (for
+eksempel Oda), bredt vareutvalg (for eksempel Normal), kiosk, bensin og servicehandel (KBS) og annen
+dagligvare (for eksempel importbutikker).
+I dagligvaremarkedet har det vært endringer de siste årene både når det kommer til aktører og utsalgskanaler.
+Nettbaserte dagligvareaktører uten fysiske butikker har fortsatt å vokse helt siden Oda først etablerte seg i
+2013.10 I 2021 og 2022 åpnet henholdsvis Foodora Market og Wolt Market, som begge tilbyr hjemlevering av
+matvarer.11 Flere matkasseaktører har også vokst frem, samt at noen av de tradisjonelle dagligvarebutikkene
+også i større grad tilbyr nettbutikk med dagligvarer. Blant tradisjonelle dagligvarebutikker har det derimot vært
+motsatt utviklingstrend. Etter kort tid i markedet trakk den tyske kjeden Lidl seg ut av det norske
+dagligvaremarkedet i 2008, mens Svenske ICA trakk seg ut i 2014 etter flere år med lav lønnsomhet. 12
+Det er også flere andre utsalgskanaler for dagligvarer. Bredt vareutvalg-aktøren Normal etablerte seg i markedet
+i 2017. Siden da har kjeden rukket å bli en konkurrent i dagligvaremarkedet, med lave priser på produkter som
+dagligvarebutikkene ofte har hatt gode marginer på. 13 Mens aktører innenfor bredt vareutvalg som Normal og
+Europris har overlappende varer med tradisjonell dagligvare hovedsakelig innenfor ikke-matvarer14, har
+servicehandel, som omfatter kiosk og bensinstasjoner, overlappende varer innen matvarer15. Importbutikker har
+videre ofte et utvalg norske dagligvarer i tillegg til sine egenimporterte produkter, selv om de ikke regnes med i
+det
+
+tradisjonelle dagligvaremarkedet.
+
+Taxfree-butikker har
+
+også
+
+noen
+
+overlappende varer med
+
+dagligvarebutikkene, hovedsakelig innenfor drikkevarer og søtsaker.
+Bredt vareutvalg og servicehandel står for henholdsvis 6,3 og 5 prosent av omsetningen av dagligvarer i 2023.
+Netthandel og annen dagligvare, som omfatter blant annet importbutikker, omsatte for henholdsvis 2,2 og 2
+prosent av den totale omsetningen. Totalt var størrelsen på dagligvaremarkedet nesten 255 milliarder kroner på
+tvers av alle utsalgskanaler i 2023.16
+
+3.1.3 Storhusholdning
+Et tilgrensende marked til dagligvaremarkedet, er storhusholdningsmarkedet. I begge markedene er det i stor
+grad de samme typene matvarer som tilbys, og distribusjonen i storhusholdning leveres også gjennom store
+fullsortimentsgrossister. Forskjellen på de to markedene er derimot at storhusholdningsmarkedet er rettet mot
+bedrifter. Kundesegmentene innenfor storhusholdning er serveringsmarkedet, kantine- og cateringmarkedet og
+
+9 (NorgesGruppen, 2024)
+10 (Oda, 2024). Oda ble først etablert under navnet Kolonial.
+11 (Finansavisen, 2022), (Wolt, 2024)
+12 (Menon Economics, 2018)
+13 (Nettavisen, 2023)
+14 For eksempel hygieneartikler, artikler innenfor hus og hobby og andre ikke-spiselige varer.
+15
+
+Alle spiselige varer. Ofte overlapper drikkevarer og tørrvarer som godteri og snacks.
+
+16 (NIQ, 2024)
+
+MENON ECONOMICS
+
+10
+
+RAPPORT
+
+institusjoner. Det er typisk andre størrelser på forpakningene som etterspørres i storhusholdningsmarkedet, og
+det er derfor lite direkte overlapp i varelinjer mellom storhusholdning og dagligvare.
+
+3.2 Grossistleddet i dagligvarebransjen
+3.2.1 Vertikalt integrerte grossister
+De tre store paraplyaktørene i dagligvaremarkedet i Norge har hver sin vertikalt integrerte grossist- og
+distribusjonsaktør. NorgesGruppen har ASKO, REMA 1000 har REMA 1000 Distribusjon og Coop har Coop Norge.
+ASKO leverer omtrent 85 prosent av alle varene til dagligvarebutikkene i NorgesGruppen, mens REMA
+Distribusjon leverer omtrent 70 prosent av alle varene til REMA 1000.17 Coop leverer omtrent 80 prosent av
+varene i Coop-butikkene. De resterende prosentene er enten direktedistribuert eller distribuert gjennom
+spesialgrossister. Det er i dag kun disse tre grossistene som tilbyr fullsortiments grossisttjenester i
+dagligvaremarkedet.
+I grafen under viser vi omsetningen til de tre vertikalt integrerte aktørene. Som beskrevet i forrige delkapittel, er
+markedet for storhusholdning og KBS tilgrensende markeder til dagligvaremarkedet. Flere av de vertikalt
+integrerte grossistene leverer også dagligvarer i disse markedene. Ettersom lønnsomhet i grossisttjenester i stor
+grad handler om volum, har vi valgt å også illustrere hvor stor omsetning de tre aktørene har når man legger til
+omsetning i tilgrensende markeder.
+
+17 Basert på intervjuer med aktørene
+
+MENON ECONOMICS
+
+11
+
+RAPPORT
+
+Figur 3-1: Omsetning fordelt på paraplykjedenes grossist- og distribusjonsvirksomhet i henholdsvis dagligvaremarkedet og
+dagligvaremarkedet, storhusholdning og KBS i 2023. Kilde: Menons regnskapsdatabase, NorgesGruppens års- og
+bærekraftsrapport 2023 (NorgesGruppen, 2024), Coops års- og bærekraftsrapport 2023 (Coop, 2024), Proff.no.18 Tallene
+er også kvalitetssikret med de integrerte grossistene.
+
+100
+80
+
+93.8
+78.8
+58.9
+
+60
+
+58.9
+
+40
+
+33.0
+
+36.8
+
+20
+0
+NorgesGruppen
+Dagligvaremarkedet
+
+Coop
+
+REMA 1000
+
+Dagligvaremarkedet, storhusholdningsmarkedet og KBS
+
+NorgesGruppen har klart størst omsetning innen grossist- og distribusjonsleddet i dagligvaremarkedet med 78,8
+milliarder. Coop og REMA 1000 hadde henholdsvis tre fjerdedeler og 40 prosent av omsetningen til
+NorgesGruppen. Inkluderer vi dagligvarer som også blir solgt i KBS- og storhusholdningsmarkedet, ser vi at
+forskjellen mellom NorgesGruppen og de to andre aktørene øker noe. Mens NorgesGruppen omsetter
+dagligvarer innen disse utsalgsstedene for om lag 15 milliarder kroner, omsetter REMA 1000 (primært gjennom
+dere storhusholdningsgrossist Kolly) for rett under 4 mrd.19 Coop har lite omsetning gjennom disse
+utsalgsstedene.
+Omsetning gjennom paraplyaktørenes minoritetseierskap i andre grossist- og distribusjonsselskap kommer i
+tillegg til omsetningen i Figur 3-1. I 2023 omsatte BAMA for 23,1 milliarder kroner innenfor dagligvare og
+storhusholdning. Via eierskap av paraplyaktørene betyr det at 10,6 og 4,6 av disse milliardene kan telles som
+omsetning på grossistleddet for henholdsvis NorgesGruppen og REMA 1000.20 I tillegg har NorgesGruppen
+minoritetseierskap i grossistselskapene H.I. Giørtz Sønner og K. Ekrheim. H.I. Giørtz Sønner leverer grossist- og
+distribusjonstjenester i Møre og Romsdal og Nordfjord. K Ekrheim har spesialisert seg på små og mellomstore
+dagligvarebutikker, og er fullsortimentsgrossist for alle Joker-, Nærbutikken- og Bunnprisbutikker, samt flere
+frittstående butikker i Oslo og Akershus.21 I 2023 omsatte H.I. Gøirtz Sønner for 4,3 milliarder, mens K. Ekrheim
+omsatte for i underkant av 2 milliarder.22
+
+18 REMA 1000 inkluderer REMA Distribusjon, Coop inkluderer Coop Norge SA. NorgesGruppen publiserer egne omsetningstall som består av
+
+omsetning fra regionale ASKO-selskaper, Storcash-butikker, sentrallagre og samlastingsterminal på Vestby i Akershus, Eureka, Vinhuset og
+Konsumgruppen, og ekskluderer internsalg mellom ASKO-selskaper. I tillegg har vi lagt til omsetningen fra Unil AS som er ansvarlige for
+NorgesGruppens egne merkevarer. Den omtrentlige omsetningsandelen som kommer fra Rema 1000 og NorgesGruppen sin
+grossistvirksomhet i andre segmenter enn dagligvare er fratrukket (Storhusholdning og KBS). Denne omsetningen inkluderer andre
+utsalgskanaler enn tradisjonell dagligvare, for eksempel nettbutikker. Coop opererer ikke i andre markedssegmenter enn tradisjonell
+dagligvare.
+19 (Kolly, 2024)
+20 BAMA er eiet av NorgesGruppen (46 prosent), Rema 1000 (20 prosent) og selskapet Banan II (34 prosent). (NorgesGruppen, 2024)
+21
+(K. Ekrheim, 2024)
+22 (ASKO, 2024) (Proff, 2024)
+
+MENON ECONOMICS
+
+12
+
+RAPPORT
+
+3.2.2 Andre grossist- og distribusjonstjenester innen dagligvaremarkedet
+Det finnes flere mindre, uavhengige grossister som leverer i markedet for tradisjonell dagligvare. Relativt til de
+tre integrerte grossistene er disse aktørene små. Et eksempel på en slik aktør er Godt Lokalt (tidligere kjent som
+Spesialgrossisten og i dag en del av selskapet DLVRY). Godt Lokalt leverer til alle paraplykjedene, og består av ni
+frittstående og lokale salgsgrossister. Selskapet fungerer som en utfyllende grossist med fokus på lokalmat fra
+mindre produsenter, og omsatte i 2023 for 830 millioner kroner. En mindre andel av grossistvirksomheten til
+Godt Lokalt opererer også i storhusholdningssegmentet. 23 Et annet eksempel er Dyrket.no som tilbyr salgs- og
+distribusjonstjeneste til lokalmatprodusenter. De opererer både som grossist, der de transporterer og
+distribuerer lokalmat fra produsent til detaljist, og som detaljist, der de selger lokalmat gjennom sin
+netthandelsløsning. Selskapet samarbeider med Gordon, en annen stor aktør innen hjemlevering av mat. Gordon
+leverer også tjenester til overnevnte Godt Lokalt, samt Godt Levert og Adams Matkasse.
+
+3.2.3 Grossister innen storhusholdning
+Som beskrevet over, er dagligvaremarkedet tilgrenset storhusholdningsmarkedet. Dagligvaregrossistene
+konkurrerer derfor med storhusholdningsgrossistene innen dette markedet. I tillegg til ASKO og Kolly
+(storhusholdningsgrossisten til Reitan Retail), er Servicegrossistene en stor aktør innenfor storhusholdning og
+har vært rendyrket storhusholdningsgrossist siden 1984.24 I 2023 omsatte Servicegrossistene for omtrent 4
+milliarder kroner.25 Servicegrossistene har 14 lager, og tilbyr grossistvirksomhet over hele landet. I motsetning
+til ASKO og Kolly, er hver av de 14 grossistene til Servicegrossistene eid lokalt, eller av andre servicegrossister.
+DLVRY består av 17 grossister, blant annet Godt Lokalt, og er også en landsdekkende fullsortiments grossist som
+primært leverer til storhusholdning.26 DLVRY har en omsetning på rundt 3 milliarder kroner. 27 I
+storhusholdningsmarkedet er det også mer direktedistribusjon. For eksempel leverer både Coca Cola og Ringnes
+egne drikkevarer selv og ikke via grossist.
+
+3.3 Leverandørleddet
+Leverandørleddet omfatter aktørene som produserer, bearbeider og videreselger varer til dagligvarebutikker.
+Tidligere sto også leverandørene selv for distribusjonen til butikkene. Av de store dagligvareleverandørene, er
+det kun TINE og Ringnes som fremdeles praktiserer dette. Ringnes meldte derimot i september 2024 at de
+overlater varedistribusjon til butikk til paraplyaktørenes grossistvirksomhet. 28
+Det er flere aktører innenfor leverandørleddet enn i de andre leddene i verdikjeden, men innenfor mange
+produktkategorier er det kun noen få leverandører. Det finnes mange små leverandører, men de største
+leverandørene utgjør mesteparten av markedet. Leverandørkonsentrasjonen varierer betraktelig mellom ulike
+produktgrupper. En medvirkende årsak til høy konsentrasjon innen noen produktgrupper er importvernet. Særlig
+innen landbruksvarer er visse produktgrupper tilnærmet unntatt fra utenlandsk konkurranse.
+
+23 (Godt Lokalt, 2024)
+24 (Servicegrossistene, 2024)
+25 (Servicegrossistene, 2024)
+26 (DLVRY, 2024)
+27
+
+(Matvareekspressen, 2023)
+
+28 (E24, 2024)
+
+MENON ECONOMICS
+
+13
+
+RAPPORT
+
+3.4 Dagligvaregrossisttjenester i Sverige, Danmark og Finland
+Vi redegjør her kort for hvordan dagligvaregrossisttjenester er organisert i nærliggende land. Vi har valgt å her
+se på våre naboland, ettersom befolkningsstørrelsen og de geografiske forholdene er mer sammenlignbare enn
+hvis vi ser til andre land i Europa. Det norske importvernet gjør likevel at markedet og etableringsmulighetene
+vil kunne se annerledes ut i Norge enn i våre naboland. Basert på denne sammenligningen ser vi at det er høy
+grad av vertikal integrasjon mellom detaljist- og grossistleddet også i våre naboland, og at det er få av de vertikalt
+integrerte grossistene som tilbyr tjenester til ikke-integrerte detaljister.
+Strukturen i dagligvaremarkedet i Sverige består av fire store fullsortimentsgrossister som er vertikalt integrert
+med detaljistleddet.29 De fire største aktørene hadde til sammen en markedsandel på i overkant av 94 prosent i
+2022.30 Ica hadde 50,3 prosent, Axfood 20,5 prosent, Coop 17,5 prosent og Lidl 6,1 prosent.31 Mens Ica, Coop og
+Lidl kun opptrer som grossist for detaljister tilknyttet egen kjede, driver Axfood også grossisttjenester for andre
+detaljister enn de som er tilknyttet Axfood. Sverige har dermed én fullsortimentsgrossist som leverer til
+uavhengige dagligvarebutikker. Vi har også gjennom intervjuer oppfattet at meieriprodusenten Arla er den
+eneste eller en av få leverandøren som driver direktedistribusjon ut i butikk.
+Finland har en tilnærmet duopolstruktur i dagligvaremarkedet, med vertikal integrasjon mellom detaljist og
+grossist. K-gruppen og S-gruppen har hver sin integrerte grossistvirksomhet, og har markedsandeler på
+henholdsvis 34,4 og 48,3 prosent.32 K-gruppens grossist- og distribusjonsløsninger benyttes hovedsakelig av
+dagligvareaktører innenfor deres egen kjede, men tilbys også til noen aktører utenfor.33 Vi kjenner likevel ikke til
+omfanget av disse tjenestene. Både S-gruppen og K-gruppen driver grossistvirksomhet også innen andre
+markedssegmenter som storhusholdning. Lidl står for 9,2 prosent av omsetningen i dagligvaremarkedet.34
+Også dagligvaremarkedet i Danmark er preget av høy konsentrasjon og vertikal integrasjon. Coop og Salling
+Group er de største aktørene i dagligvaremarkedet i Danmark og har markedsandeler på omtrent 35 prosent
+hver. Salling Group har en fullintegrert grossist35, mens Coop benytter seg av en splittet modell hvor noen
+butikker er vertikalt integrert inn i eget grossistnettverk, og andre er frittstående og tar i bruk andre
+grossistløsninger. REMA 1000 er tredje største aktør med markedsandel på rundt 17 prosent36. Også de har sin
+egen integrerte grossist, som også leverer i KBS-markedet.37 Dagrofa, hvor NorgesGruppen eier 49 prosent38, er
+den fjerde største aktøren i det danske dagligvaremarkedet og eier kjeder som Spar og Meny. Dagrofa er vertikalt
+integrert med grossistleddet og tilbyr grossistløsninger til sine egne butikkjeder, men også til dagligvarebutikker
+utenfor sin egen kjede.39
+
+29 (Konkurrensverket, 2024)
+30
+
+I tillegg til tradisjonell dagligvare er nettbutikken Mathem inkludert i markedet, og står for til sammen 0,9 prosent.
+
+31 (Konkurrensverket, 2024)
+32 (NielsenIQ, 2024)
+33 (Kesko, 2024)
+34 (NielsenIQ, 2024)
+35 (Salling Group, 2024)
+36 (HandelsWatch, 2023)
+37 (Rema 1000, 2024)
+38
+
+(Dagrofa, 2024)
+
+39 (Dagrofa, 2024)
+
+MENON ECONOMICS
+
+14
+
+RAPPORT
+
+4 Økonomisk teori om vertikal integrasjon
+Økonomer har lenge diskutert de mulige fordelene og ulempene ved vertikal integrasjon. I den økonomiske
+litteraturen er det bred enighet om at økt grad av vertikal integrasjon bidrar til effektivitetsgevinster, mens det
+har vært mye mer diskusjon om det også kan bidra til å svekke konkurransen, for eksempel ved at de integrerte
+selskapene gjør det vanskeligere for sine konkurrenter å konkurrere. I det følgende skal vi oppsummere de
+viktigste teoretiske argumentene fra denne litteraturen.
+Det er stort sett bred enighet om at vertikal integrasjon kan være motivert av et ønske om å realisere
+effektivitetsgevinster, for eksempel kostnadsreduksjoner, forbedret koordinasjon eller økt innovasjon. Det har
+vært en større diskusjon om de potensielle konkurranseskadelige effektene, og vi skal i det følgende derfor
+fokusere mest på å diskutere skadehypotesene som har blitt løftet frem i denne debatten.
+
+4.1 Potensielle effektivitetsgevinster
+Et viktig mål med vertikal integrasjon kan for bedriftene være å redusere kostnader. Når to bedrifter må gjøre
+markedsbaserte transaksjoner, oppstår det ofte store transaksjonskostnader knyttet til forhandlinger,
+kontraktsinngåelse og overvåking av avtaler. Ved heller å integrere disse aktivitetene, kan bedriften eliminere
+eller redusere disse kostnadene betydelig.
+Videre kan vertikal integrasjon bidra til å eliminere ulike vertikale eksternaliteter som oppstår mellom bedriftene
+som opererer på de ulike nivåene i verdikjeden, som for eksempel grossister og dagligvarekjeder. Kjedene tar
+beslutninger om pris, markedsføring, service, lagerhold, antall ansatte, lokaler, med mer. Alle disse beslutningene
+påvirker omsetningen til grossistene og leverandørene lenger oppe i verdikjeden. Om kjedene ikke tar innover
+seg dette, vil vi kunne få høyere priser og mindre service som et resultat, for eksempel, sammenlignet med det
+som hadde maksimert den samlede profitten i verdikjeden. En del av disse problemene kan løses gjennom å
+skrive mer kompliserte og effektive kontrakter og avtaler. Men kontraktene er aldri fullstendige, og problemene
+kan derfor aldri elimineres fullstendig. Videre vil mer kompliserte avtaler også gjøre at kontraktsinngåelsen og
+forhandlingene blir mer kompliserte, og overvåkingen av avtalene blir mer krevende, noe som gjør at
+transaksjonskostnadene øker.
+Vertikal integrasjon vil i stor grad kunne bøte på disse problemene, ved at bedriftene i større grad blir i stand til
+å samordne aktivitetene mellom de ulike nivåene av verdikjeden. Hvor store disse effektivitetsgevinstene er, er
+vanskelig å vite, men den empiriske litteraturen antyder at gevinstene i mange tilfeller kan være store og at målet
+med vertikal integrasjon i mange tilfeller er å realisere disse gevinstene (se for eksempel (Hortaçsu & Syverson,
+2007)). Flere andre studier antyder at effektivitetsgevinstene i mange tilfeller vil oppveie for eventuelle
+velferdstap forårsaket av svekket konkurranse. I sin kartlegging av den empiriske litteraturen som eksisterte den
+gang, konkluderte Lafontaine og Slade (2007) at vertikale fusjoner i de fleste tilfeller ser ut til å øke velferden.
+Dette betyr ikke at konkurransebegrensende effekter, slik som de vi skal diskutere under, aldri oppstår. Og det
+betyr heller ikke at vertikal integrasjon alltid er bra for velferden. Svaret på dette vil i stor grad måtte variere
+mellom ulike industrier og markeder.
+
+4.2 Vertikal integrasjon og begrensning av konkurranse
+Det er bred enighet om at vertikal integrasjon kan gi betydelige effektivitetsgevinster, som pekt på over. Om
+vertikal integrasjon også kan være motivert av et ønske om å begrense konkurransen, har over lang tid vært
+gjenstand for en større diskusjon i den økonomiske litteraturen.
+
+MENON ECONOMICS
+
+15
+
+RAPPORT
+
+Bekymringer for at vertikal integrasjon skaper konkurranseproblemer oppstår spesielt i situasjoner der de
+vertikalt integrerte selskapene kontrollerer en eller flere viktige flaskehalser, som betyr at det ikke er alternativer,
+eller der det bare finnes dårlige alternativer, til de markedene, produktene og tjenestene som de integrerte
+selskapene kontrollerer. I slike situasjoner må integrerte og ikke-integrerte aktører konkurrere mot hverandre,
+samtidig som de er nødt til å opprettholde et kundeforhold seg imellom. Et eksempel er når
+ASKO/NorgesGruppen forsyner Bunnpris med varer, samtidig som Bunnpris konkurrerer med NorgesGruppens
+egne butikker.
+En bekymring i slike sitasjoner er at uavhengige aktører blir utsatt for vertikal utestenging. Med vertikal
+utestenging mener vi en situasjon der et vertikalt integrert selskap som er dominerende i ett marked, for
+eksempel grossistmarkedet, tar grep for å ekskludere eller svekke konkurrenter som opererer på et annet nivå
+av verdikjeden, for eksempel i detaljistmarkedet.40 Den økonomiske litteraturen som diskuterer vertikal
+utestenging, er særlig opptatt av å forstå om mulighetene og insentivene til å stenge konkurrenter ute blir større
+med økt grad av vertikal integrasjon. I det følgende skal vi oppsummere noen av teoriene som har blitt løftet
+frem i denne diskusjonen.
+
+4.2.1 Chicago-skolen: det eksisterer bare én monopolprofitt
+Økonomisk teori peker i dag på flere grunner til at vertikal integrasjon kan forårsake vertikal utestenging og
+redusert konkurranse. Men for å forstå hvordan dette kan skje, er det nyttig først å starte med argumentene for
+hvorfor det ikke behøver å skje (eller hvorfor det ikke trenger å være skadelig). Den ideen som har hatt størst
+innflytelse i så måte, kommer fra «Chicago-skolen», og bygger på argumentet om at monopolprofitten som
+eksisterer i en verdikjede (med det mener vi den maksimale totale profitten i verdikjeden) bare kan realiseres én
+gang.41 For en gitt betalingsvilje hos konsumentene, og for gitte kostnader i produksjon og distribusjon, kan ikke
+denne monopolprofitten bli større. Og den kan derfor heller ikke bli større ved å stenge ute noen av aktørene i
+verdikjeden, med mindre disse aktørene bidrar til ineffektiv ressursbruk og høye kostnader. Så om vi har en
+monopolist på ett nivå av verdikjeden, for eksempel på grossistleddet, og denne monopolisten utnytter sin
+markedsmakt effektivt på en slik måte at den sammen med de andre aktørene klarer å realisere hele
+monopolprofitten som eksisterer i verdikjeden, så er det ikke rom for at vertikal integrasjon og utestenging kan
+hjelpe monopolisten å utnytte enda mer markedsmakt.
+Ifølge Chicago-skolen vil det derfor være direkte irrasjonelt for en monopolist å stenge ute konkurrenter som
+opererer på et annet nivå av verdikjeden, med mindre dette er for å spare kostnader eller realisere andre
+effektivitetsgevinster. Tenk for eksempel på situasjonen der en oppstrøms monopolist er integrert med en av
+aktørene som konkurrerer i nedstrømsmarkedet. Selv om monopolisten kan nekte å forsyne konkurrentene sine
+nedstrøms, så har den ikke insentiver til å gjøre dette så lenge den kan bruke monopolmakten sin oppstrøms til
+å realisere hele monopolprofitten. Monopolisten vil også kunne tape profitt på å stenge ute konkurrenter
+nedstrøms, for eksempel i tilfeller der konkurrentene er mer effektive enn monopolisten selv er. Da er det bedre
+for monopolisten å forsyne de effektive konkurrentene sine, og så heller utnytte monopolmakten sin til å få en
+bit av den ekstra profitten som skapes.
+
+40 En aktør kan tenkes å bli fullstendig utestengt, ved at det vertikalt integrerte selskapet nekter tilgang, eller delvis utestengt, ved at aktøren
+
+må betale en høyere pris for tilgang sammenlignet med situasjonen uten vertikal integrasjon.
+41 Se (Bork, 1978), (Posner, 1979), m.fl.
+
+MENON ECONOMICS
+
+16
+
+RAPPORT
+
+Dette resonnementet antyder at målet med vertikal integrasjon for monopolisten må være noe annet enn å
+legge til rette for utnyttelse av markedsmakt på enda et nivå av verdikjeden. I stedet handler det kanskje om å
+realisere effektivitetsgevinster som bidrar til å redusere kostnadene eller øke betalingsviljen i markedet.
+
+4.2.2 Post-Chicago: vertikal utestenging for å verne om monopolprofitten
+Den sentrale forutsetningen som Chicago-skolen bygger på, er at monopolisten, sammen med de andre aktørene
+i verdikjeden, faktisk er i stand til å realisere hele den relevante monopolprofitten, for eksempel ved at de skriver
+effektive kontrakter seg imellom. Den økonomiske litteraturen har siden påpekt at det kan eksistere
+omstendigheter der det ikke er mulig for aktørene å realisere hele monopolprofitten, for eksempel dersom
+kontraktene mellom markedsaktørene er ufullstendige og kortsiktige. I slike tilfeller kan vertikal utestenging
+være rasjonelt, fordi det kan hjelpe monopolisten å kapre eller verne om monopolprofitten (Rey & Tirole, 2007).
+I det følgende skal vi gi noen eksempler på dette.
+
+4.2.3 Opportunismeproblemet
+En oppstrøms monopolist kan ha insentiver til å opptre opportunistisk i forhandlingene med bedriftene i
+nedstrømsmarkedet. Dette kan for eksempel skje når bedriftene nedstrøms ikke observerer hverandres
+innkjøpsbetingelser. Hart og Tirole (1990) viser at det i slike tilfeller vil være vanskelig for monopolisten å forplikte
+seg til ikke å forsyne markedet med et kvantum som er større enn monopolkvantumet. Og den realiserte
+profitten vil i så fall kunne bli lavere enn monopolprofitten. 42
+For å illustrere hvordan dette kan skje, tenk situasjonen der to butikker, 1 og 2, kjøper det samme produktet fra
+en oppstrøms monopolist. Butikkene kan antas å være perfekte substitutter. Anta også at det ikke er noen
+produksjons- eller distribusjonskostnader, for å gjøre det enkelt. Monopolisten kan i dette tilfellet forsøke å kreve
+inn monopolprofitten ved å la butikkene kjøpe halve monopolkvantumet hver, for en pris som er lik halve
+monopolprofitten. Om butikkene takker ja og ikke noe mer skjer, så vil alle parter tilsynelatende være fornøyde
+med ordningen; butikkene forventer ikke å tjene profitt (men de går heller ikke med underskudd), mens
+monopolisten tjener hele monopolprofitten. Men hva skjer så snart monopolisten har signert en avtale om å
+selge halve monopolkvantumet til butikk 1? Gitt at den forventer halve monopolkvantumet fra butikk 1, så vil
+butikk 2 umiddelbart ønske å betale enda mer (mer enn halve monopolprofitten) for at monopolisten skal
+forsyne den med et enda større kvantum (større enn halve monopolkvantumet). Og monopolisten vil være villig
+til å selge mer: den har alt fått halve monopolprofitten fra butikk 1, og vil derfor ende opp med å tjene mer enn
+monopolprofitten dersom butikk 2 er villig til å betale enda mer for et enda høyere kvantum. En konsekvens av
+dette er at butikk 1 tjener negativ profitt, siden den nå blir møtt av en mer aggressiv konkurrent (som har et
+større kvantum). Men butikk 1 vil gjennomskue at monopolisten og butikk 2 sammen har et insentiv til å slippe
+mer enn halve monopolkvantumet ut på markedet, og butikk 1 vil derfor aldri være villig til å betale halve
+monopolprofitten (uansett hvilket kvantum den selv mottar). Situasjonen er akkurat den samme for butikk 2,
+som vil skjønne at monopolisten og butikk 1 sammen har et insentiv til å selge mer enn halve monopolkvantumet.
+Og siden begge butikkene derfor forventer at det omsatte kvantumet blir større enn monopolkvantumet, så vil
+de begge ha en betalingsvilje som er betydelig lavere enn halve monopolprofitten. Monopolisten vil derfor ende
+opp med mindre enn monopolprofitten, forutsatt at den ikke kan finne en måte, for eksempel gjennom
+kontraktene, å forplikte seg til et lavere kvantum.
+
+42 Se også (O’Brien & Shaffer, 1992), (McAfee & Schwartz, 1994), (Rey & Vergé, 2004), (Reisinger & Tarantino, 2015)
+
+MENON ECONOMICS
+
+17
+
+RAPPORT
+
+Vertikal integrasjon vil kunne hjelpe monopolisten å beskytte monopolprofitten. Etter å ha kjøpt opp butikk 1, så
+er monopolisten verken avhengig av eller fristet til å selge til den uavhengige konkurrenten nedstrøms. Vi ender
+derfor opp med vertikal utestenging, siden den vertikalt integrerte aktøren kan realisere hele monopolprofitten
+ved å bruke egen butikk alene, og fordi alt salg som går til butikk 2 bare kan bidra til å redusere den samlede
+profitten i markedet.43 Dersom konkurrenten har alternativer, for eksempel ved at butikk 2 kan true enten med
+å starte kostbar egenproduksjon eller kjøpe fra en mindre effektiv leverandør, så kan monopolisten likevel bli
+tvunget til å levere til konkurrenten. Men monopolisten vil likevel kunne ta en noe høyere pris, og levere et lavere
+kvantum, sammenlignet med det som var situasjonen under vertikal separasjon, avhengig av hvor kostbare disse
+alternativene er for butikk 2.44
+De samme mekanismene kan oppstå i en situasjon der butikkene ikke konkurrerer perfekt, for eksempel fordi de
+er differensierte (geografisk og/eller på annen måte). Uten vertikal integrasjon så vil det samme
+opportunismeproblemet kunne oppstå, og det samlede omsatte kvantumet vil i så fall blir større enn
+monopolkvantumet.45 Vertikal integrasjon vil også her kunne hjelpe monopolisten å gjenopprette mer av
+monopolprofitten. Forskjellen er at det vertikalt integrerte selskapet nå kanskje ikke ønsker å stenge ute den
+uavhengige konkurrenten fullstendig, men bare delvis, ved at den må nøye seg med et lavere (men likevel
+positivt) kvantum, eventuelt må betale en høyere innkjøpspris enn i situasjonen uten vertikal integrasjon.
+Nocke og Rey (2018) utvider dette rammeverket til å analysere situasjoner med reell konkurranse mellom to
+differensierte oppstrøms konkurrenter (ikke bare monopol eller kvasimonopol som i Hart og Tirole (1990)), og
+der begge disse selger produktene sine gjennom to (ikke-differensierte) aktører nedstrøms. Dette åpner for å
+studere situasjoner der enten ingen, bare én, eller begge aktørene oppstrøms er vertikalt integrert med hver sin
+konkurrent nedstrøms. De finner at de samme grunnleggende mekanismene oppstår i denne modellen. Uten
+integrasjon vil markedsutfallet være preget av opportunisme: begge selskapene oppstrøms vil selge til begge
+selskapene nedstrøms, og de vil selge relativt høye kvanta, slik at både sluttpriser og profitter vil være lave som
+et resultat. Men for hver vertikal fusjon som skjer, så vil det integrerte selskapet optimalt velge ikke å levere til
+konkurrenten sin nedstrøms (vi får vertikal utestenging), slik at når begge har integrert, så selger de ikke lenger
+produkter til hverandre. Vi ender derfor opp med at de to selskapene nedstrøms selger hvert sitt differensierte
+produkt, i stedet for at begge selger de samme to produktene som de gjorde under vertikal separasjon. 46 Med
+økt integrasjon så får vi derfor mer vertikal utestenging, lavere kvanta, og både priser og profitter vil gå opp som
+et resultat.
+I alle disse tilfellene vil vertikal integrasjon være skadelig for konkurransen og for konsumentene, alt annet like,
+siden det bidrar til at vi får fullstendig eller delvis vertikal utestenging og høyere priser.
+
+43
+
+Et alternativ til vertikal integrasjon er å signere en eksklusivavtale med en av butikkene. Dette vil direkte forplikte monopolisten til ikke å
+selge mer enn monopolkvantumet.
+44 En lignende effekt oppstår i (Ordover, Saloner, & Salop, 1990), der en uavhengig nedstrøms konkurrent får en høyere kostnad under vertikal
+integrasjon. Men der skjer det ved at leverandøren etter en vertikal fusjon forplikter seg til ikke å levere til konkurrenten nedstrøms. Dette
+fører til at konkurrenten står i en dårlig posisjon når den må forhandle med andre potensielle leverandører – og må betale en høyere pris som
+et resultat. Merk, en kritisk forutsetning i Ordover et al. (1990) er at det integrerte selskapet kan forplikte seg til ikke å levere til konkurrenten.
+Som nevnt under, en måte å forplikte seg på kan være å la være å gjøre de nødvendige investeringene som gjør det mulig å forsyne
+konkurrentene, eventuelt å gjøre investeringer som gjør det umulig å levere, for eksempel ved å gjøre systemer eller produkter inkompatible
+med hverandre.
+45 Med monopolkvantumet mener vi her det samlede (for begge butikkene) kvantumet som maksimerer profitten for et fullt integrert selskap
+(som eier produsenten og begge butikkene).
+46 Dette ligner situasjonen vi har i det norske dagligvaremarkedet i dag, der alle de tre store kjedene er vertikalt integrerte med egen grossist.
+Alle de tre kjedene bruker også sine egne grossist- og distribusjonstjenester eksklusivt, heller enn også å kjøpe fra hverandre. Det er uklart om
+det siste er et resultat av vertikal utestenging, slik som i (Nocke & Rey, 2018), eller om det er skjer fordi det er effektivt å benytte seg av bare
+en grossisttjeneste (uavhengig av graden av vertikal integrasjon). Det er ting som taler for at det i dagligvaremarkedet er ineffektivt å benytte
+seg av flere grossister, som påpekt andre steder i rapporten, og at dette derfor uansett aldri ville vært et alternativ for kjedene.
+
+MENON ECONOMICS
+
+18
+
+RAPPORT
+
+4.2.4 Dynamisk vertikal utestenging
+I stedet for å beskytte monopolprofitten i dag, så kan motivet for vertikal utestenging være å beskytte en
+eventuell fremtidig monopolprofitt. Dette poenget har relativt nylig blitt formalisert av Fumagalli og Motta
+(2020). Vi skal her se bort fra opportunismeproblemene som ble beskrevet over, og tenke på situasjonen der et
+vertikalt integrert selskap allerede er etablert i markedet og opererer som monopolist på begge nivåer,
+oppstrøms og nedstrøms. En konkurrent vurderer å etablere seg nedstrøms enten i dag eller en gang i fremtiden,
+mens en oppstrøms konkurrent vurderer å etablere seg en gang i fremtiden. Etablering antas å være kostbart,
+som betyr at en ny aktør må være sikker på at profitten de tjener i dag og i fremtiden (eventuelt bare i fremtiden)
+er stor nok til å dekke etableringskostnadene.
+I en slik situasjon vil nyetablering sannsynligvis kunne være netto positivt for det vertikalt integrerte selskapet
+(sammenlignet med ingen etablering), gitt at etableringen skjer på bare ett av de to nivåene (oppstrøms eller
+nedstrøms, ikke begge). Det integrerte selskapet vil i så fall fremdeles kontrollere en kritisk flaskehals på det ene
+nivået av verdikjeden, og det kan bruke den tilhørende markedsmakten til å kontrollere omsetningen (ingen
+opportunisme), og vil også ha forhandlingsmakt når profitten i markedet skal fordeles (den nyetablerte
+konkurrenten har uansett ingen alternativer).47
+Det verst tenkelige utfallet for det integrerte selskapet vil være om nyetablering skjer både oppstrøms og
+nedstrøms. I dette tilfellet vil det integrerte selskapet miste kontrollen over begge flaskehalsene, og vil etter
+dette kanskje ikke tjene noe profitt, avhengig av om begge de nye selskapene er mer effektive eller leverer bedre
+produkter enn det integrerte selskapet. Samtidig vil profitten til de nyetablerte selskapene være størst om begge
+to etablerer seg, nettopp fordi det integrerte selskapet da mister kontroll over den siste flaskehalsen.
+Fumagalli og Motta (2020) antar at dersom etablering skjer nedstrøms (enten i dag eller i fremtiden), så vil
+fremtidig etablering bli lønnsomt også oppstrøms. De viser så at med en slik trussel om fremtidig oppstrøms
+etablering, så kan det være lønnsomt for det vertikalt integrerte selskapet å forplikte seg til ikke å forsyne noen
+konkurrenter nedstrøms i dag. Denne leveringsnekten vil gjøre at konkurrenten i nedstrømsmarkedet, om den
+velger å etablere seg, ikke vil tjene noe i dag som kan bidra til å dekke inn etableringskostnadene. Dersom
+fremtidig profitt ikke er nok til å dekke etableringskostnadene, så vil leveringsnekten bidra til å forhindre
+nyetablering i nedstrømsmarkedet. Dette vil i så fall sikre at det integrerte selskapet fremdeles har kontroll over
+en viktig flaskehals i fremtiden, noe som gjør at det også kan utnytte markedsmakt, enten det skjer nyetablering
+i oppstrømsmarkedet eller ikke.48
+Merk, ved å forplikte seg til ikke å levere til konkurrenter nedstrøms, så ofrer det integrerte selskapet potensielt
+noe profitt i dag, siden konkurrenten nedstrøms potensielt er mer effektiv og bidrar positivt til profitten i
+markedet. Samtidig så får den en mulig gevinst, ved at den klarer å bevare kontrollen over en viktig flaskehals og
+beskytte sin egen fremtidige monopolstatus, noe som kan gjøre at vertikal utestenging blir lønnsomt på lang
+sikt.49
+
+47 Det integrerte selskapet kan i dette tilfellet også trekke inn eventuelle ekstra verdier som det nyetablerte selskapet bringer med seg i form
+
+av lavere kostnader, høyere kvalitet, e.l.
+48 Den samme mekanismen kan gjøre seg gjeldende om vi snur på det og antar at det er en oppstrøms aktør som vurderer å etablere seg i
+dag, mens en nedstrøms aktør vurderer å etablere seg en gang i fremtiden. Den integrerte monopolisten vil da kunne vurdere å nekte tilgang
+til nedstrømsmarkedet for nykommeren oppstrøms i dag, for å bevare kontrollen over flaskehalsen sin oppstrøms når en eventuell nykommer
+etablerer seg nedstrøms en gang i fremtiden.
+49
+Dersom etableringskostnadene er lave nok, og fremtidig profitt høy nok, slik at etablering er forventet å skje i nedstrømsmarkedet uansett,
+så vil det integrerte selskapet ikke tjene noe på å nekte å levere nykommeren i dag.
+
+MENON ECONOMICS
+
+19
+
+RAPPORT
+
+Vertikal utestenging er også her skadelig for samfunnet, siden en mer effektiv konkurrent blir forhindret fra å
+etablere seg i dag, samtidig som den fremtidige konkurransen blir eliminert på alle nivåer av verdikjeden. Vi kan
+ende opp med høyere priser og dårligere produkter, som et resultat.
+En viktig forutsetning for at denne typen dynamisk utestenging skal oppstå, er at etableringen på det ene nivået
+først kan skje en gang i fremtiden. Dette passer til situasjoner der et patent eller en annen eksklusiv rettighet
+forhindrer etablering på det ene nivået i dag, men kanskje ikke i fremtiden når den aktuelle rettigheten utløper.
+Det kan også passe til situasjoner der vellykket etablering på ett ledd er en nødvendig forutsetning for senere å
+kunne etablere seg på et annet ledd av verdikjeden. Dette kan passe med situasjonen vi ser i dagligvaremarkedet,
+der etablering på grossistleddet krever stor skala (nedstrøms) for å kunne dekke de store etableringskostnadene.
+Merk til slutt at en kritisk forutsetning for at vertikal utestenging skal skje i denne settingen, er at det integrerte
+selskapet er i stand til å forplikte seg til ikke å levere til konkurrenten nedstrøms, selv om konkurrenten likevel
+skulle finne på å etablere seg. Uten noe forpliktelse, så vil det integrerte selskapet alltid ha et insentiv til å levere
+til konkurrenten nedstrøms etter at den har etablert seg. En leveringsnekt er da ikke troverdig og vil ikke ha noen
+effekt på beslutningene til hverken nye eller etablert aktører. En måte å forplikte seg, kan være å ikke gjøre de
+nødvendige investeringene som gjør det mulig å forsyne konkurrenter nedstrøms.
+
+4.2.5 Andre mekanismer
+Litteraturen har pekt på flere andre grunner til at det kan være vanskelig for aktørene i verdikjeden å realisere
+hele den vertikalt integrerte monopolprofitten, og som dermed kan forklare hvorfor vertikal integrasjon og
+utestenging blir lønnsomme strategier. Fumagalli og Motta (2018) peker både på sektorreguleringer og
+risikoaversjon som to mulige årsaker.
+Et eksempel på en type regulering som direkte påvirker aktørenes evne til å realisere profitt, er reguleringer av
+innkjøps- eller tilgangspriser, slik som vi for eksempel har i telemarkedet. Gitt at monopolisten er forhindret fra
+å sette optimale priser til sine ikke-integrerte konkurrenter, så kan vertikal utestenging fremstå som en mer
+lønnsom strategi. Og selv om monopolisten er forhindret fra direkte å stenge ute sine konkurrenter, for eksempel
+fordi den er forpliktet til å levere så lenge den har mulighet til det, så kan monopolisten stenge ute konkurrentene
+indirekte, ved å ødelegge kvaliteten på leveransene, forhindre interoperabilitet, eller ved å la være å gjøre de
+nødvendige investeringene (for eksempel i kapasitet). Dette er potensielt relevant også for den norske
+dagligvaredebatten, der regulering av innkjøpsvilkår har vært mye diskutert.
+
+4.3 Konklusjon
+Økonomiske teori peker på at vertikal integrasjon kan gi betydelige effektivitetsgevinster ved å redusere
+transaksjonskostnader, løse vertikale eksternaliteter og forbedre koordineringen mellom ulike nivåer i
+verdikjeden. Dette kan redusere kostnader, bedre ressursutnyttelsen og stimulere til økt kvalitet og innovasjon.
+Disse fordelene er særlig relevante i markeder der ufullstendige kontrakter og betydelige kostnader knyttet til
+markedsbaserte transaksjoner utgjør et problem. At vertikal integrasjon gir effektivitetsgevinster, er også støttet
+av empirisk forskning.
+Samtidig peker økonomisk teori på muligheten for at vertikal integrasjon kan føre til vertikal utestenging, ved at
+ikke-integrerte konkurrenter nektes eller får redusert tilgang til nødvendige innsatsfaktorer, produkter eller
+markeder, noe som vil gi høyere priser og dårligere tilbud for forbrukerne på lang sikt.
+
+MENON ECONOMICS
+
+20
+
+RAPPORT
+
+I dette kapittelet har vi satt søkelys på to mulige mekanismer som kan forklare vertikal utestenging. Den første
+mekanismen vi pekte på, handler om at en ikke-integrert oppstrøms monopolist kan ha insentiver til å opptre
+opportunistisk i forhandlingene med bedriftene i nedstrømsmarkedet, med det som effekt at den selger et større
+kvantum (til lavere innkjøpspriser) enn det som hadde maksimert den samlede profitten i verdikjeden. En
+vertikalt integrert monopolist står ikke overfor det samme opportunismeproblemet. Dette fordi et integrert
+selskap kontrollerer hele eller deler av nedstrømsmarkedet selv. Det integrerte selskapet tjener derfor direkte
+på å begrense salget som går gjennom de ikke-integrerte konkurrentene og heller la egen virksomhet stå for (en
+stor del av) omsetningen nedstrøms. Vertikal integrasjon og vertikal utestenging er altså her en strategi for å
+beskytte den samlede profitten i verdikjeden.
+Den andre mekanismen som vi pekte på, illustrerer det særlig sterke insentivet som et vertikalt integrert selskap
+har for å sikre sin egen fremtidige markedsposisjon. Dersom det er risiko for at det i fremtiden vil skje
+nyetablering på ett nivå av verdikjeden, for eksempel nedstrøms, så kan et vertikalt integrert selskap ta grep for
+å gjøre det vanskelig å etablere seg på det andre nivået, for eksempel oppstrøms, i dag. Dermed sikrer det
+integrerte selskapet at det fremdeles kontrollerer minst en av de kritiske flaskehalsene (oppstrøms) når
+nyetablering skjer (nedstrøms) en gang i fremtiden. Et vertikalt separert selskap vil ikke ha det samme insentivet
+til å stenge ute bedrifter som opererer på et annet nivå av verdikjeden, dersom selskapet vet at det uansett står
+i fare for å miste kontrollen over sin egen flaskehals en gang i fremtiden.
+Den økonomiske litteraturen peker også på andre markedsforhold som kan føre til vertikal utestenging, som for
+eksempel sektorreguleringer, og hvor vertikal utestenging vil være skadelig for konsumentene. Selv om
+effektivitetsgevinstene ved vertikal integrasjon i mange tilfeller vil være betydelige, er det viktig å gjøre en
+grundig analyse av markedsforholdene for å forstå de samlede effektene av vertikal integrasjon på
+forbrukervelferden.
+
+MENON ECONOMICS
+
+21
+
+RAPPORT
+
+5 Erfaringer knyttet til tilgang til dagligvaregrossisttjenester
+i Norge
+Gjennom intervjuene vi har gjennomført i forbindelse med oppdraget fremkommer det at samtlige
+frittstående dagligvaredetaljister kjøper høyvolumprodukter fra de integrerte grossistene. Av de
+integrerte grossistene, er det ASKO og REMA Distribusjon som i stor skala har distribusjon av varer
+til ikke-integrerte aktører. Enkelte detaljister oppgir at ASKO er deres eneste reelle alternativ for
+høyvolumprodukter i dag.
+Ingen av detaljistene vi har intervjuet, oppgir at de har blitt nektet tilgang til grossisttjenester. Det
+er derimot variasjon mellom uavhengige detaljister i hvorvidt vilkårene for tilgang oppleves som
+gode eller ikke i dag. Noen oppgir å kunne forhandle frem konkurransedyktige vilkår, mens andre
+opplever at de får høyere priser og mer begrenset vareutvalg enn konkurrentene. De integrerte
+grossistene oppgir at de ønsker å tilby tilgang til uavhengige detaljister ettersom dette øker deres
+volum og gjør at de kan utnytte skalafordelene i større grad. Videre oppgir de integrerte grossistene
+at de gir samme avtalevilkår til egne og eksterne detaljister.
+Vi har ikke i løpet av kartleggingen fått informasjon som tilsier at leverandører har blitt nektet tilgang
+til grossisttjenester. Det er variasjon også blant leverandører i hvorvidt vilkårene for
+grossisttilgangen oppleves som gode i dag. Leverandører vi har intervjuet problematiserer at man i
+liten grad kan konkurranseutsette grossisttjenestene i dag, fordi man er pålagt å levere gjennom de
+integrerte grossistene hvis man skal selge produktet til de integrerte detaljistene. Det oppgis at det
+er lav grad av transparens om prissetting av distribusjonstjenester, noe som gjør det utfordrende å
+vurdere vilkårene man får. Enkelte leverandører oppgir også at distribusjonspåslagene til de
+integrerte grossistene oppleves som høye, og det oppgis mistanker om at påslagene er høyere for
+merkevarer enn for EMV. Samtidig oppgir enkelte andre leverandører vi har intervjuet at et scenario
+der kjedene benytter seg av flere grossister hadde vært mer ressurskrevende, og at effektiviteten i
+grossistleddet mest sannsynlig også kommer leverandørene til gode.
+Dette kapittelet er basert på intervjuene og informasjonsinnhentingen vi har gjennomført i løpet av utredningen.
+I dette kapittelet presenteres ikke Menons vurderinger.
+
+5.1 Alternativ for innkjøp av dagligvarer i dag
+En detaljist som etablerer seg i Norge i dag har fem alternativer for innkjøp av varer:
+•
+
+Fullsortimentsgrossister
+
+•
+
+Spesialgrossister
+
+•
+
+Direktedistribusjon fra leverandører
+
+•
+
+Importører
+
+•
+
+Bygge opp egen grossisttjeneste
+
+I det følgende går vi gjennom hvilke grossisttjenester som benyttes av uavhengige detaljister i dag. Vi har delt
+inn gjennomgangen i følgende varekategorier: høyvolumprodukter i dagligvaresektoren, lokalmat og
+nisjeprodukter
+
+samt
+
+MENON ECONOMICS
+
+frukt
+
+og
+
+grønt.
+
+Høyvolumproduktene
+
+inkluderer
+
+basisvarer
+
+som
+
+har
+
+høy
+
+22
+
+RAPPORT
+
+omsetningshastighet og kjøpes av mange forbrukere. Dette inkluderer for eksempel produkter fra
+merkevareprodusenter slik som Orkla og TINE som man kan finne i alle butikker innen tradisjonell dagligvare.
+
+5.1.1 Distribusjon av høyvolumprodukter i dagligvaresektoren
+Gjennom intervjuene fremkommer det at samtlige frittstående dagligvaredetaljister kjøper høyvolumprodukter
+fra de integrerte grossistene. Unntaket er noen enkelte produktgrupper som leveres direkte fra leverandør,
+ettersom leverandøren selv har valgt å praktisere direktedistribusjon. Eksempler på slike leverandører er TINE,
+som distribuerer flytende produkter direkte til butikk, og Ringnes. Ringnes har derimot kunngjort at de vil avslutte
+sin direkte distribusjonspraksis innen 2026. 50 BAMA har også direktedistribusjon, selv om for eksempel varene
+som går til NorgesGruppens butikker i stor grad går gjennom ASKO.51
+Videre fremkommer det at av de integrerte grossistene, er det ASKO og REMA Distribusjon som distribuerer varer
+til ikke-integrerte aktører i stor skala. Coop leverer også grossisttjenester til noen små frittstående aktører, samt
+noen frukt- og grøntaktører, men i mindre skala enn ASKO og REMA Distribusjon. Coop oppgir at de kontinuerlig
+vurderer å selge grossisttjenester til andre, men har så langt ikke inngått avtaler med konkurrerende detaljister
+i stor skala.
+ASKO tilbyr tjenester til både store og små aktører gjennom et nettverk av ulike underselskaper innen dagligvare
+og storhusholdning. Flere aktører oppgir at ASKO oppleves som den mest relevante for nye detaljister, noe som
+understøttes av at det er flere som kjøper grossisttjenester fra ASKO enn REMA Distribusjon i dag. Enkelte aktører
+går enda lenger og oppgir at ASKO er deres eneste reelle alternativ i dag. Dette begrunner de blant annet med
+at REMA ikke har vist interesse til å levere til små aktører. Videre er det flere som oppgir at de har henvendt seg
+til Coop, men at Coop ikke har vist interesse for å ta inn eksterne detaljister i sin grossistdistribusjon. Fra flere
+aktører i bransjen trekkes det videre frem at REMA Distribusjon har et mer begrenset sortiment fokusert på
+lavpris, slik at ASKO er det mest relevante alternativet for flere detaljister i dag, avhengig av valgt konsept. Flere
+detaljister trekker likevel også frem at konkurransepresset i markedet har økt gjennom etableringen av Kolly,
+storhusholdningsgrossisten til REMA 1000, og at Reitan-gruppen gjennom dette har blitt et mer relevant
+alternativ for flere.
+Innen bredt vareutvalg er det derimot aktører som har etablert egen grossisttjeneste. For eksempel kommer
+over 85 prosent av varene til Europris fra egen grossist, og kjeden fokuserer på å kjøpe store kvanta direkte fra
+produsent sammen med internasjonale partnere.52 Normal, som er etablert i 2017, har tatt opp konkurransen
+med dagligvarekjedene på produkter knyttet til personlig hygiene, snacks og godteri. Dette er varegrupper som
+dagligvarebransjen tradisjonelt har hatt gode marginer på. Normal har også egen grossist- og
+distribusjonstjeneste.
+Det finnes utfordrere som prøver å bruke direktedistribusjon for å konkurrere også i det tradisjonelle
+sortimentet. Matkasseleverandøren Godtlevert og Adams matkasse har for eksempel i 2018 vist til at 95 prosent
+av varene de handler er rett fra gård.53
+
+50 (Ringnes, 2024)
+51 (NorgesGruppen, 2024)
+52
+53
+
+(Europris, 2024)
+(Aftenposten, 2018)
+
+MENON ECONOMICS
+
+23
+
+RAPPORT
+
+5.1.2 Distribusjon av lokalmat og nisjeprodukter
+Aktørene vi har intervjuet oppgir videre at ikke-integrerte grossister spiller en større rolle innen lokalmat og
+nisjeprodukter. Et eksempel er Godt Lokalt, som har spesialisert seg på å samarbeide med kjeder om å få lokalmat
+inn i dagligvarebutikker. Et annet eksempel er Servicegrossistene som hovedsakelig er en storhusholdningsaktør,
+men som også tilbyr distribusjon av lokalmat, blant annet til Coop-butikker. En del lokalmat distribueres også
+direkte fra leverandører. I tillegg er det lokalmat som distribueres gjennom de integrerte grossistene. Enkelte
+mindre aktører nevner også at de bruker TINEs distribusjonskanaler for distribusjon av kjølevarer til detaljister.
+For importvarer utenfor vanlig sortiment distribueres gjerne varene av importøren selv. Dette brukes særlig av
+såkalte importbutikker. I tillegg er det også noen detaljister som importerer varer selv.
+At en større andel av lokalmaten distribueres av mindre grossister, eller direkte fra leverandør, trekkes av
+aktørene frem som et argument for at lokalmat er dyrere. Dette skyldes at mindre grossister ikke har det samme
+volumet og kostnadseffektiviteten som de store, integrerte aktørene. En konsekvens av dette er at
+leverandørene av lokalmat blir mindre konkurransedyktige. Samtidig trekkes det frem fra spesialgrossister vi har
+intervjuet at systemene til de integrerte grossistene er mer tilpasset store volum, og at konkurransefortrinnet til
+de store integrerte grossistene derfor er mindre på små volumer.
+
+5.1.3 Distribusjon av frukt og grønt
+Frukt og grønt distribueres i dag både gjennom de integrerte grossistene, direkte fra leverandørene og gjennom
+mindre, spesialiserte grossister. BAMA, som er den desidert største aktøren i det norske frukt- og grøntmarkedet,
+distribuerer varer både gjennom de integrerte grossistene, og gjennom sin egen grossistvirksomhet.
+Utover BAMA finnes det andre, mindre grossister som har spesialisert seg på distribusjon av frukt og grønt. Et
+eksempel på en slik aktør er Netfresh. Netfresh er heleid av Oda, og leverte i 2021 kun til Oda.54 Et annet
+eksempel er Norfresh, som blant annet har hatt et langt samarbeid med Bunnpris. Også tidligere nevnte Godt
+Lokalt kan distribuere frukt og grønt som en del av deres distribusjon av lokalmat. Det finnes også importører
+som har spesialisert seg på import av frukt og grønt, og som selv distribuerer direkte til butikker.
+
+5.2 Hvordan oppleves tilgangen for detaljister i dag?
+Ingen av detaljistene vi har intervjuet, oppgir at de har blitt nektet tilgang til grossisttjenester. Informasjonen fra
+intervjuene knyttet til tilgang til grossisttjenester i dag, går dermed ut på hvilket varesortiment man får tilgang
+til, og til hvilken pris og andre avtalevilkår man får tilgang. Vi har ikke funnet noen geografiske forskjeller knyttet
+til grossisttilgangen, utenom at det blir oppgitt at det generelt finnes flere aktører og alternativer på Østlandet
+og i de store byene.
+
+5.2.1 Tilgang til sortiment
+Det er variasjon mellom ulike detaljister i hvilken grad de opplever at de får tilgang til et bredt varesortiment hos
+de integrerte grossistene. Bunnpris oppgir at de i dag har tilgang til hele ASKOs sortiment, inkludert EMV. I Odas
+sortiment finnes også REMA 1000s EMV, som varer fra Kolonihagen og R-merket, og REMA Distribusjon oppgir
+at Oda har tilgang til hele deres sortiment.
+
+54 Dagens Næringsliv, 2024)
+
+MENON ECONOMICS
+
+24
+
+RAPPORT
+
+Flere av de mindre detaljistene vi har intervjuet opplever derimot utfordringer med at de kun får tilgang til et
+begrenset utvalg hos de store grossistene. Flere oppgir at de kun får tilgang til sortimentet for storhusholdning,
+og ikke dagligvaresortimentet. Det blir også oppgitt at man ikke får informasjon om når man eventuelt kan flyttes
+inn i dagligvaresegmentet, som har et sortiment som er mer tilpasset dagligvarebutikker, til lavere priser. Det
+oppgis også at det er en utfordring at man ikke får tilgang eller får begrenset tilgang til de integrerte detaljistenes
+egne merkevarer. Dette er en særlig utfordring ettersom det gjør at lavpris- og/eller premiumsegmentet av
+produkter blir begrenset. Det oppgis videre at det å ha tilgang til kjedenes EMV blir mer og mer viktig siden
+andelen EMV i norsk dagligvare øker. Utfordringen oppgis å være størst innen lavprissegmentet, ettersom en
+svært stor andel av omsetning i norsk dagligvare skjer innen dette segmentet. Å ikke ha tilgang til tilstrekkelige
+lavprisprodukter oppgis å påvirke konkurransekraften til de små aktørene i stor grad. Enkelte av aktørene oppgir
+også at de har utfordringer med å få tilgang til sesongvarer, noe som også hemmer konkurranseevnen.
+
+5.2.2 Pris
+Også når det kommer til pris, er det variasjon mellom detaljistene i hvilken grad de mener prisvilkårene fra de
+integrerte grossistene er gode eller ikke. For eksempel oppgir Bunnpris at de ikke har noe grunnlag for å si at de
+ikke får samme vilkår som ASKOs egne butikker. De begrunner dette med Dagligvaremeldingen (Nærings- og
+fiskeridepartmentet, 2020) som beskriver hvordan Konkurransetilsynets analyser ikke gir grunnlag for å si at
+Bunnpris sine butikker har andre betingelser enn NorgesGruppens egne butikker. Bunnpris sier videre at de tror
+deres store volum gjør dem til en attraktiv kunde, og at de derfor er i en god forhandlingsposisjon når de skal
+velge grossist.
+Andre detaljister vi har intervjuet, sier derimot at de ikke vet i hvilken grad prisene fra grossist er gode eller ikke.
+Dette kommer av at de ikke opplever å ha reelle og konkurransedyktige grossistalternativer til
+ASKO/NorgesGruppen, og at de derfor ikke kan teste betingelsene. I tillegg oppgir flere av detaljistene i
+intervjuene at prisingen fra de integrerte grossistene er lite transparent, og at det derfor er vanskelig å vurdere
+vilkårene. Fudi-eier Mathias Havgar har også vist til lite transparens i et intervju med HandelsWatch .55 Særlig
+trekkes det frem at prisingen er sterkt påvirket av rabattstrukturer, men at det ikke alltid er like enkelt å skjønne
+hvordan disse strukturene fungerer. Samtidig oppgir andre detaljister at strukturene er fullt forståelige.
+I tillegg til rabatter er også kampanjer med leverandører viktige prisdrivere. Enkelte detaljister oppgir i denne
+sammenheng at det er et problem at de ikke har tilgang til kampanjer gjennom ASKO, og derfor må forhandle
+separat med leverandørene. Dette kan være tid- og ressurskrevende. Flere aktører påpeker også at
+leverandørene ikke kjenner til hvor stort volum som går til de ulike butikkene, men at de kun har kjennskap til
+totalt volum solgt til grossisten. Dette gjør det igjen vanskelig å forhandle om kampanjer med leverandørene.
+Andre detaljister oppgir å ha full forståelse for at kampanjer ikke er inkludert gjennom de integrerte grossistene.
+Støtte til felles markedsføring og tilbudskampanjer (også omtalt som joint marketing) er avtaler som forhandles
+mellom detaljist og leverandør. I NorgesGruppen gjennomføres for eksempel disse av de enkelte profilhusene.
+Derfor vil dette heller ikke inngå i avtalen med den integrerte grossisten.
+Flere av de mindre detaljistene har i intervjuene oppgitt at prisene de får fra de integrerte grossistene ikke er
+konkurransedyktige. Videre er det også flere som oppgir at de tror de får høyere priser fra ASKO enn det
+ASKO/NorgesGruppen selv gir sine egne detaljister. Dette begrunner de med at prisene som kan observeres ut
+til forbruker i NorgesGruppens egne butikker, er lavere enn innkjøpsprisene de selv får fra ASKO for noen varer.
+
+55 (HandelsWatch, 2023)
+
+MENON ECONOMICS
+
+25
+
+RAPPORT
+
+Fudi-eier Mathias Havgar har i et intervju med HandelsWatch vist til at det i praksis kan være billigere å kjøpe
+varer på Kiwi enn fra grossist.56 Dette er tilsvarende diskusjonen rundt forskjeller i innkjøpspriser. I denne
+forbindelsen har f.eks. Snarkjøp i et intervju med Fædrelandsvennen vist til at en liter lettmelk kan koste 10
+prosent mer å kjøpe inn til en Snarkjøp-butikk enn den er å få kjøpt hos en konkurrerende nabobutikk.57 Enkelte
+viser også til at det er mulig å finne samme vare billigere hos en uavhengig grossist/importør selv om ASKO er
+den største aktøren og kan forventes å ha lavere priser på grunn av stordriftsfordeler. Det blir også oppgitt at
+grossistenes påslag, spesielt på viktige forbruksvarer, er urimelig høye, og at denne praksisen vrir konkurransen
+til fordel for de store aktørene. Andre detaljister underbygger dette videre ved at de har opplevd å få bedre
+innkjøpsbetingelser direkte fra leverandør enn fra ASKO.
+Det er likevel også enkelte mindre detaljister som oppgir at det er sannsynlig at mindre aktører, med lite volum
+og innkjøpsmakt, nyter godt av at de integrerte grossistene forhandler på deres vegner når de kjøper varer
+gjennom dem.
+
+5.2.3 Andre avtalevilkår
+Detaljistene opplyser om at det er flere insentivordninger knyttet til avtalene med de integrerte grossistene.
+Blant annet brukes det bonusordninger som gjør det attraktivt for butikker å konsentrere sine innkjøp til en og
+samme grossist. Dette inkluderer volumrabatter på årsnivå, ordrerabatter og årlige totalrabatter. Noen
+detaljister oppgir at betingelsene er uklare, mens andre oppgir at de er forståelige. Vi har ikke fått oppgitt at
+innkjøpsavtalene med de integrerte grossistene har avtalevilkår som forplikter detaljisten til å kjøpe fra den
+integrerte grossisten.
+
+5.3 Hva oppgir de integrerte grossistene om tilgangen?
+ASKO og REMA Distribusjon oppgir at de leverer tjenester til ikke-integrerte detaljister på like vilkår som
+integrerte detaljister. De oppgir at det for dem er gunstig å tilby varer til andre aktører, ettersom dette øker
+deres varevolum. Dette er med på å øke stordriftsfordelene i deres distribusjonssystem, og er derfor gunstig også
+for eget salgsledd. REMA Distribusjon oppgir videre at for at REMA Distribusjon skal kunne levere til en detaljist,
+må de ha en forretningsmodell som REMA Distribusjon kan tilfredsstille med tanke på sortiment. Detaljister som
+stiller krav til et sortiment som REMA Distribusjon ikke kan tilfredsstille vil i liten grad få dekket sitt behov og de
+oppsøker derfor som regel andre alternativer.
+REMA Distribusjon oppgir videre at de tilbyr det samme sortimentet til uavhengige detaljister som til sine egne
+kjedebutikker. For eksempel har Oda hele sortimentet til REMA, inkludert EMV. ASKO oppgir også at de tilbyr det
+samme sortimentet til uavhengige detaljister som til sine egne kjedebutikker. Samtidig er det noen av kjedenes
+egne merkevarer som er eksklusive for noen kjeder, og som derfor ikke tilbys alle detaljister, hverken integrerte
+eller ikke-integrerte. Et eksempel her er merkevaren Jacobs Utvalgte, som hovedsakelig selges hos Jacob’s og
+Meny. ASKO oppgir videre at de tilbyr sortiment og betingelser tilpasset storhusholdningsmarkedet til aktører
+som hovedsakelig har aktivitet innen storhusholdning. Hvis aktøren beveger seg over i dagligvare, går de i dialog
+om å endre betingelsene. De oppgir også at selv om det er noen forskjeller i betingelser for enkelte varegrupper,
+er betingelsene for storhusholdning totalt sett på linje med betingelsene for dagligvare, gitt størrelse på butikk.
+
+56
+
+(HandelsWatch, 2023)
+
+57 (Fædrelandsvennen, 2024)
+
+MENON ECONOMICS
+
+26
+
+RAPPORT
+
+Videre oppgir ASKO og REMA Distribusjon at de gir samme vilkår til egne og eksterne detaljister. Med samme
+vilkår menes samme avtalesystem, ikke nødvendigvis samme pris. Grossistene har, som tidligere nevnt,
+rabattsystemer som avhenger av ulike faktorer og som påvirker hvilken pris detaljistene betaler. Faktorer som
+påvirker rabattene er blant annet totalvolum per år per butikk og volum per ordre, og hvilke varer som kjøpes.
+Dette medfører at en liten detaljistkjede med lavt totalvolum og lavt volum per ordre vil få høyere priser enn en
+stor aktør med høyt volum. Samtidig innebærer det også at en integrert og en ikke-integrert detaljistkjede med
+lik ordrestruktur og likt volum, vil få samme pris.
+ASKO og REMA Distribusjon oppgir videre at det ikke finnes andre avtalevilkår som kun gjelder ikke-integrerte
+detaljister. De opererer ikke med eksklusivitetsavtaler, og både ikke-integrerte og integrerte detaljister står
+derfor fritt til å benytte seg av andre grossister/leverandører som kan supplere deres tilbudte sortiment.
+Coop oppgir at de kontinuerlig vurderer å selge grossisttjenester til andre, men har så langt ikke inngått avtaler
+med konkurrerende detaljister i stor skala.
+
+5.4 Hvordan oppleves tilgangen for leverandører i dag?
+Vi har ikke i løpet av kartleggingen fått informasjon som tilsier at leverandører har blitt nektet tilgang til
+grossisttjenester. Dette er i tråd med Dagligvaremeldingen fra 2020 (Nærings- og fiskeridepartmentet, 2020, s.
+118). Oppfatningen er at dersom en detaljist ønsker å ta inn et produkt i sortimentet, er det en eller flere
+grossister som er villige til å sørge for distribusjon fra leverandør til detaljist. Denne utredningen har ikke handlet
+om hvilke betingelser detaljistene har for å ta inn leverandører i sortimentet.
+Det
+
+betyr
+
+derimot
+
+ikke at distribusjonen
+
+nødvendigvis
+
+skjer gjennom de vertikalt
+
+integrerte
+
+fullsortimentsgrossistene. For små leverandører og små varelinjer, er vår oppfatning basert på intervjuene at
+man har andre, mindre grossister som tilbyr grossisttjenester. Aktører vi har snakket med peker på at dette kan
+skyldes forskjellige forretningsmodeller mellom grossistene, og at lønnsomheten i slike mindre grossistoppdrag
+kan variere. Mens de store, integrerte grossistene har effektive systemer for å distribuere store volum av varer,
+har mindre grossister mer fleksibilitet i distribusjonen som gjør at kan distribuere mindre varelinjer mer
+kostnadseffektivt. Dette har man sett konkrete eksempler på, der nye, mindre leverandører har startet med å
+distribuere gjennom mindre grossister, og deretter gått over til å bruke de integrerte grossistene etter hvert som
+volumet har økt.
+Det er ulik oppfatning blant leverandører hvorvidt vilkårene for grossisttilgangen er gode i dag. Leverandører vi
+har intervjuet problematiserer at man i liten grad kan konkurranseutsette grossisttjenestene i dag, fordi man er
+pålagt å levere gjennom de integrerte grossistene hvis man skal selge produktet til de integrerte detaljistene.
+Alle de integrerte detaljistene har sortimentskrav som knytter seg til detaljistkjeden, og disse kravene forplikter
+detaljisten til å kjøpe dette sortimentet gjennom den integrerte grossisten.58 For eksempel leverer ASKO omtrent
+85 prosent av alle varene til dagligvarebutikkene i NorgesGruppen, mens REMA Distribusjon leverer omtrent 70
+prosent av alle varene til REMA 1000. Derfor oppgir leverandørene at det ikke finnes et marked for
+grossisttjenester i dag. Dette er også noe Dagligvareleverandørenes forening trekker frem i et høringssvar fra
+2018 (Dagligvareleverandørenes forening, 2018). For å få tilgang til en kjede, oppgir leverandørene at man er
+pålagt å bruke én grossist, noe som gir grossisten stor forhandlingsmakt. I et alternativt scenario der kjedene
+benytter seg av flere, ikke-integrerte grossister, oppgir leverandørene at man i større grad kunne valgt den eller
+de grossistene som tilbød best vilkår. Enkelte leverandører oppgir også at distribusjonspåslagene til de integrerte
+
+58 Det er ulike frihetsgrader knyttet til sortimentskravet, men i sum vil størsteparten av omsetningen være innenfor sortimentskravet.
+
+MENON ECONOMICS
+
+27
+
+RAPPORT
+
+grossistene oppleves som høye, og at de mistenker at distribusjonspåslagene er høyere for merkevarer enn for
+EMV. De oppgir at de integrerte grossistene opererer med distribusjonspåslag basert på verdi, og at dette fører
+til at merkevarer (som typisk har en høyere pris) også får høyere distribusjonskostnad, selv for et produkt som
+ellers er identisk. Videre oppgis det at mangel på pristransparens for distribusjonstjenestene er en utfordring, og
+at det derfor er utfordrende å vite hva man betaler for.
+Samtidig oppgir enkelte andre leverandører vi har intervjuet at et scenario der kjedene benytter seg av flere
+grossister kunne bydd på utfordringer, og at dagens system med én grossist til hver kjede fungerer godt.
+Leverandørene oppgir at dersom alle dagligvareaktører hadde hatt flere grossister, hadde det blitt mange
+grossistselskaper å forholde seg til som leverandør, noe som ville økt transaksjonskostnadene i verdikjeden. I
+tillegg påpeker de at små leverandører i større grad drar nytte av grossistdistribusjonen enn de store, ettersom
+de store leverandørene kunne levert mer kostnadseffektivt enn de små. Det blir også oppgitt at den økte
+effektiviteten i distribusjonen mest sannsynlig også kommer leverandørene til gode.
+Vi har også fått oppgitt at når volumet på en vare hos de integrerte detaljistene øker, forventer de integrerte
+grossistene at distribusjonen flyttes over til de heller enn å gå gjennom alternative distribusjonskanaler. Det
+oppgis også at når en leverandør går over til å produsere EMV, forventes leverandøren å bruke de integrerte
+grossistenes distribusjonstjenester. Det vises til at dette illustrerer hvordan de integrerte grossistene opererer
+for å øke andelen som går over egen distribusjon, og reduserer distribusjonsvalgfriheten til leverandørene.
+
+MENON ECONOMICS
+
+28
+
+RAPPORT
+
+6 Diskusjon og konklusjon
+De vertikalt integrerte fullsortimentsgrossistene er det eneste konkurransedyktige alternativet for
+innkjøp av mange varer i norsk dagligvare i dag. Skalafordeler til fullsortimentsgrossistene gjør at de
+har lavest priser, og det er derfor utfordrende for andre å konkurrere. På grunn av skalafordelene
+knyttet til grossistbransjen, høye etableringskostnader og importvernet, er det i dag høye
+etableringsbarrierer for nye grossister. Vi vurderer at det kun vil være mulig for en stor aktør å
+etablere egen grossisttjeneste, og selv en slik aktør kan ikke forvente å være konkurransedyktig på
+flere år. For mindre aktører, er den eneste muligheten til å få tak i høyvolumprodukter i
+dagligvaresektoren til en konkurransedyktig pris, å gå gjennom en av de integrerte grossistene.
+På grunn av dette er det viktig å vurdere tilgangen uavhengige detaljister har til de vertikalt
+integrerte grossistene. Basert på kartleggingen av tilgang til grossisttjenester finner vi ikke tilfeller
+av tilgangsnekt for grossist- og distribusjonstjenester, hverken for detaljister eller leverandører.
+Samtidig fremkommer det at selv om noen detaljister har flere alternative grossister, er det flere av
+de mindre detaljistene som oppgir at ASKO i dag er deres eneste reelle alternativ. Vi observerer
+videre at uavhengige detaljister oppgir varierende vilkår for tilgang til grossisttjenester. Videre
+opplever flere leverandører at det ikke finnes et marked for grossisttjenester og at de er pålagt å
+bruke kjedenes integrerte grossister, noe leverandørene oppgir gir paraplykjedene stor
+forhandlingsmakt knyttet til betingelser.
+Uten en gjennomgang av interne dokumenter og avtaler mellom partene kan vi ikke konkludere med
+hvorvidt oppgitte forskjeller i vilkår for tilgang representerer forsøk på vertikal utestengelse eller
+om det skyldes merkostnader ved å levere til enkelte detaljister/hente varer fra enkelte
+leverandører. Gjennom vår kartlegging har vi ikke kunnet påvise en markedssvikt i grossistmarkedet
+for dagligvarer som tilsier at tilgangen til slike tjenester bør reguleres.
+I dette kapittelet drøfter vi utredningsspørsmålene i lys av informasjonsinnhentingen som er gjennomført i løpet
+av utredningen.
+
+6.1 Konkurransefortrinn for de integrerte grossistene
+I dette delkapittelet beskriver vi først konkurranseparameterne innen grossist- og distribusjonstjenester
+generelt. Deretter forklarer vi hvorfor de vertikalt integrerte fullsortimentsgrossistene har en såpass sterk
+posisjon i markedet i dag.
+
+6.1.1 Konkurranseparametere innenfor grossisttjenester
+Basert på intervjuene vi har gjennomført i løpet av kartleggingen er følgende konkurranseparametere viktige
+innen grossist- og distribusjonstjenester:
+•
+
+Pris
+
+•
+
+Vareutvalg
+
+•
+
+Leveransefrekvens og -punktlighet
+
+Pris er en viktig konkurranseparameter i dagligvarebransjen. Dagligvarehandelen kjennetegnes ved lave nettoog bruttomarginer, og varekostnaden utgjør de vesentligste kostnadene for butikkene. Menon har tidligere
+
+MENON ECONOMICS
+
+29
+
+RAPPORT
+
+analysert kostnadene i dagligvarebransjen og kommet frem til at rundt 75 prosent av kostnadene i
+dagligvarehandelen utgjøres av varekostnader.59 Selv mindre ulikheter i vilkår kan derfor ha betydning for et
+foretaks evne til å konkurrere.
+Vareutvalg er også en viktig konkurranseparameter. En standard dagligvarebutikk i Norge har ca. 3000-4000
+varelinjer60. Jo mer grossisten kan levere til hver detaljist, desto mer effektive vil leveransene være for detaljisten,
+som ikke trenger å forholde seg til så mange leveranser og bestillinger.
+Leveransefrekvens og -punktlighet er også viktige konkurranseparametere. Dette er viktig for at detaljisten skal
+kunne planlegge sin drift og ha ferske varer tilgjengelige for forbrukeren når de etterspørres. Hyppigere
+leveranser vil gjøre det enklere å redusere svinn samt gjøre det enklere å raskt respondere på endringer i
+etterspørsel, slik at butikken ikke plutselig har tomme hyller.
+
+6.1.2 Fullsortimentsgrossister er mer kostnadseffektive
+Grossist- og distribusjonstjenester har stordriftsfordeler. De integrerte fullsortimentsgrossistenes store volumer
+gjør at de kan utnytte disse stordriftsfordelene, som gjør at de kan levere grossist- og distribusjonstjenester til
+lavere priser enn det andre aktører kan. Et eksempel på dette er Ringnes, som oppgir at dagligvarekjedene kan
+distribuere varer til butikker mer effektivt enn de selv klarer. 61 De store dagligvareaktørene oppnår
+stordriftsfordeler gjennom blant annet integrerte innkjøpsfunksjoner, store lagre, og mer velutviklede logistikkog lagersystemer. I tillegg utnytter kjedene stordriftsfordeler ved å samle vareleveransene. Ved å samle varelinjer
+oppnår man høyere fyllingsgrad i transporten, noe som presser enhetskostnadene i transport og distribusjon
+ned. Også detaljistene vi har snakket med mener det er mer effektivt for dem at varer mottas i samme leveranse,
+ikke fordelt på flere leveranser. I en lavmarginbransje som dagligvarebransjen, er slike effektivitetsgevinster
+særlig viktig.
+I en studie gjennomført av Konkurrensverket i Sverige fremkommer det at også svenske kjøpmenn anser det som
+viktig å benytte seg av fullsortimentsgrossister.62 Kjøpmennene trekker frem at det å skulle gjøre innkjøp fra flere
+leverandører, ville ført til merarbeid og høyere kostnader. Konkurrensverket konkluderer dermed med at tilgang
+til en fullsortimentsgrossist er avgjørende for å kunne være konkurransedyktig som dagligvaredetaljist.
+
+6.1.3 De integrerte fullsortimentgrossistenes volum og forhandlingsmakt fører til bedre
+innkjøpsbetingelser fra leverandører
+Gjennom både intervjuene og tidligere utredninger av Konkurransetilsynet fremkommer det at leverandører
+opererer med listepriser, men forhandler med kjøpere om ulike rabatter og bonuser. En viktig utløser av de ulike
+bonusene og rabattene er kjøpers totale volum (Konkurransetilsynet, 2023, s. 19). Fullsortimentsgrossister, som
+har et mye større volum enn mindre enkeltstående dagligvareaktører, vil derfor få større rabatter. At nettopp
+store volum fører til bedre innkjøpsbetingelser var også noe NorgesGruppen presiserte i forbindelse med at
+Konkurransetilsynet fant at de hadde bedre innkjøpsbetingelser enn andre dagligvareaktører, også de andre
+integrerte grossistene (NorgesGruppen, 2019). Dette gjør at mindre dagligvareaktører kan oppnå bedre
+innkjøpspriser og -vilkår ved å handle fra fullsortimentsgrossister enn ved direktekjøp fra leverandører. Dette er
+
+59 (Menon Economics, 2023)
+60
+
+Dagligvarebutikker i Norge har fra 2000 til 20 000 varelinjer (2016-56-Utvalget-av-mat-og-drikke-i-svensk-og-norsk-dagligvare). En
+gjennomsnitts Kiwi-butikk har 3500 varelinjer (Butikkvalg - NorgesGruppen).
+61
+(Ringnes, 2024)
+62 (Konkurrensverket, 2024)
+
+MENON ECONOMICS
+
+30
+
+RAPPORT
+
+også noe enkelte mindre detaljister har vist til i løpet av kartleggingen: det er sannsynlig at mindre aktører, med
+lite volum og innkjøpsmakt, nyter godt av at de integrerte grossistene forhandler på deres vegne når de kjøper
+varer gjennom grossistene. Noen leverandører kan også ha minimumbestillingsvolum, slik at små aktører vil
+måtte bestille mer enn de reelt sett trenger.
+Konsentrasjonen i leverandørleddet er like høy eller høyere enn i detaljistleddet innen flere viktige
+varekategorier (Konkurransetilsynet, 2023, s. 3). Høy markedsandel kan gi økt forhandlingsmakt ovenfor
+detaljistene. Som en mindre, enkeltstående detaljist, har man hverken store volum eller andre forhandlingskort
+å slå i bordet med for å jevne ut denne forhandlingsmakten. Dette kan gi høye priser og dårlige betingelser. En
+fullsortimentsgrossist kan derimot utjevne denne skjevheten i forhandlingsmakt med et større volum og derfor
+sterkere forhandlingskort.
+De integrerte fullsortimentsgrossistene kan også ha tilgang på flere alternativer til de etablerte
+merkevareprodusentene enn enkeltstående detaljister, noe som er med på å jevne ut forhandlingsmakten til
+leverandørene. Store fullsortimentsgrossister har blant annet bedre muligheter til å skaffe internasjonale varer
+til bedre priser, og har egne merkevarer som øker konkurransen ovenfor de andre leverandørene. Førstnevnte
+kommer av at store grossister har større kapasitet til å overkomme de byråkratiske hindringene forbundet med
+å importere varer. Aktørene vi har snakket med oppgir at import er spesielt utfordrende for små aktører på grunn
+av byråkratiske handelshindringer. Eksempler på slike hindringer er søknad om tollkreditt, samt beregning av
+tollverdi, tollavgift og merverdiavgift. I tillegg gjør importvernet at man for flere varer må søke om tillatelse før
+man importerer, noe som i seg selv er en byråkratisk prosess. Matvarer er også underlagt en del strenge krav fra
+Mattilsynet, som for en del produkter innebærer krav om helsesertifikat, analyserapporter og lignende. 63 Store
+grossister har gjerne kapasitet til å håndtere slike hindringer bedre enn mindre aktører. I tillegg har enkelte
+fullsortimentsgrossister internasjonale innkjøpsallianser som letter på disse barrierene.
+
+6.2 Alternativer til de integrerte grossistene
+Det finnes i dag ingen fullsortimentsgrossister innen dagligvare som kan konkurrere med de integrerte
+grossistene. De mest nærliggende alternativene til de integrerte grossistene oppgis i dag å være Servicegrossisten
+og DLVRY, som begge primært leverer til storhusholdning. Flere aktører oppgir at disse kunne vært relevante for
+å levere til dagligvarebutikker, men at de per nå ikke har relevante nok varelinjer, eller store nok volumer til å
+være konkurransedyktige på pris.
+Importvernet gjør også at å importere egne varer i liten grad er et reelt alternativ til å bruke integrerte grossister.
+I 6.1.3 har vi nevnt at handelshindringer kan treffe store og små aktører ulikt, og at dette bidrar til å redusere
+mulighetene små aktører har til å selv importere varer som lar dem konkurrere med de integrerte grossistene.
+Dette gjør det vanskeligere for små aktører å komme inn i markedet. Ettersom importvernet generelt begrenser
+import til Norge, og særlig gjør det for landbruksprodukter, er import generelt ikke et konkurransedyktig
+alternativ innen mange produktkategorier som er viktige for forbrukere (slik som meieriprodukter og animalske
+produkter). Importvarer kan derfor kun i begrenset grad konkurrere med det eksisterende utvalget i norsk
+dagligvare. Normal er en god illustrasjon på dette. Normal fører ikke landbruksprodukter som er omfattet av det
+norske importvernet i sitt sortiment, noe som gjør at de kan konkurrere på deler av, men på langt nær hele,
+sortimentet i en vanlig dagligvarebutikk.
+
+63 (Mattilsynet, 2022)
+
+MENON ECONOMICS
+
+31
+
+RAPPORT
+
+Et annet alternativ til å bruke en eksisterende fullsortimentsgrossist er å etablere en egen grossisttjeneste.
+Aktørene vi har snakket med oppgir at det er særlig to barrierer for å gjøre dette. For det første kreves det store
+volum for at grossistvirksomheten skulle blitt konkurransedyktig. Dette kommer av at store volum er nødvendig
+både for å oppnå kostnadseffektivitet i verdikjeden, og å få bedre innkjøpsbetingelser fra leverandører, se
+kapittel 6.1.2 og 6.1.3. Det er utfordrende for en ny grossist å oppnå et stort nok volum for å kunne utnytte
+stordriftsfordeler i dag. De integrerte dagligvarekjedene har 96 prosent av dagligvaremarkedet, og gjennom
+sortimentskravene de integrerte kjedene har er deres butikker forpliktet til å kjøpe en stor andel av varene fra
+den integrerte grossisten. For det andre krever det store mengder kapital for å etablere en konkurransedyktig
+grossistvirksomhet, ettersom man må investere i store, gjerne automatiserte, lagersystemer og andre
+logistikkløsninger. I tillegg trekker aktørene frem at grossistvirksomheten trolig vil tape penger i en del år før
+virksomheten eventuelt blir lønnsom.
+Som en følge av de store etableringsbarrierene, er det ingen av de mindre detaljistene innen tradisjonell
+dagligvare som har etablert egen grossistvirksomhet. Det er likevel eksempler på flere, større kjededetaljister
+som de siste årene har forsøkt å etablere seg i norsk dagligvare med egen grossist. Innen bredt vareutvalg er det
+vanligere med egen grossistvirksomhet. Europris er det kanskje fremste eksempelet. I dag får kjedens butikker
+over 85 prosent av alle varer fra egen grossist.64 Også overnevnte Normal har etablert egen grossist- og
+distribusjonsvirksomhet.
+Samtidig oppgir flere aktører at etableringsbarrierene vil være mindre dersom en ny, uavhengig grossist kun
+lokaliserer seg på Østlandet. Dette skyldes at man her har en mer konsentrert befolkning, og at det derfor vil
+være lettere å drive effektiv logistikk- og distribusjonsvirksomhet. Etablerer man seg kun på Østlandet krever det
+derfor et mindre volum, og mindre kapital, for at virksomheten skal bli lønnsom. Når det er sagt, vil også en slik
+investering kreve store mengder kapital, og være forbundet med usikkerhet rundt hvorvidt man klarer å oppnå
+store nok volumer.
+Et ytterligere alternativ til de integrerte grossistene er direkteleveranser fra leverandører. Dette er i dag i liten
+grad et reelt alternativ. Som tidligere nevnt er det kun TINE og Ringnes, i tillegg til BAMA, av de store
+leverandørene som tilbyr dette. Ringnes har, som beskrevet, annonsert at de skal slutte med direkteleveranse
+fra og med 2026. Også Diplom-Is har annonsert at de fra og med slutten av 2025 vil gå bort fra direktedistribusjon
+og heller gå over til å bruke grossisttjenester. I likhet med Ringnes argumenterer Diplom-Is med at bruk av
+grossister vil gi lavere kostnader, i tillegg til redusert klimaavtrykk. Diplom-Is peker også på at de ikke klarer å
+utnytte
+
+distribusjonskapasiteten
+
+gjennom
+
+året. 65
+
+Dette
+
+belyser
+
+hvordan
+
+effektive
+
+grossist-
+
+og
+
+distribusjonssystemer krever store investeringer, som vanskelig lar seg reversere dersom volumet skulle
+reduseres i perioder.
+Selv om alternativene til fullsortimentsgrossistene er begrenset, oppgir flere aktører at de stadig prøver å finne
+de vareveiene som er mest kostnadseffektive, og gjerne bruker en kombinasjon av alternativene over, alt
+ettersom hva som er billigst. Når det er sagt, er det en lav andel av varevolumet innen dagligvare som i dag ikke
+går gjennom fullsortimentsgrossistene.
+
+64
+
+(Europris, 2024)
+
+65 (Moderne transport, 2023)
+
+MENON ECONOMICS
+
+32
+
+RAPPORT
+
+6.3 Tilgang til grossisttjenester for frittstående detaljister i dag
+For eksisterende og nye, frittstående detaljister er det å bruke grossisttjenestene til de etablerte aktørene
+nødvendig for drift og etablering i dag, hvis ikke aktøren som etablerer seg er en stor aktør med store
+investeringsmuligheter. Vi må derfor vurdere hvordan den vertikale integreringen mellom detaljistleddet og
+grossistleddet påvirker tilgangen til grossisttjenester for frittstående detaljister i dag.
+Basert på økonomisk teori kan vertikal integrasjon i en verdikjede føre til risiko for vertikal utestengelse. Vertikal
+utestengelse kan skje i form av at en oppstrøms monopolist nekter å tilby tjenester til en konkurrent nedstrøms,
+og derfor stenger denne ute fra markedet. Det kan også oppstå ved at konkurrenten tilbys tjenester med
+dårligere vilkår, slik at konkurrenten ikke er like konkurransedyktig. Dette kan øke profitten til den vertikalt
+integrerte aktøren. I tillegg kan det å ikke slippe til en ny nedstrømsaktør gjøre det mindre sannsynlig at den
+senere etablerer en konkurrent oppstrøms, slik at den vertikalt integrerte aktøren mister sin posisjon både i
+nedstrøms- og oppstrømsmarkedet.
+
+6.3.1 Tilgangsnekt
+Ved analyse av grossist- og detaljistdelen av dagligvaremarkedet utgjør detaljistene nedstrømsmarkedet og
+grossistene oppstrømsmarkedet. I det norske dagligvaremarkedet er det to av de integrerte aktørene som i dag
+tilbyr konkurrenter66 tilgang til sine grossist- og distribusjonstjenester. Vi har ikke blitt forelagt informasjon om
+at noen av grossistene har nektet konkurrenter tilgang, selv om vi observerer at Coop ikke har inngått avtaler
+med større konkurrenter. Som tidligere nevnt er det flere som oppgir at de har henvendt seg til Coop, men at
+Coop ikke har vist interesse for å ta inn eksterne detaljister i sin grossistdistribusjon.
+Enkelte av detaljistene vi har intervjuet oppgir at tilgangen på grossisttjenester er bedre i dag enn tidligere.
+Enkelte detaljister og flere av bransjeaktørene trekker blant annet frem at konkurransepresset i markedet har
+økt gjennom etableringen av Kolly, og at Reitan-gruppen gjennom dette har blitt et mer relevant alternativ for
+flere. Videre vurderer vi at etableringen av DLVRY også viser at det er mulig å etablere en større ny aktør i
+grossistmarkedet, selv om DLVRY i dag hovedsakelig leverer til storhusholdningsmarkedet.
+
+6.3.2 Vilkår for tilgang
+Ifølge utsagn fra intervjuene vi har gjennomført får ikke alle detaljister tilgang til grossisttjenester på samme
+vilkår, se kapittel 5.2. Det oppgis forskjeller både i pris og tilbudt sortiment.
+Størrelse virker å være en viktig faktor for hvilke betingelser som tilbys, der større frittstående detaljister virker
+å kunne konkurranseutsette grossistdriften på en måte som gir de gode nok betingelser til å være
+konkurransedyktige. Bunnpris har for eksempel skiftet mellom REMA og NorgesGruppen, noe som viser at det
+finnes et marked for grossisttjenester, i det minste for større uavhengige detaljister. Oda har slitt med
+økonomiske utfordringer de siste årene67, men har likevel greid å etablere seg i markedet med en ny
+forretningsmodell og samarbeid med REMA 1000. Det skal likevel nevnes at REMA gikk inn på eiersiden i Oda i
+
+66 Coop oppgir at de kontinuerlig vurderer å selge grossisttjenester til andre, men har så langt ikke inngått avtaler med konkurrerende
+
+detaljister i stor skala.
+67 (Nettavisen, 2023)
+
+MENON ECONOMICS
+
+33
+
+RAPPORT
+
+2016 med en eierandel på 10 prosent, noe som kan ha påvirket betingelsene Oda fikk på grossisttjenester68. I
+dag eier REMA Distribusjon rundt 0,5 prosent av Oda69.
+Samtidig er det mange små aktører som sliter med innkjøpsbetingelsene. Da netthandelsaktøren Marked.no
+avviklet driften i 2018 viste de til følgende: «For en liten aktør som Marked.no, har det vært tilnærmet umulig å
+få konkurransedyktige innkjøpsbetingelser.»70 Også Iceland oppga dårlige innkjøpsbetingelser fra leverandører
+som en begrunnelse for å legge ned i 2023.71 Også i vår kartlegging har flere små detaljister oppgitt at
+betingelsene de får fra de integrerte grossistene ikke oppleves som konkurransedyktige.
+At større detaljister får lavere priser enn små, er ikke i seg selv et tegn på diskriminering. Det er billigere for en
+grossist å distribuere varer til få, store butikker enn til mange små. Avstanden mellom butikkene er også relevant,
+samt hvor mye butikkene omsetter og derfor hvor store leveranser man har. En vertikalt integrert grossist kan
+likevel også, i henhold til økonomisk teori, ha insentiv til å holde konkurrenter ute fra detaljistmarkedet gjennom
+å ta høye priser.
+Leveranseeffektivitet kan forklare forskjeller i priser mellom mindre og større aktører, men kan ikke nødvendigvis
+forklare oppgitte forskjeller i tilbudt sortiment. Sortiment er en viktig konkurransefaktor innen dagligvare. Hvis
+mindre detaljister ikke får tilgang til samme sortiment som de større, kan de stille svakere i konkurransen med
+de store aktørene. For mange varelinjer vil det også være utfordrende for små detaljister å få tilgang til varer
+gjennom andre kanaler, slik som vi har argumentert for i 6.1. En måte å diskriminere konkurrenter på selv om
+systemet er likt for alle, er å etablere et totrinns system hvor noen får tilgang til de beste vilkårene og andre
+ikke. Å dele inn detaljistene i dagligvare- og storhusholdningssegment, slik som flere detaljister oppgir at ASKO
+gjør og som vi har redegjort for i kapittel 5.2, kan være en måte å gjøre dette på. Det er også detaljister som
+oppgir at de ikke får vite hvilke vilkår man må oppfylle for å flyttes over i dagligvarekategorien, og at de derfor
+ikke vet når betingelsene eventuelt forbedres. For små detaljister i en oppstartsfase er det utfordrende å ikke
+vite når man eventuelt får tilgang til bedre vilkår, ettersom dette gjør det utfordrende å planlegge driften. En slik
+usikkerhet kan, basert på vår vurdering, øke etableringsbarrierene i detaljistleddet og gjøre det mindre
+sannsynlig at nyetablerte små detaljister blir lønnsomme i drift.
+Å levere varer til nye detaljister, vil kunne kreve investeringer av grossistene. Selv de største grossistene vil kunne
+måtte gjøre noen tilpasninger i sine system for å levere til nye detaljister, og for små detaljister vil ikke
+nødvendigvis volumene være store nok for å økonomisk rettferdiggjøre disse investeringene. Siden det er de
+mindre detaljister som oppgir at de i dag ikke får tilgang til dagligvaresortimentet, virker det som at de integrerte
+aktørene ikke gjennomfører nødvendige investeringer for å levere dagligvaresortiment til flere av de mindre
+detaljistene i dag. Å ikke investere i nødvendig infrastruktur, kan være en måte å bedrive vertikal utestenging.72
+Det kan likevel også være begrunnet i reelle kapasitetsutfordringer og økte faste kostnader hvis små detaljister
+tas inn i systemene til de integrerte detaljistene. Grossister vi har intervjuet oppgir at de ønsker langsiktige
+kontrakter med en detaljist hvis de skal investere i ny grossist- og distribusjonsinfrastruktur for å dekke
+detaljistens behov. Økt volum eller å ta inn nye aktører kan utløse faste kostnader i logistikksystemene. Derfor
+trenger ikke mangelen på investeringer å være et tegn på vertikal utestengelse.
+
+68 (Dagens perspektiv, 2016)
+69 (Proff, 2024)
+70 (Moderne transport, 2018)
+71 (Nettavisen, 2023)
+72
+
+Basert på økonomisk teori (se kapittel 4) er det utfordrende for en monopolist å forplikte seg til å ikke levere til konkurrenter nedstrøms. En
+måte å forplikte seg på, er å ikke investere i nødvendig infrastruktur som muliggjør tilgangen.
+
+MENON ECONOMICS
+
+34
+
+RAPPORT
+
+To av tre vertikalt integrerte grossister tilbyr tjenester til frittstående detaljister i dag. Særlig ASKO tilbyr
+grossisttjenester i stor skala til både små og store aktører innen dagligvare og KBS/servering. Videre har REMA
+1000 gjennom etableringen av Kolly styrket sin satsing knyttet til å levere i storhusholdningssegmentet, noe som
+også kan gjøre dem mer aktuelle for flere små dagligvareforretninger. ASKO oppgir videre at de tilbyr sortiment
+og betingelser tilpasset storhusholdningsmarkedet til aktører som hovedsakelig har aktivitet innen
+storhusholdning. Hvis aktøren beveger seg over i dagligvare, går de i dialog om å endre betingelsene. De oppgir
+også at selv om det er noen forskjeller i betingelser for enkelte varegrupper, er betingelsene for storhusholdning
+totalt sett på linje med betingelsene for dagligvare, gitt størrelse på butikk.
+Det er videre også enkelte mindre detaljister som oppgir at det er sannsynlig at mindre aktører, med lite volum
+og innkjøpsmakt, nyter godt av at de integrerte grossistene forhandler på deres vegner når de kjøper varer
+gjennom dem.
+Uten å ha tilgang til avtaler mellom de ulike aktørene, kan vi ikke konkludere med hvorvidt mindre aktører får
+dårligere vilkår enn det som motiveres av høyere distribusjonskostnader eller investeringer i
+distribusjonsinfrastrukturen. Vi har heller ikke mulighet til å vurdere hvorvidt den oppgitte differensieringen
+knyttet til tilgang til sortiment (storhusholdning sammenlignet med dagligvare) er motivert av reelle kapasitets/systemutfordringer eller ikke.
+Kampanjer med leverandører er viktige prisdrivere og enkelte detaljister har oppgitt i løpet av kartleggingen at
+det er et problem at de ikke har tilgang til kampanjer gjennom ASKO, og derfor må forhandle separat med
+leverandørene. Samarbeid om joint marketing hadde likevel utgjort et samarbeid på detaljistnivå, og basert på
+vår vurdering er det ikke åpenbart at slik samarbeid er gunstig for konkurransen på detaljistleddet.
+
+6.3.3 Vilkår sammenlignet med eget salgsledd
+I intervjuene har vi fått oppgitt mistanker fra detaljister om at de får dårligere priser på varer enn det som gis til
+eget salgsledd, se 5.2. En av begrunnelsene som oppgis er at detaljistene kan observere utsalgspriser hos
+integrerte detaljister som er lavere enn prisene de får fra grossist. Utsalgsprisene i butikker drives imidlertid av
+mange forhold, reflekterer ikke nødvendigvis innkjøpsprisen og enkeltvarer kan også selges med tap for å lokke
+kunder. I tillegg vil innkjøpsprisene i stor grad påvirkes av volumet til den enkelte detaljistkjeden, både totalt årlig
+og per butikk, og derfor er det utfordrende å vurdere hvorvidt prisforskjellen er større enn kostnadsforskjellene
+knyttet til distribusjon vil tilsi. De vertikalt integrerte grossistene oppgir at de behandler alle kunder likt, og at
+samme prinsipper for pris gjelder for alle. Vi har ikke hatt anledning til å innhente og gjennomgå avtaler mellom
+aktører som en del av denne utredningen. Derfor kan vi ikke konkludere om hvorvidt avtalene er like for
+integrerte og ikke integrert grossister. Konkurransetilsynet har imidlertid undersøkt dette for Bunnpris, og kom
+frem til at Bunnpris fikk like gode betingelser som NorgesGruppens egne butikker. 73 Dette trenger likevel ikke
+innebære at vilkårene er like for alle. Bunnpris er den største frittstående aktøren som derfor kan ha anledning
+å forhandle frem andre betingelser enn mindre, nyetablerte aktører.
+På generelt grunnlag er det utfordrende å vurdere hvordan vilkårene er for vertikalt integrerte og frittstående
+detaljister. Dette har å gjøre med den vertikale strukturen i bransjen. Vi kan ta NorgesGruppen som eksempel.
+Selv om Kiwi-butikkene og ASKO er organisert som separate selskaper, vil det ikke for NorgesGruppen som helhet
+utgjøre noen forskjell hvor i verdikjeden gevinsten tas ut. Prisen ASKO tar av Kiwi-butikken er en internpris, og
+vil ikke påvirke overskuddet til NorgesGruppen som helhet. Å sammenligne denne prisen med prisen som gis til
+
+73 (Nærings- og fiskeridepartmentet, 2020)
+
+MENON ECONOMICS
+
+35
+
+RAPPORT
+
+eksterne detaljister, er derfor utfordrende. For å fortsette med ASKO som eksempel, kunne ASKO hatt insentiv
+til å ta høyere priser i grossistleddet slik at det fremstår som at de ikke diskriminerer eksterne detaljister.
+Konkurransetilsynet har imidlertid tidligere påvist relativt lave driftsmarginer i grossistleddet samt at
+avkastningen i driften, gitt ved RNOA, jevnt over ikke er betydelig høyere enn avkastningskravet.74 Isolert sett
+gjør dette det mindre sannsynlig at ASKO eller REMA, som selger grossisttilgang til eksterne detaljister, tar ut
+høyere overskudd i grossistleddet for å kunne ta høyere priser av eksterne detaljister.
+
+6.4 Etableringsbarrierer for nye detaljister
+Mangel på tilgang til grossisttjenester utgjør, basert på vår vurdering, en potensiell etableringsbarriere for nye
+detaljister.
+Hvis en stor aktør ønsker å etablere seg i Norge, vil de mest sannsynlig ønske sin egen grossisttjeneste. Basert på
+etableringene av Lidl, Ica, Picard og Iceland, er det naturlig å tenke seg at en ny stor aktør hadde vært en etablert
+internasjonal kjede. De fleste store dagligvarekjedene i Europa har en integrert grossistfunksjon, og det er derfor
+sannsynlig at de vil ønske å fortsette med dette også i Norge. Alle de nevnte aktørene brukte sin egen
+grossisttjeneste da de etablerte seg i Norge.
+Som vi har nevnt kan det også være utfordrende å etablere sin egen grossisttjeneste. Etableringsbarrierene
+knyttet til å etablere en egen grossisttjeneste, vil også kunne øke etableringsbarrierene for nye detaljistaktører.
+En liten detaljist som etablerer egen grossisttjeneste vil (i det minste på kort sikt) ha høyere distribusjons- og
+innkjøpskostnader enn de store, etablerte aktørene på grunn av lavere volum. Det vil videre kunne være
+utfordrende å etablere store nok stordriftsfordeler knyttet til innkjøp som detaljist uten å etablere seg i større
+deler av landet. Dette vil derimot øke distribusjonskostnadene, ettersom det vil være enklere å utnytte
+stordriftsfordeler hvis man kun etablerer seg i et geografisk avgrenset område. Selv om det er forskjellige grunner
+til at Lidl, Ica, Picard og Iceland har gått ut av markedet, er det verdt å notere seg at alle hadde egen
+grossisttjeneste og ingen av dem lenger er aktive i det norske markedet.
+Hvorvidt en ny aktør vil finne det lønnsomt å benytte de etablerte grossistene, avhenger av hvilke vilkår som
+tilbys. Både Bunnpris og Oda er eksempler på mellomstore aktører som er aktive i detaljistleddet etter flere år
+med innkjøpsavtaler med konkurrerende kjeder. Det er derfor sannsynlig at innkjøpsvilkårene de har forhandlet
+med grossistene, er relativt konkurransedyktige. REMA Distribusjon har likevel hatt opptil 10 prosent eierandel i
+Oda, og dette kan ha påvirket de tilbudte vilkårene. I alle tilfeller har Bunnpris hatt flere konkurrerende grossister
+å forhandle med. Hvis det er reell volumkonkurranse mellom grossistene, kan dette tyde på at nye detaljister
+også kan forhandle fram konkurransedyktige vilkår.
+Det er stadig nye detaljister som prøver å etablere seg i markedet, og som får tilgang til grossist- og
+distribusjonstjenester. Enkelte mindre detaljister oppgir også at det er sannsynlig at mindre detaljister, med lite
+volum og innkjøpsmakt, nyter godt av at de integrerte grossistene forhandler på deres vegner når de kjøper varer
+gjennom dem. Vi vurderer også at tilgang til grossisttjenester fra de integrerte aktørene, hvis det blir gitt til
+konkurransedyktige vilkår, kan bidra til å redusere etableringsbarrierene for nye detaljister. Samtidig viser denne
+kartleggingen at mange små detaljister opplever at dagens vilkår gjør det utfordrende for små detaljister å
+komme inn i markedet. For eksempel har Fudi-eieren Mathias Havgar vist til prisene man får fra grossister og
+leverandører i et intervju med HandelsWatch, og oppgitt at disse utgjør et stort hinder for å etablere seg i
+
+74 (Konkurransetilsynet, 2024)
+
+MENON ECONOMICS
+
+36
+
+RAPPORT
+
+Norge.75 Vi har også vist at flere små aktører oppgir at de kun får tilgang til storhusholdningssegmentet i dag, noe
+de oppgir gir de et snevrere sortiment og mindre konkurransedyktige betingelser. Hvis vilkårene de mindre
+aktørene får ikke er konkurransedyktige, vil dette, basert på vår vurdering, øke etableringsbarrierene i
+detaljistleddet og gjøre det mindre sannsynlig at nyetablerte små aktører blir lønnsomme i drift.
+Basert på det som har blitt oppgitt til oss gjennom kartleggingen, opplever flere aktører at ASKO er den mest
+relevante grossisten for nye detaljister. Enkelte aktører går enda lenger og oppgir at ASKO er deres eneste reelle
+alternativ i dag. Gitt at dette er riktig, vil vilkårene aktørene får fra ASKO være avgjørende for hvorvidt
+etableringen blir vellykket eller ikke. Flere detaljister trekker likevel også frem at konkurransepresset i markedet
+har økt gjennom etableringen av Kolly, og at Reitan-gruppen gjennom dette har blitt et mer relevant alternativ
+for flere.
+
+6.5 Tilgang for leverandører
+Vertikal utestenging kan også forekomme oppstrøms, slik at det er leverandører som blir stengt ute fra
+dagligvaregrossistene. Ettersom de integrerte grossistene utgjør majoriteten av markedet for dagligvarer, vil det
+å bli stengt ute fra distribusjonstjenestene kunne ha stor påvirkning på leverandørens salg av varer.
+Vi har ikke i løpet av kartleggingen fått informasjon som tilsier at leverandører har blitt nektet tilgang til
+grossisttjenester. Oppfatningen er at dersom en detaljist ønsker å ta inn et produkt i sortimentet, er det en eller
+flere grossister som er villige til å sørge for distribusjon fra leverandør til detaljist. I hvilken grad detaljistene tar
+inn leverandører, er derimot ikke en del av denne utredningen.
+Flere av leverandørene vi har intervjuet oppgir derimot at de gjerne hadde ønsket å konkurranseutsette
+grossisttjenestene, slik at de kunne valgt hvilken grossist som leverer til butikkene. Dette er også noe
+Dagligvareleverandørenes forening trekker frem i et høringssvar fra 2018 (Dagligvareleverandørenes forening,
+2018). Dette oppgir leverandørene at ikke er tilfelle i dag. For å få tilgang til en kjede, er man i dag pålagt å bruke
+kjedens grossist, noe som ifølge leverandørene gir grossistene stor forhandlingsmakt knyttet til betingelser for
+distribusjon. Det vises videre til mistanker om at distribusjonspåslaget i dag er høyere for merkevarer enn
+kjedenes EMV. Samtidig oppgir andre at dagens grossistdistribusjon er effektiv også fra leverandørenes ståsted,
+og at effektiviteten i distribusjonsleddet som de vertikalt integrerte aktørene bidrar til gjennom å kunne utnytte
+stordriftsfordeler i driften, mest sannsynlig også kommer leverandørene til gode.
+Vi finner i vår kartlegging at de integrerte grossistene ønsker å ha en stor andel av varevolumet over egen grossist,
+og at leverandørene derfor i utgangspunktet forventes å bruke den integrerte grossisten. I tillegg er det ikke i
+dag noen alternative, ikke-integrerte fullsortimentsgrossister, og det virker lite sannsynlig at f.eks. REMA
+Distribusjon ville levert varer til en Kiwi-butikk. Dette betyr at leverandørene i dag ikke kan konkurranseutsette
+selve distribusjonstjenestene, men at dette blir en del av helhetsforhandlingene de gjennomfører med
+paraplykjedene. Flere leverandører har i løpet av kartleggingen påpekt for oss at grossistleddet, fra deres ståsted,
+ikke er et separat ledd i dagligvareverdikjeden. Når distribusjon forhandles sammen med hylleplass og felles
+markedsføring, er vi enige i at det er utfordrende for leverandørene å skille på de ulike leddene i verdikjeden.
+Det finnes likevel også mindre grossister som leverer til de integrerte detaljistene. Vi har gjennom kartleggingen
+fått innsikt i at når volumet på en vare gjennom de integrerte detaljistene øker, vil distribusjonen typisk gå inn
+hos fullsortimentsgrossistene heller enn å gå gjennom alternative distribusjonskanaler. Det samme gjelder også
+
+75 (HandelsWatch, 2023)
+
+MENON ECONOMICS
+
+37
+
+RAPPORT
+
+hvis leverandøren går over til å produsere EMV. Selv om vi i denne utredningen ikke ser på tilgang til hylleplass
+(som er noe som forhandles mellom detaljist og leverandør), viser dette hvordan tilgang til hylleplass og tilgang
+til grossisttjenester kobles sammen i dag. Dette eksemplifiserer at den vertikale integrasjonen mellom detaljist
+og grossist i dag kan gjøre det vanskelig for leverandører å bruke ønsket varevei til butikk, og viser videre hvordan
+uavhengige grossister kan møte utfordringer når de skal konkurrere med de integrerte grossistene.
+Basert på vår vurdering vil utfordringene med å forhandle konkurransedyktige betingelser kunne gjøre seg særlig
+gjeldende for små leverandører. De store leverandørene med sterke merkevarer har større forhandlingsmakt, og
+vil derfor mest sannsynlig kunne forhandle om grossistbetingelser også i dagens markedsstruktur. De små
+leverandørene kan derimot få dårligere betingelser for grossisttjenester, enten gjennom dårligere betingelser
+hos de vertikalt integrerte grossistene eller gjennom at de må bruke mindre spesialgrossister med dyrere
+distribusjon. Samtidig vil også de små leverandørene kunne ha mest nytte av stordriftsfordelene til de integrerte
+grossistene hvis de får grossisttjenester til konkurransedyktige priser, ettersom de ikke kunne hatt like
+kostnadseffektiv direktedistribusjon som de større leverandørene. Vi har ikke gjennom kartleggingen hentet inn
+informasjon som gjør det mulig for oss å gjennomføre en sammenligning av vilkår til små og store leverandører,
+og vi kan derfor ikke påvise om mindre leverandører faktisk får mindre konkurransedyktige vilkår enn store.
+Flere av leverandørene vi har intervjuet ønsker seg en uavhengig distribusjonstjeneste som de kunne ha brukt
+for å konkurranseutsette distribusjonstjenestene til de integrerte grossistene, slik at de selv kunne valgt hvilken
+grossist de bruker til de ulike butikkene. På grunn av de effektivitetsgevinstene som eksisterer for detaljister og
+grossister ved å samle en så stor andel varer som mulig til én samlet leveranse per butikk, er vi ikke overbevist
+om at vi ville sett leveranser fra flere fullsortimentsgrossister til én og samme dagligvarebutikk selv om butikken
+og grossisten ikke hadde vært vertikalt integrert. Vi er derfor usikre på om en uavhengig fullsortimentsgrossist
+faktisk ville ha løst utfordringen leverandørene peker på, selv om detaljistene og grossistene ikke hadde vært
+integrert. I dagens system vil ikke de integrerte detaljistene etter vår vurdering begynne å bruke en alternativ
+fullsortimentsgrossist hvis ikke de blir pålagt til å gjøre dette. På grunn av effektivitetsgevinstene vi nettopp
+nevnte, vil det å pålegge bruk av flere grossister kunne redusere effektiviteten i distribusjonstjenestene og derfor
+øke prisene ut til forbruker.
+Konsentrasjonen er høy på både grossist- og detaljistleddet, som er vertikalt integrerte. Vår vurdering er at
+leverandørenes utfordringer, som vi forstår at handler om deres forhandlingsstyrke mot grossist- og
+detaljistleddet, ikke vil løses før konsentrasjonen reduseres på både grossist- og detaljistleddet. Flere grossister
+vil hjelpe lite så lenge konsentrasjonen på detaljistleddet opprettholdes, og flere detaljister vil hjelpe lite så lenge
+konsentrasjonen på grossistleddet opprettholdes. For å styrke leverandørenes forhandlingsmakt behøves
+egentlig flere store vertikalt integrerte grossist-detaljister, eller både flere grossister og flere detaljister.
+
+6.6 Oppsummerende vurdering
+Menon har i en tidligere rapport på vegne av Virke konkludert med følgende knyttet til grossistvirksomhet i
+dagligvarebransjen: «Regulering bør kun vurderes der hvor en tydelig definert markedssvikt er identifisert. Det
+finnes så langt ikke en slik påvist markedssvikt i det norske dagligvaremarkedet.»76
+Gjennom denne kartleggingen finner vi ikke tilfeller av tilgangsnekt for grossist- og distribusjonstjenester for
+hverken detaljister eller leverandører. Samtidig fremkommer det at selv om noen detaljister har flere alternative
+grossister og opplever å få konkurransedyktige betingelser, er det andre detaljister som opplever å få priser de
+
+76 (Menon Economics, 2020)
+
+MENON ECONOMICS
+
+38
+
+RAPPORT
+
+mener ikke er konkurransedyktige, og et annet sortiment enn konkurrentene. Videre opplever flere leverandører
+at det ikke finnes et marked for grossisttjenester og at de er pålagt å bruke kjedenes integrerte grossister, noe
+leverandørene oppgir gir paraplykjedene stor forhandlingsmakt knyttet til betingelser. Vi ser at det er en risiko
+for at særlig små leverandører kan få mindre konkurransedyktige betingelser for grossisttjenester i dag. Det er
+videre enkelte av de mindre detaljistene som oppgir at ASKO i dag er deres eneste reelle alternativ, og flere
+detaljister oppgir at ASKO er deres mest relevante alternativ. Dette kan gi ASKO muligheter til å definere hvordan
+tilgangen til grossisttjenester ser ut i dag, særlig for mindre og nyetablerte detaljister, noe som i tilfelle ville vært
+uheldig for tilgangen til grossisttjenester.
+Vi observerer likevel også flere positive trender i grossistmarkedet. Flere detaljister trekker frem at
+konkurransepresset i markedet har økt gjennom etableringen av Kolly, og at Reitan-gruppen gjennom dette har
+blitt et mer relevant alternativ for flere. Videre vurderer vi også at etableringen av DLVRY viser at det er mulig å
+etablere en større ny aktør i grossistmarkedet, selv om DLVRY i dag hovedsakelig leverer til
+storhusholdningsmarkedet. Enkelte detaljister har også i løpet av kartleggingen oppgitt at de ser en positiv
+utvikling i tilgangen, og noen går så langt som å si at tilgangen mest sannsynlig aldri har vært bedre enn i dag.
+I denne rapporten har vi kartlagt tilgangen til grossisttjenester. Utover tilgangen til grossisttjenester er det også
+flere faktorer som påvirker etableringsmulighetene for nye detaljister, slik som tilgang til butikklokaler og
+importbarrierer. Importvernet er en viktig hindring for etablering av nye detaljister og grossister, ettersom denne
+gjør det utfordrende for en utenlandsk konkurrent å ta med seg egne varer fra utlandet. Den gjør det også mer
+utfordrende for nye detaljister uten egen grossisttjeneste å finne alternativer til de integrerte grossistene. Selv
+om tilgang til grossisttjenester i dag utgjør en potensiell etableringsbarriere for nye detaljister, er det ikke sikkert
+at tilgang til grossisttjenester er nøkkelen som vil gjøre det enklere med etablering i det norske
+dagligvaremarkedet. Vi har også drøftet i kapittel 6.5 hvorfor vi ikke vurderer at leverandørtilgangen til
+grossisttjenester vil bli løst gjennom etablering av en ny, frittstående grossist.
+Det blir i dag oppgitt varierende vilkår for tilgang til dagligvaregrossisttjenester fra både detaljister og
+leverandører. Uten en gjennomgang av interne dokumenter og avtaler mellom partene kan vi ikke konkludere
+med hvorvidt oppgitte forskjeller i vilkår for tilgang representerer forsøk på vertikal utestengelse eller om det
+skyldes merkostnader ved å levere til enkelte detaljister/hente varer fra enkelte leverandører. Dersom man
+mener at det er viktig å få større klarhet i hvorvidt oppgitte forskjeller i betingelser kan ha opphav i
+diskriminering, vurderer vi at det må gjennomføres en gjennomgang av interne dokumenter og avtaler mellom
+de integrerte grossistene og mindre uavhengige detaljister og leverandører, slik Konkurransetilsynet tidligere har
+gjennomført knyttet til avtalen mellom ASKO og Bunnpris.
+Gjennom vår kartlegging har vi ikke kunnet påvise en markedssvikt i grossistmarkedet for dagligvarer som tilsier
+at tilgangen til slike tjenester bør reguleres. Dette begrunner vi særlig med at det finnes frittstående detaljister
+som virker å ha konkurransedyktige betingelser i dag, og at vi ser flere positive utviklingstrekk i markedet for
+grossisttjenester.
+Uavhengig av om forskjellene i betingelser utgjør diskriminering, vurderer vi at det vil være utfordrende å
+regulere seg frem til bedre grossisttilgang i dagligvaremarkedet. Avtaleverket i dagligvaremarkedet er komplekst,
+og noen avtaler er mellom detaljister og leverandører mens andre er mellom detaljister og grossister. Det vil
+være utfordrende å vurdere konsekvensene av en tilgangsregulering mellom grossist og detaljist/leverandør, og
+å håndheve denne, og reguleringen vil potensielt kunne ha store kostnader i form av tapte effektivitetsgevinster
+i grossistleddet. Gitt de positive utviklingstrekkene vi ser i tilgangen til grossisttjenester med etablering av DLVRY
+
+MENON ECONOMICS
+
+39
+
+RAPPORT
+
+og Kolly samt at vi har fått høre at grossisttilgangen er bedre i dag enn tidligere, vil det også kunne være et
+uheldig tidspunkt å innføre regulering.
+
+MENON ECONOMICS
+
+40
+
+RAPPORT
+
+Referanseliste
+Aftenposten. (2018, 01 15). Kampen i dagligvarebransjen gir tre rike vinnere og fem millioner tapere. Hentet 11
+29,
+
+2024
+
+fra
+
+Aftenposten:
+
+https://www.aftenposten.no/meninger/debatt/i/gP04GL/kampen-i-
+
+dagligvarebransjen-gir-tre-rike-vinnere-og-fem-millioner-tapere-kjetil-graver
+ASKO. (2024, 11). H.I. Giørtz Sønner AS. Hentet fra ASKO: https://asko.no/kontakt-oss/vare-asko-selskap/h.i.giortz-sonner-as/
+Bork, R. (1978). The Antitrust Paradox: A Policy at War with Itself. New York: Basic Books.
+Coop. (2024). Års- og bærekraftsrapport 2023. HR & Kommunikasjon og Økonomi & Finans i Coop Norge SA.
+Coop.
+
+(2024,
+
+11).
+
+Franchise
+
+i
+
+Norsk
+
+Butikkdrift.
+
+Hentet
+
+fra
+
+Coop:
+
+https://www.coop.no/om-
+
+coop/virksomheten/coop-norge-sa/datterselskaper/norsk-butikkdrift-as/franchise
+Coop. (2024). Virksomheten. Hentet fra Coop: https://www.coop.no/om-coop/virksomheten
+Dagens
+
+Næringsliv.
+
+(2024,
+
+11
+
+29).
+
+Netfresh.
+
+Hentet
+
+fra
+
+Dagens
+
+Næringsliv:
+
+https://www.dn.no/gaselle/918407227/
+Dagens perspektiv. (2016, 08 15). Rema inn på eiersiden i Kolonial.no. Hentet 08 15, 2024 fra Dagens perspektiv:
+https://www.dagensperspektiv.no/nyheter/rema-inn-pa-eiersiden-i-kolonialno/502001
+Dagligvareleverandørenes forening. (2018). Høringsuttalelse til to utredningsrapporter om dagligvaresektoren.
+Dagrofa. (2024, 11). Dagrofa Logistik. Hentet fra Dagrofa: https://www.dagrofa.dk/dagrofa-logistik-3/
+Dagrofa.
+
+(2024,
+
+11).
+
+Koncernstruktur.
+
+Hentet
+
+fra
+
+Dagrofa:
+
+https://www.dagrofa.dk/om-
+
+dagrofa/koncernstruktur/
+DLVRY. (2024, 09). Våre selskaper. Hentet fra DLVRY: https://www.dlvry.no/vaare-selskaper
+E24. (2024, 09 3). 250 ansatte mister jobben: -Den mørkeste dagen. Hentet 11 29, 2024 fra E24:
+https://e24.no/naeringsliv/i/4BEKX6/250-ansatte-mister-jobben-den-moerkeste-dagen
+Europris.
+
+(2024,
+
+06
+
+11).
+
+Historien
+
+om
+
+Europris.
+
+Hentet
+
+11
+
+29,
+
+2024
+
+fra
+
+Europris:
+
+https://www.europris.no/ep/historie?srsltid=AfmBOooSFFWXTnX66CU1JyROhWBlx_ePIhIE7psSzzBr0L
+p2VONr3sMB
+Fædrelandsvennen. (2024, 02 19). Dagligvarekjede hevder prisene holdes kunstig høye: – Fryktkultur. Hentet 11
+29, 2024 fra Fædrelandsvennen: https://www.fvn.no/nyheter/okonomi/i/MozEV0/dagligvarekjedehevder-prisene-holdes-kunstig-hoeye-fryktkultur
+Finansavisen. (2022, 07 27). Foodora-satsing tapte 37 millioner. Hentet 11 29, 2024 fra Finansavisen:
+https://www.finansavisen.no/nyheter/handel/2022/07/27/7905480/foodora-satsing-tapte-37millioner
+Fumagalli, C., & Motta, M. (2020). Dynamic Vertical Foreclosure. Journal of Law and Economics, 63, 763-812.
+
+MENON ECONOMICS
+
+41
+
+RAPPORT
+
+Fumagalli, C., Motta, M., & Calcagno, C. (2018). Exclusionary practices: The economics of monopolisation and
+abuse of dominance. Cambridge University Press.
+Godt
+
+Lokalt.
+
+(2024,
+
+11).
+
+Godt
+
+Lokalt
+
+(tidligere
+
+Spesialgrossisten).
+
+Hentet
+
+fra
+
+Godt
+
+Lokalt:
+
+https://www.godtlokalt.no/spesialgrossisten
+HandelsWatch. (2023, 12 29). Fudi-sjefen har selv opplevd prisdiskriminering: – Noen varer er det billigere å kjøpe
+på
+
+Kiwi.
+
+Hentet
+
+11
+
+29,
+
+2024
+
+fra
+
+HandelsWatch:
+
+https://handelswatch.no/nyheter/dagligvarer/article16702460.ece
+HandelsWatch. (2023, 11 2). Spår at Rema 1000 vil ta største del av dagligvaremarkedet i Danmark. Hentet 11
+29, 2024 fra HandelsWatch: https://handelswatch.no/nyheter/dagligvarer/article16569216.ece
+Hart, O., & Tirole, J. (1990). Vertical Integration and Market Foreclosure. Brookings Papers on Economic Activity
+(Microeconomics), 205-286.
+Hortaçsu, A., & Syverson, C. (2007). Cementing Relationships: Vertical Integration, Foreclosure, Productivity, and
+Prices. Journal of Political Economy, 115, 250–301.
+K. Ekrheim. (2024). Om oss. Hentet fra K Ekrheim: http://www.ekrheim.no/om-oss.html
+Kesko. (2024, 10). Kesko Logistics. Hentet fra Kesko: https://www.kesko.fi/en/company/k-logistics/
+Kolly.
+
+(2024,
+
+11).
+
+Redegjørelse
+
+iht.
+
+åpenhetsloven
+
+§5
+
+for
+
+Kolly
+
+AS.
+
+Hentet
+
+fra
+
+Kolly:
+
+Hentet
+
+fra
+
+Hentet
+
+fra
+
+https://www.kolly.no/apenhetslov
+Konkurransetilsynet.
+
+(2023).
+
+Konkurransetilsynets
+
+dagligvarerapport.
+
+https://konkurransetilsynet.no/wp-content/uploads/2024/01/Konkurransetilsynetsdagligvarerapport-2023.pdf
+Konkurransetilsynet.
+
+(2024).
+
+Konkurransetilsynets
+
+marginstudie
+
+2024.
+
+https://konkurransetilsynet.no/wp-content/uploads/2024/05/Rapport-marginstudie.pdf
+Konkurrensverket. (2024, 06). Konkurrensen mellan dagligvaruaktörerna. Hentet 11 29, 2024 fra
+https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-ochbroschyrer/analys-i-korthet/analys-i-korthet_2024-4.pdf
+Konkurrensverket. (2024). Konkurrensverkerts genomlysning av livsmedelbranchen 2023-2024. Hentet fra
+https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-ochbroschyrer/rapportserie/rapport_2024-5.pdf
+Lafontaine, F., & Slade, M. (2007). Vertical Integration and Firm Boundaries: The Evidence. Journal of Economic
+Literature, 45, 629–685.
+Mattilsynet. (2022, 12 13). Kommersiell import av mat - en innføring. Hentet 11 29, 2024 fra Mattilsynet:
+https://www.mattilsynet.no/import/import-av-mat/kommersiell-import-av-mat/kommersiell-importav-mat-en-innforing
+Matvareekspressen.
+
+(2023,
+
+09
+
+27).
+
+Information
+
+Document.
+
+Hentet
+
+11
+
+29,
+
+2024
+
+fra
+
+https://ny.mve.no/files/MVE%20-%20Information%20Document%20with%20appendix%20%2027092023.pdf
+
+MENON ECONOMICS
+
+42
+
+RAPPORT
+
+McAfee, R. P., & Schwartz, M. (1994). Opportunism in Multilateral Vertical Contracting: Nondiscrimination,
+Exclusivity, and Uniformity. American Economic Review, 84, 210-230.
+Menon Economics. (2020, 02). Grossist- og distribusjonsvirksomhet i norsk dagligvare: analyse av dagens
+organisering og vurdering av innspill knyttet til regulering. Hentet fra https://www.menon.no/wpcontent/uploads/2020-27-Grossist-og-distribusjonsvirksomhet-i-norsk-dagligvare.pdf
+Menon
+
+Economics.
+
+(2023).
+
+Marginbildet
+
+i
+
+dagligvarebransjen
+
+2010-2021.
+
+Hentet
+
+fra
+
+https://www.menon.no/wp-content/uploads/2023-13-Marginanalyse-dagligvareverdikjeden-Menonjanuar-2023.pdf
+Moderne transport. (2018, 01 11). Marked.no legger ned. Hentet 11 29, 2024 fra Moderne transport:
+https://www.mtlogistikk.no/markedno-legger-ned/152304
+Moderne transport. (2023, 11 07). Går fra direkte- til grossistdistribusjon. Hentet 11 29, 2024 fra Moderne
+transport:
+
+https://www.mtlogistikk.no/diplom-is-grossistdistribusjon/gar-fra-direkte-til-
+
+grossistdistribusjon/840573
+Nærings- og fiskeridepartmentet. (2020). Meld. St. 27 - Daglegvare og konkurranse - kampen om kundene.
+Nervik, B. (2019, 02). 2. Markedsføring, modeller og makt i norsk dagligvarehandel: fra kjøpmann på hjørnet til
+tre store handelshus. Hentet fra https://www.idunn.no/doi/pdf/10.18261/9788215034393-2019-02
+Nettavisen. (2023, 08 22). Iceland legger ned to av tre butikker i Norge. Hentet 11 29, 2024 fra Nettavisen:
+https://www.nettavisen.no/okonomi/iceland-legger-ned-to-av-tre-butikker-i-norge/s/5-95-1280174
+Nettavisen. (2023, 08 11). Milliardunderskudd for matvare-utfordrer. Hentet 11 29, 2023 fra Nettavisen:
+https://www.nettavisen.no/okonomi/milliardunderskudd-for-matvare-utfordrer/s/5-951260962#:~:text=Den%20nettbaserte%20dagligvarebutikken%20Oda%20endte,sammen%20med%20k
+ostnader%20til%20kj%C3%B8ret%C3%B8yer
+Nettavisen.
+
+(2023,
+
+08).
+
+Norgesgruppen:
+
+-Normal
+
+tok
+
+oss
+
+på
+
+senga.
+
+Hentet
+
+fra
+
+Nettavisen:
+
+https://www.nettavisen.no/okonomi/norgesgruppen-normal-tok-oss-pa-senga/s/5-95-1271880
+NielsenIQ.
+
+(2024,
+
+3).
+
+Päivittäistavaramyymälärekisteri
+
+2023.
+
+Hentet
+
+fra
+
+ePressi:
+
+https://www.epressi.com/tiedotteet/kauppa/paivittaistavaramyymalarekisteri-2023.html
+NIQ.
+
+(2024).
+
+Dagligvarefasiten
+
+2024.
+
+Hentet
+
+fra
+
+https://www.dagligvarehandelen.no/files/2024/06/20/Dagligvarefasiten%202024.utencrop.pdf
+Nocke, V., & Rey, P. (2018). Exclusive dealing and vertical integration in interlocking relationships. Journal of
+Economic Theory, 177, 183-221.
+NorgesGruppen. (2019, november). Viktig med forhandlinger. Hentet fra NorgesGruppens hjemmeside:
+https://www.norgesgruppen.no/presse/nyhetsarkiv/aktuelt/viktig-med-forhandlinger/
+NorgesGruppen.
+
+(2024).
+
+Års-
+
+og
+
+bærekraftsrapport
+
+2023.
+
+Hentet
+
+fra
+
+https://www.norgesgruppen.no/globalassets/finansiell-informasjon/rapporter/2023/ng_ars--ogbarekraftsrapport-2023.pdf
+
+MENON ECONOMICS
+
+43
+
+RAPPORT
+
+NorgesGruppen. (2024, 09). NorgesGruppen og Bama med ny samarbeidsmodell. Hentet fra NorgesGruppen:
+https://www.norgesgruppen.no/om-oss/om-oss-hjem/ambisjonene-i-praksis/norgesgruppen-ogbama-med-ny-samarbeidsmodell/
+O’Brien, D. P., & Shaffer, G. (1992). Vertical Control with Bilateral Contracts. RAND Journal of Economics, 23, 299–
+308.
+Oda. (2024, 09). Om oss. Hentet fra Oda: https://oda.com/no/about/om-oss/
+Ordover, J. A., Saloner, G., & Salop, S. C. (1990). Equilibrium Vertical Foreclosure. American Economic Review, 80,
+127-142.
+Posner, R. A. (1979). The Chicago school of antitrust analysis. University of Pennsylvania Law Review, 127, 925–
+948.
+Proff.
+
+(2024,
+
+11).
+
+K.
+
+Ekrheim.
+
+Hentet
+
+fra
+
+Proff:
+
+https://www.proff.no/regnskap/k.-ekrheim-
+
+as/oslo/n%C3%A6rings-og-nytelsesmidler/IF2LOE3116S
+Proff. (2024, 11 29). Oda Group Holding AS. Hentet fra Proff: https://www.proff.no/aksjon%C3%A6rer/-/odagroup-holding-as/927364727
+Reisinger, M., & Tarantino, E. (2015). Vertical Integration, Foreclosure, and Productive Efficiency. RAND Journal
+of Economics, 46, 461-479.
+Rema 1000. (2024, 11). Franchise i Rema 1000. Hentet fra Rema 1000: https://www.rema.no/karriere/franchise/
+Rema 1000. (2024, 11). Velkommen til REMA Distribution Danmark A/S. Hentet fra Rema 1000:
+https://remadistribution.dk/
+Rey, P., & Tirole, J. (2007). A Primer on Foreclosure I Armstrong, M. og R. Porter (Red.). Handbook of Industrial
+Organization, 3.
+Rey, P., & Vergé, T. (2004). Bilateral control with vertical contracts. RAND Journal of Economics, 728-746.
+Ringnes. (2024, 09 3). Ringnes endrer distribusjon i 2026. Hentet 11 29, 2024 fra Ringnes:
+https://www.ringnes.no/nyheter/ringnes-endrer-distribusjon-i-2026/
+Salling Group. (2024, 11). Job i lager og logistik. Hentet fra Salling Group: https://www.sallinggroup.com/job/jobi-lager-og-logistik
+Servicegrossistene.
+
+(2024,
+
+09).
+
+Over
+
+60
+
+år
+
+på
+
+veien!
+
+Hentet
+
+fra
+
+Servicegrossistene:
+
+https://www.sg.no/side/historie/
+Servicegrossistene. (2024, 11). Presse og Media. Hentet fra Servicegrossistene: https://www.sg.no/side/presse/
+Statistisk Sentralbyrå. (2024, 11). 01222: Befolkning og kvartalsvise endringar, etter statistikkvariabel og kvartal.
+Hentet fra Statistisk Sentralbyrå: https://www.ssb.no/befolkning/folketall/statistikk/befolkning
+Sverige, D. (2024). Dagligvarukartan. Hentet 11 29, 2024 fra https://www.dlf.se/rapporter/dagligvarukartan2024
+
+MENON ECONOMICS
+
+44
+
+RAPPORT
+
+Wolt. (2024, 08). Wolt Market åpner i Bergen. Hentet fra Wolt: https://press.wolt.com/no-NO/240531-woltmarket-apner-i-bergen-fa-dagligvarer-pa-doren-pa-en-halvtime
+
+MENON ECONOMICS
+
+45
+
+RAPPORT
+
+Vedlegg A - Intervjuguider
+Spørsmål til bransjeorganisasjoner
+1.
+
+Hvilke, om noen, utfordringer opplever deres medlemmer med dagens grossist- og
+distribusjonsløsninger i dagligvaremarkedet?
+
+2.
+
+Hvordan anser dere at den vertikale integrasjonen for grossisttjenester i dagens verdikjede påvirker
+konkurransen i dagligvarebransjen?
+
+3.
+
+Hvordan anser dere at den vertikale integrasjonen for grossisttjenester i dagens verdikjede påvirker
+ressursutnyttelsen i dagligvarebransjen?
+
+4.
+
+Hvordan vurderer dere tilgangen på grossist- og distribusjonsløsninger i dagens dagligvaremarked?
+
+5.
+
+Har noen av deres medlemmer opplevd at de blir nektet tilgang til grossist- og distribusjonsløsninger?
+
+6.
+
+Er det geografiske forskjeller med tanke på tilgangen til grossist- og distribusjonstjenester?
+
+7.
+
+Opplever deres medlemmer at de tilbys tilgang til dagligvarekjedenes grossist- og
+distribusjonsløsninger på andre vilkår enn de som gis til eget salgsledd?
+
+8.
+
+Hvordan vurderer dere mulighetene for at nye, ikke-etablerte dagligvareaktører kan få tilgang til
+grossist- og distribusjonsløsninger?
+
+9.
+
+Hvordan er mulighetene for at et konkurrerende grossistnettverk kan etablere seg ved siden av de
+eksisterende grossistnettverkene?
+
+10. Hvilke perspektiver tenker dere at vi særlig bør fange opp i intervjuene som skal gjennomføres som en
+del av denne kartleggingen?
+
+Intervjuguide til grossister
+11. Hvor annerledes vurderer dere at grossistvirksomhet i storhusholdningsmarkedet er, enn
+grossistvirksomhet i dagligvaremarkedet?
+12. Hvordan vurderer dere tilgangen på grossist- og distribusjonsløsninger i dagens dagligvaremarked?
+13. Hvordan anser dere at den vertikale integrasjonen for grossisttjenester i dagens verdikjede påvirker
+konkurransen og ressursutnyttelsen i dagligvarebransjen?
+14. Hvordan vurderer dere mulighetene for at et konkurrerende grossistnettverk som gir tilbud til
+frittstående dagligvaredetaljister kan etablere seg ved siden av de eksisterende grossistnettverkene?
+a.
+
+Er det basert på deres oppfatning noen etableringshindringer knyttet til grossisttjenester til
+dagligvaredetaljister?
+
+b.
+
+Hvordan vurderer dere økonomien i å sette opp en egen grossisttjeneste til
+dagligvaredetaljister?
+
+c.
+
+Hvordan vurderer dere tilgangen til nødvendige innsatsfaktorer?
+
+15. Hvis dere fikk en forespørsel, ville dere tilbudt grossist- og distribusjonstjenester til en uavhengig
+dagligvaredetaljist? Hvorfor/Hvorfor ikke?
+a.
+
+Hvilke faktorer er det som påvirker denne vurderingen?
+
+16. Hvordan vurderer dere mulighetene for at nye, ikke-etablerte dagligvareaktører kan få tilgang til
+grossist- og distribusjonsløsninger i dag?
+
+Intervjuguide til integrerte grossister
+1.
+
+Hvordan vurderer dere tilgangen på grossist- og distribusjonsløsninger i dagens dagligvaremarked?
+
+MENON ECONOMICS
+
+46
+
+RAPPORT
+
+2.
+
+Hvordan anser dere at den vertikale integrasjonen for grossisttjenester i dagens verdikjede påvirker
+konkurransen og effektiviteten i dagligvarebransjen?
+
+3.
+
+Hvorfor er dere integrert med detaljistleddet?
+
+4.
+
+Har deres butikker direktedistribusjon fra leverandører eller andre grossister, eller håndteres alt av
+dere?
+a.
+
+Er det forskjeller på franchisetakere og heleide butikker?
+
+b.
+
+Hvordan håndteres distribusjon av lokalmat?
+
+c.
+
+Hvilken type varer er det som eventuelt har direktedistribusjon?
+
+d.
+
+Hvor stor andel av deres varer til butikker går gjennom andre kanaler enn deres egne
+grossister?
+
+5.
+
+Har dere eksklusivitetsavtaler med leverandører som kun leverer varer til dere og ikke til andre
+grossister?
+a.
+
+6.
+
+Er dette kun for EMV eller også for andre varer?
+
+Hvordan vurderer dere mulighetene for at nye, ikke-etablerte dagligvareaktører kan få tilgang til
+grossist- og distribusjonsløsninger? Avhenger det av deres størrelse eller ekspansjonsplaner?
+
+7.
+
+Hvis dere fikk en forespørsel, ville dere tilbudt grossist- og distribusjonstjenester til andre detaljister enn
+egne butikker? Hvorfor/Hvorfor ikke?
+
+8.
+
+Tilbyr dere grossist- og distribusjonstjenester til andre enn egne butikker i dag?
+a.
+
+Hvis ja, på hvilke vilkår tilbyr dere tjenester til andre? Varierer dette, eller er vilkårene like for
+alle? Spiller den geografiske dimensjonen noen rolle?
+
+b.
+9.
+
+Hvordan ser deres avtalestruktur ut for tilgang til grossist- og distribusjonsløsninger?
+
+Hvordan vurderer dere mulighetene for at et konkurrerende grossistnettverk som gir tilbud til
+frittstående detaljister kan etablere seg ved siden av de eksisterende grossistnettverkene?
+a.
+
+Hvor stort volum trenger en aktør for å kunne drive grossisttjenester?
+
+10. Er det noe av den regnskapsførte omsetningen i deres grossistledd som ikke er omsetning fra
+grossistvirksomhet til dagligvarebransjen? Hvor stor andel går eksempelvis til kiosk og bensin eller
+storhusholdning?
+
+Intervjuguide til detaljister
+1.
+
+2.
+
+Hvordan håndterer dere behovet for grossist- og distribusjonsløsninger i deres egen drift?
+a.
+
+Hvilke alternativer har dere vurdert for grossist- og distribusjonsløsninger?
+
+b.
+
+Bruker dere kun én eller flere grossister/distributører?
+
+c.
+
+Hvilken avtalestruktur ligger til grunn for grossist- og distribusjonsløsningene?
+
+d.
+
+Har dere direktedistribusjon av varer fra leverandører? Hvor stor andel utgjør dette?
+
+Hvordan vurderer dere tilgangen på grossist- og distribusjonsløsninger i dagens dagligvaremarked?
+a.
+
+Hvilke, om noen, utfordringer opplever dere med dagens grossist- og distribusjonsløsninger i
+dagligvaremarkedet?
+
+b.
+
+Har dere blitt nektet tilgang til grossisttjenester fra noen etablerte grossister?
+
+c.
+
+Hvor god innsikt opplever dere å ha i vilkårene de integrerte grossistene gir til eget butikker?
+Har dere opplevd å få tilbudt grossisttjenester på andre vilkår enn det som gis til egne
+butikker?
+
+d.
+3.
+
+Er det geografiske forskjeller med tanke på tilgang til grossist- og distribusjonstjenester?
+
+Hvordan anser dere at den vertikale integrasjonen for grossisttjenester i dagens verdikjede påvirker
+konkurransen og ressursutnyttelsen i dagligvarebransjen?
+
+MENON ECONOMICS
+
+47
+
+RAPPORT
+
+4.
+
+5.
+
+Har dere vurdert å opprette en egen grossisttjeneste? Hvorfor/Hvorfor ikke?
+a.
+
+Er det basert på deres oppfatning noen etableringshindringer i grossistmarkedet?
+
+b.
+
+Hvordan vurderer dere økonomien i å sette opp en egen grossisttjeneste?
+
+c.
+
+Hvordan vurderer dere tilgangen til nødvendige innsatsfaktorer?
+
+Hvordan vurderer dere mulighetene for at nye, ikke-etablerte dagligvareaktører kan få tilgang til
+grossist- og distribusjonsløsninger?
+a.
+
+Er det forskjeller med tanke på ønske om og behov for tilgang til grossist- og
+distribusjonsløsninger avhengig av om det er en større eller mindre potensiell ny aktør som
+ønsker å etablere seg?
+
+b.
+
+Er det forskjeller med tanke på geografi?
+
+Intervjuguide til leverandører
+1.
+
+Hvilke, om noen, utfordringer opplever dere med dagens grossist- og distribusjonsløsninger i
+dagligvaremarkedet?
+
+2.
+
+3.
+
+Har dere eller har dere vurdert direktedistribusjon til dagligvarekjedene? Hvorfor/Hvorfor ikke?
+a.
+
+Er det basert på deres oppfatning noen etableringshindringer i grossistmarkedet?
+
+b.
+
+Hvordan vurderer dere økonomien i å sette opp en egen grossisttjeneste?
+
+c.
+
+Hvordan vurderer dere tilgangen til nødvendige innsatsfaktorer?
+
+d.
+
+Har dere direktedistribusjon i noen andre segmenter, slik som storhusholdning?
+
+Hva er fordelene og ulempene for dere ved å bruke distribusjonstjenestene til de integrerte
+dagligvareaktørene?
+a.
+
+Hvilken avtalestruktur ligger til grunn for distribusjonstjenestene til de integrerte
+dagligvareaktørene?
+
+4.
+
+Hvordan anser dere at den vertikale integrasjonen for grossisttjenester i dagens verdikjede påvirker
+konkurransen og ressursutnyttelsen i dagligvarebransjen?
+
+MENON ECONOMICS
+
+48
+
+RAPPORT
+
+T
+
+Menon Economics analyserer økonomiske problemstillinger og gir råd til bedrifter, organisasjoner og myndigheter.
+Vi er et medarbeidereiet konsulentselskap som opererer i grenseflatene mellom økonomi, politikk og marked.
+Menon kombinerer samfunns- og bedriftsøkonomisk kompetanse innenfor fagfelt som samfunnsøkonomisk
+lønnsomhet, verdsetting, nærings- og konkurranseøkonomi, strategi, finans og organisasjonsdesign. Vi benytter
+forskningsbaserte metoder i våre analyser og jobber tett med ledende akademiske miljøer innenfor de fleste
+fagfelt. Alle offentlige rapporter fra Menon er tilgjengelige på vår hjemmeside www.menon.no.
++47 909 90 102 | post@menon.no | Sørkedalsveien 10 B, 0369 Oslo | menon.no
+
+

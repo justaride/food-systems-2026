@@ -1,0 +1,130 @@
+# Source: https://www.kth.se/plenty/news-events/plenty/rethinking-food-from-byproducts-to-breakthroughs-1.1468809
+# Retrieved via curl 2026-08-05 (HTTP 200)
+
+Rethinking Food: From Byproducts to Breakthroughs | KTH
+
+Skip to main content
+
+Home
+
+About
+
+Work Packages
+
+Partners
+
+News & Events
+
+Contact
+
+KTH
+Plenty
+News & Events
+News
+
+News & Events
+
+Close
+
+News & Events
+
+News & Events
+
+News & Events
+
+News
+
+Calendar of Events
+
+Rethinking Food: From Byproducts to Breakthroughs
+From Curiosity to Circular Innovation: Aratrika Ray’s Journey in Food Science
+
+Published Apr 10, 2026
+
+At KTH Royal Institute of Technology in Stockholm, Dr. Aratrika Ray is shaping the future of sustainable food systems through cutting-edge research in biopolymers and food engineering. With a PhD in Food Engineering and Technology and years of experience in carbohydrate chemistry, her work bridges advanced material science with real-world applications, transforming food waste into valuable resources. Driven by curiosity and resilience, her journey reflects a deep commitment to innovation, sustainability, and closing the gap between research and industry.
+
+At KTH Royal Institute of Technology in Stockholm, Dr. Aratrika Ray is contributing to a new generation of food research, one that connects advanced materials science with sustainability and real-world impact. With a PhD in Food Engineering and Technology and several years of experience in carbohydrate chemistry and biopolymers, her work sits at the intersection of innovation, sustainability, and the future of food systems.
+A Turning Point Toward Research
+Originally from India, Aratrika’s path into research was not entirely straightforward. While expectations initially pointed her in a different direction, everything changed during her master’s thesis. That six-month experience became a defining moment. It was there that she discovered not only her interest in scientific inquiry, but also a deeper sense of purpose, realizing that research was what she truly wanted to pursue. Her early interests in food engineering gradually evolved into more specialized areas such as aerogels, high-pressure processing, and biopolymer systems, shaping the foundation of her academic career.
+
+Outside the lab, Aratrika maintains a balance between physical activity and creativity. She enjoys sports such as badminton, skating, and kayaking, and spends time reading and painting.
+
+Engineering the Future of Food Materials
+Today, Aratrika’s research focuses on functional biopolymers with tunable properties, particularly for applications in food systems such as encapsulation and controlled release of bioactive compounds and colorants.
+Her expertise spans:
+
+Carbohydrate chemistry
+
+Biomaterials and hydrogels
+
+Supercritical fluid systems
+
+Enzyme-based modification processes
+
+At the core of her work is a strong commitment to sustainability.
+As part of the PLENTY project, she works on valorizing food waste streams, using enzyme technology and processing methods to transform waste into valuable food ingredients.
+“Research is the beginning of everything,” she explains. “It builds resilience and shapes the future of food systems.”
+A Researcher’s Daily Life
+Her workdays are dynamic and largely self-structured. Like many researchers, her schedule revolves around experiments, planning, and collaboration. Some days require long hours in the lab, especially when experiments demand continuous attention. Others are dedicated to analysis, writing, or designing new research directions.
+“Research gives you flexibility, but also responsibility,” she notes. “You plan your own work and drive your own progress.”
+Bridging Research and Industry
+A recurring theme in Aratrika’s work is the gap between scientific discovery and industrial application. While promising enzyme-based processes and sustainable materials are being developed, scaling them into usable products remains a challenge. Collaborative platforms like PLENTY help bridge this gap by connecting researchers with industry stakeholders and structuring work into applied outcomes.
+“This connection is important,” she says. “It helps translate research into something that can actually reach people.”
+Challenges in the Lab
+Working across disciplines comes with practical challenges. Currently based in a chemistry-focused lab, Aratrika navigates the complexities of conducting food-related experiments in an environment not originally designed for them.
+“It’s achievable,” she says, “but it takes time. Research is always a long process.”
+Advice for Future Researchers
+For those considering a research career, her advice is grounded in experience:
+
+Be patient
+
+Stay resilient
+
+Embrace research as a long-term journey, not a quick outcome
+
+“Research is not like a corporate job,” she explains. “It requires dedication over time, but it also changes how you see the world.”
+She also emphasizes the importance of gaining exposure to industry to better understand how research translates into real applications.
+A Vision for Impact
+Looking ahead, Aratrika hopes to see her work move beyond the lab and into real products. One area of interest is developing functional ingredients from sources like rapeseed, contributing to more sustainable and circular food systems.
+
+News
+
+Belongs to : Plenty
+
+Last changed : Apr 10, 2026
+
+KTH
+
+Study at KTH
+Research
+Cooperation
+About KTH
+Student at KTH
+Alumni
+KTH Intranet
+
+Organisation
+
+KTH Library
+KTH Schools
+Competence centres
+President and management
+University Administration
+
+Services
+
+Timetables
+Course and programme directory
+Webmail
+Learning management system (Canvas)
+
+Contact
+
+KTH Royal Institute of Technology SE-100 44 Stockholm Sweden +46 8 790 60 00
+
+Contact KTH
+Work at KTH
+Press and media
+About KTH website
+
+To page top

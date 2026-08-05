@@ -1,0 +1,1285 @@
+SOURCE-URL: https://storage.googleapis.com/inderes-widgets-prod-assets/solarfoods/attachments/35facac0-6c33-406f-80af-00c565b7ab46/solar-foods-financial-statements-and-report-of-the-board-of-directors-2025.pdf
+RETRIEVED: 2026-08-05 (innhenting D-alternativt_protein)
+
+FINANCIAL STATEMENTS
+AND THE REPORT OF
+THE BOARD
+OF DIRECTORS
+Solar Foods Plc
+Company-id 2872116-8
+
+1.1.-31.12.2025
+                                                                                                                                                                  2
+
+
+
+
+Contents
+Report of the Board of Directors ................................................................................................................... 3
+Financial statements ........................................................................................................................................ 13
+   Profit and loss statement............................................................................................................................. 13
+   Balance sheet............................................................................................................................................... 14
+   Statement of cash flows .............................................................................................................................. 16
+   Notes to the financial statements ............................................................................................................... 17
+Signatures of the financial statements and report from the Board of Directors............................................. 25
+Auditor’s note .................................................................................................................................................. 26
+
+
+
+
+                  Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                 3
+
+
+
+
+Report of the Board of Directors
+
+Solar Foods briefly
+Solar Foods is a food technology company founded on joint research conducted with
+VTT Technical Research Centre of Finland and LUT University.
+
+Solar Foods’ mission is to have the most sustainable, globally leading technology platform to produce
+protein, and that Solein is globally the market leading food ingredient in Health & Performance nutrition
+with more than 1bn consumers globally.
+
+Solar Foods' objective is to bring to market a high-protein food ingredient that serves
+as a nutritional alternative to traditional proteins while having only a fraction of the environmental impact.
+According to Solar Foods, its technology provides a novel opportunity to enhance the price and quality
+stability, as well as the availability, of food ingredients.
+
+Significant events during the financial period 2025
+
+The year 2025 was a turning point in Solar Foods’ history as the company transitioned
+from a technological innovator into a commercial operator. We entered a new strategy period centered on
+the international commercialization of Solein in the Health & Performance Nutrition category, chosen as
+the initial target market, and the expansion of our production capacity through the upcoming Factory 02
+production facility.
+
+The Health & Performance Nutrition category is worth approximately USD 10 billion in the United
+States alone and has grown strongly at over 10% annually. We have received excellent feedback from
+customers on the qualities of Solein, which we have showcased also through our own product
+concepts. Solein is particularly well positioned to address the international supply limitations of whey
+protein, and consumers are increasingly seeking alternatives that do not contain animal-based ingredients.
+Thanks to its unique production method, Solein offers the food industry a versatile, environmentally friendly
+ingredient without supply constraints or price and quality fluctuations.
+
+In commercializing Solein, we focused especially on agile small and medium-sized companies operating in the
+Health & Performance Nutrition category, as well as major international Consumer Packaged Goods (CPG)
+companies, with                    whom                    we                  have                  carried
+out product development collaboration. We signed our first sales agreements with U.S. customers, and two
+companies announced that they aim to bring Solein-based consumer products to market during the first half
+of 2026. In 2025, several Solein-based consumer products from beverages to baked goods were launched in
+Singapore.          We          also        signed          four Letters        of Intent and Memorandums
+of Understanding regarding commercialization                     plans                  for                a
+total annual Solein production volume of 6.5–7.65 kilotonnes. If these lead to binding agreements, the total
+volume commitment would correspond to approximately 100–120 percent of the planned 6.4 kilotonne
+production capacity of the upcoming Factory 02 facility. In September, Solar Foods submitted a GRAS
+notification on Solein in the United States to obtain a no questions letter from the FDA. The notification
+follows obtaining the independent conclusion of GRAS status, also referred to as self-affirmed GRAS status,
+in September 2024, which enabled the company to initiate commercial activities in the United States. The
+company expects to receive regulatory approval in the EU and the UK during 2026.
+
+
+
+
+            Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                      4
+
+
+During the financial period, our first commercial-scale Factory 01 production facility
+achieved its design capacity of 160 tonnes per year, demonstrating a hundredfold
+scalability of Solein’s production technology compared to pilot scale. We also initiated
+the planning of the industrial-scale Factory 02 production facility and selected Selkäharju
+in Lappeenranta, Finland, as its location. Finland offers excellent conditions for the production facility,
+particularly due to the cost-efficient availability of renewable electricity.
+
+We decided to proceed with the design and execution of Factory 02 together with strategic partners, which
+would significantly reduce the company’s financing needs for implementing Factory 02. After the financial
+period, we announced that we are negotiating with GEA,
+one of the world’s largest system providers for the food, beverage, and pharmaceutical
+industries, regarding both the supply of process equipment for Factory 02 and a long-term strategic
+partnership. We also started exploring and seeking strong technological partners,
+who would be responsible for e.g. hydrogen production and heating and cooling capacity, aiming to build an
+entirely new type of industrial cluster for the food sector.
+
+Throughout 2025, we also examined various financing options and partners, while also specifying the
+company’s financing needs. After the financial period, we successfully completed a private placement of
+5,154,691 new shares, raising approximately EUR 25 million. This brings us closer to the final investment
+decision for the construction of Factory 02. In addition to equity, the remaining capital need is intended to
+be covered through loans and grants.
+
+Financial key performance indicators
+
+EUR million                                             2025                      2024                      2023
+Revenue                                                  0.1                        0.0                      0.0
+Other operating income                                   9.5                        8.1                      5.1
+Operating profit (loss)                                 -10,.4                     -8.9                     -6.8
+Operating profit, %                                    negative                  negative                 negative
+Return on equity, %                                      -67                       -46                       -53
+Equity ratio, %                                          37                         50                       48
+Salaries and wages                                       5.1                        3.3                      2.0
+Headcount on average                                      56                        42                        28
+Order book                                                1.5                        0                            0
+Basic and diluted loss per share (EPS),                  -0.47                     -0.46                     -0.44
+EUR
+Average number of shares                             24,682,816                24,149,297                20,371,799
+
+
+Finance and cash flows
+
+The company’s balance sheet total at the end of the financial period was EUR 31.4 million (46.7), of which
+the share of equity was EUR 11.5 million (22.9). The company’s equity ratio
+at the end of the financial period was 37% (50%).
+
+At the end of the financial period, the company's net debt was EUR 8.9 million (6.2). Non-current debt
+amounted to EUR 13.9 (16.6) million. Net gearing at the end of the financial period was 77 % (27%).
+
+
+
+
+             Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                 5
+
+
+During the financial period, cash flow from operating activities amounted to EUR -2.1 million (-0.7), as the
+payments from grant projects were postponed to 2026. Cash flow from investing activities was EUR –
+0.6 million (-9.1), change is due to increased grant payments, and cash flow from financing was EUR –2.6
+million (6.8).
+
+Cash and cash equivalents at the end of the financial period were EUR 8.0 million (13.4).
+
+The financing agreement between the company and one lender contains covenants relating to minimum
+liquidity and gearing. The covenant agreement entitles the lender to terminate the loan or amend the loan
+terms if the specific condition is exceeded. During the year 2025 the covenants have been met.
+
+Research & Development
+
+Investments in tangible and intangible assets amounted to EUR –0.6 million (-9.1) during the financial
+period. The investments mainly consisted of development expenditure and prepayments. The change in
+investments comes from increased amount of received grants that cover investments, also grants related to
+2024 were received during the financial period.
+
+Development expenditure for the financial period amounted to EUR 4.7 million. The investment
+grants allocated to these costs totalled EUR 3.9 million. The research costs have been recorded as an
+expense.
+
+Development work during the financial period focused, for example, on the development of the organism
+platform and Solein product applications, production process development and optimization. The
+capitalization of development costs is dependent on the revenue expectations and if these expectations are
+not met, capitalized development costs may be subject to write-downs.
+
+Personnel and management
+
+At the end of the financial period, Solar Foods employed 56 people (53).
+
+Rami Jokela started as the Company’s CEO and a member of the management team on
+1 April 2025. To support its strategic objectives, Solar Foods decided on 14 August 2025
+to make changes to the responsibilities and composition of its management team. The company also
+strengthened its commercial organisation by centralising all commercial and product-related functions into
+one go-to-market organisation.
+
+Chief Strategy and Product Officer Troels Nørgaard was appointed Chief Commercial and Product
+Officer. Chief Commercial Officer Juan Manuel Benitez‑Garcia was appointed Chief Sales Officer.
+Both decided to pursue new opportunities outside of Solar Foods by the end of 2025. Starting from
+May 2025, the role of Brand and Communications Director, held by Laura Sinisalo, was no longer a
+part of the management team. After the review period, on 5 January 2026, Godert Zijlstra started as
+the new Chief Commercial and Product Officer and member of the management team.
+31.12.2025 Solar Foods’ Management Team consisted of the following members:
+
+Rami Jokela, Chief Executive Officer
+Ilkka Saura, Chief Financial Officer
+Tiia Kuusimäki, Chief Operational Officer
+Petri Tervasmäki, Chief Technology Officer
+Juha-Pekka Pitkänen, Chief Scientific Officer
+Troels Nørgaard, Chief Commercial and Product Officer
+
+
+
+
+            Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                 6
+
+
+Board of Directors and auditor
+
+The Vice Chair of the Board of Directors of Solar Foods, Jari Tuovinen, resigned from the Board on 28
+November 2025, and the Board of directors appointed its former CEO and co-founder, Pasi Vainikka, as the
+new Vice Chair of the Board as of 28 November 2025.
+
+The auditor of the company is audit firm KPMG Oy Ab. The term of the auditor will run until the end of the
+next Annual General Meeting.
+
+Shares and shareholders
+Solar Foods Oyj's stock has been trading on the First North Growth Market Finland
+marketplace maintained by Nasdaq Helsinki Ltd since 10 September 2024. The ISIN code
+of the share is FI4000577192 and the ticker is SFOODS. Solar Foods has one share class and each share
+entitles to one vote in the Annual General Meeting. Solar Foods does not hold treasury shares. All shares
+have an equal right to dividend.
+
+At the end of the financial period 31.12.2025, Solar Foods’ registered share capital was EUR 80 000, and the
+number of shares 24 729 042 (24 641 049).
+
+The highest trading price of the Solar Foods share during 2025 was EUR 7.63 and the lowest was EUR 3.00.
+The volume-weighted average share price in January–December was
+EUR 5.31 and the financial year-end closing price was EUR 4.68. Based on the closing price, the market
+capitalization of the shares was EUR 115.7 million. During the financial period, the euro volume was EUR 19
+830 604 and the trading volume was 3 732 005 (1 091 318) shares. The average number of shares
+during the financial period was 24 682 816 (24 149 297) shares and during July-December 24 708 807 (24
+592 423) shares.
+
+Solar Foods had a total of 8 677 (4 489) shareholders at the end of the financial period on 31 December
+2025. Nominee registered shareholders held 16.0 (11.0) percent of the company’s shares at the end of the
+financial period. Solar Foods did not hold its own shares at the end of the financial period.
+
+
+
+
+            Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                          7
+
+
+The table below presents Solar Foods’ ten largest registered shareholders by number of shares based on
+the shareholders’ register maintained by Euroclear Finland Ltd as of 31st December 2025.
+
+
+Shareholder                          Number of shares                                     Of all shares and votes, %
+
+Oy Karl Fazer Ab                                         3 148 064                                                12,73
+
+Juha-Pekka Pitkänen                                      3 039 000                                                12,29
+
+Lifeline Ventures Fund iii Ky                            2 607 044                                                10,54
+
+Pasi Vainikka                                            2 330 000                                                 9,42
+Skandinaviska Enskilda Banken
+                                                         2 072 798                                                 8,38
+Ab (Publ) Helsingin sivukonttori
+VTT Ventures Oy                                          1 747 064                                                 7,06
+
+Citibank Europe PLC                                      1 601 723                                                 6,48
+
+Suomen Teollisuussijoitus Oy                             1 441 910                                                 5,83
+
+Gobelet Oy                                               1 055 000                                                 4,27
+
+Jero Jussi Ahola                                         1 015 478                                                 4,11
+Ten largest registered
+                                                        20 058 081                                                81,11
+shareholders, total
+Joint account                                              122 695                                                  0,5
+
+Other shareholders, total                                4 548 266                                                18,39
+
+Total                                                   24 729 042                                                 100
+
+
+The company’s 100 largest shareholders are presented on the company’s website
+https://investors.solarfoods.com/en/investors/share_information/shareholders.
+
+Directed share issues carried out by the company during the financial period
+
+The company arranged a directed share issue without consideration to certain members of the company’s
+board of directors as part of the payment of board members’ renumeration.
+A total of 8.933 new shares of the company were offered for subscription in the share issue. The portion of
+the renumeration paid in shares reduced the company’s need for cash payments, thereby supporting the
+company’s financial stability and at the same time strengthening the commitment of board members to the
+company, its long-term goals,
+and dedicated board work.
+
+Additionally, during the financial period, a total of 79 060 new shares were subscribed by option holders,
+which resulted in the company raising 85, 890.52 EUR of new capital. Subscriptions of shares were booked
+in the reserve for invested unrestricted equity.
+
+
+
+
+             Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                 8
+
+
+Incentive schemes
+
+At the end of the financial period, the company had four stock option plans (plans 2020A, 2020B, 2/2024
+and 1/2025-H), under which option holders can subscribe in total for a maximum of 2,025,250 new shares
+or the company's own shares. At the end of the financial period, of this amount, options entitling to
+subscribe for a maximum of 1,419,690 company shares were allocated and not subscribed, which
+immediately dilutes the shareholders' relative ownership in the company by approximately 5.7 percent, if all
+of these option rights are exercised and they have the maximum number of new shares is subscribed, taking
+into account that the number of the company's shares at the end of the financial period was 24,729,042
+shares.
+
+Shares in option plans 2020A, 2020B and 2/2024 may be subscribed twice a year after
+the publication of the company’s financial statements release and half-year report or as separately decided
+by the company’s board of directors. The subscription price of the
+shares is EUR 0.2051 per share (2020A) and EUR 2.75 per share (2020B and 2/2024). The subscription
+period ends on 31 December 2029.
+
+During the financial period, The Board of Directors of Solar Foods Oyj decided to distribute 20,000 stock
+options free of charge to the Chair of the Board of Directors of Solar Foods Oyj under the terms and
+conditions of the stock option plan 1/2025-H. The options entitle to subscribe for 20,000 new or treasury
+shares of the company at a subscription price of EUR 7.1 per share. The subscription period for shares under
+this plan begins after
+at least one (1) year from the subscription date of the option rights provided that the participant has served
+in their position as chair of the Board of Directors of the company
+for the entire term of the Company’s Board of Directors as of 25 March 2025. Shares can
+be subscribed for twice a year, for a five-business-day (5) period starting on the following business day after
+disclosure of the company’s financial statements release and half-year report. In addition, the Board of
+Directors can decide on another annual subscription period. The subscription period ends on December 31,
+2030.
+
+During the financial period, 51,681 new shares were subscribed for under Option Plan 2020A, and 27,379
+new shares were subscribed for under Option Plan 2020B, for a total of 79,060 new shares of the Company,
+which were registered in the Trade Register. The subscription price of the shares, totaling EUR 85,890.31,
+was recorded in full in the Company's reserve for invested unrestricted equity.
+
+
+
+
+            Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                   9
+
+
+Summary of option programs and changes during the financial period:
+
+Option plan     Total number of     Total number         Total number of Subscription     Total subscription
+                Option rights at    of allocated but not subscribed and price, EUR        price during the
+                the end of the      subscribed options registered                         financial    period,
+                financial period,   at the end of the shares using                        total, EUR
+                pcs                 financial period,    option rights
+                                    pcs                  during the
+                                                         financial period,
+                                                         pcs
+2020A                       284,000             189,319            51,681          0.2051           10,599.71
+2020B                       768,000             639,621            27,379            2.75           75,290.60
+1/2023                            0                    0                 0          0.001                   0
+1/2024                            0                    0                 0          0.001                   0
+2/2024                      953,250             570,750                  0           2.75                   0
+1/2025-H                     20,000               20,000                 0            7.1                   0
+Total                     2,025,250           1,419,690            79,060                           85,890.31
+
+Annual General Meeting 2025
+The Annual General Meeting of Solar Foods Oyj was held on 25 March 2025 at Clarion
+Hotel, Karhumäentie 5, 01530 Vantaa. All proposals to the Annual General Meeting were accepted. In
+its organisational meeting held after the Annual General Meeting, the Board of Directors elected the Chair
+of the Board and Vice-Chair and decided to form a Nomination and Remuneration Committee as well as an
+Audit Committee. The Annual General Meeting adopted the financial statements for the financial
+year ended 31 December 2024 and discharged the members of the company’s Board of Directors and the
+CEO from liability. The Annual General Meeting resolved that the loss shown in the company’s balance
+sheet for the financial year ended 31 December 2024 be recorded in the retained earnings/loss and that no
+dividend be distributed.
+
+The Annual General Meeting resolved that the remuneration of the Board of Directors be paid as follows:
+
+              • Chair of the Board: EUR 4,200 per month
+              • Vice Chair of the Board: EUR 3,150 per month
+              • Members of the Board: EUR 2,100 per month
+
+In addition, a fee of EUR 750 was resolved to be paid for each meeting (excluding per capsulam - meetings).
+Of the above monthly remuneration, 50% may be paid in shares of the Company and the remainder in cash.
+The Company bears the costs of acquiring any shares. A member of the Board of Directors may not transfer
+the shares so received until their membership of the Board of Directors has ended. The remuneration for
+the Chair of the committees of the Board of Directors was resolved to be EUR 750 per meeting and
+the remuneration for each other member EUR 500 per meeting. Expenses for travel and accommodation of
+Board members were resolved to be reimbursed according to the company’s travel policy.
+
+The Annual General Meeting resolved that the Chair of the Board of Directors that was elected after the
+General Meeting in a Board meeting will be granted up to 20,000 option rights free of charge, which entitle
+to subscribe for up to 20,000 new or treasury shares of the Company at a subscription price of EUR 7.10 per
+share. The subscription of shares is possible no earlier than one year after the subscription of
+the option rights, provided that the Chair has served in its position for the entire term. The full terms and
+conditions of the option rights are available on the company's website at
+https://investors.solarfoods.com/en/investors/corporate_governance/annual_general_meeting_2025.
+
+
+
+              Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                  10
+
+
+
+The Annual General Meeting resolved that the number of the members of the Board of Directors shall be
+seven. The Annual General Meeting confirmed that Juha Lindfors, Jari Tuovinen, Sebastian Jägerhorn and
+Paula Laine, all current members of the Board of Directors, are re-elected as members of the Board of
+Directors for a new term that ends
+at the end of the Annual General Meeting 2026. Jukka Moisio, Petra Teräsaho and Pasi Vainikka were
+elected as new members of the Board of Directors for a term that ends at the end of the Annual General
+Meeting 2026.
+
+Audit firm KPMG Oy Ab was re-elected as the auditor of the company. The term of the auditor will run until
+the end of the next Annual General Meeting. The auditor will be remunerated according to an invoice
+approved by the company.
+
+The Annual General Meeting authorised the Board of Directors to resolve on the repurchase of a maximum
+of 2,464,104 shares in the company in one or several tranches using the company’s unrestricted
+shareholders' equity. The own shares are at the value at the time
+of acquisition as determined by trading of the Nasdaq First North Growth Market Finland marketplace
+operated by Nasdaq Helsinki Oy (Helsinki Stock Exchange).The Board of Directors was authorized to resolve
+all the terms and conditions of the repurchase, including how the shares will be acquired. The authorization
+does not exclude the right of the Board of Directors to also decide on a directed repurchase of its own
+shares if there is
+a weighty financial reason for the company to do so. The authorization is proposed to be used for
+important transactions for the company, such completing possible M&A transactions, financing
+investments, implementation of the company’s commitment and incentive schemes or for such other
+purposes as the Board of Directors may decide where there is a weighty financial reason to repurchase its
+own shares. Own shares repurchased may be held by the Company, annulled or reassigned. The
+authorization is valid until the end of the company’s next Annual General Meeting, however not later than
+30 June 2026.
+The authorization replaces the authorization to repurchase own shares granted by the Company’s
+Extraordinary General Meeting on 16 August 2024.
+
+The Annual General Meeting authorised the Board of Directors to resolve on the issuance
+of shares, option rights and other special rights entitling to shares referred to in chapter 10, section 1 of the
+Finnish Companies Act, in one or more tranches, either against payment or free of charge, as follows: The
+total number of shares to be issued under the authorization may not exceed 7,392,314 shares (including
+shares issued on the basis of option rights and other special rights), which corresponds to approximately 30
+% of the total number of shares in the company as the date of the notice to the General Meeting. The
+authorization entitles the company’s Board of Directors to decide on all the terms and conditions of the
+share issue, option rights and other special rights entitling to shares. The authorization includes the right to
+issue new shares or treasury shares held by the company. The Board of Directors may also decide to issue
+shares free of charge to the company itself. In the
+issue and transfer of shares, option rights and other special rights entitling to shares, the shareholders’
+preemptive subscription rights (directed issue) may be deviated from if there is a weighty financial reason
+for the company to do so, or especially weight financial reason when so required by the Companies Act.
+Shares, option rights and other special rights entitling to shares may be used to improve the Company’s
+capital structure, to carry out possible mergers and acquisitions, investments or other arrangements within
+the scope of the company’s business, as a part of the company’s commitment and incentive scheme or for
+other purposes decided by the Board of Directors or the company. The authorization is valid until the end
+of the company’s next Annual General Meeting however not later than 30 June 2026. The authorization
+replaces the authorization granted by the Extraordinary General Meeting on 16 August 2024.
+
+
+
+
+             Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                 11
+
+
+In its organisational meeting held after the Annual General Meeting, the Board of Directors elected Jukka
+Moisio as Chair of the Board and Jari Tuovinen as Vice-Chair. Petra
+Teräsaho (Chair), Jari Tuovinen and Paula Laine were elected members of the Audit Committee.
+Sebastian Jägerhorn (Chair), Jukka Moisio, Pasi Vainikka and Juha Lindfors were elected members of the
+Nomination and Remuneration Committee of the Board of Directors.
+Risks and uncertainties
+Risks related to the company's business
+
+The company is an early-stage growth company with significant activity-related risks.
+The company has small revenue relative to its operating expenses and has not yet generated a positive
+operating result. The company is in the early stages of commercialization and does not expect significant
+revenue before the deployment of Factory 02. The company is dependent on external financing and needs
+significantly more equity, debt, and grant financing. Future profitability requires full utilization of the
+capacity of the planned production plant. It is uncertain whether the company can obtain the necessary
+financing, and any additional equity financing may change the company’s ownership.
+
+Risks related to the operating environment
+
+Companies have been significantly affected in recent years by global economic instability and uncertainty on
+the financial markets, including the ongoing war in Ukraine and geopolitical uncertainty. The uncertainty of
+trade sanctions such as tariffs in global trade continues, and they could negatively affect the economic
+growth in the markets Solar Foods operates in. These factors increase financial uncertainty, complicate
+business planning and predictability, and may hinder the company’s growth potential according to its
+strategy. In addition, intensifying competition and similar, substitutive or cheaper products developed by
+competitors may limit the company’s business opportunities. Solein competes with other protein sources,
+such as plant-based and cellular proteins, and there are already hundreds of companies on the market that
+develop new protein sources. If competitors develop a better product, it may force the company to lower its
+prices, which leads to shrinking net sales and margins.
+Risks related to the company's financial and economic position
+The company depends on external financing because it is currently not making a profit.
+If the company builds more factories, like Factory 02, it requires significant additional financing, which may
+be covered with equity, debt, and grant financing. In addition, the company’s operational expenses and
+early-stage business require additional financing.
+The company’s ability to obtain financing depends on many factors, and there is no
+certainty that funding will be available on reasonable terms or at all.
+
+The company is also exposed to exchange rate fluctuations as its business is planned for international
+markets, and changes in exchange rates may have a detrimental effect on its financial position.
+Assessment of future development
+
+The company will focus primarily on growth in the Health & Performance Nutrition segment and
+strengthening commercial activities as well as preparing for the investment decision of Factory 02
+production facility together with its strategic partners.
+The company's existing financial targets continue to serve as its financial guidance. In accordance with Solar
+Food's disclosure policy, the company does not provide a separate short-term financial guidance.
+
+
+
+
+            Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                  12
+
+
+
+Board of Directors’ proposal for the distribution of profits
+In the medium term, Solar Foods focuses on growth, and the company does not expect to distribute a
+dividend in the short to medium term. The distributable unrestricted equity of Solar Foods on 31 December
+2025 was EUR 7,541,763.92, of which the result of the period was EUR -11,517,603.42. The Board of
+Directors proposes to the Annual General Meeting that no dividend be distributed for the financial
+year January-December 2025, and that the loss of the financial year is recorded in the retained earnings.
+
+Significant events after the financial period
+
+In January, Solar Foods successfully completed a private placement share issue of 5,154,691 new shares,
+raising approximately EUR 25 million.
+
+In January, Solar Foods announced that it had received a Solein order from the U.S. company Ambrosia
+Collective, which aims to introduce a ready-to-mix protein powder made from Solein to consumers in the
+United States during the first half of 2026. The order was delivered during the financial period and
+is included financial period’s revenue.
+
+In January, the company announced that it had entered into agreements with the German company GEA to
+negotiate the delivery of process equipment for the Factory 02 production facility, as well as a strategic
+partnership.
+
+
+
+Definitions and calculation formulas for key indicators
+
+
+Operating Profit Margin-%                         = Operating Profit / Net sales
+
+Return on Equity-%                                = Profit (loss) for the period / Equity on average
+
+Equity Ratio, %                                   = Equity / (Total assets - prepayments)
+
+Net gearing, %                                    = Net debt (- cash) / equity + voluntary provisions +
+                                                  appropriations + equity loans
+
+Earnings (Loss) per share                         = Profit (loss) for the period / average amount of
+                                                  shares during the period
+
+Order book                                        = Value of undelivered orders at the end of the
+                                                  company's financial period, calculated as: Order book
+                                                  at the beginning of the period + New orders
+                                                  − Delivered orders
+
+
+
+
+             Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                           13
+
+
+Financial statements
+Profit and loss statement
+                                                                                                  2025                     2024
+Revenue                                                                                      123,594.51               18,723.95
+Work performed for own use                                                                 4,428,075.79            4,413,414.80
+Other operating income                                                                     9,474,334.12            8,061,204.41
+
+
+Personnel expenses
+   Wages and salaries                                                                     -5,056,640.76            -3,721,988.38
+   Social security expenses
+    Pension expenses                                                                        -707,571.81             -541,327.12
+     Other social security expenses                                                         -225,671.26             -116,894.00
+Personnel expenses in total                                                               -5,989,883.83            -3,930,209.50
+
+
+Depreciation and amortization
+    Depreciation and amortization according to plan                                       -9,461,324.35            -8,652,990.70
+Other operating expenses                                                                  -8,975,142.40            -8,829,658.50
+Operating profit (loss)                                                                  -10,400,346.16            -8,919,515.56
+
+
+Financial income and expenses
+    Other interest income and other financial                                                     595.06               2,815.10
+    income from others
+    Interest and other financial expenses to others                                       -1,117,582.32            -2,104,949.19
+
+Total financial income and expenses                                                       -1,117,257.26            -2,102,134.09
+
+
+Profit before appropriations and taxes                                                   -11,517,603.42           -11,021,649.65
+
+
+Profit (loss) for the period                                                             -11,517,603.42       -11,021,649.65
+
+
+
+
+             Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                        14
+
+
+Balance sheet
+
+                                                                    31st December 2025              31st December 2024
+ASSETS
+Non-current assets
+ Intangible assets
+   Development expenditure                                                     3,886,622.12                     3,680,499.08
+   Intangible rights                                                             625,433.35                       844,509.43
+   Other intangible assets                                                     2,290,012.91                     3,452,546.35
+Total intangible assets                                                        6,802,068.38                     7,977,554.86
+
+ Tangible assets
+   Machinery and equipment                                                    7,278,802.00                 13,952,991.12
+   Other tangible assets                                                          54,607.34                   337,187.96
+   Advance payments and construction in progress                               1,799,870.19                    26,754.03
+Total tangible assets                                                         9,133,279.53                 14,316,933.11
+Total non-current assets                                                     15,935,347.91                 22,294,487.97
+
+Current assets
+ Long-term receivables
+   Other receivables                                                             720,650.97                      576,670.26
+Total long-term receivables                                                      720,650.97                      576,670.26
+
+Short-term receivables
+   Accounts receivable                                                             60,916.86                      411.18
+   Other receivables                                                              382,836.78                  614,889.26
+   Prepayments and accrued income                                               6,301,605.39                9,800,680.70
+Total short-term receivables                                                   6,745,359.03                10,415,981.14
+Total receivables                                                              7,466,010.00                10,992,651.40
+Cash and cash equivalents                                                      7,989,830.30                13,396,494.31
+Total current assets                                                          15,455,840.30                24,389,145.71
+TOTAL ASSETS                                                                  31,391,188.21                46,683,633.68
+
+
+
+
+           Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                      15
+
+
+                                                                         31st December 2025          31st December 2024
+
+EQUITY AND LIABILITIES
+Capital and reserves
+ Subscribed capital                                                                 80,000.00                   80,000.00
+ Reserve for invested unrestricted equity                                       51,480,511.17               51,394,620.65
+ Retained earnings                                                             -28,534,521.71              -17,512,872.06
+Profit (loss) for the period                                                   -11,517,603.42              -11,021,649.65
+Total capital and reserves                                                      11,508,386.04               22,940,098.94
+
+Liabilities
+  Non-current liabilities
+   Loans from credit institutions                                               13,850,833.40               16,567,500.04
+Total non-current liabilities                                                   13,850,833.40               16,567,500.04
+
+Current liabilities
+ Loans from credit institutions                                                  3,014,166.64                 3,014,166.64
+ Advances received                                                                 424,352.48                   526,043.36
+ Trade payables                                                                  1,023,361.97                 2,027,546.72
+ Other payables                                                                    127,517.77                   777,710.96
+ Accruals and deferred income                                                    1,442,569.91                   830,567.02
+Total current liabilities                                                        6,031,968.77                 7,176,034.70
+Total liabilities                                                               19,882,802.17                23,743,534.70
+
+TOTAL EQUITY AND LIABILITIES                                                    31,391,188.21               46,683,633.68
+
+
+
+
+            Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                      16
+
+
+Statement of cash flows
+
+                                                                                      2025                         2024
+Cash flows from operating activities:
+ Profit (loss) before appropriations and taxes                             -11,517,603.42                 -11,021,649.65
+ Adjustments for:
+    Depreciation according to plan                                           9,461,324.35                   8,652,990.70
+    Financial income and expenses                                            1,117,257.26                   2,102,134.09
+Operating profit before working capital changes:                               -939,021.81                   -266,524.86
+
+Change in working capital:
+    Increase (-) or decrease (+) in trade and other recei-                      945,401.26                 -1,619,678.98
+    vables
+    Increase (+) or decrease (-) in trade payables                          -1,008,520.61                   2,715,757.85
+
+
+Cash generated from operations                                                  -63,119.35                   -829,554.01
+
+    Interest paid and payments for other finance costs                      -1,127,826.16                  -1,555,395.45
+
+
+Net cash used from operating activities:                                    -2,129,967.32                    -725,841.44
+
+Cash flows from investing activities:
+     Investments in tangible and intangible assets                          -6,239,000.24                 -10,742,314.12
+     Investment grants received                                             5,593,079.67                    1,648,611.46
+Net cash used in investing activities:                                        -645,920.57                  -9,093,702.66
+
+Cash flows from financing activities:
+     Proceeds from issuance of share capital                                                                8,769,086.95
+     Costs for share issue                                                                                   -653,147.65
+     Execution of option rights                                                  85,890.52                     71,056.54
+     Repayments of long-term loans                                           -2,716,666.64                 -1,358,333.32
+Net cash used in financing activities:                                      -2,630,776.12                   6,828,662.52
+
+Change in cash and cash equivalents                                        -5,406,664.01                   -2,990,881.58
+Cash and cash equivalents at beginning of the period                       13,396,494.31                   16,387,375.43
+Cash and cash equivalents at end of the period                              7,989,830.30                   13,396,494.31
+
+
+
+
+            Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                    17
+
+
+
+
+Notes to the financial statements
+
+Accounting principles
+
+Solar Foods is a small company undertaking under the Accounting Act and the financial statements have been
+prepared in accordance with Chapters 2–3 of the Government Decree on the information presented in the
+financial statements of a small undertaking and micro-undertaking.
+
+Valuation principles for receivables and liabilities
+
+Receivables are valued at their nominal value, but not exceeding their probable realizable value. Liabilities
+are recorded in the balance sheet at their nominal value.
+
+Fixed assets
+
+The acquisition cost of intangible and tangible non-current assets entered in the balance sheet have been
+reduced by depreciation according to plan. The acquisition cost includes variable costs of acquisition and
+production. Grants received are deducted from the cost of acquisition. Depreciation is calculated on a
+straight-line basis over the economic lives of the intangible and tangible assets. Depreciation has
+started from the month of commissioning.
+The company has invested significantly in the IPCEI project during 2023-2025. The project has a duration of
+5 years and the investments in development costs, machinery and equipment and other non-current
+expenditure are expensed as planned.
+
+The acquisition costs of non-current assets with a probable economic life of less than three years and minor
+purchases are fully expensed in the period of acquisition.
+
+Asset group                                         Economic useful life and depreciation method
+IT equipment                                       3 years, straight-line
+Machinery and equipment                            4–10 years, straight-line/declining balance method
+                                                   25%
+Development expenditure                            4–10 years, straight-line
+Intangible rights                                  4–10 years, straight-line
+Other long-term expenditure                        4–7 years, straight-line
+
+Development expenditure
+
+Capitalised development expenditure for the financial period include personnel costs (EUR 3,137,424.36)
+and other costs (EUR 1,579,575.98). Development expenditure for the financial period amounted to EUR
+4,717,000.34. The investment grants allocated to these costs totalled EUR 3,894,060.72. Development work
+during the financial period focused, for example, on the development of the organism platform
+and Solein product applications, production process development and optimization. The capitalization of
+development costs is dependent on the revenue expectations and if these expectations are not met,
+capitalized development costs may be subject to write-downs.
+
+Advance payments and construction in progress
+
+The advances activated during the financial period include pre‑engineering costs related to the Factory 02
+production facility. The capitalization of advance payments and construction in progress costs is dependent
+
+
+
+               Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                      18
+
+
+on the revenue expectations and if these expectations are not met, capitalized costs may be subject to write-
+downs.
+
+Intangible assets
+
+
+                                              Development                     Intangible              Other long-
+                                              expenditure                     rights                  term expenditure
+Acquisition cost 1st Jan 2025                       7,435,077.10                  1,720,136.72           5,172,970.92
+Additions                                           5,185,320.57                      0.00                    0.00
+Reductions                                          -3,894,060.72                     0.00                    0.00
+
+Acquisition cost 31st Dec 2025                         8,726,336.95               1,720,136.72             5,172,970.92
+Accumulated depreciation                              -3,754,578.02               -875,627.29             -1,720,424.57
+1st Jan 2025
+Depreciation 2025                                     -1,085,136.81                -219,076.08            -1,162,533.44
+Accumulated depreciation                              -4,839,714.83               -1,094,703.37           -2,882,958.01
+31st Dec 2025
+Book value 31st Dec 2025                              3,886,622.12                 625,433.35             2,290,012.91
+
+                                     Development                              Intangible rights      Other long-
+                                     expenditure                                                     term expenditure
+Acquisition cost 1st Jan 2024               6,759,723.95                          1,720,136.72           5,172,970.92
+Additions                                   4,578,718.19                              0.00                   0.00
+Reductions                                 -3,903,365.04                              0.00                   0.00
+                    st
+Acquisition cost 31 Dec 2024                7,435,077.10                          1,720,136.72           5,172,970.92
+                              st
+Accumulated depreciation 1 Jan 2024        -3,025,674.94                          -636,669.85            -526,267.34
+Depreciation 2024                           -728,903.08                           -238,957.44           -1,194,157.23
+                                 st
+Accumulated depreciation 31 Dec 2024       -3,754,578.02                          -875,627.29           -1,720,424.57
+Book value 31st Dec 2024                   3,680,499.08                            844,509.43           3,452,546.35
+
+
+
+
+            Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                         19
+
+
+Tangible assets
+
+
+                                              Machinery and                    Other tangible          Advance
+                                              equipment                        assets                  Payments and
+                                                                                                       Construction in
+                                                                                                       progress
+Acquisition cost 1st Jan 2025                          25,258,441.72               1 ,705,476.55           26,754.03
+Additions                                                37,808.28                      0.00              1,773,116.16
+Transfers between groups                                  6,779.05                      0.00                  0.00
+Acquisition cost 31st Dec 2025                         25,303,029.05               1 ,705,476.55              0.00
+Accumulated depreciation 1st Jan 2025                 -11,305,450.60               -1,368,288.59              0.00
+Depreciation 2025                                      -6,711,997.40                -282,580.62               0.00
+Accumulated depreciation 31st Dec 2025                -18,024,227.05               -1,650,869.21              0.00
+Transfers between groups                                 -6,779.05                      0.00                  0.00
+Book value 31st Dec 2025                               7,728,802.00                  54,607.34            1,799,870.19
+
+                                              Machinery and                    Other tangible           Advance
+                                              equipment                        assets                   Payments and
+                                                                                                        Construction in
+                                                                                                        progress
+Acquisition cost 1st Jan 2024                          24,263,866.55                1,705,476.55           329,123.49
+Additions                                               994,575.17                      0.00                  0.00
+Reductions                                                  0.00                        0.00              -302,369.46
+Acquisition cost 31st Dec 2024                         25,258,441.72                1,705,476.55           26,754.03
+Accumulated depreciation 1st Jan 2024                  -5,141,681.38               -1,027,193.39              0.00
+Depreciation 2024                                      -6,163,769.22                -341,095.20               0.00
+Accumulated depreciation 31st Dec 2024                -11,305,450.60               -1,368,288.59              0.00
+Book value 31st Dec 2024                              13,952,991.12                  337,187.96            26,754.03
+
+Other operating income
+
+Other operating income includes the perioditised part of the grants received by the company related to the
+IPCEI project EUR 9,107,487.98, to the EU project Hydrocow EUR 265,450.22 and to the European Space
+Agency (ESA) project EUR 99,697.30. In respect of grants for projects, EUR 6,062,019.69 has
+been perioditised to accrued income and EUR 424,352.48 to advances received for unused project advances.
+
+The grants received are based on the total cost of each project and, depending on the project, on a variable
+percentage of the total cost. The company recognizes a grant to a project on an accrual basis using the total
+costs incurred multiplied by the funding percentage of the project's financing decision. A significant part of
+the costs of the IPCEI grant consists of investments in production equipment, which are reported to the
+project through depreciation and paid retrospectively on the basis of the costs incurred and reported to
+Business Finland. The company has complied with the terms of the financing decisions.
+
+At the end of the financial period, the potential liability to refund the amount of the grant received in respect
+of the outstanding grant accounts is EUR 24,556,108.00 for IPCEI grant and EUR 992,868.75 for Hydrocow
+grant.
+
+
+
+
+             Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                  20
+
+
+Loans from financial institutions and other liabilities
+
+Long-term liabilities due in more than five years total EUR 690,000.
+
+The financing agreement between the company and one lender contains covenants relating to minimum
+liquidity and gearing. The covenant agreement entitles the bank to terminate the loan or amend the loan
+terms if the specific condition is exceeded. During the financial period, the covenants have been met.
+
+Guarantees given and off-balance sheet commitments and pension liabilities
+
+
+Guarantees given by type                                           The amount of the debt or the guarantee with
+                                                                   less value than debt
+
+Financial loans                                                    EUR 12,225,000.00
+Rental guarantees                                                  EUR 576,670.26
+Mortgage of tenancy                                                EUR 46,800.00
+Financial loans                                                    EUR 21,200,000.00
+Guarantees                                                         EUR 6,750,000.00
+Other                                                              EUR 480,314.00
+
+Lease liabilities                                                  2025–2043, VAT excluded
+
+Rental liabilities for premises                                    EUR 22,646,501.76
+Financial leasing                                                  EUR 94,042.14
+
+Real estate investments
+
+The company is obligated to review the VAT deductions made for the real estate investment completed in
+2023 if the taxable use of the property decreases during the review period. The final review will be 2032.
+
+The maximum liability amounts to EUR 672,000.
+
+Personnel
+
+Average number of employees                                        2025             2024
+Employees                                                          56               42
+
+Related party transactions
+
+The related parties of Solar Foods include key persons in the management, their close family members and
+companies under their control. Key management personnel include board members, managing director and
+members of the management team. There are no family relations between the Board and the Management
+Team.
+
+The remuneration of the Board has been implemented in accordance with the resolution of the General
+Meeting.
+
+The company had no other related-party transactions during the financial period than ordinary salaries and
+renumeration based on employment relationships with management, as well as fees paid to the members of
+the board of Directors.
+
+
+
+
+             Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                 21
+
+
+Equity
+
+During the financial period, 8 933 new shares were subscribed without consideration by certain members of
+the Board of Directors as part of their annual remuneration. In addition, option holders subscribed for 79
+060 new shares, which resulted in the company raising 85, 890.52 EUR of new capital. Subscriptions of
+shares were booked in the reserve for invested unrestricted equity.
+
+Option rights
+
+At the end of the financial period, the company had four stock option plans (plans 2020A, 2020B, 2/2024 and
+1/2025-H), under which option holders can subscribe in total for a maximum of 2,025,250 new shares or the
+company's own shares. At the end of the financial period, of this amount, options entitling to subscribe for a
+maximum of 1,419,690 company shares were allocated and not subscribed, which immediately dilutes the
+shareholders' relative ownership in the company by approximately 5.7 percent, if all of these option rights
+are exercised and they have the maximum number of new shares is subscribed, taking into account that the
+number of the company's shares at the end of the financial period was 24,729,042 shares.
+
+Shares in option plans 2020A, 2020B and 2/2024 may be subscribed twice a year after the publication of the
+company’s financial statements release and half-year report or as separately decided by the company’s board
+of directors. The subscription price of the shares is EUR 0.2051 per share (2020A) and EUR 2.75 per share
+(2020B and 2/2024). The subscription period ends on 31 December 2029.
+
+During the financial period, The Board of Directors of Solar Foods Oyj decided to distribute 20,000 stock
+options free of charge to the Chair of the Board of Directors of Solar Foods Oyj under the terms and conditions
+of the stock option plan 1/2025-H. The options entitle to subscribe for 20,000 new or treasury shares of the
+company at a subscription price of EUR 7.1 per share. The subscription period for shares under this plan
+begins after at least one (1) year from the subscription date of the option rights provided that the participant
+has served in their position as chair of the Board of Directors of the company for the entire term of the
+Company’s Board of Directors as of 25 March 2025. Shares can be subscribed for twice a year, for a five-
+business-day (5) period starting on the following business day after disclosure of the company’s financial
+statements release and half-year report. In addition, the Board of Directors can decide on another annual
+subscription period. The subscription period ends on December 31, 2030.
+
+During the financial period, 51,681 new shares were subscribed for under Option Plan 2020A, and 27,379
+new shares were subscribed for under Option Plan 2020B, for a total of 79,060 new shares of the Company,
+which were registered in the Trade Register. The subscription price of the shares, totaling EUR 85,890.31, was
+recorded     in    full   in    the    Company's       reserve     for     invested     unrestricted    equity.
+
+
+
+
+            Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                              22
+
+
+Summary of option programs and changes during the financial period
+
+Option       Total number         Total number           Total number           Subscription      Total
+plan         of option rights     Allocated but not      of subscribed          price, EUR        subscription
+             at the end of the    subscribed option      Shares during the fina                   price during the
+             financial            at the                 ncial period, pcs                        financial period,
+             period, pcs          end of the                                                      total, EUR
+                                  financial period, pcs
+2020A                     284,000                189,319                 51,681            0.2051        10,599.71
+
+2020B                     768,000                   639,621                     27,379                    2.75            75,290.60
+
+1/2023                             0                         0                         0                 0.001                     0
+
+1/2024                             0                         0                         0                 0.001                     0
+
+2/2024                    953,250                   570,750                            0                  2.75                     0
+
+1/2025-H                       20,000                 20,000                           0                   7.1                     0
+
+In total                2,025,250                 1,419,690                     79,060                                85,890.31
+
+
+Statement of changes of equity
+
+                                                         Reserve for
+                                    Subscribed
+                                                           invested       Retained earnings                       Total
+                                      capital
+                                                      unrestricted equity
+
+Equity January 1, 2025                       80,000              51,394,621             -28,534,522               22,940,099
+Execution of option rights                                            85,891                                              85,891
+Profit (loss) for the period                                                               -11,517,603            -11,517,603
+Equity December 31, 2025                     80,000              51,480,459             -40,052,126               11,508,386
+
+
+Equity January 1, 2024                        2,500              42,631,977             -17,512,872               25,121,605
+Increase in share capital                    77,500                  -77,500                                                   0
+Issuance of share capital                                          8,769,086                                        8,769,086
+Execution of option rights                                            71,057                                              71,057
+Profit (loss) for the period                                                               -11,021,650            -11,021,650
+Equity December 31, 2024                     80,000              51,394,620             -28,534,522               22,940,098
+
+
+Calculation of distributable unrestricted equity
+Reserve for invested unrestricted equity                                 51,480,511.17
+
+Retained earnings (-loss)                                                -28,534,521.71
+
+Proft (-loss) for the period                                             -11,517,603.42
+
+Total unrestricted equity                                                11,428,386.04
+Capitalised development expenditure                                      -3,886,622.12
+
+Total distributable unrestricted equity                                  7,541,763.92
+
+
+
+             Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                 23
+
+
+
+The number of the company’s shares at the end of the financial period was 24,729,042 shares. The company
+has only one series of shares.
+
+Proposal of the Board of Directors for the use of distributable equity
+
+The Board of Directors proposes that the company’s loss of EUR 11,517,603.42 is being transferred in the
+retained earnings account and that no dividends shall be paid.
+
+Assessment of future development
+
+The company will focus primarily on growth in the Health & Performance Nutrition segment and
+strengthening commercial activities as well as preparing for the investment decision of Factory 02
+production facility together with its strategic partners.
+The company's existing financial targets continue to serve as its financial guidance. In accordance with Solar
+Food's disclosure policy, the company does not provide a separate short-term financial guidance.
+Going concern and financing
+
+The company is in a development phase, focusing on scaling up and improving its production as well as
+entering the market. As a result, its expenses and investments exceed its revenues, which is why the
+company requires external financing to fund its operations. The company has a financing agreement with
+one lender that includes covenant terms related to minimum liquidity and gearing. The covenant
+agreement entitles the lender to call in the loan or amend the loan terms if the specific conditions are not
+met.
+
+The management assesses the adequacy of financing and compliance with the covenant terms from a going
+concern perspective and for planning purposes, using a cash flow forecast. Considering the share issue
+completed on 23 January 2026, in which the company raised approximately EUR 25 million in additional
+equity financing, the management does not expect any covenant breaches during the financial year 2026
+and has no significant reason to doubt the company’s ability to continue as a going concern, and supported
+by the share issue the company has sufficient financial resources to continue its operations. Accordingly,
+the financial statements for the financial year ending 31 December 2025 have been prepared in accordance
+with the going concern principle.
+
+Subsequent events after the financial period
+
+After the financial period, the company completed a directed share issue to GEA Finland Oy and a limited
+number of institutional investors, certain members of the Company’s Board of Directors and management
+as well as certain co-founders of the Company and certain private individuals in deviation from the pre-
+emptive subscription rights of the shareholders through an accelerated book-building process. The Board of
+Directors resolved upon a share issue of 5,154,691 shares pursuant to the authorisation granted by the
+Annual General Meeting of the company held on 25 March 2025.
+
+On 14 October 2025, Solar Foods announced that it had decided to proceed with the preengineering and
+implementation of the Factory 02 production facility with a network
+of strategic partners. After the financial period, the company signed an exclusivity agreement with GEA
+Liquid Technologies Germany GmbH, under which the company appoints GEA as the
+exclusive process equipment vendor for the supply, design, construction, and delivery of the process
+equipment for Factory 02, and will negotiate exclusively with GEA on the full terms of a supply agreement
+regarding the delivery of equipment and services for Factory 02. Solar Foods and GEA also agreed to
+
+
+
+            Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                 24
+
+
+negotiate a long-term strategic partnership in gas fermentation and related technologies. As part of the
+strategic partnership, GEA subscribed for Solar Foods shares for a total subscription price of EUR 8 million.
+
+As a result of the private placement, the company raised approximately EUR 25 million
+by offering 5 154 691 new shares, which were registered in the Trade Register on January
+26 2026. Following the entry in the Trade Register, the total number of shares in the company is
+29,883,733. The subscription prices of new shares have been fully recorded
+in the company’s invested unrestricted equity.
+
+In January, Solar Foods announced that it had received a Solein order from the U.S. company Ambrosia
+Collective, which aims to introduce a ready‑to‑mix protein powder made from Solein to consumers in the
+United States during the first half of 2026. The order was delivered during the financial period and is
+included in the financial period’s revenue.
+
+
+
+
+            Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                    25
+
+
+Signatures of the financial statements and report from the Board of
+Directors
+
+
+In Vantaa 26th February 2026
+
+
+
+
+Rami Jokela                                     Jukka Moisio                                       Pasi Vainikka
+Managing Director                               Chairman of the Board                              Board member
+
+
+
+
+Sebastian Jägerhorn                             Paula Laine                                        Petra Teräsaho
+Board member                                    Board member                                       Board member
+
+
+
+
+Juha Lindfors
+Board member
+
+
+
+
+           Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                                                                   26
+
+
+Auditor’s note
+
+An auditor’s report based on the audit performed has been issued today.
+
+In Helsinki 26th February 2026
+
+KPMG Oy Ab
+Audit firm
+
+
+Jussi Paski
+APA
+
+
+
+
+              Financial statements and the report of the board of directors 31.12.2025 Solar Foods Oyj 2872116-8
+                                                                 KPMG Oy Ab                                                            Telephone +358 20 760 3000
+                                                                 Töölönlahdenkatu 3 A                                                  www.kpmg.fi
+                                                                 PO Box 1037
+                                                                 00101 Helsinki
+                                                                 FINLAND
+
+
+
+
+This document is an English translation of the Finnish auditor’s report. Only the Finnish version of the report is legally binding.
+
+
+Auditor’s Report
+To the Annual General Meeting of Solar Foods Oyj
+Report on the Audit of the Financial Statements
+Opinion
+We have audited the financial statements of Solar Foods Oyj (business identity code 2872116-8) for the year ended
+31 December, 2025. The financial statements comprise the balance sheet, income statement, cash flow statement and
+notes.
+In our opinion, the financial statements give a true and fair view of the company’s financial performance and financial
+position in accordance with the laws and regulations governing the preparation of financial statements in Finland and
+comply with statutory requirements.
+Basis for Opinion
+We conducted our audit in accordance with good auditing practice in Finland. Our responsibilities under good auditing
+practice are further described in the Auditor’s Responsibilities for the Audit of the Financial Statements section of our
+report. We are independent of the company in accordance with the ethical requirements that are applicable in Finland
+and are relevant to our audit, and we have fulfilled our other ethical responsibilities in accordance with these requirements.
+We believe that the audit evidence we have obtained is sufficient and appropriate to provide a basis for our opinion.
+Responsibilities of the Board of Directors and the Managing Director for the Financial Statements
+The Board of Directors and the Managing Director are responsible for the preparation of financial statements that give a
+true and fair view in accordance with the laws and regulations governing the preparation of financial statements in Finland
+and comply with statutory requirements. The Board of Directors and the Managing Director are also responsible for such
+internal control as they determine is necessary to enable the preparation of financial statements that are free from material
+misstatement, whether due to fraud or error.
+In preparing the financial statements, the Board of Directors and the Managing Director are responsible for assessing the
+company’s ability to continue as a going concern, disclosing, as applicable, matters relating to going concern and using
+the going concern basis of accounting. The financial statements are prepared using the going concern basis of accounting
+unless there is an intention to liquidate the company or cease operations, or there is no realistic alternative but to do so.
+Auditor’s Responsibilities for the Audit of the Financial Statements
+Our objectives are to obtain reasonable assurance about whether the financial statements as a whole are free from
+material misstatement, whether due to fraud or error, and to issue an auditor’s report that includes our opinion.
+Reasonable assurance is a high level of assurance, but is not a guarantee that an audit conducted in accordance with
+good auditing practice will always detect a material misstatement when it exists. Misstatements can arise from fraud or
+error and are considered material if, individually or in the aggregate, they could reasonably be expected to influence the
+economic decisions of users taken on the basis of the financial statements.
+As part of an audit in accordance with good auditing practice, we exercise professional judgment and maintain
+professional skepticism throughout the audit. We also:
+
+— Identify and assess the risks of material misstatement of the financial statements, whether due to fraud or error,
+     design and perform audit procedures responsive to those risks, and obtain audit evidence that is sufficient and
+     appropriate to provide a basis for our opinion. The risk of not detecting a material misstatement resulting from fraud
+     is higher than for one resulting from error, as fraud may involve collusion, forgery, intentional omissions,
+     misrepresentations, or the override of internal control.
+
+— Obtain an understanding of internal control relevant to the audit in order to design audit procedures that are
+     appropriate in the circumstances, but not for the purpose of expressing an opinion on the effectiveness of the
+     company’s internal control.
+
+— Evaluate the appropriateness of accounting policies used and the reasonableness of accounting estimates and
+     related disclosures made by management.
+
+
+
+
+                KPMG Oy Ab, a Finnish limited liability company and a member firm of the KPMG global organization of independent member firms           Business ID 1805485-9
+                                 affiliated with KPMG International Limited, a private English company limited by guarantee.                                 Domicile Helsinki
+                                                                                                          Solar Foods Oyj
+                                                                                                           Auditor’s Report
+                                                                                   Financial year ended 31 December, 2025
+
+
+
+
+— Conclude on the appropriateness of the Board of Directors’ and the Managing Director’s use of the going concern
+    basis of accounting and based on the audit evidence obtained, whether a material uncertainty exists related to events
+    or conditions that may cast significant doubt on the company’s ability to continue as a going concern. If we conclude
+    that a material uncertainty exists, we are required to draw attention in our auditor’s report to the related disclosures
+    in the financial statements or, if such disclosures are inadequate, to modify our opinion. Our conclusions are based
+    on the audit evidence obtained up to the date of our auditor’s report. However, future events or conditions may cause
+    the company to cease to continue as a going concern.
+
+— Evaluate the overall presentation, structure and content of the financial statements, including the disclosures, and
+    whether the financial statements represent the underlying transactions and events so that the financial statements
+    give a true and fair view.
+We communicate with those charged with governance regarding, among other matters, the planned scope and timing of
+the audit and significant audit findings, including any significant deficiencies in internal control that we identify during our
+audit.
+Other Reporting Requirements
+Other Information
+The Board of Directors and the Managing Director are responsible for the other information. The other information
+comprises the report of the Board of Directors. Our opinion on the financial statements does not cover the other
+information.
+In connection with our audit of the financial statements, our responsibility is to read the other information and, in doing so,
+consider whether the other information is materially inconsistent with the financial statements or our knowledge obtained
+in the audit, or otherwise appears to be materially misstated. Our responsibility also includes considering whether the
+report of the Board of Directors has been prepared in compliance with the applicable provisions.
+In our opinion, the information in the report of the Board of Directors is consistent with the information in the financial
+statements and the report of the Board of Directors has been prepared in compliance with the applicable provisions.
+If, based on the work we have performed, we conclude that there is a material misstatement of the report of the Board of
+Directors, we are required to report that fact. We have nothing to report in this regard.
+Other Opinions
+We support that the Members of the Board of Directors and the Managing Director should be discharged from liability for
+the financial period audited by us.
+Helsinki, 26 February 2026
+
+KPMG OY AB
+Audit Firm
+
+JUSSI PASKI
+Authorised Public Accountant, KHT
+
+
+
+
+                                                                                                                               2
+

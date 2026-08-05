@@ -1,0 +1,49 @@
+SOURCE_URL: https://konkurransetilsynet.no/research/nca-reports/?lang=en
+RETRIEVED: 2026-08-05 (innhenting-2026-08-05, B2_market_power)
+---
+NCA Reports - Konkurransetilsynet
+Skip to content
+Konkurransetilsynet > Publications > NCA Reports
+Reports from Norwegian Competition Authority
+Report on margins in the grocery market (2025)
+The Norwegian Competition Authority has collected data from the three major grocery chains and several suppliers, covering a wide range of products in stores. The survey period is from 2020 to the first half of 2023. Based on these figures, the authority has calculated for each six month period:
+Gross and contribution margins for suppliers
+Gross margin for grocery chains (retail and wholesale combined)
+In january 2025 the Norwegian Competition Authority published a two part report on these findings.
+You can find the english translation of the report below:
+Part 1 of the margin report (with appendix)
+Part 2 of the margin report
+What effect can algorithms have on competition? (2021)
+A survey conducted by the Norwegian Competition Authority shows that more and more companies in Norway use monitoring and pricing algorithms. The Authority now encourages companies to be aware that the use of algorithms may also cause harm to competition and lead to higher prices for consumers.
+In February 2021 Norwegian Competition Authority published a report in the topic. This is an English translation of the main parts of a report:
+English translation of the report is available for download here >>
+Share: Share on Facebook Share on Twitter Share with email Skriv ut
+Samtykke for informasjonskapsler
+Vi bruker informasjonskapsler for å optimalisere nettstedet vårt.
+Funksjonelle informasjonskapsler
+Funksjonelle informasjonskapsler
+Always active
+Teknisk lagring eller tilgang er nødvendig for å tillate en spesifikk tjeneste som brukeren har bedt om, eller for å gjennomføre kommunikasjon over et elektronisk kommunikasjonsnettverk.
+Preferanser
+Preferanser
+The technical storage or access is necessary for the legitimate purpose of storing preferences that are not requested by the subscriber or user.
+Statistikk
+Statistikk
+Teknisk lagring eller tilgang som kun brukes til statistiske formål.
+The technical storage or access that is used exclusively for anonymous statistical purposes. Without a subpoena, voluntary compliance on the part of your Internet Service Provider, or additional records from a third party, information stored or retrieved for this purpose alone cannot usually be used to identify you.
+Markedsføring
+Markedsføring
+Teknisk lagring eller tilgang er nødvendig for å tillate å lage brukerprofiler for markedsføring, eller å spore brukeren på en nettside eller på tvers av flere nettsider for tilsvarende markedsføringsformål.
+Manage options
+Manage services
+Manage {vendor_count} vendors
+Read more about these purposes
+Aksepter
+Avslå
+Se valg
+Lagre valg
+Se valg
+{title}
+{title}
+{title}
+Administrer samtykke

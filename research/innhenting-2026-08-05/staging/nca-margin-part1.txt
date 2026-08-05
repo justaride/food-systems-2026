@@ -1,0 +1,3440 @@
+THE NORWEGIAN COMPETITION AUTHORITY'S MARGIN STUDY 2024
+
+Part 1. Survey of profitability at the enterprise level
+
+Table of contents
+Summary ................................................................................................................................................. 3
+1
+
+Introduction ...................................................................................................................................... 4
+
+2
+
+Description of the Norwegian grocery market ................................................................................. 7
+
+3
+
+2.1
+
+The value chain ....................................................................................................................... 7
+
+2.2
+
+The supply level ...................................................................................................................... 7
+
+2.3
+
+Wholesale and retail level ....................................................................................................... 8
+
+2.4
+
+Price developments in recent years ........................................................................................ 8
+
+2.4.1
+
+Price increases to consumers ............................................................................................. 9
+
+2.4.2
+
+Cost increases................................................................................................................... 10
+
+2.4.3
+
+Summary price development ............................................................................................ 14
+
+Method ........................................................................................................................................... 14
+3.1
+
+Delimitation of the analyses .................................................................................................. 15
+
+3.2
+
+Profitability measurements .................................................................................................... 15
+
+3.2.1
+
+Margins .............................................................................................................................. 18
+
+3.2.2
+
+Return on net operating assets ......................................................................................... 21
+
+3.3
+
+Summary of method .............................................................................................................. 28
+
+4
+
+Data basis ...................................................................................................................................... 29
+
+5
+
+Results ........................................................................................................................................... 30
+5.1
+
+6
+
+Suppliers' profitability ............................................................................................................ 30
+
+5.1.1
+
+Gross margins ................................................................................................................... 30
+
+5.1.2
+
+Operating margins ............................................................................................................. 32
+
+5.1.3
+
+Return on the supplier level .............................................................................................. 33
+
+5.2
+
+Grocery chains' profitability ................................................................................................... 37
+
+5.3
+
+Wholesale.............................................................................................................................. 37
+
+5.4
+
+Retail ..................................................................................................................................... 39
+
+Ending ............................................................................................................................................ 44
+
+Bibliography .......................................................................................................................................... 46
+Appendices ........................................................................................................................................... 50
+
+2
+
+Summary
+On behalf of the Ministry of Trade, Industry and Fisheries, the Norwegian Competition Authority has
+mapped the profitability of a selection of companies at the supplier, wholesaler and retail level in the
+value chain for groceries. For the survey, the Norwegian Competition Authority has obtained revised
+annual income statements and balance sheets for the companies' grocery sales. The data cover the
+period 2017 to 2022. Based on this data, the Norwegian Competition Authority has calculated three
+measures of profitability: gross margins, operating margins and return on net operating assets.
+Gross margins provide information regarding the price markup in per cent that is taken above the cost
+of goods at each level of the value chain, while operating margins also consider other costs in
+operations. The two measures of margin provide information on how revenues and costs have
+developed for different levels of the value chain and can thus provide indications of how profitability
+in the industry has developed over time. These measures of margin will, on the other hand, to a lesser
+extent inform the absolute levels of profitability in the production and sale of groceries. The
+Norwegian Competition Authority has therefore calculated a return on net operating assets. The
+return on net operating assets indicates the profit generated in the grocery-related business, in
+relation to how much capital the company had to employ to generate this profit.
+The Norwegian Competition Authority finds that operating margins and the return on net operating
+assets increased during the corona pandemic, both at the supplier, wholesale and retail levels.
+However, prices to consumers were largely unchanged through the pandemic. Increased sales
+volumes because of increased demand are assumed to be an important reason for higher profitability
+in these years.
+In 2022, grocery prices increased significantly, but operating margins and return on net operating
+assets dropped back to pre-pandemic values. In other words, the Norwegian Competition Authority
+finds no support for an allegation that the grocery chains or suppliers in general took advantage of the
+extraordinary price increases in 2022 to increase their profitability. Furthermore, the Norwegian
+Competition Authority finds that the average gross margins were stable throughout the period, which
+indicates that price increases in 2022 in general cannot be traced back to a single level in the value
+chain.
+The Norwegian Competition Authority finds that the grocery chains' wholesale companies have a
+return on net operating assets that is not significantly higher than the normal return. The results do
+not provide arguments for claims that the grocery chains take out huge profit at the wholesale level,
+or that the grocery chains set the transfer price between the wholesale and retail levels artificially low
+to subsidize the retail level.
+On the other hand, the Norwegian Competition Authority's survey shows that it is generally profitable
+to produce and sell groceries in Norway. For most of the companies included in the survey, the return
+on net operation assets is significantly higher than one would expect to find in a market with few
+barriers to entry and fierce competition. In other words, the results are consistent with weak
+competition and significant barriers to entry in parts of the Norwegian grocery market.
+
+3
+
+1
+
+Introduction
+
+The grocery market is a large market that is important for most Norwegian consumers. The market is
+characterised by high concentration and high barriers to entry at both the retail, wholesale and
+supplier levels. The Norwegian Competition Authority therefore supervice the grocery market
+closely. 1
+In recent years, there has been a great deal of attention on the grocery market, partly because the
+prices of groceries have increased significantly. From December 2021 to December 2022, grocery
+prices to consumers rose by 11.5 per cent. 2 Grocery prices increased further by 8.9 per cent from
+December 2022 to December 2023. 3
+The background for the price increases in recent years for groceries is complicated, and these are
+assumed to be driven by several different factors. The past couple of years have been characterised
+by rising inflation and increasing global uncertainty. Among other things, international events such as
+the corona pandemic and the war in Ukraine have also had an impact on the Norwegian grocery
+market.
+On the basis of the above, the Ministry of Trade, Industry and Fisheries has therefore asked the
+Norwegian Competition Authority to investigate the rise in prices for food and beverages, including
+the margins of the various parts of the grocery value chain. 4
+
+The Norwegian Competition Authority's objective is to strengthen competition in the grocery market; Strategy
+plan for the Norwegian Competition Authority 2022-2027, page 9. In recent years, the Norwegian Competition
+Authority has had several publications on the grocery market, including the " Dagligvarerapporten 2022" (The
+Grocery Report 2022), " Dagligvarerapporten 2023" (The Grocery Report 2023) and a report on the price
+adjustment windows that was published in December 2023. For the years 2017-2022, the Norwegian
+Competition Authority has investigated differences in purchase prices between the grocery chains. The
+Norwegian Competition Authority has also carried out investigations into the causes of differences in purchase
+prices.
+2
+KPI opp 5,9 prosent siste tolv måneder i desember – SSB, accessed 4 April 2024
+3
+Desember: KPI opp 4,8 prosent siste tolv måneder – SSB, accessed 4 April 2024
+4
+Letter from the Ministry of Trade, Industry and Fisheries on 2 October 2023. The survey is also announced in a
+press release from the Ministry of Trade, Industry and Fisheries on 13 January 2023:
+https://www.regjeringen.no/no/aktuelt/regjeringen-skal-undersoke-prisdannelsen-idagligvarebransjen/id2959288/, in a supplementary letter of allocation from the Ministry of Trade, Industry and
+Fisheries to the Norwegian Competition Authority on 1 February 2023, and in the Revised National Budget 2023
+Prop. 118 S (2022-2023), page 118.
+1
+
+4
+
+The Ministry of Trade, Industry and Fisheries' description of the assignment
+Mapping profitability at the enterprise level
+"In order for the survey of margins and profitability in the grocery industry to provide a good picture of
+profitability in various parts of the value chain for food and groceries, it is necessary to supplement the abovementioned margin survey at product level with a survey of profitability at company level. The latter will be based
+on auditor-approved financial data, and provide figures for profitability at the supplier, wholesaler and retail
+level.
+The profitability survey will assess results, margins and return on capital, as well as developments in these
+measurements over time. In the value chain for food and groceries there are differences in the risk each company
+takes and, in the value, -adding changes that are added to the products. This means that employed capital at
+the various levels in the value chain will be different. Thus, comparisons of participants' profitability calculated
+using a simple profitability measure may be misleading. The Norwegian Competition Authority will therefore
+map various profitability measurements.
+The margin and return on capital measurements chosen by the Norwegian Competition Authority are intended
+to complement each other and, as far as possible, facilitate comparisons of profitability between participants at
+the same and different stages of the value chain. Among other things, the Norwegian Competition Authority
+shall calculate annual operating margins. This measure is used in many contexts to compare profitability
+between different industries and different levels in a value chain. Return on capital employed is a recognised
+method for assessing the profitability of an industry. In addition to calculating various profitability
+measurements at the enterprise level, the Norwegian Competition Authority shall comment on the implications
+of empirical findings."
+
+Excerpt: Letter from the Ministry of Trade, Industry and Fisheries to the NCA
+
+Text Box 1
+
+Mission description from the Ministry of Trade, Industry and Fisheries
+
+The Norwegian Competition Authority's margin study will consist of two sub-studies. This report
+presents the Norwegian Competition Authority's survey of profitability at the enterprise level (see Box
+1). The Norwegian Competition Authority will later publish the results of the second part of the study,
+which deals with margin development for groceries at product level.
+The Norwegian Competition Authority has obtained financial data from a selection of companies in
+the market for the period 2017 to 2022. 5 The data is limited to the parts of the business that are
+related to the production and sale of groceries. On the basis of this data, the Norwegian Competition
+Authority has mapped the development in the companies' gross margins and operating margins.
+These key data provide information on how revenues and costs in operations have developed over
+time at the various levels of the value chain.
+Furthermore, the Norwegian Competition Authority has calculated the return on net operating assets,
+so-called RNOA 6, as a measure of the companies operating profitability. It is the operating profitability
+that is affected by competitive conditions and prices in the production and sale of groceries, and which
+is thus relevant to the survey. Furthermore, RNOA takes into account that some types of financing do
+The annual accounts for 2023 will be prepared and published during the first half of 2024. Consequently,
+financial data for 2023 have not been part of the data in this survey.
+6
+Return on Net Operating Assets.
+5
+
+5
+
+not tie up capital for the companies. This is a crucial consideration when measuring profitability in the
+production and sale of groceries. The Norwegian Competition Authority's opinion is therefore that
+RNOA is an appropriate key figure to use in this survey.
+In June 2023, the Norwegian Competition Authority participated in an meeting, arranged by the
+Ministry of Trade, Industry and Fisheries. The meeting dealt with both the margin study, including a
+survey of profitability at the enterprise level and product margins in the grocery market, as well as the
+study of the price adjustment window scheme.7 At the meeting, the Norwegian Competition Authority
+presented its preliminary plan for the margin study. All participants in the meeting, including the
+largest grocery chains and a number of suppliers and trade associations, were given the opportunity
+to provide input to the margin study.
+In September 2023, the Norwegian Competition Authority sent a extensive request for information to
+the three largest grocery chains, as well as a selection of suppliers. The request for information
+included, among other things, income statements and balance sheets for the grocery business
+isolated. 8 After the request for information orders were sent out, the Norwegian Competition
+Authority has carried out meetings and dialogue with all the companies involved in the survey.
+In order to carry out the analyses of profability, the Norwegian Competition Authority has collected
+accounting data from suppliers and grocery chains in a standardised form, where parts of the
+information obtained are not publicly available. This has made it possible for the Norwegian
+Competition Authority to conduct detailed analyses of profitability for a number of companies over a
+period of several years. At the same time, this means that parts of the data used by the Norwegian
+Competition Authority are not publicly available. The Norwegian Competition Authority will therefore
+present aggregated results or indices that do not identify the individual company in the following.
+The Norwegian Competition Authority has used consultancy services with accounting expertise in the
+work of analysing profitability at the enterprise level,.
+Severalquestions have been asked and several claims have been made in the public debate related to
+profitability in the grocery market. Examples of such questions are whether grocery retailers took
+advantage of the extraordinary price increases in 2022 to increase their profitability, whether the
+coronavirus pandemic made the food industry and grocery trade more profitable, and whether the
+profitability of grocery retailers is significantly higher than one would expect in a market with fierce
+competition. The results of the Norwegian Competition Authority's survey may contribute knowledge
+that will make one better equipped to find answers to such questions. The survey also provides
+background information for the competition authorities' work to strengthen competition in the
+grocery market.
+In the following, the Norwegian Competition Authority will in chapter 2 briefly describe the Norwegian
+grocery market, including a description of the value chain and a presentation of price developments
+in recent years based on publicly available data. In chapter 3 the Norwegian Competition Authority
+describes the method used in the survey, and in chapter 4 the data used in the survey is described..
+Chapter 5 contains the results of the survey. Finally, the Norwegian Competition Authority summarises
+the report and comments on the relevance of the results to the debate on competition in Norwegian
+grocery markets.
+
+In December 2023, the Norwegian Competition Authority published a report on the investigation of the price
+adjustment window scheme, see https://konkurransetilsynet.no/wp-content/uploads/2023/12/Utredning-omprisjusteringsvinduer-2023.pdf.
+8
+For an account of the suppliers that have been selected, see chapter 4.
+7
+
+6
+
+2
+
+Description of the Norwegian grocery market
+
+In 2022, grocery purchases accounted for 12 per cent of Norwegian households' total expenditure.9
+The grocery market is therefore of great importance to consumers' finances. Developments in prices
+and costs in the grocery market in recent years have received a great deal of attention in the media,
+and a number of proposals have been put forward for actions to strengthen competition and reduce
+the rise in food prices.
+In Norway, groceries are primarily sold in traditional grocery stores, but also in kiosks, petrol stations
+and other stores, and when ordering online with delivery and/or home delivery.
+In the following, the Norwegian Competition Authority will give a brief explanation of the various
+levels in the value chain for groceries. An overall description is also given of the price development of
+groceries to consumers in recent years.
+
+2.1
+
+The value chain
+
+Figure 1 below shows a simplified version of the value chain in the Norwegian grocery market.
+
+Figur 1
+
+Schematic picture of the value chain in the grocery market
+
+The suppliers buy, import or produce products that are sold in the stores. In Norway, most groceries
+are sold through grocery groupings and their profile chains, which are vertically integrated with their
+own retailers and wholesalers. When groceries are sold through traditional grocery stores, the
+wholesalers first buy products from the suppliers and resell them to the grocery chains. The
+wholesalers are also responsible for distributing the goods from the suppliers to the stores. Only a few
+of the suppliers distribute the products directly to the stores themselves. 10 The grocery chains' retail
+storesthen sell the goods to consumers.
+
+2.2
+
+The supply level
+
+Suppliers of groceries produce and sell products to the various grocery groups. Most suppliers also
+deliver to HORECA and other stores (kiosks, petrol stations and other service points).
+Suppliers in the grocery market differ, including in terms of size, number of companies and market
+shares in different product groups, form of ownership, what is produced and location. Furthermore,
+there are some suppliers that exclusively produce their own brands (referred to as "branded label" or
+"BL") and those that additionally or exclusively produce the grocery chains' private labels (referred to
+Statistics Norway's Consumer Survey 2022: Forbruksundersøkelsen – SSB
+See, inter alia: Meld. St. 27 (2019–2020) - regjeringen.no, page 20. Among the major suppliers, this applies to
+Ringnes and Tine for liquid products.
+9
+
+10
+
+7
+
+as "PL"). There is also a varying degree of vertical integration between suppliers and grocery chains,
+where some suppliers are owned by, or have entered into long-term production agreements with, a
+grocery chain. 11, 12
+
+2.3
+
+Wholesale and retail level
+
+In Norway, there are currently four major national grocery chains: Norgesgruppen, Coop, Rema and
+Bunnpris. Norgesgruppen, Coop and Rema operate both the wholesale and retail level. Bunnpris does
+not have its own wholesale business, but in recent years has alternated between purchasing
+cooperation with Rema and Norgesgruppen.13 In addition, there is Oda (formerly Kolonial), which
+offers groceries from an online store with delivery and home delivery in Eastern Norway. Oda has a
+cooperation agreement with Rema Distribusjon for the purchase of grocery products.
+The three largest grocery chains – Rema, Coop and Norgesgruppen – have a combined market share
+of around 95 percent in the retail market. 14
+
+2.4
+
+Price developments in recent years
+
+Prices for groceries are generally higher in Norway than in the rest of Europe. Figure 2 shows indexed
+food price levels in a number of European countries in 2022.
+
+Socio-economic Analysis AS, Rapport (2023), and Meld. St. 27 (2019–2020) - regjeringen.no from the Ministry
+of Trade, Industry and Fisheries, page 20 et seq.
+12
+Konkurransetilsynets dagligvarerapport 2022, page 4 and SIFO's Kartlegging av utviklingen i butikkstruktur,
+dagligvareutvalg og dagligvarepriser - regjeringen.no from 2019.
+page 79.
+13
+Until 2011, Bunnpris had a purchasing collaboration with Norgesgruppen. In 2011, they switched to Rema. In
+2017, they switched back to Norgesgruppen.
+14
+Konkurransetilsynets dagligvarerapport 2022 , page 4.
+11
+
+8
+
+160
+140
+120
+100
+80
+60
+40
+20
+Romania
+Poland
+Bosnia and Herzegovina
+Albania
+Bulgaria
+Montenegro
+Hungary
+Serbia
+Czechia
+Netherlands
+Spain
+Lithuania
+EU27
+Slovenia
+Croatia
+Slovakia
+Portugal
+Belgium
+Italy
+Latvia
+Germany
+Estonia
+France
+Greece
+Austria
+Cyprus
+Finland
+Sweden
+Ireland
+Malta
+Luxembourg
+Denmark
+Iceland
+Norway
+Switzerland
+
+0
+
+Figur 2
+
+Price level indices for food as of 2022. (EU27 = 100) Data source: Eurostat
+(linke)
+
+The price level for each country is here expressed relative to the average price level in the EU, which
+in the figure has the value 100. Norway's index value of 146 can thus be interpreted as meaning that
+food prices in Norway were 46 per cent higher than the average for the EU countries in 2022. As can
+be seen from the figure, Norway was the country with the second highest food prices in Europe as of
+2022, after Switzerland. 15
+As mentioned in chapter 1 prices for groceries have increased significantly in recent years. This is not
+only the case in Norway, but also in Europe in general. Chapter 2.4.1 provides an overall description
+of developments in grocery prices to consumers in recent years. And in chapter 2.4.2 the development
+of various costs that are central to the price formation of groceries is reviewed. In chapter 2.4.3 the
+price developments in recent years are summarized.
+2.4.1
+
+Price increases to consumers
+
+Changes in consumer prices are often measured using consumer price indices, or CPI for short. 16 These
+indices measure percentage changes in prices of goods and services based on a reference year.
+Consumer price indices can be calculated for large parts of the economy as a whole, for example in
+what is referred to as core inflation (CPI-ATE). Consumer price indices can also be calculated for
+delimited commodity groups or subgroups. Statistics Norway (SSB) publishes consumer price indices
+both overall and down at commodity group level, including for food. Consumer price indices are also
+measured for similar commodity groups in other countries, so that it is possible to compare price
+developments down to commodity group level for different countries in Europe.
+Figure 3 presents price developments for food products in Norway, Sweden and Denmark,
+respectively, and for the EU. The index is set at 100 in 2015 for each of the countries and for the EU.
+15
+16
+
+Comparison of price levels in Europe – SSB
+For a more detailed description of the Consumer Price Index, see: Consumer price index – SSB
+9
+
+The lines in the chart should therefore be interpreted as a development in percentage terms from the
+base year 2015, not as absolute price levels.
+145
+140
+135
+130
+125
+120
+115
+110
+105
+2017-01
+
+2018-01
+
+2019-01
+
+2020-01
+
+European Union - 27 countries
+
+Figur 3
+
+2021-01
+Norway
+
+2022-01
+Sweden
+
+2023-01
+
+100
+2024-01
+
+Denmark
+
+Consumer price index for food for Norway, EU27, Sweden and Denmark over
+the period 2017 to 2022, where 2015 = 100. Further development through
+2023 is marked with a dotted line. Data source: Eurostat (linke)
+
+It is evident from Figure 3 that the rise in food prices in Norway was moderate from 2017 to 2021. In
+this period, prices increased by just over 6 per cent in total. The coronavirus pandemic in 2020 and
+2021 does not seem to have had a particularly large impact on grocery prices, which were almost
+unchanged from March 2020 to March 2022. In 2022, grocery prices in Norway increased by around
+11 percent, despite a moderate reduction in prices in the second half of 2022. As shown in the chart,
+the high rise in prices continued into 2023.
+The EU, including Denmark and Sweden, experienced a high rise in grocery prices in 2022, like Norway.
+Measured as a percentage, inflation was higher in the EU than in Norway. 17 In 2021, consumer food
+prices in the EU increased by 4 per cent, while in 2022 prices rose by as much as 18 per cent.
+2.4.2
+
+Cost increases
+
+Increased costs may be an important reason for the price increases for consumer goods. In recent
+years, several factors may have contributed to higher commodity prices and production costs,
+including higher electricity prices, supply problems due to the coronavirus pandemic, Russia's invasion
+of Ukraine and a general depreciation of the Norwegian krone.
+The most important cost to the wholesale level is the purchase of goods from the supplier. Producer
+Price Index (PPI) 18 measures the development in producer prices for domestically produced goods for
+sale both in Norway and abroad. Somewhat simplified, one can say that this index shows the price
+development for goods from the factory. Figure 4 shows the development in the producer price index
+for food for Norway, EU27, Denmark and Sweden respectively.
+Note that Norway had higher prices than the EU in the base year 2015. A percentage increase in Norwegian
+prices from the base year will therefore be larger measured in cash value than a corresponding percentage
+increase from the base year for the EU.
+18
+For a more detailed description of the producer price index, see: Producer price index – SSB
+17
+
+10
+
+145
+140
+135
+130
+125
+120
+115
+110
+105
+100
+95
+2017-01
+
+2018-01
+
+2019-01
+
+European Union - 27 countries
+
+Figur 4
+
+2020-01
+Denmark
+
+2021-01
+Sweden
+
+2022-01
+Norway
+
+Producer price index for food for Norway, EU27, Denmark and Sweden
+respectively over the period 2017 to 2022. (2015 = 100) Data source:
+Eurostat (linke)
+
+Figure 4 shows moderate growth in producer prices from 2017 to 2020, before prices increased
+significantly in 2021 and 2022. In 2021, producer prices in Norway increased by 7.4 per cent, while
+producer prices in the EU increased by 8.1 per cent. In 2022, producer prices in Norway increased by
+19.6 per cent, while producer prices in the EU increased by 22.2 per cent. 19
+Statistics Norway also publishes another similar index, the so-called price index for first-hand domestic
+sales (PIF). 20 This index measures price developments in the first stage of sales in the Norwegian
+market. The main difference between the PPI and the PIF is that the producer price index includes
+prices for exported goods, while the price index for first-hand domestic sales includes prices for
+imported goods. The development in the PIF has essentially been similar to the development in the
+PPI through the period 2017 to 2022.
+The background for the increases in these two indices in 2022 is complex. Russia's invasion of Ukraine
+led to increased grain prices on the world market. 21 This directly affects raw material costs in the
+production of bread and other baked goods, but also has an impact on the production of, for example,
+meat, dairy products and eggs through price increases for concentrates. The war also led to increased
+prices for fertilizer, for which Ukraine and Russia are important production countries. 22 This came in
+continuation of the fact that fertilizer prices had already increased significantly in 2021. 23
+
+It should be remarked here that the figure only shows differences in development from the base year 2015,
+measured as a percentage, not differences in absolute levels measured in cash value.
+20
+For a more detailed description of the price index for first-hand domestic sales, see: Price index for first-hand
+domestic sales – SSB
+21
+Ukraine war drives international food prices to 'new all-time high' | UN News
+22
+War-induced fertilizer crunch threatens global food security | World Economic Forum (weforum.org)
+23
+Fertilizer prices expected to remain higher for longer (worldbank.org)
+19
+
+11
+
+Figure 5 shows price development for the commodity group cereals and cereal products, while Figure
+6 shows price development for animal feed and fertiliser, respectively.
+
+Cereals and cereal products
+150
+
+140
+
+130
+
+120
+
+110
+
+100
+2017M01
+
+Figur 5
+
+2018M01
+
+2019M01
+
+2020M01
+
+2022M01
+
+Price index for first-hand sales of cereals and cereal products domestically
+for the period 2017 to 2022. (2015 = 100) Data source: Statistics Norway,
+table 03675.
+
+Animal feed, except unground
+cereals
+
+190
+180
+170
+160
+150
+140
+130
+120
+110
+100
+90
+2017M01
+
+Figur 6
+
+2021M01
+
+2019M01
+
+Crude fertilizers and crude minerals
+190
+180
+170
+160
+150
+140
+130
+120
+110
+100
+90
+2017M01
+
+2021M01
+
+2019M01
+
+2021M01
+
+Price indices for first-hand domestic sales for the product groups Animal
+feed, except unground cereals (SITC08) and Crude fertilizers and crude
+minerals (SITC27) for the period 2017 to 2022. (2015 = 100) Data source:
+Statistics Norway table 03675.
+
+It is evident from the Figure 5 that prices of cereals and cereal products increased fairly moderately in
+the period 2017 to 2021, with a total price increase of about 17 per cent. In 2022, prices increased by
+23 percent. The sharp increase occurred shortly after the outbreak of the war in Ukraine. Of Figure 6
+
+12
+
+it appears that a similar development also occurred for fertilizers and raw minerals, where prices
+increased sharply after the outbreak of war.
+Furthermore, the war in Ukraine exacerbated an already ongoing energy crisis in Europe. 24 Higher
+electricity prices led to higher costs in agriculture and manufacturing, both directly in the form of more
+expensive electricity in operations, and indirectly through price increases in the production of other
+input factors, such as fertiliser. Figure 7 shows price development for electricity in the first stage of
+sales in the Norwegian market.
+
+Electricity
+1000,0
+900,0
+800,0
+700,0
+600,0
+500,0
+400,0
+300,0
+200,0
+100,0
+0,0
+2017M01
+
+Figur 7
+
+2018M01
+
+2019M01
+
+2020M01
+
+2021M01
+
+2022M01
+
+Price index for first-hand sales of domestic electricity for the period 2017 to
+2022. (2015 = 100) The price index does not take into account electricity
+subsidies. Data source: Statistics Norway table 03675.
+
+It is evident from the Figure 7 that the monthly average price for electricity was generally five times
+higher, and in some months up to nine times higher, in 2022 than in 2015. Higher electricity prices led
+to increased costs at several levels in the value chain for groceries. Note that the figure shows price
+developments in the first stage of sales, and that the figures do not take into account electricity
+support.
+Exchange rate fluctuations are another factor that has contributed to increased costs for both the food
+industry and grocery chains. Figure 8 shows exchange rate developments for the Norwegian krone
+relative to a number of foreign currencies, measured by the import-weighted krone exchange rate
+target I-44 for the period 2017 to 2022. 25 A higher index value means a weaker krone exchange rate.
+
+The impact of the war in Ukraine on euro area energy markets (europa.eu)
+Definition from Norges Bank: The I-44 index is a nominal effective exchange rate index based on NOK exchange
+rates as measured against the currencies of Norway’s most important trading partners. The index is set at 1995
+= 100. A rising index indicates a depreciating krone. The I-44 is calculated as a geometric weighted average of
+the exchange rates of 44 countries. The weights (xlsx) are updated on an annual basis and are calculated using
+Statistics Norway’s statistics for imports to Norway from the 44 largest countries in terms of import value. The
+country composition varies. The weights are calculated on the basis of one year’s imports and are applied as from
+the second weekday in September in the following year. The index is calculated using the same methodology as
+for the TWI.
+." (I-44, Import-weighted krone exchange rate) )
+24
+25
+
+13
+
+Import-weighted exchange rate (I-44)
+130
+125
+120
+115
+110
+105
+100
+2017-01-02
+
+Figur 8
+
+2018-01-03
+
+2019-01-07
+
+2020-01-09
+
+2021-01-08
+
+2022-01-06
+
+Development in the import-weighted exchange rate index I-44 for the period
+2 January 2017 to 30 December 2022. Data source: Norges Bank (link)
+
+When a company imports goods or other input factors, the agreed import price will often be stated in
+a foreign currency. When the Norwegian krone depreciates against foreign currency, it therefore leads
+to higher import costs, measured in Norwegian kroner. As can be seen from Figure 8 , the Norwegian
+krone has depreciated in 2022, but also generally throughout the period. The depreciation of the
+Norwegian krone continued into 2023.
+Overall, the review shows a sharp increase in several costs that are central to the production of food
+products. After a period of generally moderate cost growth in the years 2017 to 2020, several costs
+increased in 2021. Cost growth accelerated further in 2022.
+2.4.3
+
+Summary price development
+
+Prices for groceries increased moderately in the period 2017 to 2020. This applies to both prices to
+consumers and prices further up the value chain. In 2021, producer prices increased significantly,
+while consumer prices remained stable. In 2022, both producer prices and consumer prices increased
+sharply. The increase in grocery prices to consumers continued into 2023.
+Higher prices for goods by manufacturer are synonymous with increased prices for goods to
+wholesalers. Consequently, the price indices provide some general information about income and cost
+developments at the various levels in the value chain. However, the information that emerges from
+official statistics is not detailed enough to assess whether the price increases at each level can be
+explained solely by increased costs.
+The survey that follows provides further information about the background for the price increases for
+groceries in 2022. In the next chapter, the Norwegian Competition Authority will describe the method
+used in this survey, which makes it possible to assess whether the price increases are driven by
+increased profitability for the companies, in addition to the increased costs described above.
+
+3
+
+Method
+
+The purpose of the Norwegian Competition Authority's method is to map the profitability of the
+production and sale of groceries to consumers in Norway.
+Through the survey, the Norwegian Competition Authority will show the development in profitability
+for a selection of major food suppliers and for the three large grocery chains in the period 2017 to
+14
+
+2022. The analyses can, among other things, provide an indication of how the coronavirus pandemic
+and the war in Ukraine have affected profitability at these levels in the value chain.
+In chapter 3.1 there will be explained how the Norwegian Competition Authority has delimited the
+profitability analyses, including which levels in the value chain are included, and what delimitations
+the Norwegian Competition Authority has made for each of these levels in order to be able to analyse
+profitability isolated to groceries.
+Chapter 3.2 describes the profitability measurements used by the Norwegian Competition Authority
+to analyse profitability within the isolated activity.
+
+3.1
+
+Delimitation of the analyses
+
+The Norwegian Competition Authority's survey covers the supplier, wholesaler and retail levels in the
+value chain for groceries. These three levels individually and collectively account for a varying, but
+consistently high proportion of the value creation that takes place in different markets in the value
+chain.
+The delimitation means that production levels further up the value chain are not covered by the
+survey. This applies firstly to the production of agricultural goods and various input markets for
+agricultural production. Second, markets for first-hand sales of agricultural products and in some cases
+primary processing of agricultural products will also not be covered by the survey. 26
+The Norwegian Competition Authority has also limited the survey of profitability at the wholesale and
+retail level to include the three large grocery chains. Smaller companies such as Bunnpris and Oda,
+and companies that are not considered traditional groceries, but who sell groceries, are not included
+in the survey. 27 The same applies to deliveries to, and sales in, HORECA and kiosks and petrol stations.
+The three large grocery chains account for about 95 per cent of the total turnover in the traditional
+grocery stores. A survey that includes the three large grocery chains will therefore include the majority
+of consumers' purchases of groceries.
+For the supplier level, the Norwegian Competition Authority's survey consists of a selection of
+suppliers. The suppliers have been selected based on, among other things, the size of turnover, as well
+as which suppliers the Norwegian Competition Authority has previously obtained data from for the
+survey of differences in purchase prices. 28
+
+3.2
+
+Profitability measurements
+
+Analyses of profitability are usually based on the companies' public accounts, also called the financial
+accounts. The financial statement consists of three parts: the income statement, the balance sheet
+and the cash flow statement.
+
+There are significant challenges associated with calculating profitability for some of these levels in the value
+chain, as there will be strong links between two levels in the value chain for some companies. The activities at
+these value levels are also highly regulated or influenced by agricultural policy. This applies in particular to the
+part for the production of agricultural products and the part for the reception of agricultural products, where
+key parts of the market balancing in the agricultural regulations are laid. Agricultural policy will have a major
+impact on the development of profitability in various primary industries, while sectoral regulations may have
+direct consequences for the profitability that can be achieved.
+27
+Europris and Normal have a significant element of groceries in their range. Nevertheless, the range of products
+offered by these companies differ significantly from grocery stores in that they offer almost no large product
+categories such as fruit and vegetables, fresh baked goods, dairy products and fresh meat. For such companies,
+a profitability survey will therefore be based on sales of a product range that is significantly different from
+traditional grocery stores. For this reason and for reasons of resources, the Norwegian Competition Authority
+has excluded the above-mentioned companies from the survey.
+28
+Mindre forskjeller i dagligvarekjedenes innkjøpspriser - Konkurransetilsynet
+26
+
+15
+
+In connection with the survey, the Norwegian Competition Authority has collected data from a
+number of companies in a similar form as the income statement and balance sheet from the financial
+accounts. The following is a brief review of how the income statement and balance sheet are
+structured, and which parts of the business these accounting parts describe.
+
+Figur 9
+
+Illustration of the income statement and balance sheet, including the assets
+and liabilities side of the balance sheet.
+
+The income statement describes the company's income and costs throughout the year. At the top of
+the income statement, you will find operating revenues, often classified as sales revenues and other
+operating revenues. This is followed by a number of costs from operations, such as cost of goods solds,
+salary costs, rent, electricity, and so on. When these costs are deducted from operating revenues, one
+is left with a result that is referred to as operating profit before depreciation and amortization
+(EBITDA). 29
+This is followed by costs related to losses in value of assets that have been used in operations
+throughout the year, so-called depreciation and amortisation. Depreciation follows from a
+depreciation plan, where the Accounting Act assumes that the value of assets falls linearly down to
+zero over their estimated economic life. Amortizations are made if there is reason to believe that an
+asset has fallen in value in excess of the estimated loss of value resulting from the depreciation plan.
+When the year's costs related to impairment of assets have been deducted, one is left with operating
+profit (EBIT), 30 which is the result from actual operations before tax.
+The operating profit in the income statement is followed by financial (non-operational) income and
+costs. When these are deducted, one is left with the company's annual profit, which is a total result
+for both operational and financial activities. It is mainly the operation-related activities that will affect
+how groceries are priced to consumers. Consequently, the entries after operating profit in the income
+
+29 Earnings Before Interest, Taxes, Depreciation and Amortisation.
+30
+
+Earnings Before Interest and Taxes.
+
+16
+
+statement are not included in the Norwegian Competition Authority's analyses, 31 and are therefore
+not discussed further.
+The balance sheet shows the company's assets and how these are financed. The balance sheet is
+divided into an asset side, which describes the assets in the company, and a liabilities side, which
+describes how the assets are financed. The total financing must at all times be equal to the total value
+of the assets, which means that the two sides of the balance sheet must always add up to the same
+value.
+The assets on the asset side can be financed with equity or debt. Debt financing often has a defined
+nominal value, while equity is in practice defined by the difference between the book asset values on
+the asset side and the total book value of the liabilities on the liability side. Most of the uncertainty
+associated with valuation on the asset side is thus reflected in equity entries on the liability side.
+Consequently, these entries are not used in the Norwegian Competition Authority's calculations. For
+simplicity's sake, the asset side is therefore referred to as the asset side and the liabilities side as the
+liabilities side of the balance sheet.
+
+Figur 10
+
+Illustration: Contextualization of the income statement and balance sheet.
+
+On the basis of data from the income statement and the balance sheet, different types of profitability
+measures can be calculated. Broadly speaking, one can say that the two most important main
+categories of profitability measures are margin measurements and return measurements. 32
+Margin measures are measures of how much of the company's revenue remains as profit after
+relevant costs have been deducted. Margins are calculated on the basis of the income statement, by
+looking at different profit measures in connection with sales or sales revenues.
+Return measures, or profitability measures, are measures of how profitable it is to have capital
+employed in operations. Return mearurements are calculated by viewing a defined profit or loss from
+Tax costs come after operating profit and are relevant to the consumer price. However, the observed tax cost
+after financial income and costs cannot be used directly in an analysis of operating profitability. The Norwegian
+Competition Authority therefore adjusts the operating profit in line with the nominal tax rate in cases where it
+is appropriate to present results after tax.
+32
+See, for example, the report " Kjøpermakt i dagligvaresektoren " (2013) by Gabrielsen, T.S., Steen, F. Sørgard,
+L. and Vagstad, S. on behalf of the Ministry of Government Administration, Reform and Church Affairs, pages
+72-73.https://www.regjeringen.no/globalassets/upload/fad/vedlegg/konkurransepolitikk/kjopermakt.pdf
+31
+
+17
+
+the income statement in the context of how much capital is employed in the activities that generate
+this result. The profit is taken from the income statement, while the capital employedis estimated on
+the basis of the balance sheet.
+The Norwegian Competition Authority uses two margin measures – gross margin and operating
+margin – and one return measure – return on net operating assets (RNOA) – to analyse profitability in
+the Norwegian grocery market. These three profitability measures focus on the profitability of
+operations in isolation. It is this operation-related profitability that will mainly be relevant to grocery
+prices and that can help to shed light on the degree of competition in the market.
+3.2.1
+
+Margins
+
+The following is a more detailed description of the two margin measures used by the Norwegian
+Competition Authority in the survey, including how these are calculated and what information they
+provide.
+3.2.1.1 Gross margin
+The gross margin is defined by the difference between the purchase price and the selling price. When
+total costs of goods are deducted from total sales revenues, one is left with a gross profit. The gross
+profit shall cover other operating costs, for example related to salaries, manufacturing, distribution,
+administration, etc., as well as costs related to the financing of the operating assets, including profits
+to the owners.
+The gross margin is defined as the gross profit's share of sales revenue, and is stated as a percentage.
+Gross profit = Sale revenues − Cost of goods
+Gross margin =
+
+Gross profit
+× 100%
+Sales revenues
+
+(1)
+
+(2)
+
+The Norwegian Competition Authority calculates gross margins to analyse how revenues from sales
+to consumers are distributed between different levels in the value chain. When gross margins are
+analysed over time, they can provide indications of where in the value chain price increases have
+occurred. If one observes that prices to consumers have increased, but that the gross margin at one
+level in the value chain has decreased, this suggests that the main reason for the price increases lies
+in this level.
+As stated in chapter 2.4, the period 2020 to 2022 was characterised by the coronavirus pandemic,
+increased electricity prices, the war in Ukraine, general inflation and price increases for groceries.
+Developments in gross margins for this period may provide indications of where in the value chain
+price increases originate, and when and how price increases affect different levels of the value chain.
+However, it is emphasised that observed changes in gross margins should not be interpreted causally
+without further analysis, as there will be several factors that may affect the size of the gross margins
+at any given time. Among other things, the companies' gross margins may be affected by a number of
+factors at their own level in the value chain, and by factors at other levels in the value chain, including
+changes in costs, regulations, market power, etc.
+When calculating gross margins at the enterprise level, all of the company's products are treated
+together. Consequently, there may be differences across product categories in the company's
+assortment that are not reflected in the calculations. In parallel with the survey of profitability at the
+enterprise level, the Norwegian Competition Authority is therefore conducting a survey of margins at
+product level. This mapping will provide more detailed information about the relationship between
+18
+
+price and cost increases for different products and product groups, as well as how cost increases are
+affected across the value chain over time.
+3.2.1.2 Operating margin
+The operating margin is defined by the difference between operating revenues and operating costs.
+When total operating costs are deducted from total operating revenues, one is left with an operating
+profit. Over time, the operating profit must be large enough to cover costs related to financing the
+operating assets, i.e. interest on debt, as well as the opportunity cost related to equity. If the operating
+profit over time is significantly higher than what is necessary to cover these costs, it is an indication
+that the operating profit are super-profits. Substantial super-profits can be interpreted as an
+indication of weakened competition. 33
+The operating margin is defined as the operating profit's share of operating revenues, and is stated as
+a percentage.
+Operating profit = Total operating revenues − Total operating costs
+Operating margin =
+
+Operating profit
+× 100%
+Operating revenues
+
+(3)
+
+(4)
+
+While developments in gross margins provide information about where in the value chain price
+increases have occurred, developments in operating margins will provide indications of whether it is
+increased costs or increased profitability that are driving price increases at each individual level in the
+value chain. If the operating margin increases, it means that the total operating revenues have
+increased relative to the total operating costs, i.e. costs of goods, salaries, rent, marketing, etc. If the
+operating margin falls, the opposite has been the case.
+As for gross margins, it is emphasised that observed changes in operating margins should not be
+interpreted causally without further analysis, as there will be several factors that may affect the size
+of the operating margins at any given time. Among other things, operating margins may be affected
+by fluctuations in demand, cost changes, strategic adjustments in operations, 34 changes in market
+power, etc.
+The Norwegian Competition Authority has made a number of adjustments to the calculation of
+operating profit in order to arrive at a socio-economically relevant result for ordinary operations:
+•
+
+Any non-immaterial, unusual income or costs 35 are excluded from operating revenues
+and operating costs when calculating operating profit. This is because these entries
+are not considered to be representative of the underlying operations of the
+companies.
+
+Note that super-profit can only be estimated through the calculation of return measurements, where a
+relevant return measurement is seen in the context of a relevant required rate of return. Margin measures
+cannot normally be used to measure super-profits.
+34
+For example, a company may make strategic adjustments that change the ratio of labour to capital as input
+factors in operations, which in turn can lead to fluctuations in operating margins.
+35
+In this context, "non-insignificant" refers to entries that account for more than 0.5% of the year's turnover. In
+this context, "unusual" means non-recurring entries that are not or to a small extent related to the operation of
+the company, such as gains/losses on the sale of property, subsidiaries, etc.
+33
+
+19
+
+•
+
+Any profit from associated activities is not included in the adjusted operating profit,
+because in this context it is not considered to be part of the relevant operations. 36
+
+•
+
+Depreciation and amortization related to goodwill in the balance sheet are defined
+here as non-operating costs and are therefore not included in adjusted operating
+profit. Goodwill, a balance sheet entry, arises as a result of acquisitions, presumably
+valued at future earnings value. Since the purpose of the analysis is to measure the
+return on net operating assets itself, regardless of the company's acquisition history,
+depreciation and amortization on surplus value from acquisitions are excluded.
+
+•
+
+Depreciation and amortization related to trademarks in the balance sheet are also
+defined as non-operating costs, with the same justification as depreciation and
+amortization related to goodwill. Consequently, these costs are not included in the
+adjusted operating profit. 37
+
+•
+
+The Norwegian Competition Authority has also asked the companies that keep
+accounts in accordance with the international accounting standard IFRS to reverse
+changes in the accounting of leases as a result of the introduction of IFRS16 as of
+2019. 38 This adjustment is necessary, among other things, in order to be able to
+compare the years before 2019 with the years after 2019. The adjustment is also
+important because right-of-use assets under IFRS16 do not represent actual restricted
+capital for the companies.
+
+•
+
+Depreciation related to land, buildings and other real property in the balance sheet is
+adjusted upwards according to Statistics Norway's construction cost index.
+Depreciation related to other fixed assets is adjusted upwards according to core
+inflation. This has been done so that depreciation costs reflect the value of the
+tangible fixed assets given the current value rather than historical cost. In this way,
+one avoids measuring profitability, which in reality is inflation or increases in the value
+of commercial property, etc. The adjustments are described in more detail in Chapter
+3.2.2.3.1 and in Appendix B.
+
+The reason for these adjustments is that the Norwegian Competition Authority wants to measure the
+underlying profitability of operations, regardless of unusual events during the period (entry 1),
+regardless of the results of other companies in which the relevant company has holdings (entry 2),
+regardless of accounting effects related to previous mergers and acquisitions (entries 3 and 4) and
+based on actual operating lease costs (entry 5). In order to ensure that operating profit does not
+include profitability related to increases in the value of commercial property, machinery and the like,
+these unit values, with associated depreciation, are adjusted upwards to better reflect the current
+asset value (entry 6).
+Operating margins provide information on the proportion of revenue that is converted into operating
+profit through operating activities. Operating margins, on the other hand, do not provide information
+This is income from investments in companies other than the company that is analysed. The fact that these
+revenues are excluded here is consistent with the fact that the associated balance sheet entry is classified as a
+financial asset when the Norwegian Competition Authority calculates returns.
+37
+If the method is applied precisely, depreciation and amortization related to other acquired intangible assets
+shall also be excluded from the calculations. For companies where the balance sheet entries development and
+licences, licences, patents and similar rights have a material impact on results, the Norwegian Competition
+Authority has split up these entries to identify the values associated with other acquired intangible assets. In all
+cases where this was followed up, the values in question have been of such minor importance that this is not
+adjusted for in the analyses.
+38
+This means that the book value of right-of-use assets and leasing liabilities is removed from the balance sheet,
+and any difference is recognised against equity. Depreciation and interest on leases are removed from the
+income statement, and actual rental costs are expensed as operating costs on a separate line.
+36
+
+20
+
+about how large the operating profit is in relation to the capital employed in operating activities. This
+is what one often thinks of as profitability, i.e. the return the company gets on the capital it has
+invested. In the following, a description is given of the Norwegian Competition Authority's method for
+calculating the return on net operating assets.
+3.2.2
+
+Return on net operating assets
+
+A return measure, also called a profitability measure, is a measure of how profitable it is to have capital
+employed in a company. In many contexts, simple measures of return such as return on total capital
+and return on equity are used to say something about the profitability of a market. However, these
+two measures are not very suitable to say anything about profitability and competition in the
+production and sale of groceries in Norway, for the following reasons, among others:
+•
+
+When calculating return on total capital and return on equity, no distinction is made
+between operation-related profitability (relevant for grocery prices) and financial
+profitability (not relevant for grocery prices).
+
+•
+
+Return on total capital and return on equity do not distinguish between assets that
+are necessary for operations and assets that are surplus value from acquisitions.
+
+•
+
+Return on total capital does not consider the fact that operation-related debt, such
+as purchases of goods on credit, exempts companies from having to tie up capital in
+parts of their operations.
+
+Following an overall assessment, the Norwegian Competition Authority has concluded that the return
+on net operating assets (RNOA) 39 is a better and more relevant return measure for assessing whether
+profitability is significantly higher than one would expect to find in a market with fierce competition.
+Simply explained, RNOA is a measure of how much a company earns from operations (operating profit)
+relative to how much capital is employed in operations (net operating assets). The following factors
+have contributed to the Norwegian Competition Authority's assessment of RNOA as a suitable
+measure of profitability in the grocery market:
+•
+
+RNOA distinguishes profitability related to operation-related activities from
+profitability related to financial activities. 40 This is a necessary distinction because the
+companies' financial activities do not have an impact on grocery prices to consumers.
+Consequently, the return on financial activities is not relevant in this context, which
+RNOA takes into account.
+
+•
+
+RNOA also takes into account that parts of the operation may be financed with
+operation-related debt, in a way that does not employ capital. For example, goods
+can be purchased on credit. The proceeds from the sale can then be used to service
+the credit debt, without the company itself having to tie up capital in the inventory.
+Several of the participants in the grocery market finance a significant share of their
+operating assets with various forms of operating current liability. It is therefore
+important to use a return measure in this market that takes into account that
+operation-related debt is not to be regarded as capital employed. 41
+
+Return on Net Operating Assets.
+Feltham & Ohlson (1995), Valuation and Clean Surpluss Accounting for Operating and Financial Activities (link)
+and Nissim & Penman (2001), Ratio Analysis and Equity Valuation: From research to Practice (link).
+41
+See also Nissim & Penman (2001) p. 117: «An additional driver of RNOA involves operating liabilities. Clearly
+the netting out of operating liabilities in the calculation of NOA increases RNOA through a denominator effect,
+and appropriately so: to the extent that a firm has "non-interest" credit from payables (for example) it levers up
+its RNOA.» (…) «Suppliers who advance the payables reduce the net investment required to run the operations
+and so lever up the operating profitability, but suppliers presumably charge implicitly for the credit in terms of
+higher prices.» (link)
+39
+40
+
+21
+
+•
+
+In the literature, RNOA is considered a better way to calculate the return on
+operations than other metrics. See, for example, Nissim & Penman (2003). 42
+
+•
+
+RNOA is closely related to the Return on Capital Employed (ROCE) profitability
+measurement. The UK Competition Authority (CMA) 43 uses ROCE as a measure of
+profitability in market investigations. The CMA has, among other things, carried out
+profitability analyses in the UK markets for gas and electricity 44 and in the UK market
+for funeral services. 45 The definition of the CMA's ROCE and the Norwegian
+Competition Authority's RNOA coincide in cases where the CMA limits the relevant
+activity in its analyses to include only operations. 46 Consequently, the principles that
+form the basis of the CMA's profitability studies will essentially also apply in the
+Norwegian Competition Authority's methodology.
+
+The next sub-chapters describe the Norwegian Competition Authority's method for measuring the
+return on operations, provided by RNOA. Chapter 3.2.2.1 gives an overall description of RNOA.
+Chapter 3.2.2.2 gives a brief description of how the Norwegian Competition Authority has considered
+the adjusted operating profit that is included in the numerator when calculating RNOA. Chapter
+3.2.2.3, with associated appendices, provides a more detailed account of how the Norwegian
+Competition Authority has proceeded to calculate the tied-up capital in operations, given in the case
+of net operating assets. In chapter 3.2.2.4, with associated appendices, an account is given of how the
+Norwegian Competition Authority has proceeded to estimate the required rate of return, which is the
+size against which the return must be measured when assessing operating profitability.
+3.2.2.1 RNOA - Definition
+RNOA measures the underlying profitability of operations.
+
+RNOA =
+
+Operating profit × (1 − effective tax rate)
+× 100%
+Net Operating Assets
+
+(5)
+
+As can be seen from the formula, RNOA is defined as a fraction, with operating profit in numerator
+and the company's capital employed in operations, in denominator. In this survey, the Norwegian
+Competition Authority calculates RNOA after tax, so that the return can be compared with an
+estimated required rate of return after tax, described in more detail in Chapter 3.2.2.4 and Appendix
+C. Figure 11 illustrates how RNOA is calculated.
+
+See page 534: Nissim, D., & Penman, S. H. (2003). Financial statement analysis of leverage and how it informs
+about profitability and price-to-book ratios. Review of accounting studies, 8, 531-560.
+43
+Competition and Markets Authority.
+44
+CMA's market investigation in the gas and electric power markets: Report (link). Methodology note on
+profitability analyses (link). Application of methods and results (link).
+45
+CMA's market investigation in the funeral market: Report (link). Method note on profitability analyses (link).
+Application of method and results (link).
+46
+Reference is made, inter alia, to footnote 22 in Appendix Q to the final report from the CMA's market
+investigation in the funeral market, which equates capital employed (CE) according to the CMA's delimitation of
+relevant activities with net operating assets (NOA), and thus also between ROCE and RNOA.
+42
+
+22
+
+Figur 11
+
+Illustration: RNOA is defined as operating profit after tax over the company's
+capital employed in operations, given by net operating assets (NOA). The
+return measured by RNOA is stated as a percentage.
+
+In the next two sub-chapters, a brief description is first given of how the Norwegian Competition
+Authority has calculated the operating profit after tax (the numerator of the fraction), and then a more
+comprehensive description of how the Norwegian Competition Authority has proceeded to calculate
+the employed capital in operations (the denominator of the fraction).
+3.2.2.2 RNOA - Numerator: Operating profit after tax
+The operating profit included in the numerator in the calculation of RNOA is defined in the same way
+as in the calculation of the operating margin, and which is explained above. For a more detailed
+description of the adjustments that have been made to arrive at the relevant operating profit, see
+sub-chapter 3.2.1.2 above.
+In order to be able to compare the return and the required rate of return, the Norwegian Competition
+Authority adjusts the operating profit from profit before tax to profit after tax. In principle, it is the
+effective tax rate for operations that is to be used as a basis for the transition from operating profit
+before tax to operating profit after tax. Since the effective tax rate for operations cannot be observed
+in isolation, the Norwegian Competition Authority uses the nominal tax rate for businesses as a basis
+for the transition from pre-tax to post-tax.
+Tabell 1
+
+Nominal tax rate for businesses for the years 2017 to 2022. 47
+
+Nominal tax rate for businesses
+
+2017
+
+2018
+
+2019
+
+2020
+
+2021
+
+2022
+
+24%
+
+23%
+
+22%
+
+22%
+
+22%
+
+22%
+
+2022: Tax rates 2022 - regjeringen.no 2021: Tax rates 2021 - regjeringen.no 2020: Tax rates 2020 regjeringen.no 2019: Tax rates 2019 - regjeringen.no 2018: Tax rates 2018 - regjeringen.no 2017: Tax rates 2017
+- regjeringen.no
+47
+
+23
+
+3.2.2.3 RNOA - Denominator: Net operating assets
+Net operating assets (NOA) 48 is a measure of how much capital a company hasemployed in its
+operations. NOA is defined as the company's operating assets (OA), 49 i.e. the assets needed to
+generate the operating profit, minus the company's operating current liabilities (OL). 50 Examples of
+operation-related assets are farm buildings, machinery, inventories or accounts receivable. Examples
+of operating current liabilities are accounts payable, taxes and duties owed, or provisions for salaries.
+NOA = OA − OL
+
+(6)
+
+OA = operating assets
+OL = operating current liabilities
+
+The Norwegian Competition Authority's method for estimating NOA consists of the following three
+steps:
+•
+
+Valuation: The Norwegian Competition Authority adjusts balance sheet values where
+necessary, so that asset values included in NOA, as far as possible, reflect the
+replacement cost of the assets today. 51
+
+•
+
+Operating assets: The Norwegian Competition Authority then separates the
+operating assets (OA) from the financial assets (FA) 52 on the asset side of the balance
+sheet. Only the operation-related assets are relevant when calculating NOA.
+
+•
+
+Financing of operations: The operating assets can be financed either with equity and
+debt capital, or with operating current liability (OL). The latter form of financing is not
+capital employed for the company and should therefore not be included in NOA.
+
+After these three steps have been completed, the operating current liability is deducted from the
+operating assets to arrive at an estimate of the part of the operation that the company has had to
+finance with debt capital or equity. This is the relevant employed capital in operations, provided by
+NOA.
+In the following, a short, general description of each of these steps is given. For a detailed review of
+the Norwegian Competition Authority's assessments relating to the classification and possible value
+adjustment of each balance sheet entry, reference is made to Appendix A (classification) and Appendix
+B (valuation).
+3.2.2.3.1 Asset valuation
+Assets included in the calculation of NOA shall be valued in a manner that, as far as possible, reflects
+the value of the asset at the time of measurement, given by the replacement cost of the assets. 53
+The Norwegian Competition Authority has reviewed the assets side of the balance sheet and assessed
+whether book values could deviate significantly from the replacement cost of the assets. The
+Net Operating Assets.
+Operating Assets.
+50
+Operating Current Liabilities.
+51
+In this context, replacement cost refers to the cost of replacing the asset's function in the current market,
+adjusted for the remaining economic life. For a more detailed description of the Norwegian Competition
+Authority's approach to valuation, reference is made to Appendix B.
+52
+Financial Assets.
+53
+For more information on the principles of valuation, see Appendix C.
+48
+49
+
+24
+
+Norwegian Competition Authority finds that the book values of the tangible fixed assets do not
+sufficiently reflect the replacement cost of these assets.
+Key fixed assets for the actors in this study are:
+•
+
+Land, buildings and other real property.
+
+•
+
+Machines and facilities.
+
+•
+
+Movable property, inventory, tools, office machines and the like.
+
+These assets are booked at historical cost minus depreciation and amortisation. In other words, the
+book value is calculated based on what the company paid for these assets when they were purchased.
+Due to their long economic life, there is a significant risk that these assets were acquired at a price
+that was significantly different from the current prices for the same type of assets at the time of
+measurement. For example, the prices of real estate have increased significantly in recent decades.
+To assume a book value that is based on acquisition costs from several years ago therefore does not
+give a good picture of the replacement cost of the tangible fixed assets as of today.
+On this basis, the Norwegian Competition Authority has made the following adjustments to the value
+of the fixed assets.
+•
+
+Book values related to land, buildings and other real property are adjusted upwards
+according to Statistics Norway's construction cost index. Depreciation related to
+these assets is adjusted upwards by a factor corresponding to the balance sheet entry,
+as described in Chapter 3.2.1.2.
+
+•
+
+Book values for other fixed assets are inflation-adjusted according to core inflation
+(CPI-ATE). For any procurements that go back further than 2002, developments in the
+CPI-AE inflation target are used up to December 2002, after which core inflation is
+used. Depreciation related to these assets is adjusted upwards by the corresponding
+factor as the balance sheet entries, as described in Chapter 3.2.1.2.
+
+In connection with the adjustments, the Norwegian Competition Authority has calculated the average
+age of land, buildings and other real property and of other tangible fixed assets 54 based on the
+depreciation information that appears in the notes to the companies' public accounts. In the
+Norwegian Competition Authority's calculations, the average age is given by the following fraction:
+
+Average age =
+
+Accumulated depreciation
+Depreciation for the year
+
+(7)
+
+For a more detailed description of the Norwegian Competition Authority's assessments relating to the
+valuation of the operation-related assets included in NOA, see Appendix B.
+3.2.2.3.2 Operating assets
+As described above, when estimating NOA, it is necessary to separate operating assets (OA) from
+financial assets (FA) in the balance sheet.
+
+54
+
+Excluded facility under construction.
+25
+
+Figur 12
+
+Illustration: Operating assets (OA) are distinguished from financial assets
+(FAs).
+
+Operating assets are defined as the assets needed to generate the operating profit. Examples of
+operating related assets in the production and sale of groceries are land, buildings, machinery,
+inventory, office machinery, IT systems, goods in warehouse and accounts receivable. The participants
+included in the survey have been asked to specify which assets from the balance sheet are operational.
+Non-operating assets are classified as financial assets. These assets can be described as capital
+investments, and have no role in the actual operation. This is also reflected in the income statement,
+in that income and costs related to these capital investments are generally recognised according to
+operating profit. Examples of financial assets can be shares, bonds, or surplus liquidity, either in the
+form of bank deposits, cash, etc., or in the form of intra-group receivables linked to a possible group
+account arrangement. In the Norwegian Competition Authority's analyses, certain added values from
+acquisitions (goodwill and purchased trademarks) and investments in associated companies are also
+classified as financial assets. Common to the financial assets is that the underlying profitability of
+operations, represented by the adjusted operating profit, would be largely unaffected if these assets
+were to be eliminated.
+For reasons of solvency, it may be beneficial to have some invested capital in financial assets in a
+company, on the side of operations. Nevertheless, financial assets must be excluded from the analysis
+of profitability in the grocery trade. This is because the companies are free to invest these funds
+outside of operations, and thus obtain a financial return. Consequently, no part of the operating profit
+is necessary to cover the opportunity cost of the company's currently capital employed in financial
+assets. Therefore, the financial assets should not be regarded as restricted capital in this context.
+It should be noted that certain balance sheet entries that would have been regarded as operationrelated if the companies were to assess the profitability associated with their own acquisition activities
+are considered financial when the Norwegian Competition Authority measures the profitability of
+operations in isolation. Without these adjustments, for example, two identical companies, both of
+which have market power and extract super profits from their operations, could appear with different
+profitability because one of the company's owners paid a high price when he bought this company. 55
+For a complete review of the Norwegian Competition Authority's assessments of which entries and
+sub-entries on the asset side of the balance sheet are operation-related, and which balance sheet
+entries are financial, reference is made to Appendix A.
+3.2.2.3.3 Operating liabilities
+Once one has isolated the operating assets on the asset side of the balance sheet, and valued these
+at replacement cost, the next step is to assess how the operations are financed.
+If the market power of this company were to disappear as a result of increased competitive pressure, one
+would expect the owners to treat the parts of the purchase price that were linked to expectations of future
+super profits as a so-called "sunk cost". The owners will thus have to adapt as best as possible to the actual
+market conditions, regardless of what they originally paid for the prospect of higher profits.
+55
+
+26
+
+Figur 13
+
+Illustration: Operating assets (OA) can be financed either with equity and
+debt capital, or with operating current liability (OL). The latter form of
+financing shall not be regarded as restricted capital for the company.
+
+Operating assets can be financed either with equity and loan capital, or with operating current liability
+(OL).
+Equity and debt capital are forms of financing that tie up capital for the company. This means that
+these forms of financing take up funds that the company could invest elsewhere and get a return on.
+The loss of this alternative return is called the opportunity cost. Because these forms of financing have
+an opportunity cost, there is also a required rate of return attached to this financing – the operating
+profit must over time be large enough to cover the total opportunity cost of equity and debt capital.
+The operation current liability, on the other hand, is serviced continuously through operations. This
+means that costs associated with servicing this liability have already been paid when the operating
+profit is included in the income statement. Thus, no part of the operating profit is necessary to cover
+costs related to the operating current liability. Consequently, no required rate of return shall be
+attached to this part of the companies' financing, nor shall it be regarded as restricted capital when
+calculating the return on operations.
+An example of financing with operating current liabilities is accounts payable. Trade payables arise in
+the balance sheet when companies buy goods on credit, i.e. receive the goods today, but pay for them
+later. The payment deferral means that the income from the sale can be used to pay for the entry,
+without the company having to employ capital in the inventory. 56 Purchases of goods are typically
+repeated consecutively, so that at any given time there is a share of operations that is financed by
+accounts payable. Trade payables, and other forms of operation-related debt, must be excluded when
+assessing how much a company's capital employed in its operations.
+NOA is defined as the total operating assets, minus the total operating liabilities. NOA thus represents
+the proportion of working capital that the company has had to finance with either equity or debt
+capital, i.e. the capital employed in operations.
+The assessments that form the basis for the Norwegian Competition Authority's classification of
+liabilities as operating liabilities are described in more detail in Appendix A.
+3.2.2.4 The required rate of return
+When interpreting the results of RNOA calculations, it is important to take into account that working
+capital has an opportunity cost, and that the operating profit over time must be large enough to cover
+The disadvantage that the payment deferral entails for the supplier is assumed to be priced into the cost of
+goods when goods are purchased on credit, so that this is also taken into account in the operating profit. See,
+for example, Nissim & Penman (2001), p. 117: «Suppliers who advance the payables reduce the net investment
+required to run the operations and so lever up the operating profitability, but suppliers presumably charge
+implicitly for the credit in terms of higher prices.» (link)
+56
+
+27
+
+this cost in order for continued operation to be profitable. The opportunity cost is defined as the
+return an investor could earn on an alternative investment with the same risk.
+The opportunity cost gives rise to the required rate of return (WACC), 57 defined on the basis of an
+intuition that the return on operations over time must be equal to or higher than the return the
+company could have received if it instead invested the same capital in, for example, an equity portfolio
+with similar risk. If the operating profit over time is too low to cover the opportunity cost, a profitmaximizing company will not be able to justify continued operations. Profitability beyond the required
+rate of return is often called super-profit. Tougher competition makes it more difficult for market
+participants to extract super profits.
+The Norwegian Competition Authority has estimated the following values for the required rate of
+return after tax for the three different levels in the value chain throughout the period. The estimates
+are rounded to the nearest half percentage point. For a detailed description of the Norwegian
+Competition Authority's method for estimating the required rate of return after tax, see Appendix C.
+Tabell 2
+
+Estimated WACC after tax for the supplier, wholesaler and retail sector for
+the period 2017 to 2022. 58
+2017
+
+2018
+
+2019
+
+2020
+
+2021
+
+2022
+
+Supplier
+
+5.5%
+
+6.0%
+
+5.5%
+
+5.0%
+
+6.0%
+
+7.5%
+
+Wholesaler
+
+5.0%
+
+5.5%
+
+5.0%
+
+5.0%
+
+5.5%
+
+6.5%
+
+Retailer
+
+5.5%
+
+6.0%
+
+5.5%
+
+4.5%
+
+5.0%
+
+6.5%
+
+3.3
+
+Summary of method
+
+The Norwegian Competition Authority delimits its profitability analyses to the supplier, wholesaler
+and retail levels in the value chain for food in Norway. Furthermore, the Norwegian Competition
+Authority delimits the analyses as far as possible to only include activities related to the sale of
+groceries through shops and online.
+The Norwegian Competition Authority uses three different profitability measures, including two
+margin measurements and a return measurement, to analyse profitability at the supplier, wholesale
+and retail levels in the Norwegian grocery market.
+The Norwegian Competition Authority calculates gross margins to analyse how revenues from the sale
+of groceries to consumers are distributed throughout the value chain. Furthermore, the Norwegian
+Competition Authority calculates operating margins to analyse how revenues and operating costs
+have developed in relation to each other during the period.
+
+Weighted Average Cost of Capital.
+The Norwegian Competition Authority's estimated required rate of return for the period 2017 to 2022 may
+seem somewhat low in light of similar performance indicators as of 2024. It is worth recalling that the policy rate
+in Norway as of March 2024 is 4.5 percent, while the policy rate in the period 2017 to 2021 was between 0 and
+1.5 percent. For large parts of the period under analysis, the policy rate was equal to or lower than 0.5
+percentage point. Through 2022, the policy rate increased from 0.5 per cent to 2.75 per cent. This
+macroeconomic development is also reflected in the Norwegian Competition Authority's estimated required
+rate of return, in that the required rate of return for 2022 is somewhat higher than in the previous year.
+57
+58
+
+28
+
+The Norwegian Competition Authority calculates the RNOA return measurement to analyse the return
+on operating assets. Seen in the context of an estimated required rate of return, RNOA is well suited
+to assess whether profitability in the market has been significantly higher than one would expect to
+find in a market with fierce competition.
+The Norwegian Competition Authority's method for calculating return and required rate of return is
+based on a number of specific assessments that are described in several appendices. When calculating
+returns, there will always be some uncertainty associated with the size of the employed capital.
+Therefore, only significant deviations between the estimated return and the estimated required rate
+of return are further interpreted as an indication of significant super-profits in operations.
+
+4
+
+Data basis
+
+On 22 September 2023, the Norwegian Competition Authority requested information to 16 suppliers
+from 11 companies/groups 59, as well as to the grocery chains Norgesgruppen, Coop and Rema. The 16
+suppliers were selected based on their size, as well as which suppliers the Norwegian Competition
+Authority has previously obtained data from for calculations of differences in purchase prices. 60 In the
+request for information, the companies were asked to submit annual revised income statements and
+balance sheets for their business related to groceries in Norway for the period 2017 to 2022.
+The Norwegian Competition Authority issued the following guidelines for the preparation of income
+statements and balance sheets to ensure the best possible data basis for the analysis of profitability
+at the enterprise level:
+•
+
+Income statements and balance sheets are limited to include only those parts of the
+company's or group's activities that are aimed at the grocery trade in Norway, here
+defined as sales of groceries in stores and online. The sales channels kiosk and petrol
+station (KBS) and institutional households (SHH) are excluded from the analysis as far
+as possible.61
+
+•
+
+Income statements and balance sheets for the limited activities are prepared in
+accordance with the template from the Accounting Act, so that:
+
+•
+
+a.
+
+Income statements are entered up to and including operating profit in
+accordance with the presentation plan from the Accounting Act. Unusual
+income and costs are separated into separate entries, and a request is made
+to specify certain sub-entries under other operating costs, depreciation and
+amortisation.
+
+b.
+
+Balance sheets are prepared in accordance with the presentation plan from
+the Accounting Act. Trademarks are separated out as a separate entry in the
+balance sheet under intangible assets, and all equity is gathered in one entry.
+
+Income statements and balance sheet statements that are maintained in accordance
+with the International Financial Reporting Standard (IFRS) 62 are restated so that
+changes in the accounting of leases pursuant to IFRS 16 are not made applicable for
+the years 2019-2022. 63 This is necessary in order to be able to compare the years
+before 2019 with the years after 2019. The adjustment is also necessary to ensure
+
+Nortura (Gilde and Prior), Tine, Orkla (Orkla Foods Norway, Orkla Confectionery & Snacks Norway, Orkla
+Health and Orkla Home and Personal Care), Ringnes, Mills, Maarud, Kavli (incl. Q-meieriene), Scandza
+(Sørlandschips and Synnøve Finden), Lerum, Coca-Cola and Mondelez.
+60
+Mindre forskjeller i dagligvarekjedenes innkjøpspriser - Konkurransetilsynet
+61
+For some companies, it has not been possible to distinguish sales to the grocery trade from sales to KBS and
+SHH.
+62
+International Financial Reporting Standard.
+63
+For further information, see Appendix A.
+59
+
+29
+
+that the data basis after 2019 provides an accurate picture of how much the
+companies have capital employed in their operations.
+•
+
+Leases between operating companies and real estate companies in the same
+corporate group are handled in the same way as other leases, in that the rental cost
+is entered directly in the income statement, and that the properties in question are
+excluded from the balance sheet.
+
+•
+
+Any effects of currency hedging on purchases of goods, i.e. gains or losses in relation
+to the exchange rate on the day of purchase, should preferably be regarded as
+financial income/costs, and thus not included in the operating profit. 64 This is to
+ensure that, as far as possible, the cost of goods reflects the actual market prices
+associated with the goods in question at the time of purchase.
+
+Where deemed necessary, the Norwegian Competition Authority has asked the participants to submit
+further specifications of what is included in the balance sheet entries: other current liabilities, other
+receivables, development and licences, patents, licences, etc. For further information on the splitting
+of these entries, see Appendix A.
+Following the order, the Norwegian Competition Authority has also obtained information on the
+insurance values of the assets included in the balance sheet entries land , buildings and other real
+property and machinery and facilities from certain companies. These data are used in sensitivity
+analyses related to the value of fixed assets.
+It has been necessary to make adjustments to individual companies to ensure a good data basis. The
+Norwegian Competition Authority has received profit statements and balance sheets from 14 of the
+16 suppliers who received information orders, and from all three grocery chains. For some of the
+suppliers in the sample, specific conditions in the business mean that the data do not give a correct
+picture of the profitability of operations. The Norwegian Competition Authority therefore bases the
+profitability calculations for the supplier level on data from eight of the suppliers, and the results from
+these eight suppliers are presented together in the following.
+
+5
+
+Results
+
+This chapter describes the results of the Norwegian Competition Authority's analyses of margins and
+profitability at the enterprise level in the grocery market in Norway. The Norwegian Competition
+Authority has applied the method described in Chapter 3 on the data basis described in Chapter 4 to
+arrive at the results.
+The Norwegian Competition Authority has collected various types of non-public data in order to carry
+out the calculations. The profitability analyses are therefore presented in such a way that trade secrets
+are not revealed.
+
+5.1
+
+Suppliers' profitability
+
+5.1.1
+
+Gross margins
+
+Gross margins provide insight into how revenue from sales to consumers is distributed throughout
+the value chain. By following gross margins over time, one can obtain information about where in the
+
+For some participants, it has not been possible to extract the effect of currency hedging from the total cost of
+goods.
+
+64
+
+30
+
+value chain any price increases have occurred. 65 Figure 14 shows gross margins for eight suppliers in
+the grocery market for each of the years 2017 to 2022. 66
+
+Figur 14
+
+Weighted and leveraged average gross margin for eight suppliers
+through the years 2017 through 2022. Green markers show the
+gross margins of the individual suppliers included in the sample.
+
+The Norwegian Competition Authority has the following overall assessments related to the analyses
+of gross margins at the supplier level.
+Significant variation in gross margins across suppliers
+• The absolute level of gross margins varies significantly across suppliers, between 30 and 65
+percent. A gross margin in the order of 50 per cent means that about half of the purchase
+prices of the grocery chains can be explained by costs and profitability at the supplier level.
+In other words, suppliers are important for price formation in their product categories.
+• Variation between suppliers is to be expected, as gross margins will typically vary both with
+the degree of processing that takes place at the supplier level, and with the prices of the
+raw materials used in production. For example, a supplier who purchases semi-finished
+products will tend to have lower gross margins than a supplier who buys raw materials
+directly from the primary producer in order to produce a similar product from scratch.
+• At the same time, some of the variation observed in gross margins may also be due to
+differences in market power.
+Stable average gross margins throughout the period
+• The Norwegian Competition Authority finds that the average gross margins for the sample
+have been relatively stable throughout the period.
+For a more detailed description of gross margins and how these are calculated, see chapter 3.2.1.1.
+The solid line shows the revenue-weighted average gross margin for the sample, where larger companies have
+a greater impact on the average than smaller companies. The dotted line shows the leverage average gross
+margin, with each supplier having an equal impact on the average, regardless of size.
+
+65
+66
+
+31
+
+• Clearly falling gross margins across the range could have been an indication that price
+increases from suppliers were mainly driven by higher raw material prices. Clearly
+increasing gross margins across the range could have been an indication that price
+increases could be traced to a greater extent to increased processing costs or increased
+profitability at the supplier level.
+• Stable average gross margins throughout the period, even when producer prices increase
+significantly in 2022, are an indication that price increases from supplier to wholesaler can
+be traced both to changes in costs or profitability at the supplier level, and to price changes
+at earlier stages of the value chain.
+5.1.2
+
+Operating margins
+
+Operating margins are defined as the operating profit's share of operating revenues. The operating
+margins provide information on the share of operating revenues that are used to cover operating
+costs, and how much remains as operating profit. 67
+In Figure 15 Operating margins are presented for eight suppliers for each of the years 2017 to 2022. 68
+
+Figur 15
+
+Weighted and leverage operating margin for eight suppliers for
+the years 2017 to 2022. Blue markers show the operating margins
+of the individual suppliers included in the sample.
+
+The Norwegian Competition Authority has the following overall assessments related to the analyses
+of operating margins at the supplier level.
+
+For a more detailed description of operating margins and how these are calculated, see Chapter 3.2.1.2.
+The solid line shows the revenue-weighted average operating margin for the sample, where larger companies
+have a greater impact on the average than smaller companies. The dotted line shows the leverage average
+operating margin, with each supplier having an equal impact on the average, regardless of size.
+
+67
+68
+
+32
+
+Significant variation in operating margins between different suppliers
+• It is evident from the Figure 15 that the operating margins vary considerably between the
+suppliers in the sample, from about 5 to about 20 per cent.
+• Higher operating margins do not mean higher profitability, as the operating margin is
+expected to vary with the capital intensity of production. The more capital employed in
+operations, the higher the operating profit needed to justify the investment.
+• As the suppliers operate in different product markets, it is natural that there is variation in
+the ratio between employed capital and turnover from company to company. Risk in
+operations can also vary between the companies. This means that some suppliers need a
+higher operating margin to cover their capital costs than others.
+• At the same time, it cannot be ruled out that some of the variation observed in operating
+margins is also driven by differences in market power.
+Higher operating margins during the pandemic
+• Average operating margins for the suppliers in the samlpe, both weighted by turnover and
+unweighted, were higher during the pandemic than in other years in the surveyed period.
+Higher operating margins during the pandemic mean that a larger share of the purchase
+prices to the wholesale level ended up as operating profit for suppliers, i.e. that revenues
+increased more than costs at this level.
+• In 2022, average operating margins fell back to a similar level as before the pandemic.
+• Higher operating margins do not necessarily mean that suppliers actively took advantage
+of the pandemic to increase their profitability. As a consequence of restaurants and
+canteens having to close down during the pandemic, demand for groceries in stores
+increased. The pandemic thus led to a positive demand shock in the market for groceries.
+• In the short term, it is expected that a positive demand shock will lead to increased
+profitability for suppliers in the market, by spreading the fixed costs69 over a larger sales
+volume, thus reducing unit costs. 70 This can increase profitability for suppliers in the market
+without increasing consumer prices. A positive demand shock can also lead to increased
+profitability through a price effect, where prices in the market increase.
+Operating margins do not take into account the fact that some companies have a higher opportunity
+cost associated with working capital than others. In order to distinguish between which parts of the
+operating profit are necessary to cover the opportunity cost of working capital, and which parts of the
+operating profit are super-profit, it is necessary to calculate the return on the company's employed
+capital in operations, given by RNOA.
+5.1.3
+
+Return on the supplier level
+
+RNOA provides information on how much return a company extracts on the capital employed in its
+operations. The return must be seen in the context of the required rate of return, as measured by the
+WACC. Figure 16 shows the estimated RNOA for eight suppliers for each of the years 2017 through
+2022, together with the estimated WACC. 71
+A binary distinction is often made between variable and fixed costs, where variable costs vary with the volume
+produced, while fixed costs are independent of the volume produced. In reality, the classification of a cost entry
+as fixed or variable will depend on the size of the change in volume. The term fixed costs is used here as a
+simplification.
+70
+In business economic terms, it can be said that increased sales volume means that the total contribution
+margin increases relative to the total fixed costs.
+71
+For a more detailed description of RNOA and WACC, and how these are calculated, see chapter 3.2.2.
+69
+
+33
+
+Figur 16
+
+Return on net operating assets for eight suppliers for the years
+2017 through 2022.
+
+The Norwegian Competition Authority has the following overall assessments related to the analyses
+of return on operations at the supplier level.
+The majority of the surveyed suppliers have high profitability in their operations
+• The Norwegian Competition Authority finds that most of the suppliers in the sample have
+a return on their operations that is significantly higher than the estimated required rate of
+return. This applies to all years. Significantly higher here means that the operating profit is
+estimated to be several times greater than what is necessary to cover the working capital's
+opportunity cost, measured by the WACC required rate of return. 72
+• The Norwegian Competition Authority emphasises that there will always be some
+uncertainty in calculations related to the value of net operating assets, which indicates that
+one should be cautious about interpreting minor differences between the rate of return
+and the required rate of return. 73 Nevertheless, it is the Norwegian Competition Authority's
+In a theoretical market with perfect competition, the return on working capital will be expected to be equal
+to the required rate of return, because no one can increase prices to take out super profits without losing
+customers to competitors.
+73
+It is pointed out also that the estimated RNOA for companies with high operating profitability will be somewhat
+more sensitive, measured in percentage points, than the estimated RNOA for companies with lower operating
+profitability. If one keeps the operating profit constant at 1, and expresses RNOA as a function of NOA (RNOA =
+1/NOA), one will find that the sensitivity of RNOA decreases as NOA increases. An imaginary source of error in
+the balance, defined as a given percentage of NOA, will have a stronger impact on RNOA if NOA is small in
+relation to EBIT after tax (for example, 4:1, which gives RNOA equal to 25 per cent), than if NOA is larger in
+relation to EBIT after tax (for example, 10:1, which gives RNOA equal to 10 per cent). When individual actors'
+returns are measured at several times the size of the WACC, One should therefore be aware that for these
+companies there is somewhat greater uncertainty associated with the specific percentage return estimate. At
+the same time, such results will be a clear indication of high profitability in operations. In other words, the
+uncertainty in the estimated return, measured in percentage points, increases the further up the y-axis one gets
+Figure 16.
+72
+
+34
+
+assessment that RNOA several times WACC must be seen as a clear indication of high
+profitability, i.e. that a significant proportion of the operating profit is super profit from
+operations.
+• The results are consistent with weak competition and high barriers to entry in several of
+the product markets at the supplier level.
+Large differences in measured profitability between suppliers
+• The Norwegian Competition Authority finds considerable variation in profitability between
+suppliers.
+• There may be several reasons why two suppliers have different profitability. Among other
+things, it is important to see the results in light of the fact that the supply chain in reality
+consists of a number of different product markets.
+• Differences in profitability may arise as a result of differences in operational efficiency for
+players in the same product market. At the same time, differences in profitability can also
+arise as a result of varying degrees of market power.
+• Suppliers in highly competitive product markets are expected to have low profitability. If
+significant super profits are taken out on a larger share of turnover in a product market
+over time, this can be seen as an indication of weak competition.
+The points above relate to the absolute level of profitability across the sample, i.e. whether
+profitability is generally high or low. In the following, results related to how the profitability of
+suppliers has developed during the period are presented.
+In Figure 17 the Norwegian Competition Authority has normalised the suppliers' RNOA in an index, so
+that the index starts at 100 for each company in 2017. The figure thus shows how the return has
+developed, by stating the return each year as a share of the return measured in 2017. 74
+
+One of the suppliers included in the previous figures, are excluded from Figure 17. This is due to large, atypical
+fluctuations in returns throughout the period. This supplier had a disproportionately large effect on the average
+calculations when RNOA was indexed, so that index figures where this supplier was included gave a nonrepresentative picture of the trends in the sample. Against this background, the Norwegian Competition
+Authority has chosen to exclude this supplier from the calculation of indexed developments in returns.
+
+74
+
+35
+
+Figur 17
+
+Indexed development in return on net operating assets for seven
+suppliers during the period 2017 to 2022.
+
+The Norwegian Competition Authority has the following overall assessments related to how the return
+on the supply chain has developed during the surveyed period.
+Increased profitability in operations during the pandemic
+• The trend across the sample is that profitability increased during the pandemic, i.e. in 2020
+and 2021, relative to the three years before the pandemic.
+• Only one of the seven suppliers in the figure had a lower RNOA in 2020 than in 2017. Two
+of the seven suppliers had a lower RNOA in 2021 than in 2017.
+• On average, suppliers had 35 and 28 per cent higher returns in 2020 and 2021, measured
+against 2017. If suppliers are weighted by turnover, the corresponding data are 21 per cent
+in 2020 and 11 per cent in 2021.
+• Increased demand during the pandemic is believed to be an important underlying reason
+for increased profitability for suppliers. At the same time, it is emphasised that the
+Norwegian Competition Authority has not analysed causal relationships. It cannot
+therefore be ruled out that the development in profitability during the period is also
+influenced by other factors, such as changes in market power in certain product markets,
+or changes in bargaining power between different levels in the value chain.
+Reduced profitability in operations in 2022
+• The trend across the sample is that profitability fell from 2021 to 2022. The leveraged
+average return fell in 2022 to a similar level as in 2017, while the revenue-weighted average
+return fell to a somewhat lower level in 2022 than in 2017.
+• However, this trend should be seen in the context of the results for 2022 in Figure 17, which
+shows that the majority of the suppliers in the sample also had a return on working capital
+that was significantly higher than the required rate of return.
+
+36
+
+Large variation in how profitability has developed across the sample
+• The dispersion in developments in returns is greatest in 2022, and for some suppliers, 2022
+is the year in which the measured return is highest measured against 2017. When the
+return of several suppliers is indexed on the basis of a base year, it is to be expected that
+the spread in index values for different suppliers increases the longer the time that elapses
+from the base year. Furthermore, for individual participants, there may be unusual events
+in the base year 2017 that affect the index values for the following year.
+• At the same time, it cannot be ruled out that individual companies may have had increased
+revenues as a result of the price increases in 2022, without having experienced a
+corresponding increase in operating costs, and thus increased profitability.
+
+5.2
+
+Grocery chains' profitability
+
+While several of the suppliers included in the survey are organised as individual companies, or as fairly
+simple corporate groups, the grocery chains are partly organised in larger and more complicated
+corporate group structures. The three major grocery chains in Norway (Norgesgruppen, Coop and
+Rema) have operations at the wholesale and retail level, and they have their own companies at the
+supplier level that produce parts of the chains' range within their private labels (PL). Consequently,
+the chains' activities are distributed over a number of legal entities, where dividing lines may be
+region, function, profile chain, franchisee versus franchisor, cooperative versus joint organisation, etc.
+The grocery chains are also partly part of larger corporate groups with activities in several markets,
+such as fuel, real estate and building materials. The aforementioned conditions create challenges
+related to calculating margins and returns at the wholesale and retail level.
+The fact that the three large grocery chains are vertically integrated across the wholesale and retail
+levels means that the grocery chains' wholesale companies (ASKO, Coop Norway and Rema
+Distribution) purchase goods from suppliers and sell the majority of these to self-owned stores or their
+own franchisees at the retail level at transfer price. 75
+The grocery chains can control where in the value chain they want to extract profitability through the
+transfer price, as a higher transfer price shifts profitability from the retail level to the wholesale level.
+The profitability of the two levels must therefore be seen in context. At the same time, the wholesale
+price is also an important transfer price between companies that make up different legal entities. This
+applies, for example, between franchisors and franchisees in Rema and for franchise stores in
+Norgesgruppen and Coop, and between the central level and the various regional member teams in
+Coop.
+
+5.3
+
+Wholesale
+
+The following is a general description of the results of the Norwegian Competition Authority's survey
+of profitability at the wholesale level. On the basis of the fact that there are only three companies at
+the wholesale level, and that the calculations are based on a number of collected information that is
+not publicly known, figures with specific key data for each company are not included.
+When responding to the Norwegian Competition Authority's request for information, the grocery
+chains have, as far as possible, separated sales to the grocery trade from other sales channels, but
+some sales to other sales channels have not been possible to separate out and are thus included in
+the reported data.
+In Figure 18 , the Norwegian Competition Authority has summarized operating revenues, costs of
+goods, other operating costs and operating profit across the wholesale level in the grocery value chain.
+The grocery chains' wholesalers also distribute goods to other companies in the grocery, catering and kiosk
+and petrol station segments.
+75
+
+37
+
+Figur 18
+
+Revenues and costs for the wholesale level aggregated (ASKO,
+Rema Distribusjon and Coop Norway) through the period 2018 to
+2022. The figures are not inflation-adjusted.
+
+Significant growth in wholesale sales during the pandemic
+• As can be seen from Figure 18, the chains' operating revenues at the wholesale level
+increased by about 16 per cent from 2019 to 2020. The new level persisted through 2021
+and 2022.
+• When interpreting these results, it is important to consider that the figures are not
+inflation-adjusted, and that changes in income and costs may be linked to both changes in
+prices and changes in traded volume. The fact that revenues remain stable from 2021 to
+2022 may be due to two effects that have the opposite effect: Sales volumes are declining
+as a result of society opening up after the pandemic, while prices (in this case the price per
+consignment to retailers) are increasing as a result of a number of factors, such as increased
+costs of goods, higher electricity prices, a weaker krone exchange rate and higher general
+inflation.
+Low gross margins compared to supplier and retail
+• The figure shows that there is a relatively small difference between the total costs of goods
+and the total operating revenues at the wholesale level.
+• Transfer pricing systems between wholesalers and retailers can consist of several price
+elements that are categorised differently, where some price elements are classified as sales
+revenue, while other price elements can be classified as other operating income.
+• When assuming that all operating revenues here are linked to sales, the total price
+premium relative to the cost of goods is about 10.5 per cent in 2018, and the corresponding
+amount is about 11.4 per cent in 2022. The real average gross margin for the level will be
+somewhat lower, and in all cases therefore low relative to the other levels in the value
+chain in the survey.
+
+38
+
+5.3.1.1 Wholesale operating margins
+Low operating margins at the wholesale level compared to the other levels that have been mapped
+• When the wholesale activities of the three grocery chains are aggregated, the Norwegian
+Competition Authority finds that the operating margin for the wholesale chain collectively
+is around 1 per cent throughout the period.
+• The Norwegian Competition Authority finds that operating margins at the wholesale level
+are somewhat higher during the pandemic than in other years, but that the increase is
+limited. Relatively stable operating margins show that the ratio between operating
+revenues and operating costs, measured as a percentage, has remained fairly unchanged
+at the wholesale level throughout the survey period.
+5.3.1.2 Return on the wholesale level
+The Norwegian Competition Authority has calculated the return on operations, given by RNOA, for the
+grocery chains' wholesalers in accordance with the method described in Chapter 3.2.2. The results
+from these calculations are suitable to shed light on two questions. Firstly, whether the grocery chains
+charge super-profits at the wholesale level through the transfer price. If the transfer price is set at a
+level that means that the return on operations at the wholesale level, measured by RNOA, is
+significantly higher than the required rate of return on capital, measured by WACC, this may be an
+indication that the wholesale companies function as profit centres in the grocery chains' groups.
+Second, whether the transfer price is set artificially low in order to subsidise retail activities, i.e. that
+the transfer price is set at a level that means that the return is significantly lower than the required
+rate of return. If this is the case, any estimated super-profit at the retail level must be seen in the
+context of a possible loss at the wholesale level.
+The overall picture from the Norwegian Competition Authority's profitability analyses at the wholesale
+level is that the return on operations, given by RNOA, is generally not significantly higher than the
+required rate of return. The results do not indicate that the grocery chains are taking out significant
+super-profits at the wholesale level. Nor do the results indicate that the wholesale business is run
+unprofitably in order to subsidise the retail business. Overall, this indicates that transfer prices from
+wholesaler to retailer are not set significantly higher than what is necessary to cover the costs at the
+wholesale level, including the opportunity cost of the capital employed in operations.
+In light of this, the Norwegian Competition Authority does not find it necessary to comment further
+on profitability at the wholesale level in the further presentation of profitability at the retail level.
+
+5.4
+
+Retail
+
+The three grocery chains in the survey are organised differently at the retail level. This has implications
+for what data can be obtained with sufficient quality for each company, and how results from
+profitability calculations are interpreted. The following is a brief description of the data used in
+analyses of profitability at the retail level for each of the three grocery chains.
+Norgesgruppen
+For Norgesgruppen's retail operations, the Norwegian Competition Authority has received income
+statements and balance sheets for Norgesgruppen's own stores for the period 2017 to 2022.76 In other
+words, merchant-owned stores (franchises) are not included in the data.
+The Norwegian Competition Authority calculates gross margins, operating margins and RNOA for
+Norgesgruppen's own stores as a whole in accordance with the method described in Chapter 3.
+
+76
+
+Including opening balances for 2017, dated 31 December 2016.
+39
+
+Coop
+For Coop's retail operations, the Norwegian Competition Authority has received income statements
+and balance sheets both for the cooperatives as a whole, and for self-owned stores under the
+company Norsk Butikdrift, which in turn is organised under the joint organisation Coop Norway. The
+profile chains Obs Bygg, Coop Byggmix, Coop Elektro and other specialist trade profiles are not
+included in the submitted data. Coop has submitted data for the period 2018 to 2022.
+The Norwegian Competition Authority calculates gross margins both for the cooperatives as a whole
+and for the self-owned stores in Norsk Butikdrift according to the method described in chapter 3. Due
+to some uncertainty related to adjustments in the balance sheets for the cooperatives, the Norwegian
+Competition Authority has chosen to calculate operating margins and RNOA only for Norsk Butikdrift
+according to the method described in chapter 3. The Norwegian Competition Authority has also
+calculated operating margins and returns for Coop's cooperatives as a whole according to a simplified
+methodology.
+Rema
+For Rema's retail operations, the Norwegian Competition Authority has received income statements
+and balance sheets both for Rema's franchisees as a whole and for Rema 1000 Norway. Rema has
+submitted data for the period 2017 to 2022. 77
+Rema's retail operations are organized according to a pure franchise model, where Rema 1000 Norway
+acts as franchisor and provides support services to Rema's franchisees for a franchise fee. Profitability
+at the retail level for Rema thus accrues to either the franchisor, through the franchise fee, or the
+franchisees, through the sale of groceries to consumers. Since the franchisees' profitability does not
+accrue to Rema centrally, it is not indifferent where the profitability is extracted. In connection with
+this survey, the franchise fee has not been treated as an internal price, but as an agreed price between
+two parties.
+The Norwegian Competition Authority has calculated gross margins for Rema's franchisees as a whole,
+and operating margins and RNOA for the franchisor business in Rema 1000 Norway, according to the
+method described in chapter 3. The Norwegian Competition Authority has also made calculations of
+operating margins and returns for the franchisees collectively according to a simplified methodology. 78
+The following is a general description of the results of the Norwegian Competition Authority's analyses
+of profitability at the retail level. Similar to the wholesale level, results with key figures for the
+individual company are not included.
+5.4.1.1 Gross margins for the retail level
+In Figure 19 , the Norwegian Competition Authority has summarized sales revenues and costs of goods
+across the retail level in the grocery value chain. The Norwegian Competition Authority's data basis at
+the retail level includes stores with a total turnover of about NOK 165 billion in 2022. This is estimated
+to account for about 80 per cent of the total turnover of groceries through traditional grocery retail
+trade.
+
+Including opening balances for 2017, dated 31 December 2016.
+The results are considered representative of each of these entities in isolation, as the franchise fee here is
+considered a market-based price, not a transfer price. At the same time, the estimated return for the franchisees
+must be interpreted in light of the fact that the franchise model exempts these companies from large parts of
+the necessary tied-up capital.
+77
+78
+
+40
+
+Figur 19
+
+Aggregated sales revenues and costs of goods for the Norwegian
+Competition Authority's retail selection (Norgesgruppen's own
+stores, Rema's Franchisees, Coop's Cooperative and self-owned
+stores in Norsk Butikkdrift) through the period 2018 to 2022. The
+data are not inflation-adjusted. Note that the figure does not
+distinguish between other operating costs (operating costs other
+than cost of goods) and operating profit. 79
+
+Significant retail sales growth during the pandemic
+•
+
+Operating revenues across the retail sector increased by about 17 per cent from 2019
+to 2020. The new income level persisted through 2021 and 2022.
+
+•
+
+When interpreting these results, it is important to consider that the data are not
+inflation-adjusted, and that changes in income and costs may be linked to both
+changes in prices and changes in traded volume. The fact that revenues remain fairly
+stable from 2021 to 2022 is assumed to be partly explained by two effects that have
+the opposite effect: Sales volumes are declining as a result of society opening up after
+the pandemic, while grocery prices are increasing as a consequence of a number of
+factors, such as higher costs of goods, higher electricity prices, a weaker krone
+exchange rate and higher general inflation.
+
+Significant variation in gross margins across the selection
+• The Norwegian Competition Authority finds considerable variation in gross margins across
+the selection.
+
+At the retail level, there is greater heterogeneity in margins and returns across the range than for the
+wholesale level, partly due to the different operating models of the companies. Nor are the companies weighted
+in a representative manner in the sample relative to actual market shares. Among other things, Norgesgruppen
+is only represented here by its own stores. The Norwegian Competition Authority has therefore chosen not to
+include aggregated operating results across the sample in the figure, as such aggregation may be misleading.
+
+79
+
+41
+
+• In the opinion of the Norwegian Competition Authority , an important explanation for the
+differences in gross margins between the chains is that Rema only has discount stores,
+while Coop and Norgesgruppen also have a significant element of supermarkets and
+convenience stores in addition to their discount stores. The different types of stores often
+target different customer groups, which affects assessments related to which goods are
+purchased, how much variation there is in the product range, store size, staffing,
+campaigns, etc. Discount stores generally have lower costs per krone sold than
+supermarkets and convenience stores.
+• The differences in gross margins can also be affected by different operating models with
+different profitability requirements.
+• At the same time, it appears from the Norwegian Competition Authority's ongoing survey
+of differences in purchase prices that the three grocery chains also had different purchase
+prices for the same goods from the branded consumer goods during this period. 80 This is
+also a factor that may explain some of the variation in gross margins across the range.
+Stable gross margins throughout the period
+• Overall, the Norwegian Competition Authority finds stable gross margins at the retail level
+throughout the period.
+• The Norwegian Competition Authority therefore does not find that the price premium at
+the retail level has increased significantly more or significantly less than the price mark-up
+at other levels in the value chain. In other words, the results do not provide a basis for
+saying that the price increases for groceries are primarily due to higher retail price markups.
+5.4.1.2 Retail operating margins
+The grocery chains generally have low operating margins at the retail level
+•
+
+Operating margins are below 5 per cent throughout the period for Norgesgruppen's
+self-owned stores as a whole, Coop's stores both in Norsk Butikkdrift and in the
+cooperatives as a whole, and for Rema's franchisees as a whole. 81 If one disregards
+the pandemic years 2020 and 2021, the operating margins are below 3 per cent for
+all of these units.
+
+•
+
+It is known that operating margins at the retail level in the grocery trade are low
+compared to operating margins in other types of businesses. Among other things, it
+has been pointed out that the grocery chains have lower operating margins than
+companies at the supply level in the grocery value chain. 82
+
+•
+
+Low operating margins are not synonymous with low profitability. If a company has a
+high turnover but little capital employed in operations, the company may have low
+operating margins and still achieve a high return on the capital employed in
+operations. The higher the turnover in relation to employed capital, the lower the
+operating margin can be set before operations cease to be profitable. It is the
+
+Mindre forskjeller i dagligvarekjedenes innkjøpspriser - Konkurransetilsynet
+The franchisor business in Rema 1000 Norway is not included here, as this unit has an operating model that is
+not comparable to the rest of the range.
+82
+Operating margins for different parts of the value chain are discussed, among other things, in the paper "
+Marginbildet i dagligvarebransjen 2010 – 2021" from January 2023, which the consulting company Menon
+Economics prepared on behalf of Virke Dagligvare. (Menon Publication No. 13/2023). The memorandum refers
+to the fact that the three major grocery chains in Norway have low operating margins compared with suppliers
+and compared with retail in other industries, including the sale of sports equipment, footwear, pharmacy goods,
+furniture and clothing. (link)
+80
+81
+
+42
+
+Norwegian Competition Authority 's assessment that retail activities in general, and
+retail activities in the grocery sector in particular, will often be characterised by high
+turnover relative to employed capital. 83
+•
+
+The Norwegian Competition Authority does not find that the ratio between capital
+employed, and operating turnover is directly comparable across different levels in the
+value chain for groceries. Consequently, it is not very informative to compare
+absolute levels of operating margins across different levels in the value chain in order
+to say something about competitive intensity and/or profitability.
+
+•
+
+In the opinion of the Norwegian Competition Authority , it is also not reasonable to
+assume that the relationship between capital employed and turnover in the grocery
+trade is directly transferable to retail activities in other industries. Consequently, the
+Norwegian Competition Authority considers that it would not be very informative to
+compare operating margins in the grocery trade and with operating margins in other
+industries, if one wishes to say something about differences in competition intensity
+and/or profitability.
+
+Higher retail operating margins during the pandemic
+•
+
+For all retail units for which the Norwegian Competition Authority has calculated
+operating margins, the operating margins are at their highest in 2020, and at their
+second highest in 2021.84 Across the sample of companies, operating margins
+increased significantly in 2020, compared to the average for the years before the
+pandemic. In all cases, the increase is over 50 percent. For some of the units analysed
+by the Norwegian Competition Authority , the operating margin is markedly higher
+than before the pandemic in 2021 as well, while other units have an operating margin
+in 2021 similar to the level before the pandemic. Increased demand is believed to be
+an important underlying reason for increased operating margins during the
+pandemic. The Norwegian Competition Authority analyses do not provide a basis for
+determining whether other factors also contributed to the change in operating
+margins.
+
+•
+
+Overall, the Norwegian Competition Authority finds that operating margins at the
+retail level fell from 2021 to 2022. It is assumed that important underlying reasons
+for the decline in the operating margin in 2022 were reduced demand as a result of
+society reopening after the pandemic, at the same time as the grocery market
+experienced a number of different cost shocks, as described in Chapter 2.4.2. The
+Norwegian Competition Authority's analyses do not provide a basis for determining
+whether other factors also contributed to the change in operating margins.
+
+5.4.1.3 Return on the retail level
+Returns measured by RNOA provide a picture of profitability in the parts of the business that have an
+impact on consumer prices. Consequently, RNOA, seen in the context of the operating margin, is a
+relevant measure of profitability when assessing whether consumers pay more for groceries than one
+would expect in a market with fierce competition.
+
+Reference is made to Menon Economics' report " Konkurranse i dagligvaremarkedet" (Menon-publikasjon nr.
+33/2018), p. 36: "Furthermore, the grocery market is characterised by high, stable turnover and a high turnover
+rate, which means that a low operating margin can still provide a high return on capital employed. Alternative
+profitability measures such as return on equity and return on total capital capture this type of factor to a greater
+extent." (link)
+84
+Norgesgruppen's self-owned stores, Coop's cooperative, Norsk Butikkdrift, Rema 1000 Norway and Rema's
+franchisees.
+83
+
+43
+
+The Norwegian Competition Authority has the following overall assessments relating to the return on
+the retail sector and how this has developed during the period.
+High profitability at parts of the retail level throughout the period
+•
+
+Throughout the period, the Norwegian Competition Authority finds consistently high
+profitability in the operations of some of the analysed units in the grocery chains'
+groups. High profitability here means that RNOA is estimated at several times the size
+of WACC.
+
+•
+
+High profitability over time indicates that the retailer being analysed has a position in
+the market (or an aggregated position across a number of local markets) that allows
+it to increase prices beyond what is necessary to cover its own operating and capital
+costs and thus extract super-profits.
+
+•
+
+The potential for consumer harm related to any super-profits at the retail level may
+appear limited, as long as the operating margins at this level are below 3 per cent.
+However, the total turnover in traditional grocery at the retail level is about NOK 200
+billion. Furthermore, significant super-profits can be an indication of weakened
+competition. Consequently, the results may have implications beyond what can be
+read from the operating margin. Among other things, weak competition can lead to
+lower efficiency and less innovation. Super-profits can also be an indication of
+significant barriers to entry in the market.
+
+Higher profitability at the retail level during the pandemic
+•
+
+The Norwegian Competition Authority finds that the return on operations is at its
+highest in 2020, i.e. that this is the most profitable year in the survey period.
+Furthermore, the Norwegian Competition Authority finds that 2021 is the second
+most profitable year in the survey period. This is the case for all of the three units for
+which complete RNOA calculations have been made. The simpler return analyses of
+Coop's cooperatives and Rema's franchisees paint a similar picture for these units as
+well. On this basis, the Norwegian Competition Authority concludes that the
+pandemic was particularly profitable for the retail activities of the grocery chains.
+
+•
+
+It is pointed out that some units are markedly more profitable in 2021 than they were
+before the pandemic, while other units have a profitability in 2021 that is only
+marginally higher than it was before the pandemic. For all units, operations are
+markedly more profitable in 2020 than in the years before the pandemic.
+
+Similar profitability in 2022 as before the pandemic
+•
+
+6
+
+Furthermore, the Norwegian Competition Authority finds that profitability in
+operations fell in 2022 for all of the three entities for which complete RNOA
+calculations have been made. Overall, the Norwegian Competition Authority finds
+that profitability in 2022 is at a similar level as in the years before the pandemic. The
+simpler analyses of Coop's cooperatives and Rema's franchisees paint a similar picture
+for these units.
+
+Ending
+
+The Norwegian Competition Authority has mapped the profitability of the grocery trade of a selection
+of suppliers and retailers in the grocery market in Norway.
+For the survey, the Norwegian Competition Authority has calculated gross margins, operating margins
+and return on net operating assets (RNOA). The return is compared to an estimated required rate of
+return, in order to assess whether significant super-profits are being taken out in operations.
+44
+
+The survey provides important background information for the Norwegian Competition Authority's
+work on the grocery market. Furthermore, the results of the survey can help answer questions that
+have been asked in the public debate about the grocery market, including questions related to the
+profitability of grocery companies during the coronavirus pandemic in 2020 and 2021, to the price
+increases for groceries in 2022, and to the competitive situation in the grocery market in general.
+The Norwegian Competition Authority's overall assessments related to the results of the survey are
+summarised below.
+Profitability at the supplier level : Several of the surveyed suppliers have consistently high profitability
+in operations, as measured by RNOA. The results are consistent with weak competition and high
+profitability in several different product markets. The results must be interpreted in light of the fact
+that the supply chain consists of several different product markets, and that there will typically be
+different degrees of competition within different product categories. The overall results of the survey
+will not necessarily be descriptive of the competitive situation in specific product markets.
+Profitability of the grocery chains: The Norwegian Competition Authority finds high profitability in
+operations, as measured by RNOA, at parts of the retail level throughout the surveyed period. The
+profitable units account for a significant share of the turnover of groceries in Norway. The results of
+the Norwegian Competition Authority's survey indicate that the profitability of the grocery chains is
+mainly taken out at the retail level.
+Profitability during the pandemic: The pandemic years of 2020 and 2021 were particularly profitable
+for both the chains and the suppliers. The Norwegian Competition Authority emphasises that
+increased market demand is expected to lead to increased profitability in the short term, and that high
+profitability during the pandemic cannot therefore be interpreted in isolation as a result of market
+participants taking advantage of the pandemic to increase their profitability. The Norwegian
+Competition Authority's analyses do not provide a basis for determining whether factors other than
+increased demand contributed to higher operating margins during the pandemic.
+Profitability in 2022: Profitability in operations fell back to pre-pandemic levels in 2022 both for the
+suppliersas a whole and for the three grocery chains. The Norwegian Competition Authority therefore
+finds no support for a general claim that the grocery chains or suppliers took advantage of the
+extraordinary price increases in 2022 to increase their profitability. It is emphasised that overall results
+related to profitability development are not necessarily representative of individual companies.
+Operating margins and profitability: The grocery chains have a high turnover relative to the capital
+employed in operations. This makes it possible to achieve high profitability, despite lower operating
+margins than companies in other parts of the value chain or companies in other industries. In other
+words, operating margins cannot be used directly to assess differences in competitive intensity or
+differences in profitability across levels in the value chain, or across different industries.
+Profitability and competition: In summary, the Norwegian Competition Authority finds that the
+profitability of operations for several of the companies at the supplier and retail level in the grocery
+value chain is significantly higher than one would expect to find in a market with fierce competition
+and few barriers to entry. In other words, the results are consistent with weak competition and
+significant barriers to entry in parts of the Norwegian grocery market.
+Previously, the Norwegian Competition Authority has assessed that competition in the Norwegian
+grocery market is weak, partly due to high concentration, high barriers to entry and high prices. 85 The
+results of this survey support that assessment.
+
+See, for example, the Norwegian Competition Authority's grocery report for 2022 (link) and the Norwegian
+Competition Authority's grocery report for 2023 (link).
+85
+
+45
+
+Bibliography
+Adolfsen, J. F., Kuik, F., Lis, E. M., & Schuler, T. (2022). The impact of the war in Ukraine on euro area
+energy markets. European Central Bank Bulletin.
+https://www.ecb.europa.eu/press/economicbulletin/focus/2022/html/ecb.ebbox202204_01~68ef3c3dc6.en.html
+Alfsnes, F., Schøll, A. & Dulsrud, A. (2019). Kartlegging av utviklingen i butikkstruktur, dagligvareutvalg
+og dagligvarepriser. (SIFO rapport nr. 5-19)
+https://www.regjeringen.no/globalassets/departementene/nfd/dokumenter/rapporter/sifodagligvarerapport-korrigert-ver.pdf
+Baffes, J. & Koh, W. E. (2022, May 11). Fertilizer prices expected to remain higher for longer. World
+Bank Blogs.
+https://blogs.worldbank.org/en/opendata/fertilizer-prices-expected-remain-higher-longer
+Broom, D. (2023, March 1). This is how war in Europe is disrupting fertilizer supplies and threatening
+global food security. World Economic Forum Agenda.
+https://www.weforum.org/agenda/2023/03/ukraine-fertilizer-food-security/
+Campbell, J. Y., & Cochrane, J. H. (1999). By force of habit: A consumption-based explanation of
+aggregate stock market behavior. Journal of political economy, 107(2), 205-251.
+https://doi.org/10.1086/250059
+Commerce Commission of New Zealand. (2022). Market study into the retail grocery sector. Final
+report.
+https://comcom.govt.nz/__data/assets/pdf_file/0024/278403/Market-Study-into-the-retailgrocery-sector-Final-report-8-March-2022.pdf
+Competition and Markets Authority. (2013). CC3 (Revised) - Guidelines for market investigations: Their
+role, procedures, assessment and remedies.
+https://assets.publishing.service.gov.uk/media/5a7c1b7340f0b645ba3c6bcc/cc3_revised.pd
+f
+Competition and Markets Authority. (2016). Energy market investigation. Final report.
+https://assets.publishing.service.gov.uk/media/5773de34e5274a0da3000113/final-reportenergy-market-investigation.pdf Including:
+Appendix 9.10: Analysis of retail supply profitability – ROCE
+https://assets.publishing.service.gov.uk/media/576bcc23ed915d3cfd0000bb/appen
+dix-9-10-analysis-of-retail-supply-profitability-roce-fr.pdf
+Appendix 10.1: Approach to profitability and financial analysis
+https://assets.publishing.service.gov.uk/media/559fb68d40f0b61567000047/Appen
+dix_10.1_Approach_to_profitability_and_financial_analysis.pdf
+Competition and Markets Authority. (2020). Funerals Market Investigation. Final report.
+https://assets.publishing.service.gov.uk/media/5fdb557e8fa8f54d5733f5a1/Funerals__Final_report.pdf Including:
+Appendix Q: Profitability Methodology
+https://assets.publishing.service.gov.uk/media/5fdb241be90e071be5f30593/Appen
+dix_Q_-_Profitability_methodology_18.12.20.pdf
+46
+
+Appendix S: Profitability of Funeral Directors
+https://assets.publishing.service.gov.uk/media/5fdb2461e90e071be1015708/Appen
+dix_S_-_Profitability_of_funeral_directors_18.12.20.pdf
+Damodaran, A. (2019). Equity risk premiums (ERP): Determinants, estimation and implications–The
+2019 Edition. NYU Stern School of Business.
+https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3378246
+Damodaran, A. (n.d.). Historical Implied Equity Risk Premiums (US). Retrieved 25. September 2023
+from
+https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/histimpl.html
+Damodaran, A. (n.d.). Ratings, Spreads and Interest Coverage Ratios (EU). Retrieved 25. September
+2023 from
+https://pages.stern.nyu.edu/~adamodar/New_Home_Page/dataarchived.html
+Damodaran, A. (n.d.). Levered and Unlevered Betas by Industry (EU). Retrieved 25. September 2023
+from
+https://pages.stern.nyu.edu/~adamodar/New_Home_Page/dataarchived.html
+Damodaran, A. (n.d.). Debt Ratio Trade Off Variables by Industry (EU). Retrieved 25. September 2023
+from
+https://pages.stern.nyu.edu/~adamodar/New_Home_Page/dataarchived.html
+Darolles, S., Eychenne, K., & Martinetti, S. (2010). Time-varying Risk Premiums and Business Cycle: A
+Survey. Lyxor White Paper Series, 4.
+Eurostat. (approx.). Food price monitoring tool. Price trends along the food supply chain. Retrieved 30
+April 2024 from
+https://ec.europa.eu/eurostat/cache/website/economy/food-price-monitoring/
+https://ec.europa.eu/eurostat/databrowser/view/PRC_FSC_IDX__custom_3513786/bookma
+rk/table?lang=en&bookmarkId=002935d0-f1d1-4419-9699-db9e2c48ced6 [Raw Data]
+Feltham, G. A. & Ohlson, J. A. (1995). Valuation and Clean Surpluss Accounting for Operating and
+Financial Activities. Contemporary Accounting Research, 11(2), 689-731.
+https://doi.org/10.1111/j.1911-3846.1995.tb00462.x
+Gabrielsen, T. S., Steen, F., Sørgard, L. & Vagstad, S. (2013). Kjøpermakt i dagligvaresektoren. Rapport
+fra Fornyings-, administrasjons- og kirkedepartementet.
+https://www.regjeringen.no/globalassets/upload/fad/vedlegg/konkurransepolitikk/kjoperm
+akt.pdf
+Kaldestad, Y. & Møller, B. (2016). Verdivurdering: teoretiske modeller og praktiske teknikker for å
+verdsette selskaper (2. utg.). Fagbokforlaget.
+Levy, H. (2011). The capital asset pricing model in the 21st century: analytical, empirical, and
+behavioral perspectives. Cambridge University Press
+The Norwegian Competition Authority. (2023, June 19). Mindre forskjeller i dagligvarekjedenes
+innkjøpspriser.
+https://konkurransetilsynet.no/mindre-forskjeller-i-dagligvarekjedenes-innkjopspriser/
+The Norwegian Competition Authority. (2022). Konkurransetilsynets strategiplan 2022-2027.
+
+47
+
+https://konkurransetilsynet.no/wp-content/uploads/2022/12/PL001-Strategiplan-forKonkurransetilsynet-2022-2027-1109231_1_1.pdf
+The Norwegian Competition Authority. (2023). Konkurransetilsynets dagligvarerapport 2023.
+https://konkurransetilsynet.no/wp-content/uploads/2024/01/Konkurransetilsynetsdagligvarerapport-2023.pdf
+The Norwegian Competition Authority. (2022). Konkurransetilsynets dagligvarerapport 2022.
+https://konkurransetilsynet.no/wp-content/uploads/2022/12/Konkurransetilsynetsdagligvarerapport-2022.pdf
+The Norwegian Competition Authority. (2023). Utredning om prisjusteringsvinduer.
+https://konkurransetilsynet.no/wp-content/uploads/2023/12/Utredning-omprisjusteringsvinduer-2023.pdf
+Meld. St. 27. (2019-2020). Daglegvare og konkurranse – kampen om kundane. The Department of
+Trade, Industry and Fisheries.
+https://www.regjeringen.no/no/dokumenter/meld.-st.-27-20192020/id2714670/
+Menon Economics. (2023). Marginbildet i dagligvarebransjen 2010-2021. (Menon-publikasjon nr.
+13/2023).
+https://www.menon.no/wp-content/uploads/2023-13-Marginanalysedagligvareverdikjeden-Menon-januar-2023.pdf
+Menon Economics. (2018). Konkurranse i dagligvaremarkedet. (Menon-publikasjon nr. 33/2018).
+https://www.regjeringen.no/contentassets/4c26f095eaaa4f9c9d001762f78bcc72/virkedagligvare---vedlegg.pdf?uid=Virke_Dagligvare_-_vedlegg.pdf
+Miller, M.H. and Modigliani, F. (1958). «The Cost of Capital, Corporation Finance and the Theory of
+Investment». The American Economic Review. 48 (3): 261-297
+https://www.jstor.org/stable/1809766
+Nissim, D. & Penman, S. H. (2001). Ratio Analysis and Equity Valuation: From Research to Practice.
+Review of Accounting Studies 6, 109-154.
+https://doi.org/10.1023/A:1011338221623
+Nissim, D. & Penman, S. H. (2003). Financial Statement Analysis of Leverage and How it Informs About
+Profitability and Price-to-Book Ratios. Review of Accounting Studies 8, 531-560.
+https://doi.org/10.1023/A:1027324317663
+Norges Bank. (approx.). I-44, Importveid kursindeks.. Retrieved 30 April 2024 from
+https://www.norges-bank.no/tema/Statistikk/i44/
+Ministry of Trade, Industry and Fisheries & Ministry of Agriculture and Food. (2023). Regjeringen skal
+undersøke prisdannelsen i dagligvarebransjen.
+https://www.regjeringen.no/no/aktuelt/regjeringen-skal-undersoke-prisdannelsen-idagligvarebransjen/id2959288/
+Ministry of Trade, Industry and Fisheries. (2023). Konkurransetilsynet (KT) - Supplerende tildelingsbrev
+nr. 1 for 2023.
+https://www.regjeringen.no/contentassets/12373f96ad874860aaf632b216564ee2/konkurra
+nsetilsynet-kt-supplerende-tildelingsbrev-nr.-1-for-2023-3964508.pdf
+
+48
+
+Pettersen, I. & Steen, F. (2020). Against better knowledge in the Norwegian food sector Mot bedre
+vitende i norsk matsektor. Cappelen Damm.
+https://press.nordicopenaccess.no/index.php/noasp/catalog/book/93
+Prop. 118 S (2022-2023). Tilleggsbevilgninger og omprioriteringer i statsbudsjettet 2023.
+Finansdepartementet.
+https://www.regjeringen.no/contentassets/2561f66481104220851f1153e927453a/no/pdfs/
+prp202220230118000dddpdfs.pdf
+PwC. (2022). Risikopremien i det norske markedet.
+https://www.pwc.no/no/publikasjoner/pwc-risikopremie-2022.pdf
+Statistics Norway. (2024). Kraftig prisvekst i 2023.
+https://www.ssb.no/priser-ogprisindekser/konsumpriser/statistikk/konsumprisindeksen/artikler/kraftig-prisvekst-i-2023
+Statistics Norway. (2023). Ekstraordinært år for prisveksten i 2022.
+https://www.ssb.no/priser-ogprisindekser/konsumpriser/statistikk/konsumprisindeksen/artikler/ekstraordinaert-ar-forprisveksten-i-2022
+Statistics Norway. (2023). Forbrukerundersøkelsen. Retrieved 30 April 2024 from
+https://www.ssb.no/inntekt-og-forbruk/forbruk/statistikk/forbruksundersokelsen
+Statistics Norway. (2023). Comparison of price levels in Europe. Retrieved 30 April 2024 from
+https://www.ssb.no/en/priser-og-prisindekser/konsumpriser/statistikk/sammenlikning-avprisniva-i-europa
+Statistics Norway. (approx.). Konsumprisindeksen. Retrieved 30 April 2024 from
+https://www.ssb.no/priser-og-prisindekser/konsumpriser/statistikk/konsumprisindeksen
+https://www.ssb.no/statbank/table/03013 [Raw Data]
+Statistics Norway. (approx.). Producer price index. Retrieved 30 April 2024 from
+https://www.ssb.no/en/priser-og-prisindekser/produsent-ogengrosprisindekser/statistikk/produsentprisindeksen
+Statistics Norway. (approx.). Prisindeks for førstegangsomsetning innenlands. Retrieved 30 April 2024
+from
+https://www.ssb.no/priser-og-prisindekser/produsent-ogengrosprisindekser/statistikk/prisindeks-for-forstegangsomsetning-innenlands
+https://www.ssb.no/statbank/table/03675 [Raw Data]
+Samfunnsøkonomisk analyse. (2023). Rapport 15-2023: Kartlegging av egne merkevarer og vertikal
+integrasjon i dagligvaremarkedet.
+https://www.regjeringen.no/contentassets/41847427caa14feb8b8578af3d6d45bc/r152023-kartlegging-av-egne-merkevarer-og-vertikal-integrasjon-i-dagligvaremarkedet.pdf
+United Nations. (2022, April 8). Ukraine war drives international food prices to 'new all-time high'. UN
+News.
+https://news.un.org/en/story/2022/04/1115852
+
+49
+
+Appendices
+
+50
+
+Appendix A: Balance sheet delimitation method
+This appendix presents the assessments that form the basis for the Norwegian Competition
+Authority's classification of assets and liabilities as either operation-related or financial. The purpose
+of this exercise is to estimate the companies' net operating assets 1, which tells how much capital a
+company has employed in its operations. Net operating assets are the relevant measure of employed
+capital when calculating the profitability measure RNOA.
+Classification of balance sheet entries as either operation-related or financial is based on the balance
+sheet entry's role in the business. The operation-related balance sheet entries can be linked directly
+to the company's day-to-day operations and are necessary to generate income and returns from the
+core business. Typical examples of operating assets are fixed assets, inventories and accounts
+receivable, while on the liabilities side, accounts payable, public taxes due and provisions/accruals
+related to ordinary operations will typically be regarded as operating current liability. Financial balance
+sheet entries are linked to an enterprise's financing and investment activities and are thus not directly
+linked to operations. Financial balance sheet entries can be, for example, securities, bonds and
+interest-bearing loans.
+In the calculation of RNOA, it is important that there is a clear and consistent link between how a
+balance sheet entry is classified and how the associated income or cost in the income statement is
+classified. The income and costs from the operating balance sheet entries must be treated as part of
+the operating profit, while the return on the financial balance sheet entries must be remunerated
+outside the operating profit. This is to have a consistent link between numerator and denominator in
+the formula for RNOA.
+The Norwegian Competition Authority has requested the companies included in the survey to submit
+balance sheets in accordance with the template from Section 6-2 of the Accounting Act. Below is a
+general explanation of how the Norwegian Competition Authority has dealt with the various balance
+sheet entries.
+
+A.1
+
+Fixed assets
+
+A higher total value of the operating assets indicates a higher estimated NOA. Consequently,
+assessments that overestimate the value of the total operating assets will contribute to a conservative
+approach to measuring profitability. For resource reasons, the Norwegian Competition Authority has
+chosen a conservative approach to classification in some cases. Assets on the asset side are therefore
+classified as operational.
+A.1.1
+
+Intangible assets
+
+There are large variations among the companies in the survey regarding the extent of intangible assets
+reported in the balance sheet. The large differences are primarily because some companies have
+carried out business acquisitions during the period, others have not. There are several intangible
+assets that only arise in the balance sheet of a company through business purchases. For example,
+according to the accounting rules, 2 it is not permitted to recognise proprietary goodwill, trademarks,
+customer relationships and similar proprietary intangible assets. These intangible assets, on the other
+hand, can be recognised in the balance sheet in connection with business acquisitions and can
+constitute significant values.
+As a result, two companies that are virtually identical can still have very different balance sheets. This
+is because one company has made business acquisitions and can therefore recognise goodwill and
+other intangible assets in the balance sheet, while the other company has not made acquisitions and
+1
+2
+
+Net operating assets (NOA).
+Both according to NRS and IFRS.
+
+49
+
+therefore cannot recognise such intangible assets in the balance sheet. If acquisition-related
+intangible assets are classified as operating assets, this could result in large differences in the
+profitability measurement RNOA between two virtually identical companies.
+In the Norwegian Competition Authority's classification of the balance sheet, intangible assets that
+have arisen as a result of business acquisitions are classified as financial. This means that they are not
+included in the calculation of RNOA. To have a consistent treatment of the balance sheet entry and
+associated profit and loss effects, the associated depreciation and amortization related to these
+acquisition-related intangible assets have also been adjusted out of operating profit.
+There are two main reasons why acquisition-related balance sheet entries are classified as financial
+entries in this survey. First, these classifications help to increase the comparability of the balance
+sheets of the companies in the survey. Second, expectations of future profitability/earnings will be
+included in the valuation of the capitalized intangible assets that arise as a result of business
+acquisitions. Including expectations of future profitability in NOA is not compatible with measuring
+profitability in the form of returns on companies' net operating assets.
+In addition to acquisition-related intangible assets, the Norwegian Competition Authority's
+assessment is that the remaining balance sheet for intangible assets primarily consists of deferred tax
+assets and IT-related systems and licenses. While deferred tax assets are recognised in the balance
+sheet on a separate line in the balance sheet, IT-related systems and licences may be recognised in
+the balance sheet on different lines, and the amount is not shown in the balance sheets. In cases
+where the entries that may contain IT-related systems and licences are of considerable size, the
+Norwegian Competition Authority has requested the companies to specify the amount that is
+recognised in the balance sheet related to IT-related systems and licences in each respective year, so
+that these can be classified as an operation-related intangible asset.
+A.1.1.1
+
+Development
+
+Development is a small entry in the submitted balance sheets for most of the companies in the survey.
+The Norwegian Competition Authority finds that the parts of the entry relating to the development of
+IT systems should be classified as operation-related assets. The remaining share of the entry is
+assumed to originate from business acquisitions, and should therefore, in the opinion of the
+Norwegian Competition Authority, be classified as financial.
+As the values in the development entry is generally limited, the Norwegian Competition Authority has
+chosen, for reasons of resources, not to impose extra work on the companies to specify which parts
+of the entry relate to the development of IT systems. In these cases, the Norwegian Competition
+Authority uses a conservative approach and includes the entire entry as operational.
+Only in individual cases where this entry is of significant size has the Norwegian Competition Authority
+requested the companies to specify the values associated with IT-related systems.
+A.1.1.2
+
+Licences, patents, licences and similar rights, trademarks, customer relations, etc.
+
+The size of this balance sheet entry varies considerably between the companies in the survey, because
+it primarily consists of intangible assets that arise in connection with business acquisitions. The
+Norwegian Competition Authority finds that the parts of the entry relating to IT systems should be
+classified as operation-related assets. The remaining share of the entry is assumed to originate from
+business acquisitions, and should therefore, in the opinion of the Norwegian Competition Authority,
+be classified as financial.
+In cases where the entry contains only a limited amount that has little impact on the overall results,
+the Norwegian Competition Authority has chosen, for reasons of resources, not to impose extra work
+on the companies to specify which parts of the entry relate to the development of IT systems. The
+Norwegian Competition Authority then uses a conservative approach and includes the entire entry as
+operational.
+50
+
+Only in individual cases where this entry is of significant size has the Norwegian Competition Authority
+requested the companies to specify the values associated with IT-related systems.
+A.1.1.3
+
+Deferred tax assets and deferred tax
+
+Deferred tax assets and deferred tax arise because of different depreciation rules in the Taxation Act
+compared to the Accounting Act. Deferred tax assets/deferred tax positions are considered financial
+entries.
+A.1.1.4
+
+Goodwill
+
+Goodwill is in its entirety an acquisition-related intangible asset. It is therefore classified as a financial
+asset.
+A.1.1.5
+
+Trademarks
+
+In the request for information, the Norwegian Competition Authority has requested the companies to
+separate the value of trademarks from the balance sheet. As described in A.1.1 Trademarks are only
+recognised in the balance sheet as a result of business acquisitions. In other words, trademarks are in
+their entirety an acquisition-related intangible asset and are therefore classified as a financial asset.
+A.1.2
+
+Property, plant and equipment
+
+The companies in the survey have a large scope in terms of leasing of fixed assets. It will vary how the
+companies treat leases in the financial accounts. Some companies recognise the leases in the balance
+sheet as a right-of-use asset (leasing asset) with an associated lease liability (financial leasing), while
+other companies have no balance sheet entries related to leases and recognise the lease cost as part
+of the operating profit on an ongoing basis (operating lease). In connection with the data collection
+for this survey, the Norwegian Competition Authority laid down guidelines for how the companies
+should treat lease agreements when submitting income statements and balance sheets. The
+companies have been requested to adjust right-of-use assets and associated lease liability from the
+balance sheet and instead include the actual lease costs as part of the operating profit (operating
+lease). This is done because the size of the right-of-use asset depends on the remaining length of the
+lease, while the companies are in reality dependent on leasing the fixed asset (or a similar fixed asset)
+for "perpetual" time in order to maintain the activity. In other words, a calculation of RNOA where
+right-of-use assets are included in the denominator is not a relevant return measure.
+It is specified that fixed assets are subject to value adjustment in the Norwegian Competition
+Authority's method. For a more detailed description of these adjustments, see Appendix B.
+A.1.2.1
+
+Land, buildings and other real property
+
+Land, buildings and other real property are defined here as operating assets. It is operationally
+necessary to have access to suitable factory premises, administration premises, warehouses, shop
+premises, etc. to be able to conduct business in the production and sale of groceries.
+A.1.2.2
+
+Machinery, facilities and similar balance sheet entries
+
+Machinery and facilities are defined here as operation-related assets. Access to machinery and
+facilities is necessary to be able to conduct business in the production and sale of groceries.
+A.1.2.3
+
+Movable property, fixtures, tools, office machinery and the like
+
+Movable property, inventory, tools, office machines and the like are necessary assets to maintain
+operations. They are therefore considered operation-related assets here.
+A.1.3
+
+Financial fixed assets
+
+A.1.3.1
+
+Investments in associated companies
+
+An investment in an associated company represents an investment where there is significant
+influence, which normally means that the ownership interest in the company is between 20% and
+51
+
+50%. Associates are not consolidated into the investor's consolidated financial statements but are
+accounted for in accordance with the equity method in the consolidated financial statements 3. The
+Norwegian Competition Authority has treated the balance sheet entry and related profit and loss
+entries as financial entries.
+A.1.3.2
+
+Other entries under financial fixed assets
+
+In addition to investments in associated company, investments in subsidiaries, investments in other
+enterprises in the same group, loans to enterprises in the same group, loans to associates and jointly
+controlled enterprises, bonds and other financial assets are included in the category financial fixed
+assets. The return on these entries is recognised as financial income in the income statement. The
+assets are thus also classified as financial.
+
+A.2
+
+Current assets
+
+A.2.1
+
+Goods
+
+Inventory is a necessary asset in operations at the supplier, wholesale, and retail levels. Consequently,
+the inventory here is classified as an operational-related asset.
+A.2.2
+
+Receivables
+
+A.2.2.1
+
+Accounts receivable
+
+Trade receivables arise from sales to customers and are considered an operation-related asset.
+A.2.2.2
+
+Other receivables
+
+Other receivables are a collective entry that contains several different types of receivables. For most
+of the companies included in the study, this entry constitutes a significant part of the total balance
+sheet. Where this is the case, the Norwegian Competition Authority has asked the companies to
+specify what is included in other receivables according to the template. The template defines the
+following four sub-entries:
+a. Receivables related to the group account scheme
+b. Receivables related to group contributions
+c. Receivables related to dividends
+d. Other other receivables
+Receivables related to the group account scheme mean that the company has a deposit in the group
+account scheme. Since the company is not the owner of the scheme, deposits are booked as a
+receivable against the company that owns the group account scheme. In reality, this is the same as an
+ordinary bank deposit and is therefore classified here as financial assets.
+Group contributions represent the movement of capital between companies in the same group and
+are often used for tax optimisation within the group. The company that makes group contributions
+will have a debt in the balance sheet, while the companies that receive group contributions will have
+a receivable in the balance sheet. This is a financial entry, which is not related to operations, and is
+therefore classified as a financial asset.
+Dividends represent the distribution of profits to shareholders. Dividends are not operational and are
+therefore classified as a financial asset.
+The Norwegian Competition Authority has assessed whether there is a need for further specification
+of the receivables that remain under the sub-entry other receivables. The Norwegian Competition
+Authority finds that the majority of the entry other receivables has been accounted for after
+receivables related to the group account arrangement, group contributions and dividends have been
+3
+
+Both under IFRS and NRS
+52
+
+specified, and that it is therefore not appropriate to carry out a further splitting of other other
+receivables. On this basis, the Norwegian Competition Authority takes a conservative approach to the
+remaining receivables and defines other receivables as operating assets.
+A.2.2.3
+
+Entitlement to payment of share capital
+
+Receivables related to claims for payment of share capital are classified as financial assets. This
+balance sheet entry is used to record that the owners have undertaken to contribute new funds to the
+company through incorporation or share issue and is therefore not operation-related.
+A.2.3
+
+Investments
+
+Investments include shares and units in enterprises in the same group, market-based shares, marketbased bonds, other market-based financial instruments and other financial instruments. Any losses
+and gains from investments are recognised as financial income and costs in the income statement,
+and the balance sheet entries are thus also classified as financial.
+A.2.4
+
+Bank deposits, cash and the like
+
+For the entry bank deposits, cash and the like, a distinction is made between what is a sufficient cash
+position to be able to cover fluctuations in working capital in operations, and what is surplus liquidity,
+i.e. funds the owners could have withdrawn from the company and invested elsewhere without
+affecting day-to-day operations. The Norwegian Competition Authority has chosen to make a practical
+simplification by defining operating liquidity (operation-related asset) as 10 per cent of the sum of
+inventories and trade receivables, while the excess is considered surplus liquidity (financial asset). 4
+
+A.3
+
+Debt
+
+Operating current liability reduces NOA. Consequently, assessments that underestimate the size of
+total operating current liability will contribute to a conservative approach to measuring profitability.
+In cases where the Norwegian Competition Authority has chosen a conservative approach to
+classification for reasons of resources, liabilities are therefore classified as financial.
+A.3.1
+
+Provision for liabilities
+
+This category includes the balance sheet entries pension liabilities, deferred tax and other long-term
+provisions.
+Pension liabilities are classified exclusively as a financial entry. Deferred tax is also classified as
+financial, according to the same justification as described in A.1.1.3.
+Specific assessments can be made as to whether other long-term provisions are operation-related or
+financial. Under other long-term provisions, one finds, for example, guarantee provisions, which are
+considered to be of operating current liability. On the other hand, the Norwegian Competition
+Authority finds that the entry other long-term provisions are of little significance for the company's
+measured profitability in this survey. For reasons of resources, the Norwegian Competition Authority
+has therefore chosen to take a conservative approach to this entry, by defining it as financial in its
+entirety.
+A.3.2
+
+Other long-term liabilities (convertible loans, bond loans, debt to credit institutions)
+
+The Norwegian Competition Authority has assumed that other long-term debt has been interestbearing throughout the period. This means that these are entries that accrue interest outside the
+operating profit. On this basis, the Norwegian Competition Authority has classified these balance
+sheet entries as financial.
+
+With this, the Norwegian Competition Authority is taking a somewhat more conservative approach than the
+UK Competition Authority (CMA) has previously done, for example in the funeral market. Reference is made,
+inter alia, to Appendix S from the CMA's market investigation in the funeral market, page S31, paragraph 167.
+4
+
+53
+
+A.3.3
+
+Liabilities to credit institutions (short-term)
+
+This entry is classified in its entirety as financial, with the same justification as the entries in the A.3.2.
+A.3.4
+
+Accounts payable
+
+Trade payables arise as a result of the purchase of goods and services. In the income statement, the
+offset entry will normally be cost of goods or other operating costs, both of which are included in the
+operating profit. Trade payables are entirely operation-related liabilities.
+A.3.5
+
+Tax payable
+
+Tax payable in the balance sheet represents the amount that the company must pay to the tax
+authorities based on the taxable income for the accounting period. Since the tax payable is mainly due
+to positive operating results, this balance sheet entry is classified as an operating liability.
+A.3.6
+
+Public duties payable
+
+Public duties payable primarily consist of VAT and salary-related obligations (employer's national
+insurance contributions, withholding tax, etc.). Value added tax arises as a result of the purchase and
+sale of goods, while salary-related obligations arise because the companies have employees. These
+are entirely operation-related entries.
+A.3.7
+
+Other short-term liabilities
+
+Other short-term liabilities are a collective entry in the balance sheet, which can include both financial
+and operating entries. In order to better distinguish between operating and financial liabilities under
+other short-term liabilities, The Norwegian Competition Authority has requested the companies to
+specify a selection of sub-entries related to this aggregate entry.
+A.3.7.1
+
+Provisions and accruals
+
+This entry contains, among other things, accrual of cost entries, provisions for costs incurred where
+an invoice has not been received, and guarantee provisions. Such entries have a counterpart under
+operating profit in the income statement and are therefore part of the core business. They are
+therefore classified as operational.
+A.3.7.2
+
+Trade payables in a group
+
+For some companies, intra-group accounts payable are included under the entry Other current
+liabilities. This is classified as operating current liability with the same justification as other trade
+payable, see A.3.4.
+A.3.7.3
+
+Other other current liabilities
+
+The companies have specified how much remains of the entry other current liabilities after the abovementioned entries have been accounted for. There may be some operation-related debt that remains
+in this residual in the form of, for example, holiday pay, supplier bonuses and the like. The Norwegian
+Competition Authority has nevertheless, after a specific assessment, concluded that it has not been
+appropriate to split this residual further for reasons of resources. The Norwegian Competition
+Authority therefore takes a conservative approach to other entries under other short-term liabilities
+and classifies these as financial.
+
+54
+
+Appendix B: Valuation of operating assets
+This appendix presents the Norwegian Competition Authority's method for valuation of assets
+included in the calculation of net operating assets (NOA).
+
+B.1
+
+Principles for valuation of operational assets
+
+The Norwegian Competition Authority follows similar principles for the valuation of operation-related
+assets in profitability analyses as the CMA. 1 This means that, as far as possible, assets must be valued
+according to methods that reflect the assets' value to business (VTB), also referred to as deprival value.
+This approach to valuation is intended to ensure that profitability calculations consider:
+•
+
+The need for existing companies to cover the opportunity cost associated with the capital
+employed in operating assets, given the value of these assets at the time of measurement.
+
+•
+
+A hypothetical newcomer's need to be able to justify the investment related to acquiring
+the assets necessary to establish oneself in the production or sale of groceries at the time
+of measurement.
+
+An asset's value measured by VTB is defined as the lower of the following two quantities: the asset's
+replacement cost and the asset's recoverable amount.
+Replacement cost is defined here as the cost of replacing the asset's function in today's market,
+adjusted for the remaining economic life. The CMA's guidelines state that the theoretically relevant
+measure of replacement cost is the value of a so-called modern equivalent asset (MEA).
+Recoverable value is defined as the higher of the following two quantities: net realisable value and
+value in use, where value in use is equal to the present value of the future cash flows the asset will
+generate.
+For assets that would be worthwhile to replace, replacement cost, given by MEA, is the relevant
+measure of the asset's VTB. In cases where it is not profitable to replace an asset in its current state,
+for example because the asset is broken or outdated, recoverable value will be the relevant measure
+of the asset's VTB.
+It is the Norwegian Competition Authority's assessment that only in exceptional cases will there be
+assets in the balance sheet that it would not be profitable to replace if they were to lapse. The
+Norwegian Competition Authority therefore makes a simplification and assumes that all assets in the
+balance sheet have a use or sale value that is either equal to or higher than the asset's replacement
+cost, given by the asset's MEA. Such an approach is also in line with the CMA's guidelines for
+conducting profitability analysis in connection with market research. 2
+Equating VTB with MEA is a methodological simplification that in all cases will be conservative
+regarding calculating profitability. It follows from the definition of VTB that the measured return under
+this assumption will always be equal to or lower than the return that would be measured if VTB were
+assessed specifically for each individual asset in the balance sheet.
+In summary, this means that when calculating RNOA, the Norwegian Competition Authority only uses
+book values directly if these are considered to provide a representative picture of the asset's
+replacement cost, given by the asset's MEA. Where the Norwegian Competition Authority finds reason
+
+Reference is made to the CMA's market investigation in the funeral market from 2020, Appendix Q:
+Profitability Methodology below Annex: Theoretical approach to asset valuation, p. Q12 to Q14. (link)
+2
+See CMA's Market Investigation Guidelines (CC3 revised), Annex A, section 14.link)
+1
+
+55
+
+to believe that there is a significant difference between book value and replacement cost, alternative
+methods for estimating the replacement cost of the assets are considered.
+
+B.2
+
+Balance sheet entries to be examined in more detail
+
+It is the Norwegian Competition Authority's assessment that the book value will deviate to a small
+extent from the asset use value for most operating assets in the balance sheet. Goods in stock are
+traded on an ongoing basis, so that book values at all times reflect updated market values for these
+assets. Furthermore, trade receivables and relevant liabilities will typically have a clearly defined
+nominal value, which means that these entries must be said to be valued in line with VTB.
+The entries where book values are assumed to differ significantly from VTB are the entries in the
+category of tangible fixed assets, including:
+•
+
+Land, buildings and other real property.
+
+•
+
+Machines and facilities.
+
+•
+
+Ships, rigs, planes and the like.
+
+•
+
+Movable property, inventory, tools, office machines and the like.
+
+Ships, rigs, aircraft and the like are not very relevant entries for the companies included in this survey.
+The other three entries under fixed assets, on the other hand, contain significant values, so that any
+discrepancies between book value and VTB will be important for the interpretation of the results of
+an RNOA calculation.
+The assets included in the balance sheet entry Land, buildings and other real property have a long
+depreciation period. These assets are booked at historical cost minus depreciation and amortisation.
+The long economic life means that the historical cost underlying the book value is not necessarily
+representative of the replacement cost of the asset in today's market.
+A similar challenge applies to the balance sheet entry Machinery and facilities, and to some extent
+also to the balance sheet entry Movable property, inventory, tools, office machinery and the like, even
+though the assets included in the latter entry are expected to have a somewhat shorter economic life
+than those under Land, buildings and other real property or Machinery and facilities.
+Based on the above, the Norwegian Competition Authority has concluded that book values and
+depreciation related to the tangible fixed assets should be adjusted so that the estimated employed
+capital included in the denominator in the calculation of RNOA reflects as well as possible the value of
+the assets given by VTB.
+
+B.3
+
+The Norwegian Competition Authority's method for value adjustment of tangible
+fixed assets
+
+Considering the challenges described below B.2 , the Norwegian Competition Authority has chosen to
+index adjust the book values of the companies' tangible fixed assets. Depreciation related to the
+tangible fixed assets is then adjusted by the corresponding factor in the income statement, so that the
+remaining economic life remains unchanged. It is the Norwegian Competition Authority's assessment
+that the index adjustments contribute to significantly reducing the assumed difference between the
+observable book values of the tangible fixed assets and the unobserved VTB of these assets.
+The Norwegian Competition Authority's method for value adjustment of the tangible fixed assets is
+done through the following two steps:
+•
+
+The average age of the assets is estimated based on depreciation schedules from the notes in
+the companies' public accounts.
+
+•
+
+Book values and associated depreciation are adjusted in line with growth in the relevant price
+or cost index.
+56
+
+The Norwegian Competition Authority has calculated the average age of land, buildings and other real
+property separately, and of other tangible fixed assets 3 separately. The average age of the assets is
+calculated based on data from the notes in the companies' public accounts 4, by dividing accumulated
+depreciation by the year's depreciation.
+
+Average age =
+
+Accumulated depreciation
+The year ′ sdepreciation
+
+The book values of land, buildings and other real property are then adjusted upwards in line with the
+development in Statistics Norway's construction cost index for residential buildings 5 above the
+estimated average age of these assets. There will not be a perfect match between the properties on
+which the index is based and the companies' properties. Nevertheless, it is the Norwegian Competition
+Authority's assessment that the construction cost index used here is more representative of the cost
+development of buildings than other alternative price or cost indices, such as core inflation.
+For other tangible fixed assets, the Norwegian Competition Authority has made an upward adjustment
+based on general price growth given by core inflation (CPI-ATE). 6 For the years prior to 2003,
+developments in the CPI-AE have been used. The Norwegian Competition Authority has compared
+core inflation with developments in Statistics Norway's price index of first-hand domestic sales for the
+commodity sub-groups SITC72 (Machinery for special industries) and SITC74 (Other industrial
+machinery and equipment) over time.7 The Norwegian Competition Authority finds that the price
+development for machinery does not deviate significantly from core inflation in the survey period, and
+based on this The Norwegian Competition Authority chooses to adjust the value of other fixed assets
+as a whole according to core inflation.
+For all tangible fixed assets, depreciation costs are adjusted by a factor corresponding to the
+associated assets in the balance sheet, so that the remaining economic life remains unchanged.
+
+For the sake of clarity, this does not include facilities under construction.
+For the suppliers, there is a large degree of correspondence between the entities for which data have been
+submitted to the Norwegian Competition Authority, and the entities for which public accounting data are
+reported to the Brønnøysund Register Centre. For Rema, notes from the public accounts of Rema Distribusjon
+and Rema 1000 Norway have been used. For Coop, notes from the public accounts of Coop Norway and Norsk
+Butikkdrift have been used. For Norgesgruppen, the Norwegian Competition Authority has used notes from
+the public accounts for ASKO Central Norway, ASKO North, ASKO West, ASKO East, and ASKO Central
+Warehouse to calculate age estimates at the wholesale level, and notes from the public accounts for Kiwi
+Central Norway, Kiwi North, Kiwi West and Kiwi East to calculate representative age estimates at the retail
+level. All publicly available accounts are taken from the Brønnøysund Register Centre.
+5
+08651: Construction cost index for residential buildings, by type of employment (2015=100) 1978M01 2024M02. StatBank (ssb.no)
+6
+05327: CPI-AT and CPI-ATE, by consumption group. CPI-AE, CPI-AEL and CPI-XADM (2015=100) 1995M01 2024M03. StatBank (ssb.no)
+7
+03675: Price index of first-hand domestic sales, by market and commodity group (2021=100) 1926M01 2024M03. StatBank (ssb.no)
+3
+4
+
+57
+
+Appendix C: Method for estimating WACC
+This appendix describes the Norwegian Competition Authority's method for calculating the required
+rate of return on total capital for the supplier/manufacturer, wholesaler and retail sector in the
+grocery industry, respectively. The Norwegian Competition Authority emphasises that the calculation
+of required rate of return is not an exact science, and that the results must therefore be regarded as
+estimates. Considering this uncertainty, the Norwegian Competition Authority has chosen to round
+the estimated required rate of return to the nearest half per cent.
+WACC (Weighted Average Cost of Capital) represents the weighted, average cost of capital of a
+company. Companies can finance their operations with debt and equity. Financing with debt and
+equity respectively entails different degrees of risk, as creditors are paid before shareholders. Since
+the WACC is a market-derived requirement, the returns from the two funding sources must be
+compared with what investors can earn from alternative investments with similar risk. 1 A company's
+WACC is calculated by weighting debt and equity, respectively, based on their market capitalization
+and expected return. However, current financial theory 2 states that a company's total cost of capital,
+under certain assumptions, is unaffected by the financing, because debtors will require the same
+payment as the equity that the debt replaces in the event of capital structure changes. Thus, one can
+estimate the total return requirement for a specific company with a specific financing structure, and
+at the same time assume that the company will have the same total return requirement also with a
+different capital structure, and that another company with similar operational risk will also have the
+same total return requirement.
+In connection with the calculation of the WACC for the survey, the Norwegian Competition Authority
+has estimated the cost of equity and the cost of debt for the supplier/manufacturer, wholesaler and
+retail level in the grocery industry, respectively. Thereafter, the cost of equity and the cost of debt are
+weighted based on market value.
+
+Figur C1
+
+C.1
+
+Components included in the calculation of WACC
+
+Cost of equity
+
+The cost of equity is estimated using the Capital Asset Pricing Model (CAPM). The CAPM is a simple
+but recognized theory and proven method. 3 The CAPM states that the required rate of return on
+equity for a company or a share can be expressed as the risk-free return (risk-free rate) plus a general
+Kaldestad & Møller (2016). Page 152.
+Miller, M.H. & Modigliani, F. (1958). «The Cost of Capital, Corporation Finance and the Theory of
+Investment». The American Economic Review. 48 (3): 261-297. See also description in Kaldestad & Møller
+(2016). Page 178.
+3
+See, for example , Levy, H. (2011). The capital asset pricing model in the 21st century: analytical, empirical,
+and behavioral perspectives. Cambridge University Press.
+1
+2
+
+58
+
+market premium for investing in shares multiplied by the systematic risk of the specific company in
+relation to the entire stock market, so-called Beta.
+C.1.1
+
+Risk-free interest rate
+
+In estimating the cost of equity, the risk-free rate will be the starting point, because all risky
+investments must at least generate a higher return than a risk-free investment. 4 As a practical
+expression of the risk-free rate, one can use the Norwegian zero coupon yields 5, as this is considered
+not to contain bankruptcy or default risk. A Norwegian interest rate is consistent with opening cash
+flows for the companies being analysed is in Norwegian kroner. In general, one should use a time
+horizon (duration) for the interest rate that corresponds to the duration(s) of the cash flows of the
+company being analysed. In practice, it is often common to assume a 10-year zero coupon yield as a
+weighted average for the risk-free rate for long-term/perpetual cash flows, and this has also been
+done for the purpose of this analysis. When estimating the WACC for the years 2017-2022, the
+Norwegian Competition Authority has used a 10-year zero coupon yield from Norges Bank on the last
+calendar day of each respective year.
+Tabell C1
+
+C.1.2
+
+Risk-free interest rate
+
+Market risk premium
+
+The market's risk premium should reflect the extra return that investors in a market portfolio on
+average expect or demand to achieve compared to the risk-free rate. 6 In order to calculate the
+market's risk premium, the Norwegian Competition Authority has taken a mature market as its starting
+point. The Norwegian Competition Authority has used Damodaran's calculation of the implied market
+risk premium in the US market (S&P 500), 7 and used an average over the past 10 years for each
+respective year in which the required rate of return has been calculated. Several studies show that
+the market risk premium is within the range of 4-6%. PwC and NFF's market research 8 show that the
+median market risk premium has been 5.0% in the entire period from 2017 to 2022. The market risk
+premium used in this survey is stable at around 5.5%, which is within the interval 4-6% and somewhat
+above the median in PwC and NFF's market survey.
+Tabell C2
+
+Market risk premium
+
+Several studies 9 show that the historical market risk premium has varied over time and that the market
+risk premium is inversely correlated with the risk-free rate. When the economic outlook is negative,
+Kaldestad & Møller (2016). Page 156.
+Risk-free rate: https://www.norges-bank.no/en/topics/Statistics/norwegian-government-securities/zerocoupon-yields/
+6
+Kaldestad & Møller (2016). Page 166.
+7
+https://pages.stern.nyu.edu/~adamodar/New_Home_Page/dataarchived.html
+8
+Pwc (2022), Risikopremien i det norske markedet
+9
+See, among others: Damodaran (2013): Equity risk premiums (ERP): Determinants, Estimation and
+Implications;
+S. Darolles, K. Eychenne, S. Martinetti, White Paper: Time Varying Risk Premiums & Business Cycles: A Survey.
+September 2010, Isuue 4
+J. Y. Campbell, J. H. Cochrane, By force of habit: A consumption-based explanation of aggregate stock market
+behavior. The Journal of Political Economy, Volume 107, Issue 2 (Apr. 1999), 205-251.
+4
+5
+
+59
+
+investors' appetite for investment will decline. This can lead to a fall in demand for capital, which
+contributes to low real interest rates. This, in turn, will lead to an increase in the market risk premium
+that investors require to invest in the stock market. The opposite will typically be the case during
+periods of economic upturn. Real interest rates will then rise because of increased demand for capital
+and the risk premium will fall because the market outlook is brighter. An alternative approach in the
+calculation could therefore be to set the market risk premium close to 6% in periods of very low real
+interest rates, while the market risk premium is adjusted downwards to 4-5% in periods when real
+interest rates are higher. However, such an approach would not entail a significant change in the
+estimated level of the WACC for the years 2017-2022.
+C.1.3
+
+Beta
+
+Beta measures the volatility of a stock, or systematic risk, compared to the stock market. 10 There are
+several ways to calculate beta, but a good practice is to obtain data from many companies that have
+approximately the same risk, and measure volatility relative to a broad stock market index (e.g. a
+global stock index) over several years, with the assumption that the historical volatility observed is
+representative of future volatility. The Norwegian Competition Authority has retrieved beta from
+Professor Aswath Damodaran's database 11, where the industry classifications "Food processing",
+"Food wholesalers" and "Retail (grocery and food)" are considered to be representative of the
+supplier, wholesaler and retail sector in the grocery industry in Norway, respectively. The Norwegian
+Competition Authority has used Damodaran's average global beta based on beta for several
+representative companies. The Norwegian Competition Authority has also used the last five years for
+each respective period to avoid "noise" and large fluctuations from year to year. The beta for each
+individual company is converted to an asset beta, defined as the relevant beta value if the company
+was 100% equity-financed. This is to make the figures comparable. Only later are the asset betas
+converted into equity betas based on the debt-to-equity ratio for the industries being analyzed. A
+more detailed description of this weighting is given below C.3.
+Tabell C3
+
+C.1.4
+
+Asset Beta
+
+Adjustment for other prizes
+
+It should be considered whether other premiums should be taken into account in the calculation of
+the cost of equity, such as small business, liquidity and country risk premiums. 12 Since the calculated
+equity requirements are for three different segments within the grocery industry, where both
+large/small and listed/unlisted companies will be included, the Norwegian Competition Authority has
+disregarded small business and liquidity premiums. Furthermore, the Norwegian Competition
+Authority calculates a required rate of return for the companies' total cash flow. It is therefore not as
+relevant to include additional premiums in such a calculation than it would have been if only a small
+shareholding were to be considered. Since the survey only covers the companies' activities in the
+Norwegian grocery market, there is no need to include country risk premiums.
+
+C.2
+
+Cost of debt
+
+The estimated debt cost is based on the Norwegian 10-year government bond yield, i.e. the same
+interest rate as when calculating the risk-free interest rate for the cost of equity, described below
+Kaldestad & Møller (2016). Page 159.
+https://pages.stern.nyu.edu/~adamodar/New_Home_Page/dataarchived.html
+12
+Verdivurdering, Kaldestad and Møller (2016). Page 171.
+10
+11
+
+60
+
+C.1.1. In addition to the risk-free rate, a creditor will require a debt risk premium, which is intended
+to represent compensation for default risk. A company's debt risk premium can be calculated in
+different ways, but a common approach is to look at the company's credit rating and see what the
+yield is on listed bonds to companies with similar credit ratings. 13 The debt risk premium will then be
+the difference between the yield on the listed bond and the risk-free rate. 14
+The Norwegian Competition Authority observes that large companies such as Orkla and
+NorgesGruppen have investment grade credit ratings of A 15 and BBB+ respectively. 16 This is among
+the largest companies in the grocery industry and is not necessarily representative for the grocery
+industry. The Norwegian Competition Authority considers the credit rating between Baa2/BBB to
+B1/B+ to be a representative estimate for the industry. According to Professor Damodaran's database,
+companies with a credit rating of Baa2/BBB to B1/B+ would achieve an average risk premium for the
+period 2017-2022 of between 1.7% and 3.8%. In the Norwegian Competition Authority's calculation
+of the annual WACC for the period 2017-2022, a debt risk premium equal to the annual average for
+ratings Baa2/BBB to B1/B+ has been used. Data was taken from Professor Damodaran's public
+database. 17
+Tabell C4
+
+C.2.1
+
+Debt risk premium
+
+Tax rate
+
+The nominal tax rate in Norway is used as the basis for the transition from pre-tax to post-tax debt
+costs. This is consistent with the fact that the interest on debt (which is deductible for the company)
+is mainly expected to be in Norway. Payments from the company to shareholders/equity are not
+deductible. This is one of the reasons why no tax adjustment is made to the required rate of return on
+equity.
+
+C.3
+
+WACC
+
+The WACC is calculated by weighting the equity and debt costs, respectively, based on their market
+value. The Norwegian Competition Authority uses a consistent weighting in the calculation of the
+WACC and in the transition from asset to equity beta. When weighting the proportion of equity and
+debt, long-term expectations of an optimal capital structure should be taken into account. 18 The
+Norwegian Competition Authority has used observed debt ratios in the industry, taken from Professor
+Damodaran's global database. This is expected to represent the optimal capital structure for the
+supplier, wholesaler and retail sectors in the grocery industry, respectively.
+Based on the discussion above, the Norwegian Competition Authority has estimated the WACC after
+tax for the period 2017 to 2022.
+
+Unless the company has its own listed bonds.
+Verdivurdering, Kaldestad and Møller (2016). Page 176.
+15
+https://investors.orkla.com/English/debt/credit-rating/default.aspx
+16
+https://nordiccreditrating.com/issuer/norgesgruppen-asa
+17
+https://pages.stern.nyu.edu/~adamodar/New_Home_Page/dataarchived.html
+18
+Kaldestad & Møller (2016). Page 178.
+13
+14
+
+61
+
+Tabell C5
+
+WACC (after tax)
+
+To assess the reasonableness of the estimates, the Norwegian Competition Authority has compared
+the estimated WACC with which a selection of major suppliers and grocery chains have used in their
+impairment tests of goodwill and other intangible assets. Data is taken from annual reports for 2021
+and 2022. Note that several of the companies operate in different countries and different segments.
+These therefore specify an interval for the required rate of return. The lower part of the interval is
+considered to be most representative of the grocery industry in low-risk countries such as Norway.
+The Norwegian Competition Authority has rounded the average WACC for the companies to the
+nearest half percent.
+Tabell C6
+
+WACC – comparison against a sample of companies
+
+As can be seen from Table C6 is the Norwegian Competition Authority's estimated required rate of
+return for the manufacturer, wholesaler and retail sectors in the grocery industry within a reasonable
+interval when compared with a selection of companies in the grocery industry. On this basis, it is
+assumed that the estimated required rates of return for the period 2017-2022 are representative of
+the return required in the various parts of the grocery industry.
+
+62
+
+C.4
+
+Supplementary tables
+
+63
+
+64
+
+

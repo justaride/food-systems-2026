@@ -1,0 +1,889 @@
+kapittel 1
+
+Mot bedre vitende
+i norsk matsektor
+«We always plan too much and always think too little.»
+Joseph Schumpeter,
+Capitalism, Socialism and Democracy
+(1947-utg.) forord s. 11
+
+Ivar Pettersen
+Norsk institutt for bioøkonomi, NIBIO
+
+Frode Steen
+Norges Handelshøyskole, NHH
+Abstract: This chapter summarizes our perspectives on the Norwegian grocery
+market, and why we have challenged scientific authors to contribute to the present book. Generally, we argue that much of the Norwegian public debate about
+the functioning of the food supply chain, concentration, market power and the
+potential competition remedies suggested, is taking place more ‘despite of’ than
+‘because of’ empirical knowledge. The first part of this chapter summarizes the
+five primarily empirical articles of this book, drawing the bigger picture on the
+Norwegian grocery market. These contributions cover questions like: How do
+the Norwegian market structure and prices compare to other countries’ market
+struc­ture and prices? How has productivity developed over time? How are the
+Norwegian import restrictions functioning, and how do consumers think about
+national brands? Given this overview, we discuss potential remedies that might
+increase efficiency in this market. This discussion is mirroring parts of the sixth
+article in this book, where the Norwegian competition law and the negotiations
+in the vertical chain are discussed in more detail.
+Keywords: Norwegian grocery market, competition challenges, competition
+remedies, competition policy, food supply-chains
+Sitering av denne artikkelen: Pettersen, I. & Steen, F. (2020). Mot bedre vitende i norsk matsektor.
+I F. Steen & I. Pettersen (Red.), Mot bedre vitende i norsk matsektor (Kap. 1, s. 7–34). Oslo: Cappelen Damm
+Akademisk.
+https://doi.org/10.23865/noasp.93.ch1
+Lisens: CC BY-ND 4.0.
+
+7
+
+ka p i t t e l 1
+
+Introduksjon
+Det norske matmarkedet preges av sterke meninger og stor medie­
+oppmerksomhet, med debatt om både behovet for regulering og hvordan
+man eventuelt kan regulere konkurranse mellom kjeder og kontrakter
+mellom kjeder og leverandører. Mange er involvert i debatten, og det er
+ikke uvanlig å trekke forskeres uavhengighet i tvil: Forskere engasjert av
+parter, forskere engasjert av konkurransemyndigheter og andre myndigheter, har alle brakt ulike analyser til torgs (Foros & Kind, 2018a, 2018b,
+2019; Gabrielsen, Moen & Nilssen, 2020; Gjendemsjø & Anchustegui,
+2017; Hjelmeng & von der Fehr, 2018; Midttømme, Myklebust, Vikøren
+& Grimsby, 2019; Oslo Economics, 2019). Samtidig etterlyser landets politikere mer intensiv virkemiddelbruk. I mai 2018 ba Stortinget om utredning av tiltak som «vil virke konkurransefremmende og legger til rette
+for nyetablering og fremmer innovasjon i mat- og dagligvaremarkedet,
+herunder forbud mot prisdiskriminering for dominerende leverandører samt forhold knyttet til distribusjon» (Næringskomiteen, 2018). Det
+eneste som fremheves som ubevegelig, er importvernet som «må bestå»,
+iflg. næringsministeren i 2018 (Isaksen, 2018).
+Uenighet om faglig grunnlag koblet med politiske behov for tiltak gjør
+det naturlig å forsøke å se nærmere på situasjonsbeskrivelsen. Med unntak av bl.a. en kort rapport fra Konkurransetilsynet som avdekker til dels
+store forskjeller i rabatter mellom matvarekjeder (Konkurransetilsynet,
+2019) og noen andre bidrag, er innspillene i stor grad teoretiske.
+Denne boken har et litt annet utgangspunkt, og ønsker å gi et oppdatert bilde av landskapet når det kommer til den empiriske strukturen i det
+norske matmarkedet, og til dels også hvordan denne ser ut sammenlignet
+med våre naboland. Gitt den intense debatten har vi utfordret en av de
+sentrale deltagerne i diskusjonene rundt reguleringer av næringen over
+mer enn det siste tiåret, professor Erling Hjelmeng, og bedt ham tegne det
+større bildet når det kommer til hvordan partene i den verti­kale kjeden
+møtes og forhandler. Han diskuterer også hvilke rammer og muligheter
+som ligger i konkurranseloven, samt ulike muligheter for endret regulering av markedet.
+
+8
+
+m ot b e d r e vitende i no rs k mats ekto r
+
+Resten av boken samler en håndfull forskere som har jobbet med ulike
+tema vedrørende det norske matmarkedet over lengre tid. Primært har vi
+ønsket å skape et oppdatert faktagrunnlag rundt hele den vertikale kjeden i matmarkedet. Noen av artiklene er oppdateringer og utvidelse av
+analyser og tema som har vært gjort i tidligere artikkelsamlinger og rapporter (se f.eks. Gabrielsen & Pettersen, 2011; Gabrielsen, Steen, Sørgard
+& Vagstad, 2013) knyttet til tema som produktivitetsutviklingen på de
+ulike leddene i matkjeden, prisforskjeller mellom ulike land og effektene
+av det norske tollvernet. Flere nye funn kommer ut av disse nye, oppdaterte analysene. Boken presenterer også nye bidrag rundt markedsstruktur, butikktilgjengelighet og merkevarens betydning.
+Mye av det man visste fra før om norsk matsektor bekreftes, dels med
+nye data, dels med nye analyser, men boken frembringer også en del nye
+funn som fortjener oppmerksomhet fra bransjen, medier og myndigheter. I så måte bidrar boken til større visshet og noe mer tilgjengelig
+kunnskapsgrunnlag, men også konstruktive skisser til styrking av
+kunnskapsgrunnlaget.
+Bokens artikler dokumenterer tre empiriske hovedobservasjoner:
+1. Markedsstruktur, konsentrasjon og butikktetthet skiller seg mindre fra våre naboland enn det debatten rundt dagligvaremarkedet
+gir inntrykk av. Selv om vi har tilsynelatende mange flere butikker enn våre naboland, er butikktilgjengelighet med utgangspunkt
+i hvor kundene bor (med unntak av hovedstadsområdet Oslo og
+Akershus) ikke like forskjellig i Sverige og Norge. Tilsvarende vises
+det at den ofte antatte høye norske opptattheten av «norskhet»
+i merkevaren kanskje er mindre enn påstått, eller i hvert fall at
+«norskmerking» er mindre effektiv enn det mange kanskje har
+trodd, noe som åpner dørene for større innslag av importerte produkter. Sammenlignet med våre naboland er konsentrasjonen på
+handelsleddet både lokalt og nasjonalt svært mye likere på tvers av
+skandinaviske land enn det debatten synes å ta inn over seg. En
+forskjell er imidlertid at muligheten for etablering med relativt små
+markedsandeler, av store, multinasjonale dagligvarekjeder, er sterkt
+begrenset i Norge. Det er vanskelig å peke på mer vesentlige årsaker
+9
+
+ka p i t t e l 1
+
+til dette enn importvernet for jordbruksvarer og industrielt bearbeidede matvarer.
+2. Produktivitetsveksten i matvaremarkedet er i endring. Samlet ser
+vi i likhet med det vi ser i resten av norsk næringsliv, en redusert
+arbeids­produktivitet de siste tiår. Dagligvarehandelen har fremdeles, dels i likhet med primærnæringen, den største produktivitetsveksten i verdikjeden for matvarer. Dagligvarehandelen har
+vist stor historisk produktivitetsvekst i hele perioden fra 1970 til
+2010, men vi ser en reduksjon i årlig produktivitetsvekst etter 2010.
+Næringsmiddelindustrien har forbedret seg fra et lavt historisk nivå,
+og er nærmere produktivitetsveksten til handelsleddet etter 2010.
+3. Prisutviklingen til konsumenter relativt til våre naboland har vist
+en forverring siden sist den ble analysert. Maten i Norge er fremdeles dyrest i EØS-området, og ligger mer enn 30 prosent over det
+våre svenske og danske naboer betaler. Til forskjell fra ti år tilbake
+er det vanskeligere å forklare forskjellen med generelt høyere, norsk
+kostnadsnivå for distribusjonstjenester. Et slikt generelt høyere
+kostnadsnivå ble tidligere illustrert med at andre lett omsettelige
+konsumvarer som klær og skotøy også var typisk dyrere i Norge.
+Mens prisforskjellene over tid forsvinner for andre konsumvarer, er
+forskjellen minst opprettholdt for matvarer. En hovedårsak til den
+relative forverringen for matvarene de siste tiår ligger i vår bruk av
+importvernet for norsk jordbruk. Norske myndigheters prioritering
+av skjermingsstøtte og høye priser har størst direkte betydning for
+hvorfor prisene blir ekstra høye. I kapittel 5 peker Gaasland i tillegg
+på uheldige, indirekte virkninger av importvernet. Analysen viser at
+endringer i prosentvise, relative bruttomarginer tilsier at matindustri
+og engros­handel har bidratt noe til økende matprisulempe for norske
+husholdninger, mens detaljistleddet har hatt motsatt effekt.
+I sum er det mye som taler for at høy konsentrasjon i dagligvarehandelen er et fenomen vi, som våre naboland, må leve med. Men høyere
+matvarepriser og fravær av mindre, gjerne internasjonale dagligvarekjeder i er i stor grad drevet frem av norsk jordbruks- og matpolitikk, hvor
+valg av importvern er et hovedvirkemiddel. Tilsynelatende synes ikke
+10
+
+m ot b e d r e vitende i no rs k mats ekto r
+
+denne politikken så langt å ha gått ut over produktivitetsveksten verken i
+primær­produksjonen eller i norsk detaljhandel med dagligvarer. Detalj­
+handelen med dagligvarer har tvert imot hatt særlig høy produktivitetsvekst, noe som har bidratt til å dempe prisforskjellen mellom Norge og
+nabolandene. Det er imidlertid grunner til å være opptatt av bærekraften
+og holdbarheten i den produktivitetsveksten handelen og primærleddet
+har fremskaffet, og av styrking av konkurranseevne og produktivitetsvekst i industrien.
+Så langt ser vi få tegn til at dagligvare- og matvarepolitikken har funnet frem til spesielt effektive tiltak. Det er en utbredt oppfatning at tiden
+er inne for ny politikk og reguleringer som er lite utprøvd. Spørsmålet
+kan imidlertid være om forbrukere og samfunn forøvrig er minst like
+tjent med mer konsekvent bruk av bestemmelsene i eksisterende norsk,
+EØS-basert konkurransepolitikk.
+Lite av dette er grunnleggende nye erkjennelser. Noen observasjoner i
+artikkelsamlingen bringer ny innsikt, f.eks. om forholdet mellom engrosog detaljistledd, og om forholdet mellom konsentrasjon og butikktetthet
+i ulike regioner i Norge sammenlignet med Sverige. Videre er tilnærmingen og analysen av en annen karakter enn det som har vært presentert
+tidligere. Dette gjelder f.eks. analysen av strukturforskjeller med vekt på
+regionale særtrekk, pris- og marginforskjeller og databruken i analysen
+av produktivitet. Hovedinntrykket er likevel at mye av debatten om dagligvarepolitikk synes å skje «mot bedre vitende», dvs. som om vi hadde
+en gjennomgående ineffektiv matsektor som skiller seg fra våre naboland
+langs en rekke dimensjoner. Boken viser på sett og vis at vi er likere på
+tvers av landene enn hva man kan få inntrykk av. Vi kan ha problemer
+med fordeling og sosial bærekraft, men evnen til å skille effektivitet fra
+spørsmål om hvordan «kaken» bør fordeles, er avgjørende for å komme
+videre i arbeidet med fremtidsrettede rammebetingelser for verdikjeden
+for matvarer.
+Artiklene forsøker å dokumentere utviklingstrekk som krever stort
+og detaljrikt datatilfang og grundig statistikkforståelse. Flere steder brukes nye data eller eksisterende statistikk på nye måter; som i analysen av
+«annerledeslandet» i kapittel 2, produktivitet i kapittel 3, priser og marginer i kapittel 4 og merkevare i kapittel 6. Et av resultatene er at vi ser
+11
+
+ka p i t t e l 1
+
+flere svakheter i statistikken. Med den oppmerksomhet matsektoren både
+får og fortjener, er det grunn til å se nærmere på hvordan statistikk- og
+metodegrunnlaget for videre analyse av utviklingen i matsektoren kan
+styrkes.
+Boken er kommet til gjennom et samarbeid mellom NIBIO og NHHs
+forskningsprosjekt FOOD. FOOD er finansiert gjennom en større forsk­
+ningsgave fra NorgesGruppen til NHH, og er delvis toppfinansiert av
+Norges forskningsråd. Flere av artiklene bygger på tidligere arbeider
+utført med finansiering fra Forskningsrådet og jordbrukets og mat­
+industriens forskningsmidler. Boken kan også sees som en oppfølging av
+temaene i «Dagligvarehandel og mat»-rapportene fra Norsk institutt for
+landbruksøkonomisk forskning, NILF (nå NIBIO), spesielt 2011-utgaven.
+Bokens forfattere har bidratt på grunnlag av vitenskapelige prinsipper
+med selvstendig ansvar for metodevalg og konklusjoner. Alle kapitler,
+med unntak av denne introduksjonen, er fagfellevurdert av minst én uavhengig forsker.
+I dette kapittelet trekker vi sammen perspektivene fra artiklene. Først
+utdypes de tre hovedfunnene og empirien som presenteres i boken. Der­
+etter drøftes mulige implikasjoner for dagligvare- og matpolitikken.
+Boken er tilsvarende organisert; der de fem hovedsakelig empiriske
+bidragene kommer først, før siste kapittel presenterer forhandlingsspillet
+mellom kjedene og diskuterer de konkurranserettslige rammenes relevans for norsk matvaremarked. Dette kapitlet presenterer redaktørenes
+oppfatning av bokens bidrag om norsk matvaremarked. Alle de andre
+kapitlene er selvfølgelig de respektive artikkelforfatterne ansvarlige for.
+
+Konsentrasjon og butikktetthet er mye som
+hos våre naboer, og det at produktet er merket
+«norsk» synes ikke så viktig
+Konsentrasjonsgraden om lag som i andre land
+I kapittel 2 analyserer Friberg, Pettersen, Steen og Ulsaker konsentrasjon,
+markedsandeler og butikktilgjengelighet i primært Norge og Sverige,
+men konsentrasjonsanalysen ser også på Finland og Danmark. I likhet
+12
+
+m ot b e d r e vitende i no rs k mats ekto r
+
+med våre naboland har Norge høy konsentrasjon i detaljhandelen av dagligvarer. Vi skiller oss ikke ut på nivå, men vi har hatt en sterkere vekst i
+konsentrasjonen det siste tiåret.
+Dekomponerer vi konsentrasjonen regionalt finner vi at mens den
+høyeste konsentrasjonen i Sverige er i mindre sentrale len med lav befolkningstetthet, er konsentrasjonen i Norge høyest i de mer folkerike fylkene
+på Østlandet. Ser vi på de underliggende markedsandelene er Norge delt.
+NorgesGruppen dominerer sør for Trøndelag, mens Coop er dominerende fra Trøndelag og nordover. Rema 1000 er relativt jevnt til stede i
+alle landsdelene. Sammenligner vi med Sverige, er det kun de to største
+aktørene som er etablert i de mindre folkerike områdene i Nord-Sverige.
+I så måte skiller Norge seg ut ved å ha full distribusjon i alle fylker av alle
+de tre største kjedene.
+Generelt er konsentrasjonen i Norge, Sverige og Finland høyest, og
+langt over det som EU oppfatter som bekymringsfullt, på tvers av næringer og sektorer. Dette er samtidig de nabolandene som har klart dyrest
+og mest krevende distribusjon, noe som spesielt gjelder for Norge. Der
+Norge skiller seg ut for øvrig, er ved fraværet av utenlandske kjeder som
+Lidl og Aldi, som typisk er til stede i våre naboland.
+Friberg m.fl. (kapittel 2) og Gaasland (kapittel 5) argumenterer, i likhet
+med tidligere studier som Oslo Economics/Oeconomica (2017), for at dette
+primært skyldes at det ikke finnes importvern mellom EU-land, mens
+norsk importvern overfor EU i vesentlig grad hindrer import. Kjeder som
+Lidl og Aldi kan dermed i større grad dra nytte av sin inter­nasjonale størrelse i andre land. Selv i Finland, der de to store kjedene (K- og S-gruppen) fullstendig dominerer, har Lidl doblet sin tilstedeværelse fra 2011 til
+2018, og vokst fra 5 til 10 prosent av markedet. I Sverige har Lidl (om enn
+fra et lavt nivå) økt sin andel med 47 prosent over samme periode, og også
+i Danmark har Aldi og Lidl økt sin tilstedeværelse over perioden.
+Lokal tilstedeværelse av disse internasjonale kjedene endrer også markedet i andre dimensjoner. Markedet differensieres gjennom import
+av produkter som vi typisk ikke finner hos de store nasjonale aktørene og andre driftskonsept (eksempelvis mer gjennomførte «hard core
+discount»-­konsepter). Større grad av produktdifferensiering og mulig­
+heten for aktører som Aldi og Lidl til å «importere» sin forhandlingsstyrke
+13
+
+ka p i t t e l 1
+
+påvirker dermed forhandlingsspillet mellom kjeder og leverandører.
+Trolig begrenser dette muligheten større nasjonale leverandører har til
+å kunne prisdiskriminere mellom kjeder, slik vi nylig har sett tall for i
+Norge. Over tid kan dermed etableringsmulighetene for internasjonale
+dagligvareaktører med egne leverandørrelasjoner innebære større muligheter for mer intensiv kamp om markedsandeler og strukturendring.
+
+Bedre butikkdekning
+Butikktilgjengelighet er så langt i litteraturen mest typisk beregnet som
+forholdet mellom antall butikker og antall innbyggere. Antall butikker
+har gått kraftig ned, men like fullt har Norge flere butikker i forhold til
+folketall enn det vi ser hos våre naboer. De norske butikkene er også mindre – gjennomsnittsbutikken i Norge er nesten 40 prosent mindre enn
+gjennomsnittsbutikken i Sverge.
+Artikkelen til Friberg m.fl. i kapittel 2 presenterer nye mål på butikk­
+tilgjengelighet, der man benytter butikkers og kunders plassering regionalt og detaljert beregner butikktilgjengelighet lokalt der kundene bor.
+Her viser man at til tross for at Sverige har halvparten så mange dagligvarebutikker som Norge i forhold til befolkning, er landene overraskende
+like når det kommer til lokal butikktilgjengelighet. Mens innbyggeren
+i det mest typiske norske fylket har tilgang til 12 butikker innenfor 10
+minutters reiseavstand, har innbyggeren fra det mest typiske svenske
+lenet tilgang til 7 butikker.
+Der Norge skiller seg kraftig ut er i hovedstadsregionen. Her har Norge
+veldig stor butikktetthet både om vi sammenligner med andre fylker og
+len eller med hovedstadsområdet i Sverige. Innenfor 10 minutters reise­
+avstand har osloenserne 137 butikker å velge mellom. Selv når vi ser på
+gjennomsnittsinnbyggeren i Oslo og Akershus samlet (som er mer sammenlignbart med Stockholm len), har gjennomsnittskonsumenten 80
+butikker innenfor denne radiusen. En Stockholmer har til forskjell bare
+35 butikker å velge mellom. Med tanke på at bosettings- og urbaniseringsstrukturen neppe er så forskjellig mellom de to hovedstadsregionene,
+tyder dette på overetablering av dagligvarebutikker i den norske hovedstadsregionen. Tar vi hensyn til at de fleste kunder fra denne regionen bor
+14
+
+m ot b e d r e vitende i no rs k mats ekto r
+
+mindre enn 90 minutter fra nærmeste svenske butikk med store vareutvalg og langt lavere priser, forsterkes konklusjonen om overetablering.
+Sammenligner vi gjennomsnitt på tvers av fylker og len, øker gjennomsnittlig antall butikker innenfor 10 minutters reiseavstand for begge land
+som følge av den høye tettheten i hovedstedene. Men der landssnittet for
+de svenske lenene i Sverige uten Stockholm går fra 10 til 9, går det for de
+norske fylkene fra 20 til 12.
+Artikkelen gjør også en sammenligning av Nord-Sverige og NordNorge: to områder som er svært like i areal og folketetthet, men der det er
+mer enn dobbelt så mange butikker på norsk som på svensk side av grensen. På tross av denne forskjellen har gjennomsnittsinnbyggeren på begge
+sider tilgang til omtrent like mange butikker (6–7) innenfor 10 minutters
+reisetid.
+Ser vi bort fra hovedstadsregionen, viser analysen av butikktetthet at
+det er nødvendig med mange flere butikker for å kunne gi nordmenn like
+god tilgjengelighet som svensker. Dette skyldes at vi har en helt annen
+topografi og bosettingsmønster koblet med et veinett som gjør at det simpelthen kreves flere butikker for å nå «hjem» til norske husholdninger.
+Dette betyr også at det blir langt mer effektivt med større og mer kostnadseffektive butikker i Sverige.
+
+Norsk merkevarelojalitet
+Merkevarer er en mulig kilde til markedsmakt, og det er kamp om kontroll med merkenavn i verdikjeden for matvarer. Spørsmålet om merke­
+varenes betydning for kundelojalitet er derfor like viktig for å forstå
+konkurransen i matmarkedet som i andre markeder for konsumvarer.
+Norske konsumenter er trolig mer opptatt av norske merkevarer i daglighandelen enn hva svensker og dansker er av sine nasjonale merker.
+Noe av dette skyldes nok at et høyere tollvern har gjort norsk økonomi
+langt mer lukket når det kommer til mat. Noen av kommentatorene som
+vurderte Lidls exit i Norge pekte på at norske kunder var overraskende
+skeptiske til nye og annerledes produkter som typisk ble ført av Lidl. Tilsvarende har Norge en lav andel med private merkevarer, dvs. kjedenes
+
+15
+
+ka p i t t e l 1
+
+egne merker, sammenlignet med andre nasjonale dagligvaremarkeder,
+noe som nok også kan tilskrives et mer lukket matmarked.
+Samtidig har vi sett økt bransjeglidning, der norske merkevarer får
+konkurranse gjennom fremveksten av såkalte «dollar stores» (eksempelvis Europris og nå fremveksten av Dollarstore-kjeden). Her selger man
+gjerne produkter med mindre kjente merkenavn eller uten merkenavn i
+det hele tatt. Dette tyder på at den norske kunden kanskje er mer bevegelig enn det man lenge har tenkt.
+For bedre å forstå merkevaren og dens viktighet, har Magne Supphellen
+i kapittel 6 beskrevet hva som driver folks preferanser og tanker rundt
+merkevaren, herunder hvilke assosiasjoner som typisk knyttes til merke­
+varen og hvilken nytte som driver merkepreferansene. Søkelyset rettes
+mot behovet for å forstå hvordan generisk markedsføring påvirker
+merke­varens norske identitet, og hvordan dette kan gjøres på en god og
+verifiserbar måte.
+Videre diskuteres den nyeste forskningen på feltet, før Supphellen empi­
+risk viser hvordan den generiske merkeordningen til stiftelsen Matmerk
+(«NytNorge-merking» – en kvalifisering og tilleggsmerking av norske
+produkter) påvirker oppfatninger om «norskheten» av den aktuelle
+merkevaren. Han beskriver et simulert butikk-eksperiment med 300
+deltagere og tre typer. Resultatene var entydige: NytNorge-merket
+hadde ikke signifikant effekt på valg av produkt for noen av de ni norske
+produktmerkene i testen.
+Denne typen forskning viser dels at vi vet for lite om generisk effekt
+av markedsføring og produkters merkevarestyrke, men antyder også at
+konsumenter kanskje er mindre opptatt av nasjonalitet enn vi har tenkt.
+Noe som eksempelvis kan forklare at norske kunder nå tilsynelatende
+velger vaskepulver i «grå» forpakning fra nye «dollar stores» like lett som
+OMO fra Lilleborg. Å forstå merkevareeffekter er derfor viktig for å forstå
+fremtidig konkurranse i matvaresektoren.
+
+16
+
+m ot b e d r e vitende i no rs k mats ekto r
+
+Ingen klare tegn til ineffektivitet,
+men noe forskjell mellom industri
+og handel, engros og detalj
+I kapittel 3 analyserer Pettersen, Steen og Ulsaker endring i arbeidskraftens produktivitet over tid for tre ledd innenfor norsk matmarked:
+næringsmiddelindustrien, detaljist- og engrosleddet. Siden 1970-tallet
+har veksten i arbeidsproduktiviteten i Norge vært ganske jevn, men det
+siste tiåret viser fallende vekst for næringslivet inklusive matsektoren.
+Den brede trenden i produktivitetsveksten tyder på at det er sammenheng mellom produktivitetsvekst på tvers av næringer. Grunnen kan bl.a.
+være endrede, generelle rammebetingelser, endringer i arbeidskraftens
+sammensetning og brede teknologiendringer.
+Matsektoren, som norsk næringsliv ellers, opplever samlet en svek­
+kelse av produktivitetsveksten for perioden 2008 til 2017 sammen­lignet
+med fore­gående tiår. Men på lengre sikt har næringsmiddel­indus­t­rien
+for­bedret seg fra et lavt historisk nivå, og har nå årlig arbeids­produ­k­
+tivitetsvekst på mellom to og tre prosent. Sjømatindustrien trekker opp
+matindustriens produktivitetsvekst. Lengre nede i den vertikale kjeden
+har vare­handelen totalt, hatt en stor historisk produktivitetsvekst på årlig
+mer enn fem prosent i denne lange perioden frem til 2010, men opplever
+nå et markert fall i årlig produktivitetsvekst til noe over tre prosent etter
+2010.
+Primærproduksjonen har også relativt sterk produktivitetsvekst, men
+igjen skiller sjømatsektoren seg ut. Akvakultur har hatt meget høy produktivitetsvekst, men har et markert fall i arbeidsproduktivitetsvekst de
+seneste årene.
+For å finne produktivitetsveksten i dagligvarehandelen er det nødvendig med egne beregninger hvor prisindeksene har avgjørende betydning.
+Prisveksten ut mot forbrukerne har vært lavere enn inn mot engroshandelen med matvarer. Det er noe av grunnen til at artikkelen viser at
+dagligvarehandelen har hatt relativt høy produktivitetsvekst. Samtidig
+er produktivitetsveksten også en årsak til at handelsleddet har dempet
+prisstigningen ut mot forbrukerne. Artikkelen viser også at det er høyere
+
+17
+
+ka p i t t e l 1
+
+arbeidsproduktivitetsvekst på detaljistleddet enn på engrosleddet. Samtidig er engros- og detaljhandel i stor grad vertikalt integrert, slik at prisdannelsen mellom de to leddene kan sees som resultat av intern styring
+i virksomheter med varierte former for vertikal integrasjon og kontroll,
+mer enn som resultat av konkurranse og kjøper- eller selgermakt.
+Forskjellen mellom dagligvarehandelen og industrien samsvarer med
+forskjellen mellom industri og varehandel generelt. Det tilsier at hovedforklaringen neppe finnes i forskjellene mellom matindustri og detalj­
+leddet spesifikt i matsektoren. Det er mer sannsynlig at vi i hovedsak
+observerer generelle forskjeller mellom industri og tjenesteytende næringer som handel.
+Forfatterne bruker en del plass på å kontrollere for utviklingen i sjømatsektoren, som er i ferd med å få en avgjørende betydning for produktivitetsutviklingen for næringsmiddelindustrien. Produktivitetsutviklingen
+skiller seg så vidt mye mellom næringsmiddelindustri generelt og sjømat
+at man bør analysere disse separat, noe forfatterne prøver å ta hensyn
+til. Det er for eksempel stor forskjell på prisutviklingen for innsatsvarer
+og handelsvarer til norsk matindustri og dagligvarehandel sammenlignet med den samlede førstehånds- eller engrosomsetningen av matvarer
+i Norge inklusiv all sjømat.
+
+Matvarer er dyre i Norge, og vi har et
+importvern som i stor grad understøtter dette
+Prisutviklingen
+I kapittel 4 analyserer Pettersen konsumentpriser på matvarer og hvordan disse har utviklet seg siste tiår. Generelt har det skjedd en forverring
+relativ til prisutviklingen i Danmark og Sverige. I 2018 er gjennomsnitts­
+prisen i Norge 32 prosent over snittet av våre naboland. I 2005 var forskjellen 22 prosent. Prisforskjellen for klær og skotøy har imidlertid sunket
+fra 22 prosent til minus en prosent (kapittel 4, figur 6). Med andre ord,
+mens man både i 2005 og 2010 kunne antyde at en generell merkostnad
+i distribusjon av lett omsettelige konsumvarer kunne forklare en stor del
+
+18
+
+m ot b e d r e vitende i no rs k mats ekto r
+
+av prisforskjellen overfor nabolandene i matsektoren (Pettersen, Kjuus &
+Lavik, 2011), er dette ikke lenger tilfellet.
+Artikkelen viser betydningen av forskjeller i merverdisatser og skjermingsstøtte – dvs. importvernet – til jordbruket, og observerte pris­
+forskjeller i andre konsumvaremarkeder enn for matvarer. Analysen
+viser mulige forklaringer på noe av prisforskjellen mellom Norge og
+nabo­landene, og resulterer i et stort og voksende uforklart restledd.
+I andre del av analysen bruker Pettersen regnskapsdata til å se om
+prisforskjellen, spesielt endringer i prisforskjellen, kan tilskrives brutto­
+marginer på industri-, engros- og detaljistleddet. Funnene viser at
+endringer i prosentvise, relative bruttomarginer tilsier at matindustri og
+engros­handel har bidratt noe til økende matprisulempe for norske husholdninger, mens detaljistleddet har hatt motsatt effekt.
+Blant de faktorene som kan tallfestes, fremstår skjermingsstøtten til
+jordbruket som det største bidraget til økte prisforskjeller de siste årene.
+Siden år 2000 har skjermingsstøtten økt, mens den fra samme år er
+redusert med om lag to tredeler for EU-jordbruket. I analysen bruker
+Pettersen EUs skjermingsstøtte i prosent av verdensmarkedsverdier for
+sammenligning med norsk skjermingsstøtte. Dette impliserer at skjermingsstøtten i 2017 vil utgjøre 5 prosent av internasjonal markedsverdi i
+Sverige/Danmark mot 47 prosent for Norge. Skjermingsstøtten i Norge er
+altså ti ganger høyere enn i EU. Mens EU har fjernet 80 prosent av skjermingsstøtten siden 2000, har Norge fjernet vel 40 prosent. Det hører med
+til bildet av importvernet at skjermingsstøtten har falt de to siste årene,
+men da som følge av redusert kroneverdi, og ikke endret politikk.
+
+Det norske importvernet
+Uttalelsen til næringsministeren i begynnelsen av dette kapittelet, kan
+settes i sammenheng med en særegenhet ved den akademiske og politiske debatten i Norge om konkurransen i verdikjeden for mat: Nemlig at importvernet tas for gitt, og ikke drøftes spesifikt i relasjon til
+konkurranse­utfordringene. Til sammenligning fremgår det av sammenligningen mellom politikken i EU og Norge at politikk som skaper store
+
+19
+
+ka p i t t e l 1
+
+prisforskjeller mellom internt marked og omverden i stor grad er forkastet i EU. Dette skyldes ikke at det ikke finnes alternativer, som f.eks. målrettede tilskudd over statsbudsjettet. I sin artikkel drøfter Ivar Gaasland
+i kapittel 5 hvordan importvernet kan tenkes å påvirke konkurranse,
+samarbeidsformer og effektivitet i verdikjeden. En indirekte virkning
+av beskyttelsen mot utenlandske matvarer er høy konsentrasjon og svak
+konkurranse på leverandørleddet. Mangelen på utenlandske alternativ på
+leverandørsiden bidrar igjen til å skape etableringshindringer i dagligvaremarkedet. Når en utenlandsk dagligvarekjede hindres i å ta med seg sitt
+nettverk av leverandører, er det lite attraktivt å etablere seg i Norge.
+Importvernet har også andre kostnader. Fravær av åpen, internasjonal handel gjør at norsk matsektor går glipp av flere mulige effektivitets­
+gevinster. Gevinster med handel er spesielt store for små land med lite
+variert ressursgrunnlag. Når hjemmemarkedet er for lite til å ta ut gevins­
+ter gjennom stordriftsfordeler og spesialisering, blir man avhengig av
+eksport for å oppnå effektiv produksjon, som vi ser eksempelvis for fisk.
+Gevinster ved næringsintern handel, dvs. handel som i særlig grad utnytter spesialiseringsfordeler og produktdifferensiering, utnyttes i liten grad
+når det er handelshindringer. Til tross for at næringsmiddelindustrien
+typisk kjennetegnes ved stordriftsfordeler i produksjonen og produktdifferensiering overfor handelsledd og forbrukere, blir det lite import av
+matvarer som står i et konkurranseforhold til norske jordbruksvarer.
+Gaasland argumenterer også for at både jordbrukspolitiske mål og
+matsikkerhet kan ivaretas gjennom å reformere importvernet i en kombinasjon med kompenserende overføringer og subsidier. Spesielt argumenterer han for at et effektivt tiltak for å sikre økt konkurranse i verdikjeden
+kan være å redusere tollsatsene på jordbruksvarer så mye at det muliggjør
+løpende import innenfor alle produktkategorier. I dag er en rekke produkter overbeskyttet i den forstand at tollsatsene er så høye at all import
+utestenges.
+En reduksjon i satsene slik at man på marginen ville få et elastisk, reelt
+tilbud av import, og kanskje i praksis en liten importandel, ville konkurranseutsette leverandørindustrien i større grad enn i dag, og muliggjøre
+etablering av inter­nasjonale dagligvarekjeder som da vil få reelle utside­
+alternativ. Som vist i artikkelen om konsentrasjonsstruktur i kapittel 2,
+20
+
+m ot b e d r e vitende i no rs k mats ekto r
+
+ville vi antagelig hatt om lag samme konsentrasjonsgrad, men også
+innslag av internasjonale detaljistkjeder. På leverandørsiden vil bønder
+og mat­industri potensielt kunne få noe sterkere insentiver til produkt­
+utvikling og tydeliggjøring av fordeler med norske produkter. Eksempelvis produserer Norge sine grønnsaker med lavere bruk av sprøytemidler,
+og det stilles krav til særlig høy dyrehelse i produksjon av husdyrprodukter. Satt i sammenheng med klimaproblematikk, vil dette kunne gi
+merverdi til en sterkere merkevareprofilering.
+Ytterligere omlegging fra skjermingsstøtte via importvernet til støtte
+over statsbudsjettet vil samtidig redusere behovet for råvarekompensasjon (RÅK-ordningen). Denne kompenserer konkurranseutsatt norsk
+matvareforedling for ulempen av dyrere norske råvarer i produksjonen,
+og andre byråkratiske ordninger.
+Videre argumenterer Gaasland at en slik endring vil signifikant redu­sere konsumentprisene, og ha som sideeffekt en effektivisering av indust­
+rien. Kombinert med tilpassede subsidier og overføringer til primær­
+næringen, ville en slik effektivisering trolig være samfunns­økonomisk
+lønnsom.
+Mye taler for at en slik reform også ville øke variasjonen av varer og
+gjøre norsk dagligvarehandel mer lik det vi ser hos våre naboer. Boken
+har ikke analysert vareutvalg eller kvalitet. Spesielt vareutvalg har vært et
+mye diskutert tema i Norge. Flere rapporter fra SIFO (Alfnes & Dulsrud,
+2016; Alfnes, Schjøll & Dulsrud, 2019) har analysert vareutvalget i Norge,
+og gjennomgående påvist at dette er gjennomsnittlig mindre enn det vi
+ser hos våre naboer. Menon Economics har også sett på dette, og har som
+hovedpoeng at sammenligner man likt-med-likt, dvs. butikker av lignende størrelse og utseende på tvers av land, er forskjellene mye mindre
+(Skogli & Jenssen, 2016).
+Utfordringen med denne typen sammenligninger er åpenbart at strukturforskjellene er store (jf. kapittel 2 «Annerledeslandet Norge»). Gjennomsnittsbutikkene i Norge er mye mindre enn i Sverige, og dermed er
+det ingen overraskelse at svensk gjennomsnittsutvalg også er større. På
+den annen side, eksistensen av større butikker avspeiler også det svenske konkurranse- og preferansebildet. Når Menon sammenligner Norge
+og Sverige, sammenligner de mer typiske norske butikker med mindre
+21
+
+ka p i t t e l 1
+
+typiske svenske butikker. SIFO sammenligner på sin side ulike butikker
+på tvers av land – men de sammenligner mer representative butikker fra
+hvert av landene. I sum er det dermed ikke rett frem å konkludere denne
+typen sammenligninger. I tråd med konklusjonene rundt priser og effektivitet er det imidlertid mye som taler for at en lettelse i importvernet
+langs de linjene som Gaasland argumenterer for, trolig også ville økt variasjonsbredden i norske dagligvarer.
+
+Behov for en politikk som forbereder fremtiden
+og sikrer det vi har
+Ovenfor har vi oppsummert og oppdatert mye av det som må kunne kalles norsk «matmarkedstopografi». Som vi skrev innledningsvis er flere av
+observasjonene ikke nye, men vi mener analysene bidrar til både stadfesting, presisering og nyansering. I særdeleshet setter de norsk matmarked
+inn i et noe større perspektiv. En del klare konklusjoner kommer frem:
+• Konsentrasjonen på handelsleddet er høy, men her er vi ikke så forskjellige fra våre naboland.
+• Norge har ikke innslag av internasjonale kjeder – her er vi forskjellig fra våre naboland.
+• Norge har høyere butikktilgjengelighet enn Sverige, men dette
+skyldes først og fremst spesielt stor forskjell mellom hovedstadsregionene. Med unntak av hovedstadsområdet Oslo/Akershus er
+butikktilgjengeligheten fortsatt høyere i Norge, men forskjellen er
+moderat.
+• Produktivitetsutviklingen i matvaremarkedet er ikke veldig for­
+skjellig fra det vi ser i annet norsk næringsliv det siste tiåret, men
+veksten i arbeidsproduktiviteten er stadig høyere i detaljhandel
+med dagligvarer enn i både matindustri og engroshandel med
+dagligvarer.
+• I siste tiår har konsumentprisene i Norge økt (til dels kraftig) i
+forhold til våre naboland, mens det har vært motsatt utvikling for
+andre lett omsettelige konsumvarer.
+22
+
+m ot b e d r e vitende i no rs k mats ekto r
+
+• Mens detaljistkjedeleddet har virket prisdempende på siste tiårs
+prisutvikling, har industrien og engroshandelen til dels vært prisdrivende over perioden.
+• Viktigste prisdriver har imidlertid vært en substansiell økning i
+importvernet.
+Særlig interessant er det at siste punkt også er en underliggende forklaring for det som er av både strukturelle svakheter og prisulemper. Ser vi
+nærmere på importvernet, viser Gaasland i kapittel 5 at mye av forklaringen ligger i at man velger å fullstendig beskytte det norske markedet gjennom å holde tollsatsene på så høye nivå at import av jordbruksråvarer og
+mange viktige kategorier bearbeidede varer er utenkelig.
+Denne beskyttelsen gjør at det norske matvaremarkedet blir kunstig
+lite i størrelse, hvor både produsent- og kjedeledd er mer konsentrert enn
+det vi ønsker oss. Når ekstramarginene og ekstrakostnadene i norsk varehandel er konkurrert vekk (og i dag nærmest er borte) for lett omsettelige
+konsumvarer som klær og sko det siste tiåret, illustrerer det at lukket­
+heten i matmarkedet skaper konkurranseproblemer. Den samme lukketheten gir rom for prisdiskriminering på tvers av dagligvarekjeder, den gir
+oss færre produkter og den gir oss trolig færre aktører.
+Selv om det tilsynelatende hersker tverrpolitisk enighet om at
+importvernet skal bestå, virker det merkelig at man heller ikke skal diskutere graden av importvern og hvordan man implementerer dette. Er det
+politisk villet at importvernet gjennom siste tiår har økt i en slik utstrekning at prisforskjellene mellom oss og våre nærmeste naboland er forverret med nesten 50 prosent? Er måten vi implementerer import­vernet på
+den beste samfunnsøkonomisk sett? Kan vi omforme importvernet slik
+at vi både beskytter norsk landbruk og samtidig oppnår lavere priser og
+bedre produktivitet?
+Alt dette diskuteres i mer detalj av Gaasland. Han argumenterer for at
+en bedre løsning ville være å fjerne overbeskyttelsen i tollsatsene – altså
+redusere tollsatsene slik at prisen man må betale for utenlandske produkt kommer mye nærmere norsk markedspris. Selv bare en marginal
+importandel (heller enn null) ville effektivt begrense handlingsrommet
+i den nasjonale prissettingen, og åpne for import for nye matvarekjeder
+23
+
+ka p i t t e l 1
+
+med internasjonal forankring. Gaasland mener det vil redusere mulig­
+heten for prisdiskriminering, som dagens lukkede matvaresystem tillater.
+Det ville trolig endre insentiver til produktdifferensiering og merkevarebygging for norske produkter (jf. analysen til Supphellen i kapittel 6), og
+produktutvalget ville økt. Prisene ville sannsynligvis også bli lavere.
+I den grad dette ville påvirke landbruket negativt, vil effekten trolig
+være marginal og mulig å kompensere med direkte overføringer Og, som
+Gaasland diskuterer i detalj, matsikkerheten ville kunne ivaretas like
+fullt.
+
+Importvernet er også politisk bekvemt
+Subsidier kan enten betales over skatteseddelen eller av konsumentene
+gjennom kunstig høye priser. I 2015 var skjermingsstøtten, som Pettersen
+viser, nær nivået for hele landbruksstøtten over statsbudsjettet og skjermingsstøttes finansieres av importvernet. I stedet for at norsk primærproduksjon støttes via beskatning og statsbudsjett, må konsumenter og
+foredlingsindustri betale for landbruksnæringen ut fra eget forbruk. Vi
+har med andre ord valgmuligheter mellom virkemidler for å opprettholde norsk landbruk. Man kan derfor spørre seg om hvorvidt noe av
+grunnen til at man politisk har fredet importvernet, skyldes at den langt
+vesentligste delen av landbruksstøtten på denne måten «usynliggjøres»
+og unndras årlige politiske budsjettdebatter.
+Budsjettdynamikken i norsk statsforvaltning gjør at ordninger som
+ikke går gjennom vanlig stortingsbehandling, men implementeres gjennom kryss-subsidierigsløsninger, typisk får mindre oppmerksomhet,
+både fra politikere, men også fra medier. Noe av grunnen er at tallene er
+vanskeligere tilgjengelige: Hvor mye subsidierer byboerne i sentrale strøk
+befolkningen i regional-­Norge når det kommer til post-tjenester, eller for
+den del regionale flyplasser? Når tallene blir «usynlige» blir også oppmerksomheten lavere, og den politiske behandlingen blir potensielt mer
+«overfladisk». Tilfeller der mer eller mindre godt skjulte subsidier viser
+seg også mer robuste mot endring, enn sine mer synlige alternativer er
+velkjent fra andre deler av samfunnet.
+
+24
+
+m ot b e d r e vitende i no rs k mats ekto r
+
+Skjermingsstøtten har sin klare parallell med hvordan store overskudd
+fra noen veldig få store flyplasser betaler for tilsvarende store underskudd for et veldig stort antall små flyplasser gjennom Avinor-­systemet.
+Kostnadene med å drive (også politisk villet) distriktsvennlig samferdselspolitikk skjules for norske skattebetalere. I slike system er det vanskelig å få til endring. Illustrerende nok tar det mange år før man klarer
+å endre opplagt ulønnsom lufthavnstruktur.1 Vi tror derfor at en gradvis
+overgang mot et system med mer direkte subsidier til landbruket, bedre
+vil synliggjøre politiske valg, og veldig sannsynlig øke endringstakt og
+effektivitet.
+
+Hvis vi ikke skal «røre» importvernet
+blir alternative tiltak fort «second best»
+Istedenfor å gjøre noe med det som fremstår som et fundamentalt spørsmål – et lukket og lite norsk matvaremarked hvor det er stordriftsfordeler
+i råvarebearbeiding og distribusjon, og løse følgeproblemene av denne
+lukketheten – diskuteres i dag en rekke forslag til tilleggs- og konkurransereguleringer i matvaremarkedet. Alle løsninger har det til felles at de er
+såkalte best mulige løsninger under lite gunstige betingelser, dvs. «second
+best»-løsninger. De skal løse et reelt konkurranseproblem gjennom å
+styre markedseksternaliteter som følger av at vi har skapt økt risiko for
+et ineffektivt marked gjennom å «lukke» det norske matmarkedet. Det
+de ulike forslagene dermed har til felles, er at de gjennom å løse noe ofte
+skaper nye utfordringer. Eller, tiltak som begrenser ett problem, men
+som typisk kan skape nye problem. I tillegg har mange av tiltakene store
+administrative kostnader ved seg.
+Flere slike tiltak diskuteres i detalj i siste kapittel av boken, der
+Hjelmeng viser det større bildet når det kommer til mulighetsrom for
+konkurranseregulering innenfor dagens rammeverk, men også peker på
+
+1
+
+Fagernes lufthavn ble lagt ned i 2018. Fagernes betjente et veldig lite antall kunder, og krevde
+Avinor­systemets langt største subsidier. I 2009 ble enkeltbilletter subsidiert med mer enn
+4000 kr. Selv i 2015 flydde det knapt 6000 passasjerer fordelt på mer enn 2000 flybevegelser på
+Fagernes.
+
+25
+
+ka p i t t e l 1
+
+utfordringer. Forslagene som kanskje har vært mest fremme i diskusjonen
+av mulige nye og ikke enda vedtatte reguleringer er:2
+• Ekstra begrensninger på vertikalt samarbeid, herunder ny lovregulering av leverandørers mulighet til å diskriminere mellom
+dagligvareaktører.
+• Pålegge dominerende distributører plikt til å distribuere ulike
+leverandørers og detaljistkjeders varer på ikke-diskriminerende
+vilkår.
+• Sterkere regulering og kontroll av dagligvarekjedenes eien­domstransaksjoner.
+• Maksimalgrenser for markedsandeler.
+Alle tiltakene har det til felles at de løser noen problemer, men åpner for
+andre potensielle problemer. Under går vi gjennom de foreslåtte til­takene,
+og diskuterer kort noen av utfordringene med disse.
+
+Ekstra begrensninger på prisforhandlinger
+og vertikalt samarbeid
+Her foreligger en rekke utredninger som vi ikke kan oppsummere fullt ut
+her.3 Det synes riktig å slå fast at avhengig av sentrale forutsetninger om
+viktigheten av kjedenes utsidealternativer, hvor reelle disse er, modellstruktur (lineære vs. ikke lineære kontrakter osv.), vil en slik regulering
+kunne gi både høyere og lavere priser til konsument. Generelt er noe av
+avveiningen i disse diskusjonene sentrert rundt i hvilken grad «lik innsatsfaktorpris» til kjedene motvirker konsekvensene fra at konkurranse­
+effektene av forhandlingene fjernes. Både kjeders og leverandørers
+forhandlingsmuligheter og -insentiver endres av forbud mot prisdiskriminering. Altså, man fjerner ett problem (etableringshindringer og skjev
+konkurranse som følge av ulike innkjøpspriser), men skaper et annet:
+svekkede motiv for å forhandle om lave innkjøpspriser, noe som kan
+gi høyere priser til alle. I tillegg argumenterer flere (se f.eks. Hjelmeng
+2
+3
+
+26
+
+Hjelmeng diskuterer også innføringen av Lov om god handelsskikk, som er bestemt implementert i 2020.
+Se referansene i første avsnitt.
+
+m ot b e d r e vitende i no rs k mats ekto r
+
+i kapittel 7) for at de administrative utfordringene ved et slikt forbud er
+store.
+At den fagøkonomiske debatten ikke gir en klar konklusjon, er i seg
+selv et tegn på usikkerhet og et argument for forsiktighet. Jo mer inngripende en regulering er, jo mer sikkerhet bør foreligge ved en eventuell
+implementering. Det er opplagt en bekymring at prisforskjellene mellom
+kjeder fra leverandør, i hvert fall for enkeltprodukter og enkeltleverandører, er store (Konkurransetilsynet, 2019). Det er sannsynlig at store forskjeller i innsatspriser gir vridninger i kjeders markedsposisjon. I så måte
+er det også usikkerhet rundt langsiktige konkurranseeffekter av å unnlate
+å gripe inn. På den annen side er det mye som taler for at en kraftigere
+sanksjonsbruk med støtte i konkurranseloven vil dekke samme formål
+og kan være et like egnet virkemiddel som en tilleggslov med forbud mot
+diskriminerende vilkår.
+
+Pålegge dominerende distributører
+forpliktelse om åpne distribusjonstjenester
+Pålegg om såkalt «åpne distribusjonstjenester» betyr at distributør må
+stille systemet til disposisjon for tredjeparter på ikke-diskriminerende
+vilkår. Et slikt påbud ligner på ovennevnte forbud mot prisdiskriminering. Begge tiltak skal hindre konkurransebegrensende forskjeller i konkurransevilkår for små og store dagligvareaktører.
+Et slikt påbud kan hente sin modell fra teleregulering der myndighetene mener at markedsstrukturen gjennom store nettverk og dominerende aktører krever såkalt ex-ante regulering. Her pålegges dominerende
+nettverksoperatører ekstra forpliktelser for å oppnå virksom konkurranse, eksempelvis ved at dominerende foretak (i Norge gjelder dette for
+Telenor) er pålagt å tilby konkurrenter leietilgang til eget nett på ikke-diskriminerende vilkår (ekomloven, 2003). Altså, en konkurrent skal få
+kjøpe tilgang til nettet på vilkår som ikke avviker for mye fra dominerende aktørs egen sluttbrukervirksomhets vilkår. Reguleringen setter så
+opp vilkår for hvordan dette skal gjøres, og eventuelt for hvordan dette
+kan etterprøves. I dagligvaremarkedet er argumentet at så lenge det kan
+bli prohibitivt dyrt å bygge opp distribusjon i hele Norge, bør ASKO, som
+27
+
+ka p i t t e l 1
+
+mulig dominerende aktør i distribusjonsmarkedet, pålegges å distribuere
+matvarer for alle som måtte be om det, på ikke-diskriminerende vilkår.
+Grunnlaget for et slikt påbud virker imidlertid usikkert. For det første
+synes ikke det vi observerer i Norge uten videre å tilsi at etableringshindringer og stordriftsfordeler i distribusjon er et konkurranseproblem for
+produktiviteten eller prisutviklingen. Per i dag betjener allerede ASKO
+den fjerde kjeden, Bunnpris, som så vidt vi forstår har samme betingelser
+som NorgesGruppens egne butikker. Bunnpris har tidligere brukt distribusjonssystemet til Remagruppen, og så lenge aktører som Bunnpris
+kan sette tre landsdekkende aktører mot hverandre, er det neppe en overraskelse at vilkårene er ikke-diskriminerende. Sammenligner vi med
+Sverige, har man der kun to landsdekkende distributører (se kapittel 2).
+At vilkårene ikke er diskriminerende betyr imidlertid ikke at priser og
+vilkår er identiske. Åpen tilgang til distribusjonssystemer vil ikke endre
+forskjeller i betingelser fra leverandør. Og, det er fortsatt slik at begrepet diskriminering vanskelig kan ramme forskjeller i vilkår som skyldes
+f.eks. kostnadsforskjeller og fordeler som følge av ulike mengder, sortimentsbredder og ulik geografisk spredning. Krav til ikke-diskriminering
+innebærer ikke nødvendigvis at de beste vilkår man har skal deles med
+den nye aktøren. Dersom hjemmelen for et slikt krav i tillegg skal finnes
+i konkurranselovens § 11, er terskelen svært høy for å innføre slike ordninger (se spesielt Hjelmengs diskusjon i kapittel 7). Alternativet er i så
+fall en egen regulering a la ekom-loven. I så fall må antagelig etableringshindringer som følger av at et mobilnettverk krever kanskje 6000 master
+fordelt over hele Norge kunne sammenlignes med tilgang til uavhengige
+lastebiler og lagerfasiliteter i utvalgte deler av Norge. En sammenligning
+som antyder at etablering av et fjerde distribusjonsnettverk av matvarer
+i Norge er langt enklere og billigere enn å bygge et nytt landsdekkende
+mobilnettverk.
+Ikke-diskriminerende vilkår er heller ikke et presist begrep. Skal vi tro
+erfaringene fra teleregulering er det heller ikke like enkelt, hverken for
+dominerende aktør som selger tilgang eller for de som kjøper tilgang, å bli
+enige om hva ikke-diskriminerende vilkår innebærer. Årelange konflikter
+i og utenfor rettsalene mellom kjøpere og selgere, og ikke minst ansvarlig myndighet, viser at dette kan være en kostbar løsning for samfunnet.
+28
+
+m ot b e d r e vitende i no rs k mats ekto r
+
+Så selv om reguleringen løser et mulig problem (tilgang til distribusjon),
+kan implementeringen og sikringen av regeloverholdelse bli kostnadskrevende og skape ekstra usikkerhet. Artiklene i denne boken tyder på at det
+ikke er et generelt effektivitetsproblem slike tiltak skal løse.
+
+Sterkere regulering og kontroll av
+dagligvarekjedenes eiendomstransaksjoner
+Dagligvarekjedene har i mer enn ti år gitt konkurransemyndighetene
+innsyn i sine kjøpskontrakter, og de må også informere om eiendoms­
+transaksjoner. Dette skyldes at konkurransemyndighetene er redde for
+strategisk tilpasning i markedet for egnede butikklokasjoner. Kontroll
+med godt plasserte næringseiendommer og butikklokasjoner kan være
+avgjørende for evnen til å ta og forsvare markedsandeler lokalt. Det er
+naturlig å definere eierskap til butikklokaler som vertikal integrasjon
+mellom grossist eller detaljistkjede og en underleverandørsektor, og konkurranseloven pålegger myndighetene å påse at denne formen for vertikal integrasjon ikke har konkurransebegrensende effekt.
+Mange kommentatorer har pekt på en tilsynelatende overetablering av
+butikker, noe som kan indikere at konkurransen om markedsandeler tas
+ut gjennom butikketablering heller enn konkurranse om pris og vareutvalg. Resultatene til Friberg mfl. i kapittel 2 tyder på at det kan være en
+overetablering av butikker i hovedstadsområdet (Oslo og Akershus). I så
+fall fører den strategiske utnyttelsen av butikklokasjoner til unødig høyt
+kostnadsnivå i dagligvarehandelen. I tillegg kan de reelle markedsandelene i kontrollen med eierskap av dagligvarebutikkene i seg selv avvike
+vesentlig fra strukturen i omsetningen av dagligvarer, med konsekvenser
+for mulighet for effektiv konkurranse om de beste lokalene.
+Man finner også at sterk markedsmakt og manglende muligheter til
+å overføre butikklokaler mellom kjeder gir risiko for svekket produktivitetsvekst og ugunstig utvikling i marginene på distribusjonsleddene.
+All den tid konkurransemyndighetene allerede fortløpende oppdateres
+med informasjon rundt eiendomsdisponeringer, ligger forholdene til
+rette for mer aktiv kontroll når det kommer til denne delen av dagligvare­
+markedet. Men igjen er dette et slags «både-og-problem». Reduseres
+mulig­heten til å etablere lokale butikker, reduseres faste kostnader i
+29
+
+ka p i t t e l 1
+
+driften av Butikk-Norge. Dermed kan priser potensielt gå ned; men lokalt
+kan man gå glipp av økte konkurranseeffekter dersom man griper inn
+overfor etablering og kontroll med butikklokasjoner.
+
+Maksimalgrenser for markedsandeler
+Enkelte bidragsytere i debatten har vært inne på tanken om å innføre
+grenser for hvor store aktørene kan tillates å bli i dagligvaremarkedet,
+men dette er ikke uproblematisk.4 For det første er det ikke opplagt hvor en
+slik grense skal settes: i Finland har S-gruppen 46,4 prosent markedsandel, i Sverige har ICA 51,5 prosent. Hva skal norsk smerteterskel være?
+Men viktigere, hva vil da skje med insentivene til kjeden når denne nærmer seg markedsandelsgrensen? I en slik situasjon vil kjeden miste insentivene til videre organisk vekst, og dermed konkurrere mindre aggressivt.
+Samtidig kan man risikere at konkurransen svekkes i markedet. Faktum
+er at en slik ordning i verste fall kan gi en «markeds­delingsordning» –
+noe som frivillig implementert ville vært ulovlig etter norsk konkurranselov. Igjen oppnår man noe med en slik regulering – redusert asymmetri
+i markedet, men prisen kan bli at de gunstige effektene av dette spises
+opp gjennom at den største kjeden «legger seg til hvile» rett under markedsandelsgrensen, og vi får redusert konkurranse.
+
+Effektivitet og rettferdighet
+Alle forslagene til regulering dreier seg om å sikre effektiv produksjon og
+distribusjon i verdikjeden for mat- og dagligvarer. Tiltak er også diskutert
+av Hjelmeng i kapittel 7. Spesielt gir Hjelmeng her også de konkurranserettslige rammene for de ulike alternativene. I sum, som vi diskuterer
+over, og i tråd med mye av Hjelmengs diskusjon, er det utfordrende å
+regulere seg vekk fra markedsproblemer som oppstår i et lukket matvaremarked i et langstrakt land med betydelige skalafordeler i distribusjon og
+foredling. At strukturen er ugunstig sett fra et konkurranseperspektiv, er
+
+4
+
+30
+
+Oslo Economics/Oeconomica (2017) setter et slikt tak i sammenheng med betydningen av prisdifferensiering og -diskriminering mellom leverandør og dagligvarekjede.
+
+m ot b e d r e vitende i no rs k mats ekto r
+
+udiskutabelt. Men det er ingen entydig sammenheng mellom struktur og
+konkurranse, og enda mindre mellom struktur og effektivitet.
+Mye tyder samtidig på at strukturen og konkurransen vi har på distribusjonsleddene har gitt tilfredsstillende effektivitet, i hvert fall hvis vi
+sammenligner med effektivitet og produktivitetsutvikling i andre norske
+næringer (se mer i «produktivitetsanalysen» i kapittel 3). Det er betydelig
+risiko knyttet til sterke reguleringstiltak med usikker effekt. Så langt vi
+kan se er muligheten for effektivitetsgevinst begrenset, mens muligheten
+for effektivitetstap er stor. Reguleringer som ikke treffer reelle problemer,
+vil ha uønskede bivirkninger av usikker størrelsesordenen.
+Derfor mener vi at hovedmålet med drøfting av mulige virkemidler
+bør være å sikre at utviklingen med god produktivitetsvekst fortsetter,
+og at den stimuleres der den i dag er svak. Blant mulige tiltak peker en
+viss, ganske forsiktig fjerning av unødig tollbeskyttelse seg ut som en
+opplagt kandidat for å håndtere kjernen i problemet: et for lukket matmarked. Skulle man ikke gjøre noe med hovedproblemet, gjenstår det
+konkurranse­utfordringer i norsk matvaremarked, men skal man innføre
+tilleggsreguleringer ut over norsk konkurranselovgivning skal man tenke
+seg godt om. Da er det trolig en like attraktiv løsning å rette mer oppmerksomhet mot og ta i bruk de midlene myndighetene allerede har.
+Artiklene i boken er ensidig opptatt av effektivitet, og vier så godt som
+ingen oppmerksomhet mot størrelsen på overskudd, formuen til dem
+som eier gårdsbruk, matindustri- eller dagligvareforetak. Det krever en
+forklaring.
+Økonomisk og sosial bærekraft, effektivitet og rettferdighet, er i
+utgangspunktet like viktig. Fordelingen av verdier mellom bønder,
+industri­eiere, arbeidere, eiere av grossist- og kjedeforetak, samt forbrukere
+er av stor betydning. Standarden for konkurransepolitikken er nettopp å
+sikre forbrukeren en størst mulig del av samlet verdiskaping, og unngå at
+nettopp forbrukerne påføres tap gjennom ineffektiv konkurranse.
+Våre resultater og våre vurderinger av mulige tiltak for å sikre fortsatt
+produktivitetsvekst i matsektoren sier ikke noe om fordelings­politikk,
+eller for den del rettferdighetshensyn. Men rettferdigheten blir ikke
+større om effektiviteten i dagligvarebransjen faller. Det er grunn til å vurdere om fordelingen av verdiskapingen er bærekraftig. Hvis svaret er nei,
+31
+
+ka p i t t e l 1
+
+trenger vi fordelingspolitiske tiltak som i minst mulig grad reduserer den
+produktivitetsveksten vi så langt har nytt godt av. Det er vanskelig å se at
+rammebetingelser for en effektiv matsektor med god produktivitetsvekst
+er til hinder for god fordelingspolitikk.
+Konkurransepolitikken er, ut fra diskusjonen i denne boken, egnet
+til å ivareta samfunnshensyn og forbrukerinteresser. En nyttig effekt av
+debatten om konkurranseutfordringene i det norske dagligvare­markedet
+er at konkurransemyndighetene har fått økte ressurser, og at oppmerksomheten rettet mot bransjen er styrket. Det er bra! Gjennom mer aktiv
+bruk av mulighetene som ligger i konkurranseloven, og en større synlighet av konkurransemyndighetene i bransjen, blir det vanskeligere
+for aktørene å lage avtaler som hindrer konkurransen å spille seg ut. En
+bieffekt kan også være at mulighetene for å styrke statistikk og vurderingsgrunnlaget, i tråd med anbefalinger i flere av artiklene i boken, kan
+få mer oppmerksomhet.
+
+32
+
+m ot b e d r e vitende i no rs k mats ekto r
+
+Referanser
+Alfnes, F. & Dulsrud, A. (2016). Vareutvalg av mat og drikke i norske
+dagligvarebutikker: Utvikling, egne merkevarer og sammenligning med Sverige
+(SIFO rapport 7/2016). Hentet fra https://fil.forbrukerradet.no/wp-content/
+uploads/2016/11/oppdragsrapport-nr-7-vareutvalg-av-mat-og-drikke-i-norskedagligvarebutikker.pdf
+Alfnes, F., Schjøll, A. & Dulsrud, A. (2019). Kartlegging av utviklingen i
+butikkstruktur, dagligvareutvalg og dagligvarepriser (SIFO rapport 5/2019). Hentet
+fra https://www.regjeringen.no/globalassets/departementene/nfd/dokumenter/
+rapporter/sifo-dagligvarerapport-korrigert-ver.pdf
+ekomloven. (2003). Lov om elektronisk kommunikasjon (LOV-2003-07-04-83).
+Hentet fra https://lovdata.no/dokument/NL/lov/2003-07-04-83
+Foros, Ø. & Kind, H. J. (2018a). Innkjøpspriser i dagligvaremarkedet.
+Samfunnsøkonomen, 132(4), 10–15.
+Foros, Ø. & Kind, H. J. (2018b). Asymmetriske innkjøpspriser i
+dagligvaremarkedet. En vurdering av konsekvensene av et forbud mot
+prisdiskriminering fra dominerende leverandører (Rapport skrevet på
+oppdrag fra Rema 1000). Hentet fra https://www.nhosh.no/contentassets/
+b3e107a9593e4b9c92850fb0d9a318a0/8033315_1_foros-kind-asymmetriskeinnkjopspriser.pdf
+Foros, Ø. & Kind, H. J. (2019). Størrelsesbasert prisdiskriminering i det norske
+dagligvaremarkedet: teori og terreng. Samfunnsøkonomen 5/2019, 42–53.
+Gabrielsen, T. S. & Pettersen, I. (Red.) (2011). Dagligvarehandel og mat 2011.
+Perspektiver på verdikjeden for matvarer (NILF rapport). Hentet fra
+https://nibio.brage.unit.no/nibio-xmlui/bitstream/handle/11250/2463843/NILFDagligvarehandelogMat-2011.pdf?sequence=2&isAllowed=y
+Gabrielsen, T. S., Steen, F., Sørgard, L. & Vagstad, S. (2013). Kjøpermakt
+i dagligvaresektoren (Rapport for Fornyings-, administrasjons- og
+kirkedepartementet). Hentet fra https://www.regjeringen.no/no/dokumenter/
+kjopermakt-i-dagligvaresektoren/id723054/
+Gabrielsen, T. S., Moen, E. R. & Nilssen, T. (2020). Utredning om prisdiskriminering
+i dagligvarebransjen (Rapport for Nærings- og fiskeridepartementet). Hentet fra:
+https://www.regjeringen.no/contentassets/deac14c2eeef432487543fa5f7dedab5/
+prisdiskriminering_170120.pdf
+Gjendemsjø, R. & Anchustegui, I. H. (2017). Høringsuttalelse – muligheten
+for å etablere en inngrepshjemmel mot ensidige handlinger i verdikjeden for
+mat som ikke rammes av konkurranseloven § 11 (Utredning for Nærings- og
+
+33
+
+ka p i t t e l 1
+
+fiskeridepartementet). Hentet fra https://www.regjeringen.no/contentassets/
+eab200712f20412c997da6dee6ced5e6/utredning-av-inngrepshjemmel-motensidige-handlinger-1.pdf
+Hjelmeng E. & von der Fehr, N. H. (2018). Forbud mot prisdiskriminering – en
+overordnet og prinsipiell analyse (Rapport for NorgesGruppen). Hentet fra
+https://www.regjeringen.no/contentassets/4c26f095eaaa4f9c9d001762f78bcc72/
+norgesgruppen-asa---vedlegg.pdf?uid=Norgesgruppen_ASA_-_vedlegg.pdf
+Isaksen, T. R. (2018, april). Næringsminister Torbjørn Røe Isaksens innlegg. Presentert
+ved åpningen av Dagligvarekonferansen 2018 i Oslo 9. april 2018. Hentet fra
+https://www.regjeringen.no/no/aktuelt/dagligvarekonferansen-2018/id2596586/
+Konkurransetilsynet (2019). Kartlegging av innkjøpsbetingelser i norsk
+dagligvaresektor (2019). Hentet fra https://konkurransetilsynet.no/wp-content/
+uploads/2019/11/Rapport-om-innkj%C3%B8psbetingelser_2019.pdf
+Midttømme, K., Myklebust, A. Vikøren, S. & Grimsby, G. (2019) Utredning av
+årsaker til ulike innkjøpspriser i det norske dagligvaremarkedet (MENON rapport
+103/2019). Hentet fra: https://www.menon.no/wp-content/uploads/2019-103%C3%85rsaker-til-ulike-innkj%C3%B8pspriser.pdf
+Næringskomiteen. (2018). Innstilling fra næringskomiteen om Representantforslag fra
+stortingsrepresentantene Terje Aasland, Ingvild Kjerkol og Anette Trettebergstuen
+om balansert makt i verdikjeden for mat og dagligvarer (Innst. 292 S(2017–
+2018)). Hentet fra https://www.stortinget.no/globalassets/pdf/innstillinger/
+stortinget/2017-2018/inns-201718-292s.pdf
+Oslo Economics. (2019). Konsekvenser av et forbud mot prisdiskriminering i det
+norske dagligvaremarkedet (Rapport for NorgesGruppen). Hentet fra
+https://osloeconomics.no/wp-content/uploads/2019-36-Konsekvenser-av-etforbud-mot-prisdiskriminering.pdf
+Oslo Economics & Oeconomica. (2017). Etableringshindringer i dagligvaresektoren
+(Rapport for Nærings- og fiskeridepartementet 2017/46). Hentet fra
+https://osloeconomics.no/wp-content/uploads/Etableringshindringer-idagligvaresektoren_ref2.pdf
+Pettersen, I., Kjuus, J. & Lavik, R. Stor prisforskjell – med naturlige, politiske og
+strukturelle forklaringer. I I. Pettersen & T. S. Gabrielsen (Red.), Dagligvarehandel
+og mat 2011. Perspektiver på verdikjedene for matvarer (NILF Rapport, s. 67–86).
+Hentet fra http://hdl.handle.net/11250/2463843
+Schumpeter, J. A. (2011). Capitalism, socialism and democracy (2. utg.). Eastford, CT:
+Martino Publishing. Originalverket utgitt 1947.
+Skogli, E. & Jenssen, T. B. (2016). Utvalget av mat og drikke i norsk og svensk
+dagligvare: En analyse av sammenlignbare butikker (MENON rapport 56/2016).
+Hentet fra https://www.menon.no/wp-content/uploads/2016-56-Utvalget-av-matog-drikke-i-svensk-og-norsk-dagligvare.pdf
+
+34
+
+

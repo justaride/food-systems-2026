@@ -1,0 +1,41 @@
+SOURCE-URL: https://www.nibio.no/tema/jord/organisk-avfall-som-gjodsel/biorest
+RETRIEVED: 2026-08-05
+---
+ Biorest - Nibio 
+ property="og:url" content="https://www.nibio.no/tema/jord/organisk-avfall-som-gjodsel/biorest"
+ Biorest 
+ Biorest 
+ <img src="/tema/jord/organisk-avfall-som-gjodsel/biorest/_/image/a2135ea6-dc63-4cc9-85e7-9d822dd158b8:6013259e8d209b25e060377a6d3f6c932f06c643/max-1280/biorest%20spredd%20p%C3%A5%20fors%C3%B8ksareal.jpg.jpeg?quality=60"
+ class="img-responsive" alt="biorest spredd på forsøksareal.jpg">
+ Biorest spres ut p&aring; fors&oslash;ksareal. Foto: Annbj&oslash;rg &Oslash;verli Kristoffersen. 
+ Biorest er restproduktet etter biogassproduksjon der mikroorganismer produserer metan ved anaerob nedbryting av organisk materiale 
+ Biorest er produktet en sitter igjen med etter biogassproduksjon på organisk avfall (for eksempel matavfall, husdyrgjødsel og fiskeslam). Matavfall og husdyrgjødsel kan behandles enten alene eller sammen med andre organiske avfallstyper. Biorest er en næringsrik masse som egner seg som gjødsel til planter.&nbsp; 
+ Næringsinnhold i biorest 
+ Næringsinnholdet er bestemt av hvilke substrater som er brukt i biogassprosessen. Innholdet av makro-næringsstoffene nitrogen (N), fosfor (P) og kalium (K) i ikke-separert biorest fra matavfall har ofte et NPK-forhold mellom 14-1-5 til 18-1-9. Fosforinnholdet i biorest av matavfall er dermed relativt lavt i forhold til nitrogeninnholdet. Det betyr at biorest fra matavfall egner seg særlig godt på jord med høyt fosforinnhold, hvor gjødslingsbehovet for fosfor er lavt. Med innblanding av fosforrike substrater som husdyrgjødsel og fiskeslam blir N/P-forholdet lavere, og ved stor andel husdyrgjødsel og/eller fiskeslam blir det for lavt sammenlignet med plantenes behov. 
+ På grunn av nedbrytningen av det organiske materialet blir en del av organisk bundet nitrogen omdannet til ammonium (NH 4 ) som er direkte plantetilgjengelig. Plantetilgjengeligheten av andre viktige næringsstoffer som fosfor og kalium blir lite endret i løpet av biogassprosessen. Kalium i organiske gjødselprodukter er lettløselig og dermed også lett tilgjengelig for plantene. Plantetilgjengeligheten av fosfor i bioresten, derimot, er avhengig av hvilken type substrat som er brukt i biogassproduksjonen. Se temaartikler om husdyrgjødsel og fiskeslam for mer informasjon om plantetilgjengelighet av fosforet i disse substratene. 
+ Håndtering av biorest 
+ Bioresten som produseres på de større norske anleggene, har en flytende konsistens, ganske lik tynn husdyrgjødsel (blautgjødsel) med et typisk tørrstoffinnhold på rundt 5 %. Biorest kan spres med samme utstyr som brukes til blautgjødsel. 
+ Bioresten kan separeres i en fast og en flytende fraksjon. Mange av de mest plantetilgjengelige næringsstoffene vil da finnes hovedsakelig i den flytende fasen. Dette gjelder spesielt for nitrogen og kalium. 
+ style="background-image:url(&#39;/tema/jord/organisk-avfall-som-gjodsel/biorest/_/image/cf3f4e5b-5b58-491f-a947-b06bb2d0b61d:736401f4441433c2f4536a46d26bcaf5beef8420/max-400/Eva_Brod.jpg?quality=60&#39;) !important;"> 
+ style="background-image:url(&#39;/tema/jord/organisk-avfall-som-gjodsel/biorest/_/image/55d1bb80-ff8c-4c42-9bfc-8a63d3a2aedc:7d82e4ede44e9b7fd32030730d82a753856d35ce/max-400/Annbj%C3%B8rg_%C3%98verli_Kristoffersen.jpg?quality=60&#39;) !important;"> 
+ style="background-image:url(&#39;/tema/jord/organisk-avfall-som-gjodsel/biorest/_/image/24b79053-b32c-4dff-b3d4-658c991f8b27:5f1160d9722fad4f4c15957e2ee531a1ccfde275/max-400/Astrid%20Solv%C3%A5g%20Nesse.jpg?quality=60&#39;) !important;"> 
+ style="background-image:url(&#39;/tema/jord/organisk-avfall-som-gjodsel/biorest/_/image/eda4d07b-a161-4f2e-9036-9ce3e3ae96a5:dfdd812b570b4813d0c7201dc0942afe7b1601d9/max-400/Iva%20Zivanovic.jpg?quality=60&#39;) !important;"> 
+ style="background-image:url(&#39;/tema/jord/organisk-avfall-som-gjodsel/biorest/_/image/cf3f4e5b-5b58-491f-a947-b06bb2d0b61d:736401f4441433c2f4536a46d26bcaf5beef8420/max-400/Eva_Brod.jpg?quality=60&#39;) !important;"> 
+ style="background-image:url(&#39;/tema/jord/organisk-avfall-som-gjodsel/biorest/_/image/55d1bb80-ff8c-4c42-9bfc-8a63d3a2aedc:7d82e4ede44e9b7fd32030730d82a753856d35ce/max-400/Annbj%C3%B8rg_%C3%98verli_Kristoffersen.jpg?quality=60&#39;) !important;"> 
+ style="background-image:url(&#39;/tema/jord/organisk-avfall-som-gjodsel/biorest/_/image/24b79053-b32c-4dff-b3d4-658c991f8b27:5f1160d9722fad4f4c15957e2ee531a1ccfde275/max-400/Astrid%20Solv%C3%A5g%20Nesse.jpg?quality=60&#39;) !important;"> 
+ style="background-image:url(&#39;/tema/jord/organisk-avfall-som-gjodsel/biorest/_/image/eda4d07b-a161-4f2e-9036-9ce3e3ae96a5:dfdd812b570b4813d0c7201dc0942afe7b1601d9/max-400/Iva%20Zivanovic.jpg?quality=60&#39;) !important;"> 
+ Reduserte utslipp av klimagasser fra biorest
+ Bergersen, O., Sørheim, R. & Eggen, T. 2025. Reduserte utslipp av klimagasser fra biorest (Populærvitenskapelig artikkel). Tilgjengelig fra: https://hdl.handle.net/11250/3177443. 
+ title="Til dokument for Reduserte utslipp av klimagasser fra biorest" data-document-type="Populærvitenskapelig artikkel">
+ Brukerguide for biorest fra marine råstoffer
+ Brod, E. 2024. Brukerguide for biorest fra marine råstoffer (Populærvitenskapelig artikkel). Tilgjengelig fra: https://hdl.handle.net/11250/3145491. 
+ title="Til dokument for Brukerguide for biorest fra marine råstoffer" data-document-type="Populærvitenskapelig artikkel">
+ Biorest fra marine råstoffer: Kjemisk sammensetning og gjødselkvalitet
+ Brod, E. 2023. Biorest fra marine råstoffer: Kjemisk sammensetning og gjødselkvalitet (Forskningsrapport). Tilgjengelig fra: https://hdl.handle.net/11250/3106198. 
+ title="Til dokument for Biorest fra marine råstoffer: Kjemisk sammensetning og gjødselkvalitet" data-document-type="Forskningsrapport">
+ Drying or anaerobic digestion of fish sludge: Nitrogen fertilisation effects and logistics
+ Brod, E., Oppen, J., Kristoffersen, A., Haraldsen, T. & Krogstad, T. 2017. Drying or anaerobic digestion of fish sludge: Nitrogen fertilisation effects and logistics (Vitenskapelig artikkel). Tilgjengelig fra: https://doi.org/10.1007/s13280-017-0927-5. 
+ title="Til dokument for Drying or anaerobic digestion of fish sludge: Nitrogen fertilisation effects and logistics" data-document-type="Vitenskapelig artikkel">
+ Application of fish sludge as fertiliser to agricultural land can contribute to closing nutrient cycles in fish farming. The effect of different treatment technologies on the nitrogen fertilisation effects of fish sludge was studied by a bioassay with barley (Hordeum vulgare), an incubation and a field experiment. Dried fish sludge resulted in relative agronomic efficiency of 50–80% compared with mineral fertiliser. The anaerobic digestate based on fish sludge (20 vol%) and dairy manure did not increase nitrogen uptake in barley. Increasing the ratio of fish sludge in the digestate increased the fertilisation effect, but requires optimisation of the biogas process. A simple logistics analysis conducted for a case hatchery showed that on-site drying and co-digestion of fish sludge in a central biogas plant can be regarded as equal in terms of costs. Norway can become an exporter of fish sludge-based recycling fertilisers if current regulations are modified to facilitate nutrient recycling. 
+ Gjødseleffekt av biorest fra husholdningsavfall
+ Kristoffersen, A. & Skretting, J. 2014. Gjødseleffekt av biorest fra husholdningsavfall (Vitenskapelig kapittel). 

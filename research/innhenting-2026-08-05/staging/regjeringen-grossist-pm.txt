@@ -1,0 +1,50 @@
+SOURCE_URL: https://www.regjeringen.no/no/aktuelt/rapport-om-tilgang-til-grossisttjenester-i-dagligvarebransjen/id3081174/
+RETRIEVED: 2026-08-05 (innhenting-2026-08-05, B2_market_power)
+---
+Rapport om tilgang til grossisttjenester i dagligvarebransjen - regjeringen.no
+{"langCloseButton":"Lukk","langLinkDownloadImage":"Last ned bilde","langTruncateTitle":"Vis hele tittelen","langZoomImage":"Forst\u00F8rr bilde","langShowFullTable":"Vis tabellen i full bredde","langZoomImageOverlay":"Forst\u00F8rr bilde","langShowFullTableOverlay":"Vis tabellen i full bredde","langLongdocTogglerShow":"Vis innholdsfortegnelse og s\u00F8k","langLongdocTogglerHide":"Skjul innholdsfortegnelse og s\u00F8k","langOpenLongdocItem":"\u00C5pne dette niv\u00E5","langCloseLongdocItem":"Lukk dette niv\u00E5","langLongdocNavToggleAll":"Vis hele innholdsfortegnelsen","langLongdocNavToggleOnlyOpen":"Vis bare \u00E5pne punkter","langOpen":"\u00C5pne","langClose":"Lukk","footnote":"Fotnote","langFootnote":"Fotnote","langCloseFootnote":"Lukk fotnote","langLinktoolClose":"Lukk","langLinktoolLinkCopied":"Lenke kopiert!","langLinktoolClickToCopy":"Klikk her for \u00E5 kopiere lenke til dette punktet i teksten"}
+Til hovedinnhold
+Aktiver Javascript i din nettleser for en bedre opplevelse på regjeringen.no
+Pressemelding
+Dato: 20.12.2024
+| Nærings- og fiskeridepartementet
+Dette innholdet er mer enn 1 år gammelt.
+Menon Economics har på oppdrag fra Nærings- og fiskeridepartementet kartlagt tilgangen til grossisttjenester i dagligvarebransjen. Kartleggingen er en del av regjeringens arbeid med å bedre konkurransen i dagligvarebransjen.
+– Matvareprisene er noe folk kjenner på hver eneste dag. Svak konkurranse kan føre til at vi betaler mer for maten enn vi må og at utvalget blir dårligere. Regjeringen jobber derfor kontinuerlig med å bedre konkurransen i dagligvarebransjen. I dette arbeidet er det viktig med et oppdatert kunnskapsgrunnlag. Det er nødvendig for å kunne sette inn gode og målrettede tiltak, sier næringsminister Cecilie Myrseth.
+At noen aktører både eier og driver flere ledd i verdikjeden, kan påvirke konkurransesituasjonen. Manglende tilgang til grossisttjenester kan føre til utestengelser. Det kan gjøre det vanskeligere for nye aktører å etablere seg og føre til svekket konkurranse.
+De tre store dagligvarekjedene eier ikke lenger bare butikkene, men også grossistleddet, logistikkledet, og i stadig større grad produksjonsleddet. I dag er det slik at mesteparten av dagligvarer går igjennom grossistene til de tre store dagligvarekjedene (ASKO, REMA Distribusjon og Coop Distribusjon).
+– Vi vil nå gå grundig gjennom rapporten og vurdere om det er funn som tilsier at vi bør oppdatere vår tiltaksplan for å bedre konkurranseforholdene i dagligvarebransjen. Samtidig merker jeg meg allerede nå funn som tyder på utfordringer for små detaljisters og leverandørers tilgang til konkurransedyktige grossisttjenester, sier Myrseth.
+I kartleggingen har det særlig vært behov for å undersøke om det er reell tilgang til grossisttjenester for nye aktører, og om det er realistisk at konkurrerende grossistnettverk kan etablere seg ved siden av de eksisterende grossistnettverkene til dagligvarekjedene.
+Les Menon rapport - Kartlegging av tilgang til dagligvaregrossisttjenester (PFD)
+Les oppdraget
+Noen sentrale funn fra Menon Economics sin kartlegging av tilgang til grossisttjenester
+Verken detaljistene eller leverandørene oppgir at de har blitt nektet tilgang til grossisttjenester. Det varierer i hvilken grad detaljistene og leverandørene opplever vilkårene for tilgang som gode eller ikke.
+Noen detaljister oppgir å kunne forhandle frem konkurransedyktige vilkår, mens andre opplever at de får høyere priser og mer begrenset vareutvalg enn konkurrentene.
+Leverandører problematiserer at man i liten grad kan konkurranseutsette grossisttjenestene i dag, fordi man er pålagt å levere gjennom de integrerte grossistene hvis man skal selge produkter til de integrerte detaljistene.
+Flere leverandører oppgir at distribusjonspåslagene til de integrerte grossistene oppleves som høye, og de oppgir mistanker om at distribusjonspåslagene er høyere for merkevarer enn for egne merkevarer (EMV).
+Samtlige frittstående dagligvaredetaljister kjøper høyvolumprodukter fra de integrerte grossistene. Med høyvolumprodukter menes basisvarer som har høy omsetningshastighet og kjøpes av mange forbrukere. Eksempler på slike varer er produkter fra merkevareprodusenter slik som Orkla og TINE som man kan finne i alle butikker innen tradisjonell dagligvare.
+To av tre integrerte grossister (ASKO og REMA Distribusjon) har i stor skala distribusjon av varer til ikke-integrerte aktører.
+ASKO er det eneste reelle alternativet for høyvolumprodukter for enkelte små detaljister.
+Noen overordnede vurderinger i rapporten til Menon Economics
+Gjennom kartleggingen viser Menon Economics til at de ikke kunnet påvise en markedssvikt i grossistmarkedet for dagligvarer som tilsier at tilgangen til slike tjenester bør reguleres.
+I rapporten vurderer Menon Economics at de vertikalt integrerte fullsortimentsgrossistene er de eneste konkurransedyktige kanalene for detaljister for de fleste høyvolumproduktene i norsk dagligvare i dag. Fullsortimentsgrossistenes skalafordeler gjør at de har lavest priser, og det er derfor utfordrende for andre å konkurrere. På grunn av skalafordeler, høye etableringskostnader og importvernet, er det i dag betydelige etableringsbarrierer for nye grossister. Menon Economics vurderer at det kun vil være mulig for en ny stor aktør å etablere en egen grossisttjeneste, og at selv en slik aktør ikke kan forvente å være konkurransedyktig før det har gått en del tid. For mindre aktører, er den eneste muligheten til å få tak i høyvolumprodukter i dagligvaresektoren til en konkurransedyktig pris, å gå gjennom en av de integrerte grossistene.
+Små detaljister
+Menon Economics vurderer at størrelse virker å være en viktig faktor for hvilke betingelser som tilbys, der større frittstående detaljister virker å kunne konkurranseutsette grossistdriften på en måte som gir de gode nok betingelser til å være konkurransedyktige. Bunnpris har for eksempel skiftet mellom REMA og NorgesGruppen. Menon Economics peker på at dette viser at det finnes et marked for grossisttjenester, i det minste for større uavhengige detaljister. Samtidig har flere små aktører oppgitt at de kun får tilgang til storhusholdningssegmentet i dag, noe de oppgir gir de et snevrere sortiment og mindre konkurransedyktige betingelser. Hvis vilkårene de mindre aktørene får ikke er konkurransedyktige, vil dette, etter Menon Economics’ vurdering, øke etableringsbarrierene i detaljistleddet og gjøre det mindre sannsynlig at nyetablerte, små aktører blir lønnsomme i drift.
+Små leverandører
+Når det gjelder små leverandører, er Menon Economics’ vurdering at utfordringene med å forhandle konkurransedyktige betingelser vil kunne gjøre seg særlig gjeldende for dem. Etter MenonEconomics’ vurdering, vil de store leverandørene med sterke merkevarer har større forhandlingsmakt, og vil derfor mest sannsynlig kunne forhandle om grossistbetingelser også i dagens markedsstruktur. De små leverandørene kan derimot få dårligere betingelser for grossisttjenester, enten gjennom dårligere betingelser hos de vertikalt integrerte grossistene eller gjennom at de må bruke mindre spesialgrossister med dyrere distribusjon. Samtidig vurderer Menon Economics at også de små leverandørene vil kunne ha mest nytte av stordriftsfordelene til de integrerte grossistene hvis de får grossisttjenester til konkurransedyktige priser, ettersom de ikke kunne hatt like kostnadseffektiv direktedistribusjon som de større leverandørene.
+Nærings- og fiskeridepartementet
+Tema
+Konkurransepolitikk
+Næringsliv
+Inngår i sak
+Dagligvaremarkedet
+Kontakt
+NFD Kommunikasjonsseksjonen
+E-post: media@nfd.dep.no
+Telefon:
+902 51 303 (ikke SMS)
+Adresse:
+Postboks 8090 Dep, 0032 Oslo
+Besøksadresse:
+Einar Gerhardsens plass 1, 0180 Oslo
+Til toppen

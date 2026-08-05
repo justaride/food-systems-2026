@@ -1,0 +1,502 @@
+EXPLANATORY NOTE TO ACCOMPANY THE GROCERIES MARKET
+INVESTIGATION (CONTROLLED LAND) ORDER 2010
+(This note is not part of the Order)
+Introduction
+1.
+
+The Competition Commission (CC) published its final report on the market investigation into the supply of groceries in the UK (Investigation) on 30 April 2008 (the
+Report). 1 The Report set out a number of remedies to address the adverse effects on
+competition that it found. The CC has made The Groceries Market Investigation
+(Controlled Land) Order 2010 (Order) to give effect to a number of these remedies.
+
+2.
+
+The remedies are designed to limit the ability of large grocery retailers to prevent
+land being used by their competitors for grocery retailing in the future.
+
+Possible consequences of not complying with the Order
+3.
+
+Section 167 of the Enterprise Act 2002 (the Act) places a duty on any person to
+whom this Order applies to comply with it. Subject to the defences in the section, any
+person who suffers loss or damage due to a breach of this duty may bring an action.
+
+4.
+
+Section 167 of the Act also provides that the Office of Fair Trading (OFT) and the CC
+can seek to enforce this Order by civil proceedings for an injunction or for any other
+appropriate relief or remedy.
+
+Review of this Order
+5.
+
+The OFT has a general duty to monitor the operation of the Order under section 162
+of the Act. This includes the duty to consider, from time to time, whether the Order
+should be varied or revoked in the light of a change of circumstances.
+
+Status of this explanatory note
+6.
+
+Nothing in this explanatory note is legally binding. In the event of a conflict between
+this explanatory note and any provision of the Order, the Order shall prevail.
+
+Structure of the Order
+7.
+
+The Order is divided into seven parts.
+(a) Part 1 contains general provisions, including the commencement date for the
+Order, to whom the Order applies and definition and interpretation provisions.
+(b) Part 2 explains which retailers are considered to be ‘Large Grocery Retailers’ for
+the purposes of the Order and how other undertakings could be designated as
+‘Large Grocery Retailers’ in the future.
+
+1
+
+www.competition-commission.org.uk/rep_pub/reports/2008/fulltext/538.pdf.
+
+1
+
+(c) Part 3 sets out an obligation which applies to Large Grocery Retailers to release
+specified Restrictive Covenants. It also prohibits (with the exception of certain
+permitted restrictions) Large Grocery Retailers from entering into Restrictive
+Covenants that may restrict grocery retailing and agreements having equivalent
+effect in the future.
+(d) Part 4 prohibits Large Grocery Retailers from enforcing specified Exclusivity
+Arrangements. It also prohibits Large Grocery Retailers from entering into new
+Exclusivity Arrangements that may restrict grocery retailing for more than five
+years.
+(e) Part 5 contains some exceptions to the obligations and prohibitions in Parts 3
+and 4.
+(f) Part 6 contains a notification requirement in relation to the acquisition of Large
+Grocery Stores or land previously used for such purposes by Large Grocery
+Retailers.
+(g) Part 7 sets out duties of Grocery Retailers to provide information to the OFT and
+the CC’s powers of direction.
+8.
+
+The Order has four schedules:
+(a) Schedule 1 lists the Large Grocery Retailers which are subject to the Order.
+(b) Schedule 2a contains a description of those Restrictive Covenants which were
+identified in the Report which prevent, restrict or distort competition. Schedule 2b
+contains a description of those Restrictive Covenants which were notified to the
+CC during the Investigation and which were not found at the time the CC
+investigated them to prevent, restrict or distort competition.
+(c) Schedule 3a contains a description of those Exclusivity Arrangements which
+were identified in the Report which prevent, restrict or distort competition.
+Schedule 3b contains a description of those Exclusivity Arrangements which
+were notified to the CC during the Investigation and which were not found at the
+time the CC investigated them to prevent, restrict or distort competition.
+(d) Schedule 4 contains the test to be applied by the OFT to certain Restrictive
+Covenants and Exclusivity Arrangements.
+
+9.
+
+The rest of this explanatory note deals with each of the articles in the Order.
+
+10.
+
+The Order comes into force on [insert date]. It is not intended that there should be
+any further transitional period in relation to any of the provisions contained within the
+Order.
+
+PART 1 (Citation, commencement and interpretation)
+11.
+
+Article 1 has two functions. It gives the Order its name and it sets the dates on which
+the obligations in the Order come into force. The Order comes into force on [date].
+
+12.
+
+Article 2 contains definitions applicable throughout the Order.
+
+13.
+
+Groceries: this definition closely follows that in the terms of reference for the
+Investigation.
+
+2
+
+14.
+
+The Order distinguishes between Groceries Sales Area, which is that part of the
+sales area in a Grocery Store which is used for the sale of groceries, and Net Sales
+Area, which includes all sales area (i.e. groceries and non-groceries) within a
+Grocery Store.
+
+15.
+
+Exclusivity Arrangement means an arrangement whereby a person agrees with a
+Large Grocery Retailer not to allow another Grocery Store to operate from the same
+Site or otherwise agrees to restrict or limit the sale of Groceries on the Site.
+Exclusivity Arrangements commonly arise in connection with the development of a
+retail park or shopping centre. The offer of exclusivity can be used to attract a
+grocery retailer to the development as a so-called ‘anchor tenant’.
+
+16.
+
+Frozen Food Retailers means retailers which specialize in the sale of frozen food and
+which carry a limited range of other groceries, such as Iceland and Farmfoods.
+
+17.
+
+Grocery Store means a retail store, a significant proportion of which is devoted to the
+sale of groceries but excludes stores operated by ‘Limited Assortment Discounters’
+and ‘Frozen Food Retailers’. The term ‘a significant proportion’ is used so that stores
+where there is some but not a large amount of the store area allocated to the sale of
+Groceries (such as Boots, which sells sandwiches and other lunchtime food) are
+excluded.
+
+18.
+
+A separate Implementation Date has been included in the Order in relation to those
+measures that require the application by the OFT of the Test set out in Schedule 4
+(see further in paragraphs 29 and 36).
+
+19.
+
+Large Grocery Retailer is defined by reference to the provisions set out in Article 3.
+
+20.
+
+Restrictive Covenant is an agreement which restricts the user of land belonging at
+the date of the agreement to the covenantor for the benefit of the land belonging at
+the date of the agreement to the covenantee, ie on the sale of land.
+
+21.
+
+Site is defined as land occupied by the Grocery Store and land surrounding it
+(including land used for Access Road, Car Park and Service Yard) and land in close
+proximity used in connection with the operation of Grocery Store (including land used
+for Access Road, Car Park and Service Yard). For example, in a retail park, the site
+would extend beyond the footprint of the land used solely for the purpose of the
+Grocery Store.
+
+PART 2 (Large Grocery Retailers)
+Article 3 (Designation of Large Grocery Retailers)
+22.
+
+Parties that will immediately be subject to the Order are listed in Schedule 1, which
+includes the named grocery retailers. Upon acquisition, any person acquiring the
+grocery retailing functions of the any of the Large Grocery Retailers will also be
+become designated.
+
+23.
+
+The OFT may designate other grocery retailers as Large Grocery Retailers, using the
+criteria set out in Article 3(4). The criteria requires that a retailer:
+(a) operates Large Grocery Stores throughout either Great Britain or Northern
+Ireland or both, or in a considerable part or parts of the United Kingdom,
+capturing retailers who have stores across a number of regions but who do not
+necessarily have a presence throughout the whole of Great Britain or Northern
+Ireland;
+3
+
+(b) carries a full range of Groceries for sale at the retail level; and
+(c) has an integrated grocery wholesaling function that purchases directly from
+grocery suppliers.
+
+PART 3 (Restrictive Covenants)
+Article 4 (Release of Restrictive Covenants)
+24.
+
+During the course of the Investigation, the CC identified a number of Restrictive
+Covenants which were found to prevent, restrict or distort competition. Those
+Restrictive Covenants are listed in Schedule 2a. Article 4 requires the Large Grocery
+Retailers which benefit from these Restrictive Covenants to use their best
+endeavours to release them.
+
+25.
+
+Article 4 provides that a grocery retailer must use its best endeavours 2 to carry out
+two steps in order to release a Restrictive Covenant. The first is to enter into a deed
+of release with the owner of the land burdened by the Restrictive Covenant. The
+second is to procure the removal of the Restrictive Covenant from the relevant
+charges register or land charges register. Thus subsequent owners of the land will be
+able to use it for grocery retail use if appropriate.
+
+26.
+
+If the grocery retailer is unable to have the land registry remove the Restrictive
+Covenant from the register (for example, because the owner of the burdened land
+refuses to cooperate with the grocery retailer which seeks to release the Restrictive
+Covenant, or the registry is not certain that all beneficiaries agree to a release) the
+Large Grocery Retailer should take action described in Article 4(6) to achieve, as
+much as possible, equivalent effect. That is, noting the attempted removal on the
+relevant register, executing a deed of declaration not to enforce the Restrictive
+Covenant in question, and requiring that successors in title of the land will similarly
+enter in such a deed of declaration not enforce the Restrictive Covenant.
+
+27.
+
+During the course of the Investigation, grocery retailers were unable to provide us
+with comprehensive records of Restrictive Covenants which they had imposed prior
+to 2000 and we did not receive details of any Restrictive Covenants imposed since
+2006. We were therefore unable to examine these Restrictive Covenants in order to
+ascertain whether they prevent, restrict or distort competition. It is also possible that
+the benefit of a Restrictive Covenant could be acquired by a grocery retailer upon
+acquisition of land benefiting from a Restrictive Covenant. Accordingly, the OFT can
+examine these Restrictive Covenants if it receives a request to do so by an owner of
+land burdened by such a Restrictive Covenant. We would expect such an owner of
+land to be prepared to cooperate with the Large Grocery Retailer benefiting from the
+Restrictive Covenant in question in order to have it released.
+
+28.
+
+When examining Restrictive Covenants other than those specified in Schedule 2, the
+OFT will apply the test which is set out in Schedule 4 of the Order. The purpose of
+the test is to assist the OFT to ascertain whether a Restrictive Covenant prevents,
+restricts or distorts competition. If the OFT finds that the test is failed, then the Large
+Grocery Retailer which benefits from the Restrictive Covenant in question must use
+its best endeavours to release that Restrictive Covenant under Article 4(1) or failing
+that, take the action described in Article 4(6).
+
+2
+
+For the purposes of Article 4, best endeavours does not include an obligation to make any payment to procure that a party
+consent to the release of the restrictive covenant.
+
+4
+
+29.
+
+Upon the making of the Order it will take some time for the OFT to obtain the
+software and establish the procedures necessary to carry out the duties described in
+paragraph 28. Therefore, the process for releasing a Restrictive Covenant other than
+one specified in Schedule 2 will not commence until the OFT notifies that the
+appropriate software and procedures are in place (the Implementation Date).
+
+Article 5 (Prohibition on entering into Restrictive Covenants)
+30.
+
+Article 5 of the Order prohibits Large Grocery Retailers from entering into any
+Restrictive Covenant that may restrict grocery retailing or have equivalent effect or
+enter into any agreement which has equivalent effect. A Restrictive Covenant that
+may restrict grocery retailing or have equivalent effect is any Restrictive Covenant
+which prevents land from being used for grocery retailing. This may be an explicit
+restriction or an implicit one. For example, a Restrictive Covenant that specified that
+land should be used for a certain purpose implicitly restricts grocery retailing, as
+would a covenant limiting access to properties for certain vehicles, which could
+prevent required deliveries. An agreement which would have equivalent effect could
+be a lease which prevents land from being used for grocery retailing or containing a
+user clause specifying that a property must be used for a particular purpose (not
+grocery retailing).
+
+31.
+
+Large Grocery Retailers must not procure that others enter into Restrictive
+Covenants, or agreements having equivalent effect, on their behalf. This is to prevent
+other parties being encouraged to enter into Restrictive Covenants or agreements
+that achieve the same effect of restricting grocery retailing and thereby benefit a
+Large Grocery Retailer without the Large Grocery Retailer being directly involved. 3
+
+Article 6 (Permitted Restrictive Covenants)
+32.
+
+Article 6 provides that the prohibitions set out in Articles 4 and 5 do not apply to two
+types of restrictions. These are (i) restrictions in a lease granted to a tenant or head
+lessor that specify a leasehold property is to be used solely as a residential dwelling;
+and (ii) user clauses that reflect any agreement or unilateral undertaking given
+pursuant to section 106 of the Town and Country Planning Act (or the equivalent
+legislation in Scotland and Northern Ireland). 4
+
+PART 4 (Exclusivity Arrangements)
+Article 7 (Prohibition on enforcement of Exclusivity Arrangements)
+33.
+
+During the course of the Investigation, the CC identified a number of Exclusivity
+Arrangements which were found to prevent, restrict or distort competition. Those
+Exclusivity Arrangements are listed in Schedule 3a. Article 7 prohibits the Large
+Grocery Retailers which benefit from those Exclusivity Arrangements from enforcing
+them after five years from the date of the Order.
+
+34.
+
+During the course of the Investigation, Large Grocery Retailers were unable to
+provide us with comprehensive records of Exclusivity Arrangements from which they
+had benefited prior to 2000 and we did not receive details of any Exclusivity
+
+3
+
+The other parties could decide to do this because of other arrangements between the parties that do not directly involve the
+particular site.
+We note that these agreements run with the land but specifying the agreement in the lease helps to apportion responsibility for
+ensuring the planning obligations entered into are adhered to.
+4
+
+5
+
+Arrangements put in place since 2006. We were therefore unable to examine these
+Exclusivity Arrangements in order to ascertain whether they prevent, restrict or distort
+competition. Accordingly, the OFT can examine these Exclusivity Arrangements, if it
+receives a request to do so by the person who agreed to give a Large Grocery
+Retailer exclusivity or any person wishing to develop a Grocery Store or wishing to
+operate a Grocery Store on the Site covered by an Exclusivity Arrangement.
+35.
+
+When examining Exclusivity Arrangements other than those specified in Schedule 3,
+the OFT will apply the test which is set out in Schedule 4 of the Order. The purpose
+of the test is to assist the OFT to ascertain whether an Exclusivity Arrangement
+prevents, restricts or distorts competition. If the OFT finds that the test is failed, then
+the Large Grocery Retailer which benefits from the Exclusivity Arrangements is
+prohibited from enforcing it after the later of five years from the date of the CC’s
+Report or five years from the date on which the Grocery Store benefiting from the
+Exclusivity Agreement first began trading.
+
+36.
+
+As with the similar process in relation to Restrictive Covenants, upon the making of
+the Order it will take some time for the OFT to obtain the software and establish the
+procedures necessary to carry out the duties described in paragraph 34. Therefore,
+the process in relation to Exclusivity Arrangements other than those specified in
+Schedule 3 will not commence until the OFT notifies that the appropriate software
+and procedures are in place (the Implementation Date).
+
+Article 8 (Prohibition on entering into Exclusivity Arrangements)
+37.
+
+Article 8 prohibits Large Grocery Retailers from entering into or seeking to procure
+the entry into by others of any Exclusivity Arrangement that may restrict grocery
+retailing or have equivalent effect with a duration of more than five years from the
+date on which the Grocery Store which benefits from it first began trading.
+
+38.
+
+An example of an Exclusivity Arrangement which could have equivalent effect to one
+which may restrict grocery retailing is one which specifies that all other units in a
+development will be let or sold to retailers other than grocery retailers.
+
+PART 5 (Exceptions)
+Article 9 (Exception for land supporting a Grocery Store)
+39.
+
+Article 9 contains an exemption from the obligation in Article 4 and the prohibitions in
+Articles 5, 7 and 8 for land supporting a Grocery Store. It provides that the obligation
+in Article 4 and the prohibitions in Articles 5, 7 and 8 will not apply to ‘Operational
+Land Restrictions’ (which are restrictions preventing the land from being used other
+than for a Car Park, Service Yard or Access Road) where the land is either not
+owned by the Large Grocery Retailer or if the land is owned by a Large Grocery
+Retailer but leased to a third party (who is not the Large Grocery Retailer) and the
+land is adjacent to and essential for the effective operation of the relevant Grocery
+Store operated by the Large Grocery Retailer and the Large Grocery Retailer does
+not have exclusive benefit of the Operational Land Restriction where the Car Park,
+Service Yard or Access Road is necessary for the effective operation of another
+Grocery Store.
+
+Article 10 (Exception for pension companies)
+40.
+
+Article 10 contains a limited exception to the prohibitions in Articles 5 and 8 for Large
+Grocery Retailers’ pension companies although on application under Article 4 or 7
+6
+
+the OFT may apply t the Test requiring the Large Grocery Retailer to release a
+Restrictive Covenant or preventing it from enforcing an Exclusivity Arrangement (as
+appropriate).
+41.
+
+The exception would allow a pension company to enter Restrictive Covenants and
+Exclusivity Arrangements if the Large Grocery Retailer does not and has not
+previously operated a Grocery Store on the land related to the Restrictive Covenant
+or Exclusivity Arrangement or used the land in connection with the operation of a
+Grocery Store. In addition, the exception will not affect the ability of third parties to
+apply to have restrictions lifted if they meet the criteria set out in Schedule 4 of the
+Order.
+
+PART 6 (Acquisition of stores)
+Article 11 (Notification of acquisition of Grocery Stores)
+42.
+
+Article 11 requires Large Grocery Retailers to notify the OFT and provide it with
+specified information if it enters into an agreement for the purchase of a Larger
+Grocery Store or interest in a Site previously used for a Larger Grocery Store not
+more than 12 months prior to entering into the agreement.
+
+PART 7 (Miscellaneous)
+Article 12 (Supply of information to the OFT)
+43.
+
+Article 12 requires Large Grocery Retailers and Grocery Retailers to provide certain
+information to the OFT under certain circumstances. The information is for the
+purposes of enabling the OFT to monitor and review the operation of the Order or
+any provisions of the Order. However, the OFT cannot require parties to provide it
+with privileged information.
+
+Article 13 (Powers of direction)
+44.
+
+Article 13 is made under section 87 of the Act as applied by section 164(2) of that
+Act.
+
+45.
+
+Article 13 gives the CC power to give directions to a person for the purpose of
+ensuring compliance with the Order. The directions can be addressed to an individual
+or a company or can be addressed to the holder for the time being of an office in a
+company, for example, the secretary.
+
+Schedule 1
+46.
+
+Schedule 1 lists those retailers which are Large Grocery Retailers and are therefore
+affected by the Order. As well as the retailers explicitly named, the Order also
+extends to any agents of these retailers, any Interconnected Bodies Corporate (as
+defined in the Act) and any companies over which these companies have control. For
+the purposes of Schedule 1, ‘control’ is defined as having a shareholding of over
+25 per cent of the voting rights in the other company, or having the power to appoint
+more than one-quarter of its directors.
+
+7
+
+Schedule 2a and Schedule 2b
+47.
+
+Schedule 2a describes those Restrictive Covenants which were identified in the
+Report as preventing, restricting or distorting competition and in respect of which
+grocery retailers named in the Schedule must use their best endeavours to have
+released.
+
+48.
+
+Schedule 2b describes those Restrictive Covenants which were notified to the CC
+during the Investigation and which were not found to prevent, restrict or distort
+competition. The requirement of Article 4 does not apply to these Restrictive
+Covenants.
+
+Schedule 3a and Schedule 3b
+49.
+
+Schedule 3a describes those Exclusivity Arrangements which were identified in the
+Report as preventing, restricting or distorting competition and in respect of which
+grocery retailers named in the Schedule must not enforce five years from the later of
+the date of the Order or the date on which the Grocery Store which benefits from the
+Exclusivity Arrangement first began trading.
+
+50.
+
+Schedule 3b describes those Exclusivity Arrangements which were notified to the CC
+during the Investigation and which were not found to prevent, restrict or distort
+competition. The prohibition in Article 7 does not apply to these Exclusivity
+Arrangements.
+
+Schedule 4
+51.
+
+Schedule 4 describes the test to be applied by the OFT in order to ascertain whether
+a local market is highly concentrated.
+
+52.
+
+The test set out in Schedule 4 is failed if the total number of fascias (taking into
+account Mid-sized and Larger Grocery Stores) in a relevant isochrone is three or
+fewer and the Large Grocery Retailers benefiting from a Restrictive Covenant or
+Exclusivity Arrangement has a share of greater than 60 per cent of Groceries Sales
+Area in the relevant isochrone. 5
+
+5
+
+The CC intends to recommend the software to be used by the OFT as the underlying road network to construct the 10-minute
+drive-time isochrones. A provisional decision was published on the same date as this explanatory note.
+
+8
+
+
