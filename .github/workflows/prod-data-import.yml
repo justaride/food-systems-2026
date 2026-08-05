@@ -30,6 +30,7 @@ on:
           - ownership
           - registers
           - full
+          - innhenting-2026-08-05
       confirm:
         description: 'Type IMPORT to confirm a production database operation'
         required: true
@@ -132,6 +133,10 @@ jobs:
               ;;
             full)
               npm run db:prod-sync
+              ;;
+            innhenting-2026-08-05)
+              npm run db:import:innhenting
+              npm run db:verify
               ;;
             *)
               echo "::error::Unsupported prod data import target: $TARGET"
