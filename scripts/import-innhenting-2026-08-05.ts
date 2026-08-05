@@ -34,7 +34,9 @@ type Post = Record<string, any>
 
 function loadPosts(): Post[] {
   const posts: Post[] = []
-  for (const f of readdirSync(join(DIR, 'ekstrakt')).filter(x => x.startsWith('innhenting-') && x.endsWith('.jsonl'))) {
+  // Ekskluder KO2-delbatchen — den håndteres av import-innhenting-ko2 (eget id-namespace).
+  // Uten dette ville hoved-importen stokke om id-ene når KO2-ekstrakter finnes.
+  for (const f of readdirSync(join(DIR, 'ekstrakt')).filter(x => x.startsWith('innhenting-') && x.endsWith('.jsonl') && !x.includes('KO2'))) {
     for (const line of readFileSync(join(DIR, 'ekstrakt', f), 'utf8').split('\n')) {
       if (line.trim()) { try { posts.push(JSON.parse(line)) } catch { /* skip */ } }
     }
