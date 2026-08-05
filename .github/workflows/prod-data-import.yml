@@ -12,6 +12,8 @@ name: Prod Data Import (manual)
 #   DATABASE_URL              — prod connection (host localhost:5432 — tunnel proxies)
 #   CF_ACCESS_CLIENT_ID       — CF Access service token client ID
 #   CF_ACCESS_CLIENT_SECRET   — CF Access service token client secret
+#   COOLIFY_READ_API_TOKEN    — read-scoped token for the backup preflight
+#   COOLIFY_BASE_URL          — Coolify API base URL
 #
 # Guard: the job only runs when the `confirm` input is exactly "IMPORT".
 
@@ -29,11 +31,23 @@ on:
           - nordic-pdf
           - ownership
           - registers
+          - knowledge
           - full
       confirm:
         description: 'Type IMPORT to confirm a production database operation'
         required: true
         default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-data-import
+  cancel-in-progress: false
+
+env:
+  DB_UUID: l0s8o8oo00c8gossw0gksswk
+  BACKUP_MAX_AGE_HOURS: ${{ vars.DB_BACKUP_MAX_AGE_HOURS || '36' }}
 
 jobs:
   prod-import:
@@ -41,11 +55,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     if: ${{ inputs.confirm == 'IMPORT' }}
+    environment: production
     env:
-      DATABASE_URL: ${{ secrets.DATABASE_URL }}
       TUNNEL_HOSTNAME: fs-db.naturalstateproject.com
-      CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
-      CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -64,21 +76,77 @@ jobs:
 
       - name: Install cloudflared
         run: |
-          curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
+          curl -fsSL https://github.com/cloudflare/cloudflared/releases/download/2026.7.2/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
+          echo "ec905ea7b7e327ff8abdde8cb64697a2152de74dbcdbf6aec9db8364eb3886cd  /usr/local/bin/cloudflared" | sha256sum -c -
           chmod +x /usr/local/bin/cloudflared
           cloudflared --version
 
-      - name: Start TCP tunnel to prod DB
+      - name: Require a recent successful off-node backup before mutation
+        if: ${{ inputs.target != 'verify-only' }}
+        env:
+          COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_READ_API_TOKEN }}
+          COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
         run: |
-          # cloudflared access tcp reads the service token from --service-token-id/
-          # --secret (env TUNNEL_SERVICE_TOKEN_ID/SECRET), NOT CF_ACCESS_CLIENT_ID/
-          # SECRET (those are HTTP header names). Passing the wrong vars = no token
-          # presented = CF Access rejects = "websocket: bad handshake". Pass explicitly.
-          nohup cloudflared access tcp \
+          set -euo pipefail
+          backup_file=$(mktemp)
+          curl_config_file=$(mktemp)
+          trap 'rm -f "$backup_file" "$curl_config_file"' EXIT
+          COOLIFY_API_PATH="/api/v1/databases/$DB_UUID/backups" \
+            scripts/write-private-coolify-curl-config.py "$curl_config_file"
+          unset COOLIFY_API_TOKEN COOLIFY_BASE_URL
+          curl --config "$curl_config_file" -fsS -m 15 > "$backup_file"
+          python3 - "$backup_file" "$BACKUP_MAX_AGE_HOURS" <<'PY'
+          import datetime as dt
+          import json
+          import sys
+
+          path, max_age_raw = sys.argv[1:]
+          max_age_hours = float(max_age_raw)
+          with open(path, encoding='utf-8') as handle:
+              schedules = json.load(handle)
+          if not isinstance(schedules, list) or max_age_hours <= 0:
+              raise SystemExit('Invalid backup preflight configuration')
+
+          now = dt.datetime.now(dt.timezone.utc)
+          valid = []
+          for schedule in schedules:
+              if schedule.get('enabled') is not True or schedule.get('save_s3') is not True:
+                  continue
+              for execution in schedule.get('executions') or []:
+                  if execution.get('status') != 'success' or execution.get('s3_uploaded') is not True:
+                      continue
+                  if not execution.get('filename') or int(execution.get('size') or 0) <= 0:
+                      continue
+                  created_raw = execution.get('created_at')
+                  if not created_raw:
+                      continue
+                  try:
+                      created_at = dt.datetime.fromisoformat(created_raw.replace('Z', '+00:00'))
+                  except ValueError:
+                      continue
+                  if created_at.tzinfo is None:
+                      created_at = created_at.replace(tzinfo=dt.timezone.utc)
+                  age = (now - created_at.astimezone(dt.timezone.utc)).total_seconds() / 3600
+                  if 0 <= age <= max_age_hours:
+                      valid.append(age)
+
+          if not valid:
+              raise SystemExit('No recent successful off-node S3 backup; refusing production mutation')
+          print(f'Backup preflight PASS: latest valid backup age={min(valid):.2f}h')
+          PY
+
+      - name: Start TCP tunnel to prod DB
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          TUNNEL_SERVICE_TOKEN_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          TUNNEL_SERVICE_TOKEN_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          set -euo pipefail
+          # cloudflared 2026.7.2 maps these two inherited env variables to its
+          # service-token flags. Keep the secret out of the process argument list.
+          nohup env -u DATABASE_URL cloudflared access tcp \
             --hostname "$TUNNEL_HOSTNAME" \
             --url localhost:5432 \
-            --service-token-id "$CF_ACCESS_CLIENT_ID" \
-            --service-token-secret "$CF_ACCESS_CLIENT_SECRET" \
             > tunnel.log 2>&1 &
           echo $! > tunnel.pid
           # Wait for an actual *authenticated* Postgres connection through the tunnel,
@@ -89,7 +157,7 @@ jobs:
           # "websocket: bad handshake" = connector/token/Access-app problem).
           ok=0
           for i in $(seq 1 30); do
-            if psql "$DATABASE_URL" -tAc 'select 1' >/dev/null 2>&1; then
+            if printf 'SELECT 1;\n' | npx prisma db execute --stdin --schema prisma/schema.prisma >/dev/null 2>&1; then
               echo "Authenticated DB connection ready (attempt $i)"; ok=1; break
             fi
             sleep 3
@@ -100,12 +168,35 @@ jobs:
             exit 1
           fi
 
-      - name: Run selected prod data operation
+      - name: Verify production migration ledger, schema drift, and current counts
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
-          TARGET="${{ inputs.target }}"
+          npx prisma migrate status --schema prisma/schema.prisma
+          scripts/verify-database-schema-drift.sh
+          npm run db:verify
+
+      - name: Reset ephemeral production evidence paths
+        if: ${{ inputs.target == 'verify-only' || inputs.target == 'knowledge' || inputs.target == 'full' }}
+        run: |
+          rm -f \
+            research/_status/library-analysis-ledger.jsonl \
+            research/_status/library-analysis-summary.md \
+            research/_status/library-analysis-external-readiness.json \
+            research/_status/library-analysis-external-readiness.md \
+            research/_status/library-analysis-prune-backup.jsonl \
+            research/_status/library-analysis-approval-revocation-backup.jsonl
+
+      - name: Run selected prod data operation
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          TARGET: ${{ inputs.target }}
+        run: |
           case "$TARGET" in
             verify-only)
               npm run db:verify
+              npm run research:library:ledger
+              npm run audit:library-analysis
               ;;
             seed)
               npm run db:import:ts
@@ -130,14 +221,48 @@ jobs:
               npm run db:prod-sync:registers
               npm run db:verify
               ;;
+            knowledge)
+              npm run research:library:process:apply
+              npm run research:library:ledger
+              npm run audit:library-analysis
+              npm run db:verify
+              ;;
             full)
               npm run db:prod-sync
+              npm run research:library:process:apply
+              npm run research:library:ledger
+              npm run audit:library-analysis
+              npm run db:verify
               ;;
             *)
               echo "::error::Unsupported prod data import target: $TARGET"
               exit 1
               ;;
           esac
+
+      - name: Upload production knowledge verification evidence
+        if: ${{ always() && (inputs.target == 'verify-only' || inputs.target == 'knowledge' || inputs.target == 'full') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: prod-knowledge-verification-${{ github.run_id }}
+          path: |
+            research/_status/library-analysis-ledger.jsonl
+            research/_status/library-analysis-summary.md
+            research/_status/library-analysis-external-readiness.json
+            research/_status/library-analysis-external-readiness.md
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Upload production knowledge rollback logs
+        if: ${{ always() && (inputs.target == 'knowledge' || inputs.target == 'full') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: prod-knowledge-rollback-logs-${{ github.run_id }}
+          path: |
+            research/_status/library-analysis-prune-backup.jsonl
+            research/_status/library-analysis-approval-revocation-backup.jsonl
+          if-no-files-found: ignore
+          retention-days: 90
 
       - name: Stop tunnel
         if: always()

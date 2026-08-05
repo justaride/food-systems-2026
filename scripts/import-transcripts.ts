@@ -257,6 +257,7 @@ async function main() {
           description: `YouTube video transcript from ${rec.channel}: ${rec.title}`,
           relevance: 'Primary source - video transcript of Norwegian agricultural content',
           url: rec.url,
+          provenanceType: 'internal_primary',
           documentId: doc.id,
         },
         create: {
@@ -268,6 +269,7 @@ async function main() {
           description: `YouTube video transcript from ${rec.channel}: ${rec.title}`,
           relevance: 'Primary source - video transcript of Norwegian agricultural content',
           url: rec.url,
+          provenanceType: 'internal_primary',
           documentId: doc.id,
         },
       })

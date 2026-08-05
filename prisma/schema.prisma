@@ -13,6 +13,7 @@ enum SourceClass {
   primary
   secondary
   dataset
+  internal_primary
   internal_synthesis
   media
   unknown
@@ -39,6 +40,68 @@ enum CitationReadiness {
   citable_with_note
   internal_context
   blocked_unsourced
+}
+
+enum EvidenceAppraisalStatus {
+  draft
+  reviewed
+  excluded_not_applicable
+}
+
+enum EvidenceAppraisalBasis {
+  peer_reviewed
+  formally_examined_thesis
+  official_primary
+  grey_literature
+  internal_material
+  other
+  unclear
+}
+
+enum EvidenceStudyDesign {
+  experimental
+  quasi_experimental
+  observational
+  qualitative
+  mixed_methods
+  evidence_synthesis
+  modelling
+  economic_analysis
+  legal_policy_analysis
+  descriptive_document
+  other
+  unclear
+  not_applicable
+}
+
+enum EvidenceApplicability {
+  direct
+  indirect
+  limited
+  unclear
+  not_applicable
+}
+
+enum EvidenceLimitationsStatus {
+  identified
+  none_identified
+  unclear
+  not_applicable
+}
+
+enum EvidenceRiskOfBias {
+  low
+  some_concerns
+  high
+  critical
+  unclear
+  not_applicable
+}
+
+enum EvidenceReviewMethod {
+  full_text
+  partial_text
+  metadata_only
 }
 
 // ─── Domain 1: Documents ────────────────────────────────────────────
@@ -71,15 +134,15 @@ model Document {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  refsFrom            DocumentRef[]        @relation("refFrom")
-  refsTo              DocumentRef[]        @relation("refTo")
-  sourceDoc           SourceDoc?           @relation
-  thesis              Thesis?              @relation
-  report              Report?              @relation
-  insightDocumentRefs InsightDocumentRef[]
-  companyDocumentRefs CompanyDocumentRef[]
-  actorDocumentRefs   ActorDocumentRef[]
-  sourceCitations     SourceCitation[]
+  refsFrom               DocumentRef[]           @relation("refFrom")
+  refsTo                 DocumentRef[]           @relation("refTo")
+  sourceDoc              SourceDoc?              @relation
+  thesis                 Thesis?                 @relation
+  report                 Report?                 @relation
+  insightDocumentRefs    InsightDocumentRef[]
+  companyDocumentRefs    CompanyDocumentRef[]
+  actorDocumentRefs      ActorDocumentRef[]
+  sourceCitations        SourceCitation[]
   libraryAnalysisRecords LibraryAnalysisRecord[]
 
   @@index([category])
@@ -103,31 +166,34 @@ model DocumentRef {
 // ─── Domain 2: Sources ──────────────────────────────────────────────
 
 model SourceDoc {
-  id          String    @id // src-1..src-70
-  filename    String
-  title       String?
-  author      String?
-  year        String? // can be number or string in source data
-  sourceType  String
-  description String
-  relevance   String
-  url         String?
-  isDuplicate Boolean   @default(false)
-  doi         String?
-  publisher   String?
-  accessedAt  DateTime?
-  archivedUrl String?
+  id             String    @id // src-1..src-70
+  filename       String
+  title          String?
+  author         String?
+  year           String? // can be number or string in source data
+  sourceType     String
+  description    String
+  relevance      String
+  url            String?
+  isDuplicate    Boolean   @default(false)
+  doi            String?
+  publisher      String?
+  provenanceType String    @default("unknown")
+  accessedAt     DateTime?
+  archivedUrl    String?
 
   documentId String?   @unique
   document   Document? @relation(fields: [documentId], references: [id])
 
-  sourceRefs      SourceRef[]
-  insights        Insight[]        @relation("InsightSourceDoc")
-  mediaEntries    MediaEntry[]
-  sourceCitations SourceCitation[]
+  sourceRefs             SourceRef[]
+  insights               Insight[]               @relation("InsightSourceDoc")
+  mediaEntries           MediaEntry[]
+  sourceCitations        SourceCitation[]
   libraryAnalysisRecords LibraryAnalysisRecord[]
+  evidenceAppraisal      EvidenceAppraisal?
 
   @@index([sourceType])
+  @@index([provenanceType])
 }
 
 model SourceCitation {
@@ -159,11 +225,12 @@ model SourceCitation {
   createdAt          DateTime           @default(now())
   updatedAt          DateTime           @updatedAt
 
-  document           Document?       @relation(fields: [documentId], references: [id], onDelete: SetNull)
-  sourceDoc          SourceDoc?      @relation(fields: [sourceDocId], references: [id], onDelete: SetNull)
-  fieldCitations     FieldCitation[]
-  primaryForInsights  Insight[]   @relation("InsightPrimaryCitation")
-  primaryForProducers Producer[]  @relation("ProducerPrimaryCitation")
+  document                 Document?           @relation(fields: [documentId], references: [id], onDelete: SetNull)
+  sourceDoc                SourceDoc?          @relation(fields: [sourceDocId], references: [id], onDelete: SetNull)
+  fieldCitations           FieldCitation[]
+  primaryForInsights       Insight[]           @relation("InsightPrimaryCitation")
+  primaryForProducers      Producer[]          @relation("ProducerPrimaryCitation")
+  reviewBasisForAppraisals EvidenceAppraisal[] @relation("EvidenceAppraisalReviewBasis")
 
   @@index([sourceClass])
   @@index([citationReadiness])
@@ -192,34 +259,70 @@ model FieldCitation {
   @@index([fieldPath])
 }
 
+// Stable database lineage and append-only receipts for controlled mutations.
+// Database-side constraints and triggers make both models fail-closed even
+// when a writer bypasses Prisma.
+model DatabaseIdentity {
+  key            String                    @id
+  identityUuid   String                    @unique @db.Uuid
+  createdAt      DateTime                  @default(now())
+  mutationAudits ControlledMutationAudit[]
+}
+
+model ControlledMutationAudit {
+  id                      String   @id @default(cuid())
+  operationKey            String   @unique
+  contractScope           String
+  contractSha256          String
+  planSha256              String
+  beforeSnapshotSha256    String
+  afterSnapshotSha256     String
+  dependencyStateSha256   String
+  databaseIdentityUuid    String   @db.Uuid
+  targetFingerprintSha256 String
+  backupSha256            String
+  backupMetadataSha256    String
+  restoreReceiptSha256    String
+  operatorId              String
+  authorizationRef        String
+  databaseRole            String
+  mutationSummary         Json
+  recordedAt              DateTime @default(now())
+
+  databaseIdentity DatabaseIdentity @relation(fields: [databaseIdentityUuid], references: [identityUuid], onDelete: Restrict, onUpdate: Restrict)
+
+  @@index([contractScope])
+  @@index([recordedAt])
+}
+
 model LibraryAnalysisRecord {
-  id                String   @id @default(cuid())
-  sourceKind        String
-  sourceKey         String
-  documentId        String?
-  sourceDocId       String?
-  canonicalPath     String?
-  title             String
-  status            String   @default("not_started")
-  usageRule         String   @default("internal_background")
-  reviewStatus      String   @default("not_reviewed")
-  citationReadiness String?
-  analysisTier      String   @default("triage_card")
-  aiCard            Json?
-  aiSummary         String?
-  keyFindings       String[]
-  claimCandidates   Json?
+  id                  String    @id @default(cuid())
+  sourceKind          String
+  sourceKey           String
+  documentId          String?
+  sourceDocId         String?
+  canonicalPath       String?
+  title               String
+  status              String    @default("not_started")
+  usageRule           String    @default("internal_background")
+  reviewStatus        String    @default("not_reviewed")
+  citationReadiness   String?
+  analysisTier        String    @default("triage_card")
+  aiCard              Json?
+  aiSummary           String?
+  keyFindings         String[]
+  claimCandidates     Json?
   projectImplications String[]
-  gaps              Json?
-  controlLinks      Json?
-  riskFlags         String[]
-  contentHash       String?
-  wordCount         Int      @default(0)
-  processedAt       DateTime?
-  reviewedAt        DateTime?
-  reviewer          String?
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  gaps                Json?
+  controlLinks        Json?
+  riskFlags           String[]
+  contentHash         String?
+  wordCount           Int       @default(0)
+  processedAt         DateTime?
+  reviewedAt          DateTime?
+  reviewer            String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
 
   document  Document?  @relation(fields: [documentId], references: [id], onDelete: SetNull)
   sourceDoc SourceDoc? @relation(fields: [sourceDocId], references: [id], onDelete: SetNull)
@@ -248,6 +351,66 @@ model SourceRef {
 
   @@index([sourceDocId])
   @@index([insightId])
+}
+
+// ─── Domain 2b: Food TG mandate board ───────────────────────────────
+
+model ClaimBoardEntry {
+  id              String   @id
+  claimId         String
+  track           String
+  title           String
+  strength        String
+  status          String
+  nextAction      String
+  useNow          String
+  needs           String
+  sourcePath      String
+  sourceUpdatedAt DateTime
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now()) @updatedAt
+
+  @@index([claimId])
+  @@index([track])
+  @@index([status])
+}
+
+model OpportunityEntry {
+  id              String   @id
+  rank            Int      @unique
+  title           String
+  track           String
+  role            String
+  statuses        String[]
+  whyNow          String
+  canSay          String
+  cannotSay       String
+  validationNeed  String
+  stopSignal      String
+  nextAction      String
+  claimIds        String[]
+  evidenceIds     String[]
+  sourceIds       String[]
+  sourcePath      String
+  sourceUpdatedAt DateTime
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now()) @updatedAt
+
+  @@index([rank])
+  @@index([track])
+}
+
+model FoodTgBoardLedger {
+  id          String   @id @default(cuid())
+  entryType   String
+  entryId     String
+  contentHash String
+  snapshot    Json
+  sourcePath  String
+  importedAt  DateTime @default(now())
+
+  @@unique([entryType, entryId, contentHash])
+  @@index([entryType, entryId])
 }
 
 // ─── Domain 3: Insights ─────────────────────────────────────────────
@@ -312,10 +475,11 @@ model Thesis {
   publisher    String?
   accessDate   String?
 
-  documentId    String?                  @unique
-  document      Document?                @relation(fields: [documentId], references: [id])
+  documentId        String?                  @unique
+  document          Document?                @relation(fields: [documentId], references: [id])
+  evidenceAppraisal EvidenceAppraisal?
   // search_vector: FTS-kolonne, se Document.search_vector
-  search_vector Unsupported("tsvector")?
+  search_vector     Unsupported("tsvector")?
 
   @@index([institution])
   @@index([tags], type: Gin)
@@ -324,7 +488,7 @@ model Thesis {
 // ─── Domain 4b: Reports ─────────────────────────────────────────────
 
 model Report {
-  id                String   @id
+  id                String    @id
   title             String
   fullTitle         String?
   author            String?
@@ -333,7 +497,7 @@ model Report {
   year              Int?
   sourceUrl         String?
   reportCategory    String
-  country           String   @default("NO")
+  country           String    @default("NO")
   keyFindings       String[]
   recommendations   String[]
   relevance         String
@@ -344,16 +508,61 @@ model Report {
   publisher         String?
   provenanceType    String?
   supportingSources Json?
+  accessedAt        DateTime?
 
-  documentId    String?                  @unique
-  document      Document?                @relation(fields: [documentId], references: [id])
+  documentId        String?                  @unique
+  document          Document?                @relation(fields: [documentId], references: [id])
+  evidenceAppraisal EvidenceAppraisal?
   // search_vector: FTS-kolonne, se Document.search_vector
-  search_vector Unsupported("tsvector")?
+  search_vector     Unsupported("tsvector")?
 
   @@index([reportCategory])
   @@index([country])
   @@index([provenanceType])
   @@index([tags], type: Gin)
+}
+
+model EvidenceAppraisal {
+  id                    String                     @id @default(cuid())
+  reportId              String?                    @unique
+  thesisId              String?                    @unique
+  sourceDocId           String?                    @unique
+  status                EvidenceAppraisalStatus    @default(draft)
+  basis                 EvidenceAppraisalBasis?
+  studyDesign           EvidenceStudyDesign?
+  studyDesignDetails    String?
+  methodologySummary    String?
+  sampleOrCoverage      String?
+  applicability         EvidenceApplicability?
+  applicabilityContext  String?
+  applicabilityNotes    String?
+  limitationsStatus     EvidenceLimitationsStatus?
+  limitations           String[]                   @default([])
+  limitationsNotes      String?
+  riskOfBias            EvidenceRiskOfBias?
+  riskOfBiasNotes       String?
+  framework             String?
+  frameworkVersion      String?
+  reviewMethod          EvidenceReviewMethod?
+  reviewBasisCitationId String?
+  reviewedSourceHash    String?
+  hashAlgorithm         String                     @default("sha256")
+  reviewedBy            String?
+  reviewedAt            DateTime?
+  notApplicableReason   String?
+  notes                 String?
+  createdAt             DateTime                   @default(now())
+  updatedAt             DateTime                   @updatedAt
+
+  report              Report?         @relation(fields: [reportId], references: [id], onDelete: Restrict)
+  thesis              Thesis?         @relation(fields: [thesisId], references: [id], onDelete: Restrict)
+  sourceDoc           SourceDoc?      @relation(fields: [sourceDocId], references: [id], onDelete: Restrict)
+  reviewBasisCitation SourceCitation? @relation("EvidenceAppraisalReviewBasis", fields: [reviewBasisCitationId], references: [id], onDelete: Restrict)
+
+  @@index([status])
+  @@index([basis])
+  @@index([riskOfBias])
+  @@index([reviewBasisCitationId])
 }
 
 // ─── Domain 5: Companies ────────────────────────────────────────────
@@ -591,7 +800,7 @@ model ActorDocumentRef {
 }
 
 model ActorRelationship {
-  id           String  @id @default(cuid())
+  id           String    @id @default(cuid())
   fromActorId  String
   toActorId    String
   relationType String
@@ -926,14 +1135,14 @@ model AquacultureApplication {
 }
 
 model DeliveryVolume {
-  id                 String   @id @default(cuid())
+  id                 String    @id @default(cuid())
   supplierId         String?
   supplierProducerId String?
-  supplier           Company? @relation("DeliverySupplier", fields: [supplierId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  supplier           Company?  @relation("DeliverySupplier", fields: [supplierId], references: [id], onDelete: Restrict, onUpdate: Cascade)
   supplierProducer   Producer? @relation("DeliverySupplierProducer", fields: [supplierProducerId], references: [id], onDelete: Restrict, onUpdate: Cascade)
   supplierOrgNr      String
   buyerId            String?
-  buyer              Company? @relation("DeliveryBuyer", fields: [buyerId], references: [id])
+  buyer              Company?  @relation("DeliveryBuyer", fields: [buyerId], references: [id])
   buyerName          String?
 
   commodity String // melk-ku, melk-geit, egg, korn, slakt-storfe, slakt-svin, slakt-saue, slakt-fjorfe

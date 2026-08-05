@@ -28,6 +28,7 @@ import { countryChartData } from '../src/lib/data/country-chart-data'
 import { sustainabilityCountryMetrics } from '../prisma/seed-data/sustainability-country-metrics'
 import { reports } from '../prisma/seed-data/reports'
 import type { ReportSupportingSource } from '../src/lib/types'
+import { accessMetadataUpdateGuardReason } from '../src/lib/citations/import-access-metadata-preservation'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
@@ -35,6 +36,18 @@ const prisma = new PrismaClient({ adapter })
 function extractYear(value: string): number | null {
   const match = value.match(/\b(19|20)\d{2}\b/)
   return match ? Number(match[0]) : null
+}
+
+function optionalSeedDate(value: string | undefined): Date | null {
+  if (!value) return null
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    throw new Error(`Seed access date must use YYYY-MM-DD: ${value}`)
+  }
+  const parsed = new Date(`${value}T00:00:00.000Z`)
+  if (Number.isNaN(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== value) {
+    throw new Error(`Seed access date is not a real calendar date: ${value}`)
+  }
+  return parsed
 }
 
 function buildMeetingDocument(meeting: Meeting) {
@@ -108,6 +121,9 @@ async function importTeam() {
 async function importSources() {
   console.log('Importing sources...')
   for (const s of sources) {
+    const guardedSeedAccessMetadata = accessMetadataUpdateGuardReason({
+      seedAccessDate: s.accessedAt,
+    }) !== null
     await prisma.sourceDoc.upsert({
       where: { id: s.id },
       update: {
@@ -118,10 +134,11 @@ async function importSources() {
         sourceType: s.type,
         description: s.description,
         relevance: s.relevance,
-        url: s.url ?? null,
         isDuplicate: s.isDuplicate ?? false,
         doi: s.doi ?? null,
         publisher: s.publisher ?? null,
+        // Existing provenance is controlled by the pinned provenance runner;
+        // generic seed import may materialize it only on a fresh create.
       },
       create: {
         id: s.id,
@@ -136,8 +153,22 @@ async function importSources() {
         isDuplicate: s.isDuplicate ?? false,
         doi: s.doi ?? null,
         publisher: s.publisher ?? null,
+        provenanceType: s.provenanceType ?? 'unknown',
+        accessedAt: optionalSeedDate(s.accessedAt),
+        archivedUrl: s.archivedUrl ?? null,
       },
     })
+    if (!guardedSeedAccessMetadata) {
+      // Atomic compare-and-set on the live row: if a pinned runner writes a
+      // review date before this statement locks the row, no locator changes.
+      await prisma.sourceDoc.updateMany({
+        where: { id: s.id, accessedAt: null },
+        data: {
+          url: s.url ?? null,
+          ...(s.archivedUrl !== undefined ? { archivedUrl: s.archivedUrl } : {}),
+        },
+      })
+    }
   }
   console.log(`  ${sources.length} sources imported`)
 }
@@ -199,6 +230,9 @@ async function importInsights() {
 async function importTheses() {
   console.log('Importing theses...')
   for (const t of theses) {
+    const guardedSeedAccessMetadata = accessMetadataUpdateGuardReason({
+      seedAccessDate: t.accessDate,
+    }) !== null
     await prisma.thesis.upsert({
       where: { id: t.id },
       update: {
@@ -207,7 +241,6 @@ async function importTheses() {
         year: t.year,
         title: t.title,
         titleNo: t.titleNo ?? null,
-        url: t.url,
         synthesis: t.synthesis,
         keyFindings: t.keyFindings,
         tags: t.tags,
@@ -218,7 +251,6 @@ async function importTheses() {
         doi: t.doi ?? null,
         isbn: t.isbn ?? null,
         publisher: t.publisher ?? null,
-        accessDate: t.accessDate ?? null,
       },
       create: {
         id: t.id,
@@ -241,6 +273,14 @@ async function importTheses() {
         accessDate: t.accessDate ?? null,
       },
     })
+    if (!guardedSeedAccessMetadata) {
+      // The predicate is evaluated under the row update lock, so a concurrent
+      // reviewed access date wins and keeps its locator paired atomically.
+      await prisma.thesis.updateMany({
+        where: { id: t.id, accessDate: null },
+        data: { url: t.url },
+      })
+    }
   }
   console.log(`  ${theses.length} theses imported`)
 }
@@ -671,6 +711,9 @@ async function importReports() {
   console.log('Importing reports...')
   for (const r of reports) {
     const supportingSources = normalizeSupportingSources(r.supportingSources)
+    const guardedSeedAccessMetadata = accessMetadataUpdateGuardReason({
+      seedAccessDate: r.accessedAt,
+    }) !== null
 
     await prisma.report.upsert({
       where: { id: r.id },
@@ -681,7 +724,6 @@ async function importReports() {
         institution: r.institution ?? null,
         date: r.date ?? null,
         year: r.year ?? null,
-        sourceUrl: r.sourceUrl ?? null,
         reportCategory: r.reportCategory,
         country: r.country ?? 'NO',
         keyFindings: r.keyFindings,
@@ -692,7 +734,8 @@ async function importReports() {
         isbn: r.isbn ?? null,
         issn: r.issn ?? null,
         publisher: r.publisher ?? null,
-        provenanceType: r.provenanceType ?? null,
+        // Existing provenance is curated only through reviewed guarded runners.
+        // Fresh creates below still materialize the seed provenance value.
         supportingSources,
       },
       create: {
@@ -716,8 +759,17 @@ async function importReports() {
         publisher: r.publisher ?? null,
         provenanceType: r.provenanceType ?? null,
         supportingSources,
+        accessedAt: optionalSeedDate(r.accessedAt),
       },
     })
+    if (!guardedSeedAccessMetadata) {
+      // Avoid a read/upsert race: PostgreSQL rechecks this null predicate after
+      // acquiring the row lock, so reviewed metadata cannot be overwritten.
+      await prisma.report.updateMany({
+        where: { id: r.id, accessedAt: null },
+        data: { sourceUrl: r.sourceUrl ?? null },
+      })
+    }
   }
   console.log(`  ${reports.length} reports imported`)
 }
