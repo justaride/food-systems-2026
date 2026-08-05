@@ -1,0 +1,260 @@
+---
+openapi: 3.1.0
+info:
+  title: Fartøyregisteret
+  description: Et åpent API for uthenting av fartøy- og eieropplysninger.
+  version: 1.0.0
+  termsOfService: https://data.norge.no/nlod/no/
+  contact:
+    name: Fdir Dev Team
+    email: tfr@fiskeridir.no
+  license:
+    name: FDIR-lisens for databruk
+    url: https://www.fiskeridir.no/Tall-og-analyse/Lisens-for-bruk-av-Fiskeridirektoratets-data
+servers:
+- url: /
+components:
+  schemas:
+    EntityType:
+      type: string
+      enum:
+      - COMPANY
+      - PERSON
+    LocalDate:
+      type: string
+      format: date
+      examples:
+      - 2022-03-10
+    Owner:
+      type: object
+      description: "Dette objektet representerer en båteier, inkludert identifikasjonsdetaljer\
+        \ og kontaktinformasjon."
+      properties:
+        id:
+          type: string
+          description: Unik identifikator for båteieren
+        entityType:
+          $ref: "#/components/schemas/EntityType"
+          type: string
+          description: "Typen enhet båteieren representerer, f.eks. individ eller\
+            \ selskap"
+        name:
+          type: string
+          description: Navnet på båteieren
+        postalCode:
+          type: string
+          description: Postnummeret til båteierens adresse
+        city:
+          type: string
+          description: Byen båteieren er lokalisert i
+    Vessel:
+      type: object
+      description: "Dette objektet representerer et fartøy, inkludert detaljer om\
+        \ størrelse, eierskap og identifikasjonsmerker."
+      properties:
+        id:
+          type: string
+          description: Unik identifikator for fartøyet
+        name:
+          type: string
+          description: Navnet på fartøyet
+        registrationMark:
+          type: string
+          description: Fartøyets registreringsmerke
+        radioCallSign:
+          type: string
+          description: Fartøyets radiokallesignal
+        imoNumber:
+          type: string
+          description: Fartøyets IMO-nummer
+        municipalityCode:
+          type: string
+          description: Kommunekoden der fartøyet er registrert
+        tonnageType:
+          type: string
+          description: "Måleregel for tonnasje: LC = London Convention (ITC 1969),\
+            \ OC = Oslo Convention (1947)"
+        tonnage:
+          type: number
+          description: Bruttotonnasje (GT) beregnet etter valgt måleregel
+        width:
+          type: number
+          description: Fartøyets bredde i meter
+        length:
+          type: number
+          description: Fartøyets lengde i meter
+        enginePower:
+          type: integer
+          format: int32
+          description: Fartøyets motorstyrke i hestekrefter
+        engineBuildYear:
+          type: integer
+          format: int32
+          description: Byggeår for motoren (fire sifre)
+        buildYear:
+          type: integer
+          format: int32
+          description: Byggeår for fartøy/skrog (fire sifre)
+        rebuildYear:
+          type: integer
+          format: int32
+          description: År for ombygging som endret hoveddata (fire sifre)
+        measureDate:
+          $ref: "#/components/schemas/LocalDate"
+          type: string
+          description: Dato på målebrev/identitetsbevis (måledato)
+        registrationDate:
+          $ref: "#/components/schemas/LocalDate"
+          type: string
+          description: Dato fartøyet ble innført i Merkeregisteret
+        owners:
+          type: array
+          items:
+            $ref: "#/components/schemas/Owner"
+          description: Liste over fartøyets eiere
+    VesselSearchCriteria:
+      type: object
+      properties:
+        query:
+          type: string
+        registrationMark:
+          type: string
+        radioCallSign:
+          type: string
+        name:
+          type: string
+        municipalityCode:
+          type: string
+        lengthGte:
+          type: number
+          format: double
+          minimum: 0
+        lengthLte:
+          type: number
+          format: double
+        sortBy:
+          $ref: "#/components/schemas/VesselSortField"
+        sortAsc:
+          type: boolean
+    VesselSortField:
+      type: string
+      enum:
+      - ID
+      - NAME
+      - REGISTRATIONMARK
+      - RADIOCALLSIGN
+tags:
+- name: Vessels
+paths:
+  /vessel-api/api/v1/vessels:
+    get:
+      summary: Lister aktive fartøy
+      description: Henter en liste over alle aktive fartøy med mulighet for filtrering
+        basert på ulike kriterier.
+      tags:
+      - Vessels
+      parameters:
+      - description: Filtrer etter fartøyets lengde større enn eller lik
+        name: length_gte
+        in: query
+        schema:
+          type: number
+          format: double
+          minimum: 0
+      - description: Filtrer etter fartøyets lengde mindre enn eller lik
+        name: length_lte
+        in: query
+        schema:
+          type: number
+          format: double
+      - description: Filtrer etter fartøyets kommunekode
+        name: municipality_code
+        in: query
+        schema:
+          type: string
+      - description: Filtrer etter fartøyets navn
+        name: name
+        in: query
+        schema:
+          type: string
+      - description: Sidenummer for resultatene som skal hentes
+        name: page
+        in: query
+        schema:
+          type: integer
+          format: int32
+          minimum: 1
+      - description: Antall fartøy per side (maks 200)
+        name: per_page
+        in: query
+        schema:
+          type: integer
+          format: int32
+          default: "30"
+          maximum: 200
+          minimum: 1
+      - description: Søk på tvers av flere felter
+        name: query
+        in: query
+        schema:
+          type: string
+      - description: Filtrer etter fartøyets radiokallesignal
+        name: radio_call_sign
+        in: query
+        schema:
+          type: string
+      - description: Filtrer etter fartøyets registreringsmerke
+        name: registration_mark
+        in: query
+        schema:
+          type: string
+      - name: sort_asc
+        in: query
+        schema:
+          type: boolean
+          default: false
+      - name: sort_by
+        in: query
+        schema:
+          allOf:
+          - $ref: "#/components/schemas/VesselSortField"
+          - default: ID
+      responses:
+        "200":
+          description: OK
+          headers:
+            x-totalcount:
+              description: Totalt antall fartøy
+              schema:
+                type: number
+            link:
+              description: "Få URL-en for den første, forrige, neste og siste siden\
+                \ med fartøy"
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Vessel"
+  /vessel-api/api/v1/vessels/{id}:
+    get:
+      summary: Returnerer et spesifikt fartøy
+      description: Henter detaljert informasjon om et spesifikt fartøy basert på dets
+        unike ID.
+      tags:
+      - Vessels
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Vessel"
