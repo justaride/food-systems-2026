@@ -1,0 +1,543 @@
+{
+  "generatedAt": "2026-07-21T22:13:19.599Z",
+  "reportProvenanceReviewCount": 0,
+  "reportInternalEvidenceCount": 38,
+  "reportProvenanceReviewRows": [],
+  "sourceDocProvenanceReviewCount": 2,
+  "sourceDocInternalEvidenceCount": 78,
+  "sourceDocProvenanceReviewRows": [
+    {
+      "id": "src-77",
+      "title": "Lokal HHI i norsk dagligvare: median 1.0 paa postnummernivaet",
+      "filename": "halseth-nhh-2023.md",
+      "sourceType": "forskning",
+      "rawUrl": "https://www.cresse.info/wp-content/uploads/2023/09/2023_ps13_pa2_Strom-Halseth.pdf",
+      "nextAction": "Classify the evidence role from the record and underlying artifact before deciding whether it needs a public locator, local evidence identity, or duplicate handling."
+    },
+    {
+      "id": "src-87",
+      "title": "Competition and Grocery Retail Formats: CID-analyse",
+      "filename": "halseth-phd-2024.md",
+      "sourceType": "forskning",
+      "rawUrl": null,
+      "nextAction": "Classify the evidence role from the record and underlying artifact before deciding whether it needs a public locator, local evidence identity, or duplicate handling."
+    }
+  ],
+  "sourceDocUrlGapCount": 4,
+  "sourceDocActiveUrlGapCount": 4,
+  "sourceDocDuplicateUrlGapCount": 0,
+  "sourceDocUrlRows": [
+    {
+      "id": "src-79",
+      "title": "KFST fusjonsanalyse Salling/Coop 2024-2025 (drive-time HHI)",
+      "filename": "kfst-fusjon-2024.md",
+      "declaredPathExists": false,
+      "repositoryMatches": [],
+      "doi": null,
+      "isDuplicate": false,
+      "rawUrl": null,
+      "locatorIssue": "missing_url",
+      "missingFields": [
+        "url",
+        "accessedAt",
+        "archivedUrl"
+      ],
+      "nextAction": "Resolve the named source manually and record verified canonical locator metadata plus an evidence-based access date; keep it internal until verified."
+    },
+    {
+      "id": "src-83",
+      "title": "PTY Finnish Grocery Trade Statistics 2024/2025",
+      "filename": "pty-grocery-2024.md",
+      "declaredPathExists": false,
+      "repositoryMatches": [],
+      "doi": null,
+      "isDuplicate": false,
+      "rawUrl": null,
+      "locatorIssue": "missing_url",
+      "missingFields": [
+        "url",
+        "accessedAt",
+        "archivedUrl"
+      ],
+      "nextAction": "Resolve the named source manually and record verified canonical locator metadata plus an evidence-based access date; keep it internal until verified."
+    },
+    {
+      "id": "src-90",
+      "title": "Enacting a Circular Economy: An Ethnography of Multiple Possible Futures",
+      "filename": "lehtokunnas-phd-2023.md",
+      "declaredPathExists": false,
+      "repositoryMatches": [
+        "research/bibliotek/akademia/masteroppgaver/lehtokunnas-phd-2023.md"
+      ],
+      "doi": null,
+      "isDuplicate": false,
+      "rawUrl": null,
+      "locatorIssue": "missing_url",
+      "missingFields": [
+        "url",
+        "accessedAt",
+        "archivedUrl"
+      ],
+      "nextAction": "Inspect the matched repository file for a named primary locator; do not infer a URL from the title."
+    },
+    {
+      "id": "src-91",
+      "title": "Matsvinnutvalgets rapport 2024: 75% reduksjon mulig",
+      "filename": "matsvinnutvalget-2024.md",
+      "declaredPathExists": false,
+      "repositoryMatches": [],
+      "doi": null,
+      "isDuplicate": false,
+      "rawUrl": null,
+      "locatorIssue": "missing_url",
+      "missingFields": [
+        "url",
+        "accessedAt",
+        "archivedUrl"
+      ],
+      "nextAction": "Resolve the named source manually and record verified canonical locator metadata plus an evidence-based access date; keep it internal until verified."
+    }
+  ],
+  "accessDateReviewCount": 29,
+  "liveAccessDateGapCount": 34,
+  "accessDateReviewRows": [
+    {
+      "set": "Report",
+      "id": "akademia-sifo-kundeprogram-2026",
+      "title": "SIFO: Lojalitetsprogrammer og prisdata",
+      "url": "https://www.regjeringen.no/contentassets/139405f88a35456986e5aa579de7f290/sifo-rapport-1-2026-kunnskapsgrunnlag-om-kundeprogrammene-i-dagligvaremarkedet.pdf",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "Report",
+      "id": "arla-farmahead-check-2024",
+      "title": "Arla FarmAhead Check — Sustainability Incentive Model 2024",
+      "url": "https://www.arla.com/sustainability/",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "Report",
+      "id": "beredskap-nibio-selvforsyning-2026",
+      "title": "NIBIO: Norsk selvforsyningsgrad 2026",
+      "url": "https://www.nibio.no/tema/landbruksokonomi/selvforsyningsgrad-og-engrosforbruk",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "Report",
+      "id": "beredskap-nibio-selvforsyning-metode",
+      "title": "NIBIO: Metode for selvforsyningsberegning",
+      "url": "https://hdl.handle.net/11250/3105805",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "Report",
+      "id": "coop-2024",
+      "title": "Coop Aarsresultat 2024",
+      "url": "https://www.coop.no/om-coop/virksomheten/arsrapport",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "Report",
+      "id": "dk-salling-coop-decision-2025",
+      "title": "Salling Group A/S erhvervelse af dele af Coop Danmark A/S (Konkurrencerådsafgørelse 26. marts 2025)",
+      "url": "https://kfst.dk/konkurrenceforhold/afgoerelser/afgoerelser-paa-konkurrenceomraadet/raads-og-styrelsesafgoerelser/2025/20250326-salling-group-dele-af-coop-danmark",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "Report",
+      "id": "emv-kartlegging-2023",
+      "title": "Kartlegging av egne merkevarer og vertikal integrasjon i dagligvaremarkedet",
+      "url": "https://www.regjeringen.no/contentassets/41847427caa14feb8b8578af3d6d45bc/r15-2023-kartlegging-av-egne-merkevarer-og-vertikal-integrasjon-i-dagligvaremarkedet.pdf",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "Report",
+      "id": "kt-markedsundersokelser-2026",
+      "title": "Markedsundersokelser § 14 — Status",
+      "url": "https://www.regjeringen.no/no/aktuelt/i-dag-far-konkurransetilsynet-et-nytt-verktoy-for-a-bekjempe-alvorlige-konkurranseproblemer/id3113837/",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "Report",
+      "id": "meld-st-4-dagligvare",
+      "title": "Status dagligvaretiltak (10-punktsplanen)",
+      "url": "https://www.regjeringen.no/no/dokumenter/meld.-st.-4-20242025/id3056808/",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-147",
+      "title": "Stiftelsen Norsk Mat - Lokalmatrapport 2025",
+      "url": "https://stiftelsennorskmat.no/",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-150",
+      "title": "Motiva - Guide for Responsible Procurement of Food (januar 2026)",
+      "url": "https://www.motiva.fi/",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-152",
+      "title": "Arla FarmAhead Check sustainability data 2024",
+      "url": "https://www.arla.com/sustainability/",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-158",
+      "title": "Delivering the Circular Economy: A Toolkit for Policymakers — Denmark case study",
+      "url": "https://mst.dk/media/sexld3zc/potential-for-denmark-as-a-circular-economy-2015.pdf",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-163",
+      "title": "Seafood in the Circular Economy — Analysis March 2022",
+      "url": "https://sjavarklasinn.is/wp-content/uploads/2022/03/Analysis-mar22-2.pdf",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-17",
+      "title": "Års- og bærekraftsrapport 2024 / Halvårsrapport 2025",
+      "url": "https://www.norgesgruppen.no/om-oss/rapporter/",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-170",
+      "title": "Identifying and implementing circular applications of agri-residues",
+      "url": "https://doi.org/10.18174/563389",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-18",
+      "title": "Coops årsresultat og medlemsnytte 2024",
+      "url": "https://coop.no/om-coop/virksomheten/finansiell-informasjon/",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-182",
+      "title": "Future Nordic Diets: Exploring ways for sustainably feeding the Nordics",
+      "url": "https://www.norden.org/en/publication/future-nordic-diets",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-20",
+      "title": "Media attention and price competition: Evidence from Norwegian grocery retailing",
+      "url": "https://www.nhh.no/en/research-centres/food/",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-21",
+      "title": "Kunnskapsgrunnlag om kundeprogrammene i dagligvaremarkedet",
+      "url": "https://oda.oslomet.no/",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-23",
+      "title": "Nordic Food Systems for Improved Health and Sustainability",
+      "url": "https://www.stockholmresilience.org/",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-54",
+      "title": "Reitan Retail Års- og ansvarsrapport 2024 / Foreløpige tall 2025",
+      "url": "https://www.reitanretail.no/rapportering",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-74",
+      "title": "EAT-Lancet Commission 2.0: Food in the Anthropocene",
+      "url": "https://eatforum.org/eat-lancet-commission/",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-81",
+      "title": "Statistics Finland HBS 2012: Butikkavstand",
+      "url": "https://stat.fi/til/ktutk/2012/ktutk_2012_2014-05-26_tie_001_en.html",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-82",
+      "title": "ECR Dagligvarukartan 2024/2025",
+      "url": "https://dlf.se/download/1167-E8CD2BD7C83DEB69C493BFA61DBE64A0/dagligvarukartan2024-PPT.pdf",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-86",
+      "title": "NHH FOOD: Prof. Frode Steen markedsanalyse april 2024",
+      "url": "https://www.nhh.no/en/research-centres/food/food-news/2024/all-retail-sectors-are-highly-concentrated/",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-97",
+      "title": "Skretting Sustainability Report 2024: MicroBalance FLX",
+      "url": "https://www.skretting.com/en-es/sustainability/sustainability-reporting/",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-98",
+      "title": "NordicFeed EUR 10M NordForsk-prosjekt: Gjaer/soppprotein",
+      "url": "https://www.nmbu.no/en/research/projects/nordicfeed",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    },
+    {
+      "set": "SourceDoc",
+      "id": "src-99",
+      "title": "Green Platform NOK 93.3M: Mikroalger CO2-basert",
+      "url": "https://sa.uit.no/nyheter/artikkel?p_document_id=745023",
+      "nextAction": "Open the authoritative work-level locator, verify the named work, and record the actual access date."
+    }
+  ],
+  "duplicateLocatorSummary": {
+    "reportGroups": 4,
+    "reportRows": 8,
+    "sourceDocGroups": 0,
+    "sourceDocRows": 0,
+    "validAbsoluteHttpUrlGroups": 4,
+    "invalidUrlSyntaxGroups": 0
+  },
+  "duplicateLocatorGroups": [
+    {
+      "set": "Report",
+      "canonicalLocator": "https://kfst.dk/konkurrenceforhold/afgoerelser/afgoerelser-paa-konkurrenceomraadet/raads-og-styrelsesafgoerelser/2025/20250326-salling-group-dele-af-coop-danmark",
+      "locatorSyntax": "valid_absolute_http_url",
+      "rows": [
+        {
+          "id": "dk-salling-coop-decision-2025",
+          "title": "Salling Group A/S erhvervelse af dele af Coop Danmark A/S (Konkurrencerådsafgørelse 26. marts 2025)",
+          "rawLocator": "https://kfst.dk/konkurrenceforhold/afgoerelser/afgoerelser-paa-konkurrenceomraadet/raads-og-styrelsesafgoerelser/2025/20250326-salling-group-dele-af-coop-danmark",
+          "likelyMisbinding": false,
+          "reviewNote": null
+        },
+        {
+          "id": "kfst-salling-coop-2025",
+          "title": "Salling Group / Coop Danmark-oppkjop",
+          "rawLocator": "https://kfst.dk/konkurrenceforhold/afgoerelser/afgoerelser-paa-konkurrenceomraadet/raads-og-styrelsesafgoerelser/2025/20250326-salling-group-dele-af-coop-danmark",
+          "likelyMisbinding": false,
+          "reviewNote": null
+        }
+      ],
+      "rowCount": 2,
+      "nextAction": "Verify that the canonical URL identifies each named work. Merge true duplicate records or replace generic/misbound locators with authoritative work-level URLs; do not auto-correct from titles."
+    },
+    {
+      "set": "Report",
+      "canonicalLocator": "https://www.coop.no/om-coop/virksomheten/arsrapport",
+      "locatorSyntax": "valid_absolute_http_url",
+      "rows": [
+        {
+          "id": "coop-2024",
+          "title": "Coop Aarsresultat 2024",
+          "rawLocator": "https://www.coop.no/om-coop/virksomheten/arsrapport",
+          "likelyMisbinding": false,
+          "reviewNote": null
+        },
+        {
+          "id": "coop-norge-2024",
+          "title": "Coop Norge ÅRS- og bærekraftsrapport 2024",
+          "rawLocator": "https://www.coop.no/om-coop/virksomheten/arsrapport",
+          "likelyMisbinding": false,
+          "reviewNote": null
+        }
+      ],
+      "rowCount": 2,
+      "nextAction": "Verify that the canonical URL identifies each named work. Merge true duplicate records or replace generic/misbound locators with authoritative work-level URLs; do not auto-correct from titles."
+    },
+    {
+      "set": "Report",
+      "canonicalLocator": "https://www.nhh.no/en/research-centres/food",
+      "locatorSyntax": "valid_absolute_http_url",
+      "rows": [
+        {
+          "id": "akademia-nhh-butikkstruktur-2024",
+          "title": "NHH: Butikkstruktur og lokal konkurranse",
+          "rawLocator": "https://www.nhh.no/en/research-centres/food/",
+          "likelyMisbinding": false,
+          "reviewNote": null
+        },
+        {
+          "id": "akademia-nhh-matbors-historie",
+          "title": "NHH: Matboersens historie og matprisdannelse",
+          "rawLocator": "https://www.nhh.no/en/research-centres/food/",
+          "likelyMisbinding": false,
+          "reviewNote": null
+        }
+      ],
+      "rowCount": 2,
+      "nextAction": "Verify that the canonical URL identifies each named work. Merge true duplicate records or replace generic/misbound locators with authoritative work-level URLs; do not auto-correct from titles."
+    },
+    {
+      "set": "Report",
+      "canonicalLocator": "https://www.regjeringen.no/contentassets/41847427caa14feb8b8578af3d6d45bc/r15-2023-kartlegging-av-egne-merkevarer-og-vertikal-integrasjon-i-dagligvaremarkedet.pdf",
+      "locatorSyntax": "valid_absolute_http_url",
+      "rows": [
+        {
+          "id": "emv-kartlegging-2023",
+          "title": "Kartlegging av egne merkevarer og vertikal integrasjon i dagligvaremarkedet",
+          "rawLocator": "https://www.regjeringen.no/contentassets/41847427caa14feb8b8578af3d6d45bc/r15-2023-kartlegging-av-egne-merkevarer-og-vertikal-integrasjon-i-dagligvaremarkedet.pdf",
+          "likelyMisbinding": false,
+          "reviewNote": null
+        },
+        {
+          "id": "soa-emv-2023",
+          "title": "SOA — EMV og Vertikal integrasjon",
+          "rawLocator": "https://www.regjeringen.no/contentassets/41847427caa14feb8b8578af3d6d45bc/r15-2023-kartlegging-av-egne-merkevarer-og-vertikal-integrasjon-i-dagligvaremarkedet.pdf",
+          "likelyMisbinding": false,
+          "reviewNote": null
+        }
+      ],
+      "rowCount": 2,
+      "nextAction": "Verify that the canonical URL identifies each named work. Merge true duplicate records or replace generic/misbound locators with authoritative work-level URLs; do not auto-correct from titles."
+    }
+  ],
+  "executionWaves": [
+    {
+      "priority": 1,
+      "key": "identity_truth_gate",
+      "label": "Resolve unclassified database-only evidence identities",
+      "scopeCount": 1,
+      "targetIds": [
+        "Thesis:matsvinnloven-2025"
+      ],
+      "prerequisites": [
+        "Verify the named work from an authoritative source before promotion.",
+        "Do not copy synthetic or unverified identifiers into seed data."
+      ],
+      "humanReviewRequired": true,
+      "exitCriteria": "Zero unclassified database-only Report, Thesis, or SourceDoc identities."
+    },
+    {
+      "priority": 2,
+      "key": "appraisal_pilot",
+      "label": "Run the first full-text appraisal and claim-anchor pilot",
+      "scopeCount": 3,
+      "targetIds": [
+        "SourceDoc:src-30",
+        "SourceDoc:src-32",
+        "SourceDoc:src-45"
+      ],
+      "prerequisites": [
+        "Use the already verified full-text hash and page/quote anchor as review evidence.",
+        "Bind the appraisal to a citation for the same target; never infer review fields from metadata."
+      ],
+      "humanReviewRequired": true,
+      "exitCriteria": "Three named-reviewer dispositions pass structural, current-hash, target-binding, and citation-policy checks; external eligibility may remain blocked."
+    },
+    {
+      "priority": 3,
+      "key": "external_access_dates",
+      "label": "Capture evidence-based access dates for externally classified works",
+      "scopeCount": 34,
+      "targetIds": [],
+      "prerequisites": [
+        "Re-open the authoritative work-level locator.",
+        "Record the actual verification date; never manufacture or bulk-assume dates."
+      ],
+      "humanReviewRequired": true,
+      "exitCriteria": "All externally classified Report, Thesis, and SourceDoc rows have verified access dates."
+    },
+    {
+      "priority": 4,
+      "key": "provenance_classification",
+      "label": "Classify remaining unknown evidence roles",
+      "scopeCount": 2,
+      "targetIds": [],
+      "prerequisites": [
+        "Inspect the underlying work or local artifact.",
+        "Keep internal syntheses, composite records, duplicates, and blocked material distinct from external publications."
+      ],
+      "humanReviewRequired": true,
+      "exitCriteria": "Zero unknown Report and SourceDoc provenance rows in the live corpus."
+    },
+    {
+      "priority": 5,
+      "key": "appraisal_corpus",
+      "label": "Complete the remaining evidence-appraisal corpus",
+      "scopeCount": 414,
+      "targetIds": [],
+      "prerequisites": [
+        "Complete the appraisal pilot and approve its review runbook.",
+        "Require full text, reviewer identity, current source hash, same-target basis citation, method, applicability, limitations, and risk of bias."
+      ],
+      "humanReviewRequired": true,
+      "exitCriteria": "Every evidence record has a complete current reviewed or explicit excluded disposition; only conservative-gate reviews can support external claims."
+    },
+    {
+      "priority": 6,
+      "key": "claim_anchor_expansion",
+      "label": "Expand claim-level page, section, table, and quote anchors",
+      "scopeCount": 0,
+      "targetIds": [],
+      "prerequisites": [
+        "Define the external-claim denominator for each reviewed work.",
+        "Do not treat one anchored claim as complete source coverage."
+      ],
+      "humanReviewRequired": true,
+      "exitCriteria": "Every externally used claim is mapped to an exact evidence anchor and independently passes citation plus appraisal policy."
+    }
+  ],
+  "systemGaps": [
+    {
+      "key": "report_provenance_review",
+      "affectedRows": 0,
+      "action": "Classify each unknown Report as an external report/article, internal synthesis/register, composite record, or blocked source before applying locator and citation policy."
+    },
+    {
+      "key": "invalid_source_doc_url_syntax",
+      "affectedRows": 0,
+      "action": "For externally classified SourceDocs only, replace bare-domain, relative, or malformed values with verified absolute http(s) work-level URLs; syntax validation does not prove availability."
+    },
+    {
+      "key": "source_doc_provenance_review",
+      "affectedRows": 2,
+      "action": "Classify each unknown row as external evidence, internal primary material, internal synthesis, or duplicate before applying locator and citation policy."
+    },
+    {
+      "key": "internal_evidence_identity",
+      "affectedRows": 78,
+      "action": "Preserve local path or document identity and content hash for internal evidence; do not invent a public URL."
+    },
+    {
+      "key": "duplicate_locator_reconciliation",
+      "affectedRows": 8,
+      "action": "Review shared canonical locator groups for true duplicates, generic landing pages, and likely misbindings before external use; do not auto-correct URLs from titles."
+    },
+    {
+      "key": "access_dates",
+      "affectedRows": 34,
+      "action": "Capture verified ISO access dates from evidence; never backfill dates by assumption."
+    },
+    {
+      "key": "peer_review_appraisal",
+      "affectedRows": 417,
+      "action": "Complete named, full-text appraisal dispositions in the active model; bind each review to the current source hash and a citation for the same target. Never infer appraisal from metadata."
+    },
+    {
+      "key": "study_design_and_bias",
+      "affectedRows": 417,
+      "action": "Add structured methodology/applicability, sample/coverage, limitations, and risk-of-bias fields before causal use, or record a complete current explicit exclusion. Thesis.method alone is not a risk-of-bias assessment; exclusions never authorize external use."
+    },
+    {
+      "key": "claim_anchors",
+      "affectedRows": 0,
+      "action": "The count is externally qualified records without even one syntactic anchor; zero qualifying records is handled by the appraisal gate, not hidden here. Map every emitted claim to page, section, table, quote, or equivalent evidence; one anchored claim must not mark a record complete."
+    }
+  ]
+}

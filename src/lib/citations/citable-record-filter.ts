@@ -2,6 +2,10 @@ import {
   normalizeCitationReadiness,
   type CitationReadinessLevel,
 } from './citation-status'
+import {
+  applyReportProvenanceCitationCeiling,
+  reportProvenanceCitationCeiling,
+} from './report-provenance'
 
 export type ExternalUseCitation = {
   citationReadiness?: unknown
@@ -12,6 +16,7 @@ export type ExternalUseCitation = {
 
 export type ExternalUseRecord = {
   id?: string | number | null
+  provenanceType?: unknown
   citations?: ExternalUseCitation[] | null
 }
 
@@ -53,14 +58,24 @@ function readableReason(reason: ExternalUseExclusionReason | undefined) {
 }
 
 export function evaluateExternalCitationReadiness(record: ExternalUseRecord): ExternalUseEvaluation {
+  const provenanceCeiling = reportProvenanceCitationCeiling(record)
   if (!Array.isArray(record.citations) || record.citations.length === 0) {
+    if (provenanceCeiling) {
+      return {
+        usable: false,
+        readiness: provenanceCeiling,
+        reason: provenanceCeiling,
+      }
+    }
     return { usable: false, reason: 'missing_citations' }
   }
 
   let strongest: CitationReadinessLevel = 'citable_external'
 
   for (const citation of record.citations) {
-    const readiness = normalizeCitationReadiness(citation.citationReadiness)
+    const readiness = provenanceCeiling
+      ? applyReportProvenanceCitationCeiling(record, citation.citationReadiness)
+      : normalizeCitationReadiness(citation.citationReadiness)
 
     if (readiness === 'blocked_unsourced') {
       return { usable: false, readiness, reason: 'blocked_unsourced' }

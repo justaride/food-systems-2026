@@ -15,6 +15,7 @@ export type SourceCitationBackfillCandidate = {
   sourceClass?: string | null
   verificationStatus?: string | null
   accessedAt?: Date | string | null
+  archivedUrl?: string | null
   verifiedAt?: Date | string | null
   claimText?: string | null
   confidence?: number | null
@@ -59,6 +60,7 @@ export type PlannedSourceCitation = {
   documentId?: string | null
   sourceDocId?: string | null
   accessedAt?: Date | string | null
+  archivedUrl?: string | null
   verifiedAt?: Date | string | null
   notes?: string | null
 }
@@ -286,6 +288,7 @@ function toPlannedSourceCitation(
     sourceDocId: parsed.sourceDocId,
     verificationStatus,
     accessedAt: candidate.accessedAt,
+    archivedUrl: candidate.archivedUrl,
     verifiedAt: candidate.verifiedAt,
   })
 
@@ -304,6 +307,7 @@ function toPlannedSourceCitation(
     documentId: parsed.documentId,
     sourceDocId: parsed.sourceDocId,
     accessedAt: candidate.accessedAt,
+    archivedUrl: candidate.archivedUrl,
     verifiedAt: candidate.verifiedAt,
     notes: notesFor(candidate, parsed),
   }

@@ -15,8 +15,8 @@ function normalizedSourceClass(input: SourceCitationInput) {
   return String(input.sourceClass ?? 'unknown').trim()
 }
 
-function isInternalSourceClass(sourceClass: string) {
-  return ['internal_synthesis', 'synthesis', 'internal_construct'].includes(sourceClass)
+export function isInternalSourceClass(sourceClass: string) {
+  return ['internal_primary', 'internal_synthesis', 'synthesis', 'internal_construct'].includes(sourceClass)
 }
 
 function isPrimaryLikeSourceClass(sourceClass: string) {
@@ -35,19 +35,29 @@ export function deriveVerificationStatus(input: SourceCitationInput): DerivedVer
 }
 
 export function deriveCitationReadiness(input: SourceCitationInput): CitationReadinessLevel {
-  const explicitReadiness = normalizeCitationReadiness(input.citationReadiness)
-  if (input.citationReadiness && explicitReadiness !== 'blocked_unsourced') return explicitReadiness
-
   const sourceClass = normalizedSourceClass(input)
   if (['legacy_unsourced'].includes(sourceClass)) return 'blocked_unsourced'
+  if (sourceClass === 'unknown') return 'blocked_unsourced'
   if (isInternalSourceClass(sourceClass)) return 'internal_context'
   if (!hasDirectLocator(input)) return 'blocked_unsourced'
-  if (!hasVerificationMetadata(input)) return 'citable_with_note'
 
-  if (isPrimaryLikeSourceClass(sourceClass)) return 'citable_external'
-  if (sourceClass === 'secondary') return 'citable_with_note'
+  const evidenceMaximum: CitationReadinessLevel = !hasVerificationMetadata(input)
+    ? 'citable_with_note'
+    : isPrimaryLikeSourceClass(sourceClass)
+      ? 'citable_external'
+      : 'citable_with_note'
 
-  return 'citable_with_note'
+  const explicitReadiness = normalizeCitationReadiness(input.citationReadiness)
+  if (input.citationReadiness && explicitReadiness !== 'blocked_unsourced') {
+    // Stored readiness may preserve a deliberate downgrade, but it can never
+    // upgrade beyond what source class, locator, and verification metadata
+    // support. Explicitly blocked rows are re-derived by refresh workflows.
+    return compareCitationReadiness(explicitReadiness, evidenceMaximum) < 0
+      ? explicitReadiness
+      : evidenceMaximum
+  }
+
+  return evidenceMaximum
 }
 
 export function explainCitationReadiness(input: SourceCitationInput) {
@@ -67,7 +77,9 @@ export function explainCitationReadiness(input: SourceCitationInput) {
   }
 
   if (readiness === 'internal_context') {
-    return `${readiness}: internal synthesis is not documentary evidence`
+    return sourceClass === 'internal_primary'
+      ? `${readiness}: internal primary evidence is documentary but not approved for external citation`
+      : `${readiness}: internal synthesis or construct is not independent documentary evidence`
   }
 
   if (readiness === 'citable_with_note') {
@@ -80,11 +92,23 @@ export function explainCitationReadiness(input: SourceCitationInput) {
 export function mergeReadinessForCompositeClaim(citations: SourceCitationInput[]) {
   if (citations.length === 0) return 'blocked_unsourced'
 
-  const readinessLevels = citations.map(citation =>
-    citation.citationReadiness
-      ? normalizeCitationReadiness(citation.citationReadiness)
-      : deriveCitationReadiness(citation),
-  )
+  const readinessLevels = citations.map(citation => {
+    const carriesEvidenceContract = [
+      citation.sourceClass,
+      citation.url,
+      citation.archivedUrl,
+      citation.localPath,
+      citation.documentId,
+      citation.sourceDocId,
+      citation.accessedAt,
+      citation.verifiedAt,
+      citation.verificationStatus,
+    ].some(value => value !== undefined && value !== null && value !== '')
+
+    return carriesEvidenceContract
+      ? deriveCitationReadiness(citation)
+      : normalizeCitationReadiness(citation.citationReadiness)
+  })
 
   return readinessLevels
     .slice(1)

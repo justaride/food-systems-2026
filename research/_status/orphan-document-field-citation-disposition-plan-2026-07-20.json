@@ -1,0 +1,472 @@
+{
+  "version": 1,
+  "scope": "quarantined-orphan-document-field-citation-disposition-2026-07-20",
+  "applyEnabled": true,
+  "operation": "delete_exact_corrupt_field_citation_only_preserve_source_citation",
+  "baseRepairManifestSha256": "ae8740e68d2cd2c9c88483af01b8e3c9407c956b7bd6dc94e7eed90c88dabd49",
+  "decisionBoundary": "Reviewed for local repair. Apply requires the separate exact ACK and the current dry-run plan SHA-256; live execution remains an explicit operator step.",
+  "targets": [
+    {
+      "fieldCitationId": "cmpdafmb102s1sxvmj1p65d1r",
+      "sourceCitationIdToPreserve": "cmpdaflwc00t1sxvmb76zbsf8",
+      "reasonCode": "path_title_disagree",
+      "reason": "SourceCitation.localPath identifies the research-round synthesis, while its title identifies the separate WUR evidence document.",
+      "dispositionRationale": "The row is a machine-generated locator binding with no claim text or confidence; its old Document is missing and identity evidence is insufficient for retargeting. This plan would remove only that broken relation while preserving the SourceCitation evidence record.",
+      "oldDocumentIdMustBeMissing": "cmpboyfb100is3ovmzy0s5u6e",
+      "expectedFieldCitation": {
+        "id": "cmpdafmb102s1sxvmj1p65d1r",
+        "entityId": "cmpboyfb100is3ovmzy0s5u6e",
+        "claimText": null,
+        "createdAt": "2026-05-19T23:52:33.709",
+        "fieldPath": "filePath",
+        "citationId": "cmpdaflwc00t1sxvmb76zbsf8",
+        "confidence": null,
+        "entityType": "Document"
+      },
+      "expectedSourceCitationToPreserve": {
+        "id": "cmpdaflwc00t1sxvmb76zbsf8",
+        "url": null,
+        "year": null,
+        "notes": null,
+        "quote": null,
+        "title": "wur elbersen agri residues 2022",
+        "author": null,
+        "pageRef": null,
+        "fileHash": null,
+        "createdAt": "2026-05-19T23:52:33.180",
+        "localPath": "bibliotek/forskningsrunde-2026-04-20-r2/p03-biomassehierarki-wur-norden-2026-04-20.md",
+        "publisher": null,
+        "updatedAt": "2026-06-15T22:52:48.737",
+        "accessedAt": null,
+        "confidence": null,
+        "documentId": null,
+        "verifiedAt": "2026-06-15T22:52:48.654",
+        "verifiedBy": null,
+        "archivedUrl": null,
+        "contentHash": null,
+        "sourceClass": "primary",
+        "sourceDocId": null,
+        "citationText": "Document local file: wur elbersen agri residues 2022",
+        "captureMethod": "backfill-existing-locators",
+        "hashAlgorithm": "sha256",
+        "citationReadiness": "citable_with_note",
+        "verificationStatus": "machine_verified"
+      },
+      "expectedAllFieldCitationsForSourceCitation": [
+        {
+          "id": "cmpdafmb102s1sxvmj1p65d1r",
+          "entityId": "cmpboyfb100is3ovmzy0s5u6e",
+          "claimText": null,
+          "createdAt": "2026-05-19T23:52:33.709",
+          "fieldPath": "filePath",
+          "citationId": "cmpdaflwc00t1sxvmb76zbsf8",
+          "confidence": null,
+          "entityType": "Document"
+        }
+      ],
+      "expectedParallelValidFieldCitation": null,
+      "expectedParallelValidDocumentIdentity": null,
+      "expectedSourceConsumerCounts": {
+        "fieldCitations": 1,
+        "insightPrimaryCitations": 0,
+        "producerPrimaryCitations": 0,
+        "evidenceAppraisalReviewBasisCitations": 0
+      },
+      "expectedAfterState": {
+        "fieldCitationDeleted": true,
+        "sourceCitationPreserved": true,
+        "remainingFieldCitationIds": [],
+        "nonFieldCitationConsumerCountsPreservedAtZero": true
+      }
+    },
+    {
+      "fieldCitationId": "cmpdafmb202tesxvm6b0oc1ma",
+      "sourceCitationIdToPreserve": "cmpdaflws00udsxvmc1wcmy86",
+      "reasonCode": "duplicate_path_title_identity",
+      "reason": "The locator exists in two current Document rows; path and exact title do not establish one unambiguous canonical identity.",
+      "dispositionRationale": "The row is a machine-generated locator binding with no claim text or confidence; its old Document is missing and identity evidence is insufficient for retargeting. This plan would remove only that broken relation while preserving the SourceCitation evidence record.",
+      "oldDocumentIdMustBeMissing": "cmp8xyod800k3vvvmrsuhwhhc",
+      "expectedFieldCitation": {
+        "id": "cmpdafmb202tesxvm6b0oc1ma",
+        "entityId": "cmp8xyod800k3vvvmrsuhwhhc",
+        "claimText": null,
+        "createdAt": "2026-05-19T23:52:33.709",
+        "fieldPath": "filePath",
+        "citationId": "cmpdaflws00udsxvmc1wcmy86",
+        "confidence": null,
+        "entityType": "Document"
+      },
+      "expectedSourceCitationToPreserve": {
+        "id": "cmpdaflws00udsxvmc1wcmy86",
+        "url": null,
+        "year": null,
+        "notes": null,
+        "quote": null,
+        "title": "NORDIC NUTRITION RECOMMENDATIONS 2023",
+        "author": null,
+        "pageRef": null,
+        "fileHash": null,
+        "createdAt": "2026-05-19T23:52:33.196",
+        "localPath": "bibliotek/nordisk/nnr2023-nordic-nutrition-recommendations.md",
+        "publisher": null,
+        "updatedAt": "2026-06-15T22:52:48.738",
+        "accessedAt": null,
+        "confidence": null,
+        "documentId": null,
+        "verifiedAt": "2026-06-15T22:52:48.654",
+        "verifiedBy": null,
+        "archivedUrl": null,
+        "contentHash": null,
+        "sourceClass": "primary",
+        "sourceDocId": null,
+        "citationText": "Document local file: NORDIC NUTRITION RECOMMENDATIONS 2023",
+        "captureMethod": "backfill-existing-locators",
+        "hashAlgorithm": "sha256",
+        "citationReadiness": "citable_with_note",
+        "verificationStatus": "machine_verified"
+      },
+      "expectedAllFieldCitationsForSourceCitation": [
+        {
+          "id": "cmpdafmb202tesxvm6b0oc1ma",
+          "entityId": "cmp8xyod800k3vvvmrsuhwhhc",
+          "claimText": null,
+          "createdAt": "2026-05-19T23:52:33.709",
+          "fieldPath": "filePath",
+          "citationId": "cmpdaflws00udsxvmc1wcmy86",
+          "confidence": null,
+          "entityType": "Document"
+        }
+      ],
+      "expectedParallelValidFieldCitation": null,
+      "expectedParallelValidDocumentIdentity": null,
+      "expectedSourceConsumerCounts": {
+        "fieldCitations": 1,
+        "insightPrimaryCitations": 0,
+        "producerPrimaryCitations": 0,
+        "evidenceAppraisalReviewBasisCitations": 0
+      },
+      "expectedAfterState": {
+        "fieldCitationDeleted": true,
+        "sourceCitationPreserved": true,
+        "remainingFieldCitationIds": [],
+        "nonFieldCitationConsumerCountsPreservedAtZero": true
+      }
+    },
+    {
+      "fieldCitationId": "cmpdafmb202w3sxvm3jxu67ss",
+      "sourceCitationIdToPreserve": "cmpdaflrw00hosxvmlpp6f56j",
+      "reasonCode": "url_duplicate_without_path",
+      "reason": "The URL-only citation matches multiple current Documents and has no localPath or direct documentId.",
+      "dispositionRationale": "The row is a machine-generated locator binding with no claim text or confidence; its old Document is missing and identity evidence is insufficient for retargeting. This plan would remove only that broken relation while preserving the SourceCitation evidence record.",
+      "oldDocumentIdMustBeMissing": "cmp8xyjqq006fvvvm50557glx",
+      "expectedFieldCitation": {
+        "id": "cmpdafmb202w3sxvm3jxu67ss",
+        "entityId": "cmp8xyjqq006fvvvm50557glx",
+        "claimText": null,
+        "createdAt": "2026-05-19T23:52:33.709",
+        "fieldPath": "url",
+        "citationId": "cmpdaflrw00hosxvmlpp6f56j",
+        "confidence": null,
+        "entityType": "Document"
+      },
+      "expectedSourceCitationToPreserve": {
+        "id": "cmpdaflrw00hosxvmlpp6f56j",
+        "url": "https://www.nhh.no/en/research-centres/food/food-news/2024/all-retail-sectors-are-highly-concentrated/",
+        "year": null,
+        "notes": null,
+        "quote": null,
+        "title": "All Retail Sectors Are Highly Concentrated — FOOD Konsentrasjonsstudie",
+        "author": null,
+        "pageRef": null,
+        "fileHash": null,
+        "createdAt": "2026-05-19T23:52:33.020",
+        "localPath": null,
+        "publisher": null,
+        "updatedAt": "2026-05-26T06:32:20.085",
+        "accessedAt": null,
+        "confidence": null,
+        "documentId": null,
+        "verifiedAt": "2026-05-26T06:32:20.084",
+        "verifiedBy": null,
+        "archivedUrl": "https://web.archive.org/web/20260312162232/https://www.nhh.no/en/research-centres/food/food-news/2024/all-retail-sectors-are-highly-concentrated/",
+        "contentHash": null,
+        "sourceClass": "primary",
+        "sourceDocId": null,
+        "citationText": "Document: All Retail Sectors Are Highly Concentrated — FOOD Konsentrasjonsstudie",
+        "captureMethod": "backfill-existing-locators",
+        "hashAlgorithm": "sha256",
+        "citationReadiness": "citable_with_note",
+        "verificationStatus": "machine_verified"
+      },
+      "expectedAllFieldCitationsForSourceCitation": [
+        {
+          "id": "cmpdafm9402gesxvmm27r9e8m",
+          "entityId": "cmp8xyjqz006gvvvmv27a72yh",
+          "claimText": null,
+          "createdAt": "2026-05-19T23:52:33.639",
+          "fieldPath": "url",
+          "citationId": "cmpdaflrw00hosxvmlpp6f56j",
+          "confidence": null,
+          "entityType": "Document"
+        },
+        {
+          "id": "cmpdafmb202w3sxvm3jxu67ss",
+          "entityId": "cmp8xyjqq006fvvvm50557glx",
+          "claimText": null,
+          "createdAt": "2026-05-19T23:52:33.709",
+          "fieldPath": "url",
+          "citationId": "cmpdaflrw00hosxvmlpp6f56j",
+          "confidence": null,
+          "entityType": "Document"
+        }
+      ],
+      "expectedParallelValidFieldCitation": {
+        "id": "cmpdafm9402gesxvmm27r9e8m",
+        "entityId": "cmp8xyjqz006gvvvmv27a72yh",
+        "claimText": null,
+        "createdAt": "2026-05-19T23:52:33.639",
+        "fieldPath": "url",
+        "citationId": "cmpdaflrw00hosxvmlpp6f56j",
+        "confidence": null,
+        "entityType": "Document"
+      },
+      "expectedParallelValidDocumentIdentity": {
+        "id": "cmp8xyjqz006gvvvmv27a72yh",
+        "url": "https://www.nhh.no/en/research-centres/food/food-news/2024/all-retail-sectors-are-highly-concentrated/",
+        "slug": "bibliotek/akademia/nhh-food/food-konsentrasjon-nordisk-2024",
+        "tags": [
+          "bibliotek",
+          "akademia/nhh-food",
+          "nordic",
+          "academic"
+        ],
+        "year": null,
+        "title": "All Retail Sectors Are Highly Concentrated — FOOD Konsentrasjonsstudie",
+        "author": null,
+        "country": "nordic",
+        "category": "bibliotek",
+        "filePath": "bibliotek/akademia/nhh-food/food-konsentrasjon-nordisk-2024.md",
+        "metadata": {
+          "localPath": "bibliotek/akademia/nhh-food/food-konsentrasjon-nordisk-2024.md",
+          "canonicalFileType": "md",
+          "availabilityStatus": "fulltext"
+        },
+        "createdAt": "2026-05-16T22:52:17.147",
+        "updatedAt": "2026-06-25T22:06:47.240",
+        "wordCount": 236,
+        "accessedAt": null,
+        "archivedUrl": null,
+        "subcategory": "akademia/nhh-food",
+        "documentType": "academic"
+      },
+      "expectedSourceConsumerCounts": {
+        "fieldCitations": 2,
+        "insightPrimaryCitations": 0,
+        "producerPrimaryCitations": 0,
+        "evidenceAppraisalReviewBasisCitations": 0
+      },
+      "expectedAfterState": {
+        "fieldCitationDeleted": true,
+        "sourceCitationPreserved": true,
+        "remainingFieldCitationIds": [
+          "cmpdafm9402gesxvmm27r9e8m"
+        ],
+        "nonFieldCitationConsumerCountsPreservedAtZero": true
+      }
+    },
+    {
+      "fieldCitationId": "cmpdafmb202ygsxvmoqiuw0rk",
+      "sourceCitationIdToPreserve": "cmpdafly300zdsxvmoq9wb6hm",
+      "reasonCode": "derived_path_title_disagree",
+      "reason": "Only the mechanical text-to-download path points at a current Document; the SourceCitation title does not match that Document title.",
+      "dispositionRationale": "The row is a machine-generated locator binding with no claim text or confidence; its old Document is missing and identity evidence is insufficient for retargeting. This plan would remove only that broken relation while preserving the SourceCitation evidence record.",
+      "oldDocumentIdMustBeMissing": "cmp8xyox200kxvvvmh72ex785",
+      "expectedFieldCitation": {
+        "id": "cmpdafmb202ygsxvmoqiuw0rk",
+        "entityId": "cmp8xyox200kxvvvmh72ex785",
+        "claimText": null,
+        "createdAt": "2026-05-19T23:52:33.709",
+        "fieldPath": "filePath",
+        "citationId": "cmpdafly300zdsxvmoq9wb6hm",
+        "confidence": null,
+        "entityType": "Document"
+      },
+      "expectedSourceCitationToPreserve": {
+        "id": "cmpdafly300zdsxvmoq9wb6hm",
+        "url": null,
+        "year": null,
+        "notes": null,
+        "quote": null,
+        "title": "fi ruokavirasto luomuvalvonta 2024",
+        "author": null,
+        "pageRef": null,
+        "fileHash": null,
+        "createdAt": "2026-05-19T23:52:33.243",
+        "localPath": "evidence-pack/okologisk-norden-2026-04-29/text/fi-ruokavirasto-luomuvalvonta-2024.txt",
+        "publisher": null,
+        "updatedAt": "2026-06-15T22:52:48.742",
+        "accessedAt": null,
+        "confidence": null,
+        "documentId": null,
+        "verifiedAt": "2026-06-15T22:52:48.654",
+        "verifiedBy": null,
+        "archivedUrl": null,
+        "contentHash": null,
+        "sourceClass": "primary",
+        "sourceDocId": null,
+        "citationText": "Document local file: fi ruokavirasto luomuvalvonta 2024",
+        "captureMethod": "backfill-existing-locators",
+        "hashAlgorithm": "sha256",
+        "citationReadiness": "citable_with_note",
+        "verificationStatus": "machine_verified"
+      },
+      "expectedAllFieldCitationsForSourceCitation": [
+        {
+          "id": "cmpdafmb202ygsxvmoqiuw0rk",
+          "entityId": "cmp8xyox200kxvvvmh72ex785",
+          "claimText": null,
+          "createdAt": "2026-05-19T23:52:33.709",
+          "fieldPath": "filePath",
+          "citationId": "cmpdafly300zdsxvmoq9wb6hm",
+          "confidence": null,
+          "entityType": "Document"
+        }
+      ],
+      "expectedParallelValidFieldCitation": null,
+      "expectedParallelValidDocumentIdentity": null,
+      "expectedSourceConsumerCounts": {
+        "fieldCitations": 1,
+        "insightPrimaryCitations": 0,
+        "producerPrimaryCitations": 0,
+        "evidenceAppraisalReviewBasisCitations": 0
+      },
+      "expectedAfterState": {
+        "fieldCitationDeleted": true,
+        "sourceCitationPreserved": true,
+        "remainingFieldCitationIds": [],
+        "nonFieldCitationConsumerCountsPreservedAtZero": true
+      }
+    },
+    {
+      "fieldCitationId": "cmpdafmb3035zsxvmwp3x2g3o",
+      "sourceCitationIdToPreserve": "cmpdaflrx00hqsxvmd3be1ra7",
+      "reasonCode": "url_duplicate_without_path",
+      "reason": "The URL-only citation matches multiple current Documents and has no localPath or direct documentId.",
+      "dispositionRationale": "The row is a machine-generated locator binding with no claim text or confidence; its old Document is missing and identity evidence is insufficient for retargeting. This plan would remove only that broken relation while preserving the SourceCitation evidence record.",
+      "oldDocumentIdMustBeMissing": "cmp8xyjus006vvvvm8aoiz9bm",
+      "expectedFieldCitation": {
+        "id": "cmpdafmb3035zsxvmwp3x2g3o",
+        "entityId": "cmp8xyjus006vvvvm8aoiz9bm",
+        "claimText": null,
+        "createdAt": "2026-05-19T23:52:33.709",
+        "fieldPath": "url",
+        "citationId": "cmpdaflrx00hqsxvmd3be1ra7",
+        "confidence": null,
+        "entityType": "Document"
+      },
+      "expectedSourceCitationToPreserve": {
+        "id": "cmpdaflrx00hqsxvmd3be1ra7",
+        "url": "https://press.nordicopenaccess.no/index.php/noasp/catalog/book/93",
+        "year": null,
+        "notes": null,
+        "quote": null,
+        "title": "Mot bedre vitende i norsk matsektor",
+        "author": null,
+        "pageRef": null,
+        "fileHash": null,
+        "createdAt": "2026-05-19T23:52:33.021",
+        "localPath": null,
+        "publisher": null,
+        "updatedAt": "2026-05-26T06:32:20.829",
+        "accessedAt": null,
+        "confidence": null,
+        "documentId": null,
+        "verifiedAt": "2026-05-26T06:32:20.829",
+        "verifiedBy": null,
+        "archivedUrl": "https://web.archive.org/web/20240605162958/https://press.nordicopenaccess.no/index.php/noasp/catalog/book/93",
+        "contentHash": null,
+        "sourceClass": "primary",
+        "sourceDocId": null,
+        "citationText": "Document: Mot bedre vitende i norsk matsektor",
+        "captureMethod": "backfill-existing-locators",
+        "hashAlgorithm": "sha256",
+        "citationReadiness": "citable_with_note",
+        "verificationStatus": "machine_verified"
+      },
+      "expectedAllFieldCitationsForSourceCitation": [
+        {
+          "id": "cmpdafm9402ggsxvmo4l21fpl",
+          "entityId": "cmp8xyjvn006wvvvm9lchxebw",
+          "claimText": null,
+          "createdAt": "2026-05-19T23:52:33.639",
+          "fieldPath": "url",
+          "citationId": "cmpdaflrx00hqsxvmd3be1ra7",
+          "confidence": null,
+          "entityType": "Document"
+        },
+        {
+          "id": "cmpdafmb3035zsxvmwp3x2g3o",
+          "entityId": "cmp8xyjus006vvvvm8aoiz9bm",
+          "claimText": null,
+          "createdAt": "2026-05-19T23:52:33.709",
+          "fieldPath": "url",
+          "citationId": "cmpdaflrx00hqsxvmd3be1ra7",
+          "confidence": null,
+          "entityType": "Document"
+        }
+      ],
+      "expectedParallelValidFieldCitation": {
+        "id": "cmpdafm9402ggsxvmo4l21fpl",
+        "entityId": "cmp8xyjvn006wvvvm9lchxebw",
+        "claimText": null,
+        "createdAt": "2026-05-19T23:52:33.639",
+        "fieldPath": "url",
+        "citationId": "cmpdaflrx00hqsxvmd3be1ra7",
+        "confidence": null,
+        "entityType": "Document"
+      },
+      "expectedParallelValidDocumentIdentity": {
+        "id": "cmp8xyjvn006wvvvm9lchxebw",
+        "url": "https://press.nordicopenaccess.no/index.php/noasp/catalog/book/93",
+        "slug": "bibliotek/akademia/nhh-food/pettersen-steen-mot-bedre-vitende-i-norsk-matsektor-2020",
+        "tags": [
+          "bibliotek",
+          "akademia/nhh-food",
+          "academic"
+        ],
+        "year": null,
+        "title": "Mot bedre vitende i norsk matsektor",
+        "author": null,
+        "country": null,
+        "category": "bibliotek",
+        "filePath": "bibliotek/akademia/nhh-food/pettersen-steen-mot-bedre-vitende-i-norsk-matsektor-2020.md",
+        "metadata": {
+          "localPath": "bibliotek/akademia/nhh-food/pettersen-steen-mot-bedre-vitende-i-norsk-matsektor-2020.md",
+          "canonicalFileType": "md",
+          "availabilityStatus": "fulltext"
+        },
+        "createdAt": "2026-05-16T22:52:17.315",
+        "updatedAt": "2026-06-25T22:06:47.280",
+        "wordCount": 230,
+        "accessedAt": null,
+        "archivedUrl": null,
+        "subcategory": "akademia/nhh-food",
+        "documentType": "academic"
+      },
+      "expectedSourceConsumerCounts": {
+        "fieldCitations": 2,
+        "insightPrimaryCitations": 0,
+        "producerPrimaryCitations": 0,
+        "evidenceAppraisalReviewBasisCitations": 0
+      },
+      "expectedAfterState": {
+        "fieldCitationDeleted": true,
+        "sourceCitationPreserved": true,
+        "remainingFieldCitationIds": [
+          "cmpdafm9402ggsxvmo4l21fpl"
+        ],
+        "nonFieldCitationConsumerCountsPreservedAtZero": true
+      }
+    }
+  ]
+}

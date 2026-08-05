@@ -68,6 +68,13 @@ describe('citation readiness derivation', () => {
       }),
       'internal_context',
     )
+    assert.equal(
+      deriveCitationReadiness({
+        sourceClass: 'internal_primary',
+        sourceDocId: 'src-internal',
+      }),
+      'internal_context',
+    )
   })
 
   it('blocks label-only sources by default', () => {
@@ -77,6 +84,51 @@ describe('citation readiness derivation', () => {
         sourceClass: 'unknown',
       }),
       'blocked_unsourced',
+    )
+    assert.equal(
+      deriveCitationReadiness({
+        citationText: 'Unclassified URL',
+        sourceClass: 'unknown',
+        url: 'https://example.test/source',
+        accessedAt: '2026-07-19',
+      }),
+      'blocked_unsourced',
+    )
+  })
+
+  it('does not let stored readiness override fail-closed evidence gates', () => {
+    assert.equal(
+      deriveCitationReadiness({
+        citationReadiness: 'citable_external',
+        sourceClass: 'unknown',
+        url: 'https://example.test/unclassified',
+        accessedAt: '2026-07-19',
+      }),
+      'blocked_unsourced',
+    )
+    assert.equal(
+      deriveCitationReadiness({
+        citationReadiness: 'citable_external',
+        sourceClass: 'primary',
+        accessedAt: '2026-07-19',
+      }),
+      'blocked_unsourced',
+    )
+    assert.equal(
+      deriveCitationReadiness({
+        citationReadiness: 'citable_external',
+        sourceClass: 'primary',
+        url: 'https://example.test/unverified',
+      }),
+      'citable_with_note',
+    )
+    assert.equal(
+      deriveCitationReadiness({
+        citationReadiness: 'citable_external',
+        sourceClass: 'internal_primary',
+        sourceDocId: 'src-internal',
+      }),
+      'internal_context',
     )
   })
 
@@ -101,6 +153,17 @@ describe('citation readiness derivation', () => {
       }),
       /citable_external/i,
     )
+    assert.match(
+      explainCitationReadiness({
+        sourceClass: 'internal_primary',
+        sourceDocId: 'src-internal',
+      }),
+      /documentary but not approved for external citation/i,
+    )
+    assert.match(
+      explainCitationReadiness({ sourceClass: 'internal_synthesis' }),
+      /not independent documentary evidence/i,
+    )
   })
 
   it('merges composite claims by the weakest required citation', () => {
@@ -111,6 +174,18 @@ describe('citation readiness derivation', () => {
         { citationReadiness: 'internal_context' },
       ]),
       'internal_context',
+    )
+    assert.equal(
+      mergeReadinessForCompositeClaim([
+        {
+          citationReadiness: 'citable_external',
+          sourceClass: 'unknown',
+          url: 'https://example.test/unclassified',
+          accessedAt: '2026-07-19',
+        },
+        { citationReadiness: 'citable_external' },
+      ]),
+      'blocked_unsourced',
     )
     assert.equal(mergeReadinessForCompositeClaim([]), 'blocked_unsourced')
   })
