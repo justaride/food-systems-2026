@@ -25,7 +25,7 @@ Lakseoppdretter — kontrollert av Gustav Witzøe (41,3 %).
 
 ## Koblinger
 
-- [[Gustav Witzøe]]
+- [[10 Innsiktskart/Aktører/Gustav Witzøe|Gustav Witzøe]]
 - [[Eierskap]]
 ## Notater
 

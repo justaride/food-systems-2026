@@ -9,7 +9,7 @@ siterbarhet: intern
 
 > Nordisk komparativ node · Del av [[Innsiktskartet]]
 
-Høyest topp-3 i Norden (93,4 %), HHI ≈ 3 445, selvforsyning 44 %, tilsyn foreslått nedlagt. Casen dette prosjektet står i.
+Norsk dagligvare er høykonsentrert: butikkantallserien gir topp-3 på 93,4 %, mens den kontrollerte omsetningsserien gir HHI 3 327 og CR3 96,6 % for 2024. Nordisk rangering krever harmonisert markedsavgrensning; Norge skal ikke omtales som entydig høyest på HHI. Selvforsyning må alltid oppgis med metode og fôrkorreksjon.
 
 _Innsikter og looper for landet vises som innlenker og i grafen._
 

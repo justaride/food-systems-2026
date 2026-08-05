@@ -17,6 +17,13 @@ siterbarhet: intern
 - [[Brukerveiledning]] `/veiledning` — Slik bruker du plattformen
 - [[Søk]] `/sok` — Søk på tvers av alt innhold: selskaper, dokumenter, personer, innsikt
 
+## Kuraterte innganger
+
+- [[Feltkart – kunnskapsbasen]] — faglig kart for nye og erfarne lesere
+- [[Leseguide for nye lesere]] — 10-, 30- og 90-minutters lesestier
+- [[Kunnskapsstatus]] — dekningsprofil, ferskhet og kjente ukjente
+- [[Ordliste og begreper]] — prosjektets arbeidsord i klart språk
+
 ## Dynamiske oversikter
 
 ```dataview

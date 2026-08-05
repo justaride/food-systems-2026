@@ -1,604 +1,70 @@
 {
- "nodes": [
-  {
-   "id": "hub",
-   "type": "file",
-   "file": "0 Kart/HUB – Kunnskapsdatabasen.md",
-   "x": 410,
-   "y": 0,
-   "width": 640,
-   "height": 110,
-   "color": "#0F766E"
-  },
-  {
-   "id": "grp-oversikt-og-navigasjon",
-   "type": "group",
-   "label": "Oversikt og navigasjon — Inngang",
-   "x": 0,
-   "y": 230,
-   "width": 320,
-   "height": 584
-  },
-  {
-   "id": "sec-oversikt",
-   "type": "file",
-   "file": "1 Oversikt og navigasjon/Oversikt.md",
-   "x": 20,
-   "y": 280,
-   "width": 280,
-   "height": 60,
-   "color": "#0F766E"
-  },
-  {
-   "id": "sec-brukerveiledning",
-   "type": "file",
-   "file": "1 Oversikt og navigasjon/Brukerveiledning.md",
-   "x": 20,
-   "y": 354,
-   "width": 280,
-   "height": 60,
-   "color": "#0F766E"
-  },
-  {
-   "id": "sec-sok",
-   "type": "file",
-   "file": "1 Oversikt og navigasjon/Søk.md",
-   "x": 20,
-   "y": 428,
-   "width": 280,
-   "height": 60,
-   "color": "#0F766E"
-  },
-  {
-   "id": "grp-intern",
-   "type": "group",
-   "label": "Intern — Prosjektstyring",
-   "x": 380,
-   "y": 230,
-   "width": 320,
-   "height": 584
-  },
-  {
-   "id": "sec-team",
-   "type": "file",
-   "file": "2 Intern/Team.md",
-   "x": 400,
-   "y": 280,
-   "width": 280,
-   "height": 60,
-   "color": "#64748B"
-  },
-  {
-   "id": "sec-casestatus",
-   "type": "file",
-   "file": "2 Intern/Casestatus.md",
-   "x": 400,
-   "y": 354,
-   "width": 280,
-   "height": 60,
-   "color": "#64748B"
-  },
-  {
-   "id": "sec-moter",
-   "type": "file",
-   "file": "2 Intern/Møter.md",
-   "x": 400,
-   "y": 428,
-   "width": 280,
-   "height": 60,
-   "color": "#64748B"
-  },
-  {
-   "id": "sec-kommunikasjon",
-   "type": "file",
-   "file": "2 Intern/Kommunikasjon.md",
-   "x": 400,
-   "y": 502,
-   "width": 280,
-   "height": 60,
-   "color": "#64748B"
-  },
-  {
-   "id": "sec-mandat",
-   "type": "file",
-   "file": "2 Intern/Mandat.md",
-   "x": 400,
-   "y": 576,
-   "width": 280,
-   "height": 60,
-   "color": "#64748B"
-  },
-  {
-   "id": "sec-metodikk",
-   "type": "file",
-   "file": "2 Intern/Metodikk.md",
-   "x": 400,
-   "y": 650,
-   "width": 280,
-   "height": 60,
-   "color": "#64748B"
-  },
-  {
-   "id": "sec-tidslinje",
-   "type": "file",
-   "file": "2 Intern/Tidslinje.md",
-   "x": 400,
-   "y": 724,
-   "width": 280,
-   "height": 60,
-   "color": "#64748B"
-  },
-  {
-   "id": "grp-selskap-og-eierskap",
-   "type": "group",
-   "label": "Selskap og eierskap — Makt og struktur",
-   "x": 760,
-   "y": 230,
-   "width": 320,
-   "height": 584
-  },
-  {
-   "id": "sec-selskaper",
-   "type": "file",
-   "file": "3 Selskap og eierskap/Selskaper.md",
-   "x": 780,
-   "y": 280,
-   "width": 280,
-   "height": 60,
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "sec-eierskap",
-   "type": "file",
-   "file": "3 Selskap og eierskap/Eierskap.md",
-   "x": 780,
-   "y": 354,
-   "width": 280,
-   "height": 60,
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "sec-styremedlemmer",
-   "type": "file",
-   "file": "3 Selskap og eierskap/Styremedlemmer.md",
-   "x": 780,
-   "y": 428,
-   "width": 280,
-   "height": 60,
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "sec-personer",
-   "type": "file",
-   "file": "3 Selskap og eierskap/Personer.md",
-   "x": 780,
-   "y": 502,
-   "width": 280,
-   "height": 60,
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "sec-eiendommer",
-   "type": "file",
-   "file": "3 Selskap og eierskap/Eiendommer.md",
-   "x": 780,
-   "y": 576,
-   "width": 280,
-   "height": 60,
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "grp-matsystem",
-   "type": "group",
-   "label": "Matsystem — Verdikjede",
-   "x": 1140,
-   "y": 230,
-   "width": 320,
-   "height": 584
-  },
-  {
-   "id": "sec-verdikjede",
-   "type": "file",
-   "file": "4 Matsystem/Verdikjede.md",
-   "x": 1160,
-   "y": 280,
-   "width": 280,
-   "height": 60,
-   "color": "#15803D"
-  },
-  {
-   "id": "sec-forsyningskjede",
-   "type": "file",
-   "file": "4 Matsystem/Forsyningskjede.md",
-   "x": 1160,
-   "y": 354,
-   "width": 280,
-   "height": 60,
-   "color": "#15803D"
-  },
-  {
-   "id": "sec-havbruk",
-   "type": "file",
-   "file": "4 Matsystem/Havbruk.md",
-   "x": 1160,
-   "y": 428,
-   "width": 280,
-   "height": 60,
-   "color": "#15803D"
-  },
-  {
-   "id": "sec-sirkularitet",
-   "type": "file",
-   "file": "4 Matsystem/Sirkularitet.md",
-   "x": 1160,
-   "y": 502,
-   "width": 280,
-   "height": 60,
-   "color": "#15803D"
-  },
-  {
-   "id": "sec-okonomi",
-   "type": "file",
-   "file": "4 Matsystem/Økonomi.md",
-   "x": 1160,
-   "y": 576,
-   "width": 280,
-   "height": 60,
-   "color": "#15803D"
-  },
-  {
-   "id": "grp-produsenter-og-stotte",
-   "type": "group",
-   "label": "Produsenter og støtte — Primærledd",
-   "x": 0,
-   "y": 894,
-   "width": 320,
-   "height": 436
-  },
-  {
-   "id": "sec-produsentregister",
-   "type": "file",
-   "file": "5 Produsenter og støtte/Produsentregister.md",
-   "x": 20,
-   "y": 944,
-   "width": 280,
-   "height": 60,
-   "color": "#B45309"
-  },
-  {
-   "id": "sec-subsidier",
-   "type": "file",
-   "file": "5 Produsenter og støtte/Subsidier.md",
-   "x": 20,
-   "y": 1018,
-   "width": 280,
-   "height": 60,
-   "color": "#B45309"
-  },
-  {
-   "id": "grp-nordisk",
-   "type": "group",
-   "label": "Nordisk — Komparativt",
-   "x": 380,
-   "y": 894,
-   "width": 320,
-   "height": 436
-  },
-  {
-   "id": "sec-sammenligning",
-   "type": "file",
-   "file": "6 Nordisk/Sammenligning.md",
-   "x": 400,
-   "y": 944,
-   "width": 280,
-   "height": 60,
-   "color": "#7C3AED"
-  },
-  {
-   "id": "sec-politikk",
-   "type": "file",
-   "file": "6 Nordisk/Politikk.md",
-   "x": 400,
-   "y": 1018,
-   "width": 280,
-   "height": 60,
-   "color": "#7C3AED"
-  },
-  {
-   "id": "sec-kart",
-   "type": "file",
-   "file": "6 Nordisk/Kart.md",
-   "x": 400,
-   "y": 1092,
-   "width": 280,
-   "height": 60,
-   "color": "#7C3AED"
-  },
-  {
-   "id": "sec-media",
-   "type": "file",
-   "file": "6 Nordisk/Media.md",
-   "x": 400,
-   "y": 1166,
-   "width": 280,
-   "height": 60,
-   "color": "#7C3AED"
-  },
-  {
-   "id": "grp-kunnskap",
-   "type": "group",
-   "label": "Kunnskap — Analyse og innsikt",
-   "x": 760,
-   "y": 894,
-   "width": 320,
-   "height": 436
-  },
-  {
-   "id": "sec-innsikt",
-   "type": "file",
-   "file": "7 Kunnskap/Innsikt.md",
-   "x": 780,
-   "y": 944,
-   "width": 280,
-   "height": 60,
-   "color": "#DB2777"
-  },
-  {
-   "id": "sec-forskningsrunder",
-   "type": "file",
-   "file": "7 Kunnskap/Forskningsrunder.md",
-   "x": 780,
-   "y": 1018,
-   "width": 280,
-   "height": 60,
-   "color": "#DB2777"
-  },
-  {
-   "id": "sec-akademia",
-   "type": "file",
-   "file": "7 Kunnskap/Akademia.md",
-   "x": 780,
-   "y": 1092,
-   "width": 280,
-   "height": 60,
-   "color": "#DB2777"
-  },
-  {
-   "id": "sec-graf",
-   "type": "file",
-   "file": "7 Kunnskap/Graf.md",
-   "x": 780,
-   "y": 1166,
-   "width": 280,
-   "height": 60,
-   "color": "#DB2777"
-  },
-  {
-   "id": "sec-aktorer",
-   "type": "file",
-   "file": "7 Kunnskap/Aktører.md",
-   "x": 780,
-   "y": 1240,
-   "width": 280,
-   "height": 60,
-   "color": "#DB2777"
-  },
-  {
-   "id": "grp-bibliotek",
-   "type": "group",
-   "label": "Bibliotek — Kilder og leveranse",
-   "x": 1140,
-   "y": 894,
-   "width": 320,
-   "height": 436
-  },
-  {
-   "id": "sec-rapporter",
-   "type": "file",
-   "file": "8 Bibliotek/Rapporter.md",
-   "x": 1160,
-   "y": 944,
-   "width": 280,
-   "height": 60,
-   "color": "#334155"
-  },
-  {
-   "id": "sec-hvitbok",
-   "type": "file",
-   "file": "8 Bibliotek/Hvitbok.md",
-   "x": 1160,
-   "y": 1018,
-   "width": 280,
-   "height": 60,
-   "color": "#334155"
-  },
-  {
-   "id": "sec-bibliotek",
-   "type": "file",
-   "file": "8 Bibliotek/Bibliotek.md",
-   "x": 1160,
-   "y": 1092,
-   "width": 280,
-   "height": 60,
-   "color": "#334155"
-  },
-  {
-   "id": "sec-kilder",
-   "type": "file",
-   "file": "8 Bibliotek/Kilder.md",
-   "x": 1160,
-   "y": 1166,
-   "width": 280,
-   "height": 60,
-   "color": "#334155"
-  },
-  {
-   "id": "fund-prisma-database",
-   "type": "file",
-   "file": "9 Datafundament/Prisma-database.md",
-   "x": 0,
-   "y": 1430,
-   "width": 460,
-   "height": 100,
-   "color": "#0891B2"
-  },
-  {
-   "id": "fund-strukturerte-datasett",
-   "type": "file",
-   "file": "9 Datafundament/Strukturerte datasett.md",
-   "x": 500,
-   "y": 1430,
-   "width": 460,
-   "height": 100,
-   "color": "#0891B2"
-  },
-  {
-   "id": "fund-forskningsarkiv",
-   "type": "file",
-   "file": "9 Datafundament/Forskningsarkiv.md",
-   "x": 1000,
-   "y": 1430,
-   "width": 460,
-   "height": 100,
-   "color": "#0891B2"
-  }
- ],
- "edges": [
-  {
-   "id": "e-hub-grp-oversikt-og-navigasjon",
-   "fromNode": "hub",
-   "fromSide": "bottom",
-   "toNode": "grp-oversikt-og-navigasjon",
-   "toSide": "top",
-   "color": "#0F766E"
-  },
-  {
-   "id": "e-hub-grp-intern",
-   "fromNode": "hub",
-   "fromSide": "bottom",
-   "toNode": "grp-intern",
-   "toSide": "top",
-   "color": "#64748B"
-  },
-  {
-   "id": "e-hub-grp-selskap-og-eierskap",
-   "fromNode": "hub",
-   "fromSide": "bottom",
-   "toNode": "grp-selskap-og-eierskap",
-   "toSide": "top",
-   "color": "#1D4ED8"
-  },
-  {
-   "id": "e-hub-grp-matsystem",
-   "fromNode": "hub",
-   "fromSide": "bottom",
-   "toNode": "grp-matsystem",
-   "toSide": "top",
-   "color": "#15803D"
-  },
-  {
-   "id": "e-hub-grp-produsenter-og-stotte",
-   "fromNode": "hub",
-   "fromSide": "bottom",
-   "toNode": "grp-produsenter-og-stotte",
-   "toSide": "top",
-   "color": "#B45309"
-  },
-  {
-   "id": "e-hub-grp-nordisk",
-   "fromNode": "hub",
-   "fromSide": "bottom",
-   "toNode": "grp-nordisk",
-   "toSide": "top",
-   "color": "#7C3AED"
-  },
-  {
-   "id": "e-hub-grp-kunnskap",
-   "fromNode": "hub",
-   "fromSide": "bottom",
-   "toNode": "grp-kunnskap",
-   "toSide": "top",
-   "color": "#DB2777"
-  },
-  {
-   "id": "e-hub-grp-bibliotek",
-   "fromNode": "hub",
-   "fromSide": "bottom",
-   "toNode": "grp-bibliotek",
-   "toSide": "top",
-   "color": "#334155"
-  },
-  {
-   "id": "e-prisma-database-selskap-og-eierskap",
-   "fromNode": "fund-prisma-database",
-   "fromSide": "top",
-   "toNode": "grp-selskap-og-eierskap",
-   "toSide": "bottom",
-   "color": "#0891B2"
-  },
-  {
-   "id": "e-prisma-database-matsystem",
-   "fromNode": "fund-prisma-database",
-   "fromSide": "top",
-   "toNode": "grp-matsystem",
-   "toSide": "bottom",
-   "color": "#0891B2"
-  },
-  {
-   "id": "e-prisma-database-kunnskap",
-   "fromNode": "fund-prisma-database",
-   "fromSide": "top",
-   "toNode": "grp-kunnskap",
-   "toSide": "bottom",
-   "color": "#0891B2"
-  },
-  {
-   "id": "e-strukturerte-datasett-matsystem",
-   "fromNode": "fund-strukturerte-datasett",
-   "fromSide": "top",
-   "toNode": "grp-matsystem",
-   "toSide": "bottom",
-   "color": "#0891B2"
-  },
-  {
-   "id": "e-strukturerte-datasett-nordisk",
-   "fromNode": "fund-strukturerte-datasett",
-   "fromSide": "top",
-   "toNode": "grp-nordisk",
-   "toSide": "bottom",
-   "color": "#0891B2"
-  },
-  {
-   "id": "e-strukturerte-datasett-produsenter-og-stotte",
-   "fromNode": "fund-strukturerte-datasett",
-   "fromSide": "top",
-   "toNode": "grp-produsenter-og-stotte",
-   "toSide": "bottom",
-   "color": "#0891B2"
-  },
-  {
-   "id": "e-forskningsarkiv-kunnskap",
-   "fromNode": "fund-forskningsarkiv",
-   "fromSide": "top",
-   "toNode": "grp-kunnskap",
-   "toSide": "bottom",
-   "color": "#0891B2"
-  },
-  {
-   "id": "e-forskningsarkiv-bibliotek",
-   "fromNode": "fund-forskningsarkiv",
-   "fromSide": "top",
-   "toNode": "grp-bibliotek",
-   "toSide": "bottom",
-   "color": "#0891B2"
-  },
-  {
-   "id": "e-forskningsarkiv-nordisk",
-   "fromNode": "fund-forskningsarkiv",
-   "fromSide": "top",
-   "toNode": "grp-nordisk",
-   "toSide": "bottom",
-   "color": "#0891B2"
-  }
- ]
+	"nodes":[
+		{"id":"hub","type":"file","file":"0 Kart/HUB – Kunnskapsdatabasen.md","x":410,"y":0,"width":640,"height":110,"color":"#0F766E"},
+		{"id":"grp-oversikt-og-navigasjon","type":"group","label":"Oversikt og navigasjon — Inngang","x":0,"y":230,"width":320,"height":584},
+		{"id":"sec-oversikt","type":"file","file":"1 Oversikt og navigasjon/Oversikt.md","x":20,"y":280,"width":280,"height":60,"color":"#0F766E"},
+		{"id":"sec-brukerveiledning","type":"file","file":"1 Oversikt og navigasjon/Brukerveiledning.md","x":20,"y":354,"width":280,"height":60,"color":"#0F766E"},
+		{"id":"sec-sok","type":"file","file":"1 Oversikt og navigasjon/Søk.md","x":20,"y":428,"width":280,"height":60,"color":"#0F766E"},
+		{"id":"grp-intern","type":"group","label":"Intern — Prosjektstyring","x":380,"y":230,"width":320,"height":584},
+		{"id":"sec-team","type":"file","file":"2 Intern/Team.md","x":400,"y":280,"width":280,"height":60,"color":"#64748B"},
+		{"id":"sec-casestatus","type":"file","file":"2 Intern/Casestatus.md","x":400,"y":354,"width":280,"height":60,"color":"#64748B"},
+		{"id":"sec-moter","type":"file","file":"2 Intern/Møter.md","x":400,"y":428,"width":280,"height":60,"color":"#64748B"},
+		{"id":"sec-kommunikasjon","type":"file","file":"2 Intern/Kommunikasjon.md","x":400,"y":502,"width":280,"height":60,"color":"#64748B"},
+		{"id":"sec-mandat","type":"file","file":"2 Intern/Mandat.md","x":400,"y":576,"width":280,"height":60,"color":"#64748B"},
+		{"id":"sec-metodikk","type":"file","file":"2 Intern/Metodikk.md","x":400,"y":650,"width":280,"height":60,"color":"#64748B"},
+		{"id":"sec-tidslinje","type":"file","file":"2 Intern/Tidslinje.md","x":400,"y":724,"width":280,"height":60,"color":"#64748B"},
+		{"id":"grp-selskap-og-eierskap","type":"group","label":"Selskap og eierskap — Makt og struktur","x":760,"y":230,"width":320,"height":584},
+		{"id":"sec-selskaper","type":"file","file":"3 Selskap og eierskap/Selskaper.md","x":780,"y":280,"width":280,"height":60,"color":"#1D4ED8"},
+		{"id":"sec-eierskap","type":"file","file":"3 Selskap og eierskap/Eierskap.md","x":780,"y":354,"width":280,"height":60,"color":"#1D4ED8"},
+		{"id":"sec-styremedlemmer","type":"file","file":"3 Selskap og eierskap/Styremedlemmer.md","x":780,"y":428,"width":280,"height":60,"color":"#1D4ED8"},
+		{"id":"sec-personer","type":"file","file":"3 Selskap og eierskap/Personer.md","x":780,"y":502,"width":280,"height":60,"color":"#1D4ED8"},
+		{"id":"sec-eiendommer","type":"file","file":"3 Selskap og eierskap/Eiendommer.md","x":780,"y":576,"width":280,"height":60,"color":"#1D4ED8"},
+		{"id":"grp-matsystem","type":"group","label":"Matsystem — Verdikjede","x":1140,"y":230,"width":320,"height":584},
+		{"id":"sec-verdikjede","type":"file","file":"4 Matsystem/Verdikjede.md","x":1160,"y":280,"width":280,"height":60,"color":"#15803D"},
+		{"id":"sec-forsyningskjede","type":"file","file":"4 Matsystem/Forsyningskjede.md","x":1160,"y":354,"width":280,"height":60,"color":"#15803D"},
+		{"id":"sec-havbruk","type":"file","file":"4 Matsystem/Havbruk.md","x":1160,"y":428,"width":280,"height":60,"color":"#15803D"},
+		{"id":"sec-sirkularitet","type":"file","file":"4 Matsystem/Sirkularitet.md","x":1160,"y":502,"width":280,"height":60,"color":"#15803D"},
+		{"id":"sec-okonomi","type":"file","file":"4 Matsystem/Økonomi.md","x":1160,"y":576,"width":280,"height":60,"color":"#15803D"},
+		{"id":"grp-produsenter-og-stotte","type":"group","label":"Produsenter og støtte — Primærledd","x":0,"y":894,"width":320,"height":436},
+		{"id":"sec-produsentregister","type":"file","file":"5 Produsenter og støtte/Produsentregister.md","x":20,"y":944,"width":280,"height":60,"color":"#B45309"},
+		{"id":"sec-subsidier","type":"file","file":"5 Produsenter og støtte/Subsidier.md","x":20,"y":1018,"width":280,"height":60,"color":"#B45309"},
+		{"id":"grp-nordisk","type":"group","label":"Nordisk — Komparativt","x":380,"y":894,"width":320,"height":436},
+		{"id":"sec-sammenligning","type":"file","file":"6 Nordisk/Sammenligning.md","x":400,"y":944,"width":280,"height":60,"color":"#7C3AED"},
+		{"id":"sec-politikk","type":"file","file":"6 Nordisk/Politikk.md","x":400,"y":1018,"width":280,"height":60,"color":"#7C3AED"},
+		{"id":"sec-kart","type":"file","file":"6 Nordisk/Kart.md","x":400,"y":1092,"width":280,"height":60,"color":"#7C3AED"},
+		{"id":"sec-media","type":"file","file":"6 Nordisk/Media.md","x":400,"y":1166,"width":280,"height":60,"color":"#7C3AED"},
+		{"id":"grp-kunnskap","type":"group","label":"Kunnskap — Analyse og innsikt","x":760,"y":894,"width":320,"height":436},
+		{"id":"sec-innsikt","type":"file","file":"7 Kunnskap/Innsikt.md","x":780,"y":944,"width":280,"height":60,"color":"#DB2777"},
+		{"id":"sec-forskningsrunder","type":"file","file":"7 Kunnskap/Forskningsrunder.md","x":780,"y":1018,"width":280,"height":60,"color":"#DB2777"},
+		{"id":"sec-akademia","type":"file","file":"7 Kunnskap/Akademia.md","x":780,"y":1092,"width":280,"height":60,"color":"#DB2777"},
+		{"id":"sec-graf","type":"file","file":"7 Kunnskap/Graf.md","x":780,"y":1166,"width":280,"height":60,"color":"#DB2777"},
+		{"id":"sec-aktorer","type":"file","file":"7 Kunnskap/Aktører.md","x":780,"y":1240,"width":280,"height":60,"color":"#DB2777"},
+		{"id":"grp-bibliotek","type":"group","label":"Bibliotek — Kilder og leveranse","x":1140,"y":894,"width":320,"height":436},
+		{"id":"sec-rapporter","type":"file","file":"8 Bibliotek/Rapporter.md","x":1160,"y":944,"width":280,"height":60,"color":"#334155"},
+		{"id":"sec-hvitbok","type":"file","file":"8 Bibliotek/Hvitbok.md","x":1160,"y":1018,"width":280,"height":60,"color":"#334155"},
+		{"id":"sec-bibliotek","type":"file","file":"8 Bibliotek/Bibliotek.md","x":1160,"y":1092,"width":280,"height":60,"color":"#334155"},
+		{"id":"sec-kilder","type":"file","file":"8 Bibliotek/Kilder.md","x":1160,"y":1166,"width":280,"height":60,"color":"#334155"},
+		{"id":"fund-prisma-database","type":"file","file":"9 Datafundament/Prisma-database.md","x":0,"y":1430,"width":460,"height":100,"color":"#0891B2"},
+		{"id":"fund-strukturerte-datasett","type":"file","file":"9 Datafundament/Strukturerte datasett.md","x":500,"y":1430,"width":460,"height":100,"color":"#0891B2"},
+		{"id":"fund-forskningsarkiv","type":"file","file":"9 Datafundament/Forskningsarkiv.md","x":1000,"y":1430,"width":460,"height":100,"color":"#0891B2"}
+	],
+	"edges":[
+		{"id":"e-hub-grp-oversikt-og-navigasjon","fromNode":"hub","fromSide":"bottom","toNode":"grp-oversikt-og-navigasjon","toSide":"top","color":"#0F766E"},
+		{"id":"e-hub-grp-intern","fromNode":"hub","fromSide":"bottom","toNode":"grp-intern","toSide":"top","color":"#64748B"},
+		{"id":"e-hub-grp-selskap-og-eierskap","fromNode":"hub","fromSide":"bottom","toNode":"grp-selskap-og-eierskap","toSide":"top","color":"#1D4ED8"},
+		{"id":"e-hub-grp-matsystem","fromNode":"hub","fromSide":"bottom","toNode":"grp-matsystem","toSide":"top","color":"#15803D"},
+		{"id":"e-hub-grp-produsenter-og-stotte","fromNode":"hub","fromSide":"bottom","toNode":"grp-produsenter-og-stotte","toSide":"top","color":"#B45309"},
+		{"id":"e-hub-grp-nordisk","fromNode":"hub","fromSide":"bottom","toNode":"grp-nordisk","toSide":"top","color":"#7C3AED"},
+		{"id":"e-hub-grp-kunnskap","fromNode":"hub","fromSide":"bottom","toNode":"grp-kunnskap","toSide":"top","color":"#DB2777"},
+		{"id":"e-hub-grp-bibliotek","fromNode":"hub","fromSide":"bottom","toNode":"grp-bibliotek","toSide":"top","color":"#334155"},
+		{"id":"e-prisma-database-selskap-og-eierskap","fromNode":"fund-prisma-database","fromSide":"top","toNode":"grp-selskap-og-eierskap","toSide":"bottom","color":"#0891B2"},
+		{"id":"e-prisma-database-matsystem","fromNode":"fund-prisma-database","fromSide":"top","toNode":"grp-matsystem","toSide":"bottom","color":"#0891B2"},
+		{"id":"e-prisma-database-kunnskap","fromNode":"fund-prisma-database","fromSide":"top","toNode":"grp-kunnskap","toSide":"bottom","color":"#0891B2"},
+		{"id":"e-strukturerte-datasett-matsystem","fromNode":"fund-strukturerte-datasett","fromSide":"top","toNode":"grp-matsystem","toSide":"bottom","color":"#0891B2"},
+		{"id":"e-strukturerte-datasett-nordisk","fromNode":"fund-strukturerte-datasett","fromSide":"top","toNode":"grp-nordisk","toSide":"bottom","color":"#0891B2"},
+		{"id":"e-strukturerte-datasett-produsenter-og-stotte","fromNode":"fund-strukturerte-datasett","fromSide":"top","toNode":"grp-produsenter-og-stotte","toSide":"bottom","color":"#0891B2"},
+		{"id":"e-forskningsarkiv-kunnskap","fromNode":"fund-forskningsarkiv","fromSide":"top","toNode":"grp-kunnskap","toSide":"bottom","color":"#0891B2"},
+		{"id":"e-forskningsarkiv-bibliotek","fromNode":"fund-forskningsarkiv","fromSide":"top","toNode":"grp-bibliotek","toSide":"bottom","color":"#0891B2"},
+		{"id":"e-forskningsarkiv-nordisk","fromNode":"fund-forskningsarkiv","fromSide":"top","toNode":"grp-nordisk","toSide":"bottom","color":"#0891B2"}
+	]
 }

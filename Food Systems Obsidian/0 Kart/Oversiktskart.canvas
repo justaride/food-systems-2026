@@ -1,453 +1,55 @@
 {
-  "nodes": [
-    {
-      "id": "grp-arkiv",
-      "type": "group",
-      "label": "Arkivlaget — finn riktig del av kunnskapsbasen",
-      "x": 0,
-      "y": 0,
-      "width": 340,
-      "height": 360
-    },
-    {
-      "id": "grp-innsikt",
-      "type": "group",
-      "label": "Innsiktslaget — hva kartet sier om matsystemet",
-      "x": 400,
-      "y": 0,
-      "width": 1600,
-      "height": 660
-    },
-    {
-      "id": "grp-makt",
-      "type": "group",
-      "label": "Maktlaget — strukturell posisjon, eierskap og styreoverlapp",
-      "x": 400,
-      "y": 720,
-      "width": 1600,
-      "height": 320
-    },
-    {
-      "id": "hub",
-      "type": "file",
-      "file": "0 Kart/HUB – Kunnskapsdatabasen.md",
-      "x": 30,
-      "y": 70,
-      "width": 280,
-      "height": 80,
-      "color": "#0F766E"
-    },
-    {
-      "id": "kunnskapskart",
-      "type": "file",
-      "file": "0 Kart/Kunnskapskart.canvas",
-      "x": 30,
-      "y": 180,
-      "width": 280,
-      "height": 70,
-      "color": "#0F766E"
-    },
-    {
-      "id": "arkivregel",
-      "type": "text",
-      "text": "**Bruk arkivlaget når du leter.**\n\nHUB-en samler klynger, datagrunnlag, bibliotek og repo-lag. Ikke start her når du bare trenger fortellingen.",
-      "x": 30,
-      "y": 275,
-      "width": 280,
-      "height": 60,
-      "color": "#0F766E"
-    },
-    {
-      "id": "innsiktskartet",
-      "type": "file",
-      "file": "10 Innsiktskart/Innsiktskartet.md",
-      "x": 430,
-      "y": 70,
-      "width": 520,
-      "height": 80,
-      "color": "#DB2777"
-    },
-    {
-      "id": "nokkeltall",
-      "type": "text",
-      "text": "**Nøkkeltall å holde i hodet**\n\n93,4 % av norske dagligvarebutikker ligger hos tre paraplykjeder.\n\nSelvforsyning: 44 %.\n\nAP-1: 32 interlockere og 11 tverrsektorielle broer.",
-      "x": 1020,
-      "y": 70,
-      "width": 520,
-      "height": 80,
-      "color": "#F59E0B"
-    },
-    {
-      "id": "ledd-1",
-      "type": "file",
-      "file": "10 Innsiktskart/Ledd/Ledd 1 – Innsatsfaktorer.md",
-      "x": 430,
-      "y": 190,
-      "width": 170,
-      "height": 70,
-      "color": "#15803D"
-    },
-    {
-      "id": "ledd-2",
-      "type": "file",
-      "file": "10 Innsiktskart/Ledd/Ledd 2 – Primærproduksjon.md",
-      "x": 620,
-      "y": 190,
-      "width": 170,
-      "height": 70,
-      "color": "#15803D"
-    },
-    {
-      "id": "ledd-3",
-      "type": "file",
-      "file": "10 Innsiktskart/Ledd/Ledd 3 – Foredling.md",
-      "x": 810,
-      "y": 190,
-      "width": 170,
-      "height": 70,
-      "color": "#15803D"
-    },
-    {
-      "id": "ledd-4",
-      "type": "file",
-      "file": "10 Innsiktskart/Ledd/Ledd 4 – Distribusjon og grossist.md",
-      "x": 1000,
-      "y": 190,
-      "width": 170,
-      "height": 70,
-      "color": "#15803D"
-    },
-    {
-      "id": "ledd-5",
-      "type": "file",
-      "file": "10 Innsiktskart/Ledd/Ledd 5 – Dagligvare og detaljhandel.md",
-      "x": 1190,
-      "y": 190,
-      "width": 170,
-      "height": 70,
-      "color": "#15803D"
-    },
-    {
-      "id": "ledd-6",
-      "type": "file",
-      "file": "10 Innsiktskart/Ledd/Ledd 6 – Horeca og storhusholdning.md",
-      "x": 1380,
-      "y": 190,
-      "width": 170,
-      "height": 70,
-      "color": "#15803D"
-    },
-    {
-      "id": "ledd-7",
-      "type": "file",
-      "file": "10 Innsiktskart/Ledd/Ledd 7 – Forbruker og husholdning.md",
-      "x": 1570,
-      "y": 190,
-      "width": 170,
-      "height": 70,
-      "color": "#15803D"
-    },
-    {
-      "id": "ledd-8",
-      "type": "file",
-      "file": "10 Innsiktskart/Ledd/Ledd 8 – Ressurssløyfe og sidestrømmer.md",
-      "x": 1760,
-      "y": 190,
-      "width": 170,
-      "height": 70,
-      "color": "#15803D"
-    },
-    {
-      "id": "i01",
-      "type": "file",
-      "file": "10 Innsiktskart/Innsikter/I01 Triopolet – 93,4 % av butikkene.md",
-      "x": 430,
-      "y": 330,
-      "width": 300,
-      "height": 70,
-      "color": "#DB2777"
-    },
-    {
-      "id": "i15",
-      "type": "file",
-      "file": "10 Innsiktskart/Innsikter/I15 Selvforsyning 44 %.md",
-      "x": 760,
-      "y": 330,
-      "width": 300,
-      "height": 70,
-      "color": "#DB2777"
-    },
-    {
-      "id": "i22",
-      "type": "file",
-      "file": "10 Innsiktskart/Innsikter/I22 Nordstad-tesen – infrastrukturkontroll.md",
-      "x": 1090,
-      "y": 330,
-      "width": 300,
-      "height": 70,
-      "color": "#DB2777"
-    },
-    {
-      "id": "i25",
-      "type": "file",
-      "file": "10 Innsiktskart/Innsikter/I25 Fem overgangsmekanismer.md",
-      "x": 1420,
-      "y": 330,
-      "width": 300,
-      "height": 70,
-      "color": "#DB2777"
-    },
-    {
-      "id": "i34",
-      "type": "file",
-      "file": "10 Innsiktskart/Innsikter/I34 Fem fokusområder gjør kartet handlingsrettet.md",
-      "x": 430,
-      "y": 460,
-      "width": 460,
-      "height": 70,
-      "color": "#DB2777"
-    },
-    {
-      "id": "fokusomrader",
-      "type": "text",
-      "text": "**Fem fokusområder**\n\n1. Markedsmakt og infrastruktur\n2. Selvforsyning og beredskap\n3. Sirkularitet og næringsstoffer\n4. Regulatoriske virkemidler\n5. Beslutningsgrunnlag før publisering",
-      "x": 940,
-      "y": 460,
-      "width": 620,
-      "height": 70,
-      "color": "#F59E0B"
-    },
-    {
-      "id": "maktkartet",
-      "type": "file",
-      "file": "11 Maktkart/Maktkartet.md",
-      "x": 430,
-      "y": 790,
-      "width": 360,
-      "height": 80,
-      "color": "#1D4ED8"
-    },
-    {
-      "id": "makt-canvas",
-      "type": "file",
-      "file": "0 Kart/Maktkart.canvas",
-      "x": 820,
-      "y": 790,
-      "width": 260,
-      "height": 80,
-      "color": "#1D4ED8"
-    },
-    {
-      "id": "i27",
-      "type": "file",
-      "file": "10 Innsiktskart/Innsikter/I27 Styreoverlappet peker på smale broer.md",
-      "x": 1110,
-      "y": 790,
-      "width": 350,
-      "height": 80,
-      "color": "#1D4ED8"
-    },
-    {
-      "id": "i31",
-      "type": "file",
-      "file": "10 Innsiktskart/Innsikter/I31 Krysseie må leses som kontrollbaner.md",
-      "x": 1490,
-      "y": 790,
-      "width": 350,
-      "height": 80,
-      "color": "#1D4ED8"
-    },
-    {
-      "id": "maktregel",
-      "type": "text",
-      "text": "**Leseregel**\n\nMakt betyr strukturell posisjon i eierskaps-, styre- og verdikjedegrafen. Det er ikke en påstand om intensjon, samordning eller ulovlighet.",
-      "x": 430,
-      "y": 910,
-      "width": 660,
-      "height": 80,
-      "color": "#1D4ED8"
-    },
-    {
-      "id": "i37",
-      "type": "file",
-      "file": "10 Innsiktskart/Innsikter/I37 Maktkartet må leses gjennom fire linser.md",
-      "x": 1120,
-      "y": 910,
-      "width": 360,
-      "height": 80,
-      "color": "#1D4ED8"
-    },
-    {
-      "id": "i38",
-      "type": "file",
-      "file": "10 Innsiktskart/Innsikter/I38 Objective-function skiller beslutning fra publisering.md",
-      "x": 1510,
-      "y": 910,
-      "width": 360,
-      "height": 80,
-      "color": "#7C3AED"
-    }
-  ],
-  "edges": [
-    {
-      "id": "e-hub-innsikt",
-      "fromNode": "hub",
-      "fromSide": "right",
-      "toNode": "innsiktskartet",
-      "toSide": "left",
-      "color": "#0F766E"
-    },
-    {
-      "id": "e-hub-kunnskapskart",
-      "fromNode": "hub",
-      "fromSide": "bottom",
-      "toNode": "kunnskapskart",
-      "toSide": "top",
-      "color": "#0F766E"
-    },
-    {
-      "id": "e-innsikt-makt",
-      "fromNode": "innsiktskartet",
-      "fromSide": "bottom",
-      "toNode": "maktkartet",
-      "toSide": "top",
-      "color": "#1D4ED8"
-    },
-    {
-      "id": "e-ledd-1-2",
-      "fromNode": "ledd-1",
-      "fromSide": "right",
-      "toNode": "ledd-2",
-      "toSide": "left",
-      "color": "#15803D"
-    },
-    {
-      "id": "e-ledd-2-3",
-      "fromNode": "ledd-2",
-      "fromSide": "right",
-      "toNode": "ledd-3",
-      "toSide": "left",
-      "color": "#15803D"
-    },
-    {
-      "id": "e-ledd-3-4",
-      "fromNode": "ledd-3",
-      "fromSide": "right",
-      "toNode": "ledd-4",
-      "toSide": "left",
-      "color": "#15803D"
-    },
-    {
-      "id": "e-ledd-4-5",
-      "fromNode": "ledd-4",
-      "fromSide": "right",
-      "toNode": "ledd-5",
-      "toSide": "left",
-      "color": "#15803D"
-    },
-    {
-      "id": "e-ledd-5-6",
-      "fromNode": "ledd-5",
-      "fromSide": "right",
-      "toNode": "ledd-6",
-      "toSide": "left",
-      "color": "#15803D"
-    },
-    {
-      "id": "e-ledd-6-7",
-      "fromNode": "ledd-6",
-      "fromSide": "right",
-      "toNode": "ledd-7",
-      "toSide": "left",
-      "color": "#15803D"
-    },
-    {
-      "id": "e-ledd-7-8",
-      "fromNode": "ledd-7",
-      "fromSide": "right",
-      "toNode": "ledd-8",
-      "toSide": "left",
-      "color": "#15803D"
-    },
-    {
-      "id": "e-i01-ledd-5",
-      "fromNode": "i01",
-      "fromSide": "top",
-      "toNode": "ledd-5",
-      "toSide": "bottom",
-      "color": "#DB2777"
-    },
-    {
-      "id": "e-i15-ledd-2",
-      "fromNode": "i15",
-      "fromSide": "top",
-      "toNode": "ledd-2",
-      "toSide": "bottom",
-      "color": "#DB2777"
-    },
-    {
-      "id": "e-i22-ledd-4",
-      "fromNode": "i22",
-      "fromSide": "top",
-      "toNode": "ledd-4",
-      "toSide": "bottom",
-      "color": "#DB2777"
-    },
-    {
-      "id": "e-i25-i34",
-      "fromNode": "i25",
-      "fromSide": "bottom",
-      "toNode": "i34",
-      "toSide": "right",
-      "color": "#DB2777"
-    },
-    {
-      "id": "e-i34-fokus",
-      "fromNode": "i34",
-      "fromSide": "right",
-      "toNode": "fokusomrader",
-      "toSide": "left",
-      "color": "#F59E0B"
-    },
-    {
-      "id": "e-makt-canvas",
-      "fromNode": "maktkartet",
-      "fromSide": "right",
-      "toNode": "makt-canvas",
-      "toSide": "left",
-      "color": "#1D4ED8"
-    },
-    {
-      "id": "e-makt-i27",
-      "fromNode": "maktkartet",
-      "fromSide": "right",
-      "toNode": "i27",
-      "toSide": "left",
-      "color": "#1D4ED8"
-    },
-    {
-      "id": "e-i27-i31",
-      "fromNode": "i27",
-      "fromSide": "right",
-      "toNode": "i31",
-      "toSide": "left",
-      "color": "#1D4ED8"
-    },
-    {
-      "id": "e-maktregel-i37",
-      "fromNode": "maktregel",
-      "fromSide": "right",
-      "toNode": "i37",
-      "toSide": "left",
-      "color": "#1D4ED8"
-    },
-    {
-      "id": "e-i37-i38",
-      "fromNode": "i37",
-      "fromSide": "right",
-      "toNode": "i38",
-      "toSide": "left",
-      "color": "#7C3AED"
-    }
-  ]
+	"nodes":[
+		{"id":"grp-arkiv","type":"group","label":"Arkivlaget — finn riktig del av kunnskapsbasen","x":0,"y":0,"width":340,"height":360},
+		{"id":"grp-innsikt","type":"group","label":"Innsiktslaget — hva kartet sier om matsystemet","x":400,"y":0,"width":1600,"height":660},
+		{"id":"grp-makt","type":"group","label":"Maktlaget — strukturell posisjon, eierskap og styreoverlapp","x":400,"y":720,"width":1600,"height":320},
+		{"id":"hub","type":"file","file":"0 Kart/HUB – Kunnskapsdatabasen.md","x":30,"y":70,"width":280,"height":80,"color":"#0F766E"},
+		{"id":"kunnskapskart","type":"file","file":"0 Kart/Kunnskapskart.canvas","x":30,"y":180,"width":280,"height":70,"color":"#0F766E"},
+		{"id":"arkivregel","type":"text","text":"**Bruk arkivlaget når du leter.**\n\nHUB-en samler klynger, datagrunnlag, bibliotek og repo-lag. Ikke start her når du bare trenger fortellingen.","x":30,"y":275,"width":280,"height":60,"color":"#0F766E"},
+		{"id":"innsiktskartet","type":"file","file":"10 Innsiktskart/Innsiktskartet.md","x":430,"y":70,"width":520,"height":80,"color":"#DB2777"},
+		{"id":"nokkeltall","type":"text","text":"**Nøkkeltall å holde i hodet**\n\n93,4 % av norske dagligvarebutikker ligger hos tre paraplykjeder.\n\nSelvforsyning: 44 %.\n\nAP-1: 32 interlockere og 11 tverrsektorielle broer.","x":1020,"y":70,"width":520,"height":80,"color":"#F59E0B"},
+		{"id":"ledd-1","type":"file","file":"10 Innsiktskart/Ledd/Ledd 1 – Innsatsfaktorer.md","x":430,"y":190,"width":170,"height":70,"color":"#15803D"},
+		{"id":"ledd-2","type":"file","file":"10 Innsiktskart/Ledd/Ledd 2 – Primærproduksjon.md","x":620,"y":190,"width":170,"height":70,"color":"#15803D"},
+		{"id":"ledd-3","type":"file","file":"10 Innsiktskart/Ledd/Ledd 3 – Foredling.md","x":810,"y":190,"width":170,"height":70,"color":"#15803D"},
+		{"id":"ledd-4","type":"file","file":"10 Innsiktskart/Ledd/Ledd 4 – Distribusjon og grossist.md","x":1000,"y":190,"width":170,"height":70,"color":"#15803D"},
+		{"id":"ledd-5","type":"file","file":"10 Innsiktskart/Ledd/Ledd 5 – Dagligvare og detaljhandel.md","x":1190,"y":190,"width":170,"height":70,"color":"#15803D"},
+		{"id":"ledd-6","type":"file","file":"10 Innsiktskart/Ledd/Ledd 6 – Horeca og storhusholdning.md","x":1380,"y":190,"width":170,"height":70,"color":"#15803D"},
+		{"id":"ledd-7","type":"file","file":"10 Innsiktskart/Ledd/Ledd 7 – Forbruker og husholdning.md","x":1570,"y":190,"width":170,"height":70,"color":"#15803D"},
+		{"id":"ledd-8","type":"file","file":"10 Innsiktskart/Ledd/Ledd 8 – Ressurssløyfe og sidestrømmer.md","x":1760,"y":190,"width":170,"height":70,"color":"#15803D"},
+		{"id":"i01","type":"file","file":"10 Innsiktskart/Innsikter/I01 Triopolet – 93,4 % av butikkene.md","x":430,"y":330,"width":300,"height":70,"color":"#DB2777"},
+		{"id":"i15","type":"file","file":"10 Innsiktskart/Innsikter/I15 Selvforsyning 44 %.md","x":760,"y":330,"width":300,"height":70,"color":"#DB2777"},
+		{"id":"i22","type":"file","file":"10 Innsiktskart/Innsikter/I22 Nordstad-tesen – infrastrukturkontroll.md","x":1090,"y":330,"width":300,"height":70,"color":"#DB2777"},
+		{"id":"i25","type":"file","file":"10 Innsiktskart/Innsikter/I25 Fem overgangsmekanismer.md","x":1420,"y":330,"width":300,"height":70,"color":"#DB2777"},
+		{"id":"i34","type":"file","file":"10 Innsiktskart/Innsikter/I34 Fem fokusområder gjør kartet handlingsrettet.md","x":430,"y":460,"width":460,"height":70,"color":"#DB2777"},
+		{"id":"fokusomrader","type":"text","text":"**Fem fokusområder**\n\n1. Markedsmakt og infrastruktur\n2. Selvforsyning og beredskap\n3. Sirkularitet og næringsstoffer\n4. Regulatoriske virkemidler\n5. Beslutningsgrunnlag før publisering","x":940,"y":460,"width":620,"height":70,"color":"#F59E0B"},
+		{"id":"maktkartet","type":"file","file":"11 Maktkart/Maktkartet.md","x":430,"y":790,"width":360,"height":80,"color":"#1D4ED8"},
+		{"id":"makt-canvas","type":"file","file":"0 Kart/Maktkart.canvas","x":820,"y":790,"width":260,"height":80,"color":"#1D4ED8"},
+		{"id":"i27","type":"file","file":"10 Innsiktskart/Innsikter/I27 Styreoverlappet peker på smale broer.md","x":1110,"y":790,"width":350,"height":80,"color":"#1D4ED8"},
+		{"id":"i31","type":"file","file":"10 Innsiktskart/Innsikter/I31 Krysseie må leses som kontrollbaner.md","x":1490,"y":790,"width":350,"height":80,"color":"#1D4ED8"},
+		{"id":"maktregel","type":"text","text":"**Leseregel**\n\nMakt betyr strukturell posisjon i eierskaps-, styre- og verdikjedegrafen. Det er ikke en påstand om intensjon, samordning eller ulovlighet.","x":430,"y":910,"width":660,"height":80,"color":"#1D4ED8"},
+		{"id":"i37","type":"file","file":"10 Innsiktskart/Innsikter/I37 Maktkartet må leses gjennom fire linser.md","x":1120,"y":910,"width":360,"height":80,"color":"#1D4ED8"},
+		{"id":"i38","type":"file","file":"10 Innsiktskart/Innsikter/I38 Objective-function skiller beslutning fra publisering.md","x":1510,"y":910,"width":360,"height":80,"color":"#7C3AED"}
+	],
+	"edges":[
+		{"id":"e-hub-innsikt","fromNode":"hub","fromSide":"right","toNode":"innsiktskartet","toSide":"left","color":"#0F766E"},
+		{"id":"e-hub-kunnskapskart","fromNode":"hub","fromSide":"bottom","toNode":"kunnskapskart","toSide":"top","color":"#0F766E"},
+		{"id":"e-innsikt-makt","fromNode":"innsiktskartet","fromSide":"bottom","toNode":"maktkartet","toSide":"top","color":"#1D4ED8"},
+		{"id":"e-ledd-1-2","fromNode":"ledd-1","fromSide":"right","toNode":"ledd-2","toSide":"left","color":"#15803D"},
+		{"id":"e-ledd-2-3","fromNode":"ledd-2","fromSide":"right","toNode":"ledd-3","toSide":"left","color":"#15803D"},
+		{"id":"e-ledd-3-4","fromNode":"ledd-3","fromSide":"right","toNode":"ledd-4","toSide":"left","color":"#15803D"},
+		{"id":"e-ledd-4-5","fromNode":"ledd-4","fromSide":"right","toNode":"ledd-5","toSide":"left","color":"#15803D"},
+		{"id":"e-ledd-5-6","fromNode":"ledd-5","fromSide":"right","toNode":"ledd-6","toSide":"left","color":"#15803D"},
+		{"id":"e-ledd-6-7","fromNode":"ledd-6","fromSide":"right","toNode":"ledd-7","toSide":"left","color":"#15803D"},
+		{"id":"e-ledd-7-8","fromNode":"ledd-7","fromSide":"right","toNode":"ledd-8","toSide":"left","color":"#15803D"},
+		{"id":"e-i01-ledd-5","fromNode":"i01","fromSide":"top","toNode":"ledd-5","toSide":"bottom","color":"#DB2777"},
+		{"id":"e-i15-ledd-2","fromNode":"i15","fromSide":"top","toNode":"ledd-2","toSide":"bottom","color":"#DB2777"},
+		{"id":"e-i22-ledd-4","fromNode":"i22","fromSide":"top","toNode":"ledd-4","toSide":"bottom","color":"#DB2777"},
+		{"id":"e-i25-i34","fromNode":"i25","fromSide":"bottom","toNode":"i34","toSide":"right","color":"#DB2777"},
+		{"id":"e-i34-fokus","fromNode":"i34","fromSide":"right","toNode":"fokusomrader","toSide":"left","color":"#F59E0B"},
+		{"id":"e-makt-canvas","fromNode":"maktkartet","fromSide":"right","toNode":"makt-canvas","toSide":"left","color":"#1D4ED8"},
+		{"id":"e-makt-i27","fromNode":"maktkartet","fromSide":"right","toNode":"i27","toSide":"left","color":"#1D4ED8"},
+		{"id":"e-i27-i31","fromNode":"i27","fromSide":"right","toNode":"i31","toSide":"left","color":"#1D4ED8"},
+		{"id":"e-maktregel-i37","fromNode":"maktregel","fromSide":"right","toNode":"i37","toSide":"left","color":"#1D4ED8"},
+		{"id":"e-i37-i38","fromNode":"i37","fromSide":"right","toNode":"i38","toSide":"left","color":"#7C3AED"}
+	]
 }

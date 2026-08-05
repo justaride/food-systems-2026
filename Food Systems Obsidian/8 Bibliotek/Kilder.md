@@ -12,6 +12,8 @@ siterbarhet: intern
 
 Dokumenter og referanser — siterbarhet og kildehelse.
 
+Start i [[Kildekartet]] for å følge en analyse fra feltkart og innsikt til original fil, datasett eller primærkilde.
+
 ## Datagrunnlag i repoet
 
 - `research/CITABLE-KNOWLEDGE-BASE-STATUS.md` — operativ status for siterbar kunnskapsbase
@@ -22,6 +24,7 @@ Dokumenter og referanser — siterbarhet og kildehelse.
 
 - [[Mandat]]
 - [[Rapporter]]
+- [[Kildekartet]]
 ## Notater
 
 _Utvikles gjennom prosjektet._

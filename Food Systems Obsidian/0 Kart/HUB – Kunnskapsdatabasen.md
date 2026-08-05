@@ -9,22 +9,32 @@ siterbarhet: intern
 
 HUB-en er arkiv- og navigasjonslaget i arbeidskartet. Bruk den når du trenger å finne riktig del av kunnskapsbasen, ikke når du skal lese en ferdig fortelling. For analysearbeid starter du ofte raskere i [[Innsiktskartet]] eller [[Maktkartet]].
 
-Visuelt kart: [[Oversiktskart.canvas|Oversiktskart]] · Arkiv: [[Kunnskapskart.canvas|Kunnskapskart]] · Innsikt: [[Innsiktskartet]] · Makt: [[Maktkartet]]
+Faglig atlas: [[Matsystemets kunnskapsatlas.canvas|Matsystemets kunnskapsatlas]] · Felt: [[Feltkart – kunnskapsbasen]] · Arkiv: [[Kunnskapskart.canvas|Kunnskapskart]] · Innsikt: [[Innsiktskartet]] · Makt: [[Maktkartet]] · Evidens: [[Kildekartet]]
 
 ## Nøkkeltall
 
 - **8** tematiske klynger · **35** seksjoner
 - **13** konsern med full eierskaps-/styredekning
 - **3 849** butikker · **1 782** havbrukslokaliteter · **357** kommuner
-- Markedskonsentrasjon dagligvare: NorgesGruppen **48,4 %** · Coop **27,1 %** · Reitan **18,0 %** · Bunnpris **6,6 %** (HHI 3 445)
+- Dagligvarekonsentrasjon: kontrollert omsetnings-HHI **3 327** og CR3 **96,6 %** (Konkurransetilsynet, 2024). Butikkandeler og omsetningsandeler er ulike serier og skal ikke blandes.
 - **~1 229** forskningsdokumenter · **23** strukturerte datasett
 
 ## Når bruker du hva?
 
-- **Orientering:** start i [[Oversiktskart.canvas|Oversiktskart]]; bruk denne HUB-en og [[Kunnskapskart.canvas|Kunnskapskart]] når du skal finne arkivlaget.
-- **Analyse:** bruk [[Innsiktskartet]], [[Maktkartet]], [[Eierskapsregisteret]] og [[Gap-register]].
-- **Arbeidskø:** bruk [[Gap-register]] og `docs/project/plans/obsidian-next-backlog-2026-07-04.md` for neste små PR-er.
-- **Ekstern bruk:** gå alltid via [[Kilder]] og claim-lock før tall eller aktørclaims løftes ut.
+- **Faglig orientering:** start i [[Matsystemets kunnskapsatlas.canvas|Matsystemets kunnskapsatlas]] og velg felt i [[Feltkart – kunnskapsbasen]].
+- **Arkivtopologi:** bruk denne HUB-en, [[Oversiktskart.canvas|Oversiktskart]] og [[Kunnskapskart.canvas|Kunnskapskart]] når du skal finne repo- og applikasjonslag.
+- **Analyse:** bruk [[Innsiktskartet]], [[Innsiktsregister]], [[Maktkartet]] og [[Eierskapsregisteret]].
+- **Evidens:** gå via [[Kildekartet]] og originalkilden; kart og registre er ikke bevis i seg selv.
+- **Arbeidskø:** bruk [[Arbeidskø – ferdigstilling]], [[Gap-register]] og det kanoniske completion-registeret.
+- **Ekstern bruk:** sjekk alltid siterbarhet, ferskhet og riktig claim-gate før formuleringer løftes ut.
+
+## Fra spørsmål til kunnskap
+
+1. Velg fagfelt i [[Feltkart – kunnskapsbasen]].
+2. Les feltets syntese, avgrensninger og sterkeste artefakter.
+3. Gå til [[Innsiktsregister]], [[Aktørregister]] eller det relevante temaregisteret.
+4. Følg [[Kildekartet]] til original fil, datasett eller primærkilde.
+5. Sjekk [[Kunnskapsstatus]] og riktig gate før materialet brukes videre.
 
 ## Klynger
 
@@ -83,11 +93,11 @@ Visuelt kart: [[Oversiktskart.canvas|Oversiktskart]] · Arkiv: [[Kunnskapskart.c
 ## Slik brukes kartet
 
 - **Graph view:** bruk mapper og farger til å se mønster; grafen er et kuratert utsnitt, ikke fasit.
-- **Canvas:** bruk `Kunnskapskart`, `Verdikjedekart` og `Maktkart` som samtaleflater, ikke som publiserbart bevis.
+- **Canvas:** bruk `Matsystemets kunnskapsatlas`, `Kunnskapskart`, `Verdikjedekart` og `Maktkart` som samtaleflater, ikke som publiserbart bevis.
 - **Noder:** les hver node som arbeidsobjekt eller kobling til kilde, ikke som ferdig claim.
 - **Notater:** menneskelig tekst skal legges under `## Notater`; `vault:sync` skal bevare den.
 - **Kildekontroll:** kildelag og siterbarhet avgjør hva som kan brukes utenfor intern arbeidsflate.
-- **Videre utbygging:** `docs/project/plans/obsidian-next-backlog-2026-07-04.md`.
+- **Videre arbeid:** [[Arbeidskø – ferdigstilling]] og `docs/project/status/food-systems-completion-register-2026-07-15.md`.
 
 ## Dynamiske oversikter
 

@@ -24,6 +24,15 @@
   color: #334155;
 }
 
+.metadata-property[data-property-key="tema"] .metadata-property-value,
+.metadata-property[data-property-key="oppdatert"] .metadata-property-value {
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.86em;
+  background: rgba(45, 111, 142, 0.12);
+  color: #245b75;
+}
+
 .tag[href="#innsikt"],
 .tag[href="#loop"],
 .tag[href="#gap"],

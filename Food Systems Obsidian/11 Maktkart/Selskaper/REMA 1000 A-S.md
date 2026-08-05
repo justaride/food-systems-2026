@@ -20,6 +20,11 @@ tier: kjerne
 - NACE: ukjent
 - Research-konstrukt: nei
 
+## Styregraf (AP-1)
+
+- Interlock-grad i styregrafen: **8** · sektor: `retail`
+- Kilde: `research/analyse/ap1-styreoverlapp-active-only.json` / [[Prisma-database]]
+
 ## Eierskap
 
 - Eier: [[Reitan Retail AS]] — 100 % (subsidiary)

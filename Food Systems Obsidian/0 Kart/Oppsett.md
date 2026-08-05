@@ -63,6 +63,7 @@ SORT file.name ASC
 
 ## Temacanvas
 
+- [[Matsystemets kunnskapsatlas.canvas|Matsystemets kunnskapsatlas]]
 - [[Sirkularitet.canvas|Sirkularitet]]
 - [[Norden.canvas|Norden]]
 
@@ -81,7 +82,7 @@ SORT file.name ASC
 
 ## Visnings-QA
 
-- Åpne `0 Kart/Oversiktskart.canvas`, `0 Kart/Kunnskapskart.canvas`, `0 Kart/Verdikjedekart.canvas`, `0 Kart/Maktkart.canvas`, `0 Kart/Temakart/Sirkularitet.canvas` og `0 Kart/Temakart/Norden.canvas` i Obsidian før møtebruk.
+- Åpne `0 Kart/Matsystemets kunnskapsatlas.canvas`, `0 Kart/Oversiktskart.canvas`, `0 Kart/Kunnskapskart.canvas`, `0 Kart/Verdikjedekart.canvas`, `0 Kart/Maktkart.canvas`, `0 Kart/Temakart/Sirkularitet.canvas` og `0 Kart/Temakart/Norden.canvas` i Obsidian før møtebruk.
 - Sjekk projektorlesbarhet: tekststørrelse, overlapp, kantkryss og om første blikk forklarer kartets historie uten muntlig omvei.
 - Stresstest konsernvisningen med `0 Kart/Konsern/NorgesGruppen ASA.canvas`.
 - Noter godkjent, justert eller parkert visning i VK-5-protokollen; Codex kan ikke lukke M3 uten denne skjermbildegjennomgangen.

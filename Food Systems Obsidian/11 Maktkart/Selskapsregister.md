@@ -124,7 +124,6 @@ siterbarhet: intern
 - [[Cultivate Food AS]] — retail · private · NO-CULTIVATE
 - [[Dagab Inköp & Logistik AB]] — logistics · listed · SE-556004-7903
 - [[Dagrofa A-S (DK-38714295)|Dagrofa A/S]] — retail · private · DK-38714295
-- [[Dagrofa A-S (DK-DAGROFA)|Dagrofa A/S]] — wholesale · family · DK-DAGROFA
 - [[Dansk Cater A-S|Dansk Cater A/S]] — wholesale · listed · DK-DANSKCATER
 - [[DEBIO MARKED AS]] — ukjent · AS · 915190715
 - [[Deli de Luca Norge AS]] — retail · family · 985402779

@@ -9,7 +9,7 @@ siterbarhet: intern
 
 > Innsiktslaget · Søsterkart til [[HUB – Kunnskapsdatabasen]] og [[Maktkartet]]
 
-Innsiktskartet er arbeidsflaten for hva vi mener vi vet, hva som fortsatt er gap, og hva som bare er internt beslutningsgrunnlag. Verdikjeden er ryggraden; innsikter, looper, gaps og maktlaget henger på den. Visuelt kart: [[Verdikjedekart.canvas|Verdikjedekart]].
+Innsiktskartet er arbeidsflaten for hva vi mener vi vet, hva som fortsatt er gap, og hva som bare er internt beslutningsgrunnlag. Verdikjeden er ryggraden; innsikter, looper, gaps og maktlaget henger på den. For faglig kontekst, start i [[Feltkart – kunnskapsbasen]]. Visuelt detaljkart: [[Verdikjedekart.canvas|Verdikjedekart]].
 
 > ⚠️ **Internt arbeidskart.** Tall og claims er gjengitt fra research-syntesen (`narrativ-struktur.md` m.fl.). Ekstern bruk krever claim-lock og siterbarhets-gate — se [[Kilder]].
 
@@ -73,9 +73,11 @@ Disse notene er interne arbeidsnoder. De er valgt fordi de gjør kartet mer bruk
 
 ## Aktører
 
+Samlet register: [[Aktørregister]].
+
 **Konsern:** [[NorgesGruppen]] · [[ASKO]] · [[Reitan Retail]] · [[Coop Norge]] · [[Orkla]] · [[TINE]] · [[Nortura]] · [[Felleskjøpet Agri]] · [[BAMA]] · [[Mowi]] · [[Lerøy Seafood]] · [[SalMar]] · [[Austevoll Seafood]] · [[Bunnpris]]
 
-**Eiere:** [[Joh. Johannson-familien]] · [[Reitan-familien]] · [[Møgster-familien (Laco)]] · [[Gustav Witzøe]] · [[Stein Erik Hagen (Canica)]] · [[John Fredriksen]]
+**Eiere:** [[Joh. Johannson-familien]] · [[Reitan-familien]] · [[Møgster-familien (Laco)]] · [[10 Innsiktskart/Aktører/Gustav Witzøe|Gustav Witzøe]] · [[Stein Erik Hagen (Canica)]] · [[John Fredriksen]]
 
 **Regulatorer:** [[Konkurransetilsynet]] · [[Dagligvaretilsynet]] · [[Riksrevisjonen]]
 
@@ -98,6 +100,8 @@ Disse notene er interne arbeidsnoder. De er valgt fordi de gjør kartet mer bruk
 - Gaps med få lenker ligger løst i utkanten — hullene i sirkulariteten er bokstavelig talt synlige.
 
 ## Dynamiske oversikter
+
+Samlet innsiktsinngang: [[Innsiktsregister]].
 
 ### Innsikter
 

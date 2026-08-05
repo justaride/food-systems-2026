@@ -51,7 +51,7 @@ siterbarhet: intern
 - [[Finn Rune Kristiansen]] — 3 verv
 - [[Finn Torstein Dybvik]] — 3 verv
 - [[Geir Alsaker]] — 3 verv
-- [[Gustav Witzøe]] — 3 verv
+- [[11 Maktkart/Personer/Register/Gustav Witzøe|Gustav Witzøe]] — 3 verv
 - [[Helge Singelstad]] — 3 verv
 - [[Henning Kolbjørn Beltestad]] — 3 verv
 - [[Hilde Christin Talseth]] — 3 verv

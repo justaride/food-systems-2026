@@ -9,7 +9,7 @@ siterbarhet: intern
 
 > Maktlaget · Søsterkart til [[Innsiktskartet]] og [[HUB – Kunnskapsdatabasen]]
 
-Maktkartet er arbeidsflaten for strukturell posisjon: selskaper, eierskap, konserntrær, styreoverlapp og hvilke deler av verdikjeden de berører. Bruk det til å finne mønstre og spørsmål, ikke til å konkludere om intensjon. Visuelt kart: [[Maktkart.canvas|Maktkart]].
+Maktkartet er arbeidsflaten for strukturell posisjon: selskaper, eierskap, konserntrær, styreoverlapp og hvilke deler av verdikjeden de berører. Bruk det til å finne mønstre og spørsmål, ikke til å konkludere om intensjon. Faglig kontekst: [[Feltkart – kunnskapsbasen]]. Evidensvei: [[Kildekartet]]. Visuelt kart: [[Maktkart.canvas|Maktkart]].
 
 ⚠️ _Bruksregel (fra AP-1): «makt» betyr strukturell posisjon i styregrafen, ikke intensjon, samordning eller ulovlighet. Personnavn er offentlige rolledata, men aktørspesifikke formuleringer går gjennom claim-lock/PCQ før ekstern bruk._
 
