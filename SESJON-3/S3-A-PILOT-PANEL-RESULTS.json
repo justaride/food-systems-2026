@@ -1,0 +1,702 @@
+[
+  {
+    "identityKey": "document:cmp8xyo0u00j3vvvm6ybb351j",
+    "index": 1,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xyo0u00j3vvvm6ybb351j",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "Published DLF material reporting parliamentary and government positions on enforcement of the Norwegian Grocery Act, including linked institutional references and attributed statements from DLF leadership. It documents external policy developments and stakeholder claims rather than synthesizing the corpus, controlling operations, or projecting future outcomes.",
+        "agentId": "s3a-01-reader-1"
+      },
+      {
+        "identityKey": "document:cmp8xyo0u00j3vvvm6ybb351j",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The document is a dated DLF publication reporting proposed changes to Dagligvaretilsynet, parliamentary handling, hearing input, stakeholder quotations, and linked governmental and Storting sources. It preserves an external actor’s claims and positions as source material rather than synthesizing the corpus, directing operations, or projecting future scenarios.",
+        "agentId": "s3a-01-reader-2"
+      },
+      {
+        "identityKey": "document:cmp8xyo0u00j3vvvm6ybb351j",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The document is an extracted DLF article reporting external legislative and parliamentary developments concerning Dagligvaretilsynet, Konkurransetilsynet, and proposed changes to the law on good trading practices. It contains dated factual claims, links to official sources, and attributed statements, making it source evidence rather than an internal synthesis, operational control, or projection.",
+        "agentId": "s3a-01-reader-3"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xyo1t00j8vvvmih6v0r3c",
+    "index": 2,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xyo1t00j8vvvmih6v0r3c",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The source is a dated institutional report with publication metadata, a direct URL, quantitative production and mortality figures, and area-specific environmental risk assessments. It presents externally attributable findings rather than an internal synthesis, operational control, or generated projection.",
+        "agentId": "s3a-02-reader-1"
+      },
+      {
+        "identityKey": "document:cmp8xyo1t00j8vvvmih6v0r3c",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The source is a dated institutional report with publication metadata, URL, quantified production and mortality figures, and area-specific environmental risk assessments. It presents externally attributable observations and findings rather than an internally authored synthesis, operational control, or projection.",
+        "agentId": "s3a-02-reader-3"
+      },
+      {
+        "identityKey": "document:cmp8xyo1t00j8vvvmih6v0r3c",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "This is a dated, externally published research report from Havforskningsinstituttet presenting observed production, mortality, disease, environmental-risk, and export figures for Norwegian aquaculture, with source metadata and URL. It reports empirical findings and assessments rather than internal synthesis, operational instructions, or projected scenarios.",
+        "agentId": "s3a-02-reader-2"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xynkh00ibvvvmzl1ssn1k",
+    "index": 3,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xynkh00ibvvvmzl1ssn1k",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The source contains only a title and DiVA Portal search-interface text describing the repository and its navigation. It provides no substantive research findings, internal synthesis, operational instructions, or generated projections, so its corpus role cannot be identified beyond unknown.",
+        "agentId": "s3a-03-reader-3"
+      },
+      {
+        "identityKey": "document:cmp8xynkh00ibvvvmzl1ssn1k",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The source is a DiVA Portal search/interface page containing a publication-title reference but no substantive study findings, synthesis, operational instructions, or projections. Its role cannot be classified as evidentiary content from the material provided.",
+        "agentId": "s3a-03-reader-1"
+      },
+      {
+        "identityKey": "document:cmp8xynkh00ibvvvmzl1ssn1k",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The source contains only a title, a DiVA repository URL, and generic portal interface text. It provides no study content, authorship, methods, findings, synthesis, operational instructions, or projected outputs sufficient to assign another role.",
+        "agentId": "s3a-03-reader-2"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xyo1200j4vvvmmu4jtrfh",
+    "index": 4,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xyo1200j4vvvmmu4jtrfh",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The content is a direct capture of the Forbrukerrådet website, identified by its source URL, containing the organization’s published mission, consumer guidance, policy areas, reports, and news. It is externally sourced material rather than an internal synthesis, operational control, or generated projection.",
+        "agentId": "s3a-04-reader-2"
+      },
+      {
+        "identityKey": "document:cmp8xyo1200j4vvvmmu4jtrfh",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The source is a publicly published Forbrukerrådet webpage containing the organization’s own stated mandate, policy areas, consumer guidance, and food-related advocacy. It is direct external source material rather than an internal synthesis, operational control, or generated projection.",
+        "agentId": "s3a-04-reader-3"
+      },
+      {
+        "identityKey": "document:cmp8xyo1200j4vvvmmu4jtrfh",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The content is a direct capture of the external Forbrukerrådet website, including its navigation, policy areas, public news items, and consumer guidance. It is source material attributable to an external organization, not an internally authored synthesis, operational procedure, forecast, or generated projection.",
+        "agentId": "s3a-04-reader-1"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xyoa500jyvvvm176c9i0n",
+    "index": 5,
+    "unanimous": false,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xyoa500jyvvvm176c9i0n",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The content is a direct capture of the official Finnish Competition and Consumer Authority (KKV) website, presenting institutional information and links to public competition decisions. It contains no internal synthesis, operational instructions, or generated forecasts. Although the captured body does not include the named merger decision itself, the artifact is clearly external source material.",
+        "agentId": "s3a-05-reader-1"
+      },
+      {
+        "identityKey": "document:cmp8xyoa500jyvvvm176c9i0n",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The file is a scraped KKV website homepage containing general navigation, consumer-service information, and current 2026 notices. It does not provide substantive evidence about the titled 2017 SOK/Stockmann Delicatessen merger, nor does it represent an internal synthesis, operational control, or generated projection.",
+        "agentId": "s3a-05-reader-2"
+      },
+      {
+        "identityKey": "document:cmp8xyoa500jyvvvm176c9i0n",
+        "proposedRole": "primary_evidence",
+        "confidence": "medium",
+        "reasoning": "The source is attributed to Finland’s official Competition and Consumer Authority and presents institutional website content concerning competition matters, mergers, and decisions. It is externally sourced material rather than an internal synthesis, operational instruction, or projection. Confidence is medium because the captured text is mostly generic KKV homepage content and does not include substantive details of the stated 2017 merger approval.",
+        "agentId": "s3a-05-reader-3"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xyoss00kqvvvmy16yr3lf",
+    "index": 6,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xyoss00kqvvvmy16yr3lf",
+        "proposedRole": "primary_evidence",
+        "confidence": "medium",
+        "reasoning": "This is an official Regjeringen.no government publication identified by title, institution, date, and canonical source URL, presenting externally attributable information about Norway’s emergency grain-stock preparedness. The captured snapshot is incomplete and largely contains site navigation, so confidence is medium rather than high.",
+        "agentId": "s3a-06-reader-2"
+      },
+      {
+        "identityKey": "document:cmp8xyoss00kqvvvmy16yr3lf",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "Dette er en datert, offentlig regjering.no-nyhetsmelding fra Landbruks- og matdepartementet som dokumenterer avtaler, aktører, volum, kontraktsvilkår og planlagt oppbygging av nasjonalt beredskapslager for matkorn.",
+        "agentId": "s3a-06-reader-3"
+      },
+      {
+        "identityKey": "document:cmp8xyoss00kqvvvmy16yr3lf",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "This is an official, dated Regjeringen.no news article from the Ministry of Agriculture and Food reporting signed contracts, named commercial storage operators, quantities, contract duration, budget authority, and the planned national grain-reserve build-up. It presents externally attributable factual source material rather than an internal synthesis, operational instruction, or projection.",
+        "agentId": "s3a-06-reader-1"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xypc500luvvvme9ehlnlr",
+    "index": 7,
+    "unanimous": false,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xypc500luvvvme9ehlnlr",
+        "proposedRole": "operational_control",
+        "confidence": "high",
+        "reasoning": "The file is explicitly a locator stub and source-status record, not the actual annual report or claim evidence. It documents validation corrections, provenance, access limitations, and the required next action to obtain the 2024 report from Bolagsverket or a paid source, which makes its primary function operational control.",
+        "agentId": "s3a-07-reader-3"
+      },
+      {
+        "identityKey": "document:cmp8xypc500luvvvme9ehlnlr",
+        "proposedRole": "internal_synthesis",
+        "confidence": "high",
+        "reasoning": "The document is explicitly a locator stub and source-status synthesis: it contains no captured annual report or accounting figures, corrects the company registration number using multiple registry checks, summarizes source availability, and recommends obtaining the actual 2024 report elsewhere. It is therefore an internal assessment of evidence provenance and limitations, not primary evidence.",
+        "agentId": "s3a-07-reader-1"
+      },
+      {
+        "identityKey": "document:cmp8xypc500luvvvme9ehlnlr",
+        "proposedRole": "operational_control",
+        "confidence": "high",
+        "reasoning": "The document is explicitly a locator stub and source-status record, not the underlying 2024 annual report or claim evidence. It records validation outcomes, identifies a corrected organization number, documents source limitations, and instructs that the actual report must be obtained from an authoritative or paid source before use.",
+        "agentId": "s3a-07-reader-2"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xyphg00mcvvvmijn8rqaq",
+    "index": 8,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xyphg00mcvvvmijn8rqaq",
+        "proposedRole": "operational_control",
+        "confidence": "high",
+        "reasoning": "The source is an internal status and handling note governing corpus treatment: it documents registry validation, explicitly prohibits using the locator or 2023 claims as external evidence, and instructs replacement with an authoritative full-text source before reassessment. Its primary function is procedural control, not synthesis or primary evidence.",
+        "agentId": "s3a-08-reader-2"
+      },
+      {
+        "identityKey": "document:cmp8xyphg00mcvvvmijn8rqaq",
+        "proposedRole": "operational_control",
+        "confidence": "high",
+        "reasoning": "This is an internal source-status and handling note, not the underlying 2023 annual report. It records validation results, explicitly prohibits using the stub as claim evidence, preserves it as metadata, and specifies retrieval and replacement steps if primary financial evidence is required.",
+        "agentId": "s3a-08-reader-3"
+      },
+      {
+        "identityKey": "document:cmp8xyphg00mcvvvmijn8rqaq",
+        "proposedRole": "operational_control",
+        "confidence": "high",
+        "reasoning": "The document is a source-access and registry-validation control note, not the underlying 2023 annual report. It explicitly instructs that the item must not support claims, should remain internal metadata, and must be replaced with an authoritative full-text or PDF source before renewed claim assessment.",
+        "agentId": "s3a-08-reader-1"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xypli00mqvvvm4fitldcu",
+    "index": 9,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xypli00mqvvvm4fitldcu",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The content is an official Stortinget publication page identifying Innst. 130 S (2025-2026), with a direct stortinget.no source. It is externally issued parliamentary material, not an internal synthesis, operational control, projection, or generated artifact.",
+        "agentId": "s3a-09-reader-2"
+      },
+      {
+        "identityKey": "document:cmp8xypli00mqvvvm4fitldcu",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The source is a captured Stortinget.no publication webpage containing an official document title, source URL, and governmental site content. It is externally sourced material rather than an internal synthesis, operational instruction, or generated projection.",
+        "agentId": "s3a-09-reader-3"
+      },
+      {
+        "identityKey": "document:cmp8xypli00mqvvvm4fitldcu",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The source is a captured page from the official Stortinget website identifying Innst. 130 S (2025-2026) and listing parliamentary publication materials. It is externally sourced institutional evidence, not an internal synthesis, operational instruction, or generated projection.",
+        "agentId": "s3a-09-reader-1"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xypls00mrvvvm0nfay2x7",
+    "index": 10,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xypls00mrvvvm0nfay2x7",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The source is an official Stortinget publication page identifying Innst. 173 S (2023–2024) and its originating public institution. It contains source metadata and primary institutional material, with no internal synthesis, operational controls, or generated projections.",
+        "agentId": "s3a-10-reader-3"
+      },
+      {
+        "identityKey": "document:cmp8xypls00mrvvvm0nfay2x7",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The source is an externally published Stortinget webpage identifying Innst. 173 S (2023-2024), with an official stortinget.no source URL and parliamentary publication context. It is source material rather than an internal synthesis, operational control, or generated projection.",
+        "agentId": "s3a-10-reader-1"
+      },
+      {
+        "identityKey": "document:cmp8xypls00mrvvvm0nfay2x7",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The content is a raw capture of an official Stortinget.no publication page, including the document title, source URL, institutional navigation, and publication metadata. It is source-originated evidence rather than an internal synthesis, operational control, or generated projection; its incomplete page capture does not change its evidentiary role.",
+        "agentId": "s3a-10-reader-2"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xypv500nlvvvmfwl8c9zs",
+    "index": 11,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xypv500nlvvvmfwl8c9zs",
+        "proposedRole": "internal_synthesis",
+        "confidence": "high",
+        "reasoning": "The document is an internally authored source map summarizing implementation specifications, database designs, automation patterns, architecture blueprints, and trust-model caveats. It organizes and interprets underlying materials rather than presenting primary external evidence, executing operational controls, or making a generated forecast.",
+        "agentId": "s3a-11-reader-1"
+      },
+      {
+        "identityKey": "document:cmp8xypv500nlvvvmfwl8c9zs",
+        "proposedRole": "internal_synthesis",
+        "confidence": "high",
+        "reasoning": "The document is a curated source map summarizing several Fuglen implementation, database, automation, sustainability, and workflow documents. It synthesizes and indexes other materials rather than presenting direct primary evidence, enforcing an operational control, or projecting generated outcomes.",
+        "agentId": "s3a-11-reader-2"
+      },
+      {
+        "identityKey": "document:cmp8xypv500nlvvvmfwl8c9zs",
+        "proposedRole": "internal_synthesis",
+        "confidence": "high",
+        "reasoning": "The document is an internal source map that summarizes and organizes several Fuglen implementation, database, automation, architecture, and sustainability blueprint documents. It provides synthesized descriptions and a trust model identifying verification and operational-validation needs, rather than presenting primary external evidence or directly controlling an operational process.",
+        "agentId": "s3a-11-reader-3"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xypw200nqvvvmn7w54v8h",
+    "index": 12,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xypw200nqvvvmn7w54v8h",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "This is a dated Nordic Innovation project application containing concrete project facts, named organisations and partners, work packages, budget figures, timelines, objectives, and risk assessments. It records source-level claims about the proposed NECC project rather than synthesising the corpus, controlling operations, or projecting generated scenarios.",
+        "agentId": "s3a-12-reader-2"
+      },
+      {
+        "identityKey": "document:cmp8xypw200nqvvvmn7w54v8h",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "This is a dated Nordic Innovation project application containing direct project claims, named organisations and partners, work packages, budget figures, risks, and implementation details. It functions as source evidence about the proposed NECC project rather than an internal synthesis, operational control, or generated projection.",
+        "agentId": "s3a-12-reader-3"
+      },
+      {
+        "identityKey": "document:cmp8xypw200nqvvvmn7w54v8h",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "This is a converted Nordic Innovation project application containing attributed organisational information, named partners, work packages, budget figures, implementation plans, and risk assessments. It is a source document recording the applicant's claims and proposed activities, rather than an internal synthesis, operational control, or generated projection.",
+        "agentId": "s3a-12-reader-1"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xypx200ntvvvmkvtxx1yv",
+    "index": 13,
+    "unanimous": false,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xypx200ntvvvmkvtxx1yv",
+        "proposedRole": "internal_synthesis",
+        "confidence": "high",
+        "reasoning": "This is a synthesized internal meeting note combining discussion themes, candidate Scottish organizations and sites, tentative logistics, timing constraints, and follow-up action items. It is not a direct external source, a formal operational control, or a generated forecast.",
+        "agentId": "s3a-13-reader-3"
+      },
+      {
+        "identityKey": "document:cmp8xypx200ntvvvmkvtxx1yv",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "This is a contemporaneous record of an external meeting with Zero Waste Scotland, documenting discussed interests, named organizations and sites, logistics, timing, and agreed action items. Its content records source events and statements rather than synthesizing a corpus, enforcing an operational policy, or projecting generated outcomes.",
+        "agentId": "s3a-13-reader-1"
+      },
+      {
+        "identityKey": "document:cmp8xypx200ntvvvmkvtxx1yv",
+        "proposedRole": "internal_synthesis",
+        "confidence": "high",
+        "reasoning": "Structured meeting overview synthesizing interests, candidate organizations, logistics, timeline, and action items for a planned study visit; it is not raw external evidence or a binding operational control.",
+        "agentId": "s3a-13-reader-2"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xypz600nzvvvmh621cd5v",
+    "index": 14,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xypz600nzvvvmh621cd5v",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The source is an official 2019 political declaration by the Nordic prime ministers/Nordic Council of Ministers, with a cited official URL and stated adoption date. It establishes the Nordic Vision 2030 policy priorities and serves as a direct policy anchor, although it is not itself a food-system analysis or measurement dataset.",
+        "agentId": "s3a-14-reader-3"
+      },
+      {
+        "identityKey": "document:cmp8xypz600nzvvvmh621cd5v",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The document describes an official 20.08.2019 declaration by the Nordic prime ministers/Nordic Council of Ministers, provides an official source URL, and records the declaration’s stated 2030 policy priorities. It is explicitly usable as a citable strategic policy anchor, while noting that it is not itself a matsystem analysis or measurement dataset; therefore its dominant role is primary evidence.",
+        "agentId": "s3a-14-reader-2"
+      },
+      {
+        "identityKey": "document:cmp8xypz600nzvvvmh621cd5v",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "Kilden er en offisiell politisk deklarasjon vedtatt av de nordiske statsministrene, med eksplisitt strategisk innhold og angitt offisiell NMR-side. Den fungerer som primær policyforankring for Nordic Vision 2030, selv om den ikke er en matsystemanalyse eller et målegrunnlag.",
+        "agentId": "s3a-14-reader-1"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xypzm00o1vvvmgn7mjq8h",
+    "index": 15,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xypzm00o1vvvmgn7mjq8h",
+        "proposedRole": "internal_synthesis",
+        "confidence": "high",
+        "reasoning": "The content is a project-level annotated summary of an official Nordic Council of Ministers status report. It adds Food Systems 2026 relevance judgments, usage-status classifications, and explicit limits on using the source for food-system claims, making the presented artifact an internal synthesis rather than standalone primary evidence.",
+        "agentId": "s3a-15-reader-3"
+      },
+      {
+        "identityKey": "document:cmp8xypzm00o1vvvmgn7mjq8h",
+        "proposedRole": "internal_synthesis",
+        "confidence": "high",
+        "reasoning": "The file is a project-authored source annotation that summarizes an official Vision 2030 status report, evaluates its relevance, and records usage restrictions. Its interpretive framing and bruksstatus guidance make the file an internal synthesis, even though the linked Nordic Council report is a primary source.",
+        "agentId": "s3a-15-reader-2"
+      },
+      {
+        "identityKey": "document:cmp8xypzm00o1vvvmgn7mjq8h",
+        "proposedRole": "internal_synthesis",
+        "confidence": "high",
+        "reasoning": "The document is an internal project note that summarizes and evaluates an external Nordic Council of Ministers status report, including relevance, permitted uses, and limitations for Food Systems claims. It is not the underlying primary report itself and does not define operational controls or projections.",
+        "agentId": "s3a-15-reader-1"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xyrpm0009xcvmm5kvxxky",
+    "index": 16,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xyrpm0009xcvmm5kvxxky",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "This is a dated, first-party email from Cathrine Barth directly proposing that a discussion note be tested and developed into process-platform building blocks for Transition Groups. It records source communication and intent, rather than synthesizing evidence, enforcing operations, or projecting future outcomes.",
+        "agentId": "s3a-16-reader-3"
+      },
+      {
+        "identityKey": "document:cmp8xyrpm0009xcvmm5kvxxky",
+        "proposedRole": "primary_evidence",
+        "confidence": "high",
+        "reasoning": "The PDF is a contemporaneous one-message email from Cathrine Barth dated 9 March 2026, sharing a document titled “2026 1401 DRØFTING TRANSITION GROUPS” and asking whether the discussion memo could support a draft process platform for TG and collaborative development of building blocks. It is a direct communication record, not an internal synthesis, operational control, or generated projection; the attachment’s substantive contents are not included.",
+        "agentId": "s3a-16-reader-1"
+      },
+      {
+        "identityKey": "document:cmp8xyrpm0009xcvmm5kvxxky",
+        "proposedRole": "primary_evidence",
+        "confidence": "medium",
+        "reasoning": "The PDF preserves a dated, named-sender email and Google Drive sharing record containing Cathrine Barth’s direct proposal about using a discussion note as a draft process platform for Transition Groups. It is firsthand correspondence evidencing an internal proposal, not the underlying synthesis, operational control, or projection artifact; confidence is medium because the attached discussion note itself is absent.",
+        "agentId": "s3a-16-reader-2"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmp8xywlg000cylvmflvonica",
+    "index": 17,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmp8xywlg000cylvmflvonica",
+        "proposedRole": "operational_control",
+        "confidence": "high",
+        "reasoning": "The source is a curation and handling directive for an unusable transcript fragment. It records blocked-source status, instructs that the material must not be used as evidence or AI context, preserves the URL only as a locator, and defines conditions for reopening it.",
+        "agentId": "s3a-17-reader-1"
+      },
+      {
+        "identityKey": "document:cmp8xywlg000cylvmflvonica",
+        "proposedRole": "operational_control",
+        "confidence": "high",
+        "reasoning": "The content records a curation status and explicit handling instructions: exclude the unusable transcript from evidence and AI context, retain only its locator, and keep it parked outside the repair queue.",
+        "agentId": "s3a-17-reader-2"
+      },
+      {
+        "identityKey": "document:cmp8xywlg000cylvmflvonica",
+        "proposedRole": "operational_control",
+        "confidence": "high",
+        "reasoning": "The content is an operator-facing curation and handling decision: it marks the transcript unusable, prohibits use as evidence or AI context, preserves the URL only as a locator, and specifies conditions for reopening and removing it from the repair queue.",
+        "agentId": "s3a-17-reader-3"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmpcc63g500jdjmvmw8a9yxa2",
+    "index": 18,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmpcc63g500jdjmvmw8a9yxa2",
+        "proposedRole": "operational_control",
+        "confidence": "high",
+        "reasoning": "The CSV is a source-acquisition and corpus-management register: rows track priority, download status, metadata completeness, URLs, local availability, target paths, and next actions. It operationally controls research intake and registration rather than presenting substantive evidence or synthesizing findings.",
+        "agentId": "s3a-18-reader-1"
+      },
+      {
+        "identityKey": "document:cmpcc63g500jdjmvmw8a9yxa2",
+        "proposedRole": "operational_control",
+        "confidence": "high",
+        "reasoning": "The CSV is a source-management inventory: it assigns priorities and statuses, records local availability and target paths, and specifies next actions such as downloading, locating, registering, or verifying documents. It governs corpus intake and processing rather than presenting primary evidence or synthesizing findings.",
+        "agentId": "s3a-18-reader-2"
+      },
+      {
+        "identityKey": "document:cmpcc63g500jdjmvmw8a9yxa2",
+        "proposedRole": "operational_control",
+        "confidence": "high",
+        "reasoning": "The CSV is an operational source register: it tracks priorities, download/status states, metadata completeness, local paths, next actions, and provenance for many research documents. It coordinates evidence handling rather than presenting primary evidence, synthesis, or a projection.",
+        "agentId": "s3a-18-reader-3"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmppajyr30003njvmka3xvjsc",
+    "index": 19,
+    "unanimous": false,
+    "votes": [
+      {
+        "identityKey": "document:cmppajyr30003njvmka3xvjsc",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The file is explicitly a locator note and database anchor, not a full-text capture. It contains bibliographic metadata and an external URL but no substantive source content that can be classified as primary evidence, internal synthesis, operational control, or generated projection.",
+        "agentId": "s3a-19-reader-3"
+      },
+      {
+        "identityKey": "document:cmppajyr30003njvmka3xvjsc",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The file is explicitly a locator note rather than a full-text capture. It provides only a title, source URL, and metadata, with no substantive findings or synthesized content establishing primary evidence, operational control, internal synthesis, or generated projection.",
+        "agentId": "s3a-19-reader-2"
+      },
+      {
+        "identityKey": "document:cmppajyr30003njvmka3xvjsc",
+        "proposedRole": "primary_evidence",
+        "confidence": "medium",
+        "reasoning": "The note identifies an external scholarly source on barriers and drivers in Norway’s vegetable circular economy, indicating source evidence rather than synthesis, operational control, or projection. Confidence is medium because the local file contains only locator metadata, not the source’s full text.",
+        "agentId": "s3a-19-reader-1"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmppajyrn0007njvmd1h15xme",
+    "index": 20,
+    "unanimous": false,
+    "votes": [
+      {
+        "identityKey": "document:cmppajyrn0007njvmd1h15xme",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The file is explicitly a locator note and database anchor, not a full-text capture. It contains bibliographic metadata and a canonical URL but no substantive research evidence, internal synthesis, operational instructions, or generated projections.",
+        "agentId": "s3a-20-reader-1"
+      },
+      {
+        "identityKey": "document:cmppajyrn0007njvmd1h15xme",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The file explicitly identifies itself as a locator note and database anchor, not a full-text capture. Although its title and URL point to an external research publication, the available content is insufficient to establish whether the document should function as primary evidence, internal synthesis, operational control, or another role.",
+        "agentId": "s3a-20-reader-3"
+      },
+      {
+        "identityKey": "document:cmppajyrn0007njvmd1h15xme",
+        "proposedRole": "primary_evidence",
+        "confidence": "medium",
+        "reasoning": "The note identifies an SLU-hosted publication with a concrete research title on house crickets in circular food systems and provides its canonical external locator. It points to external evidence rather than presenting internal synthesis, operational control, or a generated projection. Confidence is medium because the local file is only a locator note and contains no full-text capture.",
+        "agentId": "s3a-20-reader-2"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmppajysv000dnjvm5uvvmk08",
+    "index": 21,
+    "unanimous": false,
+    "votes": [
+      {
+        "identityKey": "document:cmppajysv000dnjvm5uvvmk08",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The source is explicitly a locator note and database file-path anchor, not a full-text capture or substantive publication. Its URL points to a person page, so it cannot support classification as primary evidence, synthesis, operational control, or generated projection.",
+        "agentId": "s3a-21-reader-3"
+      },
+      {
+        "identityKey": "document:cmppajysv000dnjvm5uvvmk08",
+        "proposedRole": "operational_control",
+        "confidence": "high",
+        "reasoning": "The source is explicitly a local Document.filePath anchor and locator note, not a full-text capture or substantive research record. Its purpose is to identify the canonical external URL and document source status, which is operational metadata/control.",
+        "agentId": "s3a-21-reader-1"
+      },
+      {
+        "identityKey": "document:cmppajysv000dnjvm5uvvmk08",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The file is explicitly a locator note and anchor, not a full-text capture; it provides insufficient content to classify as evidence, synthesis, control, or projection.",
+        "agentId": "s3a-21-reader-2"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmppajyuc000qnjvmm7gsitu3",
+    "index": 22,
+    "unanimous": false,
+    "votes": [
+      {
+        "identityKey": "document:cmppajyuc000qnjvmm7gsitu3",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The file is explicitly a locator note rather than a full-text source capture. It provides metadata and an external government URL, but insufficient substantive content to classify it as primary evidence, synthesis, operational control, or projection.",
+        "agentId": "s3a-22-reader-2"
+      },
+      {
+        "identityKey": "document:cmppajyuc000qnjvmm7gsitu3",
+        "proposedRole": "primary_evidence",
+        "confidence": "medium",
+        "reasoning": "The record identifies an official Norwegian government source titled “Eiendomsmakt og lokal konkurranse” and provides its canonical URL. It is a source locator for externally published evidence, not an internal synthesis, operational control, or generated projection. Confidence is medium because the local file contains metadata and a locator rather than the source text itself.",
+        "agentId": "s3a-22-reader-3"
+      },
+      {
+        "identityKey": "document:cmppajyuc000qnjvmm7gsitu3",
+        "proposedRole": "primary_evidence",
+        "confidence": "medium",
+        "reasoning": "The file identifies an official regjeringen.no article on property power and local grocery competition, functioning as a locator for external source material rather than internal synthesis, operational control, or generated projection. Confidence is medium because the file explicitly lacks the article’s full text.",
+        "agentId": "s3a-22-reader-1"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmppajyw8001bnjvm9rn9oa2w",
+    "index": 23,
+    "unanimous": false,
+    "votes": [
+      {
+        "identityKey": "document:cmppajyw8001bnjvm9rn9oa2w",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The file is explicitly a local locator note and database anchor, containing metadata and a canonical URL but no substantive source content, synthesis, operational instructions, or generated projection to classify.",
+        "agentId": "s3a-23-reader-1"
+      },
+      {
+        "identityKey": "document:cmppajyw8001bnjvm9rn9oa2w",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The source is explicitly a local locator note containing bibliographic metadata and a canonical URL, while providing no substantive article content, synthesis, operational instructions, or generated projection to classify as another role.",
+        "agentId": "s3a-23-reader-3"
+      },
+      {
+        "identityKey": "document:cmppajyw8001bnjvm9rn9oa2w",
+        "proposedRole": "primary_evidence",
+        "confidence": "medium",
+        "reasoning": "This is a locator note for a named Iceland Review article about Iceland’s only flour mill and food sovereignty, with a canonical external URL. It provides source provenance rather than internal synthesis, operational instructions, or a generated projection; confidence is medium because it contains metadata and a pointer, not the underlying article evidence.",
+        "agentId": "s3a-23-reader-2"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmppajywg001dnjvmesg58paz",
+    "index": 24,
+    "unanimous": true,
+    "votes": [
+      {
+        "identityKey": "document:cmppajywg001dnjvmesg58paz",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The file is explicitly a locator note and local Document.filePath anchor, not a full-text capture or substantive synthesis. It identifies an external NHH food research URL but provides insufficient source content to classify as primary evidence, operational control, synthesis, or projection.",
+        "agentId": "s3a-24-reader-3"
+      },
+      {
+        "identityKey": "document:cmppajywg001dnjvmesg58paz",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The file is explicitly a locator note and not a full-text capture. It contains bibliographic metadata and an external URL, but no substantive evidence, internal synthesis, operational control instructions, or generated projection to classify.",
+        "agentId": "s3a-24-reader-1"
+      },
+      {
+        "identityKey": "document:cmppajywg001dnjvmesg58paz",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The source explicitly identifies itself as a local document anchor rather than a full-text capture. It contains only locator metadata and a canonical URL, without substantive evidence, synthesis, operational instructions, or projected content.",
+        "agentId": "s3a-24-reader-2"
+      }
+    ]
+  },
+  {
+    "identityKey": "document:cmppajywp001gnjvmm2tb78w5",
+    "index": 25,
+    "unanimous": false,
+    "votes": [
+      {
+        "identityKey": "document:cmppajywp001gnjvmm2tb78w5",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The file is explicitly a locator note and local database anchor, not a full-text capture or substantive synthesis. It provides only a title, source URL, and metadata, while directing readers to an external locator until evidence is captured; therefore its current content cannot support classification as primary evidence, internal synthesis, operational control, or generated projection.",
+        "agentId": "s3a-25-reader-2"
+      },
+      {
+        "identityKey": "document:cmppajywp001gnjvmm2tb78w5",
+        "proposedRole": "unknown",
+        "confidence": "high",
+        "reasoning": "The file is explicitly a locator note and local database anchor, not a full-text capture. It identifies an external source about Plantefonden projects and grants but contains insufficient substantive content to classify as primary evidence, synthesis, operational control, or projection.",
+        "agentId": "s3a-25-reader-3"
+      },
+      {
+        "identityKey": "document:cmppajywp001gnjvmm2tb78w5",
+        "proposedRole": "primary_evidence",
+        "confidence": "medium",
+        "reasoning": "The document identifies an external Plantefonden source titled “projekter og bevillinger 2023-2025,” making it a locator for direct source evidence rather than an internal synthesis, operational control, or projection. Confidence is medium because the file explicitly contains only a locator note and no full-text capture.",
+        "agentId": "s3a-25-reader-1"
+      }
+    ]
+  }
+]
