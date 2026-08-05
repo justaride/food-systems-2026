@@ -36,7 +36,7 @@
     "db:import:root": "tsx scripts/import-root-docs.ts",
     "db:import:external": "tsx scripts/import-external-sources.ts",
     "db:import:ts": "tsx scripts/import-ts-data.ts",
-    "db:import:innhenting": "tsx scripts/import-innhenting-2026-08-05.ts && tsx scripts/apply-innhenting-verdicts-2026-08-05.ts --apply && tsx scripts/set-innhenting-readiness-2026-08-05.ts",
+    "db:import:innhenting": "tsx scripts/import-innhenting-2026-08-05.ts && tsx scripts/import-innhenting-ko2-2026-08-05.ts && tsx scripts/apply-innhenting-verdicts-2026-08-05.ts --apply && tsx scripts/set-innhenting-readiness-2026-08-05.ts",
     "db:import:docs": "tsx scripts/import-research-docs.ts",
     "db:import:companies": "tsx scripts/import-company-data.ts",
     "db:import:actors": "tsx scripts/import-actors.ts",
