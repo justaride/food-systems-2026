@@ -28,6 +28,20 @@ export type SourceType =
   | 'forskning'
   | 'datasett'
   | 'initiativ'
+  | 'organisasjonsside'
+  | 'posisjonsnotat'
+
+export type SourceDocProvenanceType =
+  | 'official_primary'
+  | 'peer_reviewed'
+  | 'corporate_self_report'
+  | 'commissioned_report'
+  | 'external_publication'
+  | 'advocacy_position'
+  | 'internal_primary'
+  | 'internal_synthesis'
+  | 'duplicate'
+  | 'unknown'
 
 export type PhaseStatus = 'ikke-startet' | 'pagar' | 'fullfort'
 
@@ -107,6 +121,8 @@ export type SourceDoc = {
   isDuplicate?: boolean
   doi?: string
   publisher?: string
+  // Evidence role. Unknown stays fail-closed until a reviewer classifies it.
+  provenanceType?: SourceDocProvenanceType
   // ISO date string for when the URL was last accessed/verified.
   // Aligns with Prisma SourceDoc.accessedAt (DateTime?).
   accessedAt?: string
@@ -254,6 +270,9 @@ export type Report = {
   publisher?: string
   provenanceType?: ReportProvenanceType
   supportingSources?: ReportSupportingSource[]
+  // ISO date string for when sourceUrl was last accessed/verified.
+  // Aligns with Prisma Report.accessedAt (DateTime?).
+  accessedAt?: string
 }
 
 export type CommType = 'epost' | 'melding' | 'brev'

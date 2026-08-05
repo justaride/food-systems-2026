@@ -6,6 +6,7 @@ import {
   type LibraryAnalysisClassification,
   type LibraryAnalysisSourceKind,
 } from './library-analysis'
+import { assessLibraryAnalysisExternalCitationPolicy } from './library-analysis-external-citations'
 import { normalizeLocalFileLocator } from './local-file-locator'
 
 export type LibraryInventoryDocument = {
@@ -29,8 +30,13 @@ export type LibraryInventoryDocument = {
   report?: { id: string } | null
   thesis?: { id: string } | null
   sourceCitations?: {
+    id?: string | null
+    sourceClass?: string
     citationReadiness: string
+    verificationStatus?: string
     url?: string | null
+    archivedUrl?: string | null
+    accessedAt?: Date | string | null
   }[]
 }
 
@@ -82,13 +88,20 @@ export type LibraryAnalysisInventoryRow = {
   linkedReportId: string | null
   linkedThesisId: string | null
   citationReadiness: string | null
+  externalCitationEligible: boolean
+  externalCitationPolicyHash?: string | null
+  currentExternalCitationPolicyHash: string | null
   hasLocalFile: boolean
   hasDbLink: boolean
   wordCount: number
   contentHash: string
+  currentContentHash?: string | null
   riskFlags: string[]
   claimCandidateCount: number
   classification: LibraryAnalysisClassification
+  reviewStatus?: string | null
+  reviewedAt?: string | null
+  reviewer?: string | null
 }
 
 export function buildLibraryAnalysisInventory(input: BuildLibraryAnalysisInventoryInput): LibraryAnalysisInventoryRow[] {
@@ -99,6 +112,9 @@ export function buildLibraryAnalysisInventory(input: BuildLibraryAnalysisInvento
     const canonicalPath = normalizeLibraryPath(document.filePath)
     if (isControlArtifactPath(canonicalPath)) continue
     addImportedPath(importedPaths, canonicalPath)
+    const externalCitationPolicy = assessDocumentExternalCitationPolicy(
+      document.sourceCitations ?? [],
+    )
 
     rows.push(buildRow({
       sourceKind: 'document',
@@ -110,6 +126,7 @@ export function buildLibraryAnalysisInventory(input: BuildLibraryAnalysisInvento
       linkedReportId: document.report?.id ?? input.reports.find(report => report.documentId === document.id)?.id ?? null,
       linkedThesisId: document.thesis?.id ?? input.theses.find(thesis => thesis.documentId === document.id)?.id ?? null,
       citationReadiness: strongestCitationReadiness(document.sourceCitations ?? []),
+      currentExternalCitationPolicyHash: externalCitationPolicy.policyHash,
       hasLocalFile: document.hasLocalFile ?? Boolean(canonicalPath),
       hasDbLink: true,
       wordCount: document.wordCount,
@@ -137,6 +154,7 @@ export function buildLibraryAnalysisInventory(input: BuildLibraryAnalysisInvento
       linkedReportId: null,
       linkedThesisId: null,
       citationReadiness: null,
+      currentExternalCitationPolicyHash: null,
       hasLocalFile: false,
       hasDbLink: true,
       wordCount: countWords(sourceDoc.description),
@@ -161,6 +179,7 @@ export function buildLibraryAnalysisInventory(input: BuildLibraryAnalysisInvento
       linkedReportId: report.id,
       linkedThesisId: null,
       citationReadiness: null,
+      currentExternalCitationPolicyHash: null,
       hasLocalFile: false,
       hasDbLink: true,
       wordCount: countWords(content),
@@ -185,6 +204,7 @@ export function buildLibraryAnalysisInventory(input: BuildLibraryAnalysisInvento
       linkedReportId: null,
       linkedThesisId: thesis.id,
       citationReadiness: null,
+      currentExternalCitationPolicyHash: null,
       hasLocalFile: false,
       hasDbLink: true,
       wordCount: countWords(content),
@@ -210,6 +230,7 @@ export function buildLibraryAnalysisInventory(input: BuildLibraryAnalysisInvento
       linkedReportId: null,
       linkedThesisId: null,
       citationReadiness: null,
+      currentExternalCitationPolicyHash: null,
       hasLocalFile: true,
       hasDbLink: false,
       wordCount,
@@ -259,16 +280,26 @@ export function formatLibraryAnalysisLedgerJsonl(rows: LibraryAnalysisInventoryR
       riskFlags: row.riskFlags,
       claimCandidateCount: row.claimCandidateCount,
       contentHash: row.contentHash,
+      currentContentHash: row.currentContentHash ?? null,
       linkedDocumentId: row.linkedDocumentId,
       linkedSourceDocId: row.linkedSourceDocId,
       linkedReportId: row.linkedReportId,
       linkedThesisId: row.linkedThesisId,
       citationReadiness: row.citationReadiness,
+      externalCitationEligible: row.externalCitationEligible,
+      externalCitationPolicyHash: row.externalCitationPolicyHash ?? null,
+      currentExternalCitationPolicyHash: row.currentExternalCitationPolicyHash,
+      reviewStatus: row.reviewStatus ?? null,
+      reviewedAt: row.reviewedAt ?? null,
+      reviewer: row.reviewer ?? null,
     }))
     .join('\n') + '\n'
 }
 
-export function formatLibraryAnalysisSummaryMarkdown(rows: LibraryAnalysisInventoryRow[]): string {
+export function formatLibraryAnalysisSummaryMarkdown(
+  rows: LibraryAnalysisInventoryRow[],
+  options: { staleRetainedCount?: number } = {},
+): string {
   const summary = summarizeLibraryAnalysisRecords(rows.map(row => ({
     status: row.classification.status,
     usageRule: row.classification.usageRule,
@@ -291,6 +322,7 @@ export function formatLibraryAnalysisSummaryMarkdown(rows: LibraryAnalysisInvent
     `| Type-C gaps | ${summary.typeC} |`,
     `| Claim candidates | ${summary.claimCandidates} |`,
     `| Missing text | ${summary.missingText} |`,
+    `| Stale retained outside live ledger | ${options.staleRetainedCount ?? 0} |`,
     '',
   ].join('\n')
 }
@@ -329,6 +361,7 @@ function buildRow(input: {
   linkedReportId: string | null
   linkedThesisId: string | null
   citationReadiness: string | null
+  currentExternalCitationPolicyHash: string | null
   hasLocalFile: boolean
   hasDbLink: boolean
   wordCount: number
@@ -372,6 +405,8 @@ function buildRow(input: {
     linkedReportId: input.linkedReportId,
     linkedThesisId: input.linkedThesisId,
     citationReadiness: input.citationReadiness,
+    externalCitationEligible: Boolean(input.currentExternalCitationPolicyHash),
+    currentExternalCitationPolicyHash: input.currentExternalCitationPolicyHash,
     hasLocalFile: input.hasLocalFile,
     hasDbLink: input.hasDbLink,
     wordCount: input.wordCount,
@@ -395,8 +430,24 @@ function hasDocumentExternalLocator(document: LibraryInventoryDocument): boolean
     nonEmptyString(document.sourceDoc?.url) ||
     nonEmptyString(document.sourceDoc?.doi) ||
     nonEmptyString(document.sourceDoc?.archivedUrl) ||
-    document.sourceCitations?.some(citation => nonEmptyString(citation.url)),
+    document.sourceCitations?.some(citation => (
+      nonEmptyString(citation.url) || nonEmptyString(citation.archivedUrl)
+    )),
   )
+}
+
+function assessDocumentExternalCitationPolicy(
+  citations: NonNullable<LibraryInventoryDocument['sourceCitations']>,
+) {
+  return assessLibraryAnalysisExternalCitationPolicy(citations.map(citation => ({
+    id: citation.id,
+    sourceClass: citation.sourceClass ?? 'unknown',
+    citationReadiness: citation.citationReadiness,
+    verificationStatus: citation.verificationStatus ?? 'needs_review',
+    url: citation.url ?? null,
+    archivedUrl: citation.archivedUrl ?? null,
+    accessedAt: citation.accessedAt ?? null,
+  })))
 }
 
 function nonEmptyString(value: string | null | undefined): boolean {

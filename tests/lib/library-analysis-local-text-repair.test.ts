@@ -10,6 +10,7 @@ const inputs: LibraryAnalysisLocalTextRepairInput[] = [
   {
     sourceKey: 'document:crosses-floor',
     documentId: 'doc-crosses-floor',
+    existingUpdatedAt: '2026-06-18T11:00:00.000Z',
     title: 'Transcript crossing the floor',
     path: 'research/transcripts/crosses.txt',
     extension: '.txt',
@@ -22,6 +23,7 @@ const inputs: LibraryAnalysisLocalTextRepairInput[] = [
   {
     sourceKey: 'document:still-low',
     documentId: 'doc-still-low',
+    existingUpdatedAt: '2026-06-18T11:01:00.000Z',
     title: 'Markdown still below floor',
     path: 'research/short.md',
     extension: '.md',
@@ -34,6 +36,7 @@ const inputs: LibraryAnalysisLocalTextRepairInput[] = [
   {
     sourceKey: 'library_file:loose',
     documentId: null,
+    existingUpdatedAt: null,
     title: 'Loose markdown file',
     path: 'research/bibliotek/loose.md',
     extension: '.md',
@@ -46,6 +49,7 @@ const inputs: LibraryAnalysisLocalTextRepairInput[] = [
   {
     sourceKey: 'document:presentation',
     documentId: 'doc-presentation',
+    existingUpdatedAt: '2026-06-18T11:02:00.000Z',
     title: 'Loose presentation',
     path: 'research/deck.pptx',
     extension: '.pptx',
@@ -76,6 +80,7 @@ describe('library analysis local text repair', () => {
 
     const update = plan.rows.find(row => row.sourceKey === 'document:crosses-floor')
     assert.equal(update?.action, 'update')
+    assert.equal(update?.expectedUpdatedAt, '2026-06-18T11:00:00.000Z')
     assert.equal(update?.newWordCount, 177)
     assert.match(update?.nextContent ?? '', /Local file text sync/)
     assert.match(update?.nextContent ?? '', /Source file: `research\/transcripts\/crosses\.txt`/)
@@ -105,6 +110,8 @@ describe('library analysis local text repair', () => {
     assert.match(markdown, /^# Library Analysis Local Text Repair Plan/m)
     assert.match(markdown, /Document.content/)
     assert.match(markdown, /lager ikke claim-kandidater/)
+    assert.match(markdown, /Document\.updatedAt, wordCount og content/)
+    assert.match(markdown, /avbryter hele batchen/)
     assert.match(markdown, /Total rows \| 4/)
     assert.match(markdown, /Update rows \| 1/)
     assert.match(markdown, /Clears low-text rows \| 1/)

@@ -36,7 +36,7 @@ describe('data status helpers', () => {
       fishHealthObservation: count(0),
       deliveryVolume: count(5),
       businessRelationship: count(2),
-      company: count(150),
+      company: count(351),
       phase: count(3),
       teamMember: count(2),
       kPI: count(4),
@@ -46,14 +46,18 @@ describe('data status helpers', () => {
       insight: count(6),
       meeting: failing,
       communication: count(0),
-      document: count(20),
-      actor: count(8),
-      personProfile: count(7),
+      document: count(1539),
+      sourceCitation: count(2699),
+      fieldCitation: count(244516),
+      libraryAnalysisRecord: count(1295),
+      actor: count(1636),
+      personProfile: count(1594),
     })
 
     assert.equal(status.ok, false)
     assert.equal(status.dbOk, false)
     assert.equal(status.pageGatesOk, true)
+    assert.equal(status.knowledgeBaseGatesOk, true)
     assert.equal(status.tableErrors.meetings, 'P1001 database unavailable')
     assert.equal(status.tables.meetings, null)
   })
@@ -77,13 +81,54 @@ describe('data status helpers', () => {
       insight: count(122),
       meeting: count(8),
       communication: count(0),
-      document: count(1063),
-      actor: count(201),
-      personProfile: count(371),
+      document: count(1539),
+      sourceCitation: count(2699),
+      fieldCitation: count(244516),
+      libraryAnalysisRecord: count(1295),
+      actor: count(1636),
+      personProfile: count(1594),
     })
 
     assert.equal(status.pages.havbruk.ok, true)
     assert.equal(status.pages.havbruk.minRequired, 50)
+    assert.equal(status.knowledgeBase.libraryAnalysisRecords.ok, true)
+    assert.equal(status.knowledgeBase.actors.minRequired, 1636)
+    assert.equal(status.knowledgeBaseGatesOk, true)
     assert.equal(status.ok, true)
+  })
+
+  it('fails closed when the library-analysis table is unavailable', async () => {
+    const count = (value: number) => ({ count: async () => value })
+    const missingTable = { count: async () => { throw new Error('P2021 table does not exist') } }
+    const status = await getDataStatus({
+      subsidy: count(120),
+      aquacultureSite: count(110),
+      aquacultureApplication: count(10),
+      fishHealthObservation: count(0),
+      deliveryVolume: count(5),
+      businessRelationship: count(2),
+      company: count(351),
+      phase: count(3),
+      teamMember: count(2),
+      kPI: count(4),
+      tenStep: count(10),
+      evidenceDoc: count(5),
+      application: count(1),
+      insight: count(6),
+      meeting: count(1),
+      communication: count(0),
+      document: count(1539),
+      sourceCitation: count(2699),
+      fieldCitation: count(244516),
+      libraryAnalysisRecord: missingTable,
+      actor: count(1636),
+      personProfile: count(1594),
+    })
+
+    assert.equal(status.ok, false)
+    assert.equal(status.dbOk, false)
+    assert.equal(status.knowledgeBaseGatesOk, false)
+    assert.equal(status.knowledgeBase.libraryAnalysisRecords.actual, null)
+    assert.equal(status.knowledgeBase.libraryAnalysisRecords.error, 'P2021 table does not exist')
   })
 })

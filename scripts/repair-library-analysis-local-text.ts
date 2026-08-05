@@ -47,6 +47,7 @@ async function main() {
         id: true,
         content: true,
         wordCount: true,
+        updatedAt: true,
       },
     })
     const documentById = new Map(documents.map(document => [document.id, document]))
@@ -58,6 +59,7 @@ async function main() {
       return {
         sourceKey: row.sourceKey,
         documentId: document?.id ?? null,
+        existingUpdatedAt: document?.updatedAt.toISOString() ?? null,
         title: row.title,
         path,
         extension: row.extension,
@@ -91,21 +93,51 @@ async function main() {
           path: row.path,
           previousWordCount: document?.wordCount ?? 0,
           previousContent: document?.content ?? '',
+          expectedUpdatedAt: row.expectedUpdatedAt,
           contentHashBefore: row.contentHashBefore,
           generatedAt,
         })
       }).join('\n')
-      appendArtifact(BACKUP_PATH, backupContent ? `${backupContent}\n` : '')
 
-      for (const row of updateRows) {
-        await prisma.document.update({
-          where: { id: row.documentId! },
-          data: {
-            content: row.nextContent!,
-            wordCount: row.newWordCount,
-          },
-        })
+      try {
+        await prisma.$transaction(async transaction => {
+          for (const row of updateRows) {
+            const expectedDocument = documentById.get(row.documentId!)
+            if (!expectedDocument || !row.expectedUpdatedAt) {
+              throw new Error(
+                `Library local text repair conflict for ${row.sourceKey}: target Document snapshot is missing; no rows updated`,
+              )
+            }
+            const result = await transaction.document.updateMany({
+              where: {
+                id: row.documentId!,
+                updatedAt: new Date(row.expectedUpdatedAt),
+                wordCount: row.existingWordCount,
+                content: expectedDocument.content,
+              },
+              data: {
+                content: row.nextContent!,
+                wordCount: row.newWordCount,
+              },
+            })
+            if (result.count !== 1) {
+              throw new Error(
+                `Library local text repair conflict for ${row.sourceKey} (${row.documentId}): Document changed since planning; no rows updated`,
+              )
+            }
+          }
+        }, { isolationLevel: 'Serializable' })
+      } catch (error) {
+        if (isConcurrentWriteConflict(error)) {
+          throw new Error(
+            'Library local text repair conflict: a Document changed during apply; no rows updated. Regenerate the dry-run plan and retry.',
+            { cause: error },
+          )
+        }
+        throw error
       }
+
+      appendArtifact(BACKUP_PATH, backupContent ? `${backupContent}\n` : '')
       console.log(`Library local text repair applied: ${updateRows.length} Document rows updated`)
       console.log(`Backup: ${BACKUP_PATH}`)
     } else if (dryRun) {
@@ -160,6 +192,10 @@ function toPlanHandoff(plan: LibraryAnalysisLocalTextRepairPlan) {
 
 function countWords(value: string): number {
   return value.match(/[\p{L}\p{N}][\p{L}\p{N}-]*/gu)?.length ?? 0
+}
+
+function isConcurrentWriteConflict(error: unknown): boolean {
+  return typeof error === 'object' && error !== null && 'code' in error && error.code === 'P2034'
 }
 
 main().catch(error => {

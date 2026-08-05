@@ -3,6 +3,7 @@ import { describe, it } from 'node:test'
 import {
   LIBRARY_ANALYSIS_STATUSES,
   LIBRARY_ANALYSIS_USAGE_RULES,
+  assessLibraryAnalysisExternalApproval,
   buildLibraryAnalysisSourceKey,
   classifyLibraryAnalysisRecord,
   summarizeLibraryAnalysisRecords,
@@ -54,6 +55,7 @@ describe('library analysis contract', () => {
     assert.deepEqual(LIBRARY_ANALYSIS_USAGE_RULES, [
       'internal_background',
       'safe_for_ai_context',
+      'safe_for_external_claims',
       'claim_candidate_review',
       'do_not_use_for_claims',
       'requires_actor_gate',
@@ -191,6 +193,104 @@ describe('library analysis contract', () => {
     assert.ok(invalid.issues.includes('unknown_usage_rule'))
     assert.ok(invalid.issues.includes('claim_candidate_missing_source_grounding'))
     assert.ok(invalid.issues.includes('missing_control_links'))
+
+    const externalRecommendation = validateLibraryAiCard({
+      ...validCard,
+      recommendedUsageRule: 'safe_for_external_claims',
+    })
+    assert.equal(externalRecommendation.ok, false)
+    assert.ok(externalRecommendation.issues.includes('external_usage_requires_human_approval'))
+  })
+
+  it('requires the complete human external-approval contract', () => {
+    const approved = assessLibraryAnalysisExternalApproval({
+      sourceKind: 'document',
+      sourceKey: 'document:doc-1',
+      documentId: 'doc-1',
+      status: 'validated',
+      usageRule: 'safe_for_external_claims',
+      reviewStatus: 'approved',
+      reviewedAt: '2026-07-19T10:00:00.000Z',
+      reviewer: 'Fagansvarlig',
+      citationReadiness: 'citable_external',
+      contentHash: 'a'.repeat(64),
+      currentContentHash: 'a'.repeat(64),
+      externalCitationPolicyHash: 'c'.repeat(64),
+      currentExternalCitationPolicyHash: 'c'.repeat(64),
+      riskFlags: [],
+      claimCandidateCount: 0,
+    })
+    assert.deepEqual(approved, { eligible: true, blockers: [] })
+
+    const incomplete = assessLibraryAnalysisExternalApproval({
+      sourceKind: 'document',
+      sourceKey: 'document:doc-1',
+      documentId: 'doc-1',
+      status: 'validated',
+      usageRule: 'safe_for_external_claims',
+      reviewStatus: 'not_reviewed',
+      reviewedAt: null,
+      reviewer: null,
+      citationReadiness: 'citable_with_note',
+      contentHash: 'a'.repeat(64),
+      currentContentHash: 'a'.repeat(64),
+      externalCitationPolicyHash: 'c'.repeat(64),
+      currentExternalCitationPolicyHash: 'c'.repeat(64),
+      riskFlags: ['needs_review'],
+      claimCandidateCount: 1,
+    })
+    assert.equal(incomplete.eligible, false)
+    assert.deepEqual(incomplete.blockers, [
+      'review_status_not_approved',
+      'review_provenance_missing',
+      'citation_not_citable_external',
+      'risk_flags_present',
+      'claim_candidates_present',
+    ])
+
+    const changedAfterReview = assessLibraryAnalysisExternalApproval({
+      sourceKind: 'document',
+      sourceKey: 'document:doc-1',
+      documentId: 'doc-1',
+      status: 'validated',
+      usageRule: 'safe_for_external_claims',
+      reviewStatus: 'approved',
+      reviewedAt: '2026-07-19T10:00:00.000Z',
+      reviewer: 'Fagansvarlig',
+      citationReadiness: 'citable_external',
+      contentHash: 'a'.repeat(64),
+      currentContentHash: 'b'.repeat(64),
+      externalCitationPolicyHash: 'c'.repeat(64),
+      currentExternalCitationPolicyHash: 'c'.repeat(64),
+      riskFlags: [],
+      claimCandidateCount: 0,
+    })
+    assert.deepEqual(changedAfterReview, {
+      eligible: false,
+      blockers: ['content_hash_mismatch'],
+    })
+
+    const locatorChangedAfterReview = assessLibraryAnalysisExternalApproval({
+      sourceKind: 'document',
+      sourceKey: 'document:doc-1',
+      documentId: 'doc-1',
+      status: 'validated',
+      usageRule: 'safe_for_external_claims',
+      reviewStatus: 'approved',
+      reviewedAt: '2026-07-19T10:00:00.000Z',
+      reviewer: 'Fagansvarlig',
+      citationReadiness: 'citable_external',
+      contentHash: 'a'.repeat(64),
+      currentContentHash: 'a'.repeat(64),
+      externalCitationPolicyHash: 'c'.repeat(64),
+      currentExternalCitationPolicyHash: 'd'.repeat(64),
+      riskFlags: [],
+      claimCandidateCount: 0,
+    })
+    assert.deepEqual(locatorChangedAfterReview, {
+      eligible: false,
+      blockers: ['external_citation_policy_hash_mismatch'],
+    })
   })
 
   it('summarizes cockpit readiness counts from records', () => {

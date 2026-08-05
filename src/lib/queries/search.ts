@@ -10,18 +10,19 @@ import { getLibraryAnalysisBadgesByDocumentIds, type LibraryAnalysisBadge } from
 export type SearchMode = 'keyword' | 'semantic' | 'hybrid'
 
 export type SearchResult = {
-  type: 'document' | 'insight' | 'source' | 'thesis' | 'company' | 'actor' | 'relationship' | 'property' | 'person'
+  type: 'document' | 'insight' | 'source' | 'report' | 'thesis' | 'company' | 'actor' | 'relationship' | 'property' | 'person'
   id: string
   title: string
   excerpt: string
   url?: string | null
+  sourceUrl?: string | null
   tags?: string[]
   relevance?: number
   libraryAnalysis?: LibraryAnalysisBadge | null
 }
 
 export type SearchWarning = {
-  code: 'semantic-unavailable' | 'semantic-error'
+  code: 'semantic-unavailable' | 'semantic-error' | 'semantic-type-filter-unsupported'
   message: string
 }
 
@@ -33,32 +34,58 @@ export type SearchExecution = {
   results: SearchResult[]
 }
 
+export type SearchRuntime = {
+  semantic: typeof semanticSearch
+  keyword: (query: string, limit: number, types?: readonly string[]) => Promise<SearchResult[]>
+  enrich: (results: SearchResult[]) => Promise<SearchResult[]>
+}
+
+const DEFAULT_SEARCH_RUNTIME: SearchRuntime = {
+  semantic: semanticSearch,
+  keyword: keywordSearch,
+  enrich: enrichLibraryAnalysisBadges,
+}
+
 export async function unifiedSearch(query: string, limit = 20, mode: SearchMode = 'keyword'): Promise<SearchResult[]> {
   const execution = await searchWithDiagnostics(query, limit, mode)
   return execution.results
 }
 
-export async function searchWithDiagnostics(query: string, limit = 20, mode: SearchMode = 'keyword'): Promise<SearchExecution> {
+export async function searchWithDiagnostics(
+  query: string,
+  limit = 20,
+  mode: SearchMode = 'keyword',
+  types?: readonly string[],
+  runtime: SearchRuntime = DEFAULT_SEARCH_RUNTIME,
+): Promise<SearchExecution> {
+  const allowedTypes = types?.length ? new Set(types) : null
+  if (mode === 'semantic' && hasNonDocumentType(allowedTypes)) {
+    return fallbackToKeywordForTypeFilter(query, limit, types, runtime)
+  }
+
   if (mode === 'semantic') {
     try {
-      const results = await semanticSearch(query, limit)
+      const results = mapSemanticResults(await runtime.semantic(query, limit))
+        .filter(result => !allowedTypes || allowedTypes.has(result.type))
       return {
         requestedMode: mode,
         executedMode: 'semantic',
         fallback: false,
         warnings: [],
-        results: await enrichLibraryAnalysisBadges(mapSemanticResults(results)),
+        results: await runtime.enrich(results),
       }
     } catch (error) {
-      return fallbackToKeyword(query, limit, mode, error)
+      return fallbackToKeyword(query, limit, mode, error, types, runtime)
     }
   }
 
   if (mode === 'hybrid') {
     try {
       const [keyword, semantic] = await Promise.all([
-        keywordSearch(query, limit),
-        semanticSearch(query, limit).then(mapSemanticResults),
+        runtime.keyword(query, limit, types),
+        runtime.semantic(query, limit)
+          .then(mapSemanticResults)
+          .then(results => results.filter(result => !allowedTypes || allowedTypes.has(result.type))),
       ])
       const seen = new Set<string>()
       const merged: SearchResult[] = []
@@ -74,10 +101,10 @@ export async function searchWithDiagnostics(query: string, limit = 20, mode: Sea
         executedMode: 'hybrid',
         fallback: false,
         warnings: [],
-        results: await enrichLibraryAnalysisBadges(merged.slice(0, limit)),
+        results: await runtime.enrich(merged.slice(0, limit)),
       }
     } catch (error) {
-      return fallbackToKeyword(query, limit, mode, error)
+      return fallbackToKeyword(query, limit, mode, error, types, runtime)
     }
   }
 
@@ -86,7 +113,29 @@ export async function searchWithDiagnostics(query: string, limit = 20, mode: Sea
     executedMode: 'keyword',
     fallback: false,
     warnings: [],
-    results: await enrichLibraryAnalysisBadges(await keywordSearch(query, limit)),
+    results: await runtime.enrich(await runtime.keyword(query, limit, types)),
+  }
+}
+
+function hasNonDocumentType(allowedTypes: Set<string> | null): boolean {
+  return Boolean(allowedTypes && [...allowedTypes].some(type => type !== 'document'))
+}
+
+async function fallbackToKeywordForTypeFilter(
+  query: string,
+  limit: number,
+  types: readonly string[] | undefined,
+  runtime: SearchRuntime,
+): Promise<SearchExecution> {
+  return {
+    requestedMode: 'semantic',
+    executedMode: 'keyword',
+    fallback: true,
+    warnings: [{
+      code: 'semantic-type-filter-unsupported',
+      message: 'Semantisk søk dekker dokumenter. Viser nøkkelordtreff for de valgte kildetypene.',
+    }],
+    results: await runtime.enrich(await runtime.keyword(query, limit, types)),
   }
 }
 
@@ -102,7 +151,14 @@ function mapSemanticResults(results: Awaited<ReturnType<typeof semanticSearch>>)
   }))
 }
 
-async function fallbackToKeyword(query: string, limit: number, mode: SearchMode, error: unknown): Promise<SearchExecution> {
+async function fallbackToKeyword(
+  query: string,
+  limit: number,
+  mode: SearchMode,
+  error: unknown,
+  types?: readonly string[],
+  runtime: SearchRuntime = DEFAULT_SEARCH_RUNTIME,
+): Promise<SearchExecution> {
   const semanticStatus = semanticStatusFromError(error)
   const warning = semanticWarning(mode, semanticStatus)
 
@@ -111,7 +167,7 @@ async function fallbackToKeyword(query: string, limit: number, mode: SearchMode,
     executedMode: 'keyword',
     fallback: true,
     warnings: [warning],
-    results: await enrichLibraryAnalysisBadges(await keywordSearch(query, limit)),
+    results: await runtime.enrich(await runtime.keyword(query, limit, types)),
   }
 }
 
@@ -234,9 +290,12 @@ function scoreSearchResult(result: SearchResult, query: string): number {
   return score
 }
 
-async function keywordSearch(query: string, limit: number): Promise<SearchResult[]> {
+async function keywordSearch(query: string, limit: number, types?: readonly string[]): Promise<SearchResult[]> {
   const results: SearchResult[] = []
-  const perTypeLimit = Math.max(5, Math.ceil(limit / 4))
+  const allowedTypes = types?.length ? new Set(types) : null
+  const perTypeLimit = allowedTypes?.size === 1
+    ? limit
+    : Math.max(5, Math.ceil(limit / 4))
   const searchValues = buildSearchValues(query)
   const arraySearchValues = buildArraySearchValues(searchValues)
 
@@ -320,7 +379,54 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
       id: src.id,
       title: src.title ?? src.filename,
       excerpt: src.description.slice(0, 200),
-      url: src.url,
+      url: '/kilder',
+      sourceUrl: src.url,
+    })
+  }
+
+  const reportsResult = await ftsReportSearch(query, perTypeLimit).catch(async () =>
+    prisma.report.findMany({
+      where: {
+        OR: [
+          ...searchValues.flatMap(value => [
+            { title: { contains: value, mode: 'insensitive' as const } },
+            { fullTitle: { contains: value, mode: 'insensitive' as const } },
+            { author: { contains: value, mode: 'insensitive' as const } },
+            { institution: { contains: value, mode: 'insensitive' as const } },
+            { relevance: { contains: value, mode: 'insensitive' as const } },
+          ]),
+          { tags: { hasSome: arraySearchValues } },
+        ],
+      },
+      select: {
+        id: true,
+        title: true,
+        fullTitle: true,
+        institution: true,
+        year: true,
+        reportCategory: true,
+        tags: true,
+        sourceUrl: true,
+      },
+      take: perTypeLimit,
+    }),
+  )
+
+  for (const report of reportsResult) {
+    const excerpt = [
+      report.institution,
+      report.year?.toString(),
+      report.reportCategory,
+      report.fullTitle && report.fullTitle !== report.title ? report.fullTitle : null,
+    ].filter(Boolean).join(' · ')
+    results.push({
+      type: 'report',
+      id: report.id,
+      title: report.title,
+      excerpt: (excerpt || 'Structured report record').slice(0, 200),
+      tags: report.tags,
+      url: '/rapporter',
+      sourceUrl: report.sourceUrl,
     })
   }
 
@@ -346,7 +452,8 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
       title: t.title,
       excerpt: t.synthesis.slice(0, 200),
       tags: t.tags,
-      url: t.url || `/masteroppgaver#${t.id}`,
+      url: `/masteroppgaver#${t.id}`,
+      sourceUrl: t.url,
     })
   }
 
@@ -502,8 +609,12 @@ async function keywordSearch(query: string, limit: number): Promise<SearchResult
     if (!isMissingPrismaTable(error, 'PersonProfile')) throw error
   }
 
+  const filteredResults = allowedTypes
+    ? results.filter(result => allowedTypes.has(result.type))
+    : results
+
   return interleaveByType(
-    results.sort((a, b) => scoreSearchResult(b, query) - scoreSearchResult(a, query)),
+    filteredResults.sort((a, b) => scoreSearchResult(b, query) - scoreSearchResult(a, query)),
     limit,
   )
 }
@@ -535,6 +646,27 @@ async function ftsInsightSearch(query: string, limit: number): Promise<
   return prisma.$queryRaw`
     SELECT id, title, description, tags
     FROM "Insight"
+    WHERE search_vector @@ websearch_to_tsquery('norwegian', ${query})
+    ORDER BY ts_rank(search_vector, websearch_to_tsquery('norwegian', ${query})) DESC
+    LIMIT ${limit}
+  `
+}
+
+async function ftsReportSearch(query: string, limit: number): Promise<
+  Array<{
+    id: string
+    title: string
+    fullTitle: string | null
+    institution: string | null
+    year: number | null
+    reportCategory: string
+    tags: string[]
+    sourceUrl: string | null
+  }>
+> {
+  return prisma.$queryRaw`
+    SELECT id, title, "fullTitle", institution, year, "reportCategory", tags, "sourceUrl"
+    FROM "Report"
     WHERE search_vector @@ websearch_to_tsquery('norwegian', ${query})
     ORDER BY ts_rank(search_vector, websearch_to_tsquery('norwegian', ${query})) DESC
     LIMIT ${limit}
