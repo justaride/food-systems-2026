@@ -16,7 +16,16 @@ const prisma = new PrismaClient({ adapter })
 
 const full = (sp: string) => join(DIR, sp)
 const hasVal = (v: unknown) => v !== null && v !== undefined && v !== '' && v !== 'null'
-const sha256 = (p: string) => existsSync(p) ? createHash('sha256').update(readFileSync(p)).digest('hex') : null
+// Rå evidensfiler (PDF-er) ligger ikke i git (kildeattribusjons-policyen); git bærer SHA-256.
+// Bruk lokal fil når den finnes, ellers den committede hashen fra filehashes.json.
+const committedHashes: Record<string, string> = existsSync(join(DIR, 'filehashes.json'))
+  ? JSON.parse(readFileSync(join(DIR, 'filehashes.json'), 'utf8'))
+  : {}
+const fileHashFor = (stagedPath: string): string | null => {
+  const fp = full(stagedPath)
+  if (existsSync(fp)) return createHash('sha256').update(readFileSync(fp)).digest('hex')
+  return committedHashes[stagedPath] ?? null
+}
 const pad = (n: number) => String(n).padStart(3, '0')
 const classOf = (k: string) => (k === 'dataset' ? 'dataset' : 'primary')
 
@@ -43,8 +52,7 @@ async function main() {
   for (let i = 0; i < prim.length; i++) {
     const p = prim[i]
     const srcId = `src-innh-2026-08-05-${pad(i + 1)}`
-    const fp = full(p.stagedPath)
-    const fileHash = sha256(fp)
+    const fileHash = fileHashFor(p.stagedPath)
     const fields = Array.from(new Set((p.findings ?? []).flatMap((f: Finding) => f.fillsGap ?? [])))
 
     await prisma.sourceDoc.upsert({
