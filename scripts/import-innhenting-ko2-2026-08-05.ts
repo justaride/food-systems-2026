@@ -53,6 +53,7 @@ async function main() {
     const idx = OFFSET + i + 1
     const srcId = `src-innh-2026-08-05-${pad(idx)}`
     const fileHash = fileHashFor(p.stagedPath)
+    const repoPath = full(p.stagedPath) // repo-rot-relativ sti så systemets verifiserer resolver
     const fields = Array.from(new Set((p.findings ?? []).flatMap((f: Finding) => f.fillsGap ?? [])))
 
     await prisma.sourceDoc.upsert({
@@ -90,7 +91,7 @@ async function main() {
 
       await prisma.sourceCitation.upsert({
         where: { id: citId },
-        update: { localPath: p.stagedPath, fileHash, pageRef: f.locator ?? null, notes },
+        update: { localPath: repoPath, fileHash, pageRef: f.locator ?? null, notes },
         create: {
           id: citId,
           sourceClass: classOf(p.sourceKind) as any,
@@ -102,7 +103,7 @@ async function main() {
           author: p.source ?? null,
           year: Number.isNaN(yr) ? null : yr,
           url: p.url ?? null,
-          localPath: p.stagedPath,
+          localPath: repoPath,
           fileHash,
           hashAlgorithm: 'sha256',
           pageRef: f.locator ?? null,

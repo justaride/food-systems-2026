@@ -9,7 +9,9 @@ import {
 } from '../src/lib/citations/citation-readiness-refresh'
 import { candidateLocalFilePaths } from '../src/lib/local-file-locator'
 
-const OUTPUT_PATH = 'research/citation-readiness-refresh-preview-2026-05-20.csv'
+// Transient forhåndsvisning: overskrives ved hver kjøring, så navnet bærer ingen dato.
+// (Het tidligere ...-2026-05-20.csv, som løy om når innholdet faktisk ble produsert.)
+const OUTPUT_PATH = 'research/citation-readiness-refresh-preview.csv'
 
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
