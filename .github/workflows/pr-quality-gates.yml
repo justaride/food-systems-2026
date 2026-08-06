@@ -48,6 +48,13 @@ jobs:
       - name: Run lint
         run: npm run lint
 
+      # Prod-imaget kopierer utvalgte kataloger og tar aldri med tests/, så
+      # `next build` i Docker typesjekker dem ikke. Uten dette steget kan
+      # typefeil i tests/ ligge urørt på main og bare vise seg som et brutt
+      # `npm run build` lokalt — slik fem av dem gjorde fram til 2026-08-06.
+      - name: Type-check everything the Docker build does not see
+        run: npx tsc --noEmit
+
   # Egen jobb fordi den trenger en Postgres-tjeneste. Vokter kontrakten
   # apply-prod-migrations.sh hviler på: hele migrasjonssettet anvendes på nytt
   # ved hver deploy, så hver migrasjon må tåle gjenbruk. Da kontrakten brast

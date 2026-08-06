@@ -97,7 +97,8 @@ describe('obsidian vault DB export helpers', () => {
 
   it('converts Decimal-like and bigint values to JSON-safe numbers', () => {
     assert.equal(toNumberOrNull({ toString: () => '42.50' }), 42.5)
-    assert.equal(toNumberOrNull(10n), 10)
+    // BigInt(10) i stedet for 10n: literalen krever ES2020, tsconfig står på ES2017.
+    assert.equal(toNumberOrNull(BigInt(10)), 10)
     assert.equal(toNumberOrNull(null), null)
   })
 })
