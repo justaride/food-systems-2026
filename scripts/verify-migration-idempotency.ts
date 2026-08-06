@@ -17,11 +17,34 @@
  */
 
 import { execFileSync } from 'node:child_process'
-import { readdirSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 
 const MIGRATIONS_DIR = 'prisma/migrations'
+const RUNNER = 'scripts/apply-prod-migrations.sh'
 const PROBE_DB = 'migration_idempotency_probe'
+
+// Kontrakten gjelder bare så lenge prod-kjøreren replayer rå SQL. Går den over
+// til `prisma migrate deploy` blir hver migrasjon anvendt nøyaktig én gang mot
+// _prisma_migrations-ledgeren, og da er ugardert engangs-DDL helt riktig — å
+// kreve idempotens ville avvist legitime migrasjoner (det gjelder blant annet
+// de fem på codex/visual-system-atlas-v1, som er skrevet for den kjøreren).
+// Porten pensjonerer derfor seg selv når kjøreren byttes, i stedet for å måtte
+// huskes bort.
+// Kommentarlinjer teller ikke: dagens kjører *nevner* `prisma migrate deploy`
+// i en kommentar om hvorfor den ikke brukes.
+const runnerCode = readFileSync(RUNNER, 'utf8')
+  .split('\n')
+  .filter(line => !line.trimStart().startsWith('#'))
+  .join('\n')
+
+if (runnerCode.includes('migrate deploy')) {
+  console.log(
+    `${RUNNER} bruker Prisma-ledgeren (migrate deploy) — hver migrasjon kjøres\n` +
+      'nøyaktig én gang, så idempotens er ikke et krav. Porten hopper over.',
+  )
+  process.exit(0)
+}
 
 const adminUrl = process.env.MIGRATION_PROBE_ADMIN_URL
 if (!adminUrl) {
