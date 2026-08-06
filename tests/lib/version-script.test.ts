@@ -26,7 +26,14 @@ function runOutsideGit(env: Record<string, string>) {
     execFileSync(resolve('node_modules/.bin/tsx'), [resolve('scripts/write-version.ts')], {
       cwd: dir,
       stdio: 'ignore',
-      env: { PATH: process.env.PATH ?? '', GIT_DIR: join(dir, 'ingen-git'), ...env },
+      // Bevisst smalt env: arvet SOURCE_COMMIT o.l. ville forurenset fallback-kjeden.
+      // NODE_ENV må med — Next utvider ProcessEnv slik at den er påkrevd.
+      env: {
+        PATH: process.env.PATH ?? '',
+        NODE_ENV: process.env.NODE_ENV ?? 'test',
+        GIT_DIR: join(dir, 'ingen-git'),
+        ...env,
+      },
     })
     return JSON.parse(readFileSync(join(dir, 'src/generated/version.json'), 'utf8')) as {
       sha: string

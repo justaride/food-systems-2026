@@ -3963,22 +3963,27 @@ describe('obsidian vault sync helpers', () => {
         {
           id: 'root',
           name: 'Root ASA',
+          orgNr: '900000001',
           ownershipPct: null,
           children: [
             {
               id: 'child-a',
               name: 'Child A AS',
+              orgNr: '900000002',
               ownershipPct: 100,
               children: [
-                { id: 'grandchild-a', name: 'Grandchild A AS', ownershipPct: 100, children: [] },
-                { id: 'grandchild-a2', name: 'Grandchild A2 AS', ownershipPct: 100, children: [] },
+                { id: 'grandchild-a', name: 'Grandchild A AS', orgNr: '900000003', ownershipPct: 100, children: [] },
+                { id: 'grandchild-a2', name: 'Grandchild A2 AS', orgNr: '900000004', ownershipPct: 100, children: [] },
               ],
             },
             {
               id: 'child-b',
               name: 'Child B AS',
+              orgNr: '900000005',
               ownershipPct: 100,
-              children: [{ id: 'grandchild-b', name: 'Grandchild B AS', ownershipPct: 100, children: [] }],
+              children: [
+                { id: 'grandchild-b', name: 'Grandchild B AS', orgNr: '900000006', ownershipPct: 100, children: [] },
+              ],
             },
           ],
         },
