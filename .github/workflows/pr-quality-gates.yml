@@ -53,7 +53,11 @@ jobs:
       # typefeil i tests/ ligge urørt på main og bare vise seg som et brutt
       # `npm run build` lokalt — slik fem av dem gjorde fram til 2026-08-06.
       - name: Type-check everything the Docker build does not see
-        run: npx tsc --noEmit
+        run: |
+          # src/generated/version.json lages av bygget, ikke av `prisma generate`.
+          # Uten den feiler tsc på de tre rutene som importerer den.
+          npx tsx scripts/write-version.ts
+          npx tsc --noEmit
 
   # Egen jobb fordi den trenger en Postgres-tjeneste. Vokter kontrakten
   # apply-prod-migrations.sh hviler på: hele migrasjonssettet anvendes på nytt
