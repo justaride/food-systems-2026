@@ -47,3 +47,43 @@ jobs:
 
       - name: Run lint
         run: npm run lint
+
+  # Egen jobb fordi den trenger en Postgres-tjeneste. Vokter kontrakten
+  # apply-prod-migrations.sh hviler på: hele migrasjonssettet anvendes på nytt
+  # ved hver deploy, så hver migrasjon må tåle gjenbruk. Da kontrakten brast
+  # (2026-08-06) døde prod-skjemasynken stille på migrasjon 11 av 14.
+  migration-idempotency:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: Every migration must survive re-application
+        run: npm run db:verify:migration-idempotency
+        env:
+          MIGRATION_PROBE_ADMIN_URL: postgresql://postgres:postgres@localhost:5432/postgres

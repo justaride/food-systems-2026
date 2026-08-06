@@ -1,4 +1,4 @@
-CREATE TABLE "LibraryAnalysisRecord" (
+CREATE TABLE IF NOT EXISTS "LibraryAnalysisRecord" (
     "id" TEXT NOT NULL,
     "sourceKind" TEXT NOT NULL,
     "sourceKey" TEXT NOT NULL,
@@ -30,18 +30,32 @@ CREATE TABLE "LibraryAnalysisRecord" (
     CONSTRAINT "LibraryAnalysisRecord_pkey" PRIMARY KEY ("id")
 );
 
-CREATE UNIQUE INDEX "LibraryAnalysisRecord_sourceKind_sourceKey_key" ON "LibraryAnalysisRecord"("sourceKind", "sourceKey");
-CREATE INDEX "LibraryAnalysisRecord_status_idx" ON "LibraryAnalysisRecord"("status");
-CREATE INDEX "LibraryAnalysisRecord_usageRule_idx" ON "LibraryAnalysisRecord"("usageRule");
-CREATE INDEX "LibraryAnalysisRecord_reviewStatus_idx" ON "LibraryAnalysisRecord"("reviewStatus");
-CREATE INDEX "LibraryAnalysisRecord_documentId_idx" ON "LibraryAnalysisRecord"("documentId");
-CREATE INDEX "LibraryAnalysisRecord_sourceDocId_idx" ON "LibraryAnalysisRecord"("sourceDocId");
-CREATE INDEX "LibraryAnalysisRecord_canonicalPath_idx" ON "LibraryAnalysisRecord"("canonicalPath");
+CREATE UNIQUE INDEX IF NOT EXISTS "LibraryAnalysisRecord_sourceKind_sourceKey_key" ON "LibraryAnalysisRecord"("sourceKind", "sourceKey");
+CREATE INDEX IF NOT EXISTS "LibraryAnalysisRecord_status_idx" ON "LibraryAnalysisRecord"("status");
+CREATE INDEX IF NOT EXISTS "LibraryAnalysisRecord_usageRule_idx" ON "LibraryAnalysisRecord"("usageRule");
+CREATE INDEX IF NOT EXISTS "LibraryAnalysisRecord_reviewStatus_idx" ON "LibraryAnalysisRecord"("reviewStatus");
+CREATE INDEX IF NOT EXISTS "LibraryAnalysisRecord_documentId_idx" ON "LibraryAnalysisRecord"("documentId");
+CREATE INDEX IF NOT EXISTS "LibraryAnalysisRecord_sourceDocId_idx" ON "LibraryAnalysisRecord"("sourceDocId");
+CREATE INDEX IF NOT EXISTS "LibraryAnalysisRecord_canonicalPath_idx" ON "LibraryAnalysisRecord"("canonicalPath");
 
-ALTER TABLE "LibraryAnalysisRecord"
-  ADD CONSTRAINT "LibraryAnalysisRecord_documentId_fkey"
-  FOREIGN KEY ("documentId") REFERENCES "Document"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_constraint WHERE conname = 'LibraryAnalysisRecord_documentId_fkey'
+  ) THEN
+    ALTER TABLE "LibraryAnalysisRecord"
+      ADD CONSTRAINT "LibraryAnalysisRecord_documentId_fkey"
+      FOREIGN KEY ("documentId") REFERENCES "Document"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+  END IF;
+END $$;
 
-ALTER TABLE "LibraryAnalysisRecord"
-  ADD CONSTRAINT "LibraryAnalysisRecord_sourceDocId_fkey"
-  FOREIGN KEY ("sourceDocId") REFERENCES "SourceDoc"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_constraint WHERE conname = 'LibraryAnalysisRecord_sourceDocId_fkey'
+  ) THEN
+    ALTER TABLE "LibraryAnalysisRecord"
+      ADD CONSTRAINT "LibraryAnalysisRecord_sourceDocId_fkey"
+      FOREIGN KEY ("sourceDocId") REFERENCES "SourceDoc"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+  END IF;
+END $$;
