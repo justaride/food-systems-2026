@@ -3,12 +3,19 @@
 -- Optional FK: NULL is allowed; existing rows stay NULL until backfill runs.
 
 -- AlterTable
-ALTER TABLE "Producer" ADD COLUMN "primaryCitationId" TEXT;
+ALTER TABLE "Producer" ADD COLUMN IF NOT EXISTS "primaryCitationId" TEXT;
 
 -- CreateIndex
-CREATE INDEX "Producer_primaryCitationId_idx" ON "Producer"("primaryCitationId");
+CREATE INDEX IF NOT EXISTS "Producer_primaryCitationId_idx" ON "Producer"("primaryCitationId");
 
 -- AddForeignKey
-ALTER TABLE "Producer" ADD CONSTRAINT "Producer_primaryCitationId_fkey"
-  FOREIGN KEY ("primaryCitationId") REFERENCES "SourceCitation"("id")
-  ON DELETE SET NULL ON UPDATE CASCADE;
+DO $$
+BEGIN
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_constraint WHERE conname = 'Producer_primaryCitationId_fkey'
+  ) THEN
+    ALTER TABLE "Producer" ADD CONSTRAINT "Producer_primaryCitationId_fkey"
+      FOREIGN KEY ("primaryCitationId") REFERENCES "SourceCitation"("id")
+      ON DELETE SET NULL ON UPDATE CASCADE;
+  END IF;
+END $$;

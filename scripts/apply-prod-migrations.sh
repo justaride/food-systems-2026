@@ -12,6 +12,14 @@
 #
 # Every committed migration is authored idempotently (IF NOT EXISTS / guarded
 # DO-blocks), so applying the full set on every deploy is safe.
+#
+# That was an unchecked assumption until 2026-08-06, when three migrations on
+# main turned out to fail on re-application. With set -e below, the loop died
+# on #11 of 14 and everything after it — including LibraryAnalysisRecord —
+# never reached prod, silently. The assumption is now enforced by
+# `npm run db:verify:migration-idempotency` in the PR quality gates: it applies
+# the whole set twice against a throwaway database. Do not hand-author a
+# migration without a guard; CI will reject it.
 set -e
 
 if [ -z "$DATABASE_URL" ]; then
