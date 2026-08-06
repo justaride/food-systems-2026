@@ -1,6 +1,10 @@
 # Infra-økosystem: Hetzner · Coolify · Cloudflare · GitHub
 
-Sist oppdatert: 2026-06-10. Eier-repo: `justaride/food-systems-2026`.
+Sist oppdatert: 2026-08-06. Eier-repo: `justaride/food-systems-2026`.
+
+> **Endret 2026-08-06:** Coolify er flyttet fra `http://77.42.43.227:8000` til
+> `https://coolify.gabistudio.dev`, bak Cloudflare. Avsnitt 1–5 er oppdatert.
+> Ny hendelse i §13. Alt fra 2026-06-10 står urørt som historikk.
 
 Formål: ett kart over hvordan prod faktisk henger sammen, hvilke tilgangsveier
 som finnes, og en feilsøkingsstige når noe i kjeden ryker. Skrevet så det også
@@ -18,13 +22,15 @@ kan gjenbrukes som mal for andre Coolify/Cloudflare/Hetzner-prosjekter i
    │  ssh cloudbrain                       │  (secrets: se §4)
    │  (= 77.42.43.227) [V]                 │
    │                                       ├── coolify-sync-source-commit  ─┐ Coolify API
-   │                                       │     (push main → redeploy)      │ 77.42.43.227:8000 [V]
+   │                                       │     (push main → redeploy)      │ coolify.gabistudio.dev [V 08-06]
+   │                                       ├── coolify-db-watcher (5 min)    │  bak CF Access — kall MÅ
+   │                                       ├── coolify-resource-snapshot     │  sende CF-Access-headere
    │                                       ├── citation-verification (cron)  │
    │                                       └── prod-data-import (manuell)    │
    │                                             │  begge via CF Access-tunnel│
    ▼                                             ▼                           ▼
  ┌──────────────────────── Hetzner 77.42.43.227 (Coolify-host) [V] ──────────────────┐
- │  Coolify  (dashboard :8000, ikke offentlig — timeout utenfra [V])                  │
+ │  Coolify  (dashboard nå https://coolify.gabistudio.dev, bak CF Access [V 08-06])   │
  │   ├── app-container   uuid so8ko44goccc8gcgswwscgco   [V]                          │
  │   │     Next.js; build = prisma generate + compute-metrics + next build (IKKE data)│
  │   └── DB-container    uuid l0s8o8oo00c8gossw0gksswk                                 │
@@ -43,22 +49,29 @@ kan gjenbrukes som mal for andre Coolify/Cloudflare/Hetzner-prosjekter i
 
 ## 2. De to Cloudflare-veiene (viktig skille)
 
-| Vei | Hostname | Gating | Status 2026-06-10 |
-|---|---|---|---|
-| **App** | `food-systems.naturalstateproject.com` | Offentlig (200 uten auth) [V] | 🟢 frisk |
-| **DB-tunnel** | `fs-db.naturalstateproject.com` | CF Access **service-token** | 🔴 nede («bad handshake») |
+| Vei | Hostname | Gating | Status 2026-06-10 | Status 2026-08-06 |
+|---|---|---|---|---|
+| **App** | `food-systems.naturalstateproject.com` | Offentlig (200 uten auth) [V] | 🟢 frisk | 🟢 frisk [V] |
+| **DB-tunnel** | `fs-db.naturalstateproject.com` | CF Access **service-token** | 🔴 nede («bad handshake») | — |
+| **Kontrollplan** | `coolify.gabistudio.dev` | CF Access **service-token** | fantes ikke | 🟢 frisk [V] |
 
 Konsekvens: at appen er oppe sier **ingenting** om DB-tunnelen. De er separate
 Cloudflare-objekter. Server, Coolify og CF-konto kan være friske mens *kun*
-DB-connectoren/tokenet er nede — som nå.
+DB-connectoren/tokenet er nede — som 2026-06-10.
+
+Etter 2026-08-06 gjelder det samme for **kontrollplanet**: Coolify-API-et er nå
+en tredje, uavhengig vei. Appen kan være helt frisk mens API-et er utilgjengelig
+— da er du blind, ikke nede. `coolify-db-watcher` skiller nå eksplisitt mellom
+de to (`reach=ok|blocked|unreachable`), nettopp fordi sammenblandingen kostet
+110+ falske alarmer i august.
 
 ## 3. Tilgangsveier
 
 | Mål | Hvordan | Krever |
 |---|---|---|
 | Hetzner-shell | `ssh cloudbrain` (HostName 77.42.43.227) [V] | SSH-nøkkel i `~/.ssh/config` |
-| Coolify API | `curl $COOLIFY_BASE_URL/api/v1/...` (`http://77.42.43.227:8000`) | `COOLIFY_API_TOKEN` (GH-secret) |
-| Coolify dashboard | nettleser → :8000 | ikke offentlig; via server/VPN |
+| Coolify API | `curl $COOLIFY_BASE_URL/api/v1/...` (`https://coolify.gabistudio.dev`) [V 08-06] | `COOLIFY_API_TOKEN` **+** `CF-Access-Client-Id/Secret`-headere |
+| Coolify dashboard | nettleser → `https://coolify.gabistudio.dev` [V 08-06] | CF Access (nettleser-innlogging) |
 | Prod-Postgres | `cloudflared access tcp --hostname fs-db… --url localhost:5432` → psql/Prisma på localhost:5432 | `CF_ACCESS_CLIENT_ID/SECRET` + prod `DATABASE_URL` |
 | Prod-DB-creds | Coolify API `GET /api/v1/databases/l0s8o8oo00c8gossw0gksswk` | `COOLIFY_API_TOKEN` |
 
@@ -67,7 +80,9 @@ GitHub Actions-secrets og i Coolify.
 
 ## 4. GitHub Actions-secrets/variabler (navn, ikke verdier)
 
-`COOLIFY_API_TOKEN`, `COOLIFY_BASE_URL` (`http://77.42.43.227:8000`),
+`COOLIFY_API_TOKEN` (rotert 2026-08-06; trenger scope **read + write + deploy**
+— `write` for env-oppdatering og DB-restart, `deploy` for redeploy-trigger),
+`COOLIFY_BASE_URL` (`https://coolify.gabistudio.dev` fra 2026-08-06),
 `COOLIFY_APP_UUID` (`so8ko44goccc8gcgswwscgco`), `DATABASE_URL` (prod, host
 localhost:5432 — tunnelen proxyer), `CF_ACCESS_CLIENT_ID`,
 `CF_ACCESS_CLIENT_SECRET`. Variabel: `CITATION_VERIFY_ENABLED=true` [V].
@@ -287,3 +302,44 @@ created_at desc limit 1"` (app 66 = food-systems; logs er JSON-array med
   Dockerfile med selektive COPY-er — Turbopack/Next feiler buildet ellers.
 - **Kaskadefeil:** når flere ting er ødelagt samtidig, fikser man ett lag og får
   neste feil. Les hele build-loggen for hvert forsøk; ikke anta at én fiks løste alt.
+
+## 13. Hendelse 2026-08-03 → 08-06: ett ugyldig API-token, tre stille utfall
+
+**Symptom:** `coolify-db-watcher` feilet hvert 5. minutt fra 2026-08-03 14:45 UTC
+— 110+ røde kjøringer over 2,5 døgn. Meldingen var `DB status: unknown`.
+
+**Rotårsak:** ett enkelt ting. `COOLIFY_API_TOKEN`-secreten (sist skrevet
+2026-05-12) pekte på et token som ble byttet ut i Coolify 3. august. API-et
+svarte `{"message":"Unauthenticated."}` — gyldig JSON *uten* `status`-felt, så
+`d.get('status','unknown')` ga `unknown`. Feilen så ut som en DB-tilstand.
+
+**Tre utfall som alle så ut som separate problemer:**
+
+| Symptom | Egentlig årsak |
+|---|---|
+| Watcher rød hvert 5. min | token ugyldig |
+| `/api/version` frosset på en 6 uker gammel SHA | `coolify-sync` kunne ikke skrive `SOURCE_COMMIT` |
+| Ingen Coolify-snapshots | samme |
+
+Prod var **frisk hele tiden**. Appen går ikke via API-et.
+
+**Hvorfor det tok tid å se:** watcheren avbrøt på curl-feil i *første* steg og
+rakk aldri app-sjekken, så den kunne ikke si «DB-en er nede» kontra «jeg ser
+ikke DB-en». Etter host-flyttingen skiftet symptomet til `parse-error` (Cloudflare
+svarte HTML), og etter Access-oppsettet til `401` — tre forskjellige meldinger
+for samme underliggende feil.
+
+**Fikset (PR #338):** rekkevidde rapporteres nå separat fra helse
+(`reach=ok|blocked|unreachable`), app-sjekken kjører alltid, alle Coolify-kall
+sender CF-Access-headere, og `coolify-sync` har en preflight som feiler på
+sekunder i stedet for å polle 12 minutter på `deploy status: ?`.
+
+**Lærdom:**
+- **En helsesjekk som ikke skiller «nede» fra «blind» er verre enn ingen.** Den
+  lærer deg å ignorere den.
+- **`.get(felt, 'default')` på et feilrespons-JSON skjuler auth-feil.** Sjekk
+  HTTP-koden før du parser.
+- **Når et symptom endrer seg etter en infra-endring, betyr det ikke at årsaken
+  er ny.** Timeout → parse-error → 401 var samme døde token hele veien.
+- **Token-rotasjon uten å oppdatere konsumentene er en tidsinnstilt bombe.**
+  Sjekk `updated_at` på GH-secretene mot opprettelsesdato på tokens i Coolify.
