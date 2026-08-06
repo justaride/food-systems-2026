@@ -8,8 +8,9 @@ name: Coolify SHA Sync
 #
 # Repository secrets som kreves:
 #   COOLIFY_API_TOKEN — API-token fra Coolify
-#   COOLIFY_BASE_URL  — http://77.42.43.227:8000
+#   COOLIFY_BASE_URL  — https://coolify.gabistudio.dev
 #   COOLIFY_APP_UUID  — so8ko44goccc8gcgswwscgco
+#   CF_ACCESS_CLIENT_ID/SECRET — kontrollplanet ligger bak Cloudflare
 #
 # Workflow triggers redeploy så ny SHA skrives av write-version.ts
 # under bygging.
@@ -33,14 +34,48 @@ jobs:
         id: sha
         run: echo "sha=${{ github.sha }}" >> "$GITHUB_OUTPUT"
 
+      # Uten denne gikk workflowen videre på et ulesbart svar og brant 12
+      # minutter i polling-loopen nedenfor på «deploy status: ?» før den ga
+      # opp. Er kontrollplanet stengt skal det sies med én gang, og med en
+      # beskjed som peker på årsaken.
+      - name: Preflight — er Coolify-API-et i det hele tatt åpent?
+        env:
+          TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
+          BASE: ${{ secrets.COOLIFY_BASE_URL }}
+          UUID: ${{ secrets.COOLIFY_APP_UUID }}
+          CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          set +e
+          http_code=$(curl -sS -m 15 -o /tmp/preflight.out -w '%{http_code}' \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "CF-Access-Client-Id: $CF_ID" \
+            -H "CF-Access-Client-Secret: $CF_SECRET" \
+            "$BASE/api/v1/applications/$UUID/envs")
+          curl_rc=$?
+          set -e
+          if [ "$curl_rc" -ne 0 ] || [ "$http_code" != "200" ]; then
+            echo "::error::Coolify-API-et svarer ikke brukbart (HTTP $http_code, curl rc=$curl_rc)."
+            echo "::error::Cloudflares bot-challenge svarer 403 med HTML. Slipp /api/* gjennom med en WAF-skip-regel, eller lag en Access-policy for service-tokenet."
+            head -c 300 /tmp/preflight.out || true
+            exit 1
+          fi
+          echo "Kontrollplanet er åpent (HTTP $http_code)."
+
       - name: Find existing SOURCE_COMMIT envs
         id: envs
         env:
           TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
           BASE: ${{ secrets.COOLIFY_BASE_URL }}
           UUID: ${{ secrets.COOLIFY_APP_UUID }}
+          CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
-          response=$(curl -sS -H "Authorization: Bearer $TOKEN" "$BASE/api/v1/applications/$UUID/envs")
+          response=$(curl -sS \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "CF-Access-Client-Id: $CF_ID" \
+            -H "CF-Access-Client-Secret: $CF_SECRET" \
+            "$BASE/api/v1/applications/$UUID/envs")
           uuids=$(echo "$response" | python3 -c "
           import sys, json
           d = json.load(sys.stdin)
@@ -58,10 +93,13 @@ jobs:
           UUID: ${{ secrets.COOLIFY_APP_UUID }}
           SHA: ${{ steps.sha.outputs.sha }}
           ENV_UUIDS: ${{ steps.envs.outputs.uuids }}
+          CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
           if [ -z "$ENV_UUIDS" ]; then
             echo "No SOURCE_COMMIT env found — creating new"
             curl -sS -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+              -H "CF-Access-Client-Id: $CF_ID" -H "CF-Access-Client-Secret: $CF_SECRET" \
               "$BASE/api/v1/applications/$UUID/envs" \
               -d "{\"key\":\"SOURCE_COMMIT\",\"value\":\"$SHA\"}"
             echo ""
@@ -70,6 +108,7 @@ jobs:
               echo "Updating env $env_uuid → $SHA"
               # PATCH endpoint to update existing
               curl -sS -X PATCH -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+                -H "CF-Access-Client-Id: $CF_ID" -H "CF-Access-Client-Secret: $CF_SECRET" \
                 "$BASE/api/v1/applications/$UUID/envs" \
                 -d "{\"key\":\"SOURCE_COMMIT\",\"value\":\"$SHA\"}"
               echo ""
@@ -82,8 +121,11 @@ jobs:
           TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
           BASE: ${{ secrets.COOLIFY_BASE_URL }}
           UUID: ${{ secrets.COOLIFY_APP_UUID }}
+          CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
           response=$(curl -sS -X POST -H "Authorization: Bearer $TOKEN" \
+            -H "CF-Access-Client-Id: $CF_ID" -H "CF-Access-Client-Secret: $CF_SECRET" \
             "$BASE/api/v1/deploy?uuid=$UUID&force=true")
           echo "$response"
           deployment_uuid=$(echo "$response" | python3 -c "
@@ -127,6 +169,7 @@ jobs:
           for i in $(seq 1 72); do
             sleep 10
             status=$(curl -sS -H "Authorization: Bearer $TOKEN" \
+              -H "CF-Access-Client-Id: $CF_ID" -H "CF-Access-Client-Secret: $CF_SECRET" \
               "$BASE/api/v1/deployments/applications/$UUID" \
               | python3 -c "
           import sys, json
