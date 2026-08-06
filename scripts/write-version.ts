@@ -30,13 +30,18 @@ function tryGit(args: string): string {
 //      brukere som manuelt setter SOURCE_COMMIT i app-env vil overstyre
 //      auto-injected verdi. Sjekk Coolify-env-tabellen hvis SHA blir
 //      stale på prod (jf. /api/version-bug 2026-04-30 → 2026-05-12).
-const sha =
-  tryGit('rev-parse HEAD') ||
-  process.env.COOLIFY_GIT_COMMIT_SHA ||
-  process.env.SOURCE_COMMIT ||
-  process.env.COMMIT_SHA ||
-  process.env.GIT_SHA ||
-  'unknown'
+// `shaSource` sier hvilket ledd som vant. Bare `manual-env` vedlikeholdes
+// utenfra bygget (coolify-sync-source-commit.yml) og kan derfor bli stale —
+// da peker /api/version på feil commit uten å si fra. Ved å skrive kilden
+// ned blir et stale stempel synlig i stedet for stille.
+const SHA_CANDIDATES: ReadonlyArray<readonly [string, string]> = [
+  ['git', tryGit('rev-parse HEAD')],
+  ['coolify-auto', process.env.COOLIFY_GIT_COMMIT_SHA ?? ''],
+  ['manual-env', process.env.SOURCE_COMMIT ?? ''],
+  ['manual-env', process.env.COMMIT_SHA ?? ''],
+  ['manual-env', process.env.GIT_SHA ?? ''],
+]
+const [shaSource, sha] = SHA_CANDIDATES.find(([, value]) => value) ?? ['unknown', 'unknown']
 
 const branchRaw = tryGit('rev-parse --abbrev-ref HEAD')
 const branch =
@@ -50,6 +55,7 @@ const branch =
 const version = {
   sha,
   shortSha: sha === 'unknown' ? 'unknown' : sha.slice(0, 7),
+  shaSource,
   branch,
   builtAt: new Date().toISOString(),
 }
@@ -57,4 +63,6 @@ const version = {
 mkdirSync(dirname(OUTPUT), { recursive: true })
 writeFileSync(OUTPUT, JSON.stringify(version, null, 2) + '\n')
 
-console.log(`[write-version] wrote ${OUTPUT}: ${version.shortSha} on ${version.branch}`)
+console.log(
+  `[write-version] wrote ${OUTPUT}: ${version.shortSha} on ${version.branch} (kilde: ${version.shaSource})`,
+)
