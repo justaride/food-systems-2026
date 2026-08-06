@@ -11,6 +11,7 @@ name: Coolify Resource Snapshot
 #
 # Krever secrets fra forrige session-oppsett:
 #   COOLIFY_API_TOKEN, COOLIFY_BASE_URL
+#   CF_ACCESS_CLIENT_ID/SECRET — kontrollplanet ligger bak Cloudflare
 
 on:
   schedule:
@@ -36,14 +37,30 @@ jobs:
         env:
           TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
           BASE: ${{ secrets.COOLIFY_BASE_URL }}
+          CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
           mkdir -p "$SNAPSHOT_DIR"
           DATE=$(date -u +%Y-%m-%d)
           SNAPSHOT_FILE="$SNAPSHOT_DIR/$DATE.json"
 
-          curl -sS -m 30 -H "Authorization: Bearer $TOKEN" \
-            "$BASE/api/v1/servers/$SERVER_UUID/resources" \
-            > /tmp/raw.json
+          # Sjekk svaret før parsing. Uten dette møter python en HTML-side fra
+          # Cloudflares bot-challenge og faller med en traceback som ikke sier
+          # noe om årsaken.
+          set +e
+          http_code=$(curl -sS -m 30 -o /tmp/raw.json -w '%{http_code}' \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "CF-Access-Client-Id: $CF_ID" \
+            -H "CF-Access-Client-Secret: $CF_SECRET" \
+            "$BASE/api/v1/servers/$SERVER_UUID/resources")
+          curl_rc=$?
+          set -e
+          if [ "$curl_rc" -ne 0 ] || [ "$http_code" != "200" ]; then
+            echo "::error::Coolify-API-et svarer ikke brukbart (HTTP $http_code, curl rc=$curl_rc) — ingen snapshot å ta."
+            echo "::error::Slipp /api/* gjennom Cloudflare med en WAF-skip-regel, eller lag en Access-policy for service-tokenet."
+            head -c 300 /tmp/raw.json || true
+            exit 1
+          fi
 
           python3 -c "
           import json, sys

@@ -8,7 +8,8 @@ name: Coolify DB Health Watcher
 #   COOLIFY_API_TOKEN
 #   COOLIFY_BASE_URL
 #   COOLIFY_APP_UUID
-#   (optional) CF_ACCESS_CLIENT_ID/SECRET — verifiserer også /api/version
+#   CF_ACCESS_CLIENT_ID/SECRET — brukes både mot appen og mot Coolify-API-et,
+#   siden kontrollplanet nå ligger bak Cloudflare (coolify.gabistudio.dev).
 #
 # DB UUID er hardkodet siden den er stabil:
 #   food-systems-pgvector-db: l0s8o8oo00c8gossw0gksswk
@@ -32,26 +33,47 @@ jobs:
         env:
           TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
           BASE: ${{ secrets.COOLIFY_BASE_URL }}
+          CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
-          response=$(curl -sS -m 10 -H "Authorization: Bearer $TOKEN" "$BASE/api/v1/databases/$DB_UUID")
-          status=$(echo "$response" | python3 -c "
-          import sys, json
-          try:
-            d = json.load(sys.stdin)
-            print(d.get('status', 'unknown'))
-          except: print('parse-error')
-          ")
-          last_online=$(echo "$response" | python3 -c "
-          import sys, json
-          try:
-            d = json.load(sys.stdin)
-            print(d.get('last_online_at', '?'))
-          except: print('?')
-          ")
+          # Dette steget avbryter aldri jobben. Da kontrollplanet ble utilgjengelig
+          # 2026-08-03 døde steget på curl-feil, og watcheren rakk aldri å melde at
+          # appen selv var frisk — 110+ røde kjøringer uten å skille «DB nede» fra
+          # «vi ser ikke DB-en». Rekkevidde og helse rapporteres derfor hver for seg.
+          set +e
+          response=$(curl -sS -m 10 -w '\n%{http_code}' \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "CF-Access-Client-Id: $CF_ID" \
+            -H "CF-Access-Client-Secret: $CF_SECRET" \
+            "$BASE/api/v1/databases/$DB_UUID" 2>/dev/null)
+          curl_rc=$?
+          set -e
+
+          http_code=$(printf '%s' "$response" | tail -n1)
+          payload=$(printf '%s' "$response" | sed '$d')
+          status=unknown
+          last_online='?'
+
+          if [ "$curl_rc" -ne 0 ]; then
+            reach=unreachable
+          elif [ "$http_code" != "200" ]; then
+            # Cloudflares bot-challenge svarer 403 med en HTML-side, ikke JSON.
+            reach=blocked
+          else
+            reach=ok
+            status=$(printf '%s' "$payload" | python3 -c "import sys,json;print(json.load(sys.stdin).get('status','unknown'))" 2>/dev/null || echo parse-error)
+            last_online=$(printf '%s' "$payload" | python3 -c "import sys,json;print(json.load(sys.stdin).get('last_online_at','?'))" 2>/dev/null || echo '?')
+          fi
+
+          echo "Kontrollplan: $reach (HTTP $http_code, curl rc=$curl_rc)"
           echo "DB status: $status"
           echo "Last online: $last_online"
-          echo "status=$status" >> "$GITHUB_OUTPUT"
-          echo "last_online=$last_online" >> "$GITHUB_OUTPUT"
+          {
+            echo "reach=$reach"
+            echo "http_code=$http_code"
+            echo "status=$status"
+            echo "last_online=$last_online"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Verify app is responding
         id: app
@@ -59,10 +81,13 @@ jobs:
           CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
           CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
+          set +e
           http_code=$(curl -sS -m 10 -o /dev/null -w "%{http_code}" \
             -H "CF-Access-Client-Id: $CF_ID" \
             -H "CF-Access-Client-Secret: $CF_SECRET" \
             "https://$APP_DOMAIN/api/data-status")
+          [ -n "$http_code" ] || http_code=000
+          set -e
           echo "App /api/data-status: HTTP $http_code"
           echo "http_code=$http_code" >> "$GITHUB_OUTPUT"
 
@@ -71,18 +96,38 @@ jobs:
         env:
           TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
           BASE: ${{ secrets.COOLIFY_BASE_URL }}
+          CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
           echo "::warning::DB is ${{ steps.db.outputs.status }} — attempting auto-restart"
-          curl -sS -X POST -H "Authorization: Bearer $TOKEN" "$BASE/api/v1/databases/$DB_UUID/restart"
+          curl -sS -X POST -H "Authorization: Bearer $TOKEN" \
+            -H "CF-Access-Client-Id: $CF_ID" \
+            -H "CF-Access-Client-Secret: $CF_SECRET" \
+            "$BASE/api/v1/databases/$DB_UUID/restart"
           echo ""
           sleep 30
-          new_status=$(curl -sS -m 10 -H "Authorization: Bearer $TOKEN" "$BASE/api/v1/databases/$DB_UUID" | python3 -c "import sys,json; print(json.load(sys.stdin).get('status','?'))")
+          new_status=$(curl -sS -m 10 -H "Authorization: Bearer $TOKEN" \
+            -H "CF-Access-Client-Id: $CF_ID" \
+            -H "CF-Access-Client-Secret: $CF_SECRET" \
+            "$BASE/api/v1/databases/$DB_UUID" | python3 -c "import sys,json; print(json.load(sys.stdin).get('status','?'))")
           echo "Status after restart: $new_status"
+
+      # Blind overvåking er en egen tilstand fra en DB-hendelse. Uten skillet
+      # leser man 403 fra en bot-challenge som om prod var nede.
+      - name: Report blind control plane
+        if: steps.db.outputs.reach != 'ok'
+        run: |
+          echo "::error::Coolify-kontrollplanet svarer ikke brukbart: ${{ steps.db.outputs.reach }} (HTTP ${{ steps.db.outputs.http_code }})."
+          echo "::error::Dette er BLIND OVERVÅKING, ikke et bevis på at DB-en er nede — appen svarte HTTP ${{ steps.app.outputs.http_code }} på /api/data-status."
+          echo "::error::Sjekk at COOLIFY_BASE_URL stemmer og at API-stien slipper gjennom Cloudflare (Access-policy for service-tokenet, eller WAF-skip for /api/*)."
+          exit 1
 
       - name: Fail if unhealthy or unreachable
         if: |
-          !contains(steps.db.outputs.status, 'healthy') ||
-          steps.app.outputs.http_code != '200'
+          steps.db.outputs.reach == 'ok' && (
+            !contains(steps.db.outputs.status, 'healthy') ||
+            steps.app.outputs.http_code != '200'
+          )
         run: |
           echo "::error::DB status: ${{ steps.db.outputs.status }} (last_online: ${{ steps.db.outputs.last_online }})"
           echo "::error::App HTTP: ${{ steps.app.outputs.http_code }}"
