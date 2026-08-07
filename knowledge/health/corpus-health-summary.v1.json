@@ -1,9 +1,9 @@
 {
   "schemaVersion": "corpus-evidence-health-v1",
   "documentKind": "corpus_health_summary",
-  "assessmentId": "health.assessment.2026-08-03.local.006986f7",
+  "assessmentId": "health.assessment.2026-08-03.local.2cc40d95",
   "observedAt": "2026-08-03T12:19:47.000Z",
-  "baseCommit": "006986f715f3650511d2888f26e0885933787367",
+  "baseCommit": "2cc40d9532f9eb02be38030eaab2a829b4ceb0ce",
   "gate1Decision": "no_go",
   "principalBlocker": "seed_database_identity_mismatch",
   "semanticBoundary": {
@@ -68,7 +68,7 @@
   "keyMetrics": {
     "corpusActiveIdentities": 1555,
     "corpusContentHashBoundIdentities": 1537,
-    "corpusHashBoundBytes": 554322165,
+    "corpusHashBoundBytes": 554322179,
     "corpusMissingRepositoryFiles": 11,
     "corpusNoLocatorIdentities": 18,
     "corpusKnownIdentityAliasMismatches": 2,
@@ -105,14 +105,14 @@
     "databaseMigrations": 31,
     "migrationLineageMismatches": 0,
     "headSeedEvidence": 400,
-    "databaseEvidence": 417,
-    "databaseOnlyEvidenceIdentities": 18,
+    "databaseEvidence": 472,
+    "databaseOnlyEvidenceIdentities": 73,
     "managedRuntimeEvidenceIdentities": 17,
-    "unclassifiedDatabaseOnlyEvidenceIdentities": 1,
+    "unclassifiedDatabaseOnlyEvidenceIdentities": 56,
     "missingManagedRuntimeEvidenceIdentities": 0,
     "seedOnlyEvidenceIdentities": 1,
     "completeEvidenceAppraisals": 0,
-    "externalRowsNeedingArchive": 1855,
+    "externalRowsNeedingArchive": 1984,
     "currentLibraryInventory": 1555,
     "persistedLibraryRows": 1572,
     "livePersistedLibraryRows": 1555,
@@ -129,10 +129,20 @@
       "title": "Current seed identities and local database evidence identities differ"
     },
     {
+      "conflictId": "health.conflict.historical_status_foreign_lineage",
+      "severity": "high",
+      "title": "Tracked academic status describes a different seed lineage"
+    },
+    {
       "conflictId": "health.conflict.remediation_vintage",
       "severity": "warning",
       "title": "Remediation backlog counts have conflicting vintages"
+    },
+    {
+      "conflictId": "health.conflict.academic_regression_reported_vs_head",
+      "severity": "high",
+      "title": "Tracked academic regression gate does not reproduce on current HEAD"
     }
   ],
-  "contentHash": "sha256:8f247bee2974e2fd13edeb62b8bff723c34bc2ae3b6cbaa548f3686680e0b44d"
+  "contentHash": "sha256:4b788bd72889fec7eb76a58e0b57ee6dbd917bc7110ba33d6e30cb9dc348a123"
 }

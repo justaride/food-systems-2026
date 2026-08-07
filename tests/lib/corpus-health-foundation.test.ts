@@ -325,9 +325,9 @@ test('receipt-resolves migration lineage while failing closed on identity, appra
   assert.equal(metric(assessment, 'health_metric.head_migrations').value, 31)
   assert.equal(metric(assessment, 'health_metric.database_migrations').value, 31)
   assert.equal(metric(assessment, 'health_metric.migration_lineage_mismatches').value, 0)
-  assert.equal(metric(assessment, 'health_metric.database_only_evidence_identities').value, 18)
+  assert.equal(metric(assessment, 'health_metric.database_only_evidence_identities').value, 73)
   assert.equal(metric(assessment, 'health_metric.managed_runtime_evidence_identities').value, 17)
-  assert.equal(metric(assessment, 'health_metric.unclassified_database_only_evidence_identities').value, 1)
+  assert.equal(metric(assessment, 'health_metric.unclassified_database_only_evidence_identities').value, 56)
   assert.equal(metric(assessment, 'health_metric.missing_managed_runtime_evidence_identities').value, 0)
   assert.equal(metric(assessment, 'health_metric.seed_only_evidence_identities').value, 1)
 
@@ -357,20 +357,20 @@ test('receipt-resolves migration lineage while failing closed on identity, appra
   const appraisal = metric(assessment, 'health_metric.evidence_appraisal')
   assert.equal(appraisal.value, 0)
   assert.equal(appraisal.numerator, 0)
-  assert.equal(appraisal.denominator, 417)
+  assert.equal(appraisal.denominator, 472)
   assert.equal(appraisal.percentage, 0)
 
   const archive = metric(assessment, 'health_metric.external_rows_needing_archive')
-  assert.equal(archive.value, 1_855)
-  assert.equal(archive.numerator, 1_855)
-  assert.equal(archive.denominator, 2_376)
+  assert.equal(archive.value, 1_984)
+  assert.equal(archive.numerator, 1_984)
+  assert.equal(archive.denominator, 2_562)
   assert.ok(asObjectArray(assessment.dimensions, 'assessment.dimensions').some((item) => (
     item.dimensionId === 'archive'
     && item.verdict === 'blocked'
   )))
-  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').externalRowsNeedingArchive, 1_855)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').externalRowsNeedingArchive, 1_984)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').managedRuntimeEvidenceIdentities, 17)
-  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').unclassifiedDatabaseOnlyEvidenceIdentities, 1)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').unclassifiedDatabaseOnlyEvidenceIdentities, 56)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').missingManagedRuntimeEvidenceIdentities, 0)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').livePersistedLibraryRows, 1_555)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').retainedLibraryHistoryRows, 17)
