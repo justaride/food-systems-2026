@@ -15,12 +15,12 @@
     },
     {
       "path": "knowledge/corpus/corpus-processing-generation-manifest.v1.json",
-      "sha256": "3eb14e520700ba7b1c3d5116cd500f3e73b29b4937b5e58c8b570f733ce4d486",
+      "sha256": "77aeadb51d5e0fb01f8f2cb39a7c5589b31574a6611415aa09e9065ee8c6e854",
       "sizeBytes": 3944
     },
     {
       "path": "knowledge/corpus/corpus-processing-register.v1.jsonl",
-      "sha256": "3b1d475bd3adda4693eb1687cf0a4b19121b7ed110631c22981891937174a41f",
+      "sha256": "626b3144f289a33445b324f536b293c118f8716c3e1c464089bae54e57b1f5a6",
       "sizeBytes": 11454538
     },
     {
@@ -124,7 +124,7 @@
   "outputs": [
     {
       "path": "knowledge/corpus/corpus-processing-current-state.v1.jsonl",
-      "sha256": "935e6718a6f523e098d0ebf4b12467e589e098d9f77dbb9deb72621e252793aa",
+      "sha256": "6be28c7c362f3146ebf9d3ade1d57bc1f40387d9ed9a82ca4a72fa0f3be67957",
       "sizeBytes": 9680158
     },
     {
