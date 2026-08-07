@@ -14,6 +14,8 @@ import {
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
 const prisma = new PrismaClient({ adapter })
 
+const INNHENTING_2026_08_05_SOURCE_DOC_COUNT = 55
+
 type Expectation = {
   label: string
   count: () => Promise<number>
@@ -93,17 +95,24 @@ async function main() {
     sourceDocs: countFor('SourceDoc'),
     totalEvidence: countFor('Report') + countFor('Thesis') + countFor('SourceDoc'),
   }
+  const matsvinnlovenIdentityCounts = {
+    ...academicIdentityCounts,
+    sourceDocs:
+      academicIdentityCounts.sourceDocs - INNHENTING_2026_08_05_SOURCE_DOC_COUNT,
+    totalEvidence:
+      academicIdentityCounts.totalEvidence - INNHENTING_2026_08_05_SOURCE_DOC_COUNT,
+  }
   const academicIdentityState = classifyMatsvinnlovenAcademicIdentityCounts(
-    academicIdentityCounts,
+    matsvinnlovenIdentityCounts,
   )
   results.push({
     label: 'AcademicIdentity',
-    actual: academicIdentityCounts.totalEvidence,
+    actual: matsvinnlovenIdentityCounts.totalEvidence,
     minimum: CANONICAL_EVIDENCE_TOTAL_AFTER_MATSVINNLOVEN_IDENTITY,
     sev: academicIdentityState === 'invalid' ? 'fail' : 'ok',
     note: academicIdentityState === 'invalid'
-      ? `invalid exact report/thesis/source pair ${JSON.stringify(academicIdentityCounts)}`
-      : `exact ${academicIdentityState} identity pair`,
+      ? `invalid exact report/thesis/source pair after the exact 55-row 2026-08-05 intake boundary ${JSON.stringify({ academicIdentityCounts, matsvinnlovenIdentityCounts })}`
+      : `exact ${academicIdentityState} identity pair after excluding the separately controlled 55-row 2026-08-05 intake`,
   })
 
   try {

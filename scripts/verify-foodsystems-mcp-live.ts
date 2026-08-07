@@ -5,9 +5,13 @@ import { resolve } from 'node:path'
 import { Client } from '@modelcontextprotocol/sdk/client/index.js'
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js'
 import {
+  CANONICAL_EVIDENCE_TOTAL_AFTER_MATSVINNLOVEN_IDENTITY,
+  CANONICAL_SOURCE_DOC_COUNT_AFTER_MATSVINNLOVEN_IDENTITY,
   CANONICAL_THESIS_COUNT_AFTER_MATSVINNLOVEN_IDENTITY,
   classifyMatsvinnlovenAcademicIdentityCounts,
 } from '../src/lib/citations/matsvinnloven-identity-migration'
+
+const INNHENTING_2026_08_05_SOURCE_DOC_COUNT = 55
 
 const repoRoot = process.cwd()
 const configuredCommand = process.env.FOODSYSTEMS_MCP_COMMAND?.trim()
@@ -54,7 +58,12 @@ async function main(): Promise<void> {
   // The synthetic matsvinnloven-2025 Thesis is intentionally removed and
   // replaced by an official SourceDoc without changing total evidence count.
   assertMinimum(counts, 'theses', CANONICAL_THESIS_COUNT_AFTER_MATSVINNLOVEN_IDENTITY)
-  assertMinimum(counts, 'sourceDocs', 199)
+  assertMinimum(
+    counts,
+    'sourceDocs',
+    CANONICAL_SOURCE_DOC_COUNT_AFTER_MATSVINNLOVEN_IDENTITY - 1 +
+      INNHENTING_2026_08_05_SOURCE_DOC_COUNT,
+  )
   assertMinimum(counts, 'companies', 351)
   assertMinimum(counts, 'actors', 1636)
   assertMinimum(counts, 'people', 1594)
@@ -66,11 +75,18 @@ async function main(): Promise<void> {
       number(counts.theses, 'kb_status.database.counts.theses') +
       number(counts.sourceDocs, 'kb_status.database.counts.sourceDocs'),
   }
-  const identityState = classifyMatsvinnlovenAcademicIdentityCounts(identityCounts)
+  const matsvinnlovenIdentityCounts = {
+    ...identityCounts,
+    sourceDocs: identityCounts.sourceDocs - INNHENTING_2026_08_05_SOURCE_DOC_COUNT,
+    totalEvidence: identityCounts.totalEvidence - INNHENTING_2026_08_05_SOURCE_DOC_COUNT,
+  }
+  const identityState = classifyMatsvinnlovenAcademicIdentityCounts(
+    matsvinnlovenIdentityCounts,
+  )
   assert.notEqual(
     identityState,
     'invalid',
-    `unexpected academic identity counts: ${JSON.stringify(identityCounts)}`,
+    `unexpected academic identity counts after the exact 55-row 2026-08-05 intake boundary: ${JSON.stringify({ identityCounts, matsvinnlovenIdentityCounts })}`,
   )
 
   const citationPolicy = record(status.citationPolicy, 'kb_status.citationPolicy')
@@ -106,7 +122,11 @@ async function main(): Promise<void> {
     'kb_status.appraisalPolicy.totalEvidenceRecords',
   )
   assert.equal(appraisalPolicy.modeled, true)
-  assert.equal(totalEvidenceRecords, 417)
+  assert.equal(
+    totalEvidenceRecords,
+    CANONICAL_EVIDENCE_TOTAL_AFTER_MATSVINNLOVEN_IDENTITY +
+      INNHENTING_2026_08_05_SOURCE_DOC_COUNT,
+  )
   assert.equal(totalEvidenceRecords, identityCounts.totalEvidence)
   assert.equal(appraisalPolicy.appraisals, 0)
   assert.equal(appraisalPolicy.missing, totalEvidenceRecords)
