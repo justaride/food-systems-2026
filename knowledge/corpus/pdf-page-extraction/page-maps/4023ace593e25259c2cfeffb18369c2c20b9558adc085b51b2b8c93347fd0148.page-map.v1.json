@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactType": "pdf_page_extraction_map",
+  "pipelineVersion": "1.0.0",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148"
+  },
+  "identityKeys": [
+    "candidate:source.is.competition-authority.grocery-prices-2026-1-method"
+  ],
+  "identityAssociation": {
+    "state": "unregistered_source_candidate",
+    "intendedLabel": "Samkeppniseftirlitið metodevedlegg til 1/2026",
+    "observedDocumentTitle": "Minnisblað um gögn og aðferðafræði umræðuskjals nr. 1/2026 — Dagvöruverð og samanburður við útlönd",
+    "blockerCode": "database_registration_required"
+  },
+  "sourceBinding": {
+    "title": "Minnisblað um gögn og aðferðafræði umræðuskjals nr. 1/2026 — Dagvöruverð og samanburður við útlönd",
+    "doi": null,
+    "officialUrl": "https://www.samkeppni.is/wp-content/uploads/2026/06/Minnisblad-um-gogn-og-adferdafraedi-umraeduskjals-nr.-1-2026-1.pdf",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_classification"
+  },
+  "extractionEngine": {
+    "name": "pdftotext",
+    "version": "26.04.0",
+    "argumentsTemplate": [
+      "-f",
+      "{page}",
+      "-l",
+      "{page}",
+      "-enc",
+      "UTF-8",
+      "-eol",
+      "unix",
+      "-nopgbrk",
+      "{input_pdf}",
+      "-"
+    ]
+  },
+  "expectedPageCount": 2,
+  "extractedPageCount": 2,
+  "pageSequenceComplete": true,
+  "privateStorageOnly": true,
+  "textIncludedInTrackedArtifact": false,
+  "languagePolicy": {
+    "pageLanguageDetection": "not_computed",
+    "reason": "no_version_pinned_reliable_detector_configured"
+  },
+  "promotionState": {
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentValidationComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148/pages/page-0001.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148/pages/page-0001.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "324b3cf7b7b8ce5dd2d5dcbc30a7b62bae129dcba69975572240271f1797f785",
+        "sizeBytes": 1389,
+        "characterCount": 1272,
+        "lineCount": 41
+      },
+      "normalizedText": {
+        "sha256": "adebfc596d4160bde9d4cdb56c797f70ed58bdf1a5a69fbcb427bd92e832f9dd",
+        "sizeBytes": 1388,
+        "characterCount": 1271,
+        "lineCount": 40,
+        "wordCount": 209
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 2,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148/pages/page-0002.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148/pages/page-0002.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "112bf1ce1de46af33fc598b36216c04ab9ffdb91cc1cecf64ad97b0387d8c925",
+        "sizeBytes": 1013,
+        "characterCount": 968,
+        "lineCount": 70
+      },
+      "normalizedText": {
+        "sha256": "b26fdd19f29531418589d6d0111f7996d397b6a43ab8c32b63c62fe9462b48c6",
+        "sizeBytes": 1012,
+        "characterCount": 967,
+        "lineCount": 69,
+        "wordCount": 147
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    }
+  ],
+  "pageMapSha256": "6321c3a0becf53e42b8e398da27b39d34c5c3227afc83d0543bca9b63c9d3daf"
+}

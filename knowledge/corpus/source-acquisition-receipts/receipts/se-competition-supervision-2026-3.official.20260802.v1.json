@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "source-acquisition-receipt-v1",
+  "artifactType": "source_acquisition_receipt",
+  "receiptId": "receipt.source.acquisition.se-competition-supervision-2026-3.official.20260802.v1",
+  "receiptVersion": "1.0.0",
+  "sourceId": "source.se.competition-authority.supervision-report-2026-3",
+  "tool": {
+    "name": "food-systems-controlled-curl-http2-fetch-adapter",
+    "version": "1.0.0",
+    "workflowRef": "knowledge/corpus/workflows/controlled-source-acquisition-v1.md",
+    "workflowVersion": "1.0.0"
+  },
+  "startedAt": "2026-08-02T23:18:32.380Z",
+  "completedAt": "2026-08-02T23:18:32.432Z",
+  "receiptSha256": "sha256:e68cac44eb3d0f9b4ea60489d731e16b71745e4c1743c6cdb7b7ac0a237db852",
+  "acquisitionType": "controlled_https_fetch",
+  "requestedLocator": "https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2026-3.pdf",
+  "finalLocator": "https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2026-3.pdf",
+  "request": {
+    "method": "GET",
+    "redirectMode": "manual",
+    "credentialsMode": "omit",
+    "maximumRedirects": 5
+  },
+  "redirectChain": [],
+  "response": {
+    "status": 200,
+    "contentType": "application/pdf",
+    "contentLengthBytes": 1454264,
+    "bodySizeBytes": 1454264,
+    "bodySha256": "sha256:9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e",
+    "observedAt": "2026-08-02T23:18:32.380Z"
+  }
+}

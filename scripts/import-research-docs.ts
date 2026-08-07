@@ -74,6 +74,9 @@ const sourceById = new Map(sources.map(source => [source.id, source]))
 const IGNORED_RESEARCH_FILES = new Set([
   // Duplicate byte-identical alias of evidence-pack/akademia/huynh-mortensen-2025.pdf.
   'evidence-pack/nordisk/salling-coop-danmark-2025.pdf',
+  // Historical tombstone for a synthetic Thesis identity. A guarded identity
+  // migration owns its quarantined Document row; never relink it to the real law.
+  'thesis-matsvinnloven-2025.md',
 ])
 
 const SUPPLEMENTAL_PDF_MATCHES: Record<string, SupplementalPdfMatch> = {

@@ -1,7 +1,8 @@
 # Recept för resiliens
 
 > Local Document.filePath snapshot generated from existing DB `Document.content`.
-> This is a locator/coverage remediation artifact, not fresh source verification.
+> Identity metadata was corrected against the official source on 2026-07-19.
+> Substantive relevance, findings and recommendations remain unverified legacy synthesis and are not ready for external citation.
 > Canonical external URL remains authoritative where listed below.
 
 ## Metadata
@@ -14,20 +15,22 @@
 - Category: bibliotek
 - Subcategory: reports
 - Country: SE
-- Canonical URL: https://www.livsmedelsforetagen.se/recept-for-resiliens/
-- Content SHA256: e550c8c945b9a78ffa536dcb8b0ef1dcd8f7f4e826ed8e69c53f296384ee2408
+- Canonical URL: https://www.livsmedelsforetagen.se/nyheter/recept-for-resiliens-10-atgarder-for-att-starka-sveriges-livsmedelsberedskap/
+- Content SHA256: 0d5bebc0e43fdf448323dc09ab7b9233bb77af1e612cdc0cbe2c5cfb30b1aed2
 
 ## Source Text Snapshot
 
 # Recept för resiliens
-*Full tittel: Recept för resiliens – Lönsamhet och robusthet i svensk livsmedelsförsörjning under kris*
+> **Kildebruk:** Identitetsmetadata ble korrigert mot offisiell kilde 2026-07-19. Relevans, hovedfunn og anbefalinger nedenfor er eldre intern syntese som ikke er kildeverifisert eller klar for ekstern sitering.
+*Full tittel: Recept för resiliens*
 - **Forfatter:** Livsmedelsföretagen
-- **Institusjon:** Livsmedelsföretagen / MSB
+- **Institusjon:** Livsmedelsföretagen
 - **År:** 2025
+- **Dato:** 2025-03-07
 - **Kategori:** BRANSJE
 - **Utgiver:** Livsmedelsföretagen
-- **DOI:** 10.5281/zenodo.lf.resiliens-2025
-- **URL:** https://www.livsmedelsforetagen.se/recept-for-resiliens/
+- **Proveniens:** external_report
+- **URL:** https://www.livsmedelsforetagen.se/nyheter/recept-for-resiliens-10-atgarder-for-att-starka-sveriges-livsmedelsberedskap/
 ## Relevans (Relevance)
 Brobygger mellom konkurranseforhold og nasjonal beredskap. Understreker at en svekket bondestand direkte truer totalforsvaret, et argument som er høyst overførbart til den norske beredskapsdebatten.
 ## Hovedfunn (Key Findings)

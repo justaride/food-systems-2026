@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.0.0",
+  "receiptType": "pdf_page_extraction_technical_qualification",
+  "pipelineVersion": "1.0.0",
+  "qualificationState": "technical_extraction_passed_with_warnings",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c"
+  },
+  "identityKeys": [
+    "document:cmppajyxz001snjvmjzin1ww1"
+  ],
+  "identityAssociation": {
+    "state": "provisional_metadata_match",
+    "intendedLabel": "Konkurrensverket rapport 2025:5",
+    "observedDocumentTitle": "Utvärdering av lagen om förbud mot otillbörliga handelsmetoder — Konkurrensverkets rapportserie 2025:5",
+    "blockerCode": null
+  },
+  "sourceBinding": {
+    "title": "Utvärdering av lagen om förbud mot otillbörliga handelsmetoder — Konkurrensverkets rapportserie 2025:5",
+    "doi": null,
+    "officialUrl": "https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2025-5.pdf",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_classification"
+  },
+  "sourceFile": {
+    "expectedSizeBytes": 1309168,
+    "observedSizeBytes": 1309168,
+    "headerMagic": "%PDF-",
+    "encryptionState": "not_encrypted",
+    "pageCount": 112,
+    "pdfVersion": "1.6",
+    "primaryCopy": {
+      "locator": "private://corpus/sha256/d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c.pdf",
+      "sha256": "d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c",
+      "sizeBytes": 1309168,
+      "fileMode": "0400",
+      "verified": true
+    },
+    "replicaCopy": {
+      "locator": "private://bigbrain-corpus/sha256/d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c.pdf",
+      "sha256": "d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c",
+      "sizeBytes": 1309168,
+      "fileMode": "0400",
+      "verified": true
+    }
+  },
+  "extraction": {
+    "pdfinfoVersion": "26.04.0",
+    "pdftotextVersion": "26.04.0",
+    "argumentsTemplate": [
+      "-f",
+      "{page}",
+      "-l",
+      "{page}",
+      "-enc",
+      "UTF-8",
+      "-eol",
+      "unix",
+      "-nopgbrk",
+      "{input_pdf}",
+      "-"
+    ],
+    "pageMapLocator": "knowledge/corpus/pdf-page-extraction/page-maps/d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c.page-map.v1.json",
+    "pageMapSha256": "13efd3dc6a3248d43138f958ef3648bcc19048c78f42f325fedfdc49614db87e",
+    "extractedPageCount": 112,
+    "rawTextFileCount": 112,
+    "normalizedTextFileCount": 112,
+    "primaryPrivateOutputVerified": true,
+    "replicaPrivateOutputVerified": true
+  },
+  "totals": {
+    "rawSizeBytes": 289779,
+    "rawCharacterCount": 277700,
+    "normalizedSizeBytes": 289667,
+    "normalizedCharacterCount": 277588,
+    "wordCount": 39447,
+    "warningPageCount": 3,
+    "blankPageCount": 0,
+    "lowTextPageCount": 3
+  },
+  "warningSummary": [
+    {
+      "code": "low_extracted_text",
+      "pageCount": 3,
+      "pageNumbers": [
+        1,
+        2,
+        112
+      ]
+    }
+  ],
+  "languagePolicy": {
+    "pageLanguageDetection": "not_computed",
+    "reason": "no_version_pinned_reliable_detector_configured"
+  },
+  "semantics": {
+    "technicalExtractionOnly": true,
+    "fullTextStoredInRepository": false,
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentValidationComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "receiptSha256": "0faaadf5f3b8c18d7a4916f11c94a9eaa79f6442022d08650befe4f7ca31e04b"
+}

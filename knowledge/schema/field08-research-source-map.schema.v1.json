@@ -1,0 +1,455 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schemas/field08-research-source-map.schema.v1.json",
+  "title": "Field 08 research source map",
+  "oneOf": [
+    { "$ref": "#/$defs/sourceMap" },
+    { "$ref": "#/$defs/generationManifest" }
+  ],
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "artifactSnapshotEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "kind", "sha256", "sizeBytes"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "kind": { "const": "file" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "artifactSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactSnapshotId",
+        "path",
+        "kind",
+        "baseCommit",
+        "gitObjectId",
+        "gitObjectType",
+        "sha256",
+        "sizeBytes",
+        "fileCount",
+        "entries"
+      ],
+      "properties": {
+        "artifactSnapshotId": { "type": "string", "pattern": "^artifact\\.v1\\.[a-f0-9]{20}$" },
+        "path": { "type": "string", "minLength": 1 },
+        "kind": { "const": "file" },
+        "baseCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "gitObjectId": { "type": "string", "pattern": "^[a-f0-9]{40,64}$" },
+        "gitObjectType": { "const": "blob" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 0 },
+        "fileCount": { "const": 1 },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": { "$ref": "#/$defs/artifactSnapshotEntry" }
+        }
+      }
+    },
+    "semantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactRole",
+        "coverageImplication",
+        "subjectMatterState",
+        "evidenceStatus",
+        "externalUseAllowed",
+        "readinessPromotionAllowed",
+        "historicalAssessmentMutationAllowed",
+        "crossProfileAggregationAllowed"
+      ],
+      "properties": {
+        "artifactRole": { "const": "research_intake" },
+        "coverageImplication": { "const": "none" },
+        "subjectMatterState": { "const": "unassessed" },
+        "evidenceStatus": { "const": "candidate_not_evidence" },
+        "externalUseAllowed": { "const": false },
+        "readinessPromotionAllowed": { "const": false },
+        "historicalAssessmentMutationAllowed": { "const": false },
+        "crossProfileAggregationAllowed": { "const": false }
+      }
+    },
+    "locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["locatorType", "value", "locatorStatus"],
+      "properties": {
+        "locatorType": {
+          "enum": ["dataset_table", "page", "section", "legal_provision", "webpage_section", "figure"]
+        },
+        "value": { "type": "string", "minLength": 3 },
+        "locatorStatus": { "enum": ["exact_candidate_locator", "locator_needs_review"] }
+      }
+    },
+    "subjectPeriod": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "label", "start", "end"],
+      "properties": {
+        "kind": { "enum": ["snapshot", "interval", "series_window", "undated"] },
+        "label": { "type": "string", "minLength": 1 },
+        "start": { "type": ["string", "null"], "format": "date" },
+        "end": { "type": ["string", "null"], "format": "date" }
+      }
+    },
+    "sourceCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceCandidateId",
+        "title",
+        "publisher",
+        "publicationDate",
+        "sourceUrl",
+        "sourceType",
+        "authorityClass",
+        "sourceScopeLabel",
+        "languages",
+        "retrievedAt",
+        "accessStatus",
+        "exactLocator",
+        "archiveStatus",
+        "rightsHolderInstitutionalSource",
+        "limitations"
+      ],
+      "properties": {
+        "sourceCandidateId": { "type": "string", "pattern": "^field08\\.source\\.[a-z0-9._-]+$" },
+        "title": { "type": "string", "minLength": 3 },
+        "publisher": { "type": "string", "minLength": 2 },
+        "publicationDate": { "type": ["string", "null"], "format": "date" },
+        "sourceUrl": { "type": "string", "format": "uri", "pattern": "^https://" },
+        "sourceType": {
+          "enum": [
+            "official_statistics",
+            "official_dataset",
+            "legislation_or_methodology",
+            "government_report",
+            "government_strategy",
+            "public_authority_webpage",
+            "public_service_operator_report",
+            "intergovernmental_report",
+            "rights_holder_institutional_source"
+          ]
+        },
+        "authorityClass": {
+          "enum": ["official_public_authority", "official_statistics_authority", "public_service_operator", "intergovernmental", "rights_holder_institution"]
+        },
+        "sourceScopeLabel": { "type": "string", "minLength": 3 },
+        "languages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z]{2,3}$" }
+        },
+        "retrievedAt": { "type": "string", "format": "date" },
+        "accessStatus": { "enum": ["accessible", "partial_access", "metadata_only", "inaccessible"] },
+        "exactLocator": { "$ref": "#/$defs/locator" },
+        "archiveStatus": { "const": "locator_only_not_archived" },
+        "rightsHolderInstitutionalSource": { "type": "boolean" },
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 8 }
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "sourceType": { "const": "rights_holder_institutional_source" },
+            "authorityClass": { "const": "rights_holder_institution" },
+            "rightsHolderInstitutionalSource": { "const": true }
+          }
+        },
+        {
+          "properties": {
+            "sourceType": { "not": { "const": "rights_holder_institutional_source" } },
+            "authorityClass": { "not": { "const": "rights_holder_institution" } },
+            "rightsHolderInstitutionalSource": { "const": false }
+          }
+        }
+      ]
+    },
+    "sourceBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceBindingId",
+        "sourceCandidateId",
+        "geographyId",
+        "cellId",
+        "candidateUse",
+        "boundaryFit",
+        "targetFacetIds",
+        "limitations",
+        "claimPromotionAllowed"
+      ],
+      "properties": {
+        "sourceBindingId": { "type": "string", "pattern": "^field08\\.binding\\.[a-z0-9._-]+$" },
+        "sourceCandidateId": { "type": "string", "pattern": "^field08\\.source\\.[a-z0-9._-]+$" },
+        "geographyId": { "$ref": "#/$defs/geographyId" },
+        "cellId": { "type": "string", "pattern": "^cov\\.v1\\.profile=legacy_field_(political|sapmi_overlap)\\.geography=(no|se|dk|fi|is|fo|gl|ax|sapmi)\\.legacy_fields=f08$" },
+        "candidateUse": {
+          "enum": [
+            "substantive_measurement_candidate",
+            "policy_context_candidate",
+            "method_candidate",
+            "regional_context_candidate",
+            "data_gap_candidate",
+            "boundary_reconciliation_candidate",
+            "rights_holder_authority_route"
+          ]
+        },
+        "boundaryFit": {
+          "enum": ["direct_candidate", "method_only", "regional_context_only", "requires_reconciliation", "rights_holder_route_only"]
+        },
+        "targetFacetIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 3 }
+        },
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 8 }
+        },
+        "claimPromotionAllowed": { "const": false }
+      }
+    },
+    "nullableMetadata": {
+      "type": ["string", "null"]
+    },
+    "observationCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observationCandidateId",
+        "sourceCandidateId",
+        "sourceBindingId",
+        "geographyId",
+        "observationType",
+        "statement",
+        "exactLocator",
+        "subjectPeriod",
+        "quantitative",
+        "value",
+        "unit",
+        "numeratorDefinition",
+        "denominatorOrUniverse",
+        "method",
+        "systemBoundary",
+        "metadataGaps",
+        "limitations",
+        "verificationState",
+        "candidateStatus",
+        "externalUseAllowed"
+      ],
+      "properties": {
+        "observationCandidateId": { "type": "string", "pattern": "^field08\\.observation\\.[a-z0-9._-]+$" },
+        "sourceCandidateId": { "type": "string", "pattern": "^field08\\.source\\.[a-z0-9._-]+$" },
+        "sourceBindingId": { "type": "string", "pattern": "^field08\\.binding\\.[a-z0-9._-]+$" },
+        "geographyId": { "$ref": "#/$defs/geographyId" },
+        "observationType": {
+          "enum": [
+            "quantitative_measurement_candidate",
+            "qualitative_scope_candidate",
+            "policy_status_candidate",
+            "method_definition_candidate",
+            "documented_data_gap_candidate",
+            "authority_route_candidate"
+          ]
+        },
+        "statement": { "type": "string", "minLength": 12 },
+        "exactLocator": { "$ref": "#/$defs/locator" },
+        "subjectPeriod": { "$ref": "#/$defs/subjectPeriod" },
+        "quantitative": { "type": "boolean" },
+        "value": { "type": ["number", "null"] },
+        "unit": { "$ref": "#/$defs/nullableMetadata" },
+        "numeratorDefinition": { "$ref": "#/$defs/nullableMetadata" },
+        "denominatorOrUniverse": { "$ref": "#/$defs/nullableMetadata" },
+        "method": { "$ref": "#/$defs/nullableMetadata" },
+        "systemBoundary": { "$ref": "#/$defs/nullableMetadata" },
+        "metadataGaps": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "enum": ["geography", "period", "value", "unit", "numerator", "denominator_or_universe", "method", "system_boundary", "exact_locator"]
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 8 }
+        },
+        "verificationState": { "const": "needs_review" },
+        "candidateStatus": { "const": "candidate_unverified" },
+        "externalUseAllowed": { "const": false }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "quantitative": { "const": false } }, "required": ["quantitative"] },
+          "then": {
+            "properties": {
+              "value": { "const": null },
+              "unit": { "const": null }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "observationType": { "const": "quantitative_measurement_candidate" } },
+            "required": ["observationType"]
+          },
+          "then": { "properties": { "quantitative": { "const": true } } },
+          "else": { "properties": { "quantitative": { "const": false } } }
+        }
+      ]
+    },
+    "geographyId": {
+      "enum": ["geo.no", "geo.se", "geo.dk", "geo.fi", "geo.is", "geo.fo", "geo.gl", "geo.ax", "geo.sapmi"]
+    },
+    "geographyPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "geographyId",
+        "profileId",
+        "aggregationClass",
+        "cellId",
+        "geographyBoundaryNote",
+        "sourceBoundaryState",
+        "scopeCompletenessState",
+        "explicitUnknowns",
+        "nextActions",
+        "proposedOwner",
+        "recheckCadence",
+        "rightsHolderReviewRequired",
+        "humanEvidenceRoute"
+      ],
+      "properties": {
+        "geographyId": { "$ref": "#/$defs/geographyId" },
+        "profileId": { "enum": ["profile.legacy_field_political", "profile.legacy_field_sapmi_overlap"] },
+        "aggregationClass": { "enum": ["political_nordic", "sapmi_overlapping"] },
+        "cellId": { "type": "string", "pattern": "^cov\\.v1\\.profile=legacy_field_(political|sapmi_overlap)\\.geography=(no|se|dk|fi|is|fo|gl|ax|sapmi)\\.legacy_fields=f08$" },
+        "geographyBoundaryNote": { "type": "string", "minLength": 12 },
+        "sourceBoundaryState": { "const": "unknown" },
+        "scopeCompletenessState": { "const": "unassessed" },
+        "explicitUnknowns": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 8 }
+        },
+        "nextActions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 8 }
+        },
+        "proposedOwner": { "type": "string", "minLength": 2 },
+        "recheckCadence": { "enum": ["monthly", "quarterly", "semiannual", "annual", "unscheduled"] },
+        "rightsHolderReviewRequired": { "type": "boolean" },
+        "humanEvidenceRoute": {
+          "enum": ["ordinary_human_review_required", "rights_holder_authority_and_consent_unresolved"]
+        }
+      }
+    },
+    "sourceMap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "documentType",
+        "schemaVersion",
+        "mapId",
+        "status",
+        "observedAt",
+        "legacyFieldId",
+        "semantics",
+        "researchBoundary",
+        "sources",
+        "bindings",
+        "observations",
+        "geographyPlans"
+      ],
+      "properties": {
+        "documentType": { "const": "field08_research_source_map" },
+        "schemaVersion": { "const": "1.0.0" },
+        "mapId": { "const": "map.field08_research_candidates.v1" },
+        "status": { "const": "draft_candidate_only" },
+        "observedAt": { "type": "string", "format": "date" },
+        "legacyFieldId": { "const": "legacy_field.f08" },
+        "semantics": { "$ref": "#/$defs/semantics" },
+        "researchBoundary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["purpose", "included", "excluded", "completionStatement"],
+          "properties": {
+            "purpose": { "type": "string", "minLength": 12 },
+            "included": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 8 } },
+            "excluded": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 8 } },
+            "completionStatement": { "type": "string", "minLength": 20 }
+          }
+        },
+        "sources": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sourceCandidate" } },
+        "bindings": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/sourceBinding" } },
+        "observations": { "type": "array", "items": { "$ref": "#/$defs/observationCandidate" } },
+        "geographyPlans": { "type": "array", "minItems": 9, "maxItems": 9, "items": { "$ref": "#/$defs/geographyPlan" } }
+      }
+    },
+    "outputHash": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "sizeBytes"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "generationManifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "documentType",
+        "schemaVersion",
+        "generator",
+        "generatorVersion",
+        "registerId",
+        "registryStatus",
+        "generatedAt",
+        "baseCommit",
+        "commitMarkerSemantics",
+        "inputSnapshots",
+        "outputs",
+        "contentHash"
+      ],
+      "properties": {
+        "documentType": { "const": "field08_research_generation_manifest" },
+        "schemaVersion": { "const": "1.0.0" },
+        "generator": { "const": "scripts/knowledge/generate-field08-research-candidates.ts" },
+        "generatorVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "registerId": { "const": "registry.field08_research_candidates.v1" },
+        "registryStatus": { "const": "draft_candidate_only" },
+        "generatedAt": { "type": "string", "format": "date" },
+        "baseCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "commitMarkerSemantics": { "type": "string", "minLength": 20 },
+        "inputSnapshots": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/artifactSnapshot" } },
+        "outputs": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/outputHash" } },
+        "contentHash": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/private-recovery-acquisition-apply-receipt.schema.v1.json",
+  "title": "Food Systems private-recovery acquisition apply receipt v1",
+  "description": "Strict commit marker for the exact 11-to-21 private-recovery transition and ten canonical controlled-private acquisition receipts.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "artifactType",
+    "receiptVersion",
+    "receiptState",
+    "contractScope",
+    "contractVersion",
+    "contractSha256",
+    "operationKey",
+    "sourceRegistrationPlan",
+    "sourceRegistrationApplyAudit",
+    "recoveryRegister",
+    "controlledPrivateReceipts",
+    "mutations",
+    "boundaries",
+    "receiptSha256"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "private-recovery-acquisition-apply-receipt-v1"
+    },
+    "artifactType": {
+      "const": "private_recovery_acquisition_apply_receipt"
+    },
+    "receiptVersion": { "const": "1.0.0" },
+    "receiptState": { "const": "exact_file_bundle_committed" },
+    "contractScope": {
+      "const": "private-recovery-acquisition.new-official-2026-08-03.v1"
+    },
+    "contractVersion": { "const": "1.0.0" },
+    "contractSha256": { "$ref": "#/$defs/hash" },
+    "operationKey": {
+      "type": "string",
+      "pattern": "^private-recovery-acquisition-v1:[a-f0-9]{64}$"
+    },
+    "sourceRegistrationPlan": {
+      "type": "object",
+      "required": ["planSha256", "fileSha256", "targetCount"],
+      "properties": {
+        "planSha256": { "$ref": "#/$defs/hash" },
+        "fileSha256": { "$ref": "#/$defs/hash" },
+        "targetCount": { "const": 10 }
+      },
+      "additionalProperties": false
+    },
+    "sourceRegistrationApplyAudit": {
+      "type": "object",
+      "required": [
+        "auditId",
+        "auditSha256",
+        "summarySha256",
+        "databaseIdentityUuid"
+      ],
+      "properties": {
+        "auditId": { "type": "string", "minLength": 1, "maxLength": 2000 },
+        "auditSha256": { "$ref": "#/$defs/hash" },
+        "summarySha256": { "$ref": "#/$defs/hash" },
+        "databaseIdentityUuid": { "type": "string", "format": "uuid" }
+      },
+      "additionalProperties": false
+    },
+    "recoveryRegister": {
+      "type": "object",
+      "required": [
+        "path",
+        "beforeFileSha256",
+        "afterFileSha256",
+        "afterManifestReceiptSha256",
+        "preservedCandidateCount",
+        "appendedCandidateCount",
+        "afterCandidateCount"
+      ],
+      "properties": {
+        "path": {
+          "const": "knowledge/corpus/corpus-private-recovery-candidates.v1.json"
+        },
+        "beforeFileSha256": { "$ref": "#/$defs/hash" },
+        "afterFileSha256": { "$ref": "#/$defs/hash" },
+        "afterManifestReceiptSha256": { "$ref": "#/$defs/hash" },
+        "preservedCandidateCount": { "const": 11 },
+        "appendedCandidateCount": { "const": 10 },
+        "afterCandidateCount": { "const": 21 }
+      },
+      "additionalProperties": false
+    },
+    "controlledPrivateReceipts": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": [
+          "targetId",
+          "lifecycleSourceId",
+          "path",
+          "fileSha256",
+          "internalReceiptSha256"
+        ],
+        "properties": {
+          "targetId": { "$ref": "#/$defs/id" },
+          "lifecycleSourceId": { "$ref": "#/$defs/id" },
+          "path": { "$ref": "#/$defs/portablePath" },
+          "fileSha256": { "$ref": "#/$defs/hash" },
+          "internalReceiptSha256": { "$ref": "#/$defs/hash" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "mutations": {
+      "type": "object",
+      "required": [
+        "privateRecoveryRowsAppended",
+        "controlledPrivateReceiptFilesCreated",
+        "applyReceiptFilesCreated",
+        "databaseWrites",
+        "corpusRegisterWrites",
+        "lifecycleEventWrites",
+        "rebaselineRuns",
+        "sourceTextWrites",
+        "fullTextReviewedChanges"
+      ],
+      "properties": {
+        "privateRecoveryRowsAppended": { "const": 10 },
+        "controlledPrivateReceiptFilesCreated": { "const": 10 },
+        "applyReceiptFilesCreated": { "const": 1 },
+        "databaseWrites": { "const": 0 },
+        "corpusRegisterWrites": { "const": 0 },
+        "lifecycleEventWrites": { "const": 0 },
+        "rebaselineRuns": { "const": 0 },
+        "sourceTextWrites": { "const": 0 },
+        "fullTextReviewedChanges": { "const": 0 }
+      },
+      "additionalProperties": false
+    },
+    "boundaries": {
+      "type": "object",
+      "required": [
+        "existingCandidatesPreservedExactly",
+        "repositoryAvailableRemainsFalse",
+        "fullTextReviewedRemainsFalse",
+        "rightsStateRemainsPending",
+        "privateAbsolutePathsStored",
+        "sourceTextStored",
+        "humanValidationStillRequired",
+        "coveragePromotionAllowed"
+      ],
+      "properties": {
+        "existingCandidatesPreservedExactly": { "const": true },
+        "repositoryAvailableRemainsFalse": { "const": true },
+        "fullTextReviewedRemainsFalse": { "const": true },
+        "rightsStateRemainsPending": { "const": true },
+        "privateAbsolutePathsStored": { "const": false },
+        "sourceTextStored": { "const": false },
+        "humanValidationStillRequired": { "const": true },
+        "coveragePromotionAllowed": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "receiptSha256": { "$ref": "#/$defs/hash" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+    },
+    "portablePath": {
+      "type": "string",
+      "pattern": "^[a-z0-9](?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*//)(?!.*\\\\)[a-zA-Z0-9._/-]*$"
+    }
+  }
+}

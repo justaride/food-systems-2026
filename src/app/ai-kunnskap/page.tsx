@@ -25,8 +25,22 @@ type SerializableRecord = Omit<LibraryAnalysisRecordRow, 'updatedAt'> & {
 const EMPTY_STATUS: LibraryAnalysisStatusPayload = {
   ok: false,
   total: 0,
+  processed: 0,
+  classificationPct: 0,
   finished: 0,
   readinessPct: 0,
+  approvedForAi: 0,
+  pendingReview: 0,
+  safelyBlocked: 0,
+  classificationConflicts: 0,
+  humanReviewed: 0,
+  aiDraft: 0,
+  externalUsageContractAvailable: false,
+  externalClaimEligible: 0,
+  invalidExternalApprovals: 0,
+  externalCitationBlocked: 0,
+  externalReady: false,
+  externalBlockers: ['status_unavailable'],
   reviewRequired: 0,
   blocked: 0,
   typeB: 0,
@@ -58,8 +72,12 @@ export default async function AiKunnskapPage() {
           'Siden viser bruksregel per kilde slik at teamet kan skille intern bakgrunn fra claim-kandidater, aktørgate og type-C gap.',
         ]}
         takeaways={[
-          `${status.finished} av ${status.total} kilder er ferdige for intern bruk.`,
-          `${status.reviewRequired} kilder ligger i review queue; ${status.blocked} er blokkert.`,
+          `${status.processed} av ${status.total} kilder har en avsluttet policyklassifisering.`,
+          `${status.approvedForAi} kilder er godkjent for intern AI-kontekst; øvrige beholdes som intern bakgrunn eller er sperret.`,
+          `${status.pendingReview} kilder venter på review; ${status.safelyBlocked} er eksplisitt og trygt blokkert.`,
+          status.externalReady
+            ? `${status.externalClaimEligible} kilder er eksplisitt klare for eksterne claims.`
+            : `Ikke eksternt claim-klar: ${status.humanReviewed} navngitte/daterte reviews og ${status.externalClaimEligible} eksplisitt godkjente kilder.`,
           `${status.claimCandidates} claim-kandidater må via eksisterende claim/citation-gater.`,
         ]}
         caveat="V1 åpner ingen nye claims automatisk. Eksterne flater kan fortsatt bare bruke innhold etter eksisterende claim/citation-gater."

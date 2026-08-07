@@ -1,0 +1,329 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/corpus-event-history-external-anchor-ledger.v1.json",
+  "title": "Food Systems root-controlled external corpus anchor ledger",
+  "description": "The prepared request, append-only external record and exact latest-head sidecar used to authenticate corpus event-history anchor pairs. Schema validity is necessary but not sufficient: runtime validation also checks domain hashes, the full record chain, compare-and-swap preconditions and secure filesystem ownership.",
+  "oneOf": [
+    { "$ref": "#/$defs/appendRequest" },
+    { "$ref": "#/$defs/ledgerRecord" },
+    { "$ref": "#/$defs/ledgerHead" }
+  ],
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "identifier": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]*$" },
+    "dateTime": { "type": "string", "format": "date-time" },
+    "repositoryPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!~)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!.*\\\\)(?!.*(?:^|/)\\.{1,2}(?:/|$)).+$"
+    },
+    "fileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "fileSha256", "sizeBytes"],
+      "properties": {
+        "path": { "$ref": "#/$defs/repositoryPath" },
+        "fileSha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "manifestBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "fileSha256", "sizeBytes", "manifestSha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/repositoryPath" },
+        "fileSha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 0 },
+        "manifestSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordType",
+        "anchorId",
+        "sequence",
+        "predecessorRecordSha256",
+        "eventLogPrefix",
+        "eventCount",
+        "firstEventSha256",
+        "lastEventSha256",
+        "eventSetSha256",
+        "eventManifest",
+        "createdAt",
+        "recordSha256"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "corpus-processing-event-history-anchor-v1"
+        },
+        "recordType": { "const": "history_anchor_candidate" },
+        "anchorId": { "$ref": "#/$defs/identifier" },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "predecessorRecordSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "eventLogPrefix": { "$ref": "#/$defs/fileBinding" },
+        "eventCount": { "type": "integer", "minimum": 0 },
+        "firstEventSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "lastEventSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "eventSetSha256": { "$ref": "#/$defs/sha256" },
+        "eventManifest": { "$ref": "#/$defs/manifestBinding" },
+        "createdAt": { "$ref": "#/$defs/dateTime" },
+        "recordSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "trustedVerification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordType",
+        "verificationId",
+        "sequence",
+        "predecessorRecordSha256",
+        "candidateRecordSha256",
+        "verifierId",
+        "method",
+        "evidenceSha256",
+        "verifiedAt",
+        "recordSha256"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "corpus-processing-event-history-anchor-v1"
+        },
+        "recordType": { "const": "history_anchor_trusted_verification" },
+        "verificationId": { "$ref": "#/$defs/identifier" },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "predecessorRecordSha256": { "$ref": "#/$defs/sha256" },
+        "candidateRecordSha256": { "$ref": "#/$defs/sha256" },
+        "verifierId": { "$ref": "#/$defs/identifier" },
+        "method": {
+          "enum": [
+            "controlled_project_identity",
+            "cryptographic_signature",
+            "verified_external_identity"
+          ]
+        },
+        "evidenceSha256": { "$ref": "#/$defs/sha256" },
+        "verifiedAt": { "$ref": "#/$defs/dateTime" },
+        "recordSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "repositoryAnchorLogPrefix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "fileSha256",
+        "sizeBytes",
+        "recordCount",
+        "lastRecordSha256"
+      ],
+      "properties": {
+        "path": {
+          "const": "knowledge/corpus/corpus-processing-state-event-history-anchors.v1.jsonl"
+        },
+        "fileSha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 1 },
+        "recordCount": { "type": "integer", "minimum": 1 },
+        "lastRecordSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "repositoryBaselineInputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "baseline",
+        "processingRegister",
+        "baselineGenerationManifest"
+      ],
+      "properties": {
+        "baseline": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "fileSha256", "sizeBytes"],
+          "properties": {
+            "path": {
+              "const": "knowledge/corpus/corpus-processing-baseline.v1.json"
+            },
+            "fileSha256": { "$ref": "#/$defs/sha256" },
+            "sizeBytes": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "processingRegister": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "fileSha256", "sizeBytes"],
+          "properties": {
+            "path": {
+              "const": "knowledge/corpus/corpus-processing-register.v1.jsonl"
+            },
+            "fileSha256": { "$ref": "#/$defs/sha256" },
+            "sizeBytes": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "baselineGenerationManifest": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "fileSha256", "sizeBytes"],
+          "properties": {
+            "path": {
+              "const": "knowledge/corpus/corpus-processing-generation-manifest.v1.json"
+            },
+            "fileSha256": { "$ref": "#/$defs/sha256" },
+            "sizeBytes": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    },
+    "headPrecondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["recordCount", "latestRecordSha256", "headSha256"],
+      "properties": {
+        "recordCount": { "type": "integer", "minimum": 1 },
+        "latestRecordSha256": { "$ref": "#/$defs/sha256" },
+        "headSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "appendRequest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "artifactType",
+        "projectId",
+        "ledgerId",
+        "requestId",
+        "repositoryAnchorLogPrefix",
+        "repositoryBaselineInputs",
+        "candidate",
+        "verification",
+        "externalHeadPrecondition",
+        "preparedAt",
+        "requestSha256"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "corpus-event-history-external-anchor-ledger-v1"
+        },
+        "artifactType": { "const": "external_anchor_append_request" },
+        "projectId": { "const": "food-systems-2026" },
+        "ledgerId": { "const": "food-systems.corpus-event-history" },
+        "requestId": { "$ref": "#/$defs/identifier" },
+        "repositoryAnchorLogPrefix": {
+          "$ref": "#/$defs/repositoryAnchorLogPrefix"
+        },
+        "repositoryBaselineInputs": {
+          "$ref": "#/$defs/repositoryBaselineInputs"
+        },
+        "candidate": { "$ref": "#/$defs/candidate" },
+        "verification": { "$ref": "#/$defs/trustedVerification" },
+        "externalHeadPrecondition": {
+          "oneOf": [{ "$ref": "#/$defs/headPrecondition" }, { "type": "null" }]
+        },
+        "preparedAt": { "$ref": "#/$defs/dateTime" },
+        "requestSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "ledgerRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordType",
+        "projectId",
+        "ledgerId",
+        "sequence",
+        "predecessorRecordSha256",
+        "requestSha256",
+        "candidateAnchorId",
+        "candidateRecordSha256",
+        "verificationId",
+        "verificationRecordSha256",
+        "verifierId",
+        "method",
+        "evidenceSha256",
+        "repositoryAnchorLogPrefix",
+        "repositoryBaselineInputs",
+        "appendedAt",
+        "recordSha256"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "corpus-event-history-external-anchor-ledger-v1"
+        },
+        "recordType": { "const": "trusted_anchor_append" },
+        "projectId": { "const": "food-systems-2026" },
+        "ledgerId": { "const": "food-systems.corpus-event-history" },
+        "sequence": { "type": "integer", "minimum": 1 },
+        "predecessorRecordSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "requestSha256": { "$ref": "#/$defs/sha256" },
+        "candidateAnchorId": { "$ref": "#/$defs/identifier" },
+        "candidateRecordSha256": { "$ref": "#/$defs/sha256" },
+        "verificationId": { "$ref": "#/$defs/identifier" },
+        "verificationRecordSha256": { "$ref": "#/$defs/sha256" },
+        "verifierId": {
+          "const": "project-identity.food-systems.root-ledger.v1"
+        },
+        "method": { "const": "controlled_project_identity" },
+        "evidenceSha256": { "$ref": "#/$defs/sha256" },
+        "repositoryAnchorLogPrefix": {
+          "$ref": "#/$defs/repositoryAnchorLogPrefix"
+        },
+        "repositoryBaselineInputs": {
+          "$ref": "#/$defs/repositoryBaselineInputs"
+        },
+        "appendedAt": { "$ref": "#/$defs/dateTime" },
+        "recordSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "ledgerHead": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordType",
+        "projectId",
+        "ledgerId",
+        "recordCount",
+        "ledgerFileSha256",
+        "ledgerSizeBytes",
+        "firstRecordSha256",
+        "latestRecordSha256",
+        "latestCandidateRecordSha256",
+        "latestVerificationRecordSha256",
+        "updatedAt",
+        "headSha256"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "corpus-event-history-external-anchor-ledger-v1"
+        },
+        "recordType": { "const": "external_anchor_ledger_head" },
+        "projectId": { "const": "food-systems-2026" },
+        "ledgerId": { "const": "food-systems.corpus-event-history" },
+        "recordCount": { "type": "integer", "minimum": 1 },
+        "ledgerFileSha256": { "$ref": "#/$defs/sha256" },
+        "ledgerSizeBytes": { "type": "integer", "minimum": 1 },
+        "firstRecordSha256": { "$ref": "#/$defs/sha256" },
+        "latestRecordSha256": { "$ref": "#/$defs/sha256" },
+        "latestCandidateRecordSha256": { "$ref": "#/$defs/sha256" },
+        "latestVerificationRecordSha256": { "$ref": "#/$defs/sha256" },
+        "updatedAt": { "$ref": "#/$defs/dateTime" },
+        "headSha256": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}

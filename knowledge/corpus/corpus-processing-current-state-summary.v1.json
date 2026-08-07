@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.0.0",
+  "summaryId": "corpus-processing-current-state-summary.v1",
+  "generatorVersion": "1.0.0",
+  "baseline": {
+    "baselineId": "whole-corpus-processing-baseline.v1",
+    "observedAt": "2026-08-02T20:58:11Z",
+    "expectedRows": 1555
+  },
+  "eventLog": {
+    "eventCount": 0,
+    "eventSetSha256": "sha256:500371d7363355c3080262f367304f893477ddea410eaa88b9a899974fe52a28",
+    "highWatermarkOccurredAt": null,
+    "byEventType": {},
+    "historyAnchorRecordCount": 1,
+    "currentCheckpointTrusted": false,
+    "nonEmptyProjectionRequiresTrustedCheckpoint": true
+  },
+  "projection": {
+    "rowCount": 1555,
+    "identityUnique": true,
+    "byStateVersion": {
+      "0": 1555
+    },
+    "byLifecycleStage": {
+      "inventory:complete": 1555
+    },
+    "byTextAvailability": {
+      "unavailable": 1555
+    },
+    "byIdentityStatus": {
+      "provisional": 1555
+    },
+    "readyForOwner": 0,
+    "ownerApprovedInternal": 0,
+    "externalUseAllowed": 0,
+    "coveragePromotionAllowed": 0
+  },
+  "conflicts": {
+    "count": 0,
+    "publicationRule": "Any invalid, stale, forked, orphaned or duplicate event aborts projection before outputs are replaced."
+  },
+  "semantics": {
+    "baselineImmutable": true,
+    "currentStateDerivedOnly": true,
+    "artifactPresenceChangesState": false,
+    "separateIdentityApplicationRequired": true,
+    "automaticDeduplicationFanOutAllowed": false,
+    "noResearchCompletenessInference": true,
+    "reviewRightsPublicationAndCoverageRemainSeparate": true
+  }
+}

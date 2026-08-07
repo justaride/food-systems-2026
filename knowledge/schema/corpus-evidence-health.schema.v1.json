@@ -1,0 +1,594 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/corpus-evidence-health.v1.json",
+  "title": "Food Systems 2026 corpus and evidence health",
+  "description": "Fail-closed contract for non-additive corpus/evidence-health profiles. These records cannot promote food-system subject coverage.",
+  "oneOf": [
+    { "$ref": "#/$defs/thresholdsDocument" },
+    { "$ref": "#/$defs/healthAssessment" }
+  ],
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "profileId": {
+      "enum": [
+        "health_profile.internal_discovery",
+        "health_profile.internal_analysis",
+        "health_profile.external_evidence_support",
+        "health_profile.observatory_operations"
+      ]
+    },
+    "dimensionId": {
+      "enum": [
+        "inventory",
+        "provenanceLocator",
+        "citationReadiness",
+        "appraisal",
+        "archive",
+        "identity",
+        "queueWorkflow",
+        "freshnessVintage",
+        "structuralIntegrity",
+        "humanReview",
+        "operationalProof",
+        "conflictControl",
+        "receiptIntegrity",
+        "sourceSnapshotIntegrity"
+      ]
+    },
+    "dimensionState": {
+      "enum": [
+        "not_assessed",
+        "scope_unknown",
+        "partial",
+        "run_floor",
+        "enumerated",
+        "exhaustive",
+        "not_applicable",
+        "missing",
+        "legacy_only",
+        "mixed",
+        "resolvable",
+        "exact_locator_complete",
+        "exact_locator_hash_complete",
+        "blocked",
+        "internal_only",
+        "externally_citable_with_exceptions",
+        "externally_citable_complete",
+        "none_completed",
+        "in_progress",
+        "partial_reviewed",
+        "reviewed_for_required_scope",
+        "excluded_not_applicable",
+        "locator_only",
+        "partial_durable",
+        "durable_for_required_scope",
+        "hash_verified_for_required_scope",
+        "unreconciled",
+        "conflicts_open",
+        "machine_reconciled",
+        "human_adjudicated",
+        "parity_verified",
+        "uncontrolled",
+        "partially_controlled",
+        "controlled",
+        "unknown",
+        "current",
+        "due",
+        "stale",
+        "conflicting_vintages",
+        "failed",
+        "passed_with_warnings",
+        "passed_snapshot",
+        "passed_reproducibly",
+        "not_required",
+        "pending",
+        "changes_requested",
+        "approved",
+        "rejected",
+        "plan_only",
+        "dry_run_only",
+        "executed_unverified",
+        "partially_verified",
+        "verified_for_required_layers",
+        "open",
+        "triaged",
+        "resolved",
+        "accepted_tension",
+        "none_observed",
+        "complete_for_required_actions",
+        "invalid",
+        "unbound",
+        "path_only",
+        "commit_bound",
+        "hash_bound",
+        "mismatch"
+      ]
+    },
+    "semanticBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "subjectCoverageClaim",
+        "mayPromoteCoverageCells",
+        "mayAggregateWithCoverageLedger",
+        "globalScorePermitted"
+      ],
+      "properties": {
+        "kind": { "const": "corpus_evidence_health" },
+        "subjectCoverageClaim": { "const": false },
+        "mayPromoteCoverageCells": { "const": false },
+        "mayAggregateWithCoverageLedger": { "const": false },
+        "globalScorePermitted": { "const": false }
+      }
+    },
+    "dimensionDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dimensionId",
+        "label",
+        "description",
+        "allowedStates",
+        "positiveStates",
+        "blockingStates"
+      ],
+      "properties": {
+        "dimensionId": { "$ref": "#/$defs/dimensionId" },
+        "label": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "allowedStates": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/dimensionState" }
+        },
+        "positiveStates": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/dimensionState" }
+        },
+        "blockingStates": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/dimensionState" }
+        }
+      }
+    },
+    "profileDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profileId",
+        "label",
+        "purpose",
+        "aggregationMode",
+        "requiredDimensionIds",
+        "readinessPolicy",
+        "humanGateRequired",
+        "canPromoteSubjectCoverage"
+      ],
+      "properties": {
+        "profileId": { "$ref": "#/$defs/profileId" },
+        "label": { "type": "string", "minLength": 1 },
+        "purpose": { "type": "string", "minLength": 1 },
+        "aggregationMode": { "const": "non_additive" },
+        "requiredDimensionIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/dimensionId" }
+        },
+        "readinessPolicy": { "const": "all_required_checks_pass_and_no_profile_blocker" },
+        "humanGateRequired": { "type": "boolean" },
+        "canPromoteSubjectCoverage": { "const": false }
+      }
+    },
+    "failClosedRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ruleId", "description", "appliesToProfiles", "outcome"],
+      "properties": {
+        "ruleId": {
+          "type": "string",
+          "pattern": "^health_rule\\.[a-z0-9_.-]+$"
+        },
+        "description": { "type": "string", "minLength": 1 },
+        "appliesToProfiles": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/profileId" }
+        },
+        "outcome": { "enum": ["blocked", "not_ready"] }
+      }
+    },
+    "thresholdsDocument": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "documentKind",
+        "thresholdsVersion",
+        "adoptionStatus",
+        "effectiveDate",
+        "semanticBoundary",
+        "dimensionDefinitions",
+        "profileDefinitions",
+        "failClosedRules"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "corpus-evidence-health-v1" },
+        "documentKind": { "const": "corpus_health_thresholds" },
+        "thresholdsVersion": { "const": "corpus-health-thresholds-v1" },
+        "adoptionStatus": { "enum": ["proposed", "adopted"] },
+        "effectiveDate": { "type": "string", "format": "date" },
+        "semanticBoundary": { "$ref": "#/$defs/semanticBoundary" },
+        "dimensionDefinitions": {
+          "type": "array",
+          "minItems": 14,
+          "maxItems": 14,
+          "items": { "$ref": "#/$defs/dimensionDefinition" }
+        },
+        "profileDefinitions": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "$ref": "#/$defs/profileDefinition" }
+        },
+        "failClosedRules": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/failClosedRule" }
+        }
+      }
+    },
+    "metricObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "metricId",
+        "label",
+        "value",
+        "numerator",
+        "denominator",
+        "percentage",
+        "unit",
+        "observedAt",
+        "subjectVintage",
+        "authorityLayer",
+        "observationMode",
+        "sourceSnapshotIds",
+        "command",
+        "caveats",
+        "conflictRefs"
+      ],
+      "properties": {
+        "metricId": {
+          "type": "string",
+          "pattern": "^health_metric\\.[a-z0-9_.-]+$"
+        },
+        "label": { "type": "string", "minLength": 1 },
+        "value": { "type": ["number", "string", "boolean", "null"] },
+        "numerator": { "type": ["number", "null"] },
+        "denominator": { "type": ["number", "null"] },
+        "percentage": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+        "unit": { "type": ["string", "null"] },
+        "observedAt": { "type": "string", "format": "date-time" },
+        "subjectVintage": { "type": ["string", "null"] },
+        "authorityLayer": {
+          "enum": [
+            "raw_evidence",
+            "structured_evidence",
+            "source_discovery",
+            "operational_status",
+            "presentation",
+            "repository_contract"
+          ]
+        },
+        "observationMode": {
+          "enum": [
+            "direct_repository_observation",
+            "direct_database_observation",
+            "reported_status_snapshot",
+            "derived_comparison"
+          ]
+        },
+        "sourceSnapshotIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^health\\.snapshot\\.[a-z0-9_.-]+$"
+          }
+        },
+        "command": { "type": ["string", "null"] },
+        "caveats": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "conflictRefs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^health\\.conflict\\.[a-z0-9_.-]+$"
+          }
+        }
+      }
+    },
+    "dimensionAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dimensionId",
+        "state",
+        "verdict",
+        "metricIds",
+        "blockerConflictIds",
+        "limitations"
+      ],
+      "properties": {
+        "dimensionId": { "$ref": "#/$defs/dimensionId" },
+        "state": { "$ref": "#/$defs/dimensionState" },
+        "verdict": {
+          "enum": ["pass", "pass_with_warnings", "degraded", "blocked", "not_assessed", "not_applicable"]
+        },
+        "metricIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^health_metric\\.[a-z0-9_.-]+$"
+          }
+        },
+        "blockerConflictIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^health\\.conflict\\.[a-z0-9_.-]+$"
+          }
+        },
+        "limitations": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "conflictObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "value", "observationMode", "sourceSnapshotIds"],
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "value": { "type": ["number", "string", "boolean", "null"] },
+        "observationMode": {
+          "enum": [
+            "direct_repository_observation",
+            "direct_database_observation",
+            "reported_status_snapshot",
+            "derived_comparison"
+          ]
+        },
+        "sourceSnapshotIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^health\\.snapshot\\.[a-z0-9_.-]+$"
+          }
+        }
+      }
+    },
+    "healthConflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "conflictId",
+        "title",
+        "severity",
+        "status",
+        "description",
+        "observations",
+        "resolutionRequired",
+        "resolutionReceiptIds"
+      ],
+      "properties": {
+        "conflictId": {
+          "type": "string",
+          "pattern": "^health\\.conflict\\.[a-z0-9_.-]+$"
+        },
+        "title": { "type": "string", "minLength": 1 },
+        "severity": { "enum": ["warning", "high", "blocker"] },
+        "status": { "enum": ["open", "triaged", "resolved", "accepted_tension"] },
+        "description": { "type": "string", "minLength": 1 },
+        "observations": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/conflictObservation" }
+        },
+        "resolutionRequired": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "resolutionReceiptIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^health\\.receipt\\.[a-z0-9_.-]+$"
+          }
+        }
+      }
+    },
+    "profileCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["checkId", "status", "reason"],
+      "properties": {
+        "checkId": {
+          "type": "string",
+          "pattern": "^health_check\\.[a-z0-9_.-]+$"
+        },
+        "status": { "enum": ["pass", "warning", "fail", "unknown", "not_applicable"] },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "profileVerdict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profileId",
+        "verdict",
+        "readyForProfile",
+        "reasonCodes",
+        "blockingConflictIds",
+        "checks"
+      ],
+      "properties": {
+        "profileId": { "$ref": "#/$defs/profileId" },
+        "verdict": { "enum": ["ready", "ready_with_warnings", "degraded", "blocked", "not_assessed"] },
+        "readyForProfile": { "type": "boolean" },
+        "reasonCodes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+        },
+        "blockingConflictIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^health\\.conflict\\.[a-z0-9_.-]+$"
+          }
+        },
+        "checks": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/profileCheck" }
+        }
+      }
+    },
+    "receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "receiptKind",
+        "actorType",
+        "actorId",
+        "recordedAt",
+        "decision",
+        "artifactPath",
+        "notes"
+      ],
+      "properties": {
+        "receiptId": {
+          "type": "string",
+          "pattern": "^health\\.receipt\\.[a-z0-9_.-]+$"
+        },
+        "receiptKind": { "enum": ["machine_execution", "human_review", "partner_review", "rights_holder_review"] },
+        "actorType": { "enum": ["machine", "human", "partner", "rights_holder"] },
+        "actorId": { "type": "string", "minLength": 1 },
+        "recordedAt": { "type": "string", "format": "date-time" },
+        "decision": { "enum": ["observed", "approved", "changes_requested", "rejected"] },
+        "artifactPath": { "type": ["string", "null"] },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "healthAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordKind",
+        "assessmentId",
+        "profileDefinitionVersion",
+        "baselineAdoptionStatus",
+        "observedAt",
+        "recordedAt",
+        "baseCommit",
+        "environment",
+        "semanticBoundary",
+        "sourceSnapshotSetId",
+        "sourceSnapshotIds",
+        "metrics",
+        "dimensions",
+        "conflicts",
+        "receipts",
+        "profileVerdicts",
+        "supersedesId",
+        "contentHash"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "corpus-evidence-health-v1" },
+        "recordKind": { "const": "corpus_evidence_health_assessment" },
+        "assessmentId": {
+          "type": "string",
+          "pattern": "^health\\.assessment\\.[a-z0-9_.-]+$"
+        },
+        "profileDefinitionVersion": { "const": "corpus-health-thresholds-v1" },
+        "baselineAdoptionStatus": { "enum": ["proposed", "adopted"] },
+        "observedAt": { "type": "string", "format": "date-time" },
+        "recordedAt": { "type": "string", "format": "date-time" },
+        "baseCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "environment": { "enum": ["local", "ci", "staging", "production", "unknown"] },
+        "semanticBoundary": { "$ref": "#/$defs/semanticBoundary" },
+        "sourceSnapshotSetId": {
+          "type": "string",
+          "pattern": "^health\\.snapshot_set\\.[a-z0-9_.-]+$"
+        },
+        "sourceSnapshotIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^health\\.snapshot\\.[a-z0-9_.-]+$"
+          }
+        },
+        "metrics": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/metricObservation" }
+        },
+        "dimensions": {
+          "type": "array",
+          "minItems": 14,
+          "maxItems": 14,
+          "items": { "$ref": "#/$defs/dimensionAssessment" }
+        },
+        "conflicts": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/healthConflict" }
+        },
+        "receipts": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/receipt" }
+        },
+        "profileVerdicts": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "$ref": "#/$defs/profileVerdict" }
+        },
+        "supersedesId": {
+          "type": ["string", "null"],
+          "pattern": "^health\\.assessment\\.[a-z0-9_.-]+$"
+        },
+        "contentHash": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}

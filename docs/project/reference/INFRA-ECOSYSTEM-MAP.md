@@ -87,22 +87,25 @@ GitHub Actions-secrets og i Coolify.
 localhost:5432 — tunnelen proxyer), `CF_ACCESS_CLIENT_ID`,
 `CF_ACCESS_CLIENT_SECRET`. Variabel: `CITATION_VERIFY_ENABLED=true` [V].
 
-`cloudflared access tcp` leser `CF_ACCESS_CLIENT_ID/SECRET` automatisk fra env.
+Workflowene mapper GitHub-secretene `CF_ACCESS_CLIENT_ID/SECRET` til
+`cloudflared`-variablene `TUNNEL_SERVICE_TOKEN_ID/SECRET`. Klienten leser ikke
+`CF_ACCESS_CLIENT_*` direkte.
 
 ## 5. Workflow-inventar
 
 | Workflow | Trigger | Rolle | Tunnel? |
 |---|---|---|---|
-| `coolify-sync-source-commit.yml` | push `main`, manuell | Setter `SOURCE_COMMIT`-env + trigger redeploy via Coolify API | nei |
+| `coolify-sync-source-commit.yml` | manuell (`confirm=VERIFY`) | Read-only deploystatus + eksakt runtime-SHA/data-/bibliotekhelse; endrer ikke env og deployer ikke | nei |
 | `citation-verification.yml` | cron søn 03:00 UTC, manuell | `db:verify:filehash` + url-health mot prod | **ja** |
-| `prod-data-import.yml` | manuell (`confirm=IMPORT`) | Sanksjonert prod-data-operasjon via eksplisitte targetvalg: `verify-only`, `ownership`, `registers`, `full` | **ja** |
+| `prod-data-import.yml` | manuell (`confirm=IMPORT`) | Sanksjonert prod-data-operasjon via eksplisitte targetvalg: `verify-only`, `seed`, `nordic-pdf`, `ownership`, `registers`, `knowledge`, `full` | **ja** |
 | `coolify-db-watcher.yml` | (sjekk fila) | DB-overvåking | [A] |
 | `coolify-resource-snapshot.yml` | (sjekk fila) | Ressurs-snapshot | [A] |
 | `schema-migration-guard.yml` | PR | Schema-drift-gate | nei [A] |
 | `pr-quality-gates.yml` | PR | Test/lint/build-gates | nei |
 
-**Deploy-modell:** push til `main` → Coolify redeployer (kode). Buildet kjører
-*ikke* data-importer. Data må synkes separat mot prod-DB — se
+**Deploy-modell:** push til `main` → Coolifys Git-integrasjon redeployer kode.
+Den manuelle verifieren kontrollerer resultatet etterpå. Buildet kjører *ikke*
+data-importer. Data må synkes separat mot prod-DB — se
 [DEPLOYMENT-AND-DATA-OPERATIONS.md](./DEPLOYMENT-AND-DATA-OPERATIONS.md).
 
 ## 6. Kjent feiltilstand 2026-06-10: DB-tunnel nede
@@ -143,9 +146,9 @@ Alt rundt er friskt — verifisert via CF API:
 > `vskowwk…` (tunnel `5540a019`). Den delte `cloudflared`-containeren (4 mnd)
 > server **alle** prosjektenes app-ingress via `coolify-proxy` — rør den aldri.
 
-Fiks = send tokenet med riktige flagg i workflowen (se §8). Ingen server- eller
-CF-dashboard-endring nødvendig hvis de eksisterende `CF_ACCESS_*`-secretene er
-gyldige.
+Fiks = map tokenet til klientens riktige env-navn i workflowen (se §8). Ingen
+server- eller CF-dashboard-endring er nødvendig hvis de eksisterende
+`CF_ACCESS_*`-secretene er gyldige.
 
 ## 7. Diagnose-stige (når DB-tunnel feiler)
 
@@ -165,22 +168,27 @@ Jobb fra utsiden og inn. Stopp ved første røde.
 5. **Ingress:** Zero Trust → Networks → Tunnels → `food-systems-db` →
    Public Hostname `fs-db…` → TCP `food-systems-pgvector-db:5432`. Healthy?
 
-## 8. Fiks — send service-tokenet med riktige flagg
+## 8. Fiks — map service-tokenet til riktige klientvariabler
 
 Root cause er at `cloudflared access tcp` aldri fikk service-tokenet. Fiks i
-workflowen (gjort 2026-06-10): legg til flaggene som klienten faktisk leser.
+workflowen: behold GitHub-secret-navnene, men map dem til env-navnene som
+`cloudflared` 2026.7.2 faktisk leser. Dette unngår også token-secret i
+prosessens argumentliste.
 
 ```yaml
+env:
+  TUNNEL_SERVICE_TOKEN_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+  TUNNEL_SERVICE_TOKEN_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+
 nohup cloudflared access tcp \
   --hostname "$TUNNEL_HOSTNAME" \
   --url localhost:5432 \
-  --service-token-id "$CF_ACCESS_CLIENT_ID" \
-  --service-token-secret "$CF_ACCESS_CLIENT_SECRET" \
   > tunnel.log 2>&1 &
 ```
 
-(`CF_ACCESS_CLIENT_ID/SECRET`-secretene gjenbrukes — de var riktige, bare sendt
-via env-navn cloudflared ignorerer.)
+`CF_ACCESS_CLIENT_ID/SECRET`-secretene gjenbrukes; feilen var at de tidligere
+ble sendt via navn klienten ignorerte. Selve tunnelprosessen arver bare de
+korrekte `TUNNEL_SERVICE_TOKEN_*`-navnene.
 
 **Verifiser:** re-kjør `prod-data-import` med target `verify-only` (manuell,
 `confirm=IMPORT`) — psql-proben og `db:verify` skal nå passere uten å skrive
@@ -258,7 +266,7 @@ tunnel/Access.
 
 ## 12. Hendelse 2026-06-10: prod udeploybar i ~3 uker (5-lags kaskade)
 
-**Symptom:** `/api/version` viste `f2e2d20` (bygget 2026-05-25) selv om `main` var
+**Historisk hendelse:** `/api/version` viste `f2e2d20` (bygget 2026-05-25) selv om `main` var
 mange merger foran. **En grønn Coolify-redeploy-trigger betyr ikke at buildet
 lyktes** — `coolify-sync-source-commit` trigger redeploy, men Coolify-*buildet*
 feilet hver gang. Sjekk faktisk build-status, ikke bare at trigger gikk.
@@ -289,9 +297,9 @@ created_at desc limit 1"` (app 66 = food-systems; logs er JSON-array med
 5. Deploy grønn; `/api/version` = ny SHA. ✅
 
 **Lærdom på tvers av prosjektene:**
-- **Verifiser deploy *utfall*, ikke trigger.** Bygg en helsesjekk som matcher
-  `/api/version` mot push-SHA (vår `coolify-sync` gjør det — den fanget at prod
-  hang på gammel SHA).
+- **Verifiser deploy *utfall*, ikke trigger.** Den nåværende manuelle
+  **Coolify Deploy Verify** matcher `/api/version` mot valgt full SHA og krever
+  grønne data-/bibliotekendepunkter uten å endre Coolify-state.
 - **`npm ci` i Docker bruker en pinnet npm-versjon** (node:20-alpine → npm 10).
   Generer/oppdater `package-lock.json` med *samme* npm som buildet, ellers kan en
   nyere lokal npm produsere en lock buildets `npm ci` avviser. `npm run build`

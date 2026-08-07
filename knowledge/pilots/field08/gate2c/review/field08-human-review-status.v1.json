@@ -1,0 +1,64 @@
+{
+  "documentType": "field08_human_review_status_projection",
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-28T21:30:02.000Z",
+  "sourceCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+  "evidencePackageHash": "sha256:54fd715ed4088360a84f66309022f2a6e399513692316084f1596ea089a3446a",
+  "receiptCount": 0,
+  "packageStatus": "human_review_pending",
+  "gateStatuses": [
+    {
+      "reviewGateId": "review_gate.field08.boundary-reconciliation",
+      "gateType": "boundary_reconciliation",
+      "status": "pending",
+      "latestReceiptId": null,
+      "latestReceiptHash": null,
+      "receiptSequence": 0,
+      "decisionCounts": {},
+      "openTargetIds": [],
+      "actionRequiredTargetIds": []
+    },
+    {
+      "reviewGateId": "review_gate.field08.contradiction-resolution",
+      "gateType": "contradiction_resolution",
+      "status": "pending",
+      "latestReceiptId": null,
+      "latestReceiptHash": null,
+      "receiptSequence": 0,
+      "decisionCounts": {},
+      "openTargetIds": [],
+      "actionRequiredTargetIds": []
+    },
+    {
+      "reviewGateId": "review_gate.field08.method-appraisal",
+      "gateType": "method_appraisal",
+      "status": "pending",
+      "latestReceiptId": null,
+      "latestReceiptHash": null,
+      "receiptSequence": 0,
+      "decisionCounts": {},
+      "openTargetIds": [],
+      "actionRequiredTargetIds": []
+    },
+    {
+      "reviewGateId": "review_gate.field08.ordinary-human-review",
+      "gateType": "ordinary_human_review",
+      "status": "pending",
+      "latestReceiptId": null,
+      "latestReceiptHash": null,
+      "receiptSequence": 0,
+      "decisionCounts": {},
+      "openTargetIds": [],
+      "actionRequiredTargetIds": []
+    }
+  ],
+  "outstandingReviewGateIds": [
+    "review_gate.field08.boundary-reconciliation",
+    "review_gate.field08.contradiction-resolution",
+    "review_gate.field08.method-appraisal",
+    "review_gate.field08.ordinary-human-review"
+  ],
+  "externalGatePassed": false,
+  "coveragePromotionAllowed": false,
+  "contentHash": "sha256:0883d61253f25f36262e2278dce7dfe3d26e307c71f26474125fa89ce65a1960"
+}

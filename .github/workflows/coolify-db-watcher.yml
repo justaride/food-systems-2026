@@ -19,52 +19,56 @@ on:
     - cron: '*/5 * * * *'   # hvert 5. minutt
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 env:
   DB_UUID: l0s8o8oo00c8gossw0gksswk
   APP_DOMAIN: food-systems.naturalstateproject.com
+  BACKUP_MAX_AGE_HOURS: ${{ vars.DB_BACKUP_MAX_AGE_HOURS || '36' }}
 
 jobs:
   check-db-health:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - name: Checkout hardened API helper
+        uses: actions/checkout@v6
+
       - name: Check DB status via Coolify API
         id: db
         env:
-          TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
-          BASE: ${{ secrets.COOLIFY_BASE_URL }}
-          CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
-          CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+          COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
+          COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
-          # Dette steget avbryter aldri jobben. Da kontrollplanet ble utilgjengelig
-          # 2026-08-03 døde steget på curl-feil, og watcheren rakk aldri å melde at
-          # appen selv var frisk — 110+ røde kjøringer uten å skille «DB nede» fra
-          # «vi ser ikke DB-en». Rekkevidde og helse rapporteres derfor hver for seg.
+          # API-rekkevidde og databasehelse er separate signaler. Dette steget
+          # skriver alltid begge, slik at en CF-blokkering ikke feilrapporteres
+          # som en databasehendelse.
+          curl_config_file=$(mktemp)
+          trap 'rm -f "$curl_config_file"' EXIT
+          COOLIFY_API_PATH="/api/v1/databases/$DB_UUID" \
+            scripts/write-private-coolify-curl-config.py "$curl_config_file"
+          unset COOLIFY_API_TOKEN COOLIFY_BASE_URL CF_ACCESS_CLIENT_ID CF_ACCESS_CLIENT_SECRET
+
           set +e
-          response=$(curl -sS -m 10 -w '\n%{http_code}' \
-            -H "Authorization: Bearer $TOKEN" \
-            -H "CF-Access-Client-Id: $CF_ID" \
-            -H "CF-Access-Client-Secret: $CF_SECRET" \
-            "$BASE/api/v1/databases/$DB_UUID" 2>/dev/null)
+          response=$(curl --config "$curl_config_file" -sS -m 10 -w '\n%{http_code}' 2>/dev/null)
           curl_rc=$?
           set -e
-
           http_code=$(printf '%s' "$response" | tail -n1)
           payload=$(printf '%s' "$response" | sed '$d')
           status=unknown
           last_online='?'
-
           if [ "$curl_rc" -ne 0 ]; then
             reach=unreachable
           elif [ "$http_code" != "200" ]; then
-            # Cloudflares bot-challenge svarer 403 med en HTML-side, ikke JSON.
             reach=blocked
           else
             reach=ok
             status=$(printf '%s' "$payload" | python3 -c "import sys,json;print(json.load(sys.stdin).get('status','unknown'))" 2>/dev/null || echo parse-error)
             last_online=$(printf '%s' "$payload" | python3 -c "import sys,json;print(json.load(sys.stdin).get('last_online_at','?'))" 2>/dev/null || echo '?')
           fi
-
           echo "Kontrollplan: $reach (HTTP $http_code, curl rc=$curl_rc)"
           echo "DB status: $status"
           echo "Last online: $last_online"
@@ -75,41 +79,171 @@ jobs:
             echo "last_online=$last_online"
           } >> "$GITHUB_OUTPUT"
 
-      - name: Verify app is responding
+      - name: Verify recent off-node database backup
+        id: backup
+        env:
+          COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
+          COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          set -euo pipefail
+          backup_file=$(mktemp)
+          curl_config_file=$(mktemp)
+          trap 'rm -f "$backup_file" "$curl_config_file"' EXIT
+          COOLIFY_API_PATH="/api/v1/databases/$DB_UUID/backups" \
+            scripts/write-private-coolify-curl-config.py "$curl_config_file"
+          unset COOLIFY_API_TOKEN COOLIFY_BASE_URL CF_ACCESS_CLIENT_ID CF_ACCESS_CLIENT_SECRET
+          curl --config "$curl_config_file" -fsS -m 10 > "$backup_file"
+
+          python3 - "$backup_file" "$BACKUP_MAX_AGE_HOURS" "$GITHUB_OUTPUT" <<'PY'
+          import datetime as dt
+          import json
+          import sys
+
+          path, max_age_raw, output_path = sys.argv[1:]
+          max_age_hours = float(max_age_raw)
+          if max_age_hours <= 0:
+              raise SystemExit('BACKUP_MAX_AGE_HOURS must be positive')
+
+          with open(path, encoding='utf-8') as handle:
+              configs = json.load(handle)
+          if not isinstance(configs, list):
+              raise SystemExit('Backup API did not return a list')
+
+          enabled = [config for config in configs if config.get('enabled') is True]
+          off_node = [config for config in enabled if config.get('save_s3') is True]
+          now = dt.datetime.now(dt.timezone.utc)
+          valid_executions = []
+
+          for config in off_node:
+              for execution in config.get('executions') or []:
+                  if execution.get('status') != 'success':
+                      continue
+                  if execution.get('s3_uploaded') is not True:
+                      continue
+                  if not execution.get('filename') or int(execution.get('size') or 0) <= 0:
+                      continue
+                  created_raw = execution.get('created_at')
+                  if not created_raw:
+                      continue
+                  try:
+                      created_at = dt.datetime.fromisoformat(created_raw.replace('Z', '+00:00'))
+                  except ValueError:
+                      continue
+                  if created_at.tzinfo is None:
+                      created_at = created_at.replace(tzinfo=dt.timezone.utc)
+                  age_hours = (now - created_at.astimezone(dt.timezone.utc)).total_seconds() / 3600
+                  if 0 <= age_hours <= max_age_hours:
+                      valid_executions.append((created_at, age_hours))
+
+          latest_age = min((age for _, age in valid_executions), default=None)
+          print(f'Configured schedules: {len(configs)}')
+          print(f'Enabled schedules: {len(enabled)}')
+          print(f'Enabled off-node schedules: {len(off_node)}')
+          print(f'Recent successful off-node backups: {len(valid_executions)}')
+          print(f'Latest successful off-node backup age: {latest_age:.2f}h' if latest_age is not None else 'Latest successful off-node backup age: none')
+
+          with open(output_path, 'a', encoding='utf-8') as output:
+              output.write(f'backup_count={len(configs)}\n')
+              output.write(f'enabled_count={len(enabled)}\n')
+              output.write(f'off_node_count={len(off_node)}\n')
+              output.write(f'recent_success_count={len(valid_executions)}\n')
+              output.write(f'latest_age_hours={latest_age:.2f}\n' if latest_age is not None else 'latest_age_hours=none\n')
+          PY
+
+      - name: Verify app and knowledge-base gates
         id: app
         env:
           CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
           CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
-          set +e
-          http_code=$(curl -sS -m 10 -o /dev/null -w "%{http_code}" \
-            -H "CF-Access-Client-Id: $CF_ID" \
-            -H "CF-Access-Client-Secret: $CF_SECRET" \
+          set -euo pipefail
+          status_file=$(mktemp)
+          library_file=$(mktemp)
+          access_header_file=$(mktemp)
+          trap 'rm -f "$status_file" "$library_file" "$access_header_file"' EXIT
+          case "$CF_ID" in
+            ''|*$'\r'*|*$'\n'*) echo '::error::Invalid Cloudflare Access client ID'; exit 1 ;;
+          esac
+          case "$CF_SECRET" in
+            ''|*$'\r'*|*$'\n'*) echo '::error::Invalid Cloudflare Access client secret'; exit 1 ;;
+          esac
+          (umask 077; {
+            printf 'CF-Access-Client-Id: %s\n' "$CF_ID"
+            printf 'CF-Access-Client-Secret: %s\n' "$CF_SECRET"
+          } > "$access_header_file")
+          chmod 600 "$access_header_file"
+          unset CF_ID CF_SECRET
+
+          http_code=$(curl -sS -m 10 -o "$status_file" -w "%{http_code}" \
+            --header "@$access_header_file" \
             "https://$APP_DOMAIN/api/data-status")
-          [ -n "$http_code" ] || http_code=000
-          set -e
+          read -r api_ok db_ok page_ok knowledge_base_ok <<EOF
+          $(python3 - "$status_file" <<'PY'
+          import json, sys
+          with open(sys.argv[1], encoding='utf-8') as handle:
+              data = json.load(handle)
+          values = [data.get('ok'), data.get('dbOk'), data.get('pageGatesOk'), data.get('knowledgeBaseGatesOk')]
+          print(' '.join(str(value).lower() for value in values))
+          PY
+          )
+          EOF
+
+          library_http_code=$(curl -sS -m 10 -o "$library_file" -w "%{http_code}" \
+            --header "@$access_header_file" \
+            "https://$APP_DOMAIN/api/library-analysis/status")
+          read -r library_ok library_external_ready library_human_reviewed library_external_eligible <<EOF
+          $(python3 - "$library_file" <<'PY'
+          import json, sys
+          with open(sys.argv[1], encoding='utf-8') as handle:
+              data = json.load(handle)
+          values = [
+              data.get('ok'),
+              data.get('externalReady'),
+              data.get('humanReviewed'),
+              data.get('externalClaimEligible'),
+          ]
+          print(' '.join(str(value).lower() for value in values))
+          PY
+          )
+          EOF
           echo "App /api/data-status: HTTP $http_code"
+          echo "Data gates: ok=$api_ok db=$db_ok pages=$page_ok knowledge_base=$knowledge_base_ok"
+          echo "Library analysis: HTTP $library_http_code operational-ok=$library_ok external-ready=$library_external_ready human-reviewed=$library_human_reviewed external-eligible=$library_external_eligible"
           echo "http_code=$http_code" >> "$GITHUB_OUTPUT"
+          echo "api_ok=$api_ok" >> "$GITHUB_OUTPUT"
+          echo "db_ok=$db_ok" >> "$GITHUB_OUTPUT"
+          echo "page_ok=$page_ok" >> "$GITHUB_OUTPUT"
+          echo "knowledge_base_ok=$knowledge_base_ok" >> "$GITHUB_OUTPUT"
+          echo "library_http_code=$library_http_code" >> "$GITHUB_OUTPUT"
+          echo "library_ok=$library_ok" >> "$GITHUB_OUTPUT"
+          echo "library_external_ready=$library_external_ready" >> "$GITHUB_OUTPUT"
+          echo "library_human_reviewed=$library_human_reviewed" >> "$GITHUB_OUTPUT"
+          echo "library_external_eligible=$library_external_eligible" >> "$GITHUB_OUTPUT"
 
       - name: Auto-restart DB if exited
         if: contains(steps.db.outputs.status, 'exited')
         env:
-          TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
-          BASE: ${{ secrets.COOLIFY_BASE_URL }}
-          CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
-          CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+          COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
+          COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
+          set -euo pipefail
+          restart_config_file=$(mktemp)
+          status_config_file=$(mktemp)
+          trap 'rm -f "$restart_config_file" "$status_config_file"' EXIT
+          COOLIFY_API_PATH="/api/v1/databases/$DB_UUID/restart" \
+            scripts/write-private-coolify-curl-config.py "$restart_config_file"
+          COOLIFY_API_PATH="/api/v1/databases/$DB_UUID" \
+            scripts/write-private-coolify-curl-config.py "$status_config_file"
+          unset COOLIFY_API_TOKEN COOLIFY_BASE_URL CF_ACCESS_CLIENT_ID CF_ACCESS_CLIENT_SECRET
           echo "::warning::DB is ${{ steps.db.outputs.status }} — attempting auto-restart"
-          curl -sS -X POST -H "Authorization: Bearer $TOKEN" \
-            -H "CF-Access-Client-Id: $CF_ID" \
-            -H "CF-Access-Client-Secret: $CF_SECRET" \
-            "$BASE/api/v1/databases/$DB_UUID/restart"
+          curl --config "$restart_config_file" -fsS -X POST
           echo ""
           sleep 30
-          new_status=$(curl -sS -m 10 -H "Authorization: Bearer $TOKEN" \
-            -H "CF-Access-Client-Id: $CF_ID" \
-            -H "CF-Access-Client-Secret: $CF_SECRET" \
-            "$BASE/api/v1/databases/$DB_UUID" | python3 -c "import sys,json; print(json.load(sys.stdin).get('status','?'))")
+          new_status=$(curl --config "$status_config_file" -fsS -m 10 | python3 -c "import sys,json; print(json.load(sys.stdin).get('status','?'))")
           echo "Status after restart: $new_status"
 
       # Blind overvåking er en egen tilstand fra en DB-hendelse. Uten skillet
@@ -125,10 +259,21 @@ jobs:
       - name: Fail if unhealthy or unreachable
         if: |
           steps.db.outputs.reach == 'ok' && (
-            !contains(steps.db.outputs.status, 'healthy') ||
-            steps.app.outputs.http_code != '200'
+            steps.db.outputs.status != 'running:healthy' ||
+            steps.backup.outputs.enabled_count == '0' ||
+            steps.backup.outputs.off_node_count == '0' ||
+            steps.backup.outputs.recent_success_count == '0' ||
+            steps.app.outputs.http_code != '200' ||
+            steps.app.outputs.api_ok != 'true' ||
+            steps.app.outputs.db_ok != 'true' ||
+            steps.app.outputs.page_ok != 'true' ||
+            steps.app.outputs.knowledge_base_ok != 'true' ||
+            steps.app.outputs.library_http_code != '200' ||
+            steps.app.outputs.library_ok != 'true'
           )
         run: |
           echo "::error::DB status: ${{ steps.db.outputs.status }} (last_online: ${{ steps.db.outputs.last_online }})"
-          echo "::error::App HTTP: ${{ steps.app.outputs.http_code }}"
+          echo "::error::Backup schedules: configured=${{ steps.backup.outputs.backup_count }}, enabled=${{ steps.backup.outputs.enabled_count }}, off-node=${{ steps.backup.outputs.off_node_count }}, recent-success=${{ steps.backup.outputs.recent_success_count }}, latest-age-hours=${{ steps.backup.outputs.latest_age_hours }}"
+          echo "::error::App HTTP: ${{ steps.app.outputs.http_code }} (ok=${{ steps.app.outputs.api_ok }}, db=${{ steps.app.outputs.db_ok }}, pages=${{ steps.app.outputs.page_ok }}, knowledge-base=${{ steps.app.outputs.knowledge_base_ok }})"
+          echo "::error::Library analysis HTTP: ${{ steps.app.outputs.library_http_code }} (operational-ok=${{ steps.app.outputs.library_ok }}, external-ready=${{ steps.app.outputs.library_external_ready }}, human-reviewed=${{ steps.app.outputs.library_human_reviewed }}, external-eligible=${{ steps.app.outputs.library_external_eligible }})"
           exit 1

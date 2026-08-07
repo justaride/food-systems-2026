@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "1.0.0",
+  "baselineId": "baseline.nordic_knowledge_foundation.v1",
+  "adoptionStatus": "proposed",
+  "snapshotDate": "2026-07-26",
+  "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+  "governance": {
+    "status": "proposed",
+    "scopeState": "draft",
+    "adopted": false,
+    "adoptionDecisionId": null,
+    "rule": "This manifest creates proposed scope events only. Adoption requires an explicit governance decision after semantic review and regeneration."
+  },
+  "purpose": "Proposed draft baseline for neutral scope inventory. It does not infer subject coverage, workflow progress, citation readiness, confidence or temporal depth from navigation files, note counts, directory presence or keyword mentions.",
+  "defaultProjection": {
+    "workflowStage": "unassessed",
+    "scopeState": "draft",
+    "inventoryState": "unknown",
+    "knowledgeDepth": "unknown",
+    "verificationStatus": "unverified",
+    "citationReadiness": "not_assessed",
+    "appraisalState": "none",
+    "freshnessState": "unknown",
+    "temporalDepth": "not_assessed",
+    "archiveState": "unknown",
+    "confidence": "unknown",
+    "gapRoute": "unclassified",
+    "assessmentWorkflowState": "candidate",
+    "evidenceBasis": "not_assessed",
+    "nextAction": "Assess this cell against named artifacts and exact evidence before assigning any coverage state.",
+    "owner": "unassigned",
+    "nextReviewAt": "2026-10-26",
+    "cadence": "unassigned"
+  },
+  "sourceArtifacts": [
+    "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart – kunnskapsbasen.md"
+  ],
+  "unmigratedInputs": [
+    {
+      "path": "research/_status/domene-dekningsbok.csv",
+      "recordCount": 70,
+      "scope": "Norway-only actor inventory cells",
+      "migrationMode": "manual_semantic_mapping",
+      "reason": "The source mixes domains and subdomains and uses estimated universes; it cannot establish exhaustive canonical coverage."
+    },
+    {
+      "path": "research/norden/nordic-vision-2030-indicator-map-2026-04-29.csv",
+      "recordCount": 45,
+      "scope": "Nordic Vision indicator relevance and project-coverage classifications",
+      "migrationMode": "metric_definition_and_evidence_mapping",
+      "reason": "Indicator relevance and technical integration do not establish country-stage-domain completeness."
+    }
+  ],
+  "navigationIntegrationObservations": [
+    {
+      "id": "navigation_observation.tracked_field_map_has_13_fields",
+      "status": "observed",
+      "observedAt": "2026-07-26",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart – kunnskapsbasen.md",
+      "locator": "De tretten kunnskapsfeltene",
+      "statement": "The tracked field map exposes thirteen curated navigation fields whose labels are preserved as legacy_field.f01 through legacy_field.f13.",
+      "evidenceBasis": "observed",
+      "verificationStatus": "needs_review",
+      "citationReadiness": "internal_context",
+      "coverageImplication": "none",
+      "limitations": [
+        "This observation establishes navigation integration only.",
+        "It does not establish subject coverage, evidence quality, geographic parity, freshness, completeness or temporal depth for any field."
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "id": "baseline.legacy_political.scope_events",
+      "eventSemantics": "scope_inventory_event_only",
+      "expectedScopeEventCount": 104,
+      "selector": {
+        "profileId": "profile.legacy_field_political"
+      },
+      "assessment": {
+        "eventKind": "scope_registration",
+        "workflowStage": "unassessed",
+        "scopeState": "draft",
+        "inventoryState": "unknown",
+        "knowledgeDepth": "unknown",
+        "verificationStatus": "unverified",
+        "citationReadiness": "not_assessed",
+        "appraisalState": "none",
+        "freshnessState": "unknown",
+        "temporalDepth": "not_assessed",
+        "archiveState": "unknown",
+        "confidence": "unknown",
+        "gapRoute": "unclassified",
+        "assessmentWorkflowState": "candidate",
+        "evidenceBasis": "not_assessed",
+        "limitations": [
+          "This is one proposed scope event per political reporting scope and legacy field.",
+          "No artifact, directory, note count or keyword mention is treated as evidence of coverage.",
+          "Political reporting scopes require source-specific boundary reconciliation before any aggregate total."
+        ],
+        "nextAction": "Review the field mapping and assess named artifacts cell by cell before changing any neutral state.",
+        "owner": "unassigned",
+        "nextReviewAt": "2026-10-26",
+        "cadence": "unassigned"
+      }
+    },
+    {
+      "id": "baseline.legacy_sapmi_overlap.scope_events",
+      "eventSemantics": "scope_inventory_event_only",
+      "expectedScopeEventCount": 13,
+      "selector": {
+        "profileId": "profile.legacy_field_sapmi_overlap"
+      },
+      "assessment": {
+        "eventKind": "scope_registration",
+        "workflowStage": "unassessed",
+        "scopeState": "draft",
+        "inventoryState": "unknown",
+        "knowledgeDepth": "unknown",
+        "verificationStatus": "unverified",
+        "citationReadiness": "not_assessed",
+        "appraisalState": "none",
+        "freshnessState": "unknown",
+        "temporalDepth": "not_assessed",
+        "archiveState": "unknown",
+        "confidence": "unknown",
+        "gapRoute": "unclassified",
+        "assessmentWorkflowState": "candidate",
+        "evidenceBasis": "not_assessed",
+        "limitations": [
+          "This is one proposed scope event per legacy field for the separately assessed overlapping Sápmi scope.",
+          "No artifact, directory, note count or keyword mention is treated as evidence of coverage.",
+          "Sápmi is non-additive with political-Nordic scopes and requires rights-holder-led scope, consent and interpretation before substantive assessment."
+        ],
+        "nextAction": "Establish a rights-holder-led scope and review pathway, then assess named artifacts without adding Sápmi to political-Nordic totals.",
+        "owner": "unassigned",
+        "nextReviewAt": "2026-10-26",
+        "cadence": "unassigned"
+      }
+    }
+  ]
+}

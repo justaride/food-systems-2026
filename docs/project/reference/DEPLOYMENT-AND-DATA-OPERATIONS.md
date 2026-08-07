@@ -1,271 +1,260 @@
-# Deployment And Data Operations
+# Deployment og dataoperasjoner
 
-## Hvorfor denne finnes
+## Formål
 
-Food Systems 2026 er ikke en vanlig "bare deploy kode"-app. Det som vises i produksjon styres av tre lag samtidig:
+Food Systems 2026 har seks separate bevislag:
 
-1. Next.js-koden som bygges og deployes via Coolify
-2. PostgreSQL-dataene som fylles av importskriptene i `package.json`
-3. Schemaet i produksjonsdatabasen som må være kompatibelt med `prisma/schema.prisma`
+1. riktig commit er publisert
+2. app-imaget bygger og starter
+3. Prisma-ledger og faktisk databaseskjema er avstemt
+4. kanoniske data er importert
+5. backup er nylig, off-node og restore-testet
+6. appens data- og kunnskapsporter er grønne
 
-Er ett av disse tre lagene ute av sync, kan siden se halvferdig ut selv om deployen teknisk sett er grønn.
+En grønn Coolify-deploy beviser bare punkt 2. Den beviser ikke at data,
+migrasjoner, backup eller faglig ekstern readiness er i orden.
 
-## Hendelsen 2026-04-21
+## Produksjonsporter
 
-Den 21. april 2026 ble det avdekket at produksjon ikke reflekterte de siste 24 timenes arbeid fullt ut, selv om hovedappen var deployet.
+Produksjon er **NO-GO** for full dataimport eller MCP-tilkobling før disse er
+dokumentert hver for seg:
 
-Det som faktisk skjedde:
+- minst én aktiv Coolify-backupplan med S3-kompatibel off-node lagring
+- en vellykket, ikke-tom off-node backup innen tillatt alder
+- vellykket restore-drill mot en ny disponibel database
+- `prisma migrate status` uten manglende eller ukjente ledgerposter
+- `scripts/verify-database-schema-drift.sh` uten ukjent drift
+- `npm run db:verify` mot måldatabasen
+- `/api/data-status` med `ok=true` og `knowledgeBaseGatesOk=true`
+- `/api/library-analysis/status` med `ok=true` for operasjonell klassifisering
+- dedikert, verifisert read-only rolle før MCP kobles til
 
-- kode var pushet og Coolify deployet ny app-container
-- flere sider leste fra strukturerte tabeller som var tynnere i prod enn i repoets seed/importlag
-- enkelte visninger hadde derfor for lite innhold selv om dokumentene fantes i `Document`
-- produksjonsdatabasen hadde i tillegg schema-drift på `Subsidy`, som blokkerte deler av standard importkjeden
+`/api/library-analysis/status.externalReady` er en separat faglig port. Den
+skal ikke erstattes av `ok=true`: intern klassifisering kan være komplett selv
+om eksterne claims mangler navngitt/daterbar human review. Hver eksternt
+godkjent dokumentrad må i tillegg ha minst én gjeldende `SourceCitation` som
+består answer-time-porten, inkludert en offentlig HTTP(S)-lokator. Statusen
+revurderer denne koblingen ved hver avlesning, slik at URL-fjerning lukker
+`externalClaimEligible` og `externalReady`.
 
-## Hva som ble rettet
+## Kanoniske minimumstall
 
-### 1. Kodefallbacks i appen
+`npm run db:verify` feiler dersom produksjon ligger under det verifiserte lokale
+korpuset per 2026-07-19. Dette er regresjonsminimum, ikke en øvre grense.
 
-Det ble lagt inn fallback-logikk slik at sider ikke er like avhengige av at alt først er promotert til egne typed tabeller.
-
-Berørte områder:
-
-- `personer`: fallback fra `BoardMember` når `PersonProfile` er for tynn
-- `kommunikasjon`: fallback fra dokumenter når `Communication` er tom
-- `rapporter`: fallback fra `Document` når `Report` mangler rader
-- `innsikt`: fallback fra `Document` når `Insight` mangler rader
-- `kilder`: fallback fra `Document` når `SourceDoc` ikke dekker hele biblioteket
-
-Dette gjør siden mer robust, men det erstatter ikke riktige importer.
-
-### 2. Produksjonsdata ble resynket
-
-Følgende importløp ble kjørt mot produksjonsdatabasen 21. april 2026:
-
-- `npm run db:import:ts`
-- `npm run db:import:companies`
-- `npm run db:import:ownership`
-- `npm run db:import:persons`
-- `npm run db:import:actors`
-- `npm run db:import:transcripts`
-- `npm run db:import:market`
-- `npm run db:import:session5`
-- samt dokumentimporter og tidligere `db:import:docs` / `db:import:root`
-
-### 3. Schema-drift i produksjon ble reparert
-
-`db:import:companies` feilet først fordi produksjon manglet nullable kolonner som finnes i Prisma-modellen for `Subsidy`.
-
-Kolonnene som manglet i produksjon:
-
-- `scheme`
-- `kommuneNr`
-- `source`
-
-Disse ble lagt til direkte i produksjonsdatabasen med additiv SQL 21. april 2026. Senere samme dag ble endringen kodifisert som en idempotent migrasjon i `prisma/migrations/20260421_subsidy_nullable_columns/migration.sql`, slik at nye miljøer kan bringes i samsvar med Prisma-skjemaet uten ny ad hoc-SQL.
-
-## Verifisert status etter opprydding
-
-Målt i produksjon etter deploy og importkjede:
-
-| Tabell | Antall |
+| Tabell | Minimum |
 |---|---:|
-| `Document` | 955 |
-| `SourceDoc` | 170 |
-| `Report` | 108 |
-| `Insight` | 117 |
-| `Thesis` | 72 |
-| `Company` | 60 |
-| `BoardMember` | 339 |
-| `PersonProfile` | 38 |
-| `CompanyOwnership` | 12 |
-| `BusinessRelationship` | 50 |
-| `CompanyProperty` | 86 |
-| `Meeting` | 7 |
-| `Communication` | 0 |
-| `MediaTheme` | 6 |
-| `MediaOutlet` | 8 |
-| `MediaEntry` | 10 |
-| `TeamMember` | 9 |
-| `Deliverable` | 6 |
-| `Actor` | 169 |
+| `Document` | 1 539 |
+| `SourceDoc` | 199 |
+| `Report` | 137 |
+| `Insight` | 132 |
+| `Thesis` | 79 |
+| `SourceCitation` | 2 699 |
+| `FieldCitation` | 244 516 |
+| `LibraryAnalysisRecord` | 1 295 |
+| `Company` | 351 |
+| `CompanyDocumentRef` | 1 271 |
+| `BoardMember` | 1 800 |
+| `PersonProfile` | 1 594 |
+| `CompanyOwnership` | 160 |
+| `BusinessRelationship` | 105 |
+| `CompanyProperty` | 104 |
+| `Meeting` | 9 |
+| `Actor` | 1 636 |
 
-Viktig tolkning:
+De øvrige minimumene ligger i `scripts/verify-prod-counts.ts`.
+`FieldCitation`-minimumet er den verifiserte sluttellingen etter at fem eksakt
+reviewede, korrupte orphan-bindinger ble slettet uten å slette deres
+`SourceCitation`-rader. Dette er et regresjonsminimum, ikke et kvalitetsmål.
+`Communication=0` er fortsatt tillatt fordi seedlaget er tomt per design og
+brukerflaten har dokumentfallback.
 
-- `Communication = 0` er per nå ikke en produksjonsfeil alene
-- `db:import:ts` importerer også `0 communications` fra seedlaget slik repoet står nå
-- kommunikasjonssiden er derfor foreløpig avhengig av dokumentfallback
+## Standard rekkefølge
 
-## Driftsregel fremover
+### 1. Verifiser publiseringsgrunnlaget
 
-En grønn Coolify-deploy betyr bare at appen bygger og starter. Den betyr ikke at produksjonsinnholdet er oppdatert.
-
-For dette prosjektet skal en "full deploy" forstås som:
-
-1. kode deployet i Coolify
-2. relevante data-importer kjørt mot produksjonsdatabasen
-3. schema verifisert mot Prisma dersom importer feiler
-4. nøkkeltabeller kontrollmålt etterpå
-
-## Standard prosedyre ved større innholdsoppdateringer
-
-Bruk denne rutinen når prosjektet er oppdatert betydelig, særlig etter nye dokumentimporter, nye typed lag eller flere samtidige endringer i samme workflow.
-
-### A. Deploy kode
-
-1. Push til `main`
-2. Vent til Coolify-deploy er `finished`
-3. Les buildlogg hvis status er `failed`
-
-Eksempel:
+Før push eller deploy:
 
 ```bash
-coolify app deployments list so8ko44goccc8gcgswwscgco --format json
+git status --short --branch
+git log -1 --oneline
+npm run lint
+npm test
+npm run build
+git diff --check
 ```
 
-### B. Kjør relevante importer mot prod
+Ikke publiser fra en dirty arbeidsgren med urelaterte endringer. Flytt den
+godkjente endringsflaten til en ren gren/worktree først.
 
-Minimum ved større innholdsoppdateringer:
+### 2. Sikre backup og restore
+
+Coolify-planen skal være aktiv, lagre off-node og ha varsling for
+`backup_failed` og `backup_success_with_s3_warning`. Repoets watcher krever som
+standard en vellykket S3-upload siste 36 timer; terskelen kan settes med
+repository variable `DB_BACKUP_MAX_AGE_HOURS`.
+
+I tillegg skal en faktisk dump restore-testes. Før en kontrollert
+identitets-/citation-mutasjon må backupen bruke metadata v2, bestå streng
+`BACKUP_REQUIRE_METADATA_V2=1`-kontroll og ha en maskinverifiserbar receipt v1
+som binder dump-/metadatahash, database-UUID, fullført Prisma-ledger, eksakte
+tellinger, target-fingerprint og bekreftet cleanup. Eldre backups beholdes bare
+for historisk restore og er ikke mutasjonsbevis. Lokal verktøykjede og
+sikkerhetsgrenser er dokumentert i
+[`POSTGRES-MCP-SETUP.md`](POSTGRES-MCP-SETUP.md).
+
+### 3. Avstem migrasjoner og skjema
+
+Produksjonsimaget bruker denne fail-closed entrypoint-runneren:
 
 ```bash
-npm run db:import:ts
-npm run db:import:docs
-npm run db:import:root
+scripts/apply-prod-migrations.sh
 ```
 
-Hvis selskaps-, eiendoms- eller relasjonslag er oppdatert:
+Den krever en separat `MIGRATION_DATABASE_URL`, verifiserer at den historiske
+catch-up-baselinen allerede er fullført, bruker `prisma migrate deploy` og
+Primas ledger, og fjerner migrasjonscredentialen før app-prosessen starter. Den
+skal aldri erstattes med en løkke som spiller alle `migration.sql`-filer
+gjennom `psql`.
+
+Før første kjøring mot en eksisterende database:
 
 ```bash
-npm run db:import:companies
-npm run db:import:ownership
-npm run db:import:persons
-npm run db:import:actors
-npm run db:import:market
-npm run db:import:session5
+npx prisma migrate status --schema prisma/schema.prisma
+scripts/verify-database-schema-drift.sh
 ```
 
-Hvis man er usikker og schemaet er kompatibelt, er standard kjede:
+Hvis et objekt allerede finnes uten korrekt ledgerpost, må objektparitet,
+backup og restore-drill bevises før en operatør eventuelt bruker
+`prisma migrate resolve --applied`. Dette er aldri en automatisk deployhandling.
 
-```bash
-npm run db:import
-```
+Migrasjonshistorikken kan ikke bootstrappe en tom database; den begynner som
+catch-up mot et allerede etablert skjema. En manglende eller ufullstendig
+historisk ledger er derfor en hard stopp, ikke et signal om å kjøre gammel DDL.
 
-For å kjøre den anbefalte prod-sync-sekvensen (som matcher det som ble kjørt 21. april 2026) i én kommando, og få count-verifisering helt til slutt:
+### 4. Deploy kode
+
+1. Merge godkjent PR til `main`.
+2. Bekreft at Coolify bygger riktig commit. For Dockerfile-build skal
+   «Include Source Commit in Build» være aktivert, og applikasjonen skal ikke
+   ha en manuelt lagret `SOURCE_COMMIT` som skygger Coolifys dynamiske verdi.
+3. Bekreft at image-entrypointen kjører migrasjonsrunneren før appstart, og at
+   Coolify har en aktiv health check mot `/api/data-status`.
+4. Vent til deploy er `finished`, men bruk ikke denne statusen alene som
+   migrasjonsbevis. Upstream Coolify kan svelge feil i post-deploy-kommandoer.
+5. Kjør den manuelle, read-only workflowen **Coolify Deploy Verify** mot valgt
+   ref. Den skal kontrollere full `/api/version`-SHA, `/api/data-status` og
+   `/api/library-analysis/status` uten å endre env eller trigge deploy.
+6. Ikke bruk en Cloudflare Access `302` som
+   app-health-bevis.
+
+`scripts/write-version.ts` leser Coolifys dokumenterte `SOURCE_COMMIT` og
+`COOLIFY_BRANCH` under bygging. `/api/version.sha` skal være identisk med
+deployens commit, ikke bare en commit som tidligere var på `main`. Repoets
+tidligere SHA-mutatorer er pensjonert: `coolify-sync-source-commit.yml` er nå kun
+manuell read-only verifikasjon, og både `scripts/deploy.sh` og
+`scripts/coolify-sync-source-commit.sh` feiler med en pensjoneringsmelding.
+Dette beviser ikke at en eksisterende statisk
+`SOURCE_COMMIT` allerede er fjernet i Coolify; det er en separat operatørjobb.
+
+### 5. Synk data eksplisitt
+
+Bruk workflowen **Production Data Import** med `confirm=IMPORT`:
+
+- `verify-only`: teller kanoniske tabeller og auditerer library analysis uten
+  dataskriv
+- `knowledge`: behandler/importerer library-analysis-laget, auditerer og teller
+- `full`: kjører hele kanoniske `db:prod-sync`, deretter library analysis og
+  verifikasjon
+
+Jobben bruker et beskyttet `production`-environment og non-cancelling
+concurrency. Alle targets må bestå ledger-, schema-drift- og count-preflight.
+Muterende targets krever i tillegg en fersk, vellykket off-node backup før
+første dataskriv. Knowledge-ledger/readiness lastes opp som kjøringsartefakt;
+prune- og approval-revocation-loggene beholdes separat som rollbackbevis.
+
+For store innholdsoppdateringer er `full` riktig når backup, migrasjon og
+drift er grønne. `knowledge` skal ikke brukes som erstatning for manglende
+aktør-, selskaps- eller citation-data.
+
+Direkte operatørkjøring bruker samme kontrakter:
 
 ```bash
 npm run db:prod-sync
-```
-
-### C. Kontroller nøkkeltabeller
-
-Foretrukket metode — kjør det automatiske verify-skriptet, som måler mot baselines fra 21. april 2026 og rapporterer OK/WARN/FAIL per tabell:
-
-```bash
+npm run research:library:process:apply
+npm run research:library:ledger
+npm run audit:library-analysis
 npm run db:verify
 ```
 
-Skriptet returnerer exit-kode 1 hvis noen tabell er under baseline eller tom (unntatt `Communication`, som er forventet tom i seedlaget).
+Ledgeren skal eksporteres fra den samme `DATABASE_URL` som nettopp ble
+behandlet. Audit av en eldre, inn-sjekket JSONL er ikke bevis for den muterte
+databasen.
 
-Alternativt kan samme kontroll gjøres rent i SQL:
+### 6. Verifiser runtime og kunnskapslag
 
-```sql
-select 'Document', count(*) from "Document"
-union all select 'SourceDoc', count(*) from "SourceDoc"
-union all select 'Report', count(*) from "Report"
-union all select 'Insight', count(*) from "Insight"
-union all select 'Thesis', count(*) from "Thesis"
-union all select 'Company', count(*) from "Company"
-union all select 'PersonProfile', count(*) from "PersonProfile"
-union all select 'CompanyOwnership', count(*) from "CompanyOwnership"
-union all select 'BusinessRelationship', count(*) from "BusinessRelationship"
-union all select 'CompanyProperty', count(*) from "CompanyProperty"
-union all select 'Meeting', count(*) from "Meeting"
-union all select 'Communication', count(*) from "Communication"
-union all select 'MediaEntry', count(*) from "MediaEntry";
+Kontroller beskyttede endepunkter med gyldig Cloudflare service-token:
+
+```text
+/api/version
+/api/data-status
+/api/library-analysis/status
 ```
 
-### D. Kontroller brukerflater som ofte avslører drift
+Forvent:
 
-Disse sidene bør sjekkes visuelt etter større oppdateringer:
+- `/api/data-status`: HTTP 200, `ok=true`, `dbOk=true`,
+  `pageGatesOk=true`, `knowledgeBaseGatesOk=true`
+- `/api/library-analysis/status`: HTTP 200 og `ok=true`
+- `externalReady` rapporteres separat og kan legitimt være `false` mens
+  menneskelig review gjenstår
+
+Se deretter kritiske flater visuelt:
 
 - `/kilder`
+- `/bibliotek`
 - `/rapporter`
 - `/innsikt`
+- `/ai-kunnskap`
 - `/personer`
-- `/kommunikasjon`
-- `/media`
-- `/eiendommer`
 - `/selskap`
 - `/relasjoner`
 
-## Hvis en import feiler
+## Feilhåndtering
 
-Ikke anta at problemet er selve datafilen. Sjekk først om produksjonsschemaet matcher Prisma.
+### Import feiler
 
-Rask kontroll:
+Stopp. Ikke kjør `db push` eller ad hoc `ALTER TABLE` som første respons.
 
-1. les modell i `prisma/schema.prisma`
-2. sammenlign mot faktisk tabell i prod
-3. se etter manglende nullable kolonner, indekser eller tabeller
+1. les hele feilen
+2. kjør `prisma migrate status`
+3. kjør schema-drift-porten
+4. sammenlign objektet med `prisma/schema.prisma` og migrasjonene
+5. lag en ny forward-only migrasjon hvis repoet mangler kontrakten
 
-Eksempel fra 2026-04-21:
+### Count-port feiler
 
-- Prisma forventet `Subsidy.scheme`, `Subsidy.kommuneNr`, `Subsidy.source`
-- produksjon hadde bare `id`, `companyId`, `subsidyType`, `project`, `amountNok`, `year`
-- resultatet var `P2022` og stopp i `db:import:companies`
+Dette betyr at databasen ikke representerer kanonisk korpus, eller at en
+import har slettet/deduplisert mer enn kontrakten tillater. Finn hvilken import
+som eier tabellen, kjør den avgrenset og verifiser på nytt. Ikke senk minimumet
+for å gjøre produksjon kunstig grønn.
 
-## Kjente svakheter vi fortsatt må eie
+### Library-port er operasjonelt grønn, men eksternt rød
 
-### 1. Schema-endringer er ikke godt nok operasjonalisert
+Det er forventet når poster er trygt klassifisert som intern bakgrunn eller
+blokkert, men mangler ekstern bruksregel og human review. Ikke reklassifiser
+AI-utkast automatisk. Arbeid gjennom den genererte review-/reparasjonskøen.
 
-Repoet bruker en idempotent "additiv SQL"-stil for schema-endringer. Fra 5. mai 2026 finnes tre migrasjoner i `prisma/migrations/`:
+### Backup-port feiler
 
-- `20260421_media_evidence_corpus/migration.sql` — MediaOutlet / MediaEntry / MediaEntryCoding (med `CREATE TABLE IF NOT EXISTS`)
-- `20260421_subsidy_nullable_columns/migration.sql` — nullable kolonner på `Subsidy` (med `ALTER TABLE … ADD COLUMN IF NOT EXISTS`)
-- `20260505_db_optimization_p0/migration.sql` — additive P0-indekser for Document embedding, trigram-søk og `Subsidy.subsidyType` (med `CREATE INDEX IF NOT EXISTS`)
+En konfigurert tidsplan alene er ikke backupbevis. Kontroller siste execution,
+filstørrelse, S3-upload og varsling. Kollektiv GO krever også en dokumentert
+restore-drill.
 
-Alle tre er skrevet idempotent, så de kan kjøres trygt flere ganger. De er foreløpig ikke satt opp til å kjøre gjennom `prisma migrate deploy` som en del av deployen, men kan kjøres mot prod med `psql` eller importeres manuelt før `prisma db push`.
+## Historisk merknad
 
-Det betyr fortsatt:
-
-- schema-drift kan oppstå uten at teamet ser det med en gang
-- prod kan henge etter Prisma selv om appen bygger lokalt
-- importer kan være første sted feilen oppdages
-
-### 2. Ikke alle sider har komplette typed lag
-
-Selv etter oppryddingen er det fortsatt noen steder hvor `Document` er rikere enn typed tabellene.
-
-Det er akseptabelt så lenge:
-
-- fallbackene fungerer
-- vi vet hvilke flater som er avhengige av dem
-- vi ikke tolker en grønn deploy som "alt innhold er oppdatert"
-
-### 3. `Communication` er fortsatt seed-svakt
-
-Kommunikasjonssiden er ikke tom fordi deployen er ødelagt, men fordi seed/importlaget foreløpig ikke oppretter egne `Communication`-rader.
-
-## Anbefalt oppfølging
-
-Oppfølgingspunktene fra første versjon av denne runbooken er nå delvis lukket:
-
-1. ✅ Schema-fiksen for `Subsidy` er kodifisert som `prisma/migrations/20260421_subsidy_nullable_columns/migration.sql`.
-2. ✅ Post-deploy prod-sync kjøres med `npm run db:prod-sync` (importsekvens + `db:verify`).
-3. ✅ Count-sjekken er automatisert i `npm run db:verify`; checklisten under "Standard prosedyre" viser deploy → import → verify → visuell sjekk.
-4. Fortsatt åpent: promotere flere dokumenter til typed lag (`Report`, `Insight`, `SourceDoc`) der det gir varig verdi, uten å fjerne fallbackene.
-
-Ytterligere punkter som står åpne:
-
-- Bygg inn `prisma migrate deploy` eller tilsvarende som del av Coolify-deployen, slik at schema-migrasjonene ikke må kjøres manuelt mot prod.
-- Seed `Communication`-laget når det finnes reelle kommunikasjonsdata (i dag er `src/lib/data/communications.ts` en tom array per design — dokumentfallback dekker UI).
-- Vurder en `db:prod-sync --dry-run` som bare teller delta mot baselines og varsler om import trengs, uten faktisk å kjøre.
-
-## Kortversjon for teamet
-
-Hvis siden ser utdatert ut etter en stor oppdatering, sjekk dette i rekkefølge:
-
-1. Er riktig commit faktisk deployet i Coolify?
-2. Er relevante importskript kjørt mot produksjonsdatabasen?
-3. Matcher produksjonsschemaet `prisma/schema.prisma`?
-4. Har nøkkeltabellene faktisk fått nye rader?
-5. Er det seedlaget som er tynt, eller er det en reell prod-feil?
+Hendelsen 2026-04-21 viste at deployet kode, typed tabeller og faktisk schema
+kunne drive fra hverandre. De gamle april-tallene er historikk og skal ikke
+lenger brukes som produksjonsbaseline. Dagens porter er den maskinlesbare
+kontrakten i `src/lib/data-status.ts`, `scripts/verify-prod-counts.ts` og
+database-/MCP-runbooken.

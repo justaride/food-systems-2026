@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schemas/field08-human-review-status.schema.v1.json",
+  "title": "Field 08 Gate 2C derived human-review status",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "documentType",
+    "schemaVersion",
+    "generatedAt",
+    "sourceCommit",
+    "evidencePackageHash",
+    "receiptCount",
+    "packageStatus",
+    "gateStatuses",
+    "outstandingReviewGateIds",
+    "externalGatePassed",
+    "coveragePromotionAllowed",
+    "contentHash"
+  ],
+  "properties": {
+    "documentType": { "const": "field08_human_review_status_projection" },
+    "schemaVersion": { "const": "1.0.0" },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{3})?Z$"
+    },
+    "sourceCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "evidencePackageHash": { "$ref": "#/$defs/sha256" },
+    "receiptCount": { "type": "integer", "minimum": 0 },
+    "packageStatus": {
+      "enum": [
+        "human_review_pending",
+        "human_review_recorded_open",
+        "human_review_recorded_action_required",
+        "human_review_complete_internal_only"
+      ]
+    },
+    "gateStatuses": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": { "$ref": "#/$defs/gateStatus" }
+    },
+    "outstandingReviewGateIds": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^review_gate\\.field08\\." },
+      "uniqueItems": true
+    },
+    "externalGatePassed": { "const": false },
+    "coveragePromotionAllowed": { "const": false },
+    "contentHash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "gateStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reviewGateId",
+        "gateType",
+        "status",
+        "latestReceiptId",
+        "latestReceiptHash",
+        "receiptSequence",
+        "decisionCounts",
+        "openTargetIds",
+        "actionRequiredTargetIds"
+      ],
+      "properties": {
+        "reviewGateId": { "type": "string", "pattern": "^review_gate\\.field08\\." },
+        "gateType": {
+          "enum": ["boundary_reconciliation", "contradiction_resolution", "method_appraisal", "ordinary_human_review"]
+        },
+        "status": { "enum": ["pending", "reviewed_resolved", "reviewed_open", "reviewed_action_required"] },
+        "latestReceiptId": { "type": ["string", "null"] },
+        "latestReceiptHash": {
+          "oneOf": [
+            { "$ref": "#/$defs/sha256" },
+            { "type": "null" }
+          ]
+        },
+        "receiptSequence": { "type": "integer", "minimum": 0 },
+        "decisionCounts": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        },
+        "openTargetIds": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "actionRequiredTargetIds": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

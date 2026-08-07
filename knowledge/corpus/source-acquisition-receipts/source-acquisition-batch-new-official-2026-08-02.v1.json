@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "1.0.0",
+  "batchId": "source-acquisition.new-official-utp-chain.2026-08-02.v1",
+  "purpose": "Fresh controlled acquisition and two-copy private archival of ten newly discovered official documents. These sources remain unregistered candidates; acquisition does not establish identity, interpretation, rights, publication or coverage.",
+  "tool": {
+    "name": "food-systems-controlled-curl-http2-fetch-adapter",
+    "version": "1.0.0",
+    "workflowRef": "knowledge/corpus/workflows/controlled-source-acquisition-v1.md",
+    "workflowVersion": "1.0.0"
+  },
+  "sources": [
+    {
+      "receiptId": "receipt.source.acquisition.fi-etmv-annual-2025.official.20260802.v1",
+      "sourceId": "source.fi.etmv.annual-report-2025",
+      "requestedLocator": "https://www.ruokavirasto.fi/globalassets/etmv/etmv_toimintakertomus_2025.pdf",
+      "expectedBodySha256": "sha256:7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142",
+      "expectedBodySizeBytes": 836553,
+      "archivePortablePath": "sha256/7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142.pdf",
+      "archiveMode": "create_new",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/fi-etmv-annual-2025.official.20260802.v1.json",
+      "transport": "curl_http2"
+    },
+    {
+      "receiptId": "receipt.source.acquisition.dk-kfst-utp-enforcement-2025.official.20260802.v1",
+      "sourceId": "source.dk.kfst.utp-enforcement-2025",
+      "requestedLocator": "https://kfst.dk/media/tugboea2/20260629-aarlig-rapport-om-haandhaevelsesaktiviteter-i-henhold-til-utp-direktivet-i-2025-a.pdf",
+      "expectedBodySha256": "sha256:2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad",
+      "expectedBodySizeBytes": 173750,
+      "archivePortablePath": "sha256/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.pdf",
+      "archiveMode": "create_new",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/dk-kfst-utp-enforcement-2025.official.20260802.v1.json",
+      "transport": "curl_http2"
+    },
+    {
+      "receiptId": "receipt.source.acquisition.no-dagligvaretilsyn-annual-2025.official.20260802.v1",
+      "sourceId": "source.no.dagligvaretilsyn.annual-report-2025",
+      "requestedLocator": "https://www.regjeringen.no/contentassets/036ffda0c81e4b3f99456a78ec31df0e/arsrapport-dagligvaretilsynet-2025.pdf",
+      "expectedBodySha256": "sha256:1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8",
+      "expectedBodySizeBytes": 1247932,
+      "archivePortablePath": "sha256/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.pdf",
+      "archiveMode": "create_new",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/no-dagligvaretilsyn-annual-2025.official.20260802.v1.json",
+      "transport": "curl_http2"
+    },
+    {
+      "receiptId": "receipt.source.acquisition.is-grocery-prices-2026-1.official.20260802.v1",
+      "sourceId": "source.is.competition-authority.grocery-prices-2026-1",
+      "requestedLocator": "https://www.samkeppni.is/wp-content/uploads/2026/06/Samkeppniseftirlitid-Dagvoruverd-og-samanburdur-vid-utlond.pdf",
+      "expectedBodySha256": "sha256:528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025",
+      "expectedBodySizeBytes": 3494455,
+      "archivePortablePath": "sha256/528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025.pdf",
+      "archiveMode": "create_new",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/is-grocery-prices-2026-1.official.20260802.v1.json",
+      "transport": "curl_http2"
+    },
+    {
+      "receiptId": "receipt.source.acquisition.is-grocery-prices-2026-1-method.official.20260802.v1",
+      "sourceId": "source.is.competition-authority.grocery-prices-2026-1-method",
+      "requestedLocator": "https://www.samkeppni.is/wp-content/uploads/2026/06/Minnisblad-um-gogn-og-adferdafraedi-umraeduskjals-nr.-1-2026-1.pdf",
+      "expectedBodySha256": "sha256:4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148",
+      "expectedBodySizeBytes": 78520,
+      "archivePortablePath": "sha256/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148.pdf",
+      "archiveMode": "create_new",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/is-grocery-prices-2026-1-method.official.20260802.v1.json",
+      "transport": "curl_http2"
+    },
+    {
+      "receiptId": "receipt.source.acquisition.eu-utp-evaluation-support-study-2025.official.20260802.v1",
+      "sourceId": "source.eu.utp-evaluation-support-study-2025",
+      "requestedLocator": "https://op.europa.eu/o/opportal-service/download-handler?format=pdf&identifier=e1044a53-cc06-11f0-8da2-01aa75ed71a1&language=en&productionSystem=cellar",
+      "expectedBodySha256": "sha256:c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7",
+      "expectedBodySizeBytes": 3409774,
+      "archivePortablePath": "sha256/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7.pdf",
+      "archiveMode": "create_new",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/eu-utp-evaluation-support-study-2025.official.20260802.v1.json",
+      "transport": "curl_http2"
+    },
+    {
+      "receiptId": "receipt.source.acquisition.eu-com-2025-728.official.20260802.v1",
+      "sourceId": "source.eu.com-2025-728",
+      "requestedLocator": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025DC0728",
+      "expectedBodySha256": "sha256:8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42",
+      "expectedBodySizeBytes": 264162,
+      "archivePortablePath": "sha256/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42.pdf",
+      "archiveMode": "create_new",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/eu-com-2025-728.official.20260802.v1.json",
+      "transport": "curl_http2"
+    },
+    {
+      "receiptId": "receipt.source.acquisition.eu-swd-2025-405.official.20260802.v1",
+      "sourceId": "source.eu.swd-2025-405",
+      "requestedLocator": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025SC0405",
+      "expectedBodySha256": "sha256:f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303",
+      "expectedBodySizeBytes": 2317481,
+      "archivePortablePath": "sha256/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303.pdf",
+      "archiveMode": "create_new",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/eu-swd-2025-405.official.20260802.v1.json",
+      "transport": "curl_http2"
+    },
+    {
+      "receiptId": "receipt.source.acquisition.se-competition-supervision-2026-3.official.20260802.v1",
+      "sourceId": "source.se.competition-authority.supervision-report-2026-3",
+      "requestedLocator": "https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2026-3.pdf",
+      "expectedBodySha256": "sha256:9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e",
+      "expectedBodySizeBytes": 1454264,
+      "archivePortablePath": "sha256/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e.pdf",
+      "archiveMode": "create_new",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/se-competition-supervision-2026-3.official.20260802.v1.json",
+      "transport": "curl_http2"
+    },
+    {
+      "receiptId": "receipt.source.acquisition.se-gronsakshuset-judgment-20479-24.official.20260802.v1",
+      "sourceId": "source.se.court.gronsakshuset-20479-24",
+      "requestedLocator": "https://www.konkurrensverket.se/globalassets/dokument/otillborliga-handelsmetoder/domar/dom_forvr-stockholm-mal-nr-20479-24_gronsakshuset.pdf",
+      "expectedBodySha256": "sha256:1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0",
+      "expectedBodySizeBytes": 463871,
+      "archivePortablePath": "sha256/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0.pdf",
+      "archiveMode": "create_new",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/se-gronsakshuset-judgment-20479-24.official.20260802.v1.json",
+      "transport": "curl_http2"
+    }
+  ]
+}

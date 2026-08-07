@@ -1,0 +1,858 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactType": "pdf_page_extraction_map",
+  "pipelineVersion": "1.0.0",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01"
+  },
+  "identityKeys": [
+    "document:cmppajyve0013njvmw7zok4yr"
+  ],
+  "identityAssociation": {
+    "state": "blocked_legacy_alias_scope_mismatch",
+    "intendedLabel": "Nordic Food Alert 2025",
+    "observedDocumentTitle": "Beyond Zero — Nordic Architecture on the Road Towards Renewed Practices (Nord 2025:010)",
+    "blockerCode": "legacy_alias_scope_mismatch"
+  },
+  "sourceBinding": {
+    "title": "Beyond Zero — Nordic Architecture on the Road Towards Renewed Practices (Nord 2025:010)",
+    "doi": "10.6027/nord2025-010",
+    "officialUrl": "https://pub.norden.org/nord2025-010/nord2025-010.pdf",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_disposition_likely_out_of_scope"
+  },
+  "extractionEngine": {
+    "name": "pdftotext",
+    "version": "26.04.0",
+    "argumentsTemplate": [
+      "-f",
+      "{page}",
+      "-l",
+      "{page}",
+      "-enc",
+      "UTF-8",
+      "-eol",
+      "unix",
+      "-nopgbrk",
+      "{input_pdf}",
+      "-"
+    ]
+  },
+  "expectedPageCount": 24,
+  "extractedPageCount": 24,
+  "pageSequenceComplete": true,
+  "privateStorageOnly": true,
+  "textIncludedInTrackedArtifact": false,
+  "languagePolicy": {
+    "pageLanguageDetection": "not_computed",
+    "reason": "no_version_pinned_reliable_detector_configured"
+  },
+  "promotionState": {
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentValidationComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0001.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0001.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "5a0a2b76858bf8cc147613f783d84cd22c0047d142ba0d9ce13fcedf953b57ed",
+        "sizeBytes": 3,
+        "characterCount": 3,
+        "lineCount": 2
+      },
+      "normalizedText": {
+        "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "sizeBytes": 2,
+        "characterCount": 2,
+        "lineCount": 1,
+        "wordCount": 1
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": [
+        "low_extracted_text"
+      ]
+    },
+    {
+      "pageNumber": 2,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0002.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0002.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "22512e89e0544a727e8b34e969148691f9d8cfdb158cd1a083c15e11502c82e2",
+        "sizeBytes": 780,
+        "characterCount": 774,
+        "lineCount": 82
+      },
+      "normalizedText": {
+        "sha256": "a1b083f7026014453b5d30b3aaaff13b50851111de329f20bfcdc984e5b229f7",
+        "sizeBytes": 779,
+        "characterCount": 773,
+        "lineCount": 81,
+        "wordCount": 123
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 3,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0003.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0003.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "b6a60fa1f6138ccf3b413c1f47aaf42003b587f00defdb24d304e628c613d924",
+        "sizeBytes": 1148,
+        "characterCount": 1139,
+        "lineCount": 21
+      },
+      "normalizedText": {
+        "sha256": "8b261f81f1b681f5f5704d215b7eb6a2ef6891c7903867004748cb7dcd7b2163",
+        "sizeBytes": 1147,
+        "characterCount": 1138,
+        "lineCount": 20,
+        "wordCount": 169
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 4,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0004.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0004.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "f94d516d5d6ae2b86c6b3f2adc897825a6860c14802a6bfd7d6d4a9b43ca1ae6",
+        "sizeBytes": 1591,
+        "characterCount": 1572,
+        "lineCount": 40
+      },
+      "normalizedText": {
+        "sha256": "a52589a8fe99398ed07ccdc88546ee34e90133a2c74e88f020f358b306553290",
+        "sizeBytes": 1590,
+        "characterCount": 1571,
+        "lineCount": 39,
+        "wordCount": 234
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 5,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0005.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0005.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "8da273ea47f443d1564890963015d658ec1a0ac99520c07012f7e2172c795e36",
+        "sizeBytes": 531,
+        "characterCount": 531,
+        "lineCount": 32
+      },
+      "normalizedText": {
+        "sha256": "0831b462ef0a4d81dd3a75d01349e50434a9f0a3e4f5de353bf5cd836b46bfa2",
+        "sizeBytes": 530,
+        "characterCount": 530,
+        "lineCount": 31,
+        "wordCount": 77
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 6,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0006.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0006.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "73ab14832af5ef2c111073408bf81bebe401cf86de914847ffe04fa6b21675cc",
+        "sizeBytes": 1495,
+        "characterCount": 1487,
+        "lineCount": 23
+      },
+      "normalizedText": {
+        "sha256": "27427e9ff975144e4e5da76e90d9e313783541f13b9f9668d750c8298aa42df1",
+        "sizeBytes": 1494,
+        "characterCount": 1486,
+        "lineCount": 22,
+        "wordCount": 226
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 7,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0007.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0007.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "4a2fb6a68f15aa38490db65b211e04e1ba98e7dd5120e79213f4c4b39e9eb922",
+        "sizeBytes": 2186,
+        "characterCount": 2170,
+        "lineCount": 35
+      },
+      "normalizedText": {
+        "sha256": "126584cfe286a4c2d2d3a058e5be9d19f72fedf2720071c8d42b6f3b4e7fe89d",
+        "sizeBytes": 2185,
+        "characterCount": 2169,
+        "lineCount": 34,
+        "wordCount": 323
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 8,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0008.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0008.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "01cbeb87411a3564f61b4017c7eed9e0dcda6999cc93835e11455689db3a22ed",
+        "sizeBytes": 2215,
+        "characterCount": 2205,
+        "lineCount": 33
+      },
+      "normalizedText": {
+        "sha256": "543f2ebc16a9a763285e1e378f592f4f389f1882d68d02e56ee035d53f5929af",
+        "sizeBytes": 2214,
+        "characterCount": 2204,
+        "lineCount": 32,
+        "wordCount": 351
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 9,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0009.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0009.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "bfd306f022eaa9b5b112368c22587ebd9982b049443ed7d3949e90829c8d7d51",
+        "sizeBytes": 1672,
+        "characterCount": 1656,
+        "lineCount": 29
+      },
+      "normalizedText": {
+        "sha256": "f7f53e846591af54ea702f447c3e3dcaaff22a0cd9ca84e9aa6d65b0fd52a30c",
+        "sizeBytes": 1671,
+        "characterCount": 1655,
+        "lineCount": 28,
+        "wordCount": 249
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 10,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0010.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0010.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "382c39b60ff4ef17e64b6af05184c7f534ebe8502f8e58d428d75b506d0b640a",
+        "sizeBytes": 1566,
+        "characterCount": 1562,
+        "lineCount": 25
+      },
+      "normalizedText": {
+        "sha256": "23272bc3b5f1382c684dd83590568137099c5c31b63dfdf20e3c6d22dd0da791",
+        "sizeBytes": 1565,
+        "characterCount": 1561,
+        "lineCount": 24,
+        "wordCount": 240
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 11,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0011.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0011.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "1ab54a50974fc5856830fdffabb488ec71db954986917bda20ea747eba6b49e6",
+        "sizeBytes": 861,
+        "characterCount": 861,
+        "lineCount": 20
+      },
+      "normalizedText": {
+        "sha256": "1e4550e31f6321c00e44c5c72869f65903686169dc8df3d5f4a97b169615f88f",
+        "sizeBytes": 860,
+        "characterCount": 860,
+        "lineCount": 19,
+        "wordCount": 141
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 12,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0012.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0012.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "78be3304e9f3a55bc9b38160921ad5fcfc1e7f51b4014490fc88c1454127a141",
+        "sizeBytes": 1211,
+        "characterCount": 1207,
+        "lineCount": 22
+      },
+      "normalizedText": {
+        "sha256": "f7d28f6aaad4c7e5ce24617f869eeb33b90d84228a5ea5b00d6a1c2f6710fb4d",
+        "sizeBytes": 1210,
+        "characterCount": 1206,
+        "lineCount": 21,
+        "wordCount": 181
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 13,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0013.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0013.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "74adad79cf5923ff25ce50d876e173b75756ea1003004f0fab49293791bf8e6d",
+        "sizeBytes": 387,
+        "characterCount": 384,
+        "lineCount": 11
+      },
+      "normalizedText": {
+        "sha256": "701a8b3e2383d44fb9971b34cf200eade9af78cfb3b1e55a64b04d167c629c0f",
+        "sizeBytes": 386,
+        "characterCount": 383,
+        "lineCount": 10,
+        "wordCount": 58
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 14,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0014.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0014.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "a0ef1818f4d8c675bb974292536a8ba53192448be7559106ff9bbb31ba633712",
+        "sizeBytes": 322,
+        "characterCount": 322,
+        "lineCount": 10
+      },
+      "normalizedText": {
+        "sha256": "f048251184c2a78e946133c217cdc553a005ddcca9874ad899d259db32a358da",
+        "sizeBytes": 321,
+        "characterCount": 321,
+        "lineCount": 9,
+        "wordCount": 50
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 15,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0015.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0015.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "6e548d80e22b57b4187d36e9a6c5b4927e1b1e93e54b81947ed117a2df3143bb",
+        "sizeBytes": 463,
+        "characterCount": 457,
+        "lineCount": 11
+      },
+      "normalizedText": {
+        "sha256": "950b00feb56756f85fd39061e738bfa79c343f977811961b20e94080f304ee7a",
+        "sizeBytes": 462,
+        "characterCount": 456,
+        "lineCount": 10,
+        "wordCount": 76
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 16,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0016.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0016.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "5b78b2a536cd137b7817e995803d190c1e63ef5da06eeb7dea701a60d7050073",
+        "sizeBytes": 411,
+        "characterCount": 407,
+        "lineCount": 11
+      },
+      "normalizedText": {
+        "sha256": "b0fca234a1d4182721742f042023edee43e040c4deaed6dee966e940ac331bce",
+        "sizeBytes": 410,
+        "characterCount": 406,
+        "lineCount": 10,
+        "wordCount": 61
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 17,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0017.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0017.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "0ed36c58c89e571987246af2040bff4587f70b72b00ae202914d6243b0f705bb",
+        "sizeBytes": 402,
+        "characterCount": 398,
+        "lineCount": 10
+      },
+      "normalizedText": {
+        "sha256": "aa10634d71e208c525341aa6784035082087407df9794fcd25bd06251d48afdf",
+        "sizeBytes": 401,
+        "characterCount": 397,
+        "lineCount": 9,
+        "wordCount": 57
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 18,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0018.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0018.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "7d1559c6f9c09ced1c397e471944686f99e2f88dea25e8e275c24c391ca15e61",
+        "sizeBytes": 369,
+        "characterCount": 361,
+        "lineCount": 10
+      },
+      "normalizedText": {
+        "sha256": "392faf2d3423fbf54bedf5d729b60019ffc3f3a524df9457faedecac93fe4539",
+        "sizeBytes": 368,
+        "characterCount": 360,
+        "lineCount": 9,
+        "wordCount": 48
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 19,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0019.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0019.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "a411e4a2e952bfd3d3a239ffc05284d48bdcb44aa0bb8230777fd2f5b8a6d13e",
+        "sizeBytes": 441,
+        "characterCount": 439,
+        "lineCount": 11
+      },
+      "normalizedText": {
+        "sha256": "2feae9235a7640bb8a2a0dcead715c1423685ae6e4d3200dbe075a1466aca2e2",
+        "sizeBytes": 440,
+        "characterCount": 438,
+        "lineCount": 10,
+        "wordCount": 66
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 20,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0020.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0020.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "a47315b441e86098612f07076728cf92086742966668b67e7f1854237e098e70",
+        "sizeBytes": 2212,
+        "characterCount": 2168,
+        "lineCount": 34
+      },
+      "normalizedText": {
+        "sha256": "6c3eee190c6a32b8ee907ee750bb20dd5dbca9f3fe2fb6f48d2ee0f461e4138d",
+        "sizeBytes": 2211,
+        "characterCount": 2167,
+        "lineCount": 33,
+        "wordCount": 286
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 21,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0021.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0021.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "7213fdb21b9efc90be11f963190687d96a51202307ecda1c27bcb5aa117bbfef",
+        "sizeBytes": 1048,
+        "characterCount": 1021,
+        "lineCount": 18
+      },
+      "normalizedText": {
+        "sha256": "eb4180c0f7251fff97375e8a11e17a0b4f7f9ad060b118e1703b25f336a87071",
+        "sizeBytes": 1047,
+        "characterCount": 1020,
+        "lineCount": 17,
+        "wordCount": 135
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 22,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0022.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0022.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "a980d43965b38e1ee1592401d33f10220e4fddb493574141663874594afd84f5",
+        "sizeBytes": 2301,
+        "characterCount": 2273,
+        "lineCount": 37
+      },
+      "normalizedText": {
+        "sha256": "d46e33cbaa55b527458fe7785967f30a3b8148f7c09d0297e1204c55341da25c",
+        "sizeBytes": 2300,
+        "characterCount": 2272,
+        "lineCount": 36,
+        "wordCount": 294
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    },
+    {
+      "pageNumber": 23,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0023.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0023.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "fc5ad1c82456307ebbebe8b5fbc04d59b2b91ea836839846bc2cef47684d7792",
+        "sizeBytes": 4,
+        "characterCount": 4,
+        "lineCount": 2
+      },
+      "normalizedText": {
+        "sha256": "076320a2a08267b4c026d06573bba408ea68841e73cdc20e62cce59de165ece3",
+        "sizeBytes": 3,
+        "characterCount": 3,
+        "lineCount": 1,
+        "wordCount": 1
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": [
+        "low_extracted_text"
+      ]
+    },
+    {
+      "pageNumber": 24,
+      "storage": {
+        "rawTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0024.raw.txt",
+        "normalizedTextLocator": "private://corpus/pdf-page-extraction/v1/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01/pages/page-0024.normalized.txt"
+      },
+      "rawText": {
+        "sha256": "3e99d08efac03716b3aecf4a7d24efbb21b5c7ee16d2bf1c4961a47e6f7f97a2",
+        "sizeBytes": 1586,
+        "characterCount": 1573,
+        "lineCount": 37
+      },
+      "normalizedText": {
+        "sha256": "c35bc5e0a600dcdc166a0ab938624452297c318176aeddfa0a717057aadd1000",
+        "sizeBytes": 1585,
+        "characterCount": 1572,
+        "lineCount": 36,
+        "wordCount": 219
+      },
+      "extractorStderr": {
+        "present": false,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sizeBytes": 0
+      },
+      "languageSignal": {
+        "state": "unavailable",
+        "languageCode": null,
+        "confidence": null,
+        "method": "not_computed",
+        "reason": "no_version_pinned_reliable_detector_configured"
+      },
+      "warnings": []
+    }
+  ],
+  "pageMapSha256": "b27229499adeb1e51e906b0738850aca89ddc5fd69e3481a1aa58ee1a225d0a7"
+}

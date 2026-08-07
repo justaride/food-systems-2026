@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "source-discovery-generation-manifest-v1",
+  "artifactType": "source_discovery_generation_manifest",
+  "generatorVersion": "1.0.0",
+  "universeVersion": "1.0.0",
+  "inputs": [
+    {
+      "path": "knowledge/corpus/SOURCE-DISCOVERY-CONTRACT.md",
+      "sizeBytes": 4791,
+      "sha256": "sha256:9c5006c7c1dad3ef37d4ec67eceea44bafaa93aefdaef69e884cee925864c9f0"
+    },
+    {
+      "path": "knowledge/corpus/SOURCE-DISCOVERY-PROTOCOL.md",
+      "sizeBytes": 7451,
+      "sha256": "sha256:c1d291b3df06279f02d86be63eb8757eeb5127b43c6f237881405487cf3f1f45"
+    },
+    {
+      "path": "knowledge/schema/nordic-food-system-ontology.v1.json",
+      "sizeBytes": 100824,
+      "sha256": "sha256:2ff71bffefe413e8e467be932c2212e3229182fe86fb25caee1f329d8d3b0c68"
+    },
+    {
+      "path": "knowledge/schema/source-discovery.schema.v1.json",
+      "sizeBytes": 38019,
+      "sha256": "sha256:08706ec9385c00381137d7c946547fb8e305a6609fa8e684503ecd01309cc93d"
+    },
+    {
+      "path": "scripts/knowledge/generate-source-discovery-universe.ts",
+      "sizeBytes": 24269,
+      "sha256": "sha256:d6f877dba18004f857a2f8ffede87a498f0e0f40a80e4c8eb0fae04c7e368685"
+    },
+    {
+      "path": "src/lib/knowledge/source-acquisition-receipt.ts",
+      "sizeBytes": 12037,
+      "sha256": "sha256:336e30d462d04f4d9e08eea55aa59a2acb8c2d237c6ee950061260ea6656afa9"
+    },
+    {
+      "path": "src/lib/knowledge/source-discovery.ts",
+      "sizeBytes": 54834,
+      "sha256": "sha256:5b4dfadbb27a69cb4f8fb0c9af213222b0080f9f92802e935b8406f179b3886a"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "knowledge/corpus/source-discovery/source-discovery-query-ledger.v1.jsonl",
+      "sizeBytes": 0,
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "knowledge/corpus/source-discovery/source-discovery-result-ledger.v1.jsonl",
+      "sizeBytes": 0,
+      "sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "knowledge/corpus/source-discovery/source-discovery-summary.v1.json",
+      "sizeBytes": 1048,
+      "sha256": "sha256:b9d1d1b95cc5006529aacb0af77c3787cc15e7c8d349fe4af4370d246c694f5a"
+    },
+    {
+      "path": "knowledge/corpus/source-discovery/source-discovery-universe.v1.jsonl",
+      "sizeBytes": 8335032,
+      "sha256": "sha256:33f63735f74cf9a4ad8b98ce7ccc0f556e528f6cea920cc14dde1f64d918817f"
+    }
+  ],
+  "outputSetSha256": "sha256:17c47d92f6c97312f5f244d0368306c69f37de1ddc53ade66a95d28c6bec4de1",
+  "appendOnlyLedgerAnchors": {
+    "queryLedger": {
+      "path": "knowledge/corpus/source-discovery/source-discovery-query-ledger.v1.jsonl",
+      "eventCount": 0,
+      "sizeBytes": 0,
+      "contentSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "lastEventSha256": null
+    },
+    "resultLedger": {
+      "path": "knowledge/corpus/source-discovery/source-discovery-result-ledger.v1.jsonl",
+      "eventCount": 0,
+      "sizeBytes": 0,
+      "contentSha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "lastEventSha256": null
+    }
+  },
+  "semantics": {
+    "networkAccessPerformed": false,
+    "databaseMutationPerformed": false,
+    "plannedCellsAreExecutedSearches": false,
+    "emptyLedgersImplyCoverage": false,
+    "ledgersAreAppendOnlyInputs": true
+  },
+  "generationManifestSha256": "sha256:2e0b089939b022787db0556bc6770e63864820a94da550aaa46f5c8ba65c035d"
+}

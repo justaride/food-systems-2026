@@ -1,0 +1,481 @@
+{
+  "documentType": "field08_evidence_generation_manifest",
+  "schemaVersion": "1.0.0",
+  "manifestId": "generation_manifest.field08_gate2c.v1",
+  "generatedAt": "2026-07-28T23:30:02+02:00",
+  "sourceCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+  "generator": "scripts/knowledge/generate-field08-evidence-intake.ts",
+  "generatorVersion": "1.1.0",
+  "intakeId": "intake.field08_gate2c.v1",
+  "status": "machine_checked_human_review_pending",
+  "commitMarkerSemantics": "Written last. The pinned source commit, Git-tracked inputs, detached external-capture manifest, bounded project-authored inspection notes and output hashes must reproduce. Local-external bytes are deliberately absent from the source commit and are required only for initial generation or explicit full replay. This is not a human approval, coverage assessment or readiness receipt.",
+  "capturePolicy": {
+    "gitTrackedCapturePaths": [
+      "research/evidence-pack/field08-gate2c-2026-07-28/raw/eu-eurostat-env-wasfw-dk-fi-2023.json",
+      "research/evidence-pack/field08-gate2c-2026-07-28/raw/fi-luke-np-balance-fi-ax-2024.json"
+    ],
+    "localExternalCapturePaths": [
+      "research/evidence-pack/field08-gate2c-2026-07-28/raw/ax-asub-avfallsstatistik-2024.pdf",
+      "research/evidence-pack/field08-gate2c-2026-07-28/raw/is-environment-agency-food-waste-2022.pdf",
+      "research/evidence-pack/field08-gate2c-2026-07-28/raw/no-landbruksdirektoratet-matsvinn-jordbrukssektoren-2024.pdf"
+    ],
+    "inspectionNotePaths": [
+      "research/evidence-pack/field08-gate2c-2026-07-28/notes/ax-asub-avfallsstatistik-2024.md",
+      "research/evidence-pack/field08-gate2c-2026-07-28/notes/is-environment-agency-food-waste-2022.md",
+      "research/evidence-pack/field08-gate2c-2026-07-28/notes/no-landbruksdirektoratet-matsvinn-jordbrukssektoren-2024.md"
+    ],
+    "localExternalCapturesExcludedFromGitSnapshots": true,
+    "initialGenerationRequiresLocalExternalCaptures": true,
+    "metadataOnlyCheckMayProceedWhenLocalExternalCapturesAreAbsent": true,
+    "fullReplayFlag": "--check --require-captures",
+    "redistributionAndReuseReviewState": "pending"
+  },
+  "inputSnapshots": [
+    {
+      "artifactSnapshotId": "artifact.v1.658d2015c96909c0f97c",
+      "path": ".gitignore",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "f9af136a512be73f4a5c1d2fc85ce966054a8ebd",
+      "gitObjectType": "blob",
+      "sha256": "sha256:658d2015c96909c0f97c05b0b4ce70cec45468fa4fb8dfc304fd136f04134e44",
+      "sizeBytes": 1541,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": ".gitignore",
+          "kind": "file",
+          "sha256": "sha256:1a7ff25597ba0ab6d4a322a966d3f78a60e4c795a4eb47f71395fa9ec448e845",
+          "sizeBytes": 1541
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.31c61154c694ce8fcfc8",
+      "path": "knowledge/coverage/coverage-assessments-baseline.v1.jsonl",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "03bafb5b4781ae58160f7758f38b34d947701fe0",
+      "gitObjectType": "blob",
+      "sha256": "sha256:31c61154c694ce8fcfc885684bbaf07cdf55024549f9871c5fc9270a46a4ca74",
+      "sizeBytes": 351481,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/coverage/coverage-assessments-baseline.v1.jsonl",
+          "kind": "file",
+          "sha256": "sha256:ee9f7739aa9a52d99785b051e69830ba084b48d951670b6e3fa2122918e4329d",
+          "sizeBytes": 351481
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.7a0ec4b8d7aa1d0bdcc2",
+      "path": "knowledge/coverage/coverage-cells.v1.csv",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "01b9a9bb012732261ae1ed2e7e63ed478f911261",
+      "gitObjectType": "blob",
+      "sha256": "sha256:7a0ec4b8d7aa1d0bdcc29357ef9406a6a3c00f523603f6f49f93860ec2283ecf",
+      "sizeBytes": 5637483,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/coverage/coverage-cells.v1.csv",
+          "kind": "file",
+          "sha256": "sha256:2feb3aa58ecbbbdd9dedee690a8684e51d27bb3bfcfed304d89296950b67639f",
+          "sizeBytes": 5637483
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.3e928dd6b8d606d21888",
+      "path": "knowledge/coverage/coverage-ledger.v1.jsonl",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "92f6fab42ffc77c2258cc4336309202928329fd3",
+      "gitObjectType": "blob",
+      "sha256": "sha256:3e928dd6b8d606d218883c94b8c12897175bfd189612a3f4003e28f8327cc44f",
+      "sizeBytes": 14537027,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/coverage/coverage-ledger.v1.jsonl",
+          "kind": "file",
+          "sha256": "sha256:65e42fd460d997fd709b21504a6778811d9dfaa688322af5cdd0be3e66c8b394",
+          "sizeBytes": 14537027
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.58a36f216a9fcbb86205",
+      "path": "knowledge/pilots/field08/field08-research-source-map.v1.json",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "19fee743760fec255e699631b24eaf9a97c1f6ec",
+      "gitObjectType": "blob",
+      "sha256": "sha256:58a36f216a9fcbb8620573424f948b4b2795c512be4f2e82a3df448c786b6bc3",
+      "sizeBytes": 133356,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/pilots/field08/field08-research-source-map.v1.json",
+          "kind": "file",
+          "sha256": "sha256:3508957b4fd45ed9b3e83e678c796580499249e60ce8e89f651e3b8cd7ba1f26",
+          "sizeBytes": 133356
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.078d5e5cbd43f47975a5",
+      "path": "knowledge/pilots/field08/gate2c/field08-evidence-intake.v1.json",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "9968e9c21ef88bf7c1b2a121711cb4cde72c63ec",
+      "gitObjectType": "blob",
+      "sha256": "sha256:078d5e5cbd43f47975a5bfc02f2ec9ca9ca141185eac5ea6e707add35bba5feb",
+      "sizeBytes": 260186,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/pilots/field08/gate2c/field08-evidence-intake.v1.json",
+          "kind": "file",
+          "sha256": "sha256:c9565051e248a464c1730599aa743efe0ef5f3a6d2a2f624dcc7ce075d583d3e",
+          "sizeBytes": 260186
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.f3ac2a1c3a15396ade0b",
+      "path": "knowledge/schema/field08-evidence-intake.schema.v1.json",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "7d45e328f3748342860425aa6847387413f96798",
+      "gitObjectType": "blob",
+      "sha256": "sha256:f3ac2a1c3a15396ade0b65d96f27b0454512f3008153854de4f761e7d40cc06d",
+      "sizeBytes": 23438,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/schema/field08-evidence-intake.schema.v1.json",
+          "kind": "file",
+          "sha256": "sha256:daeaccda127df44930b00daccdda1daac3f9cf25d2c07306c3a8b9319a756e66",
+          "sizeBytes": 23438
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.f0e5adeb3240598189fd",
+      "path": "knowledge/schema/field08-external-capture-manifest.schema.v1.json",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "6102e66e80027a9e8b1b5d70dc7ac03c144bee83",
+      "gitObjectType": "blob",
+      "sha256": "sha256:f0e5adeb3240598189fdd585482307a0bba2de27ed79355423a4b22b44e5f51d",
+      "sizeBytes": 3890,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/schema/field08-external-capture-manifest.schema.v1.json",
+          "kind": "file",
+          "sha256": "sha256:486e1d6479ec37671eda00a2c50945f7cd425a9570b73876c9bb1cb048c48429",
+          "sizeBytes": 3890
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.5a40c34b0d44494412cc",
+      "path": "knowledge/schema/knowledge-object.schema.v1.json",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "7aa7fdcc044389959e47ec79bb2914cfc4e49978",
+      "gitObjectType": "blob",
+      "sha256": "sha256:5a40c34b0d44494412ccebacacc037ba6febe6adda1a7967dfd206aef11984de",
+      "sizeBytes": 31079,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/schema/knowledge-object.schema.v1.json",
+          "kind": "file",
+          "sha256": "sha256:58abe72a4e00e8be3cdd1e2f1801ffff42d94310f949d57a2f8e42b998ab834d",
+          "sizeBytes": 31079
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.e19021c94bdf2255a796",
+      "path": "knowledge/schema/nordic-food-system-ontology.v1.json",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "6a8579120d2d76825f9e0b0269cf90430630a743",
+      "gitObjectType": "blob",
+      "sha256": "sha256:e19021c94bdf2255a796f34e787bcbd1ca93e252f9beaf190c9800f4cf9e9f78",
+      "sizeBytes": 100824,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/schema/nordic-food-system-ontology.v1.json",
+          "kind": "file",
+          "sha256": "sha256:2ff71bffefe413e8e467be932c2212e3229182fe86fb25caee1f329d8d3b0c68",
+          "sizeBytes": 100824
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.30df89e83c3a48ef3c12",
+      "path": "research/evidence-pack/field08-gate2c-2026-07-28/external-captures.v1.json",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "6fb18faa2467763238f4ec291be3526891d05c8a",
+      "gitObjectType": "blob",
+      "sha256": "sha256:30df89e83c3a48ef3c12fbbbdf873a809d9ddb9d32c6c569f48946bcc2efc7c1",
+      "sizeBytes": 5508,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "research/evidence-pack/field08-gate2c-2026-07-28/external-captures.v1.json",
+          "kind": "file",
+          "sha256": "sha256:678802d14987f2e0c2f2f4fa1d6f366fb026d789e6e50fefb255fa1ad3783cc7",
+          "sizeBytes": 5508
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.346104f1c25faa651a97",
+      "path": "research/evidence-pack/field08-gate2c-2026-07-28/notes/ax-asub-avfallsstatistik-2024.md",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "f0fa17f5cfed71b9d468094e2646e40d6cf4f6d3",
+      "gitObjectType": "blob",
+      "sha256": "sha256:346104f1c25faa651a97cfcf6cbd59abdff9ec66d23bd91a5ac2bc77cd962a85",
+      "sizeBytes": 2392,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "research/evidence-pack/field08-gate2c-2026-07-28/notes/ax-asub-avfallsstatistik-2024.md",
+          "kind": "file",
+          "sha256": "sha256:00c7ff299fcc4a58d18adf0af8ab196b3e12c6c85ae24f44269887d6bf153b8a",
+          "sizeBytes": 2392
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.86d50cb5d1a90d0c5e62",
+      "path": "research/evidence-pack/field08-gate2c-2026-07-28/notes/is-environment-agency-food-waste-2022.md",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "e3c4439ba9b1c0cd2e0b1a1bbc93f09a7239f6c8",
+      "gitObjectType": "blob",
+      "sha256": "sha256:86d50cb5d1a90d0c5e62f9066d7310506f86e0c948819a9b7abb05df0e8ee102",
+      "sizeBytes": 2409,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "research/evidence-pack/field08-gate2c-2026-07-28/notes/is-environment-agency-food-waste-2022.md",
+          "kind": "file",
+          "sha256": "sha256:29c0cd97ca823b46ec9859000d30b34b5fffc7dca96993e3874a9af4ae70aa7a",
+          "sizeBytes": 2409
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.dc31ddf93102c232de04",
+      "path": "research/evidence-pack/field08-gate2c-2026-07-28/notes/no-landbruksdirektoratet-matsvinn-jordbrukssektoren-2024.md",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "92f28cbe8ad35874e2d948bb5bb4aa9f83cac750",
+      "gitObjectType": "blob",
+      "sha256": "sha256:dc31ddf93102c232de045ec4cf3945fb14654cf0cd56d7e13e18bf2cfccc832c",
+      "sizeBytes": 2265,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "research/evidence-pack/field08-gate2c-2026-07-28/notes/no-landbruksdirektoratet-matsvinn-jordbrukssektoren-2024.md",
+          "kind": "file",
+          "sha256": "sha256:dcf9293e11aa135a5672054221029fc26e9c10e8aa1215a49b56276387168619",
+          "sizeBytes": 2265
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.afa7b9b77915d542a93f",
+      "path": "research/evidence-pack/field08-gate2c-2026-07-28/raw/eu-eurostat-env-wasfw-dk-fi-2023.json",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "5d2972eab3c0e88885dcd4d1c15d633fbf19798d",
+      "gitObjectType": "blob",
+      "sha256": "sha256:afa7b9b77915d542a93fe271945bedd7cc235e7ac49ebaafaca171c14a0ba2c8",
+      "sizeBytes": 3499,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "research/evidence-pack/field08-gate2c-2026-07-28/raw/eu-eurostat-env-wasfw-dk-fi-2023.json",
+          "kind": "file",
+          "sha256": "sha256:8e87e2dde29dd0b3cca341f2d4f04b9dfbf1f20152b0f3073c6af85c0cd511d0",
+          "sizeBytes": 3499
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.289336e3821c8061a431",
+      "path": "research/evidence-pack/field08-gate2c-2026-07-28/raw/fi-luke-np-balance-fi-ax-2024.json",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "cbaefef8c0f472f32288e6e6c81da47d2c2426ae",
+      "gitObjectType": "blob",
+      "sha256": "sha256:289336e3821c8061a43197ca1b44d49c0c3817b8be00180e5877eb67213f559a",
+      "sizeBytes": 1868,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "research/evidence-pack/field08-gate2c-2026-07-28/raw/fi-luke-np-balance-fi-ax-2024.json",
+          "kind": "file",
+          "sha256": "sha256:ad6d6d3669386e9b0d5f7cadaeda327a341d611d4714792b52390ed37c9922ef",
+          "sizeBytes": 1868
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.97c075945fa4c1e7bb38",
+      "path": "research/evidence-pack/field08-gate2c-2026-07-28/raw/fi-luke-np-balance-metadata.json",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "61092eca2bd8e3450d17da616247be07f2090ee5",
+      "gitObjectType": "blob",
+      "sha256": "sha256:97c075945fa4c1e7bb383b535a2e1f53c6a812c0a340409a5e0dd23275772218",
+      "sizeBytes": 1230,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "research/evidence-pack/field08-gate2c-2026-07-28/raw/fi-luke-np-balance-metadata.json",
+          "kind": "file",
+          "sha256": "sha256:bef5e6b491660da8a76ff665abff156b87d0653abef22b98ad1891517f656c4b",
+          "sizeBytes": 1230
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.a247760ac0c4c43dfc63",
+      "path": "research/evidence-pack/field08-gate2c-2026-07-28/requests/api-requests.v1.json",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "e763cbcf91e9dc013fc4388e613032fc571ef699",
+      "gitObjectType": "blob",
+      "sha256": "sha256:a247760ac0c4c43dfc6390e7bbdb7fe6670ba968f9aa14b7cfc891dc1c1752db",
+      "sizeBytes": 2484,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "research/evidence-pack/field08-gate2c-2026-07-28/requests/api-requests.v1.json",
+          "kind": "file",
+          "sha256": "sha256:0d3ce6e05c6c4aac123399347e1f139ca7cb4509fcbfc3f2488ebd61b3a05e6e",
+          "sizeBytes": 2484
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.29e7bd633b0ca83cf01b",
+      "path": "scripts/knowledge/generate-coverage-ledger.ts",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "13835d0ddbfc93d07410792664836227ff554cd4",
+      "gitObjectType": "blob",
+      "sha256": "sha256:29e7bd633b0ca83cf01b14d23d091189d2c801538a8e9aff6a92606ddf11b8c7",
+      "sizeBytes": 69769,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "scripts/knowledge/generate-coverage-ledger.ts",
+          "kind": "file",
+          "sha256": "sha256:e12d44b1147f41d17c2e691b80024c4074d31c45809b95bf733b8aa2a87e5dc8",
+          "sizeBytes": 69769
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.74d2f0051396f828de39",
+      "path": "scripts/knowledge/generate-field08-evidence-intake.ts",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "aba9b478f0428150e2f138f4c46ce24d65864391",
+      "gitObjectType": "blob",
+      "sha256": "sha256:74d2f0051396f828de39828d11034599318444ff8a9df102ded9772ecb486423",
+      "sizeBytes": 106045,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "scripts/knowledge/generate-field08-evidence-intake.ts",
+          "kind": "file",
+          "sha256": "sha256:70f42351f074626898f4c8470887ea3a515f32cdd748bb155b128539b7baee69",
+          "sizeBytes": 106045
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.796ed43d0e9eae97885f",
+      "path": "scripts/knowledge/validate-knowledge-foundation.ts",
+      "kind": "file",
+      "baseCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+      "gitObjectId": "5aa98edb2f71b5d0b8854052d216b2bae77ad52b",
+      "gitObjectType": "blob",
+      "sha256": "sha256:796ed43d0e9eae97885f3eedef0a1c34cca33d15f45c0c8830b293e7804f6a5d",
+      "sizeBytes": 46879,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "scripts/knowledge/validate-knowledge-foundation.ts",
+          "kind": "file",
+          "sha256": "sha256:34dd1109e86441d6586671c2d674102b824259c35b9561240fcabce32fb69b18",
+          "sizeBytes": 46879
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "path": "knowledge/pilots/field08/gate2c/field08-acquisition-receipts.v1.jsonl",
+      "sha256": "sha256:f671fbb7ad0eecdc46f688f74d551e2695ba7ebf14e0c6a20f78051529051eab",
+      "sizeBytes": 25478
+    },
+    {
+      "path": "knowledge/objects/field08-gate2c.v1.json",
+      "sha256": "sha256:1e740816028b65a15124cbb5afe5349656c46aac75c2c427848099b409f756d1",
+      "sizeBytes": 456283
+    },
+    {
+      "path": "knowledge/pilots/field08/gate2c/field08-appraisal-review-manifest.v1.json",
+      "sha256": "sha256:2585d4faab17d3eb907d77a4a2e0eaa06a1376fc00ad9e7f43fa104e3437922a",
+      "sizeBytes": 15828
+    },
+    {
+      "path": "knowledge/pilots/field08/gate2c/field08-reviewer-brief.v1.md",
+      "sha256": "sha256:4c2aa8240e24f57b17e12c011bb3e9195dda5e2c80744f3ff3f55ced91f84dab",
+      "sizeBytes": 13046
+    },
+    {
+      "path": "knowledge/pilots/field08/gate2c/field08-evidence-register.v1.json",
+      "sha256": "sha256:f81ae317bf17e9bd81f0a9dc5c6fe44e6f3ad87d3d38e7473bb9562b323af7b1",
+      "sizeBytes": 253537
+    },
+    {
+      "path": "knowledge/pilots/field08/gate2c/field08-evidence-report.v1.md",
+      "sha256": "sha256:141c74b8a0fee92f16f509ae494246acd503db23dc7ace2dfed4d45bdb4c9bff",
+      "sizeBytes": 43642
+    }
+  ],
+  "safetySummary": {
+    "coverageAssessmentEventsCreated": 0,
+    "field08CoverageCellsPromoted": 0,
+    "readinessResultsCreated": 0,
+    "externalReadyClaimsCreated": 0,
+    "sapmiSubjectEvidenceCreated": 0,
+    "finlandAlandUnknownAggregationsCreated": 0,
+    "perHectareDerivedSubtractionsCreated": 0,
+    "historicalCoverageFilesModified": 0,
+    "gitTrackedCaptureFilesPinned": 2,
+    "localExternalCaptureFilesDetached": 3,
+    "localExternalCaptureFilesPresentInSourceCommit": 0,
+    "localExternalReuseReviewsPending": 3
+  },
+  "contentHash": "sha256:bdae0b0554043474af910c2a16061b1510502062175d3b1ce2f61b34c0c34c13"
+}

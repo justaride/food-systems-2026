@@ -9,6 +9,7 @@ export const LIBRARY_ANALYSIS_PDF_TEXT_REPAIR_PLAN_JSON_PATH =
 export type LibraryAnalysisPdfTextRepairInput = {
   sourceKey: string
   documentId: string | null
+  existingUpdatedAt: string | null
   title: string
   path: string
   existingContent: string
@@ -27,6 +28,7 @@ export type LibraryAnalysisPdfTextRepairAction =
 export type LibraryAnalysisPdfTextRepairPlanRow = {
   sourceKey: string
   documentId: string | null
+  expectedUpdatedAt: string | null
   title: string
   path: string
   action: LibraryAnalysisPdfTextRepairAction
@@ -97,6 +99,7 @@ export function formatLibraryAnalysisPdfTextRepairPlanMarkdown(
     `Generated: ${plan.generatedAt}`,
     '',
     'Dette er en kontrollert plan for aa reparere lavtekst-PDF-er ved aa oppdatere Document.content og Document.wordCount med lokalt pdftotext-uttrekk. Den lager ikke claim-kandidater, endrer ikke citation-readiness, og publiserer ingenting eksternt.',
+    'Hver oppdatering er bundet til Document.updatedAt, wordCount og content fra denne planen. Apply avbryter hele batchen dersom en target-rad har endret seg etter planlegging.',
     '',
     `Full radliste: \`${jsonPath}\``,
     '',
@@ -212,6 +215,7 @@ function baseRow(
   return {
     sourceKey: row.sourceKey,
     documentId: row.documentId,
+    expectedUpdatedAt: row.existingUpdatedAt,
     title: row.title,
     path: row.path,
     action: values.action,

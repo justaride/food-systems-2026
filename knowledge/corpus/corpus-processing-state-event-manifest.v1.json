@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "manifestId": "corpus-processing-state-event-manifest.v1",
+  "eventLog": {
+    "path": "knowledge/corpus/corpus-processing-state-events.v1.jsonl",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sizeBytes": 0
+  },
+  "eventCount": 0,
+  "firstEventSha256": null,
+  "lastEventSha256": null,
+  "highWatermarkOccurredAt": null,
+  "eventSetSha256": "sha256:500371d7363355c3080262f367304f893477ddea410eaa88b9a899974fe52a28",
+  "initializedAt": "2026-08-02T20:58:11Z",
+  "semantics": {
+    "appendOnly": true,
+    "oneTargetIdentityPerEvent": true,
+    "automaticFanOutAllowed": false,
+    "artifactPresenceChangesState": false
+  },
+  "manifestSha256": "sha256:517ae2c88191f89879e494331eeffde32081e3b230f0a17ae4b47fbfe1bedd0c"
+}

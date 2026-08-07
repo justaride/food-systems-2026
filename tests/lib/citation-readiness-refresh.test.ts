@@ -136,4 +136,43 @@ describe('citation readiness refresh planning', () => {
       ],
     )
   })
+
+  it('downgrades stale non-blocked overclaims when the evidence contract fails', () => {
+    const plan = buildCitationReadinessRefreshPlan([
+      {
+        id: 'unknown-overclaim',
+        citationText: 'Unclassified source',
+        citationReadiness: 'citable_external',
+        sourceClass: 'unknown',
+        verificationStatus: 'verified',
+        url: 'https://example.test/unclassified',
+        accessedAt: '2026-07-19',
+      },
+      {
+        id: 'missing-locator-overclaim',
+        citationText: 'Primary without locator',
+        citationReadiness: 'citable_external',
+        sourceClass: 'primary',
+        verificationStatus: 'verified',
+        accessedAt: '2026-07-19',
+      },
+      {
+        id: 'unverified-overclaim',
+        citationText: 'Primary without verification metadata',
+        citationReadiness: 'citable_external',
+        sourceClass: 'primary',
+        verificationStatus: 'needs_review',
+        url: 'https://example.test/unverified',
+      },
+    ])
+
+    assert.deepEqual(
+      plan.updates.map(update => ({ id: update.id, to: update.toReadiness })),
+      [
+        { id: 'unknown-overclaim', to: 'blocked_unsourced' },
+        { id: 'missing-locator-overclaim', to: 'blocked_unsourced' },
+        { id: 'unverified-overclaim', to: 'citable_with_note' },
+      ],
+    )
+  })
 })

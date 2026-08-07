@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "source-acquisition-receipt-v1",
+  "artifactType": "source_acquisition_receipt",
+  "receiptId": "receipt.source.acquisition.eu-swd-2025-405.official.20260802.v1",
+  "receiptVersion": "1.0.0",
+  "sourceId": "source.eu.swd-2025-405",
+  "tool": {
+    "name": "food-systems-controlled-curl-http2-fetch-adapter",
+    "version": "1.0.0",
+    "workflowRef": "knowledge/corpus/workflows/controlled-source-acquisition-v1.md",
+    "workflowVersion": "1.0.0"
+  },
+  "startedAt": "2026-08-02T23:18:31.906Z",
+  "completedAt": "2026-08-02T23:18:32.298Z",
+  "receiptSha256": "sha256:25b303b651c2f39949b3f8d5b9b7d2836cda6bd751e19e904b05ca94db483775",
+  "acquisitionType": "controlled_https_fetch",
+  "requestedLocator": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025SC0405",
+  "finalLocator": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025SC0405",
+  "request": {
+    "method": "GET",
+    "redirectMode": "manual",
+    "credentialsMode": "omit",
+    "maximumRedirects": 5
+  },
+  "redirectChain": [],
+  "response": {
+    "status": 200,
+    "contentType": "application/pdf",
+    "contentLengthBytes": null,
+    "bodySizeBytes": 2317481,
+    "bodySha256": "sha256:f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303",
+    "observedAt": "2026-08-02T23:18:31.906Z"
+  }
+}

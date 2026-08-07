@@ -1,0 +1,581 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/database-logical-restore-companion-receipt.schema.v1.json",
+  "title": "Food Systems database logical restore companion receipt v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "backup",
+    "canonicalJsonFormat",
+    "cleanup",
+    "clone",
+    "comparison",
+    "completedAtUtc",
+    "evidenceClass",
+    "extensionInitialization",
+    "format",
+    "limitations",
+    "logicalCloneRehearsal",
+    "structuralRestore",
+    "tools",
+    "version"
+  ],
+  "properties": {
+    "format": {
+      "const": "foodsystems-database-logical-restore-companion-receipt"
+    },
+    "version": { "const": 1 },
+    "canonicalJsonFormat": { "const": "sorted-keys-v1" },
+    "evidenceClass": {
+      "const": "logical-comparison-surrogate-not-production-target-execution"
+    },
+    "completedAtUtc": { "$ref": "#/$defs/dateTime" },
+    "backup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dumpBytes",
+        "dumpSha256",
+        "metadataCreatedAtUtc",
+        "metadataFormat",
+        "metadataSha256",
+        "metadataVersion",
+        "targetDatabaseFingerprintSha256"
+      ],
+      "properties": {
+        "dumpBytes": { "type": "integer", "minimum": 1 },
+        "dumpSha256": { "$ref": "#/$defs/sha256" },
+        "metadataCreatedAtUtc": { "$ref": "#/$defs/dateTime" },
+        "metadataFormat": {
+          "const": "foodsystems-database-backup-metadata"
+        },
+        "metadataSha256": { "$ref": "#/$defs/sha256" },
+        "metadataVersion": { "const": 2 },
+        "targetDatabaseFingerprintSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "structuralRestore": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "completedAtUtc",
+        "receiptFormat",
+        "receiptSha256",
+        "receiptVersion"
+      ],
+      "properties": {
+        "completedAtUtc": { "$ref": "#/$defs/dateTime" },
+        "receiptFormat": {
+          "const": "foodsystems-database-restore-receipt"
+        },
+        "receiptSha256": { "$ref": "#/$defs/sha256" },
+        "receiptVersion": { "const": 1 }
+      }
+    },
+    "extensionInitialization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "attestationSha256",
+        "catalogSha256",
+        "connectionLimitAfter",
+        "connectionLimitBefore",
+        "excludedExtensionCount",
+        "extensionStateSha256",
+        "extensions",
+        "filteredCatalogSha256",
+        "fixedMutationPlanSha256",
+        "postRestoreVerified",
+        "requestSha256",
+        "selectionPolicy",
+        "selectionSha256",
+        "skippedCommentCount",
+        "sourceExtensionStateSha256",
+        "sourceStateMatched",
+        "transactionCommitted"
+      ],
+      "properties": {
+        "attestationSha256": { "$ref": "#/$defs/sha256" },
+        "catalogSha256": { "$ref": "#/$defs/sha256" },
+        "connectionLimitAfter": { "const": 1 },
+        "connectionLimitBefore": { "const": 0 },
+        "excludedExtensionCount": { "const": 2 },
+        "extensionStateSha256": { "$ref": "#/$defs/sha256" },
+        "extensions": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/extensionInitializationRow" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "comment": {
+                      "const": "text similarity measurement and index searching based on trigrams"
+                    },
+                    "name": { "const": "pg_trgm" },
+                    "version": { "const": "1.6" }
+                  }
+                }
+              ]
+            },
+            {
+              "allOf": [
+                { "$ref": "#/$defs/extensionInitializationRow" },
+                {
+                  "type": "object",
+                  "properties": {
+                    "comment": {
+                      "const": "vector data type and ivfflat and hnsw access methods"
+                    },
+                    "name": { "const": "vector" },
+                    "version": { "const": "0.8.2" }
+                  }
+                }
+              ]
+            }
+          ],
+          "items": false
+        },
+        "filteredCatalogSha256": { "$ref": "#/$defs/sha256" },
+        "fixedMutationPlanSha256": {
+          "const": "fad5781af5501d12d2104f865cf158a068db787cc42ddb25934dccede8c56af7"
+        },
+        "postRestoreVerified": { "const": true },
+        "requestSha256": { "$ref": "#/$defs/sha256" },
+        "selectionPolicy": {
+          "const": "validated_pg_restore_use_list_fd3"
+        },
+        "selectionSha256": { "$ref": "#/$defs/sha256" },
+        "skippedCommentCount": { "const": 2 },
+        "sourceExtensionStateSha256": { "$ref": "#/$defs/sha256" },
+        "sourceStateMatched": { "const": true },
+        "transactionCommitted": { "const": true }
+      }
+    },
+    "comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "completedAtUtc",
+        "contentStateEqual",
+        "logicalStateEqual",
+        "logicalComparisonProofSha256",
+        "postRehearsalClone",
+        "postRehearsalCloneFullStateMatched",
+        "postRehearsalSource",
+        "postRehearsalVerifiedAtUtc",
+        "relationCountEqual",
+        "restored",
+        "semantic",
+        "sequenceCountEqual",
+        "source",
+        "startedAtUtc",
+        "sourceStillMatched",
+        "totalRowCountEqual"
+      ],
+      "properties": {
+        "completedAtUtc": { "$ref": "#/$defs/dateTime" },
+        "contentStateEqual": { "const": true },
+        "logicalStateEqual": { "const": false },
+        "logicalComparisonProofSha256": { "$ref": "#/$defs/sha256" },
+        "postRehearsalClone": { "$ref": "#/$defs/digest" },
+        "postRehearsalCloneFullStateMatched": { "const": true },
+        "postRehearsalSource": { "$ref": "#/$defs/digest" },
+        "postRehearsalVerifiedAtUtc": { "$ref": "#/$defs/dateTime" },
+        "relationCountEqual": { "const": true },
+        "restored": { "$ref": "#/$defs/digest" },
+        "semantic": {
+          "const": "same-logical-content-different-database-target-envelope"
+        },
+        "sequenceCountEqual": { "const": true },
+        "source": { "$ref": "#/$defs/digest" },
+        "startedAtUtc": { "$ref": "#/$defs/dateTime" },
+        "sourceStillMatched": { "const": true },
+        "totalRowCountEqual": { "const": true }
+      }
+    },
+    "logicalCloneRehearsal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "applyRunnerSha256",
+        "artifactType",
+        "canonicalJsonFormat",
+        "exactProductionTargetExercised",
+        "executedRuntime",
+        "firstExactMutationRemainsLive",
+        "logicalCloneContentStateSha256",
+        "logicalComparisonProofSha256",
+        "operationKey",
+        "planFileSha256",
+        "planSha256",
+        "privateReceiptStoredOutsideRepo",
+        "productionAuthorizationUsed",
+        "receiptFileSha256",
+        "receiptSelfSha256",
+        "rehearsalCommandRunnerSha256",
+        "rehearsalCompletedAtUtc",
+        "rehearsalRuntimeSha256",
+        "rehearsalSchemaSha256",
+        "rehearsalStartedAtUtc",
+        "rehearsalTestSha256",
+        "rollback",
+        "schemaVersion",
+        "runtimeAttestationSha256",
+        "targetClass",
+        "targetSetSha256"
+      ],
+      "properties": {
+        "applyRunnerSha256": { "$ref": "#/$defs/sha256" },
+        "artifactType": {
+          "const": "source_registration_logical_clone_surrogate_rehearsal_receipt"
+        },
+        "canonicalJsonFormat": { "const": "sorted-keys-v1" },
+        "exactProductionTargetExercised": { "const": false },
+        "executedRuntime": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "launcherFileSha256",
+            "localRuntimeClosureSha256",
+            "nodeArch",
+            "nodeBinaryFileSha256",
+            "nodeModulesTreeSha256",
+            "nodePlatform",
+            "nodeRuntimeClosureSha256",
+            "nodeVersion",
+            "prismaGeneratedClientTreeSha256",
+            "runtimeAttestationSha256"
+          ],
+          "properties": {
+            "launcherFileSha256": { "$ref": "#/$defs/sha256" },
+            "localRuntimeClosureSha256": { "$ref": "#/$defs/sha256" },
+            "nodeArch": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9._-]+$"
+            },
+            "nodeBinaryFileSha256": { "$ref": "#/$defs/sha256" },
+            "nodeModulesTreeSha256": { "$ref": "#/$defs/sha256" },
+            "nodePlatform": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9._-]+$"
+            },
+            "nodeRuntimeClosureSha256": { "$ref": "#/$defs/sha256" },
+            "nodeVersion": {
+              "type": "string",
+              "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+            },
+            "prismaGeneratedClientTreeSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "runtimeAttestationSha256": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        "firstExactMutationRemainsLive": { "const": true },
+        "logicalCloneContentStateSha256": { "$ref": "#/$defs/sha256" },
+        "logicalComparisonProofSha256": { "$ref": "#/$defs/sha256" },
+        "operationKey": {
+          "type": "string",
+          "pattern": "^source-registration-logical-clone-rehearsal-v1:[a-f0-9]{64}$"
+        },
+        "planFileSha256": {
+          "const": "7a8de0151ad9d0c77bb7bb47a01c3bd08922805e933a5b379aea3dd59b84def9"
+        },
+        "planSha256": {
+          "const": "631fef2595bf8f9e897485c1f064654716a3bdb2591bbfb20227370d496a4e2f"
+        },
+        "privateReceiptStoredOutsideRepo": { "const": true },
+        "productionAuthorizationUsed": { "const": false },
+        "receiptFileSha256": { "$ref": "#/$defs/sha256" },
+        "receiptSelfSha256": { "$ref": "#/$defs/sha256" },
+        "rehearsalCommandRunnerSha256": { "$ref": "#/$defs/sha256" },
+        "rehearsalCompletedAtUtc": { "$ref": "#/$defs/dateTime" },
+        "rehearsalRuntimeSha256": { "$ref": "#/$defs/sha256" },
+        "rehearsalSchemaSha256": { "$ref": "#/$defs/sha256" },
+        "rehearsalStartedAtUtc": { "$ref": "#/$defs/dateTime" },
+        "rehearsalTestSha256": { "$ref": "#/$defs/sha256" },
+        "rollback": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "afterCountsEqualBeforeCounts",
+            "forcedBySentinel",
+            "rehearsalAuditAbsentAfterRollback",
+            "rollbackAbsenceConfirmed",
+            "targetRowsAbsentAfterRollback",
+            "transactionRolledBack"
+          ],
+          "properties": {
+            "afterCountsEqualBeforeCounts": { "const": true },
+            "forcedBySentinel": { "const": true },
+            "rehearsalAuditAbsentAfterRollback": { "const": true },
+            "rollbackAbsenceConfirmed": { "const": true },
+            "targetRowsAbsentAfterRollback": { "const": true },
+            "transactionRolledBack": { "const": true }
+          }
+        },
+        "schemaVersion": {
+          "const": "source-registration-logical-clone-rehearsal-v1"
+        },
+        "runtimeAttestationSha256": { "$ref": "#/$defs/sha256" },
+        "targetClass": { "const": "logical_clone_surrogate" },
+        "targetSetSha256": {
+          "const": "41c41a249cc54f0cad6cb4906a5b97b9d755bcd27d8830a990ed1d4eecb7264f"
+        }
+      }
+    },
+    "clone": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "createdFresh",
+        "label",
+        "nameClass",
+        "nameSha256",
+        "ownershipMarkerClass",
+        "ownershipMarkerSha256",
+        "preexistingDatabaseRefused"
+      ],
+      "properties": {
+        "createdFresh": { "const": true },
+        "label": { "const": "logical-restore-comparison-surrogate" },
+        "nameClass": { "const": "foodsystems_restore_disposable_v1" },
+        "nameSha256": { "$ref": "#/$defs/sha256" },
+        "ownershipMarkerClass": {
+          "const": "database-comment-capability-v1"
+        },
+        "ownershipMarkerSha256": { "$ref": "#/$defs/sha256" },
+        "preexistingDatabaseRefused": { "const": true }
+      }
+    },
+    "cleanup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "completedAtUtc",
+        "databaseAbsenceConfirmed",
+        "drop",
+        "ownershipMarkerVerifiedBeforeDrop",
+        "policy"
+      ],
+      "properties": {
+        "completedAtUtc": { "$ref": "#/$defs/dateTime" },
+        "databaseAbsenceConfirmed": { "const": true },
+        "drop": { "const": "pass" },
+        "ownershipMarkerVerifiedBeforeDrop": { "const": true },
+        "policy": {
+          "const": "drop-and-confirm-absence-on-success-error-or-handled-signal"
+        }
+      }
+    },
+    "tools": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contextBindings", "executedTools"],
+      "properties": {
+        "contextBindings": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "backupContractHelperSha256",
+            "backupVerifierSha256",
+            "companionReceiptSchemaSha256",
+            "postgresqlToolsetCreatedbBinarySha256",
+            "postgresqlExtensionInitializerTestSha256",
+            "postgresqlExtensionRuntimeManifestSha256",
+            "postgresqlExtensionRuntimeVerifierSha256",
+            "sourceRegistrationLogicalCloneRehearsalTestSha256",
+            "structuralRestoreRunnerSha256"
+          ],
+          "properties": {
+            "backupContractHelperSha256": { "$ref": "#/$defs/sha256" },
+            "backupVerifierSha256": { "$ref": "#/$defs/sha256" },
+            "companionReceiptSchemaSha256": { "$ref": "#/$defs/sha256" },
+            "postgresqlToolsetCreatedbBinarySha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "postgresqlExtensionInitializerTestSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "postgresqlExtensionRuntimeManifestSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "postgresqlExtensionRuntimeVerifierSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationLogicalCloneRehearsalTestSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "structuralRestoreRunnerSha256": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        "executedTools": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "companionReceiptValidatorSha256",
+            "companionRunnerSha256",
+            "databaseLogicalDigestSha256",
+            "dropdbBinarySha256",
+            "pgRestoreBinarySha256",
+            "psqlBinarySha256",
+            "psqlRuntimeClosureSha256",
+            "psqlRuntimeManifestSha256",
+            "psqlRuntimeVerifierSha256",
+            "postgresqlExtensionInitializerSha256",
+            "postgresqlExtensionRuntimeClosureSha256",
+            "sourceRegistrationApplyRunnerSha256",
+            "sourceRegistrationApplyRuntimeSha256",
+            "sourceRegistrationLauncherSha256",
+            "sourceRegistrationLocalRuntimeClosureSha256",
+            "sourceRegistrationLogicalCloneRehearsalRuntimeSha256",
+            "sourceRegistrationLogicalCloneRehearsalSchemaSha256",
+            "sourceRegistrationLogicalCloneRehearsalCommandRunnerSha256",
+            "sourceRegistrationNodeBinarySha256",
+            "sourceRegistrationNodeModulesTreeSha256",
+            "sourceRegistrationNodeRuntimeClosureSha256",
+            "sourceRegistrationNodeRuntimeManifestSha256",
+            "sourceRegistrationNodeRuntimeVerifierSha256",
+            "sourceRegistrationPrismaGeneratedClientTreeSha256",
+            "sourceRegistrationRuntimeAttestationSha256"
+          ],
+          "properties": {
+            "companionReceiptValidatorSha256": { "$ref": "#/$defs/sha256" },
+            "companionRunnerSha256": { "$ref": "#/$defs/sha256" },
+            "databaseLogicalDigestSha256": { "$ref": "#/$defs/sha256" },
+            "dropdbBinarySha256": { "$ref": "#/$defs/sha256" },
+            "pgRestoreBinarySha256": { "$ref": "#/$defs/sha256" },
+            "psqlBinarySha256": { "$ref": "#/$defs/sha256" },
+            "psqlRuntimeClosureSha256": { "$ref": "#/$defs/sha256" },
+            "psqlRuntimeManifestSha256": { "$ref": "#/$defs/sha256" },
+            "psqlRuntimeVerifierSha256": { "$ref": "#/$defs/sha256" },
+            "postgresqlExtensionInitializerSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "postgresqlExtensionRuntimeClosureSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationApplyRunnerSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationApplyRuntimeSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationLauncherSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationLocalRuntimeClosureSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationLogicalCloneRehearsalRuntimeSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationLogicalCloneRehearsalSchemaSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationLogicalCloneRehearsalCommandRunnerSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationNodeBinarySha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationNodeModulesTreeSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationNodeRuntimeClosureSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationNodeRuntimeManifestSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationNodeRuntimeVerifierSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationPrismaGeneratedClientTreeSha256": {
+              "$ref": "#/$defs/sha256"
+            },
+            "sourceRegistrationRuntimeAttestationSha256": {
+              "$ref": "#/$defs/sha256"
+            }
+          }
+        }
+      }
+    },
+    "limitations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidenceScope",
+        "exactProductionTargetExecutionClaimed",
+        "productionTargetExecution",
+        "statement"
+      ],
+      "properties": {
+        "evidenceScope": { "const": "logical-comparison-surrogate" },
+        "exactProductionTargetExecutionClaimed": { "const": false },
+        "productionTargetExecution": { "const": false },
+        "statement": {
+          "const": "This receipt proves a disposable logical-restore comparison surrogate; it does not prove execution against the exact production target."
+        }
+      }
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "dateTime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+    },
+    "extensionInitializationRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "comment",
+        "memberCount",
+        "memberInventorySha256",
+        "name",
+        "owner",
+        "relocatable",
+        "schema",
+        "version"
+      ],
+      "properties": {
+        "comment": { "type": "string", "minLength": 1 },
+        "memberCount": { "type": "integer", "minimum": 1 },
+        "memberInventorySha256": { "$ref": "#/$defs/sha256" },
+        "name": { "type": "string", "minLength": 1 },
+        "owner": { "const": "gabrielfreeman" },
+        "relocatable": { "const": true },
+        "schema": { "const": "public" },
+        "version": { "type": "string", "minLength": 1 }
+      }
+    },
+    "digest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contentStateSha256",
+        "logicalStateSha256",
+        "psqlFileSha256",
+        "relationCount",
+        "sequenceCount",
+        "totalRowCount"
+      ],
+      "properties": {
+        "contentStateSha256": { "$ref": "#/$defs/sha256" },
+        "logicalStateSha256": { "$ref": "#/$defs/sha256" },
+        "psqlFileSha256": { "$ref": "#/$defs/sha256" },
+        "relationCount": { "type": "integer", "minimum": 1 },
+        "sequenceCount": { "type": "integer", "minimum": 0 },
+        "totalRowCount": { "type": "integer", "minimum": 1 }
+      }
+    }
+  }
+}

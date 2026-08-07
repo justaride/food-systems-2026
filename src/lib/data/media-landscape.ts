@@ -55,7 +55,7 @@ export const mediaThemes: MediaTheme[] = [
     name: 'Beredskap og selvforsyning',
     description: 'Mattrygghet, kriseresiliens, importavhengighet og nasjonal forsyningsevne.',
     sources: [
-      { sourceId: 'src-16', label: 'Riksrevisjonen matsikkerhet', url: 'https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/matsikkerhet-og-beredskap-pa-jordbruksomradet/', note: 'Kritisk analyse av systemets sårbarhet' },
+      { sourceId: 'src-16', label: 'Riksrevisjonen matsikkerhet', url: 'https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/matsikkerhet-og-beredskap-pa-landbruksomradet/', note: 'Kritisk analyse av systemets sårbarhet' },
       { sourceId: 'src-26', label: 'Meld. St. 11 selvforsyning', url: 'https://www.regjeringen.no/no/dokumenter/meld-st-11-20232024/id3033241/', note: '50 %-mål innen 2030' },
       { sourceId: 'src-31', label: 'NIBIO sjolvforsyningsgrad', url: 'nibio.no', note: 'Metodisk grunnlag for beredskapsdebatt' },
     ],
@@ -145,7 +145,7 @@ export const mediaTimeline: MediaTimelineEntry[] = [
     label: 'Pandemi utløser beredskapsfokus',
     note: 'Forsyningssikkerhet, importavhengighet og robusthet blir synlige temaer på tvers av Norden.',
     sources: [
-      { sourceId: 'src-16', label: 'Riksrevisjonen matsikkerhet', url: 'https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/matsikkerhet-og-beredskap-pa-jordbruksomradet/', note: 'Kritikk av beredskapsplanlegging' },
+      { sourceId: 'src-16', label: 'Riksrevisjonen matsikkerhet', url: 'https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/matsikkerhet-og-beredskap-pa-landbruksomradet/', note: 'Kritikk av beredskapsplanlegging' },
     ],
   },
   {
@@ -195,7 +195,7 @@ export const mediaTimeline: MediaTimelineEntry[] = [
     note: 'Totalberedskap, nasjonale matstrategier og produksjonsevne blir mer sentrale enn ren prisdebatt.',
     sources: [
       { sourceId: 'src-26', label: 'Meld. St. 11 selvforsyning', url: 'https://www.regjeringen.no/no/dokumenter/meld-st-11-20232024/id3033241/', note: '50 %-mål' },
-      { sourceId: 'src-16', label: 'Riksrevisjonen beredskap', url: 'https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/matsikkerhet-og-beredskap-pa-jordbruksomradet/' },
+      { sourceId: 'src-16', label: 'Riksrevisjonen beredskap', url: 'https://www.riksrevisjonen.no/rapporter-mappe/no-2023-2024/matsikkerhet-og-beredskap-pa-landbruksomradet/' },
       { sourceId: 'src-40', label: 'NBS systemkritikk', url: 'smabrukarlaget.no', note: 'Produsentperspektiv på matberedskap' },
     ],
   },
@@ -329,7 +329,7 @@ export const mediaCountryProfiles: MediaCountryProfile[] = [
       ] },
     ],
     sources: [
-      { sourceId: 'src-24', label: 'Kilpailulaki § 4a', url: 'https://www.kkv.fi/en/', note: '30 %-dominansterskel' },
+      { sourceId: 'src-24', label: 'Competition Act 948/2011, Section 4a', url: 'https://www.finlex.fi/en/legislation/2011/948', note: '30 %-dominansterskel' },
       { label: 'FCCA — markedsdominans dagligvare', url: 'https://www.kkv.fi/en/facts-and-advice/competition-affairs/abuse-of-dominant-position/maaraava-markkina-asema-paivittaistavarakaupassa/' },
     ],
   },

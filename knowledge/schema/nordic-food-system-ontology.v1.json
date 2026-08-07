@@ -1,0 +1,928 @@
+{
+  "schemaVersion": "1.0.0",
+  "ontologyId": "fs26.nordic_food_system",
+  "ontologyVersion": "1.0.0",
+  "effectiveDate": "2026-07-26",
+  "status": "proposed_draft",
+  "canonicalLanguage": "nb",
+  "idPolicy": "immutable_ids_mutable_labels",
+  "scope": {
+    "completionUnit": "geography scope x explicit value-chain coverage unit x analytical domain",
+    "mandatoryPoliticalGeographyIds": [
+      "geo.no",
+      "geo.se",
+      "geo.dk",
+      "geo.fi",
+      "geo.is",
+      "geo.fo",
+      "geo.gl",
+      "geo.ax"
+    ],
+    "mandatoryOverlappingGeographyIds": [
+      "geo.sapmi"
+    ],
+    "rule": "A Nordic claim must declare represented and missing geographies. Norway is never a proxy for Nordic coverage. Political-Nordic and overlapping Indigenous coverage are separate aggregation classes and must never be added together as independent territory."
+  },
+  "aggregationModel": {
+    "classes": [
+      {
+        "id": "political_nordic",
+        "label": "Political-Nordic reporting scopes",
+        "additivity": "boundary_method_required",
+        "definition": "The eight mandatory political reporting scopes. Their administrative containment means they are not automatically additive; source-specific territorial boundaries must be reconciled before totals are calculated."
+      },
+      {
+        "id": "sapmi_overlapping",
+        "label": "Overlapping Sápmi scope",
+        "additivity": "non_additive_overlap",
+        "definition": "A cross-border Indigenous scope that overlaps political reporting scopes and is assessed separately for knowledge completeness, rights-holder participation and interpretation."
+      },
+      {
+        "id": "context_only",
+        "label": "Context-only geography",
+        "additivity": "not_a_completion_total",
+        "definition": "A contextual region or external geography used for dependencies and comparisons, not a Nordic political completion unit."
+      }
+    ],
+    "antiDoubleCountRule": "Never sum cells across aggregation classes. Within the political class, reconcile state and autonomous-territory source boundaries before aggregation; Sápmi remains a non-additive overlapping lens."
+  },
+  "dimensions": {
+    "geographies": [
+      { "id": "geo.nordic", "labelNb": "Norden", "labelEn": "Nordic region", "definition": "Aggregate Nordic political region; use only with explicit represented and missing member geographies and a reconciled territorial boundary method.", "type": "region", "aggregationClass": "political_nordic", "aggregationRole": "aggregate_reference", "completionEligible": false, "memberIds": ["geo.no", "geo.se", "geo.dk", "geo.fi", "geo.is", "geo.fo", "geo.gl", "geo.ax"], "antiDoubleCountRule": "Do not combine this aggregate reference with any member cell." },
+      { "id": "geo.no", "labelNb": "Norge", "labelEn": "Norway", "definition": "The Norwegian political reporting scope.", "type": "state", "aggregationClass": "political_nordic", "aggregationRole": "reporting_scope", "completionEligible": true, "externalCodes": ["ISO-3166-1:NO"], "overlapIds": ["geo.sapmi"] },
+      { "id": "geo.se", "labelNb": "Sverige", "labelEn": "Sweden", "definition": "The Swedish political reporting scope.", "type": "state", "aggregationClass": "political_nordic", "aggregationRole": "reporting_scope", "completionEligible": true, "externalCodes": ["ISO-3166-1:SE"], "overlapIds": ["geo.sapmi"] },
+      { "id": "geo.dk", "labelNb": "Danmark", "labelEn": "Denmark", "definition": "The Danish political reporting scope; Greenland and the Faroe Islands are assessed separately for food-system coverage.", "type": "state", "aggregationClass": "political_nordic", "aggregationRole": "reporting_scope_with_separate_autonomous_units", "completionEligible": true, "externalCodes": ["ISO-3166-1:DK"], "containsPoliticalIds": ["geo.fo", "geo.gl"], "antiDoubleCountRule": "When Faroe Islands or Greenland cells are included, the Denmark source boundary must exclude or otherwise reconcile those territories before addition." },
+      { "id": "geo.fi", "labelNb": "Finland", "labelEn": "Finland", "definition": "The Finnish political reporting scope; Åland is assessed separately for food-system coverage.", "type": "state", "aggregationClass": "political_nordic", "aggregationRole": "reporting_scope_with_separate_autonomous_unit", "completionEligible": true, "externalCodes": ["ISO-3166-1:FI"], "containsPoliticalIds": ["geo.ax"], "overlapIds": ["geo.sapmi"], "antiDoubleCountRule": "When Åland cells are included, the Finland source boundary must exclude or otherwise reconcile Åland before addition." },
+      { "id": "geo.is", "labelNb": "Island", "labelEn": "Iceland", "definition": "The Icelandic political reporting scope.", "type": "state", "aggregationClass": "political_nordic", "aggregationRole": "reporting_scope", "completionEligible": true, "externalCodes": ["ISO-3166-1:IS"] },
+      { "id": "geo.fo", "labelNb": "Færøyene", "labelEn": "Faroe Islands", "definition": "Self-governing territory in the Kingdom of Denmark, assessed as its own food-system geography.", "type": "autonomous_territory", "aggregationClass": "political_nordic", "aggregationRole": "separate_autonomous_reporting_scope", "completionEligible": true, "externalCodes": ["ISO-3166-1:FO"], "containedByPoliticalIds": ["geo.dk"], "antiDoubleCountWithIds": ["geo.dk"] },
+      { "id": "geo.gl", "labelNb": "Grønland", "labelEn": "Greenland", "definition": "Self-governing territory in the Kingdom of Denmark, assessed as its own food-system geography.", "type": "autonomous_territory", "aggregationClass": "political_nordic", "aggregationRole": "separate_autonomous_reporting_scope", "completionEligible": true, "externalCodes": ["ISO-3166-1:GL"], "containedByPoliticalIds": ["geo.dk"], "antiDoubleCountWithIds": ["geo.dk"] },
+      { "id": "geo.ax", "labelNb": "Åland", "labelEn": "Åland", "definition": "Autonomous region of Finland, assessed as its own food-system geography.", "type": "autonomous_territory", "aggregationClass": "political_nordic", "aggregationRole": "separate_autonomous_reporting_scope", "completionEligible": true, "externalCodes": ["ISO-3166-1:AX"], "containedByPoliticalIds": ["geo.fi"], "antiDoubleCountWithIds": ["geo.fi"] },
+      { "id": "geo.sapmi", "labelNb": "Sápmi", "labelEn": "Sápmi", "definition": "Cross-border Indigenous geography overlapping Norway, Sweden, Finland and the Kola Peninsula; requires a rights-holder and human-evidence route.", "type": "indigenous_cross_border", "aggregationClass": "sapmi_overlapping", "aggregationRole": "non_additive_overlapping_scope", "completionEligible": true, "overlapIds": ["geo.no", "geo.se", "geo.fi", "geo.kola_peninsula"], "antiDoubleCountRule": "Assess separately for completeness and rights-holder interpretation; never add Sápmi cells to political-Nordic totals." },
+      { "id": "geo.arctic_context", "labelNb": "Arktisk kontekst", "labelEn": "Arctic context", "definition": "Contextual Arctic region used for climate, marine, logistics, livelihood and dependency analysis; not a Nordic political completion unit.", "type": "external_context", "aggregationClass": "context_only", "aggregationRole": "context_reference", "completionEligible": false, "relatedIds": ["geo.no", "geo.se", "geo.fi", "geo.is", "geo.fo", "geo.gl", "geo.sapmi", "geo.kola_peninsula"] },
+      { "id": "geo.baltic_context", "labelNb": "Østersjøkontekst", "labelEn": "Baltic context", "definition": "Contextual Baltic Sea region used for marine, trade, environmental and regulatory dependencies; not a Nordic political completion unit.", "type": "external_context", "aggregationClass": "context_only", "aggregationRole": "context_reference", "completionEligible": false, "relatedIds": ["geo.dk", "geo.se", "geo.fi", "geo.ax"] },
+      { "id": "geo.kola_peninsula", "labelNb": "Kolahalvøya", "labelEn": "Kola Peninsula", "definition": "Contextual northwestern-Russian part of the cross-border Sápmi geography; it is not a Nordic political unit.", "type": "external_context", "aggregationClass": "context_only", "aggregationRole": "external_overlap_reference", "completionEligible": false, "overlapIds": ["geo.sapmi"] },
+      { "id": "geo.eu", "labelNb": "EU", "labelEn": "European Union", "definition": "European Union policy, market and regulatory context affecting Nordic food systems.", "type": "external_context", "aggregationClass": "context_only", "aggregationRole": "context_reference", "completionEligible": false },
+      { "id": "geo.eea", "labelNb": "EØS", "labelEn": "European Economic Area", "definition": "European Economic Area context affecting Nordic food systems.", "type": "external_context", "aggregationClass": "context_only", "aggregationRole": "context_reference", "completionEligible": false },
+      { "id": "geo.extra_nordic", "labelNb": "Utenfor Norden", "labelEn": "Extra-Nordic", "definition": "Countries and regions outside the Nordic political geography when a more specific geography is not yet registered.", "type": "external_context", "aggregationClass": "context_only", "aggregationRole": "context_reference", "completionEligible": false },
+      { "id": "geo.global", "labelNb": "Globalt", "labelEn": "Global", "definition": "Global system context and dependencies that cannot be represented by one external geography.", "type": "external_context", "aggregationClass": "context_only", "aggregationRole": "context_reference", "completionEligible": false }
+    ],
+    "geographyLevels": [
+      { "id": "geo_level.nordic_region", "labelNb": "Nordisk region", "labelEn": "Nordic region", "definition": "Aggregate regional level covering the Nordic political geography." },
+      { "id": "geo_level.state", "labelNb": "Stat", "labelEn": "State", "definition": "Sovereign-state level." },
+      { "id": "geo_level.autonomous_territory", "labelNb": "Selvstyrt territorium", "labelEn": "Autonomous territory", "definition": "Self-governing or autonomous political geography." },
+      { "id": "geo_level.indigenous_cross_border", "labelNb": "Urfolk, grenseoverskridende", "labelEn": "Cross-border Indigenous geography", "definition": "Indigenous geography crossing state borders." },
+      { "id": "geo_level.subnational_region", "labelNb": "Subnasjonal region", "labelEn": "Subnational region", "definition": "County, province or comparable statistical/administrative region." },
+      { "id": "geo_level.municipality", "labelNb": "Kommune", "labelEn": "Municipality", "definition": "Municipal or equivalent local-government level." },
+      { "id": "geo_level.site", "labelNb": "Sted eller anlegg", "labelEn": "Site or facility", "definition": "Specific farm, factory, port, kitchen, store or other facility." },
+      { "id": "geo_level.catchment", "labelNb": "Nedbørfelt", "labelEn": "Catchment", "definition": "Hydrological catchment or watershed." },
+      { "id": "geo_level.marine_area", "labelNb": "Havområde", "labelEn": "Marine area", "definition": "Sea, coastal zone, fisheries management area or marine ecosystem." },
+      { "id": "geo_level.trade_corridor", "labelNb": "Handelskorridor", "labelEn": "Trade corridor", "definition": "Origin-destination corridor used to analyze trade and logistics dependencies." }
+    ],
+    "valueChainStages": [
+      { "id": "stage.system_wide", "labelNb": "Systemovergripende", "labelEn": "System-wide", "definition": "Cross-cutting system analysis not attributable to a single ordered stage.", "nodeKind": "cross_system_scope", "coverageUnit": true, "leaf": false },
+      { "id": "stage.inputs", "labelNb": "Innsatsfaktorer", "labelEn": "Inputs", "definition": "Resources and supplied inputs required before or during primary production.", "nodeKind": "stage_group", "coverageUnit": false, "leaf": false },
+      { "id": "stage.inputs.resource_base", "labelNb": "Natur- og ressursgrunnlag", "labelEn": "Natural resource base", "definition": "Land, soil, water, marine space, genetics and ecosystem services forming the production base.", "parentId": "stage.inputs", "nodeKind": "system_context", "coverageUnit": true, "leaf": true },
+      { "id": "stage.inputs.production_inputs", "labelNb": "Produksjonsinnsats", "labelEn": "Production inputs", "definition": "Seeds, feed, fertilizer, energy, equipment, technology, finance and other supplied inputs.", "parentId": "stage.inputs", "nodeKind": "ordered_stage", "coverageUnit": true, "leaf": true },
+      { "id": "stage.primary", "labelNb": "Primærproduksjon", "labelEn": "Primary production", "definition": "Production or harvest of biological food resources.", "nodeKind": "stage_group", "coverageUnit": false, "leaf": false },
+      { "id": "stage.primary.agriculture_crop", "labelNb": "Åkervekster", "labelEn": "Crop agriculture", "definition": "Cultivation of field crops and arable food/feed crops.", "parentId": "stage.primary", "nodeKind": "ordered_stage", "coverageUnit": true, "leaf": true },
+      { "id": "stage.primary.agriculture_livestock", "labelNb": "Husdyrproduksjon", "labelEn": "Livestock agriculture", "definition": "Breeding and husbandry of domesticated livestock for food.", "parentId": "stage.primary", "nodeKind": "ordered_stage", "coverageUnit": true, "leaf": true },
+      { "id": "stage.primary.horticulture", "labelNb": "Hagebruk", "labelEn": "Horticulture", "definition": "Production of vegetables, fruit, berries, herbs and protected crops.", "parentId": "stage.primary", "nodeKind": "ordered_stage", "coverageUnit": true, "leaf": true },
+      { "id": "stage.primary.fisheries", "labelNb": "Fiskeri", "labelEn": "Fisheries", "definition": "Wild capture of aquatic food resources.", "parentId": "stage.primary", "nodeKind": "ordered_stage", "coverageUnit": true, "leaf": true },
+      { "id": "stage.primary.aquaculture", "labelNb": "Akvakultur", "labelEn": "Aquaculture", "definition": "Farming of fish, shellfish, algae and other aquatic organisms.", "parentId": "stage.primary", "nodeKind": "ordered_stage", "coverageUnit": true, "leaf": true },
+      { "id": "stage.primary.reindeer_husbandry", "labelNb": "Reindrift", "labelEn": "Reindeer husbandry", "definition": "Reindeer husbandry as livelihood, food production and cultural system.", "parentId": "stage.primary", "nodeKind": "ordered_stage", "coverageUnit": true, "leaf": true },
+      { "id": "stage.primary.wild_harvest", "labelNb": "Sanking og jakt", "labelEn": "Wild harvest", "definition": "Gathering, hunting and harvesting of terrestrial wild foods.", "parentId": "stage.primary", "nodeKind": "ordered_stage", "coverageUnit": true, "leaf": true },
+      { "id": "stage.processing", "labelNb": "Foredling", "labelEn": "Processing", "definition": "Transformation of primary outputs into ingredients and food products.", "nodeKind": "stage_group", "coverageUnit": false, "leaf": false },
+      { "id": "stage.processing.initial_processing", "labelNb": "Førsteforedling", "labelEn": "Initial processing", "definition": "Slaughter, landing, milling, grading, cooling and other first transformations.", "parentId": "stage.processing", "nodeKind": "ordered_stage", "coverageUnit": true, "leaf": true },
+      { "id": "stage.processing.food_manufacturing", "labelNb": "Næringsmiddelproduksjon", "labelEn": "Food manufacturing", "definition": "Manufacture of food and beverage products.", "parentId": "stage.processing", "nodeKind": "ordered_stage", "coverageUnit": true, "leaf": true },
+      { "id": "stage.processing.ingredient_production", "labelNb": "Ingrediensproduksjon", "labelEn": "Ingredient production", "definition": "Production of food, feed or functional ingredients used in further processing.", "parentId": "stage.processing", "nodeKind": "ordered_stage", "coverageUnit": true, "leaf": true },
+      { "id": "stage.processing.packaging", "labelNb": "Emballering", "labelEn": "Packaging", "definition": "Packaging production, filling and packing operations associated with food products.", "parentId": "stage.processing", "nodeKind": "cross_stage_capability", "coverageUnit": true, "leaf": true },
+      { "id": "stage.distribution", "labelNb": "Distribusjon", "labelEn": "Distribution", "definition": "Storage, transport and wholesale movement between production, markets and users.", "nodeKind": "stage_group", "coverageUnit": false, "leaf": false },
+      { "id": "stage.distribution.storage", "labelNb": "Lagring", "labelEn": "Storage", "definition": "Warehousing, silos, controlled storage and inventory holding.", "parentId": "stage.distribution", "nodeKind": "ordered_stage", "coverageUnit": true, "leaf": true },
+      { "id": "stage.distribution.transport_logistics", "labelNb": "Transport og logistikk", "labelEn": "Transport and logistics", "definition": "Physical transport, routing and logistics coordination.", "parentId": "stage.distribution", "nodeKind": "ordered_stage", "coverageUnit": true, "leaf": true },
+      { "id": "stage.distribution.cold_chain", "labelNb": "Kjølekjede", "labelEn": "Cold chain", "definition": "Temperature-controlled storage and transport.", "parentId": "stage.distribution", "nodeKind": "cross_stage_capability", "coverageUnit": true, "leaf": true },
+      { "id": "stage.distribution.wholesale", "labelNb": "Grossist", "labelEn": "Wholesale", "definition": "Wholesale aggregation, brokerage and distribution.", "parentId": "stage.distribution", "nodeKind": "ordered_stage", "coverageUnit": true, "leaf": true },
+      { "id": "stage.market", "labelNb": "Marked og servering", "labelEn": "Markets and food service", "definition": "Commercial and public channels through which food is procured or sold to final users.", "nodeKind": "stage_group", "coverageUnit": false, "leaf": false },
+      { "id": "stage.market.retail", "labelNb": "Dagligvare og detaljhandel", "labelEn": "Retail", "definition": "Physical and digital retail sale of food to households.", "parentId": "stage.market", "nodeKind": "market_channel", "coverageUnit": true, "leaf": true },
+      { "id": "stage.market.foodservice_horeca", "labelNb": "HORECA", "labelEn": "Food service and HORECA", "definition": "Hotels, restaurants, catering and commercial meal service.", "parentId": "stage.market", "nodeKind": "market_channel", "coverageUnit": true, "leaf": true },
+      { "id": "stage.market.public_procurement", "labelNb": "Offentlige anskaffelser", "labelEn": "Public procurement", "definition": "Public purchasing and contracting of food and meal services.", "parentId": "stage.market", "nodeKind": "market_governance_function", "coverageUnit": true, "leaf": true },
+      { "id": "stage.market.direct_sales", "labelNb": "Direktesalg", "labelEn": "Direct sales", "definition": "Farm shops, markets, community-supported agriculture and direct digital channels.", "parentId": "stage.market", "nodeKind": "market_channel", "coverageUnit": true, "leaf": true },
+      { "id": "stage.market.redistribution", "labelNb": "Redistribusjon", "labelEn": "Redistribution", "definition": "Redistribution of surplus or donated food for consumption.", "parentId": "stage.market", "nodeKind": "circular_market_channel", "coverageUnit": true, "leaf": true },
+      { "id": "stage.consumption", "labelNb": "Forbruk", "labelEn": "Consumption", "definition": "Preparation, eating and dietary use by final consumers.", "nodeKind": "stage_group", "coverageUnit": false, "leaf": false },
+      { "id": "stage.consumption.household", "labelNb": "Husholdning", "labelEn": "Household consumption", "definition": "Food acquisition, preparation and consumption in households.", "parentId": "stage.consumption", "nodeKind": "consumption_context", "coverageUnit": true, "leaf": true },
+      { "id": "stage.consumption.public_meals", "labelNb": "Offentlige måltider", "labelEn": "Public meals", "definition": "Meals served through schools, health care, care institutions, defence and other public services.", "parentId": "stage.consumption", "nodeKind": "consumption_context", "coverageUnit": true, "leaf": true },
+      { "id": "stage.consumption.commercial_meals", "labelNb": "Kommersielle måltider", "labelEn": "Commercial meals", "definition": "Meals consumed through commercial food-service channels.", "parentId": "stage.consumption", "nodeKind": "consumption_context", "coverageUnit": true, "leaf": true },
+      { "id": "stage.return_flows", "labelNb": "Returstrømmer", "labelEn": "Return flows", "definition": "Collection, recovery, recycling and disposal after loss, surplus or use.", "nodeKind": "stage_group", "coverageUnit": false, "leaf": false },
+      { "id": "stage.return_flows.loss_waste_generation", "labelNb": "Tap og avfall oppstår", "labelEn": "Loss and waste generation", "definition": "Points where edible or inedible food-system material becomes loss, surplus or waste.", "parentId": "stage.return_flows", "nodeKind": "cross_stage_event", "coverageUnit": true, "leaf": true },
+      { "id": "stage.return_flows.collection_sorting", "labelNb": "Innsamling og sortering", "labelEn": "Collection and sorting", "definition": "Collection, separation, sorting and preprocessing of return flows.", "parentId": "stage.return_flows", "nodeKind": "return_flow_function", "coverageUnit": true, "leaf": true },
+      { "id": "stage.return_flows.material_recovery", "labelNb": "Materialgjenvinning", "labelEn": "Material recovery", "definition": "Recovery into materials, products or ingredients without biological treatment.", "parentId": "stage.return_flows", "nodeKind": "return_flow_function", "coverageUnit": true, "leaf": true },
+      { "id": "stage.return_flows.biological_recovery", "labelNb": "Biologisk behandling", "labelEn": "Biological recovery", "definition": "Composting, digestion, fermentation and other biological recovery.", "parentId": "stage.return_flows", "nodeKind": "return_flow_function", "coverageUnit": true, "leaf": true },
+      { "id": "stage.return_flows.nutrient_return", "labelNb": "Næringsstoffretur", "labelEn": "Nutrient return", "definition": "Return of nitrogen, phosphorus, potassium, carbon or organic matter to productive soils or systems.", "parentId": "stage.return_flows", "nodeKind": "return_flow_function", "coverageUnit": true, "leaf": true },
+      { "id": "stage.return_flows.energy_recovery", "labelNb": "Energiutnyttelse", "labelEn": "Energy recovery", "definition": "Energy recovery from food-system residues or waste.", "parentId": "stage.return_flows", "nodeKind": "return_flow_function", "coverageUnit": true, "leaf": true },
+      { "id": "stage.return_flows.disposal", "labelNb": "Sluttbehandling", "labelEn": "Disposal", "definition": "Incineration without useful recovery, landfill, discharge or other terminal treatment.", "parentId": "stage.return_flows", "nodeKind": "return_flow_function", "coverageUnit": true, "leaf": true }
+    ],
+    "domains": [
+      { "id": "domain.system_boundaries", "labelNb": "Systemgrenser og funksjon", "labelEn": "System boundaries and function", "definition": "System purpose, boundary, units, feedbacks, assumptions and functional relationships." },
+      { "id": "domain.economics_finance_value_distribution", "labelNb": "Økonomi, finans og verdifordeling", "labelEn": "Economics, finance and value distribution", "definition": "Costs, revenues, margins, profitability, finance and distribution of economic value." },
+      { "id": "domain.market_structure_competition", "labelNb": "Markedsstruktur og konkurranse", "labelEn": "Market structure and competition", "definition": "Concentration, entry, rivalry, bargaining and competitive conditions." },
+      { "id": "domain.power_ownership_control", "labelNb": "Makt, eierskap og kontroll", "labelEn": "Power, ownership and control", "definition": "Ownership, decision rights, contracts, agenda-setting and structural power." },
+      { "id": "domain.policy_law_governance", "labelNb": "Politikk, rett og styring", "labelEn": "Policy, law and governance", "definition": "Laws, policies, institutions, implementation and accountability." },
+      { "id": "domain.trade_import_dependency_self_sufficiency", "labelNb": "Handel, importavhengighet og selvforsyning", "labelEn": "Trade, import dependency and self-sufficiency", "definition": "Trade flows, external dependencies, domestic capacity and self-sufficiency methods." },
+      { "id": "domain.food_security_preparedness_resilience", "labelNb": "Matsikkerhet, beredskap og robusthet", "labelEn": "Food security, preparedness and resilience", "definition": "Availability, access, utilization, stability, shock response and adaptive capacity." },
+      { "id": "domain.circularity_resource_efficiency_waste", "labelNb": "Sirkularitet, ressursutnyttelse og avfall", "labelEn": "Circularity, resource efficiency and waste", "definition": "Prevention, cascading use, recovery, recirculation, loss and waste outcomes." },
+      { "id": "domain.infrastructure_capacity", "labelNb": "Infrastruktur og kapasitet", "labelEn": "Infrastructure and capacity", "definition": "Facilities, networks, equipment, storage, logistics and operational capacity." },
+      { "id": "domain.food_environment_consumer_behavior", "labelNb": "Matmiljø og forbrukeratferd", "labelEn": "Food environment and consumer behaviour", "definition": "Availability, marketing, convenience, choice architecture, practices and consumption behaviour." },
+      { "id": "domain.climate", "labelNb": "Klima", "labelEn": "Climate", "definition": "Greenhouse-gas emissions, sequestration, climate risk, adaptation and mitigation." },
+      { "id": "domain.land_soil", "labelNb": "Areal og jord", "labelEn": "Land and soil", "definition": "Land use, soil condition, soil carbon, erosion, contamination and productive capacity." },
+      { "id": "domain.freshwater", "labelNb": "Ferskvann", "labelEn": "Freshwater", "definition": "Water use, availability, quality, runoff and catchment impacts." },
+      { "id": "domain.biodiversity_ecosystems", "labelNb": "Naturmangfold og økosystemer", "labelEn": "Biodiversity and ecosystems", "definition": "Species, habitats, genetic diversity and ecosystem functions affected by food systems." },
+      { "id": "domain.marine_environment", "labelNb": "Havmiljø", "labelEn": "Marine environment", "definition": "Marine ecosystems, stocks, seabed, coastal impacts and eutrophication." },
+      { "id": "domain.health_nutrition_diets", "labelNb": "Helse, ernæring og kosthold", "labelEn": "Health, nutrition and diets", "definition": "Diet quality, nutritional adequacy, disease burden and healthy sustainable diets." },
+      { "id": "domain.food_safety_one_health_biosecurity", "labelNb": "Mattrygghet, Én helse og biosikkerhet", "labelEn": "Food safety, One Health and biosecurity", "definition": "Food hazards, zoonoses, antimicrobial resistance, traceability, surveillance and biosecurity." },
+      { "id": "domain.animal_health_welfare", "labelNb": "Dyrehelse og dyrevelferd", "labelEn": "Animal health and welfare", "definition": "Animal health, welfare conditions, mortality, disease and husbandry impacts." },
+      { "id": "domain.labor_skills_working_conditions", "labelNb": "Arbeid, kompetanse og arbeidsvilkår", "labelEn": "Labour, skills and working conditions", "definition": "Employment, labor supply, skills, safety, bargaining and working conditions." },
+      { "id": "domain.equity_justice_affordability", "labelNb": "Likhet, rettferdighet og prisoverkommelighet", "labelEn": "Equity, justice and affordability", "definition": "Distributional outcomes, affordability, inclusion, rights and procedural justice." },
+      { "id": "domain.indigenous_rights_culture_food_sovereignty", "labelNb": "Urfolksrettigheter, kultur og matsuverenitet", "labelEn": "Indigenous rights, culture and food sovereignty", "definition": "Indigenous rights, knowledge, livelihoods, cultural continuity and authority over food systems." },
+      { "id": "domain.innovation_technology_transition", "labelNb": "Innovasjon, teknologi og omstilling", "labelEn": "Innovation, technology and transition", "definition": "Research, innovation, adoption, infrastructure change and transition pathways." },
+      { "id": "domain.data_methods_evidence", "labelNb": "Data, metode og evidens", "labelEn": "Data, methods and evidence", "definition": "Data quality, methods, comparability, provenance, uncertainty and knowledge gaps." }
+    ],
+    "outcomes": [
+      { "id": "outcome.food_availability", "labelNb": "Mattilgjengelighet", "labelEn": "Food availability", "definition": "Sufficient food supply is physically available." },
+      { "id": "outcome.food_access_affordability", "labelNb": "Tilgang og prisoverkommelighet", "labelEn": "Food access and affordability", "definition": "People can economically and physically obtain appropriate food." },
+      { "id": "outcome.food_utilization_nutrition", "labelNb": "Utnyttelse og ernæring", "labelEn": "Food utilization and nutrition", "definition": "Food supports adequate nutrition and health when consumed." },
+      { "id": "outcome.stability_resilience", "labelNb": "Stabilitet og robusthet", "labelEn": "Stability and resilience", "definition": "Food-system functions persist or recover through shocks and long-term change." },
+      { "id": "outcome.food_safety", "labelNb": "Mattrygghet", "labelEn": "Food safety", "definition": "Food-borne hazards and health risks are prevented or controlled." },
+      { "id": "outcome.healthy_sustainable_diets", "labelNb": "Sunne og bærekraftige kosthold", "labelEn": "Healthy sustainable diets", "definition": "Dietary patterns support health while respecting environmental and social constraints." },
+      { "id": "outcome.resource_circularity", "labelNb": "Ressurssirkularitet", "labelEn": "Resource circularity", "definition": "Resources retain value and cycle at high utility with reduced virgin input and loss." },
+      { "id": "outcome.value_added", "labelNb": "Verdiskaping", "labelEn": "Value added", "definition": "Economic value is created through food-system activity." },
+      { "id": "outcome.profitability_viability", "labelNb": "Lønnsomhet og levedyktighet", "labelEn": "Profitability and viability", "definition": "Actors and activities remain economically viable under defined conditions." },
+      { "id": "outcome.employment_decent_work", "labelNb": "Sysselsetting og anstendig arbeid", "labelEn": "Employment and decent work", "definition": "Food-system work provides safe, fair and sustainable livelihoods." },
+      { "id": "outcome.rural_coastal_viability", "labelNb": "Levedyktige distrikter og kystsamfunn", "labelEn": "Rural and coastal viability", "definition": "Food systems sustain viable rural, island and coastal communities." },
+      { "id": "outcome.fair_value_distribution", "labelNb": "Rettferdig verdifordeling", "labelEn": "Fair value distribution", "definition": "Economic value, costs and risks are distributed fairly across actors." },
+      { "id": "outcome.equity_justice", "labelNb": "Likhet og rettferdighet", "labelEn": "Equity and justice", "definition": "Benefits, burdens, voice and rights are distributed justly." },
+      { "id": "outcome.cultural_continuity_food_sovereignty", "labelNb": "Kulturell kontinuitet og matsuverenitet", "labelEn": "Cultural continuity and food sovereignty", "definition": "Communities retain food-related culture, knowledge, rights and decision authority." },
+      { "id": "outcome.ghg_mitigation_adaptation", "labelNb": "Klimakutt og klimatilpasning", "labelEn": "GHG mitigation and adaptation", "definition": "Emissions fall and systems adapt to climate risk." },
+      { "id": "outcome.soil_health", "labelNb": "Jordhelse", "labelEn": "Soil health", "definition": "Soils maintain biological, physical and chemical functions." },
+      { "id": "outcome.water_quality_availability", "labelNb": "Vannkvalitet og vanntilgang", "labelEn": "Water quality and availability", "definition": "Water remains clean and available for ecosystems, people and production." },
+      { "id": "outcome.air_quality", "labelNb": "Luftkvalitet", "labelEn": "Air quality", "definition": "Food-system air pollutants and harmful exposure are reduced." },
+      { "id": "outcome.biodiversity_ecosystem_integrity", "labelNb": "Naturmangfold og økosystemintegritet", "labelEn": "Biodiversity and ecosystem integrity", "definition": "Species, habitats and ecosystem functions are maintained or restored." },
+      { "id": "outcome.marine_ecosystem_integrity", "labelNb": "Havøkosystemenes integritet", "labelEn": "Marine ecosystem integrity", "definition": "Marine and coastal ecosystems retain structure, function and resilience." },
+      { "id": "outcome.animal_health_welfare", "labelNb": "Dyrehelse og dyrevelferd", "labelEn": "Animal health and welfare", "definition": "Animals experience good health and welfare under defined standards." },
+      { "id": "outcome.innovation_capacity", "labelNb": "Innovasjonskapasitet", "labelEn": "Innovation capacity", "definition": "The system can develop, evaluate, adopt and scale appropriate innovations." },
+      { "id": "outcome.governance_effectiveness", "labelNb": "Effektiv styring", "labelEn": "Governance effectiveness", "definition": "Institutions coordinate, implement, learn and remain accountable." }
+    ],
+    "actorClasses": [
+      { "id": "actor.input_supplier", "labelNb": "Innsatsleverandør", "labelEn": "Input supplier", "definition": "Supplies production inputs, equipment, energy, feed, fertilizer or genetics." },
+      { "id": "actor.land_water_resource_holder", "labelNb": "Ressursrettighetshaver", "labelEn": "Land or water resource holder", "definition": "Holds land, water, marine-space or resource rights relevant to food production." },
+      { "id": "actor.primary_producer", "labelNb": "Primærprodusent", "labelEn": "Primary producer", "definition": "Produces or harvests primary biological food resources." },
+      { "id": "actor.crop_producer", "labelNb": "Åkerprodusent", "labelEn": "Crop producer", "definition": "Produces field crops.", "parentId": "actor.primary_producer" },
+      { "id": "actor.livestock_producer", "labelNb": "Husdyrprodusent", "labelEn": "Livestock producer", "definition": "Raises livestock for food.", "parentId": "actor.primary_producer" },
+      { "id": "actor.horticulture_producer", "labelNb": "Hagebruksprodusent", "labelEn": "Horticulture producer", "definition": "Produces horticultural crops.", "parentId": "actor.primary_producer" },
+      { "id": "actor.fisher", "labelNb": "Fisker", "labelEn": "Fisher", "definition": "Harvests wild aquatic resources.", "parentId": "actor.primary_producer" },
+      { "id": "actor.aquaculture_operator", "labelNb": "Akvakulturoperatør", "labelEn": "Aquaculture operator", "definition": "Operates aquaculture production.", "parentId": "actor.primary_producer" },
+      { "id": "actor.reindeer_herder", "labelNb": "Reindriftsutøver", "labelEn": "Reindeer herder", "definition": "Practises reindeer husbandry as livelihood and cultural food system.", "parentId": "actor.primary_producer" },
+      { "id": "actor.wild_harvester", "labelNb": "Sanker eller jeger", "labelEn": "Wild harvester", "definition": "Harvests terrestrial wild foods.", "parentId": "actor.primary_producer" },
+      { "id": "actor.producer_cooperative", "labelNb": "Produsentsamvirke", "labelEn": "Producer cooperative", "definition": "Member-owned organization coordinating production, processing or marketing." },
+      { "id": "actor.processor", "labelNb": "Foredler", "labelEn": "Processor", "definition": "Transforms primary products or ingredients into food products." },
+      { "id": "actor.packaging_operator", "labelNb": "Emballasjeaktør", "labelEn": "Packaging operator", "definition": "Produces, fills, manages or recovers food packaging." },
+      { "id": "actor.logistics_operator", "labelNb": "Logistikkaktør", "labelEn": "Logistics operator", "definition": "Transports or coordinates food-system goods." },
+      { "id": "actor.warehouse_terminal", "labelNb": "Lager- eller terminaloperatør", "labelEn": "Warehouse or terminal operator", "definition": "Operates storage, terminal or distribution infrastructure." },
+      { "id": "actor.wholesaler", "labelNb": "Grossist", "labelEn": "Wholesaler", "definition": "Aggregates and wholesales food or inputs." },
+      { "id": "actor.retailer", "labelNb": "Detaljist", "labelEn": "Retailer", "definition": "Sells food to final consumers." },
+      { "id": "actor.foodservice_operator", "labelNb": "Serveringsaktør", "labelEn": "Food-service operator", "definition": "Operates commercial meal or catering services." },
+      { "id": "actor.public_meal_operator", "labelNb": "Offentlig måltidsaktør", "labelEn": "Public-meal operator", "definition": "Operates kitchens and meal services in public institutions." },
+      { "id": "actor.direct_market_operator", "labelNb": "Direktemarkedsaktør", "labelEn": "Direct-market operator", "definition": "Operates direct-sale channels between producers and consumers." },
+      { "id": "actor.redistribution_operator", "labelNb": "Redistribusjonsaktør", "labelEn": "Redistribution operator", "definition": "Collects and redistributes surplus food for consumption." },
+      { "id": "actor.waste_collection_operator", "labelNb": "Avfallsinnsamler", "labelEn": "Waste-collection operator", "definition": "Collects and sorts food-system waste or residues." },
+      { "id": "actor.material_recovery_operator", "labelNb": "Materialgjenvinner", "labelEn": "Material-recovery operator", "definition": "Recovers materials or products from return flows." },
+      { "id": "actor.nutrient_recovery_operator", "labelNb": "Næringsstoffgjenvinner", "labelEn": "Nutrient-recovery operator", "definition": "Recovers and returns nutrients or organic matter." },
+      { "id": "actor.energy_recovery_operator", "labelNb": "Energiutnytter", "labelEn": "Energy-recovery operator", "definition": "Recovers energy from food-system residues." },
+      { "id": "actor.disposal_operator", "labelNb": "Sluttbehandler", "labelEn": "Disposal operator", "definition": "Performs terminal disposal or discharge." },
+      { "id": "actor.owner_parent_company", "labelNb": "Eier eller morselskap", "labelEn": "Owner or parent company", "definition": "Holds ownership or parent-company control." },
+      { "id": "actor.infrastructure_owner", "labelNb": "Infrastruktureier", "labelEn": "Infrastructure owner", "definition": "Owns critical physical food-system infrastructure." },
+      { "id": "actor.worker", "labelNb": "Arbeidstaker", "labelEn": "Worker", "definition": "Provides labor within the food system." },
+      { "id": "actor.household_consumer", "labelNb": "Husholdning eller forbruker", "labelEn": "Household or consumer", "definition": "Acquires, prepares and consumes food." },
+      { "id": "actor.financial_institution", "labelNb": "Finansinstitusjon", "labelEn": "Financial institution", "definition": "Provides banking, credit or other financial services." },
+      { "id": "actor.investor", "labelNb": "Investor", "labelEn": "Investor", "definition": "Supplies risk capital or holds investment interests." },
+      { "id": "actor.insurer", "labelNb": "Forsikringsaktør", "labelEn": "Insurer", "definition": "Provides insurance or transfers food-system risk." },
+      { "id": "actor.technology_provider", "labelNb": "Teknologileverandør", "labelEn": "Technology provider", "definition": "Develops or supplies food-system technologies." },
+      { "id": "actor.data_provider", "labelNb": "Dataleverandør", "labelEn": "Data provider", "definition": "Collects, controls or supplies food-system data." },
+      { "id": "actor.certification_body", "labelNb": "Sertifiseringsorgan", "labelEn": "Certification body", "definition": "Defines, verifies or certifies standards and labels." },
+      { "id": "actor.national_government", "labelNb": "Nasjonal myndighet", "labelEn": "National government", "definition": "National political or executive authority." },
+      { "id": "actor.regional_authority", "labelNb": "Regional myndighet", "labelEn": "Regional authority", "definition": "Subnational political or administrative authority." },
+      { "id": "actor.municipality", "labelNb": "Kommune", "labelEn": "Municipality", "definition": "Municipal authority or service organization." },
+      { "id": "actor.regulator", "labelNb": "Tilsyn eller regulator", "labelEn": "Regulator", "definition": "Regulates or supervises food-system activity." },
+      { "id": "actor.competition_authority", "labelNb": "Konkurransemyndighet", "labelEn": "Competition authority", "definition": "Supervises competition and market conduct." },
+      { "id": "actor.food_safety_authority", "labelNb": "Mattrygghetsmyndighet", "labelEn": "Food-safety authority", "definition": "Supervises food safety, animal health or biosecurity." },
+      { "id": "actor.public_procurement_authority", "labelNb": "Offentlig innkjøpsmyndighet", "labelEn": "Public-procurement authority", "definition": "Sets or manages public procurement rules and contracts." },
+      { "id": "actor.indigenous_governance_rightsholder", "labelNb": "Urfolksstyring eller rettighetshaver", "labelEn": "Indigenous governance body or rights-holder", "definition": "Exercises Indigenous governance, collective rights or knowledge authority." },
+      { "id": "actor.research_education", "labelNb": "Forskning og utdanning", "labelEn": "Research and education", "definition": "Produces, validates or teaches food-system knowledge." },
+      { "id": "actor.industry_association", "labelNb": "Bransjeorganisasjon", "labelEn": "Industry association", "definition": "Represents commercial or producer interests." },
+      { "id": "actor.labor_union", "labelNb": "Fagforening", "labelEn": "Labour union", "definition": "Represents workers and collective labor interests." },
+      { "id": "actor.civil_society", "labelNb": "Sivilsamfunn", "labelEn": "Civil society", "definition": "Non-governmental, community or advocacy organization." },
+      { "id": "actor.media", "labelNb": "Media", "labelEn": "Media", "definition": "Produces public information, scrutiny or narratives about food systems." }
+    ],
+    "flowClasses": [
+      { "id": "flow.physical.food", "labelNb": "Mat", "labelEn": "Food", "definition": "Edible food material moving between actors or stages." },
+      { "id": "flow.physical.feed", "labelNb": "Fôr", "labelEn": "Feed", "definition": "Feed material for terrestrial or aquatic animals." },
+      { "id": "flow.physical.living_biomass", "labelNb": "Levende biomasse", "labelEn": "Living biomass", "definition": "Living biological material other than registered genetic material." },
+      { "id": "flow.physical.genetic_material", "labelNb": "Genetisk materiale", "labelEn": "Genetic material", "definition": "Seeds, breeding stock, gametes or other reproductive material." },
+      { "id": "flow.physical.side_stream", "labelNb": "Sidestrøm", "labelEn": "Side stream", "definition": "Co-product or residual material retaining potential use." },
+      { "id": "flow.physical.food_loss", "labelNb": "Mattap", "labelEn": "Food loss", "definition": "Food leaving the human food chain before retail or consumption under the declared method." },
+      { "id": "flow.physical.food_waste", "labelNb": "Matsvinn", "labelEn": "Food waste", "definition": "Food waste as defined by the cited measurement method." },
+      { "id": "flow.physical.packaging", "labelNb": "Emballasje", "labelEn": "Packaging", "definition": "Packaging material associated with food-system products." },
+      { "id": "flow.physical.nutrient_n", "labelNb": "Nitrogen", "labelEn": "Nitrogen", "definition": "Nitrogen mass flow." },
+      { "id": "flow.physical.nutrient_p", "labelNb": "Fosfor", "labelEn": "Phosphorus", "definition": "Phosphorus mass flow." },
+      { "id": "flow.physical.nutrient_k", "labelNb": "Kalium", "labelEn": "Potassium", "definition": "Potassium mass flow." },
+      { "id": "flow.physical.water", "labelNb": "Vann", "labelEn": "Water", "definition": "Water withdrawal, consumption, discharge or embodied flow." },
+      { "id": "flow.physical.energy", "labelNb": "Energi", "labelEn": "Energy", "definition": "Energy carrier or quantified energy use/production." },
+      { "id": "flow.physical.soil_carbon", "labelNb": "Jordkarbon", "labelEn": "Soil carbon", "definition": "Carbon stock or flow in soils." },
+      { "id": "flow.physical.ghg", "labelNb": "Klimagass", "labelEn": "Greenhouse gas", "definition": "Greenhouse-gas emissions or removals." },
+      { "id": "flow.physical.air_pollutant", "labelNb": "Luftforurensning", "labelEn": "Air pollutant", "definition": "Non-GHG pollutant emitted to air." },
+      { "id": "flow.physical.water_pollutant", "labelNb": "Vannforurensning", "labelEn": "Water pollutant", "definition": "Nutrient, chemical or biological pollutant entering water." },
+      { "id": "flow.physical.ecosystem_service", "labelNb": "Økosystemtjeneste", "labelEn": "Ecosystem service", "definition": "Material or functional ecosystem contribution to the food system." },
+      { "id": "flow.economic.payment_revenue", "labelNb": "Betaling og inntekt", "labelEn": "Payment and revenue", "definition": "Payment or revenue between actors." },
+      { "id": "flow.economic.cost", "labelNb": "Kostnad", "labelEn": "Cost", "definition": "Cost incurred by an actor or stage." },
+      { "id": "flow.economic.price_signal", "labelNb": "Prissignal", "labelEn": "Price signal", "definition": "Observed or transmitted price information affecting decisions." },
+      { "id": "flow.economic.margin_value_added", "labelNb": "Margin og verdiskaping", "labelEn": "Margin and value added", "definition": "Margin, mark-up or value-added allocation." },
+      { "id": "flow.economic.subsidy", "labelNb": "Tilskudd", "labelEn": "Subsidy", "definition": "Public subsidy or support payment." },
+      { "id": "flow.economic.tax_levy", "labelNb": "Skatt eller avgift", "labelEn": "Tax or levy", "definition": "Tax, levy or mandatory fee." },
+      { "id": "flow.economic.capital_credit_investment", "labelNb": "Kapital, kreditt og investering", "labelEn": "Capital, credit and investment", "definition": "Equity, debt, credit or investment flow." },
+      { "id": "flow.economic.insurance_risk_transfer", "labelNb": "Forsikring og risikooverføring", "labelEn": "Insurance and risk transfer", "definition": "Premium, coverage or other risk-transfer arrangement." },
+      { "id": "flow.control.ownership", "labelNb": "Eierskap", "labelEn": "Ownership", "definition": "Ownership interest or beneficial control." },
+      { "id": "flow.control.contract", "labelNb": "Kontrakt", "labelEn": "Contract", "definition": "Contractual obligation or control relationship." },
+      { "id": "flow.control.quota_license", "labelNb": "Kvote eller tillatelse", "labelEn": "Quota or licence", "definition": "Quota, licence or operating permission." },
+      { "id": "flow.control.regulatory_requirement", "labelNb": "Regulatorisk krav", "labelEn": "Regulatory requirement", "definition": "Binding legal or regulatory requirement." },
+      { "id": "flow.control.standard_certification", "labelNb": "Standard eller sertifisering", "labelEn": "Standard or certification", "definition": "Voluntary or mandatory standard and its verification relationship." },
+      { "id": "flow.control.decision_authority", "labelNb": "Beslutningsmyndighet", "labelEn": "Decision authority", "definition": "Formal or practical authority to make decisions." },
+      { "id": "flow.information.traceability_data", "labelNb": "Sporbarhetsdata", "labelEn": "Traceability data", "definition": "Information used to identify origin, movement or handling." },
+      { "id": "flow.information.market_data", "labelNb": "Markedsdata", "labelEn": "Market data", "definition": "Price, volume, demand or supply information." },
+      { "id": "flow.information.knowledge_advice", "labelNb": "Kunnskap og rådgivning", "labelEn": "Knowledge and advice", "definition": "Research, extension, guidance or experiential knowledge transfer." },
+      { "id": "flow.human.labor", "labelNb": "Arbeidskraft", "labelEn": "Labour", "definition": "Human labor contribution or movement." },
+      { "id": "flow.human.skills", "labelNb": "Kompetanse", "labelEn": "Skills", "definition": "Skills, training or capability transfer." }
+    ],
+    "commodityGroups": [
+      { "id": "commodity.plant_food", "labelNb": "Plantebasert mat", "labelEn": "Plant food", "definition": "Food products whose primary raw material is plant-based." },
+      { "id": "commodity.plant_food.cereals", "labelNb": "Korn", "labelEn": "Cereals", "definition": "Cereal grains and grain products.", "parentId": "commodity.plant_food" },
+      { "id": "commodity.plant_food.pulses", "labelNb": "Belgvekster", "labelEn": "Pulses", "definition": "Dry beans, peas, lentils and related pulses.", "parentId": "commodity.plant_food" },
+      { "id": "commodity.plant_food.oilseeds", "labelNb": "Oljevekster", "labelEn": "Oilseeds", "definition": "Oil-bearing seed crops.", "parentId": "commodity.plant_food" },
+      { "id": "commodity.plant_food.roots_tubers", "labelNb": "Rot- og knollvekster", "labelEn": "Roots and tubers", "definition": "Potatoes and other edible roots and tubers.", "parentId": "commodity.plant_food" },
+      { "id": "commodity.plant_food.vegetables", "labelNb": "Grønnsaker", "labelEn": "Vegetables", "definition": "Fresh or minimally processed vegetables.", "parentId": "commodity.plant_food" },
+      { "id": "commodity.plant_food.fruit_berries", "labelNb": "Frukt og bær", "labelEn": "Fruit and berries", "definition": "Fruit and berry commodities.", "parentId": "commodity.plant_food" },
+      { "id": "commodity.plant_food.sugar_sweeteners", "labelNb": "Sukker og søtning", "labelEn": "Sugar and sweeteners", "definition": "Sugar crops, sugar and caloric sweeteners.", "parentId": "commodity.plant_food" },
+      { "id": "commodity.plant_food.nuts_seeds", "labelNb": "Nøtter og frø", "labelEn": "Nuts and seeds", "definition": "Edible nuts and seeds excluding oilseed-only classification.", "parentId": "commodity.plant_food" },
+      { "id": "commodity.animal_food", "labelNb": "Animalsk mat", "labelEn": "Animal food", "definition": "Food products originating from terrestrial animals." },
+      { "id": "commodity.animal_food.milk_dairy", "labelNb": "Melk og meieri", "labelEn": "Milk and dairy", "definition": "Milk and dairy products.", "parentId": "commodity.animal_food" },
+      { "id": "commodity.animal_food.beef_veal", "labelNb": "Storfe og kalv", "labelEn": "Beef and veal", "definition": "Beef and veal products.", "parentId": "commodity.animal_food" },
+      { "id": "commodity.animal_food.pork", "labelNb": "Svin", "labelEn": "Pork", "definition": "Pig meat and products.", "parentId": "commodity.animal_food" },
+      { "id": "commodity.animal_food.sheep_goat", "labelNb": "Sau og geit", "labelEn": "Sheep and goat", "definition": "Sheep and goat meat or milk products.", "parentId": "commodity.animal_food" },
+      { "id": "commodity.animal_food.poultry", "labelNb": "Fjørfe", "labelEn": "Poultry", "definition": "Poultry meat products.", "parentId": "commodity.animal_food" },
+      { "id": "commodity.animal_food.eggs", "labelNb": "Egg", "labelEn": "Eggs", "definition": "Eggs and egg products.", "parentId": "commodity.animal_food" },
+      { "id": "commodity.animal_food.reindeer_game", "labelNb": "Rein og vilt", "labelEn": "Reindeer and game", "definition": "Reindeer and wild game food products.", "parentId": "commodity.animal_food" },
+      { "id": "commodity.aquatic_food", "labelNb": "Akvatiske matvarer", "labelEn": "Aquatic food", "definition": "Food from marine and freshwater organisms." },
+      { "id": "commodity.aquatic_food.wild_capture_finfish", "labelNb": "Villfanget fisk", "labelEn": "Wild-capture finfish", "definition": "Wild-capture finfish.", "parentId": "commodity.aquatic_food" },
+      { "id": "commodity.aquatic_food.aquaculture_finfish", "labelNb": "Oppdrettsfisk", "labelEn": "Aquaculture finfish", "definition": "Farmed finfish.", "parentId": "commodity.aquatic_food" },
+      { "id": "commodity.aquatic_food.shellfish_molluscs", "labelNb": "Skjell og bløtdyr", "labelEn": "Shellfish and molluscs", "definition": "Edible molluscs and shellfish.", "parentId": "commodity.aquatic_food" },
+      { "id": "commodity.aquatic_food.crustaceans", "labelNb": "Krepsdyr", "labelEn": "Crustaceans", "definition": "Edible crustaceans.", "parentId": "commodity.aquatic_food" },
+      { "id": "commodity.aquatic_food.seaweed_algae", "labelNb": "Tang og alger", "labelEn": "Seaweed and algae", "definition": "Edible seaweed, macroalgae and microalgae.", "parentId": "commodity.aquatic_food" },
+      { "id": "commodity.processed_food", "labelNb": "Foredlet mat", "labelEn": "Processed food", "definition": "Food products combining or substantially transforming raw commodities." },
+      { "id": "commodity.processed_food.grain_bakery", "labelNb": "Korn- og bakerivarer", "labelEn": "Grain and bakery products", "definition": "Milled, baked and cereal-based food products.", "parentId": "commodity.processed_food" },
+      { "id": "commodity.processed_food.processed_meat", "labelNb": "Bearbeidede kjøttvarer", "labelEn": "Processed meat", "definition": "Processed meat products.", "parentId": "commodity.processed_food" },
+      { "id": "commodity.processed_food.processed_seafood", "labelNb": "Bearbeidet sjømat", "labelEn": "Processed seafood", "definition": "Processed aquatic food products.", "parentId": "commodity.processed_food" },
+      { "id": "commodity.processed_food.prepared_mixed_food", "labelNb": "Sammensatte matvarer", "labelEn": "Prepared mixed food", "definition": "Prepared multi-ingredient foods and meals.", "parentId": "commodity.processed_food" },
+      { "id": "commodity.processed_food.non_alcoholic_beverages", "labelNb": "Alkoholfri drikke", "labelEn": "Non-alcoholic beverages", "definition": "Non-alcoholic beverages.", "parentId": "commodity.processed_food" },
+      { "id": "commodity.processed_food.alcoholic_beverages", "labelNb": "Alkoholholdig drikke", "labelEn": "Alcoholic beverages", "definition": "Alcoholic beverages.", "parentId": "commodity.processed_food" },
+      { "id": "commodity.alternative_protein", "labelNb": "Alternative proteiner", "labelEn": "Alternative protein", "definition": "Novel or alternative protein products and ingredients." },
+      { "id": "commodity.alternative_protein.plant", "labelNb": "Planteprotein", "labelEn": "Plant protein", "definition": "Concentrated or structured plant-protein products.", "parentId": "commodity.alternative_protein" },
+      { "id": "commodity.alternative_protein.fungal_fermentation", "labelNb": "Sopp og fermentering", "labelEn": "Fungal and fermentation protein", "definition": "Protein produced through fungi or fermentation.", "parentId": "commodity.alternative_protein" },
+      { "id": "commodity.alternative_protein.microbial", "labelNb": "Mikrobielt protein", "labelEn": "Microbial protein", "definition": "Protein produced from microbial biomass.", "parentId": "commodity.alternative_protein" },
+      { "id": "commodity.alternative_protein.insect", "labelNb": "Insektprotein", "labelEn": "Insect protein", "definition": "Insect-derived food or feed protein.", "parentId": "commodity.alternative_protein" },
+      { "id": "commodity.alternative_protein.cultivated", "labelNb": "Dyrket cellebasert", "labelEn": "Cultivated cell-based", "definition": "Cell-cultivated food products.", "parentId": "commodity.alternative_protein" },
+      { "id": "commodity.feed", "labelNb": "Fôrvarer", "labelEn": "Feed commodities", "definition": "Feed commodities for terrestrial and aquatic animals." },
+      { "id": "commodity.feed.forage", "labelNb": "Grovfôr", "labelEn": "Forage", "definition": "Pasture, hay, silage and other forage.", "parentId": "commodity.feed" },
+      { "id": "commodity.feed.compound_feed", "labelNb": "Kraftfôr", "labelEn": "Compound feed", "definition": "Formulated compound feed.", "parentId": "commodity.feed" },
+      { "id": "commodity.feed.aquafeed", "labelNb": "Akvafôr", "labelEn": "Aquafeed", "definition": "Feed formulated for aquaculture.", "parentId": "commodity.feed" },
+      { "id": "commodity.mixed_food_basket", "labelNb": "Sammensatt matkurv", "labelEn": "Mixed food basket", "definition": "Aggregate food basket used when source data cannot be disaggregated by commodity." }
+    ],
+    "materialGroups": [
+      { "id": "material.seed_genetic_input", "labelNb": "Såvare og genetisk innsats", "labelEn": "Seed and genetic input", "definition": "Non-food seed, breeding or genetic input material." },
+      { "id": "material.mineral_fertilizer", "labelNb": "Mineralgjødsel", "labelEn": "Mineral fertilizer", "definition": "Mineral nitrogen, phosphorus, potassium or compound fertilizer." },
+      { "id": "material.manure", "labelNb": "Husdyrgjødsel", "labelEn": "Manure", "definition": "Animal manure and associated bedding." },
+      { "id": "material.digestate", "labelNb": "Biorest", "labelEn": "Digestate", "definition": "Digestate from anaerobic digestion." },
+      { "id": "material.compost", "labelNb": "Kompost", "labelEn": "Compost", "definition": "Stabilized compost product." },
+      { "id": "material.sludge", "labelNb": "Slam", "labelEn": "Sludge", "definition": "Sewage or industrial sludge relevant to food-system nutrient flows." },
+      { "id": "material.soil_amendment", "labelNb": "Jordforbedringsmiddel", "labelEn": "Soil amendment", "definition": "Material applied to improve soil properties." },
+      { "id": "material.packaging", "labelNb": "Emballasjemateriale", "labelEn": "Packaging material", "definition": "Paper, plastic, glass, metal or composite packaging material." },
+      { "id": "material.energy_carrier", "labelNb": "Energibærer", "labelEn": "Energy carrier", "definition": "Fuel, electricity, heat or gas used or produced in the food system." },
+      { "id": "material.water", "labelNb": "Vann", "labelEn": "Water", "definition": "Water as input, output or embodied material." },
+      { "id": "material.side_stream", "labelNb": "Sidestrømsmateriale", "labelEn": "Side-stream material", "definition": "Residual material with potential further use." },
+      { "id": "material.waste", "labelNb": "Avfallsmateriale", "labelEn": "Waste material", "definition": "Material legally or operationally classified as waste under the cited boundary." }
+    ],
+    "circularStrategies": [
+      { "id": "circular_strategy.r0", "labelNb": "Nekte eller forhindre", "labelEn": "Refuse", "definition": "Avoid the need for a resource, product or surplus before it enters the system.", "externalCodes": ["R0"] },
+      { "id": "circular_strategy.r1", "labelNb": "Tenke nytt", "labelEn": "Rethink", "definition": "Change use patterns or business models to intensify use and prevent loss.", "externalCodes": ["R1"] },
+      { "id": "circular_strategy.r2", "labelNb": "Redusere", "labelEn": "Reduce", "definition": "Use fewer resources or generate less loss per delivered function.", "externalCodes": ["R2"] },
+      { "id": "circular_strategy.r3", "labelNb": "Gjenbruke", "labelEn": "Reuse", "definition": "Use a product again in the same form or function, including edible redistribution.", "externalCodes": ["R3"] },
+      { "id": "circular_strategy.r4", "labelNb": "Reparere", "labelEn": "Repair", "definition": "Maintain or repair equipment and infrastructure to extend useful life.", "externalCodes": ["R4"] },
+      { "id": "circular_strategy.r5", "labelNb": "Oppgradere", "labelEn": "Refurbish", "definition": "Restore or upgrade equipment and infrastructure for continued use.", "externalCodes": ["R5"] },
+      { "id": "circular_strategy.r6", "labelNb": "Regenerere", "labelEn": "Remanufacture", "definition": "Use recovered components or side streams to create a product with the same or comparable function.", "externalCodes": ["R6"] },
+      { "id": "circular_strategy.r7", "labelNb": "Omforme", "labelEn": "Repurpose", "definition": "Use a recovered product or material in a different function.", "externalCodes": ["R7"] },
+      { "id": "circular_strategy.r8", "labelNb": "Materialgjenvinne", "labelEn": "Recycle", "definition": "Process materials into secondary raw material, soil amendment or nutrient product.", "externalCodes": ["R8"] },
+      { "id": "circular_strategy.r9", "labelNb": "Energigjenvinne", "labelEn": "Recover energy", "definition": "Recover energy while the material is no longer available at its original utility.", "externalCodes": ["R9"] }
+    ],
+    "entityTypes": [
+      { "id": "entity_type.person", "labelNb": "Person", "labelEn": "Person", "definition": "An identified natural person." },
+      { "id": "entity_type.organization", "labelNb": "Organisasjon", "labelEn": "Organization", "definition": "A legal or operational organization." },
+      { "id": "entity_type.group", "labelNb": "Gruppe eller kollektiv", "labelEn": "Group or collective", "definition": "A collective actor without requiring a single legal organization." },
+      { "id": "entity_type.public_body", "labelNb": "Offentlig organ", "labelEn": "Public body", "definition": "A government, authority or public institution." },
+      { "id": "entity_type.household", "labelNb": "Husholdning", "labelEn": "Household", "definition": "A household as an economic and consumption unit." },
+      { "id": "entity_type.facility", "labelNb": "Anlegg", "labelEn": "Facility", "definition": "A physical site or infrastructure asset." },
+      { "id": "entity_type.place", "labelNb": "Sted", "labelEn": "Place", "definition": "A named geographic place or area." }
+    ],
+    "ownershipForms": [
+      { "id": "ownership_form.cooperative", "labelNb": "Samvirke", "labelEn": "Cooperative", "definition": "Member-owned cooperative ownership." },
+      { "id": "ownership_form.state", "labelNb": "Statlig", "labelEn": "State-owned", "definition": "Ownership or control by a national state." },
+      { "id": "ownership_form.municipal", "labelNb": "Kommunal", "labelEn": "Municipal", "definition": "Ownership or control by a municipality or local authority." },
+      { "id": "ownership_form.family", "labelNb": "Familieeid", "labelEn": "Family-owned", "definition": "Controlling ownership held by a family or related persons." },
+      { "id": "ownership_form.listed", "labelNb": "Børsnotert", "labelEn": "Publicly listed", "definition": "Equity is listed on a public securities market." },
+      { "id": "ownership_form.private_equity", "labelNb": "Oppkjøpsfond", "labelEn": "Private equity", "definition": "Control held through a private-equity or buyout structure." },
+      { "id": "ownership_form.foundation", "labelNb": "Stiftelse", "labelEn": "Foundation", "definition": "Ownership or control held by a foundation." },
+      { "id": "ownership_form.employee", "labelNb": "Ansatteeid", "labelEn": "Employee-owned", "definition": "Material ownership held by employees." },
+      { "id": "ownership_form.community", "labelNb": "Lokalsamfunnseid", "labelEn": "Community-owned", "definition": "Ownership held collectively by a community." },
+      { "id": "ownership_form.mixed", "labelNb": "Blandet eierskap", "labelEn": "Mixed ownership", "definition": "Material control is shared across distinct ownership forms." },
+      { "id": "ownership_form.foreign_controlled", "labelNb": "Utenlandsk kontrollert", "labelEn": "Foreign-controlled", "definition": "Ultimate controlling ownership is outside the assessed geography." }
+    ],
+    "tradeDirections": [
+      { "id": "trade_direction.domestic", "labelNb": "Innenlands", "labelEn": "Domestic", "definition": "Origin and destination are within the assessed geography." },
+      { "id": "trade_direction.import", "labelNb": "Import", "labelEn": "Import", "definition": "A commodity or material enters the assessed geography." },
+      { "id": "trade_direction.export", "labelNb": "Eksport", "labelEn": "Export", "definition": "A commodity or material leaves the assessed geography." },
+      { "id": "trade_direction.reexport", "labelNb": "Reeksport", "labelEn": "Re-export", "definition": "An imported commodity or material is exported again under the cited method." },
+      { "id": "trade_direction.transit", "labelNb": "Transitt", "labelEn": "Transit", "definition": "A commodity or material passes through without entering domestic use under the cited method." }
+    ],
+    "knowledgeObjectTypes": [
+      { "id": "knowledge_object.concept", "labelNb": "Begrep", "labelEn": "Concept", "definition": "A definition, boundary and relation set for a concept." },
+      { "id": "knowledge_object.actor", "labelNb": "Aktør", "labelEn": "Actor", "definition": "An entity interpreted through one or more food-system roles." },
+      { "id": "knowledge_object.place", "labelNb": "Sted", "labelEn": "Place", "definition": "A geographic or spatial knowledge object." },
+      { "id": "knowledge_object.infrastructure", "labelNb": "Infrastruktur", "labelEn": "Infrastructure", "definition": "A facility, asset or network supporting food-system functions." },
+      { "id": "knowledge_object.process", "labelNb": "Prosess", "labelEn": "Process", "definition": "A transformation or activity in the food system." },
+      { "id": "knowledge_object.flow", "labelNb": "Flyt", "labelEn": "Flow", "definition": "A physical, economic, control, information or human transfer." },
+      { "id": "knowledge_object.claim", "labelNb": "Påstand", "labelEn": "Claim", "definition": "A precise factual or analytical proposition with evidence state." },
+      { "id": "knowledge_object.observation", "labelNb": "Observasjon", "labelEn": "Observation", "definition": "A measured, recorded or directly observed state." },
+      { "id": "knowledge_object.indicator", "labelNb": "Indikator", "labelEn": "Indicator", "definition": "A defined metric used to monitor a system property or outcome." },
+      { "id": "knowledge_object.dataset", "labelNb": "Datasett", "labelEn": "Dataset", "definition": "A versioned collection of observations or records." },
+      { "id": "knowledge_object.source", "labelNb": "Kilde", "labelEn": "Source", "definition": "A source identity and provenance record, not a duplicate of raw evidence." },
+      { "id": "knowledge_object.case", "labelNb": "Case", "labelEn": "Case", "definition": "A bounded intervention, organization, failure, transition or observed example." },
+      { "id": "knowledge_object.policy", "labelNb": "Politikk eller virkemiddel", "labelEn": "Policy or instrument", "definition": "A law, policy, programme, standard or governance instrument." },
+      { "id": "knowledge_object.event", "labelNb": "Hendelse", "labelEn": "Event", "definition": "A dated event affecting food-system state or interpretation." },
+      { "id": "knowledge_object.scenario", "labelNb": "Scenario", "labelEn": "Scenario", "definition": "A conditional future or shock scenario, never an observed fact." },
+      { "id": "knowledge_object.question", "labelNb": "Spørsmål", "labelEn": "Question", "definition": "A durable research or decision question." },
+      { "id": "knowledge_object.gap", "labelNb": "Kunnskapshull", "labelEn": "Knowledge gap", "definition": "A precise unknown, blocker or measurement gap with closure route." },
+      { "id": "knowledge_object.synthesis", "labelNb": "Syntese", "labelEn": "Synthesis", "definition": "A compiled explanation resolving to claims and sources." }
+    ],
+    "crossCuttingLenses": [
+      { "id": "lens.system_boundary", "labelNb": "Systemgrense", "labelEn": "System boundary", "definition": "What is included, excluded and used as the functional boundary." },
+      { "id": "lens.geography_scale", "labelNb": "Geografi og skala", "labelEn": "Geography and scale", "definition": "Geographic representation, scale and missing places." },
+      { "id": "lens.time_change", "labelNb": "Tid og endring", "labelEn": "Time and change", "definition": "Period, validity, trend and temporal comparison." },
+      { "id": "lens.value_chain_stage", "labelNb": "Verdikjedeledd", "labelEn": "Value-chain stage", "definition": "Position and transitions in the value chain." },
+      { "id": "lens.actor_position_power", "labelNb": "Aktørposisjon og makt", "labelEn": "Actor position and power", "definition": "Actor role, bargaining position, ownership and control." },
+      { "id": "lens.commodity_material", "labelNb": "Vare og materiale", "labelEn": "Commodity and material", "definition": "Commodity, material and physical composition." },
+      { "id": "lens.flow_circularity_cascade", "labelNb": "Flyt, sirkularitet og kaskade", "labelEn": "Flow, circularity and cascade", "definition": "Flow direction, quantity, circular strategy, cascade level and realized outcome." },
+      { "id": "lens.evidence_uncertainty", "labelNb": "Evidens og usikkerhet", "labelEn": "Evidence and uncertainty", "definition": "Source, method, uncertainty, contradiction and readiness." },
+      { "id": "lens.distribution_equity_rights", "labelNb": "Fordeling, rettferdighet og rettigheter", "labelEn": "Distribution, equity and rights", "definition": "Distribution of value, costs, risks, voice and rights." },
+      { "id": "lens.resilience_shock", "labelNb": "Robusthet og sjokk", "labelEn": "Resilience and shocks", "definition": "Exposure, vulnerability, response, recovery and adaptation." },
+      { "id": "lens.outcome_tradeoffs", "labelNb": "Resultater og avveiinger", "labelEn": "Outcomes and trade-offs", "definition": "Intended, observed and unintended outcomes and trade-offs." }
+    ],
+    "legacyFields": [
+      {
+        "id": "legacy_field.f01",
+        "labelNb": "Hele matsystemet – systemgrenser og sammenhenger",
+        "labelEn": "The whole food system – boundaries and relationships",
+        "definition": "Tracked Obsidian field 1; retained exactly as a mixed navigation and migration view, not as a canonical atomic category.",
+        "legacyMappings": {
+          "mappingVersion": "structured_v1",
+          "mode": "facet_targets",
+          "expansionSemantics": "explicit_multi_facet_candidates",
+          "selectionSemantics": "manual_select_applicable_subset",
+          "manualReviewRequired": true,
+          "facetTargets": {
+            "valueChainStageIds": ["stage.system_wide"],
+            "domainIds": ["domain.system_boundaries"],
+            "knowledgeObjectTypeIds": ["knowledge_object.concept", "knowledge_object.actor", "knowledge_object.process", "knowledge_object.flow", "knowledge_object.synthesis"]
+          }
+        }
+      },
+      {
+        "id": "legacy_field.f02",
+        "labelNb": "Ressursgrunnlag og innsatsfaktorer",
+        "labelEn": "Resource base and inputs",
+        "definition": "Tracked Obsidian field 2; retained exactly as a mixed navigation and migration view.",
+        "legacyMappings": {
+          "mappingVersion": "structured_v1",
+          "mode": "facet_targets",
+          "expansionSemantics": "explicit_multi_facet_candidates",
+          "selectionSemantics": "manual_select_applicable_subset",
+          "manualReviewRequired": true,
+          "facetTargets": {
+            "valueChainStageIds": ["stage.inputs.resource_base", "stage.inputs.production_inputs"],
+            "domainIds": ["domain.land_soil", "domain.freshwater", "domain.marine_environment", "domain.biodiversity_ecosystems", "domain.climate", "domain.infrastructure_capacity", "domain.trade_import_dependency_self_sufficiency", "domain.circularity_resource_efficiency_waste"],
+            "actorClassIds": ["actor.input_supplier", "actor.land_water_resource_holder", "actor.financial_institution", "actor.technology_provider"],
+            "materialGroupIds": ["material.seed_genetic_input", "material.mineral_fertilizer", "material.manure", "material.energy_carrier", "material.water", "material.soil_amendment"]
+          }
+        }
+      },
+      {
+        "id": "legacy_field.f03",
+        "labelNb": "Primærproduksjon og høsting",
+        "labelEn": "Primary production and harvesting",
+        "definition": "Tracked Obsidian field 3; expands to explicit production coverage units rather than the non-coverage parent stage.",
+        "legacyMappings": {
+          "mappingVersion": "structured_v1",
+          "mode": "facet_targets",
+          "expansionSemantics": "expand_to_explicit_coverage_units",
+          "selectionSemantics": "manual_select_applicable_subset",
+          "manualReviewRequired": true,
+          "facetTargets": {
+            "valueChainStageIds": ["stage.primary.agriculture_crop", "stage.primary.agriculture_livestock", "stage.primary.horticulture", "stage.primary.fisheries", "stage.primary.aquaculture", "stage.primary.reindeer_husbandry", "stage.primary.wild_harvest"],
+            "actorClassIds": ["actor.primary_producer", "actor.crop_producer", "actor.livestock_producer", "actor.horticulture_producer", "actor.fisher", "actor.aquaculture_operator", "actor.reindeer_herder", "actor.wild_harvester", "actor.producer_cooperative"]
+          }
+        }
+      },
+      {
+        "id": "legacy_field.f04",
+        "labelNb": "Foredling og industri",
+        "labelEn": "Processing and industry",
+        "definition": "Tracked Obsidian field 4; expands to explicit processing coverage units rather than the non-coverage parent stage.",
+        "legacyMappings": {
+          "mappingVersion": "structured_v1",
+          "mode": "facet_targets",
+          "expansionSemantics": "expand_to_explicit_coverage_units",
+          "selectionSemantics": "manual_select_applicable_subset",
+          "manualReviewRequired": true,
+          "facetTargets": {
+            "valueChainStageIds": ["stage.processing.initial_processing", "stage.processing.food_manufacturing", "stage.processing.ingredient_production", "stage.processing.packaging"],
+            "actorClassIds": ["actor.processor", "actor.packaging_operator", "actor.worker", "actor.owner_parent_company"]
+          }
+        }
+      },
+      {
+        "id": "legacy_field.f05",
+        "labelNb": "Distribusjon, logistikk og lokale kjeder",
+        "labelEn": "Distribution, logistics and local chains",
+        "definition": "Tracked Obsidian field 5; expands to distribution functions and the direct-sales channel used for local-chain navigation.",
+        "legacyMappings": {
+          "mappingVersion": "structured_v1",
+          "mode": "facet_targets",
+          "expansionSemantics": "explicit_multi_facet_candidates",
+          "selectionSemantics": "manual_select_applicable_subset",
+          "manualReviewRequired": true,
+          "facetTargets": {
+            "valueChainStageIds": ["stage.distribution.storage", "stage.distribution.transport_logistics", "stage.distribution.cold_chain", "stage.distribution.wholesale", "stage.market.direct_sales"],
+            "domainIds": ["domain.infrastructure_capacity", "domain.trade_import_dependency_self_sufficiency", "domain.climate"],
+            "actorClassIds": ["actor.logistics_operator", "actor.warehouse_terminal", "actor.wholesaler", "actor.direct_market_operator", "actor.infrastructure_owner"]
+          }
+        }
+      },
+      {
+        "id": "legacy_field.f06",
+        "labelNb": "Handel, servering, offentlige innkjøp og forbruk",
+        "labelEn": "Retail, food service, public procurement and consumption",
+        "definition": "Tracked Obsidian field 6; expands across distinct market, procurement and consumption coverage units.",
+        "legacyMappings": {
+          "mappingVersion": "structured_v1",
+          "mode": "facet_targets",
+          "expansionSemantics": "explicit_multi_facet_candidates",
+          "selectionSemantics": "manual_select_applicable_subset",
+          "manualReviewRequired": true,
+          "facetTargets": {
+            "valueChainStageIds": ["stage.market.retail", "stage.market.foodservice_horeca", "stage.market.public_procurement", "stage.market.direct_sales", "stage.market.redistribution", "stage.consumption.household", "stage.consumption.public_meals", "stage.consumption.commercial_meals"],
+            "domainIds": ["domain.food_environment_consumer_behavior", "domain.health_nutrition_diets", "domain.equity_justice_affordability", "domain.economics_finance_value_distribution", "domain.policy_law_governance"],
+            "actorClassIds": ["actor.retailer", "actor.foodservice_operator", "actor.public_meal_operator", "actor.public_procurement_authority", "actor.household_consumer", "actor.redistribution_operator"]
+          }
+        }
+      },
+      {
+        "id": "legacy_field.f07",
+        "labelNb": "Makt, eierskap, priser og konkurranse",
+        "labelEn": "Power, ownership, prices and competition",
+        "definition": "Tracked Obsidian field 7; retained exactly as a multi-domain navigation view.",
+        "legacyMappings": {
+          "mappingVersion": "structured_v1",
+          "mode": "facet_targets",
+          "expansionSemantics": "explicit_multi_facet_candidates",
+          "selectionSemantics": "manual_select_applicable_subset",
+          "manualReviewRequired": true,
+          "facetTargets": {
+            "domainIds": ["domain.power_ownership_control", "domain.market_structure_competition", "domain.economics_finance_value_distribution", "domain.policy_law_governance"],
+            "actorClassIds": ["actor.owner_parent_company", "actor.investor", "actor.financial_institution", "actor.competition_authority", "actor.regulator"],
+            "flowClassIds": ["flow.control.ownership", "flow.control.contract", "flow.control.decision_authority", "flow.economic.price_signal", "flow.economic.margin_value_added", "flow.economic.payment_revenue", "flow.economic.cost", "flow.economic.capital_credit_investment"]
+          }
+        }
+      },
+      {
+        "id": "legacy_field.f08",
+        "labelNb": "Sirkularitet, matsvinn, sidestrømmer og N-P-K",
+        "labelEn": "Circularity, food waste, side streams and N-P-K",
+        "definition": "Tracked Obsidian field 8; expands to explicit return-flow functions, redistribution, circular strategies, physical flows and circularity outcomes.",
+        "legacyMappings": {
+          "mappingVersion": "structured_v1",
+          "mode": "facet_targets",
+          "expansionSemantics": "explicit_multi_facet_candidates",
+          "selectionSemantics": "manual_select_applicable_subset",
+          "manualReviewRequired": true,
+          "facetTargets": {
+            "valueChainStageIds": ["stage.market.redistribution", "stage.return_flows.loss_waste_generation", "stage.return_flows.collection_sorting", "stage.return_flows.material_recovery", "stage.return_flows.biological_recovery", "stage.return_flows.nutrient_return", "stage.return_flows.energy_recovery", "stage.return_flows.disposal"],
+            "domainIds": ["domain.circularity_resource_efficiency_waste"],
+            "outcomeIds": ["outcome.resource_circularity"],
+            "flowClassIds": ["flow.physical.side_stream", "flow.physical.food_loss", "flow.physical.food_waste", "flow.physical.nutrient_n", "flow.physical.nutrient_p", "flow.physical.nutrient_k", "flow.physical.energy"],
+            "materialGroupIds": ["material.manure", "material.digestate", "material.compost", "material.sludge", "material.soil_amendment", "material.side_stream", "material.waste"],
+            "circularStrategyIds": ["circular_strategy.r0", "circular_strategy.r1", "circular_strategy.r2", "circular_strategy.r3", "circular_strategy.r4", "circular_strategy.r5", "circular_strategy.r6", "circular_strategy.r7", "circular_strategy.r8", "circular_strategy.r9"]
+          }
+        }
+      },
+      {
+        "id": "legacy_field.f09",
+        "labelNb": "Import, selvforsyning, matsikkerhet og beredskap",
+        "labelEn": "Imports, self-sufficiency, food security and preparedness",
+        "definition": "Tracked Obsidian field 9; retained exactly as a trade, sufficiency, security and resilience view.",
+        "legacyMappings": {
+          "mappingVersion": "structured_v1",
+          "mode": "facet_targets",
+          "expansionSemantics": "explicit_multi_facet_candidates",
+          "selectionSemantics": "manual_select_applicable_subset",
+          "manualReviewRequired": true,
+          "facetTargets": {
+            "valueChainStageIds": ["stage.system_wide"],
+            "domainIds": ["domain.trade_import_dependency_self_sufficiency", "domain.food_security_preparedness_resilience", "domain.infrastructure_capacity"],
+            "outcomeIds": ["outcome.food_availability", "outcome.food_access_affordability", "outcome.food_utilization_nutrition", "outcome.stability_resilience"],
+            "tradeDirectionIds": ["trade_direction.domestic", "trade_direction.import", "trade_direction.export", "trade_direction.reexport", "trade_direction.transit"]
+          }
+        }
+      },
+      {
+        "id": "legacy_field.f10",
+        "labelNb": "Jord, naturmangfold, klima, helse og tilstrekkelighet",
+        "labelEn": "Soil, biodiversity, climate, health and sufficiency",
+        "definition": "Tracked Obsidian field 10; expands across environmental condition, health, safety, welfare and food-security facets rather than a four-domain shorthand.",
+        "legacyMappings": {
+          "mappingVersion": "structured_v1",
+          "mode": "facet_targets",
+          "expansionSemantics": "explicit_multi_facet_candidates",
+          "selectionSemantics": "manual_select_applicable_subset",
+          "manualReviewRequired": true,
+          "facetTargets": {
+            "domainIds": ["domain.land_soil", "domain.freshwater", "domain.biodiversity_ecosystems", "domain.marine_environment", "domain.climate", "domain.health_nutrition_diets", "domain.food_safety_one_health_biosecurity", "domain.animal_health_welfare", "domain.food_security_preparedness_resilience"],
+            "outcomeIds": ["outcome.food_availability", "outcome.food_access_affordability", "outcome.food_utilization_nutrition", "outcome.food_safety", "outcome.healthy_sustainable_diets", "outcome.ghg_mitigation_adaptation", "outcome.soil_health", "outcome.water_quality_availability", "outcome.air_quality", "outcome.biodiversity_ecosystem_integrity", "outcome.marine_ecosystem_integrity", "outcome.animal_health_welfare"]
+          }
+        }
+      },
+      {
+        "id": "legacy_field.f11",
+        "labelNb": "Innovasjon, alternative proteiner og pilotering",
+        "labelEn": "Innovation, alternative proteins and piloting",
+        "definition": "Tracked Obsidian field 11; expands to innovation, infrastructure, alternative-protein macro classes, cases and maturity states.",
+        "legacyMappings": {
+          "mappingVersion": "structured_v1",
+          "mode": "facet_targets",
+          "expansionSemantics": "explicit_multi_facet_candidates",
+          "selectionSemantics": "manual_select_applicable_subset",
+          "manualReviewRequired": true,
+          "facetTargets": {
+            "domainIds": ["domain.innovation_technology_transition", "domain.infrastructure_capacity"],
+            "commodityGroupIds": ["commodity.alternative_protein.plant", "commodity.alternative_protein.fungal_fermentation", "commodity.alternative_protein.microbial", "commodity.alternative_protein.insect", "commodity.alternative_protein.cultivated"],
+            "outcomeIds": ["outcome.innovation_capacity"],
+            "actorClassIds": ["actor.technology_provider", "actor.research_education", "actor.investor", "actor.regulator"],
+            "knowledgeObjectTypeIds": ["knowledge_object.case", "knowledge_object.process", "knowledge_object.infrastructure", "knowledge_object.claim", "knowledge_object.observation"],
+            "maturityStateIds": ["concept", "research", "pilot", "demonstration", "commercial_limited", "operational_scaled", "retired", "failed"]
+          }
+        }
+      },
+      {
+        "id": "legacy_field.f12",
+        "labelNb": "Norden, politikk, institusjoner og styring",
+        "labelEn": "Nordics, policy, institutions and governance",
+        "definition": "Tracked Obsidian field 12; expands to political-Nordic and separately overlapping Sápmi candidates with governance facets and anti-double-count review.",
+        "legacyMappings": {
+          "mappingVersion": "structured_v1",
+          "mode": "facet_targets",
+          "expansionSemantics": "explicit_multi_facet_candidates",
+          "selectionSemantics": "manual_select_applicable_subset_and_declare_missing_geographies",
+          "manualReviewRequired": true,
+          "facetTargets": {
+            "geographyIds": ["geo.nordic", "geo.no", "geo.se", "geo.dk", "geo.fi", "geo.is", "geo.fo", "geo.gl", "geo.ax", "geo.sapmi"],
+            "aggregationClassKeys": ["political_nordic", "sapmi_overlapping"],
+            "domainIds": ["domain.policy_law_governance", "domain.power_ownership_control", "domain.market_structure_competition", "domain.indigenous_rights_culture_food_sovereignty"],
+            "actorClassIds": ["actor.national_government", "actor.regional_authority", "actor.municipality", "actor.regulator", "actor.competition_authority", "actor.food_safety_authority", "actor.indigenous_governance_rightsholder", "actor.research_education", "actor.industry_association", "actor.producer_cooperative"]
+          }
+        }
+      },
+      {
+        "id": "legacy_field.f13",
+        "labelNb": "Metode, evidens, siterbarhet og kunnskapshull",
+        "labelEn": "Methods, evidence, citability and knowledge gaps",
+        "definition": "Tracked Obsidian field 13; expands to evidence objects and the status facets needed to distinguish discovery, verification, citation readiness, confidence and gap routing.",
+        "legacyMappings": {
+          "mappingVersion": "structured_v1",
+          "mode": "facet_targets",
+          "expansionSemantics": "explicit_multi_facet_candidates",
+          "selectionSemantics": "manual_select_applicable_subset",
+          "manualReviewRequired": true,
+          "facetTargets": {
+            "domainIds": ["domain.data_methods_evidence"],
+            "knowledgeObjectTypeIds": ["knowledge_object.source", "knowledge_object.dataset", "knowledge_object.claim", "knowledge_object.observation", "knowledge_object.indicator", "knowledge_object.question", "knowledge_object.gap", "knowledge_object.synthesis"],
+            "statusVocabularyKeys": ["workflowStages", "inventoryStates", "knowledgeDepths", "verificationStatuses", "citationReadiness", "appraisalStates", "freshnessStates", "temporalDepths", "archiveStates", "confidenceStates", "gapRoutes", "assessmentWorkflowStates", "evidenceBasis"]
+          }
+        }
+      }
+    ]
+  },
+  "classificationMetadata": {
+    "commodityGroups": {
+      "classificationId": "classification.commodity_macro_v1",
+      "classificationLevel": "macro_v1",
+      "tier": "tier_1",
+      "exhaustiveness": "not_claimed",
+      "rule": "Tier-1 macro navigation classes; do not infer commodity-level completeness from coverage of a macro class."
+    },
+    "materialGroups": {
+      "classificationId": "classification.material_macro_v1",
+      "classificationLevel": "macro_v1",
+      "tier": "tier_1",
+      "exhaustiveness": "not_claimed",
+      "rule": "Tier-1 macro navigation classes; process-specific materials and chemical species require lower-tier extensions."
+    }
+  },
+  "statusModel": {
+    "workflowStages": ["unassessed", "absent", "discovered", "source_collected", "extracted", "compiled", "reviewed", "claim_ready", "monitored", "out_of_scope"],
+    "scopeStates": ["unknown", "draft", "frozen", "superseded", "out_of_scope"],
+    "inventoryStates": ["unknown", "none_observed", "partial", "run_floor", "exhaustive", "not_applicable"],
+    "knowledgeDepths": ["unknown", "identity_only", "descriptive", "quantified", "relational", "causal", "not_applicable"],
+    "verificationStatuses": ["unverified", "needs_review", "machine_verified", "human_verified", "disputed", "rejected", "failed"],
+    "citationReadiness": ["not_assessed", "blocked_unsourced", "internal_context", "citable_with_note", "citable_external"],
+    "appraisalStates": ["not_assessed", "none", "draft", "reviewed", "excluded_not_applicable"],
+    "freshnessStates": ["unknown", "current", "due", "stale", "not_applicable"],
+    "temporalDepths": ["not_assessed", "undated", "snapshot", "dated_series", "bitemporal", "not_applicable"],
+    "archiveStates": ["not_assessed", "unknown", "locator_only", "durable_copy", "hash_verified", "not_applicable"],
+    "confidenceStates": ["unknown", "low", "medium", "high"],
+    "gapRoutes": ["unclassified", "none", "synthesis_needed", "human_gated", "source_gated", "true_c", "future", "out_of_scope"],
+    "assessmentWorkflowStates": ["candidate", "received", "review_queued", "reviewed", "imported", "audited", "published"],
+    "sourceClasses": ["primary", "secondary", "dataset", "internal_synthesis", "media", "unknown", "synthesis", "internal_construct", "registry_snapshot", "legacy_unsourced"],
+    "legacyVerificationStatuses": ["verified", "partially_verified"],
+    "researchReadiness": ["validated", "primary_snapshot", "proxy_model", "local_research_needs_primary_check", "missing"],
+    "claimStatuses": ["controlled", "controlled_with_caveat", "internal_candidate", "human_gate"],
+    "completionStatuses": ["complete", "synthesis_needed", "human_gated", "source_gated", "true_c", "future"],
+    "lensAssessmentStates": ["assessed", "unknown", "not_applicable"],
+    "evidenceBasis": ["not_assessed", "observed", "estimated", "proxy", "illustrative", "internal_corpus_audit"],
+    "realizationStates": ["realized_measured", "realized_estimated", "capacity_installed", "planned_committed", "potential_modelled", "target_only", "unknown"],
+    "maturityStates": ["concept", "research", "pilot", "demonstration", "commercial_limited", "operational_scaled", "retired", "failed"]
+  },
+  "coverageProfiles": [
+    {
+      "id": "profile.canonical_political_macro",
+      "label": "Canonical political-Nordic macro planning matrix",
+      "purpose": "Expose a tier-1 planning surface across eight political reporting scopes, explicit stage coverage units and analytical domains. Stage units include ordered stages, cross-stage capabilities, contexts and events; they are not a mutually exclusive atomic-leaf partition.",
+      "splitFromProfileId": "profile.canonical_core",
+      "aggregationClass": "political_nordic",
+      "completenessTier": "tier_1_macro",
+      "coverageTier": 1,
+      "completionModel": "explicit_coverage_units_not_atomic_leaf_partition",
+      "geographyAxisId": "axis.geography",
+      "cellIdentity": {
+        "scheme": "dimension_labelled_v1",
+        "template": "cov.{profileId}.geo={geographyId}.stage={valueChainStageId}.domain={domainId}",
+        "axisIdOrder": ["axis.geography", "axis.value_chain_stage", "axis.analytical_domain"]
+      },
+      "requiredReadinessProfile": "internal_analysis",
+      "geographyIds": ["geo.no", "geo.se", "geo.dk", "geo.fi", "geo.is", "geo.fo", "geo.gl", "geo.ax"],
+      "axes": [
+        {
+          "axisId": "axis.value_chain_stage",
+          "dimension": "valueChainStages",
+          "ids": [
+            "stage.system_wide",
+            "stage.inputs.resource_base",
+            "stage.inputs.production_inputs",
+            "stage.primary.agriculture_crop",
+            "stage.primary.agriculture_livestock",
+            "stage.primary.horticulture",
+            "stage.primary.fisheries",
+            "stage.primary.aquaculture",
+            "stage.primary.reindeer_husbandry",
+            "stage.primary.wild_harvest",
+            "stage.processing.initial_processing",
+            "stage.processing.food_manufacturing",
+            "stage.processing.ingredient_production",
+            "stage.processing.packaging",
+            "stage.distribution.storage",
+            "stage.distribution.transport_logistics",
+            "stage.distribution.cold_chain",
+            "stage.distribution.wholesale",
+            "stage.market.retail",
+            "stage.market.foodservice_horeca",
+            "stage.market.public_procurement",
+            "stage.market.direct_sales",
+            "stage.market.redistribution",
+            "stage.consumption.household",
+            "stage.consumption.public_meals",
+            "stage.consumption.commercial_meals",
+            "stage.return_flows.loss_waste_generation",
+            "stage.return_flows.collection_sorting",
+            "stage.return_flows.material_recovery",
+            "stage.return_flows.biological_recovery",
+            "stage.return_flows.nutrient_return",
+            "stage.return_flows.energy_recovery",
+            "stage.return_flows.disposal"
+          ]
+        },
+        {
+          "axisId": "axis.analytical_domain",
+          "dimension": "domains",
+          "ids": [
+            "domain.system_boundaries",
+            "domain.economics_finance_value_distribution",
+            "domain.market_structure_competition",
+            "domain.power_ownership_control",
+            "domain.policy_law_governance",
+            "domain.trade_import_dependency_self_sufficiency",
+            "domain.food_security_preparedness_resilience",
+            "domain.circularity_resource_efficiency_waste",
+            "domain.infrastructure_capacity",
+            "domain.food_environment_consumer_behavior",
+            "domain.climate",
+            "domain.land_soil",
+            "domain.freshwater",
+            "domain.biodiversity_ecosystems",
+            "domain.marine_environment",
+            "domain.health_nutrition_diets",
+            "domain.food_safety_one_health_biosecurity",
+            "domain.animal_health_welfare",
+            "domain.labor_skills_working_conditions",
+            "domain.equity_justice_affordability",
+            "domain.indigenous_rights_culture_food_sovereignty",
+            "domain.innovation_technology_transition",
+            "domain.data_methods_evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "profile.canonical_sapmi_overlap_macro",
+      "label": "Canonical overlapping-Sápmi macro planning matrix",
+      "purpose": "Expose the same tier-1 planning surface for the separately assessed, non-additive Sápmi scope. Stage units include ordered stages, cross-stage capabilities, contexts and events; they are not a mutually exclusive atomic-leaf partition, and results must never be added to political-Nordic totals.",
+      "splitFromProfileId": "profile.canonical_core",
+      "aggregationClass": "sapmi_overlapping",
+      "completenessTier": "tier_1_macro",
+      "coverageTier": 1,
+      "completionModel": "explicit_coverage_units_not_atomic_leaf_partition",
+      "geographyAxisId": "axis.geography",
+      "cellIdentity": {
+        "scheme": "dimension_labelled_v1",
+        "template": "cov.{profileId}.geo={geographyId}.stage={valueChainStageId}.domain={domainId}",
+        "axisIdOrder": [
+          "axis.geography",
+          "axis.value_chain_stage",
+          "axis.analytical_domain"
+        ]
+      },
+      "requiredReadinessProfile": "internal_analysis",
+      "geographyIds": [
+        "geo.sapmi"
+      ],
+      "axes": [
+        {
+          "axisId": "axis.value_chain_stage",
+          "dimension": "valueChainStages",
+          "ids": [
+            "stage.system_wide",
+            "stage.inputs.resource_base",
+            "stage.inputs.production_inputs",
+            "stage.primary.agriculture_crop",
+            "stage.primary.agriculture_livestock",
+            "stage.primary.horticulture",
+            "stage.primary.fisheries",
+            "stage.primary.aquaculture",
+            "stage.primary.reindeer_husbandry",
+            "stage.primary.wild_harvest",
+            "stage.processing.initial_processing",
+            "stage.processing.food_manufacturing",
+            "stage.processing.ingredient_production",
+            "stage.processing.packaging",
+            "stage.distribution.storage",
+            "stage.distribution.transport_logistics",
+            "stage.distribution.cold_chain",
+            "stage.distribution.wholesale",
+            "stage.market.retail",
+            "stage.market.foodservice_horeca",
+            "stage.market.public_procurement",
+            "stage.market.direct_sales",
+            "stage.market.redistribution",
+            "stage.consumption.household",
+            "stage.consumption.public_meals",
+            "stage.consumption.commercial_meals",
+            "stage.return_flows.loss_waste_generation",
+            "stage.return_flows.collection_sorting",
+            "stage.return_flows.material_recovery",
+            "stage.return_flows.biological_recovery",
+            "stage.return_flows.nutrient_return",
+            "stage.return_flows.energy_recovery",
+            "stage.return_flows.disposal"
+          ]
+        },
+        {
+          "axisId": "axis.analytical_domain",
+          "dimension": "domains",
+          "ids": [
+            "domain.system_boundaries",
+            "domain.economics_finance_value_distribution",
+            "domain.market_structure_competition",
+            "domain.power_ownership_control",
+            "domain.policy_law_governance",
+            "domain.trade_import_dependency_self_sufficiency",
+            "domain.food_security_preparedness_resilience",
+            "domain.circularity_resource_efficiency_waste",
+            "domain.infrastructure_capacity",
+            "domain.food_environment_consumer_behavior",
+            "domain.climate",
+            "domain.land_soil",
+            "domain.freshwater",
+            "domain.biodiversity_ecosystems",
+            "domain.marine_environment",
+            "domain.health_nutrition_diets",
+            "domain.food_safety_one_health_biosecurity",
+            "domain.animal_health_welfare",
+            "domain.labor_skills_working_conditions",
+            "domain.equity_justice_affordability",
+            "domain.indigenous_rights_culture_food_sovereignty",
+            "domain.innovation_technology_transition",
+            "domain.data_methods_evidence"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "profile.legacy_field_political",
+      "label": "Legacy thirteen-field political-Nordic scope inventory",
+      "purpose": "Create neutral scope events for the tracked thirteen mixed navigation fields across the eight political reporting scopes. A field cell is a navigation/inventory unit, not proof of subject coverage or an atomic ontology leaf.",
+      "splitFromProfileId": "profile.legacy_field_audit",
+      "aggregationClass": "political_nordic",
+      "completenessTier": "legacy_navigation_scope",
+      "coverageTier": 1,
+      "geographyAxisId": "axis.geography",
+      "cellIdentity": {
+        "scheme": "dimension_labelled_v1",
+        "template": "cov.{profileId}.geo={geographyId}.legacy_field={legacyFieldId}",
+        "axisIdOrder": ["axis.geography", "axis.legacy_field"]
+      },
+      "requiredReadinessProfile": "internal_navigation",
+      "geographyIds": ["geo.no", "geo.se", "geo.dk", "geo.fi", "geo.is", "geo.fo", "geo.gl", "geo.ax"],
+      "axes": [
+        {
+          "axisId": "axis.legacy_field",
+          "dimension": "legacyFields",
+          "ids": ["legacy_field.f01", "legacy_field.f02", "legacy_field.f03", "legacy_field.f04", "legacy_field.f05", "legacy_field.f06", "legacy_field.f07", "legacy_field.f08", "legacy_field.f09", "legacy_field.f10", "legacy_field.f11", "legacy_field.f12", "legacy_field.f13"]
+        }
+      ]
+    },
+    {
+      "id": "profile.legacy_field_sapmi_overlap",
+      "label": "Legacy thirteen-field overlapping-Sápmi scope inventory",
+      "purpose": "Create thirteen neutral scope events for the separately assessed, non-additive Sápmi navigation view. A field cell is neither proof of subject coverage nor an atomic ontology leaf, and it must never be added to political-Nordic totals.",
+      "splitFromProfileId": "profile.legacy_field_audit",
+      "aggregationClass": "sapmi_overlapping",
+      "completenessTier": "legacy_navigation_scope",
+      "coverageTier": 1,
+      "geographyAxisId": "axis.geography",
+      "cellIdentity": {
+        "scheme": "dimension_labelled_v1",
+        "template": "cov.{profileId}.geo={geographyId}.legacy_field={legacyFieldId}",
+        "axisIdOrder": [
+          "axis.geography",
+          "axis.legacy_field"
+        ]
+      },
+      "requiredReadinessProfile": "internal_navigation",
+      "geographyIds": [
+        "geo.sapmi"
+      ],
+      "axes": [
+        {
+          "axisId": "axis.legacy_field",
+          "dimension": "legacyFields",
+          "ids": [
+            "legacy_field.f01",
+            "legacy_field.f02",
+            "legacy_field.f03",
+            "legacy_field.f04",
+            "legacy_field.f05",
+            "legacy_field.f06",
+            "legacy_field.f07",
+            "legacy_field.f08",
+            "legacy_field.f09",
+            "legacy_field.f10",
+            "legacy_field.f11",
+            "legacy_field.f12",
+            "legacy_field.f13"
+          ]
+        }
+      ]
+    }
+  ]
+}

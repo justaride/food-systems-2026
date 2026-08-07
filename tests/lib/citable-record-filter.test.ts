@@ -3,6 +3,7 @@ import { describe, it } from 'node:test'
 import {
   assertExternalCitationReadiness,
   canUseExternally,
+  evaluateExternalCitationReadiness,
   filterExternalRecords,
   summarizeExternalExclusions,
 } from '../../src/lib/citations/citable-record-filter'
@@ -53,6 +54,66 @@ describe('citable record filter', () => {
         ],
       }),
       true,
+    )
+  })
+
+  it('applies Report provenance ceilings before pre-existing citation readiness', () => {
+    assert.deepEqual(
+      evaluateExternalCitationReadiness({
+        id: 'blocked-with-document-citation',
+        provenanceType: 'blocked_source',
+        citations: [
+          {
+            citationReadiness: 'citable_external',
+            citationText: 'Pre-existing verified Document SourceCitation',
+          },
+        ],
+      }),
+      {
+        usable: false,
+        readiness: 'blocked_unsourced',
+        reason: 'blocked_unsourced',
+      },
+    )
+    assert.deepEqual(
+      evaluateExternalCitationReadiness({
+        id: 'composite-with-document-citation',
+        provenanceType: 'composite_source',
+        citations: [
+          {
+            citationReadiness: 'citable_external',
+            citationText: 'Pre-existing verified Document SourceCitation',
+          },
+        ],
+      }),
+      {
+        usable: false,
+        readiness: 'internal_context',
+        reason: 'internal_context',
+      },
+    )
+    assert.deepEqual(
+      evaluateExternalCitationReadiness({
+        id: 'blocked-without-citations',
+        provenanceType: 'blocked_source',
+      }),
+      {
+        usable: false,
+        readiness: 'blocked_unsourced',
+        reason: 'blocked_unsourced',
+      },
+    )
+    assert.deepEqual(
+      evaluateExternalCitationReadiness({
+        id: 'unknown-report-provenance',
+        provenanceType: 'drifted-value',
+        citations: [{ citationReadiness: 'citable_external' }],
+      }),
+      {
+        usable: false,
+        readiness: 'blocked_unsourced',
+        reason: 'blocked_unsourced',
+      },
     )
   })
 

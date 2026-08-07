@@ -1,0 +1,309 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/source-acquisition-receipt.schema.v1.json",
+  "title": "Food Systems source-acquisition receipt v1",
+  "description": "Strict, domain-separated receipt for controlled HTTPS fetch or controlled private-source access.",
+  "oneOf": [
+    { "$ref": "#/$defs/controlledHttpsFetch" },
+    { "$ref": "#/$defs/controlledPrivateAccess" }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[a-z0-9.-]+)?$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "dateTime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})$"
+    },
+    "httpsLocator": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://(?![^/?#]*@)[^#]+$"
+    },
+    "privateLocator": {
+      "type": "string",
+      "pattern": "^private://[a-z0-9][a-z0-9._:/-]*$"
+    },
+    "portablePath": {
+      "type": "string",
+      "pattern": "^[a-z0-9](?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*//)(?!.*\\\\)[a-zA-Z0-9._/-]*$"
+    },
+    "tool": {
+      "type": "object",
+      "required": ["name", "version", "workflowRef", "workflowVersion"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "version": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "workflowRef": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "workflowVersion": { "$ref": "#/$defs/version" }
+      },
+      "additionalProperties": false
+    },
+    "redirectHop": {
+      "type": "object",
+      "required": [
+        "sequence",
+        "status",
+        "fromLocator",
+        "toLocator",
+        "observedAt"
+      ],
+      "properties": {
+        "sequence": { "type": "integer", "minimum": 0 },
+        "status": { "enum": [301, 302, 303, 307, 308] },
+        "fromLocator": { "$ref": "#/$defs/httpsLocator" },
+        "toLocator": { "$ref": "#/$defs/httpsLocator" },
+        "observedAt": { "$ref": "#/$defs/dateTime" }
+      },
+      "additionalProperties": false
+    },
+    "primaryCopy": {
+      "type": "object",
+      "required": [
+        "copyId",
+        "storageRootId",
+        "storageClass",
+        "locator",
+        "portablePath",
+        "contentSha256",
+        "sizeBytes",
+        "fileMode",
+        "verifiedAt"
+      ],
+      "properties": {
+        "copyId": { "const": "primary" },
+        "storageRootId": { "$ref": "#/$defs/id" },
+        "storageClass": { "$ref": "#/$defs/id" },
+        "locator": { "$ref": "#/$defs/privateLocator" },
+        "portablePath": { "$ref": "#/$defs/portablePath" },
+        "contentSha256": { "$ref": "#/$defs/hash" },
+        "sizeBytes": { "type": "integer", "minimum": 1 },
+        "fileMode": { "const": "0400" },
+        "verifiedAt": { "$ref": "#/$defs/dateTime" }
+      },
+      "additionalProperties": false
+    },
+    "replicaCopy": {
+      "type": "object",
+      "required": [
+        "copyId",
+        "storageRootId",
+        "storageClass",
+        "locator",
+        "portablePath",
+        "contentSha256",
+        "sizeBytes",
+        "fileMode",
+        "verifiedAt"
+      ],
+      "properties": {
+        "copyId": { "const": "replica" },
+        "storageRootId": { "$ref": "#/$defs/id" },
+        "storageClass": { "$ref": "#/$defs/id" },
+        "locator": { "$ref": "#/$defs/privateLocator" },
+        "portablePath": { "$ref": "#/$defs/portablePath" },
+        "contentSha256": { "$ref": "#/$defs/hash" },
+        "sizeBytes": { "type": "integer", "minimum": 1 },
+        "fileMode": { "const": "0400" },
+        "verifiedAt": { "$ref": "#/$defs/dateTime" }
+      },
+      "additionalProperties": false
+    },
+    "controlledHttpsFetch": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "artifactType",
+        "receiptId",
+        "receiptVersion",
+        "sourceId",
+        "acquisitionType",
+        "requestedLocator",
+        "finalLocator",
+        "request",
+        "redirectChain",
+        "response",
+        "tool",
+        "startedAt",
+        "completedAt",
+        "receiptSha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "source-acquisition-receipt-v1" },
+        "artifactType": { "const": "source_acquisition_receipt" },
+        "receiptId": { "$ref": "#/$defs/id" },
+        "receiptVersion": { "$ref": "#/$defs/version" },
+        "sourceId": { "$ref": "#/$defs/id" },
+        "acquisitionType": { "const": "controlled_https_fetch" },
+        "requestedLocator": { "$ref": "#/$defs/httpsLocator" },
+        "finalLocator": { "$ref": "#/$defs/httpsLocator" },
+        "request": {
+          "type": "object",
+          "required": [
+            "method",
+            "redirectMode",
+            "credentialsMode",
+            "maximumRedirects"
+          ],
+          "properties": {
+            "method": { "const": "GET" },
+            "redirectMode": { "const": "manual" },
+            "credentialsMode": { "const": "omit" },
+            "maximumRedirects": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10
+            }
+          },
+          "additionalProperties": false
+        },
+        "redirectChain": {
+          "type": "array",
+          "maxItems": 10,
+          "items": { "$ref": "#/$defs/redirectHop" }
+        },
+        "response": {
+          "type": "object",
+          "required": [
+            "status",
+            "contentType",
+            "contentLengthBytes",
+            "bodySizeBytes",
+            "bodySha256",
+            "observedAt"
+          ],
+          "properties": {
+            "status": { "type": "integer", "minimum": 200, "maximum": 299 },
+            "contentType": {
+              "type": "string",
+              "pattern": "^[a-z0-9!#$&^_.+-]+/[a-z0-9!#$&^_.+-]+$"
+            },
+            "contentLengthBytes": {
+              "anyOf": [{ "type": "integer", "minimum": 0 }, { "type": "null" }]
+            },
+            "bodySizeBytes": { "type": "integer", "minimum": 1 },
+            "bodySha256": { "$ref": "#/$defs/hash" },
+            "observedAt": { "$ref": "#/$defs/dateTime" }
+          },
+          "additionalProperties": false
+        },
+        "tool": { "$ref": "#/$defs/tool" },
+        "startedAt": { "$ref": "#/$defs/dateTime" },
+        "completedAt": { "$ref": "#/$defs/dateTime" },
+        "receiptSha256": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    },
+    "controlledPrivateAccess": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "artifactType",
+        "receiptId",
+        "receiptVersion",
+        "sourceId",
+        "acquisitionType",
+        "requestedLocator",
+        "finalLocator",
+        "recoveryManifest",
+        "content",
+        "copyAttestations",
+        "twoCopyAttestation",
+        "tool",
+        "startedAt",
+        "completedAt",
+        "receiptSha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "source-acquisition-receipt-v1" },
+        "artifactType": { "const": "source_acquisition_receipt" },
+        "receiptId": { "$ref": "#/$defs/id" },
+        "receiptVersion": { "$ref": "#/$defs/version" },
+        "sourceId": { "$ref": "#/$defs/id" },
+        "acquisitionType": { "const": "controlled_private_access" },
+        "requestedLocator": { "$ref": "#/$defs/privateLocator" },
+        "finalLocator": { "$ref": "#/$defs/privateLocator" },
+        "recoveryManifest": {
+          "type": "object",
+          "required": [
+            "manifestId",
+            "manifestVersion",
+            "manifestPath",
+            "manifestFileSha256",
+            "manifestReceiptSha256",
+            "entryId",
+            "entryPath",
+            "entryLocator",
+            "entryContentSha256",
+            "entrySizeBytes"
+          ],
+          "properties": {
+            "manifestId": { "$ref": "#/$defs/id" },
+            "manifestVersion": { "$ref": "#/$defs/version" },
+            "manifestPath": { "$ref": "#/$defs/portablePath" },
+            "manifestFileSha256": { "$ref": "#/$defs/hash" },
+            "manifestReceiptSha256": { "$ref": "#/$defs/hash" },
+            "entryId": { "$ref": "#/$defs/id" },
+            "entryPath": { "$ref": "#/$defs/portablePath" },
+            "entryLocator": { "$ref": "#/$defs/privateLocator" },
+            "entryContentSha256": { "$ref": "#/$defs/hash" },
+            "entrySizeBytes": { "type": "integer", "minimum": 1 }
+          },
+          "additionalProperties": false
+        },
+        "content": {
+          "type": "object",
+          "required": ["sizeBytes", "sha256"],
+          "properties": {
+            "sizeBytes": { "type": "integer", "minimum": 1 },
+            "sha256": { "$ref": "#/$defs/hash" }
+          },
+          "additionalProperties": false
+        },
+        "copyAttestations": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            { "$ref": "#/$defs/primaryCopy" },
+            { "$ref": "#/$defs/replicaCopy" }
+          ],
+          "items": false
+        },
+        "twoCopyAttestation": {
+          "type": "object",
+          "required": [
+            "requiredCopyCount",
+            "distinctStorageRoots",
+            "distinctFiles",
+            "contentHashesMatch",
+            "sizesMatch"
+          ],
+          "properties": {
+            "requiredCopyCount": { "const": 2 },
+            "distinctStorageRoots": { "const": true },
+            "distinctFiles": { "const": true },
+            "contentHashesMatch": { "const": true },
+            "sizesMatch": { "const": true }
+          },
+          "additionalProperties": false
+        },
+        "tool": { "$ref": "#/$defs/tool" },
+        "startedAt": { "$ref": "#/$defs/dateTime" },
+        "completedAt": { "$ref": "#/$defs/dateTime" },
+        "receiptSha256": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

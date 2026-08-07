@@ -25,6 +25,10 @@ import {
   resolveShareholderSourceLocator,
   resolveSubsidySourceLocator,
 } from '../src/lib/row-source-locators'
+import {
+  normalizedSourceDocProvenance,
+  sourceClassForSourceDocProvenance,
+} from '../src/lib/citations/source-doc-provenance'
 
 const PREVIEW_PATH = 'research/citation-backfill-preview-2026-05-20.csv'
 
@@ -84,6 +88,7 @@ function sourceCitationCreateData(source: PlannedSourceCitation) {
     author: source.author,
     year: source.year,
     url: source.url,
+    archivedUrl: source.archivedUrl,
     localPath: source.localPath,
     documentId: source.documentId,
     sourceDocId: source.sourceDocId,
@@ -176,6 +181,9 @@ async function main() {
         year: true,
         url: true,
         publisher: true,
+        provenanceType: true,
+        accessedAt: true,
+        archivedUrl: true,
         documentId: true,
       },
     }),
@@ -384,7 +392,10 @@ async function main() {
         author: sourceDoc.author,
         year: numberYear(sourceDoc.year),
         publisher: sourceDoc.publisher,
-        sourceClass: 'primary',
+        sourceClass: sourceClassForSourceDocProvenance(sourceDoc.provenanceType),
+        accessedAt: sourceDoc.accessedAt,
+        archivedUrl: sourceDoc.archivedUrl,
+        notes: `provenanceType=${normalizedSourceDocProvenance(sourceDoc.provenanceType)}`,
       })
     }
 
@@ -399,7 +410,10 @@ async function main() {
         author: sourceDoc.author,
         year: numberYear(sourceDoc.year),
         publisher: sourceDoc.publisher,
-        sourceClass: 'primary',
+        sourceClass: sourceClassForSourceDocProvenance(sourceDoc.provenanceType),
+        accessedAt: sourceDoc.accessedAt,
+        archivedUrl: sourceDoc.archivedUrl,
+        notes: `provenanceType=${normalizedSourceDocProvenance(sourceDoc.provenanceType)}`,
       })
     }
   }

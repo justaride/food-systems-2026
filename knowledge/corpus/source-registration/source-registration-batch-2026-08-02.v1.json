@@ -1,0 +1,318 @@
+{
+  "schemaVersion": "1.0.0",
+  "batchId": "source-registration.new-official-2026-08-02.v1",
+  "preparedOn": "2026-08-02",
+  "purpose": "Controlled provisional database registration for ten exact official PDF byte streams that have already passed acquisition, two-copy archive and technical extraction checks. Registration creates discoverable identities only; it does not verify identity, complete source analysis, confirm source role, approve internal use, clear rights, authorize publication or promote coverage.",
+  "preRegistrationBindings": {
+    "sourceAcquisitionBatch": {
+      "path": "knowledge/corpus/source-acquisition-receipts/source-acquisition-batch-new-official-2026-08-02.v1.json",
+      "fileSha256": "0d977fe55dd76ff8145df20ef90e82e6d63df863e7bde91370586f8e651dd2e9"
+    },
+    "pdfExtractionBatch": {
+      "path": "knowledge/corpus/pdf-page-extraction/pdf-page-extraction-batch-2026-08-02.v1.json",
+      "fileSha256": "c0f8c44dc90715e8b385fe1e99287ffeafee0633cae99a3e798d537dff14f956"
+    },
+    "sourceAnalysisInputGenerationManifest": {
+      "path": "knowledge/corpus/source-analysis-input-manifests/source-analysis-input-generation-manifest.v1.json",
+      "fileSha256": "897f3599585ed8cb1fb73749df28e944b38d283805ee981499ef440d89f06803"
+    }
+  },
+  "registrationPolicy": {
+    "databaseModel": "Document",
+    "identityStatus": "provisional",
+    "sourceRoleStatus": "machine_provisional_only",
+    "documentContentSource": "exact_private_normalized_pages",
+    "documentContentSerialization": "normalized-pages-joined-with-page-boundary-v1",
+    "libraryAnalysisTier": "inventory_only",
+    "libraryAnalysisStatus": "not_started",
+    "ownerReviewStatus": "not_started",
+    "rightsState": "pending_not_cleared",
+    "publicationState": "internal_only",
+    "coveragePromotionAllowed": false,
+    "genericImporterAllowed": false,
+    "transactionRequired": true,
+    "exactDryRunPlanRequired": true,
+    "verifiedBackupAndRestoreReceiptRequired": true,
+    "controlledMutationAuditRequired": true
+  },
+  "targets": [
+    {
+      "targetId": "registration.fi-etmv-annual-2025",
+      "preRegistrationCandidateKey": "candidate:source.fi.etmv.annual-report-2025",
+      "document": {
+        "id": "official-fi-etmv-annual-2025",
+        "slug": "official-fi-etmv-annual-2025",
+        "filePath": "research/evidence-pack/nordisk/etmv-toimintakertomus-2025.pdf",
+        "title": "Elintarvikemarkkinavaltuutetun toimintakertomus 2025",
+        "author": "Elintarvikemarkkinavaltuutettu / Finnish Food Market Ombudsman",
+        "year": 2025,
+        "documentType": "official_annual_report",
+        "category": "bibliotek",
+        "country": "FI",
+        "tags": ["finland", "food-market-ombudsman", "official-source", "utp"]
+      },
+      "source": {
+        "officialUrl": "https://www.ruokavirasto.fi/globalassets/etmv/etmv_toimintakertomus_2025.pdf",
+        "doi": null,
+        "publicationDateStatement": "2025 reporting year; exact publication date not yet identity-verified",
+        "languageCodes": ["fi"],
+        "rawContentSha256": "7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142",
+        "rawContentSizeBytes": 836553,
+        "pageCount": 18,
+        "acquisitionReceiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/fi-etmv-annual-2025.official.20260802.v1.json"
+      }
+    },
+    {
+      "targetId": "registration.dk-kfst-utp-enforcement-2025",
+      "preRegistrationCandidateKey": "candidate:source.dk.kfst.utp-enforcement-2025",
+      "document": {
+        "id": "official-dk-kfst-utp-enforcement-2025",
+        "slug": "official-dk-kfst-utp-enforcement-2025",
+        "filePath": "research/evidence-pack/nordisk/kfst-utp-haandhaevelse-2025.pdf",
+        "title": "Fødevarehandelsloven — Årlig rapport om håndhævelsesaktiviteter i 2025",
+        "author": "Konkurrence- og Forbrugerstyrelsen",
+        "year": 2026,
+        "documentType": "official_enforcement_report",
+        "category": "bibliotek",
+        "country": "DK",
+        "tags": ["denmark", "enforcement", "official-source", "utp"]
+      },
+      "source": {
+        "officialUrl": "https://kfst.dk/media/tugboea2/20260629-aarlig-rapport-om-haandhaevelsesaktiviteter-i-henhold-til-utp-direktivet-i-2025-a.pdf",
+        "doi": null,
+        "publicationDateStatement": "June 2026",
+        "languageCodes": ["da"],
+        "rawContentSha256": "2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad",
+        "rawContentSizeBytes": 173750,
+        "pageCount": 8,
+        "acquisitionReceiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/dk-kfst-utp-enforcement-2025.official.20260802.v1.json"
+      }
+    },
+    {
+      "targetId": "registration.no-dagligvaretilsyn-annual-2025",
+      "preRegistrationCandidateKey": "candidate:source.no.dagligvaretilsyn.annual-report-2025",
+      "document": {
+        "id": "official-no-dagligvaretilsyn-annual-2025",
+        "slug": "official-no-dagligvaretilsyn-annual-2025",
+        "filePath": "research/evidence-pack/nordisk/dagligvaretilsynet-aarsrapport-2025.pdf",
+        "title": "Årsrapport for Dagligvaretilsynet 2025",
+        "author": "Dagligvaretilsynet",
+        "year": 2025,
+        "documentType": "official_annual_report",
+        "category": "bibliotek",
+        "country": "NO",
+        "tags": ["grocery-market", "norway", "official-source", "regulation"]
+      },
+      "source": {
+        "officialUrl": "https://www.regjeringen.no/contentassets/036ffda0c81e4b3f99456a78ec31df0e/arsrapport-dagligvaretilsynet-2025.pdf",
+        "doi": null,
+        "publicationDateStatement": "2025 reporting year; exact publication date not yet identity-verified",
+        "languageCodes": ["nb"],
+        "rawContentSha256": "1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8",
+        "rawContentSizeBytes": 1247932,
+        "pageCount": 55,
+        "acquisitionReceiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/no-dagligvaretilsyn-annual-2025.official.20260802.v1.json"
+      }
+    },
+    {
+      "targetId": "registration.is-grocery-prices-2026-1",
+      "preRegistrationCandidateKey": "candidate:source.is.competition-authority.grocery-prices-2026-1",
+      "document": {
+        "id": "official-is-grocery-prices-2026-1",
+        "slug": "official-is-grocery-prices-2026-1",
+        "filePath": "research/evidence-pack/nordisk/island-dagvoruverd-2026-1.pdf",
+        "title": "Dagvöruverð á Íslandi — Þróun og alþjóðlegur samanburður, umræðuskjal nr. 1/2026",
+        "author": "Samkeppniseftirlitið",
+        "year": 2026,
+        "documentType": "official_discussion_paper",
+        "category": "bibliotek",
+        "country": "IS",
+        "tags": ["competition", "food-prices", "iceland", "official-source"]
+      },
+      "source": {
+        "officialUrl": "https://www.samkeppni.is/wp-content/uploads/2026/06/Samkeppniseftirlitid-Dagvoruverd-og-samanburdur-vid-utlond.pdf",
+        "doi": null,
+        "publicationDateStatement": "2026; exact publication date not yet identity-verified",
+        "languageCodes": ["is"],
+        "rawContentSha256": "528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025",
+        "rawContentSizeBytes": 3494455,
+        "pageCount": 16,
+        "acquisitionReceiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/is-grocery-prices-2026-1.official.20260802.v1.json"
+      }
+    },
+    {
+      "targetId": "registration.is-grocery-prices-2026-1-method",
+      "preRegistrationCandidateKey": "candidate:source.is.competition-authority.grocery-prices-2026-1-method",
+      "document": {
+        "id": "official-is-grocery-prices-2026-1-method",
+        "slug": "official-is-grocery-prices-2026-1-method",
+        "filePath": "research/evidence-pack/nordisk/island-dagvoruverd-2026-1-metode.pdf",
+        "title": "Minnisblað um gögn og aðferðafræði umræðuskjals nr. 1/2026 — Dagvöruverð og samanburður við útlönd",
+        "author": "Samkeppniseftirlitið",
+        "year": 2026,
+        "documentType": "official_method_note",
+        "category": "bibliotek",
+        "country": "IS",
+        "tags": ["food-prices", "iceland", "methodology", "official-source"]
+      },
+      "source": {
+        "officialUrl": "https://www.samkeppni.is/wp-content/uploads/2026/06/Minnisblad-um-gogn-og-adferdafraedi-umraeduskjals-nr.-1-2026-1.pdf",
+        "doi": null,
+        "publicationDateStatement": "2026; exact publication date not stated in the document",
+        "languageCodes": ["is"],
+        "rawContentSha256": "4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148",
+        "rawContentSizeBytes": 78520,
+        "pageCount": 2,
+        "acquisitionReceiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/is-grocery-prices-2026-1-method.official.20260802.v1.json"
+      }
+    },
+    {
+      "targetId": "registration.eu-utp-evaluation-support-study-2025",
+      "preRegistrationCandidateKey": "candidate:source.eu.utp-evaluation-support-study-2025",
+      "document": {
+        "id": "official-eu-utp-evaluation-support-2025",
+        "slug": "official-eu-utp-evaluation-support-2025",
+        "filePath": "research/evidence-pack/nordisk/eu-utp-evaluation-support-study-2025.pdf",
+        "title": "Evaluation support study of the EU Directive 2019/633 on unfair trading practices in business-to-business relationships in the agricultural and food supply chain — Final Report",
+        "author": "Areté s.r.l., Agra CEAS Consulting S.A. and Wageningen University & Research",
+        "year": 2025,
+        "documentType": "official_evaluation_study",
+        "category": "bibliotek",
+        "country": "EU",
+        "tags": [
+          "eu",
+          "evaluation",
+          "food-supply-chain",
+          "official-source",
+          "utp"
+        ]
+      },
+      "source": {
+        "officialUrl": "https://op.europa.eu/o/opportal-service/download-handler?format=pdf&identifier=e1044a53-cc06-11f0-8da2-01aa75ed71a1&language=en&productionSystem=cellar",
+        "doi": "10.2762/2191333",
+        "publicationDateStatement": "March 2025",
+        "languageCodes": ["en"],
+        "rawContentSha256": "c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7",
+        "rawContentSizeBytes": 3409774,
+        "pageCount": 150,
+        "acquisitionReceiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/eu-utp-evaluation-support-study-2025.official.20260802.v1.json"
+      }
+    },
+    {
+      "targetId": "registration.eu-com-2025-728",
+      "preRegistrationCandidateKey": "candidate:source.eu.com-2025-728",
+      "document": {
+        "id": "official-eu-com-2025-728",
+        "slug": "official-eu-com-2025-728",
+        "filePath": "research/evidence-pack/nordisk/eu-com-2025-728-utp-evaluation.pdf",
+        "title": "Evaluation of the Unfair Trading Practices Directive — COM(2025) 728 final",
+        "author": "European Commission",
+        "year": 2025,
+        "documentType": "official_policy_evaluation",
+        "category": "bibliotek",
+        "country": "EU",
+        "tags": [
+          "eu",
+          "evaluation",
+          "food-supply-chain",
+          "official-source",
+          "utp"
+        ]
+      },
+      "source": {
+        "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025DC0728",
+        "doi": null,
+        "publicationDateStatement": "1 December 2025",
+        "languageCodes": ["en"],
+        "rawContentSha256": "8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42",
+        "rawContentSizeBytes": 264162,
+        "pageCount": 11,
+        "acquisitionReceiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/eu-com-2025-728.official.20260802.v1.json"
+      }
+    },
+    {
+      "targetId": "registration.eu-swd-2025-405",
+      "preRegistrationCandidateKey": "candidate:source.eu.swd-2025-405",
+      "document": {
+        "id": "official-eu-swd-2025-405",
+        "slug": "official-eu-swd-2025-405",
+        "filePath": "research/evidence-pack/nordisk/eu-swd-2025-405-utp-evaluation.pdf",
+        "title": "Evaluation of Directive (EU) 2019/633 on unfair trading practices — SWD(2025) 405 final",
+        "author": "European Commission",
+        "year": 2025,
+        "documentType": "official_staff_working_document",
+        "category": "bibliotek",
+        "country": "EU",
+        "tags": [
+          "eu",
+          "evaluation",
+          "food-supply-chain",
+          "official-source",
+          "utp"
+        ]
+      },
+      "source": {
+        "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025SC0405",
+        "doi": null,
+        "publicationDateStatement": "1 December 2025",
+        "languageCodes": ["en"],
+        "rawContentSha256": "f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303",
+        "rawContentSizeBytes": 2317481,
+        "pageCount": 131,
+        "acquisitionReceiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/eu-swd-2025-405.official.20260802.v1.json"
+      }
+    },
+    {
+      "targetId": "registration.se-competition-supervision-2026-3",
+      "preRegistrationCandidateKey": "candidate:source.se.competition-authority.supervision-report-2026-3",
+      "document": {
+        "id": "official-se-competition-supervision-2026-3",
+        "slug": "official-se-competition-supervision-2026-3",
+        "filePath": "research/evidence-pack/nordisk/konkurrensverket-tillsyn-2025-rapport-2026-3.pdf",
+        "title": "Konkurrensverkets tillsynsverksamhet 2025 — Rapport 2026:3",
+        "author": "Konkurrensverket",
+        "year": 2026,
+        "documentType": "official_supervision_report",
+        "category": "bibliotek",
+        "country": "SE",
+        "tags": ["competition", "enforcement", "official-source", "sweden"]
+      },
+      "source": {
+        "officialUrl": "https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2026-3.pdf",
+        "doi": null,
+        "publicationDateStatement": "March 2026",
+        "languageCodes": ["sv"],
+        "rawContentSha256": "9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e",
+        "rawContentSizeBytes": 1454264,
+        "pageCount": 148,
+        "acquisitionReceiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/se-competition-supervision-2026-3.official.20260802.v1.json"
+      }
+    },
+    {
+      "targetId": "registration.se-gronsakshuset-judgment-20479-24",
+      "preRegistrationCandidateKey": "candidate:source.se.court.gronsakshuset-20479-24",
+      "document": {
+        "id": "official-se-gronsakshuset-judgment-20479-24",
+        "slug": "official-se-gronsakshuset-judgment-20479-24",
+        "filePath": "research/evidence-pack/nordisk/gronsakshuset-dom-20479-24.pdf",
+        "title": "Förvaltningsrätten i Stockholm, mål nr 20479-24 — Grönsakshuset",
+        "author": "Förvaltningsrätten i Stockholm",
+        "year": 2026,
+        "documentType": "official_court_judgment",
+        "category": "bibliotek",
+        "country": "SE",
+        "tags": ["court-judgment", "official-source", "sweden", "utp"]
+      },
+      "source": {
+        "officialUrl": "https://www.konkurrensverket.se/globalassets/dokument/otillborliga-handelsmetoder/domar/dom_forvr-stockholm-mal-nr-20479-24_gronsakshuset.pdf",
+        "doi": null,
+        "publicationDateStatement": "20 April 2026",
+        "languageCodes": ["sv"],
+        "rawContentSha256": "1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0",
+        "rawContentSizeBytes": 463871,
+        "pageCount": 19,
+        "acquisitionReceiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/se-gronsakshuset-judgment-20479-24.official.20260802.v1.json"
+      }
+    }
+  ]
+}

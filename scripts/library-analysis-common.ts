@@ -3,7 +3,7 @@ import { spawnSync } from 'node:child_process'
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { join, relative } from 'node:path'
 import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from '../src/generated/prisma/client'
+import { Prisma, PrismaClient } from '../src/generated/prisma/client'
 import { candidateLocalFilePaths } from '../src/lib/local-file-locator'
 import {
   buildLibraryAnalysisInventory,
@@ -45,91 +45,106 @@ export async function loadLibraryAnalysisInventory(options?: {
 
   const prisma = createLibraryAnalysisPrismaClient()
   try {
-    const [documents, sourceDocs, reports, theses] = await Promise.all([
-      prisma.document.findMany({
-        select: {
-          id: true,
-          slug: true,
-          title: true,
-          filePath: true,
-          url: true,
-          archivedUrl: true,
-          content: true,
-          summary: true,
-          wordCount: true,
-          metadata: true,
-          sourceDoc: {
-            select: {
-              id: true,
-              url: true,
-              doi: true,
-              archivedUrl: true,
-            },
-          },
-          report: { select: { id: true } },
-          thesis: { select: { id: true } },
-          sourceCitations: {
-            select: {
-              citationReadiness: true,
-              url: true,
-            },
-          },
-        },
-      }),
-      prisma.sourceDoc.findMany({
-        select: {
-          id: true,
-          filename: true,
-          title: true,
-          description: true,
-          documentId: true,
-        },
-      }),
-      prisma.report.findMany({
-        select: {
-          id: true,
-          title: true,
-          documentId: true,
-          keyFindings: true,
-          relevance: true,
-        },
-      }),
-      prisma.thesis.findMany({
-        select: {
-          id: true,
-          title: true,
-          documentId: true,
-          synthesis: true,
-          keyFindings: true,
-        },
-      }),
-    ])
-
-    return buildLibraryAnalysisInventory({
-      documents: documents.map(document => ({
-        ...document,
-        hasLocalFile: localFileExists(document.filePath),
-      })),
-      sourceDocs,
-      reports,
-      theses,
-      libraryFiles,
-    })
+    return loadLibraryAnalysisInventoryFromClient(prisma, libraryFiles)
   } finally {
     await prisma.$disconnect()
   }
+}
+
+export async function loadLibraryAnalysisInventoryFromClient(
+  prisma: Prisma.TransactionClient,
+  libraryFiles: LibraryInventoryFile[] = readResearchLibraryFiles(),
+): Promise<LibraryAnalysisInventoryRow[]> {
+  const [documents, sourceDocs, reports, theses] = await Promise.all([
+    prisma.document.findMany({
+      select: {
+        id: true,
+        slug: true,
+        title: true,
+        filePath: true,
+        url: true,
+        archivedUrl: true,
+        content: true,
+        summary: true,
+        wordCount: true,
+        metadata: true,
+        sourceDoc: {
+          select: {
+            id: true,
+            url: true,
+            doi: true,
+            archivedUrl: true,
+          },
+        },
+        report: { select: { id: true } },
+        thesis: { select: { id: true } },
+        sourceCitations: {
+          select: {
+            id: true,
+            sourceClass: true,
+            citationReadiness: true,
+            verificationStatus: true,
+            url: true,
+            archivedUrl: true,
+            accessedAt: true,
+          },
+        },
+      },
+    }),
+    prisma.sourceDoc.findMany({
+      select: {
+        id: true,
+        filename: true,
+        title: true,
+        description: true,
+        documentId: true,
+      },
+    }),
+    prisma.report.findMany({
+      select: {
+        id: true,
+        title: true,
+        documentId: true,
+        keyFindings: true,
+        relevance: true,
+      },
+    }),
+    prisma.thesis.findMany({
+      select: {
+        id: true,
+        title: true,
+        documentId: true,
+        synthesis: true,
+        keyFindings: true,
+      },
+    }),
+  ])
+
+  return buildLibraryAnalysisInventory({
+    documents: documents.map(document => ({
+      ...document,
+      hasLocalFile: localFileExists(document.filePath),
+    })),
+    sourceDocs,
+    reports,
+    theses,
+    libraryFiles,
+  })
 }
 
 function localFileExists(path: string | null | undefined): boolean {
   return candidateLocalFilePaths(path).some(candidate => existsSync(candidate))
 }
 
-export function writeLibraryAnalysisArtifacts(rows: LibraryAnalysisInventoryRow[]) {
+export function writeLibraryAnalysisArtifacts(
+  rows: LibraryAnalysisInventoryRow[],
+  options: { staleRetainedCount?: number } = {},
+) {
   const ledgerPath = join(process.cwd(), LIBRARY_ANALYSIS_LEDGER_PATH)
   const summaryPath = join(process.cwd(), LIBRARY_ANALYSIS_SUMMARY_PATH)
   mkdirSync(join(process.cwd(), 'research/_status'), { recursive: true })
   writeFileSync(ledgerPath, formatLibraryAnalysisLedgerJsonl(rows), 'utf8')
-  writeFileSync(summaryPath, formatLibraryAnalysisSummaryMarkdown(rows), 'utf8')
+  writeFileSync(summaryPath, formatLibraryAnalysisSummaryMarkdown(rows, options), 'utf8')
   return { ledgerPath, summaryPath }
 }
 

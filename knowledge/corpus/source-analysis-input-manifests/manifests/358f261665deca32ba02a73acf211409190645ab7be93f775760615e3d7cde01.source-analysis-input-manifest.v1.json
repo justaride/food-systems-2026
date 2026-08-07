@@ -1,0 +1,331 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactType": "source_analysis_input_manifest",
+  "pipelineVersion": "1.0.0",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01"
+  },
+  "identityKeys": [
+    "document:cmppajyve0013njvmw7zok4yr"
+  ],
+  "identityAssociation": {
+    "state": "blocked_legacy_alias_scope_mismatch",
+    "intendedLabel": "Nordic Food Alert 2025",
+    "observedDocumentTitle": "Beyond Zero — Nordic Architecture on the Road Towards Renewed Practices (Nord 2025:010)",
+    "blockerCode": "legacy_alias_scope_mismatch"
+  },
+  "sourceBinding": {
+    "title": "Beyond Zero — Nordic Architecture on the Road Towards Renewed Practices (Nord 2025:010)",
+    "doi": "10.6027/nord2025-010",
+    "officialUrl": "https://pub.norden.org/nord2025-010/nord2025-010.pdf",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_disposition_likely_out_of_scope"
+  },
+  "workflowEligibility": {
+    "state": "blocked_identity_association",
+    "identityVerification": {
+      "allowed": false,
+      "blockerCode": "legacy_alias_scope_mismatch"
+    },
+    "sourceAnalysis": {
+      "allowed": false,
+      "blockerCode": "identity_association_blocked"
+    }
+  },
+  "bindings": {
+    "pageMap": {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01.page-map.v1.json",
+      "fileSha256": "47fa6a28b68f409d0dc95acef3ef5ebed1801aa009e7d89bda5312508c5dd4be",
+      "pageMapSha256": "b27229499adeb1e51e906b0738850aca89ddc5fd69e3481a1aa58ee1a225d0a7"
+    },
+    "extractionReceipt": {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01.receipt.v1.json",
+      "fileSha256": "e0173edec981878df0fa111ad08f0b7f32ba412133df1bccc41c8f64b03b2217",
+      "receiptSha256": "d90659e15e87c4d9ac92e74d51a3da199f1bf2f5d3b5f1a6a927db32fbc0205b"
+    }
+  },
+  "serialization": {
+    "id": "normalized-page-bytes-framed-v1",
+    "charset": "utf-8",
+    "pageOrder": "ascending_page_number",
+    "pageSequence": "contiguous_from_1",
+    "preambleUtf8": "food-systems/source-analysis-normalized-input/v1\n",
+    "pageDelimiterUtf8": "\n--food-systems-normalized-page-v1--\n",
+    "pageHeaderEncoding": "canonical_json_utf8",
+    "pageHeaderFields": [
+      "normalizedSha256",
+      "pageNumber",
+      "sizeBytes"
+    ],
+    "pageHeaderTerminatorHex": "0a",
+    "pagePayload": "exact_normalized_utf8_file_bytes",
+    "pagePayloadBoundary": "sizeBytes_from_page_header",
+    "trailerDelimiterUtf8": "\n--food-systems-normalized-input-end-v1--\n",
+    "trailerEncoding": "canonical_json_utf8",
+    "trailerFields": [
+      "pageCount"
+    ],
+    "trailerTerminatorHex": "0a"
+  },
+  "normalizedInput": {
+    "algorithm": "sha256",
+    "sha256": "7da71b2dde8d2e24c37b0b2691657ae12b9bfbcb9f70aeecb9e6bccc2ed9ad3a",
+    "serializedSizeBytes": 29056
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "normalizedText": {
+        "sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+        "sizeBytes": 2,
+        "characterCount": 2,
+        "wordCount": 1
+      }
+    },
+    {
+      "pageNumber": 2,
+      "normalizedText": {
+        "sha256": "a1b083f7026014453b5d30b3aaaff13b50851111de329f20bfcdc984e5b229f7",
+        "sizeBytes": 779,
+        "characterCount": 773,
+        "wordCount": 123
+      }
+    },
+    {
+      "pageNumber": 3,
+      "normalizedText": {
+        "sha256": "8b261f81f1b681f5f5704d215b7eb6a2ef6891c7903867004748cb7dcd7b2163",
+        "sizeBytes": 1147,
+        "characterCount": 1138,
+        "wordCount": 169
+      }
+    },
+    {
+      "pageNumber": 4,
+      "normalizedText": {
+        "sha256": "a52589a8fe99398ed07ccdc88546ee34e90133a2c74e88f020f358b306553290",
+        "sizeBytes": 1590,
+        "characterCount": 1571,
+        "wordCount": 234
+      }
+    },
+    {
+      "pageNumber": 5,
+      "normalizedText": {
+        "sha256": "0831b462ef0a4d81dd3a75d01349e50434a9f0a3e4f5de353bf5cd836b46bfa2",
+        "sizeBytes": 530,
+        "characterCount": 530,
+        "wordCount": 77
+      }
+    },
+    {
+      "pageNumber": 6,
+      "normalizedText": {
+        "sha256": "27427e9ff975144e4e5da76e90d9e313783541f13b9f9668d750c8298aa42df1",
+        "sizeBytes": 1494,
+        "characterCount": 1486,
+        "wordCount": 226
+      }
+    },
+    {
+      "pageNumber": 7,
+      "normalizedText": {
+        "sha256": "126584cfe286a4c2d2d3a058e5be9d19f72fedf2720071c8d42b6f3b4e7fe89d",
+        "sizeBytes": 2185,
+        "characterCount": 2169,
+        "wordCount": 323
+      }
+    },
+    {
+      "pageNumber": 8,
+      "normalizedText": {
+        "sha256": "543f2ebc16a9a763285e1e378f592f4f389f1882d68d02e56ee035d53f5929af",
+        "sizeBytes": 2214,
+        "characterCount": 2204,
+        "wordCount": 351
+      }
+    },
+    {
+      "pageNumber": 9,
+      "normalizedText": {
+        "sha256": "f7f53e846591af54ea702f447c3e3dcaaff22a0cd9ca84e9aa6d65b0fd52a30c",
+        "sizeBytes": 1671,
+        "characterCount": 1655,
+        "wordCount": 249
+      }
+    },
+    {
+      "pageNumber": 10,
+      "normalizedText": {
+        "sha256": "23272bc3b5f1382c684dd83590568137099c5c31b63dfdf20e3c6d22dd0da791",
+        "sizeBytes": 1565,
+        "characterCount": 1561,
+        "wordCount": 240
+      }
+    },
+    {
+      "pageNumber": 11,
+      "normalizedText": {
+        "sha256": "1e4550e31f6321c00e44c5c72869f65903686169dc8df3d5f4a97b169615f88f",
+        "sizeBytes": 860,
+        "characterCount": 860,
+        "wordCount": 141
+      }
+    },
+    {
+      "pageNumber": 12,
+      "normalizedText": {
+        "sha256": "f7d28f6aaad4c7e5ce24617f869eeb33b90d84228a5ea5b00d6a1c2f6710fb4d",
+        "sizeBytes": 1210,
+        "characterCount": 1206,
+        "wordCount": 181
+      }
+    },
+    {
+      "pageNumber": 13,
+      "normalizedText": {
+        "sha256": "701a8b3e2383d44fb9971b34cf200eade9af78cfb3b1e55a64b04d167c629c0f",
+        "sizeBytes": 386,
+        "characterCount": 383,
+        "wordCount": 58
+      }
+    },
+    {
+      "pageNumber": 14,
+      "normalizedText": {
+        "sha256": "f048251184c2a78e946133c217cdc553a005ddcca9874ad899d259db32a358da",
+        "sizeBytes": 321,
+        "characterCount": 321,
+        "wordCount": 50
+      }
+    },
+    {
+      "pageNumber": 15,
+      "normalizedText": {
+        "sha256": "950b00feb56756f85fd39061e738bfa79c343f977811961b20e94080f304ee7a",
+        "sizeBytes": 462,
+        "characterCount": 456,
+        "wordCount": 76
+      }
+    },
+    {
+      "pageNumber": 16,
+      "normalizedText": {
+        "sha256": "b0fca234a1d4182721742f042023edee43e040c4deaed6dee966e940ac331bce",
+        "sizeBytes": 410,
+        "characterCount": 406,
+        "wordCount": 61
+      }
+    },
+    {
+      "pageNumber": 17,
+      "normalizedText": {
+        "sha256": "aa10634d71e208c525341aa6784035082087407df9794fcd25bd06251d48afdf",
+        "sizeBytes": 401,
+        "characterCount": 397,
+        "wordCount": 57
+      }
+    },
+    {
+      "pageNumber": 18,
+      "normalizedText": {
+        "sha256": "392faf2d3423fbf54bedf5d729b60019ffc3f3a524df9457faedecac93fe4539",
+        "sizeBytes": 368,
+        "characterCount": 360,
+        "wordCount": 48
+      }
+    },
+    {
+      "pageNumber": 19,
+      "normalizedText": {
+        "sha256": "2feae9235a7640bb8a2a0dcead715c1423685ae6e4d3200dbe075a1466aca2e2",
+        "sizeBytes": 440,
+        "characterCount": 438,
+        "wordCount": 66
+      }
+    },
+    {
+      "pageNumber": 20,
+      "normalizedText": {
+        "sha256": "6c3eee190c6a32b8ee907ee750bb20dd5dbca9f3fe2fb6f48d2ee0f461e4138d",
+        "sizeBytes": 2211,
+        "characterCount": 2167,
+        "wordCount": 286
+      }
+    },
+    {
+      "pageNumber": 21,
+      "normalizedText": {
+        "sha256": "eb4180c0f7251fff97375e8a11e17a0b4f7f9ad060b118e1703b25f336a87071",
+        "sizeBytes": 1047,
+        "characterCount": 1020,
+        "wordCount": 135
+      }
+    },
+    {
+      "pageNumber": 22,
+      "normalizedText": {
+        "sha256": "d46e33cbaa55b527458fe7785967f30a3b8148f7c09d0297e1204c55341da25c",
+        "sizeBytes": 2300,
+        "characterCount": 2272,
+        "wordCount": 294
+      }
+    },
+    {
+      "pageNumber": 23,
+      "normalizedText": {
+        "sha256": "076320a2a08267b4c026d06573bba408ea68841e73cdc20e62cce59de165ece3",
+        "sizeBytes": 3,
+        "characterCount": 3,
+        "wordCount": 1
+      }
+    },
+    {
+      "pageNumber": 24,
+      "normalizedText": {
+        "sha256": "c35bc5e0a600dcdc166a0ab938624452297c318176aeddfa0a717057aadd1000",
+        "sizeBytes": 1585,
+        "characterCount": 1572,
+        "wordCount": 219
+      }
+    }
+  ],
+  "totals": {
+    "pageCount": 24,
+    "normalizedSizeBytes": 25181,
+    "normalizedCharacterCount": 24950,
+    "wordCount": 3666
+  },
+  "privateStorage": {
+    "normalizedPageRelativePathTemplate": "pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt",
+    "rawPdfRelativePathTemplate": "sha256/{rawPdfSha256}.pdf",
+    "expectedFileMode": "0400",
+    "copies": [
+      {
+        "copyId": "primary",
+        "rootEnvironmentVariable": "FOOD_SYSTEMS_PRIVATE_CORPUS_ROOT",
+        "rawPdfLocatorTemplate": "private://corpus/sha256/{rawPdfSha256}.pdf",
+        "normalizedPageLocatorTemplate": "private://corpus/pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+      },
+      {
+        "copyId": "replica",
+        "rootEnvironmentVariable": "FOOD_SYSTEMS_PRIVATE_CORPUS_REPLICA_ROOT",
+        "rawPdfLocatorTemplate": "private://bigbrain-corpus/sha256/{rawPdfSha256}.pdf",
+        "normalizedPageLocatorTemplate": "private://bigbrain-corpus/pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+      }
+    ]
+  },
+  "textIncludedInTrackedArtifact": false,
+  "readiness": {
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentExpertReviewComplete": false,
+    "partnerReviewComplete": false,
+    "rightsHolderReviewComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "manifestSha256": "dff57c44c6aad54191f81b33ccdc2508eef024e7fd62ac4db7c539b119da3706"
+}

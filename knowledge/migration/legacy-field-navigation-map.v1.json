@@ -1,0 +1,149 @@
+{
+  "documentType": "legacy_field_navigation_map",
+  "schemaVersion": "1.0.0",
+  "mapId": "map.legacy_field_navigation.v1",
+  "status": "proposed",
+  "observedAt": "2026-07-28",
+  "semantics": {
+    "artifactRole": "navigation",
+    "coverageImplication": "none",
+    "subjectMatterState": "unassessed",
+    "geographyRepresentation": "unknown",
+    "evidenceUse": "not_evidence",
+    "coveragePromotionAllowed": false,
+    "crossProfileAggregationAllowed": false
+  },
+  "navigationContexts": [
+    {
+      "contextId": "navigation_context.legacy_field_index",
+      "role": "field_map_index",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart – kunnskapsbasen.md",
+      "locator": "De tretten kunnskapsfeltene"
+    },
+    {
+      "contextId": "navigation_context.legacy_field_atlas",
+      "role": "atlas_canvas",
+      "artifactPath": "Food Systems Obsidian/0 Kart/Matsystemets kunnskapsatlas.canvas",
+      "locator": "Canvas file nodes f01 through f13"
+    }
+  ],
+  "fields": [
+    {
+      "legacyFieldId": "legacy_field.f01",
+      "sequence": 1,
+      "labelNb": "Hele matsystemet – systemgrenser og sammenhenger",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/01 Hele matsystemet – systemgrenser og sammenhenger.md",
+      "artifactLocator": "# Hele matsystemet – systemgrenser og sammenhenger",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/01 Hele matsystemet – systemgrenser og sammenhenger",
+      "atlasNodeId": "f01"
+    },
+    {
+      "legacyFieldId": "legacy_field.f02",
+      "sequence": 2,
+      "labelNb": "Ressursgrunnlag og innsatsfaktorer",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/02 Ressursgrunnlag og innsatsfaktorer.md",
+      "artifactLocator": "# Ressursgrunnlag og innsatsfaktorer",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/02 Ressursgrunnlag og innsatsfaktorer",
+      "atlasNodeId": "f02"
+    },
+    {
+      "legacyFieldId": "legacy_field.f03",
+      "sequence": 3,
+      "labelNb": "Primærproduksjon og høsting",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/03 Primærproduksjon og høsting.md",
+      "artifactLocator": "# Primærproduksjon og høsting",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/03 Primærproduksjon og høsting",
+      "atlasNodeId": "f03"
+    },
+    {
+      "legacyFieldId": "legacy_field.f04",
+      "sequence": 4,
+      "labelNb": "Foredling og industri",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/04 Foredling og industri.md",
+      "artifactLocator": "# Foredling og industri",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/04 Foredling og industri",
+      "atlasNodeId": "f04"
+    },
+    {
+      "legacyFieldId": "legacy_field.f05",
+      "sequence": 5,
+      "labelNb": "Distribusjon, logistikk og lokale kjeder",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/05 Distribusjon, logistikk og lokale kjeder.md",
+      "artifactLocator": "# Distribusjon, logistikk og lokale kjeder",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/05 Distribusjon, logistikk og lokale kjeder",
+      "atlasNodeId": "f05"
+    },
+    {
+      "legacyFieldId": "legacy_field.f06",
+      "sequence": 6,
+      "labelNb": "Handel, servering, offentlige innkjøp og forbruk",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/06 Handel, servering, offentlige innkjøp og forbruk.md",
+      "artifactLocator": "# Handel, servering, offentlige innkjøp og forbruk",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/06 Handel, servering, offentlige innkjøp og forbruk",
+      "atlasNodeId": "f06"
+    },
+    {
+      "legacyFieldId": "legacy_field.f07",
+      "sequence": 7,
+      "labelNb": "Makt, eierskap, priser og konkurranse",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/07 Makt, eierskap, priser og konkurranse.md",
+      "artifactLocator": "# Makt, eierskap, priser og konkurranse",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/07 Makt, eierskap, priser og konkurranse",
+      "atlasNodeId": "f07"
+    },
+    {
+      "legacyFieldId": "legacy_field.f08",
+      "sequence": 8,
+      "labelNb": "Sirkularitet, matsvinn, sidestrømmer og N-P-K",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/08 Sirkularitet, matsvinn, sidestrømmer og N-P-K.md",
+      "artifactLocator": "# Sirkularitet, matsvinn, sidestrømmer og N-P-K",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/08 Sirkularitet, matsvinn, sidestrømmer og N-P-K",
+      "atlasNodeId": "f08"
+    },
+    {
+      "legacyFieldId": "legacy_field.f09",
+      "sequence": 9,
+      "labelNb": "Import, selvforsyning, matsikkerhet og beredskap",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/09 Import, selvforsyning, matsikkerhet og beredskap.md",
+      "artifactLocator": "# Import, selvforsyning, matsikkerhet og beredskap",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/09 Import, selvforsyning, matsikkerhet og beredskap",
+      "atlasNodeId": "f09"
+    },
+    {
+      "legacyFieldId": "legacy_field.f10",
+      "sequence": 10,
+      "labelNb": "Jord, naturmangfold, klima, helse og tilstrekkelighet",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/10 Jord, naturmangfold, klima, helse og tilstrekkelighet.md",
+      "artifactLocator": "# Jord, naturmangfold, klima, helse og tilstrekkelighet",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/10 Jord, naturmangfold, klima, helse og tilstrekkelighet",
+      "atlasNodeId": "f10"
+    },
+    {
+      "legacyFieldId": "legacy_field.f11",
+      "sequence": 11,
+      "labelNb": "Innovasjon, alternative proteiner og pilotering",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/11 Innovasjon, alternative proteiner og pilotering.md",
+      "artifactLocator": "# Innovasjon, alternative proteiner og pilotering",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/11 Innovasjon, alternative proteiner og pilotering",
+      "atlasNodeId": "f11"
+    },
+    {
+      "legacyFieldId": "legacy_field.f12",
+      "sequence": 12,
+      "labelNb": "Norden, politikk, institusjoner og styring",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/12 Norden, politikk, institusjoner og styring.md",
+      "artifactLocator": "# Norden, politikk, institusjoner og styring",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/12 Norden, politikk, institusjoner og styring",
+      "atlasNodeId": "f12"
+    },
+    {
+      "legacyFieldId": "legacy_field.f13",
+      "sequence": 13,
+      "labelNb": "Metode, evidens, siterbarhet og kunnskapshull",
+      "artifactPath": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/13 Metode, evidens, siterbarhet og kunnskapshull.md",
+      "artifactLocator": "# Metode, evidens, siterbarhet og kunnskapshull",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/13 Metode, evidens, siterbarhet og kunnskapshull",
+      "atlasNodeId": "f13"
+    }
+  ]
+}

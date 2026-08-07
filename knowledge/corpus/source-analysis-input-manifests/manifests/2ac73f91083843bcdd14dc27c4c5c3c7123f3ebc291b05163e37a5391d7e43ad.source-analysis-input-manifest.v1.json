@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactType": "source_analysis_input_manifest",
+  "pipelineVersion": "1.0.0",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad"
+  },
+  "identityKeys": [
+    "candidate:source.dk.kfst.utp-enforcement-2025"
+  ],
+  "identityAssociation": {
+    "state": "unregistered_source_candidate",
+    "intendedLabel": "KFST UTP-håndhævelsesrapport 2025",
+    "observedDocumentTitle": "Fødevarehandelsloven — Årlig rapport om håndhævelsesaktiviteter i 2025",
+    "blockerCode": "database_registration_required"
+  },
+  "sourceBinding": {
+    "title": "Fødevarehandelsloven — Årlig rapport om håndhævelsesaktiviteter i 2025",
+    "doi": null,
+    "officialUrl": "https://kfst.dk/media/tugboea2/20260629-aarlig-rapport-om-haandhaevelsesaktiviteter-i-henhold-til-utp-direktivet-i-2025-a.pdf",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_classification"
+  },
+  "workflowEligibility": {
+    "state": "blocked_identity_association",
+    "identityVerification": {
+      "allowed": false,
+      "blockerCode": "database_registration_required"
+    },
+    "sourceAnalysis": {
+      "allowed": false,
+      "blockerCode": "identity_association_blocked"
+    }
+  },
+  "bindings": {
+    "pageMap": {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.page-map.v1.json",
+      "fileSha256": "fe8250bc22a83ab4118ca9cc301525479706250eef76440dddaaec743f5e237c",
+      "pageMapSha256": "f5955de7412a6f692a2c3cd41811e79b31cd1f770b7c25f7ca88b7c7a0986b19"
+    },
+    "extractionReceipt": {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.receipt.v1.json",
+      "fileSha256": "79c86c71f979960c7694df7394768c3ec7c57d4048ce56444d0e045c69d8f503",
+      "receiptSha256": "481b502f65d73e78999c1c0f94e06e7239e2ff91ec0ac8dd25ff61947b38dce8"
+    }
+  },
+  "serialization": {
+    "id": "normalized-page-bytes-framed-v1",
+    "charset": "utf-8",
+    "pageOrder": "ascending_page_number",
+    "pageSequence": "contiguous_from_1",
+    "preambleUtf8": "food-systems/source-analysis-normalized-input/v1\n",
+    "pageDelimiterUtf8": "\n--food-systems-normalized-page-v1--\n",
+    "pageHeaderEncoding": "canonical_json_utf8",
+    "pageHeaderFields": [
+      "normalizedSha256",
+      "pageNumber",
+      "sizeBytes"
+    ],
+    "pageHeaderTerminatorHex": "0a",
+    "pagePayload": "exact_normalized_utf8_file_bytes",
+    "pagePayloadBoundary": "sizeBytes_from_page_header",
+    "trailerDelimiterUtf8": "\n--food-systems-normalized-input-end-v1--\n",
+    "trailerEncoding": "canonical_json_utf8",
+    "trailerFields": [
+      "pageCount"
+    ],
+    "trailerTerminatorHex": "0a"
+  },
+  "normalizedInput": {
+    "algorithm": "sha256",
+    "sha256": "926212e50a22da4a7f8f2b5e6fbe51a1717fbb0490459ab5d4912f88bfd9fcdd",
+    "serializedSizeBytes": 12469
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "normalizedText": {
+        "sha256": "ca2a31b999edffb56caa30a3941912b972cb29117d0b8eade5f840d4c2337fb8",
+        "sizeBytes": 89,
+        "characterCount": 83,
+        "wordCount": 11
+      }
+    },
+    {
+      "pageNumber": 2,
+      "normalizedText": {
+        "sha256": "6435ec3f7a90c401033eaf00c5d0a713b58651aa0f181f8c77694b2da441c64d",
+        "sizeBytes": 305,
+        "characterCount": 300,
+        "wordCount": 39
+      }
+    },
+    {
+      "pageNumber": 3,
+      "normalizedText": {
+        "sha256": "cdffa392d0794fb873b8c87fec449b4f442fa3092a44c147c8490911a96635a9",
+        "sizeBytes": 1240,
+        "characterCount": 1231,
+        "wordCount": 67
+      }
+    },
+    {
+      "pageNumber": 4,
+      "normalizedText": {
+        "sha256": "2d32d7e2f7fdb2cc399936d025a2dccd30508a84b4ecb78fab90f21c27871687",
+        "sizeBytes": 1301,
+        "characterCount": 1262,
+        "wordCount": 174
+      }
+    },
+    {
+      "pageNumber": 5,
+      "normalizedText": {
+        "sha256": "f87c7cc1aec3e9de78574dd66b3d222c8a36c20b424b31c397e9caf9f4de1c01",
+        "sizeBytes": 1395,
+        "characterCount": 1342,
+        "wordCount": 186
+      }
+    },
+    {
+      "pageNumber": 6,
+      "normalizedText": {
+        "sha256": "9078c65f7fc219be88fb7ed618d4644c45c985f10187b8f91739d980925a8af4",
+        "sizeBytes": 2160,
+        "characterCount": 2094,
+        "wordCount": 283
+      }
+    },
+    {
+      "pageNumber": 7,
+      "normalizedText": {
+        "sha256": "cab20b266a5921654f4a0667a06e82ec05dcc625de6cb693bdbf41e6f4c78717",
+        "sizeBytes": 3317,
+        "characterCount": 3212,
+        "wordCount": 446
+      }
+    },
+    {
+      "pageNumber": 8,
+      "normalizedText": {
+        "sha256": "a0313dee1c7e97ccb12211fa1c194c31cf3de6f15d1331f10427bc9af2a53537",
+        "sizeBytes": 1302,
+        "characterCount": 1267,
+        "wordCount": 178
+      }
+    }
+  ],
+  "totals": {
+    "pageCount": 8,
+    "normalizedSizeBytes": 11109,
+    "normalizedCharacterCount": 10791,
+    "wordCount": 1384
+  },
+  "privateStorage": {
+    "normalizedPageRelativePathTemplate": "pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt",
+    "rawPdfRelativePathTemplate": "sha256/{rawPdfSha256}.pdf",
+    "expectedFileMode": "0400",
+    "copies": [
+      {
+        "copyId": "primary",
+        "rootEnvironmentVariable": "FOOD_SYSTEMS_PRIVATE_CORPUS_ROOT",
+        "rawPdfLocatorTemplate": "private://corpus/sha256/{rawPdfSha256}.pdf",
+        "normalizedPageLocatorTemplate": "private://corpus/pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+      },
+      {
+        "copyId": "replica",
+        "rootEnvironmentVariable": "FOOD_SYSTEMS_PRIVATE_CORPUS_REPLICA_ROOT",
+        "rawPdfLocatorTemplate": "private://bigbrain-corpus/sha256/{rawPdfSha256}.pdf",
+        "normalizedPageLocatorTemplate": "private://bigbrain-corpus/pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+      }
+    ]
+  },
+  "textIncludedInTrackedArtifact": false,
+  "readiness": {
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentExpertReviewComplete": false,
+    "partnerReviewComplete": false,
+    "rightsHolderReviewComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "manifestSha256": "0b56317cf720beffd8a9478d14b4d9e543406fcd478d8d5551ebec2ec945abc0"
+}

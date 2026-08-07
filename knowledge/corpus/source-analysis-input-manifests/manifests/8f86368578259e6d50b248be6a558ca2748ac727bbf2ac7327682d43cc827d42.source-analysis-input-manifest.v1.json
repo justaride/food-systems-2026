@@ -1,0 +1,214 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactType": "source_analysis_input_manifest",
+  "pipelineVersion": "1.0.0",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42"
+  },
+  "identityKeys": [
+    "candidate:source.eu.com-2025-728"
+  ],
+  "identityAssociation": {
+    "state": "unregistered_source_candidate",
+    "intendedLabel": "European Commission COM(2025) 728",
+    "observedDocumentTitle": "Evaluation of the Unfair Trading Practices Directive",
+    "blockerCode": "database_registration_required"
+  },
+  "sourceBinding": {
+    "title": "Evaluation of the Unfair Trading Practices Directive — COM(2025) 728 final",
+    "doi": null,
+    "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025DC0728",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_classification"
+  },
+  "workflowEligibility": {
+    "state": "blocked_identity_association",
+    "identityVerification": {
+      "allowed": false,
+      "blockerCode": "database_registration_required"
+    },
+    "sourceAnalysis": {
+      "allowed": false,
+      "blockerCode": "identity_association_blocked"
+    }
+  },
+  "bindings": {
+    "pageMap": {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42.page-map.v1.json",
+      "fileSha256": "45ac6191ed0e056513252241f835526b94964715080f2514c59812026b304844",
+      "pageMapSha256": "92a967d0e2ad7a8fa06e9b54998a27b2a686b1602de0cce44753c8fdee06a42b"
+    },
+    "extractionReceipt": {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42.receipt.v1.json",
+      "fileSha256": "d174cb5209ecf48400a147bdaa8b357686f220f0844c201fb77c22c101321512",
+      "receiptSha256": "6d53de09caeb039a6568f496af9d2b1a8cdf48d771476a8141eb3e8c81674719"
+    }
+  },
+  "serialization": {
+    "id": "normalized-page-bytes-framed-v1",
+    "charset": "utf-8",
+    "pageOrder": "ascending_page_number",
+    "pageSequence": "contiguous_from_1",
+    "preambleUtf8": "food-systems/source-analysis-normalized-input/v1\n",
+    "pageDelimiterUtf8": "\n--food-systems-normalized-page-v1--\n",
+    "pageHeaderEncoding": "canonical_json_utf8",
+    "pageHeaderFields": [
+      "normalizedSha256",
+      "pageNumber",
+      "sizeBytes"
+    ],
+    "pageHeaderTerminatorHex": "0a",
+    "pagePayload": "exact_normalized_utf8_file_bytes",
+    "pagePayloadBoundary": "sizeBytes_from_page_header",
+    "trailerDelimiterUtf8": "\n--food-systems-normalized-input-end-v1--\n",
+    "trailerEncoding": "canonical_json_utf8",
+    "trailerFields": [
+      "pageCount"
+    ],
+    "trailerTerminatorHex": "0a"
+  },
+  "normalizedInput": {
+    "algorithm": "sha256",
+    "sha256": "e556f17fa81dbcb4850c4731a376e8b3f927e60ac1fe058f643fff80a82646bb",
+    "serializedSizeBytes": 31591
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "normalizedText": {
+        "sha256": "a400e0df6aaa8136eb103731fd967892dfa9a3e52d02ff5ffc255ec8a0f67caf",
+        "sizeBytes": 289,
+        "characterCount": 289,
+        "wordCount": 45
+      }
+    },
+    {
+      "pageNumber": 2,
+      "normalizedText": {
+        "sha256": "b2dd963fe933ad2f34c57d3f60e942d8459e5e866abaf5bf4a475ce177f385e8",
+        "sizeBytes": 3298,
+        "characterCount": 3262,
+        "wordCount": 508
+      }
+    },
+    {
+      "pageNumber": 3,
+      "normalizedText": {
+        "sha256": "5a2441449c1965871da9c9948f3769965a2dbb72fb504c5ad30b2b2de8dd5a22",
+        "sizeBytes": 3406,
+        "characterCount": 3372,
+        "wordCount": 538
+      }
+    },
+    {
+      "pageNumber": 4,
+      "normalizedText": {
+        "sha256": "44061bf2b8bd54eddffb4af1fd154af3a98a8ab4d5f4d4c637210c76c37dd5dd",
+        "sizeBytes": 2990,
+        "characterCount": 2982,
+        "wordCount": 439
+      }
+    },
+    {
+      "pageNumber": 5,
+      "normalizedText": {
+        "sha256": "f2658d4146beac43ddf0962c5e25aaacc9c01514b0f872f929e21c5d18754383",
+        "sizeBytes": 3166,
+        "characterCount": 3156,
+        "wordCount": 478
+      }
+    },
+    {
+      "pageNumber": 6,
+      "normalizedText": {
+        "sha256": "a094ec4122141a1f1d242238ce989e5aab9c7ec7602834dea06462d0b4c2c182",
+        "sizeBytes": 2905,
+        "characterCount": 2895,
+        "wordCount": 435
+      }
+    },
+    {
+      "pageNumber": 7,
+      "normalizedText": {
+        "sha256": "285667b35c43ff3b4a7e3b15cb666b5a388ff60ed58f551ffa194179a8337451",
+        "sizeBytes": 3258,
+        "characterCount": 3254,
+        "wordCount": 487
+      }
+    },
+    {
+      "pageNumber": 8,
+      "normalizedText": {
+        "sha256": "564a528d718fe18adc684a8adb7a0b815a3c87f78f46508ca17ec16972d31f1e",
+        "sizeBytes": 3073,
+        "characterCount": 3065,
+        "wordCount": 465
+      }
+    },
+    {
+      "pageNumber": 9,
+      "normalizedText": {
+        "sha256": "f6d63f143672de6b09cedf2df66fae2317c8685e9228b1c5446799d33fd654e3",
+        "sizeBytes": 3394,
+        "characterCount": 3374,
+        "wordCount": 498
+      }
+    },
+    {
+      "pageNumber": 10,
+      "normalizedText": {
+        "sha256": "947b21bfd3aa4dcea66e190ca0b352cb0c2e60b0ed36f00dd483f2769651b3b1",
+        "sizeBytes": 2887,
+        "characterCount": 2883,
+        "wordCount": 419
+      }
+    },
+    {
+      "pageNumber": 11,
+      "normalizedText": {
+        "sha256": "5b7442488e19b927aef5ef10a3e04ad4281ea9c05b00df1453bff20c74a0f25c",
+        "sizeBytes": 1089,
+        "characterCount": 1085,
+        "wordCount": 171
+      }
+    }
+  ],
+  "totals": {
+    "pageCount": 11,
+    "normalizedSizeBytes": 29755,
+    "normalizedCharacterCount": 29617,
+    "wordCount": 4483
+  },
+  "privateStorage": {
+    "normalizedPageRelativePathTemplate": "pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt",
+    "rawPdfRelativePathTemplate": "sha256/{rawPdfSha256}.pdf",
+    "expectedFileMode": "0400",
+    "copies": [
+      {
+        "copyId": "primary",
+        "rootEnvironmentVariable": "FOOD_SYSTEMS_PRIVATE_CORPUS_ROOT",
+        "rawPdfLocatorTemplate": "private://corpus/sha256/{rawPdfSha256}.pdf",
+        "normalizedPageLocatorTemplate": "private://corpus/pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+      },
+      {
+        "copyId": "replica",
+        "rootEnvironmentVariable": "FOOD_SYSTEMS_PRIVATE_CORPUS_REPLICA_ROOT",
+        "rawPdfLocatorTemplate": "private://bigbrain-corpus/sha256/{rawPdfSha256}.pdf",
+        "normalizedPageLocatorTemplate": "private://bigbrain-corpus/pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+      }
+    ]
+  },
+  "textIncludedInTrackedArtifact": false,
+  "readiness": {
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentExpertReviewComplete": false,
+    "partnerReviewComplete": false,
+    "rightsHolderReviewComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "manifestSha256": "30723f3226969615c7de6bf372f019078d6f5a0886f360bfd97d0242bc1d5390"
+}

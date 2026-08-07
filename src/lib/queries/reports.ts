@@ -4,6 +4,10 @@ import {
   evaluateExternalCitationReadiness,
   type ExternalUseExclusionReason,
 } from '@/lib/citations/citable-record-filter'
+import {
+  applyReportProvenanceCitationCeiling,
+  reportProvenanceCitationCeiling,
+} from '@/lib/citations/report-provenance'
 import type { ReportProvenanceType, ReportSupportingSource } from '@/lib/types'
 import {
   buildExcerpt,
@@ -137,40 +141,50 @@ function buildFallbackCitation(
 }
 
 function buildReportCitations(source: ReportCitationSource): ReportCitation[] {
+  const provenanceCeiling = reportProvenanceCitationCeiling(source)
+  if (provenanceCeiling) {
+    const ceilingNote = source.provenanceType === 'blocked_source'
+      ? 'Blokkert eller utilstrekkelig kildegrunnlag.'
+      : source.provenanceType === 'composite_source'
+        ? 'Komposittpost er kun intern kontekst på radnivå; ingen claim-level autorisasjon er koblet til denne visningen.'
+        : 'Intern syntese/registerpost, ikke ekstern sitatkilde.'
+
+    if (source.sourceCitations && source.sourceCitations.length > 0) {
+      return source.sourceCitations.map(sourceCitation => {
+        const citation = mapSourceCitation(sourceCitation)
+        return {
+          ...citation,
+          citationReadiness: applyReportProvenanceCitationCeiling(
+            source,
+            citation.citationReadiness,
+          ),
+          note: ceilingNote,
+        }
+      })
+    }
+
+    if (
+      source.provenanceType === 'composite_source'
+      && source.supportingSources.length > 0
+    ) {
+      return source.supportingSources.map(supportingSource => ({
+        citationText: supportingSource.label,
+        title: supportingSource.label,
+        url: supportingSource.url ?? null,
+        localPath: supportingSource.documentPath ?? null,
+        citationReadiness: provenanceCeiling,
+        note: ceilingNote,
+      }))
+    }
+
+    return [buildFallbackCitation(source, provenanceCeiling, ceilingNote)]
+  }
+
   if (source.sourceCitations && source.sourceCitations.length > 0) {
     return source.sourceCitations.map(mapSourceCitation)
   }
 
   const hasDirectSource = Boolean(source.sourceUrl || source.documentFilePath || source.documentSlug)
-
-  if (source.provenanceType === 'blocked_source') {
-    return [buildFallbackCitation(source, 'blocked_unsourced', 'Blokkert eller utilstrekkelig kildegrunnlag.')]
-  }
-
-  if (source.provenanceType === 'internal_synthesis' || source.provenanceType === 'internal_register') {
-    return [buildFallbackCitation(source, 'internal_context', 'Intern syntese/registerpost, ikke ekstern sitatkilde.')]
-  }
-
-  if (source.provenanceType === 'composite_source') {
-    if (source.supportingSources.length > 0) {
-      return source.supportingSources.map((supportingSource) => ({
-        citationText: supportingSource.label,
-        title: supportingSource.label,
-        url: supportingSource.url ?? null,
-        localPath: supportingSource.documentPath ?? null,
-        citationReadiness: supportingSource.url || supportingSource.documentPath ? 'citable_with_note' : 'internal_context',
-        note: supportingSource.note ?? 'Komposittkilde; bruk med metode-/kildeforbehold.',
-      }))
-    }
-
-    return [
-      buildFallbackCitation(
-        source,
-        hasDirectSource ? 'citable_with_note' : 'internal_context',
-        hasDirectSource ? 'Komposittkilde; bruk med metode-/kildeforbehold.' : 'Komposittpost uten direkte kilde.',
-      ),
-    ]
-  }
 
   if (hasDirectSource) {
     return [
@@ -191,7 +205,11 @@ function withExternalUseEvaluation<T extends Omit<ReportRow, 'citations' | 'cita
   row: T,
   citations: ReportCitation[],
 ): ReportRow {
-  const evaluation = evaluateExternalCitationReadiness({ id: row.id, citations })
+  const evaluation = evaluateExternalCitationReadiness({
+    id: row.id,
+    provenanceType: row.provenanceType,
+    citations,
+  })
   const citationNote = citations.find((citation) => citation.note || citation.notes)?.note
     ?? citations.find((citation) => citation.note || citation.notes)?.notes
     ?? null
@@ -327,7 +345,7 @@ function buildRecommendations(summary: string | null, content: string) {
   return buildSentenceList(content, 2).filter((sentence) => /\b(anbefal|bør|should|recommend)\b/i.test(sentence))
 }
 
-function mapStructuredReport(report: Awaited<ReturnType<typeof prisma.report.findMany>>[number] & {
+export function mapStructuredReport(report: Awaited<ReturnType<typeof prisma.report.findMany>>[number] & {
   document: {
     slug: string
     url: string | null

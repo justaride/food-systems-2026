@@ -2,8 +2,10 @@ import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import {
   extractPptxSlideText,
+  loadLibraryAnalysisInventoryFromClient,
   shouldIncludeResearchLibraryFile,
 } from '../../scripts/library-analysis-common'
+import type { Prisma } from '../../src/generated/prisma/client'
 
 describe('library analysis common file loading', () => {
   it('excludes generated media scrape report logs from the source inventory', () => {
@@ -39,5 +41,27 @@ describe('library analysis common file loading', () => {
     ].join('\n'))
 
     assert.equal(text, 'Regional resurskartläggning RE:Source & industriell symbios')
+  })
+
+  it('can load all DB inventory inputs through one caller-owned transaction client', async () => {
+    const calls: string[] = []
+    const delegate = (name: string) => ({
+      findMany: async () => {
+        calls.push(name)
+        return []
+      },
+    })
+    const client = {
+      document: delegate('document'),
+      sourceDoc: delegate('sourceDoc'),
+      report: delegate('report'),
+      thesis: delegate('thesis'),
+    } as unknown as Prisma.TransactionClient
+
+    assert.deepEqual(
+      await loadLibraryAnalysisInventoryFromClient(client, []),
+      [],
+    )
+    assert.deepEqual(calls.sort(), ['document', 'report', 'sourceDoc', 'thesis'])
   })
 })

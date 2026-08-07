@@ -1,0 +1,1141 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-07-26",
+  "generator": "scripts/knowledge/generate-coverage-ledger.ts",
+  "generatorVersion": "1.1.0",
+  "baselineId": "baseline.nordic_knowledge_foundation.v1",
+  "baselineAdoptionStatus": "proposed",
+  "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+  "sourceSnapshotSetHash": "sha256:d6f625a1cc57dd1ea37f6382929a446963e785578b1e6afad2a84c7307dedff6",
+  "ontologyId": "fs26.nordic_food_system",
+  "taxonomyVersion": "1.0.0",
+  "profileCount": 4,
+  "semantics": {
+    "definedCell": "A unit required by a named scope profile; it is not proof that the subject has been researched.",
+    "explicitEvent": "A recorded baseline event, including scope-registration events that intentionally leave subject matter unassessed.",
+    "evidenceBackedAssessment": "An event with a stated method, typed evidence link and review receipt.",
+    "noCrossProfileAggregation": "Political-Nordic, Sápmi and legacy migration profiles are reported separately and must never be summed as a completeness score."
+  },
+  "byProfile": {
+    "profile.canonical_political_macro": {
+      "aggregationClass": "political_nordic",
+      "requiredReadinessProfile": "internal_analysis",
+      "definedCellCount": 6072,
+      "explicitEventCount": 0,
+      "evidenceBackedAssessmentEventCount": 0,
+      "cellsWithoutExplicitEventCount": 6072,
+      "completeForRequiredProfileCount": 0,
+      "currentStateCounts": {
+        "workflowStage": {
+          "unassessed": 6072
+        },
+        "scopeState": {
+          "draft": 6072
+        },
+        "inventoryState": {
+          "unknown": 6072
+        },
+        "knowledgeDepth": {
+          "unknown": 6072
+        },
+        "verificationStatus": {
+          "unverified": 6072
+        },
+        "citationReadiness": {
+          "not_assessed": 6072
+        },
+        "appraisalState": {
+          "none": 6072
+        },
+        "freshnessState": {
+          "unknown": 6072
+        },
+        "temporalDepth": {
+          "not_assessed": 6072
+        },
+        "archiveState": {
+          "unknown": 6072
+        },
+        "confidence": {
+          "unknown": 6072
+        },
+        "gapRoute": {
+          "unclassified": 6072
+        },
+        "assessmentWorkflowState": {
+          "candidate": 6072
+        },
+        "evidenceBasis": {
+          "not_assessed": 6072
+        }
+      },
+      "byGeography": {
+        "geo.ax": {
+          "definedCellCount": 759,
+          "explicitEventCount": 0,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 759
+            },
+            "scopeState": {
+              "draft": 759
+            },
+            "inventoryState": {
+              "unknown": 759
+            },
+            "knowledgeDepth": {
+              "unknown": 759
+            },
+            "verificationStatus": {
+              "unverified": 759
+            },
+            "citationReadiness": {
+              "not_assessed": 759
+            },
+            "appraisalState": {
+              "none": 759
+            },
+            "freshnessState": {
+              "unknown": 759
+            },
+            "temporalDepth": {
+              "not_assessed": 759
+            },
+            "archiveState": {
+              "unknown": 759
+            },
+            "confidence": {
+              "unknown": 759
+            },
+            "gapRoute": {
+              "unclassified": 759
+            },
+            "assessmentWorkflowState": {
+              "candidate": 759
+            },
+            "evidenceBasis": {
+              "not_assessed": 759
+            }
+          }
+        },
+        "geo.dk": {
+          "definedCellCount": 759,
+          "explicitEventCount": 0,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 759
+            },
+            "scopeState": {
+              "draft": 759
+            },
+            "inventoryState": {
+              "unknown": 759
+            },
+            "knowledgeDepth": {
+              "unknown": 759
+            },
+            "verificationStatus": {
+              "unverified": 759
+            },
+            "citationReadiness": {
+              "not_assessed": 759
+            },
+            "appraisalState": {
+              "none": 759
+            },
+            "freshnessState": {
+              "unknown": 759
+            },
+            "temporalDepth": {
+              "not_assessed": 759
+            },
+            "archiveState": {
+              "unknown": 759
+            },
+            "confidence": {
+              "unknown": 759
+            },
+            "gapRoute": {
+              "unclassified": 759
+            },
+            "assessmentWorkflowState": {
+              "candidate": 759
+            },
+            "evidenceBasis": {
+              "not_assessed": 759
+            }
+          }
+        },
+        "geo.fi": {
+          "definedCellCount": 759,
+          "explicitEventCount": 0,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 759
+            },
+            "scopeState": {
+              "draft": 759
+            },
+            "inventoryState": {
+              "unknown": 759
+            },
+            "knowledgeDepth": {
+              "unknown": 759
+            },
+            "verificationStatus": {
+              "unverified": 759
+            },
+            "citationReadiness": {
+              "not_assessed": 759
+            },
+            "appraisalState": {
+              "none": 759
+            },
+            "freshnessState": {
+              "unknown": 759
+            },
+            "temporalDepth": {
+              "not_assessed": 759
+            },
+            "archiveState": {
+              "unknown": 759
+            },
+            "confidence": {
+              "unknown": 759
+            },
+            "gapRoute": {
+              "unclassified": 759
+            },
+            "assessmentWorkflowState": {
+              "candidate": 759
+            },
+            "evidenceBasis": {
+              "not_assessed": 759
+            }
+          }
+        },
+        "geo.fo": {
+          "definedCellCount": 759,
+          "explicitEventCount": 0,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 759
+            },
+            "scopeState": {
+              "draft": 759
+            },
+            "inventoryState": {
+              "unknown": 759
+            },
+            "knowledgeDepth": {
+              "unknown": 759
+            },
+            "verificationStatus": {
+              "unverified": 759
+            },
+            "citationReadiness": {
+              "not_assessed": 759
+            },
+            "appraisalState": {
+              "none": 759
+            },
+            "freshnessState": {
+              "unknown": 759
+            },
+            "temporalDepth": {
+              "not_assessed": 759
+            },
+            "archiveState": {
+              "unknown": 759
+            },
+            "confidence": {
+              "unknown": 759
+            },
+            "gapRoute": {
+              "unclassified": 759
+            },
+            "assessmentWorkflowState": {
+              "candidate": 759
+            },
+            "evidenceBasis": {
+              "not_assessed": 759
+            }
+          }
+        },
+        "geo.gl": {
+          "definedCellCount": 759,
+          "explicitEventCount": 0,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 759
+            },
+            "scopeState": {
+              "draft": 759
+            },
+            "inventoryState": {
+              "unknown": 759
+            },
+            "knowledgeDepth": {
+              "unknown": 759
+            },
+            "verificationStatus": {
+              "unverified": 759
+            },
+            "citationReadiness": {
+              "not_assessed": 759
+            },
+            "appraisalState": {
+              "none": 759
+            },
+            "freshnessState": {
+              "unknown": 759
+            },
+            "temporalDepth": {
+              "not_assessed": 759
+            },
+            "archiveState": {
+              "unknown": 759
+            },
+            "confidence": {
+              "unknown": 759
+            },
+            "gapRoute": {
+              "unclassified": 759
+            },
+            "assessmentWorkflowState": {
+              "candidate": 759
+            },
+            "evidenceBasis": {
+              "not_assessed": 759
+            }
+          }
+        },
+        "geo.is": {
+          "definedCellCount": 759,
+          "explicitEventCount": 0,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 759
+            },
+            "scopeState": {
+              "draft": 759
+            },
+            "inventoryState": {
+              "unknown": 759
+            },
+            "knowledgeDepth": {
+              "unknown": 759
+            },
+            "verificationStatus": {
+              "unverified": 759
+            },
+            "citationReadiness": {
+              "not_assessed": 759
+            },
+            "appraisalState": {
+              "none": 759
+            },
+            "freshnessState": {
+              "unknown": 759
+            },
+            "temporalDepth": {
+              "not_assessed": 759
+            },
+            "archiveState": {
+              "unknown": 759
+            },
+            "confidence": {
+              "unknown": 759
+            },
+            "gapRoute": {
+              "unclassified": 759
+            },
+            "assessmentWorkflowState": {
+              "candidate": 759
+            },
+            "evidenceBasis": {
+              "not_assessed": 759
+            }
+          }
+        },
+        "geo.no": {
+          "definedCellCount": 759,
+          "explicitEventCount": 0,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 759
+            },
+            "scopeState": {
+              "draft": 759
+            },
+            "inventoryState": {
+              "unknown": 759
+            },
+            "knowledgeDepth": {
+              "unknown": 759
+            },
+            "verificationStatus": {
+              "unverified": 759
+            },
+            "citationReadiness": {
+              "not_assessed": 759
+            },
+            "appraisalState": {
+              "none": 759
+            },
+            "freshnessState": {
+              "unknown": 759
+            },
+            "temporalDepth": {
+              "not_assessed": 759
+            },
+            "archiveState": {
+              "unknown": 759
+            },
+            "confidence": {
+              "unknown": 759
+            },
+            "gapRoute": {
+              "unclassified": 759
+            },
+            "assessmentWorkflowState": {
+              "candidate": 759
+            },
+            "evidenceBasis": {
+              "not_assessed": 759
+            }
+          }
+        },
+        "geo.se": {
+          "definedCellCount": 759,
+          "explicitEventCount": 0,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 759
+            },
+            "scopeState": {
+              "draft": 759
+            },
+            "inventoryState": {
+              "unknown": 759
+            },
+            "knowledgeDepth": {
+              "unknown": 759
+            },
+            "verificationStatus": {
+              "unverified": 759
+            },
+            "citationReadiness": {
+              "not_assessed": 759
+            },
+            "appraisalState": {
+              "none": 759
+            },
+            "freshnessState": {
+              "unknown": 759
+            },
+            "temporalDepth": {
+              "not_assessed": 759
+            },
+            "archiveState": {
+              "unknown": 759
+            },
+            "confidence": {
+              "unknown": 759
+            },
+            "gapRoute": {
+              "unclassified": 759
+            },
+            "assessmentWorkflowState": {
+              "candidate": 759
+            },
+            "evidenceBasis": {
+              "not_assessed": 759
+            }
+          }
+        }
+      }
+    },
+    "profile.canonical_sapmi_overlap_macro": {
+      "aggregationClass": "sapmi_overlapping",
+      "requiredReadinessProfile": "internal_analysis",
+      "definedCellCount": 759,
+      "explicitEventCount": 0,
+      "evidenceBackedAssessmentEventCount": 0,
+      "cellsWithoutExplicitEventCount": 759,
+      "completeForRequiredProfileCount": 0,
+      "currentStateCounts": {
+        "workflowStage": {
+          "unassessed": 759
+        },
+        "scopeState": {
+          "draft": 759
+        },
+        "inventoryState": {
+          "unknown": 759
+        },
+        "knowledgeDepth": {
+          "unknown": 759
+        },
+        "verificationStatus": {
+          "unverified": 759
+        },
+        "citationReadiness": {
+          "not_assessed": 759
+        },
+        "appraisalState": {
+          "none": 759
+        },
+        "freshnessState": {
+          "unknown": 759
+        },
+        "temporalDepth": {
+          "not_assessed": 759
+        },
+        "archiveState": {
+          "unknown": 759
+        },
+        "confidence": {
+          "unknown": 759
+        },
+        "gapRoute": {
+          "unclassified": 759
+        },
+        "assessmentWorkflowState": {
+          "candidate": 759
+        },
+        "evidenceBasis": {
+          "not_assessed": 759
+        }
+      },
+      "byGeography": {
+        "geo.sapmi": {
+          "definedCellCount": 759,
+          "explicitEventCount": 0,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 759
+            },
+            "scopeState": {
+              "draft": 759
+            },
+            "inventoryState": {
+              "unknown": 759
+            },
+            "knowledgeDepth": {
+              "unknown": 759
+            },
+            "verificationStatus": {
+              "unverified": 759
+            },
+            "citationReadiness": {
+              "not_assessed": 759
+            },
+            "appraisalState": {
+              "none": 759
+            },
+            "freshnessState": {
+              "unknown": 759
+            },
+            "temporalDepth": {
+              "not_assessed": 759
+            },
+            "archiveState": {
+              "unknown": 759
+            },
+            "confidence": {
+              "unknown": 759
+            },
+            "gapRoute": {
+              "unclassified": 759
+            },
+            "assessmentWorkflowState": {
+              "candidate": 759
+            },
+            "evidenceBasis": {
+              "not_assessed": 759
+            }
+          }
+        }
+      }
+    },
+    "profile.legacy_field_political": {
+      "aggregationClass": "political_nordic",
+      "requiredReadinessProfile": "internal_navigation",
+      "definedCellCount": 104,
+      "explicitEventCount": 104,
+      "evidenceBackedAssessmentEventCount": 0,
+      "cellsWithoutExplicitEventCount": 0,
+      "completeForRequiredProfileCount": 0,
+      "currentStateCounts": {
+        "workflowStage": {
+          "unassessed": 104
+        },
+        "scopeState": {
+          "draft": 104
+        },
+        "inventoryState": {
+          "unknown": 104
+        },
+        "knowledgeDepth": {
+          "unknown": 104
+        },
+        "verificationStatus": {
+          "unverified": 104
+        },
+        "citationReadiness": {
+          "not_assessed": 104
+        },
+        "appraisalState": {
+          "none": 104
+        },
+        "freshnessState": {
+          "unknown": 104
+        },
+        "temporalDepth": {
+          "not_assessed": 104
+        },
+        "archiveState": {
+          "unknown": 104
+        },
+        "confidence": {
+          "unknown": 104
+        },
+        "gapRoute": {
+          "unclassified": 104
+        },
+        "assessmentWorkflowState": {
+          "candidate": 104
+        },
+        "evidenceBasis": {
+          "not_assessed": 104
+        }
+      },
+      "byGeography": {
+        "geo.ax": {
+          "definedCellCount": 13,
+          "explicitEventCount": 13,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 13
+            },
+            "scopeState": {
+              "draft": 13
+            },
+            "inventoryState": {
+              "unknown": 13
+            },
+            "knowledgeDepth": {
+              "unknown": 13
+            },
+            "verificationStatus": {
+              "unverified": 13
+            },
+            "citationReadiness": {
+              "not_assessed": 13
+            },
+            "appraisalState": {
+              "none": 13
+            },
+            "freshnessState": {
+              "unknown": 13
+            },
+            "temporalDepth": {
+              "not_assessed": 13
+            },
+            "archiveState": {
+              "unknown": 13
+            },
+            "confidence": {
+              "unknown": 13
+            },
+            "gapRoute": {
+              "unclassified": 13
+            },
+            "assessmentWorkflowState": {
+              "candidate": 13
+            },
+            "evidenceBasis": {
+              "not_assessed": 13
+            }
+          }
+        },
+        "geo.dk": {
+          "definedCellCount": 13,
+          "explicitEventCount": 13,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 13
+            },
+            "scopeState": {
+              "draft": 13
+            },
+            "inventoryState": {
+              "unknown": 13
+            },
+            "knowledgeDepth": {
+              "unknown": 13
+            },
+            "verificationStatus": {
+              "unverified": 13
+            },
+            "citationReadiness": {
+              "not_assessed": 13
+            },
+            "appraisalState": {
+              "none": 13
+            },
+            "freshnessState": {
+              "unknown": 13
+            },
+            "temporalDepth": {
+              "not_assessed": 13
+            },
+            "archiveState": {
+              "unknown": 13
+            },
+            "confidence": {
+              "unknown": 13
+            },
+            "gapRoute": {
+              "unclassified": 13
+            },
+            "assessmentWorkflowState": {
+              "candidate": 13
+            },
+            "evidenceBasis": {
+              "not_assessed": 13
+            }
+          }
+        },
+        "geo.fi": {
+          "definedCellCount": 13,
+          "explicitEventCount": 13,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 13
+            },
+            "scopeState": {
+              "draft": 13
+            },
+            "inventoryState": {
+              "unknown": 13
+            },
+            "knowledgeDepth": {
+              "unknown": 13
+            },
+            "verificationStatus": {
+              "unverified": 13
+            },
+            "citationReadiness": {
+              "not_assessed": 13
+            },
+            "appraisalState": {
+              "none": 13
+            },
+            "freshnessState": {
+              "unknown": 13
+            },
+            "temporalDepth": {
+              "not_assessed": 13
+            },
+            "archiveState": {
+              "unknown": 13
+            },
+            "confidence": {
+              "unknown": 13
+            },
+            "gapRoute": {
+              "unclassified": 13
+            },
+            "assessmentWorkflowState": {
+              "candidate": 13
+            },
+            "evidenceBasis": {
+              "not_assessed": 13
+            }
+          }
+        },
+        "geo.fo": {
+          "definedCellCount": 13,
+          "explicitEventCount": 13,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 13
+            },
+            "scopeState": {
+              "draft": 13
+            },
+            "inventoryState": {
+              "unknown": 13
+            },
+            "knowledgeDepth": {
+              "unknown": 13
+            },
+            "verificationStatus": {
+              "unverified": 13
+            },
+            "citationReadiness": {
+              "not_assessed": 13
+            },
+            "appraisalState": {
+              "none": 13
+            },
+            "freshnessState": {
+              "unknown": 13
+            },
+            "temporalDepth": {
+              "not_assessed": 13
+            },
+            "archiveState": {
+              "unknown": 13
+            },
+            "confidence": {
+              "unknown": 13
+            },
+            "gapRoute": {
+              "unclassified": 13
+            },
+            "assessmentWorkflowState": {
+              "candidate": 13
+            },
+            "evidenceBasis": {
+              "not_assessed": 13
+            }
+          }
+        },
+        "geo.gl": {
+          "definedCellCount": 13,
+          "explicitEventCount": 13,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 13
+            },
+            "scopeState": {
+              "draft": 13
+            },
+            "inventoryState": {
+              "unknown": 13
+            },
+            "knowledgeDepth": {
+              "unknown": 13
+            },
+            "verificationStatus": {
+              "unverified": 13
+            },
+            "citationReadiness": {
+              "not_assessed": 13
+            },
+            "appraisalState": {
+              "none": 13
+            },
+            "freshnessState": {
+              "unknown": 13
+            },
+            "temporalDepth": {
+              "not_assessed": 13
+            },
+            "archiveState": {
+              "unknown": 13
+            },
+            "confidence": {
+              "unknown": 13
+            },
+            "gapRoute": {
+              "unclassified": 13
+            },
+            "assessmentWorkflowState": {
+              "candidate": 13
+            },
+            "evidenceBasis": {
+              "not_assessed": 13
+            }
+          }
+        },
+        "geo.is": {
+          "definedCellCount": 13,
+          "explicitEventCount": 13,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 13
+            },
+            "scopeState": {
+              "draft": 13
+            },
+            "inventoryState": {
+              "unknown": 13
+            },
+            "knowledgeDepth": {
+              "unknown": 13
+            },
+            "verificationStatus": {
+              "unverified": 13
+            },
+            "citationReadiness": {
+              "not_assessed": 13
+            },
+            "appraisalState": {
+              "none": 13
+            },
+            "freshnessState": {
+              "unknown": 13
+            },
+            "temporalDepth": {
+              "not_assessed": 13
+            },
+            "archiveState": {
+              "unknown": 13
+            },
+            "confidence": {
+              "unknown": 13
+            },
+            "gapRoute": {
+              "unclassified": 13
+            },
+            "assessmentWorkflowState": {
+              "candidate": 13
+            },
+            "evidenceBasis": {
+              "not_assessed": 13
+            }
+          }
+        },
+        "geo.no": {
+          "definedCellCount": 13,
+          "explicitEventCount": 13,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 13
+            },
+            "scopeState": {
+              "draft": 13
+            },
+            "inventoryState": {
+              "unknown": 13
+            },
+            "knowledgeDepth": {
+              "unknown": 13
+            },
+            "verificationStatus": {
+              "unverified": 13
+            },
+            "citationReadiness": {
+              "not_assessed": 13
+            },
+            "appraisalState": {
+              "none": 13
+            },
+            "freshnessState": {
+              "unknown": 13
+            },
+            "temporalDepth": {
+              "not_assessed": 13
+            },
+            "archiveState": {
+              "unknown": 13
+            },
+            "confidence": {
+              "unknown": 13
+            },
+            "gapRoute": {
+              "unclassified": 13
+            },
+            "assessmentWorkflowState": {
+              "candidate": 13
+            },
+            "evidenceBasis": {
+              "not_assessed": 13
+            }
+          }
+        },
+        "geo.se": {
+          "definedCellCount": 13,
+          "explicitEventCount": 13,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 13
+            },
+            "scopeState": {
+              "draft": 13
+            },
+            "inventoryState": {
+              "unknown": 13
+            },
+            "knowledgeDepth": {
+              "unknown": 13
+            },
+            "verificationStatus": {
+              "unverified": 13
+            },
+            "citationReadiness": {
+              "not_assessed": 13
+            },
+            "appraisalState": {
+              "none": 13
+            },
+            "freshnessState": {
+              "unknown": 13
+            },
+            "temporalDepth": {
+              "not_assessed": 13
+            },
+            "archiveState": {
+              "unknown": 13
+            },
+            "confidence": {
+              "unknown": 13
+            },
+            "gapRoute": {
+              "unclassified": 13
+            },
+            "assessmentWorkflowState": {
+              "candidate": 13
+            },
+            "evidenceBasis": {
+              "not_assessed": 13
+            }
+          }
+        }
+      }
+    },
+    "profile.legacy_field_sapmi_overlap": {
+      "aggregationClass": "sapmi_overlapping",
+      "requiredReadinessProfile": "internal_navigation",
+      "definedCellCount": 13,
+      "explicitEventCount": 13,
+      "evidenceBackedAssessmentEventCount": 0,
+      "cellsWithoutExplicitEventCount": 0,
+      "completeForRequiredProfileCount": 0,
+      "currentStateCounts": {
+        "workflowStage": {
+          "unassessed": 13
+        },
+        "scopeState": {
+          "draft": 13
+        },
+        "inventoryState": {
+          "unknown": 13
+        },
+        "knowledgeDepth": {
+          "unknown": 13
+        },
+        "verificationStatus": {
+          "unverified": 13
+        },
+        "citationReadiness": {
+          "not_assessed": 13
+        },
+        "appraisalState": {
+          "none": 13
+        },
+        "freshnessState": {
+          "unknown": 13
+        },
+        "temporalDepth": {
+          "not_assessed": 13
+        },
+        "archiveState": {
+          "unknown": 13
+        },
+        "confidence": {
+          "unknown": 13
+        },
+        "gapRoute": {
+          "unclassified": 13
+        },
+        "assessmentWorkflowState": {
+          "candidate": 13
+        },
+        "evidenceBasis": {
+          "not_assessed": 13
+        }
+      },
+      "byGeography": {
+        "geo.sapmi": {
+          "definedCellCount": 13,
+          "explicitEventCount": 13,
+          "evidenceBackedAssessmentEventCount": 0,
+          "completeForRequiredProfileCount": 0,
+          "currentStateCounts": {
+            "workflowStage": {
+              "unassessed": 13
+            },
+            "scopeState": {
+              "draft": 13
+            },
+            "inventoryState": {
+              "unknown": 13
+            },
+            "knowledgeDepth": {
+              "unknown": 13
+            },
+            "verificationStatus": {
+              "unverified": 13
+            },
+            "citationReadiness": {
+              "not_assessed": 13
+            },
+            "appraisalState": {
+              "none": 13
+            },
+            "freshnessState": {
+              "unknown": 13
+            },
+            "temporalDepth": {
+              "not_assessed": 13
+            },
+            "archiveState": {
+              "unknown": 13
+            },
+            "confidence": {
+              "unknown": 13
+            },
+            "gapRoute": {
+              "unclassified": 13
+            },
+            "assessmentWorkflowState": {
+              "candidate": 13
+            },
+            "evidenceBasis": {
+              "not_assessed": 13
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,286 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactType": "source_analysis_input_manifest",
+  "pipelineVersion": "1.0.0",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0"
+  },
+  "identityKeys": [
+    "candidate:source.se.court.gronsakshuset-20479-24"
+  ],
+  "identityAssociation": {
+    "state": "unregistered_source_candidate",
+    "intendedLabel": "Grönsakshuset, Förvaltningsrätten mål 20479-24",
+    "observedDocumentTitle": "Förvaltningsrätten i Stockholm, mål nr 20479-24 — Grönsakshuset",
+    "blockerCode": "database_registration_required"
+  },
+  "sourceBinding": {
+    "title": "Förvaltningsrätten i Stockholm, mål nr 20479-24 — Grönsakshuset",
+    "doi": null,
+    "officialUrl": "https://www.konkurrensverket.se/globalassets/dokument/otillborliga-handelsmetoder/domar/dom_forvr-stockholm-mal-nr-20479-24_gronsakshuset.pdf",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_classification"
+  },
+  "workflowEligibility": {
+    "state": "blocked_identity_association",
+    "identityVerification": {
+      "allowed": false,
+      "blockerCode": "database_registration_required"
+    },
+    "sourceAnalysis": {
+      "allowed": false,
+      "blockerCode": "identity_association_blocked"
+    }
+  },
+  "bindings": {
+    "pageMap": {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0.page-map.v1.json",
+      "fileSha256": "5c51eeb94a873ed86d3e39512627cd1a3a39830fd9a2a259e8764a3a335e1e85",
+      "pageMapSha256": "b95cd7185550f73d8d6bcbe6d5f9c49d387b49a560125bd3c5f8c86a208c3836"
+    },
+    "extractionReceipt": {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0.receipt.v1.json",
+      "fileSha256": "66f21d9df1d1eb5190fa8dde2f109e997b0a8d3cf2ec8d3aa8fbd6810d1709dc",
+      "receiptSha256": "6ff406ce03fce6afa672aefac99b35e01d99e0af2de88488e9bdbcb8164de79d"
+    }
+  },
+  "serialization": {
+    "id": "normalized-page-bytes-framed-v1",
+    "charset": "utf-8",
+    "pageOrder": "ascending_page_number",
+    "pageSequence": "contiguous_from_1",
+    "preambleUtf8": "food-systems/source-analysis-normalized-input/v1\n",
+    "pageDelimiterUtf8": "\n--food-systems-normalized-page-v1--\n",
+    "pageHeaderEncoding": "canonical_json_utf8",
+    "pageHeaderFields": [
+      "normalizedSha256",
+      "pageNumber",
+      "sizeBytes"
+    ],
+    "pageHeaderTerminatorHex": "0a",
+    "pagePayload": "exact_normalized_utf8_file_bytes",
+    "pagePayloadBoundary": "sizeBytes_from_page_header",
+    "trailerDelimiterUtf8": "\n--food-systems-normalized-input-end-v1--\n",
+    "trailerEncoding": "canonical_json_utf8",
+    "trailerFields": [
+      "pageCount"
+    ],
+    "trailerTerminatorHex": "0a"
+  },
+  "normalizedInput": {
+    "algorithm": "sha256",
+    "sha256": "c5a29965dbbf4246dccb17319951c21b05c0111d78c665fe9ed10df27584654a",
+    "serializedSizeBytes": 40893
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "normalizedText": {
+        "sha256": "849d9f1e5e3af818161195500dfe74b44af01f66cf04fa6e044ab2d61fb810d8",
+        "sizeBytes": 751,
+        "characterCount": 726,
+        "wordCount": 87
+      }
+    },
+    {
+      "pageNumber": 2,
+      "normalizedText": {
+        "sha256": "453b60224b3c2c09d33522bc64d2bdb7a6ce87ca730293ca635c59fba38f819a",
+        "sizeBytes": 2100,
+        "characterCount": 2028,
+        "wordCount": 297
+      }
+    },
+    {
+      "pageNumber": 3,
+      "normalizedText": {
+        "sha256": "2dec6c11d6dd8d4c5b05c7dd59fea704dcbc3a2e88d6509fc6e26f83298786ea",
+        "sizeBytes": 2236,
+        "characterCount": 2152,
+        "wordCount": 311
+      }
+    },
+    {
+      "pageNumber": 4,
+      "normalizedText": {
+        "sha256": "73e8fe2ef281173348be159a16c9edc82d165d0011e046fa19933a50254d1e00",
+        "sizeBytes": 2315,
+        "characterCount": 2232,
+        "wordCount": 318
+      }
+    },
+    {
+      "pageNumber": 5,
+      "normalizedText": {
+        "sha256": "8de897be7e6eadfd1cb6149e174f14c5d8e186ec7059894dda888326e3f3c93b",
+        "sizeBytes": 2020,
+        "characterCount": 1935,
+        "wordCount": 296
+      }
+    },
+    {
+      "pageNumber": 6,
+      "normalizedText": {
+        "sha256": "32278d9e5131386fb0aa6812b57f492036387de8df5f4fdcb1401095adc23757",
+        "sizeBytes": 2087,
+        "characterCount": 2011,
+        "wordCount": 308
+      }
+    },
+    {
+      "pageNumber": 7,
+      "normalizedText": {
+        "sha256": "d95c61316a85f8abbbfba5b39a699d6813ee6f6ac20872a4575a413cb61d2102",
+        "sizeBytes": 1993,
+        "characterCount": 1911,
+        "wordCount": 290
+      }
+    },
+    {
+      "pageNumber": 8,
+      "normalizedText": {
+        "sha256": "58ba68ce94b7980919a4e07494bd59b102eabdaafc5c54ab2e9507e0928fecbd",
+        "sizeBytes": 1784,
+        "characterCount": 1717,
+        "wordCount": 245
+      }
+    },
+    {
+      "pageNumber": 9,
+      "normalizedText": {
+        "sha256": "38c32f6b4254e333899dc422df681702da4a5aeb46787394707541d963d91074",
+        "sizeBytes": 1824,
+        "characterCount": 1754,
+        "wordCount": 252
+      }
+    },
+    {
+      "pageNumber": 10,
+      "normalizedText": {
+        "sha256": "4cab974ea8fb34487f517f8251d29ae57ff9813119fd07ce63b3b2c06e885858",
+        "sizeBytes": 1792,
+        "characterCount": 1714,
+        "wordCount": 236
+      }
+    },
+    {
+      "pageNumber": 11,
+      "normalizedText": {
+        "sha256": "502f0e8ef4ff742d9510b3e0ac3e3d930f1cca260de6bace2497f17ad7fa7f8f",
+        "sizeBytes": 2074,
+        "characterCount": 1978,
+        "wordCount": 289
+      }
+    },
+    {
+      "pageNumber": 12,
+      "normalizedText": {
+        "sha256": "36de41d916218f33ad3f2ee5e43866e1d4d7ec29fe6dd203659ef3d93a14162a",
+        "sizeBytes": 2196,
+        "characterCount": 2086,
+        "wordCount": 307
+      }
+    },
+    {
+      "pageNumber": 13,
+      "normalizedText": {
+        "sha256": "3457530167773844e074722818cd9c46abd855789fe4293a8adb5614a58e0ae5",
+        "sizeBytes": 2284,
+        "characterCount": 2192,
+        "wordCount": 318
+      }
+    },
+    {
+      "pageNumber": 14,
+      "normalizedText": {
+        "sha256": "fd75f1e2c08a301bea3099cdca0317e68a915d4964ababb9c90e7dcaddeee8ce",
+        "sizeBytes": 2459,
+        "characterCount": 2352,
+        "wordCount": 340
+      }
+    },
+    {
+      "pageNumber": 15,
+      "normalizedText": {
+        "sha256": "e9323f49e41483b1646a9e83ade501f6d137efe51aceb22b3982eb7afa733732",
+        "sizeBytes": 1890,
+        "characterCount": 1820,
+        "wordCount": 250
+      }
+    },
+    {
+      "pageNumber": 16,
+      "normalizedText": {
+        "sha256": "317fedfceff3abeea8c62cb99aa57e5580aab9cc4a8bc4de32b6526f60509c6a",
+        "sizeBytes": 2227,
+        "characterCount": 2134,
+        "wordCount": 316
+      }
+    },
+    {
+      "pageNumber": 17,
+      "normalizedText": {
+        "sha256": "aaddf1a2bbd848dee95a0be10b579006e56e4247d17f42defc78fb30d5ab50da",
+        "sizeBytes": 2384,
+        "characterCount": 2278,
+        "wordCount": 352
+      }
+    },
+    {
+      "pageNumber": 18,
+      "normalizedText": {
+        "sha256": "7063250dcb14947f699bf86ddd3663881d0463cd4dc7b9506e8918cc5c255df1",
+        "sizeBytes": 2327,
+        "characterCount": 2252,
+        "wordCount": 329
+      }
+    },
+    {
+      "pageNumber": 19,
+      "normalizedText": {
+        "sha256": "973d4070186b37cf87c2ef41e3b0d84f9f9f45f8601f0de7ea9b2e52d5e9fbdc",
+        "sizeBytes": 1050,
+        "characterCount": 1009,
+        "wordCount": 143
+      }
+    }
+  ],
+  "totals": {
+    "pageCount": 19,
+    "normalizedSizeBytes": 37793,
+    "normalizedCharacterCount": 36281,
+    "wordCount": 5284
+  },
+  "privateStorage": {
+    "normalizedPageRelativePathTemplate": "pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt",
+    "rawPdfRelativePathTemplate": "sha256/{rawPdfSha256}.pdf",
+    "expectedFileMode": "0400",
+    "copies": [
+      {
+        "copyId": "primary",
+        "rootEnvironmentVariable": "FOOD_SYSTEMS_PRIVATE_CORPUS_ROOT",
+        "rawPdfLocatorTemplate": "private://corpus/sha256/{rawPdfSha256}.pdf",
+        "normalizedPageLocatorTemplate": "private://corpus/pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+      },
+      {
+        "copyId": "replica",
+        "rootEnvironmentVariable": "FOOD_SYSTEMS_PRIVATE_CORPUS_REPLICA_ROOT",
+        "rawPdfLocatorTemplate": "private://bigbrain-corpus/sha256/{rawPdfSha256}.pdf",
+        "normalizedPageLocatorTemplate": "private://bigbrain-corpus/pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+      }
+    ]
+  },
+  "textIncludedInTrackedArtifact": false,
+  "readiness": {
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentExpertReviewComplete": false,
+    "partnerReviewComplete": false,
+    "rightsHolderReviewComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "manifestSha256": "19006cfb52afb1b42337f25f289d27d6c790c186be8f9762c51d4b8b91d7fa59"
+}

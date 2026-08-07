@@ -1,0 +1,471 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/corpus-pre-live-rebaseline.v1.json",
+  "title": "Food Systems controlled pre-live corpus rebaseline",
+  "description": "Read-only plan, sealed bootstrap-history record, recoverable transaction journal, or commit receipt for the one-time post-registration pre-live corpus rebaseline.",
+  "oneOf": [
+    { "$ref": "#/$defs/plan" },
+    { "$ref": "#/$defs/history" },
+    { "$ref": "#/$defs/commitManifest" },
+    { "$ref": "#/$defs/transactionJournal" }
+  ],
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "prefixedSha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "utcTimestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "portablePath": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._/-]*$",
+      "not": { "pattern": "(^/|\\\\|(^|/)\\.{1,2}(/|$)|//)" }
+    },
+    "fileBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "sizeBytes"],
+      "properties": {
+        "path": { "$ref": "#/$defs/portablePath" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "safetyBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "databaseMutationPerformed",
+        "privateSourceReadPerformed",
+        "privateSourceReadLimitedToExactAfterStateVerification",
+        "privateSourceMutationPerformed",
+        "lifecycleEventCreated",
+        "trustedVerificationCreated",
+        "externalAnchorBindingCreated",
+        "identityVerified",
+        "sourceAnalysisAllowed",
+        "ownerReviewComplete",
+        "rightsCleared",
+        "externalUseAllowed",
+        "coveragePromotionAllowed"
+      ],
+      "properties": {
+        "databaseMutationPerformed": { "const": false },
+        "privateSourceReadPerformed": { "type": "boolean" },
+        "privateSourceReadLimitedToExactAfterStateVerification": {
+          "const": true
+        },
+        "privateSourceMutationPerformed": { "const": false },
+        "lifecycleEventCreated": { "const": false },
+        "trustedVerificationCreated": { "const": false },
+        "externalAnchorBindingCreated": { "const": false },
+        "identityVerified": { "const": false },
+        "sourceAnalysisAllowed": { "const": false },
+        "ownerReviewComplete": { "const": false },
+        "rightsCleared": { "const": false },
+        "externalUseAllowed": { "const": false },
+        "coveragePromotionAllowed": { "const": false }
+      }
+    },
+    "sourceRegistration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["plan", "audit"],
+      "properties": {
+        "plan": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "fileSha256",
+            "planSha256",
+            "beforeSnapshotSha256"
+          ],
+          "properties": {
+            "path": { "$ref": "#/$defs/portablePath" },
+            "fileSha256": { "$ref": "#/$defs/sha256" },
+            "planSha256": { "$ref": "#/$defs/sha256" },
+            "beforeSnapshotSha256": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        "audit": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "auditId",
+            "operationKey",
+            "recordSha256",
+            "recordedAt",
+            "contractScope",
+            "contractSha256",
+            "planSha256",
+            "beforeSnapshotSha256",
+            "afterSnapshotSha256",
+            "mutationSummarySha256",
+            "databaseIdentityUuid",
+            "receiptState",
+            "rows"
+          ],
+          "properties": {
+            "auditId": { "type": "string", "minLength": 1 },
+            "operationKey": { "type": "string", "minLength": 1 },
+            "recordSha256": { "$ref": "#/$defs/sha256" },
+            "recordedAt": { "$ref": "#/$defs/utcTimestamp" },
+            "contractScope": { "type": "string", "minLength": 1 },
+            "contractSha256": { "$ref": "#/$defs/sha256" },
+            "planSha256": { "$ref": "#/$defs/sha256" },
+            "beforeSnapshotSha256": { "$ref": "#/$defs/sha256" },
+            "afterSnapshotSha256": { "$ref": "#/$defs/sha256" },
+            "mutationSummarySha256": { "$ref": "#/$defs/sha256" },
+            "databaseIdentityUuid": { "type": "string", "format": "uuid" },
+            "receiptState": { "const": "exact_apply_committed" },
+            "rows": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "documentCreates",
+                "libraryAnalysisRecordCreates",
+                "controlledMutationAuditCreates"
+              ],
+              "properties": {
+                "documentCreates": { "const": 10 },
+                "libraryAnalysisRecordCreates": { "const": 10 },
+                "controlledMutationAuditCreates": { "const": 1 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "bootstrapBindings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "baseline",
+        "liveInventorySnapshot",
+        "libraryLedger",
+        "corpusRegister",
+        "corpusGenerationManifest",
+        "currentState",
+        "currentStateGenerationManifest",
+        "eventLog",
+        "eventManifest",
+        "anchorLog"
+      ],
+      "properties": {
+        "baseline": { "$ref": "#/$defs/fileBinding" },
+        "liveInventorySnapshot": { "$ref": "#/$defs/fileBinding" },
+        "libraryLedger": { "$ref": "#/$defs/fileBinding" },
+        "corpusRegister": { "$ref": "#/$defs/fileBinding" },
+        "corpusGenerationManifest": { "$ref": "#/$defs/fileBinding" },
+        "currentState": { "$ref": "#/$defs/fileBinding" },
+        "currentStateGenerationManifest": {
+          "$ref": "#/$defs/fileBinding"
+        },
+        "eventLog": { "$ref": "#/$defs/fileBinding" },
+        "eventManifest": { "$ref": "#/$defs/fileBinding" },
+        "anchorLog": { "$ref": "#/$defs/fileBinding" }
+      }
+    },
+    "databaseObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observedAt",
+        "transaction",
+        "databaseIdentityUuid",
+        "counts",
+        "exactAfterState",
+        "sourceRegistration",
+        "liveInventoryIdentityContentSetSha256",
+        "exportedLedgerSha256",
+        "stateSha256",
+        "observationSha256"
+      ],
+      "properties": {
+        "observedAt": { "$ref": "#/$defs/utcTimestamp" },
+        "transaction": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "isolationLevel",
+            "readOnly",
+            "transactionReadOnlySetting",
+            "observationScope"
+          ],
+          "properties": {
+            "isolationLevel": { "const": "RepeatableRead" },
+            "readOnly": { "const": true },
+            "transactionReadOnlySetting": { "const": "on" },
+            "observationScope": {
+              "const": "source_registration_receipt_targets_core_counts_and_active_inventory"
+            }
+          }
+        },
+        "databaseIdentityUuid": { "type": "string", "format": "uuid" },
+        "counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "documents",
+            "libraryAnalysisRecords",
+            "controlledMutationAudits",
+            "activeLibraryLedgerRows"
+          ],
+          "properties": {
+            "documents": { "const": 1549 },
+            "libraryAnalysisRecords": { "const": 1582 },
+            "controlledMutationAudits": { "const": 1 },
+            "activeLibraryLedgerRows": { "const": 1565 }
+          }
+        },
+        "exactAfterState": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "targetCount",
+            "exactDocumentTargets",
+            "exactLibraryTargets",
+            "dependencyRowCount",
+            "exactReceiptedAuditCount"
+          ],
+          "properties": {
+            "targetCount": { "const": 10 },
+            "exactDocumentTargets": { "const": 10 },
+            "exactLibraryTargets": { "const": 10 },
+            "dependencyRowCount": { "const": 0 },
+            "exactReceiptedAuditCount": { "const": 1 }
+          }
+        },
+        "sourceRegistration": { "$ref": "#/$defs/sourceRegistration" },
+        "liveInventoryIdentityContentSetSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "exportedLedgerSha256": { "$ref": "#/$defs/sha256" },
+        "stateSha256": { "$ref": "#/$defs/sha256" },
+        "observationSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "artifactType",
+        "planVersion",
+        "planId",
+        "mode",
+        "createdAt",
+        "newObservedAt",
+        "oldBootstrap",
+        "currentExportedLedger",
+        "sourceRegistration",
+        "databaseObservation",
+        "compareAndSwapInputs",
+        "expectedAbsentPaths",
+        "proposedOutputs",
+        "safetyBoundary",
+        "planSha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "corpus-pre-live-rebaseline-v1" },
+        "artifactType": { "const": "corpus_pre_live_rebaseline_plan" },
+        "planVersion": { "const": "1.0.0" },
+        "planId": { "type": "string", "minLength": 1 },
+        "mode": { "const": "read_only_plan" },
+        "createdAt": { "$ref": "#/$defs/utcTimestamp" },
+        "newObservedAt": { "$ref": "#/$defs/utcTimestamp" },
+        "oldBootstrap": { "$ref": "#/$defs/bootstrapBindings" },
+        "currentExportedLedger": { "$ref": "#/$defs/fileBinding" },
+        "sourceRegistration": { "$ref": "#/$defs/sourceRegistration" },
+        "databaseObservation": { "$ref": "#/$defs/databaseObservation" },
+        "compareAndSwapInputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/fileBinding" }
+        },
+        "expectedAbsentPaths": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/portablePath" }
+        },
+        "proposedOutputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/fileBinding" }
+        },
+        "safetyBoundary": { "$ref": "#/$defs/safetyBoundary" },
+        "planSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "history": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "recordType",
+        "rebaselineVersion",
+        "recordId",
+        "sequence",
+        "predecessorRecordSha256",
+        "observedAt",
+        "previousBootstrap",
+        "nextBootstrap",
+        "sourceRegistration",
+        "currentExportedLedger",
+        "safetyBoundary",
+        "lineageMeaning",
+        "recordSha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "corpus-pre-live-rebaseline-v1" },
+        "recordType": { "const": "corpus_pre_live_rebaseline_history" },
+        "rebaselineVersion": { "const": "1.0.0" },
+        "recordId": { "type": "string", "minLength": 1 },
+        "sequence": { "const": 1 },
+        "predecessorRecordSha256": { "type": "null" },
+        "observedAt": { "$ref": "#/$defs/utcTimestamp" },
+        "previousBootstrap": { "$ref": "#/$defs/bootstrapBindings" },
+        "nextBootstrap": { "$ref": "#/$defs/bootstrapBindings" },
+        "sourceRegistration": { "$ref": "#/$defs/sourceRegistration" },
+        "currentExportedLedger": { "$ref": "#/$defs/fileBinding" },
+        "safetyBoundary": { "$ref": "#/$defs/safetyBoundary" },
+        "lineageMeaning": {
+          "const": "sealed_bootstrap_replacement_not_lifecycle_event_or_trusted_anchor"
+        },
+        "recordSha256": { "$ref": "#/$defs/prefixedSha256" }
+      }
+    },
+    "transactionEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "before",
+        "beforeMode",
+        "after",
+        "afterMode",
+        "stagedPath",
+        "backupPath"
+      ],
+      "properties": {
+        "path": { "$ref": "#/$defs/portablePath" },
+        "before": {
+          "oneOf": [{ "$ref": "#/$defs/fileBinding" }, { "type": "null" }]
+        },
+        "beforeMode": {
+          "oneOf": [
+            { "type": "integer", "minimum": 0, "maximum": 511 },
+            { "type": "null" }
+          ]
+        },
+        "after": { "$ref": "#/$defs/fileBinding" },
+        "afterMode": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 511
+        },
+        "stagedPath": { "$ref": "#/$defs/portablePath" },
+        "backupPath": {
+          "oneOf": [{ "$ref": "#/$defs/portablePath" }, { "type": "null" }]
+        }
+      }
+    },
+    "transactionJournal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "artifactType",
+        "transactionVersion",
+        "phase",
+        "createdAt",
+        "planSha256",
+        "finalManifestSha256",
+        "entries",
+        "journalSha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "corpus-pre-live-rebaseline-v1" },
+        "artifactType": {
+          "const": "corpus_pre_live_rebaseline_transaction_journal"
+        },
+        "transactionVersion": { "const": "1.0.0" },
+        "phase": { "enum": ["staging", "prepared"] },
+        "createdAt": { "$ref": "#/$defs/utcTimestamp" },
+        "planSha256": { "$ref": "#/$defs/sha256" },
+        "finalManifestSha256": { "$ref": "#/$defs/prefixedSha256" },
+        "entries": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/transactionEntry" }
+        },
+        "journalSha256": { "$ref": "#/$defs/prefixedSha256" }
+      }
+    },
+    "commitManifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "artifactType",
+        "manifestVersion",
+        "manifestId",
+        "committedAt",
+        "newObservedAt",
+        "planSha256",
+        "databaseObservationSha256",
+        "databaseStateSha256",
+        "historyRecordSha256",
+        "compareAndSwapInputSetSha256",
+        "inputs",
+        "outputs",
+        "safetyBoundary",
+        "commitMarkerSemantics",
+        "externalAnchorNextStep",
+        "manifestSha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "corpus-pre-live-rebaseline-v1" },
+        "artifactType": {
+          "const": "corpus_pre_live_rebaseline_commit_manifest"
+        },
+        "manifestVersion": { "const": "1.0.0" },
+        "manifestId": {
+          "const": "corpus-pre-live-rebaseline-generation-manifest.v1"
+        },
+        "committedAt": { "$ref": "#/$defs/utcTimestamp" },
+        "newObservedAt": { "$ref": "#/$defs/utcTimestamp" },
+        "planSha256": { "$ref": "#/$defs/sha256" },
+        "databaseObservationSha256": { "$ref": "#/$defs/sha256" },
+        "databaseStateSha256": { "$ref": "#/$defs/sha256" },
+        "historyRecordSha256": { "$ref": "#/$defs/prefixedSha256" },
+        "compareAndSwapInputSetSha256": { "$ref": "#/$defs/sha256" },
+        "inputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/fileBinding" }
+        },
+        "outputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/fileBinding" }
+        },
+        "safetyBoundary": { "$ref": "#/$defs/safetyBoundary" },
+        "commitMarkerSemantics": {
+          "const": "recoverable_journaled_bundle_with_durable_backups_per_file_atomic_rename_and_manifest_last"
+        },
+        "externalAnchorNextStep": {
+          "const": "prepare_new_external_request_against_new_baseline_register_generation_manifest_and_genesis_candidate"
+        },
+        "manifestSha256": { "$ref": "#/$defs/prefixedSha256" }
+      }
+    }
+  }
+}

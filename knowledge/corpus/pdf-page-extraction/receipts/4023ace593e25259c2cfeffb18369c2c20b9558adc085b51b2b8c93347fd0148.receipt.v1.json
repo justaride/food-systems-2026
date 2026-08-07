@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1.0.0",
+  "receiptType": "pdf_page_extraction_technical_qualification",
+  "pipelineVersion": "1.0.0",
+  "qualificationState": "technical_extraction_passed_identity_blocked",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148"
+  },
+  "identityKeys": [
+    "candidate:source.is.competition-authority.grocery-prices-2026-1-method"
+  ],
+  "identityAssociation": {
+    "state": "unregistered_source_candidate",
+    "intendedLabel": "Samkeppniseftirlitið metodevedlegg til 1/2026",
+    "observedDocumentTitle": "Minnisblað um gögn og aðferðafræði umræðuskjals nr. 1/2026 — Dagvöruverð og samanburður við útlönd",
+    "blockerCode": "database_registration_required"
+  },
+  "sourceBinding": {
+    "title": "Minnisblað um gögn og aðferðafræði umræðuskjals nr. 1/2026 — Dagvöruverð og samanburður við útlönd",
+    "doi": null,
+    "officialUrl": "https://www.samkeppni.is/wp-content/uploads/2026/06/Minnisblad-um-gogn-og-adferdafraedi-umraeduskjals-nr.-1-2026-1.pdf",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_classification"
+  },
+  "sourceFile": {
+    "expectedSizeBytes": 78520,
+    "observedSizeBytes": 78520,
+    "headerMagic": "%PDF-",
+    "encryptionState": "not_encrypted",
+    "pageCount": 2,
+    "pdfVersion": "1.4",
+    "primaryCopy": {
+      "locator": "private://corpus/sha256/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148.pdf",
+      "sha256": "4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148",
+      "sizeBytes": 78520,
+      "fileMode": "0400",
+      "verified": true
+    },
+    "replicaCopy": {
+      "locator": "private://bigbrain-corpus/sha256/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148.pdf",
+      "sha256": "4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148",
+      "sizeBytes": 78520,
+      "fileMode": "0400",
+      "verified": true
+    }
+  },
+  "extraction": {
+    "pdfinfoVersion": "26.04.0",
+    "pdftotextVersion": "26.04.0",
+    "argumentsTemplate": [
+      "-f",
+      "{page}",
+      "-l",
+      "{page}",
+      "-enc",
+      "UTF-8",
+      "-eol",
+      "unix",
+      "-nopgbrk",
+      "{input_pdf}",
+      "-"
+    ],
+    "pageMapLocator": "knowledge/corpus/pdf-page-extraction/page-maps/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148.page-map.v1.json",
+    "pageMapSha256": "6321c3a0becf53e42b8e398da27b39d34c5c3227afc83d0543bca9b63c9d3daf",
+    "extractedPageCount": 2,
+    "rawTextFileCount": 2,
+    "normalizedTextFileCount": 2,
+    "primaryPrivateOutputVerified": true,
+    "replicaPrivateOutputVerified": true
+  },
+  "totals": {
+    "rawSizeBytes": 2402,
+    "rawCharacterCount": 2240,
+    "normalizedSizeBytes": 2400,
+    "normalizedCharacterCount": 2238,
+    "wordCount": 356,
+    "warningPageCount": 0,
+    "blankPageCount": 0,
+    "lowTextPageCount": 0
+  },
+  "warningSummary": [],
+  "languagePolicy": {
+    "pageLanguageDetection": "not_computed",
+    "reason": "no_version_pinned_reliable_detector_configured"
+  },
+  "semantics": {
+    "technicalExtractionOnly": true,
+    "fullTextStoredInRepository": false,
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentValidationComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "receiptSha256": "da65c052a7eca3e1ba0d88c2f12ec120c3f93fa13d159eb4022d80af131f6408"
+}
