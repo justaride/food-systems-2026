@@ -12,6 +12,16 @@ function occurrences(value: string, pattern: string): number {
 }
 
 describe('citation verification workflow', () => {
+  it('offers a read-only manual migration preflight mode', () => {
+    assert.match(workflow, /migration_preflight_only:/)
+    assert.match(workflow, /type: boolean/)
+    assert.match(workflow, /inputs\.migration_preflight_only != true/)
+    assert.ok(
+      workflow.indexOf('inputs.migration_preflight_only != true') > workflow.indexOf('url-health:'),
+      'the mutation guard must be scoped to the URL-health job',
+    )
+  })
+
   it('pins and checksum-verifies cloudflared in both jobs', () => {
     const download =
       'https://github.com/cloudflare/cloudflared/releases/download/2026.7.2/cloudflared-linux-amd64'

@@ -20,6 +20,12 @@ on:
   schedule:
     - cron: '0 3 * * 0'    # Sundays 03:00 UTC
   workflow_dispatch:
+    inputs:
+      migration_preflight_only:
+        description: Run only the read-only migration baseline and fileHash checks
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   filehash-drift:
@@ -212,7 +218,9 @@ jobs:
     name: HTTP-verify needs_review SourceCitations
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    if: ${{ vars.CITATION_VERIFY_ENABLED == 'true' }}
+    if: >-
+      ${{ vars.CITATION_VERIFY_ENABLED == 'true' &&
+          (github.event_name != 'workflow_dispatch' || inputs.migration_preflight_only != true) }}
     env:
       TUNNEL_HOSTNAME: fs-db.naturalstateproject.com
     steps:
