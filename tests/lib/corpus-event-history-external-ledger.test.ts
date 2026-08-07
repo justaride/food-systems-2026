@@ -545,7 +545,7 @@ test("rejects user-owned and symlinked external roots and repository-contained r
   assert.throws(
     () =>
       loadRootOwnedCorpusExternalAnchorLedger(userOwned, { allowEmpty: true }),
-    /not root-owned/,
+    /not root-owned|group- or world-writable/,
   );
   const symlink = `${userOwned}-symlink`;
   symlinkSync(userOwned, symlink, "dir");

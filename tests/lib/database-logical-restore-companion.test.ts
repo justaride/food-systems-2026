@@ -87,6 +87,9 @@ import {
   verifyControlledCloneRecoveryIdentity,
   verifyControlledCloneOwnershipMarker,
 } from "../../scripts/knowledge/run-controlled-logical-restore-companion.mjs";
+
+const supportedRuntime =
+  process.platform === "darwin" && process.arch === "arm64";
 import {
   LOGICAL_RESTORE_EXTENSION_INITIALIZER_PURPOSE,
   LOGICAL_RESTORE_EXTENSION_INITIALIZER_REQUEST_FORMAT,
@@ -2099,7 +2102,7 @@ test("nested synchronous rehearsal child is allowed to finish before an abort is
   }
 });
 
-test("nested rehearsal receives the purpose-limited FD3 attestation without any source or admin URL", async () => {
+test("nested rehearsal receives the purpose-limited FD3 attestation without any source or admin URL", { skip: !supportedRuntime }, async () => {
   const output = privateOutput("nested-rehearsal-probe-marker.txt");
   const runtimeAttestation = currentRuntimeAttestationFixture();
   try {
@@ -2242,7 +2245,7 @@ test("nested rehearsal fully reattests immediately before and after success or f
   }
 });
 
-test("nested rehearsal child rejects a wrong-purpose envelope or tampered inner runtime before private work", async (t) => {
+test("nested rehearsal child rejects a wrong-purpose envelope or tampered inner runtime before private work", { skip: !supportedRuntime }, async (t) => {
   const runtimeAttestation = currentRuntimeAttestationFixture();
   const tamperedRuntime = {
     ...runtimeAttestation,

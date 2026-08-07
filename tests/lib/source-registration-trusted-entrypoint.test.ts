@@ -43,6 +43,8 @@ const runTrustedProbeForTest = runTrustedSourceRegistrationProbe as unknown as (
 ) => any;
 
 const MODULE_BYTES = `// trusted source-registration launcher test copy\n`;
+const supportedRuntime =
+  process.platform === "darwin" && process.arch === "arm64";
 
 function asProcessEnv(value: Record<string, string>): NodeJS.ProcessEnv {
   return value as unknown as NodeJS.ProcessEnv;
@@ -350,7 +352,7 @@ test("direct child execution is refused and post-child drift fails closed", () =
   );
 });
 
-test("runs the database-free trusted probe child and reattests after child failure", () => {
+test("runs the database-free trusted probe child and reattests after child failure", { skip: !supportedRuntime }, () => {
   const root = mkdtempSync("/tmp/foodsystems-source-registration-trusted-launcher-");
   chmodSync(root, 0o700);
   const projectRoot = process.cwd();
