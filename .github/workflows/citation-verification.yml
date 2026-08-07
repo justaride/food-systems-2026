@@ -45,6 +45,49 @@ jobs:
       - name: Generate Prisma client
         run: npx prisma generate
 
+      - name: Verify dedicated migration credential is configured in Coolify
+        env:
+          COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
+          COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
+          COOLIFY_APP_UUID: ${{ secrets.COOLIFY_APP_UUID }}
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          set -euo pipefail
+          response_file=$(mktemp)
+          curl_config_file=$(mktemp)
+          trap 'rm -f "$response_file" "$curl_config_file"' EXIT
+          chmod 600 "$response_file"
+          COOLIFY_API_PATH="/api/v1/applications/$COOLIFY_APP_UUID/envs" \
+            scripts/write-private-coolify-curl-config.py "$curl_config_file"
+          unset COOLIFY_API_TOKEN COOLIFY_BASE_URL COOLIFY_APP_UUID \
+            CF_ACCESS_CLIENT_ID CF_ACCESS_CLIENT_SECRET
+          curl --config "$curl_config_file" -fsS -m 20 > "$response_file"
+          python3 - "$response_file" <<'PY'
+          import json
+          import sys
+
+          with open(sys.argv[1], encoding='utf-8') as handle:
+              payload = json.load(handle)
+          rows = payload if isinstance(payload, list) else payload.get('envs', [])
+          if not isinstance(rows, list):
+              raise SystemExit('Coolify application env API did not return a list')
+          candidates = [
+              row for row in rows
+              if row.get('key') == 'MIGRATION_DATABASE_URL'
+              and row.get('is_preview') is not True
+          ]
+          if len(candidates) != 1:
+              raise SystemExit(
+                  'Expected exactly one non-preview MIGRATION_DATABASE_URL in Coolify; '
+                  f'found {len(candidates)}'
+              )
+          candidate = candidates[0]
+          if candidate.get('is_runtime') is False:
+              raise SystemExit('MIGRATION_DATABASE_URL is explicitly disabled at runtime')
+          print('Coolify migration credential key PASS: one non-preview runtime entry')
+          PY
+
       - name: Install cloudflared
         run: |
           set -euo pipefail
@@ -143,6 +186,9 @@ jobs:
             sleep 3
           done
           if [ "$ok" != "1" ]; then echo "::error::DB not reachable through CF Access tunnel"; cat tunnel.log; exit 1; fi
+
+      - name: Verify production migration baseline
+        run: scripts/verify-production-migration-baseline.sh
 
       - name: Verify fileHash
         env:

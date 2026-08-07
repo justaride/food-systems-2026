@@ -99,6 +99,7 @@ jobs:
             scripts/verify-database-backup.sh
             scripts/restore-database-backup-drill.sh
             scripts/verify-database-schema-drift.sh
+            scripts/verify-production-migration-baseline.sh
           )
 
           for script in "${scripts[@]}"; do

@@ -39,6 +39,7 @@ describe('schema migration guard workflow', () => {
       'scripts/verify-database-backup.sh',
       'scripts/restore-database-backup-drill.sh',
       'scripts/verify-database-schema-drift.sh',
+      'scripts/verify-production-migration-baseline.sh',
     ]
 
     assert.match(workflow, /set -euo pipefail/)

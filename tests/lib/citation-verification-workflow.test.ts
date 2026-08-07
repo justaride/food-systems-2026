@@ -49,6 +49,16 @@ describe('citation verification workflow', () => {
     assert.doesNotMatch(workflow, /--service-token-(?:id|secret)/)
   })
 
+  it('fails closed on the dedicated Coolify migration key and read-only production baseline', () => {
+    assert.match(workflow, /Verify dedicated migration credential is configured in Coolify/)
+    assert.match(workflow, /row\.get\('key'\) == 'MIGRATION_DATABASE_URL'/)
+    assert.match(workflow, /row\.get\('is_preview'\) is not True/)
+    assert.match(workflow, /candidate\.get\('is_runtime'\) is False/)
+    assert.match(workflow, /chmod 600 "\$response_file"/)
+    assert.match(workflow, /scripts\/verify-production-migration-baseline\.sh/)
+    assert.doesNotMatch(workflow, /print\([^\n]*candidate/)
+  })
+
   it('does not expose database or Cloudflare secrets to checkout and dependency setup', () => {
     for (const secret of [
       'DATABASE_URL',

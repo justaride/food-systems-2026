@@ -75,6 +75,20 @@ async function reserveTcpPort(): Promise<number> {
 describe('production migration runner', () => {
   const runner = resolve('scripts/apply-prod-migrations.sh')
 
+  it('ships a credential-safe read-only production baseline preflight', () => {
+    const preflight = read('scripts/verify-production-migration-baseline.sh')
+
+    assert.ok(executable('scripts/verify-production-migration-baseline.sh'))
+    assert.match(preflight, /required_name in PGHOST PGDATABASE PGUSER PGPASSFILE/)
+    assert.match(preflight, /\$required_name is required/)
+    assert.match(preflight, /migration_name, checksum/)
+    assert.match(preflight, /checksum drift/)
+    assert.match(preflight, /LibraryAnalysisRecord is absent/)
+    assert.doesNotMatch(preflight, /DATABASE_URL/)
+    assert.doesNotMatch(preflight, /psql[^\n]*postgres(?:ql)?:\/\//)
+    assert.doesNotMatch(preflight, /\b(?:INSERT|UPDATE|DELETE|CREATE|ALTER|DROP|TRUNCATE)\b/)
+  })
+
   it('uses Prisma ledger commands and never replays raw migration SQL', () => {
     const script = read('scripts/apply-prod-migrations.sh')
     const executableLines = script.split('\n').filter(line => !line.trimStart().startsWith('#')).join('\n')
