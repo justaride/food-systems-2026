@@ -15,7 +15,7 @@ Passing a lower profile never implies passing a higher one. Technical citation i
 
 ## Whole-corpus processing baseline
 
-Gate 1 now reads the manifest-bound corpus-processing register as the declared whole-corpus baseline. It validates every lifecycle record and independently derives its permissions instead of trusting old review labels. The current baseline contains 1,555 unique active identities. Of these, 1,537 bind exact source-content hashes representing 554,322,165 bytes; 11 known files are missing from the repository and 18 identities have no file locator. Content deduplication produces 1,467 processing units.
+Gate 1 now reads the manifest-bound corpus-processing register as the declared whole-corpus baseline. It validates every lifecycle record and independently derives its permissions instead of trusting old review labels. The current baseline contains 1,555 unique active identities. Of these, 1,537 bind exact source-content hashes representing 554,322,179 bytes; 11 known files are missing from the repository and 18 identities have no file locator. Content deduplication produces 1,467 processing units.
 
 These are inventory and integrity facts only. Current full-text lifecycle completion is 0/1,555. Gabriel's owner review is 0/1,555. Owner-confirmed source roles, independent expert validations, partner validations, rights-holder validations, rights clearances, publication approvals, external-use permissions and separate coverage approvals are all zero. AI can perform and document the processing work, but it cannot silently turn that work into Gabriel's decision or another person's independent, partner or rights-holder validation.
 

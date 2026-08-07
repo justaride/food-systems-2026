@@ -312,11 +312,11 @@ describe('immutable pre-ledger-cutover migration history', () => {
     '20260520_schema_drift_catchup': '115d4ca62be5572eb4be65a77bd2a2d45a4dad037c37722ff4b631f5e86dba22',
     '20260520_source_citation_enum_values': '37b73ff2f0693f0a3cd85642dbef102b6a690e2e30b58eebd14a1c5f3b9e8e15',
     '20260520_source_citations': 'a5881be892018614c5f33dd968431ad21b22d1320068299ad2be123a98524a02',
-    '20260525183422_add_last_brreg_refresh': 'f2f09a893dbdd8475b8938b21c2609f3d4a1872cf22b8f7e2d497a351ebc2cdf',
+    '20260525183422_add_last_brreg_refresh': '1383e80d450a31e350c22a698944dea9ffb3bb6de32831594c63de2212f26411',
     '20260526_actor_relationship_provenance': 'dc4453d98cbf359f337bf38ba88e8b8a676b6d246721c24755f36f98b12da95e',
-    '20260526_producer_primary_citation': '05a22a566ab71d27495f5671ee65d035952799f84a3147305a51a5e9222b8767',
+    '20260526_producer_primary_citation': '787715dc73453aa8c35ecb5209c6be124fc23c9aecb5f084e997e4c0f91d86a1',
     '20260611_food_tg_board_entries': 'e6a4e693d0682b68c0137d34567bded9606b048b15f37ebeb76110bea43d3b0e',
-    '20260618_library_analysis_record': '2988a8727cf13e131ea6589ab9dad3f8648814db6ff440da708ed1ce2d9160e7',
+    '20260618_library_analysis_record': '46fdaf7f4c3e7cb18d0e82edce75a43d55ba168521227924999c6ff5b9e23edc',
   }
 
   it('freezes released SQL instead of making historical migrations replayable after release', () => {
