@@ -1,9 +1,9 @@
 {
   "schemaVersion": "corpus-evidence-health-v1",
   "documentKind": "corpus_health_summary",
-  "assessmentId": "health.assessment.2026-08-03.local.2cc40d95",
+  "assessmentId": "health.assessment.2026-08-03.local.b34e66ca",
   "observedAt": "2026-08-03T12:19:47.000Z",
-  "baseCommit": "2cc40d9532f9eb02be38030eaab2a829b4ceb0ce",
+  "baseCommit": "b34e66caf98148d7de2e9a4a1bc2d696517a2bc5",
   "gate1Decision": "no_go",
   "principalBlocker": "seed_database_identity_mismatch",
   "semanticBoundary": {
@@ -32,6 +32,7 @@
       "reasonCodes": [
         "migration_lineage_reconciled",
         "seed_identity_mismatch",
+        "library_identity_mismatch",
         "library_projection_freshness_pending",
         "whole_corpus_full_text_zero",
         "status_vintage_conflicts"
@@ -114,11 +115,11 @@
     "completeEvidenceAppraisals": 0,
     "externalRowsNeedingArchive": 1984,
     "currentLibraryInventory": 1555,
-    "persistedLibraryRows": 1572,
+    "persistedLibraryRows": 1627,
     "livePersistedLibraryRows": 1555,
-    "retainedLibraryHistoryRows": 17,
+    "retainedLibraryHistoryRows": 72,
     "libraryInventoryOnlyRows": 0,
-    "libraryRetainedHistoryContractIssues": 0,
+    "libraryRetainedHistoryContractIssues": 55,
     "reportedLibraryProjectionUpdates": 15,
     "vaultIssues": 0
   },
@@ -134,6 +135,11 @@
       "title": "Tracked academic status describes a different seed lineage"
     },
     {
+      "conflictId": "health.conflict.library_inventory_materialization",
+      "severity": "high",
+      "title": "Derived library inventory and persisted materialization differ without a complete contract"
+    },
+    {
       "conflictId": "health.conflict.remediation_vintage",
       "severity": "warning",
       "title": "Remediation backlog counts have conflicting vintages"
@@ -144,5 +150,5 @@
       "title": "Tracked academic regression gate does not reproduce on current HEAD"
     }
   ],
-  "contentHash": "sha256:4b788bd72889fec7eb76a58e0b57ee6dbd917bc7110ba33d6e30cb9dc348a123"
+  "contentHash": "sha256:8623b05b36be05bbedeed0ba0998c3b4b9647a3238ba01527d820ce51818f4e4"
 }

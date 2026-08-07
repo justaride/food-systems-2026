@@ -3,7 +3,7 @@
   "documentKind": "corpus_health_generation_manifest",
   "generatorVersion": "1.4.0",
   "generatedAt": "2026-08-03T12:19:47.000Z",
-  "baseCommit": "2cc40d9532f9eb02be38030eaab2a829b4ceb0ce",
+  "baseCommit": "b34e66caf98148d7de2e9a4a1bc2d696517a2bc5",
   "inputs": [
     {
       "path": "scripts/knowledge/generate-corpus-health.ts",
@@ -66,7 +66,7 @@
       "sizeBytes": 9688
     }
   ],
-  "sourceSnapshotSetHash": "sha256:60b6b423ff49c5af80b7281c650878962a4f017ccfba31f13db7b7e7a2219060",
+  "sourceSnapshotSetHash": "sha256:f9f94c5f669b2422b83ea6f01d6e3a6fa117c8b5f99768865e2e8f7ec77d9b31",
   "assessmentIds": [
     "health.assessment.2026-07-27.local.f7148da4",
     "health.assessment.2026-07-28.local.95da5847",
@@ -74,39 +74,40 @@
     "health.assessment.2026-07-28.local.e9babbc2",
     "health.assessment.2026-08-03.local.d26684eb",
     "health.assessment.2026-08-03.local.006986f7",
-    "health.assessment.2026-08-03.local.2cc40d95"
+    "health.assessment.2026-08-03.local.2cc40d95",
+    "health.assessment.2026-08-03.local.b34e66ca"
   ],
   "outputs": [
     {
       "path": "knowledge/health/corpus-health-source-snapshots.v1.json",
-      "sha256": "sha256:dcd49c9ddc1bb8905b860fd3c3706d5b93860946ce2dd2ca703d3992cfd79790",
+      "sha256": "sha256:dba25e89a936326b179a4a52399e3512b52425042551e368ffc838cbfdbb4756",
       "sizeBytes": 26943
     },
     {
       "path": "knowledge/health/corpus-health-source-snapshot-history.v1.jsonl",
-      "sha256": "sha256:7f57ab8d0bbfe16a987584e57dfb79f08f950eea33548c1688eac04725b2a0bf",
-      "sizeBytes": 122283
+      "sha256": "sha256:73964421b627b28d2dd2797ccf8b334f60c44f8faa500dc4e447dde417d69d38",
+      "sizeBytes": 144482
     },
     {
       "path": "knowledge/health/corpus-health-assessments.v1.jsonl",
-      "sha256": "sha256:b5a57ae8b1cac5b995f74a674a5cc21bf6d265326bfecb442410a32efc838ceb",
-      "sizeBytes": 347273
+      "sha256": "sha256:b7195fbae3952d9142b2e0a9287b2b886934cd95c8a977c00cace839b6929e7b",
+      "sizeBytes": 422586
     },
     {
       "path": "knowledge/health/corpus-health-current.v1.json",
-      "sha256": "sha256:9bc0f275a67dffe9807f342dbbe44987de6c6274a1be802487c755eef9a9158d",
+      "sha256": "sha256:efeb08fbacae9ff1dc2aa4cdf0ad5535db618e90962fdd0f8322e36ecd1e417c",
       "sizeBytes": 748
     },
     {
       "path": "knowledge/health/corpus-health-summary.v1.json",
-      "sha256": "sha256:4e2e266c3afc29504bc5256267d2db16b4934a95550a19d2f9dd30f3a62c0b2f",
-      "sizeBytes": 5017
+      "sha256": "sha256:7665bddff37701ebb3bd3f3503a2dfc4124a936a722fe0a9083181083cc946f8",
+      "sizeBytes": 5275
     },
     {
       "path": "knowledge/health/corpus-health-report.v1.md",
-      "sha256": "sha256:6070e324b6478d0f0c93f3a03b5167319c369e92a0629ff879364bbb18a5cf81",
-      "sizeBytes": 6512
+      "sha256": "sha256:c2d32de83cce2a68d1c4fe930370c5e8601013e19519544dd4761b1ab1826443",
+      "sizeBytes": 6542
     }
   ],
-  "contentHash": "sha256:bbbcb971a1b420ec6f319fe2762b9877e334b186d5438d40d8f7835cadeb636e"
+  "contentHash": "sha256:df587f02088d5d2f020f5326ffa1c93c81521949111ea618da91077854074b47"
 }
