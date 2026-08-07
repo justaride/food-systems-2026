@@ -554,14 +554,16 @@ test("rejects user-owned and symlinked external roots and repository-contained r
       loadRootOwnedCorpusExternalAnchorLedger(symlink, { allowEmpty: true }),
     /symlink/,
   );
-  assert.throws(
-    () =>
-      loadRootOwnedCorpusExternalAnchorLedger(
-        "/var/db/food-systems-corpus-anchor",
-        { allowEmpty: true },
-      ),
-    /symlink/,
-  );
+  if (process.platform === "darwin") {
+    assert.throws(
+      () =>
+        loadRootOwnedCorpusExternalAnchorLedger(
+          "/var/db/food-systems-corpus-anchor",
+          { allowEmpty: true },
+        ),
+      /symlink/,
+    );
+  }
   assert.throws(
     () =>
       assertExternalRootOutsideRepository({
