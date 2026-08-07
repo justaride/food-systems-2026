@@ -68,7 +68,12 @@ describe('citation verification workflow', () => {
     assert.match(workflow, /candidate\.get\('is_runtime'\) is False/)
     assert.match(workflow, /chmod 600 "\$response_file"/)
     assert.match(workflow, /scripts\/verify-production-migration-baseline\.sh/)
+    assert.match(workflow, /id: migration_baseline/)
+    assert.match(workflow, /id: schema_drift/)
+    assert.match(workflow, /scripts\/verify-database-schema-drift\.sh/)
     assert.match(workflow, /steps\.migration_credential\.outcome != 'success'/)
+    assert.match(workflow, /steps\.migration_baseline\.outcome != 'success'/)
+    assert.match(workflow, /steps\.schema_drift\.outcome != 'success'/)
     assert.match(workflow, /Enforce dedicated migration credential gate/)
     assert.doesNotMatch(workflow, /print\([^\n]*candidate/)
   })
@@ -86,7 +91,7 @@ describe('citation verification workflow', () => {
       )
     }
 
-    assert.equal(occurrences(workflow, 'DATABASE_URL: ${{ secrets.DATABASE_URL }}'), 4)
+    assert.equal(occurrences(workflow, 'DATABASE_URL: ${{ secrets.DATABASE_URL }}'), 5)
     assert.equal(occurrences(workflow, 'TUNNEL_SERVICE_TOKEN_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}'), 2)
     assert.equal(
       occurrences(workflow, 'TUNNEL_SERVICE_TOKEN_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}'),

@@ -69,6 +69,19 @@ ledger_exists=$($psql_bin -X -A -t -q -v ON_ERROR_STOP=1 \
 [ "$ledger_exists" = t ] \
   || fail 'Prisma migration ledger is missing; production must be explicitly baselined before deploy'
 
+authority_summary=$($psql_bin -X -A -t -q -v ON_ERROR_STOP=1 -c '
+  SELECT concat(
+    '\''superuser='\'', rolsuper,
+    '\'',createrole='\'', rolcreaterole,
+    '\'',createdb='\'', rolcreatedb,
+    '\'',database_owner='\'', (SELECT datdba = role.oid FROM pg_database WHERE datname = current_database()),
+    '\'',public_schema_owner='\'', (SELECT nspowner = role.oid FROM pg_namespace WHERE nspname = '\''public'\'')
+  )
+  FROM pg_roles role
+  WHERE rolname = current_user
+')
+printf '%s\n' "[migration-preflight] current credential authority: $authority_summary"
+
 failed_count=$($psql_bin -X -A -t -q -v ON_ERROR_STOP=1 \
   -c 'SELECT count(*) FROM public."_prisma_migrations" WHERE finished_at IS NULL OR rolled_back_at IS NOT NULL')
 [ "$failed_count" = 0 ] \

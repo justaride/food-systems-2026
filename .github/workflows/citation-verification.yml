@@ -196,9 +196,20 @@ jobs:
           if [ "$ok" != "1" ]; then echo "::error::DB not reachable through CF Access tunnel"; cat tunnel.log; exit 1; fi
 
       - name: Verify production migration baseline
+        id: migration_baseline
+        continue-on-error: true
         run: scripts/verify-production-migration-baseline.sh
 
+      - name: Audit production schema drift
+        id: schema_drift
+        if: ${{ always() }}
+        continue-on-error: true
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: scripts/verify-database-schema-drift.sh
+
       - name: Verify fileHash
+        if: ${{ always() }}
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: npm run db:verify:filehash
@@ -217,9 +228,14 @@ jobs:
           esac
 
       - name: Enforce dedicated migration credential gate
-        if: ${{ always() && steps.migration_credential.outcome != 'success' }}
+        if: >-
+          ${{ always() && (
+              steps.migration_credential.outcome != 'success' ||
+              steps.migration_baseline.outcome != 'success' ||
+              steps.schema_drift.outcome != 'success'
+          ) }}
         run: |
-          echo '::error::Coolify is missing the dedicated runtime MIGRATION_DATABASE_URL required by the release image.'
+          echo '::error::Production migration readiness is not complete; inspect the independent credential, ledger, and schema-drift steps.'
           exit 1
 
   url-health:
