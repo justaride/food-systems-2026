@@ -76,8 +76,8 @@ const PLATFORM_MAP: Group[] = [
   },
   {
     name: 'Kunnskap',
-    routes: 'Innsikt · Forskningsrunder · Akademia · Graf · Aktører',
-    use: 'Analyselaget: hovedinnsikt, avgrensede forskningsrunder, avhandlinger, kunnskapsgraf og aktørprioritering.',
+    routes: 'Innsikt · Prosjektlandskap · Forskningsrunder · Akademia · Graf · Aktører',
+    use: 'Analyselaget: hovedinnsikt, sammenlignbare prosjektprofiler, avgrensede forskningsrunder, avhandlinger, kunnskapsgraf og aktørprioritering.',
   },
   {
     name: 'Bibliotek',
