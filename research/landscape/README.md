@@ -154,7 +154,7 @@ Stopregelen betyr at det avtalte søkepasset er mettet ved cutoff. Den betyr ikk
 - Endre bare claimene den nye kilden faktisk støtter. Ikke oppgrader hele prosjektets evidensstatus samlet.
 - Oppdater først kilde, deretter feltkobling/funn, score, search-log og rapport.
 - Kjør rapportgenerator før validator; validatoren avviser rangering eller tabeller som ikke kan reproduseres.
-- Completion-registeret forblir kanonisk statusflate for kilde-, menneske- og publiseringsporter. Dette landskapet peker til den prosessen og er ikke et parallelt sannhetsregister.
+- [Completion-registeret](../../docs/project/status/food-systems-completion-register-2026-07-15.md) forblir kanonisk statusflate for kilde-, menneske- og publiseringsporter. Dette landskapet peker til den prosessen og er ikke et parallelt sannhetsregister.
 
 ## Intervju- og workshopport
 

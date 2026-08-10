@@ -73,7 +73,7 @@ Formål: intern, kildeavgrenset beslutningsstøtte — ikke en fullstendig Norde
 
 **GO for intern prioritering og metodevalg. NO-GO for ukvalifisert ekstern publisering, effektpåstander, automatisk databaseinntak og kontakt med prosjektene.** Registeret har nøyaktig ${projects.length} scorebare hovedprofiler, ${candidates.length} kandidat-/disposisjonsrader og ${sources.length} kilder. Den strategiske scoren er skilt fra evidenskvaliteten.
 
-Alle hovedprofiler har dokumentert identitet og statuskilde. ${independent.length} av ${sources.length} kilder er klassifisert som uavhengige; ${ownerAffiliated.length} er eier- eller prosjektnære. Prosjektresultater beholdes derfor som *rapporterte* med mindre en uavhengig evaluering faktisk støtter dem. Completion-registeret er fortsatt kanonisk for kilde-, menneske- og publiseringsporter.
+Alle hovedprofiler har dokumentert identitet og statuskilde. ${independent.length} av ${sources.length} kilder er klassifisert som uavhengige; ${ownerAffiliated.length} er eier- eller prosjektnære. Prosjektresultater beholdes derfor som *rapporterte* med mindre en uavhengig evaluering faktisk støtter dem. [Completion-registeret](../../docs/project/status/food-systems-completion-register-2026-07-15.md) er fortsatt kanonisk for kilde-, menneske- og publiseringsporter.
 
 ## Topp 10
 
