@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems2026.local/schema/project-landscape-2026-08-10.json",
+  "title": "Food Systems 2026 project landscape records",
+  "description": "Strict row schemas for the 2026-08-10 main register, longlist, source ledger and search log.",
+  "oneOf": [
+    { "$ref": "#/$defs/project" },
+    { "$ref": "#/$defs/candidate" },
+    { "$ref": "#/$defs/source" },
+    { "$ref": "#/$defs/searchPass" }
+  ],
+  "$defs": {
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "date": { "type": "string", "format": "date" },
+    "nullableDate": { "type": ["string", "null"], "format": "date" },
+    "stringArray": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "nonEmptyStringArray": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "sourceIds": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^src-[a-z0-9-]+$" }, "uniqueItems": true },
+    "entityKind": { "enum": ["project", "programme", "platform", "dataset", "model", "network", "framework", "repository_reference"] },
+    "methodType": { "enum": ["quantitative", "qualitative", "ethnographic", "participatory", "model_based", "administrative_data", "document_analysis"] },
+    "findingType": { "enum": ["barrier", "enabler", "tension", "reported_outcome", "evaluated_outcome", "failure", "unintended_effect", "transferable_practice", "open_question"] },
+    "evidenceStatus": { "enum": ["owner_reported", "project_reported", "documented", "independently_documented", "internal_analysis", "human_gate"] },
+    "organisation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "role", "country", "countries"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "role": { "$ref": "#/$defs/nonEmptyString" },
+        "country": { "$ref": "#/$defs/nonEmptyString" },
+        "countries": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "geography": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scope", "countries", "places", "indigenousRegions"],
+      "properties": {
+        "scope": { "$ref": "#/$defs/nonEmptyString" },
+        "countries": { "$ref": "#/$defs/stringArray" },
+        "places": { "$ref": "#/$defs/stringArray" },
+        "indigenousRegions": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["valueChainStages", "themes", "stakeholderGroups"],
+      "properties": {
+        "valueChainStages": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "themes": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "stakeholderGroups": { "$ref": "#/$defs/nonEmptyStringArray" }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "startDate", "endDate", "lastActivityDate", "statusSourceIds"],
+      "properties": {
+        "status": { "enum": ["active", "completed", "archived", "planned", "paused", "unknown"] },
+        "startDate": { "$ref": "#/$defs/nullableDate" },
+        "endDate": { "$ref": "#/$defs/nullableDate" },
+        "lastActivityDate": { "$ref": "#/$defs/date" },
+        "statusSourceIds": { "$ref": "#/$defs/sourceIds" }
+      }
+    },
+    "method": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "type", "sourceIds"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "type": { "$ref": "#/$defs/methodType" },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" }
+      }
+    },
+    "dataAsset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "dataType", "geography", "period", "granularity", "accessMode", "license", "updateCadence", "knownBiases", "sourceIds"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "dataType": { "enum": ["dataset", "document_collection", "geospatial", "indicator", "interview", "model_output", "observation", "registry", "survey"] },
+        "geography": { "$ref": "#/$defs/nonEmptyString" },
+        "period": { "$ref": "#/$defs/nonEmptyString" },
+        "granularity": { "$ref": "#/$defs/nonEmptyString" },
+        "accessMode": { "enum": ["public_web", "public_summary_only", "restricted"] },
+        "license": { "$ref": "#/$defs/nonEmptyString" },
+        "updateCadence": { "$ref": "#/$defs/nonEmptyString" },
+        "knownBiases": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" }
+      }
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "outputType", "date", "status", "sourceIds"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "outputType": { "enum": ["dashboard", "data_portal", "framework", "map", "model", "network", "other", "report", "toolkit"] },
+        "date": { "$ref": "#/$defs/nullableDate" },
+        "status": { "enum": ["planned", "ongoing", "delivered", "withdrawn", "unknown"] },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" }
+      }
+    },
+    "qualitativeProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["participantGroups", "knowledgeTypes", "participationDepth", "ethicsRightsNotes"],
+      "properties": {
+        "participantGroups": { "$ref": "#/$defs/stringArray" },
+        "knowledgeTypes": { "$ref": "#/$defs/nonEmptyStringArray" },
+        "participationDepth": { "enum": ["not_assessed", "consultation", "involvement", "collaboration", "co_creation", "community_control"] },
+        "ethicsRightsNotes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "statement", "evidenceStatus", "sourceIds", "transferability"],
+      "properties": {
+        "id": { "$ref": "#/$defs/nonEmptyString" },
+        "type": { "$ref": "#/$defs/findingType" },
+        "statement": { "$ref": "#/$defs/nonEmptyString" },
+        "evidenceStatus": { "$ref": "#/$defs/evidenceStatus" },
+        "sourceIds": { "$ref": "#/$defs/sourceIds" },
+        "transferability": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "urls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["official", "repository", "documentation", "liveProduct", "publication", "funding"],
+      "properties": {
+        "official": { "type": "string" }, "repository": { "type": "string" }, "documentation": { "type": "string" },
+        "liveProduct": { "type": "string" }, "publication": { "type": "string" }, "funding": { "type": "string" }
+      }
+    },
+    "fieldSources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonicalName", "entityKind", "organisations", "geography", "problem", "lifecycle.status", "methods", "dataAssets", "outputs"],
+      "properties": {
+        "canonicalName": { "$ref": "#/$defs/sourceIds" }, "entityKind": { "$ref": "#/$defs/sourceIds" },
+        "organisations": { "$ref": "#/$defs/sourceIds" }, "geography": { "$ref": "#/$defs/sourceIds" },
+        "problem": { "$ref": "#/$defs/sourceIds" }, "lifecycle.status": { "$ref": "#/$defs/sourceIds" },
+        "methods": { "$ref": "#/$defs/sourceIds" }, "dataAssets": { "$ref": "#/$defs/sourceIds" }, "outputs": { "$ref": "#/$defs/sourceIds" }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["directOverlap", "complementarity", "nordicRelevance", "qualitativeDepth", "learningNovelty", "transferability", "maturity", "collaborationPotential", "competitiveThreat", "fitCategory", "overlap", "complementarityNarrative", "nextAction", "priorityScore", "evidenceScore"],
+      "properties": {
+        "directOverlap": { "type": "number", "minimum": 0, "maximum": 5 },
+        "complementarity": { "type": "number", "minimum": 0, "maximum": 5 },
+        "nordicRelevance": { "type": "number", "minimum": 0, "maximum": 5 },
+        "qualitativeDepth": { "type": "number", "minimum": 0, "maximum": 5 },
+        "learningNovelty": { "type": "number", "minimum": 0, "maximum": 5 },
+        "transferability": { "type": "number", "minimum": 0, "maximum": 5 },
+        "maturity": { "type": "number", "minimum": 0, "maximum": 5 },
+        "collaborationPotential": { "type": "number", "minimum": 0, "maximum": 5 },
+        "competitiveThreat": { "enum": ["low", "medium", "high"] },
+        "fitCategory": { "enum": ["direct_analogue", "high_value_partner", "adjacent_reference", "long_tail"] },
+        "overlap": { "$ref": "#/$defs/nonEmptyString" },
+        "complementarityNarrative": { "$ref": "#/$defs/nonEmptyString" },
+        "nextAction": { "$ref": "#/$defs/nonEmptyString" },
+        "priorityScore": { "type": "number", "minimum": 0, "maximum": 5 },
+        "evidenceScore": { "type": "number", "minimum": 0, "maximum": 5 }
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["recordType", "id", "canonicalName", "aliases", "entityKind", "organisations", "layer", "projectType", "geography", "coverage", "audience", "problem", "lifecycle", "methods", "dataAssets", "outputs", "qualitativeProfile", "qualitativeFindings", "urls", "evidence", "analysis", "seed", "seedReason", "notes"],
+      "properties": {
+        "recordType": { "const": "project" }, "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "canonicalName": { "$ref": "#/$defs/nonEmptyString" }, "aliases": { "$ref": "#/$defs/stringArray" }, "entityKind": { "$ref": "#/$defs/entityKind" },
+        "organisations": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/organisation" } },
+        "layer": { "enum": ["direct_platform", "model", "food_data", "supply_chain_geo", "knowledge_graph", "transition_program", "enabling_infrastructure"] },
+        "projectType": { "$ref": "#/$defs/nonEmptyString" }, "geography": { "$ref": "#/$defs/geography" }, "coverage": { "$ref": "#/$defs/coverage" },
+        "audience": { "$ref": "#/$defs/nonEmptyStringArray" }, "problem": { "$ref": "#/$defs/nonEmptyString" }, "lifecycle": { "$ref": "#/$defs/lifecycle" },
+        "methods": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/method" } },
+        "dataAssets": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/dataAsset" } },
+        "outputs": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/output" } },
+        "qualitativeProfile": { "$ref": "#/$defs/qualitativeProfile" }, "qualitativeFindings": { "type": "array", "items": { "$ref": "#/$defs/finding" } },
+        "urls": { "$ref": "#/$defs/urls" },
+        "evidence": {
+          "type": "object", "additionalProperties": false,
+          "required": ["primarySourceIds", "corroboratingSourceIds", "confidence", "lastVerifiedAt", "fieldSources"],
+          "properties": { "primarySourceIds": { "$ref": "#/$defs/sourceIds" }, "corroboratingSourceIds": { "$ref": "#/$defs/stringArray" }, "confidence": { "enum": ["low", "medium", "high"] }, "lastVerifiedAt": { "$ref": "#/$defs/date" }, "fieldSources": { "$ref": "#/$defs/fieldSources" } }
+        },
+        "analysis": { "$ref": "#/$defs/analysis" }, "seed": { "type": "boolean" }, "seedReason": { "$ref": "#/$defs/nonEmptyString" }, "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "candidate": {
+      "type": "object", "additionalProperties": false,
+      "required": ["recordType", "id", "canonicalName", "aliases", "entityKind", "geography", "workflowStatus", "decision", "relevance", "discoverySourceIds", "knownUrls", "identityResolution", "promotionCriteria", "nextAction", "seed", "seedReason", "lastReviewedAt", "notes"],
+      "properties": {
+        "recordType": { "const": "candidate" }, "id": { "$ref": "#/$defs/nonEmptyString" }, "canonicalName": { "$ref": "#/$defs/nonEmptyString" }, "aliases": { "$ref": "#/$defs/stringArray" }, "entityKind": { "$ref": "#/$defs/entityKind" },
+        "geography": { "$ref": "#/$defs/geography" },
+        "workflowStatus": { "enum": ["discovered", "identity_resolved", "metadata_verified", "content_acquired", "extracted", "analyst_reviewed", "eligible_main", "duplicate", "not_same", "source_blocked", "human_gated", "reference_only"] },
+        "decision": { "enum": ["candidate", "duplicate", "excluded", "reference_only", "human_gated"] },
+        "relevance": { "$ref": "#/$defs/nonEmptyString" }, "discoverySourceIds": { "$ref": "#/$defs/sourceIds" }, "knownUrls": { "$ref": "#/$defs/stringArray" },
+        "identityResolution": { "type": "object", "additionalProperties": false, "required": ["suspectedOwner", "duplicateOf", "unresolvedQuestions"], "properties": { "suspectedOwner": { "type": ["string", "null"] }, "duplicateOf": { "type": ["string", "null"] }, "unresolvedQuestions": { "$ref": "#/$defs/stringArray" } } }, "promotionCriteria": { "$ref": "#/$defs/nonEmptyStringArray" }, "nextAction": { "$ref": "#/$defs/nonEmptyString" },
+        "seed": { "type": "boolean" }, "seedReason": { "$ref": "#/$defs/nonEmptyString" }, "lastReviewedAt": { "$ref": "#/$defs/date" }, "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "locator": {
+      "type": "object", "additionalProperties": false, "required": ["type", "value"],
+      "properties": { "type": { "$ref": "#/$defs/nonEmptyString" }, "value": { "$ref": "#/$defs/nonEmptyString" } }
+    },
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["recordType", "id", "projectId", "sourceType", "sourceClass", "role", "independence", "title", "url", "publisher", "publishedAt", "accessedAt", "locator", "supports", "verificationStatus", "citationReadiness", "retrievalStatus", "captureMethod", "archivedUrl", "localPath", "fileHash", "hashAlgorithm", "license", "rightsStatus", "intakeStatus", "notes"],
+      "properties": {
+        "recordType": { "const": "source" }, "id": { "$ref": "#/$defs/nonEmptyString" }, "projectId": { "$ref": "#/$defs/nonEmptyString" }, "sourceType": { "$ref": "#/$defs/nonEmptyString" },
+        "sourceClass": { "enum": ["primary", "secondary", "dataset", "unknown"] },
+        "role": { "enum": ["owner_primary", "funder_registry", "method_result", "independent_evaluation", "discovery_only"] },
+        "independence": { "enum": ["owner", "affiliated", "independent", "unknown"] },
+        "title": { "$ref": "#/$defs/nonEmptyString" }, "url": { "type": "string", "format": "uri" }, "publisher": { "$ref": "#/$defs/nonEmptyString" }, "publishedAt": { "$ref": "#/$defs/nullableDate" }, "accessedAt": { "$ref": "#/$defs/date" }, "locator": { "$ref": "#/$defs/locator" },
+        "supports": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["fieldPath", "claimStatus"], "properties": { "fieldPath": { "$ref": "#/$defs/nonEmptyString" }, "claimStatus": { "$ref": "#/$defs/evidenceStatus" } } } },
+        "verificationStatus": { "enum": ["verified", "partially_verified", "unverified", "blocked"] },
+        "citationReadiness": { "enum": ["citable", "citable_with_note", "internal_context", "blocked_rights", "blocked_unsourced", "human_gate"] },
+        "retrievalStatus": { "enum": ["metadata_only", "url_accessed", "archived", "local_capture", "blocked"] }, "captureMethod": { "enum": ["manual_web_review", "api", "download", "local_file", "archive"] }, "archivedUrl": { "type": "string" }, "localPath": { "type": "string" }, "fileHash": { "type": "string" }, "hashAlgorithm": { "const": "sha256" }, "license": { "$ref": "#/$defs/nonEmptyString" }, "rightsStatus": { "enum": ["link_only", "cleared", "restricted", "unknown", "human_gate"] },
+        "intakeStatus": { "enum": ["discovered", "identity_resolved", "metadata_verified", "content_acquired", "extracted", "analyst_reviewed", "eligible_main", "source_blocked", "human_gated", "reference_only"] }, "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "searchPass": {
+      "type": "object", "additionalProperties": false,
+      "required": ["recordType", "id", "sourceClass", "pass", "cutoff", "executedAt", "queryPortal", "geographies", "perspectives", "queries", "resultsReviewed", "newTierAB", "candidateIds", "promotedIds", "duplicateIds", "exclusions", "coverageCells", "stopRuleMet", "stopReason"],
+      "properties": {
+        "recordType": { "const": "search_pass" }, "id": { "$ref": "#/$defs/nonEmptyString" }, "sourceClass": { "$ref": "#/$defs/nonEmptyString" }, "pass": { "enum": [1, 2] }, "cutoff": { "$ref": "#/$defs/date" }, "executedAt": { "type": "string", "format": "date-time" }, "queryPortal": { "$ref": "#/$defs/nonEmptyString" },
+        "geographies": { "$ref": "#/$defs/stringArray" }, "perspectives": { "$ref": "#/$defs/stringArray" }, "queries": { "$ref": "#/$defs/stringArray" }, "resultsReviewed": { "type": "integer", "minimum": 0 }, "newTierAB": { "type": "integer", "minimum": 0 },
+        "candidateIds": { "$ref": "#/$defs/stringArray" }, "promotedIds": { "$ref": "#/$defs/stringArray" }, "duplicateIds": { "$ref": "#/$defs/stringArray" }, "exclusions": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["candidateId", "decision", "reason"], "properties": { "candidateId": { "$ref": "#/$defs/nonEmptyString" }, "decision": { "$ref": "#/$defs/nonEmptyString" }, "reason": { "$ref": "#/$defs/nonEmptyString" } } } }, "coverageCells": { "$ref": "#/$defs/stringArray" }, "stopRuleMet": { "type": "boolean" }, "stopReason": { "type": ["string", "null"] }
+      }
+    }
+  }
+}
