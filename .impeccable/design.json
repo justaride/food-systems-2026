@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-10T21:13:38Z",
+  "title": "Design System: Food Systems 2026",
+  "extensions": {
+    "colorMeta": {
+      "stone-canvas": {
+        "role": "neutral",
+        "displayName": "Field Stone",
+        "canonical": "#fafaf9",
+        "tonalRamp": ["#0c0a09", "#1c1917", "#292524", "#44403c", "#78716c", "#d6d3d1", "#f5f5f4", "#fafaf9"]
+      },
+      "stone-surface": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#0c0a09", "#1c1917", "#292524", "#44403c", "#78716c", "#d6d3d1", "#fafaf9", "#ffffff"]
+      },
+      "stone-muted-surface": {
+        "role": "neutral",
+        "displayName": "Quiet Stone",
+        "canonical": "#f5f5f4",
+        "tonalRamp": ["#0c0a09", "#1c1917", "#292524", "#44403c", "#78716c", "#d6d3d1", "#f5f5f4", "#fafaf9"]
+      },
+      "stone-border": {
+        "role": "neutral",
+        "displayName": "Stone Divider",
+        "canonical": "#e7e5e4",
+        "tonalRamp": ["#0c0a09", "#1c1917", "#292524", "#44403c", "#78716c", "#d6d3d1", "#e7e5e4", "#fafaf9"]
+      },
+      "stone-subtle": {
+        "role": "neutral",
+        "displayName": "Subtle Stone",
+        "canonical": "#a8a29e",
+        "tonalRamp": ["#0c0a09", "#1c1917", "#292524", "#44403c", "#78716c", "#a8a29e", "#e7e5e4", "#fafaf9"]
+      },
+      "stone-muted": {
+        "role": "neutral",
+        "displayName": "Muted Stone",
+        "canonical": "#78716c",
+        "tonalRamp": ["#0c0a09", "#1c1917", "#292524", "#44403c", "#78716c", "#a8a29e", "#e7e5e4", "#fafaf9"]
+      },
+      "stone-body": {
+        "role": "neutral",
+        "displayName": "Body Stone",
+        "canonical": "#57534e",
+        "tonalRamp": ["#0c0a09", "#1c1917", "#292524", "#44403c", "#57534e", "#a8a29e", "#e7e5e4", "#fafaf9"]
+      },
+      "stone-strong": {
+        "role": "neutral",
+        "displayName": "Action Stone",
+        "canonical": "#292524",
+        "tonalRamp": ["#0c0a09", "#1c1917", "#292524", "#44403c", "#78716c", "#a8a29e", "#e7e5e4", "#fafaf9"]
+      },
+      "stone-ink": {
+        "role": "neutral",
+        "displayName": "Operational Ink",
+        "canonical": "#0c0a09",
+        "tonalRamp": ["#0c0a09", "#1c1917", "#292524", "#44403c", "#78716c", "#a8a29e", "#e7e5e4", "#fafaf9"]
+      },
+      "emerald-soft": {
+        "role": "primary",
+        "displayName": "Strategic Emerald Soft",
+        "canonical": "#ecfdf5",
+        "tonalRamp": ["#022c22", "#064e3b", "#065f46", "#047857", "#10b981", "#6ee7b7", "#d1fae5", "#ecfdf5"]
+      },
+      "emerald-border": {
+        "role": "primary",
+        "displayName": "Strategic Emerald Border",
+        "canonical": "#a7f3d0",
+        "tonalRamp": ["#022c22", "#064e3b", "#065f46", "#047857", "#10b981", "#6ee7b7", "#d1fae5", "#ecfdf5"]
+      },
+      "emerald-signal": {
+        "role": "primary",
+        "displayName": "Strategic Emerald",
+        "canonical": "#059669",
+        "tonalRamp": ["#022c22", "#064e3b", "#065f46", "#047857", "#10b981", "#6ee7b7", "#d1fae5", "#ecfdf5"]
+      },
+      "emerald-link": {
+        "role": "primary",
+        "displayName": "Strategic Emerald Link",
+        "canonical": "#047857",
+        "tonalRamp": ["#022c22", "#064e3b", "#065f46", "#047857", "#10b981", "#6ee7b7", "#d1fae5", "#ecfdf5"]
+      },
+      "sky-soft": {
+        "role": "secondary",
+        "displayName": "Evidence Sky Soft",
+        "canonical": "#f0f9ff",
+        "tonalRamp": ["#082f49", "#0c4a6e", "#075985", "#0369a1", "#0ea5e9", "#7dd3fc", "#e0f2fe", "#f0f9ff"]
+      },
+      "sky-border": {
+        "role": "secondary",
+        "displayName": "Evidence Sky Border",
+        "canonical": "#bae6fd",
+        "tonalRamp": ["#082f49", "#0c4a6e", "#075985", "#0369a1", "#0ea5e9", "#7dd3fc", "#e0f2fe", "#f0f9ff"]
+      },
+      "sky-evidence": {
+        "role": "secondary",
+        "displayName": "Evidence Sky",
+        "canonical": "#0284c7",
+        "tonalRamp": ["#082f49", "#0c4a6e", "#075985", "#0369a1", "#0ea5e9", "#7dd3fc", "#e0f2fe", "#f0f9ff"]
+      },
+      "amber-soft": {
+        "role": "tertiary",
+        "displayName": "Gate Amber Soft",
+        "canonical": "#fffbeb",
+        "tonalRamp": ["#451a03", "#78350f", "#92400e", "#b45309", "#f59e0b", "#fcd34d", "#fef3c7", "#fffbeb"]
+      },
+      "amber-border": {
+        "role": "tertiary",
+        "displayName": "Gate Amber Border",
+        "canonical": "#fde68a",
+        "tonalRamp": ["#451a03", "#78350f", "#92400e", "#b45309", "#f59e0b", "#fcd34d", "#fef3c7", "#fffbeb"]
+      },
+      "amber-gate": {
+        "role": "tertiary",
+        "displayName": "Gate Amber",
+        "canonical": "#b45309",
+        "tonalRamp": ["#451a03", "#78350f", "#92400e", "#b45309", "#f59e0b", "#fcd34d", "#fef3c7", "#fffbeb"]
+      },
+      "rose-soft": {
+        "role": "tertiary",
+        "displayName": "Gap Rose Soft",
+        "canonical": "#fff1f2",
+        "tonalRamp": ["#4c0519", "#881337", "#9f1239", "#be123c", "#f43f5e", "#fda4af", "#ffe4e6", "#fff1f2"]
+      },
+      "rose-gap": {
+        "role": "tertiary",
+        "displayName": "Gap Rose",
+        "canonical": "#be123c",
+        "tonalRamp": ["#4c0519", "#881337", "#9f1239", "#be123c", "#f43f5e", "#fda4af", "#ffe4e6", "#fff1f2"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Page Display", "purpose": "One restrained page title per surface." },
+      "headline": { "displayName": "Section Headline", "purpose": "Major evidence, comparison, and register sections." },
+      "title": { "displayName": "Operational Title", "purpose": "Cards, linked entities, and subsection labels." },
+      "body": { "displayName": "Evidence Body", "purpose": "Explanations and evidence context." },
+      "label": { "displayName": "Status Label", "purpose": "Short metadata, chips, and internal-state labels." },
+      "mono": { "displayName": "Reproducible Reference", "purpose": "Paths, commands, and machine-verifiable references." }
+    },
+    "shadows": [
+      {
+        "name": "ambient-low",
+        "value": "0 1px 2px 0 rgb(28 25 23 / 0.03)",
+        "purpose": "Quiet separation for reusable white cards only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-colors",
+        "value": "color 150ms cubic-bezier(0.4, 0, 0.2, 1), background-color 150ms cubic-bezier(0.4, 0, 0.2, 1), border-color 150ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default restrained hover and selection feedback for controls and navigation."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "content-max", "value": "1152px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Source Action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main action to a canonical source or completion register.",
+      "html": "<button class=\"ds-btn-primary\">ÅPNE FERDIGSTILLINGSREGISTER</button>",
+      "css": ".ds-btn-primary { border: 0; border-radius: 8px; background: #292524; color: #ffffff; padding: 8px 12px; font-family: 'Outfit', system-ui, sans-serif; font-size: 14px; font-weight: 500; line-height: 20px; transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-primary:hover { background: #44403c; } .ds-btn-primary:active { background: #1c1917; } .ds-btn-primary:focus-visible { outline: 2px solid #059669; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Report Action",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Supporting navigation to a report or secondary source.",
+      "html": "<button class=\"ds-btn-secondary\">ÅPNE RAPPORT</button>",
+      "css": ".ds-btn-secondary { border: 1px solid #d6d3d1; border-radius: 8px; background: #ffffff; color: #44403c; padding: 8px 12px; font-family: 'Outfit', system-ui, sans-serif; font-size: 14px; font-weight: 500; line-height: 20px; transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1), border-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-secondary:hover { border-color: #a8a29e; color: #292524; text-decoration: underline; text-underline-offset: 4px; } .ds-btn-secondary:active { background: #fafaf9; } .ds-btn-secondary:focus-visible { outline: 2px solid #059669; outline-offset: 2px; }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Compact register search with an emerald evidence-workflow focus state.",
+      "html": "<input class=\"ds-input-search\" type=\"search\" placeholder=\"Søk i 40 profiler\" aria-label=\"Søk i prosjektregisteret\">",
+      "css": ".ds-input-search { width: 260px; border: 1px solid #d6d3d1; border-radius: 8px; background: #ffffff; color: #0c0a09; padding: 8px 12px; font-family: 'Outfit', system-ui, sans-serif; font-size: 14px; line-height: 20px; } .ds-input-search::placeholder { color: #a8a29e; } .ds-input-search:hover { border-color: #a8a29e; } .ds-input-search:focus-visible { border-color: #059669; outline: 2px solid #a7f3d0; outline-offset: 0; }"
+    },
+    {
+      "name": "Active Navigation Item",
+      "kind": "nav",
+      "description": "The incumbent two-line sidebar item in its active state.",
+      "html": "<a class=\"ds-nav-active\" href=\"#\" aria-current=\"page\"><strong>Prosjektlandskap</strong><span>Sammenlign dekning og evidens</span></a>",
+      "css": ".ds-nav-active { display: block; border-radius: 8px; background: #f5f5f4; color: #1c1917; padding: 8px 12px; font-family: 'Outfit', system-ui, sans-serif; font-size: 14px; line-height: 20px; text-decoration: none; transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-nav-active strong { display: block; font-weight: 500; } .ds-nav-active span { display: block; margin-top: 2px; color: #78716c; font-size: 12px; line-height: 16px; } .ds-nav-active:hover { background: #e7e5e4; } .ds-nav-active:focus-visible { outline: 2px solid #059669; outline-offset: 2px; }"
+    },
+    {
+      "name": "Neutral Status Chip",
+      "kind": "chip",
+      "refersTo": "chip-neutral",
+      "description": "Compact metadata or status that stays legible without relying on color.",
+      "html": "<span class=\"ds-chip-neutral\">PÅGÅR</span>",
+      "css": ".ds-chip-neutral { display: inline-flex; align-items: center; border: 1px solid #e7e5e4; border-radius: 9999px; background: #f5f5f4; color: #78716c; padding: 2px 10px; font-family: 'Outfit', system-ui, sans-serif; font-size: 12px; font-weight: 500; line-height: 16px; }"
+    },
+    {
+      "name": "Internal Gate Banner",
+      "kind": "custom",
+      "refersTo": "internal-gate",
+      "description": "An explicit internal-use, rights, or human-review boundary.",
+      "html": "<div class=\"ds-internal-gate\"><strong>INTERN ARBEIDSFLATE</strong><span>Kandidater og eierpåstander er ikke uavhengig verifisert.</span></div>",
+      "css": ".ds-internal-gate { border: 1px solid #fde68a; border-radius: 6px; background: #fffbeb; color: #451a03; padding: 10px 16px; font-family: 'Outfit', system-ui, sans-serif; } .ds-internal-gate strong { display: block; color: #b45309; font-size: 10px; font-weight: 600; line-height: 14px; letter-spacing: 0.05em; } .ds-internal-gate span { display: block; margin-top: 4px; font-size: 12px; line-height: 19px; }"
+    },
+    {
+      "name": "Canonical Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "A reusable white working surface for a bounded evidence unit.",
+      "html": "<article class=\"ds-card\"><h3>Kildestatus</h3><p>Vis styrke, avgrensning og neste kontrollpunkt sammen.</p></article>",
+      "css": ".ds-card { width: 280px; border: 1px solid rgb(231 229 228 / 0.8); border-radius: 12px; background: #ffffff; color: #57534e; padding: 20px; font-family: 'Outfit', system-ui, sans-serif; box-shadow: 0 1px 2px 0 rgb(28 25 23 / 0.03); } .ds-card h3 { margin: 0 0 12px; color: #44403c; font-size: 14px; font-weight: 600; line-height: 20px; } .ds-card p { margin: 0; font-size: 14px; line-height: 22px; } .ds-card:hover { border-color: #d6d3d1; } .ds-card:focus-within { outline: 2px solid #059669; outline-offset: 2px; }"
+    },
+    {
+      "name": "Coverage Cell",
+      "kind": "custom",
+      "refersTo": "coverage-strong",
+      "description": "A selectable geography cell that exposes coverage count and semantic status before rank.",
+      "html": "<button class=\"ds-coverage-cell\" type=\"button\" aria-pressed=\"false\"><span>Norge</span><strong>31</strong><small>profiler</small></button>",
+      "css": ".ds-coverage-cell { min-height: 96px; width: 150px; border: 1px solid #a7f3d0; border-radius: 12px; background: #ecfdf5; color: #022c22; padding: 12px; text-align: left; font-family: 'Outfit', system-ui, sans-serif; transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-coverage-cell span { display: block; font-size: 14px; font-weight: 600; line-height: 20px; } .ds-coverage-cell strong { display: block; margin-top: 12px; font-size: 24px; line-height: 32px; font-variant-numeric: tabular-nums; } .ds-coverage-cell small { display: block; color: #065f46; font-size: 11px; line-height: 16px; } .ds-coverage-cell:hover { border-color: #059669; } .ds-coverage-cell:active, .ds-coverage-cell[aria-pressed='true'] { box-shadow: 0 0 0 2px #0c0a09, 0 0 0 4px #ffffff; } .ds-coverage-cell:focus-visible { outline: 2px solid #059669; outline-offset: 2px; }"
+    },
+    {
+      "name": "Evidence Score",
+      "kind": "custom",
+      "description": "Five separate sky segments plus a numeric label for independently readable evidence strength.",
+      "html": "<div class=\"ds-evidence-score\" aria-label=\"Evidens 3 av 5\"><span></span><span></span><span></span><i></i><i></i><strong>3/5</strong></div>",
+      "css": ".ds-evidence-score { display: flex; align-items: center; gap: 4px; color: #44403c; font-family: 'Outfit', system-ui, sans-serif; } .ds-evidence-score span, .ds-evidence-score i { display: block; width: 16px; height: 6px; border-radius: 2px; } .ds-evidence-score span { background: #0284c7; } .ds-evidence-score i { background: #e7e5e4; } .ds-evidence-score strong { margin-left: 4px; font-size: 12px; font-weight: 600; line-height: 16px; font-variant-numeric: tabular-nums; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Evidence Field",
+    "overview": "The Evidence Field treats the interface as a calm operational landscape: stone surfaces establish the working ground, while restrained emerald, sky, amber, and rose signals reveal strategic relevance, evidence strength, gates, and gaps. It is dense enough for research work but never theatrical; hierarchy comes from typography, tonal grouping, and compact evidence structures.\n\nThe interface stays visibly internal and provenance-aware. Coverage leads, ranking never masquerades as certainty, and every summary should move the reader toward a source, the canonical completion register, or an explicit next gate rather than toward an unsupported verdict.",
+    "keyCharacteristics": [
+      "Calm, light stone workspace with white working surfaces.",
+      "Compact, highly legible tables, chips, and status rails.",
+      "Emerald strategic signal kept separate from sky evidence signal.",
+      "Amber human, rights, and publication gates; rose for explicit gaps or negative states.",
+      "Read-only navigation that makes uncertainty and provenance actionable."
+    ],
+    "rules": [
+      {
+        "name": "The Signal Separation Rule",
+        "body": "Emerald expresses strategic priority or action, sky expresses evidence, amber expresses a gate, and rose expresses an explicit gap; never collapse those meanings into one score or color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Color Never Proves Rule",
+        "body": "Every color-coded state must retain a text or numeric label, because evidence status cannot depend on hue recognition.",
+        "section": "colors"
+      },
+      {
+        "name": "The Quiet Hierarchy Rule",
+        "body": "Use weight, spacing, and compact numerals before increasing type size; this is a research cockpit, not a marketing page.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-by-Default Rule",
+        "body": "Do not stack decorative shadows; use borders and tonal surfaces first, and reserve the soft shadow for a reusable card that needs gentle separation.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Two-Axis Verdict Rule",
+        "body": "Strategic priority and evidence strength must remain separate visual variables; ranking may order attention, but it must never imply independent verification.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do lead with Nordic and thematic coverage before showing rank.",
+      "Do keep source counts, evidence strength, ownership affiliation, rights limits, and next gates visible and separately labelled.",
+      "Do use the completion register as the canonical destination for completion, human, rights, source, and publication gates.",
+      "Do preserve compact tables, tabular numerals, semantic headings, visible focus, and responsive stacking.",
+      "Do finish a new surface with review, a clear verdict, and updated design documentation."
+    ],
+    "donts": [
+      "Don't use emerald strategic priority as a proxy for sky evidence strength.",
+      "Don't present candidates, owner-affiliated claims, or project reporting as independently verified findings.",
+      "Don't imply that a read-only projection promotes a candidate, imports data, publishes externally, or closes a gate.",
+      "Don't hide unknown, thin, or blocked coverage behind completeness language or a zero without context.",
+      "Don't introduce a separate visual identity, ornamental gradients, oversized marketing type, or decorative card stacks into the incumbent stone system."
+    ]
+  }
+}

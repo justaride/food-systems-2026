@@ -40,6 +40,7 @@
     "kart": { "name": "Map", "description": "Stores and municipal boundaries" },
     "media": { "name": "Media", "description": "Media coverage and narratives" },
     "innsikt": { "name": "Insight", "description": "Research, mapping, analysis" },
+    "prosjektlandskap": { "name": "Project landscape", "description": "Ranking, coverage and evidence gates" },
     "forskningsrunder": { "name": "Research rounds", "description": "Food Research Process 20 April 2026" },
     "akademia": { "name": "Academia", "description": "Master's and PhD theses" },
     "graf": { "name": "Graph", "description": "Knowledge graph and connections" },
@@ -48,5 +49,93 @@
     "hvitbok": { "name": "White paper", "description": "Deliverable document in chapters" },
     "bibliotek": { "name": "Library", "description": "Full-text research documents" },
     "kilder": { "name": "Sources", "description": "Documents and references" }
+  },
+  "projectLandscape": {
+    "metadata": {
+      "title": "Project landscape - Food Systems 2026",
+      "description": "A ranked, source-bounded project landscape with Nordic coverage, evidence status and candidate gates."
+    },
+    "title": "Project landscape",
+    "intro": "Compare Nordic and transferable projects without conflating strategic relevance with strength of documentation. Cutoff {cutoff}.",
+    "openReport": "Open report",
+    "completionRegister": "View completion register",
+    "internalLabel": "Internal workspace",
+    "internalNote": "GO: internal prioritisation and method choices. NO-GO: external impact claims, automated intake or contact. Candidates and owner claims are unverified.",
+    "stats": {
+      "mainProfiles": "main profiles",
+      "sources": "sources",
+      "independentSources": "independent sources",
+      "qualitativeProfiles": "profiles with qualitative methods",
+      "independentFindings": "independently evaluated findings"
+    },
+    "coverage": {
+      "title": "Coverage before ranking",
+      "description": "Cells show verified profiles, not equal quality or completeness. One profile is a thin trace; five or more indicate broader coverage.",
+      "geographyTitle": "Nordic and Indigenous geography",
+      "singular": "verified profile",
+      "plural": "verified profiles",
+      "geographyNote": "Greenland and Åland have programme coverage, but documented gaps remain at project level. Sápmi is represented by Biebmolassi and MÁHTUT.",
+      "thematicTitle": "Thematic coverage",
+      "thinMobile": "Thinnest themes: seafood 2 · circularity 3 · local food 4. Counts show occurrence, not qualitative depth.",
+      "thinDetail": "Thinnest thematic traces: seafood (2), circularity (3) and local food (4). Counts show occurrence, not qualitative depth."
+    },
+    "ranking": {
+      "title": "Top 10 for strategic learning",
+      "description": "Priority and evidence are shown as separate measures.",
+      "table": { "rank": "Rank", "profile": "Profile", "strategic": "Strategic", "evidence": "Evidence", "status": "Status" }
+    },
+    "evidence": {
+      "title": "What the evidence actually supports",
+      "description": "No profile reaches 5/5. A large number of owner sources does not make a project more independently documented.",
+      "ownerAffiliated": "Owner/affiliated",
+      "rightsLimited": "Rights-limited",
+      "qualitativeFindings": "Qualitative findings",
+      "independentlyEvaluated": "Independently evaluated"
+    },
+    "evidenceLevel": {
+      "2": "2 / 5 — limited",
+      "3": "3 / 5 — documented",
+      "4": "4 / 5 — independently supported",
+      "5": "5 / 5 — robustly evaluated"
+    },
+    "register": {
+      "title": "Explore the main register",
+      "description": "Search and filter without changing the canonical ranking.",
+      "searchLabel": "Search the project landscape",
+      "searchPlaceholder": "Search name, problem or learning",
+      "entityLabel": "Filter by entity type",
+      "allEntities": "All entity types",
+      "geographyLabel": "Filter by geography",
+      "allGeographies": "All geographies",
+      "resultCount": "{visible} of {total} profiles",
+      "reset": "Reset filters",
+      "emptyTitle": "No profiles match the filters.",
+      "emptyDetail": "Reset the filters or use a broader search term."
+    },
+    "detail": {
+      "problemOverlap": "Problem and overlap",
+      "methodsOutputs": "Methods and outputs",
+      "nextAction": "Next action",
+      "undocumented": "Not documented",
+      "noOutput": "No output documented",
+      "openDocument": "Open documenting source"
+    },
+    "candidates": {
+      "title": "Candidate gate",
+      "description": "The longlist is an operational queue, not a ranking. Only profiles with independently verified method, status and source links can move into the main register."
+    },
+    "entity": {
+      "project": "Project", "programme": "Programme", "platform": "Platform", "dataset": "Dataset", "model": "Model", "network": "Network", "framework": "Framework", "repository_reference": "Repository reference"
+    },
+    "lifecycle": { "active": "Active", "archived": "Archived", "completed": "Completed", "planned": "Planned", "unknown": "Unknown" },
+    "candidateStatus": {
+      "discovered": "Discovered", "identity_resolved": "Identity resolved", "duplicate": "Duplicate", "not_same": "Not the same", "reference_only": "Reference only", "human_gated": "Human gate", "source_blocked": "Source blocked"
+    },
+    "geography": { "NO": "Norway", "SE": "Sweden", "DK": "Denmark", "FI": "Finland", "IS": "Iceland", "GL": "Greenland", "FO": "Faroe Islands", "AX": "Åland", "SAPMI": "Sápmi" },
+    "theme": {
+      "production": "Production", "processing": "Processing", "distribution": "Distribution", "consumption": "Consumption and health", "seafood": "Seafood", "local_food": "Local food", "circularity": "Circularity", "preparedness": "Preparedness", "governance": "Power and governance", "data_models": "Data and models"
+    },
+    "footer": "This page reads the committed JSONL registers directly and introduces no separate source of truth. Regenerate the report with <reportCommand>npm run landscape:report</reportCommand>, validate with <validateCommand>npm run landscape:validate</validateCommand>, and use the completion register for human, source and publication gates.",
+    "fallback": "The landscape register could not be read. Check that <landscapePath>research/landscape/</landscapePath> is included in the build, then run <validateCommand>npm run landscape:validate</validateCommand>."
   }
 }

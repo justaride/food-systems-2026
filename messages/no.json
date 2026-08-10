@@ -40,6 +40,7 @@
     "kart": { "name": "Kart", "description": "Butikker og kommunegrenser" },
     "media": { "name": "Media", "description": "Medieomtale og narrativer" },
     "innsikt": { "name": "Innsikt", "description": "Forskning, kartlegging, analyse" },
+    "prosjektlandskap": { "name": "Prosjektlandskap", "description": "Rangering, dekning og evidensporter" },
     "forskningsrunder": { "name": "Forskningsrunder", "description": "Food Research Process 20. april 2026" },
     "akademia": { "name": "Akademia", "description": "Master- og PhD-avhandlinger" },
     "graf": { "name": "Graf", "description": "Kunnskapsgraf og koblinger" },
@@ -48,5 +49,93 @@
     "hvitbok": { "name": "Hvitbok", "description": "Leveransedokument i kapitler" },
     "bibliotek": { "name": "Bibliotek", "description": "Fulltekst forskningsdokumenter" },
     "kilder": { "name": "Kilder", "description": "Dokumenter og referanser" }
+  },
+  "projectLandscape": {
+    "metadata": {
+      "title": "Prosjektlandskap - Food Systems 2026",
+      "description": "Rangert, kildeavgrenset prosjektlandskap med nordisk dekning, evidensstatus og kandidatport."
+    },
+    "title": "Prosjektlandskap",
+    "intro": "Sammenlign nordiske og overførbare prosjekter uten å blande strategisk relevans med dokumentasjonsstyrke. Cutoff {cutoff}.",
+    "openReport": "Åpne rapport",
+    "completionRegister": "Se completion-register",
+    "internalLabel": "Intern arbeidsflate",
+    "internalNote": "GO: intern prioritering og metodevalg. NO-GO: eksterne effektpåstander, automatisk inntak eller kontakt. Kandidater og eierpåstander er uverifiserte.",
+    "stats": {
+      "mainProfiles": "hovedprofiler",
+      "sources": "kilder",
+      "independentSources": "uavhengige kilder",
+      "qualitativeProfiles": "profiler med kvalitativ metode",
+      "independentFindings": "uavhengig evaluerte funn"
+    },
+    "coverage": {
+      "title": "Dekning før rangering",
+      "description": "Cellene viser verifiserte profiler, ikke lik kvalitet eller fullstendighet. Én profil er et tynt spor; fem eller flere er bredere dekning.",
+      "geographyTitle": "Nordisk og urfolksgeografi",
+      "singular": "verifisert profil",
+      "plural": "verifiserte profiler",
+      "geographyNote": "Grønland og Åland har programdekning, men fortsatt dokumenterte hull på prosjektnivå. Sápmi bæres av Biebmolassi og MÁHTUT.",
+      "thematicTitle": "Tematisk dekning",
+      "thinMobile": "Tynnest tematisk: sjømat 2 · sirkularitet 3 · lokalmat 4. Tallene viser forekomst, ikke kvalitativ dybde.",
+      "thinDetail": "Tynneste tematiske spor: sjømat (2), sirkularitet (3) og lokalmat (4). Tallene viser forekomst, ikke kvalitativ dybde."
+    },
+    "ranking": {
+      "title": "Topp 10 for strategisk læring",
+      "description": "Prioritet og evidens vises som to separate mål.",
+      "table": { "rank": "Rang", "profile": "Profil", "strategic": "Strategisk", "evidence": "Evidens", "status": "Status" }
+    },
+    "evidence": {
+      "title": "Hva evidensen faktisk tåler",
+      "description": "Ingen profil når 5/5. Mange eierkilder gjør ikke et prosjekt mer uavhengig dokumentert.",
+      "ownerAffiliated": "Eier/tilknyttet",
+      "rightsLimited": "Rettighetsbegrenset",
+      "qualitativeFindings": "Kvalitative funn",
+      "independentlyEvaluated": "Uavhengig evaluerte"
+    },
+    "evidenceLevel": {
+      "2": "2 / 5 — avgrenset",
+      "3": "3 / 5 — dokumentert",
+      "4": "4 / 5 — uavhengig støttet",
+      "5": "5 / 5 — robust evaluert"
+    },
+    "register": {
+      "title": "Utforsk hovedregisteret",
+      "description": "Søk og filtrer uten å endre den kanoniske rangeringen.",
+      "searchLabel": "Søk i prosjektlandskapet",
+      "searchPlaceholder": "Søk navn, problem eller læring",
+      "entityLabel": "Filtrer på entitetstype",
+      "allEntities": "Alle entitetstyper",
+      "geographyLabel": "Filtrer på geografi",
+      "allGeographies": "Alle geografier",
+      "resultCount": "{visible} av {total} profiler",
+      "reset": "Nullstill filtre",
+      "emptyTitle": "Ingen profiler matcher filtrene.",
+      "emptyDetail": "Nullstill filtrene eller søk med et bredere begrep."
+    },
+    "detail": {
+      "problemOverlap": "Problem og overlapp",
+      "methodsOutputs": "Metoder og leveranser",
+      "nextAction": "Neste handling",
+      "undocumented": "Ikke dokumentert",
+      "noOutput": "Ingen leveranse dokumentert",
+      "openDocument": "Åpne dokumenterende flate"
+    },
+    "candidates": {
+      "title": "Kandidatporten",
+      "description": "Longlisten er en operativ kø, ikke en rangering. Bare profiler med egne verifiserte metode-, status- og kildekoblinger kan flyttes til hovedregisteret."
+    },
+    "entity": {
+      "project": "Prosjekt", "programme": "Program", "platform": "Plattform", "dataset": "Datasett", "model": "Modell", "network": "Nettverk", "framework": "Rammeverk", "repository_reference": "Repo-referanse"
+    },
+    "lifecycle": { "active": "Aktiv", "archived": "Arkivert", "completed": "Avsluttet", "planned": "Planlagt", "unknown": "Ukjent" },
+    "candidateStatus": {
+      "discovered": "Oppdaget", "identity_resolved": "Identitet løst", "duplicate": "Duplikat", "not_same": "Ikke samme", "reference_only": "Kun referanse", "human_gated": "Menneskeport", "source_blocked": "Kildeblokkert"
+    },
+    "geography": { "NO": "Norge", "SE": "Sverige", "DK": "Danmark", "FI": "Finland", "IS": "Island", "GL": "Grønland", "FO": "Færøyene", "AX": "Åland", "SAPMI": "Sápmi" },
+    "theme": {
+      "production": "Produksjon", "processing": "Foredling", "distribution": "Distribusjon", "consumption": "Forbruk og helse", "seafood": "Sjømat", "local_food": "Lokalmat", "circularity": "Sirkularitet", "preparedness": "Beredskap", "governance": "Makt og styring", "data_models": "Data og modeller"
+    },
+    "footer": "Denne siden leser de komitterte JSONL-registerene direkte og introduserer ingen egen sannhetsflate. Regenerer rapporten med <reportCommand>npm run landscape:report</reportCommand>, valider med <validateCommand>npm run landscape:validate</validateCommand>, og bruk completion-registeret for menneske-, kilde- og publiseringsporter.",
+    "fallback": "Landskapsregisteret kunne ikke leses. Kontroller at <landscapePath>research/landscape/</landscapePath> følger bygget, og kjør <validateCommand>npm run landscape:validate</validateCommand>."
   }
 }
