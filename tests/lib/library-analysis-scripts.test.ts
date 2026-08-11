@@ -7,6 +7,11 @@ import { buildEffectiveLibraryAnalysisSyncPlan } from '../../scripts/process-lib
 import type { LibraryAnalysisSyncPlan } from '../../src/lib/library-analysis-processing'
 
 describe('library analysis package scripts', () => {
+  it('allows the atomic library batch to complete over a remote production connection', () => {
+    const script = readFileSync(join(process.cwd(), 'scripts/process-library-analysis.ts'), 'utf8')
+    assert.match(script, /isolationLevel: 'Serializable', timeout: 120_000/)
+  })
+
   it('exposes the expected research and audit commands', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>

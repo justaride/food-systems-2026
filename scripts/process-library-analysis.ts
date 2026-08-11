@@ -201,7 +201,7 @@ async function main() {
           )
         }
         return result
-      }, { isolationLevel: 'Serializable' })
+      }, { isolationLevel: 'Serializable', timeout: 120_000 })
     } catch (error) {
       if (isLibraryAnalysisSyncConflict(error)) {
         throw new Error(
