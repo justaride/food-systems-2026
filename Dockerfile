@@ -7,12 +7,14 @@ RUN npm ci
 
 FROM base AS builder
 WORKDIR /app
-ARG SOURCE_COMMIT=unknown
-ARG SOURCE_BRANCH=unknown
+ARG SOURCE_COMMIT=
+ARG SOURCE_BRANCH=
+ARG COOLIFY_BRANCH=
 ARG COOLIFY_GIT_COMMIT_SHA=
 ARG COOLIFY_GIT_BRANCH=
 ENV SOURCE_COMMIT=$SOURCE_COMMIT
 ENV SOURCE_BRANCH=$SOURCE_BRANCH
+ENV COOLIFY_BRANCH=$COOLIFY_BRANCH
 ENV COOLIFY_GIT_COMMIT_SHA=$COOLIFY_GIT_COMMIT_SHA
 ENV COOLIFY_GIT_BRANCH=$COOLIFY_GIT_BRANCH
 COPY --from=deps /app/node_modules ./node_modules
@@ -38,21 +40,20 @@ COPY research/data/nordic/market-share/ ./research/data/nordic/market-share/
 COPY research/landscape/ ./research/landscape/
 # data/konsern-coverage.json leses ved kjøretid av src/lib/queries/ownership.ts (/eierskap)
 COPY data ./data
-ARG DATABASE_URL
 ENV COVERAGE_ENV=prod
 # Schema-sync (prisma db push) er fjernet pga inkompatibilitet med STORED
 # GENERATED-kolonner (search_vector). Prisma kan ikke uttrykke disse, og
 # selv med Unsupported(tsvector) prøver db push å ALTER dem.
 #
-# Prod-skjemaet synkes i stedet av scripts/apply-prod-migrations.sh, som
-# kjøres som Coolify post_deployment_command (se kommentar i runner-stage).
+# Prod-skjemaet synkes i stedet av scripts/apply-prod-migrations.sh før
+# applikasjonsprosessen starter i runner-stage.
 RUN npm run build
 
 FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-# Install psql + curl mens vi fortsatt er root, så post_deployment_command
-# kan kjøre psql / curl uten å bytte tilbake fra nextjs-bruker.
+# Install psql + curl mens vi fortsatt er root, slik at migrasjonsinngangen og
+# den lokale container-healthchecken er tilgjengelige som nextjs-bruker.
 RUN apk add --no-cache postgresql-client curl
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -63,11 +64,15 @@ COPY --from=builder --chown=nextjs:nodejs /app/research ./research
 COPY --from=builder --chown=nextjs:nodejs /app/data ./data
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-# scripts/ + prisma/ kopieres så Coolify post_deployment_command kan kjøre
-# `sh /app/scripts/apply-prod-migrations.sh` — påfører prisma/migrations/* mot
-# prod-DB med psql (postgresql-client installeres i runner-stage over).
+# `apply-prod-migrations.sh` uses Prisma's ledger/advisory locking rather than
+# replaying SQL files. Copy the npm-ci dependency tree from the repository
+# lockfile so the runtime CLI is reproducible; do not run an unlocked npm
+# install in a separate image stage.
+COPY --from=deps --chown=nextjs:nodejs /app/node_modules ./node_modules
+# scripts/ + prisma/ kopieres for den fail-closed migrasjonsinngangen.
 COPY --from=builder --chown=nextjs:nodejs /app/scripts ./scripts
 COPY --from=builder --chown=nextjs:nodejs /app/tsconfig.json ./tsconfig.json
+COPY --from=builder --chown=nextjs:nodejs /app/prisma.config.ts ./prisma.config.ts
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 COPY --from=builder --chown=nextjs:nodejs /app/src/generated/prisma ./src/generated/prisma
 RUN rm -f .env
@@ -75,4 +80,6 @@ USER nextjs
 EXPOSE 3000
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
-CMD ["node", "server.js"]
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+  CMD curl -fsS "http://127.0.0.1:${PORT}/api/data-status" >/dev/null || exit 1
+CMD ["sh", "-c", "sh /app/scripts/apply-prod-migrations.sh && unset MIGRATION_DATABASE_URL && exec node server.js"]

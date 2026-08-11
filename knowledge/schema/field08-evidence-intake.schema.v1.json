@@ -1,0 +1,474 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schemas/field08-evidence-intake.schema.v1.json",
+  "title": "Field 08 Gate 2C evidence intake",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "documentType",
+    "schemaVersion",
+    "intakeId",
+    "status",
+    "observedAt",
+    "sourceMapId",
+    "semantics",
+    "sourceAcquisitions",
+    "subjectDefinitions",
+    "indicatorDefinitions",
+    "claimCandidates",
+    "measurementCandidates",
+    "contradictionSets",
+    "deferredCandidates",
+    "childDimensionRequirements",
+    "appraisalDrafts",
+    "reviewGates"
+  ],
+  "properties": {
+    "documentType": { "const": "field08_evidence_intake" },
+    "schemaVersion": { "const": "1.0.0" },
+    "intakeId": { "const": "intake.field08_gate2c.v1" },
+    "status": { "const": "machine_checked_human_review_pending" },
+    "observedAt": { "type": "string", "format": "date-time" },
+    "sourceMapId": { "const": "map.field08_research_candidates.v1" },
+    "semantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactRole",
+        "coverageImplication",
+        "externalUseAllowed",
+        "readinessPromotionAllowed",
+        "historicalAssessmentMutationAllowed",
+        "humanReviewRequired",
+        "sapmiSubjectEvidenceAllowed"
+      ],
+      "properties": {
+        "artifactRole": { "const": "evidence_intake" },
+        "coverageImplication": { "const": "none" },
+        "externalUseAllowed": { "const": false },
+        "readinessPromotionAllowed": { "const": false },
+        "historicalAssessmentMutationAllowed": { "const": false },
+        "humanReviewRequired": { "const": true },
+        "sapmiSubjectEvidenceAllowed": { "const": false }
+      }
+    },
+    "sourceAcquisitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/sourceAcquisition" }
+    },
+    "subjectDefinitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/subjectDefinition" }
+    },
+    "indicatorDefinitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/indicatorDefinition" }
+    },
+    "claimCandidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/claimCandidate" }
+    },
+    "measurementCandidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/measurementCandidate" }
+    },
+    "contradictionSets": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/contradictionSet" }
+    },
+    "deferredCandidates": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/deferredCandidate" }
+    },
+    "childDimensionRequirements": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/childDimensionRequirement" }
+    },
+    "appraisalDrafts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/appraisalDraft" }
+    },
+    "reviewGates": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/reviewGate" }
+    }
+  },
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+    },
+    "politicalGeographyId": {
+      "enum": ["geo.no", "geo.se", "geo.dk", "geo.fi", "geo.is", "geo.fo", "geo.gl", "geo.ax"]
+    },
+    "boundaryState": {
+      "enum": ["political_direct", "finland_including_aland", "aland_only", "unknown_finland_aland"]
+    },
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "facets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "geographyIds",
+        "stageIds",
+        "domainIds",
+        "outcomeIds",
+        "actorClassIds",
+        "flowClassIds",
+        "commodityGroupIds",
+        "materialGroupIds",
+        "circularStrategyIds",
+        "ownershipFormIds"
+      ],
+      "properties": {
+        "geographyIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/politicalGeographyId" },
+          "uniqueItems": true
+        },
+        "stageIds": { "type": "array", "items": { "type": "string", "pattern": "^stage\\." }, "uniqueItems": true },
+        "domainIds": { "type": "array", "items": { "type": "string", "pattern": "^domain\\." }, "uniqueItems": true },
+        "outcomeIds": { "type": "array", "items": { "type": "string", "pattern": "^outcome\\." }, "uniqueItems": true },
+        "actorClassIds": { "type": "array", "items": { "type": "string", "pattern": "^actor\\." }, "uniqueItems": true },
+        "flowClassIds": { "type": "array", "items": { "type": "string", "pattern": "^flow\\." }, "uniqueItems": true },
+        "commodityGroupIds": { "type": "array", "items": { "type": "string", "pattern": "^commodity\\." }, "uniqueItems": true },
+        "materialGroupIds": { "type": "array", "items": { "type": "string", "pattern": "^material\\." }, "uniqueItems": true },
+        "circularStrategyIds": { "type": "array", "items": { "type": "string", "pattern": "^circular_strategy\\.r[0-9]$" }, "uniqueItems": true },
+        "ownershipFormIds": { "type": "array", "items": { "type": "string", "pattern": "^ownership_form\\." }, "uniqueItems": true }
+      }
+    },
+    "timeScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "asOf"],
+      "properties": {
+        "kind": { "enum": ["undated", "snapshot", "interval", "series"] },
+        "from": { "type": ["string", "null"], "format": "date" },
+        "to": { "type": ["string", "null"], "format": "date" },
+        "asOf": { "type": "string", "format": "date" }
+      }
+    },
+    "systemBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["included", "excluded", "functionalUnit"],
+      "properties": {
+        "included": { "$ref": "#/$defs/stringArray" },
+        "excluded": { "$ref": "#/$defs/stringArray" },
+        "functionalUnit": { "type": ["string", "null"] }
+      }
+    },
+    "sourceAcquisition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "acquisitionId", "sourceId", "citationId", "sourceCandidateId", "title", "publisher",
+        "sourceClass", "sourceUrl", "citationText", "locator", "evidenceRole", "accessedAt", "capturedAt",
+        "capturePath", "captureSha256", "captureSizeBytes", "mediaType", "acquisitionMethod",
+        "captureStorage", "archiveDurability", "inspectionNotePath", "reuseReviewState",
+        "requestReceiptPath", "geographyIds", "boundaryState", "nonAdditiveWithGeographyIds",
+        "facets", "limitations"
+      ],
+      "properties": {
+        "acquisitionId": { "type": "string", "pattern": "^acq\\.field08\\.[a-z0-9._-]+$" },
+        "sourceId": { "type": "string", "pattern": "^fs:source:[a-z0-9][a-z0-9._-]*$" },
+        "citationId": { "type": "string", "pattern": "^fs:citation:[a-z0-9][a-z0-9._-]*$" },
+        "sourceCandidateId": { "type": "string", "pattern": "^field08\\.source\\.[a-z0-9._-]+$" },
+        "title": { "type": "string", "minLength": 1 },
+        "publisher": { "type": "string", "minLength": 1 },
+        "sourceClass": { "enum": ["primary", "dataset"] },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "citationText": { "type": "string", "minLength": 1 },
+        "locator": { "type": "string", "minLength": 1 },
+        "evidenceRole": { "enum": ["numerator", "denominator_universe", "method", "descriptive_claim", "caveat_limitation", "counterevidence"] },
+        "accessedAt": { "type": "string", "format": "date" },
+        "capturedAt": { "type": "string", "format": "date-time" },
+        "capturePath": { "type": "string", "pattern": "^research/evidence-pack/field08-gate2c-[0-9]{4}-[0-9]{2}-[0-9]{2}/" },
+        "captureSha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+        "captureSizeBytes": { "type": "integer", "minimum": 1 },
+        "mediaType": { "type": "string", "minLength": 1 },
+        "acquisitionMethod": { "enum": ["direct_download", "api_query"] },
+        "captureStorage": { "enum": ["git_tracked", "local_external"] },
+        "archiveDurability": { "enum": ["git_pinned", "local_only_at_risk"] },
+        "inspectionNotePath": {
+          "type": ["string", "null"],
+          "pattern": "^research/evidence-pack/field08-gate2c-[0-9]{4}-[0-9]{2}-[0-9]{2}/notes/[a-z0-9][a-z0-9._-]*\\.md$"
+        },
+        "reuseReviewState": { "const": "pending" },
+        "requestReceiptPath": {
+          "type": ["string", "null"],
+          "pattern": "^research/evidence-pack/field08-gate2c-[0-9]{4}-[0-9]{2}-[0-9]{2}/"
+        },
+        "geographyIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/politicalGeographyId" }, "uniqueItems": true },
+        "boundaryState": { "$ref": "#/$defs/boundaryState" },
+        "nonAdditiveWithGeographyIds": { "type": "array", "items": { "$ref": "#/$defs/politicalGeographyId" }, "uniqueItems": true },
+        "facets": { "$ref": "#/$defs/facets" },
+        "limitations": { "$ref": "#/$defs/stringArray" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "captureStorage": { "const": "git_tracked" } }, "required": ["captureStorage"] },
+          "then": {
+            "properties": {
+              "archiveDurability": { "const": "git_pinned" },
+              "inspectionNotePath": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "captureStorage": { "const": "local_external" } }, "required": ["captureStorage"] },
+          "then": {
+            "properties": {
+              "archiveDurability": { "const": "local_only_at_risk" },
+              "inspectionNotePath": {
+                "type": "string",
+                "pattern": "^research/evidence-pack/field08-gate2c-[0-9]{4}-[0-9]{2}-[0-9]{2}/notes/[a-z0-9][a-z0-9._-]*\\.md$"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "subjectDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subjectId", "objectTypeId", "title", "summary", "facets", "systemBoundary"],
+      "properties": {
+        "subjectId": { "type": "string", "pattern": "^fs:(actor|place|infrastructure|process|flow|case|policy):[a-z0-9][a-z0-9._-]*$" },
+        "objectTypeId": { "enum": ["knowledge_object.actor", "knowledge_object.place", "knowledge_object.infrastructure", "knowledge_object.process", "knowledge_object.policy"] },
+        "title": { "type": "string", "minLength": 1 },
+        "summary": { "type": "string", "minLength": 1 },
+        "facets": { "$ref": "#/$defs/facets" },
+        "systemBoundary": { "$ref": "#/$defs/systemBoundary" }
+      }
+    },
+    "indicatorDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "indicatorId", "title", "summary", "subjectIds", "facets", "period", "unit",
+        "numeratorDefinition", "denominatorOrUniverse", "method", "universe", "unknownReason"
+      ],
+      "properties": {
+        "indicatorId": { "type": "string", "pattern": "^fs:indicator:[a-z0-9][a-z0-9._-]*$" },
+        "title": { "type": "string", "minLength": 1 },
+        "summary": { "type": "string", "minLength": 1 },
+        "subjectIds": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^fs:(actor|place|infrastructure|process|flow|case|policy):" }, "uniqueItems": true },
+        "facets": { "$ref": "#/$defs/facets" },
+        "period": { "type": "string", "minLength": 1 },
+        "unit": { "type": "string", "minLength": 1 },
+        "numeratorDefinition": { "type": ["string", "null"] },
+        "denominatorOrUniverse": { "type": ["string", "null"] },
+        "method": { "type": "string", "minLength": 1 },
+        "universe": { "type": "string", "minLength": 1 },
+        "unknownReason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "claimCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claimId", "claimKind", "title", "summary", "claimText", "citationIds", "coverageCellIds", "facets",
+        "timeScope", "systemBoundary", "boundaryState", "nonAdditiveWithGeographyIds",
+        "aggregationAllowed", "limitations"
+      ],
+      "properties": {
+        "claimId": { "type": "string", "pattern": "^fs:claim:[a-z0-9][a-z0-9._-]*$" },
+        "claimKind": { "enum": ["quantitative_measurement_claim", "qualitative_boundary_claim", "qualitative_method_claim", "qualitative_caveat_claim"] },
+        "title": { "type": "string", "minLength": 1 },
+        "summary": { "type": "string", "minLength": 1 },
+        "claimText": { "type": "string", "minLength": 1 },
+        "citationIds": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^fs:citation:" }, "uniqueItems": true },
+        "coverageCellIds": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^cov\\.[a-z0-9_.=-]+$" }, "uniqueItems": true },
+        "facets": { "$ref": "#/$defs/facets" },
+        "timeScope": { "$ref": "#/$defs/timeScope" },
+        "systemBoundary": { "$ref": "#/$defs/systemBoundary" },
+        "boundaryState": { "$ref": "#/$defs/boundaryState" },
+        "nonAdditiveWithGeographyIds": { "type": "array", "items": { "$ref": "#/$defs/politicalGeographyId" }, "uniqueItems": true },
+        "aggregationAllowed": { "type": "boolean" },
+        "limitations": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "measurementCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observationId", "claimId", "indicatorId", "subjectIds", "citationIds", "title", "summary",
+        "facets", "timeScope", "systemBoundary", "value", "unit", "numeratorDefinition",
+        "denominatorOrUniverse", "method", "universe", "unknownReason", "realizationState",
+        "boundaryState", "nonAdditiveWithGeographyIds", "calculationKind", "aggregationAllowed",
+        "componentObservationIds", "reportedPrecision", "sourceRowProvenance",
+        "uncertainty", "limitations"
+      ],
+      "properties": {
+        "observationId": { "type": "string", "pattern": "^fs:observation:[a-z0-9][a-z0-9._-]*$" },
+        "claimId": { "type": "string", "pattern": "^fs:claim:" },
+        "indicatorId": { "type": "string", "pattern": "^fs:indicator:" },
+        "subjectIds": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^fs:(actor|place|infrastructure|process|flow|case|policy):" }, "uniqueItems": true },
+        "citationIds": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^fs:citation:" }, "uniqueItems": true },
+        "title": { "type": "string", "minLength": 1 },
+        "summary": { "type": "string", "minLength": 1 },
+        "facets": { "$ref": "#/$defs/facets" },
+        "timeScope": { "$ref": "#/$defs/timeScope" },
+        "systemBoundary": { "$ref": "#/$defs/systemBoundary" },
+        "value": { "type": ["number", "null"] },
+        "unit": { "type": "string", "minLength": 1 },
+        "numeratorDefinition": { "type": ["string", "null"] },
+        "denominatorOrUniverse": { "type": ["string", "null"] },
+        "method": { "type": "string", "minLength": 1 },
+        "universe": { "type": "string", "minLength": 1 },
+        "unknownReason": { "type": ["string", "null"] },
+        "realizationState": { "enum": ["realized_measured", "realized_estimated", "potential_modelled", "target_only", "unknown"] },
+        "boundaryState": { "$ref": "#/$defs/boundaryState" },
+        "nonAdditiveWithGeographyIds": { "type": "array", "items": { "$ref": "#/$defs/politicalGeographyId" }, "uniqueItems": true },
+        "calculationKind": { "enum": ["source_reported", "direct_api_value", "derived_from_source_rows"] },
+        "aggregationAllowed": { "type": "boolean" },
+        "componentObservationIds": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^fs:observation:" },
+          "uniqueItems": true
+        },
+        "reportedPrecision": {
+          "enum": [null, "nearest_1_unit", "nearest_0_1_unit", "nearest_10_units", "nearest_100_units", "nearest_1000_units", "nearest_100_tonnes"]
+        },
+        "sourceRowProvenance": { "$ref": "#/$defs/stringArray" },
+        "uncertainty": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["level", "reasons"],
+          "properties": {
+            "level": { "enum": ["unknown", "low", "medium", "high"] },
+            "reasons": { "$ref": "#/$defs/stringArray" }
+          }
+        },
+        "limitations": { "$ref": "#/$defs/stringArray" }
+      },
+      "oneOf": [
+        { "required": ["value"], "properties": { "value": { "type": "number" }, "unknownReason": { "type": "null" } } },
+        { "required": ["unknownReason"], "properties": { "value": { "type": "null" }, "unknownReason": { "type": "string", "minLength": 1 } } }
+      ],
+      "allOf": [
+        {
+          "if": { "properties": { "componentObservationIds": { "minItems": 1 } }, "required": ["componentObservationIds"] },
+          "then": { "properties": { "value": { "type": "number" } } },
+          "else": { "properties": { "componentObservationIds": { "maxItems": 0 }, "reportedPrecision": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "calculationKind": { "const": "derived_from_source_rows" } }, "required": ["calculationKind"] },
+          "then": { "properties": { "sourceRowProvenance": { "minItems": 1 } } },
+          "else": { "properties": { "sourceRowProvenance": { "maxItems": 0 } } }
+        }
+      ]
+    },
+    "contradictionSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contradictionSetId", "status", "claimIds", "observationIds", "observationPairs", "citationIds", "description", "aggregationAllowed", "resolution"],
+      "properties": {
+        "contradictionSetId": { "type": "string", "pattern": "^contradiction\\.field08\\." },
+        "status": { "const": "open" },
+        "claimIds": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^fs:claim:" }, "uniqueItems": true },
+        "observationIds": { "type": "array", "minItems": 2, "items": { "type": "string", "pattern": "^fs:observation:" }, "uniqueItems": true },
+        "observationPairs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["leftObservationId", "rightObservationId"],
+            "properties": {
+              "leftObservationId": { "type": "string", "pattern": "^fs:observation:" },
+              "rightObservationId": { "type": "string", "pattern": "^fs:observation:" }
+            }
+          }
+        },
+        "citationIds": { "type": "array", "minItems": 2, "items": { "type": "string", "pattern": "^fs:citation:" }, "uniqueItems": true },
+        "description": { "type": "string", "minLength": 1 },
+        "aggregationAllowed": { "const": false },
+        "resolution": { "type": "null" }
+      }
+    },
+    "deferredCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["deferredCandidateId", "sourceCandidateId", "geographyIds", "reasonCode", "description", "nextAction"],
+      "properties": {
+        "deferredCandidateId": { "type": "string", "pattern": "^deferred\\.field08\\." },
+        "sourceCandidateId": { "type": "string", "pattern": "^field08\\.source\\." },
+        "geographyIds": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^geo\\." }, "uniqueItems": true },
+        "reasonCode": { "enum": ["not_captured", "locator_unresolved", "boundary_unresolved", "method_unresolved", "rights_holder_route_only", "outside_gate2c_tranche"] },
+        "description": { "type": "string", "minLength": 1 },
+        "nextAction": { "type": "string", "minLength": 1 }
+      }
+    },
+    "childDimensionRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requirementId", "targetId", "dimensionId", "requiredValueIds", "status", "rationale"],
+      "properties": {
+        "requirementId": { "type": "string", "pattern": "^child_requirement\\.field08\\." },
+        "targetId": { "type": "string", "pattern": "^fs:(claim|observation|indicator):" },
+        "dimensionId": { "enum": ["value_chain_stage", "domain", "outcome", "flow_class", "material_group", "circular_strategy", "commodity_group", "destination", "method"] },
+        "requiredValueIds": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "status": { "const": "open" },
+        "rationale": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "dimensionId": { "const": "commodity_group" } }, "required": ["dimensionId"] },
+          "then": { "properties": { "requiredValueIds": { "items": { "type": "string", "pattern": "^commodity\\." } } } }
+        },
+        {
+          "if": { "properties": { "dimensionId": { "const": "destination" } }, "required": ["dimensionId"] },
+          "then": { "properties": { "requiredValueIds": { "items": { "type": "string", "pattern": "^(stage\\.|circular_strategy\\.|trade_direction\\.)" } } } }
+        },
+        {
+          "if": { "properties": { "dimensionId": { "const": "method" } }, "required": ["dimensionId"] },
+          "then": { "properties": { "requiredValueIds": { "items": { "type": "string", "pattern": "^method_requirement\\.[a-z0-9][a-z0-9._-]*$" } } } }
+        }
+      ]
+    },
+    "appraisalDraft": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["appraisalDraftId", "targetSourceId", "authorityAssessment", "scopeFitAssessment", "methodAssessment", "limitationAssessment", "reviewState", "externalGatePassed"],
+      "properties": {
+        "appraisalDraftId": { "type": "string", "pattern": "^appraisal\\.field08\\." },
+        "targetSourceId": { "type": "string", "pattern": "^fs:source:" },
+        "authorityAssessment": { "type": "string", "minLength": 1 },
+        "scopeFitAssessment": { "type": "string", "minLength": 1 },
+        "methodAssessment": { "type": "string", "minLength": 1 },
+        "limitationAssessment": { "type": "string", "minLength": 1 },
+        "reviewState": { "const": "human_review_pending" },
+        "externalGatePassed": { "const": false }
+      }
+    },
+    "reviewGate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewGateId", "gateType", "targetIds", "status", "requiredReviewerRole", "instructions", "externalGatePassed", "coveragePromotionAllowed"],
+      "properties": {
+        "reviewGateId": { "type": "string", "pattern": "^review_gate\\.field08\\." },
+        "gateType": { "enum": ["ordinary_human_review", "boundary_reconciliation", "contradiction_resolution", "method_appraisal"] },
+        "targetIds": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/identifier" }, "uniqueItems": true },
+        "status": { "const": "pending" },
+        "requiredReviewerRole": { "type": "string", "minLength": 1 },
+        "instructions": { "type": "string", "minLength": 1 },
+        "externalGatePassed": { "const": false },
+        "coveragePromotionAllowed": { "const": false }
+      }
+    }
+  }
+}

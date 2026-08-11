@@ -1,0 +1,277 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactType": "source_analysis_input_manifest",
+  "pipelineVersion": "1.0.0",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761"
+  },
+  "identityKeys": [
+    "document:cmppajyue000rnjvmxrad483t"
+  ],
+  "identityAssociation": {
+    "state": "provisional_metadata_match",
+    "intendedLabel": "ETMV toimintakertomus 2024",
+    "observedDocumentTitle": "Elintarvikemarkkinavaltuutetun toimintakertomus 2024",
+    "blockerCode": null
+  },
+  "sourceBinding": {
+    "title": "Elintarvikemarkkinavaltuutetun toimintakertomus 2024",
+    "doi": null,
+    "officialUrl": "https://www.ruokavirasto.fi/globalassets/etmv/etmv-toimintakertomus-2024.pdf",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_classification"
+  },
+  "workflowEligibility": {
+    "state": "identity_verification_candidate",
+    "identityVerification": {
+      "allowed": true,
+      "blockerCode": null
+    },
+    "sourceAnalysis": {
+      "allowed": false,
+      "blockerCode": "verified_identity_required"
+    }
+  },
+  "bindings": {
+    "pageMap": {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761.page-map.v1.json",
+      "fileSha256": "617953e0d4aac01b1e3d5800df998bc8b08ef82b2c481334374afce323ad991b",
+      "pageMapSha256": "06f1e6d37f2e6ecbe985447875712a1d719185e6c21c05aef630068d15d0579f"
+    },
+    "extractionReceipt": {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761.receipt.v1.json",
+      "fileSha256": "3c9954ab78bff89f6269e8fde0579208e93f809df9f729ae989a9f11cfdf5b0b",
+      "receiptSha256": "9644c15699060e247b14d7dacea1f143d893085e94daefe05d2d606ab98e64ae"
+    }
+  },
+  "serialization": {
+    "id": "normalized-page-bytes-framed-v1",
+    "charset": "utf-8",
+    "pageOrder": "ascending_page_number",
+    "pageSequence": "contiguous_from_1",
+    "preambleUtf8": "food-systems/source-analysis-normalized-input/v1\n",
+    "pageDelimiterUtf8": "\n--food-systems-normalized-page-v1--\n",
+    "pageHeaderEncoding": "canonical_json_utf8",
+    "pageHeaderFields": [
+      "normalizedSha256",
+      "pageNumber",
+      "sizeBytes"
+    ],
+    "pageHeaderTerminatorHex": "0a",
+    "pagePayload": "exact_normalized_utf8_file_bytes",
+    "pagePayloadBoundary": "sizeBytes_from_page_header",
+    "trailerDelimiterUtf8": "\n--food-systems-normalized-input-end-v1--\n",
+    "trailerEncoding": "canonical_json_utf8",
+    "trailerFields": [
+      "pageCount"
+    ],
+    "trailerTerminatorHex": "0a"
+  },
+  "normalizedInput": {
+    "algorithm": "sha256",
+    "sha256": "5a46a10506e0d3865d433b9d1dc21ef04cfb2193c533d50b0301a9d3deb9521c",
+    "serializedSizeBytes": 43671
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "normalizedText": {
+        "sha256": "34c3492e0228d8598bcbe6716e041b5d4ed9b8736f3fac164715140d4ee7e484",
+        "sizeBytes": 54,
+        "characterCount": 54,
+        "wordCount": 3
+      }
+    },
+    {
+      "pageNumber": 2,
+      "normalizedText": {
+        "sha256": "dc3fed56826fb71f49bac93de1dc66a558992fc99b69a6c7902a0652acc88872",
+        "sizeBytes": 2740,
+        "characterCount": 2711,
+        "wordCount": 126
+      }
+    },
+    {
+      "pageNumber": 3,
+      "normalizedText": {
+        "sha256": "6e0ebddd7199f6686e91e511d7691ade54542f678e7b5076990004d8bb30e2c0",
+        "sizeBytes": 3852,
+        "characterCount": 3747,
+        "wordCount": 351
+      }
+    },
+    {
+      "pageNumber": 4,
+      "normalizedText": {
+        "sha256": "c0021270fcf06ec196dd5e5594547cf71dfd293602010c1c2bc6b29f7bf326ea",
+        "sizeBytes": 3176,
+        "characterCount": 3071,
+        "wordCount": 287
+      }
+    },
+    {
+      "pageNumber": 5,
+      "normalizedText": {
+        "sha256": "ad1c3ca7d928d74822facfdce83bf15795bbdb9713c17ab334b81c00b8e1601b",
+        "sizeBytes": 4079,
+        "characterCount": 3928,
+        "wordCount": 361
+      }
+    },
+    {
+      "pageNumber": 6,
+      "normalizedText": {
+        "sha256": "b3fa4a9750182619b6d652928c289025c6ff2d7e5614ad1b1797a575b962305f",
+        "sizeBytes": 2470,
+        "characterCount": 2383,
+        "wordCount": 256
+      }
+    },
+    {
+      "pageNumber": 7,
+      "normalizedText": {
+        "sha256": "543471545cb90a2ef464f24cdfafe08eaa776ca1e09a36a9bff3c33aeab62bef",
+        "sizeBytes": 2320,
+        "characterCount": 2243,
+        "wordCount": 226
+      }
+    },
+    {
+      "pageNumber": 8,
+      "normalizedText": {
+        "sha256": "5bfcbd52815212b5e5817fd964ef3f0884a723365d5d2e3cb2e3c92fc58cd4e2",
+        "sizeBytes": 2246,
+        "characterCount": 2178,
+        "wordCount": 285
+      }
+    },
+    {
+      "pageNumber": 9,
+      "normalizedText": {
+        "sha256": "22cde6eb4fc394fd6267c831e4c6e0da1049e11ea6969f9efce00fd0ddc9b662",
+        "sizeBytes": 3380,
+        "characterCount": 3282,
+        "wordCount": 302
+      }
+    },
+    {
+      "pageNumber": 10,
+      "normalizedText": {
+        "sha256": "bb91a2e9e9d0d8e24fe44cc12862cb0b28e29e8b1a098d44fae2ce8d3c320368",
+        "sizeBytes": 3181,
+        "characterCount": 3126,
+        "wordCount": 303
+      }
+    },
+    {
+      "pageNumber": 11,
+      "normalizedText": {
+        "sha256": "634a938b31e415895d8c80d683350821d7935ebaa7a51064666a1534c4d92252",
+        "sizeBytes": 3557,
+        "characterCount": 3426,
+        "wordCount": 336
+      }
+    },
+    {
+      "pageNumber": 12,
+      "normalizedText": {
+        "sha256": "2a9c83bdcec82d4fdce909c149480f403cb14a6ce8a77c0b7054797c768dadfb",
+        "sizeBytes": 2269,
+        "characterCount": 2173,
+        "wordCount": 251
+      }
+    },
+    {
+      "pageNumber": 13,
+      "normalizedText": {
+        "sha256": "f5904f516be1992004beac59a21637ff0625e6844bd9e5c9b0b84e136a8e6a3f",
+        "sizeBytes": 2515,
+        "characterCount": 2414,
+        "wordCount": 284
+      }
+    },
+    {
+      "pageNumber": 14,
+      "normalizedText": {
+        "sha256": "d10f05fe96c9e29b577ebeda2d2129eea20db59a7713a920216a13c25d22d943",
+        "sizeBytes": 775,
+        "characterCount": 756,
+        "wordCount": 190
+      }
+    },
+    {
+      "pageNumber": 15,
+      "normalizedText": {
+        "sha256": "859b0bcee62047175e755a48db4e4efb9b3e73c7a631537b026fb573fe8a8bc5",
+        "sizeBytes": 933,
+        "characterCount": 908,
+        "wordCount": 138
+      }
+    },
+    {
+      "pageNumber": 16,
+      "normalizedText": {
+        "sha256": "b46fbff3f103130c014963edf27341abc8eec5e0f1c6874fa90500d553419575",
+        "sizeBytes": 1430,
+        "characterCount": 1409,
+        "wordCount": 185
+      }
+    },
+    {
+      "pageNumber": 17,
+      "normalizedText": {
+        "sha256": "de51251c7942115bc05212366789829362e02b037fcc03cddb8f09e687b82cde",
+        "sizeBytes": 1310,
+        "characterCount": 1264,
+        "wordCount": 134
+      }
+    },
+    {
+      "pageNumber": 18,
+      "normalizedText": {
+        "sha256": "bb12c2c3a7080b8c805cdbba2e5e2091a79683e62eb85e82a35a9cc124820a58",
+        "sizeBytes": 446,
+        "characterCount": 438,
+        "wordCount": 55
+      }
+    }
+  ],
+  "totals": {
+    "pageCount": 18,
+    "normalizedSizeBytes": 40733,
+    "normalizedCharacterCount": 39511,
+    "wordCount": 4073
+  },
+  "privateStorage": {
+    "normalizedPageRelativePathTemplate": "pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt",
+    "rawPdfRelativePathTemplate": "sha256/{rawPdfSha256}.pdf",
+    "expectedFileMode": "0400",
+    "copies": [
+      {
+        "copyId": "primary",
+        "rootEnvironmentVariable": "FOOD_SYSTEMS_PRIVATE_CORPUS_ROOT",
+        "rawPdfLocatorTemplate": "private://corpus/sha256/{rawPdfSha256}.pdf",
+        "normalizedPageLocatorTemplate": "private://corpus/pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+      },
+      {
+        "copyId": "replica",
+        "rootEnvironmentVariable": "FOOD_SYSTEMS_PRIVATE_CORPUS_REPLICA_ROOT",
+        "rawPdfLocatorTemplate": "private://bigbrain-corpus/sha256/{rawPdfSha256}.pdf",
+        "normalizedPageLocatorTemplate": "private://bigbrain-corpus/pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+      }
+    ]
+  },
+  "textIncludedInTrackedArtifact": false,
+  "readiness": {
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentExpertReviewComplete": false,
+    "partnerReviewComplete": false,
+    "rightsHolderReviewComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "manifestSha256": "982b9238dc12b59acd29718db3ff39c0f6fced7d3fc43723f71b760b38a0b428"
+}

@@ -1,0 +1,666 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/corpus-processing-state-event.v1.json",
+  "title": "Food Systems corpus processing state event",
+  "description": "Append-only, self-hashed event contract. Each event targets exactly one baseline identity and one exact pre-state; artifact application never fans out automatically.",
+  "oneOf": [
+    { "$ref": "#/$defs/technicalTextExtracted" },
+    { "$ref": "#/$defs/identityVerified" },
+    { "$ref": "#/$defs/sourceAnalysisApplied" },
+    { "$ref": "#/$defs/sourceRoleOwnerConfirmedReadyPackage" }
+  ],
+  "allOf": [
+    {
+      "if": {
+        "required": ["globalSequence"],
+        "properties": { "globalSequence": { "const": 1 } }
+      },
+      "then": {
+        "properties": { "previousGlobalEventSha256": { "type": "null" } }
+      },
+      "else": {
+        "required": ["globalSequence", "previousGlobalEventSha256"],
+        "properties": {
+          "globalSequence": { "type": "integer", "minimum": 2 },
+          "previousGlobalEventSha256": { "$ref": "#/$defs/sha256" }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": ["identitySequence"],
+        "properties": { "identitySequence": { "const": 1 } }
+      },
+      "then": {
+        "properties": { "previousIdentityEventSha256": { "type": "null" } }
+      },
+      "else": {
+        "required": ["identitySequence", "previousIdentityEventSha256"],
+        "properties": {
+          "identitySequence": { "type": "integer", "minimum": 2 },
+          "previousIdentityEventSha256": { "$ref": "#/$defs/sha256" }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "identifier": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]*$" },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[a-z0-9.-]+)?$"
+    },
+    "dateTime": { "type": "string", "format": "date-time" },
+    "repositoryPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!~)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!.*\\\\)(?!.*(?:^|/)\\.{1,2}(?:/|$)).+$"
+    },
+    "artifactReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactType",
+        "artifactId",
+        "artifactVersion",
+        "path",
+        "fileSha256",
+        "artifactSha256"
+      ],
+      "properties": {
+        "artifactType": {
+          "enum": [
+            "pdf_technical_qualification",
+            "pdf_page_map",
+            "source_analysis_input_manifest",
+            "source_acquisition_receipt",
+            "source_identity_verification",
+            "source_identity_workflow",
+            "source_identity_prompt_template",
+            "source_analysis_workflow",
+            "source_analysis_prompt_template",
+            "source_analysis",
+            "ready_for_owner_package"
+          ]
+        },
+        "artifactId": { "$ref": "#/$defs/identifier" },
+        "artifactVersion": { "$ref": "#/$defs/version" },
+        "path": { "$ref": "#/$defs/repositoryPath" },
+        "fileSha256": { "$ref": "#/$defs/sha256" },
+        "artifactSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "sourceContentReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactType",
+        "artifactId",
+        "artifactVersion",
+        "locator",
+        "contentSha256",
+        "sizeBytes"
+      ],
+      "properties": {
+        "artifactType": { "const": "source_content" },
+        "artifactId": { "$ref": "#/$defs/identifier" },
+        "artifactVersion": { "$ref": "#/$defs/version" },
+        "locator": {
+          "type": "string",
+          "minLength": 1,
+          "anyOf": [
+            { "$ref": "#/$defs/repositoryPath" },
+            {
+              "pattern": "^private://(?:corpus|bigbrain-corpus)/[a-z0-9][a-z0-9._-]*(?:/[a-z0-9][a-z0-9._-]*)*$"
+            }
+          ]
+        },
+        "contentSha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recordId",
+        "identityKey",
+        "baselineRowSha256",
+        "preStateVersion",
+        "preStateSha256",
+        "preStateLifecycleSha256"
+      ],
+      "properties": {
+        "recordId": { "$ref": "#/$defs/identifier" },
+        "identityKey": { "type": "string", "minLength": 1 },
+        "baselineRowSha256": { "$ref": "#/$defs/sha256" },
+        "preStateVersion": { "type": "integer", "minimum": 0 },
+        "preStateSha256": { "$ref": "#/$defs/sha256" },
+        "preStateLifecycleSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "eventCoreProperties": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": { "const": "corpus-processing-state-event-v1" },
+        "eventId": { "$ref": "#/$defs/identifier" },
+        "globalSequence": { "type": "integer", "minimum": 1 },
+        "previousGlobalEventSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "identitySequence": { "type": "integer", "minimum": 1 },
+        "previousIdentityEventSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "target": { "$ref": "#/$defs/target" },
+        "occurredAt": { "$ref": "#/$defs/dateTime" },
+        "eventSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "technicalTextExtracted": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "eventType",
+        "eventId",
+        "globalSequence",
+        "previousGlobalEventSha256",
+        "identitySequence",
+        "previousIdentityEventSha256",
+        "target",
+        "occurredAt",
+        "payload",
+        "eventSha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "corpus-processing-state-event-v1" },
+        "eventType": { "const": "technical_text_extracted" },
+        "eventId": { "$ref": "#/$defs/identifier" },
+        "globalSequence": { "type": "integer", "minimum": 1 },
+        "previousGlobalEventSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "identitySequence": { "type": "integer", "minimum": 1 },
+        "previousIdentityEventSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "target": { "$ref": "#/$defs/target" },
+        "occurredAt": { "$ref": "#/$defs/dateTime" },
+        "eventSha256": { "$ref": "#/$defs/sha256" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "qualificationReceiptRef",
+            "inputManifestRef",
+            "textAvailability"
+          ],
+          "properties": {
+            "qualificationReceiptRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "pdf_technical_qualification" }
+                  }
+                }
+              ]
+            },
+            "inputManifestRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": {
+                      "const": "source_analysis_input_manifest"
+                    }
+                  }
+                }
+              ]
+            },
+            "textAvailability": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "state",
+                "textSha256",
+                "characterCount",
+                "extractionMethod",
+                "observedAt"
+              ],
+              "properties": {
+                "state": { "enum": ["full_text", "structured_content"] },
+                "textSha256": { "$ref": "#/$defs/sha256" },
+                "characterCount": { "type": "integer", "minimum": 1 },
+                "extractionMethod": { "enum": ["born_digital", "ocr"] },
+                "observedAt": { "$ref": "#/$defs/dateTime" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "identityVerified": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "eventType",
+        "eventId",
+        "globalSequence",
+        "previousGlobalEventSha256",
+        "identitySequence",
+        "previousIdentityEventSha256",
+        "target",
+        "occurredAt",
+        "payload",
+        "eventSha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "corpus-processing-state-event-v1" },
+        "eventType": { "const": "identity_verified" },
+        "eventId": { "$ref": "#/$defs/identifier" },
+        "globalSequence": { "type": "integer", "minimum": 1 },
+        "previousGlobalEventSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "identitySequence": { "type": "integer", "minimum": 1 },
+        "previousIdentityEventSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "target": { "$ref": "#/$defs/target" },
+        "occurredAt": { "$ref": "#/$defs/dateTime" },
+        "eventSha256": { "$ref": "#/$defs/sha256" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "acquisitionReceiptRef",
+            "sourceContentRef",
+            "identityArtifactRef",
+            "pageMapRef",
+            "workflowRef",
+            "promptTemplateRef",
+            "verifiedInputManifestRef"
+          ],
+          "properties": {
+            "acquisitionReceiptRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "source_acquisition_receipt" }
+                  }
+                }
+              ]
+            },
+            "sourceContentRef": { "$ref": "#/$defs/sourceContentReference" },
+            "identityArtifactRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "source_identity_verification" }
+                  }
+                }
+              ]
+            },
+            "pageMapRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": { "artifactType": { "const": "pdf_page_map" } }
+                }
+              ]
+            },
+            "workflowRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "source_identity_workflow" }
+                  }
+                }
+              ]
+            },
+            "promptTemplateRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": {
+                      "const": "source_identity_prompt_template"
+                    }
+                  }
+                }
+              ]
+            },
+            "verifiedInputManifestRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": {
+                      "const": "source_analysis_input_manifest"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "sourceAnalysisApplied": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "eventType",
+        "eventId",
+        "globalSequence",
+        "previousGlobalEventSha256",
+        "identitySequence",
+        "previousIdentityEventSha256",
+        "target",
+        "occurredAt",
+        "payload",
+        "eventSha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "corpus-processing-state-event-v1" },
+        "eventType": { "const": "source_analysis_applied" },
+        "eventId": { "$ref": "#/$defs/identifier" },
+        "globalSequence": { "type": "integer", "minimum": 1 },
+        "previousGlobalEventSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "identitySequence": { "type": "integer", "minimum": 1 },
+        "previousIdentityEventSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "target": { "$ref": "#/$defs/target" },
+        "occurredAt": { "$ref": "#/$defs/dateTime" },
+        "eventSha256": { "$ref": "#/$defs/sha256" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "analysisArtifactRef",
+            "identityArtifactRef",
+            "inputManifestRef",
+            "analysisWorkflowRef",
+            "analysisPromptTemplateRef",
+            "executionBinding",
+            "lifecycleRun",
+            "stageEvidence"
+          ],
+          "properties": {
+            "analysisArtifactRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "source_analysis" }
+                  }
+                }
+              ]
+            },
+            "identityArtifactRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "source_identity_verification" }
+                  }
+                }
+              ]
+            },
+            "inputManifestRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": {
+                      "const": "source_analysis_input_manifest"
+                    }
+                  }
+                }
+              ]
+            },
+            "analysisWorkflowRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "source_analysis_workflow" }
+                  }
+                }
+              ]
+            },
+            "analysisPromptTemplateRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": {
+                      "const": "source_analysis_prompt_template"
+                    }
+                  }
+                }
+              ]
+            },
+            "executionBinding": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "processingUnitSha256",
+                "executionSha256",
+                "membershipIdentityKeys",
+                "membershipSha256",
+                "applicationMode",
+                "automaticFanOutAllowed"
+              ],
+              "properties": {
+                "processingUnitSha256": { "$ref": "#/$defs/sha256" },
+                "executionSha256": { "$ref": "#/$defs/sha256" },
+                "membershipIdentityKeys": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": { "type": "string", "minLength": 1 }
+                },
+                "membershipSha256": { "$ref": "#/$defs/sha256" },
+                "applicationMode": { "const": "single_identity_event" },
+                "automaticFanOutAllowed": { "const": false }
+              }
+            },
+            "lifecycleRun": {
+              "allOf": [
+                {
+                  "$ref": "https://foodsystems.local/schema/corpus-processing-lifecycle.v1.json#/$defs/aiRun"
+                },
+                {
+                  "properties": {
+                    "stages": {
+                      "const": [
+                        "triage",
+                        "full_text",
+                        "locator",
+                        "claims",
+                        "cross_check"
+                      ]
+                    },
+                    "checkpoints": {
+                      "minItems": 5,
+                      "maxItems": 5,
+                      "prefixItems": [
+                        { "properties": { "stage": { "const": "triage" } } },
+                        { "properties": { "stage": { "const": "full_text" } } },
+                        { "properties": { "stage": { "const": "locator" } } },
+                        { "properties": { "stage": { "const": "claims" } } },
+                        {
+                          "properties": { "stage": { "const": "cross_check" } }
+                        }
+                      ],
+                      "items": false
+                    }
+                  }
+                }
+              ]
+            },
+            "stageEvidence": {
+              "type": "array",
+              "minItems": 5,
+              "maxItems": 5,
+              "prefixItems": [
+                {
+                  "allOf": [
+                    {
+                      "$ref": "https://foodsystems.local/schema/corpus-processing-lifecycle.v1.json#/$defs/stageEvidence"
+                    },
+                    { "properties": { "stage": { "const": "triage" } } }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "https://foodsystems.local/schema/corpus-processing-lifecycle.v1.json#/$defs/stageEvidence"
+                    },
+                    { "properties": { "stage": { "const": "full_text" } } }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "https://foodsystems.local/schema/corpus-processing-lifecycle.v1.json#/$defs/stageEvidence"
+                    },
+                    { "properties": { "stage": { "const": "locator" } } }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "https://foodsystems.local/schema/corpus-processing-lifecycle.v1.json#/$defs/stageEvidence"
+                    },
+                    { "properties": { "stage": { "const": "claims" } } }
+                  ]
+                },
+                {
+                  "allOf": [
+                    {
+                      "$ref": "https://foodsystems.local/schema/corpus-processing-lifecycle.v1.json#/$defs/stageEvidence"
+                    },
+                    { "properties": { "stage": { "const": "cross_check" } } }
+                  ]
+                }
+              ],
+              "items": false
+            }
+          }
+        }
+      }
+    },
+    "sourceRoleOwnerConfirmedReadyPackage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "eventType",
+        "eventId",
+        "globalSequence",
+        "previousGlobalEventSha256",
+        "identitySequence",
+        "previousIdentityEventSha256",
+        "target",
+        "occurredAt",
+        "payload",
+        "eventSha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "corpus-processing-state-event-v1" },
+        "eventType": { "const": "source_role_owner_confirmed_ready_package" },
+        "eventId": { "$ref": "#/$defs/identifier" },
+        "globalSequence": { "type": "integer", "minimum": 1 },
+        "previousGlobalEventSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "identitySequence": { "type": "integer", "minimum": 1 },
+        "previousIdentityEventSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "target": { "$ref": "#/$defs/target" },
+        "occurredAt": { "$ref": "#/$defs/dateTime" },
+        "eventSha256": { "$ref": "#/$defs/sha256" },
+        "payload": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sourceAnalysisArtifactRef",
+            "sourceRoleReceipt",
+            "readyPackageRef",
+            "lifecycleRun",
+            "stageEvidence"
+          ],
+          "properties": {
+            "sourceAnalysisArtifactRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "source_analysis" }
+                  }
+                }
+              ]
+            },
+            "sourceRoleReceipt": {
+              "$ref": "https://foodsystems.local/schema/corpus-processing-lifecycle.v1.json#/$defs/sourceRoleConfirmationReceipt"
+            },
+            "readyPackageRef": {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "ready_for_owner_package" }
+                  }
+                }
+              ]
+            },
+            "lifecycleRun": {
+              "allOf": [
+                {
+                  "$ref": "https://foodsystems.local/schema/corpus-processing-lifecycle.v1.json#/$defs/aiRun"
+                },
+                {
+                  "properties": {
+                    "stages": { "const": ["ready_for_owner"] },
+                    "checkpoints": {
+                      "minItems": 1,
+                      "maxItems": 1,
+                      "prefixItems": [
+                        {
+                          "properties": {
+                            "stage": { "const": "ready_for_owner" }
+                          }
+                        }
+                      ],
+                      "items": false
+                    }
+                  }
+                }
+              ]
+            },
+            "stageEvidence": {
+              "allOf": [
+                {
+                  "$ref": "https://foodsystems.local/schema/corpus-processing-lifecycle.v1.json#/$defs/stageEvidence"
+                },
+                { "properties": { "stage": { "const": "ready_for_owner" } } }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

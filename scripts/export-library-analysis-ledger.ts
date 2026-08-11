@@ -7,29 +7,55 @@ import {
 import {
   type LibraryAnalysisInventoryRow,
 } from '../src/lib/library-analysis-inventory'
-import { classifyLibraryAnalysisRecord } from '../src/lib/library-analysis'
+import {
+  libraryAnalysisIdentityKey,
+  partitionLibraryAnalysisRecordsForLiveLedger,
+} from '../src/lib/library-analysis-processing'
+import {
+  classifyLibraryAnalysisRecord,
+  requiresLibraryAnalysisReview,
+} from '../src/lib/library-analysis'
+import { readLibraryAnalysisExternalCitationPolicyHash } from '../src/lib/library-analysis-external-citations'
 
 async function main() {
-  const rows = process.env.DATABASE_URL
+  const exportBatch = process.env.DATABASE_URL
     ? await loadRowsFromDb()
-    : await loadLibraryAnalysisInventory()
+    : {
+        rows: await loadLibraryAnalysisInventory(),
+        staleRetainedCount: 0,
+      }
+  const { rows, staleRetainedCount } = exportBatch
   const summary = summarizeRows(rows)
-  const paths = writeLibraryAnalysisArtifacts(rows)
+  const paths = writeLibraryAnalysisArtifacts(rows, { staleRetainedCount })
 
   console.log(`Library ledger exported sources: ${summary.total}`)
+  console.log(`Stale retained outside live ledger: ${staleRetainedCount}`)
   console.log(`Review queue: ${summary.reviewRequired}`)
   console.log(`Ledger: ${paths.ledgerPath}`)
 }
 
-async function loadRowsFromDb(): Promise<LibraryAnalysisInventoryRow[]> {
+async function loadRowsFromDb(): Promise<{
+  rows: LibraryAnalysisInventoryRow[]
+  staleRetainedCount: number
+}> {
+  const currentInventory = await loadLibraryAnalysisInventory({ requireDb: true })
+  const currentByIdentity = new Map(
+    currentInventory.map(row => [libraryAnalysisIdentityKey(row), row] as const),
+  )
   const prisma = createLibraryAnalysisPrismaClient()
   try {
     const records = await prisma.libraryAnalysisRecord.findMany({
       orderBy: [{ sourceKind: 'asc' }, { sourceKey: 'asc' }],
     })
-    if (records.length === 0) return loadLibraryAnalysisInventory()
+    if (records.length === 0) {
+      return { rows: currentInventory, staleRetainedCount: 0 }
+    }
 
-    return records.map(record => {
+    const { liveRecords, staleRetainedRecords } =
+      partitionLibraryAnalysisRecordsForLiveLedger(currentInventory, records)
+
+    const rows = liveRecords.map(record => {
+      const current = currentByIdentity.get(libraryAnalysisIdentityKey(record))
       const claimCandidates = Array.isArray(record.claimCandidates)
         ? record.claimCandidates
         : []
@@ -43,6 +69,25 @@ async function loadRowsFromDb(): Promise<LibraryAnalysisInventoryRow[]> {
         gapKinds: [],
         isSuperseded: record.status === 'superseded',
       })
+      const externalCitationPolicyHash = readLibraryAnalysisExternalCitationPolicyHash(record.aiCard)
+      const currentExternalCitationPolicyHash = current?.currentExternalCitationPolicyHash ?? null
+      const reviewRequired = requiresLibraryAnalysisReview({
+        sourceKind: record.sourceKind,
+        sourceKey: record.sourceKey,
+        documentId: record.documentId,
+        status: record.status,
+        usageRule: record.usageRule,
+        reviewStatus: record.reviewStatus,
+        reviewedAt: record.reviewedAt,
+        reviewer: record.reviewer,
+        citationReadiness: record.citationReadiness,
+        contentHash: record.contentHash,
+        currentContentHash: current?.contentHash ?? null,
+        externalCitationPolicyHash,
+        currentExternalCitationPolicyHash,
+        riskFlags: record.riskFlags,
+        claimCandidateCount: claimCandidates.length,
+      })
 
       return {
         sourceKind: record.sourceKind as LibraryAnalysisInventoryRow['sourceKind'],
@@ -54,20 +99,32 @@ async function loadRowsFromDb(): Promise<LibraryAnalysisInventoryRow[]> {
         linkedReportId: null,
         linkedThesisId: null,
         citationReadiness: record.citationReadiness,
+        externalCitationEligible: Boolean(currentExternalCitationPolicyHash),
+        externalCitationPolicyHash,
+        currentExternalCitationPolicyHash,
         hasLocalFile: Boolean(record.canonicalPath),
         hasDbLink: Boolean(record.documentId || record.sourceDocId),
         wordCount: record.wordCount,
         contentHash: record.contentHash ?? '',
+        currentContentHash: current?.contentHash ?? null,
         riskFlags: record.riskFlags,
         claimCandidateCount: claimCandidates.length,
+        reviewStatus: record.reviewStatus,
+        reviewedAt: record.reviewedAt?.toISOString() ?? null,
+        reviewer: record.reviewer,
         classification: {
           ...classification,
           status: record.status as LibraryAnalysisInventoryRow['classification']['status'],
           usageRule: record.usageRule as LibraryAnalysisInventoryRow['classification']['usageRule'],
-          reviewRequired: record.reviewStatus === 'queued' || record.status === 'review_required',
+          reviewRequired,
         },
       }
     })
+
+    return {
+      rows,
+      staleRetainedCount: staleRetainedRecords.length,
+    }
   } finally {
     await prisma.$disconnect()
   }

@@ -1,0 +1,3098 @@
+{
+  "documentType": "legacy_field_navigation_register",
+  "schemaVersion": "1.0.0",
+  "registryId": "registry.legacy_field_navigation.v1",
+  "registryStatus": "proposed",
+  "generatedAt": "2026-07-28",
+  "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+  "generatorVersion": "1.0.0",
+  "ontologyVersion": "1.0.0",
+  "mapId": "map.legacy_field_navigation.v1",
+  "semantics": {
+    "artifactRole": "navigation",
+    "coverageImplication": "none",
+    "subjectMatterState": "unassessed",
+    "geographyRepresentation": "unknown",
+    "evidenceUse": "not_evidence",
+    "coveragePromotionAllowed": false,
+    "crossProfileAggregationAllowed": false
+  },
+  "navigationContexts": [
+    {
+      "contextId": "navigation_context.legacy_field_index",
+      "role": "field_map_index",
+      "locator": "De tretten kunnskapsfeltene",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.59dbefa3545006c07bb9",
+        "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart – kunnskapsbasen.md",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "b01367c1514b81b9aea4b925c5b4269a95a334de",
+        "gitObjectType": "blob",
+        "sha256": "sha256:59dbefa3545006c07bb9d64a3cd34a197b05d07709648b25bfc682a98516db02",
+        "sizeBytes": 7732,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart – kunnskapsbasen.md",
+            "kind": "file",
+            "sha256": "sha256:3627358db280e5dc1b4f4c2813d8200ea9ec0ae58bd2a3d1f499836825b805e0",
+            "sizeBytes": 7732
+          }
+        ]
+      }
+    },
+    {
+      "contextId": "navigation_context.legacy_field_atlas",
+      "role": "atlas_canvas",
+      "locator": "Canvas file nodes f01 through f13",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.6d1f61a635b9b5e77c13",
+        "path": "Food Systems Obsidian/0 Kart/Matsystemets kunnskapsatlas.canvas",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "dc59c499d5869f3d0a5543b30835192ca2093b8f",
+        "gitObjectType": "blob",
+        "sha256": "sha256:6d1f61a635b9b5e77c13ede338482220f4718b1013c19805fb7c6eb23226587b",
+        "sizeBytes": 9189,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/0 Kart/Matsystemets kunnskapsatlas.canvas",
+            "kind": "file",
+            "sha256": "sha256:482ff5eb2ed0fc8be90ec84eaba3123dffd3a6f750652ac0561afd006d09b744",
+            "sizeBytes": 9189
+          }
+        ]
+      }
+    }
+  ],
+  "fieldRegistrations": [
+    {
+      "registrationId": "navigation_registration.legacy_field.f01",
+      "legacyFieldId": "legacy_field.f01",
+      "sequence": 1,
+      "labelNb": "Hele matsystemet – systemgrenser og sammenhenger",
+      "labelEn": "The whole food system – boundaries and relationships",
+      "artifactRole": "legacy_field_navigation",
+      "artifactLocator": "# Hele matsystemet – systemgrenser og sammenhenger",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.177db344067fa2965805",
+        "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/01 Hele matsystemet – systemgrenser og sammenhenger.md",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "cc6ce397fad4f5dc10a3cf1bb4d27ab5e9dce2fb",
+        "gitObjectType": "blob",
+        "sha256": "sha256:177db344067fa2965805ae5af42fae82306bad35003fbade7cc90307832a17ee",
+        "sizeBytes": 3156,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/01 Hele matsystemet – systemgrenser og sammenhenger.md",
+            "kind": "file",
+            "sha256": "sha256:154578072cd6fa6748a56fd90d56966f52d9971b7dede2ef57f1159833b342c8",
+            "sizeBytes": 3156
+          }
+        ]
+      },
+      "fieldMapContextId": "navigation_context.legacy_field_index",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/01 Hele matsystemet – systemgrenser og sammenhenger",
+      "atlasContextId": "navigation_context.legacy_field_atlas",
+      "atlasNodeId": "f01",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "limitations": [
+        "The artifact is registered as a navigation surface, not as evidence of subject-matter coverage.",
+        "Its internal links and note density do not establish citation readiness, verification, freshness or completeness.",
+        "Geographic representation remains unknown until exact cell-specific evidence and boundaries are reviewed."
+      ],
+      "contentHash": "sha256:675de6c547c7883e12fc3539110d90a78510ad46945b5cda375d0ad34934b222"
+    },
+    {
+      "registrationId": "navigation_registration.legacy_field.f02",
+      "legacyFieldId": "legacy_field.f02",
+      "sequence": 2,
+      "labelNb": "Ressursgrunnlag og innsatsfaktorer",
+      "labelEn": "Resource base and inputs",
+      "artifactRole": "legacy_field_navigation",
+      "artifactLocator": "# Ressursgrunnlag og innsatsfaktorer",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.6044ca46dec0327bd930",
+        "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/02 Ressursgrunnlag og innsatsfaktorer.md",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "4962138cbb5227fc367f4095b8828b9684ff9307",
+        "gitObjectType": "blob",
+        "sha256": "sha256:6044ca46dec0327bd930bcf7851680a496525b9b932f8a8e6058d3fbc34a0ee6",
+        "sizeBytes": 3057,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/02 Ressursgrunnlag og innsatsfaktorer.md",
+            "kind": "file",
+            "sha256": "sha256:0a17155bd8d4ff10c1c65ce916b34e82ebbd04d0fd738060531b3cfa0cf3edad",
+            "sizeBytes": 3057
+          }
+        ]
+      },
+      "fieldMapContextId": "navigation_context.legacy_field_index",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/02 Ressursgrunnlag og innsatsfaktorer",
+      "atlasContextId": "navigation_context.legacy_field_atlas",
+      "atlasNodeId": "f02",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "limitations": [
+        "The artifact is registered as a navigation surface, not as evidence of subject-matter coverage.",
+        "Its internal links and note density do not establish citation readiness, verification, freshness or completeness.",
+        "Geographic representation remains unknown until exact cell-specific evidence and boundaries are reviewed."
+      ],
+      "contentHash": "sha256:53bdea88c8d901cf34d00c2fada29670f9b1793d3ca392c1a2100b566650142b"
+    },
+    {
+      "registrationId": "navigation_registration.legacy_field.f03",
+      "legacyFieldId": "legacy_field.f03",
+      "sequence": 3,
+      "labelNb": "Primærproduksjon og høsting",
+      "labelEn": "Primary production and harvesting",
+      "artifactRole": "legacy_field_navigation",
+      "artifactLocator": "# Primærproduksjon og høsting",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.60479ff59768c3d6fc14",
+        "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/03 Primærproduksjon og høsting.md",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "6b48a907bccd53eeb826641de11713908fcf569d",
+        "gitObjectType": "blob",
+        "sha256": "sha256:60479ff59768c3d6fc1411eb3ee162f526f74d1310d4b3d9da51b7b5f578b2f9",
+        "sizeBytes": 3023,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/03 Primærproduksjon og høsting.md",
+            "kind": "file",
+            "sha256": "sha256:993274eba530c75181ff631e38616e048184176b67da3474a9f8eb4a80f2b012",
+            "sizeBytes": 3023
+          }
+        ]
+      },
+      "fieldMapContextId": "navigation_context.legacy_field_index",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/03 Primærproduksjon og høsting",
+      "atlasContextId": "navigation_context.legacy_field_atlas",
+      "atlasNodeId": "f03",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "limitations": [
+        "The artifact is registered as a navigation surface, not as evidence of subject-matter coverage.",
+        "Its internal links and note density do not establish citation readiness, verification, freshness or completeness.",
+        "Geographic representation remains unknown until exact cell-specific evidence and boundaries are reviewed."
+      ],
+      "contentHash": "sha256:6ef1f396a74ea91f3b7cf2bfb642debdc5c11a7657e4f1fb033f81e0ba663bff"
+    },
+    {
+      "registrationId": "navigation_registration.legacy_field.f04",
+      "legacyFieldId": "legacy_field.f04",
+      "sequence": 4,
+      "labelNb": "Foredling og industri",
+      "labelEn": "Processing and industry",
+      "artifactRole": "legacy_field_navigation",
+      "artifactLocator": "# Foredling og industri",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.2711ce9ea99c6eeed3d2",
+        "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/04 Foredling og industri.md",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "4e1c8f15cde61b5ee6c7a07dfd53b61c8114ef09",
+        "gitObjectType": "blob",
+        "sha256": "sha256:2711ce9ea99c6eeed3d221d65494f751a4ed7d212002bac8f8a2d42b4dbc0f18",
+        "sizeBytes": 3077,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/04 Foredling og industri.md",
+            "kind": "file",
+            "sha256": "sha256:11c49c305d695db2fb005ad1a025bc681623d8cc02bebf5a525efa2ec65e60b5",
+            "sizeBytes": 3077
+          }
+        ]
+      },
+      "fieldMapContextId": "navigation_context.legacy_field_index",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/04 Foredling og industri",
+      "atlasContextId": "navigation_context.legacy_field_atlas",
+      "atlasNodeId": "f04",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "limitations": [
+        "The artifact is registered as a navigation surface, not as evidence of subject-matter coverage.",
+        "Its internal links and note density do not establish citation readiness, verification, freshness or completeness.",
+        "Geographic representation remains unknown until exact cell-specific evidence and boundaries are reviewed."
+      ],
+      "contentHash": "sha256:a8de1ae4b304828d0a83a421a22daf4646eacb9ec83b91446db51443b5e23b8d"
+    },
+    {
+      "registrationId": "navigation_registration.legacy_field.f05",
+      "legacyFieldId": "legacy_field.f05",
+      "sequence": 5,
+      "labelNb": "Distribusjon, logistikk og lokale kjeder",
+      "labelEn": "Distribution, logistics and local chains",
+      "artifactRole": "legacy_field_navigation",
+      "artifactLocator": "# Distribusjon, logistikk og lokale kjeder",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.0ee37040cb6ebae52131",
+        "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/05 Distribusjon, logistikk og lokale kjeder.md",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "8d52a2f49db4802aaa7b899a9ac194a8ecd3e11d",
+        "gitObjectType": "blob",
+        "sha256": "sha256:0ee37040cb6ebae52131068c7e66d24182b41045e8dd4256ea49c002d42b1698",
+        "sizeBytes": 2897,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/05 Distribusjon, logistikk og lokale kjeder.md",
+            "kind": "file",
+            "sha256": "sha256:7e579c49f89315fedb3973909a4320c8c6c3a7289e2072eb120d6a14a245459e",
+            "sizeBytes": 2897
+          }
+        ]
+      },
+      "fieldMapContextId": "navigation_context.legacy_field_index",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/05 Distribusjon, logistikk og lokale kjeder",
+      "atlasContextId": "navigation_context.legacy_field_atlas",
+      "atlasNodeId": "f05",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "limitations": [
+        "The artifact is registered as a navigation surface, not as evidence of subject-matter coverage.",
+        "Its internal links and note density do not establish citation readiness, verification, freshness or completeness.",
+        "Geographic representation remains unknown until exact cell-specific evidence and boundaries are reviewed."
+      ],
+      "contentHash": "sha256:b88d811545e42bdbf93ac89ce298a16da7d90ff8c3a9d3c3deecf96f96bdacbf"
+    },
+    {
+      "registrationId": "navigation_registration.legacy_field.f06",
+      "legacyFieldId": "legacy_field.f06",
+      "sequence": 6,
+      "labelNb": "Handel, servering, offentlige innkjøp og forbruk",
+      "labelEn": "Retail, food service, public procurement and consumption",
+      "artifactRole": "legacy_field_navigation",
+      "artifactLocator": "# Handel, servering, offentlige innkjøp og forbruk",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.462dfdd0d79056d70fd3",
+        "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/06 Handel, servering, offentlige innkjøp og forbruk.md",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "97d7c64b6a1f1b620e758d6c938761598e413f80",
+        "gitObjectType": "blob",
+        "sha256": "sha256:462dfdd0d79056d70fd3f4c291826c0c78e3a61f1db1faa51bae6e4b2b105b2c",
+        "sizeBytes": 3292,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/06 Handel, servering, offentlige innkjøp og forbruk.md",
+            "kind": "file",
+            "sha256": "sha256:1d4d928af723cad3f7942d1953f808f068dcb0861b2a9cc1ef919ba0ed0045fa",
+            "sizeBytes": 3292
+          }
+        ]
+      },
+      "fieldMapContextId": "navigation_context.legacy_field_index",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/06 Handel, servering, offentlige innkjøp og forbruk",
+      "atlasContextId": "navigation_context.legacy_field_atlas",
+      "atlasNodeId": "f06",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "limitations": [
+        "The artifact is registered as a navigation surface, not as evidence of subject-matter coverage.",
+        "Its internal links and note density do not establish citation readiness, verification, freshness or completeness.",
+        "Geographic representation remains unknown until exact cell-specific evidence and boundaries are reviewed."
+      ],
+      "contentHash": "sha256:fe282c4888b5351d0dda205be4cbb8785e495eaeb76887ee096df1a165fe6c84"
+    },
+    {
+      "registrationId": "navigation_registration.legacy_field.f07",
+      "legacyFieldId": "legacy_field.f07",
+      "sequence": 7,
+      "labelNb": "Makt, eierskap, priser og konkurranse",
+      "labelEn": "Power, ownership, prices and competition",
+      "artifactRole": "legacy_field_navigation",
+      "artifactLocator": "# Makt, eierskap, priser og konkurranse",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.6f8cd5cd7d3ed8cc3382",
+        "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/07 Makt, eierskap, priser og konkurranse.md",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "eb880d12f0ce150ec861270dc0125c6259f3273c",
+        "gitObjectType": "blob",
+        "sha256": "sha256:6f8cd5cd7d3ed8cc33823534ffff2777cb389edc1c5b3d89239255fa90f6803c",
+        "sizeBytes": 3347,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/07 Makt, eierskap, priser og konkurranse.md",
+            "kind": "file",
+            "sha256": "sha256:01cce3c2d3d56fce6fbe8a6db3c1887ab8bcaefd85fb98e7544d01154b2f36e3",
+            "sizeBytes": 3347
+          }
+        ]
+      },
+      "fieldMapContextId": "navigation_context.legacy_field_index",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/07 Makt, eierskap, priser og konkurranse",
+      "atlasContextId": "navigation_context.legacy_field_atlas",
+      "atlasNodeId": "f07",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "limitations": [
+        "The artifact is registered as a navigation surface, not as evidence of subject-matter coverage.",
+        "Its internal links and note density do not establish citation readiness, verification, freshness or completeness.",
+        "Geographic representation remains unknown until exact cell-specific evidence and boundaries are reviewed."
+      ],
+      "contentHash": "sha256:47397b6093490b12b47f1a0b07a76ea281cc7fda5535617b43853a4999534f9d"
+    },
+    {
+      "registrationId": "navigation_registration.legacy_field.f08",
+      "legacyFieldId": "legacy_field.f08",
+      "sequence": 8,
+      "labelNb": "Sirkularitet, matsvinn, sidestrømmer og N-P-K",
+      "labelEn": "Circularity, food waste, side streams and N-P-K",
+      "artifactRole": "legacy_field_navigation",
+      "artifactLocator": "# Sirkularitet, matsvinn, sidestrømmer og N-P-K",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.170ec5aa950ac74207c6",
+        "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/08 Sirkularitet, matsvinn, sidestrømmer og N-P-K.md",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "599479fb372b61c06dce65e085ea1c3063e0818c",
+        "gitObjectType": "blob",
+        "sha256": "sha256:170ec5aa950ac74207c6e41454d09d4487cde5e6cca2ea12abffbedf60b9530c",
+        "sizeBytes": 3431,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/08 Sirkularitet, matsvinn, sidestrømmer og N-P-K.md",
+            "kind": "file",
+            "sha256": "sha256:008e6c719b1b6fe1698d09b90274ff93097a63ceed4295e924f438c22d2bb230",
+            "sizeBytes": 3431
+          }
+        ]
+      },
+      "fieldMapContextId": "navigation_context.legacy_field_index",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/08 Sirkularitet, matsvinn, sidestrømmer og N-P-K",
+      "atlasContextId": "navigation_context.legacy_field_atlas",
+      "atlasNodeId": "f08",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "limitations": [
+        "The artifact is registered as a navigation surface, not as evidence of subject-matter coverage.",
+        "Its internal links and note density do not establish citation readiness, verification, freshness or completeness.",
+        "Geographic representation remains unknown until exact cell-specific evidence and boundaries are reviewed."
+      ],
+      "contentHash": "sha256:eba9df56f14806d4ade9f5d30bb7626a136b9782993ec6a4889e520e4a6917d9"
+    },
+    {
+      "registrationId": "navigation_registration.legacy_field.f09",
+      "legacyFieldId": "legacy_field.f09",
+      "sequence": 9,
+      "labelNb": "Import, selvforsyning, matsikkerhet og beredskap",
+      "labelEn": "Imports, self-sufficiency, food security and preparedness",
+      "artifactRole": "legacy_field_navigation",
+      "artifactLocator": "# Import, selvforsyning, matsikkerhet og beredskap",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.5b6f376ea444ae069d96",
+        "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/09 Import, selvforsyning, matsikkerhet og beredskap.md",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "cc0bee00413665ac7e7210b368e4d5853cdbb9cc",
+        "gitObjectType": "blob",
+        "sha256": "sha256:5b6f376ea444ae069d96bd3a71d1f5683bb26e1dd79e178fd5d31a1cf9aaeae4",
+        "sizeBytes": 3167,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/09 Import, selvforsyning, matsikkerhet og beredskap.md",
+            "kind": "file",
+            "sha256": "sha256:3d3f8345261dc9822a469fad38cc636164ca184ee792707e758acd6b45431fac",
+            "sizeBytes": 3167
+          }
+        ]
+      },
+      "fieldMapContextId": "navigation_context.legacy_field_index",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/09 Import, selvforsyning, matsikkerhet og beredskap",
+      "atlasContextId": "navigation_context.legacy_field_atlas",
+      "atlasNodeId": "f09",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "limitations": [
+        "The artifact is registered as a navigation surface, not as evidence of subject-matter coverage.",
+        "Its internal links and note density do not establish citation readiness, verification, freshness or completeness.",
+        "Geographic representation remains unknown until exact cell-specific evidence and boundaries are reviewed."
+      ],
+      "contentHash": "sha256:db1adacff200fcb31030d9b07e2eb95a39dd4ffc7234df0d4142df299a2fa95a"
+    },
+    {
+      "registrationId": "navigation_registration.legacy_field.f10",
+      "legacyFieldId": "legacy_field.f10",
+      "sequence": 10,
+      "labelNb": "Jord, naturmangfold, klima, helse og tilstrekkelighet",
+      "labelEn": "Soil, biodiversity, climate, health and sufficiency",
+      "artifactRole": "legacy_field_navigation",
+      "artifactLocator": "# Jord, naturmangfold, klima, helse og tilstrekkelighet",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.c12260730297fe91ce95",
+        "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/10 Jord, naturmangfold, klima, helse og tilstrekkelighet.md",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "dfead61b3b574e77f9a4771491797521d8f8a9af",
+        "gitObjectType": "blob",
+        "sha256": "sha256:c12260730297fe91ce95d96b9532f4b57e10f4c329396bbe42c977d7de90c20b",
+        "sizeBytes": 3564,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/10 Jord, naturmangfold, klima, helse og tilstrekkelighet.md",
+            "kind": "file",
+            "sha256": "sha256:8472133135faf306ab26c4e3e12f4693231131dfd2e939f0dc746b7410f6dd72",
+            "sizeBytes": 3564
+          }
+        ]
+      },
+      "fieldMapContextId": "navigation_context.legacy_field_index",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/10 Jord, naturmangfold, klima, helse og tilstrekkelighet",
+      "atlasContextId": "navigation_context.legacy_field_atlas",
+      "atlasNodeId": "f10",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "limitations": [
+        "The artifact is registered as a navigation surface, not as evidence of subject-matter coverage.",
+        "Its internal links and note density do not establish citation readiness, verification, freshness or completeness.",
+        "Geographic representation remains unknown until exact cell-specific evidence and boundaries are reviewed."
+      ],
+      "contentHash": "sha256:241bd256061275caa9524c87f32083bb5a0ff65854f72789aa071bc1b6392748"
+    },
+    {
+      "registrationId": "navigation_registration.legacy_field.f11",
+      "legacyFieldId": "legacy_field.f11",
+      "sequence": 11,
+      "labelNb": "Innovasjon, alternative proteiner og pilotering",
+      "labelEn": "Innovation, alternative proteins and piloting",
+      "artifactRole": "legacy_field_navigation",
+      "artifactLocator": "# Innovasjon, alternative proteiner og pilotering",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.7fd932c85da84f50a7cb",
+        "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/11 Innovasjon, alternative proteiner og pilotering.md",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "035ce8c6c6dd26098b50e91d909b22a2e9b5b0df",
+        "gitObjectType": "blob",
+        "sha256": "sha256:7fd932c85da84f50a7cb3854ed7bc06dabc9fcd11cb30d0bd7929869ce57ec3b",
+        "sizeBytes": 3293,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/11 Innovasjon, alternative proteiner og pilotering.md",
+            "kind": "file",
+            "sha256": "sha256:99c8dcb936a91ab507c4f63bfe979b00f6ac09484624756eb57824beb9c0da4a",
+            "sizeBytes": 3293
+          }
+        ]
+      },
+      "fieldMapContextId": "navigation_context.legacy_field_index",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/11 Innovasjon, alternative proteiner og pilotering",
+      "atlasContextId": "navigation_context.legacy_field_atlas",
+      "atlasNodeId": "f11",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "limitations": [
+        "The artifact is registered as a navigation surface, not as evidence of subject-matter coverage.",
+        "Its internal links and note density do not establish citation readiness, verification, freshness or completeness.",
+        "Geographic representation remains unknown until exact cell-specific evidence and boundaries are reviewed."
+      ],
+      "contentHash": "sha256:3d694de1f39aa66850995e6ec22457df80e79900abe2105bfc444f366017e375"
+    },
+    {
+      "registrationId": "navigation_registration.legacy_field.f12",
+      "legacyFieldId": "legacy_field.f12",
+      "sequence": 12,
+      "labelNb": "Norden, politikk, institusjoner og styring",
+      "labelEn": "Nordics, policy, institutions and governance",
+      "artifactRole": "legacy_field_navigation",
+      "artifactLocator": "# Norden, politikk, institusjoner og styring",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.94d6e23326a089fc0355",
+        "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/12 Norden, politikk, institusjoner og styring.md",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "6f98a0c34f16013ccd2674e9a0961749c7c9fe50",
+        "gitObjectType": "blob",
+        "sha256": "sha256:94d6e23326a089fc0355f90f284a22380bf221cccbbed6d293cb40eba5d52765",
+        "sizeBytes": 3264,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/12 Norden, politikk, institusjoner og styring.md",
+            "kind": "file",
+            "sha256": "sha256:ca84d55197aba7d0cca748770622eb57d221627fdbe755cd98093923ac85703e",
+            "sizeBytes": 3264
+          }
+        ]
+      },
+      "fieldMapContextId": "navigation_context.legacy_field_index",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/12 Norden, politikk, institusjoner og styring",
+      "atlasContextId": "navigation_context.legacy_field_atlas",
+      "atlasNodeId": "f12",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "limitations": [
+        "The artifact is registered as a navigation surface, not as evidence of subject-matter coverage.",
+        "Its internal links and note density do not establish citation readiness, verification, freshness or completeness.",
+        "Geographic representation remains unknown until exact cell-specific evidence and boundaries are reviewed."
+      ],
+      "contentHash": "sha256:e12571c1695ace72cdbc52142373fc8823c4582879b72109d7a4f74470a1d7ee"
+    },
+    {
+      "registrationId": "navigation_registration.legacy_field.f13",
+      "legacyFieldId": "legacy_field.f13",
+      "sequence": 13,
+      "labelNb": "Metode, evidens, siterbarhet og kunnskapshull",
+      "labelEn": "Methods, evidence, citability and knowledge gaps",
+      "artifactRole": "legacy_field_navigation",
+      "artifactLocator": "# Metode, evidens, siterbarhet og kunnskapshull",
+      "artifactSnapshot": {
+        "artifactSnapshotId": "artifact.v1.3b907eaf65000825e31f",
+        "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/13 Metode, evidens, siterbarhet og kunnskapshull.md",
+        "kind": "file",
+        "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+        "gitObjectId": "79dcd8a56cfce535783097f43b28b30f3b81e2bf",
+        "gitObjectType": "blob",
+        "sha256": "sha256:3b907eaf65000825e31fd75db509a4db9fc38a51541f75d76896ce82b508e64b",
+        "sizeBytes": 3464,
+        "fileCount": 1,
+        "entries": [
+          {
+            "path": "Food Systems Obsidian/1 Oversikt og navigasjon/Feltkart/13 Metode, evidens, siterbarhet og kunnskapshull.md",
+            "kind": "file",
+            "sha256": "sha256:3b4d0c14f0d3e6dde4044dc1f99e2c7f319d439de30502428aeb0e0ce29dcabc",
+            "sizeBytes": 3464
+          }
+        ]
+      },
+      "fieldMapContextId": "navigation_context.legacy_field_index",
+      "fieldMapLinkTarget": "1 Oversikt og navigasjon/Feltkart/13 Metode, evidens, siterbarhet og kunnskapshull",
+      "atlasContextId": "navigation_context.legacy_field_atlas",
+      "atlasNodeId": "f13",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "limitations": [
+        "The artifact is registered as a navigation surface, not as evidence of subject-matter coverage.",
+        "Its internal links and note density do not establish citation readiness, verification, freshness or completeness.",
+        "Geographic representation remains unknown until exact cell-specific evidence and boundaries are reviewed."
+      ],
+      "contentHash": "sha256:1ae80b75c011c0561ddec9d355608fabc0a6b7cb0ca055cfcc5c53adcb91c28a"
+    }
+  ],
+  "bindings": [
+    {
+      "bindingId": "navigation_binding.legacy_field_political.ax.f01",
+      "registrationId": "navigation_registration.legacy_field.f01",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=ax.legacy_fields=f01",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.ax",
+      "legacyFieldId": "legacy_field.f01",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:a5d9a2c88141662a13b7b15d1f223e562acddaf80510e65df1df88845d99c91c"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.ax.f02",
+      "registrationId": "navigation_registration.legacy_field.f02",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=ax.legacy_fields=f02",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.ax",
+      "legacyFieldId": "legacy_field.f02",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:43429ad6ec9b4cf49e37612516995dc479215a7e1e6e7715b454a5bbf8eb41c0"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.ax.f03",
+      "registrationId": "navigation_registration.legacy_field.f03",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=ax.legacy_fields=f03",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.ax",
+      "legacyFieldId": "legacy_field.f03",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:958dd9ba4594ff89c6f63d125f1e1c8ae13cceb4d50f6ef04fe4d193c91dd9f3"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.ax.f04",
+      "registrationId": "navigation_registration.legacy_field.f04",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=ax.legacy_fields=f04",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.ax",
+      "legacyFieldId": "legacy_field.f04",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:4639ffedd4f89f9558cfaf35b9d02d03add7652535b5286ef60505e8d062fe58"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.ax.f05",
+      "registrationId": "navigation_registration.legacy_field.f05",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=ax.legacy_fields=f05",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.ax",
+      "legacyFieldId": "legacy_field.f05",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:f3b21478ae67a228aa2e6b1c55e802b0f3df44e8c35a8d90a5e4ce7d2fb16f4b"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.ax.f06",
+      "registrationId": "navigation_registration.legacy_field.f06",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=ax.legacy_fields=f06",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.ax",
+      "legacyFieldId": "legacy_field.f06",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:e36aa85b28e2d664e5091bfee2bd1247b4da5eca50dde073010472e81983f720"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.ax.f07",
+      "registrationId": "navigation_registration.legacy_field.f07",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=ax.legacy_fields=f07",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.ax",
+      "legacyFieldId": "legacy_field.f07",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:a64318e681fb921eeac3cb6e9c3cc93f2ff0a5b72a2c9186b65e493c57b9e31f"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.ax.f08",
+      "registrationId": "navigation_registration.legacy_field.f08",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=ax.legacy_fields=f08",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.ax",
+      "legacyFieldId": "legacy_field.f08",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:bc5f5479432fa38e71ba40c2c18f90335a58a268e27c69e3ced8989d58a28f94"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.ax.f09",
+      "registrationId": "navigation_registration.legacy_field.f09",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=ax.legacy_fields=f09",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.ax",
+      "legacyFieldId": "legacy_field.f09",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:905aa14764772ac422b6032d890e08a73b8084b911ac4a41649cf4e6a1dfc1ca"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.ax.f10",
+      "registrationId": "navigation_registration.legacy_field.f10",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=ax.legacy_fields=f10",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.ax",
+      "legacyFieldId": "legacy_field.f10",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:bc00a53a42c0daaffc3af8e2f6cbec5317c219cae99f0b0bd4664f37cba3fc0e"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.ax.f11",
+      "registrationId": "navigation_registration.legacy_field.f11",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=ax.legacy_fields=f11",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.ax",
+      "legacyFieldId": "legacy_field.f11",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:3f15e0592cb40f8dce51842b285857547247f9037ff2d8bcc28134896427b6d6"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.ax.f12",
+      "registrationId": "navigation_registration.legacy_field.f12",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=ax.legacy_fields=f12",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.ax",
+      "legacyFieldId": "legacy_field.f12",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:bd5cd3be27471f452f2406460d1a87a70460acc0d97596e6a9ffa6eecf73ee77"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.ax.f13",
+      "registrationId": "navigation_registration.legacy_field.f13",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=ax.legacy_fields=f13",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.ax",
+      "legacyFieldId": "legacy_field.f13",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:5d8cc42688133ce0d9cf789d9f319603305e808cd7ed2273e37e7e9da3f3a191"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.dk.f01",
+      "registrationId": "navigation_registration.legacy_field.f01",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=dk.legacy_fields=f01",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.dk",
+      "legacyFieldId": "legacy_field.f01",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:c2493bc875f2ed55cc542ec01a793118580b16da6a6b19c32df325e313659268"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.dk.f02",
+      "registrationId": "navigation_registration.legacy_field.f02",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=dk.legacy_fields=f02",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.dk",
+      "legacyFieldId": "legacy_field.f02",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:01796e536ee43645fca808cbd5abe3f86e5e218acbfd33d5738a82cc380442b6"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.dk.f03",
+      "registrationId": "navigation_registration.legacy_field.f03",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=dk.legacy_fields=f03",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.dk",
+      "legacyFieldId": "legacy_field.f03",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:f4793fe8481b68eb624b4f223b0cd2042861e60ef278ae6455872d602bc1969c"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.dk.f04",
+      "registrationId": "navigation_registration.legacy_field.f04",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=dk.legacy_fields=f04",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.dk",
+      "legacyFieldId": "legacy_field.f04",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:03cb7a0aac0dbf7143364fbc8aceeaf60fa234761de7e4d722571762c8a5b690"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.dk.f05",
+      "registrationId": "navigation_registration.legacy_field.f05",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=dk.legacy_fields=f05",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.dk",
+      "legacyFieldId": "legacy_field.f05",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:90ff48f2311d36d6fcc01a14442d35d64ca7b465f9ce9e2a03089a72baba261e"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.dk.f06",
+      "registrationId": "navigation_registration.legacy_field.f06",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=dk.legacy_fields=f06",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.dk",
+      "legacyFieldId": "legacy_field.f06",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:ec66039820217560e9d39452113c3b09c90a9478413c031b054fc5c6733a5638"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.dk.f07",
+      "registrationId": "navigation_registration.legacy_field.f07",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=dk.legacy_fields=f07",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.dk",
+      "legacyFieldId": "legacy_field.f07",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:74e7ff22ebb8b069965b77feebc70f6f9c47b8585e90fa901edec46b447d5c40"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.dk.f08",
+      "registrationId": "navigation_registration.legacy_field.f08",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=dk.legacy_fields=f08",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.dk",
+      "legacyFieldId": "legacy_field.f08",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:6f07a52a4c9867ea56fbbdd05541bfd46b9a82b4efa116fb52d1c15606f6c190"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.dk.f09",
+      "registrationId": "navigation_registration.legacy_field.f09",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=dk.legacy_fields=f09",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.dk",
+      "legacyFieldId": "legacy_field.f09",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:91c9fd917803b6d2d1cf9139f734a8e7cc15bb4a802f62c346ee3aada03ab633"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.dk.f10",
+      "registrationId": "navigation_registration.legacy_field.f10",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=dk.legacy_fields=f10",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.dk",
+      "legacyFieldId": "legacy_field.f10",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:b48e5dedc5be98a143182db7d538b4e32d32e7047e70cd773bc8d8eee05ee872"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.dk.f11",
+      "registrationId": "navigation_registration.legacy_field.f11",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=dk.legacy_fields=f11",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.dk",
+      "legacyFieldId": "legacy_field.f11",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:be7f374452f40b261df75c08396bc44602d24a8c231cee361b33039351ce4d65"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.dk.f12",
+      "registrationId": "navigation_registration.legacy_field.f12",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=dk.legacy_fields=f12",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.dk",
+      "legacyFieldId": "legacy_field.f12",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:5839c2c4c90c19b2d740f91a18f6048b5aeb017703ac7c023ee01ad49c1d472a"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.dk.f13",
+      "registrationId": "navigation_registration.legacy_field.f13",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=dk.legacy_fields=f13",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.dk",
+      "legacyFieldId": "legacy_field.f13",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:5e95b47a3e52687024bbbd9133bac827280f46aef77991bf6b6d96f3fbde9187"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fi.f01",
+      "registrationId": "navigation_registration.legacy_field.f01",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fi.legacy_fields=f01",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fi",
+      "legacyFieldId": "legacy_field.f01",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:f6890350ecfba33ce5884ffd050c5e86958c845b1b955ca46533981345e1e1f5"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fi.f02",
+      "registrationId": "navigation_registration.legacy_field.f02",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fi.legacy_fields=f02",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fi",
+      "legacyFieldId": "legacy_field.f02",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:40bf4534d4459746f6b811a551c2ae7a6b6fa3f473d3d7244fe97e2786dfceae"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fi.f03",
+      "registrationId": "navigation_registration.legacy_field.f03",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fi.legacy_fields=f03",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fi",
+      "legacyFieldId": "legacy_field.f03",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:77dfa33856dc747c2058c196804e2a2e4a08885ad8870ad798970c7870211fde"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fi.f04",
+      "registrationId": "navigation_registration.legacy_field.f04",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fi.legacy_fields=f04",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fi",
+      "legacyFieldId": "legacy_field.f04",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:7aad90586af42e3fe963445587c0dd2acd1b8b497d49c322024d83dd509f4011"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fi.f05",
+      "registrationId": "navigation_registration.legacy_field.f05",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fi.legacy_fields=f05",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fi",
+      "legacyFieldId": "legacy_field.f05",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:b71256ef49d912898fd842276f8014094ea86fc1d7d3147d12b97f9d2bb73bdd"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fi.f06",
+      "registrationId": "navigation_registration.legacy_field.f06",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fi.legacy_fields=f06",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fi",
+      "legacyFieldId": "legacy_field.f06",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:d5bb0c581beb1b248d76b2cf7967b0231d08c457f95398036108294502447cba"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fi.f07",
+      "registrationId": "navigation_registration.legacy_field.f07",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fi.legacy_fields=f07",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fi",
+      "legacyFieldId": "legacy_field.f07",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:3f4f1439c3ac8862d0b56dd49410827bd0c71253077e5a9b53dbc9c025748383"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fi.f08",
+      "registrationId": "navigation_registration.legacy_field.f08",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fi.legacy_fields=f08",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fi",
+      "legacyFieldId": "legacy_field.f08",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:71d0b9acf4e9734fc412dee4d6e39b1c0501b61144021dfe84b223cb1bae8def"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fi.f09",
+      "registrationId": "navigation_registration.legacy_field.f09",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fi.legacy_fields=f09",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fi",
+      "legacyFieldId": "legacy_field.f09",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:1fcd07c2e0ce7172ee283319b8d99388dddf50f9cf32c3b81d3fd166cbe0ebfc"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fi.f10",
+      "registrationId": "navigation_registration.legacy_field.f10",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fi.legacy_fields=f10",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fi",
+      "legacyFieldId": "legacy_field.f10",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:f0913e98ad0fef3874cd70a294c960b04047df12603c62c797fc93fbdbb7a349"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fi.f11",
+      "registrationId": "navigation_registration.legacy_field.f11",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fi.legacy_fields=f11",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fi",
+      "legacyFieldId": "legacy_field.f11",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:a77e66d94f6666da1b66659a6d442d75820af7efa2da50a0c92e968289f7e677"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fi.f12",
+      "registrationId": "navigation_registration.legacy_field.f12",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fi.legacy_fields=f12",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fi",
+      "legacyFieldId": "legacy_field.f12",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:b2682d1e09df65f41221783bd81ab9517b06ad955a57a66e058c16ad65ec594e"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fi.f13",
+      "registrationId": "navigation_registration.legacy_field.f13",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fi.legacy_fields=f13",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fi",
+      "legacyFieldId": "legacy_field.f13",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:7264b32c7815ccd26d94d6ee7a2f651f648ccf0444a5d123d22c07812f57a804"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fo.f01",
+      "registrationId": "navigation_registration.legacy_field.f01",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fo.legacy_fields=f01",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fo",
+      "legacyFieldId": "legacy_field.f01",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:3b2ddbb0c9b054eb204322b8d7221c724b976d91f246774a0f3b2b364185fc03"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fo.f02",
+      "registrationId": "navigation_registration.legacy_field.f02",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fo.legacy_fields=f02",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fo",
+      "legacyFieldId": "legacy_field.f02",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:742ecd7ba5bfde249311ec42f34d699d2e471b590c18d58f78d88c4f55eb148b"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fo.f03",
+      "registrationId": "navigation_registration.legacy_field.f03",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fo.legacy_fields=f03",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fo",
+      "legacyFieldId": "legacy_field.f03",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:1c22d130c871f61e9eb39e66ed493a26ba894342f2d765132687f9a0b05cbcad"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fo.f04",
+      "registrationId": "navigation_registration.legacy_field.f04",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fo.legacy_fields=f04",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fo",
+      "legacyFieldId": "legacy_field.f04",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:ed60cb0de8d6b67463ebab004f34d69f06bab2085c54e6bd840cb168a4390478"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fo.f05",
+      "registrationId": "navigation_registration.legacy_field.f05",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fo.legacy_fields=f05",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fo",
+      "legacyFieldId": "legacy_field.f05",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:08b1a1f7837f51b47d72940ae5ee6bebce4a3b4d0a2fa6c9ff06cd9e6410bfa3"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fo.f06",
+      "registrationId": "navigation_registration.legacy_field.f06",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fo.legacy_fields=f06",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fo",
+      "legacyFieldId": "legacy_field.f06",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:32dbcfc2a6699420ec493d9b9bfe3d18afc52d4b95f295062d8259066e125691"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fo.f07",
+      "registrationId": "navigation_registration.legacy_field.f07",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fo.legacy_fields=f07",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fo",
+      "legacyFieldId": "legacy_field.f07",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:c80355f1fdf5a90ca36f1aa7cb7b2a06d466a57cf8eb1662a7418ae3bb197543"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fo.f08",
+      "registrationId": "navigation_registration.legacy_field.f08",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fo.legacy_fields=f08",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fo",
+      "legacyFieldId": "legacy_field.f08",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:479c9019284d2b2a6dc33bc25f0354608ba169e7fabc6d02ddc4d5012880fd65"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fo.f09",
+      "registrationId": "navigation_registration.legacy_field.f09",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fo.legacy_fields=f09",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fo",
+      "legacyFieldId": "legacy_field.f09",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:878de87e5bbef9eaa84765e6e176ffc889c9529545a080dd0d47f78f3c8edaeb"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fo.f10",
+      "registrationId": "navigation_registration.legacy_field.f10",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fo.legacy_fields=f10",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fo",
+      "legacyFieldId": "legacy_field.f10",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:ad96b08953c664266b13563211c3929a12aece6cc451ee648fb8632e501cb7ba"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fo.f11",
+      "registrationId": "navigation_registration.legacy_field.f11",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fo.legacy_fields=f11",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fo",
+      "legacyFieldId": "legacy_field.f11",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:a538cf2266edbdcc418b2cd24525dc4f7aa1c0ea82d108951abc01ff0112c68a"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fo.f12",
+      "registrationId": "navigation_registration.legacy_field.f12",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fo.legacy_fields=f12",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fo",
+      "legacyFieldId": "legacy_field.f12",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:f660b28a3fd71f2350cb0a4d37079193dbeb55ab15d75f5bc8527201ac3d8eac"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.fo.f13",
+      "registrationId": "navigation_registration.legacy_field.f13",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=fo.legacy_fields=f13",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.fo",
+      "legacyFieldId": "legacy_field.f13",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:7a9bcd5cc6f20a5079b6093d1e1694f3fb5b1c6b9ec577b4d416acef83d594f3"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.gl.f01",
+      "registrationId": "navigation_registration.legacy_field.f01",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=gl.legacy_fields=f01",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.gl",
+      "legacyFieldId": "legacy_field.f01",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:2f1dfa53aee4b16fb79b76d10499c761d59431782021528a36447ca589c02b11"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.gl.f02",
+      "registrationId": "navigation_registration.legacy_field.f02",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=gl.legacy_fields=f02",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.gl",
+      "legacyFieldId": "legacy_field.f02",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:ea03dfd54cfec3f3c919c9e41a767611b1159b69f8ffd375ac2380638871e829"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.gl.f03",
+      "registrationId": "navigation_registration.legacy_field.f03",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=gl.legacy_fields=f03",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.gl",
+      "legacyFieldId": "legacy_field.f03",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:f7351bedc49a0a83ac17367c65f68175030d345608a059efd0828bdcf5330cef"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.gl.f04",
+      "registrationId": "navigation_registration.legacy_field.f04",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=gl.legacy_fields=f04",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.gl",
+      "legacyFieldId": "legacy_field.f04",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:c1834a307806b454195ce8b144883cc40cf5891a92cfd05de9d8c7d7ed8d5858"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.gl.f05",
+      "registrationId": "navigation_registration.legacy_field.f05",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=gl.legacy_fields=f05",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.gl",
+      "legacyFieldId": "legacy_field.f05",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:b6d24ab105db64dc4769f7f570707290ee5b0bcff2b0641150229f043d4ea254"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.gl.f06",
+      "registrationId": "navigation_registration.legacy_field.f06",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=gl.legacy_fields=f06",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.gl",
+      "legacyFieldId": "legacy_field.f06",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:b18e4126d13f38456203ee176ccfbb76511e4905fe3223db0c2b60ef26a21d8e"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.gl.f07",
+      "registrationId": "navigation_registration.legacy_field.f07",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=gl.legacy_fields=f07",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.gl",
+      "legacyFieldId": "legacy_field.f07",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:38c7d6e0a4d251a66d9b9a68a63e11d959d20f09e8b2de1f6ccf6f2ff4ae6c8e"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.gl.f08",
+      "registrationId": "navigation_registration.legacy_field.f08",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=gl.legacy_fields=f08",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.gl",
+      "legacyFieldId": "legacy_field.f08",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:a6d278aef0bcd30534af132f2bd70021066428b12c52500f148c2b9a92769c99"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.gl.f09",
+      "registrationId": "navigation_registration.legacy_field.f09",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=gl.legacy_fields=f09",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.gl",
+      "legacyFieldId": "legacy_field.f09",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:669f95b69dec2513cac18298301277489b0232b9e4d2091940dcf657a6eae07c"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.gl.f10",
+      "registrationId": "navigation_registration.legacy_field.f10",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=gl.legacy_fields=f10",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.gl",
+      "legacyFieldId": "legacy_field.f10",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:c67215d2f434ae4c2cd31499233621f0804b4f6800c37e1f488e7cda8552bba0"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.gl.f11",
+      "registrationId": "navigation_registration.legacy_field.f11",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=gl.legacy_fields=f11",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.gl",
+      "legacyFieldId": "legacy_field.f11",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:1b0d1f1b8c462ce0e5d42ae220b007bd914dd952d57ea337971d8d5dd303c610"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.gl.f12",
+      "registrationId": "navigation_registration.legacy_field.f12",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=gl.legacy_fields=f12",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.gl",
+      "legacyFieldId": "legacy_field.f12",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:ea56ded44841d55e0c540bb42b83fc32b282ef90e9b1f7a0f9f8344e39f919ef"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.gl.f13",
+      "registrationId": "navigation_registration.legacy_field.f13",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=gl.legacy_fields=f13",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.gl",
+      "legacyFieldId": "legacy_field.f13",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:d5d33d9f4d60d6e361661d13896c0f607474eb6d222f13fd2081875292b7bb1c"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.is.f01",
+      "registrationId": "navigation_registration.legacy_field.f01",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=is.legacy_fields=f01",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.is",
+      "legacyFieldId": "legacy_field.f01",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:d459c84d2fb85973d16d0ea32f7ccc50f3ae2ae0157a444dcabc6eeb72e13dc7"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.is.f02",
+      "registrationId": "navigation_registration.legacy_field.f02",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=is.legacy_fields=f02",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.is",
+      "legacyFieldId": "legacy_field.f02",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:bd62a20cc695dea96998b7550f86e37cd051cc351a65ffa465492263f7a13761"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.is.f03",
+      "registrationId": "navigation_registration.legacy_field.f03",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=is.legacy_fields=f03",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.is",
+      "legacyFieldId": "legacy_field.f03",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:a3ece283a6164d42f626b5e690bffc3694bd5e9d0e0004c0dec5c59954f4b181"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.is.f04",
+      "registrationId": "navigation_registration.legacy_field.f04",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=is.legacy_fields=f04",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.is",
+      "legacyFieldId": "legacy_field.f04",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:d64cf878af60b03f8f6f5da47ab13342dc1a4608f8dba2dde59ce25eeb784082"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.is.f05",
+      "registrationId": "navigation_registration.legacy_field.f05",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=is.legacy_fields=f05",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.is",
+      "legacyFieldId": "legacy_field.f05",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:390f88dfc7032fea359a612d1f9d082a338f59608853fccea466f95fe24fee3d"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.is.f06",
+      "registrationId": "navigation_registration.legacy_field.f06",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=is.legacy_fields=f06",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.is",
+      "legacyFieldId": "legacy_field.f06",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:bcecb87b2107a8632c907c5c3efe56105bcfb6b6047222839e861df2a1169e2e"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.is.f07",
+      "registrationId": "navigation_registration.legacy_field.f07",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=is.legacy_fields=f07",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.is",
+      "legacyFieldId": "legacy_field.f07",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:b865d248f786068c4e9bcc28c2a66e2c8553e3158c875c9e82937c81f3f493f4"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.is.f08",
+      "registrationId": "navigation_registration.legacy_field.f08",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=is.legacy_fields=f08",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.is",
+      "legacyFieldId": "legacy_field.f08",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:395c723b3b4c32db662094f16cf60cd211f1ffc321d5a3d2bb06b20cc5e3c0c4"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.is.f09",
+      "registrationId": "navigation_registration.legacy_field.f09",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=is.legacy_fields=f09",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.is",
+      "legacyFieldId": "legacy_field.f09",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:86d1c0ddefea2a74e7e42bc194621998a79ea3d52d0638db857e701c0259bc2a"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.is.f10",
+      "registrationId": "navigation_registration.legacy_field.f10",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=is.legacy_fields=f10",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.is",
+      "legacyFieldId": "legacy_field.f10",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:fb3a276f8daa8dbed436713cde3e8a0ee971ccb41df432cb7c1d711967813b8f"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.is.f11",
+      "registrationId": "navigation_registration.legacy_field.f11",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=is.legacy_fields=f11",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.is",
+      "legacyFieldId": "legacy_field.f11",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:06f4b02991f26685e15a6a12aa49f2fbb444c2d4138a689213ea85fad296199e"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.is.f12",
+      "registrationId": "navigation_registration.legacy_field.f12",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=is.legacy_fields=f12",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.is",
+      "legacyFieldId": "legacy_field.f12",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:2f41a0ae151572624de4ece26c9f7a030e4d22ad185b59dba5402cd87b5ccec5"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.is.f13",
+      "registrationId": "navigation_registration.legacy_field.f13",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=is.legacy_fields=f13",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.is",
+      "legacyFieldId": "legacy_field.f13",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:4e51e4aef616253abfe09f8c3df93d5d60cdd66404225acdf1750880533dc9fc"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.no.f01",
+      "registrationId": "navigation_registration.legacy_field.f01",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=no.legacy_fields=f01",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.no",
+      "legacyFieldId": "legacy_field.f01",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:d707cbba9c7d10a74f048d523431993aa9c2a3fff56b2a5c47caed95b4ee4a4d"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.no.f02",
+      "registrationId": "navigation_registration.legacy_field.f02",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=no.legacy_fields=f02",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.no",
+      "legacyFieldId": "legacy_field.f02",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:65daa103b2f536d00d6a9173d44b79fae680ae0a1d31fe5ed39e6817832d3242"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.no.f03",
+      "registrationId": "navigation_registration.legacy_field.f03",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=no.legacy_fields=f03",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.no",
+      "legacyFieldId": "legacy_field.f03",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:bd6309d2a959a2be4531827f797f8c16315013f418c708c25a51b6d807127c85"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.no.f04",
+      "registrationId": "navigation_registration.legacy_field.f04",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=no.legacy_fields=f04",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.no",
+      "legacyFieldId": "legacy_field.f04",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:5be30f1a9c55017a5eac543905fc766e7837e2ef9bee7139664eb18ec17ac628"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.no.f05",
+      "registrationId": "navigation_registration.legacy_field.f05",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=no.legacy_fields=f05",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.no",
+      "legacyFieldId": "legacy_field.f05",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:24d66e49164b3a65817f1f1f38256d8ddc13bf6f2614f59147690908ed52c1ad"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.no.f06",
+      "registrationId": "navigation_registration.legacy_field.f06",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=no.legacy_fields=f06",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.no",
+      "legacyFieldId": "legacy_field.f06",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:46ea0a7fe9a86efa1edf38c8f5e915fd9ebb86926636482b4df1835084a75202"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.no.f07",
+      "registrationId": "navigation_registration.legacy_field.f07",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=no.legacy_fields=f07",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.no",
+      "legacyFieldId": "legacy_field.f07",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:242781ee475d1dbe15d01dbc8bc128710879e8e8d1e4f6ab4826c29c4eff3456"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.no.f08",
+      "registrationId": "navigation_registration.legacy_field.f08",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=no.legacy_fields=f08",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.no",
+      "legacyFieldId": "legacy_field.f08",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:e60233233746b07cab8111cec888bca913726f1403a432c0dda99f984892a706"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.no.f09",
+      "registrationId": "navigation_registration.legacy_field.f09",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=no.legacy_fields=f09",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.no",
+      "legacyFieldId": "legacy_field.f09",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:88aaaee18057c6c7d634b53621b97dc9f658b16a71cdd03ba1a2e72f8a70ad8c"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.no.f10",
+      "registrationId": "navigation_registration.legacy_field.f10",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=no.legacy_fields=f10",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.no",
+      "legacyFieldId": "legacy_field.f10",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:fbf877f48a0e5d0b45f490484f46132b11836793c2b9264480d093643931063f"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.no.f11",
+      "registrationId": "navigation_registration.legacy_field.f11",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=no.legacy_fields=f11",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.no",
+      "legacyFieldId": "legacy_field.f11",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:b889b0afa7f1325cc52ab16ac6793ea7badf7c735435a7e71d7b98707f6382f7"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.no.f12",
+      "registrationId": "navigation_registration.legacy_field.f12",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=no.legacy_fields=f12",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.no",
+      "legacyFieldId": "legacy_field.f12",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:a1703552f37969ddfe3281a272d3e853314947ee05f9a3a2d2b5b17e36817ce3"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.no.f13",
+      "registrationId": "navigation_registration.legacy_field.f13",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=no.legacy_fields=f13",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.no",
+      "legacyFieldId": "legacy_field.f13",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:ba24e7f4087fa50ce4a96e15762b6cc7ae2f8aad9d2505bcae93109752955c13"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.se.f01",
+      "registrationId": "navigation_registration.legacy_field.f01",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=se.legacy_fields=f01",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.se",
+      "legacyFieldId": "legacy_field.f01",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:14f560e17a822745ec3b700a24e40fb2e7eb95eb96ae7cdc3b32d8fe7d5a28b9"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.se.f02",
+      "registrationId": "navigation_registration.legacy_field.f02",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=se.legacy_fields=f02",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.se",
+      "legacyFieldId": "legacy_field.f02",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:133ce6d6ff24ee77f1a6df58e4e5db74d714a0f345ce242d8eebafc90497dfd4"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.se.f03",
+      "registrationId": "navigation_registration.legacy_field.f03",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=se.legacy_fields=f03",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.se",
+      "legacyFieldId": "legacy_field.f03",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:78f415776d9ba0af2fe4c0dde2b4198dead7f44d87f39d409828a09beb62dfd3"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.se.f04",
+      "registrationId": "navigation_registration.legacy_field.f04",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=se.legacy_fields=f04",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.se",
+      "legacyFieldId": "legacy_field.f04",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:7f8446c4a92008fb37f5712d25e3f641ada81ac8a5df349edd4e9b4875cf9749"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.se.f05",
+      "registrationId": "navigation_registration.legacy_field.f05",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=se.legacy_fields=f05",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.se",
+      "legacyFieldId": "legacy_field.f05",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:82d374162e7ffe6b6e87b0643ef5be49215a28a89dadcabd40ea907a0e441dfc"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.se.f06",
+      "registrationId": "navigation_registration.legacy_field.f06",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=se.legacy_fields=f06",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.se",
+      "legacyFieldId": "legacy_field.f06",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:e0ff037617eecce103dd5b2d13ac0ab02e582e0950e2b2366bb08d9ebaca0857"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.se.f07",
+      "registrationId": "navigation_registration.legacy_field.f07",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=se.legacy_fields=f07",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.se",
+      "legacyFieldId": "legacy_field.f07",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:60fc4a169df7257e6a7d54286995d2ae9137666914025cd3432ee8ec4fd0ff32"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.se.f08",
+      "registrationId": "navigation_registration.legacy_field.f08",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=se.legacy_fields=f08",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.se",
+      "legacyFieldId": "legacy_field.f08",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:300701c58e56d48eda58a98d53790cbaaa3785e85a11eb3a8a0a98d1e6b86ac0"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.se.f09",
+      "registrationId": "navigation_registration.legacy_field.f09",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=se.legacy_fields=f09",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.se",
+      "legacyFieldId": "legacy_field.f09",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:7a0c20b7d1355c74393257a3740765e1f195c8da340066e73e68b4c40ac42a85"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.se.f10",
+      "registrationId": "navigation_registration.legacy_field.f10",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=se.legacy_fields=f10",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.se",
+      "legacyFieldId": "legacy_field.f10",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:8930ad21596c7e37bca119bbf11abeb755d244ac59d0b2101c8541531815df48"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.se.f11",
+      "registrationId": "navigation_registration.legacy_field.f11",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=se.legacy_fields=f11",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.se",
+      "legacyFieldId": "legacy_field.f11",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:e41f583231db5eace87c353547ad73dde10cb95aa67e08aa64712b1e844caae7"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.se.f12",
+      "registrationId": "navigation_registration.legacy_field.f12",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=se.legacy_fields=f12",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.se",
+      "legacyFieldId": "legacy_field.f12",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:b45f51395b18c9b3a000e5d3cead11ffcc001cf9fedd13d1e728853b03a9da92"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_political.se.f13",
+      "registrationId": "navigation_registration.legacy_field.f13",
+      "cellId": "cov.v1.profile=legacy_field_political.geography=se.legacy_fields=f13",
+      "profileId": "profile.legacy_field_political",
+      "aggregationClass": "political_nordic",
+      "geographyId": "geo.se",
+      "legacyFieldId": "legacy_field.f13",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "profile_local_only",
+      "rightsHolderReviewRequired": false,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents this political geography.",
+        "Political and territorial boundaries remain unknown until source-specific reconciliation is reviewed."
+      ],
+      "contentHash": "sha256:8255bafd7e06ddb990f4a5d14f6c0e843fa275ba2f847740153351082396bf3d"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_sapmi_overlap.sapmi.f01",
+      "registrationId": "navigation_registration.legacy_field.f01",
+      "cellId": "cov.v1.profile=legacy_field_sapmi_overlap.geography=sapmi.legacy_fields=f01",
+      "profileId": "profile.legacy_field_sapmi_overlap",
+      "aggregationClass": "sapmi_overlapping",
+      "geographyId": "geo.sapmi",
+      "legacyFieldId": "legacy_field.f01",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "sapmi_non_additive_overlap",
+      "rightsHolderReviewRequired": true,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents Sápmi.",
+        "Sápmi remains a separate non-additive scope requiring a rights-holder-led evidence and review route."
+      ],
+      "contentHash": "sha256:67a746356acde2646f620a5778fe91be9f261f70c3f5b3f30a2290bbaeab16f7"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_sapmi_overlap.sapmi.f02",
+      "registrationId": "navigation_registration.legacy_field.f02",
+      "cellId": "cov.v1.profile=legacy_field_sapmi_overlap.geography=sapmi.legacy_fields=f02",
+      "profileId": "profile.legacy_field_sapmi_overlap",
+      "aggregationClass": "sapmi_overlapping",
+      "geographyId": "geo.sapmi",
+      "legacyFieldId": "legacy_field.f02",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "sapmi_non_additive_overlap",
+      "rightsHolderReviewRequired": true,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents Sápmi.",
+        "Sápmi remains a separate non-additive scope requiring a rights-holder-led evidence and review route."
+      ],
+      "contentHash": "sha256:ae0d3560711a1355c21edaaf2d0e5ddc272c532665e3e834eb4124c1b7eed897"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_sapmi_overlap.sapmi.f03",
+      "registrationId": "navigation_registration.legacy_field.f03",
+      "cellId": "cov.v1.profile=legacy_field_sapmi_overlap.geography=sapmi.legacy_fields=f03",
+      "profileId": "profile.legacy_field_sapmi_overlap",
+      "aggregationClass": "sapmi_overlapping",
+      "geographyId": "geo.sapmi",
+      "legacyFieldId": "legacy_field.f03",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "sapmi_non_additive_overlap",
+      "rightsHolderReviewRequired": true,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents Sápmi.",
+        "Sápmi remains a separate non-additive scope requiring a rights-holder-led evidence and review route."
+      ],
+      "contentHash": "sha256:8d0954e0273ae9a93a1e265b46bd126921e226a4de94b56fe6dd9b3937193a42"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_sapmi_overlap.sapmi.f04",
+      "registrationId": "navigation_registration.legacy_field.f04",
+      "cellId": "cov.v1.profile=legacy_field_sapmi_overlap.geography=sapmi.legacy_fields=f04",
+      "profileId": "profile.legacy_field_sapmi_overlap",
+      "aggregationClass": "sapmi_overlapping",
+      "geographyId": "geo.sapmi",
+      "legacyFieldId": "legacy_field.f04",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "sapmi_non_additive_overlap",
+      "rightsHolderReviewRequired": true,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents Sápmi.",
+        "Sápmi remains a separate non-additive scope requiring a rights-holder-led evidence and review route."
+      ],
+      "contentHash": "sha256:336d7135b92dc2468092dd54dc5808390bae4b448a8941c9d0e1a6d86054472a"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_sapmi_overlap.sapmi.f05",
+      "registrationId": "navigation_registration.legacy_field.f05",
+      "cellId": "cov.v1.profile=legacy_field_sapmi_overlap.geography=sapmi.legacy_fields=f05",
+      "profileId": "profile.legacy_field_sapmi_overlap",
+      "aggregationClass": "sapmi_overlapping",
+      "geographyId": "geo.sapmi",
+      "legacyFieldId": "legacy_field.f05",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "sapmi_non_additive_overlap",
+      "rightsHolderReviewRequired": true,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents Sápmi.",
+        "Sápmi remains a separate non-additive scope requiring a rights-holder-led evidence and review route."
+      ],
+      "contentHash": "sha256:952461eb6c5342657ac611ed2b86802d3a73f757cea88f910b8172491984b0ed"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_sapmi_overlap.sapmi.f06",
+      "registrationId": "navigation_registration.legacy_field.f06",
+      "cellId": "cov.v1.profile=legacy_field_sapmi_overlap.geography=sapmi.legacy_fields=f06",
+      "profileId": "profile.legacy_field_sapmi_overlap",
+      "aggregationClass": "sapmi_overlapping",
+      "geographyId": "geo.sapmi",
+      "legacyFieldId": "legacy_field.f06",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "sapmi_non_additive_overlap",
+      "rightsHolderReviewRequired": true,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents Sápmi.",
+        "Sápmi remains a separate non-additive scope requiring a rights-holder-led evidence and review route."
+      ],
+      "contentHash": "sha256:64a3f24052e921d58d9750c70ac1209e4b784cfe0fa6012e9dd8c41c1cf198f6"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_sapmi_overlap.sapmi.f07",
+      "registrationId": "navigation_registration.legacy_field.f07",
+      "cellId": "cov.v1.profile=legacy_field_sapmi_overlap.geography=sapmi.legacy_fields=f07",
+      "profileId": "profile.legacy_field_sapmi_overlap",
+      "aggregationClass": "sapmi_overlapping",
+      "geographyId": "geo.sapmi",
+      "legacyFieldId": "legacy_field.f07",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "sapmi_non_additive_overlap",
+      "rightsHolderReviewRequired": true,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents Sápmi.",
+        "Sápmi remains a separate non-additive scope requiring a rights-holder-led evidence and review route."
+      ],
+      "contentHash": "sha256:ee2eb5f6214d67e99f9dbd76d2e8a5704232eb774caa79d4979d7a28dbf13752"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_sapmi_overlap.sapmi.f08",
+      "registrationId": "navigation_registration.legacy_field.f08",
+      "cellId": "cov.v1.profile=legacy_field_sapmi_overlap.geography=sapmi.legacy_fields=f08",
+      "profileId": "profile.legacy_field_sapmi_overlap",
+      "aggregationClass": "sapmi_overlapping",
+      "geographyId": "geo.sapmi",
+      "legacyFieldId": "legacy_field.f08",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "sapmi_non_additive_overlap",
+      "rightsHolderReviewRequired": true,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents Sápmi.",
+        "Sápmi remains a separate non-additive scope requiring a rights-holder-led evidence and review route."
+      ],
+      "contentHash": "sha256:936d58b4345baf3640babc308ab893e2a4d8970b5dde31d213c8adb08bd72421"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_sapmi_overlap.sapmi.f09",
+      "registrationId": "navigation_registration.legacy_field.f09",
+      "cellId": "cov.v1.profile=legacy_field_sapmi_overlap.geography=sapmi.legacy_fields=f09",
+      "profileId": "profile.legacy_field_sapmi_overlap",
+      "aggregationClass": "sapmi_overlapping",
+      "geographyId": "geo.sapmi",
+      "legacyFieldId": "legacy_field.f09",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "sapmi_non_additive_overlap",
+      "rightsHolderReviewRequired": true,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents Sápmi.",
+        "Sápmi remains a separate non-additive scope requiring a rights-holder-led evidence and review route."
+      ],
+      "contentHash": "sha256:6538c5aa9e17d3c62da543baae89f78057af39ad58a4b4ac643597b909459bb5"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_sapmi_overlap.sapmi.f10",
+      "registrationId": "navigation_registration.legacy_field.f10",
+      "cellId": "cov.v1.profile=legacy_field_sapmi_overlap.geography=sapmi.legacy_fields=f10",
+      "profileId": "profile.legacy_field_sapmi_overlap",
+      "aggregationClass": "sapmi_overlapping",
+      "geographyId": "geo.sapmi",
+      "legacyFieldId": "legacy_field.f10",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "sapmi_non_additive_overlap",
+      "rightsHolderReviewRequired": true,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents Sápmi.",
+        "Sápmi remains a separate non-additive scope requiring a rights-holder-led evidence and review route."
+      ],
+      "contentHash": "sha256:bcd1bd404e9b566e9b21b4aad41a771db3ac261ce4b9100e5d56f066b08a0f0b"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_sapmi_overlap.sapmi.f11",
+      "registrationId": "navigation_registration.legacy_field.f11",
+      "cellId": "cov.v1.profile=legacy_field_sapmi_overlap.geography=sapmi.legacy_fields=f11",
+      "profileId": "profile.legacy_field_sapmi_overlap",
+      "aggregationClass": "sapmi_overlapping",
+      "geographyId": "geo.sapmi",
+      "legacyFieldId": "legacy_field.f11",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "sapmi_non_additive_overlap",
+      "rightsHolderReviewRequired": true,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents Sápmi.",
+        "Sápmi remains a separate non-additive scope requiring a rights-holder-led evidence and review route."
+      ],
+      "contentHash": "sha256:3a631d49a519404bae669fdcf1557e1edf311ff582546f7c29a69c9642d0d027"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_sapmi_overlap.sapmi.f12",
+      "registrationId": "navigation_registration.legacy_field.f12",
+      "cellId": "cov.v1.profile=legacy_field_sapmi_overlap.geography=sapmi.legacy_fields=f12",
+      "profileId": "profile.legacy_field_sapmi_overlap",
+      "aggregationClass": "sapmi_overlapping",
+      "geographyId": "geo.sapmi",
+      "legacyFieldId": "legacy_field.f12",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "sapmi_non_additive_overlap",
+      "rightsHolderReviewRequired": true,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents Sápmi.",
+        "Sápmi remains a separate non-additive scope requiring a rights-holder-led evidence and review route."
+      ],
+      "contentHash": "sha256:e3262a246f8a7a0668cca6f1c2ef00866da036670c8cd6c6a94fbec2595ba32f"
+    },
+    {
+      "bindingId": "navigation_binding.legacy_field_sapmi_overlap.sapmi.f13",
+      "registrationId": "navigation_registration.legacy_field.f13",
+      "cellId": "cov.v1.profile=legacy_field_sapmi_overlap.geography=sapmi.legacy_fields=f13",
+      "profileId": "profile.legacy_field_sapmi_overlap",
+      "aggregationClass": "sapmi_overlapping",
+      "geographyId": "geo.sapmi",
+      "legacyFieldId": "legacy_field.f13",
+      "bindingSemantics": "navigation_route_only",
+      "coverageImplication": "none",
+      "subjectMatterState": "unassessed",
+      "geographyRepresentation": "unknown",
+      "evidenceUse": "not_evidence",
+      "aggregationRule": "sapmi_non_additive_overlap",
+      "rightsHolderReviewRequired": true,
+      "limitations": [
+        "This binding assigns a legacy navigation route only; it does not show that the artifact represents Sápmi.",
+        "Sápmi remains a separate non-additive scope requiring a rights-holder-led evidence and review route."
+      ],
+      "contentHash": "sha256:9191ac38f1795273b48be97c0bad1e99896cef1749f4dbf1b044f4eb0893ff72"
+    }
+  ],
+  "profileSummaries": {
+    "profile.legacy_field_political": {
+      "aggregationClass": "political_nordic",
+      "bindingCount": 104,
+      "coveragePromotionCount": 0,
+      "geographyRepresentationCount": 0
+    },
+    "profile.legacy_field_sapmi_overlap": {
+      "aggregationClass": "sapmi_overlapping",
+      "bindingCount": 13,
+      "coveragePromotionCount": 0,
+      "geographyRepresentationCount": 0
+    }
+  },
+  "recordCounts": {
+    "navigationContexts": 2,
+    "fieldRegistrations": 13,
+    "politicalBindings": 104,
+    "sapmiBindings": 13
+  },
+  "contentHash": "sha256:ab97bd4697dc0239e18219eb2115539d11cb95391e95dade1549b19b99baf86d"
+}

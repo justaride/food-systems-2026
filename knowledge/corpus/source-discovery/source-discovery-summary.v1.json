@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "source-discovery-v1",
+  "recordType": "source_discovery_summary",
+  "universeVersion": "1.0.0",
+  "ontology": {
+    "ontologyId": "fs26.nordic_food_system",
+    "ontologyVersion": "1.0.0",
+    "ontologyPath": "knowledge/schema/nordic-food-system-ontology.v1.json",
+    "ontologyFileSha256": "sha256:2ff71bffefe413e8e467be932c2212e3229182fe86fb25caee1f329d8d3b0c68"
+  },
+  "counts": {
+    "plannedPoliticalCells": 6072,
+    "plannedSapmiCells": 759,
+    "plannedCellTotal": 6831,
+    "registeredSearchPlans": 0,
+    "executedSearchRuns": 0,
+    "cellsReferencedByExecutedSearches": 0,
+    "discoveryCandidates": 0,
+    "formallyReceivedSources": 0,
+    "coverageClaims": 0
+  },
+  "semantics": {
+    "plannedCellsAreExecutedSearches": false,
+    "executedSearchesAreCandidates": false,
+    "candidatesAreFormallyReceivedSources": false,
+    "formallyReceivedSourcesAreCoverage": false,
+    "politicalAndSapmiAreAdditive": false
+  },
+  "summarySha256": "sha256:84fa7b4622348ed4511295f85bff35085d402fcf93843d6e938ee526a3652ef8"
+}

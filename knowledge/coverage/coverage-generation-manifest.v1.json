@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.0.0",
+  "generator": "scripts/knowledge/generate-coverage-ledger.ts",
+  "generatorVersion": "1.1.0",
+  "baselineId": "baseline.nordic_knowledge_foundation.v1",
+  "baselineAdoptionStatus": "proposed",
+  "baseCommit": "f7148da4bf679b7cbe187a2763a199b6fbba6e35",
+  "taxonomyVersion": "1.0.0",
+  "generatedAt": "2026-07-26",
+  "commitMarkerSemantics": "This manifest is renamed last after every sibling artifact is staged. Consumers must verify every listed hash.",
+  "outputs": [
+    {
+      "path": "knowledge/coverage/coverage-cells.v1.csv",
+      "sha256": "sha256:2feb3aa58ecbbbdd9dedee690a8684e51d27bb3bfcfed304d89296950b67639f",
+      "sizeBytes": 5637483
+    },
+    {
+      "path": "knowledge/coverage/coverage-assessments-baseline.v1.jsonl",
+      "sha256": "sha256:ee9f7739aa9a52d99785b051e69830ba084b48d951670b6e3fa2122918e4329d",
+      "sizeBytes": 351481
+    },
+    {
+      "path": "knowledge/coverage/coverage-ledger.v1.jsonl",
+      "sha256": "sha256:65e42fd460d997fd709b21504a6778811d9dfaa688322af5cdd0be3e66c8b394",
+      "sizeBytes": 14537027
+    },
+    {
+      "path": "knowledge/coverage/coverage-ledger.v1.csv",
+      "sha256": "sha256:eb95476d81b1622596e6e99352595554a6d0efdd9d62eed6dc89bb9b92290546",
+      "sizeBytes": 8621301
+    },
+    {
+      "path": "knowledge/coverage/coverage-summary.v1.json",
+      "sha256": "sha256:9437057c4956438864e607afcbd7a966c6586e209eaebc199f63b976fe178165",
+      "sizeBytes": 30224
+    },
+    {
+      "path": "knowledge/coverage/coverage-source-snapshots.v1.json",
+      "sha256": "sha256:4708183996e622268a02cf8479605b42abb907b5d5acd0afe6d7a89d734a34f9",
+      "sizeBytes": 2595
+    }
+  ]
+}

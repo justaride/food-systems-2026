@@ -23,34 +23,51 @@ function tryGit(args: string): string {
   }
 }
 
+function firstValidSha(...candidates: Array<string | undefined>): string | undefined {
+  return candidates
+    .map(candidate => candidate?.trim().toLowerCase())
+    .find(candidate => Boolean(candidate && candidate !== 'unknown' && /^[a-f0-9]{40,64}$/.test(candidate)))
+}
+
+function firstKnownValue(...candidates: Array<string | undefined>): string | undefined {
+  return candidates
+    .map(candidate => candidate?.trim())
+    .find(candidate => Boolean(candidate && candidate.toLowerCase() !== 'unknown'))
+}
+
 // Priority order:
 //   1. git rev-parse — best when .git is available
-//   2. Coolify's auto-injected vars — refleksjons-trygt under deploy
-//   3. Generic SOURCE_COMMIT — fallback for manual builds; OBS: Coolify-
-//      brukere som manuelt setter SOURCE_COMMIT i app-env vil overstyre
-//      auto-injected verdi. Sjekk Coolify-env-tabellen hvis SHA blir
-//      stale på prod (jf. /api/version-bug 2026-04-30 → 2026-05-12).
+//   2. Coolify's auto-injected commit — preferred whenever it is available
+//   3. SOURCE_COMMIT — synchronized by the guarded release workflow because
+//      this Coolify installation does not currently expose the automatic SHA
+//      inside its Docker build
+//   4. generic CI fallbacks
 // `shaSource` sier hvilket ledd som vant. Bare `manual-env` vedlikeholdes
 // utenfra bygget (coolify-sync-source-commit.yml) og kan derfor bli stale —
 // da peker /api/version på feil commit uten å si fra. Ved å skrive kilden
 // ned blir et stale stempel synlig i stedet for stille.
-const SHA_CANDIDATES: ReadonlyArray<readonly [string, string]> = [
+const SHA_CANDIDATES: ReadonlyArray<readonly [string, string | undefined]> = [
   ['git', tryGit('rev-parse HEAD')],
-  ['coolify-auto', process.env.COOLIFY_GIT_COMMIT_SHA ?? ''],
-  ['manual-env', process.env.SOURCE_COMMIT ?? ''],
-  ['manual-env', process.env.COMMIT_SHA ?? ''],
-  ['manual-env', process.env.GIT_SHA ?? ''],
+  ['coolify-auto', process.env.COOLIFY_GIT_COMMIT_SHA],
+  ['manual-env', process.env.SOURCE_COMMIT],
+  ['manual-env', process.env.COMMIT_SHA],
+  ['manual-env', process.env.GIT_SHA],
 ]
-const [shaSource, sha] = SHA_CANDIDATES.find(([, value]) => value) ?? ['unknown', 'unknown']
+const validCandidate = SHA_CANDIDATES
+  .map(([source, candidate]) => [source, firstValidSha(candidate)] as const)
+  .find(([, candidate]) => candidate)
+const [shaSource, sha] = validCandidate ?? ['unknown', 'unknown']
 
 const branchRaw = tryGit('rev-parse --abbrev-ref HEAD')
 const branch =
   branchRaw && branchRaw !== 'HEAD'
     ? branchRaw
-    : process.env.COOLIFY_GIT_BRANCH ||
-      process.env.SOURCE_BRANCH ||
-      process.env.GIT_BRANCH ||
-      'unknown'
+    : firstKnownValue(
+        process.env.COOLIFY_BRANCH,
+        process.env.SOURCE_BRANCH,
+        process.env.COOLIFY_GIT_BRANCH,
+        process.env.GIT_BRANCH,
+      ) ?? 'unknown'
 
 const version = {
   sha,

@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "1.0.0",
+  "receiptType": "pdf_page_extraction_technical_qualification",
+  "pipelineVersion": "1.0.0",
+  "qualificationState": "technical_extraction_passed_identity_blocked",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01"
+  },
+  "identityKeys": [
+    "document:cmppajyve0013njvmw7zok4yr"
+  ],
+  "identityAssociation": {
+    "state": "blocked_legacy_alias_scope_mismatch",
+    "intendedLabel": "Nordic Food Alert 2025",
+    "observedDocumentTitle": "Beyond Zero — Nordic Architecture on the Road Towards Renewed Practices (Nord 2025:010)",
+    "blockerCode": "legacy_alias_scope_mismatch"
+  },
+  "sourceBinding": {
+    "title": "Beyond Zero — Nordic Architecture on the Road Towards Renewed Practices (Nord 2025:010)",
+    "doi": "10.6027/nord2025-010",
+    "officialUrl": "https://pub.norden.org/nord2025-010/nord2025-010.pdf",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_disposition_likely_out_of_scope"
+  },
+  "sourceFile": {
+    "expectedSizeBytes": 6855999,
+    "observedSizeBytes": 6855999,
+    "headerMagic": "%PDF-",
+    "encryptionState": "not_encrypted",
+    "pageCount": 24,
+    "pdfVersion": "1.7",
+    "primaryCopy": {
+      "locator": "private://corpus/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01.pdf",
+      "sha256": "358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01",
+      "sizeBytes": 6855999,
+      "fileMode": "0400",
+      "verified": true
+    },
+    "replicaCopy": {
+      "locator": "private://bigbrain-corpus/sha256/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01.pdf",
+      "sha256": "358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01",
+      "sizeBytes": 6855999,
+      "fileMode": "0400",
+      "verified": true
+    }
+  },
+  "extraction": {
+    "pdfinfoVersion": "26.04.0",
+    "pdftotextVersion": "26.04.0",
+    "argumentsTemplate": [
+      "-f",
+      "{page}",
+      "-l",
+      "{page}",
+      "-enc",
+      "UTF-8",
+      "-eol",
+      "unix",
+      "-nopgbrk",
+      "{input_pdf}",
+      "-"
+    ],
+    "pageMapLocator": "knowledge/corpus/pdf-page-extraction/page-maps/358f261665deca32ba02a73acf211409190645ab7be93f775760615e3d7cde01.page-map.v1.json",
+    "pageMapSha256": "b27229499adeb1e51e906b0738850aca89ddc5fd69e3481a1aa58ee1a225d0a7",
+    "extractedPageCount": 24,
+    "rawTextFileCount": 24,
+    "normalizedTextFileCount": 24,
+    "primaryPrivateOutputVerified": true,
+    "replicaPrivateOutputVerified": true
+  },
+  "totals": {
+    "rawSizeBytes": 25205,
+    "rawCharacterCount": 24974,
+    "normalizedSizeBytes": 25181,
+    "normalizedCharacterCount": 24950,
+    "wordCount": 3666,
+    "warningPageCount": 2,
+    "blankPageCount": 0,
+    "lowTextPageCount": 2
+  },
+  "warningSummary": [
+    {
+      "code": "low_extracted_text",
+      "pageCount": 2,
+      "pageNumbers": [
+        1,
+        23
+      ]
+    }
+  ],
+  "languagePolicy": {
+    "pageLanguageDetection": "not_computed",
+    "reason": "no_version_pinned_reliable_detector_configured"
+  },
+  "semantics": {
+    "technicalExtractionOnly": true,
+    "fullTextStoredInRepository": false,
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentValidationComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "receiptSha256": "d90659e15e87c4d9ac92e74d51a3da199f1bf2f5d3b5f1a6a927db32fbc0205b"
+}

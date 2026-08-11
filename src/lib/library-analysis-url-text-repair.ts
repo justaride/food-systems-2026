@@ -13,6 +13,7 @@ export const LIBRARY_ANALYSIS_URL_TEXT_REPAIR_PLAN_JSON_PATH =
 export type LibraryAnalysisUrlTextRepairInput = {
   sourceKey: string
   documentId: string | null
+  existingUpdatedAt: string | null
   title: string
   repairBatch: string
   url: string | null
@@ -36,6 +37,7 @@ export type LibraryAnalysisUrlTextRepairAction =
 export type LibraryAnalysisUrlTextRepairPlanRow = {
   sourceKey: string
   documentId: string | null
+  expectedUpdatedAt: string | null
   title: string
   repairBatch: string
   url: string | null
@@ -115,6 +117,7 @@ export function formatLibraryAnalysisUrlTextRepairPlanMarkdown(
     `Generated: ${plan.generatedAt}`,
     '',
     'Dette er en kontrollert plan for aa reparere URL-backed lavtekst-rader ved aa oppdatere Document.content og Document.wordCount med refetchet PDF/HTML/tekst-uttrekk. Den lager ikke claim-kandidater, endrer ikke citation-readiness, og publiserer ingenting eksternt.',
+    'Hver oppdatering er bundet til Document.updatedAt, wordCount og content fra denne planen. Apply avbryter hele batchen dersom en target-rad har endret seg etter planlegging.',
     '',
     `Full radliste: \`${jsonPath}\``,
     '',
@@ -256,6 +259,7 @@ function baseRow(
   return {
     sourceKey: row.sourceKey,
     documentId: row.documentId,
+    expectedUpdatedAt: row.existingUpdatedAt,
     title: row.title,
     repairBatch: row.repairBatch,
     url: row.url,

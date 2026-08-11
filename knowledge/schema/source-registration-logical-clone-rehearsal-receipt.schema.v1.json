@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/source-registration-logical-clone-rehearsal-receipt.schema.v1.json",
+  "title": "Source registration logical-clone surrogate rehearsal receipt v1",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "artifactType",
+    "targetClass",
+    "exactProductionTargetExercised",
+    "firstExactMutationRemainsLive",
+    "productionAuthorizationUsed",
+    "planSha256",
+    "planFileSha256",
+    "targetSetSha256",
+    "applyRunnerSha256",
+    "rehearsalRuntimeSha256",
+    "rehearsalSchemaSha256",
+    "rehearsalTestSha256",
+    "rehearsalCommandRunnerSha256",
+    "executedRuntime",
+    "logicalComparisonProof",
+    "operationKey",
+    "rehearsalStartedAtUtc",
+    "rehearsalCompletedAtUtc",
+    "beforeCounts",
+    "insideTransaction",
+    "rollback",
+    "afterRollbackCounts",
+    "cloneDatabaseNameStored",
+    "privateAbsolutePathStored",
+    "databaseCredentialStored",
+    "receiptSha256"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "source-registration-logical-clone-rehearsal-v1"
+    },
+    "artifactType": {
+      "const": "source_registration_logical_clone_surrogate_rehearsal_receipt"
+    },
+    "targetClass": { "const": "logical_clone_surrogate" },
+    "exactProductionTargetExercised": { "const": false },
+    "firstExactMutationRemainsLive": { "const": true },
+    "productionAuthorizationUsed": { "const": false },
+    "planSha256": {
+      "const": "631fef2595bf8f9e897485c1f064654716a3bdb2591bbfb20227370d496a4e2f"
+    },
+    "planFileSha256": {
+      "const": "7a8de0151ad9d0c77bb7bb47a01c3bd08922805e933a5b379aea3dd59b84def9"
+    },
+    "targetSetSha256": { "$ref": "#/$defs/sha256" },
+    "applyRunnerSha256": { "$ref": "#/$defs/sha256" },
+    "rehearsalRuntimeSha256": { "$ref": "#/$defs/sha256" },
+    "rehearsalSchemaSha256": { "$ref": "#/$defs/sha256" },
+    "rehearsalTestSha256": { "$ref": "#/$defs/sha256" },
+    "rehearsalCommandRunnerSha256": { "$ref": "#/$defs/sha256" },
+    "executedRuntime": {
+      "type": "object",
+      "required": [
+        "runtimeAttestationSha256",
+        "launcherFileSha256",
+        "nodeBinaryFileSha256",
+        "nodeRuntimeClosureSha256",
+        "nodeVersion",
+        "nodePlatform",
+        "nodeArch",
+        "nodeModulesTreeSha256",
+        "prismaGeneratedClientTreeSha256",
+        "localRuntimeClosureSha256"
+      ],
+      "properties": {
+        "runtimeAttestationSha256": { "$ref": "#/$defs/sha256" },
+        "launcherFileSha256": { "$ref": "#/$defs/sha256" },
+        "nodeBinaryFileSha256": { "$ref": "#/$defs/sha256" },
+        "nodeRuntimeClosureSha256": { "$ref": "#/$defs/sha256" },
+        "nodeVersion": {
+          "type": "string",
+          "pattern": "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+        },
+        "nodePlatform": { "type": "string", "minLength": 1 },
+        "nodeArch": { "type": "string", "minLength": 1 },
+        "nodeModulesTreeSha256": { "$ref": "#/$defs/sha256" },
+        "prismaGeneratedClientTreeSha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "localRuntimeClosureSha256": { "$ref": "#/$defs/sha256" }
+      },
+      "additionalProperties": false
+    },
+    "logicalComparisonProof": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "backupSha256",
+        "backupMetadataSha256",
+        "structuralRestoreReceiptSha256",
+        "source",
+        "restored",
+        "contentStateAndCountsMatch",
+        "targetBoundLogicalStatesDiffer",
+        "logicalComparisonProofSha256"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": "source-registration-logical-comparison-proof-v1"
+        },
+        "backupSha256": { "$ref": "#/$defs/sha256" },
+        "backupMetadataSha256": { "$ref": "#/$defs/sha256" },
+        "structuralRestoreReceiptSha256": { "$ref": "#/$defs/sha256" },
+        "source": { "$ref": "#/$defs/logicalState" },
+        "restored": { "$ref": "#/$defs/logicalState" },
+        "contentStateAndCountsMatch": { "const": true },
+        "targetBoundLogicalStatesDiffer": { "const": true },
+        "logicalComparisonProofSha256": { "$ref": "#/$defs/sha256" }
+      },
+      "additionalProperties": false
+    },
+    "operationKey": {
+      "type": "string",
+      "pattern": "^source-registration-logical-clone-rehearsal-v1:[a-f0-9]{64}$"
+    },
+    "rehearsalStartedAtUtc": { "$ref": "#/$defs/dateTime" },
+    "rehearsalCompletedAtUtc": { "$ref": "#/$defs/dateTime" },
+    "beforeCounts": { "$ref": "#/$defs/counts" },
+    "insideTransaction": {
+      "type": "object",
+      "required": [
+        "isolationLevel",
+        "documentCreates",
+        "libraryAnalysisRecordCreates",
+        "controlledMutationAuditCreates",
+        "exactDocumentRows",
+        "exactLibraryAnalysisRows",
+        "dependencyRowCount",
+        "physicalDocumentRowsSha256",
+        "libraryAnalysisRowsSha256",
+        "rehearsalAuditSummarySha256"
+      ],
+      "properties": {
+        "isolationLevel": { "const": "Serializable" },
+        "documentCreates": { "const": 10 },
+        "libraryAnalysisRecordCreates": { "const": 10 },
+        "controlledMutationAuditCreates": { "const": 1 },
+        "exactDocumentRows": { "const": 10 },
+        "exactLibraryAnalysisRows": { "const": 10 },
+        "dependencyRowCount": { "const": 0 },
+        "physicalDocumentRowsSha256": { "$ref": "#/$defs/sha256" },
+        "libraryAnalysisRowsSha256": { "$ref": "#/$defs/sha256" },
+        "rehearsalAuditSummarySha256": { "$ref": "#/$defs/sha256" }
+      },
+      "additionalProperties": false
+    },
+    "rollback": {
+      "type": "object",
+      "required": [
+        "forcedBySentinel",
+        "transactionRolledBack",
+        "rollbackAbsenceConfirmed",
+        "afterCountsEqualBeforeCounts",
+        "targetRowsAbsentAfterRollback",
+        "rehearsalAuditAbsentAfterRollback"
+      ],
+      "properties": {
+        "forcedBySentinel": { "const": true },
+        "transactionRolledBack": { "const": true },
+        "rollbackAbsenceConfirmed": { "const": true },
+        "afterCountsEqualBeforeCounts": { "const": true },
+        "targetRowsAbsentAfterRollback": { "const": true },
+        "rehearsalAuditAbsentAfterRollback": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "afterRollbackCounts": { "$ref": "#/$defs/counts" },
+    "cloneDatabaseNameStored": { "const": false },
+    "privateAbsolutePathStored": { "const": false },
+    "databaseCredentialStored": { "const": false },
+    "receiptSha256": { "$ref": "#/$defs/sha256" }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "dateTime": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3}Z$"
+    },
+    "logicalState": {
+      "type": "object",
+      "required": [
+        "contentStateSha256",
+        "logicalStateSha256",
+        "relationCount",
+        "totalRowCount",
+        "sequenceRowCount"
+      ],
+      "properties": {
+        "contentStateSha256": { "$ref": "#/$defs/sha256" },
+        "logicalStateSha256": { "$ref": "#/$defs/sha256" },
+        "relationCount": { "type": "integer", "minimum": 1 },
+        "totalRowCount": { "type": "integer", "minimum": 0 },
+        "sequenceRowCount": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "counts": {
+      "type": "object",
+      "required": [
+        "documents",
+        "libraryAnalysisRecords",
+        "controlledMutationAudits"
+      ],
+      "properties": {
+        "documents": { "type": "integer", "minimum": 0 },
+        "libraryAnalysisRecords": { "type": "integer", "minimum": 0 },
+        "controlledMutationAudits": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
+    }
+  }
+}

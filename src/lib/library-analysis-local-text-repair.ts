@@ -12,6 +12,7 @@ const SUPPORTED_LOCAL_TEXT_EXTENSIONS = new Set(['.md', '.txt', '.json', '.csv',
 export type LibraryAnalysisLocalTextRepairInput = {
   sourceKey: string
   documentId: string | null
+  existingUpdatedAt: string | null
   title: string
   path: string
   extension: string
@@ -33,6 +34,7 @@ export type LibraryAnalysisLocalTextRepairAction =
 export type LibraryAnalysisLocalTextRepairPlanRow = {
   sourceKey: string
   documentId: string | null
+  expectedUpdatedAt: string | null
   title: string
   path: string
   extension: string
@@ -107,6 +109,7 @@ export function formatLibraryAnalysisLocalTextRepairPlanMarkdown(
     `Generated: ${plan.generatedAt}`,
     '',
     'Dette er en kontrollert plan for aa reparere lavtekst-rader der en lokal tekstfil har mer komplett innhold enn Document.content. Den oppdaterer bare Document.content og Document.wordCount naar raafilteksten krysser 150-ordsgrensen. Den lager ikke claim-kandidater, endrer ikke citation-readiness, og publiserer ingenting eksternt.',
+    'Hver oppdatering er bundet til Document.updatedAt, wordCount og content fra denne planen. Apply avbryter hele batchen dersom en target-rad har endret seg etter planlegging.',
     '',
     `Full radliste: \`${jsonPath}\``,
     '',
@@ -250,6 +253,7 @@ function baseRow(
   return {
     sourceKey: row.sourceKey,
     documentId: row.documentId,
+    expectedUpdatedAt: row.existingUpdatedAt,
     title: row.title,
     path: row.path,
     extension: row.extension,

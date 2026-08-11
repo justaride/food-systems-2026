@@ -1,0 +1,154 @@
+{
+  "schemaVersion": "corpus-evidence-health-v1",
+  "documentKind": "corpus_health_summary",
+  "assessmentId": "health.assessment.2026-08-11.local.57a4daf8",
+  "observedAt": "2026-08-11T09:01:33.000Z",
+  "baseCommit": "57a4daf8e364ba73243c5c157e482248d99fdac9",
+  "gate1Decision": "no_go",
+  "principalBlocker": "seed_database_identity_mismatch",
+  "semanticBoundary": {
+    "kind": "corpus_evidence_health",
+    "subjectCoverageClaim": false,
+    "mayPromoteCoverageCells": false,
+    "mayAggregateWithCoverageLedger": false,
+    "globalScorePermitted": false
+  },
+  "profileVerdicts": [
+    {
+      "profileId": "health_profile.internal_discovery",
+      "verdict": "ready_with_warnings",
+      "readyForProfile": true,
+      "reasonCodes": [
+        "active_corpus_enumerated",
+        "bounded_inventory_available",
+        "hash_bound_snapshot",
+        "migration_lineage_reconciled"
+      ]
+    },
+    {
+      "profileId": "health_profile.internal_analysis",
+      "verdict": "degraded",
+      "readyForProfile": false,
+      "reasonCodes": [
+        "migration_lineage_reconciled",
+        "seed_identity_mismatch",
+        "library_identity_mismatch",
+        "library_projection_freshness_pending",
+        "whole_corpus_full_text_zero",
+        "status_vintage_conflicts"
+      ]
+    },
+    {
+      "profileId": "health_profile.external_evidence_support",
+      "verdict": "blocked",
+      "readyForProfile": false,
+      "reasonCodes": [
+        "evidence_appraisal_zero",
+        "archive_gate_failed",
+        "owner_review_zero",
+        "independent_validation_zero",
+        "rights_clearance_zero",
+        "identity_unreconciled",
+        "human_review_pending"
+      ]
+    },
+    {
+      "profileId": "health_profile.observatory_operations",
+      "verdict": "blocked",
+      "readyForProfile": false,
+      "reasonCodes": [
+        "migration_lineage_reconciled",
+        "identity_unreconciled",
+        "library_projection_freshness_pending",
+        "operational_layers_partially_proven",
+        "receipts_partial",
+        "conflicts_open"
+      ]
+    }
+  ],
+  "keyMetrics": {
+    "corpusActiveIdentities": 1555,
+    "corpusContentHashBoundIdentities": 1537,
+    "corpusHashBoundBytes": 554322179,
+    "corpusMissingRepositoryFiles": 11,
+    "corpusNoLocatorIdentities": 18,
+    "corpusKnownIdentityAliasMismatches": 2,
+    "corpusDeduplicatedProcessingUnits": 1467,
+    "corpusFullTextComplete": 0,
+    "corpusSourceRoleOwnerConfirmed": 0,
+    "corpusOwnerReviewed": 0,
+    "corpusIndependentlyValidated": 0,
+    "corpusPartnerValidated": 0,
+    "corpusRightsHolderValidated": 0,
+    "corpusRightsCleared": 0,
+    "corpusPublicationApproved": 0,
+    "corpusExternalUseReady": 0,
+    "corpusCoverageApproved": 0,
+    "legacyGate2cUnclassifiedMappings": 5,
+    "legacyGate2cStatusOnlyCanonicalHumanApprovals": 0,
+    "pdfTechnicalUnits": 15,
+    "pdfTechnicalFailures": 0,
+    "pdfExtractedPages": 772,
+    "pdfExtractedWords": 272545,
+    "pdfWarningPages": 35,
+    "pdfOpenIdentityBlockers": 12,
+    "pdfOpenAliasBlockers": 2,
+    "pdfOpenUnregisteredSourceCandidateBlockers": 10,
+    "pdfAiAnalysisComplete": false,
+    "pdfOwnerReviewComplete": false,
+    "pdfIndependentValidationComplete": false,
+    "pdfRightsCleared": false,
+    "pdfPublicationReady": false,
+    "pdfCoveragePromotionAllowed": false,
+    "pdfPortableTrackedValidationSupported": true,
+    "pdfPrivateVerificationPerformed": false,
+    "headMigrations": 31,
+    "databaseMigrations": 31,
+    "migrationLineageMismatches": 0,
+    "headSeedEvidence": 400,
+    "databaseEvidence": 472,
+    "databaseOnlyEvidenceIdentities": 73,
+    "managedRuntimeEvidenceIdentities": 17,
+    "unclassifiedDatabaseOnlyEvidenceIdentities": 56,
+    "missingManagedRuntimeEvidenceIdentities": 0,
+    "seedOnlyEvidenceIdentities": 1,
+    "completeEvidenceAppraisals": 0,
+    "externalRowsNeedingArchive": 1984,
+    "currentLibraryInventory": 1555,
+    "persistedLibraryRows": 1627,
+    "livePersistedLibraryRows": 1555,
+    "retainedLibraryHistoryRows": 72,
+    "libraryInventoryOnlyRows": 0,
+    "libraryRetainedHistoryContractIssues": 55,
+    "reportedLibraryProjectionUpdates": 15,
+    "vaultIssues": 0
+  },
+  "openConflicts": [
+    {
+      "conflictId": "health.conflict.seed_database_identity",
+      "severity": "blocker",
+      "title": "Current seed identities and local database evidence identities differ"
+    },
+    {
+      "conflictId": "health.conflict.historical_status_foreign_lineage",
+      "severity": "high",
+      "title": "Tracked academic status describes a different seed lineage"
+    },
+    {
+      "conflictId": "health.conflict.library_inventory_materialization",
+      "severity": "high",
+      "title": "Derived library inventory and persisted materialization differ without a complete contract"
+    },
+    {
+      "conflictId": "health.conflict.remediation_vintage",
+      "severity": "warning",
+      "title": "Remediation backlog counts have conflicting vintages"
+    },
+    {
+      "conflictId": "health.conflict.academic_regression_reported_vs_head",
+      "severity": "high",
+      "title": "Tracked academic regression gate does not reproduce on current HEAD"
+    }
+  ],
+  "contentHash": "sha256:798c879d5561083c1976648bbbbea61b62cbacc1901d0b0056287e41791eda09"
+}

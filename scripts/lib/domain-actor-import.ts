@@ -26,9 +26,15 @@ export type CompanyLink = {
 export type ExistingActorLink = {
   id: string
   slug: string
+  name?: string
+  country?: string
   themeTags: string[]
   companyId?: string | null
   metadata?: unknown
+}
+
+export function actorCountryNameKey(country: string, name: string): string {
+  return `${country || 'NO'}\u0000${name}`
 }
 
 const ACTOR_TYPE_BY_NODE_TYPE: Record<string, string> = {
@@ -169,6 +175,7 @@ export function chooseActorTarget(
   row: DomainActorCsvRow,
   lookups: {
     existingBySlug: Map<string, ExistingActorLink>
+    existingByCountryName: Map<string, ExistingActorLink>
     companyByOrgNr: Map<string, CompanyLink>
     existingByCompanyId: Map<string, ExistingActorLink>
   },
@@ -179,5 +186,7 @@ export function chooseActorTarget(
     const actorForCompany = lookups.existingByCompanyId.get(company.id)
     if (actorForCompany) return actorForCompany
   }
-  return lookups.existingBySlug.get(row.node_id) ?? null
+  return lookups.existingBySlug.get(row.node_id)
+    ?? lookups.existingByCountryName.get(actorCountryNameKey(row.country || 'NO', row.name))
+    ?? null
 }

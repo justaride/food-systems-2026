@@ -21,7 +21,7 @@ ikke for å opptre som et fullt eksternt nordisk matsystemobservatorium.**
 | Intern beslutningsstøtte, porteføljevalg og målrettet research | **GO** | Kunnskapsbase, kildegater, app, prosjektlandskap og produksjonsdrift gir et reelt arbeidsgrunnlag. |
 | Kontrollert appraisal, intervjupilot, partnerreadback og datadyping | **BETINGET GO** | Arbeidspakkene er klare, men eier, rettigheter og reviewere må navngis før menneske- og produksjonsgater åpnes. |
 | Ekstern publisering av brede fakta-, person-, effekt- eller partnerpåstander | **NO-GO** | Publiseringspolicy, appraisal, egne stemmer, uavhengig evaluering og juridisk gate er ikke lukket. |
-| Automatisk oppdatering, produksjonsmigrering av kunnskapslaget og observatoriumsdrift | **NO-GO** | Restorable backup, migrasjonsreconciliation, minste privilegium og operativ `LibraryAnalysisRecord` mangler. |
+| Automatisk oppdatering, produksjonsmigrering av kunnskapslaget og observatoriumsdrift | **NO-GO** | Ekstern backup og restore er bevist i GabiBFree Estate, men RPO/RTO/eier, migrasjonsreconciliation, minste privilegium og operativ `LibraryAnalysisRecord` mangler. |
 | Pilot-, effekt- eller finansieringscommitment | **NO-GO** | Dossierer og funding-match er ikke pilot, partnercommitment eller finansiering. |
 
 Denne rapporten oppretter ikke et parallelt sannhetsregister. Flytting av
@@ -30,6 +30,11 @@ status skjer bare i
 etter reglene der. Det maskinlesbare
 [gapregisteret](../../../research/_status/information-gap-register-2026-08-11.jsonl)
 er arbeidskø under completion-registeret.
+
+[Grensen mot GabiBFree Dashboard](./cross-project-control-boundary-2026-08-11.md)
+fastsetter at Food Systems eier faglig status og arbeidskø, mens GabiBFree
+Estate eier infrastruktur-, backup- og restorestatus. Et porteføljesammendrag
+kan peke hit, men skal ikke kopiere gaprader eller prosjektoppgaver.
 
 ## 2. Hva prosjektet konkret har blitt
 
@@ -67,8 +72,8 @@ matsystemclaims.
 | Kunnskaps-/appraisalflate | `/api/library-analysis/status` = HTTP 503, `total=0`, `readinessPct=0`. | Produksjonens `LibraryAnalysisRecord`-lag er ikke operativt. |
 | Augustinntak | Dagens filreadback gir 135 staged filer, 128 ekstraksjonsposter, 125 unike ikke-tomme URL-er og 335 finding-poster. 1 ekstraksjonspost mangler URL-lokator; én register-URL forekommer i tre poster. Siste rensede prod-run 31022133733 registrerte 55 `SourceDoc` og 91 `SourceCitation`, med 90 `citable_external` og 1 `internal_context`. | Commit-overskriftens eldre 165/279-oppsummering er ikke kanonisk. Staged, importert, citation-ready, appraised og publiserbar er ulike nivåer. |
 | Prosjektlandskap | 40 hovedprofiler, 22 kandidat-/disposisjonsrader og 100 kilder; 20 kilder klassifisert uavhengige, 17 profiler med kvalitativ/etnografisk/deltakende metode. | 0 uavhengig evaluerte kvalitative funn; eierutfall er fortsatt rapporterte. |
-| Produksjonsdrift | Hyppige DB-watcher-runs er grønne; `food-systems-db` står `running:healthy` i 11. august-snapshotet. | Runtimehelse er ikke restore-bevis. Siste PR #342-preflight fant ingen godkjent off-node backup/restore drill. |
-| Åpen integrasjonsflate | Draft-PR #342 er grønn i PR-CI, men dokumenterer schema-/migrasjonsdrift og manglende produksjonsforutsetninger. | PR-en er med rette NO-GO for merge til backup, credential, reconciliation og runtimeporter er lukket. |
+| Produksjonsdrift og recovery | Hyppige DB-watcher-runs er grønne. GabiBFree Estate har separat backup-, restore- og offsite-bevis for `coolify:l0s8o8oo00c8gossw0gksswk`; fullkjøringen 11. august bandt artefakt og restore til samme SHA-256. | Coolifys egne 0 backupplaner er ikke backupfasit. RPO/RTO, eier, uovervåket kadens og fersk pre-migration-kvittering står fortsatt åpne i `IG-003`. |
+| Åpen integrasjonsflate | Draft-PR #342 er grønn i PR-CI, men dokumenterer schema-/migrasjonsdrift og manglende produksjonsforutsetninger. | PR-en er med rette NO-GO for merge til minst privilegert credential, ledger/schema-reconciliation, fersk releasebackup og runtimeporter er lukket. |
 
 ## 4. Modenhetsvurdering
 
@@ -87,7 +92,7 @@ teknisk score overstyrer aldri en rød gate.
 | Nordisk sammenlignbar dybde | 2 | Forekomstdekning er bedre; harmoniserte data, FI/IS, MVK og partnerreadback er fortsatt svake. |
 | Domene-/aktørdybde og materialstrøm | 2 | Mange navn og strukturer; aktivitet, volum, N/P/K og kausalitet er fortsatt hovedhull. |
 | Styring, ansvar og økonomi | 1 | Planene er klare, men hjem, eier, driftsnivå, budsjett og formell closeout er åpne. |
-| Drift, backup og recovery | 2 | Løpende runtime er frisk; restore- og migrasjonsportene er røde. |
+| Drift, backup og recovery | 3 | Runtime, kryptert offsite-kopi og isolert restore er bevist; RPO/RTO, eier, uovervåket kadens og migrasjonsrehearsal er ikke lukket. |
 | Produktverdi og ekstern tjeneste | 2 | Intern nytte og produksjonsflate finnes; ekstern bruker-/tjenestemodell er ikke validert. |
 
 **Samlet modenhetsdom:** teknisk og metodisk fundament er på nivå 3–4, mens
@@ -103,7 +108,7 @@ eksterne fase uansett teknisk modenhet.
 |---|---|---|
 | `IG-001` | Organisatorisk hjem, eier og driftsnivå | Datert vedtak med myndighet, tid, start/review og stopplinje. |
 | `IG-002` | Formell closeout og videreføringsmandat | M16–M18 readback og eksplisitt aksept, avvik eller bevaringsmodus. |
-| `IG-003` | Restorable off-node backup | Aktiv backup, restore drill, RPO/RTO og eierkvittering. |
+| `IG-003` | Recovery-governance | Backup, to offsite-kopier og restore drill er bevist i GabiBFree; RPO/RTO, eier, uovervåket kadens og fersk releasekvittering mangler. |
 | `IG-004` | Migrasjonsreconciliation og kunnskapsruntime | Minst privilegert credential, reconcilet ledger/schema og grønt runtime-endepunkt. |
 | `IG-005` | Personvern, rettigheter, retting og publiseringspolicy | Kvalifisert review og vedtatt policy per dataklasse. |
 
@@ -170,7 +175,8 @@ Detaljert rolle-, kadens- og kvitteringsprosess står i
 ### Dag 0–10: avgjør og sikr
 
 1. Kjør fase-0-beslutningsmøte for `IG-001`, `IG-002` og `IG-005`.
-2. Etabler off-node backup og bestå restore drill (`IG-003`).
+2. Vedta RPO/RTO og eier, bekreft uovervåket GabiBFree-kadens og ta en fersk
+   backup/restore-kvittering før migrasjon (`IG-003`).
 3. Reconcile produksjonsmigrasjoner og gjør kunnskapsstatus operativ uten blind
    merge av PR #342 (`IG-004`).
 4. Oppdater completion-registeret med kvitteringer, ikke muntlig status.
@@ -206,14 +212,16 @@ vedlikeholdt intern plattform eller bevaringsmodus.
 ## 9. Hva som ikke skal gjøres nå
 
 - Ikke start ny generell aktør- eller verdenscensus.
-- Ikke merge/deploy PR #342 før dens fire releaseporter er dokumentert lukket.
+- Ikke merge/deploy PR #342 før credential-, reconciliation-, fersk
+  releasebackup- og runtimeportene er dokumentert lukket.
 - Ikke kontakt intervjuobjekter eller samiske kunnskapsbærere før samtykke-,
   lagrings-, rettighets- og sitatporten er godkjent.
 - Ikke behandle de 335 staged finding-postene, 91 citations eller 40
   prosjektprofilene som 335/91/40 eksternt validerte resultater.
 - Ikke fylle True-C-celler med proxyer for å få en komplett figur.
 - Ikke la grønn CI, grønn DB-helse eller en deployet side bli likestilt med
-  restore-bevis, faglig readiness eller formell eieraksept.
+  restore-bevis, faglig readiness eller formell eieraksept. Restore-bevis leses
+  fra GabiBFree Estate, ikke fra Coolifys planantall.
 
 ## 10. Klargjort beslutningspakke
 
@@ -253,3 +261,4 @@ Produksjonsreadback 2026-08-11:
 - [siste rensede augustimport](https://github.com/justaride/food-systems-2026/actions/runs/31022133733)
 - [prosjektlandskap-release](https://github.com/justaride/food-systems-2026/actions/runs/31433594409)
 - [åpen kunnskaps-/migrasjons-PR](https://github.com/justaride/food-systems-2026/pull/342)
+- [grense og datert backupkvittering](./cross-project-control-boundary-2026-08-11.md)

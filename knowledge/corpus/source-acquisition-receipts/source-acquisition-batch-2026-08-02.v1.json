@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "batchId": "source-acquisition.official-existing-two.2026-08-02.v1",
+  "purpose": "Fresh controlled official-source fetches completed for two existing corpus identities eligible for source-identity verification. Every body must match both pre-existing private archive copies exactly. The Swedish HTTP/1.1 attempt stopped on 403 and is represented by the separate successful HTTP/2 retry batch.",
+  "tool": {
+    "name": "food-systems-controlled-https-fetch-adapter",
+    "version": "1.0.0",
+    "workflowRef": "knowledge/corpus/workflows/controlled-source-acquisition-v1.md",
+    "workflowVersion": "1.0.0"
+  },
+  "sources": [
+    {
+      "receiptId": "receipt.source.acquisition.etmv-2024.official.20260802.v1",
+      "sourceId": "source.6ec8c49122842040d6819a22",
+      "requestedLocator": "https://www.ruokavirasto.fi/globalassets/etmv/etmv-toimintakertomus-2024.pdf",
+      "expectedBodySha256": "sha256:136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761",
+      "expectedBodySizeBytes": 739748,
+      "archivePortablePath": "sha256/136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761.pdf",
+      "archiveMode": "require_existing",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/etmv-2024.official.20260802.v1.json"
+    },
+    {
+      "receiptId": "receipt.source.acquisition.kfst-food-trade-law-2024.official.20260802.v1",
+      "sourceId": "source.e52f956527577470f5052aba",
+      "requestedLocator": "https://kfst.dk/media/3wxbfqqe/20241120-evaluering-af-foedevarehandelsloven-2024.pdf",
+      "expectedBodySha256": "sha256:1bc1fae8f24d37f08704fc4cbfdc57e5c4f258125d1bfbfa3d13867d933da7fc",
+      "expectedBodySizeBytes": 1780666,
+      "archivePortablePath": "sha256/1bc1fae8f24d37f08704fc4cbfdc57e5c4f258125d1bfbfa3d13867d933da7fc.pdf",
+      "archiveMode": "require_existing",
+      "receiptPath": "knowledge/corpus/source-acquisition-receipts/receipts/kfst-food-trade-law-2024.official.20260802.v1.json"
+    }
+  ]
+}

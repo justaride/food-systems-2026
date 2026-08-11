@@ -1,0 +1,116 @@
+{
+  "documentType": "legacy_field_navigation_generation_manifest",
+  "schemaVersion": "1.0.0",
+  "generator": "scripts/knowledge/generate-legacy-field-navigation.ts",
+  "generatorVersion": "1.0.0",
+  "registryId": "registry.legacy_field_navigation.v1",
+  "registryStatus": "proposed",
+  "generatedAt": "2026-07-28",
+  "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+  "commitMarkerSemantics": "This manifest is written last. Its pinned source commit and output hash must reproduce before the navigation registry is accepted.",
+  "inputSnapshots": [
+    {
+      "artifactSnapshotId": "artifact.v1.242f909149c58447b60a",
+      "path": "knowledge/migration/legacy-field-navigation-map.v1.json",
+      "kind": "file",
+      "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+      "gitObjectId": "2370d4ff69b0f0594f05d926a1974522bab4ad47",
+      "gitObjectType": "blob",
+      "sha256": "sha256:242f909149c58447b60a6e5e025b7029daf008a9f13eb59238f2f665d5d3d18d",
+      "sizeBytes": 7256,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/migration/legacy-field-navigation-map.v1.json",
+          "kind": "file",
+          "sha256": "sha256:79a8230315691130c895bdd0f079811857d83be8d054fcf29a91870d38f3c234",
+          "sizeBytes": 7256
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.3e4b8bd3d4b5ac1f7ca5",
+      "path": "knowledge/schema/legacy-field-navigation.schema.v1.json",
+      "kind": "file",
+      "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+      "gitObjectId": "a3e8a2f43b2879825e77bb8d157edfe080af16ae",
+      "gitObjectType": "blob",
+      "sha256": "sha256:3e4b8bd3d4b5ac1f7ca54c1dd3081c3bc24f55cde68bc65f77b723e86285e89e",
+      "sizeBytes": 17130,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/schema/legacy-field-navigation.schema.v1.json",
+          "kind": "file",
+          "sha256": "sha256:055e409003fc6d65f022cdac070eb94cd42925c36f8989ffd7be29a03ad27291",
+          "sizeBytes": 17130
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.e21b91736bb57f5a14fc",
+      "path": "knowledge/schema/nordic-food-system-ontology.v1.json",
+      "kind": "file",
+      "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+      "gitObjectId": "6a8579120d2d76825f9e0b0269cf90430630a743",
+      "gitObjectType": "blob",
+      "sha256": "sha256:e21b91736bb57f5a14fcdcd51b43fa30aa4a915687943a569a16b1fe6102731c",
+      "sizeBytes": 100824,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "knowledge/schema/nordic-food-system-ontology.v1.json",
+          "kind": "file",
+          "sha256": "sha256:2ff71bffefe413e8e467be932c2212e3229182fe86fb25caee1f329d8d3b0c68",
+          "sizeBytes": 100824
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.6e7eb0bbf5a7133c8b2b",
+      "path": "scripts/knowledge/generate-legacy-field-navigation.ts",
+      "kind": "file",
+      "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+      "gitObjectId": "bdde809159f2b9153f069e28ca9baf1f992de25d",
+      "gitObjectType": "blob",
+      "sha256": "sha256:6e7eb0bbf5a7133c8b2bb8656c87bb28c65a24391e7797ec00f18c80b8a0b0af",
+      "sizeBytes": 22824,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "scripts/knowledge/generate-legacy-field-navigation.ts",
+          "kind": "file",
+          "sha256": "sha256:f962927e692cf5ad71606ef8fd7258440eb2791ee31b42fe33779e0834e1e468",
+          "sizeBytes": 22824
+        }
+      ]
+    },
+    {
+      "artifactSnapshotId": "artifact.v1.58ef712fc24a5c77d77a",
+      "path": "scripts/knowledge/generate-coverage-ledger.ts",
+      "kind": "file",
+      "baseCommit": "e9babbc298ac6a3481e5df640df0400a1f1688fb",
+      "gitObjectId": "13835d0ddbfc93d07410792664836227ff554cd4",
+      "gitObjectType": "blob",
+      "sha256": "sha256:58ef712fc24a5c77d77a09ca53eba81de0ea3cd095618c1d0b88d97d63c2ce3b",
+      "sizeBytes": 69769,
+      "fileCount": 1,
+      "entries": [
+        {
+          "path": "scripts/knowledge/generate-coverage-ledger.ts",
+          "kind": "file",
+          "sha256": "sha256:e12d44b1147f41d17c2e691b80024c4074d31c45809b95bf733b8aa2a87e5dc8",
+          "sizeBytes": 69769
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "path": "knowledge/migration/legacy-field-navigation-register.v1.json",
+      "sha256": "sha256:df86eab895c5f39c7cf4895077e7d3d04bd4d447bfea1f09baf2752a9bb1c649",
+      "sizeBytes": 159501
+    }
+  ],
+  "contentHash": "sha256:2e0801ee5d634e54b84a264240346a6d94ae50804d12a801bd975a272b54ce28"
+}

@@ -1,0 +1,2068 @@
+{
+  "schemaVersion": "source-registration-plan-v1",
+  "artifactType": "source_registration_dry_run_plan",
+  "planVersion": "1.0.0",
+  "contractVersion": "1.0.0",
+  "mode": "read_only_dry_run",
+  "batchId": "source-registration.new-official-2026-08-02.v1",
+  "preparedOn": "2026-08-02",
+  "observedAt": "2026-08-03T02:12:26.485Z",
+  "contractSha256": "sha256:b94898e551942b9b5e080b2fe12f81d2bcc95ffd9592a645476bffa3414c65e9",
+  "inputBindings": {
+    "sourceRegistrationBatch": {
+      "path": "knowledge/corpus/source-registration/source-registration-batch-2026-08-02.v1.json",
+      "fileSha256": "sha256:7fe7b63709cf9019d7ce576ca93ec88d5f9d06e68d69048c595fe17a2e5804cc",
+      "sizeBytes": 15827
+    },
+    "sourceAcquisitionBatch": {
+      "path": "knowledge/corpus/source-acquisition-receipts/source-acquisition-batch-new-official-2026-08-02.v1.json",
+      "fileSha256": "sha256:0d977fe55dd76ff8145df20ef90e82e6d63df863e7bde91370586f8e651dd2e9",
+      "sizeBytes": 8236
+    },
+    "pdfExtractionBatch": {
+      "path": "knowledge/corpus/pdf-page-extraction/pdf-page-extraction-batch-2026-08-02.v1.json",
+      "fileSha256": "sha256:c0f8c44dc90715e8b385fe1e99287ffeafee0633cae99a3e798d537dff14f956",
+      "sizeBytes": 19452
+    },
+    "sourceAnalysisInputGenerationManifest": {
+      "path": "knowledge/corpus/source-analysis-input-manifests/source-analysis-input-generation-manifest.v1.json",
+      "fileSha256": "sha256:897f3599585ed8cb1fb73749df28e944b38d283805ee981499ef440d89f06803",
+      "sizeBytes": 14394
+    },
+    "sourceRegistrationContract": {
+      "path": "knowledge/corpus/SOURCE-REGISTRATION-PLAN-CONTRACT.md",
+      "fileSha256": "sha256:25f4e2bf9cf7f018c0b5437f15face0c26d020b2ea051291db6768fcbd2e8a59",
+      "sizeBytes": 5591
+    },
+    "sourceRegistrationJsonSchema": {
+      "path": "knowledge/schema/source-registration-plan.schema.v1.json",
+      "fileSha256": "sha256:c5744207c189b8c0239cd1b810532b25f41a0a6b2944d23b870cf3d196efa173",
+      "sizeBytes": 75537
+    },
+    "sourceRegistrationRuntime": {
+      "path": "src/lib/knowledge/source-registration-plan.ts",
+      "fileSha256": "sha256:13137d964f5b49ae35a34b94f678d6fe1f6b1d81a32fbb654303b0528fdd957a",
+      "sizeBytes": 42707
+    },
+    "sourceRegistrationGenerator": {
+      "path": "scripts/knowledge/generate-source-registration-plan.ts",
+      "fileSha256": "sha256:3e516e0d6942f411de833e5f142d18880703330b453b7b09327620a5f63de85d",
+      "sizeBytes": 65860
+    },
+    "databaseSchema": {
+      "path": "prisma/schema.prisma",
+      "fileSha256": "sha256:c96f757b41054067abd2f45382f2290a6b50ee0fffef919d35e4691a3168ff31",
+      "sizeBytes": 37895
+    }
+  },
+  "beforeSnapshot": {
+    "observedAt": "2026-08-03T02:12:26.485Z",
+    "transaction": {
+      "readOnly": true,
+      "isolationLevel": "RepeatableRead",
+      "transactionReadOnlySetting": "on",
+      "databaseRole": "foodsystems",
+      "serverVersion": "16.13 (Homebrew)"
+    },
+    "databaseIdentity": {
+      "key": "primary",
+      "identityUuid": "90e3e24d-230f-42f7-b178-5bcd5b861e84"
+    },
+    "completedMigrationLedger": {
+      "count": 31,
+      "sha256": "sha256:ac5ccb4470927ef115f3ad5fe77c94633dd94401a28978118d227848725191e8"
+    },
+    "coreCounts": {
+      "documents": 1539,
+      "libraryAnalysisRecords": 1572,
+      "controlledMutationAudits": 0
+    },
+    "targetScope": {
+      "documentRows": [],
+      "libraryAnalysisRows": [],
+      "targetScopeSha256": "sha256:4be147785956e51a5b1b1aa7f6d4736caab17fd90fa613a074392f626c94cfa4"
+    },
+    "privateRecoveryRegister": {
+      "path": "knowledge/corpus/corpus-private-recovery-candidates.v1.json",
+      "fileSha256": "sha256:bc5816dcff101a46482f9cd31ab20bc48f023210895befc42de3cc8b7f82a9e2",
+      "candidateCount": 11,
+      "matchingRows": [],
+      "matchingRowsSha256": "sha256:858b3013fe52b6051af8b465589f18be40e0309a51d8b6e2df9210da8c1a9ab4"
+    },
+    "beforeSnapshotSha256": "sha256:77ac2b8fb968b573f53448522d1bf121012d9b19f3ab8f131b23e599e53d44b5"
+  },
+  "targets": [
+    {
+      "targetId": "registration.dk-kfst-utp-enforcement-2025",
+      "preRegistrationCandidateKey": "candidate:source.dk.kfst.utp-enforcement-2025",
+      "canonicalIdentityKey": "document:official-dk-kfst-utp-enforcement-2025",
+      "lifecycleSourceId": "source.de325972bbd5f6f09368f201",
+      "state": "pending",
+      "artifactEvidence": {
+        "acquisitionReceipt": {
+          "path": "knowledge/corpus/source-acquisition-receipts/receipts/dk-kfst-utp-enforcement-2025.official.20260802.v1.json",
+          "fileSha256": "sha256:80aafb44f356325633a2c45dfbf756693d7a7fe7f0fe49bd8ce6fe7caa869a28",
+          "sizeBytes": 1458,
+          "internalSealType": "source_acquisition_receipt_sha256",
+          "internalSeal": "sha256:bc39839f46f506c164224ef1285b5c5cc93153f8bd4ff0b8ab08546568425fdc"
+        },
+        "extractionReceipt": {
+          "path": "knowledge/corpus/pdf-page-extraction/receipts/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.receipt.v1.json",
+          "fileSha256": "sha256:79c86c71f979960c7694df7394768c3ec7c57d4048ce56444d0e045c69d8f503",
+          "sizeBytes": 3525,
+          "internalSealType": "pdf_qualification_receipt_sha256",
+          "internalSeal": "sha256:481b502f65d73e78999c1c0f94e06e7239e2ff91ec0ac8dd25ff61947b38dce8"
+        },
+        "pageMap": {
+          "path": "knowledge/corpus/pdf-page-extraction/page-maps/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.page-map.v1.json",
+          "fileSha256": "sha256:fe8250bc22a83ab4118ca9cc301525479706250eef76440dddaaec743f5e237c",
+          "sizeBytes": 11940,
+          "internalSealType": "pdf_page_map_sha256",
+          "internalSeal": "sha256:f5955de7412a6f692a2c3cd41811e79b31cd1f770b7c25f7ca88b7c7a0986b19"
+        },
+        "sourceAnalysisInputManifest": {
+          "path": "knowledge/corpus/source-analysis-input-manifests/manifests/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.source-analysis-input-manifest.v1.json",
+          "fileSha256": "sha256:a230acef2e37cbdf6c95d194abb6fd29ef64d4c9d21fec24f1334c9eed07cfb2",
+          "sizeBytes": 6510,
+          "internalSealType": "source_analysis_input_manifest_sha256",
+          "internalSeal": "sha256:0b56317cf720beffd8a9478d14b4d9e543406fcd478d8d5551ebec2ec945abc0"
+        },
+        "privateVerification": {
+          "rawPdfPortablePath": "sha256/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.pdf",
+          "rawPageTextPortablePathTemplate": "pdf-page-extraction/v1/sha256/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad/pages/page-{pageNumber:0000}.raw.txt",
+          "normalizedPagePortablePathTemplate": "pdf-page-extraction/v1/sha256/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad/pages/page-{pageNumber:0000}.normalized.txt",
+          "pageCount": 8,
+          "rawPageTextFileCountPerCopy": 8,
+          "normalizedPageFileCountPerCopy": 8,
+          "rawPdfSha256": "sha256:2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad",
+          "rawPageTextSetSha256": "sha256:475bb154db3cbbda68bac27c146ebf6b03ef051174d2cfd33c22adf0e5e983c8",
+          "normalizedPageSetSha256": "sha256:05b414e89d686e186006212d3442d65295caf849f84289e46de566a257b06bf5",
+          "primaryCopyVerified": true,
+          "replicaCopyVerified": true,
+          "distinctRootsVerified": true,
+          "distinctFilesVerified": true,
+          "rootMode": "0700",
+          "fileMode": "0400",
+          "absoluteRootsStoredInPlan": false
+        }
+      },
+      "intendedDocumentRow": {
+        "id": "official-dk-kfst-utp-enforcement-2025",
+        "slug": "official-dk-kfst-utp-enforcement-2025",
+        "filePath": "research/evidence-pack/nordisk/kfst-utp-haandhaevelse-2025.pdf",
+        "title": "Fødevarehandelsloven — Årlig rapport om håndhævelsesaktiviteter i 2025",
+        "author": "Konkurrence- og Forbrugerstyrelsen",
+        "year": 2026,
+        "documentType": "official_enforcement_report",
+        "category": "bibliotek",
+        "subcategory": null,
+        "country": "DK",
+        "summary": null,
+        "url": "https://kfst.dk/media/tugboea2/20260629-aarlig-rapport-om-haandhaevelsesaktiviteter-i-henhold-til-utp-direktivet-i-2025-a.pdf",
+        "accessedAt": "2026-08-02T23:18:30.026Z",
+        "archivedUrl": null,
+        "wordCount": 1384,
+        "tags": ["denmark", "enforcement", "official-source", "utp"],
+        "metadata": {
+          "registration": {
+            "batchId": "source-registration.new-official-2026-08-02.v1",
+            "targetId": "registration.dk-kfst-utp-enforcement-2025",
+            "identityStatus": "provisional",
+            "sourceRoleStatus": "machine_provisional_only",
+            "canonicalIdentityKey": "document:official-dk-kfst-utp-enforcement-2025",
+            "lifecycleSourceId": "source.de325972bbd5f6f09368f201"
+          },
+          "source": {
+            "officialUrl": "https://kfst.dk/media/tugboea2/20260629-aarlig-rapport-om-haandhaevelsesaktiviteter-i-henhold-til-utp-direktivet-i-2025-a.pdf",
+            "doi": null,
+            "publicationDateStatement": "June 2026",
+            "languageCodes": ["da"],
+            "rawContentSha256": "2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad",
+            "rawContentSizeBytes": 173750,
+            "pageCount": 8
+          },
+          "readiness": {
+            "identityVerified": false,
+            "sourceAnalysisComplete": false,
+            "ownerReviewComplete": false,
+            "independentExpertReviewComplete": false,
+            "partnerReviewComplete": false,
+            "rightsHolderReviewComplete": false,
+            "rightsCleared": false,
+            "publicationReady": false,
+            "externalUseAllowed": false,
+            "coveragePromotionAllowed": false
+          }
+        },
+        "contentBinding": {
+          "source": "exact_private_normalized_pages",
+          "serializationId": "normalized-pages-joined-with-page-boundary-v1",
+          "charset": "utf-8",
+          "pageOrder": "ascending_page_number",
+          "pageSequence": "contiguous_from_1",
+          "delimiterUtf8": "\n\n--food-systems-page-boundary-v1--\n\n",
+          "sha256": "sha256:2cba30fb6b619737434ad411cec39032befdbe2b06524ed8622edd5c5cdccc74",
+          "sizeBytes": 11368,
+          "characterCount": 11050,
+          "wordCount": 1384,
+          "pageCount": 8,
+          "contentValueStoredInPlan": false,
+          "privateAbsolutePathStoredInPlan": false
+        },
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:ca4a15adec7b7add23d13f37c2a05a147efc5fe04ad12696f175e2775317e846"
+      },
+      "intendedLibraryAnalysisRow": {
+        "id": "library-analysis.de325972bbd5f6f09368f201",
+        "sourceKind": "document",
+        "sourceKey": "document:official-dk-kfst-utp-enforcement-2025",
+        "documentId": "official-dk-kfst-utp-enforcement-2025",
+        "sourceDocId": null,
+        "canonicalPath": "research/evidence-pack/nordisk/kfst-utp-haandhaevelse-2025.pdf",
+        "title": "Fødevarehandelsloven — Årlig rapport om håndhævelsesaktiviteter i 2025",
+        "status": "not_started",
+        "usageRule": "internal_background",
+        "reviewStatus": "not_reviewed",
+        "citationReadiness": null,
+        "analysisTier": "inventory_only",
+        "aiCard": null,
+        "aiSummary": null,
+        "keyFindings": [],
+        "claimCandidates": null,
+        "projectImplications": [],
+        "gaps": null,
+        "controlLinks": {
+          "sourceRegistrationBatch": "knowledge/corpus/source-registration/source-registration-batch-2026-08-02.v1.json",
+          "acquisitionReceipt": "knowledge/corpus/source-acquisition-receipts/receipts/dk-kfst-utp-enforcement-2025.official.20260802.v1.json",
+          "extractionReceipt": "knowledge/corpus/pdf-page-extraction/receipts/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.receipt.v1.json",
+          "pageMap": "knowledge/corpus/pdf-page-extraction/page-maps/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.page-map.v1.json",
+          "sourceAnalysisInputManifest": "knowledge/corpus/source-analysis-input-manifests/manifests/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.source-analysis-input-manifest.v1.json"
+        },
+        "riskFlags": [
+          "identity_provisional",
+          "owner_review_required",
+          "rights_pending_not_cleared",
+          "source_analysis_not_started"
+        ],
+        "contentHash": "2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad",
+        "wordCount": 1384,
+        "processedAt": null,
+        "reviewedAt": null,
+        "reviewer": null,
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:e43fde6a4a1b7e815efad424207b42a12db8b98b2c0e6f3e6478a8a0ddd9c2fe"
+      },
+      "intendedPrivateRecoveryRow": {
+        "identityKey": "document:official-dk-kfst-utp-enforcement-2025",
+        "canonicalPath": "research/evidence-pack/nordisk/kfst-utp-haandhaevelse-2025.pdf",
+        "sha256": "2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad",
+        "sizeBytes": 173750,
+        "internalLocator": "private://corpus/sha256/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad",
+        "replicaClass": "bigbrain_private_archive",
+        "repositoryAvailable": false,
+        "fullTextReviewed": false,
+        "rightsState": "pending_not_cleared"
+      },
+      "observedDocumentRowSha256": [],
+      "observedLibraryRowSha256": [],
+      "privateRecoveryState": "pending_append",
+      "conflicts": [],
+      "permissions": {
+        "registrationApplyAllowed": false,
+        "identityVerificationComplete": false,
+        "sourceAnalysisAllowed": false,
+        "externalUseAllowed": false,
+        "coveragePromotionAllowed": false
+      }
+    },
+    {
+      "targetId": "registration.eu-com-2025-728",
+      "preRegistrationCandidateKey": "candidate:source.eu.com-2025-728",
+      "canonicalIdentityKey": "document:official-eu-com-2025-728",
+      "lifecycleSourceId": "source.a52eb19c4b5736aa2074d135",
+      "state": "pending",
+      "artifactEvidence": {
+        "acquisitionReceipt": {
+          "path": "knowledge/corpus/source-acquisition-receipts/receipts/eu-com-2025-728.official.20260802.v1.json",
+          "fileSha256": "sha256:fcdd6a64149ed6760ce1ce3df71342ce96d44841c03168036dbb8973c8c25f5c",
+          "sizeBytes": 1326,
+          "internalSealType": "source_acquisition_receipt_sha256",
+          "internalSeal": "sha256:5ff4d134c2a1ba1082d2eb10ba39638726f665ff37b7d38e3c39e7b9e7e549d1"
+        },
+        "extractionReceipt": {
+          "path": "knowledge/corpus/pdf-page-extraction/receipts/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42.receipt.v1.json",
+          "fileSha256": "sha256:d174cb5209ecf48400a147bdaa8b357686f220f0844c201fb77c22c101321512",
+          "sizeBytes": 3324,
+          "internalSealType": "pdf_qualification_receipt_sha256",
+          "internalSeal": "sha256:6d53de09caeb039a6568f496af9d2b1a8cdf48d771476a8141eb3e8c81674719"
+        },
+        "pageMap": {
+          "path": "knowledge/corpus/pdf-page-extraction/page-maps/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42.page-map.v1.json",
+          "fileSha256": "sha256:45ac6191ed0e056513252241f835526b94964715080f2514c59812026b304844",
+          "sizeBytes": 15585,
+          "internalSealType": "pdf_page_map_sha256",
+          "internalSeal": "sha256:92a967d0e2ad7a8fa06e9b54998a27b2a686b1602de0cce44753c8fdee06a42b"
+        },
+        "sourceAnalysisInputManifest": {
+          "path": "knowledge/corpus/source-analysis-input-manifests/manifests/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42.source-analysis-input-manifest.v1.json",
+          "fileSha256": "sha256:877d1cf78ea1d782d9880c0c25071245116313787930aaf71bdcd695df92680d",
+          "sizeBytes": 7148,
+          "internalSealType": "source_analysis_input_manifest_sha256",
+          "internalSeal": "sha256:30723f3226969615c7de6bf372f019078d6f5a0886f360bfd97d0242bc1d5390"
+        },
+        "privateVerification": {
+          "rawPdfPortablePath": "sha256/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42.pdf",
+          "rawPageTextPortablePathTemplate": "pdf-page-extraction/v1/sha256/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42/pages/page-{pageNumber:0000}.raw.txt",
+          "normalizedPagePortablePathTemplate": "pdf-page-extraction/v1/sha256/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42/pages/page-{pageNumber:0000}.normalized.txt",
+          "pageCount": 11,
+          "rawPageTextFileCountPerCopy": 11,
+          "normalizedPageFileCountPerCopy": 11,
+          "rawPdfSha256": "sha256:8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42",
+          "rawPageTextSetSha256": "sha256:c2374fef6ca5d4e0f37ad564c76136dd78539233cd89f2910dd3f6ad146a2db2",
+          "normalizedPageSetSha256": "sha256:17286d0cc035517bf7ea68e05f60f11606a81ac6d2bf0ca133a1de58176c9d06",
+          "primaryCopyVerified": true,
+          "replicaCopyVerified": true,
+          "distinctRootsVerified": true,
+          "distinctFilesVerified": true,
+          "rootMode": "0700",
+          "fileMode": "0400",
+          "absoluteRootsStoredInPlan": false
+        }
+      },
+      "intendedDocumentRow": {
+        "id": "official-eu-com-2025-728",
+        "slug": "official-eu-com-2025-728",
+        "filePath": "research/evidence-pack/nordisk/eu-com-2025-728-utp-evaluation.pdf",
+        "title": "Evaluation of the Unfair Trading Practices Directive — COM(2025) 728 final",
+        "author": "European Commission",
+        "year": 2025,
+        "documentType": "official_policy_evaluation",
+        "category": "bibliotek",
+        "subcategory": null,
+        "country": "EU",
+        "summary": null,
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025DC0728",
+        "accessedAt": "2026-08-02T23:18:31.870Z",
+        "archivedUrl": null,
+        "wordCount": 4483,
+        "tags": [
+          "eu",
+          "evaluation",
+          "food-supply-chain",
+          "official-source",
+          "utp"
+        ],
+        "metadata": {
+          "registration": {
+            "batchId": "source-registration.new-official-2026-08-02.v1",
+            "targetId": "registration.eu-com-2025-728",
+            "identityStatus": "provisional",
+            "sourceRoleStatus": "machine_provisional_only",
+            "canonicalIdentityKey": "document:official-eu-com-2025-728",
+            "lifecycleSourceId": "source.a52eb19c4b5736aa2074d135"
+          },
+          "source": {
+            "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025DC0728",
+            "doi": null,
+            "publicationDateStatement": "1 December 2025",
+            "languageCodes": ["en"],
+            "rawContentSha256": "8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42",
+            "rawContentSizeBytes": 264162,
+            "pageCount": 11
+          },
+          "readiness": {
+            "identityVerified": false,
+            "sourceAnalysisComplete": false,
+            "ownerReviewComplete": false,
+            "independentExpertReviewComplete": false,
+            "partnerReviewComplete": false,
+            "rightsHolderReviewComplete": false,
+            "rightsCleared": false,
+            "publicationReady": false,
+            "externalUseAllowed": false,
+            "coveragePromotionAllowed": false
+          }
+        },
+        "contentBinding": {
+          "source": "exact_private_normalized_pages",
+          "serializationId": "normalized-pages-joined-with-page-boundary-v1",
+          "charset": "utf-8",
+          "pageOrder": "ascending_page_number",
+          "pageSequence": "contiguous_from_1",
+          "delimiterUtf8": "\n\n--food-systems-page-boundary-v1--\n\n",
+          "sha256": "sha256:cb276ce94bfae5ed656006d8a4fa35add7022aaf0ed1bdf68edc42a146223bb7",
+          "sizeBytes": 30125,
+          "characterCount": 29987,
+          "wordCount": 4483,
+          "pageCount": 11,
+          "contentValueStoredInPlan": false,
+          "privateAbsolutePathStoredInPlan": false
+        },
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:394cae699215309f4566203b5ce3e76050b230441c622a9c4d52f8a0ed9332c6"
+      },
+      "intendedLibraryAnalysisRow": {
+        "id": "library-analysis.a52eb19c4b5736aa2074d135",
+        "sourceKind": "document",
+        "sourceKey": "document:official-eu-com-2025-728",
+        "documentId": "official-eu-com-2025-728",
+        "sourceDocId": null,
+        "canonicalPath": "research/evidence-pack/nordisk/eu-com-2025-728-utp-evaluation.pdf",
+        "title": "Evaluation of the Unfair Trading Practices Directive — COM(2025) 728 final",
+        "status": "not_started",
+        "usageRule": "internal_background",
+        "reviewStatus": "not_reviewed",
+        "citationReadiness": null,
+        "analysisTier": "inventory_only",
+        "aiCard": null,
+        "aiSummary": null,
+        "keyFindings": [],
+        "claimCandidates": null,
+        "projectImplications": [],
+        "gaps": null,
+        "controlLinks": {
+          "sourceRegistrationBatch": "knowledge/corpus/source-registration/source-registration-batch-2026-08-02.v1.json",
+          "acquisitionReceipt": "knowledge/corpus/source-acquisition-receipts/receipts/eu-com-2025-728.official.20260802.v1.json",
+          "extractionReceipt": "knowledge/corpus/pdf-page-extraction/receipts/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42.receipt.v1.json",
+          "pageMap": "knowledge/corpus/pdf-page-extraction/page-maps/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42.page-map.v1.json",
+          "sourceAnalysisInputManifest": "knowledge/corpus/source-analysis-input-manifests/manifests/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42.source-analysis-input-manifest.v1.json"
+        },
+        "riskFlags": [
+          "identity_provisional",
+          "owner_review_required",
+          "rights_pending_not_cleared",
+          "source_analysis_not_started"
+        ],
+        "contentHash": "8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42",
+        "wordCount": 4483,
+        "processedAt": null,
+        "reviewedAt": null,
+        "reviewer": null,
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:34edabc7c0df475f22b0f41e675e3e84e5a1f9b9cadb1948829952c77c68ef60"
+      },
+      "intendedPrivateRecoveryRow": {
+        "identityKey": "document:official-eu-com-2025-728",
+        "canonicalPath": "research/evidence-pack/nordisk/eu-com-2025-728-utp-evaluation.pdf",
+        "sha256": "8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42",
+        "sizeBytes": 264162,
+        "internalLocator": "private://corpus/sha256/8f86368578259e6d50b248be6a558ca2748ac727bbf2ac7327682d43cc827d42",
+        "replicaClass": "bigbrain_private_archive",
+        "repositoryAvailable": false,
+        "fullTextReviewed": false,
+        "rightsState": "pending_not_cleared"
+      },
+      "observedDocumentRowSha256": [],
+      "observedLibraryRowSha256": [],
+      "privateRecoveryState": "pending_append",
+      "conflicts": [],
+      "permissions": {
+        "registrationApplyAllowed": false,
+        "identityVerificationComplete": false,
+        "sourceAnalysisAllowed": false,
+        "externalUseAllowed": false,
+        "coveragePromotionAllowed": false
+      }
+    },
+    {
+      "targetId": "registration.eu-swd-2025-405",
+      "preRegistrationCandidateKey": "candidate:source.eu.swd-2025-405",
+      "canonicalIdentityKey": "document:official-eu-swd-2025-405",
+      "lifecycleSourceId": "source.e83737014000deca5f5bfb7c",
+      "state": "pending",
+      "artifactEvidence": {
+        "acquisitionReceipt": {
+          "path": "knowledge/corpus/source-acquisition-receipts/receipts/eu-swd-2025-405.official.20260802.v1.json",
+          "fileSha256": "sha256:5da8718b9e1a9f1682524d1dfc0c9b75faaa3bb22795ad89e557182f21d8772e",
+          "sizeBytes": 1327,
+          "internalSealType": "source_acquisition_receipt_sha256",
+          "internalSeal": "sha256:25b303b651c2f39949b3f8d5b9b7d2836cda6bd751e19e904b05ca94db483775"
+        },
+        "extractionReceipt": {
+          "path": "knowledge/corpus/pdf-page-extraction/receipts/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303.receipt.v1.json",
+          "fileSha256": "sha256:e5f9d65df432a56243e1c9cc7600b1553d0c59954526729dd514acab30870a3c",
+          "sizeBytes": 3478,
+          "internalSealType": "pdf_qualification_receipt_sha256",
+          "internalSeal": "sha256:0751147cb2ba11a73c7c536c286a064cfe8eac4e3ecf3545d1ebdd488a7c84b6"
+        },
+        "pageMap": {
+          "path": "knowledge/corpus/pdf-page-extraction/page-maps/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303.page-map.v1.json",
+          "fileSha256": "sha256:6bf2a4ab8e94f69ca8725eb00cfd496fa407873256b0696af2f7c9e356f28598",
+          "sizeBytes": 166023,
+          "internalSealType": "pdf_page_map_sha256",
+          "internalSeal": "sha256:d86bfe83ee2eb4fe430a507f205d59c27d18d41679974200e8be4bb3bffad0ad"
+        },
+        "sourceAnalysisInputManifest": {
+          "path": "knowledge/corpus/source-analysis-input-manifests/manifests/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303.source-analysis-input-manifest.v1.json",
+          "fileSha256": "sha256:9d376ed7fc6ab455363361a17d491c456fe7172a0b00876d306180e2ea16760d",
+          "sizeBytes": 36111,
+          "internalSealType": "source_analysis_input_manifest_sha256",
+          "internalSeal": "sha256:bae3a889645e28fdd0636767f1a948e82736bdfb97a83ee968e24c0df07027f8"
+        },
+        "privateVerification": {
+          "rawPdfPortablePath": "sha256/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303.pdf",
+          "rawPageTextPortablePathTemplate": "pdf-page-extraction/v1/sha256/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303/pages/page-{pageNumber:0000}.raw.txt",
+          "normalizedPagePortablePathTemplate": "pdf-page-extraction/v1/sha256/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303/pages/page-{pageNumber:0000}.normalized.txt",
+          "pageCount": 131,
+          "rawPageTextFileCountPerCopy": 131,
+          "normalizedPageFileCountPerCopy": 131,
+          "rawPdfSha256": "sha256:f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303",
+          "rawPageTextSetSha256": "sha256:0958c9cd413b484a2e87c55f586b4867a0be66aacac77d46d867cb62f9a14d6c",
+          "normalizedPageSetSha256": "sha256:deb76adbbcf26eb3d52cd84355b259b16dd64f5c0b10857673ba945961904b24",
+          "primaryCopyVerified": true,
+          "replicaCopyVerified": true,
+          "distinctRootsVerified": true,
+          "distinctFilesVerified": true,
+          "rootMode": "0700",
+          "fileMode": "0400",
+          "absoluteRootsStoredInPlan": false
+        }
+      },
+      "intendedDocumentRow": {
+        "id": "official-eu-swd-2025-405",
+        "slug": "official-eu-swd-2025-405",
+        "filePath": "research/evidence-pack/nordisk/eu-swd-2025-405-utp-evaluation.pdf",
+        "title": "Evaluation of Directive (EU) 2019/633 on unfair trading practices — SWD(2025) 405 final",
+        "author": "European Commission",
+        "year": 2025,
+        "documentType": "official_staff_working_document",
+        "category": "bibliotek",
+        "subcategory": null,
+        "country": "EU",
+        "summary": null,
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025SC0405",
+        "accessedAt": "2026-08-02T23:18:32.298Z",
+        "archivedUrl": null,
+        "wordCount": 56554,
+        "tags": [
+          "eu",
+          "evaluation",
+          "food-supply-chain",
+          "official-source",
+          "utp"
+        ],
+        "metadata": {
+          "registration": {
+            "batchId": "source-registration.new-official-2026-08-02.v1",
+            "targetId": "registration.eu-swd-2025-405",
+            "identityStatus": "provisional",
+            "sourceRoleStatus": "machine_provisional_only",
+            "canonicalIdentityKey": "document:official-eu-swd-2025-405",
+            "lifecycleSourceId": "source.e83737014000deca5f5bfb7c"
+          },
+          "source": {
+            "officialUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52025SC0405",
+            "doi": null,
+            "publicationDateStatement": "1 December 2025",
+            "languageCodes": ["en"],
+            "rawContentSha256": "f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303",
+            "rawContentSizeBytes": 2317481,
+            "pageCount": 131
+          },
+          "readiness": {
+            "identityVerified": false,
+            "sourceAnalysisComplete": false,
+            "ownerReviewComplete": false,
+            "independentExpertReviewComplete": false,
+            "partnerReviewComplete": false,
+            "rightsHolderReviewComplete": false,
+            "rightsCleared": false,
+            "publicationReady": false,
+            "externalUseAllowed": false,
+            "coveragePromotionAllowed": false
+          }
+        },
+        "contentBinding": {
+          "source": "exact_private_normalized_pages",
+          "serializationId": "normalized-pages-joined-with-page-boundary-v1",
+          "charset": "utf-8",
+          "pageOrder": "ascending_page_number",
+          "pageSequence": "contiguous_from_1",
+          "delimiterUtf8": "\n\n--food-systems-page-boundary-v1--\n\n",
+          "sha256": "sha256:1fbc4a39204b7fa80e56f1f3e7ced9905eac2aa31769dd8dce30f32021818baa",
+          "sizeBytes": 374971,
+          "characterCount": 374354,
+          "wordCount": 56554,
+          "pageCount": 131,
+          "contentValueStoredInPlan": false,
+          "privateAbsolutePathStoredInPlan": false
+        },
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:edd23c85f9f04877f8240289ddbd4f7da26b2eff1fd2975a6ac98d311f8058b6"
+      },
+      "intendedLibraryAnalysisRow": {
+        "id": "library-analysis.e83737014000deca5f5bfb7c",
+        "sourceKind": "document",
+        "sourceKey": "document:official-eu-swd-2025-405",
+        "documentId": "official-eu-swd-2025-405",
+        "sourceDocId": null,
+        "canonicalPath": "research/evidence-pack/nordisk/eu-swd-2025-405-utp-evaluation.pdf",
+        "title": "Evaluation of Directive (EU) 2019/633 on unfair trading practices — SWD(2025) 405 final",
+        "status": "not_started",
+        "usageRule": "internal_background",
+        "reviewStatus": "not_reviewed",
+        "citationReadiness": null,
+        "analysisTier": "inventory_only",
+        "aiCard": null,
+        "aiSummary": null,
+        "keyFindings": [],
+        "claimCandidates": null,
+        "projectImplications": [],
+        "gaps": null,
+        "controlLinks": {
+          "sourceRegistrationBatch": "knowledge/corpus/source-registration/source-registration-batch-2026-08-02.v1.json",
+          "acquisitionReceipt": "knowledge/corpus/source-acquisition-receipts/receipts/eu-swd-2025-405.official.20260802.v1.json",
+          "extractionReceipt": "knowledge/corpus/pdf-page-extraction/receipts/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303.receipt.v1.json",
+          "pageMap": "knowledge/corpus/pdf-page-extraction/page-maps/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303.page-map.v1.json",
+          "sourceAnalysisInputManifest": "knowledge/corpus/source-analysis-input-manifests/manifests/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303.source-analysis-input-manifest.v1.json"
+        },
+        "riskFlags": [
+          "identity_provisional",
+          "owner_review_required",
+          "rights_pending_not_cleared",
+          "source_analysis_not_started"
+        ],
+        "contentHash": "f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303",
+        "wordCount": 56554,
+        "processedAt": null,
+        "reviewedAt": null,
+        "reviewer": null,
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:b2122a8d8077fa24246435779164a06e03ac987500ed445ddd614eb8e8b95439"
+      },
+      "intendedPrivateRecoveryRow": {
+        "identityKey": "document:official-eu-swd-2025-405",
+        "canonicalPath": "research/evidence-pack/nordisk/eu-swd-2025-405-utp-evaluation.pdf",
+        "sha256": "f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303",
+        "sizeBytes": 2317481,
+        "internalLocator": "private://corpus/sha256/f18e983dc9cb2e211a680ec588294fe9727d788ebf1e5e95098f156314432303",
+        "replicaClass": "bigbrain_private_archive",
+        "repositoryAvailable": false,
+        "fullTextReviewed": false,
+        "rightsState": "pending_not_cleared"
+      },
+      "observedDocumentRowSha256": [],
+      "observedLibraryRowSha256": [],
+      "privateRecoveryState": "pending_append",
+      "conflicts": [],
+      "permissions": {
+        "registrationApplyAllowed": false,
+        "identityVerificationComplete": false,
+        "sourceAnalysisAllowed": false,
+        "externalUseAllowed": false,
+        "coveragePromotionAllowed": false
+      }
+    },
+    {
+      "targetId": "registration.eu-utp-evaluation-support-study-2025",
+      "preRegistrationCandidateKey": "candidate:source.eu.utp-evaluation-support-study-2025",
+      "canonicalIdentityKey": "document:official-eu-utp-evaluation-support-2025",
+      "lifecycleSourceId": "source.9c049dc64705408353b9ffb7",
+      "state": "pending",
+      "artifactEvidence": {
+        "acquisitionReceipt": {
+          "path": "knowledge/corpus/source-acquisition-receipts/receipts/eu-utp-evaluation-support-study-2025.official.20260802.v1.json",
+          "fileSha256": "sha256:94e239ffb59d8b27c12b4a8365ff0666ca281774318b6caf660ce9377ec022d5",
+          "sizeBytes": 1528,
+          "internalSealType": "source_acquisition_receipt_sha256",
+          "internalSeal": "sha256:fe669564829c00a53bcd97704cb08af892c67271a7e05b51baa123aa65e1c92d"
+        },
+        "extractionReceipt": {
+          "path": "knowledge/corpus/pdf-page-extraction/receipts/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7.receipt.v1.json",
+          "fileSha256": "sha256:1d184e39489f2ceb27cbe06def1db92ebe56824b15374049b13c65d9db1686d4",
+          "sizeBytes": 3699,
+          "internalSealType": "pdf_qualification_receipt_sha256",
+          "internalSeal": "sha256:43ea79e545e116bb764baf99a281364cbc0121deeb1886e1353e73934a95b3ed"
+        },
+        "pageMap": {
+          "path": "knowledge/corpus/pdf-page-extraction/page-maps/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7.page-map.v1.json",
+          "fileSha256": "sha256:ba0fa69d37382c927812b8558f255821b88db8bfabe9fdcc338c9eb71c7fc595",
+          "sizeBytes": 190067,
+          "internalSealType": "pdf_page_map_sha256",
+          "internalSeal": "sha256:8c2f572c0680362d14606bef639caef09d6216248e7b50cba6b76ec656538b3d"
+        },
+        "sourceAnalysisInputManifest": {
+          "path": "knowledge/corpus/source-analysis-input-manifests/manifests/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7.source-analysis-input-manifest.v1.json",
+          "fileSha256": "sha256:3d90091408e929f97fde49df5ce68cdff455e3fd64696333e0e5c34293bd074d",
+          "sizeBytes": 40921,
+          "internalSealType": "source_analysis_input_manifest_sha256",
+          "internalSeal": "sha256:ec47ec825e2a93667db75fa2995a0730211eab869bef828c29e83e88bed40d82"
+        },
+        "privateVerification": {
+          "rawPdfPortablePath": "sha256/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7.pdf",
+          "rawPageTextPortablePathTemplate": "pdf-page-extraction/v1/sha256/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7/pages/page-{pageNumber:0000}.raw.txt",
+          "normalizedPagePortablePathTemplate": "pdf-page-extraction/v1/sha256/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7/pages/page-{pageNumber:0000}.normalized.txt",
+          "pageCount": 150,
+          "rawPageTextFileCountPerCopy": 150,
+          "normalizedPageFileCountPerCopy": 150,
+          "rawPdfSha256": "sha256:c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7",
+          "rawPageTextSetSha256": "sha256:9fb669a2d72e59479a3cac9dfe5270976ef1797b454447a94330a52a81b6b6d4",
+          "normalizedPageSetSha256": "sha256:5dde4fd8e1e33ad0a308ce0047b4007fe6db2ae5e1a4cfff05b17bba9f78a6ad",
+          "primaryCopyVerified": true,
+          "replicaCopyVerified": true,
+          "distinctRootsVerified": true,
+          "distinctFilesVerified": true,
+          "rootMode": "0700",
+          "fileMode": "0400",
+          "absoluteRootsStoredInPlan": false
+        }
+      },
+      "intendedDocumentRow": {
+        "id": "official-eu-utp-evaluation-support-2025",
+        "slug": "official-eu-utp-evaluation-support-2025",
+        "filePath": "research/evidence-pack/nordisk/eu-utp-evaluation-support-study-2025.pdf",
+        "title": "Evaluation support study of the EU Directive 2019/633 on unfair trading practices in business-to-business relationships in the agricultural and food supply chain — Final Report",
+        "author": "Areté s.r.l., Agra CEAS Consulting S.A. and Wageningen University & Research",
+        "year": 2025,
+        "documentType": "official_evaluation_study",
+        "category": "bibliotek",
+        "subcategory": null,
+        "country": "EU",
+        "summary": null,
+        "url": "https://op.europa.eu/o/opportal-service/download-handler?format=pdf&identifier=e1044a53-cc06-11f0-8da2-01aa75ed71a1&language=en&productionSystem=cellar",
+        "accessedAt": "2026-08-02T23:18:31.334Z",
+        "archivedUrl": null,
+        "wordCount": 76020,
+        "tags": [
+          "eu",
+          "evaluation",
+          "food-supply-chain",
+          "official-source",
+          "utp"
+        ],
+        "metadata": {
+          "registration": {
+            "batchId": "source-registration.new-official-2026-08-02.v1",
+            "targetId": "registration.eu-utp-evaluation-support-study-2025",
+            "identityStatus": "provisional",
+            "sourceRoleStatus": "machine_provisional_only",
+            "canonicalIdentityKey": "document:official-eu-utp-evaluation-support-2025",
+            "lifecycleSourceId": "source.9c049dc64705408353b9ffb7"
+          },
+          "source": {
+            "officialUrl": "https://op.europa.eu/o/opportal-service/download-handler?format=pdf&identifier=e1044a53-cc06-11f0-8da2-01aa75ed71a1&language=en&productionSystem=cellar",
+            "doi": "10.2762/2191333",
+            "publicationDateStatement": "March 2025",
+            "languageCodes": ["en"],
+            "rawContentSha256": "c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7",
+            "rawContentSizeBytes": 3409774,
+            "pageCount": 150
+          },
+          "readiness": {
+            "identityVerified": false,
+            "sourceAnalysisComplete": false,
+            "ownerReviewComplete": false,
+            "independentExpertReviewComplete": false,
+            "partnerReviewComplete": false,
+            "rightsHolderReviewComplete": false,
+            "rightsCleared": false,
+            "publicationReady": false,
+            "externalUseAllowed": false,
+            "coveragePromotionAllowed": false
+          }
+        },
+        "contentBinding": {
+          "source": "exact_private_normalized_pages",
+          "serializationId": "normalized-pages-joined-with-page-boundary-v1",
+          "charset": "utf-8",
+          "pageOrder": "ascending_page_number",
+          "pageSequence": "contiguous_from_1",
+          "delimiterUtf8": "\n\n--food-systems-page-boundary-v1--\n\n",
+          "sha256": "sha256:f388105fdef63cad31aa3412bf335923ec2a4c71ddd9eb8421af6019847e2d62",
+          "sizeBytes": 503882,
+          "characterCount": 501527,
+          "wordCount": 76020,
+          "pageCount": 150,
+          "contentValueStoredInPlan": false,
+          "privateAbsolutePathStoredInPlan": false
+        },
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:870fc54c1b84f61d828811483f27bdf074dba7b011a3782b60d0b22371a62008"
+      },
+      "intendedLibraryAnalysisRow": {
+        "id": "library-analysis.9c049dc64705408353b9ffb7",
+        "sourceKind": "document",
+        "sourceKey": "document:official-eu-utp-evaluation-support-2025",
+        "documentId": "official-eu-utp-evaluation-support-2025",
+        "sourceDocId": null,
+        "canonicalPath": "research/evidence-pack/nordisk/eu-utp-evaluation-support-study-2025.pdf",
+        "title": "Evaluation support study of the EU Directive 2019/633 on unfair trading practices in business-to-business relationships in the agricultural and food supply chain — Final Report",
+        "status": "not_started",
+        "usageRule": "internal_background",
+        "reviewStatus": "not_reviewed",
+        "citationReadiness": null,
+        "analysisTier": "inventory_only",
+        "aiCard": null,
+        "aiSummary": null,
+        "keyFindings": [],
+        "claimCandidates": null,
+        "projectImplications": [],
+        "gaps": null,
+        "controlLinks": {
+          "sourceRegistrationBatch": "knowledge/corpus/source-registration/source-registration-batch-2026-08-02.v1.json",
+          "acquisitionReceipt": "knowledge/corpus/source-acquisition-receipts/receipts/eu-utp-evaluation-support-study-2025.official.20260802.v1.json",
+          "extractionReceipt": "knowledge/corpus/pdf-page-extraction/receipts/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7.receipt.v1.json",
+          "pageMap": "knowledge/corpus/pdf-page-extraction/page-maps/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7.page-map.v1.json",
+          "sourceAnalysisInputManifest": "knowledge/corpus/source-analysis-input-manifests/manifests/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7.source-analysis-input-manifest.v1.json"
+        },
+        "riskFlags": [
+          "identity_provisional",
+          "owner_review_required",
+          "rights_pending_not_cleared",
+          "source_analysis_not_started"
+        ],
+        "contentHash": "c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7",
+        "wordCount": 76020,
+        "processedAt": null,
+        "reviewedAt": null,
+        "reviewer": null,
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:e23a5df1d27beac40c0d941ddfa676aab577602ba0b712d6d8e1923479ecf526"
+      },
+      "intendedPrivateRecoveryRow": {
+        "identityKey": "document:official-eu-utp-evaluation-support-2025",
+        "canonicalPath": "research/evidence-pack/nordisk/eu-utp-evaluation-support-study-2025.pdf",
+        "sha256": "c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7",
+        "sizeBytes": 3409774,
+        "internalLocator": "private://corpus/sha256/c768ae2c77b96df216c213ac0e5869cf2e53313c30fe236307d0361c475fcae7",
+        "replicaClass": "bigbrain_private_archive",
+        "repositoryAvailable": false,
+        "fullTextReviewed": false,
+        "rightsState": "pending_not_cleared"
+      },
+      "observedDocumentRowSha256": [],
+      "observedLibraryRowSha256": [],
+      "privateRecoveryState": "pending_append",
+      "conflicts": [],
+      "permissions": {
+        "registrationApplyAllowed": false,
+        "identityVerificationComplete": false,
+        "sourceAnalysisAllowed": false,
+        "externalUseAllowed": false,
+        "coveragePromotionAllowed": false
+      }
+    },
+    {
+      "targetId": "registration.fi-etmv-annual-2025",
+      "preRegistrationCandidateKey": "candidate:source.fi.etmv.annual-report-2025",
+      "canonicalIdentityKey": "document:official-fi-etmv-annual-2025",
+      "lifecycleSourceId": "source.da80ef2ae1d1712dfd7aef6b",
+      "state": "pending",
+      "artifactEvidence": {
+        "acquisitionReceipt": {
+          "path": "knowledge/corpus/source-acquisition-receipts/receipts/fi-etmv-annual-2025.official.20260802.v1.json",
+          "fileSha256": "sha256:0a5c794b8b12cf705213a56346320220a0c7c14cc35c4ca870edbd8a5fdf3d30",
+          "sizeBytes": 1349,
+          "internalSealType": "source_acquisition_receipt_sha256",
+          "internalSeal": "sha256:0b3b45a4d4af2e722722844878ef34723b77d115344a867a84bda576d6dc0651"
+        },
+        "extractionReceipt": {
+          "path": "knowledge/corpus/pdf-page-extraction/receipts/7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142.receipt.v1.json",
+          "fileSha256": "sha256:09725f748d7611484182b228eeb33495d9552c07e3c479860a30f5d7f6986945",
+          "sizeBytes": 3421,
+          "internalSealType": "pdf_qualification_receipt_sha256",
+          "internalSeal": "sha256:285e04e47ccf3dac881a14a85b8a7b0aee56e0547ae620ca3636fa879b8aad0d"
+        },
+        "pageMap": {
+          "path": "knowledge/corpus/pdf-page-extraction/page-maps/7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142.page-map.v1.json",
+          "fileSha256": "sha256:401df6dbd34ce40a08cf46813eb239b3508d3be6611fb4149f015468e542ff23",
+          "sizeBytes": 24367,
+          "internalSealType": "pdf_page_map_sha256",
+          "internalSeal": "sha256:b5b0eefb31a1e718534da741c61b8dc48f06b94fad5f31db7a8757302cc3276b"
+        },
+        "sourceAnalysisInputManifest": {
+          "path": "knowledge/corpus/source-analysis-input-manifests/manifests/7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142.source-analysis-input-manifest.v1.json",
+          "fileSha256": "sha256:3ea4e4e9db9f6c8ce6a5d8cf48b590f955ebe72ff16652e4516ea45f0b4d6e0f",
+          "sizeBytes": 8812,
+          "internalSealType": "source_analysis_input_manifest_sha256",
+          "internalSeal": "sha256:8a997256fcfc40252839c5a3c4803f6b2e32a14056600a159b6c2f738972709b"
+        },
+        "privateVerification": {
+          "rawPdfPortablePath": "sha256/7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142.pdf",
+          "rawPageTextPortablePathTemplate": "pdf-page-extraction/v1/sha256/7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142/pages/page-{pageNumber:0000}.raw.txt",
+          "normalizedPagePortablePathTemplate": "pdf-page-extraction/v1/sha256/7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142/pages/page-{pageNumber:0000}.normalized.txt",
+          "pageCount": 18,
+          "rawPageTextFileCountPerCopy": 18,
+          "normalizedPageFileCountPerCopy": 18,
+          "rawPdfSha256": "sha256:7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142",
+          "rawPageTextSetSha256": "sha256:e3a2b222d3133fd90e56cba1fa5953c2342be2b6718dadafa3199b53b3867c27",
+          "normalizedPageSetSha256": "sha256:1feb0f18b5e2e8de8c138e21df9fdbae90d29d676548e74fafa06cc1c8e19f59",
+          "primaryCopyVerified": true,
+          "replicaCopyVerified": true,
+          "distinctRootsVerified": true,
+          "distinctFilesVerified": true,
+          "rootMode": "0700",
+          "fileMode": "0400",
+          "absoluteRootsStoredInPlan": false
+        }
+      },
+      "intendedDocumentRow": {
+        "id": "official-fi-etmv-annual-2025",
+        "slug": "official-fi-etmv-annual-2025",
+        "filePath": "research/evidence-pack/nordisk/etmv-toimintakertomus-2025.pdf",
+        "title": "Elintarvikemarkkinavaltuutetun toimintakertomus 2025",
+        "author": "Elintarvikemarkkinavaltuutettu / Finnish Food Market Ombudsman",
+        "year": 2025,
+        "documentType": "official_annual_report",
+        "category": "bibliotek",
+        "subcategory": null,
+        "country": "FI",
+        "summary": null,
+        "url": "https://www.ruokavirasto.fi/globalassets/etmv/etmv_toimintakertomus_2025.pdf",
+        "accessedAt": "2026-08-02T23:18:29.432Z",
+        "archivedUrl": null,
+        "wordCount": 4943,
+        "tags": ["finland", "food-market-ombudsman", "official-source", "utp"],
+        "metadata": {
+          "registration": {
+            "batchId": "source-registration.new-official-2026-08-02.v1",
+            "targetId": "registration.fi-etmv-annual-2025",
+            "identityStatus": "provisional",
+            "sourceRoleStatus": "machine_provisional_only",
+            "canonicalIdentityKey": "document:official-fi-etmv-annual-2025",
+            "lifecycleSourceId": "source.da80ef2ae1d1712dfd7aef6b"
+          },
+          "source": {
+            "officialUrl": "https://www.ruokavirasto.fi/globalassets/etmv/etmv_toimintakertomus_2025.pdf",
+            "doi": null,
+            "publicationDateStatement": "2025 reporting year; exact publication date not yet identity-verified",
+            "languageCodes": ["fi"],
+            "rawContentSha256": "7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142",
+            "rawContentSizeBytes": 836553,
+            "pageCount": 18
+          },
+          "readiness": {
+            "identityVerified": false,
+            "sourceAnalysisComplete": false,
+            "ownerReviewComplete": false,
+            "independentExpertReviewComplete": false,
+            "partnerReviewComplete": false,
+            "rightsHolderReviewComplete": false,
+            "rightsCleared": false,
+            "publicationReady": false,
+            "externalUseAllowed": false,
+            "coveragePromotionAllowed": false
+          }
+        },
+        "contentBinding": {
+          "source": "exact_private_normalized_pages",
+          "serializationId": "normalized-pages-joined-with-page-boundary-v1",
+          "charset": "utf-8",
+          "pageOrder": "ascending_page_number",
+          "pageSequence": "contiguous_from_1",
+          "delimiterUtf8": "\n\n--food-systems-page-boundary-v1--\n\n",
+          "sha256": "sha256:881fd579142857fb023d547aeb92a23e6090c3f02f967ae1e8f5abc65e68f16b",
+          "sizeBytes": 53300,
+          "characterCount": 51716,
+          "wordCount": 4943,
+          "pageCount": 18,
+          "contentValueStoredInPlan": false,
+          "privateAbsolutePathStoredInPlan": false
+        },
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:c4568d53473a4e40d87373bcff107cc531db7a021040add0ddfe4d33db75181e"
+      },
+      "intendedLibraryAnalysisRow": {
+        "id": "library-analysis.da80ef2ae1d1712dfd7aef6b",
+        "sourceKind": "document",
+        "sourceKey": "document:official-fi-etmv-annual-2025",
+        "documentId": "official-fi-etmv-annual-2025",
+        "sourceDocId": null,
+        "canonicalPath": "research/evidence-pack/nordisk/etmv-toimintakertomus-2025.pdf",
+        "title": "Elintarvikemarkkinavaltuutetun toimintakertomus 2025",
+        "status": "not_started",
+        "usageRule": "internal_background",
+        "reviewStatus": "not_reviewed",
+        "citationReadiness": null,
+        "analysisTier": "inventory_only",
+        "aiCard": null,
+        "aiSummary": null,
+        "keyFindings": [],
+        "claimCandidates": null,
+        "projectImplications": [],
+        "gaps": null,
+        "controlLinks": {
+          "sourceRegistrationBatch": "knowledge/corpus/source-registration/source-registration-batch-2026-08-02.v1.json",
+          "acquisitionReceipt": "knowledge/corpus/source-acquisition-receipts/receipts/fi-etmv-annual-2025.official.20260802.v1.json",
+          "extractionReceipt": "knowledge/corpus/pdf-page-extraction/receipts/7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142.receipt.v1.json",
+          "pageMap": "knowledge/corpus/pdf-page-extraction/page-maps/7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142.page-map.v1.json",
+          "sourceAnalysisInputManifest": "knowledge/corpus/source-analysis-input-manifests/manifests/7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142.source-analysis-input-manifest.v1.json"
+        },
+        "riskFlags": [
+          "identity_provisional",
+          "owner_review_required",
+          "rights_pending_not_cleared",
+          "source_analysis_not_started"
+        ],
+        "contentHash": "7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142",
+        "wordCount": 4943,
+        "processedAt": null,
+        "reviewedAt": null,
+        "reviewer": null,
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:9e8f74dc3a8155da8097a21565ebe4c9cfd872c5bf166480e23ea9c43a721033"
+      },
+      "intendedPrivateRecoveryRow": {
+        "identityKey": "document:official-fi-etmv-annual-2025",
+        "canonicalPath": "research/evidence-pack/nordisk/etmv-toimintakertomus-2025.pdf",
+        "sha256": "7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142",
+        "sizeBytes": 836553,
+        "internalLocator": "private://corpus/sha256/7c57d772952be1a93d12fce3f095e4ff7fe0ec55a6f265c403d845f09fcad142",
+        "replicaClass": "bigbrain_private_archive",
+        "repositoryAvailable": false,
+        "fullTextReviewed": false,
+        "rightsState": "pending_not_cleared"
+      },
+      "observedDocumentRowSha256": [],
+      "observedLibraryRowSha256": [],
+      "privateRecoveryState": "pending_append",
+      "conflicts": [],
+      "permissions": {
+        "registrationApplyAllowed": false,
+        "identityVerificationComplete": false,
+        "sourceAnalysisAllowed": false,
+        "externalUseAllowed": false,
+        "coveragePromotionAllowed": false
+      }
+    },
+    {
+      "targetId": "registration.is-grocery-prices-2026-1",
+      "preRegistrationCandidateKey": "candidate:source.is.competition-authority.grocery-prices-2026-1",
+      "canonicalIdentityKey": "document:official-is-grocery-prices-2026-1",
+      "lifecycleSourceId": "source.8f08234643b83d9ea986a10f",
+      "state": "pending",
+      "artifactEvidence": {
+        "acquisitionReceipt": {
+          "path": "knowledge/corpus/source-acquisition-receipts/receipts/is-grocery-prices-2026-1.official.20260802.v1.json",
+          "fileSha256": "sha256:ca42bd64a4781023c8b07b22e674944aa63c3594bf81149492939e198429512c",
+          "sizeBytes": 1452,
+          "internalSealType": "source_acquisition_receipt_sha256",
+          "internalSeal": "sha256:2eb3ce4132d3cf539a4b0d75b81298e9afdd6a1bc6def17191c855569ee2512f"
+        },
+        "extractionReceipt": {
+          "path": "knowledge/corpus/pdf-page-extraction/receipts/528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025.receipt.v1.json",
+          "fileSha256": "sha256:45a5709b40e5a7cc5fa20c27e5321b7e0461c8ae73184ba0a4f3e082515d7b1e",
+          "sizeBytes": 3944,
+          "internalSealType": "pdf_qualification_receipt_sha256",
+          "internalSeal": "sha256:5e5b5d6f312bfe05caa21313c8b3417f8d769551143131135f126ee73d92e9be"
+        },
+        "pageMap": {
+          "path": "knowledge/corpus/pdf-page-extraction/page-maps/528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025.page-map.v1.json",
+          "fileSha256": "sha256:9c2fc46635d3bd01c2a6a8babe04483937b78ee3e3a3a5c4dcca168addffcd79",
+          "sizeBytes": 22493,
+          "internalSealType": "pdf_page_map_sha256",
+          "internalSeal": "sha256:311d83794294a3ab83f75c23cc73a22a184e305c2672147dec261e1313620974"
+        },
+        "sourceAnalysisInputManifest": {
+          "path": "knowledge/corpus/source-analysis-input-manifests/manifests/528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025.source-analysis-input-manifest.v1.json",
+          "fileSha256": "sha256:7ba8d6195c06572cc81ad636e0770268bfe346a1a7380b471f0ac637f01e1327",
+          "sizeBytes": 8442,
+          "internalSealType": "source_analysis_input_manifest_sha256",
+          "internalSeal": "sha256:5376fe9d2d6a32fee581ecb12e29ad9a1d8e134a7a57c92c926e93cb6e79f8db"
+        },
+        "privateVerification": {
+          "rawPdfPortablePath": "sha256/528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025.pdf",
+          "rawPageTextPortablePathTemplate": "pdf-page-extraction/v1/sha256/528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025/pages/page-{pageNumber:0000}.raw.txt",
+          "normalizedPagePortablePathTemplate": "pdf-page-extraction/v1/sha256/528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025/pages/page-{pageNumber:0000}.normalized.txt",
+          "pageCount": 16,
+          "rawPageTextFileCountPerCopy": 16,
+          "normalizedPageFileCountPerCopy": 16,
+          "rawPdfSha256": "sha256:528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025",
+          "rawPageTextSetSha256": "sha256:cfd004bfee1180ab9734fad3aa95f9a88a602df78295ee9a56aa6a8b7a5dde71",
+          "normalizedPageSetSha256": "sha256:6e1dcbf7fda681978bef2218e3e02d7c7d31c4a9a24922d567ca38db62c764c3",
+          "primaryCopyVerified": true,
+          "replicaCopyVerified": true,
+          "distinctRootsVerified": true,
+          "distinctFilesVerified": true,
+          "rootMode": "0700",
+          "fileMode": "0400",
+          "absoluteRootsStoredInPlan": false
+        }
+      },
+      "intendedDocumentRow": {
+        "id": "official-is-grocery-prices-2026-1",
+        "slug": "official-is-grocery-prices-2026-1",
+        "filePath": "research/evidence-pack/nordisk/island-dagvoruverd-2026-1.pdf",
+        "title": "Dagvöruverð á Íslandi — Þróun og alþjóðlegur samanburður, umræðuskjal nr. 1/2026",
+        "author": "Samkeppniseftirlitið",
+        "year": 2026,
+        "documentType": "official_discussion_paper",
+        "category": "bibliotek",
+        "subcategory": null,
+        "country": "IS",
+        "summary": null,
+        "url": "https://www.samkeppni.is/wp-content/uploads/2026/06/Samkeppniseftirlitid-Dagvoruverd-og-samanburdur-vid-utlond.pdf",
+        "accessedAt": "2026-08-02T23:18:30.785Z",
+        "archivedUrl": null,
+        "wordCount": 2101,
+        "tags": ["competition", "food-prices", "iceland", "official-source"],
+        "metadata": {
+          "registration": {
+            "batchId": "source-registration.new-official-2026-08-02.v1",
+            "targetId": "registration.is-grocery-prices-2026-1",
+            "identityStatus": "provisional",
+            "sourceRoleStatus": "machine_provisional_only",
+            "canonicalIdentityKey": "document:official-is-grocery-prices-2026-1",
+            "lifecycleSourceId": "source.8f08234643b83d9ea986a10f"
+          },
+          "source": {
+            "officialUrl": "https://www.samkeppni.is/wp-content/uploads/2026/06/Samkeppniseftirlitid-Dagvoruverd-og-samanburdur-vid-utlond.pdf",
+            "doi": null,
+            "publicationDateStatement": "2026; exact publication date not yet identity-verified",
+            "languageCodes": ["is"],
+            "rawContentSha256": "528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025",
+            "rawContentSizeBytes": 3494455,
+            "pageCount": 16
+          },
+          "readiness": {
+            "identityVerified": false,
+            "sourceAnalysisComplete": false,
+            "ownerReviewComplete": false,
+            "independentExpertReviewComplete": false,
+            "partnerReviewComplete": false,
+            "rightsHolderReviewComplete": false,
+            "rightsCleared": false,
+            "publicationReady": false,
+            "externalUseAllowed": false,
+            "coveragePromotionAllowed": false
+          }
+        },
+        "contentBinding": {
+          "source": "exact_private_normalized_pages",
+          "serializationId": "normalized-pages-joined-with-page-boundary-v1",
+          "charset": "utf-8",
+          "pageOrder": "ascending_page_number",
+          "pageSequence": "contiguous_from_1",
+          "delimiterUtf8": "\n\n--food-systems-page-boundary-v1--\n\n",
+          "sha256": "sha256:53937a217bf6ffe3eb91eccf5e7c5f25c785844cb557a65cf3d550bfb3603e61",
+          "sizeBytes": 16435,
+          "characterCount": 14908,
+          "wordCount": 2101,
+          "pageCount": 16,
+          "contentValueStoredInPlan": false,
+          "privateAbsolutePathStoredInPlan": false
+        },
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:9c26bdc32509f4a090c304ba29221952d5a7bf8484b9d5b4b5589f138d547e85"
+      },
+      "intendedLibraryAnalysisRow": {
+        "id": "library-analysis.8f08234643b83d9ea986a10f",
+        "sourceKind": "document",
+        "sourceKey": "document:official-is-grocery-prices-2026-1",
+        "documentId": "official-is-grocery-prices-2026-1",
+        "sourceDocId": null,
+        "canonicalPath": "research/evidence-pack/nordisk/island-dagvoruverd-2026-1.pdf",
+        "title": "Dagvöruverð á Íslandi — Þróun og alþjóðlegur samanburður, umræðuskjal nr. 1/2026",
+        "status": "not_started",
+        "usageRule": "internal_background",
+        "reviewStatus": "not_reviewed",
+        "citationReadiness": null,
+        "analysisTier": "inventory_only",
+        "aiCard": null,
+        "aiSummary": null,
+        "keyFindings": [],
+        "claimCandidates": null,
+        "projectImplications": [],
+        "gaps": null,
+        "controlLinks": {
+          "sourceRegistrationBatch": "knowledge/corpus/source-registration/source-registration-batch-2026-08-02.v1.json",
+          "acquisitionReceipt": "knowledge/corpus/source-acquisition-receipts/receipts/is-grocery-prices-2026-1.official.20260802.v1.json",
+          "extractionReceipt": "knowledge/corpus/pdf-page-extraction/receipts/528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025.receipt.v1.json",
+          "pageMap": "knowledge/corpus/pdf-page-extraction/page-maps/528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025.page-map.v1.json",
+          "sourceAnalysisInputManifest": "knowledge/corpus/source-analysis-input-manifests/manifests/528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025.source-analysis-input-manifest.v1.json"
+        },
+        "riskFlags": [
+          "identity_provisional",
+          "owner_review_required",
+          "rights_pending_not_cleared",
+          "source_analysis_not_started"
+        ],
+        "contentHash": "528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025",
+        "wordCount": 2101,
+        "processedAt": null,
+        "reviewedAt": null,
+        "reviewer": null,
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:6ea3261bf144d2963e5b3e6c53e8fd18396c51d4c418e007b019835402dedd8c"
+      },
+      "intendedPrivateRecoveryRow": {
+        "identityKey": "document:official-is-grocery-prices-2026-1",
+        "canonicalPath": "research/evidence-pack/nordisk/island-dagvoruverd-2026-1.pdf",
+        "sha256": "528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025",
+        "sizeBytes": 3494455,
+        "internalLocator": "private://corpus/sha256/528225707ca824c84590b656348b6397bc6503d306a94edbf0543a15bca92025",
+        "replicaClass": "bigbrain_private_archive",
+        "repositoryAvailable": false,
+        "fullTextReviewed": false,
+        "rightsState": "pending_not_cleared"
+      },
+      "observedDocumentRowSha256": [],
+      "observedLibraryRowSha256": [],
+      "privateRecoveryState": "pending_append",
+      "conflicts": [],
+      "permissions": {
+        "registrationApplyAllowed": false,
+        "identityVerificationComplete": false,
+        "sourceAnalysisAllowed": false,
+        "externalUseAllowed": false,
+        "coveragePromotionAllowed": false
+      }
+    },
+    {
+      "targetId": "registration.is-grocery-prices-2026-1-method",
+      "preRegistrationCandidateKey": "candidate:source.is.competition-authority.grocery-prices-2026-1-method",
+      "canonicalIdentityKey": "document:official-is-grocery-prices-2026-1-method",
+      "lifecycleSourceId": "source.1f4b0dd8545926d145072570",
+      "state": "pending",
+      "artifactEvidence": {
+        "acquisitionReceipt": {
+          "path": "knowledge/corpus/source-acquisition-receipts/receipts/is-grocery-prices-2026-1-method.official.20260802.v1.json",
+          "fileSha256": "sha256:d0011a9b0d1fa035e163a2c0ef68246619c3d64ab4bc0c881afaf99cce732586",
+          "sizeBytes": 1470,
+          "internalSealType": "source_acquisition_receipt_sha256",
+          "internalSeal": "sha256:455e5d161176fc4be5e73850845355641e4fbc3ea223e94c453ccaea6dfd8334"
+        },
+        "extractionReceipt": {
+          "path": "knowledge/corpus/pdf-page-extraction/receipts/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148.receipt.v1.json",
+          "fileSha256": "sha256:6225bf7f5c56e62053df2de6747c7dfd403f922600242bc405c70573931536c9",
+          "sizeBytes": 3507,
+          "internalSealType": "pdf_qualification_receipt_sha256",
+          "internalSeal": "sha256:da65c052a7eca3e1ba0d88c2f12ec120c3f93fa13d159eb4022d80af131f6408"
+        },
+        "pageMap": {
+          "path": "knowledge/corpus/pdf-page-extraction/page-maps/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148.page-map.v1.json",
+          "fileSha256": "sha256:de1b91b7a388097500d4ee54fe29ce9807c4d09e59fa79670264c3ca356688b3",
+          "sizeBytes": 4512,
+          "internalSealType": "pdf_page_map_sha256",
+          "internalSeal": "sha256:6321c3a0becf53e42b8e398da27b39d34c5c3227afc83d0543bca9b63c9d3daf"
+        },
+        "sourceAnalysisInputManifest": {
+          "path": "knowledge/corpus/source-analysis-input-manifests/manifests/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148.source-analysis-input-manifest.v1.json",
+          "fileSha256": "sha256:98fdff47d5cde84615d6c4580a1f48dae4c2529103f0ae29bbffc6365bc2c12f",
+          "sizeBytes": 5179,
+          "internalSealType": "source_analysis_input_manifest_sha256",
+          "internalSeal": "sha256:b6811bfc996284e49cbb8b0aec9afaad2db503fd3fde353a8c8d42d720787adc"
+        },
+        "privateVerification": {
+          "rawPdfPortablePath": "sha256/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148.pdf",
+          "rawPageTextPortablePathTemplate": "pdf-page-extraction/v1/sha256/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148/pages/page-{pageNumber:0000}.raw.txt",
+          "normalizedPagePortablePathTemplate": "pdf-page-extraction/v1/sha256/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148/pages/page-{pageNumber:0000}.normalized.txt",
+          "pageCount": 2,
+          "rawPageTextFileCountPerCopy": 2,
+          "normalizedPageFileCountPerCopy": 2,
+          "rawPdfSha256": "sha256:4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148",
+          "rawPageTextSetSha256": "sha256:de207dfe12659e6011acf8a3914d2cb1f9644de6fd97568e01a7ea6e0b551067",
+          "normalizedPageSetSha256": "sha256:c644c1994bb9dfb93f97a4cf75ba410558a5badedc274563666f9f8d57f4a8c8",
+          "primaryCopyVerified": true,
+          "replicaCopyVerified": true,
+          "distinctRootsVerified": true,
+          "distinctFilesVerified": true,
+          "rootMode": "0700",
+          "fileMode": "0400",
+          "absoluteRootsStoredInPlan": false
+        }
+      },
+      "intendedDocumentRow": {
+        "id": "official-is-grocery-prices-2026-1-method",
+        "slug": "official-is-grocery-prices-2026-1-method",
+        "filePath": "research/evidence-pack/nordisk/island-dagvoruverd-2026-1-metode.pdf",
+        "title": "Minnisblað um gögn og aðferðafræði umræðuskjals nr. 1/2026 — Dagvöruverð og samanburður við útlönd",
+        "author": "Samkeppniseftirlitið",
+        "year": 2026,
+        "documentType": "official_method_note",
+        "category": "bibliotek",
+        "subcategory": null,
+        "country": "IS",
+        "summary": null,
+        "url": "https://www.samkeppni.is/wp-content/uploads/2026/06/Minnisblad-um-gogn-og-adferdafraedi-umraeduskjals-nr.-1-2026-1.pdf",
+        "accessedAt": "2026-08-02T23:18:31.082Z",
+        "archivedUrl": null,
+        "wordCount": 356,
+        "tags": ["food-prices", "iceland", "methodology", "official-source"],
+        "metadata": {
+          "registration": {
+            "batchId": "source-registration.new-official-2026-08-02.v1",
+            "targetId": "registration.is-grocery-prices-2026-1-method",
+            "identityStatus": "provisional",
+            "sourceRoleStatus": "machine_provisional_only",
+            "canonicalIdentityKey": "document:official-is-grocery-prices-2026-1-method",
+            "lifecycleSourceId": "source.1f4b0dd8545926d145072570"
+          },
+          "source": {
+            "officialUrl": "https://www.samkeppni.is/wp-content/uploads/2026/06/Minnisblad-um-gogn-og-adferdafraedi-umraeduskjals-nr.-1-2026-1.pdf",
+            "doi": null,
+            "publicationDateStatement": "2026; exact publication date not stated in the document",
+            "languageCodes": ["is"],
+            "rawContentSha256": "4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148",
+            "rawContentSizeBytes": 78520,
+            "pageCount": 2
+          },
+          "readiness": {
+            "identityVerified": false,
+            "sourceAnalysisComplete": false,
+            "ownerReviewComplete": false,
+            "independentExpertReviewComplete": false,
+            "partnerReviewComplete": false,
+            "rightsHolderReviewComplete": false,
+            "rightsCleared": false,
+            "publicationReady": false,
+            "externalUseAllowed": false,
+            "coveragePromotionAllowed": false
+          }
+        },
+        "contentBinding": {
+          "source": "exact_private_normalized_pages",
+          "serializationId": "normalized-pages-joined-with-page-boundary-v1",
+          "charset": "utf-8",
+          "pageOrder": "ascending_page_number",
+          "pageSequence": "contiguous_from_1",
+          "delimiterUtf8": "\n\n--food-systems-page-boundary-v1--\n\n",
+          "sha256": "sha256:7587c1be8da32b728381f2c040e595da9eda714bd292e533c4411ecfb0cb6127",
+          "sizeBytes": 2437,
+          "characterCount": 2275,
+          "wordCount": 356,
+          "pageCount": 2,
+          "contentValueStoredInPlan": false,
+          "privateAbsolutePathStoredInPlan": false
+        },
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:08cb90d812cedc0d4865f8dbe3f8824cba198073214ddf5d804f62b1462b63dd"
+      },
+      "intendedLibraryAnalysisRow": {
+        "id": "library-analysis.1f4b0dd8545926d145072570",
+        "sourceKind": "document",
+        "sourceKey": "document:official-is-grocery-prices-2026-1-method",
+        "documentId": "official-is-grocery-prices-2026-1-method",
+        "sourceDocId": null,
+        "canonicalPath": "research/evidence-pack/nordisk/island-dagvoruverd-2026-1-metode.pdf",
+        "title": "Minnisblað um gögn og aðferðafræði umræðuskjals nr. 1/2026 — Dagvöruverð og samanburður við útlönd",
+        "status": "not_started",
+        "usageRule": "internal_background",
+        "reviewStatus": "not_reviewed",
+        "citationReadiness": null,
+        "analysisTier": "inventory_only",
+        "aiCard": null,
+        "aiSummary": null,
+        "keyFindings": [],
+        "claimCandidates": null,
+        "projectImplications": [],
+        "gaps": null,
+        "controlLinks": {
+          "sourceRegistrationBatch": "knowledge/corpus/source-registration/source-registration-batch-2026-08-02.v1.json",
+          "acquisitionReceipt": "knowledge/corpus/source-acquisition-receipts/receipts/is-grocery-prices-2026-1-method.official.20260802.v1.json",
+          "extractionReceipt": "knowledge/corpus/pdf-page-extraction/receipts/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148.receipt.v1.json",
+          "pageMap": "knowledge/corpus/pdf-page-extraction/page-maps/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148.page-map.v1.json",
+          "sourceAnalysisInputManifest": "knowledge/corpus/source-analysis-input-manifests/manifests/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148.source-analysis-input-manifest.v1.json"
+        },
+        "riskFlags": [
+          "identity_provisional",
+          "owner_review_required",
+          "rights_pending_not_cleared",
+          "source_analysis_not_started"
+        ],
+        "contentHash": "4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148",
+        "wordCount": 356,
+        "processedAt": null,
+        "reviewedAt": null,
+        "reviewer": null,
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:710956a2074b37b6d332d930a09462f38ad6d9ff091cd52b590ac9162359d6cb"
+      },
+      "intendedPrivateRecoveryRow": {
+        "identityKey": "document:official-is-grocery-prices-2026-1-method",
+        "canonicalPath": "research/evidence-pack/nordisk/island-dagvoruverd-2026-1-metode.pdf",
+        "sha256": "4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148",
+        "sizeBytes": 78520,
+        "internalLocator": "private://corpus/sha256/4023ace593e25259c2cfeffb18369c2c20b9558adc085b51b2b8c93347fd0148",
+        "replicaClass": "bigbrain_private_archive",
+        "repositoryAvailable": false,
+        "fullTextReviewed": false,
+        "rightsState": "pending_not_cleared"
+      },
+      "observedDocumentRowSha256": [],
+      "observedLibraryRowSha256": [],
+      "privateRecoveryState": "pending_append",
+      "conflicts": [],
+      "permissions": {
+        "registrationApplyAllowed": false,
+        "identityVerificationComplete": false,
+        "sourceAnalysisAllowed": false,
+        "externalUseAllowed": false,
+        "coveragePromotionAllowed": false
+      }
+    },
+    {
+      "targetId": "registration.no-dagligvaretilsyn-annual-2025",
+      "preRegistrationCandidateKey": "candidate:source.no.dagligvaretilsyn.annual-report-2025",
+      "canonicalIdentityKey": "document:official-no-dagligvaretilsyn-annual-2025",
+      "lifecycleSourceId": "source.3e0b4083d5d7e6a5e313368d",
+      "state": "pending",
+      "artifactEvidence": {
+        "acquisitionReceipt": {
+          "path": "knowledge/corpus/source-acquisition-receipts/receipts/no-dagligvaretilsyn-annual-2025.official.20260802.v1.json",
+          "fileSha256": "sha256:e5464e51bf03e7c137ebf3e8d4b8054680925ad26d40e40c8f72db18507b76f7",
+          "sizeBytes": 1447,
+          "internalSealType": "source_acquisition_receipt_sha256",
+          "internalSeal": "sha256:3ef65e6b960e843a0d5a9c23cf02f2c3bb3c98e03f356bb49f29f3973e5599f8"
+        },
+        "extractionReceipt": {
+          "path": "knowledge/corpus/pdf-page-extraction/receipts/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.receipt.v1.json",
+          "fileSha256": "sha256:8a957d62cfcdb39512eac5f8c55796eb45d847c29c5f76e4732c67bf24dd2634",
+          "sizeBytes": 3493,
+          "internalSealType": "pdf_qualification_receipt_sha256",
+          "internalSeal": "sha256:0190ad1c9b1f5ff1ab0211ae6009db9eac9779d04dd10418f4cb55753a0ef1bb"
+        },
+        "pageMap": {
+          "path": "knowledge/corpus/pdf-page-extraction/page-maps/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.page-map.v1.json",
+          "fileSha256": "sha256:768740200b09c0f6ab17cfafcd4ee35695fc9999df25618fd453f87d267508fd",
+          "sizeBytes": 70820,
+          "internalSealType": "pdf_page_map_sha256",
+          "internalSeal": "sha256:fac8cc8ad85119056cde2136245558d7b663c8ceda9eb79b9f85ab0c7bf2010e"
+        },
+        "sourceAnalysisInputManifest": {
+          "path": "knowledge/corpus/source-analysis-input-manifests/manifests/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.source-analysis-input-manifest.v1.json",
+          "fileSha256": "sha256:a5b2c5d065be5e5ee098840e43c0dddc1bc37f61d78f63f3d01aa61f163fd061",
+          "sizeBytes": 17735,
+          "internalSealType": "source_analysis_input_manifest_sha256",
+          "internalSeal": "sha256:ca4fed42d6952b5d31e73b370098976985030375e939ef2cdd4c7d0266d97323"
+        },
+        "privateVerification": {
+          "rawPdfPortablePath": "sha256/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.pdf",
+          "rawPageTextPortablePathTemplate": "pdf-page-extraction/v1/sha256/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8/pages/page-{pageNumber:0000}.raw.txt",
+          "normalizedPagePortablePathTemplate": "pdf-page-extraction/v1/sha256/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8/pages/page-{pageNumber:0000}.normalized.txt",
+          "pageCount": 55,
+          "rawPageTextFileCountPerCopy": 55,
+          "normalizedPageFileCountPerCopy": 55,
+          "rawPdfSha256": "sha256:1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8",
+          "rawPageTextSetSha256": "sha256:d93667a2ab9479a3d8db44e8b1b8257479e8167ec22e297368e52ab78d4ec25c",
+          "normalizedPageSetSha256": "sha256:0c7c83987fefc9abfd993b4ad073fc59602676da4d681146f4bc5f59cb5e17b4",
+          "primaryCopyVerified": true,
+          "replicaCopyVerified": true,
+          "distinctRootsVerified": true,
+          "distinctFilesVerified": true,
+          "rootMode": "0700",
+          "fileMode": "0400",
+          "absoluteRootsStoredInPlan": false
+        }
+      },
+      "intendedDocumentRow": {
+        "id": "official-no-dagligvaretilsyn-annual-2025",
+        "slug": "official-no-dagligvaretilsyn-annual-2025",
+        "filePath": "research/evidence-pack/nordisk/dagligvaretilsynet-aarsrapport-2025.pdf",
+        "title": "Årsrapport for Dagligvaretilsynet 2025",
+        "author": "Dagligvaretilsynet",
+        "year": 2025,
+        "documentType": "official_annual_report",
+        "category": "bibliotek",
+        "subcategory": null,
+        "country": "NO",
+        "summary": null,
+        "url": "https://www.regjeringen.no/contentassets/036ffda0c81e4b3f99456a78ec31df0e/arsrapport-dagligvaretilsynet-2025.pdf",
+        "accessedAt": "2026-08-02T23:18:30.272Z",
+        "archivedUrl": null,
+        "wordCount": 12113,
+        "tags": ["grocery-market", "norway", "official-source", "regulation"],
+        "metadata": {
+          "registration": {
+            "batchId": "source-registration.new-official-2026-08-02.v1",
+            "targetId": "registration.no-dagligvaretilsyn-annual-2025",
+            "identityStatus": "provisional",
+            "sourceRoleStatus": "machine_provisional_only",
+            "canonicalIdentityKey": "document:official-no-dagligvaretilsyn-annual-2025",
+            "lifecycleSourceId": "source.3e0b4083d5d7e6a5e313368d"
+          },
+          "source": {
+            "officialUrl": "https://www.regjeringen.no/contentassets/036ffda0c81e4b3f99456a78ec31df0e/arsrapport-dagligvaretilsynet-2025.pdf",
+            "doi": null,
+            "publicationDateStatement": "2025 reporting year; exact publication date not yet identity-verified",
+            "languageCodes": ["nb"],
+            "rawContentSha256": "1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8",
+            "rawContentSizeBytes": 1247932,
+            "pageCount": 55
+          },
+          "readiness": {
+            "identityVerified": false,
+            "sourceAnalysisComplete": false,
+            "ownerReviewComplete": false,
+            "independentExpertReviewComplete": false,
+            "partnerReviewComplete": false,
+            "rightsHolderReviewComplete": false,
+            "rightsCleared": false,
+            "publicationReady": false,
+            "externalUseAllowed": false,
+            "coveragePromotionAllowed": false
+          }
+        },
+        "contentBinding": {
+          "source": "exact_private_normalized_pages",
+          "serializationId": "normalized-pages-joined-with-page-boundary-v1",
+          "charset": "utf-8",
+          "pageOrder": "ascending_page_number",
+          "pageSequence": "contiguous_from_1",
+          "delimiterUtf8": "\n\n--food-systems-page-boundary-v1--\n\n",
+          "sha256": "sha256:96e171f78edea60c3769cef64eb44d8212426a86be1b2a8715804c14192ce90e",
+          "sizeBytes": 94508,
+          "characterCount": 92903,
+          "wordCount": 12113,
+          "pageCount": 55,
+          "contentValueStoredInPlan": false,
+          "privateAbsolutePathStoredInPlan": false
+        },
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:f1ef79f4517f307df04786261c172b6eca54fe253bf23c3cb7a65c3e88b64c13"
+      },
+      "intendedLibraryAnalysisRow": {
+        "id": "library-analysis.3e0b4083d5d7e6a5e313368d",
+        "sourceKind": "document",
+        "sourceKey": "document:official-no-dagligvaretilsyn-annual-2025",
+        "documentId": "official-no-dagligvaretilsyn-annual-2025",
+        "sourceDocId": null,
+        "canonicalPath": "research/evidence-pack/nordisk/dagligvaretilsynet-aarsrapport-2025.pdf",
+        "title": "Årsrapport for Dagligvaretilsynet 2025",
+        "status": "not_started",
+        "usageRule": "internal_background",
+        "reviewStatus": "not_reviewed",
+        "citationReadiness": null,
+        "analysisTier": "inventory_only",
+        "aiCard": null,
+        "aiSummary": null,
+        "keyFindings": [],
+        "claimCandidates": null,
+        "projectImplications": [],
+        "gaps": null,
+        "controlLinks": {
+          "sourceRegistrationBatch": "knowledge/corpus/source-registration/source-registration-batch-2026-08-02.v1.json",
+          "acquisitionReceipt": "knowledge/corpus/source-acquisition-receipts/receipts/no-dagligvaretilsyn-annual-2025.official.20260802.v1.json",
+          "extractionReceipt": "knowledge/corpus/pdf-page-extraction/receipts/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.receipt.v1.json",
+          "pageMap": "knowledge/corpus/pdf-page-extraction/page-maps/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.page-map.v1.json",
+          "sourceAnalysisInputManifest": "knowledge/corpus/source-analysis-input-manifests/manifests/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.source-analysis-input-manifest.v1.json"
+        },
+        "riskFlags": [
+          "identity_provisional",
+          "owner_review_required",
+          "rights_pending_not_cleared",
+          "source_analysis_not_started"
+        ],
+        "contentHash": "1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8",
+        "wordCount": 12113,
+        "processedAt": null,
+        "reviewedAt": null,
+        "reviewer": null,
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:8d36286d6ffb3575724211cf65f87dd4e648f04480564e02153aad23329d520a"
+      },
+      "intendedPrivateRecoveryRow": {
+        "identityKey": "document:official-no-dagligvaretilsyn-annual-2025",
+        "canonicalPath": "research/evidence-pack/nordisk/dagligvaretilsynet-aarsrapport-2025.pdf",
+        "sha256": "1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8",
+        "sizeBytes": 1247932,
+        "internalLocator": "private://corpus/sha256/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8",
+        "replicaClass": "bigbrain_private_archive",
+        "repositoryAvailable": false,
+        "fullTextReviewed": false,
+        "rightsState": "pending_not_cleared"
+      },
+      "observedDocumentRowSha256": [],
+      "observedLibraryRowSha256": [],
+      "privateRecoveryState": "pending_append",
+      "conflicts": [],
+      "permissions": {
+        "registrationApplyAllowed": false,
+        "identityVerificationComplete": false,
+        "sourceAnalysisAllowed": false,
+        "externalUseAllowed": false,
+        "coveragePromotionAllowed": false
+      }
+    },
+    {
+      "targetId": "registration.se-competition-supervision-2026-3",
+      "preRegistrationCandidateKey": "candidate:source.se.competition-authority.supervision-report-2026-3",
+      "canonicalIdentityKey": "document:official-se-competition-supervision-2026-3",
+      "lifecycleSourceId": "source.741812b5d5a916fb872b395e",
+      "state": "pending",
+      "artifactEvidence": {
+        "acquisitionReceipt": {
+          "path": "knowledge/corpus/source-acquisition-receipts/receipts/se-competition-supervision-2026-3.official.20260802.v1.json",
+          "fileSha256": "sha256:06d7044eba458dda737a73a226c68e3bf2ca4564e0bbecbb9f78f65f31550bb6",
+          "sizeBytes": 1499,
+          "internalSealType": "source_acquisition_receipt_sha256",
+          "internalSeal": "sha256:e68cac44eb3d0f9b4ea60489d731e16b71745e4c1743c6cdb7b7ac0a237db852"
+        },
+        "extractionReceipt": {
+          "path": "knowledge/corpus/pdf-page-extraction/receipts/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e.receipt.v1.json",
+          "fileSha256": "sha256:bbb2721709331be16433c25036c5166418a7f6d0097a1ea12eb818ac69a7ef30",
+          "sizeBytes": 3568,
+          "internalSealType": "pdf_qualification_receipt_sha256",
+          "internalSeal": "sha256:d594d092e096772ad7dfb5a47f4f5f88f59f77849a5522a043e29a9510bd97a7"
+        },
+        "pageMap": {
+          "path": "knowledge/corpus/pdf-page-extraction/page-maps/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e.page-map.v1.json",
+          "fileSha256": "sha256:34e44f5fcae1fde7cdfdd840a809f2d69d19abecce99a53e2a2a15ee81584f38",
+          "sizeBytes": 187501,
+          "internalSealType": "pdf_page_map_sha256",
+          "internalSeal": "sha256:042e2fafb32fdb56cad08602dee3e3a21aee8fafa5b1ab9ed391f41f790741d1"
+        },
+        "sourceAnalysisInputManifest": {
+          "path": "knowledge/corpus/source-analysis-input-manifests/manifests/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e.source-analysis-input-manifest.v1.json",
+          "fileSha256": "sha256:b00108049c3772401f5c2c9b5ca27f25f10c5619b01e324257de9e197125ea50",
+          "sizeBytes": 40289,
+          "internalSealType": "source_analysis_input_manifest_sha256",
+          "internalSeal": "sha256:c6676e5531be08008c29fd761201be3c28cdb3f69a8b10de16cebf41647d66f4"
+        },
+        "privateVerification": {
+          "rawPdfPortablePath": "sha256/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e.pdf",
+          "rawPageTextPortablePathTemplate": "pdf-page-extraction/v1/sha256/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e/pages/page-{pageNumber:0000}.raw.txt",
+          "normalizedPagePortablePathTemplate": "pdf-page-extraction/v1/sha256/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e/pages/page-{pageNumber:0000}.normalized.txt",
+          "pageCount": 148,
+          "rawPageTextFileCountPerCopy": 148,
+          "normalizedPageFileCountPerCopy": 148,
+          "rawPdfSha256": "sha256:9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e",
+          "rawPageTextSetSha256": "sha256:b76258a488b482fdff6d6e1782e97ced281de1f6cc6663f373585c4558e59965",
+          "normalizedPageSetSha256": "sha256:8b254ec247ae68828ecf953a01d7be903136811dad8f01e8c569b207d62c93c7",
+          "primaryCopyVerified": true,
+          "replicaCopyVerified": true,
+          "distinctRootsVerified": true,
+          "distinctFilesVerified": true,
+          "rootMode": "0700",
+          "fileMode": "0400",
+          "absoluteRootsStoredInPlan": false
+        }
+      },
+      "intendedDocumentRow": {
+        "id": "official-se-competition-supervision-2026-3",
+        "slug": "official-se-competition-supervision-2026-3",
+        "filePath": "research/evidence-pack/nordisk/konkurrensverket-tillsyn-2025-rapport-2026-3.pdf",
+        "title": "Konkurrensverkets tillsynsverksamhet 2025 — Rapport 2026:3",
+        "author": "Konkurrensverket",
+        "year": 2026,
+        "documentType": "official_supervision_report",
+        "category": "bibliotek",
+        "subcategory": null,
+        "country": "SE",
+        "summary": null,
+        "url": "https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2026-3.pdf",
+        "accessedAt": "2026-08-02T23:18:32.432Z",
+        "archivedUrl": null,
+        "wordCount": 50087,
+        "tags": ["competition", "enforcement", "official-source", "sweden"],
+        "metadata": {
+          "registration": {
+            "batchId": "source-registration.new-official-2026-08-02.v1",
+            "targetId": "registration.se-competition-supervision-2026-3",
+            "identityStatus": "provisional",
+            "sourceRoleStatus": "machine_provisional_only",
+            "canonicalIdentityKey": "document:official-se-competition-supervision-2026-3",
+            "lifecycleSourceId": "source.741812b5d5a916fb872b395e"
+          },
+          "source": {
+            "officialUrl": "https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2026-3.pdf",
+            "doi": null,
+            "publicationDateStatement": "March 2026",
+            "languageCodes": ["sv"],
+            "rawContentSha256": "9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e",
+            "rawContentSizeBytes": 1454264,
+            "pageCount": 148
+          },
+          "readiness": {
+            "identityVerified": false,
+            "sourceAnalysisComplete": false,
+            "ownerReviewComplete": false,
+            "independentExpertReviewComplete": false,
+            "partnerReviewComplete": false,
+            "rightsHolderReviewComplete": false,
+            "rightsCleared": false,
+            "publicationReady": false,
+            "externalUseAllowed": false,
+            "coveragePromotionAllowed": false
+          }
+        },
+        "contentBinding": {
+          "source": "exact_private_normalized_pages",
+          "serializationId": "normalized-pages-joined-with-page-boundary-v1",
+          "charset": "utf-8",
+          "pageOrder": "ascending_page_number",
+          "pageSequence": "contiguous_from_1",
+          "delimiterUtf8": "\n\n--food-systems-page-boundary-v1--\n\n",
+          "sha256": "sha256:7785525affc608a62c16a43e0db75f28adb8c447eba9378dededf2bba7d7119a",
+          "sizeBytes": 391346,
+          "characterCount": 377440,
+          "wordCount": 50087,
+          "pageCount": 148,
+          "contentValueStoredInPlan": false,
+          "privateAbsolutePathStoredInPlan": false
+        },
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:8cb99022814dd659f45c6080161af05bab3dbda63c435261cb9855c3392f7716"
+      },
+      "intendedLibraryAnalysisRow": {
+        "id": "library-analysis.741812b5d5a916fb872b395e",
+        "sourceKind": "document",
+        "sourceKey": "document:official-se-competition-supervision-2026-3",
+        "documentId": "official-se-competition-supervision-2026-3",
+        "sourceDocId": null,
+        "canonicalPath": "research/evidence-pack/nordisk/konkurrensverket-tillsyn-2025-rapport-2026-3.pdf",
+        "title": "Konkurrensverkets tillsynsverksamhet 2025 — Rapport 2026:3",
+        "status": "not_started",
+        "usageRule": "internal_background",
+        "reviewStatus": "not_reviewed",
+        "citationReadiness": null,
+        "analysisTier": "inventory_only",
+        "aiCard": null,
+        "aiSummary": null,
+        "keyFindings": [],
+        "claimCandidates": null,
+        "projectImplications": [],
+        "gaps": null,
+        "controlLinks": {
+          "sourceRegistrationBatch": "knowledge/corpus/source-registration/source-registration-batch-2026-08-02.v1.json",
+          "acquisitionReceipt": "knowledge/corpus/source-acquisition-receipts/receipts/se-competition-supervision-2026-3.official.20260802.v1.json",
+          "extractionReceipt": "knowledge/corpus/pdf-page-extraction/receipts/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e.receipt.v1.json",
+          "pageMap": "knowledge/corpus/pdf-page-extraction/page-maps/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e.page-map.v1.json",
+          "sourceAnalysisInputManifest": "knowledge/corpus/source-analysis-input-manifests/manifests/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e.source-analysis-input-manifest.v1.json"
+        },
+        "riskFlags": [
+          "identity_provisional",
+          "owner_review_required",
+          "rights_pending_not_cleared",
+          "source_analysis_not_started"
+        ],
+        "contentHash": "9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e",
+        "wordCount": 50087,
+        "processedAt": null,
+        "reviewedAt": null,
+        "reviewer": null,
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:aab00bbf044c4fda55a2c18aa273d1ebc6efaa3582f3fabb609e8dc533f4db86"
+      },
+      "intendedPrivateRecoveryRow": {
+        "identityKey": "document:official-se-competition-supervision-2026-3",
+        "canonicalPath": "research/evidence-pack/nordisk/konkurrensverket-tillsyn-2025-rapport-2026-3.pdf",
+        "sha256": "9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e",
+        "sizeBytes": 1454264,
+        "internalLocator": "private://corpus/sha256/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e",
+        "replicaClass": "bigbrain_private_archive",
+        "repositoryAvailable": false,
+        "fullTextReviewed": false,
+        "rightsState": "pending_not_cleared"
+      },
+      "observedDocumentRowSha256": [],
+      "observedLibraryRowSha256": [],
+      "privateRecoveryState": "pending_append",
+      "conflicts": [],
+      "permissions": {
+        "registrationApplyAllowed": false,
+        "identityVerificationComplete": false,
+        "sourceAnalysisAllowed": false,
+        "externalUseAllowed": false,
+        "coveragePromotionAllowed": false
+      }
+    },
+    {
+      "targetId": "registration.se-gronsakshuset-judgment-20479-24",
+      "preRegistrationCandidateKey": "candidate:source.se.court.gronsakshuset-20479-24",
+      "canonicalIdentityKey": "document:official-se-gronsakshuset-judgment-20479-24",
+      "lifecycleSourceId": "source.7dab579398014ce180661ec0",
+      "state": "pending",
+      "artifactEvidence": {
+        "acquisitionReceipt": {
+          "path": "knowledge/corpus/source-acquisition-receipts/receipts/se-gronsakshuset-judgment-20479-24.official.20260802.v1.json",
+          "fileSha256": "sha256:73d3d11c2a238ac77a50aab7822161e1bcf276bdaf31366796b49932caaa1e40",
+          "sizeBytes": 1499,
+          "internalSealType": "source_acquisition_receipt_sha256",
+          "internalSeal": "sha256:9a7ef60653a82a6a7b70d57756f23238ad8d041f2290954b077c9af50a718e31"
+        },
+        "extractionReceipt": {
+          "path": "knowledge/corpus/pdf-page-extraction/receipts/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0.receipt.v1.json",
+          "fileSha256": "sha256:66f21d9df1d1eb5190fa8dde2f109e997b0a8d3cf2ec8d3aa8fbd6810d1709dc",
+          "sizeBytes": 3435,
+          "internalSealType": "pdf_qualification_receipt_sha256",
+          "internalSeal": "sha256:6ff406ce03fce6afa672aefac99b35e01d99e0af2de88488e9bdbcb8164de79d"
+        },
+        "pageMap": {
+          "path": "knowledge/corpus/pdf-page-extraction/page-maps/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0.page-map.v1.json",
+          "fileSha256": "sha256:5c51eeb94a873ed86d3e39512627cd1a3a39830fd9a2a259e8764a3a335e1e85",
+          "sizeBytes": 25720,
+          "internalSealType": "pdf_page_map_sha256",
+          "internalSeal": "sha256:b95cd7185550f73d8d6bcbe6d5f9c49d387b49a560125bd3c5f8c86a208c3836"
+        },
+        "sourceAnalysisInputManifest": {
+          "path": "knowledge/corpus/source-analysis-input-manifests/manifests/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0.source-analysis-input-manifest.v1.json",
+          "fileSha256": "sha256:69b434033b05f3bd7951766aca791e760efd63325d7479b6d2a7343e30a67909",
+          "sizeBytes": 9187,
+          "internalSealType": "source_analysis_input_manifest_sha256",
+          "internalSeal": "sha256:19006cfb52afb1b42337f25f289d27d6c790c186be8f9762c51d4b8b91d7fa59"
+        },
+        "privateVerification": {
+          "rawPdfPortablePath": "sha256/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0.pdf",
+          "rawPageTextPortablePathTemplate": "pdf-page-extraction/v1/sha256/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0/pages/page-{pageNumber:0000}.raw.txt",
+          "normalizedPagePortablePathTemplate": "pdf-page-extraction/v1/sha256/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0/pages/page-{pageNumber:0000}.normalized.txt",
+          "pageCount": 19,
+          "rawPageTextFileCountPerCopy": 19,
+          "normalizedPageFileCountPerCopy": 19,
+          "rawPdfSha256": "sha256:1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0",
+          "rawPageTextSetSha256": "sha256:47efd3a8bb736af6c2e3d281e94e2ff30f68c0b066f695c87daf3bc9c9a56aa0",
+          "normalizedPageSetSha256": "sha256:bd9a1d6a7809657a1ace3d396868b790c50dc434b0ac53c1bbcef6258b841925",
+          "primaryCopyVerified": true,
+          "replicaCopyVerified": true,
+          "distinctRootsVerified": true,
+          "distinctFilesVerified": true,
+          "rootMode": "0700",
+          "fileMode": "0400",
+          "absoluteRootsStoredInPlan": false
+        }
+      },
+      "intendedDocumentRow": {
+        "id": "official-se-gronsakshuset-judgment-20479-24",
+        "slug": "official-se-gronsakshuset-judgment-20479-24",
+        "filePath": "research/evidence-pack/nordisk/gronsakshuset-dom-20479-24.pdf",
+        "title": "Förvaltningsrätten i Stockholm, mål nr 20479-24 — Grönsakshuset",
+        "author": "Förvaltningsrätten i Stockholm",
+        "year": 2026,
+        "documentType": "official_court_judgment",
+        "category": "bibliotek",
+        "subcategory": null,
+        "country": "SE",
+        "summary": null,
+        "url": "https://www.konkurrensverket.se/globalassets/dokument/otillborliga-handelsmetoder/domar/dom_forvr-stockholm-mal-nr-20479-24_gronsakshuset.pdf",
+        "accessedAt": "2026-08-02T23:18:32.532Z",
+        "archivedUrl": null,
+        "wordCount": 5284,
+        "tags": ["court-judgment", "official-source", "sweden", "utp"],
+        "metadata": {
+          "registration": {
+            "batchId": "source-registration.new-official-2026-08-02.v1",
+            "targetId": "registration.se-gronsakshuset-judgment-20479-24",
+            "identityStatus": "provisional",
+            "sourceRoleStatus": "machine_provisional_only",
+            "canonicalIdentityKey": "document:official-se-gronsakshuset-judgment-20479-24",
+            "lifecycleSourceId": "source.7dab579398014ce180661ec0"
+          },
+          "source": {
+            "officialUrl": "https://www.konkurrensverket.se/globalassets/dokument/otillborliga-handelsmetoder/domar/dom_forvr-stockholm-mal-nr-20479-24_gronsakshuset.pdf",
+            "doi": null,
+            "publicationDateStatement": "20 April 2026",
+            "languageCodes": ["sv"],
+            "rawContentSha256": "1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0",
+            "rawContentSizeBytes": 463871,
+            "pageCount": 19
+          },
+          "readiness": {
+            "identityVerified": false,
+            "sourceAnalysisComplete": false,
+            "ownerReviewComplete": false,
+            "independentExpertReviewComplete": false,
+            "partnerReviewComplete": false,
+            "rightsHolderReviewComplete": false,
+            "rightsCleared": false,
+            "publicationReady": false,
+            "externalUseAllowed": false,
+            "coveragePromotionAllowed": false
+          }
+        },
+        "contentBinding": {
+          "source": "exact_private_normalized_pages",
+          "serializationId": "normalized-pages-joined-with-page-boundary-v1",
+          "charset": "utf-8",
+          "pageOrder": "ascending_page_number",
+          "pageSequence": "contiguous_from_1",
+          "delimiterUtf8": "\n\n--food-systems-page-boundary-v1--\n\n",
+          "sha256": "sha256:43c555b7f8d68c5b5c601b3af5099909932db87396e880fa496916a4829758cc",
+          "sizeBytes": 38459,
+          "characterCount": 36947,
+          "wordCount": 5284,
+          "pageCount": 19,
+          "contentValueStoredInPlan": false,
+          "privateAbsolutePathStoredInPlan": false
+        },
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:a7d5f27604b0c71114ec5b4f2fafbf7c15998cc0fa906326312d58dafe2f84ad"
+      },
+      "intendedLibraryAnalysisRow": {
+        "id": "library-analysis.7dab579398014ce180661ec0",
+        "sourceKind": "document",
+        "sourceKey": "document:official-se-gronsakshuset-judgment-20479-24",
+        "documentId": "official-se-gronsakshuset-judgment-20479-24",
+        "sourceDocId": null,
+        "canonicalPath": "research/evidence-pack/nordisk/gronsakshuset-dom-20479-24.pdf",
+        "title": "Förvaltningsrätten i Stockholm, mål nr 20479-24 — Grönsakshuset",
+        "status": "not_started",
+        "usageRule": "internal_background",
+        "reviewStatus": "not_reviewed",
+        "citationReadiness": null,
+        "analysisTier": "inventory_only",
+        "aiCard": null,
+        "aiSummary": null,
+        "keyFindings": [],
+        "claimCandidates": null,
+        "projectImplications": [],
+        "gaps": null,
+        "controlLinks": {
+          "sourceRegistrationBatch": "knowledge/corpus/source-registration/source-registration-batch-2026-08-02.v1.json",
+          "acquisitionReceipt": "knowledge/corpus/source-acquisition-receipts/receipts/se-gronsakshuset-judgment-20479-24.official.20260802.v1.json",
+          "extractionReceipt": "knowledge/corpus/pdf-page-extraction/receipts/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0.receipt.v1.json",
+          "pageMap": "knowledge/corpus/pdf-page-extraction/page-maps/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0.page-map.v1.json",
+          "sourceAnalysisInputManifest": "knowledge/corpus/source-analysis-input-manifests/manifests/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0.source-analysis-input-manifest.v1.json"
+        },
+        "riskFlags": [
+          "identity_provisional",
+          "owner_review_required",
+          "rights_pending_not_cleared",
+          "source_analysis_not_started"
+        ],
+        "contentHash": "1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0",
+        "wordCount": 5284,
+        "processedAt": null,
+        "reviewedAt": null,
+        "reviewer": null,
+        "createdAt": "2026-08-03T02:12:26.485Z",
+        "updatedAt": "2026-08-03T02:12:26.485Z",
+        "targetDataSha256": "sha256:024f046e068df4d89994976a7681cd694bfda19bdb5d6044066150cb1c4a2ae8"
+      },
+      "intendedPrivateRecoveryRow": {
+        "identityKey": "document:official-se-gronsakshuset-judgment-20479-24",
+        "canonicalPath": "research/evidence-pack/nordisk/gronsakshuset-dom-20479-24.pdf",
+        "sha256": "1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0",
+        "sizeBytes": 463871,
+        "internalLocator": "private://corpus/sha256/1d6d00e0c1cd0a4ca47a9ecb6aaf8f0723da8a9ee36e1f144307ee410b08dea0",
+        "replicaClass": "bigbrain_private_archive",
+        "repositoryAvailable": false,
+        "fullTextReviewed": false,
+        "rightsState": "pending_not_cleared"
+      },
+      "observedDocumentRowSha256": [],
+      "observedLibraryRowSha256": [],
+      "privateRecoveryState": "pending_append",
+      "conflicts": [],
+      "permissions": {
+        "registrationApplyAllowed": false,
+        "identityVerificationComplete": false,
+        "sourceAnalysisAllowed": false,
+        "externalUseAllowed": false,
+        "coveragePromotionAllowed": false
+      }
+    }
+  ],
+  "summary": {
+    "targetCount": 10,
+    "pendingCount": 10,
+    "alreadyRegisteredCount": 0,
+    "conflictCount": 0,
+    "privateRecoveryAppendCount": 10,
+    "pageCount": 558,
+    "normalizedWordCount": 213325
+  },
+  "executionBoundary": {
+    "networkAccessPerformed": false,
+    "databaseTransactionReadOnly": true,
+    "databaseMutationPerformed": false,
+    "privateArchiveMutationPerformed": false,
+    "privateRecoveryRegisterMutationPerformed": false,
+    "corpusRegisterMutationPerformed": false,
+    "lifecycleEventMutationPerformed": false,
+    "sourceTextStoredInPlan": false,
+    "privateAbsolutePathsStoredInPlan": false,
+    "applyCliEnabled": false
+  },
+  "releaseGates": {
+    "applyImplementation": {
+      "state": "disabled_not_implemented",
+      "required": true,
+      "statement": "This task deliberately provides no apply path; a separately reviewed implementation is required."
+    },
+    "ownerScopeAuthorization": {
+      "state": "recorded_for_bounded_dry_run_only",
+      "required": true,
+      "exactPlanHashReviewed": false,
+      "applyAuthorized": false,
+      "statement": "The active project objective authorizes this bounded read-only planning work only; it does not prove review of this plan hash or authorize apply."
+    },
+    "backupAndRestore": {
+      "state": "not_bound",
+      "required": true,
+      "backupMetadataVersion": 2,
+      "restoreReceiptVersion": 1,
+      "exactDatabaseIdentityRequired": true,
+      "exactTargetFingerprintRequired": true,
+      "statement": "A fresh backup and independently successful restore receipt must bind the same database identity and target fingerprint."
+    },
+    "exactPlanAuthorization": {
+      "state": "not_recorded",
+      "required": true,
+      "exactPlanSha256Required": true,
+      "operatorAuthorityRequired": true,
+      "writableNonMcpRoleRequired": true,
+      "statement": "Authorization must name the exact plan hash, operator and controlled writable database role."
+    },
+    "serializableTransaction": {
+      "state": "not_executed",
+      "required": true,
+      "isolationLevel": "Serializable",
+      "advisoryLockRequired": true,
+      "beforeSnapshotCasRequired": true,
+      "documentAndLibraryRowsAtomic": true,
+      "controlledMutationAuditAtomic": true,
+      "statement": "A future writer must re-read and match the exact before snapshot under lock before any atomic insert."
+    },
+    "controlledMutationAudit": {
+      "state": "not_recorded",
+      "required": true,
+      "model": "ControlledMutationAudit",
+      "appendOnly": true,
+      "requiredBindings": [
+        "contractSha256",
+        "planSha256",
+        "beforeSnapshotSha256",
+        "afterSnapshotSha256",
+        "dependencyStateSha256",
+        "databaseIdentityUuid",
+        "targetFingerprintSha256",
+        "backupSha256",
+        "backupMetadataSha256",
+        "restoreReceiptSha256",
+        "operatorId",
+        "authorizationRef",
+        "databaseRole"
+      ],
+      "statement": "The append-only audit row must be written atomically with the exact Document and LibraryAnalysisRecord rows."
+    },
+    "postRegistrationRecoveryAndReceipt": {
+      "state": "not_started",
+      "required": true,
+      "exactPrivateRecoveryRowsRequired": true,
+      "freshControlledPrivateAccessReceiptRequired": true,
+      "receiptMustBindCanonicalLifecycleSourceId": true,
+      "preRegistrationReceiptCannotSatisfyGate": true,
+      "statement": "After registration, append the exact portable recovery rows and issue fresh controlled-private receipts bound to each new canonical lifecycle source ID."
+    },
+    "rebaseline": {
+      "state": "not_started",
+      "required": true,
+      "exactAfterSnapshotRequired": true,
+      "corpusInventoryRegenerationRequired": true,
+      "lifecycleInitializationRequired": true,
+      "identityRemainsProvisional": true,
+      "coveragePromotionAllowed": false,
+      "statement": "Rebuild the corpus inventory and initialize provisional lifecycle rows from the verified after state without promoting identity, analysis or coverage."
+    }
+  },
+  "planSha256": "sha256:631fef2595bf8f9e897485c1f064654716a3bdb2591bbfb20227370d496a4e2f"
+}

@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "1.0.0",
+  "receiptType": "pdf_page_extraction_technical_qualification",
+  "pipelineVersion": "1.0.0",
+  "qualificationState": "technical_extraction_passed_with_warnings",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761"
+  },
+  "identityKeys": [
+    "document:cmppajyue000rnjvmxrad483t"
+  ],
+  "identityAssociation": {
+    "state": "provisional_metadata_match",
+    "intendedLabel": "ETMV toimintakertomus 2024",
+    "observedDocumentTitle": "Elintarvikemarkkinavaltuutetun toimintakertomus 2024",
+    "blockerCode": null
+  },
+  "sourceBinding": {
+    "title": "Elintarvikemarkkinavaltuutetun toimintakertomus 2024",
+    "doi": null,
+    "officialUrl": "https://www.ruokavirasto.fi/globalassets/etmv/etmv-toimintakertomus-2024.pdf",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_classification"
+  },
+  "sourceFile": {
+    "expectedSizeBytes": 739748,
+    "observedSizeBytes": 739748,
+    "headerMagic": "%PDF-",
+    "encryptionState": "not_encrypted",
+    "pageCount": 18,
+    "pdfVersion": "1.6",
+    "primaryCopy": {
+      "locator": "private://corpus/sha256/136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761.pdf",
+      "sha256": "136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761",
+      "sizeBytes": 739748,
+      "fileMode": "0400",
+      "verified": true
+    },
+    "replicaCopy": {
+      "locator": "private://bigbrain-corpus/sha256/136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761.pdf",
+      "sha256": "136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761",
+      "sizeBytes": 739748,
+      "fileMode": "0400",
+      "verified": true
+    }
+  },
+  "extraction": {
+    "pdfinfoVersion": "26.04.0",
+    "pdftotextVersion": "26.04.0",
+    "argumentsTemplate": [
+      "-f",
+      "{page}",
+      "-l",
+      "{page}",
+      "-enc",
+      "UTF-8",
+      "-eol",
+      "unix",
+      "-nopgbrk",
+      "{input_pdf}",
+      "-"
+    ],
+    "pageMapLocator": "knowledge/corpus/pdf-page-extraction/page-maps/136b85c19ed2d652dcafd854c29898b97635dfe9ff2a0f734a6f7345cef4b761.page-map.v1.json",
+    "pageMapSha256": "06f1e6d37f2e6ecbe985447875712a1d719185e6c21c05aef630068d15d0579f",
+    "extractedPageCount": 18,
+    "rawTextFileCount": 18,
+    "normalizedTextFileCount": 18,
+    "primaryPrivateOutputVerified": true,
+    "replicaPrivateOutputVerified": true
+  },
+  "totals": {
+    "rawSizeBytes": 40751,
+    "rawCharacterCount": 39529,
+    "normalizedSizeBytes": 40733,
+    "normalizedCharacterCount": 39511,
+    "wordCount": 4073,
+    "warningPageCount": 1,
+    "blankPageCount": 0,
+    "lowTextPageCount": 1
+  },
+  "warningSummary": [
+    {
+      "code": "low_extracted_text",
+      "pageCount": 1,
+      "pageNumbers": [
+        1
+      ]
+    }
+  ],
+  "languagePolicy": {
+    "pageLanguageDetection": "not_computed",
+    "reason": "no_version_pinned_reliable_detector_configured"
+  },
+  "semantics": {
+    "technicalExtractionOnly": true,
+    "fullTextStoredInRepository": false,
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentValidationComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "receiptSha256": "9644c15699060e247b14d7dacea1f143d893085e94daefe05d2d606ab98e64ae"
+}

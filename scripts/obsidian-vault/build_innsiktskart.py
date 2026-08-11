@@ -318,7 +318,8 @@ lines = ["Innsiktslaget i kunnskapskartet: ikke *hvor* tingene ligger, men *hva 
          "(`narrativ-struktur.md` m.fl.). Ekstern bruk krever claim-lock og siterbarhets-gate — se [[Kilder]].", "",
          "## Verdikjeden (ryggraden)", "",
          " → ".join(f"[[{l[0]}]]" for l in LEDD), "",
-         "## Bevis-kjeden (26 innsikter i 7 deler)", ""]
+         "## Bevis-kjeden (26 innsikter i 7 deler)", "",
+         "Samlet inngang og dynamisk oversikt: [[Innsiktsregister]].", ""]
 cur = 0
 for title, del_, claim, links in INNSIKTER:
     if del_ != cur:
@@ -326,6 +327,7 @@ for title, del_, claim, links in INNSIKTER:
         lines += [f"**{DELNAVN[del_]}**", ""]
     lines.append(f"- [[{title}]]")
 lines += ["", "## Aktører", "",
+          "Samlet veiviser for kuraterte aktører, selskapsdata og stakeholder-sporet: [[Aktørregister]].", "",
           "**Konsern:** " + " · ".join(f"[[{v[0]}]]" for v in KONSERN.values()) + " · [[Bunnpris]]", "",
           "**Eiere:** " + " · ".join(f"[[{e[0]}]]" for e in EIERE), "",
           "**Regulatorer:** " + " · ".join(f"[[{r[0]}]]" for r in REGULATORER), "",

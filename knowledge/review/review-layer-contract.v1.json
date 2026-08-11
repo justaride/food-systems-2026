@@ -1,0 +1,420 @@
+{
+  "$schema": "../schema/review-layer-contract.schema.v1.json",
+  "documentType": "food_systems_review_layer_contract",
+  "schemaVersion": "1.0.0",
+  "contractId": "review_layer_contract.v1",
+  "effectiveDate": "2026-08-02",
+  "status": "canonical_internal_contract",
+  "semantics": {
+    "model": "independent_evidence_and_authorization_axes",
+    "defaultDecision": "fail_closed",
+    "positiveStateIsScoped": true,
+    "unrecordedGateTreatment": "pending_or_explicit_not_applicable_with_rationale",
+    "automaticCrossGatePromotionAllowed": false
+  },
+  "ownerPolicy": {
+    "ownerId": "person.gabriel_freeman",
+    "name": "Gabriel Freeman",
+    "ownerReceiptLayerId": "owner_review",
+    "maySignOwnerReceipts": true,
+    "aiAssistanceAllowed": true,
+    "aiAssistanceDisclosureRequired": true,
+    "maySelfAssertIndependentExpertValidation": false,
+    "maySubstituteForRightsHolderAuthority": false
+  },
+  "layers": [
+    {
+      "layerId": "ai_processing",
+      "label": "AI processing",
+      "purpose": "Record reproducible acquisition, reading, extraction, translation, structuring and machine checks against exact inputs.",
+      "actorClasses": ["ai_system", "deterministic_automation"],
+      "receiptKind": "machine_execution",
+      "statusVocabulary": [
+        "ai_processing_pending",
+        "ai_processing_in_progress",
+        "ai_processed",
+        "ai_processing_blocked"
+      ],
+      "approvalStates": ["ai_processed"],
+      "requiresReceipt": true,
+      "requiresHumanSigner": false,
+      "proves": ["declared_processing_executed_on_bound_inputs"],
+      "cannotSatisfyLayerIds": [
+        "owner_review",
+        "independent_expert_validation",
+        "partner_validation",
+        "rights_holder_validation",
+        "rights_clearance",
+        "publication",
+        "coverage_promotion"
+      ],
+      "autoAuthorizesPublication": false,
+      "autoPromotesCoverage": false
+    },
+    {
+      "layerId": "owner_review",
+      "label": "Project-owner review",
+      "purpose": "Record Gabriel's decision about internal project use of an exact work package.",
+      "actorClasses": ["project_owner"],
+      "receiptKind": "owner_review",
+      "statusVocabulary": [
+        "owner_review_pending",
+        "owner_review_in_progress",
+        "owner_review_recorded_open",
+        "owner_review_action_required",
+        "owner_review_complete_internal_only"
+      ],
+      "approvalStates": ["owner_review_complete_internal_only"],
+      "requiresReceipt": true,
+      "requiresHumanSigner": true,
+      "proves": ["named_owner_decision_for_declared_internal_use"],
+      "cannotSatisfyLayerIds": [
+        "ai_processing",
+        "independent_expert_validation",
+        "partner_validation",
+        "rights_holder_validation",
+        "rights_clearance",
+        "publication",
+        "coverage_promotion"
+      ],
+      "autoAuthorizesPublication": false,
+      "autoPromotesCoverage": false
+    },
+    {
+      "layerId": "independent_expert_validation",
+      "label": "Independent expert validation",
+      "purpose": "Record qualified evaluation by a person independent of the project decision for the declared claim, method or interpretation.",
+      "actorClasses": ["independent_qualified_expert"],
+      "receiptKind": "expert_validation",
+      "statusVocabulary": [
+        "independent_expert_validation_pending",
+        "independent_expert_validated",
+        "independent_expert_validated_with_limitations",
+        "independent_expert_rejected",
+        "independent_expert_not_required"
+      ],
+      "approvalStates": [
+        "independent_expert_validated",
+        "independent_expert_validated_with_limitations"
+      ],
+      "requiresReceipt": true,
+      "requiresHumanSigner": true,
+      "proves": ["qualified_independent_evaluation_for_declared_scope"],
+      "cannotSatisfyLayerIds": [
+        "ai_processing",
+        "owner_review",
+        "partner_validation",
+        "rights_holder_validation",
+        "rights_clearance",
+        "publication",
+        "coverage_promotion"
+      ],
+      "autoAuthorizesPublication": false,
+      "autoPromotesCoverage": false
+    },
+    {
+      "layerId": "partner_validation",
+      "label": "Partner validation",
+      "purpose": "Record operational, contextual or lived-experience validation from a named partner or consented contributor.",
+      "actorClasses": ["named_partner_representative", "consented_contributor"],
+      "receiptKind": "partner_validation",
+      "statusVocabulary": [
+        "partner_validation_pending",
+        "partner_validated",
+        "partner_validated_with_limitations",
+        "partner_rejected",
+        "partner_validation_not_required"
+      ],
+      "approvalStates": [
+        "partner_validated",
+        "partner_validated_with_limitations"
+      ],
+      "requiresReceipt": true,
+      "requiresHumanSigner": true,
+      "proves": ["partner_or_contributor_validation_for_declared_scope"],
+      "cannotSatisfyLayerIds": [
+        "ai_processing",
+        "owner_review",
+        "independent_expert_validation",
+        "rights_holder_validation",
+        "rights_clearance",
+        "publication",
+        "coverage_promotion"
+      ],
+      "autoAuthorizesPublication": false,
+      "autoPromotesCoverage": false
+    },
+    {
+      "layerId": "rights_holder_validation",
+      "label": "Rights-holder validation",
+      "purpose": "Record validation of declared scope, consent conditions, data governance and interpretation by a recognized rights-holder authority.",
+      "actorClasses": [
+        "recognized_rights_holder",
+        "indigenous_governance_authority"
+      ],
+      "receiptKind": "rights_holder_validation",
+      "statusVocabulary": [
+        "rights_holder_validation_pending",
+        "rights_holder_validated",
+        "rights_holder_validated_with_conditions",
+        "rights_holder_withheld",
+        "rights_holder_validation_not_required"
+      ],
+      "approvalStates": [
+        "rights_holder_validated",
+        "rights_holder_validated_with_conditions"
+      ],
+      "requiresReceipt": true,
+      "requiresHumanSigner": true,
+      "proves": [
+        "rights_holder_authority_and_interpretation_for_declared_scope"
+      ],
+      "cannotSatisfyLayerIds": [
+        "ai_processing",
+        "owner_review",
+        "independent_expert_validation",
+        "partner_validation",
+        "rights_clearance",
+        "publication",
+        "coverage_promotion"
+      ],
+      "autoAuthorizesPublication": false,
+      "autoPromotesCoverage": false
+    },
+    {
+      "layerId": "rights_clearance",
+      "label": "Rights clearance",
+      "purpose": "Record permission, licence, restriction or denial for exact components and declared uses.",
+      "actorClasses": [
+        "licensor",
+        "rights_holder",
+        "rights_officer",
+        "authorized_project_decision_maker"
+      ],
+      "receiptKind": "rights_clearance",
+      "statusVocabulary": [
+        "rights_clearance_pending",
+        "rights_cleared_for_declared_use",
+        "rights_restricted",
+        "rights_denied"
+      ],
+      "approvalStates": ["rights_cleared_for_declared_use"],
+      "requiresReceipt": true,
+      "requiresHumanSigner": true,
+      "proves": [
+        "declared_component_use_is_authorized_with_recorded_conditions"
+      ],
+      "cannotSatisfyLayerIds": [
+        "ai_processing",
+        "owner_review",
+        "independent_expert_validation",
+        "partner_validation",
+        "rights_holder_validation",
+        "publication",
+        "coverage_promotion"
+      ],
+      "autoAuthorizesPublication": false,
+      "autoPromotesCoverage": false
+    },
+    {
+      "layerId": "publication",
+      "label": "Publication decision",
+      "purpose": "Record an authorized release decision for an exact artifact, version, audience and channel.",
+      "actorClasses": ["publication_authority"],
+      "receiptKind": "publication_decision",
+      "statusVocabulary": [
+        "publication_blocked",
+        "publication_approved",
+        "published",
+        "publication_withdrawn"
+      ],
+      "approvalStates": ["publication_approved", "published"],
+      "requiresReceipt": true,
+      "requiresHumanSigner": true,
+      "proves": [
+        "exact_release_was_authorized_for_declared_audience_and_channel"
+      ],
+      "cannotSatisfyLayerIds": [
+        "ai_processing",
+        "owner_review",
+        "independent_expert_validation",
+        "partner_validation",
+        "rights_holder_validation",
+        "rights_clearance",
+        "coverage_promotion"
+      ],
+      "autoAuthorizesPublication": false,
+      "autoPromotesCoverage": false
+    },
+    {
+      "layerId": "coverage_promotion",
+      "label": "Coverage promotion",
+      "purpose": "Record readiness of an exact coverage cell for an exact named profile through a separate append-only assessment.",
+      "actorClasses": ["readiness_profile_authorized_assessor"],
+      "receiptKind": "coverage_assessment",
+      "statusVocabulary": [
+        "coverage_unassessed",
+        "coverage_promotion_pending",
+        "coverage_promoted_for_profile",
+        "coverage_promotion_rejected",
+        "coverage_superseded"
+      ],
+      "approvalStates": ["coverage_promoted_for_profile"],
+      "requiresReceipt": true,
+      "requiresHumanSigner": false,
+      "proves": ["named_cell_meets_named_readiness_profile_at_recorded_time"],
+      "cannotSatisfyLayerIds": [
+        "ai_processing",
+        "owner_review",
+        "independent_expert_validation",
+        "partner_validation",
+        "rights_holder_validation",
+        "rights_clearance",
+        "publication"
+      ],
+      "autoAuthorizesPublication": false,
+      "autoPromotesCoverage": false
+    }
+  ],
+  "legacyMappings": [
+    {
+      "sourceScope": "field08_gate2c_v1",
+      "sourceStatus": "machine_checked_human_review_pending",
+      "canonicalAssignments": [
+        { "layerId": "ai_processing", "status": "ai_processed" }
+      ],
+      "legacyHumanReviewState": "pending_unclassified",
+      "canonicalReviewLayerResolution": "unresolved_until_receipt_actor_and_gate_role_classified",
+      "migrationMode": "read_time_alias_no_historical_rewrite",
+      "historicalArtifactRemainsValid": true,
+      "independentValidationImplied": false,
+      "rightsHolderValidationImplied": false,
+      "rightsClearanceImplied": false,
+      "publicationImplied": false,
+      "coveragePromotionImplied": false
+    },
+    {
+      "sourceScope": "field08_gate2c_v1",
+      "sourceStatus": "human_review_pending",
+      "canonicalAssignments": [],
+      "legacyHumanReviewState": "pending_unclassified",
+      "canonicalReviewLayerResolution": "unresolved_until_receipt_actor_and_gate_role_classified",
+      "migrationMode": "read_time_alias_no_historical_rewrite",
+      "historicalArtifactRemainsValid": true,
+      "independentValidationImplied": false,
+      "rightsHolderValidationImplied": false,
+      "rightsClearanceImplied": false,
+      "publicationImplied": false,
+      "coveragePromotionImplied": false
+    },
+    {
+      "sourceScope": "field08_gate2c_v1",
+      "sourceStatus": "human_review_recorded_open",
+      "canonicalAssignments": [],
+      "legacyHumanReviewState": "recorded_open_unclassified",
+      "canonicalReviewLayerResolution": "unresolved_until_receipt_actor_and_gate_role_classified",
+      "migrationMode": "read_time_alias_no_historical_rewrite",
+      "historicalArtifactRemainsValid": true,
+      "independentValidationImplied": false,
+      "rightsHolderValidationImplied": false,
+      "rightsClearanceImplied": false,
+      "publicationImplied": false,
+      "coveragePromotionImplied": false
+    },
+    {
+      "sourceScope": "field08_gate2c_v1",
+      "sourceStatus": "human_review_recorded_action_required",
+      "canonicalAssignments": [],
+      "legacyHumanReviewState": "recorded_action_required_unclassified",
+      "canonicalReviewLayerResolution": "unresolved_until_receipt_actor_and_gate_role_classified",
+      "migrationMode": "read_time_alias_no_historical_rewrite",
+      "historicalArtifactRemainsValid": true,
+      "independentValidationImplied": false,
+      "rightsHolderValidationImplied": false,
+      "rightsClearanceImplied": false,
+      "publicationImplied": false,
+      "coveragePromotionImplied": false
+    },
+    {
+      "sourceScope": "field08_gate2c_v1",
+      "sourceStatus": "human_review_complete_internal_only",
+      "canonicalAssignments": [],
+      "legacyHumanReviewState": "complete_internal_only_unclassified",
+      "canonicalReviewLayerResolution": "unresolved_until_receipt_actor_and_gate_role_classified",
+      "migrationMode": "read_time_alias_no_historical_rewrite",
+      "historicalArtifactRemainsValid": true,
+      "independentValidationImplied": false,
+      "rightsHolderValidationImplied": false,
+      "rightsClearanceImplied": false,
+      "publicationImplied": false,
+      "coveragePromotionImplied": false
+    }
+  ],
+  "legacyReceiptPolicy": {
+    "sourceDocumentType": "field08_human_review_receipt",
+    "canonicalLayerId": null,
+    "classificationMode": "classify_from_actual_signer_authority_and_gate_role",
+    "allowedCanonicalLayerIds": [
+      "owner_review",
+      "independent_expert_validation",
+      "partner_validation",
+      "rights_holder_validation"
+    ],
+    "requiredClassificationEvidence": [
+      "named_signer_identity",
+      "gate_required_reviewer_role",
+      "qualifications_or_role_authority",
+      "affiliation",
+      "conflict_declaration",
+      "exact_scope_binding"
+    ],
+    "statusAloneCreatesCanonicalApproval": false,
+    "unclassifiedLegacyReceiptCreatesCanonicalApproval": false,
+    "externalUseAllowed": false,
+    "coveragePromotionAllowed": false
+  },
+  "publicationRule": {
+    "decisionLayerId": "publication",
+    "alwaysRequiredLayerIds": ["owner_review", "rights_clearance"],
+    "conditionallyRequiredLayerIds": [
+      "independent_expert_validation",
+      "partner_validation",
+      "rights_holder_validation"
+    ],
+    "otherIndependentGates": ["privacy", "safety", "legal"],
+    "automaticApprovalAllowed": false
+  },
+  "coveragePromotionRule": {
+    "decisionLayerId": "coverage_promotion",
+    "requiredEventType": "append_only_coverage_assessment",
+    "requiredBindings": [
+      "coverage_cell_id",
+      "readiness_profile_id",
+      "evidence_snapshot",
+      "applicable_review_receipts",
+      "limitations",
+      "assessment_time"
+    ],
+    "publicationIsSufficient": false,
+    "publicationIsUniversallyRequired": false,
+    "automaticPromotionAllowed": false
+  },
+  "sapmiBoundary": {
+    "geographyId": "geo.sapmi",
+    "aggregationClass": "sapmi_overlapping",
+    "nonAdditiveWithPoliticalNordicTotals": true,
+    "requiredLayerId": "rights_holder_validation",
+    "requiresRightsHolderLedScope": true,
+    "requiresConsentAndDataGovernanceBasis": true,
+    "requiresRightsHolderInterpretation": true,
+    "politicalCountryEvidenceCreatesSapmiEvidence": false,
+    "substitutionProhibitedLayerIds": [
+      "ai_processing",
+      "owner_review",
+      "independent_expert_validation",
+      "partner_validation"
+    ],
+    "partnerMayActAsRightsHolderOnlyWithDocumentedAuthorityAndSeparateReceipt": true,
+    "rightsHolderValidationAlsoClearsRights": false
+  }
+}

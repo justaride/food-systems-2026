@@ -1,0 +1,1182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/source-discovery.schema.v1.json",
+  "title": "Food Systems source-discovery records v1",
+  "description": "Strict structural contract for planned discovery cells, append-only query and result ledgers, and a non-coverage summary.",
+  "oneOf": [
+    { "$ref": "#/$defs/discoveryUniverseCell" },
+    { "$ref": "#/$defs/searchPlanEvent" },
+    { "$ref": "#/$defs/searchRunEvent" },
+    { "$ref": "#/$defs/searchCompletionAssessmentEvent" },
+    { "$ref": "#/$defs/discoveryCandidateEvent" },
+    { "$ref": "#/$defs/formalSourceReceivedEvent" },
+    { "$ref": "#/$defs/sourceDiscoverySummary" }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[a-z0-9.-]+)?$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "dateTime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|[+-](?:[01]\\d|2[0-3]):[0-5]\\d)$"
+    },
+    "httpsLocator": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "cellId": {
+      "type": "string",
+      "pattern": "^discovery\\.v1\\.profile=[a-z0-9._-]+\\.geo=[a-z0-9._-]+\\.stage=[a-z0-9._-]+\\.domain=[a-z0-9._-]+$"
+    },
+    "mediumText": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 2000
+    },
+    "profileId": {
+      "enum": [
+        "profile.canonical_political_macro",
+        "profile.canonical_sapmi_overlap_macro"
+      ]
+    },
+    "aggregationClass": {
+      "enum": ["political_nordic", "sapmi_overlapping"]
+    },
+    "universeId": {
+      "enum": [
+        "source-discovery.political-nordic-macro.v1",
+        "source-discovery.sapmi-overlap-macro.v1"
+      ]
+    },
+    "searchRouteId": {
+      "enum": [
+        "official_institution_navigation",
+        "public_registry_catalogue",
+        "research_repository",
+        "bibliographic_database",
+        "sector_and_civil_society",
+        "subnational_territorial_cross_border",
+        "document_reference_expansion",
+        "multilingual_search",
+        "rights_holder_led"
+      ]
+    },
+    "ontologyBinding": {
+      "type": "object",
+      "required": [
+        "ontologyId",
+        "ontologyVersion",
+        "ontologyPath",
+        "ontologyFileSha256"
+      ],
+      "properties": {
+        "ontologyId": { "$ref": "#/$defs/id" },
+        "ontologyVersion": { "$ref": "#/$defs/version" },
+        "ontologyPath": {
+          "const": "knowledge/schema/nordic-food-system-ontology.v1.json"
+        },
+        "ontologyFileSha256": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    },
+    "sourceSystem": {
+      "type": "object",
+      "required": ["systemId", "systemClass", "name", "locator"],
+      "properties": {
+        "systemId": { "$ref": "#/$defs/id" },
+        "systemClass": {
+          "enum": [
+            "official_institution",
+            "public_registry",
+            "research_repository",
+            "bibliographic_database",
+            "sector_or_civil_society",
+            "subnational_or_cross_border",
+            "search_interface",
+            "rights_holder_route",
+            "other_declared"
+          ]
+        },
+        "name": { "type": "string", "minLength": 1, "maxLength": 500 },
+        "locator": {
+          "anyOf": [{ "$ref": "#/$defs/httpsLocator" }, { "type": "null" }]
+        }
+      },
+      "additionalProperties": false
+    },
+    "searchRoutePlan": {
+      "type": "object",
+      "required": ["routeId", "state", "rationale"],
+      "properties": {
+        "routeId": { "$ref": "#/$defs/searchRouteId" },
+        "state": { "enum": ["planned", "not_applicable"] },
+        "rationale": {
+          "anyOf": [{ "$ref": "#/$defs/mediumText" }, { "type": "null" }]
+        }
+      },
+      "additionalProperties": false
+    },
+    "searchObligation": {
+      "type": "object",
+      "required": [
+        "obligationId",
+        "routeId",
+        "sourceSystemId",
+        "sourceClass",
+        "languageCode",
+        "universeCellId"
+      ],
+      "properties": {
+        "obligationId": { "$ref": "#/$defs/id" },
+        "routeId": { "$ref": "#/$defs/searchRouteId" },
+        "sourceSystemId": { "$ref": "#/$defs/id" },
+        "sourceClass": { "$ref": "#/$defs/id" },
+        "languageCode": { "$ref": "#/$defs/id" },
+        "universeCellId": { "$ref": "#/$defs/cellId" }
+      },
+      "additionalProperties": false
+    },
+    "rightsHolderGovernance": {
+      "type": "object",
+      "required": [
+        "routeAuthorityId",
+        "consentRequired",
+        "interpretationRouteRequired",
+        "status",
+        "authorizationReceiptSha256"
+      ],
+      "properties": {
+        "routeAuthorityId": { "$ref": "#/$defs/id" },
+        "consentRequired": { "const": true },
+        "interpretationRouteRequired": { "const": true },
+        "status": {
+          "enum": [
+            "not_started",
+            "engagement_active",
+            "authorization_recorded_unverified"
+          ]
+        },
+        "authorizationReceiptSha256": {
+          "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }]
+        }
+      },
+      "additionalProperties": false
+    },
+    "routeExecution": {
+      "type": "object",
+      "required": [
+        "routeId",
+        "state",
+        "pagesOrSegmentsInspected",
+        "limitation"
+      ],
+      "properties": {
+        "routeId": { "$ref": "#/$defs/searchRouteId" },
+        "state": {
+          "enum": ["completed", "partial", "blocked"]
+        },
+        "pagesOrSegmentsInspected": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "limitation": {
+          "anyOf": [{ "$ref": "#/$defs/mediumText" }, { "type": "null" }]
+        }
+      },
+      "additionalProperties": false
+    },
+    "searchQuery": {
+      "type": "object",
+      "required": [
+        "method",
+        "exactQuery",
+        "requestedLocator",
+        "filters",
+        "sortOrder",
+        "languageCode",
+        "pagination"
+      ],
+      "properties": {
+        "method": {
+          "enum": [
+            "query",
+            "filter",
+            "api",
+            "catalogue_navigation",
+            "manual_navigation",
+            "citation_chaining"
+          ]
+        },
+        "exactQuery": {
+          "anyOf": [
+            { "type": "string", "minLength": 1, "maxLength": 4000 },
+            { "type": "null" }
+          ]
+        },
+        "requestedLocator": {
+          "anyOf": [{ "$ref": "#/$defs/httpsLocator" }, { "type": "null" }]
+        },
+        "filters": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "maxLength": 1000 }
+        },
+        "sortOrder": {
+          "anyOf": [
+            { "type": "string", "minLength": 1, "maxLength": 500 },
+            { "type": "null" }
+          ]
+        },
+        "languageCode": {
+          "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }]
+        },
+        "pagination": {
+          "type": "object",
+          "required": [
+            "fromPageOrCursor",
+            "toPageOrCursor",
+            "completeForDeclaredRoute"
+          ],
+          "properties": {
+            "fromPageOrCursor": {
+              "anyOf": [
+                { "type": "string", "minLength": 1, "maxLength": 500 },
+                { "type": "null" }
+              ]
+            },
+            "toPageOrCursor": {
+              "anyOf": [
+                { "type": "string", "minLength": 1, "maxLength": 500 },
+                { "type": "null" }
+              ]
+            },
+            "completeForDeclaredRoute": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "searchExecutor": {
+      "type": "object",
+      "required": [
+        "executorType",
+        "executorId",
+        "toolOrInterface",
+        "toolVersion",
+        "authenticationBoundary"
+      ],
+      "properties": {
+        "executorType": {
+          "enum": ["named_human", "ai_assisted", "deterministic_tool"]
+        },
+        "executorId": { "$ref": "#/$defs/id" },
+        "toolOrInterface": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500
+        },
+        "toolVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "authenticationBoundary": {
+          "enum": [
+            "public_unauthenticated",
+            "authenticated_read_only",
+            "controlled_private_read_only"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "candidateLocator": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["kind", "value"],
+          "properties": {
+            "kind": { "const": "https_url" },
+            "value": { "$ref": "#/$defs/httpsLocator" }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "value"],
+          "properties": {
+            "kind": { "const": "doi" },
+            "value": {
+              "type": "string",
+              "pattern": "^10\\.\\d{4,9}/.+$"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "value"],
+          "properties": {
+            "kind": { "const": "isbn" },
+            "value": {
+              "type": "string",
+              "pattern": "^(?:97[89])?[0-9X-]{10,17}$"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "value"],
+          "properties": {
+            "kind": { "const": "private_locator" },
+            "value": {
+              "type": "string",
+              "pattern": "^private://[a-z0-9][a-z0-9._:/-]*$"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["kind", "value"],
+          "properties": {
+            "kind": { "enum": ["repository_record", "other_declared"] },
+            "value": { "type": "string", "minLength": 1, "maxLength": 2000 }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "acquisitionReceiptReference": {
+      "type": "object",
+      "required": [
+        "receiptId",
+        "receiptVersion",
+        "receiptType",
+        "receiptPath",
+        "receiptFileSha256",
+        "receiptSha256",
+        "rawContentSha256",
+        "rawContentSizeBytes"
+      ],
+      "properties": {
+        "receiptId": { "$ref": "#/$defs/id" },
+        "receiptVersion": { "$ref": "#/$defs/version" },
+        "receiptType": {
+          "enum": ["controlled_https_fetch", "controlled_private_access"]
+        },
+        "receiptPath": {
+          "type": "string",
+          "pattern": "^knowledge/corpus/source-acquisition-receipts/receipts/[a-z0-9][a-z0-9._-]*\\.json$"
+        },
+        "receiptFileSha256": { "$ref": "#/$defs/hash" },
+        "receiptSha256": { "$ref": "#/$defs/hash" },
+        "rawContentSha256": { "$ref": "#/$defs/hash" },
+        "rawContentSizeBytes": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "discoveryUniverseCell": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "recordType",
+        "universeId",
+        "universeVersion",
+        "profileId",
+        "aggregationClass",
+        "nonAdditiveWithOtherProfiles",
+        "ontology",
+        "cellId",
+        "geographyId",
+        "valueChainStageId",
+        "analyticalDomainId",
+        "planningState",
+        "searchState",
+        "candidateState",
+        "formalSourceState",
+        "coverageClaimState",
+        "rightsHolderGovernanceRequired",
+        "externalUseAllowed",
+        "coveragePromotionAllowed",
+        "cellSha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "source-discovery-v1" },
+        "recordType": { "const": "discovery_universe_cell" },
+        "universeId": {
+          "enum": [
+            "source-discovery.political-nordic-macro.v1",
+            "source-discovery.sapmi-overlap-macro.v1"
+          ]
+        },
+        "universeVersion": { "$ref": "#/$defs/version" },
+        "profileId": { "$ref": "#/$defs/profileId" },
+        "aggregationClass": { "$ref": "#/$defs/aggregationClass" },
+        "nonAdditiveWithOtherProfiles": { "const": true },
+        "ontology": { "$ref": "#/$defs/ontologyBinding" },
+        "cellId": { "$ref": "#/$defs/cellId" },
+        "geographyId": { "$ref": "#/$defs/id" },
+        "valueChainStageId": { "$ref": "#/$defs/id" },
+        "analyticalDomainId": { "$ref": "#/$defs/id" },
+        "planningState": { "const": "planned" },
+        "searchState": { "const": "not_executed_in_universe_record" },
+        "candidateState": { "const": "none_recorded_in_universe_record" },
+        "formalSourceState": { "const": "none_recorded_in_universe_record" },
+        "coverageClaimState": { "const": "not_assessed" },
+        "rightsHolderGovernanceRequired": { "type": "boolean" },
+        "externalUseAllowed": { "const": false },
+        "coveragePromotionAllowed": { "const": false },
+        "cellSha256": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    },
+    "searchPlanEvent": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "eventId",
+        "sequence",
+        "predecessorEventSha256",
+        "recordedAt",
+        "eventSha256",
+        "recordType",
+        "planId",
+        "planVersion",
+        "universeId",
+        "universeVersion",
+        "profileId",
+        "aggregationClass",
+        "universeCellIds",
+        "ontology",
+        "sourceSystems",
+        "sourceClasses",
+        "languageCodes",
+        "timeRange",
+        "updateCadence",
+        "routes",
+        "searchObligations",
+        "rules",
+        "knownBarriers",
+        "rightsHolderGovernance",
+        "executionState",
+        "candidateState",
+        "formalSourceState",
+        "coverageClaimState",
+        "externalUseAllowed",
+        "coveragePromotionAllowed"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "source-discovery-v1" },
+        "eventId": { "$ref": "#/$defs/id" },
+        "sequence": { "type": "integer", "minimum": 0 },
+        "predecessorEventSha256": {
+          "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }]
+        },
+        "recordedAt": { "$ref": "#/$defs/dateTime" },
+        "eventSha256": { "$ref": "#/$defs/hash" },
+        "recordType": { "const": "search_plan_registered" },
+        "planId": { "$ref": "#/$defs/id" },
+        "planVersion": { "$ref": "#/$defs/version" },
+        "universeId": { "$ref": "#/$defs/universeId" },
+        "universeVersion": { "$ref": "#/$defs/version" },
+        "profileId": { "$ref": "#/$defs/profileId" },
+        "aggregationClass": { "$ref": "#/$defs/aggregationClass" },
+        "universeCellIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/cellId" }
+        },
+        "ontology": { "$ref": "#/$defs/ontologyBinding" },
+        "sourceSystems": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/sourceSystem" }
+        },
+        "sourceClasses": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "languageCodes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "timeRange": {
+          "type": "object",
+          "required": ["from", "to", "undatedIncluded"],
+          "properties": {
+            "from": {
+              "anyOf": [{ "$ref": "#/$defs/date" }, { "type": "null" }]
+            },
+            "to": {
+              "anyOf": [{ "$ref": "#/$defs/date" }, { "type": "null" }]
+            },
+            "undatedIncluded": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        },
+        "updateCadence": {
+          "type": "object",
+          "required": ["cadence", "repeatNoLaterThan"],
+          "properties": {
+            "cadence": {
+              "enum": [
+                "one_time",
+                "monthly",
+                "quarterly",
+                "semiannual",
+                "annual",
+                "event_driven"
+              ]
+            },
+            "repeatNoLaterThan": { "$ref": "#/$defs/date" }
+          },
+          "additionalProperties": false
+        },
+        "routes": {
+          "type": "array",
+          "minItems": 9,
+          "maxItems": 9,
+          "items": { "$ref": "#/$defs/searchRoutePlan" }
+        },
+        "searchObligations": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/searchObligation" }
+        },
+        "rules": {
+          "type": "object",
+          "required": ["inclusion", "exclusion", "deduplication", "stopping"],
+          "properties": {
+            "inclusion": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/mediumText" }
+            },
+            "exclusion": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/mediumText" }
+            },
+            "deduplication": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/mediumText" }
+            },
+            "stopping": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/mediumText" }
+            }
+          },
+          "additionalProperties": false
+        },
+        "knownBarriers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["barrierType", "statement"],
+            "properties": {
+              "barrierType": {
+                "enum": [
+                  "access",
+                  "rights",
+                  "language",
+                  "technical",
+                  "governance"
+                ]
+              },
+              "statement": { "$ref": "#/$defs/mediumText" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "rightsHolderGovernance": {
+          "anyOf": [
+            { "$ref": "#/$defs/rightsHolderGovernance" },
+            { "type": "null" }
+          ]
+        },
+        "executionState": { "const": "planned_not_executed" },
+        "candidateState": { "const": "none_implied_by_plan" },
+        "formalSourceState": { "const": "none_implied_by_plan" },
+        "coverageClaimState": { "const": "not_assessed" },
+        "externalUseAllowed": { "const": false },
+        "coveragePromotionAllowed": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "searchRunEvent": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "eventId",
+        "sequence",
+        "predecessorEventSha256",
+        "recordedAt",
+        "eventSha256",
+        "recordType",
+        "runId",
+        "planId",
+        "planVersion",
+        "planEventSha256",
+        "universeId",
+        "universeVersion",
+        "profileId",
+        "aggregationClass",
+        "universeCellIds",
+        "obligationId",
+        "sourceSystemId",
+        "sourceSystemLocator",
+        "sourceClass",
+        "executor",
+        "startedAt",
+        "endedAt",
+        "query",
+        "routeExecutions",
+        "observedResultCount",
+        "inspectedResultCount",
+        "reliableTotalExposed",
+        "landingPagesInspected",
+        "navigationPathsInspected",
+        "candidateIds",
+        "exclusions",
+        "accessFailures",
+        "capturedResponseSha256s",
+        "resultState",
+        "limitations",
+        "nextActions",
+        "repeatNoLaterThan",
+        "searchExecuted",
+        "formalSourceState",
+        "coverageClaimState",
+        "externalUseAllowed",
+        "coveragePromotionAllowed"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "source-discovery-v1" },
+        "eventId": { "$ref": "#/$defs/id" },
+        "sequence": { "type": "integer", "minimum": 0 },
+        "predecessorEventSha256": {
+          "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }]
+        },
+        "recordedAt": { "$ref": "#/$defs/dateTime" },
+        "eventSha256": { "$ref": "#/$defs/hash" },
+        "recordType": { "const": "search_run_recorded" },
+        "runId": { "$ref": "#/$defs/id" },
+        "planId": { "$ref": "#/$defs/id" },
+        "planVersion": { "$ref": "#/$defs/version" },
+        "planEventSha256": { "$ref": "#/$defs/hash" },
+        "universeId": { "$ref": "#/$defs/universeId" },
+        "universeVersion": { "$ref": "#/$defs/version" },
+        "profileId": { "$ref": "#/$defs/profileId" },
+        "aggregationClass": { "$ref": "#/$defs/aggregationClass" },
+        "universeCellIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/cellId" }
+        },
+        "obligationId": { "$ref": "#/$defs/id" },
+        "sourceSystemId": { "$ref": "#/$defs/id" },
+        "sourceSystemLocator": {
+          "anyOf": [{ "$ref": "#/$defs/httpsLocator" }, { "type": "null" }]
+        },
+        "sourceClass": { "$ref": "#/$defs/id" },
+        "executor": { "$ref": "#/$defs/searchExecutor" },
+        "startedAt": { "$ref": "#/$defs/dateTime" },
+        "endedAt": { "$ref": "#/$defs/dateTime" },
+        "query": { "$ref": "#/$defs/searchQuery" },
+        "routeExecutions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": { "$ref": "#/$defs/routeExecution" }
+        },
+        "observedResultCount": { "type": "integer", "minimum": 0 },
+        "inspectedResultCount": { "type": "integer", "minimum": 0 },
+        "reliableTotalExposed": { "type": "boolean" },
+        "landingPagesInspected": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/httpsLocator" }
+        },
+        "navigationPathsInspected": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "maxLength": 2000 }
+        },
+        "candidateIds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "exclusions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["locator", "reason", "statement"],
+            "properties": {
+              "locator": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "reason": {
+                "enum": [
+                  "duplicate",
+                  "out_of_scope",
+                  "wrong_geography",
+                  "wrong_period",
+                  "wrong_source_class",
+                  "inaccessible",
+                  "other_declared"
+                ]
+              },
+              "statement": { "$ref": "#/$defs/mediumText" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "accessFailures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["locator", "failureType", "statement"],
+            "properties": {
+              "locator": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              },
+              "failureType": {
+                "enum": [
+                  "access_denied",
+                  "robots_excluded",
+                  "unavailable",
+                  "authentication_required",
+                  "technical_failure",
+                  "applicability_unresolved"
+                ]
+              },
+              "statement": { "$ref": "#/$defs/mediumText" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "capturedResponseSha256s": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/hash" }
+        },
+        "resultState": { "enum": ["completed", "partial", "blocked"] },
+        "limitations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/mediumText" }
+        },
+        "nextActions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/mediumText" }
+        },
+        "repeatNoLaterThan": { "$ref": "#/$defs/date" },
+        "searchExecuted": { "const": true },
+        "formalSourceState": { "const": "none_implied_by_search" },
+        "coverageClaimState": { "const": "not_assessed" },
+        "externalUseAllowed": { "const": false },
+        "coveragePromotionAllowed": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "searchCompletionAssessmentEvent": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "eventId",
+        "sequence",
+        "predecessorEventSha256",
+        "recordedAt",
+        "eventSha256",
+        "recordType",
+        "assessmentId",
+        "planId",
+        "planVersion",
+        "planEventSha256",
+        "universeId",
+        "universeVersion",
+        "profileId",
+        "aggregationClass",
+        "universeCellIds",
+        "runBindings",
+        "assessor",
+        "assessedAt",
+        "resultState",
+        "limitations",
+        "nextActions",
+        "executionEvidenceState",
+        "formalSourceState",
+        "coverageClaimState",
+        "externalUseAllowed",
+        "coveragePromotionAllowed"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "source-discovery-v1" },
+        "eventId": { "$ref": "#/$defs/id" },
+        "sequence": { "type": "integer", "minimum": 0 },
+        "predecessorEventSha256": {
+          "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }]
+        },
+        "recordedAt": { "$ref": "#/$defs/dateTime" },
+        "eventSha256": { "$ref": "#/$defs/hash" },
+        "recordType": { "const": "search_completion_assessed" },
+        "assessmentId": { "$ref": "#/$defs/id" },
+        "planId": { "$ref": "#/$defs/id" },
+        "planVersion": { "$ref": "#/$defs/version" },
+        "planEventSha256": { "$ref": "#/$defs/hash" },
+        "universeId": { "$ref": "#/$defs/universeId" },
+        "universeVersion": { "$ref": "#/$defs/version" },
+        "profileId": { "$ref": "#/$defs/profileId" },
+        "aggregationClass": { "$ref": "#/$defs/aggregationClass" },
+        "universeCellIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/cellId" }
+        },
+        "runBindings": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["runId", "runEventSha256"],
+            "properties": {
+              "runId": { "$ref": "#/$defs/id" },
+              "runEventSha256": { "$ref": "#/$defs/hash" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "assessor": { "$ref": "#/$defs/searchExecutor" },
+        "assessedAt": { "$ref": "#/$defs/dateTime" },
+        "resultState": { "enum": ["incomplete", "stopping_rule_met"] },
+        "limitations": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/mediumText" }
+        },
+        "nextActions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/mediumText" }
+        },
+        "executionEvidenceState": {
+          "const": "derived_from_exact_bound_runs"
+        },
+        "formalSourceState": { "const": "none_implied_by_assessment" },
+        "coverageClaimState": { "const": "not_assessed" },
+        "externalUseAllowed": { "const": false },
+        "coveragePromotionAllowed": { "const": false }
+      },
+      "additionalProperties": false
+    },
+    "discoveryCandidateEvent": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "eventId",
+        "sequence",
+        "predecessorEventSha256",
+        "recordedAt",
+        "eventSha256",
+        "externalUseAllowed",
+        "coveragePromotionAllowed",
+        "coverageClaimState",
+        "recordType",
+        "candidateId",
+        "searchRunId",
+        "searchRunEventSha256",
+        "profileId",
+        "aggregationClass",
+        "universeCellIds",
+        "locator",
+        "candidateTitle",
+        "sourceClass",
+        "languageCodes",
+        "searchLanguageRelation",
+        "identifiers",
+        "discoveredAt",
+        "originatingSource",
+        "deduplication",
+        "discoveryState",
+        "snippetPolicy",
+        "acquisitionState"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "source-discovery-v1" },
+        "eventId": { "$ref": "#/$defs/id" },
+        "sequence": { "type": "integer", "minimum": 0 },
+        "predecessorEventSha256": {
+          "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }]
+        },
+        "recordedAt": { "$ref": "#/$defs/dateTime" },
+        "eventSha256": { "$ref": "#/$defs/hash" },
+        "externalUseAllowed": { "const": false },
+        "coveragePromotionAllowed": { "const": false },
+        "coverageClaimState": { "const": "not_assessed" },
+        "recordType": { "const": "discovery_candidate_recorded" },
+        "candidateId": { "$ref": "#/$defs/id" },
+        "searchRunId": { "$ref": "#/$defs/id" },
+        "searchRunEventSha256": { "$ref": "#/$defs/hash" },
+        "profileId": { "$ref": "#/$defs/profileId" },
+        "aggregationClass": { "$ref": "#/$defs/aggregationClass" },
+        "universeCellIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/cellId" }
+        },
+        "locator": { "$ref": "#/$defs/candidateLocator" },
+        "candidateTitle": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "sourceClass": { "$ref": "#/$defs/id" },
+        "languageCodes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "searchLanguageRelation": {
+          "type": "object",
+          "required": ["state", "statement"],
+          "properties": {
+            "state": {
+              "enum": [
+                "includes_search_language",
+                "different_language_observed",
+                "language_unresolved"
+              ]
+            },
+            "statement": {
+              "anyOf": [{ "$ref": "#/$defs/mediumText" }, { "type": "null" }]
+            }
+          },
+          "additionalProperties": false
+        },
+        "identifiers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["kind", "value"],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "doi",
+                  "isbn",
+                  "issn",
+                  "catalogue_id",
+                  "registry_id",
+                  "other_declared"
+                ]
+              },
+              "value": { "type": "string", "minLength": 1, "maxLength": 500 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "discoveredAt": { "$ref": "#/$defs/dateTime" },
+        "originatingSource": {
+          "anyOf": [
+            {
+              "type": "object",
+              "required": ["sourceId", "exactLocator", "reason"],
+              "properties": {
+                "sourceId": { "$ref": "#/$defs/id" },
+                "exactLocator": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                },
+                "reason": { "$ref": "#/$defs/mediumText" }
+              },
+              "additionalProperties": false
+            },
+            { "type": "null" }
+          ]
+        },
+        "deduplication": {
+          "type": "object",
+          "required": [
+            "state",
+            "groupingKeySha256",
+            "relatedCandidateIds",
+            "automaticMergeAllowed"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "unassessed",
+                "unique_locator",
+                "possible_duplicate",
+                "grouped_without_merge"
+              ]
+            },
+            "groupingKeySha256": {
+              "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }]
+            },
+            "relatedCandidateIds": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/id" }
+            },
+            "automaticMergeAllowed": { "const": false }
+          },
+          "additionalProperties": false
+        },
+        "discoveryState": { "const": "candidate_only" },
+        "snippetPolicy": { "const": "not_retained_as_claim" },
+        "acquisitionState": { "const": "not_formally_received" }
+      },
+      "additionalProperties": false
+    },
+    "formalSourceReceivedEvent": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "eventId",
+        "sequence",
+        "predecessorEventSha256",
+        "recordedAt",
+        "eventSha256",
+        "externalUseAllowed",
+        "coveragePromotionAllowed",
+        "coverageClaimState",
+        "recordType",
+        "formalReceiptId",
+        "candidateId",
+        "candidateEventSha256",
+        "candidateAcquisitionBinding",
+        "receivedAt",
+        "acquisitionReceipt",
+        "formalSourceState",
+        "databaseRegistrationState",
+        "registeredSourceId",
+        "identityVerificationState"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "source-discovery-v1" },
+        "eventId": { "$ref": "#/$defs/id" },
+        "sequence": { "type": "integer", "minimum": 0 },
+        "predecessorEventSha256": {
+          "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }]
+        },
+        "recordedAt": { "$ref": "#/$defs/dateTime" },
+        "eventSha256": { "$ref": "#/$defs/hash" },
+        "externalUseAllowed": { "const": false },
+        "coveragePromotionAllowed": { "const": false },
+        "coverageClaimState": { "const": "not_assessed" },
+        "recordType": { "const": "formal_source_received" },
+        "formalReceiptId": { "$ref": "#/$defs/id" },
+        "candidateId": { "$ref": "#/$defs/id" },
+        "candidateEventSha256": { "$ref": "#/$defs/hash" },
+        "candidateAcquisitionBinding": {
+          "type": "object",
+          "required": ["candidateLocator", "method"],
+          "properties": {
+            "candidateLocator": { "$ref": "#/$defs/candidateLocator" },
+            "method": {
+              "enum": [
+                "exact_requested_locator",
+                "exact_final_locator",
+                "doi_https_resolution"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "receivedAt": { "$ref": "#/$defs/dateTime" },
+        "acquisitionReceipt": { "$ref": "#/$defs/acquisitionReceiptReference" },
+        "formalSourceState": { "const": "received_not_registered" },
+        "databaseRegistrationState": { "const": "not_registered" },
+        "registeredSourceId": { "type": "null" },
+        "identityVerificationState": { "const": "not_started" }
+      },
+      "additionalProperties": false
+    },
+    "sourceDiscoverySummary": {
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "recordType",
+        "universeVersion",
+        "ontology",
+        "counts",
+        "semantics",
+        "summarySha256"
+      ],
+      "properties": {
+        "schemaVersion": { "const": "source-discovery-v1" },
+        "recordType": { "const": "source_discovery_summary" },
+        "universeVersion": { "$ref": "#/$defs/version" },
+        "ontology": { "$ref": "#/$defs/ontologyBinding" },
+        "counts": {
+          "type": "object",
+          "required": [
+            "plannedPoliticalCells",
+            "plannedSapmiCells",
+            "plannedCellTotal",
+            "registeredSearchPlans",
+            "executedSearchRuns",
+            "cellsReferencedByExecutedSearches",
+            "discoveryCandidates",
+            "formallyReceivedSources",
+            "coverageClaims"
+          ],
+          "properties": {
+            "plannedPoliticalCells": { "const": 6072 },
+            "plannedSapmiCells": { "const": 759 },
+            "plannedCellTotal": { "const": 6831 },
+            "registeredSearchPlans": { "type": "integer", "minimum": 0 },
+            "executedSearchRuns": { "type": "integer", "minimum": 0 },
+            "cellsReferencedByExecutedSearches": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "discoveryCandidates": { "type": "integer", "minimum": 0 },
+            "formallyReceivedSources": { "type": "integer", "minimum": 0 },
+            "coverageClaims": { "const": 0 }
+          },
+          "additionalProperties": false
+        },
+        "semantics": {
+          "type": "object",
+          "required": [
+            "plannedCellsAreExecutedSearches",
+            "executedSearchesAreCandidates",
+            "candidatesAreFormallyReceivedSources",
+            "formallyReceivedSourcesAreCoverage",
+            "politicalAndSapmiAreAdditive"
+          ],
+          "properties": {
+            "plannedCellsAreExecutedSearches": { "const": false },
+            "executedSearchesAreCandidates": { "const": false },
+            "candidatesAreFormallyReceivedSources": { "const": false },
+            "formallyReceivedSourcesAreCoverage": { "const": false },
+            "politicalAndSapmiAreAdditive": { "const": false }
+          },
+          "additionalProperties": false
+        },
+        "summarySha256": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Sammendrag: Handlykken (OsloMet, 2023) - Nudging i dagligvare og forbrukeratferd
 
-**Full tittel:** Hvordan brukes nudging som atferdsokonomisk virkemiddel i forhold til forbrukeratferd, og hvilke etiske implikasjoner kan dette medføre? (registeret bruker kortformen "Nudging som virkemiddel for forbrukeratferd i dagligvare")
+**Full tittel:** Hvordan brukes nudging som atferdsøkonomisk virkemiddel i forhold til forbrukeratferd, og hvilke etiske implikasjoner kan dette medføre?
 **Type:** Masteroppgave
 **Institusjon:** OsloMet
 **Dato:** 26. mars 2026 (Analysert)

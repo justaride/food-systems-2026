@@ -1,0 +1,941 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/coverage-ledger.v1.json",
+  "title": "Food Systems 2026 coverage ledger",
+  "description": "Stable tiered coverage-cell definitions and append-only assessment events. Coverage, evidence readiness, review state and operational gap routing remain independent.",
+  "oneOf": [
+    { "$ref": "#/$defs/coverageCell" },
+    { "$ref": "#/$defs/coverageAssessment" }
+  ],
+  "$defs": {
+    "readinessProfileId": {
+      "enum": ["internal_navigation", "internal_analysis", "external_claim", "monitored_indicator"]
+    },
+    "populationDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "definition", "notApplicableReason"],
+      "properties": {
+        "state": { "enum": ["unknown", "draft", "frozen", "not_applicable"] },
+        "definition": { "type": ["string", "null"] },
+        "notApplicableReason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "state": { "enum": ["draft", "frozen"] } }, "required": ["state"] },
+          "then": { "properties": { "definition": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "state": { "const": "not_applicable" } }, "required": ["state"] },
+          "then": { "properties": { "notApplicableReason": { "type": "string", "minLength": 1 } } }
+        }
+      ]
+    },
+    "childDimensionBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension", "value"],
+      "properties": {
+        "dimension": {
+          "enum": [
+            "subnational_geography",
+            "commodity",
+            "actor",
+            "flow",
+            "outcome",
+            "period",
+            "metric",
+            "relationship",
+            "knowledge_object"
+          ]
+        },
+        "value": { "type": "string", "minLength": 1 }
+      }
+    },
+    "axisBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dimension", "valueId"],
+      "properties": {
+        "dimension": { "type": "string", "pattern": "^[a-z][A-Za-z0-9_]*$" },
+        "valueId": { "type": "string", "pattern": "^[a-z][a-z0-9_]*(\\.[a-z0-9_]+)+$" }
+      },
+      "description": "One profile-axis binding. Generators and cross-record validators must sort bindings by dimension and reject duplicate dimensions before deriving cellId."
+    },
+    "coverageCell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cellId",
+        "schemaVersion",
+        "taxonomyVersion",
+        "profileId",
+        "aggregationClass",
+        "axisBindings",
+        "cellTier",
+        "parentCellId",
+        "geographyId",
+        "valueChainStageId",
+        "domainId",
+        "legacyFieldId",
+        "childDimensionBindings",
+        "childSpecificationState",
+        "requiredChildDimensions",
+        "requiredChildCellIds",
+        "requiredUnits",
+        "systemBoundaryQuestion",
+        "populationDefinition",
+        "requiredReadinessProfile",
+        "active"
+      ],
+      "properties": {
+        "cellId": { "type": "string", "pattern": "^cov\\.[a-z0-9_.=-]+$" },
+        "schemaVersion": { "const": "1.0.0" },
+        "taxonomyVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+        "profileId": { "type": "string", "pattern": "^profile\\.[a-z0-9_]+$" },
+        "aggregationClass": { "enum": ["political_nordic", "sapmi_overlapping"] },
+        "axisBindings": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/axisBinding" },
+          "uniqueItems": true
+        },
+        "cellTier": { "enum": ["tier_1_macro", "tier_2_child", "tier_3_evidence"] },
+        "parentCellId": { "type": ["string", "null"], "pattern": "^cov\\.[a-z0-9_.=-]+$" },
+        "geographyId": { "type": "string", "pattern": "^geo\\.[a-z0-9_]+$" },
+        "valueChainStageId": { "type": ["string", "null"], "pattern": "^stage\\." },
+        "domainId": { "type": ["string", "null"], "pattern": "^domain\\." },
+        "legacyFieldId": { "type": ["string", "null"], "pattern": "^legacy_field\\." },
+        "childDimensionBindings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/childDimensionBinding" },
+          "uniqueItems": true
+        },
+        "childSpecificationState": { "enum": ["unknown", "draft", "frozen"] },
+        "requiredChildDimensions": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "subnational_geography",
+              "commodity",
+              "actor",
+              "flow",
+              "outcome",
+              "period",
+              "metric",
+              "relationship",
+              "knowledge_object"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "requiredChildCellIds": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^cov\\.[a-z0-9_.=-]+$" },
+          "uniqueItems": true
+        },
+        "requiredUnits": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "systemBoundaryQuestion": { "type": "string", "minLength": 1 },
+        "populationDefinition": { "$ref": "#/$defs/populationDefinition" },
+        "requiredReadinessProfile": { "$ref": "#/$defs/readinessProfileId" },
+        "active": { "type": "boolean" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "cellTier": { "const": "tier_1_macro" } }, "required": ["cellTier"] },
+          "then": {
+            "properties": {
+              "parentCellId": { "type": "null" },
+              "childDimensionBindings": { "maxItems": 0 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "cellTier": { "enum": ["tier_2_child", "tier_3_evidence"] } }, "required": ["cellTier"] },
+          "then": {
+            "properties": {
+              "parentCellId": { "type": "string", "pattern": "^cov\\.[a-z0-9_.=-]+$" },
+              "childDimensionBindings": { "minItems": 1 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "aggregationClass": { "const": "political_nordic" } }, "required": ["aggregationClass"] },
+          "then": {
+            "properties": {
+              "geographyId": { "enum": ["geo.no", "geo.se", "geo.dk", "geo.fi", "geo.is", "geo.fo", "geo.gl", "geo.ax"] }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "aggregationClass": { "const": "sapmi_overlapping" } }, "required": ["aggregationClass"] },
+          "then": { "properties": { "geographyId": { "const": "geo.sapmi" } } }
+        }
+      ]
+    },
+    "subjectMatterPeriod": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "from", "to", "asOf", "label"],
+      "properties": {
+        "kind": { "enum": ["undated", "snapshot", "interval", "series_window"] },
+        "from": { "type": ["string", "null"], "format": "date" },
+        "to": { "type": ["string", "null"], "format": "date" },
+        "asOf": { "type": ["string", "null"], "format": "date" },
+        "label": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "const": "snapshot" } }, "required": ["kind"] },
+          "then": { "properties": { "asOf": { "type": "string", "format": "date" } } }
+        },
+        {
+          "if": { "properties": { "kind": { "enum": ["interval", "series_window"] } }, "required": ["kind"] },
+          "then": {
+            "properties": {
+              "from": { "type": "string", "format": "date" },
+              "to": { "type": "string", "format": "date" }
+            }
+          }
+        }
+      ]
+    },
+    "systemBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "included", "excluded", "functionalUnit", "answer", "limitations", "notApplicableReason"],
+      "properties": {
+        "state": { "enum": ["unknown", "draft", "frozen", "not_applicable"] },
+        "included": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "excluded": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "functionalUnit": { "type": ["string", "null"] },
+        "answer": { "type": ["string", "null"] },
+        "limitations": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "notApplicableReason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "state": { "enum": ["draft", "frozen"] } }, "required": ["state"] },
+          "then": { "properties": { "answer": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "state": { "const": "not_applicable" } }, "required": ["state"] },
+          "then": { "properties": { "notApplicableReason": { "type": "string", "minLength": 1 } } }
+        }
+      ]
+    },
+    "universeDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "population", "estimate", "minimum", "maximum", "asOf", "methodNote", "notApplicableReason"],
+      "properties": {
+        "state": { "enum": ["unknown", "estimated", "frozen", "not_applicable"] },
+        "population": { "type": ["string", "null"] },
+        "estimate": { "type": ["number", "null"], "minimum": 0 },
+        "minimum": { "type": ["number", "null"], "minimum": 0 },
+        "maximum": { "type": ["number", "null"], "minimum": 0 },
+        "asOf": { "type": ["string", "null"], "format": "date" },
+        "methodNote": { "type": ["string", "null"] },
+        "notApplicableReason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "state": { "enum": ["estimated", "frozen"] } }, "required": ["state"] },
+          "then": {
+            "properties": {
+              "population": { "type": "string", "minLength": 1 },
+              "asOf": { "type": "string", "format": "date" },
+              "methodNote": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "state": { "const": "not_applicable" } }, "required": ["state"] },
+          "then": { "properties": { "notApplicableReason": { "type": "string", "minLength": 1 } } }
+        }
+      ]
+    },
+    "assessmentMethod": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["methodId", "methodType", "name", "version", "description", "searchBoundary", "sourcesChecked", "limitations"],
+      "properties": {
+        "methodId": { "type": "string", "minLength": 1 },
+        "methodType": { "enum": ["inventory_audit", "negative_search", "enumeration", "estimation", "measurement", "synthesis_mapping", "mixed"] },
+        "name": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 },
+        "searchBoundary": { "type": ["string", "null"] },
+        "sourcesChecked": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "limitations": { "type": "array", "items": { "type": "string", "minLength": 1 }
+      }
+    }
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "baseCommit", "gitBlobId"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "baseCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "gitBlobId": { "type": "string", "pattern": "^[a-f0-9]{40,64}$" }
+      }
+    },
+    "evidenceLink": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidenceLinkId",
+        "role",
+        "sourceCitationId",
+        "fieldCitationId",
+        "evidenceAppraisalId",
+        "artifactRef",
+        "locator",
+        "supportsOrChallenges",
+        "accessedAt"
+      ],
+      "properties": {
+        "evidenceLinkId": { "type": "string", "pattern": "^evidence_link\\.[a-z0-9_.-]+$" },
+        "role": {
+          "enum": [
+            "scope_boundary",
+            "inventory_observation",
+            "negative_search",
+            "numerator",
+            "denominator_universe",
+            "method",
+            "descriptive_claim",
+            "causal_claim",
+            "caveat_limitation",
+            "counterevidence",
+            "freshness",
+            "legal_licensing"
+          ]
+        },
+        "sourceCitationId": { "type": ["string", "null"], "minLength": 1 },
+        "fieldCitationId": { "type": ["string", "null"], "minLength": 1 },
+        "evidenceAppraisalId": { "type": ["string", "null"], "minLength": 1 },
+        "artifactRef": { "oneOf": [{ "$ref": "#/$defs/artifactRef" }, { "type": "null" }] },
+        "locator": { "type": "string", "minLength": 1 },
+        "supportsOrChallenges": { "enum": ["supports", "challenges", "contradicts", "supersedes", "context"] },
+        "accessedAt": { "type": "string", "format": "date" }
+      },
+      "anyOf": [
+        { "required": ["sourceCitationId"], "properties": { "sourceCitationId": { "type": "string", "minLength": 1 } } },
+        { "required": ["fieldCitationId"], "properties": { "fieldCitationId": { "type": "string", "minLength": 1 } } },
+        { "required": ["evidenceAppraisalId"], "properties": { "evidenceAppraisalId": { "type": "string", "minLength": 1 } } },
+        { "required": ["artifactRef"], "properties": { "artifactRef": { "$ref": "#/$defs/artifactRef" } } }
+      ]
+    },
+    "reviewReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["receiptId", "reviewType", "reviewMethod", "reviewerType", "reviewerId", "reviewedAt", "decision", "receiptPath", "notes"],
+      "properties": {
+        "receiptId": { "type": "string", "pattern": "^review\\.[a-z0-9_.-]+$" },
+        "reviewType": { "enum": ["coverage_audit", "negative_search_review", "evidence_review", "completeness_review", "external_readiness_review", "indicator_review", "rights_holder_review", "legal_privacy_review"] },
+        "reviewMethod": { "enum": ["machine_audit", "human_document_review", "human_source_appraisal", "partner_validation", "rights_holder_review", "legal_review", "mixed"] },
+        "reviewerType": { "enum": ["machine", "human", "partner", "rights_holder"] },
+        "reviewerId": { "type": "string", "minLength": 1 },
+        "reviewedAt": { "type": "string", "format": "date" },
+        "decision": { "enum": ["approved", "changes_requested", "rejected", "not_applicable"] },
+        "receiptPath": { "type": "string", "minLength": 1 },
+        "notes": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "facetSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assessmentState", "representedIds", "missingIds", "notApplicableIds", "notApplicableReason"],
+      "properties": {
+        "assessmentState": { "enum": ["unknown", "assessed", "not_applicable"] },
+        "representedIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "missingIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "notApplicableIds": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "notApplicableReason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "assessmentState": { "const": "unknown" } }, "required": ["assessmentState"] },
+          "then": {
+            "properties": {
+              "representedIds": { "maxItems": 0 },
+              "missingIds": { "maxItems": 0 },
+              "notApplicableIds": { "maxItems": 0 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "assessmentState": { "const": "not_applicable" } }, "required": ["assessmentState"] },
+          "then": {
+            "properties": {
+              "representedIds": { "maxItems": 0 },
+              "missingIds": { "maxItems": 0 },
+              "notApplicableReason": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      ]
+    },
+    "facetCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["geographies", "commodities", "actorClasses", "flowClasses", "outcomes", "childDimensions"],
+      "properties": {
+        "geographies": { "$ref": "#/$defs/facetSet" },
+        "commodities": { "$ref": "#/$defs/facetSet" },
+        "actorClasses": { "$ref": "#/$defs/facetSet" },
+        "flowClasses": { "$ref": "#/$defs/facetSet" },
+        "outcomes": { "$ref": "#/$defs/facetSet" },
+        "childDimensions": { "$ref": "#/$defs/facetSet" }
+      }
+    },
+    "readinessCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["checkId", "status", "reason"],
+      "properties": {
+        "checkId": {
+          "enum": [
+            "scope",
+            "inventory",
+            "evidence",
+            "verification",
+            "citation",
+            "appraisal",
+            "freshness",
+            "temporal",
+            "archive",
+            "facets",
+            "review",
+            "monitoring",
+            "child_coverage"
+          ]
+        },
+        "status": { "enum": ["pass", "fail", "unknown", "not_applicable"] },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "readinessResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["profileId", "thresholdsVersion", "computedAt", "computedBy", "completeForProfile", "reasons", "checks"],
+      "properties": {
+        "profileId": { "$ref": "#/$defs/readinessProfileId" },
+        "thresholdsVersion": { "const": "coverage-readiness-v1" },
+        "computedAt": { "type": "string", "format": "date" },
+        "computedBy": { "type": "string", "minLength": 1 },
+        "completeForProfile": { "type": "boolean" },
+        "reasons": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "checks": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/readinessCheck" },
+          "description": "Checks required by the selected profile. Optional diagnostics are omitted; every emitted check is therefore readiness-bearing."
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "completeForProfile": { "const": true } }, "required": ["completeForProfile"] },
+          "then": {
+            "properties": {
+              "reasons": { "maxItems": 0 },
+              "checks": {
+                "minItems": 6,
+                "not": {
+                  "contains": {
+                    "type": "object",
+                    "properties": { "status": { "enum": ["fail", "unknown"] } },
+                    "required": ["status"]
+                  }
+                },
+                "allOf": [
+                  {
+                    "contains": { "type": "object", "properties": { "checkId": { "const": "scope" }, "status": { "const": "pass" } }, "required": ["checkId", "status"] },
+                    "minContains": 1,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": { "type": "object", "properties": { "checkId": { "const": "inventory" }, "status": { "const": "pass" } }, "required": ["checkId", "status"] },
+                    "minContains": 1,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": { "type": "object", "properties": { "checkId": { "const": "evidence" }, "status": { "const": "pass" } }, "required": ["checkId", "status"] },
+                    "minContains": 1,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": { "type": "object", "properties": { "checkId": { "const": "facets" }, "status": { "const": "pass" } }, "required": ["checkId", "status"] },
+                    "minContains": 1,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": { "type": "object", "properties": { "checkId": { "const": "review" }, "status": { "const": "pass" } }, "required": ["checkId", "status"] },
+                    "minContains": 1,
+                    "maxContains": 1
+                  },
+                  {
+                    "contains": { "type": "object", "properties": { "checkId": { "const": "child_coverage" }, "status": { "const": "pass" } }, "required": ["checkId", "status"] },
+                    "minContains": 1,
+                    "maxContains": 1
+                  }
+                ]
+              }
+            }
+          },
+          "else": { "properties": { "reasons": { "minItems": 1 } } }
+        }
+      ]
+    },
+    "operationalGap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["route", "status", "controlRefs", "nextAction", "owner"],
+      "properties": {
+        "route": { "enum": ["unclassified", "none", "synthesis_needed", "human_gated", "source_gated", "true_c", "future", "out_of_scope"] },
+        "status": { "enum": ["unknown", "open", "blocked", "closed", "not_applicable"] },
+        "controlRefs": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "nextAction": { "type": "string", "minLength": 1 },
+        "owner": { "type": "string", "minLength": 1 }
+      },
+      "description": "Operational routing only. It must not promote evidence readiness or completeForProfile."
+    },
+    "monitoring": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cadence", "nextReviewAt", "trigger", "stalenessThresholdDays"],
+      "properties": {
+        "cadence": { "enum": ["event_driven", "weekly", "monthly", "quarterly", "semiannual", "annual", "unassigned"] },
+        "nextReviewAt": { "type": ["string", "null"], "format": "date" },
+        "trigger": { "type": ["string", "null"] },
+        "stalenessThresholdDays": { "type": ["integer", "null"], "minimum": 1 }
+      }
+    },
+    "coverageAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assessmentId",
+        "cellId",
+        "schemaVersion",
+        "taxonomyVersion",
+        "eventKind",
+        "baselineId",
+        "baselineAdoptionStatus",
+        "baselineSnapshotId",
+        "baseCommit",
+        "artifactSnapshotIds",
+        "auditObservedAt",
+        "recordedAt",
+        "retrievedAt",
+        "assessedAt",
+        "sourceLastModified",
+        "sourceUpdatedThrough",
+        "assessmentValidFrom",
+        "assessmentValidTo",
+        "workflowStage",
+        "scopeState",
+        "inventoryState",
+        "knowledgeDepth",
+        "verificationStatus",
+        "citationReadiness",
+        "appraisalState",
+        "freshnessState",
+        "temporalDepth",
+        "archiveState",
+        "confidence",
+        "assessmentWorkflowState",
+        "evidenceBasis",
+        "subjectMatterPeriods",
+        "systemBoundary",
+        "universeDefinition",
+        "unit",
+        "method",
+        "evidenceLinks",
+        "reviewReceipts",
+        "facetCoverage",
+        "limitations",
+        "readinessResult",
+        "operationalGap",
+        "monitoring",
+        "supersedesId",
+        "contentHash"
+      ],
+      "properties": {
+        "assessmentId": { "type": "string", "pattern": "^assess\\.[a-z0-9_.-]+$" },
+        "cellId": { "type": "string", "pattern": "^cov\\.[a-z0-9_.=-]+$" },
+        "schemaVersion": { "const": "1.0.0" },
+        "taxonomyVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+        "eventKind": { "enum": ["scope_registration", "coverage_assessment", "correction", "review_update", "monitoring_update"] },
+        "baselineId": { "type": "string", "pattern": "^baseline\\.[a-z0-9_.-]+\\.v[0-9]+$" },
+        "baselineAdoptionStatus": { "enum": ["proposed", "adopted"] },
+        "baselineSnapshotId": { "type": "string", "pattern": "^snapshot\\.v[0-9]+\\.[a-f0-9]{20,64}$" },
+        "baseCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "artifactSnapshotIds": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^artifact\\.v[0-9]+\\.[a-f0-9]{20,64}$" },
+          "uniqueItems": true,
+          "description": "Provenance links into the separately hash-bound snapshot manifest. These links are not claim evidence and do not satisfy evidenceLinks requirements."
+        },
+        "auditObservedAt": { "type": "string", "format": "date" },
+        "recordedAt": { "type": "string", "format": "date" },
+        "retrievedAt": { "type": "string", "format": "date" },
+        "assessedAt": { "type": "string", "format": "date" },
+        "sourceLastModified": { "type": ["string", "null"], "format": "date" },
+        "sourceUpdatedThrough": { "type": ["string", "null"], "format": "date" },
+        "assessmentValidFrom": { "type": "string", "format": "date" },
+        "assessmentValidTo": { "type": ["string", "null"], "format": "date" },
+        "workflowStage": { "enum": ["unassessed", "absent", "discovered", "source_collected", "extracted", "compiled", "reviewed", "claim_ready", "monitored", "out_of_scope"] },
+        "scopeState": { "enum": ["unknown", "draft", "frozen", "superseded", "out_of_scope"] },
+        "inventoryState": { "enum": ["unknown", "none_observed", "partial", "run_floor", "exhaustive", "not_applicable"] },
+        "knowledgeDepth": { "enum": ["unknown", "identity_only", "descriptive", "quantified", "relational", "causal", "not_applicable"] },
+        "verificationStatus": { "enum": ["unverified", "needs_review", "machine_verified", "human_verified", "disputed", "rejected", "failed"] },
+        "citationReadiness": { "enum": ["not_assessed", "blocked_unsourced", "internal_context", "citable_with_note", "citable_external"] },
+        "appraisalState": { "enum": ["not_assessed", "none", "draft", "reviewed", "excluded_not_applicable"] },
+        "freshnessState": { "enum": ["unknown", "current", "due", "stale", "not_applicable"] },
+        "temporalDepth": { "enum": ["not_assessed", "undated", "snapshot", "dated_series", "bitemporal", "not_applicable"] },
+        "archiveState": { "enum": ["unknown", "not_assessed", "locator_only", "durable_copy", "hash_verified", "not_applicable"] },
+        "confidence": { "enum": ["unknown", "low", "medium", "high"] },
+        "assessmentWorkflowState": { "enum": ["candidate", "received", "review_queued", "reviewed", "imported", "audited", "published"] },
+        "evidenceBasis": { "enum": ["not_assessed", "observed", "estimated", "proxy", "illustrative", "internal_corpus_audit"] },
+        "subjectMatterPeriods": { "type": "array", "items": { "$ref": "#/$defs/subjectMatterPeriod" }, "uniqueItems": true },
+        "systemBoundary": { "$ref": "#/$defs/systemBoundary" },
+        "universeDefinition": { "$ref": "#/$defs/universeDefinition" },
+        "unit": { "type": ["string", "null"] },
+        "method": { "oneOf": [{ "$ref": "#/$defs/assessmentMethod" }, { "type": "null" }] },
+        "evidenceLinks": { "type": "array", "items": { "$ref": "#/$defs/evidenceLink" }, "uniqueItems": true },
+        "reviewReceipts": { "type": "array", "items": { "$ref": "#/$defs/reviewReceipt" }, "uniqueItems": true },
+        "facetCoverage": { "$ref": "#/$defs/facetCoverage" },
+        "limitations": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "readinessResult": { "oneOf": [{ "$ref": "#/$defs/readinessResult" }, { "type": "null" }] },
+        "operationalGap": { "$ref": "#/$defs/operationalGap" },
+        "monitoring": { "$ref": "#/$defs/monitoring" },
+        "supersedesId": { "type": ["string", "null"], "pattern": "^assess\\.[a-z0-9_.-]+$" },
+        "contentHash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "eventKind": { "const": "scope_registration" } }, "required": ["eventKind"] },
+          "then": {
+            "properties": {
+              "workflowStage": { "const": "unassessed" },
+              "inventoryState": { "const": "unknown" },
+              "knowledgeDepth": { "const": "unknown" },
+              "verificationStatus": { "const": "unverified" },
+              "citationReadiness": { "const": "not_assessed" },
+              "appraisalState": { "enum": ["not_assessed", "none"] },
+              "evidenceBasis": { "const": "not_assessed" },
+              "method": { "type": "null" },
+              "evidenceLinks": { "maxItems": 0 },
+              "reviewReceipts": { "maxItems": 0 },
+              "readinessResult": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "assessmentWorkflowState": { "const": "audited" } }, "required": ["assessmentWorkflowState"] },
+          "then": {
+            "properties": {
+              "method": { "$ref": "#/$defs/assessmentMethod" },
+              "evidenceLinks": { "minItems": 1 },
+              "reviewReceipts": {
+                "contains": {
+                  "type": "object",
+                  "properties": { "reviewType": { "const": "coverage_audit" }, "decision": { "const": "approved" } },
+                  "required": ["reviewType", "decision"]
+                },
+                "minContains": 1
+              },
+              "limitations": { "minItems": 1 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "workflowStage": { "const": "absent" } }, "required": ["workflowStage"] },
+          "then": { "properties": { "inventoryState": { "const": "none_observed" } } }
+        },
+        {
+          "if": { "properties": { "inventoryState": { "const": "none_observed" } }, "required": ["inventoryState"] },
+          "then": {
+            "properties": {
+              "method": {
+                "allOf": [
+                  { "$ref": "#/$defs/assessmentMethod" },
+                  {
+                    "properties": {
+                      "methodType": { "const": "negative_search" },
+                      "searchBoundary": { "type": "string", "minLength": 1 },
+                      "sourcesChecked": { "minItems": 1 }
+                    }
+                  }
+                ]
+              },
+              "subjectMatterPeriods": { "minItems": 1 },
+              "evidenceLinks": {
+                "contains": {
+                  "type": "object",
+                  "properties": { "role": { "const": "negative_search" } },
+                  "required": ["role"]
+                },
+                "minContains": 1
+              },
+              "reviewReceipts": {
+                "contains": {
+                  "type": "object",
+                  "properties": {
+                    "reviewType": { "const": "negative_search_review" },
+                    "reviewerType": { "enum": ["human", "partner", "rights_holder"] },
+                    "decision": { "const": "approved" }
+                  },
+                  "required": ["reviewType", "reviewerType", "decision"]
+                },
+                "minContains": 1
+              }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "inventoryState": { "const": "exhaustive" } }, "required": ["inventoryState"] },
+          "then": {
+            "properties": {
+              "scopeState": { "const": "frozen" },
+              "universeDefinition": {
+                "allOf": [
+                  { "$ref": "#/$defs/universeDefinition" },
+                  { "properties": { "state": { "const": "frozen" } } }
+                ]
+              },
+              "method": {
+                "allOf": [
+                  { "$ref": "#/$defs/assessmentMethod" },
+                  { "properties": { "methodType": { "enum": ["enumeration", "mixed"] } } }
+                ]
+              },
+              "evidenceLinks": { "minItems": 1 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "knowledgeDepth": { "const": "quantified" } }, "required": ["knowledgeDepth"] },
+          "then": {
+            "properties": {
+              "unit": { "type": "string", "minLength": 1 },
+              "subjectMatterPeriods": { "minItems": 1 },
+              "systemBoundary": {
+                "allOf": [
+                  { "$ref": "#/$defs/systemBoundary" },
+                  { "properties": { "state": { "enum": ["draft", "frozen"] } } }
+                ]
+              },
+              "method": { "$ref": "#/$defs/assessmentMethod" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "citationReadiness": { "const": "citable_external" } }, "required": ["citationReadiness"] },
+          "then": {
+            "properties": {
+              "assessmentWorkflowState": { "enum": ["reviewed", "audited", "published"] },
+              "verificationStatus": { "const": "human_verified" },
+              "appraisalState": { "enum": ["reviewed", "excluded_not_applicable"] },
+              "freshnessState": { "const": "current" },
+              "archiveState": { "enum": ["durable_copy", "hash_verified"] },
+              "method": { "$ref": "#/$defs/assessmentMethod" },
+              "systemBoundary": {
+                "allOf": [
+                  { "$ref": "#/$defs/systemBoundary" },
+                  { "properties": { "state": { "const": "frozen" } } }
+                ]
+              },
+              "evidenceLinks": {
+                "contains": {
+                  "type": "object",
+                  "properties": {
+                    "sourceCitationId": { "type": "string", "minLength": 1 },
+                    "supportsOrChallenges": { "const": "supports" }
+                  },
+                  "required": ["sourceCitationId", "supportsOrChallenges", "locator"]
+                },
+                "minContains": 1
+              },
+              "reviewReceipts": {
+                "contains": {
+                  "type": "object",
+                  "properties": {
+                    "reviewType": { "const": "external_readiness_review" },
+                    "reviewerType": { "enum": ["human", "partner", "rights_holder"] },
+                    "decision": { "const": "approved" }
+                  },
+                  "required": ["reviewType", "reviewerType", "decision"]
+                },
+                "minContains": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "readinessResult": {
+                "type": "object",
+                "properties": { "completeForProfile": { "const": true } },
+                "required": ["completeForProfile"]
+              }
+            },
+            "required": ["readinessResult"]
+          },
+          "then": {
+            "properties": {
+              "scopeState": { "const": "frozen" },
+              "inventoryState": { "enum": ["partial", "run_floor", "exhaustive", "not_applicable"] },
+              "assessmentWorkflowState": { "enum": ["audited", "published"] },
+              "method": { "$ref": "#/$defs/assessmentMethod" },
+              "evidenceLinks": { "minItems": 1 },
+              "reviewReceipts": {
+                "contains": {
+                  "type": "object",
+                  "properties": {
+                    "reviewType": { "const": "completeness_review" },
+                    "reviewerType": { "enum": ["human", "partner", "rights_holder"] },
+                    "decision": { "const": "approved" }
+                  },
+                  "required": ["reviewType", "reviewerType", "decision"]
+                },
+                "minContains": 1
+              },
+              "facetCoverage": {
+                "allOf": [
+                  { "$ref": "#/$defs/facetCoverage" },
+                  {
+                    "properties": {
+                      "geographies": { "properties": { "assessmentState": { "enum": ["assessed", "not_applicable"] } } },
+                      "commodities": { "properties": { "assessmentState": { "enum": ["assessed", "not_applicable"] } } },
+                      "actorClasses": { "properties": { "assessmentState": { "enum": ["assessed", "not_applicable"] } } },
+                      "flowClasses": { "properties": { "assessmentState": { "enum": ["assessed", "not_applicable"] } } },
+                      "outcomes": { "properties": { "assessmentState": { "enum": ["assessed", "not_applicable"] } } },
+                      "childDimensions": { "properties": { "assessmentState": { "enum": ["assessed", "not_applicable"] } } }
+                    }
+                  }
+                ]
+              },
+              "systemBoundary": {
+                "allOf": [
+                  { "$ref": "#/$defs/systemBoundary" },
+                  { "properties": { "state": { "const": "frozen" } } }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "readinessResult": {
+                "type": "object",
+                "properties": { "profileId": { "const": "internal_navigation" }, "completeForProfile": { "const": true } },
+                "required": ["profileId", "completeForProfile"]
+              }
+            },
+            "required": ["readinessResult"]
+          },
+          "then": {
+            "properties": {
+              "workflowStage": { "enum": ["compiled", "reviewed", "claim_ready", "monitored"] },
+              "verificationStatus": { "enum": ["needs_review", "machine_verified", "human_verified"] },
+              "citationReadiness": { "enum": ["internal_context", "citable_with_note", "citable_external"] }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "readinessResult": {
+                "type": "object",
+                "properties": { "profileId": { "const": "internal_analysis" }, "completeForProfile": { "const": true } },
+                "required": ["profileId", "completeForProfile"]
+              }
+            },
+            "required": ["readinessResult"]
+          },
+          "then": {
+            "properties": {
+              "workflowStage": { "enum": ["reviewed", "claim_ready", "monitored"] },
+              "verificationStatus": { "enum": ["machine_verified", "human_verified"] },
+              "citationReadiness": { "enum": ["internal_context", "citable_with_note", "citable_external"] },
+              "subjectMatterPeriods": { "minItems": 1 },
+              "universeDefinition": {
+                "allOf": [
+                  { "$ref": "#/$defs/universeDefinition" },
+                  { "properties": { "state": { "enum": ["estimated", "frozen", "not_applicable"] } } }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "readinessResult": {
+                "type": "object",
+                "properties": { "profileId": { "const": "external_claim" }, "completeForProfile": { "const": true } },
+                "required": ["profileId", "completeForProfile"]
+              }
+            },
+            "required": ["readinessResult"]
+          },
+          "then": { "properties": { "citationReadiness": { "const": "citable_external" } } }
+        },
+        {
+          "if": {
+            "properties": {
+              "readinessResult": {
+                "type": "object",
+                "properties": { "profileId": { "const": "monitored_indicator" }, "completeForProfile": { "const": true } },
+                "required": ["profileId", "completeForProfile"]
+              }
+            },
+            "required": ["readinessResult"]
+          },
+          "then": {
+            "properties": {
+              "workflowStage": { "const": "monitored" },
+              "verificationStatus": { "const": "human_verified" },
+              "citationReadiness": { "enum": ["citable_with_note", "citable_external"] },
+              "freshnessState": { "const": "current" },
+              "temporalDepth": { "enum": ["dated_series", "bitemporal"] },
+              "archiveState": { "enum": ["durable_copy", "hash_verified"] },
+              "unit": { "type": "string", "minLength": 1 },
+              "subjectMatterPeriods": { "minItems": 1 },
+              "monitoring": {
+                "allOf": [
+                  { "$ref": "#/$defs/monitoring" },
+                  {
+                    "properties": {
+                      "cadence": { "enum": ["event_driven", "weekly", "monthly", "quarterly", "semiannual", "annual"] },
+                      "nextReviewAt": { "type": "string", "format": "date" },
+                      "stalenessThresholdDays": { "type": "integer", "minimum": 1 }
+                    }
+                  }
+                ]
+              },
+              "reviewReceipts": {
+                "contains": {
+                  "type": "object",
+                  "properties": { "reviewType": { "const": "indicator_review" }, "reviewerType": { "const": "human" }, "decision": { "const": "approved" } },
+                  "required": ["reviewType", "reviewerType", "decision"]
+                },
+                "minContains": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

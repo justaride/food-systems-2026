@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import {
   buildActorImportData,
+  actorCountryNameKey,
   chooseActorTarget,
   mergeDomainRegistrationMetadata,
   type DomainActorCsvRow,
@@ -38,12 +39,35 @@ describe('domain actor company linking', () => {
 
     const target = chooseActorTarget(baseRow, {
       existingBySlug: new Map(),
+      existingByCountryName: new Map(),
       companyByOrgNr: new Map([[company.orgNr, company]]),
       existingByCompanyId: new Map([[company.id, existingActor]]),
     })
 
     assert.equal(target?.id, existingActor.id)
     assert.equal(target?.companyId, company.id)
+  })
+
+  it('uses an existing Actor with the same unique country and name', () => {
+    const existingActor = {
+      id: 'aktor-kjent-navn',
+      slug: 'gammel-kjent-slug',
+      name: baseRow.name,
+      country: baseRow.country,
+      themeTags: ['domene:legacy'],
+      companyId: null,
+    }
+
+    const target = chooseActorTarget(baseRow, {
+      existingBySlug: new Map(),
+      existingByCountryName: new Map([
+        [actorCountryNameKey(baseRow.country, baseRow.name), existingActor],
+      ]),
+      companyByOrgNr: new Map(),
+      existingByCompanyId: new Map(),
+    })
+
+    assert.equal(target?.id, existingActor.id)
   })
 
   it('adds companyId to actor payload when org_nr resolves to a Company', () => {

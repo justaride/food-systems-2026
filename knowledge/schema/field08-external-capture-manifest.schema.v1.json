@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schemas/field08-external-capture-manifest.schema.v1.json",
+  "title": "Field 08 Gate 2C detached external-capture manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["documentType", "schemaVersion", "manifestId", "status", "captures"],
+  "properties": {
+    "documentType": { "const": "field08_gate2c_external_capture_manifest" },
+    "schemaVersion": { "const": "1.0.0" },
+    "manifestId": { "const": "external_captures.field08_gate2c.v1" },
+    "status": { "const": "local_only_human_reuse_review_pending" },
+    "captures": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/capture" },
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "capture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "captureId",
+        "sourceCandidateId",
+        "sourceUrl",
+        "accessedAt",
+        "capturedAt",
+        "localPath",
+        "storageClass",
+        "archiveDurability",
+        "recoveryLocator",
+        "sha256",
+        "sizeBytes",
+        "mediaType",
+        "fileMagic",
+        "redistributionStatus",
+        "license",
+        "licenseUrl",
+        "inspectionNote"
+      ],
+      "properties": {
+        "captureId": { "type": "string", "pattern": "^capture\\.field08\\.[a-z0-9][a-z0-9._-]*$" },
+        "sourceCandidateId": { "type": "string", "pattern": "^field08\\.source\\.[a-z0-9][a-z0-9._-]*$" },
+        "sourceUrl": { "type": "string", "format": "uri" },
+        "accessedAt": { "type": "string", "format": "date" },
+        "capturedAt": { "type": "string", "format": "date-time" },
+        "localPath": {
+          "type": "string",
+          "pattern": "^research/evidence-pack/field08-gate2c-[0-9]{4}-[0-9]{2}-[0-9]{2}/raw/[a-z0-9][a-z0-9._-]*\\.pdf$"
+        },
+        "storageClass": { "const": "local_external" },
+        "archiveDurability": { "const": "local_only_at_risk" },
+        "recoveryLocator": { "type": "string", "format": "uri" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 1 },
+        "mediaType": { "const": "application/pdf" },
+        "fileMagic": { "type": "string", "pattern": "^%PDF-[1-9]\\.[0-9]$" },
+        "redistributionStatus": { "const": "review_pending" },
+        "license": { "const": null },
+        "licenseUrl": { "const": null },
+        "inspectionNote": { "$ref": "#/$defs/inspectionNote" }
+      }
+    },
+    "inspectionNote": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "sizeBytes",
+        "mediaType",
+        "authorship",
+        "scope",
+        "preparationMethod",
+        "containsFullText",
+        "containsVerbatimSourceText",
+        "sourcePdfSha256",
+        "rightsBoundary",
+        "preparedAt"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^research/evidence-pack/field08-gate2c-[0-9]{4}-[0-9]{2}-[0-9]{2}/notes/[a-z0-9][a-z0-9._-]*\\.md$"
+        },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 1 },
+        "mediaType": { "const": "text/markdown" },
+        "authorship": { "const": "project_authored" },
+        "scope": { "const": "bounded_facts_and_locator_metadata" },
+        "preparationMethod": { "const": "manual_factual_locator_note" },
+        "containsFullText": { "const": false },
+        "containsVerbatimSourceText": { "const": false },
+        "sourcePdfSha256": { "$ref": "#/$defs/sha256" },
+        "rightsBoundary": { "const": "does_not_grant_source_redistribution_rights" },
+        "preparedAt": { "type": "string", "format": "date" }
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "1.0.0",
+  "summaryId": "corpus-processing-summary.v1",
+  "generatorVersion": "1.1.0",
+  "observedAt": "2026-08-02T20:58:11Z",
+  "ledgerObservedAt": "2026-07-28T05:32:26.743Z",
+  "activeCorpus": {
+    "total": 1555,
+    "expected": 1555,
+    "identityUnique": true,
+    "bySourceKind": {
+      "document": 1534,
+      "library_file": 3,
+      "report": 6,
+      "source_doc": 11,
+      "thesis": 1
+    },
+    "authoritativeInventorySnapshot": {
+      "path": "knowledge/corpus/corpus-live-inventory-snapshot.v1.json",
+      "snapshotId": "library-analysis-live-inventory.v1",
+      "observedAt": "2026-08-02T21:38:56.421Z",
+      "identityContentSetSha256": "54b9cbd2f8fdca27845f27490155f556db6371f9a96f6445a90fd1cfe0c179cf",
+      "sourceKindCountsSha256": "b9dc26d0acb81750025a81f840c3708d787c7d556939498e06d779a87ee491c2",
+      "ledgerSha256": "3f10532176b85adcc8d2d0f36009bb821893003637eada5de8cf89f0f349ec70",
+      "portableSnapshotBindingVerified": true,
+      "liveDatabaseVerifiedThisRun": false
+    }
+  },
+  "retainedHistoryBoundary": {
+    "total": 17,
+    "nonAdditive": true,
+    "externalUseAllowed": false,
+    "contractSha256": "8cc74813bb3bac1434d07f8a5333d20b0136d955cf69c2b36acb3de8b24f03c4"
+  },
+  "repositoryFiles": {
+    "byState": {
+      "missing": 11,
+      "no_locator": 18,
+      "present": 1526
+    },
+    "byMediaType": {
+      "application/pdf": 122,
+      "application/vnd.openxmlformats-officedocument.presentationml.presentation": 1,
+      "text/csv": 3,
+      "text/markdown": 1385,
+      "text/plain": 17,
+      "text/typescript": 9,
+      "unknown": 18
+    },
+    "present": 1526,
+    "unavailable": 29,
+    "lifecycleContentHashBound": 1537,
+    "repositoryContentHashesVerified": 1526,
+    "privateCaptureContentHashesRecorded": 11,
+    "contentHashUnavailable": 18,
+    "filesystemSnapshotSha256": "78a8e89fa1bebd955ce733c16035e45aa574d060e62fcb706ad75374da8f0e8b"
+  },
+  "privateRecovery": {
+    "recorded": {
+      "candidateCount": 11,
+      "captureRecordedOn": "2026-08-02",
+      "primaryHashAndSizeAttestations": 11,
+      "replicaHashAndSizeAttestations": 11,
+      "attestedCopyFileMode": "0400",
+      "semantics": "Recorded metadata attestations are inputs, not live filesystem verification by the portable generator."
+    },
+    "liveVerifiedThisRun": {
+      "performed": false,
+      "primaryCopiesVerified": 0,
+      "replicaCopiesVerified": 0,
+      "verifiedCandidateCount": 0
+    },
+    "rightsPendingNotCleared": 11,
+    "rightsCleared": 0,
+    "repositoryPresencePromotions": 0,
+    "fullTextReviewPromotions": 0
+  },
+  "roles": {
+    "byRole": {
+      "generated_projection": 13,
+      "internal_synthesis": 666,
+      "operational_control": 185,
+      "primary_evidence": 567,
+      "unknown": 124
+    },
+    "provisionalMachineClassifications": 1431,
+    "knownIdentityAliasMismatches": 2,
+    "ownerConfirmed": 0
+  },
+  "queues": {
+    "missingFiles": 29,
+    "roleClassification": 1555,
+    "fullTextProcessingUnits": 1467,
+    "fullTextIdentitiesPending": 1555,
+    "ownerReview": 1555,
+    "normalizedPathDuplicateGroups": 53,
+    "contentHashDuplicateGroups": 80
+  },
+  "duplicateReview": {
+    "normalizedPathGroups": 53,
+    "normalizedPathIdentities": 113,
+    "contentHashGroups": 80,
+    "contentHashIdentities": 168,
+    "automaticActions": 0
+  },
+  "readiness": {
+    "fullTextComplete": 0,
+    "ownerReviewed": 0,
+    "internalKnowledgeReady": 0,
+    "externalUseReady": 0,
+    "coveragePromotionAllowed": 0
+  },
+  "semantics": {
+    "noFullTextInference": "Word count, stored summaries and AI triage cards are not full-text processing receipts.",
+    "ownerReview": "Owner review is a separate project decision receipt and does not equal later independent expert validation.",
+    "retainedHistory": "The 17 retained-history rows are a non-additive historical boundary outside the active corpus.",
+    "duplicates": "Duplicate path or content hashes create review queues only; no identity is deleted, merged or resolved automatically.",
+    "privateCapture": "A private capture is recovery metadata, not repository presence, full-text review, rights clearance or publication readiness.",
+    "liveVerification": "Portable generation validates recorded metadata and tracked hashes only. Live private-archive verification requires the explicit --check-private mode and is never persisted as if it occurred in a portable run.",
+    "authoritativeInventory": "The active corpus is bound to an exact metadata-only live-inventory snapshot. Snapshot parity is not research completeness."
+  }
+}

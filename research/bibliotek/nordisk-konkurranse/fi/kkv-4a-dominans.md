@@ -2,6 +2,7 @@
 
 **Full tittel:** Kilpailulaki (Competition Act) 948/2011, Section 4a
 **Dato:** 11. mars 2026 (Analysert)
+**URL:** https://www.finlex.fi/en/legislation/2011/948
 
 ---
 

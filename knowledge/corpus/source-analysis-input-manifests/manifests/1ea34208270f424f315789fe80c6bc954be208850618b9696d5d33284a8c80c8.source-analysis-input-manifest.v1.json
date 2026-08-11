@@ -1,0 +1,610 @@
+{
+  "schemaVersion": "1.0.0",
+  "artifactType": "source_analysis_input_manifest",
+  "pipelineVersion": "1.0.0",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8"
+  },
+  "identityKeys": [
+    "candidate:source.no.dagligvaretilsyn.annual-report-2025"
+  ],
+  "identityAssociation": {
+    "state": "unregistered_source_candidate",
+    "intendedLabel": "Dagligvaretilsynet årsrapport 2025",
+    "observedDocumentTitle": "Årsrapport for Dagligvaretilsynet 2025",
+    "blockerCode": "database_registration_required"
+  },
+  "sourceBinding": {
+    "title": "Årsrapport for Dagligvaretilsynet 2025",
+    "doi": null,
+    "officialUrl": "https://www.regjeringen.no/contentassets/036ffda0c81e4b3f99456a78ec31df0e/arsrapport-dagligvaretilsynet-2025.pdf",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_classification"
+  },
+  "workflowEligibility": {
+    "state": "blocked_identity_association",
+    "identityVerification": {
+      "allowed": false,
+      "blockerCode": "database_registration_required"
+    },
+    "sourceAnalysis": {
+      "allowed": false,
+      "blockerCode": "identity_association_blocked"
+    }
+  },
+  "bindings": {
+    "pageMap": {
+      "path": "knowledge/corpus/pdf-page-extraction/page-maps/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.page-map.v1.json",
+      "fileSha256": "768740200b09c0f6ab17cfafcd4ee35695fc9999df25618fd453f87d267508fd",
+      "pageMapSha256": "fac8cc8ad85119056cde2136245558d7b663c8ceda9eb79b9f85ab0c7bf2010e"
+    },
+    "extractionReceipt": {
+      "path": "knowledge/corpus/pdf-page-extraction/receipts/1ea34208270f424f315789fe80c6bc954be208850618b9696d5d33284a8c80c8.receipt.v1.json",
+      "fileSha256": "8a957d62cfcdb39512eac5f8c55796eb45d847c29c5f76e4732c67bf24dd2634",
+      "receiptSha256": "0190ad1c9b1f5ff1ab0211ae6009db9eac9779d04dd10418f4cb55753a0ef1bb"
+    }
+  },
+  "serialization": {
+    "id": "normalized-page-bytes-framed-v1",
+    "charset": "utf-8",
+    "pageOrder": "ascending_page_number",
+    "pageSequence": "contiguous_from_1",
+    "preambleUtf8": "food-systems/source-analysis-normalized-input/v1\n",
+    "pageDelimiterUtf8": "\n--food-systems-normalized-page-v1--\n",
+    "pageHeaderEncoding": "canonical_json_utf8",
+    "pageHeaderFields": [
+      "normalizedSha256",
+      "pageNumber",
+      "sizeBytes"
+    ],
+    "pageHeaderTerminatorHex": "0a",
+    "pagePayload": "exact_normalized_utf8_file_bytes",
+    "pagePayloadBoundary": "sizeBytes_from_page_header",
+    "trailerDelimiterUtf8": "\n--food-systems-normalized-input-end-v1--\n",
+    "trailerEncoding": "canonical_json_utf8",
+    "trailerFields": [
+      "pageCount"
+    ],
+    "trailerTerminatorHex": "0a"
+  },
+  "normalizedInput": {
+    "algorithm": "sha256",
+    "sha256": "7e8687d485e10f8012c1594754c06b4e0885bff63ab1ffa73dbab30799f78e6a",
+    "serializedSizeBytes": 101286
+  },
+  "pages": [
+    {
+      "pageNumber": 1,
+      "normalizedText": {
+        "sha256": "0a5c72bd633c96ccd22f8622ac71959bdd67c38aa14157355a2f45e537141524",
+        "sizeBytes": 40,
+        "characterCount": 39,
+        "wordCount": 4
+      }
+    },
+    {
+      "pageNumber": 2,
+      "normalizedText": {
+        "sha256": "5619e5d699f41578e9c7a7cc6c681d95edba72daed2244369f5b357f6ef10bc9",
+        "sizeBytes": 4368,
+        "characterCount": 4340,
+        "wordCount": 254
+      }
+    },
+    {
+      "pageNumber": 3,
+      "normalizedText": {
+        "sha256": "6a119c655cd84e18ef22a20aeaa30eb897939fb0a09a48e05abd9e6d25c480e5",
+        "sizeBytes": 4646,
+        "characterCount": 4628,
+        "wordCount": 141
+      }
+    },
+    {
+      "pageNumber": 4,
+      "normalizedText": {
+        "sha256": "cf8a86142666d4b3eb48c2819dfed2e5516728de99b3e77a426572e4937a5696",
+        "sizeBytes": 2309,
+        "characterCount": 2274,
+        "wordCount": 330
+      }
+    },
+    {
+      "pageNumber": 5,
+      "normalizedText": {
+        "sha256": "fb2fe436e190eea70e6360b70e53dde7d29a55b48f7b081aecb48123d970de94",
+        "sizeBytes": 2425,
+        "characterCount": 2372,
+        "wordCount": 340
+      }
+    },
+    {
+      "pageNumber": 6,
+      "normalizedText": {
+        "sha256": "cddc0e38c07a2e5d8fb178f4ad3e593460084f3c24ae857d491de9fdc2d92d66",
+        "sizeBytes": 2072,
+        "characterCount": 2037,
+        "wordCount": 301
+      }
+    },
+    {
+      "pageNumber": 7,
+      "normalizedText": {
+        "sha256": "0d72026e9c6fd4b40c3d463a29965bcf4019aa2fa1775209895e663d75c2db0a",
+        "sizeBytes": 1562,
+        "characterCount": 1542,
+        "wordCount": 191
+      }
+    },
+    {
+      "pageNumber": 8,
+      "normalizedText": {
+        "sha256": "2e70030722ebe069ae50aa3590b9f8bb92c1249fd17d9a530fea653623649117",
+        "sizeBytes": 2126,
+        "characterCount": 2078,
+        "wordCount": 295
+      }
+    },
+    {
+      "pageNumber": 9,
+      "normalizedText": {
+        "sha256": "d0fdb36c1af325c79455efd74fd56115cc107bf6012bd23baf641cc691a609ce",
+        "sizeBytes": 1882,
+        "characterCount": 1849,
+        "wordCount": 270
+      }
+    },
+    {
+      "pageNumber": 10,
+      "normalizedText": {
+        "sha256": "f9991f34ba139879b1799d83611839f4b45fe1c0ebe55d46126ed7832b90a103",
+        "sizeBytes": 1495,
+        "characterCount": 1462,
+        "wordCount": 220
+      }
+    },
+    {
+      "pageNumber": 11,
+      "normalizedText": {
+        "sha256": "bba45f8ca7e42b90940ce3ab3210e0c4a4d0b8111b98473cbf798612b7dd172f",
+        "sizeBytes": 1630,
+        "characterCount": 1590,
+        "wordCount": 216
+      }
+    },
+    {
+      "pageNumber": 12,
+      "normalizedText": {
+        "sha256": "3a49e7e62f0f40e16ba0220ed990de8c7a128d07087dddb2810324d119690366",
+        "sizeBytes": 1588,
+        "characterCount": 1535,
+        "wordCount": 208
+      }
+    },
+    {
+      "pageNumber": 13,
+      "normalizedText": {
+        "sha256": "dd18b541a4195094696edbe7a3f3230d1ce8438065fcc406887bb387ae7a408f",
+        "sizeBytes": 2194,
+        "characterCount": 2143,
+        "wordCount": 325
+      }
+    },
+    {
+      "pageNumber": 14,
+      "normalizedText": {
+        "sha256": "c560fab6dfa0fc44e6259758c7ffa57e3a6b78c19a560a9ea597f9c94f58a4d0",
+        "sizeBytes": 2067,
+        "characterCount": 2019,
+        "wordCount": 303
+      }
+    },
+    {
+      "pageNumber": 15,
+      "normalizedText": {
+        "sha256": "9e1b2a94931f78ddb6a421477f8b9cba7cfa6328b26f88fbff9cb8de04058879",
+        "sizeBytes": 2308,
+        "characterCount": 2249,
+        "wordCount": 342
+      }
+    },
+    {
+      "pageNumber": 16,
+      "normalizedText": {
+        "sha256": "658a3935a4f8240b6ce2c52e5352b53e4195951150730acc21615933078d08dd",
+        "sizeBytes": 2403,
+        "characterCount": 2354,
+        "wordCount": 361
+      }
+    },
+    {
+      "pageNumber": 17,
+      "normalizedText": {
+        "sha256": "c5ab58fe3d3db2f4a49350ea8598e620870ee02ce1739f0e0409e9b4ffe3afca",
+        "sizeBytes": 2062,
+        "characterCount": 2020,
+        "wordCount": 309
+      }
+    },
+    {
+      "pageNumber": 18,
+      "normalizedText": {
+        "sha256": "a580fbcb2d74853c8e2de9ded205a60240be275a20e803d96bc0879ee537cfc4",
+        "sizeBytes": 2469,
+        "characterCount": 2414,
+        "wordCount": 358
+      }
+    },
+    {
+      "pageNumber": 19,
+      "normalizedText": {
+        "sha256": "b7b0520c3491590b4c70527cfb17093a73d2e10265ab51f99a30c1be5908c98c",
+        "sizeBytes": 2284,
+        "characterCount": 2231,
+        "wordCount": 316
+      }
+    },
+    {
+      "pageNumber": 20,
+      "normalizedText": {
+        "sha256": "d78be3c861a3f0e3dd37e045c774cbbd235cb6b1b1c7dca35e4fb7825bd56a5a",
+        "sizeBytes": 2300,
+        "characterCount": 2262,
+        "wordCount": 330
+      }
+    },
+    {
+      "pageNumber": 21,
+      "normalizedText": {
+        "sha256": "8266ba310c70efd7cab4a6c67cd669229752fb4cc89d3958c00dfab7df8c4b6e",
+        "sizeBytes": 1713,
+        "characterCount": 1665,
+        "wordCount": 258
+      }
+    },
+    {
+      "pageNumber": 22,
+      "normalizedText": {
+        "sha256": "3a1d72baf91b40148e66ff79117835906203f7a5132cb1158f0fcf768ae94dd8",
+        "sizeBytes": 2078,
+        "characterCount": 2035,
+        "wordCount": 285
+      }
+    },
+    {
+      "pageNumber": 23,
+      "normalizedText": {
+        "sha256": "0ca77b7344d24d3506e09da7289fbf287bd9479f53ab835953233204ac67e192",
+        "sizeBytes": 2210,
+        "characterCount": 2165,
+        "wordCount": 323
+      }
+    },
+    {
+      "pageNumber": 24,
+      "normalizedText": {
+        "sha256": "6d4b6c96716dcab1d9431a2875d32ae9c1bb758b90d1dfe7c77007d2d9fcba7e",
+        "sizeBytes": 2206,
+        "characterCount": 2159,
+        "wordCount": 322
+      }
+    },
+    {
+      "pageNumber": 25,
+      "normalizedText": {
+        "sha256": "8708950c36ca4d650c7cec07b48d45959d1ba2a17e4f6dca034a592807476cea",
+        "sizeBytes": 2097,
+        "characterCount": 2044,
+        "wordCount": 308
+      }
+    },
+    {
+      "pageNumber": 26,
+      "normalizedText": {
+        "sha256": "0c879ac5cdf3fcad5fac444843d8c837259192d2e38e62e953b0dfeed0882e54",
+        "sizeBytes": 1710,
+        "characterCount": 1683,
+        "wordCount": 203
+      }
+    },
+    {
+      "pageNumber": 27,
+      "normalizedText": {
+        "sha256": "7610e33247beb12a3e969c3a1a6cf05396c51f1cd5b6bf990a20eb172b1acfb9",
+        "sizeBytes": 136,
+        "characterCount": 132,
+        "wordCount": 17
+      }
+    },
+    {
+      "pageNumber": 28,
+      "normalizedText": {
+        "sha256": "9c4ef7d54d3ca2cdac11e22822eca4f8c397a309b4b88a75ac4904725b1d3555",
+        "sizeBytes": 66,
+        "characterCount": 63,
+        "wordCount": 8
+      }
+    },
+    {
+      "pageNumber": 29,
+      "normalizedText": {
+        "sha256": "c6e36a6caa05fe893a01f42aa9f1e8c4b1d83555eb8f4a247be13034beb436ab",
+        "sizeBytes": 746,
+        "characterCount": 732,
+        "wordCount": 94
+      }
+    },
+    {
+      "pageNumber": 30,
+      "normalizedText": {
+        "sha256": "614e07bd93b5bf2bad42961bddddb8d6774b48ce8630cd69f6503c8b27ede7ca",
+        "sizeBytes": 1905,
+        "characterCount": 1866,
+        "wordCount": 264
+      }
+    },
+    {
+      "pageNumber": 31,
+      "normalizedText": {
+        "sha256": "6380162e6e02a9f62fabed78eb04538fdf127a654e8529bdddf664aa19ba3046",
+        "sizeBytes": 1682,
+        "characterCount": 1651,
+        "wordCount": 237
+      }
+    },
+    {
+      "pageNumber": 32,
+      "normalizedText": {
+        "sha256": "6be86740554d8a69cbba16c1d6239df1d6ba1def1e58c526e47c768d92635a12",
+        "sizeBytes": 1876,
+        "characterCount": 1840,
+        "wordCount": 255
+      }
+    },
+    {
+      "pageNumber": 33,
+      "normalizedText": {
+        "sha256": "090f840071cb1778f9e0f3fc6e2d36943b6eb70d86e5397e98cd8eae62b1cde7",
+        "sizeBytes": 1447,
+        "characterCount": 1424,
+        "wordCount": 205
+      }
+    },
+    {
+      "pageNumber": 34,
+      "normalizedText": {
+        "sha256": "3a4a57739f4b3362d5135aea6ac4ef70c2ba205d956651fc4fe420a3a046d96d",
+        "sizeBytes": 2089,
+        "characterCount": 2056,
+        "wordCount": 270
+      }
+    },
+    {
+      "pageNumber": 35,
+      "normalizedText": {
+        "sha256": "64717c88c13263d5034e686024283225907c7fbb5cf16366aa14867049ca8bbc",
+        "sizeBytes": 1340,
+        "characterCount": 1317,
+        "wordCount": 198
+      }
+    },
+    {
+      "pageNumber": 36,
+      "normalizedText": {
+        "sha256": "359319bb41f03d1487d8c64d35b24ee937cb18938ff19b57587fb9a242770014",
+        "sizeBytes": 1553,
+        "characterCount": 1520,
+        "wordCount": 193
+      }
+    },
+    {
+      "pageNumber": 37,
+      "normalizedText": {
+        "sha256": "c07eab6463c7939fab565d625ccb6117c1ee892cabae7f3af32975bc7b491975",
+        "sizeBytes": 1682,
+        "characterCount": 1666,
+        "wordCount": 207
+      }
+    },
+    {
+      "pageNumber": 38,
+      "normalizedText": {
+        "sha256": "2eb1802cf3ff58394e47c990ba82584c55f6ca1865ed9e561e48d41860517411",
+        "sizeBytes": 1706,
+        "characterCount": 1675,
+        "wordCount": 211
+      }
+    },
+    {
+      "pageNumber": 39,
+      "normalizedText": {
+        "sha256": "2efd5b344a6ab54747d043ae0802cd28f665080c781d0e5e0d20eee7a95d6602",
+        "sizeBytes": 1838,
+        "characterCount": 1818,
+        "wordCount": 237
+      }
+    },
+    {
+      "pageNumber": 40,
+      "normalizedText": {
+        "sha256": "c6b07ea94d477f513c2bf6d0a0e14d13c4df62bc98b53145e0cf588a1b5be1f5",
+        "sizeBytes": 1683,
+        "characterCount": 1659,
+        "wordCount": 209
+      }
+    },
+    {
+      "pageNumber": 41,
+      "normalizedText": {
+        "sha256": "16c7731fa1201f075e9260ce1fefafca288f8949ab3d052eb313a1621badaccd",
+        "sizeBytes": 761,
+        "characterCount": 744,
+        "wordCount": 84
+      }
+    },
+    {
+      "pageNumber": 42,
+      "normalizedText": {
+        "sha256": "43475c27941c822ee7e8c9228f810596d5190b5a49d989a9ea9f069c17a8be68",
+        "sizeBytes": 1109,
+        "characterCount": 1101,
+        "wordCount": 154
+      }
+    },
+    {
+      "pageNumber": 43,
+      "normalizedText": {
+        "sha256": "72305d7fa0f3e455cee77d72aa5678a3b523e57097f9878fbe9393a376c1419d",
+        "sizeBytes": 2205,
+        "characterCount": 2145,
+        "wordCount": 340
+      }
+    },
+    {
+      "pageNumber": 44,
+      "normalizedText": {
+        "sha256": "31c55bdce7fea1e52257982813f07cfc3b058d8dd1b093821b14b1123e44b0df",
+        "sizeBytes": 1606,
+        "characterCount": 1594,
+        "wordCount": 230
+      }
+    },
+    {
+      "pageNumber": 45,
+      "normalizedText": {
+        "sha256": "e4ded4b0c2bc60b1e52a1e1c6413bd5002a2ecb7ff625f0c64927408eb3f88da",
+        "sizeBytes": 912,
+        "characterCount": 903,
+        "wordCount": 131
+      }
+    },
+    {
+      "pageNumber": 46,
+      "normalizedText": {
+        "sha256": "7ba3a0093a5ec32b8029aae90f250460458f77b1f1083049c5475c97aed605fe",
+        "sizeBytes": 987,
+        "characterCount": 976,
+        "wordCount": 146
+      }
+    },
+    {
+      "pageNumber": 47,
+      "normalizedText": {
+        "sha256": "31c1efd42d7e7d4d79916ffe15c3674e6fe17b6adbb9ccd164daa5f4a607f23d",
+        "sizeBytes": 1040,
+        "characterCount": 1032,
+        "wordCount": 166
+      }
+    },
+    {
+      "pageNumber": 48,
+      "normalizedText": {
+        "sha256": "2f486db24c2dee25f655e5f4bbda461056ec459cd3370e820cedf44296314c07",
+        "sizeBytes": 942,
+        "characterCount": 936,
+        "wordCount": 131
+      }
+    },
+    {
+      "pageNumber": 49,
+      "normalizedText": {
+        "sha256": "eb2cf85c06a5b7d72556f1f9b98122f4b11821062496cb5543283bf313fbbc60",
+        "sizeBytes": 1076,
+        "characterCount": 1058,
+        "wordCount": 158
+      }
+    },
+    {
+      "pageNumber": 50,
+      "normalizedText": {
+        "sha256": "73e784f9030df6e67cdb1502f5d7f30146836fde6c37808bf3b66cc7b182b8d0",
+        "sizeBytes": 1163,
+        "characterCount": 1143,
+        "wordCount": 174
+      }
+    },
+    {
+      "pageNumber": 51,
+      "normalizedText": {
+        "sha256": "8079123d2d216634cae8f6979cde74c9a337fb88a1a0a429517c782e300844d4",
+        "sizeBytes": 1128,
+        "characterCount": 1111,
+        "wordCount": 170
+      }
+    },
+    {
+      "pageNumber": 52,
+      "normalizedText": {
+        "sha256": "97fc8f1aadb32067f8b15019a1ebb399a61c951f680602f7ef3fb630439903c0",
+        "sizeBytes": 1786,
+        "characterCount": 1770,
+        "wordCount": 245
+      }
+    },
+    {
+      "pageNumber": 53,
+      "normalizedText": {
+        "sha256": "e5e1ce990986bfc7c14e6d65aeadb68547663c60a727176393331988d84e33e4",
+        "sizeBytes": 1543,
+        "characterCount": 1530,
+        "wordCount": 237
+      }
+    },
+    {
+      "pageNumber": 54,
+      "normalizedText": {
+        "sha256": "5f74fd17bb61937f6f02d932ebb9b926ce11a01b726fc15e7f5218020eb3d3c1",
+        "sizeBytes": 44,
+        "characterCount": 41,
+        "wordCount": 4
+      }
+    },
+    {
+      "pageNumber": 55,
+      "normalizedText": {
+        "sha256": "7e0306b3930b2a67ad9439c9b54a8dd74d7f0203fe8c2e80c97f050bb5ae00af",
+        "sizeBytes": 215,
+        "characterCount": 213,
+        "wordCount": 25
+      }
+    }
+  ],
+  "totals": {
+    "pageCount": 55,
+    "normalizedSizeBytes": 92510,
+    "normalizedCharacterCount": 90905,
+    "wordCount": 12113
+  },
+  "privateStorage": {
+    "normalizedPageRelativePathTemplate": "pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt",
+    "rawPdfRelativePathTemplate": "sha256/{rawPdfSha256}.pdf",
+    "expectedFileMode": "0400",
+    "copies": [
+      {
+        "copyId": "primary",
+        "rootEnvironmentVariable": "FOOD_SYSTEMS_PRIVATE_CORPUS_ROOT",
+        "rawPdfLocatorTemplate": "private://corpus/sha256/{rawPdfSha256}.pdf",
+        "normalizedPageLocatorTemplate": "private://corpus/pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+      },
+      {
+        "copyId": "replica",
+        "rootEnvironmentVariable": "FOOD_SYSTEMS_PRIVATE_CORPUS_REPLICA_ROOT",
+        "rawPdfLocatorTemplate": "private://bigbrain-corpus/sha256/{rawPdfSha256}.pdf",
+        "normalizedPageLocatorTemplate": "private://bigbrain-corpus/pdf-page-extraction/v1/sha256/{rawPdfSha256}/pages/page-{pageNumber:0000}.normalized.txt"
+      }
+    ]
+  },
+  "textIncludedInTrackedArtifact": false,
+  "readiness": {
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentExpertReviewComplete": false,
+    "partnerReviewComplete": false,
+    "rightsHolderReviewComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "manifestSha256": "ca4fed42d6952b5d31e73b370098976985030375e939ef2cdd4c7d0266d97323"
+}

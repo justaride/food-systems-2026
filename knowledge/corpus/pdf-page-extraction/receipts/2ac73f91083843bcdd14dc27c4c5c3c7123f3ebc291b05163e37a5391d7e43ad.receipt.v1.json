@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "1.0.0",
+  "receiptType": "pdf_page_extraction_technical_qualification",
+  "pipelineVersion": "1.0.0",
+  "qualificationState": "technical_extraction_passed_identity_blocked",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad"
+  },
+  "identityKeys": [
+    "candidate:source.dk.kfst.utp-enforcement-2025"
+  ],
+  "identityAssociation": {
+    "state": "unregistered_source_candidate",
+    "intendedLabel": "KFST UTP-håndhævelsesrapport 2025",
+    "observedDocumentTitle": "Fødevarehandelsloven — Årlig rapport om håndhævelsesaktiviteter i 2025",
+    "blockerCode": "database_registration_required"
+  },
+  "sourceBinding": {
+    "title": "Fødevarehandelsloven — Årlig rapport om håndhævelsesaktiviteter i 2025",
+    "doi": null,
+    "officialUrl": "https://kfst.dk/media/tugboea2/20260629-aarlig-rapport-om-haandhaevelsesaktiviteter-i-henhold-til-utp-direktivet-i-2025-a.pdf",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_classification"
+  },
+  "sourceFile": {
+    "expectedSizeBytes": 173750,
+    "observedSizeBytes": 173750,
+    "headerMagic": "%PDF-",
+    "encryptionState": "not_encrypted",
+    "pageCount": 8,
+    "pdfVersion": "1.6",
+    "primaryCopy": {
+      "locator": "private://corpus/sha256/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.pdf",
+      "sha256": "2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad",
+      "sizeBytes": 173750,
+      "fileMode": "0400",
+      "verified": true
+    },
+    "replicaCopy": {
+      "locator": "private://bigbrain-corpus/sha256/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.pdf",
+      "sha256": "2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad",
+      "sizeBytes": 173750,
+      "fileMode": "0400",
+      "verified": true
+    }
+  },
+  "extraction": {
+    "pdfinfoVersion": "26.04.0",
+    "pdftotextVersion": "26.04.0",
+    "argumentsTemplate": [
+      "-f",
+      "{page}",
+      "-l",
+      "{page}",
+      "-enc",
+      "UTF-8",
+      "-eol",
+      "unix",
+      "-nopgbrk",
+      "{input_pdf}",
+      "-"
+    ],
+    "pageMapLocator": "knowledge/corpus/pdf-page-extraction/page-maps/2ac73f91083843bcdd14dc27c4c5c3c7123f3ebc291b05163e37a5391d7e43ad.page-map.v1.json",
+    "pageMapSha256": "f5955de7412a6f692a2c3cd41811e79b31cd1f770b7c25f7ca88b7c7a0986b19",
+    "extractedPageCount": 8,
+    "rawTextFileCount": 8,
+    "normalizedTextFileCount": 8,
+    "primaryPrivateOutputVerified": true,
+    "replicaPrivateOutputVerified": true
+  },
+  "totals": {
+    "rawSizeBytes": 11117,
+    "rawCharacterCount": 10799,
+    "normalizedSizeBytes": 11109,
+    "normalizedCharacterCount": 10791,
+    "wordCount": 1384,
+    "warningPageCount": 1,
+    "blankPageCount": 0,
+    "lowTextPageCount": 1
+  },
+  "warningSummary": [
+    {
+      "code": "low_extracted_text",
+      "pageCount": 1,
+      "pageNumbers": [
+        1
+      ]
+    }
+  ],
+  "languagePolicy": {
+    "pageLanguageDetection": "not_computed",
+    "reason": "no_version_pinned_reliable_detector_configured"
+  },
+  "semantics": {
+    "technicalExtractionOnly": true,
+    "fullTextStoredInRepository": false,
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentValidationComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "receiptSha256": "481b502f65d73e78999c1c0f94e06e7239e2ff91ec0ac8dd25ff61947b38dce8"
+}

@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "1.0.0",
+  "boundaryId": "library-analysis-retained-history.v1",
+  "contractVersion": "2026-07-28-v1",
+  "contractSha256": "8cc74813bb3bac1434d07f8a5333d20b0136d955cf69c2b36acb3de8b24f03c4",
+  "observedAt": "2026-07-28T05:32:26.743Z",
+  "retainedHistoryRows": 17,
+  "activeCorpusRows": 1555,
+  "nonAdditive": true,
+  "evidenceUseAllowed": false,
+  "semantics": "These 17 persisted analysis records are historical projections outside the active corpus. They are reported separately and are never added to active-corpus totals.",
+  "entries": [
+    {
+      "retainedRecordId": "cmqjoewj600iuzpvm7icy9hwk",
+      "retainedIdentityKey": "document:document:cmp8xyoej00k6vvvm63gli4a8",
+      "liveCounterpartIdentityKey": "document:document:cmppajyyi001xnjvm9v3f2zzf",
+      "retentionReasonCode": "duplicate_document_consolidation",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoeww200suzpvm8f2skxan",
+      "retainedIdentityKey": "document:document:cmppajyof0000njvmdjrv2blv",
+      "liveCounterpartIdentityKey": "thesis:thesis:tesdal-2013",
+      "retentionReasonCode": "entity_projection_replaced",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoewx300tvzpvmmg3bp99j",
+      "retainedIdentityKey": "document:document:cmppajyv80011njvmgpvgesxt",
+      "liveCounterpartIdentityKey": "report:report:solutions-menu-2018",
+      "retentionReasonCode": "entity_projection_replaced",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoewzo00vfzpvmwtub4n8n",
+      "retainedIdentityKey": "document:document:cmppgez6p0000f5vm780lxspg",
+      "liveCounterpartIdentityKey": "report:report:konkurrensverket-lonsamhet-2025",
+      "retentionReasonCode": "entity_projection_replaced",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoewzp00vgzpvm1uxe8w0f",
+      "retainedIdentityKey": "document:document:cmppgez710001f5vmu3vx72b4",
+      "liveCounterpartIdentityKey": "report:report:konkurrensverket-etablering-2026",
+      "retentionReasonCode": "entity_projection_replaced",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoex2o00wozpvmvtmnlt75",
+      "retainedIdentityKey": "document:document:cmq8rsnh7000fekvmb9a3gc61",
+      "liveCounterpartIdentityKey": "source_doc:source_doc:src-138",
+      "retentionReasonCode": "document_projection_deleted_source_doc_survives",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoex2s00wtzpvmkdn39dom",
+      "retainedIdentityKey": "document:document:cmq8rsnhi000kekvm8th1u208",
+      "liveCounterpartIdentityKey": "source_doc:source_doc:src-93",
+      "retentionReasonCode": "document_projection_deleted_source_doc_survives",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoex2u00wuzpvmw093ts8u",
+      "retainedIdentityKey": "document:document:cmq8rsnhj000lekvm5l5vhigm",
+      "liveCounterpartIdentityKey": "source_doc:source_doc:src-94",
+      "retentionReasonCode": "document_projection_deleted_source_doc_survives",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoex2v00wvzpvmi24d0g5n",
+      "retainedIdentityKey": "document:document:cmq8rsnhl000mekvmou6qjq2j",
+      "liveCounterpartIdentityKey": "source_doc:source_doc:src-143",
+      "retentionReasonCode": "document_projection_deleted_source_doc_survives",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoex3200wzzpvmvs578kw1",
+      "retainedIdentityKey": "document:document:cmq8rsnhr000qekvmzurbh35d",
+      "liveCounterpartIdentityKey": "source_doc:source_doc:src-78",
+      "retentionReasonCode": "document_projection_deleted_source_doc_survives",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoex3300x1zpvmgjqlruci",
+      "retainedIdentityKey": "document:document:cmq8rsnhu000sekvmh125najl",
+      "liveCounterpartIdentityKey": "source_doc:source_doc:src-141",
+      "retentionReasonCode": "document_projection_deleted_source_doc_survives",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoex3400x2zpvm40nckc6x",
+      "retainedIdentityKey": "document:document:cmq8rsnhv000tekvm8plly1pt",
+      "liveCounterpartIdentityKey": "source_doc:source_doc:src-142",
+      "retentionReasonCode": "document_projection_deleted_source_doc_survives",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoex3a00x7zpvmprj0e43w",
+      "retainedIdentityKey": "document:document:cmq8rsni1000yekvmtkitik13",
+      "liveCounterpartIdentityKey": "source_doc:source_doc:src-164",
+      "retentionReasonCode": "document_projection_deleted_source_doc_survives",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoex3d00xazpvmh7kkkyl3",
+      "retainedIdentityKey": "document:document:cmq8rsni70011ekvmnamdezrv",
+      "liveCounterpartIdentityKey": "source_doc:source_doc:src-154",
+      "retentionReasonCode": "document_projection_deleted_source_doc_survives",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoex3k00xezpvmrilbkwrc",
+      "retainedIdentityKey": "document:document:cmq8rsnie0015ekvmp52qy9il",
+      "liveCounterpartIdentityKey": "source_doc:source_doc:src-155",
+      "retentionReasonCode": "document_projection_deleted_source_doc_survives",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoexsm01cdzpvmqlyw100s",
+      "retainedIdentityKey": "library_file:library_file:research/bibliotek/sirkularitet/ks-veileder-sirkulaerokonomi-kommune-2022.md",
+      "liveCounterpartIdentityKey": "document:document:cmql055pm00fl76vmaqrayd28",
+      "retentionReasonCode": "library_file_promoted_to_document",
+      "externalUse": false
+    },
+    {
+      "retainedRecordId": "cmqjoexth01cmzpvm0hi0ukhh",
+      "retainedIdentityKey": "library_file:library_file:research/bibliotek/sirkularitet/resource-regional-ressurskartlegging-metode-2026.md",
+      "liveCounterpartIdentityKey": "document:document:cmql055r100fu76vmnayvo70y",
+      "retentionReasonCode": "library_file_promoted_to_document",
+      "externalUse": false
+    }
+  ]
+}

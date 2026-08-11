@@ -6,9 +6,9 @@ name: Schema migration guard
 # migration silently drifts prod, which is exactly how the 38-column /
 # SourceCitation / BoardMember drift happened.
 #
-# This is a "did you remember the migration file" guard, not a correctness
-# check. To verify a DB actually matches the schema, run `npm run db:check-drift`
-# against that database.
+# This workflow also validates the Prisma schema, freezes released migration
+# checksums, syntax-checks the operational POSIX shell scripts, and exercises
+# the database/MCP safety contracts without connecting to a database.
 #
 # Escape hatch: put [skip-migration] in a commit message for schema edits that
 # genuinely need no migration (comments, formatting, generator/datasource block).
@@ -18,12 +18,16 @@ on:
     branches: [main]
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   guard:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v6
+      - name: Checkout
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -62,3 +66,57 @@ jobs:
           echo "Add an idempotent migration (see existing files under prisma/migrations/),"
           echo "or put [skip-migration] in a commit message if this change needs no migration."
           exit 1
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Validate Prisma schema
+        env:
+          DATABASE_URL: postgresql://ci:ci@db.invalid:5432/foodsystems_ci?schema=public
+        run: ./node_modules/.bin/prisma validate --schema prisma/schema.prisma
+
+      - name: Generate Prisma client
+        env:
+          DATABASE_URL: postgresql://ci:ci@db.invalid:5432/foodsystems_ci?schema=public
+        run: ./node_modules/.bin/prisma generate --schema prisma/schema.prisma
+
+      - name: Validate database operations shell syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          scripts=(
+            scripts/apply-prod-migrations.sh
+            scripts/bootstrap-mcp-readonly-role.sh
+            scripts/verify-mcp-readonly-role.sh
+            scripts/create-database-backup.sh
+            scripts/verify-database-backup.sh
+            scripts/restore-database-backup-drill.sh
+            scripts/verify-database-schema-drift.sh
+            scripts/verify-production-migration-baseline.sh
+          )
+
+          for script in "${scripts[@]}"; do
+            test -f "$script"
+            test -x "$script"
+            test "$(head -n 1 "$script")" = '#!/bin/sh'
+            sh -n "$script"
+          done
+
+      - name: Run database operations and workflow contracts
+        run: >-
+          node --import=tsx --test
+          tests/lib/db-ops-hardening.test.ts
+          tests/lib/coolify-db-watcher-workflow.test.ts
+          tests/lib/docker-runtime-migration.test.ts
+          tests/lib/food-tg-board-schema.test.ts
+          tests/lib/schema-migration-guard-workflow.test.ts
+
+      - name: Run MCP protocol and security contracts
+        run: npm run mcp:kb:test

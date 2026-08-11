@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "1.0.0",
+  "generator": "scripts/knowledge/generate-corpus-processing-register.ts",
+  "generatorVersion": "1.1.0",
+  "observedAt": "2026-08-02T20:58:11Z",
+  "ledgerObservedAt": "2026-07-28T05:32:26.743Z",
+  "activeCorpusExpectedRows": 1555,
+  "retainedHistoryExpectedRows": 17,
+  "retainedHistoryNonAdditive": true,
+  "filesystemSnapshotSha256": "78a8e89fa1bebd955ce733c16035e45aa574d060e62fcb706ad75374da8f0e8b",
+  "commitMarkerSemantics": "The manifest is renamed last. Consumers must verify every input and output hash and must not infer review or readiness from generation.",
+  "inputs": [
+    {
+      "path": "knowledge/corpus/corpus-processing-baseline.v1.json",
+      "sha256": "7525bd494bfa6a4481e4c97702c9b9dbb64ae6c2f48bbfce563cbb82413afb38",
+      "sizeBytes": 1075
+    },
+    {
+      "path": "knowledge/corpus/corpus-live-inventory-snapshot.v1.json",
+      "sha256": "2daccf7e2d884858056e16f3d4bda23c60b0c36085c108fafa77d02f79f33bde",
+      "sizeBytes": 299780
+    },
+    {
+      "path": "research/_status/library-analysis-ledger.jsonl",
+      "sha256": "3f10532176b85adcc8d2d0f36009bb821893003637eada5de8cf89f0f349ec70",
+      "sizeBytes": 1274067
+    },
+    {
+      "path": "src/lib/library-analysis-retained-history-contract.ts",
+      "sha256": "c135e9686f7d9ed0c2a6772fa9e89a9e3e513411b3f3d59f3d97cf2c358850d9",
+      "sizeBytes": 26511
+    },
+    {
+      "path": "src/lib/knowledge/corpus-processing-lifecycle.ts",
+      "sha256": "03fcb30e7cce6b9c2f134b19e95ed47ab57e662d4f3c1741da20f0d5d5697e21",
+      "sizeBytes": 84094
+    },
+    {
+      "path": "knowledge/corpus/corpus-private-recovery-candidates.v1.json",
+      "sha256": "bc5816dcff101a46482f9cd31ab20bc48f023210895befc42de3cc8b7f82a9e2",
+      "sizeBytes": 7791
+    },
+    {
+      "path": "scripts/knowledge/generate-corpus-processing-register.ts",
+      "sha256": "7b983918edb92f46c2e0223505112131a31422452916c20b7215d7b59b3ec2c7",
+      "sizeBytes": 85031
+    }
+  ],
+  "outputs": [
+    {
+      "path": "knowledge/corpus/corpus-processing-register.v1.jsonl",
+      "sha256": "626b3144f289a33445b324f536b293c118f8716c3e1c464089bae54e57b1f5a6",
+      "sizeBytes": 11454538
+    },
+    {
+      "path": "knowledge/corpus/corpus-processing-summary.v1.json",
+      "sha256": "3ec0c99343e402c49e61c93a9bd8c4f7aefefcacb0496c6018d387eb37d3f18c",
+      "sizeBytes": 4585
+    },
+    {
+      "path": "knowledge/corpus/corpus-processing-report.v1.md",
+      "sha256": "a4c43ec446cbe82b29b69900c32b2d1110d7deee3ed1ce17e219401089ddfc60",
+      "sizeBytes": 3133
+    },
+    {
+      "path": "knowledge/corpus/corpus-retained-history-boundary.v1.json",
+      "sha256": "cfaf16ebc40095f5c9d30db22143d771805565b1d01754386bb5b532222a7d19",
+      "sizeBytes": 6079
+    },
+    {
+      "path": "knowledge/corpus/corpus-missing-files-queue.v1.jsonl",
+      "sha256": "5edcead7b7495060069c1fe2305eb3f8f93f055d8e55d3d0eac2db413fe3f10c",
+      "sizeBytes": 20251
+    },
+    {
+      "path": "knowledge/corpus/corpus-role-classification-queue.v1.jsonl",
+      "sha256": "e51c980a285f56eef2d8944497eec9c1578bf62ca5d656f8ed469632ffbe5d1e",
+      "sizeBytes": 1105523
+    },
+    {
+      "path": "knowledge/corpus/corpus-full-text-processing-queue.v1.jsonl",
+      "sha256": "5d224814c2b56eec926b5de8d406f6a3b30adcced9502bc07081600de680b72b",
+      "sizeBytes": 1360870
+    },
+    {
+      "path": "knowledge/corpus/corpus-owner-review-queue.v1.jsonl",
+      "sha256": "16dfcf39994aad5af181805f89f9b7af42dd90d7c5bfa87a682d4a29822cb56b",
+      "sizeBytes": 721258
+    },
+    {
+      "path": "knowledge/corpus/corpus-normalized-path-duplicate-queue.v1.jsonl",
+      "sha256": "0120172b08eafa1de997e9216dc97e870db3b6f2b58295183673e9541ac84610",
+      "sizeBytes": 33735
+    },
+    {
+      "path": "knowledge/corpus/corpus-content-hash-duplicate-queue.v1.jsonl",
+      "sha256": "90a8b23deb27e2d130dd200b7cd4c57fe8bb0fc0ab80e93795685311076e332e",
+      "sizeBytes": 52663
+    }
+  ]
+}

@@ -1,0 +1,403 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schemas/review-layer-contract.schema.v1.json",
+  "title": "Food Systems 2026 review-layer contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "documentType",
+    "schemaVersion",
+    "contractId",
+    "effectiveDate",
+    "status",
+    "semantics",
+    "ownerPolicy",
+    "layers",
+    "legacyMappings",
+    "legacyReceiptPolicy",
+    "publicationRule",
+    "coveragePromotionRule",
+    "sapmiBoundary"
+  ],
+  "properties": {
+    "$schema": { "const": "../schema/review-layer-contract.schema.v1.json" },
+    "documentType": { "const": "food_systems_review_layer_contract" },
+    "schemaVersion": { "const": "1.0.0" },
+    "contractId": { "const": "review_layer_contract.v1" },
+    "effectiveDate": { "type": "string", "format": "date" },
+    "status": { "const": "canonical_internal_contract" },
+    "semantics": { "$ref": "#/$defs/semantics" },
+    "ownerPolicy": { "$ref": "#/$defs/ownerPolicy" },
+    "layers": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": { "$ref": "#/$defs/layer" }
+    },
+    "legacyMappings": {
+      "type": "array",
+      "minItems": 5,
+      "items": { "$ref": "#/$defs/legacyMapping" }
+    },
+    "legacyReceiptPolicy": { "$ref": "#/$defs/legacyReceiptPolicy" },
+    "publicationRule": { "$ref": "#/$defs/publicationRule" },
+    "coveragePromotionRule": { "$ref": "#/$defs/coveragePromotionRule" },
+    "sapmiBoundary": { "$ref": "#/$defs/sapmiBoundary" }
+  },
+  "$defs": {
+    "layerId": {
+      "enum": [
+        "ai_processing",
+        "owner_review",
+        "independent_expert_validation",
+        "partner_validation",
+        "rights_holder_validation",
+        "rights_clearance",
+        "publication",
+        "coverage_promotion"
+      ]
+    },
+    "nonBlank": { "type": "string", "minLength": 2, "pattern": "^.*\\S.*$" },
+    "stringSet": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 2 },
+      "uniqueItems": true
+    },
+    "semantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model",
+        "defaultDecision",
+        "positiveStateIsScoped",
+        "unrecordedGateTreatment",
+        "automaticCrossGatePromotionAllowed"
+      ],
+      "properties": {
+        "model": { "const": "independent_evidence_and_authorization_axes" },
+        "defaultDecision": { "const": "fail_closed" },
+        "positiveStateIsScoped": { "const": true },
+        "unrecordedGateTreatment": {
+          "const": "pending_or_explicit_not_applicable_with_rationale"
+        },
+        "automaticCrossGatePromotionAllowed": { "const": false }
+      }
+    },
+    "ownerPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ownerId",
+        "name",
+        "ownerReceiptLayerId",
+        "maySignOwnerReceipts",
+        "aiAssistanceAllowed",
+        "aiAssistanceDisclosureRequired",
+        "maySelfAssertIndependentExpertValidation",
+        "maySubstituteForRightsHolderAuthority"
+      ],
+      "properties": {
+        "ownerId": { "const": "person.gabriel_freeman" },
+        "name": { "const": "Gabriel Freeman" },
+        "ownerReceiptLayerId": { "const": "owner_review" },
+        "maySignOwnerReceipts": { "const": true },
+        "aiAssistanceAllowed": { "const": true },
+        "aiAssistanceDisclosureRequired": { "const": true },
+        "maySelfAssertIndependentExpertValidation": { "const": false },
+        "maySubstituteForRightsHolderAuthority": { "const": false }
+      }
+    },
+    "layer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "layerId",
+        "label",
+        "purpose",
+        "actorClasses",
+        "receiptKind",
+        "statusVocabulary",
+        "approvalStates",
+        "requiresReceipt",
+        "requiresHumanSigner",
+        "proves",
+        "cannotSatisfyLayerIds",
+        "autoAuthorizesPublication",
+        "autoPromotesCoverage"
+      ],
+      "properties": {
+        "layerId": { "$ref": "#/$defs/layerId" },
+        "label": { "$ref": "#/$defs/nonBlank" },
+        "purpose": { "type": "string", "minLength": 30 },
+        "actorClasses": { "$ref": "#/$defs/stringSet" },
+        "receiptKind": {
+          "enum": [
+            "machine_execution",
+            "owner_review",
+            "expert_validation",
+            "partner_validation",
+            "rights_holder_validation",
+            "rights_clearance",
+            "publication_decision",
+            "coverage_assessment"
+          ]
+        },
+        "statusVocabulary": { "$ref": "#/$defs/stringSet" },
+        "approvalStates": { "$ref": "#/$defs/stringSet" },
+        "requiresReceipt": { "const": true },
+        "requiresHumanSigner": { "type": "boolean" },
+        "proves": { "$ref": "#/$defs/stringSet" },
+        "cannotSatisfyLayerIds": {
+          "type": "array",
+          "minItems": 4,
+          "items": { "$ref": "#/$defs/layerId" },
+          "uniqueItems": true
+        },
+        "autoAuthorizesPublication": { "const": false },
+        "autoPromotesCoverage": { "const": false }
+      }
+    },
+    "canonicalAssignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["layerId", "status"],
+      "properties": {
+        "layerId": { "$ref": "#/$defs/layerId" },
+        "status": { "type": "string", "minLength": 2 }
+      }
+    },
+    "legacyMapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceScope",
+        "sourceStatus",
+        "canonicalAssignments",
+        "legacyHumanReviewState",
+        "canonicalReviewLayerResolution",
+        "migrationMode",
+        "historicalArtifactRemainsValid",
+        "independentValidationImplied",
+        "rightsHolderValidationImplied",
+        "rightsClearanceImplied",
+        "publicationImplied",
+        "coveragePromotionImplied"
+      ],
+      "properties": {
+        "sourceScope": { "const": "field08_gate2c_v1" },
+        "sourceStatus": {
+          "enum": [
+            "machine_checked_human_review_pending",
+            "human_review_pending",
+            "human_review_recorded_open",
+            "human_review_recorded_action_required",
+            "human_review_complete_internal_only"
+          ]
+        },
+        "canonicalAssignments": {
+          "type": "array",
+          "minItems": 0,
+          "items": { "$ref": "#/$defs/canonicalAssignment" },
+          "uniqueItems": true
+        },
+        "legacyHumanReviewState": {
+          "enum": [
+            "pending_unclassified",
+            "recorded_open_unclassified",
+            "recorded_action_required_unclassified",
+            "complete_internal_only_unclassified"
+          ]
+        },
+        "canonicalReviewLayerResolution": {
+          "const": "unresolved_until_receipt_actor_and_gate_role_classified"
+        },
+        "migrationMode": { "const": "read_time_alias_no_historical_rewrite" },
+        "historicalArtifactRemainsValid": { "const": true },
+        "independentValidationImplied": { "const": false },
+        "rightsHolderValidationImplied": { "const": false },
+        "rightsClearanceImplied": { "const": false },
+        "publicationImplied": { "const": false },
+        "coveragePromotionImplied": { "const": false }
+      }
+    },
+    "legacyReceiptPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceDocumentType",
+        "canonicalLayerId",
+        "classificationMode",
+        "allowedCanonicalLayerIds",
+        "requiredClassificationEvidence",
+        "statusAloneCreatesCanonicalApproval",
+        "unclassifiedLegacyReceiptCreatesCanonicalApproval",
+        "externalUseAllowed",
+        "coveragePromotionAllowed"
+      ],
+      "properties": {
+        "sourceDocumentType": { "const": "field08_human_review_receipt" },
+        "canonicalLayerId": { "type": "null" },
+        "classificationMode": {
+          "const": "classify_from_actual_signer_authority_and_gate_role"
+        },
+        "allowedCanonicalLayerIds": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "enum": [
+              "owner_review",
+              "independent_expert_validation",
+              "partner_validation",
+              "rights_holder_validation"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "requiredClassificationEvidence": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "enum": [
+              "named_signer_identity",
+              "gate_required_reviewer_role",
+              "qualifications_or_role_authority",
+              "affiliation",
+              "conflict_declaration",
+              "exact_scope_binding"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "statusAloneCreatesCanonicalApproval": { "const": false },
+        "unclassifiedLegacyReceiptCreatesCanonicalApproval": { "const": false },
+        "externalUseAllowed": { "const": false },
+        "coveragePromotionAllowed": { "const": false }
+      }
+    },
+    "publicationRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decisionLayerId",
+        "alwaysRequiredLayerIds",
+        "conditionallyRequiredLayerIds",
+        "otherIndependentGates",
+        "automaticApprovalAllowed"
+      ],
+      "properties": {
+        "decisionLayerId": { "const": "publication" },
+        "alwaysRequiredLayerIds": {
+          "type": "array",
+          "contains": { "const": "owner_review" },
+          "minContains": 1,
+          "allOf": [
+            { "contains": { "const": "rights_clearance" }, "minContains": 1 }
+          ],
+          "items": { "$ref": "#/$defs/layerId" },
+          "uniqueItems": true
+        },
+        "conditionallyRequiredLayerIds": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "enum": [
+              "independent_expert_validation",
+              "partner_validation",
+              "rights_holder_validation"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "otherIndependentGates": {
+          "type": "array",
+          "minItems": 3,
+          "items": { "enum": ["privacy", "safety", "legal"] },
+          "uniqueItems": true
+        },
+        "automaticApprovalAllowed": { "const": false }
+      }
+    },
+    "coveragePromotionRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decisionLayerId",
+        "requiredEventType",
+        "requiredBindings",
+        "publicationIsSufficient",
+        "publicationIsUniversallyRequired",
+        "automaticPromotionAllowed"
+      ],
+      "properties": {
+        "decisionLayerId": { "const": "coverage_promotion" },
+        "requiredEventType": { "const": "append_only_coverage_assessment" },
+        "requiredBindings": {
+          "type": "array",
+          "minItems": 6,
+          "items": {
+            "enum": [
+              "coverage_cell_id",
+              "readiness_profile_id",
+              "evidence_snapshot",
+              "applicable_review_receipts",
+              "limitations",
+              "assessment_time"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "publicationIsSufficient": { "const": false },
+        "publicationIsUniversallyRequired": { "const": false },
+        "automaticPromotionAllowed": { "const": false }
+      }
+    },
+    "sapmiBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "geographyId",
+        "aggregationClass",
+        "nonAdditiveWithPoliticalNordicTotals",
+        "requiredLayerId",
+        "requiresRightsHolderLedScope",
+        "requiresConsentAndDataGovernanceBasis",
+        "requiresRightsHolderInterpretation",
+        "politicalCountryEvidenceCreatesSapmiEvidence",
+        "substitutionProhibitedLayerIds",
+        "partnerMayActAsRightsHolderOnlyWithDocumentedAuthorityAndSeparateReceipt",
+        "rightsHolderValidationAlsoClearsRights"
+      ],
+      "properties": {
+        "geographyId": { "const": "geo.sapmi" },
+        "aggregationClass": { "const": "sapmi_overlapping" },
+        "nonAdditiveWithPoliticalNordicTotals": { "const": true },
+        "requiredLayerId": { "const": "rights_holder_validation" },
+        "requiresRightsHolderLedScope": { "const": true },
+        "requiresConsentAndDataGovernanceBasis": { "const": true },
+        "requiresRightsHolderInterpretation": { "const": true },
+        "politicalCountryEvidenceCreatesSapmiEvidence": { "const": false },
+        "substitutionProhibitedLayerIds": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "enum": [
+              "ai_processing",
+              "owner_review",
+              "independent_expert_validation",
+              "partner_validation"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "partnerMayActAsRightsHolderOnlyWithDocumentedAuthorityAndSeparateReceipt": {
+          "const": true
+        },
+        "rightsHolderValidationAlsoClearsRights": { "const": false }
+      }
+    }
+  }
+}

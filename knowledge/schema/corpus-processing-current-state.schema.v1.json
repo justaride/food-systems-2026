@@ -1,0 +1,372 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/corpus-processing-current-state.v1.json",
+  "title": "Food Systems corpus processing projected current state",
+  "description": "Deterministic projection of one immutable baseline row plus its validated single-identity event chain.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recordId",
+    "identityKey",
+    "baselineBinding",
+    "stateVersion",
+    "previousIdentityEventSha256",
+    "lifecycle",
+    "lifecycleSha256",
+    "permissions",
+    "appliedEvents",
+    "latestArtifacts",
+    "latestSourceContent",
+    "stateSha256"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "corpus-processing-current-state-v1" },
+    "recordId": { "$ref": "#/$defs/identifier" },
+    "identityKey": { "type": "string", "minLength": 1 },
+    "baselineBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "baselineId",
+        "baselineManifestSha256",
+        "baselineRegisterSha256",
+        "baselineRowSha256"
+      ],
+      "properties": {
+        "baselineId": { "$ref": "#/$defs/identifier" },
+        "baselineManifestSha256": { "$ref": "#/$defs/sha256" },
+        "baselineRegisterSha256": { "$ref": "#/$defs/sha256" },
+        "baselineRowSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "stateVersion": { "type": "integer", "minimum": 0 },
+    "previousIdentityEventSha256": {
+      "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+    },
+    "lifecycle": {
+      "$ref": "https://foodsystems.local/schema/corpus-processing-lifecycle.v1.json"
+    },
+    "lifecycleSha256": { "$ref": "#/$defs/sha256" },
+    "permissions": { "$ref": "#/$defs/permissions" },
+    "appliedEvents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/appliedEvent" }
+    },
+    "latestArtifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "technicalQualification",
+        "inputManifest",
+        "verifiedInputManifest",
+        "sourceAcquisition",
+        "identityVerification",
+        "sourceAnalysis",
+        "sourceAnalysisWorkflow",
+        "sourceAnalysisPromptTemplate",
+        "readyPackage"
+      ],
+      "properties": {
+        "technicalQualification": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "pdf_technical_qualification" }
+                  }
+                }
+              ]
+            },
+            { "type": "null" }
+          ]
+        },
+        "inputManifest": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": {
+                      "const": "source_analysis_input_manifest"
+                    }
+                  }
+                }
+              ]
+            },
+            { "type": "null" }
+          ]
+        },
+        "verifiedInputManifest": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": {
+                      "const": "source_analysis_input_manifest"
+                    }
+                  }
+                }
+              ]
+            },
+            { "type": "null" }
+          ]
+        },
+        "sourceAcquisition": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "source_acquisition_receipt" }
+                  }
+                }
+              ]
+            },
+            { "type": "null" }
+          ]
+        },
+        "identityVerification": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": {
+                      "const": "source_identity_verification"
+                    }
+                  }
+                }
+              ]
+            },
+            { "type": "null" }
+          ]
+        },
+        "sourceAnalysis": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "source_analysis" }
+                  }
+                }
+              ]
+            },
+            { "type": "null" }
+          ]
+        },
+        "sourceAnalysisWorkflow": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "source_analysis_workflow" }
+                  }
+                }
+              ]
+            },
+            { "type": "null" }
+          ]
+        },
+        "sourceAnalysisPromptTemplate": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": {
+                      "const": "source_analysis_prompt_template"
+                    }
+                  }
+                }
+              ]
+            },
+            { "type": "null" }
+          ]
+        },
+        "readyPackage": {
+          "oneOf": [
+            {
+              "allOf": [
+                { "$ref": "#/$defs/artifactReference" },
+                {
+                  "properties": {
+                    "artifactType": { "const": "ready_for_owner_package" }
+                  }
+                }
+              ]
+            },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "latestSourceContent": {
+      "oneOf": [
+        { "$ref": "#/$defs/sourceContentReference" },
+        { "type": "null" }
+      ]
+    },
+    "stateSha256": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "identifier": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]*$" },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[a-z0-9.-]+)?$"
+    },
+    "dateTime": { "type": "string", "format": "date-time" },
+    "repositoryPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!~)(?![A-Za-z][A-Za-z0-9+.-]*:)(?!.*\\\\)(?!.*(?:^|/)\\.{1,2}(?:/|$)).+$"
+    },
+    "artifactReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactType",
+        "artifactId",
+        "artifactVersion",
+        "path",
+        "fileSha256",
+        "artifactSha256"
+      ],
+      "properties": {
+        "artifactType": {
+          "enum": [
+            "pdf_technical_qualification",
+            "pdf_page_map",
+            "source_analysis_input_manifest",
+            "source_acquisition_receipt",
+            "source_identity_verification",
+            "source_identity_workflow",
+            "source_identity_prompt_template",
+            "source_analysis_workflow",
+            "source_analysis_prompt_template",
+            "source_analysis",
+            "ready_for_owner_package"
+          ]
+        },
+        "artifactId": { "$ref": "#/$defs/identifier" },
+        "artifactVersion": { "$ref": "#/$defs/version" },
+        "path": { "$ref": "#/$defs/repositoryPath" },
+        "fileSha256": { "$ref": "#/$defs/sha256" },
+        "artifactSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "nullableArtifactReference": {
+      "oneOf": [{ "$ref": "#/$defs/artifactReference" }, { "type": "null" }]
+    },
+    "sourceContentReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactType",
+        "artifactId",
+        "artifactVersion",
+        "locator",
+        "contentSha256",
+        "sizeBytes"
+      ],
+      "properties": {
+        "artifactType": { "const": "source_content" },
+        "artifactId": { "$ref": "#/$defs/identifier" },
+        "artifactVersion": { "$ref": "#/$defs/version" },
+        "locator": {
+          "type": "string",
+          "minLength": 1,
+          "anyOf": [
+            { "$ref": "#/$defs/repositoryPath" },
+            {
+              "pattern": "^private://(?:corpus|bigbrain-corpus)/[a-z0-9][a-z0-9._-]*(?:/[a-z0-9][a-z0-9._-]*)*$"
+            }
+          ]
+        },
+        "contentSha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "appliedEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "eventId",
+        "eventType",
+        "globalSequence",
+        "identitySequence",
+        "eventSha256",
+        "occurredAt"
+      ],
+      "properties": {
+        "eventId": { "$ref": "#/$defs/identifier" },
+        "eventType": {
+          "enum": [
+            "technical_text_extracted",
+            "identity_verified",
+            "source_analysis_applied",
+            "source_role_owner_confirmed_ready_package"
+          ]
+        },
+        "globalSequence": { "type": "integer", "minimum": 1 },
+        "identitySequence": { "type": "integer", "minimum": 1 },
+        "eventSha256": { "$ref": "#/$defs/sha256" },
+        "occurredAt": { "$ref": "#/$defs/dateTime" }
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "aiReadyForOwnerReview",
+        "sourceRoleOwnerConfirmed",
+        "ownerApprovedForInternalUse",
+        "independentlyValidated",
+        "independentValidationRequirementSatisfied",
+        "partnerValidated",
+        "partnerValidationRequirementSatisfied",
+        "rightsHolderValidated",
+        "rightsHolderValidationRequirementSatisfied",
+        "rightsClearedForInternalUse",
+        "rightsClearedForExternalPublication",
+        "publicationIndependentGatesSatisfied",
+        "externalUseAllowed",
+        "coveragePromotionAllowed",
+        "blockers"
+      ],
+      "properties": {
+        "aiReadyForOwnerReview": { "type": "boolean" },
+        "sourceRoleOwnerConfirmed": { "type": "boolean" },
+        "ownerApprovedForInternalUse": { "type": "boolean" },
+        "independentlyValidated": { "type": "boolean" },
+        "independentValidationRequirementSatisfied": { "type": "boolean" },
+        "partnerValidated": { "type": "boolean" },
+        "partnerValidationRequirementSatisfied": { "type": "boolean" },
+        "rightsHolderValidated": { "type": "boolean" },
+        "rightsHolderValidationRequirementSatisfied": { "type": "boolean" },
+        "rightsClearedForInternalUse": { "type": "boolean" },
+        "rightsClearedForExternalPublication": { "type": "boolean" },
+        "publicationIndependentGatesSatisfied": { "type": "boolean" },
+        "externalUseAllowed": { "type": "boolean" },
+        "coveragePromotionAllowed": { "type": "boolean" },
+        "blockers": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

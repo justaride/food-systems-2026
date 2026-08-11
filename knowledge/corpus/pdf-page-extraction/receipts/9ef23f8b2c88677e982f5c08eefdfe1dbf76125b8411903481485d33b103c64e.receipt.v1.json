@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.0.0",
+  "receiptType": "pdf_page_extraction_technical_qualification",
+  "pipelineVersion": "1.0.0",
+  "qualificationState": "technical_extraction_passed_identity_blocked",
+  "processingUnit": {
+    "algorithm": "sha256",
+    "rawPdfSha256": "9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e"
+  },
+  "identityKeys": [
+    "candidate:source.se.competition-authority.supervision-report-2026-3"
+  ],
+  "identityAssociation": {
+    "state": "unregistered_source_candidate",
+    "intendedLabel": "Konkurrensverkets tillsynsverksamhet 2025",
+    "observedDocumentTitle": "Konkurrensverkets tillsynsverksamhet 2025 — Rapport 2026:3",
+    "blockerCode": "database_registration_required"
+  },
+  "sourceBinding": {
+    "title": "Konkurrensverkets tillsynsverksamhet 2025 — Rapport 2026:3",
+    "doi": null,
+    "officialUrl": "https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2026-3.pdf",
+    "corpusIdentityVerified": false,
+    "scopeDisposition": "pending_owner_classification"
+  },
+  "sourceFile": {
+    "expectedSizeBytes": 1454264,
+    "observedSizeBytes": 1454264,
+    "headerMagic": "%PDF-",
+    "encryptionState": "not_encrypted",
+    "pageCount": 148,
+    "pdfVersion": "1.6",
+    "primaryCopy": {
+      "locator": "private://corpus/sha256/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e.pdf",
+      "sha256": "9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e",
+      "sizeBytes": 1454264,
+      "fileMode": "0400",
+      "verified": true
+    },
+    "replicaCopy": {
+      "locator": "private://bigbrain-corpus/sha256/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e.pdf",
+      "sha256": "9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e",
+      "sizeBytes": 1454264,
+      "fileMode": "0400",
+      "verified": true
+    }
+  },
+  "extraction": {
+    "pdfinfoVersion": "26.04.0",
+    "pdftotextVersion": "26.04.0",
+    "argumentsTemplate": [
+      "-f",
+      "{page}",
+      "-l",
+      "{page}",
+      "-enc",
+      "UTF-8",
+      "-eol",
+      "unix",
+      "-nopgbrk",
+      "{input_pdf}",
+      "-"
+    ],
+    "pageMapLocator": "knowledge/corpus/pdf-page-extraction/page-maps/9ef23f8b2c88677e982f5c08eefdfe1dbf76125b8411903481485d33b103c64e.page-map.v1.json",
+    "pageMapSha256": "042e2fafb32fdb56cad08602dee3e3a21aee8fafa5b1ab9ed391f41f790741d1",
+    "extractedPageCount": 148,
+    "rawTextFileCount": 148,
+    "normalizedTextFileCount": 148,
+    "primaryPrivateOutputVerified": true,
+    "replicaPrivateOutputVerified": true
+  },
+  "totals": {
+    "rawSizeBytes": 386055,
+    "rawCharacterCount": 372149,
+    "normalizedSizeBytes": 385907,
+    "normalizedCharacterCount": 372001,
+    "wordCount": 50087,
+    "warningPageCount": 3,
+    "blankPageCount": 0,
+    "lowTextPageCount": 3
+  },
+  "warningSummary": [
+    {
+      "code": "low_extracted_text",
+      "pageCount": 3,
+      "pageNumbers": [
+        1,
+        2,
+        148
+      ]
+    }
+  ],
+  "languagePolicy": {
+    "pageLanguageDetection": "not_computed",
+    "reason": "no_version_pinned_reliable_detector_configured"
+  },
+  "semantics": {
+    "technicalExtractionOnly": true,
+    "fullTextStoredInRepository": false,
+    "aiAnalysisComplete": false,
+    "ownerReviewComplete": false,
+    "independentValidationComplete": false,
+    "rightsCleared": false,
+    "publicationReady": false,
+    "coveragePromotionAllowed": false
+  },
+  "receiptSha256": "d594d092e096772ad7dfb5a47f4f5f88f59f77849a5522a043e29a9510bd97a7"
+}

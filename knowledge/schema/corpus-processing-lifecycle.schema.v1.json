@@ -1,0 +1,2771 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/corpus-processing-lifecycle.v1.json",
+  "title": "Food Systems whole-corpus processing lifecycle",
+  "description": "Strict fail-closed lifecycle record. AI processing, owner review, independent validation, rights, publication, and subject-coverage promotion are separate gates.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "recordId",
+    "scope",
+    "sourceIdentity",
+    "fileAvailability",
+    "textAvailability",
+    "aiAssistanceProvenance",
+    "aiProcessingStatus",
+    "sourceRoleConfirmationStatus",
+    "ownerReviewStatus",
+    "independentValidationStatus",
+    "partnerValidationStatus",
+    "rightsHolderValidationStatus",
+    "rightsStatus",
+    "publicationStatus",
+    "coverageStatus",
+    "openIssues",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "corpus-processing-lifecycle-v1" },
+    "recordId": { "$ref": "#/$defs/identifier" },
+    "scope": { "$ref": "#/$defs/corpusScope" },
+    "sourceIdentity": { "$ref": "#/$defs/sourceIdentity" },
+    "fileAvailability": { "$ref": "#/$defs/fileAvailability" },
+    "textAvailability": { "$ref": "#/$defs/textAvailability" },
+    "aiAssistanceProvenance": { "$ref": "#/$defs/aiAssistanceProvenance" },
+    "aiProcessingStatus": { "$ref": "#/$defs/aiProcessingStatus" },
+    "sourceRoleConfirmationStatus": {
+      "$ref": "#/$defs/sourceRoleConfirmationStatus"
+    },
+    "ownerReviewStatus": { "$ref": "#/$defs/ownerReviewStatus" },
+    "independentValidationStatus": {
+      "$ref": "#/$defs/independentValidationStatus"
+    },
+    "partnerValidationStatus": { "$ref": "#/$defs/partnerValidationStatus" },
+    "rightsHolderValidationStatus": {
+      "$ref": "#/$defs/rightsHolderValidationStatus"
+    },
+    "rightsStatus": { "$ref": "#/$defs/rightsStatus" },
+    "publicationStatus": { "$ref": "#/$defs/publicationStatus" },
+    "coverageStatus": { "$ref": "#/$defs/coverageStatus" },
+    "openIssues": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/openIssue" }
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "sourceIdentity": {
+            "properties": { "sourceRole": { "const": "unknown" } },
+            "required": ["sourceRole"]
+          }
+        },
+        "required": ["sourceIdentity"]
+      },
+      "then": {
+        "properties": {
+          "sourceRoleConfirmationStatus": {
+            "properties": { "state": { "const": "unknown" } },
+            "required": ["state"]
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "sourceRoleConfirmationStatus": {
+            "properties": { "state": { "not": { "const": "unknown" } } },
+            "required": ["state"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "ownerReviewStatus": {
+            "properties": { "state": { "const": "approved_internal" } },
+            "required": ["state"]
+          }
+        },
+        "required": ["ownerReviewStatus"]
+      },
+      "then": {
+        "properties": {
+          "aiProcessingStatus": {
+            "properties": {
+              "currentStage": { "const": "ready_for_owner" },
+              "state": { "const": "complete" }
+            },
+            "required": ["currentStage", "state"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "aiProcessingStatus": {
+            "properties": {
+              "currentStage": { "const": "ready_for_owner" },
+              "state": { "const": "complete" }
+            },
+            "required": ["currentStage", "state"]
+          }
+        },
+        "required": ["aiProcessingStatus"]
+      },
+      "then": {
+        "properties": {
+          "sourceRoleConfirmationStatus": {
+            "properties": { "state": { "const": "owner_confirmed" } },
+            "required": ["state"]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "publicationStatus": {
+            "properties": { "state": { "enum": ["publishable", "published"] } },
+            "required": ["state"]
+          }
+        },
+        "required": ["publicationStatus"]
+      },
+      "then": {
+        "properties": {
+          "sourceIdentity": {
+            "properties": { "sourceRole": { "not": { "const": "unknown" } } },
+            "required": ["sourceRole"]
+          },
+          "aiProcessingStatus": {
+            "properties": {
+              "currentStage": { "const": "ready_for_owner" },
+              "state": { "const": "complete" }
+            },
+            "required": ["currentStage", "state"]
+          },
+          "ownerReviewStatus": {
+            "properties": { "state": { "const": "approved_internal" } },
+            "required": ["state"]
+          },
+          "independentValidationStatus": {
+            "anyOf": [
+              {
+                "properties": {
+                  "requirement": { "const": "required" },
+                  "state": { "const": "validated" }
+                },
+                "required": ["requirement", "state"]
+              },
+              {
+                "properties": {
+                  "requirement": { "const": "not_required" },
+                  "state": { "const": "not_applicable" },
+                  "requirementReceipt": {
+                    "$ref": "#/$defs/validationRequirementReceipt"
+                  }
+                },
+                "required": ["requirement", "state", "requirementReceipt"]
+              }
+            ]
+          },
+          "partnerValidationStatus": {
+            "anyOf": [
+              {
+                "properties": {
+                  "requirement": { "const": "required" },
+                  "state": { "const": "validated" }
+                },
+                "required": ["requirement", "state"]
+              },
+              {
+                "properties": {
+                  "requirement": { "const": "not_required" },
+                  "state": { "const": "not_applicable" },
+                  "requirementReceipt": {
+                    "$ref": "#/$defs/partnerRequirementReceipt"
+                  }
+                },
+                "required": ["requirement", "state", "requirementReceipt"]
+              }
+            ]
+          },
+          "rightsHolderValidationStatus": {
+            "anyOf": [
+              {
+                "properties": {
+                  "requirement": { "const": "required" },
+                  "state": { "const": "validated" }
+                },
+                "required": ["requirement", "state"]
+              },
+              {
+                "properties": {
+                  "requirement": { "const": "not_required" },
+                  "state": { "const": "not_applicable" },
+                  "requirementReceipt": {
+                    "$ref": "#/$defs/rightsHolderRequirementReceipt"
+                  }
+                },
+                "required": ["requirement", "state", "requirementReceipt"]
+              }
+            ]
+          },
+          "rightsStatus": {
+            "properties": {
+              "state": {
+                "enum": ["cleared_external_publication", "public_domain"]
+              }
+            },
+            "required": ["state"]
+          },
+          "publicationStatus": {
+            "properties": {
+              "independentGates": {
+                "properties": {
+                  "privacy": {
+                    "$ref": "#/$defs/publicationIndependentGateSatisfied"
+                  },
+                  "safety": {
+                    "$ref": "#/$defs/publicationIndependentGateSatisfied"
+                  },
+                  "legal": {
+                    "$ref": "#/$defs/publicationIndependentGateSatisfied"
+                  }
+                },
+                "required": ["privacy", "safety", "legal"]
+              }
+            },
+            "required": ["independentGates"]
+          },
+          "openIssues": {
+            "not": {
+              "contains": {
+                "type": "object",
+                "properties": { "severity": { "const": "blocking" } },
+                "required": ["severity"]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "coverageStatus": {
+            "properties": {
+              "state": { "enum": ["approved_for_promotion", "promoted"] }
+            },
+            "required": ["state"]
+          }
+        },
+        "required": ["coverageStatus"]
+      },
+      "then": {
+        "properties": {
+          "sourceIdentity": {
+            "properties": { "sourceRole": { "const": "primary_evidence" } },
+            "required": ["sourceRole"]
+          },
+          "aiProcessingStatus": {
+            "properties": {
+              "currentStage": { "const": "ready_for_owner" },
+              "state": { "const": "complete" }
+            },
+            "required": ["currentStage", "state"]
+          },
+          "ownerReviewStatus": {
+            "properties": { "state": { "const": "approved_internal" } },
+            "required": ["state"]
+          },
+          "independentValidationStatus": {
+            "anyOf": [
+              {
+                "properties": {
+                  "requirement": { "const": "required" },
+                  "state": { "const": "validated" }
+                },
+                "required": ["requirement", "state"]
+              },
+              {
+                "properties": {
+                  "requirement": { "const": "not_required" },
+                  "state": { "const": "not_applicable" },
+                  "requirementReceipt": {
+                    "$ref": "#/$defs/validationRequirementReceipt"
+                  }
+                },
+                "required": ["requirement", "state", "requirementReceipt"]
+              }
+            ]
+          },
+          "partnerValidationStatus": {
+            "anyOf": [
+              {
+                "properties": {
+                  "requirement": { "const": "required" },
+                  "state": { "const": "validated" }
+                },
+                "required": ["requirement", "state"]
+              },
+              {
+                "properties": {
+                  "requirement": { "const": "not_required" },
+                  "state": { "const": "not_applicable" },
+                  "requirementReceipt": {
+                    "$ref": "#/$defs/partnerRequirementReceipt"
+                  }
+                },
+                "required": ["requirement", "state", "requirementReceipt"]
+              }
+            ]
+          },
+          "rightsHolderValidationStatus": {
+            "anyOf": [
+              {
+                "properties": {
+                  "requirement": { "const": "required" },
+                  "state": { "const": "validated" }
+                },
+                "required": ["requirement", "state"]
+              },
+              {
+                "properties": {
+                  "requirement": { "const": "not_required" },
+                  "state": { "const": "not_applicable" },
+                  "requirementReceipt": {
+                    "$ref": "#/$defs/rightsHolderRequirementReceipt"
+                  }
+                },
+                "required": ["requirement", "state", "requirementReceipt"]
+              }
+            ]
+          },
+          "rightsStatus": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "cleared_internal_use",
+                  "cleared_external_publication",
+                  "public_domain"
+                ]
+              }
+            },
+            "required": ["state"]
+          },
+          "openIssues": {
+            "not": {
+              "contains": {
+                "type": "object",
+                "properties": { "severity": { "const": "blocking" } },
+                "required": ["severity"]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "scope": {
+            "properties": {
+              "geographyIds": { "contains": { "const": "geo.sapmi" } }
+            },
+            "required": ["geographyIds"]
+          }
+        },
+        "required": ["scope"]
+      },
+      "then": {
+        "properties": {
+          "rightsHolderValidationStatus": {
+            "properties": {
+              "requirement": { "not": { "const": "not_required" } }
+            },
+            "required": ["requirement"]
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "sourceRole": {
+      "enum": [
+        "primary_evidence",
+        "internal_synthesis",
+        "generated_projection",
+        "operational_control",
+        "unknown"
+      ]
+    },
+    "aiStage": {
+      "enum": [
+        "inventory",
+        "triage",
+        "full_text",
+        "locator",
+        "claims",
+        "cross_check",
+        "ready_for_owner"
+      ]
+    },
+    "corpusScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "geographyIds",
+        "materialProfileIds",
+        "intendedUseProfileIds"
+      ],
+      "properties": {
+        "geographyIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/identifier" }
+        },
+        "materialProfileIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/identifier" }
+        },
+        "intendedUseProfileIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/identifier" }
+        }
+      }
+    },
+    "sourceIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceId",
+        "title",
+        "sourceRole",
+        "identityKind",
+        "canonicalIdentity",
+        "identityStatus",
+        "metadataSha256",
+        "contentSha256",
+        "contentHashEvidenceState",
+        "contentHashVerifiedAt"
+      ],
+      "properties": {
+        "sourceId": { "$ref": "#/$defs/identifier" },
+        "title": { "type": "string", "minLength": 1 },
+        "sourceRole": { "$ref": "#/$defs/sourceRole" },
+        "identityKind": {
+          "enum": [
+            "url",
+            "doi",
+            "isbn",
+            "repository_path",
+            "database_record",
+            "generated_artifact",
+            "other",
+            "unknown"
+          ]
+        },
+        "canonicalIdentity": { "type": "string", "minLength": 1 },
+        "identityStatus": { "enum": ["unknown", "provisional", "verified"] },
+        "metadataSha256": { "$ref": "#/$defs/sha256" },
+        "contentSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "contentHashEvidenceState": {
+          "enum": [
+            "repository_file_verified",
+            "private_capture_attestation_recorded",
+            "private_live_verified",
+            "unavailable"
+          ]
+        },
+        "contentHashVerifiedAt": {
+          "oneOf": [
+            { "type": "string", "format": "date-time" },
+            { "type": "null" }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "identityKind": { "const": "unknown" } },
+            "required": ["identityKind"]
+          },
+          "then": {
+            "properties": { "identityStatus": { "const": "unknown" } }
+          }
+        },
+        {
+          "if": {
+            "properties": { "contentSha256": { "type": "null" } },
+            "required": ["contentSha256"]
+          },
+          "then": {
+            "properties": {
+              "contentHashEvidenceState": { "const": "unavailable" },
+              "contentHashVerifiedAt": { "type": "null" }
+            }
+          },
+          "else": {
+            "properties": {
+              "contentHashEvidenceState": { "not": { "const": "unavailable" } },
+              "contentHashVerifiedAt": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "fileAvailability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "locator", "mediaType", "sizeBytes", "observedAt"],
+      "properties": {
+        "state": {
+          "enum": [
+            "available",
+            "remote_only",
+            "missing",
+            "blocked",
+            "not_applicable"
+          ]
+        },
+        "locator": { "type": ["string", "null"], "minLength": 1 },
+        "mediaType": { "type": ["string", "null"], "minLength": 1 },
+        "sizeBytes": { "type": ["integer", "null"], "minimum": 1 },
+        "observedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "state": { "const": "available" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "locator": { "type": "string", "minLength": 1 },
+              "mediaType": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "remote_only" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": { "locator": { "type": "string", "minLength": 1 } }
+          }
+        }
+      ]
+    },
+    "textAvailability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "textSha256",
+        "characterCount",
+        "extractionMethod",
+        "observedAt"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "unavailable",
+            "metadata_only",
+            "partial_text",
+            "full_text",
+            "structured_content",
+            "blocked",
+            "not_applicable"
+          ]
+        },
+        "textSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "characterCount": { "type": ["integer", "null"], "minimum": 1 },
+        "extractionMethod": {
+          "enum": ["born_digital", "ocr", "api", "manual", "generated", null]
+        },
+        "observedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": { "enum": ["unavailable", "blocked", "not_applicable"] }
+            },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "textSha256": { "type": "null" },
+              "characterCount": { "type": "null" },
+              "extractionMethod": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": ["partial_text", "full_text", "structured_content"]
+              }
+            },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "textSha256": { "$ref": "#/$defs/sha256" },
+              "characterCount": { "type": "integer", "minimum": 1 },
+              "extractionMethod": {
+                "enum": ["born_digital", "ocr", "api", "manual", "generated"]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "aiRunCheckpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stage", "inputSha256", "outputSha256", "completedAt"],
+      "properties": {
+        "stage": { "$ref": "#/$defs/aiStage" },
+        "inputSha256": { "$ref": "#/$defs/sha256" },
+        "outputSha256": { "$ref": "#/$defs/sha256" },
+        "completedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Checkpoint time interpreted under the parent run's timeEvidence declaration; it is not necessarily a provider execution timestamp."
+        }
+      }
+    },
+    "aiRun": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runId",
+        "provider",
+        "model",
+        "modelVersionState",
+        "modelVersion",
+        "workflowRef",
+        "stages",
+        "checkpoints",
+        "inputSha256",
+        "outputSha256",
+        "timeEvidence",
+        "timeEvidenceExplanation",
+        "startedAt",
+        "completedAt"
+      ],
+      "properties": {
+        "runId": { "$ref": "#/$defs/identifier" },
+        "provider": { "type": "string", "minLength": 1 },
+        "model": { "type": "string", "minLength": 1 },
+        "modelVersionState": {
+          "enum": ["exact", "runtime_not_exposed"],
+          "description": "Whether modelVersion is an exact provider-exposed version or the required non-exposure sentinel."
+        },
+        "modelVersion": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Exact version when exposed; otherwise exactly runtime_not_exposed."
+        },
+        "workflowRef": { "type": "string", "minLength": 1 },
+        "stages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/aiStage" }
+        },
+        "checkpoints": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/aiRunCheckpoint" }
+        },
+        "inputSha256": { "$ref": "#/$defs/sha256" },
+        "outputSha256": { "$ref": "#/$defs/sha256" },
+        "timeEvidence": {
+          "enum": ["provider_exact", "coordinator_observed_window"],
+          "description": "Declares whether timestamps came from the provider or are only a coordinator-observed request window."
+        },
+        "timeEvidenceExplanation": {
+          "type": "string",
+          "minLength": 20,
+          "description": "Plain explanation of the timestamp evidence and its limitations."
+        },
+        "startedAt": { "type": "string", "format": "date-time" },
+        "completedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "modelVersionState": { "const": "runtime_not_exposed" }
+            },
+            "required": ["modelVersionState"]
+          },
+          "then": {
+            "properties": { "modelVersion": { "const": "runtime_not_exposed" } }
+          },
+          "else": {
+            "properties": {
+              "modelVersion": { "not": { "const": "runtime_not_exposed" } }
+            }
+          }
+        }
+      ]
+    },
+    "aiAssistanceProvenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["used", "runs"],
+      "properties": {
+        "used": { "type": "boolean" },
+        "runs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/aiRun" }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "used": { "const": true } },
+            "required": ["used"]
+          },
+          "then": { "properties": { "runs": { "minItems": 1 } } },
+          "else": { "properties": { "runs": { "maxItems": 0 } } }
+        }
+      ]
+    },
+    "stageEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stage",
+        "method",
+        "runId",
+        "checkpointIndex",
+        "artifactId",
+        "artifactVersion",
+        "outputSha256",
+        "completedAt"
+      ],
+      "properties": {
+        "stage": { "$ref": "#/$defs/aiStage" },
+        "method": { "enum": ["deterministic_inventory", "ai_assisted"] },
+        "runId": {
+          "oneOf": [{ "$ref": "#/$defs/identifier" }, { "type": "null" }]
+        },
+        "checkpointIndex": { "type": ["integer", "null"], "minimum": 0 },
+        "artifactId": { "$ref": "#/$defs/identifier" },
+        "artifactVersion": { "type": "string", "minLength": 1 },
+        "outputSha256": { "$ref": "#/$defs/sha256" },
+        "completedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "method": { "const": "deterministic_inventory" } },
+            "required": ["method"]
+          },
+          "then": {
+            "properties": {
+              "runId": { "type": "null" },
+              "checkpointIndex": { "type": "null" }
+            }
+          },
+          "else": {
+            "properties": {
+              "runId": { "$ref": "#/$defs/identifier" },
+              "checkpointIndex": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      ]
+    },
+    "aiProcessingStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "currentStage",
+        "state",
+        "completedStages",
+        "stageEvidence",
+        "updatedAt"
+      ],
+      "properties": {
+        "currentStage": { "$ref": "#/$defs/aiStage" },
+        "state": {
+          "enum": ["not_started", "in_progress", "blocked", "complete"]
+        },
+        "completedStages": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/aiStage" }
+        },
+        "stageEvidence": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/stageEvidence" }
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "currentStage": { "const": "ready_for_owner" },
+              "state": { "const": "complete" }
+            },
+            "required": ["currentStage", "state"]
+          },
+          "then": {
+            "properties": {
+              "completedStages": {
+                "minItems": 7,
+                "maxItems": 7,
+                "prefixItems": [
+                  { "const": "inventory" },
+                  { "const": "triage" },
+                  { "const": "full_text" },
+                  { "const": "locator" },
+                  { "const": "claims" },
+                  { "const": "cross_check" },
+                  { "const": "ready_for_owner" }
+                ]
+              },
+              "stageEvidence": {
+                "minItems": 7,
+                "maxItems": 7,
+                "prefixItems": [
+                  { "properties": { "stage": { "const": "inventory" } } },
+                  { "properties": { "stage": { "const": "triage" } } },
+                  { "properties": { "stage": { "const": "full_text" } } },
+                  { "properties": { "stage": { "const": "locator" } } },
+                  { "properties": { "stage": { "const": "claims" } } },
+                  { "properties": { "stage": { "const": "cross_check" } } },
+                  { "properties": { "stage": { "const": "ready_for_owner" } } }
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "humanAttestationAuthentication": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "method", "evidenceSha256", "authenticatedAt"],
+          "properties": {
+            "state": { "const": "verified" },
+            "method": {
+              "enum": [
+                "controlled_project_identity",
+                "cryptographic_signature",
+                "verified_external_identity"
+              ]
+            },
+            "evidenceSha256": { "$ref": "#/$defs/sha256" },
+            "authenticatedAt": { "type": "string", "format": "date-time" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "method", "evidenceSha256", "authenticatedAt"],
+          "properties": {
+            "state": { "const": "self_asserted_unverified" },
+            "method": { "const": "self_asserted" },
+            "evidenceSha256": { "type": "null" },
+            "authenticatedAt": { "type": "null" }
+          }
+        }
+      ]
+    },
+    "namedReviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reviewerType",
+        "reviewerId",
+        "name",
+        "role",
+        "organization",
+        "authentication"
+      ],
+      "properties": {
+        "reviewerType": { "const": "named_human" },
+        "reviewerId": { "$ref": "#/$defs/identifier" },
+        "name": { "type": "string", "minLength": 2 },
+        "role": {
+          "enum": [
+            "project_owner",
+            "independent_subject_matter_expert",
+            "independent_method_reviewer",
+            "validation_scope_authority",
+            "partner_representative",
+            "rights_holder_representative",
+            "rights_reviewer",
+            "publication_authority",
+            "privacy_reviewer",
+            "safety_reviewer",
+            "legal_reviewer",
+            "coverage_steward"
+          ]
+        },
+        "organization": { "type": ["string", "null"], "minLength": 1 },
+        "authentication": { "$ref": "#/$defs/humanAttestationAuthentication" }
+      }
+    },
+    "coverageAssessor": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "assessorType",
+            "assessorId",
+            "name",
+            "role",
+            "organization",
+            "authentication"
+          ],
+          "properties": {
+            "assessorType": { "const": "named_human" },
+            "assessorId": { "$ref": "#/$defs/identifier" },
+            "name": { "type": "string", "minLength": 2 },
+            "role": { "const": "coverage_steward" },
+            "organization": { "type": ["string", "null"], "minLength": 1 },
+            "authentication": {
+              "$ref": "#/$defs/humanAttestationAuthentication"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "assessorType",
+            "assessorId",
+            "executionMode",
+            "workflowRef",
+            "workflowVersion",
+            "outputSha256"
+          ],
+          "properties": {
+            "assessorType": { "const": "machine_assessor" },
+            "assessorId": { "$ref": "#/$defs/identifier" },
+            "executionMode": { "enum": ["deterministic", "ai_assisted"] },
+            "workflowRef": { "type": "string", "minLength": 1 },
+            "workflowVersion": { "type": "string", "minLength": 1 },
+            "outputSha256": { "$ref": "#/$defs/sha256" }
+          }
+        }
+      ]
+    },
+    "coverageAssessorAuthorization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "readinessProfileId",
+        "assessorType",
+        "assessorId",
+        "authorizationSha256"
+      ],
+      "properties": {
+        "readinessProfileId": { "$ref": "#/$defs/identifier" },
+        "assessorType": { "enum": ["named_human", "machine_assessor"] },
+        "assessorId": { "$ref": "#/$defs/identifier" },
+        "authorizationSha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "receiptBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lifecycleRecordId",
+        "sourceId",
+        "sourceMetadataSha256",
+        "sourceContentSha256",
+        "artifactId",
+        "artifactVersion",
+        "artifactSha256",
+        "geographyIds",
+        "materialProfileIds",
+        "intendedUseProfileIds"
+      ],
+      "properties": {
+        "lifecycleRecordId": { "$ref": "#/$defs/identifier" },
+        "sourceId": { "$ref": "#/$defs/identifier" },
+        "sourceMetadataSha256": { "$ref": "#/$defs/sha256" },
+        "sourceContentSha256": {
+          "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+        },
+        "artifactId": { "$ref": "#/$defs/identifier" },
+        "artifactVersion": { "type": "string", "minLength": 1 },
+        "artifactSha256": { "$ref": "#/$defs/sha256" },
+        "geographyIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/identifier" }
+        },
+        "materialProfileIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/identifier" }
+        },
+        "intendedUseProfileIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/identifier" }
+        }
+      }
+    },
+    "receiptLimitations": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "ownerReviewReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "receiptSha256",
+        "reviewer",
+        "reviewedAt",
+        "binding",
+        "limitations",
+        "decision",
+        "aiAssistanceDisclosure"
+      ],
+      "properties": {
+        "receiptId": { "$ref": "#/$defs/identifier" },
+        "receiptSha256": { "$ref": "#/$defs/sha256" },
+        "binding": { "$ref": "#/$defs/receiptBinding" },
+        "limitations": { "$ref": "#/$defs/receiptLimitations" },
+        "reviewer": {
+          "allOf": [
+            { "$ref": "#/$defs/namedReviewer" },
+            {
+              "properties": {
+                "reviewerId": { "const": "person.gabriel_freeman" },
+                "name": { "const": "Gabriel Freeman" },
+                "role": { "const": "project_owner" }
+              }
+            }
+          ]
+        },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "decision": {
+          "enum": ["approved_internal", "changes_requested", "rejected"]
+        },
+        "aiAssistanceDisclosure": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["used", "runIds", "statement"],
+          "properties": {
+            "used": { "type": "boolean" },
+            "runIds": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/identifier" }
+            },
+            "statement": { "type": "string", "minLength": 10 }
+          }
+        }
+      }
+    },
+    "sourceRoleConfirmationReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "receiptSha256",
+        "reviewer",
+        "reviewedAt",
+        "binding",
+        "limitations",
+        "decision",
+        "confirmedRole",
+        "classificationBasis"
+      ],
+      "properties": {
+        "receiptId": { "$ref": "#/$defs/identifier" },
+        "receiptSha256": { "$ref": "#/$defs/sha256" },
+        "binding": { "$ref": "#/$defs/receiptBinding" },
+        "limitations": { "$ref": "#/$defs/receiptLimitations" },
+        "reviewer": {
+          "allOf": [
+            { "$ref": "#/$defs/namedReviewer" },
+            {
+              "properties": {
+                "reviewerId": { "const": "person.gabriel_freeman" },
+                "name": { "const": "Gabriel Freeman" },
+                "role": { "const": "project_owner" }
+              }
+            }
+          ]
+        },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "decision": { "const": "confirmed_source_role" },
+        "confirmedRole": {
+          "enum": [
+            "primary_evidence",
+            "internal_synthesis",
+            "generated_projection",
+            "operational_control"
+          ]
+        },
+        "classificationBasis": { "type": "string", "minLength": 10 }
+      }
+    },
+    "independentValidationReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "receiptSha256",
+        "reviewer",
+        "reviewedAt",
+        "binding",
+        "limitations",
+        "decision",
+        "independenceStatement",
+        "qualifications",
+        "conflictOfInterest",
+        "conflictNote"
+      ],
+      "properties": {
+        "receiptId": { "$ref": "#/$defs/identifier" },
+        "receiptSha256": { "$ref": "#/$defs/sha256" },
+        "binding": { "$ref": "#/$defs/receiptBinding" },
+        "limitations": { "$ref": "#/$defs/receiptLimitations" },
+        "reviewer": {
+          "allOf": [
+            { "$ref": "#/$defs/namedReviewer" },
+            {
+              "properties": {
+                "role": {
+                  "enum": [
+                    "independent_subject_matter_expert",
+                    "independent_method_reviewer"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "decision": {
+          "enum": [
+            "validated",
+            "validated_with_conditions",
+            "changes_requested",
+            "rejected"
+          ]
+        },
+        "independenceStatement": { "type": "string", "minLength": 10 },
+        "qualifications": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "qualificationId",
+              "title",
+              "issuingBody",
+              "scopeStatement",
+              "evidenceSha256"
+            ],
+            "properties": {
+              "qualificationId": { "$ref": "#/$defs/identifier" },
+              "title": { "type": "string", "minLength": 2 },
+              "issuingBody": { "type": "string", "minLength": 2 },
+              "scopeStatement": { "type": "string", "minLength": 10 },
+              "evidenceSha256": { "$ref": "#/$defs/sha256" }
+            }
+          }
+        },
+        "conflictOfInterest": { "enum": ["none_declared", "declared_managed"] },
+        "conflictNote": { "type": ["string", "null"], "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "decision": { "const": "validated_with_conditions" }
+            },
+            "required": ["decision"]
+          },
+          "then": { "properties": { "limitations": { "minItems": 1 } } }
+        }
+      ]
+    },
+    "validationRequirementReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "receiptSha256",
+        "reviewer",
+        "reviewedAt",
+        "binding",
+        "limitations",
+        "decision",
+        "requirementProfileId",
+        "rationale"
+      ],
+      "properties": {
+        "receiptId": { "$ref": "#/$defs/identifier" },
+        "receiptSha256": { "$ref": "#/$defs/sha256" },
+        "binding": { "$ref": "#/$defs/receiptBinding" },
+        "limitations": { "$ref": "#/$defs/receiptLimitations" },
+        "reviewer": {
+          "allOf": [
+            { "$ref": "#/$defs/namedReviewer" },
+            {
+              "properties": {
+                "role": { "const": "validation_scope_authority" }
+              }
+            }
+          ]
+        },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "decision": { "const": "independent_validation_not_required" },
+        "requirementProfileId": { "$ref": "#/$defs/identifier" },
+        "rationale": { "type": "string", "minLength": 10 }
+      }
+    },
+    "partnerRequirementReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "receiptSha256",
+        "reviewer",
+        "reviewedAt",
+        "binding",
+        "limitations",
+        "decision",
+        "requirementProfileId",
+        "rationale"
+      ],
+      "properties": {
+        "receiptId": { "$ref": "#/$defs/identifier" },
+        "receiptSha256": { "$ref": "#/$defs/sha256" },
+        "binding": { "$ref": "#/$defs/receiptBinding" },
+        "limitations": { "$ref": "#/$defs/receiptLimitations" },
+        "reviewer": {
+          "allOf": [
+            { "$ref": "#/$defs/namedReviewer" },
+            {
+              "properties": {
+                "role": { "const": "validation_scope_authority" }
+              }
+            }
+          ]
+        },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "decision": { "const": "partner_validation_not_required" },
+        "requirementProfileId": { "$ref": "#/$defs/identifier" },
+        "rationale": { "type": "string", "minLength": 10 }
+      }
+    },
+    "rightsHolderRequirementReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "receiptSha256",
+        "reviewer",
+        "reviewedAt",
+        "binding",
+        "limitations",
+        "decision",
+        "requirementProfileId",
+        "rationale"
+      ],
+      "properties": {
+        "receiptId": { "$ref": "#/$defs/identifier" },
+        "receiptSha256": { "$ref": "#/$defs/sha256" },
+        "binding": { "$ref": "#/$defs/receiptBinding" },
+        "limitations": { "$ref": "#/$defs/receiptLimitations" },
+        "reviewer": {
+          "allOf": [
+            { "$ref": "#/$defs/namedReviewer" },
+            {
+              "properties": {
+                "role": { "const": "validation_scope_authority" }
+              }
+            }
+          ]
+        },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "decision": { "const": "rights_holder_validation_not_required" },
+        "requirementProfileId": { "$ref": "#/$defs/identifier" },
+        "rationale": { "type": "string", "minLength": 10 }
+      }
+    },
+    "partnerValidationReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "receiptSha256",
+        "reviewer",
+        "reviewedAt",
+        "binding",
+        "limitations",
+        "decision",
+        "partnerId",
+        "scopeStatement",
+        "authorityStatement"
+      ],
+      "properties": {
+        "receiptId": { "$ref": "#/$defs/identifier" },
+        "receiptSha256": { "$ref": "#/$defs/sha256" },
+        "binding": { "$ref": "#/$defs/receiptBinding" },
+        "limitations": { "$ref": "#/$defs/receiptLimitations" },
+        "reviewer": {
+          "allOf": [
+            { "$ref": "#/$defs/namedReviewer" },
+            { "properties": { "role": { "const": "partner_representative" } } }
+          ]
+        },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "decision": {
+          "enum": [
+            "validated",
+            "validated_with_conditions",
+            "changes_requested",
+            "rejected"
+          ]
+        },
+        "partnerId": { "$ref": "#/$defs/identifier" },
+        "scopeStatement": { "type": "string", "minLength": 10 },
+        "authorityStatement": { "type": "string", "minLength": 10 }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "decision": { "const": "validated_with_conditions" }
+            },
+            "required": ["decision"]
+          },
+          "then": { "properties": { "limitations": { "minItems": 1 } } }
+        }
+      ]
+    },
+    "rightsHolderValidationReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "receiptSha256",
+        "reviewer",
+        "reviewedAt",
+        "binding",
+        "limitations",
+        "decision",
+        "rightsHolderId",
+        "scopeStatement",
+        "authority",
+        "consentBasis",
+        "dataGovernanceBasis"
+      ],
+      "properties": {
+        "receiptId": { "$ref": "#/$defs/identifier" },
+        "receiptSha256": { "$ref": "#/$defs/sha256" },
+        "binding": { "$ref": "#/$defs/receiptBinding" },
+        "limitations": { "$ref": "#/$defs/receiptLimitations" },
+        "reviewer": {
+          "allOf": [
+            { "$ref": "#/$defs/namedReviewer" },
+            {
+              "properties": {
+                "role": { "const": "rights_holder_representative" }
+              }
+            }
+          ]
+        },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "decision": {
+          "enum": [
+            "validated",
+            "validated_with_conditions",
+            "changes_requested",
+            "rejected"
+          ]
+        },
+        "rightsHolderId": { "$ref": "#/$defs/identifier" },
+        "scopeStatement": { "type": "string", "minLength": 10 },
+        "authority": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["basis", "statement", "mandateEvidenceSha256"],
+          "properties": {
+            "basis": {
+              "enum": ["rights_holder_self_authority", "delegated_mandate"]
+            },
+            "statement": { "type": "string", "minLength": 10 },
+            "mandateEvidenceSha256": {
+              "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": { "basis": { "const": "delegated_mandate" } },
+                "required": ["basis"]
+              },
+              "then": {
+                "properties": {
+                  "mandateEvidenceSha256": { "$ref": "#/$defs/sha256" }
+                }
+              },
+              "else": {
+                "properties": { "mandateEvidenceSha256": { "type": "null" } }
+              }
+            }
+          ]
+        },
+        "consentBasis": { "type": "string", "minLength": 10 },
+        "dataGovernanceBasis": { "type": "string", "minLength": 10 }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "decision": { "const": "validated_with_conditions" }
+            },
+            "required": ["decision"]
+          },
+          "then": { "properties": { "limitations": { "minItems": 1 } } }
+        }
+      ]
+    },
+    "rightsReviewReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "receiptSha256",
+        "reviewer",
+        "reviewedAt",
+        "binding",
+        "limitations",
+        "decision",
+        "authority"
+      ],
+      "properties": {
+        "receiptId": { "$ref": "#/$defs/identifier" },
+        "receiptSha256": { "$ref": "#/$defs/sha256" },
+        "binding": { "$ref": "#/$defs/receiptBinding" },
+        "limitations": { "$ref": "#/$defs/receiptLimitations" },
+        "reviewer": {
+          "allOf": [
+            { "$ref": "#/$defs/namedReviewer" },
+            { "properties": { "role": { "const": "rights_reviewer" } } }
+          ]
+        },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "decision": {
+          "enum": [
+            "restricted",
+            "cleared_internal_use",
+            "cleared_external_publication",
+            "public_domain"
+          ]
+        },
+        "authority": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "basis",
+            "name",
+            "locator",
+            "jurisdiction",
+            "evidenceSha256"
+          ],
+          "properties": {
+            "basis": {
+              "enum": [
+                "license",
+                "permission",
+                "statutory_internal_use",
+                "public_domain_determination",
+                "restriction_notice"
+              ]
+            },
+            "name": { "type": "string", "minLength": 2 },
+            "locator": { "type": "string", "minLength": 1 },
+            "jurisdiction": { "type": ["string", "null"], "minLength": 2 },
+            "evidenceSha256": { "$ref": "#/$defs/sha256" }
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "decision": { "const": "restricted" } },
+            "required": ["decision"]
+          },
+          "then": {
+            "properties": {
+              "limitations": { "minItems": 1 },
+              "authority": {
+                "properties": { "basis": { "const": "restriction_notice" } }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "decision": { "const": "cleared_internal_use" } },
+            "required": ["decision"]
+          },
+          "then": {
+            "properties": {
+              "authority": {
+                "properties": {
+                  "basis": {
+                    "enum": ["license", "permission", "statutory_internal_use"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "decision": { "const": "cleared_external_publication" }
+            },
+            "required": ["decision"]
+          },
+          "then": {
+            "properties": {
+              "authority": {
+                "properties": { "basis": { "enum": ["license", "permission"] } }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "decision": { "const": "public_domain" } },
+            "required": ["decision"]
+          },
+          "then": {
+            "properties": {
+              "authority": {
+                "properties": {
+                  "basis": { "const": "public_domain_determination" }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "publicationApprovalReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "receiptSha256",
+        "reviewer",
+        "reviewedAt",
+        "binding",
+        "limitations",
+        "decision",
+        "audience",
+        "channel"
+      ],
+      "properties": {
+        "receiptId": { "$ref": "#/$defs/identifier" },
+        "receiptSha256": { "$ref": "#/$defs/sha256" },
+        "binding": { "$ref": "#/$defs/receiptBinding" },
+        "limitations": { "$ref": "#/$defs/receiptLimitations" },
+        "reviewer": {
+          "allOf": [
+            { "$ref": "#/$defs/namedReviewer" },
+            { "properties": { "role": { "const": "publication_authority" } } }
+          ]
+        },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "decision": { "const": "approved_for_external_publication" },
+        "audience": { "type": "string", "minLength": 2 },
+        "channel": { "type": "string", "minLength": 2 }
+      }
+    },
+    "publicationIndependentGateReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "receiptSha256",
+        "reviewer",
+        "reviewedAt",
+        "binding",
+        "limitations",
+        "gateId",
+        "decision",
+        "requirementProfileId",
+        "rationale"
+      ],
+      "properties": {
+        "receiptId": { "$ref": "#/$defs/identifier" },
+        "receiptSha256": { "$ref": "#/$defs/sha256" },
+        "binding": { "$ref": "#/$defs/receiptBinding" },
+        "limitations": { "$ref": "#/$defs/receiptLimitations" },
+        "reviewer": {
+          "allOf": [
+            { "$ref": "#/$defs/namedReviewer" },
+            {
+              "properties": {
+                "role": {
+                  "enum": [
+                    "validation_scope_authority",
+                    "privacy_reviewer",
+                    "safety_reviewer",
+                    "legal_reviewer"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "gateId": { "enum": ["privacy", "safety", "legal"] },
+        "decision": {
+          "enum": [
+            "approved",
+            "approved_with_conditions",
+            "blocked",
+            "not_required"
+          ]
+        },
+        "requirementProfileId": { "$ref": "#/$defs/identifier" },
+        "rationale": { "type": "string", "minLength": 10 }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "decision": { "const": "approved_with_conditions" }
+            },
+            "required": ["decision"]
+          },
+          "then": { "properties": { "limitations": { "minItems": 1 } } }
+        }
+      ]
+    },
+    "coverageApprovalReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "receiptId",
+        "receiptSha256",
+        "assessor",
+        "assessorAuthorization",
+        "reviewedAt",
+        "binding",
+        "limitations",
+        "decision",
+        "coverageCellIds",
+        "readinessProfileId",
+        "evidenceSnapshotSha256",
+        "assessmentId",
+        "assessmentVersion",
+        "assessmentSha256",
+        "applicableReviewReceiptIds"
+      ],
+      "properties": {
+        "receiptId": { "$ref": "#/$defs/identifier" },
+        "receiptSha256": { "$ref": "#/$defs/sha256" },
+        "binding": { "$ref": "#/$defs/receiptBinding" },
+        "limitations": { "$ref": "#/$defs/receiptLimitations" },
+        "assessor": { "$ref": "#/$defs/coverageAssessor" },
+        "assessorAuthorization": {
+          "$ref": "#/$defs/coverageAssessorAuthorization"
+        },
+        "reviewedAt": { "type": "string", "format": "date-time" },
+        "decision": { "const": "approved_for_coverage_promotion" },
+        "coverageCellIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/identifier" }
+        },
+        "readinessProfileId": { "$ref": "#/$defs/identifier" },
+        "evidenceSnapshotSha256": { "$ref": "#/$defs/sha256" },
+        "assessmentId": { "$ref": "#/$defs/identifier" },
+        "assessmentVersion": { "type": "string", "minLength": 1 },
+        "assessmentSha256": { "$ref": "#/$defs/sha256" },
+        "applicableReviewReceiptIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/identifier" }
+        }
+      }
+    },
+    "ownerReviewStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "receipt", "updatedAt"],
+      "properties": {
+        "state": {
+          "enum": [
+            "not_requested",
+            "pending",
+            "approved_internal",
+            "changes_requested",
+            "rejected"
+          ]
+        },
+        "receipt": {
+          "oneOf": [
+            { "$ref": "#/$defs/ownerReviewReceipt" },
+            { "type": "null" }
+          ]
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": ["approved_internal", "changes_requested", "rejected"]
+              }
+            },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": { "$ref": "#/$defs/ownerReviewReceipt" }
+            }
+          },
+          "else": { "properties": { "receipt": { "type": "null" } } }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "approved_internal" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": {
+                "properties": { "decision": { "const": "approved_internal" } }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "changes_requested" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": {
+                "properties": { "decision": { "const": "changes_requested" } }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "rejected" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": {
+                "properties": { "decision": { "const": "rejected" } }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "sourceRoleConfirmationStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "receipt", "updatedAt"],
+      "properties": {
+        "state": {
+          "enum": ["unknown", "machine_provisional", "owner_confirmed"]
+        },
+        "receipt": {
+          "oneOf": [
+            { "$ref": "#/$defs/sourceRoleConfirmationReceipt" },
+            { "type": "null" }
+          ]
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "state": { "const": "owner_confirmed" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": { "$ref": "#/$defs/sourceRoleConfirmationReceipt" }
+            }
+          },
+          "else": { "properties": { "receipt": { "type": "null" } } }
+        }
+      ]
+    },
+    "independentValidationStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requirement",
+        "requirementProfileId",
+        "requirementRationale",
+        "requirementReceipt",
+        "state",
+        "receipt",
+        "updatedAt"
+      ],
+      "properties": {
+        "requirement": { "enum": ["undetermined", "required", "not_required"] },
+        "requirementProfileId": {
+          "oneOf": [{ "$ref": "#/$defs/identifier" }, { "type": "null" }]
+        },
+        "requirementRationale": { "type": ["string", "null"], "minLength": 10 },
+        "requirementReceipt": {
+          "oneOf": [
+            { "$ref": "#/$defs/validationRequirementReceipt" },
+            { "type": "null" }
+          ]
+        },
+        "state": {
+          "enum": [
+            "not_requested",
+            "pending",
+            "not_applicable",
+            "validated",
+            "validated_with_conditions",
+            "changes_requested",
+            "rejected"
+          ]
+        },
+        "receipt": {
+          "oneOf": [
+            { "$ref": "#/$defs/independentValidationReceipt" },
+            { "type": "null" }
+          ]
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "requirement": { "const": "undetermined" } },
+            "required": ["requirement"]
+          },
+          "then": {
+            "properties": {
+              "requirementProfileId": { "type": "null" },
+              "requirementRationale": { "type": "null" },
+              "requirementReceipt": { "type": "null" },
+              "state": { "const": "not_requested" },
+              "receipt": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "requirement": { "const": "required" } },
+            "required": ["requirement"]
+          },
+          "then": {
+            "anyOf": [
+              {
+                "properties": {
+                  "requirementProfileId": { "$ref": "#/$defs/identifier" }
+                }
+              },
+              {
+                "properties": {
+                  "requirementRationale": { "type": "string", "minLength": 10 }
+                }
+              }
+            ],
+            "properties": {
+              "requirementReceipt": { "type": "null" },
+              "state": { "not": { "const": "not_applicable" } }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "requirement": { "const": "not_required" } },
+            "required": ["requirement"]
+          },
+          "then": {
+            "properties": {
+              "requirementProfileId": { "$ref": "#/$defs/identifier" },
+              "requirementRationale": { "type": "string", "minLength": 10 },
+              "requirementReceipt": {
+                "$ref": "#/$defs/validationRequirementReceipt"
+              },
+              "state": { "const": "not_applicable" },
+              "receipt": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "validated",
+                  "validated_with_conditions",
+                  "changes_requested",
+                  "rejected"
+                ]
+              }
+            },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": { "$ref": "#/$defs/independentValidationReceipt" }
+            }
+          },
+          "else": { "properties": { "receipt": { "type": "null" } } }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "validated" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": {
+                "properties": { "decision": { "const": "validated" } }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "validated_with_conditions" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": {
+                "properties": {
+                  "decision": { "const": "validated_with_conditions" }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "changes_requested" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": {
+                "properties": { "decision": { "const": "changes_requested" } }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "rejected" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": {
+                "properties": { "decision": { "const": "rejected" } }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "partnerValidationStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requirement",
+        "requirementProfileId",
+        "requirementRationale",
+        "requirementReceipt",
+        "state",
+        "receipt",
+        "updatedAt"
+      ],
+      "properties": {
+        "requirement": { "enum": ["undetermined", "required", "not_required"] },
+        "requirementProfileId": {
+          "oneOf": [{ "$ref": "#/$defs/identifier" }, { "type": "null" }]
+        },
+        "requirementRationale": { "type": ["string", "null"], "minLength": 10 },
+        "requirementReceipt": {
+          "oneOf": [
+            { "$ref": "#/$defs/partnerRequirementReceipt" },
+            { "type": "null" }
+          ]
+        },
+        "state": {
+          "enum": [
+            "not_requested",
+            "pending",
+            "not_applicable",
+            "validated",
+            "validated_with_conditions",
+            "changes_requested",
+            "rejected"
+          ]
+        },
+        "receipt": {
+          "oneOf": [
+            { "$ref": "#/$defs/partnerValidationReceipt" },
+            { "type": "null" }
+          ]
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "requirement": { "const": "undetermined" } },
+            "required": ["requirement"]
+          },
+          "then": {
+            "properties": {
+              "requirementProfileId": { "type": "null" },
+              "requirementRationale": { "type": "null" },
+              "requirementReceipt": { "type": "null" },
+              "state": { "const": "not_requested" },
+              "receipt": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "requirement": { "const": "required" } },
+            "required": ["requirement"]
+          },
+          "then": {
+            "anyOf": [
+              {
+                "properties": {
+                  "requirementProfileId": { "$ref": "#/$defs/identifier" }
+                }
+              },
+              {
+                "properties": {
+                  "requirementRationale": { "type": "string", "minLength": 10 }
+                }
+              }
+            ],
+            "properties": {
+              "requirementReceipt": { "type": "null" },
+              "state": { "not": { "const": "not_applicable" } }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "requirement": { "const": "not_required" } },
+            "required": ["requirement"]
+          },
+          "then": {
+            "properties": {
+              "requirementProfileId": { "$ref": "#/$defs/identifier" },
+              "requirementRationale": { "type": "string", "minLength": 10 },
+              "requirementReceipt": {
+                "$ref": "#/$defs/partnerRequirementReceipt"
+              },
+              "state": { "const": "not_applicable" },
+              "receipt": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "validated",
+                  "validated_with_conditions",
+                  "changes_requested",
+                  "rejected"
+                ]
+              }
+            },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": { "$ref": "#/$defs/partnerValidationReceipt" }
+            }
+          },
+          "else": { "properties": { "receipt": { "type": "null" } } }
+        }
+      ]
+    },
+    "rightsHolderValidationStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requirement",
+        "requirementProfileId",
+        "requirementRationale",
+        "requirementReceipt",
+        "state",
+        "receipt",
+        "updatedAt"
+      ],
+      "properties": {
+        "requirement": { "enum": ["undetermined", "required", "not_required"] },
+        "requirementProfileId": {
+          "oneOf": [{ "$ref": "#/$defs/identifier" }, { "type": "null" }]
+        },
+        "requirementRationale": { "type": ["string", "null"], "minLength": 10 },
+        "requirementReceipt": {
+          "oneOf": [
+            { "$ref": "#/$defs/rightsHolderRequirementReceipt" },
+            { "type": "null" }
+          ]
+        },
+        "state": {
+          "enum": [
+            "not_requested",
+            "pending",
+            "not_applicable",
+            "validated",
+            "validated_with_conditions",
+            "changes_requested",
+            "rejected"
+          ]
+        },
+        "receipt": {
+          "oneOf": [
+            { "$ref": "#/$defs/rightsHolderValidationReceipt" },
+            { "type": "null" }
+          ]
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "requirement": { "const": "undetermined" } },
+            "required": ["requirement"]
+          },
+          "then": {
+            "properties": {
+              "requirementProfileId": { "type": "null" },
+              "requirementRationale": { "type": "null" },
+              "requirementReceipt": { "type": "null" },
+              "state": { "const": "not_requested" },
+              "receipt": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "requirement": { "const": "required" } },
+            "required": ["requirement"]
+          },
+          "then": {
+            "anyOf": [
+              {
+                "properties": {
+                  "requirementProfileId": { "$ref": "#/$defs/identifier" }
+                }
+              },
+              {
+                "properties": {
+                  "requirementRationale": { "type": "string", "minLength": 10 }
+                }
+              }
+            ],
+            "properties": {
+              "requirementReceipt": { "type": "null" },
+              "state": { "not": { "const": "not_applicable" } }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "requirement": { "const": "not_required" } },
+            "required": ["requirement"]
+          },
+          "then": {
+            "properties": {
+              "requirementProfileId": { "$ref": "#/$defs/identifier" },
+              "requirementRationale": { "type": "string", "minLength": 10 },
+              "requirementReceipt": {
+                "$ref": "#/$defs/rightsHolderRequirementReceipt"
+              },
+              "state": { "const": "not_applicable" },
+              "receipt": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "validated",
+                  "validated_with_conditions",
+                  "changes_requested",
+                  "rejected"
+                ]
+              }
+            },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": { "$ref": "#/$defs/rightsHolderValidationReceipt" }
+            }
+          },
+          "else": { "properties": { "receipt": { "type": "null" } } }
+        }
+      ]
+    },
+    "rightsStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "receipt", "updatedAt"],
+      "properties": {
+        "state": { "$ref": "#/$defs/rightsState" },
+        "receipt": {
+          "oneOf": [
+            { "$ref": "#/$defs/rightsReviewReceipt" },
+            { "type": "null" }
+          ]
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "restricted",
+                  "cleared_internal_use",
+                  "cleared_external_publication",
+                  "public_domain"
+                ]
+              }
+            },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": { "$ref": "#/$defs/rightsReviewReceipt" }
+            }
+          },
+          "else": { "properties": { "receipt": { "type": "null" } } }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "restricted" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": {
+                "properties": { "decision": { "const": "restricted" } }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "cleared_internal_use" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": {
+                "properties": {
+                  "decision": { "const": "cleared_internal_use" }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": { "const": "cleared_external_publication" }
+            },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": {
+                "properties": {
+                  "decision": { "const": "cleared_external_publication" }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "public_domain" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": {
+                "properties": { "decision": { "const": "public_domain" } }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "rightsState": {
+      "enum": [
+        "unknown",
+        "pending_review",
+        "restricted",
+        "cleared_internal_use",
+        "cleared_external_publication",
+        "public_domain"
+      ]
+    },
+    "publicationIndependentGateStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requirement",
+        "requirementProfileId",
+        "requirementRationale",
+        "state",
+        "receipt",
+        "updatedAt"
+      ],
+      "properties": {
+        "requirement": { "enum": ["undetermined", "required", "not_required"] },
+        "requirementProfileId": {
+          "oneOf": [{ "$ref": "#/$defs/identifier" }, { "type": "null" }]
+        },
+        "requirementRationale": { "type": ["string", "null"], "minLength": 10 },
+        "state": {
+          "enum": [
+            "not_requested",
+            "pending",
+            "approved",
+            "approved_with_conditions",
+            "not_applicable",
+            "blocked"
+          ]
+        },
+        "receipt": {
+          "oneOf": [
+            { "$ref": "#/$defs/publicationIndependentGateReceipt" },
+            { "type": "null" }
+          ]
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "approved",
+                  "approved_with_conditions",
+                  "not_applicable",
+                  "blocked"
+                ]
+              }
+            },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": { "$ref": "#/$defs/publicationIndependentGateReceipt" }
+            }
+          },
+          "else": { "properties": { "receipt": { "type": "null" } } }
+        },
+        {
+          "if": {
+            "properties": { "requirement": { "const": "undetermined" } },
+            "required": ["requirement"]
+          },
+          "then": {
+            "properties": {
+              "requirementProfileId": { "type": "null" },
+              "requirementRationale": { "type": "null" },
+              "state": { "const": "not_requested" },
+              "receipt": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "requirement": { "const": "required" } },
+            "required": ["requirement"]
+          },
+          "then": {
+            "properties": {
+              "requirementProfileId": { "$ref": "#/$defs/identifier" },
+              "requirementRationale": { "type": "string", "minLength": 10 },
+              "state": {
+                "enum": [
+                  "pending",
+                  "approved",
+                  "approved_with_conditions",
+                  "blocked"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "requirement": { "const": "not_required" } },
+            "required": ["requirement"]
+          },
+          "then": {
+            "properties": {
+              "requirementProfileId": { "$ref": "#/$defs/identifier" },
+              "requirementRationale": { "type": "string", "minLength": 10 },
+              "state": { "const": "not_applicable" },
+              "receipt": {
+                "allOf": [
+                  { "$ref": "#/$defs/publicationIndependentGateReceipt" },
+                  { "properties": { "decision": { "const": "not_required" } } }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "approved" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": {
+                "properties": { "decision": { "const": "approved" } }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "approved_with_conditions" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": {
+                "properties": {
+                  "decision": { "const": "approved_with_conditions" }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "blocked" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "receipt": {
+                "properties": { "decision": { "const": "blocked" } }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "publicationIndependentGateSatisfied": {
+      "anyOf": [
+        {
+          "properties": {
+            "requirement": { "const": "required" },
+            "state": { "const": "approved" },
+            "receipt": {
+              "properties": { "decision": { "const": "approved" } },
+              "required": ["decision"]
+            }
+          },
+          "required": ["requirement", "state", "receipt"]
+        },
+        {
+          "properties": {
+            "requirement": { "const": "not_required" },
+            "state": { "const": "not_applicable" },
+            "receipt": {
+              "properties": { "decision": { "const": "not_required" } },
+              "required": ["decision"]
+            }
+          },
+          "required": ["requirement", "state", "receipt"]
+        }
+      ]
+    },
+    "publicationStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "externalUseAllowed",
+        "independentGates",
+        "approvalReceipt",
+        "publicLocator",
+        "publishedAt",
+        "updatedAt"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "internal_only",
+            "external_candidate",
+            "publishable",
+            "published"
+          ]
+        },
+        "externalUseAllowed": { "type": "boolean" },
+        "independentGates": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["privacy", "safety", "legal"],
+          "properties": {
+            "privacy": { "$ref": "#/$defs/publicationIndependentGateStatus" },
+            "safety": { "$ref": "#/$defs/publicationIndependentGateStatus" },
+            "legal": { "$ref": "#/$defs/publicationIndependentGateStatus" }
+          }
+        },
+        "approvalReceipt": {
+          "oneOf": [
+            { "$ref": "#/$defs/publicationApprovalReceipt" },
+            { "type": "null" }
+          ]
+        },
+        "publicLocator": { "type": ["string", "null"], "minLength": 1 },
+        "publishedAt": {
+          "oneOf": [
+            { "type": "string", "format": "date-time" },
+            { "type": "null" }
+          ]
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "state": { "enum": ["publishable", "published"] } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "externalUseAllowed": { "const": true },
+              "approvalReceipt": {
+                "$ref": "#/$defs/publicationApprovalReceipt"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "externalUseAllowed": { "const": false },
+              "approvalReceipt": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "published" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "publicLocator": { "type": "string", "minLength": 1 },
+              "publishedAt": { "type": "string", "format": "date-time" }
+            }
+          },
+          "else": {
+            "properties": {
+              "publicLocator": { "type": "null" },
+              "publishedAt": { "type": "null" }
+            }
+          }
+        }
+      ]
+    },
+    "coverageStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "coveragePromotionAllowed",
+        "approvalReceipt",
+        "coverageCellIds",
+        "promotedAt",
+        "updatedAt"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "not_assessed",
+            "candidate",
+            "approved_for_promotion",
+            "promoted"
+          ]
+        },
+        "coveragePromotionAllowed": { "type": "boolean" },
+        "approvalReceipt": {
+          "oneOf": [
+            { "$ref": "#/$defs/coverageApprovalReceipt" },
+            { "type": "null" }
+          ]
+        },
+        "coverageCellIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/identifier" }
+        },
+        "promotedAt": {
+          "oneOf": [
+            { "type": "string", "format": "date-time" },
+            { "type": "null" }
+          ]
+        },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": { "enum": ["approved_for_promotion", "promoted"] }
+            },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "coveragePromotionAllowed": { "const": true },
+              "approvalReceipt": { "$ref": "#/$defs/coverageApprovalReceipt" },
+              "coverageCellIds": { "minItems": 1 }
+            }
+          },
+          "else": {
+            "properties": {
+              "coveragePromotionAllowed": { "const": false },
+              "approvalReceipt": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "state": { "const": "promoted" } },
+            "required": ["state"]
+          },
+          "then": {
+            "properties": {
+              "promotedAt": { "type": "string", "format": "date-time" }
+            }
+          },
+          "else": { "properties": { "promotedAt": { "type": "null" } } }
+        }
+      ]
+    },
+    "openIssue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "issueId",
+        "category",
+        "severity",
+        "summary",
+        "openedAt",
+        "assignedTo",
+        "evidenceRefs"
+      ],
+      "properties": {
+        "issueId": { "$ref": "#/$defs/identifier" },
+        "category": {
+          "enum": [
+            "identity",
+            "availability",
+            "ai_processing",
+            "owner_review",
+            "independent_validation",
+            "rights",
+            "publication",
+            "coverage",
+            "method",
+            "boundary",
+            "contradiction",
+            "other"
+          ]
+        },
+        "severity": { "enum": ["information", "warning", "blocking"] },
+        "summary": { "type": "string", "minLength": 1 },
+        "openedAt": { "type": "string", "format": "date-time" },
+        "assignedTo": {
+          "oneOf": [{ "$ref": "#/$defs/namedReviewer" }, { "type": "null" }]
+        },
+        "evidenceRefs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

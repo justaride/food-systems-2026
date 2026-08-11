@@ -19,6 +19,8 @@ Innsiktskartet er arbeidsflaten for hva vi mener vi vet, hva som fortsatt er gap
 
 ## Bevis-kjeden (I01-I26)
 
+Samlet inngang og dynamisk oversikt: [[Innsiktsregister]].
+
 **Del 1 – Det norske systemet**
 
 - [[I01 Triopolet – 93,4 % av butikkene]]
@@ -72,6 +74,8 @@ Innsiktskartet er arbeidsflaten for hva vi mener vi vet, hva som fortsatt er gap
 Disse notene er interne arbeidsnoder. De er valgt fordi de gjør kartet mer brukbart som cockpit, men de er ikke automatisk publiserbare claims.
 
 ## Aktører
+
+Samlet veiviser for kuraterte aktører, selskapsdata og stakeholder-sporet: [[Aktørregister]].
 
 **Konsern:** [[NorgesGruppen]] · [[ASKO]] · [[Reitan Retail]] · [[Coop Norge]] · [[Orkla]] · [[TINE]] · [[Nortura]] · [[Felleskjøpet Agri]] · [[BAMA]] · [[Mowi]] · [[Lerøy Seafood]] · [[SalMar]] · [[Austevoll Seafood]] · [[Bunnpris]]
 

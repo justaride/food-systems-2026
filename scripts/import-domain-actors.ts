@@ -6,6 +6,7 @@ import { PrismaPg } from '@prisma/adapter-pg'
 import { canonicalPersonKey } from '../src/lib/person-key'
 import {
   buildActorImportData,
+  actorCountryNameKey,
   buildThemeTags,
   chooseActorTarget,
   mergeDomainRegistrationMetadata,
@@ -144,11 +145,31 @@ async function main() {
 
   // Noen kandidat-noder finnes allerede som kuraterte maktkart-aktører (annen id, samme slug).
   // Disse skal IKKE dupliseres eller overskrives — kun lett berikes (themeTags-union + dok-ref).
+  const countryNamePairs = actorRows.map(r => ({
+    country: r.country || 'NO',
+    name: r.name,
+  }))
   const existing = await prisma.actor.findMany({
-    where: { slug: { in: actorIds } },
-    select: { id: true, slug: true, themeTags: true, companyId: true, metadata: true },
+    where: {
+      OR: [
+        { slug: { in: actorIds } },
+        ...countryNamePairs,
+      ],
+    },
+    select: {
+      id: true,
+      slug: true,
+      name: true,
+      country: true,
+      themeTags: true,
+      companyId: true,
+      metadata: true,
+    },
   })
   const existingBySlug = new Map(existing.map(a => [a.slug, a]))
+  const existingByCountryName = new Map(
+    existing.map(a => [actorCountryNameKey(a.country, a.name), a]),
+  )
 
   const orgNrs = Array.from(new Set(actorRows.map(r => normalizeOrgNr(r.org_nr)).filter(Boolean)))
   const companies = orgNrs.length
@@ -172,7 +193,12 @@ async function main() {
   )
   const targetByNodeId = new Map(actorRows.map(r => [
     r.node_id,
-    chooseActorTarget(r, { existingBySlug, companyByOrgNr, existingByCompanyId }),
+    chooseActorTarget(r, {
+      existingBySlug,
+      existingByCountryName,
+      companyByOrgNr,
+      existingByCompanyId,
+    }),
   ]))
   const resolveActorId = (nodeId: string) => targetByNodeId.get(nodeId)?.id ?? nodeId
 

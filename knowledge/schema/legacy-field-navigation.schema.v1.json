@@ -1,0 +1,489 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/legacy-field-navigation.v1.json",
+  "title": "Food Systems 2026 legacy-field navigation registration",
+  "description": "Fail-closed records for registering the thirteen legacy Obsidian field artifacts as navigation only. These records cannot carry evidence, coverage, readiness or review promotion.",
+  "oneOf": [
+    { "$ref": "#/$defs/navigationMap" },
+    { "$ref": "#/$defs/navigationRegister" },
+    { "$ref": "#/$defs/generationManifest" }
+  ],
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "gitCommit": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "repositoryPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(Food Systems Obsidian|knowledge|scripts)/"
+    },
+    "legacyFieldId": {
+      "type": "string",
+      "pattern": "^legacy_field\\.f(0[1-9]|1[0-3])$"
+    },
+    "neutralSemantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactRole",
+        "coverageImplication",
+        "subjectMatterState",
+        "geographyRepresentation",
+        "evidenceUse",
+        "coveragePromotionAllowed",
+        "crossProfileAggregationAllowed"
+      ],
+      "properties": {
+        "artifactRole": { "const": "navigation" },
+        "coverageImplication": { "const": "none" },
+        "subjectMatterState": { "const": "unassessed" },
+        "geographyRepresentation": { "const": "unknown" },
+        "evidenceUse": { "const": "not_evidence" },
+        "coveragePromotionAllowed": { "const": false },
+        "crossProfileAggregationAllowed": { "const": false }
+      }
+    },
+    "navigationContextInput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contextId", "role", "artifactPath", "locator"],
+      "properties": {
+        "contextId": {
+          "enum": [
+            "navigation_context.legacy_field_index",
+            "navigation_context.legacy_field_atlas"
+          ]
+        },
+        "role": { "enum": ["field_map_index", "atlas_canvas"] },
+        "artifactPath": { "$ref": "#/$defs/repositoryPath" },
+        "locator": { "type": "string", "minLength": 1 }
+      }
+    },
+    "fieldMapEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "legacyFieldId",
+        "sequence",
+        "labelNb",
+        "artifactPath",
+        "artifactLocator",
+        "fieldMapLinkTarget",
+        "atlasNodeId"
+      ],
+      "properties": {
+        "legacyFieldId": { "$ref": "#/$defs/legacyFieldId" },
+        "sequence": { "type": "integer", "minimum": 1, "maximum": 13 },
+        "labelNb": { "type": "string", "minLength": 1 },
+        "artifactPath": { "$ref": "#/$defs/repositoryPath" },
+        "artifactLocator": { "type": "string", "pattern": "^# " },
+        "fieldMapLinkTarget": { "type": "string", "minLength": 1 },
+        "atlasNodeId": { "type": "string", "pattern": "^f(0[1-9]|1[0-3])$" }
+      }
+    },
+    "navigationMap": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "documentType",
+        "schemaVersion",
+        "mapId",
+        "status",
+        "observedAt",
+        "semantics",
+        "navigationContexts",
+        "fields"
+      ],
+      "properties": {
+        "documentType": { "const": "legacy_field_navigation_map" },
+        "schemaVersion": { "const": "1.0.0" },
+        "mapId": { "const": "map.legacy_field_navigation.v1" },
+        "status": { "const": "proposed" },
+        "observedAt": { "type": "string", "format": "date" },
+        "semantics": { "$ref": "#/$defs/neutralSemantics" },
+        "navigationContexts": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/navigationContextInput" }
+        },
+        "fields": {
+          "type": "array",
+          "minItems": 13,
+          "maxItems": 13,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/fieldMapEntry" }
+        }
+      }
+    },
+    "artifactSnapshotEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "kind", "sha256", "sizeBytes"],
+      "properties": {
+        "path": { "$ref": "#/$defs/repositoryPath" },
+        "kind": { "enum": ["file", "symlink"] },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 0 },
+        "symlinkTarget": { "type": "string", "minLength": 1 }
+      }
+    },
+    "artifactSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactSnapshotId",
+        "path",
+        "kind",
+        "baseCommit",
+        "gitObjectId",
+        "gitObjectType",
+        "sha256",
+        "sizeBytes",
+        "fileCount",
+        "entries"
+      ],
+      "properties": {
+        "artifactSnapshotId": { "type": "string", "pattern": "^artifact\\.v1\\.[a-f0-9]{20}$" },
+        "path": { "$ref": "#/$defs/repositoryPath" },
+        "kind": { "enum": ["file", "directory", "symlink"] },
+        "baseCommit": { "$ref": "#/$defs/gitCommit" },
+        "gitObjectId": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+        "gitObjectType": { "enum": ["blob", "tree"] },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 0 },
+        "fileCount": { "type": "integer", "minimum": 1 },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/artifactSnapshotEntry" }
+        }
+      }
+    },
+    "navigationContextRegistration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contextId", "role", "locator", "artifactSnapshot"],
+      "properties": {
+        "contextId": {
+          "enum": [
+            "navigation_context.legacy_field_index",
+            "navigation_context.legacy_field_atlas"
+          ]
+        },
+        "role": { "enum": ["field_map_index", "atlas_canvas"] },
+        "locator": { "type": "string", "minLength": 1 },
+        "artifactSnapshot": { "$ref": "#/$defs/artifactSnapshot" }
+      }
+    },
+    "fieldRegistration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "registrationId",
+        "legacyFieldId",
+        "sequence",
+        "labelNb",
+        "labelEn",
+        "artifactRole",
+        "artifactLocator",
+        "artifactSnapshot",
+        "fieldMapContextId",
+        "fieldMapLinkTarget",
+        "atlasContextId",
+        "atlasNodeId",
+        "coverageImplication",
+        "subjectMatterState",
+        "geographyRepresentation",
+        "evidenceUse",
+        "limitations",
+        "contentHash"
+      ],
+      "properties": {
+        "registrationId": { "type": "string", "pattern": "^navigation_registration\\.legacy_field\\.f(0[1-9]|1[0-3])$" },
+        "legacyFieldId": { "$ref": "#/$defs/legacyFieldId" },
+        "sequence": { "type": "integer", "minimum": 1, "maximum": 13 },
+        "labelNb": { "type": "string", "minLength": 1 },
+        "labelEn": { "type": "string", "minLength": 1 },
+        "artifactRole": { "const": "legacy_field_navigation" },
+        "artifactLocator": { "type": "string", "pattern": "^# " },
+        "artifactSnapshot": { "$ref": "#/$defs/artifactSnapshot" },
+        "fieldMapContextId": { "const": "navigation_context.legacy_field_index" },
+        "fieldMapLinkTarget": { "type": "string", "minLength": 1 },
+        "atlasContextId": { "const": "navigation_context.legacy_field_atlas" },
+        "atlasNodeId": { "type": "string", "pattern": "^f(0[1-9]|1[0-3])$" },
+        "coverageImplication": { "const": "none" },
+        "subjectMatterState": { "const": "unassessed" },
+        "geographyRepresentation": { "const": "unknown" },
+        "evidenceUse": { "const": "not_evidence" },
+        "limitations": {
+          "type": "array",
+          "minItems": 3,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "contentHash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "navigationBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bindingId",
+        "registrationId",
+        "cellId",
+        "profileId",
+        "aggregationClass",
+        "geographyId",
+        "legacyFieldId",
+        "bindingSemantics",
+        "coverageImplication",
+        "subjectMatterState",
+        "geographyRepresentation",
+        "evidenceUse",
+        "aggregationRule",
+        "rightsHolderReviewRequired",
+        "limitations",
+        "contentHash"
+      ],
+      "properties": {
+        "bindingId": { "type": "string", "pattern": "^navigation_binding\\.[a-z0-9_.-]+$" },
+        "registrationId": { "type": "string", "pattern": "^navigation_registration\\.legacy_field\\.f(0[1-9]|1[0-3])$" },
+        "cellId": { "type": "string", "pattern": "^cov\\.v1\\.[a-z0-9_.=-]+$" },
+        "profileId": {
+          "enum": [
+            "profile.legacy_field_political",
+            "profile.legacy_field_sapmi_overlap"
+          ]
+        },
+        "aggregationClass": { "enum": ["political_nordic", "sapmi_overlapping"] },
+        "geographyId": {
+          "enum": [
+            "geo.no",
+            "geo.se",
+            "geo.dk",
+            "geo.fi",
+            "geo.is",
+            "geo.fo",
+            "geo.gl",
+            "geo.ax",
+            "geo.sapmi"
+          ]
+        },
+        "legacyFieldId": { "$ref": "#/$defs/legacyFieldId" },
+        "bindingSemantics": { "const": "navigation_route_only" },
+        "coverageImplication": { "const": "none" },
+        "subjectMatterState": { "const": "unassessed" },
+        "geographyRepresentation": { "const": "unknown" },
+        "evidenceUse": { "const": "not_evidence" },
+        "aggregationRule": { "enum": ["profile_local_only", "sapmi_non_additive_overlap"] },
+        "rightsHolderReviewRequired": { "type": "boolean" },
+        "limitations": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "contentHash": { "$ref": "#/$defs/sha256" }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "aggregationClass": { "const": "political_nordic" } },
+            "required": ["aggregationClass"]
+          },
+          "then": {
+            "properties": {
+              "profileId": { "const": "profile.legacy_field_political" },
+              "geographyId": {
+                "enum": ["geo.no", "geo.se", "geo.dk", "geo.fi", "geo.is", "geo.fo", "geo.gl", "geo.ax"]
+              },
+              "aggregationRule": { "const": "profile_local_only" },
+              "rightsHolderReviewRequired": { "const": false }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "aggregationClass": { "const": "sapmi_overlapping" } },
+            "required": ["aggregationClass"]
+          },
+          "then": {
+            "properties": {
+              "profileId": { "const": "profile.legacy_field_sapmi_overlap" },
+              "geographyId": { "const": "geo.sapmi" },
+              "aggregationRule": { "const": "sapmi_non_additive_overlap" },
+              "rightsHolderReviewRequired": { "const": true }
+            }
+          }
+        }
+      ]
+    },
+    "profileSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["aggregationClass", "bindingCount", "coveragePromotionCount", "geographyRepresentationCount"],
+      "properties": {
+        "aggregationClass": { "enum": ["political_nordic", "sapmi_overlapping"] },
+        "bindingCount": { "type": "integer", "minimum": 1 },
+        "coveragePromotionCount": { "const": 0 },
+        "geographyRepresentationCount": { "const": 0 }
+      }
+    },
+    "navigationRegister": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "documentType",
+        "schemaVersion",
+        "registryId",
+        "registryStatus",
+        "generatedAt",
+        "baseCommit",
+        "generatorVersion",
+        "ontologyVersion",
+        "mapId",
+        "semantics",
+        "navigationContexts",
+        "fieldRegistrations",
+        "bindings",
+        "profileSummaries",
+        "recordCounts",
+        "contentHash"
+      ],
+      "properties": {
+        "documentType": { "const": "legacy_field_navigation_register" },
+        "schemaVersion": { "const": "1.0.0" },
+        "registryId": { "const": "registry.legacy_field_navigation.v1" },
+        "registryStatus": { "const": "proposed" },
+        "generatedAt": { "type": "string", "format": "date" },
+        "baseCommit": { "$ref": "#/$defs/gitCommit" },
+        "generatorVersion": { "type": "string", "pattern": "^1\\.[0-9]+\\.[0-9]+$" },
+        "ontologyVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "mapId": { "const": "map.legacy_field_navigation.v1" },
+        "semantics": { "$ref": "#/$defs/neutralSemantics" },
+        "navigationContexts": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/navigationContextRegistration" }
+        },
+        "fieldRegistrations": {
+          "type": "array",
+          "minItems": 13,
+          "maxItems": 13,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/fieldRegistration" }
+        },
+        "bindings": {
+          "type": "array",
+          "minItems": 117,
+          "maxItems": 117,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/navigationBinding" }
+        },
+        "profileSummaries": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["profile.legacy_field_political", "profile.legacy_field_sapmi_overlap"],
+          "properties": {
+            "profile.legacy_field_political": {
+              "allOf": [
+                { "$ref": "#/$defs/profileSummary" },
+                {
+                  "properties": {
+                    "aggregationClass": { "const": "political_nordic" },
+                    "bindingCount": { "const": 104 }
+                  }
+                }
+              ]
+            },
+            "profile.legacy_field_sapmi_overlap": {
+              "allOf": [
+                { "$ref": "#/$defs/profileSummary" },
+                {
+                  "properties": {
+                    "aggregationClass": { "const": "sapmi_overlapping" },
+                    "bindingCount": { "const": 13 }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "recordCounts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["navigationContexts", "fieldRegistrations", "politicalBindings", "sapmiBindings"],
+          "properties": {
+            "navigationContexts": { "const": 2 },
+            "fieldRegistrations": { "const": 13 },
+            "politicalBindings": { "const": 104 },
+            "sapmiBindings": { "const": 13 }
+          }
+        },
+        "contentHash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "generationOutput": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "sizeBytes"],
+      "properties": {
+        "path": { "$ref": "#/$defs/repositoryPath" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "generationManifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "documentType",
+        "schemaVersion",
+        "generator",
+        "generatorVersion",
+        "registryId",
+        "registryStatus",
+        "generatedAt",
+        "baseCommit",
+        "commitMarkerSemantics",
+        "inputSnapshots",
+        "outputs",
+        "contentHash"
+      ],
+      "properties": {
+        "documentType": { "const": "legacy_field_navigation_generation_manifest" },
+        "schemaVersion": { "const": "1.0.0" },
+        "generator": { "const": "scripts/knowledge/generate-legacy-field-navigation.ts" },
+        "generatorVersion": { "type": "string", "pattern": "^1\\.[0-9]+\\.[0-9]+$" },
+        "registryId": { "const": "registry.legacy_field_navigation.v1" },
+        "registryStatus": { "const": "proposed" },
+        "generatedAt": { "type": "string", "format": "date" },
+        "baseCommit": { "$ref": "#/$defs/gitCommit" },
+        "commitMarkerSemantics": { "type": "string", "minLength": 1 },
+        "inputSnapshots": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/artifactSnapshot" }
+        },
+        "outputs": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1,
+          "items": { "$ref": "#/$defs/generationOutput" }
+        },
+        "contentHash": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}

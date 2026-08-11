@@ -26,4 +26,15 @@ describe('search fallback warning copy', () => {
     assert.doesNotMatch(combinedSource, /statussjekken/)
     assert.doesNotMatch(combinedSource, /fallback fra/)
   })
+
+  it('includes structured Report records and applies type filters before the global cap', () => {
+    assert.match(searchSource, /type: 'report'/)
+    assert.match(searchSource, /FROM "Report"/)
+    assert.match(searchSource, /allowedTypes\.has\(result\.type\)/)
+    assert.ok(
+      searchSource.indexOf('allowedTypes.has(result.type)')
+        < searchSource.lastIndexOf('interleaveByType('),
+      'type filtering must happen before interleaving and limiting results',
+    )
+  })
 })

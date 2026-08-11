@@ -1,0 +1,647 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/knowledge-object.v1.json",
+  "title": "Food Systems 2026 knowledge object",
+  "description": "Fail-closed contract for compiled knowledge objects. Operational routing is recorded here; readiness is derived from evidence and review gates.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "schemaVersion",
+    "ontologyVersion",
+    "objectTypeId",
+    "title",
+    "summary",
+    "facets",
+    "timeScope",
+    "systemBoundary",
+    "evidence",
+    "operationalRoute",
+    "lensAssessments",
+    "legacyFieldIds",
+    "relations",
+    "payloadKind",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^fs:(concept|actor|place|infrastructure|process|flow|claim|observation|indicator|dataset|source|case|policy|event|scenario|question|gap|synthesis):[a-z0-9][a-z0-9._-]*$"
+    },
+    "projectionId": { "type": "string", "pattern": "^ko\\.[a-z0-9][a-z0-9_.-]*$" },
+    "schemaVersion": { "const": "1.0.0" },
+    "ontologyVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "objectTypeId": {
+      "enum": [
+        "knowledge_object.concept",
+        "knowledge_object.actor",
+        "knowledge_object.place",
+        "knowledge_object.infrastructure",
+        "knowledge_object.process",
+        "knowledge_object.flow",
+        "knowledge_object.claim",
+        "knowledge_object.observation",
+        "knowledge_object.indicator",
+        "knowledge_object.dataset",
+        "knowledge_object.source",
+        "knowledge_object.case",
+        "knowledge_object.policy",
+        "knowledge_object.event",
+        "knowledge_object.scenario",
+        "knowledge_object.question",
+        "knowledge_object.gap",
+        "knowledge_object.synthesis"
+      ]
+    },
+    "title": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "claimText": { "type": "string", "minLength": 1 },
+    "claimStatus": {
+      "enum": ["controlled", "controlled_with_caveat", "internal_candidate", "human_gate"]
+    },
+    "aggregationAllowed": {
+      "type": "boolean",
+      "description": "Explicit machine flag. Internal or blocked evidence must remain false; a later reviewed workflow may set true only under its own controlled contract."
+    },
+    "facets": { "$ref": "#/$defs/facets" },
+    "timeScope": { "$ref": "#/$defs/timeScope" },
+    "systemBoundary": { "$ref": "#/$defs/systemBoundary" },
+    "evidence": { "$ref": "#/$defs/evidence" },
+    "operationalRoute": {
+      "description": "Operational gap/work route only. It is not a completion or publication-readiness assertion.",
+      "enum": ["unclassified", "none", "synthesis_needed", "human_gated", "source_gated", "true_c", "future", "out_of_scope"]
+    },
+    "searchProtocol": { "$ref": "#/$defs/searchProtocol" },
+    "comparisonScope": { "$ref": "#/$defs/comparisonScope" },
+    "coverageCellIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "pattern": "^cov\\.[a-z0-9_.=-]+$" },
+      "uniqueItems": true
+    },
+    "lensAssessments": { "$ref": "#/$defs/lensAssessments" },
+    "caseState": { "$ref": "#/$defs/caseState" },
+    "relations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/relation" },
+      "uniqueItems": true
+    },
+    "payloadKind": {
+      "enum": ["none", "physical_flow", "relationship", "stock", "metric_indicator"]
+    },
+    "physicalFlow": { "$ref": "#/$defs/physicalFlow" },
+    "relationship": { "$ref": "#/$defs/relationship" },
+    "stock": { "$ref": "#/$defs/stock" },
+    "metricIndicator": { "$ref": "#/$defs/metricIndicator" },
+    "legacyFieldIds": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^legacy_field\\.f(0[1-9]|1[0-3])$" },
+      "uniqueItems": true
+    },
+    "sourcePath": { "type": ["string", "null"] },
+    "createdAt": { "type": "string", "format": "date" },
+    "updatedAt": { "type": "string", "format": "date" },
+    "reviewedAt": { "type": ["string", "null"], "format": "date" },
+    "supersedesIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^fs:(concept|actor|place|infrastructure|process|flow|claim|observation|indicator|dataset|source|case|policy|event|scenario|question|gap|synthesis):[a-z0-9][a-z0-9._-]*$"
+      },
+      "uniqueItems": true
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.claim" } }, "required": ["objectTypeId"] },
+      "then": { "required": ["claimText", "claimStatus", "coverageCellIds", "aggregationAllowed"], "properties": { "id": { "pattern": "^fs:claim:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.synthesis" } }, "required": ["objectTypeId"] },
+      "then": { "required": ["coverageCellIds"], "properties": { "id": { "pattern": "^fs:synthesis:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.case" } }, "required": ["objectTypeId"] },
+      "then": { "required": ["coverageCellIds", "caseState"], "properties": { "id": { "pattern": "^fs:case:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.flow" } }, "required": ["objectTypeId"] },
+      "then": {
+        "properties": { "id": { "pattern": "^fs:flow:" }, "payloadKind": { "enum": ["physical_flow", "relationship"] } },
+        "oneOf": [
+          { "properties": { "payloadKind": { "const": "physical_flow" } }, "required": ["physicalFlow"] },
+          { "properties": { "payloadKind": { "const": "relationship" } }, "required": ["relationship"] }
+        ]
+      }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.observation" } }, "required": ["objectTypeId"] },
+      "then": {
+        "required": ["aggregationAllowed"],
+        "properties": { "id": { "pattern": "^fs:observation:" }, "payloadKind": { "enum": ["stock", "metric_indicator"] } },
+        "oneOf": [
+          { "properties": { "payloadKind": { "const": "stock" } }, "required": ["stock"] },
+          { "properties": { "payloadKind": { "const": "metric_indicator" } }, "required": ["metricIndicator"] }
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "objectTypeId": { "enum": ["knowledge_object.claim", "knowledge_object.observation"] },
+          "evidence": {
+            "properties": {
+              "citationReadiness": { "enum": ["blocked_unsourced", "internal_context"] }
+            },
+            "required": ["citationReadiness"]
+          }
+        },
+        "required": ["objectTypeId", "evidence"]
+      },
+      "then": { "properties": { "aggregationAllowed": { "const": false } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.indicator" } }, "required": ["objectTypeId"] },
+      "then": {
+        "required": ["metricIndicator"],
+        "properties": { "id": { "pattern": "^fs:indicator:" }, "payloadKind": { "const": "metric_indicator" } }
+      }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.concept" } }, "required": ["objectTypeId"] },
+      "then": { "properties": { "id": { "pattern": "^fs:concept:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.actor" } }, "required": ["objectTypeId"] },
+      "then": { "properties": { "id": { "pattern": "^fs:actor:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.place" } }, "required": ["objectTypeId"] },
+      "then": { "properties": { "id": { "pattern": "^fs:place:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.infrastructure" } }, "required": ["objectTypeId"] },
+      "then": { "properties": { "id": { "pattern": "^fs:infrastructure:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.process" } }, "required": ["objectTypeId"] },
+      "then": { "properties": { "id": { "pattern": "^fs:process:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.dataset" } }, "required": ["objectTypeId"] },
+      "then": { "properties": { "id": { "pattern": "^fs:dataset:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.source" } }, "required": ["objectTypeId"] },
+      "then": { "properties": { "id": { "pattern": "^fs:source:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.policy" } }, "required": ["objectTypeId"] },
+      "then": { "properties": { "id": { "pattern": "^fs:policy:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.event" } }, "required": ["objectTypeId"] },
+      "then": { "properties": { "id": { "pattern": "^fs:event:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.scenario" } }, "required": ["objectTypeId"] },
+      "then": { "properties": { "id": { "pattern": "^fs:scenario:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.question" } }, "required": ["objectTypeId"] },
+      "then": { "properties": { "id": { "pattern": "^fs:question:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "objectTypeId": { "const": "knowledge_object.gap" } }, "required": ["objectTypeId"] },
+      "then": { "properties": { "id": { "pattern": "^fs:gap:" }, "payloadKind": { "const": "none" } } }
+    },
+    {
+      "if": { "properties": { "operationalRoute": { "const": "true_c" } }, "required": ["operationalRoute"] },
+      "then": { "required": ["searchProtocol"] }
+    },
+    {
+      "if": {
+        "properties": {
+          "evidence": {
+            "properties": { "citationReadiness": { "const": "citable_external" } },
+            "required": ["citationReadiness"]
+          }
+        },
+        "required": ["evidence"]
+      },
+      "then": {
+        "properties": {
+          "evidence": { "$ref": "#/$defs/externalEvidence" },
+          "lensAssessments": { "$ref": "#/$defs/externalLensAssessments" },
+          "facets": { "$ref": "#/$defs/externallyAccountedFacets" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "facets": {
+            "properties": { "geographyIds": { "contains": { "const": "geo.nordic" } } },
+            "required": ["geographyIds"]
+          }
+        },
+        "required": ["facets"]
+      },
+      "then": { "required": ["comparisonScope"] }
+    }
+  ],
+  "$defs": {
+    "facets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "geographyIds",
+        "stageIds",
+        "domainIds",
+        "outcomeIds",
+        "actorClassIds",
+        "flowClassIds",
+        "commodityGroupIds",
+        "materialGroupIds",
+        "circularStrategyIds",
+        "ownershipFormIds"
+      ],
+      "properties": {
+        "geographyIds": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^geo\\." }, "uniqueItems": true },
+        "representedGeographyIds": { "type": "array", "items": { "type": "string", "pattern": "^geo\\." }, "uniqueItems": true },
+        "missingGeographyIds": { "type": "array", "items": { "type": "string", "pattern": "^geo\\." }, "uniqueItems": true },
+        "notApplicableGeographyIds": { "type": "array", "items": { "type": "string", "pattern": "^geo\\." }, "uniqueItems": true },
+        "stageIds": { "type": "array", "items": { "type": "string", "pattern": "^stage\\." }, "uniqueItems": true },
+        "domainIds": { "type": "array", "items": { "type": "string", "pattern": "^domain\\." }, "uniqueItems": true },
+        "outcomeIds": { "type": "array", "items": { "type": "string", "pattern": "^outcome\\." }, "uniqueItems": true },
+        "actorClassIds": { "type": "array", "items": { "type": "string", "pattern": "^actor\\." }, "uniqueItems": true },
+        "flowClassIds": { "type": "array", "items": { "type": "string", "pattern": "^flow\\." }, "uniqueItems": true },
+        "commodityGroupIds": { "type": "array", "items": { "type": "string", "pattern": "^commodity\\." }, "uniqueItems": true },
+        "materialGroupIds": { "type": "array", "items": { "type": "string", "pattern": "^material\\." }, "uniqueItems": true },
+        "circularStrategyIds": { "type": "array", "items": { "type": "string", "pattern": "^circular_strategy\\.r[0-9]$" }, "uniqueItems": true },
+        "ownershipFormIds": { "type": "array", "items": { "type": "string", "pattern": "^ownership_form\\." }, "uniqueItems": true },
+        "actorEntityTypeId": { "type": ["string", "null"], "pattern": "^entity_type\\." }
+      }
+    },
+    "externallyAccountedFacets": {
+      "allOf": [
+        { "$ref": "#/$defs/facets" },
+        {
+          "required": ["representedGeographyIds", "missingGeographyIds", "notApplicableGeographyIds"],
+          "properties": { "representedGeographyIds": { "minItems": 1 } }
+        }
+      ]
+    },
+    "timeScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "asOf"],
+      "properties": {
+        "kind": { "enum": ["undated", "snapshot", "interval", "series", "bitemporal"] },
+        "from": { "type": ["string", "null"], "format": "date" },
+        "to": { "type": ["string", "null"], "format": "date" },
+        "asOf": { "type": "string", "format": "date" },
+        "validFrom": { "type": ["string", "null"], "format": "date" },
+        "validTo": { "type": ["string", "null"], "format": "date" }
+      }
+    },
+    "systemBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["included", "excluded", "functionalUnit"],
+      "properties": {
+        "included": { "type": "array", "items": { "type": "string" } },
+        "excluded": { "type": "array", "items": { "type": "string" } },
+        "functionalUnit": { "type": ["string", "null"] }
+      }
+    },
+    "sourceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceId",
+        "sourceClass",
+        "citationText",
+        "locator",
+        "accessedAt",
+        "evidenceRole",
+        "supportsOrChallenges",
+        "verificationStatus"
+      ],
+      "properties": {
+        "sourceId": { "type": "string", "pattern": "^fs:source:[a-z0-9][a-z0-9._-]*$" },
+        "sourceClass": { "enum": ["primary", "secondary", "dataset", "internal_synthesis", "media", "unknown", "synthesis", "internal_construct", "registry_snapshot", "legacy_unsourced"] },
+        "citationText": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "localPath": { "type": "string", "minLength": 1 },
+        "sourceDocId": { "type": "string", "minLength": 1 },
+        "documentId": { "type": "string", "minLength": 1 },
+        "locator": { "type": "string", "minLength": 1 },
+        "accessedAt": { "type": "string", "format": "date" },
+        "evidenceRole": { "enum": ["numerator", "denominator_universe", "method", "descriptive_claim", "causal_claim", "caveat_limitation", "counterevidence", "freshness", "legal_licensing"] },
+        "supportsOrChallenges": { "enum": ["supports", "challenges", "contradicts", "supersedes", "context"] },
+        "verificationStatus": { "enum": ["unverified", "needs_review", "machine_verified", "human_verified", "disputed", "rejected", "failed"] },
+        "reviewedBy": { "type": "string", "minLength": 1 },
+        "reviewedAt": { "type": "string", "format": "date" },
+        "fileHash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+        "captureStorage": { "enum": ["git_tracked", "local_external"] },
+        "archiveDurability": { "enum": ["git_pinned", "local_only_at_risk"] },
+        "inspectionNotePath": { "type": ["string", "null"], "minLength": 1 },
+        "reuseReviewState": { "const": "pending" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "captureStorage": { "const": "git_tracked" } }, "required": ["captureStorage"] },
+          "then": {
+            "required": ["archiveDurability", "inspectionNotePath", "reuseReviewState"],
+            "properties": {
+              "archiveDurability": { "const": "git_pinned" },
+              "inspectionNotePath": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "captureStorage": { "const": "local_external" } }, "required": ["captureStorage"] },
+          "then": {
+            "required": ["archiveDurability", "inspectionNotePath", "reuseReviewState"],
+            "properties": {
+              "archiveDurability": { "const": "local_only_at_risk" },
+              "inspectionNotePath": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      ],
+      "anyOf": [
+        { "required": ["url"] },
+        { "required": ["localPath"] },
+        { "required": ["sourceDocId"] },
+        { "required": ["documentId"] }
+      ]
+    },
+    "qualifyingExternalSourceRef": {
+      "allOf": [
+        { "$ref": "#/$defs/sourceRef" },
+        {
+          "required": ["reviewedBy", "reviewedAt"],
+          "properties": {
+            "sourceClass": { "enum": ["primary", "secondary", "dataset", "media", "registry_snapshot"] },
+            "verificationStatus": { "enum": ["machine_verified", "human_verified"] }
+          }
+        }
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidenceBasis", "verificationStatus", "citationReadiness", "appraisalState", "sourceRefs", "uncertainty"],
+      "properties": {
+        "evidenceBasis": { "enum": ["not_assessed", "observed", "estimated", "proxy", "illustrative", "internal_corpus_audit"] },
+        "verificationStatus": { "enum": ["unverified", "needs_review", "machine_verified", "human_verified", "disputed", "rejected", "failed"] },
+        "citationReadiness": { "enum": ["blocked_unsourced", "internal_context", "citable_with_note", "citable_external"] },
+        "appraisalState": { "enum": ["none", "draft", "reviewed", "excluded_not_applicable"] },
+        "sourceRefs": { "type": "array", "items": { "$ref": "#/$defs/sourceRef" } },
+        "reviewedBy": { "type": "string", "minLength": 1 },
+        "reviewedAt": { "type": "string", "format": "date" },
+        "uncertainty": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["level", "reasons"],
+          "properties": {
+            "level": { "enum": ["unknown", "low", "medium", "high"] },
+            "reasons": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "externalEvidence": {
+      "allOf": [
+        { "$ref": "#/$defs/evidence" },
+        {
+          "required": ["reviewedBy", "reviewedAt"],
+          "properties": {
+            "verificationStatus": { "const": "human_verified" },
+            "citationReadiness": { "const": "citable_external" },
+            "appraisalState": { "enum": ["reviewed", "excluded_not_applicable"] },
+            "sourceRefs": {
+              "minItems": 1,
+              "contains": { "$ref": "#/$defs/qualifyingExternalSourceRef" },
+              "minContains": 1
+            }
+          }
+        }
+      ]
+    },
+    "lensAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "note"],
+      "properties": {
+        "state": { "enum": ["assessed", "unknown", "not_applicable"] },
+        "note": { "type": "string", "minLength": 1 }
+      }
+    },
+    "externalLensAssessment": {
+      "allOf": [
+        { "$ref": "#/$defs/lensAssessment" },
+        { "properties": { "state": { "enum": ["assessed", "not_applicable"] } } }
+      ]
+    },
+    "lensAssessments": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lens.system_boundary",
+        "lens.geography_scale",
+        "lens.time_change",
+        "lens.value_chain_stage",
+        "lens.actor_position_power",
+        "lens.commodity_material",
+        "lens.flow_circularity_cascade",
+        "lens.evidence_uncertainty",
+        "lens.distribution_equity_rights",
+        "lens.resilience_shock",
+        "lens.outcome_tradeoffs"
+      ],
+      "properties": {
+        "lens.system_boundary": { "$ref": "#/$defs/lensAssessment" },
+        "lens.geography_scale": { "$ref": "#/$defs/lensAssessment" },
+        "lens.time_change": { "$ref": "#/$defs/lensAssessment" },
+        "lens.value_chain_stage": { "$ref": "#/$defs/lensAssessment" },
+        "lens.actor_position_power": { "$ref": "#/$defs/lensAssessment" },
+        "lens.commodity_material": { "$ref": "#/$defs/lensAssessment" },
+        "lens.flow_circularity_cascade": { "$ref": "#/$defs/lensAssessment" },
+        "lens.evidence_uncertainty": { "$ref": "#/$defs/lensAssessment" },
+        "lens.distribution_equity_rights": { "$ref": "#/$defs/lensAssessment" },
+        "lens.resilience_shock": { "$ref": "#/$defs/lensAssessment" },
+        "lens.outcome_tradeoffs": { "$ref": "#/$defs/lensAssessment" }
+      }
+    },
+    "externalLensAssessments": {
+      "allOf": [
+        { "$ref": "#/$defs/lensAssessments" },
+        {
+          "properties": {
+            "lens.system_boundary": { "$ref": "#/$defs/externalLensAssessment" },
+            "lens.geography_scale": { "$ref": "#/$defs/externalLensAssessment" },
+            "lens.time_change": { "$ref": "#/$defs/externalLensAssessment" },
+            "lens.value_chain_stage": { "$ref": "#/$defs/externalLensAssessment" },
+            "lens.actor_position_power": { "$ref": "#/$defs/externalLensAssessment" },
+            "lens.commodity_material": { "$ref": "#/$defs/externalLensAssessment" },
+            "lens.flow_circularity_cascade": { "$ref": "#/$defs/externalLensAssessment" },
+            "lens.evidence_uncertainty": { "$ref": "#/$defs/externalLensAssessment" },
+            "lens.distribution_equity_rights": { "$ref": "#/$defs/externalLensAssessment" },
+            "lens.resilience_shock": { "$ref": "#/$defs/externalLensAssessment" },
+            "lens.outcome_tradeoffs": { "$ref": "#/$defs/externalLensAssessment" }
+          }
+        }
+      ]
+    },
+    "comparisonScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "memberGeographyIds", "method", "periodAlignment", "limitations"],
+      "properties": {
+        "kind": { "enum": ["five_state", "whole_political_nordic", "custom"] },
+        "memberGeographyIds": { "type": "array", "minItems": 2, "items": { "type": "string", "pattern": "^geo\\." }, "uniqueItems": true },
+        "method": { "type": "string", "minLength": 1 },
+        "periodAlignment": { "type": "string", "minLength": 1 },
+        "limitations": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "searchProtocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scope", "method", "sourcesChecked", "asOf", "recheckAt", "negativeFinding"],
+      "properties": {
+        "scope": { "type": "string", "minLength": 1 },
+        "method": { "type": "string", "minLength": 1 },
+        "sourcesChecked": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "asOf": { "type": "string", "format": "date" },
+        "recheckAt": { "type": "string", "format": "date" },
+        "negativeFinding": { "type": "string", "minLength": 1 }
+      }
+    },
+    "caseState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maturityState", "realizationState"],
+      "properties": {
+        "maturityState": { "enum": ["concept", "research", "pilot", "demonstration", "commercial_limited", "operational_scaled", "retired", "failed"] },
+        "realizationState": { "enum": ["realized_measured", "realized_estimated", "capacity_installed", "planned_committed", "potential_modelled", "target_only", "unknown"] }
+      }
+    },
+    "relation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["relationType", "targetId"],
+      "properties": {
+        "relationType": { "enum": ["supports", "challenges", "contradicts", "supersedes", "related_to", "derived_from"] },
+        "targetId": {
+          "type": "string",
+          "pattern": "^fs:(concept|actor|place|infrastructure|process|flow|claim|observation|indicator|dataset|source|case|policy|event|scenario|question|gap|synthesis):[a-z0-9][a-z0-9._-]*$"
+        },
+        "note": { "type": "string" }
+      }
+    },
+    "physicalFlow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fromEntityId", "toEntityId", "flowClassId", "stageFromId", "stageToId", "originGeographyId", "destinationGeographyId", "period", "realizationState"],
+      "properties": {
+        "fromEntityId": { "type": "string", "pattern": "^fs:(actor|place|infrastructure|process):[a-z0-9][a-z0-9._-]*$" },
+        "toEntityId": { "type": "string", "pattern": "^fs:(actor|place|infrastructure|process):[a-z0-9][a-z0-9._-]*$" },
+        "flowClassId": { "type": "string", "pattern": "^flow\\.physical\\." },
+        "stageFromId": { "type": ["string", "null"], "pattern": "^stage\\." },
+        "stageToId": { "type": ["string", "null"], "pattern": "^stage\\." },
+        "originGeographyId": { "type": "string", "pattern": "^geo\\." },
+        "destinationGeographyId": { "type": "string", "pattern": "^geo\\." },
+        "tradeDirectionId": { "type": ["string", "null"], "pattern": "^trade_direction\\." },
+        "commodityGroupId": { "type": ["string", "null"], "pattern": "^commodity\\." },
+        "materialGroupId": { "type": ["string", "null"], "pattern": "^material\\." },
+        "quantity": { "type": ["number", "null"] },
+        "unit": { "type": ["string", "null"] },
+        "unknownReason": { "type": ["string", "null"] },
+        "period": { "type": "string", "minLength": 1 },
+        "realizationState": { "enum": ["realized_measured", "realized_estimated", "capacity_installed", "planned_committed", "potential_modelled", "target_only", "unknown"] }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            { "required": ["commodityGroupId"], "properties": { "commodityGroupId": { "type": "string" } } },
+            { "required": ["materialGroupId"], "properties": { "materialGroupId": { "type": "string" } } },
+            { "required": ["unknownReason"], "properties": { "unknownReason": { "type": "string", "minLength": 1 } } }
+          ]
+        },
+        {
+          "anyOf": [
+            { "required": ["quantity", "unit"], "properties": { "quantity": { "type": "number" }, "unit": { "type": "string", "minLength": 1 } } },
+            { "required": ["unknownReason"], "properties": { "unknownReason": { "type": "string", "minLength": 1 } } }
+          ]
+        }
+      ]
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fromId", "toId", "relationshipClassId", "direction", "period", "realizationState"],
+      "properties": {
+        "fromId": { "type": "string", "pattern": "^fs:(actor|place|infrastructure|process|policy):[a-z0-9][a-z0-9._-]*$" },
+        "toId": { "type": "string", "pattern": "^fs:(actor|place|infrastructure|process|policy):[a-z0-9][a-z0-9._-]*$" },
+        "relationshipClassId": { "type": "string", "pattern": "^flow\\.(economic|control|information|human)\\." },
+        "direction": { "enum": ["directed", "undirected"] },
+        "period": { "type": "string", "minLength": 1 },
+        "realizationState": { "enum": ["realized_measured", "realized_estimated", "capacity_installed", "planned_committed", "potential_modelled", "target_only", "unknown"] },
+        "note": { "type": "string" }
+      }
+    },
+    "stock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["subjectId", "geographyId", "period", "realizationState"],
+      "properties": {
+        "subjectId": { "type": "string", "pattern": "^fs:(actor|place|infrastructure|process):[a-z0-9][a-z0-9._-]*$" },
+        "geographyId": { "type": "string", "pattern": "^geo\\." },
+        "stageId": { "type": ["string", "null"], "pattern": "^stage\\." },
+        "commodityGroupId": { "type": ["string", "null"], "pattern": "^commodity\\." },
+        "materialGroupId": { "type": ["string", "null"], "pattern": "^material\\." },
+        "quantity": { "type": ["number", "null"] },
+        "unit": { "type": ["string", "null"] },
+        "unknownReason": { "type": ["string", "null"] },
+        "period": { "type": "string", "minLength": 1 },
+        "realizationState": { "enum": ["realized_measured", "realized_estimated", "capacity_installed", "planned_committed", "potential_modelled", "target_only", "unknown"] }
+      },
+      "anyOf": [
+        { "required": ["quantity", "unit"], "properties": { "quantity": { "type": "number" }, "unit": { "type": "string", "minLength": 1 } } },
+        { "required": ["unknownReason"], "properties": { "unknownReason": { "type": "string", "minLength": 1 } } }
+      ]
+    },
+    "metricIndicator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["metricId", "subjectIds", "geographyIds", "period", "unit", "method", "universe"],
+      "properties": {
+        "metricId": { "type": "string", "pattern": "^fs:indicator:[a-z0-9][a-z0-9._-]*$" },
+        "subjectIds": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "pattern": "^fs:(actor|place|infrastructure|process|flow|case|policy):[a-z0-9][a-z0-9._-]*$" },
+          "uniqueItems": true
+        },
+        "geographyIds": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^geo\\." }, "uniqueItems": true },
+        "period": { "type": "string", "minLength": 1 },
+        "value": { "type": ["number", "null"] },
+        "unit": { "type": "string", "minLength": 1 },
+        "numerator": { "type": ["string", "null"] },
+        "denominator": { "type": ["string", "null"] },
+        "universe": { "type": "string", "minLength": 1 },
+        "method": { "type": "string", "minLength": 1 },
+        "unknownReason": { "type": ["string", "null"] }
+      },
+      "anyOf": [
+        { "required": ["value"], "properties": { "value": { "type": "number" } } },
+        { "required": ["unknownReason"], "properties": { "unknownReason": { "type": "string", "minLength": 1 } } }
+      ]
+    }
+  }
+}

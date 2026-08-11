@@ -1,0 +1,2413 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/source-registration-plan.v1.json",
+  "title": "Controlled source-registration dry-run plan v1",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "source-registration-plan-v1"
+    },
+    "artifactType": {
+      "type": "string",
+      "const": "source_registration_dry_run_plan"
+    },
+    "planVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "contractVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "mode": {
+      "type": "string",
+      "const": "read_only_dry_run"
+    },
+    "batchId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+    },
+    "preparedOn": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "observedAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+    },
+    "contractSha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "inputBindings": {
+      "type": "object",
+      "properties": {
+        "sourceRegistrationBatch": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+            },
+            "fileSha256": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            },
+            "sizeBytes": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": ["path", "fileSha256", "sizeBytes"],
+          "additionalProperties": false
+        },
+        "sourceAcquisitionBatch": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+            },
+            "fileSha256": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            },
+            "sizeBytes": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": ["path", "fileSha256", "sizeBytes"],
+          "additionalProperties": false
+        },
+        "pdfExtractionBatch": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+            },
+            "fileSha256": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            },
+            "sizeBytes": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": ["path", "fileSha256", "sizeBytes"],
+          "additionalProperties": false
+        },
+        "sourceAnalysisInputGenerationManifest": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+            },
+            "fileSha256": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            },
+            "sizeBytes": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": ["path", "fileSha256", "sizeBytes"],
+          "additionalProperties": false
+        },
+        "sourceRegistrationContract": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+            },
+            "fileSha256": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            },
+            "sizeBytes": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": ["path", "fileSha256", "sizeBytes"],
+          "additionalProperties": false
+        },
+        "sourceRegistrationJsonSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+            },
+            "fileSha256": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            },
+            "sizeBytes": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": ["path", "fileSha256", "sizeBytes"],
+          "additionalProperties": false
+        },
+        "sourceRegistrationRuntime": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+            },
+            "fileSha256": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            },
+            "sizeBytes": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": ["path", "fileSha256", "sizeBytes"],
+          "additionalProperties": false
+        },
+        "sourceRegistrationGenerator": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+            },
+            "fileSha256": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            },
+            "sizeBytes": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": ["path", "fileSha256", "sizeBytes"],
+          "additionalProperties": false
+        },
+        "databaseSchema": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+            },
+            "fileSha256": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            },
+            "sizeBytes": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": ["path", "fileSha256", "sizeBytes"],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "sourceRegistrationBatch",
+        "sourceAcquisitionBatch",
+        "pdfExtractionBatch",
+        "sourceAnalysisInputGenerationManifest",
+        "sourceRegistrationContract",
+        "sourceRegistrationJsonSchema",
+        "sourceRegistrationRuntime",
+        "sourceRegistrationGenerator",
+        "databaseSchema"
+      ],
+      "additionalProperties": false
+    },
+    "beforeSnapshot": {
+      "type": "object",
+      "properties": {
+        "observedAt": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+        },
+        "transaction": {
+          "type": "object",
+          "properties": {
+            "readOnly": {
+              "type": "boolean",
+              "const": true
+            },
+            "isolationLevel": {
+              "type": "string",
+              "const": "RepeatableRead"
+            },
+            "transactionReadOnlySetting": {
+              "type": "string",
+              "const": "on"
+            },
+            "databaseRole": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            },
+            "serverVersion": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            }
+          },
+          "required": [
+            "readOnly",
+            "isolationLevel",
+            "transactionReadOnlySetting",
+            "databaseRole",
+            "serverVersion"
+          ],
+          "additionalProperties": false
+        },
+        "databaseIdentity": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "const": "primary"
+            },
+            "identityUuid": {
+              "type": "string",
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "required": ["key", "identityUuid"],
+          "additionalProperties": false
+        },
+        "completedMigrationLedger": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            }
+          },
+          "required": ["count", "sha256"],
+          "additionalProperties": false
+        },
+        "coreCounts": {
+          "type": "object",
+          "properties": {
+            "documents": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "libraryAnalysisRecords": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "controlledMutationAudits": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": [
+            "documents",
+            "libraryAnalysisRecords",
+            "controlledMutationAudits"
+          ],
+          "additionalProperties": false
+        },
+        "targetScope": {
+          "type": "object",
+          "properties": {
+            "documentRows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+                  },
+                  "slug": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+                  },
+                  "filePath": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "title": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "author": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "year": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": -9007199254740991,
+                        "maximum": 9007199254740991
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "documentType": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "category": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "subcategory": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "country": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "accessedAt": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "archivedUrl": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "wordCount": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+                  },
+                  "updatedAt": {
+                    "type": "string",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+                  },
+                  "contentSha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "contentSizeBytes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "summarySha256": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^sha256:[a-f0-9]{64}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "metadataSha256": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^sha256:[a-f0-9]{64}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "targetDataSha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "rowSha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "collisionFields": {
+                    "minItems": 1,
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": ["id", "slug", "filePath", "url"]
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "slug",
+                  "filePath",
+                  "title",
+                  "author",
+                  "year",
+                  "documentType",
+                  "category",
+                  "subcategory",
+                  "country",
+                  "url",
+                  "accessedAt",
+                  "archivedUrl",
+                  "wordCount",
+                  "tags",
+                  "createdAt",
+                  "updatedAt",
+                  "contentSha256",
+                  "contentSizeBytes",
+                  "summarySha256",
+                  "metadataSha256",
+                  "targetDataSha256",
+                  "rowSha256",
+                  "collisionFields"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "libraryAnalysisRows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+                  },
+                  "sourceKind": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "sourceKey": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "documentId": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "sourceDocId": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "canonicalPath": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "title": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "status": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "usageRule": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "reviewStatus": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "citationReadiness": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "analysisTier": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "contentHash": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "wordCount": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "processedAt": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "reviewedAt": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "reviewer": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+                  },
+                  "updatedAt": {
+                    "type": "string",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+                  },
+                  "riskFlags": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "aiCardSha256": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^sha256:[a-f0-9]{64}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "aiSummarySha256": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^sha256:[a-f0-9]{64}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "keyFindingsSha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "claimCandidatesSha256": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^sha256:[a-f0-9]{64}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "projectImplicationsSha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "gapsSha256": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^sha256:[a-f0-9]{64}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "controlLinksSha256": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^sha256:[a-f0-9]{64}$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "targetDataSha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "rowSha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "collisionFields": {
+                    "minItems": 1,
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "id",
+                        "sourceKey",
+                        "documentId",
+                        "canonicalPath",
+                        "contentHash"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "sourceKind",
+                  "sourceKey",
+                  "documentId",
+                  "sourceDocId",
+                  "canonicalPath",
+                  "title",
+                  "status",
+                  "usageRule",
+                  "reviewStatus",
+                  "citationReadiness",
+                  "analysisTier",
+                  "contentHash",
+                  "wordCount",
+                  "processedAt",
+                  "reviewedAt",
+                  "reviewer",
+                  "createdAt",
+                  "updatedAt",
+                  "riskFlags",
+                  "aiCardSha256",
+                  "aiSummarySha256",
+                  "keyFindingsSha256",
+                  "claimCandidatesSha256",
+                  "projectImplicationsSha256",
+                  "gapsSha256",
+                  "controlLinksSha256",
+                  "targetDataSha256",
+                  "rowSha256",
+                  "collisionFields"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "targetScopeSha256": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "documentRows",
+            "libraryAnalysisRows",
+            "targetScopeSha256"
+          ],
+          "additionalProperties": false
+        },
+        "privateRecoveryRegister": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+            },
+            "fileSha256": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            },
+            "candidateCount": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "matchingRows": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "identityKey": {
+                    "type": "string",
+                    "pattern": "^document:.*"
+                  },
+                  "canonicalPath": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "sizeBytes": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "internalLocator": {
+                    "type": "string",
+                    "pattern": "^private:\\/\\/corpus\\/sha256\\/[a-f0-9]{64}$"
+                  },
+                  "replicaClass": {
+                    "type": "string",
+                    "const": "bigbrain_private_archive"
+                  },
+                  "repositoryAvailable": {
+                    "type": "boolean",
+                    "const": false
+                  },
+                  "fullTextReviewed": {
+                    "type": "boolean",
+                    "const": false
+                  },
+                  "rightsState": {
+                    "type": "string",
+                    "const": "pending_not_cleared"
+                  }
+                },
+                "required": [
+                  "identityKey",
+                  "canonicalPath",
+                  "sha256",
+                  "sizeBytes",
+                  "internalLocator",
+                  "replicaClass",
+                  "repositoryAvailable",
+                  "fullTextReviewed",
+                  "rightsState"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "matchingRowsSha256": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "path",
+            "fileSha256",
+            "candidateCount",
+            "matchingRows",
+            "matchingRowsSha256"
+          ],
+          "additionalProperties": false
+        },
+        "beforeSnapshotSha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "observedAt",
+        "transaction",
+        "databaseIdentity",
+        "completedMigrationLedger",
+        "coreCounts",
+        "targetScope",
+        "privateRecoveryRegister",
+        "beforeSnapshotSha256"
+      ],
+      "additionalProperties": false
+    },
+    "targets": {
+      "minItems": 10,
+      "maxItems": 10,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "targetId": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+          },
+          "preRegistrationCandidateKey": {
+            "type": "string",
+            "pattern": "^candidate:source\\..*"
+          },
+          "canonicalIdentityKey": {
+            "type": "string",
+            "pattern": "^document:.*"
+          },
+          "lifecycleSourceId": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+          },
+          "state": {
+            "type": "string",
+            "enum": ["pending", "already_registered", "conflict"]
+          },
+          "artifactEvidence": {
+            "type": "object",
+            "properties": {
+              "acquisitionReceipt": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+                  },
+                  "fileSha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "sizeBytes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "internalSealType": {
+                    "type": "string",
+                    "const": "source_acquisition_receipt_sha256"
+                  },
+                  "internalSeal": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  }
+                },
+                "required": [
+                  "path",
+                  "fileSha256",
+                  "sizeBytes",
+                  "internalSealType",
+                  "internalSeal"
+                ],
+                "additionalProperties": false
+              },
+              "extractionReceipt": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+                  },
+                  "fileSha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "sizeBytes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "internalSealType": {
+                    "type": "string",
+                    "const": "pdf_qualification_receipt_sha256"
+                  },
+                  "internalSeal": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  }
+                },
+                "required": [
+                  "path",
+                  "fileSha256",
+                  "sizeBytes",
+                  "internalSealType",
+                  "internalSeal"
+                ],
+                "additionalProperties": false
+              },
+              "pageMap": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+                  },
+                  "fileSha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "sizeBytes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "internalSealType": {
+                    "type": "string",
+                    "const": "pdf_page_map_sha256"
+                  },
+                  "internalSeal": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  }
+                },
+                "required": [
+                  "path",
+                  "fileSha256",
+                  "sizeBytes",
+                  "internalSealType",
+                  "internalSeal"
+                ],
+                "additionalProperties": false
+              },
+              "sourceAnalysisInputManifest": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+                  },
+                  "fileSha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "sizeBytes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "internalSealType": {
+                    "type": "string",
+                    "const": "source_analysis_input_manifest_sha256"
+                  },
+                  "internalSeal": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  }
+                },
+                "required": [
+                  "path",
+                  "fileSha256",
+                  "sizeBytes",
+                  "internalSealType",
+                  "internalSeal"
+                ],
+                "additionalProperties": false
+              },
+              "privateVerification": {
+                "type": "object",
+                "properties": {
+                  "rawPdfPortablePath": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+                  },
+                  "rawPageTextPortablePathTemplate": {
+                    "type": "string",
+                    "pattern": "^pdf-page-extraction\\/v1\\/sha256\\/[a-f0-9]{64}\\/pages\\/page-\\{pageNumber:0000\\}\\.raw\\.txt$"
+                  },
+                  "normalizedPagePortablePathTemplate": {
+                    "type": "string",
+                    "pattern": "^pdf-page-extraction\\/v1\\/sha256\\/[a-f0-9]{64}\\/pages\\/page-\\{pageNumber:0000\\}\\.normalized\\.txt$"
+                  },
+                  "pageCount": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "rawPageTextFileCountPerCopy": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "normalizedPageFileCountPerCopy": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "rawPdfSha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "rawPageTextSetSha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "normalizedPageSetSha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "primaryCopyVerified": {
+                    "type": "boolean",
+                    "const": true
+                  },
+                  "replicaCopyVerified": {
+                    "type": "boolean",
+                    "const": true
+                  },
+                  "distinctRootsVerified": {
+                    "type": "boolean",
+                    "const": true
+                  },
+                  "distinctFilesVerified": {
+                    "type": "boolean",
+                    "const": true
+                  },
+                  "rootMode": {
+                    "type": "string",
+                    "const": "0700"
+                  },
+                  "fileMode": {
+                    "type": "string",
+                    "const": "0400"
+                  },
+                  "absoluteRootsStoredInPlan": {
+                    "type": "boolean",
+                    "const": false
+                  }
+                },
+                "required": [
+                  "rawPdfPortablePath",
+                  "rawPageTextPortablePathTemplate",
+                  "normalizedPagePortablePathTemplate",
+                  "pageCount",
+                  "rawPageTextFileCountPerCopy",
+                  "normalizedPageFileCountPerCopy",
+                  "rawPdfSha256",
+                  "rawPageTextSetSha256",
+                  "normalizedPageSetSha256",
+                  "primaryCopyVerified",
+                  "replicaCopyVerified",
+                  "distinctRootsVerified",
+                  "distinctFilesVerified",
+                  "rootMode",
+                  "fileMode",
+                  "absoluteRootsStoredInPlan"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "acquisitionReceipt",
+              "extractionReceipt",
+              "pageMap",
+              "sourceAnalysisInputManifest",
+              "privateVerification"
+            ],
+            "additionalProperties": false
+          },
+          "intendedDocumentRow": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+              },
+              "slug": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+              },
+              "filePath": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000
+              },
+              "author": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000
+              },
+              "year": {
+                "type": "integer",
+                "minimum": 1000,
+                "maximum": 3000
+              },
+              "documentType": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+              },
+              "category": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+              },
+              "subcategory": {
+                "type": "null"
+              },
+              "country": {
+                "type": "string",
+                "pattern": "^[A-Z]{2}$"
+              },
+              "summary": {
+                "type": "null"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "pattern": "^https:\\/\\/.*"
+              },
+              "accessedAt": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+              },
+              "archivedUrl": {
+                "type": "null"
+              },
+              "wordCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "tags": {
+                "minItems": 1,
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+                }
+              },
+              "metadata": {
+                "type": "object",
+                "properties": {
+                  "registration": {
+                    "type": "object",
+                    "properties": {
+                      "batchId": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+                      },
+                      "targetId": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+                      },
+                      "identityStatus": {
+                        "type": "string",
+                        "const": "provisional"
+                      },
+                      "sourceRoleStatus": {
+                        "type": "string",
+                        "const": "machine_provisional_only"
+                      },
+                      "canonicalIdentityKey": {
+                        "type": "string",
+                        "pattern": "^document:.*"
+                      },
+                      "lifecycleSourceId": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+                      }
+                    },
+                    "required": [
+                      "batchId",
+                      "targetId",
+                      "identityStatus",
+                      "sourceRoleStatus",
+                      "canonicalIdentityKey",
+                      "lifecycleSourceId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "source": {
+                    "type": "object",
+                    "properties": {
+                      "officialUrl": {
+                        "type": "string",
+                        "format": "uri",
+                        "pattern": "^https:\\/\\/.*"
+                      },
+                      "doi": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 500
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "publicationDateStatement": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 1000
+                      },
+                      "languageCodes": {
+                        "minItems": 1,
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+                        }
+                      },
+                      "rawContentSha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "rawContentSizeBytes": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "pageCount": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0,
+                        "maximum": 9007199254740991
+                      }
+                    },
+                    "required": [
+                      "officialUrl",
+                      "doi",
+                      "publicationDateStatement",
+                      "languageCodes",
+                      "rawContentSha256",
+                      "rawContentSizeBytes",
+                      "pageCount"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "readiness": {
+                    "type": "object",
+                    "properties": {
+                      "identityVerified": {
+                        "type": "boolean",
+                        "const": false
+                      },
+                      "sourceAnalysisComplete": {
+                        "type": "boolean",
+                        "const": false
+                      },
+                      "ownerReviewComplete": {
+                        "type": "boolean",
+                        "const": false
+                      },
+                      "independentExpertReviewComplete": {
+                        "type": "boolean",
+                        "const": false
+                      },
+                      "partnerReviewComplete": {
+                        "type": "boolean",
+                        "const": false
+                      },
+                      "rightsHolderReviewComplete": {
+                        "type": "boolean",
+                        "const": false
+                      },
+                      "rightsCleared": {
+                        "type": "boolean",
+                        "const": false
+                      },
+                      "publicationReady": {
+                        "type": "boolean",
+                        "const": false
+                      },
+                      "externalUseAllowed": {
+                        "type": "boolean",
+                        "const": false
+                      },
+                      "coveragePromotionAllowed": {
+                        "type": "boolean",
+                        "const": false
+                      }
+                    },
+                    "required": [
+                      "identityVerified",
+                      "sourceAnalysisComplete",
+                      "ownerReviewComplete",
+                      "independentExpertReviewComplete",
+                      "partnerReviewComplete",
+                      "rightsHolderReviewComplete",
+                      "rightsCleared",
+                      "publicationReady",
+                      "externalUseAllowed",
+                      "coveragePromotionAllowed"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": ["registration", "source", "readiness"],
+                "additionalProperties": false
+              },
+              "contentBinding": {
+                "type": "object",
+                "properties": {
+                  "source": {
+                    "type": "string",
+                    "const": "exact_private_normalized_pages"
+                  },
+                  "serializationId": {
+                    "type": "string",
+                    "const": "normalized-pages-joined-with-page-boundary-v1"
+                  },
+                  "charset": {
+                    "type": "string",
+                    "const": "utf-8"
+                  },
+                  "pageOrder": {
+                    "type": "string",
+                    "const": "ascending_page_number"
+                  },
+                  "pageSequence": {
+                    "type": "string",
+                    "const": "contiguous_from_1"
+                  },
+                  "delimiterUtf8": {
+                    "type": "string",
+                    "const": "\n\n--food-systems-page-boundary-v1--\n\n"
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  },
+                  "sizeBytes": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "characterCount": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "wordCount": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "pageCount": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "contentValueStoredInPlan": {
+                    "type": "boolean",
+                    "const": false
+                  },
+                  "privateAbsolutePathStoredInPlan": {
+                    "type": "boolean",
+                    "const": false
+                  }
+                },
+                "required": [
+                  "source",
+                  "serializationId",
+                  "charset",
+                  "pageOrder",
+                  "pageSequence",
+                  "delimiterUtf8",
+                  "sha256",
+                  "sizeBytes",
+                  "characterCount",
+                  "wordCount",
+                  "pageCount",
+                  "contentValueStoredInPlan",
+                  "privateAbsolutePathStoredInPlan"
+                ],
+                "additionalProperties": false
+              },
+              "createdAt": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+              },
+              "updatedAt": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+              },
+              "targetDataSha256": {
+                "type": "string",
+                "pattern": "^sha256:[a-f0-9]{64}$"
+              }
+            },
+            "required": [
+              "id",
+              "slug",
+              "filePath",
+              "title",
+              "author",
+              "year",
+              "documentType",
+              "category",
+              "subcategory",
+              "country",
+              "summary",
+              "url",
+              "accessedAt",
+              "archivedUrl",
+              "wordCount",
+              "tags",
+              "metadata",
+              "contentBinding",
+              "createdAt",
+              "updatedAt",
+              "targetDataSha256"
+            ],
+            "additionalProperties": false
+          },
+          "intendedLibraryAnalysisRow": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+              },
+              "sourceKind": {
+                "type": "string",
+                "const": "document"
+              },
+              "sourceKey": {
+                "type": "string",
+                "pattern": "^document:.*"
+              },
+              "documentId": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9._:-]*$"
+              },
+              "sourceDocId": {
+                "type": "null"
+              },
+              "canonicalPath": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1000
+              },
+              "status": {
+                "type": "string",
+                "const": "not_started"
+              },
+              "usageRule": {
+                "type": "string",
+                "const": "internal_background"
+              },
+              "reviewStatus": {
+                "type": "string",
+                "const": "not_reviewed"
+              },
+              "citationReadiness": {
+                "type": "null"
+              },
+              "analysisTier": {
+                "type": "string",
+                "const": "inventory_only"
+              },
+              "aiCard": {
+                "type": "null"
+              },
+              "aiSummary": {
+                "type": "null"
+              },
+              "keyFindings": {
+                "minItems": 0,
+                "maxItems": 0,
+                "type": "array",
+                "items": {
+                  "not": {}
+                }
+              },
+              "claimCandidates": {
+                "type": "null"
+              },
+              "projectImplications": {
+                "minItems": 0,
+                "maxItems": 0,
+                "type": "array",
+                "items": {
+                  "not": {}
+                }
+              },
+              "gaps": {
+                "type": "null"
+              },
+              "controlLinks": {
+                "type": "object",
+                "properties": {
+                  "sourceRegistrationBatch": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+                  },
+                  "acquisitionReceipt": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+                  },
+                  "extractionReceipt": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+                  },
+                  "pageMap": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+                  },
+                  "sourceAnalysisInputManifest": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+                  }
+                },
+                "required": [
+                  "sourceRegistrationBatch",
+                  "acquisitionReceipt",
+                  "extractionReceipt",
+                  "pageMap",
+                  "sourceAnalysisInputManifest"
+                ],
+                "additionalProperties": false
+              },
+              "riskFlags": {
+                "type": "array",
+                "prefixItems": [
+                  {
+                    "type": "string",
+                    "const": "identity_provisional"
+                  },
+                  {
+                    "type": "string",
+                    "const": "owner_review_required"
+                  },
+                  {
+                    "type": "string",
+                    "const": "rights_pending_not_cleared"
+                  },
+                  {
+                    "type": "string",
+                    "const": "source_analysis_not_started"
+                  }
+                ]
+              },
+              "contentHash": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "wordCount": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "processedAt": {
+                "type": "null"
+              },
+              "reviewedAt": {
+                "type": "null"
+              },
+              "reviewer": {
+                "type": "null"
+              },
+              "createdAt": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+              },
+              "updatedAt": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?Z$"
+              },
+              "targetDataSha256": {
+                "type": "string",
+                "pattern": "^sha256:[a-f0-9]{64}$"
+              }
+            },
+            "required": [
+              "id",
+              "sourceKind",
+              "sourceKey",
+              "documentId",
+              "sourceDocId",
+              "canonicalPath",
+              "title",
+              "status",
+              "usageRule",
+              "reviewStatus",
+              "citationReadiness",
+              "analysisTier",
+              "aiCard",
+              "aiSummary",
+              "keyFindings",
+              "claimCandidates",
+              "projectImplications",
+              "gaps",
+              "controlLinks",
+              "riskFlags",
+              "contentHash",
+              "wordCount",
+              "processedAt",
+              "reviewedAt",
+              "reviewer",
+              "createdAt",
+              "updatedAt",
+              "targetDataSha256"
+            ],
+            "additionalProperties": false
+          },
+          "intendedPrivateRecoveryRow": {
+            "type": "object",
+            "properties": {
+              "identityKey": {
+                "type": "string",
+                "pattern": "^document:.*"
+              },
+              "canonicalPath": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-zA-Z0-9._/-]*$"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "sizeBytes": {
+                "type": "integer",
+                "exclusiveMinimum": 0,
+                "maximum": 9007199254740991
+              },
+              "internalLocator": {
+                "type": "string",
+                "pattern": "^private:\\/\\/corpus\\/sha256\\/[a-f0-9]{64}$"
+              },
+              "replicaClass": {
+                "type": "string",
+                "const": "bigbrain_private_archive"
+              },
+              "repositoryAvailable": {
+                "type": "boolean",
+                "const": false
+              },
+              "fullTextReviewed": {
+                "type": "boolean",
+                "const": false
+              },
+              "rightsState": {
+                "type": "string",
+                "const": "pending_not_cleared"
+              }
+            },
+            "required": [
+              "identityKey",
+              "canonicalPath",
+              "sha256",
+              "sizeBytes",
+              "internalLocator",
+              "replicaClass",
+              "repositoryAvailable",
+              "fullTextReviewed",
+              "rightsState"
+            ],
+            "additionalProperties": false
+          },
+          "observedDocumentRowSha256": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            }
+          },
+          "observedLibraryRowSha256": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^sha256:[a-f0-9]{64}$"
+            }
+          },
+          "privateRecoveryState": {
+            "type": "string",
+            "enum": ["pending_append", "already_present_exact", "conflict"]
+          },
+          "conflicts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "enum": [
+                    "document_collision",
+                    "library_analysis_collision",
+                    "partial_registration_state",
+                    "registered_row_drift",
+                    "private_recovery_collision"
+                  ]
+                },
+                "detail": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000
+                },
+                "evidenceRowSha256": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^sha256:[a-f0-9]{64}$"
+                  }
+                }
+              },
+              "required": ["code", "detail", "evidenceRowSha256"],
+              "additionalProperties": false
+            }
+          },
+          "permissions": {
+            "type": "object",
+            "properties": {
+              "registrationApplyAllowed": {
+                "type": "boolean",
+                "const": false
+              },
+              "identityVerificationComplete": {
+                "type": "boolean",
+                "const": false
+              },
+              "sourceAnalysisAllowed": {
+                "type": "boolean",
+                "const": false
+              },
+              "externalUseAllowed": {
+                "type": "boolean",
+                "const": false
+              },
+              "coveragePromotionAllowed": {
+                "type": "boolean",
+                "const": false
+              }
+            },
+            "required": [
+              "registrationApplyAllowed",
+              "identityVerificationComplete",
+              "sourceAnalysisAllowed",
+              "externalUseAllowed",
+              "coveragePromotionAllowed"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "targetId",
+          "preRegistrationCandidateKey",
+          "canonicalIdentityKey",
+          "lifecycleSourceId",
+          "state",
+          "artifactEvidence",
+          "intendedDocumentRow",
+          "intendedLibraryAnalysisRow",
+          "intendedPrivateRecoveryRow",
+          "observedDocumentRowSha256",
+          "observedLibraryRowSha256",
+          "privateRecoveryState",
+          "conflicts",
+          "permissions"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "summary": {
+      "type": "object",
+      "properties": {
+        "targetCount": {
+          "type": "number",
+          "const": 10
+        },
+        "pendingCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "alreadyRegisteredCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "conflictCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "privateRecoveryAppendCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "pageCount": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 9007199254740991
+        },
+        "normalizedWordCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "targetCount",
+        "pendingCount",
+        "alreadyRegisteredCount",
+        "conflictCount",
+        "privateRecoveryAppendCount",
+        "pageCount",
+        "normalizedWordCount"
+      ],
+      "additionalProperties": false
+    },
+    "executionBoundary": {
+      "type": "object",
+      "properties": {
+        "networkAccessPerformed": {
+          "type": "boolean",
+          "const": false
+        },
+        "databaseTransactionReadOnly": {
+          "type": "boolean",
+          "const": true
+        },
+        "databaseMutationPerformed": {
+          "type": "boolean",
+          "const": false
+        },
+        "privateArchiveMutationPerformed": {
+          "type": "boolean",
+          "const": false
+        },
+        "privateRecoveryRegisterMutationPerformed": {
+          "type": "boolean",
+          "const": false
+        },
+        "corpusRegisterMutationPerformed": {
+          "type": "boolean",
+          "const": false
+        },
+        "lifecycleEventMutationPerformed": {
+          "type": "boolean",
+          "const": false
+        },
+        "sourceTextStoredInPlan": {
+          "type": "boolean",
+          "const": false
+        },
+        "privateAbsolutePathsStoredInPlan": {
+          "type": "boolean",
+          "const": false
+        },
+        "applyCliEnabled": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "required": [
+        "networkAccessPerformed",
+        "databaseTransactionReadOnly",
+        "databaseMutationPerformed",
+        "privateArchiveMutationPerformed",
+        "privateRecoveryRegisterMutationPerformed",
+        "corpusRegisterMutationPerformed",
+        "lifecycleEventMutationPerformed",
+        "sourceTextStoredInPlan",
+        "privateAbsolutePathsStoredInPlan",
+        "applyCliEnabled"
+      ],
+      "additionalProperties": false
+    },
+    "releaseGates": {
+      "type": "object",
+      "properties": {
+        "applyImplementation": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "const": "disabled_not_implemented"
+            },
+            "required": {
+              "type": "boolean",
+              "const": true
+            },
+            "statement": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": ["state", "required", "statement"],
+          "additionalProperties": false
+        },
+        "ownerScopeAuthorization": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "const": "recorded_for_bounded_dry_run_only"
+            },
+            "required": {
+              "type": "boolean",
+              "const": true
+            },
+            "exactPlanHashReviewed": {
+              "type": "boolean",
+              "const": false
+            },
+            "applyAuthorized": {
+              "type": "boolean",
+              "const": false
+            },
+            "statement": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "state",
+            "required",
+            "exactPlanHashReviewed",
+            "applyAuthorized",
+            "statement"
+          ],
+          "additionalProperties": false
+        },
+        "backupAndRestore": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "const": "not_bound"
+            },
+            "required": {
+              "type": "boolean",
+              "const": true
+            },
+            "backupMetadataVersion": {
+              "type": "number",
+              "const": 2
+            },
+            "restoreReceiptVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "exactDatabaseIdentityRequired": {
+              "type": "boolean",
+              "const": true
+            },
+            "exactTargetFingerprintRequired": {
+              "type": "boolean",
+              "const": true
+            },
+            "statement": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "state",
+            "required",
+            "backupMetadataVersion",
+            "restoreReceiptVersion",
+            "exactDatabaseIdentityRequired",
+            "exactTargetFingerprintRequired",
+            "statement"
+          ],
+          "additionalProperties": false
+        },
+        "exactPlanAuthorization": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "const": "not_recorded"
+            },
+            "required": {
+              "type": "boolean",
+              "const": true
+            },
+            "exactPlanSha256Required": {
+              "type": "boolean",
+              "const": true
+            },
+            "operatorAuthorityRequired": {
+              "type": "boolean",
+              "const": true
+            },
+            "writableNonMcpRoleRequired": {
+              "type": "boolean",
+              "const": true
+            },
+            "statement": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "state",
+            "required",
+            "exactPlanSha256Required",
+            "operatorAuthorityRequired",
+            "writableNonMcpRoleRequired",
+            "statement"
+          ],
+          "additionalProperties": false
+        },
+        "serializableTransaction": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "const": "not_executed"
+            },
+            "required": {
+              "type": "boolean",
+              "const": true
+            },
+            "isolationLevel": {
+              "type": "string",
+              "const": "Serializable"
+            },
+            "advisoryLockRequired": {
+              "type": "boolean",
+              "const": true
+            },
+            "beforeSnapshotCasRequired": {
+              "type": "boolean",
+              "const": true
+            },
+            "documentAndLibraryRowsAtomic": {
+              "type": "boolean",
+              "const": true
+            },
+            "controlledMutationAuditAtomic": {
+              "type": "boolean",
+              "const": true
+            },
+            "statement": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "state",
+            "required",
+            "isolationLevel",
+            "advisoryLockRequired",
+            "beforeSnapshotCasRequired",
+            "documentAndLibraryRowsAtomic",
+            "controlledMutationAuditAtomic",
+            "statement"
+          ],
+          "additionalProperties": false
+        },
+        "controlledMutationAudit": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "const": "not_recorded"
+            },
+            "required": {
+              "type": "boolean",
+              "const": true
+            },
+            "model": {
+              "type": "string",
+              "const": "ControlledMutationAudit"
+            },
+            "appendOnly": {
+              "type": "boolean",
+              "const": true
+            },
+            "requiredBindings": {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "string",
+                  "const": "contractSha256"
+                },
+                {
+                  "type": "string",
+                  "const": "planSha256"
+                },
+                {
+                  "type": "string",
+                  "const": "beforeSnapshotSha256"
+                },
+                {
+                  "type": "string",
+                  "const": "afterSnapshotSha256"
+                },
+                {
+                  "type": "string",
+                  "const": "dependencyStateSha256"
+                },
+                {
+                  "type": "string",
+                  "const": "databaseIdentityUuid"
+                },
+                {
+                  "type": "string",
+                  "const": "targetFingerprintSha256"
+                },
+                {
+                  "type": "string",
+                  "const": "backupSha256"
+                },
+                {
+                  "type": "string",
+                  "const": "backupMetadataSha256"
+                },
+                {
+                  "type": "string",
+                  "const": "restoreReceiptSha256"
+                },
+                {
+                  "type": "string",
+                  "const": "operatorId"
+                },
+                {
+                  "type": "string",
+                  "const": "authorizationRef"
+                },
+                {
+                  "type": "string",
+                  "const": "databaseRole"
+                }
+              ]
+            },
+            "statement": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "state",
+            "required",
+            "model",
+            "appendOnly",
+            "requiredBindings",
+            "statement"
+          ],
+          "additionalProperties": false
+        },
+        "postRegistrationRecoveryAndReceipt": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "const": "not_started"
+            },
+            "required": {
+              "type": "boolean",
+              "const": true
+            },
+            "exactPrivateRecoveryRowsRequired": {
+              "type": "boolean",
+              "const": true
+            },
+            "freshControlledPrivateAccessReceiptRequired": {
+              "type": "boolean",
+              "const": true
+            },
+            "receiptMustBindCanonicalLifecycleSourceId": {
+              "type": "boolean",
+              "const": true
+            },
+            "preRegistrationReceiptCannotSatisfyGate": {
+              "type": "boolean",
+              "const": true
+            },
+            "statement": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "state",
+            "required",
+            "exactPrivateRecoveryRowsRequired",
+            "freshControlledPrivateAccessReceiptRequired",
+            "receiptMustBindCanonicalLifecycleSourceId",
+            "preRegistrationReceiptCannotSatisfyGate",
+            "statement"
+          ],
+          "additionalProperties": false
+        },
+        "rebaseline": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "const": "not_started"
+            },
+            "required": {
+              "type": "boolean",
+              "const": true
+            },
+            "exactAfterSnapshotRequired": {
+              "type": "boolean",
+              "const": true
+            },
+            "corpusInventoryRegenerationRequired": {
+              "type": "boolean",
+              "const": true
+            },
+            "lifecycleInitializationRequired": {
+              "type": "boolean",
+              "const": true
+            },
+            "identityRemainsProvisional": {
+              "type": "boolean",
+              "const": true
+            },
+            "coveragePromotionAllowed": {
+              "type": "boolean",
+              "const": false
+            },
+            "statement": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "state",
+            "required",
+            "exactAfterSnapshotRequired",
+            "corpusInventoryRegenerationRequired",
+            "lifecycleInitializationRequired",
+            "identityRemainsProvisional",
+            "coveragePromotionAllowed",
+            "statement"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "applyImplementation",
+        "ownerScopeAuthorization",
+        "backupAndRestore",
+        "exactPlanAuthorization",
+        "serializableTransaction",
+        "controlledMutationAudit",
+        "postRegistrationRecoveryAndReceipt",
+        "rebaseline"
+      ],
+      "additionalProperties": false
+    },
+    "planSha256": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "artifactType",
+    "planVersion",
+    "contractVersion",
+    "mode",
+    "batchId",
+    "preparedOn",
+    "observedAt",
+    "contractSha256",
+    "inputBindings",
+    "beforeSnapshot",
+    "targets",
+    "summary",
+    "executionBoundary",
+    "releaseGates",
+    "planSha256"
+  ],
+  "additionalProperties": false
+}

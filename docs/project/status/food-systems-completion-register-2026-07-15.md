@@ -58,8 +58,12 @@ er arbeidsflater, ikke nye sannhetsregistre.
   `a15eec5`, der eneste senere delta er et datert Coolify-ressurssnapshot.
 - `/api/library-analysis/status` svarer fortsatt HTTP 503 med `total=0`.
   Draft-PR #342 dokumenterer manglende `LibraryAnalysisRecord`, schema-/ledger-
-  drift, manglende minst privilegert migrasjonscredential og manglende godkjent
-  off-node backup/restore-bevis. PR-en er ikke et mergesignal selv med grønn CI.
+  drift og manglende minst privilegert migrasjonscredential. GabiBFree Estate
+  har nå bevist kryptert offsite-backup og restore for produksjonsdatabasen;
+  [kontrollgrensen og kvitteringen](./cross-project-control-boundary-2026-08-11.md)
+  skiller dette fra Coolifys egne planantall. RPO/RTO/eier, fersk
+  pre-migration-kvittering og migrasjonsreconciliation står fortsatt åpne.
+  PR-en er ikke et mergesignal selv med grønn CI.
 - Innhentingen 5. august har i dagens filreadback 135 staged filer, 128
   ekstraksjonsposter, 125 unike ikke-tomme URL-er og 335 finding-poster; 1
   ekstraksjonspost mangler URL-lokator og én register-URL forekommer i tre poster.
@@ -73,7 +77,7 @@ er arbeidsflater, ikke nye sannhetsregistre.
   etnografisk eller deltakende metode, men registeret har 0 uavhengig
   evaluerte kvalitative funn.
 - Fem P0-gater styrer videre fase: organisatorisk hjem/eier, formell closeout,
-  off-node backup/restore, produksjonsmigrering av kunnskapslaget og vedtatt
+  recovery-governance og fersk releasekvittering, produksjonsmigrering av kunnskapslaget og vedtatt
   personvern-/rettighets-/publiseringspolicy. Å skrive planene lukker ikke disse
   menneske- og produksjonsportene.
 
