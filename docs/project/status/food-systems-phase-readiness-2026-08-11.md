@@ -21,7 +21,8 @@ ikke for å opptre som et fullt eksternt nordisk matsystemobservatorium.**
 | Intern beslutningsstøtte, porteføljevalg og målrettet research | **GO** | Kunnskapsbase, kildegater, app, prosjektlandskap og produksjonsdrift gir et reelt arbeidsgrunnlag. |
 | Kontrollert appraisal, intervjupilot, partnerreadback og datadyping | **BETINGET GO** | Arbeidspakkene er klare, men eier, rettigheter og reviewere må navngis før menneske- og produksjonsgater åpnes. |
 | Ekstern publisering av brede fakta-, person-, effekt- eller partnerpåstander | **NO-GO** | Publiseringspolicy, appraisal, egne stemmer, uavhengig evaluering og juridisk gate er ikke lukket. |
-| Automatisk oppdatering, produksjonsmigrering av kunnskapslaget og observatoriumsdrift | **NO-GO** | Ekstern backup og restore er bevist i GabiBFree Estate, men RPO/RTO/eier, migrasjonsreconciliation, minste privilegium og operativ `LibraryAnalysisRecord` mangler. |
+| Kontrollert produksjonsmigrering og intern kunnskapsdrift | **GO** | 31 migrasjoner, separat minst-privilegert migrasjonsidentitet, herdet runtime, restore-bevist backup og eksakt-SHA readback er gjennomført. |
+| Automatisk sannhetsoppdatering og observatoriumsdrift | **NO-GO** | Review-, rettighets-, eier-, RPO/RTO-, vedlikeholds- og publiseringsportene er fortsatt åpne. |
 | Pilot-, effekt- eller finansieringscommitment | **NO-GO** | Dossierer og funding-match er ikke pilot, partnercommitment eller finansiering. |
 
 Denne rapporten oppretter ikke et parallelt sannhetsregister. Flytting av
@@ -66,14 +67,14 @@ matsystemclaims.
 
 | Kontrollflate | Verifisert resultat | Bruksgrense |
 |---|---|---|
-| Repo | `origin/main` = `a15eec5`; eneste delta etter live funksjonell SHA er Coolify-snapshotet `research/_status/coolify-snapshots/2026-08-11.json`. | Snapshot-commit er ikke runtimefunksjon. |
-| Produksjonsversjon | `/api/version` = `67b13ac`, bygget 2026-08-11 06:27 UTC. Coolify SHA Sync-run 31433594409 er grønn. | Dette beviser deployet appkode, ikke alle menneske-/data-/publiseringsporter. |
-| Produksjonshelse | `/api/data-status` = HTTP 200, `dbOk=true`, `pageGatesOk=true`; blant annet 1 460 dokumenter, 205 aktører, 186 selskaper og 60 310 leveransevolumrader. | Baseline- og sideterskler er ikke evidenskvalitetsmål. |
-| Kunnskaps-/appraisalflate | `/api/library-analysis/status` = HTTP 503, `total=0`, `readinessPct=0`. | Produksjonens `LibraryAnalysisRecord`-lag er ikke operativt. |
+| Repo | `origin/main` og produksjon = `866914e34e2ef0dea68a15ae7a01227f8da7d5a7`. | Eksakt kodeparitet er ikke faglig eller organisatorisk godkjenning. |
+| Produksjonsversjon | `/api/version` = eksakt `866914e34e2ef0dea68a15ae7a01227f8da7d5a7`. [Coolify SHA Sync 31494521679](https://github.com/justaride/food-systems-2026/actions/runs/31494521679) er grønn. | Dette beviser deployet appkode, ikke alle menneske-/data-/publiseringsporter. |
+| Produksjonshelse | `/api/data-status` = HTTP 200, `ok=true`, `dbOk=true`, `pageGatesOk=true`, `knowledgeBaseGatesOk=true`; blant annet 1 615 dokumenter, 1 636 aktører, 361 selskaper og 60 310 leveransevolumrader. | Baseline- og sideterskler er ikke evidenskvalitetsmål. |
+| Kunnskaps-/appraisalflate | `/api/library-analysis/status` = HTTP 200, `operational=true`, `total=1770`, 1 355 godkjent for intern AI-kontekst og 399 i review-kø. | `reviewComplete=false`, 0 navngitte/daterte eksterne reviews og `externalReady=false`. |
 | Augustinntak | Dagens filreadback gir 135 staged filer, 128 ekstraksjonsposter, 125 unike ikke-tomme URL-er og 335 finding-poster. 1 ekstraksjonspost mangler URL-lokator; én register-URL forekommer i tre poster. Siste rensede prod-run 31022133733 registrerte 55 `SourceDoc` og 91 `SourceCitation`, med 90 `citable_external` og 1 `internal_context`. | Commit-overskriftens eldre 165/279-oppsummering er ikke kanonisk. Staged, importert, citation-ready, appraised og publiserbar er ulike nivåer. |
 | Prosjektlandskap | 40 hovedprofiler, 22 kandidat-/disposisjonsrader og 100 kilder; 20 kilder klassifisert uavhengige, 17 profiler med kvalitativ/etnografisk/deltakende metode. | 0 uavhengig evaluerte kvalitative funn; eierutfall er fortsatt rapporterte. |
-| Produksjonsdrift og recovery | Hyppige DB-watcher-runs er grønne. GabiBFree Estate har separat backup-, restore- og offsite-bevis for `coolify:l0s8o8oo00c8gossw0gksswk`; fullkjøringen 11. august bandt artefakt og restore til samme SHA-256. | Coolifys egne 0 backupplaner er ikke backupfasit. RPO/RTO, eier, uovervåket kadens og fersk pre-migration-kvittering står fortsatt åpne i `IG-003`. |
-| Åpen integrasjonsflate | Draft-PR #342 er grønn i PR-CI, men dokumenterer schema-/migrasjonsdrift og manglende produksjonsforutsetninger. | PR-en er med rette NO-GO for merge til minst privilegert credential, ledger/schema-reconciliation, fersk releasebackup og runtimeporter er lukket. |
+| Produksjonsdrift og recovery | 31 migrasjoner er fullført, 0 er uavklarte, runtime er ikke-superbruker, og separat migrator eier 56 apprelasjoner. Ny GabiBFree-backup etter herding er kryptert, restore-testet og verifisert i iCloud og S3/R2. | RPO/RTO, navngitt langsiktig eier, retensjon og første uovervåkede kadens står fortsatt åpne i `IG-003`. |
+| Integrasjonsflate | PR #342 og #346 er merget og deployet; [releasekvitteringen](./food-systems-production-release-receipt-2026-08-11.md) binder kode, database, backup og runtime. | Integrasjonen åpner intern drift, ikke ekstern claim- eller publiseringsbruk. |
 
 ## 4. Modenhetsvurdering
 
@@ -97,8 +98,9 @@ teknisk score overstyrer aldri en rød gate.
 
 **Samlet modenhetsdom:** teknisk og metodisk fundament er på nivå 3–4, mens
 institusjonell, faglig og menneskelig readiness er på nivå 1–2. Det er derfor
-misvisende å beregne ett samlet gjennomsnitt: fem P0-gater blokkerer neste
-eksterne fase uansett teknisk modenhet.
+misvisende å beregne ett samlet gjennomsnitt: av fem P0-prioriteter er den
+tekniske `IG-004`-porten lukket, mens fire styrings-/rettighetsporter fortsatt
+blokkerer neste eksterne fase.
 
 ## 5. Informasjonshullene som styrer neste fase
 
@@ -109,7 +111,7 @@ eksterne fase uansett teknisk modenhet.
 | `IG-001` | Organisatorisk hjem, eier og driftsnivå | Datert vedtak med myndighet, tid, start/review og stopplinje. |
 | `IG-002` | Formell closeout og videreføringsmandat | M16–M18 readback og eksplisitt aksept, avvik eller bevaringsmodus. |
 | `IG-003` | Recovery-governance | Backup, to offsite-kopier og restore drill er bevist i GabiBFree; RPO/RTO, eier, uovervåket kadens og fersk releasekvittering mangler. |
-| `IG-004` | Migrasjonsreconciliation og kunnskapsruntime | Minst privilegert credential, reconcilet ledger/schema og grønt runtime-endepunkt. |
+| `IG-004` | Migrasjonsreconciliation og kunnskapsruntime | **Lukket 2026-08-11:** 31 migrasjoner, separat migrator/runtime, restore-bevist release og grønn eksakt-SHA kunnskapsstatus. |
 | `IG-005` | Personvern, rettigheter, retting og publiseringspolicy | Kvalifisert review og vedtatt policy per dataklasse. |
 
 ### P1 — gjør prosjektet faglig og beslutningsmessig sterkere
@@ -175,10 +177,10 @@ Detaljert rolle-, kadens- og kvitteringsprosess står i
 ### Dag 0–10: avgjør og sikr
 
 1. Kjør fase-0-beslutningsmøte for `IG-001`, `IG-002` og `IG-005`.
-2. Vedta RPO/RTO og eier, bekreft uovervåket GabiBFree-kadens og ta en fersk
-   backup/restore-kvittering før migrasjon (`IG-003`).
-3. Reconcile produksjonsmigrasjoner og gjør kunnskapsstatus operativ uten blind
-   merge av PR #342 (`IG-004`).
+2. Vedta RPO/RTO, retensjon og eier, og bekreft første uovervåkede
+   GabiBFree-kadens (`IG-003`).
+3. Bevar `IG-004` gjennom migrasjonsrunner, minst privilegium, fersk backup og
+   eksakt-SHA readback ved alle senere schemaendringer.
 4. Oppdater completion-registeret med kvitteringer, ikke muntlig status.
 
 ### Dag 10–30: valider det viktigste
@@ -212,8 +214,8 @@ vedlikeholdt intern plattform eller bevaringsmodus.
 ## 9. Hva som ikke skal gjøres nå
 
 - Ikke start ny generell aktør- eller verdenscensus.
-- Ikke merge/deploy PR #342 før credential-, reconciliation-, fersk
-  releasebackup- og runtimeportene er dokumentert lukket.
+- Ikke bruk den gjennomførte PR #342/#346-releasen som bevis for ferdig
+  menneskereview, rettigheter, uavhengig effekt eller ekstern publiserbarhet.
 - Ikke kontakt intervjuobjekter eller samiske kunnskapsbærere før samtykke-,
   lagrings-, rettighets- og sitatporten er godkjent.
 - Ikke behandle de 335 staged finding-postene, 91 citations eller 40

@@ -31,6 +31,7 @@ se [kontrollgrensen](../status/cross-project-control-boundary-2026-08-11.md).
 | `monitoring` | Hullet er kontrollert og overvåkes etter kadens. | Datert recheck; ingen tvangslukking. |
 | `parked` | Senere fase eller mangler valgt driftsnivå. | Bevar design og startbetingelse. |
 | `open` | Gapet er kjent, men arbeidskontrakten er ufullstendig. | Fullfør kontrakten før research. |
+| `closed` | Alle avgrensede exitkriterier er bevist og propagert til completion-registeret. | Bevar kvitteringen og gjenåpne bare ved dokumentert drift. |
 
 Et gap er ikke lukket når et dokument er skrevet. Det er lukket når alle
 `exitCriteria` i JSONL-posten er oppfylt, valideringen er kjørt, kvitteringen er
@@ -49,12 +50,16 @@ Rekkefølge:
 3. Vedta data-/person-/publiseringsansvar.
 4. Vedta RPO/RTO og eier for den eksisterende GabiBFree-backupkjeden, bekreft
    uovervåket kadens og ta fersk releasebackup/restore-kvittering.
-5. Reconcile schema og migrasjonsledger med minste privilegium.
-6. Deploy bare via PR, grønn CI, eksakt merged SHA og runtime-readback.
+5. Reconcile schema og migrasjonsledger med minste privilegium. Dette er
+   fullført for `IG-004`; samme kontrakt gjelder alle senere schemaendringer.
+6. Deploy bare via PR, kontrollert testbevis, eksakt merged SHA og
+   runtime-readback.
 
-**Stopplinje:** PR #342 forblir draft inntil credential-, ledger/schema-, fersk
-releasebackup- og runtimegrensene i PR-en og `IG-003`/`IG-004` er lukket med
-kvitteringer. Coolifys eget planantall brukes ikke som backupfasit.
+**Readback:** PR #342/#346 er merget og deployet etter credential-,
+ledger/schema-, fersk releasebackup- og runtimekontroll; `IG-004` er lukket i
+[releasekvitteringen](../status/food-systems-production-release-receipt-2026-08-11.md).
+`IG-003` forblir åpen for eier, RPO/RTO, retensjon og uovervåket kadens.
+Coolifys eget planantall brukes ikke som backupfasit.
 
 ### Bane B — faglig evidens og varig kildegrunnlag
 
@@ -140,8 +145,8 @@ produserer hendelses- eller claim-kandidater til menneskelig triage.
 2. Utpek ansvarlig eier, dataoperatør, kunnskapsforvalter og juridisk reviewer.
 3. Aksepter/avvikshåndter M16–M18 og loggfør geografisk scope.
 4. Vedta kontant/in-kind-ramme, runway, RPO/RTO og stopplinje.
-5. Velg om PR #342 skal bringes til release etter backup/reconciliation, eller
-   om den fortsatt parkeres.
+5. Bekreft driftsansvar og vedlikeholdsmodus etter den gjennomførte PR
+   #342/#346-releasen.
 6. Vedta nivå for intern, partnerdelt og offentlig bruk.
 7. Godkjenn eller parker Fase 1-arbeidspakkene.
 
@@ -266,7 +271,7 @@ git diff --check
 ```
 
 `phase:validate` kontrollerer registerets eksakte schema/enums, 18 unike gap,
-fem P0-gater, ISO-datoer, avhengigheter, lokale evidensreferanser og full
+fem P0-prioriteter, ISO-datoer, avhengigheter, lokale evidensreferanser og full
 ID-paritet mellom register, readiness-rapport og denne planen.
 
 Ved neste statusdato kopieres ikke registeret ukritisk. Opprett en ny datert

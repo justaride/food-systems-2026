@@ -54,6 +54,14 @@ GabiBFree-databasen har separate `backup`, `restore` og `offsite`-bevis for
 samme asset, artefakt og hash. Dette lukker den tekniske påstanden «ingen
 off-node backup/restore finnes».
 
+Den releasebundne kjøringen etter kunnskapsreconciliation og rolleherding
+bekreftet dessuten artefakten
+`coolify-food-systems-pgvector-db-20260811-125323-b91c5a.dump.age`, SHA-256
+`8055e332115d65313e22cb1f18fdeacf995665ac31eb3fafb3bb458f2a413738`,
+restore `2026-08-11T12:53:39Z` og begge offsite-mål som `verified`. Detaljert
+release-readback står i
+[produksjons- og kunnskapskvitteringen](./food-systems-production-release-receipt-2026-08-11.md).
+
 ## Det som fortsatt er åpent
 
 `IG-003` er ikke helt lukket. Følgende styrings- og driftsporter gjenstår:
@@ -61,12 +69,13 @@ off-node backup/restore finnes».
 - navngitt systemeier og dataoperatør;
 - vedtatt RPO/RTO og retensjonskrav;
 - kvittering fra første uovervåkede 03:30-kjøring på publisert hovedgren;
-- fersk backup/restore-kvittering umiddelbart før produksjonsmigrasjonen;
 - neste planlagte restore-test og eieraksept.
 
-Backupbeviset åpner derfor ikke PR #342 alene. Separate NO-GO-porter står igjen
-for minst privilegert `MIGRATION_DATABASE_URL`, ledger-/schema-reconciliation,
-kontrollert migrasjonsrehearsal og eksakt-SHA runtime-readback.
+Den avgrensede PR #342/#346-releasen er gjennomført etter fersk backup,
+ledger-/schema-reconciliation, minst privilegert `MIGRATION_DATABASE_URL` og
+eksakt-SHA runtime-readback. Dette lukker `IG-004`, men åpner ikke
+publiserings-, fagreview-, personvern- eller langsiktig driftsport. `IG-003`
+forblir åpen for RPO/RTO, eier, retensjon og uovervåket kadens.
 
 ## Vedlikeholdsregel
 

@@ -104,6 +104,7 @@ const STATUSES = new Set([
   "blocked_external",
   "monitoring",
   "parked",
+  "closed",
 ]);
 
 const TARGET_PHASES = new Set([
