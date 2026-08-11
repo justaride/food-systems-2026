@@ -19,6 +19,8 @@ const records: LibraryAnalysisStatusRecord[] = [
 describe('library analysis status query helpers', () => {
   it('builds the cockpit/API readiness counts', () => {
     assert.deepEqual(buildLibraryAnalysisStatusPayload(records), {
+      operational: true,
+      reviewComplete: false,
       ok: false,
       total: 5,
       processed: 1,
@@ -83,6 +85,8 @@ describe('library analysis status query helpers', () => {
     ]
 
     const status = buildLibraryAnalysisStatusPayload(terminal)
+    assert.equal(status.operational, true)
+    assert.equal(status.reviewComplete, true)
     assert.equal(status.ok, true)
     assert.equal(status.processed, 3)
     assert.equal(status.classificationPct, 100)
@@ -107,6 +111,8 @@ describe('library analysis status query helpers', () => {
     ]
 
     const status = buildLibraryAnalysisStatusPayload(contradictory)
+    assert.equal(status.operational, false)
+    assert.equal(status.reviewComplete, true)
     assert.equal(status.ok, false)
     assert.equal(status.classificationConflicts, 2)
   })
@@ -132,6 +138,8 @@ describe('library analysis status query helpers', () => {
     }]
 
     const status = buildLibraryAnalysisStatusPayload(reviewed)
+    assert.equal(status.operational, true)
+    assert.equal(status.reviewComplete, true)
     assert.equal(status.humanReviewed, 1)
     assert.equal(status.externalClaimEligible, 1)
     assert.equal(status.invalidExternalApprovals, 0)
@@ -161,6 +169,8 @@ describe('library analysis status query helpers', () => {
     }]
 
     const status = buildLibraryAnalysisStatusPayload(incomplete)
+    assert.equal(status.operational, true)
+    assert.equal(status.reviewComplete, false)
     assert.equal(status.ok, false)
     assert.equal(status.pendingReview, 1)
     assert.equal(status.processed, 0)

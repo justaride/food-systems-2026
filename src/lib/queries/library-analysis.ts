@@ -108,9 +108,16 @@ export function buildLibraryAnalysisStatusPayload(records: LibraryAnalysisStatus
       : []),
     ...(externalClaimEligible === 0 ? ['no_external_claim_eligible_records'] : []),
   ]
+  const operational = summary.total > 0 && classificationConflicts === 0
+  const reviewComplete = pendingReview === 0
 
   return {
-    ok: summary.total > 0 && pendingReview === 0 && classificationConflicts === 0,
+    // `operational` is the runtime/service gate. `ok` remains the stricter
+    // corpus-completion gate for callers that require the whole review queue
+    // to be resolved. Neither field opens the independent external gate.
+    operational,
+    reviewComplete,
+    ok: operational && reviewComplete,
     total: summary.total,
     processed,
     classificationPct: summary.total === 0 ? 0 : Math.round((processed / summary.total) * 100),

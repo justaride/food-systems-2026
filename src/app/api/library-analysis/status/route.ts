@@ -15,7 +15,11 @@ export async function GET() {
         version,
         ...status,
       },
-      { status: status.ok ? 200 : 503 },
+      // A governed review backlog is a valid, fail-closed data state rather
+      // than a service outage. Keep it visible in `ok`, `reviewComplete`, and
+      // `externalReady`, while reserving 503 for an unavailable or
+      // contradictory library.
+      { status: status.operational ? 200 : 503 },
     )
   } catch (error) {
     console.error('[library-analysis-status-api] Status failed', error)

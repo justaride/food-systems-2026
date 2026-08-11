@@ -218,7 +218,7 @@ jobs:
           failed = [flag for flag in required if data.get(flag) is not True]
           if failed:
               raise SystemExit(f'/api/data-status failed gates: {", ".join(failed)}')
-          if library.get('ok') is not True:
+          if library.get('operational') is not True:
               raise SystemExit('/api/library-analysis/status is not operationally healthy')
           print(f'Runtime proof PASS: {actual_sha}')
           PY
