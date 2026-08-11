@@ -91,7 +91,7 @@ describe('citation verification workflow', () => {
       )
     }
 
-    assert.equal(occurrences(workflow, 'DATABASE_URL: ${{ secrets.DATABASE_URL }}'), 5)
+    assert.equal(occurrences(workflow, 'DATABASE_URL: ${{ secrets.DATABASE_URL }}'), 3)
     assert.equal(occurrences(workflow, 'TUNNEL_SERVICE_TOKEN_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}'), 2)
     assert.equal(
       occurrences(workflow, 'TUNNEL_SERVICE_TOKEN_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}'),
@@ -130,8 +130,12 @@ describe('citation verification workflow', () => {
       assert.match(exported, /^PGPORT=5432$/m)
       assert.match(exported, /^PGDATABASE=food:systems$/m)
       assert.match(exported, /^PGUSER=citation@user$/m)
-      assert.match(exported, /^PGSSLMODE=require$/m)
+      assert.match(exported, /^PGSSLMODE=disable$/m)
       assert.match(exported, /^PGPASSFILE=.*\/pgpass$/m)
+      assert.match(
+        exported,
+        /^DATABASE_URL=postgresql:\/\/citation%40user@localhost:5432\/food:systems\?sslmode=disable$/m,
+      )
       assert.doesNotMatch(exported, /p:ass|p%3Aass/)
     } finally {
       rmSync(directory, { recursive: true, force: true })

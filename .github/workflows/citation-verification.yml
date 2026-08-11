@@ -137,8 +137,8 @@ jobs:
           const database = decode(url.pathname.replace(/^\/+/, ''))
           const user = decode(url.username)
           const password = decode(url.password)
-          const sslmode = url.searchParams.get('sslmode') || 'prefer'
-          const values = { host, port, database, user, password, sslmode }
+          const sourceSslmode = url.searchParams.get('sslmode') || 'prefer'
+          const values = { host, port, database, user, password, sourceSslmode }
 
           for (const [name, value] of Object.entries(values)) {
             if (!value || /[\r\n\0]/.test(value)) {
@@ -151,14 +151,26 @@ jobs:
           const pgpassFile = path.join(process.env.DATABASE_CONNECTION_DIR, 'pgpass')
           fs.writeFileSync(pgpassFile, pgpass, { mode: 0o600 })
 
+          // The Cloudflare Access TCP tunnel is the encrypted transport. Its
+          // local listener forwards plain PostgreSQL, so node-postgres must not
+          // attempt a second TLS handshake. Keep the password in pgpass and
+          // export only a credential-free URL for Prisma's pg adapter.
+          const localUrl = new URL('postgresql://localhost')
+          localUrl.username = user
+          localUrl.hostname = host
+          localUrl.port = port
+          localUrl.pathname = `/${database}`
+          localUrl.searchParams.set('sslmode', 'disable')
+
           const env = [
             ['DATABASE_CONNECTION_DIR', process.env.DATABASE_CONNECTION_DIR],
             ['PGHOST', host],
             ['PGPORT', port],
             ['PGDATABASE', database],
             ['PGUSER', user],
-            ['PGSSLMODE', sslmode],
+            ['PGSSLMODE', 'disable'],
             ['PGPASSFILE', pgpassFile],
+            ['DATABASE_URL', localUrl.toString()],
           ]
           fs.appendFileSync(
             process.env.GITHUB_ENV_FILE,
@@ -210,8 +222,6 @@ jobs:
 
       - name: Verify fileHash
         if: ${{ always() }}
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: npm run db:verify:filehash
 
       - name: Stop tunnel
@@ -304,8 +314,8 @@ jobs:
           const database = decode(url.pathname.replace(/^\/+/, ''))
           const user = decode(url.username)
           const password = decode(url.password)
-          const sslmode = url.searchParams.get('sslmode') || 'prefer'
-          const values = { host, port, database, user, password, sslmode }
+          const sourceSslmode = url.searchParams.get('sslmode') || 'prefer'
+          const values = { host, port, database, user, password, sourceSslmode }
 
           for (const [name, value] of Object.entries(values)) {
             if (!value || /[\r\n\0]/.test(value)) {
@@ -318,14 +328,26 @@ jobs:
           const pgpassFile = path.join(process.env.DATABASE_CONNECTION_DIR, 'pgpass')
           fs.writeFileSync(pgpassFile, pgpass, { mode: 0o600 })
 
+          // The Cloudflare Access TCP tunnel is the encrypted transport. Its
+          // local listener forwards plain PostgreSQL, so node-postgres must not
+          // attempt a second TLS handshake. Keep the password in pgpass and
+          // export only a credential-free URL for Prisma's pg adapter.
+          const localUrl = new URL('postgresql://localhost')
+          localUrl.username = user
+          localUrl.hostname = host
+          localUrl.port = port
+          localUrl.pathname = `/${database}`
+          localUrl.searchParams.set('sslmode', 'disable')
+
           const env = [
             ['DATABASE_CONNECTION_DIR', process.env.DATABASE_CONNECTION_DIR],
             ['PGHOST', host],
             ['PGPORT', port],
             ['PGDATABASE', database],
             ['PGUSER', user],
-            ['PGSSLMODE', sslmode],
+            ['PGSSLMODE', 'disable'],
             ['PGPASSFILE', pgpassFile],
+            ['DATABASE_URL', localUrl.toString()],
           ]
           fs.appendFileSync(
             process.env.GITHUB_ENV_FILE,
@@ -362,8 +384,6 @@ jobs:
 
       - name: Verify URL health (apply mode)
         # --limit caps each run at 300 rows. Backlog drains over multiple weeks.
-        env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: npx tsx scripts/verify-source-citation-url-health.ts --apply --limit 300
 
       - name: Stop tunnel
