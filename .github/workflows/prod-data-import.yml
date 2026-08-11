@@ -154,18 +154,22 @@ jobs:
           # not just an open local TCP socket: `nc -z` passes on the cloudflared
           # listener even when the CF Access websocket handshake to origin fails,
           # which then surfaces downstream as a confusing Prisma P1017 ConnectionClosed.
-          # Probing with psql fails fast at the real layer (see tunnel.log for
-          # "websocket: bad handshake" = connector/token/Access-app problem).
+          # Prisma 7 reads the datasource and schema from prisma.config.ts;
+          # `db execute` no longer accepts `--schema`. Probe the real database
+          # layer and preserve the last CLI error for diagnosis.
           ok=0
+          probe_log=$(mktemp)
+          trap 'rm -f "$probe_log"' EXIT
           for i in $(seq 1 30); do
-            if printf 'SELECT 1;\n' | npx prisma db execute --stdin --schema prisma/schema.prisma >/dev/null 2>&1; then
+            if printf 'SELECT 1;\n' | npx prisma db execute --stdin >"$probe_log" 2>&1; then
               echo "Authenticated DB connection ready (attempt $i)"; ok=1; break
             fi
             sleep 3
           done
           if [ "$ok" != "1" ]; then
-            echo "::error::DB not reachable through CF Access tunnel — see tunnel.log below"
+            echo "::error::DB not reachable through CF Access tunnel — see tunnel and Prisma diagnostics below"
             cat tunnel.log
+            cat "$probe_log"
             exit 1
           fi
 
