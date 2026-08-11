@@ -307,7 +307,7 @@ test('records exactly four named intended-use verdicts under a proposed baseline
   }
 })
 
-test('receipt-resolves migration lineage while failing closed on identity, appraisal and archive readiness', () => {
+test('fails closed on the current production migration, identity, appraisal and archive gaps', () => {
   const historicalAssessment = assessments[0] as JsonObject
   const historicalLineageConflict = asObjectArray(historicalAssessment.conflicts, 'historicalAssessment.conflicts')
     .find((item) => item.conflictId === 'health.conflict.code_db_lineage')
@@ -318,18 +318,18 @@ test('receipt-resolves migration lineage while failing closed on identity, appra
   const lineageConflict = asObjectArray(assessment.conflicts, 'assessment.conflicts')
     .find((item) => item.conflictId === 'health.conflict.code_db_lineage')
   assert.ok(lineageConflict)
-  assert.equal(lineageConflict.status, 'resolved')
+  assert.equal(lineageConflict.status, 'open')
   assert.equal(lineageConflict.severity, 'blocker')
   assert.ok(Array.isArray(lineageConflict.resolutionReceiptIds))
-  assert.equal(lineageConflict.resolutionReceiptIds.length, 1)
+  assert.equal(lineageConflict.resolutionReceiptIds.length, 0)
   assert.equal(metric(assessment, 'health_metric.head_migrations').value, 31)
-  assert.equal(metric(assessment, 'health_metric.database_migrations').value, 31)
-  assert.equal(metric(assessment, 'health_metric.migration_lineage_mismatches').value, 0)
+  assert.equal(metric(assessment, 'health_metric.database_migrations').value, 2)
+  assert.equal(metric(assessment, 'health_metric.migration_lineage_mismatches').value, 29)
   assert.equal(metric(assessment, 'health_metric.database_only_evidence_identities').value, 73)
   assert.equal(metric(assessment, 'health_metric.managed_runtime_evidence_identities').value, 17)
   assert.equal(metric(assessment, 'health_metric.unclassified_database_only_evidence_identities').value, 56)
   assert.equal(metric(assessment, 'health_metric.missing_managed_runtime_evidence_identities').value, 0)
-  assert.equal(metric(assessment, 'health_metric.seed_only_evidence_identities').value, 1)
+  assert.equal(metric(assessment, 'health_metric.seed_only_evidence_identities').value, 10)
 
   const seedIdentityConflict = asObjectArray(assessment.conflicts, 'assessment.conflicts')
     .find((item) => item.conflictId === 'health.conflict.seed_database_identity')
@@ -341,41 +341,41 @@ test('receipt-resolves migration lineage while failing closed on identity, appra
   assert.ok(libraryIdentityConflict)
   assert.equal(libraryIdentityConflict.status, 'open')
   assert.equal(metric(assessment, 'health_metric.library_inventory').value, 1_555)
-  assert.equal(metric(assessment, 'health_metric.library_live_materialization').value, 1_555)
-  assert.equal(metric(assessment, 'health_metric.library_materialization').value, 1_627)
-  assert.equal(metric(assessment, 'health_metric.library_retained_history_rows').value, 72)
-  assert.equal(metric(assessment, 'health_metric.library_inventory_only_rows').value, 0)
-  assert.equal(metric(assessment, 'health_metric.library_retained_history_contract_issues').value, 55)
+  assert.equal(metric(assessment, 'health_metric.library_live_materialization').value, 0)
+  assert.equal(metric(assessment, 'health_metric.library_materialization').value, 0)
+  assert.equal(metric(assessment, 'health_metric.library_retained_history_rows').value, 0)
+  assert.equal(metric(assessment, 'health_metric.library_inventory_only_rows').value, 1_555)
+  assert.equal(metric(assessment, 'health_metric.library_retained_history_contract_issues').value, 1_572)
   assert.equal(metric(assessment, 'health_metric.library_projection_updates_reported').value, 15)
 
   const internalAnalysis = profileVerdict(assessment, 'health_profile.internal_analysis')
   assert.equal(internalAnalysis.readyForProfile, false)
   assert.ok(asObjectArray(internalAnalysis.checks).some((item) => (
-    item.checkId === 'health_check.analysis.lineage' && item.status === 'pass'
+    item.checkId === 'health_check.analysis.lineage' && item.status === 'fail'
   )))
 
   const appraisal = metric(assessment, 'health_metric.evidence_appraisal')
   assert.equal(appraisal.value, 0)
   assert.equal(appraisal.numerator, 0)
-  assert.equal(appraisal.denominator, 472)
+  assert.equal(appraisal.denominator, 463)
   assert.equal(appraisal.percentage, 0)
 
   const archive = metric(assessment, 'health_metric.external_rows_needing_archive')
-  assert.equal(archive.value, 1_984)
-  assert.equal(archive.numerator, 1_984)
-  assert.equal(archive.denominator, 2_562)
+  assert.equal(archive.value, 2_469)
+  assert.equal(archive.numerator, 2_469)
+  assert.equal(archive.denominator, 2_541)
   assert.ok(asObjectArray(assessment.dimensions, 'assessment.dimensions').some((item) => (
     item.dimensionId === 'archive'
     && item.verdict === 'blocked'
   )))
-  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').externalRowsNeedingArchive, 1_984)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').externalRowsNeedingArchive, 2_469)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').managedRuntimeEvidenceIdentities, 17)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').unclassifiedDatabaseOnlyEvidenceIdentities, 56)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').missingManagedRuntimeEvidenceIdentities, 0)
-  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').livePersistedLibraryRows, 1_555)
-  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').retainedLibraryHistoryRows, 72)
-  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').libraryInventoryOnlyRows, 0)
-  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').libraryRetainedHistoryContractIssues, 55)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').livePersistedLibraryRows, 0)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').retainedLibraryHistoryRows, 0)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').libraryInventoryOnlyRows, 1_555)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').libraryRetainedHistoryContractIssues, 1_572)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').reportedLibraryProjectionUpdates, 15)
 
   const pdfOpenIdentityBlockers = metric(assessment, 'health_metric.pdf_open_identity_blockers')

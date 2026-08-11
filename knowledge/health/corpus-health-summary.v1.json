@@ -1,11 +1,11 @@
 {
   "schemaVersion": "corpus-evidence-health-v1",
   "documentKind": "corpus_health_summary",
-  "assessmentId": "health.assessment.2026-08-03.local.b34e66ca",
-  "observedAt": "2026-08-03T12:19:47.000Z",
-  "baseCommit": "b34e66caf98148d7de2e9a4a1bc2d696517a2bc5",
+  "assessmentId": "health.assessment.2026-08-11.local.3af9a333",
+  "observedAt": "2026-08-11T09:01:33.000Z",
+  "baseCommit": "3af9a333602381eeb4f93c97335d2459ef7c8c75",
   "gate1Decision": "no_go",
-  "principalBlocker": "seed_database_identity_mismatch",
+  "principalBlocker": "code_database_lineage_mismatch",
   "semanticBoundary": {
     "kind": "corpus_evidence_health",
     "subjectCoverageClaim": false,
@@ -30,7 +30,7 @@
       "verdict": "degraded",
       "readyForProfile": false,
       "reasonCodes": [
-        "migration_lineage_reconciled",
+        "migration_lineage_mismatch",
         "seed_identity_mismatch",
         "library_identity_mismatch",
         "library_projection_freshness_pending",
@@ -57,7 +57,7 @@
       "verdict": "blocked",
       "readyForProfile": false,
       "reasonCodes": [
-        "migration_lineage_reconciled",
+        "migration_lineage_mismatch",
         "identity_unreconciled",
         "library_projection_freshness_pending",
         "operational_layers_partially_proven",
@@ -103,27 +103,32 @@
     "pdfPortableTrackedValidationSupported": true,
     "pdfPrivateVerificationPerformed": false,
     "headMigrations": 31,
-    "databaseMigrations": 31,
-    "migrationLineageMismatches": 0,
+    "databaseMigrations": 2,
+    "migrationLineageMismatches": 29,
     "headSeedEvidence": 400,
-    "databaseEvidence": 472,
+    "databaseEvidence": 463,
     "databaseOnlyEvidenceIdentities": 73,
     "managedRuntimeEvidenceIdentities": 17,
     "unclassifiedDatabaseOnlyEvidenceIdentities": 56,
     "missingManagedRuntimeEvidenceIdentities": 0,
-    "seedOnlyEvidenceIdentities": 1,
+    "seedOnlyEvidenceIdentities": 10,
     "completeEvidenceAppraisals": 0,
-    "externalRowsNeedingArchive": 1984,
+    "externalRowsNeedingArchive": 2469,
     "currentLibraryInventory": 1555,
-    "persistedLibraryRows": 1627,
-    "livePersistedLibraryRows": 1555,
-    "retainedLibraryHistoryRows": 72,
-    "libraryInventoryOnlyRows": 0,
-    "libraryRetainedHistoryContractIssues": 55,
+    "persistedLibraryRows": 0,
+    "livePersistedLibraryRows": 0,
+    "retainedLibraryHistoryRows": 0,
+    "libraryInventoryOnlyRows": 1555,
+    "libraryRetainedHistoryContractIssues": 1572,
     "reportedLibraryProjectionUpdates": 15,
     "vaultIssues": 0
   },
   "openConflicts": [
+    {
+      "conflictId": "health.conflict.code_db_lineage",
+      "severity": "blocker",
+      "title": "Current code and local database have divergent migration lineages"
+    },
     {
       "conflictId": "health.conflict.seed_database_identity",
       "severity": "blocker",
@@ -150,5 +155,5 @@
       "title": "Tracked academic regression gate does not reproduce on current HEAD"
     }
   ],
-  "contentHash": "sha256:8623b05b36be05bbedeed0ba0998c3b4b9647a3238ba01527d820ce51818f4e4"
+  "contentHash": "sha256:d83e3c61bcc4983cf188d0f8165fc37632131046de42e76b4f1fed748b6a1f28"
 }
