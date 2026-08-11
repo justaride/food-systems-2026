@@ -33,12 +33,15 @@ describe('Coolify database health workflows', () => {
 
   it('keeps operational library health separate from external human readiness', () => {
     assert.match(watcher, /data\.get\('knowledgeBaseGatesOk'\)/)
+    assert.match(watcher, /data\.get\('operational'\)/)
+    assert.match(watcher, /data\.get\('reviewComplete'\)/)
     assert.match(watcher, /data\.get\('externalReady'\)/)
     assert.match(watcher, /data\.get\('humanReviewed'\)/)
     assert.match(watcher, /data\.get\('externalClaimEligible'\)/)
 
     const failureCondition = watcher.match(/- name: Fail if unhealthy or unreachable[\s\S]*?\n\s+run: \|/)?.[0] ?? ''
-    assert.match(failureCondition, /steps\.app\.outputs\.library_ok != 'true'/)
+    assert.match(failureCondition, /steps\.app\.outputs\.library_operational != 'true'/)
+    assert.doesNotMatch(failureCondition, /library_review_complete.*!=/)
     assert.doesNotMatch(failureCondition, /library_external_ready.*!=/)
   })
 
@@ -136,6 +139,8 @@ describe('Coolify database health workflows', () => {
     assert.match(deployVerify, /actual_sha != expected_sha/)
     assert.match(deployVerify, /api\/data-status/)
     assert.match(deployVerify, /api\/library-analysis\/status/)
+    assert.match(deployVerify, /library\.get\('operational'\)/)
+    assert.doesNotMatch(deployVerify, /library\.get\('ok'\) is not True/)
   })
 
   it('retires every local static SOURCE_COMMIT mutation and deploy helper', () => {

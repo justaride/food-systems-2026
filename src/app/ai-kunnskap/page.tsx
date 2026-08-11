@@ -23,6 +23,8 @@ type SerializableRecord = Omit<LibraryAnalysisRecordRow, 'updatedAt'> & {
 }
 
 const EMPTY_STATUS: LibraryAnalysisStatusPayload = {
+  operational: false,
+  reviewComplete: false,
   ok: false,
   total: 0,
   processed: 0,
