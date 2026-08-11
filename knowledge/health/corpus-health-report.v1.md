@@ -1,15 +1,15 @@
 # Gate 1 — corpus and evidence health
 
-**Assessment:** `health.assessment.2026-08-11.local.3af9a333`
+**Assessment:** `health.assessment.2026-08-11.local.57a4daf8`
 
 **Snapshot:** 2026-08-11
 
-**HEAD:** `3af9a333602381eeb4f93c97335d2459ef7c8c75`
+**HEAD:** `57a4daf8e364ba73243c5c157e482248d99fdac9`
 **Threshold status:** `proposed`
 
 ## Decision
 
-**NO-GO for reproducible internal analysis, external evidence support and observatory operation.** Internal discovery is usable only with explicit caveats. Repository and local-database migration names and SQL checksums are reconciled (29 mismatches across 31 migrations). Current HEAD has 400 seed rows and the local database has 463 evidence rows. Classified evidence identity is not reconciled. The raw 73 database-only rows comprise 17 declared runtime-managed and 56 unclassified identities; 10 seed-only and 0 missing declared-managed identities remain.
+**NO-GO for reproducible internal analysis, external evidence support and observatory operation.** Internal discovery is usable only with explicit caveats. Repository and local-database migration names and SQL checksums are reconciled (0 mismatches across 31 migrations). Current HEAD has 400 seed rows and the local database has 472 evidence rows. Classified evidence identity is not reconciled. The raw 73 database-only rows comprise 17 declared runtime-managed and 56 unclassified identities; 1 seed-only and 0 missing declared-managed identities remain.
 
 This is a corpus/evidence-health assessment, not a food-system coverage assessment. It creates no coverage cells, carries no global score and cannot support a claim that the Nordic food system is fully mapped.
 
@@ -27,23 +27,23 @@ This is a corpus/evidence-health assessment, not a food-system coverage assessme
 | Profile | Verdict | Ready | Main reason codes |
 |---|---|---:|---|
 | `health_profile.internal_discovery` | **READY_WITH_WARNINGS** | yes | active_corpus_enumerated, bounded_inventory_available, hash_bound_snapshot, migration_lineage_reconciled |
-| `health_profile.internal_analysis` | **DEGRADED** | no | migration_lineage_mismatch, seed_identity_mismatch, library_identity_mismatch, library_projection_freshness_pending, whole_corpus_full_text_zero, status_vintage_conflicts |
+| `health_profile.internal_analysis` | **DEGRADED** | no | migration_lineage_reconciled, seed_identity_mismatch, library_identity_mismatch, library_projection_freshness_pending, whole_corpus_full_text_zero, status_vintage_conflicts |
 | `health_profile.external_evidence_support` | **BLOCKED** | no | evidence_appraisal_zero, archive_gate_failed, owner_review_zero, independent_validation_zero, rights_clearance_zero, identity_unreconciled, human_review_pending |
-| `health_profile.observatory_operations` | **BLOCKED** | no | migration_lineage_mismatch, identity_unreconciled, library_projection_freshness_pending, operational_layers_partially_proven, receipts_partial, conflicts_open |
+| `health_profile.observatory_operations` | **BLOCKED** | no | migration_lineage_reconciled, identity_unreconciled, library_projection_freshness_pending, operational_layers_partially_proven, receipts_partial, conflicts_open |
 
 ## Critical evidence boundary
 
-- Evidence appraisal: **0/463** complete current appraisals.
-- Archive durability: **72/2611** citations have a durable archive; **2469/2541** external-readiness citations still need one.
-- Exact claim locators: **0/240578** claim-text rows also carry a page or quote locator.
-- Library state: **0/1555** live identities are materialized; the remaining **0** of **0** persisted rows are exact contract-bound history, with **1555** inventory-only rows and **1572** contract issues. The separately reported projection-freshness queue contains **15** metadata-only updates.
+- Evidence appraisal: **0/472** complete current appraisals.
+- Archive durability: **593/2794** citations have a durable archive; **1984/2562** external-readiness citations still need one.
+- Exact claim locators: **4/241121** claim-text rows also carry a page or quote locator.
+- Library state: **1555/1555** live identities are materialized; the remaining **72** of **1627** persisted rows are exact contract-bound history, with **0** inventory-only rows and **55** contract issues. The separately reported projection-freshness queue contains **15** metadata-only updates.
 - Vault state: **786** Markdown notes and **32** canvases; the current validator reports **0** issues. Counts are navigation signals, not evidence completeness.
 
 ## Conflict register
 
 | Conflict | Severity | Status | Boundary |
 |---|---|---|---|
-| `health.conflict.code_db_lineage` | blocker | open | Current code and local database have divergent migration lineages |
+| `health.conflict.code_db_lineage` | blocker | resolved | Repository and local database migration lineages are reconciled |
 | `health.conflict.seed_database_identity` | blocker | open | Current seed identities and local database evidence identities differ |
 | `health.conflict.historical_status_foreign_lineage` | high | open | Tracked academic status describes a different seed lineage |
 | `health.conflict.library_inventory_materialization` | high | open | Derived library inventory and persisted materialization differ without a complete contract |
@@ -58,7 +58,7 @@ This is a corpus/evidence-health assessment, not a food-system coverage assessme
 3. Resolve the 11 missing files, 18 no-locator identities and 12 PDF identity blockers (2 legacy alias/scope and 10 unregistered candidates).
 4. Keep the receipt-bound 31/31 migration lineage check green as schema and migrations evolve.
 5. Reconcile every unclassified database-only, seed-only and missing declared-managed identity while preserving the manifest-derived runtime identity boundary.
-6. Keep the 0/1555 live library identity check exact, revalidate all 0 retained-history rows, and close the separate metadata-only projection-freshness queue.
+6. Keep the 1555/1555 live library identity check exact, revalidate all 72 retained-history rows, and close the separate metadata-only projection-freshness queue.
 7. Complete reviewed appraisal, durable archive work, fresh backup/restore proof, MCP role enforcement and runtime parity for each required use.
 
 Gate 2 may now register the thirteen legacy fields as neutral artifact and navigation records because the canonical migration lineage is integrated. Those registrations must remain non-evidentiary and cannot promote coverage until reviewed against exact coverage cells.
