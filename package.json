@@ -26,6 +26,7 @@
     "landscape:report": "tsx scripts/render-project-landscape-report.ts",
     "landscape:validate": "tsx scripts/validate-project-landscape.ts",
     "test:landscape": "node --import=tsx --test tests/landscape/*.test.ts",
+    "phase:validate": "tsx scripts/validate-phase-readiness.ts",
     "mcp:kb": "tsx mcp/foodsystems-kb/server.ts",
     "mcp:kb:test": "tsx mcp/foodsystems-kb/smoke.ts",
     "mcp:kb:inspect": "npx @modelcontextprotocol/inspector -- npx tsx mcp/foodsystems-kb/server.ts",

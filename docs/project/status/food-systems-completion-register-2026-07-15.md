@@ -1,7 +1,7 @@
 ---
 tittel: Food Systems 2026 — completion register
 dato: 2026-07-15
-sist_kontrollert: 2026-07-21
+sist_kontrollert: 2026-08-11
 status: kanonisk intern status
 gate: internal
 scope: kunnskapsbase, whitepaper, roadmap, research-status og videreføring
@@ -40,6 +40,42 @@ fortsatt claim-lock, PCQ, source-locator og
   pilotforankring og personvern kan ikke simuleres av lokal analyse.
 - Type-C-hull skal dateres og forvaltes som kunnskapsinfrastruktur, ikke fylles
   med estimater for å få en komplett figur.
+
+## Operativ oppfølging 2026-08-11
+
+[Prosjektvurderingen og faseberedskapen 2026-08-11](./food-systems-phase-readiness-2026-08-11.md)
+er siste samlede readback under dette registeret. Det tilhørende
+[informasjonsgapregisteret](../../../research/_status/information-gap-register-2026-08-11.jsonl)
+og den [operative lukkingsplanen](../mandates/gap-closure-operating-plan-2026-08-11.md)
+er arbeidsflater, ikke nye sannhetsregistre.
+
+- Prosjektet er **GO** for intern beslutningsstøtte og målrettet validering,
+  **betinget GO** for appraisal/intervju/partnerreadback etter eier- og
+  rettighetsport, og **NO-GO** for ukvalifisert ekstern publisering,
+  observatoriumsdrift, effektpåstander og automatiske sannhetsoppdateringer.
+- Produksjonsappen er verifisert på funksjonell SHA `67b13ac`; `/api/data-status`
+  er grønn med `dbOk=true` og `pageGatesOk=true`. `origin/main` står på
+  `a15eec5`, der eneste senere delta er et datert Coolify-ressurssnapshot.
+- `/api/library-analysis/status` svarer fortsatt HTTP 503 med `total=0`.
+  Draft-PR #342 dokumenterer manglende `LibraryAnalysisRecord`, schema-/ledger-
+  drift, manglende minst privilegert migrasjonscredential og manglende godkjent
+  off-node backup/restore-bevis. PR-en er ikke et mergesignal selv med grønn CI.
+- Innhentingen 5. august har i dagens filreadback 135 staged filer, 128
+  ekstraksjonsposter, 125 unike ikke-tomme URL-er og 335 finding-poster; 1
+  ekstraksjonspost mangler URL-lokator og én register-URL forekommer i tre poster.
+  Siste rensede
+  produksjonskjøring registrerte 55 `SourceDoc` og 91 `SourceCitation`, hvorav
+  90 ble satt `citable_external` og 1 `internal_context`. Commit-overskriftens
+  eldre 165/279-oppsummering er ikke kanonisk; nivåene er heller ikke appraisal
+  eller publiseringsgodkjenning.
+- Det nordiske prosjektlandskapet har 40 verifiserte hovedprofiler, 22
+  kandidat-/disposisjonsrader og 100 kilder. 17 profiler har kvalitativ,
+  etnografisk eller deltakende metode, men registeret har 0 uavhengig
+  evaluerte kvalitative funn.
+- Fem P0-gater styrer videre fase: organisatorisk hjem/eier, formell closeout,
+  off-node backup/restore, produksjonsmigrering av kunnskapslaget og vedtatt
+  personvern-/rettighets-/publiseringspolicy. Å skrive planene lukker ikke disse
+  menneske- og produksjonsportene.
 
 ## Operativ oppfølging 2026-07-21
 
@@ -104,6 +140,8 @@ readback gir følgende statusgrense:
 | C-13 | R13-statushygiene er lukket. | [R13 intake-index](../../../research/_status/food-tg-r13/r13-intake-index-2026-06-25.md) og [historisk continuation-handover](../../../research/_status/food-tg-r13/HANDOVER-r13-continuation-2026-06-27.md) | Intake viser 50/50 og batch 01–13; historisk 8/50-tekst er bevart, men merket supersedert. |
 | C-14 | Gjeldende HHI-/CR3-versjoner er propagert på aktive flater og kontrollert. | [CA-004](../../../research/CITABLE-ACCEPTANCE-TESTS.md) og [citable status](../../../research/CITABLE-KNOWLEDGE-BASE-STATUS.md) | Omsetnings-HHI 3 327, CR3 96,6 % og butikkantall 93,4 % holdes atskilt. `audit:citable` og `gate:overclaim` er grønne; 3 445 brukes bare som tydelig historisk/butikkantalls-proxy. |
 | C-15 | Adoption Track og executive brief er oppdatert som interne derivater av v2. | [Adoption Track v2.0](../../../research/evidence-pack/adoption-track.md) og [Executive brief](../../../research/whitepaper/executive-brief.md) | Begge er eksplisitt ikke-publiserbare og kan ikke åpne menneske-, pilot-, funding- eller publiseringsporter. |
+| C-16 | Innhentingssesjonen 2026-08-05 er hentet, verifisert og kjørt gjennom en renset produksjonsimport. | [START-HER](../../../research/innhenting-2026-08-05/START-HER.md), ekstrakt-/verdict-filer og [prod-run 31022133733](https://github.com/justaride/food-systems-2026/actions/runs/31022133733) | Filreadback: 135 staged filer, 128 ekstraksjonsposter, 125 unike ikke-tomme URL-er og 335 finding-poster; 1 ekstraksjonspost mangler URL-lokator og én register-URL forekommer i tre poster. Siste rensede kjøring registrerte 55 `SourceDoc` og 91 `SourceCitation`. Dette er teknisk inntak/readiness, ikke samlet appraisal eller ny ekstern syntese. |
+| C-17 | Det reviderte nordiske prosjektlandskapet er verifisert, reproduserbart og tilgjengelig i produksjon. | [Rapport](../../../research/landscape/report-2026-08-10.md), [metode](../../../research/landscape/README.md) og [produksjonsflate](https://food-systems.naturalstateproject.com/prosjektlandskap) | 40 hovedprofiler, 22 kandidat-/disposisjonsrader og 100 kilder støtter intern prioritering. 0 uavhengig evaluerte kvalitative funn holder effektclaims og automatisk DB-promotering stengt. |
 
 ## Synthesis-needed
 
@@ -111,6 +149,7 @@ readback gir følgende statusgrense:
 |---|---|---|---|---|
 | S-01 | Propagere kanonisk v2 til publikasjonsuttrekk | [Synthesis v2](../../../research/whitepaper/food-systems-2026-synthesis-v2.md), [Whitepaper README](../../../research/whitepaper/README.md) og tre app-kapitler | App-kapitlene er sporbare, konsistente utdrag fra godkjente deler av v2 og utgjør ikke en parallell sannhetskilde. | Faglig gjennomgang av v2, så kapittelmapping, app-readback og eventuell PDF-kontroll. |
 | S-03 | Propagere kontrollert sirkularitet til app | [Synthesis v2 kapittel 8](../../../research/whitepaper/food-systems-2026-synthesis-v2.md) og [detached section 7](../../../research/whitepaper/section-7-circular-food-systems.md) | App-uttrekket følger v2 og nyeste waste-/VK4-grenser; original section 7 står kun som proveniens. | Gjør utdrag etter v2-godkjenning; behold realisert/modellert/kapasitet/plan/potensial. |
+| S-04 | Avstemme augustinntaket fra staging til eksplisitt finding-disposisjon | [Innhentingsmanifest](../../../research/innhenting-2026-08-05/INNHENTING-MANIFEST.jsonl), [verifisering](../../../research/innhenting-2026-08-05/verifisering/worklist.jsonl) og [IG-018](../../../research/_status/information-gap-register-2026-08-11.jsonl) | Alle 335 finding-poster har eksplisitt status gjennom staged, importert, citation-ready, appraised og publiserbar; nivåene er ikke slått sammen og eldre 165/279-oppsummering er supersedert. | Bygg datert, generert readback etter at `LibraryAnalysisRecord` er operativt; propager bare faktiske statusendringer hit. |
 
 ## Human-gated
 
@@ -133,6 +172,7 @@ readback gir følgende statusgrense:
 | K-03 | Offentlig innkjøp og lokale markeder | Regionale/proxy-artefakter finnes, men nasjonal markedsandel, oppdaterte kanaldata og sammenlignbar kommunal omsetnings-HHI mangler. | Doffin/DFØ/KS, årsmeldinger, eventuelt innsyn eller kommersiell kilde. |
 | K-04 | Lange omsetningsandeler og PPP-prisnivå | Deler finnes, men den gamle gap-listens 10–15-årsserie og full PPP-sammenligning er ikke verifisert som ferdig i closeout. | Reåpnes bare hvis en definert whitepaper-claim trenger dem. |
 | K-05 | Portable kilder for seks R2-forståelsesnotater | Notatene har runtime-citationmarkører uten portable URL-er eller lokale locatorer. | Re-hent primærkilder og skriv source-locator før fakta kan gjenbrukes. Inntil da er notatene karantene. |
+| K-06 | Uavhengig evaluering av prioriterte prosjektutfall | Prosjektlandskapet har 20 uavhengige kilder, men 0 uavhengig evaluerte kvalitative funn. Eier-/prosjektutfall står korrekt som rapporterte. | Kjør claim-for-claim evalueringssøk for topp-prosjektene; kontroller konsortium/domeneuavhengighet og oppgrader bare den konkrete claimkoblingen. |
 
 ## True-C
 
