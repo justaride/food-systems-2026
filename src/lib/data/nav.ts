@@ -44,6 +44,7 @@ export const navGroups: NavGroup[] = [
   ]},
   { groupKey: 'kunnskap', items: [
     { key: 'innsikt', href: '/innsikt' },
+    { key: 'prosjektlandskap', href: '/prosjektlandskap' },
     { key: 'forskningsrunder', href: '/forskningsrunder' },
     { key: 'akademia', href: '/masteroppgaver' },
     { key: 'graf', href: '/graf' },

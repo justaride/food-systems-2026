@@ -46,4 +46,8 @@ describe('nav structure', () => {
     const prod = navGroups.find(g => g.groupKey === 'produsenter')
     assert.ok(prod?.items.some(i => i.href === '/produsenter'), 'expected /produsenter in Produsenter group')
   })
+  it('exposes the governed project landscape in the knowledge group', () => {
+    const knowledge = navGroups.find(g => g.groupKey === 'kunnskap')
+    assert.ok(knowledge?.items.some(i => i.href === '/prosjektlandskap'), 'expected /prosjektlandskap in Kunnskap')
+  })
 })

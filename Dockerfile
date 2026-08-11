@@ -36,6 +36,8 @@ COPY research/_status/ ./research/_status/
 COPY research/data/nordic/core-series/ ./research/data/nordic/core-series/
 COPY research/data/nordic/trade-groups/normalized/ ./research/data/nordic/trade-groups/normalized/
 COPY research/data/nordic/market-share/ ./research/data/nordic/market-share/
+# Prosjektlandskapet leses filbasert av den interne /prosjektlandskap-ruten.
+COPY research/landscape/ ./research/landscape/
 # data/konsern-coverage.json leses ved kjøretid av src/lib/queries/ownership.ts (/eierskap)
 COPY data ./data
 ENV COVERAGE_ENV=prod
