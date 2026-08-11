@@ -82,10 +82,10 @@ authority_summary=$($psql_bin -X -A -t -q -v ON_ERROR_STOP=1 -c '
 ')
 printf '%s\n' "[migration-preflight] current credential authority: $authority_summary"
 
-failed_count=$($psql_bin -X -A -t -q -v ON_ERROR_STOP=1 \
-  -c 'SELECT count(*) FROM public."_prisma_migrations" WHERE finished_at IS NULL OR rolled_back_at IS NOT NULL')
-[ "$failed_count" = 0 ] \
-  || fail "Prisma migration ledger contains $failed_count unfinished or rolled-back rows"
+unresolved_count=$($psql_bin -X -A -t -q -v ON_ERROR_STOP=1 \
+  -c 'SELECT count(*) FROM public."_prisma_migrations" WHERE finished_at IS NULL AND rolled_back_at IS NULL')
+[ "$unresolved_count" = 0 ] \
+  || fail "Prisma migration ledger contains $unresolved_count unresolved failed rows"
 
 $psql_bin -X -A -t -q -F '	' -v ON_ERROR_STOP=1 \
   -c 'SELECT migration_name, checksum FROM public."_prisma_migrations" WHERE finished_at IS NOT NULL AND rolled_back_at IS NULL ORDER BY migration_name' \
