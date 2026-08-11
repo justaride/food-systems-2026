@@ -19,6 +19,8 @@ porten som er angitt per gap.
 
 Completion-registeret er kanonisk. Gapregisteret er kø. Readiness-rapporten er
 beslutningsanalyse. Ingen av de to siste kan alene flytte en completion-status.
+GabiBFree Estate er separat kanonisk flate for infrastruktur, backup og restore;
+se [kontrollgrensen](../status/cross-project-control-boundary-2026-08-11.md).
 
 ## 2. Statusmodell for hvert gap
 
@@ -45,12 +47,14 @@ Rekkefølge:
 1. Vedta hjem, eier og driftsnivå.
 2. Avklar closeout og videreføringsmandat.
 3. Vedta data-/person-/publiseringsansvar.
-4. Etabler og test off-node restore.
+4. Vedta RPO/RTO og eier for den eksisterende GabiBFree-backupkjeden, bekreft
+   uovervåket kadens og ta fersk releasebackup/restore-kvittering.
 5. Reconcile schema og migrasjonsledger med minste privilegium.
 6. Deploy bare via PR, grønn CI, eksakt merged SHA og runtime-readback.
 
-**Stopplinje:** PR #342 forblir draft inntil alle fire releasegrenser i PR-en
-og `IG-003`/`IG-004` er lukket med kvitteringer.
+**Stopplinje:** PR #342 forblir draft inntil credential-, ledger/schema-, fersk
+releasebackup- og runtimegrensene i PR-en og `IG-003`/`IG-004` er lukket med
+kvitteringer. Coolifys eget planantall brukes ikke som backupfasit.
 
 ### Bane B — faglig evidens og varig kildegrunnlag
 
@@ -175,7 +179,8 @@ beviskrav og eier.
 5. **Appraisal:** vurder design, bias, relevans, uavhengighet og overførbarhet.
 6. **Menneskereview:** navngitt person godkjenner, avviser eller sender tilbake.
 7. **Plan/dry-run:** vis nøyaktig DB-/registerdelta og bevar kandidater separat.
-8. **Apply:** bare hvis eksplisitt autorisert og med backup/rollback.
+8. **Apply:** bare hvis eksplisitt autorisert og med fersk, Estate-koblet
+   backup/restore-kvittering og rollback.
 9. **Readback:** verifiser database, appflate og eksakt deploy-SHA der relevant.
 10. **Propagering:** oppdater completion-registeret og supersession-notat; ikke
     dupliser sannhet i en ny statusrapport.
@@ -211,7 +216,7 @@ skal alltid angi hva som fortsatt er åpent.
 | Arbeid | Accountable | Responsible | Consulted | Informed |
 |---|---|---|---|---|
 | Hjem, mandat, driftsnivå | Valgt organisatorisk hjem | Prosjektledelsen | TG/NCH | Team/partnere etter vedtak |
-| Backup, migrasjon og runtime | Systemeier | Data-/teknisk operatør | Kunnskapsforvalter | Prosjekteier |
+| Backup, migrasjon og runtime | Systemeier | GabiBFree/Estate-operatør for recovery; Food Systems-dataoperatør for migrasjon | Kunnskapsforvalter | Prosjekteier |
 | Claim-lock, appraisal og kildearkiv | Prosjekteier/publisher | Kunnskapsforvalter + fagreviewer | Juridisk reviewer | Domeneeiere |
 | Intervju og partnerreadback | Prosjekteier | Stakeholderansvarlig | Juridisk/personvern + fagreviewer | Respondenter etter avtale |
 | Nordisk/domain-dyping | Program-/produkteier | Nordisk spor-/domeneeier | Landreviewere/dataeiere | Team |
