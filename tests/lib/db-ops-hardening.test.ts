@@ -415,16 +415,49 @@ DROP INDEX "Report_search_vector_idx";
 DROP INDEX "Thesis_search_vector_idx";
 ${allowedDiff}`
 
+  const allowedCommittedMigrationDiff = `-- DropIndex
+DROP INDEX "Actor_name_trgm_idx";
+-- DropIndex
+DROP INDEX "Company_name_trgm_idx";
+-- DropIndex
+DROP INDEX "Document_content_trgm_idx";
+-- DropIndex
+DROP INDEX "Document_embedding_hnsw_idx";
+-- DropIndex
+DROP INDEX "Document_title_trgm_idx";
+-- DropIndex
+DROP INDEX "Insight_title_trgm_idx";
+-- DropIndex
+DROP INDEX "Subsidy_subsidyType_idx";
+-- DropIndex
+DROP INDEX "Thesis_title_trgm_idx";
+-- AlterTable
+ALTER TABLE "SourceCitation" ALTER COLUMN "updatedAt" DROP DEFAULT;
+${allowedDiffWithIndexes}`
+
   it('accepts only the four documented generated-column differences', () => {
     const result = runGate(allowedDiff)
     assert.equal(result.status, 0, result.stderr)
-    assert.match(result.stdout, /documented generated-FTS Prisma diff/)
+    assert.match(result.stdout, /independently verified migration-owned Prisma differences/)
   })
 
   it('accepts the matching four index lines when the Prisma engine emits them', () => {
     const result = runGate(allowedDiffWithIndexes)
     assert.equal(result.status, 0, result.stderr)
-    assert.match(result.stdout, /documented generated-FTS Prisma diff/)
+    assert.match(result.stdout, /independently verified migration-owned Prisma differences/)
+  })
+
+  it('accepts independently verified raw-SQL contracts committed by migrations', () => {
+    const result = runGate(allowedCommittedMigrationDiff)
+    assert.equal(result.status, 0, result.stderr)
+    assert.match(result.stdout, /independently verified migration-owned Prisma differences/)
+  })
+
+  it('rejects a lookalike performance index outside the exact contract', () => {
+    const result = runGate(`${allowedCommittedMigrationDiff}\nDROP INDEX "Document_summary_trgm_idx";`)
+    assert.notEqual(result.status, 0)
+    assert.match(result.stderr, /unknown drift detected/)
+    assert.match(result.stderr, /Document_summary_trgm_idx/)
   })
 
   it('rejects unknown schema drift', () => {
@@ -437,7 +470,7 @@ ${allowedDiff}`
   it('rejects an unverified FTS implementation even when the diff is allowlisted', () => {
     const result = runGate(allowedDiff, 'Document_search_vector_idx is missing')
     assert.notEqual(result.status, 0)
-    assert.match(result.stderr, /generated-FTS contract failed/)
+    assert.match(result.stderr, /migration-owned contract verification failed/)
   })
 
   it('rejects schema-check passwords in URL query parameters before invoking database tools', () => {

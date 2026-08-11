@@ -79,10 +79,10 @@ PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$DATABASE_URL PGPASSFILE_PATH=$PGPASSFILE n
   process.stdout.write(url.toString())
 ')
 
-# An allowed Prisma diff is trustworthy only when PostgreSQL confirms the
-# columns are generated tsvectors, their indexes are valid, and both wrapper
-# functions are immutable.
-fts_issues=$(psql "$PSQL_DATABASE_URL" -X -A -t -q -v ON_ERROR_STOP=1 <<'SQL'
+# An allowed Prisma diff is trustworthy only when PostgreSQL confirms every
+# raw-SQL contract that Prisma cannot represent: generated FTS, performance
+# indexes, and the migration-owned SourceCitation.updatedAt default.
+contract_issues=$(psql "$PSQL_DATABASE_URL" -X -A -t -q -v ON_ERROR_STOP=1 <<'SQL'
 SET search_path = pg_catalog, public;
 WITH expected(table_name, expected_terms, required_fragments) AS (
   VALUES
@@ -173,6 +173,47 @@ WITH expected(table_name, expected_terms, required_fragments) AS (
   LEFT JOIN pg_opclass operator_class ON operator_class.oid = index.indclass[0]
   WHERE namespace.oid IS NOT NULL
   GROUP BY expected.table_name
+), expected_performance_index(table_name, column_name, index_name, access_method, operator_class) AS (
+  VALUES
+    ('Actor', 'name', 'Actor_name_trgm_idx', 'gin', 'gin_trgm_ops'),
+    ('Company', 'name', 'Company_name_trgm_idx', 'gin', 'gin_trgm_ops'),
+    ('Document', 'content', 'Document_content_trgm_idx', 'gin', 'gin_trgm_ops'),
+    ('Document', 'embedding', 'Document_embedding_hnsw_idx', 'hnsw', 'vector_cosine_ops'),
+    ('Document', 'title', 'Document_title_trgm_idx', 'gin', 'gin_trgm_ops'),
+    ('Insight', 'title', 'Insight_title_trgm_idx', 'gin', 'gin_trgm_ops'),
+    ('Subsidy', 'subsidyType', 'Subsidy_subsidyType_idx', 'btree', 'text_ops'),
+    ('Thesis', 'title', 'Thesis_title_trgm_idx', 'gin', 'gin_trgm_ops')
+), performance_index_check AS (
+  SELECT
+    expected.index_name,
+    bool_or(
+      index_class.oid IS NOT NULL
+      AND access_method.amname = expected.access_method
+      AND indexed_attribute.attname = expected.column_name
+      AND operator_class.opcname = expected.operator_class
+      AND index.indisvalid
+      AND index.indisready
+      AND NOT index.indisunique
+      AND index.indnkeyatts = 1
+      AND index.indnatts = 1
+      AND index.indpred IS NULL
+      AND index.indexprs IS NULL
+    ) AS valid_index
+  FROM expected_performance_index expected
+  LEFT JOIN pg_class table_class ON table_class.relname = expected.table_name
+  LEFT JOIN pg_namespace namespace
+    ON namespace.oid = table_class.relnamespace
+   AND namespace.nspname = 'public'
+  LEFT JOIN pg_index index ON index.indrelid = table_class.oid
+  LEFT JOIN pg_class index_class
+    ON index_class.oid = index.indexrelid
+   AND index_class.relname = expected.index_name
+  LEFT JOIN pg_am access_method ON access_method.oid = index_class.relam
+  LEFT JOIN pg_attribute indexed_attribute
+    ON indexed_attribute.attrelid = table_class.oid
+   AND indexed_attribute.attnum = index.indkey[0]
+  LEFT JOIN pg_opclass operator_class ON operator_class.oid = index.indclass[0]
+  GROUP BY expected.index_name
 ), checks(issue) AS (
   SELECT format('%s.search_vector is missing or is not a generated tsvector', table_name)
   FROM column_check
@@ -197,6 +238,25 @@ WITH expected(table_name, expected_terms, required_fragments) AS (
   SELECT format('%s_search_vector_idx is missing, invalid, or unready', table_name)
   FROM index_check
   WHERE valid_index IS DISTINCT FROM true
+  UNION ALL
+  SELECT format('%s is missing or does not match its committed performance-index contract', index_name)
+  FROM performance_index_check
+  WHERE valid_index IS DISTINCT FROM true
+  UNION ALL
+  SELECT 'SourceCitation.updatedAt does not retain the committed CURRENT_TIMESTAMP default'
+  WHERE NOT EXISTS (
+    SELECT 1
+    FROM pg_attrdef attribute_default
+    JOIN pg_class table_class ON table_class.oid = attribute_default.adrelid
+    JOIN pg_namespace namespace ON namespace.oid = table_class.relnamespace
+    JOIN pg_attribute attribute
+      ON attribute.attrelid = table_class.oid
+     AND attribute.attnum = attribute_default.adnum
+    WHERE namespace.nspname = 'public'
+      AND table_class.relname = 'SourceCitation'
+      AND attribute.attname = 'updatedAt'
+      AND pg_get_expr(attribute_default.adbin, attribute_default.adrelid) = 'CURRENT_TIMESTAMP'
+  )
   UNION ALL
   SELECT 'immutable_to_tsvector_no(text) is missing or has an unsafe definition'
   WHERE NOT EXISTS (
@@ -240,42 +300,36 @@ PRISMA_HIDE_UPDATE_MESSAGE=1 "$prisma_bin" migrate diff \
 
 sed -e 's/\r$//' -e '/^[[:space:]]*--/d' -e '/^[[:space:]]*$/d' "$diff_file" >"$filtered_file"
 
-if [ ! -s "$filtered_file" ] && [ -z "$fts_issues" ]; then
-  printf '%s\n' '[schema-drift] PASS: database matches Prisma schema and generated-FTS contract'
+if [ ! -s "$filtered_file" ] && [ -z "$contract_issues" ]; then
+  printf '%s\n' '[schema-drift] PASS: database matches Prisma schema and migration-owned contracts'
   exit 0
 fi
 
-unknown_drift=$(grep -Ev '^(ALTER TABLE "(Document|Insight|Report|Thesis)" ALTER COLUMN "search_vector" DROP DEFAULT;|DROP INDEX "(Document|Insight|Report|Thesis)_search_vector_idx";)$' "$filtered_file" || true)
+unknown_drift=$(grep -Ev '^(ALTER TABLE "(Document|Insight|Report|Thesis)" ALTER COLUMN "search_vector" DROP DEFAULT;|ALTER TABLE "SourceCitation" ALTER COLUMN "updatedAt" DROP DEFAULT;|DROP INDEX "(Document|Insight|Report|Thesis)_search_vector_idx";|DROP INDEX "(Actor_name_trgm_idx|Company_name_trgm_idx|Document_content_trgm_idx|Document_embedding_hnsw_idx|Document_title_trgm_idx|Insight_title_trgm_idx|Subsidy_subsidyType_idx|Thesis_title_trgm_idx)";)$' "$filtered_file" || true)
 if [ -n "$unknown_drift" ]; then
   printf '%s\n' '[schema-drift] unknown drift detected; full migration diff follows:' >&2
   sed 's/^/  /' "$diff_file" >&2
-  if [ -n "$fts_issues" ]; then
-    printf '%s\n' '[schema-drift] generated-FTS contract also failed:' >&2
-    printf '%s\n' "$fts_issues" | sed 's/^/  - /' >&2
+  if [ -n "$contract_issues" ]; then
+    printf '%s\n' '[schema-drift] migration-owned contract verification also failed:' >&2
+    printf '%s\n' "$contract_issues" | sed 's/^/  - /' >&2
   fi
   exit 1
 fi
 
-if [ -n "$fts_issues" ]; then
-  printf '%s\n' '[schema-drift] generated-FTS contract failed:' >&2
-  printf '%s\n' "$fts_issues" | sed 's/^/  - /' >&2
+if [ -n "$contract_issues" ]; then
+  printf '%s\n' '[schema-drift] migration-owned contract verification failed:' >&2
+  printf '%s\n' "$contract_issues" | sed 's/^/  - /' >&2
   exit 1
 fi
 
-allowed_count=$(wc -l <"$filtered_file" | tr -d ' ')
-[ "$allowed_count" -eq 4 ] || [ "$allowed_count" -eq 8 ] \
-  || fail "expected four generated-column differences, optionally plus four matching FTS-index differences; found $allowed_count"
 for table_name in Document Insight Report Thesis; do
   default_count=$(grep -Fxc "ALTER TABLE \"$table_name\" ALTER COLUMN \"search_vector\" DROP DEFAULT;" "$filtered_file" || true)
   [ "$default_count" -eq 1 ] \
     || fail "documented FTS difference missing for $table_name"
-
-  index_count=$(grep -Fxc "DROP INDEX \"${table_name}_search_vector_idx\";" "$filtered_file" || true)
-  if [ "$allowed_count" -eq 8 ]; then
-    [ "$index_count" -eq 1 ] || fail "documented FTS index difference missing for $table_name"
-  else
-    [ "$index_count" -eq 0 ] || fail "partial FTS index-difference set found for $table_name"
-  fi
 done
 
-printf '%s\n' '[schema-drift] PASS: only a documented generated-FTS Prisma diff remains'
+fts_index_count=$(grep -Ec '^DROP INDEX "(Document|Insight|Report|Thesis)_search_vector_idx";$' "$filtered_file" || true)
+[ "$fts_index_count" -eq 0 ] || [ "$fts_index_count" -eq 4 ] \
+  || fail "partial FTS index-difference set found: $fts_index_count of 4"
+
+printf '%s\n' '[schema-drift] PASS: only independently verified migration-owned Prisma differences remain'
