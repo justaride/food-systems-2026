@@ -177,9 +177,26 @@ jobs:
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
-          npx prisma migrate status --schema prisma/schema.prisma
-          scripts/verify-database-schema-drift.sh
-          npm run db:verify
+          failed=0
+          if npx prisma migrate status --schema prisma/schema.prisma; then
+            echo "Migration ledger preflight PASS"
+          else
+            echo "::error::Migration ledger preflight failed"
+            failed=1
+          fi
+          if scripts/verify-database-schema-drift.sh; then
+            echo "Schema drift preflight PASS"
+          else
+            echo "::error::Schema drift preflight failed"
+            failed=1
+          fi
+          if npm run db:verify; then
+            echo "Production count preflight PASS"
+          else
+            echo "::error::Production count preflight failed"
+            failed=1
+          fi
+          exit "$failed"
 
       - name: Reset ephemeral production evidence paths
         if: ${{ inputs.target == 'verify-only' || inputs.target == 'knowledge' || inputs.target == 'full' }}
