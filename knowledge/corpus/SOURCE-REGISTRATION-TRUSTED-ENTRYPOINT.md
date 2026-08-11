@@ -69,7 +69,7 @@ source runtime binding and the sealed PostgreSQL toolset and extension
 closures. The three repository manifests are byte-pinned to the existing
 2026-08-03 seals; their closure hashes are not regenerated here:
 
-- Node runtime closure: `464410ef7bbe3c4da7468973f47a43442b51ef7ff3455d810dcf8f3b7ae4e434`;
+- Node runtime closure: `52cb48e8c77925a28d5c21574ea9867540ac71c88ba556ae3a48218bc67509bf`;
 - PostgreSQL toolset closure: `2f102d12bb738a5ec935e52a76cb6b156e58d86ef8e56a2bef3711c087de7bf0`;
 - PostgreSQL extension closure: `3b5540bc6b1d6fd25335b0f094470ee8da5214f09f04feabb583a06aa3b7487c`.
 

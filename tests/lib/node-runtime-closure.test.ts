@@ -85,8 +85,8 @@ test(
     assert.equal(result.homebrewObjectCount, 25);
     assert.equal(result.loaderAliasCount, 30);
     assert.equal(result.systemDylibReferenceCount, 6);
-    assert.equal(result.homebrewObjectBytes, 119_690_032);
-    assert.equal(result.totalRuntimeBytes, 5_920_396_080);
+    assert.equal(result.homebrewObjectBytes, 119_598_928);
+    assert.equal(result.totalRuntimeBytes, 5_920_304_976);
     assert.equal(
       result.nodeFileSha256,
       "08dad0581f00a0cabf4d49ec92ca1f25fdfd01c2c18fa8e92b35f04d4c24c164",

@@ -49,8 +49,8 @@ import { checkTrackedQualificationBundle } from './qualify-pdf-page-extraction'
 const GENERATOR_VERSION = '1.4.0'
 const SCHEMA_VERSION = 'corpus-evidence-health-v1'
 const THRESHOLDS_VERSION = 'corpus-health-thresholds-v1'
-const SNAPSHOT_DATE = process.env.CORPUS_HEALTH_SNAPSHOT_DATE ?? '2026-08-03'
-const OBSERVED_AT = process.env.CORPUS_HEALTH_OBSERVED_AT ?? '2026-08-03T12:19:47.000Z'
+const SNAPSHOT_DATE = process.env.CORPUS_HEALTH_SNAPSHOT_DATE ?? '2026-08-11'
+const OBSERVED_AT = process.env.CORPUS_HEALTH_OBSERVED_AT ?? '2026-08-11T09:01:33.000Z'
 const ROOT = process.cwd()
 
 const GENERATOR_PATH = 'scripts/knowledge/generate-corpus-health.ts'

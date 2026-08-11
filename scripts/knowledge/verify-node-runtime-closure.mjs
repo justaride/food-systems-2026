@@ -17,11 +17,11 @@ export const NODE_RUNTIME_CLOSURE_VERSION = 1;
 export const NODE_RUNTIME_CLOSURE_DOMAIN =
   "food-systems-2026:node-runtime-closure:v1\0";
 export const NODE_RUNTIME_CLOSURE_SHA256 =
-  "464410ef7bbe3c4da7468973f47a43442b51ef7ff3455d810dcf8f3b7ae4e434";
+  "52cb48e8c77925a28d5c21574ea9867540ac71c88ba556ae3a48218bc67509bf";
 export const NODE_RUNTIME_CLOSURE_MANIFEST_PATH =
-  "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-08-03.v1.json";
+  "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-08-11.v1.json";
 export const NODE_RUNTIME_CLOSURE_MANIFEST_SHA256 =
-  "9c262c5438fb5c6bad4b002b2516c45d3b935c6a2481e3841fd28b5d03d8e8f8";
+  "f224b177c6f2ce4864815627dccd62dae3ed794a24eb4945cc923d018bc749e4";
 export const NODE_RUNTIME_FILE_SHA256 =
   "08dad0581f00a0cabf4d49ec92ca1f25fdfd01c2c18fa8e92b35f04d4c24c164";
 export const BOUND_SYSTEM_RUNTIME_CLOSURE_MANIFEST_SHA256 =

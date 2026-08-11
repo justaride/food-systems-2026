@@ -158,7 +158,7 @@ const codeBindings: SourceRegistrationApplyCodeBindings = {
     "8",
   ),
   nodeRuntimeClosureManifest: fileBinding(
-    "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-08-03.v1.json",
+    "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-08-11.v1.json",
     "b",
   ),
   nodeRuntimeClosureVerifier: fileBinding(

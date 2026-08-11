@@ -26,13 +26,20 @@ on:
         required: false
         default: false
         type: boolean
+      corpus_health_refresh:
+        description: Regenerate the governed corpus-health bundle against the production database
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   filehash-drift:
     name: Verify SourceCitation fileHash integrity
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    if: ${{ vars.CITATION_VERIFY_ENABLED == 'true' }}
+    if: >-
+      ${{ vars.CITATION_VERIFY_ENABLED == 'true' &&
+          (github.event_name != 'workflow_dispatch' || inputs.corpus_health_refresh != true) }}
     env:
       TUNNEL_HOSTNAME: fs-db.naturalstateproject.com
     steps:
@@ -248,13 +255,185 @@ jobs:
           echo '::error::Production migration readiness is not complete; inspect the independent credential, ledger, and schema-drift steps.'
           exit 1
 
+  corpus-health-refresh:
+    name: Regenerate governed corpus health
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    if: >-
+      ${{ vars.CITATION_VERIFY_ENABLED == 'true' &&
+          github.event_name == 'workflow_dispatch' &&
+          inputs.corpus_health_refresh == true }}
+    env:
+      TUNNEL_HOSTNAME: fs-db.naturalstateproject.com
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma client
+        run: npx prisma generate
+
+      - name: Install cloudflared
+        run: |
+          set -euo pipefail
+          curl -fsSL https://github.com/cloudflare/cloudflared/releases/download/2026.7.2/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared
+          echo "ec905ea7b7e327ff8abdde8cb64697a2152de74dbcdbf6aec9db8364eb3886cd  /usr/local/bin/cloudflared" | sha256sum -c -
+          chmod +x /usr/local/bin/cloudflared
+          cloudflared --version
+
+      - name: Prepare private corpus-health connection
+        shell: bash
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: |
+          set -euo pipefail
+          connection_dir="$(mktemp -d "${RUNNER_TEMP}/citation-db.XXXXXX")"
+          chmod 700 "$connection_dir"
+
+          cleanup_on_error() {
+            rm -f -- "$connection_dir/pgpass"
+            rmdir -- "$connection_dir" 2>/dev/null || true
+          }
+          trap cleanup_on_error ERR
+
+          RAW_DATABASE_URL="$DATABASE_URL" \
+            DATABASE_CONNECTION_DIR="$connection_dir" \
+            GITHUB_ENV_FILE="$GITHUB_ENV" \
+            node <<'NODE'
+          const fs = require('node:fs')
+          const path = require('node:path')
+
+          const url = new URL(process.env.RAW_DATABASE_URL)
+          if (!/^postgres(ql)?:$/.test(url.protocol)) {
+            throw new Error('DATABASE_URL must use PostgreSQL')
+          }
+
+          const decode = (value) => decodeURIComponent(value)
+          const host = url.hostname
+          const port = url.port || '5432'
+          const database = decode(url.pathname.replace(/^\/+/, ''))
+          const user = decode(url.username)
+          const password = decode(url.password)
+          const sourceSslmode = url.searchParams.get('sslmode') || 'prefer'
+          const values = { host, port, database, user, password, sourceSslmode }
+
+          for (const [name, value] of Object.entries(values)) {
+            if (!value || /[\r\n\0]/.test(value)) {
+              throw new Error(`DATABASE_URL has an invalid ${name}`)
+            }
+          }
+
+          const escapePgpass = (value) => value.replace(/\\/g, '\\\\').replace(/:/g, '\\:')
+          const pgpass = [host, port, database, user, password].map(escapePgpass).join(':') + '\n'
+          const pgpassFile = path.join(process.env.DATABASE_CONNECTION_DIR, 'pgpass')
+          fs.writeFileSync(pgpassFile, pgpass, { mode: 0o600 })
+
+          const localUrl = new URL('postgresql://localhost')
+          localUrl.username = user
+          localUrl.hostname = host
+          localUrl.port = port
+          localUrl.pathname = `/${database}`
+          localUrl.searchParams.set('sslmode', 'disable')
+
+          const env = [
+            ['DATABASE_CONNECTION_DIR', process.env.DATABASE_CONNECTION_DIR],
+            ['PGHOST', host],
+            ['PGPORT', port],
+            ['PGDATABASE', database],
+            ['PGUSER', user],
+            ['PGSSLMODE', 'disable'],
+            ['PGPASSFILE', pgpassFile],
+            ['DATABASE_URL', localUrl.toString()],
+          ]
+          fs.appendFileSync(
+            process.env.GITHUB_ENV_FILE,
+            env.map(([name, value]) => `${name}=${value}`).join('\n') + '\n',
+          )
+          NODE
+
+          trap - ERR
+
+      - name: Start TCP tunnel to prod DB
+        env:
+          TUNNEL_SERVICE_TOKEN_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          TUNNEL_SERVICE_TOKEN_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          set -euo pipefail
+          unset PGPASSWORD
+          nohup cloudflared access tcp \
+            --hostname "$TUNNEL_HOSTNAME" \
+            --url localhost:5432 \
+            > tunnel.log 2>&1 &
+          echo $! > tunnel.pid
+          ok=0
+          for i in $(seq 1 30); do
+            if psql -X -tAc 'select 1' >/dev/null 2>&1; then
+              echo "Authenticated DB connection ready (attempt $i)"; ok=1; break
+            fi
+            sleep 3
+          done
+          if [ "$ok" != "1" ]; then echo "::error::DB not reachable through CF Access tunnel"; cat tunnel.log; exit 1; fi
+
+      - name: Regenerate and verify corpus-health bundle
+        run: |
+          set -euo pipefail
+          supersedes_id=$(node -e 'process.stdout.write(require("./knowledge/health/corpus-health-current.v1.json").assessmentId)')
+          CORPUS_HEALTH_SUPERSEDES_ID="$supersedes_id" npm run knowledge:health:generate
+          npm run knowledge:health:check
+          git diff --check
+          unexpected=$(git diff --name-only | grep -Ev '^knowledge/health/corpus-health-(source-snapshots|source-snapshot-history|assessments|current|summary|report|generation-manifest)\.v1\.(json|jsonl|md)$' || true)
+          if [ -n "$unexpected" ]; then
+            echo '::error::Corpus-health generation changed files outside the governed bundle'
+            printf '%s\n' "$unexpected"
+            exit 1
+          fi
+
+      - name: Stop tunnel
+        if: always()
+        run: |
+          if [ -f tunnel.pid ]; then kill "$(cat tunnel.pid)" 2>/dev/null || true; fi
+          case "${DATABASE_CONNECTION_DIR:-}" in
+            "$RUNNER_TEMP"/citation-db.*)
+              rm -f -- "$DATABASE_CONNECTION_DIR/pgpass"
+              rmdir -- "$DATABASE_CONNECTION_DIR" 2>/dev/null || true
+              ;;
+            '') ;;
+            *) echo "::warning::Refusing to remove unexpected connection directory" ;;
+          esac
+
+      - name: Upload governed corpus-health bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: corpus-health-${{ github.sha }}
+          if-no-files-found: error
+          retention-days: 1
+          path: |
+            knowledge/health/corpus-health-source-snapshots.v1.json
+            knowledge/health/corpus-health-source-snapshot-history.v1.jsonl
+            knowledge/health/corpus-health-assessments.v1.jsonl
+            knowledge/health/corpus-health-current.v1.json
+            knowledge/health/corpus-health-summary.v1.json
+            knowledge/health/corpus-health-report.v1.md
+            knowledge/health/corpus-health-generation-manifest.v1.json
+
   url-health:
     name: HTTP-verify needs_review SourceCitations
     runs-on: ubuntu-latest
     timeout-minutes: 30
     if: >-
       ${{ vars.CITATION_VERIFY_ENABLED == 'true' &&
-          (github.event_name != 'workflow_dispatch' || inputs.migration_preflight_only != true) }}
+          (github.event_name != 'workflow_dispatch' || (
+            inputs.migration_preflight_only != true &&
+            inputs.corpus_health_refresh != true
+          )) }}
     env:
       TUNNEL_HOSTNAME: fs-db.naturalstateproject.com
     steps:

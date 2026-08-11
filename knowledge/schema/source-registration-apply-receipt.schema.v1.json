@@ -895,7 +895,7 @@
             "platform": { "$ref": "#/$defs/safeText" },
             "runtimeClosureManifestSha256": { "$ref": "#/$defs/sha256" },
             "runtimeClosureSha256": {
-              "const": "464410ef7bbe3c4da7468973f47a43442b51ef7ff3455d810dcf8f3b7ae4e434"
+              "const": "52cb48e8c77925a28d5c21574ea9867540ac71c88ba556ae3a48218bc67509bf"
             },
             "runtimeClosureVerifierFileSha256": {
               "$ref": "#/$defs/sha256"

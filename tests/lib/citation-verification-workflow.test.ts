@@ -22,22 +22,31 @@ describe('citation verification workflow', () => {
     )
   })
 
+  it('offers an isolated corpus-health refresh that returns only the governed bundle', () => {
+    assert.match(workflow, /corpus_health_refresh:/)
+    assert.match(workflow, /Regenerate governed corpus health/)
+    assert.match(workflow, /CORPUS_HEALTH_SUPERSEDES_ID="\$supersedes_id" npm run knowledge:health:generate/)
+    assert.match(workflow, /npm run knowledge:health:check/)
+    assert.match(workflow, /actions\/upload-artifact@v4/)
+    assert.match(workflow, /retention-days: 1/)
+  })
+
   it('pins and checksum-verifies cloudflared in both jobs', () => {
     const download =
       'https://github.com/cloudflare/cloudflared/releases/download/2026.7.2/cloudflared-linux-amd64'
     const checksum = 'ec905ea7b7e327ff8abdde8cb64697a2152de74dbcdbf6aec9db8364eb3886cd'
 
-    assert.equal(occurrences(workflow, download), 2)
-    assert.equal(occurrences(workflow, checksum), 2)
-    assert.equal(occurrences(workflow, 'sha256sum -c -'), 2)
+    assert.equal(occurrences(workflow, download), 3)
+    assert.equal(occurrences(workflow, checksum), 3)
+    assert.equal(occurrences(workflow, 'sha256sum -c -'), 3)
     assert.doesNotMatch(workflow, /cloudflared\/releases\/latest/)
   })
 
   it('probes PostgreSQL through private libpq settings without a credential URL in argv', () => {
     assert.equal(occurrences(workflow, 'Prepare private libpq connection'), 2)
-    assert.equal(occurrences(workflow, "fs.writeFileSync(pgpassFile, pgpass, { mode: 0o600 })"), 2)
-    assert.equal(occurrences(workflow, "psql -X -tAc 'select 1'"), 2)
-    assert.equal(occurrences(workflow, 'unset PGPASSWORD'), 2)
+    assert.equal(occurrences(workflow, "fs.writeFileSync(pgpassFile, pgpass, { mode: 0o600 })"), 3)
+    assert.equal(occurrences(workflow, "psql -X -tAc 'select 1'"), 3)
+    assert.equal(occurrences(workflow, 'unset PGPASSWORD'), 3)
 
     for (const variable of ['PGHOST', 'PGPORT', 'PGDATABASE', 'PGUSER', 'PGSSLMODE', 'PGPASSFILE']) {
       assert.ok(workflow.includes(`['${variable}',`), `libpq environment missing ${variable}`)
@@ -50,11 +59,11 @@ describe('citation verification workflow', () => {
   it('keeps Cloudflare Access service-token credentials out of process arguments', () => {
     assert.equal(
       occurrences(workflow, 'TUNNEL_SERVICE_TOKEN_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}'),
-      2,
+      3,
     )
     assert.equal(
       occurrences(workflow, 'TUNNEL_SERVICE_TOKEN_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}'),
-      2,
+      3,
     )
     assert.doesNotMatch(workflow, /--service-token-(?:id|secret)/)
   })
@@ -91,11 +100,11 @@ describe('citation verification workflow', () => {
       )
     }
 
-    assert.equal(occurrences(workflow, 'DATABASE_URL: ${{ secrets.DATABASE_URL }}'), 3)
-    assert.equal(occurrences(workflow, 'TUNNEL_SERVICE_TOKEN_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}'), 2)
+    assert.equal(occurrences(workflow, 'DATABASE_URL: ${{ secrets.DATABASE_URL }}'), 4)
+    assert.equal(occurrences(workflow, 'TUNNEL_SERVICE_TOKEN_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}'), 3)
     assert.equal(
       occurrences(workflow, 'TUNNEL_SERVICE_TOKEN_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}'),
-      2,
+      3,
     )
   })
 
@@ -143,8 +152,8 @@ describe('citation verification workflow', () => {
   })
 
   it('cleans only the workflow-owned credential directory in both jobs', () => {
-    assert.equal(occurrences(workflow, '"$RUNNER_TEMP"/citation-db.*)'), 2)
-    assert.equal(occurrences(workflow, 'rm -f -- "$DATABASE_CONNECTION_DIR/pgpass"'), 2)
-    assert.equal(occurrences(workflow, 'Refusing to remove unexpected connection directory'), 2)
+    assert.equal(occurrences(workflow, '"$RUNNER_TEMP"/citation-db.*)'), 3)
+    assert.equal(occurrences(workflow, 'rm -f -- "$DATABASE_CONNECTION_DIR/pgpass"'), 3)
+    assert.equal(occurrences(workflow, 'Refusing to remove unexpected connection directory'), 3)
   })
 })
