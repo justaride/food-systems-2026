@@ -24,7 +24,7 @@ permissions:
 
 concurrency:
   group: coolify-db-health-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 env:
   DB_UUID: l0s8o8oo00c8gossw0gksswk
