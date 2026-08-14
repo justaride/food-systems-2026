@@ -16,10 +16,52 @@ name: Schema migration guard
 on:
   push:
     branches: [main]
+    paths:
+      - '.github/workflows/schema-migration-guard.yml'
+      - 'prisma/schema.prisma'
+      - 'prisma/migrations/**'
+      - 'scripts/apply-prod-migrations.sh'
+      - 'scripts/bootstrap-mcp-readonly-role.sh'
+      - 'scripts/verify-mcp-readonly-role.sh'
+      - 'scripts/create-database-backup.sh'
+      - 'scripts/verify-database-backup.sh'
+      - 'scripts/restore-database-backup-drill.sh'
+      - 'scripts/verify-database-schema-drift.sh'
+      - 'scripts/verify-production-migration-baseline.sh'
+      - 'tests/lib/db-ops-hardening.test.ts'
+      - 'tests/lib/coolify-db-watcher-workflow.test.ts'
+      - 'tests/lib/docker-runtime-migration.test.ts'
+      - 'tests/lib/food-tg-board-schema.test.ts'
+      - 'tests/lib/schema-migration-guard-workflow.test.ts'
+      - 'package.json'
+      - 'package-lock.json'
   pull_request:
+    paths:
+      - '.github/workflows/schema-migration-guard.yml'
+      - 'prisma/schema.prisma'
+      - 'prisma/migrations/**'
+      - 'scripts/apply-prod-migrations.sh'
+      - 'scripts/bootstrap-mcp-readonly-role.sh'
+      - 'scripts/verify-mcp-readonly-role.sh'
+      - 'scripts/create-database-backup.sh'
+      - 'scripts/verify-database-backup.sh'
+      - 'scripts/restore-database-backup-drill.sh'
+      - 'scripts/verify-database-schema-drift.sh'
+      - 'scripts/verify-production-migration-baseline.sh'
+      - 'tests/lib/db-ops-hardening.test.ts'
+      - 'tests/lib/coolify-db-watcher-workflow.test.ts'
+      - 'tests/lib/docker-runtime-migration.test.ts'
+      - 'tests/lib/food-tg-board-schema.test.ts'
+      - 'tests/lib/schema-migration-guard-workflow.test.ts'
+      - 'package.json'
+      - 'package-lock.json'
 
 permissions:
   contents: read
+
+concurrency:
+  group: schema-migration-guard-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   guard:

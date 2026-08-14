@@ -2,10 +2,11 @@ name: PR Quality Gates
 
 on:
   pull_request:
-  push:
-    branches-ignore:
-      - main
   workflow_dispatch:
+
+concurrency:
+  group: pr-quality-gates-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   test-and-audit:
