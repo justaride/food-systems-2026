@@ -16,7 +16,7 @@ name: Coolify DB Health Watcher
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # hvert 15. minutt
+    - cron: '0 6 * * *'     # daglig kl 06:00 UTC
   workflow_dispatch:
 
 permissions:
