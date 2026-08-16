@@ -258,13 +258,35 @@ jobs:
           echo "::error::Sjekk at COOLIFY_BASE_URL stemmer og at API-stien slipper gjennom Cloudflare (Access-policy for service-tokenet, eller WAF-skip for /api/*)."
           exit 1
 
+      # Backup-tellingene er BEVISST ute av feilbetingelsen.
+      #
+      # De måler Coolifys EGEN planlegger, og den er tom med vilje: disse
+      # basene sikres av den nattlige kjeden på Mac Studio
+      # (gabibfree-dashboard, scripts/backup-coolify-databases.ts), ikke av
+      # Coolify. Målt 2026-08-16 kl. 01:30 ble food-systems-pgvector-db dumpet,
+      # kryptert og bevist med sha256 og et offsite-bevis; food-systems-db står
+      # som navngitt utelatelse fordi den har null brukertabeller.
+      #
+      # Porten var derfor rød hver 13. minutt døgnet rundt — rundt 110 falske
+      # kjøringer i døgnet — på fraværet av en mekanisme som er erstattet et
+      # annet sted. En vakt som roper ulv så ofte blir dempet, og da er den
+      # verre enn ingen vakt.
+      #
+      # Dekningen er ikke borte: `coolify-backup` står i cockpitens
+      # ferskhetsvakt med Telegram-varsling og et vindu på 28 timer, så en
+      # backup som feiler eller blir gammel varsles fortsatt — bare av den som
+      # faktisk eier mekanismen. Tellingene rapporteres videre under, slik at
+      # tallet forblir synlig her uten å felle kjøringen.
+      - name: Report Coolify-scheduler backup posture
+        if: steps.db.outputs.reach == 'ok'
+        run: |
+          echo "::notice::Coolify-planleggerens backup: configured=${{ steps.backup.outputs.backup_count }}, enabled=${{ steps.backup.outputs.enabled_count }}, off-node=${{ steps.backup.outputs.off_node_count }}, recent-success=${{ steps.backup.outputs.recent_success_count }}, latest-age-hours=${{ steps.backup.outputs.latest_age_hours }}"
+          echo "::notice::Null er forventet. Backup eies av den nattlige kjeden på Mac Studio og overvåkes av cockpitens freshness-watch (domain coolify-backup)."
+
       - name: Fail if unhealthy or unreachable
         if: |
           steps.db.outputs.reach == 'ok' && (
             steps.db.outputs.status != 'running:healthy' ||
-            steps.backup.outputs.enabled_count == '0' ||
-            steps.backup.outputs.off_node_count == '0' ||
-            steps.backup.outputs.recent_success_count == '0' ||
             steps.app.outputs.http_code != '200' ||
             steps.app.outputs.api_ok != 'true' ||
             steps.app.outputs.db_ok != 'true' ||
