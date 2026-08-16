@@ -28,7 +28,20 @@ describe('Coolify database health workflows', () => {
     assert.match(watcher, /execution\.get\('size'\)/)
     assert.match(watcher, /execution\.get\('created_at'\)/)
     assert.match(watcher, /age_hours <= max_age_hours/)
-    assert.match(watcher, /steps\.backup\.outputs\.recent_success_count == '0'/)
+    // Backup-tellingene felte kjøringen fram til 2026-08-16. De målte Coolifys
+    // egen planlegger, som er tom med vilje — basene sikres av den nattlige
+    // kjeden på Mac Studio, bevist per base med sha256 og offsite-bevis. Porten
+    // var rød hvert 13. minutt på fraværet av en erstattet mekanisme.
+    //
+    // Kontrakten nå: tellingene RAPPORTERES, de feller ikke. Begge halvdelene
+    // påstås, slik at verken den ene eller den andre kan forsvinne stille.
+    const failureGate = watcher.match(/- name: Fail if unhealthy or unreachable[\s\S]*?\n\s+run: \|/)?.[0] ?? ''
+    assert.doesNotMatch(failureGate, /backup\.outputs\.enabled_count == '0'/)
+    assert.doesNotMatch(failureGate, /backup\.outputs\.off_node_count == '0'/)
+    assert.doesNotMatch(failureGate, /backup\.outputs\.recent_success_count == '0'/)
+    assert.match(watcher, /- name: Report Coolify-scheduler backup posture/)
+    assert.match(watcher, /::notice::Coolify-planleggerens backup/)
+    assert.match(watcher, /freshness-watch/)
   })
 
   it('keeps operational library health separate from external human readiness', () => {
