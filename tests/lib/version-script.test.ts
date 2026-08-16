@@ -17,7 +17,7 @@ describe('version script wiring', () => {
     )
   })
 
-  it('prefers automatic Coolify source metadata in a Docker-style context', () => {
+  it('uses the commit Coolify injects into the build', () => {
     const workdir = mkdtempSync(join(tmpdir(), 'foodsystems-version-'))
     const script = resolve('scripts/write-version.ts')
     const tsx = resolve('node_modules/.bin/tsx')
@@ -32,8 +32,6 @@ describe('version script wiring', () => {
           SOURCE_COMMIT: sourceCommit,
           COOLIFY_BRANCH: 'main',
           SOURCE_BRANCH: 'stale-legacy-branch',
-          COOLIFY_GIT_COMMIT_SHA: 'c1d540de5f366490d81e720642d95856d2c53e72',
-          COOLIFY_GIT_BRANCH: 'stale-legacy-branch',
         },
       })
 
@@ -42,16 +40,16 @@ describe('version script wiring', () => {
         readFileSync(join(workdir, 'src/generated/version.json'), 'utf8'),
       ) as { sha: string; shortSha: string; shaSource: string; branch: string }
 
-      assert.equal(version.sha, 'c1d540de5f366490d81e720642d95856d2c53e72')
-      assert.equal(version.shortSha, 'c1d540d')
-      assert.equal(version.shaSource, 'coolify-auto')
+      assert.equal(version.sha, sourceCommit)
+      assert.equal(version.shortSha, sourceCommit.slice(0, 7))
+      assert.equal(version.shaSource, 'manual-env')
       assert.equal(version.branch, 'main')
     } finally {
       rmSync(workdir, { recursive: true, force: true })
     }
   })
 
-  it('ignores literal unknown and malformed metadata in favor of valid fallbacks', () => {
+  it('ignores literal unknown and malformed metadata rather than reporting it', () => {
     const workdir = mkdtempSync(join(tmpdir(), 'foodsystems-version-fallback-'))
     const script = resolve('scripts/write-version.ts')
     const tsx = resolve('node_modules/.bin/tsx')
@@ -63,12 +61,9 @@ describe('version script wiring', () => {
         encoding: 'utf8',
         env: {
           ...process.env,
-          SOURCE_COMMIT: 'unknown',
+          SOURCE_COMMIT: fallbackCommit,
           COOLIFY_BRANCH: 'unknown',
-          SOURCE_BRANCH: '',
-          COOLIFY_GIT_COMMIT_SHA: fallbackCommit,
-          COOLIFY_GIT_BRANCH: 'main',
-          COMMIT_SHA: 'not-a-sha',
+          SOURCE_BRANCH: 'main',
         },
       })
 
@@ -113,22 +108,32 @@ function runOutsideGit(env: Record<string, string>) {
 }
 
 describe('write-version shaSource', () => {
-  it('merker Coolifys auto-injiserte SHA som coolify-auto og lar den slå manuell env', () => {
-    const version = runOutsideGit({
-      COOLIFY_GIT_COMMIT_SHA: 'a'.repeat(40),
-      SOURCE_COMMIT: 'b'.repeat(40),
-    })
-
-    assert.equal(version.sha, 'a'.repeat(40))
-    assert.equal(version.shaSource, 'coolify-auto')
-  })
-
-  it('merker den eksternt vedlikeholdte SOURCE_COMMIT som manual-env', () => {
+  it('merker SOURCE_COMMIT som manual-env så lenge den vedlikeholdes utenfra', () => {
     const version = runOutsideGit({ SOURCE_COMMIT: 'c'.repeat(40) })
 
     assert.equal(version.sha, 'c'.repeat(40))
     assert.equal(version.shaSource, 'manual-env')
   })
+
+  // Kjeden foretrakk tidligere COOLIFY_GIT_COMMIT_SHA, og testen som «beviste»
+  // at det virket satte variabelen selv. Coolifys kildekode inneholder den
+  // ikke: den eneste variabelen den injiserer er SOURCE_COMMIT, og bare når
+  // include_source_commit_in_build står på. En kandidat som aldri kan bli satt
+  // i produksjon er ikke en fallback — den er en misforståelse med testdekning.
+  it('leser ikke variabler Coolify aldri setter', () => {
+    const version = runOutsideGit({
+      COOLIFY_GIT_COMMIT_SHA: 'a'.repeat(40),
+      COMMIT_SHA: 'd'.repeat(40),
+      GIT_SHA: 'e'.repeat(40),
+    })
+
+    assert.equal(version.sha, 'unknown')
+    assert.equal(version.shaSource, 'unknown')
+  })
+
+  // Uten SOURCE_COMMIT er 'unknown' det ærlige svaret, og /api/version svarer
+  // 503 på det. Alternativet — å plukke en verdi fra en variabel noen satte en
+  // gang — er nettopp det som lot endepunktet lyve i fem dager.
 
   it('faller til unknown når ingen kilde finnes', () => {
     const version = runOutsideGit({})
