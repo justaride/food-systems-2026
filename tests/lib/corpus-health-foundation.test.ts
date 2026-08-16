@@ -325,11 +325,14 @@ test('keeps configured-database lineage exact and fails closed on identity, appr
   assert.equal(metric(assessment, 'health_metric.head_migrations').value, 31)
   assert.equal(metric(assessment, 'health_metric.database_migrations').value, 31)
   assert.equal(metric(assessment, 'health_metric.migration_lineage_mismatches').value, 0)
-  assert.equal(metric(assessment, 'health_metric.database_only_evidence_identities').value, 73)
+  // Trioen under flyttet seg med nøyaktig 1 hver, samtidig: én seed-only
+  // identitet ble løst i produksjonsreleasen 2026-08-11, så den forsvant
+  // fra både database-only og unclassified samtidig som seed_only ble 0.
+  assert.equal(metric(assessment, 'health_metric.database_only_evidence_identities').value, 72)
   assert.equal(metric(assessment, 'health_metric.managed_runtime_evidence_identities').value, 17)
-  assert.equal(metric(assessment, 'health_metric.unclassified_database_only_evidence_identities').value, 56)
+  assert.equal(metric(assessment, 'health_metric.unclassified_database_only_evidence_identities').value, 55)
   assert.equal(metric(assessment, 'health_metric.missing_managed_runtime_evidence_identities').value, 0)
-  assert.equal(metric(assessment, 'health_metric.seed_only_evidence_identities').value, 1)
+  assert.equal(metric(assessment, 'health_metric.seed_only_evidence_identities').value, 0)
 
   const seedIdentityConflict = asObjectArray(assessment.conflicts, 'assessment.conflicts')
     .find((item) => item.conflictId === 'health.conflict.seed_database_identity')
@@ -341,11 +344,31 @@ test('keeps configured-database lineage exact and fails closed on identity, appr
   assert.ok(libraryIdentityConflict)
   assert.equal(libraryIdentityConflict.status, 'open')
   assert.equal(metric(assessment, 'health_metric.library_inventory').value, 1_555)
-  assert.equal(metric(assessment, 'health_metric.library_live_materialization').value, 1_555)
-  assert.equal(metric(assessment, 'health_metric.library_materialization').value, 1_627)
-  assert.equal(metric(assessment, 'health_metric.library_retained_history_rows').value, 72)
-  assert.equal(metric(assessment, 'health_metric.library_inventory_only_rows').value, 0)
-  assert.equal(metric(assessment, 'health_metric.library_retained_history_contract_issues').value, 55)
+  // Produksjonsreleasen 2026-08-11 flyttet biblioteket, den mistet det ikke.
+  // Nevneren står stille på 1 555, og 165 + 1 390 = 1 555 nøyaktig: radene
+  // byttet klasse fra live-materialisert til inventar-bare.
+  //
+  // Totalen 1 770 er verifiserbar utenfra — /api/library-analysis/status
+  // svarer `total: 1770`, og releasekvitteringen fra samme dag oppgir det
+  // samme tallet.
+  //
+  // Kontraktproblemene er en ren sum av de to andre tallene pluss et rest:
+  //     1 605 «unreviewed retained database row»   = library_retained_history_rows
+  //   + 1 390 «current inventory identity is not materialized» = library_inventory_only_rows
+  //   +    17 «missing retained database row»
+  //   = 3 012
+  // Altså én sak per beholdt rad og én per inventar-rad, ikke et fall i
+  // kvalitet. `pendingReview: 399` og `humanReviewed: 0` på det levende
+  // endepunktet er samme tilstand sett fra appen.
+  //
+  // De 17 «missing» er det eneste her som ikke er selvforklarende: før
+  // releasen var 55 av 72 beholdte rader ugjennomgåtte, altså 17
+  // gjennomgåtte. De 17 bar ikke over. Se PR-en for spørsmålet.
+  assert.equal(metric(assessment, 'health_metric.library_live_materialization').value, 165)
+  assert.equal(metric(assessment, 'health_metric.library_materialization').value, 1_770)
+  assert.equal(metric(assessment, 'health_metric.library_retained_history_rows').value, 1_605)
+  assert.equal(metric(assessment, 'health_metric.library_inventory_only_rows').value, 1_390)
+  assert.equal(metric(assessment, 'health_metric.library_retained_history_contract_issues').value, 3_012)
   assert.equal(metric(assessment, 'health_metric.library_projection_updates_reported').value, 15)
 
   const internalAnalysis = profileVerdict(assessment, 'health_profile.internal_analysis')
@@ -360,22 +383,26 @@ test('keeps configured-database lineage exact and fails closed on identity, appr
   assert.equal(appraisal.denominator, 472)
   assert.equal(appraisal.percentage, 0)
 
+  // 77,4 % -> 98,6 % av en base som vokste 2 562 -> 5 016. Importen tok inn
+  // nye siteringer uten arkivbevis. Tallet pinnes fordi det er en
+  // OBSERVASJON i en dimensjon som allerede står `blocked` — påstanden rett
+  // under holder den porten. Skulle arkivet bli løst, feiler denne først.
   const archive = metric(assessment, 'health_metric.external_rows_needing_archive')
-  assert.equal(archive.value, 1_984)
-  assert.equal(archive.numerator, 1_984)
-  assert.equal(archive.denominator, 2_562)
+  assert.equal(archive.value, 4_944)
+  assert.equal(archive.numerator, 4_944)
+  assert.equal(archive.denominator, 5_016)
   assert.ok(asObjectArray(assessment.dimensions, 'assessment.dimensions').some((item) => (
     item.dimensionId === 'archive'
     && item.verdict === 'blocked'
   )))
-  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').externalRowsNeedingArchive, 1_984)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').externalRowsNeedingArchive, 4_944)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').managedRuntimeEvidenceIdentities, 17)
-  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').unclassifiedDatabaseOnlyEvidenceIdentities, 56)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').unclassifiedDatabaseOnlyEvidenceIdentities, 55)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').missingManagedRuntimeEvidenceIdentities, 0)
-  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').livePersistedLibraryRows, 1_555)
-  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').retainedLibraryHistoryRows, 72)
-  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').libraryInventoryOnlyRows, 0)
-  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').libraryRetainedHistoryContractIssues, 55)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').livePersistedLibraryRows, 165)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').retainedLibraryHistoryRows, 1_605)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').libraryInventoryOnlyRows, 1_390)
+  assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').libraryRetainedHistoryContractIssues, 3_012)
   assert.equal(asObject(summary.keyMetrics, 'summary.keyMetrics').reportedLibraryProjectionUpdates, 15)
 
   const pdfOpenIdentityBlockers = metric(assessment, 'health_metric.pdf_open_identity_blockers')
