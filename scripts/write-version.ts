@@ -3,8 +3,32 @@
  * Kjøres som første ledd i `npm run build` slik at /api/version
  * eksponerer hva som faktisk er deployet.
  *
- * Falner gracefully tilbake til 'unknown' hvis git ikke er tilgjengelig
- * (f.eks. i et Docker build context uten .git-mappen).
+ * ── Hvorfor kjeden ser ut som den gjør (målt mot produksjon 2026-08-16) ──
+ *
+ * 1. `git rev-parse` virker lokalt og i CI, men ALDRI i et Coolify-bygg:
+ *    Coolify sletter arbeidstreets .git før build.sh kjører
+ *    (`rm -fr {basedir}/.git`, ApplicationDeploymentJob.php).
+ *
+ * 2. `SOURCE_COMMIT` er den ENESTE variabelen Coolify injiserer med deployens
+ *    egen commit, og bare når per-app-innstillingen
+ *    `include_source_commit_in_build` er slått PÅ. Den står AV for denne appen
+ *    per 2026-08-16, så verdien er fortsatt den en workflow setter utenfra —
+ *    derfor er stempelet fremdeles `manual-env`. Slås innstillingen på, kommer
+ *    verdien fra deployen selv og kan ikke bli stale.
+ *
+ * `COOLIFY_GIT_COMMIT_SHA` er fjernet. Den finnes ikke i Coolifys kildekode;
+ * kjeden foretrakk en variabel som aldri blir satt, og testen som «beviste»
+ * det satte den selv. De generiske `COMMIT_SHA`/`GIT_SHA` er fjernet av
+ * motsatt grunn: de kunne bare komme utenfra bygget, og det var nettopp den
+ * stien som løy.
+ *
+ * Bakgrunn: fram til 2026-08-16 holdt workflowen `coolify-sync-source-commit`
+ * SOURCE_COMMIT synkronisert utenfra. Den sluttet å kunne fyre da de daglige
+ * commitene til main ble laget av `github-actions[bot]` — en push med
+ * GITHUB_TOKEN utløser per GitHubs design ingen workflows. Coolifys egen
+ * webhook-deploy brydde seg ikke, så imaget avanserte hver dag mens
+ * /api/version ble stående på 9443177b fra 11. august. Verdien var fem dager
+ * gammel og så helt fersk ut, fordi `builtAt` var korrekt.
  */
 
 import { execSync } from 'child_process'
@@ -35,23 +59,14 @@ function firstKnownValue(...candidates: Array<string | undefined>): string | und
     .find(candidate => Boolean(candidate && candidate.toLowerCase() !== 'unknown'))
 }
 
-// Priority order:
-//   1. git rev-parse — best when .git is available
-//   2. Coolify's auto-injected commit — preferred whenever it is available
-//   3. SOURCE_COMMIT — synchronized by the guarded release workflow because
-//      this Coolify installation does not currently expose the automatic SHA
-//      inside its Docker build
-//   4. generic CI fallbacks
-// `shaSource` sier hvilket ledd som vant. Bare `manual-env` vedlikeholdes
-// utenfra bygget (coolify-sync-source-commit.yml) og kan derfor bli stale —
-// da peker /api/version på feil commit uten å si fra. Ved å skrive kilden
-// ned blir et stale stempel synlig i stedet for stille.
+// To ledd. `shaSource` skrives fortsatt ned, og `manual-env` betyr fortsatt
+// «denne verdien vedlikeholdes utenfra bygget og kan være stale» — det er
+// nettopp det stempelet som gjorde det mulig å oppdage feilen over. Det blir
+// stående til `include_source_commit_in_build` er slått på; da er SOURCE_COMMIT
+// deployens egen commit og stempelet kan snus til noe sterkere.
 const SHA_CANDIDATES: ReadonlyArray<readonly [string, string | undefined]> = [
   ['git', tryGit('rev-parse HEAD')],
-  ['coolify-auto', process.env.COOLIFY_GIT_COMMIT_SHA],
   ['manual-env', process.env.SOURCE_COMMIT],
-  ['manual-env', process.env.COMMIT_SHA],
-  ['manual-env', process.env.GIT_SHA],
 ]
 const validCandidate = SHA_CANDIDATES
   .map(([source, candidate]) => [source, firstValidSha(candidate)] as const)
@@ -65,8 +80,6 @@ const branch =
     : firstKnownValue(
         process.env.COOLIFY_BRANCH,
         process.env.SOURCE_BRANCH,
-        process.env.COOLIFY_GIT_BRANCH,
-        process.env.GIT_BRANCH,
       ) ?? 'unknown'
 
 const version = {
