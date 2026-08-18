@@ -35,6 +35,9 @@ describe('schema migration guard workflow', () => {
       'scripts/apply-prod-migrations.sh',
       'scripts/bootstrap-mcp-readonly-role.sh',
       'scripts/verify-mcp-readonly-role.sh',
+      'scripts/bootstrap-candidate-analysis-roles.sh',
+      'scripts/disable-candidate-analysis-writes.sh',
+      'scripts/verify-candidate-analysis-roles.sh',
       'scripts/create-database-backup.sh',
       'scripts/verify-database-backup.sh',
       'scripts/restore-database-backup-drill.sh',
@@ -56,6 +59,7 @@ describe('schema migration guard workflow', () => {
   it('runs the DB operations, migration, workflow, and MCP contracts explicitly', () => {
     for (const test of [
       'tests/lib/db-ops-hardening.test.ts',
+      'tests/lib/candidate-analysis-role-contract.test.ts',
       'tests/lib/coolify-db-watcher-workflow.test.ts',
       'tests/lib/docker-runtime-migration.test.ts',
       'tests/lib/food-tg-board-schema.test.ts',
