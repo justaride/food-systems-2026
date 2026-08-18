@@ -30,3 +30,11 @@ test('legacy guides reject generic mutable writes for candidate history', () => 
   assert.match(research, /workflow\.candidate_analysis\.v1/)
   assert.match(imports, /never use generic upsert or update for candidate history/i)
 })
+
+test('corrections append explicit supersession links for every authority history', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+
+  assert.match(contract, /candidate correction.*append.*new candidate event.*superseded candidate event hash/i)
+  assert.match(contract, /human-review correction.*append.*new human-review decision.*superseded human-review receipt hash/i)
+  assert.match(contract, /promotion correction.*append.*new promotion receipt.*superseded promotion receipt hash/i)
+})

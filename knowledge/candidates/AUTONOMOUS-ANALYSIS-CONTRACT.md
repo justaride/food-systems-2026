@@ -32,6 +32,8 @@ Candidate status, human-review status, identity confidence, evidence status, rig
 
 Evidence records identify what supports or limits a candidate. Identity confidence constrains later promotion eligibility. A target profile defines the exact later promotion rules. Neither an evidence count nor a confidence level changes a candidate into canonical data.
 
+Corrections are append-only and must preserve their authority history: a candidate correction must append a new candidate event and state the superseded candidate event hash; a human-review correction must append a new human-review decision and state the superseded human-review receipt hash; and a promotion correction must append a new promotion receipt and state the superseded promotion receipt hash. A correction never overwrites or silently displaces the prior event or receipt.
+
 ## Recursive machine use
 
 Machine systems may read, compare, reconcile, retry, rank or summarize prior candidate results when every consumed candidate and its inputs remain hash-bound. Recursive use creates a new append-only candidate event with its own provenance; it does not overwrite, merge away or promote the prior event.
