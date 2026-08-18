@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  CandidateAnalysisArtifactInputSchema,
+  CandidateAnalysisRunEventInputSchema,
   CandidateAssertionInputSchema,
   candidateAnalysisSha256,
   deriveCandidateAnalysisMachineState,
@@ -32,6 +34,57 @@ test("rejects review and publication fields in machine payloads", () => {
         externalReady: true,
       }),
     /unrecognized/i,
+  );
+});
+
+test("rejects nested authority markers in every machine-owned payload", () => {
+  const fixture = candidateAnalysisFixture();
+
+  assert.throws(
+    () =>
+      CandidateAssertionInputSchema.parse({
+        ...fixture.assertion,
+        payload: { proposition: { promotionState: "published" } },
+      }),
+    /reserved_machine_payload_field/,
+  );
+  assert.throws(
+    () =>
+      CandidateAnalysisArtifactInputSchema.parse({
+        ...fixture.artifact,
+        payload: { result: { humanReviewed: true } },
+      }),
+    /reserved_machine_payload_field/,
+  );
+  assert.throws(
+    () =>
+      CandidateAnalysisArtifactInputSchema.parse({
+        ...fixture.artifact,
+        payload: { result: { publicationState: "published" } },
+      }),
+    /reserved_machine_payload_field/,
+  );
+  assert.throws(
+    () =>
+      CandidateAnalysisRunEventInputSchema.parse({
+        ...fixture.events.started,
+        payload: { progress: { externalReady: true } },
+      }),
+    /reserved_machine_payload_field/,
+  );
+  assert.throws(
+    () =>
+      CandidateAnalysisRunEventInputSchema.parse({
+        ...fixture.events.started,
+        payload: { progress: { coverageAuthority: "approved" } },
+      }),
+    /reserved_machine_payload_field/,
+  );
+  assert.doesNotThrow(() =>
+    CandidateAssertionInputSchema.parse({
+      ...fixture.assertion,
+      payload: { note: "This ordinary string may mention published review." },
+    }),
   );
 });
 

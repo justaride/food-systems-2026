@@ -110,6 +110,63 @@ const IDENTIFIER_PATTERN = /^[a-z0-9][a-z0-9._:-]*$/;
 const hashSchema = z.string().regex(HASH_PATTERN);
 const identifierSchema = z.string().regex(IDENTIFIER_PATTERN);
 const nonEmptyTextSchema = z.string().min(1);
+
+const RESERVED_MACHINE_PAYLOAD_REVIEW_KEYS = new Set([
+  "reviewauthority",
+  "reviewdecision",
+  "reviewer",
+  "reviewedat",
+  "reviewprofile",
+  "reviewreceipt",
+  "reviewstatus",
+]);
+
+function isReservedMachinePayloadKey(key: string): boolean {
+  const normalized = key.replace(/[^a-z0-9]/gi, "").toLowerCase();
+  if (
+    normalized.includes("humanreview") ||
+    RESERVED_MACHINE_PAYLOAD_REVIEW_KEYS.has(normalized) ||
+    normalized.includes("promotion") ||
+    normalized.includes("publication") ||
+    normalized.includes("published")
+  ) {
+    return true;
+  }
+  if (
+    normalized.includes("external") &&
+    (normalized.includes("ready") ||
+      normalized.includes("eligible") ||
+      normalized.includes("allowed"))
+  ) {
+    return true;
+  }
+  return (
+    normalized.includes("coverage") &&
+    (normalized.includes("authority") ||
+      normalized.includes("ready") ||
+      normalized.includes("promotion") ||
+      normalized.includes("approval") ||
+      normalized.includes("eligible") ||
+      normalized.includes("allowed"))
+  );
+}
+
+function candidateJsonObjectSchema() {
+  return z
+    .record(z.string(), CandidateJsonValueSchema)
+    .superRefine((value, ctx) => {
+      for (const key of Object.keys(value)) {
+        if (isReservedMachinePayloadKey(key)) {
+          ctx.addIssue({
+            code: "custom",
+            message: "reserved_machine_payload_field",
+            path: [key],
+          });
+        }
+      }
+    });
+}
+
 const CandidateJsonValueSchema: z.ZodType<CandidateJsonValue> = z.lazy(() =>
   z.union([
     z.null(),
@@ -117,7 +174,7 @@ const CandidateJsonValueSchema: z.ZodType<CandidateJsonValue> = z.lazy(() =>
     z.number(),
     z.string(),
     z.array(CandidateJsonValueSchema),
-    z.record(z.string(), CandidateJsonValueSchema),
+    candidateJsonObjectSchema(),
   ]),
 );
 
