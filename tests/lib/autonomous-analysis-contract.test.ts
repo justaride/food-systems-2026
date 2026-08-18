@@ -31,6 +31,29 @@ test('legacy guides reject generic mutable writes for candidate history', () => 
   assert.match(imports, /never use generic upsert or update for candidate history/i)
 })
 
+test('candidate SQL is internal, parameterized, read-only, and limited to integrity checks', () => {
+  const root = read('AGENTS.md')
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+
+  for (const authorityText of [root, contract]) {
+    assert.match(authorityText, /narrow, parameterized, internal, read-only SQL/i)
+    assert.match(authorityText, /SELECT \.\.\. FOR UPDATE/i)
+    assert.match(authorityText, /recursive dependency-integrity/i)
+    assert.match(authorityText, /must not be exposed/i)
+    assert.match(authorityText, /must not mutate candidate history/i)
+  }
+})
+
+test('recursive authority preserves limitations and requires independent direct evidence for upgrades', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+
+  assert.match(contract, /inherited limitations are always mandatory/i)
+  assert.match(contract, /weakest upstream authority/i)
+  assert.match(contract, /own direct supporting.*CandidateEvidenceLink/i)
+  assert.match(contract, /upstream_authority_upgrade/)
+  assert.match(contract, /no machine lineage changes human review or promotion state/i)
+})
+
 test('corrections append explicit supersession links for every authority history', () => {
   const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
 

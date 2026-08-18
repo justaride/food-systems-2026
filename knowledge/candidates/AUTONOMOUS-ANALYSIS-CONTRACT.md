@@ -40,9 +40,13 @@ Machine systems may read, compare, reconcile, retry, rank or summarize prior can
 
 Repetition, reconciliation and model agreement may prioritize human attention or request further analysis. They never record `human_review` or `promotion` and never supply the authority required by either.
 
+Inherited limitations are always mandatory on both the dependency record and the dependent assertion. The dependent `machineUse` may never be more permissive than the weakest upstream authority in its recursive lineage. A dependent assertion may strengthen `identityConfidence` or `evidenceLevel` only when its own direct supporting `CandidateEvidenceLink` records independently justify the stronger value; otherwise the writer rejects the dependency with `upstream_authority_upgrade`. Exact identity can be justified only by a directly linked content unit with at least the claimed identity confidence. An evidence-level upgrade is justified only when a direct supporting link's locator and locator hash exactly match its hash-bound content unit. The current schema does not distinguish partially located direct evidence from other non-exact locator relationships, so that case fails closed rather than inferring an upgrade.
+
+No machine lineage changes human review or promotion state. Lineage and independent evidence may constrain or support a new candidate assertion only; they never create authority on another axis.
+
 ## Database roles
 
-`CandidateAnalysisRun` is the reserved append-only run-record name for the candidate subsystem. Its sole future write path is `src/lib/knowledge/candidate-analysis-writer.ts`; generic upsert, update, delete and raw SQL are forbidden for candidate history. This Delivery 1 contract does not add that model, writer, adapter or any migration.
+`CandidateAnalysisRun` is the reserved append-only run-record name for the candidate subsystem. Its sole worker write path is `src/lib/knowledge/candidate-analysis-writer.ts`; generic upsert, update, delete and generic or mutating raw SQL are forbidden for candidate history. The writer may use only narrow, parameterized, internal, read-only SQL for `SELECT ... FOR UPDATE` serialization and recursive dependency-integrity checks. That SQL must not be exposed and must not mutate candidate history. Content-unit creation remains a trusted/admin intake action and is not part of the worker API.
 
 Candidate records are not canonical records. Human-review receipts, evidence records, target-promotion records, publication decisions and coverage assessments remain separate roles with their own schemas and append-only histories.
 
