@@ -237,6 +237,9 @@ SELECT pg_terminate_backend(activity.pid, 5000)
 FROM pg_stat_activity activity
 WHERE activity.usename IN (:'worker_role', :'reconciler_role')
   AND activity.pid <> pg_backend_pid();
+-- pg_stat_activity reuses its statistics snapshot inside this transaction.
+-- Refresh only after both bounded termination calls before checking survivors.
+SELECT pg_stat_clear_snapshot();
 DO $session_check$
 BEGIN
   IF EXISTS (

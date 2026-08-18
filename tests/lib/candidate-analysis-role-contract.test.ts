@@ -1805,6 +1805,105 @@ test(
 );
 
 test(
+  "enable terminates stale candidate sessions before restoring both exact logins",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const { adminUrl, database, port, psql } = context;
+      const fixture = prepareRecoveryFixture(context);
+      const temporarilyEnabled = psql(`
+        ALTER ROLE foodsystems_candidate_worker LOGIN;
+        ALTER ROLE foodsystems_candidate_reconciler LOGIN;
+      `);
+      assert.equal(temporarilyEnabled.status, 0, temporarilyEnabled.stderr);
+
+      const staleWorker = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "foodsystems_candidate_worker", "-d", database,
+          "-c", "SELECT pg_sleep(30)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: "candidate-enable-stale-worker",
+          },
+          stdio: "ignore",
+        },
+      );
+      const staleReconciler = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "foodsystems_candidate_reconciler", "-d", database,
+          "-c", "SELECT pg_sleep(30)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: "candidate-enable-stale-reconciler",
+          },
+          stdio: "ignore",
+        },
+      );
+      await waitFor(
+        () => activityCount(context, "candidate-enable-stale-worker") === "1",
+        "stale worker session did not become active",
+      );
+      await waitFor(
+        () => activityCount(context, "candidate-enable-stale-reconciler") === "1",
+        "stale reconciler session did not become active",
+      );
+
+      const disabledWithoutTermination = psql(`
+        ALTER ROLE foodsystems_candidate_worker NOLOGIN;
+        ALTER ROLE foodsystems_candidate_reconciler NOLOGIN;
+      `);
+      assert.equal(
+        disabledWithoutTermination.status,
+        0,
+        disabledWithoutTermination.stderr,
+      );
+      const staleState = psql(`
+        SELECT
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          (SELECT count(*) FROM pg_stat_activity WHERE application_name = 'candidate-enable-stale-worker'),
+          (SELECT count(*) FROM pg_stat_activity WHERE application_name = 'candidate-enable-stale-reconciler');
+      `);
+      assert.equal(staleState.status, 0, staleState.stderr);
+      assert.equal(staleState.stdout.trim(), "t|t|1|1");
+
+      const enable = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: recoveryEnableEnv(fixture, adminUrl),
+        },
+      );
+      assert.equal(enable.status, 0, `${enable.stdout}${enable.stderr}`);
+      await Promise.all([childExit(staleWorker), childExit(staleReconciler)]);
+      const enabledState = psql(`
+        SELECT
+          (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          (SELECT count(*) FROM pg_stat_activity WHERE application_name = 'candidate-enable-stale-worker'),
+          (SELECT count(*) FROM pg_stat_activity WHERE application_name = 'candidate-enable-stale-reconciler');
+      `);
+      assert.equal(enabledState.status, 0, enabledState.stderr);
+      assert.equal(enabledState.stdout.trim(), "t|t|0|0");
+    });
+  },
+);
+
+test(
   "concurrent membership, elevated-attribute, and ownership drift cannot cross enable's activation boundary",
   { timeout: 30_000 },
   async (t) => {
