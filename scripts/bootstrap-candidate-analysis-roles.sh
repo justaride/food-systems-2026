@@ -21,6 +21,8 @@ This operation never creates, changes, transports, or logs a login credential.
 Missing roles are created NOLOGIN. Initial credentials must be provisioned by a
 separate authorized operation. With existing dedicated credentials, restore in
 this order: bootstrap grants, explicit enable, worker verify, reconciler verify.
+Existing LOGIN roles or stale exact-role sessions are rejected before mutation;
+run disable-candidate-analysis-writes.sh --apply first, then rerun bootstrap.
 Incompatible PUBLIC/default-ACL state requires separate authorized hardening.
 EOF
 }
@@ -90,6 +92,8 @@ psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 -f - <<'SQL'
 \getenv reconciler_app_name CANDIDATE_RECONCILER_DB_APP_NAME
 
 SELECT set_config('foodsystems.candidate_schema', :'target_schema', false);
+SELECT set_config('foodsystems.candidate_worker_role', :'worker_role', false);
+SELECT set_config('foodsystems.candidate_reconciler_role', :'reconciler_role', false);
 DO $preflight$
 DECLARE
   missing_relation boolean;
@@ -218,6 +222,30 @@ END
 $preflight$;
 
 BEGIN;
+
+-- Bootstrap is a disabled-state grant repair, never an implicit service-state
+-- transition. Serialize ALTER ROLE and reject both LOGIN and stale sessions
+-- before the first role, grant, ACL, or setting mutation.
+LOCK TABLE pg_catalog.pg_authid IN SHARE ROW EXCLUSIVE MODE;
+DO $disabled_state$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_roles
+    WHERE rolname IN (
+      current_setting('foodsystems.candidate_worker_role'),
+      current_setting('foodsystems.candidate_reconciler_role')
+    ) AND rolcanlogin
+  ) OR EXISTS (
+    SELECT 1 FROM pg_stat_activity
+    WHERE usename IN (
+      current_setting('foodsystems.candidate_worker_role'),
+      current_setting('foodsystems.candidate_reconciler_role')
+    )
+  ) THEN
+    RAISE EXCEPTION 'candidate roles must be disabled before bootstrap; run disable-candidate-analysis-writes.sh --apply first';
+  END IF;
+END
+$disabled_state$;
 
 SELECT format('CREATE ROLE %I NOLOGIN', role_name)
 FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)

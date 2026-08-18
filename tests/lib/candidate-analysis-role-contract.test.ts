@@ -10,8 +10,12 @@ import {
 } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
-import { spawn, spawnSync, type ChildProcess } from "node:child_process";
-import { createServer, type Socket } from "node:net";
+import {
+  spawn,
+  spawnSync,
+  type ChildProcess,
+  type SpawnSyncReturns,
+} from "node:child_process";
 import { test } from "node:test";
 
 import { PrismaPg } from "@prisma/adapter-pg";
@@ -213,6 +217,230 @@ function candidateRowsSnapshot(
   return result.stdout.trim();
 }
 
+function psqlInDatabase(
+  context: CandidateAnalysisPostgresContext,
+  database: string,
+  sql: string,
+  user = "postgres",
+): SpawnSyncReturns<string> {
+  return spawnSync(
+    "psql",
+    [
+      "-X",
+      "-A",
+      "-t",
+      "-h",
+      "127.0.0.1",
+      "-p",
+      String(context.port),
+      "-U",
+      user,
+      "-d",
+      database,
+      "-v",
+      "ON_ERROR_STOP=1",
+      "-c",
+      sql,
+    ],
+    {
+      cwd: repoRoot,
+      encoding: "utf8",
+      env: { ...process.env, PATH: postgresPath() },
+    },
+  );
+}
+
+function bootstrapAdditionalCandidateDatabase(
+  context: CandidateAnalysisPostgresContext,
+  database: string,
+): string {
+  assert.match(database, /^[a-z0-9_]+$/);
+  const commandEnv = { ...process.env, PATH: postgresPath() };
+  const created = spawnSync(
+    "createdb",
+    [
+      "-h",
+      "127.0.0.1",
+      "-p",
+      String(context.port),
+      "-U",
+      "postgres",
+      database,
+    ],
+    { cwd: repoRoot, encoding: "utf8", env: commandEnv },
+  );
+  assert.equal(created.status, 0, created.stderr);
+  const migrated = spawnSync(
+    "psql",
+    [
+      "-X",
+      "-h",
+      "127.0.0.1",
+      "-p",
+      String(context.port),
+      "-U",
+      "postgres",
+      "-d",
+      database,
+      "-v",
+      "ON_ERROR_STOP=1",
+      "-f",
+      resolve(
+        repoRoot,
+        "prisma/migrations/20260818_candidate_analysis_foundation/migration.sql",
+      ),
+    ],
+    { cwd: repoRoot, encoding: "utf8", env: commandEnv },
+  );
+  assert.equal(migrated.status, 0, migrated.stderr);
+  const hardened = psqlInDatabase(context, database, `
+    CREATE TABLE public."Document" (id text PRIMARY KEY);
+    CREATE TABLE public."SourceDoc" (id text PRIMARY KEY);
+    CREATE TABLE public."LibraryAnalysisRecord" (id text PRIMARY KEY);
+    REVOKE CREATE, TEMPORARY ON DATABASE ${database} FROM PUBLIC;
+    REVOKE ALL PRIVILEGES ON SCHEMA public FROM PUBLIC;
+    REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM PUBLIC;
+    REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public FROM PUBLIC;
+    REVOKE EXECUTE ON ALL FUNCTIONS IN SCHEMA public FROM PUBLIC;
+    ALTER DEFAULT PRIVILEGES FOR ROLE postgres
+      REVOKE EXECUTE ON FUNCTIONS FROM PUBLIC;
+  `);
+  assert.equal(hardened.status, 0, hardened.stderr);
+  const adminUrl = `postgresql://postgres@127.0.0.1:${context.port}/${database}`;
+  const bootstrapped = spawnSync(bootstrapPath, ["--apply"], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    env: { ...commandEnv, DATABASE_ADMIN_URL: adminUrl },
+  });
+  assert.equal(bootstrapped.status, 0, bootstrapped.stderr);
+  return adminUrl;
+}
+
+function retargetDatabaseUrl(databaseUrl: string, database: string): string {
+  const url = new URL(databaseUrl);
+  url.pathname = `/${database}`;
+  return url.toString();
+}
+
+function candidateAuthoritySnapshot(
+  context: CandidateAnalysisPostgresContext,
+): string {
+  const result = context.psql(`
+    WITH candidate_role AS (
+      SELECT oid, rolname FROM pg_roles
+      WHERE rolname IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler')
+    ), state_line(kind, identity, value) AS (
+      SELECT 'role', auth.rolname,
+        jsonb_build_object(
+          'super', auth.rolsuper,
+          'inherit', auth.rolinherit,
+          'createRole', auth.rolcreaterole,
+          'createDb', auth.rolcreatedb,
+          'canLogin', auth.rolcanlogin,
+          'replication', auth.rolreplication,
+          'connectionLimit', auth.rolconnlimit,
+          'bypassRls', auth.rolbypassrls
+        )::text
+      FROM pg_authid auth WHERE auth.oid IN (SELECT oid FROM candidate_role)
+      UNION ALL
+      SELECT 'membership', granted.rolname || '->' || member.rolname,
+        jsonb_build_object('admin', membership.admin_option, 'grantor', grantor.rolname)::text
+      FROM pg_auth_members membership
+      JOIN pg_roles granted ON granted.oid = membership.roleid
+      JOIN pg_roles member ON member.oid = membership.member
+      JOIN pg_roles grantor ON grantor.oid = membership.grantor
+      WHERE granted.oid IN (SELECT oid FROM candidate_role)
+         OR member.oid IN (SELECT oid FROM candidate_role)
+      UNION ALL
+      SELECT 'setting', role.rolname || '@' || setting.setdatabase::text,
+        setting.setconfig::text
+      FROM pg_db_role_setting setting
+      JOIN pg_roles role ON role.oid = setting.setrole
+      WHERE role.oid IN (SELECT oid FROM candidate_role)
+      UNION ALL
+      SELECT 'database', database.datname,
+        jsonb_build_object(
+          'owner', pg_get_userbyid(database.datdba),
+          'acl', COALESCE(database.datacl::text, '<null>')
+        )::text
+      FROM pg_database database WHERE database.datname = current_database()
+      UNION ALL
+      SELECT 'schema', namespace.nspname,
+        jsonb_build_object(
+          'owner', pg_get_userbyid(namespace.nspowner),
+          'acl', COALESCE(namespace.nspacl::text, '<null>')
+        )::text
+      FROM pg_namespace namespace
+      WHERE namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_'
+      UNION ALL
+      SELECT 'relation', namespace.nspname || '.' || class.relname,
+        jsonb_build_object(
+          'kind', class.relkind,
+          'owner', pg_get_userbyid(class.relowner),
+          'acl', COALESCE(class.relacl::text, '<null>')
+        )::text
+      FROM pg_class class
+      JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+      WHERE namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_'
+        AND class.relkind IN ('r', 'p', 'v', 'm', 'f', 'S')
+      UNION ALL
+      SELECT 'column', namespace.nspname || '.' || class.relname || '.' || attribute.attname,
+        COALESCE(attribute.attacl::text, '<null>')
+      FROM pg_attribute attribute
+      JOIN pg_class class ON class.oid = attribute.attrelid
+      JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+      WHERE namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_'
+        AND attribute.attnum > 0 AND NOT attribute.attisdropped
+      UNION ALL
+      SELECT 'routine', namespace.nspname || '.' || procedure.oid::regprocedure::text,
+        jsonb_build_object(
+          'owner', pg_get_userbyid(procedure.proowner),
+          'securityDefiner', procedure.prosecdef,
+          'acl', COALESCE(procedure.proacl::text, '<null>')
+        )::text
+      FROM pg_proc procedure
+      JOIN pg_namespace namespace ON namespace.oid = procedure.pronamespace
+      WHERE namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_'
+      UNION ALL
+      SELECT 'type', namespace.nspname || '.' || type.typname,
+        pg_get_userbyid(type.typowner)
+      FROM pg_type type
+      JOIN pg_namespace namespace ON namespace.oid = type.typnamespace
+      WHERE namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_'
+      UNION ALL
+      SELECT 'default-acl', owner.rolname || '@' ||
+        COALESCE(namespace.nspname, '<global>') || ':' || defaults.defaclobjtype::text,
+        defaults.defaclacl::text
+      FROM pg_default_acl defaults
+      JOIN pg_roles owner ON owner.oid = defaults.defaclrole
+      LEFT JOIN pg_namespace namespace ON namespace.oid = defaults.defaclnamespace
+      UNION ALL
+      SELECT 'ownership-dependency', role.rolname,
+        pg_describe_object(dependency.classid, dependency.objid, dependency.objsubid)
+      FROM pg_shdepend dependency
+      JOIN candidate_role role ON role.oid = dependency.refobjid
+      WHERE dependency.refclassid = 'pg_authid'::regclass
+        AND dependency.deptype = 'o'
+        AND (dependency.dbid = 0 OR dependency.dbid =
+          (SELECT oid FROM pg_database WHERE datname = current_database()))
+      UNION ALL
+      SELECT 'session', activity.pid::text,
+        jsonb_build_object(
+          'user', activity.usename,
+          'applicationName', activity.application_name,
+          'state', activity.state,
+          'query', activity.query
+        )::text
+      FROM pg_stat_activity activity
+      WHERE activity.usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler')
+    )
+    SELECT kind || '|' || identity || '|' || value
+    FROM state_line ORDER BY kind, identity, value;
+  `);
+  assert.equal(result.status, 0, result.stderr);
+  return result.stdout;
+}
+
 function childExit(child: ChildProcess): Promise<number | null> {
   if (child.exitCode !== null) return Promise.resolve(child.exitCode);
   return new Promise((resolvePromise, rejectPromise) => {
@@ -249,11 +477,11 @@ count=$((count + 1))
 printf '%s\n' "$count" > "$RACE_COUNT_FILE"
 "$REAL_PSQL" "$@"
 status=$?
-if [ "$status" -eq 0 ] && [ "$count" -eq 1 ]; then
+if [ "$status" -eq 0 ] && [ "$count" -eq 2 ]; then
   "$REAL_PSQL" -X -q -h 127.0.0.1 -p "$RACE_PORT" -U postgres -d "$RACE_DATABASE" -v ON_ERROR_STOP=1 -c "$RACE_MUTATION_SQL" >/dev/null
   : > "$RACE_MUTATION_FILE"
 fi
-if [ "$status" -eq 0 ] && [ "$count" -eq 2 ]; then
+if [ "$status" -eq 0 ] && [ "$count" -eq 3 ]; then
   : > "$RACE_MARKER_FILE"
   deadline=200
   while [ ! -f "$RACE_RELEASE_FILE" ] && [ "$deadline" -gt 0 ]; do
@@ -272,6 +500,43 @@ exit "$status"
     releaseFile,
     path: `${tempRoot}:${postgresPath()}`,
     realPsql,
+  };
+}
+
+function writePostActivationVerifierBarrier(
+  tempRoot: string,
+): {
+  markerFile: string;
+  path: string;
+  realPsql: string;
+  releaseFile: string;
+} {
+  const fakePsql = join(tempRoot, "psql");
+  const markerFile = join(tempRoot, "worker-verifier-started");
+  const releaseFile = join(tempRoot, "release-worker-verifier");
+  const realPsql = postgresPath().split(":")[0] + "/psql";
+  writeFileSync(
+    fakePsql,
+    `#!/bin/sh
+case "$*" in
+  *application_name=foodsystems-candidate-worker*)
+    : > "$ACTIVATION_MARKER_FILE"
+    deadline=200
+    while [ ! -f "$ACTIVATION_RELEASE_FILE" ] && [ "$deadline" -gt 0 ]; do
+      sleep 0.05
+      deadline=$((deadline - 1))
+    done
+    ;;
+esac
+exec "$REAL_PSQL" "$@"
+`,
+  );
+  chmodSync(fakePsql, 0o755);
+  return {
+    markerFile,
+    path: `${tempRoot}:${postgresPath()}`,
+    realPsql,
+    releaseFile,
   };
 }
 
@@ -663,13 +928,25 @@ test("explicit login recovery is guarded and has no credential mutation or loggi
   for (const catalog of [
     "pg_authid",
     "pg_auth_members",
+    "pg_database",
     "pg_namespace",
     "pg_class",
+    "pg_attribute",
     "pg_proc",
     "pg_type",
+    "pg_default_acl",
+    "pg_db_role_setting",
+    "pg_shdepend",
   ]) {
     assert.match(enable, new RegExp(`pg_catalog\\.${catalog}`));
   }
+  assert.match(enable, /pg_control_system\(\)/);
+  assert.match(enable, /CANDIDATE_TARGET_IDENTITY_FILE/);
+  assert.match(
+    enable,
+    /activation target changed between admin identity read and authoritative transaction/i,
+  );
+  assert.match(enable, /dedicated database URLs must match the exact admin endpoint and database/i);
   assert.match(enable, /pg_terminate_backend\(activity\.pid, 5000\)/);
   assert.doesNotMatch(enable, /\bCREATE ROLE\b/i);
   assert.doesNotMatch(enable, /\bALTER ROLE\b[^\n]*\bPASSWORD\b/i);
@@ -1269,12 +1546,49 @@ test(
       const inboundMembershipLeak = verifyWorker();
       assert.notEqual(inboundMembershipLeak.status, 0);
       assert.match(inboundMembershipLeak.stderr, /can SET ROLE into the candidate identity/i);
+      const activeCleanupRefusal = spawnSync(bootstrapPath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.notEqual(activeCleanupRefusal.status, 0);
+      assert.match(activeCleanupRefusal.stderr, /must be disabled before bootstrap/i);
+      const disableBeforeMembershipCleanup = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(
+        disableBeforeMembershipCleanup.status,
+        0,
+        disableBeforeMembershipCleanup.stderr,
+      );
       const membershipCleanupBootstrap = spawnSync(bootstrapPath, ["--apply"], {
         cwd: repoRoot,
         encoding: "utf8",
         env: adminEnv,
       });
       assert.equal(membershipCleanupBootstrap.status, 0, membershipCleanupBootstrap.stderr);
+      const enableAfterMembershipCleanup = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: path,
+            DATABASE_ADMIN_URL: adminUrl,
+            CANDIDATE_WORKER_DATABASE_URL: workerUrl,
+            CANDIDATE_RECONCILER_DATABASE_URL: reconcilerUrl,
+          },
+        },
+      );
+      assert.equal(
+        enableAfterMembershipCleanup.status,
+        0,
+        enableAfterMembershipCleanup.stderr,
+      );
       assert.equal(verifyWorker().status, 0);
 
       const effective = psql(`
@@ -1596,115 +1910,43 @@ test(
         beforeFailedRecoveryRows.stderr,
       );
 
-      const blackholeSockets = new Set<Socket>();
-      const blackholeServer = createServer((socket) => {
-        blackholeSockets.add(socket);
-        socket.on("close", () => blackholeSockets.delete(socket));
-      });
-      await new Promise<void>((resolvePromise, rejectPromise) => {
-        blackholeServer.once("error", rejectPromise);
-        blackholeServer.listen(0, "127.0.0.1", resolvePromise);
-      });
-      const blackholeAddress = blackholeServer.address();
-      assert.ok(blackholeAddress && typeof blackholeAddress !== "string");
-      const wrongReconcilerUrl = `postgresql://foodsystems_candidate_reconciler:wrong-existing-credential@127.0.0.1:${blackholeAddress.port}/${database}?application_name=foodsystems-candidate-reconciler`;
-      const failedEnable = spawn(
-        enablePath,
-        ["--apply", "--confirm-existing-credentials"],
-        {
-          cwd: repoRoot,
-          env: {
-            ...process.env,
-            PATH: path,
-            DATABASE_ADMIN_URL: adminUrl,
-            CANDIDATE_WORKER_DATABASE_URL: workerUrl,
-            CANDIDATE_RECONCILER_DATABASE_URL: wrongReconcilerUrl,
+      const verifierFailureRoot = mkdtempSync(
+        join(tmpdir(), "candidate-verifier-failure-"),
+      );
+      const verifierFailurePsql = join(verifierFailureRoot, "psql");
+      const realPsql = postgresPath().split(":")[0] + "/psql";
+      writeFileSync(
+        verifierFailurePsql,
+        `#!/bin/sh
+case "$*" in
+  *application_name=foodsystems-candidate-worker*) exit 71 ;;
+esac
+exec "${realPsql}" "$@"
+`,
+      );
+      chmodSync(verifierFailurePsql, 0o755);
+      let failedEnable: SpawnSyncReturns<string>;
+      try {
+        failedEnable = spawnSync(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            encoding: "utf8",
+            env: {
+              ...process.env,
+              PATH: `${verifierFailureRoot}:${path}`,
+              DATABASE_ADMIN_URL: adminUrl,
+              CANDIDATE_WORKER_DATABASE_URL: workerUrl,
+              CANDIDATE_RECONCILER_DATABASE_URL: reconcilerUrl,
+            },
           },
-          stdio: ["ignore", "pipe", "pipe"],
-        },
-      );
-      let failedEnableOutput = "";
-      failedEnable.stdout?.on("data", (chunk) => {
-        failedEnableOutput += chunk.toString();
-      });
-      failedEnable.stderr?.on("data", (chunk) => {
-        failedEnableOutput += chunk.toString();
-      });
-      await waitFor(() => {
-        const loginState = psql(`
-          SELECT bool_and(rolcanlogin)
-          FROM pg_roles
-          WHERE rolname IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler');
-        `);
-        return loginState.status === 0 && loginState.stdout.trim() === "t";
-      }, "failed recovery never enabled the exact candidate logins");
-
-      const failedRecoveryWorkerSession = spawn(
-        "psql",
-        [
-          "-X", "-h", "127.0.0.1", "-p", String(port),
-          "-U", "foodsystems_candidate_worker", "-d", database,
-          "-c", "SELECT pg_sleep(30)",
-        ],
-        {
-          cwd: repoRoot,
-          env: {
-            ...process.env,
-            PATH: path,
-            PGAPPNAME: "candidate-failed-recovery-worker-session",
-          },
-          stdio: "ignore",
-        },
-      );
-      const failedRecoveryReconcilerSession = spawn(
-        "psql",
-        [
-          "-X", "-h", "127.0.0.1", "-p", String(port),
-          "-U", "foodsystems_candidate_reconciler", "-d", database,
-          "-c", "SELECT pg_sleep(30)",
-        ],
-        {
-          cwd: repoRoot,
-          env: {
-            ...process.env,
-            PATH: path,
-            PGAPPNAME: "candidate-failed-recovery-reconciler-session",
-          },
-          stdio: "ignore",
-        },
-      );
-      await waitFor(
-        () => activityCount("candidate-failed-recovery-worker-session") === "1",
-        "worker session did not become active during failed recovery",
-      );
-      await waitFor(
-        () => activityCount("candidate-failed-recovery-reconciler-session") === "1",
-        "reconciler session did not become active during failed recovery",
-      );
-      for (const socket of blackholeSockets) socket.destroy();
-      await new Promise<void>((resolvePromise) => blackholeServer.close(() => resolvePromise()));
-      const failedEnableStatus = await new Promise<number | null>((resolvePromise, rejectPromise) => {
-        failedEnable.once("error", rejectPromise);
-        failedEnable.once("exit", (code) => resolvePromise(code));
-      });
-      assert.notEqual(failedEnableStatus, 0, failedEnableOutput);
-      assert.doesNotMatch(failedEnableOutput, /wrong-existing-credential/);
-      await waitFor(
-        () => activityCount("candidate-failed-recovery-worker-session") === "0",
-        "worker session survived failed recovery",
-      );
-      await waitFor(
-        () => activityCount("candidate-failed-recovery-reconciler-session") === "0",
-        "reconciler session survived failed recovery",
-      );
-      await waitFor(
-        () => failedRecoveryWorkerSession.exitCode !== null,
-        "worker psql did not observe failed-recovery termination",
-      );
-      await waitFor(
-        () => failedRecoveryReconcilerSession.exitCode !== null,
-        "reconciler psql did not observe failed-recovery termination",
-      );
+        );
+      } finally {
+        rmSync(verifierFailureRoot, { recursive: true, force: true });
+      }
+      const failedEnableOutput = `${failedEnable.stdout ?? ""}${failedEnable.stderr ?? ""}`;
+      assert.notEqual(failedEnable.status, 0, failedEnableOutput);
       const failedRecoveryState = psql(`
         SELECT
           (SELECT NOT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
@@ -2203,6 +2445,515 @@ test(
         writeFileSync(race.releaseFile, "release\n");
         rmSync(tempRoot, { recursive: true, force: true });
       }
+    });
+  },
+);
+
+test(
+  "bootstrap rejects existing LOGIN and stale exact sessions before mutation, then succeeds only after explicit disable",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const { adminUrl, database, port, psql } = context;
+      const fixture = prepareRecoveryFixture(context);
+      const enabled = psql(`
+        ALTER ROLE foodsystems_candidate_worker LOGIN;
+        ALTER ROLE foodsystems_candidate_reconciler LOGIN;
+      `);
+      assert.equal(enabled.status, 0, enabled.stderr);
+      const workerSession = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "foodsystems_candidate_worker", "-d", database,
+          "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: "candidate-bootstrap-active-worker",
+          },
+          stdio: "ignore",
+        },
+      );
+      const reconcilerSession = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "foodsystems_candidate_reconciler", "-d", database,
+          "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: "candidate-bootstrap-active-reconciler",
+          },
+          stdio: "ignore",
+        },
+      );
+      await waitFor(
+        () => activityCount(context, "candidate-bootstrap-active-worker") === "1",
+        "bootstrap worker session did not become active",
+      );
+      await waitFor(
+        () => activityCount(context, "candidate-bootstrap-active-reconciler") === "1",
+        "bootstrap reconciler session did not become active",
+      );
+
+      const runBootstrap = () => spawnSync(bootstrapPath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: fixture.path,
+          DATABASE_ADMIN_URL: adminUrl,
+        },
+      });
+      const beforeLoginBootstrap = candidateAuthoritySnapshot(context);
+      const beforeLoginRows = candidateRowsSnapshot(context);
+      const loginBootstrap = runBootstrap();
+      const afterLoginBootstrap = candidateAuthoritySnapshot(context);
+      assert.deepEqual(
+        {
+          statusIsFailure: loginBootstrap.status !== 0,
+          stateUnchanged: afterLoginBootstrap === beforeLoginBootstrap,
+          rowsUnchanged: candidateRowsSnapshot(context) === beforeLoginRows,
+          tellsOperatorToDisable: /disable-candidate-analysis-writes\.sh --apply/i.test(
+            `${loginBootstrap.stdout}${loginBootstrap.stderr}`,
+          ),
+        },
+        {
+          statusIsFailure: true,
+          stateUnchanged: true,
+          rowsUnchanged: true,
+          tellsOperatorToDisable: true,
+        },
+      );
+
+      const noLoginWithStaleSessions = psql(`
+        ALTER ROLE foodsystems_candidate_worker NOLOGIN;
+        ALTER ROLE foodsystems_candidate_reconciler NOLOGIN;
+      `);
+      assert.equal(
+        noLoginWithStaleSessions.status,
+        0,
+        noLoginWithStaleSessions.stderr,
+      );
+      const beforeStaleBootstrap = candidateAuthoritySnapshot(context);
+      const beforeStaleRows = candidateRowsSnapshot(context);
+      const staleBootstrap = runBootstrap();
+      assert.deepEqual(
+        {
+          statusIsFailure: staleBootstrap.status !== 0,
+          stateUnchanged:
+            candidateAuthoritySnapshot(context) === beforeStaleBootstrap,
+          rowsUnchanged: candidateRowsSnapshot(context) === beforeStaleRows,
+          tellsOperatorToDisable: /disable-candidate-analysis-writes\.sh --apply/i.test(
+            `${staleBootstrap.stdout}${staleBootstrap.stderr}`,
+          ),
+        },
+        {
+          statusIsFailure: true,
+          stateUnchanged: true,
+          rowsUnchanged: true,
+          tellsOperatorToDisable: true,
+        },
+      );
+
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: fixture.path,
+          DATABASE_ADMIN_URL: adminUrl,
+        },
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      await Promise.all([childExit(workerSession), childExit(reconcilerSession)]);
+      const safeBootstrap = runBootstrap();
+      assert.equal(safeBootstrap.status, 0, safeBootstrap.stderr);
+      const finalState = psql(`
+        SELECT
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+          has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+          (SELECT count(*) FROM pg_stat_activity
+            WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'));
+      `);
+      assert.equal(finalState.status, 0, finalState.stderr);
+      assert.equal(finalState.stdout.trim(), "t|t|t|t|0");
+    });
+  },
+);
+
+test(
+  "enable rejects equally bootstrapped credentials for a different database on the same cluster and disables target A",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const otherDatabase = "candidate_analysis_other";
+      bootstrapAdditionalCandidateDatabase(context, otherDatabase);
+      const forbidden = context.psql(
+        'GRANT INSERT ON public."CandidateHumanReviewDecision" TO foodsystems_candidate_worker',
+      );
+      assert.equal(forbidden.status, 0, forbidden.stderr);
+      const beforeRows = candidateRowsSnapshot(context);
+      const workerUrl = retargetDatabaseUrl(fixture.workerUrl, otherDatabase);
+      const reconcilerUrl = retargetDatabaseUrl(
+        fixture.reconcilerUrl,
+        otherDatabase,
+      );
+      const enable = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            DATABASE_ADMIN_URL: context.adminUrl,
+            CANDIDATE_WORKER_DATABASE_URL: workerUrl,
+            CANDIDATE_RECONCILER_DATABASE_URL: reconcilerUrl,
+          },
+        },
+      );
+      const safeState = context.psql(`
+        SELECT
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+          NOT has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+          NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateHumanReviewDecision"', 'INSERT'),
+          (SELECT count(*) FROM pg_stat_activity
+            WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'));
+      `);
+      assert.equal(safeState.status, 0, safeState.stderr);
+      assert.deepEqual(
+        {
+          statusIsFailure: enable.status !== 0,
+          state: safeState.stdout.trim(),
+          rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+        },
+        {
+          statusIsFailure: true,
+          state: "t|t|t|t|t|0",
+          rowsUnchanged: true,
+        },
+      );
+    });
+  },
+);
+
+test(
+  "enable rejects same-named database credentials from a second live cluster before target-A activation",
+  { timeout: 60_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (targetA) => {
+      const fixtureA = prepareRecoveryFixture(targetA);
+      await withCandidateAnalysisPostgres(t, async (targetB) => {
+        const fixtureB = prepareRecoveryFixture(targetB);
+        const enabledB = targetB.psql(`
+          ALTER ROLE foodsystems_candidate_worker LOGIN;
+          ALTER ROLE foodsystems_candidate_reconciler LOGIN;
+        `);
+        assert.equal(enabledB.status, 0, enabledB.stderr);
+        const beforeRows = candidateRowsSnapshot(targetA);
+        const enable = spawnSync(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            encoding: "utf8",
+            env: {
+              ...process.env,
+              PATH: fixtureA.path,
+              DATABASE_ADMIN_URL: targetA.adminUrl,
+              CANDIDATE_WORKER_DATABASE_URL: fixtureB.workerUrl,
+              CANDIDATE_RECONCILER_DATABASE_URL: fixtureB.reconcilerUrl,
+            },
+          },
+        );
+        const safeState = targetA.psql(`
+          SELECT
+            NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+            NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+            NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+            NOT has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+            (SELECT count(*) FROM pg_stat_activity
+              WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'));
+        `);
+        assert.equal(safeState.status, 0, safeState.stderr);
+        assert.deepEqual(
+          {
+            statusIsFailure: enable.status !== 0,
+            state: safeState.stdout.trim(),
+            rowsUnchanged: candidateRowsSnapshot(targetA) === beforeRows,
+          },
+          {
+            statusIsFailure: true,
+            state: "t|t|t|t|0",
+            rowsUnchanged: true,
+          },
+        );
+      });
+    });
+  },
+);
+
+test(
+  "same-target forbidden human-review and promotion ACLs fail before LOGIN and expose no commit window",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const { adminUrl, database, port, psql } = context;
+      const fixture = prepareRecoveryFixture(context);
+      const seededFixture = candidateAnalysisFixture({
+        contentUnitId: "content:activation-window:1",
+        runId: "run:activation-window:1",
+        assertionId: "assertion:activation-window:1",
+      });
+      const adminPrisma = rolePrisma(adminUrl);
+      try {
+        await adminPrisma.candidateContentUnit.create({
+          data: seededFixture.contentUnit,
+        });
+        const writer = createCandidateAnalysisWriter(adminPrisma);
+        await writer.createRun(seededFixture.run);
+        await writer.appendAssertion(seededFixture.assertion);
+      } finally {
+        await adminPrisma.$disconnect();
+      }
+      const forbidden = psql(`
+        GRANT INSERT ON public."CandidateHumanReviewDecision" TO foodsystems_candidate_worker;
+        GRANT INSERT ON public."CandidatePromotionDecision" TO foodsystems_candidate_worker;
+      `);
+      assert.equal(forbidden.status, 0, forbidden.stderr);
+      const beforeRows = candidateRowsSnapshot(context);
+      const tempRoot = mkdtempSync(join(tmpdir(), "candidate-activation-window-"));
+      const barrier = writePostActivationVerifierBarrier(tempRoot);
+      let workerSession: ChildProcess | null = null;
+      let reconcilerSession: ChildProcess | null = null;
+      try {
+        const enable = spawn(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            env: {
+              ...recoveryEnableEnv(fixture, adminUrl, barrier.path),
+              ACTIVATION_MARKER_FILE: barrier.markerFile,
+              ACTIVATION_RELEASE_FILE: barrier.releaseFile,
+              REAL_PSQL: barrier.realPsql,
+            },
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        let output = "";
+        enable.stdout?.on("data", (chunk) => {
+          output += chunk.toString();
+        });
+        enable.stderr?.on("data", (chunk) => {
+          output += chunk.toString();
+        });
+        const enableExit = childExit(enable);
+        await waitFor(
+          () => existsSync(barrier.markerFile) || enable.exitCode !== null,
+          "unsafe ACL neither failed pre-activation nor reached the verifier barrier",
+        );
+        const exposedWindow = existsSync(barrier.markerFile);
+        if (exposedWindow) {
+          const maliciousInsert = psqlInDatabase(
+            context,
+            database,
+            `
+              INSERT INTO public."CandidateHumanReviewDecision" (
+                "id", "assertionId", "decision", "reviewProfile", "reviewProfileHash",
+                "reviewer", "authority", "assertionPayloadHash", "sourceContentSetHash",
+                "evidenceSetHash", "decisionHash", "limitations"
+              ) VALUES (
+                'review:activation-window:1', '${seededFixture.assertion.id}', 'accepted',
+                'unauthorized-profile', '${"b".repeat(64)}', 'machine-worker',
+                'unauthorized-machine-window', '${seededFixture.assertion.payloadHash}',
+                '${"c".repeat(64)}', '${"d".repeat(64)}', '${"e".repeat(64)}', ARRAY[]::text[]
+              );
+              INSERT INTO public."CandidatePromotionDecision" (
+                "id", "assertionId", "assertionPayloadHash", "reviewDecisionId",
+                "reviewDecisionHash", "targetProfile", "targetProfileHash", "state",
+                "policyVersion", "policyHash", "preconditionsHash", "targetRefs",
+                "targetSetHash", "result", "resultHash", "decisionHash", "operator", "authority"
+              ) VALUES (
+                'promotion:activation-window:1', '${seededFixture.assertion.id}',
+                '${seededFixture.assertion.payloadHash}', 'review:activation-window:1',
+                '${"e".repeat(64)}', 'public', '${"f".repeat(64)}', 'published',
+                'v1', '${"1".repeat(64)}', '${"2".repeat(64)}', '[]',
+                '${"3".repeat(64)}', '{}', '${"4".repeat(64)}', '${"5".repeat(64)}',
+                'machine-worker', 'unauthorized-machine-window'
+              );
+            `,
+            "foodsystems_candidate_worker",
+          );
+          assert.equal(maliciousInsert.status, 0, maliciousInsert.stderr);
+          workerSession = spawn(
+            "psql",
+            [
+              "-X", "-h", "127.0.0.1", "-p", String(port),
+              "-U", "foodsystems_candidate_worker", "-d", database,
+              "-c", "SELECT pg_sleep(60)",
+            ],
+            {
+              cwd: repoRoot,
+              env: {
+                ...process.env,
+                PATH: fixture.path,
+                PGAPPNAME: "candidate-activation-window-worker",
+              },
+              stdio: "ignore",
+            },
+          );
+          reconcilerSession = spawn(
+            "psql",
+            [
+              "-X", "-h", "127.0.0.1", "-p", String(port),
+              "-U", "foodsystems_candidate_reconciler", "-d", database,
+              "-c", "SELECT pg_sleep(60)",
+            ],
+            {
+              cwd: repoRoot,
+              env: {
+                ...process.env,
+                PATH: fixture.path,
+                PGAPPNAME: "candidate-activation-window-reconciler",
+              },
+              stdio: "ignore",
+            },
+          );
+          await waitFor(
+            () => activityCount(context, "candidate-activation-window-worker") === "1",
+            "worker session did not enter the exposed activation window",
+          );
+          await waitFor(
+            () => activityCount(context, "candidate-activation-window-reconciler") === "1",
+            "reconciler session did not enter the exposed activation window",
+          );
+          writeFileSync(barrier.releaseFile, "release\n");
+        }
+        const exitCode = await enableExit;
+        assert.notEqual(exitCode, 0, output);
+        if (workerSession) await childExit(workerSession);
+        if (reconcilerSession) await childExit(reconcilerSession);
+        const safeState = psql(`
+          SELECT
+            NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+            NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+            NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+            NOT has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+            NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateHumanReviewDecision"', 'INSERT'),
+            NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidatePromotionDecision"', 'INSERT'),
+            (SELECT count(*) FROM pg_stat_activity
+              WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'));
+        `);
+        assert.equal(safeState.status, 0, safeState.stderr);
+        assert.deepEqual(
+          {
+            exposedWindow,
+            state: safeState.stdout.trim(),
+            rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+          },
+          {
+            exposedWindow: false,
+            state: "t|t|t|t|t|t|0",
+            rowsUnchanged: true,
+          },
+        );
+      } finally {
+        writeFileSync(barrier.releaseFile, "release\n");
+        rmSync(tempRoot, { recursive: true, force: true });
+      }
+    });
+  },
+);
+
+test(
+  "clean same-target activation preserves exact role verification and usable candidate writers",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const enable = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: recoveryEnableEnv(fixture, context.adminUrl),
+        },
+      );
+      assert.equal(enable.status, 0, `${enable.stdout}${enable.stderr}`);
+      const analysis = candidateAnalysisFixture({
+        contentUnitId: "content:clean-activation:1",
+        runId: "run:clean-activation:1",
+        assertionId: "assertion:clean-activation:1",
+      });
+      const adminPrisma = rolePrisma(context.adminUrl);
+      try {
+        await adminPrisma.candidateContentUnit.create({ data: analysis.contentUnit });
+      } finally {
+        await adminPrisma.$disconnect();
+      }
+      const workerPrisma = rolePrisma(fixture.workerUrl);
+      try {
+        const writer = createCandidateAnalysisWriter(workerPrisma);
+        await writer.createRun(analysis.run);
+        await writer.appendAssertion(analysis.assertion);
+      } finally {
+        await workerPrisma.$disconnect();
+      }
+      const reconcilerPrisma = rolePrisma(fixture.reconcilerUrl);
+      try {
+        const scope = { runId: analysis.run.id };
+        const payload: CandidateReconciliationSnapshotInput["payload"] = {
+          namespace: "candidate",
+          kind: "reconciliation",
+          data: {
+            entries: [
+              { role: "checkpoint", valueType: "text", value: "clean target" },
+            ],
+          },
+        };
+        await createCandidateReconciliationWriter(reconcilerPrisma).appendSnapshot({
+          id: "snapshot:clean-activation:1",
+          runId: analysis.run.id,
+          scope,
+          scopeHash: candidateAnalysisReconciliationScopeHash(scope),
+          payload,
+          payloadHash: candidateAnalysisReconciliationPayloadHash(payload),
+          conflictCount: 0,
+        });
+      } finally {
+        await reconcilerPrisma.$disconnect();
+      }
+      const state = context.psql(`
+        SELECT
+          (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+          has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+          NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateHumanReviewDecision"', 'INSERT'),
+          NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidatePromotionDecision"', 'INSERT'),
+          (SELECT count(*) FROM public."CandidateAnalysisRun" WHERE id = 'run:clean-activation:1'),
+          (SELECT count(*) FROM public."CandidateReconciliationSnapshot"
+            WHERE id = 'snapshot:clean-activation:1');
+      `);
+      assert.equal(state.status, 0, state.stderr);
+      assert.equal(state.stdout.trim(), "t|t|t|t|t|t|1|1");
     });
   },
 );

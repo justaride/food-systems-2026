@@ -69,6 +69,7 @@ done
 
 command -v psql >/dev/null 2>&1 || fail 'psql is required'
 command -v node >/dev/null 2>&1 || fail 'node is required to normalize the connection URL'
+command -v cmp >/dev/null 2>&1 || fail 'cmp is required to bind database targets'
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 node "$SCRIPT_DIR/reject-ambient-candidate-libpq-env.mjs" candidate-role-enable
 
@@ -78,11 +79,23 @@ RECONCILER_DATABASE_URL=$CANDIDATE_RECONCILER_DATABASE_URL
 unset DATABASE_ADMIN_URL CANDIDATE_WORKER_DATABASE_URL CANDIDATE_RECONCILER_DATABASE_URL
 
 connection_dir=$(mktemp -d "${TMPDIR:-/tmp}/foodsystems-candidate-enable.XXXXXX")
+ADMIN_PGPASSFILE=$connection_dir/admin.pgpass
+WORKER_PGPASSFILE=$connection_dir/worker.pgpass
+RECONCILER_PGPASSFILE=$connection_dir/reconciler.pgpass
+ADMIN_TARGET_IDENTITY_FILE=$connection_dir/admin-target.json
+WORKER_TARGET_IDENTITY_FILE=$connection_dir/worker-target.json
+RECONCILER_TARGET_IDENTITY_FILE=$connection_dir/reconciler-target.json
 connection_active=1
 cleanup_connection() {
   if [ "$connection_active" -eq 1 ]; then
     unset PGPASSFILE
-    rm -f "$connection_dir/pgpass"
+    rm -f \
+      "$ADMIN_PGPASSFILE" \
+      "$WORKER_PGPASSFILE" \
+      "$RECONCILER_PGPASSFILE" \
+      "$ADMIN_TARGET_IDENTITY_FILE" \
+      "$WORKER_TARGET_IDENTITY_FILE" \
+      "$RECONCILER_TARGET_IDENTITY_FILE"
     rmdir "$connection_dir" 2>/dev/null || true
     connection_active=0
   fi
@@ -109,17 +122,71 @@ fail_safe_exit() {
 trap 'fail_safe_exit $?' EXIT
 trap 'fail_safe_exit 1' HUP INT TERM
 
-export PGPASSFILE=$connection_dir/pgpass
-PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$ADMIN_DATABASE_URL PGPASSFILE_PATH=$PGPASSFILE \
+PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$ADMIN_DATABASE_URL \
+  PGPASSFILE_PATH=$ADMIN_PGPASSFILE \
+  CANDIDATE_TARGET_IDENTITY_FILE=$ADMIN_TARGET_IDENTITY_FILE \
   CANDIDATE_URL_CONTEXT=candidate-role-enable \
   node "$SCRIPT_DIR/normalize-candidate-postgres-url.mjs")
+
+# Once the exact admin URL can be reused safely, every later parsing, binding,
+# capability, contract, activation, or verification failure fails back through
+# the target-A disable operation.
+fail_safe_active=1
+RAW_DATABASE_URL=$WORKER_DATABASE_URL \
+  PGPASSFILE_PATH=$WORKER_PGPASSFILE \
+  CANDIDATE_TARGET_IDENTITY_FILE=$WORKER_TARGET_IDENTITY_FILE \
+  EXPECTED_URL_ROLE=$CANDIDATE_WORKER_DB_ROLE \
+  EXPECTED_URL_APP=$CANDIDATE_WORKER_DB_APP_NAME \
+  CANDIDATE_URL_CONTEXT=candidate-role-enable-worker \
+  node "$SCRIPT_DIR/normalize-candidate-postgres-url.mjs" >/dev/null
+RAW_DATABASE_URL=$RECONCILER_DATABASE_URL \
+  PGPASSFILE_PATH=$RECONCILER_PGPASSFILE \
+  CANDIDATE_TARGET_IDENTITY_FILE=$RECONCILER_TARGET_IDENTITY_FILE \
+  EXPECTED_URL_ROLE=$CANDIDATE_RECONCILER_DB_ROLE \
+  EXPECTED_URL_APP=$CANDIDATE_RECONCILER_DB_APP_NAME \
+  CANDIDATE_URL_CONTEXT=candidate-role-enable-reconciler \
+  node "$SCRIPT_DIR/normalize-candidate-postgres-url.mjs" >/dev/null
+if ! cmp -s "$ADMIN_TARGET_IDENTITY_FILE" "$WORKER_TARGET_IDENTITY_FILE" \
+  || ! cmp -s "$ADMIN_TARGET_IDENTITY_FILE" "$RECONCILER_TARGET_IDENTITY_FILE"; then
+  fail 'dedicated database URLs must match the exact admin endpoint and database'
+fi
+
+# system_identifier is a public, read-only cluster identity in PostgreSQL 16.
+# Bind it with the live database and server endpoint without adding a helper,
+# grant, SECURITY DEFINER path, or monitoring role.
+ADMIN_LIVE_IDENTITY=$(PGPASSFILE=$ADMIN_PGPASSFILE \
+  psql "$PSQL_DATABASE_URL" -X -A -t -v ON_ERROR_STOP=1 -c \
+  "SELECT (SELECT system_identifier::text FROM pg_control_system()) || '|' || encode(convert_to(current_database(), 'UTF8'), 'hex') || '|' || encode(convert_to(inet_server_addr()::text, 'UTF8'), 'hex') || '|' || inet_server_port()::text")
+saved_ifs=$IFS
+IFS='|' read -r \
+  CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER \
+  CANDIDATE_EXPECTED_TARGET_DATABASE_HEX \
+  CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX \
+  CANDIDATE_EXPECTED_TARGET_SERVER_PORT <<EOF
+$ADMIN_LIVE_IDENTITY
+EOF
+IFS=$saved_ifs
+case "$CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER" in
+  ''|*[!0-9]*) fail 'admin live cluster identity is invalid' ;;
+esac
+case "$CANDIDATE_EXPECTED_TARGET_DATABASE_HEX" in
+  ''|*[!0-9a-f]*) fail 'admin live database identity is invalid' ;;
+esac
+case "$CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX" in
+  ''|*[!0-9a-f]*) fail 'admin live server address identity is invalid' ;;
+esac
+case "$CANDIDATE_EXPECTED_TARGET_SERVER_PORT" in
+  ''|*[!0-9]*) fail 'admin live server port identity is invalid' ;;
+esac
+unset ADMIN_LIVE_IDENTITY
 export CANDIDATE_WORKER_DB_ROLE CANDIDATE_RECONCILER_DB_ROLE CANDIDATE_DB_SCHEMA
 export CANDIDATE_WORKER_DB_APP_NAME CANDIDATE_RECONCILER_DB_APP_NAME
+export CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER
+export CANDIDATE_EXPECTED_TARGET_DATABASE_HEX
+export CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX
+export CANDIDATE_EXPECTED_TARGET_SERVER_PORT
 
-# From the first database capability check onward, every failure must attempt
-# the exact candidate disable operation. This also covers unsafe state found by
-# either preflight before LOGIN is touched.
-fail_safe_active=1
+PGPASSFILE=$ADMIN_PGPASSFILE \
 psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 -f - <<'SQL'
 DO $capability$
 BEGIN
@@ -136,9 +203,17 @@ END
 $capability$;
 SQL
 
+PGPASSFILE=$ADMIN_PGPASSFILE \
 psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 -f - <<'SQL'
 \getenv worker_role CANDIDATE_WORKER_DB_ROLE
 \getenv reconciler_role CANDIDATE_RECONCILER_DB_ROLE
+\getenv target_schema CANDIDATE_DB_SCHEMA
+\getenv worker_app_name CANDIDATE_WORKER_DB_APP_NAME
+\getenv reconciler_app_name CANDIDATE_RECONCILER_DB_APP_NAME
+\getenv expected_system_identifier CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER
+\getenv expected_database_hex CANDIDATE_EXPECTED_TARGET_DATABASE_HEX
+\getenv expected_server_address_hex CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX
+\getenv expected_server_port CANDIDATE_EXPECTED_TARGET_SERVER_PORT
 
 BEGIN;
 
@@ -148,19 +223,37 @@ BEGIN;
 LOCK TABLE
   pg_catalog.pg_authid,
   pg_catalog.pg_auth_members,
+  pg_catalog.pg_database,
   pg_catalog.pg_namespace,
   pg_catalog.pg_class,
+  pg_catalog.pg_attribute,
   pg_catalog.pg_proc,
-  pg_catalog.pg_type
+  pg_catalog.pg_type,
+  pg_catalog.pg_default_acl,
+  pg_catalog.pg_db_role_setting,
+  pg_catalog.pg_shdepend
 IN SHARE ROW EXCLUSIVE MODE;
 
 SELECT set_config('foodsystems.candidate_worker_role', :'worker_role', true);
 SELECT set_config('foodsystems.candidate_reconciler_role', :'reconciler_role', true);
+SELECT set_config('foodsystems.candidate_schema', :'target_schema', true);
+SELECT set_config('foodsystems.candidate_worker_app_name', :'worker_app_name', true);
+SELECT set_config('foodsystems.candidate_reconciler_app_name', :'reconciler_app_name', true);
+SELECT set_config('foodsystems.candidate_target_system_identifier', :'expected_system_identifier', true);
+SELECT set_config('foodsystems.candidate_target_database_hex', :'expected_database_hex', true);
+SELECT set_config('foodsystems.candidate_target_server_address_hex', :'expected_server_address_hex', true);
+SELECT set_config('foodsystems.candidate_target_server_port', :'expected_server_port', true);
 DO $preflight$
 DECLARE
-  candidate_role_oid oid;
   target_worker_role text := current_setting('foodsystems.candidate_worker_role');
   target_reconciler_role text := current_setting('foodsystems.candidate_reconciler_role');
+  target_schema text := current_setting('foodsystems.candidate_schema');
+  worker_app_name text := current_setting('foodsystems.candidate_worker_app_name');
+  reconciler_app_name text := current_setting('foodsystems.candidate_reconciler_app_name');
+  target_role text;
+  role_mode text;
+  expected_app_name text;
+  contract_issues text;
 BEGIN
   IF session_user <> current_user THEN
     RAISE EXCEPTION 'administrator session must not use SET ROLE';
@@ -170,6 +263,16 @@ BEGIN
     WHERE rolname = current_user AND rolsuper
   ) THEN
     RAISE EXCEPTION 'connected recovery administrator must be SUPERUSER';
+  END IF;
+  IF (SELECT system_identifier::text FROM pg_control_system())
+      <> current_setting('foodsystems.candidate_target_system_identifier')
+    OR encode(convert_to(current_database(), 'UTF8'), 'hex')
+      <> current_setting('foodsystems.candidate_target_database_hex')
+    OR encode(convert_to(inet_server_addr()::text, 'UTF8'), 'hex')
+      <> current_setting('foodsystems.candidate_target_server_address_hex')
+    OR inet_server_port()::text
+      <> current_setting('foodsystems.candidate_target_server_port') THEN
+    RAISE EXCEPTION 'activation target changed between admin identity read and authoritative transaction';
   END IF;
   IF EXISTS (
     SELECT role_name
@@ -183,10 +286,10 @@ BEGIN
     WHERE rolname IN (target_worker_role, target_reconciler_role)
       AND (
         rolcanlogin OR rolsuper OR rolcreatedb OR rolcreaterole
-        OR rolreplication OR rolbypassrls OR rolinherit
+        OR rolreplication OR rolbypassrls OR rolinherit OR rolconnlimit <> 10
       )
   ) THEN
-    RAISE EXCEPTION 'candidate roles must be NOLOGIN without elevated attributes before enable';
+    RAISE EXCEPTION 'candidate roles must be NOLOGIN with exact safe attributes before enable';
   END IF;
   IF EXISTS (
     SELECT 1
@@ -198,34 +301,273 @@ BEGIN
   ) THEN
     RAISE EXCEPTION 'candidate roles must have no membership path before enable';
   END IF;
-  FOREACH candidate_role_oid IN ARRAY ARRAY[
-    (SELECT oid FROM pg_roles WHERE rolname = target_worker_role),
-    (SELECT oid FROM pg_roles WHERE rolname = target_reconciler_role)
-  ]
+  IF to_regnamespace(target_schema) IS NULL THEN
+    RAISE EXCEPTION 'target schema does not exist';
+  END IF;
+
+  FOR target_role, role_mode, expected_app_name IN
+    SELECT * FROM (VALUES
+      (target_worker_role, 'worker', worker_app_name),
+      (target_reconciler_role, 'reconciler', reconciler_app_name)
+    ) role_contract(role_name, mode_name, app_name)
   LOOP
-    IF EXISTS (
-      WITH user_schema AS (
-        SELECT oid
-        FROM pg_namespace
-        WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
+    WITH role_row AS (
+      SELECT * FROM pg_roles WHERE rolname = target_role
+    ), candidate_relation(relname) AS (
+      VALUES
+        ('CandidateContentUnit'), ('CandidateAnalysisRun'),
+        ('CandidateAnalysisRunInput'), ('CandidateAnalysisRunEvent'),
+        ('CandidateAnalysisArtifact'), ('CandidateAssertion'),
+        ('CandidateEvidenceLink'), ('CandidateDependency'),
+        ('CandidateReconciliationSnapshot'), ('CandidateHumanReviewDecision'),
+        ('CandidatePromotionDecision')
+    ), expected_select(relname) AS (
+      SELECT relname FROM candidate_relation
+      UNION ALL
+      SELECT relname FROM (VALUES
+        ('Document'), ('SourceDoc'), ('LibraryAnalysisRecord')
+      ) canonical(relname)
+      WHERE role_mode = 'worker'
+    ), expected_insert(relname) AS (
+      SELECT relname FROM (VALUES
+        ('CandidateAnalysisRun'), ('CandidateAnalysisRunInput'),
+        ('CandidateAnalysisRunEvent'), ('CandidateAnalysisArtifact'),
+        ('CandidateAssertion'), ('CandidateEvidenceLink'), ('CandidateDependency')
+      ) worker(relname)
+      WHERE role_mode = 'worker'
+      UNION ALL
+      SELECT 'CandidateReconciliationSnapshot' WHERE role_mode = 'reconciler'
+    ), user_schema AS (
+      SELECT oid AS schema_oid, nspname, nspowner
+      FROM pg_namespace
+      WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
+    ), user_relations AS (
+      SELECT class.oid AS relation_oid, namespace.nspname, class.relname,
+        class.relowner
+      FROM pg_class class
+      JOIN user_schema namespace ON namespace.schema_oid = class.relnamespace
+      WHERE class.relkind IN ('r', 'p', 'v', 'm', 'f')
+    ), target_relations AS (
+      SELECT * FROM user_relations WHERE nspname = target_schema
+    ), user_sequences AS (
+      SELECT class.oid AS sequence_oid, namespace.nspname, class.relname,
+        class.relowner
+      FROM pg_class class
+      JOIN user_schema namespace ON namespace.schema_oid = class.relnamespace
+      WHERE class.relkind = 'S'
+    ), user_routines AS (
+      SELECT procedure.oid AS routine_oid, procedure.proowner,
+        procedure.prosecdef, procedure.proacl, namespace.nspname
+      FROM pg_proc procedure
+      JOIN user_schema namespace ON namespace.schema_oid = procedure.pronamespace
+    ), user_types AS (
+      SELECT type.oid AS type_oid, type.typowner, namespace.nspname,
+        type.typname
+      FROM pg_type type
+      JOIN user_schema namespace ON namespace.schema_oid = type.typnamespace
+    ), user_object_owners AS (
+      SELECT DISTINCT relowner AS owner_oid FROM user_relations
+      UNION SELECT DISTINCT relowner FROM user_sequences
+      UNION SELECT DISTINCT proowner FROM user_routines
+      UNION SELECT DISTINCT typowner FROM user_types
+    ), owned_dependencies AS (
+      SELECT dependency.classid, dependency.objid, dependency.objsubid
+      FROM pg_shdepend dependency
+      WHERE dependency.refclassid = 'pg_authid'::regclass
+        AND dependency.refobjid = (SELECT oid FROM role_row)
+        AND dependency.deptype = 'o'
+        AND (
+          dependency.dbid = 0
+          OR dependency.dbid = (
+            SELECT oid FROM pg_database WHERE datname = current_database()
+          )
+        )
+    ), expected_settings(name, value) AS (
+      VALUES
+        ('application_name', expected_app_name),
+        ('idle_in_transaction_session_timeout', '15s'),
+        ('lock_timeout', '2s'),
+        ('search_path', format('pg_catalog, %I', target_schema)),
+        ('statement_timeout', '15s')
+    ), actual_global_settings(name, value) AS (
+      SELECT split_part(config.value, '=', 1),
+        substr(config.value, strpos(config.value, '=') + 1)
+      FROM pg_db_role_setting setting
+      CROSS JOIN LATERAL unnest(setting.setconfig) config(value)
+      WHERE setting.setrole = (SELECT oid FROM role_row)
+        AND setting.setdatabase = 0
+    ), checks(issue) AS (
+      SELECT 'candidate role owns the connected database'
+      WHERE EXISTS (
+        SELECT 1 FROM pg_database
+        WHERE datname = current_database() AND datdba = (SELECT oid FROM role_row)
       )
-      SELECT 1 FROM pg_namespace namespace
-      WHERE namespace.oid IN (SELECT oid FROM user_schema)
-        AND namespace.nspowner = candidate_role_oid
       UNION ALL
-      SELECT 1 FROM pg_class class
-      WHERE class.relnamespace IN (SELECT oid FROM user_schema)
-        AND class.relowner = candidate_role_oid
+      SELECT format('candidate role owns schema %I', nspname)
+      FROM user_schema WHERE nspowner = (SELECT oid FROM role_row)
       UNION ALL
-      SELECT 1 FROM pg_proc procedure
-      WHERE procedure.pronamespace IN (SELECT oid FROM user_schema)
-        AND procedure.proowner = candidate_role_oid
+      SELECT 'candidate role owns an object in a non-system schema'
+      WHERE EXISTS (SELECT 1 FROM user_relations WHERE relowner = (SELECT oid FROM role_row))
+         OR EXISTS (SELECT 1 FROM user_sequences WHERE relowner = (SELECT oid FROM role_row))
+         OR EXISTS (SELECT 1 FROM user_routines WHERE proowner = (SELECT oid FROM role_row))
+         OR EXISTS (SELECT 1 FROM user_types WHERE typowner = (SELECT oid FROM role_row))
       UNION ALL
-      SELECT 1 FROM pg_type type
-      WHERE type.typnamespace IN (SELECT oid FROM user_schema)
-        AND type.typowner = candidate_role_oid
-    ) THEN
-      RAISE EXCEPTION 'candidate roles must own no object in a non-system schema before enable';
+      SELECT format(
+        'candidate role retains an ownership dependency: %s',
+        pg_describe_object(classid, objid, objsubid)
+      ) FROM owned_dependencies
+      UNION ALL
+      SELECT 'database CONNECT privilege is missing'
+      WHERE NOT has_database_privilege(target_role, current_database(), 'CONNECT')
+      UNION ALL
+      SELECT 'database TEMP privilege is effective'
+      WHERE has_database_privilege(target_role, current_database(), 'TEMP')
+      UNION ALL
+      SELECT 'database CREATE privilege is effective'
+      WHERE has_database_privilege(target_role, current_database(), 'CREATE')
+      UNION ALL
+      SELECT 'target schema USAGE privilege is missing'
+      WHERE NOT has_schema_privilege(target_role, target_schema, 'USAGE')
+      UNION ALL
+      SELECT format('schema USAGE privilege is effective outside target on %I', nspname)
+      FROM user_schema
+      WHERE nspname <> target_schema
+        AND has_schema_privilege(target_role, schema_oid, 'USAGE')
+      UNION ALL
+      SELECT format('schema CREATE privilege is effective on %I', nspname)
+      FROM user_schema
+      WHERE has_schema_privilege(target_role, schema_oid, 'CREATE')
+      UNION ALL
+      SELECT 'one or more exact SELECT allowlist relations are missing'
+      WHERE EXISTS (
+        SELECT relname FROM expected_select
+        EXCEPT SELECT relname FROM target_relations
+      )
+      UNION ALL
+      SELECT format('SELECT privilege differs from exact allowlist on %I.%I', nspname, relname)
+      FROM user_relations
+      WHERE has_table_privilege(target_role, relation_oid, 'SELECT')
+        <> (nspname = target_schema AND relname IN (SELECT relname FROM expected_select))
+      UNION ALL
+      SELECT format('column SELECT is effective outside exact allowlist on %I.%I', nspname, relname)
+      FROM user_relations
+      WHERE NOT (nspname = target_schema AND relname IN (SELECT relname FROM expected_select))
+        AND NOT has_table_privilege(target_role, relation_oid, 'SELECT')
+        AND has_any_column_privilege(target_role, relation_oid, 'SELECT')
+      UNION ALL
+      SELECT 'one or more exact INSERT allowlist relations are missing'
+      WHERE EXISTS (
+        SELECT relname FROM expected_insert
+        EXCEPT SELECT relname FROM target_relations
+        WHERE has_table_privilege(target_role, relation_oid, 'INSERT')
+      )
+      UNION ALL
+      SELECT format('canonical, human-authority, promotion, or unrelated INSERT is effective on %I.%I', nspname, relname)
+      FROM user_relations
+      WHERE has_table_privilege(target_role, relation_oid, 'INSERT')
+        AND NOT (
+          nspname = target_schema
+          AND relname IN (SELECT relname FROM expected_insert)
+        )
+      UNION ALL
+      SELECT format('forbidden table write is effective on %I.%I', nspname, relname)
+      FROM user_relations
+      WHERE has_table_privilege(target_role, relation_oid, 'UPDATE')
+         OR has_table_privilege(target_role, relation_oid, 'DELETE')
+         OR has_table_privilege(target_role, relation_oid, 'TRUNCATE')
+         OR has_table_privilege(target_role, relation_oid, 'REFERENCES')
+         OR has_table_privilege(target_role, relation_oid, 'TRIGGER')
+      UNION ALL
+      SELECT format('column INSERT is effective outside exact allowlist on %I.%I', nspname, relname)
+      FROM user_relations
+      WHERE NOT has_table_privilege(target_role, relation_oid, 'INSERT')
+        AND has_any_column_privilege(target_role, relation_oid, 'INSERT')
+      UNION ALL
+      SELECT format('forbidden column write is effective on %I.%I', nspname, relname)
+      FROM user_relations
+      WHERE (
+          NOT has_table_privilege(target_role, relation_oid, 'UPDATE')
+          AND has_any_column_privilege(target_role, relation_oid, 'UPDATE')
+        ) OR (
+          NOT has_table_privilege(target_role, relation_oid, 'REFERENCES')
+          AND has_any_column_privilege(target_role, relation_oid, 'REFERENCES')
+        )
+      UNION ALL
+      SELECT format('sequence privilege is effective on %I.%I', nspname, relname)
+      FROM user_sequences
+      WHERE has_sequence_privilege(target_role, sequence_oid, 'SELECT')
+         OR has_sequence_privilege(target_role, sequence_oid, 'USAGE')
+         OR has_sequence_privilege(target_role, sequence_oid, 'UPDATE')
+      UNION ALL
+      SELECT format('direct routine privilege is granted in schema %I', nspname)
+      FROM user_routines routine
+      WHERE EXISTS (
+        SELECT 1
+        FROM aclexplode(COALESCE(routine.proacl, acldefault('f', routine.proowner))) privilege
+        WHERE privilege.grantee = (SELECT oid FROM role_row)
+      )
+      UNION ALL
+      SELECT 'an executable SECURITY DEFINER routine can bypass candidate table ACLs'
+      WHERE EXISTS (
+        SELECT 1 FROM user_routines
+        WHERE prosecdef AND has_function_privilege(target_role, routine_oid, 'EXECUTE')
+      )
+      UNION ALL
+      SELECT format('object owner %I retains default PUBLIC routine EXECUTE', owner.rolname)
+      FROM user_object_owners object_owner
+      JOIN pg_roles owner ON owner.oid = object_owner.owner_oid
+      WHERE EXISTS (
+        SELECT 1
+        FROM aclexplode(COALESCE(
+          (
+            SELECT defaults.defaclacl FROM pg_default_acl defaults
+            WHERE defaults.defaclrole = object_owner.owner_oid
+              AND defaults.defaclnamespace = 0
+              AND defaults.defaclobjtype = 'f'
+          ),
+          acldefault('f', object_owner.owner_oid)
+        )) privilege
+        WHERE privilege.grantee = 0 AND privilege.privilege_type = 'EXECUTE'
+      )
+      UNION ALL
+      SELECT 'default ACL path could grant future table, sequence, or routine access'
+      WHERE EXISTS (
+        SELECT 1
+        FROM pg_default_acl defaults
+        LEFT JOIN user_schema namespace ON namespace.schema_oid = defaults.defaclnamespace
+        CROSS JOIN LATERAL aclexplode(defaults.defaclacl) privilege
+        WHERE (defaults.defaclnamespace = 0 OR namespace.schema_oid IS NOT NULL)
+          AND privilege.grantee IN (0, (SELECT oid FROM role_row))
+          AND defaults.defaclobjtype IN ('r', 'S', 'f')
+      )
+      UNION ALL
+      SELECT 'candidate role has a database-specific setting'
+      WHERE EXISTS (
+        SELECT 1 FROM pg_db_role_setting
+        WHERE setrole = (SELECT oid FROM role_row) AND setdatabase <> 0
+      )
+      UNION ALL
+      SELECT format('required role setting is missing or changed: %s', name)
+      FROM (
+        SELECT name, value FROM expected_settings
+        EXCEPT SELECT name, value FROM actual_global_settings
+      ) missing_setting
+      UNION ALL
+      SELECT format('unexpected role setting is present: %s', name)
+      FROM (
+        SELECT name, value FROM actual_global_settings
+        EXCEPT SELECT name, value FROM expected_settings
+      ) extra_setting
+      UNION ALL
+      SELECT 'database default_transaction_read_only must be off'
+      WHERE current_setting('default_transaction_read_only') <> 'off'
+    )
+    SELECT string_agg(issue, '; ' ORDER BY issue)
+    INTO contract_issues
+    FROM checks;
+    IF contract_issues IS NOT NULL THEN
+      RAISE EXCEPTION 'candidate % role contract mismatch before enable: %',
+        role_mode, contract_issues;
     END IF;
   END LOOP;
 END
@@ -264,8 +606,16 @@ SQL
 cleanup_connection
 
 CANDIDATE_WORKER_DATABASE_URL=$WORKER_DATABASE_URL \
+  CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER=$CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER \
+  CANDIDATE_EXPECTED_TARGET_DATABASE_HEX=$CANDIDATE_EXPECTED_TARGET_DATABASE_HEX \
+  CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX=$CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX \
+  CANDIDATE_EXPECTED_TARGET_SERVER_PORT=$CANDIDATE_EXPECTED_TARGET_SERVER_PORT \
   "$SCRIPT_DIR/verify-candidate-analysis-roles.sh" --role=worker
 CANDIDATE_RECONCILER_DATABASE_URL=$RECONCILER_DATABASE_URL \
+  CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER=$CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER \
+  CANDIDATE_EXPECTED_TARGET_DATABASE_HEX=$CANDIDATE_EXPECTED_TARGET_DATABASE_HEX \
+  CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX=$CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX \
+  CANDIDATE_EXPECTED_TARGET_SERVER_PORT=$CANDIDATE_EXPECTED_TARGET_SERVER_PORT \
   "$SCRIPT_DIR/verify-candidate-analysis-roles.sh" --role=reconciler
 
 fail_safe_active=0

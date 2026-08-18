@@ -92,6 +92,17 @@ try {
       .join(":")}\n`,
     { mode: 0o600 },
   );
+  if (process.env.CANDIDATE_TARGET_IDENTITY_FILE !== undefined) {
+    writeFileSync(
+      process.env.CANDIDATE_TARGET_IDENTITY_FILE,
+      `${JSON.stringify({
+        hostname,
+        port: url.port || "5432",
+        database,
+      })}\n`,
+      { mode: 0o600 },
+    );
+  }
 
   // The subprocess target is rebuilt from explicit authority fields. Passwords
   // exist only in the mode-0600 passfile and never in argv or emitted SQL.

@@ -33,6 +33,10 @@ CANDIDATE_RECONCILER_DB_ROLE=${CANDIDATE_RECONCILER_DB_ROLE:-foodsystems_candida
 CANDIDATE_DB_SCHEMA=${CANDIDATE_DB_SCHEMA:-public}
 CANDIDATE_WORKER_DB_APP_NAME=${CANDIDATE_WORKER_DB_APP_NAME:-foodsystems-candidate-worker}
 CANDIDATE_RECONCILER_DB_APP_NAME=${CANDIDATE_RECONCILER_DB_APP_NAME:-foodsystems-candidate-reconciler}
+CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER=${CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER:-}
+CANDIDATE_EXPECTED_TARGET_DATABASE_HEX=${CANDIDATE_EXPECTED_TARGET_DATABASE_HEX:-}
+CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX=${CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX:-}
+CANDIDATE_EXPECTED_TARGET_SERVER_PORT=${CANDIDATE_EXPECTED_TARGET_SERVER_PORT:-}
 
 case "$1" in
   --role=worker)
@@ -66,6 +70,30 @@ esac
 case "$EXPECTED_APP_NAME" in
   ''|*[!a-zA-Z0-9_-]*) fail 'candidate application name contains unsupported characters' ;;
 esac
+target_identity_fields=0
+for identity_value in \
+  "$CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER" \
+  "$CANDIDATE_EXPECTED_TARGET_DATABASE_HEX" \
+  "$CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX" \
+  "$CANDIDATE_EXPECTED_TARGET_SERVER_PORT"; do
+  [ -z "$identity_value" ] || target_identity_fields=$((target_identity_fields + 1))
+done
+[ "$target_identity_fields" -eq 0 ] || [ "$target_identity_fields" -eq 4 ] \
+  || fail 'live target identity must supply all four fields or none'
+if [ "$target_identity_fields" -eq 4 ]; then
+  case "$CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER" in
+    *[!0-9]*) fail 'expected live cluster identity is invalid' ;;
+  esac
+  case "$CANDIDATE_EXPECTED_TARGET_DATABASE_HEX" in
+    *[!0-9a-f]*) fail 'expected live database identity is invalid' ;;
+  esac
+  case "$CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX" in
+    *[!0-9a-f]*) fail 'expected live server address identity is invalid' ;;
+  esac
+  case "$CANDIDATE_EXPECTED_TARGET_SERVER_PORT" in
+    *[!0-9]*) fail 'expected live server port identity is invalid' ;;
+  esac
+fi
 
 command -v psql >/dev/null 2>&1 || fail 'psql is required'
 command -v node >/dev/null 2>&1 || fail 'node is required to normalize the connection URL'
@@ -85,12 +113,20 @@ PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$ROLE_DATABASE_URL PGPASSFILE_PATH=$PGPASSF
   node "$SCRIPT_DIR/normalize-candidate-postgres-url.mjs")
 unset ROLE_DATABASE_URL CANDIDATE_WORKER_DATABASE_URL CANDIDATE_RECONCILER_DATABASE_URL PGPASSWORD PGOPTIONS PGSERVICE PGSERVICEFILE
 export ROLE_MODE EXPECTED_ROLE EXPECTED_APP_NAME CANDIDATE_DB_SCHEMA
+export CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER
+export CANDIDATE_EXPECTED_TARGET_DATABASE_HEX
+export CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX
+export CANDIDATE_EXPECTED_TARGET_SERVER_PORT
 
 issues=$(psql "$PSQL_DATABASE_URL" -X -A -t -v ON_ERROR_STOP=1 <<'SQL'
 \getenv role_mode ROLE_MODE
 \getenv expected_role EXPECTED_ROLE
 \getenv expected_app_name EXPECTED_APP_NAME
 \getenv target_schema CANDIDATE_DB_SCHEMA
+\getenv expected_system_identifier CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER
+\getenv expected_database_hex CANDIDATE_EXPECTED_TARGET_DATABASE_HEX
+\getenv expected_server_address_hex CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX
+\getenv expected_server_port CANDIDATE_EXPECTED_TARGET_SERVER_PORT
 
 WITH role_row AS (
   SELECT * FROM pg_roles WHERE rolname = current_user
@@ -171,6 +207,17 @@ WITH role_row AS (
       OR dependency.dbid = (SELECT oid FROM pg_database WHERE datname = current_database())
     )
 ), checks(issue) AS (
+  SELECT 'live cluster or database identity differs from the activation target'
+  WHERE :'expected_system_identifier' <> '' AND (
+    (SELECT system_identifier::text FROM pg_control_system())
+      <> :'expected_system_identifier'
+    OR encode(convert_to(current_database(), 'UTF8'), 'hex')
+      <> :'expected_database_hex'
+    OR encode(convert_to(inet_server_addr()::text, 'UTF8'), 'hex')
+      <> :'expected_server_address_hex'
+    OR inet_server_port()::text <> :'expected_server_port'
+  )
+  UNION ALL
   SELECT format(
     'identity mismatch: session_user=%I current_user=%I expected=%I',
     session_user, current_user, :'expected_role'
