@@ -162,11 +162,30 @@ const assertRecoveryContract = (contract: string) => {
 
 const assertNoStaleRecoveryGuidance = (contract: string) => {
   const normalizedContract = contract.replace(/\s+/g, ' ')
+  const contexts = normalizedContract.split(/(?<=[.!?;])\s+/)
+  const bootstrapLoginEffect =
+    /\bbootstrap\b([^.!?;]{0,160}?)\b(?:restor(?:e|es|ed|ing)|(?:re[ -]?)?enabl(?:e|es|ed|ing))\b[^.!?;]{0,80}?\bLOGIN\b/gi
+  const explicitEffectNegation =
+    /\b(?:(?:do(?:es)?|did|can|could|must|should|will|would)\s+not|cannot|can't|never|won't|mustn't|shouldn't|wouldn't|couldn't|doesn't)\b/i
+  const negatedInstructionLead =
+    /\b(?:do\s+not|don't|never|must\s+not|mustn't|cannot|can't)\b[^.!?;]{0,48}$/i
 
-  assert.doesNotMatch(
-    normalizedContract,
-    /\bbootstrap\b.{0,160}\b(?:restor(?:e|es|ed|ing)|enabl(?:e|es|ed|ing)|re-enabl(?:e|es|ed|ing))\b.{0,80}\bLOGIN\b/i,
-  )
+  for (const context of contexts) {
+    for (const match of context.matchAll(bootstrapLoginEffect)) {
+      const effectLead = match[1] ?? ''
+      const matchStart = match.index ?? 0
+      const instructionLead = context.slice(Math.max(0, matchStart - 64), matchStart)
+
+      if (
+        explicitEffectNegation.test(effectLead) ||
+        negatedInstructionLead.test(instructionLead)
+      ) {
+        continue
+      }
+
+      assert.fail(`stale bootstrap LOGIN recovery guidance: ${match[0]}`)
+    }
+  }
 }
 
 const assertDurableContract = (contract: string) => {
@@ -558,4 +577,49 @@ test('rejects stale re-enable LOGIN guidance inside the recovery section', () =>
     () => assertDurableContract(mutated),
     (error: unknown) => error instanceof Error,
   )
+})
+
+test('rejects stale reenable LOGIN guidance outside the recovery section', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const mutated = mutateSection(
+    contract,
+    'Purpose',
+    (block) => `${block}\nRe-run bootstrap to reenable LOGIN.\n`,
+  )
+
+  assert.throws(
+    () => assertDurableContract(mutated),
+    (error: unknown) => error instanceof Error,
+  )
+})
+
+test('rejects trailing stale reenable LOGIN guidance', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const mutated = `${contract}\nRe-run bootstrap to reenable LOGIN.\n`
+
+  assert.throws(
+    () => assertDurableContract(mutated),
+    (error: unknown) => error instanceof Error,
+  )
+})
+
+test('permits explicit bootstrap-does-not-restore-LOGIN guidance', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const controlled = `${contract}\nBootstrap does not restore LOGIN; use the explicit enable command.\n`
+
+  assert.doesNotThrow(() => assertDurableContract(controlled))
+})
+
+test('permits explicit bootstrap-cannot-enable-LOGIN guidance', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const controlled = `${contract}\nBootstrap cannot enable LOGIN; use the explicit enable command.\n`
+
+  assert.doesNotThrow(() => assertDurableContract(controlled))
+})
+
+test('permits explicit bootstrap-must-not-reenable-LOGIN guidance', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const controlled = `${contract}\nBootstrap must not re-enable LOGIN; use the explicit enable command.\n`
+
+  assert.doesNotThrow(() => assertDurableContract(controlled))
 })
