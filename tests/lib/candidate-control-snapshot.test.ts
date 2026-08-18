@@ -6,6 +6,7 @@ import {
   mkdtempSync,
   readFileSync,
   readdirSync,
+  rmSync,
   symlinkSync,
   writeFileSync,
 } from "node:fs";
@@ -1227,6 +1228,40 @@ describe("candidate control snapshot CLI output boundary", () => {
         if (!readFileSync(target).equals(before)) writeFileSync(target, before);
       }
       assert.deepEqual(readFileSync(target), before);
+    }
+  });
+
+  it("protects the canonical tracked target identity on case-insensitive filesystems", (context) => {
+    const root = mkdtempSync(join(tmpdir(), "candidate-snapshot-case-"));
+    const trackedTarget = join(root, "Foo.json");
+    const requestedTarget = join(root, "foo.json");
+
+    try {
+      execFileSync("git", ["init", "--quiet", root], {
+        env: testGitEnvironment(),
+      });
+      writeFileSync(trackedTarget, '{"tracked":true}\n', { mode: 0o600 });
+      execFileSync("git", ["-C", root, "add", "--", "Foo.json"], {
+        env: testGitEnvironment(),
+      });
+
+      if (!existsSync(requestedTarget)) {
+        context.skip("filesystem is case-sensitive");
+        return;
+      }
+      const trackedStat = lstatSync(trackedTarget);
+      const requestedStat = lstatSync(requestedTarget);
+      if (
+        trackedStat.dev !== requestedStat.dev ||
+        trackedStat.ino !== requestedStat.ino
+      ) {
+        context.skip("requested casing resolves to a distinct file");
+        return;
+      }
+
+      assertWriteRejectedAndPreserved(requestedTarget, /git_tracked/i);
+    } finally {
+      rmSync(root, { force: true, recursive: true });
     }
   });
 

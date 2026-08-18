@@ -88,8 +88,7 @@ export function writeCandidateControlSnapshotAtomic(
   if (!parentStat.isDirectory() || parentStat.isSymbolicLink()) {
     throw new Error("candidate_control_output_parent_is_unsafe");
   }
-  rejectGitTrackedTarget(target, parent);
-  rejectUnsafeExistingTarget(target);
+  rejectUnsafeOutputTarget(target, parent);
   if (existsSync(temporary)) {
     throw new Error("candidate_control_temporary_path_exists");
   }
@@ -107,7 +106,7 @@ export function writeCandidateControlSnapshotAtomic(
     descriptor = null;
 
     hooks.beforeRename?.();
-    rejectUnsafeExistingTarget(target);
+    rejectUnsafeOutputTarget(target, parent);
     renameSync(temporary, target);
     const directoryDescriptor = openSync(parent, constants.O_RDONLY);
     try {
@@ -372,27 +371,52 @@ async function queryOrDefault<T>(
   }
 }
 
-function rejectUnsafeExistingTarget(target: string): void {
-  if (!existsSync(target)) return;
-  const stat = lstatSync(target);
+function rejectUnsafeOutputTarget(target: string, parent: string): void {
+  const targetExists = rejectUnsafeExistingTarget(target);
+  rejectGitTrackedTarget(target, parent, targetExists);
+}
+
+function rejectUnsafeExistingTarget(target: string): boolean {
+  let stat: ReturnType<typeof lstatSync>;
+  try {
+    stat = lstatSync(target);
+  } catch (error) {
+    if (isFileSystemError(error, "ENOENT")) return false;
+    throw new Error("candidate_control_output_target_inspection_failed");
+  }
   if (stat.isSymbolicLink()) {
     throw new Error("candidate_control_output_target_is_symlink");
   }
   if (!stat.isFile()) {
     throw new Error("candidate_control_output_target_is_not_a_file");
   }
+  return true;
 }
 
-function rejectGitTrackedTarget(target: string, parent: string): void {
+function rejectGitTrackedTarget(
+  target: string,
+  parent: string,
+  targetExists: boolean,
+): void {
   let canonicalParent: string;
   try {
-    canonicalParent = realpathSync(parent);
+    canonicalParent = realpathSync.native(parent);
   } catch {
     throw new Error("candidate_control_git_tracking_check_failed");
   }
   const repositoryControlRoot = findGitRepositoryControlRoot(canonicalParent);
   if (repositoryControlRoot === null) return;
-  const canonicalTarget = join(canonicalParent, basename(target));
+  let canonicalTarget: string;
+  try {
+    canonicalTarget = targetExists
+      ? realpathSync.native(target)
+      : join(canonicalParent, basename(target));
+  } catch {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+  if (dirname(canonicalTarget) !== canonicalParent) {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
   if (isSameOrDescendant(repositoryControlRoot, canonicalTarget)) {
     throw new Error("candidate_control_output_target_is_git_metadata");
   }
@@ -509,7 +533,7 @@ function readCanonicalGitPath(
     throw new Error("candidate_control_git_tracking_check_failed");
   }
   try {
-    return realpathSync(output);
+    return realpathSync.native(output);
   } catch {
     throw new Error("candidate_control_git_tracking_check_failed");
   }
