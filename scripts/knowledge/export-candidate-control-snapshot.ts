@@ -11,9 +11,11 @@ import {
   fstatSync,
   fsyncSync,
   lstatSync,
+  mkdirSync,
   openSync,
   realpathSync,
   renameSync,
+  rmdirSync,
   unlinkSync,
   writeFileSync,
 } from "node:fs";
@@ -473,15 +475,14 @@ function rejectGitTrackedTarget(
     throw new Error("candidate_control_git_tracking_check_failed");
   }
 
-  const caseSensitive = directoryUsesCaseSensitiveNames(canonicalParent);
-  if (caseSensitive) return;
   const trackedPaths = readGitIndexPaths(repositoryRoot);
   if (
     trackedPaths.some((trackedPath) =>
-      candidateControlGitPathIdentitiesEqual(
-        repositoryRelative,
+      gitIndexPathTargetsOutput(
+        repositoryRoot,
+        canonicalParent,
+        basename(canonicalTarget),
         trackedPath,
-        caseSensitive,
       ),
     )
   ) {
@@ -489,30 +490,39 @@ function rejectGitTrackedTarget(
   }
 }
 
-export function candidateControlGitPathIdentitiesEqual(
-  requestedPath: string,
+function gitIndexPathTargetsOutput(
+  repositoryRoot: string,
+  canonicalTargetParent: string,
+  requestedName: string,
   trackedPath: string,
-  caseSensitive: boolean,
 ): boolean {
-  if (caseSensitive) return requestedPath === trackedPath;
-  return (
-    normalizeGitPathIdentity(requestedPath) ===
-    normalizeGitPathIdentity(trackedPath)
+  const trackedAbsolute = resolve(repositoryRoot, trackedPath);
+  if (!isSameOrDescendant(repositoryRoot, trackedAbsolute)) {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+  let canonicalTrackedParent: string;
+  try {
+    canonicalTrackedParent = realpathSync.native(dirname(trackedAbsolute));
+  } catch (error) {
+    if (isFileSystemError(error, "ENOENT")) return false;
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+  if (canonicalTrackedParent !== canonicalTargetParent) return false;
+
+  return targetFilesystemNamesEqual(
+    canonicalTargetParent,
+    requestedName,
+    basename(trackedAbsolute),
   );
 }
 
-function normalizeGitPathIdentity(path: string): string {
-  const normalizedSeparators =
-    process.platform === "win32" ? path.replaceAll("\\", "/") : path;
-  return normalizedSeparators
-    .normalize("NFKC")
-    .toUpperCase()
-    .toLowerCase()
-    .normalize("NFKC");
-}
-
-function directoryUsesCaseSensitiveNames(parent: string): boolean {
+function targetFilesystemNamesEqual(
+  parent: string,
+  requestedName: string,
+  trackedName: string,
+): boolean {
   let descriptor: number | null = null;
+  let probeDirectory: string | null = null;
   let probePath: string | null = null;
   let probeCreated = false;
   let result: boolean | null = null;
@@ -520,11 +530,10 @@ function directoryUsesCaseSensitiveNames(parent: string): boolean {
 
   try {
     const token = randomBytes(32).toString("hex");
-    probePath = join(parent, `.candidate-control-case-${token}-Aa`);
-    const alternatePath = join(
-      parent,
-      `.candidate-control-case-${token}-aA`,
-    );
+    probeDirectory = join(parent, `.candidate-control-identity-${token}`);
+    mkdirSync(probeDirectory, { mode: 0o700 });
+    probePath = join(probeDirectory, requestedName);
+    const trackedProbePath = join(probeDirectory, trackedName);
     descriptor = openSync(
       probePath,
       constants.O_WRONLY |
@@ -537,22 +546,16 @@ function directoryUsesCaseSensitiveNames(parent: string): boolean {
     fchmodSync(descriptor, 0o600);
     const probeStat = fstatSync(descriptor);
     if (!probeStat.isFile() || (probeStat.mode & 0o777) !== 0o600) {
-      throw new Error("candidate_control_case_probe_invalid");
+      throw new Error("candidate_control_identity_probe_invalid");
     }
 
-    const alternateStat = lstatIfExists(alternatePath);
-    if (alternateStat === null) {
-      result = true;
-    } else if (
-      alternateStat.isFile() &&
-      !alternateStat.isSymbolicLink() &&
-      alternateStat.dev === probeStat.dev &&
-      alternateStat.ino === probeStat.ino
-    ) {
-      result = false;
-    } else {
-      throw new Error("candidate_control_case_probe_ambiguous");
-    }
+    const trackedProbeStat = lstatIfExists(trackedProbePath);
+    result =
+      trackedProbeStat !== null &&
+      trackedProbeStat.isFile() &&
+      !trackedProbeStat.isSymbolicLink() &&
+      trackedProbeStat.dev === probeStat.dev &&
+      trackedProbeStat.ino === probeStat.ino;
   } catch {
     failed = true;
   } finally {
@@ -566,6 +569,13 @@ function directoryUsesCaseSensitiveNames(parent: string): boolean {
     if (probeCreated && probePath !== null) {
       try {
         unlinkSync(probePath);
+      } catch {
+        failed = true;
+      }
+    }
+    if (probeDirectory !== null) {
+      try {
+        rmdirSync(probeDirectory);
       } catch {
         failed = true;
       }

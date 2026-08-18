@@ -24,7 +24,6 @@ import {
   type CandidateControlSnapshotInput,
 } from "../../src/lib/knowledge/candidate-control-snapshot";
 import {
-  candidateControlGitPathIdentitiesEqual,
   parseCandidateControlSnapshotArgs,
   writeCandidateControlSnapshotAtomic,
 } from "../../scripts/knowledge/export-candidate-control-snapshot";
@@ -1143,41 +1142,6 @@ describe("candidate control snapshot", () => {
 });
 
 describe("candidate control snapshot CLI output boundary", () => {
-  it("keeps case-only Git paths distinct on a case-sensitive filesystem", () => {
-    assert.equal(
-      candidateControlGitPathIdentitiesEqual(
-        "nested/foo.json",
-        "nested/Foo.json",
-        true,
-      ),
-      false,
-    );
-    assert.equal(
-      candidateControlGitPathIdentitiesEqual(
-        "nested/caf\u00e9.json",
-        "nested/CAFE\u0301.json",
-        false,
-      ),
-      true,
-    );
-    assert.equal(
-      candidateControlGitPathIdentitiesEqual(
-        "nested/stra\u00dfe.json",
-        "nested/STRASSE.json",
-        true,
-      ),
-      false,
-    );
-    assert.equal(
-      candidateControlGitPathIdentitiesEqual(
-        "nested/stra\u00dfe.json",
-        "nested/STRASSE.json",
-        false,
-      ),
-      true,
-    );
-  });
-
   it("accepts only the two named CLI arguments", () => {
     assert.deepEqual(parseCandidateControlSnapshotArgs([]), {
       output: null,
@@ -1365,7 +1329,168 @@ describe("candidate control snapshot CLI output boundary", () => {
         assert.equal(existsSync(requestedTarget), false);
         assert.equal(
           readdirSync(root).some((name) =>
-            name.startsWith(".candidate-control-case-"),
+            name.startsWith(".candidate-control-"),
+          ),
+          false,
+        );
+        assert.deepEqual(readFileSync(indexPath), indexBefore);
+        assert.deepEqual(
+          execFileSync("git", ["-C", root, "show", ":Foo.json"], { env }),
+          stagedBlobBefore,
+        );
+      } finally {
+        if (existsSync(requestedTarget)) unlinkSync(requestedTarget);
+        if (!existsSync(trackedTarget)) {
+          writeFileSync(trackedTarget, trackedBytes, { mode: 0o600 });
+        }
+      }
+      assert.deepEqual(readFileSync(trackedTarget), trackedBytes);
+      assert.deepEqual(readFileSync(indexPath), indexBefore);
+    } finally {
+      rmSync(root, { force: true, recursive: true });
+    }
+  });
+
+  it("rejects index-only ẞ.json via SS.json using target-filesystem identity", (context) => {
+    const root = mkdtempSync(join(tmpdir(), "candidate-snapshot-unicode-index-"));
+    const trackedTarget = join(root, "ẞ.json");
+    const requestedTarget = join(root, "SS.json");
+    const trackedBytes = Buffer.from('{"tracked":true}\n');
+    const env = testGitEnvironment();
+
+    try {
+      execFileSync("git", ["init", "--quiet", root], { env });
+      writeFileSync(trackedTarget, trackedBytes, { mode: 0o600 });
+      execFileSync("git", ["-C", root, "add", "--", "ẞ.json"], { env });
+      execFileSync(
+        "git",
+        [
+          "-C",
+          root,
+          "-c",
+          "user.name=Candidate Snapshot Test",
+          "-c",
+          "user.email=candidate-snapshot@example.invalid",
+          "commit",
+          "--quiet",
+          "-m",
+          "track Unicode name",
+        ],
+        { env },
+      );
+
+      if (!existsSync(requestedTarget)) {
+        context.skip("filesystem keeps ẞ.json and SS.json distinct");
+        return;
+      }
+      const trackedStat = lstatSync(trackedTarget);
+      const requestedStat = lstatSync(requestedTarget);
+      if (
+        trackedStat.dev !== requestedStat.dev ||
+        trackedStat.ino !== requestedStat.ino
+      ) {
+        context.skip("requested Unicode spelling resolves to a distinct file");
+        return;
+      }
+
+      const indexPath = join(root, ".git", "index");
+      const indexBefore = readFileSync(indexPath);
+      const stagedBlobBefore = execFileSync(
+        "git",
+        ["-C", root, "show", ":ẞ.json"],
+        { env },
+      );
+      try {
+        unlinkSync(trackedTarget);
+        assert.equal(existsSync(requestedTarget), false);
+        assert.throws(
+          () =>
+            writeCandidateControlSnapshotAtomic(
+              requestedTarget,
+              '{"unsafe":true}\n',
+            ),
+          /git_tracked/i,
+        );
+        assert.equal(existsSync(requestedTarget), false);
+        assert.equal(
+          readdirSync(root).some((name) =>
+            name.startsWith(".candidate-control-"),
+          ),
+          false,
+        );
+        assert.deepEqual(readFileSync(indexPath), indexBefore);
+        assert.deepEqual(
+          execFileSync("git", ["-C", root, "show", ":ẞ.json"], { env }),
+          stagedBlobBefore,
+        );
+      } finally {
+        if (existsSync(requestedTarget)) unlinkSync(requestedTarget);
+        if (!existsSync(trackedTarget)) {
+          writeFileSync(trackedTarget, trackedBytes, { mode: 0o600 });
+        }
+      }
+      assert.deepEqual(readFileSync(trackedTarget), trackedBytes);
+      assert.deepEqual(readFileSync(indexPath), indexBefore);
+      assert.deepEqual(
+        execFileSync("git", ["-C", root, "show", ":ẞ.json"], { env }),
+        stagedBlobBefore,
+      );
+    } finally {
+      rmSync(root, { force: true, recursive: true });
+    }
+  });
+
+  it("allows an index-only case variant when the target filesystem keeps names distinct", (context) => {
+    const root = mkdtempSync(join(tmpdir(), "candidate-snapshot-distinct-case-"));
+    const trackedTarget = join(root, "Foo.json");
+    const requestedTarget = join(root, "foo.json");
+    const trackedBytes = Buffer.from('{"tracked":true}\n');
+    const requestedBytes = Buffer.from('{"candidate":true}\n');
+    const env = testGitEnvironment();
+
+    try {
+      execFileSync("git", ["init", "--quiet", root], { env });
+      writeFileSync(trackedTarget, trackedBytes, { mode: 0o600 });
+      execFileSync("git", ["-C", root, "add", "--", "Foo.json"], { env });
+      execFileSync(
+        "git",
+        [
+          "-C",
+          root,
+          "-c",
+          "user.name=Candidate Snapshot Test",
+          "-c",
+          "user.email=candidate-snapshot@example.invalid",
+          "commit",
+          "--quiet",
+          "-m",
+          "track distinct case name",
+        ],
+        { env },
+      );
+
+      if (existsSync(requestedTarget)) {
+        context.skip("filesystem aliases Foo.json and foo.json");
+        return;
+      }
+
+      const indexPath = join(root, ".git", "index");
+      const indexBefore = readFileSync(indexPath);
+      const stagedBlobBefore = execFileSync(
+        "git",
+        ["-C", root, "show", ":Foo.json"],
+        { env },
+      );
+      try {
+        unlinkSync(trackedTarget);
+        writeCandidateControlSnapshotAtomic(
+          requestedTarget,
+          requestedBytes.toString("utf8"),
+        );
+        assert.deepEqual(readFileSync(requestedTarget), requestedBytes);
+        assert.equal(
+          readdirSync(root).some((name) =>
+            name.startsWith(".candidate-control-"),
           ),
           false,
         );
