@@ -88,6 +88,35 @@ test("rejects nested authority markers in every machine-owned payload", () => {
   );
 });
 
+test("rejects recursive approval markers across separator and case variants", () => {
+  const fixture = candidateAnalysisFixture();
+
+  assert.throws(
+    () =>
+      CandidateAssertionInputSchema.parse({
+        ...fixture.assertion,
+        payload: { result: { approvalState: "approved" } },
+      }),
+    /reserved_machine_payload_field/,
+  );
+  assert.throws(
+    () =>
+      CandidateAnalysisArtifactInputSchema.parse({
+        ...fixture.artifact,
+        payload: { result: [{ nested: { humanApproved: true } }] },
+      }),
+    /reserved_machine_payload_field/,
+  );
+  assert.throws(
+    () =>
+      CandidateAnalysisRunEventInputSchema.parse({
+        ...fixture.events.started,
+        payload: { progress: { "HuMaN-Approval_State": "approved" } },
+      }),
+    /reserved_machine_payload_field/,
+  );
+});
+
 test("allows repeated checkpoints but rejects gaps and post-terminal writes", () => {
   const fixture = candidateAnalysisFixture();
   assert.equal(

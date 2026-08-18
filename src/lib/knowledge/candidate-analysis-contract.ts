@@ -126,6 +126,8 @@ function isReservedMachinePayloadKey(key: string): boolean {
   if (
     normalized.includes("humanreview") ||
     RESERVED_MACHINE_PAYLOAD_REVIEW_KEYS.has(normalized) ||
+    normalized.includes("approval") ||
+    normalized.includes("approved") ||
     normalized.includes("promotion") ||
     normalized.includes("publication") ||
     normalized.includes("published")
