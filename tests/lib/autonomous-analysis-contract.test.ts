@@ -169,8 +169,23 @@ const assertNoStaleRecoveryGuidance = (contract: string) => {
     /\b(?:(?:do(?:es)?|did|can|could|must|should|will|would)\s+not|cannot|can't|never|won't|mustn't|shouldn't|wouldn't|couldn't|doesn't|(?:is|are|was|were)\s+not\s+able\s+to|(?:isn't|aren't|wasn't|weren't)\s+able\s+to)\s*$/i
   const directlyNegatedInstruction =
     /\b(?:do\s+not|don't|never|must\s+not|mustn't)\s+(?:run|rerun|re-run|re run|use)(?:\s+the)?\s+bootstrap(?:\s+to)?\s*$/i
-  const inheritsBootstrapSubject =
-    /^(?:it|this|that)\b|^(?:does\s+)?(?:restor(?:e|es|ed|ing)|(?:re[ -]?)?enabl(?:e|es|ed|ing))\b/i
+  const continuationPronoun = /^(?:it|this|that)\b/i
+  const continuationAuxiliary =
+    /^(?:can|cannot|can't|could|couldn't|may|might|must|mustn't|shall|should|shouldn't|will|won't|would|wouldn't|do|does|doesn't|did|didn't|is|isn't|are|aren't|was|wasn't|were|weren't|has|hasn't|have|haven't|had|hadn't)\b/i
+  const continuationEffect =
+    /^(?:restor(?:e|es|ed|ing)|(?:re[ -]?)?enabl(?:e|es|ed|ing))\b/i
+  const inheritsBootstrapSubject = (clause: string) => {
+    if (continuationPronoun.test(clause)) return true
+
+    const withoutContinuationAdverbs = clause.replace(
+      /^(?:(?:still|also|even)\s+)+/i,
+      '',
+    )
+    return (
+      continuationAuxiliary.test(withoutContinuationAdverbs) ||
+      continuationEffect.test(withoutContinuationAdverbs)
+    )
+  }
 
   for (const sentence of sentences) {
     const clauses = sentence.split(
@@ -181,7 +196,7 @@ const assertNoStaleRecoveryGuidance = (contract: string) => {
     for (const clause of clauses) {
       const namesBootstrap = /\bbootstrap\b/i.test(clause)
       const inheritsBootstrap: boolean =
-        bootstrapSubject && inheritsBootstrapSubject.test(clause)
+        bootstrapSubject && inheritsBootstrapSubject(clause)
       const hasBootstrapSubject = namesBootstrap || inheritsBootstrap
 
       if (hasBootstrapSubject) {
@@ -694,6 +709,60 @@ test('permits bootstrap-never-enables-LOGIN guidance', () => {
 test('permits directly negated bootstrap LOGIN instruction', () => {
   const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
   const controlled = `${contract}\nDo not rerun bootstrap to enable LOGIN.\n`
+
+  assert.doesNotThrow(() => assertDurableContract(controlled))
+})
+
+test('rejects modal continuation after but with omitted bootstrap subject', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const mutated = `${contract}\nBootstrap cannot enable LOGIN, but can enable LOGIN.\n`
+
+  assert.throws(
+    () => assertDurableContract(mutated),
+    (error: unknown) => error instanceof Error,
+  )
+})
+
+test('rejects adverbial continuation after but with omitted bootstrap subject', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const mutated = `${contract}\nBootstrap cannot enable LOGIN, but still enables LOGIN.\n`
+
+  assert.throws(
+    () => assertDurableContract(mutated),
+    (error: unknown) => error instanceof Error,
+  )
+})
+
+test('rejects modal continuation after yet with omitted bootstrap subject', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const mutated = `${contract}\nBootstrap cannot enable LOGIN, yet will enable LOGIN.\n`
+
+  assert.throws(
+    () => assertDurableContract(mutated),
+    (error: unknown) => error instanceof Error,
+  )
+})
+
+test('rejects adverbial continuation after semicolon with omitted bootstrap subject', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const mutated = `${contract}\nBootstrap cannot enable LOGIN; still enables LOGIN.\n`
+
+  assert.throws(
+    () => assertDurableContract(mutated),
+    (error: unknown) => error instanceof Error,
+  )
+})
+
+test('permits a human reviewer as an explicit post-contrast subject', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const controlled = `${contract}\nBootstrap cannot enable LOGIN, but a human reviewer can authorize the separate enable operation.\n`
+
+  assert.doesNotThrow(() => assertDurableContract(controlled))
+})
+
+test('permits the explicit enable script as a post-contrast subject', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const controlled = `${contract}\nBootstrap cannot enable LOGIN, but the explicit enable script can set LOGIN.\n`
 
   assert.doesNotThrow(() => assertDurableContract(controlled))
 })
