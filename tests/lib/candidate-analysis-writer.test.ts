@@ -4,7 +4,9 @@ import {
   mkdirSync,
   mkdtempSync,
   readFileSync,
+  realpathSync,
   rmSync,
+  symlinkSync,
   writeFileSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
@@ -1355,6 +1357,100 @@ test(
 );
 
 test(
+  "workflow bundle rejects an in-repository symlink targeting an external file",
+  async () => {
+    const repository = writeBindingRepository(
+      VALID_WORKFLOW_BINDING_TEXT,
+      VALID_PROMPT_BINDING_TEXT,
+    );
+    const externalRoot = mkdtempSync(join(tmpdir(), "candidate-binding-external-"));
+    const externalWorkflowPath = join(externalRoot, "candidate-analysis-v1.md");
+    writeFileSync(externalWorkflowPath, repository.workflowBytes);
+    rmSync(repository.workflowPath);
+    symlinkSync(externalWorkflowPath, repository.workflowPath);
+
+    try {
+      const noDatabaseAccess = new Proxy(
+        {},
+        {
+          get() {
+            throw new Error("unexpected database access");
+          },
+        },
+      ) as InstanceType<typeof PrismaClient>;
+      const writer = writerWithReadSeam(noDatabaseAccess, {
+        repositoryRoot: repository.repositoryRoot,
+      });
+      const fixture = candidateAnalysisFixture();
+
+      await assert.rejects(
+        writer.createRun(
+          runBoundToBytes(
+            fixture.run,
+            repository.workflowBytes,
+            repository.promptBytes,
+          ),
+        ),
+        (error: unknown) => hasWriteCode(error, "workflow_binding_mismatch"),
+      );
+    } finally {
+      rmSync(repository.repositoryRoot, { recursive: true, force: true });
+      rmSync(externalRoot, { recursive: true, force: true });
+    }
+  },
+);
+
+test(
+  "workflow and prompt reject conflicting duplicate metadata markers",
+  async () => {
+    for (const candidate of [
+      {
+        workflowText: `${VALID_WORKFLOW_BINDING_TEXT}\nPrompt template ID: \`prompt.detached.v1\`\n`,
+        promptText: VALID_PROMPT_BINDING_TEXT,
+        conflict: "workflow_binding_mismatch",
+      },
+      {
+        workflowText: VALID_WORKFLOW_BINDING_TEXT,
+        promptText: `${VALID_PROMPT_BINDING_TEXT}\nWorkflow ID: \`workflow.detached.v1\`\n`,
+        conflict: "prompt_binding_mismatch",
+      },
+    ] as const) {
+      const repository = writeBindingRepository(
+        candidate.workflowText,
+        candidate.promptText,
+      );
+      try {
+        const noDatabaseAccess = new Proxy(
+          {},
+          {
+            get() {
+              throw new Error("unexpected database access");
+            },
+          },
+        ) as InstanceType<typeof PrismaClient>;
+        const writer = writerWithReadSeam(noDatabaseAccess, {
+          repositoryRoot: repository.repositoryRoot,
+        });
+        const fixture = candidateAnalysisFixture();
+
+        await assert.rejects(
+          writer.createRun(
+            runBoundToBytes(
+              fixture.run,
+              repository.workflowBytes,
+              repository.promptBytes,
+            ),
+          ),
+          (error: unknown) => hasWriteCode(error, candidate.conflict),
+        );
+      } finally {
+        rmSync(repository.repositoryRoot, { recursive: true, force: true });
+      }
+    }
+  },
+);
+
+test(
   "workflow rejects a detached prompt ID version or repository path",
   async () => {
     for (const workflowText of [
@@ -1518,9 +1614,11 @@ test("single read workflow prompt bundle uses the same bytes for validation and 
         callback(transaction),
     } as unknown as InstanceType<typeof PrismaClient>;
     const readCounts = new Map<string, number>();
+    const workflowReadPath = realpathSync(repository.workflowPath);
+    const promptReadPath = realpathSync(repository.promptPath);
     const validBytes = new Map([
-      [repository.workflowPath, repository.workflowBytes],
-      [repository.promptPath, repository.promptBytes],
+      [workflowReadPath, repository.workflowBytes],
+      [promptReadPath, repository.promptBytes],
     ]);
     const readFile = (path: string) => {
       const count = (readCounts.get(path) ?? 0) + 1;
@@ -1542,8 +1640,8 @@ test("single read workflow prompt bundle uses the same bytes for validation and 
       ),
     );
 
-    assert.equal(readCounts.get(repository.workflowPath), 1);
-    assert.equal(readCounts.get(repository.promptPath), 1);
+    assert.equal(readCounts.get(workflowReadPath), 1);
+    assert.equal(readCounts.get(promptReadPath), 1);
   } finally {
     rmSync(repository.repositoryRoot, { recursive: true, force: true });
   }
