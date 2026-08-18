@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import {
   mkdirSync,
   mkdtempSync,
@@ -14,6 +15,7 @@ import { PrismaPg } from "@prisma/adapter-pg";
 
 import { PrismaClient } from "../../src/generated/prisma/client";
 import type {
+  CandidateAnalysisArtifactInput,
   CandidateAnalysisRunEventInput,
   CandidateAssertionInput,
   CandidateContentUnitInput,
@@ -21,6 +23,7 @@ import type {
   CandidateEvidenceLevel,
   CandidateIdentityConfidence,
   CandidateAnalysisRunInput,
+  CandidateReconciliationSnapshotInput,
 } from "../../src/lib/knowledge/candidate-analysis-contract";
 import {
   candidateAnalysisArtifactPayloadHash,
@@ -155,6 +158,86 @@ function hasWriteCode(error: unknown, code: string): boolean {
   );
 }
 
+const VALID_WORKFLOW_BINDING_TEXT = `# Candidate workflow test fixture
+
+Workflow ID: \`workflow.candidate_analysis.v1\`
+Workflow version: \`1.0.0\`
+Workflow repository path: \`knowledge/corpus/workflows/candidate-analysis-v1.md\`
+Prompt template ID: \`prompt.candidate_analysis.v1\`
+Prompt template version: \`1.0.0\`
+Prompt template repository path: \`knowledge/corpus/workflows/candidate-analysis-prompt-v1.md\`
+`;
+
+const VALID_PROMPT_BINDING_TEXT = `# Candidate prompt test fixture
+
+Prompt template ID: \`prompt.candidate_analysis.v1\`
+Prompt template version: \`1.0.0\`
+Prompt template repository path: \`knowledge/corpus/workflows/candidate-analysis-prompt-v1.md\`
+Workflow ID: \`workflow.candidate_analysis.v1\`
+Workflow version: \`1.0.0\`
+Workflow repository path: \`knowledge/corpus/workflows/candidate-analysis-v1.md\`
+`;
+
+function sha256Bytes(bytes: Buffer): string {
+  return createHash("sha256").update(bytes).digest("hex");
+}
+
+function writeBindingRepository(workflowText: string, promptText: string) {
+  const repositoryRoot = mkdtempSync(join(tmpdir(), "candidate-binding-bundle-"));
+  const workflowPath = join(repositoryRoot, CANDIDATE_WORKFLOW_BINDING.path);
+  const promptPath = join(repositoryRoot, CANDIDATE_PROMPT_BINDING.path);
+  mkdirSync(dirname(workflowPath), { recursive: true });
+  const workflowBytes = Buffer.from(workflowText);
+  const promptBytes = Buffer.from(promptText);
+  writeFileSync(workflowPath, workflowBytes);
+  writeFileSync(promptPath, promptBytes);
+  return { repositoryRoot, workflowPath, promptPath, workflowBytes, promptBytes };
+}
+
+function writerWithReadSeam(
+  prisma: InstanceType<typeof PrismaClient>,
+  options: { repositoryRoot: string; readFile?: (path: string) => Buffer },
+): CandidateAnalysisWriter {
+  const create = createCandidateAnalysisWriter as unknown as (
+    client: InstanceType<typeof PrismaClient>,
+    writerOptions: typeof options,
+  ) => CandidateAnalysisWriter;
+  return create(prisma, options);
+}
+
+function runBoundToBytes(
+  run: CandidateAnalysisRunInput,
+  workflowBytes: Buffer,
+  promptBytes: Buffer,
+): CandidateAnalysisRunInput {
+  return resealRun(run, {
+    workflowHash: sha256Bytes(workflowBytes),
+    promptHash: sha256Bytes(promptBytes),
+  });
+}
+
+function propositionData(
+  value: string,
+): CandidateAssertionInput["payload"]["data"] {
+  return {
+    entries: [{ role: "proposition", valueType: "text", value }],
+  };
+}
+
+function summaryData(
+  value: string,
+): CandidateAnalysisArtifactInput["payload"]["data"] {
+  return {
+    entries: [{ role: "summary", valueType: "text", value }],
+  };
+}
+
+function noContradictionsData(): CandidateReconciliationSnapshotInput["payload"]["data"] {
+  return {
+    entries: [{ role: "contradiction", valueType: "flag", value: false }],
+  };
+}
+
 async function seedTwoAssertions(prisma: ReturnType<typeof candidatePrisma>) {
   const fixture = candidateAnalysisFixture();
   await seedContentUnit(prisma, fixture.contentUnit);
@@ -162,12 +245,12 @@ async function seedTwoAssertions(prisma: ReturnType<typeof candidatePrisma>) {
   await writer.createRun(fixture.run);
   const assertionA = assertionWith(fixture.assertion, {
     id: "assertion:cycle:a",
-    payload: { proposition: "Assertion A" },
+    payload: propositionData("Assertion A"),
     payloadHash: hash("1"),
   });
   const assertionB = assertionWith(fixture.assertion, {
     id: "assertion:cycle:b",
-    payload: { proposition: "Assertion B" },
+    payload: propositionData("Assertion B"),
     payloadHash: hash("2"),
   });
   await writer.appendAssertion(assertionA);
@@ -213,7 +296,7 @@ async function seedAuthorityScenario(
   }));
   const unresolvedUpstream = assertionWith(fixture.assertion, {
     id: "assertion:authority:upstream",
-    payload: { proposition: "Unresolved upstream" },
+    payload: propositionData("Unresolved upstream"),
     payloadHash: hash("3"),
     identityConfidence: options.upstreamIdentity ?? "unresolved",
     evidenceLevel: options.upstreamEvidence ?? "no_locator",
@@ -221,7 +304,7 @@ async function seedAuthorityScenario(
   });
   const strongerDependent = assertionWith(fixture.assertion, {
     id: "assertion:authority:dependent",
-    payload: { proposition: "Stronger dependent" },
+    payload: propositionData("Stronger dependent"),
     payloadHash: hash("4"),
     identityConfidence: options.dependentIdentity ?? "exact",
     evidenceLevel: options.dependentEvidence ?? "no_locator",
@@ -430,7 +513,7 @@ test(
           await seedTwoAssertions(prisma);
         const assertionC = assertionWith(assertionA, {
           id: "assertion:cycle:c",
-          payload: { proposition: "Assertion C" },
+          payload: propositionData("Assertion C"),
           payloadHash: hash("6"),
         });
         await writer.appendAssertion(assertionC);
@@ -705,21 +788,21 @@ test(
         await writer.createRun(fixture.run);
         const quarantinedUpstream = assertionWith(fixture.assertion, {
           id: "assertion:machine-use:upstream",
-          payload: { proposition: "Quarantined upstream" },
+          payload: propositionData("Quarantined upstream"),
           payloadHash: hash("8"),
           machineUse: "quarantined",
           limitations: ["do_not_reuse", "machine_generated"].sort(),
         });
         const dependent = assertionWith(fixture.assertion, {
           id: "assertion:machine-use:dependent",
-          payload: { proposition: "Candidate-only dependent" },
+          payload: propositionData("Candidate-only dependent"),
           payloadHash: hash("9"),
           machineUse: "candidate_only",
           limitations: ["do_not_reuse", "machine_generated"].sort(),
         });
         const sameAuthorityDependent = assertionWith(fixture.assertion, {
           id: "assertion:machine-use:same-authority",
-          payload: { proposition: "Quarantined dependent" },
+          payload: propositionData("Quarantined dependent"),
           payloadHash: hash("0"),
           machineUse: "quarantined",
           limitations: ["do_not_reuse", "machine_generated"].sort(),
@@ -772,12 +855,12 @@ test(
           payload: {
             namespace: "candidate" as const,
             kind: "reconciliation" as const,
-            data: { conflicts: [] },
+            data: noContradictionsData(),
           },
           payloadHash: candidateAnalysisReconciliationPayloadHash({
             namespace: "candidate",
             kind: "reconciliation",
-            data: { conflicts: [] },
+            data: noContradictionsData(),
           }),
           conflictCount: 0,
         };
@@ -868,7 +951,7 @@ test(
             payload: {
               namespace: "candidate",
               kind: "artifact",
-              data: { summary: "Mutated bytes with the old hash." },
+              data: summaryData("Mutated bytes with the old hash."),
             },
           }),
           (error: unknown) => hasWriteCode(error, "integrity_mismatch"),
@@ -879,7 +962,7 @@ test(
             payload: {
               namespace: "candidate",
               kind: "assertion",
-              data: { proposition: "Mutated assertion with the old hash." },
+              data: propositionData("Mutated assertion with the old hash."),
             },
           }),
           (error: unknown) => hasWriteCode(error, "integrity_mismatch"),
@@ -935,7 +1018,16 @@ test(
             payload: {
               namespace: "candidate",
               kind: "reconciliation",
-              data: { scope: { assertionIds: [fixture.assertion.id] } },
+              data: {
+                entries: [
+                  {
+                    role: "scope_reference",
+                    valueType: "reference",
+                    targetType: "assertion",
+                    targetId: fixture.assertion.id,
+                  },
+                ],
+              },
             },
             payloadHash: hash("2"),
             conflictCount: 0,
@@ -996,7 +1088,7 @@ test(
 
         const upstream = assertionWith(fixture.assertion, {
           id: "assertion:manifest:upstream",
-          payload: { proposition: "Upstream manifest assertion" },
+          payload: propositionData("Upstream manifest assertion"),
           evidenceLevel: "no_locator",
           scopeKey: "claim:manifest:upstream",
         });
@@ -1015,12 +1107,12 @@ test(
           payload: {
             namespace: "candidate" as const,
             kind: "reconciliation" as const,
-            data: { conflicts: [] },
+            data: noContradictionsData(),
           },
           payloadHash: candidateAnalysisReconciliationPayloadHash({
             namespace: "candidate",
             kind: "reconciliation",
-            data: { conflicts: [] },
+            data: noContradictionsData(),
           }),
           conflictCount: 0,
         };
@@ -1114,7 +1206,7 @@ test(
           payload: {
             namespace: "candidate",
             kind: "assertion",
-            data: { proposition: "Late assertion" },
+            data: propositionData("Late assertion"),
           },
           payloadHash: hash("d"),
         });
@@ -1126,12 +1218,12 @@ test(
               payload: {
                 namespace: "candidate",
                 kind: "artifact",
-                data: { summary: "Late artifact" },
+                data: summaryData("Late artifact"),
               },
               payloadHash: candidateAnalysisArtifactPayloadHash({
                 namespace: "candidate",
                 kind: "artifact",
-                data: { summary: "Late artifact" },
+                data: summaryData("Late artifact"),
               }),
             }),
           () => writer.appendAssertion(lateAssertion),
@@ -1161,12 +1253,12 @@ test(
               payload: {
                 namespace: "candidate",
                 kind: "reconciliation",
-                data: { conflicts: [] },
+                data: noContradictionsData(),
               },
               payloadHash: candidateAnalysisReconciliationPayloadHash({
                 namespace: "candidate",
                 kind: "reconciliation",
-                data: { conflicts: [] },
+                data: noContradictionsData(),
               }),
               conflictCount: 0,
             }),
@@ -1261,6 +1353,201 @@ test(
     });
   },
 );
+
+test(
+  "workflow rejects a detached prompt ID version or repository path",
+  async () => {
+    for (const workflowText of [
+      VALID_WORKFLOW_BINDING_TEXT.replace(
+        "Prompt template ID: `prompt.candidate_analysis.v1`",
+        "Prompt template ID: `prompt.detached.v1`",
+      ),
+      VALID_WORKFLOW_BINDING_TEXT.replace(
+        "Prompt template version: `1.0.0`",
+        "Prompt template version: `1.0.1`",
+      ),
+      VALID_WORKFLOW_BINDING_TEXT.replace(
+        CANDIDATE_PROMPT_BINDING.path,
+        "knowledge/corpus/workflows/detached-prompt-v1.md",
+      ),
+    ]) {
+      const repository = writeBindingRepository(
+        workflowText,
+        VALID_PROMPT_BINDING_TEXT,
+      );
+      try {
+        const noDatabaseAccess = new Proxy(
+          {},
+          {
+            get() {
+              throw new Error("unexpected database access");
+            },
+          },
+        ) as InstanceType<typeof PrismaClient>;
+        const writer = writerWithReadSeam(noDatabaseAccess, {
+          repositoryRoot: repository.repositoryRoot,
+        });
+        const fixture = candidateAnalysisFixture();
+        await assert.rejects(
+          writer.createRun(
+            runBoundToBytes(
+              fixture.run,
+              repository.workflowBytes,
+              repository.promptBytes,
+            ),
+          ),
+          (error: unknown) => hasWriteCode(error, "workflow_binding_mismatch"),
+        );
+      } finally {
+        rmSync(repository.repositoryRoot, { recursive: true, force: true });
+      }
+    }
+  },
+);
+
+test(
+  "prompt rejects a detached workflow ID version or repository path",
+  async () => {
+    for (const promptText of [
+      VALID_PROMPT_BINDING_TEXT.replace(
+        "Workflow ID: `workflow.candidate_analysis.v1`",
+        "Workflow ID: `workflow.detached.v1`",
+      ),
+      VALID_PROMPT_BINDING_TEXT.replace(
+        "Workflow version: `1.0.0`",
+        "Workflow version: `1.0.1`",
+      ),
+      VALID_PROMPT_BINDING_TEXT.replace(
+        CANDIDATE_WORKFLOW_BINDING.path,
+        "knowledge/corpus/workflows/detached-workflow-v1.md",
+      ),
+    ]) {
+      const repository = writeBindingRepository(
+        VALID_WORKFLOW_BINDING_TEXT,
+        promptText,
+      );
+      try {
+        const noDatabaseAccess = new Proxy(
+          {},
+          {
+            get() {
+              throw new Error("unexpected database access");
+            },
+          },
+        ) as InstanceType<typeof PrismaClient>;
+        const writer = writerWithReadSeam(noDatabaseAccess, {
+          repositoryRoot: repository.repositoryRoot,
+        });
+        const fixture = candidateAnalysisFixture();
+        await assert.rejects(
+          writer.createRun(
+            runBoundToBytes(
+              fixture.run,
+              repository.workflowBytes,
+              repository.promptBytes,
+            ),
+          ),
+          (error: unknown) => hasWriteCode(error, "prompt_binding_mismatch"),
+        );
+      } finally {
+        rmSync(repository.repositoryRoot, { recursive: true, force: true });
+      }
+    }
+  },
+);
+
+test(
+  "workflow and prompt binding rejects a recomputed hash after cross-reference removal",
+  async () => {
+    const workflowText = VALID_WORKFLOW_BINDING_TEXT.replace(
+      "Prompt template ID: `prompt.candidate_analysis.v1`\n",
+      "",
+    );
+    const repository = writeBindingRepository(
+      workflowText,
+      VALID_PROMPT_BINDING_TEXT,
+    );
+    try {
+      const noDatabaseAccess = new Proxy(
+        {},
+        {
+          get() {
+            throw new Error("unexpected database access");
+          },
+        },
+      ) as InstanceType<typeof PrismaClient>;
+      const writer = writerWithReadSeam(noDatabaseAccess, {
+        repositoryRoot: repository.repositoryRoot,
+      });
+      const fixture = candidateAnalysisFixture();
+      await assert.rejects(
+        writer.createRun(
+          runBoundToBytes(
+            fixture.run,
+            repository.workflowBytes,
+            repository.promptBytes,
+          ),
+        ),
+        (error: unknown) => hasWriteCode(error, "workflow_binding_mismatch"),
+      );
+    } finally {
+      rmSync(repository.repositoryRoot, { recursive: true, force: true });
+    }
+  },
+);
+
+test("single read workflow prompt bundle uses the same bytes for validation and hashing", async () => {
+  const repository = writeBindingRepository(
+    VALID_WORKFLOW_BINDING_TEXT,
+    VALID_PROMPT_BINDING_TEXT,
+  );
+  try {
+    const fixture = candidateAnalysisFixture();
+    const transaction = {
+      candidateContentUnit: {
+        findMany: async () =>
+          fixture.run.inputs.map(({ contentUnitId }) => ({
+            id: contentUnitId,
+            contentHash: fixture.contentUnit.contentHash,
+          })),
+      },
+      candidateAnalysisRun: { create: async () => undefined },
+    };
+    const prisma = {
+      $transaction: async (callback: (value: typeof transaction) => unknown) =>
+        callback(transaction),
+    } as unknown as InstanceType<typeof PrismaClient>;
+    const readCounts = new Map<string, number>();
+    const validBytes = new Map([
+      [repository.workflowPath, repository.workflowBytes],
+      [repository.promptPath, repository.promptBytes],
+    ]);
+    const readFile = (path: string) => {
+      const count = (readCounts.get(path) ?? 0) + 1;
+      readCounts.set(path, count);
+      const bytes = validBytes.get(path);
+      if (bytes === undefined) throw new Error("unexpected path");
+      return count === 1 ? bytes : Buffer.from("changed bytes");
+    };
+    const writer = writerWithReadSeam(prisma, {
+      repositoryRoot: repository.repositoryRoot,
+      readFile,
+    });
+
+    await writer.createRun(
+      runBoundToBytes(
+        fixture.run,
+        repository.workflowBytes,
+        repository.promptBytes,
+      ),
+    );
+
+    assert.equal(readCounts.get(repository.workflowPath), 1);
+    assert.equal(readCounts.get(repository.promptPath), 1);
+  } finally {
+    rmSync(repository.repositoryRoot, { recursive: true, force: true });
+  }
+});
 
 test(
   "writer rejects independent workflow and prompt byte or declared hash drift",

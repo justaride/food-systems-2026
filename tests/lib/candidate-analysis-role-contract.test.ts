@@ -21,6 +21,8 @@ import {
   candidateAnalysisAssertionScopeHash,
   candidateAnalysisReconciliationPayloadHash,
   candidateAnalysisReconciliationScopeHash,
+  type CandidateAssertionInput,
+  type CandidateReconciliationSnapshotInput,
 } from "../../src/lib/knowledge/candidate-analysis-contract";
 import {
   createCandidateAnalysisWriter,
@@ -564,10 +566,18 @@ test(
         await workerWriter.createRun(roleFixture.run);
         await workerWriter.appendRunEvent(roleFixture.events.started);
         await workerWriter.appendAssertion(roleFixture.assertion);
-        const upstreamPayload = {
-          namespace: "candidate" as const,
-          kind: "assertion" as const,
-          data: { proposition: "Role-scoped dependency upstream." },
+        const upstreamPayload: CandidateAssertionInput["payload"] = {
+          namespace: "candidate",
+          kind: "assertion",
+          data: {
+            entries: [
+              {
+                role: "proposition",
+                valueType: "text",
+                value: "Role-scoped dependency upstream.",
+              },
+            ],
+          },
         };
         const upstream = {
           ...roleFixture.assertion,
@@ -593,10 +603,18 @@ test(
       const reconcilerPrisma = rolePrisma(reconcilerUrl);
       try {
         const scope = { runId: roleFixture.run.id };
-        const payload = {
-          namespace: "candidate" as const,
-          kind: "reconciliation" as const,
-          data: { conflicts: [] },
+        const payload: CandidateReconciliationSnapshotInput["payload"] = {
+          namespace: "candidate",
+          kind: "reconciliation",
+          data: {
+            entries: [
+              {
+                role: "contradiction",
+                valueType: "flag",
+                value: false,
+              },
+            ],
+          },
         };
         await createCandidateReconciliationWriter(
           reconcilerPrisma,

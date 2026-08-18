@@ -4,9 +4,13 @@ Prompt template ID: `prompt.candidate_analysis.v1`
 
 Prompt template version: `1.0.0`
 
+Prompt template repository path: `knowledge/corpus/workflows/candidate-analysis-prompt-v1.md`
+
 Workflow ID: `workflow.candidate_analysis.v1`
 
 Workflow version: `1.0.0`
+
+Workflow repository path: `knowledge/corpus/workflows/candidate-analysis-v1.md`
 
 Status: canonical internal prompt; candidate-only output
 

@@ -94,7 +94,9 @@ export function candidateAnalysisFixture(
     payload: {
       namespace: "candidate",
       kind: "run_event",
-      data: { reason: "scheduled" },
+      data: {
+        entries: [{ role: "reason", valueType: "text", value: "scheduled" }],
+      },
     },
     supersededEventId: null,
     supersededEventHash: null,
@@ -131,11 +133,19 @@ export function candidateAnalysisFixture(
     initialEvent: queued,
   };
 
-  const artifactPayload = {
+  const artifactPayload: CandidateAnalysisArtifactInput["payload"] = {
     namespace: "candidate",
     kind: "artifact",
-    data: { summary: "Candidate-only machine output." },
-  } as const;
+    data: {
+      entries: [
+        {
+          role: "summary",
+          valueType: "text",
+          value: "Candidate-only machine output.",
+        },
+      ],
+    },
+  };
   const artifact: CandidateAnalysisArtifactInput = {
     id: "artifact:fixture:1",
     runId,
@@ -145,11 +155,19 @@ export function candidateAnalysisFixture(
     payloadHash: candidateAnalysisArtifactPayloadHash(artifactPayload),
   };
 
-  const assertionPayload = {
+  const assertionPayload: CandidateAssertionInput["payload"] = {
     namespace: "candidate",
     kind: "assertion",
-    data: { proposition: "A reviewable candidate claim." },
-  } as const;
+    data: {
+      entries: [
+        {
+          role: "proposition",
+          valueType: "text",
+          value: "A reviewable candidate claim.",
+        },
+      ],
+    },
+  };
   const assertion: CandidateAssertionInput = {
     id: assertionId,
     runId,
@@ -237,7 +255,15 @@ export function candidateAnalysisFixture(
     payload: {
       namespace: "candidate",
       kind: "run_event",
-      data: { workerId: "worker:fixture:1" },
+      data: {
+        entries: [
+          {
+            role: "worker_reference",
+            valueType: "text",
+            value: "worker:fixture:1",
+          },
+        ],
+      },
     },
     supersededEventId: null,
     supersededEventHash: null,
@@ -251,7 +277,11 @@ export function candidateAnalysisFixture(
     payload: {
       namespace: "candidate",
       kind: "run_event",
-      data: { checkpoint: 1 },
+      data: {
+        entries: [
+          { role: "checkpoint", valueType: "number", value: 1, unit: null },
+        ],
+      },
     },
     supersededEventId: null,
     supersededEventHash: null,
@@ -265,7 +295,11 @@ export function candidateAnalysisFixture(
     payload: {
       namespace: "candidate",
       kind: "run_event",
-      data: { checkpoint: 2 },
+      data: {
+        entries: [
+          { role: "checkpoint", valueType: "number", value: 2, unit: null },
+        ],
+      },
     },
     supersededEventId: null,
     supersededEventHash: null,

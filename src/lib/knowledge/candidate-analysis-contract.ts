@@ -83,6 +83,33 @@ export const CANDIDATE_CONTENT_UNIT_TYPES = [
   "dataset_slice",
   "media_segment",
 ] as const;
+export const CANDIDATE_PAYLOAD_ENTRY_ROLES = [
+  "summary",
+  "proposition",
+  "observation",
+  "classification_label",
+  "entity_candidate",
+  "relationship_candidate",
+  "quantitative_observation",
+  "coverage_signal",
+  "gap",
+  "contradiction",
+  "source_role_suggestion",
+  "reason",
+  "worker_reference",
+  "checkpoint",
+  "scope_reference",
+  "limitation",
+] as const;
+export const CANDIDATE_PAYLOAD_REFERENCE_TYPES = [
+  "content_unit",
+  "run",
+  "artifact",
+  "assertion",
+  "evidence_link",
+  "dependency",
+  "reconciliation",
+] as const;
 
 export type CandidateIdentityConfidence =
   (typeof CANDIDATE_IDENTITY_CONFIDENCE)[number];
@@ -123,127 +150,6 @@ const hashSchema = z.string().regex(HASH_PATTERN);
 const identifierSchema = z.string().regex(IDENTIFIER_PATTERN);
 const nonEmptyTextSchema = z.string().min(1);
 
-const RESERVED_MACHINE_PAYLOAD_REVIEW_KEYS = new Set([
-  "reviewauthority",
-  "reviewdecision",
-  "reviewer",
-  "reviewedat",
-  "reviewprofile",
-  "reviewreceipt",
-  "reviewstatus",
-]);
-const AUTHORITY_STATE_VALUES = new Set([
-  "accepted",
-  "acceptedwithedits",
-  "approved",
-  "canonical",
-  "cleared",
-  "complete",
-  "externaleligible",
-  "externalready",
-  "humanreviewed",
-  "internalcurated",
-  "promoted",
-  "published",
-  "rightscomplete",
-]);
-const AUTHORITY_FIELD_NAMES = new Set([
-  "approval",
-  "authority",
-  "coverage",
-  "humanreview",
-  "promotion",
-  "publication",
-  "review",
-  "rights",
-]);
-
-function isReservedMachinePayloadKey(key: string): boolean {
-  const normalized = key.replace(/[^a-z0-9]/gi, "").toLowerCase();
-  if (
-    normalized.includes("humanreview") ||
-    RESERVED_MACHINE_PAYLOAD_REVIEW_KEYS.has(normalized) ||
-    normalized.includes("approval") ||
-    normalized.includes("approved") ||
-    normalized.includes("promotion") ||
-    normalized.includes("publication") ||
-    normalized.includes("published")
-  ) {
-    return true;
-  }
-  if (
-    normalized.includes("external") &&
-    (normalized.includes("ready") ||
-      normalized.includes("eligible") ||
-      normalized.includes("allowed"))
-  ) {
-    return true;
-  }
-  return (
-    normalized.includes("coverage") &&
-    (normalized.includes("authority") ||
-      normalized.includes("ready") ||
-      normalized.includes("promotion") ||
-      normalized.includes("approval") ||
-      normalized.includes("eligible") ||
-      normalized.includes("allowed"))
-  );
-}
-
-function isAuthorityBearingMachinePayloadEntry(
-  key: string,
-  value: CandidateJsonValue,
-): boolean {
-  const normalized = key.replace(/[^a-z0-9]/gi, "").toLowerCase();
-  if (
-    isReservedMachinePayloadKey(key) ||
-    AUTHORITY_FIELD_NAMES.has(normalized) ||
-    normalized.includes("canonical") ||
-    normalized.includes("rights") ||
-    normalized.includes("coverage") ||
-    (normalized.includes("human") &&
-      (normalized.includes("decision") ||
-        normalized.includes("authority") ||
-        normalized.includes("approval") ||
-        normalized.includes("review")))
-  ) {
-    return true;
-  }
-  if (
-    normalized === "status" ||
-    normalized === "state" ||
-    normalized.endsWith("status") ||
-    normalized.endsWith("state") ||
-    normalized.endsWith("decision") ||
-    normalized.endsWith("authority") ||
-    normalized.endsWith("readiness") ||
-    normalized.endsWith("clearance") ||
-    normalized.endsWith("eligibility")
-  ) {
-    if (typeof value !== "string") return false;
-    const normalizedValue = value.replace(/[^a-z0-9]/gi, "").toLowerCase();
-    return AUTHORITY_STATE_VALUES.has(normalizedValue);
-  }
-  return false;
-}
-
-function candidateJsonObjectSchema() {
-  return z
-    .record(z.string(), CandidateJsonValueSchema)
-    .superRefine((value, ctx) => {
-      for (const key of Object.keys(value)) {
-        if (isAuthorityBearingMachinePayloadEntry(key, value[key]!)) {
-          ctx.addIssue({
-            code: "custom",
-            message:
-              "candidate_payload_authority_forbidden:reserved_machine_payload_field",
-            path: [key],
-          });
-        }
-      }
-    });
-}
-
 const CandidateJsonValueSchema: z.ZodType<CandidateJsonValue> = z.lazy(() =>
   z.union([
     z.null(),
@@ -251,16 +157,55 @@ const CandidateJsonValueSchema: z.ZodType<CandidateJsonValue> = z.lazy(() =>
     z.number(),
     z.string(),
     z.array(CandidateJsonValueSchema),
-    candidateJsonObjectSchema(),
+    z.record(z.string(), CandidateJsonValueSchema),
   ]),
 );
+
+const candidatePayloadRoleSchema = z.enum(CANDIDATE_PAYLOAD_ENTRY_ROLES);
+
+export const CandidatePayloadEntrySchema = z.discriminatedUnion("valueType", [
+  z
+    .object({
+      role: candidatePayloadRoleSchema,
+      valueType: z.literal("text"),
+      value: nonEmptyTextSchema,
+    })
+    .strict(),
+  z
+    .object({
+      role: candidatePayloadRoleSchema,
+      valueType: z.literal("number"),
+      value: z.number().finite(),
+      unit: nonEmptyTextSchema.nullable(),
+    })
+    .strict(),
+  z
+    .object({
+      role: candidatePayloadRoleSchema,
+      valueType: z.literal("flag"),
+      value: z.boolean(),
+    })
+    .strict(),
+  z
+    .object({
+      role: candidatePayloadRoleSchema,
+      valueType: z.literal("reference"),
+      targetType: z.enum(CANDIDATE_PAYLOAD_REFERENCE_TYPES),
+      targetId: identifierSchema,
+    })
+    .strict(),
+]);
+
+export const CandidatePayloadDataSchema = z
+  .object({ entries: CandidatePayloadEntrySchema.array().min(1) })
+  .strict();
 
 function candidatePayloadSchema<Kind extends string>(kind: Kind) {
   return z
     .object({
       namespace: z.literal("candidate"),
       kind: z.literal(kind),
-      data: CandidateJsonValueSchema,
+      data: CandidatePayloadDataSchema,
     })
     .strict();
 }

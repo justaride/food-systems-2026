@@ -7,8 +7,12 @@ import {
   CandidateAnalysisArtifactInputSchema,
   CandidateAnalysisRunInputSchema,
   CandidateAnalysisRunEventInputSchema,
+  CandidateArtifactPayloadSchema,
+  CandidateAssertionPayloadSchema,
   CandidateAssertionInputSchema,
+  CandidateReconciliationPayloadSchema,
   CandidateReconciliationSnapshotInputSchema,
+  CandidateRunEventPayloadSchema,
   candidateAnalysisHumanReviewDecisionHash,
   candidateAnalysisOutputManifestHash,
   candidateAnalysisPromotionDecisionHash,
@@ -49,263 +53,97 @@ test("rejects review and publication fields in machine payloads", () => {
   );
 });
 
-test("rejects nested authority markers in every machine-owned payload", () => {
-  const fixture = candidateAnalysisFixture();
-
-  assert.throws(
-    () =>
-      CandidateAssertionInputSchema.parse({
-        ...fixture.assertion,
-        payload: {
-          namespace: "candidate",
-          kind: "assertion",
-          data: { proposition: { promotionState: "published" } },
-        },
-      }),
-    /reserved_machine_payload_field/,
-  );
-  assert.throws(
-    () =>
-      CandidateAnalysisArtifactInputSchema.parse({
-        ...fixture.artifact,
-        payload: {
-          namespace: "candidate",
-          kind: "artifact",
-          data: { result: { humanReviewed: true } },
-        },
-      }),
-    /reserved_machine_payload_field/,
-  );
-  assert.throws(
-    () =>
-      CandidateAnalysisArtifactInputSchema.parse({
-        ...fixture.artifact,
-        payload: {
-          namespace: "candidate",
-          kind: "artifact",
-          data: { result: { publicationState: "published" } },
-        },
-      }),
-    /reserved_machine_payload_field/,
-  );
-  assert.throws(
-    () =>
-      CandidateAnalysisRunEventInputSchema.parse({
-        ...fixture.events.started,
-        payload: {
-          namespace: "candidate",
-          kind: "run_event",
-          data: { progress: { externalReady: true } },
-        },
-      }),
-    /reserved_machine_payload_field/,
-  );
-  assert.throws(
-    () =>
-      CandidateAnalysisRunEventInputSchema.parse({
-        ...fixture.events.started,
-        payload: {
-          namespace: "candidate",
-          kind: "run_event",
-          data: { progress: { coverageAuthority: "approved" } },
-        },
-      }),
-    /reserved_machine_payload_field/,
-  );
-  assert.doesNotThrow(() =>
-    CandidateAssertionInputSchema.parse((() => {
-      const payload = {
-        namespace: "candidate",
-        kind: "assertion",
-        data: { note: "This ordinary string may mention published review." },
-      } as const;
-      return {
-        ...fixture.assertion,
-        payload,
-        payloadHash: candidateAnalysisAssertionPayloadHash(payload),
-      };
-    })()),
-  );
-});
-
-test("rejects recursive approval markers across separator and case variants", () => {
-  const fixture = candidateAnalysisFixture();
-
-  assert.throws(
-    () =>
-      CandidateAssertionInputSchema.parse({
-        ...fixture.assertion,
-        payload: {
-          namespace: "candidate",
-          kind: "assertion",
-          data: { result: { approvalState: "approved" } },
-        },
-      }),
-    /reserved_machine_payload_field/,
-  );
-  assert.throws(
-    () =>
-      CandidateAnalysisArtifactInputSchema.parse({
-        ...fixture.artifact,
-        payload: {
-          namespace: "candidate",
-          kind: "artifact",
-          data: { result: [{ nested: { humanApproved: true } }] },
-        },
-      }),
-    /reserved_machine_payload_field/,
-  );
-  assert.throws(
-    () =>
-      CandidateAnalysisRunEventInputSchema.parse({
-        ...fixture.events.started,
-        payload: {
-          namespace: "candidate",
-          kind: "run_event",
-          data: { progress: { "HuMaN-Approval_State": "approved" } },
-        },
-      }),
-    /reserved_machine_payload_field/,
-  );
-});
-
-test("candidate payload namespaces cannot represent authority on any machine surface", () => {
-  const fixture = candidateAnalysisFixture();
-  const cases = [
-    [
-      CandidateAssertionInputSchema,
-      {
-        ...fixture.assertion,
-        payload: {
-          namespace: "candidate",
-          kind: "assertion",
-          data: { canonicalState: "canonical" },
-        },
-      },
-    ],
-    [
-      CandidateAnalysisArtifactInputSchema,
-      {
-        ...fixture.artifact,
-        payload: {
-          namespace: "candidate",
-          kind: "artifact",
-          data: { rightsStatus: "cleared" },
-        },
-      },
-    ],
-    [
-      CandidateAnalysisRunEventInputSchema,
-      {
-        ...fixture.events.started,
-        payload: {
-          namespace: "candidate",
-          kind: "run_event",
-          data: { coverageStatus: "complete" },
-        },
-      },
-    ],
-    [
-      CandidateReconciliationSnapshotInputSchema,
-      {
-        id: "snapshot:authority:negative",
-        runId: fixture.run.id,
-        scopeHash: "c".repeat(64),
-        payload: {
-          namespace: "candidate",
-          kind: "reconciliation",
-          data: { status: "published" },
-        },
-        payloadHash: "d".repeat(64),
-        conflictCount: 0,
-      },
-    ],
-    [
-      CandidateAssertionInputSchema,
-      {
-        ...fixture.assertion,
-        payload: {
-          namespace: "candidate",
-          kind: "assertion",
-          data: { rights: "cleared" },
-        },
-      },
-    ],
-    [
-      CandidateAnalysisArtifactInputSchema,
-      {
-        ...fixture.artifact,
-        payload: {
-          namespace: "candidate",
-          kind: "artifact",
-          data: { coverage: "complete" },
-        },
-      },
-    ],
-    [
-      CandidateAnalysisRunEventInputSchema,
-      {
-        ...fixture.events.started,
-        payload: {
-          namespace: "candidate",
-          kind: "run_event",
-          data: { authority: "human" },
-        },
-      },
-    ],
-    [
-      CandidateReconciliationSnapshotInputSchema,
-      {
-        id: "snapshot:authority:decision",
-        runId: fixture.run.id,
-        scope: { assertionIds: [fixture.assertion.id] },
-        scopeHash: "c".repeat(64),
-        payload: {
-          namespace: "candidate",
-          kind: "reconciliation",
-          data: { decision: "accepted" },
-        },
-        payloadHash: "d".repeat(64),
-        conflictCount: 0,
-      },
-    ],
-    [
-      CandidateAssertionInputSchema,
-      {
-        ...fixture.assertion,
-        payload: {
-          namespace: "candidate",
-          kind: "assertion",
-          data: { rightsComplete: true },
-        },
-      },
-    ],
-    [
-      CandidateAnalysisArtifactInputSchema,
-      {
-        ...fixture.artifact,
-        payload: {
-          namespace: "candidate",
-          kind: "artifact",
-          data: { coverageReadiness: true },
-        },
-      },
-    ],
-    [
-      CandidateAnalysisRunEventInputSchema,
-      {
-        ...fixture.events.started,
-        payload: {
-          namespace: "candidate",
-          kind: "run_event",
-          data: { review: true },
-        },
-      },
-    ],
+test("structured authority is unrepresentable on every machine payload surface", () => {
+  const forbiddenStructuredAuthority = [
+    { lifecycle: "published" },
+    { verdict: "approved" },
+    { disposition: "canonical" },
+    { release: "external_ready" },
   ] as const;
 
-  for (const [schema, input] of cases) {
-    assert.throws(() => schema.parse(input), /candidate_payload_authority_forbidden/);
+  for (const { kind, schema } of [
+    { kind: "assertion", schema: CandidateAssertionPayloadSchema },
+    { kind: "artifact", schema: CandidateArtifactPayloadSchema },
+    { kind: "run_event", schema: CandidateRunEventPayloadSchema },
+    { kind: "reconciliation", schema: CandidateReconciliationPayloadSchema },
+  ] as const) {
+    for (const data of forbiddenStructuredAuthority) {
+      assert.equal(
+        schema.safeParse({ namespace: "candidate", kind, data }).success,
+        false,
+      );
+    }
+  }
+});
+
+test("machine payload grammar accepts only strict typed candidate entries", () => {
+  const valid = {
+    namespace: "candidate",
+    kind: "assertion",
+    data: {
+      entries: [
+        {
+          role: "proposition",
+          valueType: "text",
+          value: "A reviewable candidate claim.",
+        },
+        {
+          role: "quantitative_observation",
+          valueType: "number",
+          value: 42,
+          unit: "kg",
+        },
+        { role: "limitation", valueType: "flag", value: true },
+        {
+          role: "scope_reference",
+          valueType: "reference",
+          targetType: "content_unit",
+          targetId: "content:fixture:1",
+        },
+      ],
+    },
+  } as const;
+  assert.equal(CandidateAssertionPayloadSchema.safeParse(valid).success, true);
+
+  const invalid = [
+    { ...valid, unknown: true },
+    { ...valid, data: { ...valid.data, unknown: true } },
+    {
+      ...valid,
+      data: { entries: [{ ...valid.data.entries[0], unknown: true }] },
+    },
+    {
+      ...valid,
+      data: {
+        entries: [{ role: "unknown", valueType: "text", value: "text" }],
+      },
+    },
+    {
+      ...valid,
+      data: {
+        entries: [{ role: "summary", valueType: "unknown", value: "text" }],
+      },
+    },
+    {
+      ...valid,
+      data: {
+        entries: [
+          { role: "summary", valueType: "text", value: { nested: true } },
+        ],
+      },
+    },
+    {
+      ...valid,
+      data: {
+        entries: [
+          { role: "quantitative_observation", valueType: "number", value: Infinity, unit: null },
+        ],
+      },
+    },
+    { ...valid, data: { entries: [] } },
+  ];
+  for (const payload of invalid) {
+    assert.equal(CandidateAssertionPayloadSchema.safeParse(payload).success, false);
   }
 });
 

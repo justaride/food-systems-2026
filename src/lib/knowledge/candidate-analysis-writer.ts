@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { isAbsolute, relative, resolve, sep } from "node:path";
 
 import { Prisma, type PrismaClient } from "../../generated/prisma/client";
 
@@ -90,7 +90,10 @@ export type CandidateReconciliationWriter = {
   ): Promise<{ snapshotId: string }>;
 };
 
-type WriterOptions = { repositoryRoot?: string };
+type WriterOptions = {
+  repositoryRoot?: string;
+  readFile?: (path: string) => Buffer;
+};
 
 const identityStrength: Record<CandidateIdentityConfidence, number> = {
   unresolved: 0,
@@ -222,32 +225,98 @@ function includesEvery(values: string[], required: Set<string>): boolean {
   return [...required].every((value) => available.has(value));
 }
 
-function fileSha256(path: string): string {
-  return createHash("sha256").update(readFileSync(path)).digest("hex");
-}
-
-function verifyTextBinding(
+function resolveRepositoryBindingPath(
   repositoryRoot: string,
-  binding: { id: string; version: string; path: string },
-  declaredHash: string,
-  label: "Workflow" | "Prompt template",
+  repositoryPath: string,
   conflict: "workflow_binding_mismatch" | "prompt_binding_mismatch",
-): void {
-  let contents: string;
-  let actualHash: string;
-  try {
-    const path = resolve(repositoryRoot, binding.path);
-    contents = readFileSync(path, "utf8");
-    actualHash = fileSha256(path);
-  } catch {
+): string {
+  const root = resolve(repositoryRoot);
+  const path = resolve(root, repositoryPath);
+  const pathFromRoot = relative(root, path);
+  if (
+    pathFromRoot === ".." ||
+    pathFromRoot.startsWith(`..${sep}`) ||
+    isAbsolute(pathFromRoot)
+  ) {
     throw new CandidateAnalysisWriteConflict(conflict);
   }
-  const required = [
-    `${label} ID: \`${binding.id}\``,
-    `${label} version: \`${binding.version}\``,
-  ];
-  if (actualHash !== declaredHash || required.some((line) => !contents.includes(line))) {
+  return path;
+}
+
+function decodeBindingText(
+  bytes: Buffer,
+  conflict: "workflow_binding_mismatch" | "prompt_binding_mismatch",
+): string {
+  const text = bytes.toString("utf8");
+  if (text.includes("\uFFFD")) {
     throw new CandidateAnalysisWriteConflict(conflict);
+  }
+  return text;
+}
+
+export function verifyCandidateWorkflowPromptBundle(
+  repositoryRoot: string,
+  declared: { workflowHash: string; promptHash: string },
+  readFile: (path: string) => Buffer = (path) => readFileSync(path),
+): void {
+  const workflowPath = resolveRepositoryBindingPath(
+    repositoryRoot,
+    CANDIDATE_WORKFLOW_BINDING.path,
+    "workflow_binding_mismatch",
+  );
+  const promptPath = resolveRepositoryBindingPath(
+    repositoryRoot,
+    CANDIDATE_PROMPT_BINDING.path,
+    "prompt_binding_mismatch",
+  );
+  let workflowBytes: Buffer;
+  let promptBytes: Buffer;
+  try {
+    workflowBytes = readFile(workflowPath);
+  } catch {
+    throw new CandidateAnalysisWriteConflict("workflow_binding_mismatch");
+  }
+  try {
+    promptBytes = readFile(promptPath);
+  } catch {
+    throw new CandidateAnalysisWriteConflict("prompt_binding_mismatch");
+  }
+
+  const workflow = decodeBindingText(
+    workflowBytes,
+    "workflow_binding_mismatch",
+  );
+  const prompt = decodeBindingText(promptBytes, "prompt_binding_mismatch");
+  const workflowMarkers = [
+    `Workflow ID: \`${CANDIDATE_WORKFLOW_BINDING.id}\``,
+    `Workflow version: \`${CANDIDATE_WORKFLOW_BINDING.version}\``,
+    `Workflow repository path: \`${CANDIDATE_WORKFLOW_BINDING.path}\``,
+    `Prompt template ID: \`${CANDIDATE_PROMPT_BINDING.id}\``,
+    `Prompt template version: \`${CANDIDATE_PROMPT_BINDING.version}\``,
+    `Prompt template repository path: \`${CANDIDATE_PROMPT_BINDING.path}\``,
+  ];
+  if (
+    createHash("sha256").update(workflowBytes).digest("hex") !==
+      declared.workflowHash ||
+    workflowMarkers.some((marker) => !workflow.includes(marker))
+  ) {
+    throw new CandidateAnalysisWriteConflict("workflow_binding_mismatch");
+  }
+
+  const promptMarkers = [
+    `Prompt template ID: \`${CANDIDATE_PROMPT_BINDING.id}\``,
+    `Prompt template version: \`${CANDIDATE_PROMPT_BINDING.version}\``,
+    `Prompt template repository path: \`${CANDIDATE_PROMPT_BINDING.path}\``,
+    `Workflow ID: \`${CANDIDATE_WORKFLOW_BINDING.id}\``,
+    `Workflow version: \`${CANDIDATE_WORKFLOW_BINDING.version}\``,
+    `Workflow repository path: \`${CANDIDATE_WORKFLOW_BINDING.path}\``,
+  ];
+  if (
+    createHash("sha256").update(promptBytes).digest("hex") !==
+      declared.promptHash ||
+    promptMarkers.some((marker) => !prompt.includes(marker))
+  ) {
+    throw new CandidateAnalysisWriteConflict("prompt_binding_mismatch");
   }
 }
 
@@ -708,19 +777,10 @@ export function createCandidateAnalysisWriter(
   return {
     async createRun(rawInput) {
       const input = parseForWrite(CandidateAnalysisRunInputSchema, rawInput);
-      verifyTextBinding(
+      verifyCandidateWorkflowPromptBundle(
         repositoryRoot,
-        CANDIDATE_WORKFLOW_BINDING,
-        input.workflowHash,
-        "Workflow",
-        "workflow_binding_mismatch",
-      );
-      verifyTextBinding(
-        repositoryRoot,
-        CANDIDATE_PROMPT_BINDING,
-        input.promptHash,
-        "Prompt template",
-        "prompt_binding_mismatch",
+        { workflowHash: input.workflowHash, promptHash: input.promptHash },
+        options.readFile,
       );
       try {
         return await prisma.$transaction(

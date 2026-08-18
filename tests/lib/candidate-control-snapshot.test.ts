@@ -113,7 +113,15 @@ function candidateControlFixture(
                 payload: {
                   namespace: "candidate",
                   kind: "run_event",
-                  data: { reason: "fixture quarantine" },
+                  data: {
+                    entries: [
+                      {
+                        role: "reason",
+                        valueType: "text",
+                        value: "fixture quarantine",
+                      },
+                    ],
+                  },
                 },
                 supersededEventId: null,
                 supersededEventHash: null,
