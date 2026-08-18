@@ -26,6 +26,19 @@ Identity confidence is one of `exact | provisional | unresolved`. All three may 
 
 Stable, readable and hash-bound means the coordinator records the consumed bytes or records, SHA-256, source identity key, content-unit locators, workflow version and prompt/configuration hashes before the run. The candidate route does not claim that an identity is verified, complete, reviewed, rights-cleared or coverage-ready.
 
+## Machine payload grammar
+
+Structured machine output is limited to strict typed candidate entries. The assertion, artifact, run-event and reconciliation surfaces accept exactly `{ namespace, kind, data: { entries } }`: `namespace` is `candidate`, `kind` matches the surface, `entries` is non-empty, and the envelope, data object and every entry reject unknown fields.
+
+Each entry has one allowlisted role: `summary | proposition | observation | classification_label | entity_candidate | relationship_candidate | quantitative_observation | coverage_signal | gap | contradiction | source_role_suggestion | reason | worker_reference | checkpoint | scope_reference | limitation`. The strict `valueType` union is:
+
+- `text`: `role`, `valueType` and a non-empty string `value` only;
+- `number`: `role`, `valueType`, a finite numeric `value`, and a non-empty string or null `unit` only;
+- `flag`: `role`, `valueType` and a boolean `value` only; or
+- `reference`: `role`, `valueType`, an identifier `targetId`, and `targetType` from `content_unit | run | artifact | assertion | evidence_link | dependency | reconciliation` only.
+
+Free text remains candidate text only and never represents a status or decision. It cannot encode human review, approval, canonical state, rights clearance, target promotion, publication, coverage readiness or external readiness as a structured field.
+
 ## Independent status axes
 
 Candidate status, human-review status, identity confidence, evidence status, rights status, publication status, coverage status and target-promotion status are independent. No status is inferred from another. In particular, candidate analysis may be complete while human review is absent, and a human-review receipt may be complete while rights, publication, coverage or target promotion remain pending.
@@ -47,7 +60,9 @@ The candidate writer recomputes these machine-owned domains at its write boundar
 - `artifact-payload`, `assertion-payload`, `assertion-scope`, `evidence-locator`, `reconciliation-scope` and `reconciliation-payload` seal their named stored values; and
 - `output-manifest` seals the complete ordered run inputs plus the complete sorted artifact, assertion, evidence-link, dependency and reconciliation identity/hash sets, including the stored row metadata that affects candidate meaning. Exact-locator assertions additionally require matching direct evidence before a terminal event can be appended.
 
-A superseding run event binds the prior ID, prior hash and same run scope. A superseding assertion binds the prior ID, prior payload hash and same assertion-scope hash. The database repeats those bindings with composite foreign keys and rejects self-links.
+The exact workflow and prompt bytes are each read once before a database transaction. The same immutable byte buffers are decoded for exact ID, version and repository-path validation and are hash-bound with SHA-256; the workflow and prompt are mutually cross-referenced by each other's exact ID, version and repository path.
+
+A superseding run event binds the prior ID, prior hash and same run scope by carrying the complete four-part prior event identity: prior event ID, prior event hash, run ID and scope hash. The superseded event's scope hash must equal the current event's derived run scope, and the database enforces the complete identity with a composite foreign key to `(id, eventHash, runId, scopeHash)` and rejects self-links. A superseding assertion binds the prior ID, prior payload hash and same assertion-scope hash.
 
 The reserved human-authority tables have separate receipt domains even though Delivery 1 exposes no review or promotion writer. `human-review-decision` seals the decision ID, assertion and payload hash, review profile and profile hash, actor and authority, source-content and evidence-set hashes, limitations, edited-payload hash, and prior receipt ID/hash. `promotion-decision` seals the decision ID, assertion and review receipt bindings, state, target profile hash, policy hash, preconditions hash, target-set hash, result hash, actor and authority, and prior receipt ID/hash/policy hash. Their composite foreign keys require supersession to retain the same review or target scope. A later authorized writer must recompute these formulas before insert; shape-valid caller-supplied hashes are not authority.
 
@@ -66,6 +81,10 @@ No machine lineage changes human review or promotion state. Lineage and independ
 `CandidateAnalysisRun` is the reserved append-only run-record name for the candidate subsystem. Its sole worker write path is `src/lib/knowledge/candidate-analysis-writer.ts`; generic upsert, update, delete and generic or mutating raw SQL are forbidden for candidate history. The writer may use only narrow, parameterized, internal SQL for transaction-scoped advisory run/assertion locks and read-only recursive dependency-integrity checks. Advisory locks change transaction lock state only; this SQL must not be exposed and must not mutate candidate history. Content-unit creation remains a trusted/admin intake action and is not part of the worker API.
 
 Candidate records are not canonical records. Human-review receipts, evidence records, target-promotion records, publication decisions and coverage assessments remain separate roles with their own schemas and append-only histories.
+
+The truthful disabled-state recovery chain is `bootstrap grants -> enable existing credentials -> verify worker -> verify reconciler`.
+
+Bootstrap restores the narrow grant allowlists but leaves both candidate roles `NOLOGIN` and service disabled. The enable step uses `scripts/enable-candidate-analysis-logins.sh --apply --confirm-existing-credentials`, does not provision, generate, rotate, change or log credentials, and immediately verifies both exact roles through their supplied dedicated URLs. Any enable or verification failure fails back to the disabled state: both roles are `NOLOGIN`, candidate INSERT grants are revoked, exact candidate sessions are terminated, and existing candidate rows are preserved.
 
 ## Human boundary
 

@@ -102,3 +102,48 @@ test('candidate workflow and canonical prompt are distinct immutable bindings', 
   assert.match(prompt, /Workflow ID: `workflow\.candidate_analysis\.v1`/)
   assert.notEqual(sha256(workflow), sha256(prompt))
 })
+
+test('package exposes the guarded existing-credential login recovery command', () => {
+  const packageJson = JSON.parse(read('package.json')) as {
+    scripts: Record<string, string>
+  }
+
+  assert.equal(
+    packageJson.scripts['candidate:roles:enable'],
+    'scripts/enable-candidate-analysis-logins.sh',
+  )
+})
+
+test('durable contract limits structured machine output to typed candidate entries', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+
+  assert.match(contract, /typed candidate entries/i)
+  assert.match(contract, /free text.*candidate text.*never.*status.*decision/i)
+})
+
+test('durable contract binds workflow and prompt mutual references to single-read exact bytes', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+
+  assert.match(contract, /exact workflow and prompt bytes.*read once.*hash-bound/i)
+  assert.match(contract, /workflow.*prompt.*mutual|mutual.*workflow.*prompt/i)
+})
+
+test('durable contract records complete prior event identity and its database foreign key', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+
+  assert.match(contract, /superseded.*event.*scope/i)
+  assert.match(contract, /prior event identity.*ID.*event hash.*run ID.*scope hash/i)
+  assert.match(contract, /database.*composite foreign key/i)
+})
+
+test('durable recovery chain uses existing credentials and fails back to disabled', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+
+  assert.match(
+    contract,
+    /bootstrap grants -> enable existing credentials -> verify worker -> verify reconciler/i,
+  )
+  assert.match(contract, /does not provision.*credentials/i)
+  assert.match(contract, /fail.*back.*disabled state/i)
+  assert.doesNotMatch(contract, /bootstrap[^\n]*verify[^\n]*re-enable/i)
+})
