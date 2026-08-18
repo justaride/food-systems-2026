@@ -226,6 +226,7 @@ CREATE UNIQUE INDEX "CandidateAnalysisRunEvent_runId_sequence_key" ON "Candidate
 CREATE UNIQUE INDEX "CandidateAnalysisRunEvent_runId_eventHash_key" ON "CandidateAnalysisRunEvent"("runId", "eventHash");
 CREATE UNIQUE INDEX "CandidateAnalysisArtifact_runId_payloadHash_key" ON "CandidateAnalysisArtifact"("runId", "payloadHash");
 CREATE UNIQUE INDEX "CandidateAssertion_runId_payloadHash_key" ON "CandidateAssertion"("runId", "payloadHash");
+CREATE UNIQUE INDEX "CandidateAssertion_id_payloadHash_key" ON "CandidateAssertion"("id", "payloadHash");
 CREATE INDEX "CandidateAssertion_assertionType_idx" ON "CandidateAssertion"("assertionType");
 CREATE INDEX "CandidateAssertion_machineUse_idx" ON "CandidateAssertion"("machineUse");
 CREATE INDEX "CandidateAssertion_identityConfidence_idx" ON "CandidateAssertion"("identityConfidence");
@@ -233,11 +234,14 @@ CREATE INDEX "CandidateAssertion_evidenceLevel_idx" ON "CandidateAssertion"("evi
 CREATE UNIQUE INDEX "CandidateEvidenceLink_assertionId_contentUnitId_relation_lo_key" ON "CandidateEvidenceLink"("assertionId", "contentUnitId", "relation", "locatorHash");
 CREATE UNIQUE INDEX "CandidateDependency_assertionId_upstreamAssertionId_relatio_key" ON "CandidateDependency"("assertionId", "upstreamAssertionId", "relation");
 CREATE UNIQUE INDEX "CandidateReconciliationSnapshot_runId_payloadHash_key" ON "CandidateReconciliationSnapshot"("runId", "payloadHash");
+CREATE UNIQUE INDEX "CandidateHumanReviewDecision_id_assertionId_key" ON "CandidateHumanReviewDecision"("id", "assertionId");
+CREATE UNIQUE INDEX "CandidateHumanReviewDecision_id_assertionId_reviewProfile_key" ON "CandidateHumanReviewDecision"("id", "assertionId", "reviewProfile");
 CREATE INDEX "CandidateHumanReviewDecision_assertionId_idx" ON "CandidateHumanReviewDecision"("assertionId");
 CREATE INDEX "CandidateHumanReviewDecision_decision_idx" ON "CandidateHumanReviewDecision"("decision");
 CREATE INDEX "CandidateHumanReviewDecision_reviewProfile_idx" ON "CandidateHumanReviewDecision"("reviewProfile");
 CREATE INDEX "CandidatePromotionDecision_assertionId_idx" ON "CandidatePromotionDecision"("assertionId");
 CREATE INDEX "CandidatePromotionDecision_targetProfile_state_idx" ON "CandidatePromotionDecision"("targetProfile", "state");
+CREATE UNIQUE INDEX "CandidatePromotionDecision_id_assertionId_targetProfile_key" ON "CandidatePromotionDecision"("id", "assertionId", "targetProfile");
 
 ALTER TABLE "CandidateAnalysisRun"
   ADD CONSTRAINT "CandidateAnalysisRun_predecessorRunId_fkey" FOREIGN KEY ("predecessorRunId") REFERENCES "CandidateAnalysisRun"("id") ON DELETE RESTRICT ON UPDATE RESTRICT;
@@ -260,12 +264,12 @@ ALTER TABLE "CandidateDependency"
 ALTER TABLE "CandidateReconciliationSnapshot"
   ADD CONSTRAINT "CandidateReconciliationSnapshot_runId_fkey" FOREIGN KEY ("runId") REFERENCES "CandidateAnalysisRun"("id") ON DELETE RESTRICT ON UPDATE RESTRICT;
 ALTER TABLE "CandidateHumanReviewDecision"
-  ADD CONSTRAINT "CandidateHumanReviewDecision_assertionId_fkey" FOREIGN KEY ("assertionId") REFERENCES "CandidateAssertion"("id") ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT "CandidateHumanReviewDecision_supersededDecisionId_fkey" FOREIGN KEY ("supersededDecisionId") REFERENCES "CandidateHumanReviewDecision"("id") ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT "CandidateHumanReviewDecision_assertionId_assertionPayloadH_fkey" FOREIGN KEY ("assertionId", "assertionPayloadHash") REFERENCES "CandidateAssertion"("id", "payloadHash") ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT "CandidateHumanReviewDecision_supersededDecisionId_assertio_fkey" FOREIGN KEY ("supersededDecisionId", "assertionId", "reviewProfile") REFERENCES "CandidateHumanReviewDecision"("id", "assertionId", "reviewProfile") ON DELETE RESTRICT ON UPDATE RESTRICT;
 ALTER TABLE "CandidatePromotionDecision"
   ADD CONSTRAINT "CandidatePromotionDecision_assertionId_fkey" FOREIGN KEY ("assertionId") REFERENCES "CandidateAssertion"("id") ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT "CandidatePromotionDecision_reviewDecisionId_fkey" FOREIGN KEY ("reviewDecisionId") REFERENCES "CandidateHumanReviewDecision"("id") ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT "CandidatePromotionDecision_supersededDecisionId_fkey" FOREIGN KEY ("supersededDecisionId") REFERENCES "CandidatePromotionDecision"("id") ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT "CandidatePromotionDecision_reviewDecisionId_assertionId_fkey" FOREIGN KEY ("reviewDecisionId", "assertionId") REFERENCES "CandidateHumanReviewDecision"("id", "assertionId") ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT "CandidatePromotionDecision_supersededDecisionId_assertionI_fkey" FOREIGN KEY ("supersededDecisionId", "assertionId", "targetProfile") REFERENCES "CandidatePromotionDecision"("id", "assertionId", "targetProfile") ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 CREATE FUNCTION public.reject_candidate_history_change()
 RETURNS trigger

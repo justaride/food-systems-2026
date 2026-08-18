@@ -491,6 +491,7 @@ model CandidateAssertion {
   humanReviewDecisions  CandidateHumanReviewDecision[]
   promotionDecisions    CandidatePromotionDecision[]
 
+  @@unique([id, payloadHash])
   @@unique([runId, payloadHash])
   @@index([assertionType])
   @@index([machineUse])
@@ -559,11 +560,13 @@ model CandidateHumanReviewDecision {
   supersededDecisionId String?
   createdAt            DateTime                @default(now())
 
-  assertion            CandidateAssertion             @relation(fields: [assertionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
-  supersededDecision   CandidateHumanReviewDecision?  @relation("CandidateHumanReviewSupersession", fields: [supersededDecisionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  assertion            CandidateAssertion             @relation(fields: [assertionId, assertionPayloadHash], references: [id, payloadHash], onDelete: Restrict, onUpdate: Restrict)
+  supersededDecision   CandidateHumanReviewDecision?  @relation("CandidateHumanReviewSupersession", fields: [supersededDecisionId, assertionId, reviewProfile], references: [id, assertionId, reviewProfile], onDelete: Restrict, onUpdate: Restrict)
   supersedingDecisions CandidateHumanReviewDecision[] @relation("CandidateHumanReviewSupersession")
   promotionDecisions   CandidatePromotionDecision[]
 
+  @@unique([id, assertionId])
+  @@unique([id, assertionId, reviewProfile])
   @@index([assertionId])
   @@index([decision])
   @@index([reviewProfile])
@@ -585,10 +588,11 @@ model CandidatePromotionDecision {
   createdAt            DateTime                @default(now())
 
   assertion            CandidateAssertion           @relation(fields: [assertionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
-  reviewDecision       CandidateHumanReviewDecision @relation(fields: [reviewDecisionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
-  supersededDecision   CandidatePromotionDecision?  @relation("CandidatePromotionSupersession", fields: [supersededDecisionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  reviewDecision       CandidateHumanReviewDecision @relation(fields: [reviewDecisionId, assertionId], references: [id, assertionId], onDelete: Restrict, onUpdate: Restrict)
+  supersededDecision   CandidatePromotionDecision?  @relation("CandidatePromotionSupersession", fields: [supersededDecisionId, assertionId, targetProfile], references: [id, assertionId, targetProfile], onDelete: Restrict, onUpdate: Restrict)
   supersedingDecisions CandidatePromotionDecision[] @relation("CandidatePromotionSupersession")
 
+  @@unique([id, assertionId, targetProfile])
   @@index([assertionId])
   @@index([targetProfile, state])
 }
