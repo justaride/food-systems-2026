@@ -162,28 +162,44 @@ const assertRecoveryContract = (contract: string) => {
 
 const assertNoStaleRecoveryGuidance = (contract: string) => {
   const normalizedContract = contract.replace(/\s+/g, ' ')
-  const contexts = normalizedContract.split(/(?<=[.!?;])\s+/)
-  const bootstrapLoginEffect =
-    /\bbootstrap\b([^.!?;]{0,160}?)\b(?:restor(?:e|es|ed|ing)|(?:re[ -]?)?enabl(?:e|es|ed|ing))\b[^.!?;]{0,80}?\bLOGIN\b/gi
-  const explicitEffectNegation =
-    /\b(?:(?:do(?:es)?|did|can|could|must|should|will|would)\s+not|cannot|can't|never|won't|mustn't|shouldn't|wouldn't|couldn't|doesn't)\b/i
-  const negatedInstructionLead =
-    /\b(?:do\s+not|don't|never|must\s+not|mustn't|cannot|can't)\b[^.!?;]{0,48}$/i
+  const sentences = normalizedContract.split(/(?<=[.!?])\s+/)
+  const loginEffect =
+    /\b(?:restor(?:e|es|ed|ing)|(?:re[ -]?)?enabl(?:e|es|ed|ing))\b[^.!?;]{0,80}?\bLOGIN\b/gi
+  const directlyNegatedEffect =
+    /\b(?:(?:do(?:es)?|did|can|could|must|should|will|would)\s+not|cannot|can't|never|won't|mustn't|shouldn't|wouldn't|couldn't|doesn't|(?:is|are|was|were)\s+not\s+able\s+to|(?:isn't|aren't|wasn't|weren't)\s+able\s+to)\s*$/i
+  const directlyNegatedInstruction =
+    /\b(?:do\s+not|don't|never|must\s+not|mustn't)\s+(?:run|rerun|re-run|re run|use)(?:\s+the)?\s+bootstrap(?:\s+to)?\s*$/i
+  const inheritsBootstrapSubject =
+    /^(?:it|this|that)\b|^(?:does\s+)?(?:restor(?:e|es|ed|ing)|(?:re[ -]?)?enabl(?:e|es|ed|ing))\b/i
 
-  for (const context of contexts) {
-    for (const match of context.matchAll(bootstrapLoginEffect)) {
-      const effectLead = match[1] ?? ''
-      const matchStart = match.index ?? 0
-      const instructionLead = context.slice(Math.max(0, matchStart - 64), matchStart)
+  for (const sentence of sentences) {
+    const clauses = sentence.split(
+      /\s*(?:;(?:\s*(?:however|yet)\b,?)?|,?\s*\b(?:but|however|yet)\b,?)\s*/i,
+    )
+    let bootstrapSubject = false
 
-      if (
-        explicitEffectNegation.test(effectLead) ||
-        negatedInstructionLead.test(instructionLead)
-      ) {
-        continue
+    for (const clause of clauses) {
+      const namesBootstrap = /\bbootstrap\b/i.test(clause)
+      const inheritsBootstrap: boolean =
+        bootstrapSubject && inheritsBootstrapSubject.test(clause)
+      const hasBootstrapSubject = namesBootstrap || inheritsBootstrap
+
+      if (hasBootstrapSubject) {
+        for (const match of clause.matchAll(loginEffect)) {
+          const effectLead = clause.slice(0, match.index ?? 0)
+
+          if (
+            directlyNegatedEffect.test(effectLead) ||
+            directlyNegatedInstruction.test(effectLead)
+          ) {
+            continue
+          }
+
+          assert.fail(`stale bootstrap LOGIN recovery guidance: ${clause}`)
+        }
       }
 
-      assert.fail(`stale bootstrap LOGIN recovery guidance: ${match[0]}`)
+      bootstrapSubject = namesBootstrap || inheritsBootstrap
     }
   }
 }
@@ -620,6 +636,64 @@ test('permits explicit bootstrap-cannot-enable-LOGIN guidance', () => {
 test('permits explicit bootstrap-must-not-reenable-LOGIN guidance', () => {
   const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
   const controlled = `${contract}\nBootstrap must not re-enable LOGIN; use the explicit enable command.\n`
+
+  assert.doesNotThrow(() => assertDurableContract(controlled))
+})
+
+test('rejects positive LOGIN effect after unrelated bootstrap negation', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const mutated = `${contract}\nBootstrap does not provision credentials but enables LOGIN.\n`
+
+  assert.throws(
+    () => assertDurableContract(mutated),
+    (error: unknown) => error instanceof Error,
+  )
+})
+
+test('rejects positive pronominal LOGIN effect after negated bootstrap effect', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const mutated = `${contract}\nBootstrap cannot restore LOGIN but it does enable LOGIN.\n`
+
+  assert.throws(
+    () => assertDurableContract(mutated),
+    (error: unknown) => error instanceof Error,
+  )
+})
+
+test('rejects positive pronominal LOGIN effect after semicolon however boundary', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const mutated = `${contract}\nBootstrap cannot restore LOGIN; however, it does enable LOGIN.\n`
+
+  assert.throws(
+    () => assertDurableContract(mutated),
+    (error: unknown) => error instanceof Error,
+  )
+})
+
+test('permits bootstrap-is-not-able-to-enable-LOGIN guidance', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const controlled = `${contract}\nBootstrap is not able to enable LOGIN.\n`
+
+  assert.doesNotThrow(() => assertDurableContract(controlled))
+})
+
+test("permits bootstrap-doesn't-restore-LOGIN guidance", () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const controlled = `${contract}\nBootstrap doesn't restore LOGIN.\n`
+
+  assert.doesNotThrow(() => assertDurableContract(controlled))
+})
+
+test('permits bootstrap-never-enables-LOGIN guidance', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const controlled = `${contract}\nBootstrap never enables LOGIN.\n`
+
+  assert.doesNotThrow(() => assertDurableContract(controlled))
+})
+
+test('permits directly negated bootstrap LOGIN instruction', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const controlled = `${contract}\nDo not rerun bootstrap to enable LOGIN.\n`
 
   assert.doesNotThrow(() => assertDurableContract(controlled))
 })
