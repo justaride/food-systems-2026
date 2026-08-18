@@ -153,6 +153,66 @@ function activityCount(
   return result.status === 0 ? result.stdout.trim() : "error";
 }
 
+function candidateRowsSnapshot(
+  context: CandidateAnalysisPostgresContext,
+): string {
+  const result = context.psql(`
+    WITH candidate_snapshot(table_name, row_count, rows) AS (
+      SELECT 'CandidateContentUnit', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateContentUnit" candidate_row
+      UNION ALL
+      SELECT 'CandidateAnalysisRun', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateAnalysisRun" candidate_row
+      UNION ALL
+      SELECT 'CandidateAnalysisRunInput', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateAnalysisRunInput" candidate_row
+      UNION ALL
+      SELECT 'CandidateAnalysisRunEvent', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateAnalysisRunEvent" candidate_row
+      UNION ALL
+      SELECT 'CandidateAnalysisArtifact', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateAnalysisArtifact" candidate_row
+      UNION ALL
+      SELECT 'CandidateAssertion', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateAssertion" candidate_row
+      UNION ALL
+      SELECT 'CandidateEvidenceLink', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateEvidenceLink" candidate_row
+      UNION ALL
+      SELECT 'CandidateDependency', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateDependency" candidate_row
+      UNION ALL
+      SELECT 'CandidateReconciliationSnapshot', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateReconciliationSnapshot" candidate_row
+      UNION ALL
+      SELECT 'CandidateHumanReviewDecision', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateHumanReviewDecision" candidate_row
+      UNION ALL
+      SELECT 'CandidatePromotionDecision', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidatePromotionDecision" candidate_row
+    )
+    SELECT jsonb_object_agg(
+      table_name,
+      jsonb_build_object('count', row_count, 'rows', rows)
+      ORDER BY table_name
+    )
+    FROM candidate_snapshot;
+  `);
+  assert.equal(result.status, 0, result.stderr);
+  return result.stdout.trim();
+}
+
 function childExit(child: ChildProcess): Promise<number | null> {
   if (child.exitCode !== null) return Promise.resolve(child.exitCode);
   return new Promise((resolvePromise, rejectPromise) => {
@@ -1811,6 +1871,43 @@ test(
     await withCandidateAnalysisPostgres(t, async (context) => {
       const { adminUrl, database, port, psql } = context;
       const fixture = prepareRecoveryFixture(context);
+      const preservedFixture = candidateAnalysisFixture({
+        contentUnitId: "content:stale-session-preservation:1",
+      });
+      const adminPrisma = rolePrisma(adminUrl);
+      try {
+        await adminPrisma.candidateContentUnit.create({
+          data: preservedFixture.contentUnit,
+        });
+      } finally {
+        await adminPrisma.$disconnect();
+      }
+      const beforeCandidateRows = candidateRowsSnapshot(context);
+      const beforeCandidateSnapshot = JSON.parse(beforeCandidateRows) as Record<
+        string,
+        { count: number; rows: unknown[] }
+      >;
+      assert.deepEqual(
+        Object.fromEntries(
+          Object.entries(beforeCandidateSnapshot).map(([tableName, snapshot]) => [
+            tableName,
+            snapshot.count,
+          ]),
+        ),
+        {
+          CandidateAnalysisArtifact: 0,
+          CandidateAnalysisRun: 0,
+          CandidateAnalysisRunEvent: 0,
+          CandidateAnalysisRunInput: 0,
+          CandidateAssertion: 0,
+          CandidateContentUnit: 1,
+          CandidateDependency: 0,
+          CandidateEvidenceLink: 0,
+          CandidateHumanReviewDecision: 0,
+          CandidatePromotionDecision: 0,
+          CandidateReconciliationSnapshot: 0,
+        },
+      );
       const temporarilyEnabled = psql(`
         ALTER ROLE foodsystems_candidate_worker LOGIN;
         ALTER ROLE foodsystems_candidate_reconciler LOGIN;
@@ -1899,6 +1996,12 @@ test(
       `);
       assert.equal(enabledState.status, 0, enabledState.stderr);
       assert.equal(enabledState.stdout.trim(), "t|t|0|0");
+      const afterCandidateRows = candidateRowsSnapshot(context);
+      assert.equal(
+        afterCandidateRows,
+        beforeCandidateRows,
+        "stale-session recovery changed exact content or counts in the 11 candidate tables",
+      );
     });
   },
 );
