@@ -143,7 +143,6 @@ const assertPriorEventContract = (contract: string) => {
 
 const assertRecoveryContract = (contract: string) => {
   const roles = section(contract, 'Database roles')
-  const normalizedRoles = roles.replace(/\s+/g, ' ')
 
   assert.match(
     roles,
@@ -159,13 +158,14 @@ const assertRecoveryContract = (contract: string) => {
   assert.match(roles, /INSERT grants are revoked/i)
   assert.match(roles, /candidate sessions are terminated/i)
   assert.match(roles, /candidate rows are preserved/i)
+}
+
+const assertNoStaleRecoveryGuidance = (contract: string) => {
+  const normalizedContract = contract.replace(/\s+/g, ' ')
+
   assert.doesNotMatch(
-    normalizedRoles,
-    /re-?run (?:the )?bootstrap(?: grants)? to restore \bLOGIN\b/i,
-  )
-  assert.doesNotMatch(
-    normalizedRoles,
-    /bootstrap.{0,100}(?:restores|enables|re-enables) (?:the )?(?:candidate )?(?:roles? )?\bLOGIN\b/i,
+    normalizedContract,
+    /\bbootstrap\b.{0,160}\b(?:restor(?:e|es|ed|ing)|enabl(?:e|es|ed|ing)|re-enabl(?:e|es|ed|ing))\b.{0,80}\bLOGIN\b/i,
   )
 }
 
@@ -174,6 +174,7 @@ const assertDurableContract = (contract: string) => {
   assertWorkflowPromptContract(contract)
   assertPriorEventContract(contract)
   assertRecoveryContract(contract)
+  assertNoStaleRecoveryGuidance(contract)
 }
 
 const mutateSection = (
@@ -519,4 +520,42 @@ test('durable contract assertions reject reviewed authority and recovery mutatio
       `surviving contract mutation: ${mutation.name}`,
     )
   }
+})
+
+test('rejects stale recovery guidance bypass in a non-recovery section', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const mutated = mutateSection(
+    contract,
+    'Purpose',
+    (block) => `${block}\nRe-run bootstrap\nto restore LOGIN.\n`,
+  )
+
+  assert.throws(
+    () => assertDurableContract(mutated),
+    (error: unknown) => error instanceof Error,
+  )
+})
+
+test('rejects stale recovery guidance bypass after the final section', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const mutated = `${contract}\nRe-run bootstrap\nto restore LOGIN.\n`
+
+  assert.throws(
+    () => assertDurableContract(mutated),
+    (error: unknown) => error instanceof Error,
+  )
+})
+
+test('rejects stale re-enable LOGIN guidance inside the recovery section', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const mutated = mutateSection(
+    contract,
+    'Database roles',
+    (block) => `${block}\nRe-run bootstrap\nto re-enable LOGIN.\n`,
+  )
+
+  assert.throws(
+    () => assertDurableContract(mutated),
+    (error: unknown) => error instanceof Error,
+  )
 })
