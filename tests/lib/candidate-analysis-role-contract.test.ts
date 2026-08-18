@@ -21,6 +21,7 @@ import {
   candidateAnalysisAssertionScopeHash,
   candidateAnalysisReconciliationPayloadHash,
   candidateAnalysisReconciliationScopeHash,
+  candidateAnalysisRunScopeHash,
   type CandidateAssertionInput,
   type CandidateReconciliationSnapshotInput,
 } from "../../src/lib/knowledge/candidate-analysis-contract";
@@ -909,7 +910,31 @@ test(
       );
       assert.equal(verifyWorker().status, 0);
 
+      const falseScopeRunId = "run:worker:false-scope";
+      const falseScopeInsert = psql(`
+        INSERT INTO public."CandidateAnalysisRun" (
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+          "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+        ) VALUES (
+          '${falseScopeRunId}', '${"f".repeat(64)}', 'workflow.candidate_analysis.v1', '1.0.0',
+          'workflow.md', '${"0".repeat(64)}', 'prompt.candidate_analysis.v1', '1.0.0',
+          'prompt.md', 'provider', 'model', 'version', '${"1".repeat(64)}', '{}',
+          '${"2".repeat(64)}', '${"3".repeat(64)}', 'false worker scope', 'candidate_only',
+          'worker:false-scope', '${"4".repeat(64)}', 1
+        )
+      `, "foodsystems_candidate_worker");
+      assert.notEqual(
+        falseScopeInsert.status,
+        0,
+        `worker inserted false run scope instead of ${candidateAnalysisRunScopeHash(falseScopeRunId)}`,
+      );
+      assert.match(falseScopeInsert.stderr, /invalid candidate run scope/);
+
       const hash = "a".repeat(64);
+      const preservationRunId = "disable-preservation-run";
+      const preservationRunScope = candidateAnalysisRunScopeHash(preservationRunId);
       const seeded = psql(`
         INSERT INTO public."CandidateAnalysisRun" (
           "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
@@ -917,7 +942,7 @@ test(
           "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
           "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
         ) VALUES (
-          'disable-preservation-run', '${hash}', 'candidate-analysis', 'v1',
+          '${preservationRunId}', '${preservationRunScope}', 'candidate-analysis', 'v1',
           'knowledge/corpus/workflows/candidate-analysis-v1.md', '${hash}',
           'candidate-analysis-prompt', 'v1',
           'knowledge/corpus/workflows/candidate-analysis-prompt-v1.md',
@@ -928,7 +953,7 @@ test(
         INSERT INTO public."CandidateReconciliationSnapshot" (
           "id", "runId", "scope", "scopeHash", "payload", "payloadHash", "conflictCount"
         ) VALUES (
-          'disable-preservation-snapshot', 'disable-preservation-run', '{}',
+          'disable-preservation-snapshot', '${preservationRunId}', '{}',
           '${hash}',
           '{"namespace":"candidate","kind":"reconciliation","data":{"entries":[{"role":"contradiction","valueType":"flag","value":false}]}}',
           '${hash}', 0

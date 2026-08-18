@@ -347,9 +347,141 @@ $function$;
 
 REVOKE ALL ON FUNCTION public.reject_candidate_history_change() FROM PUBLIC;
 
+CREATE FUNCTION public.candidate_json_number_to_javascript(candidate_number JSONB)
+RETURNS TEXT
+LANGUAGE plpgsql
+IMMUTABLE
+STRICT
+SET search_path = pg_catalog, public
+SET extra_float_digits = 1
+AS $function$
+DECLARE
+  numeric_value NUMERIC;
+  float_value DOUBLE PRECISION;
+  float_text TEXT;
+  sign_text TEXT := '';
+  mantissa TEXT;
+  digits TEXT;
+  exponent_value INTEGER;
+  decimal_index INTEGER;
+  dot_index INTEGER;
+BEGIN
+  IF jsonb_typeof(candidate_number) IS DISTINCT FROM 'number' THEN
+    RAISE EXCEPTION 'invalid candidate machine payload';
+  END IF;
+  numeric_value := (candidate_number #>> '{}')::NUMERIC;
+  BEGIN
+    float_value := numeric_value::DOUBLE PRECISION;
+  EXCEPTION WHEN numeric_value_out_of_range THEN
+    RAISE EXCEPTION 'invalid candidate machine payload';
+  END;
+  float_text := float_value::TEXT;
+  IF (float_text::NUMERIC) IS DISTINCT FROM numeric_value THEN
+    RAISE EXCEPTION 'invalid candidate machine payload';
+  END IF;
+  IF float_value = 0 THEN
+    RETURN '0';
+  END IF;
+
+  IF abs(float_value) >= 1e-6::DOUBLE PRECISION
+    AND abs(float_value) < 1e21::DOUBLE PRECISION
+  THEN
+    IF position('e' IN lower(float_text)) = 0 THEN
+      RETURN float_text;
+    END IF;
+    IF left(float_text, 1) = '-' THEN
+      sign_text := '-';
+      float_text := substr(float_text, 2);
+    END IF;
+    mantissa := split_part(lower(float_text), 'e', 1);
+    exponent_value := split_part(lower(float_text), 'e', 2)::INTEGER;
+    dot_index := position('.' IN mantissa);
+    decimal_index := (CASE WHEN dot_index = 0 THEN length(mantissa) ELSE dot_index - 1 END)
+      + exponent_value;
+    digits := replace(mantissa, '.', '');
+    IF decimal_index <= 0 THEN
+      RETURN sign_text || '0.' || repeat('0', -decimal_index) || digits;
+    ELSIF decimal_index >= length(digits) THEN
+      RETURN sign_text || digits || repeat('0', decimal_index - length(digits));
+    END IF;
+    RETURN sign_text || left(digits, decimal_index) || '.' || substr(digits, decimal_index + 1);
+  END IF;
+
+  RETURN regexp_replace(lower(float_text), 'e([+-])0+([0-9]+)$', 'e\1\2');
+END
+$function$;
+
+CREATE FUNCTION public.candidate_canonical_json(candidate_value JSONB)
+RETURNS TEXT
+LANGUAGE plpgsql
+IMMUTABLE
+STRICT
+SET search_path = pg_catalog, public
+AS $function$
+DECLARE
+  value_type TEXT := jsonb_typeof(candidate_value);
+  canonical_value TEXT;
+BEGIN
+  CASE value_type
+    WHEN 'null' THEN
+      RETURN 'null';
+    WHEN 'boolean' THEN
+      RETURN candidate_value::TEXT;
+    WHEN 'number' THEN
+      RETURN public.candidate_json_number_to_javascript(candidate_value);
+    WHEN 'string' THEN
+      RETURN to_jsonb(candidate_value #>> '{}')::TEXT;
+    WHEN 'array' THEN
+      SELECT '[' || COALESCE(string_agg(
+        public.candidate_canonical_json(item.value), ',' ORDER BY item.ordinality
+      ), '') || ']'
+        INTO canonical_value
+        FROM jsonb_array_elements(candidate_value) WITH ORDINALITY AS item(value, ordinality);
+      RETURN canonical_value;
+    WHEN 'object' THEN
+      SELECT '{' || COALESCE(string_agg(
+        to_jsonb(item.key)::TEXT || ':' || public.candidate_canonical_json(item.value),
+        ',' ORDER BY item.key COLLATE "C"
+      ), '') || '}'
+        INTO canonical_value
+        FROM jsonb_each(candidate_value) AS item(key, value);
+      RETURN canonical_value;
+    ELSE
+      RAISE EXCEPTION 'invalid candidate machine payload';
+  END CASE;
+END
+$function$;
+
+REVOKE ALL ON FUNCTION public.candidate_json_number_to_javascript(JSONB) FROM PUBLIC;
+REVOKE ALL ON FUNCTION public.candidate_canonical_json(JSONB) FROM PUBLIC;
+
+CREATE FUNCTION public.reject_invalid_candidate_run_scope()
+RETURNS trigger
+LANGUAGE plpgsql
+SECURITY DEFINER
+SET search_path = pg_catalog, public
+AS $function$
+DECLARE
+  expected_scope_hash TEXT;
+BEGIN
+  expected_scope_hash := encode(sha256(convert_to(
+    'food-systems/run-scope/v1' || chr(10)
+      || public.candidate_canonical_json(jsonb_build_object('runId', NEW."id")),
+    'UTF8'
+  )), 'hex');
+  IF NEW."scopeHash" IS DISTINCT FROM expected_scope_hash THEN
+    RAISE EXCEPTION 'invalid candidate run scope';
+  END IF;
+  RETURN NEW;
+END
+$function$;
+
+REVOKE ALL ON FUNCTION public.reject_invalid_candidate_run_scope() FROM PUBLIC;
+
 CREATE FUNCTION public.reject_invalid_candidate_machine_payload()
 RETURNS trigger
 LANGUAGE plpgsql
+SECURITY DEFINER
 SET search_path = pg_catalog, public
 AS $function$
 DECLARE
@@ -451,11 +583,7 @@ BEGIN
           THEN
             RAISE EXCEPTION 'invalid candidate machine payload';
           END IF;
-          IF (entry->>'value')::NUMERIC < '-1.7976931348623157e308'::NUMERIC
-            OR (entry->>'value')::NUMERIC > '1.7976931348623157e308'::NUMERIC
-          THEN
-            RAISE EXCEPTION 'invalid candidate machine payload';
-          END IF;
+          PERFORM public.candidate_json_number_to_javascript(entry->'value');
         WHEN 'flag' THEN
           IF entry_keys IS DISTINCT FROM ARRAY['role', 'value', 'valueType']::TEXT[]
             OR jsonb_typeof(entry->'value') IS DISTINCT FROM 'boolean'
@@ -525,13 +653,17 @@ BEGIN
 
   FOR manifest_item IN SELECT value FROM jsonb_array_elements(manifest->'inputs') LOOP
     SELECT array_agg(key ORDER BY key) INTO entry_keys FROM jsonb_object_keys(manifest_item) AS key;
+    IF jsonb_typeof(manifest_item->'position') = 'number' THEN
+      PERFORM public.candidate_json_number_to_javascript(manifest_item->'position');
+    END IF;
     IF jsonb_typeof(manifest_item) IS DISTINCT FROM 'object'
       OR entry_keys IS DISTINCT FROM ARRAY['contentHash', 'contentUnitId', 'identityConfidence', 'position']::TEXT[]
       OR jsonb_typeof(manifest_item->'contentUnitId') IS DISTINCT FROM 'string'
       OR manifest_item->>'contentUnitId' !~ '^[a-z0-9][a-z0-9._:-]*$'
       OR jsonb_typeof(manifest_item->'position') IS DISTINCT FROM 'number'
-      OR manifest_item->>'position' !~ '^(0|[1-9][0-9]*)$'
-      OR (manifest_item->>'position')::INTEGER <> expected_position
+      OR (manifest_item->>'position')::NUMERIC < 0
+      OR trunc((manifest_item->>'position')::NUMERIC) <> (manifest_item->>'position')::NUMERIC
+      OR (manifest_item->>'position')::NUMERIC <> expected_position
       OR jsonb_typeof(manifest_item->'contentHash') IS DISTINCT FROM 'string'
       OR manifest_item->>'contentHash' !~ '^[0-9a-f]{64}$'
       OR jsonb_typeof(manifest_item->'identityConfidence') IS DISTINCT FROM 'string'
@@ -584,7 +716,11 @@ BEGIN
       OR jsonb_typeof(manifest_item->'payloadHash') IS DISTINCT FROM 'string'
       OR manifest_item->>'payloadHash' !~ '^[0-9a-f]{64}$'
       OR NOT (jsonb_typeof(manifest_item->'confidence') IN ('null', 'number'))
-      OR (jsonb_typeof(manifest_item->'confidence') = 'number' AND ((manifest_item->>'confidence')::NUMERIC < 0 OR (manifest_item->>'confidence')::NUMERIC > 1))
+      OR (jsonb_typeof(manifest_item->'confidence') = 'number' AND (
+        public.candidate_json_number_to_javascript(manifest_item->'confidence') IS NULL
+        OR (manifest_item->>'confidence')::NUMERIC < 0
+        OR (manifest_item->>'confidence')::NUMERIC > 1
+      ))
       OR jsonb_typeof(manifest_item->'machineUse') IS DISTINCT FROM 'string'
       OR NOT (manifest_item->>'machineUse' = ANY (ARRAY['candidate_only', 'reusable_for_ai_context', 'quarantined']::TEXT[]))
       OR jsonb_typeof(manifest_item->'identityConfidence') IS DISTINCT FROM 'string'
@@ -665,6 +801,9 @@ BEGIN
   last_id := NULL;
   FOR manifest_item IN SELECT value FROM jsonb_array_elements(manifest->'reconciliationSnapshots') LOOP
     SELECT array_agg(key ORDER BY key) INTO entry_keys FROM jsonb_object_keys(manifest_item) AS key;
+    IF jsonb_typeof(manifest_item->'conflictCount') = 'number' THEN
+      PERFORM public.candidate_json_number_to_javascript(manifest_item->'conflictCount');
+    END IF;
     IF jsonb_typeof(manifest_item) IS DISTINCT FROM 'object'
       OR entry_keys IS DISTINCT FROM ARRAY['conflictCount', 'id', 'payloadHash', 'scopeHash']::TEXT[]
       OR jsonb_typeof(manifest_item->'id') IS DISTINCT FROM 'string'
@@ -674,13 +813,22 @@ BEGIN
       OR jsonb_typeof(manifest_item->'payloadHash') IS DISTINCT FROM 'string'
       OR manifest_item->>'payloadHash' !~ '^[0-9a-f]{64}$'
       OR jsonb_typeof(manifest_item->'conflictCount') IS DISTINCT FROM 'number'
-      OR manifest_item->>'conflictCount' !~ '^(0|[1-9][0-9]*)$'
+      OR (manifest_item->>'conflictCount')::NUMERIC < 0
+      OR trunc((manifest_item->>'conflictCount')::NUMERIC) <> (manifest_item->>'conflictCount')::NUMERIC
       OR (last_id IS NOT NULL AND manifest_item->>'id' <= last_id)
     THEN
       RAISE EXCEPTION 'invalid candidate machine payload';
     END IF;
     last_id := manifest_item->>'id';
   END LOOP;
+
+  IF candidate_payload->'data'->>'manifestHash' IS DISTINCT FROM encode(sha256(convert_to(
+    'food-systems/output-manifest/v1' || chr(10)
+      || public.candidate_canonical_json(manifest),
+    'UTF8'
+  )), 'hex') THEN
+    RAISE EXCEPTION 'invalid candidate machine payload';
+  END IF;
 
   RETURN NEW;
 END
@@ -693,6 +841,7 @@ CREATE TRIGGER "CandidateContentUnit_reject_update_delete" BEFORE UPDATE OR DELE
 CREATE TRIGGER "CandidateContentUnit_reject_truncate" BEFORE TRUNCATE ON "CandidateContentUnit" FOR EACH STATEMENT EXECUTE FUNCTION public.reject_candidate_history_change();
 
 REVOKE ALL PRIVILEGES ON TABLE "CandidateAnalysisRun" FROM PUBLIC;
+CREATE TRIGGER "CandidateAnalysisRun_reject_invalid_scope" BEFORE INSERT ON "CandidateAnalysisRun" FOR EACH ROW EXECUTE FUNCTION public.reject_invalid_candidate_run_scope();
 CREATE TRIGGER "CandidateAnalysisRun_reject_update_delete" BEFORE UPDATE OR DELETE ON "CandidateAnalysisRun" FOR EACH ROW EXECUTE FUNCTION public.reject_candidate_history_change();
 CREATE TRIGGER "CandidateAnalysisRun_reject_truncate" BEFORE TRUNCATE ON "CandidateAnalysisRun" FOR EACH STATEMENT EXECUTE FUNCTION public.reject_candidate_history_change();
 

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { execFileSync, spawnSync } from "node:child_process";
 import {
   candidateAnalysisRunEventHash,
+  candidateAnalysisRunScopeHash,
   type CandidateAnalysisRunEventInput,
 } from "../../src/lib/knowledge/candidate-analysis-contract";
 import {
@@ -41,6 +42,7 @@ const HASH_A = "a".repeat(64);
 const HASH_B = "b".repeat(64);
 const HASH_C = "c".repeat(64);
 const HASH_D = "d".repeat(64);
+const EPOCH_RUN_SCOPE = candidateAnalysisRunScopeHash("run-epoch");
 const GENERATED_AT = "2026-08-18T12:00:00.000Z";
 
 function sealEvent(
@@ -385,14 +387,14 @@ describe("candidate control snapshot", () => {
             "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
             "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
           ) VALUES (
-            'run-epoch', '${HASH_D}', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${HASH_A}',
+            'run-epoch', '${EPOCH_RUN_SCOPE}', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${HASH_A}',
             'prompt.candidate_analysis.v1', '1.0.0', 'prompt.md', 'provider', 'model',
             'version', '${HASH_B}', '{}', '${HASH_C}', '${HASH_D}', 'epoch test',
             'candidate_only', 'worker:epoch', '${"e".repeat(64)}', 1
           );
           INSERT INTO "CandidateAnalysisRunEvent" (
             "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash"
-          ) VALUES ('event-epoch-1', 'run-epoch', '${HASH_D}', 1, 'queued', NULL, '${HASH_A}');
+          ) VALUES ('event-epoch-1', 'run-epoch', '${EPOCH_RUN_SCOPE}', 1, 'queued', NULL, '${HASH_A}');
           INSERT INTO "CandidateAssertion" (
             "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
             "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",

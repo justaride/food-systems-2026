@@ -2,6 +2,10 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
 
+import {
+  candidateAnalysisOutputManifestHash,
+  candidateAnalysisRunScopeHash,
+} from "../../src/lib/knowledge/candidate-analysis-contract";
 import { withCandidateAnalysisPostgres } from "../helpers/candidate-analysis-postgres";
 
 function modelBlock(schema: string, model: string): string {
@@ -90,6 +94,18 @@ test("migration makes every candidate history table immutable and private from P
     (sql.match(/reject_invalid_machine_payload" BEFORE INSERT/g) ?? []).length,
     4,
   );
+  assert.match(
+    sql,
+    /CandidateAnalysisRun_reject_invalid_scope" BEFORE INSERT/,
+  );
+  for (const signature of [
+    "candidate_json_number_to_javascript(JSONB)",
+    "candidate_canonical_json(JSONB)",
+    "reject_invalid_candidate_run_scope()",
+    "reject_invalid_candidate_machine_payload()",
+  ]) {
+    assert.match(sql, new RegExp(`REVOKE ALL ON FUNCTION public\\.${signature.replace(/[()]/g, "\\$&")} FROM PUBLIC`));
+  }
 });
 
 test(
@@ -107,7 +123,7 @@ test(
               AND column_name = 'scopeHash'
           )
         `).stdout.trim() === "t";
-      const runScope = hash("6");
+      const runScope = candidateAnalysisRunScopeHash("run-payload-guard");
       const runScopeColumn = hasRunScope ? ', "scopeHash"' : "";
       const runScopeValue = hasRunScope ? `, '${runScope}'` : "";
       const setup = psql(`
@@ -221,6 +237,186 @@ test(
 );
 
 test(
+  "database rejects a false terminal manifest hash",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ psql }) => {
+      const hash = (character: string) => character.repeat(64);
+      const runId = "run-terminal-false-hash";
+      const scopeHash = candidateAnalysisRunScopeHash(runId);
+      const setup = psql(`
+        INSERT INTO "CandidateAnalysisRun" (
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+          "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+        ) VALUES (
+          '${runId}', '${scopeHash}', 'workflow.candidate_analysis.v1', '1.0.0',
+          'workflow.md', '${hash("0")}', 'prompt.candidate_analysis.v1', '1.0.0',
+          'prompt.md', 'provider', 'model', 'version', '${hash("1")}', '{}',
+          '${hash("2")}', '${hash("3")}', 'terminal hash', 'candidate_only',
+          'worker:terminal-hash', '${hash("4")}', 1
+        )
+      `);
+      assert.equal(setup.status, 0, setup.stderr);
+
+      const rejected = psql(`
+        INSERT INTO "CandidateAnalysisRunEvent" (
+          "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash"
+        ) VALUES (
+          'event-terminal-false-hash', '${runId}', '${scopeHash}', 1, 'candidate_completed',
+          '{"namespace":"candidate","kind":"run_terminal","data":{"manifest":{"schemaVersion":"candidate-output-manifest-v1","inputs":[],"artifacts":[],"assertions":[],"evidenceLinks":[],"dependencies":[],"reconciliationSnapshots":[]},"manifestHash":"${hash("f")}"}}',
+          '${hash("5")}'
+        )
+      `);
+      assert.notEqual(rejected.status, 0, "false manifest hash unexpectedly inserted");
+      assert.match(rejected.stderr, /invalid candidate machine payload/);
+    });
+  },
+);
+
+test(
+  "database accepts semantically integral terminal numbers regardless of JSON scale",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ psql }) => {
+      const hash = (character: string) => character.repeat(64);
+      const runId = "run-terminal-zero-scale";
+      const scopeHash = candidateAnalysisRunScopeHash(runId);
+      const manifest = {
+        schemaVersion: "candidate-output-manifest-v1" as const,
+        inputs: [{
+          contentUnitId: "content:terminal-zero:1",
+          position: 0,
+          contentHash: hash("a"),
+          identityConfidence: "exact" as const,
+        }],
+        artifacts: [],
+        assertions: [{
+          id: "assertion:terminal-zero:1",
+          assertionType: "claim" as const,
+          schemaVersion: "candidate-analysis-v1" as const,
+          payloadHash: hash("b"),
+          confidence: 0.123456789012345,
+          machineUse: "candidate_only" as const,
+          identityConfidence: "exact" as const,
+          evidenceLevel: "no_locator" as const,
+          limitations: [
+            "quote \" slash \\ tab\t backspace\b formfeed\f carriage\r newline\n ø 😀  ",
+          ],
+          scopeKey: "scope:terminal-zero:1",
+          scopeHash: hash("c"),
+          supersededAssertionId: null,
+          supersededAssertionPayloadHash: null,
+        }, {
+          id: "assertion:terminal-zero:2",
+          assertionType: "claim" as const,
+          schemaVersion: "candidate-analysis-v1" as const,
+          payloadHash: hash("f"),
+          confidence: 1e-7,
+          machineUse: "candidate_only" as const,
+          identityConfidence: "exact" as const,
+          evidenceLevel: "no_locator" as const,
+          limitations: [],
+          scopeKey: "scope:terminal-zero:2",
+          scopeHash: hash("9"),
+          supersededAssertionId: null,
+          supersededAssertionPayloadHash: null,
+        }],
+        evidenceLinks: [],
+        dependencies: [],
+        reconciliationSnapshots: [{
+          id: "reconciliation:terminal-zero:1",
+          scopeHash: hash("d"),
+          payloadHash: hash("e"),
+          conflictCount: 1e20,
+        }, {
+          id: "reconciliation:terminal-zero:2",
+          scopeHash: hash("7"),
+          payloadHash: hash("8"),
+          conflictCount: 1e21,
+        }],
+      };
+      const payload = JSON.stringify({
+        namespace: "candidate",
+        kind: "run_terminal",
+        data: {
+          manifest,
+          manifestHash: candidateAnalysisOutputManifestHash(manifest),
+        },
+      }).replace('"position":0', '"position":0.0');
+      const result = psql(`
+        SET extra_float_digits = -15;
+        INSERT INTO "CandidateAnalysisRun" (
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+          "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+        ) VALUES (
+          '${runId}', '${scopeHash}', 'workflow.candidate_analysis.v1', '1.0.0',
+          'workflow.md', '${hash("0")}', 'prompt.candidate_analysis.v1', '1.0.0',
+          'prompt.md', 'provider', 'model', 'version', '${hash("1")}', '{}',
+          '${hash("2")}', '${hash("3")}', 'terminal zero scale', 'candidate_only',
+          'worker:terminal-zero', '${hash("4")}', 1
+        );
+        INSERT INTO "CandidateAnalysisRunEvent" (
+          "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash"
+        ) VALUES (
+          'event-terminal-zero-scale', '${runId}', '${scopeHash}', 1,
+          'candidate_completed', '${payload}', '${hash("5")}'
+        )
+      `);
+      assert.equal(result.status, 0, result.stderr);
+    });
+  },
+);
+
+test(
+  "database rejects payload numbers that cannot round trip through a finite JavaScript double",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ psql }) => {
+      const hash = (character: string) => character.repeat(64);
+      const runId = "run-number-round-trip";
+      const scopeHash = candidateAnalysisRunScopeHash(runId);
+      const setup = psql(`
+        INSERT INTO "CandidateAnalysisRun" (
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+          "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+        ) VALUES (
+          '${runId}', '${scopeHash}', 'workflow.candidate_analysis.v1', '1.0.0',
+          'workflow.md', '${hash("0")}', 'prompt.candidate_analysis.v1', '1.0.0',
+          'prompt.md', 'provider', 'model', 'version', '${hash("1")}', '{}',
+          '${hash("2")}', '${hash("3")}', 'numeric round trip', 'candidate_only',
+          'worker:numeric', '${hash("4")}', 1
+        )
+      `);
+      assert.equal(setup.status, 0, setup.stderr);
+
+      const numericLiterals = ["1e-400", "0.10000000000000001", "1e400"];
+      const results = numericLiterals.map((numeric, index) => psql(`
+        INSERT INTO "CandidateAnalysisArtifact" (
+          "id", "runId", "artifactType", "schemaVersion", "payload", "payloadHash"
+        ) VALUES (
+          'artifact-number-${index}', '${runId}', 'numeric', 'candidate-analysis-v1',
+          '{"namespace":"candidate","kind":"artifact","data":{"entries":[{"role":"quantitative_observation","valueType":"number","value":${numeric},"unit":null}]}}',
+          '${String(index + 5).repeat(64)}'
+        )
+      `));
+      assert.deepEqual(
+        results.map((result) => ({
+          rejected: result.status !== 0,
+          stable: /invalid candidate machine payload/.test(result.stderr),
+        })),
+        numericLiterals.map(() => ({ rejected: true, stable: true })),
+      );
+    });
+  },
+);
+
+test(
   "candidate history remains append-only and rejects invalid provenance data in PostgreSQL",
   { timeout: 45_000 },
   async (t) => {
@@ -284,12 +480,23 @@ test(
         overrides: Record<string, string>,
       ) => {
         const columns = columnsByTable[table];
+        const effectiveOverrides = { ...overrides };
+        if (
+          table === "CandidateAnalysisRun"
+          && effectiveOverrides.id !== undefined
+          && effectiveOverrides.scopeHash === undefined
+        ) {
+          const id = effectiveOverrides.id.match(/^'([^']+)'$/)?.[1];
+          assert.ok(id, "run copy override must use a literal identifier");
+          effectiveOverrides.scopeHash = `'${candidateAnalysisRunScopeHash(id)}'`;
+        }
         return `
           INSERT INTO "${table}" (${columns.map((column) => `"${column}"`).join(", ")})
-          SELECT ${columns.map((column) => overrides[column] ?? `"${column}"`).join(", ")}
+          SELECT ${columns.map((column) => effectiveOverrides[column] ?? `"${column}"`).join(", ")}
           FROM "${table}" WHERE "id" = '${sourceId}'
         `;
       };
+      const runScope = candidateAnalysisRunScopeHash("run-1");
       const insertChain = psql(`
         INSERT INTO "CandidateContentUnit" (
           "id", "sourceKind", "sourceKey", "sourceVersionHash", "unitType",
@@ -304,7 +511,7 @@ test(
           "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
           "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
         ) VALUES (
-          'run-1', '${hash("b")}', 'workflow.candidate_analysis.v1', '1.0.0',
+          'run-1', '${runScope}', 'workflow.candidate_analysis.v1', '1.0.0',
           'knowledge/corpus/workflows/candidate-analysis-v1.md', '${hash("d")}',
           'prompt.candidate_analysis.v1', '1.0.0',
           'knowledge/corpus/workflows/candidate-analysis-prompt-v1.md',
@@ -318,7 +525,7 @@ test(
         INSERT INTO "CandidateAnalysisRunEvent" (
           "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash"
         ) VALUES (
-          'event-1', 'run-1', '${hash("b")}', 1, 'queued',
+          'event-1', 'run-1', '${runScope}', 1, 'queued',
           '{"namespace":"candidate","kind":"run_event","data":{"entries":[{"role":"reason","valueType":"text","value":"queued"}]}}',
           '${hash("2")}'
         );
@@ -529,8 +736,8 @@ test(
           }),
         },
         {
-          name: "run scope hash",
-          constraint: "CandidateAnalysisRun_scopeHash_check",
+          name: "run scope derivation",
+          constraint: "invalid candidate run scope",
           sql: copyInsert("CandidateAnalysisRun", "run-1", {
             id: "'invalid-run-scope'", idempotencyKey: `'${hash("7")}'`, scopeHash: uppercaseHash,
           }),
@@ -859,6 +1066,9 @@ test(
           AND routine_schema = 'public'
           AND routine_name IN (
             'reject_candidate_history_change',
+            'candidate_json_number_to_javascript',
+            'candidate_canonical_json',
+            'reject_invalid_candidate_run_scope',
             'reject_invalid_candidate_machine_payload'
           )
       `);
@@ -874,6 +1084,7 @@ test(
   async (t) => {
     await withCandidateAnalysisPostgres(t, async ({ psql }) => {
       const hash = (character: string) => character.repeat(64);
+      const runScope = candidateAnalysisRunScopeHash("run-self");
       const setup = psql(`
         INSERT INTO "CandidateAnalysisRun" (
           "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
@@ -881,14 +1092,14 @@ test(
           "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
           "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
         ) VALUES (
-          'run-self', '${hash("3")}', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${hash("0")}',
+          'run-self', '${runScope}', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${hash("0")}',
           'prompt.candidate_analysis.v1', '1.0.0', 'prompt.md', 'provider', 'model',
           'version', '${hash("1")}', '{}', '${hash("2")}', '${hash("3")}',
           'self test', 'candidate_only', 'worker:self', '${hash("b")}', 1
         );
         INSERT INTO "CandidateAnalysisRunEvent" (
           "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash"
-        ) VALUES ('event-parent', 'run-self', '${hash("3")}', 1, 'queued', NULL, '${hash("9")}');
+        ) VALUES ('event-parent', 'run-self', '${runScope}', 1, 'queued', NULL, '${hash("9")}');
         INSERT INTO "CandidateAssertion" (
           "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
           "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
@@ -927,9 +1138,9 @@ test(
             "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash",
             "supersededEventId", "supersededEventHash", "supersededEventScopeHash"
           ) VALUES (
-            'event-self', 'run-self', '${hash("3")}', 2, 'superseded',
+            'event-self', 'run-self', '${runScope}', 2, 'superseded',
             '{"namespace":"candidate","kind":"run_supersession","data":{"reason":"self"}}', '${hash("2")}',
-            'event-self', '${hash("2")}', '${hash("3")}'
+            'event-self', '${hash("2")}', '${runScope}'
           )
         `),
         psql(`
@@ -987,6 +1198,7 @@ test(
   async (t) => {
     await withCandidateAnalysisPostgres(t, async ({ psql }) => {
       const hash = (character: string) => character.repeat(64);
+      const runScope = candidateAnalysisRunScopeHash("run-bind");
       const setup = psql(`
         INSERT INTO "CandidateAnalysisRun" (
           "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
@@ -994,14 +1206,14 @@ test(
           "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
           "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
         ) VALUES (
-          'run-bind', '${hash("3")}', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${hash("0")}',
+          'run-bind', '${runScope}', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${hash("0")}',
           'prompt.candidate_analysis.v1', '1.0.0', 'prompt.md', 'provider', 'model',
           'version', '${hash("1")}', '{}', '${hash("2")}', '${hash("3")}',
           'binding test', 'candidate_only', 'worker:bind', '${hash("c")}', 1
         );
         INSERT INTO "CandidateAnalysisRunEvent" (
           "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash"
-        ) VALUES ('event-bind-parent', 'run-bind', '${hash("3")}', 1, 'queued', NULL, '${hash("4")}');
+        ) VALUES ('event-bind-parent', 'run-bind', '${runScope}', 1, 'queued', NULL, '${hash("4")}');
         INSERT INTO "CandidateAssertion" (
           "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
           "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
@@ -1042,9 +1254,9 @@ test(
               "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash",
               "supersededEventId", "supersededEventHash", "supersededEventScopeHash"
             ) VALUES (
-              'event-bind-child', 'run-bind', '${hash("3")}', 2, 'superseded',
+              'event-bind-child', 'run-bind', '${runScope}', 2, 'superseded',
               '{"namespace":"candidate","kind":"run_supersession","data":{"reason":"replacement"}}', '${hash("1")}',
-              'event-bind-parent', '${hash("2")}', '${hash("3")}'
+              'event-bind-parent', '${hash("2")}', '${runScope}'
             )
           `,
         },
@@ -1111,7 +1323,17 @@ test(
   async (t) => {
     await withCandidateAnalysisPostgres(t, async ({ psql }) => {
       const hash = (character: string) => character.repeat(64);
-      const runScope = hash("6");
+      const runScope = candidateAnalysisRunScopeHash("run-event-scope");
+      const emptyManifest = {
+        schemaVersion: "candidate-output-manifest-v1" as const,
+        inputs: [],
+        artifacts: [],
+        assertions: [],
+        evidenceLinks: [],
+        dependencies: [],
+        reconciliationSnapshots: [],
+      };
+      const emptyManifestHash = candidateAnalysisOutputManifestHash(emptyManifest);
       const setup = psql(`
         INSERT INTO "CandidateAnalysisRun" (
           "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
@@ -1130,7 +1352,7 @@ test(
           "supersededEventId", "supersededEventHash", "supersededEventScopeHash"
         ) VALUES (
           'event-scope-prior', 'run-event-scope', '${runScope}', 1, 'candidate_completed',
-          '{"namespace":"candidate","kind":"run_terminal","data":{"manifest":{"schemaVersion":"candidate-output-manifest-v1","inputs":[],"artifacts":[],"assertions":[],"evidenceLinks":[],"dependencies":[],"reconciliationSnapshots":[]},"manifestHash":"${hash("5")}"}}',
+          '{"namespace":"candidate","kind":"run_terminal","data":{"manifest":{"schemaVersion":"candidate-output-manifest-v1","inputs":[],"artifacts":[],"assertions":[],"evidenceLinks":[],"dependencies":[],"reconciliationSnapshots":[]},"manifestHash":"${emptyManifestHash}"}}',
           '${hash("7")}', NULL, NULL, NULL
         )
       `);
