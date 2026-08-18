@@ -111,15 +111,16 @@
         "externalReady"
       ],
       "properties": {
-        "externalTargetProfile": { "$ref": "#/$defs/nonEmptyString" },
+        "externalTargetProfile": { "$ref": "#/$defs/targetProfile" },
         "externalBlockers": {
           "type": "array",
           "items": { "$ref": "#/$defs/nonEmptyString" }
         },
         "byTargetProfile": {
           "type": "object",
+          "propertyNames": { "$ref": "#/$defs/targetProfile" },
           "patternProperties": {
-            "^.+$": { "$ref": "#/$defs/promotionStateCounts" }
+            "^[^\\u0000-\\u001f\\u007f]+$": { "$ref": "#/$defs/promotionStateCounts" }
           },
           "additionalProperties": false
         },
@@ -159,6 +160,10 @@
   "$defs": {
     "count": { "type": "integer", "minimum": 0 },
     "nonEmptyString": { "type": "string", "minLength": 1 },
+    "targetProfile": {
+      "type": "string",
+      "pattern": "^[^\\u0000-\\u001f\\u007f]+$"
+    },
     "commit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
     "uuid": {
       "type": "string",
@@ -167,7 +172,7 @@
     "isoInstant": {
       "type": "string",
       "format": "date-time",
-      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$"
+      "pattern": "^\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])T(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d{3})?Z$"
     },
     "machineStateCounts": {
       "type": "object",

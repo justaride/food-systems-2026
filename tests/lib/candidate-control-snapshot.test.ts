@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { execFileSync, spawnSync } from "node:child_process";
 import {
   existsSync,
   lstatSync,
@@ -13,6 +14,7 @@ import { join } from "node:path";
 import { describe, it } from "node:test";
 
 import Ajv2020 from "ajv/dist/2020.js";
+import addFormats from "ajv-formats";
 
 import {
   buildCandidateControlSnapshot,
@@ -37,13 +39,9 @@ const jsonSchema = JSON.parse(
     "utf8",
   ),
 ) as object;
-const validateJsonSchema = new Ajv2020({
-  allErrors: true,
-  strict: true,
-  formats: {
-    "date-time": true,
-  },
-}).compile(jsonSchema);
+const ajv = new Ajv2020({ allErrors: true, strict: true });
+addFormats(ajv);
+const validateJsonSchema = ajv.compile(jsonSchema);
 
 type FixtureOptions = {
   legacyReviewSignals?: number;
@@ -136,15 +134,18 @@ function candidateControlFixture(
               createdAt: "2026-08-18T11:00:00.000Z",
             },
           ],
-    currentPromotionBindings: [
-      {
-        assertionId: candidate.assertion.id,
-        reviewDecisionId,
-        targetProfile: "external-public-v1",
-        policyVersion: "policy-v1",
-        preconditionsHash: HASH_A,
-      },
-    ],
+    currentPromotionBindings:
+      review === "none"
+        ? []
+        : [
+            {
+              assertionId: candidate.assertion.id,
+              reviewDecisionId,
+              targetProfile: "external-public-v1",
+              policyVersion: "policy-v1",
+              preconditionsHash: HASH_A,
+            },
+          ],
     promotionDecisions:
       promotion === "none"
         ? []
@@ -216,6 +217,22 @@ function assertRejectedByBoth(value: unknown): void {
   assert.equal(validateJsonSchema(value), false);
 }
 
+function assertContractError(
+  input: CandidateControlSnapshotInput,
+  expectedCode: string,
+): void {
+  assert.throws(
+    () => buildCandidateControlSnapshot(input),
+    (error: unknown) =>
+      typeof error === "object" &&
+      error !== null &&
+      "code" in error &&
+      error.code === expectedCode &&
+      "message" in error &&
+      error.message === expectedCode,
+  );
+}
+
 describe("candidate control snapshot", () => {
   it("closes every concrete JSON Schema object against unknown fields", () => {
     const visit = (value: unknown, path = "$schema"): void => {
@@ -284,6 +301,103 @@ describe("candidate control snapshot", () => {
     }
   });
 
+  it("uses collision-free review-binding tuple identity", () => {
+    const input = candidateControlFixture({ review: "accepted" });
+    const secondAssertion = {
+      ...input.assertions[0]!,
+      id: "a:b",
+      createdAt: "2026-08-18T10:01:00.000Z",
+    };
+    input.assertions = [
+      { ...input.assertions[0]!, id: "a" },
+      secondAssertion,
+    ];
+    input.reviewDecisions = [
+      {
+        ...input.reviewDecisions[0]!,
+        assertionId: "a",
+        reviewProfile: "b:c",
+      },
+    ];
+    input.currentReviewBindings = [
+      {
+        ...input.currentReviewBindings[0]!,
+        assertionId: "a:b",
+        reviewProfile: "c",
+      },
+    ];
+    input.currentPromotionBindings = [];
+
+    const snapshot = buildCandidateControlSnapshot(input);
+    assert.equal(snapshot.review.currentByState.accepted, 0);
+    assert.equal(snapshot.review.currentByState.not_requested, 2);
+    assert.ok(
+      snapshot.warnings.includes(`stale_review_decision:${input.reviewDecisions[0]!.id}`),
+    );
+  });
+
+  it("uses collision-free promotion-binding tuple identity", () => {
+    const input = candidateControlFixture({
+      review: "accepted",
+      promotion: "external_eligible",
+    });
+    input.externalTargetProfile = "d";
+    input.assertions = [
+      { ...input.assertions[0]!, id: "a" },
+      {
+        ...input.assertions[0]!,
+        id: "a:b",
+        createdAt: "2026-08-18T10:01:00.000Z",
+      },
+    ];
+    input.reviewDecisions = [
+      {
+        ...input.reviewDecisions[0]!,
+        id: "b:c",
+        assertionId: "a",
+      },
+      {
+        ...input.reviewDecisions[0]!,
+        id: "c",
+        assertionId: "a:b",
+        reviewProfile: "other-review-v1",
+      },
+    ];
+    input.currentReviewBindings = [
+      { ...input.currentReviewBindings[0]!, assertionId: "a" },
+      {
+        ...input.currentReviewBindings[0]!,
+        assertionId: "a:b",
+        reviewProfile: "other-review-v1",
+      },
+    ];
+    input.promotionDecisions = [
+      {
+        ...input.promotionDecisions[0]!,
+        assertionId: "a",
+        reviewDecisionId: "b:c",
+        targetProfile: "d",
+      },
+    ];
+    input.currentPromotionBindings = [
+      {
+        ...input.currentPromotionBindings[0]!,
+        assertionId: "a:b",
+        reviewDecisionId: "c",
+        targetProfile: "d",
+      },
+    ];
+
+    const snapshot = buildCandidateControlSnapshot(input);
+    assert.equal(snapshot.promotion.externalReady, false);
+    assert.equal(snapshot.promotion.byTargetProfile.d?.external_eligible, 0);
+    assert.ok(
+      snapshot.warnings.includes(
+        `stale_promotion_decision:${input.promotionDecisions[0]!.id}`,
+      ),
+    );
+  });
+
   it("requires current accepted review and exact current promotion bindings for external readiness", () => {
     const eligible = buildCandidateControlSnapshot(
       candidateControlFixture({
@@ -296,7 +410,6 @@ describe("candidate control snapshot", () => {
     assert.equal(eligible.promotion.externalReady, true);
 
     for (const input of [
-      candidateControlFixture({ promotion: "external_eligible" }),
       candidateControlFixture({
         review: "accepted",
         promotion: "external_eligible",
@@ -335,6 +448,7 @@ describe("candidate control snapshot", () => {
       ...base.reviewDecisions[0]!,
       id: "review:fixture:old",
       decision: "rejected" as const,
+      createdAt: "2026-08-18T10:59:00.000Z",
     };
     const currentReview = {
       ...base.reviewDecisions[0]!,
@@ -344,6 +458,7 @@ describe("candidate control snapshot", () => {
       ...base.promotionDecisions[0]!,
       id: "promotion:fixture:old",
       state: "revoked" as const,
+      createdAt: "2026-08-18T11:29:00.000Z",
     };
     const currentPromotion = {
       ...base.promotionDecisions[0]!,
@@ -366,6 +481,293 @@ describe("candidate control snapshot", () => {
       1,
     );
     assert.equal(snapshot.promotion.byTargetProfile["external-public-v1"]?.revoked, 0);
+  });
+
+  it("rejects invalid public-input graphs before deriving counters", () => {
+    const duplicateRun = candidateControlFixture();
+    duplicateRun.runs.push(structuredClone(duplicateRun.runs[0]!));
+    assertContractError(duplicateRun, "duplicate_run_id");
+
+    const duplicateEvent = candidateControlFixture();
+    duplicateEvent.runs[0]!.events[1]!.id =
+      duplicateEvent.runs[0]!.events[0]!.id;
+    assertContractError(duplicateEvent, "duplicate_run_event_id");
+
+    const duplicateSequence = candidateControlFixture();
+    duplicateSequence.runs[0]!.events[1]!.sequence =
+      duplicateSequence.runs[0]!.events[0]!.sequence;
+    assertContractError(duplicateSequence, "duplicate_run_event_sequence");
+
+    const missingRun = candidateControlFixture();
+    missingRun.assertions[0]!.runId = "run:missing";
+    assertContractError(missingRun, "assertion_run_missing");
+
+    const duplicateAssertion = candidateControlFixture();
+    duplicateAssertion.assertions.push(
+      structuredClone(duplicateAssertion.assertions[0]!),
+    );
+    assertContractError(duplicateAssertion, "duplicate_assertion_id");
+
+    const selfSuperseding = candidateControlFixture();
+    selfSuperseding.assertions[0]!.supersededAssertionId =
+      selfSuperseding.assertions[0]!.id;
+    assertContractError(selfSuperseding, "assertion_self_supersession");
+
+    const missingAssertionTarget = candidateControlFixture();
+    missingAssertionTarget.assertions[0]!.supersededAssertionId =
+      "assertion:missing";
+    assertContractError(
+      missingAssertionTarget,
+      "assertion_supersession_target_missing",
+    );
+
+    const assertionCycle = candidateControlFixture();
+    assertionCycle.assertions = [
+      {
+        ...assertionCycle.assertions[0]!,
+        id: "assertion:cycle:a",
+        supersededAssertionId: "assertion:cycle:b",
+      },
+      {
+        ...assertionCycle.assertions[0]!,
+        id: "assertion:cycle:b",
+        supersededAssertionId: "assertion:cycle:a",
+        createdAt: "2026-08-18T10:01:00.000Z",
+      },
+    ];
+    assertContractError(assertionCycle, "assertion_supersession_cycle");
+
+    const reversedAssertion = candidateControlFixture();
+    reversedAssertion.assertions = [
+      {
+        ...reversedAssertion.assertions[0]!,
+        id: "assertion:older",
+      },
+      {
+        ...reversedAssertion.assertions[0]!,
+        id: "assertion:wrong-direction",
+        supersededAssertionId: "assertion:older",
+        createdAt: "2026-08-18T09:59:00.000Z",
+      },
+    ];
+    assertContractError(
+      reversedAssertion,
+      "assertion_supersession_direction_invalid",
+    );
+
+    const duplicateBinding = candidateControlFixture();
+    duplicateBinding.currentReviewBindings.push(
+      structuredClone(duplicateBinding.currentReviewBindings[0]!),
+    );
+    assertContractError(duplicateBinding, "duplicate_current_review_binding");
+
+    const missingBindingAssertion = candidateControlFixture();
+    missingBindingAssertion.currentReviewBindings[0]!.assertionId =
+      "assertion:missing";
+    assertContractError(
+      missingBindingAssertion,
+      "review_binding_assertion_missing",
+    );
+
+    const duplicateReview = candidateControlFixture({ review: "accepted" });
+    duplicateReview.reviewDecisions.push(
+      structuredClone(duplicateReview.reviewDecisions[0]!),
+    );
+    assertContractError(duplicateReview, "duplicate_review_decision_id");
+
+    const missingReviewAssertion = candidateControlFixture({
+      review: "accepted",
+    });
+    missingReviewAssertion.reviewDecisions[0]!.assertionId =
+      "assertion:missing";
+    assertContractError(missingReviewAssertion, "review_assertion_missing");
+
+    const reviewCycle = candidateControlFixture({ review: "accepted" });
+    reviewCycle.reviewDecisions = [
+      {
+        ...reviewCycle.reviewDecisions[0]!,
+        id: "review:cycle:a",
+        supersededDecisionId: "review:cycle:b",
+      },
+      {
+        ...reviewCycle.reviewDecisions[0]!,
+        id: "review:cycle:b",
+        supersededDecisionId: "review:cycle:a",
+        createdAt: "2026-08-18T11:01:00.000Z",
+      },
+    ];
+    assertContractError(reviewCycle, "review_supersession_cycle");
+
+    const reversedReview = candidateControlFixture({ review: "accepted" });
+    reversedReview.reviewDecisions = [
+      {
+        ...reversedReview.reviewDecisions[0]!,
+        id: "review:direction:old",
+      },
+      {
+        ...reversedReview.reviewDecisions[0]!,
+        id: "review:direction:new",
+        supersededDecisionId: "review:direction:old",
+        createdAt: "2026-08-18T10:59:00.000Z",
+      },
+    ];
+    assertContractError(
+      reversedReview,
+      "review_supersession_direction_invalid",
+    );
+
+    const crossScopeReview = candidateControlFixture({ review: "accepted" });
+    crossScopeReview.assertions.push({
+      ...crossScopeReview.assertions[0]!,
+      id: "assertion:fixture:2",
+      createdAt: "2026-08-18T10:01:00.000Z",
+    });
+    crossScopeReview.reviewDecisions.push({
+      ...crossScopeReview.reviewDecisions[0]!,
+      id: "review:fixture:2",
+      assertionId: "assertion:fixture:2",
+      supersededDecisionId: crossScopeReview.reviewDecisions[0]!.id,
+      createdAt: "2026-08-18T11:01:00.000Z",
+    });
+    assertContractError(crossScopeReview, "review_supersession_scope_mismatch");
+
+    const missingPromotionReview = candidateControlFixture({
+      promotion: "external_eligible",
+    });
+    missingPromotionReview.promotionDecisions[0]!.reviewDecisionId =
+      "review:missing";
+    assertContractError(
+      missingPromotionReview,
+      "promotion_review_decision_missing",
+    );
+
+    const crossAssertionPromotion = candidateControlFixture({
+      review: "accepted",
+      promotion: "external_eligible",
+    });
+    crossAssertionPromotion.assertions.push({
+      ...crossAssertionPromotion.assertions[0]!,
+      id: "assertion:fixture:other",
+      createdAt: "2026-08-18T10:01:00.000Z",
+    });
+    crossAssertionPromotion.reviewDecisions[0]!.assertionId =
+      "assertion:fixture:other";
+    assertContractError(
+      crossAssertionPromotion,
+      "promotion_review_assertion_mismatch",
+    );
+
+    const duplicatePromotion = candidateControlFixture({
+      review: "accepted",
+      promotion: "external_eligible",
+    });
+    duplicatePromotion.promotionDecisions.push(
+      structuredClone(duplicatePromotion.promotionDecisions[0]!),
+    );
+    assertContractError(
+      duplicatePromotion,
+      "duplicate_promotion_decision_id",
+    );
+
+    const promotionCycle = candidateControlFixture({
+      review: "accepted",
+      promotion: "external_eligible",
+    });
+    promotionCycle.promotionDecisions = [
+      {
+        ...promotionCycle.promotionDecisions[0]!,
+        id: "promotion:cycle:a",
+        supersededDecisionId: "promotion:cycle:b",
+      },
+      {
+        ...promotionCycle.promotionDecisions[0]!,
+        id: "promotion:cycle:b",
+        supersededDecisionId: "promotion:cycle:a",
+        createdAt: "2026-08-18T11:31:00.000Z",
+      },
+    ];
+    assertContractError(promotionCycle, "promotion_supersession_cycle");
+
+    const reversedPromotion = candidateControlFixture({
+      review: "accepted",
+      promotion: "external_eligible",
+    });
+    reversedPromotion.promotionDecisions = [
+      {
+        ...reversedPromotion.promotionDecisions[0]!,
+        id: "promotion:direction:old",
+      },
+      {
+        ...reversedPromotion.promotionDecisions[0]!,
+        id: "promotion:direction:new",
+        supersededDecisionId: "promotion:direction:old",
+        createdAt: "2026-08-18T11:29:00.000Z",
+      },
+    ];
+    assertContractError(
+      reversedPromotion,
+      "promotion_supersession_direction_invalid",
+    );
+
+    const duplicatePromotionBinding = candidateControlFixture({
+      review: "accepted",
+    });
+    duplicatePromotionBinding.currentPromotionBindings.push(
+      structuredClone(duplicatePromotionBinding.currentPromotionBindings[0]!),
+    );
+    assertContractError(
+      duplicatePromotionBinding,
+      "duplicate_current_promotion_binding",
+    );
+
+    const crossAssertionPromotionBinding = candidateControlFixture({
+      review: "accepted",
+    });
+    crossAssertionPromotionBinding.assertions.push({
+      ...crossAssertionPromotionBinding.assertions[0]!,
+      id: "assertion:fixture:other",
+      createdAt: "2026-08-18T10:01:00.000Z",
+    });
+    crossAssertionPromotionBinding.currentPromotionBindings[0]!.assertionId =
+      "assertion:fixture:other";
+    assertContractError(
+      crossAssertionPromotionBinding,
+      "promotion_binding_review_assertion_mismatch",
+    );
+
+    const crossScopePromotion = candidateControlFixture({
+      review: "accepted",
+      promotion: "external_eligible",
+    });
+    crossScopePromotion.promotionDecisions.push({
+      ...crossScopePromotion.promotionDecisions[0]!,
+      id: "promotion:fixture:2",
+      targetProfile: "different-target",
+      supersededDecisionId: crossScopePromotion.promotionDecisions[0]!.id,
+      createdAt: "2026-08-18T11:31:00.000Z",
+    });
+    assertContractError(
+      crossScopePromotion,
+      "promotion_supersession_scope_mismatch",
+    );
+
+    const duplicateReconciliation = candidateControlFixture();
+    duplicateReconciliation.reconciliationSnapshots.push(
+      structuredClone(duplicateReconciliation.reconciliationSnapshots[0]!),
+    );
+    assertContractError(
+      duplicateReconciliation,
+      "duplicate_reconciliation_snapshot_id",
+    );
+
+    const invalidInputSchema = candidateControlFixture() as CandidateControlSnapshotInput & {
+      unexpected?: boolean;
+    };
+    invalidInputSchema.unexpected = true;
+    assertContractError(
+      invalidInputSchema,
+      "candidate_control_input_schema_invalid",
+    );
   });
 
   it("maps rerun requests to queued backlog and keeps quarantine explicit", () => {
@@ -397,13 +799,7 @@ describe("candidate control snapshot", () => {
       unorderedHistory.runs[0]!.events[0]!,
       unorderedHistory.runs[0]!.events[2]!,
     ];
-    const unorderedSnapshot = buildCandidateControlSnapshot(unorderedHistory);
-    assert.equal(unorderedSnapshot.operational, false);
-    assert.ok(
-      unorderedSnapshot.warnings.some((warning) =>
-        warning.startsWith("invalid_machine_event_order_or_binding:"),
-      ),
-    );
+    assertContractError(unorderedHistory, "run_event_order_invalid");
 
     const authorityOnInvalidHistory = candidateControlFixture({
       review: "accepted",
@@ -446,6 +842,41 @@ describe("candidate control snapshot", () => {
     assert.deepEqual([...forward.warnings].sort(), forward.warnings);
   });
 
+  it("compares mixed-precision timestamps chronologically", () => {
+    const input = candidateControlFixture();
+    input.assertions = [
+      {
+        ...input.assertions[0]!,
+        id: "assertion:whole-second",
+        createdAt: "2026-08-18T10:00:00Z",
+      },
+      {
+        ...input.assertions[0]!,
+        id: "assertion:milliseconds",
+        createdAt: "2026-08-18T10:00:00.500Z",
+      },
+    ];
+    input.currentReviewBindings = [];
+    input.reconciliationSnapshots = [
+      {
+        ...input.reconciliationSnapshots[0]!,
+        id: "reconciliation:whole-second",
+        createdAt: "2026-08-18T09:00:00Z",
+        conflictCount: 1,
+      },
+      {
+        ...input.reconciliationSnapshots[0]!,
+        id: "reconciliation:milliseconds",
+        createdAt: "2026-08-18T09:00:00.500Z",
+        conflictCount: 3,
+      },
+    ];
+
+    const snapshot = buildCandidateControlSnapshot(input);
+    assert.equal(snapshot.review.oldestPendingAt, "2026-08-18T10:00:00Z");
+    assert.equal(snapshot.reconciliation.conflictsTotal, 3);
+  });
+
   it("keeps runtime validation and draft-2020-12 JSON Schema mutation-sensitive", () => {
     const snapshot = buildCandidateControlSnapshot(candidateControlFixture());
     assert.equal(validateCandidateControlSnapshot(snapshot).ok, true);
@@ -466,6 +897,8 @@ describe("candidate control snapshot", () => {
         },
       }),
       mutateAtPath(snapshot, ["generatedAt"], "2026-08-18"),
+      mutateAtPath(snapshot, ["generatedAt"], "2026-02-30T12:00:00.000Z"),
+      mutateAtPath(snapshot, ["generatedAt"], "2026-08-18T12:00:60Z"),
       mutateAtPath(snapshot, ["provenance", "sourceCommit"], "not-a-commit"),
       mutateAtPath(snapshot, ["provenance", "runtimeCommit"], "f".repeat(41)),
       mutateAtPath(snapshot, ["provenance", "databaseIdentityUuid"], "not-a-uuid"),
@@ -474,6 +907,14 @@ describe("candidate control snapshot", () => {
       mutateAtPath(snapshot, ["review", "oldestPendingAgeSeconds"], -1),
       mutateAtPath(snapshot, ["review", "pendingIsExpectedWork"], false),
       mutateAtPath(snapshot, ["review", "oldestPendingAt"], "yesterday"),
+      mutateAtPath(snapshot, ["promotion", "externalTargetProfile"], "bad\nprofile"),
+      mutateAtPath(snapshot, ["promotion", "byTargetProfile"], {
+        "bad\nprofile": snapshot.promotion.byTargetProfile["external-public-v1"],
+      }),
+      mutateAtPath(snapshot, ["machine", "byMachineUse", "unknown"], 0),
+      mutateAtPath(snapshot, ["identity", "byConfidence", "unknown"], 0),
+      mutateAtPath(snapshot, ["evidence", "byLevel", "unknown"], 0),
+      mutateAtPath(snapshot, ["review", "currentByState", "unknown"], 0),
     ];
 
     for (const invalid of invalidValues) assertRejectedByBoth(invalid);
@@ -509,6 +950,26 @@ describe("candidate control snapshot CLI output boundary", () => {
     }
   });
 
+  it("sanitizes synchronous CLI argument failures", () => {
+    const result = spawnSync(
+      process.execPath,
+      [
+        "--import=tsx",
+        "scripts/knowledge/export-candidate-control-snapshot.ts",
+        "--unknown=do-not-print-this-value",
+      ],
+      { cwd: process.cwd(), encoding: "utf8" },
+    );
+
+    assert.equal(result.status, 1);
+    assert.equal(result.stdout, "");
+    assert.equal(result.stderr, "candidate_control_snapshot_export_failed\n");
+    assert.doesNotMatch(
+      `${result.stdout}${result.stderr}`,
+      /do-not-print-this-value/,
+    );
+  });
+
   it("publishes atomically at mode 0600 and rejects symlink targets", () => {
     const root = mkdtempSync(join(tmpdir(), "candidate-snapshot-"));
     const target = join(root, "snapshot.json");
@@ -524,6 +985,25 @@ describe("candidate control snapshot CLI output boundary", () => {
       () => writeCandidateControlSnapshotAtomic(symlinkTarget, serialized),
       /symlink/i,
     );
+  });
+
+  it("rejects and preserves an explicit Git-tracked output target", () => {
+    const root = mkdtempSync(join(tmpdir(), "candidate-snapshot-git-"));
+    const target = join(root, "tracked.json");
+    execFileSync("git", ["init", "--quiet", root]);
+    writeFileSync(target, '{"tracked":true}\n', { mode: 0o600 });
+    execFileSync("git", ["-C", root, "add", "tracked.json"]);
+    const before = readFileSync(target);
+
+    try {
+      assert.throws(
+        () => writeCandidateControlSnapshotAtomic(target, '{"unsafe":true}\n'),
+        /git_tracked/i,
+      );
+    } finally {
+      if (!readFileSync(target).equals(before)) writeFileSync(target, before);
+    }
+    assert.deepEqual(readFileSync(target), before);
   });
 
   it("cleans temporary files when atomic publication fails", () => {

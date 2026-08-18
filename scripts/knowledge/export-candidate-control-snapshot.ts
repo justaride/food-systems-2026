@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { execFileSync } from "node:child_process";
+import { execFileSync, spawnSync } from "node:child_process";
 import {
   closeSync,
   constants,
@@ -8,11 +8,12 @@ import {
   fsyncSync,
   lstatSync,
   openSync,
+  realpathSync,
   renameSync,
   unlinkSync,
   writeFileSync,
 } from "node:fs";
-import { dirname, isAbsolute, join, resolve } from "node:path";
+import { basename, dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 import type { PrismaClient } from "../../src/generated/prisma/client";
@@ -87,6 +88,7 @@ export function writeCandidateControlSnapshotAtomic(
   if (!parentStat.isDirectory() || parentStat.isSymbolicLink()) {
     throw new Error("candidate_control_output_parent_is_unsafe");
   }
+  rejectGitTrackedTarget(target, parent);
   rejectUnsafeExistingTarget(target);
   if (existsSync(temporary)) {
     throw new Error("candidate_control_temporary_path_exists");
@@ -380,14 +382,68 @@ function rejectUnsafeExistingTarget(target: string): void {
   }
 }
 
+function rejectGitTrackedTarget(target: string, parent: string): void {
+  const rootResult = spawnSync(
+    "git",
+    ["-C", parent, "rev-parse", "--show-toplevel"],
+    { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
+  );
+  if (rootResult.error !== undefined) {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+  if (rootResult.status === 128) return;
+  if (rootResult.status !== 0) {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+
+  const repositoryRoot = resolve(rootResult.stdout.trim());
+  const canonicalTarget = join(realpathSync(parent), basename(target));
+  const repositoryRelative = relative(repositoryRoot, canonicalTarget);
+  if (
+    repositoryRelative.length === 0 ||
+    repositoryRelative === ".." ||
+    repositoryRelative.startsWith(`..${process.platform === "win32" ? "\\" : "/"}`) ||
+    isAbsolute(repositoryRelative)
+  ) {
+    return;
+  }
+
+  const trackedResult = spawnSync(
+    "git",
+    [
+      "-C",
+      repositoryRoot,
+      "ls-files",
+      "--error-unmatch",
+      "--",
+      repositoryRelative,
+    ],
+    { stdio: "ignore" },
+  );
+  if (trackedResult.error !== undefined) {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+  if (trackedResult.status === 0) {
+    throw new Error("candidate_control_output_target_is_git_tracked");
+  }
+  if (trackedResult.status !== 1) {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+}
+
 const invokedPath = process.argv[1]
   ? pathToFileURL(resolve(process.argv[1])).href
   : null;
 if (invokedPath === import.meta.url) {
-  runCandidateControlSnapshotCli(
-    parseCandidateControlSnapshotArgs(process.argv.slice(2)),
-  ).catch(() => {
+  void runInvokedCandidateControlSnapshotCli();
+}
+
+async function runInvokedCandidateControlSnapshotCli(): Promise<void> {
+  try {
+    const options = parseCandidateControlSnapshotArgs(process.argv.slice(2));
+    await runCandidateControlSnapshotCli(options);
+  } catch {
     process.stderr.write("candidate_control_snapshot_export_failed\n");
     process.exitCode = 1;
-  });
+  }
 }

@@ -26,7 +26,8 @@ const COMMIT_PATTERN = /^[a-f0-9]{40}$/;
 const UUID_PATTERN =
   /^[a-f0-9]{8}-[a-f0-9]{4}-[1-5][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/;
 const ISO_INSTANT_PATTERN =
-  /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/;
+  /^\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])T(?:[01]\d|2[0-3]):[0-5]\d:[0-5]\d(?:\.\d{3})?Z$/;
+const TARGET_PROFILE_PATTERN = /^[^\u0000-\u001f\u007f]+$/;
 
 const MACHINE_STATES = [
   "queued",
@@ -111,10 +112,11 @@ export type CandidateControlSnapshot = {
 
 const hashSchema = z.string().regex(HASH_PATTERN);
 const nonEmptyTextSchema = z.string().min(1);
+const targetProfileSchema = z.string().regex(TARGET_PROFILE_PATTERN);
 const isoInstantSchema = z
   .string()
   .regex(ISO_INSTANT_PATTERN)
-  .refine((value) => Number.isFinite(Date.parse(value)), "invalid_iso_instant");
+  .refine(isSemanticIsoInstant, "invalid_iso_instant");
 
 const CandidateControlRunSchema = z
   .object({
@@ -172,7 +174,7 @@ const CurrentPromotionBindingSchema = z
   .object({
     assertionId: nonEmptyTextSchema,
     reviewDecisionId: nonEmptyTextSchema,
-    targetProfile: nonEmptyTextSchema,
+    targetProfile: targetProfileSchema,
     policyVersion: nonEmptyTextSchema,
     preconditionsHash: hashSchema,
   })
@@ -183,7 +185,7 @@ const CandidateControlPromotionDecisionSchema = z
     id: nonEmptyTextSchema,
     assertionId: nonEmptyTextSchema,
     reviewDecisionId: nonEmptyTextSchema,
-    targetProfile: nonEmptyTextSchema,
+    targetProfile: targetProfileSchema,
     state: z.enum(CANDIDATE_PROMOTION_STATES),
     policyVersion: nonEmptyTextSchema,
     preconditionsHash: hashSchema,
@@ -231,7 +233,7 @@ export const CandidateControlSnapshotInputSchema = z
         queryErrors: z.array(nonEmptyTextSchema),
       })
       .strict(),
-    externalTargetProfile: nonEmptyTextSchema,
+    externalTargetProfile: targetProfileSchema,
     externalBlockers: z.array(nonEmptyTextSchema),
     runs: z.array(CandidateControlRunSchema),
     assertions: z.array(CandidateControlAssertionSchema),
@@ -294,9 +296,9 @@ export const CandidateControlSnapshotSchema = z
       .strict(),
     promotion: z
       .object({
-        externalTargetProfile: nonEmptyTextSchema,
+        externalTargetProfile: targetProfileSchema,
         externalBlockers: z.array(nonEmptyTextSchema),
-        byTargetProfile: z.record(nonEmptyTextSchema, promotionCountsSchema),
+        byTargetProfile: z.record(targetProfileSchema, promotionCountsSchema),
         externalReady: z.boolean(),
       })
       .strict(),
@@ -337,10 +339,67 @@ export function validateCandidateControlSnapshot(
   };
 }
 
+export type CandidateControlSnapshotContractErrorCode =
+  | "candidate_control_input_schema_invalid"
+  | "duplicate_run_id"
+  | "duplicate_run_event_id"
+  | "duplicate_run_event_sequence"
+  | "run_event_binding_mismatch"
+  | "run_event_order_invalid"
+  | "duplicate_assertion_id"
+  | "assertion_run_missing"
+  | "assertion_self_supersession"
+  | "assertion_supersession_target_missing"
+  | "assertion_supersession_cycle"
+  | "assertion_supersession_direction_invalid"
+  | "duplicate_review_decision_id"
+  | "review_assertion_missing"
+  | "review_self_supersession"
+  | "review_supersession_target_missing"
+  | "review_supersession_cycle"
+  | "review_supersession_scope_mismatch"
+  | "review_supersession_direction_invalid"
+  | "duplicate_promotion_decision_id"
+  | "promotion_assertion_missing"
+  | "promotion_review_decision_missing"
+  | "promotion_review_assertion_mismatch"
+  | "promotion_self_supersession"
+  | "promotion_supersession_target_missing"
+  | "promotion_supersession_cycle"
+  | "promotion_supersession_scope_mismatch"
+  | "promotion_supersession_direction_invalid"
+  | "duplicate_current_review_binding"
+  | "review_binding_assertion_missing"
+  | "review_binding_assertion_not_current"
+  | "duplicate_current_promotion_binding"
+  | "promotion_binding_assertion_missing"
+  | "promotion_binding_assertion_not_current"
+  | "promotion_binding_review_decision_missing"
+  | "promotion_binding_review_assertion_mismatch"
+  | "promotion_binding_review_not_current"
+  | "duplicate_reconciliation_snapshot_id";
+
+export class CandidateControlSnapshotContractError extends Error {
+  readonly code: CandidateControlSnapshotContractErrorCode;
+
+  constructor(code: CandidateControlSnapshotContractErrorCode) {
+    super(code);
+    this.name = "CandidateControlSnapshotContractError";
+    this.code = code;
+  }
+}
+
 export function buildCandidateControlSnapshot(
   rawInput: CandidateControlSnapshotInput,
 ): CandidateControlSnapshot {
-  const input = CandidateControlSnapshotInputSchema.parse(rawInput);
+  const parsedInput = CandidateControlSnapshotInputSchema.safeParse(rawInput);
+  if (!parsedInput.success) {
+    throw new CandidateControlSnapshotContractError(
+      "candidate_control_input_schema_invalid",
+    );
+  }
+  const input = parsedInput.data;
+  validateCandidateControlSnapshotInputGraph(input);
   const warnings = new Set<string>();
   const queryErrors = sortedUnique(input.provenance.queryErrors);
   const externalBlockers = sortedUnique(input.externalBlockers);
@@ -348,17 +407,6 @@ export function buildCandidateControlSnapshot(
 
   const machineStates = zeroCounts(MACHINE_STATES);
   for (const run of [...input.runs].sort(compareById)) {
-    if (
-      run.events.some(
-        (event, index) =>
-          event.runId !== run.id ||
-          (index > 0 && event.sequence <= run.events[index - 1]!.sequence),
-      )
-    ) {
-      operational = false;
-      warnings.add(`invalid_machine_event_order_or_binding:${run.id}`);
-      continue;
-    }
     try {
       const state = deriveCandidateAnalysisMachineState(run.events);
       machineStates[state] += 1;
@@ -382,6 +430,9 @@ export function buildCandidateControlSnapshot(
     .sort(compareById);
   const currentAssertionIds = new Set(
     currentAssertions.map((assertion) => assertion.id),
+  );
+  const currentAssertionsById = new Map(
+    currentAssertions.map((assertion) => [assertion.id, assertion]),
   );
 
   const machineUses = zeroCounts(CANDIDATE_MACHINE_USES);
@@ -429,14 +480,14 @@ export function buildCandidateControlSnapshot(
   for (const decision of [...input.reviewDecisions].sort(compareById)) {
     if (supersededReviewDecisionIds.has(decision.id)) continue;
     if (!currentAssertionIds.has(decision.assertionId)) continue;
-    const assertion = currentAssertions.find(
-      (candidate) => candidate.id === decision.assertionId,
-    )!;
+    const assertion = currentAssertionsById.get(decision.assertionId)!;
     const binding = reviewBindingMap.get(
       reviewBindingKey(decision.assertionId, decision.reviewProfile),
     );
     if (
       binding === undefined ||
+      binding.assertionId !== decision.assertionId ||
+      binding.reviewProfile !== decision.reviewProfile ||
       binding.assertionPayloadHash !== assertion.payloadHash ||
       decision.assertionPayloadHash !== binding.assertionPayloadHash ||
       decision.sourceContentSetHash !== binding.sourceContentSetHash ||
@@ -507,7 +558,7 @@ export function buildCandidateControlSnapshot(
   for (const decision of [...input.promotionDecisions].sort(compareById)) {
     if (supersededPromotionDecisionIds.has(decision.id)) continue;
     if (!currentAssertionIds.has(decision.assertionId)) continue;
-    const key = `${decision.assertionId}\u0000${decision.targetProfile}`;
+    const key = tupleKey(decision.assertionId, decision.targetProfile);
     const decisions = promotionCandidatesByKey.get(key) ?? [];
     decisions.push(decision);
     promotionCandidatesByKey.set(key, decisions);
@@ -534,6 +585,9 @@ export function buildCandidateControlSnapshot(
     );
     if (
       binding === undefined ||
+      binding.assertionId !== decision.assertionId ||
+      binding.reviewDecisionId !== decision.reviewDecisionId ||
+      binding.targetProfile !== decision.targetProfile ||
       binding.policyVersion !== decision.policyVersion ||
       binding.preconditionsHash !== decision.preconditionsHash ||
       reviewDecision === undefined ||
@@ -563,18 +617,24 @@ export function buildCandidateControlSnapshot(
   >();
   for (const snapshot of input.reconciliationSnapshots) {
     const current = latestReconciliations.get(snapshot.scopeHash);
+    const snapshotEpoch = instantEpoch(snapshot.createdAt);
+    const currentEpoch =
+      current === undefined ? Number.NEGATIVE_INFINITY : instantEpoch(current.createdAt);
     if (
       current === undefined ||
-      snapshot.createdAt > current.createdAt ||
-      (snapshot.createdAt === current.createdAt && snapshot.id > current.id)
+      snapshotEpoch > currentEpoch ||
+      (snapshotEpoch === currentEpoch && snapshot.id > current.id)
     ) {
       latestReconciliations.set(snapshot.scopeHash, snapshot);
     }
   }
 
-  const oldestPendingAt = pendingAssertions
-    .map((assertion) => assertion.createdAt)
-    .sort()[0] ?? null;
+  const oldestPendingAt = [...pendingAssertions]
+    .sort(
+      (left, right) =>
+        instantEpoch(left.createdAt) - instantEpoch(right.createdAt) ||
+        left.id.localeCompare(right.id),
+    )[0]?.createdAt ?? null;
   const oldestPendingAgeSeconds =
     oldestPendingAt === null
       ? null
@@ -637,6 +697,303 @@ export function buildCandidateControlSnapshot(
   return CandidateControlSnapshotSchema.parse(result) as CandidateControlSnapshot;
 }
 
+function validateCandidateControlSnapshotInputGraph(
+  input: CandidateControlSnapshotInput,
+): void {
+  const runsById = uniqueRecordsById(input.runs, "duplicate_run_id");
+  const eventIds = new Set<string>();
+  for (const run of [...input.runs].sort(compareById)) {
+    const sequences = new Set<number>();
+    let previousSequence = 0;
+    for (const event of run.events) {
+      if (eventIds.has(event.id)) {
+        throwSnapshotContract("duplicate_run_event_id");
+      }
+      eventIds.add(event.id);
+      if (event.runId !== run.id) {
+        throwSnapshotContract("run_event_binding_mismatch");
+      }
+      if (sequences.has(event.sequence)) {
+        throwSnapshotContract("duplicate_run_event_sequence");
+      }
+      sequences.add(event.sequence);
+      if (event.sequence <= previousSequence) {
+        throwSnapshotContract("run_event_order_invalid");
+      }
+      previousSequence = event.sequence;
+    }
+  }
+
+  const assertionsById = uniqueRecordsById(
+    input.assertions,
+    "duplicate_assertion_id",
+  );
+  for (const assertion of [...input.assertions].sort(compareById)) {
+    if (!runsById.has(assertion.runId)) {
+      throwSnapshotContract("assertion_run_missing");
+    }
+    const targetId = assertion.supersededAssertionId;
+    if (targetId === null) continue;
+    if (targetId === assertion.id) {
+      throwSnapshotContract("assertion_self_supersession");
+    }
+    if (!assertionsById.has(targetId)) {
+      throwSnapshotContract("assertion_supersession_target_missing");
+    }
+  }
+  if (
+    hasSupersessionCycle(
+      input.assertions,
+      (assertion) => assertion.supersededAssertionId,
+    )
+  ) {
+    throwSnapshotContract("assertion_supersession_cycle");
+  }
+  for (const assertion of input.assertions) {
+    const target =
+      assertion.supersededAssertionId === null
+        ? undefined
+        : assertionsById.get(assertion.supersededAssertionId);
+    if (
+      target !== undefined &&
+      instantEpoch(assertion.createdAt) <= instantEpoch(target.createdAt)
+    ) {
+      throwSnapshotContract("assertion_supersession_direction_invalid");
+    }
+  }
+  const supersededAssertionIds = new Set(
+    input.assertions.flatMap((assertion) =>
+      assertion.supersededAssertionId === null
+        ? []
+        : [assertion.supersededAssertionId],
+    ),
+  );
+
+  const reviewsById = uniqueRecordsById(
+    input.reviewDecisions,
+    "duplicate_review_decision_id",
+  );
+  for (const decision of [...input.reviewDecisions].sort(compareById)) {
+    if (!assertionsById.has(decision.assertionId)) {
+      throwSnapshotContract("review_assertion_missing");
+    }
+    const targetId = decision.supersededDecisionId;
+    if (targetId === null) continue;
+    if (targetId === decision.id) {
+      throwSnapshotContract("review_self_supersession");
+    }
+    const target = reviewsById.get(targetId);
+    if (target === undefined) {
+      throwSnapshotContract("review_supersession_target_missing");
+    }
+    if (
+      target.assertionId !== decision.assertionId ||
+      target.reviewProfile !== decision.reviewProfile
+    ) {
+      throwSnapshotContract("review_supersession_scope_mismatch");
+    }
+  }
+  if (
+    hasSupersessionCycle(
+      input.reviewDecisions,
+      (decision) => decision.supersededDecisionId,
+    )
+  ) {
+    throwSnapshotContract("review_supersession_cycle");
+  }
+  for (const decision of input.reviewDecisions) {
+    const target =
+      decision.supersededDecisionId === null
+        ? undefined
+        : reviewsById.get(decision.supersededDecisionId);
+    if (
+      target !== undefined &&
+      instantEpoch(decision.createdAt) <= instantEpoch(target.createdAt)
+    ) {
+      throwSnapshotContract("review_supersession_direction_invalid");
+    }
+  }
+  const supersededReviewIds = new Set(
+    input.reviewDecisions.flatMap((decision) =>
+      decision.supersededDecisionId === null
+        ? []
+        : [decision.supersededDecisionId],
+    ),
+  );
+
+  const promotionsById = uniqueRecordsById(
+    input.promotionDecisions,
+    "duplicate_promotion_decision_id",
+  );
+  for (const decision of [...input.promotionDecisions].sort(compareById)) {
+    if (!assertionsById.has(decision.assertionId)) {
+      throwSnapshotContract("promotion_assertion_missing");
+    }
+    const review = reviewsById.get(decision.reviewDecisionId);
+    if (review === undefined) {
+      throwSnapshotContract("promotion_review_decision_missing");
+    }
+    if (review.assertionId !== decision.assertionId) {
+      throwSnapshotContract("promotion_review_assertion_mismatch");
+    }
+    const targetId = decision.supersededDecisionId;
+    if (targetId === null) continue;
+    if (targetId === decision.id) {
+      throwSnapshotContract("promotion_self_supersession");
+    }
+    const target = promotionsById.get(targetId);
+    if (target === undefined) {
+      throwSnapshotContract("promotion_supersession_target_missing");
+    }
+    if (
+      target.assertionId !== decision.assertionId ||
+      target.targetProfile !== decision.targetProfile
+    ) {
+      throwSnapshotContract("promotion_supersession_scope_mismatch");
+    }
+  }
+  if (
+    hasSupersessionCycle(
+      input.promotionDecisions,
+      (decision) => decision.supersededDecisionId,
+    )
+  ) {
+    throwSnapshotContract("promotion_supersession_cycle");
+  }
+  for (const decision of input.promotionDecisions) {
+    const target =
+      decision.supersededDecisionId === null
+        ? undefined
+        : promotionsById.get(decision.supersededDecisionId);
+    if (
+      target !== undefined &&
+      instantEpoch(decision.createdAt) <= instantEpoch(target.createdAt)
+    ) {
+      throwSnapshotContract("promotion_supersession_direction_invalid");
+    }
+  }
+
+  const reviewBindingKeys = new Set<string>();
+  for (const binding of [...input.currentReviewBindings].sort((left, right) =>
+    reviewBindingKey(left.assertionId, left.reviewProfile).localeCompare(
+      reviewBindingKey(right.assertionId, right.reviewProfile),
+    ),
+  )) {
+    const key = reviewBindingKey(binding.assertionId, binding.reviewProfile);
+    if (reviewBindingKeys.has(key)) {
+      throwSnapshotContract("duplicate_current_review_binding");
+    }
+    reviewBindingKeys.add(key);
+    if (!assertionsById.has(binding.assertionId)) {
+      throwSnapshotContract("review_binding_assertion_missing");
+    }
+    if (supersededAssertionIds.has(binding.assertionId)) {
+      throwSnapshotContract("review_binding_assertion_not_current");
+    }
+  }
+
+  const promotionBindingKeys = new Set<string>();
+  for (const binding of [...input.currentPromotionBindings].sort((left, right) =>
+    promotionBindingKey(
+      left.assertionId,
+      left.reviewDecisionId,
+      left.targetProfile,
+    ).localeCompare(
+      promotionBindingKey(
+        right.assertionId,
+        right.reviewDecisionId,
+        right.targetProfile,
+      ),
+    ),
+  )) {
+    const key = promotionBindingKey(
+      binding.assertionId,
+      binding.reviewDecisionId,
+      binding.targetProfile,
+    );
+    if (promotionBindingKeys.has(key)) {
+      throwSnapshotContract("duplicate_current_promotion_binding");
+    }
+    promotionBindingKeys.add(key);
+    if (!assertionsById.has(binding.assertionId)) {
+      throwSnapshotContract("promotion_binding_assertion_missing");
+    }
+    if (supersededAssertionIds.has(binding.assertionId)) {
+      throwSnapshotContract("promotion_binding_assertion_not_current");
+    }
+    const review = reviewsById.get(binding.reviewDecisionId);
+    if (review === undefined) {
+      throwSnapshotContract("promotion_binding_review_decision_missing");
+    }
+    if (review.assertionId !== binding.assertionId) {
+      throwSnapshotContract("promotion_binding_review_assertion_mismatch");
+    }
+    if (supersededReviewIds.has(binding.reviewDecisionId)) {
+      throwSnapshotContract("promotion_binding_review_not_current");
+    }
+  }
+
+  uniqueRecordsById(
+    input.reconciliationSnapshots,
+    "duplicate_reconciliation_snapshot_id",
+  );
+}
+
+function uniqueRecordsById<T extends { id: string }>(
+  records: readonly T[],
+  code: CandidateControlSnapshotContractErrorCode,
+): Map<string, T> {
+  const result = new Map<string, T>();
+  for (const record of [...records].sort(compareById)) {
+    if (result.has(record.id)) throwSnapshotContract(code);
+    result.set(record.id, record);
+  }
+  return result;
+}
+
+function hasSupersessionCycle<T extends { id: string }>(
+  records: readonly T[],
+  targetOf: (record: T) => string | null,
+): boolean {
+  const byId = new Map(records.map((record) => [record.id, record]));
+  const finalized = new Set<string>();
+  for (const start of [...records].sort(compareById)) {
+    if (finalized.has(start.id)) continue;
+    const path: string[] = [];
+    const visitedOnPath = new Set<string>();
+    let current: T | undefined = start;
+    while (current !== undefined) {
+      if (finalized.has(current.id)) break;
+      if (visitedOnPath.has(current.id)) return true;
+      visitedOnPath.add(current.id);
+      path.push(current.id);
+      const targetId = targetOf(current);
+      current = targetId === null ? undefined : byId.get(targetId);
+    }
+    for (const id of path) finalized.add(id);
+  }
+  return false;
+}
+
+function throwSnapshotContract(
+  code: CandidateControlSnapshotContractErrorCode,
+): never {
+  throw new CandidateControlSnapshotContractError(code);
+}
+
+function isSemanticIsoInstant(value: string): boolean {
+  const epoch = Date.parse(value);
+  if (!Number.isFinite(epoch)) return false;
+  const normalized = value.includes(".")
+    ? value
+    : value.replace(/Z$/, ".000Z");
+  return new Date(epoch).toISOString() === normalized;
+}
+
+function instantEpoch(value: string): number {
+  return Date.parse(value);
+}
+
 function exactCounterObject<const Values extends readonly [string, ...string[]]>(
   values: Values,
 ) {
@@ -679,7 +1036,7 @@ function stableErrorCode(error: unknown): string {
 }
 
 function reviewBindingKey(assertionId: string, reviewProfile: string): string {
-  return `${assertionId}:${reviewProfile}`;
+  return tupleKey(assertionId, reviewProfile);
 }
 
 function promotionBindingKey(
@@ -687,7 +1044,11 @@ function promotionBindingKey(
   reviewDecisionId: string,
   targetProfile: string,
 ): string {
-  return `${assertionId}:${reviewDecisionId}:${targetProfile}`;
+  return tupleKey(assertionId, reviewDecisionId, targetProfile);
+}
+
+function tupleKey(...parts: readonly string[]): string {
+  return JSON.stringify(parts);
 }
 
 function uniqueMap<T>(
