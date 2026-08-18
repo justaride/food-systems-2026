@@ -78,6 +78,7 @@ describe('schema migration guard workflow', () => {
     const shellSyntax = workflow.indexOf('Validate database operations shell syntax')
     const dbContracts = workflow.indexOf('Run database operations and workflow contracts')
     const mcpContracts = workflow.indexOf('Run MCP protocol and security contracts')
+    const candidateContracts = workflow.indexOf('Run autonomous candidate contracts')
 
     assert.ok(migrationGate >= 0)
     assert.ok(migrationGate < install)
@@ -85,5 +86,7 @@ describe('schema migration guard workflow', () => {
     assert.ok(prismaValidate < shellSyntax)
     assert.ok(shellSyntax < dbContracts)
     assert.ok(dbContracts < mcpContracts)
+    assert.ok(candidateContracts > workflow.indexOf('Generate Prisma client'))
+    assert.match(workflow, /run: npm run knowledge:candidate-contracts:check/)
   })
 })

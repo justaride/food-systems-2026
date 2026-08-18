@@ -86,6 +86,9 @@ jobs:
           DATABASE_URL: postgresql://ci:ci@db.invalid:5432/foodsystems_ci?schema=public
         run: ./node_modules/.bin/prisma generate --schema prisma/schema.prisma
 
+      - name: Run autonomous candidate contracts
+        run: npm run knowledge:candidate-contracts:check
+
       - name: Validate database operations shell syntax
         shell: bash
         run: |

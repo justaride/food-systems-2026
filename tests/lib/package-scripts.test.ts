@@ -4,6 +4,50 @@ import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 
 describe('package scripts', () => {
+  it('wires the autonomous candidate contracts and manual control commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const scripts = packageJson.scripts
+
+    assert.equal(
+      scripts['knowledge:candidate-contracts:check'],
+      'node --import=tsx --test tests/lib/autonomous-analysis-contract.test.ts tests/lib/candidate-analysis-contract.test.ts tests/lib/candidate-analysis-schema.test.ts tests/lib/candidate-analysis-writer.test.ts tests/lib/candidate-analysis-role-contract.test.ts tests/lib/library-analysis-candidate-compat.test.ts tests/lib/candidate-control-snapshot.test.ts',
+    )
+    assert.equal(
+      scripts['candidate:roles:bootstrap'],
+      'scripts/bootstrap-candidate-analysis-roles.sh --apply',
+    )
+    assert.equal(
+      scripts['candidate:roles:disable'],
+      'scripts/disable-candidate-analysis-writes.sh --apply',
+    )
+    assert.equal(
+      scripts['candidate:roles:verify'],
+      'scripts/verify-candidate-analysis-roles.sh',
+    )
+    assert.equal(
+      scripts['candidate:control:snapshot'],
+      'tsx scripts/knowledge/export-candidate-control-snapshot.ts',
+    )
+
+    const knowledgeCheckSteps = scripts['knowledge:check']?.split(' && ') ?? []
+    const processingIndex = knowledgeCheckSteps.indexOf(
+      'npm run knowledge:processing-contracts:check',
+    )
+    assert.ok(processingIndex >= 0)
+    assert.equal(
+      knowledgeCheckSteps[processingIndex + 1],
+      'npm run knowledge:candidate-contracts:check',
+    )
+    assert.equal(
+      knowledgeCheckSteps.filter(
+        (step) => step === 'npm run knowledge:candidate-contracts:check',
+      ).length,
+      1,
+    )
+  })
+
   it('uses the standalone Next.js server when standalone output is enabled', () => {
     const nextConfig = readFileSync(join(process.cwd(), 'next.config.ts'), 'utf8')
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
