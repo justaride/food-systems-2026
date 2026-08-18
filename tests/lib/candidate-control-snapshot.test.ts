@@ -77,19 +77,24 @@ function candidateControlFixture(
         id: candidate.run.id,
         events: options.quarantined
           ? [
-              candidate.events.queued,
-              candidate.events.started,
+              { ...candidate.events.queued, eventHash: HASH_A },
+              { ...candidate.events.started, eventHash: HASH_B },
               {
                 ...candidate.events.completed,
                 id: "event:fixture:quarantined",
                 sequence: 3,
                 eventType: "quarantined",
+                eventHash: HASH_C,
               },
             ]
           : [
-              candidate.events.queued,
-              candidate.events.started,
-              { ...candidate.events.completed, sequence: 3 },
+              { ...candidate.events.queued, eventHash: HASH_A },
+              { ...candidate.events.started, eventHash: HASH_B },
+              {
+                ...candidate.events.completed,
+                sequence: 3,
+                eventHash: HASH_C,
+              },
             ],
       },
     ],
@@ -306,6 +311,7 @@ describe("candidate control snapshot", () => {
     const secondAssertion = {
       ...input.assertions[0]!,
       id: "a:b",
+      payloadHash: HASH_B,
       createdAt: "2026-08-18T10:01:00.000Z",
     };
     input.assertions = [
@@ -347,6 +353,7 @@ describe("candidate control snapshot", () => {
       {
         ...input.assertions[0]!,
         id: "a:b",
+        payloadHash: HASH_B,
         createdAt: "2026-08-18T10:01:00.000Z",
       },
     ];
@@ -361,6 +368,7 @@ describe("candidate control snapshot", () => {
         id: "c",
         assertionId: "a:b",
         reviewProfile: "other-review-v1",
+        assertionPayloadHash: HASH_B,
       },
     ];
     input.currentReviewBindings = [
@@ -369,6 +377,7 @@ describe("candidate control snapshot", () => {
         ...input.currentReviewBindings[0]!,
         assertionId: "a:b",
         reviewProfile: "other-review-v1",
+        assertionPayloadHash: HASH_B,
       },
     ];
     input.promotionDecisions = [
@@ -430,7 +439,7 @@ describe("candidate control snapshot", () => {
     }
   });
 
-  it("uses only unsuperseded assertions and decisions", () => {
+  it("uses only unsuperseded lineage when all three levels share equal timestamps", () => {
     const base = candidateControlFixture({
       review: "accepted",
       promotion: "external_eligible",
@@ -438,7 +447,8 @@ describe("candidate control snapshot", () => {
     const oldAssertion = {
       ...base.assertions[0]!,
       id: "assertion:fixture:old",
-      createdAt: "2026-08-18T07:00:00.000Z",
+      payloadHash: HASH_B,
+      createdAt: base.assertions[0]!.createdAt,
     };
     const currentAssertion = {
       ...base.assertions[0]!,
@@ -448,7 +458,7 @@ describe("candidate control snapshot", () => {
       ...base.reviewDecisions[0]!,
       id: "review:fixture:old",
       decision: "rejected" as const,
-      createdAt: "2026-08-18T10:59:00.000Z",
+      createdAt: base.reviewDecisions[0]!.createdAt,
     };
     const currentReview = {
       ...base.reviewDecisions[0]!,
@@ -458,7 +468,7 @@ describe("candidate control snapshot", () => {
       ...base.promotionDecisions[0]!,
       id: "promotion:fixture:old",
       state: "revoked" as const,
-      createdAt: "2026-08-18T11:29:00.000Z",
+      createdAt: base.promotionDecisions[0]!.createdAt,
     };
     const currentPromotion = {
       ...base.promotionDecisions[0]!,
@@ -498,6 +508,11 @@ describe("candidate control snapshot", () => {
       duplicateSequence.runs[0]!.events[0]!.sequence;
     assertContractError(duplicateSequence, "duplicate_run_event_sequence");
 
+    const duplicateEventHash = candidateControlFixture();
+    duplicateEventHash.runs[0]!.events[1]!.eventHash =
+      duplicateEventHash.runs[0]!.events[0]!.eventHash;
+    assertContractError(duplicateEventHash, "duplicate_run_event_hash");
+
     const missingRun = candidateControlFixture();
     missingRun.assertions[0]!.runId = "run:missing";
     assertContractError(missingRun, "assertion_run_missing");
@@ -507,6 +522,17 @@ describe("candidate control snapshot", () => {
       structuredClone(duplicateAssertion.assertions[0]!),
     );
     assertContractError(duplicateAssertion, "duplicate_assertion_id");
+
+    const duplicateRunPayload = candidateControlFixture();
+    duplicateRunPayload.assertions.push({
+      ...duplicateRunPayload.assertions[0]!,
+      id: "assertion:duplicate-run-payload",
+      createdAt: "2026-08-18T10:01:00.000Z",
+    });
+    assertContractError(
+      duplicateRunPayload,
+      "duplicate_assertion_run_payload_hash",
+    );
 
     const selfSuperseding = candidateControlFixture();
     selfSuperseding.assertions[0]!.supersededAssertionId =
@@ -531,29 +557,12 @@ describe("candidate control snapshot", () => {
       {
         ...assertionCycle.assertions[0]!,
         id: "assertion:cycle:b",
+        payloadHash: HASH_B,
         supersededAssertionId: "assertion:cycle:a",
         createdAt: "2026-08-18T10:01:00.000Z",
       },
     ];
     assertContractError(assertionCycle, "assertion_supersession_cycle");
-
-    const reversedAssertion = candidateControlFixture();
-    reversedAssertion.assertions = [
-      {
-        ...reversedAssertion.assertions[0]!,
-        id: "assertion:older",
-      },
-      {
-        ...reversedAssertion.assertions[0]!,
-        id: "assertion:wrong-direction",
-        supersededAssertionId: "assertion:older",
-        createdAt: "2026-08-18T09:59:00.000Z",
-      },
-    ];
-    assertContractError(
-      reversedAssertion,
-      "assertion_supersession_direction_invalid",
-    );
 
     const duplicateBinding = candidateControlFixture();
     duplicateBinding.currentReviewBindings.push(
@@ -580,6 +589,7 @@ describe("candidate control snapshot", () => {
     });
     missingReviewAssertion.reviewDecisions[0]!.assertionId =
       "assertion:missing";
+    missingReviewAssertion.currentPromotionBindings = [];
     assertContractError(missingReviewAssertion, "review_assertion_missing");
 
     const reviewCycle = candidateControlFixture({ review: "accepted" });
@@ -598,28 +608,11 @@ describe("candidate control snapshot", () => {
     ];
     assertContractError(reviewCycle, "review_supersession_cycle");
 
-    const reversedReview = candidateControlFixture({ review: "accepted" });
-    reversedReview.reviewDecisions = [
-      {
-        ...reversedReview.reviewDecisions[0]!,
-        id: "review:direction:old",
-      },
-      {
-        ...reversedReview.reviewDecisions[0]!,
-        id: "review:direction:new",
-        supersededDecisionId: "review:direction:old",
-        createdAt: "2026-08-18T10:59:00.000Z",
-      },
-    ];
-    assertContractError(
-      reversedReview,
-      "review_supersession_direction_invalid",
-    );
-
     const crossScopeReview = candidateControlFixture({ review: "accepted" });
     crossScopeReview.assertions.push({
       ...crossScopeReview.assertions[0]!,
       id: "assertion:fixture:2",
+      payloadHash: HASH_B,
       createdAt: "2026-08-18T10:01:00.000Z",
     });
     crossScopeReview.reviewDecisions.push({
@@ -648,6 +641,7 @@ describe("candidate control snapshot", () => {
     crossAssertionPromotion.assertions.push({
       ...crossAssertionPromotion.assertions[0]!,
       id: "assertion:fixture:other",
+      payloadHash: HASH_B,
       createdAt: "2026-08-18T10:01:00.000Z",
     });
     crossAssertionPromotion.reviewDecisions[0]!.assertionId =
@@ -688,27 +682,6 @@ describe("candidate control snapshot", () => {
     ];
     assertContractError(promotionCycle, "promotion_supersession_cycle");
 
-    const reversedPromotion = candidateControlFixture({
-      review: "accepted",
-      promotion: "external_eligible",
-    });
-    reversedPromotion.promotionDecisions = [
-      {
-        ...reversedPromotion.promotionDecisions[0]!,
-        id: "promotion:direction:old",
-      },
-      {
-        ...reversedPromotion.promotionDecisions[0]!,
-        id: "promotion:direction:new",
-        supersededDecisionId: "promotion:direction:old",
-        createdAt: "2026-08-18T11:29:00.000Z",
-      },
-    ];
-    assertContractError(
-      reversedPromotion,
-      "promotion_supersession_direction_invalid",
-    );
-
     const duplicatePromotionBinding = candidateControlFixture({
       review: "accepted",
     });
@@ -726,6 +699,7 @@ describe("candidate control snapshot", () => {
     crossAssertionPromotionBinding.assertions.push({
       ...crossAssertionPromotionBinding.assertions[0]!,
       id: "assertion:fixture:other",
+      payloadHash: HASH_B,
       createdAt: "2026-08-18T10:01:00.000Z",
     });
     crossAssertionPromotionBinding.currentPromotionBindings[0]!.assertionId =
@@ -821,6 +795,153 @@ describe("candidate control snapshot", () => {
     assert.equal(queryFailure.promotion.externalReady, false);
   });
 
+  it("emits zero-authority degraded snapshots for partial-query reference gaps", () => {
+    const runsFailed = candidateControlFixture({ legacyReviewSignals: 1 });
+    runsFailed.provenance.queryErrors = ["candidate_runs_query_failed"];
+    runsFailed.runs = [];
+
+    const assertionsFailed = candidateControlFixture({
+      review: "accepted",
+      legacyReviewSignals: 1,
+    });
+    assertionsFailed.provenance.queryErrors = [
+      "candidate_assertions_query_failed",
+    ];
+    assertionsFailed.assertions = [];
+    assertionsFailed.currentReviewBindings = [];
+    assertionsFailed.currentPromotionBindings = [];
+
+    const reviewsFailed = candidateControlFixture({
+      review: "accepted",
+      promotion: "external_eligible",
+      legacyReviewSignals: 1,
+    });
+    reviewsFailed.provenance.queryErrors = [
+      "candidate_review_decisions_query_failed",
+    ];
+    reviewsFailed.reviewDecisions = [];
+    reviewsFailed.currentReviewBindings = [];
+    reviewsFailed.currentPromotionBindings = [];
+
+    for (const input of [runsFailed, assertionsFailed, reviewsFailed]) {
+      const snapshot = buildCandidateControlSnapshot(input);
+      assert.equal(snapshot.operational, false);
+      assert.deepEqual(snapshot.provenance.queryErrors, [
+        input.provenance.queryErrors[0],
+      ]);
+      assert.equal(snapshot.machine.runsTotal, 0);
+      assert.equal(snapshot.machine.assertionsTotal, 0);
+      assert.ok(
+        Object.values(snapshot.machine.currentByState).every(
+          (count) => count === 0,
+        ),
+      );
+      assert.ok(
+        Object.values(snapshot.review.currentByState).every(
+          (count) => count === 0,
+        ),
+      );
+      assert.equal(snapshot.review.backlogTotal, 0);
+      assert.equal(snapshot.review.reviewComplete, false);
+      assert.equal(snapshot.promotion.externalReady, false);
+      assert.ok(
+        Object.values(
+          snapshot.promotion.byTargetProfile["external-public-v1"]!,
+        ).every((count) => count === 0),
+      );
+      assert.equal(snapshot.reconciliation.snapshotsTotal, 0);
+      assert.equal(snapshot.reconciliation.conflictsTotal, 0);
+      assert.equal(snapshot.legacy.recordsTotal, 0);
+      assert.deepEqual(snapshot.warnings, [
+        "degraded_snapshot:partial_query_graph_invalid",
+      ]);
+    }
+
+    const selfSupersedingWithMissingParents = [
+      (() => {
+        const value = candidateControlFixture({
+          queryErrors: ["candidate_runs_query_failed"],
+        });
+        value.runs = [];
+        value.assertions[0]!.supersededAssertionId = value.assertions[0]!.id;
+        return [value, "assertion_self_supersession"] as const;
+      })(),
+      (() => {
+        const value = candidateControlFixture({
+          review: "accepted",
+          queryErrors: ["candidate_assertions_query_failed"],
+        });
+        value.assertions = [];
+        value.currentReviewBindings = [];
+        value.currentPromotionBindings = [];
+        value.reviewDecisions[0]!.supersededDecisionId =
+          value.reviewDecisions[0]!.id;
+        return [value, "review_self_supersession"] as const;
+      })(),
+      (() => {
+        const value = candidateControlFixture({
+          review: "accepted",
+          promotion: "external_eligible",
+          queryErrors: ["candidate_review_decisions_query_failed"],
+        });
+        value.reviewDecisions = [];
+        value.currentReviewBindings = [];
+        value.currentPromotionBindings = [];
+        value.promotionDecisions[0]!.supersededDecisionId =
+          value.promotionDecisions[0]!.id;
+        return [value, "promotion_self_supersession"] as const;
+      })(),
+    ];
+    for (const [input, code] of selfSupersedingWithMissingParents) {
+      assertContractError(input, code);
+    }
+
+    const nonemptyFallbackClaims = [
+      (() => {
+        const value = candidateControlFixture({
+          queryErrors: ["candidate_runs_query_failed"],
+        });
+        value.assertions[0]!.runId = "run:missing";
+        return [value, "assertion_run_missing"] as const;
+      })(),
+      (() => {
+        const value = candidateControlFixture({
+          review: "accepted",
+          queryErrors: ["candidate_assertions_query_failed"],
+        });
+        value.reviewDecisions[0]!.assertionId = "assertion:missing";
+        value.currentPromotionBindings = [];
+        return [value, "review_assertion_missing"] as const;
+      })(),
+      (() => {
+        const value = candidateControlFixture({
+          review: "accepted",
+          promotion: "external_eligible",
+          queryErrors: ["candidate_review_decisions_query_failed"],
+        });
+        value.promotionDecisions[0]!.reviewDecisionId = "review:missing";
+        return [value, "promotion_review_decision_missing"] as const;
+      })(),
+    ];
+    for (const [input, code] of nonemptyFallbackClaims) {
+      assertContractError(input, code);
+    }
+
+    const onlyOneOfTwoMissingParentsFailed = candidateControlFixture({
+      review: "accepted",
+      promotion: "external_eligible",
+      queryErrors: ["candidate_assertions_query_failed"],
+    });
+    onlyOneOfTwoMissingParentsFailed.assertions = [];
+    onlyOneOfTwoMissingParentsFailed.reviewDecisions = [];
+    onlyOneOfTwoMissingParentsFailed.currentReviewBindings = [];
+    onlyOneOfTwoMissingParentsFailed.currentPromotionBindings = [];
+    assertContractError(
+      onlyOneOfTwoMissingParentsFailed,
+      "promotion_review_decision_missing",
+    );
+  });
+
   it("is deterministic regardless of input order", () => {
     const input = candidateControlFixture({
       review: "accepted",
@@ -853,6 +974,7 @@ describe("candidate control snapshot", () => {
       {
         ...input.assertions[0]!,
         id: "assertion:milliseconds",
+        payloadHash: HASH_B,
         createdAt: "2026-08-18T10:00:00.500Z",
       },
     ];
@@ -989,16 +1111,40 @@ describe("candidate control snapshot CLI output boundary", () => {
 
   it("rejects and preserves an explicit Git-tracked output target", () => {
     const root = mkdtempSync(join(tmpdir(), "candidate-snapshot-git-"));
-    const target = join(root, "tracked.json");
     execFileSync("git", ["init", "--quiet", root]);
-    writeFileSync(target, '{"tracked":true}\n', { mode: 0o600 });
-    execFileSync("git", ["-C", root, "add", "tracked.json"]);
+    for (const filename of ["tracked.json", ":(literal)victim.json"]) {
+      const target = join(root, filename);
+      writeFileSync(target, '{"tracked":true}\n', { mode: 0o600 });
+      execFileSync(
+        "git",
+        ["--literal-pathspecs", "-C", root, "add", "--", filename],
+      );
+      const before = readFileSync(target);
+
+      try {
+        assert.throws(
+          () =>
+            writeCandidateControlSnapshotAtomic(target, '{"unsafe":true}\n'),
+          /git_tracked/i,
+        );
+      } finally {
+        if (!readFileSync(target).equals(before)) writeFileSync(target, before);
+      }
+      assert.deepEqual(readFileSync(target), before);
+    }
+  });
+
+  it("fails closed on an ambiguous Git marker instead of overwriting", () => {
+    const root = mkdtempSync(join(tmpdir(), "candidate-snapshot-broken-git-"));
+    const target = join(root, "sentinel.json");
+    writeFileSync(join(root, ".git"), "gitdir: missing-worktree-metadata\n");
+    writeFileSync(target, '{"tracked-or-unknown":true}\n', { mode: 0o600 });
     const before = readFileSync(target);
 
     try {
       assert.throws(
         () => writeCandidateControlSnapshotAtomic(target, '{"unsafe":true}\n'),
-        /git_tracked/i,
+        /git_tracking_check_failed/i,
       );
     } finally {
       if (!readFileSync(target).equals(before)) writeFileSync(target, before);

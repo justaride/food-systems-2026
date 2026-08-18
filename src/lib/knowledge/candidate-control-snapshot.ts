@@ -344,21 +344,21 @@ export type CandidateControlSnapshotContractErrorCode =
   | "duplicate_run_id"
   | "duplicate_run_event_id"
   | "duplicate_run_event_sequence"
+  | "duplicate_run_event_hash"
   | "run_event_binding_mismatch"
   | "run_event_order_invalid"
   | "duplicate_assertion_id"
+  | "duplicate_assertion_run_payload_hash"
   | "assertion_run_missing"
   | "assertion_self_supersession"
   | "assertion_supersession_target_missing"
   | "assertion_supersession_cycle"
-  | "assertion_supersession_direction_invalid"
   | "duplicate_review_decision_id"
   | "review_assertion_missing"
   | "review_self_supersession"
   | "review_supersession_target_missing"
   | "review_supersession_cycle"
   | "review_supersession_scope_mismatch"
-  | "review_supersession_direction_invalid"
   | "duplicate_promotion_decision_id"
   | "promotion_assertion_missing"
   | "promotion_review_decision_missing"
@@ -367,7 +367,6 @@ export type CandidateControlSnapshotContractErrorCode =
   | "promotion_supersession_target_missing"
   | "promotion_supersession_cycle"
   | "promotion_supersession_scope_mismatch"
-  | "promotion_supersession_direction_invalid"
   | "duplicate_current_review_binding"
   | "review_binding_assertion_missing"
   | "review_binding_assertion_not_current"
@@ -399,9 +398,18 @@ export function buildCandidateControlSnapshot(
     );
   }
   const input = parsedInput.data;
-  validateCandidateControlSnapshotInputGraph(input);
-  const warnings = new Set<string>();
   const queryErrors = sortedUnique(input.provenance.queryErrors);
+  const referenceGaps = validateCandidateControlSnapshotInputGraph(input);
+  const firstUnattributableGap = referenceGaps.find(
+    (code) => !isPartialQueryReferenceGap(code, queryErrors, input),
+  );
+  if (firstUnattributableGap !== undefined) {
+    throwSnapshotContract(firstUnattributableGap);
+  }
+  if (referenceGaps.length > 0) {
+    return buildDegradedCandidateControlSnapshot(input, queryErrors);
+  }
+  const warnings = new Set<string>();
   const externalBlockers = sortedUnique(input.externalBlockers);
   let operational = queryErrors.length === 0;
 
@@ -697,13 +705,94 @@ export function buildCandidateControlSnapshot(
   return CandidateControlSnapshotSchema.parse(result) as CandidateControlSnapshot;
 }
 
+function isPartialQueryReferenceGap(
+  code: CandidateControlSnapshotContractErrorCode,
+  queryErrors: readonly string[],
+  input: CandidateControlSnapshotInput,
+): boolean {
+  switch (code) {
+    case "assertion_run_missing":
+      return (
+        input.runs.length === 0 &&
+        queryErrors.includes("candidate_runs_query_failed")
+      );
+    case "review_assertion_missing":
+    case "promotion_assertion_missing":
+      return (
+        input.assertions.length === 0 &&
+        queryErrors.includes("candidate_assertions_query_failed")
+      );
+    case "promotion_review_decision_missing":
+      return (
+        input.reviewDecisions.length === 0 &&
+        queryErrors.includes("candidate_review_decisions_query_failed")
+      );
+    default:
+      return false;
+  }
+}
+
+function buildDegradedCandidateControlSnapshot(
+  input: CandidateControlSnapshotInput,
+  queryErrors: string[],
+): CandidateControlSnapshot {
+  const result: CandidateControlSnapshot = {
+    schemaVersion: CANDIDATE_CONTROL_SNAPSHOT_SCHEMA_VERSION,
+    generatedAt: input.generatedAt,
+    provenance: {
+      sourceCommit: input.provenance.sourceCommit,
+      runtimeCommit: input.provenance.runtimeCommit,
+      databaseIdentityUuid: input.provenance.databaseIdentityUuid,
+      counterBasis: "current_unsuperseded_records",
+      queryErrors,
+    },
+    operational: false,
+    machine: {
+      runsTotal: 0,
+      currentByState: zeroCounts(MACHINE_STATES),
+      assertionsTotal: 0,
+      byMachineUse: zeroCounts(CANDIDATE_MACHINE_USES),
+    },
+    identity: { byConfidence: zeroCounts(CANDIDATE_IDENTITY_CONFIDENCE) },
+    evidence: { byLevel: zeroCounts(CANDIDATE_EVIDENCE_LEVELS) },
+    review: {
+      currentByState: zeroCounts(REVIEW_STATES),
+      backlogTotal: 0,
+      oldestPendingAt: null,
+      oldestPendingAgeSeconds: null,
+      reviewComplete: false,
+      pendingIsExpectedWork: true,
+    },
+    promotion: {
+      externalTargetProfile: input.externalTargetProfile,
+      externalBlockers: sortedUnique(input.externalBlockers),
+      byTargetProfile: {
+        [input.externalTargetProfile]: zeroCounts(CANDIDATE_PROMOTION_STATES),
+      },
+      externalReady: false,
+    },
+    reconciliation: { snapshotsTotal: 0, conflictsTotal: 0 },
+    legacy: {
+      recordsTotal: 0,
+      projectedCandidates: 0,
+      analysisAbsent: 0,
+      unclassifiedHumanSignals: 0,
+    },
+    warnings: ["degraded_snapshot:partial_query_graph_invalid"],
+  };
+
+  return CandidateControlSnapshotSchema.parse(result) as CandidateControlSnapshot;
+}
+
 function validateCandidateControlSnapshotInputGraph(
   input: CandidateControlSnapshotInput,
-): void {
+): CandidateControlSnapshotContractErrorCode[] {
+  const referenceGaps = new Set<CandidateControlSnapshotContractErrorCode>();
   const runsById = uniqueRecordsById(input.runs, "duplicate_run_id");
   const eventIds = new Set<string>();
   for (const run of [...input.runs].sort(compareById)) {
     const sequences = new Set<number>();
+    const eventHashes = new Set<string>();
     let previousSequence = 0;
     for (const event of run.events) {
       if (eventIds.has(event.id)) {
@@ -717,6 +806,10 @@ function validateCandidateControlSnapshotInputGraph(
         throwSnapshotContract("duplicate_run_event_sequence");
       }
       sequences.add(event.sequence);
+      if (eventHashes.has(event.eventHash)) {
+        throwSnapshotContract("duplicate_run_event_hash");
+      }
+      eventHashes.add(event.eventHash);
       if (event.sequence <= previousSequence) {
         throwSnapshotContract("run_event_order_invalid");
       }
@@ -728,9 +821,15 @@ function validateCandidateControlSnapshotInputGraph(
     input.assertions,
     "duplicate_assertion_id",
   );
+  const assertionRunPayloadKeys = new Set<string>();
   for (const assertion of [...input.assertions].sort(compareById)) {
+    const runPayloadKey = tupleKey(assertion.runId, assertion.payloadHash);
+    if (assertionRunPayloadKeys.has(runPayloadKey)) {
+      throwSnapshotContract("duplicate_assertion_run_payload_hash");
+    }
+    assertionRunPayloadKeys.add(runPayloadKey);
     if (!runsById.has(assertion.runId)) {
-      throwSnapshotContract("assertion_run_missing");
+      referenceGaps.add("assertion_run_missing");
     }
     const targetId = assertion.supersededAssertionId;
     if (targetId === null) continue;
@@ -738,7 +837,7 @@ function validateCandidateControlSnapshotInputGraph(
       throwSnapshotContract("assertion_self_supersession");
     }
     if (!assertionsById.has(targetId)) {
-      throwSnapshotContract("assertion_supersession_target_missing");
+      referenceGaps.add("assertion_supersession_target_missing");
     }
   }
   if (
@@ -748,18 +847,6 @@ function validateCandidateControlSnapshotInputGraph(
     )
   ) {
     throwSnapshotContract("assertion_supersession_cycle");
-  }
-  for (const assertion of input.assertions) {
-    const target =
-      assertion.supersededAssertionId === null
-        ? undefined
-        : assertionsById.get(assertion.supersededAssertionId);
-    if (
-      target !== undefined &&
-      instantEpoch(assertion.createdAt) <= instantEpoch(target.createdAt)
-    ) {
-      throwSnapshotContract("assertion_supersession_direction_invalid");
-    }
   }
   const supersededAssertionIds = new Set(
     input.assertions.flatMap((assertion) =>
@@ -775,7 +862,7 @@ function validateCandidateControlSnapshotInputGraph(
   );
   for (const decision of [...input.reviewDecisions].sort(compareById)) {
     if (!assertionsById.has(decision.assertionId)) {
-      throwSnapshotContract("review_assertion_missing");
+      referenceGaps.add("review_assertion_missing");
     }
     const targetId = decision.supersededDecisionId;
     if (targetId === null) continue;
@@ -784,7 +871,8 @@ function validateCandidateControlSnapshotInputGraph(
     }
     const target = reviewsById.get(targetId);
     if (target === undefined) {
-      throwSnapshotContract("review_supersession_target_missing");
+      referenceGaps.add("review_supersession_target_missing");
+      continue;
     }
     if (
       target.assertionId !== decision.assertionId ||
@@ -801,18 +889,6 @@ function validateCandidateControlSnapshotInputGraph(
   ) {
     throwSnapshotContract("review_supersession_cycle");
   }
-  for (const decision of input.reviewDecisions) {
-    const target =
-      decision.supersededDecisionId === null
-        ? undefined
-        : reviewsById.get(decision.supersededDecisionId);
-    if (
-      target !== undefined &&
-      instantEpoch(decision.createdAt) <= instantEpoch(target.createdAt)
-    ) {
-      throwSnapshotContract("review_supersession_direction_invalid");
-    }
-  }
   const supersededReviewIds = new Set(
     input.reviewDecisions.flatMap((decision) =>
       decision.supersededDecisionId === null
@@ -827,13 +903,12 @@ function validateCandidateControlSnapshotInputGraph(
   );
   for (const decision of [...input.promotionDecisions].sort(compareById)) {
     if (!assertionsById.has(decision.assertionId)) {
-      throwSnapshotContract("promotion_assertion_missing");
+      referenceGaps.add("promotion_assertion_missing");
     }
     const review = reviewsById.get(decision.reviewDecisionId);
     if (review === undefined) {
-      throwSnapshotContract("promotion_review_decision_missing");
-    }
-    if (review.assertionId !== decision.assertionId) {
+      referenceGaps.add("promotion_review_decision_missing");
+    } else if (review.assertionId !== decision.assertionId) {
       throwSnapshotContract("promotion_review_assertion_mismatch");
     }
     const targetId = decision.supersededDecisionId;
@@ -843,7 +918,8 @@ function validateCandidateControlSnapshotInputGraph(
     }
     const target = promotionsById.get(targetId);
     if (target === undefined) {
-      throwSnapshotContract("promotion_supersession_target_missing");
+      referenceGaps.add("promotion_supersession_target_missing");
+      continue;
     }
     if (
       target.assertionId !== decision.assertionId ||
@@ -860,18 +936,6 @@ function validateCandidateControlSnapshotInputGraph(
   ) {
     throwSnapshotContract("promotion_supersession_cycle");
   }
-  for (const decision of input.promotionDecisions) {
-    const target =
-      decision.supersededDecisionId === null
-        ? undefined
-        : promotionsById.get(decision.supersededDecisionId);
-    if (
-      target !== undefined &&
-      instantEpoch(decision.createdAt) <= instantEpoch(target.createdAt)
-    ) {
-      throwSnapshotContract("promotion_supersession_direction_invalid");
-    }
-  }
 
   const reviewBindingKeys = new Set<string>();
   for (const binding of [...input.currentReviewBindings].sort((left, right) =>
@@ -885,9 +949,8 @@ function validateCandidateControlSnapshotInputGraph(
     }
     reviewBindingKeys.add(key);
     if (!assertionsById.has(binding.assertionId)) {
-      throwSnapshotContract("review_binding_assertion_missing");
-    }
-    if (supersededAssertionIds.has(binding.assertionId)) {
+      referenceGaps.add("review_binding_assertion_missing");
+    } else if (supersededAssertionIds.has(binding.assertionId)) {
       throwSnapshotContract("review_binding_assertion_not_current");
     }
   }
@@ -916,19 +979,16 @@ function validateCandidateControlSnapshotInputGraph(
     }
     promotionBindingKeys.add(key);
     if (!assertionsById.has(binding.assertionId)) {
-      throwSnapshotContract("promotion_binding_assertion_missing");
-    }
-    if (supersededAssertionIds.has(binding.assertionId)) {
+      referenceGaps.add("promotion_binding_assertion_missing");
+    } else if (supersededAssertionIds.has(binding.assertionId)) {
       throwSnapshotContract("promotion_binding_assertion_not_current");
     }
     const review = reviewsById.get(binding.reviewDecisionId);
     if (review === undefined) {
-      throwSnapshotContract("promotion_binding_review_decision_missing");
-    }
-    if (review.assertionId !== binding.assertionId) {
+      referenceGaps.add("promotion_binding_review_decision_missing");
+    } else if (review.assertionId !== binding.assertionId) {
       throwSnapshotContract("promotion_binding_review_assertion_mismatch");
-    }
-    if (supersededReviewIds.has(binding.reviewDecisionId)) {
+    } else if (supersededReviewIds.has(binding.reviewDecisionId)) {
       throwSnapshotContract("promotion_binding_review_not_current");
     }
   }
@@ -937,6 +997,20 @@ function validateCandidateControlSnapshotInputGraph(
     input.reconciliationSnapshots,
     "duplicate_reconciliation_snapshot_id",
   );
+
+  const referenceGapPriority: CandidateControlSnapshotContractErrorCode[] = [
+    "assertion_supersession_target_missing",
+    "review_supersession_target_missing",
+    "promotion_supersession_target_missing",
+    "review_binding_assertion_missing",
+    "promotion_binding_assertion_missing",
+    "promotion_binding_review_decision_missing",
+    "assertion_run_missing",
+    "review_assertion_missing",
+    "promotion_assertion_missing",
+    "promotion_review_decision_missing",
+  ];
+  return referenceGapPriority.filter((code) => referenceGaps.has(code));
 }
 
 function uniqueRecordsById<T extends { id: string }>(
