@@ -406,25 +406,18 @@ export function buildCandidateControlSnapshot(
   if (firstUnattributableGap !== undefined) {
     throwSnapshotContract(firstUnattributableGap);
   }
+  const machineReduction = reduceCandidateRuns(input.runs);
   if (referenceGaps.length > 0) {
-    return buildDegradedCandidateControlSnapshot(input, queryErrors);
+    return buildDegradedCandidateControlSnapshot(
+      input,
+      queryErrors,
+      machineReduction.warnings,
+    );
   }
-  const warnings = new Set<string>();
+  const warnings = new Set(machineReduction.warnings);
   const externalBlockers = sortedUnique(input.externalBlockers);
-  let operational = queryErrors.length === 0;
-
-  const machineStates = zeroCounts(MACHINE_STATES);
-  for (const run of [...input.runs].sort(compareById)) {
-    try {
-      const state = deriveCandidateAnalysisMachineState(run.events);
-      machineStates[state] += 1;
-    } catch (error) {
-      operational = false;
-      warnings.add(
-        `invalid_machine_event_history:${run.id}:${stableErrorCode(error)}`,
-      );
-    }
-  }
+  let operational =
+    queryErrors.length === 0 && machineReduction.historiesValid;
 
   const supersededAssertionIds = new Set(
     input.assertions.flatMap((assertion) =>
@@ -667,7 +660,7 @@ export function buildCandidateControlSnapshot(
     operational,
     machine: {
       runsTotal: input.runs.length,
-      currentByState: machineStates,
+      currentByState: machineReduction.currentByState,
       assertionsTotal: currentAssertions.length,
       byMachineUse: machineUses,
     },
@@ -735,6 +728,7 @@ function isPartialQueryReferenceGap(
 function buildDegradedCandidateControlSnapshot(
   input: CandidateControlSnapshotInput,
   queryErrors: string[],
+  machineWarnings: readonly string[],
 ): CandidateControlSnapshot {
   const result: CandidateControlSnapshot = {
     schemaVersion: CANDIDATE_CONTROL_SNAPSHOT_SCHEMA_VERSION,
@@ -778,10 +772,39 @@ function buildDegradedCandidateControlSnapshot(
       analysisAbsent: 0,
       unclassifiedHumanSignals: 0,
     },
-    warnings: ["degraded_snapshot:partial_query_graph_invalid"],
+    warnings: sortedUnique([
+      "degraded_snapshot:partial_query_graph_invalid",
+      ...machineWarnings,
+    ]),
   };
 
   return CandidateControlSnapshotSchema.parse(result) as CandidateControlSnapshot;
+}
+
+function reduceCandidateRuns(
+  runs: CandidateControlSnapshotInput["runs"],
+): {
+  currentByState: Record<CandidateAnalysisMachineState, number>;
+  historiesValid: boolean;
+  warnings: string[];
+} {
+  const currentByState = zeroCounts(MACHINE_STATES);
+  const warnings = new Set<string>();
+  for (const run of [...runs].sort(compareById)) {
+    try {
+      const state = deriveCandidateAnalysisMachineState(run.events);
+      currentByState[state] += 1;
+    } catch (error) {
+      warnings.add(
+        `invalid_machine_event_history:${run.id}:${stableErrorCode(error)}`,
+      );
+    }
+  }
+  return {
+    currentByState,
+    historiesValid: warnings.size === 0,
+    warnings: [...warnings].sort(),
+  };
 }
 
 function validateCandidateControlSnapshotInputGraph(

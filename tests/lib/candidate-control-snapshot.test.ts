@@ -238,6 +238,76 @@ function assertContractError(
   );
 }
 
+function testGitEnvironment(): NodeJS.ProcessEnv {
+  const environment: NodeJS.ProcessEnv = { ...process.env };
+  for (const name of Object.keys(environment)) {
+    if (name.toUpperCase().startsWith("GIT_")) delete environment[name];
+  }
+  return environment;
+}
+
+function createLinkedWorktreeFixture(): {
+  main: string;
+  linked: string;
+  actualGitDir: string;
+  commonGitDir: string;
+} {
+  const root = mkdtempSync(join(tmpdir(), "candidate-snapshot-worktree-"));
+  const main = join(root, "main");
+  const linked = join(root, "linked");
+  const env = testGitEnvironment();
+  execFileSync("git", ["init", "--quiet", main], { env });
+  execFileSync(
+    "git",
+    [
+      "-C",
+      main,
+      "-c",
+      "user.name=Candidate Snapshot Test",
+      "-c",
+      "user.email=candidate-snapshot@example.invalid",
+      "commit",
+      "--quiet",
+      "--allow-empty",
+      "-m",
+      "initial",
+    ],
+    { env },
+  );
+  execFileSync(
+    "git",
+    ["-C", main, "worktree", "add", "--quiet", "--detach", linked, "HEAD"],
+    { env },
+  );
+  const actualGitDir = execFileSync(
+    "git",
+    ["-C", linked, "rev-parse", "--absolute-git-dir"],
+    { encoding: "utf8", env },
+  ).trim();
+  const commonGitDir = execFileSync(
+    "git",
+    ["-C", linked, "rev-parse", "--path-format=absolute", "--git-common-dir"],
+    { encoding: "utf8", env },
+  ).trim();
+  return { main, linked, actualGitDir, commonGitDir };
+}
+
+function assertWriteRejectedAndPreserved(
+  target: string,
+  expectedError: RegExp,
+): void {
+  const before = readFileSync(target);
+  try {
+    assert.throws(
+      () => writeCandidateControlSnapshotAtomic(target, '{"unsafe":true}\n'),
+      expectedError,
+    );
+  } finally {
+    if (!readFileSync(target).equals(before)) writeFileSync(target, before);
+  }
+  assert.deepEqual(readFileSync(target), before);
+}
+
 describe("candidate control snapshot", () => {
   it("closes every concrete JSON Schema object against unknown fields", () => {
     const visit = (value: unknown, path = "$schema"): void => {
@@ -942,6 +1012,32 @@ describe("candidate control snapshot", () => {
     );
   });
 
+  it("retains invalid surviving machine history in a degraded snapshot", () => {
+    const input = candidateControlFixture({ review: "accepted" });
+    input.provenance.queryErrors = ["candidate_assertions_query_failed"];
+    input.assertions = [];
+    input.currentReviewBindings = [];
+    input.currentPromotionBindings = [];
+    input.runs[0]!.events = [
+      { ...input.runs[0]!.events[1]!, sequence: 1 },
+    ];
+
+    const snapshot = buildCandidateControlSnapshot(input);
+
+    assert.equal(snapshot.operational, false);
+    assert.equal(snapshot.promotion.externalReady, false);
+    assert.equal(snapshot.machine.runsTotal, 0);
+    assert.ok(
+      Object.values(snapshot.machine.currentByState).every(
+        (count) => count === 0,
+      ),
+    );
+    assert.deepEqual(snapshot.warnings, [
+      "degraded_snapshot:partial_query_graph_invalid",
+      `invalid_machine_event_history:${input.runs[0]!.id}:invalid_initial_event`,
+    ]);
+  });
+
   it("is deterministic regardless of input order", () => {
     const input = candidateControlFixture({
       review: "accepted",
@@ -1131,6 +1227,84 @@ describe("candidate control snapshot CLI output boundary", () => {
         if (!readFileSync(target).equals(before)) writeFileSync(target, before);
       }
       assert.deepEqual(readFileSync(target), before);
+    }
+  });
+
+  it("ignores an inherited alternate Git index when protecting tracked output", () => {
+    const root = mkdtempSync(join(tmpdir(), "candidate-snapshot-index-"));
+    const target = join(root, "tracked.json");
+    execFileSync("git", ["init", "--quiet", root], {
+      env: testGitEnvironment(),
+    });
+    writeFileSync(target, '{"tracked":true}\n', { mode: 0o600 });
+    execFileSync("git", ["-C", root, "add", "--", "tracked.json"], {
+      env: testGitEnvironment(),
+    });
+
+    const previousIndex = process.env.GIT_INDEX_FILE;
+    process.env.GIT_INDEX_FILE = join(root, "alternate-index");
+    try {
+      assertWriteRejectedAndPreserved(target, /git_tracked/i);
+    } finally {
+      if (previousIndex === undefined) delete process.env.GIT_INDEX_FILE;
+      else process.env.GIT_INDEX_FILE = previousIndex;
+    }
+  });
+
+  it("rejects and preserves a normal repository Git config", () => {
+    const root = mkdtempSync(join(tmpdir(), "candidate-snapshot-metadata-"));
+    execFileSync("git", ["init", "--quiet", root], {
+      env: testGitEnvironment(),
+    });
+
+    assertWriteRejectedAndPreserved(
+      join(root, ".git", "config"),
+      /git_metadata/i,
+    );
+  });
+
+  it("rejects and preserves a linked-worktree Git marker", () => {
+    const { linked } = createLinkedWorktreeFixture();
+
+    assertWriteRejectedAndPreserved(join(linked, ".git"), /git_metadata/i);
+  });
+
+  it("rejects paths inside linked-worktree actual and common Git directories", () => {
+    const { actualGitDir, commonGitDir } = createLinkedWorktreeFixture();
+
+    for (const target of [
+      join(actualGitDir, "HEAD"),
+      join(commonGitDir, "config"),
+    ]) {
+      assertWriteRejectedAndPreserved(target, /git_metadata/i);
+    }
+  });
+
+  it("rejects separate and bare Git-directory metadata roots", () => {
+    const root = mkdtempSync(join(tmpdir(), "candidate-snapshot-git-dir-"));
+    const work = join(root, "work");
+    const separateGitDir = join(root, "metadata");
+    const bareGitDir = join(root, "bare.git");
+    const env = testGitEnvironment();
+    execFileSync(
+      "git",
+      [
+        "init",
+        "--quiet",
+        `--separate-git-dir=${separateGitDir}`,
+        work,
+      ],
+      { env },
+    );
+    execFileSync("git", ["init", "--quiet", "--bare", bareGitDir], {
+      env,
+    });
+
+    for (const target of [
+      join(separateGitDir, "config"),
+      join(bareGitDir, "config"),
+    ]) {
+      assertWriteRejectedAndPreserved(target, /git_metadata/i);
     }
   });
 

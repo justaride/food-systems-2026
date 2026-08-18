@@ -302,6 +302,7 @@ async function readCandidateControlSnapshotInput(
     sourceCommit = execFileSync("git", ["rev-parse", "HEAD"], {
       cwd: resolve(fileURLToPath(new URL("../..", import.meta.url))),
       encoding: "utf8",
+      env: scrubbedGitEnvironment(),
       stdio: ["ignore", "pipe", "ignore"],
     }).trim();
     if (!COMMIT_PATTERN.test(sourceCommit)) {
@@ -389,30 +390,35 @@ function rejectGitTrackedTarget(target: string, parent: string): void {
   } catch {
     throw new Error("candidate_control_git_tracking_check_failed");
   }
-  if (!hasGitRepositoryMarker(canonicalParent)) return;
-
-  const rootResult = spawnSync(
-    "git",
-    ["-C", canonicalParent, "rev-parse", "--show-toplevel"],
-    { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] },
-  );
-  if (rootResult.error !== undefined || rootResult.status !== 0) {
-    throw new Error("candidate_control_git_tracking_check_failed");
-  }
-
-  const rootOutput = rootResult.stdout.trim();
-  if (rootOutput.length === 0) {
-    throw new Error("candidate_control_git_tracking_check_failed");
-  }
-  const repositoryRoot = resolve(rootOutput);
+  const repositoryControlRoot = findGitRepositoryControlRoot(canonicalParent);
+  if (repositoryControlRoot === null) return;
   const canonicalTarget = join(canonicalParent, basename(target));
-  const repositoryRelative = relative(repositoryRoot, canonicalTarget);
+  if (isSameOrDescendant(repositoryControlRoot, canonicalTarget)) {
+    throw new Error("candidate_control_output_target_is_git_metadata");
+  }
+
+  const repositoryRoot = readCanonicalGitPath(
+    canonicalParent,
+    "--show-toplevel",
+  );
+  const actualGitDir = readCanonicalGitPath(
+    canonicalParent,
+    "--absolute-git-dir",
+  );
+  const commonGitDir = readCanonicalGitPath(
+    canonicalParent,
+    "--path-format=absolute",
+    "--git-common-dir",
+  );
   if (
-    repositoryRelative.length === 0 ||
-    repositoryRelative === ".." ||
-    repositoryRelative.startsWith(`..${process.platform === "win32" ? "\\" : "/"}`) ||
-    isAbsolute(repositoryRelative)
+    isSameOrDescendant(actualGitDir, canonicalTarget) ||
+    isSameOrDescendant(commonGitDir, canonicalTarget)
   ) {
+    throw new Error("candidate_control_output_target_is_git_metadata");
+  }
+
+  const repositoryRelative = relative(repositoryRoot, canonicalTarget);
+  if (!isSameOrDescendant(repositoryRoot, canonicalTarget)) {
     throw new Error("candidate_control_git_tracking_check_failed");
   }
 
@@ -427,7 +433,7 @@ function rejectGitTrackedTarget(target: string, parent: string): void {
       "--",
       repositoryRelative,
     ],
-    { stdio: "ignore" },
+    { env: scrubbedGitEnvironment(), stdio: "ignore" },
   );
   if (trackedResult.error !== undefined) {
     throw new Error("candidate_control_git_tracking_check_failed");
@@ -440,26 +446,93 @@ function rejectGitTrackedTarget(target: string, parent: string): void {
   }
 }
 
-function hasGitRepositoryMarker(start: string): boolean {
+function findGitRepositoryControlRoot(start: string): string | null {
   let current = start;
   while (true) {
     const marker = join(current, ".git");
-    try {
-      const stat = lstatSync(marker);
+    const stat = lstatIfExists(marker);
+    if (stat !== null) {
       if (!stat.isDirectory() && !stat.isFile()) {
         throw new Error("candidate_control_git_tracking_check_failed");
       }
-      return true;
-    } catch (error) {
-      if (!isFileSystemError(error, "ENOENT")) {
-        throw new Error("candidate_control_git_tracking_check_failed");
-      }
+      return marker;
     }
+    if (isGitDirectoryRoot(current)) return current;
 
     const next = dirname(current);
-    if (next === current) return false;
+    if (next === current) return null;
     current = next;
   }
+}
+
+function isGitDirectoryRoot(path: string): boolean {
+  const head = lstatIfExists(join(path, "HEAD"));
+  if (head === null) return false;
+  const objects = lstatIfExists(join(path, "objects"));
+  const refs = lstatIfExists(join(path, "refs"));
+  if (objects === null || refs === null) return false;
+  if (!head.isFile() || !objects.isDirectory() || !refs.isDirectory()) {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+  return true;
+}
+
+function lstatIfExists(
+  path: string,
+): NonNullable<ReturnType<typeof lstatSync>> | null {
+  try {
+    return lstatSync(path);
+  } catch (error) {
+    if (isFileSystemError(error, "ENOENT")) return null;
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+}
+
+function readCanonicalGitPath(
+  cwd: string,
+  ...revParseArguments: string[]
+): string {
+  const result = spawnSync(
+    "git",
+    ["-C", cwd, "rev-parse", ...revParseArguments],
+    {
+      encoding: "utf8",
+      env: scrubbedGitEnvironment(),
+      stdio: ["ignore", "pipe", "ignore"],
+    },
+  );
+  if (result.error !== undefined || result.status !== 0) {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+  const output = result.stdout.replace(/\r?\n$/, "");
+  if (output.length === 0 || /[\r\n]/.test(output) || !isAbsolute(output)) {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+  try {
+    return realpathSync(output);
+  } catch {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+}
+
+function isSameOrDescendant(parent: string, candidate: string): boolean {
+  const candidateRelative = relative(parent, candidate);
+  return (
+    candidateRelative.length === 0 ||
+    (candidateRelative !== ".." &&
+      !candidateRelative.startsWith(
+        `..${process.platform === "win32" ? "\\" : "/"}`,
+      ) &&
+      !isAbsolute(candidateRelative))
+  );
+}
+
+function scrubbedGitEnvironment(): NodeJS.ProcessEnv {
+  const environment: NodeJS.ProcessEnv = { ...process.env };
+  for (const name of Object.keys(environment)) {
+    if (name.toUpperCase().startsWith("GIT_")) delete environment[name];
+  }
+  return environment;
 }
 
 function isFileSystemError(error: unknown, code: string): boolean {
