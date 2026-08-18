@@ -8,6 +8,7 @@ import {
   readdirSync,
   rmSync,
   symlinkSync,
+  unlinkSync,
   writeFileSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
@@ -23,6 +24,7 @@ import {
   type CandidateControlSnapshotInput,
 } from "../../src/lib/knowledge/candidate-control-snapshot";
 import {
+  candidateControlGitPathIdentitiesEqual,
   parseCandidateControlSnapshotArgs,
   writeCandidateControlSnapshotAtomic,
 } from "../../scripts/knowledge/export-candidate-control-snapshot";
@@ -1141,6 +1143,41 @@ describe("candidate control snapshot", () => {
 });
 
 describe("candidate control snapshot CLI output boundary", () => {
+  it("keeps case-only Git paths distinct on a case-sensitive filesystem", () => {
+    assert.equal(
+      candidateControlGitPathIdentitiesEqual(
+        "nested/foo.json",
+        "nested/Foo.json",
+        true,
+      ),
+      false,
+    );
+    assert.equal(
+      candidateControlGitPathIdentitiesEqual(
+        "nested/caf\u00e9.json",
+        "nested/CAFE\u0301.json",
+        false,
+      ),
+      true,
+    );
+    assert.equal(
+      candidateControlGitPathIdentitiesEqual(
+        "nested/stra\u00dfe.json",
+        "nested/STRASSE.json",
+        true,
+      ),
+      false,
+    );
+    assert.equal(
+      candidateControlGitPathIdentitiesEqual(
+        "nested/stra\u00dfe.json",
+        "nested/STRASSE.json",
+        false,
+      ),
+      true,
+    );
+  });
+
   it("accepts only the two named CLI arguments", () => {
     assert.deepEqual(parseCandidateControlSnapshotArgs([]), {
       output: null,
@@ -1260,6 +1297,91 @@ describe("candidate control snapshot CLI output boundary", () => {
       }
 
       assertWriteRejectedAndPreserved(requestedTarget, /git_tracked/i);
+    } finally {
+      rmSync(root, { force: true, recursive: true });
+    }
+  });
+
+  it("rejects a deleted tracked case variant on a case-insensitive filesystem", (context) => {
+    const root = mkdtempSync(join(tmpdir(), "candidate-snapshot-deleted-case-"));
+    const trackedTarget = join(root, "Foo.json");
+    const requestedTarget = join(root, "foo.json");
+    const trackedBytes = Buffer.from('{"tracked":true}\n');
+    const env = testGitEnvironment();
+
+    try {
+      execFileSync("git", ["init", "--quiet", root], { env });
+      writeFileSync(trackedTarget, trackedBytes, { mode: 0o600 });
+      execFileSync("git", ["-C", root, "add", "--", "Foo.json"], { env });
+      execFileSync(
+        "git",
+        [
+          "-C",
+          root,
+          "-c",
+          "user.name=Candidate Snapshot Test",
+          "-c",
+          "user.email=candidate-snapshot@example.invalid",
+          "commit",
+          "--quiet",
+          "-m",
+          "track case-sensitive name",
+        ],
+        { env },
+      );
+
+      if (!existsSync(requestedTarget)) {
+        context.skip("filesystem is case-sensitive");
+        return;
+      }
+      const trackedStat = lstatSync(trackedTarget);
+      const requestedStat = lstatSync(requestedTarget);
+      if (
+        trackedStat.dev !== requestedStat.dev ||
+        trackedStat.ino !== requestedStat.ino
+      ) {
+        context.skip("requested casing resolves to a distinct file");
+        return;
+      }
+
+      const indexPath = join(root, ".git", "index");
+      const indexBefore = readFileSync(indexPath);
+      const stagedBlobBefore = execFileSync(
+        "git",
+        ["-C", root, "show", ":Foo.json"],
+        { env },
+      );
+      try {
+        unlinkSync(trackedTarget);
+        assert.equal(existsSync(requestedTarget), false);
+        assert.throws(
+          () =>
+            writeCandidateControlSnapshotAtomic(
+              requestedTarget,
+              '{"unsafe":true}\n',
+            ),
+          /git_tracked/i,
+        );
+        assert.equal(existsSync(requestedTarget), false);
+        assert.equal(
+          readdirSync(root).some((name) =>
+            name.startsWith(".candidate-control-case-"),
+          ),
+          false,
+        );
+        assert.deepEqual(readFileSync(indexPath), indexBefore);
+        assert.deepEqual(
+          execFileSync("git", ["-C", root, "show", ":Foo.json"], { env }),
+          stagedBlobBefore,
+        );
+      } finally {
+        if (existsSync(requestedTarget)) unlinkSync(requestedTarget);
+        if (!existsSync(trackedTarget)) {
+          writeFileSync(trackedTarget, trackedBytes, { mode: 0o600 });
+        }
+      }
+      assert.deepEqual(readFileSync(trackedTarget), trackedBytes);
+      assert.deepEqual(readFileSync(indexPath), indexBefore);
     } finally {
       rmSync(root, { force: true, recursive: true });
     }

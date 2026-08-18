@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 
+import { isUtf8 } from "node:buffer";
 import { execFileSync, spawnSync } from "node:child_process";
+import { randomBytes } from "node:crypto";
 import {
   closeSync,
   constants,
   existsSync,
+  fchmodSync,
+  fstatSync,
   fsyncSync,
   lstatSync,
   openSync,
@@ -468,6 +472,141 @@ function rejectGitTrackedTarget(
   if (trackedResult.status !== 1) {
     throw new Error("candidate_control_git_tracking_check_failed");
   }
+
+  const caseSensitive = directoryUsesCaseSensitiveNames(canonicalParent);
+  if (caseSensitive) return;
+  const trackedPaths = readGitIndexPaths(repositoryRoot);
+  if (
+    trackedPaths.some((trackedPath) =>
+      candidateControlGitPathIdentitiesEqual(
+        repositoryRelative,
+        trackedPath,
+        caseSensitive,
+      ),
+    )
+  ) {
+    throw new Error("candidate_control_output_target_is_git_tracked");
+  }
+}
+
+export function candidateControlGitPathIdentitiesEqual(
+  requestedPath: string,
+  trackedPath: string,
+  caseSensitive: boolean,
+): boolean {
+  if (caseSensitive) return requestedPath === trackedPath;
+  return (
+    normalizeGitPathIdentity(requestedPath) ===
+    normalizeGitPathIdentity(trackedPath)
+  );
+}
+
+function normalizeGitPathIdentity(path: string): string {
+  const normalizedSeparators =
+    process.platform === "win32" ? path.replaceAll("\\", "/") : path;
+  return normalizedSeparators
+    .normalize("NFKC")
+    .toUpperCase()
+    .toLowerCase()
+    .normalize("NFKC");
+}
+
+function directoryUsesCaseSensitiveNames(parent: string): boolean {
+  let descriptor: number | null = null;
+  let probePath: string | null = null;
+  let probeCreated = false;
+  let result: boolean | null = null;
+  let failed = false;
+
+  try {
+    const token = randomBytes(32).toString("hex");
+    probePath = join(parent, `.candidate-control-case-${token}-Aa`);
+    const alternatePath = join(
+      parent,
+      `.candidate-control-case-${token}-aA`,
+    );
+    descriptor = openSync(
+      probePath,
+      constants.O_WRONLY |
+        constants.O_CREAT |
+        constants.O_EXCL |
+        constants.O_NOFOLLOW,
+      0o600,
+    );
+    probeCreated = true;
+    fchmodSync(descriptor, 0o600);
+    const probeStat = fstatSync(descriptor);
+    if (!probeStat.isFile() || (probeStat.mode & 0o777) !== 0o600) {
+      throw new Error("candidate_control_case_probe_invalid");
+    }
+
+    const alternateStat = lstatIfExists(alternatePath);
+    if (alternateStat === null) {
+      result = true;
+    } else if (
+      alternateStat.isFile() &&
+      !alternateStat.isSymbolicLink() &&
+      alternateStat.dev === probeStat.dev &&
+      alternateStat.ino === probeStat.ino
+    ) {
+      result = false;
+    } else {
+      throw new Error("candidate_control_case_probe_ambiguous");
+    }
+  } catch {
+    failed = true;
+  } finally {
+    if (descriptor !== null) {
+      try {
+        closeSync(descriptor);
+      } catch {
+        failed = true;
+      }
+    }
+    if (probeCreated && probePath !== null) {
+      try {
+        unlinkSync(probePath);
+      } catch {
+        failed = true;
+      }
+    }
+  }
+
+  if (failed || result === null) {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+  return result;
+}
+
+function readGitIndexPaths(repositoryRoot: string): string[] {
+  const result = spawnSync(
+    "git",
+    ["--literal-pathspecs", "-C", repositoryRoot, "ls-files", "-z", "--"],
+    {
+      env: scrubbedGitEnvironment(),
+      maxBuffer: 64 * 1024 * 1024,
+      stdio: ["ignore", "pipe", "ignore"],
+    },
+  );
+  if (
+    result.error !== undefined ||
+    result.status !== 0 ||
+    result.signal !== null ||
+    !Buffer.isBuffer(result.stdout)
+  ) {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+  if (result.stdout.length === 0) return [];
+  if (result.stdout[result.stdout.length - 1] !== 0 || !isUtf8(result.stdout)) {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+
+  const decoded = result.stdout.toString("utf8");
+  const paths = decoded.slice(0, -1).split("\0");
+  if (paths.some((path) => path.length === 0)) {
+    throw new Error("candidate_control_git_tracking_check_failed");
+  }
+  return paths;
 }
 
 function findGitRepositoryControlRoot(start: string): string | null {
