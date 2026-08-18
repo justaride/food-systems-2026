@@ -19,6 +19,7 @@ import {
   candidateAnalysisInputEnvelopeHash,
   candidateAnalysisOutputManifestHash,
   candidateAnalysisRunIdempotencyKey,
+  candidateAnalysisRunScopeHash,
   candidateAnalysisSha256,
   canonicalCandidateJson,
   deriveCandidateAnalysisMachineState,
@@ -144,10 +145,14 @@ function parseForWrite<T>(schema: { parse(input: unknown): T }, raw: unknown): T
       if (messages?.includes("self_supersession")) {
         throw new CandidateAnalysisWriteConflict("supersession_conflict");
       }
+      if (messages?.includes("event_supersession_scope_mismatch")) {
+        throw new CandidateAnalysisWriteConflict("supersession_conflict");
+      }
       if (
         messages?.includes("hash_mismatch") ||
         messages?.includes("idempotency_mismatch") ||
-        messages?.includes("inputs_not_canonical")
+        messages?.includes("inputs_not_canonical") ||
+        messages?.includes("scope_mismatch")
       ) {
         throw new CandidateAnalysisWriteConflict("integrity_mismatch");
       }
@@ -171,24 +176,26 @@ function toNullableJson(
 function toContractEvent(event: {
   id: string;
   runId: string;
+  scopeHash: string;
   sequence: number;
   eventType: CandidateAnalysisRunEventInput["eventType"];
   payload: Prisma.JsonValue | null;
   eventHash: string;
   supersededEventId: string | null;
   supersededEventHash: string | null;
-  supersessionScopeHash: string | null;
+  supersededEventScopeHash: string | null;
 }): CandidateAnalysisRunEventInput {
   return {
     id: event.id,
     runId: event.runId,
+    scopeHash: event.scopeHash,
     sequence: event.sequence,
     eventType: event.eventType,
     payload: event.payload as CandidateJsonValue | null,
     eventHash: event.eventHash,
     supersededEventId: event.supersededEventId,
     supersededEventHash: event.supersededEventHash,
-    supersessionScopeHash: event.supersessionScopeHash,
+    supersededEventScopeHash: event.supersededEventScopeHash,
   } as CandidateAnalysisRunEventInput;
 }
 
@@ -196,13 +203,14 @@ function eventData(input: CandidateAnalysisRunEventInput) {
   return {
     id: input.id,
     runId: input.runId,
+    scopeHash: candidateAnalysisRunScopeHash(input.runId),
     sequence: input.sequence,
     eventType: input.eventType,
     payload: toNullableJson(input.payload),
     eventHash: input.eventHash,
     supersededEventId: input.supersededEventId ?? null,
     supersededEventHash: input.supersededEventHash ?? null,
-    supersessionScopeHash: input.supersessionScopeHash ?? null,
+    supersededEventScopeHash: input.supersededEventScopeHash ?? null,
   };
 }
 
@@ -216,7 +224,7 @@ function nestedEventData(input: CandidateAnalysisRunEventInput) {
     eventHash: data.eventHash,
     supersededEventId: data.supersededEventId,
     supersededEventHash: data.supersededEventHash,
-    supersessionScopeHash: data.supersessionScopeHash,
+    supersededEventScopeHash: data.supersededEventScopeHash,
   };
 }
 
@@ -370,22 +378,26 @@ async function lockedEvents(
   await acquireCandidateWriterLock(transaction, "run", runId);
   const run = await transaction.candidateAnalysisRun.findUnique({
     where: { id: runId },
-    select: { id: true },
+    select: { id: true, scopeHash: true },
   });
   if (run === null) throw new Error("candidate_analysis_run_not_found");
+  if (run.scopeHash !== candidateAnalysisRunScopeHash(runId)) {
+    throw new CandidateAnalysisWriteConflict("integrity_mismatch");
+  }
   return transaction.candidateAnalysisRunEvent.findMany({
     where: { runId },
     orderBy: { sequence: "asc" },
     select: {
       id: true,
       runId: true,
+      scopeHash: true,
       sequence: true,
       eventType: true,
       payload: true,
       eventHash: true,
       supersededEventId: true,
       supersededEventHash: true,
-      supersessionScopeHash: true,
+      supersededEventScopeHash: true,
     },
   });
 }
@@ -606,7 +618,9 @@ async function appendRunEvent(
             prior === undefined ||
             !["candidate_completed", "partial_completed"].includes(prior.eventType) ||
             prior.id !== input.supersededEventId ||
-            prior.eventHash !== input.supersededEventHash
+            prior.eventHash !== input.supersededEventHash ||
+            prior.runId !== input.runId ||
+            prior.scopeHash !== input.supersededEventScopeHash
           ) {
             throw new CandidateAnalysisWriteConflict("supersession_conflict");
           }
@@ -836,6 +850,7 @@ export function createCandidateAnalysisWriter(
             await transaction.candidateAnalysisRun.create({
               data: {
                 id: input.id,
+                scopeHash: candidateAnalysisRunScopeHash(input.id),
                 workflowId: input.workflowId,
                 workflowVersion: input.workflowVersion,
                 workflowPath: input.workflowPath,
@@ -855,7 +870,10 @@ export function createCandidateAnalysisWriter(
                 workerId: input.workerId,
                 idempotencyKey: input.idempotencyKey,
                 attempt: input.attempt,
-                predecessorRunId: input.predecessorRunId,
+                predecessorRun:
+                  input.predecessorRunId === null
+                    ? undefined
+                    : { connect: { id: input.predecessorRunId } },
                 inputs: {
                   create: input.inputs.map(({ contentUnitId, position, inputHash }) => ({
                     contentUnitId,
@@ -863,7 +881,7 @@ export function createCandidateAnalysisWriter(
                     inputHash,
                   })),
                 },
-                events: { create: nestedEventData(input.initialEvent) },
+                eventsByScope: { create: nestedEventData(input.initialEvent) },
               },
             });
             return { runId: input.id, created: true as const };

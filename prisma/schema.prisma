@@ -395,6 +395,7 @@ model CandidateContentUnit {
 
 model CandidateAnalysisRun {
   id                String   @id @default(cuid())
+  scopeHash         String
   workflowId        String
   workflowVersion   String
   workflowPath      String
@@ -420,11 +421,12 @@ model CandidateAnalysisRun {
   predecessorRun          CandidateAnalysisRun?             @relation("CandidateRunPredecessor", fields: [predecessorRunId], references: [id], onDelete: Restrict, onUpdate: Restrict)
   successorRuns           CandidateAnalysisRun[]            @relation("CandidateRunPredecessor")
   inputs                  CandidateAnalysisRunInput[]
-  events                  CandidateAnalysisRunEvent[]
+  eventsByScope           CandidateAnalysisRunEvent[]
   artifacts               CandidateAnalysisArtifact[]
   assertions              CandidateAssertion[]
   reconciliationSnapshots CandidateReconciliationSnapshot[]
 
+  @@unique([id, scopeHash])
   @@index([workflowId, workflowVersion])
   @@index([createdAt])
 }
@@ -447,20 +449,21 @@ model CandidateAnalysisRunInput {
 model CandidateAnalysisRunEvent {
   id                    String                @id @default(cuid())
   runId                 String
+  scopeHash             String
   sequence              Int
   eventType             CandidateRunEventType
   payload               Json?
   eventHash             String
   supersededEventId     String?
   supersededEventHash   String?
-  supersessionScopeHash String?
+  supersededEventScopeHash String?
   recordedAt            DateTime              @default(now())
 
-  run                CandidateAnalysisRun        @relation(fields: [runId], references: [id], onDelete: Restrict, onUpdate: Restrict)
-  supersededEvent    CandidateAnalysisRunEvent?  @relation("CandidateRunEventSupersession", fields: [supersededEventId, supersededEventHash, runId], references: [id, eventHash, runId], onDelete: Restrict, onUpdate: Restrict, map: "CandidateRunEvent_supersession_hash_scope_fkey")
+  runByScope         CandidateAnalysisRun        @relation(fields: [runId, scopeHash], references: [id, scopeHash], onDelete: Restrict, onUpdate: Restrict, map: "CandidateRunEvent_run_scope_fkey")
+  supersededEvent    CandidateAnalysisRunEvent?  @relation("CandidateRunEventSupersession", fields: [supersededEventId, supersededEventHash, runId, supersededEventScopeHash], references: [id, eventHash, runId, scopeHash], onDelete: Restrict, onUpdate: Restrict, map: "CandidateRunEvent_supersession_hash_scope_fkey")
   supersedingEvents  CandidateAnalysisRunEvent[] @relation("CandidateRunEventSupersession")
 
-  @@unique([id, eventHash, runId])
+  @@unique([id, eventHash, runId, scopeHash])
   @@unique([runId, sequence])
   @@unique([runId, eventHash])
 }

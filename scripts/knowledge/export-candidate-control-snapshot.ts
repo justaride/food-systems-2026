@@ -326,7 +326,7 @@ export async function readCandidateControlSnapshotInput(
     ],
     runs: runs.map((run) => ({
       id: run.id,
-      events: run.events.map(
+      events: run.eventsByScope.map(
         (event): CandidateAnalysisRunEventInput =>
           ({
             ...event,
@@ -368,18 +368,19 @@ async function readDatabaseGraph(
         orderBy: { id: "asc" },
         select: {
           id: true,
-          events: {
+          eventsByScope: {
             orderBy: { sequence: "asc" },
             select: {
               id: true,
               runId: true,
+              scopeHash: true,
               sequence: true,
               eventType: true,
               payload: true,
               eventHash: true,
               supersededEventId: true,
               supersededEventHash: true,
-              supersessionScopeHash: true,
+              supersededEventScopeHash: true,
             },
           },
         },

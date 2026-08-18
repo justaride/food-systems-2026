@@ -181,6 +181,106 @@ test("run contract binds canonical workflow and prompt path version and file has
   }
 });
 
+test("run scope and ordinary event scope are derived from run identity", () => {
+  const fixture = candidateAnalysisFixture();
+  const derivedScope = candidateAnalysisRunScopeHash(fixture.run.id);
+
+  assert.equal(fixture.run.scopeHash, derivedScope);
+  assert.equal(fixture.events.queued.scopeHash, derivedScope);
+  assert.equal(fixture.events.started.scopeHash, derivedScope);
+  assert.doesNotThrow(() => CandidateAnalysisRunInputSchema.parse(fixture.run));
+  assert.doesNotThrow(() =>
+    CandidateAnalysisRunEventInputSchema.parse(fixture.events.started),
+  );
+
+  assert.throws(
+    () =>
+      CandidateAnalysisRunInputSchema.parse({
+        ...fixture.run,
+        scopeHash: "f".repeat(64),
+      }),
+    /candidate_run_scope_mismatch/,
+  );
+  const wrongEventScope = {
+    ...fixture.events.started,
+    scopeHash: "f".repeat(64),
+  };
+  assert.throws(
+    () =>
+      CandidateAnalysisRunEventInputSchema.parse({
+        ...wrongEventScope,
+        eventHash: candidateAnalysisRunEventHash(wrongEventScope),
+      }),
+    /candidate_event_scope_mismatch/,
+  );
+});
+
+test("supersession scope requires the complete prior event identity", () => {
+  const fixture = candidateAnalysisFixture();
+  const prior = fixture.events.completed;
+  const supersedingBase = {
+    id: "event:supersession:complete",
+    runId: fixture.run.id,
+    scopeHash: fixture.run.scopeHash,
+    sequence: prior.sequence + 1,
+    eventType: "superseded" as const,
+    payload: {
+      namespace: "candidate" as const,
+      kind: "run_supersession" as const,
+      data: { reason: "replacement" },
+    },
+    supersededEventId: prior.id,
+    supersededEventHash: prior.eventHash,
+    supersededEventScopeHash: prior.scopeHash,
+  };
+  const superseding = {
+    ...supersedingBase,
+    eventHash: candidateAnalysisRunEventHash(supersedingBase),
+  };
+
+  assert.doesNotThrow(() =>
+    CandidateAnalysisRunEventInputSchema.parse(superseding),
+  );
+  assert.equal(superseding.supersededEventScopeHash, prior.scopeHash);
+
+  for (const field of [
+    "supersededEventId",
+    "supersededEventHash",
+    "supersededEventScopeHash",
+  ] as const) {
+    const incomplete = { ...supersedingBase, [field]: undefined };
+    assert.throws(
+      () =>
+        CandidateAnalysisRunEventInputSchema.parse({
+          ...incomplete,
+          eventHash: candidateAnalysisRunEventHash(incomplete),
+        }),
+      /superseded_event_binding_required/,
+    );
+  }
+  const missingRun = { ...supersedingBase, runId: undefined };
+  assert.equal(
+    CandidateAnalysisRunEventInputSchema.safeParse({
+      ...missingRun,
+      eventHash: candidateAnalysisRunEventHash(missingRun as never),
+    }).success,
+    false,
+  );
+
+  const wrongPriorScope = {
+    ...supersedingBase,
+    supersededEventScopeHash: "f".repeat(64),
+  };
+  assert.throws(
+    () =>
+      CandidateAnalysisRunEventInputSchema.parse({
+        ...wrongPriorScope,
+        eventHash: candidateAnalysisRunEventHash(wrongPriorScope),
+      }),
+    /event_supersession_scope_mismatch/,
+  );
+});
+
 test("superseded is a discriminated event that cannot omit the prior hash binding", () => {
   const fixture = candidateAnalysisFixture();
   assert.throws(
@@ -197,7 +297,7 @@ test("superseded is a discriminated event that cannot omit the prior hash bindin
         },
         supersededEventId: undefined,
         supersededEventHash: undefined,
-        supersessionScopeHash: undefined,
+        supersededEventScopeHash: undefined,
       }),
     /superseded_event_binding_required/,
   );
@@ -225,6 +325,7 @@ test("complete and partial terminal events permit only an exact next-event super
     const superseded = seal({
       id: `event:${eventType}:superseded`,
       runId: fixture.run.id,
+      scopeHash: fixture.run.scopeHash,
       sequence: 4,
       eventType: "superseded",
       payload: {
@@ -234,7 +335,7 @@ test("complete and partial terminal events permit only an exact next-event super
       },
       supersededEventId: terminal.id,
       supersededEventHash: terminal.eventHash,
-      supersessionScopeHash: candidateAnalysisRunScopeHash(fixture.run.id),
+      supersededEventScopeHash: terminal.scopeHash,
     });
     const prefix = [fixture.events.queued, fixture.events.started, terminal];
 

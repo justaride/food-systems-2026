@@ -108,6 +108,7 @@ function candidateControlFixture(
               sealEvent({
                 id: "event:fixture:quarantined",
                 runId: candidate.run.id,
+                scopeHash: candidate.run.scopeHash,
                 sequence: 3,
                 eventType: "quarantined",
                 payload: {
@@ -125,7 +126,7 @@ function candidateControlFixture(
                 },
                 supersededEventId: null,
                 supersededEventHash: null,
-                supersessionScopeHash: null,
+                supersededEventScopeHash: null,
               }),
             ]
           : [
@@ -379,31 +380,35 @@ describe("candidate control snapshot", () => {
           INSERT INTO "DatabaseIdentity" ("key", "identityUuid")
           VALUES ('primary', '123e4567-e89b-42d3-a456-426614174000');
           INSERT INTO "CandidateAnalysisRun" (
-            "id", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+            "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
             "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
             "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
             "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
           ) VALUES (
-            'run-epoch', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${HASH_A}',
+            'run-epoch', '${HASH_D}', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${HASH_A}',
             'prompt.candidate_analysis.v1', '1.0.0', 'prompt.md', 'provider', 'model',
             'version', '${HASH_B}', '{}', '${HASH_C}', '${HASH_D}', 'epoch test',
             'candidate_only', 'worker:epoch', '${"e".repeat(64)}', 1
           );
           INSERT INTO "CandidateAnalysisRunEvent" (
-            "id", "runId", "sequence", "eventType", "payload", "eventHash"
-          ) VALUES ('event-epoch-1', 'run-epoch', 1, 'queued', NULL, '${HASH_A}');
+            "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash"
+          ) VALUES ('event-epoch-1', 'run-epoch', '${HASH_D}', 1, 'queued', NULL, '${HASH_A}');
           INSERT INTO "CandidateAssertion" (
             "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
             "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
             "scopeKey", "scopeHash"
           ) VALUES (
-            'assertion-epoch-1', 'run-epoch', 'claim', 'candidate-analysis-v1', '{}', '${HASH_A}',
+            'assertion-epoch-1', 'run-epoch', 'claim', 'candidate-analysis-v1', '{"namespace":"candidate","kind":"assertion","data":{"entries":[{"role":"proposition","valueType":"text","value":"epoch one"}]}}', '${HASH_A}',
             NULL, 'candidate_only', 'provisional', 'no_locator', ARRAY[]::text[],
             'scope:epoch', '${HASH_B}'
           );
           INSERT INTO "CandidateReconciliationSnapshot" (
             "id", "runId", "scope", "scopeHash", "payload", "payloadHash", "conflictCount"
-          ) VALUES ('reconciliation-epoch-1', 'run-epoch', '{}', '${HASH_A}', '{}', '${HASH_B}', 0);
+          ) VALUES (
+            'reconciliation-epoch-1', 'run-epoch', '{}', '${HASH_A}',
+            '{"namespace":"candidate","kind":"reconciliation","data":{"entries":[{"role":"contradiction","valueType":"flag","value":false}]}}',
+            '${HASH_B}', 0
+          );
         `);
         assert.equal(setup.status, 0, setup.stderr);
 
@@ -420,13 +425,17 @@ describe("candidate control snapshot", () => {
                   "scopeKey", "scopeHash", "supersededAssertionId",
                   "supersededAssertionPayloadHash"
                 ) VALUES (
-                  'assertion-epoch-2', 'run-epoch', 'claim', 'candidate-analysis-v1', '{}', '${HASH_C}',
+                  'assertion-epoch-2', 'run-epoch', 'claim', 'candidate-analysis-v1', '{"namespace":"candidate","kind":"assertion","data":{"entries":[{"role":"proposition","valueType":"text","value":"epoch two"}]}}', '${HASH_C}',
                   NULL, 'candidate_only', 'provisional', 'no_locator', ARRAY[]::text[],
                   'scope:epoch', '${HASH_B}', 'assertion-epoch-1', '${HASH_A}'
                 );
                 INSERT INTO "CandidateReconciliationSnapshot" (
                   "id", "runId", "scope", "scopeHash", "payload", "payloadHash", "conflictCount"
-                ) VALUES ('reconciliation-epoch-2', 'run-epoch', '{}', '${HASH_A}', '{}', '${HASH_C}', 1);
+                ) VALUES (
+                  'reconciliation-epoch-2', 'run-epoch', '{}', '${HASH_A}',
+                  '{"namespace":"candidate","kind":"reconciliation","data":{"entries":[{"role":"contradiction","valueType":"flag","value":true}]}}',
+                  '${HASH_C}', 1
+                );
               `);
               assert.equal(changed.status, 0, changed.stderr);
             },

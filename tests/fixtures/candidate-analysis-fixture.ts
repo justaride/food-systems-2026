@@ -15,6 +15,7 @@ import {
   candidateAnalysisOutputManifestHash,
   candidateAnalysisRunEventHash,
   candidateAnalysisRunIdempotencyKey,
+  candidateAnalysisRunScopeHash,
   type CandidateAnalysisArtifactInput,
   type CandidateAnalysisRunEventInput,
   type CandidateAnalysisRunInput,
@@ -63,6 +64,7 @@ export function candidateAnalysisFixture(
 } {
   const contentUnitId = overrides.contentUnitId ?? "content:fixture:1";
   const runId = overrides.runId ?? "run:fixture:1";
+  const runScopeHash = candidateAnalysisRunScopeHash(runId);
   const assertionId = overrides.assertionId ?? "assertion:fixture:1";
   const identityConfidence = overrides.identityConfidence ?? "provisional";
   const locator = "section:1";
@@ -89,6 +91,7 @@ export function candidateAnalysisFixture(
   const queued = sealEvent({
     id: `event:${runId}:1`,
     runId,
+    scopeHash: runScopeHash,
     sequence: 1,
     eventType: "queued",
     payload: {
@@ -100,7 +103,7 @@ export function candidateAnalysisFixture(
     },
     supersededEventId: null,
     supersededEventHash: null,
-    supersessionScopeHash: null,
+    supersededEventScopeHash: null,
   });
 
   const runBinding = {
@@ -124,6 +127,7 @@ export function candidateAnalysisFixture(
   };
   const run: CandidateAnalysisRunInput = {
     id: runId,
+    scopeHash: runScopeHash,
     ...runBinding,
     config,
     workerId: "worker:fixture:1",
@@ -250,6 +254,7 @@ export function candidateAnalysisFixture(
   const started = sealEvent({
     id: `event:${runId}:2`,
     runId,
+    scopeHash: runScopeHash,
     sequence: 2,
     eventType: "started",
     payload: {
@@ -267,11 +272,12 @@ export function candidateAnalysisFixture(
     },
     supersededEventId: null,
     supersededEventHash: null,
-    supersessionScopeHash: null,
+    supersededEventScopeHash: null,
   });
   const checkpoint1 = sealEvent({
     id: `event:${runId}:3`,
     runId,
+    scopeHash: runScopeHash,
     sequence: 3,
     eventType: "checkpoint",
     payload: {
@@ -285,11 +291,12 @@ export function candidateAnalysisFixture(
     },
     supersededEventId: null,
     supersededEventHash: null,
-    supersessionScopeHash: null,
+    supersededEventScopeHash: null,
   });
   const checkpoint2 = sealEvent({
     id: `event:${runId}:4`,
     runId,
+    scopeHash: runScopeHash,
     sequence: 4,
     eventType: "checkpoint",
     payload: {
@@ -303,11 +310,12 @@ export function candidateAnalysisFixture(
     },
     supersededEventId: null,
     supersededEventHash: null,
-    supersessionScopeHash: null,
+    supersededEventScopeHash: null,
   });
   const completed = sealEvent({
     id: `event:${runId}:5`,
     runId,
+    scopeHash: runScopeHash,
     sequence: 5,
     eventType: "candidate_completed",
     payload: {
@@ -320,7 +328,7 @@ export function candidateAnalysisFixture(
     },
     supersededEventId: null,
     supersededEventHash: null,
-    supersessionScopeHash: null,
+    supersededEventScopeHash: null,
   });
 
   return {

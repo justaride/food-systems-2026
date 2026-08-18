@@ -1278,7 +1278,7 @@ test(
 );
 
 test(
-  "complete and partial runs accept only an exact hash-bound terminal supersession",
+  "writer stores run and event scope and requires complete prior event identity for supersession",
   { timeout: 45_000 },
   async (t) => {
     for (const eventType of [
@@ -1291,6 +1291,22 @@ test(
           await seedContentUnit(prisma, fixture.contentUnit);
           const writer = createCandidateAnalysisWriter(prisma);
           await writer.createRun(fixture.run);
+          const storedRun = await prisma.candidateAnalysisRun.findUniqueOrThrow({
+            where: { id: fixture.run.id },
+            select: { scopeHash: true },
+          });
+          const storedQueued = await prisma.candidateAnalysisRunEvent.findUniqueOrThrow({
+            where: { id: fixture.events.queued.id },
+            select: { scopeHash: true, supersededEventScopeHash: true },
+          });
+          assert.equal(
+            storedRun.scopeHash,
+            candidateAnalysisRunScopeHash(fixture.run.id),
+          );
+          assert.deepEqual(storedQueued, {
+            scopeHash: storedRun.scopeHash,
+            supersededEventScopeHash: null,
+          });
           await writer.appendRunEvent(fixture.events.started);
           await writer.appendArtifact(fixture.artifact);
           await writer.appendAssertion(fixture.assertion);
@@ -1315,7 +1331,7 @@ test(
             },
             supersededEventId: terminal.id,
             supersededEventHash: terminal.eventHash,
-            supersessionScopeHash: candidateAnalysisRunScopeHash(fixture.run.id),
+            supersededEventScopeHash: terminal.scopeHash,
           });
           const wrongPrior = eventWith(supersession, {
             supersededEventHash: hash("f"),
@@ -1324,8 +1340,33 @@ test(
             writer.appendRunEvent(wrongPrior),
             (error: unknown) => hasWriteCode(error, "supersession_conflict"),
           );
+          const wrongPriorScope = eventWith(supersession, {
+            supersededEventScopeHash: hash("e"),
+          });
+          await assert.rejects(
+            writer.appendRunEvent(wrongPriorScope),
+            (error: unknown) => hasWriteCode(error, "supersession_conflict"),
+          );
           assert.equal(await prisma.candidateAnalysisRunEvent.count(), 3);
           assert.equal((await writer.appendRunEvent(supersession)).state, "superseded");
+          const storedSupersession =
+            await prisma.candidateAnalysisRunEvent.findUniqueOrThrow({
+              where: { id: supersession.id },
+              select: {
+                runId: true,
+                scopeHash: true,
+                supersededEventId: true,
+                supersededEventHash: true,
+                supersededEventScopeHash: true,
+              },
+            });
+          assert.deepEqual(storedSupersession, {
+            runId: fixture.run.id,
+            scopeHash: fixture.run.scopeHash,
+            supersededEventId: terminal.id,
+            supersededEventHash: terminal.eventHash,
+            supersededEventScopeHash: terminal.scopeHash,
+          });
         });
       });
     }

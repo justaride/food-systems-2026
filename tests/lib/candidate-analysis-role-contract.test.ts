@@ -912,12 +912,12 @@ test(
       const hash = "a".repeat(64);
       const seeded = psql(`
         INSERT INTO public."CandidateAnalysisRun" (
-          "id", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
           "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
           "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
           "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
         ) VALUES (
-          'disable-preservation-run', 'candidate-analysis', 'v1',
+          'disable-preservation-run', '${hash}', 'candidate-analysis', 'v1',
           'knowledge/corpus/workflows/candidate-analysis-v1.md', '${hash}',
           'candidate-analysis-prompt', 'v1',
           'knowledge/corpus/workflows/candidate-analysis-prompt-v1.md',
@@ -929,7 +929,9 @@ test(
           "id", "runId", "scope", "scopeHash", "payload", "payloadHash", "conflictCount"
         ) VALUES (
           'disable-preservation-snapshot', 'disable-preservation-run', '{}',
-          '${hash}', '{}', '${hash}', 0
+          '${hash}',
+          '{"namespace":"candidate","kind":"reconciliation","data":{"entries":[{"role":"contradiction","valueType":"flag","value":false}]}}',
+          '${hash}', 0
         );
       `);
       assert.equal(seeded.status, 0, seeded.stderr);

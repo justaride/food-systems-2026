@@ -48,10 +48,21 @@ test("models independent machine, review and target-specific promotion history",
     humanReview,
     /fields: \[supersededDecisionId, supersededDecisionHash, assertionId, reviewProfile, reviewProfileHash\], references: \[id, decisionHash, assertionId, reviewProfile, reviewProfileHash\]/,
   );
+  const run = modelBlock(schema, "CandidateAnalysisRun");
+  assert.match(run, /scopeHash\s+String/);
+  assert.match(run, /@@unique\(\[id, scopeHash\]\)/);
+  const runEvent = modelBlock(schema, "CandidateAnalysisRunEvent");
+  assert.match(runEvent, /scopeHash\s+String/);
+  assert.match(runEvent, /supersededEventScopeHash\s+String\?/);
   assert.match(
-    modelBlock(schema, "CandidateAnalysisRunEvent"),
-    /fields: \[supersededEventId, supersededEventHash, runId\], references: \[id, eventHash, runId\]/,
+    runEvent,
+    /fields: \[runId, scopeHash\], references: \[id, scopeHash\].*map: "CandidateRunEvent_run_scope_fkey"/,
   );
+  assert.match(
+    runEvent,
+    /fields: \[supersededEventId, supersededEventHash, runId, supersededEventScopeHash\], references: \[id, eventHash, runId, scopeHash\]/,
+  );
+  assert.match(runEvent, /@@unique\(\[id, eventHash, runId, scopeHash\]\)/);
   assert.match(
     modelBlock(schema, "CandidateAssertion"),
     /fields: \[supersededAssertionId, supersededAssertionPayloadHash, scopeHash\], references: \[id, payloadHash, scopeHash\]/,
@@ -71,7 +82,143 @@ test("migration makes every candidate history table immutable and private from P
   assert.equal((sql.match(/reject_update_delete/g) ?? []).length, 11);
   assert.equal((sql.match(/reject_truncate/g) ?? []).length, 11);
   assert.equal((sql.match(/REVOKE ALL PRIVILEGES ON TABLE/g) ?? []).length, 11);
+  assert.match(
+    sql,
+    /CREATE FUNCTION public\.reject_invalid_candidate_machine_payload\(\)/,
+  );
+  assert.equal(
+    (sql.match(/reject_invalid_machine_payload" BEFORE INSERT/g) ?? []).length,
+    4,
+  );
 });
+
+test(
+  "database rejects direct SQL machine payload bypasses on all four surfaces",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ psql }) => {
+      const hash = (character: string) => character.repeat(64);
+      const hasRunScope =
+        psql(`
+          SELECT EXISTS (
+            SELECT 1 FROM information_schema.columns
+            WHERE table_schema = 'public'
+              AND table_name = 'CandidateAnalysisRun'
+              AND column_name = 'scopeHash'
+          )
+        `).stdout.trim() === "t";
+      const runScope = hash("6");
+      const runScopeColumn = hasRunScope ? ', "scopeHash"' : "";
+      const runScopeValue = hasRunScope ? `, '${runScope}'` : "";
+      const setup = psql(`
+        INSERT INTO "CandidateAnalysisRun" (
+          "id", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+          "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+          ${runScopeColumn}
+        ) VALUES (
+          'run-payload-guard', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${hash("0")}',
+          'prompt.candidate_analysis.v1', '1.0.0', 'prompt.md', 'provider', 'model',
+          'version', '${hash("1")}', '{}', '${hash("2")}', '${hash("3")}',
+          'payload guard', 'candidate_only', 'worker:payload', '${hash("4")}', 1
+          ${runScopeValue}
+        )
+      `);
+      assert.equal(setup.status, 0, setup.stderr);
+
+      const invalidPayloads = [
+        {
+          name: "artifact lifecycle",
+          sql: `
+            INSERT INTO "CandidateAnalysisArtifact" (
+              "id", "runId", "artifactType", "schemaVersion", "payload", "payloadHash"
+            ) VALUES (
+              'artifact-payload-guard', 'run-payload-guard', 'summary',
+              'candidate-analysis-v1',
+              '{"namespace":"candidate","kind":"artifact","data":{"lifecycle":"published"}}',
+              '${hash("7")}'
+            )
+          `,
+        },
+        {
+          name: "assertion verdict",
+          sql: `
+            INSERT INTO "CandidateAssertion" (
+              "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
+              "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
+              "scopeKey", "scopeHash"
+            ) VALUES (
+              'assertion-payload-guard', 'run-payload-guard', 'claim',
+              'candidate-analysis-v1',
+              '{"namespace":"candidate","kind":"assertion","data":{"verdict":"approved"}}',
+              '${hash("8")}', NULL, 'candidate_only', 'provisional', 'no_locator',
+              ARRAY[]::text[], 'scope:payload', '${hash("9")}'
+            )
+          `,
+        },
+        {
+          name: "run-event disposition",
+          sql: `
+            INSERT INTO "CandidateAnalysisRunEvent" (
+              "id", "runId", "sequence", "eventType", "payload", "eventHash"
+              ${hasRunScope ? ', "scopeHash"' : ""}
+            ) VALUES (
+              'event-payload-guard', 'run-payload-guard', 1, 'queued',
+              '{"namespace":"candidate","kind":"run_event","data":{"disposition":"canonical"}}',
+              '${hash("a")}' ${hasRunScope ? `, '${runScope}'` : ""}
+            )
+          `,
+        },
+        {
+          name: "completed event with ordinary envelope",
+          sql: `
+            INSERT INTO "CandidateAnalysisRunEvent" (
+              "id", "runId", "sequence", "eventType", "payload", "eventHash"
+              ${hasRunScope ? ', "scopeHash"' : ""}
+            ) VALUES (
+              'event-terminal-payload-guard', 'run-payload-guard', 2,
+              'candidate_completed',
+              '{"namespace":"candidate","kind":"run_event","data":{"entries":[{"role":"summary","valueType":"text","value":"not a manifest"}]}}',
+              '${hash("d")}' ${hasRunScope ? `, '${runScope}'` : ""}
+            )
+          `,
+        },
+        {
+          name: "superseded event with ordinary envelope",
+          sql: `
+            INSERT INTO "CandidateAnalysisRunEvent" (
+              "id", "runId", "sequence", "eventType", "payload", "eventHash"
+              ${hasRunScope ? ', "scopeHash"' : ""}
+            ) VALUES (
+              'event-supersession-payload-guard', 'run-payload-guard', 3,
+              'superseded',
+              '{"namespace":"candidate","kind":"run_event","data":{"entries":[{"role":"reason","valueType":"text","value":"not a supersession"}]}}',
+              '${hash("e")}' ${hasRunScope ? `, '${runScope}'` : ""}
+            )
+          `,
+        },
+        {
+          name: "reconciliation release",
+          sql: `
+            INSERT INTO "CandidateReconciliationSnapshot" (
+              "id", "runId", "scope", "scopeHash", "payload", "payloadHash", "conflictCount"
+            ) VALUES (
+              'snapshot-payload-guard', 'run-payload-guard', '{}', '${hash("b")}',
+              '{"namespace":"candidate","kind":"reconciliation","data":{"release":"external_ready"}}',
+              '${hash("c")}', 0
+            )
+          `,
+        },
+      ];
+      for (const invalid of invalidPayloads) {
+        const result = psql(invalid.sql);
+        assert.notEqual(result.status, 0, `${invalid.name} unexpectedly succeeded`);
+        assert.match(result.stderr, /invalid candidate machine payload/);
+      }
+    });
+  },
+);
 
 test(
   "candidate history remains append-only and rejects invalid provenance data in PostgreSQL",
@@ -87,7 +234,7 @@ test(
           "identityConfidence", "createdAt",
         ],
         CandidateAnalysisRun: [
-          "id", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
           "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
           "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
           "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt",
@@ -97,8 +244,8 @@ test(
           "id", "runId", "contentUnitId", "position", "inputHash", "createdAt",
         ],
         CandidateAnalysisRunEvent: [
-          "id", "runId", "sequence", "eventType", "payload", "eventHash",
-          "supersededEventId", "supersededEventHash", "supersessionScopeHash", "recordedAt",
+          "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash",
+          "supersededEventId", "supersededEventHash", "supersededEventScopeHash", "recordedAt",
         ],
         CandidateAnalysisArtifact: [
           "id", "runId", "artifactType", "schemaVersion", "payload", "payloadHash", "createdAt",
@@ -152,12 +299,12 @@ test(
           0, 'page:1', '${hash("b")}', '${hash("c")}', 'exact'
         );
         INSERT INTO "CandidateAnalysisRun" (
-          "id", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
           "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
           "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
           "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
         ) VALUES (
-          'run-1', 'workflow.candidate_analysis.v1', '1.0.0',
+          'run-1', '${hash("b")}', 'workflow.candidate_analysis.v1', '1.0.0',
           'knowledge/corpus/workflows/candidate-analysis-v1.md', '${hash("d")}',
           'prompt.candidate_analysis.v1', '1.0.0',
           'knowledge/corpus/workflows/candidate-analysis-prompt-v1.md',
@@ -169,19 +316,27 @@ test(
           "id", "runId", "contentUnitId", "position", "inputHash"
         ) VALUES ('input-1', 'run-1', 'unit-1', 0, '${hash("1")}');
         INSERT INTO "CandidateAnalysisRunEvent" (
-          "id", "runId", "sequence", "eventType", "payload", "eventHash"
-        ) VALUES ('event-1', 'run-1', 1, 'queued', '{}', '${hash("2")}');
+          "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash"
+        ) VALUES (
+          'event-1', 'run-1', '${hash("b")}', 1, 'queued',
+          '{"namespace":"candidate","kind":"run_event","data":{"entries":[{"role":"reason","valueType":"text","value":"queued"}]}}',
+          '${hash("2")}'
+        );
         INSERT INTO "CandidateAnalysisArtifact" (
           "id", "runId", "artifactType", "schemaVersion", "payload", "payloadHash"
-        ) VALUES ('artifact-1', 'run-1', 'analysis', 'candidate-analysis-v1', '{}', '${hash("3")}');
+        ) VALUES (
+          'artifact-1', 'run-1', 'analysis', 'candidate-analysis-v1',
+          '{"namespace":"candidate","kind":"artifact","data":{"entries":[{"role":"summary","valueType":"text","value":"analysis"}]}}',
+          '${hash("3")}'
+        );
         INSERT INTO "CandidateAssertion" (
           "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
           "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
           "scopeKey", "scopeHash"
         ) VALUES
-          ('assertion-1', 'run-1', 'claim', 'candidate-analysis-v1', '{"claim":"one"}', '${hash("4")}',
+          ('assertion-1', 'run-1', 'claim', 'candidate-analysis-v1', '{"namespace":"candidate","kind":"assertion","data":{"entries":[{"role":"proposition","valueType":"text","value":"one"}]}}', '${hash("4")}',
            0.75, 'candidate_only', 'exact', 'exact_locator', ARRAY[]::text[], 'claim:one', '${hash("e")}'),
-          ('assertion-2', 'run-1', 'gap', 'candidate-analysis-v1', '{"gap":"two"}', '${hash("5")}',
+          ('assertion-2', 'run-1', 'gap', 'candidate-analysis-v1', '{"namespace":"candidate","kind":"assertion","data":{"entries":[{"role":"gap","valueType":"text","value":"two"}]}}', '${hash("5")}',
            NULL, 'quarantined', 'provisional', 'partial_locator', ARRAY['needs review'], 'gap:two', '${hash("f")}');
         INSERT INTO "CandidateEvidenceLink" (
           "id", "assertionId", "contentUnitId", "relation", "locator", "locatorHash", "excerptHash"
@@ -191,7 +346,11 @@ test(
         ) VALUES ('dependency-1', 'assertion-2', 'assertion-1', 'derived_from', ARRAY['needs review']);
         INSERT INTO "CandidateReconciliationSnapshot" (
           "id", "runId", "scope", "scopeHash", "payload", "payloadHash", "conflictCount"
-        ) VALUES ('snapshot-1', 'run-1', '{}', '${hash("8")}', '{}', '${hash("9")}', 0);
+        ) VALUES (
+          'snapshot-1', 'run-1', '{}', '${hash("8")}',
+          '{"namespace":"candidate","kind":"reconciliation","data":{"entries":[{"role":"contradiction","valueType":"flag","value":false}]}}',
+          '${hash("9")}', 0
+        );
         INSERT INTO "CandidateHumanReviewDecision" (
           "id", "assertionId", "decision", "reviewProfile", "reviewProfileHash",
           "reviewer", "authority", "assertionPayloadHash", "sourceContentSetHash",
@@ -370,6 +529,13 @@ test(
           }),
         },
         {
+          name: "run scope hash",
+          constraint: "CandidateAnalysisRun_scopeHash_check",
+          sql: copyInsert("CandidateAnalysisRun", "run-1", {
+            id: "'invalid-run-scope'", idempotencyKey: `'${hash("7")}'`, scopeHash: uppercaseHash,
+          }),
+        },
+        {
           name: "run prompt hash",
           constraint: "CandidateAnalysisRun_promptHash_check",
           sql: copyInsert("CandidateAnalysisRun", "run-1", {
@@ -424,6 +590,24 @@ test(
           constraint: "CandidateAnalysisRunInput_inputHash_check",
           sql: copyInsert("CandidateAnalysisRunInput", "input-1", {
             id: "'invalid-input-hash'", position: "20", inputHash: uppercaseHash,
+          }),
+        },
+        {
+          name: "run-event scope hash",
+          constraint: "CandidateAnalysisRunEvent_scopeHash_check",
+          sql: copyInsert("CandidateAnalysisRunEvent", "event-1", {
+            id: "'invalid-event-scope-hash'", sequence: "18", eventHash: `'${hash("6")}'`,
+            scopeHash: uppercaseHash,
+          }),
+        },
+        {
+          name: "run-event superseded scope hash",
+          constraint: "CandidateAnalysisRunEvent_supersededEventScopeHash_check",
+          sql: copyInsert("CandidateAnalysisRunEvent", "event-1", {
+            id: "'invalid-prior-event-scope-hash'", sequence: "19", eventType: "'superseded'",
+            payload: `'${JSON.stringify({ namespace: "candidate", kind: "run_supersession", data: { reason: "replacement" } })}'::jsonb`,
+            eventHash: `'${hash("7")}'`, supersededEventId: "'event-1'",
+            supersededEventHash: `'${hash("2")}'`, supersededEventScopeHash: uppercaseHash,
           }),
         },
         {
@@ -596,6 +780,20 @@ test(
         );
       }
 
+      const wrongOrdinaryEventScope = psql(
+        copyInsert("CandidateAnalysisRunEvent", "event-1", {
+          id: "'invalid-event-relational-scope'",
+          sequence: "21",
+          eventHash: `'${hash("8")}'`,
+          scopeHash: `'${hash("f")}'`,
+        }),
+      );
+      assert.notEqual(wrongOrdinaryEventScope.status, 0);
+      assert.match(
+        wrongOrdinaryEventScope.stderr,
+        /CandidateRunEvent_run_scope_fkey/,
+      );
+
       const deliberatePublicLeak = psql(
         `GRANT SELECT ON TABLE "CandidateContentUnit" TO PUBLIC`,
       );
@@ -659,7 +857,10 @@ test(
         FROM information_schema.routine_privileges
         WHERE grantee = 'PUBLIC'
           AND routine_schema = 'public'
-          AND routine_name = 'reject_candidate_history_change'
+          AND routine_name IN (
+            'reject_candidate_history_change',
+            'reject_invalid_candidate_machine_payload'
+          )
       `);
       assert.equal(publicRoutineGrants.status, 0, publicRoutineGrants.stderr);
       assert.equal(publicRoutineGrants.stdout.trim(), "");
@@ -675,25 +876,25 @@ test(
       const hash = (character: string) => character.repeat(64);
       const setup = psql(`
         INSERT INTO "CandidateAnalysisRun" (
-          "id", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
           "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
           "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
           "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
         ) VALUES (
-          'run-self', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${hash("0")}',
+          'run-self', '${hash("3")}', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${hash("0")}',
           'prompt.candidate_analysis.v1', '1.0.0', 'prompt.md', 'provider', 'model',
           'version', '${hash("1")}', '{}', '${hash("2")}', '${hash("3")}',
           'self test', 'candidate_only', 'worker:self', '${hash("b")}', 1
         );
         INSERT INTO "CandidateAnalysisRunEvent" (
-          "id", "runId", "sequence", "eventType", "payload", "eventHash"
-        ) VALUES ('event-parent', 'run-self', 1, 'queued', '{}', '${hash("9")}');
+          "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash"
+        ) VALUES ('event-parent', 'run-self', '${hash("3")}', 1, 'queued', NULL, '${hash("9")}');
         INSERT INTO "CandidateAssertion" (
           "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
           "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
           "scopeKey", "scopeHash"
         ) VALUES (
-          'assertion-parent', 'run-self', 'claim', 'candidate-analysis-v1', '{}', '${hash("4")}',
+          'assertion-parent', 'run-self', 'claim', 'candidate-analysis-v1', '{"namespace":"candidate","kind":"assertion","data":{"entries":[{"role":"proposition","valueType":"text","value":"parent"}]}}', '${hash("4")}',
           NULL, 'candidate_only', 'provisional', 'no_locator', ARRAY[]::text[],
           'scope:self', '${hash("a")}'
         );
@@ -723,10 +924,11 @@ test(
       const results = [
         psql(`
           INSERT INTO "CandidateAnalysisRunEvent" (
-            "id", "runId", "sequence", "eventType", "payload", "eventHash",
-            "supersededEventId", "supersededEventHash", "supersessionScopeHash"
+            "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash",
+            "supersededEventId", "supersededEventHash", "supersededEventScopeHash"
           ) VALUES (
-            'event-self', 'run-self', 2, 'superseded', '{}', '${hash("2")}',
+            'event-self', 'run-self', '${hash("3")}', 2, 'superseded',
+            '{"namespace":"candidate","kind":"run_supersession","data":{"reason":"self"}}', '${hash("2")}',
             'event-self', '${hash("2")}', '${hash("3")}'
           )
         `),
@@ -736,7 +938,7 @@ test(
             "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
             "scopeKey", "scopeHash", "supersededAssertionId", "supersededAssertionPayloadHash"
           ) VALUES (
-            'assertion-self', 'run-self', 'claim', 'candidate-analysis-v1', '{}', '${hash("a")}',
+            'assertion-self', 'run-self', 'claim', 'candidate-analysis-v1', '{"namespace":"candidate","kind":"assertion","data":{"entries":[{"role":"proposition","valueType":"text","value":"self"}]}}', '${hash("a")}',
             NULL, 'candidate_only', 'provisional', 'no_locator', ARRAY[]::text[],
             'scope:self', '${hash("a")}', 'assertion-self', '${hash("a")}'
           )
@@ -787,25 +989,25 @@ test(
       const hash = (character: string) => character.repeat(64);
       const setup = psql(`
         INSERT INTO "CandidateAnalysisRun" (
-          "id", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
           "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
           "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
           "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
         ) VALUES (
-          'run-bind', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${hash("0")}',
+          'run-bind', '${hash("3")}', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${hash("0")}',
           'prompt.candidate_analysis.v1', '1.0.0', 'prompt.md', 'provider', 'model',
           'version', '${hash("1")}', '{}', '${hash("2")}', '${hash("3")}',
           'binding test', 'candidate_only', 'worker:bind', '${hash("c")}', 1
         );
         INSERT INTO "CandidateAnalysisRunEvent" (
-          "id", "runId", "sequence", "eventType", "payload", "eventHash"
-        ) VALUES ('event-bind-parent', 'run-bind', 1, 'queued', '{}', '${hash("4")}');
+          "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash"
+        ) VALUES ('event-bind-parent', 'run-bind', '${hash("3")}', 1, 'queued', NULL, '${hash("4")}');
         INSERT INTO "CandidateAssertion" (
           "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
           "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
           "scopeKey", "scopeHash"
         ) VALUES (
-          'assertion-bind-parent', 'run-bind', 'claim', 'candidate-analysis-v1', '{}', '${hash("5")}',
+          'assertion-bind-parent', 'run-bind', 'claim', 'candidate-analysis-v1', '{"namespace":"candidate","kind":"assertion","data":{"entries":[{"role":"proposition","valueType":"text","value":"parent"}]}}', '${hash("5")}',
           NULL, 'candidate_only', 'provisional', 'no_locator', ARRAY[]::text[],
           'scope:bind', '${hash("6")}'
         );
@@ -837,10 +1039,11 @@ test(
           constraint: "CandidateRunEvent_supersession_hash_scope_fkey",
           sql: `
             INSERT INTO "CandidateAnalysisRunEvent" (
-              "id", "runId", "sequence", "eventType", "payload", "eventHash",
-              "supersededEventId", "supersededEventHash", "supersessionScopeHash"
+              "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash",
+              "supersededEventId", "supersededEventHash", "supersededEventScopeHash"
             ) VALUES (
-              'event-bind-child', 'run-bind', 2, 'superseded', '{}', '${hash("1")}',
+              'event-bind-child', 'run-bind', '${hash("3")}', 2, 'superseded',
+              '{"namespace":"candidate","kind":"run_supersession","data":{"reason":"replacement"}}', '${hash("1")}',
               'event-bind-parent', '${hash("2")}', '${hash("3")}'
             )
           `,
@@ -853,7 +1056,7 @@ test(
               "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
               "scopeKey", "scopeHash", "supersededAssertionId", "supersededAssertionPayloadHash"
             ) VALUES (
-              'assertion-bind-child', 'run-bind', 'claim', 'candidate-analysis-v1', '{}', '${hash("7")}',
+              'assertion-bind-child', 'run-bind', 'claim', 'candidate-analysis-v1', '{"namespace":"candidate","kind":"assertion","data":{"entries":[{"role":"proposition","valueType":"text","value":"child"}]}}', '${hash("7")}',
               NULL, 'candidate_only', 'provisional', 'no_locator', ARRAY[]::text[],
               'scope:bind', '${hash("6")}', 'assertion-bind-parent', '${hash("8")}'
             )
@@ -898,6 +1101,66 @@ test(
         assert.notEqual(result.status, 0);
         assert.match(result.stderr, new RegExp(mismatch.constraint));
       }
+    });
+  },
+);
+
+test(
+  "database supersession scope foreign key binds the complete prior event identity",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ psql }) => {
+      const hash = (character: string) => character.repeat(64);
+      const runScope = hash("6");
+      const setup = psql(`
+        INSERT INTO "CandidateAnalysisRun" (
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+          "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+        ) VALUES (
+          'run-event-scope', '${runScope}', 'workflow.candidate_analysis.v1', '1.0.0',
+          'workflow.md', '${hash("0")}', 'prompt.candidate_analysis.v1', '1.0.0',
+          'prompt.md', 'provider', 'model', 'version', '${hash("1")}', '{}',
+          '${hash("2")}', '${hash("3")}', 'event scope', 'candidate_only',
+          'worker:event-scope', '${hash("4")}', 1
+        );
+        INSERT INTO "CandidateAnalysisRunEvent" (
+          "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash",
+          "supersededEventId", "supersededEventHash", "supersededEventScopeHash"
+        ) VALUES (
+          'event-scope-prior', 'run-event-scope', '${runScope}', 1, 'candidate_completed',
+          '{"namespace":"candidate","kind":"run_terminal","data":{"manifest":{"schemaVersion":"candidate-output-manifest-v1","inputs":[],"artifacts":[],"assertions":[],"evidenceLinks":[],"dependencies":[],"reconciliationSnapshots":[]},"manifestHash":"${hash("5")}"}}',
+          '${hash("7")}', NULL, NULL, NULL
+        )
+      `);
+      assert.equal(setup.status, 0, setup.stderr);
+
+      const removeOverlappingCheck = psql(`
+        ALTER TABLE "CandidateAnalysisRunEvent"
+        DROP CONSTRAINT "CandidateAnalysisRunEvent_supersession_binding_check"
+      `);
+      assert.equal(
+        removeOverlappingCheck.status,
+        0,
+        removeOverlappingCheck.stderr,
+      );
+
+      const rejected = psql(`
+        INSERT INTO "CandidateAnalysisRunEvent" (
+          "id", "runId", "scopeHash", "sequence", "eventType", "payload", "eventHash",
+          "supersededEventId", "supersededEventHash", "supersededEventScopeHash"
+        ) VALUES (
+          'event-scope-child', 'run-event-scope', '${runScope}', 2, 'superseded',
+          '{"namespace":"candidate","kind":"run_supersession","data":{"reason":"replacement"}}',
+          '${hash("8")}', 'event-scope-prior', '${hash("7")}', '${hash("9")}'
+        )
+      `);
+      assert.notEqual(rejected.status, 0, "false prior scope unexpectedly inserted");
+      assert.match(
+        rejected.stderr,
+        /CandidateRunEvent_supersession_hash_scope_fkey/,
+      );
     });
   },
 );

@@ -383,6 +383,7 @@ export const CandidateAnalysisRunContentInputSchema = z
 const runEventBaseFields = {
   id: identifierSchema,
   runId: identifierSchema,
+  scopeHash: hashSchema,
   sequence: z.number().int().positive(),
   eventHash: hashSchema,
 };
@@ -401,7 +402,7 @@ const CandidateOrdinaryRunEventInputSchema = z
     payload: CandidateRunEventPayloadSchema.nullable(),
     supersededEventId: z.null().optional().default(null),
     supersededEventHash: z.null().optional().default(null),
-    supersessionScopeHash: z.null().optional().default(null),
+    supersededEventScopeHash: z.null().optional().default(null),
   })
   .strict();
 
@@ -412,7 +413,7 @@ const CandidateCompletedRunEventInputSchema = z
     payload: CandidateRunTerminalPayloadSchema,
     supersededEventId: z.null().optional().default(null),
     supersededEventHash: z.null().optional().default(null),
-    supersessionScopeHash: z.null().optional().default(null),
+    supersededEventScopeHash: z.null().optional().default(null),
   })
   .strict();
 
@@ -423,14 +424,14 @@ const CandidateSupersededRunEventInputSchema = z
     payload: CandidateRunSupersessionPayloadSchema,
     supersededEventId: identifierSchema.optional(),
     supersededEventHash: hashSchema.optional(),
-    supersessionScopeHash: hashSchema.optional(),
+    supersededEventScopeHash: hashSchema.optional(),
   })
   .strict()
   .superRefine((event, ctx) => {
     if (
       event.supersededEventId === undefined ||
       event.supersededEventHash === undefined ||
-      event.supersessionScopeHash === undefined
+      event.supersededEventScopeHash === undefined
     ) {
       ctx.addIssue({
         code: "custom",
@@ -441,7 +442,7 @@ const CandidateSupersededRunEventInputSchema = z
     if (event.id === event.supersededEventId) {
       ctx.addIssue({ code: "custom", message: "event_self_supersession" });
     }
-    if (event.supersessionScopeHash !== candidateAnalysisRunScopeHash(event.runId)) {
+    if (event.supersededEventScopeHash !== event.scopeHash) {
       ctx.addIssue({ code: "custom", message: "event_supersession_scope_mismatch" });
     }
   });
@@ -453,6 +454,9 @@ export const CandidateAnalysisRunEventInputSchema = z
     CandidateSupersededRunEventInputSchema,
   ])
   .superRefine((event, ctx) => {
+    if (event.scopeHash !== candidateAnalysisRunScopeHash(event.runId)) {
+      ctx.addIssue({ code: "custom", message: "candidate_event_scope_mismatch" });
+    }
     if (event.eventHash !== candidateAnalysisRunEventHash(event)) {
       ctx.addIssue({ code: "custom", message: "candidate_event_hash_mismatch" });
     }
@@ -461,6 +465,7 @@ export const CandidateAnalysisRunEventInputSchema = z
 export const CandidateAnalysisRunInputSchema = z
   .object({
     id: identifierSchema,
+    scopeHash: hashSchema,
     workflowId: identifierSchema,
     workflowVersion: nonEmptyTextSchema,
     workflowPath: nonEmptyTextSchema,
@@ -486,6 +491,9 @@ export const CandidateAnalysisRunInputSchema = z
   })
   .strict()
   .superRefine((run, ctx) => {
+    if (run.scopeHash !== candidateAnalysisRunScopeHash(run.id)) {
+      ctx.addIssue({ code: "custom", message: "candidate_run_scope_mismatch" });
+    }
     if (
       run.workflowId !== CANDIDATE_WORKFLOW_BINDING.id ||
       run.workflowVersion !== CANDIDATE_WORKFLOW_BINDING.version ||
@@ -763,22 +771,24 @@ export function candidateAnalysisRunScopeHash(runId: string): string {
 export function candidateAnalysisRunEventHash(event: {
   id: string;
   runId: string;
+  scopeHash: string;
   sequence: number;
   eventType: CandidateRunEventType;
   payload: CandidateJsonValue | null;
   supersededEventId?: string | null;
   supersededEventHash?: string | null;
-  supersessionScopeHash?: string | null;
+  supersededEventScopeHash?: string | null;
 }): string {
   return candidateAnalysisSha256("run-event", {
     id: event.id,
     runId: event.runId,
+    scopeHash: event.scopeHash,
     sequence: event.sequence,
     eventType: event.eventType,
     payload: event.payload,
     supersededEventId: event.supersededEventId ?? null,
     supersededEventHash: event.supersededEventHash ?? null,
-    supersessionScopeHash: event.supersessionScopeHash ?? null,
+    supersededEventScopeHash: event.supersededEventScopeHash ?? null,
   });
 }
 
@@ -942,7 +952,8 @@ export function deriveCandidateAnalysisMachineState(
         prior === undefined ||
         event.supersededEventId !== prior.id ||
         event.supersededEventHash !== prior.eventHash ||
-        event.runId !== prior.runId
+        event.runId !== prior.runId ||
+        event.supersededEventScopeHash !== prior.scopeHash
       ) {
         throw new CandidateAnalysisContractError("invalid_event_supersession");
       }
