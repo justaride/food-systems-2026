@@ -15,9 +15,9 @@ Optional environment:
   CANDIDATE_RECONCILER_DB_ROLE       Default: foodsystems_candidate_reconciler
   CANDIDATE_DB_SCHEMA                Default: public
 
-This command preserves every row and every table. Re-enable writes only by
-rerunning bootstrap-candidate-analysis-roles.sh --apply and verifying both
-dedicated role URLs with verify-candidate-analysis-roles.sh.
+This command preserves every row and every table. Recovery requires bootstrap
+grants, enable-candidate-analysis-logins.sh with existing dedicated credentials,
+then worker verification and reconciler verification.
 EOF
 }
 
@@ -52,15 +52,7 @@ esac
 command -v psql >/dev/null 2>&1 || fail 'psql is required'
 command -v node >/dev/null 2>&1 || fail 'node is required to normalize the connection URL'
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-for pg_name in PGHOST PGHOSTADDR PGPORT PGDATABASE PGUSER PGPASSWORD PGPASSFILE \
-  PGSERVICE PGSERVICEFILE PGOPTIONS PGAPPNAME PGSSLMODE PGREQUIRESSL \
-  PGSSLCOMPRESSION PGSSLCERT PGSSLKEY PGSSLROOTCERT PGSSLCRL PGSSLCRLDIR \
-  PGSSLSNI PGREQUIREAUTH PGCHANNELBINDING PGGSSENCMODE PGGSSLIB PGKRBSRVNAME \
-  PGREQUIREPEER PGSSLMINPROTOCOLVERSION PGSSLMAXPROTOCOLVERSION \
-  PGCONNECT_TIMEOUT PGTARGETSESSIONATTRS PGLOADBALANCEHOSTS; do
-  eval "pg_value=\${$pg_name-}"
-  [ -z "$pg_value" ] || fail "$pg_name is not permitted for candidate role administration"
-done
+node "$SCRIPT_DIR/reject-ambient-candidate-libpq-env.mjs" candidate-role-disable
 
 connection_dir=$(mktemp -d "${TMPDIR:-/tmp}/foodsystems-candidate-disable.XXXXXX")
 cleanup_connection() {
@@ -156,4 +148,4 @@ WHERE activity.usename IN (:'worker_role', :'reconciler_role')
 SQL
 
 printf '%s\n' '[candidate-disable] candidate writes disabled; no rows were deleted'
-printf '%s\n' '[candidate-disable] re-enable only with explicit bootstrap plus worker and reconciler verification'
+printf '%s\n' '[candidate-disable] recover only via bootstrap grants, existing-credential enable, worker verify, reconciler verify'

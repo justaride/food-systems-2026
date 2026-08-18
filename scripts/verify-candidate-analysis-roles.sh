@@ -70,15 +70,7 @@ esac
 command -v psql >/dev/null 2>&1 || fail 'psql is required'
 command -v node >/dev/null 2>&1 || fail 'node is required to normalize the connection URL'
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-for pg_name in PGHOST PGHOSTADDR PGPORT PGDATABASE PGUSER PGPASSWORD PGPASSFILE \
-  PGSERVICE PGSERVICEFILE PGOPTIONS PGAPPNAME PGSSLMODE PGREQUIRESSL \
-  PGSSLCOMPRESSION PGSSLCERT PGSSLKEY PGSSLROOTCERT PGSSLCRL PGSSLCRLDIR \
-  PGSSLSNI PGREQUIREAUTH PGCHANNELBINDING PGGSSENCMODE PGGSSLIB PGKRBSRVNAME \
-  PGREQUIREPEER PGSSLMINPROTOCOLVERSION PGSSLMAXPROTOCOLVERSION \
-  PGCONNECT_TIMEOUT PGTARGETSESSIONATTRS PGLOADBALANCEHOSTS; do
-  eval "pg_value=\${$pg_name-}"
-  [ -z "$pg_value" ] || fail "$pg_name is not permitted for candidate role verification"
-done
+node "$SCRIPT_DIR/reject-ambient-candidate-libpq-env.mjs" candidate-role-verification
 
 connection_dir=$(mktemp -d "${TMPDIR:-/tmp}/foodsystems-candidate-verify.XXXXXX")
 cleanup_connection() {

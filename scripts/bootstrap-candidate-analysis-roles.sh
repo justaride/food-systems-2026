@@ -18,9 +18,10 @@ Optional environment:
   CANDIDATE_RECONCILER_DB_APP_NAME      Default: foodsystems-candidate-reconciler
 
 This operation never creates, changes, transports, or logs a login credential.
-Missing roles are created NOLOGIN. An operator must provision LOGIN credentials
-separately, then run verification through each dedicated URL. Incompatible
-PUBLIC/default-ACL state must be hardened by a separate authorized operation.
+Missing roles are created NOLOGIN. Initial credentials must be provisioned by a
+separate authorized operation. With existing dedicated credentials, restore in
+this order: bootstrap grants, explicit enable, worker verify, reconciler verify.
+Incompatible PUBLIC/default-ACL state requires separate authorized hardening.
 EOF
 }
 
@@ -63,15 +64,7 @@ done
 command -v psql >/dev/null 2>&1 || fail 'psql is required'
 command -v node >/dev/null 2>&1 || fail 'node is required to normalize the connection URL'
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-for pg_name in PGHOST PGHOSTADDR PGPORT PGDATABASE PGUSER PGPASSWORD PGPASSFILE \
-  PGSERVICE PGSERVICEFILE PGOPTIONS PGAPPNAME PGSSLMODE PGREQUIRESSL \
-  PGSSLCOMPRESSION PGSSLCERT PGSSLKEY PGSSLROOTCERT PGSSLCRL PGSSLCRLDIR \
-  PGSSLSNI PGREQUIREAUTH PGCHANNELBINDING PGGSSENCMODE PGGSSLIB PGKRBSRVNAME \
-  PGREQUIREPEER PGSSLMINPROTOCOLVERSION PGSSLMAXPROTOCOLVERSION \
-  PGCONNECT_TIMEOUT PGTARGETSESSIONATTRS PGLOADBALANCEHOSTS; do
-  eval "pg_value=\${$pg_name-}"
-  [ -z "$pg_value" ] || fail "$pg_name is not permitted for candidate role administration"
-done
+node "$SCRIPT_DIR/reject-ambient-candidate-libpq-env.mjs" candidate-role-bootstrap
 
 connection_dir=$(mktemp -d "${TMPDIR:-/tmp}/foodsystems-candidate-bootstrap.XXXXXX")
 cleanup_connection() {
@@ -150,9 +143,14 @@ BEGIN
     SELECT procedure.oid, procedure.proowner, procedure.proacl
     FROM pg_proc procedure
     JOIN user_schema namespace ON namespace.schema_oid = procedure.pronamespace
+  ), user_type AS (
+    SELECT type.oid, type.typowner
+    FROM pg_type type
+    JOIN user_schema namespace ON namespace.schema_oid = type.typnamespace
   ), user_owner(owner_oid) AS (
     SELECT relowner FROM user_class
     UNION SELECT proowner FROM user_routine
+    UNION SELECT typowner FROM user_type
   )
   SELECT
     EXISTS (
