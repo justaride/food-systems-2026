@@ -65,39 +65,50 @@ done
 
 command -v psql >/dev/null 2>&1 || fail 'psql is required'
 command -v node >/dev/null 2>&1 || fail 'node is required to normalize the connection URL'
+[ -z "${PGOPTIONS:-}" ] || fail 'PGOPTIONS is not permitted for candidate role administration'
+[ -z "${PGSERVICE:-}" ] || fail 'PGSERVICE is not permitted for candidate role administration'
+[ -z "${PGSERVICEFILE:-}" ] || fail 'PGSERVICEFILE is not permitted for candidate role administration'
 
 connection_dir=$(mktemp -d "${TMPDIR:-/tmp}/foodsystems-candidate-bootstrap.XXXXXX")
 cleanup_connection() {
   rm -f "$connection_dir/pgpass"
+  rm -f "$connection_dir/passwords.sql"
   rmdir "$connection_dir" 2>/dev/null || true
 }
 trap cleanup_connection EXIT HUP INT TERM
 export PGPASSFILE=$connection_dir/pgpass
-PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$DATABASE_ADMIN_URL PGPASSFILE_PATH=$PGPASSFILE node -e '
+PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$DATABASE_ADMIN_URL PGPASSFILE_PATH=$PGPASSFILE PASSWORD_SQL_PATH=$connection_dir/passwords.sql node -e '
   const fs = require("node:fs")
-  const url = new URL(process.env.RAW_DATABASE_URL)
-  if (!/^postgres(ql)?:$/.test(url.protocol)) throw new Error("DATABASE_ADMIN_URL must use PostgreSQL")
-  if (url.searchParams.has("password") || url.searchParams.has("sslpassword")) throw new Error("put database passwords in the URL authority, not query parameters")
-  const decode = value => decodeURIComponent(value)
-  const escapeField = value => value.replace(/\\/g, "\\\\").replace(/:/g, "\\:")
-  const fields = [url.hostname || "localhost", url.port || "5432", decode(url.pathname.replace(/^\//, "")), decode(url.username), decode(url.password)].map(escapeField)
-  fs.writeFileSync(process.env.PGPASSFILE_PATH, `${fields.join(":")}\n`, { mode: 0o600 })
-  url.password = ""
-  url.searchParams.delete("schema")
-  process.stdout.write(url.toString())
+  const die = message => { console.error(`[candidate-roles] ERROR: ${message}`); process.exit(1) }
+  let url
+  try { url = new URL(process.env.RAW_DATABASE_URL) } catch { die("invalid PostgreSQL URL") }
+  if (!/^postgres(ql)?:$/.test(url.protocol)) die("DATABASE_ADMIN_URL must use PostgreSQL")
+  if (url.searchParams.has("password") || url.searchParams.has("sslpassword")) die("put database passwords in the URL authority, not query parameters")
+  if (url.searchParams.has("options")) die("startup options are not permitted")
+  if (url.searchParams.has("service")) die("connection services are not permitted")
+  try {
+    const decode = value => decodeURIComponent(value)
+    const escapeField = value => value.replace(/\\/g, "\\\\").replace(/:/g, "\\:")
+    const fields = [url.hostname || "localhost", url.port || "5432", decode(url.pathname.replace(/^\//, "")), decode(url.username), decode(url.password)].map(escapeField)
+    fs.writeFileSync(process.env.PGPASSFILE_PATH, `${fields.join(":")}\n`, { mode: 0o600 })
+    const workerHex = Buffer.from(process.env.CANDIDATE_WORKER_DB_PASSWORD, "utf8").toString("hex")
+    const reconcilerHex = Buffer.from(process.env.CANDIDATE_RECONCILER_DB_PASSWORD, "utf8").toString("hex")
+    const sql = `DO $candidate_passwords$ BEGIN\n  PERFORM set_config(\x27foodsystems.candidate_worker_password\x27, convert_from(decode(\x27${workerHex}\x27, \x27hex\x27), \x27UTF8\x27), false);\n  PERFORM set_config(\x27foodsystems.candidate_reconciler_password\x27, convert_from(decode(\x27${reconcilerHex}\x27, \x27hex\x27), \x27UTF8\x27), false);\nEND $candidate_passwords$;\n`
+    fs.writeFileSync(process.env.PASSWORD_SQL_PATH, sql, { mode: 0o600 })
+    url.password = ""
+    url.searchParams.delete("schema")
+    process.stdout.write(url.toString())
+  } catch { die("invalid PostgreSQL URL") }
 ')
-unset DATABASE_ADMIN_URL PGPASSWORD
+unset DATABASE_ADMIN_URL CANDIDATE_WORKER_DB_PASSWORD CANDIDATE_RECONCILER_DB_PASSWORD PGPASSWORD PGOPTIONS PGSERVICE PGSERVICEFILE
 export CANDIDATE_WORKER_DB_ROLE CANDIDATE_RECONCILER_DB_ROLE
-export CANDIDATE_WORKER_DB_PASSWORD CANDIDATE_RECONCILER_DB_PASSWORD
 export CANDIDATE_DB_SCHEMA CANDIDATE_WORKER_DB_APP_NAME CANDIDATE_RECONCILER_DB_APP_NAME
 
 printf '%s\n' '[candidate-roles] replacing candidate worker and reconciler grants'
 
-psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 <<'SQL'
+psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 -f "$connection_dir/passwords.sql" -f - <<'SQL'
 \getenv worker_role CANDIDATE_WORKER_DB_ROLE
 \getenv reconciler_role CANDIDATE_RECONCILER_DB_ROLE
-\getenv worker_password CANDIDATE_WORKER_DB_PASSWORD
-\getenv reconciler_password CANDIDATE_RECONCILER_DB_PASSWORD
 \getenv target_schema CANDIDATE_DB_SCHEMA
 \getenv worker_app_name CANDIDATE_WORKER_DB_APP_NAME
 \getenv reconciler_app_name CANDIDATE_RECONCILER_DB_APP_NAME
@@ -107,6 +118,9 @@ DO $preflight$
 DECLARE
   missing_relation boolean;
 BEGIN
+  IF session_user <> current_user THEN
+    RAISE EXCEPTION 'administrator session must not use SET ROLE';
+  END IF;
   IF NOT EXISTS (
     SELECT 1 FROM pg_roles
     WHERE rolname = current_user AND (rolsuper OR rolcreaterole)
@@ -153,8 +167,8 @@ SELECT format(
   role_name, role_password
 )
 FROM (VALUES
-  (:'worker_role', :'worker_password'),
-  (:'reconciler_role', :'reconciler_password')
+  (:'worker_role', current_setting('foodsystems.candidate_worker_password')),
+  (:'reconciler_role', current_setting('foodsystems.candidate_reconciler_password'))
 ) roles(role_name, role_password)
 \gexec
 SELECT format('ALTER ROLE %I RESET ALL', role_name)
@@ -167,6 +181,13 @@ FROM pg_auth_members membership
 JOIN pg_roles granted ON granted.oid = membership.roleid
 JOIN pg_roles member ON member.oid = membership.member
 WHERE member.rolname IN (:'worker_role', :'reconciler_role')
+\gexec
+-- No stronger login may SET ROLE into a candidate identity either.
+SELECT format('REVOKE %I FROM %I', granted.rolname, member.rolname)
+FROM pg_auth_members membership
+JOIN pg_roles granted ON granted.oid = membership.roleid
+JOIN pg_roles member ON member.oid = membership.member
+WHERE granted.rolname IN (:'worker_role', :'reconciler_role')
 \gexec
 
 -- PostgreSQL privileges are additive. Remove PUBLIC paths in this explicit
@@ -427,5 +448,4 @@ SELECT format('ALTER ROLE %I SET application_name TO %L', :'reconciler_role', :'
 COMMIT;
 SQL
 
-unset CANDIDATE_WORKER_DB_PASSWORD CANDIDATE_RECONCILER_DB_PASSWORD
 printf '%s\n' '[candidate-roles] bootstrap complete; verify both dedicated role URLs before starting candidate workers'

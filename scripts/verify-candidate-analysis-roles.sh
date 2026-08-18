@@ -69,6 +69,9 @@ esac
 
 command -v psql >/dev/null 2>&1 || fail 'psql is required'
 command -v node >/dev/null 2>&1 || fail 'node is required to normalize the connection URL'
+[ -z "${PGOPTIONS:-}" ] || fail 'PGOPTIONS is not permitted for candidate role verification'
+[ -z "${PGSERVICE:-}" ] || fail 'PGSERVICE is not permitted for candidate role verification'
+[ -z "${PGSERVICEFILE:-}" ] || fail 'PGSERVICEFILE is not permitted for candidate role verification'
 
 connection_dir=$(mktemp -d "${TMPDIR:-/tmp}/foodsystems-candidate-verify.XXXXXX")
 cleanup_connection() {
@@ -77,26 +80,29 @@ cleanup_connection() {
 }
 trap cleanup_connection EXIT HUP INT TERM
 export PGPASSFILE=$connection_dir/pgpass
-PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$ROLE_DATABASE_URL PGPASSFILE_PATH=$PGPASSFILE node -e '
+PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$ROLE_DATABASE_URL PGPASSFILE_PATH=$PGPASSFILE EXPECTED_URL_ROLE=$EXPECTED_ROLE EXPECTED_URL_APP=$EXPECTED_APP_NAME node -e '
   const fs = require("node:fs")
-  const url = new URL(process.env.RAW_DATABASE_URL)
-  if (!/^postgres(ql)?:$/.test(url.protocol)) throw new Error("candidate database URL must use PostgreSQL")
-  if (url.searchParams.has("password") || url.searchParams.has("sslpassword")) throw new Error("put database passwords in the URL authority, not query parameters")
-  const decode = value => decodeURIComponent(value)
-  const escapeField = value => value.replace(/\\/g, "\\\\").replace(/:/g, "\\:")
-  const fields = [url.hostname || "localhost", url.port || "5432", decode(url.pathname.replace(/^\//, "")), decode(url.username), decode(url.password)].map(escapeField)
-  fs.writeFileSync(process.env.PGPASSFILE_PATH, `${fields.join(":")}\n`, { mode: 0o600 })
-  url.password = ""
-  url.searchParams.delete("schema")
-  process.stdout.write(url.toString())
+  const die = message => { console.error(`[candidate-role-verify] ERROR: ${message}`); process.exit(1) }
+  let url
+  try { url = new URL(process.env.RAW_DATABASE_URL) } catch { die("invalid PostgreSQL URL") }
+  if (!/^postgres(ql)?:$/.test(url.protocol)) die("candidate database URL must use PostgreSQL")
+  if (url.searchParams.has("password") || url.searchParams.has("sslpassword")) die("put database passwords in the URL authority, not query parameters")
+  if (url.searchParams.has("options")) die("startup options are not permitted")
+  if (url.searchParams.has("service")) die("connection services are not permitted")
+  try {
+    const decode = value => decodeURIComponent(value)
+    const username = decode(url.username)
+    if (username !== process.env.EXPECTED_URL_ROLE) die("dedicated database URL username does not match expected role")
+    if ((url.searchParams.get("application_name") ?? "") !== process.env.EXPECTED_URL_APP) die("dedicated database URL application_name does not match expected value")
+    const escapeField = value => value.replace(/\\/g, "\\\\").replace(/:/g, "\\:")
+    const fields = [url.hostname || "localhost", url.port || "5432", decode(url.pathname.replace(/^\//, "")), username, decode(url.password)].map(escapeField)
+    fs.writeFileSync(process.env.PGPASSFILE_PATH, `${fields.join(":")}\n`, { mode: 0o600 })
+    url.password = ""
+    url.searchParams.delete("schema")
+    process.stdout.write(url.toString())
+  } catch { die("invalid PostgreSQL URL") }
 ')
-URL_APP_NAME=$(RAW_DATABASE_URL=$ROLE_DATABASE_URL node -e '
-  const url = new URL(process.env.RAW_DATABASE_URL)
-  process.stdout.write(url.searchParams.get("application_name") ?? "")
-')
-[ "$URL_APP_NAME" = "$EXPECTED_APP_NAME" ] \
-  || fail "dedicated role URL must set application_name=$EXPECTED_APP_NAME"
-unset ROLE_DATABASE_URL CANDIDATE_WORKER_DATABASE_URL CANDIDATE_RECONCILER_DATABASE_URL PGPASSWORD
+unset ROLE_DATABASE_URL CANDIDATE_WORKER_DATABASE_URL CANDIDATE_RECONCILER_DATABASE_URL PGPASSWORD PGOPTIONS PGSERVICE PGSERVICEFILE
 export ROLE_MODE EXPECTED_ROLE EXPECTED_APP_NAME CANDIDATE_DB_SCHEMA
 
 issues=$(psql "$PSQL_DATABASE_URL" -X -A -t -v ON_ERROR_STOP=1 <<'SQL'
@@ -151,19 +157,44 @@ WITH role_row AS (
     procedure.proacl, namespace.nspname
   FROM pg_proc procedure
   JOIN user_schema namespace ON namespace.schema_oid = procedure.pronamespace
+), user_types AS (
+  SELECT type.oid AS type_oid, type.typowner, namespace.nspname, type.typname,
+    type.typtype
+  FROM pg_type type
+  JOIN user_schema namespace ON namespace.schema_oid = type.typnamespace
 ), user_object_owners AS (
   SELECT DISTINCT relowner AS owner_oid FROM user_relations
   UNION SELECT DISTINCT relowner FROM user_sequences
   UNION SELECT DISTINCT proowner FROM user_routines
+  UNION SELECT DISTINCT typowner FROM user_types
 ), role_membership AS (
   SELECT granted.rolname
   FROM pg_auth_members membership
   JOIN pg_roles granted ON granted.oid = membership.roleid
   JOIN pg_roles member ON member.oid = membership.member
   WHERE member.rolname = current_user
+), inbound_role_membership AS (
+  SELECT member.rolname
+  FROM pg_auth_members membership
+  JOIN pg_roles granted ON granted.oid = membership.roleid
+  JOIN pg_roles member ON member.oid = membership.member
+  WHERE granted.rolname = current_user
+), owned_dependencies AS (
+  SELECT dependency.classid, dependency.objid, dependency.objsubid
+  FROM pg_shdepend dependency
+  WHERE dependency.refclassid = 'pg_authid'::regclass
+    AND dependency.refobjid = (SELECT oid FROM role_row)
+    AND dependency.deptype = 'o'
+    AND (
+      dependency.dbid = 0
+      OR dependency.dbid = (SELECT oid FROM pg_database WHERE datname = current_database())
+    )
 ), checks(issue) AS (
-  SELECT format('connected as %I, expected %I', current_user, :'expected_role')
-  WHERE current_user <> :'expected_role'
+  SELECT format(
+    'identity mismatch: session_user=%I current_user=%I expected=%I',
+    session_user, current_user, :'expected_role'
+  )
+  WHERE session_user <> current_user OR current_user <> :'expected_role'
   UNION ALL
   SELECT 'candidate role has an elevated cluster attribute'
   FROM role_row
@@ -173,6 +204,9 @@ WITH role_row AS (
   FROM role_row WHERE NOT rolcanlogin OR rolconnlimit <> 10
   UNION ALL
   SELECT format('candidate role has membership in %I', rolname) FROM role_membership
+  UNION ALL
+  SELECT format('role %I can SET ROLE into the candidate identity', rolname)
+  FROM inbound_role_membership
   UNION ALL
   SELECT 'candidate role owns the connected database'
   WHERE EXISTS (
@@ -188,6 +222,16 @@ WITH role_row AS (
   WHERE EXISTS (SELECT 1 FROM user_relations WHERE relowner = (SELECT oid FROM role_row))
      OR EXISTS (SELECT 1 FROM user_sequences WHERE relowner = (SELECT oid FROM role_row))
      OR EXISTS (SELECT 1 FROM user_routines WHERE proowner = (SELECT oid FROM role_row))
+  UNION ALL
+  SELECT format('candidate role owns user-defined type %I.%I', nspname, typname)
+  FROM user_types
+  WHERE typowner = (SELECT oid FROM role_row)
+  UNION ALL
+  SELECT format(
+    'candidate role retains an ownership dependency: %s',
+    pg_describe_object(classid, objid, objsubid)
+  )
+  FROM owned_dependencies
   UNION ALL
   SELECT 'database CONNECT privilege is missing'
   WHERE NOT has_database_privilege(current_user, current_database(), 'CONNECT')

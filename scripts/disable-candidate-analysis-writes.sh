@@ -51,6 +51,9 @@ esac
 
 command -v psql >/dev/null 2>&1 || fail 'psql is required'
 command -v node >/dev/null 2>&1 || fail 'node is required to normalize the connection URL'
+[ -z "${PGOPTIONS:-}" ] || fail 'PGOPTIONS is not permitted for candidate role administration'
+[ -z "${PGSERVICE:-}" ] || fail 'PGSERVICE is not permitted for candidate role administration'
+[ -z "${PGSERVICEFILE:-}" ] || fail 'PGSERVICEFILE is not permitted for candidate role administration'
 
 connection_dir=$(mktemp -d "${TMPDIR:-/tmp}/foodsystems-candidate-disable.XXXXXX")
 cleanup_connection() {
@@ -61,18 +64,24 @@ trap cleanup_connection EXIT HUP INT TERM
 export PGPASSFILE=$connection_dir/pgpass
 PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$DATABASE_ADMIN_URL PGPASSFILE_PATH=$PGPASSFILE node -e '
   const fs = require("node:fs")
-  const url = new URL(process.env.RAW_DATABASE_URL)
-  if (!/^postgres(ql)?:$/.test(url.protocol)) throw new Error("DATABASE_ADMIN_URL must use PostgreSQL")
-  if (url.searchParams.has("password") || url.searchParams.has("sslpassword")) throw new Error("put database passwords in the URL authority, not query parameters")
-  const decode = value => decodeURIComponent(value)
-  const escapeField = value => value.replace(/\\/g, "\\\\").replace(/:/g, "\\:")
-  const fields = [url.hostname || "localhost", url.port || "5432", decode(url.pathname.replace(/^\//, "")), decode(url.username), decode(url.password)].map(escapeField)
-  fs.writeFileSync(process.env.PGPASSFILE_PATH, `${fields.join(":")}\n`, { mode: 0o600 })
-  url.password = ""
-  url.searchParams.delete("schema")
-  process.stdout.write(url.toString())
+  const die = message => { console.error(`[candidate-disable] ERROR: ${message}`); process.exit(1) }
+  let url
+  try { url = new URL(process.env.RAW_DATABASE_URL) } catch { die("invalid PostgreSQL URL") }
+  if (!/^postgres(ql)?:$/.test(url.protocol)) die("DATABASE_ADMIN_URL must use PostgreSQL")
+  if (url.searchParams.has("password") || url.searchParams.has("sslpassword")) die("put database passwords in the URL authority, not query parameters")
+  if (url.searchParams.has("options")) die("startup options are not permitted")
+  if (url.searchParams.has("service")) die("connection services are not permitted")
+  try {
+    const decode = value => decodeURIComponent(value)
+    const escapeField = value => value.replace(/\\/g, "\\\\").replace(/:/g, "\\:")
+    const fields = [url.hostname || "localhost", url.port || "5432", decode(url.pathname.replace(/^\//, "")), decode(url.username), decode(url.password)].map(escapeField)
+    fs.writeFileSync(process.env.PGPASSFILE_PATH, `${fields.join(":")}\n`, { mode: 0o600 })
+    url.password = ""
+    url.searchParams.delete("schema")
+    process.stdout.write(url.toString())
+  } catch { die("invalid PostgreSQL URL") }
 ')
-unset DATABASE_ADMIN_URL PGPASSWORD
+unset DATABASE_ADMIN_URL PGPASSWORD PGOPTIONS PGSERVICE PGSERVICEFILE
 export CANDIDATE_WORKER_DB_ROLE CANDIDATE_RECONCILER_DB_ROLE CANDIDATE_DB_SCHEMA
 
 psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 <<'SQL'
@@ -84,6 +93,9 @@ SELECT set_config('foodsystems.candidate_worker_role', :'worker_role', false);
 SELECT set_config('foodsystems.candidate_reconciler_role', :'reconciler_role', false);
 DO $preflight$
 BEGIN
+  IF session_user <> current_user THEN
+    RAISE EXCEPTION 'administrator session must not use SET ROLE';
+  END IF;
   IF NOT EXISTS (
     SELECT 1 FROM pg_roles
     WHERE rolname = current_setting('foodsystems.candidate_worker_role')
@@ -100,6 +112,17 @@ BEGIN;
 SELECT format('ALTER ROLE %I NOLOGIN', :'worker_role')
 \gexec
 SELECT format('ALTER ROLE %I NOLOGIN', :'reconciler_role')
+\gexec
+
+-- Remove SET ROLE paths in both directions. An already-connected stronger
+-- gateway cannot be identified by current_role through pg_stat_activity, but
+-- complete INSERT revocation below removes the candidate authority it assumed.
+SELECT format('REVOKE %I FROM %I', granted.rolname, member.rolname)
+FROM pg_auth_members membership
+JOIN pg_roles granted ON granted.oid = membership.roleid
+JOIN pg_roles member ON member.oid = membership.member
+WHERE member.rolname IN (:'worker_role', :'reconciler_role')
+   OR granted.rolname IN (:'worker_role', :'reconciler_role')
 \gexec
 
 WITH user_schema AS (
