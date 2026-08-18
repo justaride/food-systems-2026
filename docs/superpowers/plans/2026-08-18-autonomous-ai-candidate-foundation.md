@@ -166,7 +166,7 @@ Expected: FAIL because `AGENTS.md`, the candidate contract, and the candidate wo
 ## Write paths
 
 - Candidate history is append-only. Use `src/lib/knowledge/candidate-analysis-writer.ts`.
-- Never use generic upsert, update, delete, or raw SQL against candidate history.
+- Never use generic upsert, update, delete, or generic or mutating raw SQL against candidate history. The writer's only raw SQL is narrow and parameterized: transaction-scoped advisory locking plus the read-only recursive dependency-integrity query.
 - Generated snapshots are regenerated through their named scripts; never hand-edit them.
 
 ## Verification
@@ -687,24 +687,23 @@ Each method parses with its strict Zod schema before database access. Map `P2002
 
 - [ ] **Step 4: Serialize run events and enforce terminal-output checks**
 
-`appendRunEvent` uses a Serializable transaction:
+`appendRunEvent` uses a Serializable transaction and the same domain-separated transaction-scoped advisory run lock used by every output append method. Advisory locking is required because the exact worker and reconciler roles intentionally have no table `UPDATE` privilege, so row-level `SELECT ... FOR UPDATE` is not an authorized lock path:
 
 ```ts
-await transaction.$queryRaw`SELECT "id" FROM "CandidateAnalysisRun" WHERE "id" = ${input.runId} FOR UPDATE`
+await acquireCandidateWriterLock(transaction, 'run', input.runId)
 const events = await transaction.candidateAnalysisRunEvent.findMany({
   where: { runId: input.runId },
   orderBy: { sequence: 'asc' },
 })
 const state = deriveCandidateAnalysisMachineState([...events.map(toContractEvent), input])
 if (state === 'candidate_complete' || state === 'partial') {
-  const [artifacts, assertions] = await Promise.all([
-    transaction.candidateAnalysisArtifact.count({ where: { runId: input.runId } }),
-    transaction.candidateAssertion.count({ where: { runId: input.runId } }),
-  ])
-  if (artifacts === 0 || assertions === 0) throw new CandidateAnalysisWriteConflict('terminal_output_missing')
+  const storedManifest = await storedOutputManifest(transaction, input.runId)
+  verifyExactTerminalManifestAndEvidence(input.payload, storedManifest)
 }
 await transaction.candidateAnalysisRunEvent.create({ data: toRunEventData(input) })
 ```
+
+The run, its unique contiguous inputs and its queued event are created atomically. Artifact, assertion, evidence, dependency and reconciliation appends all take the run lock and reject any terminal state. Dependency insertion additionally takes sorted domain-separated advisory locks for both assertion IDs before the recursive integrity query. The lock SQL changes transaction lock state only, is not exposed, and cannot mutate candidate history.
 
 `appendDependency` runs a recursive CTE before insert to reject any path from the proposed upstream assertion back to the proposed dependent assertion. Before insertion, compare the two assertions: the dependent assertion must include every upstream limitation, and it may not have stronger `identityConfidence`, `evidenceLevel`, or `machineUse` than the upstream assertion. A worker that has independent stronger evidence must append a distinct assertion whose lineage and direct evidence support that strength; it may not launder a weak dependency. The writer also relies on the SQL direct-self check.
 
@@ -793,13 +792,11 @@ The script accepts only `--apply` and requires:
 
 ```text
 DATABASE_ADMIN_URL
-CANDIDATE_WORKER_DB_PASSWORD
-CANDIDATE_RECONCILER_DB_PASSWORD
 ```
 
-Optional names default to `foodsystems_candidate_worker`, `foodsystems_candidate_reconciler`, schema `public`, and fixed application names. Normalize the URL with Node, write a mode-0600 `PGPASSFILE`, blank the URL password before invoking `psql`, reject `password`/`sslpassword` query parameters, and unset secret environment variables before SQL execution.
+Optional names default to `foodsystems_candidate_worker`, `foodsystems_candidate_reconciler`, schema `public`, and fixed application names. Normalize the explicit URL authority fields with Node, write only the URL credential to a mode-0600 `PGPASSFILE`, blank the URL password before invoking `psql`, allow only the reviewed TLS/application-name query fields, reject target/auth overrides and ambient libpq target/auth variables, and unset secret environment variables before SQL execution.
 
-Within one transaction: create roles if missing, set exact attributes/password/timeouts/search paths, revoke memberships, revoke all effective object privileges for both roles, then grant only the allowlists above. New relations must not be granted through default privileges.
+The authority bootstrap does not create, change, transport or log login credentials. Before any mutation it preflights the complete user-database PUBLIC and default-ACL surface. Incompatible state aborts with zero role/ACL/data change; whole-database hardening is a separate operator-authorized operation. After a successful preflight it creates missing authority roles as `NOLOGIN`, preserves any existing login state, sets exact non-credential attributes/timeouts/search paths, revokes candidate-role memberships and direct effective object privileges, then grants only the allowlists above. An operator provisions dedicated login credentials separately and verifies each dedicated URL before use. New relations must not be granted through default privileges.
 
 Implement `disable-candidate-analysis-writes.sh` with the same URL/password hygiene and exact role-name validation. It accepts only `--apply`, sets the two roles `NOLOGIN`, revokes their table INSERT grants, and calls `pg_terminate_backend` only for sessions whose `usename` exactly matches those roles. It must not drop roles, tables, schema, or candidate data. Re-enabling requires rerunning the explicit bootstrap and verification chain.
 

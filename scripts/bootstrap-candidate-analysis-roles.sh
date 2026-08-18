@@ -1,6 +1,6 @@
 #!/bin/sh
-# Create or rotate the two candidate-analysis logins and replace every
-# effective privilege path with the reviewed Delivery 1 allowlists.
+# Create or maintain the two candidate-analysis authority roles and replace
+# only their effective privilege paths with the reviewed Delivery 1 allowlists.
 set -eu
 
 usage() {
@@ -9,8 +9,6 @@ Usage: bootstrap-candidate-analysis-roles.sh --apply
 
 Required environment:
   DATABASE_ADMIN_URL                    PostgreSQL role/grant administrator URL
-  CANDIDATE_WORKER_DB_PASSWORD          Candidate worker password
-  CANDIDATE_RECONCILER_DB_PASSWORD      Candidate reconciler password
 
 Optional environment:
   CANDIDATE_WORKER_DB_ROLE              Default: foodsystems_candidate_worker
@@ -19,9 +17,10 @@ Optional environment:
   CANDIDATE_WORKER_DB_APP_NAME          Default: foodsystems-candidate-worker
   CANDIDATE_RECONCILER_DB_APP_NAME      Default: foodsystems-candidate-reconciler
 
-This explicit administrator operation removes inherited and PUBLIC/default-ACL
-paths before applying the exact candidate SELECT/INSERT grants. Future objects
-receive no automatic candidate-role grant.
+This operation never creates, changes, transports, or logs a login credential.
+Missing roles are created NOLOGIN. An operator must provision LOGIN credentials
+separately, then run verification through each dedicated URL. Incompatible
+PUBLIC/default-ACL state must be hardened by a separate authorized operation.
 EOF
 }
 
@@ -38,8 +37,6 @@ case "$1" in
 esac
 
 [ -n "${DATABASE_ADMIN_URL:-}" ] || fail 'DATABASE_ADMIN_URL is required'
-[ -n "${CANDIDATE_WORKER_DB_PASSWORD:-}" ] || fail 'CANDIDATE_WORKER_DB_PASSWORD is required'
-[ -n "${CANDIDATE_RECONCILER_DB_PASSWORD:-}" ] || fail 'CANDIDATE_RECONCILER_DB_PASSWORD is required'
 
 CANDIDATE_WORKER_DB_ROLE=${CANDIDATE_WORKER_DB_ROLE:-foodsystems_candidate_worker}
 CANDIDATE_RECONCILER_DB_ROLE=${CANDIDATE_RECONCILER_DB_ROLE:-foodsystems_candidate_reconciler}
@@ -65,48 +62,34 @@ done
 
 command -v psql >/dev/null 2>&1 || fail 'psql is required'
 command -v node >/dev/null 2>&1 || fail 'node is required to normalize the connection URL'
-[ -z "${PGOPTIONS:-}" ] || fail 'PGOPTIONS is not permitted for candidate role administration'
-[ -z "${PGSERVICE:-}" ] || fail 'PGSERVICE is not permitted for candidate role administration'
-[ -z "${PGSERVICEFILE:-}" ] || fail 'PGSERVICEFILE is not permitted for candidate role administration'
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+for pg_name in PGHOST PGHOSTADDR PGPORT PGDATABASE PGUSER PGPASSWORD PGPASSFILE \
+  PGSERVICE PGSERVICEFILE PGOPTIONS PGAPPNAME PGSSLMODE PGREQUIRESSL \
+  PGSSLCOMPRESSION PGSSLCERT PGSSLKEY PGSSLROOTCERT PGSSLCRL PGSSLCRLDIR \
+  PGSSLSNI PGREQUIREAUTH PGCHANNELBINDING PGGSSENCMODE PGGSSLIB PGKRBSRVNAME \
+  PGREQUIREPEER PGSSLMINPROTOCOLVERSION PGSSLMAXPROTOCOLVERSION \
+  PGCONNECT_TIMEOUT PGTARGETSESSIONATTRS PGLOADBALANCEHOSTS; do
+  eval "pg_value=\${$pg_name-}"
+  [ -z "$pg_value" ] || fail "$pg_name is not permitted for candidate role administration"
+done
 
 connection_dir=$(mktemp -d "${TMPDIR:-/tmp}/foodsystems-candidate-bootstrap.XXXXXX")
 cleanup_connection() {
   rm -f "$connection_dir/pgpass"
-  rm -f "$connection_dir/passwords.sql"
   rmdir "$connection_dir" 2>/dev/null || true
 }
 trap cleanup_connection EXIT HUP INT TERM
 export PGPASSFILE=$connection_dir/pgpass
-PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$DATABASE_ADMIN_URL PGPASSFILE_PATH=$PGPASSFILE PASSWORD_SQL_PATH=$connection_dir/passwords.sql node -e '
-  const fs = require("node:fs")
-  const die = message => { console.error(`[candidate-roles] ERROR: ${message}`); process.exit(1) }
-  let url
-  try { url = new URL(process.env.RAW_DATABASE_URL) } catch { die("invalid PostgreSQL URL") }
-  if (!/^postgres(ql)?:$/.test(url.protocol)) die("DATABASE_ADMIN_URL must use PostgreSQL")
-  if (url.searchParams.has("password") || url.searchParams.has("sslpassword")) die("put database passwords in the URL authority, not query parameters")
-  if (url.searchParams.has("options")) die("startup options are not permitted")
-  if (url.searchParams.has("service")) die("connection services are not permitted")
-  try {
-    const decode = value => decodeURIComponent(value)
-    const escapeField = value => value.replace(/\\/g, "\\\\").replace(/:/g, "\\:")
-    const fields = [url.hostname || "localhost", url.port || "5432", decode(url.pathname.replace(/^\//, "")), decode(url.username), decode(url.password)].map(escapeField)
-    fs.writeFileSync(process.env.PGPASSFILE_PATH, `${fields.join(":")}\n`, { mode: 0o600 })
-    const workerHex = Buffer.from(process.env.CANDIDATE_WORKER_DB_PASSWORD, "utf8").toString("hex")
-    const reconcilerHex = Buffer.from(process.env.CANDIDATE_RECONCILER_DB_PASSWORD, "utf8").toString("hex")
-    const sql = `DO $candidate_passwords$ BEGIN\n  PERFORM set_config(\x27foodsystems.candidate_worker_password\x27, convert_from(decode(\x27${workerHex}\x27, \x27hex\x27), \x27UTF8\x27), false);\n  PERFORM set_config(\x27foodsystems.candidate_reconciler_password\x27, convert_from(decode(\x27${reconcilerHex}\x27, \x27hex\x27), \x27UTF8\x27), false);\nEND $candidate_passwords$;\n`
-    fs.writeFileSync(process.env.PASSWORD_SQL_PATH, sql, { mode: 0o600 })
-    url.password = ""
-    url.searchParams.delete("schema")
-    process.stdout.write(url.toString())
-  } catch { die("invalid PostgreSQL URL") }
-')
-unset DATABASE_ADMIN_URL CANDIDATE_WORKER_DB_PASSWORD CANDIDATE_RECONCILER_DB_PASSWORD PGPASSWORD PGOPTIONS PGSERVICE PGSERVICEFILE
+PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$DATABASE_ADMIN_URL PGPASSFILE_PATH=$PGPASSFILE \
+  CANDIDATE_URL_CONTEXT=candidate-roles \
+  node "$SCRIPT_DIR/normalize-candidate-postgres-url.mjs")
+unset DATABASE_ADMIN_URL PGPASSWORD PGOPTIONS PGSERVICE PGSERVICEFILE
 export CANDIDATE_WORKER_DB_ROLE CANDIDATE_RECONCILER_DB_ROLE
 export CANDIDATE_DB_SCHEMA CANDIDATE_WORKER_DB_APP_NAME CANDIDATE_RECONCILER_DB_APP_NAME
 
-printf '%s\n' '[candidate-roles] replacing candidate worker and reconciler grants'
+printf '%s\n' '[candidate-roles] replacing candidate authority-role grants without credential changes'
 
-psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 -f "$connection_dir/passwords.sql" -f - <<'SQL'
+psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 -f - <<'SQL'
 \getenv worker_role CANDIDATE_WORKER_DB_ROLE
 \getenv reconciler_role CANDIDATE_RECONCILER_DB_ROLE
 \getenv target_schema CANDIDATE_DB_SCHEMA
@@ -117,6 +100,7 @@ SELECT set_config('foodsystems.candidate_schema', :'target_schema', false);
 DO $preflight$
 DECLARE
   missing_relation boolean;
+  incompatible_acl boolean;
 BEGIN
   IF session_user <> current_user THEN
     RAISE EXCEPTION 'administrator session must not use SET ROLE';
@@ -152,24 +136,101 @@ BEGIN
   IF missing_relation THEN
     RAISE EXCEPTION 'one or more candidate role relations are missing';
   END IF;
+
+  WITH user_schema AS (
+    SELECT oid AS schema_oid, nspname, nspowner, nspacl
+    FROM pg_namespace
+    WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
+  ), user_class AS (
+    SELECT class.oid, class.relkind, class.relowner, class.relacl
+    FROM pg_class class
+    JOIN user_schema namespace ON namespace.schema_oid = class.relnamespace
+    WHERE class.relkind IN ('r', 'p', 'v', 'm', 'f', 'S')
+  ), user_routine AS (
+    SELECT procedure.oid, procedure.proowner, procedure.proacl
+    FROM pg_proc procedure
+    JOIN user_schema namespace ON namespace.schema_oid = procedure.pronamespace
+  ), user_owner(owner_oid) AS (
+    SELECT relowner FROM user_class
+    UNION SELECT proowner FROM user_routine
+  )
+  SELECT
+    EXISTS (
+      SELECT 1 FROM pg_database database,
+      LATERAL aclexplode(COALESCE(database.datacl, acldefault('d', database.datdba))) privilege
+      WHERE database.datname = current_database()
+        AND privilege.grantee = 0
+        AND privilege.privilege_type IN ('CREATE', 'TEMPORARY')
+    )
+    OR EXISTS (
+      SELECT 1 FROM user_schema namespace,
+      LATERAL aclexplode(COALESCE(namespace.nspacl, acldefault('n', namespace.nspowner))) privilege
+      WHERE privilege.grantee = 0
+    )
+    OR EXISTS (
+      SELECT 1 FROM user_class class,
+      LATERAL aclexplode(COALESCE(
+        class.relacl,
+        acldefault(CASE WHEN class.relkind = 'S' THEN 'S'::"char" ELSE 'r'::"char" END, class.relowner)
+      )) privilege
+      WHERE privilege.grantee = 0
+    )
+    OR EXISTS (
+      SELECT 1
+      FROM pg_attribute attribute
+      JOIN user_class class ON class.oid = attribute.attrelid,
+      LATERAL aclexplode(attribute.attacl) privilege
+      WHERE attribute.attnum > 0 AND NOT attribute.attisdropped
+        AND privilege.grantee = 0
+    )
+    OR EXISTS (
+      SELECT 1 FROM user_routine routine,
+      LATERAL aclexplode(COALESCE(routine.proacl, acldefault('f', routine.proowner))) privilege
+      WHERE privilege.grantee = 0
+    )
+    OR EXISTS (
+      SELECT 1
+      FROM pg_default_acl defaults
+      LEFT JOIN user_schema namespace ON namespace.schema_oid = defaults.defaclnamespace,
+      LATERAL aclexplode(defaults.defaclacl) privilege
+      WHERE (defaults.defaclnamespace = 0 OR namespace.schema_oid IS NOT NULL)
+        AND defaults.defaclobjtype IN ('r', 'S', 'f')
+        AND privilege.grantee = 0
+    )
+    OR EXISTS (
+      SELECT 1 FROM user_owner owner
+      WHERE EXISTS (
+        SELECT 1
+        FROM aclexplode(COALESCE(
+          (
+            SELECT defaults.defaclacl FROM pg_default_acl defaults
+            WHERE defaults.defaclrole = owner.owner_oid
+              AND defaults.defaclnamespace = 0
+              AND defaults.defaclobjtype = 'f'
+          ),
+          acldefault('f', owner.owner_oid)
+        )) privilege
+        WHERE privilege.grantee = 0 AND privilege.privilege_type = 'EXECUTE'
+      )
+    ) INTO incompatible_acl;
+  IF incompatible_acl THEN
+    RAISE EXCEPTION 'incompatible PUBLIC or default ACL surface; use a separate authorized database-hardening operation';
+  END IF;
 END
 $preflight$;
 
 BEGIN;
 
-SELECT format('CREATE ROLE %I', role_name)
+SELECT format('CREATE ROLE %I NOLOGIN', role_name)
 FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
 WHERE NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = role_name)
 \gexec
 
 SELECT format(
-  'ALTER ROLE %I WITH LOGIN NOINHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS CONNECTION LIMIT 10 PASSWORD %L',
-  role_name, role_password
+  'ALTER ROLE %I WITH NOINHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS CONNECTION LIMIT 10',
+  role_name
 )
-FROM (VALUES
-  (:'worker_role', current_setting('foodsystems.candidate_worker_password')),
-  (:'reconciler_role', current_setting('foodsystems.candidate_reconciler_password'))
-) roles(role_name, role_password)
+FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
 SELECT format('ALTER ROLE %I RESET ALL', role_name)
 FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
@@ -188,18 +249,6 @@ FROM pg_auth_members membership
 JOIN pg_roles granted ON granted.oid = membership.roleid
 JOIN pg_roles member ON member.oid = membership.member
 WHERE granted.rolname IN (:'worker_role', :'reconciler_role')
-\gexec
-
--- PostgreSQL privileges are additive. Remove PUBLIC paths in this explicit
--- administrator bootstrap before granting either candidate login anything.
-SELECT format('REVOKE CREATE, TEMPORARY ON DATABASE %I FROM PUBLIC', current_database())
-\gexec
-WITH user_schema AS (
-  SELECT nspname FROM pg_namespace
-  WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
-)
-SELECT format('REVOKE ALL PRIVILEGES ON SCHEMA %I FROM PUBLIC', nspname)
-FROM user_schema
 \gexec
 
 SELECT format('REVOKE ALL PRIVILEGES ON DATABASE %I FROM %I', current_database(), role_name)
@@ -231,14 +280,6 @@ WITH user_schema AS (
 SELECT format('REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA %I FROM %I', nspname, role_name)
 FROM user_schema CROSS JOIN candidate_role
 \gexec
-WITH user_schema AS (
-  SELECT nspname FROM pg_namespace
-  WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
-)
-SELECT format('REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA %I FROM PUBLIC', nspname)
-FROM user_schema
-\gexec
-
 -- Relation revokes do not remove column ACLs, so clear every current column.
 WITH user_relation_columns AS (
   SELECT namespace.nspname, class.relname,
@@ -260,25 +301,6 @@ SELECT format(
 )
 FROM user_relation_columns CROSS JOIN candidate_role
 \gexec
-WITH user_relation_columns AS (
-  SELECT namespace.nspname, class.relname,
-    string_agg(format('%I', attribute.attname), ', ' ORDER BY attribute.attnum) AS column_list
-  FROM pg_class class
-  JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
-  JOIN pg_attribute attribute ON attribute.attrelid = class.oid
-  WHERE namespace.nspname <> 'information_schema'
-    AND namespace.nspname !~ '^pg_'
-    AND class.relkind IN ('r', 'p', 'v', 'm', 'f')
-    AND attribute.attnum > 0 AND NOT attribute.attisdropped
-  GROUP BY namespace.nspname, class.relname
-)
-SELECT format(
-  'REVOKE ALL PRIVILEGES (%s) ON TABLE %I.%I FROM PUBLIC',
-  column_list, nspname, relname
-)
-FROM user_relation_columns
-\gexec
-
 WITH candidate_relation(relname) AS (
   VALUES
     ('CandidateContentUnit'), ('CandidateAnalysisRun'),
@@ -333,14 +355,6 @@ FROM user_schema CROSS JOIN candidate_role
 WITH user_schema AS (
   SELECT nspname FROM pg_namespace
   WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
-)
-SELECT format('REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA %I FROM PUBLIC', nspname)
-FROM user_schema
-\gexec
-
-WITH user_schema AS (
-  SELECT nspname FROM pg_namespace
-  WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
 ), candidate_role(role_name) AS (
   VALUES (:'worker_role'), (:'reconciler_role')
 )
@@ -356,20 +370,7 @@ WITH user_schema AS (
 SELECT format('REVOKE ALL PRIVILEGES ON ALL PROCEDURES IN SCHEMA %I FROM %I', nspname, role_name)
 FROM user_schema CROSS JOIN candidate_role
 \gexec
-SELECT format(
-  'REVOKE EXECUTE ON %s %s FROM PUBLIC',
-  CASE procedure.prokind WHEN 'p' THEN 'PROCEDURE' ELSE 'FUNCTION' END,
-  procedure.oid::regprocedure
-)
-FROM pg_proc procedure
-JOIN pg_namespace namespace ON namespace.oid = procedure.pronamespace
-WHERE namespace.nspname <> 'information_schema'
-  AND namespace.nspname !~ '^pg_'
-  AND procedure.prosecdef
-\gexec
-
--- Remove every current direct/default grant to either role or PUBLIC. This is
--- intentionally broad only inside this acknowledged administrator bootstrap.
+-- Remove every current direct/default grant to either candidate role only.
 WITH default_acl AS (
   SELECT DISTINCT owner.rolname AS owner_name, namespace.nspname AS schema_name,
     defaults.defaclobjtype
@@ -391,43 +392,6 @@ SELECT format(
 FROM default_acl CROSS JOIN candidate_role
 WHERE defaclobjtype IN ('r', 'S', 'f')
 \gexec
-WITH default_acl AS (
-  SELECT DISTINCT owner.rolname AS owner_name, namespace.nspname AS schema_name,
-    defaults.defaclobjtype
-  FROM pg_default_acl defaults
-  JOIN pg_roles owner ON owner.oid = defaults.defaclrole
-  LEFT JOIN pg_namespace namespace ON namespace.oid = defaults.defaclnamespace
-  WHERE defaults.defaclnamespace = 0
-     OR (namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_')
-)
-SELECT format(
-  'ALTER DEFAULT PRIVILEGES FOR ROLE %I%s REVOKE ALL PRIVILEGES ON %s FROM PUBLIC',
-  owner_name,
-  CASE WHEN schema_name IS NULL THEN '' ELSE format(' IN SCHEMA %I', schema_name) END,
-  CASE defaclobjtype WHEN 'r' THEN 'TABLES' WHEN 'S' THEN 'SEQUENCES' ELSE 'FUNCTIONS' END
-)
-FROM default_acl
-WHERE defaclobjtype IN ('r', 'S', 'f')
-\gexec
-
--- PostgreSQL's implicit routine default grants EXECUTE to PUBLIC. Establish an
--- explicit fail-closed default for all current user-object owners.
-SELECT format('ALTER DEFAULT PRIVILEGES FOR ROLE %I REVOKE EXECUTE ON FUNCTIONS FROM PUBLIC', owner_name)
-FROM (
-  SELECT current_user AS owner_name
-  UNION
-  SELECT DISTINCT pg_get_userbyid(class.relowner)
-  FROM pg_class class
-  JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
-  WHERE namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_'
-  UNION
-  SELECT DISTINCT pg_get_userbyid(procedure.proowner)
-  FROM pg_proc procedure
-  JOIN pg_namespace namespace ON namespace.oid = procedure.pronamespace
-  WHERE namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_'
-) owners
-\gexec
-
 SELECT format('ALTER ROLE %I SET statement_timeout TO %L', role_name, '15s')
 FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec

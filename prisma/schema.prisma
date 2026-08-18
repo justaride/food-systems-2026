@@ -397,10 +397,16 @@ model CandidateAnalysisRun {
   id                String   @id @default(cuid())
   workflowId        String
   workflowVersion   String
+  workflowPath      String
+  workflowHash      String
+  promptId          String
+  promptVersion     String
+  promptPath        String
   modelProvider     String
   modelName         String
   modelVersion      String
   promptHash        String
+  config            Json
   configHash        String
   inputEnvelopeHash String
   purpose           String
@@ -439,16 +445,22 @@ model CandidateAnalysisRunInput {
 }
 
 model CandidateAnalysisRunEvent {
-  id         String                @id @default(cuid())
-  runId      String
-  sequence   Int
-  eventType  CandidateRunEventType
-  payload    Json?
-  eventHash  String
-  recordedAt DateTime              @default(now())
+  id                    String                @id @default(cuid())
+  runId                 String
+  sequence              Int
+  eventType             CandidateRunEventType
+  payload               Json?
+  eventHash             String
+  supersededEventId     String?
+  supersededEventHash   String?
+  supersessionScopeHash String?
+  recordedAt            DateTime              @default(now())
 
-  run CandidateAnalysisRun @relation(fields: [runId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  run                CandidateAnalysisRun        @relation(fields: [runId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  supersededEvent    CandidateAnalysisRunEvent?  @relation("CandidateRunEventSupersession", fields: [supersededEventId, supersededEventHash, runId], references: [id, eventHash, runId], onDelete: Restrict, onUpdate: Restrict, map: "CandidateRunEvent_supersession_hash_scope_fkey")
+  supersedingEvents  CandidateAnalysisRunEvent[] @relation("CandidateRunEventSupersession")
 
+  @@unique([id, eventHash, runId])
   @@unique([runId, sequence])
   @@unique([runId, eventHash])
 }
@@ -479,11 +491,14 @@ model CandidateAssertion {
   identityConfidence    CandidateIdentityConfidence
   evidenceLevel         CandidateEvidenceLevel
   limitations           String[]
+  scopeKey               String
+  scopeHash              String
   supersededAssertionId String?
+  supersededAssertionPayloadHash String?
   createdAt             DateTime                    @default(now())
 
   run                   CandidateAnalysisRun           @relation(fields: [runId], references: [id], onDelete: Restrict, onUpdate: Restrict)
-  supersededAssertion   CandidateAssertion?            @relation("CandidateAssertionSupersession", fields: [supersededAssertionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  supersededAssertion   CandidateAssertion?            @relation("CandidateAssertionSupersession", fields: [supersededAssertionId, supersededAssertionPayloadHash, scopeHash], references: [id, payloadHash, scopeHash], onDelete: Restrict, onUpdate: Restrict, map: "CandidateAssertion_supersession_hash_scope_fkey")
   supersedingAssertions CandidateAssertion[]           @relation("CandidateAssertionSupersession")
   evidenceLinks         CandidateEvidenceLink[]
   dependencies          CandidateDependency[]          @relation("CandidateAssertionDependencies")
@@ -492,6 +507,7 @@ model CandidateAssertion {
   promotionDecisions    CandidatePromotionDecision[]
 
   @@unique([id, payloadHash])
+  @@unique([id, payloadHash, scopeHash])
   @@unique([runId, payloadHash])
   @@index([assertionType])
   @@index([machineUse])
@@ -532,6 +548,7 @@ model CandidateDependency {
 model CandidateReconciliationSnapshot {
   id            String   @id @default(cuid())
   runId         String
+  scope         Json
   scopeHash     String
   payload       Json
   payloadHash   String
@@ -554,19 +571,22 @@ model CandidateHumanReviewDecision {
   assertionPayloadHash String
   sourceContentSetHash String
   evidenceSetHash      String
+  decisionHash         String
   limitations          String[]
   editedPayload        Json?
   editedPayloadHash    String?
   supersededDecisionId String?
+  supersededDecisionHash String?
   createdAt            DateTime                @default(now())
 
   assertion            CandidateAssertion             @relation(fields: [assertionId, assertionPayloadHash], references: [id, payloadHash], onDelete: Restrict, onUpdate: Restrict)
-  supersededDecision   CandidateHumanReviewDecision?  @relation("CandidateHumanReviewSupersession", fields: [supersededDecisionId, assertionId, reviewProfile], references: [id, assertionId, reviewProfile], onDelete: Restrict, onUpdate: Restrict)
+  supersededDecision   CandidateHumanReviewDecision?  @relation("CandidateHumanReviewSupersession", fields: [supersededDecisionId, supersededDecisionHash, assertionId, reviewProfile, reviewProfileHash], references: [id, decisionHash, assertionId, reviewProfile, reviewProfileHash], onDelete: Restrict, onUpdate: Restrict, map: "CandidateReview_supersession_receipt_scope_fkey")
   supersedingDecisions CandidateHumanReviewDecision[] @relation("CandidateHumanReviewSupersession")
   promotionDecisions   CandidatePromotionDecision[]
 
   @@unique([id, assertionId])
-  @@unique([id, assertionId, reviewProfile])
+  @@unique([id, decisionHash, assertionId])
+  @@unique([id, decisionHash, assertionId, reviewProfile, reviewProfileHash])
   @@index([assertionId])
   @@index([decision])
   @@index([reviewProfile])
@@ -575,24 +595,33 @@ model CandidateHumanReviewDecision {
 model CandidatePromotionDecision {
   id                   String                  @id @default(cuid())
   assertionId          String
+  assertionPayloadHash String
   reviewDecisionId     String
+  reviewDecisionHash   String
   targetProfile        String
+  targetProfileHash    String
   state                CandidatePromotionState
   policyVersion        String
+  policyHash           String
   preconditionsHash    String
   targetRefs           Json
+  targetSetHash        String
   result               Json
+  resultHash           String
+  decisionHash         String
   operator             String
   authority            String
   supersededDecisionId String?
+  supersededDecisionHash String?
+  supersededPolicyHash String?
   createdAt            DateTime                @default(now())
 
-  assertion            CandidateAssertion           @relation(fields: [assertionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
-  reviewDecision       CandidateHumanReviewDecision @relation(fields: [reviewDecisionId, assertionId], references: [id, assertionId], onDelete: Restrict, onUpdate: Restrict)
-  supersededDecision   CandidatePromotionDecision?  @relation("CandidatePromotionSupersession", fields: [supersededDecisionId, assertionId, targetProfile], references: [id, assertionId, targetProfile], onDelete: Restrict, onUpdate: Restrict)
+  assertion            CandidateAssertion           @relation(fields: [assertionId, assertionPayloadHash], references: [id, payloadHash], onDelete: Restrict, onUpdate: Restrict)
+  reviewDecision       CandidateHumanReviewDecision @relation(fields: [reviewDecisionId, reviewDecisionHash, assertionId], references: [id, decisionHash, assertionId], onDelete: Restrict, onUpdate: Restrict, map: "CandidatePromotion_review_receipt_fkey")
+  supersededDecision   CandidatePromotionDecision?  @relation("CandidatePromotionSupersession", fields: [supersededDecisionId, supersededDecisionHash, assertionId, targetProfile, targetProfileHash, supersededPolicyHash], references: [id, decisionHash, assertionId, targetProfile, targetProfileHash, policyHash], onDelete: Restrict, onUpdate: Restrict, map: "CandidatePromotion_supersession_receipt_scope_fkey")
   supersedingDecisions CandidatePromotionDecision[] @relation("CandidatePromotionSupersession")
 
-  @@unique([id, assertionId, targetProfile])
+  @@unique([id, decisionHash, assertionId, targetProfile, targetProfileHash, policyHash])
   @@index([assertionId])
   @@index([targetProfile, state])
 }

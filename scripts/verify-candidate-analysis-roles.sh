@@ -69,9 +69,16 @@ esac
 
 command -v psql >/dev/null 2>&1 || fail 'psql is required'
 command -v node >/dev/null 2>&1 || fail 'node is required to normalize the connection URL'
-[ -z "${PGOPTIONS:-}" ] || fail 'PGOPTIONS is not permitted for candidate role verification'
-[ -z "${PGSERVICE:-}" ] || fail 'PGSERVICE is not permitted for candidate role verification'
-[ -z "${PGSERVICEFILE:-}" ] || fail 'PGSERVICEFILE is not permitted for candidate role verification'
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+for pg_name in PGHOST PGHOSTADDR PGPORT PGDATABASE PGUSER PGPASSWORD PGPASSFILE \
+  PGSERVICE PGSERVICEFILE PGOPTIONS PGAPPNAME PGSSLMODE PGREQUIRESSL \
+  PGSSLCOMPRESSION PGSSLCERT PGSSLKEY PGSSLROOTCERT PGSSLCRL PGSSLCRLDIR \
+  PGSSLSNI PGREQUIREAUTH PGCHANNELBINDING PGGSSENCMODE PGGSSLIB PGKRBSRVNAME \
+  PGREQUIREPEER PGSSLMINPROTOCOLVERSION PGSSLMAXPROTOCOLVERSION \
+  PGCONNECT_TIMEOUT PGTARGETSESSIONATTRS PGLOADBALANCEHOSTS; do
+  eval "pg_value=\${$pg_name-}"
+  [ -z "$pg_value" ] || fail "$pg_name is not permitted for candidate role verification"
+done
 
 connection_dir=$(mktemp -d "${TMPDIR:-/tmp}/foodsystems-candidate-verify.XXXXXX")
 cleanup_connection() {
@@ -80,28 +87,10 @@ cleanup_connection() {
 }
 trap cleanup_connection EXIT HUP INT TERM
 export PGPASSFILE=$connection_dir/pgpass
-PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$ROLE_DATABASE_URL PGPASSFILE_PATH=$PGPASSFILE EXPECTED_URL_ROLE=$EXPECTED_ROLE EXPECTED_URL_APP=$EXPECTED_APP_NAME node -e '
-  const fs = require("node:fs")
-  const die = message => { console.error(`[candidate-role-verify] ERROR: ${message}`); process.exit(1) }
-  let url
-  try { url = new URL(process.env.RAW_DATABASE_URL) } catch { die("invalid PostgreSQL URL") }
-  if (!/^postgres(ql)?:$/.test(url.protocol)) die("candidate database URL must use PostgreSQL")
-  if (url.searchParams.has("password") || url.searchParams.has("sslpassword")) die("put database passwords in the URL authority, not query parameters")
-  if (url.searchParams.has("options")) die("startup options are not permitted")
-  if (url.searchParams.has("service")) die("connection services are not permitted")
-  try {
-    const decode = value => decodeURIComponent(value)
-    const username = decode(url.username)
-    if (username !== process.env.EXPECTED_URL_ROLE) die("dedicated database URL username does not match expected role")
-    if ((url.searchParams.get("application_name") ?? "") !== process.env.EXPECTED_URL_APP) die("dedicated database URL application_name does not match expected value")
-    const escapeField = value => value.replace(/\\/g, "\\\\").replace(/:/g, "\\:")
-    const fields = [url.hostname || "localhost", url.port || "5432", decode(url.pathname.replace(/^\//, "")), username, decode(url.password)].map(escapeField)
-    fs.writeFileSync(process.env.PGPASSFILE_PATH, `${fields.join(":")}\n`, { mode: 0o600 })
-    url.password = ""
-    url.searchParams.delete("schema")
-    process.stdout.write(url.toString())
-  } catch { die("invalid PostgreSQL URL") }
-')
+PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$ROLE_DATABASE_URL PGPASSFILE_PATH=$PGPASSFILE \
+  EXPECTED_URL_ROLE=$EXPECTED_ROLE EXPECTED_URL_APP=$EXPECTED_APP_NAME \
+  CANDIDATE_URL_CONTEXT=candidate-role-verify \
+  node "$SCRIPT_DIR/normalize-candidate-postgres-url.mjs")
 unset ROLE_DATABASE_URL CANDIDATE_WORKER_DATABASE_URL CANDIDATE_RECONCILER_DATABASE_URL PGPASSWORD PGOPTIONS PGSERVICE PGSERVICEFILE
 export ROLE_MODE EXPECTED_ROLE EXPECTED_APP_NAME CANDIDATE_DB_SCHEMA
 

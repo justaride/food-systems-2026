@@ -11,7 +11,7 @@
 
 - Candidate history is append-only. Use `src/lib/knowledge/candidate-analysis-writer.ts`.
 - Never use generic upsert, update, delete, or generic or mutating raw SQL against candidate history.
-- The writer may use only narrow, parameterized, internal, read-only SQL for `SELECT ... FOR UPDATE` serialization and recursive dependency-integrity checks. That SQL must not be exposed and must not mutate candidate history.
+- The writer may use only narrow, parameterized, internal SQL for transaction-scoped advisory run/assertion locks and read-only recursive dependency-integrity checks. Advisory locks change transaction lock state only; this SQL must not be exposed and must not mutate candidate history.
 - Generated snapshots are regenerated through their named scripts; never hand-edit them.
 
 ## Verification

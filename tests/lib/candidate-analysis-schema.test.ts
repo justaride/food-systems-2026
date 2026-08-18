@@ -33,11 +33,11 @@ test("models independent machine, review and target-specific promotion history",
   assert.match(promotion, /state\s+CandidatePromotionState/);
   assert.match(
     promotion,
-    /fields: \[reviewDecisionId, assertionId\], references: \[id, assertionId\]/,
+    /fields: \[reviewDecisionId, reviewDecisionHash, assertionId\], references: \[id, decisionHash, assertionId\]/,
   );
   assert.match(
     promotion,
-    /fields: \[supersededDecisionId, assertionId, targetProfile\], references: \[id, assertionId, targetProfile\]/,
+    /fields: \[supersededDecisionId, supersededDecisionHash, assertionId, targetProfile, targetProfileHash, supersededPolicyHash\], references: \[id, decisionHash, assertionId, targetProfile, targetProfileHash, policyHash\]/,
   );
   const humanReview = modelBlock(schema, "CandidateHumanReviewDecision");
   assert.match(
@@ -46,7 +46,15 @@ test("models independent machine, review and target-specific promotion history",
   );
   assert.match(
     humanReview,
-    /fields: \[supersededDecisionId, assertionId, reviewProfile\], references: \[id, assertionId, reviewProfile\]/,
+    /fields: \[supersededDecisionId, supersededDecisionHash, assertionId, reviewProfile, reviewProfileHash\], references: \[id, decisionHash, assertionId, reviewProfile, reviewProfileHash\]/,
+  );
+  assert.match(
+    modelBlock(schema, "CandidateAnalysisRunEvent"),
+    /fields: \[supersededEventId, supersededEventHash, runId\], references: \[id, eventHash, runId\]/,
+  );
+  assert.match(
+    modelBlock(schema, "CandidateAssertion"),
+    /fields: \[supersededAssertionId, supersededAssertionPayloadHash, scopeHash\], references: \[id, payloadHash, scopeHash\]/,
   );
   assert.doesNotMatch(
     modelBlock(schema, "CandidateAssertion"),
@@ -79,8 +87,9 @@ test(
           "identityConfidence", "createdAt",
         ],
         CandidateAnalysisRun: [
-          "id", "workflowId", "workflowVersion", "modelProvider", "modelName",
-          "modelVersion", "promptHash", "configHash", "inputEnvelopeHash",
+          "id", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
           "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt",
           "predecessorRunId", "createdAt",
         ],
@@ -88,7 +97,8 @@ test(
           "id", "runId", "contentUnitId", "position", "inputHash", "createdAt",
         ],
         CandidateAnalysisRunEvent: [
-          "id", "runId", "sequence", "eventType", "payload", "eventHash", "recordedAt",
+          "id", "runId", "sequence", "eventType", "payload", "eventHash",
+          "supersededEventId", "supersededEventHash", "supersessionScopeHash", "recordedAt",
         ],
         CandidateAnalysisArtifact: [
           "id", "runId", "artifactType", "schemaVersion", "payload", "payloadHash", "createdAt",
@@ -96,25 +106,29 @@ test(
         CandidateAssertion: [
           "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
           "confidence", "machineUse", "identityConfidence", "evidenceLevel",
-          "limitations", "supersededAssertionId", "createdAt",
+          "limitations", "scopeKey", "scopeHash", "supersededAssertionId",
+          "supersededAssertionPayloadHash", "createdAt",
         ],
         CandidateEvidenceLink: [
           "id", "assertionId", "contentUnitId", "relation", "locator", "locatorHash",
           "excerptHash", "createdAt",
         ],
         CandidateReconciliationSnapshot: [
-          "id", "runId", "scopeHash", "payload", "payloadHash", "conflictCount", "createdAt",
+          "id", "runId", "scope", "scopeHash", "payload", "payloadHash", "conflictCount", "createdAt",
         ],
         CandidateHumanReviewDecision: [
           "id", "assertionId", "decision", "reviewProfile", "reviewProfileHash",
           "reviewer", "authority", "assertionPayloadHash", "sourceContentSetHash",
-          "evidenceSetHash", "limitations", "editedPayload", "editedPayloadHash",
-          "supersededDecisionId", "createdAt",
+          "evidenceSetHash", "decisionHash", "limitations", "editedPayload", "editedPayloadHash",
+          "supersededDecisionId", "supersededDecisionHash", "createdAt",
         ],
         CandidatePromotionDecision: [
-          "id", "assertionId", "reviewDecisionId", "targetProfile", "state",
-          "policyVersion", "preconditionsHash", "targetRefs", "result", "operator",
-          "authority", "supersededDecisionId", "createdAt",
+          "id", "assertionId", "assertionPayloadHash", "reviewDecisionId",
+          "reviewDecisionHash", "targetProfile", "targetProfileHash", "state",
+          "policyVersion", "policyHash", "preconditionsHash", "targetRefs",
+          "targetSetHash", "result", "resultHash", "decisionHash", "operator",
+          "authority", "supersededDecisionId", "supersededDecisionHash",
+          "supersededPolicyHash", "createdAt",
         ],
       } as const;
       const copyInsert = (
@@ -138,13 +152,18 @@ test(
           0, 'page:1', '${hash("b")}', '${hash("c")}', 'exact'
         );
         INSERT INTO "CandidateAnalysisRun" (
-          "id", "workflowId", "workflowVersion", "modelProvider", "modelName",
-          "modelVersion", "promptHash", "configHash", "inputEnvelopeHash",
+          "id", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
           "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
         ) VALUES (
-          'run-1', 'workflow-1', 'v1', 'provider', 'model', 'model-v1',
-          '${hash("d")}', '${hash("e")}', '${hash("f")}', 'candidate analysis',
-          'candidate-v1', 'worker-1', 'run-key-1', 1
+          'run-1', 'workflow.candidate_analysis.v1', '1.0.0',
+          'knowledge/corpus/workflows/candidate-analysis-v1.md', '${hash("d")}',
+          'prompt.candidate_analysis.v1', '1.0.0',
+          'knowledge/corpus/workflows/candidate-analysis-prompt-v1.md',
+          'provider', 'model', 'model-v1', '${hash("e")}', '{}', '${hash("f")}',
+          '${hash("0")}', 'candidate analysis',
+          'candidate-v1', 'worker-1', '${hash("a")}', 1
         );
         INSERT INTO "CandidateAnalysisRunInput" (
           "id", "runId", "contentUnitId", "position", "inputHash"
@@ -157,12 +176,13 @@ test(
         ) VALUES ('artifact-1', 'run-1', 'analysis', 'candidate-analysis-v1', '{}', '${hash("3")}');
         INSERT INTO "CandidateAssertion" (
           "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
-          "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations"
+          "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
+          "scopeKey", "scopeHash"
         ) VALUES
           ('assertion-1', 'run-1', 'claim', 'candidate-analysis-v1', '{"claim":"one"}', '${hash("4")}',
-           0.75, 'candidate_only', 'exact', 'exact_locator', ARRAY[]::text[]),
+           0.75, 'candidate_only', 'exact', 'exact_locator', ARRAY[]::text[], 'claim:one', '${hash("e")}'),
           ('assertion-2', 'run-1', 'gap', 'candidate-analysis-v1', '{"gap":"two"}', '${hash("5")}',
-           NULL, 'quarantined', 'provisional', 'partial_locator', ARRAY['needs review']);
+           NULL, 'quarantined', 'provisional', 'partial_locator', ARRAY['needs review'], 'gap:two', '${hash("f")}');
         INSERT INTO "CandidateEvidenceLink" (
           "id", "assertionId", "contentUnitId", "relation", "locator", "locatorHash", "excerptHash"
         ) VALUES ('evidence-1', 'assertion-1', 'unit-1', 'supports', 'page:1', '${hash("6")}', '${hash("7")}');
@@ -170,126 +190,111 @@ test(
           "id", "assertionId", "upstreamAssertionId", "relation", "inheritedLimitations"
         ) VALUES ('dependency-1', 'assertion-2', 'assertion-1', 'derived_from', ARRAY['needs review']);
         INSERT INTO "CandidateReconciliationSnapshot" (
-          "id", "runId", "scopeHash", "payload", "payloadHash", "conflictCount"
-        ) VALUES ('snapshot-1', 'run-1', '${hash("8")}', '{}', '${hash("9")}', 0);
+          "id", "runId", "scope", "scopeHash", "payload", "payloadHash", "conflictCount"
+        ) VALUES ('snapshot-1', 'run-1', '{}', '${hash("8")}', '{}', '${hash("9")}', 0);
         INSERT INTO "CandidateHumanReviewDecision" (
           "id", "assertionId", "decision", "reviewProfile", "reviewProfileHash",
           "reviewer", "authority", "assertionPayloadHash", "sourceContentSetHash",
-          "evidenceSetHash", "limitations"
+          "evidenceSetHash", "decisionHash", "limitations"
         ) VALUES (
           'review-1', 'assertion-1', 'accepted', 'internal-review-v1', '${hash("a")}',
           'reviewer-1', 'human-review-board', '${hash("4")}', '${hash("b")}',
-          '${hash("c")}', ARRAY[]::text[]
+          '${hash("c")}', '${hash("d")}', ARRAY[]::text[]
         );
         INSERT INTO "CandidatePromotionDecision" (
-          "id", "assertionId", "reviewDecisionId", "targetProfile", "state",
-          "policyVersion", "preconditionsHash", "targetRefs", "result", "operator", "authority"
+          "id", "assertionId", "assertionPayloadHash", "reviewDecisionId",
+          "reviewDecisionHash", "targetProfile", "targetProfileHash", "state",
+          "policyVersion", "policyHash", "preconditionsHash", "targetRefs",
+          "targetSetHash", "result", "resultHash", "decisionHash", "operator", "authority"
         ) VALUES (
-          'promotion-1', 'assertion-1', 'review-1', 'internal-knowledge-v1', 'internal_curated',
-          'policy-v1', '${hash("d")}', '{}', '{"status":"recorded"}', 'operator-1', 'promotion-board'
+          'promotion-1', 'assertion-1', '${hash("4")}', 'review-1', '${hash("d")}',
+          'internal-knowledge-v1', '${hash("e")}', 'internal_curated', 'policy-v1',
+          '${hash("f")}', '${hash("0")}', '{}', '${hash("1")}',
+          '{"status":"recorded"}', '${hash("2")}', '${hash("3")}',
+          'operator-1', 'promotion-board'
         );
       `);
       assert.equal(insertChain.status, 0, insertChain.stderr);
+
+      const secondReview = psql(
+        copyInsert("CandidateHumanReviewDecision", "review-1", {
+          id: "'review-2'",
+          assertionId: "'assertion-2'",
+          assertionPayloadHash: `'${hash("5")}'`,
+          decisionHash: `'${hash("6")}'`,
+        }),
+      );
+      assert.equal(secondReview.status, 0, secondReview.stderr);
 
       const authorityMismatches = [
         {
           name: "review assertion payload hash",
           constraint: "CandidateHumanReviewDecision_assertionId_assertionPayloadH_fkey",
-          sql: `
-            INSERT INTO "CandidateHumanReviewDecision" (
-              "id", "assertionId", "decision", "reviewProfile", "reviewProfileHash",
-              "reviewer", "authority", "assertionPayloadHash", "sourceContentSetHash",
-              "evidenceSetHash", "limitations"
-            ) VALUES (
-              'review-wrong-hash', 'assertion-1', 'accepted', 'internal-review-v1', '${hash("a")}',
-              'reviewer-1', 'human-review-board', '${hash("5")}', '${hash("b")}',
-              '${hash("c")}', ARRAY[]::text[]
-            )
-          `,
+          sql: copyInsert("CandidateHumanReviewDecision", "review-1", {
+            id: "'review-wrong-hash'",
+            assertionPayloadHash: `'${hash("5")}'`,
+          }),
         },
         {
           name: "promotion review assertion",
-          constraint: "CandidatePromotionDecision_reviewDecisionId_assertionId_fkey",
-          sql: `
-            INSERT INTO "CandidatePromotionDecision" (
-              "id", "assertionId", "reviewDecisionId", "targetProfile", "state",
-              "policyVersion", "preconditionsHash", "targetRefs", "result", "operator", "authority"
-            ) VALUES (
-              'promotion-wrong-review', 'assertion-2', 'review-1', 'internal-knowledge-v1', 'internal_curated',
-              'policy-v1', '${hash("d")}', '{}', '{}', 'operator-1', 'promotion-board'
-            )
-          `,
+          constraint: "CandidatePromotion_review_receipt_fkey",
+          sql: copyInsert("CandidatePromotionDecision", "promotion-1", {
+            id: "'promotion-wrong-review'",
+            assertionId: "'assertion-2'",
+            assertionPayloadHash: `'${hash("5")}'`,
+          }),
         },
         {
           name: "review supersession assertion scope",
-          constraint: "CandidateHumanReviewDecision_supersededDecisionId_assertio_fkey",
-          sql: `
-            INSERT INTO "CandidateHumanReviewDecision" (
-              "id", "assertionId", "decision", "reviewProfile", "reviewProfileHash",
-              "reviewer", "authority", "assertionPayloadHash", "sourceContentSetHash",
-              "evidenceSetHash", "limitations", "supersededDecisionId"
-            ) VALUES (
-              'review-wrong-assertion-scope', 'assertion-2', 'accepted', 'internal-review-v1', '${hash("a")}',
-              'reviewer-1', 'human-review-board', '${hash("5")}', '${hash("b")}',
-              '${hash("c")}', ARRAY[]::text[], 'review-1'
-            )
-          `,
+          constraint: "CandidateReview_supersession_receipt_scope_fkey",
+          sql: copyInsert("CandidateHumanReviewDecision", "review-1", {
+            id: "'review-wrong-assertion-scope'",
+            assertionId: "'assertion-2'",
+            assertionPayloadHash: `'${hash("5")}'`,
+            decisionHash: `'${hash("7")}'`,
+            supersededDecisionId: "'review-1'",
+            supersededDecisionHash: `'${hash("d")}'`,
+          }),
         },
         {
           name: "review supersession profile scope",
-          constraint: "CandidateHumanReviewDecision_supersededDecisionId_assertio_fkey",
-          sql: `
-            INSERT INTO "CandidateHumanReviewDecision" (
-              "id", "assertionId", "decision", "reviewProfile", "reviewProfileHash",
-              "reviewer", "authority", "assertionPayloadHash", "sourceContentSetHash",
-              "evidenceSetHash", "limitations", "supersededDecisionId"
-            ) VALUES (
-              'review-wrong-profile-scope', 'assertion-1', 'accepted', 'external-review-v1', '${hash("a")}',
-              'reviewer-1', 'human-review-board', '${hash("4")}', '${hash("b")}',
-              '${hash("c")}', ARRAY[]::text[], 'review-1'
-            )
-          `,
+          constraint: "CandidateReview_supersession_receipt_scope_fkey",
+          sql: copyInsert("CandidateHumanReviewDecision", "review-1", {
+            id: "'review-wrong-profile-scope'",
+            reviewProfile: "'external-review-v1'",
+            reviewProfileHash: `'${hash("7")}'`,
+            decisionHash: `'${hash("8")}'`,
+            supersededDecisionId: "'review-1'",
+            supersededDecisionHash: `'${hash("d")}'`,
+          }),
         },
         {
           name: "promotion supersession assertion scope",
-          constraint: "CandidatePromotionDecision_supersededDecisionId_assertionI_fkey",
-          sql: `
-            WITH inserted_review AS (
-              INSERT INTO "CandidateHumanReviewDecision" (
-                "id", "assertionId", "decision", "reviewProfile", "reviewProfileHash",
-                "reviewer", "authority", "assertionPayloadHash", "sourceContentSetHash",
-                "evidenceSetHash", "limitations"
-              ) VALUES (
-                'review-2', 'assertion-2', 'accepted', 'internal-review-v1', '${hash("a")}',
-                'reviewer-1', 'human-review-board', '${hash("5")}', '${hash("b")}',
-                '${hash("c")}', ARRAY[]::text[]
-              ) RETURNING "id"
-            )
-            INSERT INTO "CandidatePromotionDecision" (
-              "id", "assertionId", "reviewDecisionId", "targetProfile", "state",
-              "policyVersion", "preconditionsHash", "targetRefs", "result", "operator",
-              "authority", "supersededDecisionId"
-            ) VALUES (
-              'promotion-wrong-assertion-scope', 'assertion-2', (SELECT "id" FROM inserted_review),
-              'internal-knowledge-v1', 'internal_curated', 'policy-v1', '${hash("d")}', '{}', '{}',
-              'operator-1', 'promotion-board', 'promotion-1'
-            )
-          `,
+          constraint: "CandidatePromotion_supersession_receipt_scope_fkey",
+          sql: copyInsert("CandidatePromotionDecision", "promotion-1", {
+            id: "'promotion-wrong-assertion-scope'",
+            assertionId: "'assertion-2'",
+            assertionPayloadHash: `'${hash("5")}'`,
+            reviewDecisionId: "'review-2'",
+            reviewDecisionHash: `'${hash("6")}'`,
+            decisionHash: `'${hash("7")}'`,
+            supersededDecisionId: "'promotion-1'",
+            supersededDecisionHash: `'${hash("3")}'`,
+            supersededPolicyHash: `'${hash("f")}'`,
+          }),
         },
         {
           name: "promotion supersession target scope",
-          constraint: "CandidatePromotionDecision_supersededDecisionId_assertionI_fkey",
-          sql: `
-            INSERT INTO "CandidatePromotionDecision" (
-              "id", "assertionId", "reviewDecisionId", "targetProfile", "state",
-              "policyVersion", "preconditionsHash", "targetRefs", "result", "operator",
-              "authority", "supersededDecisionId"
-            ) VALUES (
-              'promotion-wrong-target-scope', 'assertion-1', 'review-1', 'external-publication-v1',
-              'external_eligible', 'policy-v1', '${hash("d")}', '{}', '{}',
-              'operator-1', 'promotion-board', 'promotion-1'
-            )
-          `,
+          constraint: "CandidatePromotion_supersession_receipt_scope_fkey",
+          sql: copyInsert("CandidatePromotionDecision", "promotion-1", {
+            id: "'promotion-wrong-target-scope'",
+            targetProfile: "'external-publication-v1'",
+            targetProfileHash: `'${hash("8")}'`,
+            decisionHash: `'${hash("9")}'`,
+            supersededDecisionId: "'promotion-1'",
+            supersededDecisionHash: `'${hash("3")}'`,
+            supersededPolicyHash: `'${hash("f")}'`,
+          }),
         },
       ];
       for (const mismatch of authorityMismatches) {
@@ -368,36 +373,43 @@ test(
           name: "run prompt hash",
           constraint: "CandidateAnalysisRun_promptHash_check",
           sql: copyInsert("CandidateAnalysisRun", "run-1", {
-            id: "'invalid-run-prompt'", idempotencyKey: "'constraint-run-1'", promptHash: uppercaseHash,
+            id: "'invalid-run-prompt'", idempotencyKey: `'${hash("b")}'`, promptHash: uppercaseHash,
           }),
         },
         {
           name: "run config hash",
           constraint: "CandidateAnalysisRun_configHash_check",
           sql: copyInsert("CandidateAnalysisRun", "run-1", {
-            id: "'invalid-run-config'", idempotencyKey: "'constraint-run-2'", configHash: uppercaseHash,
+            id: "'invalid-run-config'", idempotencyKey: `'${hash("c")}'`, configHash: uppercaseHash,
           }),
         },
         {
           name: "run input-envelope hash",
           constraint: "CandidateAnalysisRun_inputEnvelopeHash_check",
           sql: copyInsert("CandidateAnalysisRun", "run-1", {
-            id: "'invalid-run-input-envelope'", idempotencyKey: "'constraint-run-3'",
+            id: "'invalid-run-input-envelope'", idempotencyKey: `'${hash("d")}'`,
             inputEnvelopeHash: uppercaseHash,
+          }),
+        },
+        {
+          name: "run idempotency hash",
+          constraint: "CandidateAnalysisRun_idempotencyKey_check",
+          sql: copyInsert("CandidateAnalysisRun", "run-1", {
+            id: "'invalid-run-idempotency'", idempotencyKey: uppercaseHash,
           }),
         },
         {
           name: "run attempt",
           constraint: "CandidateAnalysisRun_attempt_check",
           sql: copyInsert("CandidateAnalysisRun", "run-1", {
-            id: "'invalid-run-attempt'", idempotencyKey: "'constraint-run-4'", attempt: "0",
+            id: "'invalid-run-attempt'", idempotencyKey: `'${hash("e")}'`, attempt: "0",
           }),
         },
         {
           name: "run worker",
           constraint: "CandidateAnalysisRun_workerId_check",
           sql: copyInsert("CandidateAnalysisRun", "run-1", {
-            id: "'invalid-run-worker'", idempotencyKey: "'constraint-run-5'", workerId: "'   '",
+            id: "'invalid-run-worker'", idempotencyKey: `'${hash("f")}'`, workerId: "'   '",
           }),
         },
         {
@@ -651,6 +663,241 @@ test(
       `);
       assert.equal(publicRoutineGrants.status, 0, publicRoutineGrants.stderr);
       assert.equal(publicRoutineGrants.stdout.trim(), "");
+    });
+  },
+);
+
+test(
+  "database rejects event assertion review and promotion self-supersession",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ psql }) => {
+      const hash = (character: string) => character.repeat(64);
+      const setup = psql(`
+        INSERT INTO "CandidateAnalysisRun" (
+          "id", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+          "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+        ) VALUES (
+          'run-self', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${hash("0")}',
+          'prompt.candidate_analysis.v1', '1.0.0', 'prompt.md', 'provider', 'model',
+          'version', '${hash("1")}', '{}', '${hash("2")}', '${hash("3")}',
+          'self test', 'candidate_only', 'worker:self', '${hash("b")}', 1
+        );
+        INSERT INTO "CandidateAnalysisRunEvent" (
+          "id", "runId", "sequence", "eventType", "payload", "eventHash"
+        ) VALUES ('event-parent', 'run-self', 1, 'queued', '{}', '${hash("9")}');
+        INSERT INTO "CandidateAssertion" (
+          "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
+          "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
+          "scopeKey", "scopeHash"
+        ) VALUES (
+          'assertion-parent', 'run-self', 'claim', 'candidate-analysis-v1', '{}', '${hash("4")}',
+          NULL, 'candidate_only', 'provisional', 'no_locator', ARRAY[]::text[],
+          'scope:self', '${hash("a")}'
+        );
+        INSERT INTO "CandidateHumanReviewDecision" (
+          "id", "assertionId", "decision", "reviewProfile", "reviewProfileHash",
+          "reviewer", "authority", "assertionPayloadHash", "sourceContentSetHash",
+          "evidenceSetHash", "decisionHash", "limitations"
+        ) VALUES (
+          'review-parent', 'assertion-parent', 'accepted', 'review-v1', '${hash("5")}',
+          'reviewer', 'authority', '${hash("4")}', '${hash("6")}', '${hash("7")}', '${hash("b")}',
+          ARRAY[]::text[]
+        );
+        INSERT INTO "CandidatePromotionDecision" (
+          "id", "assertionId", "assertionPayloadHash", "reviewDecisionId",
+          "reviewDecisionHash", "targetProfile", "targetProfileHash", "state",
+          "policyVersion", "policyHash", "preconditionsHash", "targetRefs",
+          "targetSetHash", "result", "resultHash", "decisionHash", "operator", "authority"
+        ) VALUES (
+          'promotion-parent', 'assertion-parent', '${hash("4")}', 'review-parent', '${hash("b")}',
+          'target-v1', '${hash("c")}', 'internal_curated', 'policy-v1', '${hash("d")}',
+          '${hash("8")}', '{}', '${hash("e")}', '{}', '${hash("f")}', '${hash("1")}',
+          'operator', 'authority'
+        );
+      `);
+      assert.equal(setup.status, 0, setup.stderr);
+
+      const results = [
+        psql(`
+          INSERT INTO "CandidateAnalysisRunEvent" (
+            "id", "runId", "sequence", "eventType", "payload", "eventHash",
+            "supersededEventId", "supersededEventHash", "supersessionScopeHash"
+          ) VALUES (
+            'event-self', 'run-self', 2, 'superseded', '{}', '${hash("2")}',
+            'event-self', '${hash("2")}', '${hash("3")}'
+          )
+        `),
+        psql(`
+          INSERT INTO "CandidateAssertion" (
+            "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
+            "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
+            "scopeKey", "scopeHash", "supersededAssertionId", "supersededAssertionPayloadHash"
+          ) VALUES (
+            'assertion-self', 'run-self', 'claim', 'candidate-analysis-v1', '{}', '${hash("a")}',
+            NULL, 'candidate_only', 'provisional', 'no_locator', ARRAY[]::text[],
+            'scope:self', '${hash("a")}', 'assertion-self', '${hash("a")}'
+          )
+        `),
+        psql(`
+          INSERT INTO "CandidateHumanReviewDecision" (
+            "id", "assertionId", "decision", "reviewProfile", "reviewProfileHash",
+            "reviewer", "authority", "assertionPayloadHash", "sourceContentSetHash",
+            "evidenceSetHash", "decisionHash", "limitations", "supersededDecisionId",
+            "supersededDecisionHash"
+          ) VALUES (
+            'review-self', 'assertion-parent', 'accepted', 'review-v1', '${hash("5")}',
+            'reviewer', 'authority', '${hash("4")}', '${hash("6")}', '${hash("7")}',
+            '${hash("c")}', ARRAY[]::text[], 'review-self', '${hash("c")}'
+          )
+        `),
+        psql(`
+          INSERT INTO "CandidatePromotionDecision" (
+            "id", "assertionId", "assertionPayloadHash", "reviewDecisionId",
+            "reviewDecisionHash", "targetProfile", "targetProfileHash", "state",
+            "policyVersion", "policyHash", "preconditionsHash", "targetRefs", "targetSetHash",
+            "result", "resultHash", "decisionHash", "operator", "authority",
+            "supersededDecisionId", "supersededDecisionHash", "supersededPolicyHash"
+          ) VALUES (
+            'promotion-self', 'assertion-parent', '${hash("4")}', 'review-parent', '${hash("b")}',
+            'target-v1', '${hash("c")}', 'internal_curated', 'policy-v1', '${hash("d")}',
+            '${hash("8")}', '{}', '${hash("e")}', '{}', '${hash("f")}', '${hash("2")}',
+            'operator', 'authority', 'promotion-self', '${hash("2")}', '${hash("d")}'
+          )
+        `),
+      ];
+
+      assert.deepEqual(
+        results.map(({ status }) => status === 0),
+        [false, false, false, false],
+        results.map(({ stderr }) => stderr).join("\n"),
+      );
+      for (const result of results) assert.match(result.stderr, /self_supersession/i);
+    });
+  },
+);
+
+test(
+  "database supersession foreign keys bind prior ids hashes and authority scope",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ psql }) => {
+      const hash = (character: string) => character.repeat(64);
+      const setup = psql(`
+        INSERT INTO "CandidateAnalysisRun" (
+          "id", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+          "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+        ) VALUES (
+          'run-bind', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${hash("0")}',
+          'prompt.candidate_analysis.v1', '1.0.0', 'prompt.md', 'provider', 'model',
+          'version', '${hash("1")}', '{}', '${hash("2")}', '${hash("3")}',
+          'binding test', 'candidate_only', 'worker:bind', '${hash("c")}', 1
+        );
+        INSERT INTO "CandidateAnalysisRunEvent" (
+          "id", "runId", "sequence", "eventType", "payload", "eventHash"
+        ) VALUES ('event-bind-parent', 'run-bind', 1, 'queued', '{}', '${hash("4")}');
+        INSERT INTO "CandidateAssertion" (
+          "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
+          "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
+          "scopeKey", "scopeHash"
+        ) VALUES (
+          'assertion-bind-parent', 'run-bind', 'claim', 'candidate-analysis-v1', '{}', '${hash("5")}',
+          NULL, 'candidate_only', 'provisional', 'no_locator', ARRAY[]::text[],
+          'scope:bind', '${hash("6")}'
+        );
+        INSERT INTO "CandidateHumanReviewDecision" (
+          "id", "assertionId", "decision", "reviewProfile", "reviewProfileHash",
+          "reviewer", "authority", "assertionPayloadHash", "sourceContentSetHash",
+          "evidenceSetHash", "decisionHash", "limitations"
+        ) VALUES (
+          'review-bind-parent', 'assertion-bind-parent', 'accepted', 'review-v1', '${hash("7")}',
+          'reviewer', 'authority', '${hash("5")}', '${hash("8")}', '${hash("9")}',
+          '${hash("a")}', ARRAY[]::text[]
+        );
+        INSERT INTO "CandidatePromotionDecision" (
+          "id", "assertionId", "assertionPayloadHash", "reviewDecisionId",
+          "reviewDecisionHash", "targetProfile", "targetProfileHash", "state",
+          "policyVersion", "policyHash", "preconditionsHash", "targetRefs", "targetSetHash",
+          "result", "resultHash", "decisionHash", "operator", "authority"
+        ) VALUES (
+          'promotion-bind-parent', 'assertion-bind-parent', '${hash("5")}',
+          'review-bind-parent', '${hash("a")}', 'target-v1', '${hash("b")}',
+          'internal_curated', 'policy-v1', '${hash("c")}', '${hash("d")}', '{}',
+          '${hash("e")}', '{}', '${hash("f")}', '${hash("0")}', 'operator', 'authority'
+        );
+      `);
+      assert.equal(setup.status, 0, setup.stderr);
+
+      const mismatches = [
+        {
+          constraint: "CandidateRunEvent_supersession_hash_scope_fkey",
+          sql: `
+            INSERT INTO "CandidateAnalysisRunEvent" (
+              "id", "runId", "sequence", "eventType", "payload", "eventHash",
+              "supersededEventId", "supersededEventHash", "supersessionScopeHash"
+            ) VALUES (
+              'event-bind-child', 'run-bind', 2, 'superseded', '{}', '${hash("1")}',
+              'event-bind-parent', '${hash("2")}', '${hash("3")}'
+            )
+          `,
+        },
+        {
+          constraint: "CandidateAssertion_supersession_hash_scope_fkey",
+          sql: `
+            INSERT INTO "CandidateAssertion" (
+              "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
+              "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
+              "scopeKey", "scopeHash", "supersededAssertionId", "supersededAssertionPayloadHash"
+            ) VALUES (
+              'assertion-bind-child', 'run-bind', 'claim', 'candidate-analysis-v1', '{}', '${hash("7")}',
+              NULL, 'candidate_only', 'provisional', 'no_locator', ARRAY[]::text[],
+              'scope:bind', '${hash("6")}', 'assertion-bind-parent', '${hash("8")}'
+            )
+          `,
+        },
+        {
+          constraint: "CandidateReview_supersession_receipt_scope_fkey",
+          sql: `
+            INSERT INTO "CandidateHumanReviewDecision" (
+              "id", "assertionId", "decision", "reviewProfile", "reviewProfileHash",
+              "reviewer", "authority", "assertionPayloadHash", "sourceContentSetHash",
+              "evidenceSetHash", "decisionHash", "limitations", "supersededDecisionId",
+              "supersededDecisionHash"
+            ) VALUES (
+              'review-bind-child', 'assertion-bind-parent', 'accepted', 'review-v1', '${hash("7")}',
+              'reviewer', 'authority', '${hash("5")}', '${hash("8")}', '${hash("9")}',
+              '${hash("b")}', ARRAY[]::text[], 'review-bind-parent', '${hash("2")}'
+            )
+          `,
+        },
+        {
+          constraint: "CandidatePromotion_supersession_receipt_scope_fkey",
+          sql: `
+            INSERT INTO "CandidatePromotionDecision" (
+              "id", "assertionId", "assertionPayloadHash", "reviewDecisionId",
+              "reviewDecisionHash", "targetProfile", "targetProfileHash", "state",
+              "policyVersion", "policyHash", "preconditionsHash", "targetRefs", "targetSetHash",
+              "result", "resultHash", "decisionHash", "operator", "authority",
+              "supersededDecisionId", "supersededDecisionHash", "supersededPolicyHash"
+            ) VALUES (
+              'promotion-bind-child', 'assertion-bind-parent', '${hash("5")}',
+              'review-bind-parent', '${hash("a")}', 'target-v1', '${hash("b")}',
+              'internal_curated', 'policy-v1', '${hash("c")}', '${hash("d")}', '{}',
+              '${hash("e")}', '{}', '${hash("f")}', '${hash("1")}', 'operator', 'authority',
+              'promotion-bind-parent', '${hash("2")}', '${hash("c")}'
+            )
+          `,
+        },
+      ];
+      for (const mismatch of mismatches) {
+        const result = psql(mismatch.sql);
+        assert.notEqual(result.status, 0);
+        assert.match(result.stderr, new RegExp(mismatch.constraint));
+      }
     });
   },
 );

@@ -3,6 +3,18 @@ import { createHash } from "node:crypto";
 import { z } from "zod";
 
 export const CANDIDATE_ANALYSIS_SCHEMA_VERSION = "candidate-analysis-v1" as const;
+export const CANDIDATE_OUTPUT_MANIFEST_VERSION =
+  "candidate-output-manifest-v1" as const;
+export const CANDIDATE_WORKFLOW_BINDING = {
+  id: "workflow.candidate_analysis.v1",
+  version: "1.0.0",
+  path: "knowledge/corpus/workflows/candidate-analysis-v1.md",
+} as const;
+export const CANDIDATE_PROMPT_BINDING = {
+  id: "prompt.candidate_analysis.v1",
+  version: "1.0.0",
+  path: "knowledge/corpus/workflows/candidate-analysis-prompt-v1.md",
+} as const;
 
 export const CANDIDATE_IDENTITY_CONFIDENCE = [
   "exact",
@@ -120,6 +132,31 @@ const RESERVED_MACHINE_PAYLOAD_REVIEW_KEYS = new Set([
   "reviewreceipt",
   "reviewstatus",
 ]);
+const AUTHORITY_STATE_VALUES = new Set([
+  "accepted",
+  "acceptedwithedits",
+  "approved",
+  "canonical",
+  "cleared",
+  "complete",
+  "externaleligible",
+  "externalready",
+  "humanreviewed",
+  "internalcurated",
+  "promoted",
+  "published",
+  "rightscomplete",
+]);
+const AUTHORITY_FIELD_NAMES = new Set([
+  "approval",
+  "authority",
+  "coverage",
+  "humanreview",
+  "promotion",
+  "publication",
+  "review",
+  "rights",
+]);
 
 function isReservedMachinePayloadKey(key: string): boolean {
   const normalized = key.replace(/[^a-z0-9]/gi, "").toLowerCase();
@@ -153,15 +190,53 @@ function isReservedMachinePayloadKey(key: string): boolean {
   );
 }
 
+function isAuthorityBearingMachinePayloadEntry(
+  key: string,
+  value: CandidateJsonValue,
+): boolean {
+  const normalized = key.replace(/[^a-z0-9]/gi, "").toLowerCase();
+  if (
+    isReservedMachinePayloadKey(key) ||
+    AUTHORITY_FIELD_NAMES.has(normalized) ||
+    normalized.includes("canonical") ||
+    normalized.includes("rights") ||
+    normalized.includes("coverage") ||
+    (normalized.includes("human") &&
+      (normalized.includes("decision") ||
+        normalized.includes("authority") ||
+        normalized.includes("approval") ||
+        normalized.includes("review")))
+  ) {
+    return true;
+  }
+  if (
+    normalized === "status" ||
+    normalized === "state" ||
+    normalized.endsWith("status") ||
+    normalized.endsWith("state") ||
+    normalized.endsWith("decision") ||
+    normalized.endsWith("authority") ||
+    normalized.endsWith("readiness") ||
+    normalized.endsWith("clearance") ||
+    normalized.endsWith("eligibility")
+  ) {
+    if (typeof value !== "string") return false;
+    const normalizedValue = value.replace(/[^a-z0-9]/gi, "").toLowerCase();
+    return AUTHORITY_STATE_VALUES.has(normalizedValue);
+  }
+  return false;
+}
+
 function candidateJsonObjectSchema() {
   return z
     .record(z.string(), CandidateJsonValueSchema)
     .superRefine((value, ctx) => {
       for (const key of Object.keys(value)) {
-        if (isReservedMachinePayloadKey(key)) {
+        if (isAuthorityBearingMachinePayloadEntry(key, value[key]!)) {
           ctx.addIssue({
             code: "custom",
-            message: "reserved_machine_payload_field",
+            message:
+              "candidate_payload_authority_forbidden:reserved_machine_payload_field",
             path: [key],
           });
         }
@@ -180,6 +255,154 @@ const CandidateJsonValueSchema: z.ZodType<CandidateJsonValue> = z.lazy(() =>
   ]),
 );
 
+function candidatePayloadSchema<Kind extends string>(kind: Kind) {
+  return z
+    .object({
+      namespace: z.literal("candidate"),
+      kind: z.literal(kind),
+      data: CandidateJsonValueSchema,
+    })
+    .strict();
+}
+
+export const CandidateAssertionPayloadSchema = candidatePayloadSchema("assertion");
+export const CandidateArtifactPayloadSchema = candidatePayloadSchema("artifact");
+export const CandidateRunEventPayloadSchema = candidatePayloadSchema("run_event");
+export const CandidateReconciliationPayloadSchema =
+  candidatePayloadSchema("reconciliation");
+
+const CandidateOutputManifestSchema = z
+  .object({
+    schemaVersion: z.literal(CANDIDATE_OUTPUT_MANIFEST_VERSION),
+    inputs: z.array(
+      z
+        .object({
+          contentUnitId: identifierSchema,
+          position: z.number().int().nonnegative(),
+          contentHash: hashSchema,
+          identityConfidence: z.enum(CANDIDATE_IDENTITY_CONFIDENCE),
+        })
+        .strict(),
+    ),
+    artifacts: z.array(
+      z
+        .object({
+          id: identifierSchema,
+          artifactType: identifierSchema,
+          schemaVersion: z.literal(CANDIDATE_ANALYSIS_SCHEMA_VERSION),
+          payloadHash: hashSchema,
+        })
+        .strict(),
+    ),
+    assertions: z.array(
+      z
+        .object({
+          id: identifierSchema,
+          assertionType: z.enum(CANDIDATE_ASSERTION_TYPES),
+          schemaVersion: z.literal(CANDIDATE_ANALYSIS_SCHEMA_VERSION),
+          payloadHash: hashSchema,
+          confidence: z.number().min(0).max(1).nullable(),
+          machineUse: z.enum(CANDIDATE_MACHINE_USES),
+          identityConfidence: z.enum(CANDIDATE_IDENTITY_CONFIDENCE),
+          evidenceLevel: z.enum(CANDIDATE_EVIDENCE_LEVELS),
+          limitations: z.array(nonEmptyTextSchema),
+          scopeKey: identifierSchema,
+          scopeHash: hashSchema,
+          supersededAssertionId: identifierSchema.nullable(),
+          supersededAssertionPayloadHash: hashSchema.nullable(),
+        })
+        .strict(),
+    ),
+    evidenceLinks: z.array(
+      z
+        .object({
+          id: identifierSchema,
+          assertionId: identifierSchema,
+          contentUnitId: identifierSchema,
+          relation: z.enum(CANDIDATE_EVIDENCE_RELATIONS),
+          locatorHash: hashSchema,
+          excerptHash: hashSchema.nullable(),
+        })
+        .strict(),
+    ),
+    dependencies: z.array(
+      z
+        .object({
+          id: identifierSchema,
+          assertionId: identifierSchema,
+          upstreamAssertionId: identifierSchema,
+          relation: identifierSchema,
+          inheritedLimitations: z.array(nonEmptyTextSchema),
+        })
+        .strict(),
+    ),
+    reconciliationSnapshots: z.array(
+      z
+        .object({
+          id: identifierSchema,
+          scopeHash: hashSchema,
+          payloadHash: hashSchema,
+          conflictCount: z.number().int().nonnegative(),
+        })
+        .strict(),
+    ),
+  })
+  .strict()
+  .superRefine((manifest, ctx) => {
+    const sortedUnique = <T extends { id: string }>(values: T[]) => {
+      const expected = [...new Set(values.map(({ id }) => id))].sort();
+      return (
+        expected.length === values.length &&
+        values.every(({ id }, index) => id === expected[index])
+      );
+    };
+    if (
+      manifest.inputs.some(({ position }, index) => position !== index) ||
+      new Set(manifest.inputs.map(({ contentUnitId }) => contentUnitId)).size !==
+        manifest.inputs.length ||
+      !sortedUnique(manifest.artifacts) ||
+      !sortedUnique(manifest.assertions) ||
+      !sortedUnique(manifest.evidenceLinks) ||
+      !sortedUnique(manifest.dependencies) ||
+      !sortedUnique(manifest.reconciliationSnapshots)
+    ) {
+      ctx.addIssue({ code: "custom", message: "candidate_manifest_not_canonical" });
+    }
+  });
+
+export type CandidateOutputManifest = z.infer<
+  typeof CandidateOutputManifestSchema
+>;
+
+export const CandidateRunTerminalPayloadSchema = z
+  .object({
+    namespace: z.literal("candidate"),
+    kind: z.literal("run_terminal"),
+    data: z
+      .object({
+        manifest: CandidateOutputManifestSchema,
+        manifestHash: hashSchema,
+      })
+      .strict(),
+  })
+  .strict()
+  .superRefine((payload, ctx) => {
+    if (
+      payload.data.manifestHash !==
+      candidateAnalysisOutputManifestHash(payload.data.manifest)
+    ) {
+      ctx.addIssue({ code: "custom", message: "candidate_output_manifest_hash_mismatch" });
+    }
+  });
+
+export const CandidateRunSupersessionPayloadSchema = z
+  .object({
+    namespace: z.literal("candidate"),
+    kind: z.literal("run_supersession"),
+    data: z.object({ reason: nonEmptyTextSchema }).strict(),
+  })
+  .strict();
+
 export const CandidateContentUnitInputSchema = z
   .object({
     id: identifierSchema,
@@ -194,7 +417,15 @@ export const CandidateContentUnitInputSchema = z
     hashAlgorithm: z.literal("sha256"),
     identityConfidence: z.enum(CANDIDATE_IDENTITY_CONFIDENCE),
   })
-  .strict();
+  .strict()
+  .superRefine((contentUnit, ctx) => {
+    if (
+      contentUnit.locatorHash !==
+      candidateAnalysisEvidenceLocatorHash(contentUnit.locator)
+    ) {
+      ctx.addIssue({ code: "custom", message: "candidate_locator_hash_mismatch" });
+    }
+  });
 
 export const CandidateAnalysisRunContentInputSchema = z
   .object({
@@ -204,37 +435,147 @@ export const CandidateAnalysisRunContentInputSchema = z
   })
   .strict();
 
+const runEventBaseFields = {
+  id: identifierSchema,
+  runId: identifierSchema,
+  sequence: z.number().int().positive(),
+  eventHash: hashSchema,
+};
+
+const CandidateOrdinaryRunEventInputSchema = z
+  .object({
+    ...runEventBaseFields,
+    eventType: z.enum([
+      "queued",
+      "started",
+      "checkpoint",
+      "failed",
+      "blocked_input",
+      "quarantined",
+    ]),
+    payload: CandidateRunEventPayloadSchema.nullable(),
+    supersededEventId: z.null().optional().default(null),
+    supersededEventHash: z.null().optional().default(null),
+    supersessionScopeHash: z.null().optional().default(null),
+  })
+  .strict();
+
+const CandidateCompletedRunEventInputSchema = z
+  .object({
+    ...runEventBaseFields,
+    eventType: z.enum(["candidate_completed", "partial_completed"]),
+    payload: CandidateRunTerminalPayloadSchema,
+    supersededEventId: z.null().optional().default(null),
+    supersededEventHash: z.null().optional().default(null),
+    supersessionScopeHash: z.null().optional().default(null),
+  })
+  .strict();
+
+const CandidateSupersededRunEventInputSchema = z
+  .object({
+    ...runEventBaseFields,
+    eventType: z.literal("superseded"),
+    payload: CandidateRunSupersessionPayloadSchema,
+    supersededEventId: identifierSchema.optional(),
+    supersededEventHash: hashSchema.optional(),
+    supersessionScopeHash: hashSchema.optional(),
+  })
+  .strict()
+  .superRefine((event, ctx) => {
+    if (
+      event.supersededEventId === undefined ||
+      event.supersededEventHash === undefined ||
+      event.supersessionScopeHash === undefined
+    ) {
+      ctx.addIssue({
+        code: "custom",
+        message: "superseded_event_binding_required",
+      });
+      return;
+    }
+    if (event.id === event.supersededEventId) {
+      ctx.addIssue({ code: "custom", message: "event_self_supersession" });
+    }
+    if (event.supersessionScopeHash !== candidateAnalysisRunScopeHash(event.runId)) {
+      ctx.addIssue({ code: "custom", message: "event_supersession_scope_mismatch" });
+    }
+  });
+
+export const CandidateAnalysisRunEventInputSchema = z
+  .discriminatedUnion("eventType", [
+    CandidateOrdinaryRunEventInputSchema,
+    CandidateCompletedRunEventInputSchema,
+    CandidateSupersededRunEventInputSchema,
+  ])
+  .superRefine((event, ctx) => {
+    if (event.eventHash !== candidateAnalysisRunEventHash(event)) {
+      ctx.addIssue({ code: "custom", message: "candidate_event_hash_mismatch" });
+    }
+  });
+
 export const CandidateAnalysisRunInputSchema = z
   .object({
     id: identifierSchema,
     workflowId: identifierSchema,
     workflowVersion: nonEmptyTextSchema,
+    workflowPath: nonEmptyTextSchema,
+    workflowHash: hashSchema,
+    promptId: identifierSchema,
+    promptVersion: nonEmptyTextSchema,
+    promptPath: nonEmptyTextSchema,
+    promptHash: hashSchema,
     modelProvider: nonEmptyTextSchema,
     modelName: nonEmptyTextSchema,
     modelVersion: nonEmptyTextSchema,
-    promptHash: hashSchema,
+    config: CandidateJsonValueSchema,
     configHash: hashSchema,
     inputEnvelopeHash: hashSchema,
     purpose: nonEmptyTextSchema,
     outputProfile: identifierSchema,
     workerId: identifierSchema,
-    idempotencyKey: identifierSchema,
+    idempotencyKey: hashSchema,
     attempt: z.number().int().positive(),
     predecessorRunId: identifierSchema.nullable(),
     inputs: z.array(CandidateAnalysisRunContentInputSchema).min(1),
+    initialEvent: CandidateAnalysisRunEventInputSchema,
   })
-  .strict();
-
-export const CandidateAnalysisRunEventInputSchema = z
-  .object({
-    id: identifierSchema,
-    runId: identifierSchema,
-    sequence: z.number().int().positive(),
-    eventType: z.enum(CANDIDATE_RUN_EVENT_TYPES),
-    payload: CandidateJsonValueSchema.nullable(),
-    eventHash: hashSchema,
-  })
-  .strict();
+  .strict()
+  .superRefine((run, ctx) => {
+    if (
+      run.workflowId !== CANDIDATE_WORKFLOW_BINDING.id ||
+      run.workflowVersion !== CANDIDATE_WORKFLOW_BINDING.version ||
+      run.workflowPath !== CANDIDATE_WORKFLOW_BINDING.path ||
+      run.promptId !== CANDIDATE_PROMPT_BINDING.id ||
+      run.promptVersion !== CANDIDATE_PROMPT_BINDING.version ||
+      run.promptPath !== CANDIDATE_PROMPT_BINDING.path
+    ) {
+      ctx.addIssue({ code: "custom", message: "candidate_run_binding_mismatch" });
+    }
+    if (
+      run.initialEvent.runId !== run.id ||
+      run.initialEvent.sequence !== 1 ||
+      run.initialEvent.eventType !== "queued"
+    ) {
+      ctx.addIssue({ code: "custom", message: "candidate_initial_event_invalid" });
+    }
+    if (run.configHash !== candidateAnalysisConfigHash(run.config)) {
+      ctx.addIssue({ code: "custom", message: "candidate_config_hash_mismatch" });
+    }
+    if (run.inputEnvelopeHash !== candidateAnalysisInputEnvelopeHash(run.inputs)) {
+      ctx.addIssue({ code: "custom", message: "candidate_input_envelope_hash_mismatch" });
+    }
+    const positions = run.inputs.map(({ position }) => position);
+    const contentIds = run.inputs.map(({ contentUnitId }) => contentUnitId);
+    if (
+      positions.some((position, index) => position !== index) ||
+      new Set(contentIds).size !== contentIds.length
+    ) {
+      ctx.addIssue({ code: "custom", message: "candidate_run_inputs_not_canonical" });
+    }
+    if (run.idempotencyKey !== candidateAnalysisRunIdempotencyKey(run)) {
+      ctx.addIssue({ code: "custom", message: "candidate_idempotency_mismatch" });
+    }
+  });
 
 export const CandidateAnalysisArtifactInputSchema = z
   .object({
@@ -242,10 +583,15 @@ export const CandidateAnalysisArtifactInputSchema = z
     runId: identifierSchema,
     artifactType: identifierSchema,
     schemaVersion: z.literal(CANDIDATE_ANALYSIS_SCHEMA_VERSION),
-    payload: CandidateJsonValueSchema,
+    payload: CandidateArtifactPayloadSchema,
     payloadHash: hashSchema,
   })
-  .strict();
+  .strict()
+  .superRefine((artifact, ctx) => {
+    if (artifact.payloadHash !== candidateAnalysisArtifactPayloadHash(artifact.payload)) {
+      ctx.addIssue({ code: "custom", message: "candidate_artifact_hash_mismatch" });
+    }
+  });
 
 export const CandidateAssertionInputSchema = z
   .object({
@@ -253,17 +599,36 @@ export const CandidateAssertionInputSchema = z
     runId: identifierSchema,
     assertionType: z.enum(CANDIDATE_ASSERTION_TYPES),
     schemaVersion: z.literal(CANDIDATE_ANALYSIS_SCHEMA_VERSION),
-    payload: CandidateJsonValueSchema,
+    payload: CandidateAssertionPayloadSchema,
     payloadHash: hashSchema,
     confidence: z.number().min(0).max(1).nullable(),
     machineUse: z.enum(CANDIDATE_MACHINE_USES),
     identityConfidence: z.enum(CANDIDATE_IDENTITY_CONFIDENCE),
     evidenceLevel: z.enum(CANDIDATE_EVIDENCE_LEVELS),
     limitations: z.array(nonEmptyTextSchema),
+    scopeKey: identifierSchema,
+    scopeHash: hashSchema,
     supersededAssertionId: identifierSchema.nullable(),
+    supersededAssertionPayloadHash: hashSchema.nullable(),
     promotionState: z.literal("candidate"),
   })
-  .strict();
+  .strict()
+  .superRefine((assertion, ctx) => {
+    if (assertion.payloadHash !== candidateAnalysisAssertionPayloadHash(assertion.payload)) {
+      ctx.addIssue({ code: "custom", message: "candidate_assertion_hash_mismatch" });
+    }
+    if (assertion.scopeHash !== candidateAnalysisAssertionScopeHash(assertion.scopeKey)) {
+      ctx.addIssue({ code: "custom", message: "candidate_assertion_scope_hash_mismatch" });
+    }
+    const hasSupersededId = assertion.supersededAssertionId !== null;
+    const hasSupersededHash = assertion.supersededAssertionPayloadHash !== null;
+    if (hasSupersededId !== hasSupersededHash) {
+      ctx.addIssue({ code: "custom", message: "assertion_supersession_binding_incomplete" });
+    }
+    if (assertion.supersededAssertionId === assertion.id) {
+      ctx.addIssue({ code: "custom", message: "assertion_self_supersession" });
+    }
+  });
 
 export const CandidateEvidenceLinkInputSchema = z
   .object({
@@ -275,7 +640,12 @@ export const CandidateEvidenceLinkInputSchema = z
     locatorHash: hashSchema,
     excerptHash: hashSchema.nullable(),
   })
-  .strict();
+  .strict()
+  .superRefine((evidence, ctx) => {
+    if (evidence.locatorHash !== candidateAnalysisEvidenceLocatorHash(evidence.locator)) {
+      ctx.addIssue({ code: "custom", message: "candidate_evidence_locator_hash_mismatch" });
+    }
+  });
 
 export const CandidateDependencyInputSchema = z
   .object({
@@ -299,12 +669,21 @@ export const CandidateReconciliationSnapshotInputSchema = z
   .object({
     id: identifierSchema,
     runId: identifierSchema,
+    scope: CandidateJsonValueSchema,
     scopeHash: hashSchema,
-    payload: CandidateJsonValueSchema,
+    payload: CandidateReconciliationPayloadSchema,
     payloadHash: hashSchema,
     conflictCount: z.number().int().nonnegative(),
   })
-  .strict();
+  .strict()
+  .superRefine((snapshot, ctx) => {
+    if (snapshot.scopeHash !== candidateAnalysisReconciliationScopeHash(snapshot.scope)) {
+      ctx.addIssue({ code: "custom", message: "candidate_reconciliation_scope_hash_mismatch" });
+    }
+    if (snapshot.payloadHash !== candidateAnalysisReconciliationPayloadHash(snapshot.payload)) {
+      ctx.addIssue({ code: "custom", message: "candidate_reconciliation_payload_hash_mismatch" });
+    }
+  });
 
 export type CandidateContentUnitInput = z.infer<
   typeof CandidateContentUnitInputSchema
@@ -338,7 +717,8 @@ export type CandidateAnalysisContractErrorCode =
   | "event_sequence_gap"
   | "event_after_terminal_state"
   | "invalid_initial_event"
-  | "invalid_event_transition";
+  | "invalid_event_transition"
+  | "invalid_event_supersession";
 
 export class CandidateAnalysisContractError extends Error {
   readonly code: CandidateAnalysisContractErrorCode;
@@ -369,6 +749,216 @@ export function candidateAnalysisSha256(
     .digest("hex");
 }
 
+export function candidateAnalysisConfigHash(config: CandidateJsonValue): string {
+  return candidateAnalysisSha256("run-config", config);
+}
+
+export function candidateAnalysisInputEnvelopeHash(
+  inputs: readonly CandidateAnalysisRunContentInput[],
+): string {
+  return candidateAnalysisSha256("run-input-envelope", {
+    inputs: inputs.map(({ contentUnitId, position, inputHash }) => ({
+      contentUnitId,
+      position,
+      inputHash,
+    })),
+  });
+}
+
+export function candidateAnalysisRunIdempotencyKey(run: {
+  workflowId: string;
+  workflowVersion: string;
+  workflowPath: string;
+  workflowHash: string;
+  promptId: string;
+  promptVersion: string;
+  promptPath: string;
+  promptHash: string;
+  modelProvider: string;
+  modelName: string;
+  modelVersion: string;
+  configHash: string;
+  inputEnvelopeHash: string;
+  purpose: string;
+  outputProfile: string;
+  attempt: number;
+  predecessorRunId: string | null;
+}): string {
+  return candidateAnalysisSha256("run-idempotency", {
+    workflow: {
+      id: run.workflowId,
+      version: run.workflowVersion,
+      path: run.workflowPath,
+      hash: run.workflowHash,
+    },
+    prompt: {
+      id: run.promptId,
+      version: run.promptVersion,
+      path: run.promptPath,
+      hash: run.promptHash,
+    },
+    model: {
+      provider: run.modelProvider,
+      name: run.modelName,
+      version: run.modelVersion,
+    },
+    configHash: run.configHash,
+    inputEnvelopeHash: run.inputEnvelopeHash,
+    purpose: run.purpose,
+    outputProfile: run.outputProfile,
+    attempt: run.attempt,
+    predecessorRunId: run.predecessorRunId,
+  });
+}
+
+export function candidateAnalysisRunScopeHash(runId: string): string {
+  return candidateAnalysisSha256("run-scope", { runId });
+}
+
+export function candidateAnalysisRunEventHash(event: {
+  id: string;
+  runId: string;
+  sequence: number;
+  eventType: CandidateRunEventType;
+  payload: CandidateJsonValue | null;
+  supersededEventId?: string | null;
+  supersededEventHash?: string | null;
+  supersessionScopeHash?: string | null;
+}): string {
+  return candidateAnalysisSha256("run-event", {
+    id: event.id,
+    runId: event.runId,
+    sequence: event.sequence,
+    eventType: event.eventType,
+    payload: event.payload,
+    supersededEventId: event.supersededEventId ?? null,
+    supersededEventHash: event.supersededEventHash ?? null,
+    supersessionScopeHash: event.supersessionScopeHash ?? null,
+  });
+}
+
+export function candidateAnalysisArtifactPayloadHash(
+  payload: z.infer<typeof CandidateArtifactPayloadSchema>,
+): string {
+  return candidateAnalysisSha256("artifact-payload", payload);
+}
+
+export function candidateAnalysisAssertionPayloadHash(
+  payload: z.infer<typeof CandidateAssertionPayloadSchema>,
+): string {
+  return candidateAnalysisSha256("assertion-payload", payload);
+}
+
+export function candidateAnalysisAssertionScopeHash(scopeKey: string): string {
+  return candidateAnalysisSha256("assertion-scope", { scopeKey });
+}
+
+export function candidateAnalysisEvidenceLocatorHash(locator: string): string {
+  return candidateAnalysisSha256("evidence-locator", { locator });
+}
+
+export function candidateAnalysisReconciliationScopeHash(
+  scope: CandidateJsonValue,
+): string {
+  return candidateAnalysisSha256("reconciliation-scope", scope);
+}
+
+export function candidateAnalysisReconciliationPayloadHash(
+  payload: z.infer<typeof CandidateReconciliationPayloadSchema>,
+): string {
+  return candidateAnalysisSha256("reconciliation-payload", payload);
+}
+
+export function candidateAnalysisOutputManifestHash(
+  manifest: CandidateOutputManifest,
+): string {
+  return candidateAnalysisSha256("output-manifest", manifest);
+}
+
+export type CandidateHumanReviewDecisionHashInput = {
+  id: string;
+  assertionId: string;
+  decision: CandidateReviewDecision;
+  reviewProfile: string;
+  reviewProfileHash: string;
+  reviewer: string;
+  authority: string;
+  assertionPayloadHash: string;
+  sourceContentSetHash: string;
+  evidenceSetHash: string;
+  limitations: readonly string[];
+  editedPayloadHash: string | null;
+  supersededDecisionId: string | null;
+  supersededDecisionHash: string | null;
+};
+
+export function candidateAnalysisHumanReviewDecisionHash(
+  receipt: CandidateHumanReviewDecisionHashInput,
+): string {
+  return candidateAnalysisSha256("human-review-decision", {
+    id: receipt.id,
+    assertionId: receipt.assertionId,
+    decision: receipt.decision,
+    reviewProfile: receipt.reviewProfile,
+    reviewProfileHash: receipt.reviewProfileHash,
+    reviewer: receipt.reviewer,
+    authority: receipt.authority,
+    assertionPayloadHash: receipt.assertionPayloadHash,
+    sourceContentSetHash: receipt.sourceContentSetHash,
+    evidenceSetHash: receipt.evidenceSetHash,
+    limitations: [...receipt.limitations],
+    editedPayloadHash: receipt.editedPayloadHash,
+    supersededDecisionId: receipt.supersededDecisionId,
+    supersededDecisionHash: receipt.supersededDecisionHash,
+  });
+}
+
+export type CandidatePromotionDecisionHashInput = {
+  id: string;
+  assertionId: string;
+  assertionPayloadHash: string;
+  reviewDecisionId: string;
+  reviewDecisionHash: string;
+  targetProfile: string;
+  targetProfileHash: string;
+  state: CandidatePromotionState;
+  policyVersion: string;
+  policyHash: string;
+  preconditionsHash: string;
+  targetSetHash: string;
+  resultHash: string;
+  operator: string;
+  authority: string;
+  supersededDecisionId: string | null;
+  supersededDecisionHash: string | null;
+  supersededPolicyHash: string | null;
+};
+
+export function candidateAnalysisPromotionDecisionHash(
+  receipt: CandidatePromotionDecisionHashInput,
+): string {
+  return candidateAnalysisSha256("promotion-decision", {
+    id: receipt.id,
+    assertionId: receipt.assertionId,
+    assertionPayloadHash: receipt.assertionPayloadHash,
+    reviewDecisionId: receipt.reviewDecisionId,
+    reviewDecisionHash: receipt.reviewDecisionHash,
+    targetProfile: receipt.targetProfile,
+    targetProfileHash: receipt.targetProfileHash,
+    state: receipt.state,
+    policyVersion: receipt.policyVersion,
+    policyHash: receipt.policyHash,
+    preconditionsHash: receipt.preconditionsHash,
+    targetSetHash: receipt.targetSetHash,
+    resultHash: receipt.resultHash,
+    operator: receipt.operator,
+    authority: receipt.authority,
+    supersededDecisionId: receipt.supersededDecisionId,
+    supersededDecisionHash: receipt.supersededDecisionHash,
+    supersededPolicyHash: receipt.supersededPolicyHash,
+  });
+}
+
 const terminalMachineStates = new Set<CandidateAnalysisMachineState>([
   "candidate_complete",
   "partial",
@@ -393,7 +983,7 @@ export function deriveCandidateAnalysisMachineState(
     CandidateAnalysisRunEventInputSchema.parse(event),
   );
   let terminalEventType: CandidateRunEventType | null = null;
-  for (const event of validatedEvents) {
+  for (const [index, event] of validatedEvents.entries()) {
     if (terminalEventType !== null) {
       const isAllowedSupersession =
         event.eventType === "superseded" &&
@@ -401,6 +991,15 @@ export function deriveCandidateAnalysisMachineState(
           terminalEventType === "partial_completed");
       if (!isAllowedSupersession) {
         throw new CandidateAnalysisContractError("event_after_terminal_state");
+      }
+      const prior = validatedEvents[index - 1];
+      if (
+        prior === undefined ||
+        event.supersededEventId !== prior.id ||
+        event.supersededEventHash !== prior.eventHash ||
+        event.runId !== prior.runId
+      ) {
+        throw new CandidateAnalysisContractError("invalid_event_supersession");
       }
       terminalEventType = "superseded";
       continue;

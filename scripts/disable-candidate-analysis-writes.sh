@@ -51,9 +51,16 @@ esac
 
 command -v psql >/dev/null 2>&1 || fail 'psql is required'
 command -v node >/dev/null 2>&1 || fail 'node is required to normalize the connection URL'
-[ -z "${PGOPTIONS:-}" ] || fail 'PGOPTIONS is not permitted for candidate role administration'
-[ -z "${PGSERVICE:-}" ] || fail 'PGSERVICE is not permitted for candidate role administration'
-[ -z "${PGSERVICEFILE:-}" ] || fail 'PGSERVICEFILE is not permitted for candidate role administration'
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+for pg_name in PGHOST PGHOSTADDR PGPORT PGDATABASE PGUSER PGPASSWORD PGPASSFILE \
+  PGSERVICE PGSERVICEFILE PGOPTIONS PGAPPNAME PGSSLMODE PGREQUIRESSL \
+  PGSSLCOMPRESSION PGSSLCERT PGSSLKEY PGSSLROOTCERT PGSSLCRL PGSSLCRLDIR \
+  PGSSLSNI PGREQUIREAUTH PGCHANNELBINDING PGGSSENCMODE PGGSSLIB PGKRBSRVNAME \
+  PGREQUIREPEER PGSSLMINPROTOCOLVERSION PGSSLMAXPROTOCOLVERSION \
+  PGCONNECT_TIMEOUT PGTARGETSESSIONATTRS PGLOADBALANCEHOSTS; do
+  eval "pg_value=\${$pg_name-}"
+  [ -z "$pg_value" ] || fail "$pg_name is not permitted for candidate role administration"
+done
 
 connection_dir=$(mktemp -d "${TMPDIR:-/tmp}/foodsystems-candidate-disable.XXXXXX")
 cleanup_connection() {
@@ -62,25 +69,9 @@ cleanup_connection() {
 }
 trap cleanup_connection EXIT HUP INT TERM
 export PGPASSFILE=$connection_dir/pgpass
-PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$DATABASE_ADMIN_URL PGPASSFILE_PATH=$PGPASSFILE node -e '
-  const fs = require("node:fs")
-  const die = message => { console.error(`[candidate-disable] ERROR: ${message}`); process.exit(1) }
-  let url
-  try { url = new URL(process.env.RAW_DATABASE_URL) } catch { die("invalid PostgreSQL URL") }
-  if (!/^postgres(ql)?:$/.test(url.protocol)) die("DATABASE_ADMIN_URL must use PostgreSQL")
-  if (url.searchParams.has("password") || url.searchParams.has("sslpassword")) die("put database passwords in the URL authority, not query parameters")
-  if (url.searchParams.has("options")) die("startup options are not permitted")
-  if (url.searchParams.has("service")) die("connection services are not permitted")
-  try {
-    const decode = value => decodeURIComponent(value)
-    const escapeField = value => value.replace(/\\/g, "\\\\").replace(/:/g, "\\:")
-    const fields = [url.hostname || "localhost", url.port || "5432", decode(url.pathname.replace(/^\//, "")), decode(url.username), decode(url.password)].map(escapeField)
-    fs.writeFileSync(process.env.PGPASSFILE_PATH, `${fields.join(":")}\n`, { mode: 0o600 })
-    url.password = ""
-    url.searchParams.delete("schema")
-    process.stdout.write(url.toString())
-  } catch { die("invalid PostgreSQL URL") }
-')
+PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$DATABASE_ADMIN_URL PGPASSFILE_PATH=$PGPASSFILE \
+  CANDIDATE_URL_CONTEXT=candidate-disable \
+  node "$SCRIPT_DIR/normalize-candidate-postgres-url.mjs")
 unset DATABASE_ADMIN_URL PGPASSWORD PGOPTIONS PGSERVICE PGSERVICEFILE
 export CANDIDATE_WORKER_DB_ROLE CANDIDATE_RECONCILER_DB_ROLE CANDIDATE_DB_SCHEMA
 

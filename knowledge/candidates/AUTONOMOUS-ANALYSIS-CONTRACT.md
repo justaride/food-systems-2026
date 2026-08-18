@@ -34,6 +34,23 @@ Evidence records identify what supports or limits a candidate. Identity confiden
 
 Corrections are append-only and must preserve their authority history: a candidate correction must append a new candidate event and state the superseded candidate event hash; a human-review correction must append a new human-review decision and state the superseded human-review receipt hash; and a promotion correction must append a new promotion receipt and state the superseded promotion receipt hash. A correction never overwrites or silently displaces the prior event or receipt.
 
+## Integrity sealing
+
+All derived hashes use lowercase SHA-256 over `food-systems/<domain>/v1\n` followed by canonical JSON. Canonical JSON sorts object keys recursively, preserves array order, and adds no insignificant whitespace. A hash from one domain is never valid in another.
+
+The candidate writer recomputes these machine-owned domains at its write boundary:
+
+- `run-config` seals the complete run configuration;
+- `run-input-envelope` seals the unique, contiguous ordered list of content-unit ID, position and stored content hash;
+- `run-idempotency` seals the workflow and prompt ID/version/path/file hashes, model identity, configuration hash, input-envelope hash, purpose, output profile, attempt and predecessor;
+- `run-scope` seals the run ID used by event supersession, while `run-event` seals event identity, run, sequence, type, payload and all supersession fields;
+- `artifact-payload`, `assertion-payload`, `assertion-scope`, `evidence-locator`, `reconciliation-scope` and `reconciliation-payload` seal their named stored values; and
+- `output-manifest` seals the complete ordered run inputs plus the complete sorted artifact, assertion, evidence-link, dependency and reconciliation identity/hash sets, including the stored row metadata that affects candidate meaning. Exact-locator assertions additionally require matching direct evidence before a terminal event can be appended.
+
+A superseding run event binds the prior ID, prior hash and same run scope. A superseding assertion binds the prior ID, prior payload hash and same assertion-scope hash. The database repeats those bindings with composite foreign keys and rejects self-links.
+
+The reserved human-authority tables have separate receipt domains even though Delivery 1 exposes no review or promotion writer. `human-review-decision` seals the decision ID, assertion and payload hash, review profile and profile hash, actor and authority, source-content and evidence-set hashes, limitations, edited-payload hash, and prior receipt ID/hash. `promotion-decision` seals the decision ID, assertion and review receipt bindings, state, target profile hash, policy hash, preconditions hash, target-set hash, result hash, actor and authority, and prior receipt ID/hash/policy hash. Their composite foreign keys require supersession to retain the same review or target scope. A later authorized writer must recompute these formulas before insert; shape-valid caller-supplied hashes are not authority.
+
 ## Recursive machine use
 
 Machine systems may read, compare, reconcile, retry, rank or summarize prior candidate results when every consumed candidate and its inputs remain hash-bound. Recursive use creates a new append-only candidate event with its own provenance; it does not overwrite, merge away or promote the prior event.
@@ -46,7 +63,7 @@ No machine lineage changes human review or promotion state. Lineage and independ
 
 ## Database roles
 
-`CandidateAnalysisRun` is the reserved append-only run-record name for the candidate subsystem. Its sole worker write path is `src/lib/knowledge/candidate-analysis-writer.ts`; generic upsert, update, delete and generic or mutating raw SQL are forbidden for candidate history. The writer may use only narrow, parameterized, internal, read-only SQL for `SELECT ... FOR UPDATE` serialization and recursive dependency-integrity checks. That SQL must not be exposed and must not mutate candidate history. Content-unit creation remains a trusted/admin intake action and is not part of the worker API.
+`CandidateAnalysisRun` is the reserved append-only run-record name for the candidate subsystem. Its sole worker write path is `src/lib/knowledge/candidate-analysis-writer.ts`; generic upsert, update, delete and generic or mutating raw SQL are forbidden for candidate history. The writer may use only narrow, parameterized, internal SQL for transaction-scoped advisory run/assertion locks and read-only recursive dependency-integrity checks. Advisory locks change transaction lock state only; this SQL must not be exposed and must not mutate candidate history. Content-unit creation remains a trusted/admin intake action and is not part of the worker API.
 
 Candidate records are not canonical records. Human-review receipts, evidence records, target-promotion records, publication decisions and coverage assessments remain separate roles with their own schemas and append-only histories.
 

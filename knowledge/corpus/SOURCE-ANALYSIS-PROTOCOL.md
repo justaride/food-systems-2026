@@ -21,7 +21,7 @@ exact source identity and bytes
 
 Every arrow needs a receipt. A later step may use only the exact output hash from the preceding step. A filename, word count, stored summary, triage card or successful OCR run is never proof that the source was read and understood.
 
-The executable workflow contracts are [source identity verification v1](workflows/source-identity-verification-v1.md), [candidate analysis v1](workflows/candidate-analysis-v1.md) and [full source analysis v1](workflows/source-analysis-v1.md). Their separate canonical prompt templates are [source identity prompt v1](workflows/source-identity-verification-prompt-v1.md) and [full source-analysis prompt v1](workflows/source-analysis-prompt-v1.md). Each run must bind the exact ID, version, repository path and file hash of both the workflow and its prompt template; a similarly named ad-hoc prompt is not the same execution.
+The executable workflow contracts are [source identity verification v1](workflows/source-identity-verification-v1.md), [candidate analysis v1](workflows/candidate-analysis-v1.md) and [full source analysis v1](workflows/source-analysis-v1.md). Their separate canonical prompt templates are [source identity prompt v1](workflows/source-identity-verification-prompt-v1.md), [candidate-analysis prompt v1](workflows/candidate-analysis-prompt-v1.md) and [full source-analysis prompt v1](workflows/source-analysis-prompt-v1.md). Each run must bind the exact ID, version, repository path and file hash of both the workflow and its prompt template; a similarly named ad-hoc prompt is not the same execution.
 
 ## Analysis profiles
 

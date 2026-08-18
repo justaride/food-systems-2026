@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import { execFileSync, spawnSync } from "node:child_process";
 import {
+  candidateAnalysisRunEventHash,
+  type CandidateAnalysisRunEventInput,
+} from "../../src/lib/knowledge/candidate-analysis-contract";
+import {
   existsSync,
   lstatSync,
   mkdtempSync,
@@ -15,9 +19,11 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, it } from "node:test";
 
+import { PrismaPg } from "@prisma/adapter-pg";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 
+import { PrismaClient } from "../../src/generated/prisma/client";
 import {
   buildCandidateControlSnapshot,
   validateCandidateControlSnapshot,
@@ -25,15 +31,33 @@ import {
 } from "../../src/lib/knowledge/candidate-control-snapshot";
 import {
   parseCandidateControlSnapshotArgs,
+  readCandidateControlSnapshotInput,
   writeCandidateControlSnapshotAtomic,
 } from "../../scripts/knowledge/export-candidate-control-snapshot";
 import { candidateAnalysisFixture } from "../fixtures/candidate-analysis-fixture";
+import { withCandidateAnalysisPostgres } from "../helpers/candidate-analysis-postgres";
 
 const HASH_A = "a".repeat(64);
 const HASH_B = "b".repeat(64);
 const HASH_C = "c".repeat(64);
 const HASH_D = "d".repeat(64);
 const GENERATED_AT = "2026-08-18T12:00:00.000Z";
+
+function sealEvent(
+  event: Omit<CandidateAnalysisRunEventInput, "eventHash">,
+): CandidateAnalysisRunEventInput {
+  return {
+    ...event,
+    eventHash: candidateAnalysisRunEventHash(event),
+  } as CandidateAnalysisRunEventInput;
+}
+
+function resealEvent(
+  event: CandidateAnalysisRunEventInput,
+): CandidateAnalysisRunEventInput {
+  const { eventHash: _eventHash, ...unsealed } = event;
+  return sealEvent(unsealed);
+}
 
 const jsonSchema = JSON.parse(
   readFileSync(
@@ -79,24 +103,30 @@ function candidateControlFixture(
         id: candidate.run.id,
         events: options.quarantined
           ? [
-              { ...candidate.events.queued, eventHash: HASH_A },
-              { ...candidate.events.started, eventHash: HASH_B },
-              {
-                ...candidate.events.completed,
+              candidate.events.queued,
+              candidate.events.started,
+              sealEvent({
                 id: "event:fixture:quarantined",
+                runId: candidate.run.id,
                 sequence: 3,
                 eventType: "quarantined",
-                eventHash: HASH_C,
-              },
+                payload: {
+                  namespace: "candidate",
+                  kind: "run_event",
+                  data: { reason: "fixture quarantine" },
+                },
+                supersededEventId: null,
+                supersededEventHash: null,
+                supersessionScopeHash: null,
+              }),
             ]
           : [
-              { ...candidate.events.queued, eventHash: HASH_A },
-              { ...candidate.events.started, eventHash: HASH_B },
-              {
+              candidate.events.queued,
+              candidate.events.started,
+              sealEvent({
                 ...candidate.events.completed,
                 sequence: 3,
-                eventHash: HASH_C,
-              },
+              }),
             ],
       },
     ],
@@ -118,7 +148,7 @@ function candidateControlFixture(
       {
         assertionId: candidate.assertion.id,
         reviewProfile: "external-review-v1",
-        assertionPayloadHash: HASH_A,
+        assertionPayloadHash: candidate.assertion.payloadHash,
         sourceContentSetHash: HASH_B,
         evidenceSetHash: HASH_C,
         reviewProfileHash: HASH_D,
@@ -134,7 +164,9 @@ function candidateControlFixture(
               decision: review,
               reviewProfile: "external-review-v1",
               reviewProfileHash: HASH_D,
-              assertionPayloadHash: options.staleReview ? HASH_B : HASH_A,
+              assertionPayloadHash: options.staleReview
+                ? HASH_B
+                : candidate.assertion.payloadHash,
               sourceContentSetHash: HASH_B,
               evidenceSetHash: HASH_C,
               supersededDecisionId: null,
@@ -311,6 +343,113 @@ function assertWriteRejectedAndPreserved(
 }
 
 describe("candidate control snapshot", () => {
+  it(
+    "reads supersession and reconciliation from one read-only repeatable-read epoch",
+    { timeout: 45_000 },
+    async (context) => {
+      await withCandidateAnalysisPostgres(context, async ({ adminUrl, psql }) => {
+        const setup = psql(`
+          CREATE TABLE "DatabaseIdentity" (
+            "key" TEXT PRIMARY KEY,
+            "identityUuid" UUID NOT NULL UNIQUE
+          );
+          CREATE TABLE "LibraryAnalysisRecord" (
+            "id" TEXT PRIMARY KEY,
+            "sourceKind" TEXT NOT NULL,
+            "sourceKey" TEXT NOT NULL,
+            "documentId" TEXT,
+            "sourceDocId" TEXT,
+            "status" TEXT NOT NULL,
+            "usageRule" TEXT NOT NULL,
+            "reviewStatus" TEXT NOT NULL,
+            "aiCard" JSONB,
+            "claimCandidates" JSONB,
+            "contentHash" TEXT,
+            "reviewedAt" TIMESTAMP(3),
+            "reviewer" TEXT
+          );
+          INSERT INTO "DatabaseIdentity" ("key", "identityUuid")
+          VALUES ('primary', '123e4567-e89b-42d3-a456-426614174000');
+          INSERT INTO "CandidateAnalysisRun" (
+            "id", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+            "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+            "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+            "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+          ) VALUES (
+            'run-epoch', 'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', '${HASH_A}',
+            'prompt.candidate_analysis.v1', '1.0.0', 'prompt.md', 'provider', 'model',
+            'version', '${HASH_B}', '{}', '${HASH_C}', '${HASH_D}', 'epoch test',
+            'candidate_only', 'worker:epoch', '${"e".repeat(64)}', 1
+          );
+          INSERT INTO "CandidateAnalysisRunEvent" (
+            "id", "runId", "sequence", "eventType", "payload", "eventHash"
+          ) VALUES ('event-epoch-1', 'run-epoch', 1, 'queued', NULL, '${HASH_A}');
+          INSERT INTO "CandidateAssertion" (
+            "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
+            "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
+            "scopeKey", "scopeHash"
+          ) VALUES (
+            'assertion-epoch-1', 'run-epoch', 'claim', 'candidate-analysis-v1', '{}', '${HASH_A}',
+            NULL, 'candidate_only', 'provisional', 'no_locator', ARRAY[]::text[],
+            'scope:epoch', '${HASH_B}'
+          );
+          INSERT INTO "CandidateReconciliationSnapshot" (
+            "id", "runId", "scope", "scopeHash", "payload", "payloadHash", "conflictCount"
+          ) VALUES ('reconciliation-epoch-1', 'run-epoch', '{}', '${HASH_A}', '{}', '${HASH_B}', 0);
+        `);
+        assert.equal(setup.status, 0, setup.stderr);
+
+        const prisma = new PrismaClient({
+          adapter: new PrismaPg({ connectionString: adminUrl }),
+        });
+        try {
+          const input = await readCandidateControlSnapshotInput(prisma, null, {
+            async afterRunsRead() {
+              const changed = psql(`
+                INSERT INTO "CandidateAssertion" (
+                  "id", "runId", "assertionType", "schemaVersion", "payload", "payloadHash",
+                  "confidence", "machineUse", "identityConfidence", "evidenceLevel", "limitations",
+                  "scopeKey", "scopeHash", "supersededAssertionId",
+                  "supersededAssertionPayloadHash"
+                ) VALUES (
+                  'assertion-epoch-2', 'run-epoch', 'claim', 'candidate-analysis-v1', '{}', '${HASH_C}',
+                  NULL, 'candidate_only', 'provisional', 'no_locator', ARRAY[]::text[],
+                  'scope:epoch', '${HASH_B}', 'assertion-epoch-1', '${HASH_A}'
+                );
+                INSERT INTO "CandidateReconciliationSnapshot" (
+                  "id", "runId", "scope", "scopeHash", "payload", "payloadHash", "conflictCount"
+                ) VALUES ('reconciliation-epoch-2', 'run-epoch', '{}', '${HASH_A}', '{}', '${HASH_C}', 1);
+              `);
+              assert.equal(changed.status, 0, changed.stderr);
+            },
+          });
+
+          assert.deepEqual(input.provenance.queryErrors, []);
+          assert.deepEqual(
+            input.assertions.map(({ id }) => id),
+            ["assertion-epoch-1"],
+          );
+          assert.deepEqual(
+            input.reconciliationSnapshots.map(({ id }) => id),
+            ["reconciliation-epoch-1"],
+          );
+          assert.equal(
+            psql(`SELECT count(*) FROM "CandidateAssertion"`).stdout.trim(),
+            "2",
+          );
+          assert.equal(
+            psql(
+              `SELECT count(*) FROM "CandidateReconciliationSnapshot"`,
+            ).stdout.trim(),
+            "2",
+          );
+        } finally {
+          await prisma.$disconnect();
+        }
+      });
+    },
+  );
+
   it("closes every concrete JSON Schema object against unknown fields", () => {
     const visit = (value: unknown, path = "$schema"): void => {
       if (typeof value !== "object" || value === null) return;
@@ -571,19 +710,26 @@ describe("candidate control snapshot", () => {
     assertContractError(duplicateRun, "duplicate_run_id");
 
     const duplicateEvent = candidateControlFixture();
-    duplicateEvent.runs[0]!.events[1]!.id =
-      duplicateEvent.runs[0]!.events[0]!.id;
+    duplicateEvent.runs[0]!.events[1] = resealEvent({
+      ...duplicateEvent.runs[0]!.events[1]!,
+      id: duplicateEvent.runs[0]!.events[0]!.id,
+    });
     assertContractError(duplicateEvent, "duplicate_run_event_id");
 
     const duplicateSequence = candidateControlFixture();
-    duplicateSequence.runs[0]!.events[1]!.sequence =
-      duplicateSequence.runs[0]!.events[0]!.sequence;
+    duplicateSequence.runs[0]!.events[1] = resealEvent({
+      ...duplicateSequence.runs[0]!.events[1]!,
+      sequence: duplicateSequence.runs[0]!.events[0]!.sequence,
+    });
     assertContractError(duplicateSequence, "duplicate_run_event_sequence");
 
     const duplicateEventHash = candidateControlFixture();
     duplicateEventHash.runs[0]!.events[1]!.eventHash =
       duplicateEventHash.runs[0]!.events[0]!.eventHash;
-    assertContractError(duplicateEventHash, "duplicate_run_event_hash");
+    assertContractError(
+      duplicateEventHash,
+      "candidate_control_input_schema_invalid",
+    );
 
     const missingRun = candidateControlFixture();
     missingRun.assertions[0]!.runId = "run:missing";
@@ -1021,7 +1167,7 @@ describe("candidate control snapshot", () => {
     input.currentReviewBindings = [];
     input.currentPromotionBindings = [];
     input.runs[0]!.events = [
-      { ...input.runs[0]!.events[1]!, sequence: 1 },
+      resealEvent({ ...input.runs[0]!.events[1]!, sequence: 1 }),
     ];
 
     const snapshot = buildCandidateControlSnapshot(input);
@@ -1619,9 +1765,74 @@ describe("candidate control snapshot CLI output boundary", () => {
         },
       }),
     );
-    assert.equal(existsSync(join(root, ".snapshot.json.candidate-control.tmp")), false);
+    assert.equal(
+      readdirSync(root).some((name) =>
+        name.startsWith(".snapshot.json.candidate-control."),
+      ),
+      false,
+    );
     assert.equal(existsSync(target), false);
     assert.deepEqual(readdirSync(root), []);
+  });
+
+  it("rejects a substituted temporary inode instead of publishing attacker bytes", () => {
+    const root = mkdtempSync(join(tmpdir(), "candidate-snapshot-substitute-"));
+    const target = join(root, "snapshot.json");
+    try {
+      assert.throws(
+        () =>
+          writeCandidateControlSnapshotAtomic(target, '{"trusted":true}\n', {
+            beforeRename() {
+              const [temporary] = readdirSync(root).filter((name) =>
+                name.startsWith(".snapshot.json.candidate-control."),
+              );
+              assert.ok(temporary);
+              const temporaryPath = join(root, temporary);
+              unlinkSync(temporaryPath);
+              writeFileSync(temporaryPath, '{"attacker":true}\n', {
+                mode: 0o600,
+              });
+            },
+          }),
+        /temporary_(?:path_changed|identity_invalid)/i,
+      );
+      assert.equal(existsSync(target), false);
+      const [foreignTemporary] = readdirSync(root);
+      assert.ok(foreignTemporary);
+      assert.deepEqual(
+        readFileSync(join(root, foreignTemporary)),
+        Buffer.from('{"attacker":true}\n'),
+      );
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects a temporary path added only to the Git index before rename", () => {
+    const root = mkdtempSync(join(tmpdir(), "candidate-snapshot-temp-index-"));
+    const target = join(root, "snapshot.json");
+    const env = testGitEnvironment();
+    try {
+      execFileSync("git", ["init", "--quiet", root], { env });
+      assert.throws(
+        () =>
+          writeCandidateControlSnapshotAtomic(target, '{"trusted":true}\n', {
+            beforeRename() {
+              const [temporary] = readdirSync(root).filter((name) =>
+                name.startsWith(".snapshot.json.candidate-control."),
+              );
+              assert.ok(temporary);
+              execFileSync("git", ["-C", root, "add", "-f", "--", temporary], {
+                env,
+              });
+            },
+          }),
+        /git_tracked/i,
+      );
+      assert.equal(existsSync(target), false);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it("contains no database mutations or credential logging", () => {
@@ -1631,7 +1842,16 @@ describe("candidate control snapshot CLI output boundary", () => {
     );
 
     assert.doesNotMatch(source, /\.(?:create|createMany|update|updateMany|upsert|delete|deleteMany)\s*\(/);
-    assert.doesNotMatch(source, /\$(?:executeRaw|executeRawUnsafe|queryRawUnsafe)/);
+    assert.equal(
+      (source.match(/\$executeRawUnsafe\(READ_ONLY_TRANSACTION_SQL\)/g) ?? [])
+        .length,
+      1,
+    );
+    assert.match(
+      source,
+      /const READ_ONLY_TRANSACTION_SQL = "SET TRANSACTION READ ONLY"/,
+    );
+    assert.doesNotMatch(source, /\$(?:executeRaw(?!Unsafe)|queryRawUnsafe)/);
     assert.doesNotMatch(source, /console\.(?:log|error)\([^\n]*DATABASE_URL/);
   });
 });

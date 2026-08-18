@@ -1,6 +1,13 @@
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+
 import { Prisma, type PrismaClient } from "../../generated/prisma/client";
 
 import {
+  CANDIDATE_ANALYSIS_SCHEMA_VERSION,
+  CANDIDATE_PROMPT_BINDING,
+  CANDIDATE_WORKFLOW_BINDING,
   CandidateAnalysisArtifactInputSchema,
   CandidateAnalysisContractError,
   CandidateAnalysisRunEventInputSchema,
@@ -9,6 +16,11 @@ import {
   CandidateDependencyInputSchema,
   CandidateEvidenceLinkInputSchema,
   CandidateReconciliationSnapshotInputSchema,
+  candidateAnalysisInputEnvelopeHash,
+  candidateAnalysisOutputManifestHash,
+  candidateAnalysisRunIdempotencyKey,
+  candidateAnalysisSha256,
+  canonicalCandidateJson,
   deriveCandidateAnalysisMachineState,
   type CandidateAnalysisArtifactInput,
   type CandidateAnalysisMachineState,
@@ -21,6 +33,7 @@ import {
   type CandidateIdentityConfidence,
   type CandidateJsonValue,
   type CandidateMachineUse,
+  type CandidateOutputManifest,
   type CandidateReconciliationSnapshotInput,
 } from "./candidate-analysis-contract";
 
@@ -28,9 +41,15 @@ export type CandidateAnalysisWriteConflictCode =
   | "idempotency_conflict"
   | "event_sequence_conflict"
   | "terminal_output_missing"
+  | "terminal_output_integrity"
   | "dependency_cycle"
   | "upstream_authority_upgrade"
-  | "immutable_history_conflict";
+  | "immutable_history_conflict"
+  | "integrity_mismatch"
+  | "run_terminal"
+  | "supersession_conflict"
+  | "workflow_binding_mismatch"
+  | "prompt_binding_mismatch";
 
 export class CandidateAnalysisWriteConflict extends Error {
   readonly code: CandidateAnalysisWriteConflictCode;
@@ -71,6 +90,8 @@ export type CandidateReconciliationWriter = {
   ): Promise<{ snapshotId: string }>;
 };
 
+type WriterOptions = { repositoryRoot?: string };
+
 const identityStrength: Record<CandidateIdentityConfidence, number> = {
   unresolved: 0,
   provisional: 1,
@@ -98,15 +119,38 @@ function isPrismaErrorCode(error: unknown, code: string): boolean {
   );
 }
 
-function throwMappedUniqueConflict(
+function throwMappedConflict(
   error: unknown,
-  code: CandidateAnalysisWriteConflictCode,
+  fallback: CandidateAnalysisWriteConflictCode,
 ): never {
   if (error instanceof CandidateAnalysisWriteConflict) throw error;
-  if (isPrismaErrorCode(error, "P2002")) {
-    throw new CandidateAnalysisWriteConflict(code);
+  if (isPrismaErrorCode(error, "P2002") || isPrismaErrorCode(error, "P2003")) {
+    throw new CandidateAnalysisWriteConflict(fallback);
   }
   throw error;
+}
+
+function parseForWrite<T>(schema: { parse(input: unknown): T }, raw: unknown): T {
+  try {
+    return schema.parse(raw);
+  } catch (error) {
+    if (typeof error === "object" && error !== null && "issues" in error) {
+      const messages = (error as { issues?: Array<{ message?: string }> }).issues
+        ?.map(({ message }) => message ?? "")
+        .join("\n");
+      if (messages?.includes("self_supersession")) {
+        throw new CandidateAnalysisWriteConflict("supersession_conflict");
+      }
+      if (
+        messages?.includes("hash_mismatch") ||
+        messages?.includes("idempotency_mismatch") ||
+        messages?.includes("inputs_not_canonical")
+      ) {
+        throw new CandidateAnalysisWriteConflict("integrity_mismatch");
+      }
+    }
+    throw error;
+  }
 }
 
 function toRequiredJson(
@@ -128,6 +172,9 @@ function toContractEvent(event: {
   eventType: CandidateAnalysisRunEventInput["eventType"];
   payload: Prisma.JsonValue | null;
   eventHash: string;
+  supersededEventId: string | null;
+  supersededEventHash: string | null;
+  supersessionScopeHash: string | null;
 }): CandidateAnalysisRunEventInput {
   return {
     id: event.id,
@@ -136,6 +183,37 @@ function toContractEvent(event: {
     eventType: event.eventType,
     payload: event.payload as CandidateJsonValue | null,
     eventHash: event.eventHash,
+    supersededEventId: event.supersededEventId,
+    supersededEventHash: event.supersededEventHash,
+    supersessionScopeHash: event.supersessionScopeHash,
+  } as CandidateAnalysisRunEventInput;
+}
+
+function eventData(input: CandidateAnalysisRunEventInput) {
+  return {
+    id: input.id,
+    runId: input.runId,
+    sequence: input.sequence,
+    eventType: input.eventType,
+    payload: toNullableJson(input.payload),
+    eventHash: input.eventHash,
+    supersededEventId: input.supersededEventId ?? null,
+    supersededEventHash: input.supersededEventHash ?? null,
+    supersessionScopeHash: input.supersessionScopeHash ?? null,
+  };
+}
+
+function nestedEventData(input: CandidateAnalysisRunEventInput) {
+  const data = eventData(input);
+  return {
+    id: data.id,
+    sequence: data.sequence,
+    eventType: data.eventType,
+    payload: data.payload,
+    eventHash: data.eventHash,
+    supersededEventId: data.supersededEventId,
+    supersededEventHash: data.supersededEventHash,
+    supersessionScopeHash: data.supersessionScopeHash,
   };
 }
 
@@ -144,33 +222,306 @@ function includesEvery(values: string[], required: Set<string>): boolean {
   return [...required].every((value) => available.has(value));
 }
 
+function fileSha256(path: string): string {
+  return createHash("sha256").update(readFileSync(path)).digest("hex");
+}
+
+function verifyTextBinding(
+  repositoryRoot: string,
+  binding: { id: string; version: string; path: string },
+  declaredHash: string,
+  label: "Workflow" | "Prompt template",
+  conflict: "workflow_binding_mismatch" | "prompt_binding_mismatch",
+): void {
+  let contents: string;
+  let actualHash: string;
+  try {
+    const path = resolve(repositoryRoot, binding.path);
+    contents = readFileSync(path, "utf8");
+    actualHash = fileSha256(path);
+  } catch {
+    throw new CandidateAnalysisWriteConflict(conflict);
+  }
+  const required = [
+    `${label} ID: \`${binding.id}\``,
+    `${label} version: \`${binding.version}\``,
+  ];
+  if (actualHash !== declaredHash || required.some((line) => !contents.includes(line))) {
+    throw new CandidateAnalysisWriteConflict(conflict);
+  }
+}
+
+type CandidateWriterLockDomain = "run" | "assertion";
+
+function candidateWriterLockKey(
+  domain: CandidateWriterLockDomain,
+  identity: string,
+): bigint {
+  const digest = candidateAnalysisSha256(`writer-${domain}-lock`, { identity });
+  return BigInt.asIntN(64, BigInt(`0x${digest.slice(0, 16)}`));
+}
+
+async function acquireCandidateWriterLock(
+  transaction: Prisma.TransactionClient,
+  domain: CandidateWriterLockDomain,
+  identity: string,
+): Promise<void> {
+  const rows = await transaction.$queryRaw<Array<{ lockToken: string }>>`
+    SELECT pg_advisory_xact_lock(
+      ${candidateWriterLockKey(domain, identity)}
+    )::text AS "lockToken"
+  `;
+  if (rows.length !== 1) throw new Error("candidate_writer_lock_failed");
+}
+
+async function lockedEvents(
+  transaction: Prisma.TransactionClient,
+  runId: string,
+) {
+  await acquireCandidateWriterLock(transaction, "run", runId);
+  const run = await transaction.candidateAnalysisRun.findUnique({
+    where: { id: runId },
+    select: { id: true },
+  });
+  if (run === null) throw new Error("candidate_analysis_run_not_found");
+  return transaction.candidateAnalysisRunEvent.findMany({
+    where: { runId },
+    orderBy: { sequence: "asc" },
+    select: {
+      id: true,
+      runId: true,
+      sequence: true,
+      eventType: true,
+      payload: true,
+      eventHash: true,
+      supersededEventId: true,
+      supersededEventHash: true,
+      supersessionScopeHash: true,
+    },
+  });
+}
+
+function stateFromStoredEvents(
+  events: Awaited<ReturnType<typeof lockedEvents>>,
+): CandidateAnalysisMachineState {
+  try {
+    return deriveCandidateAnalysisMachineState(events.map(toContractEvent));
+  } catch (error) {
+    if (error instanceof CandidateAnalysisContractError) {
+      throw new CandidateAnalysisWriteConflict("event_sequence_conflict");
+    }
+    throw error;
+  }
+}
+
+async function assertRunOpen(
+  transaction: Prisma.TransactionClient,
+  runId: string,
+): Promise<void> {
+  const events = await lockedEvents(transaction, runId);
+  const state = stateFromStoredEvents(events);
+  if (["candidate_complete", "partial", "failed", "blocked_input", "quarantined", "superseded"].includes(state)) {
+    throw new CandidateAnalysisWriteConflict("run_terminal");
+  }
+}
+
+async function storedOutputManifest(
+  transaction: Prisma.TransactionClient,
+  runId: string,
+): Promise<CandidateOutputManifest> {
+  const [
+    inputs,
+    artifacts,
+    assertions,
+    evidenceLinks,
+    dependencies,
+    reconciliationSnapshots,
+  ] = await Promise.all([
+    transaction.candidateAnalysisRunInput.findMany({
+      where: { runId },
+      orderBy: { position: "asc" },
+      select: {
+        contentUnitId: true,
+        position: true,
+        inputHash: true,
+        contentUnit: {
+          select: { contentHash: true, identityConfidence: true },
+        },
+      },
+    }),
+    transaction.candidateAnalysisArtifact.findMany({
+      where: { runId },
+      orderBy: { id: "asc" },
+      select: {
+        id: true,
+        artifactType: true,
+        schemaVersion: true,
+        payloadHash: true,
+      },
+    }),
+    transaction.candidateAssertion.findMany({
+      where: { runId },
+      orderBy: { id: "asc" },
+      select: {
+        id: true,
+        assertionType: true,
+        schemaVersion: true,
+        payloadHash: true,
+        confidence: true,
+        machineUse: true,
+        identityConfidence: true,
+        evidenceLevel: true,
+        limitations: true,
+        scopeKey: true,
+        scopeHash: true,
+        supersededAssertionId: true,
+        supersededAssertionPayloadHash: true,
+      },
+    }),
+    transaction.candidateEvidenceLink.findMany({
+      where: { assertion: { runId } },
+      orderBy: { id: "asc" },
+      select: {
+        id: true,
+        assertionId: true,
+        contentUnitId: true,
+        relation: true,
+        locatorHash: true,
+        excerptHash: true,
+      },
+    }),
+    transaction.candidateDependency.findMany({
+      where: { assertion: { runId } },
+      orderBy: { id: "asc" },
+      select: {
+        id: true,
+        assertionId: true,
+        upstreamAssertionId: true,
+        relation: true,
+        inheritedLimitations: true,
+      },
+    }),
+    transaction.candidateReconciliationSnapshot.findMany({
+      where: { runId },
+      orderBy: { id: "asc" },
+      select: {
+        id: true,
+        scopeHash: true,
+        payloadHash: true,
+        conflictCount: true,
+      },
+    }),
+  ]);
+  if (
+    inputs.some(({ inputHash, contentUnit }) => inputHash !== contentUnit.contentHash) ||
+    artifacts.some(
+      ({ schemaVersion }) => schemaVersion !== CANDIDATE_ANALYSIS_SCHEMA_VERSION,
+    ) ||
+    assertions.some(
+      ({ schemaVersion }) => schemaVersion !== CANDIDATE_ANALYSIS_SCHEMA_VERSION,
+    )
+  ) {
+    throw new CandidateAnalysisWriteConflict("terminal_output_integrity");
+  }
+  return {
+    schemaVersion: "candidate-output-manifest-v1",
+    inputs: inputs.map(({ contentUnitId, position, contentUnit }) => ({
+      contentUnitId,
+      position,
+      contentHash: contentUnit.contentHash,
+      identityConfidence: contentUnit.identityConfidence,
+    })),
+    artifacts: artifacts.map((artifact) => ({
+      ...artifact,
+      schemaVersion: CANDIDATE_ANALYSIS_SCHEMA_VERSION,
+    })),
+    assertions: assertions.map((assertion) => ({
+      ...assertion,
+      schemaVersion: CANDIDATE_ANALYSIS_SCHEMA_VERSION,
+    })),
+    evidenceLinks,
+    dependencies,
+    reconciliationSnapshots,
+  };
+}
+
+async function verifyTerminalOutput(
+  transaction: Prisma.TransactionClient,
+  input: CandidateAnalysisRunEventInput,
+): Promise<void> {
+  if (input.eventType !== "candidate_completed" && input.eventType !== "partial_completed") return;
+  const manifest = await storedOutputManifest(transaction, input.runId);
+  if (manifest.artifacts.length === 0 || manifest.assertions.length === 0) {
+    throw new CandidateAnalysisWriteConflict("terminal_output_missing");
+  }
+  const exactAssertions = new Set(
+    manifest.assertions
+      .filter(({ evidenceLevel }) => evidenceLevel === "exact_locator")
+      .map(({ id }) => id),
+  );
+  if (exactAssertions.size > 0) {
+    const exactEvidence = await transaction.candidateEvidenceLink.findMany({
+      where: {
+        assertionId: { in: [...exactAssertions] },
+        relation: "supports",
+      },
+      select: {
+        assertionId: true,
+        locator: true,
+        locatorHash: true,
+        contentUnit: {
+          select: {
+            locator: true,
+            locatorHash: true,
+            contentHash: true,
+            runInputs: {
+              where: { runId: input.runId },
+              select: { inputHash: true },
+            },
+          },
+        },
+      },
+    });
+    for (const assertionId of exactAssertions) {
+      const bound = exactEvidence.some(
+        ({ assertionId: candidateId, locator, locatorHash, contentUnit }) =>
+          candidateId === assertionId &&
+          locator === contentUnit.locator &&
+          locatorHash === contentUnit.locatorHash &&
+          contentUnit.runInputs.some(({ inputHash }) => inputHash === contentUnit.contentHash),
+      );
+      if (!bound) throw new CandidateAnalysisWriteConflict("terminal_output_integrity");
+    }
+  }
+  const supplied = input.payload.data.manifest;
+  if (
+    input.payload.data.manifestHash !== candidateAnalysisOutputManifestHash(manifest) ||
+    canonicalCandidateJson(supplied) !== canonicalCandidateJson(manifest)
+  ) {
+    throw new CandidateAnalysisWriteConflict("terminal_output_integrity");
+  }
+}
+
 async function appendRunEvent(
   prisma: PrismaClient,
   rawInput: CandidateAnalysisRunEventInput,
 ) {
-  const input = CandidateAnalysisRunEventInputSchema.parse(rawInput);
+  const input = parseForWrite(CandidateAnalysisRunEventInputSchema, rawInput);
   try {
     return await prisma.$transaction(
       async (transaction) => {
-        await transaction.$queryRaw<Array<{ id: string }>>`
-          SELECT "id"
-          FROM "CandidateAnalysisRun"
-          WHERE "id" = ${input.runId}
-          FOR UPDATE
-        `;
-        const events = await transaction.candidateAnalysisRunEvent.findMany({
-          where: { runId: input.runId },
-          orderBy: { sequence: "asc" },
-          select: {
-            id: true,
-            runId: true,
-            sequence: true,
-            eventType: true,
-            payload: true,
-            eventHash: true,
-          },
-        });
-
+        const events = await lockedEvents(transaction, input.runId);
+        if (input.eventType === "superseded") {
+          const prior = events.at(-1);
+          if (
+            prior === undefined ||
+            !["candidate_completed", "partial_completed"].includes(prior.eventType) ||
+            prior.id !== input.supersededEventId ||
+            prior.eventHash !== input.supersededEventHash
+          ) {
+            throw new CandidateAnalysisWriteConflict("supersession_conflict");
+          }
+        }
         let state: CandidateAnalysisMachineState;
         try {
           state = deriveCandidateAnalysisMachineState([
@@ -179,39 +530,12 @@ async function appendRunEvent(
           ]);
         } catch (error) {
           if (error instanceof CandidateAnalysisContractError) {
-            throw new CandidateAnalysisWriteConflict(
-              "event_sequence_conflict",
-            );
+            throw new CandidateAnalysisWriteConflict("event_sequence_conflict");
           }
           throw error;
         }
-
-        if (state === "candidate_complete" || state === "partial") {
-          const [artifacts, assertions] = await Promise.all([
-            transaction.candidateAnalysisArtifact.count({
-              where: { runId: input.runId },
-            }),
-            transaction.candidateAssertion.count({
-              where: { runId: input.runId },
-            }),
-          ]);
-          if (artifacts === 0 || assertions === 0) {
-            throw new CandidateAnalysisWriteConflict(
-              "terminal_output_missing",
-            );
-          }
-        }
-
-        await transaction.candidateAnalysisRunEvent.create({
-          data: {
-            id: input.id,
-            runId: input.runId,
-            sequence: input.sequence,
-            eventType: input.eventType,
-            payload: toNullableJson(input.payload),
-            eventHash: input.eventHash,
-          },
-        });
+        await verifyTerminalOutput(transaction, input);
+        await transaction.candidateAnalysisRunEvent.create({ data: eventData(input) });
         return { runId: input.runId, sequence: input.sequence, state };
       },
       { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
@@ -220,7 +544,7 @@ async function appendRunEvent(
     if (isPrismaErrorCode(error, "P2034")) {
       throw new CandidateAnalysisWriteConflict("event_sequence_conflict");
     }
-    throwMappedUniqueConflict(error, "event_sequence_conflict");
+    throwMappedConflict(error, "event_sequence_conflict");
   }
 }
 
@@ -228,57 +552,57 @@ async function appendDependency(
   prisma: PrismaClient,
   rawInput: CandidateDependencyInput,
 ) {
-  const input = CandidateDependencyInputSchema.parse(rawInput);
+  const input = parseForWrite(CandidateDependencyInputSchema, rawInput);
   for (let retry = 0; retry < 3; retry += 1) {
     try {
       return await prisma.$transaction(
-      async (transaction) => {
-        await transaction.$queryRaw<Array<{ id: string }>>`
-          SELECT "id"
-          FROM "CandidateAssertion"
-          WHERE "id" IN (${input.assertionId}, ${input.upstreamAssertionId})
-          ORDER BY "id"
-          FOR UPDATE
-        `;
-
-        if (input.assertionId === input.upstreamAssertionId) {
-          throw new CandidateAnalysisWriteConflict("dependency_cycle");
-        }
-
-        const upstreamClosure = await transaction.$queryRaw<
-          Array<{ id: string }>
-        >`
-          WITH RECURSIVE upstream_tree("id") AS (
-            VALUES (${input.upstreamAssertionId})
-            UNION
-            SELECT dependency."upstreamAssertionId"
-            FROM "CandidateDependency" AS dependency
-            INNER JOIN upstream_tree
-              ON dependency."assertionId" = upstream_tree."id"
-          )
-          SELECT "id" FROM upstream_tree
-        `;
-        const upstreamIds = upstreamClosure.map(({ id }) => id);
-        if (upstreamIds.includes(input.assertionId)) {
-          throw new CandidateAnalysisWriteConflict("dependency_cycle");
-        }
-
-        const dependent = await transaction.candidateAssertion.findUnique({
-          where: { id: input.assertionId },
-          select: {
-            runId: true,
-            limitations: true,
-            machineUse: true,
-            identityConfidence: true,
-            evidenceLevel: true,
-          },
-        });
-        if (dependent === null) {
-          throw new Error("candidate_assertion_not_found");
-        }
-
-        const [upstreamAssertions, inheritedDependencies, evidence] =
-          await Promise.all([
+        async (transaction) => {
+          const dependentRun = await transaction.candidateAssertion.findUnique({
+            where: { id: input.assertionId },
+            select: { runId: true },
+          });
+          if (dependentRun === null) throw new Error("candidate_assertion_not_found");
+          await assertRunOpen(transaction, dependentRun.runId);
+          if (input.assertionId === input.upstreamAssertionId) {
+            throw new CandidateAnalysisWriteConflict("dependency_cycle");
+          }
+          for (const assertionId of [
+            input.assertionId,
+            input.upstreamAssertionId,
+          ].sort()) {
+            await acquireCandidateWriterLock(
+              transaction,
+              "assertion",
+              assertionId,
+            );
+          }
+          const upstreamClosure = await transaction.$queryRaw<Array<{ id: string }>>`
+            WITH RECURSIVE upstream_tree("id") AS (
+              VALUES (${input.upstreamAssertionId})
+              UNION
+              SELECT dependency."upstreamAssertionId"
+              FROM "CandidateDependency" AS dependency
+              INNER JOIN upstream_tree
+                ON dependency."assertionId" = upstream_tree."id"
+            )
+            SELECT "id" FROM upstream_tree
+          `;
+          const upstreamIds = upstreamClosure.map(({ id }) => id);
+          if (upstreamIds.includes(input.assertionId)) {
+            throw new CandidateAnalysisWriteConflict("dependency_cycle");
+          }
+          const dependent = await transaction.candidateAssertion.findUnique({
+            where: { id: input.assertionId },
+            select: {
+              runId: true,
+              limitations: true,
+              machineUse: true,
+              identityConfidence: true,
+              evidenceLevel: true,
+            },
+          });
+          if (dependent === null) throw new Error("candidate_assertion_not_found");
+          const [upstreamAssertions, inheritedDependencies, evidence] = await Promise.all([
             transaction.candidateAssertion.findMany({
               where: { id: { in: upstreamIds } },
               select: {
@@ -294,10 +618,7 @@ async function appendDependency(
               select: { inheritedLimitations: true },
             }),
             transaction.candidateEvidenceLink.findMany({
-              where: {
-                assertionId: input.assertionId,
-                relation: "supports",
-              },
+              where: { assertionId: input.assertionId, relation: "supports" },
               select: {
                 locator: true,
                 locatorHash: true,
@@ -316,91 +637,64 @@ async function appendDependency(
               },
             }),
           ]);
-        if (upstreamAssertions.length !== upstreamIds.length) {
-          throw new Error("candidate_assertion_not_found");
-        }
-
-        const qualifyingEvidence = evidence.filter(({ contentUnit }) =>
-          contentUnit.runInputs.some(
-            ({ inputHash }) => inputHash === contentUnit.contentHash,
-          ),
-        );
-
-        const requiredLimitations = new Set([
-          ...upstreamAssertions.flatMap(({ limitations }) => limitations),
-          ...inheritedDependencies.flatMap(
-            ({ inheritedLimitations }) => inheritedLimitations,
-          ),
-        ]);
-        if (
-          !includesEvery(input.inheritedLimitations, requiredLimitations) ||
-          !includesEvery(dependent.limitations, requiredLimitations)
-        ) {
-          throw new CandidateAnalysisWriteConflict(
-            "upstream_authority_upgrade",
-          );
-        }
-
-        const weakestMachineUse = Math.min(
-          ...upstreamAssertions.map(
-            ({ machineUse }) => machineUsePermissiveness[machineUse],
-          ),
-        );
-        if (
-          machineUsePermissiveness[dependent.machineUse] > weakestMachineUse
-        ) {
-          throw new CandidateAnalysisWriteConflict(
-            "upstream_authority_upgrade",
-          );
-        }
-
-        const weakestIdentity = Math.min(
-          ...upstreamAssertions.map(
-            ({ identityConfidence }) => identityStrength[identityConfidence],
-          ),
-        );
-        if (identityStrength[dependent.identityConfidence] > weakestIdentity) {
-          const independentlySupported = qualifyingEvidence.some(
-            ({ contentUnit }) =>
-              identityStrength[contentUnit.identityConfidence] >=
-              identityStrength[dependent.identityConfidence],
-          );
-          if (!independentlySupported) {
-            throw new CandidateAnalysisWriteConflict(
-              "upstream_authority_upgrade",
-            );
+          if (upstreamAssertions.length !== upstreamIds.length) {
+            throw new Error("candidate_assertion_not_found");
           }
-        }
-
-        const weakestEvidence = Math.min(
-          ...upstreamAssertions.map(
-            ({ evidenceLevel }) => evidenceStrength[evidenceLevel],
-          ),
-        );
-        if (evidenceStrength[dependent.evidenceLevel] > weakestEvidence) {
-          const exactBoundLocator = qualifyingEvidence.some(
-            ({ locator, locatorHash, contentUnit }) =>
-              locator === contentUnit.locator &&
-              locatorHash === contentUnit.locatorHash,
+          const qualifyingEvidence = evidence.filter(({ contentUnit }) =>
+            contentUnit.runInputs.some(({ inputHash }) => inputHash === contentUnit.contentHash),
           );
-          if (!exactBoundLocator) {
-            throw new CandidateAnalysisWriteConflict(
-              "upstream_authority_upgrade",
-            );
+          const requiredLimitations = new Set([
+            ...upstreamAssertions.flatMap(({ limitations }) => limitations),
+            ...inheritedDependencies.flatMap(({ inheritedLimitations }) => inheritedLimitations),
+          ]);
+          if (
+            !includesEvery(input.inheritedLimitations, requiredLimitations) ||
+            !includesEvery(dependent.limitations, requiredLimitations)
+          ) {
+            throw new CandidateAnalysisWriteConflict("upstream_authority_upgrade");
           }
-        }
-
-        await transaction.candidateDependency.create({ data: input });
-        return { dependencyId: input.id };
-      },
-      { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
+          const weakestMachineUse = Math.min(
+            ...upstreamAssertions.map(({ machineUse }) => machineUsePermissiveness[machineUse]),
+          );
+          if (machineUsePermissiveness[dependent.machineUse] > weakestMachineUse) {
+            throw new CandidateAnalysisWriteConflict("upstream_authority_upgrade");
+          }
+          const weakestIdentity = Math.min(
+            ...upstreamAssertions.map(({ identityConfidence }) => identityStrength[identityConfidence]),
+          );
+          if (identityStrength[dependent.identityConfidence] > weakestIdentity) {
+            const independentlySupported = qualifyingEvidence.some(
+              ({ contentUnit }) =>
+                identityStrength[contentUnit.identityConfidence] >=
+                identityStrength[dependent.identityConfidence],
+            );
+            if (!independentlySupported) {
+              throw new CandidateAnalysisWriteConflict("upstream_authority_upgrade");
+            }
+          }
+          const weakestEvidence = Math.min(
+            ...upstreamAssertions.map(({ evidenceLevel }) => evidenceStrength[evidenceLevel]),
+          );
+          if (evidenceStrength[dependent.evidenceLevel] > weakestEvidence) {
+            const exactBoundLocator = qualifyingEvidence.some(
+              ({ locator, locatorHash, contentUnit }) =>
+                locator === contentUnit.locator && locatorHash === contentUnit.locatorHash,
+            );
+            if (!exactBoundLocator) {
+              throw new CandidateAnalysisWriteConflict("upstream_authority_upgrade");
+            }
+          }
+          await transaction.candidateDependency.create({ data: input });
+          return { dependencyId: input.id };
+        },
+        { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
       );
     } catch (error) {
       if (isPrismaErrorCode(error, "P2034") && retry < 2) continue;
       if (isPrismaErrorCode(error, "P2034")) {
         throw new CandidateAnalysisWriteConflict("immutable_history_conflict");
       }
-      throwMappedUniqueConflict(error, "immutable_history_conflict");
+      throwMappedConflict(error, "immutable_history_conflict");
     }
   }
   throw new CandidateAnalysisWriteConflict("immutable_history_conflict");
@@ -408,40 +702,96 @@ async function appendDependency(
 
 export function createCandidateAnalysisWriter(
   prisma: PrismaClient,
+  options: WriterOptions = {},
 ): CandidateAnalysisWriter {
+  const repositoryRoot = options.repositoryRoot ?? process.cwd();
   return {
     async createRun(rawInput) {
-      const input = CandidateAnalysisRunInputSchema.parse(rawInput);
+      const input = parseForWrite(CandidateAnalysisRunInputSchema, rawInput);
+      verifyTextBinding(
+        repositoryRoot,
+        CANDIDATE_WORKFLOW_BINDING,
+        input.workflowHash,
+        "Workflow",
+        "workflow_binding_mismatch",
+      );
+      verifyTextBinding(
+        repositoryRoot,
+        CANDIDATE_PROMPT_BINDING,
+        input.promptHash,
+        "Prompt template",
+        "prompt_binding_mismatch",
+      );
       try {
-        await prisma.candidateAnalysisRun.create({
-          data: {
-            id: input.id,
-            workflowId: input.workflowId,
-            workflowVersion: input.workflowVersion,
-            modelProvider: input.modelProvider,
-            modelName: input.modelName,
-            modelVersion: input.modelVersion,
-            promptHash: input.promptHash,
-            configHash: input.configHash,
-            inputEnvelopeHash: input.inputEnvelopeHash,
-            purpose: input.purpose,
-            outputProfile: input.outputProfile,
-            workerId: input.workerId,
-            idempotencyKey: input.idempotencyKey,
-            attempt: input.attempt,
-            predecessorRunId: input.predecessorRunId,
-            inputs: {
-              create: input.inputs.map((runInput) => ({
-                contentUnitId: runInput.contentUnitId,
-                position: runInput.position,
-                inputHash: runInput.inputHash,
+        return await prisma.$transaction(
+          async (transaction) => {
+            const stored = await transaction.candidateContentUnit.findMany({
+              where: { id: { in: input.inputs.map(({ contentUnitId }) => contentUnitId) } },
+              select: { id: true, contentHash: true },
+            });
+            const hashes = new Map(stored.map(({ id, contentHash }) => [id, contentHash]));
+            if (
+              stored.length !== input.inputs.length ||
+              input.inputs.some(
+                ({ contentUnitId, inputHash, position }, index) =>
+                  position !== index || hashes.get(contentUnitId) !== inputHash,
+              )
+            ) {
+              throw new CandidateAnalysisWriteConflict("integrity_mismatch");
+            }
+            const derivedEnvelope = candidateAnalysisInputEnvelopeHash(
+              input.inputs.map(({ contentUnitId, position }) => ({
+                contentUnitId,
+                position,
+                inputHash: hashes.get(contentUnitId)!,
               })),
-            },
+            );
+            if (
+              derivedEnvelope !== input.inputEnvelopeHash ||
+              candidateAnalysisRunIdempotencyKey({ ...input, inputEnvelopeHash: derivedEnvelope }) !==
+                input.idempotencyKey
+            ) {
+              throw new CandidateAnalysisWriteConflict("integrity_mismatch");
+            }
+            await transaction.candidateAnalysisRun.create({
+              data: {
+                id: input.id,
+                workflowId: input.workflowId,
+                workflowVersion: input.workflowVersion,
+                workflowPath: input.workflowPath,
+                workflowHash: input.workflowHash,
+                promptId: input.promptId,
+                promptVersion: input.promptVersion,
+                promptPath: input.promptPath,
+                promptHash: input.promptHash,
+                modelProvider: input.modelProvider,
+                modelName: input.modelName,
+                modelVersion: input.modelVersion,
+                config: toRequiredJson(input.config),
+                configHash: input.configHash,
+                inputEnvelopeHash: input.inputEnvelopeHash,
+                purpose: input.purpose,
+                outputProfile: input.outputProfile,
+                workerId: input.workerId,
+                idempotencyKey: input.idempotencyKey,
+                attempt: input.attempt,
+                predecessorRunId: input.predecessorRunId,
+                inputs: {
+                  create: input.inputs.map(({ contentUnitId, position, inputHash }) => ({
+                    contentUnitId,
+                    position,
+                    inputHash,
+                  })),
+                },
+                events: { create: nestedEventData(input.initialEvent) },
+              },
+            });
+            return { runId: input.id, created: true as const };
           },
-        });
-        return { runId: input.id, created: true };
+          { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
+        );
       } catch (error) {
-        throwMappedUniqueConflict(error, "idempotency_conflict");
+        throwMappedConflict(error, "idempotency_conflict");
       }
     },
 
@@ -450,56 +800,109 @@ export function createCandidateAnalysisWriter(
     },
 
     async appendArtifact(rawInput) {
-      const input = CandidateAnalysisArtifactInputSchema.parse(rawInput);
+      const input = parseForWrite(CandidateAnalysisArtifactInputSchema, rawInput);
       try {
-        await prisma.candidateAnalysisArtifact.create({
-          data: {
-            id: input.id,
-            runId: input.runId,
-            artifactType: input.artifactType,
-            schemaVersion: input.schemaVersion,
-            payload: toRequiredJson(input.payload),
-            payloadHash: input.payloadHash,
+        return await prisma.$transaction(
+          async (transaction) => {
+            await assertRunOpen(transaction, input.runId);
+            await transaction.candidateAnalysisArtifact.create({
+              data: {
+                id: input.id,
+                runId: input.runId,
+                artifactType: input.artifactType,
+                schemaVersion: input.schemaVersion,
+                payload: toRequiredJson(input.payload),
+                payloadHash: input.payloadHash,
+              },
+            });
+            return { artifactId: input.id };
           },
-        });
-        return { artifactId: input.id };
+          { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
+        );
       } catch (error) {
-        throwMappedUniqueConflict(error, "immutable_history_conflict");
+        throwMappedConflict(error, "immutable_history_conflict");
       }
     },
 
     async appendAssertion(rawInput) {
-      const input = CandidateAssertionInputSchema.parse(rawInput);
+      const input = parseForWrite(CandidateAssertionInputSchema, rawInput);
       try {
-        await prisma.candidateAssertion.create({
-          data: {
-            id: input.id,
-            runId: input.runId,
-            assertionType: input.assertionType,
-            schemaVersion: input.schemaVersion,
-            payload: toRequiredJson(input.payload),
-            payloadHash: input.payloadHash,
-            confidence: input.confidence,
-            machineUse: input.machineUse,
-            identityConfidence: input.identityConfidence,
-            evidenceLevel: input.evidenceLevel,
-            limitations: input.limitations,
-            supersededAssertionId: input.supersededAssertionId,
+        return await prisma.$transaction(
+          async (transaction) => {
+            await assertRunOpen(transaction, input.runId);
+            if (input.supersededAssertionId !== null) {
+              const prior = await transaction.candidateAssertion.findUnique({
+                where: { id: input.supersededAssertionId },
+                select: { payloadHash: true, scopeHash: true },
+              });
+              if (
+                prior === null ||
+                prior.payloadHash !== input.supersededAssertionPayloadHash ||
+                prior.scopeHash !== input.scopeHash
+              ) {
+                throw new CandidateAnalysisWriteConflict("supersession_conflict");
+              }
+            }
+            await transaction.candidateAssertion.create({
+              data: {
+                id: input.id,
+                runId: input.runId,
+                assertionType: input.assertionType,
+                schemaVersion: input.schemaVersion,
+                payload: toRequiredJson(input.payload),
+                payloadHash: input.payloadHash,
+                confidence: input.confidence,
+                machineUse: input.machineUse,
+                identityConfidence: input.identityConfidence,
+                evidenceLevel: input.evidenceLevel,
+                limitations: input.limitations,
+                scopeKey: input.scopeKey,
+                scopeHash: input.scopeHash,
+                supersededAssertionId: input.supersededAssertionId,
+                supersededAssertionPayloadHash: input.supersededAssertionPayloadHash,
+              },
+            });
+            return { assertionId: input.id };
           },
-        });
-        return { assertionId: input.id };
+          { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
+        );
       } catch (error) {
-        throwMappedUniqueConflict(error, "immutable_history_conflict");
+        if (isPrismaErrorCode(error, "P2003")) {
+          throw new CandidateAnalysisWriteConflict("supersession_conflict");
+        }
+        throwMappedConflict(error, "immutable_history_conflict");
       }
     },
 
     async appendEvidenceLink(rawInput) {
-      const input = CandidateEvidenceLinkInputSchema.parse(rawInput);
+      const input = parseForWrite(CandidateEvidenceLinkInputSchema, rawInput);
       try {
-        await prisma.candidateEvidenceLink.create({ data: input });
-        return { evidenceLinkId: input.id };
+        return await prisma.$transaction(
+          async (transaction) => {
+            const assertion = await transaction.candidateAssertion.findUnique({
+              where: { id: input.assertionId },
+              select: { runId: true },
+            });
+            if (assertion === null) throw new Error("candidate_assertion_not_found");
+            await assertRunOpen(transaction, assertion.runId);
+            const boundInput = await transaction.candidateAnalysisRunInput.findFirst({
+              where: {
+                runId: assertion.runId,
+                contentUnitId: input.contentUnitId,
+                contentUnit: { contentHash: { not: "" } },
+              },
+              select: { inputHash: true, contentUnit: { select: { contentHash: true } } },
+            });
+            if (boundInput === null || boundInput.inputHash !== boundInput.contentUnit.contentHash) {
+              throw new CandidateAnalysisWriteConflict("integrity_mismatch");
+            }
+            await transaction.candidateEvidenceLink.create({ data: input });
+            return { evidenceLinkId: input.id };
+          },
+          { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
+        );
       } catch (error) {
-        throwMappedUniqueConflict(error, "immutable_history_conflict");
+        throwMappedConflict(error, "immutable_history_conflict");
       }
     },
 
@@ -514,21 +917,28 @@ export function createCandidateReconciliationWriter(
 ): CandidateReconciliationWriter {
   return {
     async appendSnapshot(rawInput) {
-      const input = CandidateReconciliationSnapshotInputSchema.parse(rawInput);
+      const input = parseForWrite(CandidateReconciliationSnapshotInputSchema, rawInput);
       try {
-        await prisma.candidateReconciliationSnapshot.create({
-          data: {
-            id: input.id,
-            runId: input.runId,
-            scopeHash: input.scopeHash,
-            payload: toRequiredJson(input.payload),
-            payloadHash: input.payloadHash,
-            conflictCount: input.conflictCount,
+        return await prisma.$transaction(
+          async (transaction) => {
+            await assertRunOpen(transaction, input.runId);
+            await transaction.candidateReconciliationSnapshot.create({
+              data: {
+                id: input.id,
+                runId: input.runId,
+                scope: toRequiredJson(input.scope),
+                scopeHash: input.scopeHash,
+                payload: toRequiredJson(input.payload),
+                payloadHash: input.payloadHash,
+                conflictCount: input.conflictCount,
+              },
+            });
+            return { snapshotId: input.id };
           },
-        });
-        return { snapshotId: input.id };
+          { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
+        );
       } catch (error) {
-        throwMappedUniqueConflict(error, "immutable_history_conflict");
+        throwMappedConflict(error, "immutable_history_conflict");
       }
     },
   };

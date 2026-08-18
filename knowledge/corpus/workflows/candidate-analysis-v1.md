@@ -4,11 +4,19 @@ Workflow ID: `workflow.candidate_analysis.v1`
 
 Workflow version: `1.0.0`
 
+Workflow repository path: `knowledge/corpus/workflows/candidate-analysis-v1.md`
+
+Prompt template ID: `prompt.candidate_analysis.v1`
+
+Prompt template version: `1.0.0`
+
+Prompt template repository path: `knowledge/corpus/workflows/candidate-analysis-prompt-v1.md`
+
 Status: autonomous internal workflow; candidate-only output
 
 ## Minimum input gate
 
-The coordinator must bind stable input bytes or records, their SHA-256, the source identity key, identity confidence (`exact`, `provisional` or `unresolved`), this workflow version, prompt/configuration hashes and every content-unit locator consumed.
+The coordinator must bind stable input bytes or records, their SHA-256, the source identity key, identity confidence (`exact`, `provisional` or `unresolved`), this workflow ID/version/repository path/file hash, the canonical prompt-template ID/version/repository path/file hash, the configuration hash and every content-unit locator consumed.
 
 Stable, readable and hash-bound input is sufficient for candidate analysis. The identity-confidence value travels with every output and constrains later target-profile promotion; it does not create a human precondition for machine reading.
 

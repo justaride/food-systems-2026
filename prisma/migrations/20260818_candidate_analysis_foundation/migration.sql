@@ -48,10 +48,16 @@ CREATE TABLE "CandidateAnalysisRun" (
   "id" TEXT NOT NULL,
   "workflowId" TEXT NOT NULL,
   "workflowVersion" TEXT NOT NULL,
+  "workflowPath" TEXT NOT NULL,
+  "workflowHash" TEXT NOT NULL,
+  "promptId" TEXT NOT NULL,
+  "promptVersion" TEXT NOT NULL,
+  "promptPath" TEXT NOT NULL,
   "modelProvider" TEXT NOT NULL,
   "modelName" TEXT NOT NULL,
   "modelVersion" TEXT NOT NULL,
   "promptHash" TEXT NOT NULL,
+  "config" JSONB NOT NULL,
   "configHash" TEXT NOT NULL,
   "inputEnvelopeHash" TEXT NOT NULL,
   "purpose" TEXT NOT NULL,
@@ -62,9 +68,11 @@ CREATE TABLE "CandidateAnalysisRun" (
   "predecessorRunId" TEXT,
   "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT "CandidateAnalysisRun_pkey" PRIMARY KEY ("id"),
+  CONSTRAINT "CandidateAnalysisRun_workflowHash_check" CHECK ("workflowHash" ~ '^[0-9a-f]{64}$'),
   CONSTRAINT "CandidateAnalysisRun_promptHash_check" CHECK ("promptHash" ~ '^[0-9a-f]{64}$'),
   CONSTRAINT "CandidateAnalysisRun_configHash_check" CHECK ("configHash" ~ '^[0-9a-f]{64}$'),
   CONSTRAINT "CandidateAnalysisRun_inputEnvelopeHash_check" CHECK ("inputEnvelopeHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidateAnalysisRun_idempotencyKey_check" CHECK ("idempotencyKey" ~ '^[0-9a-f]{64}$'),
   CONSTRAINT "CandidateAnalysisRun_attempt_check" CHECK ("attempt" > 0),
   CONSTRAINT "CandidateAnalysisRun_workerId_check" CHECK (btrim("workerId") <> '')
 );
@@ -88,10 +96,20 @@ CREATE TABLE "CandidateAnalysisRunEvent" (
   "eventType" "CandidateRunEventType" NOT NULL,
   "payload" JSONB,
   "eventHash" TEXT NOT NULL,
+  "supersededEventId" TEXT,
+  "supersededEventHash" TEXT,
+  "supersessionScopeHash" TEXT,
   "recordedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT "CandidateAnalysisRunEvent_pkey" PRIMARY KEY ("id"),
   CONSTRAINT "CandidateAnalysisRunEvent_eventHash_check" CHECK ("eventHash" ~ '^[0-9a-f]{64}$'),
-  CONSTRAINT "CandidateAnalysisRunEvent_sequence_check" CHECK ("sequence" > 0)
+  CONSTRAINT "CandidateAnalysisRunEvent_sequence_check" CHECK ("sequence" > 0),
+  CONSTRAINT "CandidateAnalysisRunEvent_supersededEventHash_check" CHECK ("supersededEventHash" IS NULL OR "supersededEventHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidateAnalysisRunEvent_supersessionScopeHash_check" CHECK ("supersessionScopeHash" IS NULL OR "supersessionScopeHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidateAnalysisRunEvent_supersession_binding_check" CHECK (
+    (("eventType" = 'superseded') AND "supersededEventId" IS NOT NULL AND "supersededEventHash" IS NOT NULL AND "supersessionScopeHash" IS NOT NULL)
+    OR (("eventType" <> 'superseded') AND "supersededEventId" IS NULL AND "supersededEventHash" IS NULL AND "supersessionScopeHash" IS NULL)
+  ),
+  CONSTRAINT "CandidateAnalysisRunEvent_self_supersession_check" CHECK ("supersededEventId" IS NULL OR "id" <> "supersededEventId")
 );
 
 CREATE TABLE "CandidateAnalysisArtifact" (
@@ -118,10 +136,17 @@ CREATE TABLE "CandidateAssertion" (
   "identityConfidence" "CandidateIdentityConfidence" NOT NULL,
   "evidenceLevel" "CandidateEvidenceLevel" NOT NULL,
   "limitations" TEXT[] NOT NULL,
+  "scopeKey" TEXT NOT NULL,
+  "scopeHash" TEXT NOT NULL,
   "supersededAssertionId" TEXT,
+  "supersededAssertionPayloadHash" TEXT,
   "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT "CandidateAssertion_pkey" PRIMARY KEY ("id"),
   CONSTRAINT "CandidateAssertion_payloadHash_check" CHECK ("payloadHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidateAssertion_scopeHash_check" CHECK ("scopeHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidateAssertion_supersededAssertionPayloadHash_check" CHECK ("supersededAssertionPayloadHash" IS NULL OR "supersededAssertionPayloadHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidateAssertion_supersession_pair_check" CHECK (("supersededAssertionId" IS NULL) = ("supersededAssertionPayloadHash" IS NULL)),
+  CONSTRAINT "CandidateAssertion_self_supersession_check" CHECK ("supersededAssertionId" IS NULL OR "id" <> "supersededAssertionId"),
   CONSTRAINT "CandidateAssertion_confidence_check" CHECK ("confidence" IS NULL OR ("confidence" >= 0 AND "confidence" <= 1))
 );
 
@@ -153,6 +178,7 @@ CREATE TABLE "CandidateDependency" (
 CREATE TABLE "CandidateReconciliationSnapshot" (
   "id" TEXT NOT NULL,
   "runId" TEXT NOT NULL,
+  "scope" JSONB NOT NULL,
   "scopeHash" TEXT NOT NULL,
   "payload" JSONB NOT NULL,
   "payloadHash" TEXT NOT NULL,
@@ -175,18 +201,24 @@ CREATE TABLE "CandidateHumanReviewDecision" (
   "assertionPayloadHash" TEXT NOT NULL,
   "sourceContentSetHash" TEXT NOT NULL,
   "evidenceSetHash" TEXT NOT NULL,
+  "decisionHash" TEXT NOT NULL,
   "limitations" TEXT[] NOT NULL,
   "editedPayload" JSONB,
   "editedPayloadHash" TEXT,
   "supersededDecisionId" TEXT,
+  "supersededDecisionHash" TEXT,
   "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT "CandidateHumanReviewDecision_pkey" PRIMARY KEY ("id"),
   CONSTRAINT "CandidateHumanReviewDecision_reviewProfileHash_check" CHECK ("reviewProfileHash" ~ '^[0-9a-f]{64}$'),
   CONSTRAINT "CandidateHumanReviewDecision_assertionPayloadHash_check" CHECK ("assertionPayloadHash" ~ '^[0-9a-f]{64}$'),
   CONSTRAINT "CandidateHumanReviewDecision_sourceContentSetHash_check" CHECK ("sourceContentSetHash" ~ '^[0-9a-f]{64}$'),
   CONSTRAINT "CandidateHumanReviewDecision_evidenceSetHash_check" CHECK ("evidenceSetHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidateHumanReviewDecision_decisionHash_check" CHECK ("decisionHash" ~ '^[0-9a-f]{64}$'),
   CONSTRAINT "CandidateHumanReviewDecision_editedPayloadHash_check" CHECK ("editedPayloadHash" IS NULL OR "editedPayloadHash" ~ '^[0-9a-f]{64}$'),
   CONSTRAINT "CandidateHumanReviewDecision_editedPayload_pair_check" CHECK (("editedPayload" IS NULL) = ("editedPayloadHash" IS NULL)),
+  CONSTRAINT "CandidateHumanReviewDecision_supersededDecisionHash_check" CHECK ("supersededDecisionHash" IS NULL OR "supersededDecisionHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidateHumanReviewDecision_supersession_pair_check" CHECK (("supersededDecisionId" IS NULL) = ("supersededDecisionHash" IS NULL)),
+  CONSTRAINT "CandidateHumanReviewDecision_self_supersession_check" CHECK ("supersededDecisionId" IS NULL OR "id" <> "supersededDecisionId"),
   CONSTRAINT "CandidateHumanReviewDecision_reviewer_check" CHECK (btrim("reviewer") <> ''),
   CONSTRAINT "CandidateHumanReviewDecision_authority_check" CHECK (btrim("authority") <> '')
 );
@@ -194,19 +226,42 @@ CREATE TABLE "CandidateHumanReviewDecision" (
 CREATE TABLE "CandidatePromotionDecision" (
   "id" TEXT NOT NULL,
   "assertionId" TEXT NOT NULL,
+  "assertionPayloadHash" TEXT NOT NULL,
   "reviewDecisionId" TEXT NOT NULL,
+  "reviewDecisionHash" TEXT NOT NULL,
   "targetProfile" TEXT NOT NULL,
+  "targetProfileHash" TEXT NOT NULL,
   "state" "CandidatePromotionState" NOT NULL,
   "policyVersion" TEXT NOT NULL,
+  "policyHash" TEXT NOT NULL,
   "preconditionsHash" TEXT NOT NULL,
   "targetRefs" JSONB NOT NULL,
+  "targetSetHash" TEXT NOT NULL,
   "result" JSONB NOT NULL,
+  "resultHash" TEXT NOT NULL,
+  "decisionHash" TEXT NOT NULL,
   "operator" TEXT NOT NULL,
   "authority" TEXT NOT NULL,
   "supersededDecisionId" TEXT,
+  "supersededDecisionHash" TEXT,
+  "supersededPolicyHash" TEXT,
   "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT "CandidatePromotionDecision_pkey" PRIMARY KEY ("id"),
+  CONSTRAINT "CandidatePromotionDecision_assertionPayloadHash_check" CHECK ("assertionPayloadHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidatePromotionDecision_reviewDecisionHash_check" CHECK ("reviewDecisionHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidatePromotionDecision_targetProfileHash_check" CHECK ("targetProfileHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidatePromotionDecision_policyHash_check" CHECK ("policyHash" ~ '^[0-9a-f]{64}$'),
   CONSTRAINT "CandidatePromotionDecision_preconditionsHash_check" CHECK ("preconditionsHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidatePromotionDecision_targetSetHash_check" CHECK ("targetSetHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidatePromotionDecision_resultHash_check" CHECK ("resultHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidatePromotionDecision_decisionHash_check" CHECK ("decisionHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidatePromotionDecision_supersededDecisionHash_check" CHECK ("supersededDecisionHash" IS NULL OR "supersededDecisionHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidatePromotionDecision_supersededPolicyHash_check" CHECK ("supersededPolicyHash" IS NULL OR "supersededPolicyHash" ~ '^[0-9a-f]{64}$'),
+  CONSTRAINT "CandidatePromotionDecision_supersession_binding_check" CHECK (
+    ("supersededDecisionId" IS NULL AND "supersededDecisionHash" IS NULL AND "supersededPolicyHash" IS NULL)
+    OR ("supersededDecisionId" IS NOT NULL AND "supersededDecisionHash" IS NOT NULL AND "supersededPolicyHash" IS NOT NULL)
+  ),
+  CONSTRAINT "CandidatePromotionDecision_self_supersession_check" CHECK ("supersededDecisionId" IS NULL OR "id" <> "supersededDecisionId"),
   CONSTRAINT "CandidatePromotionDecision_operator_check" CHECK (btrim("operator") <> ''),
   CONSTRAINT "CandidatePromotionDecision_authority_check" CHECK (btrim("authority") <> '')
 );
@@ -224,9 +279,11 @@ CREATE UNIQUE INDEX "CandidateAnalysisRunInput_runId_position_key" ON "Candidate
 CREATE UNIQUE INDEX "CandidateAnalysisRunInput_runId_contentUnitId_key" ON "CandidateAnalysisRunInput"("runId", "contentUnitId");
 CREATE UNIQUE INDEX "CandidateAnalysisRunEvent_runId_sequence_key" ON "CandidateAnalysisRunEvent"("runId", "sequence");
 CREATE UNIQUE INDEX "CandidateAnalysisRunEvent_runId_eventHash_key" ON "CandidateAnalysisRunEvent"("runId", "eventHash");
+CREATE UNIQUE INDEX "CandidateAnalysisRunEvent_id_eventHash_runId_key" ON "CandidateAnalysisRunEvent"("id", "eventHash", "runId");
 CREATE UNIQUE INDEX "CandidateAnalysisArtifact_runId_payloadHash_key" ON "CandidateAnalysisArtifact"("runId", "payloadHash");
 CREATE UNIQUE INDEX "CandidateAssertion_runId_payloadHash_key" ON "CandidateAssertion"("runId", "payloadHash");
 CREATE UNIQUE INDEX "CandidateAssertion_id_payloadHash_key" ON "CandidateAssertion"("id", "payloadHash");
+CREATE UNIQUE INDEX "CandidateAssertion_id_payloadHash_scopeHash_key" ON "CandidateAssertion"("id", "payloadHash", "scopeHash");
 CREATE INDEX "CandidateAssertion_assertionType_idx" ON "CandidateAssertion"("assertionType");
 CREATE INDEX "CandidateAssertion_machineUse_idx" ON "CandidateAssertion"("machineUse");
 CREATE INDEX "CandidateAssertion_identityConfidence_idx" ON "CandidateAssertion"("identityConfidence");
@@ -235,13 +292,14 @@ CREATE UNIQUE INDEX "CandidateEvidenceLink_assertionId_contentUnitId_relation_lo
 CREATE UNIQUE INDEX "CandidateDependency_assertionId_upstreamAssertionId_relatio_key" ON "CandidateDependency"("assertionId", "upstreamAssertionId", "relation");
 CREATE UNIQUE INDEX "CandidateReconciliationSnapshot_runId_payloadHash_key" ON "CandidateReconciliationSnapshot"("runId", "payloadHash");
 CREATE UNIQUE INDEX "CandidateHumanReviewDecision_id_assertionId_key" ON "CandidateHumanReviewDecision"("id", "assertionId");
-CREATE UNIQUE INDEX "CandidateHumanReviewDecision_id_assertionId_reviewProfile_key" ON "CandidateHumanReviewDecision"("id", "assertionId", "reviewProfile");
+CREATE UNIQUE INDEX "CandidateHumanReviewDecision_id_decisionHash_assertionId_key" ON "CandidateHumanReviewDecision"("id", "decisionHash", "assertionId");
+CREATE UNIQUE INDEX "CandidateHumanReviewDecision_id_decisionHash_assertionId_reviewProfile_reviewProfileHash_key" ON "CandidateHumanReviewDecision"("id", "decisionHash", "assertionId", "reviewProfile", "reviewProfileHash");
 CREATE INDEX "CandidateHumanReviewDecision_assertionId_idx" ON "CandidateHumanReviewDecision"("assertionId");
 CREATE INDEX "CandidateHumanReviewDecision_decision_idx" ON "CandidateHumanReviewDecision"("decision");
 CREATE INDEX "CandidateHumanReviewDecision_reviewProfile_idx" ON "CandidateHumanReviewDecision"("reviewProfile");
 CREATE INDEX "CandidatePromotionDecision_assertionId_idx" ON "CandidatePromotionDecision"("assertionId");
 CREATE INDEX "CandidatePromotionDecision_targetProfile_state_idx" ON "CandidatePromotionDecision"("targetProfile", "state");
-CREATE UNIQUE INDEX "CandidatePromotionDecision_id_assertionId_targetProfile_key" ON "CandidatePromotionDecision"("id", "assertionId", "targetProfile");
+CREATE UNIQUE INDEX "CandidatePromotionDecision_id_decisionHash_assertionId_targetProfile_targetProfileHash_policyHash_key" ON "CandidatePromotionDecision"("id", "decisionHash", "assertionId", "targetProfile", "targetProfileHash", "policyHash");
 
 ALTER TABLE "CandidateAnalysisRun"
   ADD CONSTRAINT "CandidateAnalysisRun_predecessorRunId_fkey" FOREIGN KEY ("predecessorRunId") REFERENCES "CandidateAnalysisRun"("id") ON DELETE RESTRICT ON UPDATE RESTRICT;
@@ -249,12 +307,13 @@ ALTER TABLE "CandidateAnalysisRunInput"
   ADD CONSTRAINT "CandidateAnalysisRunInput_runId_fkey" FOREIGN KEY ("runId") REFERENCES "CandidateAnalysisRun"("id") ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT "CandidateAnalysisRunInput_contentUnitId_fkey" FOREIGN KEY ("contentUnitId") REFERENCES "CandidateContentUnit"("id") ON DELETE RESTRICT ON UPDATE RESTRICT;
 ALTER TABLE "CandidateAnalysisRunEvent"
-  ADD CONSTRAINT "CandidateAnalysisRunEvent_runId_fkey" FOREIGN KEY ("runId") REFERENCES "CandidateAnalysisRun"("id") ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT "CandidateAnalysisRunEvent_runId_fkey" FOREIGN KEY ("runId") REFERENCES "CandidateAnalysisRun"("id") ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT "CandidateRunEvent_supersession_hash_scope_fkey" FOREIGN KEY ("supersededEventId", "supersededEventHash", "runId") REFERENCES "CandidateAnalysisRunEvent"("id", "eventHash", "runId") ON DELETE RESTRICT ON UPDATE RESTRICT;
 ALTER TABLE "CandidateAnalysisArtifact"
   ADD CONSTRAINT "CandidateAnalysisArtifact_runId_fkey" FOREIGN KEY ("runId") REFERENCES "CandidateAnalysisRun"("id") ON DELETE RESTRICT ON UPDATE RESTRICT;
 ALTER TABLE "CandidateAssertion"
   ADD CONSTRAINT "CandidateAssertion_runId_fkey" FOREIGN KEY ("runId") REFERENCES "CandidateAnalysisRun"("id") ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT "CandidateAssertion_supersededAssertionId_fkey" FOREIGN KEY ("supersededAssertionId") REFERENCES "CandidateAssertion"("id") ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT "CandidateAssertion_supersession_hash_scope_fkey" FOREIGN KEY ("supersededAssertionId", "supersededAssertionPayloadHash", "scopeHash") REFERENCES "CandidateAssertion"("id", "payloadHash", "scopeHash") ON DELETE RESTRICT ON UPDATE RESTRICT;
 ALTER TABLE "CandidateEvidenceLink"
   ADD CONSTRAINT "CandidateEvidenceLink_assertionId_fkey" FOREIGN KEY ("assertionId") REFERENCES "CandidateAssertion"("id") ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT "CandidateEvidenceLink_contentUnitId_fkey" FOREIGN KEY ("contentUnitId") REFERENCES "CandidateContentUnit"("id") ON DELETE RESTRICT ON UPDATE RESTRICT;
@@ -265,11 +324,11 @@ ALTER TABLE "CandidateReconciliationSnapshot"
   ADD CONSTRAINT "CandidateReconciliationSnapshot_runId_fkey" FOREIGN KEY ("runId") REFERENCES "CandidateAnalysisRun"("id") ON DELETE RESTRICT ON UPDATE RESTRICT;
 ALTER TABLE "CandidateHumanReviewDecision"
   ADD CONSTRAINT "CandidateHumanReviewDecision_assertionId_assertionPayloadH_fkey" FOREIGN KEY ("assertionId", "assertionPayloadHash") REFERENCES "CandidateAssertion"("id", "payloadHash") ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT "CandidateHumanReviewDecision_supersededDecisionId_assertio_fkey" FOREIGN KEY ("supersededDecisionId", "assertionId", "reviewProfile") REFERENCES "CandidateHumanReviewDecision"("id", "assertionId", "reviewProfile") ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT "CandidateReview_supersession_receipt_scope_fkey" FOREIGN KEY ("supersededDecisionId", "supersededDecisionHash", "assertionId", "reviewProfile", "reviewProfileHash") REFERENCES "CandidateHumanReviewDecision"("id", "decisionHash", "assertionId", "reviewProfile", "reviewProfileHash") ON DELETE RESTRICT ON UPDATE RESTRICT;
 ALTER TABLE "CandidatePromotionDecision"
-  ADD CONSTRAINT "CandidatePromotionDecision_assertionId_fkey" FOREIGN KEY ("assertionId") REFERENCES "CandidateAssertion"("id") ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT "CandidatePromotionDecision_reviewDecisionId_assertionId_fkey" FOREIGN KEY ("reviewDecisionId", "assertionId") REFERENCES "CandidateHumanReviewDecision"("id", "assertionId") ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT "CandidatePromotionDecision_supersededDecisionId_assertionI_fkey" FOREIGN KEY ("supersededDecisionId", "assertionId", "targetProfile") REFERENCES "CandidatePromotionDecision"("id", "assertionId", "targetProfile") ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT "CandidatePromotionDecision_assertionId_assertionPayloadHash_fkey" FOREIGN KEY ("assertionId", "assertionPayloadHash") REFERENCES "CandidateAssertion"("id", "payloadHash") ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT "CandidatePromotion_review_receipt_fkey" FOREIGN KEY ("reviewDecisionId", "reviewDecisionHash", "assertionId") REFERENCES "CandidateHumanReviewDecision"("id", "decisionHash", "assertionId") ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT "CandidatePromotion_supersession_receipt_scope_fkey" FOREIGN KEY ("supersededDecisionId", "supersededDecisionHash", "assertionId", "targetProfile", "targetProfileHash", "supersededPolicyHash") REFERENCES "CandidatePromotionDecision"("id", "decisionHash", "assertionId", "targetProfile", "targetProfileHash", "policyHash") ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 CREATE FUNCTION public.reject_candidate_history_change()
 RETURNS trigger

@@ -14,6 +14,7 @@ import {
   mkdirSync,
   openSync,
   realpathSync,
+  readdirSync,
   renameSync,
   rmdirSync,
   unlinkSync,
@@ -22,7 +23,7 @@ import {
 import { basename, dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
-import type { PrismaClient } from "../../src/generated/prisma/client";
+import { Prisma, type PrismaClient } from "../../src/generated/prisma/client";
 import {
   buildCandidateControlSnapshot,
   type CandidateControlSnapshotInput,
@@ -88,32 +89,62 @@ export function writeCandidateControlSnapshotAtomic(
     : resolve(process.cwd(), requestedPath);
   const parent = dirname(target);
   const targetName = target.slice(parent.length + 1);
-  const temporary = join(parent, `.${targetName}.candidate-control.tmp`);
+  const temporary = join(
+    parent,
+    `.${targetName}.candidate-control.${randomBytes(32).toString("hex")}.tmp`,
+  );
 
   const parentStat = lstatSync(parent);
   if (!parentStat.isDirectory() || parentStat.isSymbolicLink()) {
     throw new Error("candidate_control_output_parent_is_unsafe");
   }
   rejectUnsafeOutputTarget(target, parent);
-  if (existsSync(temporary)) {
-    throw new Error("candidate_control_temporary_path_exists");
-  }
+  rejectUnsafeOutputTarget(temporary, parent);
 
   let descriptor: number | null = null;
+  let ownedTemporaryIdentity: { dev: number | bigint; ino: number | bigint } | null =
+    null;
+  let originalTemporaryStat: ReturnType<typeof fstatSync> | null = null;
   try {
     descriptor = openSync(
       temporary,
-      constants.O_WRONLY | constants.O_CREAT | constants.O_EXCL,
+      constants.O_WRONLY |
+        constants.O_CREAT |
+        constants.O_EXCL |
+        constants.O_NOFOLLOW,
       0o600,
     );
+    const openedTemporaryStat = fstatSync(descriptor);
+    if (!openedTemporaryStat.isFile()) {
+      throw new Error("candidate_control_temporary_identity_invalid");
+    }
+    ownedTemporaryIdentity = {
+      dev: openedTemporaryStat.dev,
+      ino: openedTemporaryStat.ino,
+    };
+    fchmodSync(descriptor, 0o600);
+    originalTemporaryStat = fstatSync(descriptor);
+    if (
+      !originalTemporaryStat.isFile() ||
+      (originalTemporaryStat.mode & 0o777) !== 0o600
+    ) {
+      throw new Error("candidate_control_temporary_identity_invalid");
+    }
     writeFileSync(descriptor, serialized, { encoding: "utf8" });
     fsyncSync(descriptor);
-    closeSync(descriptor);
-    descriptor = null;
 
     hooks.beforeRename?.();
     rejectUnsafeOutputTarget(target, parent);
+    rejectUnsafeOutputTarget(temporary, parent);
+    verifyTemporaryFileIdentity(
+      temporary,
+      descriptor,
+      originalTemporaryStat,
+    );
+    rejectPathAlias(target, temporary);
     renameSync(temporary, target);
+    closeSync(descriptor);
+    descriptor = null;
     const directoryDescriptor = openSync(parent, constants.O_RDONLY);
     try {
       fsyncSync(directoryDescriptor);
@@ -122,7 +153,71 @@ export function writeCandidateControlSnapshotAtomic(
     }
   } finally {
     if (descriptor !== null) closeSync(descriptor);
-    if (existsSync(temporary)) unlinkSync(temporary);
+    unlinkOwnedTemporary(temporary, ownedTemporaryIdentity);
+  }
+}
+
+function unlinkOwnedTemporary(
+  temporary: string,
+  ownedIdentity: { dev: number | bigint; ino: number | bigint } | null,
+): void {
+  if (ownedIdentity === null) return;
+  let current: ReturnType<typeof lstatSync>;
+  try {
+    current = lstatSync(temporary);
+  } catch (error) {
+    if (isFileSystemError(error, "ENOENT")) return;
+    throw new Error("candidate_control_temporary_cleanup_failed");
+  }
+  if (
+    current.isSymbolicLink() ||
+    !current.isFile() ||
+    current.dev !== ownedIdentity.dev ||
+    current.ino !== ownedIdentity.ino
+  ) {
+    return;
+  }
+  unlinkSync(temporary);
+}
+
+function verifyTemporaryFileIdentity(
+  temporary: string,
+  descriptor: number,
+  original: ReturnType<typeof fstatSync>,
+): void {
+  let pathStat: ReturnType<typeof lstatSync>;
+  let descriptorStat: ReturnType<typeof fstatSync>;
+  try {
+    pathStat = lstatSync(temporary);
+    descriptorStat = fstatSync(descriptor);
+  } catch {
+    throw new Error("candidate_control_temporary_path_changed");
+  }
+  if (
+    pathStat.isSymbolicLink() ||
+    !pathStat.isFile() ||
+    !descriptorStat.isFile() ||
+    (pathStat.mode & 0o777) !== 0o600 ||
+    (descriptorStat.mode & 0o777) !== 0o600 ||
+    pathStat.dev !== original.dev ||
+    pathStat.ino !== original.ino ||
+    descriptorStat.dev !== original.dev ||
+    descriptorStat.ino !== original.ino
+  ) {
+    throw new Error("candidate_control_temporary_path_changed");
+  }
+}
+
+function rejectPathAlias(first: string, second: string): void {
+  const firstStat = lstatIfExists(first);
+  const secondStat = lstatIfExists(second);
+  if (
+    firstStat !== null &&
+    secondStat !== null &&
+    firstStat.dev === secondStat.dev &&
+    firstStat.ino === secondStat.ino
+  ) {
+    throw new Error("candidate_control_output_target_aliases_temporary");
   }
 }
 
@@ -157,150 +252,47 @@ export async function runCandidateControlSnapshotCli(
   }
 }
 
-async function readCandidateControlSnapshotInput(
+// PostgreSQL requires this exact transaction-control statement before the first
+// data query because Prisma does not expose a readOnly interactive-transaction
+// option. It is constant, private to this read path, and cannot carry caller SQL.
+const READ_ONLY_TRANSACTION_SQL = "SET TRANSACTION READ ONLY";
+
+export async function readCandidateControlSnapshotInput(
   prisma: PrismaClient,
   runtimeCommit: string | null,
+  hooks: { afterRunsRead?: () => Promise<void> } = {},
 ): Promise<CandidateControlSnapshotInput> {
   const queryErrors: string[] = [];
+  let databaseGraph: Awaited<ReturnType<typeof readDatabaseGraph>> | null = null;
+  try {
+    databaseGraph = await prisma.$transaction(
+      async (transaction) => {
+        await transaction.$executeRawUnsafe(READ_ONLY_TRANSACTION_SQL);
+        return readDatabaseGraph(transaction, hooks);
+      },
+      {
+        isolationLevel: Prisma.TransactionIsolationLevel.RepeatableRead,
+      },
+    );
+  } catch {
+    queryErrors.push("candidate_database_snapshot_query_failed");
+  }
 
-  const identities = await queryOrDefault(
-    queryErrors,
-    "database_identity_query_failed",
-    () =>
-      prisma.databaseIdentity.findMany({
-        orderBy: { key: "asc" },
-        select: { key: true, identityUuid: true },
-      }),
-    [],
-  );
+  const identities = databaseGraph?.identities ?? [];
   const identity =
     identities.length === 1 && identities[0]?.key === "primary"
       ? identities[0]
       : null;
-  if (identity === null) queryErrors.push("database_identity_invalid");
+  if (databaseGraph !== null && identity === null) {
+    queryErrors.push("database_identity_invalid");
+  }
 
-  const runs = await queryOrDefault(
-    queryErrors,
-    "candidate_runs_query_failed",
-    () =>
-      prisma.candidateAnalysisRun.findMany({
-        orderBy: { id: "asc" },
-        select: {
-          id: true,
-          events: {
-            orderBy: { sequence: "asc" },
-            select: {
-              id: true,
-              runId: true,
-              sequence: true,
-              eventType: true,
-              payload: true,
-              eventHash: true,
-            },
-          },
-        },
-      }),
-    [],
-  );
-  const assertions = await queryOrDefault(
-    queryErrors,
-    "candidate_assertions_query_failed",
-    () =>
-      prisma.candidateAssertion.findMany({
-        orderBy: { id: "asc" },
-        select: {
-          id: true,
-          runId: true,
-          payloadHash: true,
-          machineUse: true,
-          identityConfidence: true,
-          evidenceLevel: true,
-          supersededAssertionId: true,
-          createdAt: true,
-        },
-      }),
-    [],
-  );
-  const reviewDecisions = await queryOrDefault(
-    queryErrors,
-    "candidate_review_decisions_query_failed",
-    () =>
-      prisma.candidateHumanReviewDecision.findMany({
-        orderBy: { id: "asc" },
-        select: {
-          id: true,
-          assertionId: true,
-          decision: true,
-          reviewProfile: true,
-          reviewProfileHash: true,
-          assertionPayloadHash: true,
-          sourceContentSetHash: true,
-          evidenceSetHash: true,
-          supersededDecisionId: true,
-          createdAt: true,
-        },
-      }),
-    [],
-  );
-  const promotionDecisions = await queryOrDefault(
-    queryErrors,
-    "candidate_promotion_decisions_query_failed",
-    () =>
-      prisma.candidatePromotionDecision.findMany({
-        orderBy: { id: "asc" },
-        select: {
-          id: true,
-          assertionId: true,
-          reviewDecisionId: true,
-          targetProfile: true,
-          state: true,
-          policyVersion: true,
-          preconditionsHash: true,
-          supersededDecisionId: true,
-          createdAt: true,
-        },
-      }),
-    [],
-  );
-  const reconciliationSnapshots = await queryOrDefault(
-    queryErrors,
-    "candidate_reconciliation_query_failed",
-    () =>
-      prisma.candidateReconciliationSnapshot.findMany({
-        orderBy: [{ scopeHash: "asc" }, { createdAt: "asc" }, { id: "asc" }],
-        select: {
-          id: true,
-          scopeHash: true,
-          payloadHash: true,
-          conflictCount: true,
-          createdAt: true,
-        },
-      }),
-    [],
-  );
-  const legacyRows = await queryOrDefault(
-    queryErrors,
-    "legacy_library_analysis_query_failed",
-    () =>
-      prisma.libraryAnalysisRecord.findMany({
-        orderBy: [{ sourceKind: "asc" }, { sourceKey: "asc" }],
-        select: {
-          sourceKind: true,
-          sourceKey: true,
-          documentId: true,
-          sourceDocId: true,
-          status: true,
-          usageRule: true,
-          reviewStatus: true,
-          aiCard: true,
-          claimCandidates: true,
-          contentHash: true,
-          reviewedAt: true,
-          reviewer: true,
-        },
-      }),
-    [],
-  );
+  const runs = databaseGraph?.runs ?? [];
+  const assertions = databaseGraph?.assertions ?? [];
+  const reviewDecisions = databaseGraph?.reviewDecisions ?? [];
+  const promotionDecisions = databaseGraph?.promotionDecisions ?? [];
+  const reconciliationSnapshots = databaseGraph?.reconciliationSnapshots ?? [];
+  const legacyRows = databaseGraph?.legacyRows ?? [];
 
   let sourceCommit = "0".repeat(40);
   try {
@@ -335,10 +327,11 @@ async function readCandidateControlSnapshotInput(
     runs: runs.map((run) => ({
       id: run.id,
       events: run.events.map(
-        (event): CandidateAnalysisRunEventInput => ({
-          ...event,
-          payload: event.payload as CandidateJsonValue | null,
-        }),
+        (event): CandidateAnalysisRunEventInput =>
+          ({
+            ...event,
+            payload: event.payload as CandidateJsonValue | null,
+          }) as CandidateAnalysisRunEventInput,
       ),
     })),
     assertions: assertions.map((assertion) => ({
@@ -363,18 +356,113 @@ async function readCandidateControlSnapshotInput(
   };
 }
 
-async function queryOrDefault<T>(
-  queryErrors: string[],
-  errorCode: string,
-  query: () => Promise<T>,
-  fallback: T,
-): Promise<T> {
-  try {
-    return await query();
-  } catch {
-    queryErrors.push(errorCode);
-    return fallback;
-  }
+async function readDatabaseGraph(
+  prisma: Prisma.TransactionClient,
+  hooks: { afterRunsRead?: () => Promise<void> },
+) {
+  const identities = await prisma.databaseIdentity.findMany({
+        orderBy: { key: "asc" },
+        select: { key: true, identityUuid: true },
+  });
+  const runs = await prisma.candidateAnalysisRun.findMany({
+        orderBy: { id: "asc" },
+        select: {
+          id: true,
+          events: {
+            orderBy: { sequence: "asc" },
+            select: {
+              id: true,
+              runId: true,
+              sequence: true,
+              eventType: true,
+              payload: true,
+              eventHash: true,
+              supersededEventId: true,
+              supersededEventHash: true,
+              supersessionScopeHash: true,
+            },
+          },
+        },
+  });
+  await hooks.afterRunsRead?.();
+  const assertions = await prisma.candidateAssertion.findMany({
+        orderBy: { id: "asc" },
+        select: {
+          id: true,
+          runId: true,
+          payloadHash: true,
+          machineUse: true,
+          identityConfidence: true,
+          evidenceLevel: true,
+          supersededAssertionId: true,
+          createdAt: true,
+        },
+  });
+  const reviewDecisions = await prisma.candidateHumanReviewDecision.findMany({
+        orderBy: { id: "asc" },
+        select: {
+          id: true,
+          assertionId: true,
+          decision: true,
+          reviewProfile: true,
+          reviewProfileHash: true,
+          assertionPayloadHash: true,
+          sourceContentSetHash: true,
+          evidenceSetHash: true,
+          supersededDecisionId: true,
+          createdAt: true,
+        },
+  });
+  const promotionDecisions = await prisma.candidatePromotionDecision.findMany({
+        orderBy: { id: "asc" },
+        select: {
+          id: true,
+          assertionId: true,
+          reviewDecisionId: true,
+          targetProfile: true,
+          state: true,
+          policyVersion: true,
+          preconditionsHash: true,
+          supersededDecisionId: true,
+          createdAt: true,
+        },
+  });
+  const reconciliationSnapshots = await prisma.candidateReconciliationSnapshot.findMany({
+        orderBy: [{ scopeHash: "asc" }, { createdAt: "asc" }, { id: "asc" }],
+        select: {
+          id: true,
+          scopeHash: true,
+          payloadHash: true,
+          conflictCount: true,
+          createdAt: true,
+        },
+  });
+  const legacyRows = await prisma.libraryAnalysisRecord.findMany({
+        orderBy: [{ sourceKind: "asc" }, { sourceKey: "asc" }],
+        select: {
+          sourceKind: true,
+          sourceKey: true,
+          documentId: true,
+          sourceDocId: true,
+          status: true,
+          usageRule: true,
+          reviewStatus: true,
+          aiCard: true,
+          claimCandidates: true,
+          contentHash: true,
+          reviewedAt: true,
+          reviewer: true,
+        },
+  });
+  return {
+    identities,
+    runs,
+    assertions,
+    reviewDecisions,
+    promotionDecisions,
+    reconciliationSnapshots,
+    legacyRows,
+  };
 }
 
 function rejectUnsafeOutputTarget(target: string, parent: string): void {
@@ -523,6 +611,7 @@ function targetFilesystemNamesEqual(
 ): boolean {
   let descriptor: number | null = null;
   let probeDirectory: string | null = null;
+  let probeDirectoryStat: ReturnType<typeof lstatSync> | null = null;
   let probePath: string | null = null;
   let probeCreated = false;
   let result: boolean | null = null;
@@ -532,6 +621,14 @@ function targetFilesystemNamesEqual(
     const token = randomBytes(32).toString("hex");
     probeDirectory = join(parent, `.candidate-control-identity-${token}`);
     mkdirSync(probeDirectory, { mode: 0o700 });
+    probeDirectoryStat = lstatSync(probeDirectory);
+    if (
+      !probeDirectoryStat.isDirectory() ||
+      probeDirectoryStat.isSymbolicLink() ||
+      (probeDirectoryStat.mode & 0o777) !== 0o700
+    ) {
+      throw new Error("candidate_control_identity_probe_invalid");
+    }
     probePath = join(probeDirectory, requestedName);
     const trackedProbePath = join(probeDirectory, trackedName);
     descriptor = openSync(
@@ -573,8 +670,18 @@ function targetFilesystemNamesEqual(
         failed = true;
       }
     }
-    if (probeDirectory !== null) {
+    if (probeDirectory !== null && probeDirectoryStat !== null) {
       try {
+        const currentDirectoryStat = lstatSync(probeDirectory);
+        if (
+          !currentDirectoryStat.isDirectory() ||
+          currentDirectoryStat.isSymbolicLink() ||
+          currentDirectoryStat.dev !== probeDirectoryStat.dev ||
+          currentDirectoryStat.ino !== probeDirectoryStat.ino ||
+          readdirSync(probeDirectory).length !== 0
+        ) {
+          throw new Error("candidate_control_identity_probe_ownership_lost");
+        }
         rmdirSync(probeDirectory);
       } catch {
         failed = true;
@@ -701,10 +808,26 @@ function isSameOrDescendant(parent: string, candidate: string): boolean {
 }
 
 function scrubbedGitEnvironment(): NodeJS.ProcessEnv {
-  const environment: NodeJS.ProcessEnv = { ...process.env };
-  for (const name of Object.keys(environment)) {
-    if (name.toUpperCase().startsWith("GIT_")) delete environment[name];
+  const environment: NodeJS.ProcessEnv = {
+    NODE_ENV: process.env.NODE_ENV ?? "production",
+  };
+  for (const name of [
+    "PATH",
+    "TMPDIR",
+    "TMP",
+    "TEMP",
+    "SYSTEMROOT",
+    "WINDIR",
+    "LANG",
+    "LC_ALL",
+    "LC_CTYPE",
+  ]) {
+    if (process.env[name] !== undefined) environment[name] = process.env[name];
   }
+  environment.GIT_CONFIG_NOSYSTEM = "1";
+  environment.GIT_CONFIG_GLOBAL =
+    process.platform === "win32" ? "NUL" : "/dev/null";
+  environment.GIT_OPTIONAL_LOCKS = "0";
   return environment;
 }
 

@@ -346,6 +346,41 @@ describe('legacy library analysis candidate compatibility', () => {
     assert.equal(projected.evidenceLevel, 'exact_locator')
   })
 
+  it('ignores Object.prototype claimCandidates on both legacy containers', () => {
+    const previousDescriptor = Object.getOwnPropertyDescriptor(
+      Object.prototype,
+      'claimCandidates',
+    )
+    const record = { ...legacyFixture }
+    delete record.claimCandidates
+    record.aiCard = { shortSummary: 'Own candidate summary only.' }
+
+    try {
+      Object.defineProperty(Object.prototype, 'claimCandidates', {
+        configurable: true,
+        value: [{ text: 'Forged inherited claim', pageRef: 'PDF p. 99' }],
+      })
+
+      const projected = projectLegacyLibraryAnalysisRecord(record)
+      assert.equal(projected.evidenceLevel, 'no_locator')
+      assert.equal(
+        projected.limitations.includes('legacy_claim_locator_missing'),
+        false,
+      )
+    } finally {
+      if (previousDescriptor === undefined) {
+        delete (Object.prototype as { claimCandidates?: unknown })
+          .claimCandidates
+      } else {
+        Object.defineProperty(
+          Object.prototype,
+          'claimCandidates',
+          previousDescriptor,
+        )
+      }
+    }
+  })
+
   it('summarizes projected, absent and unclassified legacy records', () => {
     const summary = summarizeLegacyLibraryCandidateProjection([
       legacyFixture,

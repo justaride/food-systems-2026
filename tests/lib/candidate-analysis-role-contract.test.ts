@@ -13,15 +13,36 @@ import { join, resolve } from "node:path";
 import { spawn, spawnSync } from "node:child_process";
 import { test } from "node:test";
 
+import { PrismaPg } from "@prisma/adapter-pg";
+
+import { PrismaClient } from "../../src/generated/prisma/client";
+import {
+  candidateAnalysisAssertionPayloadHash,
+  candidateAnalysisAssertionScopeHash,
+  candidateAnalysisReconciliationPayloadHash,
+  candidateAnalysisReconciliationScopeHash,
+} from "../../src/lib/knowledge/candidate-analysis-contract";
+import {
+  createCandidateAnalysisWriter,
+  createCandidateReconciliationWriter,
+} from "../../src/lib/knowledge/candidate-analysis-writer";
+import { candidateAnalysisFixture } from "../fixtures/candidate-analysis-fixture";
 import { withCandidateAnalysisPostgres } from "../helpers/candidate-analysis-postgres";
 
 const repoRoot = process.cwd();
 const bootstrapPath = resolve("scripts/bootstrap-candidate-analysis-roles.sh");
 const disablePath = resolve("scripts/disable-candidate-analysis-writes.sh");
 const verifyPath = resolve("scripts/verify-candidate-analysis-roles.sh");
+const urlHelperPath = resolve("scripts/normalize-candidate-postgres-url.mjs");
 
 function executable(path: string): boolean {
   return existsSync(path) && (statSync(path).mode & 0o111) !== 0;
+}
+
+function rolePrisma(databaseUrl: string): PrismaClient {
+  return new PrismaClient({
+    adapter: new PrismaPg({ connectionString: databaseUrl }),
+  });
 }
 
 function postgresPath(): string {
@@ -50,18 +71,23 @@ test("candidate role scripts are explicit, credential-safe, and exact-allowlist"
   const bootstrap = readFileSync(bootstrapPath, "utf8");
   const disable = readFileSync(disablePath, "utf8");
   const verify = readFileSync(verifyPath, "utf8");
+  const urlHelper = readFileSync(urlHelperPath, "utf8");
 
   assert.ok(executable(bootstrapPath));
   assert.ok(executable(disablePath));
   assert.ok(executable(verifyPath));
+  assert.ok(executable(urlHelperPath));
   for (const script of [bootstrap, disable, verify]) {
     assert.match(script, /^#!\/bin\/sh/);
     assert.match(script, /set -eu/);
     assert.match(script, /PGPASSFILE/);
-    assert.match(script, /url\.searchParams\.has\("password"\)/);
-    assert.match(script, /url\.searchParams\.has\("sslpassword"\)/);
-    assert.match(script, /url\.password = ""/);
+    assert.match(script, /normalize-candidate-postgres-url\.mjs/);
+    assert.match(script, /PGHOST/);
+    assert.match(script, /PGPASSFILE/);
   }
+  assert.match(urlHelper, /allowedSearchParameters/);
+  assert.match(urlHelper, /url\.password = ""/);
+  assert.match(urlHelper, /unsupported database URL parameter/);
 
   assert.match(bootstrap, /refusing to change grants without --apply/);
   assert.match(
@@ -71,6 +97,11 @@ test("candidate role scripts are explicit, credential-safe, and exact-allowlist"
   assert.match(bootstrap, /GRANT INSERT ON TABLE/);
   assert.doesNotMatch(bootstrap, /GRANT (?:ALL|UPDATE|DELETE|TRUNCATE)/);
   assert.doesNotMatch(bootstrap, /review_operator|promotion_service/);
+  assert.match(bootstrap, /CREATE ROLE %I NOLOGIN/);
+  assert.doesNotMatch(bootstrap, /CANDIDATE_(?:WORKER|RECONCILER)_DB_PASSWORD/);
+  assert.doesNotMatch(bootstrap, /PASSWORD %L|Buffer\.from\([^\n]*password/i);
+  assert.doesNotMatch(bootstrap, /REVOKE[^\n]*FROM PUBLIC/);
+  assert.match(bootstrap, /incompatible PUBLIC or default ACL surface/i);
 
   assert.match(verify, /CandidateHumanReviewDecision/);
   assert.match(verify, /CandidatePromotionDecision/);
@@ -83,8 +114,8 @@ test("candidate role scripts are explicit, credential-safe, and exact-allowlist"
   assert.match(verify, /has_schema_privilege\(current_user, schema_oid, 'CREATE'\)/);
   assert.match(verify, /has_function_privilege\(current_user, routine_oid, 'EXECUTE'\)/);
   assert.match(verify, /session_user <> current_user/);
-  assert.match(verify, /url\.username/);
-  assert.match(verify, /url\.searchParams\.has\("options"\)/);
+  assert.match(urlHelper, /url\.username/);
+  assert.match(urlHelper, /allowedSearchParameters/);
   assert.match(verify, /pg_type/);
 
   assert.match(disable, /refusing to disable candidate writes without --apply/);
@@ -93,7 +124,7 @@ test("candidate role scripts are explicit, credential-safe, and exact-allowlist"
   assert.doesNotMatch(disable, /DROP (?:TABLE|ROLE)|DELETE FROM|TRUNCATE/);
 });
 
-test("candidate scripts sanitize malformed URLs and remove password variables before psql", () => {
+test("candidate scripts sanitize malformed URLs and keep credentials out of role SQL", () => {
   const tempRoot = mkdtempSync(join(tmpdir(), "candidate-role-secret-contract-"));
   const fakePsql = join(tempRoot, "psql");
   const invocationLog = join(tempRoot, "psql.log");
@@ -199,14 +230,119 @@ exit 0
       env: {
         ...commonEnv,
         DATABASE_ADMIN_URL: "postgresql://admin:admin-secret@example.invalid/foodsystems",
-        CANDIDATE_WORKER_DB_PASSWORD: secret,
-        CANDIDATE_RECONCILER_DB_PASSWORD: `${secret}-reconciler`,
       },
     });
     assert.equal(safeBootstrap.status, 0, safeBootstrap.stderr);
     const invocation = readFileSync(invocationLog, "utf8");
     assert.doesNotMatch(invocation, /password-env-present/);
     assert.doesNotMatch(invocation, new RegExp(secret));
+
+    for (const parameter of [
+      "host",
+      "port",
+      "dbname",
+      "user",
+      "password",
+      "passfile",
+      "options",
+      "service",
+    ]) {
+      const queryValue = encodeURIComponent(`${secret}-${parameter}`);
+      const attempts = [
+        {
+          script: bootstrapPath,
+          args: ["--apply"],
+          env: {
+            ...commonEnv,
+            DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems?${parameter}=${queryValue}`,
+          },
+        },
+        {
+          script: disablePath,
+          args: ["--apply"],
+          env: {
+            ...commonEnv,
+            DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems?${parameter}=${queryValue}`,
+          },
+        },
+        {
+          script: verifyPath,
+          args: ["--role=worker"],
+          env: {
+            ...commonEnv,
+            CANDIDATE_WORKER_DATABASE_URL: `postgresql://foodsystems_candidate_worker:${secret}@example.invalid/foodsystems?application_name=foodsystems-candidate-worker&${parameter}=${queryValue}`,
+          },
+        },
+      ];
+      for (const attempt of attempts) {
+        const result = spawnSync(attempt.script, attempt.args, {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: attempt.env,
+        });
+        assert.notEqual(result.status, 0, `${attempt.script} accepted ${parameter}`);
+        assert.match(result.stderr, /unsupported database URL parameter/);
+        assert.doesNotMatch(`${result.stdout}${result.stderr}`, new RegExp(secret));
+      }
+    }
+
+    for (const [script, args, urlEnvironment] of [
+      [
+        bootstrapPath,
+        ["--apply"],
+        { DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems` },
+      ],
+      [
+        disablePath,
+        ["--apply"],
+        { DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems` },
+      ],
+      [
+        verifyPath,
+        ["--role=worker"],
+        {
+          CANDIDATE_WORKER_DATABASE_URL: `postgresql://foodsystems_candidate_worker:${secret}@example.invalid/foodsystems?application_name=foodsystems-candidate-worker`,
+        },
+      ],
+    ] as const) {
+      const result = spawnSync(script, args, {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: { ...commonEnv, ...urlEnvironment, PGHOST: "override.invalid" },
+      });
+      assert.notEqual(result.status, 0);
+      assert.match(result.stderr, /PGHOST is not permitted/);
+      assert.doesNotMatch(`${result.stdout}${result.stderr}`, new RegExp(secret));
+    }
+
+    for (const [script, args, urlEnvironment] of [
+      [
+        bootstrapPath,
+        ["--apply"],
+        { DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems` },
+      ],
+      [
+        disablePath,
+        ["--apply"],
+        { DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems` },
+      ],
+      [
+        verifyPath,
+        ["--role=worker"],
+        {
+          CANDIDATE_WORKER_DATABASE_URL: `postgresql://foodsystems_candidate_worker:${secret}@example.invalid/foodsystems?application_name=foodsystems-candidate-worker`,
+        },
+      ],
+    ] as const) {
+      const result = spawnSync(script, args, {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: { ...commonEnv, ...urlEnvironment, PGREQUIREPEER: "attacker" },
+      });
+      assert.notEqual(result.status, 0);
+      assert.match(result.stderr, /PGREQUIREPEER is not permitted/);
+      assert.doesNotMatch(`${result.stdout}${result.stderr}`, new RegExp(secret));
+    }
   } finally {
     rmSync(tempRoot, { recursive: true, force: true });
   }
@@ -224,6 +360,9 @@ test(
         CREATE TABLE public."CanonicalOutsideAllowlist" (id text PRIMARY KEY);
         CREATE SCHEMA sidecar;
         CREATE TABLE sidecar.unrelated (id text PRIMARY KEY);
+        INSERT INTO sidecar.unrelated (id) VALUES ('preserve-through-preflight');
+        CREATE FUNCTION sidecar.unrelated_fn() RETURNS integer
+          LANGUAGE sql AS $$ SELECT 1 $$;
         CREATE ROLE candidate_inherited_writer NOLOGIN;
         CREATE ROLE foodsystems_candidate_worker NOLOGIN;
         CREATE ROLE foodsystems_candidate_reconciler NOLOGIN;
@@ -232,6 +371,8 @@ test(
         GRANT candidate_inherited_writer TO foodsystems_candidate_worker;
         ALTER ROLE foodsystems_candidate_worker SET default_transaction_read_only TO 'on';
         GRANT INSERT ON public."CanonicalOutsideAllowlist" TO PUBLIC;
+        ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA sidecar
+          GRANT SELECT ON TABLES TO PUBLIC;
       `);
       assert.equal(setup.status, 0, setup.stderr);
 
@@ -244,9 +385,129 @@ test(
         ...process.env,
         PATH: path,
         DATABASE_ADMIN_URL: adminUrl,
-        CANDIDATE_WORKER_DB_PASSWORD: workerPassword,
-        CANDIDATE_RECONCILER_DB_PASSWORD: reconcilerPassword,
       };
+
+      const databaseState = () => psql(`
+        WITH state_line(kind, identity, value) AS (
+          SELECT 'role', auth.rolname,
+            jsonb_build_object(
+              'super', auth.rolsuper,
+              'inherit', auth.rolinherit,
+              'createRole', auth.rolcreaterole,
+              'createDb', auth.rolcreatedb,
+              'canLogin', auth.rolcanlogin,
+              'replication', auth.rolreplication,
+              'connectionLimit', auth.rolconnlimit,
+              'password', auth.rolpassword,
+              'bypassRls', auth.rolbypassrls
+            )::text
+          FROM pg_authid auth
+          WHERE auth.rolname IN (
+            'candidate_inherited_writer',
+            'foodsystems_candidate_worker',
+            'foodsystems_candidate_reconciler'
+          )
+          UNION ALL
+          SELECT 'membership', granted.rolname || '->' || member.rolname,
+            jsonb_build_object(
+              'admin', membership.admin_option,
+              'grantor', grantor.rolname
+            )::text
+          FROM pg_auth_members membership
+          JOIN pg_roles granted ON granted.oid = membership.roleid
+          JOIN pg_roles member ON member.oid = membership.member
+          JOIN pg_roles grantor ON grantor.oid = membership.grantor
+          WHERE granted.rolname LIKE 'foodsystems_candidate_%'
+             OR member.rolname LIKE 'foodsystems_candidate_%'
+          UNION ALL
+          SELECT 'setting', role.rolname || '@' || settings.setdatabase::text,
+            settings.setconfig::text
+          FROM pg_db_role_setting settings
+          JOIN pg_roles role ON role.oid = settings.setrole
+          WHERE role.rolname LIKE 'foodsystems_candidate_%'
+          UNION ALL
+          SELECT 'database-acl', database.datname,
+            COALESCE(database.datacl::text, '<null>')
+          FROM pg_database database
+          WHERE database.datname = current_database()
+          UNION ALL
+          SELECT 'schema-acl', namespace.nspname,
+            COALESCE(namespace.nspacl::text, '<null>')
+          FROM pg_namespace namespace
+          WHERE namespace.nspname <> 'information_schema'
+            AND namespace.nspname !~ '^pg_'
+          UNION ALL
+          SELECT 'relation-acl', namespace.nspname || '.' || class.relname,
+            COALESCE(class.relacl::text, '<null>')
+          FROM pg_class class
+          JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+          WHERE namespace.nspname <> 'information_schema'
+            AND namespace.nspname !~ '^pg_'
+            AND class.relkind IN ('r', 'p', 'v', 'm', 'f', 'S')
+          UNION ALL
+          SELECT 'column-acl', namespace.nspname || '.' || class.relname || '.' || attribute.attname,
+            attribute.attacl::text
+          FROM pg_attribute attribute
+          JOIN pg_class class ON class.oid = attribute.attrelid
+          JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+          WHERE namespace.nspname <> 'information_schema'
+            AND namespace.nspname !~ '^pg_'
+            AND attribute.attnum > 0
+            AND NOT attribute.attisdropped
+            AND attribute.attacl IS NOT NULL
+          UNION ALL
+          SELECT 'routine-acl', namespace.nspname || '.' || procedure.oid::regprocedure::text,
+            COALESCE(procedure.proacl::text, '<null>')
+          FROM pg_proc procedure
+          JOIN pg_namespace namespace ON namespace.oid = procedure.pronamespace
+          WHERE namespace.nspname <> 'information_schema'
+            AND namespace.nspname !~ '^pg_'
+          UNION ALL
+          SELECT 'default-acl', owner.rolname || '@' ||
+            COALESCE(namespace.nspname, '<global>') || ':' || defaults.defaclobjtype::text,
+            defaults.defaclacl::text
+          FROM pg_default_acl defaults
+          JOIN pg_roles owner ON owner.oid = defaults.defaclrole
+          LEFT JOIN pg_namespace namespace ON namespace.oid = defaults.defaclnamespace
+          UNION ALL
+          SELECT 'data', 'sidecar.unrelated',
+            COALESCE(jsonb_agg(unrelated.id ORDER BY unrelated.id)::text, '[]')
+          FROM sidecar.unrelated unrelated
+        )
+        SELECT kind || '|' || identity || '|' || value
+        FROM state_line
+        ORDER BY kind, identity, value;
+      `);
+
+      const beforeBlockedBootstrap = databaseState();
+      assert.equal(beforeBlockedBootstrap.status, 0, beforeBlockedBootstrap.stderr);
+      const blockedBootstrap = spawnSync(bootstrapPath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.notEqual(blockedBootstrap.status, 0);
+      assert.match(blockedBootstrap.stderr, /incompatible PUBLIC or default ACL surface/i);
+      const afterBlockedBootstrap = databaseState();
+      assert.equal(afterBlockedBootstrap.status, 0, afterBlockedBootstrap.stderr);
+      assert.equal(
+        afterBlockedBootstrap.stdout,
+        beforeBlockedBootstrap.stdout,
+        "failed bootstrap changed roles, ACLs, default ACLs, or protected data",
+      );
+
+      const externalHardening = psql(`
+        REVOKE CREATE, TEMPORARY ON DATABASE ${database} FROM PUBLIC;
+        REVOKE ALL PRIVILEGES ON SCHEMA public, sidecar FROM PUBLIC;
+        REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public, sidecar FROM PUBLIC;
+        REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public, sidecar FROM PUBLIC;
+        REVOKE EXECUTE ON ALL FUNCTIONS IN SCHEMA public, sidecar FROM PUBLIC;
+        ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA sidecar
+          REVOKE ALL PRIVILEGES ON TABLES FROM PUBLIC;
+        ALTER DEFAULT PRIVILEGES FOR ROLE postgres
+          REVOKE EXECUTE ON FUNCTIONS FROM PUBLIC;
+      `);
+      assert.equal(externalHardening.status, 0, externalHardening.stderr);
 
       const bootstrap = spawnSync(bootstrapPath, ["--apply"], {
         cwd: repoRoot,
@@ -254,6 +515,13 @@ test(
         env: adminEnv,
       });
       assert.equal(bootstrap.status, 0, bootstrap.stderr);
+
+      const provisionLogins = () => psql(`
+        ALTER ROLE foodsystems_candidate_worker LOGIN PASSWORD '${workerPassword}';
+        ALTER ROLE foodsystems_candidate_reconciler LOGIN PASSWORD '${reconcilerPassword}';
+      `);
+      const provisioned = provisionLogins();
+      assert.equal(provisioned.status, 0, provisioned.stderr);
 
       const verifyWorker = () =>
         spawnSync(verifyPath, ["--role=worker"], {
@@ -280,6 +548,70 @@ test(
       assert.equal(initialWorker.status, 0, initialWorker.stderr);
       const initialReconciler = verifyReconciler();
       assert.equal(initialReconciler.status, 0, initialReconciler.stderr);
+
+      const roleFixture = candidateAnalysisFixture({ runId: "run:role-api:1" });
+      const adminPrisma = rolePrisma(adminUrl);
+      try {
+        await adminPrisma.candidateContentUnit.create({
+          data: roleFixture.contentUnit,
+        });
+      } finally {
+        await adminPrisma.$disconnect();
+      }
+      const workerPrisma = rolePrisma(workerUrl);
+      try {
+        const workerWriter = createCandidateAnalysisWriter(workerPrisma);
+        await workerWriter.createRun(roleFixture.run);
+        await workerWriter.appendRunEvent(roleFixture.events.started);
+        await workerWriter.appendAssertion(roleFixture.assertion);
+        const upstreamPayload = {
+          namespace: "candidate" as const,
+          kind: "assertion" as const,
+          data: { proposition: "Role-scoped dependency upstream." },
+        };
+        const upstream = {
+          ...roleFixture.assertion,
+          id: "assertion:role-api:upstream",
+          payload: upstreamPayload,
+          payloadHash: candidateAnalysisAssertionPayloadHash(upstreamPayload),
+          scopeKey: "claim:role-api:upstream",
+          scopeHash: candidateAnalysisAssertionScopeHash(
+            "claim:role-api:upstream",
+          ),
+        };
+        await workerWriter.appendAssertion(upstream);
+        await workerWriter.appendDependency({
+          id: "dependency:role-api:1",
+          assertionId: roleFixture.assertion.id,
+          upstreamAssertionId: upstream.id,
+          relation: "derived_from",
+          inheritedLimitations: [...upstream.limitations].sort(),
+        });
+      } finally {
+        await workerPrisma.$disconnect();
+      }
+      const reconcilerPrisma = rolePrisma(reconcilerUrl);
+      try {
+        const scope = { runId: roleFixture.run.id };
+        const payload = {
+          namespace: "candidate" as const,
+          kind: "reconciliation" as const,
+          data: { conflicts: [] },
+        };
+        await createCandidateReconciliationWriter(
+          reconcilerPrisma,
+        ).appendSnapshot({
+          id: "snapshot:role-api:1",
+          runId: roleFixture.run.id,
+          scope,
+          scopeHash: candidateAnalysisReconciliationScopeHash(scope),
+          payload,
+          payloadHash: candidateAnalysisReconciliationPayloadHash(payload),
+          conflictCount: 0,
+        });
+      } finally {
+        await reconcilerPrisma.$disconnect();
+      }
 
       const candidateTables = [
         "CandidateContentUnit",
@@ -468,7 +800,7 @@ test(
         },
       });
       assert.notEqual(gatewayAttempt.status, 0);
-      assert.match(gatewayAttempt.stderr, /startup options are not permitted/);
+      assert.match(gatewayAttempt.stderr, /unsupported database URL parameter: options/);
       const gatewayUsernameAttempt = spawnSync(verifyPath, ["--role=worker"], {
         cwd: repoRoot,
         encoding: "utf8",
@@ -562,19 +894,24 @@ test(
       const hash = "a".repeat(64);
       const seeded = psql(`
         INSERT INTO public."CandidateAnalysisRun" (
-          "id", "workflowId", "workflowVersion", "modelProvider", "modelName",
-          "modelVersion", "promptHash", "configHash", "inputEnvelopeHash",
+          "id", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
           "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
         ) VALUES (
-          'disable-preservation-run', 'candidate-analysis', 'v1', 'test', 'test-model',
-          'v1', '${hash}', '${hash}', '${hash}', 'disable preservation',
-          'candidate-only', 'test-worker', 'disable-preservation-run', 1
+          'disable-preservation-run', 'candidate-analysis', 'v1',
+          'knowledge/corpus/workflows/candidate-analysis-v1.md', '${hash}',
+          'candidate-analysis-prompt', 'v1',
+          'knowledge/corpus/workflows/candidate-analysis-prompt-v1.md',
+          'test', 'test-model', 'v1', '${hash}', '{}', '${hash}', '${hash}',
+          'disable preservation',
+          'candidate-only', 'test-worker', '${hash}', 1
         );
         INSERT INTO public."CandidateReconciliationSnapshot" (
-          "id", "runId", "scopeHash", "payload", "payloadHash", "conflictCount"
+          "id", "runId", "scope", "scopeHash", "payload", "payloadHash", "conflictCount"
         ) VALUES (
-          'disable-preservation-snapshot', 'disable-preservation-run', '${hash}',
-          '{}', '${hash}', 0
+          'disable-preservation-snapshot', 'disable-preservation-run', '{}',
+          '${hash}', '{}', '${hash}', 0
         );
       `);
       assert.equal(seeded.status, 0, seeded.stderr);
@@ -734,6 +1071,8 @@ test(
         env: adminEnv,
       });
       assert.equal(rebootstrap.status, 0, rebootstrap.stderr);
+      const reprovisioned = provisionLogins();
+      assert.equal(reprovisioned.status, 0, reprovisioned.stderr);
       assert.equal(verifyWorker().status, 0);
       assert.equal(verifyReconciler().status, 0);
       const cleanupUnrelated = psql(`

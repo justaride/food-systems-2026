@@ -228,10 +228,18 @@ function projectEvidenceLevel(
 function readClaimCandidates(
   record: LegacyLibraryAnalysisRecordInput,
 ): unknown[] {
-  if (Array.isArray(record.claimCandidates)) {
+  if (
+    isPlainRecord(record) &&
+    Object.prototype.hasOwnProperty.call(record, 'claimCandidates') &&
+    Array.isArray(record.claimCandidates)
+  ) {
     return [...record.claimCandidates]
   }
-  if (isRecord(record.aiCard) && Array.isArray(record.aiCard.claimCandidates)) {
+  if (
+    isPlainRecord(record.aiCard) &&
+    Object.prototype.hasOwnProperty.call(record.aiCard, 'claimCandidates') &&
+    Array.isArray(record.aiCard.claimCandidates)
+  ) {
     return [...record.aiCard.claimCandidates]
   }
   return []
@@ -264,6 +272,12 @@ function isSha256(value: string | null | undefined): value is string {
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+function isPlainRecord(value: unknown): value is Record<string, unknown> {
+  if (!isRecord(value)) return false
+  const prototype = Object.getPrototypeOf(value)
+  return prototype === Object.prototype || prototype === null
 }
 
 function isValidLegacyClaim(value: unknown): value is Record<string, unknown> {

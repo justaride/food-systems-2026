@@ -17,8 +17,8 @@
 `CandidateAnalysisRun` is the reserved append-only candidate-history run-model name defined by the [autonomous analysis contract](../knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md). Candidate records are not canonical records and must remain separate from human-review receipts, evidence, target-promotion records, publication decisions and coverage assessments.
 
 - The only authorized candidate-history write path is `src/lib/knowledge/candidate-analysis-writer.ts`.
-- Never use generic upsert, update, delete or raw SQL for `CandidateAnalysisRun` or related candidate history.
-- This Delivery 1 guide establishes the contract only; it does not add the model, writer, adapter or a migration.
+- Never use generic upsert, update, delete, or generic or mutating raw SQL for `CandidateAnalysisRun` or related candidate history. Only the bounded writer's internal parameterized advisory locks and read-only dependency-integrity query are permitted.
+- Delivery 1 includes the candidate models, unreleased forward migration, bounded writer, role-control scripts, compatibility projection, and read-only control snapshot. It does not deploy them, provision production login credentials, start autonomous runs, or authorize promotion.
 
 ## Company Sub-models
 

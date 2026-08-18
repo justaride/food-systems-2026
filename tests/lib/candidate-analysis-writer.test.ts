@@ -1,4 +1,13 @@
 import assert from "node:assert/strict";
+import {
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
+import { tmpdir } from "node:os";
+import { dirname, join } from "node:path";
 import test from "node:test";
 
 import { PrismaPg } from "@prisma/adapter-pg";
@@ -11,8 +20,26 @@ import type {
   CandidateDependencyInput,
   CandidateEvidenceLevel,
   CandidateIdentityConfidence,
+  CandidateAnalysisRunInput,
 } from "../../src/lib/knowledge/candidate-analysis-contract";
 import {
+  candidateAnalysisArtifactPayloadHash,
+  candidateAnalysisAssertionPayloadHash,
+  candidateAnalysisAssertionScopeHash,
+  candidateAnalysisEvidenceLocatorHash,
+  candidateAnalysisInputEnvelopeHash,
+  candidateAnalysisOutputManifestHash,
+  candidateAnalysisReconciliationPayloadHash,
+  candidateAnalysisReconciliationScopeHash,
+  candidateAnalysisRunEventHash,
+  candidateAnalysisRunIdempotencyKey,
+  candidateAnalysisRunScopeHash,
+  CANDIDATE_PROMPT_BINDING,
+  CANDIDATE_WORKFLOW_BINDING,
+  type CandidateOutputManifest,
+} from "../../src/lib/knowledge/candidate-analysis-contract";
+import {
+  type CandidateAnalysisWriter,
   CandidateAnalysisWriteConflict,
   createCandidateAnalysisWriter,
   createCandidateReconciliationWriter,
@@ -26,6 +53,22 @@ function candidatePrisma(adminUrl: string) {
   return new PrismaClient({
     adapter: new PrismaPg({ connectionString: adminUrl }),
   });
+}
+
+function resealRun(
+  run: CandidateAnalysisRunInput,
+  overrides: Partial<CandidateAnalysisRunInput>,
+): CandidateAnalysisRunInput {
+  const next = { ...run, ...overrides };
+  const inputEnvelopeHash = candidateAnalysisInputEnvelopeHash(next.inputs);
+  return {
+    ...next,
+    inputEnvelopeHash,
+    idempotencyKey: candidateAnalysisRunIdempotencyKey({
+      ...next,
+      inputEnvelopeHash,
+    }),
+  };
 }
 
 async function withPrisma(
@@ -49,16 +92,39 @@ async function seedContentUnit(
 
 function eventWith(
   input: CandidateAnalysisRunEventInput,
-  overrides: Partial<CandidateAnalysisRunEventInput>,
+  overrides: { [key: string]: unknown },
 ): CandidateAnalysisRunEventInput {
-  return { ...input, ...overrides };
+  const event = { ...input, ...overrides } as CandidateAnalysisRunEventInput;
+  return {
+    ...event,
+    eventHash: candidateAnalysisRunEventHash(event),
+  } as CandidateAnalysisRunEventInput;
 }
 
 function assertionWith(
   input: CandidateAssertionInput,
-  overrides: Partial<CandidateAssertionInput>,
+  overrides: { [key: string]: unknown },
 ): CandidateAssertionInput {
-  return { ...input, ...overrides };
+  const rawPayload = overrides.payload ?? input.payload;
+  const payload =
+    typeof rawPayload === "object" &&
+    rawPayload !== null &&
+    "namespace" in rawPayload
+      ? (rawPayload as CandidateAssertionInput["payload"])
+      : {
+          namespace: "candidate" as const,
+          kind: "assertion" as const,
+          data: rawPayload as never,
+        };
+  const scopeKey = (overrides.scopeKey as string | undefined) ?? input.scopeKey;
+  return {
+    ...input,
+    ...overrides,
+    payload,
+    payloadHash: candidateAnalysisAssertionPayloadHash(payload),
+    scopeKey,
+    scopeHash: candidateAnalysisAssertionScopeHash(scopeKey),
+  } as CandidateAssertionInput;
 }
 
 function dependencyInput(
@@ -81,6 +147,12 @@ function hasCandidateWriteConflictCode(
   code: CandidateAnalysisWriteConflict["code"],
 ) {
   return error instanceof CandidateAnalysisWriteConflict && error.code === code;
+}
+
+function hasWriteCode(error: unknown, code: string): boolean {
+  return (
+    error instanceof CandidateAnalysisWriteConflict && error.code === code
+  );
 }
 
 async function seedTwoAssertions(prisma: ReturnType<typeof candidatePrisma>) {
@@ -122,7 +194,7 @@ async function seedAuthorityScenario(
   const writer = createCandidateAnalysisWriter(prisma);
   const includeSupportingInput =
     options.supportingUnit && options.supportingInputHash !== null;
-  await writer.createRun({
+  await writer.createRun(resealRun(fixture.run, {
     ...fixture.run,
     inputs: [
       ...fixture.run.inputs,
@@ -138,7 +210,7 @@ async function seedAuthorityScenario(
           ]
         : []),
     ],
-  });
+  }));
   const unresolvedUpstream = assertionWith(fixture.assertion, {
     id: "assertion:authority:upstream",
     payload: { proposition: "Unresolved upstream" },
@@ -169,10 +241,12 @@ function authorityContentUnit(
     id: "content:authority:supporting",
     sourceKey: "source:authority:supporting",
     locator: "section:supporting",
-    locatorHash: hash("d"),
     contentHash: hash("c"),
     identityConfidence: "exact",
     ...overrides,
+    locatorHash: candidateAnalysisEvidenceLocatorHash(
+      overrides.locator ?? "section:supporting",
+    ),
   };
 }
 
@@ -189,10 +263,7 @@ test(
         const writer = createCandidateAnalysisWriter(prisma);
         await writer.createRun(fixture.run);
         await writer.appendRunEvent(
-          eventWith(fixture.events.queued, { eventHash: hash("1") }),
-        );
-        await writer.appendRunEvent(
-          eventWith(fixture.events.started, { eventHash: hash("2") }),
+          fixture.events.started,
         );
         await writer.appendArtifact(fixture.artifact);
         await writer.appendAssertion(fixture.assertion);
@@ -227,10 +298,7 @@ test(
         const writer = createCandidateAnalysisWriter(prisma);
         await writer.createRun(fixture.run);
         await writer.appendRunEvent(
-          eventWith(fixture.events.queued, { eventHash: hash("1") }),
-        );
-        await writer.appendRunEvent(
-          eventWith(fixture.events.started, { eventHash: hash("2") }),
+          fixture.events.started,
         );
         await assert.rejects(
           writer.appendRunEvent(
@@ -265,7 +333,6 @@ test(
         );
         const retry = candidateAnalysisFixture({
           runId: "run:retry:2",
-          idempotencyKey: "candidate:retry:2",
           attempt: 2,
           predecessorRunId: original.run.id,
         });
@@ -306,9 +373,6 @@ test(
         await seedContentUnit(prisma, fixture.contentUnit);
         const writer = createCandidateAnalysisWriter(prisma);
         await writer.createRun(fixture.run);
-        await writer.appendRunEvent(
-          eventWith(fixture.events.queued, { eventHash: hash("1") }),
-        );
         await assert.rejects(
           writer.appendRunEvent(
             eventWith(fixture.events.checkpoint1, {
@@ -464,7 +528,9 @@ test(
           assertionId: strongerDependent.id,
           contentUnitId: supportingUnit.id,
           locator: "section:not-the-bound-locator",
-          locatorHash: hash("e"),
+          locatorHash: candidateAnalysisEvidenceLocatorHash(
+            "section:not-the-bound-locator",
+          ),
           excerptHash: hash("5"),
         });
 
@@ -504,7 +570,9 @@ test(
           assertionId: strongerDependent.id,
           contentUnitId: supportingUnit.id,
           locator: "section:identity-only-does-not-claim-locator-strength",
-          locatorHash: hash("e"),
+          locatorHash: candidateAnalysisEvidenceLocatorHash(
+            "section:identity-only-does-not-claim-locator-strength",
+          ),
         });
 
         assert.deepEqual(
@@ -563,7 +631,7 @@ test(
 );
 
 test(
-  "supporting evidence outside the dependent run input envelope cannot upgrade evidence level",
+  "supporting evidence outside the dependent run input envelope is rejected",
   { timeout: 45_000 },
   async (t) => {
     await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
@@ -574,7 +642,7 @@ test(
         const supportingUnit = authorityContentUnit(fixture, {
           identityConfidence: "unresolved",
         });
-        const { writer, strongerDependent, unresolvedUpstream } =
+        const { writer, strongerDependent } =
           await seedAuthorityScenario(prisma, {
             upstreamIdentity: "unresolved",
             dependentIdentity: "unresolved",
@@ -583,21 +651,17 @@ test(
             supportingUnit,
             supportingInputHash: null,
           });
-        await writer.appendEvidenceLink({
-          ...fixture.evidenceLink,
-          id: "evidence:authority:outside-input-envelope",
-          assertionId: strongerDependent.id,
-          contentUnitId: supportingUnit.id,
-          locator: supportingUnit.locator,
-          locatorHash: supportingUnit.locatorHash,
-        });
-
         await assert.rejects(
-          writer.appendDependency(
-            dependencyInput(strongerDependent, unresolvedUpstream),
-          ),
+          writer.appendEvidenceLink({
+            ...fixture.evidenceLink,
+            id: "evidence:authority:outside-input-envelope",
+            assertionId: strongerDependent.id,
+            contentUnitId: supportingUnit.id,
+            locator: supportingUnit.locator,
+            locatorHash: supportingUnit.locatorHash,
+          }),
           (error: unknown) =>
-            hasCandidateWriteConflictCode(error, "upstream_authority_upgrade"),
+            hasCandidateWriteConflictCode(error, "integrity_mismatch"),
         );
       });
     });
@@ -605,7 +669,7 @@ test(
 );
 
 test(
-  "run input hash mismatch cannot justify an identity upgrade",
+  "run input hash mismatch is rejected before it can justify an identity upgrade",
   { timeout: 45_000 },
   async (t) => {
     await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
@@ -614,28 +678,15 @@ test(
           identityConfidence: "unresolved",
         });
         const supportingUnit = authorityContentUnit(fixture);
-        const { writer, strongerDependent, unresolvedUpstream } =
-          await seedAuthorityScenario(prisma, {
+        await assert.rejects(
+          seedAuthorityScenario(prisma, {
             dependentIdentity: "exact",
             dependentEvidence: "no_locator",
             supportingUnit,
             supportingInputHash: hash("f"),
-          });
-        await writer.appendEvidenceLink({
-          ...fixture.evidenceLink,
-          id: "evidence:authority:mismatched-input-hash",
-          assertionId: strongerDependent.id,
-          contentUnitId: supportingUnit.id,
-          locator: supportingUnit.locator,
-          locatorHash: supportingUnit.locatorHash,
-        });
-
-        await assert.rejects(
-          writer.appendDependency(
-            dependencyInput(strongerDependent, unresolvedUpstream),
-          ),
+          }),
           (error: unknown) =>
-            hasCandidateWriteConflictCode(error, "upstream_authority_upgrade"),
+            hasCandidateWriteConflictCode(error, "integrity_mismatch"),
         );
       });
     });
@@ -714,9 +765,20 @@ test(
         const snapshot = {
           id: "snapshot:fixture:1",
           runId: fixture.run.id,
-          scopeHash: hash("6"),
-          payload: { conflicts: [] },
-          payloadHash: hash("7"),
+          scope: { assertionIds: [fixture.assertion.id] },
+          scopeHash: candidateAnalysisReconciliationScopeHash({
+            assertionIds: [fixture.assertion.id],
+          }),
+          payload: {
+            namespace: "candidate" as const,
+            kind: "reconciliation" as const,
+            data: { conflicts: [] },
+          },
+          payloadHash: candidateAnalysisReconciliationPayloadHash({
+            namespace: "candidate",
+            kind: "reconciliation",
+            data: { conflicts: [] },
+          }),
           conflictCount: 0,
         };
         assert.deepEqual(await reconciler.appendSnapshot(snapshot), {
@@ -727,6 +789,558 @@ test(
           (error: unknown) =>
             hasCandidateWriteConflictCode(error, "immutable_history_conflict"),
         );
+      });
+    });
+  },
+);
+
+test(
+  "run creation atomically includes exactly one queued event",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture();
+        await seedContentUnit(prisma, fixture.contentUnit);
+        const writer = createCandidateAnalysisWriter(prisma);
+
+        await writer.createRun(fixture.run);
+
+        const events = await prisma.candidateAnalysisRunEvent.findMany({
+          where: { runId: fixture.run.id },
+          orderBy: { sequence: "asc" },
+        });
+        assert.equal(events.length, 1);
+        assert.equal(events[0]?.eventType, "queued");
+        assert.equal(events[0]?.sequence, 1);
+      });
+    });
+  },
+);
+
+test(
+  "run input envelope is derived from unique contiguous stored content hashes",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture();
+        const second = authorityContentUnit(fixture);
+        await seedContentUnit(prisma, fixture.contentUnit);
+        await seedContentUnit(prisma, second);
+        const writer = createCandidateAnalysisWriter(prisma);
+
+        await assert.rejects(
+          writer.createRun({
+            ...fixture.run,
+            inputs: [
+              { ...fixture.run.inputs[0]!, position: 1 },
+              {
+                contentUnitId: second.id,
+                position: 0,
+                inputHash: hash("f"),
+              },
+            ],
+          }),
+          (error: unknown) => hasWriteCode(error, "integrity_mismatch"),
+        );
+        assert.equal(await prisma.candidateAnalysisRun.count(), 0);
+        assert.equal(await prisma.candidateAnalysisRunEvent.count(), 0);
+      });
+    });
+  },
+);
+
+test(
+  "writer rejects altered artifact and assertion bytes behind caller supplied payload hashes",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture();
+        await seedContentUnit(prisma, fixture.contentUnit);
+        const writer = createCandidateAnalysisWriter(prisma);
+        await writer.createRun(fixture.run);
+
+        await assert.rejects(
+          writer.appendArtifact({
+            ...fixture.artifact,
+            payload: {
+              namespace: "candidate",
+              kind: "artifact",
+              data: { summary: "Mutated bytes with the old hash." },
+            },
+          }),
+          (error: unknown) => hasWriteCode(error, "integrity_mismatch"),
+        );
+        await assert.rejects(
+          writer.appendAssertion({
+            ...fixture.assertion,
+            payload: {
+              namespace: "candidate",
+              kind: "assertion",
+              data: { proposition: "Mutated assertion with the old hash." },
+            },
+          }),
+          (error: unknown) => hasWriteCode(error, "integrity_mismatch"),
+        );
+        assert.equal(await prisma.candidateAnalysisArtifact.count(), 0);
+        assert.equal(await prisma.candidateAssertion.count(), 0);
+      });
+    });
+  },
+);
+
+test(
+  "writer recomputes run-event hashes before persistence",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture();
+        await seedContentUnit(prisma, fixture.contentUnit);
+        const writer = createCandidateAnalysisWriter(prisma);
+        await writer.createRun(fixture.run);
+        await assert.rejects(
+          writer.appendRunEvent({
+            ...fixture.events.started,
+            eventHash: hash("f"),
+          }),
+          (error: unknown) => hasWriteCode(error, "integrity_mismatch"),
+        );
+        assert.equal(await prisma.candidateAnalysisRunEvent.count(), 1);
+      });
+    });
+  },
+);
+
+test(
+  "reconciler recomputes payload and scope hashes before persistence",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture();
+        await seedContentUnit(prisma, fixture.contentUnit);
+        const writer = createCandidateAnalysisWriter(prisma);
+        await writer.createRun(fixture.run);
+        const reconciler = createCandidateReconciliationWriter(prisma);
+
+        await assert.rejects(
+          reconciler.appendSnapshot({
+            id: "snapshot:hash-mismatch",
+            runId: fixture.run.id,
+            scope: { assertionIds: [fixture.assertion.id] },
+            scopeHash: hash("1"),
+            payload: {
+              namespace: "candidate",
+              kind: "reconciliation",
+              data: { scope: { assertionIds: [fixture.assertion.id] } },
+            },
+            payloadHash: hash("2"),
+            conflictCount: 0,
+          }),
+          (error: unknown) => hasWriteCode(error, "integrity_mismatch"),
+        );
+        assert.equal(await prisma.candidateReconciliationSnapshot.count(), 0);
+      });
+    });
+  },
+);
+
+test(
+  "terminal sealing requires the complete stored evidence and identity manifest",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture();
+        await seedContentUnit(prisma, fixture.contentUnit);
+        const writer = createCandidateAnalysisWriter(prisma);
+        await writer.createRun(fixture.run);
+        await writer.appendRunEvent(fixture.events.started);
+        await writer.appendArtifact(fixture.artifact);
+        await writer.appendAssertion(fixture.assertion);
+
+        await assert.rejects(
+          writer.appendRunEvent(
+            eventWith(fixture.events.completed, {
+              sequence: 3,
+              eventHash: hash("c"),
+            }),
+          ),
+          (error: unknown) =>
+            hasWriteCode(error, "terminal_output_integrity"),
+        );
+        assert.equal(await prisma.candidateAnalysisRunEvent.count(), 2);
+      });
+    });
+  },
+);
+
+test(
+  "terminal sealing includes dependency and reconciliation rows in the exact manifest",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture();
+        await seedContentUnit(prisma, fixture.contentUnit);
+        const writer = createCandidateAnalysisWriter(prisma);
+        const reconciler = createCandidateReconciliationWriter(prisma);
+        await writer.createRun(fixture.run);
+        await writer.appendRunEvent(fixture.events.started);
+        await writer.appendArtifact(fixture.artifact);
+        await writer.appendAssertion(fixture.assertion);
+        await writer.appendEvidenceLink(fixture.evidenceLink);
+
+        const upstream = assertionWith(fixture.assertion, {
+          id: "assertion:manifest:upstream",
+          payload: { proposition: "Upstream manifest assertion" },
+          evidenceLevel: "no_locator",
+          scopeKey: "claim:manifest:upstream",
+        });
+        await writer.appendAssertion(upstream);
+        const dependency = dependencyInput(fixture.assertion, upstream, {
+          id: "dependency:manifest:1",
+        });
+        await writer.appendDependency(dependency);
+        const reconciliation = {
+          id: "snapshot:manifest:1",
+          runId: fixture.run.id,
+          scope: { assertionIds: [fixture.assertion.id, upstream.id] },
+          scopeHash: candidateAnalysisReconciliationScopeHash({
+            assertionIds: [fixture.assertion.id, upstream.id],
+          }),
+          payload: {
+            namespace: "candidate" as const,
+            kind: "reconciliation" as const,
+            data: { conflicts: [] },
+          },
+          payloadHash: candidateAnalysisReconciliationPayloadHash({
+            namespace: "candidate",
+            kind: "reconciliation",
+            data: { conflicts: [] },
+          }),
+          conflictCount: 0,
+        };
+        await reconciler.appendSnapshot(reconciliation);
+
+        await assert.rejects(
+          writer.appendRunEvent(
+            eventWith(fixture.events.completed, { sequence: 3 }),
+          ),
+          (error: unknown) => hasWriteCode(error, "terminal_output_integrity"),
+        );
+
+        const baseManifest = (
+          fixture.events.completed.payload as {
+            data: { manifest: CandidateOutputManifest };
+          }
+        ).data.manifest;
+        const manifest: CandidateOutputManifest = {
+          ...baseManifest,
+          assertions: [
+            ...baseManifest.assertions,
+            {
+              id: upstream.id,
+              assertionType: upstream.assertionType,
+              schemaVersion: upstream.schemaVersion,
+              payloadHash: upstream.payloadHash,
+              confidence: upstream.confidence,
+              machineUse: upstream.machineUse,
+              identityConfidence: upstream.identityConfidence,
+              evidenceLevel: upstream.evidenceLevel,
+              limitations: upstream.limitations,
+              scopeKey: upstream.scopeKey,
+              scopeHash: upstream.scopeHash,
+              supersededAssertionId: upstream.supersededAssertionId,
+              supersededAssertionPayloadHash:
+                upstream.supersededAssertionPayloadHash,
+            },
+          ].sort((left, right) => left.id.localeCompare(right.id)),
+          dependencies: [dependency],
+          reconciliationSnapshots: [
+            {
+              id: reconciliation.id,
+              scopeHash: reconciliation.scopeHash,
+              payloadHash: reconciliation.payloadHash,
+              conflictCount: reconciliation.conflictCount,
+            },
+          ],
+        };
+        const terminal = eventWith(fixture.events.completed, {
+          sequence: 3,
+          payload: {
+            namespace: "candidate",
+            kind: "run_terminal",
+            data: {
+              manifest,
+              manifestHash: candidateAnalysisOutputManifestHash(manifest),
+            },
+          },
+        });
+        assert.equal((await writer.appendRunEvent(terminal)).state,
+          "candidate_complete");
+      });
+    });
+  },
+);
+
+test(
+  "every output append API rejects writes after a terminal event",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture();
+        await seedContentUnit(prisma, fixture.contentUnit);
+        const writer = createCandidateAnalysisWriter(prisma);
+        const reconciler = createCandidateReconciliationWriter(prisma);
+        await writer.createRun(fixture.run);
+        await writer.appendRunEvent(fixture.events.started);
+        await writer.appendArtifact(fixture.artifact);
+        await writer.appendAssertion(fixture.assertion);
+        await writer.appendEvidenceLink(fixture.evidenceLink);
+        await writer.appendRunEvent(
+          eventWith(fixture.events.completed, {
+            sequence: 3,
+            eventHash: hash("c"),
+          }),
+        );
+
+        const lateAssertion = assertionWith(fixture.assertion, {
+          id: "assertion:late:1",
+          payload: {
+            namespace: "candidate",
+            kind: "assertion",
+            data: { proposition: "Late assertion" },
+          },
+          payloadHash: hash("d"),
+        });
+        const calls = [
+          () =>
+            writer.appendArtifact({
+              ...fixture.artifact,
+              id: "artifact:late:1",
+              payload: {
+                namespace: "candidate",
+                kind: "artifact",
+                data: { summary: "Late artifact" },
+              },
+              payloadHash: candidateAnalysisArtifactPayloadHash({
+                namespace: "candidate",
+                kind: "artifact",
+                data: { summary: "Late artifact" },
+              }),
+            }),
+          () => writer.appendAssertion(lateAssertion),
+          () =>
+            writer.appendEvidenceLink({
+              ...fixture.evidenceLink,
+              id: "evidence:late:1",
+              locator: "section:late",
+              locatorHash: candidateAnalysisEvidenceLocatorHash("section:late"),
+            }),
+          () =>
+            writer.appendDependency({
+              id: "dependency:late:1",
+              assertionId: fixture.assertion.id,
+              upstreamAssertionId: fixture.assertion.id,
+              relation: "derived_from",
+              inheritedLimitations: [...fixture.assertion.limitations].sort(),
+            }),
+          () =>
+            reconciler.appendSnapshot({
+              id: "snapshot:late:1",
+              runId: fixture.run.id,
+              scope: { assertionIds: [fixture.assertion.id] },
+              scopeHash: candidateAnalysisReconciliationScopeHash({
+                assertionIds: [fixture.assertion.id],
+              }),
+              payload: {
+                namespace: "candidate",
+                kind: "reconciliation",
+                data: { conflicts: [] },
+              },
+              payloadHash: candidateAnalysisReconciliationPayloadHash({
+                namespace: "candidate",
+                kind: "reconciliation",
+                data: { conflicts: [] },
+              }),
+              conflictCount: 0,
+            }),
+        ];
+
+        for (const call of calls) {
+          await assert.rejects(
+            call,
+            (error: unknown) => hasWriteCode(error, "run_terminal"),
+          );
+        }
+      });
+    });
+  },
+);
+
+test(
+  "complete and partial runs accept only an exact hash-bound terminal supersession",
+  { timeout: 45_000 },
+  async (t) => {
+    for (const eventType of [
+      "candidate_completed",
+      "partial_completed",
+    ] as const) {
+      await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+        await withPrisma(adminUrl, async (prisma) => {
+          const fixture = candidateAnalysisFixture();
+          await seedContentUnit(prisma, fixture.contentUnit);
+          const writer = createCandidateAnalysisWriter(prisma);
+          await writer.createRun(fixture.run);
+          await writer.appendRunEvent(fixture.events.started);
+          await writer.appendArtifact(fixture.artifact);
+          await writer.appendAssertion(fixture.assertion);
+          await writer.appendEvidenceLink(fixture.evidenceLink);
+
+          const terminal = eventWith(fixture.events.completed, {
+            id: `event:${eventType}:terminal`,
+            sequence: 3,
+            eventType,
+          });
+          assert.equal((await writer.appendRunEvent(terminal)).state,
+            eventType === "candidate_completed" ? "candidate_complete" : "partial");
+
+          const supersession = eventWith(terminal, {
+            id: `event:${eventType}:superseded`,
+            sequence: 4,
+            eventType: "superseded",
+            payload: {
+              namespace: "candidate",
+              kind: "run_supersession",
+              data: { reason: "replacement run" },
+            },
+            supersededEventId: terminal.id,
+            supersededEventHash: terminal.eventHash,
+            supersessionScopeHash: candidateAnalysisRunScopeHash(fixture.run.id),
+          });
+          const wrongPrior = eventWith(supersession, {
+            supersededEventHash: hash("f"),
+          });
+          await assert.rejects(
+            writer.appendRunEvent(wrongPrior),
+            (error: unknown) => hasWriteCode(error, "supersession_conflict"),
+          );
+          assert.equal(await prisma.candidateAnalysisRunEvent.count(), 3);
+          assert.equal((await writer.appendRunEvent(supersession)).state, "superseded");
+        });
+      });
+    }
+  },
+);
+
+test(
+  "assertion self-supersession is rejected by the public writer",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture();
+        await seedContentUnit(prisma, fixture.contentUnit);
+        const writer = createCandidateAnalysisWriter(prisma);
+        await writer.createRun(fixture.run);
+
+        await assert.rejects(
+          writer.appendAssertion({
+            ...fixture.assertion,
+            supersededAssertionId: fixture.assertion.id,
+          }),
+          (error: unknown) => hasWriteCode(error, "supersession_conflict"),
+        );
+        assert.equal(await prisma.candidateAssertion.count(), 0);
+      });
+    });
+  },
+);
+
+test(
+  "writer rejects independent workflow and prompt byte or declared hash drift",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const repositoryRoot = mkdtempSync(join(tmpdir(), "candidate-binding-"));
+        const workflowTarget = join(
+          repositoryRoot,
+          CANDIDATE_WORKFLOW_BINDING.path,
+        );
+        const promptTarget = join(repositoryRoot, CANDIDATE_PROMPT_BINDING.path);
+        mkdirSync(dirname(workflowTarget), { recursive: true });
+        writeFileSync(
+          workflowTarget,
+          readFileSync(CANDIDATE_WORKFLOW_BINDING.path),
+        );
+        writeFileSync(promptTarget, readFileSync(CANDIDATE_PROMPT_BINDING.path));
+
+        try {
+          const createWithRepository = createCandidateAnalysisWriter as unknown as (
+            client: ReturnType<typeof candidatePrisma>,
+            options: { repositoryRoot: string },
+          ) => CandidateAnalysisWriter;
+          const writer = createWithRepository(prisma, { repositoryRoot });
+
+          const byteDrift = candidateAnalysisFixture({ runId: "run:binding:bytes" });
+          await seedContentUnit(prisma, byteDrift.contentUnit);
+          writeFileSync(
+            workflowTarget,
+            `${readFileSync(workflowTarget, "utf8")}\nmutated workflow bytes\n`,
+          );
+          await assert.rejects(
+            writer.createRun(byteDrift.run),
+            (error: unknown) => hasWriteCode(error, "workflow_binding_mismatch"),
+          );
+
+          writeFileSync(
+            workflowTarget,
+            readFileSync(CANDIDATE_WORKFLOW_BINDING.path),
+          );
+          const promptDrift = candidateAnalysisFixture({
+            runId: "run:binding:prompt-bytes",
+          });
+          writeFileSync(
+            promptTarget,
+            `${readFileSync(promptTarget, "utf8")}\nmutated prompt bytes\n`,
+          );
+          await assert.rejects(
+            writer.createRun(promptDrift.run),
+            (error: unknown) => hasWriteCode(error, "prompt_binding_mismatch"),
+          );
+
+          writeFileSync(promptTarget, readFileSync(CANDIDATE_PROMPT_BINDING.path));
+          const workflowHashDrift = candidateAnalysisFixture({
+            runId: "run:binding:workflow-hash",
+          });
+          await assert.rejects(
+            writer.createRun(
+              resealRun(workflowHashDrift.run, {
+                workflowHash: hash("f"),
+              }),
+            ),
+            (error: unknown) => hasWriteCode(error, "workflow_binding_mismatch"),
+          );
+
+          const promptHashDrift = candidateAnalysisFixture({
+            runId: "run:binding:prompt-hash",
+          });
+          await assert.rejects(
+            writer.createRun(
+              resealRun(promptHashDrift.run, { promptHash: hash("e") }),
+            ),
+            (error: unknown) => hasWriteCode(error, "prompt_binding_mismatch"),
+          );
+          assert.equal(await prisma.candidateAnalysisRun.count(), 0);
+        } finally {
+          rmSync(repositoryRoot, { recursive: true, force: true });
+        }
       });
     });
   },

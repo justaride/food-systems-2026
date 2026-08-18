@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict'
-import { readFileSync } from 'node:fs'
+import { createHash } from 'node:crypto'
+import { existsSync, readFileSync } from 'node:fs'
 import test from 'node:test'
 
 const read = (path: string) => readFileSync(path, 'utf8')
@@ -31,13 +32,14 @@ test('legacy guides reject generic mutable writes for candidate history', () => 
   assert.match(imports, /never use generic upsert or update for candidate history/i)
 })
 
-test('candidate SQL is internal, parameterized, read-only, and limited to integrity checks', () => {
+test('candidate SQL is internal, parameterized, non-data-mutating, and limited to integrity checks', () => {
   const root = read('AGENTS.md')
   const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
 
   for (const authorityText of [root, contract]) {
-    assert.match(authorityText, /narrow, parameterized, internal, read-only SQL/i)
-    assert.match(authorityText, /SELECT \.\.\. FOR UPDATE/i)
+    assert.match(authorityText, /narrow, parameterized, internal SQL/i)
+    assert.match(authorityText, /transaction-scoped advisory run\/assertion locks/i)
+    assert.match(authorityText, /change transaction lock state only/i)
     assert.match(authorityText, /recursive dependency-integrity/i)
     assert.match(authorityText, /must not be exposed/i)
     assert.match(authorityText, /must not mutate candidate history/i)
@@ -61,4 +63,42 @@ test('corrections append explicit supersession links for every authority history
   assert.match(contract, /candidate correction.*append.*new candidate event.*superseded candidate event hash/i)
   assert.match(contract, /human-review correction.*append.*new human-review decision.*superseded human-review receipt hash/i)
   assert.match(contract, /promotion correction.*append.*new promotion receipt.*superseded promotion receipt hash/i)
+})
+
+test('authority contract documents domain-separated sealing and receipt bindings', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+
+  assert.match(contract, /food-systems\/<domain>\/v1\\n/i)
+  assert.match(contract, /run-input-envelope/)
+  assert.match(contract, /run-scope/)
+  assert.match(contract, /output-manifest/)
+  assert.match(
+    contract,
+    /complete sorted artifact, assertion, evidence-link, dependency and reconciliation/i,
+  )
+  assert.match(contract, /stored row metadata/i)
+  assert.match(contract, /human-review-decision/)
+  assert.match(contract, /promotion-decision/)
+  assert.match(contract, /prior ID.*prior hash.*same run scope/i)
+  assert.match(contract, /target profile hash.*policy hash.*target-set hash.*result hash/i)
+})
+
+test('candidate workflow and canonical prompt are distinct immutable bindings', () => {
+  const workflowPath = 'knowledge/corpus/workflows/candidate-analysis-v1.md'
+  const promptPath =
+    'knowledge/corpus/workflows/candidate-analysis-prompt-v1.md'
+
+  assert.equal(existsSync(promptPath), true, 'canonical candidate prompt missing')
+  const workflow = read(workflowPath)
+  const prompt = read(promptPath)
+  const sha256 = (value: string) =>
+    createHash('sha256').update(value, 'utf8').digest('hex')
+
+  assert.match(workflow, /Prompt template ID: `prompt\.candidate_analysis\.v1`/)
+  assert.match(workflow, /Prompt template version: `1\.0\.0`/)
+  assert.match(workflow, new RegExp(promptPath.replaceAll('.', '\\.')))
+  assert.match(prompt, /Prompt template ID: `prompt\.candidate_analysis\.v1`/)
+  assert.match(prompt, /Prompt template version: `1\.0\.0`/)
+  assert.match(prompt, /Workflow ID: `workflow\.candidate_analysis\.v1`/)
+  assert.notEqual(sha256(workflow), sha256(prompt))
 })
