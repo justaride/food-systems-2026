@@ -104,6 +104,82 @@ enum EvidenceReviewMethod {
   metadata_only
 }
 
+enum CandidateContentUnitType {
+  pdf_page
+  document_section
+  web_section
+  slide
+  sheet_range
+  transcript_segment
+  database_record
+  dataset_slice
+  media_segment
+}
+
+enum CandidateIdentityConfidence {
+  exact
+  provisional
+  unresolved
+}
+
+enum CandidateEvidenceLevel {
+  exact_locator
+  partial_locator
+  no_locator
+}
+
+enum CandidateMachineUse {
+  candidate_only
+  reusable_for_ai_context
+  quarantined
+}
+
+enum CandidateRunEventType {
+  queued
+  started
+  checkpoint
+  candidate_completed
+  partial_completed
+  failed
+  blocked_input
+  quarantined
+  superseded
+}
+
+enum CandidateAssertionType {
+  claim
+  classification
+  entity_link
+  relationship
+  quantitative_observation
+  coverage_signal
+  gap
+  contradiction
+  source_role_suggestion
+}
+
+enum CandidateEvidenceRelation {
+  supports
+  contradicts
+  contextualizes
+}
+
+enum CandidatePromotionState {
+  candidate
+  internal_curated
+  external_eligible
+  published
+  revoked
+}
+
+enum CandidateReviewDecision {
+  accepted
+  accepted_with_edits
+  rejected
+  deferred
+  rerun_requested
+}
+
 // ─── Domain 1: Documents ────────────────────────────────────────────
 
 model Document {
@@ -293,6 +369,228 @@ model ControlledMutationAudit {
 
   @@index([contractScope])
   @@index([recordedAt])
+}
+
+model CandidateContentUnit {
+  id                 String                      @id @default(cuid())
+  sourceKind         String
+  sourceKey          String
+  sourceVersionHash  String
+  unitType           CandidateContentUnitType
+  ordinal            Int
+  locator            String
+  locatorHash        String
+  contentHash        String
+  hashAlgorithm      String                      @default("sha256")
+  identityConfidence CandidateIdentityConfidence
+  createdAt          DateTime                    @default(now())
+
+  runInputs     CandidateAnalysisRunInput[]
+  evidenceLinks CandidateEvidenceLink[]
+
+  @@unique([sourceKind, sourceKey, sourceVersionHash, unitType, ordinal])
+  @@index([sourceKey])
+  @@index([contentHash])
+}
+
+model CandidateAnalysisRun {
+  id                String   @id @default(cuid())
+  workflowId        String
+  workflowVersion   String
+  modelProvider     String
+  modelName         String
+  modelVersion      String
+  promptHash        String
+  configHash        String
+  inputEnvelopeHash String
+  purpose           String
+  outputProfile     String
+  workerId          String
+  idempotencyKey    String   @unique
+  attempt           Int
+  predecessorRunId  String?
+  createdAt         DateTime @default(now())
+
+  predecessorRun          CandidateAnalysisRun?             @relation("CandidateRunPredecessor", fields: [predecessorRunId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  successorRuns           CandidateAnalysisRun[]            @relation("CandidateRunPredecessor")
+  inputs                  CandidateAnalysisRunInput[]
+  events                  CandidateAnalysisRunEvent[]
+  artifacts               CandidateAnalysisArtifact[]
+  assertions              CandidateAssertion[]
+  reconciliationSnapshots CandidateReconciliationSnapshot[]
+
+  @@index([workflowId, workflowVersion])
+  @@index([createdAt])
+}
+
+model CandidateAnalysisRunInput {
+  id            String   @id @default(cuid())
+  runId         String
+  contentUnitId String
+  position      Int
+  inputHash     String
+  createdAt     DateTime @default(now())
+
+  run         CandidateAnalysisRun @relation(fields: [runId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  contentUnit CandidateContentUnit @relation(fields: [contentUnitId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+
+  @@unique([runId, position])
+  @@unique([runId, contentUnitId])
+}
+
+model CandidateAnalysisRunEvent {
+  id         String                @id @default(cuid())
+  runId      String
+  sequence   Int
+  eventType  CandidateRunEventType
+  payload    Json?
+  eventHash  String
+  recordedAt DateTime              @default(now())
+
+  run CandidateAnalysisRun @relation(fields: [runId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+
+  @@unique([runId, sequence])
+  @@unique([runId, eventHash])
+}
+
+model CandidateAnalysisArtifact {
+  id            String   @id @default(cuid())
+  runId         String
+  artifactType  String
+  schemaVersion String
+  payload       Json
+  payloadHash   String
+  createdAt     DateTime @default(now())
+
+  run CandidateAnalysisRun @relation(fields: [runId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+
+  @@unique([runId, payloadHash])
+}
+
+model CandidateAssertion {
+  id                    String                      @id @default(cuid())
+  runId                 String
+  assertionType         CandidateAssertionType
+  schemaVersion         String
+  payload               Json
+  payloadHash           String
+  confidence            Float?
+  machineUse            CandidateMachineUse
+  identityConfidence    CandidateIdentityConfidence
+  evidenceLevel         CandidateEvidenceLevel
+  limitations           String[]
+  supersededAssertionId String?
+  createdAt             DateTime                    @default(now())
+
+  run                   CandidateAnalysisRun           @relation(fields: [runId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  supersededAssertion   CandidateAssertion?            @relation("CandidateAssertionSupersession", fields: [supersededAssertionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  supersedingAssertions CandidateAssertion[]           @relation("CandidateAssertionSupersession")
+  evidenceLinks         CandidateEvidenceLink[]
+  dependencies          CandidateDependency[]          @relation("CandidateAssertionDependencies")
+  upstreamDependencies  CandidateDependency[]          @relation("CandidateAssertionUpstreamDependencies")
+  humanReviewDecisions  CandidateHumanReviewDecision[]
+  promotionDecisions    CandidatePromotionDecision[]
+
+  @@unique([runId, payloadHash])
+  @@index([assertionType])
+  @@index([machineUse])
+  @@index([identityConfidence])
+  @@index([evidenceLevel])
+}
+
+model CandidateEvidenceLink {
+  id            String                    @id @default(cuid())
+  assertionId   String
+  contentUnitId String
+  relation      CandidateEvidenceRelation
+  locator       String
+  locatorHash   String
+  excerptHash   String?
+  createdAt     DateTime                  @default(now())
+
+  assertion   CandidateAssertion   @relation(fields: [assertionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  contentUnit CandidateContentUnit @relation(fields: [contentUnitId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+
+  @@unique([assertionId, contentUnitId, relation, locatorHash])
+}
+
+model CandidateDependency {
+  id                   String   @id @default(cuid())
+  assertionId          String
+  upstreamAssertionId  String
+  relation             String
+  inheritedLimitations String[]
+  createdAt            DateTime @default(now())
+
+  assertion         CandidateAssertion @relation("CandidateAssertionDependencies", fields: [assertionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  upstreamAssertion CandidateAssertion @relation("CandidateAssertionUpstreamDependencies", fields: [upstreamAssertionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+
+  @@unique([assertionId, upstreamAssertionId, relation])
+}
+
+model CandidateReconciliationSnapshot {
+  id            String   @id @default(cuid())
+  runId         String
+  scopeHash     String
+  payload       Json
+  payloadHash   String
+  conflictCount Int
+  createdAt     DateTime @default(now())
+
+  run CandidateAnalysisRun @relation(fields: [runId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+
+  @@unique([runId, payloadHash])
+}
+
+model CandidateHumanReviewDecision {
+  id                   String                  @id @default(cuid())
+  assertionId          String
+  decision             CandidateReviewDecision
+  reviewProfile        String
+  reviewProfileHash    String
+  reviewer             String
+  authority            String
+  assertionPayloadHash String
+  sourceContentSetHash String
+  evidenceSetHash      String
+  limitations          String[]
+  editedPayload        Json?
+  editedPayloadHash    String?
+  supersededDecisionId String?
+  createdAt            DateTime                @default(now())
+
+  assertion            CandidateAssertion             @relation(fields: [assertionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  supersededDecision   CandidateHumanReviewDecision?  @relation("CandidateHumanReviewSupersession", fields: [supersededDecisionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  supersedingDecisions CandidateHumanReviewDecision[] @relation("CandidateHumanReviewSupersession")
+  promotionDecisions   CandidatePromotionDecision[]
+
+  @@index([assertionId])
+  @@index([decision])
+  @@index([reviewProfile])
+}
+
+model CandidatePromotionDecision {
+  id                   String                  @id @default(cuid())
+  assertionId          String
+  reviewDecisionId     String
+  targetProfile        String
+  state                CandidatePromotionState
+  policyVersion        String
+  preconditionsHash    String
+  targetRefs           Json
+  result               Json
+  operator             String
+  authority            String
+  supersededDecisionId String?
+  createdAt            DateTime                @default(now())
+
+  assertion            CandidateAssertion           @relation(fields: [assertionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  reviewDecision       CandidateHumanReviewDecision @relation(fields: [reviewDecisionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  supersededDecision   CandidatePromotionDecision?  @relation("CandidatePromotionSupersession", fields: [supersededDecisionId], references: [id], onDelete: Restrict, onUpdate: Restrict)
+  supersedingDecisions CandidatePromotionDecision[] @relation("CandidatePromotionSupersession")
+
+  @@index([assertionId])
+  @@index([targetProfile, state])
 }
 
 model LibraryAnalysisRecord {
