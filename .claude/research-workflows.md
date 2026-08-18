@@ -19,6 +19,13 @@ Use this guide for graph queries, corpus extension, and source-discovery tasks.
 - When company entities are involved, check [Company Registry](company-registry.md) before creating records
 - Use [Data Imports](data-imports.md) for the import-script pattern and [Database Schema](database.md) for model details
 
+## Autonomous candidate analysis
+
+- Read the [autonomous analysis contract](../knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md) before autonomous analysis work.
+- Use `workflow.candidate_analysis.v1` for candidate-only analysis of stable, readable, hash-bound bytes or records. `exact`, `provisional` and `unresolved` identity confidence may enter this route and must travel with the result.
+- Keep candidate, human review, canonical data, publication, coverage and target promotion separate. Confidence or model agreement does not grant authority.
+- Use `workflow.full_source_analysis.v1` only when its strict verified-input contract is met; it remains the high-assurance profile and is not the only candidate-analysis route.
+
 ## Source Preferences
 
 - `offentligdata` for Norwegian company and person registry work

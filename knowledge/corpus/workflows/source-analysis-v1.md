@@ -6,6 +6,8 @@ Workflow version: `1.0.0`
 
 Status: internal AI workflow; candidate knowledge only
 
+This is the high-assurance profile for verified full-source analysis. It is not the only permitted candidate-analysis route: [candidate analysis v1](candidate-analysis-v1.md) permits candidate-only analysis from stable, readable, hash-bound input under its separate contract. This profile's exact identity, eligibility, ordered-input and stage checks remain mandatory for runs using `workflow.full_source_analysis.v1`.
+
 ## Purpose
 
 Read and structurally analyse one complete, verified source input. The result may support lifecycle progress through `cross_check`. It must not by itself create an owner decision, independent validation, partner validation, rights-holder validation, rights clearance, publication approval or coverage promotion.

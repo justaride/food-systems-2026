@@ -12,6 +12,14 @@
 | `Company` | `name`, `orgNr`, `country`, `ownershipType`, `valueChainStage` | `orgNr` |
 | `Actor` | `id`, `slug`, `name`, `actorType`, `country`, `themeTags` | `slug`, `[country,name]` |
 
+## Candidate-analysis subsystem
+
+`CandidateAnalysisRun` is the reserved append-only candidate-history run-model name defined by the [autonomous analysis contract](../knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md). Candidate records are not canonical records and must remain separate from human-review receipts, evidence, target-promotion records, publication decisions and coverage assessments.
+
+- The only authorized candidate-history write path is `src/lib/knowledge/candidate-analysis-writer.ts`.
+- Never use generic upsert, update, delete or raw SQL for `CandidateAnalysisRun` or related candidate history.
+- This Delivery 1 guide establishes the contract only; it does not add the model, writer, adapter or a migration.
+
 ## Company Sub-models
 
 | Model | Purpose | Unique Key |

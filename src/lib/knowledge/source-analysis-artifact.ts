@@ -44,7 +44,7 @@ export const SOURCE_ANALYSIS_WORKFLOW_VERSION = "1.0.0" as const;
 export const SOURCE_ANALYSIS_WORKFLOW_PATH =
   "knowledge/corpus/workflows/source-analysis-v1.md" as const;
 export const SOURCE_ANALYSIS_WORKFLOW_FILE_SHA256 =
-  "sha256:9143c6ad9716cc0c71aa1b823b76129d5bd79028a4a9712daeace44cb9d57a63" as const;
+  "sha256:188dcfc12a3b9adb43dcc0fad0fed64ec83c1515e2c2565ec1e3eec9911a9742" as const;
 export const SOURCE_ANALYSIS_PROMPT_TEMPLATE_ID =
   "prompt.full_source_analysis.v1" as const;
 export const SOURCE_ANALYSIS_PROMPT_TEMPLATE_VERSION = "1.0.0" as const;
