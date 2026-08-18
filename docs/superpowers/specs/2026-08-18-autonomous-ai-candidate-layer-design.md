@@ -1,7 +1,7 @@
 # Autonomt KI-kandidatlag med menneskestyrt promotering
 
 - **Dato:** 2026-08-18
-- **Status:** Design godkjent i samtale; skriftlig spec avventer endelig brukergjennomgang
+- **Status:** Skriftlig design godkjent av Gabriel 2026-08-18; klar for implementeringsplan
 - **Beslutning:** Streng kontroll skal ligge ved autoritetsheving, kanonisering og publisering, ikke ved maskinell lesing og kandidatproduksjon.
 - **Første implementeringsskive:** Kontrollkontrakt, kandidatdatamodell, append-only skriving, tekniske fullmaktsgrenser, kompatibilitet med eksisterende bibliotekanalyse og verifikasjon.
 - **Senere skiver:** Analyseadaptere og pilot, kontrollrom/review, deretter promotering.
