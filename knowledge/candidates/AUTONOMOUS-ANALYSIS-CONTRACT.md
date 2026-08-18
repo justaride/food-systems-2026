@@ -28,14 +28,14 @@ Stable, readable and hash-bound means the coordinator records the consumed bytes
 
 ## Machine payload grammar
 
-Structured machine output is limited to strict typed candidate entries. The assertion, artifact, run-event and reconciliation surfaces accept exactly `{ namespace, kind, data: { entries } }`: `namespace` is `candidate`, `kind` matches the surface, `entries` is non-empty, and the envelope, data object and every entry reject unknown fields.
+Structured machine output is limited to strict typed candidate entries. The assertion, artifact, run-event and reconciliation surfaces accept exactly `{ namespace, kind, data: { entries } }`: `namespace` is exactly `candidate`; `kind` is exactly `assertion | artifact | run_event | reconciliation` and must match the surface; `data` contains only a non-empty `entries` array; and the envelope, `data` object and every entry reject unknown keys.
 
 Each entry has one allowlisted role: `summary | proposition | observation | classification_label | entity_candidate | relationship_candidate | quantitative_observation | coverage_signal | gap | contradiction | source_role_suggestion | reason | worker_reference | checkpoint | scope_reference | limitation`. The strict `valueType` union is:
 
 - `text`: `role`, `valueType` and a non-empty string `value` only;
 - `number`: `role`, `valueType`, a finite numeric `value`, and a non-empty string or null `unit` only;
 - `flag`: `role`, `valueType` and a boolean `value` only; or
-- `reference`: `role`, `valueType`, an identifier `targetId`, and `targetType` from `content_unit | run | artifact | assertion | evidence_link | dependency | reconciliation` only.
+- `reference`: `role`, `valueType`, an identifier `targetId`, and `targetType` is exactly `content_unit | run | artifact | assertion | evidence_link | dependency | reconciliation`.
 
 Free text remains candidate text only and never represents a status or decision. It cannot encode human review, approval, canonical state, rights clearance, target promotion, publication, coverage readiness or external readiness as a structured field.
 
@@ -60,9 +60,14 @@ The candidate writer recomputes these machine-owned domains at its write boundar
 - `artifact-payload`, `assertion-payload`, `assertion-scope`, `evidence-locator`, `reconciliation-scope` and `reconciliation-payload` seal their named stored values; and
 - `output-manifest` seals the complete ordered run inputs plus the complete sorted artifact, assertion, evidence-link, dependency and reconciliation identity/hash sets, including the stored row metadata that affects candidate meaning. Exact-locator assertions additionally require matching direct evidence before a terminal event can be appended.
 
-The exact workflow and prompt bytes are each read once before a database transaction. The same immutable byte buffers are decoded for exact ID, version and repository-path validation and are hash-bound with SHA-256; the workflow and prompt are mutually cross-referenced by each other's exact ID, version and repository path.
+The workflow/prompt binding is exact and mutual:
 
-A superseding run event binds the prior ID, prior hash and same run scope by carrying the complete four-part prior event identity: prior event ID, prior event hash, run ID and scope hash. The superseded event's scope hash must equal the current event's derived run scope, and the database enforces the complete identity with a composite foreign key to `(id, eventHash, runId, scopeHash)` and rejects self-links. A superseding assertion binds the prior ID, prior payload hash and same assertion-scope hash.
+- Workflow file `knowledge/corpus/workflows/candidate-analysis-v1.md` has ID `workflow.candidate_analysis.v1` and version `1.0.0`, and references the prompt's exact ID `prompt.candidate_analysis.v1`, version `1.0.0` and repository path `knowledge/corpus/workflows/candidate-analysis-prompt-v1.md`.
+- Prompt file `knowledge/corpus/workflows/candidate-analysis-prompt-v1.md` has ID `prompt.candidate_analysis.v1` and version `1.0.0`, and references the workflow's exact ID `workflow.candidate_analysis.v1`, version `1.0.0` and repository path `knowledge/corpus/workflows/candidate-analysis-v1.md`.
+
+Before a database transaction, each file is read exactly once as bytes. Its same immutable byte buffer is decoded for binding validation and hashed with SHA-256, so semantic validation and the declared hash cannot observe different file contents.
+
+A superseding run event binds the prior ID, prior hash and same run scope by carrying `(supersededEventId, supersededEventHash, runId, supersededEventScopeHash)`. The tuple is a complete four-part prior event identity and the named database foreign key `CandidateRunEvent_supersession_hash_scope_fkey` references `(id, eventHash, runId, scopeHash)`. Supersession requires `scopeHash = supersededEventScopeHash`, and the database rejects incomplete tuples and self-links. A superseding assertion binds the prior ID, prior payload hash and same assertion-scope hash.
 
 The reserved human-authority tables have separate receipt domains even though Delivery 1 exposes no review or promotion writer. `human-review-decision` seals the decision ID, assertion and payload hash, review profile and profile hash, actor and authority, source-content and evidence-set hashes, limitations, edited-payload hash, and prior receipt ID/hash. `promotion-decision` seals the decision ID, assertion and review receipt bindings, state, target profile hash, policy hash, preconditions hash, target-set hash, result hash, actor and authority, and prior receipt ID/hash/policy hash. Their composite foreign keys require supersession to retain the same review or target scope. A later authorized writer must recompute these formulas before insert; shape-valid caller-supplied hashes are not authority.
 

@@ -5,6 +5,193 @@ import test from 'node:test'
 
 const read = (path: string) => readFileSync(path, 'utf8')
 
+const section = (document: string, heading: string) => {
+  const marker = `## ${heading}\n`
+  const start = document.indexOf(marker)
+  assert.notEqual(start, -1, `missing ${heading} section`)
+  const bodyStart = start + marker.length
+  const next = document.indexOf('\n## ', bodyStart)
+  return document.slice(bodyStart, next === -1 ? undefined : next)
+}
+
+const inlineUnion = (block: string, lineIncludes: string) => {
+  const line = block
+    .split('\n')
+    .find((candidate) => candidate.includes(lineIncludes))
+  assert.ok(line, `missing contract line containing ${lineIncludes}`)
+  const union = [...line.matchAll(/`([^`]+)`/g)]
+    .map((match) => match[1])
+    .find((value) => value.includes(' | '))
+  assert.ok(union, `missing literal union on ${lineIncludes} line`)
+  return union.split(' | ')
+}
+
+const expectedCandidateRoles = [
+  'summary',
+  'proposition',
+  'observation',
+  'classification_label',
+  'entity_candidate',
+  'relationship_candidate',
+  'quantitative_observation',
+  'coverage_signal',
+  'gap',
+  'contradiction',
+  'source_role_suggestion',
+  'reason',
+  'worker_reference',
+  'checkpoint',
+  'scope_reference',
+  'limitation',
+]
+
+const expectedReferenceTypes = [
+  'content_unit',
+  'run',
+  'artifact',
+  'assertion',
+  'evidence_link',
+  'dependency',
+  'reconciliation',
+]
+
+const assertPayloadContract = (contract: string) => {
+  const payload = section(contract, 'Machine payload grammar')
+
+  assert.match(payload, /strict typed candidate entries/i)
+  assert.match(payload, /exactly `\{ namespace, kind, data: \{ entries \} \}`/i)
+  assert.deepEqual(inlineUnion(payload, '`kind` is exactly'), [
+    'assertion',
+    'artifact',
+    'run_event',
+    'reconciliation',
+  ])
+  assert.match(payload, /`namespace` is exactly `candidate`/i)
+  assert.match(payload, /`data` contains only a non-empty `entries` array/i)
+  assert.match(
+    payload,
+    /envelope, `data` object and every entry reject unknown keys/i,
+  )
+  assert.deepEqual(inlineUnion(payload, 'allowlisted role'), expectedCandidateRoles)
+  assert.deepEqual(
+    [...payload.matchAll(/^- `([^`]+)`:/gm)].map((match) => match[1]),
+    ['text', 'number', 'flag', 'reference'],
+  )
+  assert.deepEqual(
+    inlineUnion(payload, '`targetType` is exactly'),
+    expectedReferenceTypes,
+  )
+  assert.match(payload, /free text.*candidate text.*never.*status.*decision/i)
+}
+
+const assertWorkflowPromptContract = (contract: string) => {
+  const integrity = section(contract, 'Integrity sealing')
+  const workflowLine = integrity
+    .split('\n')
+    .find((line) => line.startsWith('- Workflow file'))
+  const promptLine = integrity
+    .split('\n')
+    .find((line) => line.startsWith('- Prompt file'))
+
+  assert.ok(workflowLine, 'missing workflow binding line')
+  assert.ok(promptLine, 'missing prompt binding line')
+
+  for (const literal of [
+    'workflow.candidate_analysis.v1',
+    'prompt.candidate_analysis.v1',
+    '1.0.0',
+    'knowledge/corpus/workflows/candidate-analysis-v1.md',
+    'knowledge/corpus/workflows/candidate-analysis-prompt-v1.md',
+  ]) {
+    assert.ok(workflowLine.includes(`\`${literal}\``), `workflow missing ${literal}`)
+    assert.ok(promptLine.includes(`\`${literal}\``), `prompt missing ${literal}`)
+  }
+  assert.match(integrity, /each file is read exactly once as bytes/i)
+  assert.match(integrity, /same immutable byte buffer.*SHA-256/i)
+  assert.match(
+    workflowLine,
+    /Workflow file `knowledge\/corpus\/workflows\/candidate-analysis-v1\.md` has ID `workflow\.candidate_analysis\.v1` and version `1\.0\.0`/,
+  )
+  assert.match(
+    workflowLine,
+    /references the prompt's exact ID `prompt\.candidate_analysis\.v1`, version `1\.0\.0` and repository path `knowledge\/corpus\/workflows\/candidate-analysis-prompt-v1\.md`/,
+  )
+  assert.match(
+    promptLine,
+    /Prompt file `knowledge\/corpus\/workflows\/candidate-analysis-prompt-v1\.md` has ID `prompt\.candidate_analysis\.v1` and version `1\.0\.0`/,
+  )
+  assert.match(
+    promptLine,
+    /references the workflow's exact ID `workflow\.candidate_analysis\.v1`, version `1\.0\.0` and repository path `knowledge\/corpus\/workflows\/candidate-analysis-v1\.md`/,
+  )
+}
+
+const assertPriorEventContract = (contract: string) => {
+  const integrity = section(contract, 'Integrity sealing')
+
+  assert.match(
+    integrity,
+    /`\(supersededEventId, supersededEventHash, runId, supersededEventScopeHash\)`/,
+  )
+  assert.match(integrity, /`\(id, eventHash, runId, scopeHash\)`/)
+  assert.match(integrity, /`scopeHash = supersededEventScopeHash`/)
+  assert.match(
+    integrity,
+    /`CandidateRunEvent_supersession_hash_scope_fkey`/,
+  )
+}
+
+const assertRecoveryContract = (contract: string) => {
+  const roles = section(contract, 'Database roles')
+  const normalizedRoles = roles.replace(/\s+/g, ' ')
+
+  assert.match(
+    roles,
+    /bootstrap grants -> enable existing credentials -> verify worker -> verify reconciler/i,
+  )
+  assert.match(
+    roles,
+    /`scripts\/enable-candidate-analysis-logins\.sh --apply --confirm-existing-credentials`/,
+  )
+  assert.match(roles, /does not provision.*credentials/i)
+  assert.match(roles, /fail.*back.*disabled state/i)
+  assert.match(roles, /both roles are `NOLOGIN`/i)
+  assert.match(roles, /INSERT grants are revoked/i)
+  assert.match(roles, /candidate sessions are terminated/i)
+  assert.match(roles, /candidate rows are preserved/i)
+  assert.doesNotMatch(
+    normalizedRoles,
+    /re-?run (?:the )?bootstrap(?: grants)? to restore \bLOGIN\b/i,
+  )
+  assert.doesNotMatch(
+    normalizedRoles,
+    /bootstrap.{0,100}(?:restores|enables|re-enables) (?:the )?(?:candidate )?(?:roles? )?\bLOGIN\b/i,
+  )
+}
+
+const assertDurableContract = (contract: string) => {
+  assertPayloadContract(contract)
+  assertWorkflowPromptContract(contract)
+  assertPriorEventContract(contract)
+  assertRecoveryContract(contract)
+}
+
+const mutateSection = (
+  document: string,
+  heading: string,
+  mutate: (block: string) => string,
+) => {
+  const block = section(document, heading)
+  const mutated = mutate(block)
+  assert.notEqual(mutated, block, `mutation did not change ${heading}`)
+  return document.replace(block, mutated)
+}
+
+const replaceRequired = (value: string, from: string, to: string) => {
+  assert.ok(value.includes(from), `mutation source missing: ${from}`)
+  return value.replace(from, to)
+}
+
 test('autonomous analysis is permissive at candidate creation and strict at authority promotion', () => {
   const root = read('AGENTS.md')
   const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
@@ -117,33 +304,219 @@ test('package exposes the guarded existing-credential login recovery command', (
 test('durable contract limits structured machine output to typed candidate entries', () => {
   const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
 
-  assert.match(contract, /typed candidate entries/i)
-  assert.match(contract, /free text.*candidate text.*never.*status.*decision/i)
+  assertPayloadContract(contract)
 })
 
 test('durable contract binds workflow and prompt mutual references to single-read exact bytes', () => {
   const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
 
-  assert.match(contract, /exact workflow and prompt bytes.*read once.*hash-bound/i)
-  assert.match(contract, /workflow.*prompt.*mutual|mutual.*workflow.*prompt/i)
+  assertWorkflowPromptContract(contract)
 })
 
 test('durable contract records complete prior event identity and its database foreign key', () => {
   const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
 
-  assert.match(contract, /superseded.*event.*scope/i)
-  assert.match(contract, /prior event identity.*ID.*event hash.*run ID.*scope hash/i)
-  assert.match(contract, /database.*composite foreign key/i)
+  assertPriorEventContract(contract)
 })
 
 test('durable recovery chain uses existing credentials and fails back to disabled', () => {
   const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
 
-  assert.match(
-    contract,
-    /bootstrap grants -> enable existing credentials -> verify worker -> verify reconciler/i,
-  )
-  assert.match(contract, /does not provision.*credentials/i)
-  assert.match(contract, /fail.*back.*disabled state/i)
-  assert.doesNotMatch(contract, /bootstrap[^\n]*verify[^\n]*re-enable/i)
+  assertRecoveryContract(contract)
+})
+
+test('durable contract assertions reject reviewed authority and recovery mutations', () => {
+  const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+  const mutations: Array<{ name: string; value: string }> = [
+    {
+      name: 'namespace literal',
+      value: mutateSection(contract, 'Machine payload grammar', (block) =>
+        replaceRequired(block, '`namespace` is exactly `candidate`', '`namespace` is candidate-like'),
+      ),
+    },
+    {
+      name: 'kind literals',
+      value: mutateSection(contract, 'Machine payload grammar', (block) =>
+        replaceRequired(
+          block,
+          'assertion | artifact | run_event | reconciliation',
+          'assertion | artifact | reconciliation',
+        ),
+      ),
+    },
+    {
+      name: 'data entries only',
+      value: mutateSection(contract, 'Machine payload grammar', (block) =>
+        replaceRequired(
+          block,
+          '`data` contains only a non-empty `entries` array',
+          '`data` may contain an `entries` array',
+        ),
+      ),
+    },
+    {
+      name: 'unknown keys',
+      value: mutateSection(contract, 'Machine payload grammar', (block) =>
+        replaceRequired(block, 'reject unknown keys', 'ignore unknown keys'),
+      ),
+    },
+    {
+      name: 'role literals',
+      value: mutateSection(contract, 'Machine payload grammar', (block) =>
+        replaceRequired(block, ' | limitation`', '`'),
+      ),
+    },
+    {
+      name: 'valueType literals',
+      value: mutateSection(contract, 'Machine payload grammar', (block) =>
+        replaceRequired(block, '- `flag`:', '- `boolean`:'),
+      ),
+    },
+    {
+      name: 'referenceType literals',
+      value: mutateSection(contract, 'Machine payload grammar', (block) =>
+        replaceRequired(
+          block,
+          '`targetType` is exactly `content_unit | run | artifact | assertion | evidence_link | dependency | reconciliation`',
+          '`targetType` is exactly `content_unit | run | artifact | assertion | evidence_link | dependency`',
+        ),
+      ),
+    },
+    ...[
+      'workflow.candidate_analysis.v1',
+      'prompt.candidate_analysis.v1',
+      '1.0.0',
+      'knowledge/corpus/workflows/candidate-analysis-v1.md',
+      'knowledge/corpus/workflows/candidate-analysis-prompt-v1.md',
+    ].map((literal) => ({
+      name: `workflow prompt binding ${literal}`,
+      value: mutateSection(contract, 'Integrity sealing', (block) =>
+        replaceRequired(block, `\`${literal}\``, `\`detached:${literal}\``),
+      ),
+    })),
+    {
+      name: 'single byte read',
+      value: mutateSection(contract, 'Integrity sealing', (block) =>
+        replaceRequired(block, 'read exactly once as bytes', 'read as text when needed'),
+      ),
+    },
+    {
+      name: 'same bytes hashed',
+      value: mutateSection(contract, 'Integrity sealing', (block) =>
+        replaceRequired(block, 'same immutable byte buffer', 'a later file read'),
+      ),
+    },
+    {
+      name: 'workflow references prompt',
+      value: mutateSection(contract, 'Integrity sealing', (block) =>
+        replaceRequired(block, "references the prompt's exact ID", 'mentions a prompt'),
+      ),
+    },
+    {
+      name: 'prompt references workflow',
+      value: mutateSection(contract, 'Integrity sealing', (block) =>
+        replaceRequired(block, "references the workflow's exact ID", 'mentions a workflow'),
+      ),
+    },
+    {
+      name: 'complete prior event tuple',
+      value: mutateSection(contract, 'Integrity sealing', (block) =>
+        replaceRequired(
+          block,
+          '(supersededEventId, supersededEventHash, runId, supersededEventScopeHash)',
+          '(supersededEventId, supersededEventHash, runId)',
+        ),
+      ),
+    },
+    {
+      name: 'referenced event tuple',
+      value: mutateSection(contract, 'Integrity sealing', (block) =>
+        replaceRequired(
+          block,
+          '(id, eventHash, runId, scopeHash)',
+          '(id, eventHash, runId)',
+        ),
+      ),
+    },
+    {
+      name: 'event scope equality',
+      value: mutateSection(contract, 'Integrity sealing', (block) =>
+        replaceRequired(
+          block,
+          'scopeHash = supersededEventScopeHash',
+          'scopeHash may differ from supersededEventScopeHash',
+        ),
+      ),
+    },
+    {
+      name: 'named event foreign key',
+      value: mutateSection(contract, 'Integrity sealing', (block) =>
+        replaceRequired(
+          block,
+          'CandidateRunEvent_supersession_hash_scope_fkey',
+          'CandidateRunEvent_supersession_fkey',
+        ),
+      ),
+    },
+    {
+      name: 'recovery command flags',
+      value: mutateSection(contract, 'Database roles', (block) =>
+        replaceRequired(
+          block,
+          'scripts/enable-candidate-analysis-logins.sh --apply --confirm-existing-credentials',
+          'scripts/enable-candidate-analysis-logins.sh --apply',
+        ),
+      ),
+    },
+    {
+      name: 'credential provisioning stopline',
+      value: mutateSection(contract, 'Database roles', (block) =>
+        replaceRequired(
+          block,
+          'does not provision, generate, rotate, change or log credentials',
+          'may provision credentials',
+        ),
+      ),
+    },
+    {
+      name: 'fail-back NOLOGIN',
+      value: mutateSection(contract, 'Database roles', (block) =>
+        replaceRequired(block, 'both roles are `NOLOGIN`', 'both roles keep their current login state'),
+      ),
+    },
+    {
+      name: 'fail-back INSERT revoke',
+      value: mutateSection(contract, 'Database roles', (block) =>
+        replaceRequired(block, 'INSERT grants are revoked', 'INSERT grants remain'),
+      ),
+    },
+    {
+      name: 'fail-back session termination',
+      value: mutateSection(contract, 'Database roles', (block) =>
+        replaceRequired(block, 'candidate sessions are terminated', 'candidate sessions remain'),
+      ),
+    },
+    {
+      name: 'fail-back row preservation',
+      value: mutateSection(contract, 'Database roles', (block) =>
+        replaceRequired(block, 'candidate rows are preserved', 'candidate rows may be deleted'),
+      ),
+    },
+    {
+      name: 'stale multiline bootstrap restores LOGIN instruction',
+      value: mutateSection(
+        contract,
+        'Database roles',
+        (block) => `${block}\nRe-run bootstrap\nto restore LOGIN.\n`,
+      ),
+    },
+  ]
+
+  for (const mutation of mutations) {
+    assert.throws(
+      () => assertDurableContract(mutation.value),
+      (error: unknown) => error instanceof Error,
+      `surviving contract mutation: ${mutation.name}`,
+    )
+  }
 })
