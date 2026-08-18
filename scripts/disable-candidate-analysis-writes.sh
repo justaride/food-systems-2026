@@ -141,10 +141,24 @@ COMMIT;
 
 -- NOLOGIN must be committed before terminating sessions so a new candidate
 -- session cannot race the emergency stop between termination and commit.
-SELECT pg_terminate_backend(activity.pid)
+SELECT pg_terminate_backend(activity.pid, 5000)
 FROM pg_stat_activity activity
 WHERE activity.usename IN (:'worker_role', :'reconciler_role')
   AND activity.pid <> pg_backend_pid();
+DO $session_check$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_stat_activity activity
+    WHERE activity.usename IN (
+      current_setting('foodsystems.candidate_worker_role'),
+      current_setting('foodsystems.candidate_reconciler_role')
+    )
+      AND activity.pid <> pg_backend_pid()
+  ) THEN
+    RAISE EXCEPTION 'candidate sessions survived disable termination';
+  END IF;
+END
+$session_check$;
 SQL
 
 printf '%s\n' '[candidate-disable] candidate writes disabled; no rows were deleted'

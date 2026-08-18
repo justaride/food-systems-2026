@@ -10,7 +10,7 @@ import {
 } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
-import { spawn, spawnSync } from "node:child_process";
+import { spawn, spawnSync, type ChildProcess } from "node:child_process";
 import { createServer, type Socket } from "node:net";
 import { test } from "node:test";
 
@@ -31,7 +31,10 @@ import {
   createCandidateReconciliationWriter,
 } from "../../src/lib/knowledge/candidate-analysis-writer";
 import { candidateAnalysisFixture } from "../fixtures/candidate-analysis-fixture";
-import { withCandidateAnalysisPostgres } from "../helpers/candidate-analysis-postgres";
+import {
+  withCandidateAnalysisPostgres,
+  type CandidateAnalysisPostgresContext,
+} from "../helpers/candidate-analysis-postgres";
 
 const repoRoot = process.cwd();
 const bootstrapPath = resolve("scripts/bootstrap-candidate-analysis-roles.sh");
@@ -71,6 +74,145 @@ async function waitFor(
     await new Promise((resolvePromise) => setTimeout(resolvePromise, 50));
   }
   throw new Error(message);
+}
+
+type RecoveryFixture = {
+  path: string;
+  reconcilerUrl: string;
+  workerUrl: string;
+};
+
+function prepareRecoveryFixture(
+  context: CandidateAnalysisPostgresContext,
+): RecoveryFixture {
+  const { adminUrl, database, port, psql } = context;
+  const setup = psql(`
+    CREATE TABLE public."Document" (id text PRIMARY KEY);
+    CREATE TABLE public."SourceDoc" (id text PRIMARY KEY);
+    CREATE TABLE public."LibraryAnalysisRecord" (id text PRIMARY KEY);
+    CREATE SCHEMA sidecar;
+    REVOKE CREATE, TEMPORARY ON DATABASE ${database} FROM PUBLIC;
+    REVOKE ALL PRIVILEGES ON SCHEMA public, sidecar FROM PUBLIC;
+    REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public, sidecar FROM PUBLIC;
+    REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public, sidecar FROM PUBLIC;
+    REVOKE EXECUTE ON ALL FUNCTIONS IN SCHEMA public, sidecar FROM PUBLIC;
+    ALTER DEFAULT PRIVILEGES FOR ROLE postgres
+      REVOKE EXECUTE ON FUNCTIONS FROM PUBLIC;
+  `);
+  assert.equal(setup.status, 0, setup.stderr);
+
+  const path = postgresPath();
+  const adminEnv = {
+    ...process.env,
+    PATH: path,
+    DATABASE_ADMIN_URL: adminUrl,
+  };
+  const bootstrap = spawnSync(bootstrapPath, ["--apply"], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    env: adminEnv,
+  });
+  assert.equal(bootstrap.status, 0, bootstrap.stderr);
+
+  const workerPassword = "candidate-worker-recovery-test-password";
+  const reconcilerPassword = "candidate-reconciler-recovery-test-password";
+  const provision = psql(`
+    ALTER ROLE foodsystems_candidate_worker PASSWORD '${workerPassword}';
+    ALTER ROLE foodsystems_candidate_reconciler PASSWORD '${reconcilerPassword}';
+  `);
+  assert.equal(provision.status, 0, provision.stderr);
+
+  return {
+    path,
+    workerUrl: `postgresql://foodsystems_candidate_worker:${workerPassword}@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-worker`,
+    reconcilerUrl: `postgresql://foodsystems_candidate_reconciler:${reconcilerPassword}@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-reconciler`,
+  };
+}
+
+function recoveryEnableEnv(
+  fixture: RecoveryFixture,
+  databaseAdminUrl: string,
+  path = fixture.path,
+): NodeJS.ProcessEnv {
+  return {
+    ...process.env,
+    PATH: path,
+    DATABASE_ADMIN_URL: databaseAdminUrl,
+    CANDIDATE_WORKER_DATABASE_URL: fixture.workerUrl,
+    CANDIDATE_RECONCILER_DATABASE_URL: fixture.reconcilerUrl,
+  };
+}
+
+function activityCount(
+  context: CandidateAnalysisPostgresContext,
+  applicationName: string,
+): string {
+  const result = context.psql(
+    `SELECT count(*) FROM pg_stat_activity WHERE application_name = '${applicationName}'`,
+  );
+  return result.status === 0 ? result.stdout.trim() : "error";
+}
+
+function childExit(child: ChildProcess): Promise<number | null> {
+  if (child.exitCode !== null) return Promise.resolve(child.exitCode);
+  return new Promise((resolvePromise, rejectPromise) => {
+    child.once("error", rejectPromise);
+    child.once("exit", resolvePromise);
+  });
+}
+
+function writeRecoveryRacePsql(
+  tempRoot: string,
+  context: CandidateAnalysisPostgresContext,
+): {
+  countFile: string;
+  markerFile: string;
+  mutationFile: string;
+  path: string;
+  realPsql: string;
+  releaseFile: string;
+} {
+  const fakePsql = join(tempRoot, "psql");
+  const countFile = join(tempRoot, "count");
+  const markerFile = join(tempRoot, "second-psql-complete");
+  const mutationFile = join(tempRoot, "mutation-complete");
+  const releaseFile = join(tempRoot, "release");
+  const realPsql = postgresPath().split(":")[0] + "/psql";
+  writeFileSync(
+    fakePsql,
+    `#!/bin/sh
+count=0
+if [ -f "$RACE_COUNT_FILE" ]; then
+  count=$(sed -n '1p' "$RACE_COUNT_FILE")
+fi
+count=$((count + 1))
+printf '%s\n' "$count" > "$RACE_COUNT_FILE"
+"$REAL_PSQL" "$@"
+status=$?
+if [ "$status" -eq 0 ] && [ "$count" -eq 1 ]; then
+  "$REAL_PSQL" -X -q -h 127.0.0.1 -p "$RACE_PORT" -U postgres -d "$RACE_DATABASE" -v ON_ERROR_STOP=1 -c "$RACE_MUTATION_SQL" >/dev/null
+  : > "$RACE_MUTATION_FILE"
+fi
+if [ "$status" -eq 0 ] && [ "$count" -eq 2 ]; then
+  : > "$RACE_MARKER_FILE"
+  deadline=200
+  while [ ! -f "$RACE_RELEASE_FILE" ] && [ "$deadline" -gt 0 ]; do
+    sleep 0.05
+    deadline=$((deadline - 1))
+  done
+fi
+exit "$status"
+`,
+  );
+  chmodSync(fakePsql, 0o755);
+  return {
+    countFile,
+    markerFile,
+    mutationFile,
+    releaseFile,
+    path: `${tempRoot}:${postgresPath()}`,
+    realPsql,
+  };
 }
 
 test("candidate role scripts are explicit, credential-safe, and exact-allowlist", () => {
@@ -456,6 +598,19 @@ test("explicit login recovery is guarded and has no credential mutation or loggi
   assert.match(enable, /normalize-candidate-postgres-url\.mjs/);
   assert.match(enable, /verify-candidate-analysis-roles\.sh/);
   assert.match(enable, /disable-candidate-analysis-writes\.sh/);
+  assert.match(enable, /connected recovery administrator must be SUPERUSER/);
+  assert.match(enable, /IN SHARE ROW EXCLUSIVE MODE/);
+  for (const catalog of [
+    "pg_authid",
+    "pg_auth_members",
+    "pg_namespace",
+    "pg_class",
+    "pg_proc",
+    "pg_type",
+  ]) {
+    assert.match(enable, new RegExp(`pg_catalog\\.${catalog}`));
+  }
+  assert.match(enable, /pg_terminate_backend\(activity\.pid, 5000\)/);
   assert.doesNotMatch(enable, /\bCREATE ROLE\b/i);
   assert.doesNotMatch(enable, /\bALTER ROLE\b[^\n]*\bPASSWORD\b/i);
   assert.doesNotMatch(enable, /randomBytes|openssl\s+rand|uuidgen/i);
@@ -1534,6 +1689,318 @@ test(
       );
       assert.equal(reservedRoles.status, 0, reservedRoles.stderr);
       assert.equal(reservedRoles.stdout.trim(), "0");
+    });
+  },
+);
+
+test(
+  "enable preflight failure disables already-active unsafe candidate roles without deleting rows",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const { adminUrl, database, port, psql } = context;
+      const fixture = prepareRecoveryFixture(context);
+      const runId = "run:recovery-preflight-failure";
+      const scopeHash = candidateAnalysisRunScopeHash(runId);
+      const hash = "a".repeat(64);
+      const setup = psql(`
+        INSERT INTO public."CandidateAnalysisRun" (
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+          "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+        ) VALUES (
+          '${runId}', '${scopeHash}', 'candidate-analysis', 'v1', 'workflow.md', '${hash}',
+          'candidate-analysis-prompt', 'v1', 'prompt.md', 'test', 'test-model', 'v1',
+          '${hash}', '{}', '${hash}', '${hash}', 'preflight fail-safe preservation',
+          'candidate-only', 'test-worker', '${hash}', 1
+        );
+        CREATE ROLE candidate_preflight_member NOLOGIN;
+        CREATE TYPE sidecar.preflight_owned_enum AS ENUM ('one');
+        ALTER ROLE foodsystems_candidate_worker LOGIN CREATEROLE;
+        ALTER ROLE foodsystems_candidate_reconciler LOGIN;
+        GRANT candidate_preflight_member TO foodsystems_candidate_worker;
+        ALTER TYPE sidecar.preflight_owned_enum OWNER TO foodsystems_candidate_worker;
+      `);
+      assert.equal(setup.status, 0, setup.stderr);
+
+      const workerSession = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "foodsystems_candidate_worker", "-d", database,
+          "-c", "SELECT pg_sleep(30)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: "candidate-enable-preflight-worker",
+          },
+          stdio: "ignore",
+        },
+      );
+      const reconcilerSession = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "foodsystems_candidate_reconciler", "-d", database,
+          "-c", "SELECT pg_sleep(30)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: "candidate-enable-preflight-reconciler",
+          },
+          stdio: "ignore",
+        },
+      );
+      await waitFor(
+        () => activityCount(context, "candidate-enable-preflight-worker") === "1",
+        "unsafe worker session did not become active",
+      );
+      await waitFor(
+        () => activityCount(context, "candidate-enable-preflight-reconciler") === "1",
+        "unsafe reconciler session did not become active",
+      );
+
+      const beforeRows = psql('SELECT count(*) FROM public."CandidateAnalysisRun"');
+      assert.equal(beforeRows.status, 0, beforeRows.stderr);
+      assert.equal(beforeRows.stdout.trim(), "1");
+      const failedEnable = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: recoveryEnableEnv(fixture, adminUrl),
+        },
+      );
+      assert.notEqual(failedEnable.status, 0, failedEnable.stderr);
+      const afterRows = psql('SELECT count(*) FROM public."CandidateAnalysisRun"');
+      assert.equal(afterRows.status, 0, afterRows.stderr);
+      assert.equal(afterRows.stdout.trim(), beforeRows.stdout.trim());
+
+      const safeState = psql(`
+        SELECT
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+          NOT has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+          (SELECT count(*) FROM pg_stat_activity WHERE application_name = 'candidate-enable-preflight-worker'),
+          (SELECT count(*) FROM pg_stat_activity WHERE application_name = 'candidate-enable-preflight-reconciler');
+      `);
+      assert.equal(safeState.status, 0, safeState.stderr);
+      assert.equal(
+        safeState.stdout.trim(),
+        "t|t|t|t|0|0",
+        "preflight failure did not establish NOLOGIN, revoke exact INSERT, and terminate exact sessions",
+      );
+      await Promise.all([childExit(workerSession), childExit(reconcilerSession)]);
+    });
+  },
+);
+
+test(
+  "concurrent membership, elevated-attribute, and ownership drift cannot cross enable's activation boundary",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const { adminUrl, psql } = context;
+      const fixture = prepareRecoveryFixture(context);
+      const raceSetup = psql(`
+        CREATE ROLE candidate_concurrent_member NOLOGIN;
+        CREATE TYPE sidecar.concurrent_owned_enum AS ENUM ('one');
+      `);
+      assert.equal(raceSetup.status, 0, raceSetup.stderr);
+      const tempRoot = mkdtempSync(join(tmpdir(), "candidate-enable-race-"));
+      const race = writeRecoveryRacePsql(tempRoot, context);
+      try {
+        const enable = spawn(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            env: {
+              ...recoveryEnableEnv(fixture, adminUrl, race.path),
+              RACE_COUNT_FILE: race.countFile,
+              RACE_DATABASE: context.database,
+              RACE_MARKER_FILE: race.markerFile,
+              RACE_MUTATION_FILE: race.mutationFile,
+              RACE_MUTATION_SQL: `ALTER ROLE foodsystems_candidate_worker CREATEROLE;
+                GRANT candidate_concurrent_member TO foodsystems_candidate_worker;
+                ALTER TYPE sidecar.concurrent_owned_enum OWNER TO foodsystems_candidate_worker;`,
+              RACE_PORT: String(context.port),
+              RACE_RELEASE_FILE: race.releaseFile,
+              REAL_PSQL: race.realPsql,
+            },
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        let output = "";
+        enable.stdout?.on("data", (chunk) => {
+          output += chunk.toString();
+        });
+        enable.stderr?.on("data", (chunk) => {
+          output += chunk.toString();
+        });
+        const enableExit = childExit(enable);
+        await waitFor(
+          () => existsSync(race.markerFile) || enable.exitCode !== null,
+          "concurrent enable neither exposed LOGIN nor rejected drift",
+        );
+        assert.ok(existsSync(race.mutationFile), "race mutation did not complete");
+        const durableDrift = psql(`
+          SELECT
+            (SELECT rolcreaterole FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+            (SELECT owner.rolname = 'foodsystems_candidate_worker'
+             FROM pg_type type JOIN pg_roles owner ON owner.oid = type.typowner
+             WHERE type.oid = 'sidecar.concurrent_owned_enum'::regtype);
+        `);
+        assert.equal(durableDrift.status, 0, durableDrift.stderr);
+        assert.equal(
+          durableDrift.stdout.trim(),
+          "t|t",
+          "durable elevated-attribute/ownership race mutations did not land",
+        );
+        const exposedLogin = existsSync(race.markerFile);
+        if (exposedLogin) {
+          const loginState = psql(`
+            SELECT bool_and(rolcanlogin)
+            FROM pg_roles
+            WHERE rolname IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler');
+          `);
+          assert.equal(loginState.status, 0, loginState.stderr);
+          assert.equal(loginState.stdout.trim(), "t", "race marker preceded LOGIN commit");
+          writeFileSync(race.releaseFile, "release\n");
+        }
+        const exitCode = await enableExit;
+        assert.notEqual(exitCode, 0, output);
+        assert.equal(
+          exposedLogin,
+          false,
+          "concurrent unsafe role state crossed the enable preflight/LOGIN gap",
+        );
+      } finally {
+        writeFileSync(race.releaseFile, "release\n");
+        rmSync(tempRoot, { recursive: true, force: true });
+      }
+    });
+  },
+);
+
+test(
+  "CREATEROLE-only recovery admin cannot expose candidate LOGIN or let an active candidate transaction survive fallback",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const { database, port, psql } = context;
+      const fixture = prepareRecoveryFixture(context);
+      const adminSetup = psql(`
+        CREATE ROLE candidate_recovery_admin LOGIN CREATEROLE;
+        GRANT CONNECT ON DATABASE ${database} TO candidate_recovery_admin;
+      `);
+      assert.equal(adminSetup.status, 0, adminSetup.stderr);
+      const recoveryAdminUrl = `postgresql://candidate_recovery_admin@127.0.0.1:${port}/${database}`;
+      const runId = "run:createrole-survivor";
+      const tempRoot = mkdtempSync(join(tmpdir(), "candidate-createrole-recovery-"));
+      const race = writeRecoveryRacePsql(tempRoot, context);
+      try {
+        const enable = spawn(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            env: {
+              ...recoveryEnableEnv(fixture, recoveryAdminUrl, race.path),
+              RACE_COUNT_FILE: race.countFile,
+              RACE_DATABASE: database,
+              RACE_MARKER_FILE: race.markerFile,
+              RACE_MUTATION_FILE: race.mutationFile,
+              RACE_MUTATION_SQL: `GRANT foodsystems_candidate_worker, foodsystems_candidate_reconciler
+                TO candidate_recovery_admin WITH ADMIN OPTION;`,
+              RACE_PORT: String(port),
+              RACE_RELEASE_FILE: race.releaseFile,
+              REAL_PSQL: race.realPsql,
+            },
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        let output = "";
+        enable.stdout?.on("data", (chunk) => {
+          output += chunk.toString();
+        });
+        enable.stderr?.on("data", (chunk) => {
+          output += chunk.toString();
+        });
+        const enableExit = childExit(enable);
+        await waitFor(
+          () => existsSync(race.markerFile) || enable.exitCode !== null,
+          "CREATEROLE-only recovery neither exposed LOGIN nor failed closed",
+        );
+        const exposedLogin = existsSync(race.markerFile);
+        let candidateTransaction: ChildProcess | null = null;
+        if (exposedLogin) {
+          const scopeHash = candidateAnalysisRunScopeHash(runId);
+          const hash = "b".repeat(64);
+          candidateTransaction = spawn(
+            "psql",
+            [
+              "-X", "-h", "127.0.0.1", "-p", String(port),
+              "-U", "foodsystems_candidate_worker", "-d", database,
+              "-v", "ON_ERROR_STOP=1", "-c", `
+                BEGIN;
+                INSERT INTO public."CandidateAnalysisRun" (
+                  "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+                  "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+                  "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+                  "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+                ) VALUES (
+                  '${runId}', '${scopeHash}', 'candidate-analysis', 'v1', 'workflow.md', '${hash}',
+                  'candidate-analysis-prompt', 'v1', 'prompt.md', 'test', 'test-model', 'v1',
+                  '${hash}', '{}', '${hash}', '${hash}', 'survive failed fallback',
+                  'candidate-only', 'test-worker', '${hash}', 1
+                );
+                SELECT pg_sleep(2);
+                COMMIT;
+              `,
+            ],
+            {
+              cwd: repoRoot,
+              env: {
+                ...process.env,
+                PATH: fixture.path,
+                PGAPPNAME: "candidate-createrole-survivor-transaction",
+              },
+              stdio: "ignore",
+            },
+          );
+          await waitFor(
+            () => activityCount(context, "candidate-createrole-survivor-transaction") === "1",
+            "candidate transaction did not become active after exposed LOGIN",
+          );
+          writeFileSync(race.releaseFile, "release\n");
+        }
+        const exitCode = await enableExit;
+        assert.notEqual(exitCode, 0, output);
+        assert.match(output, /connected recovery administrator must be SUPERUSER/);
+        if (candidateTransaction) await childExit(candidateTransaction);
+        const committed = psql(
+          `SELECT count(*) FROM public."CandidateAnalysisRun" WHERE id = '${runId}'`,
+        );
+        assert.equal(committed.status, 0, committed.stderr);
+        assert.equal(
+          `${exposedLogin ? "LOGIN" : "NOLOGIN"}|${committed.stdout.trim()}`,
+          "NOLOGIN|0",
+          "CREATEROLE-only recovery exposed LOGIN and its failed fallback allowed a candidate transaction to commit",
+        );
+      } finally {
+        writeFileSync(race.releaseFile, "release\n");
+        rmSync(tempRoot, { recursive: true, force: true });
+      }
     });
   },
 );

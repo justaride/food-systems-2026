@@ -116,12 +116,46 @@ PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$ADMIN_DATABASE_URL PGPASSFILE_PATH=$PGPASS
 export CANDIDATE_WORKER_DB_ROLE CANDIDATE_RECONCILER_DB_ROLE CANDIDATE_DB_SCHEMA
 export CANDIDATE_WORKER_DB_APP_NAME CANDIDATE_RECONCILER_DB_APP_NAME
 
+# From the first database capability check onward, every failure must attempt
+# the exact candidate disable operation. This also covers unsafe state found by
+# either preflight before LOGIN is touched.
+fail_safe_active=1
+psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 -f - <<'SQL'
+DO $capability$
+BEGIN
+  IF session_user <> current_user THEN
+    RAISE EXCEPTION 'administrator session must not use SET ROLE';
+  END IF;
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_roles
+    WHERE rolname = current_user AND rolsuper
+  ) THEN
+    RAISE EXCEPTION 'connected recovery administrator must be SUPERUSER';
+  END IF;
+END
+$capability$;
+SQL
+
 psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 -f - <<'SQL'
 \getenv worker_role CANDIDATE_WORKER_DB_ROLE
 \getenv reconciler_role CANDIDATE_RECONCILER_DB_ROLE
 
-SELECT set_config('foodsystems.candidate_worker_role', :'worker_role', false);
-SELECT set_config('foodsystems.candidate_reconciler_role', :'reconciler_role', false);
+BEGIN;
+
+-- These catalogs contain every mutable fact checked below. PostgreSQL holds
+-- the locks to transaction end, so ALTER ROLE, GRANT/REVOKE, and owner changes
+-- cannot cross the recheck-to-LOGIN boundary.
+LOCK TABLE
+  pg_catalog.pg_authid,
+  pg_catalog.pg_auth_members,
+  pg_catalog.pg_namespace,
+  pg_catalog.pg_class,
+  pg_catalog.pg_proc,
+  pg_catalog.pg_type
+IN SHARE ROW EXCLUSIVE MODE;
+
+SELECT set_config('foodsystems.candidate_worker_role', :'worker_role', true);
+SELECT set_config('foodsystems.candidate_reconciler_role', :'reconciler_role', true);
 DO $preflight$
 DECLARE
   candidate_role_oid oid;
@@ -133,9 +167,9 @@ BEGIN
   END IF;
   IF NOT EXISTS (
     SELECT 1 FROM pg_roles
-    WHERE rolname = current_user AND (rolsuper OR rolcreaterole)
+    WHERE rolname = current_user AND rolsuper
   ) THEN
-    RAISE EXCEPTION 'connected role must have CREATEROLE or SUPERUSER';
+    RAISE EXCEPTION 'connected recovery administrator must be SUPERUSER';
   END IF;
   IF EXISTS (
     SELECT role_name
@@ -196,16 +230,28 @@ BEGIN
   END LOOP;
 END
 $preflight$;
-SQL
 
-# Activate fail-safe handling before the command that can commit LOGIN so a
-# signal at any command boundary cannot leave an enabled, unverified role.
-fail_safe_active=1
-psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 -f - <<'SQL'
-\getenv worker_role CANDIDATE_WORKER_DB_ROLE
-\getenv reconciler_role CANDIDATE_RECONCILER_DB_ROLE
+-- NOLOGIN does not terminate sessions established earlier. Clear any exact
+-- candidate sessions before LOGIN is restored, and require their disappearance.
+SELECT pg_terminate_backend(activity.pid, 5000)
+FROM pg_stat_activity activity
+WHERE activity.usename IN (:'worker_role', :'reconciler_role')
+  AND activity.pid <> pg_backend_pid();
+DO $session_check$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_stat_activity activity
+    WHERE activity.usename IN (
+      current_setting('foodsystems.candidate_worker_role'),
+      current_setting('foodsystems.candidate_reconciler_role')
+    )
+      AND activity.pid <> pg_backend_pid()
+  ) THEN
+    RAISE EXCEPTION 'candidate sessions survived pre-activation termination';
+  END IF;
+END
+$session_check$;
 
-BEGIN;
 SELECT format('ALTER ROLE %I LOGIN', role_name)
 FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
