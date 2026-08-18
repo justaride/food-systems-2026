@@ -318,18 +318,21 @@ test(
         "CandidateDependency",
       ]);
       const matrix = psql(`
-        SELECT role_name, relation_name, privilege_name,
-          has_table_privilege(role_name, format('public.%I', relation_name), privilege_name)
+        SELECT role_name, schema_name, relation_name, privilege_name,
+          has_table_privilege(role_name, format('%I.%I', schema_name, relation_name), privilege_name)
         FROM unnest(ARRAY['foodsystems_candidate_worker', 'foodsystems_candidate_reconciler']) role_name
-        CROSS JOIN unnest(ARRAY[
-          'Document', 'SourceDoc', 'LibraryAnalysisRecord',
-          'CandidateContentUnit', 'CandidateAnalysisRun',
-          'CandidateAnalysisRunInput', 'CandidateAnalysisRunEvent',
-          'CandidateAnalysisArtifact', 'CandidateAssertion',
-          'CandidateEvidenceLink', 'CandidateDependency',
-          'CandidateReconciliationSnapshot', 'CandidateHumanReviewDecision',
-          'CandidatePromotionDecision'
-        ]) relation_name
+        CROSS JOIN (VALUES
+          ('public', 'Document'), ('public', 'SourceDoc'),
+          ('public', 'LibraryAnalysisRecord'),
+          ('public', 'CandidateContentUnit'), ('public', 'CandidateAnalysisRun'),
+          ('public', 'CandidateAnalysisRunInput'), ('public', 'CandidateAnalysisRunEvent'),
+          ('public', 'CandidateAnalysisArtifact'), ('public', 'CandidateAssertion'),
+          ('public', 'CandidateEvidenceLink'), ('public', 'CandidateDependency'),
+          ('public', 'CandidateReconciliationSnapshot'),
+          ('public', 'CandidateHumanReviewDecision'),
+          ('public', 'CandidatePromotionDecision'),
+          ('public', 'CanonicalOutsideAllowlist'), ('sidecar', 'unrelated')
+        ) relation(schema_name, relation_name)
         CROSS JOIN unnest(ARRAY[
           'SELECT', 'INSERT', 'UPDATE', 'DELETE', 'TRUNCATE', 'REFERENCES', 'TRIGGER'
         ]) privilege_name
@@ -338,8 +341,8 @@ test(
       assert.equal(matrix.status, 0, matrix.stderr);
       const actualMatrix = new Map(
         matrix.stdout.trim().split("\n").map((line) => {
-          const [role, relation, privilege, value] = line.split("|");
-          return [`${role}|${relation}|${privilege}`, value === "t"];
+          const [role, schema, relation, privilege, value] = line.split("|");
+          return [`${role}|${schema}|${relation}|${privilege}`, value === "t"];
         }),
       );
       for (const role of [
@@ -358,37 +361,83 @@ test(
                   : relation === "CandidateReconciliationSnapshot"
                 : false;
             assert.equal(
-              actualMatrix.get(`${role}|${relation}|${privilege}`),
+              actualMatrix.get(`${role}|public|${relation}|${privilege}`),
               expected,
               `${role} ${privilege} public.${relation}`,
             );
           }
         }
       }
+      const outsideRelations = [
+        { schema: "public", relation: "CanonicalOutsideAllowlist" },
+        { schema: "sidecar", relation: "unrelated" },
+      ] as const;
+      for (const role of [
+        "foodsystems_candidate_worker",
+        "foodsystems_candidate_reconciler",
+      ] as const) {
+        for (const { schema, relation } of outsideRelations) {
+          for (const privilege of tablePrivileges) {
+            assert.equal(
+              actualMatrix.get(`${role}|${schema}|${relation}|${privilege}`),
+              false,
+              `${role} ${privilege} ${schema}.${relation}`,
+            );
+          }
+        }
+      }
       const columnMatrix = psql(`
-        SELECT role_name, relation_name, privilege_name,
-          has_any_column_privilege(role_name, format('public.%I', relation_name), privilege_name)
+        SELECT role_name, schema_name, relation_name, privilege_name,
+          has_any_column_privilege(role_name, format('%I.%I', schema_name, relation_name), privilege_name)
         FROM unnest(ARRAY['foodsystems_candidate_worker', 'foodsystems_candidate_reconciler']) role_name
-        CROSS JOIN unnest(ARRAY[
-          'Document', 'SourceDoc', 'LibraryAnalysisRecord',
-          'CandidateContentUnit', 'CandidateAnalysisRun',
-          'CandidateAnalysisRunInput', 'CandidateAnalysisRunEvent',
-          'CandidateAnalysisArtifact', 'CandidateAssertion',
-          'CandidateEvidenceLink', 'CandidateDependency',
-          'CandidateReconciliationSnapshot', 'CandidateHumanReviewDecision',
-          'CandidatePromotionDecision'
-        ]) relation_name
+        CROSS JOIN (VALUES
+          ('public', 'Document'), ('public', 'SourceDoc'),
+          ('public', 'LibraryAnalysisRecord'),
+          ('public', 'CandidateContentUnit'), ('public', 'CandidateAnalysisRun'),
+          ('public', 'CandidateAnalysisRunInput'), ('public', 'CandidateAnalysisRunEvent'),
+          ('public', 'CandidateAnalysisArtifact'), ('public', 'CandidateAssertion'),
+          ('public', 'CandidateEvidenceLink'), ('public', 'CandidateDependency'),
+          ('public', 'CandidateReconciliationSnapshot'),
+          ('public', 'CandidateHumanReviewDecision'),
+          ('public', 'CandidatePromotionDecision'),
+          ('public', 'CanonicalOutsideAllowlist'), ('sidecar', 'unrelated')
+        ) relation(schema_name, relation_name)
         CROSS JOIN unnest(ARRAY['INSERT', 'UPDATE', 'REFERENCES']) privilege_name
         ORDER BY role_name, relation_name, privilege_name;
       `);
       assert.equal(columnMatrix.status, 0, columnMatrix.stderr);
-      for (const line of columnMatrix.stdout.trim().split("\n")) {
-        const [role, relation, privilege, value] = line.split("|");
-        const expected = privilege === "INSERT"
-          && (role === "foodsystems_candidate_worker"
-            ? workerInsert.has(relation)
-            : relation === "CandidateReconciliationSnapshot");
-        assert.equal(value === "t", expected, `${role} column ${privilege} public.${relation}`);
+      const actualColumnMatrix = new Map(
+        columnMatrix.stdout.trim().split("\n").map((line) => {
+          const [role, schema, relation, privilege, value] = line.split("|");
+          return [`${role}|${schema}|${relation}|${privilege}`, value === "t"];
+        }),
+      );
+      for (const role of [
+        "foodsystems_candidate_worker",
+        "foodsystems_candidate_reconciler",
+      ] as const) {
+        for (const relation of [...canonicalTables, ...candidateTables]) {
+          for (const privilege of ["INSERT", "UPDATE", "REFERENCES"] as const) {
+            const expected = privilege === "INSERT"
+              && (role === "foodsystems_candidate_worker"
+                ? workerInsert.has(relation)
+                : relation === "CandidateReconciliationSnapshot");
+            assert.equal(
+              actualColumnMatrix.get(`${role}|public|${relation}|${privilege}`),
+              expected,
+              `${role} column ${privilege} public.${relation}`,
+            );
+          }
+        }
+        for (const { schema, relation } of outsideRelations) {
+          for (const privilege of ["INSERT", "UPDATE", "REFERENCES"] as const) {
+            assert.equal(
+              actualColumnMatrix.get(`${role}|${schema}|${relation}|${privilege}`),
+              false,
+              `${role} column ${privilege} ${schema}.${relation}`,
+            );
+          }
+        }
       }
 
       assert.equal(
