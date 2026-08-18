@@ -204,16 +204,18 @@ function projectEvidenceLevel(
   let everyClaimHasExactLocator = true
 
   for (const claim of claims) {
-    if (!isRecord(claim)) {
+    if (!isValidLegacyClaim(claim)) {
       everyClaimHasExactLocator = false
       continue
     }
     const exactLocator =
-      hasText(claim.pageRef) ||
-      hasText(claim.recordRef) ||
-      hasText(claim.recordLocator)
+      hasOwnText(claim, 'pageRef') ||
+      hasOwnText(claim, 'recordRef') ||
+      hasOwnText(claim, 'recordLocator')
     const grounded =
-      exactLocator || hasText(claim.evidence) || hasText(claim.sourcePath)
+      exactLocator ||
+      hasOwnText(claim, 'evidence') ||
+      hasOwnText(claim, 'sourcePath')
 
     everyClaimHasExactLocator &&= exactLocator
     anyGrounding ||= grounded
@@ -262,6 +264,19 @@ function isSha256(value: string | null | undefined): value is string {
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+function isValidLegacyClaim(value: unknown): value is Record<string, unknown> {
+  if (!isRecord(value)) return false
+  const prototype = Object.getPrototypeOf(value)
+  return (
+    (prototype === Object.prototype || prototype === null) &&
+    hasOwnText(value, 'text')
+  )
+}
+
+function hasOwnText(record: Record<string, unknown>, key: string): boolean {
+  return Object.prototype.hasOwnProperty.call(record, key) && hasText(record[key])
 }
 
 function hasText(value: unknown): value is string {

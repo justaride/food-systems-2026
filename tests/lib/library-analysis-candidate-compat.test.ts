@@ -257,6 +257,78 @@ describe('legacy library analysis candidate compatibility', () => {
     assert.ok(projected.limitations.includes('legacy_claim_locator_partial'))
   })
 
+  it('requires an own nonblank text field before a claim can contribute an exact locator', () => {
+    for (const malformedClaim of [
+      { pageRef: 'PDF p. 4' },
+      { text: '   ', pageRef: 'PDF p. 4' },
+      { text: '', recordRef: 'row:17' },
+      { text: '\n', recordLocator: 'record:17' },
+    ]) {
+      const projected = projectLegacyLibraryAnalysisRecord({
+        ...legacyFixture,
+        claimCandidates: [malformedClaim],
+      })
+
+      assert.equal(projected.evidenceLevel, 'no_locator')
+      assert.ok(projected.limitations.includes('legacy_claim_locator_missing'))
+    }
+  })
+
+  it('ignores inherited locator and grounding properties on malformed claim objects', () => {
+    for (const inheritedProperty of [
+      'pageRef',
+      'recordRef',
+      'recordLocator',
+      'evidence',
+      'sourcePath',
+    ]) {
+      const malformedClaim = Object.create({
+        [inheritedProperty]: 'inherited grounding',
+      }) as Record<string, unknown>
+      malformedClaim.text = 'Own claim text'
+
+      const projected = projectLegacyLibraryAnalysisRecord({
+        ...legacyFixture,
+        claimCandidates: [malformedClaim],
+      })
+
+      assert.equal(projected.evidenceLevel, 'no_locator')
+      assert.ok(projected.limitations.includes('legacy_claim_locator_missing'))
+    }
+
+    const inheritedText = Object.create({ text: 'Inherited claim text' }) as Record<
+      string,
+      unknown
+    >
+    inheritedText.pageRef = 'PDF p. 4'
+    assert.equal(
+      projectLegacyLibraryAnalysisRecord({
+        ...legacyFixture,
+        claimCandidates: [inheritedText],
+      }).evidenceLevel,
+      'no_locator',
+    )
+  })
+
+  it('accepts plain and null-prototype claims with own text and locator fields', () => {
+    const nullPrototypeClaim = Object.create(null) as Record<string, unknown>
+    nullPrototypeClaim.text = 'Null-prototype JSON-like claim'
+    nullPrototypeClaim.recordLocator = 'record:17'
+
+    for (const validClaim of [
+      { text: 'Plain claim', pageRef: 'PDF p. 4' },
+      nullPrototypeClaim,
+    ]) {
+      assert.equal(
+        projectLegacyLibraryAnalysisRecord({
+          ...legacyFixture,
+          claimCandidates: [validClaim],
+        }).evidenceLevel,
+        'exact_locator',
+      )
+    }
+  })
+
   it('falls back to AI-card claims and preserves source identity fields', () => {
     const projected = projectLegacyLibraryAnalysisRecord({
       ...legacyFixture,
