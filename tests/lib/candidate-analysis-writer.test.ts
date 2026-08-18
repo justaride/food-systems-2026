@@ -9,6 +9,7 @@ import type {
   CandidateAssertionInput,
   CandidateContentUnitInput,
   CandidateDependencyInput,
+  CandidateEvidenceLevel,
   CandidateIdentityConfidence,
 } from "../../src/lib/knowledge/candidate-analysis-contract";
 import {
@@ -102,33 +103,77 @@ async function seedTwoAssertions(prisma: ReturnType<typeof candidatePrisma>) {
   return { writer, assertionA, assertionB };
 }
 
-async function seedAuthorityMismatchAssertions(
+async function seedAuthorityScenario(
   prisma: ReturnType<typeof candidatePrisma>,
-  dependentIdentity: CandidateIdentityConfidence = "exact",
+  options: {
+    upstreamIdentity?: CandidateIdentityConfidence;
+    upstreamEvidence?: CandidateEvidenceLevel;
+    dependentIdentity?: CandidateIdentityConfidence;
+    dependentEvidence?: CandidateEvidenceLevel;
+    supportingUnit?: CandidateContentUnitInput;
+    supportingInputHash?: string | null;
+  } = {},
 ) {
   const fixture = candidateAnalysisFixture({ identityConfidence: "unresolved" });
   await seedContentUnit(prisma, fixture.contentUnit);
+  if (options.supportingUnit) {
+    await seedContentUnit(prisma, options.supportingUnit);
+  }
   const writer = createCandidateAnalysisWriter(prisma);
-  await writer.createRun(fixture.run);
+  const includeSupportingInput =
+    options.supportingUnit && options.supportingInputHash !== null;
+  await writer.createRun({
+    ...fixture.run,
+    inputs: [
+      ...fixture.run.inputs,
+      ...(includeSupportingInput
+        ? [
+            {
+              contentUnitId: options.supportingUnit!.id,
+              position: 1,
+              inputHash:
+                options.supportingInputHash ??
+                options.supportingUnit!.contentHash,
+            },
+          ]
+        : []),
+    ],
+  });
   const unresolvedUpstream = assertionWith(fixture.assertion, {
     id: "assertion:authority:upstream",
     payload: { proposition: "Unresolved upstream" },
     payloadHash: hash("3"),
-    identityConfidence: "unresolved",
-    evidenceLevel: "no_locator",
+    identityConfidence: options.upstreamIdentity ?? "unresolved",
+    evidenceLevel: options.upstreamEvidence ?? "no_locator",
     limitations: ["identity_unresolved"],
   });
   const strongerDependent = assertionWith(fixture.assertion, {
     id: "assertion:authority:dependent",
     payload: { proposition: "Stronger dependent" },
     payloadHash: hash("4"),
-    identityConfidence: dependentIdentity,
-    evidenceLevel: "exact_locator",
+    identityConfidence: options.dependentIdentity ?? "exact",
+    evidenceLevel: options.dependentEvidence ?? "no_locator",
     limitations: ["identity_unresolved", "machine_generated"].sort(),
   });
   await writer.appendAssertion(unresolvedUpstream);
   await writer.appendAssertion(strongerDependent);
   return { writer, fixture, strongerDependent, unresolvedUpstream };
+}
+
+function authorityContentUnit(
+  fixture: ReturnType<typeof candidateAnalysisFixture>,
+  overrides: Partial<CandidateContentUnitInput> = {},
+): CandidateContentUnitInput {
+  return {
+    ...fixture.contentUnit,
+    id: "content:authority:supporting",
+    sourceKey: "source:authority:supporting",
+    locator: "section:supporting",
+    locatorHash: hash("d"),
+    contentHash: hash("c"),
+    identityConfidence: "exact",
+    ...overrides,
+  };
 }
 
 test(
@@ -370,13 +415,16 @@ test(
 );
 
 test(
-  "recursive candidates cannot silently strengthen upstream authority",
+  "identity-only strengthening fails without qualifying direct evidence",
   { timeout: 45_000 },
   async (t) => {
     await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
       await withPrisma(adminUrl, async (prisma) => {
         const { writer, strongerDependent, unresolvedUpstream } =
-          await seedAuthorityMismatchAssertions(prisma);
+          await seedAuthorityScenario(prisma, {
+            dependentIdentity: "exact",
+            dependentEvidence: "no_locator",
+          });
         await assert.rejects(
           writer.appendDependency(
             dependencyInput(strongerDependent, unresolvedUpstream),
@@ -391,28 +439,72 @@ test(
 );
 
 test(
-  "direct supporting evidence permits a precisely justified identity and locator upgrade",
+  "evidence-only strengthening fails without an exact bound locator",
   { timeout: 45_000 },
   async (t) => {
     await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
       await withPrisma(adminUrl, async (prisma) => {
-        const { writer, fixture, strongerDependent, unresolvedUpstream } =
-          await seedAuthorityMismatchAssertions(prisma);
-        const exactUnit = {
-          ...fixture.contentUnit,
-          id: "content:authority:exact",
-          sourceKey: "source:authority:exact",
-          identityConfidence: "exact" as const,
-        };
-        await seedContentUnit(prisma, exactUnit);
+        const fixture = candidateAnalysisFixture({
+          identityConfidence: "unresolved",
+        });
+        const supportingUnit = authorityContentUnit(fixture, {
+          identityConfidence: "unresolved",
+        });
+        const { writer, strongerDependent, unresolvedUpstream } =
+          await seedAuthorityScenario(prisma, {
+            upstreamIdentity: "unresolved",
+            dependentIdentity: "unresolved",
+            upstreamEvidence: "no_locator",
+            dependentEvidence: "exact_locator",
+            supportingUnit,
+          });
         await writer.appendEvidenceLink({
           ...fixture.evidenceLink,
           id: "evidence:authority:direct",
           assertionId: strongerDependent.id,
-          contentUnitId: exactUnit.id,
-          locator: exactUnit.locator,
-          locatorHash: exactUnit.locatorHash,
+          contentUnitId: supportingUnit.id,
+          locator: "section:not-the-bound-locator",
+          locatorHash: hash("e"),
           excerptHash: hash("5"),
+        });
+
+        await assert.rejects(
+          writer.appendDependency(
+            dependencyInput(strongerDependent, unresolvedUpstream),
+          ),
+          (error: unknown) =>
+            hasCandidateWriteConflictCode(error, "upstream_authority_upgrade"),
+        );
+      });
+    });
+  },
+);
+
+test(
+  "independent run-bound evidence permits identity-only strengthening",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture({
+          identityConfidence: "unresolved",
+        });
+        const supportingUnit = authorityContentUnit(fixture);
+        const { writer, strongerDependent, unresolvedUpstream } =
+          await seedAuthorityScenario(prisma, {
+            upstreamIdentity: "unresolved",
+            dependentIdentity: "exact",
+            upstreamEvidence: "no_locator",
+            dependentEvidence: "no_locator",
+            supportingUnit,
+          });
+        await writer.appendEvidenceLink({
+          ...fixture.evidenceLink,
+          id: "evidence:authority:identity-only",
+          assertionId: strongerDependent.id,
+          contentUnitId: supportingUnit.id,
+          locator: "section:identity-only-does-not-claim-locator-strength",
+          locatorHash: hash("e"),
         });
 
         assert.deepEqual(
@@ -422,6 +514,128 @@ test(
           {
             dependencyId: `dependency:${strongerDependent.id}:${unresolvedUpstream.id}`,
           },
+        );
+      });
+    });
+  },
+);
+
+test(
+  "independent run-bound exact locator permits evidence-only strengthening",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture({
+          identityConfidence: "unresolved",
+        });
+        const supportingUnit = authorityContentUnit(fixture, {
+          identityConfidence: "unresolved",
+        });
+        const { writer, strongerDependent, unresolvedUpstream } =
+          await seedAuthorityScenario(prisma, {
+            upstreamIdentity: "unresolved",
+            dependentIdentity: "unresolved",
+            upstreamEvidence: "no_locator",
+            dependentEvidence: "exact_locator",
+            supportingUnit,
+          });
+        await writer.appendEvidenceLink({
+          ...fixture.evidenceLink,
+          id: "evidence:authority:evidence-only",
+          assertionId: strongerDependent.id,
+          contentUnitId: supportingUnit.id,
+          locator: supportingUnit.locator,
+          locatorHash: supportingUnit.locatorHash,
+        });
+
+        assert.deepEqual(
+          await writer.appendDependency(
+            dependencyInput(strongerDependent, unresolvedUpstream),
+          ),
+          {
+            dependencyId: `dependency:${strongerDependent.id}:${unresolvedUpstream.id}`,
+          },
+        );
+      });
+    });
+  },
+);
+
+test(
+  "supporting evidence outside the dependent run input envelope cannot upgrade evidence level",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture({
+          identityConfidence: "unresolved",
+        });
+        const supportingUnit = authorityContentUnit(fixture, {
+          identityConfidence: "unresolved",
+        });
+        const { writer, strongerDependent, unresolvedUpstream } =
+          await seedAuthorityScenario(prisma, {
+            upstreamIdentity: "unresolved",
+            dependentIdentity: "unresolved",
+            upstreamEvidence: "no_locator",
+            dependentEvidence: "exact_locator",
+            supportingUnit,
+            supportingInputHash: null,
+          });
+        await writer.appendEvidenceLink({
+          ...fixture.evidenceLink,
+          id: "evidence:authority:outside-input-envelope",
+          assertionId: strongerDependent.id,
+          contentUnitId: supportingUnit.id,
+          locator: supportingUnit.locator,
+          locatorHash: supportingUnit.locatorHash,
+        });
+
+        await assert.rejects(
+          writer.appendDependency(
+            dependencyInput(strongerDependent, unresolvedUpstream),
+          ),
+          (error: unknown) =>
+            hasCandidateWriteConflictCode(error, "upstream_authority_upgrade"),
+        );
+      });
+    });
+  },
+);
+
+test(
+  "run input hash mismatch cannot justify an identity upgrade",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture({
+          identityConfidence: "unresolved",
+        });
+        const supportingUnit = authorityContentUnit(fixture);
+        const { writer, strongerDependent, unresolvedUpstream } =
+          await seedAuthorityScenario(prisma, {
+            dependentIdentity: "exact",
+            dependentEvidence: "no_locator",
+            supportingUnit,
+            supportingInputHash: hash("f"),
+          });
+        await writer.appendEvidenceLink({
+          ...fixture.evidenceLink,
+          id: "evidence:authority:mismatched-input-hash",
+          assertionId: strongerDependent.id,
+          contentUnitId: supportingUnit.id,
+          locator: supportingUnit.locator,
+          locatorHash: supportingUnit.locatorHash,
+        });
+
+        await assert.rejects(
+          writer.appendDependency(
+            dependencyInput(strongerDependent, unresolvedUpstream),
+          ),
+          (error: unknown) =>
+            hasCandidateWriteConflictCode(error, "upstream_authority_upgrade"),
         );
       });
     });

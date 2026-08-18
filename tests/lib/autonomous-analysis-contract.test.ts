@@ -50,6 +50,7 @@ test('recursive authority preserves limitations and requires independent direct 
   assert.match(contract, /inherited limitations are always mandatory/i)
   assert.match(contract, /weakest upstream authority/i)
   assert.match(contract, /own direct supporting.*CandidateEvidenceLink/i)
+  assert.match(contract, /dependent run.*inputHash.*contentHash/i)
   assert.match(contract, /upstream_authority_upgrade/)
   assert.match(contract, /no machine lineage changes human review or promotion state/i)
 })

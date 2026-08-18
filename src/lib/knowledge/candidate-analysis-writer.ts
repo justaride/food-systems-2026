@@ -263,17 +263,22 @@ async function appendDependency(
           throw new CandidateAnalysisWriteConflict("dependency_cycle");
         }
 
-        const [dependent, upstreamAssertions, inheritedDependencies, evidence] =
+        const dependent = await transaction.candidateAssertion.findUnique({
+          where: { id: input.assertionId },
+          select: {
+            runId: true,
+            limitations: true,
+            machineUse: true,
+            identityConfidence: true,
+            evidenceLevel: true,
+          },
+        });
+        if (dependent === null) {
+          throw new Error("candidate_assertion_not_found");
+        }
+
+        const [upstreamAssertions, inheritedDependencies, evidence] =
           await Promise.all([
-            transaction.candidateAssertion.findUnique({
-              where: { id: input.assertionId },
-              select: {
-                limitations: true,
-                machineUse: true,
-                identityConfidence: true,
-                evidenceLevel: true,
-              },
-            }),
             transaction.candidateAssertion.findMany({
               where: { id: { in: upstreamIds } },
               select: {
@@ -301,18 +306,25 @@ async function appendDependency(
                     identityConfidence: true,
                     locator: true,
                     locatorHash: true,
+                    contentHash: true,
+                    runInputs: {
+                      where: { runId: dependent.runId },
+                      select: { inputHash: true },
+                    },
                   },
                 },
               },
             }),
           ]);
-
-        if (
-          dependent === null ||
-          upstreamAssertions.length !== upstreamIds.length
-        ) {
+        if (upstreamAssertions.length !== upstreamIds.length) {
           throw new Error("candidate_assertion_not_found");
         }
+
+        const qualifyingEvidence = evidence.filter(({ contentUnit }) =>
+          contentUnit.runInputs.some(
+            ({ inputHash }) => inputHash === contentUnit.contentHash,
+          ),
+        );
 
         const requiredLimitations = new Set([
           ...upstreamAssertions.flatMap(({ limitations }) => limitations),
@@ -348,7 +360,7 @@ async function appendDependency(
           ),
         );
         if (identityStrength[dependent.identityConfidence] > weakestIdentity) {
-          const independentlySupported = evidence.some(
+          const independentlySupported = qualifyingEvidence.some(
             ({ contentUnit }) =>
               identityStrength[contentUnit.identityConfidence] >=
               identityStrength[dependent.identityConfidence],
@@ -366,7 +378,7 @@ async function appendDependency(
           ),
         );
         if (evidenceStrength[dependent.evidenceLevel] > weakestEvidence) {
-          const exactBoundLocator = evidence.some(
+          const exactBoundLocator = qualifyingEvidence.some(
             ({ locator, locatorHash, contentUnit }) =>
               locator === contentUnit.locator &&
               locatorHash === contentUnit.locatorHash,
