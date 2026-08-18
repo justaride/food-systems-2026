@@ -1,0 +1,271 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://food-systems.local/schema/candidate-control-snapshot.schema.v1.json",
+  "title": "Candidate control snapshot v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedAt",
+    "provenance",
+    "operational",
+    "machine",
+    "identity",
+    "evidence",
+    "review",
+    "promotion",
+    "reconciliation",
+    "legacy",
+    "warnings"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "candidate-control-snapshot-v1" },
+    "generatedAt": { "$ref": "#/$defs/isoInstant" },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceCommit",
+        "runtimeCommit",
+        "databaseIdentityUuid",
+        "counterBasis",
+        "queryErrors"
+      ],
+      "properties": {
+        "sourceCommit": { "$ref": "#/$defs/commit" },
+        "runtimeCommit": {
+          "oneOf": [{ "$ref": "#/$defs/commit" }, { "type": "null" }]
+        },
+        "databaseIdentityUuid": { "$ref": "#/$defs/uuid" },
+        "counterBasis": { "const": "current_unsuperseded_records" },
+        "queryErrors": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "operational": { "type": "boolean" },
+    "machine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runsTotal",
+        "currentByState",
+        "assertionsTotal",
+        "byMachineUse"
+      ],
+      "properties": {
+        "runsTotal": { "$ref": "#/$defs/count" },
+        "currentByState": { "$ref": "#/$defs/machineStateCounts" },
+        "assertionsTotal": { "$ref": "#/$defs/count" },
+        "byMachineUse": { "$ref": "#/$defs/machineUseCounts" }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["byConfidence"],
+      "properties": {
+        "byConfidence": { "$ref": "#/$defs/identityCounts" }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["byLevel"],
+      "properties": {
+        "byLevel": { "$ref": "#/$defs/evidenceCounts" }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "currentByState",
+        "backlogTotal",
+        "oldestPendingAt",
+        "oldestPendingAgeSeconds",
+        "reviewComplete",
+        "pendingIsExpectedWork"
+      ],
+      "properties": {
+        "currentByState": { "$ref": "#/$defs/reviewStateCounts" },
+        "backlogTotal": { "$ref": "#/$defs/count" },
+        "oldestPendingAt": {
+          "oneOf": [{ "$ref": "#/$defs/isoInstant" }, { "type": "null" }]
+        },
+        "oldestPendingAgeSeconds": {
+          "oneOf": [{ "$ref": "#/$defs/count" }, { "type": "null" }]
+        },
+        "reviewComplete": { "type": "boolean" },
+        "pendingIsExpectedWork": { "const": true }
+      }
+    },
+    "promotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "externalTargetProfile",
+        "externalBlockers",
+        "byTargetProfile",
+        "externalReady"
+      ],
+      "properties": {
+        "externalTargetProfile": { "$ref": "#/$defs/nonEmptyString" },
+        "externalBlockers": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "byTargetProfile": {
+          "type": "object",
+          "patternProperties": {
+            "^.+$": { "$ref": "#/$defs/promotionStateCounts" }
+          },
+          "additionalProperties": false
+        },
+        "externalReady": { "type": "boolean" }
+      }
+    },
+    "reconciliation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["snapshotsTotal", "conflictsTotal"],
+      "properties": {
+        "snapshotsTotal": { "$ref": "#/$defs/count" },
+        "conflictsTotal": { "$ref": "#/$defs/count" }
+      }
+    },
+    "legacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recordsTotal",
+        "projectedCandidates",
+        "analysisAbsent",
+        "unclassifiedHumanSignals"
+      ],
+      "properties": {
+        "recordsTotal": { "$ref": "#/$defs/count" },
+        "projectedCandidates": { "$ref": "#/$defs/count" },
+        "analysisAbsent": { "$ref": "#/$defs/count" },
+        "unclassifiedHumanSignals": { "$ref": "#/$defs/count" }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/nonEmptyString" }
+    }
+  },
+  "$defs": {
+    "count": { "type": "integer", "minimum": 0 },
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "commit": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
+    "uuid": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[1-5][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$"
+    },
+    "isoInstant": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d{3})?Z$"
+    },
+    "machineStateCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "queued",
+        "running",
+        "candidate_complete",
+        "partial",
+        "failed",
+        "blocked_input",
+        "quarantined",
+        "superseded"
+      ],
+      "properties": {
+        "queued": { "$ref": "#/$defs/count" },
+        "running": { "$ref": "#/$defs/count" },
+        "candidate_complete": { "$ref": "#/$defs/count" },
+        "partial": { "$ref": "#/$defs/count" },
+        "failed": { "$ref": "#/$defs/count" },
+        "blocked_input": { "$ref": "#/$defs/count" },
+        "quarantined": { "$ref": "#/$defs/count" },
+        "superseded": { "$ref": "#/$defs/count" }
+      }
+    },
+    "machineUseCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_only",
+        "reusable_for_ai_context",
+        "quarantined"
+      ],
+      "properties": {
+        "candidate_only": { "$ref": "#/$defs/count" },
+        "reusable_for_ai_context": { "$ref": "#/$defs/count" },
+        "quarantined": { "$ref": "#/$defs/count" }
+      }
+    },
+    "identityCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["exact", "provisional", "unresolved"],
+      "properties": {
+        "exact": { "$ref": "#/$defs/count" },
+        "provisional": { "$ref": "#/$defs/count" },
+        "unresolved": { "$ref": "#/$defs/count" }
+      }
+    },
+    "evidenceCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["exact_locator", "partial_locator", "no_locator"],
+      "properties": {
+        "exact_locator": { "$ref": "#/$defs/count" },
+        "partial_locator": { "$ref": "#/$defs/count" },
+        "no_locator": { "$ref": "#/$defs/count" }
+      }
+    },
+    "reviewStateCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "not_requested",
+        "queued",
+        "in_review",
+        "accepted",
+        "accepted_with_edits",
+        "rejected",
+        "deferred"
+      ],
+      "properties": {
+        "not_requested": { "$ref": "#/$defs/count" },
+        "queued": { "$ref": "#/$defs/count" },
+        "in_review": { "$ref": "#/$defs/count" },
+        "accepted": { "$ref": "#/$defs/count" },
+        "accepted_with_edits": { "$ref": "#/$defs/count" },
+        "rejected": { "$ref": "#/$defs/count" },
+        "deferred": { "$ref": "#/$defs/count" }
+      }
+    },
+    "promotionStateCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate",
+        "internal_curated",
+        "external_eligible",
+        "published",
+        "revoked"
+      ],
+      "properties": {
+        "candidate": { "$ref": "#/$defs/count" },
+        "internal_curated": { "$ref": "#/$defs/count" },
+        "external_eligible": { "$ref": "#/$defs/count" },
+        "published": { "$ref": "#/$defs/count" },
+        "revoked": { "$ref": "#/$defs/count" }
+      }
+    }
+  }
+}
