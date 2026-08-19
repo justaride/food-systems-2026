@@ -47,6 +47,10 @@ const enablePath = resolve("scripts/enable-candidate-analysis-logins.sh");
 const verifyPath = resolve("scripts/verify-candidate-analysis-roles.sh");
 const ambientGuardPath = resolve("scripts/reject-ambient-candidate-libpq-env.mjs");
 const urlHelperPath = resolve("scripts/normalize-candidate-postgres-url.mjs");
+const bootstrapApplyArgs = [
+  "--apply",
+  "--confirm-database-session-drain",
+] as const;
 
 function executable(path: string): boolean {
   return existsSync(path) && (statSync(path).mode & 0o111) !== 0;
@@ -111,7 +115,7 @@ function prepareRecoveryFixture(
     PATH: path,
     DATABASE_ADMIN_URL: adminUrl,
   };
-  const bootstrap = spawnSync(bootstrapPath, ["--apply"], {
+  const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
     cwd: repoRoot,
     encoding: "utf8",
     env: adminEnv,
@@ -307,7 +311,7 @@ function bootstrapAdditionalCandidateDatabase(
   `);
   assert.equal(hardened.status, 0, hardened.stderr);
   const adminUrl = `postgresql://postgres@127.0.0.1:${context.port}/${database}`;
-  const bootstrapped = spawnSync(bootstrapPath, ["--apply"], {
+  const bootstrapped = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
     cwd: repoRoot,
     encoding: "utf8",
     env: { ...commandEnv, DATABASE_ADMIN_URL: adminUrl },
@@ -568,7 +572,7 @@ test("candidate role scripts are explicit, credential-safe, and exact-allowlist"
   assert.match(urlHelper, /url\.password = ""/);
   assert.match(urlHelper, /unsupported database URL parameter/);
 
-  assert.match(bootstrap, /refusing to change grants without --apply/);
+  assert.match(bootstrap, /--apply --confirm-database-session-drain/);
   assert.match(
     bootstrap,
     /NOINHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS/,
@@ -603,6 +607,57 @@ test("candidate role scripts are explicit, credential-safe, and exact-allowlist"
   assert.doesNotMatch(disable, /DROP (?:TABLE|ROLE)|DELETE FROM|TRUNCATE/);
 });
 
+test("bootstrap database-session-drain CLI rejects every non-exact call before psql", () => {
+  const tempRoot = mkdtempSync(join(tmpdir(), "candidate-bootstrap-drain-cli-"));
+  const fakePsql = join(tempRoot, "psql");
+  const invocationMarker = join(tempRoot, "psql-invoked");
+  writeFileSync(
+    fakePsql,
+    `#!/bin/sh
+: > "$FAKE_PSQL_MARKER"
+exit 0
+`,
+  );
+  chmodSync(fakePsql, 0o755);
+
+  try {
+    const cleanEnv = { ...process.env };
+    for (const name of Object.keys(cleanEnv)) {
+      if (/^PG[A-Z0-9_]*$/.test(name)) delete cleanEnv[name];
+    }
+    for (const args of [
+      [],
+      ["--apply"],
+      ["--confirm-database-session-drain", "--apply"],
+      ["--apply", "--confirm-database-session-drain", "unexpected"],
+    ]) {
+      rmSync(invocationMarker, { force: true });
+      const result = spawnSync(bootstrapPath, args, {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...cleanEnv,
+          PATH: `${tempRoot}:${cleanEnv.PATH ?? ""}`,
+          DATABASE_ADMIN_URL: "postgresql://admin@example.invalid/foodsystems",
+          FAKE_PSQL_MARKER: invocationMarker,
+        },
+      });
+      assert.notEqual(result.status, 0);
+      assert.match(
+        result.stderr,
+        /exactly --apply --confirm-database-session-drain is required/,
+      );
+      assert.equal(
+        existsSync(invocationMarker),
+        false,
+        `invalid bootstrap call invoked psql: ${args.join(" ")}`,
+      );
+    }
+  } finally {
+    rmSync(tempRoot, { recursive: true, force: true });
+  }
+});
+
 test("candidate scripts sanitize malformed URLs and keep credentials out of role SQL", () => {
   const tempRoot = mkdtempSync(join(tmpdir(), "candidate-role-secret-contract-"));
   const fakePsql = join(tempRoot, "psql");
@@ -630,7 +685,7 @@ exit 0
     for (const [script, args, env] of [
       [
         bootstrapPath,
-        ["--apply"],
+        [...bootstrapApplyArgs],
         {
           ...commonEnv,
           DATABASE_ADMIN_URL: `postgresql://admin:${secret}@[invalid/db`,
@@ -668,7 +723,7 @@ exit 0
     for (const [script, args, env] of [
       [
         bootstrapPath,
-        ["--apply"],
+        [...bootstrapApplyArgs],
         {
           ...commonEnv,
           DATABASE_ADMIN_URL: `postgresql://admin:${secret}%E0%A4%A@example.invalid/db`,
@@ -703,7 +758,7 @@ exit 0
       assert.match(result.stderr, /invalid PostgreSQL URL/);
     }
 
-    const safeBootstrap = spawnSync(bootstrapPath, ["--apply"], {
+    const safeBootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
       cwd: repoRoot,
       encoding: "utf8",
       env: {
@@ -730,7 +785,7 @@ exit 0
       const attempts = [
         {
           script: bootstrapPath,
-          args: ["--apply"],
+          args: [...bootstrapApplyArgs],
           env: {
             ...commonEnv,
             DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems?${parameter}=${queryValue}`,
@@ -768,7 +823,7 @@ exit 0
     for (const [script, args, urlEnvironment] of [
       [
         bootstrapPath,
-        ["--apply"],
+        [...bootstrapApplyArgs],
         { DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems` },
       ],
       [
@@ -797,7 +852,7 @@ exit 0
     for (const [script, args, urlEnvironment] of [
       [
         bootstrapPath,
-        ["--apply"],
+        [...bootstrapApplyArgs],
         { DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems` },
       ],
       [
@@ -849,7 +904,7 @@ exit 0
     const attempts = [
       {
         script: bootstrapPath,
-        args: ["--apply"],
+        args: [...bootstrapApplyArgs],
         urlEnvironment: {
           DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems`,
         },
@@ -992,8 +1047,8 @@ test(
         CREATE FUNCTION sidecar.unrelated_fn() RETURNS integer
           LANGUAGE sql AS $$ SELECT 1 $$;
         CREATE ROLE candidate_inherited_writer NOLOGIN;
-        CREATE ROLE foodsystems_candidate_worker NOLOGIN;
-        CREATE ROLE foodsystems_candidate_reconciler NOLOGIN;
+        CREATE ROLE foodsystems_candidate_worker NOLOGIN NOINHERIT CONNECTION LIMIT 10;
+        CREATE ROLE foodsystems_candidate_reconciler NOLOGIN NOINHERIT CONNECTION LIMIT 10;
         GRANT USAGE ON SCHEMA sidecar TO candidate_inherited_writer;
         GRANT INSERT ON sidecar.unrelated TO candidate_inherited_writer;
         GRANT candidate_inherited_writer TO foodsystems_candidate_worker;
@@ -1133,7 +1188,7 @@ test(
 
       const beforeBlockedBootstrap = databaseState();
       assert.equal(beforeBlockedBootstrap.status, 0, beforeBlockedBootstrap.stderr);
-      const blockedBootstrap = spawnSync(bootstrapPath, ["--apply"], {
+      const blockedBootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
         cwd: repoRoot,
         encoding: "utf8",
         env: adminEnv,
@@ -1173,7 +1228,7 @@ test(
         0,
         beforeTypeOnlyOwnerBootstrap.stderr,
       );
-      const typeOnlyOwnerBootstrap = spawnSync(bootstrapPath, ["--apply"], {
+      const typeOnlyOwnerBootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
         cwd: repoRoot,
         encoding: "utf8",
         env: adminEnv,
@@ -1204,7 +1259,18 @@ test(
         typeOnlyOwnerHardening.stderr,
       );
 
-      const bootstrap = spawnSync(bootstrapPath, ["--apply"], {
+      const disableBeforeBootstrap = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(
+        disableBeforeBootstrap.status,
+        0,
+        disableBeforeBootstrap.stderr,
+      );
+
+      const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
         cwd: repoRoot,
         encoding: "utf8",
         env: adminEnv,
@@ -1551,7 +1617,7 @@ test(
       const inboundMembershipLeak = verifyWorker();
       assert.notEqual(inboundMembershipLeak.status, 0);
       assert.match(inboundMembershipLeak.stderr, /can SET ROLE into the candidate identity/i);
-      const activeCleanupRefusal = spawnSync(bootstrapPath, ["--apply"], {
+      const activeCleanupRefusal = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
         cwd: repoRoot,
         encoding: "utf8",
         env: adminEnv,
@@ -1568,7 +1634,7 @@ test(
         0,
         disableBeforeMembershipCleanup.stderr,
       );
-      const membershipCleanupBootstrap = spawnSync(bootstrapPath, ["--apply"], {
+      const membershipCleanupBootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
         cwd: repoRoot,
         encoding: "utf8",
         env: adminEnv,
@@ -1839,7 +1905,7 @@ test(
       assert.equal(afterDisable.status, 0, afterDisable.stderr);
       assert.equal(afterDisable.stdout.trim(), beforeDisable.stdout.trim());
 
-      const rebootstrap = spawnSync(bootstrapPath, ["--apply"], {
+      const rebootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
         cwd: repoRoot,
         encoding: "utf8",
         env: adminEnv,
@@ -1884,7 +1950,7 @@ test(
         0,
         disableBeforeFailedRecovery.stderr,
       );
-      const bootstrapBeforeFailedRecovery = spawnSync(bootstrapPath, ["--apply"], {
+      const bootstrapBeforeFailedRecovery = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
         cwd: repoRoot,
         encoding: "utf8",
         env: adminEnv,
@@ -2509,7 +2575,7 @@ test(
         "bootstrap reconciler session did not become active",
       );
 
-      const runBootstrap = () => spawnSync(bootstrapPath, ["--apply"], {
+      const runBootstrap = () => spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
         cwd: repoRoot,
         encoding: "utf8",
         env: {
@@ -2593,6 +2659,400 @@ test(
       `);
       assert.equal(finalState.status, 0, finalState.stderr);
       assert.equal(finalState.stdout.trim(), "t|t|t|t|0");
+    });
+  },
+);
+
+test(
+  "stale gateway database-session-drain terminates only target-database clients and rolls back hidden candidate writes",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const expectedAuthority = candidateAuthoritySnapshot(context);
+      const controlDatabase = "candidate_recovery_control";
+      const gatewayApp = "candidate-recovery-stale-gateway";
+      const targetApp = "candidate-recovery-target-client";
+      const controlApp = "candidate-recovery-other-database";
+      const runId = "run:recovery-hidden-gateway";
+      const runScopeHash = candidateAnalysisRunScopeHash(runId);
+      const hash = "a".repeat(64);
+      const gatewaySetup = context.psql(`
+        CREATE ROLE candidate_gateway LOGIN;
+        GRANT foodsystems_candidate_worker TO candidate_gateway;
+      `);
+      assert.equal(gatewaySetup.status, 0, gatewaySetup.stderr);
+      const controlCreated = context.psql(`CREATE DATABASE ${controlDatabase}`);
+      assert.equal(controlCreated.status, 0, controlCreated.stderr);
+
+      const gateway = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "candidate_gateway", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c", `
+            SET ROLE foodsystems_candidate_worker;
+            BEGIN;
+            INSERT INTO public."CandidateAnalysisRun" (
+              "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+              "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+              "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+              "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+            ) VALUES (
+              '${runId}', '${runScopeHash}', 'candidate-analysis', 'v1', 'workflow.md', '${hash}',
+              'candidate-analysis-prompt', 'v1', 'prompt.md', 'test', 'test-model', 'v1',
+              '${hash}', '{}', '${hash}', '${hash}', 'hidden gateway recovery write',
+              'candidate-only', 'test-worker', '${hash}', 1
+            );
+            SELECT pg_sleep(60);
+            COMMIT;
+          `,
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: gatewayApp,
+          },
+          stdio: "ignore",
+        },
+      );
+      const targetClient = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: targetApp,
+          },
+          stdio: "ignore",
+        },
+      );
+      const controlClient = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", controlDatabase,
+          "-v", "ON_ERROR_STOP=1", "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: controlApp,
+          },
+          stdio: "ignore",
+        },
+      );
+
+      try {
+        await waitFor(
+          () => activityCount(context, gatewayApp) === "1",
+          "stale gateway did not become active",
+        );
+        await waitFor(
+          () => activityCount(context, targetApp) === "1",
+          "unrelated target-database client did not become active",
+        );
+        await waitFor(
+          () => activityCount(context, controlApp) === "1",
+          "other-database control did not become active",
+        );
+
+        const disabled = spawnSync(disablePath, ["--apply"], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            DATABASE_ADMIN_URL: context.adminUrl,
+          },
+        });
+        assert.equal(disabled.status, 0, disabled.stderr);
+        const disabledState = context.psql(`
+          SELECT
+            NOT (SELECT rolcanlogin FROM pg_roles
+              WHERE rolname = 'foodsystems_candidate_worker'),
+            NOT (SELECT rolcanlogin FROM pg_roles
+              WHERE rolname = 'foodsystems_candidate_reconciler'),
+            NOT has_table_privilege(
+              'foodsystems_candidate_worker',
+              'public."CandidateAnalysisRun"',
+              'INSERT'
+            ),
+            NOT EXISTS (
+              SELECT 1 FROM pg_auth_members membership
+              JOIN pg_roles granted ON granted.oid = membership.roleid
+              JOIN pg_roles member ON member.oid = membership.member
+              WHERE granted.rolname IN (
+                'foodsystems_candidate_worker',
+                'foodsystems_candidate_reconciler'
+              ) OR member.rolname IN (
+                'foodsystems_candidate_worker',
+                'foodsystems_candidate_reconciler'
+              )
+            );
+        `);
+        assert.equal(disabledState.status, 0, disabledState.stderr);
+        assert.equal(disabledState.stdout.trim(), "t|t|t|t");
+        assert.equal(activityCount(context, gatewayApp), "1");
+
+        const beforeRows = candidateRowsSnapshot(context);
+        const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            DATABASE_ADMIN_URL: context.adminUrl,
+          },
+        });
+        assert.equal(bootstrap.status, 0, bootstrap.stderr);
+        await waitFor(
+          () => gateway.exitCode !== null,
+          "stale gateway process did not observe database-session drain",
+        );
+        await waitFor(
+          () => targetClient.exitCode !== null,
+          "target-database client did not observe database-session drain",
+        );
+        assert.equal(activityCount(context, gatewayApp), "0");
+        assert.equal(activityCount(context, targetApp), "0");
+        assert.equal(activityCount(context, controlApp), "1");
+        assert.equal(
+          candidateRowsSnapshot(context),
+          beforeRows,
+          "stale gateway INSERT committed instead of rolling back",
+        );
+        assert.equal(
+          candidateAuthoritySnapshot(context),
+          expectedAuthority,
+          "bootstrap did not restore the exact NOLOGIN authority baseline",
+        );
+      } finally {
+        const cleanup = context.psql(`
+          SELECT pg_terminate_backend(pid)
+          FROM pg_stat_activity
+          WHERE application_name IN ('${gatewayApp}', '${targetApp}', '${controlApp}');
+        `);
+        assert.equal(cleanup.status, 0, cleanup.stderr);
+        await Promise.all([
+          childExit(gateway),
+          childExit(targetClient),
+          childExit(controlClient),
+        ]);
+      }
+    });
+  },
+);
+
+test(
+  "prepared transaction rejects database-session-drain before sleeper, authority, or rows change",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: fixture.path,
+          DATABASE_ADMIN_URL: context.adminUrl,
+        },
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      const prepared = context.psql(
+        "BEGIN; SELECT 1; PREPARE TRANSACTION 'candidate-recovery-pending'",
+      );
+      assert.equal(prepared.status, 0, prepared.stderr);
+      const sleeperApp = "candidate-recovery-prepared-sleeper";
+      const sleeper = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: sleeperApp,
+          },
+          stdio: "ignore",
+        },
+      );
+
+      try {
+        await waitFor(
+          () => activityCount(context, sleeperApp) === "1",
+          "prepared-transaction control sleeper did not become active",
+        );
+        const beforeAuthority = candidateAuthoritySnapshot(context);
+        const beforeRows = candidateRowsSnapshot(context);
+        const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            DATABASE_ADMIN_URL: context.adminUrl,
+          },
+        });
+        const preparedAfter = context.psql(`
+          SELECT count(*) FROM pg_prepared_xacts
+          WHERE database = current_database()
+            AND gid = 'candidate-recovery-pending';
+        `);
+        assert.equal(preparedAfter.status, 0, preparedAfter.stderr);
+        assert.deepEqual(
+          {
+            statusIsFailure: bootstrap.status !== 0,
+            explainsPreparedTransaction: /prepared transaction/i.test(
+              `${bootstrap.stdout}${bootstrap.stderr}`,
+            ),
+            sleeperStillConnected: activityCount(context, sleeperApp),
+            preparedTransactionStillExists: preparedAfter.stdout.trim(),
+            authorityUnchanged:
+              candidateAuthoritySnapshot(context) === beforeAuthority,
+            rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+          },
+          {
+            statusIsFailure: true,
+            explainsPreparedTransaction: true,
+            sleeperStillConnected: "1",
+            preparedTransactionStillExists: "1",
+            authorityUnchanged: true,
+            rowsUnchanged: true,
+          },
+          `${bootstrap.stdout}${bootstrap.stderr}`,
+        );
+      } finally {
+        const rollbackPrepared = context.psql(
+          "ROLLBACK PREPARED 'candidate-recovery-pending'",
+        );
+        assert.equal(rollbackPrepared.status, 0, rollbackPrepared.stderr);
+        const cleanup = context.psql(`
+          SELECT pg_terminate_backend(pid)
+          FROM pg_stat_activity
+          WHERE application_name = '${sleeperApp}';
+        `);
+        assert.equal(cleanup.status, 0, cleanup.stderr);
+        await childExit(sleeper);
+      }
+    }, { maxPreparedTransactions: 10 });
+  },
+);
+
+test(
+  "survivor guard aborts database-session-drain before grant repair when termination is disabled",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: fixture.path,
+          DATABASE_ADMIN_URL: context.adminUrl,
+        },
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      const beforeAuthority = candidateAuthoritySnapshot(context);
+      const beforeRows = candidateRowsSnapshot(context);
+      const productionBootstrap = readFileSync(bootstrapPath, "utf8");
+      const terminationCall = "pg_terminate_backend(activity.pid, 5000)";
+      assert.equal(
+        productionBootstrap.split(terminationCall).length - 1,
+        1,
+        "production bootstrap must contain exactly one drain termination call",
+      );
+      const tempRoot = mkdtempSync(join(tmpdir(), "candidate-survivor-guard-"));
+      const mutatedBootstrap = join(
+        tempRoot,
+        "bootstrap-candidate-analysis-roles.sh",
+      );
+      writeFileSync(
+        mutatedBootstrap,
+        productionBootstrap.replace(terminationCall, "false"),
+      );
+      writeFileSync(
+        join(tempRoot, "normalize-candidate-postgres-url.mjs"),
+        readFileSync(urlHelperPath, "utf8"),
+      );
+      writeFileSync(
+        join(tempRoot, "reject-ambient-candidate-libpq-env.mjs"),
+        readFileSync(ambientGuardPath, "utf8"),
+      );
+      chmodSync(mutatedBootstrap, 0o755);
+      const sleeperApp = "candidate-recovery-survivor-guard";
+      const sleeper = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: sleeperApp,
+          },
+          stdio: "ignore",
+        },
+      );
+
+      try {
+        await waitFor(
+          () => activityCount(context, sleeperApp) === "1",
+          "survivor-guard sleeper did not become active",
+        );
+        const bootstrap = spawnSync(mutatedBootstrap, [...bootstrapApplyArgs], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            DATABASE_ADMIN_URL: context.adminUrl,
+          },
+        });
+        assert.notEqual(bootstrap.status, 0);
+        assert.match(
+          `${bootstrap.stdout}${bootstrap.stderr}`,
+          /survived.*drain|drain.*survived/i,
+        );
+        assert.equal(activityCount(context, sleeperApp), "1");
+        assert.equal(candidateAuthoritySnapshot(context), beforeAuthority);
+        assert.equal(candidateRowsSnapshot(context), beforeRows);
+        assert.equal(
+          readFileSync(bootstrapPath, "utf8"),
+          productionBootstrap,
+          "survivor mutation changed the production bootstrap",
+        );
+      } finally {
+        const cleanup = context.psql(`
+          SELECT pg_terminate_backend(pid)
+          FROM pg_stat_activity
+          WHERE application_name = '${sleeperApp}';
+        `);
+        assert.equal(cleanup.status, 0, cleanup.stderr);
+        await childExit(sleeper);
+        rmSync(tempRoot, { recursive: true, force: true });
+      }
     });
   },
 );
@@ -2981,7 +3441,18 @@ test(
       `);
       assert.equal(dirtyGrant.status, 0, dirtyGrant.stderr);
 
-      const bootstrap = spawnSync(bootstrapPath, ["--apply"], {
+      const disableBeforeBootstrap = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(
+        disableBeforeBootstrap.status,
+        0,
+        disableBeforeBootstrap.stderr,
+      );
+
+      const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
         cwd: repoRoot,
         encoding: "utf8",
         env: adminEnv,
@@ -3081,7 +3552,7 @@ test(
           FROM foodsystems_candidate_worker;
       `);
       assert.equal(cleanupGrant.status, 0, cleanupGrant.stderr);
-      const cleanBootstrap = spawnSync(bootstrapPath, ["--apply"], {
+      const cleanBootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
         cwd: repoRoot,
         encoding: "utf8",
         env: adminEnv,
@@ -3175,6 +3646,16 @@ test(
   async (t) => {
     await withCandidateAnalysisPostgres(t, async (context) => {
       const fixture = prepareRecoveryFixture(context);
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: fixture.path,
+          DATABASE_ADMIN_URL: context.adminUrl,
+        },
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
       const publicGrant = context.psql(
         "GRANT SET ON PARAMETER session_replication_role TO PUBLIC",
       );
@@ -3206,7 +3687,7 @@ test(
         );
         const beforeAuthority = candidateAuthoritySnapshot(context);
         const beforeRows = candidateRowsSnapshot(context);
-        const bootstrap = spawnSync(bootstrapPath, ["--apply"], {
+        const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
           cwd: repoRoot,
           encoding: "utf8",
           env: {

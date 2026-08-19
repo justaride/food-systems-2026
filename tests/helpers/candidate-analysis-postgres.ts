@@ -20,6 +20,10 @@ export type CandidateAnalysisPostgresContext = {
   psql(sql: string, user?: string): SpawnSyncReturns<string>;
 };
 
+export type CandidateAnalysisPostgresOptions = {
+  maxPreparedTransactions?: number;
+};
+
 function postgresBindir(): string | null {
   const configured = process.env.POSTGRES_BINDIR?.trim();
   if (configured) return configured;
@@ -55,6 +59,7 @@ function commandError(
 export async function withCandidateAnalysisPostgres(
   t: TestContext,
   callback: (context: CandidateAnalysisPostgresContext) => Promise<void>,
+  options: CandidateAnalysisPostgresOptions = {},
 ): Promise<void> {
   const bindir = postgresBindir();
   if (!bindir) {
@@ -130,13 +135,21 @@ export async function withCandidateAnalysisPostgres(
     if (initialized.status !== 0) throw commandError("initdb", initialized);
 
     mkdirSync(socketDir);
+    const serverOptions = [
+      "-F",
+      `-p ${port}`,
+      `-k ${socketDir}`,
+      ...(options.maxPreparedTransactions === undefined
+        ? []
+        : [`-c max_prepared_transactions=${options.maxPreparedTransactions}`]),
+    ].join(" ");
     const start = run(binaries.pg_ctl, [
       "-D",
       dataDir,
       "-l",
       join(tempRoot, "postgres.log"),
       "-o",
-      `-F -p ${port} -k ${socketDir}`,
+      serverOptions,
       "-w",
       "start",
     ]);

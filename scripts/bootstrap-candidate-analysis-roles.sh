@@ -5,7 +5,7 @@ set -eu
 
 usage() {
   cat <<'EOF'
-Usage: bootstrap-candidate-analysis-roles.sh --apply
+Usage: bootstrap-candidate-analysis-roles.sh --apply --confirm-database-session-drain
 
 Required environment:
   DATABASE_ADMIN_URL                    PostgreSQL role/grant administrator URL
@@ -21,8 +21,9 @@ This operation never creates, changes, transports, or logs a login credential.
 Missing roles are created NOLOGIN. Initial credentials must be provisioned by a
 separate authorized operation. With existing dedicated credentials, restore in
 this order: bootstrap grants, explicit enable, worker verify, reconciler verify.
-Existing LOGIN roles or stale exact-role sessions are rejected before mutation;
-run disable-candidate-analysis-writes.sh --apply first, then rerun bootstrap.
+Existing candidate roles must already be safely disabled before recovery; run
+disable-candidate-analysis-writes.sh --apply first, then rerun bootstrap. Recovery
+drains every other client session in the target database before restoring grants.
 Incompatible PUBLIC/default-ACL state requires separate authorized hardening.
 EOF
 }
@@ -32,12 +33,14 @@ fail() {
   exit 1
 }
 
-[ "$#" -eq 1 ] || { usage >&2; fail 'refusing to change grants without --apply'; }
-case "$1" in
-  --apply) ;;
-  -h|--help) usage; exit 0 ;;
-  *) usage >&2; fail 'refusing to change grants without --apply' ;;
-esac
+[ "$#" -eq 2 ] || {
+  usage >&2
+  fail 'exactly --apply --confirm-database-session-drain is required'
+}
+[ "$1" = '--apply' ] && [ "$2" = '--confirm-database-session-drain' ] || {
+  usage >&2
+  fail 'exactly --apply --confirm-database-session-drain is required'
+}
 
 [ -n "${DATABASE_ADMIN_URL:-}" ] || fail 'DATABASE_ADMIN_URL is required'
 
@@ -225,37 +228,290 @@ BEGIN
   IF incompatible_acl THEN
     RAISE EXCEPTION 'incompatible PUBLIC or default ACL surface, including parameter privileges; use a separate authorized database-hardening operation';
   END IF;
+
+  IF EXISTS (
+    SELECT 1 FROM pg_prepared_xacts prepared
+    WHERE prepared.database = current_database()
+  ) THEN
+    RAISE EXCEPTION 'prepared transaction exists in target database; resolve it before candidate recovery';
+  END IF;
+
+  IF EXISTS (
+    SELECT 1 FROM pg_roles role
+    WHERE role.rolname IN (
+      current_setting('foodsystems.candidate_worker_role'),
+      current_setting('foodsystems.candidate_reconciler_role')
+    ) AND (
+      role.rolcanlogin OR role.rolinherit OR role.rolsuper
+      OR role.rolcreatedb OR role.rolcreaterole OR role.rolreplication
+      OR role.rolbypassrls OR role.rolconnlimit <> 10
+    )
+  ) OR EXISTS (
+    SELECT 1
+    FROM pg_auth_members membership
+    JOIN pg_roles granted ON granted.oid = membership.roleid
+    JOIN pg_roles member ON member.oid = membership.member
+    WHERE granted.rolname IN (
+      current_setting('foodsystems.candidate_worker_role'),
+      current_setting('foodsystems.candidate_reconciler_role')
+    ) OR member.rolname IN (
+      current_setting('foodsystems.candidate_worker_role'),
+      current_setting('foodsystems.candidate_reconciler_role')
+    )
+  ) OR EXISTS (
+    WITH candidate_role AS (
+      SELECT oid FROM pg_roles
+      WHERE rolname IN (
+        current_setting('foodsystems.candidate_worker_role'),
+        current_setting('foodsystems.candidate_reconciler_role')
+      )
+    ), user_relation AS (
+      SELECT class.oid
+      FROM pg_class class
+      JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+      WHERE namespace.nspname <> 'information_schema'
+        AND namespace.nspname !~ '^pg_'
+        AND class.relkind IN ('r', 'p', 'v', 'm', 'f')
+    )
+    SELECT 1
+    FROM candidate_role role
+    CROSS JOIN user_relation relation
+    WHERE has_table_privilege(role.oid, relation.oid, 'INSERT')
+       OR has_any_column_privilege(role.oid, relation.oid, 'INSERT')
+  ) THEN
+    RAISE EXCEPTION 'candidate roles must be disabled before bootstrap; run disable-candidate-analysis-writes.sh --apply first';
+  END IF;
 END
 $preflight$;
 
 BEGIN;
 
--- Bootstrap is a disabled-state grant repair, never an implicit service-state
--- transition. Serialize ALTER ROLE and reject both LOGIN and stale sessions
--- before the first role, grant, ACL, or setting mutation.
+-- Hold every catalog that carries a checked authority fact through the target
+-- database drain and grant repair. The order matches explicit login recovery.
 LOCK TABLE
   pg_catalog.pg_authid,
-  pg_catalog.pg_parameter_acl
+  pg_catalog.pg_auth_members,
+  pg_catalog.pg_database,
+  pg_catalog.pg_namespace,
+  pg_catalog.pg_class,
+  pg_catalog.pg_attribute,
+  pg_catalog.pg_proc,
+  pg_catalog.pg_type,
+  pg_catalog.pg_default_acl,
+  pg_catalog.pg_db_role_setting,
+  pg_catalog.pg_parameter_acl,
+  pg_catalog.pg_shdepend
 IN SHARE ROW EXCLUSIVE MODE;
-DO $disabled_state$
+
+DO $locked_preflight$
+DECLARE
+  missing_relation boolean;
+  incompatible_acl boolean;
 BEGIN
+  WITH required_relation(relname) AS (
+    VALUES
+      ('Document'), ('SourceDoc'), ('LibraryAnalysisRecord'),
+      ('CandidateContentUnit'), ('CandidateAnalysisRun'),
+      ('CandidateAnalysisRunInput'), ('CandidateAnalysisRunEvent'),
+      ('CandidateAnalysisArtifact'), ('CandidateAssertion'),
+      ('CandidateEvidenceLink'), ('CandidateDependency'),
+      ('CandidateReconciliationSnapshot'), ('CandidateHumanReviewDecision'),
+      ('CandidatePromotionDecision')
+  )
+  SELECT EXISTS (
+    SELECT relname FROM required_relation
+    EXCEPT
+    SELECT class.relname
+    FROM pg_class class
+    JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+    WHERE namespace.nspname = current_setting('foodsystems.candidate_schema')
+      AND class.relkind IN ('r', 'p')
+  ) INTO missing_relation;
+  IF missing_relation THEN
+    RAISE EXCEPTION 'one or more candidate role relations are missing';
+  END IF;
+
+  WITH user_schema AS (
+    SELECT oid AS schema_oid, nspname, nspowner, nspacl
+    FROM pg_namespace
+    WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
+  ), user_class AS (
+    SELECT class.oid, class.relkind, class.relowner, class.relacl
+    FROM pg_class class
+    JOIN user_schema namespace ON namespace.schema_oid = class.relnamespace
+    WHERE class.relkind IN ('r', 'p', 'v', 'm', 'f', 'S')
+  ), user_routine AS (
+    SELECT procedure.oid, procedure.proowner, procedure.proacl
+    FROM pg_proc procedure
+    JOIN user_schema namespace ON namespace.schema_oid = procedure.pronamespace
+  ), user_type AS (
+    SELECT type.oid, type.typowner
+    FROM pg_type type
+    JOIN user_schema namespace ON namespace.schema_oid = type.typnamespace
+  ), user_owner(owner_oid) AS (
+    SELECT relowner FROM user_class
+    UNION SELECT proowner FROM user_routine
+    UNION SELECT typowner FROM user_type
+  )
+  SELECT
+    EXISTS (
+      SELECT 1 FROM pg_database database,
+      LATERAL aclexplode(COALESCE(database.datacl, acldefault('d', database.datdba))) privilege
+      WHERE database.datname = current_database()
+        AND privilege.grantee = 0
+        AND privilege.privilege_type IN ('CREATE', 'TEMPORARY')
+    )
+    OR EXISTS (
+      SELECT 1 FROM user_schema namespace,
+      LATERAL aclexplode(COALESCE(namespace.nspacl, acldefault('n', namespace.nspowner))) privilege
+      WHERE privilege.grantee = 0
+    )
+    OR EXISTS (
+      SELECT 1 FROM user_class class,
+      LATERAL aclexplode(COALESCE(
+        class.relacl,
+        acldefault(CASE WHEN class.relkind = 'S' THEN 'S'::"char" ELSE 'r'::"char" END, class.relowner)
+      )) privilege
+      WHERE privilege.grantee = 0
+    )
+    OR EXISTS (
+      SELECT 1
+      FROM pg_attribute attribute
+      JOIN user_class class ON class.oid = attribute.attrelid,
+      LATERAL aclexplode(attribute.attacl) privilege
+      WHERE attribute.attnum > 0 AND NOT attribute.attisdropped
+        AND privilege.grantee = 0
+    )
+    OR EXISTS (
+      SELECT 1 FROM user_routine routine,
+      LATERAL aclexplode(COALESCE(routine.proacl, acldefault('f', routine.proowner))) privilege
+      WHERE privilege.grantee = 0
+    )
+    OR EXISTS (
+      SELECT 1
+      FROM pg_default_acl defaults
+      LEFT JOIN user_schema namespace ON namespace.schema_oid = defaults.defaclnamespace,
+      LATERAL aclexplode(defaults.defaclacl) privilege
+      WHERE (defaults.defaclnamespace = 0 OR namespace.schema_oid IS NOT NULL)
+        AND defaults.defaclobjtype IN ('r', 'S', 'f')
+        AND privilege.grantee = 0
+    )
+    OR EXISTS (
+      SELECT 1 FROM user_owner owner
+      WHERE EXISTS (
+        SELECT 1
+        FROM aclexplode(COALESCE(
+          (
+            SELECT defaults.defaclacl FROM pg_default_acl defaults
+            WHERE defaults.defaclrole = owner.owner_oid
+              AND defaults.defaclnamespace = 0
+              AND defaults.defaclobjtype = 'f'
+          ),
+          acldefault('f', owner.owner_oid)
+        )) privilege
+        WHERE privilege.grantee = 0 AND privilege.privilege_type = 'EXECUTE'
+      )
+    )
+    OR EXISTS (
+      SELECT 1
+      FROM pg_parameter_acl parameter,
+      LATERAL aclexplode(parameter.paracl) privilege
+      WHERE privilege.grantee = 0
+        AND privilege.privilege_type IN ('SET', 'ALTER SYSTEM')
+    ) INTO incompatible_acl;
+  IF incompatible_acl THEN
+    RAISE EXCEPTION 'incompatible PUBLIC or default ACL surface, including parameter privileges; use a separate authorized database-hardening operation';
+  END IF;
+
   IF EXISTS (
-    SELECT 1 FROM pg_roles
-    WHERE rolname IN (
+    SELECT 1 FROM pg_prepared_xacts prepared
+    WHERE prepared.database = current_database()
+  ) THEN
+    RAISE EXCEPTION 'prepared transaction exists in target database; resolve it before candidate recovery';
+  END IF;
+
+  IF EXISTS (
+    SELECT 1 FROM pg_roles role
+    WHERE role.rolname IN (
       current_setting('foodsystems.candidate_worker_role'),
       current_setting('foodsystems.candidate_reconciler_role')
-    ) AND rolcanlogin
+    ) AND (
+      role.rolcanlogin OR role.rolinherit OR role.rolsuper
+      OR role.rolcreatedb OR role.rolcreaterole OR role.rolreplication
+      OR role.rolbypassrls OR role.rolconnlimit <> 10
+    )
   ) OR EXISTS (
-    SELECT 1 FROM pg_stat_activity
-    WHERE usename IN (
+    SELECT 1
+    FROM pg_auth_members membership
+    JOIN pg_roles granted ON granted.oid = membership.roleid
+    JOIN pg_roles member ON member.oid = membership.member
+    WHERE granted.rolname IN (
+      current_setting('foodsystems.candidate_worker_role'),
+      current_setting('foodsystems.candidate_reconciler_role')
+    ) OR member.rolname IN (
       current_setting('foodsystems.candidate_worker_role'),
       current_setting('foodsystems.candidate_reconciler_role')
     )
+  ) OR EXISTS (
+    WITH candidate_role AS (
+      SELECT oid FROM pg_roles
+      WHERE rolname IN (
+        current_setting('foodsystems.candidate_worker_role'),
+        current_setting('foodsystems.candidate_reconciler_role')
+      )
+    ), user_relation AS (
+      SELECT class.oid
+      FROM pg_class class
+      JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+      WHERE namespace.nspname <> 'information_schema'
+        AND namespace.nspname !~ '^pg_'
+        AND class.relkind IN ('r', 'p', 'v', 'm', 'f')
+    )
+    SELECT 1
+    FROM candidate_role role
+    CROSS JOIN user_relation relation
+    WHERE has_table_privilege(role.oid, relation.oid, 'INSERT')
+       OR has_any_column_privilege(role.oid, relation.oid, 'INSERT')
   ) THEN
     RAISE EXCEPTION 'candidate roles must be disabled before bootstrap; run disable-candidate-analysis-writes.sh --apply first';
   END IF;
 END
-$disabled_state$;
+$locked_preflight$;
+
+-- The captured set is the recovery epoch boundary: only other client backends
+-- in this exact database are terminated, and every selected PID must disappear.
+DO $drain$
+DECLARE
+  target_pids integer[];
+BEGIN
+  SELECT COALESCE(array_agg(activity.pid ORDER BY activity.pid), ARRAY[]::integer[])
+  INTO target_pids
+  FROM pg_stat_activity activity
+  WHERE activity.datid = (SELECT oid FROM pg_database WHERE datname = current_database())
+    AND activity.backend_type = 'client backend'
+    AND activity.pid <> pg_backend_pid();
+
+  PERFORM pg_terminate_backend(activity.pid, 5000)
+  FROM pg_stat_activity activity
+  WHERE activity.pid = ANY(target_pids);
+
+  PERFORM pg_stat_clear_snapshot();
+
+  IF EXISTS (
+    SELECT 1 FROM pg_stat_activity activity
+    WHERE activity.pid = ANY(target_pids)
+  ) THEN
+    RAISE EXCEPTION 'target database client sessions survived recovery drain';
+  END IF;
+
+  IF EXISTS (
+    SELECT 1 FROM pg_prepared_xacts prepared
+    WHERE prepared.database = current_database()
+  ) THEN
+    RAISE EXCEPTION 'prepared transaction appeared during recovery drain';
+  END IF;
+END
+$drain$;
 
 SELECT format('CREATE ROLE %I NOLOGIN', role_name)
 FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
@@ -466,4 +722,5 @@ SELECT format('ALTER ROLE %I SET application_name TO %L', :'reconciler_role', :'
 COMMIT;
 SQL
 
-printf '%s\n' '[candidate-roles] bootstrap complete; verify both dedicated role URLs before starting candidate workers'
+printf '%s\n' '[candidate-roles] recovery epoch and candidate grants complete; both roles remain NOLOGIN'
+printf '%s\n' '[candidate-roles] explicit enable is still required before verifying or starting candidate workers'
