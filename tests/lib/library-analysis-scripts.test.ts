@@ -4,6 +4,13 @@ import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { describe, it } from 'node:test'
 import { buildEffectiveLibraryAnalysisSyncPlan } from '../../scripts/process-library-analysis'
+import {
+  parseLibraryAnalysisArgs,
+  parseSubmission,
+  selectAnalysisRows,
+  toAnalysisRequest,
+} from '../../scripts/run-library-analysis'
+import type { LibraryAnalysisInventoryRow } from '../../src/lib/library-analysis-inventory'
 import type { LibraryAnalysisSyncPlan } from '../../src/lib/library-analysis-processing'
 
 describe('library analysis package scripts', () => {
@@ -404,5 +411,163 @@ describe('library analysis package scripts', () => {
       revoked: ['document:review'],
     })
     assert.ok(effective.actions.every(item => item.classification === 'create'))
+  })
+})
+
+function inventoryRow(overrides: Partial<LibraryAnalysisInventoryRow> = {}): LibraryAnalysisInventoryRow {
+  return {
+    sourceKind: 'document',
+    sourceKey: 'document:doc-1',
+    title: 'Kilde',
+    canonicalPath: 'research/bibliotek/kilde.md',
+    linkedDocumentId: 'doc-1',
+    linkedSourceDocId: 'src-1',
+    linkedReportId: null,
+    linkedThesisId: null,
+    citationReadiness: 'citable_internal',
+    externalCitationEligible: false,
+    currentExternalCitationPolicyHash: null,
+    hasLocalFile: true,
+    hasDbLink: true,
+    wordCount: 500,
+    contentHash: 'a'.repeat(64),
+    riskFlags: [],
+    claimCandidateCount: 0,
+    classification: { status: 'ai_draft', usageRule: 'safe_for_ai_context', reviewRequired: false, reasons: [] },
+    ...overrides,
+  }
+}
+
+describe('library analysis adapter command line', () => {
+  it('requires exactly one of emit and ingest', () => {
+    assert.throws(() => parseLibraryAnalysisArgs([]), /exactly one/)
+    assert.throws(
+      () => parseLibraryAnalysisArgs(['--emit-requests', 'a.json', '--from-file', 'b.json']),
+      /exactly one/,
+    )
+  })
+
+  it('refuses to write while emitting requests', () => {
+    assert.throws(
+      () => parseLibraryAnalysisArgs(['--emit-requests', 'a.json', '--apply']),
+      /--apply is only valid with --from-file/,
+    )
+  })
+
+  it('defaults to a dry run and only writes when asked', () => {
+    assert.equal(parseLibraryAnalysisArgs(['--from-file', 'a.json']).apply, false)
+    assert.equal(parseLibraryAnalysisArgs(['--apply', '--from-file', 'a.json']).apply, true)
+  })
+
+  it('parses selection options and rejects a malformed limit', () => {
+    const args = parseLibraryAnalysisArgs([
+      '--emit-requests', 'a.json',
+      '--limit', '3',
+      '--source-key', 'document:doc-1',
+      '--source-key', 'document:doc-2',
+    ])
+
+    assert.equal(args.limit, 3)
+    assert.deepEqual(args.sourceKeys, ['document:doc-1', 'document:doc-2'])
+    assert.throws(() => parseLibraryAnalysisArgs(['--emit-requests', 'a.json', '--limit', '0']), /positive integer/)
+    assert.throws(() => parseLibraryAnalysisArgs(['--emit-requests']), /requires a file path/)
+  })
+
+  it('selects readable sources and honours the limit', () => {
+    const rows = [
+      inventoryRow({ sourceKey: 'document:doc-2' }),
+      inventoryRow({ sourceKey: 'document:doc-1' }),
+      inventoryRow({ sourceKey: 'document:doc-3', hasLocalFile: false }),
+    ]
+
+    const selected = selectAnalysisRows(rows, { limit: 1, sourceKeys: [] })
+    assert.deepEqual(selected.map(row => row.sourceKey), ['document:doc-1'])
+
+    const unreadable = selectAnalysisRows(rows, { limit: null, sourceKeys: [] })
+    assert.equal(unreadable.some(row => row.sourceKey === 'document:doc-3'), false)
+  })
+
+  it('fails loudly on a source key that does not exist', () => {
+    assert.throws(
+      () => selectAnalysisRows([inventoryRow()], { limit: null, sourceKeys: ['document:nope'] }),
+      /Unknown source keys: document:nope/,
+    )
+  })
+
+  it('carries the database link into the analysis request', () => {
+    const request = toAnalysisRequest(inventoryRow(), 'kildetekst')
+
+    assert.equal(request.sourceDocId, 'src-1')
+    assert.equal(request.documentId, 'doc-1')
+    assert.equal(request.contentHash, 'a'.repeat(64))
+    assert.equal(request.text, 'kildetekst')
+  })
+
+  it('requires a submission to name its model and its sources', () => {
+    assert.throws(() => parseSubmission('[]'), /must be a JSON object/)
+    assert.throws(() => parseSubmission('{"analyses":[]}'), /must name the aiModel/)
+    assert.throws(() => parseSubmission('{"aiModel":"claude-opus-5"}'), /analyses array/)
+    assert.throws(
+      () => parseSubmission('{"aiModel":"claude-opus-5","analyses":[{"card":{}}]}'),
+      /must name the sourceKey/,
+    )
+
+    const ok = parseSubmission('{"aiModel":"claude-opus-5","analyses":[{"sourceKey":"document:doc-1","card":{}}]}')
+    assert.equal(ok.aiModel, 'claude-opus-5')
+    assert.equal(ok.analyses.length, 1)
+  })
+
+  it('exposes the adapter commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+
+    assert.equal(packageJson.scripts['research:library:analyse:emit'], 'tsx scripts/run-library-analysis.ts --emit-requests')
+    assert.equal(packageJson.scripts['research:library:analyse:dry-run'], 'tsx scripts/run-library-analysis.ts --from-file')
+    assert.equal(packageJson.scripts['research:library:analyse:apply'], 'tsx scripts/run-library-analysis.ts --apply --from-file')
+  })
+})
+
+describe('library analysis writer role', () => {
+  const script = () => readFileSync(join(process.cwd(), 'scripts/bootstrap-library-analysis-writer.sh'), 'utf8')
+
+  it('refuses to change privileges without an explicit acknowledgement', () => {
+    assert.match(script(), /refusing to change grants without --apply/)
+  })
+
+  it('grants write access to the run table and nothing else', () => {
+    const grants = script().match(/^GRANT .*$/gm) ?? []
+    const writeGrants = grants.filter(line => /INSERT|UPDATE|DELETE|TRUNCATE|ALL/.test(line))
+
+    assert.equal(writeGrants.length, 1, `expected exactly one write grant, got ${JSON.stringify(writeGrants)}`)
+    assert.match(writeGrants[0]!, /GRANT SELECT, INSERT ON \$WRITABLE/)
+    assert.match(script(), /^WRITABLE='"LibraryAnalysisRun"'$/m)
+  })
+
+  it('never grants write access to review, citation or canonical tables', () => {
+    const readable = script().match(/^READABLE='(.*)'$/m)?.[1] ?? ''
+
+    // These carry human decisions, citation authority or canonical data. The
+    // analysis job reads them to resolve a source and must never write them.
+    for (const table of ['LibraryAnalysisRecord', 'SourceCitation', 'Document', 'SourceDoc']) {
+      assert.ok(readable.includes(`"${table}"`), `${table} should be readable`)
+    }
+    assert.doesNotMatch(script(), /GRANT[^;]*(INSERT|UPDATE|DELETE)[^;]*LibraryAnalysisRecord/)
+    assert.doesNotMatch(script(), /GRANT[^;]*(INSERT|UPDATE|DELETE)[^;]*SourceCitation/)
+  })
+
+  it('withdraws everything before granting, so removing a table takes effect', () => {
+    const body = script()
+    const firstGrant = body.search(/^GRANT /m)
+    const revokes = body.slice(0, firstGrant).match(/^REVOKE ALL /gm) ?? []
+
+    assert.ok(revokes.length >= 4, `expected a full reset before the allowlist, got ${revokes.length} revokes`)
+  })
+
+  it('keeps the password out of the process list', () => {
+    const body = script()
+
+    assert.match(body, /\\getenv writer_password LIBRARY_ANALYSIS_DB_PASSWORD/)
+    assert.doesNotMatch(body, /-v [a-z_]*password=/)
   })
 })

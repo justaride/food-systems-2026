@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto'
 import {
   appendFileSync,
   mkdirSync,
@@ -16,7 +17,11 @@ import {
   buildLibraryAnalysisSyncPlan,
   reconcileLibraryAnalysisUpsertPayload,
   toLibraryAnalysisCasWhere,
+  toLibraryAnalysisRunCreatePayload,
   toLibraryAnalysisUpsertPayload,
+  LIBRARY_ANALYSIS_TRIAGE_MODEL,
+  LIBRARY_ANALYSIS_TRIAGE_PROMPT_VERSION,
+  type LibraryAnalysisRunOptions,
   type LibraryAnalysisSyncClassification,
   type LibraryAnalysisSyncPlan,
 } from '../src/lib/library-analysis-processing'
@@ -107,9 +112,18 @@ async function main() {
     printSyncPlan(plan, effectivePlan, dryRun ? 'dry-run' : 'apply')
     if (dryRun) return
 
+    // One run identity per invocation, so every row this batch analysed can be
+    // read back together as a single run.
+    const runOptions: LibraryAnalysisRunOptions = {
+      runId: `${new Date().toISOString()}-${randomUUID().slice(0, 8)}`,
+      aiModel: LIBRARY_ANALYSIS_TRIAGE_MODEL,
+      promptVersion: LIBRARY_ANALYSIS_TRIAGE_PROMPT_VERSION,
+    }
+
     let applied: {
       created: number
       materiallyUpdated: number
+      runsAppended: number
       approvalsPreserved: number
       approvalsRevoked: number
       approvalRevocationBackups: string[]
@@ -137,16 +151,22 @@ async function main() {
         }
         let created = 0
         let materiallyUpdated = 0
+        let runsAppended = 0
         let approvalsPreserved = 0
         let approvalsRevoked = 0
         const approvalRevocationBackups: string[] = []
 
         for (const action of transactionPlan.actions) {
           if (action.classification === 'create' && action.row) {
+            const upsert = toLibraryAnalysisUpsertPayload(action.row)
+            const run = await transaction.libraryAnalysisRun.create({
+              data: toLibraryAnalysisRunCreatePayload(upsert.create, runOptions),
+            })
             await transaction.libraryAnalysisRecord.create({
-              data: toLibraryAnalysisUpsertPayload(action.row).create,
+              data: { ...upsert.create, currentRunId: run.id },
             })
             created += 1
+            runsAppended += 1
             continue
           }
           if (
@@ -159,9 +179,18 @@ async function main() {
           }
 
           const reconciliation = reconcileLibraryAnalysisUpsertPayload(action.row, action.existing)
+          // The analysis is recorded even when the record does not adopt it.
+          // A preserved external approval keeps its existing analysis, and
+          // before this table that freshly computed result was discarded.
+          const run = await transaction.libraryAnalysisRun.create({
+            data: toLibraryAnalysisRunCreatePayload(reconciliation.payload.create, runOptions),
+          })
+          runsAppended += 1
           const result = await transaction.libraryAnalysisRecord.updateMany({
             where: toLibraryAnalysisCasWhere(action.expectedSnapshot),
-            data: reconciliation.payload.update,
+            data: reconciliation.approvalAction === 'preserved'
+              ? reconciliation.payload.update
+              : { ...reconciliation.payload.update, currentRunId: run.id },
           })
           if (result.count !== 1) {
             throw new LibraryAnalysisSyncConflict(
@@ -186,6 +215,7 @@ async function main() {
         const result = {
           created,
           materiallyUpdated,
+          runsAppended,
           approvalsPreserved,
           approvalsRevoked,
           approvalRevocationBackups,
@@ -218,6 +248,7 @@ async function main() {
     )
     console.log(`Library analysis records created: ${applied.created}`)
     console.log(`Library analysis records materially updated: ${applied.materiallyUpdated}`)
+    console.log(`Library analysis runs appended: ${applied.runsAppended}`)
     console.log(`Library analysis material updates skipped by create-only mode: ${effectivePlan.skippedMaterialUpdates}`)
     console.log(`Library analysis no-op records skipped: ${plan.counts.noop}`)
     console.log(`Library analysis stale records retained: ${plan.counts.stale}`)

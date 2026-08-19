@@ -6,8 +6,10 @@ import {
   buildLibraryAnalysisSyncPlan,
   findStaleLibraryAnalysisRecordIdentities,
   partitionLibraryAnalysisRecordsForLiveLedger,
+  libraryAnalysisPayloadHash,
   reconcileLibraryAnalysisUpsertPayload,
   toLibraryAnalysisCasWhere,
+  toLibraryAnalysisRunCreatePayload,
   toLibraryAnalysisUpsertPayload,
   type ExistingLibraryAnalysisRecord,
 } from '../../src/lib/library-analysis-processing'
@@ -391,5 +393,97 @@ describe('library analysis processing', () => {
     assert.ok(reconciliation.reasons.includes('external_citation_policy_hash_mismatch'))
     assert.equal(reconciliation.payload.update.usageRule, 'safe_for_ai_context')
     assert.equal(reconciliation.payload.update.reviewStatus, 'queued')
+  })
+})
+
+const runOptions = {
+  runId: '2026-08-19T18:00:00.000Z-abcd1234',
+  aiModel: 'deterministic-triage',
+  promptVersion: 'triage-card-v1',
+}
+
+describe('library analysis run payloads', () => {
+  it('carries the analysis and the run identity', () => {
+    const payload = toLibraryAnalysisUpsertPayload(row).create
+    const run = toLibraryAnalysisRunCreatePayload(payload, runOptions)
+
+    assert.equal(run.sourceKind, payload.sourceKind)
+    assert.equal(run.sourceKey, payload.sourceKey)
+    assert.equal(run.title, payload.title)
+    assert.equal(run.contentHash, payload.contentHash)
+    assert.deepEqual(run.aiCard, payload.aiCard)
+    assert.deepEqual(run.keyFindings, payload.keyFindings)
+    assert.equal(run.runId, runOptions.runId)
+    assert.equal(run.aiModel, runOptions.aiModel)
+    assert.equal(run.promptVersion, runOptions.promptVersion)
+    assert.match(run.payloadHash, /^[0-9a-f]{64}$/)
+  })
+
+  it('never carries review or publication authority', () => {
+    const run = toLibraryAnalysisRunCreatePayload(toLibraryAnalysisUpsertPayload(row).create, runOptions)
+
+    for (const authorityField of ['usageRule', 'reviewStatus', 'reviewer', 'reviewedAt', 'citationReadiness']) {
+      assert.equal(
+        Object.hasOwn(run, authorityField),
+        false,
+        `a run row must not carry ${authorityField}; authority lives on LibraryAnalysisRecord`,
+      )
+    }
+  })
+
+  it('gives two runs of the same analysis the same payload hash', () => {
+    const payload = toLibraryAnalysisUpsertPayload(row, {
+      processedAt: new Date('2026-08-19T09:00:00.000Z'),
+    }).create
+    const laterPayload = toLibraryAnalysisUpsertPayload(row, {
+      processedAt: new Date('2026-08-19T21:00:00.000Z'),
+    }).create
+
+    const first = toLibraryAnalysisRunCreatePayload(payload, runOptions)
+    const second = toLibraryAnalysisRunCreatePayload(laterPayload, {
+      ...runOptions,
+      runId: '2026-08-19T21:00:00.000Z-efgh5678',
+      aiModel: 'claude-opus-5',
+    })
+
+    assert.notEqual(first.runId, second.runId)
+    assert.equal(
+      first.payloadHash,
+      second.payloadHash,
+      'processing time and model must not change the content address of an identical analysis',
+    )
+  })
+
+  it('changes the payload hash when the analysis changes', () => {
+    const base = toLibraryAnalysisUpsertPayload(row).create
+    const changed = toLibraryAnalysisUpsertPayload({ ...row, wordCount: 9999 }).create
+
+    assert.notEqual(libraryAnalysisPayloadHash(base), libraryAnalysisPayloadHash(changed))
+  })
+
+  it('ignores object key order when hashing', () => {
+    const base = toLibraryAnalysisUpsertPayload(row).create
+    const reordered = {
+      ...base,
+      aiCard: Object.fromEntries(
+        Object.entries(base.aiCard as Record<string, unknown>).reverse(),
+      ) as typeof base.aiCard,
+    }
+
+    assert.equal(libraryAnalysisPayloadHash(base), libraryAnalysisPayloadHash(reordered))
+  })
+
+  it('records the fresh analysis even when a human approval is preserved', () => {
+    const reconciliation = reconcileLibraryAnalysisUpsertPayload(row, humanExternalApproval())
+    assert.equal(reconciliation.approvalAction, 'preserved')
+
+    // The record deliberately keeps the approved analysis, so the update is
+    // narrow. The run row still holds the analysis this pass produced, which
+    // was discarded before the run table existed.
+    assert.equal(Object.hasOwn(reconciliation.payload.update, 'aiCard'), false)
+
+    const run = toLibraryAnalysisRunCreatePayload(reconciliation.payload.create, runOptions)
+    assert.deepEqual(run.aiCard, reconciliation.payload.create.aiCard)
+    assert.match(run.payloadHash, /^[0-9a-f]{64}$/)
   })
 })

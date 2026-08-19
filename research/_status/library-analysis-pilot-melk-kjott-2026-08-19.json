@@ -1,0 +1,237 @@
+{
+  "aiModel": "claude-opus-5",
+  "promptVersion": "library-analysis-v1",
+  "runId": "pilot-melk-kjott-2026-08-19",
+  "analyses": [
+    {
+      "sourceKey": "document:doc-lca-mat",
+      "card": {
+        "shortSummary": "Notatet oppsummerer den første norske LCA-databasen for matvarer (NIBIO/Nofima, 2025) med klimatall for 120 norske produkter, inkludert melk og de fire viktigste kjøttslagene. Kjernepoenget for melk/kjøtt er at norsk melk ligger under EU-snittet mens norsk storfekjøtt ligger over, begrunnet med lang innefôringssesong.",
+        "keyFindings": [
+          "Norsk kumelk har lavere klimaavtrykk enn EU-snittet",
+          "Norsk storfekjøtt har høyere avtrykk enn EU-snittet, tilskrevet lang vintersesong",
+          "Databasen dekker 120 produkter fra primærproduksjon til butikkhylle og er åpent tilgjengelig"
+        ],
+        "claimCandidates": [
+          {
+            "text": "Norsk kumelk er oppgitt til 1,1 kg CO2e per liter, mot et EU-snitt på 1,4",
+            "evidence": "Norsk kumelk: 1,1 kg CO2e/liter (lavere enn EU-snitt 1,4)",
+            "sourcePath": "research/bibliotek/sirkularitet/lca-norsk-mat-database-2025.md"
+          },
+          {
+            "text": "Norsk storfekjøtt er oppgitt til 22 kg CO2e per kg, mot et EU-snitt på 18, begrunnet med lang vintersesong",
+            "evidence": "Norsk storfekjøtt: 22 kg CO2e/kg (høyere enn EU-snitt 18, pga. lang vintersesong)",
+            "sourcePath": "research/bibliotek/sirkularitet/lca-norsk-mat-database-2025.md"
+          },
+          {
+            "text": "Norsk lam er oppgitt til 28 kg CO2e per kg, men med lavere arealbruk-score fordi produksjonen bruker utmark",
+            "evidence": "Norsk lam: 28 kg CO2e/kg (men lavere arealbruk-score pga. utmark)",
+            "sourcePath": "research/bibliotek/sirkularitet/lca-norsk-mat-database-2025.md"
+          }
+        ],
+        "projectImplication": "Gir et norsk referansegrunnlag for melk og kjøtt som kan kobles direkte til TINE og Nortura i selskapsdatabasen, i stedet for internasjonale gjennomsnittstall.",
+        "gaps": [
+          {
+            "kind": "unclear_source",
+            "note": "Dokumentet er et sammendrag, ikke primærstudien. DOI-en er ufullstendig (mangler artikkelidentifikator), så tallene må verifiseres mot den publiserte artikkelen før sitering."
+          }
+        ],
+        "citationStatus": "not_citation_checked",
+        "recommendedUsageRule": "claim_candidate_review",
+        "status": "ai_draft",
+        "controlLinks": [
+          {
+            "label": "Kildenotat i biblioteket",
+            "href": "research/bibliotek/sirkularitet/lca-norsk-mat-database-2025.md"
+          }
+        ],
+        "riskFlags": [
+          "sammendrag_ikke_primaerkilde",
+          "ufullstendig_doi"
+        ]
+      }
+    },
+    {
+      "sourceKey": "document:doc-nordic-diets",
+      "card": {
+        "shortSummary": "Nordisk ministerråds scenariorapport (TemaNord 2017:566) modellerer to veier til et i hovedsak nordisk selvforsynt matsystem i 2030. Begge forutsetter dramatisk redusert kjøttforbruk, mens melk reduseres mindre og drøvtyggere beholder en begrunnet rolle.",
+        "keyFindings": [
+          "Scenariene krever 81–90 prosent reduksjon i kjøttforbruk",
+          "Melk reduseres langt mindre enn kjøtt, og er om lag uendret i effektivitetsscenariet",
+          "Drøvtyggere beholdes bevisst fordi de utnytter ressurser mennesker ikke kan spise og holder semi-naturlige beiter i hevd"
+        ],
+        "claimCandidates": [
+          {
+            "text": "Scenariene forutsetter en reduksjon i kjøttforbruk på 81 til 90 prosent",
+            "evidence": "En reduksjon på 81–90 % i kjøttforbruk er nødvendig; tilsvarende økning i korn, belgvekster og vegetabilsk olje.",
+            "sourcePath": "research/bibliotek/nordisk/future-nordic-diets-tn2017-566.md"
+          },
+          {
+            "text": "Melkeforbruket reduseres til litt under halvparten i sufficiency-scenariet, men er om lag uendret i efficiency-scenariet",
+            "evidence": "Melk: litt under halvparten av dagens forbruk (SY) eller omtrent likt (EY).",
+            "sourcePath": "research/bibliotek/nordisk/future-nordic-diets-tn2017-566.md"
+          },
+          {
+            "text": "Rapporten begrunner fortsatt drøvtyggerhold med at dyrene omdanner ressurser mennesker ikke kan utnytte og opprettholder biologisk mangfold i semi-naturlige beiter",
+            "evidence": "Storfe/sau spiller likevel en viktig rolle: konverterer ressurser mennesker ikke kan utnytte, og ivaretar biologisk mangfold i semi-naturlige beiter.",
+            "sourcePath": "research/bibliotek/nordisk/future-nordic-diets-tn2017-566.md"
+          }
+        ],
+        "projectImplication": "Etablerer at kjøttreduksjon og melkereduksjon ikke er samme størrelsesorden i det nordiske faggrunnlaget. Det er direkte relevant for hvordan prosjektet omtaler TINE og Nortura ulikt i omstillingsanalysen.",
+        "gaps": [
+          {
+            "kind": "none",
+            "note": "Rapporten er fra 2017 og ligger foran NNR2023 og Matsystemutvalget; tallene bør tidsstemples når de brukes."
+          }
+        ],
+        "citationStatus": "citable_internal",
+        "recommendedUsageRule": "claim_candidate_review",
+        "status": "ai_draft",
+        "controlLinks": [
+          {
+            "label": "Kildenotat i biblioteket",
+            "href": "research/bibliotek/nordisk/future-nordic-diets-tn2017-566.md"
+          }
+        ],
+        "riskFlags": [
+          "publisert_2017_kan_vaere_utdatert"
+        ]
+      }
+    },
+    {
+      "sourceKey": "document:doc-plantemelk",
+      "card": {
+        "shortSummary": "Syntesenotat om den nordiske plantemelkindustrien. Notatet er eksplisitt om at harmoniserte volum- og markedsandelstall ligger bak betalingsmur, og at egne tabeller er anslag. De godt dokumenterte delene er den regulatoriske konflikten om melkebetegnelsen og salgsutviklingen i Danmark.",
+        "keyFindings": [
+          "EU-dommen C-422/16 reserverer melkebetegnelser for animalske produkter og styrer merking også i Norden",
+          "Dansk salg viser plantemelk opp og animalsk melk ned i samme periode",
+          "Markedsandelstabellen er forfatterens egen syntese, ikke rapporterte tall"
+        ],
+        "claimCandidates": [
+          {
+            "text": "EU-domstolen slo i 2017 fast at melkebetegnelser som milk, cream, butter, cheese og yoghurt i utgangspunktet er forbeholdt produkter av animalsk melk",
+            "evidence": "EU-domstolen slo i 2017 fast at betegnelsen “milk” og relaterte betegnelser som “cream”, “butter”, “cheese” og “yoghurt” i utgangspunktet er forbeholdt produkter av animalsk melk, med mindre plantenavn finnes på en egen unntaksliste.",
+            "sourcePath": "research/bibliotek/forskningsrunde-2026-04-20-r2/p21-plantemelk-industri-norden-2026-04-20.md"
+          },
+          {
+            "text": "I Danmark økte salget av plantemelk 17 prosent fra 2020 til 2022, mens salget av animalsk melk falt 10 prosent i samme periode",
+            "evidence": "Danmark: NielsenIQ/GFI-data viser at salget av plantemelk (i kroner) økte med 17% mellom 2020 og 2022; samtidig falt salget av animalsk melk med 10% i samme periode.",
+            "sourcePath": "research/bibliotek/forskningsrunde-2026-04-20-r2/p21-plantemelk-industri-norden-2026-04-20.md"
+          }
+        ],
+        "projectImplication": "Regelverket for melkebetegnelser er en konkret strukturell fordel for meierisektoren som prosjektet kan dokumentere uten å bruke de usikre markedsandelstallene.",
+        "gaps": [
+          {
+            "kind": "unclear_source",
+            "note": "Markedsandelstabellen er en syntese, ikke rapporterte tall. Notatet sier selv at den ikke bygger på eksplisitte prosenttall fra en enkelt kilde, og volumanslagene for Norge, Sverige og Finland er egne konverteringer."
+          }
+        ],
+        "citationStatus": "not_citation_checked",
+        "recommendedUsageRule": "claim_candidate_review",
+        "status": "ai_draft",
+        "controlLinks": [
+          {
+            "label": "Kildenotat i biblioteket",
+            "href": "research/bibliotek/forskningsrunde-2026-04-20-r2/p21-plantemelk-industri-norden-2026-04-20.md"
+          }
+        ],
+        "riskFlags": [
+          "markedsandeler_er_anslag",
+          "volumtall_er_egen_konvertering",
+          "ki_generert_syntese"
+        ]
+      }
+    },
+    {
+      "sourceKey": "document:doc-massebalanse",
+      "card": {
+        "shortSummary": "Notatet er en metodeoppskrift, ikke et datasett. Det slår fast at det ikke finnes en ferdig nordisk massebalanse for matsystemet, og beskriver hvordan en kan bygges av FAO-tall kombinert med nasjonale matsvinnkartlegginger. Den ene konkrete norske fordelingen er matsvinn per ledd.",
+        "keyFindings": [
+          "Det finnes ingen ferdig nordisk massebalanse i de oppgitte kildene",
+          "Norsk matsvinn er fordelt per ledd med husholdning som klart største bidragsyter",
+          "Kategoriene korn, kjøtt, meieri, sjømat og frukt/grønt må mappes manuelt fra FAO-grupper"
+        ],
+        "claimCandidates": [
+          {
+            "text": "Norsk matsvinn var om lag 417 000 tonn i 2019, fordelt med 55 prosent på husholdning, 22 prosent industri, 15 prosent butikk, 7 prosent servering og 1 prosent grossist",
+            "evidence": "Nasjonale tall, f.eks. Norge: Matvett/SSB ~417 000 tonn matsvinn 2019 fordelt omtrent: industri 22%, grossist 1%, butikk 15%, servering 7%, husholdning 55%.",
+            "sourcePath": "research/bibliotek/forskningsrunde-2026-04-20-r2/p44-nordisk-massebalanse-2026-04-20.md"
+          },
+          {
+            "text": "Meierikategorien i en nordisk massebalanse må bygges fra FAO-gruppen Milk excluding butter, eventuelt supplert med ostekvivalenter",
+            "evidence": "Meieri: “Milk, excluding butter” (som volum), evt. pluss ost ekvivalenter.",
+            "sourcePath": "research/bibliotek/forskningsrunde-2026-04-20-r2/p44-nordisk-massebalanse-2026-04-20.md"
+          }
+        ],
+        "projectImplication": "Bekrefter at prosjektet må bygge massebalansen selv. Det gjør metodevalgene til en del av leveransen, ikke noe som kan lånes fra en eksisterende kilde.",
+        "gaps": [
+          {
+            "kind": "type_c_not_desk_research",
+            "note": "Notatet gir en oppskrift, ikke tall. Selve massebalansen krever eget datauttrekk fra FAOSTAT og nasjonale statistikkbyråer."
+          }
+        ],
+        "citationStatus": "not_citation_checked",
+        "recommendedUsageRule": "internal_background",
+        "status": "ai_draft",
+        "controlLinks": [
+          {
+            "label": "Kildenotat i biblioteket",
+            "href": "research/bibliotek/forskningsrunde-2026-04-20-r2/p44-nordisk-massebalanse-2026-04-20.md"
+          }
+        ],
+        "riskFlags": [
+          "metodenotat_ikke_datasett",
+          "ki_generert_syntese"
+        ]
+      }
+    },
+    {
+      "sourceKey": "document:doc-biomassehierarki",
+      "card": {
+        "shortSummary": "Notatet måler nordisk praksis mot WUR-biomassehierarkiet. For melk og kjøtt er det viktigste funnet at meierisidestrømmene ligger tett på hierarkiets ideal, mens husholdningsmatavfall i praksis går til energi. TINE-tallene for myse er de mest konkrete i notatet.",
+        "keyFindings": [
+          "TINE håndterer et stort mysevolum, og hoveddelen går til proteinpulver framfor energi",
+          "Meieri- og sjømatsidestrømmer ligger nær biomassehierarkiets ideal, mens slakteri- og kornstrømmer ligger lenger unna",
+          "Husholdningsmatavfall går praktisk talt ikke til fôr på grunn av hygiene- og fôrregelverk"
+        ],
+        "claimCandidates": [
+          {
+            "text": "TINE produserer om lag 640 millioner liter myse i året som biprodukt fra osteproduksjon",
+            "evidence": "TINE produserer årlig ca. 640 millioner liter myse som biprodukt fra ost.",
+            "sourcePath": "research/bibliotek/forskningsrunde-2026-04-20-r2/p03-biomassehierarki-wur-norden-2026-04-20.md"
+          },
+          {
+            "text": "Om lag 540 av de 640 millioner literne myse går til myseprotein og permeatpulver, mens resten går til brunost og prim",
+            "evidence": "Av dette går ca. 540 millioner liter til proteinpulver (myseprotein/WPC) og permeatpulver, mens resten brukes til brunost/prim.",
+            "sourcePath": "research/bibliotek/forskningsrunde-2026-04-20-r2/p03-biomassehierarki-wur-norden-2026-04-20.md"
+          },
+          {
+            "text": "Matavfall fra husholdninger går praktisk talt ikke til fôr, fordi hygiene- og fôrregelverket regner det som risikofylt",
+            "evidence": "Fôr: Praktisk talt 0%, pga. hygiene- og fôrregelverk (matavfall fra husholdninger regnes som risikofylt og går ikke til fôr).",
+            "sourcePath": "research/bibliotek/forskningsrunde-2026-04-20-r2/p03-biomassehierarki-wur-norden-2026-04-20.md"
+          }
+        ],
+        "projectImplication": "Gir et konkret, tallfestet eksempel på at meierisektoren allerede utnytter sidestrømmene sine høyt i hierarkiet. Det nyanserer en analyse som ellers kunne behandlet all animalsk produksjon likt.",
+        "gaps": [
+          {
+            "kind": "unclear_source",
+            "note": "Notatet sier selv at prosentfordelingene ofte er kvalitative anslag der offisiell fordeling ikke er rapportert. Slakteristrømmene er dårligere dokumentert enn meieristrømmene."
+          }
+        ],
+        "citationStatus": "not_citation_checked",
+        "recommendedUsageRule": "claim_candidate_review",
+        "status": "ai_draft",
+        "controlLinks": [
+          {
+            "label": "Kildenotat i biblioteket",
+            "href": "research/bibliotek/forskningsrunde-2026-04-20-r2/p03-biomassehierarki-wur-norden-2026-04-20.md"
+          }
+        ],
+        "riskFlags": [
+          "prosentfordelinger_er_anslag",
+          "ki_generert_syntese"
+        ]
+      }
+    }
+  ]
+}
