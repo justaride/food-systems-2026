@@ -407,7 +407,7 @@ export function buildCandidateControlSnapshot(
     throwSnapshotContract(firstUnattributableGap);
   }
   const machineReduction = reduceCandidateRuns(input.runs);
-  if (referenceGaps.length > 0) {
+  if (queryErrors.length > 0) {
     return buildDegradedCandidateControlSnapshot(
       input,
       queryErrors,
@@ -773,7 +773,7 @@ function buildDegradedCandidateControlSnapshot(
       unclassifiedHumanSignals: 0,
     },
     warnings: sortedUnique([
-      "degraded_snapshot:partial_query_graph_invalid",
+      "degraded_snapshot:query_errors",
       ...machineWarnings,
     ]),
   };

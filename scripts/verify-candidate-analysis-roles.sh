@@ -144,14 +144,48 @@ WITH role_row AS (
   SELECT relname FROM (VALUES ('Document'), ('SourceDoc'), ('LibraryAnalysisRecord')) canonical(relname)
   WHERE :'role_mode' = 'worker'
 ), expected_insert(relname) AS (
-  SELECT relname FROM (VALUES
-    ('CandidateAnalysisRun'), ('CandidateAnalysisRunInput'),
-    ('CandidateAnalysisRunEvent'), ('CandidateAnalysisArtifact'),
-    ('CandidateAssertion'), ('CandidateEvidenceLink'), ('CandidateDependency')
-  ) worker(relname)
-  WHERE :'role_mode' = 'worker'
+  SELECT NULL::text WHERE false
+), expected_writer_routine(proname, argument_types) AS (
+  SELECT 'candidate_worker_append', 'text, jsonb' WHERE :'role_mode' = 'worker'
   UNION ALL
-  SELECT 'CandidateReconciliationSnapshot' WHERE :'role_mode' = 'reconciler'
+  SELECT 'candidate_reconciler_append', 'jsonb' WHERE :'role_mode' = 'reconciler'
+), expected_critical_trigger(relname, trigger_name) AS (
+  VALUES
+    ('CandidateContentUnit', 'CandidateContentUnit_reject_update_delete'),
+    ('CandidateContentUnit', 'CandidateContentUnit_reject_truncate'),
+    ('CandidateAnalysisRun', 'CandidateAnalysisRun_reject_invalid_scope'),
+    ('CandidateAnalysisRun', 'CandidateAnalysisRun_reject_update_delete'),
+    ('CandidateAnalysisRun', 'CandidateAnalysisRun_reject_truncate'),
+    ('CandidateAnalysisRunInput', 'CandidateAnalysisRunInput_reject_update_delete'),
+    ('CandidateAnalysisRunInput', 'CandidateAnalysisRunInput_reject_truncate'),
+    ('CandidateAnalysisRunEvent', 'CandidateAnalysisRunEvent_reject_invalid_machine_payload'),
+    ('CandidateAnalysisRunEvent', 'CandidateAnalysisRunEvent_reject_update_delete'),
+    ('CandidateAnalysisRunEvent', 'CandidateAnalysisRunEvent_reject_truncate'),
+    ('CandidateAnalysisArtifact', 'CandidateAnalysisArtifact_reject_invalid_machine_payload'),
+    ('CandidateAnalysisArtifact', 'CandidateAnalysisArtifact_reject_update_delete'),
+    ('CandidateAnalysisArtifact', 'CandidateAnalysisArtifact_reject_truncate'),
+    ('CandidateAssertion', 'CandidateAssertion_reject_invalid_machine_payload'),
+    ('CandidateAssertion', 'CandidateAssertion_reject_update_delete'),
+    ('CandidateAssertion', 'CandidateAssertion_reject_truncate'),
+    ('CandidateEvidenceLink', 'CandidateEvidenceLink_reject_update_delete'),
+    ('CandidateEvidenceLink', 'CandidateEvidenceLink_reject_truncate'),
+    ('CandidateDependency', 'CandidateDependency_reject_update_delete'),
+    ('CandidateDependency', 'CandidateDependency_reject_truncate'),
+    ('CandidateReconciliationSnapshot', 'CandidateReconciliationSnapshot_reject_invalid_machine_payload'),
+    ('CandidateReconciliationSnapshot', 'CandidateReconciliationSnapshot_reject_update_delete'),
+    ('CandidateReconciliationSnapshot', 'CandidateReconciliationSnapshot_reject_truncate'),
+    ('CandidateHumanReviewDecision', 'CandidateHumanReviewDecision_reject_update_delete'),
+    ('CandidateHumanReviewDecision', 'CandidateHumanReviewDecision_reject_truncate'),
+    ('CandidatePromotionDecision', 'CandidatePromotionDecision_reject_update_delete'),
+    ('CandidatePromotionDecision', 'CandidatePromotionDecision_reject_truncate')
+), actual_critical_trigger AS (
+  SELECT class.relname, trigger.tgname AS trigger_name,
+    trigger.tgenabled, trigger.tgisinternal
+  FROM pg_trigger trigger
+  JOIN pg_class class ON class.oid = trigger.tgrelid
+  JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+  WHERE namespace.nspname = :'target_schema'
+    AND class.relname IN (SELECT relname FROM expected_critical_trigger)
 ), user_schema AS (
   SELECT oid AS schema_oid, nspname
   FROM pg_namespace
@@ -171,7 +205,9 @@ WITH role_row AS (
   WHERE class.relkind = 'S'
 ), user_routines AS (
   SELECT procedure.oid AS routine_oid, procedure.proowner, procedure.prosecdef,
-    procedure.proacl, namespace.nspname
+    procedure.proacl, procedure.proname,
+    oidvectortypes(procedure.proargtypes) AS argument_types,
+    procedure.proconfig, namespace.nspname
   FROM pg_proc procedure
   JOIN user_schema namespace ON namespace.schema_oid = procedure.pronamespace
 ), user_types AS (
@@ -340,19 +376,27 @@ WITH role_row AS (
      OR has_sequence_privilege(current_user, sequence_oid, 'USAGE')
      OR has_sequence_privilege(current_user, sequence_oid, 'UPDATE')
   UNION ALL
-  SELECT format('direct routine privilege is granted in schema %I', nspname)
-  FROM user_routines routine
-  WHERE EXISTS (
-    SELECT 1
-    FROM aclexplode(COALESCE(routine.proacl, acldefault('f', routine.proowner))) privilege
-    WHERE privilege.grantee = (SELECT oid FROM role_row)
+  SELECT format('required audited writer routine is missing or changed: %s(%s)', proname, argument_types)
+  FROM expected_writer_routine expected
+  WHERE NOT EXISTS (
+    SELECT 1 FROM user_routines routine
+    WHERE routine.nspname = :'target_schema'
+      AND routine.proname = expected.proname
+      AND routine.argument_types = expected.argument_types
+      AND routine.prosecdef
+      AND routine.proconfig = ARRAY['search_path=pg_catalog']
+      AND has_function_privilege(current_user, routine.routine_oid, 'EXECUTE')
   )
   UNION ALL
-  SELECT 'an executable SECURITY DEFINER routine can bypass candidate table ACLs'
-  WHERE EXISTS (
-    SELECT 1 FROM user_routines
-    WHERE prosecdef AND has_function_privilege(current_user, routine_oid, 'EXECUTE')
-  )
+  SELECT format('unexpected executable routine is effective: %I.%I(%s)', nspname, proname, argument_types)
+  FROM user_routines routine
+  WHERE has_function_privilege(current_user, routine_oid, 'EXECUTE')
+    AND NOT (
+      nspname = :'target_schema'
+      AND (proname, argument_types) IN (
+        SELECT proname, argument_types FROM expected_writer_routine
+      )
+    )
   UNION ALL
   SELECT format('object owner %I retains default PUBLIC routine EXECUTE', owner.rolname)
   FROM user_object_owners object_owner
@@ -417,6 +461,22 @@ WITH role_row AS (
   UNION ALL
   SELECT format('unexpected session application_name: %s', current_setting('application_name'))
   WHERE current_setting('application_name') <> :'expected_app_name'
+  UNION ALL
+  SELECT format('candidate critical trigger drift: %I.%I', expected.relname, expected.trigger_name)
+  FROM expected_critical_trigger expected
+  LEFT JOIN actual_critical_trigger actual USING (relname, trigger_name)
+  WHERE actual.trigger_name IS NULL OR actual.tgenabled <> 'A'
+  UNION ALL
+  SELECT format('candidate critical trigger drift: unexpected %I.%I', actual.relname, actual.trigger_name)
+  FROM actual_critical_trigger actual
+  LEFT JOIN expected_critical_trigger expected USING (relname, trigger_name)
+  WHERE NOT actual.tgisinternal AND expected.trigger_name IS NULL
+  UNION ALL
+  SELECT format('other database CONNECT isolation prerequisite failed: %I', database.datname)
+  FROM pg_database database
+  WHERE database.datallowconn
+    AND database.datname <> current_database()
+    AND has_database_privilege(current_user, database.oid, 'CONNECT')
 )
 SELECT issue FROM checks ORDER BY issue;
 SQL
@@ -449,19 +509,19 @@ expect_denied() {
 # All probes roll back. DEFAULT VALUES reaches PostgreSQL privilege checking
 # before any table-specific NOT NULL or foreign-key constraint can matter.
 expect_denied 'canonical Document INSERT' \
-  "BEGIN; INSERT INTO $CANDIDATE_DB_SCHEMA.\"Document\" DEFAULT VALUES; ROLLBACK"
+  "BEGIN; INSERT INTO \"$CANDIDATE_DB_SCHEMA\".\"Document\" DEFAULT VALUES; ROLLBACK"
 expect_denied 'canonical LibraryAnalysisRecord INSERT' \
-  "BEGIN; INSERT INTO $CANDIDATE_DB_SCHEMA.\"LibraryAnalysisRecord\" DEFAULT VALUES; ROLLBACK"
+  "BEGIN; INSERT INTO \"$CANDIDATE_DB_SCHEMA\".\"LibraryAnalysisRecord\" DEFAULT VALUES; ROLLBACK"
 expect_denied 'CandidateHumanReviewDecision INSERT' \
-  "BEGIN; INSERT INTO $CANDIDATE_DB_SCHEMA.\"CandidateHumanReviewDecision\" DEFAULT VALUES; ROLLBACK"
+  "BEGIN; INSERT INTO \"$CANDIDATE_DB_SCHEMA\".\"CandidateHumanReviewDecision\" DEFAULT VALUES; ROLLBACK"
 expect_denied 'CandidatePromotionDecision INSERT' \
-  "BEGIN; INSERT INTO $CANDIDATE_DB_SCHEMA.\"CandidatePromotionDecision\" DEFAULT VALUES; ROLLBACK"
+  "BEGIN; INSERT INTO \"$CANDIDATE_DB_SCHEMA\".\"CandidatePromotionDecision\" DEFAULT VALUES; ROLLBACK"
 expect_denied 'candidate UPDATE' \
-  "BEGIN; UPDATE $CANDIDATE_DB_SCHEMA.\"CandidateAnalysisRun\" SET \"id\" = \"id\" WHERE false; ROLLBACK"
+  "BEGIN; UPDATE \"$CANDIDATE_DB_SCHEMA\".\"CandidateAnalysisRun\" SET \"id\" = \"id\" WHERE false; ROLLBACK"
 expect_denied 'candidate DELETE' \
-  "BEGIN; DELETE FROM $CANDIDATE_DB_SCHEMA.\"CandidateAnalysisRun\" WHERE false; ROLLBACK"
+  "BEGIN; DELETE FROM \"$CANDIDATE_DB_SCHEMA\".\"CandidateAnalysisRun\" WHERE false; ROLLBACK"
 expect_denied 'schema CREATE' \
-  "BEGIN; CREATE TABLE $CANDIDATE_DB_SCHEMA.candidate_role_probe (id integer); ROLLBACK"
+  "BEGIN; CREATE TABLE \"$CANDIDATE_DB_SCHEMA\".candidate_role_probe (id integer); ROLLBACK"
 expect_denied 'database TEMP' \
   'BEGIN; CREATE TEMP TABLE candidate_role_temp_probe (id integer); ROLLBACK'
 expect_denied \

@@ -105,17 +105,21 @@ fail_safe_active=0
 fail_safe_exit() {
   exit_status=$1
   trap - EXIT HUP INT TERM
-  cleanup_connection
   if [ "$fail_safe_active" -eq 1 ]; then
     if ! DATABASE_ADMIN_URL=$ADMIN_DATABASE_URL \
       CANDIDATE_WORKER_DB_ROLE=$CANDIDATE_WORKER_DB_ROLE \
       CANDIDATE_RECONCILER_DB_ROLE=$CANDIDATE_RECONCILER_DB_ROLE \
       CANDIDATE_DB_SCHEMA=$CANDIDATE_DB_SCHEMA \
+      CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER=${CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER:-} \
+      CANDIDATE_EXPECTED_TARGET_DATABASE_HEX=${CANDIDATE_EXPECTED_TARGET_DATABASE_HEX:-} \
+      CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX=${CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX:-} \
+      CANDIDATE_EXPECTED_TARGET_SERVER_PORT=${CANDIDATE_EXPECTED_TARGET_SERVER_PORT:-} \
       "$SCRIPT_DIR/disable-candidate-analysis-writes.sh" --apply; then
-      printf '%s\n' '[candidate-enable] ERROR: fail-safe disable operation failed' >&2
+      printf '%s\n' '[candidate-enable] ERROR: unresolved_active_security_incident: target-bound fail-safe disable was not proven' >&2
     fi
     exit_status=1
   fi
+  cleanup_connection
   unset ADMIN_DATABASE_URL WORKER_DATABASE_URL RECONCILER_DATABASE_URL
   exit "$exit_status"
 }
@@ -203,7 +207,7 @@ END
 $capability$;
 SQL
 
-PGPASSFILE=$ADMIN_PGPASSFILE \
+if ! PGPASSFILE=$ADMIN_PGPASSFILE \
 psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 -f - <<'SQL'
 \getenv worker_role CANDIDATE_WORKER_DB_ROLE
 \getenv reconciler_role CANDIDATE_RECONCILER_DB_ROLE
@@ -216,6 +220,8 @@ psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 -f - <<'SQL'
 \getenv expected_server_port CANDIDATE_EXPECTED_TARGET_SERVER_PORT
 
 BEGIN;
+SET LOCAL lock_timeout TO '2s';
+SET LOCAL statement_timeout TO '15s';
 
 -- These catalogs contain every mutable fact checked below. PostgreSQL holds
 -- the locks to transaction end, so ALTER ROLE, GRANT/REVOKE, and owner changes
@@ -232,7 +238,8 @@ LOCK TABLE
   pg_catalog.pg_default_acl,
   pg_catalog.pg_db_role_setting,
   pg_catalog.pg_parameter_acl,
-  pg_catalog.pg_shdepend
+  pg_catalog.pg_shdepend,
+  pg_catalog.pg_trigger
 IN SHARE ROW EXCLUSIVE MODE;
 
 SELECT set_config('foodsystems.candidate_worker_role', :'worker_role', true);
@@ -255,6 +262,7 @@ DECLARE
   role_mode text;
   expected_app_name text;
   contract_issues text;
+  recovery_issue text;
 BEGIN
   IF session_user <> current_user THEN
     RAISE EXCEPTION 'administrator session must not use SET ROLE';
@@ -305,6 +313,17 @@ BEGIN
   IF to_regnamespace(target_schema) IS NULL THEN
     RAISE EXCEPTION 'target schema does not exist';
   END IF;
+  recovery_issue := public.candidate_critical_trigger_drift(target_schema);
+  IF recovery_issue IS NOT NULL THEN
+    RAISE EXCEPTION 'candidate critical trigger drift: %', recovery_issue;
+  END IF;
+  recovery_issue := public.candidate_other_database_connect_issue(
+    target_worker_role,
+    target_reconciler_role
+  );
+  IF recovery_issue IS NOT NULL THEN
+    RAISE EXCEPTION 'other database CONNECT isolation prerequisite failed: %', recovery_issue;
+  END IF;
 
   FOR target_role, role_mode, expected_app_name IN
     SELECT * FROM (VALUES
@@ -330,14 +349,11 @@ BEGIN
       ) canonical(relname)
       WHERE role_mode = 'worker'
     ), expected_insert(relname) AS (
-      SELECT relname FROM (VALUES
-        ('CandidateAnalysisRun'), ('CandidateAnalysisRunInput'),
-        ('CandidateAnalysisRunEvent'), ('CandidateAnalysisArtifact'),
-        ('CandidateAssertion'), ('CandidateEvidenceLink'), ('CandidateDependency')
-      ) worker(relname)
-      WHERE role_mode = 'worker'
+      SELECT NULL::text WHERE false
+    ), expected_writer_routine(proname, argument_types) AS (
+      SELECT 'candidate_worker_append', 'text, jsonb' WHERE role_mode = 'worker'
       UNION ALL
-      SELECT 'CandidateReconciliationSnapshot' WHERE role_mode = 'reconciler'
+      SELECT 'candidate_reconciler_append', 'jsonb' WHERE role_mode = 'reconciler'
     ), user_schema AS (
       SELECT oid AS schema_oid, nspname, nspowner
       FROM pg_namespace
@@ -358,7 +374,9 @@ BEGIN
       WHERE class.relkind = 'S'
     ), user_routines AS (
       SELECT procedure.oid AS routine_oid, procedure.proowner,
-        procedure.prosecdef, procedure.proacl, namespace.nspname
+        procedure.prosecdef, procedure.proacl, procedure.proname,
+        oidvectortypes(procedure.proargtypes) AS argument_types,
+        procedure.proconfig, namespace.nspname
       FROM pg_proc procedure
       JOIN user_schema namespace ON namespace.schema_oid = procedure.pronamespace
     ), user_types AS (
@@ -501,19 +519,27 @@ BEGIN
          OR has_sequence_privilege(target_role, sequence_oid, 'USAGE')
          OR has_sequence_privilege(target_role, sequence_oid, 'UPDATE')
       UNION ALL
-      SELECT format('direct routine privilege is granted in schema %I', nspname)
-      FROM user_routines routine
-      WHERE EXISTS (
-        SELECT 1
-        FROM aclexplode(COALESCE(routine.proacl, acldefault('f', routine.proowner))) privilege
-        WHERE privilege.grantee = (SELECT oid FROM role_row)
+      SELECT format('required audited writer routine is missing or changed: %s(%s)', proname, argument_types)
+      FROM expected_writer_routine expected
+      WHERE NOT EXISTS (
+        SELECT 1 FROM user_routines routine
+        WHERE routine.nspname = target_schema
+          AND routine.proname = expected.proname
+          AND routine.argument_types = expected.argument_types
+          AND routine.prosecdef
+          AND routine.proconfig = ARRAY['search_path=pg_catalog']
+          AND has_function_privilege(target_role, routine.routine_oid, 'EXECUTE')
       )
       UNION ALL
-      SELECT 'an executable SECURITY DEFINER routine can bypass candidate table ACLs'
-      WHERE EXISTS (
-        SELECT 1 FROM user_routines
-        WHERE prosecdef AND has_function_privilege(target_role, routine_oid, 'EXECUTE')
-      )
+      SELECT format('unexpected executable routine is effective: %I.%I(%s)', nspname, proname, argument_types)
+      FROM user_routines routine
+      WHERE has_function_privilege(target_role, routine_oid, 'EXECUTE')
+        AND NOT (
+          nspname = target_schema
+          AND (proname, argument_types) IN (
+            SELECT proname, argument_types FROM expected_writer_routine
+          )
+        )
       UNION ALL
       SELECT format('object owner %I retains default PUBLIC routine EXECUTE', owner.rolname)
       FROM user_object_owners object_owner
@@ -609,8 +635,10 @@ FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
 COMMIT;
 SQL
-
-cleanup_connection
+then
+  printf '%s\n' '[candidate-enable] ERROR: activation transaction failed within the 2s lock / 15s statement budget; resolve the reported contract or blocker and retry' >&2
+  exit 1
+fi
 
 CANDIDATE_WORKER_DATABASE_URL=$WORKER_DATABASE_URL \
   CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER=$CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER \
@@ -626,6 +654,7 @@ CANDIDATE_RECONCILER_DATABASE_URL=$RECONCILER_DATABASE_URL \
   "$SCRIPT_DIR/verify-candidate-analysis-roles.sh" --role=reconciler
 
 fail_safe_active=0
+cleanup_connection
 unset ADMIN_DATABASE_URL WORKER_DATABASE_URL RECONCILER_DATABASE_URL
 trap - EXIT HUP INT TERM
 printf '%s\n' '[candidate-enable] PASS: existing worker and reconciler credentials verified'

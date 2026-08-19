@@ -103,6 +103,7 @@ DO $preflight$
 DECLARE
   missing_relation boolean;
   incompatible_acl boolean;
+  recovery_issue text;
 BEGIN
   IF session_user <> current_user THEN
     RAISE EXCEPTION 'administrator session must not use SET ROLE';
@@ -138,6 +139,19 @@ BEGIN
   IF missing_relation THEN
     RAISE EXCEPTION 'one or more candidate role relations are missing';
   END IF;
+  recovery_issue := public.candidate_critical_trigger_drift(
+    current_setting('foodsystems.candidate_schema')
+  );
+  IF recovery_issue IS NOT NULL THEN
+    RAISE EXCEPTION 'candidate critical trigger drift: %', recovery_issue;
+  END IF;
+  recovery_issue := public.candidate_other_database_connect_issue(
+    current_setting('foodsystems.candidate_worker_role'),
+    current_setting('foodsystems.candidate_reconciler_role')
+  );
+  IF recovery_issue IS NOT NULL THEN
+    RAISE EXCEPTION 'other database CONNECT isolation prerequisite failed: %', recovery_issue;
+  END IF;
 
   WITH user_schema AS (
     SELECT oid AS schema_oid, nspname, nspowner, nspacl
@@ -280,6 +294,24 @@ BEGIN
     CROSS JOIN user_relation relation
     WHERE has_table_privilege(role.oid, relation.oid, 'INSERT')
        OR has_any_column_privilege(role.oid, relation.oid, 'INSERT')
+  ) OR EXISTS (
+    WITH candidate_role AS (
+      SELECT oid FROM pg_roles
+      WHERE rolname IN (
+        current_setting('foodsystems.candidate_worker_role'),
+        current_setting('foodsystems.candidate_reconciler_role')
+      )
+    ), user_routine AS (
+      SELECT procedure.oid
+      FROM pg_proc procedure
+      JOIN pg_namespace namespace ON namespace.oid = procedure.pronamespace
+      WHERE namespace.nspname <> 'information_schema'
+        AND namespace.nspname !~ '^pg_'
+    )
+    SELECT 1
+    FROM candidate_role role
+    CROSS JOIN user_routine routine
+    WHERE has_function_privilege(role.oid, routine.oid, 'EXECUTE')
   ) THEN
     RAISE EXCEPTION 'candidate roles must be disabled before bootstrap; run disable-candidate-analysis-writes.sh --apply first';
   END IF;
@@ -291,6 +323,7 @@ BEGIN;
 -- Match the candidate role contract's 2-second operational lock budget. A
 -- catalog writer must never leave recovery waiting indefinitely before drain.
 SET LOCAL lock_timeout TO '2s';
+SET LOCAL statement_timeout TO '15s';
 
 -- Hold every catalog that carries a checked authority fact through the target
 -- database drain and grant repair. The order matches explicit login recovery.
@@ -306,13 +339,15 @@ LOCK TABLE
   pg_catalog.pg_default_acl,
   pg_catalog.pg_db_role_setting,
   pg_catalog.pg_parameter_acl,
-  pg_catalog.pg_shdepend
+  pg_catalog.pg_shdepend,
+  pg_catalog.pg_trigger
 IN SHARE ROW EXCLUSIVE MODE;
 
 DO $locked_preflight$
 DECLARE
   missing_relation boolean;
   incompatible_acl boolean;
+  recovery_issue text;
 BEGIN
   WITH required_relation(relname) AS (
     VALUES
@@ -336,6 +371,19 @@ BEGIN
   IF missing_relation THEN
     RAISE EXCEPTION 'one or more candidate role relations are missing';
   END IF;
+  recovery_issue := public.candidate_critical_trigger_drift(
+    current_setting('foodsystems.candidate_schema')
+  );
+  IF recovery_issue IS NOT NULL THEN
+    RAISE EXCEPTION 'candidate critical trigger drift: %', recovery_issue;
+  END IF;
+  recovery_issue := public.candidate_other_database_connect_issue(
+    current_setting('foodsystems.candidate_worker_role'),
+    current_setting('foodsystems.candidate_reconciler_role')
+  );
+  IF recovery_issue IS NOT NULL THEN
+    RAISE EXCEPTION 'other database CONNECT isolation prerequisite failed: %', recovery_issue;
+  END IF;
 
   WITH user_schema AS (
     SELECT oid AS schema_oid, nspname, nspowner, nspacl
@@ -478,6 +526,24 @@ BEGIN
     CROSS JOIN user_relation relation
     WHERE has_table_privilege(role.oid, relation.oid, 'INSERT')
        OR has_any_column_privilege(role.oid, relation.oid, 'INSERT')
+  ) OR EXISTS (
+    WITH candidate_role AS (
+      SELECT oid FROM pg_roles
+      WHERE rolname IN (
+        current_setting('foodsystems.candidate_worker_role'),
+        current_setting('foodsystems.candidate_reconciler_role')
+      )
+    ), user_routine AS (
+      SELECT procedure.oid
+      FROM pg_proc procedure
+      JOIN pg_namespace namespace ON namespace.oid = procedure.pronamespace
+      WHERE namespace.nspname <> 'information_schema'
+        AND namespace.nspname !~ '^pg_'
+    )
+    SELECT 1
+    FROM candidate_role role
+    CROSS JOIN user_routine routine
+    WHERE has_function_privilege(role.oid, routine.oid, 'EXECUTE')
   ) THEN
     RAISE EXCEPTION 'candidate roles must be disabled before bootstrap; run disable-candidate-analysis-writes.sh --apply first';
   END IF;
@@ -659,21 +725,6 @@ WITH candidate_relation(relname) AS (
 SELECT format('GRANT SELECT ON TABLE %I.%I TO %I', :'target_schema', relname, :'reconciler_role')
 FROM candidate_relation
 \gexec
-WITH worker_insert(relname) AS (
-  VALUES
-    ('CandidateAnalysisRun'), ('CandidateAnalysisRunInput'),
-    ('CandidateAnalysisRunEvent'), ('CandidateAnalysisArtifact'),
-    ('CandidateAssertion'), ('CandidateEvidenceLink'), ('CandidateDependency')
-)
-SELECT format('GRANT INSERT ON TABLE %I.%I TO %I', :'target_schema', relname, :'worker_role')
-FROM worker_insert
-\gexec
-SELECT format(
-  'GRANT INSERT ON TABLE %I.%I TO %I',
-  :'target_schema', 'CandidateReconciliationSnapshot', :'reconciler_role'
-)
-\gexec
-
 WITH user_schema AS (
   SELECT nspname FROM pg_namespace
   WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
@@ -700,6 +751,16 @@ WITH user_schema AS (
 )
 SELECT format('REVOKE ALL PRIVILEGES ON ALL PROCEDURES IN SCHEMA %I FROM %I', nspname, role_name)
 FROM user_schema CROSS JOIN candidate_role
+\gexec
+SELECT format(
+  'GRANT EXECUTE ON FUNCTION %I.candidate_worker_append(TEXT, JSONB) TO %I',
+  :'target_schema', :'worker_role'
+)
+\gexec
+SELECT format(
+  'GRANT EXECUTE ON FUNCTION %I.candidate_reconciler_append(JSONB) TO %I',
+  :'target_schema', :'reconciler_role'
+)
 \gexec
 -- Remove every current direct/default grant to either candidate role only.
 WITH default_acl AS (

@@ -355,6 +355,35 @@ function assertWriteRejectedAndPreserved(
 
 describe("candidate control snapshot", () => {
   it(
+    "exports a zero-authority snapshot when the database graph query fails totally",
+    { timeout: 45_000 },
+    async (context) => {
+      await withCandidateAnalysisPostgres(context, async ({ adminUrl }) => {
+        const prisma = new PrismaClient({
+          adapter: new PrismaPg({ connectionString: adminUrl }),
+        });
+        try {
+          const input = await readCandidateControlSnapshotInput(prisma, null);
+          assert.deepEqual(input.provenance.queryErrors, [
+            "candidate_database_snapshot_query_failed",
+          ]);
+          const snapshot = buildCandidateControlSnapshot(input);
+          assert.equal(snapshot.operational, false);
+          assert.equal(snapshot.review.reviewComplete, false);
+          assert.equal(snapshot.promotion.externalReady, false);
+          assert.equal(snapshot.machine.runsTotal, 0);
+          assert.equal(snapshot.machine.assertionsTotal, 0);
+          assert.deepEqual(snapshot.warnings, [
+            "degraded_snapshot:query_errors",
+          ]);
+        } finally {
+          await prisma.$disconnect();
+        }
+      });
+    },
+  );
+
+  it(
     "reads supersession and reconciliation from one read-only repeatable-read epoch",
     { timeout: 45_000 },
     async (context) => {
@@ -1029,7 +1058,53 @@ describe("candidate control snapshot", () => {
       candidateControlFixture({ queryErrors: ["candidate_runs_query_failed"] }),
     );
     assert.equal(queryFailure.operational, false);
+    assert.equal(queryFailure.review.reviewComplete, false);
+    assert.equal(queryFailure.machine.runsTotal, 0);
+    assert.equal(queryFailure.machine.assertionsTotal, 0);
+    assert.ok(
+      Object.values(queryFailure.review.currentByState).every(
+        (count) => count === 0,
+      ),
+    );
     assert.equal(queryFailure.promotion.externalReady, false);
+    assert.deepEqual(queryFailure.warnings, [
+      "degraded_snapshot:query_errors",
+    ]);
+  });
+
+  it("fails closed for total and partial query errors even when the surviving graph is complete", () => {
+    for (const input of [
+      candidateControlFixture({
+        review: "accepted",
+        promotion: "external_eligible",
+        queryErrors: ["candidate_database_snapshot_query_failed"],
+      }),
+      candidateControlFixture({
+        review: "accepted",
+        promotion: "external_eligible",
+        queryErrors: ["source_commit_query_failed"],
+      }),
+    ]) {
+      const snapshot = buildCandidateControlSnapshot(input);
+      assert.equal(snapshot.operational, false);
+      assert.equal(snapshot.review.reviewComplete, false);
+      assert.equal(snapshot.machine.runsTotal, 0);
+      assert.equal(snapshot.machine.assertionsTotal, 0);
+      assert.ok(
+        Object.values(snapshot.machine.currentByState).every(
+          (count) => count === 0,
+        ),
+      );
+      assert.ok(
+        Object.values(snapshot.review.currentByState).every(
+          (count) => count === 0,
+        ),
+      );
+      assert.equal(snapshot.promotion.externalReady, false);
+      assert.equal(snapshot.reconciliation.snapshotsTotal, 0);
+      assert.equal(snapshot.legacy.recordsTotal, 0);
+      assert.deepEqual(snapshot.warnings, ["degraded_snapshot:query_errors"]);
+    }
   });
 
   it("emits zero-authority degraded snapshots for partial-query reference gaps", () => {
@@ -1090,7 +1165,7 @@ describe("candidate control snapshot", () => {
       assert.equal(snapshot.reconciliation.conflictsTotal, 0);
       assert.equal(snapshot.legacy.recordsTotal, 0);
       assert.deepEqual(snapshot.warnings, [
-        "degraded_snapshot:partial_query_graph_invalid",
+        "degraded_snapshot:query_errors",
       ]);
     }
 
@@ -1200,7 +1275,7 @@ describe("candidate control snapshot", () => {
       ),
     );
     assert.deepEqual(snapshot.warnings, [
-      "degraded_snapshot:partial_query_graph_invalid",
+      "degraded_snapshot:query_errors",
       `invalid_machine_event_history:${input.runs[0]!.id}:invalid_initial_event`,
     ]);
   });

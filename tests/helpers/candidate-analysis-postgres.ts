@@ -171,6 +171,38 @@ export async function withCandidateAnalysisPostgres(
     ]);
     if (created.status !== 0) throw commandError("createdb", created);
 
+    const isolated = run(binaries.psql, [
+      "-X",
+      "-h",
+      "127.0.0.1",
+      "-p",
+      String(port),
+      "-U",
+      "postgres",
+      "-d",
+      database,
+      "-v",
+      "ON_ERROR_STOP=1",
+      "-c",
+      `DO $isolation$
+       DECLARE other_database record;
+       BEGIN
+         FOR other_database IN
+           SELECT datname FROM pg_database
+           WHERE datallowconn AND datname <> current_database()
+         LOOP
+           EXECUTE format(
+             'REVOKE CONNECT ON DATABASE %I FROM PUBLIC',
+             other_database.datname
+           );
+         END LOOP;
+       END
+       $isolation$`,
+    ]);
+    if (isolated.status !== 0) {
+      throw commandError("candidate database isolation", isolated);
+    }
+
     const migrated = run(binaries.psql, [
       "-X",
       "-h",

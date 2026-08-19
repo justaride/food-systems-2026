@@ -1640,19 +1640,10 @@ test("single read workflow prompt bundle uses the same bytes for validation and 
   );
   try {
     const fixture = candidateAnalysisFixture();
-    const transaction = {
-      candidateContentUnit: {
-        findMany: async () =>
-          fixture.run.inputs.map(({ contentUnitId }) => ({
-            id: contentUnitId,
-            contentHash: fixture.contentUnit.contentHash,
-          })),
-      },
-      candidateAnalysisRun: { create: async () => undefined },
-    };
     const prisma = {
-      $transaction: async (callback: (value: typeof transaction) => unknown) =>
-        callback(transaction),
+      $queryRaw: async () => [{
+        result: { runId: fixture.run.id, created: true },
+      }],
     } as unknown as InstanceType<typeof PrismaClient>;
     const readCounts = new Map<string, number>();
     const workflowReadPath = realpathSync(repository.workflowPath);

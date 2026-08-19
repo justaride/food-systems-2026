@@ -100,6 +100,7 @@ jobs:
             scripts/verify-mcp-readonly-role.sh
             scripts/bootstrap-candidate-analysis-roles.sh
             scripts/disable-candidate-analysis-writes.sh
+            scripts/enable-candidate-analysis-logins.sh
             scripts/verify-candidate-analysis-roles.sh
             scripts/create-database-backup.sh
             scripts/verify-database-backup.sh

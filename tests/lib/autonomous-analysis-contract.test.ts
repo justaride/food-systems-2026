@@ -279,9 +279,21 @@ const assertRecoveryContract = (contract: string) => {
     'external readiness',
   )
   assert.match(roles, /does not provision.*credentials/i)
-  assert.match(roles, /fail.*back.*disabled state/i)
+  assert.match(roles, /when fail-safe succeeds.*enable or verification failure/i)
   assert.match(roles, /both roles are `NOLOGIN`/i)
-  assert.match(roles, /INSERT grants are revoked/i)
+  assert.match(roles, /no table-level or column-level `INSERT`/i)
+  assert.match(roles, /`public\.candidate_worker_append\(text, jsonb\)`/i)
+  assert.match(roles, /`public\.candidate_reconciler_append\(jsonb\)`/i)
+  assert.match(roles, /`SECURITY DEFINER` with fixed `search_path=pg_catalog`/i)
+  assert.match(roles, /database writer boundary.*recomputes and enforces/i)
+  assert.match(roles, /cluster-global PostgreSQL roles/i)
+  assert.match(roles, /every other database denies effective `CONNECT`/i)
+  assert.match(roles, /never auto-revoke another database's `PUBLIC` authority/i)
+  assert.match(roles, /missing, disabled, ordinary or unexpected custom trigger.*fails closed/i)
+  assert.match(roles, /internal foreign-key triggers are never altered/i)
+  assert.match(roles, /system identifier, database name, server address and server port/i)
+  assert.match(roles, /`unresolved_active_security_incident`/i)
+  assert.match(roles, /exact writer-function execution.*residual candidate `INSERT` authority are revoked/i)
   assert.match(roles, /candidate sessions are terminated/i)
   assert.match(roles, /candidate rows are preserved/i)
 }
@@ -351,6 +363,11 @@ const assertDurableContract = (contract: string) => {
   assertPriorEventContract(contract)
   assertRecoveryContract(contract)
   assertNoStaleRecoveryGuidance(contract)
+  const reporting = section(contract, 'Operational reporting')
+  assert.match(reporting, /query or contract error.*degrades the whole snapshot/i)
+  assert.match(reporting, /data completeness and review completeness false/i)
+  assert.match(reporting, /closes candidate authority and external readiness/i)
+  assert.match(reporting, /`degraded_snapshot:query_errors`/i)
 }
 
 const mutateSection = (
@@ -400,14 +417,16 @@ test('candidate SQL is internal, parameterized, non-data-mutating, and limited t
   const root = read('AGENTS.md')
   const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
 
-  for (const authorityText of [root, contract]) {
-    assert.match(authorityText, /narrow, parameterized, internal SQL/i)
-    assert.match(authorityText, /transaction-scoped advisory run\/assertion locks/i)
-    assert.match(authorityText, /change transaction lock state only/i)
-    assert.match(authorityText, /recursive dependency-integrity/i)
-    assert.match(authorityText, /must not be exposed/i)
-    assert.match(authorityText, /must not mutate candidate history/i)
-  }
+  assert.match(root, /narrow, parameterized, internal SQL/i)
+  assert.match(root, /transaction-scoped advisory run\/assertion locks/i)
+  assert.match(root, /change transaction lock state only/i)
+  assert.match(root, /recursive dependency-integrity/i)
+  assert.match(root, /must not be exposed/i)
+  assert.match(root, /must not mutate candidate history/i)
+  assert.match(contract, /sole runtime worker entry point/i)
+  assert.match(contract, /invokes only the audited database functions/i)
+  assert.match(contract, /database writer boundary.*recomputes and enforces/i)
+  assert.match(contract, /transaction-scoped advisory locks serialize/i)
 })
 
 test('recursive authority preserves limitations and requires independent direct evidence for upgrades', () => {
@@ -582,8 +601,8 @@ const recoverySemanticAdversaries: Array<{
     mutate: (roles) =>
       replaceRequired(
         roles,
-        'makes all 27 custom candidate integrity triggers use `ENABLE ALWAYS`',
-        'does not make all 27 custom candidate integrity triggers use `ENABLE ALWAYS`',
+        'requires all 27 custom candidate integrity triggers to already use `ENABLE ALWAYS`',
+        'does not require all 27 custom candidate integrity triggers to already use `ENABLE ALWAYS`',
       ),
   },
   {
@@ -834,7 +853,7 @@ test('durable contract assertions reject reviewed authority and recovery mutatio
       value: mutateSection(contract, 'Database roles', (block) =>
         replaceRequired(
           block,
-          'custom candidate integrity triggers use `ENABLE ALWAYS`',
+          'custom candidate integrity triggers to already use `ENABLE ALWAYS`',
           'custom candidate integrity triggers are enabled',
         ),
       ),
@@ -878,7 +897,11 @@ test('durable contract assertions reject reviewed authority and recovery mutatio
     {
       name: 'fail-back INSERT revoke',
       value: mutateSection(contract, 'Database roles', (block) =>
-        replaceRequired(block, 'INSERT grants are revoked', 'INSERT grants remain'),
+        replaceRequired(
+          block,
+          'exact writer-function execution and any residual candidate `INSERT` authority are revoked',
+          'exact writer-function execution and residual candidate `INSERT` authority remain',
+        ),
       ),
     },
     {

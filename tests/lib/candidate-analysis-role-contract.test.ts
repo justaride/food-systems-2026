@@ -24,8 +24,11 @@ import { PrismaClient } from "../../src/generated/prisma/client";
 import {
   candidateAnalysisAssertionPayloadHash,
   candidateAnalysisAssertionScopeHash,
+  candidateAnalysisEvidenceLocatorHash,
   candidateAnalysisReconciliationPayloadHash,
   candidateAnalysisReconciliationScopeHash,
+  candidateAnalysisRunEventHash,
+  candidateAnalysisRunIdempotencyKey,
   candidateAnalysisRunScopeHash,
   type CandidateAssertionInput,
   type CandidateReconciliationSnapshotInput,
@@ -50,6 +53,36 @@ const urlHelperPath = resolve("scripts/normalize-candidate-postgres-url.mjs");
 const bootstrapApplyArgs = [
   "--apply",
   "--confirm-database-session-drain",
+] as const;
+
+const candidateCriticalTriggers = [
+  ["CandidateContentUnit", "CandidateContentUnit_reject_update_delete"],
+  ["CandidateContentUnit", "CandidateContentUnit_reject_truncate"],
+  ["CandidateAnalysisRun", "CandidateAnalysisRun_reject_invalid_scope"],
+  ["CandidateAnalysisRun", "CandidateAnalysisRun_reject_update_delete"],
+  ["CandidateAnalysisRun", "CandidateAnalysisRun_reject_truncate"],
+  ["CandidateAnalysisRunInput", "CandidateAnalysisRunInput_reject_update_delete"],
+  ["CandidateAnalysisRunInput", "CandidateAnalysisRunInput_reject_truncate"],
+  ["CandidateAnalysisRunEvent", "CandidateAnalysisRunEvent_reject_invalid_machine_payload"],
+  ["CandidateAnalysisRunEvent", "CandidateAnalysisRunEvent_reject_update_delete"],
+  ["CandidateAnalysisRunEvent", "CandidateAnalysisRunEvent_reject_truncate"],
+  ["CandidateAnalysisArtifact", "CandidateAnalysisArtifact_reject_invalid_machine_payload"],
+  ["CandidateAnalysisArtifact", "CandidateAnalysisArtifact_reject_update_delete"],
+  ["CandidateAnalysisArtifact", "CandidateAnalysisArtifact_reject_truncate"],
+  ["CandidateAssertion", "CandidateAssertion_reject_invalid_machine_payload"],
+  ["CandidateAssertion", "CandidateAssertion_reject_update_delete"],
+  ["CandidateAssertion", "CandidateAssertion_reject_truncate"],
+  ["CandidateEvidenceLink", "CandidateEvidenceLink_reject_update_delete"],
+  ["CandidateEvidenceLink", "CandidateEvidenceLink_reject_truncate"],
+  ["CandidateDependency", "CandidateDependency_reject_update_delete"],
+  ["CandidateDependency", "CandidateDependency_reject_truncate"],
+  ["CandidateReconciliationSnapshot", "CandidateReconciliationSnapshot_reject_invalid_machine_payload"],
+  ["CandidateReconciliationSnapshot", "CandidateReconciliationSnapshot_reject_update_delete"],
+  ["CandidateReconciliationSnapshot", "CandidateReconciliationSnapshot_reject_truncate"],
+  ["CandidateHumanReviewDecision", "CandidateHumanReviewDecision_reject_update_delete"],
+  ["CandidateHumanReviewDecision", "CandidateHumanReviewDecision_reject_truncate"],
+  ["CandidatePromotionDecision", "CandidatePromotionDecision_reject_update_delete"],
+  ["CandidatePromotionDecision", "CandidatePromotionDecision_reject_truncate"],
 ] as const;
 
 function executable(path: string): boolean {
@@ -254,10 +287,10 @@ function psqlInDatabase(
   );
 }
 
-function bootstrapAdditionalCandidateDatabase(
+function attemptBootstrapAdditionalCandidateDatabase(
   context: CandidateAnalysisPostgresContext,
   database: string,
-): string {
+): { adminUrl: string; bootstrapped: SpawnSyncReturns<string> } {
   assert.match(database, /^[a-z0-9_]+$/);
   const commandEnv = { ...process.env, PATH: postgresPath() };
   const created = spawnSync(
@@ -316,14 +349,7 @@ function bootstrapAdditionalCandidateDatabase(
     encoding: "utf8",
     env: { ...commandEnv, DATABASE_ADMIN_URL: adminUrl },
   });
-  assert.equal(bootstrapped.status, 0, bootstrapped.stderr);
-  return adminUrl;
-}
-
-function retargetDatabaseUrl(databaseUrl: string, database: string): string {
-  const url = new URL(databaseUrl);
-  url.pathname = `/${database}`;
-  return url.toString();
+  return { adminUrl, bootstrapped };
 }
 
 function candidateAuthoritySnapshot(
@@ -839,7 +865,9 @@ test("candidate role scripts are explicit, credential-safe, and exact-allowlist"
     bootstrap,
     /NOINHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS/,
   );
-  assert.match(bootstrap, /GRANT INSERT ON TABLE/);
+  assert.doesNotMatch(bootstrap, /GRANT INSERT ON TABLE/);
+  assert.match(bootstrap, /GRANT EXECUTE ON FUNCTION %I\.candidate_worker_append/);
+  assert.match(bootstrap, /GRANT EXECUTE ON FUNCTION %I\.candidate_reconciler_append/);
   assert.doesNotMatch(bootstrap, /GRANT (?:ALL|UPDATE|DELETE|TRUNCATE)/);
   assert.doesNotMatch(bootstrap, /review_operator|promotion_service/);
   assert.match(bootstrap, /CREATE ROLE %I NOLOGIN/);
@@ -1679,15 +1707,6 @@ test(
         "REFERENCES",
         "TRIGGER",
       ] as const;
-      const workerInsert = new Set([
-        "CandidateAnalysisRun",
-        "CandidateAnalysisRunInput",
-        "CandidateAnalysisRunEvent",
-        "CandidateAnalysisArtifact",
-        "CandidateAssertion",
-        "CandidateEvidenceLink",
-        "CandidateDependency",
-      ]);
       const matrix = psql(`
         SELECT role_name, schema_name, relation_name, privilege_name,
           has_table_privilege(role_name, format('%I.%I', schema_name, relation_name), privilege_name)
@@ -1726,11 +1745,7 @@ test(
               ? candidateTables.includes(relation as typeof candidateTables[number])
                 || (role === "foodsystems_candidate_worker"
                   && canonicalTables.includes(relation as typeof canonicalTables[number]))
-              : privilege === "INSERT"
-                ? role === "foodsystems_candidate_worker"
-                  ? workerInsert.has(relation)
-                  : relation === "CandidateReconciliationSnapshot"
-                : false;
+              : false;
             assert.equal(
               actualMatrix.get(`${role}|public|${relation}|${privilege}`),
               expected,
@@ -1789,10 +1804,7 @@ test(
       ] as const) {
         for (const relation of [...canonicalTables, ...candidateTables]) {
           for (const privilege of ["INSERT", "UPDATE", "REFERENCES"] as const) {
-            const expected = privilege === "INSERT"
-              && (role === "foodsystems_candidate_worker"
-                ? workerInsert.has(relation)
-                : relation === "CandidateReconciliationSnapshot");
+            const expected = false;
             assert.equal(
               actualColumnMatrix.get(`${role}|public|${relation}|${privilege}`),
               expected,
@@ -1938,7 +1950,7 @@ test(
       assert.equal(effective.status, 0, effective.stderr);
       assert.match(
         effective.stdout,
-        /t\s*\|\s*t\s*\|\s*f\s*\|\s*f\s*\|\s*t\s*\|\s*f\s*\|\s*t\s*\|\s*f/,
+        /t\s*\|\s*f\s*\|\s*f\s*\|\s*f\s*\|\s*t\s*\|\s*f\s*\|\s*f\s*\|\s*f/,
       );
 
       assert.equal(
@@ -1987,7 +1999,7 @@ test(
         0,
         `worker inserted false run scope instead of ${candidateAnalysisRunScopeHash(falseScopeRunId)}`,
       );
-      assert.match(falseScopeInsert.stderr, /invalid candidate run scope/);
+      assert.match(falseScopeInsert.stderr, /permission denied for table CandidateAnalysisRun/);
 
       const hash = "a".repeat(64);
       const preservationRunId = "disable-preservation-run";
@@ -2181,7 +2193,7 @@ test(
           has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT');
       `);
       assert.equal(bootstrapNoLogin.status, 0, bootstrapNoLogin.stderr);
-      assert.match(bootstrapNoLogin.stdout, /t\s*\|\s*t\s*\|\s*t\s*\|\s*t/);
+      assert.match(bootstrapNoLogin.stdout, /t\s*\|\s*t\s*\|\s*f\s*\|\s*f/);
 
       const explicitEnable = spawnSync(
         enablePath,
@@ -2669,6 +2681,879 @@ test(
   },
 );
 
+test("recovery scripts bind fail-safe identity, bound execution budgets, trigger state, database isolation, and quoted schema probes", () => {
+  const bootstrap = readFileSync(bootstrapPath, "utf8");
+  const disable = readFileSync(disablePath, "utf8");
+  const enable = readFileSync(enablePath, "utf8");
+  const verify = readFileSync(verifyPath, "utf8");
+
+  for (const script of [bootstrap, disable, enable]) {
+    assert.match(script, /lock_timeout/);
+    assert.match(script, /statement_timeout/);
+  }
+  assert.match(enable, /unresolved_active_security_incident/);
+  assert.match(disable, /CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER/);
+  assert.match(disable, /CANDIDATE_EXPECTED_TARGET_DATABASE_HEX/);
+  assert.match(disable, /CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX/);
+  assert.match(disable, /CANDIDATE_EXPECTED_TARGET_SERVER_PORT/);
+  assert.match(disable, /target_identity_mismatch/);
+  assert.match(bootstrap, /candidate critical trigger drift/i);
+  assert.match(enable, /candidate critical trigger drift/i);
+  assert.match(verify, /candidate critical trigger drift/i);
+  assert.match(bootstrap, /other database.*CONNECT|CONNECT.*other database/i);
+  assert.match(enable, /other database.*CONNECT|CONNECT.*other database/i);
+  assert.match(verify, /other database.*CONNECT|CONNECT.*other database/i);
+  assert.ok(
+    verify.includes('INSERT INTO \\"$CANDIDATE_DB_SCHEMA\\".\\"Document\\"'),
+  );
+  assert.ok(
+    verify.includes('CREATE TABLE \\"$CANDIDATE_DB_SCHEMA\\".candidate_role_probe'),
+  );
+});
+
+test(
+  "enable catalog lock acquisition is bounded and leaves the disabled authority state unchanged",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const blockerApp = "candidate-enable-budget-blocker";
+      const blocker = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c",
+          "BEGIN; LOCK TABLE pg_catalog.pg_shdepend IN ACCESS EXCLUSIVE MODE; SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: { ...process.env, PATH: fixture.path, PGAPPNAME: blockerApp },
+          stdio: "ignore",
+        },
+      );
+      let enable: ChildProcess | null = null;
+      let enableOutput = "";
+      let timedOut = false;
+      let enableStatus: number | null = null;
+      try {
+        await waitFor(
+          () => activityCount(context, blockerApp) === "1",
+          "enable budget blocker did not become active",
+        );
+        const safetyState = () => context.psql(`
+          SELECT
+            string_agg(rolname || ':' || rolcanlogin::text, ',' ORDER BY rolname),
+            has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+            has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+            (SELECT count(*) FROM pg_stat_activity
+             WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'))
+          FROM pg_roles
+          WHERE rolname IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler');
+        `);
+        const beforeSafety = safetyState();
+        assert.equal(beforeSafety.status, 0, beforeSafety.stderr);
+        const beforeRows = candidateRowsSnapshot(context);
+        enable = spawn(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            env: recoveryEnableEnv(fixture, context.adminUrl),
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        enable.stdout?.on("data", (chunk) => { enableOutput += chunk.toString(); });
+        enable.stderr?.on("data", (chunk) => { enableOutput += chunk.toString(); });
+        try {
+          enableStatus = await waitForChildExit(enable, 5_000);
+        } catch (error) {
+          if (!(error instanceof ChildExitTimeoutError)) throw error;
+          timedOut = true;
+        }
+        assert.deepEqual(
+          {
+            timedOut,
+            statusIsFailure: enableStatus !== null && enableStatus !== 0,
+            actionable: /lock timeout|retry/i.test(enableOutput),
+            authorityUnchanged: safetyState().stdout === beforeSafety.stdout,
+            rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+          },
+          {
+            timedOut: false,
+            statusIsFailure: true,
+            actionable: true,
+            authorityUnchanged: true,
+            rowsUnchanged: true,
+          },
+          enableOutput,
+        );
+      } finally {
+        const cleanup = context.psql(`
+          SELECT pg_terminate_backend(pid)
+          FROM pg_stat_activity
+          WHERE application_name = '${blockerApp}';
+        `);
+        assert.equal(cleanup.status, 0, cleanup.stderr);
+        if (blocker.exitCode === null) await childExit(blocker);
+        if (enable?.exitCode === null) await childExit(enable);
+        spawnSync(disablePath, ["--apply"], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            DATABASE_ADMIN_URL: context.adminUrl,
+          },
+        });
+      }
+    });
+  },
+);
+
+test(
+  "bootstrap and enable fail closed on ordinary or disabled critical trigger drift without touching FK triggers",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const adminEnv = {
+        ...process.env,
+        PATH: fixture.path,
+        DATABASE_ADMIN_URL: context.adminUrl,
+      };
+      const initiallyDisabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(
+        initiallyDisabled.status,
+        0,
+        `${initiallyDisabled.stdout}${initiallyDisabled.stderr}`,
+      );
+      const fkBefore = context.psql(
+        "SELECT count(*) FROM pg_trigger WHERE tgisinternal AND tgconstraint <> 0",
+      );
+      assert.equal(fkBefore.status, 0, fkBefore.stderr);
+      const beforeRows = candidateRowsSnapshot(context);
+      const beforeAuthority = candidateAuthoritySnapshot(context);
+
+      const ordinary = context.psql(`
+        ALTER TABLE public."CandidateAnalysisRun"
+          ENABLE TRIGGER "CandidateAnalysisRun_reject_invalid_scope";
+      `);
+      assert.equal(ordinary.status, 0, ordinary.stderr);
+      const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.notEqual(bootstrap.status, 0, `${bootstrap.stdout}${bootstrap.stderr}`);
+      assert.match(`${bootstrap.stdout}${bootstrap.stderr}`, /trigger drift/i);
+      assert.equal(candidateRowsSnapshot(context), beforeRows);
+      assert.equal(candidateAuthoritySnapshot(context), beforeAuthority);
+      assert.equal(
+        context.psql(`
+          SELECT tgenabled FROM pg_trigger
+          WHERE tgname = 'CandidateAnalysisRun_reject_invalid_scope'
+        `).stdout.trim(),
+        "O",
+      );
+
+      assert.equal(
+        context.psql(`
+          ALTER TABLE public."CandidateAnalysisRun"
+            ENABLE ALWAYS TRIGGER "CandidateAnalysisRun_reject_invalid_scope";
+        `).status,
+        0,
+      );
+      const cleanBootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(
+        cleanBootstrap.status,
+        0,
+        `${cleanBootstrap.stdout}${cleanBootstrap.stderr}`,
+      );
+      const disabledTrigger = context.psql(`
+        ALTER TABLE public."CandidateAssertion"
+          DISABLE TRIGGER "CandidateAssertion_reject_invalid_machine_payload";
+      `);
+      assert.equal(disabledTrigger.status, 0, disabledTrigger.stderr);
+      const enable = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: recoveryEnableEnv(fixture, context.adminUrl),
+        },
+      );
+      assert.notEqual(enable.status, 0, `${enable.stdout}${enable.stderr}`);
+      assert.match(`${enable.stdout}${enable.stderr}`, /trigger drift/i);
+      const state = context.psql(`
+        SELECT
+          bool_and(NOT rolcanlogin),
+          (SELECT count(*) FROM pg_stat_activity
+           WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'))
+        FROM pg_roles
+        WHERE rolname IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler');
+      `);
+      assert.equal(state.status, 0, state.stderr);
+      assert.equal(state.stdout.trim(), "t|0");
+      assert.equal(candidateRowsSnapshot(context), beforeRows);
+      assert.equal(
+        context.psql(
+          "SELECT count(*) FROM pg_trigger WHERE tgisinternal AND tgconstraint <> 0",
+        ).stdout.trim(),
+        fkBefore.stdout.trim(),
+      );
+
+      const restored = context.psql(`
+        ALTER TABLE public."CandidateAssertion"
+          ENABLE ALWAYS TRIGGER "CandidateAssertion_reject_invalid_machine_payload";
+      `);
+      assert.equal(restored.status, 0, restored.stderr);
+      const expectedValues = candidateCriticalTriggers
+        .map(([table, trigger], index) => `(${index + 1}, '${table}', '${trigger}')`)
+        .join(",");
+      const clean = context.psql(`
+        SELECT count(*), bool_and(trigger.tgenabled = 'A')
+        FROM (VALUES ${expectedValues}) expected(ordinal, relname, tgname)
+        JOIN pg_class class ON class.relname = expected.relname
+        JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+          AND namespace.nspname = 'public'
+        JOIN pg_trigger trigger ON trigger.tgrelid = class.oid
+          AND trigger.tgname = expected.tgname;
+      `);
+      assert.equal(clean.status, 0, clean.stderr);
+      assert.equal(clean.stdout.trim(), "27|t");
+    });
+  },
+);
+
+test(
+  "enable refuses cluster-global candidate login while another database is effectively reachable and writable",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const otherDatabase = "candidate_cross_database_trap";
+      assert.equal(context.psql(`CREATE DATABASE ${otherDatabase}`).status, 0);
+      const trap = psqlInDatabase(context, otherDatabase, `
+        CREATE TABLE public.candidate_write_trap (id text PRIMARY KEY);
+        GRANT INSERT ON public.candidate_write_trap
+          TO foodsystems_candidate_worker;
+      `);
+      assert.equal(trap.status, 0, trap.stderr);
+      const beforeRows = candidateRowsSnapshot(context);
+      const enable = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: recoveryEnableEnv(fixture, context.adminUrl),
+        },
+      );
+      const crossDatabaseWrite = psqlInDatabase(
+        context,
+        otherDatabase,
+        "INSERT INTO public.candidate_write_trap(id) VALUES ('must-not-write')",
+        "foodsystems_candidate_worker",
+      );
+      const trapCount = psqlInDatabase(
+        context,
+        otherDatabase,
+        "SELECT count(*) FROM public.candidate_write_trap",
+      );
+      assert.equal(trapCount.status, 0, trapCount.stderr);
+      const targetDisabled = context.psql(`
+        SELECT
+          bool_and(NOT rolcanlogin),
+          (SELECT count(*) = 0 FROM pg_stat_activity
+           WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler')),
+          NOT EXISTS (
+            SELECT 1
+            FROM pg_proc procedure
+            JOIN pg_namespace namespace ON namespace.oid = procedure.pronamespace
+            CROSS JOIN (VALUES
+              ('foodsystems_candidate_worker'),
+              ('foodsystems_candidate_reconciler')
+            ) candidate(role_name)
+            WHERE namespace.nspname <> 'information_schema'
+              AND namespace.nspname !~ '^pg_'
+              AND has_function_privilege(candidate.role_name, procedure.oid, 'EXECUTE')
+          )
+        FROM pg_roles
+        WHERE rolname IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler');
+      `);
+      assert.equal(targetDisabled.status, 0, targetDisabled.stderr);
+      assert.deepEqual(
+        {
+          enableFailed: enable.status !== 0,
+          explainsIsolation: /other database.*CONNECT|CONNECT.*other database/i.test(
+            `${enable.stdout}${enable.stderr}`,
+          ),
+          crossDatabaseWriteFailed: crossDatabaseWrite.status !== 0,
+          trapRows: trapCount.stdout.trim(),
+          targetDisabled: targetDisabled.stdout.trim(),
+          candidateRowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+        },
+        {
+          enableFailed: true,
+          explainsIsolation: true,
+          crossDatabaseWriteFailed: true,
+          trapRows: "0",
+          targetDisabled: "t|t|t",
+          candidateRowsUnchanged: true,
+        },
+        `${enable.stdout}${enable.stderr}\n${crossDatabaseWrite.stderr}`,
+      );
+    });
+  },
+);
+
+test(
+  "candidate login roles cannot bypass writer invariants with direct INSERT on any writer surface",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const analysis = candidateAnalysisFixture({
+        contentUnitId: "content:raw-authority:1",
+        runId: "run:raw-authority:1",
+        assertionId: "assertion:raw-authority:1",
+      });
+      const adminPrisma = rolePrisma(context.adminUrl);
+      try {
+        await adminPrisma.candidateContentUnit.create({ data: analysis.contentUnit });
+        const adminWriter = createCandidateAnalysisWriter(adminPrisma);
+        await adminWriter.createRun(analysis.run);
+        await adminWriter.appendRunEvent(analysis.events.started);
+        await adminWriter.appendAssertion(analysis.assertion);
+      } finally {
+        await adminPrisma.$disconnect();
+      }
+      const enabled = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: recoveryEnableEnv(fixture, context.adminUrl),
+        },
+      );
+      assert.equal(enabled.status, 0, `${enabled.stdout}${enabled.stderr}`);
+      const beforeRows = candidateRowsSnapshot(context);
+      const jsonb = (value: unknown) =>
+        `$candidate_json$${JSON.stringify(value)}$candidate_json$::jsonb`;
+      const invalidCreate = {
+        ...analysis.run,
+        id: "run:raw-function:invalid",
+        scopeHash: "f".repeat(64),
+        initialEvent: {
+          ...analysis.run.initialEvent,
+          id: "event:run:raw-function:invalid:1",
+          runId: "run:raw-function:invalid",
+        },
+      };
+      const rawRun = (id: string, purpose: string) => {
+        const scopeHash = candidateAnalysisRunScopeHash(id);
+        const initialEvent = {
+          ...analysis.run.initialEvent,
+          id: `event:${id}:1`,
+          runId: id,
+          scopeHash,
+        };
+        initialEvent.eventHash = candidateAnalysisRunEventHash(initialEvent);
+        const run = {
+          ...analysis.run,
+          id,
+          purpose,
+          scopeHash,
+          initialEvent,
+        };
+        run.idempotencyKey = candidateAnalysisRunIdempotencyKey(run);
+        return run;
+      };
+      const malformedInitialEventIdRun = rawRun(
+        "run:raw-function:malformed-initial-event-id",
+        "database boundary malformed initial event id probe",
+      );
+      malformedInitialEventIdRun.initialEvent.id = "INVALID_INITIAL_EVENT_ID";
+      malformedInitialEventIdRun.initialEvent.eventHash =
+        candidateAnalysisRunEventHash(malformedInitialEventIdRun.initialEvent);
+      const malformedWorkerIdRun = rawRun(
+        "run:raw-function:malformed-worker-id",
+        "database boundary malformed worker id probe",
+      );
+      malformedWorkerIdRun.workerId = "INVALID WORKER ID";
+      const stringPositionRun = rawRun(
+        "run:raw-function:string-input-position",
+        "database boundary string input position probe",
+      );
+      const rawStringPositionRun = {
+        ...stringPositionRun,
+        inputs: stringPositionRun.inputs.map((input) => ({
+          ...input,
+          position: "0",
+        })),
+      };
+      const invalidScopeKey = "INVALID_ASSERTION_SCOPE";
+      const assertionProbe = (id: string, value: string) => {
+        const payload = {
+          namespace: "candidate" as const,
+          kind: "assertion" as const,
+          data: {
+            entries: [
+              {
+                role: "proposition" as const,
+                valueType: "text" as const,
+                value,
+              },
+            ],
+          },
+        };
+        return {
+          ...analysis.assertion,
+          id,
+          payload,
+          payloadHash: candidateAnalysisAssertionPayloadHash(payload),
+        };
+      };
+      const reconciliationScope = { runId: analysis.run.id };
+      const reconciliationPayload = {
+        namespace: "candidate" as const,
+        kind: "reconciliation" as const,
+        data: {
+          entries: [
+            {
+              role: "summary" as const,
+              valueType: "text" as const,
+              value: "No conflict found.",
+            },
+          ],
+        },
+      };
+      const invalidFunctionAttempts = [
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('not_allowed', '{}'::jsonb)`,
+          /candidate_writer_operation_invalid/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('create_run', ${jsonb(invalidCreate)})`,
+          /candidate_run_(?:integrity|scope|idempotency)_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('create_run', ${jsonb(malformedInitialEventIdRun)})`,
+          /candidate_initial_event_invalid/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('create_run', ${jsonb(malformedWorkerIdRun)})`,
+          /candidate_run_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('create_run', ${jsonb(rawStringPositionRun)})`,
+          /candidate_run_input_schema_invalid/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_event', ${jsonb({
+            ...analysis.events.checkpoint1,
+            eventHash: "f".repeat(64),
+          })})`,
+          /candidate_event_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_event', ${jsonb({
+            ...analysis.events.checkpoint1,
+            sequence: "3",
+          })})`,
+          /candidate_event_input_schema_invalid/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_artifact', ${jsonb({
+            ...analysis.artifact,
+            payloadHash: "f".repeat(64),
+          })})`,
+          /candidate_artifact_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_assertion', ${jsonb({
+            ...analysis.assertion,
+            id: "assertion:raw-function:invalid",
+            payloadHash: "f".repeat(64),
+          })})`,
+          /candidate_assertion_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_assertion', ${jsonb({
+            ...assertionProbe(
+              "assertion:raw-function:invalid-scope-key",
+              "Invalid scope key procedure probe.",
+            ),
+            scopeKey: invalidScopeKey,
+            scopeHash: candidateAnalysisAssertionScopeHash(invalidScopeKey),
+          })})`,
+          /candidate_assertion_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_assertion', ${jsonb({
+            ...assertionProbe(
+              "assertion:raw-function:invalid-limitations-type",
+              "Invalid limitations procedure probe.",
+            ),
+            limitations: [7],
+          })})`,
+          /candidate_assertion_input_schema_invalid/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_evidence', ${jsonb({
+            ...analysis.evidenceLink,
+            id: "evidence:raw-function:invalid",
+            locatorHash: "f".repeat(64),
+          })})`,
+          /candidate_evidence_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_evidence', ${jsonb({
+            ...analysis.evidenceLink,
+            id: "evidence:raw-function:empty-locator",
+            locator: "",
+            locatorHash: candidateAnalysisEvidenceLocatorHash(""),
+          })})`,
+          /candidate_evidence_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_dependency', ${jsonb({
+            id: "dependency:raw-function:invalid",
+            assertionId: analysis.assertion.id,
+            upstreamAssertionId: analysis.assertion.id,
+            relation: "derived_from",
+            inheritedLimitations: [...analysis.assertion.limitations].sort(),
+          })})`,
+          /candidate_dependency_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_reconciler",
+          `SELECT public.candidate_reconciler_append(${jsonb({
+            id: "snapshot:raw-function:invalid",
+            runId: analysis.run.id,
+            scope: { runId: analysis.run.id },
+            scopeHash: "f".repeat(64),
+            payload: {
+              namespace: "candidate",
+              kind: "reconciliation",
+              data: { entries: [] },
+            },
+            payloadHash: "f".repeat(64),
+            conflictCount: 0,
+          })})`,
+          /candidate_reconciliation_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_reconciler",
+          `SELECT public.candidate_reconciler_append(${jsonb({
+            id: "snapshot:raw-function:string-conflict-count",
+            runId: analysis.run.id,
+            scope: reconciliationScope,
+            scopeHash:
+              candidateAnalysisReconciliationScopeHash(reconciliationScope),
+            payload: reconciliationPayload,
+            payloadHash:
+              candidateAnalysisReconciliationPayloadHash(reconciliationPayload),
+            conflictCount: "0",
+          })})`,
+          /candidate_reconciliation_input_schema_invalid/i,
+        ],
+      ] as const;
+      const bypassedFunctionAttempts: string[] = [];
+      for (const [role, sql, expectedError] of invalidFunctionAttempts) {
+        const attempted = psqlInDatabase(
+          context,
+          context.database,
+          `BEGIN; ${sql}; ROLLBACK;`,
+          role,
+        );
+        if (attempted.status === 0) {
+          bypassedFunctionAttempts.push(expectedError.source);
+          continue;
+        }
+        assert.match(attempted.stderr, expectedError);
+        assert.equal(candidateRowsSnapshot(context), beforeRows);
+      }
+      assert.deepEqual(
+        bypassedFunctionAttempts,
+        [],
+        "actual candidate roles bypassed audited function input contracts",
+      );
+      const attempts = [
+        ["foodsystems_candidate_worker", "CandidateAnalysisRun"],
+        ["foodsystems_candidate_worker", "CandidateAnalysisRunInput"],
+        ["foodsystems_candidate_worker", "CandidateAnalysisRunEvent"],
+        ["foodsystems_candidate_worker", "CandidateAnalysisArtifact"],
+        ["foodsystems_candidate_worker", "CandidateAssertion"],
+        ["foodsystems_candidate_worker", "CandidateEvidenceLink"],
+        ["foodsystems_candidate_worker", "CandidateDependency"],
+        ["foodsystems_candidate_reconciler", "CandidateReconciliationSnapshot"],
+      ] as const;
+      for (const [role, table] of attempts) {
+        const attempted = psqlInDatabase(
+          context,
+          context.database,
+          `BEGIN; INSERT INTO public."${table}" DEFAULT VALUES; ROLLBACK`,
+          role,
+        );
+        assert.notEqual(attempted.status, 0, `${role} inserted into ${table}`);
+        assert.match(
+          attempted.stderr,
+          new RegExp(`permission denied for table ${table}`, "i"),
+        );
+        assert.equal(candidateRowsSnapshot(context), beforeRows);
+      }
+    });
+  },
+);
+
+test(
+  "post-LOGIN verifier failure cannot rebind fail-safe mutation onto a different live cluster",
+  { timeout: 75_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (targetA) => {
+      const fixtureA = prepareRecoveryFixture(targetA);
+      await withCandidateAnalysisPostgres(t, async (targetB) => {
+        prepareRecoveryFixture(targetB);
+        const enableB = targetB.psql(`
+          ALTER ROLE foodsystems_candidate_worker LOGIN;
+          ALTER ROLE foodsystems_candidate_reconciler LOGIN;
+        `);
+        assert.equal(enableB.status, 0, enableB.stderr);
+        const rowsA = candidateRowsSnapshot(targetA);
+        const rowsB = candidateRowsSnapshot(targetB);
+        const authorityB = candidateAuthoritySnapshot(targetB);
+        const tempRoot = mkdtempSync(join(tmpdir(), "candidate-failsafe-rebind-"));
+        const fakePsql = join(tempRoot, "psql");
+        const reboundMarker = join(tempRoot, "post-login-verifier-failed");
+        const realPsql = postgresPath().split(":")[0] + "/psql";
+        writeFileSync(
+          fakePsql,
+          `#!/bin/sh
+case "$1" in
+  *foodsystems_candidate_worker*)
+    : > "$REBOUND_MARKER"
+    exit 97
+    ;;
+esac
+if [ -f "$REBOUND_MARKER" ] && [ "$1" = "$REBOUND_SOURCE_URL" ]; then
+  shift
+  exec "$REAL_PSQL" "$REBOUND_TARGET_URL" "$@"
+fi
+exec "$REAL_PSQL" "$@"
+`,
+        );
+        chmodSync(fakePsql, 0o755);
+        try {
+          const enable = spawnSync(
+            enablePath,
+            ["--apply", "--confirm-existing-credentials"],
+            {
+              cwd: repoRoot,
+              encoding: "utf8",
+              env: {
+                ...recoveryEnableEnv(
+                  fixtureA,
+                  targetA.adminUrl,
+                  `${tempRoot}:${fixtureA.path}`,
+                ),
+                REAL_PSQL: realPsql,
+                REBOUND_MARKER: reboundMarker,
+                REBOUND_SOURCE_URL: targetA.adminUrl,
+                REBOUND_TARGET_URL: targetB.adminUrl,
+              },
+            },
+          );
+          const activeA = targetA.psql(`
+            SELECT bool_and(rolcanlogin),
+              (SELECT count(*) FROM pg_stat_activity
+               WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'))
+            FROM pg_roles
+            WHERE rolname IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler');
+          `);
+          assert.equal(activeA.status, 0, activeA.stderr);
+          assert.deepEqual(
+            {
+              failed: enable.status !== 0,
+              stableIncident: /unresolved_active_security_incident/.test(
+                `${enable.stdout}${enable.stderr}`,
+              ),
+              targetAStillActive: activeA.stdout.trim(),
+              reboundAuthorityUnchanged:
+                candidateAuthoritySnapshot(targetB) === authorityB,
+              targetARowsUnchanged: candidateRowsSnapshot(targetA) === rowsA,
+              targetBRowsUnchanged: candidateRowsSnapshot(targetB) === rowsB,
+            },
+            {
+              failed: true,
+              stableIncident: true,
+              targetAStillActive: "t|0",
+              reboundAuthorityUnchanged: true,
+              targetARowsUnchanged: true,
+              targetBRowsUnchanged: true,
+            },
+            `${enable.stdout}${enable.stderr}`,
+          );
+        } finally {
+          rmSync(tempRoot, { recursive: true, force: true });
+          for (const [context, path] of [
+            [targetA, fixtureA.path],
+            [targetB, postgresPath()],
+          ] as const) {
+            spawnSync(disablePath, ["--apply"], {
+              cwd: repoRoot,
+              encoding: "utf8",
+              env: {
+                ...process.env,
+                PATH: path,
+                DATABASE_ADMIN_URL: context.adminUrl,
+              },
+            });
+          }
+        }
+      });
+    });
+  },
+);
+
+test(
+  "post-LOGIN fail-safe catalog blocker is bounded and reports an unresolved active security incident",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const beforeRows = candidateRowsSnapshot(context);
+      const tempRoot = mkdtempSync(join(tmpdir(), "candidate-failsafe-blocker-"));
+      const barrier = writePostActivationVerifierBarrier(tempRoot);
+      let blocker: ChildProcess | null = null;
+      try {
+        const enable = spawn(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            env: {
+              ...recoveryEnableEnv(fixture, context.adminUrl, barrier.path),
+              ACTIVATION_MARKER_FILE: barrier.markerFile,
+              ACTIVATION_RELEASE_FILE: barrier.releaseFile,
+              REAL_PSQL: barrier.realPsql,
+            },
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        let output = "";
+        enable.stdout?.on("data", (chunk) => { output += chunk.toString(); });
+        enable.stderr?.on("data", (chunk) => { output += chunk.toString(); });
+        const enableExit = childExit(enable);
+        await waitFor(
+          () => existsSync(barrier.markerFile) || enable.exitCode !== null,
+          "enable never reached the post-LOGIN verifier barrier",
+        );
+        assert.ok(existsSync(barrier.markerFile), output);
+
+        blocker = spawn(
+          "psql",
+          [
+            "-X", "-h", "127.0.0.1", "-p", String(context.port),
+            "-U", "postgres", "-d", context.database, "-v", "ON_ERROR_STOP=1",
+            "-c", "BEGIN; LOCK TABLE pg_catalog.pg_shdepend IN ACCESS EXCLUSIVE MODE; SELECT pg_sleep(30)",
+          ],
+          {
+            cwd: repoRoot,
+            env: {
+              ...process.env,
+              PATH: fixture.path,
+              PGAPPNAME: "candidate-failsafe-catalog-blocker",
+            },
+            stdio: "ignore",
+          },
+        );
+        await waitFor(
+          () => context.psql(`
+            SELECT count(*) FROM pg_locks lock
+            JOIN pg_class class ON class.oid = lock.relation
+            WHERE class.relname = 'pg_shdepend'
+              AND lock.mode = 'AccessExclusiveLock' AND lock.granted
+          `).stdout.trim() === "1",
+          "fail-safe catalog blocker did not acquire pg_shdepend",
+        );
+        const drift = context.psql(
+          "ALTER ROLE foodsystems_candidate_worker CREATEROLE",
+        );
+        assert.equal(drift.status, 0, drift.stderr);
+        writeFileSync(barrier.releaseFile, "release\n");
+        const status = await enableExit;
+        const unresolvedState = context.psql(`
+          SELECT
+            (SELECT rolcanlogin AND rolcreaterole FROM pg_roles
+             WHERE rolname = 'foodsystems_candidate_worker'),
+            (SELECT rolcanlogin FROM pg_roles
+             WHERE rolname = 'foodsystems_candidate_reconciler'),
+            (SELECT count(*) FROM pg_stat_activity
+             WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'));
+        `);
+        assert.equal(unresolvedState.status, 0, unresolvedState.stderr);
+        assert.deepEqual(
+          {
+            failed: status !== 0,
+            stableIncident: /unresolved_active_security_incident/.test(output),
+            boundedRetry: /lock\/statement timeout|resolve.*retry/i.test(output),
+            unresolvedState: unresolvedState.stdout.trim(),
+            rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+          },
+          {
+            failed: true,
+            stableIncident: true,
+            boundedRetry: true,
+            unresolvedState: "t|t|0",
+            rowsUnchanged: true,
+          },
+          output,
+        );
+      } finally {
+        if (blocker?.exitCode === null) blocker.kill("SIGTERM");
+        if (blocker !== null) await childExit(blocker).catch(() => undefined);
+        context.psql("ALTER ROLE foodsystems_candidate_worker NOCREATEROLE");
+        spawnSync(disablePath, ["--apply"], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            DATABASE_ADMIN_URL: context.adminUrl,
+          },
+        });
+        rmSync(tempRoot, { recursive: true, force: true });
+      }
+    });
+  },
+);
+
 test(
   "CREATEROLE-only recovery admin cannot expose candidate LOGIN or let an active candidate transaction survive fallback",
   { timeout: 30_000 },
@@ -2920,7 +3805,7 @@ test(
             WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'));
       `);
       assert.equal(finalState.status, 0, finalState.stderr);
-      assert.equal(finalState.stdout.trim(), "t|t|t|t|0");
+      assert.equal(finalState.stdout.trim(), "t|t|f|f|0");
     });
   },
 );
@@ -2937,8 +3822,17 @@ test(
       const targetApp = "candidate-recovery-target-client";
       const controlApp = "candidate-recovery-other-database";
       const runId = "run:recovery-hidden-gateway";
-      const runScopeHash = candidateAnalysisRunScopeHash(runId);
-      const hash = "a".repeat(64);
+      const analysis = candidateAnalysisFixture({
+        contentUnitId: "content:recovery-hidden-gateway",
+        runId,
+      });
+      const adminPrisma = rolePrisma(context.adminUrl);
+      try {
+        await adminPrisma.candidateContentUnit.create({ data: analysis.contentUnit });
+      } finally {
+        await adminPrisma.$disconnect();
+      }
+      const runPayload = `$candidate_run$${JSON.stringify(analysis.run)}$candidate_run$::jsonb`;
       const gatewaySetup = context.psql(`
         CREATE ROLE candidate_gateway LOGIN;
         GRANT foodsystems_candidate_worker TO candidate_gateway;
@@ -2946,6 +3840,10 @@ test(
       assert.equal(gatewaySetup.status, 0, gatewaySetup.stderr);
       const controlCreated = context.psql(`CREATE DATABASE ${controlDatabase}`);
       assert.equal(controlCreated.status, 0, controlCreated.stderr);
+      assert.equal(
+        context.psql(`REVOKE CONNECT ON DATABASE ${controlDatabase} FROM PUBLIC`).status,
+        0,
+      );
 
       const gateway = spawn(
         "psql",
@@ -2955,17 +3853,7 @@ test(
           "-v", "ON_ERROR_STOP=1", "-c", `
             SET ROLE foodsystems_candidate_worker;
             BEGIN;
-            INSERT INTO public."CandidateAnalysisRun" (
-              "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
-              "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
-              "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
-              "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
-            ) VALUES (
-              '${runId}', '${runScopeHash}', 'candidate-analysis', 'v1', 'workflow.md', '${hash}',
-              'candidate-analysis-prompt', 'v1', 'prompt.md', 'test', 'test-model', 'v1',
-              '${hash}', '{}', '${hash}', '${hash}', 'hidden gateway recovery write',
-              'candidate-only', 'test-worker', '${hash}', 1
-            );
+            SELECT public.candidate_worker_append('create_run', ${runPayload});
             SELECT pg_sleep(60);
             COMMIT;
           `,
@@ -4521,37 +5409,17 @@ test(
 );
 
 test(
-  "enable rejects equally bootstrapped credentials for a different database on the same cluster and disables target A",
+  "a second candidate database on the same cluster cannot be bootstrapped while the target grant remains reachable",
   { timeout: 45_000 },
   async (t) => {
     await withCandidateAnalysisPostgres(t, async (context) => {
-      const fixture = prepareRecoveryFixture(context);
+      prepareRecoveryFixture(context);
       const otherDatabase = "candidate_analysis_other";
-      bootstrapAdditionalCandidateDatabase(context, otherDatabase);
-      const forbidden = context.psql(
-        'GRANT INSERT ON public."CandidateHumanReviewDecision" TO foodsystems_candidate_worker',
-      );
-      assert.equal(forbidden.status, 0, forbidden.stderr);
       const beforeRows = candidateRowsSnapshot(context);
-      const workerUrl = retargetDatabaseUrl(fixture.workerUrl, otherDatabase);
-      const reconcilerUrl = retargetDatabaseUrl(
-        fixture.reconcilerUrl,
+      const beforeAuthority = candidateAuthoritySnapshot(context);
+      const { bootstrapped } = attemptBootstrapAdditionalCandidateDatabase(
+        context,
         otherDatabase,
-      );
-      const enable = spawnSync(
-        enablePath,
-        ["--apply", "--confirm-existing-credentials"],
-        {
-          cwd: repoRoot,
-          encoding: "utf8",
-          env: {
-            ...process.env,
-            PATH: fixture.path,
-            DATABASE_ADMIN_URL: context.adminUrl,
-            CANDIDATE_WORKER_DATABASE_URL: workerUrl,
-            CANDIDATE_RECONCILER_DATABASE_URL: reconcilerUrl,
-          },
-        },
       );
       const safeState = context.psql(`
         SELECT
@@ -4559,22 +5427,28 @@ test(
           NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
           NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
           NOT has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
-          NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateHumanReviewDecision"', 'INSERT'),
           (SELECT count(*) FROM pg_stat_activity
             WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'));
       `);
       assert.equal(safeState.status, 0, safeState.stderr);
       assert.deepEqual(
         {
-          statusIsFailure: enable.status !== 0,
+          statusIsFailure: bootstrapped.status !== 0,
+          explainsIsolation: /other database.*CONNECT|CONNECT.*other database/i.test(
+            `${bootstrapped.stdout}${bootstrapped.stderr}`,
+          ),
           state: safeState.stdout.trim(),
+          authorityUnchanged: candidateAuthoritySnapshot(context) === beforeAuthority,
           rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
         },
         {
           statusIsFailure: true,
-          state: "t|t|t|t|t|0",
+          explainsIsolation: true,
+          state: "t|t|t|t|0",
+          authorityUnchanged: true,
           rowsUnchanged: true,
         },
+        `${bootstrapped.stdout}${bootstrapped.stderr}`,
       );
     });
   },
@@ -4881,7 +5755,7 @@ test(
             WHERE id = 'snapshot:clean-activation:1');
       `);
       assert.equal(state.status, 0, state.stderr);
-      assert.equal(state.stdout.trim(), "t|t|t|t|t|t|1|1");
+      assert.equal(state.stdout.trim(), "t|t|f|f|t|t|1|1");
     });
   },
 );
@@ -4895,6 +5769,10 @@ test(
       const controlDatabase = "candidate_setting_control";
       assert.equal(
         context.psql(`CREATE DATABASE ${controlDatabase}`).status,
+        0,
+      );
+      assert.equal(
+        context.psql(`REVOKE CONNECT ON DATABASE ${controlDatabase} FROM PUBLIC`).status,
         0,
       );
       const dirtySettings = context.psql(`
