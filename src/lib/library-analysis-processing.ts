@@ -283,11 +283,24 @@ export type LibraryAnalysisRunCreatePayload = {
   wordCount: number
 }
 
+// The analysis content a run is a record of. Both the triage payload and a
+// model-produced card satisfy this shape, so both hash the same way.
+export type LibraryAnalysisContent = {
+  aiCard: LibraryAiCard
+  aiSummary: string
+  keyFindings: string[]
+  claimCandidates: LibraryAiCard['claimCandidates']
+  projectImplications: string[]
+  gaps: LibraryAiCard['gaps']
+  controlLinks: LibraryAiCard['controlLinks']
+  riskFlags: string[]
+}
+
 // Content address of one analysis result. It answers "did these two runs
 // produce the same analysis?" and nothing more. It is deliberately a
 // comparison aid rather than a security boundary: it is computed in
 // TypeScript only and is never re-derived in SQL.
-export function libraryAnalysisPayloadHash(payload: LibraryAnalysisMutationPayload): string {
+export function libraryAnalysisPayloadHash(payload: LibraryAnalysisContent): string {
   return createHash('sha256')
     .update(stableStringify({
       aiCard: payload.aiCard,
