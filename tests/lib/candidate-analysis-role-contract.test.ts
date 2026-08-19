@@ -3050,11 +3050,31 @@ test(
         env: adminEnv,
       });
       assert.equal(disabled.status, 0, disabled.stderr);
+      const beforeFailedEnableAuthority = candidateAuthoritySnapshot(context);
+      const beforeFailedEnableRows = candidateRowsSnapshot(context);
       const enableWithGrant = spawnSync(
         enablePath,
         ["--apply", "--confirm-existing-credentials"],
         { cwd: repoRoot, encoding: "utf8", env: enableEnv },
       );
+      const directAfterFailedEnable = context.psql(`
+        SELECT count(*)
+        FROM pg_parameter_acl parameter,
+        LATERAL aclexplode(parameter.paracl) privilege
+        WHERE parameter.parname = 'session_replication_role'
+          AND privilege.grantee = (
+            SELECT oid FROM pg_roles
+            WHERE rolname = 'foodsystems_candidate_worker'
+          )
+          AND privilege.privilege_type = 'SET';
+      `);
+      assert.equal(
+        directAfterFailedEnable.status,
+        0,
+        directAfterFailedEnable.stderr,
+      );
+      const afterFailedEnableAuthority = candidateAuthoritySnapshot(context);
+      const afterFailedEnableRows = candidateRowsSnapshot(context);
 
       const cleanupGrant = context.psql(`
         REVOKE ALL PRIVILEGES ON PARAMETER session_replication_role
@@ -3099,12 +3119,22 @@ test(
           enable: enabled.status,
           runtimeReplicationRole: showReplicationRole.stdout.trim(),
           replicaModeDenied: selectReplica.status !== 0,
-          verifyRejectsGrant: verifyWithGrant.status !== 0,
+          verifyRejectsGrant:
+            verifyWithGrant.status !== 0
+            && /configuration parameter privilege is effective: session_replication_role/i.test(
+              `${verifyWithGrant.stdout}${verifyWithGrant.stderr}`,
+            ),
           enableRejectsGrant:
             enableWithGrant.status !== 0
             && /configuration parameter privilege is effective/i.test(
               `${enableWithGrant.stdout}${enableWithGrant.stderr}`,
             ),
+          failedEnableAuthorityUnchanged:
+            afterFailedEnableAuthority === beforeFailedEnableAuthority,
+          failedEnableRowsUnchanged:
+            afterFailedEnableRows === beforeFailedEnableRows,
+          grantRetainedAfterFailedEnable:
+            directAfterFailedEnable.stdout.trim(),
           cleanBootstrap: cleanBootstrap.status,
           cleanEnable: cleanEnable.status,
           cleanState: cleanState.stdout.trim(),
@@ -3117,6 +3147,9 @@ test(
           replicaModeDenied: true,
           verifyRejectsGrant: true,
           enableRejectsGrant: true,
+          failedEnableAuthorityUnchanged: true,
+          failedEnableRowsUnchanged: true,
+          grantRetainedAfterFailedEnable: "1",
           cleanBootstrap: 0,
           cleanEnable: 0,
           cleanState: "0|t",
@@ -3127,6 +3160,7 @@ test(
           selectReplica.stderr,
           verifyWithGrant.stderr,
           enableWithGrant.stderr,
+          directAfterFailedEnable.stderr,
           cleanBootstrap.stderr,
           cleanEnable.stderr,
         ].join("\n"),
@@ -3297,7 +3331,7 @@ test(
             "-X", "-h", "127.0.0.1", "-p", String(context.port),
             "-U", "postgres", "-d", context.database,
             "-v", "ON_ERROR_STOP=1", "-c",
-            "SET lock_timeout = '2s'; GRANT SET ON PARAMETER session_replication_role TO foodsystems_candidate_worker",
+            "SET lock_timeout = '250ms'; GRANT SET ON PARAMETER session_replication_role TO foodsystems_candidate_worker",
           ],
           {
             cwd: repoRoot,
