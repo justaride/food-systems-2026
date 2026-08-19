@@ -512,7 +512,20 @@ type CleanupStep = {
   run: () => Promise<void> | void;
 };
 
-async function runBestEffortCleanup(steps: CleanupStep[]): Promise<void> {
+type ErrorWithCleanupFailures = Error & {
+  cleanupFailures?: AggregateError;
+};
+
+function errorFromUnknown(error: unknown): Error {
+  return error instanceof Error
+    ? error
+    : new Error(String(error), { cause: error });
+}
+
+async function runBestEffortCleanup(
+  steps: CleanupStep[],
+  primaryFailure?: Error,
+): Promise<void> {
   const failures: Error[] = [];
   for (const step of steps) {
     try {
@@ -522,7 +535,16 @@ async function runBestEffortCleanup(steps: CleanupStep[]): Promise<void> {
     }
   }
   if (failures.length > 0) {
-    throw new AggregateError(failures, "candidate test cleanup failed");
+    const cleanupFailures = new AggregateError(
+      failures,
+      "candidate test cleanup failed",
+    );
+    if (primaryFailure) {
+      (primaryFailure as ErrorWithCleanupFailures).cleanupFailures =
+        cleanupFailures;
+      return;
+    }
+    throw cleanupFailures;
   }
 }
 
@@ -3008,6 +3030,63 @@ test(
 );
 
 test(
+  "cleanup failure preserves the primary operation error with aggregate diagnostics",
+  async () => {
+    const primaryFailure = new Error("primary operation failed");
+    let visibleFailure: unknown;
+    let laterCleanupAttempted = false;
+
+    try {
+      try {
+        throw primaryFailure;
+      } finally {
+        await runBestEffortCleanup([
+          {
+            label: "injected cleanup failure",
+            run: () => {
+              throw new Error("cleanup operation failed");
+            },
+          },
+          {
+            label: "later cleanup control",
+            run: () => {
+              laterCleanupAttempted = true;
+            },
+          },
+        ], primaryFailure);
+      }
+    } catch (error) {
+      visibleFailure = error;
+    }
+
+    const cleanupFailures = visibleFailure instanceof Error
+      ? (visibleFailure as Error & { cleanupFailures?: unknown }).cleanupFailures
+      : undefined;
+    assert.deepEqual(
+      {
+        primaryIdentityPreserved: visibleFailure === primaryFailure,
+        primaryMessage: visibleFailure instanceof Error
+          ? visibleFailure.message
+          : String(visibleFailure),
+        cleanupIsAggregate: cleanupFailures instanceof AggregateError,
+        cleanupIsMachineReadable: cleanupFailures instanceof AggregateError
+          && cleanupFailures.errors.some((error) =>
+            String(error).includes("injected cleanup failure")
+          ),
+        laterCleanupAttempted,
+      },
+      {
+        primaryIdentityPreserved: true,
+        primaryMessage: "primary operation failed",
+        cleanupIsAggregate: true,
+        cleanupIsMachineReadable: true,
+        laterCleanupAttempted: true,
+      },
+    );
+  },
+);
+
+test(
   "catalog lock timeout aborts recovery before drain or grant repair",
   { timeout: 15_000 },
   async (t) => {
@@ -3067,6 +3146,7 @@ test(
         },
       );
       let bootstrap: ChildProcess | null = null;
+      let primaryFailure: Error | undefined;
 
       try {
         await waitFor(() => {
@@ -3128,6 +3208,9 @@ test(
           },
           output,
         );
+      } catch (error) {
+        primaryFailure = errorFromUnknown(error);
+        throw primaryFailure;
       } finally {
         await runBestEffortCleanup([
           {
@@ -3163,7 +3246,7 @@ test(
               await childExit(sleeper);
             },
           },
-        ]);
+        ], primaryFailure);
       }
     });
   },
@@ -3207,6 +3290,7 @@ test(
           stdio: "ignore",
         },
       );
+      let primaryFailure: Error | undefined;
 
       try {
         await waitFor(
@@ -3252,6 +3336,9 @@ test(
           },
           `${bootstrap.stdout}${bootstrap.stderr}`,
         );
+      } catch (error) {
+        primaryFailure = errorFromUnknown(error);
+        throw primaryFailure;
       } finally {
         await runBestEffortCleanup([
           {
@@ -3280,7 +3367,7 @@ test(
               await childExit(sleeper);
             },
           },
-        ]);
+        ], primaryFailure);
       }
     }, { maxPreparedTransactions: 10 });
   },
@@ -3347,6 +3434,7 @@ test(
           stdio: "ignore",
         },
       );
+      let primaryFailure: Error | undefined;
 
       try {
         await waitFor(
@@ -3375,6 +3463,9 @@ test(
           productionBootstrap,
           "survivor mutation changed the production bootstrap",
         );
+      } catch (error) {
+        primaryFailure = errorFromUnknown(error);
+        throw primaryFailure;
       } finally {
         await runBestEffortCleanup([
           {
@@ -3398,7 +3489,7 @@ test(
             label: "remove survivor-guard temp directory",
             run: () => rmSync(tempRoot, { recursive: true, force: true }),
           },
-        ]);
+        ], primaryFailure);
       }
     });
   },
