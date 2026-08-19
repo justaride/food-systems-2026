@@ -839,48 +839,102 @@ REVOKE ALL ON FUNCTION public.reject_invalid_candidate_machine_payload() FROM PU
 REVOKE ALL PRIVILEGES ON TABLE "CandidateContentUnit" FROM PUBLIC;
 CREATE TRIGGER "CandidateContentUnit_reject_update_delete" BEFORE UPDATE OR DELETE ON "CandidateContentUnit" FOR EACH ROW EXECUTE FUNCTION public.reject_candidate_history_change();
 CREATE TRIGGER "CandidateContentUnit_reject_truncate" BEFORE TRUNCATE ON "CandidateContentUnit" FOR EACH STATEMENT EXECUTE FUNCTION public.reject_candidate_history_change();
+ALTER TABLE "CandidateContentUnit"
+  ENABLE ALWAYS TRIGGER "CandidateContentUnit_reject_update_delete";
+ALTER TABLE "CandidateContentUnit"
+  ENABLE ALWAYS TRIGGER "CandidateContentUnit_reject_truncate";
 
 REVOKE ALL PRIVILEGES ON TABLE "CandidateAnalysisRun" FROM PUBLIC;
 CREATE TRIGGER "CandidateAnalysisRun_reject_invalid_scope" BEFORE INSERT ON "CandidateAnalysisRun" FOR EACH ROW EXECUTE FUNCTION public.reject_invalid_candidate_run_scope();
 CREATE TRIGGER "CandidateAnalysisRun_reject_update_delete" BEFORE UPDATE OR DELETE ON "CandidateAnalysisRun" FOR EACH ROW EXECUTE FUNCTION public.reject_candidate_history_change();
 CREATE TRIGGER "CandidateAnalysisRun_reject_truncate" BEFORE TRUNCATE ON "CandidateAnalysisRun" FOR EACH STATEMENT EXECUTE FUNCTION public.reject_candidate_history_change();
+ALTER TABLE "CandidateAnalysisRun"
+  ENABLE ALWAYS TRIGGER "CandidateAnalysisRun_reject_invalid_scope";
+ALTER TABLE "CandidateAnalysisRun"
+  ENABLE ALWAYS TRIGGER "CandidateAnalysisRun_reject_update_delete";
+ALTER TABLE "CandidateAnalysisRun"
+  ENABLE ALWAYS TRIGGER "CandidateAnalysisRun_reject_truncate";
 
 REVOKE ALL PRIVILEGES ON TABLE "CandidateAnalysisRunInput" FROM PUBLIC;
 CREATE TRIGGER "CandidateAnalysisRunInput_reject_update_delete" BEFORE UPDATE OR DELETE ON "CandidateAnalysisRunInput" FOR EACH ROW EXECUTE FUNCTION public.reject_candidate_history_change();
 CREATE TRIGGER "CandidateAnalysisRunInput_reject_truncate" BEFORE TRUNCATE ON "CandidateAnalysisRunInput" FOR EACH STATEMENT EXECUTE FUNCTION public.reject_candidate_history_change();
+ALTER TABLE "CandidateAnalysisRunInput"
+  ENABLE ALWAYS TRIGGER "CandidateAnalysisRunInput_reject_update_delete";
+ALTER TABLE "CandidateAnalysisRunInput"
+  ENABLE ALWAYS TRIGGER "CandidateAnalysisRunInput_reject_truncate";
 
 REVOKE ALL PRIVILEGES ON TABLE "CandidateAnalysisRunEvent" FROM PUBLIC;
 CREATE TRIGGER "CandidateAnalysisRunEvent_reject_invalid_machine_payload" BEFORE INSERT ON "CandidateAnalysisRunEvent" FOR EACH ROW EXECUTE FUNCTION public.reject_invalid_candidate_machine_payload();
 CREATE TRIGGER "CandidateAnalysisRunEvent_reject_update_delete" BEFORE UPDATE OR DELETE ON "CandidateAnalysisRunEvent" FOR EACH ROW EXECUTE FUNCTION public.reject_candidate_history_change();
 CREATE TRIGGER "CandidateAnalysisRunEvent_reject_truncate" BEFORE TRUNCATE ON "CandidateAnalysisRunEvent" FOR EACH STATEMENT EXECUTE FUNCTION public.reject_candidate_history_change();
+ALTER TABLE "CandidateAnalysisRunEvent"
+  ENABLE ALWAYS TRIGGER "CandidateAnalysisRunEvent_reject_invalid_machine_payload";
+ALTER TABLE "CandidateAnalysisRunEvent"
+  ENABLE ALWAYS TRIGGER "CandidateAnalysisRunEvent_reject_update_delete";
+ALTER TABLE "CandidateAnalysisRunEvent"
+  ENABLE ALWAYS TRIGGER "CandidateAnalysisRunEvent_reject_truncate";
 
 REVOKE ALL PRIVILEGES ON TABLE "CandidateAnalysisArtifact" FROM PUBLIC;
 CREATE TRIGGER "CandidateAnalysisArtifact_reject_invalid_machine_payload" BEFORE INSERT ON "CandidateAnalysisArtifact" FOR EACH ROW EXECUTE FUNCTION public.reject_invalid_candidate_machine_payload();
 CREATE TRIGGER "CandidateAnalysisArtifact_reject_update_delete" BEFORE UPDATE OR DELETE ON "CandidateAnalysisArtifact" FOR EACH ROW EXECUTE FUNCTION public.reject_candidate_history_change();
 CREATE TRIGGER "CandidateAnalysisArtifact_reject_truncate" BEFORE TRUNCATE ON "CandidateAnalysisArtifact" FOR EACH STATEMENT EXECUTE FUNCTION public.reject_candidate_history_change();
+ALTER TABLE "CandidateAnalysisArtifact"
+  ENABLE ALWAYS TRIGGER "CandidateAnalysisArtifact_reject_invalid_machine_payload";
+ALTER TABLE "CandidateAnalysisArtifact"
+  ENABLE ALWAYS TRIGGER "CandidateAnalysisArtifact_reject_update_delete";
+ALTER TABLE "CandidateAnalysisArtifact"
+  ENABLE ALWAYS TRIGGER "CandidateAnalysisArtifact_reject_truncate";
 
 REVOKE ALL PRIVILEGES ON TABLE "CandidateAssertion" FROM PUBLIC;
 CREATE TRIGGER "CandidateAssertion_reject_invalid_machine_payload" BEFORE INSERT ON "CandidateAssertion" FOR EACH ROW EXECUTE FUNCTION public.reject_invalid_candidate_machine_payload();
 CREATE TRIGGER "CandidateAssertion_reject_update_delete" BEFORE UPDATE OR DELETE ON "CandidateAssertion" FOR EACH ROW EXECUTE FUNCTION public.reject_candidate_history_change();
 CREATE TRIGGER "CandidateAssertion_reject_truncate" BEFORE TRUNCATE ON "CandidateAssertion" FOR EACH STATEMENT EXECUTE FUNCTION public.reject_candidate_history_change();
+ALTER TABLE "CandidateAssertion"
+  ENABLE ALWAYS TRIGGER "CandidateAssertion_reject_invalid_machine_payload";
+ALTER TABLE "CandidateAssertion"
+  ENABLE ALWAYS TRIGGER "CandidateAssertion_reject_update_delete";
+ALTER TABLE "CandidateAssertion"
+  ENABLE ALWAYS TRIGGER "CandidateAssertion_reject_truncate";
 
 REVOKE ALL PRIVILEGES ON TABLE "CandidateEvidenceLink" FROM PUBLIC;
 CREATE TRIGGER "CandidateEvidenceLink_reject_update_delete" BEFORE UPDATE OR DELETE ON "CandidateEvidenceLink" FOR EACH ROW EXECUTE FUNCTION public.reject_candidate_history_change();
 CREATE TRIGGER "CandidateEvidenceLink_reject_truncate" BEFORE TRUNCATE ON "CandidateEvidenceLink" FOR EACH STATEMENT EXECUTE FUNCTION public.reject_candidate_history_change();
+ALTER TABLE "CandidateEvidenceLink"
+  ENABLE ALWAYS TRIGGER "CandidateEvidenceLink_reject_update_delete";
+ALTER TABLE "CandidateEvidenceLink"
+  ENABLE ALWAYS TRIGGER "CandidateEvidenceLink_reject_truncate";
 
 REVOKE ALL PRIVILEGES ON TABLE "CandidateDependency" FROM PUBLIC;
 CREATE TRIGGER "CandidateDependency_reject_update_delete" BEFORE UPDATE OR DELETE ON "CandidateDependency" FOR EACH ROW EXECUTE FUNCTION public.reject_candidate_history_change();
 CREATE TRIGGER "CandidateDependency_reject_truncate" BEFORE TRUNCATE ON "CandidateDependency" FOR EACH STATEMENT EXECUTE FUNCTION public.reject_candidate_history_change();
+ALTER TABLE "CandidateDependency"
+  ENABLE ALWAYS TRIGGER "CandidateDependency_reject_update_delete";
+ALTER TABLE "CandidateDependency"
+  ENABLE ALWAYS TRIGGER "CandidateDependency_reject_truncate";
 
 REVOKE ALL PRIVILEGES ON TABLE "CandidateReconciliationSnapshot" FROM PUBLIC;
 CREATE TRIGGER "CandidateReconciliationSnapshot_reject_invalid_machine_payload" BEFORE INSERT ON "CandidateReconciliationSnapshot" FOR EACH ROW EXECUTE FUNCTION public.reject_invalid_candidate_machine_payload();
 CREATE TRIGGER "CandidateReconciliationSnapshot_reject_update_delete" BEFORE UPDATE OR DELETE ON "CandidateReconciliationSnapshot" FOR EACH ROW EXECUTE FUNCTION public.reject_candidate_history_change();
 CREATE TRIGGER "CandidateReconciliationSnapshot_reject_truncate" BEFORE TRUNCATE ON "CandidateReconciliationSnapshot" FOR EACH STATEMENT EXECUTE FUNCTION public.reject_candidate_history_change();
+ALTER TABLE "CandidateReconciliationSnapshot"
+  ENABLE ALWAYS TRIGGER "CandidateReconciliationSnapshot_reject_invalid_machine_payload";
+ALTER TABLE "CandidateReconciliationSnapshot"
+  ENABLE ALWAYS TRIGGER "CandidateReconciliationSnapshot_reject_update_delete";
+ALTER TABLE "CandidateReconciliationSnapshot"
+  ENABLE ALWAYS TRIGGER "CandidateReconciliationSnapshot_reject_truncate";
 
 REVOKE ALL PRIVILEGES ON TABLE "CandidateHumanReviewDecision" FROM PUBLIC;
 CREATE TRIGGER "CandidateHumanReviewDecision_reject_update_delete" BEFORE UPDATE OR DELETE ON "CandidateHumanReviewDecision" FOR EACH ROW EXECUTE FUNCTION public.reject_candidate_history_change();
 CREATE TRIGGER "CandidateHumanReviewDecision_reject_truncate" BEFORE TRUNCATE ON "CandidateHumanReviewDecision" FOR EACH STATEMENT EXECUTE FUNCTION public.reject_candidate_history_change();
+ALTER TABLE "CandidateHumanReviewDecision"
+  ENABLE ALWAYS TRIGGER "CandidateHumanReviewDecision_reject_update_delete";
+ALTER TABLE "CandidateHumanReviewDecision"
+  ENABLE ALWAYS TRIGGER "CandidateHumanReviewDecision_reject_truncate";
 
 REVOKE ALL PRIVILEGES ON TABLE "CandidatePromotionDecision" FROM PUBLIC;
 CREATE TRIGGER "CandidatePromotionDecision_reject_update_delete" BEFORE UPDATE OR DELETE ON "CandidatePromotionDecision" FOR EACH ROW EXECUTE FUNCTION public.reject_candidate_history_change();
 CREATE TRIGGER "CandidatePromotionDecision_reject_truncate" BEFORE TRUNCATE ON "CandidatePromotionDecision" FOR EACH STATEMENT EXECUTE FUNCTION public.reject_candidate_history_change();
+ALTER TABLE "CandidatePromotionDecision"
+  ENABLE ALWAYS TRIGGER "CandidatePromotionDecision_reject_update_delete";
+ALTER TABLE "CandidatePromotionDecision"
+  ENABLE ALWAYS TRIGGER "CandidatePromotionDecision_reject_truncate";

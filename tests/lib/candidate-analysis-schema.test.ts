@@ -77,14 +77,50 @@ test("models independent machine, review and target-specific promotion history",
   );
 });
 
-test("migration makes every candidate history table immutable and private from PUBLIC", () => {
+const candidateAlwaysTriggers = [
+  ["CandidateContentUnit", "CandidateContentUnit_reject_update_delete"],
+  ["CandidateContentUnit", "CandidateContentUnit_reject_truncate"],
+  ["CandidateAnalysisRun", "CandidateAnalysisRun_reject_invalid_scope"],
+  ["CandidateAnalysisRun", "CandidateAnalysisRun_reject_update_delete"],
+  ["CandidateAnalysisRun", "CandidateAnalysisRun_reject_truncate"],
+  ["CandidateAnalysisRunInput", "CandidateAnalysisRunInput_reject_update_delete"],
+  ["CandidateAnalysisRunInput", "CandidateAnalysisRunInput_reject_truncate"],
+  ["CandidateAnalysisRunEvent", "CandidateAnalysisRunEvent_reject_invalid_machine_payload"],
+  ["CandidateAnalysisRunEvent", "CandidateAnalysisRunEvent_reject_update_delete"],
+  ["CandidateAnalysisRunEvent", "CandidateAnalysisRunEvent_reject_truncate"],
+  ["CandidateAnalysisArtifact", "CandidateAnalysisArtifact_reject_invalid_machine_payload"],
+  ["CandidateAnalysisArtifact", "CandidateAnalysisArtifact_reject_update_delete"],
+  ["CandidateAnalysisArtifact", "CandidateAnalysisArtifact_reject_truncate"],
+  ["CandidateAssertion", "CandidateAssertion_reject_invalid_machine_payload"],
+  ["CandidateAssertion", "CandidateAssertion_reject_update_delete"],
+  ["CandidateAssertion", "CandidateAssertion_reject_truncate"],
+  ["CandidateEvidenceLink", "CandidateEvidenceLink_reject_update_delete"],
+  ["CandidateEvidenceLink", "CandidateEvidenceLink_reject_truncate"],
+  ["CandidateDependency", "CandidateDependency_reject_update_delete"],
+  ["CandidateDependency", "CandidateDependency_reject_truncate"],
+  ["CandidateReconciliationSnapshot", "CandidateReconciliationSnapshot_reject_invalid_machine_payload"],
+  ["CandidateReconciliationSnapshot", "CandidateReconciliationSnapshot_reject_update_delete"],
+  ["CandidateReconciliationSnapshot", "CandidateReconciliationSnapshot_reject_truncate"],
+  ["CandidateHumanReviewDecision", "CandidateHumanReviewDecision_reject_update_delete"],
+  ["CandidateHumanReviewDecision", "CandidateHumanReviewDecision_reject_truncate"],
+  ["CandidatePromotionDecision", "CandidatePromotionDecision_reject_update_delete"],
+  ["CandidatePromotionDecision", "CandidatePromotionDecision_reject_truncate"],
+] as const;
+
+test("migration makes every candidate history table immutable and private from PUBLIC with ENABLE ALWAYS custom triggers", () => {
   const sql = readFileSync(
     "prisma/migrations/20260818_candidate_analysis_foundation/migration.sql",
     "utf8",
   );
   assert.match(sql, /CREATE FUNCTION public\.reject_candidate_history_change\(\)/);
-  assert.equal((sql.match(/reject_update_delete/g) ?? []).length, 11);
-  assert.equal((sql.match(/reject_truncate/g) ?? []).length, 11);
+  assert.equal(
+    (sql.match(/CREATE TRIGGER "[^"]+_reject_update_delete" BEFORE/g) ?? []).length,
+    11,
+  );
+  assert.equal(
+    (sql.match(/CREATE TRIGGER "[^"]+_reject_truncate" BEFORE/g) ?? []).length,
+    11,
+  );
   assert.equal((sql.match(/REVOKE ALL PRIVILEGES ON TABLE/g) ?? []).length, 11);
   assert.match(
     sql,
@@ -98,6 +134,18 @@ test("migration makes every candidate history table immutable and private from P
     sql,
     /CandidateAnalysisRun_reject_invalid_scope" BEFORE INSERT/,
   );
+  assert.equal((sql.match(/ENABLE ALWAYS TRIGGER/g) ?? []).length, candidateAlwaysTriggers.length);
+  for (const [table, trigger] of candidateAlwaysTriggers) {
+    const statement = new RegExp(
+      `ALTER TABLE "${table}"\\s+ENABLE ALWAYS TRIGGER "${trigger}";`,
+      "g",
+    );
+    assert.equal(
+      (sql.match(statement) ?? []).length,
+      1,
+      `migration must mark ${table}.${trigger} ENABLE ALWAYS exactly once`,
+    );
+  }
   for (const signature of [
     "candidate_json_number_to_javascript(JSONB)",
     "candidate_canonical_json(JSONB)",
@@ -107,6 +155,64 @@ test("migration makes every candidate history table immutable and private from P
     assert.match(sql, new RegExp(`REVOKE ALL ON FUNCTION public\\.${signature.replace(/[()]/g, "\\$&")} FROM PUBLIC`));
   }
 });
+
+test(
+  "candidate custom triggers remain enforced in replica mode",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ psql }) => {
+      const expectedRows = candidateAlwaysTriggers.map(
+        ([table, trigger]) => `${table}|${trigger}|A`,
+      );
+      const expectedValues = candidateAlwaysTriggers.map(
+        ([table, trigger], index) => `(${index + 1}, '${table}', '${trigger}')`,
+      ).join(",\n");
+      const triggerStates = psql(`
+        SELECT class.relname || '|' || trigger.tgname || '|' || trigger.tgenabled::text
+        FROM (VALUES
+          ${expectedValues}
+        ) AS expected(ordinal, relname, tgname)
+        JOIN pg_class AS class ON class.relname = expected.relname
+        JOIN pg_namespace AS namespace ON namespace.oid = class.relnamespace
+          AND namespace.nspname = 'public'
+        JOIN pg_trigger AS trigger ON trigger.tgrelid = class.oid
+          AND trigger.tgname = expected.tgname
+        ORDER BY expected.ordinal
+      `);
+      assert.equal(triggerStates.status, 0, triggerStates.stderr);
+      assert.deepEqual(
+        triggerStates.stdout.trim().split("\n").filter(Boolean),
+        expectedRows,
+      );
+
+      const replicaInsert = psql(`
+        SET session_replication_role = replica;
+        INSERT INTO public."CandidateAnalysisRun" (
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+          "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+        ) VALUES (
+          'run:replica-invalid-scope', repeat('f', 64),
+          'workflow.candidate_analysis.v1', '1.0.0', 'workflow.md', repeat('0', 64),
+          'prompt.candidate_analysis.v1', '1.0.0', 'prompt.md', 'test', 'test-model',
+          'v1', repeat('1', 64), '{}', repeat('2', 64), repeat('3', 64),
+          'replica trigger probe', 'candidate_only', 'worker:probe', repeat('4', 64), 1
+        )
+      `);
+      assert.notEqual(replicaInsert.status, 0, "replica-mode invalid scope unexpectedly inserted");
+      assert.match(replicaInsert.stderr, /invalid candidate run scope/);
+
+      const replicaRowCount = psql(`
+        SELECT count(*)
+        FROM public."CandidateAnalysisRun"
+        WHERE "id" = 'run:replica-invalid-scope'
+      `);
+      assert.equal(replicaRowCount.status, 0, replicaRowCount.stderr);
+      assert.equal(replicaRowCount.stdout.trim(), "0");
+    });
+  },
+);
 
 test(
   "database rejects direct SQL machine payload bypasses on all four surfaces",
