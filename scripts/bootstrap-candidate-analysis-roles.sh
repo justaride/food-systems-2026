@@ -104,9 +104,9 @@ BEGIN
   END IF;
   IF NOT EXISTS (
     SELECT 1 FROM pg_roles
-    WHERE rolname = current_user AND (rolsuper OR rolcreaterole)
+    WHERE rolname = current_user AND rolsuper
   ) THEN
-    RAISE EXCEPTION 'connected role must have CREATEROLE or SUPERUSER';
+    RAISE EXCEPTION 'connected recovery administrator must be SUPERUSER';
   END IF;
   IF to_regnamespace(current_setting('foodsystems.candidate_schema')) IS NULL THEN
     RAISE EXCEPTION 'target schema does not exist';
@@ -214,9 +214,16 @@ BEGIN
         )) privilege
         WHERE privilege.grantee = 0 AND privilege.privilege_type = 'EXECUTE'
       )
+    )
+    OR EXISTS (
+      SELECT 1
+      FROM pg_parameter_acl parameter,
+      LATERAL aclexplode(parameter.paracl) privilege
+      WHERE privilege.grantee = 0
+        AND privilege.privilege_type IN ('SET', 'ALTER SYSTEM')
     ) INTO incompatible_acl;
   IF incompatible_acl THEN
-    RAISE EXCEPTION 'incompatible PUBLIC or default ACL surface; use a separate authorized database-hardening operation';
+    RAISE EXCEPTION 'incompatible PUBLIC or default ACL surface, including parameter privileges; use a separate authorized database-hardening operation';
   END IF;
 END
 $preflight$;
@@ -226,7 +233,10 @@ BEGIN;
 -- Bootstrap is a disabled-state grant repair, never an implicit service-state
 -- transition. Serialize ALTER ROLE and reject both LOGIN and stale sessions
 -- before the first role, grant, ACL, or setting mutation.
-LOCK TABLE pg_catalog.pg_authid IN SHARE ROW EXCLUSIVE MODE;
+LOCK TABLE
+  pg_catalog.pg_authid,
+  pg_catalog.pg_parameter_acl
+IN SHARE ROW EXCLUSIVE MODE;
 DO $disabled_state$
 BEGIN
   IF EXISTS (
@@ -258,7 +268,25 @@ SELECT format(
 )
 FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
+WITH candidate_role(role_name) AS (
+  VALUES (:'worker_role'), (:'reconciler_role')
+)
+SELECT format(
+  'REVOKE ALL PRIVILEGES ON PARAMETER %I FROM %I',
+  parameter.parname,
+  candidate_role.role_name
+)
+FROM pg_parameter_acl parameter
+CROSS JOIN candidate_role
+\gexec
 SELECT format('ALTER ROLE %I RESET ALL', role_name)
+FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
+\gexec
+SELECT format(
+  'ALTER ROLE %I SET session_replication_role TO %L',
+  role_name,
+  'origin'
+)
 FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
 

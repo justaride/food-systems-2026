@@ -231,6 +231,7 @@ LOCK TABLE
   pg_catalog.pg_type,
   pg_catalog.pg_default_acl,
   pg_catalog.pg_db_role_setting,
+  pg_catalog.pg_parameter_acl,
   pg_catalog.pg_shdepend
 IN SHARE ROW EXCLUSIVE MODE;
 
@@ -388,6 +389,7 @@ BEGIN
         ('idle_in_transaction_session_timeout', '15s'),
         ('lock_timeout', '2s'),
         ('search_path', format('pg_catalog, %I', target_schema)),
+        ('session_replication_role', 'origin'),
         ('statement_timeout', '15s')
     ), actual_global_settings(name, value) AS (
       SELECT split_part(config.value, '=', 1),
@@ -540,6 +542,11 @@ BEGIN
           AND privilege.grantee IN (0, (SELECT oid FROM role_row))
           AND defaults.defaclobjtype IN ('r', 'S', 'f')
       )
+      UNION ALL
+      SELECT format('configuration parameter privilege is effective: %s', parameter.parname)
+      FROM pg_parameter_acl parameter
+      WHERE has_parameter_privilege(target_role, parameter.parname, 'SET')
+         OR has_parameter_privilege(target_role, parameter.parname, 'ALTER SYSTEM')
       UNION ALL
       SELECT 'candidate role has a database-specific setting'
       WHERE EXISTS (

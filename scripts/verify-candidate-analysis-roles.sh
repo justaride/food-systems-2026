@@ -382,6 +382,14 @@ WITH role_row AS (
       AND defaults.defaclobjtype IN ('r', 'S', 'f')
   )
   UNION ALL
+  SELECT format('configuration parameter privilege is effective: %s', parameter.parname)
+  FROM pg_parameter_acl parameter
+  WHERE has_parameter_privilege(current_user, parameter.parname, 'SET')
+     OR has_parameter_privilege(current_user, parameter.parname, 'ALTER SYSTEM')
+  UNION ALL
+  SELECT 'session_replication_role must be origin'
+  WHERE current_setting('session_replication_role') <> 'origin'
+  UNION ALL
   SELECT 'statement_timeout must be 15 seconds'
   WHERE current_setting('statement_timeout') <> '15s'
   UNION ALL
@@ -456,5 +464,8 @@ expect_denied 'schema CREATE' \
   "BEGIN; CREATE TABLE $CANDIDATE_DB_SCHEMA.candidate_role_probe (id integer); ROLLBACK"
 expect_denied 'database TEMP' \
   'BEGIN; CREATE TEMP TABLE candidate_role_temp_probe (id integer); ROLLBACK'
+expect_denied \
+  'session_replication_role replica mode' \
+  "SET session_replication_role TO replica"
 
 printf '%s\n' "[candidate-role-verify] PASS: $EXPECTED_ROLE matches the exact $ROLE_MODE privilege contract"

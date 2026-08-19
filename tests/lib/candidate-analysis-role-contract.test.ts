@@ -415,6 +415,10 @@ function candidateAuthoritySnapshot(
       JOIN pg_roles owner ON owner.oid = defaults.defaclrole
       LEFT JOIN pg_namespace namespace ON namespace.oid = defaults.defaclnamespace
       UNION ALL
+      SELECT 'parameter-acl', parameter.parname,
+        COALESCE(parameter.paracl::text, '<null>')
+      FROM pg_parameter_acl parameter
+      UNION ALL
       SELECT 'ownership-dependency', role.rolname,
         pg_describe_object(dependency.classid, dependency.objid, dependency.objsubid)
       FROM pg_shdepend dependency
@@ -936,6 +940,7 @@ test("explicit login recovery is guarded and has no credential mutation or loggi
     "pg_type",
     "pg_default_acl",
     "pg_db_role_setting",
+    "pg_parameter_acl",
     "pg_shdepend",
   ]) {
     assert.match(enable, new RegExp(`pg_catalog\\.${catalog}`));
@@ -2954,6 +2959,437 @@ test(
       `);
       assert.equal(state.status, 0, state.stderr);
       assert.equal(state.stdout.trim(), "t|t|t|t|t|t|1|1");
+    });
+  },
+);
+
+test(
+  "parameter ACLs are scrubbed and the candidate replication role stays origin",
+  { timeout: 60_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const adminEnv = {
+        ...process.env,
+        PATH: fixture.path,
+        DATABASE_ADMIN_URL: context.adminUrl,
+      };
+      const enableEnv = recoveryEnableEnv(fixture, context.adminUrl);
+      const dirtyGrant = context.psql(`
+        GRANT SET, ALTER SYSTEM ON PARAMETER session_replication_role
+          TO foodsystems_candidate_worker;
+      `);
+      assert.equal(dirtyGrant.status, 0, dirtyGrant.stderr);
+
+      const bootstrap = spawnSync(bootstrapPath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      const directAfterBootstrap = context.psql(`
+        SELECT count(*)
+        FROM pg_parameter_acl parameter,
+        LATERAL aclexplode(parameter.paracl) privilege
+        WHERE parameter.parname = 'session_replication_role'
+          AND privilege.grantee = (
+            SELECT oid FROM pg_roles
+            WHERE rolname = 'foodsystems_candidate_worker'
+          );
+      `);
+      assert.equal(directAfterBootstrap.status, 0, directAfterBootstrap.stderr);
+
+      const enabled = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        { cwd: repoRoot, encoding: "utf8", env: enableEnv },
+      );
+      const showReplicationRole = spawnSync(
+        "psql",
+        [
+          "-X", "-A", "-t", "-v", "ON_ERROR_STOP=1",
+          "-d", fixture.workerUrl,
+          "-c", "SHOW session_replication_role",
+        ],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: { ...process.env, PATH: fixture.path },
+        },
+      );
+      const selectReplica = spawnSync(
+        "psql",
+        [
+          "-X", "-A", "-t", "-v", "ON_ERROR_STOP=1",
+          "-d", fixture.workerUrl,
+          "-c", "SET session_replication_role TO replica",
+        ],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: { ...process.env, PATH: fixture.path },
+        },
+      );
+
+      const regrant = context.psql(`
+        GRANT SET ON PARAMETER session_replication_role
+          TO foodsystems_candidate_worker;
+      `);
+      assert.equal(regrant.status, 0, regrant.stderr);
+      const verifyWithGrant = spawnSync(verifyPath, ["--role=worker"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: fixture.path,
+          CANDIDATE_WORKER_DATABASE_URL: fixture.workerUrl,
+        },
+      });
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      const enableWithGrant = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        { cwd: repoRoot, encoding: "utf8", env: enableEnv },
+      );
+
+      const cleanupGrant = context.psql(`
+        REVOKE ALL PRIVILEGES ON PARAMETER session_replication_role
+          FROM foodsystems_candidate_worker;
+      `);
+      assert.equal(cleanupGrant.status, 0, cleanupGrant.stderr);
+      const cleanBootstrap = spawnSync(bootstrapPath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      const cleanEnable = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        { cwd: repoRoot, encoding: "utf8", env: enableEnv },
+      );
+      const cleanState = context.psql(`
+        SELECT
+          (SELECT count(*)
+           FROM pg_parameter_acl parameter,
+           LATERAL aclexplode(parameter.paracl) privilege
+           WHERE privilege.grantee IN (
+             SELECT oid FROM pg_roles
+             WHERE rolname IN (
+               'foodsystems_candidate_worker',
+               'foodsystems_candidate_reconciler'
+             )
+           )),
+          (SELECT bool_and(rolcanlogin)
+           FROM pg_roles
+           WHERE rolname IN (
+             'foodsystems_candidate_worker',
+             'foodsystems_candidate_reconciler'
+           ));
+      `);
+      assert.equal(cleanState.status, 0, cleanState.stderr);
+
+      assert.deepEqual(
+        {
+          bootstrap: bootstrap.status,
+          directGrantCount: directAfterBootstrap.stdout.trim(),
+          enable: enabled.status,
+          runtimeReplicationRole: showReplicationRole.stdout.trim(),
+          replicaModeDenied: selectReplica.status !== 0,
+          verifyRejectsGrant: verifyWithGrant.status !== 0,
+          enableRejectsGrant:
+            enableWithGrant.status !== 0
+            && /configuration parameter privilege is effective/i.test(
+              `${enableWithGrant.stdout}${enableWithGrant.stderr}`,
+            ),
+          cleanBootstrap: cleanBootstrap.status,
+          cleanEnable: cleanEnable.status,
+          cleanState: cleanState.stdout.trim(),
+        },
+        {
+          bootstrap: 0,
+          directGrantCount: "0",
+          enable: 0,
+          runtimeReplicationRole: "origin",
+          replicaModeDenied: true,
+          verifyRejectsGrant: true,
+          enableRejectsGrant: true,
+          cleanBootstrap: 0,
+          cleanEnable: 0,
+          cleanState: "0|t",
+        },
+        [
+          bootstrap.stderr,
+          enabled.stderr,
+          selectReplica.stderr,
+          verifyWithGrant.stderr,
+          enableWithGrant.stderr,
+          cleanBootstrap.stderr,
+          cleanEnable.stderr,
+        ].join("\n"),
+      );
+    });
+  },
+);
+
+test(
+  "PUBLIC parameter ACL fails before bootstrap mutates state or drains an unrelated session",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const publicGrant = context.psql(
+        "GRANT SET ON PARAMETER session_replication_role TO PUBLIC",
+      );
+      assert.equal(publicGrant.status, 0, publicGrant.stderr);
+      const sleeper = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: "candidate-public-parameter-unrelated-sleeper",
+          },
+          stdio: "ignore",
+        },
+      );
+      try {
+        await waitFor(
+          () => activityCount(
+            context,
+            "candidate-public-parameter-unrelated-sleeper",
+          ) === "1",
+          "unrelated target-database sleeper did not become active",
+        );
+        const beforeAuthority = candidateAuthoritySnapshot(context);
+        const beforeRows = candidateRowsSnapshot(context);
+        const bootstrap = spawnSync(bootstrapPath, ["--apply"], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            DATABASE_ADMIN_URL: context.adminUrl,
+          },
+        });
+        const publicGrantAfter = context.psql(`
+          SELECT count(*)
+          FROM pg_parameter_acl parameter,
+          LATERAL aclexplode(parameter.paracl) privilege
+          WHERE parameter.parname = 'session_replication_role'
+            AND privilege.grantee = 0
+            AND privilege.privilege_type = 'SET';
+        `);
+        assert.equal(publicGrantAfter.status, 0, publicGrantAfter.stderr);
+        assert.deepEqual(
+          {
+            statusIsFailure: bootstrap.status !== 0,
+            explainsPublicParameter:
+              /PUBLIC[\s\S]*parameter|parameter[\s\S]*PUBLIC/i.test(
+              `${bootstrap.stdout}${bootstrap.stderr}`,
+            ),
+            publicGrantStillExists: publicGrantAfter.stdout.trim(),
+            authorityUnchanged:
+              candidateAuthoritySnapshot(context) === beforeAuthority,
+            rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+            sleeperStillConnected: activityCount(
+              context,
+              "candidate-public-parameter-unrelated-sleeper",
+            ),
+          },
+          {
+            statusIsFailure: true,
+            explainsPublicParameter: true,
+            publicGrantStillExists: "1",
+            authorityUnchanged: true,
+            rowsUnchanged: true,
+            sleeperStillConnected: "1",
+          },
+          `${bootstrap.stdout}${bootstrap.stderr}`,
+        );
+      } finally {
+        const cleanup = context.psql(`
+          REVOKE SET ON PARAMETER session_replication_role FROM PUBLIC;
+          SELECT pg_terminate_backend(pid)
+          FROM pg_stat_activity
+          WHERE application_name = 'candidate-public-parameter-unrelated-sleeper';
+        `);
+        assert.equal(cleanup.status, 0, cleanup.stderr);
+        await childExit(sleeper);
+      }
+    });
+  },
+);
+
+test(
+  "concurrent parameter GRANT cannot cross enable's catalog lock",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const blockerApp = "candidate-parameter-acl-shdepend-blocker";
+      const enableApp = "candidate-parameter-acl-enable";
+      const grantApp = "candidate-parameter-acl-concurrent-grant";
+      const adminUrl = new URL(context.adminUrl);
+      adminUrl.searchParams.set("application_name", enableApp);
+      const blocker = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c",
+          "BEGIN; LOCK TABLE pg_catalog.pg_shdepend IN ACCESS EXCLUSIVE MODE; SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: { ...process.env, PATH: fixture.path, PGAPPNAME: blockerApp },
+          stdio: "ignore",
+        },
+      );
+      let enable: ChildProcess | null = null;
+      let enableOutput = "";
+      try {
+        await waitFor(
+          () => activityCount(context, blockerApp) === "1",
+          "pg_shdepend blocker did not become active",
+        );
+        enable = spawn(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            env: recoveryEnableEnv(fixture, adminUrl.toString()),
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        enable.stdout?.on("data", (chunk) => {
+          enableOutput += chunk.toString();
+        });
+        enable.stderr?.on("data", (chunk) => {
+          enableOutput += chunk.toString();
+        });
+        const enableExit = childExit(enable);
+        await waitFor(
+          () => {
+            const blocked = context.psql(`
+              SELECT count(*)
+              FROM pg_stat_activity
+              WHERE application_name = '${enableApp}'
+                AND wait_event_type = 'Lock'
+                AND query LIKE '%pg_shdepend%';
+            `);
+            return blocked.status === 0 && blocked.stdout.trim() === "1";
+          },
+          "enable did not block on the deliberately later pg_shdepend lock",
+        );
+        const concurrentGrant = spawn(
+          "psql",
+          [
+            "-X", "-h", "127.0.0.1", "-p", String(context.port),
+            "-U", "postgres", "-d", context.database,
+            "-v", "ON_ERROR_STOP=1", "-c",
+            "SET lock_timeout = '2s'; GRANT SET ON PARAMETER session_replication_role TO foodsystems_candidate_worker",
+          ],
+          {
+            cwd: repoRoot,
+            env: { ...process.env, PATH: fixture.path, PGAPPNAME: grantApp },
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        let grantOutput = "";
+        concurrentGrant.stdout?.on("data", (chunk) => {
+          grantOutput += chunk.toString();
+        });
+        concurrentGrant.stderr?.on("data", (chunk) => {
+          grantOutput += chunk.toString();
+        });
+        const concurrentGrantExit = childExit(concurrentGrant);
+        let grantWaitRelation = "";
+        await waitFor(
+          () => {
+            const waiting = context.psql(`
+              SELECT class.relname
+              FROM pg_locks lock
+              JOIN pg_stat_activity activity ON activity.pid = lock.pid
+              JOIN pg_class class ON class.oid = lock.relation
+              WHERE activity.application_name = '${grantApp}'
+                AND NOT lock.granted;
+            `);
+            if (waiting.status !== 0) return false;
+            grantWaitRelation = waiting.stdout.trim();
+            return grantWaitRelation !== "";
+          },
+          "concurrent parameter GRANT did not expose its catalog wait",
+        );
+        const concurrentGrantStatus = await concurrentGrantExit;
+        const terminateBlocker = context.psql(`
+          SELECT pg_terminate_backend(pid)
+          FROM pg_stat_activity
+          WHERE application_name = '${blockerApp}';
+        `);
+        assert.equal(terminateBlocker.status, 0, terminateBlocker.stderr);
+        await childExit(blocker);
+        const enableStatus = await enableExit;
+        const state = context.psql(`
+          SELECT
+            (SELECT bool_and(rolcanlogin)
+             FROM pg_roles
+             WHERE rolname IN (
+               'foodsystems_candidate_worker',
+               'foodsystems_candidate_reconciler'
+             )),
+            (SELECT count(*)
+             FROM pg_parameter_acl parameter,
+             LATERAL aclexplode(parameter.paracl) privilege
+             WHERE privilege.grantee IN (
+               SELECT oid FROM pg_roles
+               WHERE rolname IN (
+                 'foodsystems_candidate_worker',
+                 'foodsystems_candidate_reconciler'
+               )
+             ));
+        `);
+        assert.equal(state.status, 0, state.stderr);
+        assert.deepEqual(
+          {
+            grantTimedOut: concurrentGrantStatus !== 0,
+            grantFailure: /lock timeout/i.test(grantOutput),
+            grantWaitRelation,
+            enableStatus,
+            state: state.stdout.trim(),
+          },
+          {
+            grantTimedOut: true,
+            grantFailure: true,
+            grantWaitRelation: "pg_parameter_acl",
+            enableStatus: 0,
+            state: "t|0",
+          },
+          `${grantOutput}\n${enableOutput}`,
+        );
+      } finally {
+        const cleanup = context.psql(`
+          SELECT pg_terminate_backend(pid)
+          FROM pg_stat_activity
+          WHERE application_name IN ('${blockerApp}', '${enableApp}', '${grantApp}');
+          ALTER ROLE foodsystems_candidate_worker NOLOGIN;
+          ALTER ROLE foodsystems_candidate_reconciler NOLOGIN;
+          REVOKE ALL PRIVILEGES ON PARAMETER session_replication_role
+            FROM foodsystems_candidate_worker;
+        `);
+        assert.equal(cleanup.status, 0, cleanup.stderr);
+        if (blocker.exitCode === null) await childExit(blocker);
+        if (enable?.exitCode === null) await childExit(enable);
+      }
     });
   },
 );
