@@ -512,85 +512,102 @@ type CleanupStep = {
   run: () => Promise<void> | void;
 };
 
-declare const cleanupDiagnosticsBrand: unique symbol;
-
-type CleanupDiagnosticsToken = {
-  readonly [cleanupDiagnosticsBrand]: true;
-};
-
 type CleanupDiagnosticsState = {
+  callSite: string;
   cleanupFailures: AggregateError[];
+  correlationId: string;
   primaryFailure?: unknown;
   primaryFailureRecorded: boolean;
 };
 
-const cleanupDiagnosticsByToken = new WeakMap<
-  CleanupDiagnosticsToken,
-  CleanupDiagnosticsState
->();
+type CleanupDiagnosticsSink = {
+  consume: () => Readonly<CleanupDiagnosticsState>;
+  recordCleanupFailure: (cleanupFailure: AggregateError) => void;
+  recordPrimaryFailure: (primaryFailure: unknown) => void;
+};
 
-function createCleanupDiagnostics(): CleanupDiagnosticsToken {
-  const token = Object.freeze({}) as CleanupDiagnosticsToken;
-  cleanupDiagnosticsByToken.set(token, {
+let cleanupDiagnosticsSequence = 0;
+
+function createCleanupDiagnostics(
+  callSite = "cleanup-pressure",
+): CleanupDiagnosticsSink {
+  const state: CleanupDiagnosticsState = {
+    callSite,
     cleanupFailures: [],
+    correlationId: `${callSite}:${String(++cleanupDiagnosticsSequence)}`,
     primaryFailureRecorded: false,
+  };
+  return Object.freeze({
+    consume: () => ({
+      callSite: state.callSite,
+      cleanupFailures: [...state.cleanupFailures],
+      correlationId: state.correlationId,
+      primaryFailure: state.primaryFailure,
+      primaryFailureRecorded: state.primaryFailureRecorded,
+    }),
+    recordCleanupFailure: (cleanupFailure: AggregateError) => {
+      state.cleanupFailures.push(cleanupFailure);
+    },
+    recordPrimaryFailure: (primaryFailure: unknown) => {
+      state.primaryFailure = primaryFailure;
+      state.primaryFailureRecorded = true;
+    },
   });
-  return token;
 }
 
 function recordPrimaryFailure(
-  token: CleanupDiagnosticsToken,
+  diagnostics: CleanupDiagnosticsSink,
   primaryFailure: unknown,
 ): void {
-  const state = cleanupDiagnosticsByToken.get(token);
-  if (!state) throw new Error("unknown cleanup diagnostics token");
-  state.primaryFailure = primaryFailure;
-  state.primaryFailureRecorded = true;
+  diagnostics.recordPrimaryFailure(primaryFailure);
 }
 
 function capturePrimaryCleanupDiagnostics(
-  token: CleanupDiagnosticsToken,
+  diagnostics: CleanupDiagnosticsSink,
   primaryFailure: unknown,
-): CleanupDiagnosticsToken {
+): CleanupDiagnosticsSink {
   try {
-    recordPrimaryFailure(token, primaryFailure);
+    recordPrimaryFailure(diagnostics, primaryFailure);
   } catch {
     // A failed diagnostic side channel must never replace the primary.
   }
-  return token;
+  return diagnostics;
 }
 
 function readCleanupDiagnostics(
-  token: CleanupDiagnosticsToken,
+  diagnostics: CleanupDiagnosticsSink,
 ): Readonly<CleanupDiagnosticsState> {
-  const state = cleanupDiagnosticsByToken.get(token);
-  if (!state) throw new Error("unknown cleanup diagnostics token");
-  return {
-    cleanupFailures: [...state.cleanupFailures],
-    primaryFailure: state.primaryFailure,
-    primaryFailureRecorded: state.primaryFailureRecorded,
-  };
+  return diagnostics.consume();
 }
 
 function recordCleanupFailure(
-  token: CleanupDiagnosticsToken,
+  diagnostics: CleanupDiagnosticsSink,
   cleanupFailure: AggregateError,
 ): void {
-  const state = cleanupDiagnosticsByToken.get(token);
-  if (!state) throw new Error("unknown cleanup diagnostics token");
-  state.cleanupFailures.push(cleanupFailure);
+  diagnostics.recordCleanupFailure(cleanupFailure);
+}
+
+class CleanupStepFailure extends Error {
+  readonly label: string;
+
+  constructor(label: string, cause: unknown) {
+    super(`cleanup step failed: ${label}`, { cause });
+    this.name = "CleanupStepFailure";
+    this.label = label;
+  }
 }
 
 async function runBestEffortCleanup(
   steps: CleanupStep[],
-  diagnostics?: CleanupDiagnosticsToken,
+  diagnostics?: CleanupDiagnosticsSink,
+  primaryFailurePending = diagnostics !== undefined,
 ): Promise<void> {
   const failures: Error[] = [];
   for (const step of steps) {
     try {
       await step.run();
     } catch (error) {
-      failures.push(new Error(`${step.label}: ${String(error)}`));
+      failures.push(new CleanupStepFailure(step.label, error));
     }
   }
   if (failures.length > 0) {
@@ -598,15 +615,107 @@ async function runBestEffortCleanup(
       failures,
       "candidate test cleanup failed",
     );
-    if (diagnostics) {
+    if (primaryFailurePending) {
       try {
-        recordCleanupFailure(diagnostics, cleanupFailures);
+        if (diagnostics !== undefined) {
+          recordCleanupFailure(diagnostics, cleanupFailures);
+        }
       } catch {
         // A failed diagnostic side channel must never replace the primary.
       }
       return;
     }
     throw cleanupFailures;
+  }
+}
+
+type ObservableCleanupDiagnostics = Readonly<CleanupDiagnosticsState & {
+  primaryCorrelated: boolean;
+}>;
+
+type RecoveryCleanupCallSiteOptions = {
+  callSite: string;
+  cleanupSteps: CleanupStep[];
+  diagnostics?: CleanupDiagnosticsSink;
+  report: (
+    diagnostics: ObservableCleanupDiagnostics,
+  ) => Promise<void> | void;
+  run: () => Promise<void>;
+};
+
+async function reportCleanupDiagnosticsBestEffort(
+  diagnostics: CleanupDiagnosticsSink,
+  primaryFailure: unknown,
+  report: RecoveryCleanupCallSiteOptions["report"],
+): Promise<void> {
+  try {
+    const observed = readCleanupDiagnostics(diagnostics);
+    if (observed.cleanupFailures.length === 0) return;
+    await report({
+      ...observed,
+      primaryCorrelated: observed.primaryFailureRecorded
+        && Object.is(observed.primaryFailure, primaryFailure),
+    });
+  } catch {
+    // Diagnostic consumption and reporting are subordinate to the exact primary.
+  }
+}
+
+function serializeCleanupDiagnostics(
+  diagnostics: ObservableCleanupDiagnostics,
+): string {
+  const cleanupStepLabels: string[] = [];
+  for (const cleanupFailure of diagnostics.cleanupFailures) {
+    for (const failure of cleanupFailure.errors as unknown[]) {
+      cleanupStepLabels.push(
+        failure instanceof CleanupStepFailure
+          ? failure.label
+          : "unlabelled cleanup failure",
+      );
+    }
+  }
+  return JSON.stringify({
+    schema: "candidate-recovery-cleanup/v1",
+    callSite: diagnostics.callSite,
+    correlationId: diagnostics.correlationId,
+    primaryCorrelated: diagnostics.primaryCorrelated,
+    cleanupFailureCount: diagnostics.cleanupFailures.length,
+    cleanupStepLabels,
+  });
+}
+
+async function runRecoveryCleanupCallSite(
+  options: RecoveryCleanupCallSiteOptions,
+): Promise<void> {
+  const cleanupDiagnostics = options.diagnostics
+    ?? createCleanupDiagnostics(options.callSite);
+  let primaryCleanupDiagnostics: CleanupDiagnosticsSink | undefined;
+  let primaryFailure: unknown;
+  let primaryFailureCaptured = false;
+
+  try {
+    await options.run();
+  } catch (error) {
+    primaryFailure = error;
+    primaryFailureCaptured = true;
+    primaryCleanupDiagnostics = capturePrimaryCleanupDiagnostics(
+      cleanupDiagnostics,
+      error,
+    );
+    throw error;
+  } finally {
+    await runBestEffortCleanup(
+      options.cleanupSteps,
+      primaryCleanupDiagnostics,
+      primaryFailureCaptured,
+    );
+    if (primaryFailureCaptured) {
+      await reportCleanupDiagnosticsBestEffort(
+        cleanupDiagnostics,
+        primaryFailure,
+        options.report,
+      );
+    }
   }
 }
 
@@ -3096,7 +3205,7 @@ test(
   async () => {
     const primaryFailure = new Error("primary operation failed");
     const diagnostics = createCleanupDiagnostics();
-    let primaryDiagnostics: CleanupDiagnosticsToken | undefined;
+    let primaryDiagnostics: CleanupDiagnosticsSink | undefined;
     let visibleFailure: unknown;
     let laterCleanupAttempted = false;
 
@@ -3205,7 +3314,7 @@ test(
 
     for (const { label, primary } of cases) {
       const diagnostics = createCleanupDiagnostics();
-      let primaryDiagnostics: CleanupDiagnosticsToken | undefined;
+      let primaryDiagnostics: CleanupDiagnosticsSink | undefined;
       let visibleFailure: unknown;
       let laterCleanupAttempted = false;
       try {
@@ -3303,7 +3412,7 @@ test(
 
     for (const primary of primaries) {
       const diagnostics = createCleanupDiagnostics();
-      let primaryDiagnostics: CleanupDiagnosticsToken | undefined;
+      let primaryDiagnostics: CleanupDiagnosticsSink | undefined;
       let visibleFailure: unknown;
       let laterCleanupAttempted = false;
       try {
@@ -3362,9 +3471,77 @@ test(
 );
 
 test(
+  "equal primitive primaries keep concurrent cleanup diagnostics isolated",
+  async () => {
+    const primary = 0;
+    const observed: ObservableCleanupDiagnostics[] = [];
+
+    const exercise = async (callSite: string): Promise<unknown> => {
+      try {
+        await runRecoveryCleanupCallSite({
+          callSite,
+          run: async () => {
+            throw primary;
+          },
+          cleanupSteps: [
+            {
+              label: `${callSite} cleanup failure`,
+              run: () => {
+                throw new Error(`${callSite} cleanup failed`);
+              },
+            },
+          ],
+          report: (diagnostics) => {
+            observed.push(diagnostics);
+          },
+        });
+      } catch (error) {
+        return error;
+      }
+      return Symbol("missing primary");
+    };
+
+    const visible = await Promise.all([
+      exercise("equal-primitive-a"),
+      exercise("equal-primitive-b"),
+    ]);
+    const observedByCallSite = [...observed].sort((left, right) =>
+      left.callSite.localeCompare(right.callSite)
+    );
+
+    assert.deepEqual(
+      {
+        cleanupLabels: observedByCallSite.map((diagnostics) =>
+          (diagnostics.cleanupFailures[0]?.errors[0] as CleanupStepFailure)
+            .label
+        ),
+        correlationsAreUnique:
+          new Set(observed.map(({ correlationId }) => correlationId)).size === 2,
+        exactPrimaries: visible.map((failure) => Object.is(failure, primary)),
+        observedCallSites: observedByCallSite.map(({ callSite }) => callSite),
+        observedPrimaries: observedByCallSite.map(({ primaryFailure }) =>
+          Object.is(primaryFailure, primary)
+        ),
+      },
+      {
+        cleanupLabels: [
+          "equal-primitive-a cleanup failure",
+          "equal-primitive-b cleanup failure",
+        ],
+        correlationsAreUnique: true,
+        exactPrimaries: [true, true],
+        observedCallSites: ["equal-primitive-a", "equal-primitive-b"],
+        observedPrimaries: [true, true],
+      },
+    );
+  },
+);
+
+test(
   "diagnostics storage failure cannot mask an exact primary value",
   async () => {
-    const invalidDiagnostics = Object.freeze({}) as CleanupDiagnosticsToken;
+    const invalidDiagnostics = Object.freeze({}) as unknown as
+      CleanupDiagnosticsSink;
     const primaries: unknown[] = [
       Object.freeze(new Error("storage-failure primary")),
       0,
@@ -3416,12 +3593,291 @@ test(
 );
 
 test(
+  "cleanup diagnostic storage, consume, reporting, and read traps cannot mask the primary",
+  async () => {
+    const outcomes = [];
+
+    const invalidTokenPrimary = Object.freeze(new Error("invalid-token primary"));
+    let invalidTokenVisible: unknown;
+    let invalidTokenLaterCleanup = false;
+    try {
+      await runRecoveryCleanupCallSite({
+        callSite: "invalid-token-pressure",
+        diagnostics: 0 as unknown as CleanupDiagnosticsSink,
+        run: async () => {
+          throw invalidTokenPrimary;
+        },
+        cleanupSteps: [
+          {
+            label: "invalid-token cleanup failure",
+            run: () => {
+              throw new Error("invalid-token cleanup failed");
+            },
+          },
+          {
+            label: "invalid-token later cleanup",
+            run: () => {
+              invalidTokenLaterCleanup = true;
+            },
+          },
+        ],
+        report: () => {
+          throw new Error("invalid-token reporter must not run");
+        },
+      });
+    } catch (error) {
+      invalidTokenVisible = error;
+    }
+    outcomes.push({
+      case: "invalid-token",
+      exactPrimary: invalidTokenVisible === invalidTokenPrimary,
+      laterCleanup: invalidTokenLaterCleanup,
+    });
+
+    let storageAttempts = 0;
+    const storageFailureDiagnostics = Object.freeze({
+      consume: () => ({
+        cleanupFailures: [],
+        primaryFailureRecorded: false,
+      }),
+      recordCleanupFailure: () => {
+        storageAttempts += 1;
+        throw new Error("cleanup diagnostic storage failed");
+      },
+      recordPrimaryFailure: () => {
+        storageAttempts += 1;
+        throw new Error("primary diagnostic storage failed");
+      },
+    }) as unknown as CleanupDiagnosticsSink;
+    const storagePrimary = Object.freeze(new Error("storage primary"));
+    let storageVisible: unknown;
+    let storageLaterCleanup = false;
+    try {
+      await runRecoveryCleanupCallSite({
+        callSite: "storage-failure-pressure",
+        diagnostics: storageFailureDiagnostics,
+        run: async () => {
+          throw storagePrimary;
+        },
+        cleanupSteps: [
+          {
+            label: "storage pressure cleanup failure",
+            run: () => {
+              throw new Error("storage pressure cleanup failed");
+            },
+          },
+          {
+            label: "storage pressure later cleanup",
+            run: () => {
+              storageLaterCleanup = true;
+            },
+          },
+        ],
+        report: () => {
+          throw new Error("storage reporter must not run");
+        },
+      });
+    } catch (error) {
+      storageVisible = error;
+    }
+    outcomes.push({
+      case: "storage-failure",
+      exactPrimary: storageVisible === storagePrimary,
+      laterCleanup: storageLaterCleanup,
+      storageAttempts,
+    });
+
+    let consumeAttempts = 0;
+    const consumeFailureDiagnostics = Object.freeze({
+      consume: () => {
+        consumeAttempts += 1;
+        throw new Error("cleanup diagnostic consume failed");
+      },
+      recordCleanupFailure: () => undefined,
+      recordPrimaryFailure: () => undefined,
+    }) as unknown as CleanupDiagnosticsSink;
+    const consumePrimary = Object.freeze(new Error("consume primary"));
+    let consumeVisible: unknown;
+    let consumeLaterCleanup = false;
+    try {
+      await runRecoveryCleanupCallSite({
+        callSite: "consume-failure-pressure",
+        diagnostics: consumeFailureDiagnostics,
+        run: async () => {
+          throw consumePrimary;
+        },
+        cleanupSteps: [
+          {
+            label: "consume pressure cleanup failure",
+            run: () => {
+              throw new Error("consume pressure cleanup failed");
+            },
+          },
+          {
+            label: "consume pressure later cleanup",
+            run: () => {
+              consumeLaterCleanup = true;
+            },
+          },
+        ],
+        report: () => {
+          throw new Error("consume reporter must not run");
+        },
+      });
+    } catch (error) {
+      consumeVisible = error;
+    }
+    outcomes.push({
+      case: "consume-failure",
+      consumeAttempts,
+      exactPrimary: consumeVisible === consumePrimary,
+      laterCleanup: consumeLaterCleanup,
+    });
+
+    let reporterAttempts = 0;
+    const reporterPrimary = Object.freeze(new Error("reporter primary"));
+    let reporterVisible: unknown;
+    let reporterLaterCleanup = false;
+    try {
+      await runRecoveryCleanupCallSite({
+        callSite: "reporter-failure-pressure",
+        run: async () => {
+          throw reporterPrimary;
+        },
+        cleanupSteps: [
+          {
+            label: "reporter pressure cleanup failure",
+            run: () => {
+              throw new Error("reporter pressure cleanup failed");
+            },
+          },
+          {
+            label: "reporter pressure later cleanup",
+            run: () => {
+              reporterLaterCleanup = true;
+            },
+          },
+        ],
+        report: () => {
+          reporterAttempts += 1;
+          throw new Error("diagnostic reporter failed");
+        },
+      });
+    } catch (error) {
+      reporterVisible = error;
+    }
+    outcomes.push({
+      case: "reporter-failure",
+      exactPrimary: reporterVisible === reporterPrimary,
+      laterCleanup: reporterLaterCleanup,
+      reporterAttempts,
+    });
+
+    let cleanupReadTraps = 0;
+    const hostileCleanupFailure = new Proxy(Object.freeze(Object.create(null)), {
+      get: () => {
+        cleanupReadTraps += 1;
+        throw new Error("cleanup failure get trap");
+      },
+      getOwnPropertyDescriptor: () => {
+        cleanupReadTraps += 1;
+        throw new Error("cleanup failure descriptor trap");
+      },
+      getPrototypeOf: () => {
+        cleanupReadTraps += 1;
+        throw new Error("cleanup failure prototype trap");
+      },
+      has: () => {
+        cleanupReadTraps += 1;
+        throw new Error("cleanup failure has trap");
+      },
+      ownKeys: () => {
+        cleanupReadTraps += 1;
+        throw new Error("cleanup failure ownKeys trap");
+      },
+    });
+    const hostileCleanupPrimary = Object.freeze(
+      new Error("hostile-cleanup primary"),
+    );
+    let hostileCleanupVisible: unknown;
+    let hostileCleanupLater = false;
+    const hostileCleanupReports: ObservableCleanupDiagnostics[] = [];
+    try {
+      await runRecoveryCleanupCallSite({
+        callSite: "cleanup-read-trap-pressure",
+        run: async () => {
+          throw hostileCleanupPrimary;
+        },
+        cleanupSteps: [
+          {
+            label: "hostile cleanup failure",
+            run: () => {
+              throw hostileCleanupFailure;
+            },
+          },
+          {
+            label: "hostile cleanup later control",
+            run: () => {
+              hostileCleanupLater = true;
+            },
+          },
+        ],
+        report: (diagnostics) => {
+          hostileCleanupReports.push(diagnostics);
+        },
+      });
+    } catch (error) {
+      hostileCleanupVisible = error;
+    }
+    outcomes.push({
+      case: "cleanup-read-trap",
+      cleanupReadTraps,
+      diagnosticCount: hostileCleanupReports.length,
+      exactPrimary: hostileCleanupVisible === hostileCleanupPrimary,
+      laterCleanup: hostileCleanupLater,
+    });
+
+    assert.deepEqual(outcomes, [
+      {
+        case: "invalid-token",
+        exactPrimary: true,
+        laterCleanup: true,
+      },
+      {
+        case: "storage-failure",
+        exactPrimary: true,
+        laterCleanup: true,
+        storageAttempts: 2,
+      },
+      {
+        case: "consume-failure",
+        consumeAttempts: 1,
+        exactPrimary: true,
+        laterCleanup: true,
+      },
+      {
+        case: "reporter-failure",
+        exactPrimary: true,
+        laterCleanup: true,
+        reporterAttempts: 1,
+      },
+      {
+        case: "cleanup-read-trap",
+        cleanupReadTraps: 0,
+        diagnosticCount: 1,
+        exactPrimary: true,
+        laterCleanup: true,
+      },
+    ]);
+  },
+);
+
+test(
   "catalog lock timeout aborts recovery before drain or grant repair",
   { timeout: 15_000 },
   async (t) => {
     await withCandidateAnalysisPostgres(t, async (context) => {
       const fixture = prepareRecoveryFixture(context);
-      const cleanupDiagnostics = createCleanupDiagnostics();
       const adminEnv = {
         ...process.env,
         PATH: fixture.path,
@@ -3476,111 +3932,177 @@ test(
         },
       );
       let bootstrap: ChildProcess | null = null;
-      let primaryCleanupDiagnostics: CleanupDiagnosticsToken | undefined;
+      const pressurePrimary = Object.freeze(
+        new Error("catalog-lock cleanup-observability primary"),
+      );
+      const pressureStack = pressurePrimary.stack;
+      const observedDiagnostics: ObservableCleanupDiagnostics[] = [];
+      const observedDiagnosticMessages: string[] = [];
+      let visibleFailure: unknown;
 
       try {
-        await waitFor(() => {
-          const held = context.psql(`
-            SELECT count(*)
-            FROM pg_locks lock
-            JOIN pg_stat_activity activity ON activity.pid = lock.pid
-            WHERE activity.application_name = '${blockerApp}'
-              AND lock.relation = 'pg_catalog.pg_authid'::regclass
-              AND lock.mode = 'ShareLock'
-              AND lock.granted;
-          `);
-          return held.status === 0 && held.stdout.trim() === "1";
-        }, "catalog lock blocker did not acquire pg_authid ShareLock");
-        await waitFor(
-          () => activityCount(context, sleeperApp) === "1",
-          "lock-timeout sleeper did not become active",
-        );
-        const beforeAuthority = candidateAuthoritySnapshot(context);
-        const beforeRows = candidateRowsSnapshot(context);
-        bootstrap = spawn(bootstrapPath, [...bootstrapApplyArgs], {
-          cwd: repoRoot,
-          env: adminEnv,
-          stdio: ["ignore", "pipe", "pipe"],
-        });
-        let output = "";
-        bootstrap.stdout?.on("data", (chunk) => {
-          output += chunk.toString();
-        });
-        bootstrap.stderr?.on("data", (chunk) => {
-          output += chunk.toString();
-        });
-        let exitCode: number | null = null;
-        let boundedExit = true;
-        try {
-          exitCode = await waitForChildExit(bootstrap, 4_000);
-        } catch (error) {
-          if (!(error instanceof ChildExitTimeoutError)) throw error;
-          boundedExit = false;
-        }
-
-        assert.deepEqual(
-          {
-            boundedFailure: boundedExit && exitCode !== 0,
-            explainsLockTimeout: /lock timeout/i.test(output),
-            blockerStillConnected: activityCount(context, blockerApp),
-            sleeperStillConnected: activityCount(context, sleeperApp),
-            authorityUnchanged:
-              candidateAuthoritySnapshot(context) === beforeAuthority,
-            rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
-          },
-          {
-            boundedFailure: true,
-            explainsLockTimeout: true,
-            blockerStillConnected: "1",
-            sleeperStillConnected: "1",
-            authorityUnchanged: true,
-            rowsUnchanged: true,
-          },
-          output,
-        );
-      } catch (error) {
-        primaryCleanupDiagnostics = capturePrimaryCleanupDiagnostics(
-          cleanupDiagnostics,
-          error,
-        );
-        throw error;
-      } finally {
-        await runBestEffortCleanup([
-          {
-            label: "terminate catalog-lock pressure sessions",
-            run: () => {
-              const cleanup = context.psql(`
-                SELECT pg_terminate_backend(pid)
-                FROM pg_stat_activity
-                WHERE application_name IN (
-                  '${blockerApp}',
-                  '${sleeperApp}',
-                  'candidate-bootstrap-lock-timeout'
-                );
+        await runRecoveryCleanupCallSite({
+          callSite: "catalog-lock-timeout",
+          run: async () => {
+            await waitFor(() => {
+              const held = context.psql(`
+                SELECT count(*)
+                FROM pg_locks lock
+                JOIN pg_stat_activity activity ON activity.pid = lock.pid
+                WHERE activity.application_name = '${blockerApp}'
+                  AND lock.relation = 'pg_catalog.pg_authid'::regclass
+                  AND lock.mode = 'ShareLock'
+                  AND lock.granted;
               `);
-              assert.equal(cleanup.status, 0, cleanup.stderr);
-            },
+              return held.status === 0 && held.stdout.trim() === "1";
+            }, "catalog lock blocker did not acquire pg_authid ShareLock");
+            await waitFor(
+              () => activityCount(context, sleeperApp) === "1",
+              "lock-timeout sleeper did not become active",
+            );
+            const beforeAuthority = candidateAuthoritySnapshot(context);
+            const beforeRows = candidateRowsSnapshot(context);
+            bootstrap = spawn(bootstrapPath, [...bootstrapApplyArgs], {
+              cwd: repoRoot,
+              env: adminEnv,
+              stdio: ["ignore", "pipe", "pipe"],
+            });
+            let output = "";
+            bootstrap.stdout?.on("data", (chunk) => {
+              output += chunk.toString();
+            });
+            bootstrap.stderr?.on("data", (chunk) => {
+              output += chunk.toString();
+            });
+            let exitCode: number | null = null;
+            let boundedExit = true;
+            try {
+              exitCode = await waitForChildExit(bootstrap, 4_000);
+            } catch (error) {
+              if (!(error instanceof ChildExitTimeoutError)) throw error;
+              boundedExit = false;
+            }
+
+            assert.deepEqual(
+              {
+                boundedFailure: boundedExit && exitCode !== 0,
+                explainsLockTimeout: /lock timeout/i.test(output),
+                blockerStillConnected: activityCount(context, blockerApp),
+                sleeperStillConnected: activityCount(context, sleeperApp),
+                authorityUnchanged:
+                  candidateAuthoritySnapshot(context) === beforeAuthority,
+                rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+              },
+              {
+                boundedFailure: true,
+                explainsLockTimeout: true,
+                blockerStillConnected: "1",
+                sleeperStillConnected: "1",
+                authorityUnchanged: true,
+                rowsUnchanged: true,
+              },
+              output,
+            );
+            throw pressurePrimary;
           },
-          {
-            label: "reap catalog-lock bootstrap",
-            run: async () => {
-              if (bootstrap) await childExit(bootstrap);
+          cleanupSteps: [
+            {
+              label: "injected catalog-lock cleanup failure",
+              run: () => {
+                throw new Error("catalog-lock cleanup failed");
+              },
             },
-          },
-          {
-            label: "reap catalog-lock blocker",
-            run: async () => {
-              await childExit(blocker);
+            {
+              label: "terminate catalog-lock pressure sessions",
+              run: () => {
+                const cleanup = context.psql(`
+                  SELECT pg_terminate_backend(pid)
+                  FROM pg_stat_activity
+                  WHERE application_name IN (
+                    '${blockerApp}',
+                    '${sleeperApp}',
+                    'candidate-bootstrap-lock-timeout'
+                  );
+                `);
+                assert.equal(cleanup.status, 0, cleanup.stderr);
+              },
             },
-          },
-          {
-            label: "reap catalog-lock sleeper",
-            run: async () => {
-              await childExit(sleeper);
+            {
+              label: "reap catalog-lock bootstrap",
+              run: async () => {
+                if (bootstrap) await childExit(bootstrap);
+              },
             },
+            {
+              label: "reap catalog-lock blocker",
+              run: async () => {
+                await childExit(blocker);
+              },
+            },
+            {
+              label: "reap catalog-lock sleeper",
+              run: async () => {
+                await childExit(sleeper);
+              },
+            },
+          ],
+          report: (diagnostics) => {
+            observedDiagnostics.push(diagnostics);
+            const message = serializeCleanupDiagnostics(diagnostics);
+            observedDiagnosticMessages.push(message);
+            t.diagnostic(message);
           },
-        ], primaryCleanupDiagnostics);
+        });
+      } catch (error) {
+        if (error !== pressurePrimary) throw error;
+        visibleFailure = error;
       }
+      const diagnosticPayload = observedDiagnosticMessages[0]
+        ? JSON.parse(observedDiagnosticMessages[0]) as Record<string, unknown>
+        : undefined;
+
+      assert.deepEqual(
+        {
+          cleanupIsAggregate:
+            observedDiagnostics[0]?.cleanupFailures[0] instanceof
+              AggregateError,
+          diagnosticCount: observedDiagnostics.length,
+          diagnosticPrimary: observedDiagnostics[0]?.primaryFailure,
+          diagnosticPayload: {
+            callSite: diagnosticPayload?.callSite,
+            cleanupFailureCount: diagnosticPayload?.cleanupFailureCount,
+            cleanupStepLabels: diagnosticPayload?.cleanupStepLabels,
+            correlationIsScoped:
+              typeof diagnosticPayload?.correlationId === "string"
+              && diagnosticPayload.correlationId.startsWith(
+                "catalog-lock-timeout:",
+              ),
+            primaryCorrelated: diagnosticPayload?.primaryCorrelated,
+            schema: diagnosticPayload?.schema,
+          },
+          primaryCorrelated: observedDiagnostics[0]?.primaryCorrelated,
+          primaryIdentityPreserved: visibleFailure === pressurePrimary,
+          primaryMessage: pressurePrimary.message,
+          primaryStack: pressurePrimary.stack,
+        },
+        {
+          cleanupIsAggregate: true,
+          diagnosticCount: 1,
+          diagnosticPrimary: pressurePrimary,
+          diagnosticPayload: {
+            callSite: "catalog-lock-timeout",
+            cleanupFailureCount: 1,
+            cleanupStepLabels: ["injected catalog-lock cleanup failure"],
+            correlationIsScoped: true,
+            primaryCorrelated: true,
+            schema: "candidate-recovery-cleanup/v1",
+          },
+          primaryCorrelated: true,
+          primaryIdentityPreserved: true,
+          primaryMessage: "catalog-lock cleanup-observability primary",
+          primaryStack: pressureStack,
+        },
+      );
     });
   },
 );
@@ -3591,7 +4113,6 @@ test(
   async (t) => {
     await withCandidateAnalysisPostgres(t, async (context) => {
       const fixture = prepareRecoveryFixture(context);
-      const cleanupDiagnostics = createCleanupDiagnostics();
       const disabled = spawnSync(disablePath, ["--apply"], {
         cwd: repoRoot,
         encoding: "utf8",
@@ -3624,88 +4145,163 @@ test(
           stdio: "ignore",
         },
       );
-      let primaryCleanupDiagnostics: CleanupDiagnosticsToken | undefined;
+      const pressurePrimary = 0;
+      const observedDiagnostics: ObservableCleanupDiagnostics[] = [];
+      const observedDiagnosticMessages: string[] = [];
+      let visibleFailure: unknown;
 
       try {
-        await waitFor(
-          () => activityCount(context, sleeperApp) === "1",
-          "prepared-transaction control sleeper did not become active",
-        );
-        const beforeAuthority = candidateAuthoritySnapshot(context);
-        const beforeRows = candidateRowsSnapshot(context);
-        const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
-          cwd: repoRoot,
-          encoding: "utf8",
-          env: {
-            ...process.env,
-            PATH: fixture.path,
-            DATABASE_ADMIN_URL: context.adminUrl,
+        await runRecoveryCleanupCallSite({
+          callSite: "prepared-transaction",
+          run: async () => {
+            await waitFor(
+              () => activityCount(context, sleeperApp) === "1",
+              "prepared-transaction control sleeper did not become active",
+            );
+            const beforeAuthority = candidateAuthoritySnapshot(context);
+            const beforeRows = candidateRowsSnapshot(context);
+            const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+              cwd: repoRoot,
+              encoding: "utf8",
+              env: {
+                ...process.env,
+                PATH: fixture.path,
+                DATABASE_ADMIN_URL: context.adminUrl,
+              },
+            });
+            const preparedAfter = context.psql(`
+              SELECT count(*) FROM pg_prepared_xacts
+              WHERE database = current_database()
+                AND gid = 'candidate-recovery-pending';
+            `);
+            assert.equal(preparedAfter.status, 0, preparedAfter.stderr);
+            assert.deepEqual(
+              {
+                statusIsFailure: bootstrap.status !== 0,
+                explainsPreparedTransaction: /prepared transaction/i.test(
+                  `${bootstrap.stdout}${bootstrap.stderr}`,
+                ),
+                sleeperStillConnected: activityCount(context, sleeperApp),
+                preparedTransactionStillExists: preparedAfter.stdout.trim(),
+                authorityUnchanged:
+                  candidateAuthoritySnapshot(context) === beforeAuthority,
+                rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+              },
+              {
+                statusIsFailure: true,
+                explainsPreparedTransaction: true,
+                sleeperStillConnected: "1",
+                preparedTransactionStillExists: "1",
+                authorityUnchanged: true,
+                rowsUnchanged: true,
+              },
+              `${bootstrap.stdout}${bootstrap.stderr}`,
+            );
+            throw pressurePrimary;
+          },
+          cleanupSteps: [
+            {
+              label: "injected prepared-transaction cleanup failure",
+              run: () => {
+                throw new Error("prepared-transaction cleanup failed");
+              },
+            },
+            {
+              label: "rollback prepared recovery transaction",
+              run: () => {
+                const rollbackPrepared = context.psql(
+                  "ROLLBACK PREPARED 'candidate-recovery-pending'",
+                );
+                assert.equal(
+                  rollbackPrepared.status,
+                  0,
+                  rollbackPrepared.stderr,
+                );
+              },
+            },
+            {
+              label: "terminate prepared-transaction sleeper",
+              run: () => {
+                const cleanup = context.psql(`
+                  SELECT pg_terminate_backend(pid)
+                  FROM pg_stat_activity
+                  WHERE application_name = '${sleeperApp}';
+                `);
+                assert.equal(cleanup.status, 0, cleanup.stderr);
+              },
+            },
+            {
+              label: "reap prepared-transaction sleeper",
+              run: async () => {
+                await childExit(sleeper);
+              },
+            },
+          ],
+          report: (diagnostics) => {
+            observedDiagnostics.push(diagnostics);
+            const message = serializeCleanupDiagnostics(diagnostics);
+            observedDiagnosticMessages.push(message);
+            t.diagnostic(message);
           },
         });
-        const preparedAfter = context.psql(`
-          SELECT count(*) FROM pg_prepared_xacts
-          WHERE database = current_database()
-            AND gid = 'candidate-recovery-pending';
-        `);
-        assert.equal(preparedAfter.status, 0, preparedAfter.stderr);
-        assert.deepEqual(
-          {
-            statusIsFailure: bootstrap.status !== 0,
-            explainsPreparedTransaction: /prepared transaction/i.test(
-              `${bootstrap.stdout}${bootstrap.stderr}`,
-            ),
-            sleeperStillConnected: activityCount(context, sleeperApp),
-            preparedTransactionStillExists: preparedAfter.stdout.trim(),
-            authorityUnchanged:
-              candidateAuthoritySnapshot(context) === beforeAuthority,
-            rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
-          },
-          {
-            statusIsFailure: true,
-            explainsPreparedTransaction: true,
-            sleeperStillConnected: "1",
-            preparedTransactionStillExists: "1",
-            authorityUnchanged: true,
-            rowsUnchanged: true,
-          },
-          `${bootstrap.stdout}${bootstrap.stderr}`,
-        );
       } catch (error) {
-        primaryCleanupDiagnostics = capturePrimaryCleanupDiagnostics(
-          cleanupDiagnostics,
-          error,
-        );
-        throw error;
-      } finally {
-        await runBestEffortCleanup([
-          {
-            label: "rollback prepared recovery transaction",
-            run: () => {
-              const rollbackPrepared = context.psql(
-                "ROLLBACK PREPARED 'candidate-recovery-pending'",
-              );
-              assert.equal(rollbackPrepared.status, 0, rollbackPrepared.stderr);
-            },
-          },
-          {
-            label: "terminate prepared-transaction sleeper",
-            run: () => {
-              const cleanup = context.psql(`
-                SELECT pg_terminate_backend(pid)
-                FROM pg_stat_activity
-                WHERE application_name = '${sleeperApp}';
-              `);
-              assert.equal(cleanup.status, 0, cleanup.stderr);
-            },
-          },
-          {
-            label: "reap prepared-transaction sleeper",
-            run: async () => {
-              await childExit(sleeper);
-            },
-          },
-        ], primaryCleanupDiagnostics);
+        if (!Object.is(error, pressurePrimary)) throw error;
+        visibleFailure = error;
       }
+
+      const preparedGone = context.psql(`
+        SELECT count(*) FROM pg_prepared_xacts
+        WHERE database = current_database()
+          AND gid = 'candidate-recovery-pending';
+      `);
+      assert.equal(preparedGone.status, 0, preparedGone.stderr);
+      const diagnosticPayload = observedDiagnosticMessages[0]
+        ? JSON.parse(observedDiagnosticMessages[0]) as Record<string, unknown>
+        : undefined;
+      assert.deepEqual(
+        {
+          cleanupIsAggregate:
+            observedDiagnostics[0]?.cleanupFailures[0] instanceof
+              AggregateError,
+          diagnosticCount: observedDiagnostics.length,
+          diagnosticPrimary: observedDiagnostics[0]?.primaryFailure,
+          diagnosticPayload: {
+            callSite: diagnosticPayload?.callSite,
+            cleanupFailureCount: diagnosticPayload?.cleanupFailureCount,
+            cleanupStepLabels: diagnosticPayload?.cleanupStepLabels,
+            correlationIsScoped:
+              typeof diagnosticPayload?.correlationId === "string"
+              && diagnosticPayload.correlationId.startsWith(
+                "prepared-transaction:",
+              ),
+            primaryCorrelated: diagnosticPayload?.primaryCorrelated,
+            schema: diagnosticPayload?.schema,
+          },
+          primaryCorrelated: observedDiagnostics[0]?.primaryCorrelated,
+          primaryIdentityPreserved: Object.is(visibleFailure, pressurePrimary),
+          preparedTransactionReaped: preparedGone.stdout.trim(),
+          sleeperReaped: activityCount(context, sleeperApp),
+        },
+        {
+          cleanupIsAggregate: true,
+          diagnosticCount: 1,
+          diagnosticPrimary: pressurePrimary,
+          diagnosticPayload: {
+            callSite: "prepared-transaction",
+            cleanupFailureCount: 1,
+            cleanupStepLabels: [
+              "injected prepared-transaction cleanup failure",
+            ],
+            correlationIsScoped: true,
+            primaryCorrelated: true,
+            schema: "candidate-recovery-cleanup/v1",
+          },
+          primaryCorrelated: true,
+          primaryIdentityPreserved: true,
+          preparedTransactionReaped: "0",
+          sleeperReaped: "0",
+        },
+      );
     }, { maxPreparedTransactions: 10 });
   },
 );
@@ -3716,7 +4312,6 @@ test(
   async (t) => {
     await withCandidateAnalysisPostgres(t, async (context) => {
       const fixture = prepareRecoveryFixture(context);
-      const cleanupDiagnostics = createCleanupDiagnostics();
       const disabled = spawnSync(disablePath, ["--apply"], {
         cwd: repoRoot,
         encoding: "utf8",
@@ -3772,66 +4367,155 @@ test(
           stdio: "ignore",
         },
       );
-      let primaryCleanupDiagnostics: CleanupDiagnosticsToken | undefined;
+      let primaryReadTraps = 0;
+      const pressurePrimary = new Proxy(Object.freeze(Object.create(null)), {
+        get: () => {
+          primaryReadTraps += 1;
+          throw new Error("survivor primary get trap");
+        },
+        getOwnPropertyDescriptor: () => {
+          primaryReadTraps += 1;
+          throw new Error("survivor primary descriptor trap");
+        },
+        getPrototypeOf: () => {
+          primaryReadTraps += 1;
+          throw new Error("survivor primary prototype trap");
+        },
+        has: () => {
+          primaryReadTraps += 1;
+          throw new Error("survivor primary has trap");
+        },
+        ownKeys: () => {
+          primaryReadTraps += 1;
+          throw new Error("survivor primary ownKeys trap");
+        },
+      });
+      const observedDiagnostics: ObservableCleanupDiagnostics[] = [];
+      const observedDiagnosticMessages: string[] = [];
+      let visibleFailure: unknown;
 
       try {
-        await waitFor(
-          () => activityCount(context, sleeperApp) === "1",
-          "survivor-guard sleeper did not become active",
-        );
-        const bootstrap = spawnSync(mutatedBootstrap, [...bootstrapApplyArgs], {
-          cwd: repoRoot,
-          encoding: "utf8",
-          env: {
-            ...process.env,
-            PATH: fixture.path,
-            DATABASE_ADMIN_URL: context.adminUrl,
+        await runRecoveryCleanupCallSite({
+          callSite: "survivor-guard",
+          run: async () => {
+            await waitFor(
+              () => activityCount(context, sleeperApp) === "1",
+              "survivor-guard sleeper did not become active",
+            );
+            const bootstrap = spawnSync(
+              mutatedBootstrap,
+              [...bootstrapApplyArgs],
+              {
+                cwd: repoRoot,
+                encoding: "utf8",
+                env: {
+                  ...process.env,
+                  PATH: fixture.path,
+                  DATABASE_ADMIN_URL: context.adminUrl,
+                },
+              },
+            );
+            assert.notEqual(bootstrap.status, 0);
+            assert.match(
+              `${bootstrap.stdout}${bootstrap.stderr}`,
+              /survived.*drain|drain.*survived/i,
+            );
+            assert.equal(activityCount(context, sleeperApp), "1");
+            assert.equal(candidateAuthoritySnapshot(context), beforeAuthority);
+            assert.equal(candidateRowsSnapshot(context), beforeRows);
+            assert.equal(
+              readFileSync(bootstrapPath, "utf8"),
+              productionBootstrap,
+              "survivor mutation changed the production bootstrap",
+            );
+            throw pressurePrimary;
+          },
+          cleanupSteps: [
+            {
+              label: "injected survivor-guard cleanup failure",
+              run: () => {
+                throw new Error("survivor-guard cleanup failed");
+              },
+            },
+            {
+              label: "terminate survivor-guard sleeper",
+              run: () => {
+                const cleanup = context.psql(`
+                  SELECT pg_terminate_backend(pid)
+                  FROM pg_stat_activity
+                  WHERE application_name = '${sleeperApp}';
+                `);
+                assert.equal(cleanup.status, 0, cleanup.stderr);
+              },
+            },
+            {
+              label: "reap survivor-guard sleeper",
+              run: async () => {
+                await childExit(sleeper);
+              },
+            },
+            {
+              label: "remove survivor-guard temp directory",
+              run: () => rmSync(tempRoot, { recursive: true, force: true }),
+            },
+          ],
+          report: (diagnostics) => {
+            observedDiagnostics.push(diagnostics);
+            const message = serializeCleanupDiagnostics(diagnostics);
+            observedDiagnosticMessages.push(message);
+            t.diagnostic(message);
           },
         });
-        assert.notEqual(bootstrap.status, 0);
-        assert.match(
-          `${bootstrap.stdout}${bootstrap.stderr}`,
-          /survived.*drain|drain.*survived/i,
-        );
-        assert.equal(activityCount(context, sleeperApp), "1");
-        assert.equal(candidateAuthoritySnapshot(context), beforeAuthority);
-        assert.equal(candidateRowsSnapshot(context), beforeRows);
-        assert.equal(
-          readFileSync(bootstrapPath, "utf8"),
-          productionBootstrap,
-          "survivor mutation changed the production bootstrap",
-        );
       } catch (error) {
-        primaryCleanupDiagnostics = capturePrimaryCleanupDiagnostics(
-          cleanupDiagnostics,
-          error,
-        );
-        throw error;
-      } finally {
-        await runBestEffortCleanup([
-          {
-            label: "terminate survivor-guard sleeper",
-            run: () => {
-              const cleanup = context.psql(`
-                SELECT pg_terminate_backend(pid)
-                FROM pg_stat_activity
-                WHERE application_name = '${sleeperApp}';
-              `);
-              assert.equal(cleanup.status, 0, cleanup.stderr);
-            },
-          },
-          {
-            label: "reap survivor-guard sleeper",
-            run: async () => {
-              await childExit(sleeper);
-            },
-          },
-          {
-            label: "remove survivor-guard temp directory",
-            run: () => rmSync(tempRoot, { recursive: true, force: true }),
-          },
-        ], primaryCleanupDiagnostics);
+        if (!Object.is(error, pressurePrimary)) throw error;
+        visibleFailure = error;
       }
+      const diagnosticPayload = observedDiagnosticMessages[0]
+        ? JSON.parse(observedDiagnosticMessages[0]) as Record<string, unknown>
+        : undefined;
+
+      assert.deepEqual(
+        {
+          cleanupIsAggregate:
+            observedDiagnostics[0]?.cleanupFailures[0] instanceof
+              AggregateError,
+          diagnosticCount: observedDiagnostics.length,
+          diagnosticPrimary: observedDiagnostics[0]?.primaryFailure,
+          diagnosticPayload: {
+            callSite: diagnosticPayload?.callSite,
+            cleanupFailureCount: diagnosticPayload?.cleanupFailureCount,
+            cleanupStepLabels: diagnosticPayload?.cleanupStepLabels,
+            correlationIsScoped:
+              typeof diagnosticPayload?.correlationId === "string"
+              && diagnosticPayload.correlationId.startsWith("survivor-guard:"),
+            primaryCorrelated: diagnosticPayload?.primaryCorrelated,
+            schema: diagnosticPayload?.schema,
+          },
+          primaryCorrelated: observedDiagnostics[0]?.primaryCorrelated,
+          primaryIdentityPreserved: Object.is(visibleFailure, pressurePrimary),
+          primaryReadTraps,
+          sleeperReaped: activityCount(context, sleeperApp),
+          tempDirectoryRemoved: !existsSync(tempRoot),
+        },
+        {
+          cleanupIsAggregate: true,
+          diagnosticCount: 1,
+          diagnosticPrimary: pressurePrimary,
+          diagnosticPayload: {
+            callSite: "survivor-guard",
+            cleanupFailureCount: 1,
+            cleanupStepLabels: ["injected survivor-guard cleanup failure"],
+            correlationIsScoped: true,
+            primaryCorrelated: true,
+            schema: "candidate-recovery-cleanup/v1",
+          },
+          primaryCorrelated: true,
+          primaryIdentityPreserved: true,
+          primaryReadTraps: 0,
+          sleeperReaped: "0",
+          tempDirectoryRemoved: true,
+        },
+      );
     });
   },
 );
