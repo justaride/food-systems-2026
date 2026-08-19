@@ -281,6 +281,8 @@
     "research:library:analyse:emit": "tsx scripts/run-library-analysis.ts --emit-requests",
     "research:library:analyse:dry-run": "tsx scripts/run-library-analysis.ts --from-file",
     "research:library:analyse:apply": "tsx scripts/run-library-analysis.ts --apply --from-file",
+    "research:library:review-run:dry-run": "tsx scripts/review-library-analysis-run.ts",
+    "research:library:review-run:apply": "tsx scripts/review-library-analysis-run.ts --apply",
     "research:library:repair-local-text:dry-run": "tsx scripts/repair-library-analysis-local-text.ts --dry-run",
     "research:library:repair-local-text:apply": "tsx scripts/repair-library-analysis-local-text.ts --apply",
     "research:library:repair-manual-local-match:dry-run": "tsx scripts/repair-library-analysis-manual-local-match.ts --dry-run",

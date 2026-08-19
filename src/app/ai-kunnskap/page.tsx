@@ -7,8 +7,13 @@ import {
   type LibraryAnalysisRecordRow,
   type LibraryAnalysisStatusPayload,
 } from '@/lib/queries/library-analysis'
+import {
+  getLibraryAnalysisRunGroups,
+  type LibraryAnalysisRunGroup,
+} from '@/lib/queries/library-analysis-runs'
 import { isPrismaDataUnavailable } from '@/lib/queries/prisma-errors'
 import { AiKunnskapContent } from './AiKunnskapContent'
+import { LibraryAnalysisRuns } from './LibraryAnalysisRuns'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
@@ -54,7 +59,7 @@ const EMPTY_STATUS: LibraryAnalysisStatusPayload = {
 }
 
 export default async function AiKunnskapPage() {
-  const { status, records, unavailable } = await loadPageData()
+  const { status, records, runGroups, unavailable } = await loadPageData()
 
   return (
     <div className="space-y-6">
@@ -92,6 +97,8 @@ export default async function AiKunnskapPage() {
       )}
 
       <AiKunnskapContent status={status} records={records} />
+
+      <LibraryAnalysisRuns groups={runGroups} />
     </div>
   )
 }
@@ -99,12 +106,14 @@ export default async function AiKunnskapPage() {
 async function loadPageData(): Promise<{
   status: LibraryAnalysisStatusPayload
   records: SerializableRecord[]
+  runGroups: LibraryAnalysisRunGroup[]
   unavailable: boolean
 }> {
   try {
-    const [status, records] = await Promise.all([
+    const [status, records, runGroups] = await Promise.all([
       getLibraryAnalysisStatus(),
       getLibraryAnalysisRecords({ limit: 500 }),
+      getLibraryAnalysisRunGroups({ limit: 500 }),
     ])
 
     return {
@@ -113,6 +122,7 @@ async function loadPageData(): Promise<{
         ...record,
         updatedAt: record.updatedAt.toISOString(),
       })),
+      runGroups,
       unavailable: false,
     }
   } catch (error) {
@@ -120,6 +130,7 @@ async function loadPageData(): Promise<{
     return {
       status: EMPTY_STATUS,
       records: [],
+      runGroups: [],
       unavailable: true,
     }
   }
