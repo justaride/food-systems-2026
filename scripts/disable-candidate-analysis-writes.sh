@@ -15,9 +15,11 @@ Optional environment:
   CANDIDATE_RECONCILER_DB_ROLE       Default: foodsystems_candidate_reconciler
   CANDIDATE_DB_SCHEMA                Default: public
 
-This command preserves every row and every table. Recovery requires bootstrap
-grants, enable-candidate-analysis-logins.sh with existing dedicated credentials,
-then worker verification and reconciler verification.
+This command preserves every row and every table. Recovery requires the
+explicitly drained bootstrap-candidate-analysis-roles.sh --apply
+--confirm-database-session-drain, enable-candidate-analysis-logins.sh with
+existing dedicated credentials, then worker verification and reconciler
+verification.
 EOF
 }
 
@@ -98,8 +100,9 @@ SELECT format('ALTER ROLE %I NOLOGIN', :'reconciler_role')
 \gexec
 
 -- Remove SET ROLE paths in both directions. An already-connected stronger
--- gateway cannot be identified by current_role through pg_stat_activity, but
--- complete INSERT revocation below removes the candidate authority it assumed.
+-- gateway cannot be identified by current_role through pg_stat_activity. It
+-- can survive disable but has no INSERT authority after complete revocation
+-- below; the explicitly drained bootstrap must remove it before grants return.
 SELECT format('REVOKE %I FROM %I', granted.rolname, member.rolname)
 FROM pg_auth_members membership
 JOIN pg_roles granted ON granted.oid = membership.roleid

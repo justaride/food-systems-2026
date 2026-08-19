@@ -146,8 +146,18 @@ const assertRecoveryContract = (contract: string) => {
 
   assert.match(
     roles,
-    /bootstrap grants -> enable existing credentials -> verify worker -> verify reconciler/i,
+    /disable -> bootstrap grants -> enable existing credentials -> verify worker -> verify reconciler/i,
   )
+  assert.match(
+    roles,
+    /`scripts\/bootstrap-candidate-analysis-roles\.sh --apply --confirm-database-session-drain`/,
+  )
+  assert.match(roles, /all other client.*target database.*terminated/i)
+  assert.match(roles, /prepared transactions[^.!?]*reject/i)
+  assert.match(roles, /`pg_parameter_acl`/)
+  assert.match(roles, /`session_replication_role=origin`/)
+  assert.match(roles, /custom candidate.*`ENABLE ALWAYS`/i)
+  assert.match(roles, /human review.*promotion.*separate/i)
   assert.match(
     roles,
     /`scripts\/enable-candidate-analysis-logins\.sh --apply --confirm-existing-credentials`/,
@@ -350,6 +360,14 @@ test('package exposes the guarded existing-credential login recovery command', (
     packageJson.scripts['candidate:roles:enable'],
     'scripts/enable-candidate-analysis-logins.sh',
   )
+  assert.equal(
+    packageJson.scripts['candidate:roles:bootstrap'],
+    'scripts/bootstrap-candidate-analysis-roles.sh --apply',
+  )
+  assert.doesNotMatch(
+    packageJson.scripts['candidate:roles:bootstrap'],
+    /confirm-database-session-drain/,
+  )
 })
 
 test('durable contract limits structured machine output to typed candidate entries', () => {
@@ -506,6 +524,82 @@ test('durable contract assertions reject reviewed authority and recovery mutatio
           block,
           'CandidateRunEvent_supersession_hash_scope_fkey',
           'CandidateRunEvent_supersession_fkey',
+        ),
+      ),
+    },
+    {
+      name: 'disable first recovery action',
+      value: mutateSection(contract, 'Database roles', (block) =>
+        replaceRequired(
+          block,
+          'disable -> bootstrap grants',
+          'bootstrap grants',
+        ),
+      ),
+    },
+    {
+      name: 'drained bootstrap command',
+      value: mutateSection(contract, 'Database roles', (block) =>
+        replaceRequired(
+          block,
+          'scripts/bootstrap-candidate-analysis-roles.sh --apply --confirm-database-session-drain',
+          'scripts/bootstrap-candidate-analysis-roles.sh --apply',
+        ),
+      ),
+    },
+    {
+      name: 'target database client drain',
+      value: mutateSection(contract, 'Database roles', (block) =>
+        replaceRequired(
+          block,
+          'all other client backends in the target database are terminated',
+          'candidate-role sessions are terminated',
+        ),
+      ),
+    },
+    {
+      name: 'prepared transaction stopline',
+      value: mutateSection(contract, 'Database roles', (block) =>
+        replaceRequired(
+          block,
+          'Prepared transactions cause bootstrap to reject before drain',
+          'Prepared transactions may remain during bootstrap',
+        ),
+      ),
+    },
+    {
+      name: 'parameter ACL repair',
+      value: mutateSection(contract, 'Database roles', (block) =>
+        replaceRequired(block, '`pg_parameter_acl`', 'parameter privileges'),
+      ),
+    },
+    {
+      name: 'origin replication setting',
+      value: mutateSection(contract, 'Database roles', (block) =>
+        replaceRequired(
+          block,
+          '`session_replication_role=origin`',
+          'the default replication role',
+        ),
+      ),
+    },
+    {
+      name: 'always candidate triggers',
+      value: mutateSection(contract, 'Database roles', (block) =>
+        replaceRequired(
+          block,
+          'custom candidate integrity triggers use `ENABLE ALWAYS`',
+          'custom candidate integrity triggers are enabled',
+        ),
+      ),
+    },
+    {
+      name: 'separate human review and promotion',
+      value: mutateSection(contract, 'Database roles', (block) =>
+        replaceRequired(
+          block,
+          'human review and promotion remain separate',
+          'the recovery operation is authoritative',
         ),
       ),
     },
