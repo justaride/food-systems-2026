@@ -449,12 +449,81 @@ function candidateAuthoritySnapshot(
   return result.stdout;
 }
 
-function childExit(child: ChildProcess): Promise<number | null> {
-  if (child.exitCode !== null) return Promise.resolve(child.exitCode);
+class ChildExitTimeoutError extends Error {}
+
+function childHasExited(child: ChildProcess): boolean {
+  return child.exitCode !== null || child.signalCode !== null;
+}
+
+function waitForChildExit(
+  child: ChildProcess,
+  timeoutMs: number,
+): Promise<number | null> {
+  if (childHasExited(child)) return Promise.resolve(child.exitCode);
   return new Promise((resolvePromise, rejectPromise) => {
-    child.once("error", rejectPromise);
-    child.once("exit", resolvePromise);
+    const cleanupListeners = () => {
+      clearTimeout(timeout);
+      child.off("error", onError);
+      child.off("exit", onExit);
+    };
+    const onError = (error: Error) => {
+      cleanupListeners();
+      rejectPromise(error);
+    };
+    const onExit = (code: number | null) => {
+      cleanupListeners();
+      resolvePromise(code);
+    };
+    const timeout = setTimeout(() => {
+      cleanupListeners();
+      rejectPromise(
+        new ChildExitTimeoutError(
+          `child process ${String(child.pid)} did not exit within ${timeoutMs}ms`,
+        ),
+      );
+    }, timeoutMs);
+    child.once("error", onError);
+    child.once("exit", onExit);
   });
+}
+
+async function childExit(
+  child: ChildProcess,
+  timeoutMs = 5_000,
+): Promise<number | null> {
+  try {
+    return await waitForChildExit(child, timeoutMs);
+  } catch (error) {
+    if (!(error instanceof ChildExitTimeoutError)) throw error;
+    if (!childHasExited(child)) child.kill("SIGKILL");
+    try {
+      await waitForChildExit(child, 1_000);
+    } catch (forceError) {
+      throw new Error(
+        `${error.message}; SIGKILL reap also failed: ${String(forceError)}`,
+      );
+    }
+    throw new Error(`${error.message}; sent SIGKILL`);
+  }
+}
+
+type CleanupStep = {
+  label: string;
+  run: () => Promise<void> | void;
+};
+
+async function runBestEffortCleanup(steps: CleanupStep[]): Promise<void> {
+  const failures: Error[] = [];
+  for (const step of steps) {
+    try {
+      await step.run();
+    } catch (error) {
+      failures.push(new Error(`${step.label}: ${String(error)}`));
+    }
+  }
+  if (failures.length > 0) {
+    throw new AggregateError(failures, "candidate test cleanup failed");
+  }
 }
 
 function writeRecoveryRacePsql(
@@ -2855,6 +2924,252 @@ test(
 );
 
 test(
+  "cleanup failure pressure still reaps a stubborn child and removes later resources",
+  { timeout: 5_000 },
+  async () => {
+    const tempRoot = mkdtempSync(join(tmpdir(), "candidate-cleanup-pressure-"));
+    const readyFile = join(tempRoot, "child-ready");
+    const stubbornChild = spawn(
+      process.execPath,
+      [
+        "-e",
+        `require("node:fs").writeFileSync(process.env.READY_FILE, "ready"); process.on("SIGTERM", () => {}); setInterval(() => {}, 1000)`,
+      ],
+      {
+        cwd: repoRoot,
+        env: { ...process.env, READY_FILE: readyFile },
+        stdio: "ignore",
+      },
+    );
+
+    try {
+      await waitFor(
+        () => existsSync(readyFile),
+        "cleanup-pressure child did not become ready",
+      );
+      let cleanupFailure: unknown;
+      try {
+        await runBestEffortCleanup([
+          {
+            label: "injected first cleanup failure",
+            run: () => {
+              throw new Error("injected cleanup failure");
+            },
+          },
+          {
+            label: "signal stubborn cleanup child",
+            run: () => {
+              stubbornChild.kill("SIGTERM");
+            },
+          },
+          {
+            label: "bounded stubborn child reap",
+            run: async () => {
+              await childExit(stubbornChild, 100);
+            },
+          },
+          {
+            label: "remove cleanup-pressure temp directory",
+            run: () => rmSync(tempRoot, { recursive: true, force: true }),
+          },
+        ]);
+      } catch (error) {
+        cleanupFailure = error;
+      }
+
+      assert.deepEqual(
+        {
+          aggregated: cleanupFailure instanceof AggregateError,
+          childReaped: childHasExited(stubbornChild),
+          tempDirectoryRemoved: !existsSync(tempRoot),
+          reportsInjectedFailure: cleanupFailure instanceof AggregateError
+            && cleanupFailure.errors.some((error) =>
+              String(error).includes("injected first cleanup failure")
+            ),
+          reportsBoundedReap: cleanupFailure instanceof AggregateError
+            && cleanupFailure.errors.some((error) =>
+              String(error).includes("bounded stubborn child reap")
+            ),
+        },
+        {
+          aggregated: true,
+          childReaped: true,
+          tempDirectoryRemoved: true,
+          reportsInjectedFailure: true,
+          reportsBoundedReap: true,
+        },
+      );
+    } finally {
+      if (!childHasExited(stubbornChild)) stubbornChild.kill("SIGKILL");
+      await childExit(stubbornChild, 1_000).catch(() => undefined);
+      rmSync(tempRoot, { recursive: true, force: true });
+    }
+  },
+);
+
+test(
+  "catalog lock timeout aborts recovery before drain or grant repair",
+  { timeout: 15_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const adminEnv = {
+        ...process.env,
+        PATH: fixture.path,
+        DATABASE_ADMIN_URL:
+          `${context.adminUrl}?application_name=candidate-bootstrap-lock-timeout`,
+      };
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: fixture.path,
+          DATABASE_ADMIN_URL: context.adminUrl,
+        },
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      const blockerApp = "candidate-bootstrap-catalog-lock-blocker";
+      const sleeperApp = "candidate-bootstrap-lock-timeout-sleeper";
+      const blocker = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c",
+          "BEGIN; LOCK TABLE pg_catalog.pg_authid IN SHARE MODE; SELECT pg_sleep(60); COMMIT",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: blockerApp,
+          },
+          stdio: "ignore",
+        },
+      );
+      const sleeper = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: sleeperApp,
+          },
+          stdio: "ignore",
+        },
+      );
+      let bootstrap: ChildProcess | null = null;
+
+      try {
+        await waitFor(() => {
+          const held = context.psql(`
+            SELECT count(*)
+            FROM pg_locks lock
+            JOIN pg_stat_activity activity ON activity.pid = lock.pid
+            WHERE activity.application_name = '${blockerApp}'
+              AND lock.relation = 'pg_catalog.pg_authid'::regclass
+              AND lock.mode = 'ShareLock'
+              AND lock.granted;
+          `);
+          return held.status === 0 && held.stdout.trim() === "1";
+        }, "catalog lock blocker did not acquire pg_authid ShareLock");
+        await waitFor(
+          () => activityCount(context, sleeperApp) === "1",
+          "lock-timeout sleeper did not become active",
+        );
+        const beforeAuthority = candidateAuthoritySnapshot(context);
+        const beforeRows = candidateRowsSnapshot(context);
+        bootstrap = spawn(bootstrapPath, [...bootstrapApplyArgs], {
+          cwd: repoRoot,
+          env: adminEnv,
+          stdio: ["ignore", "pipe", "pipe"],
+        });
+        let output = "";
+        bootstrap.stdout?.on("data", (chunk) => {
+          output += chunk.toString();
+        });
+        bootstrap.stderr?.on("data", (chunk) => {
+          output += chunk.toString();
+        });
+        let exitCode: number | null = null;
+        let boundedExit = true;
+        try {
+          exitCode = await waitForChildExit(bootstrap, 4_000);
+        } catch (error) {
+          if (!(error instanceof ChildExitTimeoutError)) throw error;
+          boundedExit = false;
+        }
+
+        assert.deepEqual(
+          {
+            boundedFailure: boundedExit && exitCode !== 0,
+            explainsLockTimeout: /lock timeout/i.test(output),
+            blockerStillConnected: activityCount(context, blockerApp),
+            sleeperStillConnected: activityCount(context, sleeperApp),
+            authorityUnchanged:
+              candidateAuthoritySnapshot(context) === beforeAuthority,
+            rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+          },
+          {
+            boundedFailure: true,
+            explainsLockTimeout: true,
+            blockerStillConnected: "1",
+            sleeperStillConnected: "1",
+            authorityUnchanged: true,
+            rowsUnchanged: true,
+          },
+          output,
+        );
+      } finally {
+        await runBestEffortCleanup([
+          {
+            label: "terminate catalog-lock pressure sessions",
+            run: () => {
+              const cleanup = context.psql(`
+                SELECT pg_terminate_backend(pid)
+                FROM pg_stat_activity
+                WHERE application_name IN (
+                  '${blockerApp}',
+                  '${sleeperApp}',
+                  'candidate-bootstrap-lock-timeout'
+                );
+              `);
+              assert.equal(cleanup.status, 0, cleanup.stderr);
+            },
+          },
+          {
+            label: "reap catalog-lock bootstrap",
+            run: async () => {
+              if (bootstrap) await childExit(bootstrap);
+            },
+          },
+          {
+            label: "reap catalog-lock blocker",
+            run: async () => {
+              await childExit(blocker);
+            },
+          },
+          {
+            label: "reap catalog-lock sleeper",
+            run: async () => {
+              await childExit(sleeper);
+            },
+          },
+        ]);
+      }
+    });
+  },
+);
+
+test(
   "prepared transaction rejects database-session-drain before sleeper, authority, or rows change",
   { timeout: 30_000 },
   async (t) => {
@@ -2938,17 +3253,34 @@ test(
           `${bootstrap.stdout}${bootstrap.stderr}`,
         );
       } finally {
-        const rollbackPrepared = context.psql(
-          "ROLLBACK PREPARED 'candidate-recovery-pending'",
-        );
-        assert.equal(rollbackPrepared.status, 0, rollbackPrepared.stderr);
-        const cleanup = context.psql(`
-          SELECT pg_terminate_backend(pid)
-          FROM pg_stat_activity
-          WHERE application_name = '${sleeperApp}';
-        `);
-        assert.equal(cleanup.status, 0, cleanup.stderr);
-        await childExit(sleeper);
+        await runBestEffortCleanup([
+          {
+            label: "rollback prepared recovery transaction",
+            run: () => {
+              const rollbackPrepared = context.psql(
+                "ROLLBACK PREPARED 'candidate-recovery-pending'",
+              );
+              assert.equal(rollbackPrepared.status, 0, rollbackPrepared.stderr);
+            },
+          },
+          {
+            label: "terminate prepared-transaction sleeper",
+            run: () => {
+              const cleanup = context.psql(`
+                SELECT pg_terminate_backend(pid)
+                FROM pg_stat_activity
+                WHERE application_name = '${sleeperApp}';
+              `);
+              assert.equal(cleanup.status, 0, cleanup.stderr);
+            },
+          },
+          {
+            label: "reap prepared-transaction sleeper",
+            run: async () => {
+              await childExit(sleeper);
+            },
+          },
+        ]);
       }
     }, { maxPreparedTransactions: 10 });
   },
@@ -3044,14 +3376,29 @@ test(
           "survivor mutation changed the production bootstrap",
         );
       } finally {
-        const cleanup = context.psql(`
-          SELECT pg_terminate_backend(pid)
-          FROM pg_stat_activity
-          WHERE application_name = '${sleeperApp}';
-        `);
-        assert.equal(cleanup.status, 0, cleanup.stderr);
-        await childExit(sleeper);
-        rmSync(tempRoot, { recursive: true, force: true });
+        await runBestEffortCleanup([
+          {
+            label: "terminate survivor-guard sleeper",
+            run: () => {
+              const cleanup = context.psql(`
+                SELECT pg_terminate_backend(pid)
+                FROM pg_stat_activity
+                WHERE application_name = '${sleeperApp}';
+              `);
+              assert.equal(cleanup.status, 0, cleanup.stderr);
+            },
+          },
+          {
+            label: "reap survivor-guard sleeper",
+            run: async () => {
+              await childExit(sleeper);
+            },
+          },
+          {
+            label: "remove survivor-guard temp directory",
+            run: () => rmSync(tempRoot, { recursive: true, force: true }),
+          },
+        ]);
       }
     });
   },
@@ -3419,6 +3766,138 @@ test(
       `);
       assert.equal(state.status, 0, state.stderr);
       assert.equal(state.stdout.trim(), "t|t|t|t|t|t|1|1");
+    });
+  },
+);
+
+test(
+  "database-specific candidate settings cannot survive recovery or override runtime origin",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const controlDatabase = "candidate_setting_control";
+      assert.equal(
+        context.psql(`CREATE DATABASE ${controlDatabase}`).status,
+        0,
+      );
+      const dirtySettings = context.psql(`
+        CREATE ROLE candidate_setting_control NOLOGIN;
+        ALTER ROLE foodsystems_candidate_worker
+          IN DATABASE ${context.database}
+          SET session_replication_role TO 'replica';
+        ALTER ROLE foodsystems_candidate_reconciler
+          IN DATABASE ${context.database}
+          SET session_replication_role TO 'replica';
+        ALTER ROLE foodsystems_candidate_worker
+          IN DATABASE ${controlDatabase}
+          SET statement_timeout TO '99s';
+        ALTER ROLE candidate_setting_control
+          IN DATABASE ${controlDatabase}
+          SET statement_timeout TO '77s';
+        ALTER ROLE foodsystems_candidate_worker LOGIN;
+      `);
+      assert.equal(dirtySettings.status, 0, dirtySettings.stderr);
+      const runtimeBefore = spawnSync(
+        "psql",
+        [
+          "-X", "-A", "-t", "-v", "ON_ERROR_STOP=1",
+          "-d", fixture.workerUrl,
+          "-c", "SHOW session_replication_role",
+        ],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: { ...process.env, PATH: fixture.path },
+        },
+      );
+      assert.equal(runtimeBefore.status, 0, runtimeBefore.stderr);
+      assert.equal(runtimeBefore.stdout.trim(), "replica");
+
+      const adminEnv = {
+        ...process.env,
+        PATH: fixture.path,
+        DATABASE_ADMIN_URL: context.adminUrl,
+      };
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      const beforeRows = candidateRowsSnapshot(context);
+
+      try {
+        const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: adminEnv,
+        });
+        assert.equal(bootstrap.status, 0, bootstrap.stderr);
+        const settingsAfter = context.psql(`
+          SELECT
+            (SELECT count(*)
+             FROM pg_db_role_setting setting
+             JOIN pg_roles role ON role.oid = setting.setrole
+             WHERE role.rolname IN (
+               'foodsystems_candidate_worker',
+               'foodsystems_candidate_reconciler'
+             ) AND setting.setdatabase <> 0),
+            (SELECT count(*)
+             FROM pg_db_role_setting setting
+             JOIN pg_roles role ON role.oid = setting.setrole
+             JOIN pg_database database ON database.oid = setting.setdatabase
+             WHERE role.rolname = 'candidate_setting_control'
+               AND database.datname = '${controlDatabase}'
+               AND setting.setconfig = ARRAY['statement_timeout=77s']);
+        `);
+        assert.equal(settingsAfter.status, 0, settingsAfter.stderr);
+
+        const enabled = spawnSync(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            encoding: "utf8",
+            env: recoveryEnableEnv(fixture, context.adminUrl),
+          },
+        );
+        const runtimeAfter = spawnSync(
+          "psql",
+          [
+            "-X", "-A", "-t", "-v", "ON_ERROR_STOP=1",
+            "-d", fixture.workerUrl,
+            "-c", "SHOW session_replication_role",
+          ],
+          {
+            cwd: repoRoot,
+            encoding: "utf8",
+            env: { ...process.env, PATH: fixture.path },
+          },
+        );
+        assert.deepEqual(
+          {
+            candidateDatabaseSettings: settingsAfter.stdout.trim(),
+            enable: enabled.status,
+            runtimeReplicationRole: runtimeAfter.stdout.trim(),
+            rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+          },
+          {
+            candidateDatabaseSettings: "0|1",
+            enable: 0,
+            runtimeReplicationRole: "origin",
+            rowsUnchanged: true,
+          },
+          [enabled.stderr, runtimeAfter.stderr].join("\n"),
+        );
+      } finally {
+        const cleanup = spawnSync(disablePath, ["--apply"], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: adminEnv,
+        });
+        assert.equal(cleanup.status, 0, cleanup.stderr);
+      }
     });
   },
 );

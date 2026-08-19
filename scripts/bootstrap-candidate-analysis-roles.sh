@@ -25,6 +25,8 @@ Existing candidate roles must already be safely disabled before recovery; run
 disable-candidate-analysis-writes.sh --apply first, then rerun bootstrap. Recovery
 drains every other client session in the target database before restoring grants.
 Incompatible PUBLIC/default-ACL state requires separate authorized hardening.
+Catalog lock acquisition is bounded at 2 seconds. On lock timeout, finish the
+conflicting catalog writer, explicitly disable again, then rerun bootstrap.
 EOF
 }
 
@@ -286,6 +288,10 @@ $preflight$;
 
 BEGIN;
 
+-- Match the candidate role contract's 2-second operational lock budget. A
+-- catalog writer must never leave recovery waiting indefinitely before drain.
+SET LOCAL lock_timeout TO '2s';
+
 -- Hold every catalog that carries a checked authority fact through the target
 -- database drain and grant repair. The order matches explicit login recovery.
 LOCK TABLE
@@ -534,6 +540,21 @@ SELECT format(
 )
 FROM pg_parameter_acl parameter
 CROSS JOIN candidate_role
+\gexec
+-- Candidate roles are cluster-global, and explicit login recovery rejects any
+-- database-specific candidate setting. Clear only rows owned by these two exact
+-- roles, across databases, so no per-database override can defeat global defaults.
+SELECT format(
+  'ALTER ROLE %I IN DATABASE %I RESET ALL',
+  role.rolname,
+  database.datname
+)
+FROM pg_db_role_setting setting
+JOIN pg_roles role ON role.oid = setting.setrole
+JOIN pg_database database ON database.oid = setting.setdatabase
+WHERE role.rolname IN (:'worker_role', :'reconciler_role')
+  AND setting.setdatabase <> 0
+ORDER BY role.rolname, database.datname
 \gexec
 SELECT format('ALTER ROLE %I RESET ALL', role_name)
 FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
