@@ -141,26 +141,142 @@ const assertPriorEventContract = (contract: string) => {
   )
 }
 
+const recoveryClauses = (block: string) =>
+  block
+    .replace(/\s+/g, ' ')
+    .split(/(?<=[.!?;])\s+|,\s+(?=(?:but|however|while|yet)\b)/i)
+    .map((clause) => clause.trim())
+    .filter(Boolean)
+
+const recoveryNegation =
+  /\b(?:not|never|cannot|can't|do\s+not|don't|does\s+not|doesn't|must\s+not|mustn't|will\s+not|won't|isn't|aren't)\b/i
+
+const recoveryClaims = (
+  block: string,
+  subject: RegExp,
+  effect: RegExp,
+) =>
+  recoveryClauses(block).flatMap((clause) => {
+    const subjectMatch = subject.exec(clause)
+    const effectMatch = effect.exec(clause)
+    if (
+      !subjectMatch ||
+      subjectMatch.index === undefined ||
+      !effectMatch ||
+      effectMatch.index === undefined ||
+      effectMatch.index < subjectMatch.index
+    ) {
+      return []
+    }
+
+    return [
+      clause.slice(
+        subjectMatch.index,
+        effectMatch.index + effectMatch[0].length,
+      ),
+    ]
+  })
+
+const assertAffirmedRecoveryClaim = (
+  block: string,
+  subject: RegExp,
+  effect: RegExp,
+  label: string,
+) => {
+  const claims = recoveryClaims(block, subject, effect)
+  assert.ok(claims.length > 0, `missing recovery claim: ${label}`)
+  for (const claim of claims) {
+    assert.doesNotMatch(claim, recoveryNegation, `negated recovery claim: ${label}`)
+  }
+}
+
+const assertNegatedRecoveryClaim = (
+  block: string,
+  subject: RegExp,
+  effect: RegExp,
+  label: string,
+) => {
+  const claims = recoveryClaims(block, subject, effect)
+  assert.ok(claims.length > 0, `missing recovery stopline: ${label}`)
+  for (const claim of claims) {
+    assert.match(claim, recoveryNegation, `unnegated recovery stopline: ${label}`)
+  }
+}
+
 const assertRecoveryContract = (contract: string) => {
   const roles = section(contract, 'Database roles')
 
-  assert.match(
+  assertAffirmedRecoveryClaim(
     roles,
-    /disable -> bootstrap grants -> enable existing credentials -> verify worker -> verify reconciler/i,
+    /truthful disabled-state recovery chain/i,
+    /`disable -> bootstrap grants -> enable existing credentials -> verify worker -> verify reconciler`/i,
+    'disable-first recovery chain',
   )
-  assert.match(
+  assertAffirmedRecoveryClaim(
     roles,
+    /bootstrap/i,
     /`scripts\/bootstrap-candidate-analysis-roles\.sh --apply --confirm-database-session-drain`/,
+    'explicitly drained bootstrap command',
   )
-  assert.match(roles, /all other client.*target database.*terminated/i)
-  assert.match(roles, /prepared transactions[^.!?]*reject/i)
-  assert.match(roles, /`pg_parameter_acl`/)
-  assert.match(roles, /`session_replication_role=origin`/)
-  assert.match(roles, /custom candidate.*`ENABLE ALWAYS`/i)
-  assert.match(roles, /human review.*promotion.*separate/i)
-  assert.match(
+  assertAffirmedRecoveryClaim(
     roles,
+    /bootstrap/i,
+    /requires? a planned maintenance window for the target database/i,
+    'planned target-database maintenance window',
+  )
+  assertAffirmedRecoveryClaim(
+    roles,
+    /all other client backends in the target database/i,
+    /terminated/i,
+    'target-database client drain',
+  )
+  assertAffirmedRecoveryClaim(
+    roles,
+    /prepared transactions/i,
+    /reject before drain/i,
+    'prepared-transaction rejection',
+  )
+  assertAffirmedRecoveryClaim(
+    roles,
+    /bootstrap/i,
+    /repairs?[^.!?;]*direct parameter ACLs in `pg_parameter_acl`/i,
+    'direct parameter ACL repair',
+  )
+  assertAffirmedRecoveryClaim(
+    roles,
+    /bootstrap/i,
+    /pins? their defaults to `session_replication_role=origin`/i,
+    'origin role default',
+  )
+  assertAffirmedRecoveryClaim(
+    roles,
+    /bootstrap/i,
+    /custom candidate integrity triggers[^.!?;]*use `ENABLE ALWAYS`/i,
+    'always-enabled custom candidate triggers',
+  )
+  assertAffirmedRecoveryClaim(
+    roles,
+    /bootstrap/i,
+    /commits both candidate roles as `NOLOGIN`/i,
+    'bootstrap NOLOGIN result',
+  )
+  assertAffirmedRecoveryClaim(
+    roles,
+    /the enable step/i,
     /`scripts\/enable-candidate-analysis-logins\.sh --apply --confirm-existing-credentials`/,
+    'existing-credential enable command',
+  )
+  assertAffirmedRecoveryClaim(
+    roles,
+    /human review and promotion/i,
+    /remain separate/i,
+    'separate human review and promotion',
+  )
+  assertNegatedRecoveryClaim(
+    roles,
+    /recovery/i,
+    /create external readiness/i,
+    'external readiness',
   )
   assert.match(roles, /does not provision.*credentials/i)
   assert.match(roles, /fail.*back.*disabled state/i)
@@ -393,6 +509,136 @@ test('durable recovery chain uses existing credentials and fails back to disable
 
   assertRecoveryContract(contract)
 })
+
+const recoverySemanticAdversaries: Array<{
+  name: string
+  mutate: (roles: string) => string
+}> = [
+  {
+    name: 'negated recovery chain',
+    mutate: (roles) =>
+      replaceRequired(
+        roles,
+        'The truthful disabled-state recovery chain is `disable',
+        'The truthful disabled-state recovery chain is not `disable',
+      ),
+  },
+  {
+    name: 'negated drained bootstrap command',
+    mutate: (roles) =>
+      replaceRequired(
+        roles,
+        'Bootstrap is exactly `scripts/bootstrap-candidate-analysis-roles.sh',
+        'Bootstrap is not exactly `scripts/bootstrap-candidate-analysis-roles.sh',
+      ),
+  },
+  {
+    name: 'missing planned maintenance window',
+    mutate: (roles) =>
+      replaceRequired(
+        roles,
+        'Bootstrap requires a planned maintenance window for the target database.',
+        'Bootstrap is a routine operation.',
+      ),
+  },
+  {
+    name: 'negated target database client drain',
+    mutate: (roles) =>
+      replaceRequired(
+        roles,
+        'all other client backends in the target database are terminated',
+        'all other client backends in the target database are not terminated',
+      ),
+  },
+  {
+    name: 'negated prepared transaction rejection',
+    mutate: (roles) =>
+      replaceRequired(
+        roles,
+        'Prepared transactions cause bootstrap to reject before drain',
+        'Prepared transactions do not cause bootstrap to reject before drain',
+      ),
+  },
+  {
+    name: 'negated parameter ACL repair',
+    mutate: (roles) =>
+      replaceRequired(
+        roles,
+        'repairs the narrow grant allowlists and direct parameter ACLs in `pg_parameter_acl`',
+        'does not repair the narrow grant allowlists or direct parameter ACLs in `pg_parameter_acl`',
+      ),
+  },
+  {
+    name: 'negated origin default',
+    mutate: (roles) =>
+      replaceRequired(
+        roles,
+        'pins their defaults to `session_replication_role=origin`',
+        'does not pin their defaults to `session_replication_role=origin`',
+      ),
+  },
+  {
+    name: 'negated always triggers',
+    mutate: (roles) =>
+      replaceRequired(
+        roles,
+        'makes all 27 custom candidate integrity triggers use `ENABLE ALWAYS`',
+        'does not make all 27 custom candidate integrity triggers use `ENABLE ALWAYS`',
+      ),
+  },
+  {
+    name: 'missing bootstrap-specific NOLOGIN result',
+    mutate: (roles) =>
+      replaceRequired(
+        roles,
+        'Bootstrap commits both candidate roles as `NOLOGIN` and leaves the service disabled.',
+        'Bootstrap leaves the service disabled.',
+      ),
+  },
+  {
+    name: 'negated existing-credential enable command',
+    mutate: (roles) =>
+      replaceRequired(
+        roles,
+        'The enable step uses `scripts/enable-candidate-analysis-logins.sh',
+        'The enable step does not use `scripts/enable-candidate-analysis-logins.sh',
+      ),
+  },
+  {
+    name: 'negated separate human review and promotion',
+    mutate: (roles) =>
+      replaceRequired(
+        roles,
+        'human review and promotion remain separate',
+        'human review and promotion do not remain separate',
+      ),
+  },
+  {
+    name: 'recovery creates external readiness',
+    mutate: (roles) =>
+      replaceRequired(
+        roles,
+        'Recovery does not create external readiness',
+        'Recovery creates external readiness',
+      ),
+  },
+]
+
+for (const adversary of recoverySemanticAdversaries) {
+  test(`durable recovery semantics reject ${adversary.name}`, () => {
+    const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
+    const mutated = mutateSection(
+      contract,
+      'Database roles',
+      adversary.mutate,
+    )
+
+    assert.throws(
+      () => assertRecoveryContract(mutated),
+      (error: unknown) => error instanceof Error,
+    )
+  })
+}
 
 test('durable contract assertions reject reviewed authority and recovery mutations', () => {
   const contract = read('knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md')
