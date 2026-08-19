@@ -512,19 +512,78 @@ type CleanupStep = {
   run: () => Promise<void> | void;
 };
 
-type ErrorWithCleanupFailures = Error & {
-  cleanupFailures?: AggregateError;
+declare const cleanupDiagnosticsBrand: unique symbol;
+
+type CleanupDiagnosticsToken = {
+  readonly [cleanupDiagnosticsBrand]: true;
 };
 
-function errorFromUnknown(error: unknown): Error {
-  return error instanceof Error
-    ? error
-    : new Error(String(error), { cause: error });
+type CleanupDiagnosticsState = {
+  cleanupFailures: AggregateError[];
+  primaryFailure?: unknown;
+  primaryFailureRecorded: boolean;
+};
+
+const cleanupDiagnosticsByToken = new WeakMap<
+  CleanupDiagnosticsToken,
+  CleanupDiagnosticsState
+>();
+
+function createCleanupDiagnostics(): CleanupDiagnosticsToken {
+  const token = Object.freeze({}) as CleanupDiagnosticsToken;
+  cleanupDiagnosticsByToken.set(token, {
+    cleanupFailures: [],
+    primaryFailureRecorded: false,
+  });
+  return token;
+}
+
+function recordPrimaryFailure(
+  token: CleanupDiagnosticsToken,
+  primaryFailure: unknown,
+): void {
+  const state = cleanupDiagnosticsByToken.get(token);
+  if (!state) throw new Error("unknown cleanup diagnostics token");
+  state.primaryFailure = primaryFailure;
+  state.primaryFailureRecorded = true;
+}
+
+function capturePrimaryCleanupDiagnostics(
+  token: CleanupDiagnosticsToken,
+  primaryFailure: unknown,
+): CleanupDiagnosticsToken {
+  try {
+    recordPrimaryFailure(token, primaryFailure);
+  } catch {
+    // A failed diagnostic side channel must never replace the primary.
+  }
+  return token;
+}
+
+function readCleanupDiagnostics(
+  token: CleanupDiagnosticsToken,
+): Readonly<CleanupDiagnosticsState> {
+  const state = cleanupDiagnosticsByToken.get(token);
+  if (!state) throw new Error("unknown cleanup diagnostics token");
+  return {
+    cleanupFailures: [...state.cleanupFailures],
+    primaryFailure: state.primaryFailure,
+    primaryFailureRecorded: state.primaryFailureRecorded,
+  };
+}
+
+function recordCleanupFailure(
+  token: CleanupDiagnosticsToken,
+  cleanupFailure: AggregateError,
+): void {
+  const state = cleanupDiagnosticsByToken.get(token);
+  if (!state) throw new Error("unknown cleanup diagnostics token");
+  state.cleanupFailures.push(cleanupFailure);
 }
 
 async function runBestEffortCleanup(
   steps: CleanupStep[],
-  primaryFailure?: Error,
+  diagnostics?: CleanupDiagnosticsToken,
 ): Promise<void> {
   const failures: Error[] = [];
   for (const step of steps) {
@@ -539,9 +598,12 @@ async function runBestEffortCleanup(
       failures,
       "candidate test cleanup failed",
     );
-    if (primaryFailure) {
-      (primaryFailure as ErrorWithCleanupFailures).cleanupFailures =
-        cleanupFailures;
+    if (diagnostics) {
+      try {
+        recordCleanupFailure(diagnostics, cleanupFailures);
+      } catch {
+        // A failed diagnostic side channel must never replace the primary.
+      }
       return;
     }
     throw cleanupFailures;
@@ -3033,12 +3095,20 @@ test(
   "cleanup failure preserves the primary operation error with aggregate diagnostics",
   async () => {
     const primaryFailure = new Error("primary operation failed");
+    const diagnostics = createCleanupDiagnostics();
+    let primaryDiagnostics: CleanupDiagnosticsToken | undefined;
     let visibleFailure: unknown;
     let laterCleanupAttempted = false;
 
     try {
       try {
         throw primaryFailure;
+      } catch (error) {
+        primaryDiagnostics = capturePrimaryCleanupDiagnostics(
+          diagnostics,
+          error,
+        );
+        throw error;
       } finally {
         await runBestEffortCleanup([
           {
@@ -3053,15 +3123,14 @@ test(
               laterCleanupAttempted = true;
             },
           },
-        ], primaryFailure);
+        ], primaryDiagnostics);
       }
     } catch (error) {
       visibleFailure = error;
     }
 
-    const cleanupFailures = visibleFailure instanceof Error
-      ? (visibleFailure as Error & { cleanupFailures?: unknown }).cleanupFailures
-      : undefined;
+    const cleanupDiagnostics = readCleanupDiagnostics(diagnostics);
+    const cleanupFailures = cleanupDiagnostics.cleanupFailures[0];
     assert.deepEqual(
       {
         primaryIdentityPreserved: visibleFailure === primaryFailure,
@@ -3073,6 +3142,11 @@ test(
           && cleanupFailures.errors.some((error) =>
             String(error).includes("injected cleanup failure")
           ),
+        diagnosticsCorrelated: Object.is(
+          cleanupDiagnostics.primaryFailure,
+          primaryFailure,
+        ),
+        primaryWasRecorded: cleanupDiagnostics.primaryFailureRecorded,
         laterCleanupAttempted,
       },
       {
@@ -3080,8 +3154,263 @@ test(
         primaryMessage: "primary operation failed",
         cleanupIsAggregate: true,
         cleanupIsMachineReadable: true,
+        diagnosticsCorrelated: true,
+        primaryWasRecorded: true,
         laterCleanupAttempted: true,
       },
+    );
+  },
+);
+
+test(
+  "cleanup failure cannot mask frozen, property-hostile, or proxy Error primaries",
+  async () => {
+    let throwingPropertyTouches = 0;
+    const throwingProperty = new Error("throwing-property primary");
+    Object.defineProperty(throwingProperty, "cleanupFailures", {
+      configurable: false,
+      get: () => {
+        throwingPropertyTouches += 1;
+        throw new Error("cleanupFailures getter trap");
+      },
+      set: () => {
+        throwingPropertyTouches += 1;
+        throw new Error("cleanupFailures setter trap");
+      },
+    });
+    const nonWritableProperty = new Error("non-writable-property primary");
+    Object.defineProperty(nonWritableProperty, "cleanupFailures", {
+      configurable: false,
+      value: "user-owned cleanupFailures value",
+      writable: false,
+    });
+    let proxyMutationTouches = 0;
+    const proxyPrimary = new Proxy(new Error("proxy primary"), {
+      defineProperty: () => {
+        proxyMutationTouches += 1;
+        throw new Error("proxy defineProperty trap");
+      },
+      set: () => {
+        proxyMutationTouches += 1;
+        throw new Error("proxy set trap");
+      },
+    });
+    const cases = [
+      { label: "frozen", primary: Object.freeze(new Error("frozen primary")) },
+      { label: "non-writable", primary: nonWritableProperty },
+      { label: "throwing-property", primary: throwingProperty },
+      { label: "proxy", primary: proxyPrimary },
+    ];
+    const outcomes = [];
+
+    for (const { label, primary } of cases) {
+      const diagnostics = createCleanupDiagnostics();
+      let primaryDiagnostics: CleanupDiagnosticsToken | undefined;
+      let visibleFailure: unknown;
+      let laterCleanupAttempted = false;
+      try {
+        try {
+          throw primary;
+        } catch (error) {
+          primaryDiagnostics = capturePrimaryCleanupDiagnostics(
+            diagnostics,
+            error,
+          );
+          throw error;
+        } finally {
+          await runBestEffortCleanup([
+            {
+              label: `${label} cleanup failure`,
+              run: () => {
+                throw new Error(`${label} cleanup failed`);
+              },
+            },
+            {
+              label: `${label} later cleanup control`,
+              run: () => {
+                laterCleanupAttempted = true;
+              },
+            },
+          ], primaryDiagnostics);
+        }
+      } catch (error) {
+        visibleFailure = error;
+      }
+      const cleanupDiagnostics = readCleanupDiagnostics(diagnostics);
+      outcomes.push({
+        cleanupIsAggregate:
+          cleanupDiagnostics.cleanupFailures[0] instanceof AggregateError,
+        diagnosticsCorrelated: Object.is(
+          cleanupDiagnostics.primaryFailure,
+          primary,
+        ),
+        primaryWasRecorded: cleanupDiagnostics.primaryFailureRecorded,
+        label,
+        primaryIdentityPreserved: Object.is(visibleFailure, primary),
+        visibleMessage: visibleFailure instanceof Error
+          ? visibleFailure.message
+          : String(visibleFailure),
+        visibleStack: visibleFailure instanceof Error
+          ? visibleFailure.stack
+          : undefined,
+        expectedMessage: primary.message,
+        expectedStack: primary.stack,
+        laterCleanupAttempted,
+      });
+    }
+
+    assert.deepEqual(
+      {
+        outcomes,
+        proxyMutationTouches,
+        throwingPropertyTouches,
+      },
+      {
+        outcomes: cases.map(({ label, primary }) => ({
+          cleanupIsAggregate: true,
+          diagnosticsCorrelated: true,
+          label,
+          primaryIdentityPreserved: true,
+          primaryWasRecorded: true,
+          visibleMessage: primary.message,
+          visibleStack: primary.stack,
+          expectedMessage: primary.message,
+          expectedStack: primary.stack,
+          laterCleanupAttempted: true,
+        })),
+        proxyMutationTouches: 0,
+        throwingPropertyTouches: 0,
+      },
+    );
+  },
+);
+
+test(
+  "cleanup failure preserves exact primitive thrown values",
+  async () => {
+    const primaries: unknown[] = [
+      undefined,
+      null,
+      false,
+      0,
+      -0,
+      Number.NaN,
+      "",
+      BigInt(42),
+      Symbol("primitive primary"),
+    ];
+    const outcomes = [];
+
+    for (const primary of primaries) {
+      const diagnostics = createCleanupDiagnostics();
+      let primaryDiagnostics: CleanupDiagnosticsToken | undefined;
+      let visibleFailure: unknown;
+      let laterCleanupAttempted = false;
+      try {
+        try {
+          throw primary;
+        } catch (error) {
+          primaryDiagnostics = capturePrimaryCleanupDiagnostics(
+            diagnostics,
+            error,
+          );
+          throw error;
+        } finally {
+          await runBestEffortCleanup([
+            {
+              label: "primitive cleanup failure",
+              run: () => {
+                throw new Error("primitive cleanup failed");
+              },
+            },
+            {
+              label: "primitive later cleanup control",
+              run: () => {
+                laterCleanupAttempted = true;
+              },
+            },
+          ], primaryDiagnostics);
+        }
+      } catch (error) {
+        visibleFailure = error;
+      }
+      const cleanupDiagnostics = readCleanupDiagnostics(diagnostics);
+      outcomes.push({
+        cleanupIsAggregate:
+          cleanupDiagnostics.cleanupFailures[0] instanceof AggregateError,
+        diagnosticsCorrelated: Object.is(
+          cleanupDiagnostics.primaryFailure,
+          primary,
+        ),
+        primaryWasRecorded: cleanupDiagnostics.primaryFailureRecorded,
+        exactPrimaryPreserved: Object.is(visibleFailure, primary),
+        laterCleanupAttempted,
+      });
+    }
+
+    assert.deepEqual(
+      outcomes,
+      primaries.map(() => ({
+        cleanupIsAggregate: true,
+        diagnosticsCorrelated: true,
+        exactPrimaryPreserved: true,
+        laterCleanupAttempted: true,
+        primaryWasRecorded: true,
+      })),
+    );
+  },
+);
+
+test(
+  "diagnostics storage failure cannot mask an exact primary value",
+  async () => {
+    const invalidDiagnostics = Object.freeze({}) as CleanupDiagnosticsToken;
+    const primaries: unknown[] = [
+      Object.freeze(new Error("storage-failure primary")),
+      0,
+    ];
+    const outcomes = [];
+
+    for (const primary of primaries) {
+      let visibleFailure: unknown;
+      let laterCleanupAttempted = false;
+      try {
+        try {
+          throw primary;
+        } catch (error) {
+          capturePrimaryCleanupDiagnostics(invalidDiagnostics, error);
+          throw error;
+        } finally {
+          await runBestEffortCleanup([
+            {
+              label: "storage-failure cleanup",
+              run: () => {
+                throw new Error("cleanup before storage failure");
+              },
+            },
+            {
+              label: "storage-failure later cleanup control",
+              run: () => {
+                laterCleanupAttempted = true;
+              },
+            },
+          ], invalidDiagnostics);
+        }
+      } catch (error) {
+        visibleFailure = error;
+      }
+      outcomes.push({
+        exactPrimaryPreserved: Object.is(visibleFailure, primary),
+        laterCleanupAttempted,
+      });
+    }
+
+    assert.deepEqual(
+      outcomes,
+      primaries.map(() => ({
+        exactPrimaryPreserved: true,
+        laterCleanupAttempted: true,
+      })),
     );
   },
 );
@@ -3092,6 +3421,7 @@ test(
   async (t) => {
     await withCandidateAnalysisPostgres(t, async (context) => {
       const fixture = prepareRecoveryFixture(context);
+      const cleanupDiagnostics = createCleanupDiagnostics();
       const adminEnv = {
         ...process.env,
         PATH: fixture.path,
@@ -3146,7 +3476,7 @@ test(
         },
       );
       let bootstrap: ChildProcess | null = null;
-      let primaryFailure: Error | undefined;
+      let primaryCleanupDiagnostics: CleanupDiagnosticsToken | undefined;
 
       try {
         await waitFor(() => {
@@ -3209,8 +3539,11 @@ test(
           output,
         );
       } catch (error) {
-        primaryFailure = errorFromUnknown(error);
-        throw primaryFailure;
+        primaryCleanupDiagnostics = capturePrimaryCleanupDiagnostics(
+          cleanupDiagnostics,
+          error,
+        );
+        throw error;
       } finally {
         await runBestEffortCleanup([
           {
@@ -3246,7 +3579,7 @@ test(
               await childExit(sleeper);
             },
           },
-        ], primaryFailure);
+        ], primaryCleanupDiagnostics);
       }
     });
   },
@@ -3258,6 +3591,7 @@ test(
   async (t) => {
     await withCandidateAnalysisPostgres(t, async (context) => {
       const fixture = prepareRecoveryFixture(context);
+      const cleanupDiagnostics = createCleanupDiagnostics();
       const disabled = spawnSync(disablePath, ["--apply"], {
         cwd: repoRoot,
         encoding: "utf8",
@@ -3290,7 +3624,7 @@ test(
           stdio: "ignore",
         },
       );
-      let primaryFailure: Error | undefined;
+      let primaryCleanupDiagnostics: CleanupDiagnosticsToken | undefined;
 
       try {
         await waitFor(
@@ -3337,8 +3671,11 @@ test(
           `${bootstrap.stdout}${bootstrap.stderr}`,
         );
       } catch (error) {
-        primaryFailure = errorFromUnknown(error);
-        throw primaryFailure;
+        primaryCleanupDiagnostics = capturePrimaryCleanupDiagnostics(
+          cleanupDiagnostics,
+          error,
+        );
+        throw error;
       } finally {
         await runBestEffortCleanup([
           {
@@ -3367,7 +3704,7 @@ test(
               await childExit(sleeper);
             },
           },
-        ], primaryFailure);
+        ], primaryCleanupDiagnostics);
       }
     }, { maxPreparedTransactions: 10 });
   },
@@ -3379,6 +3716,7 @@ test(
   async (t) => {
     await withCandidateAnalysisPostgres(t, async (context) => {
       const fixture = prepareRecoveryFixture(context);
+      const cleanupDiagnostics = createCleanupDiagnostics();
       const disabled = spawnSync(disablePath, ["--apply"], {
         cwd: repoRoot,
         encoding: "utf8",
@@ -3434,7 +3772,7 @@ test(
           stdio: "ignore",
         },
       );
-      let primaryFailure: Error | undefined;
+      let primaryCleanupDiagnostics: CleanupDiagnosticsToken | undefined;
 
       try {
         await waitFor(
@@ -3464,8 +3802,11 @@ test(
           "survivor mutation changed the production bootstrap",
         );
       } catch (error) {
-        primaryFailure = errorFromUnknown(error);
-        throw primaryFailure;
+        primaryCleanupDiagnostics = capturePrimaryCleanupDiagnostics(
+          cleanupDiagnostics,
+          error,
+        );
+        throw error;
       } finally {
         await runBestEffortCleanup([
           {
@@ -3489,7 +3830,7 @@ test(
             label: "remove survivor-guard temp directory",
             run: () => rmSync(tempRoot, { recursive: true, force: true }),
           },
-        ], primaryFailure);
+        ], primaryCleanupDiagnostics);
       }
     });
   },
