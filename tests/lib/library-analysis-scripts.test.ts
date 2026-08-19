@@ -527,3 +527,47 @@ describe('library analysis adapter command line', () => {
     assert.equal(packageJson.scripts['research:library:analyse:apply'], 'tsx scripts/run-library-analysis.ts --apply --from-file')
   })
 })
+
+describe('library analysis writer role', () => {
+  const script = () => readFileSync(join(process.cwd(), 'scripts/bootstrap-library-analysis-writer.sh'), 'utf8')
+
+  it('refuses to change privileges without an explicit acknowledgement', () => {
+    assert.match(script(), /refusing to change grants without --apply/)
+  })
+
+  it('grants write access to the run table and nothing else', () => {
+    const grants = script().match(/^GRANT .*$/gm) ?? []
+    const writeGrants = grants.filter(line => /INSERT|UPDATE|DELETE|TRUNCATE|ALL/.test(line))
+
+    assert.equal(writeGrants.length, 1, `expected exactly one write grant, got ${JSON.stringify(writeGrants)}`)
+    assert.match(writeGrants[0]!, /GRANT SELECT, INSERT ON \$WRITABLE/)
+    assert.match(script(), /^WRITABLE='"LibraryAnalysisRun"'$/m)
+  })
+
+  it('never grants write access to review, citation or canonical tables', () => {
+    const readable = script().match(/^READABLE='(.*)'$/m)?.[1] ?? ''
+
+    // These carry human decisions, citation authority or canonical data. The
+    // analysis job reads them to resolve a source and must never write them.
+    for (const table of ['LibraryAnalysisRecord', 'SourceCitation', 'Document', 'SourceDoc']) {
+      assert.ok(readable.includes(`"${table}"`), `${table} should be readable`)
+    }
+    assert.doesNotMatch(script(), /GRANT[^;]*(INSERT|UPDATE|DELETE)[^;]*LibraryAnalysisRecord/)
+    assert.doesNotMatch(script(), /GRANT[^;]*(INSERT|UPDATE|DELETE)[^;]*SourceCitation/)
+  })
+
+  it('withdraws everything before granting, so removing a table takes effect', () => {
+    const body = script()
+    const firstGrant = body.search(/^GRANT /m)
+    const revokes = body.slice(0, firstGrant).match(/^REVOKE ALL /gm) ?? []
+
+    assert.ok(revokes.length >= 4, `expected a full reset before the allowlist, got ${revokes.length} revokes`)
+  })
+
+  it('keeps the password out of the process list', () => {
+    const body = script()
+
+    assert.match(body, /\\getenv writer_password LIBRARY_ANALYSIS_DB_PASSWORD/)
+    assert.doesNotMatch(body, /-v [a-z_]*password=/)
+  })
+})
