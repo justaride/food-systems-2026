@@ -1,7 +1,7 @@
 # Sikker recovery-epoke for autonome KI-kandidatroller
 
 - **Dato:** 2026-08-19
-- **Status:** Arkitekturvalg godkjent av Gabriel 2026-08-19; skriftlig spesifikasjon venter på eksplisitt godkjenning før implementeringsplan
+- **Status:** Skriftlig spesifikasjon godkjent av Gabriel 2026-08-19; klar for implementeringsplan
 - **Overordnet design:** `docs/superpowers/specs/2026-08-18-autonomous-ai-candidate-layer-design.md`
 - **Beslutning:** Bootstrap skal etablere en bevisbar, databaseavgrenset recovery-epoke ved å drenere andre klientforbindelser før kandidatgrants gjenopprettes. Konfigurasjonsparameterrettigheter skal være en eksplisitt del av rollekontrakten, og egne kandidattriggere skal være aktive i alle replication modes.
 - **Autoritetsgrense:** Endringen beskytter bare teknisk kandidatproduksjon. Den gir ingen maskinell rett til human review, promotering, kanonisering, coverage eller publisering.
