@@ -154,7 +154,7 @@ function makeCodeBindings(): SourceRegistrationApplyCodeBindings {
       "restore-runner",
     ),
     postgresqlToolsetRuntimeClosureManifest: {
-      path: "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-03.v1.json",
+      path: "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-20.v1.json",
       fileSha256:
         SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256,
     },

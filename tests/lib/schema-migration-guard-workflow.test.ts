@@ -34,6 +34,7 @@ describe('schema migration guard workflow', () => {
     const scripts = [
       'scripts/apply-prod-migrations.sh',
       'scripts/bootstrap-mcp-readonly-role.sh',
+      'scripts/bootstrap-library-analysis-writer.sh',
       'scripts/verify-mcp-readonly-role.sh',
       'scripts/bootstrap-candidate-analysis-roles.sh',
       'scripts/disable-candidate-analysis-writes.sh',

@@ -220,6 +220,7 @@ model Document {
   actorDocumentRefs      ActorDocumentRef[]
   sourceCitations        SourceCitation[]
   libraryAnalysisRecords LibraryAnalysisRecord[]
+  libraryAnalysisRuns    LibraryAnalysisRun[]
 
   @@index([category])
   @@index([country])
@@ -266,6 +267,7 @@ model SourceDoc {
   mediaEntries           MediaEntry[]
   sourceCitations        SourceCitation[]
   libraryAnalysisRecords LibraryAnalysisRecord[]
+  libraryAnalysisRuns    LibraryAnalysisRun[]
   evidenceAppraisal      EvidenceAppraisal?
 
   @@index([sourceType])
@@ -655,11 +657,13 @@ model LibraryAnalysisRecord {
   processedAt         DateTime?
   reviewedAt          DateTime?
   reviewer            String?
+  currentRunId        String?
   createdAt           DateTime  @default(now())
   updatedAt           DateTime  @updatedAt
 
-  document  Document?  @relation(fields: [documentId], references: [id], onDelete: SetNull)
-  sourceDoc SourceDoc? @relation(fields: [sourceDocId], references: [id], onDelete: SetNull)
+  document   Document?           @relation(fields: [documentId], references: [id], onDelete: SetNull)
+  sourceDoc  SourceDoc?          @relation(fields: [sourceDocId], references: [id], onDelete: SetNull)
+  currentRun LibraryAnalysisRun? @relation(fields: [currentRunId], references: [id], onDelete: SetNull)
 
   @@unique([sourceKind, sourceKey])
   @@index([status])
@@ -668,6 +672,44 @@ model LibraryAnalysisRecord {
   @@index([documentId])
   @@index([sourceDocId])
   @@index([canonicalPath])
+  @@index([currentRunId])
+}
+
+model LibraryAnalysisRun {
+  id                  String   @id @default(cuid())
+  sourceKind          String
+  sourceKey           String
+  documentId          String?
+  sourceDocId         String?
+  canonicalPath       String?
+  title               String
+  runId               String
+  aiModel             String
+  promptVersion       String
+  analysisTier        String   @default("triage_card")
+  aiCard              Json?
+  aiSummary           String?
+  keyFindings         String[]
+  claimCandidates     Json?
+  projectImplications String[]
+  gaps                Json?
+  controlLinks        Json?
+  riskFlags           String[]
+  contentHash         String?
+  payloadHash         String
+  wordCount           Int      @default(0)
+  createdAt           DateTime @default(now())
+
+  document          Document?               @relation(fields: [documentId], references: [id], onDelete: SetNull)
+  sourceDoc         SourceDoc?              @relation(fields: [sourceDocId], references: [id], onDelete: SetNull)
+  currentForRecords LibraryAnalysisRecord[]
+
+  @@unique([sourceKind, sourceKey, runId])
+  @@index([sourceKind, sourceKey])
+  @@index([runId])
+  @@index([documentId])
+  @@index([sourceDocId])
+  @@index([createdAt])
 }
 
 model SourceRef {

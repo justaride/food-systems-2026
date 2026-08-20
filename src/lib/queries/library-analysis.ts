@@ -13,6 +13,7 @@ import {
   assessLibraryAnalysisExternalCitationPolicy,
   readLibraryAnalysisExternalCitationPolicyHash,
 } from '@/lib/library-analysis-external-citations'
+import libraryAnalysisCalibration from '../../../knowledge/calibration/library-analysis-calibration.v1.json'
 
 export type LibraryAnalysisStatusRecord = {
   sourceKind?: string | null
@@ -72,7 +73,9 @@ export function buildLibraryAnalysisStatusPayload(records: LibraryAnalysisStatus
     riskFlags: record.riskFlags,
   })))
 
-  const pendingReview = records.filter(record => requiresLibraryReview(record)).length
+  const pendingReviewRecords = records.filter(record => requiresLibraryReview(record))
+  const pendingReview = pendingReviewRecords.length
+  const pendingReviewHighRisk = pendingReviewRecords.filter(isHighRiskReviewRecord).length
   const processed = records.filter(record => isTerminalClassification(record) && !requiresLibraryReview(record)).length
   const approvedForAi = records.filter(record =>
     (record.status === 'approved_internal' || record.status === 'validated') &&
@@ -125,6 +128,8 @@ export function buildLibraryAnalysisStatusPayload(records: LibraryAnalysisStatus
     readinessPct: summary.total === 0 ? 0 : Math.round((summary.finished / summary.total) * 100),
     approvedForAi,
     pendingReview,
+    pendingReviewHighRisk,
+    pendingReviewStandard: pendingReview - pendingReviewHighRisk,
     safelyBlocked,
     classificationConflicts,
     humanReviewed,
@@ -164,6 +169,17 @@ function requiresLibraryReview(record: LibraryAnalysisStatusRecord): boolean {
     ...record,
     claimCandidateCount: claimCandidateCount(record.claimCandidates),
   })
+}
+
+// Tier-3 triage per the 2026-08-20 trust model: external candidates,
+// actor-gated/person material and claim-bearing records require per-item
+// review; the rest of the queue rides on sample-based calibration.
+function isHighRiskReviewRecord(record: LibraryAnalysisStatusRecord): boolean {
+  return record.usageRule === 'safe_for_external_claims' ||
+    record.usageRule === 'requires_actor_gate' ||
+    record.usageRule === 'claim_candidate_review' ||
+    record.riskFlags.includes('type_b_actor_gate') ||
+    claimCandidateCount(record.claimCandidates) > 0
 }
 
 function isTerminalClassification(record: LibraryAnalysisStatusRecord): boolean {
@@ -271,7 +287,7 @@ export async function getLibraryAnalysisStatus() {
     [document.id, document] as const
   )))
 
-  return buildLibraryAnalysisStatusPayload(records.map(record => {
+  const payload = buildLibraryAnalysisStatusPayload(records.map(record => {
     const document = record.documentId
       ? externalDocumentById.get(record.documentId)
       : undefined
@@ -297,6 +313,12 @@ export async function getLibraryAnalysisStatus() {
       currentExternalCitationPolicyHash: externalCitationPolicy.policyHash,
     }
   }))
+  // Calibration state is governed repository data (trust-model tier 2), not a
+  // database readout; `not_yet_run` is a valid, honest state.
+  return {
+    ...payload,
+    calibration: libraryAnalysisCalibration,
+  }
 }
 
 export async function getLibraryAnalysisRecords(opts?: {

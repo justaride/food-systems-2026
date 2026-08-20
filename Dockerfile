@@ -23,6 +23,8 @@ COPY prisma ./prisma
 COPY public ./public
 COPY scripts ./scripts
 COPY src ./src
+# Governed calibration state is imported by the library-analysis API at build time.
+COPY knowledge ./knowledge
 # i18n-kataloger: src/i18n/request.ts dynamisk-importerer ../../messages/<locale>.json,
 # så Turbopack trenger messages/ tilstede for å bygge dynamic-import-kartet.
 COPY messages ./messages

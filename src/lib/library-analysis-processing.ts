@@ -1,3 +1,5 @@
+import { createHash } from 'node:crypto'
+
 import {
   assessLibraryAnalysisExternalApproval,
   validateLibraryAiCard,
@@ -242,6 +244,107 @@ export function toLibraryAnalysisUpsertPayload(
     },
     create: payload,
     update: payload,
+  }
+}
+
+// The deterministic triage pipeline is not a language model. Recording it
+// under an explicit name keeps its runs distinguishable from real model runs
+// once the analysis adapter starts writing here.
+export const LIBRARY_ANALYSIS_TRIAGE_MODEL = 'deterministic-triage'
+export const LIBRARY_ANALYSIS_TRIAGE_PROMPT_VERSION = 'triage-card-v1'
+
+export type LibraryAnalysisRunOptions = {
+  runId: string
+  aiModel: string
+  promptVersion: string
+}
+
+export type LibraryAnalysisRunCreatePayload = {
+  sourceKind: string
+  sourceKey: string
+  documentId: string | null
+  sourceDocId: string | null
+  canonicalPath: string | null
+  title: string
+  runId: string
+  aiModel: string
+  promptVersion: string
+  analysisTier: string
+  aiCard: LibraryAiCard
+  aiSummary: string
+  keyFindings: string[]
+  claimCandidates: LibraryAiCard['claimCandidates']
+  projectImplications: string[]
+  gaps: LibraryAiCard['gaps']
+  controlLinks: LibraryAiCard['controlLinks']
+  riskFlags: string[]
+  contentHash: string | null
+  payloadHash: string
+  wordCount: number
+}
+
+// The analysis content a run is a record of. Both the triage payload and a
+// model-produced card satisfy this shape, so both hash the same way.
+export type LibraryAnalysisContent = {
+  aiCard: LibraryAiCard
+  aiSummary: string
+  keyFindings: string[]
+  claimCandidates: LibraryAiCard['claimCandidates']
+  projectImplications: string[]
+  gaps: LibraryAiCard['gaps']
+  controlLinks: LibraryAiCard['controlLinks']
+  riskFlags: string[]
+}
+
+// Content address of one analysis result. It answers "did these two runs
+// produce the same analysis?" and nothing more. It is deliberately a
+// comparison aid rather than a security boundary: it is computed in
+// TypeScript only and is never re-derived in SQL.
+export function libraryAnalysisPayloadHash(payload: LibraryAnalysisContent): string {
+  return createHash('sha256')
+    .update(stableStringify({
+      aiCard: payload.aiCard,
+      aiSummary: payload.aiSummary,
+      keyFindings: payload.keyFindings,
+      claimCandidates: payload.claimCandidates,
+      projectImplications: payload.projectImplications,
+      gaps: payload.gaps,
+      controlLinks: payload.controlLinks,
+      riskFlags: payload.riskFlags,
+    }))
+    .digest('hex')
+}
+
+// A run row is the immutable record of one analysis. It is derived from the
+// same payload the record write uses, so a run can never disagree with the
+// analysis it came from. The authority axes (usageRule, reviewStatus,
+// reviewer, citationReadiness) stay on LibraryAnalysisRecord by design.
+export function toLibraryAnalysisRunCreatePayload(
+  payload: LibraryAnalysisMutationPayload,
+  options: LibraryAnalysisRunOptions,
+): LibraryAnalysisRunCreatePayload {
+  return {
+    sourceKind: payload.sourceKind,
+    sourceKey: payload.sourceKey,
+    documentId: payload.documentId,
+    sourceDocId: payload.sourceDocId,
+    canonicalPath: payload.canonicalPath,
+    title: payload.title,
+    runId: options.runId,
+    aiModel: options.aiModel,
+    promptVersion: options.promptVersion,
+    analysisTier: payload.analysisTier,
+    aiCard: payload.aiCard,
+    aiSummary: payload.aiSummary,
+    keyFindings: payload.keyFindings,
+    claimCandidates: payload.claimCandidates,
+    projectImplications: payload.projectImplications,
+    gaps: payload.gaps,
+    controlLinks: payload.controlLinks,
+    riskFlags: payload.riskFlags,
+    contentHash: payload.contentHash,
+    payloadHash: libraryAnalysisPayloadHash(payload),
+    wordCount: payload.wordCount,
   }
 }
 
@@ -518,6 +621,26 @@ function changedMaterialFields(
     .filter(([field, value]) => !materialValuesEqual(existing[field as keyof ExistingLibraryAnalysisRecord], value))
     .map(([field]) => field)
     .sort()
+}
+
+// Object key order must not change the payload hash. Plain JSON.stringify
+// would let an equivalent analysis hash differently after a refactor.
+function stableStringify(value: unknown): string {
+  if (value === null || typeof value !== 'object') {
+    return JSON.stringify(value) ?? 'null'
+  }
+  // Object.entries(date) is empty, so without this every Date would serialize
+  // to {} and stop discriminating the moment a date-valued field is hashed.
+  if (value instanceof Date) {
+    return JSON.stringify(value.toISOString())
+  }
+  if (Array.isArray(value)) {
+    return `[${value.map(entry => stableStringify(entry)).join(',')}]`
+  }
+  const entries = Object.entries(value as Record<string, unknown>)
+    .filter(([, entryValue]) => entryValue !== undefined)
+    .sort(([left], [right]) => (left < right ? -1 : left > right ? 1 : 0))
+  return `{${entries.map(([key, entryValue]) => `${JSON.stringify(key)}:${stableStringify(entryValue)}`).join(',')}}`
 }
 
 function materialValuesEqual(left: unknown, right: unknown): boolean {

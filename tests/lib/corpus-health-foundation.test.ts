@@ -322,8 +322,10 @@ test('keeps configured-database lineage exact and fails closed on identity, appr
   assert.equal(lineageConflict.severity, 'blocker')
   assert.ok(Array.isArray(lineageConflict.resolutionReceiptIds))
   assert.equal(lineageConflict.resolutionReceiptIds.length, 1)
-  assert.equal(metric(assessment, 'health_metric.head_migrations').value, 31)
-  assert.equal(metric(assessment, 'health_metric.database_migrations').value, 31)
+  // Begge flyttet seg fra 31 til 32 samtidig da 20260819_library_analysis_run
+  // ble lagt til og deployet. Likheten, og null avvik under, er invarianten.
+  assert.equal(metric(assessment, 'health_metric.head_migrations').value, 32)
+  assert.equal(metric(assessment, 'health_metric.database_migrations').value, 32)
   assert.equal(metric(assessment, 'health_metric.migration_lineage_mismatches').value, 0)
   // Trioen under flyttet seg med nøyaktig 1 hver, samtidig: én seed-only
   // identitet ble løst i produksjonsreleasen 2026-08-11, så den forsvant

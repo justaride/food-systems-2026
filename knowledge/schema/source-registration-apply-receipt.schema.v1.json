@@ -352,7 +352,7 @@
         "databaseLogicalDigestSha256": { "$ref": "#/$defs/sha256" },
         "psqlBinarySha256": { "$ref": "#/$defs/sha256" },
         "psqlRuntimeClosureSha256": {
-          "const": "2f102d12bb738a5ec935e52a76cb6b156e58d86ef8e56a2bef3711c087de7bf0"
+          "const": "a77c02d31b0daf8f02e81eabc15f30aebc7b2a7fd3b9d045dddb2940b7d0db39"
         },
         "restoredDatabaseDropped": { "const": true },
         "restoredDatabaseAbsenceConfirmed": { "const": true },
@@ -895,7 +895,7 @@
             "platform": { "$ref": "#/$defs/safeText" },
             "runtimeClosureManifestSha256": { "$ref": "#/$defs/sha256" },
             "runtimeClosureSha256": {
-              "const": "52cb48e8c77925a28d5c21574ea9867540ac71c88ba556ae3a48218bc67509bf"
+              "const": "4a5fb0d0903d4d0c78118c6bfda4e12796ff7a7f7d723db3b25a84d7ef6de04b"
             },
             "runtimeClosureVerifierFileSha256": {
               "$ref": "#/$defs/sha256"
@@ -935,10 +935,10 @@
           ],
           "properties": {
             "closureSha256": {
-              "const": "2f102d12bb738a5ec935e52a76cb6b156e58d86ef8e56a2bef3711c087de7bf0"
+              "const": "a77c02d31b0daf8f02e81eabc15f30aebc7b2a7fd3b9d045dddb2940b7d0db39"
             },
             "manifestSha256": {
-              "const": "7d0ac827430cd0d60c3884ac98fc5769223861fee17a18dd9375b10852fd8fdb"
+              "const": "3047d302cc81c27ebbbbf1a40577091d0154509b13b9a4a8520c033e353a9c09"
             },
             "psqlVersion": { "$ref": "#/$defs/safeText" },
             "toolFileSha256": {
@@ -953,7 +953,7 @@
               "additionalProperties": false
             },
             "verifierFileSha256": {
-              "const": "f5f0fb008f87f26246d39fbc3583742da49d3b257a0658178486d78e2d7ec0c7"
+              "const": "a2a25c72a7f0a0482f396ae76390cc5f9393c27349bb3d896ccd91860853a84c"
             }
           },
           "additionalProperties": false

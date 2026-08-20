@@ -168,12 +168,12 @@ export const SOURCE_REGISTRATION_APPLY_PATHS = {
   databaseLogicalStateDigestTest:
     "tests/lib/database-logical-state-digest.test.ts",
   nodeRuntimeClosureManifest:
-    "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-08-11.v1.json",
+    "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-08-20.v1.json",
   nodeRuntimeClosureVerifier:
     "scripts/knowledge/verify-node-runtime-closure.mjs",
   nodeRuntimeClosureVerifierTest: "tests/lib/node-runtime-closure.test.ts",
   postgresqlToolsetRuntimeClosureManifest:
-    "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-03.v1.json",
+    "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-20.v1.json",
   postgresqlToolsetRuntimeClosureVerifier:
     "scripts/knowledge/verify-psql-runtime-closure.mjs",
   postgresqlToolsetRuntimeClosureVerifierTest:
