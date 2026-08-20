@@ -12,7 +12,7 @@ describe('package scripts', () => {
 
     assert.equal(
       scripts['knowledge:candidate-contracts:check'],
-      'node --import=tsx --test tests/lib/autonomous-analysis-contract.test.ts tests/lib/candidate-analysis-contract.test.ts tests/lib/candidate-analysis-schema.test.ts tests/lib/candidate-analysis-writer.test.ts tests/lib/candidate-analysis-role-contract.test.ts tests/lib/library-analysis-candidate-compat.test.ts tests/lib/library-analysis-content-intake.test.ts tests/lib/library-analysis-automated-validation.test.ts tests/lib/library-analysis-evidence-gates.test.ts tests/lib/library-analysis-automated-runner.test.ts tests/lib/candidate-control-snapshot.test.ts',
+      'node --import=tsx --test tests/lib/autonomous-analysis-contract.test.ts tests/lib/candidate-analysis-contract.test.ts tests/lib/candidate-analysis-schema.test.ts tests/lib/candidate-analysis-writer.test.ts tests/lib/candidate-analysis-role-contract.test.ts tests/lib/library-analysis-candidate-compat.test.ts tests/lib/library-analysis-content-intake.test.ts tests/lib/library-analysis-automated-validation.test.ts tests/lib/library-analysis-evidence-gates.test.ts tests/lib/library-analysis-automated-runner.test.ts tests/lib/library-analysis-automated-status.test.ts tests/lib/library-analysis-pilot-regression.test.ts tests/lib/candidate-control-snapshot.test.ts',
     )
     assert.equal(
       scripts['candidate:roles:bootstrap'],
