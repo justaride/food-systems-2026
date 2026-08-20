@@ -143,6 +143,84 @@ export type CandidateJsonValue =
   | CandidateJsonValue[]
   | { [key: string]: CandidateJsonValue };
 
+export type CandidateAnalysisContractErrorCode =
+  | "event_sequence_gap"
+  | "event_after_terminal_state"
+  | "invalid_initial_event"
+  | "invalid_event_transition"
+  | "invalid_event_supersession"
+  | "candidate_json_nul"
+  | "candidate_json_surrogate"
+  | "candidate_json_number"
+  | "candidate_json_type";
+
+export class CandidateAnalysisContractError extends Error {
+  readonly code: CandidateAnalysisContractErrorCode;
+
+  constructor(code: CandidateAnalysisContractErrorCode) {
+    super(code);
+    this.name = "CandidateAnalysisContractError";
+    this.code = code;
+  }
+}
+
+function assertUnicodeScalarString(value: string): void {
+  for (let index = 0; index < value.length; index += 1) {
+    const code = value.charCodeAt(index);
+    if (code === 0) {
+      throw new CandidateAnalysisContractError("candidate_json_nul");
+    }
+    if (code >= 0xd800 && code <= 0xdbff) {
+      const next = value.charCodeAt(index + 1);
+      if (!Number.isInteger(next) || next < 0xdc00 || next > 0xdfff) {
+        throw new CandidateAnalysisContractError("candidate_json_surrogate");
+      }
+      index += 1;
+    } else if (code >= 0xdc00 && code <= 0xdfff) {
+      throw new CandidateAnalysisContractError("candidate_json_surrogate");
+    }
+  }
+}
+
+export function assertCandidateJsonValue(
+  value: unknown,
+): asserts value is CandidateJsonValue {
+  if (value === null || typeof value === "boolean") return;
+  if (typeof value === "number") {
+    if (!Number.isFinite(value)) {
+      throw new CandidateAnalysisContractError("candidate_json_number");
+    }
+    return;
+  }
+  if (typeof value === "string") {
+    assertUnicodeScalarString(value);
+    return;
+  }
+  if (Array.isArray(value)) {
+    for (const item of value) assertCandidateJsonValue(item);
+    return;
+  }
+  if (typeof value === "object") {
+    const prototype = Object.getPrototypeOf(value);
+    if (prototype !== Object.prototype && prototype !== null) {
+      throw new CandidateAnalysisContractError("candidate_json_type");
+    }
+    for (const [key, item] of Object.entries(value)) {
+      assertUnicodeScalarString(key);
+      assertCandidateJsonValue(item);
+    }
+    return;
+  }
+  throw new CandidateAnalysisContractError("candidate_json_type");
+}
+
+export function compareCandidateJsonKeysUtf8(
+  left: string,
+  right: string,
+): number {
+  return Buffer.compare(Buffer.from(left, "utf8"), Buffer.from(right, "utf8"));
+}
+
 const HASH_PATTERN = /^[a-f0-9]{64}$/;
 const IDENTIFIER_PATTERN = /^[a-z0-9][a-z0-9._:-]*$/;
 
@@ -666,30 +744,23 @@ export type CandidateReconciliationSnapshotInput = z.infer<
   typeof CandidateReconciliationSnapshotInputSchema
 >;
 
-export type CandidateAnalysisContractErrorCode =
-  | "event_sequence_gap"
-  | "event_after_terminal_state"
-  | "invalid_initial_event"
-  | "invalid_event_transition"
-  | "invalid_event_supersession";
-
-export class CandidateAnalysisContractError extends Error {
-  readonly code: CandidateAnalysisContractErrorCode;
-
-  constructor(code: CandidateAnalysisContractErrorCode) {
-    super(code);
-    this.name = "CandidateAnalysisContractError";
-    this.code = code;
+function canonicalCandidateJsonValidated(value: CandidateJsonValue): string {
+  if (value === null || typeof value !== "object") return JSON.stringify(value);
+  if (Array.isArray(value)) {
+    return `[${value.map(canonicalCandidateJsonValidated).join(",")}]`;
   }
+  return `{${Object.keys(value)
+    .sort(compareCandidateJsonKeysUtf8)
+    .map(
+      (key) =>
+        `${JSON.stringify(key)}:${canonicalCandidateJsonValidated(value[key]!)}`,
+    )
+    .join(",")}}`;
 }
 
 export function canonicalCandidateJson(value: CandidateJsonValue): string {
-  if (value === null || typeof value !== "object") return JSON.stringify(value);
-  if (Array.isArray(value)) return `[${value.map(canonicalCandidateJson).join(",")}]`;
-  return `{${Object.keys(value)
-    .sort()
-    .map((key) => `${JSON.stringify(key)}:${canonicalCandidateJson(value[key]!)}`)
-    .join(",")}}`;
+  assertCandidateJsonValue(value);
+  return canonicalCandidateJsonValidated(value);
 }
 
 export function candidateAnalysisSha256(

@@ -13,6 +13,8 @@ import {
   CandidateReconciliationPayloadSchema,
   CandidateReconciliationSnapshotInputSchema,
   CandidateRunEventPayloadSchema,
+  assertCandidateJsonValue,
+  canonicalCandidateJson,
   candidateAnalysisHumanReviewDecisionHash,
   candidateAnalysisOutputManifestHash,
   candidateAnalysisPromotionDecisionHash,
@@ -259,10 +261,14 @@ test("supersession scope requires the complete prior event identity", () => {
     );
   }
   const missingRun = { ...supersedingBase, runId: undefined };
+  assert.throws(
+    () => candidateAnalysisRunEventHash(missingRun as never),
+    /candidate_json_type/,
+  );
   assert.equal(
     CandidateAnalysisRunEventInputSchema.safeParse({
       ...missingRun,
-      eventHash: candidateAnalysisRunEventHash(missingRun as never),
+      eventHash: "f".repeat(64),
     }).success,
     false,
   );
@@ -464,6 +470,32 @@ test("canonical hashing ignores object key insertion order", () => {
   assert.equal(
     candidateAnalysisSha256("test", { a: 1, b: 2 }),
     candidateAnalysisSha256("test", { b: 2, a: 1 }),
+  );
+});
+
+test("canonical candidate JSON sorts object keys by UTF-8 bytes", () => {
+  assert.equal(
+    canonicalCandidateJson({ "\uE000": 1, "😀": 2 }),
+    '{"\uE000":1,"😀":2}',
+  );
+});
+
+test("candidate JSON rejects values PostgreSQL JSONB cannot represent", () => {
+  assert.throws(() => assertCandidateJsonValue("a\u0000b"), /candidate_json_nul/);
+  assert.throws(
+    () => assertCandidateJsonValue("\uD800"),
+    /candidate_json_surrogate/,
+  );
+  assert.throws(
+    () => assertCandidateJsonValue({ "\uDC00": true }),
+    /candidate_json_surrogate/,
+  );
+});
+
+test("candidate JSON preserves nested JSON null", () => {
+  assert.equal(
+    canonicalCandidateJson({ config: null, nested: [null] }),
+    '{"config":null,"nested":[null]}',
   );
 });
 
