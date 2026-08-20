@@ -3830,7 +3830,7 @@ test(
         let output = "";
         enable.stdout?.on("data", (chunk) => { output += chunk.toString(); });
         enable.stderr?.on("data", (chunk) => { output += chunk.toString(); });
-        const enableExit = childExit(enable);
+        const enableExit = childExit(enable, 15_000);
         await waitFor(
           () => existsSync(barrier.markerFile) || enable.exitCode !== null,
           "enable never reached the post-LOGIN verifier barrier",
