@@ -1180,19 +1180,43 @@ BEGIN
       OR run_row."scopeHash" IS DISTINCT FROM public.candidate_writer_hash(
         'run-scope', jsonb_build_object('runId', run_row.id)
       )
-      OR run_row."workflowId" <> 'workflow.candidate_analysis.v1'
-      OR run_row."workflowVersion" <> '1.0.0'
-      OR run_row."workflowPath" <> 'knowledge/corpus/workflows/candidate-analysis-v1.md'
-      OR run_row."workflowHash" <> '707ea0ebd78db21a539ce9fde6945bc4954476468d8ba297c86e8d6cbc0385d4'
-      OR run_row."promptId" <> 'prompt.candidate_analysis.v1'
-      OR run_row."promptVersion" <> '1.0.0'
-      OR run_row."promptPath" <> 'knowledge/corpus/workflows/candidate-analysis-prompt-v1.md'
-      OR run_row."promptHash" <> '483d34ca87cb5cdaae0923e617f78defafece7825e0afd5ef2e07b3261127e85'
+      OR NOT (
+        (
+          run_row."outputProfile" = 'candidate_only'
+          AND run_row."workflowId" = 'workflow.candidate_analysis.v1'
+          AND run_row."workflowVersion" = '1.0.0'
+          AND run_row."workflowPath" = 'knowledge/corpus/workflows/candidate-analysis-v1.md'
+          AND run_row."workflowHash" = '707ea0ebd78db21a539ce9fde6945bc4954476468d8ba297c86e8d6cbc0385d4'
+          AND run_row."promptId" = 'prompt.candidate_analysis.v1'
+          AND run_row."promptVersion" = '1.0.0'
+          AND run_row."promptPath" = 'knowledge/corpus/workflows/candidate-analysis-prompt-v1.md'
+          AND run_row."promptHash" = '483d34ca87cb5cdaae0923e617f78defafece7825e0afd5ef2e07b3261127e85'
+        ) OR (
+          run_row."outputProfile" = 'library_analysis_v1'
+          AND run_row."workflowId" = 'workflow.library_analysis.automated.v1'
+          AND run_row."workflowVersion" = '1.0.0'
+          AND run_row."workflowPath" = 'knowledge/corpus/workflows/library-analysis-automated-v1.md'
+          AND run_row."workflowHash" = '52f7c8382df35d38d5bb900e70e8e04140e923bdc49649723b58bab3973bd98e'
+          AND run_row."promptId" = 'prompt.library_analysis.automated.v1'
+          AND run_row."promptVersion" = '1.0.0'
+          AND run_row."promptPath" = 'knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md'
+          AND run_row."promptHash" = 'd4d1171b7d17f7d7606b8df3ed71d8912316997f1566f0170313fb8c60835ef7'
+        ) OR (
+          run_row."outputProfile" = 'library_validation_v1'
+          AND run_row."workflowId" = 'workflow.library_validation.automated.v1'
+          AND run_row."workflowVersion" = '1.0.0'
+          AND run_row."workflowPath" = 'knowledge/corpus/workflows/library-validation-automated-v1.md'
+          AND run_row."workflowHash" = '860d009633f3cd27613cdd52bf76da1f71964840383b9157b277892d03a539f0'
+          AND run_row."promptId" = 'prompt.library_validation.automated.v1'
+          AND run_row."promptVersion" = '1.0.0'
+          AND run_row."promptPath" = 'knowledge/corpus/workflows/library-validation-automated-prompt-v1.md'
+          AND run_row."promptHash" = '1d9ab13eac4a5f8ae248a904ad6f179dd02155027616ef79a28af3079b20c476'
+        )
+      )
       OR (write_payload->'config') IS NULL
       OR run_row."configHash" IS DISTINCT FROM public.candidate_writer_hash(
         'run-config', write_payload->'config'
       )
-      OR run_row."outputProfile" <> 'candidate_only'
       OR btrim(run_row."modelProvider") = ''
       OR btrim(run_row."modelName") = ''
       OR btrim(run_row."modelVersion") = ''

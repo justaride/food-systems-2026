@@ -12,7 +12,7 @@ describe('package scripts', () => {
 
     assert.equal(
       scripts['knowledge:candidate-contracts:check'],
-      'node --import=tsx --test tests/lib/autonomous-analysis-contract.test.ts tests/lib/candidate-analysis-contract.test.ts tests/lib/candidate-analysis-schema.test.ts tests/lib/candidate-analysis-writer.test.ts tests/lib/candidate-analysis-role-contract.test.ts tests/lib/library-analysis-candidate-compat.test.ts tests/lib/candidate-control-snapshot.test.ts',
+      'node --import=tsx --test tests/lib/autonomous-analysis-contract.test.ts tests/lib/candidate-analysis-contract.test.ts tests/lib/candidate-analysis-schema.test.ts tests/lib/candidate-analysis-writer.test.ts tests/lib/candidate-analysis-role-contract.test.ts tests/lib/library-analysis-candidate-compat.test.ts tests/lib/library-analysis-content-intake.test.ts tests/lib/library-analysis-automated-validation.test.ts tests/lib/library-analysis-evidence-gates.test.ts tests/lib/library-analysis-automated-runner.test.ts tests/lib/candidate-control-snapshot.test.ts',
     )
     assert.equal(
       scripts['candidate:roles:bootstrap'],
@@ -33,6 +33,14 @@ describe('package scripts', () => {
     assert.equal(
       scripts['knowledge:library-analysis:population'],
       'tsx scripts/knowledge/export-library-analysis-population.ts',
+    )
+    assert.equal(
+      scripts['knowledge:library-analysis:intake'],
+      'tsx scripts/knowledge/ingest-library-analysis-content-units.ts',
+    )
+    assert.equal(
+      scripts['knowledge:library-analysis:automated'],
+      'tsx scripts/knowledge/run-library-analysis-automated.ts',
     )
 
     const knowledgeCheckSteps = scripts['knowledge:check']?.split(' && ') ?? []
