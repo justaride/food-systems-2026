@@ -38,6 +38,8 @@ const EMPTY_STATUS: LibraryAnalysisStatusPayload = {
   readinessPct: 0,
   approvedForAi: 0,
   pendingReview: 0,
+  pendingReviewHighRisk: 0,
+  pendingReviewStandard: 0,
   safelyBlocked: 0,
   classificationConflicts: 0,
   humanReviewed: 0,

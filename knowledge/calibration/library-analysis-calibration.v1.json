@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "state": "not_yet_run",
+  "plan": "research/_plans/kalibreringsplan-utvalg-2026-08-20.md",
+  "trustModel": "docs/project/status/food-systems-tillitsmodell-2026-08-20.md",
+  "highRiskTriageRule": "usageRule in {safe_for_external_claims, requires_actor_gate, claim_candidate_review} OR riskFlags contains type_b_actor_gate OR claimCandidateCount > 0",
+  "errorTaxonomy": ["F1_fabrication", "F2_miscitation", "F3_misextraction", "F4_misclassification", "F5_omission"],
+  "rounds": [],
+  "errorRatesByDataClass": null,
+  "updatedAt": "2026-08-20"
+}

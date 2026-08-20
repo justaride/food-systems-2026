@@ -29,6 +29,8 @@ describe('library analysis status query helpers', () => {
       readinessPct: 20,
       approvedForAi: 1,
       pendingReview: 4,
+      pendingReviewHighRisk: 2,
+      pendingReviewStandard: 2,
       safelyBlocked: 0,
       classificationConflicts: 0,
       humanReviewed: 0,
