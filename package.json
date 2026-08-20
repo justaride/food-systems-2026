@@ -36,6 +36,7 @@
     "candidate:roles:disable": "scripts/disable-candidate-analysis-writes.sh --apply",
     "candidate:roles:verify": "scripts/verify-candidate-analysis-roles.sh",
     "candidate:control:snapshot": "tsx scripts/knowledge/export-candidate-control-snapshot.ts",
+    "knowledge:library-analysis:population": "tsx scripts/knowledge/export-library-analysis-population.ts",
     "knowledge:corpus:generate": "tsx scripts/knowledge/generate-corpus-processing-register.ts",
     "knowledge:corpus:check": "tsx scripts/knowledge/generate-corpus-processing-register.ts --check",
     "knowledge:corpus:check:live": "tsx scripts/knowledge/generate-corpus-processing-register.ts --check-live",

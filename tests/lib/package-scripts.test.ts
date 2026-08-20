@@ -30,6 +30,10 @@ describe('package scripts', () => {
       scripts['candidate:control:snapshot'],
       'tsx scripts/knowledge/export-candidate-control-snapshot.ts',
     )
+    assert.equal(
+      scripts['knowledge:library-analysis:population'],
+      'tsx scripts/knowledge/export-library-analysis-population.ts',
+    )
 
     const knowledgeCheckSteps = scripts['knowledge:check']?.split(' && ') ?? []
     const processingIndex = knowledgeCheckSteps.indexOf(
