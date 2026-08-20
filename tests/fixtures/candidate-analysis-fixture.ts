@@ -121,7 +121,7 @@ export function candidateAnalysisFixture(
     configHash: candidateAnalysisConfigHash(config),
     inputEnvelopeHash: candidateAnalysisInputEnvelopeHash(inputs),
     purpose: "candidate analysis fixture",
-    outputProfile: "candidate_only",
+    outputProfile: "candidate_only" as const,
     attempt: overrides.attempt ?? 1,
     predecessorRunId: overrides.predecessorRunId ?? null,
   };

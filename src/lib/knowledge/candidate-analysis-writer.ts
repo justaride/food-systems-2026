@@ -5,8 +5,6 @@ import { isAbsolute, relative, resolve, sep } from "node:path";
 import { Prisma, type PrismaClient } from "../../generated/prisma/client";
 
 import {
-  CANDIDATE_PROMPT_BINDING,
-  CANDIDATE_WORKFLOW_BINDING,
   CandidateAnalysisArtifactInputSchema,
   CandidateAnalysisRunEventInputSchema,
   CandidateAnalysisRunInputSchema,
@@ -14,6 +12,7 @@ import {
   CandidateDependencyInputSchema,
   CandidateEvidenceLinkInputSchema,
   CandidateReconciliationSnapshotInputSchema,
+  candidateWorkflowProfile,
   type CandidateAnalysisArtifactInput,
   type CandidateAnalysisMachineState,
   type CandidateAnalysisRunEventInput,
@@ -236,17 +235,18 @@ function hasExactBindingMetadata(
 
 export function verifyCandidateWorkflowPromptBundle(
   repositoryRoot: string,
-  declared: { workflowHash: string; promptHash: string },
+  declared: CandidateAnalysisRunInput,
   readFile: (path: string) => Buffer = (path) => readFileSync(path),
 ): void {
+  const profile = candidateWorkflowProfile(declared.outputProfile);
   const workflowPath = resolveRepositoryBindingPath(
     repositoryRoot,
-    CANDIDATE_WORKFLOW_BINDING.path,
+    profile.workflow.path,
     "workflow_binding_mismatch",
   );
   const promptPath = resolveRepositoryBindingPath(
     repositoryRoot,
-    CANDIDATE_PROMPT_BINDING.path,
+    profile.prompt.path,
     "prompt_binding_mismatch",
   );
   let workflowBytes: Buffer;
@@ -268,12 +268,12 @@ export function verifyCandidateWorkflowPromptBundle(
   );
   const prompt = decodeBindingText(promptBytes, "prompt_binding_mismatch");
   const workflowMetadata = [
-    ["Workflow ID", CANDIDATE_WORKFLOW_BINDING.id],
-    ["Workflow version", CANDIDATE_WORKFLOW_BINDING.version],
-    ["Workflow repository path", CANDIDATE_WORKFLOW_BINDING.path],
-    ["Prompt template ID", CANDIDATE_PROMPT_BINDING.id],
-    ["Prompt template version", CANDIDATE_PROMPT_BINDING.version],
-    ["Prompt template repository path", CANDIDATE_PROMPT_BINDING.path],
+    ["Workflow ID", profile.workflow.id],
+    ["Workflow version", profile.workflow.version],
+    ["Workflow repository path", profile.workflow.path],
+    ["Prompt template ID", profile.prompt.id],
+    ["Prompt template version", profile.prompt.version],
+    ["Prompt template repository path", profile.prompt.path],
   ] as const;
   if (
     createHash("sha256").update(workflowBytes).digest("hex") !==
@@ -284,12 +284,12 @@ export function verifyCandidateWorkflowPromptBundle(
   }
 
   const promptMetadata = [
-    ["Prompt template ID", CANDIDATE_PROMPT_BINDING.id],
-    ["Prompt template version", CANDIDATE_PROMPT_BINDING.version],
-    ["Prompt template repository path", CANDIDATE_PROMPT_BINDING.path],
-    ["Workflow ID", CANDIDATE_WORKFLOW_BINDING.id],
-    ["Workflow version", CANDIDATE_WORKFLOW_BINDING.version],
-    ["Workflow repository path", CANDIDATE_WORKFLOW_BINDING.path],
+    ["Prompt template ID", profile.prompt.id],
+    ["Prompt template version", profile.prompt.version],
+    ["Prompt template repository path", profile.prompt.path],
+    ["Workflow ID", profile.workflow.id],
+    ["Workflow version", profile.workflow.version],
+    ["Workflow repository path", profile.workflow.path],
   ] as const;
   if (
     createHash("sha256").update(promptBytes).digest("hex") !==
@@ -310,7 +310,7 @@ export function createCandidateAnalysisWriter(
       const input = parseForWrite(CandidateAnalysisRunInputSchema, rawInput);
       verifyCandidateWorkflowPromptBundle(
         repositoryRoot,
-        { workflowHash: input.workflowHash, promptHash: input.promptHash },
+        input,
         options.readFile,
       );
       try {

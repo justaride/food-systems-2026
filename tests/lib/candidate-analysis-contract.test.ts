@@ -21,7 +21,9 @@ import {
   candidateAnalysisSha256,
   candidateAnalysisAssertionPayloadHash,
   candidateAnalysisRunEventHash,
+  candidateAnalysisRunIdempotencyKey,
   candidateAnalysisRunScopeHash,
+  candidateWorkflowProfile,
   deriveCandidateAnalysisMachineState,
   type CandidateAnalysisRunEventInput,
   type CandidateOutputManifest,
@@ -181,6 +183,41 @@ test("run contract binds canonical workflow and prompt path version and file has
       /candidate_run_binding_mismatch/,
     );
   }
+});
+
+test("binds analysis and validation to different workflow and prompt bytes", () => {
+  const analysis = candidateWorkflowProfile("library_analysis_v1");
+  const validation = candidateWorkflowProfile("library_validation_v1");
+
+  assert.notEqual(analysis.workflow.path, validation.workflow.path);
+  assert.notEqual(analysis.prompt.path, validation.prompt.path);
+  assert.notEqual(analysis.workflow.id, validation.workflow.id);
+  assert.notEqual(analysis.prompt.id, validation.prompt.id);
+});
+
+test("rejects an analysis prompt on a validation output profile", () => {
+  const fixture = candidateAnalysisFixture();
+  const analysis = candidateWorkflowProfile("library_analysis_v1");
+  const validation = candidateWorkflowProfile("library_validation_v1");
+  const runBinding = {
+    ...fixture.run,
+    outputProfile: "library_validation_v1",
+    workflowId: validation.workflow.id,
+    workflowVersion: validation.workflow.version,
+    workflowPath: validation.workflow.path,
+    promptId: validation.prompt.id,
+    promptVersion: validation.prompt.version,
+    promptPath: analysis.prompt.path,
+  };
+  const run = {
+    ...runBinding,
+    idempotencyKey: candidateAnalysisRunIdempotencyKey(runBinding),
+  };
+
+  assert.throws(
+    () => CandidateAnalysisRunInputSchema.parse(run),
+    /candidate_run_binding_mismatch/,
+  );
 });
 
 test("run scope and ordinary event scope are derived from run identity", () => {

@@ -42,6 +42,7 @@ import {
   candidateAnalysisRunScopeHash,
   candidateAnalysisSha256,
   canonicalCandidateJson,
+  candidateWorkflowProfile,
   CANDIDATE_PROMPT_BINDING,
   CANDIDATE_WORKFLOW_BINDING,
   type CandidateOutputManifest,
@@ -51,6 +52,7 @@ import {
   CandidateAnalysisWriteConflict,
   createCandidateAnalysisWriter,
   createCandidateReconciliationWriter,
+  verifyCandidateWorkflowPromptBundle,
 } from "../../src/lib/knowledge/candidate-analysis-writer";
 import { candidateAnalysisFixture } from "../fixtures/candidate-analysis-fixture";
 import { withCandidateAnalysisPostgres } from "../helpers/candidate-analysis-postgres";
@@ -228,6 +230,32 @@ function propositionData(
     entries: [{ role: "proposition", valueType: "text", value }],
   };
 }
+
+test("workflow verifier reads the exact selected analysis and validation bundles", () => {
+  for (const outputProfile of [
+    "library_analysis_v1",
+    "library_validation_v1",
+  ] as const) {
+    const profile = candidateWorkflowProfile(outputProfile);
+    const workflowHash = sha256Bytes(readFileSync(profile.workflow.path));
+    const promptHash = sha256Bytes(readFileSync(profile.prompt.path));
+    const run = resealRun(candidateAnalysisFixture().run, {
+      outputProfile,
+      workflowId: profile.workflow.id,
+      workflowVersion: profile.workflow.version,
+      workflowPath: profile.workflow.path,
+      workflowHash,
+      promptId: profile.prompt.id,
+      promptVersion: profile.prompt.version,
+      promptPath: profile.prompt.path,
+      promptHash,
+    });
+
+    assert.doesNotThrow(() =>
+      verifyCandidateWorkflowPromptBundle(process.cwd(), run),
+    );
+  }
+});
 
 function summaryData(
   value: string,

@@ -16,6 +16,49 @@ export const CANDIDATE_PROMPT_BINDING = {
   path: "knowledge/corpus/workflows/candidate-analysis-prompt-v1.md",
 } as const;
 
+export const CANDIDATE_WORKFLOW_PROFILES = {
+  candidate_only: {
+    workflow: CANDIDATE_WORKFLOW_BINDING,
+    prompt: CANDIDATE_PROMPT_BINDING,
+  },
+  library_analysis_v1: {
+    workflow: {
+      id: "workflow.library_analysis.automated.v1",
+      version: "1.0.0",
+      path: "knowledge/corpus/workflows/library-analysis-automated-v1.md",
+    },
+    prompt: {
+      id: "prompt.library_analysis.automated.v1",
+      version: "1.0.0",
+      path: "knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md",
+    },
+  },
+  library_validation_v1: {
+    workflow: {
+      id: "workflow.library_validation.automated.v1",
+      version: "1.0.0",
+      path: "knowledge/corpus/workflows/library-validation-automated-v1.md",
+    },
+    prompt: {
+      id: "prompt.library_validation.automated.v1",
+      version: "1.0.0",
+      path: "knowledge/corpus/workflows/library-validation-automated-prompt-v1.md",
+    },
+  },
+} as const;
+
+export const CANDIDATE_OUTPUT_PROFILES = [
+  "candidate_only",
+  "library_analysis_v1",
+  "library_validation_v1",
+] as const;
+
+export type CandidateOutputProfile = (typeof CANDIDATE_OUTPUT_PROFILES)[number];
+
+export function candidateWorkflowProfile(outputProfile: CandidateOutputProfile) {
+  return CANDIDATE_WORKFLOW_PROFILES[outputProfile];
+}
+
 export const CANDIDATE_IDENTITY_CONFIDENCE = [
   "exact",
   "provisional",
@@ -559,7 +602,7 @@ export const CandidateAnalysisRunInputSchema = z
     configHash: hashSchema,
     inputEnvelopeHash: hashSchema,
     purpose: nonEmptyTextSchema,
-    outputProfile: identifierSchema,
+    outputProfile: z.enum(CANDIDATE_OUTPUT_PROFILES),
     workerId: identifierSchema,
     idempotencyKey: hashSchema,
     attempt: z.number().int().positive(),
@@ -572,13 +615,14 @@ export const CandidateAnalysisRunInputSchema = z
     if (run.scopeHash !== candidateAnalysisRunScopeHash(run.id)) {
       ctx.addIssue({ code: "custom", message: "candidate_run_scope_mismatch" });
     }
+    const profile = candidateWorkflowProfile(run.outputProfile);
     if (
-      run.workflowId !== CANDIDATE_WORKFLOW_BINDING.id ||
-      run.workflowVersion !== CANDIDATE_WORKFLOW_BINDING.version ||
-      run.workflowPath !== CANDIDATE_WORKFLOW_BINDING.path ||
-      run.promptId !== CANDIDATE_PROMPT_BINDING.id ||
-      run.promptVersion !== CANDIDATE_PROMPT_BINDING.version ||
-      run.promptPath !== CANDIDATE_PROMPT_BINDING.path
+      run.workflowId !== profile.workflow.id ||
+      run.workflowVersion !== profile.workflow.version ||
+      run.workflowPath !== profile.workflow.path ||
+      run.promptId !== profile.prompt.id ||
+      run.promptVersion !== profile.prompt.version ||
+      run.promptPath !== profile.prompt.path
     ) {
       ctx.addIssue({ code: "custom", message: "candidate_run_binding_mismatch" });
     }
