@@ -71,6 +71,19 @@ done
 command -v psql >/dev/null 2>&1 || fail 'psql is required'
 command -v node >/dev/null 2>&1 || fail 'node is required to normalize the connection URL'
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+manifest_values=$(node "$SCRIPT_DIR/read-candidate-security-graph-manifest.mjs" \
+  "$SCRIPT_DIR/candidate-security-graph.v1.json")
+set -- $manifest_values
+[ "$#" -eq 5 ] || fail 'candidate security manifest output is invalid'
+CANDIDATE_SECURITY_MANIFEST_VERSION=$1
+CANDIDATE_SECURITY_POSTGRES_MAJOR=$2
+CANDIDATE_SECURITY_OWNER_POLICY=$3
+CANDIDATE_SECURITY_CHECKER_SHA256=$4
+CANDIDATE_SECURITY_GRAPH_SHA256=$5
+unset manifest_values
+export CANDIDATE_SECURITY_MANIFEST_VERSION CANDIDATE_SECURITY_POSTGRES_MAJOR
+export CANDIDATE_SECURITY_OWNER_POLICY CANDIDATE_SECURITY_CHECKER_SHA256
+export CANDIDATE_SECURITY_GRAPH_SHA256
 node "$SCRIPT_DIR/reject-ambient-candidate-libpq-env.mjs" candidate-role-bootstrap
 
 connection_dir=$(mktemp -d "${TMPDIR:-/tmp}/foodsystems-candidate-bootstrap.XXXXXX")
@@ -89,7 +102,11 @@ export CANDIDATE_DB_SCHEMA CANDIDATE_WORKER_DB_APP_NAME CANDIDATE_RECONCILER_DB_
 
 printf '%s\n' '[candidate-roles] replacing candidate authority-role grants without credential changes'
 
-psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 -f - <<'SQL'
+psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 \
+  -v security_attestation_sql="$SCRIPT_DIR/attest-candidate-security-graph.sql" \
+  -v expected_checker_sha256="$CANDIDATE_SECURITY_CHECKER_SHA256" \
+  -v expected_graph_sha256="$CANDIDATE_SECURITY_GRAPH_SHA256" \
+  -f - <<'SQL'
 \getenv worker_role CANDIDATE_WORKER_DB_ROLE
 \getenv reconciler_role CANDIDATE_RECONCILER_DB_ROLE
 \getenv target_schema CANDIDATE_DB_SCHEMA
@@ -318,6 +335,8 @@ BEGIN
 END
 $preflight$;
 
+\i :security_attestation_sql
+
 BEGIN;
 
 -- Match the candidate role contract's 2-second operational lock budget. A
@@ -342,6 +361,8 @@ LOCK TABLE
   pg_catalog.pg_shdepend,
   pg_catalog.pg_trigger
 IN SHARE ROW EXCLUSIVE MODE;
+
+\i :security_attestation_sql
 
 DO $locked_preflight$
 DECLARE

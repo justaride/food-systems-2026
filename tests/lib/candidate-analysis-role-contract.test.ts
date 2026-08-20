@@ -51,6 +51,9 @@ const verifyPath = resolve("scripts/verify-candidate-analysis-roles.sh");
 const securityGraphManifestPath = resolve(
   "scripts/candidate-security-graph.v1.json",
 );
+const securityGraphManifestReaderPath = resolve(
+  "scripts/read-candidate-security-graph-manifest.mjs",
+);
 const ambientGuardPath = resolve("scripts/reject-ambient-candidate-libpq-env.mjs");
 const urlHelperPath = resolve("scripts/normalize-candidate-postgres-url.mjs");
 const bootstrapApplyArgs = [
@@ -776,11 +779,11 @@ count=$((count + 1))
 printf '%s\n' "$count" > "$RACE_COUNT_FILE"
 "$REAL_PSQL" "$@"
 status=$?
-if [ "$status" -eq 0 ] && [ "$count" -eq 2 ]; then
+if [ "$status" -eq 0 ] && [ "$count" -eq 3 ]; then
   "$REAL_PSQL" -X -q -h 127.0.0.1 -p "$RACE_PORT" -U postgres -d "$RACE_DATABASE" -v ON_ERROR_STOP=1 -c "$RACE_MUTATION_SQL" >/dev/null
   : > "$RACE_MUTATION_FILE"
 fi
-if [ "$status" -eq 0 ] && [ "$count" -eq 3 ]; then
+if [ "$status" -eq 0 ] && [ "$count" -eq 4 ]; then
   : > "$RACE_MARKER_FILE"
   deadline=200
   while [ ! -f "$RACE_RELEASE_FILE" ] && [ "$deadline" -gt 0 ]; do
@@ -843,6 +846,7 @@ test("candidate role scripts are explicit, credential-safe, and exact-allowlist"
   const bootstrap = readFileSync(bootstrapPath, "utf8");
   const disable = readFileSync(disablePath, "utf8");
   const verify = readFileSync(verifyPath, "utf8");
+  const enable = readFileSync(enablePath, "utf8");
   const ambientGuard = readFileSync(ambientGuardPath, "utf8");
   const urlHelper = readFileSync(urlHelperPath, "utf8");
 
@@ -857,6 +861,16 @@ test("candidate role scripts are explicit, credential-safe, and exact-allowlist"
     assert.match(script, /PGPASSFILE/);
     assert.match(script, /normalize-candidate-postgres-url\.mjs/);
     assert.match(script, /reject-ambient-candidate-libpq-env\.mjs/);
+  }
+  for (const script of [bootstrap, enable, verify]) {
+    assert.equal(
+      (script.match(/read-candidate-security-graph-manifest\.mjs/g) ?? [])
+        .length,
+      1,
+    );
+    assert.match(script, /CANDIDATE_SECURITY_CHECKER_SHA256/);
+    assert.match(script, /CANDIDATE_SECURITY_GRAPH_SHA256/);
+    assert.match(script, /attest-candidate-security-graph\.sql/);
   }
   assert.match(ambientGuard, /\^PG\[A-Z0-9_\]\*\$/);
   assert.match(urlHelper, /allowedSearchParameters/);
@@ -899,6 +913,54 @@ test("candidate role scripts are explicit, credential-safe, and exact-allowlist"
   assert.match(disable, /pg_terminate_backend/);
   assert.doesNotMatch(disable, /DROP (?:TABLE|ROLE)|DELETE FROM|TRUNCATE/);
 });
+
+test(
+  "candidate security manifest reader rejects schema hash major and byte drift",
+  () => {
+    const validText = readFileSync(securityGraphManifestPath, "utf8");
+    const valid = JSON.parse(validText) as Record<string, unknown>;
+    const validResult = spawnSync(
+      process.execPath,
+      [securityGraphManifestReaderPath, securityGraphManifestPath],
+      { cwd: repoRoot, encoding: "utf8" },
+    );
+    assert.equal(validResult.status, 0, validResult.stderr);
+    assert.equal(validResult.stdout.trim().split(" ").length, 5);
+
+    const tempRoot = mkdtempSync(join(tmpdir(), "candidate-security-manifest-"));
+    try {
+      const variants = [
+        { ...valid, graphSha256: undefined },
+        { ...valid, unexpected: true },
+        { ...valid, postgresMajor: 17 },
+        { ...valid, checkerSha256: "A".repeat(64) },
+        { ...valid, graphSha256: "0".repeat(63) },
+      ];
+      for (const [index, variant] of variants.entries()) {
+        const path = join(tempRoot, `invalid-${index}.json`);
+        writeFileSync(path, `${JSON.stringify(variant, null, 2)}\n`);
+        const result = spawnSync(
+          process.execPath,
+          [securityGraphManifestReaderPath, path],
+          { cwd: repoRoot, encoding: "utf8" },
+        );
+        assert.notEqual(result.status, 0, `variant ${index} passed`);
+        assert.equal(result.stdout, "");
+      }
+      const noncanonicalPath = join(tempRoot, "noncanonical.json");
+      writeFileSync(noncanonicalPath, JSON.stringify(valid));
+      const noncanonical = spawnSync(
+        process.execPath,
+        [securityGraphManifestReaderPath, noncanonicalPath],
+        { cwd: repoRoot, encoding: "utf8" },
+      );
+      assert.notEqual(noncanonical.status, 0);
+      assert.match(noncanonical.stderr, /canonical v1 form/);
+    } finally {
+      rmSync(tempRoot, { recursive: true, force: true });
+    }
+  },
+);
 
 test(
   "candidate security graph detects routine owner ABI body ACL and trigger drift",
@@ -999,6 +1061,196 @@ test(
           .map((line) => line.trim())
           .filter((line) => line.startsWith("candidate_"));
         assert.deepEqual(driftCodes, [mutation.expected], mutation.name);
+      }
+    });
+  },
+);
+
+test(
+  "bootstrap and enable fail closed on checker and graph drift without deleting candidate rows",
+  { timeout: 60_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const adminEnv = {
+        ...process.env,
+        PATH: fixture.path,
+        DATABASE_ADMIN_URL: context.adminUrl,
+      };
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      const seeded = context.psql(`
+        INSERT INTO public."CandidateContentUnit" (
+          id, "sourceKind", "sourceKey", "sourceVersionHash", "unitType",
+          ordinal, locator, "locatorHash", "contentHash", "identityConfidence"
+        ) VALUES (
+          'content:security-drift', 'document', 'document:security-drift',
+          '${"a".repeat(64)}', 'document_section', 0, 'section:security-drift',
+          '${"b".repeat(64)}', '${"c".repeat(64)}', 'exact'
+        )
+      `);
+      assert.equal(seeded.status, 0, seeded.stderr);
+      const rowsBefore = candidateRowsSnapshot(context);
+
+      const checkerMutation = context.psql(`
+        ALTER FUNCTION public.candidate_security_graph_drift(TEXT, TEXT)
+          SECURITY DEFINER
+      `);
+      assert.equal(checkerMutation.status, 0, checkerMutation.stderr);
+      const checkerBlocked = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.notEqual(checkerBlocked.status, 0);
+      assert.match(checkerBlocked.stderr, /candidate_security_checker_drift/);
+      assert.equal(candidateRowsSnapshot(context), rowsBefore);
+
+      const restoreChecker = context.psql(`
+        ALTER FUNCTION public.candidate_security_graph_drift(TEXT, TEXT)
+          SECURITY INVOKER
+      `);
+      assert.equal(restoreChecker.status, 0, restoreChecker.stderr);
+      const cleanBootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(cleanBootstrap.status, 0, cleanBootstrap.stderr);
+
+      const graphMutation = context.psql(`
+        ALTER FUNCTION public.candidate_worker_append(TEXT, JSONB)
+          SET search_path = public
+      `);
+      assert.equal(graphMutation.status, 0, graphMutation.stderr);
+      const authorityBeforeEnable = candidateAuthoritySnapshot(context);
+      const enableBlocked = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: recoveryEnableEnv(fixture, context.adminUrl),
+        },
+      );
+      assert.notEqual(enableBlocked.status, 0);
+      assert.match(
+        `${enableBlocked.stdout}${enableBlocked.stderr}`,
+        /candidate_security_graph_hash_mismatch/,
+      );
+      assert.equal(candidateRowsSnapshot(context), rowsBefore);
+      const disabledState = context.psql(`
+        SELECT
+          bool_or(role.rolcanlogin),
+          bool_or(has_function_privilege(
+            role.oid,
+            to_regprocedure('public.candidate_worker_append(text,jsonb)'),
+            'EXECUTE'
+          )),
+          bool_or(has_function_privilege(
+            role.oid,
+            to_regprocedure('public.candidate_reconciler_append(jsonb)'),
+            'EXECUTE'
+          ))
+        FROM pg_roles role
+        WHERE role.rolname IN (
+          'foodsystems_candidate_worker',
+          'foodsystems_candidate_reconciler'
+        )
+      `);
+      assert.equal(disabledState.status, 0, disabledState.stderr);
+      assert.equal(disabledState.stdout.trim(), "f|f|f");
+      assert.notEqual(candidateAuthoritySnapshot(context), authorityBeforeEnable);
+    });
+  },
+);
+
+test(
+  "post-LOGIN semantic graph drift makes verification fail-safe disable both roles",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const seeded = context.psql(`
+        INSERT INTO public."CandidateContentUnit" (
+          id, "sourceKind", "sourceKey", "sourceVersionHash", "unitType",
+          ordinal, locator, "locatorHash", "contentHash", "identityConfidence"
+        ) VALUES (
+          'content:post-login-drift', 'document', 'document:post-login-drift',
+          '${"d".repeat(64)}', 'document_section', 0, 'section:post-login-drift',
+          '${"e".repeat(64)}', '${"f".repeat(64)}', 'exact'
+        )
+      `);
+      assert.equal(seeded.status, 0, seeded.stderr);
+      const rowsBefore = candidateRowsSnapshot(context);
+      const tempRoot = mkdtempSync(join(tmpdir(), "candidate-graph-post-login-"));
+      const barrier = writePostActivationVerifierBarrier(tempRoot);
+      try {
+        const enable = spawn(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            env: {
+              ...recoveryEnableEnv(fixture, context.adminUrl, barrier.path),
+              ACTIVATION_MARKER_FILE: barrier.markerFile,
+              ACTIVATION_RELEASE_FILE: barrier.releaseFile,
+              REAL_PSQL: barrier.realPsql,
+            },
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        let output = "";
+        enable.stdout?.on("data", (chunk) => { output += chunk.toString(); });
+        enable.stderr?.on("data", (chunk) => { output += chunk.toString(); });
+        const enableExit = childExit(enable);
+        await waitFor(
+          () => existsSync(barrier.markerFile) || enable.exitCode !== null,
+          "enable never reached the post-LOGIN verifier",
+        );
+        assert.ok(existsSync(barrier.markerFile), output);
+        const mutation = context.psql(`
+          CREATE OR REPLACE FUNCTION public.candidate_worker_append(
+            writer_operation TEXT,
+            write_payload JSONB
+          ) RETURNS JSONB LANGUAGE plpgsql VOLATILE SECURITY DEFINER
+          SET search_path = pg_catalog AS $body$
+          BEGIN RETURN '{}'::JSONB; END
+          $body$
+        `);
+        assert.equal(mutation.status, 0, mutation.stderr);
+        writeFileSync(barrier.releaseFile, "release\n");
+        const exitCode = await enableExit;
+        assert.notEqual(exitCode, 0, output);
+        assert.match(output, /candidate_security_graph_hash_mismatch/);
+        const safeState = context.psql(`
+          SELECT
+            bool_or(role.rolcanlogin),
+            bool_or(has_function_privilege(
+              role.oid,
+              to_regprocedure('public.candidate_worker_append(text,jsonb)'),
+              'EXECUTE'
+            )),
+            bool_or(has_function_privilege(
+              role.oid,
+              to_regprocedure('public.candidate_reconciler_append(jsonb)'),
+              'EXECUTE'
+            ))
+          FROM pg_roles role
+          WHERE role.rolname IN (
+            'foodsystems_candidate_worker',
+            'foodsystems_candidate_reconciler'
+          )
+        `);
+        assert.equal(safeState.status, 0, safeState.stderr);
+        assert.equal(safeState.stdout.trim(), "f|f|f");
+        assert.equal(candidateRowsSnapshot(context), rowsBefore);
+      } finally {
+        rmSync(tempRoot, { recursive: true, force: true });
       }
     });
   },
@@ -1689,6 +1941,7 @@ test(
             ...process.env,
             PATH: path,
             CANDIDATE_WORKER_DATABASE_URL: workerUrl,
+            CANDIDATE_ADMIN_DATABASE_URL: adminUrl,
           },
         });
       const verifyReconciler = () =>
@@ -1699,6 +1952,7 @@ test(
             ...process.env,
             PATH: path,
             CANDIDATE_RECONCILER_DATABASE_URL: reconcilerUrl,
+            CANDIDATE_ADMIN_DATABASE_URL: adminUrl,
           },
         });
 
@@ -5343,6 +5597,18 @@ test(
         join(tempRoot, "reject-ambient-candidate-libpq-env.mjs"),
         readFileSync(ambientGuardPath, "utf8"),
       );
+      writeFileSync(
+        join(tempRoot, "read-candidate-security-graph-manifest.mjs"),
+        readFileSync(securityGraphManifestReaderPath, "utf8"),
+      );
+      writeFileSync(
+        join(tempRoot, "candidate-security-graph.v1.json"),
+        readFileSync(securityGraphManifestPath, "utf8"),
+      );
+      writeFileSync(
+        join(tempRoot, "attest-candidate-security-graph.sql"),
+        readFileSync("scripts/attest-candidate-security-graph.sql", "utf8"),
+      );
       chmodSync(mutatedBootstrap, 0o755);
       const sleeperApp = "candidate-recovery-survivor-guard";
       const sleeper = spawn(
@@ -6093,6 +6359,7 @@ test(
           ...process.env,
           PATH: fixture.path,
           CANDIDATE_WORKER_DATABASE_URL: fixture.workerUrl,
+          CANDIDATE_ADMIN_DATABASE_URL: context.adminUrl,
         },
       });
       const disabled = spawnSync(disablePath, ["--apply"], {

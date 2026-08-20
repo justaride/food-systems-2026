@@ -12,6 +12,9 @@ Worker environment:
   CANDIDATE_WORKER_DATABASE_URL       Dedicated worker login URL
 Reconciler environment:
   CANDIDATE_RECONCILER_DATABASE_URL   Dedicated reconciler login URL
+Required for both modes:
+  CANDIDATE_ADMIN_DATABASE_URL        Exact matching administrator URL used
+                                      only for read-only security-graph attestation
 
 Optional environment:
   CANDIDATE_WORKER_DB_ROLE            Default: foodsystems_candidate_worker
@@ -97,21 +100,54 @@ fi
 
 command -v psql >/dev/null 2>&1 || fail 'psql is required'
 command -v node >/dev/null 2>&1 || fail 'node is required to normalize the connection URL'
+command -v cmp >/dev/null 2>&1 || fail 'cmp is required to bind database targets'
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+manifest_values=$(node "$SCRIPT_DIR/read-candidate-security-graph-manifest.mjs" \
+  "$SCRIPT_DIR/candidate-security-graph.v1.json")
+set -- $manifest_values
+[ "$#" -eq 5 ] || fail 'candidate security manifest output is invalid'
+CANDIDATE_SECURITY_MANIFEST_VERSION=$1
+CANDIDATE_SECURITY_POSTGRES_MAJOR=$2
+CANDIDATE_SECURITY_OWNER_POLICY=$3
+CANDIDATE_SECURITY_CHECKER_SHA256=$4
+CANDIDATE_SECURITY_GRAPH_SHA256=$5
+unset manifest_values
+export CANDIDATE_SECURITY_MANIFEST_VERSION CANDIDATE_SECURITY_POSTGRES_MAJOR
+export CANDIDATE_SECURITY_OWNER_POLICY CANDIDATE_SECURITY_CHECKER_SHA256
+export CANDIDATE_SECURITY_GRAPH_SHA256
 node "$SCRIPT_DIR/reject-ambient-candidate-libpq-env.mjs" candidate-role-verification
 
 connection_dir=$(mktemp -d "${TMPDIR:-/tmp}/foodsystems-candidate-verify.XXXXXX")
+ROLE_PGPASSFILE=$connection_dir/role.pgpass
+ADMIN_PGPASSFILE=$connection_dir/admin.pgpass
+ROLE_TARGET_IDENTITY_FILE=$connection_dir/role-target.json
+ADMIN_TARGET_IDENTITY_FILE=$connection_dir/admin-target.json
 cleanup_connection() {
-  rm -f "$connection_dir/pgpass"
+  rm -f "$ROLE_PGPASSFILE" "$ADMIN_PGPASSFILE" \
+    "$ROLE_TARGET_IDENTITY_FILE" "$ADMIN_TARGET_IDENTITY_FILE"
   rmdir "$connection_dir" 2>/dev/null || true
 }
 trap cleanup_connection EXIT HUP INT TERM
-export PGPASSFILE=$connection_dir/pgpass
-PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$ROLE_DATABASE_URL PGPASSFILE_PATH=$PGPASSFILE \
+PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$ROLE_DATABASE_URL \
+  PGPASSFILE_PATH=$ROLE_PGPASSFILE \
+  CANDIDATE_TARGET_IDENTITY_FILE=$ROLE_TARGET_IDENTITY_FILE \
   EXPECTED_URL_ROLE=$EXPECTED_ROLE EXPECTED_URL_APP=$EXPECTED_APP_NAME \
   CANDIDATE_URL_CONTEXT=candidate-role-verify \
   node "$SCRIPT_DIR/normalize-candidate-postgres-url.mjs")
-unset ROLE_DATABASE_URL CANDIDATE_WORKER_DATABASE_URL CANDIDATE_RECONCILER_DATABASE_URL PGPASSWORD PGOPTIONS PGSERVICE PGSERVICEFILE
+[ -n "${CANDIDATE_ADMIN_DATABASE_URL:-}" ] \
+  || fail 'CANDIDATE_ADMIN_DATABASE_URL is required for security-graph attestation'
+ADMIN_PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$CANDIDATE_ADMIN_DATABASE_URL \
+  PGPASSFILE_PATH=$ADMIN_PGPASSFILE \
+  CANDIDATE_TARGET_IDENTITY_FILE=$ADMIN_TARGET_IDENTITY_FILE \
+  CANDIDATE_URL_CONTEXT=candidate-role-verify-admin \
+  node "$SCRIPT_DIR/normalize-candidate-postgres-url.mjs")
+if ! cmp -s "$ROLE_TARGET_IDENTITY_FILE" "$ADMIN_TARGET_IDENTITY_FILE"; then
+  fail 'candidate and administrator database URLs must match exactly'
+fi
+unset ROLE_DATABASE_URL CANDIDATE_ADMIN_DATABASE_URL
+unset CANDIDATE_WORKER_DATABASE_URL CANDIDATE_RECONCILER_DATABASE_URL
+unset PGPASSWORD PGOPTIONS PGSERVICE PGSERVICEFILE
+export PGPASSFILE=$ROLE_PGPASSFILE
 export ROLE_MODE EXPECTED_ROLE EXPECTED_APP_NAME CANDIDATE_DB_SCHEMA
 export CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER
 export CANDIDATE_EXPECTED_TARGET_DATABASE_HEX
@@ -527,5 +563,11 @@ expect_denied 'database TEMP' \
 expect_denied \
   'session_replication_role replica mode' \
   "SET session_replication_role TO replica"
+
+PGPASSFILE=$ADMIN_PGPASSFILE \
+psql "$ADMIN_PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 \
+  -v expected_checker_sha256="$CANDIDATE_SECURITY_CHECKER_SHA256" \
+  -v expected_graph_sha256="$CANDIDATE_SECURITY_GRAPH_SHA256" \
+  -f "$SCRIPT_DIR/attest-candidate-security-graph.sql"
 
 printf '%s\n' "[candidate-role-verify] PASS: $EXPECTED_ROLE matches the exact $ROLE_MODE privilege contract"

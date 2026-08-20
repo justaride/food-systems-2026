@@ -71,6 +71,19 @@ command -v psql >/dev/null 2>&1 || fail 'psql is required'
 command -v node >/dev/null 2>&1 || fail 'node is required to normalize the connection URL'
 command -v cmp >/dev/null 2>&1 || fail 'cmp is required to bind database targets'
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+manifest_values=$(node "$SCRIPT_DIR/read-candidate-security-graph-manifest.mjs" \
+  "$SCRIPT_DIR/candidate-security-graph.v1.json")
+set -- $manifest_values
+[ "$#" -eq 5 ] || fail 'candidate security manifest output is invalid'
+CANDIDATE_SECURITY_MANIFEST_VERSION=$1
+CANDIDATE_SECURITY_POSTGRES_MAJOR=$2
+CANDIDATE_SECURITY_OWNER_POLICY=$3
+CANDIDATE_SECURITY_CHECKER_SHA256=$4
+CANDIDATE_SECURITY_GRAPH_SHA256=$5
+unset manifest_values
+export CANDIDATE_SECURITY_MANIFEST_VERSION CANDIDATE_SECURITY_POSTGRES_MAJOR
+export CANDIDATE_SECURITY_OWNER_POLICY CANDIDATE_SECURITY_CHECKER_SHA256
+export CANDIDATE_SECURITY_GRAPH_SHA256
 node "$SCRIPT_DIR/reject-ambient-candidate-libpq-env.mjs" candidate-role-enable
 
 ADMIN_DATABASE_URL=$DATABASE_ADMIN_URL
@@ -207,8 +220,18 @@ END
 $capability$;
 SQL
 
+PGPASSFILE=$ADMIN_PGPASSFILE \
+psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 \
+  -v expected_checker_sha256="$CANDIDATE_SECURITY_CHECKER_SHA256" \
+  -v expected_graph_sha256="$CANDIDATE_SECURITY_GRAPH_SHA256" \
+  -f "$SCRIPT_DIR/attest-candidate-security-graph.sql"
+
 if ! PGPASSFILE=$ADMIN_PGPASSFILE \
-psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 -f - <<'SQL'
+psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 \
+  -v security_attestation_sql="$SCRIPT_DIR/attest-candidate-security-graph.sql" \
+  -v expected_checker_sha256="$CANDIDATE_SECURITY_CHECKER_SHA256" \
+  -v expected_graph_sha256="$CANDIDATE_SECURITY_GRAPH_SHA256" \
+  -f - <<'SQL'
 \getenv worker_role CANDIDATE_WORKER_DB_ROLE
 \getenv reconciler_role CANDIDATE_RECONCILER_DB_ROLE
 \getenv target_schema CANDIDATE_DB_SCHEMA
@@ -241,6 +264,8 @@ LOCK TABLE
   pg_catalog.pg_shdepend,
   pg_catalog.pg_trigger
 IN SHARE ROW EXCLUSIVE MODE;
+
+\i :security_attestation_sql
 
 SELECT set_config('foodsystems.candidate_worker_role', :'worker_role', true);
 SELECT set_config('foodsystems.candidate_reconciler_role', :'reconciler_role', true);
@@ -641,12 +666,14 @@ then
 fi
 
 CANDIDATE_WORKER_DATABASE_URL=$WORKER_DATABASE_URL \
+  CANDIDATE_ADMIN_DATABASE_URL=$ADMIN_DATABASE_URL \
   CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER=$CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER \
   CANDIDATE_EXPECTED_TARGET_DATABASE_HEX=$CANDIDATE_EXPECTED_TARGET_DATABASE_HEX \
   CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX=$CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX \
   CANDIDATE_EXPECTED_TARGET_SERVER_PORT=$CANDIDATE_EXPECTED_TARGET_SERVER_PORT \
   "$SCRIPT_DIR/verify-candidate-analysis-roles.sh" --role=worker
 CANDIDATE_RECONCILER_DATABASE_URL=$RECONCILER_DATABASE_URL \
+  CANDIDATE_ADMIN_DATABASE_URL=$ADMIN_DATABASE_URL \
   CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER=$CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER \
   CANDIDATE_EXPECTED_TARGET_DATABASE_HEX=$CANDIDATE_EXPECTED_TARGET_DATABASE_HEX \
   CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX=$CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX \
