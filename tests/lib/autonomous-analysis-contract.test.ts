@@ -298,6 +298,42 @@ const assertRecoveryContract = (contract: string) => {
   assert.match(roles, /candidate rows are preserved/i)
 }
 
+const assertSemanticAttestationContract = (contract: string) => {
+  const attestation = section(
+    contract,
+    'Semantic attestation amendment v1 (2026-08-20)',
+  )
+  assert.match(
+    attestation,
+    /Candidate Canonical JSON v1.*identical.*TypeScript.*PostgreSQL/i,
+  )
+  assert.match(attestation, /exact UTF-8 byte order/i)
+  assert.match(attestation, /JSON `null`.*SQL `NULL`/i)
+  assert.match(
+    attestation,
+    /attests?.*routine bodies.*owners.*ACLs.*trigger semantics/i,
+  )
+  assert.match(attestation, /exactly 27 custom triggers/i)
+  assert.match(
+    attestation,
+    /bootstrap and enable never repair drifted code/i,
+  )
+  assert.match(
+    attestation,
+    /roles remain disabled.*migration repair.*complete `disable -> bootstrap grants -> enable existing credentials -> verify worker -> verify reconciler`/i,
+  )
+  assert.match(
+    attestation,
+    /technical candidate readiness.*does not create.*human review.*promotion.*external readiness/i,
+  )
+
+  const errata = section(contract, 'Errata (2026-08-20)')
+  assert.match(errata, /target-rebinding proof/i)
+  assert.match(errata, /system identifier.*database.*server address.*server port/i)
+  assert.match(errata, /mixed-case schema coverage/i)
+  assert.match(errata, /`public`.*supported semantic-graph schema/i)
+}
+
 const assertNoStaleRecoveryGuidance = (contract: string) => {
   const normalizedContract = contract.replace(/\s+/g, ' ')
   const sentences = normalizedContract.split(/(?<=[.!?])\s+/)
@@ -362,6 +398,7 @@ const assertDurableContract = (contract: string) => {
   assertWorkflowPromptContract(contract)
   assertPriorEventContract(contract)
   assertRecoveryContract(contract)
+  assertSemanticAttestationContract(contract)
   assertNoStaleRecoveryGuidance(contract)
   const reporting = section(contract, 'Operational reporting')
   assert.match(reporting, /query or contract error.*degrades the whole snapshot/i)

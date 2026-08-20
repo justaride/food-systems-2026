@@ -118,3 +118,22 @@ Report candidate analysis, human review, target promotion, publication and cover
 Any query or contract error from a required control-snapshot source degrades the whole snapshot. It sets data completeness and review completeness false, closes candidate authority and external readiness, and emits the stable `degraded_snapshot:query_errors` warning plus the sanitized query errors. A surviving partial graph cannot retain authority.
 
 When this contract is used, report candidate results as internal and pending downstream authority unless the separately bound receipts prove otherwise.
+
+## Semantic attestation amendment v1 (2026-08-20)
+
+Semantic-attestation amendment version: `1.1.0`. This section is append-only and preserves every earlier authority boundary.
+
+Candidate Canonical JSON v1 is identical in TypeScript and PostgreSQL for the representable domain: object keys use exact UTF-8 byte order, arrays preserve order, strings contain only valid Unicode scalar values, numbers are finite, and JSON `null` remains distinct from SQL `NULL` at the database boundary.
+
+The recovery flow reads the canonical security manifest without following symbolic links, independently derives the checker descriptor from `pg_catalog`, and attests routine bodies, owners, ACLs and trigger semantics for exactly 27 custom triggers before candidate roles can receive `LOGIN`.
+
+Bootstrap and enable never repair drifted code. A checker, graph or manifest mismatch fails closed with its stable diagnostic and requires a reviewed migration rather than an operational grant script changing schema code.
+
+The roles remain disabled until a migration repair has been committed and applied and the complete `disable -> bootstrap grants -> enable existing credentials -> verify worker -> verify reconciler` recovery chain succeeds against the same attested PostgreSQL target.
+
+Technical candidate readiness does not create human review, promotion or external readiness. It proves only the named machine controls for internal candidate decision support; all downstream authority axes remain independently closed until their own exact receipts exist.
+
+## Errata (2026-08-20)
+
+- Target-rebinding proof: earlier wording could be read as a connection-string comparison. Recovery now binds the exact system identifier, database, server address and server port before mutation and again during final verification; a different target fails closed.
+- Mixed-case schema coverage: the shell scripts continue to quote configured identifiers safely, but Candidate Security Graph v1 is anchored to `public`, which is the only supported semantic-graph schema. Mixed-case or non-`public` schema deployment is not proven and must not be claimed without a new manifest, migration and mutation-test set.
