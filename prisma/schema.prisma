@@ -449,21 +449,21 @@ model CandidateAnalysisRunInput {
 }
 
 model CandidateAnalysisRunEvent {
-  id                    String                @id @default(cuid())
-  runId                 String
-  scopeHash             String
-  sequence              Int
-  eventType             CandidateRunEventType
-  payload               Json?
-  eventHash             String
-  supersededEventId     String?
-  supersededEventHash   String?
+  id                       String                @id @default(cuid())
+  runId                    String
+  scopeHash                String
+  sequence                 Int
+  eventType                CandidateRunEventType
+  payload                  Json?
+  eventHash                String
+  supersededEventId        String?
+  supersededEventHash      String?
   supersededEventScopeHash String?
-  recordedAt            DateTime              @default(now())
+  recordedAt               DateTime              @default(now())
 
-  runByScope         CandidateAnalysisRun        @relation(fields: [runId, scopeHash], references: [id, scopeHash], onDelete: Restrict, onUpdate: Restrict, map: "CandidateRunEvent_run_scope_fkey")
-  supersededEvent    CandidateAnalysisRunEvent?  @relation("CandidateRunEventSupersession", fields: [supersededEventId, supersededEventHash, runId, supersededEventScopeHash], references: [id, eventHash, runId, scopeHash], onDelete: Restrict, onUpdate: Restrict, map: "CandidateRunEvent_supersession_hash_scope_fkey")
-  supersedingEvents  CandidateAnalysisRunEvent[] @relation("CandidateRunEventSupersession")
+  runByScope        CandidateAnalysisRun        @relation(fields: [runId, scopeHash], references: [id, scopeHash], onDelete: Restrict, onUpdate: Restrict, map: "CandidateRunEvent_run_scope_fkey")
+  supersededEvent   CandidateAnalysisRunEvent?  @relation("CandidateRunEventSupersession", fields: [supersededEventId, supersededEventHash, runId, supersededEventScopeHash], references: [id, eventHash, runId, scopeHash], onDelete: Restrict, onUpdate: Restrict, map: "CandidateRunEvent_supersession_hash_scope_fkey")
+  supersedingEvents CandidateAnalysisRunEvent[] @relation("CandidateRunEventSupersession")
 
   @@unique([id, eventHash, runId, scopeHash])
   @@unique([runId, sequence])
@@ -485,22 +485,22 @@ model CandidateAnalysisArtifact {
 }
 
 model CandidateAssertion {
-  id                    String                      @id @default(cuid())
-  runId                 String
-  assertionType         CandidateAssertionType
-  schemaVersion         String
-  payload               Json
-  payloadHash           String
-  confidence            Float?
-  machineUse            CandidateMachineUse
-  identityConfidence    CandidateIdentityConfidence
-  evidenceLevel         CandidateEvidenceLevel
-  limitations           String[]
-  scopeKey               String
-  scopeHash              String
-  supersededAssertionId String?
+  id                             String                      @id @default(cuid())
+  runId                          String
+  assertionType                  CandidateAssertionType
+  schemaVersion                  String
+  payload                        Json
+  payloadHash                    String
+  confidence                     Float?
+  machineUse                     CandidateMachineUse
+  identityConfidence             CandidateIdentityConfidence
+  evidenceLevel                  CandidateEvidenceLevel
+  limitations                    String[]
+  scopeKey                       String
+  scopeHash                      String
+  supersededAssertionId          String?
   supersededAssertionPayloadHash String?
-  createdAt             DateTime                    @default(now())
+  createdAt                      DateTime                    @default(now())
 
   run                   CandidateAnalysisRun           @relation(fields: [runId], references: [id], onDelete: Restrict, onUpdate: Restrict)
   supersededAssertion   CandidateAssertion?            @relation("CandidateAssertionSupersession", fields: [supersededAssertionId, supersededAssertionPayloadHash, scopeHash], references: [id, payloadHash, scopeHash], onDelete: Restrict, onUpdate: Restrict, map: "CandidateAssertion_supersession_hash_scope_fkey")
@@ -566,23 +566,23 @@ model CandidateReconciliationSnapshot {
 }
 
 model CandidateHumanReviewDecision {
-  id                   String                  @id @default(cuid())
-  assertionId          String
-  decision             CandidateReviewDecision
-  reviewProfile        String
-  reviewProfileHash    String
-  reviewer             String
-  authority            String
-  assertionPayloadHash String
-  sourceContentSetHash String
-  evidenceSetHash      String
-  decisionHash         String
-  limitations          String[]
-  editedPayload        Json?
-  editedPayloadHash    String?
-  supersededDecisionId String?
+  id                     String                  @id @default(cuid())
+  assertionId            String
+  decision               CandidateReviewDecision
+  reviewProfile          String
+  reviewProfileHash      String
+  reviewer               String
+  authority              String
+  assertionPayloadHash   String
+  sourceContentSetHash   String
+  evidenceSetHash        String
+  decisionHash           String
+  limitations            String[]
+  editedPayload          Json?
+  editedPayloadHash      String?
+  supersededDecisionId   String?
   supersededDecisionHash String?
-  createdAt            DateTime                @default(now())
+  createdAt              DateTime                @default(now())
 
   assertion            CandidateAssertion             @relation(fields: [assertionId, assertionPayloadHash], references: [id, payloadHash], onDelete: Restrict, onUpdate: Restrict)
   supersededDecision   CandidateHumanReviewDecision?  @relation("CandidateHumanReviewSupersession", fields: [supersededDecisionId, supersededDecisionHash, assertionId, reviewProfile, reviewProfileHash], references: [id, decisionHash, assertionId, reviewProfile, reviewProfileHash], onDelete: Restrict, onUpdate: Restrict, map: "CandidateReview_supersession_receipt_scope_fkey")
@@ -598,28 +598,28 @@ model CandidateHumanReviewDecision {
 }
 
 model CandidatePromotionDecision {
-  id                   String                  @id @default(cuid())
-  assertionId          String
-  assertionPayloadHash String
-  reviewDecisionId     String
-  reviewDecisionHash   String
-  targetProfile        String
-  targetProfileHash    String
-  state                CandidatePromotionState
-  policyVersion        String
-  policyHash           String
-  preconditionsHash    String
-  targetRefs           Json
-  targetSetHash        String
-  result               Json
-  resultHash           String
-  decisionHash         String
-  operator             String
-  authority            String
-  supersededDecisionId String?
+  id                     String                  @id @default(cuid())
+  assertionId            String
+  assertionPayloadHash   String
+  reviewDecisionId       String
+  reviewDecisionHash     String
+  targetProfile          String
+  targetProfileHash      String
+  state                  CandidatePromotionState
+  policyVersion          String
+  policyHash             String
+  preconditionsHash      String
+  targetRefs             Json
+  targetSetHash          String
+  result                 Json
+  resultHash             String
+  decisionHash           String
+  operator               String
+  authority              String
+  supersededDecisionId   String?
   supersededDecisionHash String?
-  supersededPolicyHash String?
-  createdAt            DateTime                @default(now())
+  supersededPolicyHash   String?
+  createdAt              DateTime                @default(now())
 
   assertion            CandidateAssertion           @relation(fields: [assertionId, assertionPayloadHash], references: [id, payloadHash], onDelete: Restrict, onUpdate: Restrict)
   reviewDecision       CandidateHumanReviewDecision @relation(fields: [reviewDecisionId, reviewDecisionHash, assertionId], references: [id, decisionHash, assertionId], onDelete: Restrict, onUpdate: Restrict, map: "CandidatePromotion_review_receipt_fkey")
