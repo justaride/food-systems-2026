@@ -140,8 +140,8 @@ export type CandidateJsonValue =
   | boolean
   | number
   | string
-  | CandidateJsonValue[]
-  | { [key: string]: CandidateJsonValue };
+  | readonly CandidateJsonValue[]
+  | { readonly [key: string]: CandidateJsonValue };
 
 export type CandidateAnalysisContractErrorCode =
   | "event_sequence_gap"
@@ -749,11 +749,14 @@ function canonicalCandidateJsonValidated(value: CandidateJsonValue): string {
   if (Array.isArray(value)) {
     return `[${value.map(canonicalCandidateJsonValidated).join(",")}]`;
   }
-  return `{${Object.keys(value)
+  const objectValue = value as {
+    readonly [key: string]: CandidateJsonValue;
+  };
+  return `{${Object.keys(objectValue)
     .sort(compareCandidateJsonKeysUtf8)
     .map(
       (key) =>
-        `${JSON.stringify(key)}:${canonicalCandidateJsonValidated(value[key]!)}`,
+        `${JSON.stringify(key)}:${canonicalCandidateJsonValidated(objectValue[key]!)}`,
     )
     .join(",")}}`;
 }
