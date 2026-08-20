@@ -5,9 +5,12 @@ set -eu
 
 usage() {
   cat <<'EOF'
-Usage: verify-candidate-analysis-roles.sh --role=worker
+Usage: verify-candidate-analysis-roles.sh --role=intake
+       verify-candidate-analysis-roles.sh --role=worker
        verify-candidate-analysis-roles.sh --role=reconciler
 
+Intake environment:
+  CANDIDATE_INTAKE_DATABASE_URL       Dedicated content-unit intake login URL
 Worker environment:
   CANDIDATE_WORKER_DATABASE_URL       Dedicated worker login URL
 Reconciler environment:
@@ -17,9 +20,11 @@ Required for both modes:
                                       only for read-only security-graph attestation
 
 Optional environment:
+  CANDIDATE_INTAKE_DB_ROLE            Default: foodsystems_candidate_intake
   CANDIDATE_WORKER_DB_ROLE            Default: foodsystems_candidate_worker
   CANDIDATE_RECONCILER_DB_ROLE        Default: foodsystems_candidate_reconciler
   CANDIDATE_DB_SCHEMA                 Default: public
+  CANDIDATE_INTAKE_DB_APP_NAME        Default: foodsystems-candidate-intake
   CANDIDATE_WORKER_DB_APP_NAME        Default: foodsystems-candidate-worker
   CANDIDATE_RECONCILER_DB_APP_NAME    Default: foodsystems-candidate-reconciler
 EOF
@@ -31,9 +36,11 @@ fail() {
 }
 
 [ "$#" -eq 1 ] || { usage >&2; fail 'exactly one --role mode is required'; }
+CANDIDATE_INTAKE_DB_ROLE=${CANDIDATE_INTAKE_DB_ROLE:-foodsystems_candidate_intake}
 CANDIDATE_WORKER_DB_ROLE=${CANDIDATE_WORKER_DB_ROLE:-foodsystems_candidate_worker}
 CANDIDATE_RECONCILER_DB_ROLE=${CANDIDATE_RECONCILER_DB_ROLE:-foodsystems_candidate_reconciler}
 CANDIDATE_DB_SCHEMA=${CANDIDATE_DB_SCHEMA:-public}
+CANDIDATE_INTAKE_DB_APP_NAME=${CANDIDATE_INTAKE_DB_APP_NAME:-foodsystems-candidate-intake}
 CANDIDATE_WORKER_DB_APP_NAME=${CANDIDATE_WORKER_DB_APP_NAME:-foodsystems-candidate-worker}
 CANDIDATE_RECONCILER_DB_APP_NAME=${CANDIDATE_RECONCILER_DB_APP_NAME:-foodsystems-candidate-reconciler}
 CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER=${CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER:-}
@@ -42,6 +49,13 @@ CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX=${CANDIDATE_EXPECTED_TARGET_SERVER_
 CANDIDATE_EXPECTED_TARGET_SERVER_PORT=${CANDIDATE_EXPECTED_TARGET_SERVER_PORT:-}
 
 case "$1" in
+  --role=intake)
+    ROLE_MODE=intake
+    ROLE_DATABASE_URL=${CANDIDATE_INTAKE_DATABASE_URL:-}
+    EXPECTED_ROLE=$CANDIDATE_INTAKE_DB_ROLE
+    EXPECTED_APP_NAME=$CANDIDATE_INTAKE_DB_APP_NAME
+    [ -n "$ROLE_DATABASE_URL" ] || fail 'CANDIDATE_INTAKE_DATABASE_URL is required'
+    ;;
   --role=worker)
     ROLE_MODE=worker
     ROLE_DATABASE_URL=${CANDIDATE_WORKER_DATABASE_URL:-}
@@ -57,16 +71,18 @@ case "$1" in
     [ -n "$ROLE_DATABASE_URL" ] || fail 'CANDIDATE_RECONCILER_DATABASE_URL is required'
     ;;
   -h|--help) usage; exit 0 ;;
-  *) usage >&2; fail 'role must be worker or reconciler' ;;
+  *) usage >&2; fail 'role must be intake, worker or reconciler' ;;
 esac
 
-for role_name in "$CANDIDATE_WORKER_DB_ROLE" "$CANDIDATE_RECONCILER_DB_ROLE"; do
+for role_name in "$CANDIDATE_INTAKE_DB_ROLE" "$CANDIDATE_WORKER_DB_ROLE" "$CANDIDATE_RECONCILER_DB_ROLE"; do
   case "$role_name" in
     ''|*[!a-z0-9_]*) fail 'candidate role names must contain only lowercase letters, digits, and underscores' ;;
   esac
 done
-[ "$CANDIDATE_WORKER_DB_ROLE" != "$CANDIDATE_RECONCILER_DB_ROLE" ] \
-  || fail 'worker and reconciler role names must be distinct'
+[ "$CANDIDATE_INTAKE_DB_ROLE" != "$CANDIDATE_WORKER_DB_ROLE" ] \
+  && [ "$CANDIDATE_INTAKE_DB_ROLE" != "$CANDIDATE_RECONCILER_DB_ROLE" ] \
+  && [ "$CANDIDATE_WORKER_DB_ROLE" != "$CANDIDATE_RECONCILER_DB_ROLE" ] \
+  || fail 'intake, worker and reconciler role names must be distinct'
 case "$CANDIDATE_DB_SCHEMA" in
   ''|*[!a-zA-Z0-9_]*) fail 'CANDIDATE_DB_SCHEMA must be a simple PostgreSQL identifier' ;;
 esac
@@ -145,7 +161,7 @@ if ! cmp -s "$ROLE_TARGET_IDENTITY_FILE" "$ADMIN_TARGET_IDENTITY_FILE"; then
   fail 'candidate and administrator database URLs must match exactly'
 fi
 unset ROLE_DATABASE_URL CANDIDATE_ADMIN_DATABASE_URL
-unset CANDIDATE_WORKER_DATABASE_URL CANDIDATE_RECONCILER_DATABASE_URL
+unset CANDIDATE_INTAKE_DATABASE_URL CANDIDATE_WORKER_DATABASE_URL CANDIDATE_RECONCILER_DATABASE_URL
 unset PGPASSWORD PGOPTIONS PGSERVICE PGSERVICEFILE
 export PGPASSFILE=$ROLE_PGPASSFILE
 export ROLE_MODE EXPECTED_ROLE EXPECTED_APP_NAME CANDIDATE_DB_SCHEMA
@@ -176,12 +192,15 @@ WITH role_row AS (
     ('CandidatePromotionDecision')
 ), expected_select(relname) AS (
   SELECT relname FROM candidate_relation
+  WHERE :'role_mode' IN ('worker', 'reconciler')
   UNION ALL
   SELECT relname FROM (VALUES ('Document'), ('SourceDoc'), ('LibraryAnalysisRecord')) canonical(relname)
   WHERE :'role_mode' = 'worker'
 ), expected_insert(relname) AS (
   SELECT NULL::text WHERE false
 ), expected_writer_routine(proname, argument_types) AS (
+  SELECT 'candidate_content_unit_append', 'jsonb' WHERE :'role_mode' = 'intake'
+  UNION ALL
   SELECT 'candidate_worker_append', 'text, jsonb' WHERE :'role_mode' = 'worker'
   UNION ALL
   SELECT 'candidate_reconciler_append', 'jsonb' WHERE :'role_mode' = 'reconciler'

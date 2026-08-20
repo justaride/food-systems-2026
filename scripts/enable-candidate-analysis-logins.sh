@@ -1,5 +1,5 @@
 #!/bin/sh
-# Restore LOGIN only for the two existing candidate roles, using already
+# Restore LOGIN only for the three existing candidate roles, using already
 # provisioned dedicated credentials and failing back to the disabled state.
 set -eu
 
@@ -9,17 +9,20 @@ Usage: enable-candidate-analysis-logins.sh --apply --confirm-existing-credential
 
 Required environment:
   DATABASE_ADMIN_URL                    PostgreSQL role administrator URL
+  CANDIDATE_INTAKE_DATABASE_URL         Existing dedicated intake login URL
   CANDIDATE_WORKER_DATABASE_URL         Existing dedicated worker login URL
   CANDIDATE_RECONCILER_DATABASE_URL     Existing dedicated reconciler login URL
 
 Optional environment:
+  CANDIDATE_INTAKE_DB_ROLE              Default: foodsystems_candidate_intake
   CANDIDATE_WORKER_DB_ROLE              Default: foodsystems_candidate_worker
   CANDIDATE_RECONCILER_DB_ROLE          Default: foodsystems_candidate_reconciler
   CANDIDATE_DB_SCHEMA                   Default: public
+  CANDIDATE_INTAKE_DB_APP_NAME          Default: foodsystems-candidate-intake
   CANDIDATE_WORKER_DB_APP_NAME          Default: foodsystems-candidate-worker
   CANDIDATE_RECONCILER_DB_APP_NAME      Default: foodsystems-candidate-reconciler
 
-This operation only enables the two exact existing roles. It never creates,
+This operation only enables the three exact existing roles. It never creates,
 changes, transports, or logs a credential. Any failed verification invokes the
 candidate disable operation before returning failure.
 EOF
@@ -40,28 +43,34 @@ fail() {
 }
 
 [ -n "${DATABASE_ADMIN_URL:-}" ] || fail 'DATABASE_ADMIN_URL is required'
+[ -n "${CANDIDATE_INTAKE_DATABASE_URL:-}" ] \
+  || fail 'CANDIDATE_INTAKE_DATABASE_URL is required'
 [ -n "${CANDIDATE_WORKER_DATABASE_URL:-}" ] \
   || fail 'CANDIDATE_WORKER_DATABASE_URL is required'
 [ -n "${CANDIDATE_RECONCILER_DATABASE_URL:-}" ] \
   || fail 'CANDIDATE_RECONCILER_DATABASE_URL is required'
 
+CANDIDATE_INTAKE_DB_ROLE=${CANDIDATE_INTAKE_DB_ROLE:-foodsystems_candidate_intake}
 CANDIDATE_WORKER_DB_ROLE=${CANDIDATE_WORKER_DB_ROLE:-foodsystems_candidate_worker}
 CANDIDATE_RECONCILER_DB_ROLE=${CANDIDATE_RECONCILER_DB_ROLE:-foodsystems_candidate_reconciler}
 CANDIDATE_DB_SCHEMA=${CANDIDATE_DB_SCHEMA:-public}
+CANDIDATE_INTAKE_DB_APP_NAME=${CANDIDATE_INTAKE_DB_APP_NAME:-foodsystems-candidate-intake}
 CANDIDATE_WORKER_DB_APP_NAME=${CANDIDATE_WORKER_DB_APP_NAME:-foodsystems-candidate-worker}
 CANDIDATE_RECONCILER_DB_APP_NAME=${CANDIDATE_RECONCILER_DB_APP_NAME:-foodsystems-candidate-reconciler}
 
-for role_name in "$CANDIDATE_WORKER_DB_ROLE" "$CANDIDATE_RECONCILER_DB_ROLE"; do
+for role_name in "$CANDIDATE_INTAKE_DB_ROLE" "$CANDIDATE_WORKER_DB_ROLE" "$CANDIDATE_RECONCILER_DB_ROLE"; do
   case "$role_name" in
     ''|*[!a-z0-9_]*) fail 'candidate role names must contain only lowercase letters, digits, and underscores' ;;
   esac
 done
-[ "$CANDIDATE_WORKER_DB_ROLE" != "$CANDIDATE_RECONCILER_DB_ROLE" ] \
-  || fail 'worker and reconciler role names must be distinct'
+[ "$CANDIDATE_INTAKE_DB_ROLE" != "$CANDIDATE_WORKER_DB_ROLE" ] \
+  && [ "$CANDIDATE_INTAKE_DB_ROLE" != "$CANDIDATE_RECONCILER_DB_ROLE" ] \
+  && [ "$CANDIDATE_WORKER_DB_ROLE" != "$CANDIDATE_RECONCILER_DB_ROLE" ] \
+  || fail 'intake, worker, and reconciler role names must be distinct'
 case "$CANDIDATE_DB_SCHEMA" in
   ''|*[!a-zA-Z0-9_]*) fail 'CANDIDATE_DB_SCHEMA must be a simple PostgreSQL identifier' ;;
 esac
-for app_name in "$CANDIDATE_WORKER_DB_APP_NAME" "$CANDIDATE_RECONCILER_DB_APP_NAME"; do
+for app_name in "$CANDIDATE_INTAKE_DB_APP_NAME" "$CANDIDATE_WORKER_DB_APP_NAME" "$CANDIDATE_RECONCILER_DB_APP_NAME"; do
   case "$app_name" in
     ''|*[!a-zA-Z0-9_-]*) fail 'candidate application names contain unsupported characters' ;;
   esac
@@ -87,15 +96,18 @@ export CANDIDATE_SECURITY_GRAPH_SHA256
 node "$SCRIPT_DIR/reject-ambient-candidate-libpq-env.mjs" candidate-role-enable
 
 ADMIN_DATABASE_URL=$DATABASE_ADMIN_URL
+INTAKE_DATABASE_URL=$CANDIDATE_INTAKE_DATABASE_URL
 WORKER_DATABASE_URL=$CANDIDATE_WORKER_DATABASE_URL
 RECONCILER_DATABASE_URL=$CANDIDATE_RECONCILER_DATABASE_URL
-unset DATABASE_ADMIN_URL CANDIDATE_WORKER_DATABASE_URL CANDIDATE_RECONCILER_DATABASE_URL
+unset DATABASE_ADMIN_URL CANDIDATE_INTAKE_DATABASE_URL CANDIDATE_WORKER_DATABASE_URL CANDIDATE_RECONCILER_DATABASE_URL
 
 connection_dir=$(mktemp -d "${TMPDIR:-/tmp}/foodsystems-candidate-enable.XXXXXX")
 ADMIN_PGPASSFILE=$connection_dir/admin.pgpass
+INTAKE_PGPASSFILE=$connection_dir/intake.pgpass
 WORKER_PGPASSFILE=$connection_dir/worker.pgpass
 RECONCILER_PGPASSFILE=$connection_dir/reconciler.pgpass
 ADMIN_TARGET_IDENTITY_FILE=$connection_dir/admin-target.json
+INTAKE_TARGET_IDENTITY_FILE=$connection_dir/intake-target.json
 WORKER_TARGET_IDENTITY_FILE=$connection_dir/worker-target.json
 RECONCILER_TARGET_IDENTITY_FILE=$connection_dir/reconciler-target.json
 connection_active=1
@@ -104,9 +116,11 @@ cleanup_connection() {
     unset PGPASSFILE
     rm -f \
       "$ADMIN_PGPASSFILE" \
+      "$INTAKE_PGPASSFILE" \
       "$WORKER_PGPASSFILE" \
       "$RECONCILER_PGPASSFILE" \
       "$ADMIN_TARGET_IDENTITY_FILE" \
+      "$INTAKE_TARGET_IDENTITY_FILE" \
       "$WORKER_TARGET_IDENTITY_FILE" \
       "$RECONCILER_TARGET_IDENTITY_FILE"
     rmdir "$connection_dir" 2>/dev/null || true
@@ -121,6 +135,7 @@ fail_safe_exit() {
   if [ "$fail_safe_active" -eq 1 ]; then
     if ! DATABASE_ADMIN_URL=$ADMIN_DATABASE_URL \
       CANDIDATE_WORKER_DB_ROLE=$CANDIDATE_WORKER_DB_ROLE \
+      CANDIDATE_INTAKE_DB_ROLE=$CANDIDATE_INTAKE_DB_ROLE \
       CANDIDATE_RECONCILER_DB_ROLE=$CANDIDATE_RECONCILER_DB_ROLE \
       CANDIDATE_DB_SCHEMA=$CANDIDATE_DB_SCHEMA \
       CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER=${CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER:-} \
@@ -133,7 +148,7 @@ fail_safe_exit() {
     exit_status=1
   fi
   cleanup_connection
-  unset ADMIN_DATABASE_URL WORKER_DATABASE_URL RECONCILER_DATABASE_URL
+  unset ADMIN_DATABASE_URL INTAKE_DATABASE_URL WORKER_DATABASE_URL RECONCILER_DATABASE_URL
   exit "$exit_status"
 }
 trap 'fail_safe_exit $?' EXIT
@@ -149,6 +164,13 @@ PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$ADMIN_DATABASE_URL \
 # capability, contract, activation, or verification failure fails back through
 # the target-A disable operation.
 fail_safe_active=1
+RAW_DATABASE_URL=$INTAKE_DATABASE_URL \
+  PGPASSFILE_PATH=$INTAKE_PGPASSFILE \
+  CANDIDATE_TARGET_IDENTITY_FILE=$INTAKE_TARGET_IDENTITY_FILE \
+  EXPECTED_URL_ROLE=$CANDIDATE_INTAKE_DB_ROLE \
+  EXPECTED_URL_APP=$CANDIDATE_INTAKE_DB_APP_NAME \
+  CANDIDATE_URL_CONTEXT=candidate-role-enable-intake \
+  node "$SCRIPT_DIR/normalize-candidate-postgres-url.mjs" >/dev/null
 RAW_DATABASE_URL=$WORKER_DATABASE_URL \
   PGPASSFILE_PATH=$WORKER_PGPASSFILE \
   CANDIDATE_TARGET_IDENTITY_FILE=$WORKER_TARGET_IDENTITY_FILE \
@@ -163,7 +185,8 @@ RAW_DATABASE_URL=$RECONCILER_DATABASE_URL \
   EXPECTED_URL_APP=$CANDIDATE_RECONCILER_DB_APP_NAME \
   CANDIDATE_URL_CONTEXT=candidate-role-enable-reconciler \
   node "$SCRIPT_DIR/normalize-candidate-postgres-url.mjs" >/dev/null
-if ! cmp -s "$ADMIN_TARGET_IDENTITY_FILE" "$WORKER_TARGET_IDENTITY_FILE" \
+if ! cmp -s "$ADMIN_TARGET_IDENTITY_FILE" "$INTAKE_TARGET_IDENTITY_FILE" \
+  || ! cmp -s "$ADMIN_TARGET_IDENTITY_FILE" "$WORKER_TARGET_IDENTITY_FILE" \
   || ! cmp -s "$ADMIN_TARGET_IDENTITY_FILE" "$RECONCILER_TARGET_IDENTITY_FILE"; then
   fail 'dedicated database URLs must match the exact admin endpoint and database'
 fi
@@ -196,8 +219,8 @@ case "$CANDIDATE_EXPECTED_TARGET_SERVER_PORT" in
   ''|*[!0-9]*) fail 'admin live server port identity is invalid' ;;
 esac
 unset ADMIN_LIVE_IDENTITY
-export CANDIDATE_WORKER_DB_ROLE CANDIDATE_RECONCILER_DB_ROLE CANDIDATE_DB_SCHEMA
-export CANDIDATE_WORKER_DB_APP_NAME CANDIDATE_RECONCILER_DB_APP_NAME
+export CANDIDATE_INTAKE_DB_ROLE CANDIDATE_WORKER_DB_ROLE CANDIDATE_RECONCILER_DB_ROLE CANDIDATE_DB_SCHEMA
+export CANDIDATE_INTAKE_DB_APP_NAME CANDIDATE_WORKER_DB_APP_NAME CANDIDATE_RECONCILER_DB_APP_NAME
 export CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER
 export CANDIDATE_EXPECTED_TARGET_DATABASE_HEX
 export CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX
@@ -232,9 +255,11 @@ psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 \
   -v expected_checker_sha256="$CANDIDATE_SECURITY_CHECKER_SHA256" \
   -v expected_graph_sha256="$CANDIDATE_SECURITY_GRAPH_SHA256" \
   -f - <<'SQL'
+\getenv intake_role CANDIDATE_INTAKE_DB_ROLE
 \getenv worker_role CANDIDATE_WORKER_DB_ROLE
 \getenv reconciler_role CANDIDATE_RECONCILER_DB_ROLE
 \getenv target_schema CANDIDATE_DB_SCHEMA
+\getenv intake_app_name CANDIDATE_INTAKE_DB_APP_NAME
 \getenv worker_app_name CANDIDATE_WORKER_DB_APP_NAME
 \getenv reconciler_app_name CANDIDATE_RECONCILER_DB_APP_NAME
 \getenv expected_system_identifier CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER
@@ -267,9 +292,11 @@ IN SHARE ROW EXCLUSIVE MODE;
 
 \i :security_attestation_sql
 
+SELECT set_config('foodsystems.candidate_intake_role', :'intake_role', true);
 SELECT set_config('foodsystems.candidate_worker_role', :'worker_role', true);
 SELECT set_config('foodsystems.candidate_reconciler_role', :'reconciler_role', true);
 SELECT set_config('foodsystems.candidate_schema', :'target_schema', true);
+SELECT set_config('foodsystems.candidate_intake_app_name', :'intake_app_name', true);
 SELECT set_config('foodsystems.candidate_worker_app_name', :'worker_app_name', true);
 SELECT set_config('foodsystems.candidate_reconciler_app_name', :'reconciler_app_name', true);
 SELECT set_config('foodsystems.candidate_target_system_identifier', :'expected_system_identifier', true);
@@ -278,9 +305,11 @@ SELECT set_config('foodsystems.candidate_target_server_address_hex', :'expected_
 SELECT set_config('foodsystems.candidate_target_server_port', :'expected_server_port', true);
 DO $preflight$
 DECLARE
+  target_intake_role text := current_setting('foodsystems.candidate_intake_role');
   target_worker_role text := current_setting('foodsystems.candidate_worker_role');
   target_reconciler_role text := current_setting('foodsystems.candidate_reconciler_role');
   target_schema text := current_setting('foodsystems.candidate_schema');
+  intake_app_name text := current_setting('foodsystems.candidate_intake_app_name');
   worker_app_name text := current_setting('foodsystems.candidate_worker_app_name');
   reconciler_app_name text := current_setting('foodsystems.candidate_reconciler_app_name');
   target_role text;
@@ -310,14 +339,14 @@ BEGIN
   END IF;
   IF EXISTS (
     SELECT role_name
-    FROM (VALUES (target_worker_role), (target_reconciler_role)) roles(role_name)
+    FROM (VALUES (target_intake_role), (target_worker_role), (target_reconciler_role)) roles(role_name)
     WHERE NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = role_name)
   ) THEN
-    RAISE EXCEPTION 'both exact candidate roles must exist before enable';
+    RAISE EXCEPTION 'all three exact candidate roles must exist before enable';
   END IF;
   IF EXISTS (
     SELECT 1 FROM pg_roles
-    WHERE rolname IN (target_worker_role, target_reconciler_role)
+    WHERE rolname IN (target_intake_role, target_worker_role, target_reconciler_role)
       AND (
         rolcanlogin OR rolsuper OR rolcreatedb OR rolcreaterole
         OR rolreplication OR rolbypassrls OR rolinherit OR rolconnlimit <> 10
@@ -330,8 +359,8 @@ BEGIN
     FROM pg_auth_members membership
     JOIN pg_roles granted ON granted.oid = membership.roleid
     JOIN pg_roles member ON member.oid = membership.member
-    WHERE granted.rolname IN (target_worker_role, target_reconciler_role)
-       OR member.rolname IN (target_worker_role, target_reconciler_role)
+    WHERE granted.rolname IN (target_intake_role, target_worker_role, target_reconciler_role)
+       OR member.rolname IN (target_intake_role, target_worker_role, target_reconciler_role)
   ) THEN
     RAISE EXCEPTION 'candidate roles must have no membership path before enable';
   END IF;
@@ -341,6 +370,13 @@ BEGIN
   recovery_issue := public.candidate_critical_trigger_drift(target_schema);
   IF recovery_issue IS NOT NULL THEN
     RAISE EXCEPTION 'candidate critical trigger drift: %', recovery_issue;
+  END IF;
+  recovery_issue := public.candidate_other_database_connect_issue(
+    target_intake_role,
+    target_worker_role
+  );
+  IF recovery_issue IS NOT NULL THEN
+    RAISE EXCEPTION 'other database CONNECT isolation prerequisite failed: %', recovery_issue;
   END IF;
   recovery_issue := public.candidate_other_database_connect_issue(
     target_worker_role,
@@ -353,6 +389,7 @@ BEGIN
   FOR target_role, role_mode, expected_app_name IN
     SELECT * FROM (VALUES
       (target_worker_role, 'worker', worker_app_name),
+      (target_intake_role, 'intake', intake_app_name),
       (target_reconciler_role, 'reconciler', reconciler_app_name)
     ) role_contract(role_name, mode_name, app_name)
   LOOP
@@ -368,6 +405,7 @@ BEGIN
         ('CandidatePromotionDecision')
     ), expected_select(relname) AS (
       SELECT relname FROM candidate_relation
+      WHERE role_mode <> 'intake'
       UNION ALL
       SELECT relname FROM (VALUES
         ('Document'), ('SourceDoc'), ('LibraryAnalysisRecord')
@@ -376,6 +414,8 @@ BEGIN
     ), expected_insert(relname) AS (
       SELECT NULL::text WHERE false
     ), expected_writer_routine(proname, argument_types) AS (
+      SELECT 'candidate_content_unit_append', 'jsonb' WHERE role_mode = 'intake'
+      UNION ALL
       SELECT 'candidate_worker_append', 'text, jsonb' WHERE role_mode = 'worker'
       UNION ALL
       SELECT 'candidate_reconciler_append', 'jsonb' WHERE role_mode = 'reconciler'
@@ -635,7 +675,7 @@ $preflight$;
 -- candidate sessions before LOGIN is restored, and require their disappearance.
 SELECT pg_terminate_backend(activity.pid, 5000)
 FROM pg_stat_activity activity
-WHERE activity.usename IN (:'worker_role', :'reconciler_role')
+WHERE activity.usename IN (:'intake_role', :'worker_role', :'reconciler_role')
   AND activity.pid <> pg_backend_pid();
 -- pg_stat_activity reuses its statistics snapshot inside this transaction.
 -- Refresh only after both bounded termination calls before checking survivors.
@@ -645,6 +685,7 @@ BEGIN
   IF EXISTS (
     SELECT 1 FROM pg_stat_activity activity
     WHERE activity.usename IN (
+      current_setting('foodsystems.candidate_intake_role'),
       current_setting('foodsystems.candidate_worker_role'),
       current_setting('foodsystems.candidate_reconciler_role')
     )
@@ -656,7 +697,7 @@ END
 $session_check$;
 
 SELECT format('ALTER ROLE %I LOGIN', role_name)
-FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
+FROM (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
 COMMIT;
 SQL
@@ -665,6 +706,13 @@ then
   exit 1
 fi
 
+CANDIDATE_INTAKE_DATABASE_URL=$INTAKE_DATABASE_URL \
+  CANDIDATE_ADMIN_DATABASE_URL=$ADMIN_DATABASE_URL \
+  CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER=$CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER \
+  CANDIDATE_EXPECTED_TARGET_DATABASE_HEX=$CANDIDATE_EXPECTED_TARGET_DATABASE_HEX \
+  CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX=$CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX \
+  CANDIDATE_EXPECTED_TARGET_SERVER_PORT=$CANDIDATE_EXPECTED_TARGET_SERVER_PORT \
+  "$SCRIPT_DIR/verify-candidate-analysis-roles.sh" --role=intake
 CANDIDATE_WORKER_DATABASE_URL=$WORKER_DATABASE_URL \
   CANDIDATE_ADMIN_DATABASE_URL=$ADMIN_DATABASE_URL \
   CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER=$CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER \
@@ -682,6 +730,6 @@ CANDIDATE_RECONCILER_DATABASE_URL=$RECONCILER_DATABASE_URL \
 
 fail_safe_active=0
 cleanup_connection
-unset ADMIN_DATABASE_URL WORKER_DATABASE_URL RECONCILER_DATABASE_URL
+unset ADMIN_DATABASE_URL INTAKE_DATABASE_URL WORKER_DATABASE_URL RECONCILER_DATABASE_URL
 trap - EXIT HUP INT TERM
-printf '%s\n' '[candidate-enable] PASS: existing worker and reconciler credentials verified'
+printf '%s\n' '[candidate-enable] PASS: existing intake, worker, and reconciler credentials verified'

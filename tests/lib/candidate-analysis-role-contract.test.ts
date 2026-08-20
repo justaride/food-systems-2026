@@ -35,6 +35,7 @@ import {
 } from "../../src/lib/knowledge/candidate-analysis-contract";
 import {
   createCandidateAnalysisWriter,
+  createCandidateContentUnitIntakeWriter,
   createCandidateReconciliationWriter,
 } from "../../src/lib/knowledge/candidate-analysis-writer";
 import { candidateAnalysisFixture } from "../fixtures/candidate-analysis-fixture";
@@ -124,6 +125,7 @@ async function waitFor(
 }
 
 type RecoveryFixture = {
+  intakeUrl: string;
   path: string;
   reconcilerUrl: string;
   workerUrl: string;
@@ -161,9 +163,11 @@ function prepareRecoveryFixture(
   });
   assert.equal(bootstrap.status, 0, bootstrap.stderr);
 
+  const intakePassword = "candidate-intake-recovery-test-password";
   const workerPassword = "candidate-worker-recovery-test-password";
   const reconcilerPassword = "candidate-reconciler-recovery-test-password";
   const provision = psql(`
+    ALTER ROLE foodsystems_candidate_intake PASSWORD '${intakePassword}';
     ALTER ROLE foodsystems_candidate_worker PASSWORD '${workerPassword}';
     ALTER ROLE foodsystems_candidate_reconciler PASSWORD '${reconcilerPassword}';
   `);
@@ -171,6 +175,7 @@ function prepareRecoveryFixture(
 
   return {
     path,
+    intakeUrl: `postgresql://foodsystems_candidate_intake:${intakePassword}@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-intake`,
     workerUrl: `postgresql://foodsystems_candidate_worker:${workerPassword}@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-worker`,
     reconcilerUrl: `postgresql://foodsystems_candidate_reconciler:${reconcilerPassword}@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-reconciler`,
   };
@@ -185,6 +190,7 @@ function recoveryEnableEnv(
     ...process.env,
     PATH: path,
     DATABASE_ADMIN_URL: databaseAdminUrl,
+    CANDIDATE_INTAKE_DATABASE_URL: fixture.intakeUrl,
     CANDIDATE_WORKER_DATABASE_URL: fixture.workerUrl,
     CANDIDATE_RECONCILER_DATABASE_URL: fixture.reconcilerUrl,
   };
@@ -883,12 +889,13 @@ test("candidate role scripts are explicit, credential-safe, and exact-allowlist"
     /NOINHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS/,
   );
   assert.doesNotMatch(bootstrap, /GRANT INSERT ON TABLE/);
+  assert.match(bootstrap, /GRANT EXECUTE ON FUNCTION %I\.candidate_content_unit_append/);
   assert.match(bootstrap, /GRANT EXECUTE ON FUNCTION %I\.candidate_worker_append/);
   assert.match(bootstrap, /GRANT EXECUTE ON FUNCTION %I\.candidate_reconciler_append/);
   assert.doesNotMatch(bootstrap, /GRANT (?:ALL|UPDATE|DELETE|TRUNCATE)/);
   assert.doesNotMatch(bootstrap, /review_operator|promotion_service/);
   assert.match(bootstrap, /CREATE ROLE %I NOLOGIN/);
-  assert.doesNotMatch(bootstrap, /CANDIDATE_(?:WORKER|RECONCILER)_DB_PASSWORD/);
+  assert.doesNotMatch(bootstrap, /CANDIDATE_(?:INTAKE|WORKER|RECONCILER)_DB_PASSWORD/);
   assert.doesNotMatch(bootstrap, /PASSWORD %L|Buffer\.from\([^\n]*password/i);
   assert.doesNotMatch(bootstrap, /REVOKE[^\n]*FROM PUBLIC/);
   assert.match(bootstrap, /incompatible PUBLIC or default ACL surface/i);
@@ -1006,6 +1013,12 @@ test(
           expected: "candidate_security_graph_hash_mismatch",
           sql: `GRANT EXECUTE ON FUNCTION
             public.candidate_worker_append(TEXT, JSONB) TO PUBLIC`,
+        },
+        {
+          name: "PUBLIC intake execute",
+          expected: "candidate_security_graph_hash_mismatch",
+          sql: `GRANT EXECUTE ON FUNCTION
+            public.candidate_content_unit_append(JSONB) TO PUBLIC`,
         },
         {
           name: "changed writer body",
@@ -1170,7 +1183,7 @@ test(
 );
 
 test(
-  "post-LOGIN semantic graph drift makes verification fail-safe disable both roles",
+  "post-LOGIN semantic graph drift makes verification fail-safe disable all candidate roles",
   { timeout: 45_000 },
   async (t) => {
     await withCandidateAnalysisPostgres(t, async (context) => {
@@ -1570,6 +1583,7 @@ exit 0
         args: ["--apply", "--confirm-existing-credentials"],
         urlEnvironment: {
           DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems`,
+          CANDIDATE_INTAKE_DATABASE_URL: `postgresql://foodsystems_candidate_intake:${secret}@example.invalid/foodsystems?application_name=foodsystems-candidate-intake`,
           CANDIDATE_WORKER_DATABASE_URL: `postgresql://foodsystems_candidate_worker:${secret}@example.invalid/foodsystems?application_name=foodsystems-candidate-worker`,
           CANDIDATE_RECONCILER_DATABASE_URL: `postgresql://foodsystems_candidate_reconciler:${secret}@example.invalid/foodsystems?application_name=foodsystems-candidate-reconciler`,
         },
@@ -1681,7 +1695,7 @@ test("explicit login recovery is guarded and has no credential mutation or loggi
 });
 
 test(
-  "type-only owner preflight holds while candidate bootstrap preserves NOLOGIN, explicit login recovery succeeds, and failed login recovery disables both roles",
+  "type-only owner preflight holds while candidate bootstrap preserves NOLOGIN, explicit login recovery succeeds, and failed login recovery disables all roles",
   { timeout: 60_000 },
   async (t) => {
     await withCandidateAnalysisPostgres(t, async ({ adminUrl, database, port, psql }) => {
@@ -1696,6 +1710,7 @@ test(
         CREATE FUNCTION sidecar.unrelated_fn() RETURNS integer
           LANGUAGE sql AS $$ SELECT 1 $$;
         CREATE ROLE candidate_inherited_writer NOLOGIN;
+        CREATE ROLE foodsystems_candidate_intake NOLOGIN NOINHERIT CONNECTION LIMIT 10;
         CREATE ROLE foodsystems_candidate_worker NOLOGIN NOINHERIT CONNECTION LIMIT 10;
         CREATE ROLE foodsystems_candidate_reconciler NOLOGIN NOINHERIT CONNECTION LIMIT 10;
         GRANT USAGE ON SCHEMA sidecar TO candidate_inherited_writer;
@@ -1709,8 +1724,10 @@ test(
       assert.equal(setup.status, 0, setup.stderr);
 
       const path = postgresPath();
+      const intakePassword = "candidate-intake-test-password";
       const workerPassword = "candidate-worker-test-password";
       const reconcilerPassword = "candidate-reconciler-test-password";
+      const intakeUrl = `postgresql://foodsystems_candidate_intake:${intakePassword}@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-intake`;
       const workerUrl = `postgresql://foodsystems_candidate_worker:${workerPassword}@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-worker`;
       const reconcilerUrl = `postgresql://foodsystems_candidate_reconciler:${reconcilerPassword}@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-reconciler`;
       const adminEnv = {
@@ -1927,6 +1944,7 @@ test(
       assert.equal(bootstrap.status, 0, bootstrap.stderr);
 
       const provisionLogins = () => psql(`
+        ALTER ROLE foodsystems_candidate_intake LOGIN PASSWORD '${intakePassword}';
         ALTER ROLE foodsystems_candidate_worker LOGIN PASSWORD '${workerPassword}';
         ALTER ROLE foodsystems_candidate_reconciler LOGIN PASSWORD '${reconcilerPassword}';
       `);
@@ -2285,6 +2303,7 @@ test(
             ...process.env,
             PATH: path,
             DATABASE_ADMIN_URL: adminUrl,
+            CANDIDATE_INTAKE_DATABASE_URL: intakeUrl,
             CANDIDATE_WORKER_DATABASE_URL: workerUrl,
             CANDIDATE_RECONCILER_DATABASE_URL: reconcilerUrl,
           },
@@ -2566,6 +2585,7 @@ test(
             ...process.env,
             PATH: path,
             DATABASE_ADMIN_URL: adminUrl,
+            CANDIDATE_INTAKE_DATABASE_URL: intakeUrl,
             CANDIDATE_WORKER_DATABASE_URL: workerUrl,
             CANDIDATE_RECONCILER_DATABASE_URL: reconcilerUrl,
           },
@@ -2643,6 +2663,7 @@ exec "${realPsql}" "$@"
               ...process.env,
               PATH: `${verifierFailureRoot}:${path}`,
               DATABASE_ADMIN_URL: adminUrl,
+              CANDIDATE_INTAKE_DATABASE_URL: intakeUrl,
               CANDIDATE_WORKER_DATABASE_URL: workerUrl,
               CANDIDATE_RECONCILER_DATABASE_URL: reconcilerUrl,
             },
@@ -2813,7 +2834,7 @@ test(
 );
 
 test(
-  "enable terminates stale candidate sessions before restoring both exact logins",
+  "enable terminates stale candidate sessions before restoring all exact logins",
   { timeout: 30_000 },
   async (t) => {
     await withCandidateAnalysisPostgres(t, async (context) => {
@@ -6077,11 +6098,20 @@ test(
         runId: "run:clean-activation:1",
         assertionId: "assertion:clean-activation:1",
       });
-      const adminPrisma = rolePrisma(context.adminUrl);
+      const intakePrisma = rolePrisma(fixture.intakeUrl);
       try {
-        await adminPrisma.candidateContentUnit.create({ data: analysis.contentUnit });
+        assert.deepEqual(
+          await createCandidateContentUnitIntakeWriter(
+            intakePrisma,
+          ).appendContentUnit(analysis.contentUnit),
+          { contentUnitId: analysis.contentUnit.id, created: true },
+        );
+        await assert.rejects(
+          () => intakePrisma.candidateContentUnit.findMany(),
+          /permission denied/i,
+        );
       } finally {
-        await adminPrisma.$disconnect();
+        await intakePrisma.$disconnect();
       }
       const workerPrisma = rolePrisma(fixture.workerUrl);
       try {
@@ -6117,18 +6147,27 @@ test(
       }
       const state = context.psql(`
         SELECT
+          (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_intake'),
           (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
           (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
           has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
           has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
           NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateHumanReviewDecision"', 'INSERT'),
           NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidatePromotionDecision"', 'INSERT'),
+          has_function_privilege('foodsystems_candidate_intake',
+            'public.candidate_content_unit_append(jsonb)', 'EXECUTE'),
+          NOT has_function_privilege('foodsystems_candidate_intake',
+            'public.candidate_worker_append(text,jsonb)', 'EXECUTE'),
+          NOT has_function_privilege('foodsystems_candidate_worker',
+            'public.candidate_content_unit_append(jsonb)', 'EXECUTE'),
+          NOT has_table_privilege('foodsystems_candidate_intake',
+            'public."CandidateContentUnit"', 'SELECT'),
           (SELECT count(*) FROM public."CandidateAnalysisRun" WHERE id = 'run:clean-activation:1'),
           (SELECT count(*) FROM public."CandidateReconciliationSnapshot"
             WHERE id = 'snapshot:clean-activation:1');
       `);
       assert.equal(state.status, 0, state.stderr);
-      assert.equal(state.stdout.trim(), "t|t|f|f|t|t|1|1");
+      assert.equal(state.stdout.trim(), "t|t|t|f|f|t|t|t|t|t|t|1|1");
     });
   },
 );

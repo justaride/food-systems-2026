@@ -51,6 +51,7 @@ import {
   type CandidateAnalysisWriter,
   CandidateAnalysisWriteConflict,
   createCandidateAnalysisWriter,
+  createCandidateContentUnitIntakeWriter,
   createCandidateReconciliationWriter,
   verifyCandidateWorkflowPromptBundle,
 } from "../../src/lib/knowledge/candidate-analysis-writer";
@@ -256,6 +257,36 @@ test("workflow verifier reads the exact selected analysis and validation bundles
     );
   }
 });
+
+test(
+  "content-unit intake is byte-idempotent and rejects immutable identity drift",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture();
+        const intake = createCandidateContentUnitIntakeWriter(prisma);
+
+        assert.deepEqual(await intake.appendContentUnit(fixture.contentUnit), {
+          contentUnitId: fixture.contentUnit.id,
+          created: true,
+        });
+        assert.deepEqual(await intake.appendContentUnit(fixture.contentUnit), {
+          contentUnitId: fixture.contentUnit.id,
+          created: false,
+        });
+        await assert.rejects(
+          () => intake.appendContentUnit({
+            ...fixture.contentUnit,
+            contentHash: "d".repeat(64),
+          }),
+          (error) => hasWriteCode(error, "immutable_history_conflict"),
+        );
+        assert.deepEqual(Object.keys(intake), ["appendContentUnit"]);
+      });
+    });
+  },
+);
 
 function summaryData(
   value: string,

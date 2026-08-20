@@ -1017,6 +1017,97 @@ REVOKE ALL ON FUNCTION public.candidate_json_nonempty_text_array(JSONB) FROM PUB
 REVOKE ALL ON FUNCTION public.candidate_writer_assert_open(TEXT) FROM PUBLIC;
 REVOKE ALL ON FUNCTION public.candidate_stored_output_manifest(TEXT) FROM PUBLIC;
 
+CREATE FUNCTION public.candidate_content_unit_append(write_payload JSONB)
+RETURNS JSONB
+LANGUAGE plpgsql
+VOLATILE
+SECURITY DEFINER
+SET search_path = pg_catalog
+AS $function$
+DECLARE
+  content_row public."CandidateContentUnit"%ROWTYPE;
+  existing_row public."CandidateContentUnit"%ROWTYPE;
+BEGIN
+  IF NOT public.candidate_json_keys_equal(write_payload, ARRAY[
+    'id', 'sourceKind', 'sourceKey', 'sourceVersionHash', 'unitType',
+    'ordinal', 'locator', 'locatorHash', 'contentHash', 'hashAlgorithm',
+    'identityConfidence'
+  ]) OR EXISTS (
+    SELECT 1 FROM unnest(ARRAY[
+      'id', 'sourceKind', 'sourceKey', 'sourceVersionHash', 'unitType',
+      'locator', 'locatorHash', 'contentHash', 'hashAlgorithm',
+      'identityConfidence'
+    ]) field(name)
+    WHERE jsonb_typeof(write_payload->field.name) IS DISTINCT FROM 'string'
+  ) OR NOT public.candidate_json_integer(write_payload->'ordinal')
+  THEN
+    RAISE EXCEPTION 'candidate_content_unit_input_schema_invalid';
+  END IF;
+
+  content_row := jsonb_populate_record(
+    NULL::public."CandidateContentUnit",
+    write_payload
+  );
+  IF content_row.id !~ '^[a-z0-9][a-z0-9._:-]*$'
+    OR content_row."sourceKind" !~ '^[a-z0-9][a-z0-9._:-]*$'
+    OR content_row."sourceKey" !~ '^[a-z0-9][a-z0-9._:-]*$'
+    OR content_row."sourceVersionHash" !~ '^[0-9a-f]{64}$'
+    OR content_row."contentHash" !~ '^[0-9a-f]{64}$'
+    OR content_row."hashAlgorithm" <> 'sha256'
+    OR content_row.ordinal < 0
+    OR btrim(content_row.locator) = ''
+    OR content_row."locatorHash" IS DISTINCT FROM public.candidate_writer_hash(
+      'evidence-locator', jsonb_build_object('locator', content_row.locator)
+    )
+  THEN
+    RAISE EXCEPTION 'candidate_content_unit_integrity_mismatch';
+  END IF;
+
+  PERFORM pg_advisory_xact_lock(hashtextextended(
+    'candidate-content:' || content_row."sourceKind" || ':' ||
+    content_row."sourceKey" || ':' || content_row."sourceVersionHash" || ':' ||
+    content_row."unitType"::TEXT || ':' || content_row.ordinal::TEXT,
+    0
+  ));
+  SELECT * INTO existing_row
+  FROM public."CandidateContentUnit"
+  WHERE "sourceKind" = content_row."sourceKind"
+    AND "sourceKey" = content_row."sourceKey"
+    AND "sourceVersionHash" = content_row."sourceVersionHash"
+    AND "unitType" = content_row."unitType"
+    AND ordinal = content_row.ordinal;
+
+  IF FOUND THEN
+    IF existing_row.id IS DISTINCT FROM content_row.id
+      OR existing_row.locator IS DISTINCT FROM content_row.locator
+      OR existing_row."locatorHash" IS DISTINCT FROM content_row."locatorHash"
+      OR existing_row."contentHash" IS DISTINCT FROM content_row."contentHash"
+      OR existing_row."hashAlgorithm" IS DISTINCT FROM content_row."hashAlgorithm"
+      OR existing_row."identityConfidence" IS DISTINCT FROM content_row."identityConfidence"
+    THEN
+      RAISE EXCEPTION 'candidate_content_unit_immutable_history_conflict';
+    END IF;
+    RETURN jsonb_build_object('contentUnitId', existing_row.id, 'created', false);
+  END IF;
+
+  INSERT INTO public."CandidateContentUnit" (
+    id, "sourceKind", "sourceKey", "sourceVersionHash", "unitType", ordinal,
+    locator, "locatorHash", "contentHash", "hashAlgorithm", "identityConfidence"
+  ) VALUES (
+    content_row.id, content_row."sourceKind", content_row."sourceKey",
+    content_row."sourceVersionHash", content_row."unitType", content_row.ordinal,
+    content_row.locator, content_row."locatorHash", content_row."contentHash",
+    content_row."hashAlgorithm", content_row."identityConfidence"
+  );
+  RETURN jsonb_build_object('contentUnitId', content_row.id, 'created', true);
+EXCEPTION
+  WHEN unique_violation THEN
+    RAISE EXCEPTION 'candidate_content_unit_immutable_history_conflict';
+END
+$function$;
+
+REVOKE ALL ON FUNCTION public.candidate_content_unit_append(JSONB) FROM PUBLIC;
+
 CREATE FUNCTION public.candidate_worker_append(
   writer_operation TEXT,
   write_payload JSONB
@@ -2020,6 +2111,7 @@ AS $function$
       ('public.candidate_json_nonempty_text_array(jsonb)'),
       ('public.candidate_writer_assert_open(text)'),
       ('public.candidate_stored_output_manifest(text)'),
+      ('public.candidate_content_unit_append(jsonb)'),
       ('public.candidate_worker_append(text,jsonb)'),
       ('public.candidate_reconciler_append(jsonb)'),
       ('public.reject_candidate_history_change()'),
@@ -2129,6 +2221,12 @@ BEGIN
   END IF;
 
   IF NOT EXISTS (
+    SELECT 1 FROM pg_proc procedure
+    WHERE procedure.oid = to_regprocedure(
+      'public.candidate_content_unit_append(jsonb)'
+    ) AND procedure.prosecdef AND NOT procedure.proisstrict
+      AND procedure.provolatile = 'v' AND procedure.proparallel = 'u'
+  ) OR NOT EXISTS (
     SELECT 1 FROM pg_proc procedure
     WHERE procedure.oid = to_regprocedure(
       'public.candidate_worker_append(text,jsonb)'

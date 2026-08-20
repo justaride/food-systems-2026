@@ -1,5 +1,5 @@
 #!/bin/sh
-# Emergency fail-safe for the two exact candidate roles on one attested target.
+# Emergency fail-safe for the three exact candidate roles on one attested target.
 set -eu
 
 usage() {
@@ -22,15 +22,19 @@ fail() {
 [ "$#" -eq 1 ] || { usage >&2; fail 'refusing to disable candidate writes without --apply'; }
 [ "$1" = '--apply' ] || { usage >&2; fail 'refusing to disable candidate writes without --apply'; }
 [ -n "${DATABASE_ADMIN_URL:-}" ] || fail 'DATABASE_ADMIN_URL is required'
+CANDIDATE_INTAKE_DB_ROLE=${CANDIDATE_INTAKE_DB_ROLE:-foodsystems_candidate_intake}
 CANDIDATE_WORKER_DB_ROLE=${CANDIDATE_WORKER_DB_ROLE:-foodsystems_candidate_worker}
 CANDIDATE_RECONCILER_DB_ROLE=${CANDIDATE_RECONCILER_DB_ROLE:-foodsystems_candidate_reconciler}
 CANDIDATE_DB_SCHEMA=${CANDIDATE_DB_SCHEMA:-public}
-for role_name in "$CANDIDATE_WORKER_DB_ROLE" "$CANDIDATE_RECONCILER_DB_ROLE"; do
+for role_name in "$CANDIDATE_INTAKE_DB_ROLE" "$CANDIDATE_WORKER_DB_ROLE" "$CANDIDATE_RECONCILER_DB_ROLE"; do
   case "$role_name" in
     ''|*[!a-z0-9_]*) fail 'candidate role names must contain only lowercase letters, digits, and underscores' ;;
   esac
 done
-[ "$CANDIDATE_WORKER_DB_ROLE" != "$CANDIDATE_RECONCILER_DB_ROLE" ] || fail 'worker and reconciler role names must be distinct'
+[ "$CANDIDATE_INTAKE_DB_ROLE" != "$CANDIDATE_WORKER_DB_ROLE" ] \
+  && [ "$CANDIDATE_INTAKE_DB_ROLE" != "$CANDIDATE_RECONCILER_DB_ROLE" ] \
+  && [ "$CANDIDATE_WORKER_DB_ROLE" != "$CANDIDATE_RECONCILER_DB_ROLE" ] \
+  || fail 'intake, worker and reconciler role names must be distinct'
 case "$CANDIDATE_DB_SCHEMA" in
   ''|*[!a-zA-Z0-9_]*) fail 'CANDIDATE_DB_SCHEMA must be a simple PostgreSQL identifier' ;;
 esac
@@ -83,11 +87,12 @@ case "$CANDIDATE_EXPECTED_TARGET_DATABASE_HEX" in ''|*[!0-9a-f]*) fail 'expected
 case "$CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX" in ''|*[!0-9a-f]*) fail 'expected target server address identity is invalid' ;; esac
 case "$CANDIDATE_EXPECTED_TARGET_SERVER_PORT" in ''|*[!0-9]*) fail 'expected target server port identity is invalid' ;; esac
 
-export CANDIDATE_WORKER_DB_ROLE CANDIDATE_RECONCILER_DB_ROLE CANDIDATE_DB_SCHEMA
+export CANDIDATE_INTAKE_DB_ROLE CANDIDATE_WORKER_DB_ROLE CANDIDATE_RECONCILER_DB_ROLE CANDIDATE_DB_SCHEMA
 export CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER CANDIDATE_EXPECTED_TARGET_DATABASE_HEX
 export CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX CANDIDATE_EXPECTED_TARGET_SERVER_PORT
 
 if ! psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 <<'SQL'
+\getenv intake_role CANDIDATE_INTAKE_DB_ROLE
 \getenv worker_role CANDIDATE_WORKER_DB_ROLE
 \getenv reconciler_role CANDIDATE_RECONCILER_DB_ROLE
 \getenv target_schema CANDIDATE_DB_SCHEMA
@@ -112,6 +117,7 @@ LOCK TABLE
   pg_catalog.pg_parameter_acl,
   pg_catalog.pg_shdepend
 IN SHARE ROW EXCLUSIVE MODE;
+SELECT set_config('foodsystems.candidate_intake_role', :'intake_role', true);
 SELECT set_config('foodsystems.candidate_worker_role', :'worker_role', true);
 SELECT set_config('foodsystems.candidate_reconciler_role', :'reconciler_role', true);
 SELECT set_config('foodsystems.candidate_target_system_identifier', :'expected_system_identifier', true);
@@ -129,13 +135,16 @@ BEGIN
     OR inet_server_port()::text <> current_setting('foodsystems.candidate_target_server_port') THEN
     RAISE EXCEPTION 'target_identity_mismatch: refusing candidate disable mutation';
   END IF;
-  IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = current_setting('foodsystems.candidate_worker_role'))
+  IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = current_setting('foodsystems.candidate_intake_role'))
+    OR NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = current_setting('foodsystems.candidate_worker_role'))
     OR NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = current_setting('foodsystems.candidate_reconciler_role')) THEN
-    RAISE EXCEPTION 'both exact candidate roles must exist before disable';
+    RAISE EXCEPTION 'all three exact candidate roles must exist before disable';
   END IF;
 END
 $preflight$;
 
+SELECT format('ALTER ROLE %I NOLOGIN', :'intake_role')
+\gexec
 SELECT format('ALTER ROLE %I NOLOGIN', :'worker_role')
 \gexec
 SELECT format('ALTER ROLE %I NOLOGIN', :'reconciler_role')
@@ -144,11 +153,11 @@ SELECT format('REVOKE %I FROM %I', granted.rolname, member.rolname)
 FROM pg_auth_members membership
 JOIN pg_roles granted ON granted.oid = membership.roleid
 JOIN pg_roles member ON member.oid = membership.member
-WHERE member.rolname IN (:'worker_role', :'reconciler_role') OR granted.rolname IN (:'worker_role', :'reconciler_role')
+WHERE member.rolname IN (:'intake_role', :'worker_role', :'reconciler_role') OR granted.rolname IN (:'intake_role', :'worker_role', :'reconciler_role')
 \gexec
 WITH user_schema AS (
   SELECT nspname FROM pg_namespace WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
-), candidate_role(role_name) AS (VALUES (:'worker_role'), (:'reconciler_role'))
+), candidate_role(role_name) AS (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role'))
 SELECT format('REVOKE INSERT ON ALL TABLES IN SCHEMA %I FROM %I', nspname, role_name)
 FROM user_schema CROSS JOIN candidate_role
 \gexec
@@ -160,19 +169,19 @@ WITH user_relation_columns AS (
   WHERE namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_'
     AND class.relkind IN ('r', 'p', 'v', 'm', 'f') AND attribute.attnum > 0 AND NOT attribute.attisdropped
   GROUP BY namespace.nspname, class.relname
-), candidate_role(role_name) AS (VALUES (:'worker_role'), (:'reconciler_role'))
+), candidate_role(role_name) AS (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role'))
 SELECT format('REVOKE INSERT (%s) ON TABLE %I.%I FROM %I', column_list, nspname, relname, role_name)
 FROM user_relation_columns CROSS JOIN candidate_role
 \gexec
 WITH user_schema AS (
   SELECT nspname FROM pg_namespace WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
-), candidate_role(role_name) AS (VALUES (:'worker_role'), (:'reconciler_role'))
+), candidate_role(role_name) AS (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role'))
 SELECT format('REVOKE EXECUTE ON ALL FUNCTIONS IN SCHEMA %I FROM %I', nspname, role_name)
 FROM user_schema CROSS JOIN candidate_role
 \gexec
 WITH user_schema AS (
   SELECT nspname FROM pg_namespace WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
-), candidate_role(role_name) AS (VALUES (:'worker_role'), (:'reconciler_role'))
+), candidate_role(role_name) AS (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role'))
 SELECT format('REVOKE EXECUTE ON ALL PROCEDURES IN SCHEMA %I FROM %I', nspname, role_name)
 FROM user_schema CROSS JOIN candidate_role
 \gexec
@@ -180,8 +189,9 @@ COMMIT;
 
 SELECT pg_terminate_backend(activity.pid, 5000)
 FROM pg_stat_activity activity
-WHERE activity.usename IN (:'worker_role', :'reconciler_role') AND activity.pid <> pg_backend_pid();
+WHERE activity.usename IN (:'intake_role', :'worker_role', :'reconciler_role') AND activity.pid <> pg_backend_pid();
 SELECT pg_stat_clear_snapshot();
+SELECT set_config('foodsystems.candidate_intake_role', :'intake_role', false);
 SELECT set_config('foodsystems.candidate_worker_role', :'worker_role', false);
 SELECT set_config('foodsystems.candidate_reconciler_role', :'reconciler_role', false);
 SELECT set_config('foodsystems.candidate_target_system_identifier', :'expected_system_identifier', false);
@@ -198,16 +208,19 @@ BEGIN
     RAISE EXCEPTION 'target_identity_mismatch: final disabled verification changed target';
   END IF;
   IF EXISTS (SELECT 1 FROM pg_roles WHERE rolname IN (
+      current_setting('foodsystems.candidate_intake_role'),
       current_setting('foodsystems.candidate_worker_role'),
       current_setting('foodsystems.candidate_reconciler_role')
     ) AND rolcanlogin)
     OR EXISTS (SELECT 1 FROM pg_stat_activity WHERE usename IN (
+      current_setting('foodsystems.candidate_intake_role'),
       current_setting('foodsystems.candidate_worker_role'),
       current_setting('foodsystems.candidate_reconciler_role')
     ) AND pid <> pg_backend_pid()) THEN
     RAISE EXCEPTION 'candidate disabled-state verification failed';
   END IF;
   FOR candidate_role_name IN SELECT * FROM (VALUES
+    (current_setting('foodsystems.candidate_intake_role')),
     (current_setting('foodsystems.candidate_worker_role')),
     (current_setting('foodsystems.candidate_reconciler_role'))
   ) role(role_name)
@@ -233,4 +246,4 @@ then
 fi
 
 printf '%s\n' '[candidate-disable] PASS: target-bound candidate writes disabled and verified; no rows were deleted'
-printf '%s\n' '[candidate-disable] recover only via bootstrap grants, existing-credential enable, worker verify, reconciler verify'
+printf '%s\n' '[candidate-disable] recover only via bootstrap grants, existing-credential enable, intake verify, worker verify, reconciler verify'

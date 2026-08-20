@@ -10,6 +10,7 @@ import {
   CandidateAnalysisRunInputSchema,
   CandidateAssertionInputSchema,
   CandidateDependencyInputSchema,
+  CandidateContentUnitInputSchema,
   CandidateEvidenceLinkInputSchema,
   CandidateReconciliationSnapshotInputSchema,
   candidateWorkflowProfile,
@@ -19,6 +20,7 @@ import {
   type CandidateAnalysisRunInput,
   type CandidateAssertionInput,
   type CandidateDependencyInput,
+  type CandidateContentUnitInput,
   type CandidateEvidenceLinkInput,
   type CandidateReconciliationSnapshotInput,
 } from "./candidate-analysis-contract";
@@ -68,6 +70,13 @@ export type CandidateAnalysisWriter = {
   appendDependency(
     input: CandidateDependencyInput,
   ): Promise<{ dependencyId: string }>;
+};
+
+export type CandidateContentUnitIntakeWriter = {
+  appendContentUnit(input: CandidateContentUnitInput): Promise<{
+    contentUnitId: string;
+    created: boolean;
+  }>;
 };
 
 export type CandidateReconciliationWriter = {
@@ -154,6 +163,19 @@ async function invokeCandidateReconcilerFunction<T>(
     ) AS result
   `;
   if (rows.length !== 1) throw new Error("candidate_reconciler_function_result_invalid");
+  return rows[0]!.result as T;
+}
+
+async function invokeCandidateContentUnitFunction<T>(
+  prisma: PrismaClient,
+  payload: unknown,
+): Promise<T> {
+  const rows = await prisma.$queryRaw<Array<{ result: Prisma.JsonValue }>>`
+    SELECT public.candidate_content_unit_append(
+      ${JSON.stringify(payload)}::jsonb
+    ) AS result
+  `;
+  if (rows.length !== 1) throw new Error("candidate_content_unit_function_result_invalid");
   return rows[0]!.result as T;
 }
 
@@ -383,6 +405,24 @@ export function createCandidateAnalysisWriter(
           "append_dependency",
           input,
         );
+      } catch (error) {
+        throwMappedDatabaseWriterConflict(error, "immutable_history_conflict");
+      }
+    },
+  };
+}
+
+export function createCandidateContentUnitIntakeWriter(
+  prisma: PrismaClient,
+): CandidateContentUnitIntakeWriter {
+  return {
+    async appendContentUnit(rawInput) {
+      const input = parseForWrite(CandidateContentUnitInputSchema, rawInput);
+      try {
+        return await invokeCandidateContentUnitFunction<{
+          contentUnitId: string;
+          created: boolean;
+        }>(prisma, input);
       } catch (error) {
         throwMappedDatabaseWriterConflict(error, "immutable_history_conflict");
       }

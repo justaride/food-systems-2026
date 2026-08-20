@@ -77,7 +77,7 @@ test(
       assert.equal(checkerDescriptor.split("\x1f").length, 5);
       assert.equal(
         graphRows.filter((row) => row.startsWith("routine/")).length,
-        20,
+        21,
       );
       assert.equal(
         graphRows.filter((row) => row.startsWith("table/")).length,

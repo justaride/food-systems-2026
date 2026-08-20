@@ -1,5 +1,5 @@
 #!/bin/sh
-# Create or maintain the two candidate-analysis authority roles and replace
+# Create or maintain the three candidate-analysis authority roles and replace
 # only their effective privilege paths with the reviewed Delivery 1 allowlists.
 set -eu
 
@@ -11,16 +11,19 @@ Required environment:
   DATABASE_ADMIN_URL                    PostgreSQL role/grant administrator URL
 
 Optional environment:
+  CANDIDATE_INTAKE_DB_ROLE              Default: foodsystems_candidate_intake
   CANDIDATE_WORKER_DB_ROLE              Default: foodsystems_candidate_worker
   CANDIDATE_RECONCILER_DB_ROLE          Default: foodsystems_candidate_reconciler
   CANDIDATE_DB_SCHEMA                   Default: public
+  CANDIDATE_INTAKE_DB_APP_NAME          Default: foodsystems-candidate-intake
   CANDIDATE_WORKER_DB_APP_NAME          Default: foodsystems-candidate-worker
   CANDIDATE_RECONCILER_DB_APP_NAME      Default: foodsystems-candidate-reconciler
 
 This operation never creates, changes, transports, or logs a login credential.
 Missing roles are created NOLOGIN. Initial credentials must be provisioned by a
 separate authorized operation. With existing dedicated credentials, restore in
-this order: bootstrap grants, explicit enable, worker verify, reconciler verify.
+this order: bootstrap grants, explicit enable, intake verify, worker verify,
+reconciler verify.
 Existing candidate roles must already be safely disabled before recovery; run
 disable-candidate-analysis-writes.sh --apply first, then rerun bootstrap. Recovery
 drains every other client session in the target database before restoring grants.
@@ -46,23 +49,27 @@ fail() {
 
 [ -n "${DATABASE_ADMIN_URL:-}" ] || fail 'DATABASE_ADMIN_URL is required'
 
+CANDIDATE_INTAKE_DB_ROLE=${CANDIDATE_INTAKE_DB_ROLE:-foodsystems_candidate_intake}
 CANDIDATE_WORKER_DB_ROLE=${CANDIDATE_WORKER_DB_ROLE:-foodsystems_candidate_worker}
 CANDIDATE_RECONCILER_DB_ROLE=${CANDIDATE_RECONCILER_DB_ROLE:-foodsystems_candidate_reconciler}
 CANDIDATE_DB_SCHEMA=${CANDIDATE_DB_SCHEMA:-public}
+CANDIDATE_INTAKE_DB_APP_NAME=${CANDIDATE_INTAKE_DB_APP_NAME:-foodsystems-candidate-intake}
 CANDIDATE_WORKER_DB_APP_NAME=${CANDIDATE_WORKER_DB_APP_NAME:-foodsystems-candidate-worker}
 CANDIDATE_RECONCILER_DB_APP_NAME=${CANDIDATE_RECONCILER_DB_APP_NAME:-foodsystems-candidate-reconciler}
 
-for role_name in "$CANDIDATE_WORKER_DB_ROLE" "$CANDIDATE_RECONCILER_DB_ROLE"; do
+for role_name in "$CANDIDATE_INTAKE_DB_ROLE" "$CANDIDATE_WORKER_DB_ROLE" "$CANDIDATE_RECONCILER_DB_ROLE"; do
   case "$role_name" in
     ''|*[!a-z0-9_]*) fail 'candidate role names must contain only lowercase letters, digits, and underscores' ;;
   esac
 done
-[ "$CANDIDATE_WORKER_DB_ROLE" != "$CANDIDATE_RECONCILER_DB_ROLE" ] \
-  || fail 'worker and reconciler role names must be distinct'
+[ "$CANDIDATE_INTAKE_DB_ROLE" != "$CANDIDATE_WORKER_DB_ROLE" ] \
+  && [ "$CANDIDATE_INTAKE_DB_ROLE" != "$CANDIDATE_RECONCILER_DB_ROLE" ] \
+  && [ "$CANDIDATE_WORKER_DB_ROLE" != "$CANDIDATE_RECONCILER_DB_ROLE" ] \
+  || fail 'intake, worker and reconciler role names must be distinct'
 case "$CANDIDATE_DB_SCHEMA" in
   ''|*[!a-zA-Z0-9_]*) fail 'CANDIDATE_DB_SCHEMA must be a simple PostgreSQL identifier' ;;
 esac
-for app_name in "$CANDIDATE_WORKER_DB_APP_NAME" "$CANDIDATE_RECONCILER_DB_APP_NAME"; do
+for app_name in "$CANDIDATE_INTAKE_DB_APP_NAME" "$CANDIDATE_WORKER_DB_APP_NAME" "$CANDIDATE_RECONCILER_DB_APP_NAME"; do
   case "$app_name" in
     ''|*[!a-zA-Z0-9_-]*) fail 'candidate application names contain unsupported characters' ;;
   esac
@@ -97,8 +104,8 @@ PSQL_DATABASE_URL=$(RAW_DATABASE_URL=$DATABASE_ADMIN_URL PGPASSFILE_PATH=$PGPASS
   CANDIDATE_URL_CONTEXT=candidate-roles \
   node "$SCRIPT_DIR/normalize-candidate-postgres-url.mjs")
 unset DATABASE_ADMIN_URL PGPASSWORD PGOPTIONS PGSERVICE PGSERVICEFILE
-export CANDIDATE_WORKER_DB_ROLE CANDIDATE_RECONCILER_DB_ROLE
-export CANDIDATE_DB_SCHEMA CANDIDATE_WORKER_DB_APP_NAME CANDIDATE_RECONCILER_DB_APP_NAME
+export CANDIDATE_INTAKE_DB_ROLE CANDIDATE_WORKER_DB_ROLE CANDIDATE_RECONCILER_DB_ROLE
+export CANDIDATE_DB_SCHEMA CANDIDATE_INTAKE_DB_APP_NAME CANDIDATE_WORKER_DB_APP_NAME CANDIDATE_RECONCILER_DB_APP_NAME
 
 printf '%s\n' '[candidate-roles] replacing candidate authority-role grants without credential changes'
 
@@ -107,13 +114,16 @@ psql "$PSQL_DATABASE_URL" -X -q -v ON_ERROR_STOP=1 \
   -v expected_checker_sha256="$CANDIDATE_SECURITY_CHECKER_SHA256" \
   -v expected_graph_sha256="$CANDIDATE_SECURITY_GRAPH_SHA256" \
   -f - <<'SQL'
+\getenv intake_role CANDIDATE_INTAKE_DB_ROLE
 \getenv worker_role CANDIDATE_WORKER_DB_ROLE
 \getenv reconciler_role CANDIDATE_RECONCILER_DB_ROLE
 \getenv target_schema CANDIDATE_DB_SCHEMA
+\getenv intake_app_name CANDIDATE_INTAKE_DB_APP_NAME
 \getenv worker_app_name CANDIDATE_WORKER_DB_APP_NAME
 \getenv reconciler_app_name CANDIDATE_RECONCILER_DB_APP_NAME
 
 SELECT set_config('foodsystems.candidate_schema', :'target_schema', false);
+SELECT set_config('foodsystems.candidate_intake_role', :'intake_role', false);
 SELECT set_config('foodsystems.candidate_worker_role', :'worker_role', false);
 SELECT set_config('foodsystems.candidate_reconciler_role', :'reconciler_role', false);
 DO $preflight$
@@ -161,6 +171,13 @@ BEGIN
   );
   IF recovery_issue IS NOT NULL THEN
     RAISE EXCEPTION 'candidate critical trigger drift: %', recovery_issue;
+  END IF;
+  recovery_issue := public.candidate_other_database_connect_issue(
+    current_setting('foodsystems.candidate_intake_role'),
+    current_setting('foodsystems.candidate_worker_role')
+  );
+  IF recovery_issue IS NOT NULL THEN
+    RAISE EXCEPTION 'other database CONNECT isolation prerequisite failed: %', recovery_issue;
   END IF;
   recovery_issue := public.candidate_other_database_connect_issue(
     current_setting('foodsystems.candidate_worker_role'),
@@ -272,6 +289,7 @@ BEGIN
   IF EXISTS (
     SELECT 1 FROM pg_roles role
     WHERE role.rolname IN (
+      current_setting('foodsystems.candidate_intake_role'),
       current_setting('foodsystems.candidate_worker_role'),
       current_setting('foodsystems.candidate_reconciler_role')
     ) AND (
@@ -285,9 +303,11 @@ BEGIN
     JOIN pg_roles granted ON granted.oid = membership.roleid
     JOIN pg_roles member ON member.oid = membership.member
     WHERE granted.rolname IN (
+      current_setting('foodsystems.candidate_intake_role'),
       current_setting('foodsystems.candidate_worker_role'),
       current_setting('foodsystems.candidate_reconciler_role')
     ) OR member.rolname IN (
+      current_setting('foodsystems.candidate_intake_role'),
       current_setting('foodsystems.candidate_worker_role'),
       current_setting('foodsystems.candidate_reconciler_role')
     )
@@ -295,6 +315,7 @@ BEGIN
     WITH candidate_role AS (
       SELECT oid FROM pg_roles
       WHERE rolname IN (
+        current_setting('foodsystems.candidate_intake_role'),
         current_setting('foodsystems.candidate_worker_role'),
         current_setting('foodsystems.candidate_reconciler_role')
       )
@@ -315,6 +336,7 @@ BEGIN
     WITH candidate_role AS (
       SELECT oid FROM pg_roles
       WHERE rolname IN (
+        current_setting('foodsystems.candidate_intake_role'),
         current_setting('foodsystems.candidate_worker_role'),
         current_setting('foodsystems.candidate_reconciler_role')
       )
@@ -399,6 +421,13 @@ BEGIN
     RAISE EXCEPTION 'candidate critical trigger drift: %', recovery_issue;
   END IF;
   recovery_issue := public.candidate_other_database_connect_issue(
+    current_setting('foodsystems.candidate_intake_role'),
+    current_setting('foodsystems.candidate_worker_role')
+  );
+  IF recovery_issue IS NOT NULL THEN
+    RAISE EXCEPTION 'other database CONNECT isolation prerequisite failed: %', recovery_issue;
+  END IF;
+  recovery_issue := public.candidate_other_database_connect_issue(
     current_setting('foodsystems.candidate_worker_role'),
     current_setting('foodsystems.candidate_reconciler_role')
   );
@@ -508,6 +537,7 @@ BEGIN
   IF EXISTS (
     SELECT 1 FROM pg_roles role
     WHERE role.rolname IN (
+      current_setting('foodsystems.candidate_intake_role'),
       current_setting('foodsystems.candidate_worker_role'),
       current_setting('foodsystems.candidate_reconciler_role')
     ) AND (
@@ -521,9 +551,11 @@ BEGIN
     JOIN pg_roles granted ON granted.oid = membership.roleid
     JOIN pg_roles member ON member.oid = membership.member
     WHERE granted.rolname IN (
+      current_setting('foodsystems.candidate_intake_role'),
       current_setting('foodsystems.candidate_worker_role'),
       current_setting('foodsystems.candidate_reconciler_role')
     ) OR member.rolname IN (
+      current_setting('foodsystems.candidate_intake_role'),
       current_setting('foodsystems.candidate_worker_role'),
       current_setting('foodsystems.candidate_reconciler_role')
     )
@@ -531,6 +563,7 @@ BEGIN
     WITH candidate_role AS (
       SELECT oid FROM pg_roles
       WHERE rolname IN (
+        current_setting('foodsystems.candidate_intake_role'),
         current_setting('foodsystems.candidate_worker_role'),
         current_setting('foodsystems.candidate_reconciler_role')
       )
@@ -551,6 +584,7 @@ BEGIN
     WITH candidate_role AS (
       SELECT oid FROM pg_roles
       WHERE rolname IN (
+        current_setting('foodsystems.candidate_intake_role'),
         current_setting('foodsystems.candidate_worker_role'),
         current_setting('foodsystems.candidate_reconciler_role')
       )
@@ -607,7 +641,7 @@ END
 $drain$;
 
 SELECT format('CREATE ROLE %I NOLOGIN', role_name)
-FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
+FROM (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')) roles(role_name)
 WHERE NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = role_name)
 \gexec
 
@@ -615,10 +649,10 @@ SELECT format(
   'ALTER ROLE %I WITH NOINHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS CONNECTION LIMIT 10',
   role_name
 )
-FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
+FROM (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
 WITH candidate_role(role_name) AS (
-  VALUES (:'worker_role'), (:'reconciler_role')
+  VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')
 )
 SELECT format(
   'REVOKE ALL PRIVILEGES ON PARAMETER %I FROM %I',
@@ -629,7 +663,7 @@ FROM pg_parameter_acl parameter
 CROSS JOIN candidate_role
 \gexec
 -- Candidate roles are cluster-global, and explicit login recovery rejects any
--- database-specific candidate setting. Clear only rows owned by these two exact
+-- database-specific candidate setting. Clear only rows owned by these three exact
 -- roles, across databases, so no per-database override can defeat global defaults.
 SELECT format(
   'ALTER ROLE %I IN DATABASE %I RESET ALL',
@@ -639,19 +673,19 @@ SELECT format(
 FROM pg_db_role_setting setting
 JOIN pg_roles role ON role.oid = setting.setrole
 JOIN pg_database database ON database.oid = setting.setdatabase
-WHERE role.rolname IN (:'worker_role', :'reconciler_role')
+WHERE role.rolname IN (:'intake_role', :'worker_role', :'reconciler_role')
   AND setting.setdatabase <> 0
 ORDER BY role.rolname, database.datname
 \gexec
 SELECT format('ALTER ROLE %I RESET ALL', role_name)
-FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
+FROM (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
 SELECT format(
   'ALTER ROLE %I SET session_replication_role TO %L',
   role_name,
   'origin'
 )
-FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
+FROM (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
 
 -- A candidate login must not be able to SET ROLE through inherited membership.
@@ -659,41 +693,41 @@ SELECT format('REVOKE %I FROM %I', granted.rolname, member.rolname)
 FROM pg_auth_members membership
 JOIN pg_roles granted ON granted.oid = membership.roleid
 JOIN pg_roles member ON member.oid = membership.member
-WHERE member.rolname IN (:'worker_role', :'reconciler_role')
+WHERE member.rolname IN (:'intake_role', :'worker_role', :'reconciler_role')
 \gexec
 -- No stronger login may SET ROLE into a candidate identity either.
 SELECT format('REVOKE %I FROM %I', granted.rolname, member.rolname)
 FROM pg_auth_members membership
 JOIN pg_roles granted ON granted.oid = membership.roleid
 JOIN pg_roles member ON member.oid = membership.member
-WHERE granted.rolname IN (:'worker_role', :'reconciler_role')
+WHERE granted.rolname IN (:'intake_role', :'worker_role', :'reconciler_role')
 \gexec
 
 SELECT format('REVOKE ALL PRIVILEGES ON DATABASE %I FROM %I', current_database(), role_name)
-FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
+FROM (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
 SELECT format('GRANT CONNECT ON DATABASE %I TO %I', current_database(), role_name)
-FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
+FROM (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
 
 WITH user_schema AS (
   SELECT nspname FROM pg_namespace
   WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
 ), candidate_role(role_name) AS (
-  VALUES (:'worker_role'), (:'reconciler_role')
+  VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')
 )
 SELECT format('REVOKE ALL PRIVILEGES ON SCHEMA %I FROM %I', nspname, role_name)
 FROM user_schema CROSS JOIN candidate_role
 \gexec
 SELECT format('GRANT USAGE ON SCHEMA %I TO %I', :'target_schema', role_name)
-FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
+FROM (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
 
 WITH user_schema AS (
   SELECT nspname FROM pg_namespace
   WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
 ), candidate_role(role_name) AS (
-  VALUES (:'worker_role'), (:'reconciler_role')
+  VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')
 )
 SELECT format('REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA %I FROM %I', nspname, role_name)
 FROM user_schema CROSS JOIN candidate_role
@@ -711,7 +745,7 @@ WITH user_relation_columns AS (
     AND attribute.attnum > 0 AND NOT attribute.attisdropped
   GROUP BY namespace.nspname, class.relname
 ), candidate_role(role_name) AS (
-  VALUES (:'worker_role'), (:'reconciler_role')
+  VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')
 )
 SELECT format(
   'REVOKE ALL PRIVILEGES (%s) ON TABLE %I.%I FROM %I',
@@ -750,7 +784,7 @@ WITH user_schema AS (
   SELECT nspname FROM pg_namespace
   WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
 ), candidate_role(role_name) AS (
-  VALUES (:'worker_role'), (:'reconciler_role')
+  VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')
 )
 SELECT format('REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA %I FROM %I', nspname, role_name)
 FROM user_schema CROSS JOIN candidate_role
@@ -759,7 +793,7 @@ WITH user_schema AS (
   SELECT nspname FROM pg_namespace
   WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
 ), candidate_role(role_name) AS (
-  VALUES (:'worker_role'), (:'reconciler_role')
+  VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')
 )
 SELECT format('REVOKE ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA %I FROM %I', nspname, role_name)
 FROM user_schema CROSS JOIN candidate_role
@@ -768,10 +802,15 @@ WITH user_schema AS (
   SELECT nspname FROM pg_namespace
   WHERE nspname <> 'information_schema' AND nspname !~ '^pg_'
 ), candidate_role(role_name) AS (
-  VALUES (:'worker_role'), (:'reconciler_role')
+  VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')
 )
 SELECT format('REVOKE ALL PRIVILEGES ON ALL PROCEDURES IN SCHEMA %I FROM %I', nspname, role_name)
 FROM user_schema CROSS JOIN candidate_role
+\gexec
+SELECT format(
+  'GRANT EXECUTE ON FUNCTION %I.candidate_content_unit_append(JSONB) TO %I',
+  :'target_schema', :'intake_role'
+)
 \gexec
 SELECT format(
   'GRANT EXECUTE ON FUNCTION %I.candidate_worker_append(TEXT, JSONB) TO %I',
@@ -793,7 +832,7 @@ WITH default_acl AS (
   WHERE defaults.defaclnamespace = 0
      OR (namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_')
 ), candidate_role(role_name) AS (
-  VALUES (:'worker_role'), (:'reconciler_role')
+  VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')
 )
 SELECT format(
   'ALTER DEFAULT PRIVILEGES FOR ROLE %I%s REVOKE ALL PRIVILEGES ON %s FROM %I',
@@ -806,24 +845,26 @@ FROM default_acl CROSS JOIN candidate_role
 WHERE defaclobjtype IN ('r', 'S', 'f')
 \gexec
 SELECT format('ALTER ROLE %I SET statement_timeout TO %L', role_name, '15s')
-FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
+FROM (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
 SELECT format('ALTER ROLE %I SET lock_timeout TO %L', role_name, '2s')
-FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
+FROM (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
 SELECT format('ALTER ROLE %I SET idle_in_transaction_session_timeout TO %L', role_name, '15s')
-FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
+FROM (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
 SELECT format('ALTER ROLE %I SET search_path TO %I, %I', role_name, 'pg_catalog', :'target_schema')
-FROM (VALUES (:'worker_role'), (:'reconciler_role')) roles(role_name)
+FROM (VALUES (:'intake_role'), (:'worker_role'), (:'reconciler_role')) roles(role_name)
 \gexec
 SELECT format('ALTER ROLE %I SET application_name TO %L', :'worker_role', :'worker_app_name')
 \gexec
 SELECT format('ALTER ROLE %I SET application_name TO %L', :'reconciler_role', :'reconciler_app_name')
 \gexec
+SELECT format('ALTER ROLE %I SET application_name TO %L', :'intake_role', :'intake_app_name')
+\gexec
 
 COMMIT;
 SQL
 
-printf '%s\n' '[candidate-roles] recovery epoch and candidate grants complete; both roles remain NOLOGIN'
+printf '%s\n' '[candidate-roles] recovery epoch and candidate grants complete; all three roles remain NOLOGIN'
 printf '%s\n' '[candidate-roles] explicit enable is still required before verifying or starting candidate workers'
