@@ -441,7 +441,7 @@ BEGIN
     WHEN 'object' THEN
       SELECT '{' || COALESCE(string_agg(
         to_jsonb(item.key)::TEXT || ':' || public.candidate_canonical_json(item.value),
-        ',' ORDER BY item.key COLLATE "C"
+        ',' ORDER BY convert_to(item.key, 'UTF8')
       ), '') || '}'
         INTO canonical_value
         FROM jsonb_each(candidate_value) AS item(key, value);
@@ -1097,7 +1097,10 @@ BEGIN
       OR run_row."promptVersion" <> '1.0.0'
       OR run_row."promptPath" <> 'knowledge/corpus/workflows/candidate-analysis-prompt-v1.md'
       OR run_row."promptHash" <> '483d34ca87cb5cdaae0923e617f78defafece7825e0afd5ef2e07b3261127e85'
-      OR run_row."configHash" IS DISTINCT FROM public.candidate_writer_hash('run-config', run_row.config)
+      OR (write_payload->'config') IS NULL
+      OR run_row."configHash" IS DISTINCT FROM public.candidate_writer_hash(
+        'run-config', write_payload->'config'
+      )
       OR run_row."outputProfile" <> 'candidate_only'
       OR btrim(run_row."modelProvider") = ''
       OR btrim(run_row."modelName") = ''
@@ -1242,7 +1245,7 @@ BEGIN
       run_row."workflowVersion", run_row."workflowPath", run_row."workflowHash",
       run_row."promptId", run_row."promptVersion", run_row."promptPath",
       run_row."promptHash", run_row."modelProvider", run_row."modelName",
-      run_row."modelVersion", run_row.config, run_row."configHash",
+      run_row."modelVersion", write_payload->'config', run_row."configHash",
       run_row."inputEnvelopeHash", run_row.purpose, run_row."outputProfile",
       run_row."workerId", run_row."idempotencyKey", run_row.attempt,
       run_row."predecessorRunId"
@@ -1746,7 +1749,8 @@ BEGIN
       'id', 'runId', 'scopeHash', 'payloadHash'
     ]) field(name)
     WHERE jsonb_typeof(write_payload->field.name) IS DISTINCT FROM 'string'
-  ) OR jsonb_typeof(write_payload->'payload') IS DISTINCT FROM 'object'
+  ) OR (write_payload->'scope') IS NULL
+    OR jsonb_typeof(write_payload->'payload') IS DISTINCT FROM 'object'
     OR NOT public.candidate_json_integer(write_payload->'conflictCount')
   THEN
     RAISE EXCEPTION 'candidate_reconciliation_input_schema_invalid';
@@ -1762,7 +1766,7 @@ BEGIN
   IF snapshot_row.id !~ '^[a-z0-9][a-z0-9._:-]*$'
     OR snapshot_row."runId" !~ '^[a-z0-9][a-z0-9._:-]*$'
     OR snapshot_row."scopeHash" IS DISTINCT FROM public.candidate_writer_hash(
-      'reconciliation-scope', snapshot_row.scope
+      'reconciliation-scope', write_payload->'scope'
     )
     OR snapshot_row."payloadHash" IS DISTINCT FROM public.candidate_writer_hash(
       'reconciliation-payload', snapshot_row.payload
@@ -1774,7 +1778,7 @@ BEGIN
   INSERT INTO public."CandidateReconciliationSnapshot" (
     id, "runId", scope, "scopeHash", payload, "payloadHash", "conflictCount"
   ) VALUES (
-    snapshot_row.id, snapshot_row."runId", snapshot_row.scope,
+    snapshot_row.id, snapshot_row."runId", write_payload->'scope',
     snapshot_row."scopeHash", snapshot_row.payload, snapshot_row."payloadHash",
     snapshot_row."conflictCount"
   );

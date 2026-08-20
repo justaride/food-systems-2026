@@ -154,6 +154,11 @@ test("migration makes every candidate history table immutable and private from P
   ]) {
     assert.match(sql, new RegExp(`REVOKE ALL ON FUNCTION public\\.${signature.replace(/[()]/g, "\\$&")} FROM PUBLIC`));
   }
+  assert.match(
+    sql,
+    /ORDER BY convert_to\(item\.key, 'UTF8'\)/,
+    "candidate object keys must use UTF-8 byte ordering",
+  );
 });
 
 test(

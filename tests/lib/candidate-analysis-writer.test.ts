@@ -31,6 +31,7 @@ import {
   candidateAnalysisArtifactPayloadHash,
   candidateAnalysisAssertionPayloadHash,
   candidateAnalysisAssertionScopeHash,
+  candidateAnalysisConfigHash,
   candidateAnalysisEvidenceLocatorHash,
   candidateAnalysisInputEnvelopeHash,
   candidateAnalysisOutputManifestHash,
@@ -39,6 +40,8 @@ import {
   candidateAnalysisRunEventHash,
   candidateAnalysisRunIdempotencyKey,
   candidateAnalysisRunScopeHash,
+  candidateAnalysisSha256,
+  canonicalCandidateJson,
   CANDIDATE_PROMPT_BINDING,
   CANDIDATE_WORKFLOW_BINDING,
   type CandidateOutputManifest,
@@ -239,6 +242,102 @@ function noContradictionsData(): CandidateReconciliationSnapshotInput["payload"]
     entries: [{ role: "contradiction", valueType: "flag", value: false }],
   };
 }
+
+test(
+  "PostgreSQL canonical candidate JSON matches TypeScript for parity vectors",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const parityValues = [
+          null,
+          {},
+          [],
+          { config: null, nested: [null, { ok: true }] },
+          { "\uE000": 1, "😀": 2 },
+          { quoted: '"\\\n', exponent: 1e21, negativeZero: -0 },
+        ] as const;
+
+        for (const value of parityValues) {
+          const [row] = await prisma.$queryRawUnsafe<
+            Array<{ canonical: string; writerHash: string }>
+          >(
+            `SELECT
+               public.candidate_canonical_json($1::jsonb) AS canonical,
+               public.candidate_writer_hash('parity-test', $1::jsonb) AS "writerHash"`,
+            JSON.stringify(value),
+          );
+          assert.equal(row?.canonical, canonicalCandidateJson(value));
+          assert.equal(
+            row?.writerHash,
+            candidateAnalysisSha256("parity-test", value),
+          );
+        }
+      });
+    });
+  },
+);
+
+test(
+  "candidate writers preserve JSON null instead of SQL NULL",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl }) => {
+      await withPrisma(adminUrl, async (prisma) => {
+        const fixture = candidateAnalysisFixture();
+        await seedContentUnit(prisma, fixture.contentUnit);
+        const writer = createCandidateAnalysisWriter(prisma);
+        const run = resealRun(fixture.run, {
+          config: null,
+          configHash: candidateAnalysisConfigHash(null),
+        });
+        await writer.createRun(run);
+
+        const reconciler = createCandidateReconciliationWriter(prisma);
+        const payload = {
+          namespace: "candidate" as const,
+          kind: "reconciliation" as const,
+          data: noContradictionsData(),
+        };
+        await reconciler.appendSnapshot({
+          id: "snapshot:json-null",
+          runId: run.id,
+          scope: null,
+          scopeHash: candidateAnalysisReconciliationScopeHash(null),
+          payload,
+          payloadHash: candidateAnalysisReconciliationPayloadHash(payload),
+          conflictCount: 0,
+        });
+
+        const [stored] = await prisma.$queryRawUnsafe<
+          Array<{
+            configJsonNull: boolean;
+            configSqlNull: boolean;
+            scopeJsonNull: boolean;
+            scopeSqlNull: boolean;
+          }>
+        >(
+          `SELECT
+             run.config = 'null'::jsonb AS "configJsonNull",
+             run.config IS NULL AS "configSqlNull",
+             snapshot.scope = 'null'::jsonb AS "scopeJsonNull",
+             snapshot.scope IS NULL AS "scopeSqlNull"
+           FROM "CandidateAnalysisRun" run
+           JOIN "CandidateReconciliationSnapshot" snapshot
+             ON snapshot."runId" = run.id
+           WHERE run.id = $1`,
+          fixture.run.id,
+        );
+        assert.deepEqual(stored, {
+          configJsonNull: true,
+          configSqlNull: false,
+          scopeJsonNull: true,
+          scopeSqlNull: false,
+        });
+      });
+    });
+  },
+);
 
 async function seedTwoAssertions(prisma: ReturnType<typeof candidatePrisma>) {
   const fixture = candidateAnalysisFixture();
