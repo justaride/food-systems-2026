@@ -57,7 +57,7 @@ test(
     assert.equal(result.loaderAliasCount, 17);
     assert.equal(result.systemDylibReferenceCount, 9);
     assert.equal(result.dyldCacheFileCount, 13);
-    assert.equal(result.totalRuntimeBytes, 5_810_881_056);
+    assert.equal(result.totalRuntimeBytes, 5_831_016_992);
     assert.equal(
       result.psqlFileSha256,
       "5d5b74a77b010cb7e199af2288e099c72c54b0f27039bf99233ed1a6eec76b66",

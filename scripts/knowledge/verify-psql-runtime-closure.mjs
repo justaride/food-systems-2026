@@ -20,11 +20,11 @@ export const POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_VERSION = 2;
 export const POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_DOMAIN =
   "food-systems-2026:postgresql-toolset-runtime-closure:v2\0";
 export const POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256 =
-  "2f102d12bb738a5ec935e52a76cb6b156e58d86ef8e56a2bef3711c087de7bf0";
+  "a77c02d31b0daf8f02e81eabc15f30aebc7b2a7fd3b9d045dddb2940b7d0db39";
 export const POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_MANIFEST_PATH =
-  "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-03.v1.json";
+  "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-20.v1.json";
 export const POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_MANIFEST_SHA256 =
-  "7d0ac827430cd0d60c3884ac98fc5769223861fee17a18dd9375b10852fd8fdb";
+  "3047d302cc81c27ebbbbf1a40577091d0154509b13b9a4a8520c033e353a9c09";
 
 // Compatibility exports keep the wider source-registration contract stable.
 // The bound closure is now the complete four-binary PostgreSQL toolset.

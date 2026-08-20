@@ -66,11 +66,12 @@ check leaves FD5 untouched.
 The attestation binds the active Node executable, Node version, the complete
 resolved `node_modules` tree, the generated Prisma-client tree, the local
 source runtime binding and the sealed PostgreSQL toolset and extension
-closures. The three repository manifests are byte-pinned to the existing
-2026-08-03 seals; their closure hashes are not regenerated here:
+closures. The three repository manifests are byte-pinned to the current seals
+(the Node and PostgreSQL toolset closures were re-sealed 2026-08-20 after a
+macOS dyld-cache update; the extension closure keeps its 2026-08-03 seal):
 
-- Node runtime closure: `52cb48e8c77925a28d5c21574ea9867540ac71c88ba556ae3a48218bc67509bf`;
-- PostgreSQL toolset closure: `2f102d12bb738a5ec935e52a76cb6b156e58d86ef8e56a2bef3711c087de7bf0`;
+- Node runtime closure: `4a5fb0d0903d4d0c78118c6bfda4e12796ff7a7f7d723db3b25a84d7ef6de04b`;
+- PostgreSQL toolset closure: `a77c02d31b0daf8f02e81eabc15f30aebc7b2a7fd3b9d045dddb2940b7d0db39`;
 - PostgreSQL extension closure: `3b5540bc6b1d6fd25335b0f094470ee8da5214f09f04feabb583a06aa3b7487c`.
 
 The sealed manifest bytes and every declared runtime object are rehashed. A
