@@ -48,6 +48,9 @@ const bootstrapPath = resolve("scripts/bootstrap-candidate-analysis-roles.sh");
 const disablePath = resolve("scripts/disable-candidate-analysis-writes.sh");
 const enablePath = resolve("scripts/enable-candidate-analysis-logins.sh");
 const verifyPath = resolve("scripts/verify-candidate-analysis-roles.sh");
+const securityGraphManifestPath = resolve(
+  "scripts/candidate-security-graph.v1.json",
+);
 const ambientGuardPath = resolve("scripts/reject-ambient-candidate-libpq-env.mjs");
 const urlHelperPath = resolve("scripts/normalize-candidate-postgres-url.mjs");
 const bootstrapApplyArgs = [
@@ -896,6 +899,110 @@ test("candidate role scripts are explicit, credential-safe, and exact-allowlist"
   assert.match(disable, /pg_terminate_backend/);
   assert.doesNotMatch(disable, /DROP (?:TABLE|ROLE)|DELETE FROM|TRUNCATE/);
 });
+
+test(
+  "candidate security graph detects routine owner ABI body ACL and trigger drift",
+  { timeout: 45_000 },
+  async (t) => {
+    const manifest = JSON.parse(
+      readFileSync(securityGraphManifestPath, "utf8"),
+    ) as { checkerSha256: string; graphSha256: string };
+    assert.match(manifest.checkerSha256, /^[a-f0-9]{64}$/);
+    assert.match(manifest.graphSha256, /^[a-f0-9]{64}$/);
+    await withCandidateAnalysisPostgres(t, async ({ psql }) => {
+      const driftSql = `COALESCE(public.candidate_security_graph_drift(
+        '${manifest.checkerSha256}', '${manifest.graphSha256}'
+      ), 'clean')`;
+      const clean = psql(`SELECT ${driftSql}`);
+      assert.equal(clean.status, 0, clean.stderr);
+      assert.equal(clean.stdout.trim(), "clean");
+
+      const role = psql("CREATE ROLE candidate_wrong_owner NOLOGIN");
+      assert.equal(role.status, 0, role.stderr);
+
+      const mutations = [
+        {
+          name: "wrong routine owner",
+          expected: "candidate_security_owner_drift",
+          sql: `ALTER FUNCTION public.candidate_worker_append(TEXT, JSONB)
+            OWNER TO candidate_wrong_owner`,
+        },
+        {
+          name: "writer security invoker",
+          expected: "candidate_writer_abi_drift",
+          sql: `ALTER FUNCTION public.candidate_worker_append(TEXT, JSONB)
+            SECURITY INVOKER`,
+        },
+        {
+          name: "writer search path",
+          expected: "candidate_security_graph_hash_mismatch",
+          sql: `ALTER FUNCTION public.candidate_worker_append(TEXT, JSONB)
+            SET search_path = public`,
+        },
+        {
+          name: "PUBLIC writer execute",
+          expected: "candidate_security_graph_hash_mismatch",
+          sql: `GRANT EXECUTE ON FUNCTION
+            public.candidate_worker_append(TEXT, JSONB) TO PUBLIC`,
+        },
+        {
+          name: "changed writer body",
+          expected: "candidate_security_graph_hash_mismatch",
+          sql: `CREATE OR REPLACE FUNCTION
+            public.candidate_worker_append(writer_operation TEXT, write_payload JSONB)
+            RETURNS JSONB LANGUAGE plpgsql VOLATILE SECURITY DEFINER
+            SET search_path = pg_catalog AS $body$
+            BEGIN RETURN '{}'::JSONB; END
+            $body$`,
+        },
+        {
+          name: "trigger retargeting",
+          expected: "candidate_trigger_function_drift",
+          sql: `DROP TRIGGER "CandidateAnalysisRun_reject_invalid_scope"
+              ON public."CandidateAnalysisRun";
+            CREATE TRIGGER "CandidateAnalysisRun_reject_invalid_scope"
+              BEFORE INSERT ON public."CandidateAnalysisRun"
+              FOR EACH ROW EXECUTE FUNCTION
+              public.reject_candidate_history_change();
+            ALTER TABLE public."CandidateAnalysisRun" ENABLE ALWAYS TRIGGER
+              "CandidateAnalysisRun_reject_invalid_scope"`,
+        },
+        {
+          name: "trigger timing",
+          expected: "candidate_trigger_identity_drift",
+          sql: `DROP TRIGGER "CandidateContentUnit_reject_update_delete"
+              ON public."CandidateContentUnit";
+            CREATE TRIGGER "CandidateContentUnit_reject_update_delete"
+              AFTER UPDATE OR DELETE ON public."CandidateContentUnit"
+              FOR EACH ROW EXECUTE FUNCTION
+              public.reject_candidate_history_change();
+            ALTER TABLE public."CandidateContentUnit" ENABLE ALWAYS TRIGGER
+              "CandidateContentUnit_reject_update_delete"`,
+        },
+        {
+          name: "unexpected custom trigger",
+          expected: "candidate_trigger_identity_drift",
+          sql: `CREATE TRIGGER "CandidateContentUnit_unexpected"
+              BEFORE UPDATE ON public."CandidateContentUnit"
+              FOR EACH ROW EXECUTE FUNCTION
+              public.reject_candidate_history_change();
+            ALTER TABLE public."CandidateContentUnit" ENABLE ALWAYS TRIGGER
+              "CandidateContentUnit_unexpected"`,
+        },
+      ] as const;
+
+      for (const mutation of mutations) {
+        const result = psql(`BEGIN; ${mutation.sql}; SELECT ${driftSql}; ROLLBACK`);
+        assert.equal(result.status, 0, `${mutation.name}: ${result.stderr}`);
+        const driftCodes = result.stdout
+          .split("\n")
+          .map((line) => line.trim())
+          .filter((line) => line.startsWith("candidate_"));
+        assert.deepEqual(driftCodes, [mutation.expected], mutation.name);
+      }
+    });
+  },
+);
 
 test("bootstrap database-session-drain CLI rejects every non-exact call before psql", () => {
   const tempRoot = mkdtempSync(join(tmpdir(), "candidate-bootstrap-drain-cli-"));

@@ -1883,8 +1883,351 @@ AS $function$
   FROM reachable
 $function$;
 
+CREATE FUNCTION public.candidate_security_routine_descriptor(routine_oid OID)
+RETURNS TEXT
+LANGUAGE sql
+STABLE
+STRICT
+SECURITY INVOKER
+SET search_path = pg_catalog
+AS $function$
+  SELECT string_agg(
+    field.name || '=' || encode(convert_to(field.value, 'UTF8'), 'base64'),
+    E'\n' ORDER BY field.ordinal
+  )
+  FROM pg_proc procedure
+  JOIN pg_namespace namespace ON namespace.oid = procedure.pronamespace
+  JOIN pg_language language ON language.oid = procedure.prolang
+  CROSS JOIN LATERAL (VALUES
+    (1, 'schema', namespace.nspname),
+    (2, 'name', procedure.proname),
+    (3, 'identity_arguments', pg_get_function_identity_arguments(procedure.oid)),
+    (4, 'argument_modes', COALESCE(procedure.proargmodes::TEXT, '')),
+    (5, 'return_type', pg_get_function_result(procedure.oid)),
+    (6, 'returns_set', procedure.proretset::TEXT),
+    (7, 'prokind', procedure.prokind::TEXT),
+    (8, 'language', language.lanname),
+    (9, 'probin', COALESCE(procedure.probin, '')),
+    (10, 'prosrc', procedure.prosrc),
+    (11, 'prosqlbody', COALESCE(procedure.prosqlbody::TEXT, '')),
+    (12, 'owner_is_database_owner', (
+      procedure.proowner = (
+        SELECT database.datdba FROM pg_database database
+        WHERE database.datname = current_database()
+      )
+    )::TEXT),
+    (13, 'security_definer', procedure.prosecdef::TEXT),
+    (14, 'strict', procedure.proisstrict::TEXT),
+    (15, 'leakproof', procedure.proleakproof::TEXT),
+    (16, 'volatility', procedure.provolatile::TEXT),
+    (17, 'parallel', procedure.proparallel::TEXT),
+    (18, 'config', COALESCE((
+      SELECT string_agg(setting, E'\x1f' ORDER BY setting COLLATE "C")
+      FROM unnest(procedure.proconfig) setting
+    ), '')),
+    (19, 'public_execute', EXISTS (
+      SELECT 1
+      FROM aclexplode(COALESCE(
+        procedure.proacl,
+        acldefault('f', procedure.proowner)
+      )) privilege
+      WHERE privilege.grantee = 0
+        AND privilege.privilege_type = 'EXECUTE'
+    )::TEXT)
+  ) AS field(ordinal, name, value)
+  WHERE procedure.oid = routine_oid
+$function$;
+
+CREATE FUNCTION public.candidate_security_trigger_descriptor(trigger_oid OID)
+RETURNS TEXT
+LANGUAGE sql
+STABLE
+STRICT
+SECURITY INVOKER
+SET search_path = pg_catalog
+AS $function$
+  SELECT string_agg(
+    field.name || '=' || encode(convert_to(field.value, 'UTF8'), 'base64'),
+    E'\n' ORDER BY field.ordinal
+  )
+  FROM pg_trigger trigger
+  JOIN pg_class class ON class.oid = trigger.tgrelid
+  JOIN pg_namespace table_namespace ON table_namespace.oid = class.relnamespace
+  JOIN pg_proc procedure ON procedure.oid = trigger.tgfoid
+  JOIN pg_namespace routine_namespace ON routine_namespace.oid = procedure.pronamespace
+  CROSS JOIN LATERAL (VALUES
+    (1, 'schema', table_namespace.nspname),
+    (2, 'table', class.relname),
+    (3, 'trigger', trigger.tgname),
+    (4, 'internal', trigger.tgisinternal::TEXT),
+    (5, 'enabled', trigger.tgenabled::TEXT),
+    (6, 'type', trigger.tgtype::TEXT),
+    (7, 'routine', format(
+      '%I.%I(%s)', routine_namespace.nspname, procedure.proname,
+      pg_get_function_identity_arguments(procedure.oid)
+    )),
+    (8, 'deferrable', trigger.tgdeferrable::TEXT),
+    (9, 'initially_deferred', trigger.tginitdeferred::TEXT),
+    (10, 'arguments_hex', encode(trigger.tgargs, 'hex')),
+    (11, 'attributes', trigger.tgattr::TEXT),
+    (12, 'qualification', COALESCE(trigger.tgqual::TEXT, '')),
+    (13, 'definition', pg_get_triggerdef(trigger.oid, false))
+  ) AS field(ordinal, name, value)
+  WHERE trigger.oid = trigger_oid
+$function$;
+
+CREATE FUNCTION public.candidate_security_checker_descriptor()
+RETURNS TEXT
+LANGUAGE sql
+STABLE
+SECURITY INVOKER
+SET search_path = pg_catalog
+AS $function$
+  WITH required(ordinal, signature) AS (
+    VALUES
+      (1, 'public.candidate_security_routine_descriptor(oid)'),
+      (2, 'public.candidate_security_trigger_descriptor(oid)'),
+      (3, 'public.candidate_security_checker_descriptor()'),
+      (4, 'public.candidate_security_graph_descriptor()'),
+      (5, 'public.candidate_security_graph_drift(text,text)')
+  )
+  SELECT string_agg(
+    required.signature || E'\x1e' || COALESCE(
+      public.candidate_security_routine_descriptor(
+        to_regprocedure(required.signature)::OID
+      ),
+      'missing'
+    ),
+    E'\x1f' ORDER BY required.ordinal
+  )
+  FROM required
+$function$;
+
+CREATE FUNCTION public.candidate_security_graph_descriptor()
+RETURNS TEXT
+LANGUAGE sql
+STABLE
+SECURITY INVOKER
+SET search_path = pg_catalog
+AS $function$
+  WITH required_routine(signature) AS (
+    VALUES
+      ('public.candidate_json_number_to_javascript(jsonb)'),
+      ('public.candidate_canonical_json(jsonb)'),
+      ('public.candidate_writer_hash(text,jsonb)'),
+      ('public.candidate_json_keys_equal(jsonb,text[])'),
+      ('public.candidate_json_integer(jsonb)'),
+      ('public.candidate_json_nonempty_text_array(jsonb)'),
+      ('public.candidate_writer_assert_open(text)'),
+      ('public.candidate_stored_output_manifest(text)'),
+      ('public.candidate_worker_append(text,jsonb)'),
+      ('public.candidate_reconciler_append(jsonb)'),
+      ('public.reject_candidate_history_change()'),
+      ('public.reject_invalid_candidate_run_scope()'),
+      ('public.reject_invalid_candidate_machine_payload()'),
+      ('public.candidate_critical_trigger_drift(text)'),
+      ('public.candidate_other_database_connect_issue(text,text)'),
+      ('public.candidate_security_routine_descriptor(oid)'),
+      ('public.candidate_security_trigger_descriptor(oid)'),
+      ('public.candidate_security_checker_descriptor()'),
+      ('public.candidate_security_graph_descriptor()'),
+      ('public.candidate_security_graph_drift(text,text)')
+  ), candidate_table(relname) AS (
+    VALUES
+      ('CandidateContentUnit'), ('CandidateAnalysisRun'),
+      ('CandidateAnalysisRunInput'), ('CandidateAnalysisRunEvent'),
+      ('CandidateAnalysisArtifact'), ('CandidateAssertion'),
+      ('CandidateEvidenceLink'), ('CandidateDependency'),
+      ('CandidateReconciliationSnapshot'), ('CandidateHumanReviewDecision'),
+      ('CandidatePromotionDecision')
+  ), descriptor(label, value) AS (
+    SELECT 'routine/' || signature,
+      COALESCE(public.candidate_security_routine_descriptor(
+        to_regprocedure(signature)::OID
+      ), 'missing')
+    FROM required_routine
+    UNION ALL
+    SELECT 'table/public.' || candidate_table.relname,
+      'owner_is_database_owner=' || COALESCE((
+        SELECT (class.relowner = database.datdba)::TEXT
+        FROM pg_class class
+        JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+        JOIN pg_database database ON database.datname = current_database()
+        WHERE namespace.nspname = 'public'
+          AND class.relname = candidate_table.relname
+          AND class.relkind IN ('r', 'p')
+      ), 'missing')
+    FROM candidate_table
+    UNION ALL
+    SELECT 'trigger/public.' || class.relname || '/' || trigger.tgname,
+      public.candidate_security_trigger_descriptor(trigger.oid)
+    FROM pg_trigger trigger
+    JOIN pg_class class ON class.oid = trigger.tgrelid
+    JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+    WHERE namespace.nspname = 'public'
+      AND class.relname IN (SELECT relname FROM candidate_table)
+      AND NOT trigger.tgisinternal
+  )
+  SELECT string_agg(
+    descriptor.label || E'\x1e' || descriptor.value,
+    E'\x1f' ORDER BY descriptor.label COLLATE "C"
+  )
+  FROM descriptor
+$function$;
+
+CREATE FUNCTION public.candidate_security_graph_drift(
+  expected_checker_sha256 TEXT,
+  expected_graph_sha256 TEXT
+)
+RETURNS TEXT
+LANGUAGE plpgsql
+STABLE
+SECURITY INVOKER
+SET search_path = pg_catalog
+AS $function$
+DECLARE
+  actual_checker_sha256 TEXT;
+  actual_graph_sha256 TEXT;
+BEGIN
+  IF expected_checker_sha256 !~ '^[0-9a-f]{64}$'
+    OR expected_graph_sha256 !~ '^[0-9a-f]{64}$' THEN
+    RETURN 'candidate_security_checker_drift';
+  END IF;
+
+  actual_checker_sha256 := encode(sha256(convert_to(
+    public.candidate_security_checker_descriptor(), 'UTF8'
+  )), 'hex');
+  IF actual_checker_sha256 IS DISTINCT FROM expected_checker_sha256 THEN
+    RETURN 'candidate_security_checker_drift';
+  END IF;
+
+  IF EXISTS (
+    SELECT 1
+    FROM pg_class class
+    JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+    JOIN pg_database database ON database.datname = current_database()
+    WHERE namespace.nspname = 'public'
+      AND class.relname IN (
+        'CandidateContentUnit', 'CandidateAnalysisRun',
+        'CandidateAnalysisRunInput', 'CandidateAnalysisRunEvent',
+        'CandidateAnalysisArtifact', 'CandidateAssertion',
+        'CandidateEvidenceLink', 'CandidateDependency',
+        'CandidateReconciliationSnapshot', 'CandidateHumanReviewDecision',
+        'CandidatePromotionDecision'
+      )
+      AND class.relowner <> database.datdba
+  ) OR EXISTS (
+    SELECT 1
+    FROM pg_proc procedure
+    JOIN pg_namespace namespace ON namespace.oid = procedure.pronamespace
+    JOIN pg_database database ON database.datname = current_database()
+    WHERE namespace.nspname = 'public'
+      AND procedure.proname LIKE 'candidate_%'
+      AND procedure.proowner <> database.datdba
+  ) THEN
+    RETURN 'candidate_security_owner_drift';
+  END IF;
+
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_proc procedure
+    WHERE procedure.oid = to_regprocedure(
+      'public.candidate_worker_append(text,jsonb)'
+    ) AND procedure.prosecdef AND NOT procedure.proisstrict
+      AND procedure.provolatile = 'v' AND procedure.proparallel = 'u'
+  ) OR NOT EXISTS (
+    SELECT 1 FROM pg_proc procedure
+    WHERE procedure.oid = to_regprocedure(
+      'public.candidate_reconciler_append(jsonb)'
+    ) AND procedure.prosecdef AND NOT procedure.proisstrict
+      AND procedure.provolatile = 'v' AND procedure.proparallel = 'u'
+  ) THEN
+    RETURN 'candidate_writer_abi_drift';
+  END IF;
+
+  IF public.candidate_critical_trigger_drift('public') IS NOT NULL
+    OR EXISTS (
+      SELECT 1
+      FROM pg_trigger trigger
+      JOIN pg_class class ON class.oid = trigger.tgrelid
+      JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+      WHERE namespace.nspname = 'public'
+        AND NOT trigger.tgisinternal
+        AND class.relname IN (
+          'CandidateContentUnit', 'CandidateAnalysisRun',
+          'CandidateAnalysisRunInput', 'CandidateAnalysisRunEvent',
+          'CandidateAnalysisArtifact', 'CandidateAssertion',
+          'CandidateEvidenceLink', 'CandidateDependency',
+          'CandidateReconciliationSnapshot', 'CandidateHumanReviewDecision',
+          'CandidatePromotionDecision'
+        )
+        AND (
+          trigger.tgdeferrable OR trigger.tginitdeferred
+          OR octet_length(trigger.tgargs) <> 0
+          OR trigger.tgattr::TEXT <> ''
+          OR trigger.tgqual IS NOT NULL
+          OR trigger.tgtype::INTEGER <> CASE
+            WHEN trigger.tgname LIKE '%_reject_update_delete' THEN 27
+            WHEN trigger.tgname LIKE '%_reject_truncate' THEN 34
+            WHEN trigger.tgname LIKE '%_reject_invalid_scope' THEN 7
+            WHEN trigger.tgname LIKE '%_reject_invalid_machine_payload' THEN 7
+            ELSE -1
+          END
+        )
+    ) THEN
+    RETURN 'candidate_trigger_identity_drift';
+  END IF;
+
+  IF EXISTS (
+    SELECT 1
+    FROM pg_trigger trigger
+    JOIN pg_class class ON class.oid = trigger.tgrelid
+    JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+    JOIN pg_proc procedure ON procedure.oid = trigger.tgfoid
+    JOIN pg_namespace routine_namespace ON routine_namespace.oid = procedure.pronamespace
+    WHERE namespace.nspname = 'public'
+      AND NOT trigger.tgisinternal
+      AND class.relname IN (
+        'CandidateContentUnit', 'CandidateAnalysisRun',
+        'CandidateAnalysisRunInput', 'CandidateAnalysisRunEvent',
+        'CandidateAnalysisArtifact', 'CandidateAssertion',
+        'CandidateEvidenceLink', 'CandidateDependency',
+        'CandidateReconciliationSnapshot', 'CandidateHumanReviewDecision',
+        'CandidatePromotionDecision'
+      )
+      AND (
+        routine_namespace.nspname <> 'public'
+        OR procedure.proname <> CASE
+          WHEN trigger.tgname LIKE '%_reject_update_delete'
+            OR trigger.tgname LIKE '%_reject_truncate'
+            THEN 'reject_candidate_history_change'
+          WHEN trigger.tgname LIKE '%_reject_invalid_scope'
+            THEN 'reject_invalid_candidate_run_scope'
+          WHEN trigger.tgname LIKE '%_reject_invalid_machine_payload'
+            THEN 'reject_invalid_candidate_machine_payload'
+          ELSE ''
+        END
+      )
+  ) THEN
+    RETURN 'candidate_trigger_function_drift';
+  END IF;
+
+  actual_graph_sha256 := encode(sha256(convert_to(
+    public.candidate_security_graph_descriptor(), 'UTF8'
+  )), 'hex');
+  IF actual_graph_sha256 IS DISTINCT FROM expected_graph_sha256 THEN
+    RETURN 'candidate_security_graph_hash_mismatch';
+  END IF;
+  RETURN NULL;
+END
+$function$;
+
 REVOKE ALL ON FUNCTION public.candidate_critical_trigger_drift(TEXT) FROM PUBLIC;
 REVOKE ALL ON FUNCTION public.candidate_other_database_connect_issue(TEXT, TEXT) FROM PUBLIC;
+REVOKE ALL ON FUNCTION public.candidate_security_routine_descriptor(OID) FROM PUBLIC;
+REVOKE ALL ON FUNCTION public.candidate_security_trigger_descriptor(OID) FROM PUBLIC;
+REVOKE ALL ON FUNCTION public.candidate_security_checker_descriptor() FROM PUBLIC;
+REVOKE ALL ON FUNCTION public.candidate_security_graph_descriptor() FROM PUBLIC;
+REVOKE ALL ON FUNCTION public.candidate_security_graph_drift(TEXT, TEXT) FROM PUBLIC;
 
 REVOKE ALL PRIVILEGES ON TABLE "CandidateContentUnit" FROM PUBLIC;
 CREATE TRIGGER "CandidateContentUnit_reject_update_delete" BEFORE UPDATE OR DELETE ON "CandidateContentUnit" FOR EACH ROW EXECUTE FUNCTION public.reject_candidate_history_change();

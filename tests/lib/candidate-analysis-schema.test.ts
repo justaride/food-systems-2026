@@ -14,6 +14,85 @@ function modelBlock(schema: string, model: string): string {
   return match[0];
 }
 
+type CandidateSecurityGraphManifest = {
+  manifestVersion: string;
+  postgresMajor: number;
+  ownerPolicy: string;
+  checkerSha256: string;
+  graphSha256: string;
+};
+
+function candidateSecurityGraphManifest(): CandidateSecurityGraphManifest {
+  const manifest = JSON.parse(
+    readFileSync("scripts/candidate-security-graph.v1.json", "utf8"),
+  ) as Record<string, unknown>;
+  assert.deepEqual(Object.keys(manifest).sort(), [
+    "checkerSha256",
+    "graphSha256",
+    "manifestVersion",
+    "ownerPolicy",
+    "postgresMajor",
+  ]);
+  assert.equal(manifest.manifestVersion, "candidate-security-graph-v1");
+  assert.equal(manifest.postgresMajor, 16);
+  assert.equal(manifest.ownerPolicy, "database_owner");
+  assert.match(String(manifest.checkerSha256), /^[a-f0-9]{64}$/);
+  assert.match(String(manifest.graphSha256), /^[a-f0-9]{64}$/);
+  return manifest as CandidateSecurityGraphManifest;
+}
+
+test(
+  "candidate security graph manifest matches the disposable PostgreSQL graph",
+  { timeout: 45_000 },
+  async (t) => {
+    const manifest = candidateSecurityGraphManifest();
+    await withCandidateAnalysisPostgres(t, async ({ psql }) => {
+      const result = psql(`
+        SELECT
+          encode(sha256(convert_to(public.candidate_security_checker_descriptor(), 'UTF8')), 'hex'),
+          encode(sha256(convert_to(public.candidate_security_graph_descriptor(), 'UTF8')), 'hex'),
+          COALESCE(public.candidate_security_graph_drift(
+            '${manifest.checkerSha256}', '${manifest.graphSha256}'
+          ), 'clean')
+      `);
+      assert.equal(result.status, 0, result.stderr);
+      assert.equal(
+        result.stdout.trim(),
+        `${manifest.checkerSha256}|${manifest.graphSha256}|clean`,
+      );
+      const descriptors = psql(`
+        SELECT
+          replace(encode(convert_to(
+            public.candidate_security_checker_descriptor(), 'UTF8'
+          ), 'base64'), chr(10), ''),
+          replace(encode(convert_to(
+            public.candidate_security_graph_descriptor(), 'UTF8'
+          ), 'base64'), chr(10), '')
+      `);
+      assert.equal(descriptors.status, 0, descriptors.stderr);
+      const [checkerBase64, graphBase64] = descriptors.stdout.trim().split("|");
+      const checkerDescriptor = Buffer.from(checkerBase64!, "base64").toString();
+      const graphDescriptor = Buffer.from(graphBase64!, "base64").toString();
+      const graphRows = graphDescriptor.split("\x1f");
+      assert.equal(checkerDescriptor.split("\x1f").length, 5);
+      assert.equal(
+        graphRows.filter((row) => row.startsWith("routine/")).length,
+        20,
+      );
+      assert.equal(
+        graphRows.filter((row) => row.startsWith("table/")).length,
+        11,
+      );
+      assert.equal(
+        graphRows.filter((row) => row.startsWith("trigger/")).length,
+        27,
+      );
+      assert.doesNotMatch(graphDescriptor, /owner_is_database_owner=ZmFsc2U=/);
+      assert.doesNotMatch(graphDescriptor, /public_execute=dHJ1ZQ==/);
+    });
+  },
+);
+
 test("models independent machine, review and target-specific promotion history", () => {
   const schema = readFileSync("prisma/schema.prisma", "utf8");
   for (const model of [
