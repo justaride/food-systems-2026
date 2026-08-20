@@ -48,11 +48,11 @@ export const SOURCE_REGISTRATION_RUNTIME_CLOSURE_DOMAIN =
 export const SOURCE_REGISTRATION_RUNTIME_ENVELOPE_DOMAIN =
   "food-systems-2026:source-registration-runtime-envelope:v1\0";
 export const SOURCE_REGISTRATION_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_CLOSURE_SHA256 =
-  "2f102d12bb738a5ec935e52a76cb6b156e58d86ef8e56a2bef3711c087de7bf0";
+  "a77c02d31b0daf8f02e81eabc15f30aebc7b2a7fd3b9d045dddb2940b7d0db39";
 export const SOURCE_REGISTRATION_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256 =
-  "7d0ac827430cd0d60c3884ac98fc5769223861fee17a18dd9375b10852fd8fdb";
+  "3047d302cc81c27ebbbbf1a40577091d0154509b13b9a4a8520c033e353a9c09";
 export const SOURCE_REGISTRATION_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256 =
-  "f5f0fb008f87f26246d39fbc3583742da49d3b257a0658178486d78e2d7ec0c7";
+  "a2a25c72a7f0a0482f396ae76390cc5f9393c27349bb3d896ccd91860853a84c";
 // Compatibility exports for existing attestation and CLI field names. The
 // bound closure now covers psql, pg_restore, createdb and dropdb together.
 export const SOURCE_REGISTRATION_LOCKED_PSQL_RUNTIME_CLOSURE_SHA256 =
@@ -62,11 +62,11 @@ export const SOURCE_REGISTRATION_LOCKED_PSQL_RUNTIME_MANIFEST_SHA256 =
 export const SOURCE_REGISTRATION_LOCKED_PSQL_RUNTIME_VERIFIER_SHA256 =
   SOURCE_REGISTRATION_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_VERIFIER_SHA256;
 export const SOURCE_REGISTRATION_LOCKED_NODE_RUNTIME_CLOSURE_SHA256 =
-  "52cb48e8c77925a28d5c21574ea9867540ac71c88ba556ae3a48218bc67509bf";
+  "4a5fb0d0903d4d0c78118c6bfda4e12796ff7a7f7d723db3b25a84d7ef6de04b";
 export const SOURCE_REGISTRATION_LOCKED_NODE_RUNTIME_MANIFEST_SHA256 =
-  "f224b177c6f2ce4864815627dccd62dae3ed794a24eb4945cc923d018bc749e4";
+  "f2ff38cbcb2e8bcec2bdecee6f7edea586355f80875b78f88df06f46f443d586";
 export const SOURCE_REGISTRATION_LOCKED_NODE_RUNTIME_VERIFIER_SHA256 =
-  "09d760bcb798e5c87882116fa05f120818aa9169f53b391073a06a825f17059c";
+  "35c6a009fec81f99a5dc807866d56750f074be1b2ea47614fde4681494c4593a";
 
 const FORBIDDEN_RUNTIME_ENVIRONMENT_NAMES = new Set([
   "NODE_EXTRA_CA_CERTS",
@@ -530,7 +530,7 @@ function strongPsqlRuntimeClosure(projectRoot, environment) {
   );
   const manifestPath = resolve(
     projectRoot,
-    "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-03.v1.json",
+    "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-20.v1.json",
   );
   if (
     sha256FileSync(verifierPath) !==
@@ -589,7 +589,7 @@ function strongPsqlRuntimeClosure(projectRoot, environment) {
     attestation.loaderAliasCount !== 17 ||
     attestation.systemDylibReferenceCount !== 9 ||
     attestation.dyldCacheFileCount !== 13 ||
-    attestation.totalRuntimeBytes !== 5_810_881_056 ||
+    attestation.totalRuntimeBytes !== 5_831_016_992 ||
     canonicalRuntimeJson(attestation.toolFileSha256) !==
       canonicalRuntimeJson({
         createdb:
@@ -620,7 +620,7 @@ function strongNodeRuntimeClosure(projectRoot, environment, psqlRuntime) {
   );
   const manifestPath = resolve(
     projectRoot,
-    "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-08-11.v1.json",
+    "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-08-20.v1.json",
   );
   if (
     sha256FileSync(verifierPath) !==
@@ -680,7 +680,7 @@ function strongNodeRuntimeClosure(projectRoot, environment, psqlRuntime) {
     attestation.loaderAliasCount !== 30 ||
     attestation.systemDylibReferenceCount !== 6 ||
     attestation.homebrewObjectBytes !== 119_598_928 ||
-    attestation.totalRuntimeBytes !== 5_920_304_976 ||
+    attestation.totalRuntimeBytes !== 5_940_440_912 ||
     attestation.verifiedSystemRuntimeClosureSha256 !==
       psqlRuntime.closureSha256 ||
     attestation.forbiddenRuntimeEnvironmentPresent !== false

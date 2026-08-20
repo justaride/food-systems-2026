@@ -158,7 +158,7 @@ const codeBindings: SourceRegistrationApplyCodeBindings = {
     "8",
   ),
   nodeRuntimeClosureManifest: fileBinding(
-    "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-08-11.v1.json",
+    "knowledge/corpus/source-registration/node-runtime-closure-darwin-arm64-2026-08-20.v1.json",
     "b",
   ),
   nodeRuntimeClosureVerifier: fileBinding(
@@ -170,7 +170,7 @@ const codeBindings: SourceRegistrationApplyCodeBindings = {
     "d",
   ),
   postgresqlToolsetRuntimeClosureManifest: {
-    path: "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-03.v1.json",
+    path: "knowledge/corpus/source-registration/psql-runtime-closure-darwin-arm64-2026-08-20.v1.json",
     fileSha256:
       SOURCE_REGISTRATION_APPLY_LOCKED_POSTGRESQL_TOOLSET_RUNTIME_MANIFEST_SHA256,
   },
