@@ -1,7 +1,7 @@
 ---
 tittel: Food Systems 2026 — completion register
 dato: 2026-07-15
-sist_kontrollert: 2026-08-11
+sist_kontrollert: 2026-08-20
 status: kanonisk intern status
 gate: internal
 scope: kunnskapsbase, whitepaper, roadmap, research-status og videreføring
@@ -40,6 +40,30 @@ fortsatt claim-lock, PCQ, source-locator og
   pilotforankring og personvern kan ikke simuleres av lokal analyse.
 - Type-C-hull skal dateres og forvaltes som kunnskapsinfrastruktur, ikke fylles
   med estimater for å få en komplett figur.
+
+## Operativ oppfølging 2026-08-20
+
+- Hele den reproduserbare kontrollsekvensen fra faseberedskapsrapporten §11 er
+  re-grønnet lokalt på den pinnede darwin-runtimen: phase-, landscape-, lint-,
+  build-, artefakt- og diff-kontrollene passerer, og `npm test` gir 1942/1942
+  etter at runtime-closurene ble re-sealet 2026-08-20 (en macOS-oppdatering
+  hadde endret dyld-cachen og utløste fail-closed-stopp som designet). Re-seal
+  ligger i PR #353; driftsoppsettet med eksterne symlink-røtter for
+  `node_modules` og `src/generated/prisma` er gjenopprettet per prosedyren fra
+  commit 75ac6d0.
+- [Tillitsmodellnoten 2026-08-20](./food-systems-tillitsmodell-2026-08-20.md)
+  er opprettet som styringsnote under dette registeret. Den fastsetter tre
+  kontrollnivåer — ansvar/juss (engangs- og klassevedtak), utvalgsbasert
+  kalibrering med målt og publisert feilrate, og per-element-review kun for
+  høyrisikoklasser — og omrammer `IG-006` fra uttømmende appraisal til
+  kalibrering. Gapregisterets `IG-006`-rad er revidert tilsvarende
+  (`lastVerifiedAt` 2026-08-20).
+- Noten flytter ingen gap- eller radstatus, oppretter ikke et parallelt
+  sannhetsregister, og endrer ikke NO-GO-linjene: bred ekstern publisering av
+  person-, effekt- og partnerpåstander venter fortsatt på `IG-005`, og
+  `externalReady` i library-analysis krever fortsatt navngitt, datert
+  menneskereview — nå avgrenset til kalibreringsutvalget og
+  høyrisikoklassene i stedet for alle 1 770 rader.
 
 ## Operativ oppfølging 2026-08-11
 
