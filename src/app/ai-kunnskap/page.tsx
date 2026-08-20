@@ -4,9 +4,11 @@ import { PageFraming } from '@/components/ui/PageFraming'
 import {
   getLibraryAnalysisRecords,
   getLibraryAnalysisStatus,
+  LIBRARY_ANALYSIS_CALIBRATION,
   type LibraryAnalysisRecordRow,
   type LibraryAnalysisStatusPayload,
 } from '@/lib/queries/library-analysis'
+import { buildAutomatedLibraryAnalysisStatus } from '@/lib/knowledge/library-analysis-automated-status'
 import {
   getLibraryAnalysisRunGroups,
   type LibraryAnalysisRunGroup,
@@ -58,6 +60,14 @@ const EMPTY_STATUS: LibraryAnalysisStatusPayload = {
   missingText: 0,
   byStatus: {},
   byUsageRule: {},
+  automated: buildAutomatedLibraryAnalysisStatus({
+    populationSnapshotId: null,
+    populationHash: null,
+    populationTotal: 0,
+    queryErrors: ['status_unavailable'],
+    records: [],
+  }),
+  calibration: LIBRARY_ANALYSIS_CALIBRATION,
 }
 
 export default async function AiKunnskapPage() {
@@ -81,8 +91,12 @@ export default async function AiKunnskapPage() {
           'Siden viser bruksregel per kilde slik at teamet kan skille intern bakgrunn fra claim-kandidater, aktørgate og type-C gap.',
         ]}
         takeaways={[
+          status.automated.automatedValidationState === 'complete'
+            ? `${status.automated.disposedTotal} av ${status.automated.populationTotal} kilder har en avstemt automatisk kandidatdisposisjon.`
+            : `Automatisk validering er ${automatedStateLabel(status.automated.automatedValidationState)}; dette gir ingen menneskelig eller ekstern godkjenning.`,
+          `${status.automated.reusableForAiContext} kilder er gjenbrukbar intern KI-kontekst etter automatiske kontroller.`,
           `${status.processed} av ${status.total} kilder har en avsluttet policyklassifisering.`,
-          `${status.approvedForAi} kilder er godkjent for intern AI-kontekst; øvrige beholdes som intern bakgrunn eller er sperret.`,
+          `${status.approvedForAi} kilder har eksisterende policyklassifisering safe_for_ai_context; dette er adskilt fra den automatiske kandidatstatusen.`,
           `${status.pendingReview} kilder venter på review; ${status.safelyBlocked} er eksplisitt og trygt blokkert.`,
           status.externalReady
             ? `${status.externalClaimEligible} kilder er eksplisitt klare for eksterne claims.`
@@ -103,6 +117,15 @@ export default async function AiKunnskapPage() {
       <LibraryAnalysisRuns groups={runGroups} />
     </div>
   )
+}
+
+function automatedStateLabel(state: LibraryAnalysisStatusPayload['automated']['automatedValidationState']) {
+  switch (state) {
+    case 'not_started': return 'ikke startet'
+    case 'running': return 'pågående'
+    case 'complete': return 'fullført'
+    case 'degraded': return 'degradert'
+  }
 }
 
 async function loadPageData(): Promise<{

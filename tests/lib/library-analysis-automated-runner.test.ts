@@ -29,6 +29,7 @@ import {
   parseLibraryAnalysisAutomatedArgs,
   writeLibraryAnalysisPrivateArtifact,
 } from "../../src/lib/knowledge/library-analysis-automated-runner";
+import { AutomatedLibraryStatusRunConfigSchema } from "../../src/lib/knowledge/library-analysis-automated-status";
 import {
   CandidateAnalysisArtifactInputSchema,
   CandidateAnalysisRunEventInputSchema,
@@ -239,6 +240,15 @@ test("validation response is authority-free and becomes a distinct sealed run", 
   assert.equal(plan.dependencies[0]?.upstreamAssertionId, "assertion:1");
   assert.equal(plan.result.automatedOnly, true);
   assert.equal(Object.hasOwn(plan.result, "externalReady"), false);
+  const runConfig = AutomatedLibraryStatusRunConfigSchema.parse(plan.run.config);
+  assert.equal(runConfig.populationSnapshotId, request.populationSnapshotId);
+  assert.equal(runConfig.populationHash, request.populationHash);
+  assert.equal(runConfig.sourceKey, request.sourceKey);
+  assert.equal(runConfig.automatedResult.automatedOnly, true);
+  assert.equal(
+    runConfig.validatorSeparationLevel,
+    "different_model_same_provider",
+  );
   assert.doesNotThrow(() => CandidateAnalysisRunEventInputSchema.parse(plan.terminalEvent));
   assert.throws(() => LibraryValidationResponseSchema.parse({
     ...response,

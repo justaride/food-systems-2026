@@ -629,8 +629,19 @@ export function buildLibraryValidationCandidatePlan(input: {
   const config = {
     requestHash: response.requestHash,
     responseHash,
+    populationSnapshotId: request.populationSnapshotId,
+    populationHash: request.populationHash,
+    sourceKey: request.sourceKey,
     analysisRunId: request.analysisRunId,
     analysisOutputManifestHash: request.analysisOutputManifestHash,
+    analysisDisposition: response.analysisState === "complete"
+      ? "candidate_complete"
+      : response.analysisState,
+    automatedResult: result,
+    dataClass: request.sourceKind,
+    validatorSeparationLevel: statusValidatorSeparationLevel(
+      response.validatorSeparation,
+    ),
   };
   const configHash = candidateAnalysisConfigHash(config);
   const inputEnvelopeHash = candidateAnalysisInputEnvelopeHash(inputs);
@@ -873,6 +884,13 @@ export function buildLibraryValidationCandidatePlan(input: {
     outputManifestHash,
     result,
   };
+}
+
+function statusValidatorSeparationLevel(
+  declared: (typeof AUTOMATED_VALIDATOR_SEPARATION_LEVELS)[number],
+): "same_model_distinct_prompt" | "different_model_same_provider" {
+  if (declared === "same_model") return "same_model_distinct_prompt";
+  return "different_model_same_provider";
 }
 
 export async function persistLibraryValidationCandidatePlan(

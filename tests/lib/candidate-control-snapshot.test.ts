@@ -30,6 +30,7 @@ import {
   validateCandidateControlSnapshot,
   type CandidateControlSnapshotInput,
 } from "../../src/lib/knowledge/candidate-control-snapshot";
+import { buildAutomatedLibraryAnalysisStatus } from "../../src/lib/knowledge/library-analysis-automated-status";
 import {
   parseCandidateControlSnapshotArgs,
   readCandidateControlSnapshotInput,
@@ -1378,6 +1379,27 @@ describe("candidate control snapshot", () => {
     ];
 
     for (const invalid of invalidValues) assertRejectedByBoth(invalid);
+  });
+
+  it("carries automated-only library status without changing review or promotion authority", () => {
+    const base = buildCandidateControlSnapshot(candidateControlFixture());
+    const automatedLibraryAnalysis = buildAutomatedLibraryAnalysisStatus({
+      populationSnapshotId: "population:fixture",
+      populationHash: HASH_A,
+      populationTotal: 0,
+      queryErrors: [],
+      records: [],
+    });
+    const snapshot = buildCandidateControlSnapshot({
+      ...candidateControlFixture(),
+      automatedLibraryAnalysis,
+    });
+
+    assert.deepEqual(snapshot.automatedLibraryAnalysis, automatedLibraryAnalysis);
+    assert.deepEqual(snapshot.review, base.review);
+    assert.deepEqual(snapshot.promotion, base.promotion);
+    assert.equal(snapshot.promotion.externalReady, false);
+    assert.equal(validateJsonSchema(snapshot), true);
   });
 });
 

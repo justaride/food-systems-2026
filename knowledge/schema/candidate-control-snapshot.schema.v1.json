@@ -152,6 +152,9 @@
         "unclassifiedHumanSignals": { "$ref": "#/$defs/count" }
       }
     },
+    "automatedLibraryAnalysis": {
+      "$ref": "#/$defs/automatedLibraryAnalysisStatus"
+    },
     "warnings": {
       "type": "array",
       "items": { "$ref": "#/$defs/nonEmptyString" }
@@ -270,6 +273,97 @@
         "external_eligible": { "$ref": "#/$defs/count" },
         "published": { "$ref": "#/$defs/count" },
         "revoked": { "$ref": "#/$defs/count" }
+      }
+    },
+    "automatedLibraryAnalysisStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "automatedOnly",
+        "automatedValidationState",
+        "populationSnapshotId",
+        "populationHash",
+        "populationTotal",
+        "disposedTotal",
+        "candidateComplete",
+        "partial",
+        "blockedInput",
+        "quarantined",
+        "failed",
+        "superseded",
+        "reusableForAiContext",
+        "automatedFindingsByClass",
+        "automatedFindingRateByDataClass",
+        "analysisValidatorDisagreementRate",
+        "validatorSeparationLevel"
+      ],
+      "properties": {
+        "automatedOnly": { "const": true },
+        "automatedValidationState": {
+          "enum": ["not_started", "running", "complete", "degraded"]
+        },
+        "populationSnapshotId": {
+          "oneOf": [
+            { "type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]*$" },
+            { "type": "null" }
+          ]
+        },
+        "populationHash": {
+          "oneOf": [
+            { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+            { "type": "null" }
+          ]
+        },
+        "populationTotal": { "$ref": "#/$defs/count" },
+        "disposedTotal": { "$ref": "#/$defs/count" },
+        "candidateComplete": { "$ref": "#/$defs/count" },
+        "partial": { "$ref": "#/$defs/count" },
+        "blockedInput": { "$ref": "#/$defs/count" },
+        "quarantined": { "$ref": "#/$defs/count" },
+        "failed": { "$ref": "#/$defs/count" },
+        "superseded": { "$ref": "#/$defs/count" },
+        "reusableForAiContext": { "$ref": "#/$defs/count" },
+        "automatedFindingsByClass": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["F1", "F2", "F3", "F4", "F5"],
+          "properties": {
+            "F1": { "$ref": "#/$defs/count" },
+            "F2": { "$ref": "#/$defs/count" },
+            "F3": { "$ref": "#/$defs/count" },
+            "F4": { "$ref": "#/$defs/count" },
+            "F5": { "$ref": "#/$defs/count" }
+          }
+        },
+        "automatedFindingRateByDataClass": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": {
+            "^.+$": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+            }
+          }
+        },
+        "analysisValidatorDisagreementRate": {
+          "oneOf": [
+            { "type": "number", "minimum": 0, "maximum": 1 },
+            { "type": "null" }
+          ]
+        },
+        "validatorSeparationLevel": {
+          "oneOf": [
+            {
+              "enum": [
+                "same_model_distinct_prompt",
+                "different_model_same_provider",
+                "different_provider"
+              ]
+            },
+            { "type": "null" }
+          ]
+        }
       }
     }
   }

@@ -17,6 +17,10 @@ import {
   summarizeLegacyLibraryCandidateProjection,
   type LegacyLibraryAnalysisRecordInput,
 } from "./library-analysis-candidate-compat";
+import {
+  AutomatedLibraryAnalysisStatusSchema,
+  type AutomatedLibraryAnalysisStatus,
+} from "./library-analysis-automated-status";
 
 export const CANDIDATE_CONTROL_SNAPSHOT_SCHEMA_VERSION =
   "candidate-control-snapshot-v1" as const;
@@ -107,6 +111,7 @@ export type CandidateControlSnapshot = {
     analysisAbsent: number;
     unclassifiedHumanSignals: number;
   };
+  automatedLibraryAnalysis?: AutomatedLibraryAnalysisStatus;
   warnings: string[];
 };
 
@@ -245,6 +250,7 @@ export const CandidateControlSnapshotInputSchema = z
       CandidateControlReconciliationSnapshotSchema,
     ),
     legacyRows: z.array(LegacyLibraryAnalysisRecordInputSchema),
+    automatedLibraryAnalysis: AutomatedLibraryAnalysisStatusSchema.optional(),
   })
   .strict();
 
@@ -316,6 +322,7 @@ export const CandidateControlSnapshotSchema = z
         unclassifiedHumanSignals: nonnegativeIntegerSchema,
       })
       .strict(),
+    automatedLibraryAnalysis: AutomatedLibraryAnalysisStatusSchema.optional(),
     warnings: z.array(nonEmptyTextSchema),
   })
   .strict();
@@ -692,6 +699,9 @@ export function buildCandidateControlSnapshot(
       ),
     },
     legacy,
+    ...(input.automatedLibraryAnalysis === undefined
+      ? {}
+      : { automatedLibraryAnalysis: input.automatedLibraryAnalysis }),
     warnings: [...warnings].sort(),
   };
 
@@ -772,6 +782,9 @@ function buildDegradedCandidateControlSnapshot(
       analysisAbsent: 0,
       unclassifiedHumanSignals: 0,
     },
+    ...(input.automatedLibraryAnalysis === undefined
+      ? {}
+      : { automatedLibraryAnalysis: input.automatedLibraryAnalysis }),
     warnings: sortedUnique([
       "degraded_snapshot:query_errors",
       ...machineWarnings,

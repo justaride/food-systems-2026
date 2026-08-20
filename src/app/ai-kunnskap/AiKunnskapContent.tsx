@@ -65,9 +65,31 @@ export function AiKunnskapContent({ status, records }: Props) {
 
   return (
     <div className="space-y-5">
+      <section className="rounded-lg border border-sky-200 bg-sky-50/60 p-4">
+        <div className="flex flex-wrap items-start justify-between gap-2">
+          <div>
+            <h2 className="text-sm font-semibold text-stone-900">Automatisk kandidatvalidering</h2>
+            <p className="mt-1 text-xs text-stone-600">
+              Kun intern KI-validering. Ingen menneskelig gjennomgang eller ekstern claim-godkjenning.
+            </p>
+          </div>
+          <span className="rounded border border-sky-200 bg-white px-2 py-1 text-[10px] uppercase tracking-wider text-sky-800">
+            {automatedStateLabel(status.automated.automatedValidationState)}
+          </span>
+        </div>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
+          <Metric label="Automatisk disponert" value={`${status.automated.disposedTotal}/${status.automated.populationTotal}`} detail="Forseglet populasjon" />
+          <Metric label="Automatisk validert kandidat" value={status.automated.candidateComplete.toString()} detail="Kandidatstatus, ikke autoritet" />
+          <Metric label="Gjenbrukbar intern KI-kontekst" value={status.automated.reusableForAiContext.toString()} detail="automatedOnly" />
+          <Metric label="Karantenesatt" value={status.automated.quarantined.toString()} detail="Kan ikke gjenbrukes" />
+          <Metric label="Mangler lesbart input" value={status.automated.blockedInput.toString()} detail="Kildegrunnlag blokkert" />
+          <Metric label="Delvis / feilet" value={`${status.automated.partial}/${status.automated.failed}`} detail="Må rettes eller kjøres på nytt" />
+        </div>
+      </section>
+
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
         <Metric label="Klassifisert" value={`${status.classificationPct}%`} detail={`${status.processed}/${status.total} kilder`} />
-        <Metric label="Godkjent AI-kontekst" value={status.approvedForAi.toString()} detail="safe_for_ai_context" />
+        <Metric label="Eksisterende policy-kontekst" value={status.approvedForAi.toString()} detail="Legacy safe_for_ai_context" />
         <Metric label="Review queue" value={status.pendingReview.toString()} detail="Uklare, claim eller lavtekst" />
         <Metric label="Ekstern claim-klar" value={status.externalClaimEligible.toString()} detail={status.externalReady ? 'Ekstern port grønn' : 'Ekstern port stengt'} />
         <Metric label="Claim-kandidater" value={status.claimCandidates.toString()} detail="Må via PCQ/claim-lock" />
@@ -194,4 +216,15 @@ function StatusPill({ status, review }: { status: string; review: boolean }) {
 
 function unique(values: string[]) {
   return [...new Set(values)].sort((a, b) => a.localeCompare(b))
+}
+
+function automatedStateLabel(
+  state: LibraryAnalysisStatusPayload['automated']['automatedValidationState'],
+) {
+  switch (state) {
+    case 'not_started': return 'Ikke startet'
+    case 'running': return 'Pågår'
+    case 'complete': return 'Fullført'
+    case 'degraded': return 'Degradert'
+  }
 }
