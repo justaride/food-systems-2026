@@ -21,7 +21,7 @@ describe('library analysis status query helpers', () => {
   it('publishes automated-only calibration rates without accuracy claims', () => {
     assert.equal(LIBRARY_ANALYSIS_CALIBRATION.schemaVersion, '2.0')
     assert.equal(LIBRARY_ANALYSIS_CALIBRATION.mode, 'automated_only')
-    assert.deepEqual(LIBRARY_ANALYSIS_CALIBRATION.automatedRounds, [])
+    assert.equal(LIBRARY_ANALYSIS_CALIBRATION.automatedRounds.length, 1)
     assert.deepEqual(LIBRARY_ANALYSIS_CALIBRATION.humanReferenceRounds, [])
     assert.equal(
       JSON.stringify(LIBRARY_ANALYSIS_CALIBRATION).toLowerCase().includes('accuracy'),

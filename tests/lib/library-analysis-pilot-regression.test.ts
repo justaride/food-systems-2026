@@ -239,4 +239,44 @@ describe('IG-006 automated-only pilot regression', () => {
       result.findings.some(finding => finding.errorClass === 'F3')
     )), true)
   })
+
+  it('registers pilot rates as automated findings rather than model accuracy', () => {
+    const calibration = JSON.parse(readFileSync(
+      'knowledge/calibration/library-analysis-calibration.v2.json',
+      'utf8',
+    )) as {
+      state: string
+      automatedRounds: Array<{
+        roundId: string
+        receipt: string
+        populationHash: string
+        populationTotal: number
+        reusableForAiContext: number
+      }>
+      humanReferenceRounds: unknown[]
+      automatedFindingRate: { overall: number; byDataClass: Record<string, number> }
+      automatedRejectionRate: { overall: number; byDataClass: Record<string, number> }
+      analysisValidatorDisagreementRate: number
+    }
+
+    assert.equal(calibration.state, 'pilot_complete')
+    assert.deepEqual(calibration.humanReferenceRounds, [])
+    assert.deepEqual(calibration.automatedRounds, [{
+      roundId: fixture.pilotId,
+      receipt: 'research/_status/library-analysis-pilot-automated-2026-08-20.json',
+      populationHash: '187667dd2fef5ef14ee27b2e2b35670f5c41afa170f29ce90184e6547653ddb3',
+      populationTotal: 3,
+      reusableForAiContext: 0,
+    }])
+    assert.deepEqual(calibration.automatedFindingRate, {
+      overall: 0,
+      byDataClass: { document: 0 },
+    })
+    assert.deepEqual(calibration.automatedRejectionRate, {
+      overall: 1,
+      byDataClass: { document: 1 },
+    })
+    assert.equal(calibration.analysisValidatorDisagreementRate, 1)
+    assert.equal(JSON.stringify(calibration).toLowerCase().includes('accuracy'), false)
+  })
 })
