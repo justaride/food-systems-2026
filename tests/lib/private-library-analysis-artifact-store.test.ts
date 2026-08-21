@@ -14,6 +14,7 @@ import { join } from "node:path";
 import test from "node:test";
 
 import {
+  auditPrivateLibraryAnalysisRunRoot,
   openPrivateLibraryAnalysisRunRoot,
   readAndVerifyPrivateArtifact,
   sealPrivateArtifact,
@@ -147,4 +148,24 @@ test("private manifest publication is atomic sealed and non-overwriting", (t) =>
   );
   assert.equal(readFileSync(published.path, "utf8"), bytes.toString("utf8"));
   assert.deepEqual(readdirSync(join(root, "manifests")), ["plan.json"]);
+});
+
+test("private run audit reads every sealed file and returns a stable inventory hash", (t) => {
+  const root = openPrivateLibraryAnalysisRunRoot(fixtureRoot(t), "run-audit");
+  const first = Buffer.from("first", "utf8");
+  const second = Buffer.from("second", "utf8");
+  for (const [path, bytes] of [["raw/first.bin", first], ["manifests/second.json", second]] as const) {
+    const written = writePrivateArtifactExclusive(root, path, bytes);
+    sealPrivateArtifact(root, path, {
+      sha256: written.sha256,
+      sizeBytes: written.sizeBytes,
+    });
+  }
+
+  const audit = auditPrivateLibraryAnalysisRunRoot(root);
+  assert.equal(audit.files, 2);
+  assert.equal(audit.directories, 3);
+  assert.equal(audit.totalBytes, first.length + second.length);
+  assert.match(audit.inventoryHash, /^[a-f0-9]{64}$/);
+  assert.deepEqual(auditPrivateLibraryAnalysisRunRoot(root), audit);
 });

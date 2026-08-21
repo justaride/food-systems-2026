@@ -9,6 +9,7 @@ import {
   mkdirSync,
   openSync,
   readFileSync,
+  readdirSync,
   realpathSync,
   statSync,
   unlinkSync,
@@ -28,6 +29,13 @@ export type PrivateArtifactExpectation = {
   sha256: string;
   sizeBytes: number;
   mode?: 0o400 | 0o600;
+};
+
+export type PrivateLibraryAnalysisRunAudit = {
+  files: number;
+  directories: number;
+  totalBytes: number;
+  inventoryHash: string;
 };
 
 export function openPrivateLibraryAnalysisRunRoot(
@@ -188,6 +196,53 @@ export function writePrivateManifestAtomic(
     path: target,
     ...expected,
     mode: 0o400,
+  };
+}
+
+export function auditPrivateLibraryAnalysisRunRoot(
+  rawRoot: string,
+): PrivateLibraryAnalysisRunAudit {
+  const root = assertPrivateDirectory(rawRoot);
+  const inventory: Array<{ portablePath: string; sha256: string; sizeBytes: number }> = [];
+  let directories = 0;
+  const visit = (directory: string, prefix: string): void => {
+    const directoryStat = lstatSync(directory);
+    if (
+      directoryStat.isSymbolicLink() ||
+      !directoryStat.isDirectory() ||
+      (directoryStat.mode & 0o777) !== 0o700
+    ) {
+      throw new Error("private_run_audit_directory_invalid");
+    }
+    directories += 1;
+    for (const name of readdirSync(directory).sort()) {
+      const target = join(directory, name);
+      const portablePath = prefix.length === 0 ? name : `${prefix}/${name}`;
+      const stat = lstatSync(target);
+      if (stat.isSymbolicLink()) throw new Error("private_artifact_symlink_forbidden");
+      if (stat.isDirectory()) {
+        visit(target, portablePath);
+        continue;
+      }
+      if (!stat.isFile() || (stat.mode & 0o777) !== 0o400) {
+        throw new Error("private_run_audit_file_invalid");
+      }
+      const bytes = readFileSync(target);
+      if (bytes.length !== stat.size) throw new Error("private_run_audit_size_mismatch");
+      inventory.push({ portablePath, sha256: sha256(bytes), sizeBytes: bytes.length });
+    }
+  };
+  visit(root, "");
+  const inventoryBytes = Buffer.from(
+    inventory.map((entry) =>
+      `${entry.portablePath}\u0000${entry.sha256}\u0000${entry.sizeBytes}\n`).join(""),
+    "utf8",
+  );
+  return {
+    files: inventory.length,
+    directories,
+    totalBytes: inventory.reduce((total, entry) => total + entry.sizeBytes, 0),
+    inventoryHash: sha256(inventoryBytes),
   };
 }
 
