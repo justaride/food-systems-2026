@@ -196,6 +196,38 @@ function shapeForSpecs(specs: readonly FixtureSpec[]): LibraryAnalysisAgentPilot
   return { queue, plan: (queue as LibraryAnalysisAgentQueue & { plan: unknown }).plan as never };
 }
 
+function withPlannedSourceVersions(
+  fixture: LibraryAnalysisAgentPilotInput,
+  sourceVersionHashForRow: (row: LibraryAnalysisAgentPilotInput["plan"]["rows"][number]) => string | null,
+): LibraryAnalysisAgentPilotInput {
+  const rows = fixture.plan.rows.map((row) => ({
+    ...row,
+    sourceVersionHash: sourceVersionHashForRow(row),
+  }));
+  const planCore = {
+    schema: fixture.plan.schema,
+    policyVersion: fixture.plan.policyVersion,
+    populationSnapshotId: fixture.plan.populationSnapshotId,
+    populationHash: fixture.plan.populationHash,
+    rows,
+  };
+  const planHash = candidateAnalysisSha256("library-analysis-acquisition-plan", planCore);
+  const plan = {
+    ...planCore,
+    planId: `library-analysis-acquisition-plan:${planHash}`,
+    planHash,
+  } as LibraryAnalysisAgentPilotInput["plan"];
+  const { queueId: _queueId, queueHash: _queueHash, ...queueCore } = fixture.queue;
+  const reboundCore = { ...queueCore, acquisitionPlanHash: planHash };
+  const queueHash = libraryAnalysisAgentQueueHash(reboundCore);
+  const queue = verifyLibraryAnalysisAgentQueue({
+    ...reboundCore,
+    queueId: `library-analysis-agent-queue:${queueHash}`,
+    queueHash,
+  });
+  return { queue, plan };
+}
+
 test("pilot is deterministic stratified and stays inside all caps", () => {
   const first = selectLibraryAnalysisAgentPilot(fullShapeFixture());
   const second = selectLibraryAnalysisAgentPilot(fullShapeFixture());
@@ -209,6 +241,62 @@ test("pilot is deterministic stratified and stays inside all caps", () => {
   ]));
   assert.equal(first.parentFullQueueHash, fullShapeFixture().queue.queueHash);
   assert.equal(verifyLibraryAnalysisAgentQueue(first.queue).queueHash, first.queue.queueHash);
+});
+
+test("pilot defers nullable planned versions to acquired queue versions on non-database routes", () => {
+  const nullableRoutes = new Set([
+    "controlled_https",
+    "repository_csv",
+    "repository_pptx",
+    "database_derived_record",
+  ]);
+  const fixture = withPlannedSourceVersions(
+    fullShapeFixture(),
+    (row) => nullableRoutes.has(row.route) ? null : row.sourceVersionHash,
+  );
+
+  const pilot = selectLibraryAnalysisAgentPilot(fixture);
+
+  assert.deepEqual(
+    new Set(pilot.strata),
+    new Set([
+      "database_small",
+      "database_medium",
+      "database_segmented",
+      "controlled_https_pdf",
+      "repository_csv",
+      "repository_pptx",
+      "derived_record",
+    ]),
+  );
+  for (const route of nullableRoutes) {
+    const plannedIdentities = new Set(
+      fixture.plan.rows
+        .filter((row) => row.route === route)
+        .map((row) => `${row.sourceKind}\u0000${row.sourceKey}`),
+    );
+    assert.ok(pilot.queue.sources.some(
+      (source) => plannedIdentities.has(`${source.sourceKind}\u0000${source.sourceKey}`),
+    ));
+  }
+  assert.ok(pilot.queue.sources.every((source) => source.sourceVersionHash === HASH));
+  assert.doesNotThrow(() => verifyLibraryAnalysisAgentPilotQueue(
+    fixture.queue,
+    pilot.queue,
+    pilot,
+  ));
+});
+
+test("pilot rejects a non-null planned version that differs from the acquired queue version", () => {
+  const fixture = withPlannedSourceVersions(
+    fullShapeFixture(),
+    (row) => row.sourceKey === "source_doc:pdf" ? "b".repeat(64) : row.sourceVersionHash,
+  );
+
+  assert.throws(
+    () => selectLibraryAnalysisAgentPilot(fixture),
+    /agent_pilot_source_plan_binding_mismatch/,
+  );
 });
 
 test("pilot fails closed when the canonical plan does not bind the queue", () => {

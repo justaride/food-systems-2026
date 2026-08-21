@@ -93,7 +93,10 @@ export function selectLibraryAnalysisAgentPilot(
   const candidates: Candidate[] = [];
   for (const source of queue.sources) {
     const row = planByIdentity.get(`${source.sourceKind}\u0000${source.sourceKey}`);
-    if (row === undefined || row.sourceVersionHash !== source.sourceVersionHash) {
+    if (
+      row === undefined ||
+      (row.sourceVersionHash !== null && row.sourceVersionHash !== source.sourceVersionHash)
+    ) {
       throw new Error("agent_pilot_source_plan_binding_mismatch");
     }
     const stratum = classifySource(queue, source, row);
