@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
+import { lstatSync, readFileSync, realpathSync } from "node:fs";
 import { dirname, isAbsolute, relative, resolve, sep } from "node:path";
 import { pathToFileURL } from "node:url";
 import { z } from "zod";
@@ -269,7 +269,12 @@ function openRunRoot(rawPath: string): string {
 }
 
 function readQueue(runRoot: string, rawQueuePath: string): LibraryAnalysisAgentQueue {
-  const queuePath = resolve(rawQueuePath);
+  const queuePathInput = resolve(rawQueuePath);
+  const inputStat = lstatSync(queuePathInput);
+  if (inputStat.isSymbolicLink()) {
+    throw new Error("agent_queue_queue_artifact_invalid");
+  }
+  const queuePath = realpathSync(queuePathInput);
   const portablePath = relative(runRoot, queuePath);
   if (
     portablePath.length === 0 ||
@@ -280,12 +285,19 @@ function readQueue(runRoot: string, rawQueuePath: string): LibraryAnalysisAgentQ
   ) {
     throw new Error("agent_queue_queue_outside_run_root");
   }
+  const stat = lstatSync(queuePath);
+  if (stat.isSymbolicLink() || !stat.isFile() || (stat.mode & 0o777) !== 0o400) {
+    throw new Error("agent_queue_queue_artifact_invalid");
+  }
   const bytes = readFileSync(queuePath);
   const queue = verifyLibraryAnalysisAgentQueue(JSON.parse(bytes.toString("utf8")));
+  if (portablePath !== `queue/queue-${queue.queueHash}.json`) {
+    throw new Error("agent_queue_queue_path_mismatch");
+  }
   return verifyLibraryAnalysisAgentQueue(
     JSON.parse(readAndVerifyPrivateArtifact(runRoot, portablePath, {
       sha256: createHash("sha256").update(bytes).digest("hex"),
-      sizeBytes: bytes.length,
+      sizeBytes: stat.size,
       mode: 0o400,
     }).toString("utf8")),
   );

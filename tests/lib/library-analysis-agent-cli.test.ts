@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
-import { chmodSync, mkdirSync, mkdtempSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { spawnSync } from "node:child_process";
+import { chmodSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, statSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
@@ -201,6 +202,104 @@ test("prepare-attempt emits exactly one job and refuses overwrite", async () => 
   );
 });
 
+test("prepare-attempt accepts only the authoritative queue path for its queue hash", async () => {
+  const fixture = makeFixture();
+  const built = await runLibraryAnalysisAgentQueueCli({
+    command: "build",
+    runRoot: fixture.runRoot,
+    resolution: fixture.resolutionPath,
+    manifest: fixture.manifestPath,
+    costEnvelopeHash: fixture.costHash,
+    mergedInventoryHash: fixture.inventoryHash,
+    runtimeCommit: "5f3eb1c",
+    repositoryRoot: fixture.repositoryRoot,
+  });
+  const queue = JSON.parse(readFileSync(built.queuePath, "utf8")) as { jobs: Array<{ jobId: string }> };
+  const aliasPath = join(fixture.runRoot, "queue", "alias.json");
+  writeFileSync(aliasPath, readFileSync(built.queuePath), { mode: 0o400 });
+  await assert.rejects(
+    runLibraryAnalysisAgentQueueCli({
+      command: "prepare-attempt",
+      runRoot: fixture.runRoot,
+      queue: aliasPath,
+      jobId: queue.jobs[0]!.jobId,
+      attempt: 1,
+    }),
+    /agent_queue_queue_path_mismatch/,
+  );
+  const symlinkPath = join(fixture.runRoot, "queue", "queue-symlink.json");
+  symlinkSync(built.queuePath, symlinkPath);
+  await assert.rejects(
+    runLibraryAnalysisAgentQueueCli({
+      command: "prepare-attempt",
+      runRoot: fixture.runRoot,
+      queue: symlinkPath,
+      jobId: queue.jobs[0]!.jobId,
+      attempt: 2,
+    }),
+    /agent_queue_queue_artifact_invalid/,
+  );
+});
+
+test("package command emits sanitized summaries for build and prepare-attempt", async () => {
+  const fixture = makeFixture();
+  const script = join(fixture.repositoryRoot, "scripts/knowledge/manage-library-analysis-agent-queue.ts");
+  const run = (args: string[]) => spawnSync(process.execPath, ["--import=tsx", script, ...args], {
+    cwd: fixture.repositoryRoot,
+    encoding: "utf8",
+  });
+  const build = run([
+    "build",
+    `--run-root=${fixture.runRoot}`,
+    `--resolution=${fixture.resolutionPath}`,
+    `--manifest=${fixture.manifestPath}`,
+    `--cost-envelope-hash=${fixture.costHash}`,
+    `--merged-inventory-hash=${fixture.inventoryHash}`,
+    "--runtime-commit=5f3eb1c",
+    `--repository-root=${fixture.repositoryRoot}`,
+  ]);
+  assert.equal(build.status, 0, `${build.stderr}${build.stdout}`);
+  assert.equal(build.stderr, "");
+  const buildSummary = JSON.parse(build.stdout) as Record<string, unknown>;
+  assert.equal(buildSummary.command, "build");
+  const queuePath = join(fixture.runRoot, "queue", readdirSync(join(fixture.runRoot, "queue"))[0]!);
+  const queue = JSON.parse(readFileSync(queuePath, "utf8")) as { jobs: Array<{ jobId: string }> };
+  const forbidden = [
+    "document:a", "web:b", "https://example.test", "private source bytes", "claim", fixture.runRoot,
+  ];
+  for (const value of forbidden) assert.doesNotMatch(build.stdout, new RegExp(escapeRegExp(value)));
+  const prepare = run([
+    "prepare-attempt",
+    `--run-root=${fixture.runRoot}`,
+    `--queue=${queuePath}`,
+    `--job-id=${queue.jobs[0]!.jobId}`,
+    "--attempt=1",
+  ]);
+  assert.equal(prepare.status, 0, prepare.stderr);
+  assert.equal(prepare.stderr, "");
+  const prepareSummary = JSON.parse(prepare.stdout) as Record<string, unknown>;
+  assert.equal(prepareSummary.command, "prepare-attempt");
+  for (const value of forbidden) assert.doesNotMatch(prepare.stdout, new RegExp(escapeRegExp(value)));
+});
+
+test("package command reports generic diagnostics without rejected private arguments", () => {
+  const fixture = makeFixture();
+  const script = join(fixture.repositoryRoot, "scripts/knowledge/manage-library-analysis-agent-queue.ts");
+  const rejectedPath = join(fixture.runRoot, "private-rejected.json");
+  const result = spawnSync(process.execPath, [
+    "--import=tsx", script, "prepare-attempt",
+    `--run-root=${fixture.runRoot}`,
+    `--queue=${rejectedPath}`,
+    "--job-id=job:missing",
+    "--attempt=1",
+  ], { cwd: fixture.repositoryRoot, encoding: "utf8" });
+  assert.notEqual(result.status, 0);
+  assert.equal(result.stdout, "");
+  assert.equal(result.stderr.trim(), "library_analysis_agent_queue_failed");
+  assert.doesNotMatch(result.stderr, new RegExp(escapeRegExp(fixture.runRoot)));
+  assert.doesNotMatch(result.stderr, /private-rejected\.json/);
+});
+
 test("CLI argument parsing is strict and keeps command paths absolute", () => {
   assert.deepEqual(
     parseLibraryAnalysisAgentQueueArgs([
@@ -229,3 +328,7 @@ test("CLI argument parsing is strict and keeps command paths absolute", () => {
     "build", "--unknown=value",
   ]), /agent_queue_cli_arguments_invalid/);
 });
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
+}
