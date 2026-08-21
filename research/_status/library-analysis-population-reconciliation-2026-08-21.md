@@ -79,3 +79,40 @@ field alone is not treated as analyzed source content.
 - `externalReady`: `false`.
 - Database migration, candidate-role activation, source acquisition and model
   execution remain separate controlled steps.
+
+## Implemented acquisition and private-emit path
+
+The automated-only intake path is now implemented and proven through a bounded
+private pilot. Governing references:
+
+- Design: `docs/superpowers/specs/2026-08-21-library-analysis-acquisition-content-unit-design.md`
+- Implementation plan: `docs/superpowers/plans/2026-08-21-library-analysis-acquisition-content-unit.md`
+- Pilot receipt: `research/_status/library-analysis-acquisition-pilot-2026-08-21.md`
+- Final handover: `research/_status/HANDOVER-library-analysis-acquisition-2026-08-21.md`
+
+Implementation commits, in execution order:
+
+- `128b1c6` — distinct content/source-version verification
+- `406389f` — acquisition plan and resolution contracts
+- `ae4d6e8` — deterministic content chunking
+- `cced6a5` — private artifact store
+- `5fd8262` and `284fa78` — source extractors
+- `387960e` and `ade7e37` — controlled planning and execution
+- `15c1e06` — private emit and resolution-aware candidate intake
+- `ce44216` — deterministic eight-source pilot selector
+- `b37cd84` — recursive private-run readback audit
+- `215ec1a` — sanitized pilot receipt
+
+The fresh full plan contains `1,627` rows: `1,534 database_document`,
+`70 controlled_https`, `2 repository_csv`, `1 repository_pptx`,
+`2 database_derived_record`, `17 superseded`, and `1 unresolvable`.
+
+The separately hashed eight-source pilot resolved `6` sources to `440` content
+units and retained exactly `2` blockers: one `http_forbidden` and one
+`missing_locator`. These are pilot-scope counts only. They do not reduce or
+reclassify the unexecuted rows in the full acquisition plan.
+
+The candidate-intake CLI now requires the matching population, plan,
+resolution, content-unit manifest and private run root. It verifies every
+private payload before the first append call. The pilot used a non-persistent
+append callback; no candidate database was written.
