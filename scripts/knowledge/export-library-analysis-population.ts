@@ -6,6 +6,9 @@ import { pathToFileURL } from "node:url";
 
 import { Prisma, type PrismaClient } from "../../src/generated/prisma/client";
 import {
+  LIBRARY_ANALYSIS_RETAINED_HISTORY_ENTRIES,
+} from "../../src/lib/library-analysis-retained-history-contract";
+import {
   buildLibraryAnalysisPopulation,
   type LibraryAnalysisPopulationInputRow,
 } from "../../src/lib/knowledge/library-analysis-population";
@@ -60,6 +63,11 @@ export function parseLibraryAnalysisPopulationArgs(
 }
 
 const READ_ONLY_TRANSACTION_SQL = "SET TRANSACTION READ ONLY";
+const retainedHistoryIdentities = new Set(
+  LIBRARY_ANALYSIS_RETAINED_HISTORY_ENTRIES.map(
+    ({ sourceKind, sourceKey }) => `${sourceKind}\u0000${sourceKey}`,
+  ),
+);
 
 export async function readLibraryAnalysisPopulationRows(
   prisma: PrismaClient,
@@ -76,7 +84,7 @@ export async function readLibraryAnalysisPopulationRows(
           status: true,
           contentHash: true,
           documentId: true,
-          document: { select: { id: true, content: true } },
+          document: { select: { id: true, summary: true, content: true } },
         },
       });
       if (sourceKeys.length > 0) {
@@ -88,8 +96,16 @@ export async function readLibraryAnalysisPopulationRows(
       return records.map((record) => {
         const content = record.document?.content ?? "";
         const readableInput = content.length > 0;
-        const computedHash = readableInput
+        const computedContentHash = readableInput
           ? createHash("sha256").update(Buffer.from(content, "utf8")).digest("hex")
+          : null;
+        const sourceVersionContent = [record.document?.summary, content]
+          .filter(Boolean)
+          .join("\n\n");
+        const computedSourceVersionHash = readableInput
+          ? createHash("sha256")
+            .update(Buffer.from(sourceVersionContent, "utf8"))
+            .digest("hex")
           : null;
         const exactBinding =
           record.sourceKind === "document" &&
@@ -97,23 +113,28 @@ export async function readLibraryAnalysisPopulationRows(
           record.document?.id === record.documentId &&
           record.sourceKey === `document:${record.documentId}`;
         const storedHashValid =
-          record.contentHash === null || record.contentHash === computedHash;
+          record.contentHash === null ||
+          record.contentHash === computedSourceVersionHash;
         return {
           sourceKind: record.sourceKind,
           sourceKey: record.sourceKey,
-          sourceVersionHash: storedHashValid ? computedHash : null,
+          sourceVersionHash: storedHashValid ? computedSourceVersionHash : null,
           inputKind: readableInput ? "database_record" : "none",
           locator: record.documentId === null
             ? null
             : `database:Document:${record.documentId}:content`,
-          contentHash: storedHashValid ? computedHash : null,
+          contentHash: storedHashValid ? computedContentHash : null,
           identityConfidence: exactBinding
             ? "exact"
             : record.documentId === null
               ? "unresolved"
               : "provisional",
           readableInput,
-          superseded: record.status.toLowerCase() === "superseded",
+          superseded:
+            record.status.toLowerCase() === "superseded" ||
+            retainedHistoryIdentities.has(
+              `${record.sourceKind}\u0000${record.sourceKey}`,
+            ),
         } satisfies LibraryAnalysisPopulationInputRow;
       });
     },

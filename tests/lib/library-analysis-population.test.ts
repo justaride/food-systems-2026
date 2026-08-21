@@ -1,11 +1,15 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import test from "node:test";
 
 import {
   buildLibraryAnalysisPopulation,
   libraryAnalysisPopulationHash,
 } from "../../src/lib/knowledge/library-analysis-population";
-import { parseLibraryAnalysisPopulationArgs } from "../../scripts/knowledge/export-library-analysis-population";
+import {
+  parseLibraryAnalysisPopulationArgs,
+  readLibraryAnalysisPopulationRows,
+} from "../../scripts/knowledge/export-library-analysis-population";
 
 const rowA = {
   sourceKind: "document",
@@ -92,4 +96,66 @@ test("population CLI requires one output and canonicalizes unique source keys", 
       "--source-key=document:a",
     ]),
   );
+});
+
+test("database population keeps the attested composite source version separate from raw content", async () => {
+  const summary = "Reviewed summary";
+  const content = "Exact source bytes supplied to analysis";
+  const sourceVersionHash = createHash("sha256")
+    .update(`${summary}\n\n${content}`)
+    .digest("hex");
+  const contentHash = createHash("sha256").update(content).digest("hex");
+  const transaction = {
+    $executeRawUnsafe: async (sql: string) => {
+      assert.equal(sql, "SET TRANSACTION READ ONLY");
+      return 0;
+    },
+    libraryAnalysisRecord: {
+      findMany: async () => [{
+        sourceKind: "document",
+        sourceKey: "document:doc-1",
+        status: "not_started",
+        contentHash: sourceVersionHash,
+        documentId: "doc-1",
+        document: { id: "doc-1", summary, content },
+      }],
+    },
+  };
+  const prisma = {
+    $transaction: async (callback: (value: typeof transaction) => unknown) =>
+      callback(transaction),
+  } as unknown as Parameters<typeof readLibraryAnalysisPopulationRows>[0];
+
+  const rows = await readLibraryAnalysisPopulationRows(prisma, []);
+
+  assert.equal(rows[0]?.sourceVersionHash, sourceVersionHash);
+  assert.equal(rows[0]?.contentHash, contentHash);
+  assert.equal(buildLibraryAnalysisPopulation(rows).rows[0]?.eligibility, "eligible");
+});
+
+test("database population terminates pinned retained history as superseded", async () => {
+  const transaction = {
+    $executeRawUnsafe: async () => 0,
+    libraryAnalysisRecord: {
+      findMany: async () => [{
+        sourceKind: "document",
+        sourceKey: "document:cmp8xyoej00k6vvvm63gli4a8",
+        status: "ai_draft",
+        contentHash:
+          "dbeb7a854c17cce27a6c0fe314069354efe2e48de59c8ad2d033c51290fd6a89",
+        documentId: null,
+        document: null,
+      }],
+    },
+  };
+  const prisma = {
+    $transaction: async (callback: (value: typeof transaction) => unknown) =>
+      callback(transaction),
+  } as unknown as Parameters<typeof readLibraryAnalysisPopulationRows>[0];
+
+  const rows = await readLibraryAnalysisPopulationRows(prisma, []);
+  const snapshot = buildLibraryAnalysisPopulation(rows);
+
+  assert.equal(snapshot.rows[0]?.eligibility, "superseded");
+  assert.deepEqual(snapshot.rows[0]?.blockers, ["source_superseded"]);
 });
