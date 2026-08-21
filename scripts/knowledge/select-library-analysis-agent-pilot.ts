@@ -45,10 +45,15 @@ const MIN_CODE_POINTS = 200_000;
 const MAX_CODE_POINTS = 300_000;
 const DATABASE_SMALL_MAX = 16_000;
 const DATABASE_MEDIUM_MAX = 48_000;
+export const MAX_SEARCH_NODES = 50_000;
 
 export type LibraryAnalysisAgentPilotInput = {
   queue: LibraryAnalysisAgentQueue;
   plan: LibraryAnalysisAcquisitionPlan;
+};
+
+export type LibraryAnalysisAgentPilotSearchPolicy = {
+  maxSearchNodes?: number;
 };
 
 export type LibraryAnalysisAgentPilotSelection = {
@@ -71,6 +76,7 @@ type Candidate = {
 
 export function selectLibraryAnalysisAgentPilot(
   input: LibraryAnalysisAgentPilotInput | LibraryAnalysisAgentQueue,
+  searchPolicy: LibraryAnalysisAgentPilotSearchPolicy = {},
 ): LibraryAnalysisAgentPilotSelection {
   const queue = verifyLibraryAnalysisAgentQueue(
     "queue" in input ? input.queue : input,
@@ -102,7 +108,11 @@ export function selectLibraryAnalysisAgentPilot(
       throw new Error("agent_pilot_stratum_unavailable");
     }
   }
-  const selectedCandidates = findFeasibleSelection(candidates, byStratum);
+  const maxSearchNodes = searchPolicy.maxSearchNodes ?? MAX_SEARCH_NODES;
+  if (!Number.isSafeInteger(maxSearchNodes) || maxSearchNodes < 1 || maxSearchNodes > MAX_SEARCH_NODES) {
+    throw new Error("agent_pilot_search_policy_invalid");
+  }
+  const selectedCandidates = findFeasibleSelection(candidates, byStratum, { maxSearchNodes });
   if (selectedCandidates === null) throw new Error("agent_pilot_capacity_unsatisfied");
   const codePoints = totalCodePoints(selectedCandidates);
   const unitCount = totalUnits(selectedCandidates);
@@ -210,21 +220,32 @@ function unitSourceIdentity(unit: { sourceKind: string; populationSourceKey: str
 function findFeasibleSelection(
   candidates: readonly Candidate[],
   byStratum: ReadonlyMap<LibraryAnalysisAgentPilotStratum, Candidate[]>,
+  policy: { maxSearchNodes: number },
 ): Candidate[] | null {
+  const globalUpperBound = optimisticMaximumCodePoints(candidates, new Set(), 0, 0, LIBRARY_ANALYSIS_AGENT_PILOT_STRATA.length);
+  if (globalUpperBound < MIN_CODE_POINTS) return null;
   const orderedStrata = [...LIBRARY_ANALYSIS_AGENT_PILOT_STRATA];
   const selected: Candidate[] = [];
+  const budget = { nodes: 0 };
   const searchPrimary = (index: number): Candidate[] | null => {
+    const remainingStrata = orderedStrata.length - index;
+    const selectedIds = new Set(selected.map((candidate) => sourceIdentity(candidate.source)));
+    const selectedCodePoints = totalCodePoints(selected);
+    const selectedUnits = totalUnits(selected);
+    if (optimisticMaximumCodePoints(candidates, selectedIds, selected.length, selectedUnits, remainingStrata) < MIN_CODE_POINTS) return null;
+    if (minimumRequiredCodePoints(byStratum, orderedStrata, index, selectedIds, selectedCodePoints) > MAX_CODE_POINTS) return null;
+    if (minimumRequiredUnits(byStratum, orderedStrata, index, selectedIds, selectedUnits) > MAX_UNITS) return null;
     if (index === orderedStrata.length) {
-      const primaryIds = new Set(selected.map((candidate) => sourceIdentity(candidate.source)));
-      const fillers = candidates.filter((candidate) => !primaryIds.has(sourceIdentity(candidate.source))).sort(compareCandidates);
+      const fillers = candidates.filter((candidate) => !selectedIds.has(sourceIdentity(candidate.source))).sort(compareCandidates);
       for (let count = MIN_SOURCES - selected.length; count <= MAX_SOURCES - selected.length; count += 1) {
-        const found = findFillers(fillers, totalCodePoints(selected), totalUnits(selected), count);
+        const found = findFillers(fillers, selectedCodePoints, selectedUnits, count, budget, policy.maxSearchNodes);
         if (found !== null) return [...selected, ...found];
       }
       return null;
     }
     const stratum = orderedStrata[index]!;
     for (const candidate of byStratum.get(stratum)!) {
+      consumeSearchNode(budget, policy.maxSearchNodes);
       selected.push(candidate);
       if (totalCodePoints(selected) <= MAX_CODE_POINTS && totalUnits(selected) <= MAX_UNITS) {
         const found = searchPrimary(index + 1);
@@ -242,6 +263,8 @@ function findFillers(
   baseCodePoints: number,
   baseUnits: number,
   count: number,
+  budget: { nodes: number },
+  maxSearchNodes: number,
 ): Candidate[] | null {
   if (count < 0 || count > 5) return null;
   const largestSuffix = buildSuffixExtrema(candidates, true);
@@ -271,6 +294,7 @@ function findFillers(
       return null;
     }
     for (let index = start; index <= candidates.length - remaining; index += 1) {
+      consumeSearchNode(budget, maxSearchNodes);
       const candidate = candidates[index]!;
       const nextCodePoints = codePoints + candidate.source.codePoints;
       const nextUnits = units + candidate.source.unitCount;
@@ -287,6 +311,69 @@ function findFillers(
     return null;
   };
   return search(0, baseCodePoints, baseUnits);
+}
+
+function consumeSearchNode(budget: { nodes: number }, maxSearchNodes: number): void {
+  budget.nodes += 1;
+  if (budget.nodes > maxSearchNodes) throw new Error("agent_pilot_search_budget_exhausted");
+}
+
+function optimisticMaximumCodePoints(
+  candidates: readonly Candidate[],
+  selectedIds: ReadonlySet<string>,
+  selectedCount: number,
+  selectedUnits: number,
+  remainingStrata: number,
+): number {
+  const requiredMaximum = LIBRARY_ANALYSIS_AGENT_PILOT_STRATA
+    .slice(LIBRARY_ANALYSIS_AGENT_PILOT_STRATA.length - remainingStrata)
+    .reduce((sum, stratum) => {
+      const maximum = candidates
+        .filter((candidate) => candidate.stratum === stratum && !selectedIds.has(sourceIdentity(candidate.source)) && candidate.source.unitCount <= MAX_UNITS - selectedUnits)
+        .reduce((best, candidate) => Math.max(best, candidate.source.codePoints), 0);
+      return sum + maximum;
+    }, 0);
+  const fillerSlots = Math.max(0, MAX_SOURCES - selectedCount - remainingStrata);
+  const remainingUnitBudget = MAX_UNITS - selectedUnits;
+  const fillerMaximum = candidates
+    .filter((candidate) => !selectedIds.has(sourceIdentity(candidate.source)) && candidate.source.unitCount <= remainingUnitBudget)
+    .map((candidate) => candidate.source.codePoints)
+    .sort((left, right) => right - left)
+    .slice(0, fillerSlots)
+    .reduce((sum, value) => sum + value, 0);
+  return requiredMaximum + fillerMaximum + candidates
+    .filter((candidate) => selectedIds.has(sourceIdentity(candidate.source)))
+    .reduce((sum, candidate) => sum + candidate.source.codePoints, 0);
+}
+
+function minimumRequiredCodePoints(
+  byStratum: ReadonlyMap<LibraryAnalysisAgentPilotStratum, Candidate[]>,
+  strata: readonly LibraryAnalysisAgentPilotStratum[],
+  index: number,
+  selectedIds: ReadonlySet<string>,
+  selectedCodePoints: number,
+): number {
+  return selectedCodePoints + strata.slice(index).reduce((sum, stratum) => {
+    const minimum = byStratum.get(stratum)!
+      .filter((candidate) => !selectedIds.has(sourceIdentity(candidate.source)))
+      .reduce((best, candidate) => Math.min(best, candidate.source.codePoints), Number.POSITIVE_INFINITY);
+    return sum + minimum;
+  }, 0);
+}
+
+function minimumRequiredUnits(
+  byStratum: ReadonlyMap<LibraryAnalysisAgentPilotStratum, Candidate[]>,
+  strata: readonly LibraryAnalysisAgentPilotStratum[],
+  index: number,
+  selectedIds: ReadonlySet<string>,
+  selectedUnits: number,
+): number {
+  return selectedUnits + strata.slice(index).reduce((sum, stratum) => {
+    const minimum = byStratum.get(stratum)!
+      .filter((candidate) => !selectedIds.has(sourceIdentity(candidate.source)))
+      .reduce((best, candidate) => Math.min(best, candidate.source.unitCount), Number.POSITIVE_INFINITY);
+    return sum + minimum;
+  }, 0);
 }
 
 function buildSuffixExtrema(

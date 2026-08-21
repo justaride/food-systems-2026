@@ -8,6 +8,7 @@ import {
 } from "../../src/lib/knowledge/candidate-analysis-contract";
 import {
   buildLibraryAnalysisAcquisitionPlan,
+  type LibraryAnalysisAcquisitionLocator,
 } from "../../src/lib/knowledge/library-analysis-acquisition-contract";
 import { buildLibraryAnalysisPopulation } from "../../src/lib/knowledge/library-analysis-population";
 import {
@@ -111,12 +112,13 @@ function makeQueue(specs = BASE_SPECS): LibraryAnalysisAgentQueue {
     readableInput: sourceKind === "document",
     superseded: false,
   })));
-  const plan = buildLibraryAnalysisAcquisitionPlan(population, [
-    { sourceKind: "source_doc", sourceKey: "source_doc:pdf", route: "controlled_https", locator: "https://example.test/pdf.pdf", alternateLocators: [] },
-    { sourceKind: "library_file", sourceKey: "library_file:csv", route: "repository_csv", locator: "repository:data.csv", alternateLocators: [] },
-    { sourceKind: "library_file", sourceKey: "library_file:pptx", route: "repository_pptx", locator: "repository:slides.pptx", alternateLocators: [] },
-    { sourceKind: "report", sourceKey: "report:derived", route: "database_derived_record", locator: "database:Report:derived", alternateLocators: [] },
-  ]);
+  const plan = buildLibraryAnalysisAcquisitionPlan(population, specs.flatMap(([sourceKind, sourceKey]): LibraryAnalysisAcquisitionLocator[] => {
+    if (sourceKind === "source_doc") return [{ sourceKind, sourceKey, route: "controlled_https" as const, locator: `https://example.test/${sourceKey}.pdf`, alternateLocators: [] }];
+    if (sourceKind === "library_file" && sourceKey.includes("csv")) return [{ sourceKind, sourceKey, route: "repository_csv" as const, locator: `repository:${sourceKey}.csv`, alternateLocators: [] }];
+    if (sourceKind === "library_file") return [{ sourceKind, sourceKey, route: "repository_pptx" as const, locator: `repository:${sourceKey}.pptx`, alternateLocators: [] }];
+    if (sourceKind === "report") return [{ sourceKind, sourceKey, route: "database_derived_record" as const, locator: `database:Report:${sourceKey}`, alternateLocators: [] }];
+    return [];
+  }));
   const core: LibraryAnalysisAgentQueueCore = {
     schema: "library-analysis-agent-queue/v1",
     createdAt: "2026-08-21T00:00:00.000Z",
@@ -237,6 +239,23 @@ test("pilot falls back to an alternate primary when the lowest one cannot fit ca
   const pilot = selectLibraryAnalysisAgentPilot(shapeForSpecs(specs));
   assert.ok(pilot.queue.sources.some((source) => source.sourceKey === "document:seg-good-0"));
   assert.ok(!pilot.queue.sources.some((source) => source.sourceKey === "document:seg-low-0"));
+});
+
+test("pilot proves a 700-source low-capacity pool impossible before Cartesian search", () => {
+  const specs: FixtureSpec[] = [
+    ...Array.from({ length: 100 }, (_, index) => ["document", `document:small-${index}`, "database_record", 1_000] as const),
+    ...Array.from({ length: 100 }, (_, index) => ["document", `document:medium-${index}`, "database_record", 20_000] as const),
+    ...Array.from({ length: 100 }, (_, index) => ["document", `document:segmented-${index}`, "database_record", 1_000, 1_000] as const),
+    ...Array.from({ length: 100 }, (_, index) => ["source_doc", `source_doc:pdf-${index}`, "pdf_page", 1_000] as const),
+    ...Array.from({ length: 100 }, (_, index) => ["library_file", `library_file:csv-${index}`, "sheet_range", 1_000] as const),
+    ...Array.from({ length: 100 }, (_, index) => ["library_file", `library_file:pptx-${index}`, "slide", 1_000] as const),
+    ...Array.from({ length: 100 }, (_, index) => ["report", `report:derived-${index}`, "database_record", 1_000] as const),
+  ];
+  assert.throws(() => selectLibraryAnalysisAgentPilot(shapeForSpecs(specs), { maxSearchNodes: 1_000 }), /agent_pilot_capacity_unsatisfied/);
+});
+
+test("pilot search budget exhaustion is distinct from capacity failure", () => {
+  assert.throws(() => selectLibraryAnalysisAgentPilot(fullShapeFixture(), { maxSearchNodes: 1 }), /agent_pilot_search_budget_exhausted/);
 });
 
 function buildLibraryAnalysisPlanWithPdfLocator(
