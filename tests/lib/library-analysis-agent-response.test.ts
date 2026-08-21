@@ -261,6 +261,84 @@ test("keeps explicit subjects and bounded periods eligible", () => {
   }));
 });
 
+test("rejects the seven audited unscoped report, ownership, expectation, and status claims", () => {
+  const assertRejected = (text: string, error: RegExp) => {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, text)],
+    });
+    assert.throws(
+      () => validateLibraryAnalysisAgentSegmentResponse({
+        queueHash: HASH,
+        attempt: 1,
+        inputHash: INPUT_HASH,
+        expectedModel: EXPECTED_MODEL,
+        job,
+        response,
+      }),
+      error,
+    );
+  };
+
+  for (const text of [
+    "S Group og K Group rapporterer flere tiltak enn Lidl, blant annet informasjon og veiledning om baerekraftig spising via nettinnhold og butikkmateriell.",
+    "S Group, K Group og Lidl Finland rapporterer tiltak knyttet til bedre utvalg av plantebaserte varer og tiltak mot matsvinn.",
+  ]) {
+    assertRejected(text, /reported_measure_context_missing/u);
+  }
+
+  for (const text of [
+    "Austevoll Seafood kontrolleres av Laco AS (ultimate morselskap).",
+    "Samvirkelagene eier fellesorganisasjonen Coop Norge SA",
+  ]) {
+    assertRejected(text, /ownership_as_of_missing/u);
+  }
+
+  assertRejected(
+    "Forventningen er en «10-step start» — ikke full levering, men oppstart av et lengre arbeid.",
+    /expectation_actor_scope_missing/u,
+  );
+
+  for (const [text, error] of [
+    ["Dashboard brukes som internt arbeidsverktøy; presentasjoner lages separat.", /status_scope_or_as_of_missing/u],
+    ["Ingen partnere i søknaden er kontaktet etter tildelingen.", /status_scope_or_as_of_missing/u],
+  ] as const) {
+    assertRejected(text, error);
+  }
+});
+
+test("keeps scoped report, ownership, expectation, and status boundaries eligible", () => {
+  const assertAccepted = (text: string) => {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, text)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }));
+  };
+
+  for (const text of [
+    "S Group og K Group rapporterer i 2022, basert på en kvalitativ innholdsanalyse av baerekraftsrapporter, flere tiltak enn Lidl.",
+    "S Group, K Group og Lidl Finland rapporterer i 2022, basert på en kvalitativ innholdsanalyse av baerekraftsrapporter, tiltak mot matsvinn.",
+    "Austevoll Seafood kontrolleres av Laco AS per 31.12.2024.",
+    "Samvirkelagene eier Coop Norge SA per 31.12.2024.",
+    "For Nordic Innovation Hotspot Transition Groups er forventningen en «10-step start» — ikke full levering.",
+    "The expectation for the Nordic Innovation Hotspot Transition Groups is a 10-step start, not full delivery.",
+    "Per 13. april 2026 for Nordic Innovation Hotspot Transition Groups brukes dashboardet som internt arbeidsverktøy; presentasjoner lages separat.",
+    "Per 13. april 2026 for Nordic Innovation Hotspot-søknaden er ingen partnere kontaktet etter tildelingen.",
+  ]) {
+    assertAccepted(text);
+  }
+});
+
 test("rejects unanchored relative trend and status expressions while allowing anchored boundaries", () => {
   for (const contextualText of [
     "Detaljistene kontrollerer data i økende grad.",
@@ -731,3 +809,122 @@ test("merge preserves retry receipts, rejects duplicate attempts, and hashes rec
     /source_merge_attempt_duplicate/u,
   );
 });
+
+// Pilot05 survey evidence-locality acceptance predicates (TDD red phase).
+{
+  const SURVEY_CONTEXT =
+    "This survey was conducted online in 2023, gathering responses from 19 EU insect farming companies.";
+
+  function surveyJob(evidence: string): LibraryAnalysisVerifiedJob {
+    return verifiedJob([`${SURVEY_CONTEXT} ${evidence}`]);
+  }
+
+  function responseForClaim(job: LibraryAnalysisVerifiedJob, text: string, evidence: string) {
+    return segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, text), evidence }],
+    });
+  }
+
+  test("rejects survey respondent ranking and geography claims without same-excerpt scope", () => {
+    for (const text of [
+      "When asked to rank the most important factors, respondents identified funding and training.",
+      "Most respondent companies are located in Europe, with exceptions in Asia.",
+    ]) {
+      const job = surveyJob(text);
+      const response = responseForClaim(job, text, text);
+      assert.throws(
+        () => validateLibraryAnalysisAgentSegmentResponse({
+          queueHash: HASH,
+          attempt: 1,
+          inputHash: INPUT_HASH,
+          expectedModel: EXPECTED_MODEL,
+          job,
+          response,
+        }),
+        /agent_response_survey_scope_missing/u,
+      );
+    }
+  });
+
+  test("rejects survey production totals, averages, and forecasts without same-excerpt scope", () => {
+    for (const text of [
+      "The total production of insects for human consumption in 2022 was 328,27 tonnes.",
+      "The total production of insects for human consumption in 2023 was 802,65 tonnes.",
+      "On average, companies have approximately 9.5 years of industry experience.",
+      "The total production of insects for human consumption foreseen for 2025 is 2 755,44 tonnes.",
+    ]) {
+      const job = surveyJob(text);
+      const response = responseForClaim(job, text, text);
+      assert.throws(
+        () => validateLibraryAnalysisAgentSegmentResponse({
+          queueHash: HASH,
+          attempt: 1,
+          inputHash: INPUT_HASH,
+          expectedModel: EXPECTED_MODEL,
+          job,
+          response,
+        }),
+        /agent_response_survey_scope_missing/u,
+      );
+    }
+  });
+
+  test("rejects a survey forecast with scope but no source-visible forecast basis", () => {
+    const text = "The forecasted production for 2025 was 2 755,44 tonnes among 19 EU insect farming companies.";
+    const job = surveyJob(text);
+    const response = responseForClaim(job, text, text);
+    assert.throws(
+      () => validateLibraryAnalysisAgentSegmentResponse({
+        queueHash: HASH,
+        attempt: 1,
+        inputHash: INPUT_HASH,
+        expectedModel: EXPECTED_MODEL,
+        job,
+        response,
+      }),
+      /agent_response_forecast_basis_missing/u,
+    );
+  });
+
+  test("accepts complete survey aggregate and forecast evidence", () => {
+    const aggregate = "The total production among 19 EU insect farming companies in 2023 was 802,65 tonnes.";
+    const aggregateJob = surveyJob(aggregate);
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job: aggregateJob,
+      response: responseForClaim(aggregateJob, aggregate, aggregate),
+    }));
+
+    const forecast = "The forecast for 2025, based on responses from 19 EU insect farming companies, is 2 755,44 tonnes.";
+    const forecastJob = surveyJob(forecast);
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job: forecastJob,
+      response: responseForClaim(forecastJob, forecast, forecast),
+    }));
+  });
+
+  test("accepts complete non-survey qualitative and aggregate evidence", () => {
+    for (const text of [
+      "The qualitative report describes methods used by producers.",
+      "The national registry recorded total production in 2023 as 802 tonnes.",
+    ]) {
+      const job = verifiedJob([text]);
+      assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+        queueHash: HASH,
+        attempt: 1,
+        inputHash: INPUT_HASH,
+        expectedModel: EXPECTED_MODEL,
+        job,
+        response: responseForClaim(job, text, text),
+      }));
+    }
+  });
+}

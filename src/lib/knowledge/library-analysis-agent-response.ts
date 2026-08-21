@@ -85,6 +85,17 @@ const MATERIAL_SCOPE_QUALIFIERS = [
   /\bi\s+denne\s+sammenhengen\b/iu,
   /\bin\s+this\s+context\b/iu,
 ] as const;
+const REPORTED_MEASURE = /\b(?:rapporterer|reports?)\b[\s\S]{0,180}\b(?:tiltak|measures?|actions?)\b/iu;
+const REPORTING_BASIS = /\b(?:kvalitativ\s+innholdsanalyse|content\s+analysis|b[\u00e6a]rekraftsrapporter|sustainability\s+reports?|based\s+on|basert\s+på)\b/iu;
+const OWNERSHIP_OR_CONTROL = /\b(?:eier|eid\s+av|kontrolleres\s+av|owns?|owned\s+by|controlled\s+by)\b/iu;
+const GENERIC_EXPECTATION = /^(?:forventningen\s+er|the\s+expectation\s+is)\b/iu;
+const OPERATIONAL_STATUS = /(?:\bdashboard(?:et)?\b[\s\S]{0,80}\b(?:brukes|anvendes|is\s+used)\b|\b(?:ingen|no)\b[\s\S]{0,80}\b(?:partnere?|partners?)\b[\s\S]{0,80}\b(?:kontaktet|contacted)\b)/iu;
+const NAMED_SCOPE = /\bfor\s+(?!(?:prosjektet|søknaden|the\s+project|the\s+application)\b)[A-ZÆØÅ][\p{L}\p{N}-]*(?:\s+[A-ZÆØÅ][\p{L}\p{N}-]*)+/u;
+const SURVEY_UNIT_CONTEXT = /\b(?:survey|questionnaire|respondents?|responses?|companies\s+indicated|could\s+you\s+rank|your\s+company)\b/iu;
+const SURVEY_DEPENDENT_CLAIM = /\b(?:respondents?|respondent\s+companies|most\s+(?:of\s+the\s+)?companies|on\s+average|rank(?:ed|ing)?|total(?:\s+collective)?\s+production|forecast(?:ed)?|foreseen|projection)\b/iu;
+const LOCAL_SURVEY_SCOPE = /\b(?:(?:among|from|of|sample\s+of)\s+|responses?\s+from\s+)?\d{1,4}\s+(?:(?:EU|European|Nordic|surveyed)\s+)?(?:(?:insect\s+farming|insect-food|food)\s+)?(?:companies|respondents|producers)\b/iu;
+const FORECAST_CLAIM = /\b(?:forecast(?:ed)?|foreseen|projection|projected)\b/iu;
+const FORECAST_BASIS = /\b(?:based\s+on|using|scenario|model(?:led|ed|ing)?|estimated?\s+from|responses?\s+from)\b/iu;
 const AUTHORITY_TERMS = [
   /\bpublication[- ]ready\b/iu,
   /\bready for publication\b/iu,
@@ -116,6 +127,51 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     if (qualifier.test(evidence) && !qualifier.test(normalizedClaim)) {
       throw new Error("agent_response_scope_qualifier_mismatch");
     }
+  }
+}
+
+function assertAuditedScopeCompleteness(
+  claimText: string,
+  evidence: string,
+  sourceText: string,
+): void {
+  if (REPORTED_MEASURE.test(claimText) && (
+    !EXPLICIT_YEAR.test(claimText) ||
+    !EXPLICIT_YEAR.test(evidence) ||
+    !REPORTING_BASIS.test(claimText) ||
+    !REPORTING_BASIS.test(evidence)
+  )) {
+    throw new Error("agent_response_reported_measure_context_missing");
+  }
+  if (OWNERSHIP_OR_CONTROL.test(claimText) && (
+    !EXPLICIT_YEAR.test(claimText) || !EXPLICIT_YEAR.test(evidence)
+  )) {
+    throw new Error("agent_response_ownership_as_of_missing");
+  }
+  if (GENERIC_EXPECTATION.test(claimText)) {
+    throw new Error("agent_response_expectation_actor_scope_missing");
+  }
+  if (OPERATIONAL_STATUS.test(claimText) && (
+    !EXPLICIT_YEAR.test(claimText) ||
+    !EXPLICIT_YEAR.test(evidence) ||
+    !NAMED_SCOPE.test(claimText) ||
+    !NAMED_SCOPE.test(evidence)
+  )) {
+    throw new Error("agent_response_status_scope_or_as_of_missing");
+  }
+  if (
+    SURVEY_UNIT_CONTEXT.test(sourceText) &&
+    SURVEY_DEPENDENT_CLAIM.test(claimText) &&
+    !LOCAL_SURVEY_SCOPE.test(evidence)
+  ) {
+    throw new Error("agent_response_survey_scope_missing");
+  }
+  if (
+    SURVEY_UNIT_CONTEXT.test(sourceText) &&
+    FORECAST_CLAIM.test(claimText) &&
+    !FORECAST_BASIS.test(evidence)
+  ) {
+    throw new Error("agent_response_forecast_basis_missing");
   }
 }
 
@@ -376,6 +432,7 @@ export function validateLibraryAnalysisAgentSegmentResponse(
       throw new Error("agent_response_evidence_not_contained");
     }
     assertSelfContainedClaimText(claim.text, claim.evidence);
+    assertAuditedScopeCompleteness(claim.text, claim.evidence, unit.text);
     assertAuthorityLanguageIsSourceVisible(claim.text, claim.evidence);
     assertNumericTokens(claim.text, claim.evidence);
     return {
