@@ -47,6 +47,10 @@ describe('package scripts', () => {
       'tsx scripts/knowledge/execute-library-analysis-acquisition.ts --execute-network',
     )
     assert.equal(
+      scripts['knowledge:library-analysis:acquisition:emit'],
+      'tsx scripts/knowledge/emit-library-analysis-content-units.ts',
+    )
+    assert.equal(
       scripts['knowledge:library-analysis:intake'],
       'tsx scripts/knowledge/ingest-library-analysis-content-units.ts',
     )

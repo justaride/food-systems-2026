@@ -1,11 +1,20 @@
 #!/usr/bin/env node
 
 import { createHash } from "node:crypto";
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import {
+  lstatSync,
+  mkdtempSync,
+  readFileSync,
+  realpathSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
-import { isAbsolute, join, resolve } from "node:path";
+import { isAbsolute, join, resolve, sep } from "node:path";
 import { spawnSync } from "node:child_process";
 import { pathToFileURL } from "node:url";
+
+import type { PrismaClient } from "../../src/generated/prisma/client";
 
 import {
   canonicalCandidateJson,
@@ -19,6 +28,7 @@ import {
   type LibraryAnalysisAcquisitionPlanRow,
 } from "../../src/lib/knowledge/library-analysis-acquisition-contract";
 import {
+  extractLibraryAnalysisDerivedReport,
   extractLibraryAnalysisSource,
   type LibraryAnalysisExtractionAdapters,
   type LibraryAnalysisSourceExtractionResult,
@@ -47,11 +57,17 @@ export type LibraryAnalysisAcquisitionExecutionAdapters = {
   extraction: LibraryAnalysisExtractionAdapters;
   wait: (milliseconds: number) => Promise<void>;
   now: () => string;
+  readDatabaseDocument?: (documentId: string) => Promise<{
+    summary: string | null;
+    content: string;
+  }>;
+  readRepositoryFile?: (portablePath: string) => Promise<Buffer>;
+  readDerivedReport?: (reportId: string) => Promise<unknown>;
 };
 
 export type SanitizedLibraryAnalysisAcquisitionRow = {
   sourceKey: string;
-  state: "ready" | "blocked" | "failed_retryable" | "not_executed";
+  state: "ready" | "blocked" | "failed_retryable" | "quarantined" | "not_executed";
   reasonCode:
     | "source_superseded"
     | "missing_locator"
@@ -64,6 +80,8 @@ export type SanitizedLibraryAnalysisAcquisitionRow = {
     | "empty_extraction"
     | "ocr_required"
     | "identity_ambiguous"
+    | "source_version_drift"
+    | "derived_record_missing_dependencies"
     | null;
   rawSha256: string | null;
   normalizedTextSha256: string | null;
@@ -163,6 +181,18 @@ export async function executeLibraryAnalysisAcquisitionPlan(
       rows.push(await executeControlledHttpsRow(row, input.runRoot, input.adapters));
       continue;
     }
+    if (row.route === "database_document") {
+      rows.push(await executeDatabaseDocumentRow(row, input.runRoot, input.adapters));
+      continue;
+    }
+    if (row.route === "repository_csv" || row.route === "repository_pptx") {
+      rows.push(await executeRepositoryRow(row, input.runRoot, input.adapters));
+      continue;
+    }
+    if (row.route === "database_derived_record") {
+      rows.push(await executeDerivedReportRow(row, input.runRoot, input.adapters));
+      continue;
+    }
     rows.push(nonNetworkRow(row));
   }
   const summary: LibraryAnalysisAcquisitionExecutionSummary = {
@@ -185,8 +215,27 @@ async function executeControlledHttpsRow(
   adapters: LibraryAnalysisAcquisitionExecutionAdapters,
 ): Promise<SanitizedLibraryAnalysisAcquisitionRow> {
   if (row.locator === null) return blockedRow(row.sourceKey, "missing_locator");
-  const landing = await fetchWithRetry(row.sourceKey, row.locator, 0, adapters, runRoot);
-  if (landing.status !== "ready") return failedFetchRow(row.sourceKey, landing);
+  const locators = [row.locator, ...row.alternateLocators];
+  let landing: ReadyFetchAttempt | null = null;
+  let landingOrdinal = 0;
+  for (const [locatorIndex, locator] of locators.entries()) {
+    const attempt = await fetchWithRetry(
+      row.sourceKey,
+      locator,
+      locatorIndex * 2,
+      adapters,
+      runRoot,
+    );
+    if (attempt.status === "ready") {
+      landing = attempt;
+      landingOrdinal = locatorIndex * 2;
+      break;
+    }
+    if (attempt.reasonCode !== "http_not_found" || locatorIndex === locators.length - 1) {
+      return failedFetchRow(row.sourceKey, attempt);
+    }
+  }
+  if (landing === null) return blockedRow(row.sourceKey, "http_not_found");
   persistSuccessfulFetch(runRoot, landing);
   let extraction = extractLibraryAnalysisSource({
     sourceKey: row.sourceKey,
@@ -194,10 +243,11 @@ async function executeControlledHttpsRow(
     finalLocator: landing.receipt.finalLocator,
     bytes: landing.bodyBytes,
   }, adapters.extraction);
+  let rawSizeBytes = landing.bodyBytes.length;
 
   if (extraction.status === "ready" && landing.receipt.response.contentType === "text/html") {
     if (extraction.documentLinkCandidates.length !== 1) {
-      persistExtraction(runRoot, row.sourceKey, extraction);
+      persistExtraction(runRoot, row, extraction, rawSizeBytes, extraction.rawSha256);
       return {
         ...blockedRow(row.sourceKey, "identity_ambiguous"),
         rawSha256: extraction.rawSha256,
@@ -207,7 +257,7 @@ async function executeControlledHttpsRow(
     const linked = await fetchWithRetry(
       row.sourceKey,
       extraction.documentLinkCandidates[0]!,
-      1,
+      landingOrdinal + 1,
       adapters,
       runRoot,
     );
@@ -219,12 +269,13 @@ async function executeControlledHttpsRow(
       finalLocator: linked.receipt.finalLocator,
       bytes: linked.bodyBytes,
     }, adapters.extraction);
+    rawSizeBytes = linked.bodyBytes.length;
   }
 
   if (extraction.status === "blocked") {
     return blockedRow(row.sourceKey, extraction.reasonCode);
   }
-  persistExtraction(runRoot, row.sourceKey, extraction);
+  persistExtraction(runRoot, row, extraction, rawSizeBytes, extraction.rawSha256);
   return {
     sourceKey: row.sourceKey,
     state: "ready",
@@ -233,6 +284,109 @@ async function executeControlledHttpsRow(
     normalizedTextSha256: extraction.normalizedTextSha256,
     unitCount: extraction.units.length,
   };
+}
+
+async function executeDatabaseDocumentRow(
+  row: LibraryAnalysisAcquisitionPlanRow,
+  runRoot: string,
+  adapters: LibraryAnalysisAcquisitionExecutionAdapters,
+): Promise<SanitizedLibraryAnalysisAcquisitionRow> {
+  const locator = row.locator;
+  const match = locator ? /^database:Document:([^:]+):content$/u.exec(locator) : null;
+  if (!match || !adapters.readDatabaseDocument || row.sourceVersionHash === null) {
+    return quarantinedRow(row.sourceKey, "source_version_drift");
+  }
+  let source: { summary: string | null; content: string };
+  try {
+    source = await adapters.readDatabaseDocument(match[1]!);
+  } catch {
+    return quarantinedRow(row.sourceKey, "source_version_drift");
+  }
+  const rawBytes = Buffer.from(source.content, "utf8");
+  const rawSha256 = sha256(rawBytes);
+  const versionBytes = Buffer.from([source.summary, source.content].filter(Boolean).join("\n\n"), "utf8");
+  const sourceVersionHash = sha256(versionBytes);
+  if (sourceVersionHash !== row.sourceVersionHash) {
+    return quarantinedRow(row.sourceKey, "source_version_drift");
+  }
+  const units = [
+    ...(source.summary && source.summary.length > 0 ? [{
+      unitType: "database_record" as const,
+      baseLocator: locator!.replace(/:content$/u, ":summary"),
+      ordinal: 0,
+      text: source.summary,
+    }] : []),
+    {
+      unitType: "database_record" as const,
+      baseLocator: locator!,
+      ordinal: source.summary && source.summary.length > 0 ? 1 : 0,
+      text: source.content,
+    },
+  ];
+  const extraction = readyExtraction(rawSha256, units, {
+    name: "library-database-document",
+    version: "1.0.0",
+    workflowRef: "workflow.library-analysis.database-document-extraction",
+    workflowVersion: "1.0.0",
+  });
+  writeAndSeal(runRoot, `raw/${rawSha256}.bin`, rawBytes);
+  persistExtraction(runRoot, row, extraction, rawBytes.length, sourceVersionHash);
+  return readyRow(row.sourceKey, extraction);
+}
+
+async function executeRepositoryRow(
+  row: LibraryAnalysisAcquisitionPlanRow,
+  runRoot: string,
+  adapters: LibraryAnalysisAcquisitionExecutionAdapters,
+): Promise<SanitizedLibraryAnalysisAcquisitionRow> {
+  const match = row.locator ? /^repository:(.+)$/u.exec(row.locator) : null;
+  if (!match || !adapters.readRepositoryFile) {
+    return quarantinedRow(row.sourceKey, "source_version_drift");
+  }
+  let bytes: Buffer;
+  try {
+    bytes = await adapters.readRepositoryFile(match[1]!);
+  } catch {
+    return quarantinedRow(row.sourceKey, "source_version_drift");
+  }
+  const extraction = extractLibraryAnalysisSource({
+    sourceKey: row.sourceKey,
+    mediaType: row.route === "repository_csv"
+      ? "text/csv"
+      : "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    finalLocator: row.locator!,
+    bytes,
+  }, adapters.extraction);
+  if (extraction.status === "blocked") return blockedRow(row.sourceKey, extraction.reasonCode);
+  writeAndSeal(runRoot, `raw/${extraction.rawSha256}.bin`, bytes);
+  persistExtraction(runRoot, row, extraction, bytes.length, extraction.rawSha256);
+  return readyRow(row.sourceKey, extraction);
+}
+
+async function executeDerivedReportRow(
+  row: LibraryAnalysisAcquisitionPlanRow,
+  runRoot: string,
+  adapters: LibraryAnalysisAcquisitionExecutionAdapters,
+): Promise<SanitizedLibraryAnalysisAcquisitionRow> {
+  const match = row.locator ? /^database:Report:([^:]+)$/u.exec(row.locator) : null;
+  if (!match || !adapters.readDerivedReport) {
+    return blockedRow(row.sourceKey, "derived_record_missing_dependencies");
+  }
+  let record: unknown;
+  try {
+    record = await adapters.readDerivedReport(match[1]!);
+  } catch {
+    return blockedRow(row.sourceKey, "derived_record_missing_dependencies");
+  }
+  const extraction = extractLibraryAnalysisDerivedReport(record);
+  if (extraction.status === "blocked") return blockedRow(row.sourceKey, extraction.reasonCode);
+  const rawBytes = Buffer.from(extraction.units.map((unit) => unit.text).join("\f"), "utf8");
+  if (sha256(rawBytes) !== extraction.rawSha256) {
+    return quarantinedRow(row.sourceKey, "source_version_drift");
+  }
+  writeAndSeal(runRoot, `raw/${extraction.rawSha256}.bin`, rawBytes);
+  persistExtraction(runRoot, row, extraction, rawBytes.length, extraction.rawSha256);
+  return readyRow(row.sourceKey, extraction);
 }
 
 async function fetchWithRetry(
@@ -335,8 +489,10 @@ function persistSuccessfulFetch(runRoot: string, attempt: ReadyFetchAttempt): vo
 
 function persistExtraction(
   runRoot: string,
-  sourceKey: string,
+  row: LibraryAnalysisAcquisitionPlanRow,
   extraction: Extract<LibraryAnalysisSourceExtractionResult, { status: "ready" }>,
+  rawSizeBytes: number,
+  sourceVersionHash: string,
 ): void {
   const normalizedText = extraction.units.map((unit) => unit.text).join("\f");
   writeAndSeal(
@@ -344,20 +500,69 @@ function persistExtraction(
     `text/${extraction.normalizedTextSha256}.txt`,
     Buffer.from(normalizedText, "utf8"),
   );
-  const sourceHash = candidateAnalysisSha256("library-analysis-acquisition-source", sourceKey);
+  const sourceHash = candidateAnalysisSha256("library-analysis-acquisition-source", row.sourceKey);
   writePrivateManifestAtomic(
     runRoot,
     `extraction/${sourceHash}.json`,
     canonicalJsonBytes({
       schema: "library-analysis-source-extraction/v1",
-      sourceKey,
+      sourceKind: row.sourceKind,
+      sourceKey: row.sourceKey,
+      route: row.route,
+      sourceVersionHash,
       rawSha256: extraction.rawSha256,
+      rawSizeBytes,
       normalizedTextSha256: extraction.normalizedTextSha256,
       extractor: extraction.extractor,
       units: extraction.units,
       warnings: extraction.warnings,
     }),
   );
+}
+
+function readyExtraction(
+  rawSha256: string,
+  units: Extract<LibraryAnalysisSourceExtractionResult, { status: "ready" }>["units"],
+  extractor: Extract<LibraryAnalysisSourceExtractionResult, { status: "ready" }>["extractor"],
+): Extract<LibraryAnalysisSourceExtractionResult, { status: "ready" }> {
+  const normalized = units.map((unit) => unit.text).join("\f");
+  return {
+    status: "ready",
+    rawSha256,
+    normalizedTextSha256: sha256(Buffer.from(normalized, "utf8")),
+    extractor,
+    units,
+    documentLinkCandidates: [],
+    warnings: [],
+  };
+}
+
+function readyRow(
+  sourceKey: string,
+  extraction: Extract<LibraryAnalysisSourceExtractionResult, { status: "ready" }>,
+): SanitizedLibraryAnalysisAcquisitionRow {
+  return {
+    sourceKey,
+    state: "ready",
+    reasonCode: null,
+    rawSha256: extraction.rawSha256,
+    normalizedTextSha256: extraction.normalizedTextSha256,
+    unitCount: extraction.units.length,
+  };
+}
+
+function quarantinedRow(
+  sourceKey: string,
+  reasonCode: "source_version_drift",
+): SanitizedLibraryAnalysisAcquisitionRow {
+  return {
+    sourceKey,
+    state: "quarantined",
+    reasonCode,
+    rawSha256: null,
+    normalizedTextSha256: null,
+    unitCount: 0,
+  };
 }
 
 function writeAndSeal(runRoot: string, portablePath: string, bytes: Buffer): void {
@@ -466,6 +671,7 @@ async function defaultFetch(request: ControlledFetchRequest): Promise<Controlled
     method: request.method,
     redirect: request.redirect,
     credentials: request.credentials,
+    headers: { "user-agent": "FoodSystems2026-LibraryAnalysis/1.0" },
     signal: AbortSignal.timeout(60_000),
   });
   const contentLength = response.headers.get("content-length");
@@ -533,7 +739,113 @@ function defaultExtractionAdapters(): LibraryAnalysisExtractionAdapters {
         rmSync(directory, { recursive: true, force: true });
       }
     },
+    listZipEntries: (bytes) => runUnzip(bytes, ["-Z1"])
+      .toString("utf8")
+      .split(/\r?\n/u)
+      .filter((entry) => entry.length > 0),
+    readZipEntry: (bytes, entry) => runUnzip(bytes, ["-p"], entry),
   };
+}
+
+function runUnzip(bytes: Buffer, prefixArguments: string[], entry?: string): Buffer {
+  const directory = mkdtempSync(join(tmpdir(), "library-analysis-pptx."));
+  const input = join(directory, "input.pptx");
+  try {
+    writeFileSync(input, bytes, { mode: 0o600, flag: "wx" });
+    const result = spawnSync(
+      "unzip",
+      [...prefixArguments, input, ...(entry === undefined ? [] : [entry])],
+      { encoding: "buffer", timeout: 120_000, maxBuffer: MAXIMUM_BODY_SIZE_BYTES },
+    );
+    if (result.status !== 0 || !Buffer.isBuffer(result.stdout)) {
+      throw new Error("library_analysis_unzip_failed");
+    }
+    return result.stdout;
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+}
+
+async function createDefaultSourceAdapters(
+  plan: LibraryAnalysisAcquisitionPlan,
+  enabled: boolean,
+): Promise<{
+  adapters: Pick<
+    LibraryAnalysisAcquisitionExecutionAdapters,
+    "readDatabaseDocument" | "readDerivedReport" | "readRepositoryFile"
+  >;
+  close: () => Promise<void>;
+}> {
+  const repositoryRoot = realpathSync(process.cwd());
+  const adapters: Pick<
+    LibraryAnalysisAcquisitionExecutionAdapters,
+    "readDatabaseDocument" | "readDerivedReport" | "readRepositoryFile"
+  > = {
+    readRepositoryFile: async (portablePath) => {
+      const target = resolve(repositoryRoot, portablePath);
+      if (!target.startsWith(`${repositoryRoot}${sep}`)) {
+        throw new Error("library_analysis_repository_path_invalid");
+      }
+      const stat = lstatSync(target);
+      if (stat.isSymbolicLink() || !stat.isFile()) {
+        throw new Error("library_analysis_repository_file_invalid");
+      }
+      if (!realpathSync(target).startsWith(`${repositoryRoot}${sep}`)) {
+        throw new Error("library_analysis_repository_path_invalid");
+      }
+      return readFileSync(target);
+    },
+  };
+  const needsDatabase = enabled && plan.rows.some(
+    (row) => row.route === "database_document" || row.route === "database_derived_record",
+  );
+  if (!needsDatabase) return { adapters, close: async () => undefined };
+  const databaseUrl = process.env.DATABASE_URL;
+  if (!databaseUrl) throw new Error("library_analysis_execution_database_url_missing");
+  const [{ PrismaPg }, { PrismaClient: RuntimePrismaClient }] = await Promise.all([
+    import("@prisma/adapter-pg"),
+    import("../../src/generated/prisma/client"),
+  ]);
+  const prisma: PrismaClient = new RuntimePrismaClient({
+    adapter: new PrismaPg({ connectionString: databaseUrl }),
+  });
+  adapters.readDatabaseDocument = async (documentId) => prisma.$transaction(async (transaction) => {
+    await transaction.$executeRawUnsafe("SET TRANSACTION READ ONLY");
+    const document = await transaction.document.findUnique({
+      where: { id: documentId },
+      select: { summary: true, content: true },
+    });
+    if (!document) throw new Error("library_analysis_database_document_missing");
+    return document;
+  }, { isolationLevel: "RepeatableRead" });
+  adapters.readDerivedReport = async (reportId) => prisma.$transaction(async (transaction) => {
+    await transaction.$executeRawUnsafe("SET TRANSACTION READ ONLY");
+    const report = await transaction.report.findUnique({
+      where: { id: reportId },
+      select: {
+        id: true,
+        title: true,
+        fullTitle: true,
+        author: true,
+        institution: true,
+        date: true,
+        year: true,
+        reportCategory: true,
+        country: true,
+        keyFindings: true,
+        recommendations: true,
+        relevance: true,
+        tags: true,
+        provenanceType: true,
+        supportingSources: true,
+      },
+    });
+    if (!report || !Array.isArray(report.supportingSources)) {
+      throw new Error("library_analysis_derived_report_missing");
+    }
+    return report;
+  }, { isolationLevel: "RepeatableRead" });
+  return { adapters, close: () => prisma.$disconnect() };
 }
 
 async function main(): Promise<void> {
@@ -541,18 +853,24 @@ async function main(): Promise<void> {
   const plan = LibraryAnalysisAcquisitionPlanSchema.parse(
     JSON.parse(readFileSync(options.plan, "utf8")),
   );
-  const summary = await executeLibraryAnalysisAcquisitionPlan({
-    plan,
-    runRoot: options.runRoot,
-    mode: options.mode,
-    adapters: {
-      fetch: defaultFetch,
-      extraction: defaultExtractionAdapters(),
-      wait: (milliseconds) => new Promise((resolveWait) => setTimeout(resolveWait, milliseconds)),
-      now: () => new Date().toISOString(),
-    },
-  });
-  process.stdout.write(`${JSON.stringify(summary)}\n`);
+  const defaults = await createDefaultSourceAdapters(plan, options.mode === "execute_network");
+  try {
+    const summary = await executeLibraryAnalysisAcquisitionPlan({
+      plan,
+      runRoot: options.runRoot,
+      mode: options.mode,
+      adapters: {
+        fetch: defaultFetch,
+        extraction: defaultExtractionAdapters(),
+        wait: (milliseconds) => new Promise((resolveWait) => setTimeout(resolveWait, milliseconds)),
+        now: () => new Date().toISOString(),
+        ...defaults.adapters,
+      },
+    });
+    process.stdout.write(`${JSON.stringify(summary)}\n`);
+  } finally {
+    await defaults.close();
+  }
 }
 
 const invokedPath = process.argv[1] ? pathToFileURL(resolve(process.argv[1])).href : null;

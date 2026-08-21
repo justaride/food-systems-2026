@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
-import { existsSync, mkdtempSync, rmSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { existsSync, mkdtempSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
@@ -23,6 +24,10 @@ import {
 } from "../../src/lib/knowledge/library-analysis-population";
 import { openPrivateLibraryAnalysisRunRoot } from "../../src/lib/knowledge/private-library-analysis-artifact-store";
 import type { ControlledFetchResponse } from "../../scripts/knowledge/generate-source-acquisition-receipt";
+import {
+  parseLibraryAnalysisPrivateEmitArgs,
+  runLibraryAnalysisPrivateEmitCli,
+} from "../../scripts/knowledge/emit-library-analysis-content-units";
 
 function fixtureRoot(t: test.TestContext): string {
   const root = mkdtempSync(join(tmpdir(), "library-analysis-execution-test."));
@@ -30,9 +35,12 @@ function fixtureRoot(t: test.TestContext): string {
   return root;
 }
 
-function blockedSource(sourceKey: string): LibraryAnalysisPopulationInputRow {
+function blockedSource(
+  sourceKey: string,
+  sourceKind = "source_doc",
+): LibraryAnalysisPopulationInputRow {
   return {
-    sourceKind: "source_doc",
+    sourceKind,
     sourceKey,
     sourceVersionHash: null,
     inputKind: "none",
@@ -316,6 +324,40 @@ test("controlled acquisition does not retry deterministic HTTP blockers", async 
   assert.doesNotMatch(JSON.stringify(result), /private response body|example\.test/);
 });
 
+test("controlled acquisition uses an alternate locator only after not-found", async (t) => {
+  const population = buildLibraryAnalysisPopulation([blockedSource("source_doc:fallback")]);
+  const plan = buildLibraryAnalysisAcquisitionPlan(population, [{
+    sourceKind: "source_doc",
+    sourceKey: "source_doc:fallback",
+    route: "controlled_https",
+    locator: "https://example.test/missing",
+    alternateLocators: ["https://doi.org/10.1000/fallback"],
+  }]);
+  const requested: string[] = [];
+  const result = await executeLibraryAnalysisAcquisitionPlan({
+    plan,
+    runRoot: openPrivateLibraryAnalysisRunRoot(fixtureRoot(t), "run-fallback"),
+    mode: "execute_network",
+    adapters: {
+      fetch: async (request) => {
+        requested.push(request.url);
+        return request.url.includes("missing")
+          ? response(404, "not found")
+          : response(200, "fallback source text", { "content-type": "text/plain" });
+      },
+      extraction: unusedExtractionAdapters,
+      wait: async () => undefined,
+      now: () => "2026-08-21T10:00:00.000Z",
+    },
+  });
+
+  assert.deepEqual(requested, [
+    "https://example.test/missing",
+    "https://doi.org/10.1000/fallback",
+  ]);
+  assert.equal(result.rows[0]?.state, "ready");
+});
+
 test("controlled acquisition blocks oversized transport responses without retry", async (t) => {
   const runRoot = openPrivateLibraryAnalysisRunRoot(fixtureRoot(t), "run-too-large");
   let attempt = 0;
@@ -391,4 +433,188 @@ test("controlled fetch body reader enforces its limit while streaming", async ()
     () => readControlledFetchBody(body, 5),
     /controlled_fetch_response_too_large/,
   );
+});
+
+test("private emit CLI requires four absolute paths and keeps output inside the run root", () => {
+  assert.deepEqual(parseLibraryAnalysisPrivateEmitArgs([
+    "--snapshot=/private/population.json",
+    "--plan=/private/plan.json",
+    "--run-root=/private/run",
+    "--output=/private/run/manifests/emit.json",
+  ]), {
+    snapshot: "/private/population.json",
+    plan: "/private/plan.json",
+    runRoot: "/private/run",
+    output: "/private/run/manifests/emit.json",
+  });
+  assert.throws(
+    () => parseLibraryAnalysisPrivateEmitArgs([
+      "--snapshot=/private/population.json",
+      "--plan=/private/plan.json",
+      "--run-root=/private/run",
+      "--output=/tracked/emit.json",
+    ]),
+    /library_analysis_private_emit_output_outside_run_root/,
+  );
+});
+
+test("private emit CLI reads sealed extraction evidence and seals complete manifests", async (t) => {
+  const base = fixtureRoot(t);
+  const runRoot = openPrivateLibraryAnalysisRunRoot(base, "run-private-emit");
+  const population = buildLibraryAnalysisPopulation([blockedSource("source_doc:emit")]);
+  const plan = buildLibraryAnalysisAcquisitionPlan(population, [{
+    sourceKind: "source_doc",
+    sourceKey: "source_doc:emit",
+    route: "controlled_https",
+    locator: "https://example.test/emit.txt",
+    alternateLocators: [],
+  }]);
+  await executeLibraryAnalysisAcquisitionPlan({
+    plan,
+    runRoot,
+    mode: "execute_network",
+    adapters: {
+      fetch: async () => response(200, "emitted private text", { "content-type": "text/plain" }),
+      extraction: unusedExtractionAdapters,
+      wait: async () => undefined,
+      now: () => "2026-08-21T10:00:00.000Z",
+    },
+  });
+  const snapshotPath = join(base, "population.json");
+  const planPath = join(base, "plan.json");
+  writeFileSync(snapshotPath, JSON.stringify(population), { mode: 0o600 });
+  writeFileSync(planPath, JSON.stringify(plan), { mode: 0o600 });
+  const outputPath = join(runRoot, "manifests", "private-emit.json");
+
+  const output = await runLibraryAnalysisPrivateEmitCli({
+    snapshot: snapshotPath,
+    plan: planPath,
+    runRoot,
+    output: outputPath,
+  });
+
+  assert.equal(output.resolution.rows[0]?.disposition, "content_units_ready");
+  assert.equal(output.contentUnitManifest.units.length, 1);
+  assert.equal(output.costEnvelope.externalReady, false);
+  assert.equal(statSync(outputPath).mode & 0o777, 0o400);
+  assert.equal(
+    statSync(join(
+      runRoot,
+      `manifests/resolution-${output.resolution.resolutionHash}.json`,
+    )).mode & 0o777,
+    0o400,
+  );
+  assert.doesNotMatch(JSON.stringify(output), /emitted private text/);
+});
+
+test("execution stages database repository and derived routes without network", async (t) => {
+  const databaseSummary = "Database summary";
+  const databaseContent = "Database content";
+  const databaseContentHash = createHash("sha256")
+    .update(Buffer.from(databaseContent, "utf8"))
+    .digest("hex");
+  const databaseVersionHash = createHash("sha256")
+    .update(Buffer.from(`${databaseSummary}\n\n${databaseContent}`, "utf8"))
+    .digest("hex");
+  const population = buildLibraryAnalysisPopulation([
+    {
+      sourceKind: "document",
+      sourceKey: "document:doc-local",
+      sourceVersionHash: databaseVersionHash,
+      inputKind: "database_record",
+      locator: "database:Document:doc-local:content",
+      contentHash: databaseContentHash,
+      identityConfidence: "exact",
+      readableInput: true,
+      superseded: false,
+    },
+    blockedSource("library_file:research/example.csv", "library_file"),
+    blockedSource("report:derived-local", "report"),
+  ]);
+  const plan = buildLibraryAnalysisAcquisitionPlan(population, [
+    {
+      sourceKind: "library_file",
+      sourceKey: "library_file:research/example.csv",
+      route: "repository_csv",
+      locator: "repository:research/example.csv",
+      alternateLocators: [],
+    },
+    {
+      sourceKind: "report",
+      sourceKey: "report:derived-local",
+      route: "database_derived_record",
+      locator: "database:Report:derived-local",
+      alternateLocators: [],
+    },
+  ]);
+  let fetchCalls = 0;
+  const result = await executeLibraryAnalysisAcquisitionPlan({
+    plan,
+    runRoot: openPrivateLibraryAnalysisRunRoot(fixtureRoot(t), "run-local-routes"),
+    mode: "execute_network",
+    adapters: {
+      fetch: async () => {
+        fetchCalls += 1;
+        return response(200, "unexpected");
+      },
+      extraction: unusedExtractionAdapters,
+      readDatabaseDocument: async () => ({
+        summary: databaseSummary,
+        content: databaseContent,
+      }),
+      readRepositoryFile: async () => Buffer.from("id,title\n1,Example\n", "utf8"),
+      readDerivedReport: async () => ({
+        id: "derived-local",
+        title: "Derived local",
+        fullTitle: null,
+        author: null,
+        institution: "Food Systems",
+        date: "2026-08-21",
+        year: 2026,
+        reportCategory: "internal_synthesis",
+        country: "NO",
+        keyFindings: [],
+        recommendations: [],
+        relevance: "Internal source graph",
+        tags: ["internal"],
+        provenanceType: "internal_synthesis",
+        supportingSources: [{ sourceId: "source-1" }],
+      }),
+      wait: async () => undefined,
+      now: () => "2026-08-21T10:00:00.000Z",
+    },
+  });
+
+  assert.equal(fetchCalls, 0);
+  assert.deepEqual(result.rows.map((row) => row.state), ["ready", "ready", "ready"]);
+  assert.equal(result.rows.find((row) => row.sourceKey === "document:doc-local")?.rawSha256, databaseContentHash);
+});
+
+test("database staging quarantines source version drift", async (t) => {
+  const population = buildLibraryAnalysisPopulation([{
+    sourceKind: "document",
+    sourceKey: "document:drifted",
+    sourceVersionHash: "1".repeat(64),
+    inputKind: "database_record",
+    locator: "database:Document:drifted:content",
+    contentHash: "2".repeat(64),
+    identityConfidence: "exact",
+    readableInput: true,
+    superseded: false,
+  }]);
+  const result = await executeLibraryAnalysisAcquisitionPlan({
+    plan: buildLibraryAnalysisAcquisitionPlan(population, []),
+    runRoot: openPrivateLibraryAnalysisRunRoot(fixtureRoot(t), "run-drifted-database"),
+    mode: "execute_network",
+    adapters: {
+      fetch: async () => response(200, "unexpected"),
+      extraction: unusedExtractionAdapters,
+      readDatabaseDocument: async () => ({ summary: null, content: "changed" }),
+      wait: async () => undefined,
+      now: () => "2026-08-21T10:00:00.000Z",
+    },
+  });
+
+  assert.equal(result.rows[0]?.state, "quarantined");
+  assert.equal(result.rows[0]?.reasonCode, "source_version_drift");
 });
