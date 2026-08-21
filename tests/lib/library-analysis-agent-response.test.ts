@@ -468,8 +468,8 @@ test("rejects only audited unresolved generic and anaphoric subject phrases", ()
 
 test("rejects dropped explicit scope qualifiers and accepts preserved scope", () => {
   for (const [text, evidence] of [
-    ["Metoden bruker ikke GIS-data.", "Metoden bruker ikke GIS-data i denne sammenhengen."],
-    ["The method does not use GIS data.", "The method does not use GIS data in this context."],
+    ["Metoden for regional ressurskartlegging bruker ikke GIS-data.", "Metoden for regional ressurskartlegging bruker ikke GIS-data i denne sammenhengen."],
+    ["The regional resource-mapping method does not use GIS data.", "The regional resource-mapping method does not use GIS data in this context."],
   ]) {
     const job = verifiedJob([evidence]);
     const response = segmentResponse(job, {
@@ -490,8 +490,65 @@ test("rejects dropped explicit scope qualifiers and accepts preserved scope", ()
   }
 
   for (const scopedText of [
+    "Metoden for regional ressurskartlegging bruker ikke GIS-data i denne sammenhengen.",
+    "The regional resource-mapping method does not use GIS data in this context.",
+  ]) {
+    const job = verifiedJob([scopedText]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, scopedText)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }));
+  }
+});
+
+test("rejects the eight pilot06 unresolved work, method, mapping, and result references", () => {
+  for (const contextualText of [
+    "Arbeidet skjer i flere trinn: først avgrenses område, år og formål.",
+    "Metoden måler vekt av innkjøpte materialer.",
+    "Kartleggingen tar utgangspunkt i fem ressurskategorier.",
+    "Kartleggingene fungerer som en bro mellom strategi og praksis.",
+    "Malmö kommune opplever kartleggingene som svært nyttige.",
+    "Et lite antall store selskaper dekker 70 prosent av ressursbruken, noe som gjør metoden praktisk gjennomførbar.",
+    "Kvaliteten på resultatet avhenger sterkt av tilgang til gode data.",
     "Metoden bruker ikke GIS-data i denne sammenhengen.",
-    "The method does not use GIS data in this context.",
+  ]) {
+    const job = verifiedJob([contextualText]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, contextualText)],
+    });
+    assert.throws(
+      () => validateLibraryAnalysisAgentSegmentResponse({
+        queueHash: HASH,
+        attempt: 1,
+        inputHash: INPUT_HASH,
+        expectedModel: EXPECTED_MODEL,
+        job,
+        response,
+      }),
+      /context_dependent_claim/u,
+    );
+  }
+});
+
+test("keeps explicitly scoped work, method, mapping, and result references eligible", () => {
+  for (const scopedText of [
+    "Arbeidet med regional ressurskartlegging skjer i flere trinn.",
+    "Metoden for regional ressurskartlegging måler vekt av innkjøpte materialer.",
+    "Kartleggingen av regionale materialstrømmer tar utgangspunkt i fem ressurskategorier.",
+    "De regionale ressurskartleggingene fungerer som en bro mellom strategi og praksis.",
+    "Malmö kommune opplever de regionale ressurskartleggingene som svært nyttige.",
+    "Et lite antall store selskaper dekker 70 prosent av ressursbruken, noe som gjør ressurskartleggingsmetoden praktisk gjennomførbar.",
+    "Kvaliteten på resultatet av den regionale ressurskartleggingen avhenger sterkt av tilgang til gode data.",
+    "Metoden for regional ressurskartlegging bruker ikke GIS-data i svensk kommunekartlegging.",
   ]) {
     const job = verifiedJob([scopedText]);
     const response = segmentResponse(job, {

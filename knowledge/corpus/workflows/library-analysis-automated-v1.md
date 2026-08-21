@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.4`
+Workflow version: `1.0.5`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.4`
+Prompt template version: `1.0.5`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
@@ -25,6 +25,8 @@ Decompose prose into atomic candidate claims. Preserve every material number, pe
 A claim is eligible only when it is a self-contained declarative proposition with a source-grounded subject and predicate. Headings, titles, labels, table-of-contents rows, isolated chart or table values and other context-dependent fragments are not claims unless the evidence excerpt also carries the source-visible context needed to interpret them. Quantitative, aggregate, survey, ranking, status and forecast claims must preserve every source-visible qualifier materially needed to interpret the value or proposition: subject and actor/source identity, denominator or universe, respondent count, period, as-of date, unit, method, geography or market, comparison basis, forecast/projection basis and horizon. If materially necessary context is absent, record `no_material_claim` or an explicit limitation; do not infer it from layout, memory or adjacent unsupplied context.
 
 Pronouns and shorthand references such as "the method", "the results", "this indicator", "the survey", "the companies", "another factor", "here" or "this period" are eligible only when their antecedent and scope appear in the same evidence excerpt. Current-status language such as "now", "currently", "as of" or an undated ownership/share statement requires the source-visible reference date. A survey or ranking claim must retain the stated respondent universe, sample count and geography; a forecast or projection must retain its basis, horizon and as-of/forecast date. A complete qualitative proposition does not require unrelated surrounding context.
+
+Bare generic references to work, method, mapping or results are not self-contained. Terms such as `arbeidet`, `metoden`, `kartleggingen`, `kartleggingene`, `resultatet`, `the work`, `the method`, `the mapping` and `the result` require the claim itself to name the work, method, mapping object or result scope using wording visible in the same evidence excerpt. If that wording is absent, record `no_material_claim`; do not resolve the reference from another sentence or unit.
 
 The evidence excerpt itself must contain every material fact and visible qualifier asserted by the claim. It must end at a complete source-visible proposition; an excerpt that ends mid-sentence, at a dangling preposition or conjunction, in a table/list continuation, or before a needed qualifier is incomplete and cannot support a claim. Preserve actor/source identity and geography exactly as written in the evidence. Do not translate, canonicalize, broaden or substitute a country, region or market label.
 

@@ -80,6 +80,7 @@ const AUDITED_GENERIC_SUBJECT = /^(?:(?:oppgaven|studien)\s+(?:dokumenterer|finn
 const AUDITED_HERE_REFERENCE = /^(?:driftsinntekter\s+her\s+økte|revenue\s+here\s+increased)\b/iu;
 const ANOTHER_FACTOR = /\b(?:en\s+annen\s+faktor|another\s+factor)\b/iu;
 const PRIOR_FACTOR = /\b(?:faktor|factor)\b/iu;
+const UNRESOLVED_GENERIC_REFERENCE = /\b(?:arbeidet(?!\s+(?:med|for|av)\b)|metoden(?!\s+(?:for|til|med)\b)|kartleggingen(?!\s+(?:av|for|i)\b)|kartleggingene\b|resultatet(?!\s+(?:av|fra|for)\b))/iu;
 const EXPLICIT_YEAR = /\b(?:19|20)\d{2}\b/u;
 const MATERIAL_SCOPE_QUALIFIERS = [
   /\bi\s+denne\s+sammenhengen\b/iu,
@@ -119,7 +120,8 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     (UNANCHORED_RELATIVE_REFERENCE.test(normalizedClaim) && !EXPLICIT_YEAR.test(normalizedClaim)) ||
     AUDITED_GENERIC_SUBJECT.test(normalizedClaim) ||
     AUDITED_HERE_REFERENCE.test(normalizedClaim) ||
-    unresolvedAnotherFactor
+    unresolvedAnotherFactor ||
+    UNRESOLVED_GENERIC_REFERENCE.test(normalizedClaim)
   ) {
     throw new Error("agent_response_context_dependent_claim");
   }

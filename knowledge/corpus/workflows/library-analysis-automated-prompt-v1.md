@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.4`
+Prompt template version: `1.0.5`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.4`
+Workflow version: `1.0.5`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
@@ -21,6 +21,8 @@ Read every supplied content unit and no unsupplied source. Produce atomic candid
 Do not turn headings, titles, labels, table-of-contents rows, isolated chart or table values, or other context-dependent fragments into claims unless the evidence excerpt also carries the source-visible context needed to interpret them. A claim must be a self-contained declarative proposition with a source-grounded subject and predicate. A quantitative claim must contain every source-visible qualifier materially needed to interpret it, such as its denominator or universe, period, unit, method or geography. If materially necessary context is absent, use `no_material_claim` or an explicit limitation; do not infer it from layout, memory or adjacent unsupplied context.
 
 A claim is eligible only when its subject, predicate, actor/source identity and interpretation are recoverable from the claim plus the supplied evidence excerpt. Pronouns and shorthand references such as "the method", "the results", "this indicator", "the survey", "the companies", "another factor", "here" or "this period" are allowed only when their antecedent and scope appear in that same excerpt. Current-status wording (including "now", "currently", "as of" and undated ownership/share statements) requires the source-visible reference date. For quantitative, aggregate, survey, ranking and forecast claims, preserve every source-visible qualifier materially needed to interpret the assertion: denominator or universe, respondent count, period, as-of date, unit, geography or market, method, comparison basis, forecast/projection basis and horizon. A complete qualitative proposition does not require unrelated surrounding context.
+
+Generic work, method, mapping and result nouns do not identify their own subject. Bare references such as `arbeidet`, `metoden`, `kartleggingen`, `kartleggingene`, `resultatet`, `the work`, `the method`, `the mapping` or `the result` are ineligible unless the claim itself names the work, method, mapping object or result scope. Add only source-visible wording from the same excerpt; otherwise emit `no_material_claim`. A qualifier elsewhere in the unit does not resolve the reference.
 
 The evidence excerpt must itself contain the value and every material qualifier asserted by the claim. Do not use an excerpt that ends mid-sentence, at a dangling preposition or conjunction, in a table/list continuation, or before a source-visible denominator, period, as-of date, method, geography, comparison or forecast qualifier. Preserve actor/source identity and geography exactly as written in that excerpt. Do not translate, canonicalize, broaden or substitute country, region or market names or codes. Preserve limiting method qualifiers such as "in this context", "for this analysis" and "for this dataset"; do not turn scoped non-use or limitation statements into absolute claims.
 
