@@ -288,6 +288,7 @@
     "research:citable-acceptance-pack": "tsx scripts/build-citable-acceptance-pack.ts",
     "research:library:inventory": "tsx scripts/build-library-analysis-inventory.ts",
     "research:library:ledger": "tsx scripts/export-library-analysis-ledger.ts",
+    "research:library:agent-queue": "tsx scripts/knowledge/manage-library-analysis-agent-queue.ts",
     "research:library:process:dry-run": "tsx scripts/process-library-analysis.ts --dry-run",
     "research:library:process:apply": "tsx scripts/process-library-analysis.ts --apply",
     "research:library:process:create-only:dry-run": "tsx scripts/process-library-analysis.ts --dry-run --create-only",
