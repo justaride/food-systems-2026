@@ -4,10 +4,12 @@ import {
   CANDIDATE_ASSERTION_TYPES,
   canonicalCandidateJson,
   candidateAnalysisSha256,
+  compareCandidateJsonKeysUtf8,
   type CandidateJsonValue,
 } from "./candidate-analysis-contract";
 import type {
   LibraryAnalysisAgentQueueJob,
+  LibraryAnalysisAgentQueueSource,
   LibraryAnalysisVerifiedJob,
 } from "./library-analysis-agent-queue";
 
@@ -40,12 +42,14 @@ const blockedReasonCodeSchema = z.enum([
   "insufficient_context",
 ]);
 
-const coverageSchema = z.object({
+export const LibraryAnalysisAgentCoverageSchema = z.object({
   contentUnitId: idSchema,
   status: coverageStatusSchema,
   reason: textSchema.optional(),
   reasonCode: blockedReasonCodeSchema.optional(),
 }).strict();
+export type LibraryAnalysisAgentCoverage = z.infer<typeof LibraryAnalysisAgentCoverageSchema>;
+const coverageSchema = LibraryAnalysisAgentCoverageSchema;
 
 const responseClaimSchema = z.object({
   localOrdinal: z.number().int().nonnegative(),
@@ -99,18 +103,76 @@ export type LibraryAnalysisAgentSegmentResponse = z.infer<
   typeof LibraryAnalysisAgentSegmentResponseSchema
 >;
 
-const acceptedClaimSchema = responseClaimSchema.extend({
+export const LibraryAnalysisAcceptedClaimSchema = responseClaimSchema.extend({
   claimId: idSchema,
 });
+export type LibraryAnalysisAcceptedClaim = z.infer<typeof LibraryAnalysisAcceptedClaimSchema>;
 
 export const LibraryAnalysisAcceptedSegmentSchema = responseCoreSchema
   .extend({
-    claims: z.array(acceptedClaimSchema),
+    segmentOrdinal: z.number().int().nonnegative().optional(),
+    claims: z.array(LibraryAnalysisAcceptedClaimSchema),
     responseHash: hashSchema,
   });
 export type LibraryAnalysisAcceptedSegment = z.infer<
   typeof LibraryAnalysisAcceptedSegmentSchema
 >;
+
+export const LIBRARY_ANALYSIS_AGENT_SOURCE_RESULT_SCHEMA =
+  "library-analysis-source-result/v1" as const;
+
+const terminalStateSchema = z.enum(["accepted", "partial", "failed", "quarantined"]);
+export type LibraryAnalysisAgentTerminalState = z.infer<typeof terminalStateSchema>;
+
+const attemptReceiptSchema = z.object({
+  attempt: z.number().int().positive(),
+  inputHash: hashSchema,
+  responseHash: hashSchema,
+  terminalReason: textSchema.optional(),
+  model: LibraryAnalysisAgentModelReceiptSchema,
+}).strict();
+export type LibraryAnalysisAgentAttemptReceipt = z.infer<typeof attemptReceiptSchema>;
+
+const terminalSegmentExtensionSchema = z.object({
+  terminalState: terminalStateSchema.optional(),
+  status: terminalStateSchema.optional(),
+  terminalReason: textSchema.optional(),
+  attempts: z.array(attemptReceiptSchema).min(1).optional(),
+}).strict();
+
+/** Task 3 accepted segments are successful terminal segments by default. */
+export const LibraryAnalysisTerminalSegmentSchema =
+  LibraryAnalysisAcceptedSegmentSchema.and(terminalSegmentExtensionSchema);
+export type LibraryAnalysisTerminalSegment = z.infer<
+  typeof LibraryAnalysisTerminalSegmentSchema
+>;
+
+export const LibraryAnalysisSourceSegmentReceiptSchema = z.object({
+  jobId: idSchema,
+  segmentOrdinal: z.number().int().nonnegative(),
+  jobHash: hashSchema,
+  terminalState: terminalStateSchema,
+  attempts: z.array(attemptReceiptSchema).min(1),
+  model: LibraryAnalysisAgentModelReceiptSchema,
+  attempt: z.number().int().positive(),
+  inputHash: hashSchema,
+  responseHash: hashSchema,
+}).strict();
+export type LibraryAnalysisSourceSegmentReceipt = z.infer<
+  typeof LibraryAnalysisSourceSegmentReceiptSchema
+>;
+
+export const LibraryAnalysisSourceResultSchema = z.object({
+  schema: z.literal(LIBRARY_ANALYSIS_AGENT_SOURCE_RESULT_SCHEMA),
+  queueHash: hashSchema,
+  sourceEnvelopeHash: hashSchema,
+  unitCoverage: z.array(LibraryAnalysisAgentCoverageSchema),
+  claims: z.array(LibraryAnalysisAcceptedClaimSchema),
+  segments: z.array(LibraryAnalysisSourceSegmentReceiptSchema),
+  analysisState: z.enum(["complete", "partial", "failed", "quarantined"]),
+  sourceResultHash: hashSchema,
+}).strict();
+export type LibraryAnalysisSourceResult = z.infer<typeof LibraryAnalysisSourceResultSchema>;
 
 const queueJobSchema = z.object({
   jobId: idSchema,
@@ -239,7 +301,184 @@ export function validateLibraryAnalysisAgentSegmentResponse(
       claimId: deterministicLibraryAnalysisAgentClaimId(input.job.job, claim),
     };
   });
-  return LibraryAnalysisAcceptedSegmentSchema.parse({ ...response, claims });
+  return LibraryAnalysisAcceptedSegmentSchema.parse({
+    ...response,
+    segmentOrdinal: input.job.job.segmentOrdinal,
+    claims,
+  });
+}
+
+export function mergeLibraryAnalysisSourceSegments(input: {
+  queueHash: string;
+  source: LibraryAnalysisAgentQueueSource;
+  segments: readonly LibraryAnalysisTerminalSegment[];
+}): LibraryAnalysisSourceResult {
+  if (!HASH.test(input.queueHash)) throw new Error("source_merge_queue_hash_invalid");
+  if (!HASH.test(input.source.sourceEnvelopeHash)) throw new Error("source_merge_source_hash_invalid");
+  const sourceUnitIds = input.source.unitIds;
+  const sourceCore = {
+    sourceKind: input.source.sourceKind,
+    sourceKey: input.source.sourceKey,
+    sourceVersionHash: input.source.sourceVersionHash,
+    unitIds: input.source.unitIds,
+    unitCount: input.source.unitCount,
+    codePoints: input.source.codePoints,
+    bytes: input.source.bytes,
+  };
+  if (input.source.sourceEnvelopeHash !== candidateAnalysisSha256("library-analysis-agent-source", sourceCore)) {
+    throw new Error("source_merge_source_hash_mismatch");
+  }
+  if (
+    sourceUnitIds.length !== input.source.unitCount ||
+    new Set(sourceUnitIds).size !== sourceUnitIds.length ||
+    input.segments.length === 0
+  ) {
+    throw new Error("source_merge_coverage_mismatch");
+  }
+
+  const segments = input.segments.map((raw) => LibraryAnalysisTerminalSegmentSchema.parse(raw));
+  if (new Set(segments.map((segment) => segment.jobId)).size !== segments.length) {
+    throw new Error("source_merge_job_set_mismatch");
+  }
+  const covered = new Set<string>();
+  const coverageRows: LibraryAnalysisAgentCoverage[] = [];
+  for (const segment of segments) {
+    if (segment.queueHash !== input.queueHash) throw new Error("source_merge_queue_hash_mismatch");
+    if (segment.unitCoverage.length === 0) throw new Error("source_merge_coverage_mismatch");
+    for (const coverage of segment.unitCoverage) {
+      if (!sourceUnitIds.includes(coverage.contentUnitId) || covered.has(coverage.contentUnitId)) {
+        throw new Error("source_merge_coverage_mismatch");
+      }
+      covered.add(coverage.contentUnitId);
+      coverageRows.push(coverage);
+    }
+    for (const claim of segment.claims) {
+      const coverage = segment.unitCoverage.find((row) => row.contentUnitId === claim.contentUnitId);
+      if (coverage?.status !== "claims_extracted") {
+        throw new Error("source_merge_claim_coverage_mismatch");
+      }
+    }
+    for (const coverage of segment.unitCoverage) {
+      if (
+        coverage.status === "claims_extracted" &&
+        !segment.claims.some((claim) => claim.contentUnitId === coverage.contentUnitId)
+      ) {
+        throw new Error("source_merge_claim_coverage_mismatch");
+      }
+    }
+  }
+  if (covered.size !== sourceUnitIds.length || sourceUnitIds.some((id) => !covered.has(id))) {
+    throw new Error("source_merge_coverage_mismatch");
+  }
+
+  const sortedSegments = [...segments].sort(compareSegments);
+  const sortedCoverage = sourceUnitIds.map((id) => {
+    const row = coverageRows.find((candidate) => candidate.contentUnitId === id);
+    if (row === undefined) throw new Error("source_merge_coverage_mismatch");
+    return row;
+  });
+  const claims = deduplicateAcceptedClaims(sortedSegments.flatMap((segment) => segment.claims));
+  const segmentReceipts = sortedSegments.map(segmentReceipt);
+  const analysisState = deriveSourceAnalysisState(sortedSegments);
+  const core = {
+    schema: LIBRARY_ANALYSIS_AGENT_SOURCE_RESULT_SCHEMA,
+    queueHash: input.queueHash,
+    sourceEnvelopeHash: input.source.sourceEnvelopeHash,
+    unitCoverage: sortedCoverage,
+    claims,
+    segments: segmentReceipts,
+    analysisState,
+  } satisfies Omit<LibraryAnalysisSourceResult, "sourceResultHash">;
+  return LibraryAnalysisSourceResultSchema.parse({
+    ...core,
+    sourceResultHash: candidateAnalysisSha256(
+      "library-analysis-source-result",
+      core as unknown as CandidateJsonValue,
+    ),
+  });
+}
+
+function compareSegments(
+  left: LibraryAnalysisTerminalSegment,
+  right: LibraryAnalysisTerminalSegment,
+): number {
+  return (left.segmentOrdinal ?? Number.MAX_SAFE_INTEGER) -
+    (right.segmentOrdinal ?? Number.MAX_SAFE_INTEGER) ||
+    compareCandidateJsonKeysUtf8(left.jobId, right.jobId);
+}
+
+function segmentReceipt(
+  segment: LibraryAnalysisTerminalSegment,
+): LibraryAnalysisSourceSegmentReceipt {
+  const defaultAttempt: LibraryAnalysisAgentAttemptReceipt = {
+    attempt: segment.attempt,
+    inputHash: segment.inputHash,
+    responseHash: segment.responseHash,
+    model: segment.model,
+  };
+  if (segment.terminalReason !== undefined) defaultAttempt.terminalReason = segment.terminalReason;
+  const attempts = segment.attempts ?? [defaultAttempt];
+  const terminalState = segment.terminalState ?? segment.status ?? (
+    segment.unitCoverage.some((row) => row.status === "blocked") ? "partial" : "accepted"
+  );
+  const normalizedAttempts = [...attempts]
+    .map((attempt) => attempt.terminalReason === undefined
+      ? {
+        attempt: attempt.attempt,
+        inputHash: attempt.inputHash,
+        responseHash: attempt.responseHash,
+        model: attempt.model,
+      }
+      : attempt)
+    .sort((left, right) => left.attempt - right.attempt);
+  return LibraryAnalysisSourceSegmentReceiptSchema.parse({
+    jobId: segment.jobId,
+    segmentOrdinal: segment.segmentOrdinal ?? 0,
+    jobHash: segment.jobHash,
+    terminalState,
+    attempts: normalizedAttempts,
+    model: segment.model,
+    attempt: segment.attempt,
+    inputHash: segment.inputHash,
+    responseHash: segment.responseHash,
+  });
+}
+
+function deriveSourceAnalysisState(
+  segments: readonly LibraryAnalysisTerminalSegment[],
+): LibraryAnalysisSourceResult["analysisState"] {
+  const states = segments.map((segment) => segment.terminalState ?? segment.status ?? (
+    segment.unitCoverage.some((row) => row.status === "blocked") ? "partial" : "accepted"
+  ));
+  if (states.includes("quarantined")) return "quarantined";
+  if (states.includes("failed")) return "failed";
+  if (states.includes("partial")) return "partial";
+  return "complete";
+}
+
+function deduplicateAcceptedClaims(
+  claims: readonly LibraryAnalysisAcceptedClaim[],
+): LibraryAnalysisAcceptedClaim[] {
+  const sorted = [...claims].sort((left, right) => {
+    const leftTuple = claimTuple(left);
+    const rightTuple = claimTuple(right);
+    return compareCandidateJsonKeysUtf8(leftTuple, rightTuple) ||
+      compareCandidateJsonKeysUtf8(left.claimId, right.claimId);
+  });
+  const seen = new Set<string>();
+  const result: LibraryAnalysisAcceptedClaim[] = [];
+  for (const claim of sorted) {
+    const tuple = claimTuple(claim);
+    if (seen.has(tuple)) continue;
+    seen.add(tuple);
+    result.push(claim);
+  }
+  return result;
+}
+
+function claimTuple(claim: LibraryAnalysisAcceptedClaim): string {
+  const { claimId: _claimId, ...tuple } = claim;
+  return canonicalCandidateJson(tuple as unknown as CandidateJsonValue);
 }
 
 export function deterministicLibraryAnalysisAgentClaimId(

@@ -6,8 +6,10 @@ import {
 } from "../../src/lib/knowledge/candidate-analysis-contract";
 import {
   LibraryAnalysisAgentSegmentResponseSchema,
+  LibraryAnalysisAcceptedSegmentSchema,
   deterministicLibraryAnalysisAgentClaimId,
   libraryAnalysisAgentSegmentResponseHash,
+  mergeLibraryAnalysisSourceSegments,
   validateLibraryAnalysisAgentSegmentResponse,
   type LibraryAnalysisAgentModelReceipt,
 } from "../../src/lib/knowledge/library-analysis-agent-response";
@@ -257,4 +259,109 @@ test("rejects currency substitution while preserving prefix and suffix currency 
     queueHash: HASH, attempt: 1, inputHash: INPUT_HASH, expectedModel: EXPECTED_MODEL,
     job: nearbyJob, response: nearbyResponse,
   }), /numeric_token_mismatch/u);
+});
+
+function sourceWithTwoSegments() {
+  const jobs = [verifiedJob(["Alpha grew by 12 percent."]), verifiedJob(["Beta fell by 3 percent."])]
+    .map((job, segmentOrdinal) => ({
+      ...job,
+      units: job.units.map(({ descriptor, text }) => ({
+        descriptor: { ...descriptor, id: `${descriptor.id}:${segmentOrdinal}` },
+        text,
+      })),
+      job: {
+        ...job.job,
+        jobId: `job:library-analysis:fixture:${segmentOrdinal}`,
+        segmentOrdinal,
+        unitIds: job.units.map(({ descriptor }) => `${descriptor.id}:${segmentOrdinal}`),
+      },
+    }));
+  const unitIds = jobs.flatMap(({ units }) => units.map(({ descriptor }) => descriptor.id));
+  const sourceCore = {
+    sourceKind: "document",
+    sourceKey: "document:fixture",
+    sourceVersionHash: "b".repeat(64),
+    unitIds,
+    unitCount: unitIds.length,
+    codePoints: jobs.reduce((sum, job) => sum + job.job.codePoints, 0),
+    bytes: jobs.reduce((sum, job) => sum + job.job.bytes, 0),
+  };
+  const source = {
+    ...sourceCore,
+    sourceEnvelopeHash: candidateAnalysisSha256("library-analysis-agent-source", sourceCore),
+  };
+  const segments = jobs.map((job) => {
+    const descriptor = job.units[0]!.descriptor;
+    const response = {
+      schema: "library-analysis-agent-segment-response/v1" as const,
+      queueHash: HASH,
+      jobId: job.job.jobId,
+      jobHash: job.job.inputEnvelopeHash,
+      segmentOrdinal: job.job.segmentOrdinal,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      model: EXPECTED_MODEL,
+      unitCoverage: [{ contentUnitId: descriptor.id, status: "claims_extracted" as const }],
+      claims: [{
+        localOrdinal: 0,
+        assertionType: "claim" as const,
+        contentUnitId: descriptor.id,
+        text: job.units[0]!.text,
+        evidence: job.units[0]!.text,
+        locator: descriptor.locator,
+        confidence: 0.8,
+        claimId: deterministicLibraryAnalysisAgentClaimId(job.job, { contentUnitId: descriptor.id, localOrdinal: 0 }),
+      }],
+      responseHash: HASH,
+    };
+    return LibraryAnalysisAcceptedSegmentSchema.parse({
+      ...response,
+      responseHash: libraryAnalysisAgentSegmentResponseHash(response),
+    });
+  });
+  return { source, segments };
+}
+
+test("merge covers each source unit once and is deterministic across segment order", () => {
+  const { source, segments } = sourceWithTwoSegments();
+  const result = mergeLibraryAnalysisSourceSegments({ queueHash: HASH, source, segments: [...segments].reverse() });
+  assert.deepEqual(result.unitCoverage.map((row) => row.contentUnitId), source.unitIds);
+  assert.equal(new Set(result.claims.map((claim) => claim.claimId)).size, result.claims.length);
+  assert.equal(result.analysisState, "complete");
+  assert.deepEqual(
+    mergeLibraryAnalysisSourceSegments({ queueHash: HASH, source, segments }),
+    result,
+  );
+});
+
+test("merge permits zero claims only with explicit no-material-claim coverage", () => {
+  const { source, segments } = sourceWithTwoSegments();
+  const noClaims = segments.map((segment) => ({
+    ...segment,
+    claims: [],
+    unitCoverage: segment.unitCoverage.map((coverage) => ({
+      ...coverage,
+      status: "no_material_claim" as const,
+    })),
+  }));
+  assert.equal(mergeLibraryAnalysisSourceSegments({ queueHash: HASH, source, segments: noClaims }).claims.length, 0);
+  assert.throws(
+    () => mergeLibraryAnalysisSourceSegments({ queueHash: HASH, source, segments: segments.slice(0, 1) }),
+    /source_merge_coverage_mismatch/u,
+  );
+});
+
+test("merge preserves terminal non-complete segment states in receipts", () => {
+  const { source, segments } = sourceWithTwoSegments();
+  const result = mergeLibraryAnalysisSourceSegments({
+    queueHash: HASH,
+    source,
+    segments: [
+      { ...segments[0]!, terminalState: "failed", terminalReason: "worker_timeout" },
+      segments[1]!,
+    ],
+  });
+  assert.equal(result.analysisState, "failed");
+  assert.equal(result.segments[0]!.terminalState, "failed");
+  assert.equal(result.segments[0]!.attempts[0]!.model.provider, EXPECTED_MODEL.provider);
 });

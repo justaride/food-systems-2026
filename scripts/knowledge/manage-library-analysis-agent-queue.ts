@@ -7,6 +7,7 @@ import {
   fstatSync,
   lstatSync,
   openSync,
+  readdirSync,
   readFileSync,
   readSync,
   realpathSync,
@@ -31,9 +32,12 @@ import {
 import {
   LibraryAnalysisAgentAttemptInputSchema,
   LibraryAnalysisAgentModelReceiptSchema,
+  LibraryAnalysisTerminalSegmentSchema,
+  mergeLibraryAnalysisSourceSegments,
   type LibraryAnalysisAgentAttemptInput,
   validateLibraryAnalysisAgentSegmentResponse,
   type LibraryAnalysisAcceptedSegment,
+  type LibraryAnalysisSourceResult,
 } from "../../src/lib/knowledge/library-analysis-agent-response";
 import {
   LibraryAnalysisAcquisitionResolutionSchema,
@@ -80,11 +84,27 @@ const acceptOptionsSchema = z.object({
   attemptInput: absolutePathSchema,
   response: absolutePathSchema,
 }).strict();
+const mergeSourceOptionsSchema = z.object({
+  command: z.literal("merge-source"),
+  runRoot: absolutePathSchema,
+  queue: absolutePathSchema,
+  sourceId: z.string().min(1).optional(),
+  sourceKind: z.string().min(1).optional(),
+  sourceKey: z.string().min(1).optional(),
+}).strict().superRefine((value, context) => {
+  if (value.sourceId === undefined && (value.sourceKind === undefined || value.sourceKey === undefined)) {
+    context.addIssue({ code: "custom", message: "source_id_required" });
+  }
+  if (value.sourceId !== undefined && (value.sourceKind !== undefined || value.sourceKey !== undefined)) {
+    context.addIssue({ code: "custom", message: "source_id_ambiguous" });
+  }
+});
 
 export type BuildQueueOptions = z.infer<typeof buildOptionsSchema>;
 export type PrepareAttemptOptions = z.infer<typeof prepareOptionsSchema>;
 export type AcceptAttemptOptions = z.infer<typeof acceptOptionsSchema>;
-export type LibraryAnalysisAgentQueueCommand = BuildQueueOptions | PrepareAttemptOptions | AcceptAttemptOptions;
+export type MergeSourceOptions = z.infer<typeof mergeSourceOptionsSchema>;
+export type LibraryAnalysisAgentQueueCommand = BuildQueueOptions | PrepareAttemptOptions | AcceptAttemptOptions | MergeSourceOptions;
 
 export type LibraryAnalysisAgentQueueBuildResult = {
   command: "build";
@@ -124,16 +144,31 @@ export type LibraryAnalysisAgentQueueAcceptResult = {
   externalReady: false;
 };
 
+export type LibraryAnalysisAgentQueueMergeResult = {
+  command: "merge-source";
+  queueHash: string;
+  sourceEnvelopeHash: string;
+  units: number;
+  segments: number;
+  claims: number;
+  analysisState: LibraryAnalysisSourceResult["analysisState"];
+  sourceResultPath: string;
+  audit: ReturnType<typeof auditPrivateLibraryAnalysisRunRoot>;
+  automatedOnly: true;
+  externalReady: false;
+};
+
 export type LibraryAnalysisAgentQueueCliResult =
   | LibraryAnalysisAgentQueueBuildResult
   | LibraryAnalysisAgentQueueAttemptResult
-  | LibraryAnalysisAgentQueueAcceptResult;
+  | LibraryAnalysisAgentQueueAcceptResult
+  | LibraryAnalysisAgentQueueMergeResult;
 
 export function parseLibraryAnalysisAgentQueueArgs(
   argv: readonly string[],
 ): LibraryAnalysisAgentQueueCommand {
   const command = argv[0];
-  if (command !== "build" && command !== "prepare-attempt" && command !== "accept-attempt") {
+  if (command !== "build" && command !== "prepare-attempt" && command !== "accept-attempt" && command !== "merge-source") {
     throw new Error("agent_queue_cli_arguments_invalid");
   }
   const values = new Map<string, string>();
@@ -143,7 +178,9 @@ export function parseLibraryAnalysisAgentQueueArgs(
       ? ["run-root", "resolution", "manifest", "cost-envelope-hash", "merged-inventory-hash", "runtime-commit", "repository-root"]
       : command === "prepare-attempt"
         ? ["run-root", "queue", "job-id", "attempt", "expected-model-provider", "expected-model-name", "expected-model-version"]
-        : ["run-root", "queue", "attempt-input", "response"];
+        : command === "accept-attempt"
+          ? ["run-root", "queue", "attempt-input", "response"]
+          : ["run-root", "queue", "source-id", "source-kind", "source-key"];
     if (!match || !allowed.includes(match[1]!) || values.has(match[1]!)) {
       throw new Error("agent_queue_cli_arguments_invalid");
     }
@@ -185,6 +222,21 @@ export function parseLibraryAnalysisAgentQueueArgs(
       throw new Error("agent_queue_cli_arguments_invalid");
     }
   }
+  if (command === "merge-source") {
+    try {
+      const parsed = {
+        command,
+        runRoot: value("run-root"),
+        queue: value("queue"),
+        ...(value("source-id") === undefined ? {} : { sourceId: value("source-id") }),
+        ...(value("source-kind") === undefined ? {} : { sourceKind: value("source-kind") }),
+        ...(value("source-key") === undefined ? {} : { sourceKey: value("source-key") }),
+      };
+      return mergeSourceOptionsSchema.parse(parsed);
+    } catch {
+      throw new Error("agent_queue_cli_arguments_invalid");
+    }
+  }
   try {
     return acceptOptionsSchema.parse({
       command,
@@ -208,6 +260,9 @@ export function runLibraryAnalysisAgentQueueCli(
   options: AcceptAttemptOptions,
 ): Promise<LibraryAnalysisAgentQueueAcceptResult>;
 export function runLibraryAnalysisAgentQueueCli(
+  options: MergeSourceOptions,
+): Promise<LibraryAnalysisAgentQueueMergeResult>;
+export function runLibraryAnalysisAgentQueueCli(
   options: LibraryAnalysisAgentQueueCommand,
 ): Promise<LibraryAnalysisAgentQueueCliResult>;
 export async function runLibraryAnalysisAgentQueueCli(
@@ -215,7 +270,8 @@ export async function runLibraryAnalysisAgentQueueCli(
 ): Promise<LibraryAnalysisAgentQueueCliResult> {
   if (options.command === "build") return runBuildQueue(options);
   if (options.command === "prepare-attempt") return runPrepareAttempt(options);
-  return runAcceptAttempt(options);
+  if (options.command === "accept-attempt") return runAcceptAttempt(options);
+  return runMergeSource(options);
 }
 
 async function runBuildQueue(
@@ -386,6 +442,131 @@ async function runAcceptAttempt(
     automatedOnly: true,
     externalReady: false,
   };
+}
+
+async function runMergeSource(
+  rawOptions: MergeSourceOptions,
+): Promise<LibraryAnalysisAgentQueueMergeResult> {
+  const options = mergeSourceOptionsSchema.parse(rawOptions);
+  const runRoot = openRunRoot(options.runRoot);
+  const queue = readQueue(runRoot, options.queue);
+  const source = queue.sources.find((candidate) => {
+    if (options.sourceKind !== undefined && options.sourceKey !== undefined) {
+      return candidate.sourceKind === options.sourceKind && candidate.sourceKey === options.sourceKey;
+    }
+    const sourceId = options.sourceId!;
+    return sourceId === candidate.sourceEnvelopeHash ||
+      sourceId === `source:${candidate.sourceEnvelopeHash}` ||
+      sourceId === candidate.sourceKey ||
+      sourceId === `${candidate.sourceKind}:${candidate.sourceKey}`;
+  });
+  if (source === undefined) throw new Error("source_merge_source_not_found");
+  const jobs = queue.jobs.filter((job) =>
+    job.sourceKind === source.sourceKind && job.sourceKey === source.sourceKey);
+  if (jobs.length === 0) throw new Error("source_merge_job_set_mismatch");
+  const segments = jobs.map((job) => readCanonicalTerminalSegment(runRoot, queue.queueHash, job));
+  const result = mergeLibraryAnalysisSourceSegments({
+    queueHash: queue.queueHash,
+    source,
+    segments,
+  });
+  const sourceResultPath = `sources/source-${source.sourceEnvelopeHash}.json`;
+  const receipt = writePrivateManifestAtomic(
+    runRoot,
+    sourceResultPath,
+    canonicalJsonBytes(result as unknown as CandidateJsonValue),
+  );
+  readAndVerifyPrivateArtifact(runRoot, sourceResultPath, {
+    sha256: receipt.sha256,
+    sizeBytes: receipt.sizeBytes,
+    mode: 0o400,
+  });
+  const audit = auditPrivateLibraryAnalysisRunRoot(runRoot);
+  return {
+    command: "merge-source",
+    queueHash: queue.queueHash,
+    sourceEnvelopeHash: result.sourceEnvelopeHash,
+    units: result.unitCoverage.length,
+    segments: result.segments.length,
+    claims: result.claims.length,
+    analysisState: result.analysisState,
+    sourceResultPath: receipt.path,
+    audit,
+    automatedOnly: true,
+    externalReady: false,
+  };
+}
+
+function readCanonicalTerminalSegment(
+  runRoot: string,
+  queueHash: string,
+  job: LibraryAnalysisAgentQueue["jobs"][number],
+): import("../../src/lib/knowledge/library-analysis-agent-response").LibraryAnalysisTerminalSegment {
+  const jobDirectory = safePrivatePath(runRoot, ["jobs", job.jobId]);
+  const directoryStat = lstatSync(jobDirectory);
+  if (!directoryStat.isDirectory() || (directoryStat.mode & 0o777) !== 0o700) {
+    throw new Error("source_merge_segment_artifact_invalid");
+  }
+  const attempts = readdirSync(jobDirectory).filter((name) => /^attempt-\d{3}$/u.test(name)).sort();
+  const artifacts: string[] = [];
+  for (const attempt of attempts) {
+    const attemptDirectory = safePrivatePath(runRoot, ["jobs", job.jobId, attempt]);
+    const attemptStat = lstatSync(attemptDirectory);
+    if (!attemptStat.isDirectory() || (attemptStat.mode & 0o777) !== 0o700) {
+      throw new Error("source_merge_segment_artifact_invalid");
+    }
+    for (const name of ["accepted.json", "terminal.json"]) {
+      let artifactPath: string;
+      try {
+        artifactPath = safePrivatePath(runRoot, ["jobs", job.jobId, attempt, name]);
+        const stat = lstatSync(artifactPath);
+        if (stat.isFile()) artifacts.push(artifactPath);
+      } catch (error) {
+        if (!(error instanceof Error && "code" in error && error.code === "ENOENT")) {
+          throw new Error("source_merge_segment_artifact_invalid");
+        }
+      }
+    }
+  }
+  const terminalArtifacts = artifacts.filter((artifact) => artifact.endsWith("/terminal.json"));
+  const acceptedArtifacts = artifacts.filter((artifact) => artifact.endsWith("/accepted.json"));
+  const canonicalArtifacts = terminalArtifacts.length > 0 ? terminalArtifacts : acceptedArtifacts;
+  if (canonicalArtifacts.length !== 1) throw new Error("source_merge_segment_artifact_missing");
+  const bytes = readPrivateFileByDescriptor(
+    canonicalArtifacts[0]!,
+    0o400,
+    "source_merge_segment_artifact_invalid",
+  );
+  let raw: unknown;
+  try {
+    raw = JSON.parse(bytes.toString("utf8"));
+  } catch {
+    throw new Error("source_merge_segment_artifact_invalid");
+  }
+  const segment = LibraryAnalysisTerminalSegmentSchema.parse(raw);
+  if (
+    segment.queueHash !== queueHash ||
+    segment.jobId !== job.jobId ||
+    segment.jobHash !== job.inputEnvelopeHash ||
+    segment.segmentOrdinal !== job.segmentOrdinal
+  ) {
+    throw new Error("source_merge_segment_binding_mismatch");
+  }
+  return segment;
+}
+
+function safePrivatePath(root: string, segments: readonly string[]): string {
+  let current = resolve(root);
+  for (const segment of segments) {
+    if (!/^[a-zA-Z0-9._:-]+$/u.test(segment)) throw new Error("source_merge_segment_artifact_invalid");
+    current = resolve(current, segment);
+    const stat = lstatSync(current);
+    if (stat.isSymbolicLink()) throw new Error("source_merge_segment_artifact_invalid");
+    if (stat.isDirectory() && (stat.mode & 0o777) !== 0o700) {
+      throw new Error("source_merge_segment_artifact_invalid");
+    }
+  }
+  return current;
 }
 
 type ExplicitPrivateArtifact = { path: string; portablePath: string; bytes: Buffer };
@@ -590,6 +771,21 @@ async function main(): Promise<void> {
       jobId: result.jobId,
       attempt: result.attempt,
       claims: result.claims,
+      automatedOnly: result.automatedOnly,
+      externalReady: result.externalReady,
+      auditInventoryHash: result.audit.inventoryHash,
+    })}\n`);
+    return;
+  }
+  if (result.command === "merge-source") {
+    process.stdout.write(`${JSON.stringify({
+      command: result.command,
+      queueHash: result.queueHash,
+      sourceEnvelopeHash: result.sourceEnvelopeHash,
+      units: result.units,
+      segments: result.segments,
+      claims: result.claims,
+      analysisState: result.analysisState,
       automatedOnly: result.automatedOnly,
       externalReady: result.externalReady,
       auditInventoryHash: result.audit.inventoryHash,

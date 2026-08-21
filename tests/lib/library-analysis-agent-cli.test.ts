@@ -482,6 +482,84 @@ test("accept-attempt rejects a self-consistent forged attempt input", async () =
   );
 });
 
+test("merge-source reads only sealed accepted segments and publishes an exclusive result", async () => {
+  const fixture = makeFixture();
+  const built = await runLibraryAnalysisAgentQueueCli({
+    command: "build",
+    runRoot: fixture.runRoot,
+    resolution: fixture.resolutionPath,
+    manifest: fixture.manifestPath,
+    costEnvelopeHash: fixture.costHash,
+    mergedInventoryHash: fixture.inventoryHash,
+    runtimeCommit: "5f3eb1c",
+    repositoryRoot: fixture.repositoryRoot,
+  });
+  const queue = JSON.parse(readFileSync(built.queuePath, "utf8")) as {
+    queueHash: string;
+    jobs: Array<{ jobId: string; sourceKind: string; sourceKey: string }>;
+    sources: Array<{ sourceKind: string; sourceKey: string; sourceEnvelopeHash: string }>;
+  };
+  const source = queue.sources.find((candidate) => candidate.sourceKey === "document:a")!;
+  const job = queue.jobs.find((candidate) => candidate.sourceKey === source.sourceKey)!;
+  const prepared = await runLibraryAnalysisAgentQueueCli({
+    command: "prepare-attempt",
+    runRoot: fixture.runRoot,
+    queue: built.queuePath,
+    jobId: job.jobId,
+    attempt: 1,
+    expectedModel: EXPECTED_MODEL,
+  });
+  const input = JSON.parse(readFileSync(prepared.inputPath, "utf8")) as {
+    queueHash: string;
+    attempt: number;
+    inputHash: string;
+    job: { jobId: string; inputEnvelopeHash: string; segmentOrdinal: number };
+    expectedModel: typeof EXPECTED_MODEL;
+    units: Array<{ id: string; locator: string }>;
+  };
+  const response = {
+    schema: "library-analysis-agent-segment-response/v1" as const,
+    queueHash: input.queueHash,
+    jobId: input.job.jobId,
+    jobHash: input.job.inputEnvelopeHash,
+    attempt: input.attempt,
+    inputHash: input.inputHash,
+    model: input.expectedModel,
+    unitCoverage: input.units.map((unit) => ({ contentUnitId: unit.id, status: "no_material_claim" as const })),
+    claims: [],
+    responseHash: "0".repeat(64),
+  };
+  response.responseHash = libraryAnalysisAgentSegmentResponseHash(response);
+  const responsePath = join(fixture.base, "merge-response.json");
+  writeFileSync(responsePath, JSON.stringify(response), { mode: 0o600 });
+  await runLibraryAnalysisAgentQueueCli({
+    command: "accept-attempt",
+    runRoot: fixture.runRoot,
+    queue: built.queuePath,
+    attemptInput: prepared.inputPath,
+    response: responsePath,
+  });
+
+  const merged = await runLibraryAnalysisAgentQueueCli({
+    command: "merge-source",
+    runRoot: fixture.runRoot,
+    queue: built.queuePath,
+    sourceId: source.sourceEnvelopeHash,
+  });
+  assert.equal(merged.analysisState, "complete");
+  assert.equal(merged.claims, 0);
+  assert.equal(statSync(merged.sourceResultPath).mode & 0o777, 0o400);
+  await assert.rejects(
+    runLibraryAnalysisAgentQueueCli({
+      command: "merge-source",
+      runRoot: fixture.runRoot,
+      queue: built.queuePath,
+      sourceId: source.sourceEnvelopeHash,
+    }),
+    /private_artifact_exists/u,
+  );
+});
+
 test("CLI argument parsing is strict and keeps command paths absolute", () => {
   assert.deepEqual(
     parseLibraryAnalysisAgentQueueArgs([
@@ -514,6 +592,21 @@ test("CLI argument parsing is strict and keeps command paths absolute", () => {
   ]), /agent_queue_cli_arguments_invalid/);
   assert.throws(() => parseLibraryAnalysisAgentQueueArgs([
     "build", "--unknown=value",
+  ]), /agent_queue_cli_arguments_invalid/);
+  assert.deepEqual(
+    parseLibraryAnalysisAgentQueueArgs([
+      "merge-source", "--run-root=/tmp/run", "--queue=/tmp/queue.json",
+      "--source-id=" + "a".repeat(64),
+    ]),
+    {
+      command: "merge-source",
+      runRoot: "/tmp/run",
+      queue: "/tmp/queue.json",
+      sourceId: "a".repeat(64),
+    },
+  );
+  assert.throws(() => parseLibraryAnalysisAgentQueueArgs([
+    "merge-source", "--run-root=/tmp/run", "--queue=/tmp/queue.json",
   ]), /agent_queue_cli_arguments_invalid/);
 });
 
