@@ -362,7 +362,9 @@ export function verifyLibraryAnalysisAgentQueue(rawQueue: unknown): LibraryAnaly
     if (unit.portablePath !== `units/${unit.contentHash}.txt`) throw new Error("agent_queue_unit_path_mismatch");
   }
   const canonicalUnits = [...queue.units].sort((left, right) =>
-    compareIdentity(left, right) || left.ordinal - right.ordinal || compareCandidateJsonKeysUtf8(left.id, right.id));
+    compareIdentity(unitPopulationIdentity(left), unitPopulationIdentity(right)) ||
+    left.ordinal - right.ordinal ||
+    compareCandidateJsonKeysUtf8(left.id, right.id));
   if (canonicalCandidateJson(queue.units) !== canonicalCandidateJson(canonicalUnits)) {
     throw new Error("agent_queue_units_not_canonical");
   }
@@ -377,7 +379,7 @@ export function verifyLibraryAnalysisAgentQueue(rawQueue: unknown): LibraryAnaly
     const sourceUnits = source.unitIds.map((id) => {
       const descriptor = unitById.get(id);
       if (descriptor === undefined) throw new Error("agent_queue_source_unit_missing");
-      if (descriptor.populationSourceKey !== source.sourceKey || descriptor.sourceKind !== source.sourceKind) throw new Error("agent_queue_unit_binding_mismatch");
+      if (sourceIdentity(unitPopulationIdentity(descriptor)) !== sourceIdentity(source)) throw new Error("agent_queue_unit_binding_mismatch");
       covered.add(id);
       return descriptor;
     });
@@ -471,7 +473,7 @@ export function deriveLibraryAnalysisAgentQueueSubset(
   if (identities.size === 0) throw new Error("agent_queue_subset_empty");
   const sources = parent.sources.filter((source) => identities.has(`${source.sourceKind}\u0000${source.sourceKey}`));
   if (sources.length !== identities.size) throw new Error("agent_queue_subset_source_missing");
-  const units = parent.units.filter((unit) => identities.has(`${unit.sourceKind}\u0000${unit.populationSourceKey}`));
+  const units = parent.units.filter((unit) => identities.has(sourceIdentity(unitPopulationIdentity(unit))));
   const jobs = parent.jobs.filter((job) => identities.has(`${job.sourceKind}\u0000${job.sourceKey}`));
   const pilotBinding = pilotBindingSchema.parse(input.pilotBinding);
   if (pilotBinding.parentFullQueueHash !== parent.queueHash || pilotBinding.parentSelectionHash !== parent.selectionHash || pilotBinding.acquisitionPlanHash !== parent.acquisitionPlanHash) {
@@ -619,7 +621,8 @@ function toQueueUnit(unit: LibraryAnalysisContentUnitManifest["units"][number]):
 }
 
 function unitBinding(unit: LibraryAnalysisAgentQueueUnit): CandidateJsonValue {
-  return { id: unit.id, sourceKind: unit.sourceKind, sourceKey: unit.populationSourceKey, sourceVersionHash: unit.sourceVersionHash, unitType: unit.unitType, ordinal: unit.ordinal, locator: unit.locator, contentHash: unit.contentHash, sizeBytes: unit.sizeBytes, codePoints: unit.codePoints, chunkPolicyHash: unit.chunkPolicyHash };
+  const identity = unitPopulationIdentity(unit);
+  return { id: unit.id, sourceKind: identity.sourceKind, sourceKey: identity.sourceKey, sourceVersionHash: unit.sourceVersionHash, unitType: unit.unitType, ordinal: unit.ordinal, locator: unit.locator, contentHash: unit.contentHash, sizeBytes: unit.sizeBytes, codePoints: unit.codePoints, chunkPolicyHash: unit.chunkPolicyHash };
 }
 
 function inputEnvelopeHash(units: readonly LibraryAnalysisAgentQueueUnit[]): string {
@@ -651,6 +654,10 @@ function buildJobs(source: { sourceKind: string; sourceKey: string; units: Libra
 
 function compareIdentity(left: { sourceKind: string; sourceKey: string }, right: { sourceKind: string; sourceKey: string }): number {
   return compareCandidateJsonKeysUtf8(left.sourceKind, right.sourceKind) || compareCandidateJsonKeysUtf8(left.sourceKey, right.sourceKey);
+}
+
+function unitPopulationIdentity(unit: LibraryAnalysisAgentQueueUnit): { sourceKind: string; sourceKey: string } {
+  return { sourceKind: unit.sourceKind, sourceKey: unit.populationSourceKey };
 }
 
 function sourceIdentity(source: { sourceKind: string; sourceKey: string }): string {

@@ -137,7 +137,7 @@ function makeQueue(specs = BASE_SPECS): LibraryAnalysisAgentQueue {
       segmentOrdinal += 1;
     }
   }
-  units.sort((left, right) => compareCandidateJsonKeysUtf8(left.sourceKind, right.sourceKind) || compareCandidateJsonKeysUtf8(left.sourceKey, right.sourceKey) || left.ordinal - right.ordinal);
+  units.sort((left, right) => compareCandidateJsonKeysUtf8(left.sourceKind, right.sourceKind) || compareCandidateJsonKeysUtf8(left.populationSourceKey, right.populationSourceKey) || left.ordinal - right.ordinal);
   sources.sort((left, right) => compareCandidateJsonKeysUtf8(left.sourceKind, right.sourceKind) || compareCandidateJsonKeysUtf8(left.sourceKey, right.sourceKey));
   jobs.sort((left, right) => compareCandidateJsonKeysUtf8(left.sourceKind, right.sourceKind) || compareCandidateJsonKeysUtf8(left.sourceKey, right.sourceKey) || left.segmentOrdinal - right.segmentOrdinal);
   const selectionHash = candidateAnalysisSha256("library-analysis-agent-selection", { sources, units: units.map((unit) => ({ id: unit.id, sourceKind: unit.sourceKind, sourceKey: unit.populationSourceKey, sourceVersionHash: unit.sourceVersionHash, unitType: unit.unitType, ordinal: unit.ordinal, locator: unit.locator, contentHash: unit.contentHash, sizeBytes: unit.sizeBytes, codePoints: unit.codePoints, chunkPolicyHash: unit.chunkPolicyHash })) });

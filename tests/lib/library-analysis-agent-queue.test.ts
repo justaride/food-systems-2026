@@ -32,12 +32,25 @@ const HASHES = {
 type FixtureUnit = {
   sourceKind: string;
   sourceKey: string;
+  candidateSourceKey?: string;
   ordinal: number;
   text: string;
 };
 
 function unit(sourceKey: string, ordinal: number, text: string): FixtureUnit {
   return { sourceKind: sourceKey.split(":")[0]!, sourceKey, ordinal, text };
+}
+
+function unitWithCandidateSourceKey(
+  populationSourceKey: string,
+  candidateSourceKey: string,
+  ordinal: number,
+  text: string,
+): FixtureUnit {
+  return {
+    ...unit(populationSourceKey, ordinal, text),
+    candidateSourceKey,
+  };
 }
 
 function binding(id: string) {
@@ -66,9 +79,10 @@ function makeFixture(inputUnits: FixtureUnit[]) {
       const text = sourceUnit.text;
       const hash = contentHash(text);
       const locator = `https://example.test/${sourceKey}/${sourceUnit.ordinal}`;
+      const candidateSourceKey = sourceUnit.candidateSourceKey ?? sourceKey;
       const identityHash = candidateAnalysisSha256("library-analysis-content-unit", {
         sourceKind,
-        sourceKey,
+        sourceKey: candidateSourceKey,
         sourceVersionHash: "b".repeat(64),
         unitType: "document_section" as const,
         ordinal: sourceUnit.ordinal,
@@ -83,7 +97,7 @@ function makeFixture(inputUnits: FixtureUnit[]) {
       units.push({
         id,
         sourceKind,
-        sourceKey,
+        sourceKey: candidateSourceKey,
         sourceVersionHash: "b".repeat(64),
         unitType: "document_section" as const,
         ordinal: sourceUnit.ordinal,
@@ -186,6 +200,25 @@ test("queue selects ready resolution rows including formerly blocked routes", ()
   assert.ok(queue.sources.some((source) => source.sourceKey === "source_doc:web"));
   assert.equal(queue.executionPolicy.externalApiUsed, false);
   assert.equal(queue.executionPolicy.candidateDatabaseWritten, false);
+});
+
+test("queue canonicalizes units by population identity when candidate source-key order differs", () => {
+  const fixture = makeFixture([
+    unitWithCandidateSourceKey("document:a", "candidate:z", 0, "alpha"),
+    unitWithCandidateSourceKey("document:b", "candidate:a", 0, "beta"),
+  ]);
+
+  const queue = buildLibraryAnalysisAgentQueue(fixture.input);
+
+  assert.deepEqual(
+    queue.units.map((descriptor) => descriptor.populationSourceKey),
+    ["document:a", "document:b"],
+  );
+  assert.deepEqual(
+    queue.units.map((descriptor) => descriptor.sourceKey),
+    ["candidate:z", "candidate:a"],
+  );
+  assert.equal(verifyLibraryAnalysisAgentQueue(queue).queueHash, queue.queueHash);
 });
 
 test("queue rejects missing duplicate and drifted units", () => {
