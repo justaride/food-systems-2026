@@ -53,6 +53,34 @@ function unitText(id: string, codePoints: number): string {
   return seed.repeat(Math.ceil(codePoints / seed.length)).slice(0, codePoints);
 }
 
+function materializeUnitBearingRunRoot(
+  base: string,
+  name: string,
+  queue: LibraryAnalysisAgentQueue,
+): {
+  runRoot: string;
+  queueDirectory: string;
+  unitsDirectory: string;
+  fullQueuePath: string;
+  fullQueueBytes: string;
+} {
+  const runRoot = join(base, name);
+  const queueDirectory = join(runRoot, "queue");
+  const unitsDirectory = join(runRoot, "units");
+  mkdirSync(queueDirectory, { recursive: true, mode: 0o700 });
+  mkdirSync(unitsDirectory, { recursive: true, mode: 0o700 });
+  chmodSync(runRoot, 0o700);
+  chmodSync(queueDirectory, 0o700);
+  chmodSync(unitsDirectory, 0o700);
+  for (const unit of queue.units) {
+    writeFileSync(join(runRoot, unit.portablePath), unitText(unit.id, unit.codePoints), { mode: 0o400 });
+  }
+  const fullQueuePath = join(queueDirectory, `queue-${queue.queueHash}.json`);
+  const fullQueueBytes = `${JSON.stringify(queue)}\n`;
+  writeFileSync(fullQueuePath, fullQueueBytes, { mode: 0o400 });
+  return { runRoot, queueDirectory, unitsDirectory, fullQueuePath, fullQueueBytes };
+}
+
 function makeQueue(specs = BASE_SPECS): LibraryAnalysisAgentQueue {
   const units: LibraryAnalysisAgentQueueUnit[] = [];
   const sources: LibraryAnalysisAgentQueueSource[] = [];
@@ -270,23 +298,11 @@ test("pilot search budget exhaustion is distinct from capacity failure", () => {
   assert.throws(() => selectLibraryAnalysisAgentPilot(fullShapeFixture(), { maxSearchNodes: 1 }), /agent_pilot_search_budget_exhausted/);
 });
 
-test("pilot CLI publishes a dispatchable child queue beside the immutable full queue", async () => {
+test("pilot and full execution prepare the same logical job in separate unit-bearing roots", () => {
   const fixture = fullShapeFixture();
   const base = mkdtempSync(join(tmpdir(), "library-agent-pilot-cli-"));
-  const runRoot = join(base, "run");
-  const queueDirectory = join(runRoot, "queue");
-  const unitsDirectory = join(runRoot, "units");
-  mkdirSync(queueDirectory, { recursive: true, mode: 0o700 });
-  mkdirSync(unitsDirectory, { recursive: true, mode: 0o700 });
-  chmodSync(runRoot, 0o700);
-  chmodSync(queueDirectory, 0o700);
-  chmodSync(unitsDirectory, 0o700);
-  for (const unit of fixture.queue.units) {
-    writeFileSync(join(runRoot, unit.portablePath), unitText(unit.id, unit.codePoints), { mode: 0o400 });
-  }
-  const fullQueuePath = join(queueDirectory, `queue-${fixture.queue.queueHash}.json`);
-  const fullQueueBytes = `${JSON.stringify(fixture.queue)}\n`;
-  writeFileSync(fullQueuePath, fullQueueBytes, { mode: 0o400 });
+  const full = materializeUnitBearingRunRoot(base, "full-run", fixture.queue);
+  const pilot = materializeUnitBearingRunRoot(base, "pilot-run", fixture.queue);
   const planPath = join(base, "plan.json");
   writeFileSync(planPath, `${JSON.stringify(fixture.plan)}\n`, { mode: 0o400 });
 
@@ -296,22 +312,22 @@ test("pilot CLI publishes a dispatchable child queue beside the immutable full q
   const pilotRun = spawnSync(process.execPath, [
     "--import=tsx",
     pilotScript,
-    `--queue=${fullQueuePath}`,
+    `--queue=${pilot.fullQueuePath}`,
     `--plan=${planPath}`,
-    `--output-root=${runRoot}`,
+    `--output-root=${pilot.runRoot}`,
   ], { cwd: process.cwd(), encoding: "utf8" });
   assert.equal(pilotRun.status, 0, `${pilotRun.stderr}${pilotRun.stdout}`);
   assert.equal(pilotRun.stderr, "");
   assert.equal(JSON.parse(pilotRun.stdout).queueHash, selection.queue.queueHash);
-  const childQueuePath = join(queueDirectory, `queue-${selection.queue.queueHash}.json`);
-  const selectionPath = join(runRoot, "pilots", `pilot-${selection.selectionHash}`, "selection.v1.json");
-  const fullQueueDigest = createHash("sha256").update(fullQueueBytes, "utf8").digest("hex");
+  const childQueuePath = join(pilot.queueDirectory, `queue-${selection.queue.queueHash}.json`);
+  const selectionPath = join(pilot.runRoot, "pilots", `pilot-${selection.selectionHash}`, "selection.v1.json");
+  const fullQueueDigest = createHash("sha256").update(full.fullQueueBytes, "utf8").digest("hex");
 
-  const preparedRun = spawnSync(process.execPath, [
+  const pilotPreparedRun = spawnSync(process.execPath, [
     "--import=tsx",
     queueScript,
     "prepare-attempt",
-    `--run-root=${runRoot}`,
+    `--run-root=${pilot.runRoot}`,
     `--queue=${childQueuePath}`,
     `--job-id=${selection.queue.jobs[0]!.jobId}`,
     "--attempt=1",
@@ -319,25 +335,80 @@ test("pilot CLI publishes a dispatchable child queue beside the immutable full q
     "--expected-model-name=gpt-5.6-luna",
     "--expected-model-version=unknown",
   ], { cwd: process.cwd(), encoding: "utf8" });
-  assert.equal(preparedRun.status, 0, `${preparedRun.stderr}${preparedRun.stdout}`);
-  assert.equal(preparedRun.stderr, "");
-  const prepared = JSON.parse(preparedRun.stdout) as { jobId: string };
-  const preparedInputPath = join(
-    runRoot,
+  assert.equal(pilotPreparedRun.status, 0, `${pilotPreparedRun.stderr}${pilotPreparedRun.stdout}`);
+  assert.equal(pilotPreparedRun.stderr, "");
+  const pilotPrepared = JSON.parse(pilotPreparedRun.stdout) as { jobId: string; queueHash: string };
+  const pilotInputPath = join(
+    pilot.runRoot,
     "jobs",
-    prepared.jobId,
+    pilotPrepared.jobId,
     "attempt-001",
     "input.json",
   );
 
-  assert.equal(statSync(fullQueuePath).mode & 0o777, 0o400);
-  assert.equal(createHash("sha256").update(readFileSync(fullQueuePath)).digest("hex"), fullQueueDigest);
+  const fullPreparedRun = spawnSync(process.execPath, [
+    "--import=tsx",
+    queueScript,
+    "prepare-attempt",
+    `--run-root=${full.runRoot}`,
+    `--queue=${full.fullQueuePath}`,
+    `--job-id=${selection.queue.jobs[0]!.jobId}`,
+    "--attempt=1",
+    "--expected-model-provider=openai-codex",
+    "--expected-model-name=gpt-5.6-luna",
+    "--expected-model-version=unknown",
+  ], { cwd: process.cwd(), encoding: "utf8" });
+  assert.equal(fullPreparedRun.status, 0, `${fullPreparedRun.stderr}${fullPreparedRun.stdout}`);
+  assert.equal(fullPreparedRun.stderr, "");
+  const fullPrepared = JSON.parse(fullPreparedRun.stdout) as { jobId: string; queueHash: string };
+  const fullInputPath = join(
+    full.runRoot,
+    "jobs",
+    fullPrepared.jobId,
+    "attempt-001",
+    "input.json",
+  );
+
+  assert.equal(pilotPrepared.jobId, fullPrepared.jobId);
+  assert.equal(pilotPrepared.queueHash, selection.queue.queueHash);
+  assert.equal(fullPrepared.queueHash, fixture.queue.queueHash);
+  assert.notEqual(pilotPrepared.queueHash, fullPrepared.queueHash);
+  assert.notEqual(pilotInputPath, fullInputPath);
+  assert.equal(existsSync(pilotInputPath), true);
+  assert.equal(existsSync(fullInputPath), true);
+  const pilotInput = JSON.parse(readFileSync(pilotInputPath, "utf8")) as { queueHash: string; jobId: string };
+  const fullInput = JSON.parse(readFileSync(fullInputPath, "utf8")) as { queueHash: string; jobId: string };
+  assert.equal(pilotInput.jobId, fullInput.jobId);
+  assert.equal(pilotInput.queueHash, selection.queue.queueHash);
+  assert.equal(fullInput.queueHash, fixture.queue.queueHash);
+
+  for (const root of [full, pilot]) {
+    assert.equal(statSync(root.runRoot).mode & 0o777, 0o700);
+    assert.equal(statSync(root.queueDirectory).mode & 0o777, 0o700);
+    assert.equal(statSync(root.unitsDirectory).mode & 0o777, 0o700);
+    assert.equal(statSync(join(root.runRoot, "jobs", fullPrepared.jobId)).mode & 0o777, 0o700);
+    assert.equal(statSync(join(root.runRoot, "jobs", fullPrepared.jobId, "attempt-001")).mode & 0o777, 0o700);
+    assert.equal(statSync(root.fullQueuePath).mode & 0o777, 0o400);
+    assert.equal(createHash("sha256").update(readFileSync(root.fullQueuePath)).digest("hex"), fullQueueDigest);
+  }
+  for (const unit of fixture.queue.units) {
+    const fullUnitPath = join(full.runRoot, unit.portablePath);
+    const pilotUnitPath = join(pilot.runRoot, unit.portablePath);
+    assert.equal(statSync(fullUnitPath).mode & 0o777, 0o400);
+    assert.equal(statSync(pilotUnitPath).mode & 0o777, 0o400);
+    assert.equal(
+      createHash("sha256").update(readFileSync(fullUnitPath)).digest("hex"),
+      createHash("sha256").update(readFileSync(pilotUnitPath)).digest("hex"),
+    );
+  }
   assert.equal(statSync(childQueuePath).mode & 0o777, 0o400);
   assert.equal(statSync(selectionPath).mode & 0o777, 0o400);
-  assert.equal(statSync(preparedInputPath).mode & 0o777, 0o400);
-  assert.equal(existsSync(join(runRoot, "pilot-queue.v1.json")), false);
+  assert.equal(statSync(pilotInputPath).mode & 0o777, 0o400);
+  assert.equal(statSync(fullInputPath).mode & 0o777, 0o400);
+  assert.equal(existsSync(join(pilot.runRoot, "pilot-queue.v1.json")), false);
+  assert.deepEqual(readdirSync(full.queueDirectory), [`queue-${fixture.queue.queueHash}.json`]);
   assert.deepEqual(
-    readdirSync(queueDirectory).sort(),
+    readdirSync(pilot.queueDirectory).sort(),
     [`queue-${fixture.queue.queueHash}.json`, `queue-${selection.queue.queueHash}.json`].sort(),
   );
   assert.doesNotThrow(() => verifyLibraryAnalysisAgentPilotQueue(
@@ -348,9 +419,9 @@ test("pilot CLI publishes a dispatchable child queue beside the immutable full q
   const replay = spawnSync(process.execPath, [
     "--import=tsx",
     pilotScript,
-    `--queue=${fullQueuePath}`,
+    `--queue=${pilot.fullQueuePath}`,
     `--plan=${planPath}`,
-    `--run-root=${runRoot}`,
+    `--run-root=${pilot.runRoot}`,
   ], { cwd: process.cwd(), encoding: "utf8" });
   assert.notEqual(replay.status, 0);
   assert.equal(replay.stdout, "");
