@@ -1,4 +1,9 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
+import { createHash } from "node:crypto";
+import { chmodSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import test from "node:test";
 
 import {
@@ -43,6 +48,11 @@ const BASE_SPECS = [
   ["document", "document:filler-5", "database_record", 30_000],
 ] as readonly FixtureSpec[];
 
+function unitText(id: string, codePoints: number): string {
+  const seed = `${id}|`;
+  return seed.repeat(Math.ceil(codePoints / seed.length)).slice(0, codePoints);
+}
+
 function makeQueue(specs = BASE_SPECS): LibraryAnalysisAgentQueue {
   const units: LibraryAnalysisAgentQueueUnit[] = [];
   const sources: LibraryAnalysisAgentQueueSource[] = [];
@@ -53,6 +63,8 @@ function makeQueue(specs = BASE_SPECS): LibraryAnalysisAgentQueue {
     for (const [ordinal, points] of codePoints.entries()) {
       const id = `content:${sourceKey.replaceAll(":", "-")}:${ordinal}`;
       unitIds.push(id);
+      const text = unitText(id, points);
+      const contentHash = createHash("sha256").update(text, "utf8").digest("hex");
       units.push({
         id,
         sourceKind,
@@ -63,11 +75,11 @@ function makeQueue(specs = BASE_SPECS): LibraryAnalysisAgentQueue {
         ordinal,
         locator: `locator:${sourceKey}:${ordinal}`,
         locatorHash: candidateAnalysisEvidenceLocatorHash(`locator:${sourceKey}:${ordinal}`),
-        contentHash: candidateAnalysisSha256("content", id),
+        contentHash,
         hashAlgorithm: "sha256",
         identityConfidence: "exact",
         chunkPolicyHash: HASH,
-        portablePath: `units/${candidateAnalysisSha256("content", id)}.txt`,
+        portablePath: `units/${contentHash}.txt`,
         sizeBytes: points,
         codePoints: points,
       });
@@ -256,6 +268,93 @@ test("pilot proves a 700-source low-capacity pool impossible before Cartesian se
 
 test("pilot search budget exhaustion is distinct from capacity failure", () => {
   assert.throws(() => selectLibraryAnalysisAgentPilot(fullShapeFixture(), { maxSearchNodes: 1 }), /agent_pilot_search_budget_exhausted/);
+});
+
+test("pilot CLI publishes a dispatchable child queue beside the immutable full queue", async () => {
+  const fixture = fullShapeFixture();
+  const base = mkdtempSync(join(tmpdir(), "library-agent-pilot-cli-"));
+  const runRoot = join(base, "run");
+  const queueDirectory = join(runRoot, "queue");
+  const unitsDirectory = join(runRoot, "units");
+  mkdirSync(queueDirectory, { recursive: true, mode: 0o700 });
+  mkdirSync(unitsDirectory, { recursive: true, mode: 0o700 });
+  chmodSync(runRoot, 0o700);
+  chmodSync(queueDirectory, 0o700);
+  chmodSync(unitsDirectory, 0o700);
+  for (const unit of fixture.queue.units) {
+    writeFileSync(join(runRoot, unit.portablePath), unitText(unit.id, unit.codePoints), { mode: 0o400 });
+  }
+  const fullQueuePath = join(queueDirectory, `queue-${fixture.queue.queueHash}.json`);
+  const fullQueueBytes = `${JSON.stringify(fixture.queue)}\n`;
+  writeFileSync(fullQueuePath, fullQueueBytes, { mode: 0o400 });
+  const planPath = join(base, "plan.json");
+  writeFileSync(planPath, `${JSON.stringify(fixture.plan)}\n`, { mode: 0o400 });
+
+  const selection = selectLibraryAnalysisAgentPilot(fixture);
+  const pilotScript = join(process.cwd(), "scripts/knowledge/select-library-analysis-agent-pilot.ts");
+  const queueScript = join(process.cwd(), "scripts/knowledge/manage-library-analysis-agent-queue.ts");
+  const pilotRun = spawnSync(process.execPath, [
+    "--import=tsx",
+    pilotScript,
+    `--queue=${fullQueuePath}`,
+    `--plan=${planPath}`,
+    `--output-root=${runRoot}`,
+  ], { cwd: process.cwd(), encoding: "utf8" });
+  assert.equal(pilotRun.status, 0, `${pilotRun.stderr}${pilotRun.stdout}`);
+  assert.equal(pilotRun.stderr, "");
+  assert.equal(JSON.parse(pilotRun.stdout).queueHash, selection.queue.queueHash);
+  const childQueuePath = join(queueDirectory, `queue-${selection.queue.queueHash}.json`);
+  const selectionPath = join(runRoot, "pilots", `pilot-${selection.selectionHash}`, "selection.v1.json");
+  const fullQueueDigest = createHash("sha256").update(fullQueueBytes, "utf8").digest("hex");
+
+  const preparedRun = spawnSync(process.execPath, [
+    "--import=tsx",
+    queueScript,
+    "prepare-attempt",
+    `--run-root=${runRoot}`,
+    `--queue=${childQueuePath}`,
+    `--job-id=${selection.queue.jobs[0]!.jobId}`,
+    "--attempt=1",
+    "--expected-model-provider=openai-codex",
+    "--expected-model-name=gpt-5.6-luna",
+    "--expected-model-version=unknown",
+  ], { cwd: process.cwd(), encoding: "utf8" });
+  assert.equal(preparedRun.status, 0, `${preparedRun.stderr}${preparedRun.stdout}`);
+  assert.equal(preparedRun.stderr, "");
+  const prepared = JSON.parse(preparedRun.stdout) as { jobId: string };
+  const preparedInputPath = join(
+    runRoot,
+    "jobs",
+    prepared.jobId,
+    "attempt-001",
+    "input.json",
+  );
+
+  assert.equal(statSync(fullQueuePath).mode & 0o777, 0o400);
+  assert.equal(createHash("sha256").update(readFileSync(fullQueuePath)).digest("hex"), fullQueueDigest);
+  assert.equal(statSync(childQueuePath).mode & 0o777, 0o400);
+  assert.equal(statSync(selectionPath).mode & 0o777, 0o400);
+  assert.equal(statSync(preparedInputPath).mode & 0o777, 0o400);
+  assert.equal(existsSync(join(runRoot, "pilot-queue.v1.json")), false);
+  assert.deepEqual(
+    readdirSync(queueDirectory).sort(),
+    [`queue-${fixture.queue.queueHash}.json`, `queue-${selection.queue.queueHash}.json`].sort(),
+  );
+  assert.doesNotThrow(() => verifyLibraryAnalysisAgentPilotQueue(
+    fixture.queue,
+    JSON.parse(readFileSync(childQueuePath, "utf8")),
+    { ...JSON.parse(readFileSync(selectionPath, "utf8")), queue: selection.queue },
+  ));
+  const replay = spawnSync(process.execPath, [
+    "--import=tsx",
+    pilotScript,
+    `--queue=${fullQueuePath}`,
+    `--plan=${planPath}`,
+    `--run-root=${runRoot}`,
+  ], { cwd: process.cwd(), encoding: "utf8" });
+  assert.notEqual(replay.status, 0);
+  assert.equal(replay.stdout, "");
+  assert.equal(replay.stderr.trim(), "library_analysis_agent_pilot_failed");
 });
 
 function buildLibraryAnalysisPlanWithPdfLocator(

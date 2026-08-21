@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { readFileSync, lstatSync } from "node:fs";
-import { basename, dirname, isAbsolute, relative, resolve, sep } from "node:path";
+import { readFileSync, lstatSync, realpathSync } from "node:fs";
+import { basename, dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
 import { pathToFileURL } from "node:url";
 
 import {
@@ -428,7 +428,8 @@ function unitBinding(unit: LibraryAnalysisAgentQueue["units"][number]) {
 export type LibraryAnalysisAgentPilotCliOptions = {
   queue: string;
   plan: string;
-  outputRoot: string;
+  runRoot?: string;
+  outputRoot?: string;
 };
 
 export function parseLibraryAnalysisAgentPilotArgs(
@@ -436,16 +437,23 @@ export function parseLibraryAnalysisAgentPilotArgs(
 ): LibraryAnalysisAgentPilotCliOptions {
   const values = new Map<string, string>();
   for (const argument of argv) {
-    const match = /^--(queue|plan|output-root)=(.*)$/u.exec(argument);
+    const match = /^--(queue|plan|run-root|output-root)=(.*)$/u.exec(argument);
     if (!match || values.has(match[1]!)) throw new Error("agent_pilot_arguments_invalid");
     if (!isAbsolute(match[2]!) || /[\u0000-\u001f\u007f]/u.test(match[2]!)) throw new Error("agent_pilot_arguments_invalid");
     values.set(match[1]!, resolve(match[2]!));
   }
   const queue = values.get("queue");
   const plan = values.get("plan");
+  const runRoot = values.get("run-root");
   const outputRoot = values.get("output-root");
-  if (!queue || !plan || !outputRoot || queue === plan || queue === outputRoot || plan === outputRoot) throw new Error("agent_pilot_arguments_invalid");
-  return { queue, plan, outputRoot };
+  if (
+    !queue ||
+    !plan ||
+    (!runRoot && !outputRoot) ||
+    (runRoot !== undefined && outputRoot !== undefined && runRoot !== outputRoot) ||
+    queue === plan
+  ) throw new Error("agent_pilot_arguments_invalid");
+  return { queue, plan, runRoot: runRoot ?? outputRoot };
 }
 
 export async function runLibraryAnalysisAgentPilotCli(options: LibraryAnalysisAgentPilotCliOptions): Promise<LibraryAnalysisAgentPilotSelection> {
@@ -463,9 +471,16 @@ export async function runLibraryAnalysisAgentPilotCli(options: LibraryAnalysisAg
   }
   const plan = LibraryAnalysisAcquisitionPlanSchema.parse(JSON.parse(readFileSync(options.plan, "utf8")));
   const selection = selectLibraryAnalysisAgentPilot({ queue, plan });
-  const outputRoot = openPrivateLibraryAnalysisRunRoot(dirname(options.outputRoot), basename(options.outputRoot));
-  if (outputRoot !== options.outputRoot) throw new Error("agent_pilot_output_root_mismatch");
-  const selectionReceipt = writePrivateManifestAtomic(outputRoot, "pilot-selection.v1.json", Buffer.from(`${JSON.stringify({
+  const requestedRunRoot = options.runRoot ?? options.outputRoot;
+  if (requestedRunRoot === undefined || !isAbsolute(requestedRunRoot)) throw new Error("agent_pilot_arguments_invalid");
+  const runRoot = openPrivateLibraryAnalysisRunRoot(dirname(requestedRunRoot), basename(requestedRunRoot));
+  if (runRoot !== realpathSync(requestedRunRoot)) throw new Error("agent_pilot_run_root_mismatch");
+  if (realpathSync(options.queue) !== join(runRoot, "queue", `queue-${queue.queueHash}.json`)) {
+    throw new Error("agent_pilot_queue_run_root_mismatch");
+  }
+  const selectionPortablePath = `pilots/pilot-${selection.selectionHash}/selection.v1.json`;
+  const queuePortablePath = `queue/queue-${selection.queue.queueHash}.json`;
+  const selectionReceipt = writePrivateManifestAtomic(runRoot, selectionPortablePath, Buffer.from(`${JSON.stringify({
     schema: selection.schema,
     parentFullQueueHash: selection.parentFullQueueHash,
     parentSelectionHash: selection.parentSelectionHash,
@@ -476,9 +491,9 @@ export async function runLibraryAnalysisAgentPilotCli(options: LibraryAnalysisAg
     unitCount: selection.unitCount,
     codePoints: selection.codePoints,
   }, null, 2)}\n`, "utf8"));
-  const queueReceipt = writePrivateManifestAtomic(outputRoot, "pilot-queue.v1.json", Buffer.from(`${JSON.stringify(selection.queue, null, 2)}\n`, "utf8"));
-  const persistedQueue = JSON.parse(readAndVerifyPrivateArtifact(outputRoot, "pilot-queue.v1.json", { sha256: queueReceipt.sha256, sizeBytes: queueReceipt.sizeBytes, mode: 0o400 }).toString("utf8")) as LibraryAnalysisAgentQueue;
-  const persistedSelection = JSON.parse(readAndVerifyPrivateArtifact(outputRoot, "pilot-selection.v1.json", { sha256: selectionReceipt.sha256, sizeBytes: selectionReceipt.sizeBytes, mode: 0o400 }).toString("utf8")) as Omit<LibraryAnalysisAgentPilotSelection, "queue">;
+  const queueReceipt = writePrivateManifestAtomic(runRoot, queuePortablePath, Buffer.from(`${JSON.stringify(selection.queue, null, 2)}\n`, "utf8"));
+  const persistedQueue = JSON.parse(readAndVerifyPrivateArtifact(runRoot, queuePortablePath, { sha256: queueReceipt.sha256, sizeBytes: queueReceipt.sizeBytes, mode: 0o400 }).toString("utf8")) as LibraryAnalysisAgentQueue;
+  const persistedSelection = JSON.parse(readAndVerifyPrivateArtifact(runRoot, selectionPortablePath, { sha256: selectionReceipt.sha256, sizeBytes: selectionReceipt.sizeBytes, mode: 0o400 }).toString("utf8")) as Omit<LibraryAnalysisAgentPilotSelection, "queue">;
   verifyLibraryAnalysisAgentPilotQueue(queue, persistedQueue, { ...persistedSelection, queue: persistedQueue });
   process.stdout.write(`${JSON.stringify({ command: "agent-pilot", selectionHash: selection.selectionHash, queueHash: selection.queue.queueHash, sources: selection.sourceIds.length, units: selection.unitCount, codePoints: selection.codePoints, strata: selection.strata.length, automatedOnly: true, externalReady: false })}\n`);
   return selection;
