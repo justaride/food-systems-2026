@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { mkdtempSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
@@ -8,6 +9,16 @@ import {
   parseLibraryAnalysisBatchPreparationArgs,
   runLibraryAnalysisBatchPreparationCli,
 } from "../../scripts/knowledge/prepare-library-analysis-acquisition-batches";
+import {
+  mergeLibraryAnalysisAcquisitionBatchOutputs,
+} from "../../scripts/knowledge/merge-library-analysis-acquisition-batches";
+import {
+  selectLibraryAnalysisBatchAttempt,
+} from "../../scripts/knowledge/run-library-analysis-acquisition-batches";
+import {
+  emitLibraryAnalysisContentUnitBundle,
+  type LibraryAnalysisPrivateEmitOutput,
+} from "../../scripts/knowledge/emit-library-analysis-content-units";
 import {
   partitionLibraryAnalysisAcquisition,
 } from "../../src/lib/knowledge/library-analysis-acquisition-batches";
@@ -204,4 +215,111 @@ test("batch preparation arguments are explicit and bounded", () => {
     ]),
     /library_analysis_batch_preparation_arguments_invalid/,
   );
+});
+
+test("batch merge rebinds verified outputs to the full plan and copies each unit once", async () => {
+  const localText = "Local database body";
+  const externalText = "External source body";
+  const localHash = sha256(localText);
+  const population = buildLibraryAnalysisPopulation([
+    {
+      sourceKind: "document",
+      sourceKey: "document:local",
+      sourceVersionHash: localHash,
+      inputKind: "database_record",
+      locator: "database:Document:local:content",
+      contentHash: localHash,
+      identityConfidence: "exact",
+      readableInput: true,
+      superseded: false,
+    },
+    blockedSource("web"),
+  ]);
+  const plan = buildLibraryAnalysisAcquisitionPlan(population, [{
+    sourceKind: "source_doc",
+    sourceKey: "source_doc:web",
+    route: "controlled_https",
+    locator: "https://example.test/web",
+    alternateLocators: [],
+  }]);
+  const partition = partitionLibraryAnalysisAcquisition({
+    snapshot: population,
+    plan,
+    policy: { version: "1.0.0", localBatchSize: 1, externalBatchSize: 1 },
+  });
+  const batchPayloads: Array<Map<string, string>> = [];
+  const outputs: LibraryAnalysisPrivateEmitOutput[] = [];
+  for (const batch of partition.batches) {
+    const text = batch.kind === "local" ? localText : externalText;
+    const rawHash = sha256(text);
+    const payloads = new Map<string, string>();
+    batchPayloads.push(payloads);
+    outputs.push(await emitLibraryAnalysisContentUnitBundle({
+      snapshot: batch.snapshot,
+      plan: batch.plan,
+      extractions: [{
+        sourceKind: batch.plan.rows[0]!.sourceKind,
+        sourceKey: batch.plan.rows[0]!.sourceKey,
+        route: batch.plan.rows[0]!.route as "database_document" | "controlled_https",
+        sourceVersionHash: rawHash,
+        rawSha256: rawHash,
+        units: [{
+          unitType: "document_section",
+          baseLocator: batch.plan.rows[0]!.locator!,
+          ordinal: 0,
+          text,
+        }],
+      }],
+      failures: [],
+      writeUnit: async (portablePath, unitText) => {
+        payloads.set(portablePath, unitText);
+      },
+    }));
+  }
+  const mergedPayloads = new Map<string, string>();
+
+  const merged = await mergeLibraryAnalysisAcquisitionBatchOutputs({
+    snapshot: population,
+    plan,
+    batchSet: partition.manifest,
+    batches: partition.batches.map((batch, index) => ({
+      descriptor: batch.descriptor,
+      snapshot: batch.snapshot,
+      plan: batch.plan,
+      output: outputs[index]!,
+      readUnit: async (portablePath: string) => batchPayloads[index]!.get(portablePath)!,
+    })),
+    writeUnit: async (portablePath, text) => {
+      assert.equal(mergedPayloads.has(portablePath), false);
+      mergedPayloads.set(portablePath, text);
+    },
+  });
+
+  assert.equal(merged.populationTotal, 2);
+  assert.equal(merged.resolution.planHash, plan.planHash);
+  assert.equal(merged.contentUnitManifest.populationHash, population.populationHash);
+  assert.equal(merged.resolution.rows.filter((row) =>
+    row.disposition === "content_units_ready").length, 2);
+  assert.equal(merged.costEnvelope.totals.sourcesReady, 2);
+  assert.equal(mergedPayloads.size, 2);
+  assert.deepEqual([...mergedPayloads.values()].sort(), [externalText, localText].sort());
+});
+
+function sha256(text: string): string {
+  return createHash("sha256").update(text, "utf8").digest("hex");
+}
+
+test("batch resume reuses a completed attempt and never overwrites an incomplete one", () => {
+  assert.deepEqual(selectLibraryAnalysisBatchAttempt([
+    { attempt: 1, completed: true },
+    { attempt: 2, completed: false },
+  ]), { reuseAttempt: 1, nextAttempt: null });
+  assert.deepEqual(selectLibraryAnalysisBatchAttempt([
+    { attempt: 1, completed: false },
+    { attempt: 2, completed: false },
+  ]), { reuseAttempt: null, nextAttempt: 3 });
+  assert.deepEqual(selectLibraryAnalysisBatchAttempt([]), {
+    reuseAttempt: null,
+    nextAttempt: 1,
+  });
 });

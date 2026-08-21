@@ -848,14 +848,15 @@ async function createDefaultSourceAdapters(
   return { adapters, close: () => prisma.$disconnect() };
 }
 
-async function main(): Promise<void> {
-  const options = parseLibraryAnalysisAcquisitionExecutionArgs(process.argv.slice(2));
+export async function runLibraryAnalysisAcquisitionExecutionCli(
+  options: LibraryAnalysisAcquisitionExecutionCliOptions,
+): Promise<LibraryAnalysisAcquisitionExecutionSummary> {
   const plan = LibraryAnalysisAcquisitionPlanSchema.parse(
     JSON.parse(readFileSync(options.plan, "utf8")),
   );
   const defaults = await createDefaultSourceAdapters(plan, options.mode === "execute_network");
   try {
-    const summary = await executeLibraryAnalysisAcquisitionPlan({
+    return await executeLibraryAnalysisAcquisitionPlan({
       plan,
       runRoot: options.runRoot,
       mode: options.mode,
@@ -867,10 +868,16 @@ async function main(): Promise<void> {
         ...defaults.adapters,
       },
     });
-    process.stdout.write(`${JSON.stringify(summary)}\n`);
   } finally {
     await defaults.close();
   }
+}
+
+async function main(): Promise<void> {
+  const summary = await runLibraryAnalysisAcquisitionExecutionCli(
+    parseLibraryAnalysisAcquisitionExecutionArgs(process.argv.slice(2)),
+  );
+  process.stdout.write(`${JSON.stringify(summary)}\n`);
 }
 
 const invokedPath = process.argv[1] ? pathToFileURL(resolve(process.argv[1])).href : null;
