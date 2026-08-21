@@ -104,6 +104,14 @@ const jobSchema = z.object({
 
 export type LibraryAnalysisAgentQueueJob = z.infer<typeof jobSchema>;
 
+const pilotBindingSchema = z.object({
+  schema: z.literal("library-analysis-agent-pilot-binding/v1"),
+  parentFullQueueHash: hashSchema,
+  parentSelectionHash: hashSchema,
+  planHash: hashSchema,
+  pilotSelectionHash: hashSchema,
+}).strict();
+
 const queueCoreSchema = z.object({
   schema: z.literal(LIBRARY_ANALYSIS_AGENT_QUEUE_SCHEMA),
   createdAt: z.string().datetime({ offset: true }),
@@ -125,6 +133,7 @@ const queueCoreSchema = z.object({
   units: z.array(unitSchema),
   sources: z.array(sourceSchema),
   jobs: z.array(jobSchema),
+  pilotBinding: pilotBindingSchema.optional(),
 }).strict();
 
 const queueSchema = queueCoreSchema.extend({
@@ -135,6 +144,14 @@ const queueSchema = queueCoreSchema.extend({
 export const LibraryAnalysisAgentQueueSchema = queueSchema;
 export type LibraryAnalysisAgentQueueCore = z.infer<typeof queueCoreSchema>;
 export type LibraryAnalysisAgentQueue = z.infer<typeof queueSchema>;
+
+export type LibraryAnalysisAgentPilotBinding = z.infer<typeof pilotBindingSchema>;
+
+export type DeriveLibraryAnalysisAgentQueueSubsetInput = {
+  queue: LibraryAnalysisAgentQueue;
+  sourceKeys: ReadonlyArray<{ sourceKind: string; sourceKey: string }>;
+  pilotBinding: LibraryAnalysisAgentPilotBinding;
+};
 
 export type BuildLibraryAnalysisAgentQueueInput = {
   resolution: LibraryAnalysisAcquisitionResolution;
@@ -409,9 +426,74 @@ export function verifyLibraryAnalysisAgentQueue(rawQueue: unknown): LibraryAnaly
     if ((nextSourceUnitIndex.get(sourceIdentity) ?? 0) !== source.unitIds.length) throw new Error("agent_queue_job_coverage_mismatch");
   }
   if (expectedJobs.length !== queue.jobs.length) throw new Error("agent_queue_job_source_coverage_mismatch");
-  const expectedSelection = candidateAnalysisSha256("library-analysis-agent-selection", { sources: queue.sources, units: queue.units.map((unit) => unitBinding(unit)) });
+  const expectedSelection = candidateAnalysisSha256("library-analysis-agent-selection", {
+    sources: queue.sources,
+    units: queue.units.map((unit) => unitBinding(unit)),
+    ...(queue.pilotBinding === undefined ? {} : { pilotBinding: pilotBindingHashInput(queue.pilotBinding) }),
+  });
   if (queue.selectionHash !== expectedSelection) throw new Error("agent_queue_selection_hash_mismatch");
+  if (queue.pilotBinding !== undefined) {
+    if (queue.pilotBinding.parentFullQueueHash === queue.queueHash) {
+      throw new Error("agent_queue_pilot_parent_self_reference");
+    }
+  }
   return queue;
+}
+
+/**
+ * Derive a queue over complete sources/jobs only. The pilot binding is carried
+ * in the queue core and therefore participates in both selectionHash and
+ * queueHash; the result is never mistaken for the parent full queue.
+ */
+export function deriveLibraryAnalysisAgentQueueSubset(
+  input: DeriveLibraryAnalysisAgentQueueSubsetInput,
+): LibraryAnalysisAgentQueue {
+  const parent = verifyLibraryAnalysisAgentQueue(input.queue);
+  const identities = new Set<string>();
+  for (const identity of input.sourceKeys) {
+    const key = `${identity.sourceKind}\u0000${identity.sourceKey}`;
+    if (identities.has(key)) throw new Error("agent_queue_subset_source_duplicate");
+    identities.add(key);
+  }
+  if (identities.size === 0) throw new Error("agent_queue_subset_empty");
+  const sources = parent.sources.filter((source) => identities.has(`${source.sourceKind}\u0000${source.sourceKey}`));
+  if (sources.length !== identities.size) throw new Error("agent_queue_subset_source_missing");
+  const units = parent.units.filter((unit) => identities.has(`${unit.sourceKind}\u0000${unit.sourceKey}`));
+  const jobs = parent.jobs.filter((job) => identities.has(`${job.sourceKind}\u0000${job.sourceKey}`));
+  const pilotBinding = pilotBindingSchema.parse(input.pilotBinding);
+  if (pilotBinding.parentFullQueueHash !== parent.queueHash || pilotBinding.parentSelectionHash !== parent.selectionHash || pilotBinding.planHash !== parent.acquisitionPlanHash) {
+    throw new Error("agent_queue_subset_parent_binding_mismatch");
+  }
+  const selectionHash = candidateAnalysisSha256("library-analysis-agent-selection", {
+    sources,
+    units: units.map((unit) => unitBinding(unit)),
+    pilotBinding: pilotBindingHashInput(pilotBinding),
+  });
+  if (selectionHash !== pilotBinding.pilotSelectionHash) throw new Error("agent_queue_subset_selection_binding_mismatch");
+  const { queueId: _queueId, queueHash: _queueHash, ...parentCore } = parent;
+  const core: LibraryAnalysisAgentQueueCore = {
+    ...parentCore,
+    pilotBinding,
+    selectionHash,
+    sources,
+    units,
+    jobs,
+  };
+  const queueHash = libraryAnalysisAgentQueueHash(core);
+  return verifyLibraryAnalysisAgentQueue(queueSchema.parse({
+    ...core,
+    queueId: `library-analysis-agent-queue:${queueHash}`,
+    queueHash,
+  }));
+}
+
+function pilotBindingHashInput(binding: LibraryAnalysisAgentPilotBinding): CandidateJsonValue {
+  return {
+    schema: binding.schema,
+    parentFullQueueHash: binding.parentFullQueueHash,
+    parentSelectionHash: binding.parentSelectionHash,
+    planHash: binding.planHash,
+  };
 }
 
 export function loadVerifiedLibraryAnalysisJob(
