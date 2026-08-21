@@ -26,6 +26,8 @@ const idSchema = z.string().regex(/^[a-z0-9][a-z0-9._:-]*$/);
 
 export const LIBRARY_ANALYSIS_AGENT_QUEUE_SCHEMA =
   "library-analysis-agent-queue/v1" as const;
+const MAXIMUM_CODE_POINTS_PER_JOB = 48_000;
+const MAXIMUM_UNITS_PER_JOB = 4;
 
 export const AgentFileBindingSchema = z.object({
   id: idSchema,
@@ -170,6 +172,16 @@ export function buildLibraryAnalysisAgentQueue(
 ): LibraryAnalysisAgentQueue {
   const resolution = LibraryAnalysisAcquisitionResolutionSchema.parse(input.resolution);
   const manifest = verifyLibraryAnalysisContentUnitManifest(input.manifest);
+  if (
+    manifest.populationSnapshotId !== resolution.populationSnapshotId ||
+    manifest.populationHash !== resolution.populationHash ||
+    manifest.planId !== resolution.planId ||
+    manifest.planHash !== resolution.planHash ||
+    manifest.resolutionId !== resolution.resolutionId ||
+    manifest.resolutionHash !== resolution.resolutionHash
+  ) {
+    throw new Error("agent_queue_resolution_manifest_binding_mismatch");
+  }
   const readyRows = resolution.rows.filter((row) => row.disposition === "content_units_ready");
   const manifestById = new Map(manifest.units.map((unit) => [unit.id, unit]));
   const used = new Set<string>();
@@ -207,8 +219,9 @@ export function buildLibraryAnalysisAgentQueue(
     if (descriptors.length === 0) throw new Error("agent_queue_ready_source_empty");
     descriptors.sort((left, right) => left.ordinal - right.ordinal || compareCandidateJsonKeysUtf8(left.id, right.id));
     const ordinals = new Set<number>();
-    for (const descriptor of descriptors) {
+    for (const [index, descriptor] of descriptors.entries()) {
       if (ordinals.has(descriptor.ordinal)) throw new Error("agent_queue_unit_binding_mismatch");
+      if (descriptor.ordinal !== index) throw new Error("agent_queue_unit_ordinal_gap");
       ordinals.add(descriptor.ordinal);
       readAndVerifyUnit(input.runRoot, descriptor);
     }
@@ -233,7 +246,12 @@ export function buildLibraryAnalysisAgentQueue(
     maximumCodePointsPerJob: input.policy?.maximumCodePointsPerJob ?? 48_000,
     maximumUnitsPerJob: input.policy?.maximumUnitsPerJob ?? 4,
   };
-  if (policy.maximumCodePointsPerJob < 1 || policy.maximumUnitsPerJob < 1) {
+  if (
+    policy.maximumCodePointsPerJob < 1 ||
+    policy.maximumCodePointsPerJob > MAXIMUM_CODE_POINTS_PER_JOB ||
+    policy.maximumUnitsPerJob < 1 ||
+    policy.maximumUnitsPerJob > MAXIMUM_UNITS_PER_JOB
+  ) {
     throw new Error("agent_queue_policy_invalid");
   }
   const units = sourceInputs.flatMap((source) => source.units);
@@ -289,6 +307,12 @@ export function buildLibraryAnalysisAgentQueue(
 
 export function verifyLibraryAnalysisAgentQueue(rawQueue: unknown): LibraryAnalysisAgentQueue {
   const queue = queueSchema.parse(rawQueue);
+  if (
+    queue.executionPolicy.maximumCodePointsPerJob < 1 ||
+    queue.executionPolicy.maximumCodePointsPerJob > MAXIMUM_CODE_POINTS_PER_JOB ||
+    queue.executionPolicy.maximumUnitsPerJob < 1 ||
+    queue.executionPolicy.maximumUnitsPerJob > MAXIMUM_UNITS_PER_JOB
+  ) throw new Error("agent_queue_policy_invalid");
   const { queueId, queueHash, ...core } = queue;
   const expectedHash = libraryAnalysisAgentQueueHash(core);
   if (queueHash !== expectedHash) throw new Error("agent_queue_hash_mismatch");
@@ -330,6 +354,10 @@ export function verifyLibraryAnalysisAgentQueue(rawQueue: unknown): LibraryAnaly
       covered.add(id);
       return descriptor;
     });
+    for (const [index, descriptor] of sourceUnits.entries()) {
+      if (descriptor.ordinal !== index) throw new Error("agent_queue_unit_ordinal_gap");
+      if (index > 0 && sourceUnits[index - 1]!.ordinal + 1 !== descriptor.ordinal) throw new Error("agent_queue_unit_ordinal_gap");
+    }
     const codePoints = sourceUnits.reduce((sum, unit) => sum + unit.codePoints, 0);
     const bytes = sourceUnits.reduce((sum, unit) => sum + unit.sizeBytes, 0);
     if (codePoints !== source.codePoints || bytes !== source.bytes || source.sourceEnvelopeHash !== candidateAnalysisSha256("library-analysis-agent-source", { sourceKind: source.sourceKind, sourceKey: source.sourceKey, sourceVersionHash: source.sourceVersionHash, unitIds: source.unitIds, unitCount: source.unitCount, codePoints, bytes })) throw new Error("agent_queue_source_hash_mismatch");
@@ -340,6 +368,7 @@ export function verifyLibraryAnalysisAgentQueue(rawQueue: unknown): LibraryAnaly
   const expectedJobs = [...queue.sources].flatMap((source) => queue.jobs.filter((job) => job.sourceKind === source.sourceKind && job.sourceKey === source.sourceKey));
   let previousSource = "";
   const segmentOrdinals = new Map<string, number>();
+  const nextSourceUnitIndex = new Map<string, number>();
   for (const job of queue.jobs) {
     if (seenJobs.has(job.jobId)) throw new Error("agent_queue_job_duplicate");
     seenJobs.add(job.jobId);
@@ -359,12 +388,26 @@ export function verifyLibraryAnalysisAgentQueue(rawQueue: unknown): LibraryAnaly
       if (!descriptor) throw new Error("agent_queue_job_unit_missing");
       return descriptor;
     });
+    const sourceUnitIndex = nextSourceUnitIndex.get(sourceIdentity) ?? 0;
+    const expectedUnitIds = source.unitIds.slice(sourceUnitIndex, sourceUnitIndex + job.unitIds.length);
+    if (expectedUnitIds.length !== job.unitIds.length || expectedUnitIds.some((id, index) => id !== job.unitIds[index])) {
+      throw new Error("agent_queue_job_unit_range_invalid");
+    }
+    nextSourceUnitIndex.set(sourceIdentity, sourceUnitIndex + job.unitIds.length);
+    if (
+      queue.executionPolicy.maximumCodePointsPerJob > MAXIMUM_CODE_POINTS_PER_JOB ||
+      queue.executionPolicy.maximumUnitsPerJob > MAXIMUM_UNITS_PER_JOB
+    ) throw new Error("agent_queue_policy_invalid");
     if (job.unitIds.length > queue.executionPolicy.maximumUnitsPerJob || job.codePoints > queue.executionPolicy.maximumCodePointsPerJob) throw new Error("agent_queue_job_limit_invalid");
     const codePoints = descriptors.reduce((sum, unit) => sum + unit.codePoints, 0);
     const bytes = descriptors.reduce((sum, unit) => sum + unit.sizeBytes, 0);
     if (codePoints !== job.codePoints || bytes !== job.bytes || job.unitOrdinalStart !== descriptors[0]!.ordinal || job.unitOrdinalEnd !== descriptors[descriptors.length - 1]!.ordinal || job.inputEnvelopeHash !== inputEnvelopeHash(descriptors)) throw new Error("agent_queue_job_hash_mismatch");
   }
   if (seenJobUnits.size !== queue.units.length) throw new Error("agent_queue_job_coverage_mismatch");
+  for (const source of queue.sources) {
+    const sourceIdentity = `${source.sourceKind}\u0000${source.sourceKey}`;
+    if ((nextSourceUnitIndex.get(sourceIdentity) ?? 0) !== source.unitIds.length) throw new Error("agent_queue_job_coverage_mismatch");
+  }
   if (expectedJobs.length !== queue.jobs.length) throw new Error("agent_queue_job_source_coverage_mismatch");
   const expectedSelection = candidateAnalysisSha256("library-analysis-agent-selection", { sources: queue.sources, units: queue.units.map((unit) => unitBinding(unit)) });
   if (queue.selectionHash !== expectedSelection) throw new Error("agent_queue_selection_hash_mismatch");
@@ -395,7 +438,9 @@ export function loadVerifiedLibraryAnalysisJob(
 
 function readAndVerifyUnit(runRoot: string, unit: LibraryAnalysisAgentQueueUnit): void {
   const bytes = readAndVerifyPrivateArtifact(runRoot, unit.portablePath, { sha256: unit.contentHash, sizeBytes: unit.sizeBytes, mode: 0o400 });
-  if ([...bytes.toString("utf8")].length !== unit.codePoints) throw new Error("agent_queue_unit_size_mismatch");
+  const text = bytes.toString("utf8");
+  if (!Buffer.from(text, "utf8").equals(bytes)) throw new Error("agent_queue_unit_utf8_invalid");
+  if (Buffer.byteLength(text, "utf8") !== unit.sizeBytes || [...text].length !== unit.codePoints) throw new Error("agent_queue_unit_size_mismatch");
 }
 
 function toQueueUnit(unit: LibraryAnalysisContentUnitManifest["units"][number]): LibraryAnalysisAgentQueueUnit {

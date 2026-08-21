@@ -16,6 +16,7 @@ import {
 } from "../../src/lib/knowledge/library-analysis-acquisition-contract";
 import {
   buildLibraryAnalysisAgentQueue,
+  libraryAnalysisAgentQueueHash,
   loadVerifiedLibraryAnalysisJob,
   verifyLibraryAnalysisAgentQueue,
 } from "../../src/lib/knowledge/library-analysis-agent-queue";
@@ -230,4 +231,106 @@ test("verified job loading rechecks private bytes and code points", () => {
   assert.equal(loaded.units[0]!.text, "å😀");
   assert.ok(readFileSync(join(fixture.root, queue.units[0]!.portablePath)).length > 0);
   assert.throws(() => loadVerifiedLibraryAnalysisJob(fixture.root, queue, "missing-job"), /agent_queue_job_not_found/);
+});
+
+test("queue rejects policies above the absolute execution limits", () => {
+  const fixture = makeFixture([unit("document:a", 0, "alpha")]);
+  assert.throws(
+    () => buildLibraryAnalysisAgentQueue({ ...fixture.input, policy: {
+      maximumAttempts: 3,
+      maximumConcurrentAnalyzers: 3,
+      maximumCodePointsPerJob: 48_001,
+      maximumUnitsPerJob: 4,
+    } }),
+    /agent_queue_policy_invalid/,
+  );
+  assert.throws(
+    () => buildLibraryAnalysisAgentQueue({ ...fixture.input, policy: {
+      maximumAttempts: 3,
+      maximumConcurrentAnalyzers: 3,
+      maximumCodePointsPerJob: 48_000,
+      maximumUnitsPerJob: 5,
+    } }),
+    /agent_queue_policy_invalid/,
+  );
+  const queue = buildLibraryAnalysisAgentQueue(fixture.input);
+  const driftedCore = {
+    ...queue,
+    executionPolicy: { ...queue.executionPolicy, maximumCodePointsPerJob: 48_001 },
+  };
+  const { queueId: _queueId, queueHash: _queueHash, ...core } = driftedCore;
+  const driftedHash = libraryAnalysisAgentQueueHash(core);
+  assert.throws(
+    () => verifyLibraryAnalysisAgentQueue({ ...driftedCore, queueHash: driftedHash, queueId: `library-analysis-agent-queue:${driftedHash}` }),
+    /agent_queue_policy_invalid/,
+  );
+});
+
+test("queue rejects every manifest-resolution header mismatch", () => {
+  const fixture = makeFixture([unit("document:a", 0, "alpha")]);
+  const headers = [
+    "populationSnapshotId",
+    "populationHash",
+    "planId",
+    "planHash",
+    "resolutionId",
+    "resolutionHash",
+  ] as const;
+  for (const header of headers) {
+    const manifestCore = { ...fixture.manifest, [header]: header === "populationHash" || header === "planHash" || header === "resolutionHash" ? "e".repeat(64) : `${header}-drift` };
+    delete (manifestCore as Partial<LibraryAnalysisContentUnitManifest>).manifestHash;
+    const manifest = { ...manifestCore, manifestHash: candidateAnalysisSha256("library-analysis-content-unit-manifest", manifestCore) };
+    assert.throws(
+      () => buildLibraryAnalysisAgentQueue({ ...fixture.input, manifest }),
+      /agent_queue_resolution_manifest_binding_mismatch/,
+      header,
+    );
+  }
+});
+
+test("queue rejects invalid UTF-8 even when descriptor counts are adapted", () => {
+  const fixture = makeFixture([unit("document:a", 0, "alpha")]);
+  const original = fixture.manifest.units[0]!;
+  const invalid = Buffer.from([0xff]);
+  const invalidHash = createHash("sha256").update(invalid).digest("hex");
+  const invalidPortablePath = `units/${invalidHash}.txt`;
+  writeFileSync(join(fixture.root, invalidPortablePath), invalid, { mode: 0o600 });
+  chmodSync(join(fixture.root, invalidPortablePath), 0o400);
+  const unitWithInvalidBytes = {
+    ...original,
+    contentHash: invalidHash,
+    privateArtifact: { ...original.privateArtifact, portablePath: invalidPortablePath, sha256: invalidHash, sizeBytes: 1, codePoints: 1 },
+  };
+  const resolutionCore = {
+    ...fixture.resolution,
+    rows: fixture.resolution.rows.map((row) => ({ ...row, contentUnits: row.contentUnits.map((resolved) => ({ ...resolved, contentHash: invalidHash })) })),
+  };
+  delete (resolutionCore as Partial<LibraryAnalysisAcquisitionResolution>).resolutionHash;
+  delete (resolutionCore as Partial<LibraryAnalysisAcquisitionResolution>).resolutionId;
+  const resolutionHash = libraryAnalysisAcquisitionResolutionHash({ ...resolutionCore, resolutionId: "pending", resolutionHash: "0".repeat(64) });
+  const resolution = LibraryAnalysisAcquisitionResolutionSchema.parse({ ...resolutionCore, resolutionId: `library-analysis-acquisition-resolution:${resolutionHash}`, resolutionHash });
+  const manifestCore = { ...fixture.manifest, resolutionId: resolution.resolutionId, resolutionHash: resolution.resolutionHash, units: [unitWithInvalidBytes] };
+  delete (manifestCore as Partial<LibraryAnalysisContentUnitManifest>).manifestHash;
+  const manifest = { ...manifestCore, manifestHash: candidateAnalysisSha256("library-analysis-content-unit-manifest", manifestCore) };
+  assert.throws(
+    () => buildLibraryAnalysisAgentQueue({ ...fixture.input, resolution, manifest }),
+    /agent_queue_unit_utf8_invalid/,
+  );
+});
+
+test("queue rejects ordinal gaps and reordered job unit ids", () => {
+  const gapFixture = makeFixture([unit("document:a", 0, "alpha"), unit("document:a", 2, "beta")]);
+  assert.throws(() => buildLibraryAnalysisAgentQueue(gapFixture.input), /agent_queue_unit_ordinal_gap/);
+
+  const fixture = makeFixture([unit("document:a", 0, "alpha"), unit("document:a", 1, "beta")]);
+  const queue = buildLibraryAnalysisAgentQueue(fixture.input);
+  const job = queue.jobs[0]!;
+  const reorderedJob = { ...job, unitIds: [...job.unitIds].reverse() };
+  const tamperedCore = { ...queue, jobs: [reorderedJob] };
+  const { queueId: _queueId, queueHash: _queueHash, ...core } = tamperedCore;
+  const tamperedHash = libraryAnalysisAgentQueueHash(core);
+  assert.throws(
+    () => verifyLibraryAnalysisAgentQueue({ ...tamperedCore, queueHash: tamperedHash, queueId: `library-analysis-agent-queue:${tamperedHash}` }),
+    /agent_queue_job_unit_range_invalid/,
+  );
 });
