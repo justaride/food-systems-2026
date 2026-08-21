@@ -510,6 +510,47 @@ test("private emit CLI reads sealed extraction evidence and seals complete manif
   assert.doesNotMatch(JSON.stringify(output), /emitted private text/);
 });
 
+test("private emit keeps ambiguous HTML extraction as evidence but resolves the source blocked", async (t) => {
+  const base = fixtureRoot(t);
+  const runRoot = openPrivateLibraryAnalysisRunRoot(base, "run-private-emit-ambiguous");
+  const population = buildLibraryAnalysisPopulation([blockedSource("source_doc:ambiguous")]);
+  const plan = buildLibraryAnalysisAcquisitionPlan(population, [{
+    sourceKind: "source_doc",
+    sourceKey: "source_doc:ambiguous",
+    route: "controlled_https",
+    locator: "https://example.test/landing",
+    alternateLocators: [],
+  }]);
+  await executeLibraryAnalysisAcquisitionPlan({
+    plan,
+    runRoot,
+    mode: "execute_network",
+    adapters: {
+      fetch: async () => response(200,
+        '<html><body><a href="/one.pdf">One</a><a href="/two.pdf">Two</a></body></html>',
+        { "content-type": "text/html" }),
+      extraction: unusedExtractionAdapters,
+      wait: async () => undefined,
+      now: () => "2026-08-21T10:00:00.000Z",
+    },
+  });
+  const snapshotPath = join(base, "population-ambiguous.json");
+  const planPath = join(base, "plan-ambiguous.json");
+  writeFileSync(snapshotPath, JSON.stringify(population), { mode: 0o600 });
+  writeFileSync(planPath, JSON.stringify(plan), { mode: 0o600 });
+
+  const output = await runLibraryAnalysisPrivateEmitCli({
+    snapshot: snapshotPath,
+    plan: planPath,
+    runRoot,
+    output: join(runRoot, "manifests", "private-emit.json"),
+  });
+
+  assert.equal(output.resolution.rows[0]?.disposition, "blocked_input");
+  assert.equal(output.resolution.rows[0]?.reasonCode, "identity_ambiguous");
+  assert.equal(output.contentUnitManifest.units.length, 0);
+});
+
 test("execution stages database repository and derived routes without network", async (t) => {
   const databaseSummary = "Database summary";
   const databaseContent = "Database content";

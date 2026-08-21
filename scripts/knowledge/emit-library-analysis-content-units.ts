@@ -648,6 +648,10 @@ export async function runLibraryAnalysisPrivateEmitCli(
   const plan = LibraryAnalysisAcquisitionPlanSchema.parse(
     JSON.parse(readFileSync(options.plan, "utf8")),
   );
+  const failures = readExecutionFailures(options.runRoot, plan);
+  const failedIdentities = new Set(
+    failures.map((failure) => sourceIdentity(failure.sourceKind, failure.sourceKey)),
+  );
   const extractions: PrivateLibraryAnalysisExtraction[] = [];
   for (const row of plan.rows) {
     if (
@@ -685,17 +689,18 @@ export async function runLibraryAnalysisPrivateEmitCli(
     if (!sealedText.equals(Buffer.from(normalized, "utf8"))) {
       throw new Error("library_analysis_private_emit_text_readback_mismatch");
     }
-    extractions.push({
-      sourceKind: extraction.sourceKind,
-      sourceKey: extraction.sourceKey,
-      route: extraction.route,
-      sourceVersionHash: extraction.sourceVersionHash,
-      rawSha256: extraction.rawSha256,
-      units: extraction.units,
-    });
+    if (!failedIdentities.has(sourceIdentity(extraction.sourceKind, extraction.sourceKey))) {
+      extractions.push({
+        sourceKind: extraction.sourceKind,
+        sourceKey: extraction.sourceKey,
+        route: extraction.route,
+        sourceVersionHash: extraction.sourceVersionHash,
+        rawSha256: extraction.rawSha256,
+        units: extraction.units,
+      });
+    }
   }
 
-  const failures = readExecutionFailures(options.runRoot, plan);
   const output = await emitLibraryAnalysisContentUnitBundle({
     snapshot,
     plan,
