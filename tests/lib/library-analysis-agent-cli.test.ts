@@ -641,6 +641,41 @@ test("CLI argument parsing is strict and keeps command paths absolute", () => {
   );
 });
 
+test("validate-source supports sealed prepare and later accept phases", () => {
+  const prepare = parseLibraryAnalysisAgentQueueArgs([
+    "validate-source",
+    "--mode=prepare",
+    "--run-root=/tmp/private-run",
+    "--queue=/tmp/private-run/queue/queue-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.json",
+    "--source-id=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "--validator-model-provider=openai-codex",
+    "--validator-model-name=gpt-5.6-sol",
+    "--validator-model-version=receipt-b",
+  ]);
+  assert.equal(prepare.command, "validate-source");
+  assert.equal(prepare.mode, "prepare");
+  assert.equal(prepare.validatorModel?.name, "gpt-5.6-sol");
+  const accept = parseLibraryAnalysisAgentQueueArgs([
+    "validate-source",
+    "--mode=accept",
+    "--run-root=/tmp/private-run",
+    "--queue=/tmp/private-run/queue/queue-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.json",
+    "--source-id=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "--response=/tmp/private-response.json",
+  ]);
+  assert.equal(accept.command, "validate-source");
+  if (accept.command !== "validate-source") throw new Error("expected_validate_source");
+  assert.equal(accept.mode, "accept");
+  assert.equal(accept.response, "/tmp/private-response.json");
+  assert.throws(() => parseLibraryAnalysisAgentQueueArgs([
+    "validate-source",
+    "--mode=accept",
+    "--run-root=/tmp/private-run",
+    "--queue=/tmp/private-run/queue/queue-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.json",
+    "--source-id=bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  ]), /agent_queue_cli_arguments_invalid/);
+});
+
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
 }

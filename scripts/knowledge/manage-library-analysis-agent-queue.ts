@@ -41,6 +41,15 @@ import {
   type LibraryAnalysisSourceResult,
 } from "../../src/lib/knowledge/library-analysis-agent-response";
 import {
+  buildLibraryAnalysisAgentValidationRequest,
+  deriveLibraryAnalysisAgentValidationResult,
+  LibraryAnalysisAgentValidationRequestSchema,
+  validateLibraryAnalysisAgentValidationResponse,
+  type LibraryAnalysisAgentValidationRequest,
+  type LibraryAnalysisAgentValidationResult,
+  type LibraryAnalysisVerifiedSourceUnit,
+} from "../../src/lib/knowledge/library-analysis-agent-validation";
+import {
   LibraryAnalysisAcquisitionResolutionSchema,
 } from "../../src/lib/knowledge/library-analysis-acquisition-contract";
 import {
@@ -100,12 +109,41 @@ const mergeSourceOptionsSchema = z.object({
     context.addIssue({ code: "custom", message: "source_id_ambiguous" });
   }
 });
+const validateSourceOptionsSchema = z.object({
+  command: z.literal("validate-source"),
+  mode: z.enum(["prepare", "accept"]),
+  runRoot: absolutePathSchema,
+  queue: absolutePathSchema,
+  sourceId: hashSchema.optional(),
+  sourceKind: z.string().min(1).optional(),
+  sourceKey: z.string().min(1).optional(),
+  validatorModel: z.object({
+    provider: z.literal("openai-codex"),
+    name: z.string().min(1),
+    version: z.string().min(1),
+  }).strict().optional(),
+  response: absolutePathSchema.optional(),
+}).strict().superRefine((value, context) => {
+  if (value.sourceId === undefined && (value.sourceKind === undefined || value.sourceKey === undefined)) {
+    context.addIssue({ code: "custom", message: "source_id_required" });
+  }
+  if (value.sourceId !== undefined && (value.sourceKind !== undefined || value.sourceKey !== undefined)) {
+    context.addIssue({ code: "custom", message: "source_id_ambiguous" });
+  }
+  if (value.mode === "prepare" && value.response !== undefined) {
+    context.addIssue({ code: "custom", message: "validation_prepare_response_forbidden" });
+  }
+  if (value.mode === "accept" && (value.response === undefined || value.validatorModel !== undefined)) {
+    context.addIssue({ code: "custom", message: "validation_accept_response_required" });
+  }
+});
 
 export type BuildQueueOptions = z.infer<typeof buildOptionsSchema>;
 export type PrepareAttemptOptions = z.infer<typeof prepareOptionsSchema>;
 export type AcceptAttemptOptions = z.infer<typeof acceptOptionsSchema>;
 export type MergeSourceOptions = z.infer<typeof mergeSourceOptionsSchema>;
-export type LibraryAnalysisAgentQueueCommand = BuildQueueOptions | PrepareAttemptOptions | AcceptAttemptOptions | MergeSourceOptions;
+export type ValidateSourceOptions = z.infer<typeof validateSourceOptionsSchema>;
+export type LibraryAnalysisAgentQueueCommand = BuildQueueOptions | PrepareAttemptOptions | AcceptAttemptOptions | MergeSourceOptions | ValidateSourceOptions;
 
 export type LibraryAnalysisAgentQueueBuildResult = {
   command: "build";
@@ -158,18 +196,32 @@ export type LibraryAnalysisAgentQueueMergeResult = {
   automatedOnly: true;
   externalReady: false;
 };
+export type LibraryAnalysisAgentQueueValidationResult = {
+  command: "validate-source";
+  mode: "prepare" | "accept";
+  queueHash: string;
+  sourceEnvelopeHash: string;
+  requestPath?: string;
+  resultPath?: string;
+  claims?: number;
+  disposition?: LibraryAnalysisAgentValidationResult["disposition"];
+  audit: ReturnType<typeof auditPrivateLibraryAnalysisRunRoot>;
+  automatedOnly: true;
+  externalReady: false;
+};
 
 export type LibraryAnalysisAgentQueueCliResult =
   | LibraryAnalysisAgentQueueBuildResult
   | LibraryAnalysisAgentQueueAttemptResult
   | LibraryAnalysisAgentQueueAcceptResult
-  | LibraryAnalysisAgentQueueMergeResult;
+  | LibraryAnalysisAgentQueueMergeResult
+  | LibraryAnalysisAgentQueueValidationResult;
 
 export function parseLibraryAnalysisAgentQueueArgs(
   argv: readonly string[],
 ): LibraryAnalysisAgentQueueCommand {
   const command = argv[0];
-  if (command !== "build" && command !== "prepare-attempt" && command !== "accept-attempt" && command !== "merge-source") {
+  if (command !== "build" && command !== "prepare-attempt" && command !== "accept-attempt" && command !== "merge-source" && command !== "validate-source") {
     throw new Error("agent_queue_cli_arguments_invalid");
   }
   const values = new Map<string, string>();
@@ -181,7 +233,9 @@ export function parseLibraryAnalysisAgentQueueArgs(
         ? ["run-root", "queue", "job-id", "attempt", "expected-model-provider", "expected-model-name", "expected-model-version"]
         : command === "accept-attempt"
           ? ["run-root", "queue", "attempt-input", "response"]
-          : ["run-root", "queue", "source-id", "source-kind", "source-key"];
+          : command === "merge-source"
+            ? ["run-root", "queue", "source-id", "source-kind", "source-key"]
+            : ["mode", "run-root", "queue", "source-id", "source-kind", "source-key", "validator-model-provider", "validator-model-name", "validator-model-version", "response"];
     if (!match || !allowed.includes(match[1]!) || values.has(match[1]!)) {
       throw new Error("agent_queue_cli_arguments_invalid");
     }
@@ -238,6 +292,28 @@ export function parseLibraryAnalysisAgentQueueArgs(
       throw new Error("agent_queue_cli_arguments_invalid");
     }
   }
+  if (command === "validate-source") {
+    try {
+      const parsed = {
+        command,
+        mode: value("mode"),
+        runRoot: value("run-root"),
+        queue: value("queue"),
+        ...(value("source-id") === undefined ? {} : { sourceId: value("source-id") }),
+        ...(value("source-kind") === undefined ? {} : { sourceKind: value("source-kind") }),
+        ...(value("source-key") === undefined ? {} : { sourceKey: value("source-key") }),
+        ...(value("validator-model-provider") === undefined ? {} : { validatorModel: {
+          provider: value("validator-model-provider"),
+          name: value("validator-model-name"),
+          version: value("validator-model-version"),
+        } }),
+        ...(value("response") === undefined ? {} : { response: value("response") }),
+      };
+      return validateSourceOptionsSchema.parse(parsed);
+    } catch {
+      throw new Error("agent_queue_cli_arguments_invalid");
+    }
+  }
   try {
     return acceptOptionsSchema.parse({
       command,
@@ -264,6 +340,9 @@ export function runLibraryAnalysisAgentQueueCli(
   options: MergeSourceOptions,
 ): Promise<LibraryAnalysisAgentQueueMergeResult>;
 export function runLibraryAnalysisAgentQueueCli(
+  options: ValidateSourceOptions,
+): Promise<LibraryAnalysisAgentQueueValidationResult>;
+export function runLibraryAnalysisAgentQueueCli(
   options: LibraryAnalysisAgentQueueCommand,
 ): Promise<LibraryAnalysisAgentQueueCliResult>;
 export async function runLibraryAnalysisAgentQueueCli(
@@ -272,7 +351,8 @@ export async function runLibraryAnalysisAgentQueueCli(
   if (options.command === "build") return runBuildQueue(options);
   if (options.command === "prepare-attempt") return runPrepareAttempt(options);
   if (options.command === "accept-attempt") return runAcceptAttempt(options);
-  return runMergeSource(options);
+  if (options.command === "merge-source") return runMergeSource(options);
+  return runValidateSource(options);
 }
 
 async function runBuildQueue(
@@ -491,6 +571,102 @@ async function runMergeSource(
     analysisState: result.analysisState,
     sourceResultPath: receipt.path,
     audit,
+    automatedOnly: true,
+    externalReady: false,
+  };
+}
+
+async function runValidateSource(
+  rawOptions: ValidateSourceOptions,
+): Promise<LibraryAnalysisAgentQueueValidationResult> {
+  const options = validateSourceOptionsSchema.parse(rawOptions);
+  const runRoot = openRunRoot(options.runRoot);
+  const queue = readQueue(runRoot, options.queue);
+  const source = queue.sources.find((candidate) => {
+    if (options.sourceKind !== undefined && options.sourceKey !== undefined) {
+      return candidate.sourceKind === options.sourceKind && candidate.sourceKey === options.sourceKey;
+    }
+    return candidate.sourceEnvelopeHash === options.sourceId;
+  });
+  if (source === undefined) throw new Error("validation_source_not_found");
+  const sourceResultPortable = `sources/source-${source.sourceEnvelopeHash}.json`;
+  const sourceResult = readSealedJson(runRoot, sourceResultPortable) as LibraryAnalysisSourceResult;
+  if (sourceResult.queueHash !== queue.queueHash || sourceResult.sourceEnvelopeHash !== source.sourceEnvelopeHash) {
+    throw new Error("validation_source_result_binding_mismatch");
+  }
+  const jobs = queue.jobs.filter((job) => job.sourceKind === source.sourceKind && job.sourceKey === source.sourceKey);
+  if (jobs.length === 0) throw new Error("validation_source_job_set_missing");
+  const unitsById = new Map<string, LibraryAnalysisVerifiedSourceUnit>();
+  for (const job of jobs) {
+    const verified = loadVerifiedLibraryAnalysisJob(runRoot, queue, job.jobId);
+    for (const unit of verified.units) {
+      if (unitsById.has(unit.descriptor.id)) throw new Error("validation_source_unit_duplicate");
+      unitsById.set(unit.descriptor.id, { ...unit.descriptor, text: unit.text });
+    }
+  }
+  if (unitsById.size !== source.unitIds.length || source.unitIds.some((id) => !unitsById.has(id))) {
+    throw new Error("validation_source_unit_coverage_mismatch");
+  }
+  const validationRoot = `validation/source-${source.sourceEnvelopeHash}`;
+  const requestPortable = `${validationRoot}/request.json`;
+  if (options.mode === "prepare") {
+    if (options.validatorModel === undefined) throw new Error("validation_validator_model_required");
+    const request = buildLibraryAnalysisAgentValidationRequest({
+      queueHash: queue.queueHash,
+      sourceEnvelopeHash: source.sourceEnvelopeHash,
+      sourceResult,
+      units: source.unitIds.map((id) => unitsById.get(id)!),
+      validatorModel: options.validatorModel,
+      analysisModels: sourceResult.segments.map((segment) => segment.model),
+    });
+    const receipt = writePrivateManifestAtomic(runRoot, requestPortable, canonicalJsonBytes(request as unknown as CandidateJsonValue));
+    readAndVerifyPrivateArtifact(runRoot, requestPortable, { sha256: receipt.sha256, sizeBytes: receipt.sizeBytes, mode: 0o400 });
+    return {
+      command: "validate-source",
+      mode: "prepare",
+      queueHash: queue.queueHash,
+      sourceEnvelopeHash: source.sourceEnvelopeHash,
+      requestPath: receipt.path,
+      claims: request.claims.length,
+      audit: auditPrivateLibraryAnalysisRunRoot(runRoot),
+      automatedOnly: true,
+      externalReady: false,
+    };
+  }
+  const request = LibraryAnalysisAgentValidationRequestSchema.parse(readSealedJson(runRoot, requestPortable));
+  const responseArtifact = readExplicitPrivateResponse(options.response!);
+  let rawResponse: unknown;
+  try {
+    rawResponse = JSON.parse(responseArtifact.bytes.toString("utf8"));
+  } catch {
+    throw new Error("validation_response_json_invalid");
+  }
+  const response = validateLibraryAnalysisAgentValidationResponse({ request, response: rawResponse });
+  const rawResponseReceipt = writePrivateArtifactExclusive(runRoot, `${validationRoot}/response.json`, responseArtifact.bytes);
+  sealPrivateArtifact(runRoot, `${validationRoot}/response.json`, { sha256: rawResponseReceipt.sha256, sizeBytes: rawResponseReceipt.sizeBytes });
+  const result = deriveLibraryAnalysisAgentValidationResult({
+    candidateId: `source:${source.sourceKind}:${source.sourceKey}`,
+    sourceResult,
+    units: source.unitIds.map((id) => unitsById.get(id)!),
+    analysisModels: sourceResult.segments.map((segment) => segment.model),
+    validatorModel: response.validatorModel,
+    populationEligibility: "eligible",
+    modelFindings: response.findings,
+    riskFlags: response.riskFlags,
+    request,
+    response,
+  });
+  const resultReceipt = writePrivateManifestAtomic(runRoot, `${validationRoot}/result.json`, canonicalJsonBytes(result as unknown as CandidateJsonValue));
+  readAndVerifyPrivateArtifact(runRoot, `${validationRoot}/result.json`, { sha256: resultReceipt.sha256, sizeBytes: resultReceipt.sizeBytes, mode: 0o400 });
+  return {
+    command: "validate-source",
+    mode: "accept",
+    queueHash: queue.queueHash,
+    sourceEnvelopeHash: source.sourceEnvelopeHash,
+    resultPath: resultReceipt.path,
+    claims: result.findings.length,
+    disposition: result.disposition,
+    audit: auditPrivateLibraryAnalysisRunRoot(runRoot),
     automatedOnly: true,
     externalReady: false,
   };
@@ -821,6 +997,13 @@ function readJson(path: string): unknown {
   return JSON.parse(readFileSync(path, "utf8"));
 }
 
+function readSealedJson(runRoot: string, portablePath: string): unknown {
+  const path = resolve(runRoot, portablePath);
+  const bytes = readPrivateFileByDescriptor(path, 0o400, "validation_artifact_invalid");
+  const receipt = { sha256: sha256Bytes(bytes), sizeBytes: bytes.length, mode: 0o400 as const };
+  return JSON.parse(readAndVerifyPrivateArtifact(runRoot, portablePath, receipt).toString("utf8"));
+}
+
 function canonicalJsonBytes(value: CandidateJsonValue): Buffer {
   return Buffer.from(`${canonicalCandidateJson(value)}\n`, "utf8");
 }
@@ -864,6 +1047,21 @@ async function main(): Promise<void> {
       segments: result.segments,
       claims: result.claims,
       analysisState: result.analysisState,
+      automatedOnly: result.automatedOnly,
+      externalReady: result.externalReady,
+      auditInventoryHash: result.audit.inventoryHash,
+    })}\n`);
+    return;
+  }
+  if (result.command === "validate-source") {
+    process.stdout.write(`${JSON.stringify({
+      command: result.command,
+      mode: result.mode,
+      queueHash: result.queueHash,
+      sourceEnvelopeHash: result.sourceEnvelopeHash,
+      ...(result.requestPath === undefined ? {} : { request: true }),
+      ...(result.resultPath === undefined ? {} : { result: true, disposition: result.disposition }),
+      ...(result.claims === undefined ? {} : { claims: result.claims }),
       automatedOnly: result.automatedOnly,
       externalReady: result.externalReady,
       auditInventoryHash: result.audit.inventoryHash,
