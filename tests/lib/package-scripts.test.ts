@@ -35,6 +35,18 @@ describe('package scripts', () => {
       'tsx scripts/knowledge/export-library-analysis-population.ts',
     )
     assert.equal(
+      scripts['knowledge:library-analysis:acquisition:plan'],
+      'tsx scripts/knowledge/plan-library-analysis-acquisition.ts',
+    )
+    assert.equal(
+      scripts['knowledge:library-analysis:acquisition:check'],
+      'tsx scripts/knowledge/execute-library-analysis-acquisition.ts --check-only',
+    )
+    assert.equal(
+      scripts['knowledge:library-analysis:acquisition:execute'],
+      'tsx scripts/knowledge/execute-library-analysis-acquisition.ts --execute-network',
+    )
+    assert.equal(
       scripts['knowledge:library-analysis:intake'],
       'tsx scripts/knowledge/ingest-library-analysis-content-units.ts',
     )
