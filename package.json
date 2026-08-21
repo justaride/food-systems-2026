@@ -41,6 +41,7 @@
     "knowledge:library-analysis:acquisition:check": "tsx scripts/knowledge/execute-library-analysis-acquisition.ts --check-only",
     "knowledge:library-analysis:acquisition:execute": "tsx scripts/knowledge/execute-library-analysis-acquisition.ts --execute-network",
     "knowledge:library-analysis:acquisition:emit": "tsx scripts/knowledge/emit-library-analysis-content-units.ts",
+    "knowledge:library-analysis:pilot:select": "tsx scripts/knowledge/select-library-analysis-pilot.ts",
     "knowledge:library-analysis:intake": "tsx scripts/knowledge/ingest-library-analysis-content-units.ts",
     "knowledge:library-analysis:automated": "tsx scripts/knowledge/run-library-analysis-automated.ts",
     "knowledge:corpus:generate": "tsx scripts/knowledge/generate-corpus-processing-register.ts",

@@ -28,6 +28,9 @@ import {
   parseLibraryAnalysisPrivateEmitArgs,
   runLibraryAnalysisPrivateEmitCli,
 } from "../../scripts/knowledge/emit-library-analysis-content-units";
+import {
+  buildLibraryAnalysisPilotScope,
+} from "../../scripts/knowledge/select-library-analysis-pilot";
 
 function fixtureRoot(t: test.TestContext): string {
   const root = mkdtempSync(join(tmpdir(), "library-analysis-execution-test."));
@@ -617,4 +620,103 @@ test("database staging quarantines source version drift", async (t) => {
 
   assert.equal(result.rows[0]?.state, "quarantined");
   assert.equal(result.rows[0]?.reasonCode, "source_version_drift");
+});
+
+test("pilot selector builds a complete deterministic eight-source scope", () => {
+  const eligibleDocument = (
+    id: string,
+    sourceVersionHash: string,
+    rawHash: string,
+  ): LibraryAnalysisPopulationInputRow => ({
+    sourceKind: "document",
+    sourceKey: `document:${id}`,
+    sourceVersionHash,
+    inputKind: "database_record",
+    locator: `database:Document:${id}:content`,
+    contentHash: rawHash,
+    identityConfidence: "exact",
+    readableInput: true,
+    superseded: false,
+  });
+  const population = buildLibraryAnalysisPopulation([
+    eligibleDocument("largest", "1".repeat(64), "2".repeat(64)),
+    eligibleDocument("summary", "3".repeat(64), "4".repeat(64)),
+    eligibleDocument("other", "5".repeat(64), "6".repeat(64)),
+    blockedSource("source_doc:html"),
+    blockedSource("source_doc:pdf"),
+    blockedSource("library_file:research/example.csv", "library_file"),
+    blockedSource("library_file:research/example.pptx", "library_file"),
+    blockedSource("report:derived", "report"),
+    blockedSource("source_doc:missing"),
+  ]);
+  const plan = buildLibraryAnalysisAcquisitionPlan(population, [
+    {
+      sourceKind: "source_doc",
+      sourceKey: "source_doc:html",
+      route: "controlled_https",
+      locator: "https://example.test/landing",
+      alternateLocators: [],
+    },
+    {
+      sourceKind: "source_doc",
+      sourceKey: "source_doc:pdf",
+      route: "controlled_https",
+      locator: "https://example.test/report.pdf",
+      alternateLocators: [],
+    },
+    {
+      sourceKind: "library_file",
+      sourceKey: "library_file:research/example.csv",
+      route: "repository_csv",
+      locator: "repository:research/example.csv",
+      alternateLocators: [],
+    },
+    {
+      sourceKind: "library_file",
+      sourceKey: "library_file:research/example.pptx",
+      route: "repository_pptx",
+      locator: "repository:research/example.pptx",
+      alternateLocators: [],
+    },
+    {
+      sourceKind: "report",
+      sourceKey: "report:derived",
+      route: "database_derived_record",
+      locator: "database:Report:derived",
+      alternateLocators: [],
+    },
+    {
+      sourceKind: "source_doc",
+      sourceKey: "source_doc:missing",
+      route: "unresolvable",
+      locator: null,
+      alternateLocators: [],
+    },
+  ]);
+  const scope = buildLibraryAnalysisPilotScope({
+    snapshot: population,
+    plan,
+    databaseDocuments: [
+      { sourceKey: "document:largest", hasSummary: false, contentCodePoints: 50_000 },
+      { sourceKey: "document:summary", hasSummary: true, contentCodePoints: 10_000 },
+      { sourceKey: "document:other", hasSummary: false, contentCodePoints: 2_000 },
+    ],
+  });
+
+  assert.equal(scope.snapshot.rows.length, 8);
+  assert.equal(scope.plan.rows.length, 8);
+  assert.equal(scope.plan.populationHash, scope.snapshot.populationHash);
+  assert.deepEqual(
+    Object.fromEntries(Object.entries(scope.routeCounts).sort()),
+    {
+      controlled_https: 2,
+      database_derived_record: 1,
+      database_document: 2,
+      repository_csv: 1,
+      repository_pptx: 1,
+      unresolvable: 1,
+    },
+  );
+  assert.ok(scope.snapshot.rows.some((row) => row.sourceKey === "document:largest"));
+  assert.ok(scope.snapshot.rows.some((row) => row.sourceKey === "document:summary"));
 });

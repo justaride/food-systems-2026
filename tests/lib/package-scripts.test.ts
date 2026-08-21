@@ -51,6 +51,10 @@ describe('package scripts', () => {
       'tsx scripts/knowledge/emit-library-analysis-content-units.ts',
     )
     assert.equal(
+      scripts['knowledge:library-analysis:pilot:select'],
+      'tsx scripts/knowledge/select-library-analysis-pilot.ts',
+    )
+    assert.equal(
       scripts['knowledge:library-analysis:intake'],
       'tsx scripts/knowledge/ingest-library-analysis-content-units.ts',
     )
