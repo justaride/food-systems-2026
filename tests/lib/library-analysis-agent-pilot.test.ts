@@ -299,6 +299,18 @@ test("pilot rejects a non-null planned version that differs from the acquired qu
   );
 });
 
+test("pilot rejects a nullable planned version for a database document", () => {
+  const fixture = withPlannedSourceVersions(
+    fullShapeFixture(),
+    (row) => row.sourceKey === "document:small" ? null : row.sourceVersionHash,
+  );
+
+  assert.throws(
+    () => selectLibraryAnalysisAgentPilot(fixture),
+    /agent_pilot_source_plan_binding_mismatch/,
+  );
+});
+
 test("pilot fails closed when the canonical plan does not bind the queue", () => {
   const fixture = fullShapeFixture();
   assert.throws(() => selectLibraryAnalysisAgentPilot({ ...fixture, plan: { ...fixture.plan, planHash: "f".repeat(64) } as never }), /acquisition_plan_hash_mismatch|acquisition_plan/);

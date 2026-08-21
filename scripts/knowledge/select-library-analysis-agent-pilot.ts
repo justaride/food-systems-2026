@@ -46,6 +46,14 @@ const MAX_CODE_POINTS = 300_000;
 const DATABASE_SMALL_MAX = 16_000;
 const DATABASE_MEDIUM_MAX = 48_000;
 export const MAX_SEARCH_NODES = 50_000;
+const NULLABLE_PLANNED_SOURCE_VERSION_ROUTES = new Set<
+  LibraryAnalysisAcquisitionPlan["rows"][number]["route"]
+>([
+  "controlled_https",
+  "repository_csv",
+  "repository_pptx",
+  "database_derived_record",
+]);
 
 export type LibraryAnalysisAgentPilotInput = {
   queue: LibraryAnalysisAgentQueue;
@@ -95,7 +103,9 @@ export function selectLibraryAnalysisAgentPilot(
     const row = planByIdentity.get(`${source.sourceKind}\u0000${source.sourceKey}`);
     if (
       row === undefined ||
-      (row.sourceVersionHash !== null && row.sourceVersionHash !== source.sourceVersionHash)
+      (row.sourceVersionHash === null
+        ? !NULLABLE_PLANNED_SOURCE_VERSION_ROUTES.has(row.route)
+        : row.sourceVersionHash !== source.sourceVersionHash)
     ) {
       throw new Error("agent_pilot_source_plan_binding_mismatch");
     }
