@@ -80,7 +80,8 @@ const AUDITED_GENERIC_SUBJECT = /^(?:(?:oppgaven|studien)\s+(?:dokumenterer|finn
 const AUDITED_HERE_REFERENCE = /^(?:driftsinntekter\s+her\s+økte|revenue\s+here\s+increased)\b/iu;
 const ANOTHER_FACTOR = /\b(?:en\s+annen\s+faktor|another\s+factor)\b/iu;
 const PRIOR_FACTOR = /\b(?:faktor|factor)\b/iu;
-const UNRESOLVED_GENERIC_REFERENCE = /\b(?:arbeidet(?!\s+(?:med|for|av)\b)|metoden(?!\s+(?:for|til|med)\b)|kartleggingen(?!\s+(?:av|for|i)\b)|kartleggingene\b|resultatet(?!\s+(?:av|fra|for)\b))/iu;
+const UNRESOLVED_GENERIC_REFERENCE = /\b(?:arbeidet(?!\s+(?:med|for|av)\b)|metoden(?!\s+(?:for|til|med)\b)|kartleggingen(?!\s+(?:av|for|i)\b)|kartleggingene|resultatet(?!\s+(?:av|fra|for)\b))\b/iu;
+const UNRESOLVED_RESULT_EVIDENCE = /\b(?:resultatet(?!\s+(?:av|fra|for)\b)|the\s+result(?!\s+(?:of|from|for)\b))\b/iu;
 const EXPLICIT_YEAR = /\b(?:19|20)\d{2}\b/u;
 const MATERIAL_SCOPE_QUALIFIERS = [
   /\bi\s+denne\s+sammenhengen\b/iu,
@@ -111,6 +112,7 @@ const AUTHORITY_TERMS = [
 
 function assertSelfContainedClaimText(claimText: string, evidence: string): void {
   const normalizedClaim = claimText.trim();
+  const normalizedEvidence = evidence.trim();
   const anotherFactor = ANOTHER_FACTOR.exec(normalizedClaim);
   const unresolvedAnotherFactor = anotherFactor !== null &&
     !PRIOR_FACTOR.test(normalizedClaim.slice(0, anotherFactor.index));
@@ -124,6 +126,9 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     UNRESOLVED_GENERIC_REFERENCE.test(normalizedClaim)
   ) {
     throw new Error("agent_response_context_dependent_claim");
+  }
+  if (UNRESOLVED_RESULT_EVIDENCE.test(normalizedEvidence)) {
+    throw new Error("agent_response_evidence_context_dependent");
   }
   for (const qualifier of MATERIAL_SCOPE_QUALIFIERS) {
     if (qualifier.test(evidence) && !qualifier.test(normalizedClaim)) {

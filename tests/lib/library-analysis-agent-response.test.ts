@@ -566,6 +566,56 @@ test("keeps explicitly scoped work, method, mapping, and result references eligi
   }
 });
 
+test("rejects a scoped claim when its evidence leaves the result referent unresolved", () => {
+  const evidence = "kvaliteten på resultatet avhenger sterkt av tilgang til gode data";
+  const job = verifiedJob([evidence]);
+  const response = segmentResponse(job, {
+    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{
+      ...claim(job, 0, "Kvaliteten på ressurskartleggingsresultatet avhenger sterkt av tilgang til gode data."),
+      evidence,
+    }],
+  });
+  assert.throws(
+    () => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }),
+    /evidence_context_dependent/u,
+  );
+});
+
+test("keeps a scoped result claim eligible when the evidence names the result scope", () => {
+  for (const evidence of [
+    "Kvaliteten på resultatet av den regionale ressurskartleggingen avhenger sterkt av tilgang til gode data.",
+    "Resultatet fra ressurskartleggingen avhenger sterkt av tilgang til gode data.",
+    "Resultatet for den regionale ressurskartleggingen avhenger sterkt av tilgang til gode data.",
+    "The result of the regional mapping depends strongly on access to good data.",
+    "The result from the regional mapping depends strongly on access to good data.",
+    "The result for the regional mapping depends strongly on access to good data.",
+    "Resultatets kvalitet avhenger sterkt av tilgang til gode data.",
+    "The resulting estimate depends strongly on access to good data.",
+  ]) {
+    const job = verifiedJob([evidence]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, evidence), evidence }],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }));
+  }
+});
+
 test("rejects authority language that is absent from the evidence excerpt", () => {
   const job = verifiedJob(["The files are available as PDFs."]);
   const unsupported = segmentResponse(job, {
