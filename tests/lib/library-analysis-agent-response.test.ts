@@ -319,23 +319,23 @@ function sourceWithTwoSegments() {
       responseHash: libraryAnalysisAgentSegmentResponseHash(response),
     });
   });
-  return { source, segments };
+  return { source, segments, jobs };
 }
 
 test("merge covers each source unit once and is deterministic across segment order", () => {
-  const { source, segments } = sourceWithTwoSegments();
-  const result = mergeLibraryAnalysisSourceSegments({ queueHash: HASH, source, segments: [...segments].reverse() });
+  const { source, segments, jobs } = sourceWithTwoSegments();
+  const result = mergeLibraryAnalysisSourceSegments({ queueHash: HASH, source, segments: [...segments].reverse(), expectedJobs: jobs.map(({ job }) => job) });
   assert.deepEqual(result.unitCoverage.map((row) => row.contentUnitId), source.unitIds);
   assert.equal(new Set(result.claims.map((claim) => claim.claimId)).size, result.claims.length);
   assert.equal(result.analysisState, "complete");
   assert.deepEqual(
-    mergeLibraryAnalysisSourceSegments({ queueHash: HASH, source, segments }),
+    mergeLibraryAnalysisSourceSegments({ queueHash: HASH, source, segments, expectedJobs: jobs.map(({ job }) => job) }),
     result,
   );
 });
 
 test("merge permits zero claims only with explicit no-material-claim coverage", () => {
-  const { source, segments } = sourceWithTwoSegments();
+  const { source, segments, jobs } = sourceWithTwoSegments();
   const noClaims = segments.map((segment) => ({
     ...segment,
     claims: [],
@@ -344,15 +344,15 @@ test("merge permits zero claims only with explicit no-material-claim coverage", 
       status: "no_material_claim" as const,
     })),
   }));
-  assert.equal(mergeLibraryAnalysisSourceSegments({ queueHash: HASH, source, segments: noClaims }).claims.length, 0);
+  assert.equal(mergeLibraryAnalysisSourceSegments({ queueHash: HASH, source, segments: noClaims, expectedJobs: jobs.map(({ job }) => job) }).claims.length, 0);
   assert.throws(
-    () => mergeLibraryAnalysisSourceSegments({ queueHash: HASH, source, segments: segments.slice(0, 1) }),
-    /source_merge_coverage_mismatch/u,
+    () => mergeLibraryAnalysisSourceSegments({ queueHash: HASH, source, segments: segments.slice(0, 1), expectedJobs: jobs.map(({ job }) => job) }),
+    /source_merge_(?:coverage|job_set)_mismatch/u,
   );
 });
 
 test("merge preserves terminal non-complete segment states in receipts", () => {
-  const { source, segments } = sourceWithTwoSegments();
+  const { source, segments, jobs } = sourceWithTwoSegments();
   const result = mergeLibraryAnalysisSourceSegments({
     queueHash: HASH,
     source,
@@ -360,8 +360,75 @@ test("merge preserves terminal non-complete segment states in receipts", () => {
       { ...segments[0]!, terminalState: "failed", terminalReason: "worker_timeout" },
       segments[1]!,
     ],
+    expectedJobs: jobs.map(({ job }) => job),
   });
   assert.equal(result.analysisState, "failed");
   assert.equal(result.segments[0]!.terminalState, "failed");
   assert.equal(result.segments[0]!.attempts[0]!.model.provider, EXPECTED_MODEL.provider);
+});
+
+test("merge requires the authoritative one-to-one job set and exact per-job unit ranges", () => {
+  const { source, segments, jobs } = sourceWithTwoSegments();
+  const expectedJobs = jobs.map(({ job }) => job);
+  assert.throws(
+    () => mergeLibraryAnalysisSourceSegments({ queueHash: HASH, source, segments: segments.slice(0, 1), expectedJobs }),
+    /source_merge_job_set_mismatch/u,
+  );
+  assert.throws(
+    () => mergeLibraryAnalysisSourceSegments({
+      queueHash: HASH,
+      source,
+      segments,
+      expectedJobs: [{ ...expectedJobs[0]!, jobId: "job:foreign" }, expectedJobs[1]!],
+    }),
+    /source_merge_job_set_mismatch/u,
+  );
+  const repartitioned = segments.map((segment, index) => ({
+    ...segment,
+    unitCoverage: index === 0 ? segments[1]!.unitCoverage : segments[0]!.unitCoverage,
+  }));
+  assert.throws(
+    () => mergeLibraryAnalysisSourceSegments({ queueHash: HASH, source, segments: repartitioned, expectedJobs }),
+    /source_merge_job_unit_coverage_mismatch/u,
+  );
+});
+
+test("merge preserves retry receipts, rejects duplicate attempts, and hashes receipt changes", () => {
+  const { source, segments, jobs } = sourceWithTwoSegments();
+  const first = segments[0]!;
+  const retry = {
+    attempt: 2,
+    inputHash: "e".repeat(64),
+    responseHash: "f".repeat(64),
+    status: "accepted" as const,
+    model: EXPECTED_MODEL,
+  };
+  const withRetry = mergeLibraryAnalysisSourceSegments({
+    queueHash: HASH,
+    source,
+    expectedJobs: jobs.map(({ job }) => job),
+    segments: [{ ...first, attempts: [{
+      attempt: 1,
+      inputHash: first.inputHash,
+      responseHash: first.responseHash,
+      status: "partial" as const,
+      model: EXPECTED_MODEL,
+    }, retry] }, segments[1]!],
+  });
+  assert.deepEqual(withRetry.segments[0]!.attempts.map((attempt) => attempt.attempt), [1, 2]);
+  assert.notEqual(withRetry.sourceResultHash, mergeLibraryAnalysisSourceSegments({
+    queueHash: HASH,
+    source,
+    expectedJobs: jobs.map(({ job }) => job),
+    segments,
+  }).sourceResultHash);
+  assert.throws(
+    () => mergeLibraryAnalysisSourceSegments({
+      queueHash: HASH,
+      source,
+      expectedJobs: jobs.map(({ job }) => job),
+      segments: [{ ...first, attempts: [retry, retry] }, segments[1]!],
+    }),
+    /source_merge_attempt_duplicate/u,
+  );
 });

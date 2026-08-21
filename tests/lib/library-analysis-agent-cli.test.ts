@@ -608,6 +608,22 @@ test("CLI argument parsing is strict and keeps command paths absolute", () => {
   assert.throws(() => parseLibraryAnalysisAgentQueueArgs([
     "merge-source", "--run-root=/tmp/run", "--queue=/tmp/queue.json",
   ]), /agent_queue_cli_arguments_invalid/);
+  assert.throws(() => parseLibraryAnalysisAgentQueueArgs([
+    "merge-source", "--run-root=/tmp/run", "--queue=/tmp/queue.json", "--source-id=document:a",
+  ]), /agent_queue_cli_arguments_invalid/);
+  assert.deepEqual(
+    parseLibraryAnalysisAgentQueueArgs([
+      "merge-source", "--run-root=/tmp/run", "--queue=/tmp/queue.json",
+      "--source-kind=document", "--source-key=document:a",
+    ]),
+    {
+      command: "merge-source",
+      runRoot: "/tmp/run",
+      queue: "/tmp/queue.json",
+      sourceKind: "document",
+      sourceKey: "document:a",
+    },
+  );
 });
 
 function escapeRegExp(value: string): string {

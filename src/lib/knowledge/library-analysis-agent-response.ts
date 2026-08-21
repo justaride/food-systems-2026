@@ -128,6 +128,7 @@ const attemptReceiptSchema = z.object({
   attempt: z.number().int().positive(),
   inputHash: hashSchema,
   responseHash: hashSchema,
+  status: terminalStateSchema.optional(),
   terminalReason: textSchema.optional(),
   model: LibraryAnalysisAgentModelReceiptSchema,
 }).strict();
@@ -312,6 +313,8 @@ export function mergeLibraryAnalysisSourceSegments(input: {
   queueHash: string;
   source: LibraryAnalysisAgentQueueSource;
   segments: readonly LibraryAnalysisTerminalSegment[];
+  expectedJobs?: readonly LibraryAnalysisAgentQueueJob[];
+  jobs?: readonly LibraryAnalysisAgentQueueJob[];
 }): LibraryAnalysisSourceResult {
   if (!HASH.test(input.queueHash)) throw new Error("source_merge_queue_hash_invalid");
   if (!HASH.test(input.source.sourceEnvelopeHash)) throw new Error("source_merge_source_hash_invalid");
@@ -335,16 +338,50 @@ export function mergeLibraryAnalysisSourceSegments(input: {
   ) {
     throw new Error("source_merge_coverage_mismatch");
   }
+  const expectedJobs = [...(input.expectedJobs ?? input.jobs ?? [])];
+  if (expectedJobs.length === 0 || new Set(expectedJobs.map((job) => job.jobId)).size !== expectedJobs.length) {
+    throw new Error("source_merge_job_set_mismatch");
+  }
+  const expectedById = new Map(expectedJobs.map((job) => [job.jobId, job]));
+  const expectedUnitIds = new Set(expectedJobs.flatMap((job) => job.unitIds));
+  if (
+    expectedUnitIds.size !== sourceUnitIds.length ||
+    sourceUnitIds.some((id) => !expectedUnitIds.has(id)) ||
+    expectedJobs.some((job) =>
+      job.sourceKind !== input.source.sourceKind ||
+      job.sourceKey !== input.source.sourceKey ||
+      job.unitIds.some((id) => !sourceUnitIds.includes(id)))
+  ) {
+    throw new Error("source_merge_job_set_mismatch");
+  }
 
   const segments = input.segments.map((raw) => LibraryAnalysisTerminalSegmentSchema.parse(raw));
-  if (new Set(segments.map((segment) => segment.jobId)).size !== segments.length) {
+  if (
+    segments.length !== expectedJobs.length ||
+    new Set(segments.map((segment) => segment.jobId)).size !== segments.length
+  ) {
     throw new Error("source_merge_job_set_mismatch");
   }
   const covered = new Set<string>();
   const coverageRows: LibraryAnalysisAgentCoverage[] = [];
   for (const segment of segments) {
+    const expectedJob = expectedById.get(segment.jobId);
+    if (
+      expectedJob === undefined ||
+      segment.segmentOrdinal !== expectedJob.segmentOrdinal ||
+      segment.jobHash !== expectedJob.inputEnvelopeHash
+    ) {
+      throw new Error("source_merge_job_set_mismatch");
+    }
     if (segment.queueHash !== input.queueHash) throw new Error("source_merge_queue_hash_mismatch");
-    if (segment.unitCoverage.length === 0) throw new Error("source_merge_coverage_mismatch");
+    const coverageIds = segment.unitCoverage.map((coverage) => coverage.contentUnitId);
+    if (
+      coverageIds.length !== expectedJob.unitIds.length ||
+      coverageIds.some((id, index) => id !== expectedJob.unitIds[index])
+    ) {
+      throw new Error("source_merge_job_unit_coverage_mismatch");
+    }
+    assertUniqueAttemptReceipts(segment);
     for (const coverage of segment.unitCoverage) {
       if (!sourceUnitIds.includes(coverage.contentUnitId) || covered.has(coverage.contentUnitId)) {
         throw new Error("source_merge_coverage_mismatch");
@@ -416,20 +453,25 @@ function segmentReceipt(
     responseHash: segment.responseHash,
     model: segment.model,
   };
-  if (segment.terminalReason !== undefined) defaultAttempt.terminalReason = segment.terminalReason;
-  const attempts = segment.attempts ?? [defaultAttempt];
   const terminalState = segment.terminalState ?? segment.status ?? (
     segment.unitCoverage.some((row) => row.status === "blocked") ? "partial" : "accepted"
   );
+  defaultAttempt.status = terminalState;
+  if (segment.terminalReason !== undefined) defaultAttempt.terminalReason = segment.terminalReason;
+  const attempts = segment.attempts ?? [defaultAttempt];
   const normalizedAttempts = [...attempts]
-    .map((attempt) => attempt.terminalReason === undefined
+    .map((attempt) => attempt.terminalReason === undefined && attempt.status === undefined
       ? {
         attempt: attempt.attempt,
         inputHash: attempt.inputHash,
         responseHash: attempt.responseHash,
         model: attempt.model,
       }
-      : attempt)
+      : {
+        ...attempt,
+        ...(attempt.status === undefined ? {} : { status: attempt.status }),
+        ...(attempt.terminalReason === undefined ? {} : { terminalReason: attempt.terminalReason }),
+      })
     .sort((left, right) => left.attempt - right.attempt);
   return LibraryAnalysisSourceSegmentReceiptSchema.parse({
     jobId: segment.jobId,
@@ -442,6 +484,18 @@ function segmentReceipt(
     inputHash: segment.inputHash,
     responseHash: segment.responseHash,
   });
+}
+
+function assertUniqueAttemptReceipts(segment: LibraryAnalysisTerminalSegment): void {
+  const attempts = segment.attempts ?? [{
+    attempt: segment.attempt,
+    inputHash: segment.inputHash,
+    responseHash: segment.responseHash,
+    model: segment.model,
+  }];
+  if (new Set(attempts.map((receipt) => receipt.attempt)).size !== attempts.length) {
+    throw new Error("source_merge_attempt_duplicate");
+  }
 }
 
 function deriveSourceAnalysisState(

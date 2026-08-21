@@ -88,7 +88,7 @@ const mergeSourceOptionsSchema = z.object({
   command: z.literal("merge-source"),
   runRoot: absolutePathSchema,
   queue: absolutePathSchema,
-  sourceId: z.string().min(1).optional(),
+  sourceId: hashSchema.optional(),
   sourceKind: z.string().min(1).optional(),
   sourceKey: z.string().min(1).optional(),
 }).strict().superRefine((value, context) => {
@@ -455,10 +455,7 @@ async function runMergeSource(
       return candidate.sourceKind === options.sourceKind && candidate.sourceKey === options.sourceKey;
     }
     const sourceId = options.sourceId!;
-    return sourceId === candidate.sourceEnvelopeHash ||
-      sourceId === `source:${candidate.sourceEnvelopeHash}` ||
-      sourceId === candidate.sourceKey ||
-      sourceId === `${candidate.sourceKind}:${candidate.sourceKey}`;
+    return sourceId === candidate.sourceEnvelopeHash;
   });
   if (source === undefined) throw new Error("source_merge_source_not_found");
   const jobs = queue.jobs.filter((job) =>
@@ -469,6 +466,7 @@ async function runMergeSource(
     queueHash: queue.queueHash,
     source,
     segments,
+    expectedJobs: jobs,
   });
   const sourceResultPath = `sources/source-${source.sourceEnvelopeHash}.json`;
   const receipt = writePrivateManifestAtomic(
@@ -508,7 +506,7 @@ function readCanonicalTerminalSegment(
     throw new Error("source_merge_segment_artifact_invalid");
   }
   const attempts = readdirSync(jobDirectory).filter((name) => /^attempt-\d{3}$/u.test(name)).sort();
-  const artifacts: string[] = [];
+  const artifacts: Array<{ path: string; kind: "accepted" | "terminal"; attempt: number }> = [];
   for (const attempt of attempts) {
     const attemptDirectory = safePrivatePath(runRoot, ["jobs", job.jobId, attempt]);
     const attemptStat = lstatSync(attemptDirectory);
@@ -520,7 +518,13 @@ function readCanonicalTerminalSegment(
       try {
         artifactPath = safePrivatePath(runRoot, ["jobs", job.jobId, attempt, name]);
         const stat = lstatSync(artifactPath);
-        if (stat.isFile()) artifacts.push(artifactPath);
+        if (stat.isFile()) {
+          artifacts.push({
+            path: artifactPath,
+            kind: name === "terminal.json" ? "terminal" : "accepted",
+            attempt: Number(attempt.slice("attempt-".length)),
+          });
+        }
       } catch (error) {
         if (!(error instanceof Error && "code" in error && error.code === "ENOENT")) {
           throw new Error("source_merge_segment_artifact_invalid");
@@ -528,12 +532,81 @@ function readCanonicalTerminalSegment(
       }
     }
   }
-  const terminalArtifacts = artifacts.filter((artifact) => artifact.endsWith("/terminal.json"));
-  const acceptedArtifacts = artifacts.filter((artifact) => artifact.endsWith("/accepted.json"));
-  const canonicalArtifacts = terminalArtifacts.length > 0 ? terminalArtifacts : acceptedArtifacts;
-  if (canonicalArtifacts.length !== 1) throw new Error("source_merge_segment_artifact_missing");
+  const terminalArtifacts = artifacts.filter((artifact) => artifact.kind === "terminal");
+  const acceptedArtifacts = artifacts.filter((artifact) => artifact.kind === "accepted");
+  if (terminalArtifacts.length > 1 || (terminalArtifacts.length === 0 && acceptedArtifacts.length !== 1)) {
+    throw new Error("source_merge_terminal_ambiguity");
+  }
+  const selectedArtifact = terminalArtifacts[0] ?? acceptedArtifacts[0];
+  if (selectedArtifact === undefined) throw new Error("source_merge_segment_artifact_missing");
+  const parsedArtifacts = [...artifacts].sort((left, right) =>
+    left.attempt - right.attempt || left.kind.localeCompare(right.kind) || left.path.localeCompare(right.path),
+  ).map((artifact) => ({ artifact, segment: readAndBindTerminalSegment(queueHash, job, artifact) }));
+  const selected = parsedArtifacts.find(({ artifact }) => artifact.path === selectedArtifact.path);
+  if (selected === undefined) throw new Error("source_merge_segment_artifact_missing");
+  const receipts = new Map<number, {
+    attempt: number;
+    inputHash: string;
+    responseHash: string;
+    status: "accepted" | "partial" | "failed" | "quarantined";
+    model: typeof selected.segment.model;
+  }>();
+  for (const { artifact, segment } of parsedArtifacts) {
+    const status = segment.terminalState ?? segment.status ?? (
+      artifact.kind === "terminal" && segment.unitCoverage.some((row) => row.status === "blocked")
+        ? "partial"
+        : artifact.kind === "terminal" ? "failed" : "accepted"
+    );
+    const receipt = {
+      attempt: segment.attempt,
+      inputHash: segment.inputHash,
+      responseHash: segment.responseHash,
+      status,
+      model: segment.model,
+    };
+    const existing = receipts.get(receipt.attempt);
+    if (existing !== undefined) {
+      if (canonicalCandidateJson(existing as unknown as CandidateJsonValue) !== canonicalCandidateJson(receipt as unknown as CandidateJsonValue)) {
+        throw new Error("source_merge_attempt_duplicate");
+      }
+      continue;
+    }
+    receipts.set(receipt.attempt, receipt);
+  }
+  const selectedState = selected.segment.terminalState ?? selected.segment.status ?? (
+    selected.segment.unitCoverage.some((row) => row.status === "blocked") ? "partial" : "accepted"
+  );
+  const nested = selected.segment.attempts ?? [];
+  for (const receipt of nested) {
+    const normalized = {
+      attempt: receipt.attempt,
+      inputHash: receipt.inputHash,
+      responseHash: receipt.responseHash,
+      status: receipt.status ?? selectedState,
+      model: receipt.model,
+    };
+    const existing = receipts.get(receipt.attempt);
+    if (existing !== undefined) {
+      if (canonicalCandidateJson(existing as unknown as CandidateJsonValue) !== canonicalCandidateJson(normalized as unknown as CandidateJsonValue)) {
+        throw new Error("source_merge_attempt_duplicate");
+      }
+      continue;
+    }
+    receipts.set(receipt.attempt, normalized);
+  }
+  return {
+    ...selected.segment,
+    attempts: [...receipts.values()].sort((left, right) => left.attempt - right.attempt),
+  };
+}
+
+function readAndBindTerminalSegment(
+  queueHash: string,
+  job: LibraryAnalysisAgentQueue["jobs"][number],
+  artifact: { path: string; attempt: number },
+): import("../../src/lib/knowledge/library-analysis-agent-response").LibraryAnalysisTerminalSegment {
   const bytes = readPrivateFileByDescriptor(
-    canonicalArtifacts[0]!,
+    artifact.path,
     0o400,
     "source_merge_segment_artifact_invalid",
   );
@@ -548,7 +621,10 @@ function readCanonicalTerminalSegment(
     segment.queueHash !== queueHash ||
     segment.jobId !== job.jobId ||
     segment.jobHash !== job.inputEnvelopeHash ||
-    segment.segmentOrdinal !== job.segmentOrdinal
+    segment.segmentOrdinal !== job.segmentOrdinal ||
+    segment.attempt !== artifact.attempt ||
+    segment.unitCoverage.length !== job.unitIds.length ||
+    segment.unitCoverage.some((coverage, index) => coverage.contentUnitId !== job.unitIds[index])
   ) {
     throw new Error("source_merge_segment_binding_mismatch");
   }
