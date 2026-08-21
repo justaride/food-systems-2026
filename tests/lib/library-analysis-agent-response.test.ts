@@ -339,6 +339,333 @@ test("keeps scoped report, ownership, expectation, and status boundaries eligibl
   }
 });
 
+test("rejects Pilot08 analytical-measure excerpts that omit their period and basis", () => {
+  const cases = [
+    {
+      source: "Konkurransetilsynet har hentet inn regnskapstall for perioden 2017 til 2022. Videre har Konkurransetilsynet beregnet avkastning på netto driftsrelaterte eiendeler, såkalt RNOA, som et mål på lønnsomhet.",
+      text: "Konkurransetilsynet har beregnet avkastning på netto driftsrelaterte eiendeler, såkalt RNOA, som et mål på lønnsomhet.",
+      evidence: "Videre har Konkurransetilsynet beregnet avkastning på netto driftsrelaterte eiendeler, såkalt RNOA, som et mål på lønnsomhet.",
+    },
+    {
+      source: "Analysegrunnlaget er regnskapsdata for perioden 2017 til 2022. Konkurransetilsynet har kartlagt lønnsomhet i dagligvarevirksomheten.",
+      text: "Konkurransetilsynet har kartlagt lønnsomhet i dagligvarevirksomheten.",
+      evidence: "Konkurransetilsynet har kartlagt lønnsomhet i dagligvarevirksomheten.",
+    },
+    {
+      source: "Regnskapstallene dekker 2017 til 2022. RNOA ble beregnet for dagligvareaktørene.",
+      text: "RNOA ble beregnet for dagligvareaktørene.",
+      evidence: "RNOA ble beregnet for dagligvareaktørene.",
+    },
+    {
+      source: "Årsregnskapene dekker 2017 til 2022. Konkurransetilsynet beregnet lønnsomhet for aktørene.",
+      text: "Konkurransetilsynet beregnet lønnsomhet for aktørene.",
+      evidence: "Konkurransetilsynet beregnet lønnsomhet for aktørene.",
+    },
+    {
+      source: "Konkurransetilsynet har beregnet RNOA. Rapporten ble publisert i 2024, basert på regnskapstall.",
+      text: "Konkurransetilsynet har beregnet RNOA. Rapporten ble publisert i 2024, basert på regnskapstall.",
+      evidence: "Konkurransetilsynet har beregnet RNOA. Rapporten ble publisert i 2024, basert på regnskapstall.",
+    },
+    {
+      source: "Konkurransetilsynet beregner lønnsomhet for aktørene.",
+      text: "Konkurransetilsynet beregner lønnsomhet for aktørene.",
+      evidence: "Konkurransetilsynet beregner lønnsomhet for aktørene.",
+    },
+  ];
+  for (const row of cases) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /analytical_measure_context_missing/u);
+  }
+});
+
+test("keeps bounded analytical measures and unrelated mappings eligible", () => {
+  for (const text of [
+    "Basert på regnskapstall for perioden 2017 til 2022 har Konkurransetilsynet beregnet RNOA.",
+    "Using financial statements from 2017 to 2022, the authority calculated operating margins.",
+    "RNOA ble beregnet for perioden 2017 til 2022 ved hjelp av årsrapporter.",
+    "Konkurransetilsynet beregnet lønnsomhet for perioden 2017 til 2022 på grunnlag av årsregnskap.",
+    "Operating margins were calculated from 2017 to 2022 using annual reports.",
+    "Konkurransetilsynet har kartlagt aktørene i det norske dagligvaremarkedet.",
+    "Studien har beregnet antall butikker.",
+  ]) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, text)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }));
+  }
+});
+
+test("rejects Pilot08 evidence that ends before the asserted object or exclusion", () => {
+  const cases = [
+    {
+      source: "Konkurransetilsynet understreker at det ikke har analysert kausale sammenhenger.",
+      text: "Konkurransetilsynet states that it did not analyze causal relationships.",
+      evidence: "Konkurransetilsynet understreker at det ikke har analysert",
+      error: /evidence_incomplete/u,
+    },
+    {
+      source: "Tallene gjelder egeneide butikker i 2017 til 2022. Franchiseeide butikker er ikke inkludert i tallene.",
+      text: "The figures cover company-owned stores from 2017 to 2022; franchise-owned stores are not included.",
+      evidence: "Tallene gjelder egeneide butikker i 2017 til 2022.",
+      error: /material_exclusion_missing/u,
+    },
+    {
+      source: "The 2022 figures cover company-owned stores. The 2022 figures exclude leased stores.",
+      text: "The 2022 figures exclude leased stores.",
+      evidence: "The 2022 figures cover company-owned stores.",
+      error: /material_exclusion_missing/u,
+    },
+  ];
+  for (const row of cases) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error);
+  }
+});
+
+test("leaves cross-language material-exclusion equivalence to semantic validation", () => {
+  const evidence = "Leide butikker er ikke inkludert i tallene.";
+  const job = verifiedJob([evidence]);
+  const response = segmentResponse(job, {
+    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{
+      ...claim(job, 0, "The figures exclude leased stores."),
+      evidence,
+    }],
+  });
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job,
+    response,
+  }));
+});
+
+test("rejects Pilot08 missing identity and typed tabular context while allowing local anchors", () => {
+  const ownerSource = "NorgesGruppen ASA. Storste eier: Joh. Johannson Handel AS - 74,4% per 31.12.2024.";
+  const ownerJob = verifiedJob([ownerSource]);
+  const ownerResponse = segmentResponse(ownerJob, {
+    unitCoverage: [{ contentUnitId: ownerJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{
+      ...claim(ownerJob, 0, "Joh. Johannson Handel AS is NorgesGruppen ASA's largest owner with 74,4% as of 31.12.2024."),
+      evidence: "Storste eier: Joh. Johannson Handel AS - 74,4% per 31.12.2024.",
+    }],
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: ownerJob,
+    response: ownerResponse,
+  }), /ownership_scope_missing/u);
+
+  for (const text of [
+    "Joh. Johannson Handel AS is listed as NorgesGruppen ASA's largest owner with 74,4% as of 31.12.2024.",
+    "Joh. Johannson Handel AS is the NorgesGruppen ASA's largest owner with 74,4% as of 31.12.2024.",
+  ]) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, text)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }));
+  }
+
+  const norwegianOwnerJob = verifiedJob(["NorgesGruppen ASA. Storste eier: Joh. Johannson Handel AS - 74,4% per 31.12.2024."]);
+  const norwegianOwnerResponse = segmentResponse(norwegianOwnerJob, {
+    unitCoverage: [{ contentUnitId: norwegianOwnerJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{
+      ...claim(norwegianOwnerJob, 0, "Joh. Johannson Handel AS er NorgesGruppens største eier med 74,4% per 31.12.2024."),
+      evidence: "Storste eier: Joh. Johannson Handel AS - 74,4% per 31.12.2024.",
+    }],
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: norwegianOwnerJob,
+    response: norwegianOwnerResponse,
+  }), /ownership_scope_missing/u);
+
+  const surveySource = "IPIFF FOOD MARKET survey. This survey was conducted online in 2023, gathering responses from 19 EU insect farming companies.";
+  const surveyJob = verifiedJob([surveySource]);
+  const surveyResponse = segmentResponse(surveyJob, {
+    unitCoverage: [{ contentUnitId: surveyJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{
+      ...claim(surveyJob, 0, "The IPIFF survey was conducted online in 2023 and gathered responses from 19 EU insect farming companies."),
+      evidence: "This survey was conducted online in 2023, gathering responses from 19 EU insect farming companies.",
+    }],
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: surveyJob,
+    response: surveyResponse,
+  }), /evidence_context_dependent/u);
+
+  const csvSource = "id,priority,status,country,coding_target\nsource-1,P1,candidate_fetch,no,entry";
+  const csvJob = verifiedJob([csvSource]);
+  Object.assign(csvJob.units[0]!.descriptor, {
+    unitType: "sheet_range",
+    sourceKind: "library_file",
+    sourceKey: "library_file:research/source.csv",
+    locator: "repository:research/source.csv#rows=2-2&chars=0-51",
+  });
+  csvJob.job.sourceKind = "library_file";
+  csvJob.job.sourceKey = "library_file:research/source.csv";
+  const csvResponse = segmentResponse(csvJob, {
+    unitCoverage: [{ contentUnitId: csvJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{
+      ...claim(csvJob, 0, "The dataset marks source-1 as a P1 candidate_fetch source for entry."),
+      evidence: "source-1,P1,candidate_fetch,no,entry",
+      locator: csvJob.units[0]!.descriptor.locator,
+    }],
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: csvJob,
+    response: csvResponse,
+  }), /tabular_context_missing/u);
+
+  const implicitFieldsJob = verifiedJob(["id,priority,status\nsource-1,P1,candidate_fetch"]);
+  Object.assign(implicitFieldsJob.units[0]!.descriptor, { unitType: "sheet_range" });
+  const implicitFieldsResponse = segmentResponse(implicitFieldsJob, {
+    unitCoverage: [{ contentUnitId: implicitFieldsJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{
+      ...claim(implicitFieldsJob, 0, "P1 candidate_fetch applies to source-1."),
+      evidence: "source-1,P1,candidate_fetch",
+    }],
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: implicitFieldsJob,
+    response: implicitFieldsResponse,
+  }), /tabular_context_missing/u);
+
+  const twoFieldJob = verifiedJob(["id,priority\nsource-1,P1"]);
+  Object.assign(twoFieldJob.units[0]!.descriptor, { unitType: "sheet_range" });
+  const twoFieldResponse = segmentResponse(twoFieldJob, {
+    unitCoverage: [{ contentUnitId: twoFieldJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{
+      ...claim(twoFieldJob, 0, "The row marks source-1 as P1."),
+      evidence: "source-1,P1",
+    }],
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: twoFieldJob,
+    response: twoFieldResponse,
+  }), /tabular_context_missing/u);
+
+  for (const row of [
+    {
+      source: ownerSource,
+      text: "Joh. Johannson Handel AS is NorgesGruppen ASA's largest owner with 74,4% as of 31.12.2024.",
+      evidence: "NorgesGruppen ASA. Storste eier: Joh. Johannson Handel AS - 74,4% per 31.12.2024.",
+    },
+    {
+      source: surveySource,
+      text: "The IPIFF survey was conducted online in 2023 and gathered responses from 19 EU insect farming companies.",
+      evidence: "IPIFF FOOD MARKET survey. This survey was conducted online in 2023, gathering responses from 19 EU insect farming companies.",
+    },
+    {
+      source: "This survey by IPIFF was conducted online in 2023, gathering responses from 19 EU insect farming companies.",
+      text: "The IPIFF survey was conducted online in 2023 and gathered responses from 19 EU insect farming companies.",
+      evidence: "This survey by IPIFF was conducted online in 2023, gathering responses from 19 EU insect farming companies.",
+    },
+    {
+      source: "This survey, the IPIFF FOOD MARKET survey, was conducted online in 2023, gathering responses from 19 EU insect farming companies.",
+      text: "The IPIFF FOOD MARKET survey was conducted online in 2023 and gathered responses from 19 EU insect farming companies.",
+      evidence: "This survey, the IPIFF FOOD MARKET survey, was conducted online in 2023, gathering responses from 19 EU insect farming companies.",
+    },
+    {
+      source: csvSource,
+      text: "The dataset marks source-1 as a P1 candidate_fetch source for entry.",
+      evidence: csvSource,
+      tabular: true,
+    },
+    {
+      source: "id: source-1; priority: P1; status: candidate_fetch; coding_target: entry",
+      text: "The dataset marks source-1 as a P1 candidate_fetch source for entry.",
+      evidence: "id: source-1; priority: P1; status: candidate_fetch; coding_target: entry",
+      tabular: true,
+    },
+    {
+      source: "A complete qualitative note stored in one spreadsheet cell.",
+      text: "A complete qualitative note is stored in one spreadsheet cell.",
+      evidence: "A complete qualitative note stored in one spreadsheet cell.",
+      tabular: true,
+    },
+  ]) {
+    const job = verifiedJob([row.source]);
+    if (row.tabular) Object.assign(job.units[0]!.descriptor, { unitType: "sheet_range" });
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }));
+  }
+});
+
 test("rejects unanchored relative trend and status expressions while allowing anchored boundaries", () => {
   for (const contextualText of [
     "Detaljistene kontrollerer data i økende grad.",
@@ -614,6 +941,71 @@ test("keeps a scoped result claim eligible when the evidence names the result sc
       response,
     }));
   }
+});
+
+test("rejects unresolved plural result references without matching word-prefix false positives", () => {
+  for (const [text, evidence] of [
+    ["Resultatene viser økt lønnsomhet.", "Resultatene viser økt lønnsomhet."],
+    ["The results show increased profitability.", "The results show increased profitability."],
+    ["Ressurskartleggingen viser økt lønnsomhet.", "Resultatene viser økt lønnsomhet."],
+    ["The resource mapping shows increased profitability.", "The results show increased profitability."],
+  ]) {
+    const job = verifiedJob([evidence]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, text), evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /context_dependent_claim|evidence_context_dependent/u);
+  }
+
+  for (const text of [
+    "Resultatene fra ressurskartleggingen viser økt lønnsomhet.",
+    "Resultatene i rapporten viser økt lønnsomhet.",
+    "Resultatet i rapporten viser økt lønnsomhet.",
+    "The results of the resource mapping show increased profitability.",
+    "The results in the report show increased profitability.",
+    "The result in the report shows increased profitability.",
+    "Resultateneity is not a Norwegian reference word.",
+  ]) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, text)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }));
+  }
+
+  const resolvedEvidence = "Denne delen handler om lokale ressurskartlegginger og fem ressurskategorier. Resultatene viser store lokale forskjeller.";
+  const resolvedJob = verifiedJob([resolvedEvidence]);
+  const resolvedResponse = segmentResponse(resolvedJob, {
+    unitCoverage: [{ contentUnitId: resolvedJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{
+      ...claim(resolvedJob, 0, "Lokale ressurskartlegginger viser store lokale forskjeller."),
+      evidence: resolvedEvidence,
+    }],
+  });
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: resolvedJob,
+    response: resolvedResponse,
+  }));
 });
 
 test("rejects authority language that is absent from the evidence excerpt", () => {

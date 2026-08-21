@@ -80,8 +80,9 @@ const AUDITED_GENERIC_SUBJECT = /^(?:(?:oppgaven|studien)\s+(?:dokumenterer|finn
 const AUDITED_HERE_REFERENCE = /^(?:driftsinntekter\s+her\s+økte|revenue\s+here\s+increased)\b/iu;
 const ANOTHER_FACTOR = /\b(?:en\s+annen\s+faktor|another\s+factor)\b/iu;
 const PRIOR_FACTOR = /\b(?:faktor|factor)\b/iu;
-const UNRESOLVED_GENERIC_REFERENCE = /\b(?:arbeidet(?!\s+(?:med|for|av)\b)|metoden(?!\s+(?:for|til|med)\b)|kartleggingen(?!\s+(?:av|for|i)\b)|kartleggingene|resultatet(?!\s+(?:av|fra|for)\b))\b/iu;
-const UNRESOLVED_RESULT_EVIDENCE = /\b(?:resultatet(?!\s+(?:av|fra|for)\b)|the\s+result(?!\s+(?:of|from|for)\b))\b/iu;
+const UNRESOLVED_GENERIC_REFERENCE = /\b(?:arbeidet(?!\s+(?:med|for|av)\b)|metoden(?!\s+(?:for|til|med)\b)|kartleggingen(?!\s+(?:av|for|i)\b)|kartleggingene|resultatet(?!\s+(?:av|fra|for|i)\b)|resultatene(?!\s+(?:av|fra|for|i)\b)|the\s+results?(?!\s+(?:of|from|for|in)\b))\b/iu;
+const UNRESOLVED_RESULT_EVIDENCE = /\b(?:resultatet(?!\s+(?:av|fra|for|i)\b)|the\s+result(?!\s+(?:of|from|for|in)\b))\b/iu;
+const UNRESOLVED_PLURAL_RESULT_EVIDENCE_OPENING = /^(?:resultatene(?!\s+(?:av|fra|for|i)\b)|the\s+results(?!\s+(?:of|from|for|in)\b))\b/iu;
 const EXPLICIT_YEAR = /\b(?:19|20)\d{2}\b/u;
 const MATERIAL_SCOPE_QUALIFIERS = [
   /\bi\s+denne\s+sammenhengen\b/iu,
@@ -90,6 +91,25 @@ const MATERIAL_SCOPE_QUALIFIERS = [
 const REPORTED_MEASURE = /\b(?:rapporterer|reports?)\b[\s\S]{0,180}\b(?:tiltak|measures?|actions?)\b/iu;
 const REPORTING_BASIS = /\b(?:kvalitativ\s+innholdsanalyse|content\s+analysis|b[\u00e6a]rekraftsrapporter|sustainability\s+reports?|based\s+on|basert\s+på)\b/iu;
 const OWNERSHIP_OR_CONTROL = /\b(?:eier|eid\s+av|kontrolleres\s+av|owns?|owned\s+by|controlled\s+by)\b/iu;
+const ANALYTICAL_ACTION = /\b(?:har\s+(?:beregnet|kartlagt)|(?:ble|er)\s+(?:beregnet|kartlagt)|beregner|beregnet|kartlegger|kartla|estimerer|estimerte|has\s+(?:calculated|mapped|estimated)|(?:was|were)\s+(?:calculated|mapped|estimated)|calculates?|mapped|maps?|estimates?|estimated)\b/iu;
+const ANALYTICAL_OUTCOME = /\b(?:avkastning|RNOA|lønnsomhet|driftsmarginer?|operating\s+margins?|returns?|profitability)\b/iu;
+const ANALYTICAL_BASIS = /\b(?:basert\s+på|med\s+utgangspunkt\s+i|på\s+grunnlag\s+av|ved\s+hjelp\s+av|regnskapstall|regnskapsdata|årsrapporter?|årsregnskap|based\s+on|using\s+(?:financial\s+statements?|accounts?|accounting\s+data|annual\s+reports?)|financial\s+statements?|annual\s+reports?)\b/iu;
+const INCOMPLETE_NEGATED_ANALYSIS_EVIDENCE = /\b(?:ikke\s+har\s+analysert|did\s+not\s+analy[sz]e|has\s+not\s+analy[sz]ed)\s*$/iu;
+const MATERIAL_EXCLUSION = /\b(?:not\s+included|excluded|not\s+counted|inngår\s+ikke|ikke\s+inkludert|ikke\s+medregnet)\b/iu;
+const FRANCHISE_SCOPE = /\b(?:franchise[- ]owned\s+stores?|franchiseeide\s+butikker|kjøpmannseide\s+butikker)\b/iu;
+const POSSESSIVE_OWNERSHIP_TARGET = /\b(?:is|was)\s+(?:(?:listed|identified|reported)\s+as\s+)?(?:the\s+)?([\p{L}\p{N}.& -]{2,80}?)'s\s+(?:largest|majority|controlling)\s+(?:owner|shareholder)\b/iu;
+const NORWEGIAN_POSSESSIVE_OWNERSHIP_TARGET = /\b(?:er|var)\s+([\p{Lu}][\p{L}\p{N}.& -]{1,80}?)s\s+største\s+eier\b/u;
+const CONTEXT_DEPENDENT_EVIDENCE_OPENING = /^(?:this\s+(?:survey|questionnaire|study)|denne\s+(?:undersøkelsen|studien|kartleggingen))\b/iu;
+const NAMED_STUDY_IDENTITY = /\b(?:the\s+)?([A-Z][A-Z0-9&.-]{2,})\s+(?:survey|questionnaire|study)\b/u;
+const NAMED_NORWEGIAN_STUDY_IDENTITY = /\b([A-ZÆØÅ][A-ZÆØÅ0-9&.-]{2,})[- ](?:undersøkelsen|studien|kartleggingen)\b/u;
+const EXPLICIT_TABULAR_FIELDS = /\b(?:id|priority|status|country|coding_target|next_action)\s*[:=]/iu;
+const DELIMITED_ROW = /^(?:[^,\t]*[,\t]){1,}[^,\t]*$/u;
+const ENGLISH_EXCLUSION_AFTER_MARKER = /\b(?:excludes?|does\s+not\s+include|did\s+not\s+include)\s+([^.;,:]{2,120})/iu;
+const NORWEGIAN_EXCLUSION_AFTER_MARKER = /\b(?:utelater|utelot|ekskluderer|ekskluderte|inkluderer\s+ikke)\s+([^.;,:]{2,120})/iu;
+const ENGLISH_EXCLUSION_MARKER = /\b(?:not\s+included|excluded|not\s+counted|excludes?|does\s+not\s+include|did\s+not\s+include)\b/iu;
+const NORWEGIAN_EXCLUSION_MARKER = /\b(?:inngår\s+ikke|ikke\s+inkludert|ikke\s+medregnet|utelater|utelot|ekskluderer|ekskluderte|inkluderer\s+ikke)\b/iu;
+const ENGLISH_EVIDENCE_CONTEXT = /\b(?:the|figures?|stores?|companies|respondents?|data)\b/iu;
+const NORWEGIAN_EVIDENCE_CONTEXT = /\b(?:tallene|butikker|selskaper|respondenter|dataene)\b/iu;
 const GENERIC_EXPECTATION = /^(?:forventningen\s+er|the\s+expectation\s+is)\b/iu;
 const OPERATIONAL_STATUS = /(?:\bdashboard(?:et)?\b[\s\S]{0,80}\b(?:brukes|anvendes|is\s+used)\b|\b(?:ingen|no)\b[\s\S]{0,80}\b(?:partnere?|partners?)\b[\s\S]{0,80}\b(?:kontaktet|contacted)\b)/iu;
 const NAMED_SCOPE = /\bfor\s+(?!(?:prosjektet|søknaden|the\s+project|the\s+application)\b)[A-ZÆØÅ][\p{L}\p{N}-]*(?:\s+[A-ZÆØÅ][\p{L}\p{N}-]*)+/u;
@@ -127,8 +147,48 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
   ) {
     throw new Error("agent_response_context_dependent_claim");
   }
-  if (UNRESOLVED_RESULT_EVIDENCE.test(normalizedEvidence)) {
+  if (
+    UNRESOLVED_RESULT_EVIDENCE.test(normalizedEvidence) ||
+    UNRESOLVED_PLURAL_RESULT_EVIDENCE_OPENING.test(normalizedEvidence)
+  ) {
     throw new Error("agent_response_evidence_context_dependent");
+  }
+  const namedStudyIdentity = NAMED_STUDY_IDENTITY.exec(normalizedClaim)?.[1] ??
+    NAMED_NORWEGIAN_STUDY_IDENTITY.exec(normalizedClaim)?.[1];
+  if (
+    CONTEXT_DEPENDENT_EVIDENCE_OPENING.test(normalizedEvidence) &&
+    namedStudyIdentity !== undefined &&
+    !normalizedEvidence.includes(namedStudyIdentity)
+  ) {
+    throw new Error("agent_response_evidence_context_dependent");
+  }
+  if (INCOMPLETE_NEGATED_ANALYSIS_EVIDENCE.test(normalizedEvidence)) {
+    throw new Error("agent_response_evidence_incomplete");
+  }
+  if (
+    MATERIAL_EXCLUSION.test(normalizedClaim) &&
+    FRANCHISE_SCOPE.test(normalizedClaim) &&
+    (!MATERIAL_EXCLUSION.test(normalizedEvidence) || !FRANCHISE_SCOPE.test(normalizedEvidence))
+  ) {
+    throw new Error("agent_response_material_exclusion_missing");
+  }
+  const englishExcludedObject = ENGLISH_EXCLUSION_AFTER_MARKER.exec(normalizedClaim)?.[1]?.trim();
+  const norwegianExcludedObject = NORWEGIAN_EXCLUSION_AFTER_MARKER.exec(normalizedClaim)?.[1]?.trim();
+  if (
+    englishExcludedObject !== undefined &&
+    ENGLISH_EVIDENCE_CONTEXT.test(normalizedEvidence) &&
+    (!ENGLISH_EXCLUSION_MARKER.test(normalizedEvidence) ||
+      !normalizedEvidence.toLocaleLowerCase("en").includes(englishExcludedObject.toLocaleLowerCase("en")))
+  ) {
+    throw new Error("agent_response_material_exclusion_missing");
+  }
+  if (
+    norwegianExcludedObject !== undefined &&
+    NORWEGIAN_EVIDENCE_CONTEXT.test(normalizedEvidence) &&
+    (!NORWEGIAN_EXCLUSION_MARKER.test(normalizedEvidence) ||
+      !normalizedEvidence.toLocaleLowerCase("no").includes(norwegianExcludedObject.toLocaleLowerCase("no")))
+  ) {
+    throw new Error("agent_response_material_exclusion_missing");
   }
   for (const qualifier of MATERIAL_SCOPE_QUALIFIERS) {
     if (qualifier.test(evidence) && !qualifier.test(normalizedClaim)) {
@@ -154,6 +214,31 @@ function assertAuditedScopeCompleteness(
     !EXPLICIT_YEAR.test(claimText) || !EXPLICIT_YEAR.test(evidence)
   )) {
     throw new Error("agent_response_ownership_as_of_missing");
+  }
+  const possessiveOwnershipTarget = POSSESSIVE_OWNERSHIP_TARGET.exec(claimText)?.[1]?.trim();
+  const norwegianPossessiveOwnershipTarget = NORWEGIAN_POSSESSIVE_OWNERSHIP_TARGET
+    .exec(claimText)?.[1]?.trim();
+  const ownershipTarget = possessiveOwnershipTarget ?? norwegianPossessiveOwnershipTarget;
+  if (
+    ownershipTarget !== undefined &&
+    !evidence.toLocaleLowerCase("en").includes(ownershipTarget.toLocaleLowerCase("en"))
+  ) {
+    throw new Error("agent_response_ownership_scope_missing");
+  }
+  const analyticalClaimSegment = claimText
+    .split(/[.!?]+/u)
+    .find((segment) => ANALYTICAL_ACTION.test(segment) && ANALYTICAL_OUTCOME.test(segment));
+  const analyticalEvidenceSegment = evidence
+    .split(/[.!?]+/u)
+    .find((segment) => ANALYTICAL_ACTION.test(segment) && ANALYTICAL_OUTCOME.test(segment));
+  if (analyticalClaimSegment !== undefined && (
+    analyticalEvidenceSegment === undefined ||
+    !EXPLICIT_YEAR.test(analyticalClaimSegment) ||
+    !EXPLICIT_YEAR.test(analyticalEvidenceSegment) ||
+    !ANALYTICAL_BASIS.test(analyticalClaimSegment) ||
+    !ANALYTICAL_BASIS.test(analyticalEvidenceSegment)
+  )) {
+    throw new Error("agent_response_analytical_measure_context_missing");
   }
   if (GENERIC_EXPECTATION.test(claimText)) {
     throw new Error("agent_response_expectation_actor_scope_missing");
@@ -187,6 +272,17 @@ function assertAuthorityLanguageIsSourceVisible(claimText: string, evidence: str
     if (term.test(claimText) && !term.test(evidence)) {
       throw new Error("agent_response_authority_overreach");
     }
+  }
+}
+
+function assertTabularEvidenceContext(evidence: string, unitType: string): void {
+  if (
+    unitType === "sheet_range" &&
+    DELIMITED_ROW.test(evidence) &&
+    !evidence.includes("\n") &&
+    !EXPLICIT_TABULAR_FIELDS.test(evidence)
+  ) {
+    throw new Error("agent_response_tabular_context_missing");
   }
 }
 
@@ -440,6 +536,7 @@ export function validateLibraryAnalysisAgentSegmentResponse(
     }
     assertSelfContainedClaimText(claim.text, claim.evidence);
     assertAuditedScopeCompleteness(claim.text, claim.evidence, unit.text);
+    assertTabularEvidenceContext(claim.evidence, unit.descriptor.unitType);
     assertAuthorityLanguageIsSourceVisible(claim.text, claim.evidence);
     assertNumericTokens(claim.text, claim.evidence);
     return {

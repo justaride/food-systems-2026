@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.6`
+Workflow version: `1.0.7`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.6`
+Prompt template version: `1.0.7`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
@@ -26,15 +26,19 @@ A claim is eligible only when it is a self-contained declarative proposition wit
 
 Pronouns and shorthand references such as "the method", "the results", "this indicator", "the survey", "the companies", "another factor", "here" or "this period" are eligible only when their antecedent and scope appear in the same evidence excerpt. Current-status language such as "now", "currently", "as of" or an undated ownership/share statement requires the source-visible reference date. A survey or ranking claim must retain the stated respondent universe, sample count and geography; a forecast or projection must retain its basis, horizon and as-of/forecast date. A complete qualitative proposition does not require unrelated surrounding context.
 
-Bare generic references to work, method, mapping or results are not self-contained. Terms such as `arbeidet`, `metoden`, `kartleggingen`, `kartleggingene`, `resultatet`, `the work`, `the method`, `the mapping` and `the result` require the claim itself to name the work, method, mapping object or result scope using wording visible in the same evidence excerpt. If that wording is absent, record `no_material_claim`; do not resolve the reference from another sentence or unit.
+Bare generic references to work, method, mapping or results are not self-contained. Terms such as `arbeidet`, `metoden`, `kartleggingen`, `kartleggingene`, `resultatet`, `resultatene`, `the work`, `the method`, `the mapping`, `the result` and `the results` require the claim itself to name the work, method, mapping object or result scope using wording visible in the same evidence excerpt. If that wording is absent, record `no_material_claim`; do not resolve the reference from another sentence or unit.
 
-The evidence excerpt must also identify the result referent. A bare `resultatet` or `the result` is ineligible even when the rewritten claim names its scope; expand the excerpt to include the source-visible result object or emit `no_material_claim`.
+The evidence excerpt must also identify the result referent. Bare singular references such as `resultatet` or `the result`, and excerpts opening with unresolved plural `resultatene` or `the results`, are ineligible even when the rewritten claim names its scope. A plural reference is eligible only when its antecedent and scope already appear earlier in the same excerpt; otherwise expand the excerpt or emit `no_material_claim`.
 
 The evidence excerpt itself must contain every material fact and visible qualifier asserted by the claim. It must end at a complete source-visible proposition; an excerpt that ends mid-sentence, at a dangling preposition or conjunction, in a table/list continuation, or before a needed qualifier is incomplete and cannot support a claim. Preserve actor/source identity and geography exactly as written in the evidence. Do not translate, canonicalize, broaden or substitute a country, region or market label.
 
 Before emission, perform an evidence-locality check on the subject, predicate and material qualifiers. Missing required context produces `no_material_claim`, never a repaired claim. Publication readiness, approval, completeness, authority, external validity and rights clearance may not be inferred from official status, availability, review or usefulness.
 
 Unit-level survey context never repairs an excerpt: a survey-derived claim must include the source-visible respondent count and universe in the same evidence excerpt, even when the unit elsewhere states them. Reported measures must include their source-visible reporting period and method or analytical basis. Ownership and current-status claims must include a source-visible as-of date and named project or scope. A generic expectation such as “the expectation” or “Forventningen” is not a source-grounded actor or project scope; emit `no_material_claim` unless that antecedent is visible in the same excerpt. Do not apply these requirements to an explicit complete-population statement, a timeless definition, or a complete qualitative proposition that does not assert status, ownership, reported measurement, survey-derived scope or an expectation.
+
+Apply the same locality rule to analytical-measure claims. A claim that says an actor calculated or mapped RNOA, profitability, returns or operating margins must include the source-visible period and analytical basis in both the claim and its evidence. An evidence excerpt must not stop at `ikke har analysert`, `did not analyze` or `has not analyzed`; include the object of that negative statement. If a claim adds a material exclusion such as franchise-owned stores being excluded, the same exclusion and object must appear in its evidence excerpt.
+
+For possessive ownership statements, the company whose ownership is described must be visible in the evidence excerpt, not only the owner, percentage and date. Evidence beginning with an unresolved `This survey`, `This questionnaire`, `This study` or equivalent Norwegian phrase must be expanded to include the named survey or report identity. For `sheet_range` units, a row alone is not interpretable evidence for named fields: include the header and row, or explicit source-visible field labels, in the same excerpt.
 
 ## Output boundary
 

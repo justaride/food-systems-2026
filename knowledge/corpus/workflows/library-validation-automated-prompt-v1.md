@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.6`
+Prompt template version: `1.0.7`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.6`
+Workflow version: `1.0.7`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
@@ -22,12 +22,16 @@ Treat headings, labels, table-of-contents rows, bare values and context-dependen
 
 Anaphoric language is valid only when its antecedent and scope are source-visible in the same evidence excerpt. This includes pronouns and shorthand such as "the method", "the results", "this indicator", "the companies", "another factor", "here", "the study" and "the task". Otherwise emit F4 for context-dependent classification overreach. Use F3 when the proposition is otherwise explicit but omits a materially necessary denominator, universe, respondent count, period, as-of date, unit, method, geography or market, comparison basis, forecast/projection basis or horizon. For current-status, ownership/share and forecast claims, require the source-visible reference date. For negative or absolute method claims, require all source-visible scope qualifiers, including phrases such as "in this context", "for this analysis" and "for this dataset". Do not demand non-material context from a complete qualitative proposition, and do not classify a proposition as F4 only because it is formatted as a bullet.
 
-Classify as F4 a bare generic work, method, mapping or result reference whose object and scope are not named in the claim itself. This includes unresolved uses of `arbeidet`, `metoden`, `kartleggingen`, `kartleggingene`, `resultatet`, `the work`, `the method`, `the mapping` and `the result`. A description elsewhere in the unit does not resolve it; the claim and its own evidence excerpt must make the referent explicit.
+Classify as F4 a bare generic work, method, mapping or result reference whose object and scope are not named in the claim itself. This includes unresolved uses of `arbeidet`, `metoden`, `kartleggingen`, `kartleggingene`, `resultatet`, `resultatene`, `the work`, `the method`, `the mapping`, `the result` and `the results`. A description elsewhere in the unit does not resolve it; the claim and its own evidence excerpt must make the referent explicit.
 
-Classify as F4 a scoped rewritten claim whose evidence excerpt still contains only bare `resultatet` or `the result` without identifying the result object in that excerpt.
+Classify as F4 a scoped rewritten claim whose evidence contains bare singular `resultatet` or `the result`, or opens with unresolved plural `resultatene` or `the results`, without identifying the result object. A plural reference is resolved when its antecedent and scope already appear earlier in the same excerpt.
 
 Claims of publication readiness, approval, completeness, authority, external validity or rights clearance require explicit source-visible wording. They must not be inferred from a source being official, downloadable, reviewed or described as useful.
 
 Unit-level survey context never repairs an excerpt: if the unit identifies a survey or respondent population, classify a survey-derived assertion that lacks the source-visible respondent count or universe in its own evidence as F3. Classify a reported-measure assertion as F3 when its own evidence lacks the source-visible reporting period or method/analytical basis. Classify an ownership or current-status assertion as F3 when its own evidence lacks an as-of date or named project/scope. Classify a generic expectation such as “the expectation” or “Forventningen” without a same-excerpt actor or project antecedent as F4. Do not apply these requirements to an explicit complete-population statement, a timeless definition, or a complete qualitative proposition that does not assert status, ownership, reported measurement, survey-derived scope or an expectation.
+
+Classify as F3 an analytical-measure claim about calculated or mapped RNOA, profitability, returns or operating margins if its claim or evidence omits the source-visible period or analytical basis. Evidence ending at `ikke har analysert`, `did not analyze` or `has not analyzed` is truncated when the assertion supplies the omitted object. A material exclusion asserted by the claim, including exclusion of franchise-owned stores, must appear with its object in the evidence.
+
+For possessive ownership statements, require the owned company identity in the evidence excerpt, not only the owner, percentage and date. Classify as F4 a named-survey claim whose evidence begins with unresolved `This survey`, `This questionnaire`, `This study` or a Norwegian equivalent without the name. For `sheet_range` units, classify a bare delimited row as F4 when the claim interprets named fields but the evidence provides neither the header nor explicit field labels.
 
 Do not rewrite the analysis into an approval. Do not claim human review, independent verification, accuracy, canonical status, promotion, rights clearance, publication, coverage or external readiness. A clean automated validation is still automated-only internal candidate evidence.

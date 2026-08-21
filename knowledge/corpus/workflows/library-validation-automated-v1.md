@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.6`
+Workflow version: `1.0.7`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.6`
+Prompt template version: `1.0.7`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
@@ -24,11 +24,15 @@ Decompose every assertion into facts and test source support, contradiction, num
 
 Classify an omitted material denominator, universe, respondent count, period, as-of date, unit, geography or market, method, comparison basis, forecast/projection basis or horizon as F3. Treat an evidence excerpt that ends mid-clause, at a dangling preposition or conjunction, in a table/list continuation, or before a source-visible qualifier as F3. Classify a heading, label, isolated value, context-dependent fragment, unresolved anaphoric proposition, unidentified actor/source attribution, publication-readiness statement, approval statement or other unsupported authority claim as F4. An anaphoric expression is resolved only when its antecedent and scope are visible in the same evidence excerpt. A scoped method limitation must not be validated as an absolute method claim. Do not classify a complete declarative sentence as F4 merely because it is formatted as a bullet.
 
-Bare generic references to work, method, mapping or results are unresolved anaphora unless the claim itself names the work, method, mapping object or result scope. Treat unresolved `arbeidet`, `metoden`, `kartleggingen`, `kartleggingene`, `resultatet`, `the work`, `the method`, `the mapping` and `the result` as F4 even when another sentence or unit contains the missing referent.
+Bare generic references to work, method, mapping or results are unresolved anaphora unless the claim itself names the work, method, mapping object or result scope. Treat unresolved `arbeidet`, `metoden`, `kartleggingen`, `kartleggingene`, `resultatet`, `resultatene`, `the work`, `the method`, `the mapping`, `the result` and `the results` as F4 even when another sentence or unit contains the missing referent.
 
-Treat bare `resultatet` or `the result` in the evidence excerpt as F4 when that excerpt does not identify the result object, even if the rewritten claim supplies a scoped compound noun.
+Treat bare singular `resultatet` or `the result`, and an excerpt opening with unresolved plural `resultatene` or `the results`, as F4 when the excerpt does not identify the result object, even if the rewritten claim supplies a scoped compound noun. Do not flag a plural reference whose antecedent and scope already appear earlier in the same excerpt.
 
 Unit-level survey context never repairs an excerpt: when the unit identifies a survey or respondent population, a survey-derived assertion missing the source-visible respondent count or universe in its own evidence is F3. A reported-measure assertion missing its source-visible reporting period or method/analytical basis is F3. An ownership or current-status assertion missing an as-of date or named project/scope is F3. A generic expectation such as “the expectation” or “Forventningen” without a same-excerpt actor or project antecedent is F4. Do not apply these requirements to an explicit complete-population statement, a timeless definition, or a complete qualitative proposition that does not assert status, ownership, reported measurement, survey-derived scope or an expectation.
+
+Classify as F3 an analytical-measure assertion about calculated or mapped RNOA, profitability, returns or operating margins whose claim or evidence omits the source-visible period or analytical basis. Evidence ending at `ikke har analysert`, `did not analyze` or `has not analyzed` is incomplete when the assertion supplies the missing object. A claim-level material exclusion, including franchise-owned stores being excluded, requires the same exclusion and object in the evidence.
+
+For possessive ownership, require the owned company identity in the evidence, not only owner, share and date. Treat an unresolved evidence opening such as `This survey` or its Norwegian equivalents as F4 when a named source identity appears only in the claim. For `sheet_range` evidence, treat a bare delimited row without header or explicit field labels as F4 when the claim interprets named fields.
 
 ## Output boundary
 
