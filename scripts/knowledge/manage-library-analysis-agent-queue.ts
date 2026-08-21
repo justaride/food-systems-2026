@@ -477,6 +477,12 @@ async function runPrepareAttempt(
   const options = prepareOptionsSchema.parse(rawOptions);
   const runRoot = openRunRoot(options.runRoot);
   const queue = readQueue(runRoot, options.queue);
+  const collected = collectAttemptReceipts(runRoot, queue);
+  const state = deriveLibraryAnalysisAgentQueueState({ queue, attempts: collected.attempts });
+  const dispatch = state.nextAttempts.find((candidate) => candidate.jobId === options.jobId);
+  if (dispatch === undefined || dispatch.attempt !== options.attempt) {
+    throw new Error("agent_queue_attempt_not_dispatchable");
+  }
   const loaded = loadVerifiedLibraryAnalysisJob(runRoot, queue, options.jobId);
   const input = {
     schema: "library-analysis-agent-job-input/v1" as const,

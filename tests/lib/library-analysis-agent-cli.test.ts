@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { spawnSync } from "node:child_process";
-import { chmodSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, statSync, symlinkSync, writeFileSync } from "node:fs";
+import { chmodSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, statSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
@@ -25,6 +25,8 @@ import {
 import {
   libraryAnalysisAgentSegmentResponseHash,
 } from "../../src/lib/knowledge/library-analysis-agent-response";
+import { deriveLibraryAnalysisAgentQueueState } from "../../src/lib/knowledge/library-analysis-agent-checkpoint";
+import { verifyLibraryAnalysisAgentQueue, type LibraryAnalysisAgentQueue } from "../../src/lib/knowledge/library-analysis-agent-queue";
 
 const HASHES = {
   population: "1".repeat(64),
@@ -210,6 +212,43 @@ test("prepare-attempt emits exactly one job and refuses overwrite", async () => 
     }),
     /private_artifact_exists/,
   );
+});
+
+test("prepare-attempt rejects a non-dispatchable attempt without creating artifacts", async () => {
+  const fixture = endToEndFixture(undefined);
+  const built = await runLibraryAnalysisAgentQueueCli({
+    command: "build", runRoot: fixture.runRoot, resolution: fixture.resolutionPath,
+    manifest: fixture.manifestPath, costEnvelopeHash: fixture.costHash,
+    mergedInventoryHash: fixture.inventoryHash, runtimeCommit: "5f3eb1c", repositoryRoot: fixture.repositoryRoot,
+  });
+  const queue = JSON.parse(readFileSync(built.queuePath, "utf8")) as { jobs: Array<{ jobId: string }> };
+  const jobId = queue.jobs[0]!.jobId;
+  await assert.rejects(
+    runLibraryAnalysisAgentQueueCli({
+      command: "prepare-attempt", runRoot: fixture.runRoot, queue: built.queuePath,
+      jobId, attempt: 2, expectedModel: EXPECTED_MODEL,
+    }),
+    /agent_queue_attempt_not_dispatchable/u,
+  );
+  assert.equal(existsSync(join(fixture.runRoot, "jobs")), false);
+
+  const first = await runLibraryAnalysisAgentQueueCli({
+    command: "prepare-attempt", runRoot: fixture.runRoot, queue: built.queuePath,
+    jobId, attempt: 1, expectedModel: EXPECTED_MODEL,
+  });
+  await fixture.writeValidLunaResponse(first);
+  await runLibraryAnalysisAgentQueueCli({
+    command: "accept-attempt", runRoot: fixture.runRoot, queue: built.queuePath,
+    attemptInput: first.inputPath, response: fixture.lastLunaResponsePath!,
+  });
+  await assert.rejects(
+    runLibraryAnalysisAgentQueueCli({
+      command: "prepare-attempt", runRoot: fixture.runRoot, queue: built.queuePath,
+      jobId, attempt: 2, expectedModel: EXPECTED_MODEL,
+    }),
+    /agent_queue_attempt_not_dispatchable/u,
+  );
+  assert.equal(readdirSync(join(fixture.runRoot, "jobs", jobId)).includes("attempt-002"), false);
 });
 
 test("prepare-attempt accepts only the authoritative queue path for its queue hash", async () => {
@@ -1023,10 +1062,7 @@ test("private workflow builds dispatches validates resumes and finalizes without
     runtimeCommit: "5f3eb1c",
     repositoryRoot: fixture.repositoryRoot,
   });
-  const queueDocument = JSON.parse(readFileSync(queue.queuePath, "utf8")) as {
-    jobs: Array<{ jobId: string }>;
-    sources: Array<{ sourceEnvelopeHash: string }>;
-  };
+  const queueDocument = verifyLibraryAnalysisAgentQueue(JSON.parse(readFileSync(queue.queuePath, "utf8")));
   const invokePrepare = (jobId: string) => runLibraryAnalysisAgentQueueCli({
     command: "prepare-attempt", runRoot: fixture.runRoot, queue: queue.queuePath,
     jobId, attempt: 1, expectedModel: EXPECTED_MODEL,
@@ -1046,6 +1082,12 @@ test("private workflow builds dispatches validates resumes and finalizes without
   assert.equal(resumed.state, "pending");
   assert.equal(resumed.reusableJobs, 1);
   assert.equal(resumed.pendingJobs, 1);
+  const state = deriveLibraryAnalysisAgentQueueState({
+    queue: queueDocument,
+    attempts: [readAcceptedAttemptReceipt(fixture, queueDocument, firstJob)],
+  });
+  assert.equal(state.nextAttempts.some((next) => next.jobId === firstJob.jobId), false);
+  assert.deepEqual(state.nextAttempts, [{ jobId: remainingJobs[0]!.jobId, attempt: 1 }]);
   assert.equal(readdirSync(join(fixture.runRoot, "jobs", firstJob.jobId)).includes("attempt-002"), false);
   assert.equal(remainingJobs.length, 1);
   for (const job of remainingJobs) {
@@ -1172,6 +1214,60 @@ function endToEndFixture(_t: unknown): EndToEndFixture {
   };
   return fixture;
 }
+
+function readAcceptedAttemptReceipt(
+  fixture: ReturnType<typeof makeFixture>,
+  queue: LibraryAnalysisAgentQueue,
+  job: LibraryAnalysisAgentQueue["jobs"][number],
+): Record<string, unknown> {
+  const attemptRoot = `jobs/${job.jobId}/attempt-001`;
+  const inputPath = join(fixture.runRoot, attemptRoot, "input.json");
+  const responsePath = join(fixture.runRoot, attemptRoot, "response.json");
+  const acceptedPath = join(fixture.runRoot, attemptRoot, "accepted.json");
+  const artifact = (portablePath: string, path: string) => ({
+    portablePath,
+    sha256: sha256(readFileSync(path, "utf8")),
+    sizeBytes: statSync(path).size,
+    mode: 0o400,
+  });
+  const input = JSON.parse(readFileSync(inputPath, "utf8")) as { inputHash: string };
+  const accepted = JSON.parse(readFileSync(acceptedPath, "utf8")) as { responseHash: string; model: typeof EXPECTED_MODEL };
+  return {
+    queueHash: queue.queueHash,
+    jobId: job.jobId,
+    jobHash: job.inputEnvelopeHash,
+    attempt: 1,
+    inputHash: input.inputHash,
+    responseHash: sha256(readFileSync(responsePath, "utf8")),
+    status: "accepted",
+    inputArtifact: artifact(`${attemptRoot}/input.json`, inputPath),
+    responseArtifact: artifact(`${attemptRoot}/response.json`, responsePath),
+    outputHash: accepted.responseHash,
+    outputArtifact: artifact(`${attemptRoot}/accepted.json`, acceptedPath),
+    model: accepted.model,
+  };
+}
+
+test("tracked implementation receipt is sanitized and states only allowed gates", () => {
+  const receiptPath = join(process.cwd(), "research", "_status", "library-analysis-codex-native-orchestration-2026-08-21.md");
+  const receipt = readFileSync(receiptPath, "utf8");
+  for (const forbidden of [
+    /\/Users\//u,
+    /\b(?:sourceKey|sourceId|sourceEnvelopeHash|sourceVersionHash|sourceKind)\b/u,
+    /\b(?:unitId|unitKey|jobId|jobHash)\b/u,
+    /\b(?:locator|portablePath|privateArtifact|evidence|claims?)\b/u,
+    /\b(?:Gabriel|Freeman)\b/u,
+    /\b(?:the|a|this|actual)\s+(?:full queue|semantic pilot)\s+(?:was\s+)?(?:run|executed|completed)\b/iu,
+  ]) assert.doesNotMatch(receipt, forbidden);
+  assert.match(receipt, /Expected full coverage: `1,569 \/ 8,393`/u);
+  assert.match(receipt, /Private queue status: fixture terminal; full queue not-yet-run\./u);
+  assert.match(receipt, /Next gate: semantic pilot execution\./u);
+  for (const flag of [
+    "automatedOnly=true", "externalReady=false", "externalApiUsed=false",
+    "candidateDatabaseWritten=false", "productionDataMutated=false", "humanSourceReviewRequired=false",
+  ]) assert.match(receipt, new RegExp(`\\x60${flag}\\x60`, "u"));
+  assert.match(receipt, /No real semantic pilot was executed\./u);
+});
 
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");

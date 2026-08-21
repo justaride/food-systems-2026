@@ -4,7 +4,8 @@ Status: private fixture rehearsal complete.
 
 - Design commit: `5f3eb1cf8cf0a5633104fb06e82ac763d72cca0b`
 - Plan commit: `53c1c4e6e4a2b9d334539659a9551aac7b1e6cd2`
-- Implementation commit: `281bf51f3198d7f4a84d084d4122133166b72e94`
+- Workflow implementation through Task 7: `281bf51f3198d7f4a84d084d4122133166b72e94`
+- Task 8 initial rehearsal and receipt commit: `14e37cf`
 - Schema versions: queue/v1, job-input/v1, segment-response/v1, source-result/v1, validation-request/v1, validation-response/v1, validation-result/v1, terminal-receipt/v1.
 - Policy version: execution-policy/v1; maximum attempts 3; maximum concurrent analyzers 3.
 - Expected full coverage: `1,569 / 8,393`.
