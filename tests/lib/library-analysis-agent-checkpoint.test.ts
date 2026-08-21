@@ -242,6 +242,25 @@ test("terminal receipt rejects missing private readback proof arrays", () => {
   }), /queue_terminal_coverage_mismatch|queue_terminal/);
 });
 
+test("terminal receipt rejects aggregate-complete jobs whose units are swapped across sources", () => {
+  const queue = queueFixture();
+  queue.jobs = [
+    { ...queue.jobs[0]!, unitIds: ["unit:b"] },
+    { ...queue.jobs[1]!, jobId: "job:b", unitIds: ["unit:a"] },
+  ];
+  assert.throws(() => buildLibraryAnalysisAgentTerminalReceipt({
+    queue,
+    sourceResults: [],
+    validationResults: [],
+    attempts: [],
+    finalMergeHash: HASH,
+    privateInventoryHash: HASH_B,
+    acceptedArtifacts: [],
+    sourceArtifacts: [],
+    validationArtifacts: [],
+  }), /queue_terminal_coverage_mismatch/);
+});
+
 test("sanitized receipt structurally excludes identifiers, content, and paths", () => {
   const sanitized = sanitizeLibraryAnalysisAgentReceipt({
     schema: "library-analysis-agent-terminal-receipt/v1",

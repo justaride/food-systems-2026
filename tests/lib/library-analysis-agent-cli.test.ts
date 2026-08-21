@@ -698,6 +698,42 @@ test("status derives a sanitized pending snapshot from a sealed queue", async ()
   assert.equal(status.externalReady, false);
 });
 
+test("status rejects accepted and terminal artifacts coexisting in one attempt directory", async () => {
+  const fixture = makeFixture();
+  const built = await runLibraryAnalysisAgentQueueCli({
+    command: "build", runRoot: fixture.runRoot, resolution: fixture.resolutionPath,
+    manifest: fixture.manifestPath, costEnvelopeHash: fixture.costHash,
+    mergedInventoryHash: fixture.inventoryHash, runtimeCommit: "5f3eb1c", repositoryRoot: fixture.repositoryRoot,
+  });
+  const queue = JSON.parse(readFileSync(built.queuePath, "utf8")) as { jobs: Array<{ jobId: string }> };
+  const job = queue.jobs[0]!;
+  const prepared = await runLibraryAnalysisAgentQueueCli({ command: "prepare-attempt", runRoot: fixture.runRoot,
+    queue: built.queuePath, jobId: job.jobId, attempt: 1, expectedModel: EXPECTED_MODEL });
+  const input = JSON.parse(readFileSync(prepared.inputPath, "utf8")) as {
+    queueHash: string; jobId: string; attempt: number; inputHash: string;
+    job: { inputEnvelopeHash: string }; expectedModel: typeof EXPECTED_MODEL; units: Array<{ id: string }>;
+  };
+  const response = {
+    schema: "library-analysis-agent-segment-response/v1" as const,
+    queueHash: input.queueHash, jobId: input.jobId, jobHash: input.job.inputEnvelopeHash,
+    attempt: input.attempt, inputHash: input.inputHash, model: input.expectedModel,
+    unitCoverage: input.units.map((unit) => ({ contentUnitId: unit.id, status: "no_material_claim" as const })),
+    claims: [], responseHash: "0".repeat(64),
+  };
+  response.responseHash = libraryAnalysisAgentSegmentResponseHash(response);
+  const responsePath = join(fixture.base, "conflict-response.json");
+  writeFileSync(responsePath, JSON.stringify(response), { mode: 0o600 });
+  const accepted = await runLibraryAnalysisAgentQueueCli({ command: "accept-attempt", runRoot: fixture.runRoot,
+    queue: built.queuePath, attemptInput: prepared.inputPath, response: responsePath });
+  const acceptedBytes = readFileSync(accepted.acceptedPath);
+  const terminalPath = join(fixture.runRoot, "jobs", job.jobId, "attempt-001", "terminal.json");
+  writeFileSync(terminalPath, acceptedBytes, { mode: 0o400 });
+  await assert.rejects(runLibraryAnalysisAgentQueueCli({ command: "status", runRoot: fixture.runRoot,
+    queue: built.queuePath }), /agent_queue_attempt_terminal_conflict/);
+  assert.deepEqual(readFileSync(accepted.acceptedPath), acceptedBytes);
+  assert.deepEqual(readFileSync(terminalPath), acceptedBytes);
+});
+
 test("finalize seals complete private readback arrays and separates pre/post inventory audit", async () => {
   const fixture = makeFixture();
   const built = await runLibraryAnalysisAgentQueueCli({
