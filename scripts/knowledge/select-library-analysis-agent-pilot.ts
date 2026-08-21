@@ -14,11 +14,13 @@ import {
 } from "../../src/lib/knowledge/library-analysis-acquisition-contract";
 import {
   deriveLibraryAnalysisAgentQueueSubset,
+  verifyLibraryAnalysisAgentPilotQueue,
   verifyLibraryAnalysisAgentQueue,
   type LibraryAnalysisAgentQueue,
 } from "../../src/lib/knowledge/library-analysis-agent-queue";
 import {
   openPrivateLibraryAnalysisRunRoot,
+  readAndVerifyPrivateArtifact,
   writePrivateManifestAtomic,
 } from "../../src/lib/knowledge/private-library-analysis-artifact-store";
 
@@ -100,36 +102,10 @@ export function selectLibraryAnalysisAgentPilot(
       throw new Error("agent_pilot_stratum_unavailable");
     }
   }
-  const selected = new Map<string, Candidate>();
-  for (const stratum of LIBRARY_ANALYSIS_AGENT_PILOT_STRATA) {
-    const candidate = byStratum.get(stratum)!.find((item) => !selected.has(sourceIdentity(item.source)));
-    if (candidate === undefined) throw new Error("agent_pilot_stratum_unavailable");
-    selected.set(sourceIdentity(candidate.source), candidate);
-  }
-  let codePoints = totalCodePoints([...selected.values()]);
-  let unitCount = totalUnits([...selected.values()]);
-  if (codePoints > MAX_CODE_POINTS || unitCount > MAX_UNITS) {
-    throw new Error("agent_pilot_capacity_unsatisfied");
-  }
-
-  const fillers = candidates.filter((candidate) => !selected.has(sourceIdentity(candidate.source))).sort(compareCandidates);
-  for (const candidate of fillers) {
-    if (selected.size >= MAX_SOURCES || (selected.size >= MIN_SOURCES && codePoints >= MIN_CODE_POINTS)) break;
-    const nextCodePoints = codePoints + candidate.source.codePoints;
-    const nextUnits = unitCount + candidate.source.unitCount;
-    if (nextCodePoints > MAX_CODE_POINTS || nextUnits > MAX_UNITS) continue;
-    selected.set(sourceIdentity(candidate.source), candidate);
-    codePoints = nextCodePoints;
-    unitCount = nextUnits;
-  }
-  if (selected.size < MIN_SOURCES || codePoints < MIN_CODE_POINTS) {
-    throw new Error("agent_pilot_capacity_unsatisfied");
-  }
-  if (selected.size > MAX_SOURCES || unitCount > MAX_UNITS || codePoints > MAX_CODE_POINTS) {
-    throw new Error("agent_pilot_capacity_unsatisfied");
-  }
-
-  const selectedCandidates = [...selected.values()].sort(compareCandidates);
+  const selectedCandidates = findFeasibleSelection(candidates, byStratum);
+  if (selectedCandidates === null) throw new Error("agent_pilot_capacity_unsatisfied");
+  const codePoints = totalCodePoints(selectedCandidates);
+  const unitCount = totalUnits(selectedCandidates);
   const sourceIds = selectedCandidates.map((candidate) => candidate.source.sourceEnvelopeHash);
   const strata = LIBRARY_ANALYSIS_AGENT_PILOT_STRATA.filter((stratum) =>
     selectedCandidates.some((candidate) => candidate.stratum === stratum),
@@ -139,14 +115,23 @@ export function selectLibraryAnalysisAgentPilot(
     schema: "library-analysis-agent-pilot-binding/v1" as const,
     parentFullQueueHash: queue.queueHash,
     parentSelectionHash: queue.selectionHash,
-    planHash: plan.planHash,
+    acquisitionPlanHash: plan.planHash,
   };
-  const selectionHash = candidateAnalysisSha256("library-analysis-agent-selection", {
+  const childSelectionHash = candidateAnalysisSha256("library-analysis-agent-selection", {
     sources: queue.sources.filter((source) => selectedIdentities.has(sourceIdentity(source))),
     units: queue.units
-      .filter((unit) => selectedIdentities.has(sourceIdentity(unit)))
+      .filter((unit) => selectedIdentities.has(unitSourceIdentity(unit)))
       .map(unitBinding),
     pilotBinding,
+  });
+  const selectionHash = candidateAnalysisSha256("library-analysis-agent-pilot-selection", {
+    schema: LIBRARY_ANALYSIS_AGENT_PILOT_SCHEMA,
+    parentFullQueueHash: queue.queueHash,
+    parentSelectionHash: queue.selectionHash,
+    planHash: plan.planHash,
+    sourceIds,
+    strata,
+    childSelectionHash,
   });
   const pilotQueue = deriveLibraryAnalysisAgentQueueSubset({
     queue,
@@ -154,7 +139,7 @@ export function selectLibraryAnalysisAgentPilot(
       sourceKind: candidate.source.sourceKind,
       sourceKey: candidate.source.sourceKey,
     })),
-    pilotBinding: { ...pilotBinding, pilotSelectionHash: selectionHash },
+    pilotBinding: { ...pilotBinding, childSelectionHash },
   });
   return {
     schema: LIBRARY_ANALYSIS_AGENT_PILOT_SCHEMA,
@@ -176,7 +161,7 @@ function classifySource(
   row: LibraryAnalysisAcquisitionPlan["rows"][number],
 ): LibraryAnalysisAgentPilotStratum | null {
   if (row.route === "database_document" && source.sourceKind === "document") {
-    const jobs = queue.jobs.filter((job) => sourceIdentity(job) === sourceIdentity(source));
+    const jobs = queue.jobs.filter((job) => queueSourceIdentity(job) === queueSourceIdentity(source));
     if (jobs.length > 1 || source.codePoints > DATABASE_MEDIUM_MAX) return "database_segmented";
     if (source.codePoints <= DATABASE_SMALL_MAX) return "database_small";
     return "database_medium";
@@ -193,7 +178,7 @@ function sourceHasUnitType(
   source: LibraryAnalysisAgentQueue["sources"][number],
   unitType: LibraryAnalysisAgentQueue["units"][number]["unitType"],
 ): boolean {
-  return queue.units.some((unit) => sourceIdentity(unit) === sourceIdentity(source) && unit.unitType === unitType);
+  return queue.units.some((unit) => unitSourceIdentity(unit) === queueSourceIdentity(source) && unit.unitType === unitType);
 }
 
 function sourceHasPdfEvidence(
@@ -203,7 +188,8 @@ function sourceHasPdfEvidence(
 ): boolean {
   if (!sourceHasUnitType(queue, source, "pdf_page") || locator === null) return false;
   try {
-    return new URL(locator).pathname.toLowerCase().endsWith(".pdf");
+    const url = new URL(locator);
+    return url.protocol === "https:" && !url.username && !url.password && !url.hash && url.pathname.toLowerCase().endsWith(".pdf");
   } catch {
     return false;
   }
@@ -211,6 +197,115 @@ function sourceHasPdfEvidence(
 
 function sourceIdentity(source: { sourceKind: string; sourceKey: string }): string {
   return `${source.sourceKind}\u0000${source.sourceKey}`;
+}
+
+function queueSourceIdentity(source: { sourceKind: string; sourceKey: string }): string {
+  return sourceIdentity(source);
+}
+
+function unitSourceIdentity(unit: { sourceKind: string; populationSourceKey: string }): string {
+  return `${unit.sourceKind}\u0000${unit.populationSourceKey}`;
+}
+
+function findFeasibleSelection(
+  candidates: readonly Candidate[],
+  byStratum: ReadonlyMap<LibraryAnalysisAgentPilotStratum, Candidate[]>,
+): Candidate[] | null {
+  const orderedStrata = [...LIBRARY_ANALYSIS_AGENT_PILOT_STRATA];
+  const selected: Candidate[] = [];
+  const searchPrimary = (index: number): Candidate[] | null => {
+    if (index === orderedStrata.length) {
+      const primaryIds = new Set(selected.map((candidate) => sourceIdentity(candidate.source)));
+      const fillers = candidates.filter((candidate) => !primaryIds.has(sourceIdentity(candidate.source))).sort(compareCandidates);
+      for (let count = MIN_SOURCES - selected.length; count <= MAX_SOURCES - selected.length; count += 1) {
+        const found = findFillers(fillers, totalCodePoints(selected), totalUnits(selected), count);
+        if (found !== null) return [...selected, ...found];
+      }
+      return null;
+    }
+    const stratum = orderedStrata[index]!;
+    for (const candidate of byStratum.get(stratum)!) {
+      selected.push(candidate);
+      if (totalCodePoints(selected) <= MAX_CODE_POINTS && totalUnits(selected) <= MAX_UNITS) {
+        const found = searchPrimary(index + 1);
+        if (found !== null) return found;
+      }
+      selected.pop();
+    }
+    return null;
+  };
+  return searchPrimary(0);
+}
+
+function findFillers(
+  candidates: readonly Candidate[],
+  baseCodePoints: number,
+  baseUnits: number,
+  count: number,
+): Candidate[] | null {
+  if (count < 0 || count > 5) return null;
+  const largestSuffix = buildSuffixExtrema(candidates, true);
+  const smallestSuffix = buildSuffixExtrema(candidates, false);
+  const chosen: Candidate[] = [];
+  const memo = new Map<string, Candidate[] | false>();
+  const search = (start: number, codePoints: number, units: number): Candidate[] | null => {
+    const memoKey = `${start}\u0000${chosen.length}\u0000${codePoints}\u0000${units}`;
+    const memoized = memo.get(memoKey);
+    if (memoized !== undefined) return memoized === false ? null : memoized;
+    const remaining = count - chosen.length;
+    if (remaining === 0) {
+      const result = codePoints >= MIN_CODE_POINTS && codePoints <= MAX_CODE_POINTS && units <= MAX_UNITS ? [...chosen] : null;
+      memo.set(memoKey, result ?? false);
+      return result;
+    }
+    if (candidates.length - start < remaining || codePoints > MAX_CODE_POINTS || units > MAX_UNITS) {
+      memo.set(memoKey, false);
+      return null;
+    }
+    if (codePoints + (largestSuffix[start]?.[remaining] ?? Number.NEGATIVE_INFINITY) < MIN_CODE_POINTS) {
+      memo.set(memoKey, false);
+      return null;
+    }
+    if (codePoints + (smallestSuffix[start]?.[remaining] ?? Number.POSITIVE_INFINITY) > MAX_CODE_POINTS) {
+      memo.set(memoKey, false);
+      return null;
+    }
+    for (let index = start; index <= candidates.length - remaining; index += 1) {
+      const candidate = candidates[index]!;
+      const nextCodePoints = codePoints + candidate.source.codePoints;
+      const nextUnits = units + candidate.source.unitCount;
+      if (nextCodePoints > MAX_CODE_POINTS || nextUnits > MAX_UNITS) continue;
+      chosen.push(candidate);
+      const found = search(index + 1, nextCodePoints, nextUnits);
+      if (found !== null) {
+        memo.set(memoKey, found);
+        return found;
+      }
+      chosen.pop();
+    }
+    memo.set(memoKey, false);
+    return null;
+  };
+  return search(0, baseCodePoints, baseUnits);
+}
+
+function buildSuffixExtrema(
+  candidates: readonly Candidate[],
+  largest: boolean,
+): number[][] {
+  const impossible = largest ? Number.NEGATIVE_INFINITY : Number.POSITIVE_INFINITY;
+  const suffix = Array.from({ length: candidates.length + 1 }, () => Array<number>(6).fill(impossible));
+  suffix[candidates.length]![0] = 0;
+  for (let index = candidates.length - 1; index >= 0; index -= 1) {
+    suffix[index]![0] = 0;
+    for (let count = 1; count <= 5; count += 1) {
+      const skip = suffix[index + 1]![count]!;
+      const takePrevious = suffix[index + 1]![count - 1]!;
+      const take = takePrevious === impossible ? impossible : candidates[index]!.source.codePoints + takePrevious;
+      suffix[index]![count] = largest ? Math.max(skip, take) : Math.min(skip, take);
+    }
+  }
+  return suffix;
 }
 
 function compareCandidates(left: Candidate, right: Candidate): number {
@@ -283,7 +378,7 @@ export async function runLibraryAnalysisAgentPilotCli(options: LibraryAnalysisAg
   const selection = selectLibraryAnalysisAgentPilot({ queue, plan });
   const outputRoot = openPrivateLibraryAnalysisRunRoot(dirname(options.outputRoot), basename(options.outputRoot));
   if (outputRoot !== options.outputRoot) throw new Error("agent_pilot_output_root_mismatch");
-  writePrivateManifestAtomic(outputRoot, "pilot-selection.v1.json", Buffer.from(`${JSON.stringify({
+  const selectionReceipt = writePrivateManifestAtomic(outputRoot, "pilot-selection.v1.json", Buffer.from(`${JSON.stringify({
     schema: selection.schema,
     parentFullQueueHash: selection.parentFullQueueHash,
     parentSelectionHash: selection.parentSelectionHash,
@@ -294,7 +389,10 @@ export async function runLibraryAnalysisAgentPilotCli(options: LibraryAnalysisAg
     unitCount: selection.unitCount,
     codePoints: selection.codePoints,
   }, null, 2)}\n`, "utf8"));
-  writePrivateManifestAtomic(outputRoot, "pilot-queue.v1.json", Buffer.from(`${JSON.stringify(selection.queue, null, 2)}\n`, "utf8"));
+  const queueReceipt = writePrivateManifestAtomic(outputRoot, "pilot-queue.v1.json", Buffer.from(`${JSON.stringify(selection.queue, null, 2)}\n`, "utf8"));
+  const persistedQueue = JSON.parse(readAndVerifyPrivateArtifact(outputRoot, "pilot-queue.v1.json", { sha256: queueReceipt.sha256, sizeBytes: queueReceipt.sizeBytes, mode: 0o400 }).toString("utf8")) as LibraryAnalysisAgentQueue;
+  const persistedSelection = JSON.parse(readAndVerifyPrivateArtifact(outputRoot, "pilot-selection.v1.json", { sha256: selectionReceipt.sha256, sizeBytes: selectionReceipt.sizeBytes, mode: 0o400 }).toString("utf8")) as Omit<LibraryAnalysisAgentPilotSelection, "queue">;
+  verifyLibraryAnalysisAgentPilotQueue(queue, persistedQueue, { ...persistedSelection, queue: persistedQueue });
   process.stdout.write(`${JSON.stringify({ command: "agent-pilot", selectionHash: selection.selectionHash, queueHash: selection.queue.queueHash, sources: selection.sourceIds.length, units: selection.unitCount, codePoints: selection.codePoints, strata: selection.strata.length, automatedOnly: true, externalReady: false })}\n`);
   return selection;
 }

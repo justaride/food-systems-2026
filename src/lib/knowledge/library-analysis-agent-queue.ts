@@ -108,8 +108,8 @@ const pilotBindingSchema = z.object({
   schema: z.literal("library-analysis-agent-pilot-binding/v1"),
   parentFullQueueHash: hashSchema,
   parentSelectionHash: hashSchema,
-  planHash: hashSchema,
-  pilotSelectionHash: hashSchema,
+  acquisitionPlanHash: hashSchema,
+  childSelectionHash: hashSchema,
 }).strict();
 
 const queueCoreSchema = z.object({
@@ -151,6 +151,16 @@ export type DeriveLibraryAnalysisAgentQueueSubsetInput = {
   queue: LibraryAnalysisAgentQueue;
   sourceKeys: ReadonlyArray<{ sourceKind: string; sourceKey: string }>;
   pilotBinding: LibraryAnalysisAgentPilotBinding;
+};
+
+export type LibraryAnalysisAgentPilotSelectionProof = {
+  parentFullQueueHash: string;
+  parentSelectionHash: string;
+  planHash: string;
+  selectionHash: string;
+  sourceIds: readonly string[];
+  strata: readonly string[];
+  queue: LibraryAnalysisAgentQueue;
 };
 
 export type BuildLibraryAnalysisAgentQueueInput = {
@@ -436,6 +446,9 @@ export function verifyLibraryAnalysisAgentQueue(rawQueue: unknown): LibraryAnaly
     if (queue.pilotBinding.parentFullQueueHash === queue.queueHash) {
       throw new Error("agent_queue_pilot_parent_self_reference");
     }
+    if (queue.pilotBinding.acquisitionPlanHash !== queue.acquisitionPlanHash || queue.pilotBinding.childSelectionHash !== queue.selectionHash) {
+      throw new Error("agent_queue_pilot_lineage_binding_mismatch");
+    }
   }
   return queue;
 }
@@ -458,10 +471,10 @@ export function deriveLibraryAnalysisAgentQueueSubset(
   if (identities.size === 0) throw new Error("agent_queue_subset_empty");
   const sources = parent.sources.filter((source) => identities.has(`${source.sourceKind}\u0000${source.sourceKey}`));
   if (sources.length !== identities.size) throw new Error("agent_queue_subset_source_missing");
-  const units = parent.units.filter((unit) => identities.has(`${unit.sourceKind}\u0000${unit.sourceKey}`));
+  const units = parent.units.filter((unit) => identities.has(`${unit.sourceKind}\u0000${unit.populationSourceKey}`));
   const jobs = parent.jobs.filter((job) => identities.has(`${job.sourceKind}\u0000${job.sourceKey}`));
   const pilotBinding = pilotBindingSchema.parse(input.pilotBinding);
-  if (pilotBinding.parentFullQueueHash !== parent.queueHash || pilotBinding.parentSelectionHash !== parent.selectionHash || pilotBinding.planHash !== parent.acquisitionPlanHash) {
+  if (pilotBinding.parentFullQueueHash !== parent.queueHash || pilotBinding.parentSelectionHash !== parent.selectionHash || pilotBinding.acquisitionPlanHash !== parent.acquisitionPlanHash) {
     throw new Error("agent_queue_subset_parent_binding_mismatch");
   }
   const selectionHash = candidateAnalysisSha256("library-analysis-agent-selection", {
@@ -469,7 +482,7 @@ export function deriveLibraryAnalysisAgentQueueSubset(
     units: units.map((unit) => unitBinding(unit)),
     pilotBinding: pilotBindingHashInput(pilotBinding),
   });
-  if (selectionHash !== pilotBinding.pilotSelectionHash) throw new Error("agent_queue_subset_selection_binding_mismatch");
+  if (selectionHash !== pilotBinding.childSelectionHash) throw new Error("agent_queue_subset_selection_binding_mismatch");
   const { queueId: _queueId, queueHash: _queueHash, ...parentCore } = parent;
   const core: LibraryAnalysisAgentQueueCore = {
     ...parentCore,
@@ -487,12 +500,71 @@ export function deriveLibraryAnalysisAgentQueueSubset(
   }));
 }
 
+export function verifyLibraryAnalysisAgentPilotQueue(
+  parentRaw: unknown,
+  childRaw: unknown,
+  proofRaw: LibraryAnalysisAgentPilotSelectionProof,
+): LibraryAnalysisAgentQueue {
+  const parent = verifyLibraryAnalysisAgentQueue(parentRaw);
+  const child = verifyLibraryAnalysisAgentQueue(childRaw);
+  const proof = proofRaw;
+  if (
+    proof.parentFullQueueHash !== parent.queueHash ||
+    proof.parentSelectionHash !== parent.selectionHash ||
+    proof.planHash !== parent.acquisitionPlanHash ||
+    proof.queue.queueHash !== child.queueHash ||
+    !/^[a-f0-9]{64}$/u.test(proof.selectionHash)
+  ) {
+    throw new Error("agent_pilot_lineage_parent_binding_mismatch");
+  }
+  const binding = child.pilotBinding;
+  if (
+    binding === undefined ||
+    binding.parentFullQueueHash !== parent.queueHash ||
+    binding.parentSelectionHash !== parent.selectionHash ||
+    binding.acquisitionPlanHash !== parent.acquisitionPlanHash ||
+    binding.childSelectionHash !== child.selectionHash
+  ) {
+    throw new Error("agent_pilot_lineage_binding_mismatch");
+  }
+  const parentSources = new Map(parent.sources.map((source) => [sourceIdentity(source), source]));
+  const parentUnits = new Map(parent.units.map((unit) => [unit.id, unit]));
+  const parentJobs = new Map(parent.jobs.map((job) => [job.jobId, job]));
+  for (const source of child.sources) {
+    const parentSource = parentSources.get(sourceIdentity(source));
+    if (parentSource === undefined || canonicalCandidateJson(source) !== canonicalCandidateJson(parentSource)) throw new Error("agent_pilot_lineage_source_subset_mismatch");
+  }
+  for (const unit of child.units) {
+    const parentUnit = parentUnits.get(unit.id);
+    if (parentUnit === undefined || canonicalCandidateJson(unit) !== canonicalCandidateJson(parentUnit)) throw new Error("agent_pilot_lineage_unit_subset_mismatch");
+  }
+  for (const job of child.jobs) {
+    const parentJob = parentJobs.get(job.jobId);
+    if (parentJob === undefined || canonicalCandidateJson(job) !== canonicalCandidateJson(parentJob)) throw new Error("agent_pilot_lineage_job_subset_mismatch");
+  }
+  if (
+    child.sources.length !== proof.sourceIds.length ||
+    child.sources.map((source) => source.sourceEnvelopeHash).sort(compareCandidateJsonKeysUtf8).join("\u0000") !== [...proof.sourceIds].sort(compareCandidateJsonKeysUtf8).join("\u0000")
+  ) throw new Error("agent_pilot_lineage_source_ids_mismatch");
+  const expectedPilotSelectionHash = candidateAnalysisSha256("library-analysis-agent-pilot-selection", {
+    schema: "library-analysis-agent-pilot-selection/v1",
+    parentFullQueueHash: parent.queueHash,
+    parentSelectionHash: parent.selectionHash,
+    planHash: parent.acquisitionPlanHash,
+    sourceIds: [...proof.sourceIds],
+    strata: [...proof.strata],
+    childSelectionHash: child.selectionHash,
+  });
+  if (proof.selectionHash !== expectedPilotSelectionHash) throw new Error("agent_pilot_lineage_selection_hash_mismatch");
+  return child;
+}
+
 function pilotBindingHashInput(binding: LibraryAnalysisAgentPilotBinding): CandidateJsonValue {
   return {
     schema: binding.schema,
     parentFullQueueHash: binding.parentFullQueueHash,
     parentSelectionHash: binding.parentSelectionHash,
-    planHash: binding.planHash,
+    acquisitionPlanHash: binding.acquisitionPlanHash,
   };
 }
 
@@ -579,6 +651,10 @@ function buildJobs(source: { sourceKind: string; sourceKey: string; units: Libra
 
 function compareIdentity(left: { sourceKind: string; sourceKey: string }, right: { sourceKind: string; sourceKey: string }): number {
   return compareCandidateJsonKeysUtf8(left.sourceKind, right.sourceKind) || compareCandidateJsonKeysUtf8(left.sourceKey, right.sourceKey);
+}
+
+function sourceIdentity(source: { sourceKind: string; sourceKey: string }): string {
+  return `${source.sourceKind}\u0000${source.sourceKey}`;
 }
 
 function uniqueMap<T extends Record<string, unknown>>(values: readonly T[], key: keyof T, error: string): Map<string, T> {
