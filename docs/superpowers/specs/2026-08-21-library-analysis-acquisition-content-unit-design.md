@@ -1,7 +1,7 @@
 # Kontrollert kildeinntak og innholdsenheter for library-analysis
 
 - **Dato:** 2026-08-21
-- **Status:** Designretning godkjent av Gabriel 2026-08-21; skriftlig spesifikasjon venter eksplisitt review
+- **Status:** Skriftlig spesifikasjon godkjent av Gabriel 2026-08-21
 - **Overordnet valideringsdesign:** `docs/superpowers/specs/2026-08-20-automated-library-analysis-validation-design.md`
 - **Kandidatarkitektur:** `docs/superpowers/specs/2026-08-18-autonomous-ai-candidate-layer-design.md`
 - **Planleggingsgrunnlag:** privat populasjonssnapshot `library-analysis-population:00a9ab5b9105442d0c6ce9a84102a5ca681a0949d331bd635277febacd789dcb`
