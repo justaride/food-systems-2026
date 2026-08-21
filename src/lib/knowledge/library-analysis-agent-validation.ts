@@ -31,7 +31,8 @@ const hashSchema = z.string().regex(HASH);
 const identifierSchema = z.string().regex(/^[a-z0-9][a-z0-9._:-]*$/u);
 const textSchema = z.string().min(1);
 const NUMERIC_TOKEN_PATTERN = /[+-]?(?:\d{1,3}(?:[ ,]\d{3})+|\d+)(?:[.,]\d+)?/gu;
-const PERCENT_MARKER_PATTERN = /^\s*(%|percent(?:age)?|prosent(?:poeng)?)(?![a-z])/iu;
+const PERCENTAGE_POINT_MARKER_PATTERN = /^\s*(?:percentage[\s-]+points?|prosent[\s-]*poeng)(?![a-z])/iu;
+const PERCENT_MARKER_PATTERN = /^\s*(%|percent(?:age)?|prosent)(?![a-z])/iu;
 const CURRENCY_PREFIX_PATTERN = /(?:^|[\s([{])([#$€£]|NOK|USD|EUR|GBP|SEK|DKK|kr)\s*$/iu;
 const CURRENCY_SUFFIX_PATTERN = /^\s*(NOK|USD|EUR|GBP|SEK|DKK|kr)(?![a-z])|^\s*([$€£])(?=\s|[.,;:!?)]|$)/iu;
 
@@ -336,7 +337,7 @@ function deterministicFinding(input: {
 type AuthoritativeNumericToken = {
   value: string;
   sign: "" | "+" | "-";
-  kind: "number" | "percent" | "currency";
+  kind: "number" | "percent" | "percentage_point" | "currency";
   currency: string | null;
   currencyPosition: "prefix" | "suffix" | null;
 };
@@ -367,12 +368,15 @@ function authoritativeNumericTokens(text: string): AuthoritativeNumericToken[] {
     const after = text.slice(end);
     const prefix = CURRENCY_PREFIX_PATTERN.exec(before);
     const suffix = CURRENCY_SUFFIX_PATTERN.exec(after);
+    const percentagePoint = PERCENTAGE_POINT_MARKER_PATTERN.exec(after);
     const percent = PERCENT_MARKER_PATTERN.exec(after);
     const currencyMarker = prefix?.[1] ?? suffix?.[1] ?? suffix?.[2] ?? null;
     tokens.push({
       value: normalizeNumericValue(raw),
       sign,
-      kind: currencyMarker === null ? (percent === null ? "number" : "percent") : "currency",
+      kind: currencyMarker === null
+        ? (percentagePoint !== null ? "percentage_point" : percent === null ? "number" : "percent")
+        : "currency",
       currency: currencyMarker === null ? null : normalizeCurrencyMarker(currencyMarker),
       currencyPosition: currencyMarker === null ? null : prefix !== null ? "prefix" : "suffix",
     });

@@ -212,6 +212,32 @@ test("authoritative numeric gates accept documented percent word equivalence", (
   }
 });
 
+test("authoritative numeric gates distinguish percentages from percentage points", () => {
+  for (const [claim, evidence] of [
+    ["The result was 12 percent.", "The result was 12 percentage points."],
+    ["The result was 12 percentage points.", "The result was 12 percent."],
+    ["Resultatet var 12 prosent.", "Resultatet var 12 prosentpoeng."],
+    ["Resultatet var 12 prosentpoeng.", "Resultatet var 12 prosent."],
+  ] as const) {
+    const result = numericValidation(claim, evidence);
+    assert.ok(result.findings.some((finding) => finding.errorClass === "F3" && finding.validatorKind === "deterministic"), `${claim} vs ${evidence}`);
+    assert.equal(result.disposition, "quarantined");
+  }
+});
+
+test("percentage-point markers are equivalent across English and Norwegian forms", () => {
+  for (const evidence of [
+    "The result was 12 percentage points.",
+    "The result was 12 percentage-point.",
+    "Resultatet var 12 prosentpoeng.",
+    "Resultatet var 12 prosent-poeng.",
+    "Resultatet var 12 prosent poeng.",
+  ]) {
+    const result = numericValidation("The result was 12 percentage points.", evidence);
+    assert.equal(result.findings.some((finding) => finding.errorClass === "F3"), false, evidence);
+  }
+});
+
 test("authoritative numeric gates reject sign, currency, and nearby-number drift", () => {
   for (const [claim, evidence] of [
     ["The result was -12%.", "The result was 12%."],
