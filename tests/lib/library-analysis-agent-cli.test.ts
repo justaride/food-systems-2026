@@ -7,6 +7,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 
 import {
+  canonicalCandidateJson,
   candidateAnalysisEvidenceLocatorHash,
   candidateAnalysisSha256,
   type CandidateJsonValue,
@@ -726,12 +727,24 @@ test("status rejects accepted and terminal artifacts coexisting in one attempt d
   const accepted = await runLibraryAnalysisAgentQueueCli({ command: "accept-attempt", runRoot: fixture.runRoot,
     queue: built.queuePath, attemptInput: prepared.inputPath, response: responsePath });
   const acceptedBytes = readFileSync(accepted.acceptedPath);
+  const terminalPayload = JSON.parse(acceptedBytes.toString("utf8")) as Record<string, unknown>;
+  terminalPayload.terminalState = "failed";
+  terminalPayload.status = "failed";
+  terminalPayload.terminalReason = "adversarial-terminal-sentinel";
+  const terminalBytes = Buffer.from(`${canonicalCandidateJson(terminalPayload as CandidateJsonValue)}\n`, "utf8");
   const terminalPath = join(fixture.runRoot, "jobs", job.jobId, "attempt-001", "terminal.json");
-  writeFileSync(terminalPath, acceptedBytes, { mode: 0o400 });
+  writeFileSync(terminalPath, terminalBytes, { mode: 0o400 });
+  const acceptedHashBefore = createHash("sha256").update(acceptedBytes).digest("hex");
+  const terminalHashBefore = createHash("sha256").update(terminalBytes).digest("hex");
   await assert.rejects(runLibraryAnalysisAgentQueueCli({ command: "status", runRoot: fixture.runRoot,
     queue: built.queuePath }), /agent_queue_attempt_terminal_conflict/);
-  assert.deepEqual(readFileSync(accepted.acceptedPath), acceptedBytes);
-  assert.deepEqual(readFileSync(terminalPath), acceptedBytes);
+  const acceptedAfter = readFileSync(accepted.acceptedPath);
+  const terminalAfter = readFileSync(terminalPath);
+  assert.deepEqual(acceptedAfter, acceptedBytes);
+  assert.deepEqual(terminalAfter, terminalBytes);
+  assert.equal(createHash("sha256").update(acceptedAfter).digest("hex"), acceptedHashBefore);
+  assert.equal(createHash("sha256").update(terminalAfter).digest("hex"), terminalHashBefore);
+  assert.notDeepEqual(acceptedAfter, terminalAfter);
 });
 
 test("finalize seals complete private readback arrays and separates pre/post inventory audit", async () => {

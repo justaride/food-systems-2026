@@ -60,6 +60,72 @@ function receipt(jobId: string, attempt: number, status: string, inputHash = HAS
   };
 }
 
+function completeTerminalFixture() {
+  const queue = queueFixture();
+  queue.jobs = queue.jobs.slice(0, 2);
+  queue.jobs[1] = { ...queue.jobs[1]!, jobId: "job:b", unitIds: ["unit:b"] };
+  const sourceResults = queue.sources.map((source, index) => {
+    const job = queue.jobs[index]!;
+    const segment = {
+      jobId: job.jobId,
+      segmentOrdinal: index,
+      jobHash: job.inputEnvelopeHash,
+      terminalState: "accepted" as const,
+      attempts: [{ attempt: 1, inputHash: HASH, responseHash: HASH_B, status: "accepted" as const, model: { provider: "openai-codex" as const, name: "gpt-5.6-luna" as const, version: "v1" } }],
+      model: { provider: "openai-codex" as const, name: "gpt-5.6-luna" as const, version: "v1" },
+      attempt: 1,
+      inputHash: HASH,
+      responseHash: HASH_B,
+    };
+    const core = {
+      schema: "library-analysis-source-result/v1" as const,
+      queueHash: queue.queueHash,
+      sourceEnvelopeHash: source.sourceEnvelopeHash,
+      unitCoverage: source.unitIds.map((contentUnitId) => ({ contentUnitId, status: "no_material_claim" as const })),
+      claims: [], segments: [segment], analysisState: "complete" as const,
+    };
+    return { ...core, sourceResultHash: candidateAnalysisSha256("library-analysis-source-result", core as never) };
+  });
+  const validationResults = sourceResults.map((sourceResult, index) => {
+    const core = {
+      schema: "library-analysis-agent-validation-result/v1" as const,
+      candidateId: `source:document:${index === 0 ? "source:a" : "source:b"}`,
+      automatedOnly: true as const, disposition: "candidate_complete" as const,
+      machineUse: "reusable_for_ai_context" as const, validatorSeparation: "same_model" as const,
+      riskFlags: [], findings: [], limitations: [], queueHash: queue.queueHash,
+      sourceEnvelopeHash: sourceResult.sourceEnvelopeHash, sourceResultHash: sourceResult.sourceResultHash,
+      requestHash: HASH, analysisState: "complete" as const, contentHashStatus: "current" as const,
+      locatorStatus: "exact" as const, externalReady: false as const, externalApiUsed: false as const,
+      candidateDatabaseWritten: false as const, productionDataMutated: false as const,
+      humanSourceReviewRequired: false as const,
+    };
+    return { ...core, resultHash: candidateAnalysisSha256("library-analysis-agent-validation-result", core as never) };
+  });
+  const attempts = queue.jobs.map((job) => receipt(job.jobId, 1, "accepted", HASH, HASH_B, job.inputEnvelopeHash!));
+  const acceptedArtifacts = queue.jobs.map((job) => ({
+    portablePath: `jobs/${job.jobId}/attempt-001/accepted.json`, sha256: HASH_B, sizeBytes: 10, mode: 0o400 as const,
+    outputHash: HASH_B, queueHash: queue.queueHash, jobId: job.jobId, jobHash: job.inputEnvelopeHash!, attempt: 1,
+  }));
+  const sourceArtifacts = sourceResults.map((sourceResult) => {
+    const source = queue.sources.find((candidate) => candidate.sourceEnvelopeHash === sourceResult.sourceEnvelopeHash)!;
+    return {
+      portablePath: `sources/source-${sourceResult.sourceEnvelopeHash}.json`, sha256: HASH, sizeBytes: 10, mode: 0o400 as const,
+      resultHash: sourceResult.sourceResultHash, queueHash: queue.queueHash, sourceEnvelopeHash: sourceResult.sourceEnvelopeHash,
+      sourceKind: source.sourceKind!, sourceKey: source.sourceKey!,
+    };
+  });
+  const validationArtifacts = validationResults.map((validation) => {
+    const source = queue.sources.find((candidate) => candidate.sourceEnvelopeHash === validation.sourceEnvelopeHash)!;
+    return {
+      portablePath: `validation/source-${validation.sourceEnvelopeHash}/result.json`, sha256: HASH, sizeBytes: 10, mode: 0o400 as const,
+      resultHash: validation.resultHash, sourceResultHash: validation.sourceResultHash, queueHash: queue.queueHash,
+      sourceEnvelopeHash: validation.sourceEnvelopeHash, sourceKind: source.sourceKind!, sourceKey: source.sourceKey!,
+    };
+  });
+  return { queue, sourceResults, validationResults, attempts, acceptedArtifacts, sourceArtifacts, validationArtifacts,
+    finalMergeHash: HASH, privateInventoryHash: HASH_B, expectedCoverage: { sourceCount: 2, unitCount: 2, jobCount: 2 } };
+}
+
 test("resume reuses verified terminal attempts and advances incomplete jobs", () => {
   const state = deriveLibraryAnalysisAgentQueueState({
     queue: queueFixture(),
@@ -243,21 +309,19 @@ test("terminal receipt rejects missing private readback proof arrays", () => {
 });
 
 test("terminal receipt rejects aggregate-complete jobs whose units are swapped across sources", () => {
-  const queue = queueFixture();
-  queue.jobs = [
-    { ...queue.jobs[0]!, unitIds: ["unit:b"] },
-    { ...queue.jobs[1]!, jobId: "job:b", unitIds: ["unit:a"] },
-  ];
+  const fixture = completeTerminalFixture();
+  const control = buildLibraryAnalysisAgentTerminalReceipt(fixture);
+  assert.equal(control.state, "queue_terminal");
+  const swappedQueue = {
+    ...fixture.queue,
+    jobs: [
+      { ...fixture.queue.jobs[0]!, unitIds: ["unit:b"] },
+      { ...fixture.queue.jobs[1]!, unitIds: ["unit:a"] },
+    ],
+  };
   assert.throws(() => buildLibraryAnalysisAgentTerminalReceipt({
-    queue,
-    sourceResults: [],
-    validationResults: [],
-    attempts: [],
-    finalMergeHash: HASH,
-    privateInventoryHash: HASH_B,
-    acceptedArtifacts: [],
-    sourceArtifacts: [],
-    validationArtifacts: [],
+    ...fixture,
+    queue: swappedQueue,
   }), /queue_terminal_coverage_mismatch/);
 });
 
