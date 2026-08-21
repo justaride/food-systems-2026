@@ -50,8 +50,8 @@ function makeFixture() {
   chmodSync(runRoot, 0o700);
   mkdirSync(join(runRoot, "units"), { recursive: true, mode: 0o700 });
   const entries = [
-    { sourceKind: "document", sourceKey: "document:a", text: "private source bytes a" },
-    { sourceKind: "web", sourceKey: "web:b", text: "private source bytes b" },
+    { sourceKind: "document", sourceKey: "document:a", text: "private source bytes a reports 42 units" },
+    { sourceKind: "web", sourceKey: "web:b", text: "private source bytes b contains no material claim" },
   ];
   const units: LibraryAnalysisContentUnitManifest["units"] = [];
   const rows: LibraryAnalysisAcquisitionResolution["rows"] = [];
@@ -1010,6 +1010,168 @@ test("validate-source seals a private prepare-to-accept flow and rejects overwri
   );
   assert.equal(sourceResult.externalReady, false);
 });
+
+test("private workflow builds dispatches validates resumes and finalizes without DB or network", async (t) => {
+  const fixture = endToEndFixture(t);
+  const queue = await runLibraryAnalysisAgentQueueCli({
+    command: "build",
+    runRoot: fixture.runRoot,
+    resolution: fixture.resolutionPath,
+    manifest: fixture.manifestPath,
+    costEnvelopeHash: fixture.costHash,
+    mergedInventoryHash: fixture.inventoryHash,
+    runtimeCommit: "5f3eb1c",
+    repositoryRoot: fixture.repositoryRoot,
+  });
+  const queueDocument = JSON.parse(readFileSync(queue.queuePath, "utf8")) as {
+    jobs: Array<{ jobId: string }>;
+    sources: Array<{ sourceEnvelopeHash: string }>;
+  };
+  const invokePrepare = (jobId: string) => runLibraryAnalysisAgentQueueCli({
+    command: "prepare-attempt", runRoot: fixture.runRoot, queue: queue.queuePath,
+    jobId, attempt: 1, expectedModel: EXPECTED_MODEL,
+  });
+  const invokeAccept = (attemptInput: string) => runLibraryAnalysisAgentQueueCli({
+    command: "accept-attempt", runRoot: fixture.runRoot, queue: queue.queuePath,
+    attemptInput, response: fixture.lastLunaResponsePath!,
+  });
+  const [firstJob, ...remainingJobs] = queueDocument.jobs;
+  assert.ok(firstJob);
+  const firstAttempt = await invokePrepare(firstJob.jobId);
+  await fixture.writeValidLunaResponse(firstAttempt);
+  await invokeAccept(firstAttempt.inputPath);
+  const resumed = await runLibraryAnalysisAgentQueueCli({
+    command: "status", runRoot: fixture.runRoot, queue: queue.queuePath,
+  });
+  assert.equal(resumed.state, "pending");
+  assert.equal(resumed.reusableJobs, 1);
+  assert.equal(resumed.pendingJobs, 1);
+  assert.equal(readdirSync(join(fixture.runRoot, "jobs", firstJob.jobId)).includes("attempt-002"), false);
+  assert.equal(remainingJobs.length, 1);
+  for (const job of remainingJobs) {
+    const attempt = await invokePrepare(job.jobId);
+    await fixture.writeValidLunaResponse(attempt);
+    await invokeAccept(attempt.inputPath);
+  }
+  for (const source of queueDocument.sources) {
+    const sourceId = source.sourceEnvelopeHash;
+    await runLibraryAnalysisAgentQueueCli({
+      command: "merge-source", runRoot: fixture.runRoot, queue: queue.queuePath, sourceId,
+    });
+    const preparedValidation = await runLibraryAnalysisAgentQueueCli({
+      command: "validate-source", mode: "prepare", runRoot: fixture.runRoot,
+      queue: queue.queuePath, sourceId,
+      validatorModel: { provider: "openai-codex", name: "gpt-5.6-sol", version: "unknown" },
+    });
+    assert.equal(preparedValidation.mode, "prepare");
+    await fixture.writeValidMainValidationResponse(sourceId);
+    const acceptedValidation = await runLibraryAnalysisAgentQueueCli({
+      command: "validate-source", mode: "accept", runRoot: fixture.runRoot,
+      queue: queue.queuePath, sourceId, response: fixture.lastValidationResponsePath!,
+    });
+    const validationResult = JSON.parse(readFileSync(acceptedValidation.resultPath!, "utf8")) as Record<string, unknown>;
+    assert.equal(validationResult.validatorSeparation, "same_model");
+    assert.equal(validationResult.disposition, "partial");
+    assert.equal(validationResult.machineUse, "candidate_only");
+  }
+  const terminal = await runLibraryAnalysisAgentQueueCli({
+    command: "finalize", runRoot: fixture.runRoot, queue: queue.queuePath, finalMergeHash: "f".repeat(64),
+  });
+  assert.equal(terminal.automatedOnly, true);
+  assert.equal(terminal.externalReady, false);
+  assert.deepEqual(terminal.receipt.governance, {
+    automatedOnly: true,
+    externalReady: false,
+    externalApiUsed: false,
+    candidateDatabaseWritten: false,
+    productionDataMutated: false,
+    humanSourceReviewRequired: false,
+  });
+  for (const name of ["DATABASE_URL", "CANDIDATE_WORKER_DATABASE_URL", "OPENAI_API_KEY", "ANTHROPIC_API_KEY"]) {
+    assert.equal(process.env[name], undefined, `${name} must not be configured by the fixture`);
+  }
+});
+
+type EndToEndFixture = ReturnType<typeof makeFixture> & {
+  lastLunaResponsePath?: string;
+  lastValidationResponsePath?: string;
+  writeValidLunaResponse: (attempt: { inputPath: string }) => Promise<void>;
+  writeValidMainValidationResponse: (sourceId: string) => Promise<void>;
+};
+
+function endToEndFixture(_t: unknown): EndToEndFixture {
+  const fixture = makeFixture() as EndToEndFixture;
+  fixture.writeValidLunaResponse = async (attempt) => {
+    const input = JSON.parse(readFileSync(attempt.inputPath, "utf8")) as {
+      queueHash: string;
+      attempt: number;
+      inputHash: string;
+      job: { jobId: string; inputEnvelopeHash: string; sourceKey: string };
+      expectedModel: typeof EXPECTED_MODEL;
+      units: Array<{ id: string; locator: string; text: string }>;
+    };
+    const zeroClaim = input.job.sourceKey === "web:b";
+    const response = {
+      schema: "library-analysis-agent-segment-response/v1" as const,
+      queueHash: input.queueHash,
+      jobId: input.job.jobId,
+      jobHash: input.job.inputEnvelopeHash,
+      attempt: input.attempt,
+      inputHash: input.inputHash,
+      model: input.expectedModel,
+      unitCoverage: input.units.map((unit) => ({
+        contentUnitId: unit.id,
+        status: zeroClaim ? "no_material_claim" as const : "claims_extracted" as const,
+      })),
+      claims: zeroClaim ? [] : input.units.map((unit) => ({
+        localOrdinal: 0,
+        assertionType: "claim" as const,
+        contentUnitId: unit.id,
+        text: "The source reports 42 units",
+        evidence: "42 units",
+        locator: unit.locator,
+        confidence: 0.9,
+      })),
+      responseHash: "0".repeat(64),
+    };
+    response.responseHash = libraryAnalysisAgentSegmentResponseHash(response);
+    const responsePath = join(fixture.base, `luna-${input.job.jobId.replaceAll(":", "-")}.json`);
+    writeFileSync(responsePath, JSON.stringify(response), { mode: 0o600 });
+    fixture.lastLunaResponsePath = responsePath;
+  };
+  fixture.writeValidMainValidationResponse = async (sourceId) => {
+    const requestPath = join(fixture.runRoot, "validation", `source-${sourceId}`, "request.json");
+    const request = JSON.parse(readFileSync(requestPath, "utf8")) as {
+      requestHash: string;
+      sourceResultHash: string;
+      queueHash: string;
+      sourceEnvelopeHash: string;
+      validatorModel: { provider: "openai-codex"; name: string; version: string };
+    };
+    const response = {
+      schema: "library-analysis-agent-validation-response/v1" as const,
+      requestHash: request.requestHash,
+      sourceResultHash: request.sourceResultHash,
+      queueHash: request.queueHash,
+      sourceEnvelopeHash: request.sourceEnvelopeHash,
+      validatorModel: request.validatorModel,
+      findings: [],
+      riskFlags: [],
+      responseHash: "0".repeat(64),
+    };
+    response.responseHash = candidateAnalysisSha256(
+      "library-analysis-agent-validation-response",
+      (() => {
+        const { responseHash: _responseHash, ...core } = response;
+        return core;
+      })() as unknown as CandidateJsonValue,
+    );
+    const responsePath = join(fixture.base, `validation-${sourceId}.json`);
+    writeFileSync(responsePath, JSON.stringify(response), { mode: 0o600 });
+    fixture.lastValidationResponsePath = responsePath;
+  };
+  return fixture;
+}
 
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
