@@ -44,20 +44,28 @@ function sha256(text: string): string {
   return createHash("sha256").update(Buffer.from(text, "utf8")).digest("hex");
 }
 
-function makeFixture() {
+type FixtureEntry = {
+  sourceKind: string;
+  sourceKey: string;
+  populationSourceKey?: string;
+  text: string;
+};
+
+function makeFixture(entriesOverride?: readonly FixtureEntry[]) {
   const base = mkdtempSync(join(tmpdir(), "library-agent-cli-"));
   const runRoot = join(base, "run");
   const repositoryRoot = process.cwd();
   mkdirSync(runRoot, { recursive: true, mode: 0o700 });
   chmodSync(runRoot, 0o700);
   mkdirSync(join(runRoot, "units"), { recursive: true, mode: 0o700 });
-  const entries = [
+  const entries = entriesOverride ?? [
     { sourceKind: "document", sourceKey: "document:a", text: "private source bytes a reports 42 units" },
     { sourceKind: "web", sourceKey: "web:b", text: "private source bytes b contains no material claim" },
   ];
   const units: LibraryAnalysisContentUnitManifest["units"] = [];
   const rows: LibraryAnalysisAcquisitionResolution["rows"] = [];
   for (const [ordinal, entry] of entries.entries()) {
+    const populationSourceKey = entry.populationSourceKey ?? entry.sourceKey;
     const contentHash = sha256(entry.text);
     const locator = `https://example.test/${entry.sourceKey}`;
     const sourceVersionHash = "b".repeat(64);
@@ -87,7 +95,7 @@ function makeFixture() {
       contentHash,
       hashAlgorithm: "sha256",
       identityConfidence: "exact",
-      populationSourceKey: entry.sourceKey,
+      populationSourceKey,
       chunkPolicyHash,
       privateArtifact: {
         portablePath,
@@ -98,7 +106,7 @@ function makeFixture() {
     });
     rows.push({
       sourceKind: entry.sourceKind,
-      sourceKey: entry.sourceKey,
+      sourceKey: populationSourceKey,
       disposition: "content_units_ready",
       reasonCode: null,
       contentUnits: [{
@@ -893,6 +901,105 @@ test("validate-source supports sealed prepare and later accept phases", () => {
   ]), /agent_queue_cli_arguments_invalid/);
 });
 
+async function prepareValidationAcceptance(entry: FixtureEntry) {
+  const fixture = endToEndFixture(undefined, [entry]);
+  const built = await runLibraryAnalysisAgentQueueCli({
+    command: "build", runRoot: fixture.runRoot, resolution: fixture.resolutionPath,
+    manifest: fixture.manifestPath, costEnvelopeHash: fixture.costHash,
+    mergedInventoryHash: fixture.inventoryHash, runtimeCommit: "5f3eb1c",
+    repositoryRoot: fixture.repositoryRoot,
+  });
+  const queue = verifyLibraryAnalysisAgentQueue(JSON.parse(readFileSync(built.queuePath, "utf8")));
+  const source = queue.sources[0]!;
+  const job = queue.jobs[0]!;
+  const attempt = await runLibraryAnalysisAgentQueueCli({
+    command: "prepare-attempt", runRoot: fixture.runRoot, queue: built.queuePath,
+    jobId: job.jobId, attempt: 1, expectedModel: EXPECTED_MODEL,
+  });
+  await fixture.writeValidLunaResponse(attempt);
+  await runLibraryAnalysisAgentQueueCli({
+    command: "accept-attempt", runRoot: fixture.runRoot, queue: built.queuePath,
+    attemptInput: attempt.inputPath, response: fixture.lastLunaResponsePath!,
+  });
+  await runLibraryAnalysisAgentQueueCli({
+    command: "merge-source", runRoot: fixture.runRoot, queue: built.queuePath,
+    sourceId: source.sourceEnvelopeHash,
+  });
+  await runLibraryAnalysisAgentQueueCli({
+    command: "validate-source", mode: "prepare", runRoot: fixture.runRoot,
+    queue: built.queuePath, sourceId: source.sourceEnvelopeHash,
+    validatorModel: { provider: "openai-codex", name: "gpt-5.6-sol", version: "unknown" },
+  });
+  await fixture.writeValidMainValidationResponse(source.sourceEnvelopeHash);
+  return { fixture, built, source, responsePath: fixture.lastValidationResponsePath! };
+}
+
+test("validate-source derives a hash-safe candidate id for file source keys", async () => {
+  const prepared = await prepareValidationAcceptance({
+    sourceKind: "library_file",
+    sourceKey: `source:${"d".repeat(64)}`,
+    populationSourceKey: "library_file:research/bibliotek/media/source.csv",
+    text: "private source bytes reports 42 units",
+  });
+  const accepted = await runLibraryAnalysisAgentQueueCli({
+    command: "validate-source", mode: "accept", runRoot: prepared.fixture.runRoot,
+    queue: prepared.built.queuePath, sourceId: prepared.source.sourceEnvelopeHash,
+    response: prepared.responsePath,
+  });
+  const result = JSON.parse(readFileSync(accepted.resultPath!, "utf8")) as { candidateId: string };
+  assert.equal(result.candidateId, `source:${prepared.source.sourceEnvelopeHash}`);
+});
+
+test("validate-source resumes from an identical sealed response without overwriting it", async () => {
+  const prepared = await prepareValidationAcceptance({
+    sourceKind: "document", sourceKey: "document:resume", text: "private source bytes reports 42 units",
+  });
+  const responseBytes = readFileSync(prepared.responsePath);
+  const sealedPath = join(
+    prepared.fixture.runRoot, "validation", `source-${prepared.source.sourceEnvelopeHash}`, "response.json",
+  );
+  writeFileSync(sealedPath, responseBytes, { flag: "wx", mode: 0o400 });
+  const accepted = await runLibraryAnalysisAgentQueueCli({
+    command: "validate-source", mode: "accept", runRoot: prepared.fixture.runRoot,
+    queue: prepared.built.queuePath, sourceId: prepared.source.sourceEnvelopeHash,
+    response: prepared.responsePath,
+  });
+  assert.equal(statSync(accepted.resultPath!).mode & 0o777, 0o400);
+  assert.deepEqual(readFileSync(sealedPath), responseBytes);
+  assert.equal(statSync(sealedPath).mode & 0o777, 0o400);
+});
+
+test("validate-source rejects a different response when resuming a partial validation", async () => {
+  const prepared = await prepareValidationAcceptance({
+    sourceKind: "document", sourceKey: "document:resume-mismatch", text: "private source bytes reports 42 units",
+  });
+  const originalBytes = readFileSync(prepared.responsePath);
+  const sealedPath = join(
+    prepared.fixture.runRoot, "validation", `source-${prepared.source.sourceEnvelopeHash}`, "response.json",
+  );
+  writeFileSync(sealedPath, originalBytes, { flag: "wx", mode: 0o400 });
+  const replacement = JSON.parse(originalBytes.toString("utf8")) as Record<string, unknown>;
+  replacement.riskFlags = ["actor"];
+  const { responseHash: _responseHash, ...replacementCore } = replacement;
+  replacement.responseHash = candidateAnalysisSha256(
+    "library-analysis-agent-validation-response", replacementCore as CandidateJsonValue,
+  );
+  const replacementPath = join(prepared.fixture.base, "validation-replacement.json");
+  writeFileSync(replacementPath, JSON.stringify(replacement), { mode: 0o600 });
+  await assert.rejects(
+    runLibraryAnalysisAgentQueueCli({
+      command: "validate-source", mode: "accept", runRoot: prepared.fixture.runRoot,
+      queue: prepared.built.queuePath, sourceId: prepared.source.sourceEnvelopeHash,
+      response: replacementPath,
+    }),
+    /validation_response_resume_mismatch/u,
+  );
+  assert.deepEqual(readFileSync(sealedPath), originalBytes);
+  assert.equal(existsSync(join(
+    prepared.fixture.runRoot, "validation", `source-${prepared.source.sourceEnvelopeHash}`, "result.json",
+  )), false);
+});
+
 test("validate-source seals a private prepare-to-accept flow and rejects overwrite", async () => {
   const fixture = makeFixture();
   const built = await runLibraryAnalysisAgentQueueCli({
@@ -1141,8 +1248,8 @@ type EndToEndFixture = ReturnType<typeof makeFixture> & {
   writeValidMainValidationResponse: (sourceId: string) => Promise<void>;
 };
 
-function endToEndFixture(_t: unknown): EndToEndFixture {
-  const fixture = makeFixture() as EndToEndFixture;
+function endToEndFixture(_t: unknown, entries?: readonly FixtureEntry[]): EndToEndFixture {
+  const fixture = makeFixture(entries) as EndToEndFixture;
   fixture.writeValidLunaResponse = async (attempt) => {
     const input = JSON.parse(readFileSync(attempt.inputPath, "utf8")) as {
       queueHash: string;

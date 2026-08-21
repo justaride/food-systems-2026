@@ -721,10 +721,20 @@ async function runValidateSource(
     throw new Error("validation_response_json_invalid");
   }
   const response = validateLibraryAnalysisAgentValidationResponse({ request, response: rawResponse });
-  const rawResponseReceipt = writePrivateArtifactExclusive(runRoot, `${validationRoot}/response.json`, responseArtifact.bytes);
-  sealPrivateArtifact(runRoot, `${validationRoot}/response.json`, { sha256: rawResponseReceipt.sha256, sizeBytes: rawResponseReceipt.sizeBytes });
+  const responsePortable = `${validationRoot}/response.json`;
+  const responsePath = resolve(runRoot, responsePortable);
+  if (pathEntryExists(responsePath)) {
+    const sealedResponse = readSealedJsonWithReadback(runRoot, responsePortable);
+    if (!sealedResponse.bytes.equals(responseArtifact.bytes)) {
+      throw new Error("validation_response_resume_mismatch");
+    }
+    validateLibraryAnalysisAgentValidationResponse({ request, response: sealedResponse.value });
+  } else {
+    const rawResponseReceipt = writePrivateArtifactExclusive(runRoot, responsePortable, responseArtifact.bytes);
+    sealPrivateArtifact(runRoot, responsePortable, { sha256: rawResponseReceipt.sha256, sizeBytes: rawResponseReceipt.sizeBytes });
+  }
   const result = deriveLibraryAnalysisAgentValidationResult({
-    candidateId: `source:${source.sourceKind}:${source.sourceKey}`,
+    candidateId: `source:${source.sourceEnvelopeHash}`,
     sourceResult,
     units: source.unitIds.map((id) => unitsById.get(id)!),
     analysisModels: sourceResult.segments.map((segment) => segment.model),
@@ -1137,6 +1147,16 @@ function readExplicitPrivateResponse(rawPath: string): ExplicitPrivateArtifact {
     portablePath: path,
     bytes: readPrivateFileByDescriptor(path, [0o400, 0o600], "agent_response_artifact_invalid"),
   };
+}
+
+function pathEntryExists(path: string): boolean {
+  try {
+    lstatSync(path);
+    return true;
+  } catch (error) {
+    if (error instanceof Error && "code" in error && error.code === "ENOENT") return false;
+    throw error;
+  }
 }
 
 function readPrivateFileByDescriptor(
