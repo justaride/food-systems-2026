@@ -30,6 +30,10 @@ const HASH = /^[a-f0-9]{64}$/u;
 const hashSchema = z.string().regex(HASH);
 const identifierSchema = z.string().regex(/^[a-z0-9][a-z0-9._:-]*$/u);
 const textSchema = z.string().min(1);
+const NUMERIC_TOKEN_PATTERN = /[+-]?(?:\d{1,3}(?:[ ,]\d{3})+|\d+)(?:[.,]\d+)?/gu;
+const PERCENT_MARKER_PATTERN = /^\s*(%|percent(?:age)?|prosent(?:poeng)?)(?![a-z])/iu;
+const CURRENCY_PREFIX_PATTERN = /(?:^|[\s([{])([#$€£]|NOK|USD|EUR|GBP|SEK|DKK|kr)\s*$/iu;
+const CURRENCY_SUFFIX_PATTERN = /^\s*(NOK|USD|EUR|GBP|SEK|DKK|kr)(?![a-z])|^\s*([$€£])(?=\s|[.,;:!?)]|$)/iu;
 
 export const LIBRARY_ANALYSIS_AGENT_VALIDATION_REQUEST_SCHEMA =
   "library-analysis-agent-validation-request/v1" as const;
@@ -160,8 +164,6 @@ export type LibraryAnalysisAgentValidationInput = {
   validatorModel: AgentModelReceipt;
   populationEligibility: "eligible" | "blocked_input" | "superseded";
   modelFindings?: readonly AutomatedValidationFinding[];
-  /** Alias retained for callers that provide the model findings as `findings`. */
-  findings?: readonly AutomatedValidationFinding[];
   riskFlags?: readonly AutomatedLibraryRiskFlag[];
   request?: LibraryAnalysisAgentValidationRequest;
   response?: LibraryAnalysisAgentValidationResponse;
@@ -331,6 +333,112 @@ function deterministicFinding(input: {
   });
 }
 
+type AuthoritativeNumericToken = {
+  value: string;
+  sign: "" | "+" | "-";
+  kind: "number" | "percent" | "currency";
+  currency: string | null;
+  currencyPosition: "prefix" | "suffix" | null;
+};
+
+function normalizeNumericValue(raw: string): string {
+  const compact = raw.replaceAll(" ", "");
+  if (/^[+-]?\d{1,3}(?:,\d{3})+$/u.test(compact)) return compact.replaceAll(",", "").replace(/^\+/, "");
+  return compact.replace(",", ".").replace(/^\+/, "");
+}
+
+function normalizeCurrencyMarker(raw: string): string {
+  const marker = raw.toLowerCase();
+  if (marker === "kr") return "nok";
+  if (marker === "$") return "usd";
+  if (marker === "€") return "eur";
+  if (marker === "£") return "gbp";
+  return marker;
+}
+
+function authoritativeNumericTokens(text: string): AuthoritativeNumericToken[] {
+  const tokens: AuthoritativeNumericToken[] = [];
+  for (const match of text.matchAll(NUMERIC_TOKEN_PATTERN)) {
+    const raw = match[0]!;
+    const start = match.index ?? 0;
+    const end = start + raw.length;
+    const sign = raw.startsWith("+") || raw.startsWith("-") ? raw[0] as "+" | "-" : "";
+    const before = text.slice(0, start);
+    const after = text.slice(end);
+    const prefix = CURRENCY_PREFIX_PATTERN.exec(before);
+    const suffix = CURRENCY_SUFFIX_PATTERN.exec(after);
+    const percent = PERCENT_MARKER_PATTERN.exec(after);
+    const currencyMarker = prefix?.[1] ?? suffix?.[1] ?? suffix?.[2] ?? null;
+    tokens.push({
+      value: normalizeNumericValue(raw),
+      sign,
+      kind: currencyMarker === null ? (percent === null ? "number" : "percent") : "currency",
+      currency: currencyMarker === null ? null : normalizeCurrencyMarker(currencyMarker),
+      currencyPosition: currencyMarker === null ? null : prefix !== null ? "prefix" : "suffix",
+    });
+  }
+  return tokens;
+}
+
+function numericTokenMismatchRule(
+  claim: AuthoritativeNumericToken,
+  evidenceTokens: readonly AuthoritativeNumericToken[],
+): { ruleId: string; explanation: string } {
+  const sameValue = evidenceTokens.find((token) => token.value === claim.value);
+  if (sameValue !== undefined && sameValue.sign !== claim.sign) {
+    return { ruleId: "rule:quantitative:sign", explanation: `Evidence does not preserve the numeric sign for ${claim.sign || "unsigned"}${claim.value}.` };
+  }
+  const sameSignedValue = evidenceTokens.find((token) => token.value === claim.value && token.sign === claim.sign);
+  if (sameSignedValue !== undefined && sameSignedValue.kind !== claim.kind) {
+    return { ruleId: "rule:quantitative:percent-marker", explanation: "Evidence changes a percentage marker into a plain number or vice versa." };
+  }
+  if (
+    sameSignedValue !== undefined &&
+    claim.kind === "currency" &&
+    (sameSignedValue.currency !== claim.currency || sameSignedValue.currencyPosition !== claim.currencyPosition)
+  ) {
+    return { ruleId: "rule:quantitative:currency", explanation: "Evidence changes the currency identity or currency marker position." };
+  }
+  return { ruleId: "rule:quantitative:value", explanation: `Evidence does not contain the exact numeric value ${claim.sign}${claim.value}.` };
+}
+
+function checkAuthoritativeNumericFacts(input: {
+  claim: string;
+  evidence: string;
+  contentUnitId: string;
+  assertionId: string;
+}): { findings: AutomatedValidationFinding[]; ruleIds: string[] } {
+  const claimTokens = authoritativeNumericTokens(input.claim);
+  const remainingEvidence = authoritativeNumericTokens(input.evidence);
+  const findings: AutomatedValidationFinding[] = [];
+  const ruleIds: string[] = [];
+  for (const claimToken of claimTokens) {
+    const exactIndex = remainingEvidence.findIndex((evidenceToken) =>
+      evidenceToken.value === claimToken.value &&
+      evidenceToken.sign === claimToken.sign &&
+      evidenceToken.kind === claimToken.kind &&
+      (claimToken.kind !== "currency" || (
+        evidenceToken.currency === claimToken.currency &&
+        evidenceToken.currencyPosition === claimToken.currencyPosition
+      )));
+    if (exactIndex >= 0) {
+      remainingEvidence.splice(exactIndex, 1);
+      continue;
+    }
+    const mismatch = numericTokenMismatchRule(claimToken, remainingEvidence);
+    findings.push(deterministicFinding({
+      errorClass: "F3",
+      severity: "material",
+      ruleId: mismatch.ruleId,
+      contentUnitId: input.contentUnitId,
+      assertionId: input.assertionId,
+      explanation: mismatch.explanation,
+    }));
+    ruleIds.push(mismatch.ruleId);
+  }
+  return { findings, ruleIds };
+}
+
 function deterministicFindings(
   sourceResult: LibraryAnalysisSourceResult,
   units: readonly LibraryAnalysisVerifiedSourceUnitInput[],
@@ -365,9 +473,12 @@ function deterministicFindings(
       ruleIds.push("rule:evidence:locator-ownership");
     }
     const evidenceFindings = checkEvidenceBinding({ evidence: claim.evidence, sourceText: unit.text, locator: claim.locator, contentUnitId: unit.id, assertionId: claim.claimId });
-    const quantitativeFindings = checkQuantitativeFacts({ claim: claim.text, evidence: claim.evidence, contentUnitId: unit.id, assertionId: claim.claimId });
-    findings.push(...evidenceFindings, ...quantitativeFindings);
+    const quantitativeFindings = checkQuantitativeFacts({ claim: claim.text, evidence: claim.evidence, contentUnitId: unit.id, assertionId: claim.claimId })
+      .filter((finding) => finding.deterministicRuleIds.every((ruleId) => !/^rule:quantitative:(number|percentage|percentage_point|currency|year)$/u.test(ruleId)));
+    const authoritativeNumeric = checkAuthoritativeNumericFacts({ claim: claim.text, evidence: claim.evidence, contentUnitId: unit.id, assertionId: claim.claimId });
+    findings.push(...evidenceFindings, ...quantitativeFindings, ...authoritativeNumeric.findings);
     for (const finding of [...evidenceFindings, ...quantitativeFindings]) ruleIds.push(...finding.deterministicRuleIds);
+    ruleIds.push(...authoritativeNumeric.ruleIds);
     if (claim.locator.trim().length === 0) missingLocator = true;
   }
   const contentHashStatus = missingHash ? "missing" : staleHash || findings.some((finding) => finding.deterministicRuleIds.includes("rule:source:content-hash")) ? "stale" : "current";
@@ -392,15 +503,11 @@ export function deriveLibraryAnalysisAgentValidationResult(
     validatorModel = acceptedResponse.validatorModel;
   }
   const suppliedFindings = input.response === undefined
-    ? (input.modelFindings ?? input.findings ?? [])
+    ? (input.modelFindings ?? [])
     : responseFindings;
   const providedFindings = [...suppliedFindings].map((finding) => AutomatedValidationFindingSchema.parse(finding));
-  if (
-    input.response !== undefined || input.modelFindings !== undefined
-  ) {
-    if (providedFindings.some((finding) => finding.validatorKind !== "model" || finding.deterministicRuleIds.length !== 0)) {
-      throw new Error("validation_model_finding_deterministic_claim");
-    }
+  if (providedFindings.some((finding) => finding.validatorKind !== "model" || finding.deterministicRuleIds.length !== 0)) {
+    throw new Error("validation_model_finding_deterministic_claim");
   }
   const findings = [...deterministic.findings, ...providedFindings];
   if (new Set(findings.map((finding) => finding.findingId)).size !== findings.length) throw new Error("validation_finding_duplicate");

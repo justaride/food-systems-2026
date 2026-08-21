@@ -676,6 +676,163 @@ test("validate-source supports sealed prepare and later accept phases", () => {
   ]), /agent_queue_cli_arguments_invalid/);
 });
 
+test("validate-source seals a private prepare-to-accept flow and rejects overwrite", async () => {
+  const fixture = makeFixture();
+  const built = await runLibraryAnalysisAgentQueueCli({
+    command: "build",
+    runRoot: fixture.runRoot,
+    resolution: fixture.resolutionPath,
+    manifest: fixture.manifestPath,
+    costEnvelopeHash: fixture.costHash,
+    mergedInventoryHash: fixture.inventoryHash,
+    runtimeCommit: "5f3eb1c",
+    repositoryRoot: fixture.repositoryRoot,
+  });
+  const queue = JSON.parse(readFileSync(built.queuePath, "utf8")) as {
+    queueHash: string;
+    jobs: Array<{ jobId: string; sourceKind: string; sourceKey: string }>;
+    sources: Array<{ sourceKind: string; sourceKey: string; sourceEnvelopeHash: string }>;
+  };
+  const source = queue.sources.find((candidate) => candidate.sourceKey === "document:a")!;
+  const job = queue.jobs.find((candidate) => candidate.sourceKey === source.sourceKey)!;
+  const prepared = await runLibraryAnalysisAgentQueueCli({
+    command: "prepare-attempt",
+    runRoot: fixture.runRoot,
+    queue: built.queuePath,
+    jobId: job.jobId,
+    attempt: 1,
+    expectedModel: EXPECTED_MODEL,
+  });
+  const input = JSON.parse(readFileSync(prepared.inputPath, "utf8")) as {
+    queueHash: string;
+    attempt: number;
+    inputHash: string;
+    job: { jobId: string; inputEnvelopeHash: string };
+    expectedModel: typeof EXPECTED_MODEL;
+    units: Array<{ id: string; locator: string; text: string }>;
+  };
+  const analysisResponse = {
+    schema: "library-analysis-agent-segment-response/v1" as const,
+    queueHash: input.queueHash,
+    jobId: input.job.jobId,
+    jobHash: input.job.inputEnvelopeHash,
+    attempt: input.attempt,
+    inputHash: input.inputHash,
+    model: input.expectedModel,
+    unitCoverage: input.units.map((unit) => ({ contentUnitId: unit.id, status: "claims_extracted" as const })),
+    claims: input.units.map((unit, index) => ({
+      localOrdinal: index,
+      assertionType: "claim" as const,
+      contentUnitId: unit.id,
+      text: unit.text,
+      evidence: unit.text,
+      locator: unit.locator,
+      confidence: 0.9,
+    })),
+    responseHash: "0".repeat(64),
+  };
+  analysisResponse.responseHash = libraryAnalysisAgentSegmentResponseHash(analysisResponse);
+  const analysisResponsePath = join(fixture.base, "analysis-response.json");
+  writeFileSync(analysisResponsePath, JSON.stringify(analysisResponse), { mode: 0o600 });
+  await runLibraryAnalysisAgentQueueCli({
+    command: "accept-attempt",
+    runRoot: fixture.runRoot,
+    queue: built.queuePath,
+    attemptInput: prepared.inputPath,
+    response: analysisResponsePath,
+  });
+  const sourceResult = await runLibraryAnalysisAgentQueueCli({
+    command: "merge-source",
+    runRoot: fixture.runRoot,
+    queue: built.queuePath,
+    sourceId: source.sourceEnvelopeHash,
+  });
+
+  const script = join(fixture.repositoryRoot, "scripts/knowledge/manage-library-analysis-agent-queue.ts");
+  const run = (args: string[]) => spawnSync(process.execPath, ["--import=tsx", script, ...args], {
+    cwd: fixture.repositoryRoot,
+    encoding: "utf8",
+  });
+  const prepare = run([
+    "validate-source",
+    "--mode=prepare",
+    `--run-root=${fixture.runRoot}`,
+    `--queue=${built.queuePath}`,
+    `--source-id=${source.sourceEnvelopeHash}`,
+    "--validator-model-provider=openai-codex",
+    "--validator-model-name=gpt-5.6-sol",
+    "--validator-model-version=receipt-b",
+  ]);
+  assert.equal(prepare.status, 0, `${prepare.stderr}${prepare.stdout}`);
+  assert.equal(prepare.stderr, "");
+  const prepareSummary = JSON.parse(prepare.stdout) as Record<string, unknown>;
+  assert.equal(prepareSummary.command, "validate-source");
+  const requestPath = join(fixture.runRoot, "validation", `source-${source.sourceEnvelopeHash}`, "request.json");
+  const request = JSON.parse(readFileSync(requestPath, "utf8")) as {
+    requestHash: string;
+    sourceResultHash: string;
+    queueHash: string;
+    sourceEnvelopeHash: string;
+    validatorModel: typeof EXPECTED_MODEL & { name: string; version: string };
+  };
+  const validationResponse = {
+    schema: "library-analysis-agent-validation-response/v1" as const,
+    requestHash: request.requestHash,
+    sourceResultHash: request.sourceResultHash,
+    queueHash: request.queueHash,
+    sourceEnvelopeHash: request.sourceEnvelopeHash,
+    validatorModel: request.validatorModel,
+    findings: [],
+    riskFlags: [],
+    responseHash: "0".repeat(64),
+  };
+  validationResponse.responseHash = candidateAnalysisSha256(
+    "library-analysis-agent-validation-response",
+    (() => {
+      const { responseHash: _responseHash, ...core } = validationResponse;
+      return core;
+    })() as unknown as CandidateJsonValue,
+  );
+  const validationResponsePath = join(fixture.base, "validation-response.json");
+  writeFileSync(validationResponsePath, JSON.stringify(validationResponse), { mode: 0o600 });
+  const accept = run([
+    "validate-source",
+    "--mode=accept",
+    `--run-root=${fixture.runRoot}`,
+    `--queue=${built.queuePath}`,
+    `--source-id=${source.sourceEnvelopeHash}`,
+    `--response=${validationResponsePath}`,
+  ]);
+  assert.equal(accept.status, 0, `${accept.stderr}${accept.stdout}`);
+  assert.equal(accept.stderr, "");
+  const acceptSummary = JSON.parse(accept.stdout) as Record<string, unknown>;
+  assert.equal(acceptSummary.command, "validate-source");
+  assert.equal(acceptSummary.automatedOnly, true);
+  assert.equal(acceptSummary.externalReady, false);
+  const resultPath = join(fixture.runRoot, "validation", `source-${source.sourceEnvelopeHash}`, "result.json");
+  assert.equal(statSync(resultPath).mode & 0o777, 0o400);
+  const result = JSON.parse(readFileSync(resultPath, "utf8")) as Record<string, unknown>;
+  assert.equal(result.validatorSeparation, "same_model");
+  assert.equal(result.automatedOnly, true);
+  assert.equal(result.externalReady, false);
+  for (const value of [fixture.runRoot, "private source bytes"]) {
+    assert.doesNotMatch(prepare.stdout, new RegExp(escapeRegExp(value)));
+    assert.doesNotMatch(accept.stdout, new RegExp(escapeRegExp(value)));
+  }
+  await assert.rejects(
+    runLibraryAnalysisAgentQueueCli({
+      command: "validate-source",
+      mode: "accept",
+      runRoot: fixture.runRoot,
+      queue: built.queuePath,
+      sourceId: source.sourceEnvelopeHash,
+      response: validationResponsePath,
+    }),
+    /private_artifact_exists/u,
+  );
+  assert.equal(sourceResult.externalReady, false);
+});
+
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
 }

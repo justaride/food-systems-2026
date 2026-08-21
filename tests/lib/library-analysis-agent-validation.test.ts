@@ -21,8 +21,12 @@ function hashText(text: string): string {
   return createHash("sha256").update(Buffer.from(text, "utf8")).digest("hex");
 }
 
-function sourceValidationFixture() {
-  const text = "The cooperative reported 12 percent growth in Norway.";
+function sourceValidationFixture(
+  sourceText = "The cooperative reported 12 percent growth in Norway.",
+  claimText = sourceText,
+  evidence = "12 percent growth in Norway",
+) {
+  const text = sourceText;
   const unit = {
     id: "content:unit-1",
     sourceKind: "document",
@@ -46,8 +50,8 @@ function sourceValidationFixture() {
     claimId: "claim:1",
     assertionType: "claim" as const,
     contentUnitId: unit.id,
-    text,
-    evidence: "12 percent growth in Norway",
+    text: claimText,
+    evidence,
     locator: unit.locator,
     confidence: 0.9,
   };
@@ -164,4 +168,59 @@ test("validation response cannot self-declare deterministic state or disposition
   const accepted = validateLibraryAnalysisAgentValidationResponse({ request, response });
   assert.equal(accepted.findings[0]!.validatorKind, "model");
   assert.equal("disposition" in accepted, false);
+});
+
+test("external findings cannot bypass the model-only response boundary", () => {
+  const fixture = sourceValidationFixture();
+  assert.throws(() => deriveLibraryAnalysisAgentValidationResult({
+    candidateId: fixture.candidateId,
+    sourceResult: fixture.sourceResult,
+    units: fixture.units,
+    analysisModels: fixture.analysisModels,
+    validatorModel: fixture.validatorModel,
+    populationEligibility: "eligible",
+    modelFindings: [{
+      ...finding("F5", "material", false),
+      validatorKind: "deterministic",
+      deterministicRuleIds: ["rule:forged"],
+    }],
+  }), /validation_model_finding_deterministic_claim/u);
+});
+
+function numericValidation(claimText: string, evidence: string, sourceText = evidence) {
+  const fixture = sourceValidationFixture(sourceText, claimText, evidence);
+  return deriveLibraryAnalysisAgentValidationResult({
+    candidateId: fixture.candidateId,
+    sourceResult: fixture.sourceResult,
+    units: fixture.units,
+    analysisModels: fixture.analysisModels,
+    validatorModel: fixture.validatorModel,
+    populationEligibility: "eligible",
+  });
+}
+
+test("authoritative numeric gates reject explicit positive-sign drift", () => {
+  const result = numericValidation("The report says +12% growth.", "12% growth.");
+  assert.ok(result.findings.some((finding) => finding.errorClass === "F3" && finding.validatorKind === "deterministic"));
+  assert.equal(result.disposition, "quarantined");
+});
+
+test("authoritative numeric gates accept documented percent word equivalence", () => {
+  for (const evidence of ["12% growth.", "12 percent growth.", "12 prosent growth."]) {
+    const result = numericValidation("The report says 12% growth.", evidence);
+    assert.equal(result.findings.some((finding) => finding.errorClass === "F3"), false, evidence);
+  }
+});
+
+test("authoritative numeric gates reject sign, currency, and nearby-number drift", () => {
+  for (const [claim, evidence] of [
+    ["The result was -12%.", "The result was 12%."],
+    ["The result was NOK 12.", "The result was USD 12."],
+    ["The result was NOK 12.", "The result was 12 NOK."],
+    ["The result was 12%.", "The result was 13%."],
+  ] as const) {
+    const result = numericValidation(claim, evidence);
+    assert.ok(result.findings.some((finding) => finding.errorClass === "F3" && finding.validatorKind === "deterministic"), `${claim} vs ${evidence}`);
+    assert.equal(result.disposition, "quarantined");
+  }
 });
