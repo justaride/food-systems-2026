@@ -203,25 +203,29 @@ export async function withCandidateAnalysisPostgres(
       throw commandError("candidate database isolation", isolated);
     }
 
-    const migrated = run(binaries.psql, [
-      "-X",
-      "-h",
-      "127.0.0.1",
-      "-p",
-      String(port),
-      "-U",
-      "postgres",
-      "-d",
-      database,
-      "-v",
-      "ON_ERROR_STOP=1",
-      "-f",
-      resolve(
-        repoRoot,
-        "prisma/migrations/20260818_candidate_analysis_foundation/migration.sql",
-      ),
-    ]);
-    if (migrated.status !== 0) throw commandError("candidate migration", migrated);
+    for (const migrationPath of [
+      "prisma/migrations/20260818_candidate_analysis_foundation/migration.sql",
+      "prisma/migrations/20260821_library_analysis_prompt_1_0_2/migration.sql",
+    ]) {
+      const migrated = run(binaries.psql, [
+        "-X",
+        "-h",
+        "127.0.0.1",
+        "-p",
+        String(port),
+        "-U",
+        "postgres",
+        "-d",
+        database,
+        "-v",
+        "ON_ERROR_STOP=1",
+        "-f",
+        resolve(repoRoot, migrationPath),
+      ]);
+      if (migrated.status !== 0) {
+        throw commandError(`candidate migration ${migrationPath}`, migrated);
+      }
+    }
 
     await callback({ adminUrl, database, port, psql });
   } finally {

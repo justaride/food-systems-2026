@@ -176,6 +176,128 @@ test("requires typed blocked coverage and rejects claims without owned numeric e
   assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, attempt: 1, inputHash: INPUT_HASH, expectedModel: EXPECTED_MODEL, job, response: numericDrift }), /numeric_token_mismatch/u);
 });
 
+test("rejects claims and evidence with unresolved causal or temporal context", () => {
+  for (const contextualText of [
+    "Derfor forventes ytterligere vekst.",
+    "Gjennom perioden steg prisene.",
+    "I denne perioden steg prisene.",
+    "Throughout the period, prices increased.",
+  ]) {
+    const job = verifiedJob([contextualText]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, contextualText)],
+    });
+    assert.throws(
+      () => validateLibraryAnalysisAgentSegmentResponse({
+        queueHash: HASH,
+        attempt: 1,
+        inputHash: INPUT_HASH,
+        expectedModel: EXPECTED_MODEL,
+        job,
+        response,
+      }),
+      /context_dependent_claim/u,
+    );
+  }
+
+  const unrelatedYearEvidence = "The report was published in 2024. Throughout the period, prices increased.";
+  const unrelatedYearJob = verifiedJob([unrelatedYearEvidence]);
+  const unrelatedYear = segmentResponse(unrelatedYearJob, {
+    unitCoverage: [{ contentUnitId: unrelatedYearJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{
+      ...claim(unrelatedYearJob, 0, "Throughout the period, prices increased."),
+      evidence: unrelatedYearEvidence,
+    }],
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: unrelatedYearJob,
+    response: unrelatedYear,
+  }), /context_dependent_claim/u);
+});
+
+test("keeps explicit subjects and bounded periods eligible", () => {
+  for (const selfContainedText of [
+    "The Norwegian retail-price index increased from 2022 to 2024.",
+    "The survey method used responses from 19 Nordic companies.",
+    "Kartleggingsmetoden for norske dagligvarebutikker bruker GIS-data.",
+    "Throughout the period from 2022 to 2024, prices increased.",
+  ]) {
+    const job = verifiedJob([selfContainedText]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, selfContainedText)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }));
+  }
+
+  const causalEvidence = "Therefore, the Norwegian retail-price index increased.";
+  const causalJob = verifiedJob([causalEvidence]);
+  const selfContainedClaim = segmentResponse(causalJob, {
+    unitCoverage: [{ contentUnitId: causalJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{
+      ...claim(causalJob, 0, "The Norwegian retail-price index increased."),
+      evidence: causalEvidence,
+    }],
+  });
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: causalJob,
+    response: selfContainedClaim,
+  }));
+});
+
+test("rejects authority language that is absent from the evidence excerpt", () => {
+  const job = verifiedJob(["The files are available as PDFs."]);
+  const unsupported = segmentResponse(job, {
+    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{
+      ...claim(job, 0, "The files are publication-ready."),
+      evidence: "The files are available as PDFs.",
+    }],
+  });
+  assert.throws(
+    () => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: unsupported,
+    }),
+    /authority_overreach/u,
+  );
+
+  const supportedText = "The publisher states that the files are publication-ready.";
+  const supportedJob = verifiedJob([supportedText]);
+  const supported = segmentResponse(supportedJob, {
+    unitCoverage: [{ contentUnitId: supportedJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [claim(supportedJob, 0, supportedText)],
+  });
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: supportedJob,
+    response: supported,
+  }));
+});
+
 test("response schema rejects worker-supplied final claim IDs", () => {
   const job = verifiedJob(["evidence"]);
   const response = segmentResponse(job, {

@@ -73,6 +73,39 @@ const responseCoreSchema = z.object({
   claims: z.array(responseClaimSchema),
 }).strict();
 
+const CONTEXT_DEPENDENT_OPENING = /^(?:derfor|dermed|følgelig|således|therefore|thus|hence|consequently)\b/iu;
+const UNBOUNDED_PERIOD_REFERENCE = /(?:\b(?:during|throughout|across|in|for)\s+(?:the|this)\s+period\b|\b(?:gjennom|over|i)\s+(?:denne\s+)?perioden\b)/iu;
+const EXPLICIT_YEAR = /\b(?:19|20)\d{2}\b/u;
+const AUTHORITY_TERMS = [
+  /\bpublication[- ]ready\b/iu,
+  /\bready for publication\b/iu,
+  /\bexternal(?:ly)? ready\b/iu,
+  /\b(?:rights|publication)[ -](?:approved|cleared)\b/iu,
+  /\b(?:externally valid(?:ated)?|external validity)\b/iu,
+  /\bpubliseringsklar\b/iu,
+  /\bklar for publisering\b/iu,
+  /\beksternt klar\b/iu,
+  /\b(?:rettighets|publiserings)godkjent\b/iu,
+] as const;
+
+function assertSelfContainedClaimText(claimText: string, evidence: string): void {
+  const normalizedClaim = claimText.trim();
+  if (
+    CONTEXT_DEPENDENT_OPENING.test(normalizedClaim) ||
+    (UNBOUNDED_PERIOD_REFERENCE.test(normalizedClaim) && !EXPLICIT_YEAR.test(normalizedClaim))
+  ) {
+    throw new Error("agent_response_context_dependent_claim");
+  }
+}
+
+function assertAuthorityLanguageIsSourceVisible(claimText: string, evidence: string): void {
+  for (const term of AUTHORITY_TERMS) {
+    if (term.test(claimText) && !term.test(evidence)) {
+      throw new Error("agent_response_authority_overreach");
+    }
+  }
+}
+
 export const LibraryAnalysisAgentSegmentResponseSchema = responseCoreSchema
   .extend({ responseHash: hashSchema })
   .superRefine((response, context) => {
@@ -321,6 +354,8 @@ export function validateLibraryAnalysisAgentSegmentResponse(
     if (!unit.text.includes(claim.evidence)) {
       throw new Error("agent_response_evidence_not_contained");
     }
+    assertSelfContainedClaimText(claim.text, claim.evidence);
+    assertAuthorityLanguageIsSourceVisible(claim.text, claim.evidence);
     assertNumericTokens(claim.text, claim.evidence);
     return {
       ...claim,
