@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import test from "node:test";
 
 import {
+  extractLibraryAnalysisDerivedReport,
   extractLibraryAnalysisSource,
   type LibraryAnalysisExtractionAdapters,
 } from "../../src/lib/knowledge/library-analysis-source-extraction";
@@ -163,5 +164,126 @@ test("extraction blocks unsupported media and failed PDF tooling", () => {
     status: "blocked",
     reasonCode: "corrupt_payload",
     detail: "pdf_text_extraction_failed",
+  });
+});
+
+test("CSV extraction preserves quoted cells and emits stable row ranges", () => {
+  const csv = Buffer.from(
+    '\ufeffid,title,note,empty\r\n1,"A, B","line one\nline two",\r\n2,C,plain,\r\n',
+    "utf8",
+  );
+  const result = extractLibraryAnalysisSource({
+    sourceKey: "library_file:candidates",
+    mediaType: "text/csv",
+    finalLocator: "repository:research/bibliotek/candidates.csv",
+    bytes: csv,
+  }, unusedPdfAdapter);
+
+  assert.equal(result.status, "ready");
+  if (result.status !== "ready") return;
+  assert.equal(result.units.length, 1);
+  assert.equal(result.units[0]?.unitType, "sheet_range");
+  assert.equal(
+    result.units[0]?.baseLocator,
+    "repository:research/bibliotek/candidates.csv#rows=2-3",
+  );
+  assert.equal(
+    result.units[0]?.text,
+    'id,title,note,empty\n1,"A, B","line one\nline two",\n2,C,plain,',
+  );
+
+  const inconsistent = extractLibraryAnalysisSource({
+    sourceKey: "library_file:bad-csv",
+    mediaType: "text/csv",
+    finalLocator: "repository:bad.csv",
+    bytes: Buffer.from("a,b\n1\n", "utf8"),
+  }, unusedPdfAdapter);
+  assert.deepEqual(inconsistent, {
+    status: "blocked",
+    reasonCode: "corrupt_payload",
+    detail: "csv_column_count_mismatch",
+  });
+});
+
+test("PPTX extraction follows presentation slide order and rejects external relations", () => {
+  const entries: Record<string, string> = {
+    "ppt/presentation.xml": '<p:presentation xmlns:p="p" xmlns:r="r"><p:sldIdLst><p:sldId r:id="rId2"/><p:sldId r:id="rId1"/></p:sldIdLst></p:presentation>',
+    "ppt/_rels/presentation.xml.rels": '<Relationships><Relationship Id="rId1" Type="slide" Target="slides/slide1.xml"/><Relationship Id="rId2" Type="slide" Target="slides/slide2.xml"/></Relationships>',
+    "ppt/slides/slide1.xml": '<p:sld xmlns:p="p" xmlns:a="a"><a:t>First</a:t><a:t>slide</a:t></p:sld>',
+    "ppt/slides/slide2.xml": '<p:sld xmlns:p="p" xmlns:a="a"><a:t>Second &amp; prior</a:t></p:sld>',
+  };
+  const result = extractLibraryAnalysisSource({
+    sourceKey: "library_file:deck",
+    mediaType: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    finalLocator: "repository:deck.pptx",
+    bytes: Buffer.from("504b0304fixture", "hex"),
+  }, {
+    ...unusedPdfAdapter,
+    listZipEntries: () => Object.keys(entries),
+    readZipEntry: (_bytes, entry) => Buffer.from(entries[entry] ?? "", "utf8"),
+  });
+
+  assert.equal(result.status, "ready");
+  if (result.status !== "ready") return;
+  assert.deepEqual(result.units.map((unit) => ({ locator: unit.baseLocator, text: unit.text })), [
+    { locator: "repository:deck.pptx#slide=1", text: "Second & prior" },
+    { locator: "repository:deck.pptx#slide=2", text: "First\nslide" },
+  ]);
+
+  const external = extractLibraryAnalysisSource({
+    sourceKey: "library_file:external-deck",
+    mediaType: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    finalLocator: "repository:external.pptx",
+    bytes: Buffer.from("504b0304fixture", "hex"),
+  }, {
+    ...unusedPdfAdapter,
+    listZipEntries: () => ["ppt/presentation.xml", "ppt/_rels/presentation.xml.rels"],
+    readZipEntry: (_bytes, entry) => Buffer.from(
+      entry.endsWith(".rels")
+        ? '<Relationships><Relationship Id="rId1" TargetMode="External" Target="https://example.test/deck"/></Relationships>'
+        : '<p:presentation xmlns:p="p" xmlns:r="r"><p:sldIdLst><p:sldId r:id="rId1"/></p:sldIdLst></p:presentation>',
+      "utf8",
+    ),
+  });
+  assert.deepEqual(external, {
+    status: "blocked",
+    reasonCode: "corrupt_payload",
+    detail: "pptx_external_relationship_forbidden",
+  });
+});
+
+test("derived report extraction canonicalizes dependencies and rejects unknown fields", () => {
+  const report = {
+    id: "internal-report",
+    title: "Internal report",
+    fullTitle: null,
+    author: null,
+    institution: "Food Systems",
+    date: "2026-08-21",
+    year: 2026,
+    reportCategory: "internal_synthesis",
+    country: "NO",
+    keyFindings: [],
+    recommendations: [],
+    relevance: "Internal source graph",
+    tags: ["internal"],
+    provenanceType: "internal_synthesis",
+    supportingSources: [{ sourceId: "b" }, { sourceId: "a" }],
+  };
+  const result = extractLibraryAnalysisDerivedReport(report);
+
+  assert.equal(result.status, "ready");
+  if (result.status !== "ready") return;
+  assert.equal(result.units[0]?.unitType, "database_record");
+  assert.equal(result.units[0]?.baseLocator, "database:Report:internal-report");
+  assert.match(result.units[0]!.text, /"sourceId":"a".*"sourceId":"b"/);
+
+  assert.deepEqual(extractLibraryAnalysisDerivedReport({
+    ...report,
+    reviewer: "AI",
+  }), {
+    status: "blocked",
+    reasonCode: "corrupt_payload",
+    detail: "derived_report_schema_invalid",
   });
 });
