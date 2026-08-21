@@ -187,7 +187,7 @@ test("external findings cannot bypass the model-only response boundary", () => {
   }), /validation_model_finding_deterministic_claim/u);
 });
 
-function numericValidation(claimText: string, evidence: string, sourceText = evidence) {
+function validationResult(claimText: string, evidence: string, sourceText = evidence) {
   const fixture = sourceValidationFixture(sourceText, claimText, evidence);
   return deriveLibraryAnalysisAgentValidationResult({
     candidateId: fixture.candidateId,
@@ -198,6 +198,51 @@ function numericValidation(claimText: string, evidence: string, sourceText = evi
     populationEligibility: "eligible",
   });
 }
+
+function numericValidation(claimText: string, evidence: string, sourceText = evidence) {
+  return validationResult(claimText, evidence, sourceText);
+}
+
+test("deterministic validation rejects a dropped context qualifier in English and Norwegian", () => {
+  for (const [claim, evidence] of [
+    ["The method worked.", "The method worked in this context."],
+    ["Metoden fungerte.", "Metoden fungerte i denne sammenhengen."],
+  ] as const) {
+    const omittedQualifier = validationResult(claim, evidence);
+    assert.ok(
+      omittedQualifier.findings.some((finding) =>
+        finding.errorClass === "F3" && finding.validatorKind === "deterministic"
+      ),
+      `expected a deterministic F3 for dropped qualifier: ${claim}`,
+    );
+
+    const preservedQualifier = validationResult(evidence, evidence);
+    assert.equal(
+      preservedQualifier.findings.some((finding) => finding.errorClass === "F3"),
+      false,
+      `preserving qualifier should pass: ${evidence}`,
+    );
+  }
+});
+
+test("deterministic validation rejects quantitative evidence ending on a dangling continuation token", () => {
+  const source = "The survey covered 80% of suppliers in the stated sample.";
+  const danglingEvidence = "The survey covered 80% of suppliers in";
+  const omittedContinuation = validationResult(source, danglingEvidence, source);
+  assert.ok(
+    omittedContinuation.findings.some((finding) =>
+      finding.errorClass === "F3" && finding.validatorKind === "deterministic"
+    ),
+    "expected a deterministic F3 for truncated quantitative evidence",
+  );
+
+  const completeEvidence = validationResult(source, source, source);
+  assert.equal(
+    completeEvidence.findings.some((finding) => finding.errorClass === "F3"),
+    false,
+    "complete quantitative evidence should pass",
+  );
+});
 
 test("authoritative numeric gates reject explicit positive-sign drift", () => {
   const result = numericValidation("The report says +12% growth.", "12% growth.");

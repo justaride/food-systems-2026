@@ -16,6 +16,8 @@ import {
 } from "./library-analysis-automated-validation";
 import {
   checkEvidenceBinding,
+  checkEvidenceClauseBoundary,
+  checkMaterialQualifierPreservation,
   checkQuantitativeFacts,
 } from "./library-analysis-evidence-gates";
 import {
@@ -486,11 +488,13 @@ function deterministicFindings(
       ruleIds.push("rule:evidence:locator-ownership");
     }
     const evidenceFindings = checkEvidenceBinding({ evidence: claim.evidence, sourceText: unit.text, locator: claim.locator, contentUnitId: unit.id, assertionId: claim.claimId });
+    const qualifierFindings = checkMaterialQualifierPreservation({ claim: claim.text, evidence: claim.evidence, contentUnitId: unit.id, assertionId: claim.claimId });
+    const clauseBoundaryFindings = checkEvidenceClauseBoundary({ claim: claim.text, evidence: claim.evidence, sourceText: unit.text, locator: claim.locator, contentUnitId: unit.id, assertionId: claim.claimId });
     const quantitativeFindings = checkQuantitativeFacts({ claim: claim.text, evidence: claim.evidence, contentUnitId: unit.id, assertionId: claim.claimId })
       .filter((finding) => finding.deterministicRuleIds.every((ruleId) => !/^rule:quantitative:(number|percentage|percentage_point|currency|year)$/u.test(ruleId)));
     const authoritativeNumeric = checkAuthoritativeNumericFacts({ claim: claim.text, evidence: claim.evidence, contentUnitId: unit.id, assertionId: claim.claimId });
-    findings.push(...evidenceFindings, ...quantitativeFindings, ...authoritativeNumeric.findings);
-    for (const finding of [...evidenceFindings, ...quantitativeFindings]) ruleIds.push(...finding.deterministicRuleIds);
+    findings.push(...evidenceFindings, ...qualifierFindings, ...clauseBoundaryFindings, ...quantitativeFindings, ...authoritativeNumeric.findings);
+    for (const finding of [...evidenceFindings, ...qualifierFindings, ...clauseBoundaryFindings, ...quantitativeFindings]) ruleIds.push(...finding.deterministicRuleIds);
     ruleIds.push(...authoritativeNumeric.ruleIds);
     if (claim.locator.trim().length === 0) missingLocator = true;
   }

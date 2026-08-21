@@ -303,6 +303,49 @@ export function checkQuantitativeFacts(
     }));
 }
 
+const MATERIAL_SCOPE_QUALIFIERS = [
+  { pattern: /\bi\s+denne\s+sammenhengen\b/iu, label: "i denne sammenhengen" },
+  { pattern: /\bin\s+this\s+context\b/iu, label: "in this context" },
+] as const;
+const DANGLING_CONTINUATION = /\b(?:and|of|for|from|in|or|to|which|with|gjennom|og|av|for|fra|i|eller|til|som|med)$/iu;
+
+export function checkMaterialQualifierPreservation(
+  input: QuantitativeFactsInput,
+): AutomatedValidationFinding[] {
+  const contentUnitId = defaultContentUnitId({
+    contentUnitId: input.contentUnitId,
+    sourceText: input.evidence,
+  });
+  return MATERIAL_SCOPE_QUALIFIERS
+    .filter(({ pattern }) => pattern.test(input.evidence) && !pattern.test(input.claim))
+    .map(({ label }) => finding({
+      errorClass: "F3",
+      ruleId: "rule:claim:scope-qualifier",
+      explanation: `Claim omits the material source scope qualifier ${label}.`,
+      contentUnitId,
+      assertionId: input.assertionId,
+    }));
+}
+
+export function checkEvidenceClauseBoundary(
+  input: DeterministicLibraryGateInput,
+): AutomatedValidationFinding[] {
+  if (decomposeClaimFacts(input.claim).length === 0) return [];
+  const evidence = input.evidence.trimEnd();
+  if (!DANGLING_CONTINUATION.test(evidence)) return [];
+  const evidenceIndex = input.sourceText.indexOf(input.evidence);
+  if (evidenceIndex < 0) return [];
+  const continuation = input.sourceText.slice(evidenceIndex + input.evidence.length);
+  if (!/^\s+[^.!?\n]/u.test(continuation)) return [];
+  return [finding({
+    errorClass: "F3",
+    ruleId: "rule:evidence:incomplete-clause",
+    explanation: "Quantitative evidence ends on a continuation token before the bound source sentence is complete.",
+    contentUnitId: defaultContentUnitId(input),
+    assertionId: input.assertionId,
+  })];
+}
+
 export function runDeterministicLibraryGates(
   input: DeterministicLibraryGateInput,
 ): {
@@ -314,6 +357,8 @@ export function runDeterministicLibraryGates(
     findings: [
       ...checkEvidenceBinding(input),
       ...checkQuantitativeFacts(input),
+      ...checkMaterialQualifierPreservation(input),
+      ...checkEvidenceClauseBoundary(input),
     ],
   };
 }

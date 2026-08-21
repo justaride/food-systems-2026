@@ -75,7 +75,16 @@ const responseCoreSchema = z.object({
 
 const CONTEXT_DEPENDENT_OPENING = /^(?:derfor|dermed|følgelig|således|therefore|thus|hence|consequently)\b/iu;
 const UNBOUNDED_PERIOD_REFERENCE = /(?:\b(?:during|throughout|across|in|for)\s+(?:the|this)\s+period\b|\b(?:gjennom|over|i)\s+(?:denne\s+)?perioden\b)/iu;
+const UNANCHORED_RELATIVE_REFERENCE = /\b(?:i\s+økende\s+grad|de\s+siste\s+to\s+tiårene|foreløpig|currently)\b/iu;
+const AUDITED_GENERIC_SUBJECT = /^(?:(?:oppgaven|studien)\s+(?:dokumenterer|finner|viser)|(?:the\s+(?:study|assignment))\s+(?:documents?|finds?|shows?))\b/iu;
+const AUDITED_HERE_REFERENCE = /^(?:driftsinntekter\s+her\s+økte|revenue\s+here\s+increased)\b/iu;
+const ANOTHER_FACTOR = /\b(?:en\s+annen\s+faktor|another\s+factor)\b/iu;
+const PRIOR_FACTOR = /\b(?:faktor|factor)\b/iu;
 const EXPLICIT_YEAR = /\b(?:19|20)\d{2}\b/u;
+const MATERIAL_SCOPE_QUALIFIERS = [
+  /\bi\s+denne\s+sammenhengen\b/iu,
+  /\bin\s+this\s+context\b/iu,
+] as const;
 const AUTHORITY_TERMS = [
   /\bpublication[- ]ready\b/iu,
   /\bready for publication\b/iu,
@@ -90,11 +99,23 @@ const AUTHORITY_TERMS = [
 
 function assertSelfContainedClaimText(claimText: string, evidence: string): void {
   const normalizedClaim = claimText.trim();
+  const anotherFactor = ANOTHER_FACTOR.exec(normalizedClaim);
+  const unresolvedAnotherFactor = anotherFactor !== null &&
+    !PRIOR_FACTOR.test(normalizedClaim.slice(0, anotherFactor.index));
   if (
     CONTEXT_DEPENDENT_OPENING.test(normalizedClaim) ||
-    (UNBOUNDED_PERIOD_REFERENCE.test(normalizedClaim) && !EXPLICIT_YEAR.test(normalizedClaim))
+    (UNBOUNDED_PERIOD_REFERENCE.test(normalizedClaim) && !EXPLICIT_YEAR.test(normalizedClaim)) ||
+    (UNANCHORED_RELATIVE_REFERENCE.test(normalizedClaim) && !EXPLICIT_YEAR.test(normalizedClaim)) ||
+    AUDITED_GENERIC_SUBJECT.test(normalizedClaim) ||
+    AUDITED_HERE_REFERENCE.test(normalizedClaim) ||
+    unresolvedAnotherFactor
   ) {
     throw new Error("agent_response_context_dependent_claim");
+  }
+  for (const qualifier of MATERIAL_SCOPE_QUALIFIERS) {
+    if (qualifier.test(evidence) && !qualifier.test(normalizedClaim)) {
+      throw new Error("agent_response_scope_qualifier_mismatch");
+    }
   }
 }
 

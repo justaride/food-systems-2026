@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.2`
+Workflow version: `1.0.3`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.2`
+Prompt template version: `1.0.3`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
@@ -16,17 +16,17 @@ Status: automated-only internal candidate analysis
 
 ## Input gate
 
-Analyze only the exact readable content units in the sealed population row and run input envelope. Every byte source, locator, source-version hash, workflow byte hash and prompt byte hash must be present and mutually bound before analysis begins. Missing or unreadable bytes produce `blocked_input`; a locator alone is not content.
+Analyze only the exact readable content units in the sealed population row and run input envelope. Every byte source, locator, source-version hash, workflow byte hash and prompt byte hash must be present and mutually bound before analysis begins. Preserve the exact named actor, source, study, report, respondent group and attribution visible in the supplied bytes; do not replace an unidentified or differently named source actor with the document, institution or task. Missing or unreadable bytes produce `blocked_input`; a locator alone is not content.
 
 ## Analysis method
 
 Decompose prose into atomic candidate claims. Preserve every material number, percentage, currency, unit, sign, period, geography and named actor. Record contradictions, omissions, uncertainty, identity confidence and high-risk subject flags. Every claim must cite one or more exact input content-unit IDs and the narrowest available locator. Complete analysis requires every claim-bearing fact to have direct evidence or an explicit limitation.
 
-A claim is eligible only when it is a self-contained declarative proposition with a source-grounded subject and predicate. Headings, titles, labels, table-of-contents rows, isolated chart or table values and other context-dependent fragments are not claims unless the evidence excerpt also carries the source-visible context needed to interpret them. Quantitative claims must include every source-visible qualifier materially needed to interpret the value, such as its subject, denominator or universe, period, unit, method or geography. If materially necessary context is absent, record `no_material_claim` or an explicit limitation; do not infer it from layout, memory or adjacent unsupplied context.
+A claim is eligible only when it is a self-contained declarative proposition with a source-grounded subject and predicate. Headings, titles, labels, table-of-contents rows, isolated chart or table values and other context-dependent fragments are not claims unless the evidence excerpt also carries the source-visible context needed to interpret them. Quantitative, aggregate, survey, ranking, status and forecast claims must preserve every source-visible qualifier materially needed to interpret the value or proposition: subject and actor/source identity, denominator or universe, respondent count, period, as-of date, unit, method, geography or market, comparison basis, forecast/projection basis and horizon. If materially necessary context is absent, record `no_material_claim` or an explicit limitation; do not infer it from layout, memory or adjacent unsupplied context.
 
-Pronouns and shorthand references such as "the method", "the results", "this indicator", "the survey", "the companies" or "this period" are eligible only when their antecedent and scope appear in the same evidence excerpt. Quantitative, aggregate, survey, ranking and forecast claims must preserve every materially needed source-visible denominator or universe, respondent count when stated, period, unit, geography or market, method, comparison basis and forecast basis. A complete qualitative proposition does not require unrelated surrounding context.
+Pronouns and shorthand references such as "the method", "the results", "this indicator", "the survey", "the companies", "another factor", "here" or "this period" are eligible only when their antecedent and scope appear in the same evidence excerpt. Current-status language such as "now", "currently", "as of" or an undated ownership/share statement requires the source-visible reference date. A survey or ranking claim must retain the stated respondent universe, sample count and geography; a forecast or projection must retain its basis, horizon and as-of/forecast date. A complete qualitative proposition does not require unrelated surrounding context.
 
-The evidence excerpt itself must contain every material fact and visible qualifier asserted by the claim. Preserve geography exactly as written in the evidence. Do not translate, canonicalize, broaden or substitute a country, region or market label.
+The evidence excerpt itself must contain every material fact and visible qualifier asserted by the claim. It must end at a complete source-visible proposition; an excerpt that ends mid-sentence, at a dangling preposition or conjunction, in a table/list continuation, or before a needed qualifier is incomplete and cannot support a claim. Preserve actor/source identity and geography exactly as written in the evidence. Do not translate, canonicalize, broaden or substitute a country, region or market label.
 
 Before emission, perform an evidence-locality check on the subject, predicate and material qualifiers. Missing required context produces `no_material_claim`, never a repaired claim. Publication readiness, approval, completeness, authority, external validity and rights clearance may not be inferred from official status, availability, review or usefulness.
 

@@ -261,6 +261,176 @@ test("keeps explicit subjects and bounded periods eligible", () => {
   }));
 });
 
+test("rejects unanchored relative trend and status expressions while allowing anchored boundaries", () => {
+  for (const contextualText of [
+    "Detaljistene kontrollerer data i økende grad.",
+    "Egne merkevarer har endret seg de siste to tiårene.",
+    "Smart Fish Farm er foreløpig på pause.",
+    "The operation is currently paused.",
+  ]) {
+    const job = verifiedJob([contextualText]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, contextualText)],
+    });
+    assert.throws(
+      () => validateLibraryAnalysisAgentSegmentResponse({
+        queueHash: HASH,
+        attempt: 1,
+        inputHash: INPUT_HASH,
+        expectedModel: EXPECTED_MODEL,
+        job,
+        response,
+      }),
+      /context_dependent_claim/u,
+    );
+  }
+
+  for (const anchoredText of [
+    "Detaljistene kontrollerer data i økende grad fra 2022 til 2024.",
+    "Egne merkevarer har endret seg de siste to tiårene fram til 2025.",
+    "Smart Fish Farm er foreløpig på pause per 31.12.2024.",
+    "The operation is currently paused as of 2024.",
+  ]) {
+    const job = verifiedJob([anchoredText]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, anchoredText)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }));
+  }
+});
+
+test("rejects only audited unresolved generic and anaphoric subject phrases", () => {
+  for (const contextualText of [
+    "Oppgaven dokumenterer rapporterte tiltak.",
+    "Studien finner flere tiltak.",
+    "The study finds several measures.",
+    "The assignment documents reported actions.",
+    "En annen faktor økte kostnadene.",
+    "Another factor increased costs.",
+    "Driftsinntekter her økte.",
+    "Revenue here increased.",
+  ]) {
+    const job = verifiedJob([contextualText]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, contextualText)],
+    });
+    assert.throws(
+      () => validateLibraryAnalysisAgentSegmentResponse({
+        queueHash: HASH,
+        attempt: 1,
+        inputHash: INPUT_HASH,
+        expectedModel: EXPECTED_MODEL,
+        job,
+        response,
+      }),
+      /context_dependent_claim/u,
+    );
+  }
+
+  const anchoredCases = [
+    {
+      text: "Rislakki-oppgaven dokumenterer rapporterte tiltak.",
+      evidence: "Rislakki-oppgaven dokumenterer rapporterte tiltak.",
+    },
+    {
+      text: "Studien Rislakki finner flere tiltak.",
+      evidence: "Studien Rislakki finner flere tiltak.",
+    },
+    {
+      text: "The study Rislakki finds several measures.",
+      evidence: "The study Rislakki finds several measures.",
+    },
+    {
+      text: "The assignment Rislakki documents reported actions.",
+      evidence: "The assignment Rislakki documents reported actions.",
+    },
+    {
+      text: "Energy costs were one factor. Another factor was exchange rates.",
+      evidence: "Energy costs were one factor. Another factor was exchange rates.",
+    },
+    {
+      text: "Energy costs were one factor. En annen faktor var valutakursendringer.",
+      evidence: "Energy costs were one factor. En annen faktor var valutakursendringer.",
+    },
+    {
+      text: "Detaljleddets driftsinntekter her økte fra 2022 til 2024.",
+      evidence: "Detaljleddets driftsinntekter her økte fra 2022 til 2024.",
+    },
+    {
+      text: "Revenue here means revenue of the named retail segment.",
+      evidence: "Revenue here means revenue of the named retail segment.",
+    },
+  ];
+  for (const { text, evidence } of anchoredCases) {
+    const job = verifiedJob([evidence]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, text), evidence }],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }));
+  }
+});
+
+test("rejects dropped explicit scope qualifiers and accepts preserved scope", () => {
+  for (const [text, evidence] of [
+    ["Metoden bruker ikke GIS-data.", "Metoden bruker ikke GIS-data i denne sammenhengen."],
+    ["The method does not use GIS data.", "The method does not use GIS data in this context."],
+  ]) {
+    const job = verifiedJob([evidence]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, text), evidence }],
+    });
+    assert.throws(
+      () => validateLibraryAnalysisAgentSegmentResponse({
+        queueHash: HASH,
+        attempt: 1,
+        inputHash: INPUT_HASH,
+        expectedModel: EXPECTED_MODEL,
+        job,
+        response,
+      }),
+      /scope_qualifier_mismatch/u,
+    );
+  }
+
+  for (const scopedText of [
+    "Metoden bruker ikke GIS-data i denne sammenhengen.",
+    "The method does not use GIS data in this context.",
+  ]) {
+    const job = verifiedJob([scopedText]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, scopedText)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }));
+  }
+});
+
 test("rejects authority language that is absent from the evidence excerpt", () => {
   const job = verifiedJob(["The files are available as PDFs."]);
   const unsupported = segmentResponse(job, {
