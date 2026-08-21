@@ -1,7 +1,16 @@
 #!/usr/bin/env node
 
 import { createHash } from "node:crypto";
-import { lstatSync, readFileSync, realpathSync } from "node:fs";
+import {
+  closeSync,
+  constants,
+  fstatSync,
+  lstatSync,
+  openSync,
+  readFileSync,
+  readSync,
+  realpathSync,
+} from "node:fs";
 import { dirname, isAbsolute, relative, resolve, sep } from "node:path";
 import { pathToFileURL } from "node:url";
 import { z } from "zod";
@@ -22,6 +31,7 @@ import {
 import {
   LibraryAnalysisAgentAttemptInputSchema,
   LibraryAnalysisAgentModelReceiptSchema,
+  type LibraryAnalysisAgentAttemptInput,
   validateLibraryAnalysisAgentSegmentResponse,
   type LibraryAnalysisAcceptedSegment,
 } from "../../src/lib/knowledge/library-analysis-agent-response";
@@ -66,6 +76,7 @@ const prepareOptionsSchema = z.object({
 const acceptOptionsSchema = z.object({
   command: z.literal("accept-attempt"),
   runRoot: absolutePathSchema,
+  queue: absolutePathSchema,
   attemptInput: absolutePathSchema,
   response: absolutePathSchema,
 }).strict();
@@ -132,7 +143,7 @@ export function parseLibraryAnalysisAgentQueueArgs(
       ? ["run-root", "resolution", "manifest", "cost-envelope-hash", "merged-inventory-hash", "runtime-commit", "repository-root"]
       : command === "prepare-attempt"
         ? ["run-root", "queue", "job-id", "attempt", "expected-model-provider", "expected-model-name", "expected-model-version"]
-        : ["run-root", "attempt-input", "response"];
+        : ["run-root", "queue", "attempt-input", "response"];
     if (!match || !allowed.includes(match[1]!) || values.has(match[1]!)) {
       throw new Error("agent_queue_cli_arguments_invalid");
     }
@@ -178,6 +189,7 @@ export function parseLibraryAnalysisAgentQueueArgs(
     return acceptOptionsSchema.parse({
       command,
       runRoot: value("run-root"),
+      queue: value("queue"),
       attemptInput: value("attempt-input"),
       response: value("response"),
     });
@@ -307,12 +319,9 @@ async function runAcceptAttempt(
 ): Promise<LibraryAnalysisAgentQueueAcceptResult> {
   const options = acceptOptionsSchema.parse(rawOptions);
   const runRoot = openRunRoot(options.runRoot);
+  const queue = readQueue(runRoot, options.queue);
   const inputArtifact = readSealedAttemptInput(runRoot, options.attemptInput);
-  const inputBytes = readAndVerifyPrivateArtifact(runRoot, inputArtifact.portablePath, {
-    sha256: sha256Bytes(inputArtifact.bytes),
-    sizeBytes: inputArtifact.bytes.length,
-    mode: 0o400,
-  });
+  const inputBytes = inputArtifact.bytes;
   const input = LibraryAnalysisAgentAttemptInputSchema.parse(JSON.parse(inputBytes.toString("utf8")));
   const { inputHash, ...inputCore } = input;
   if (inputHash !== candidateAnalysisSha256("library-analysis-agent-attempt-input", inputCore as CandidateJsonValue)) {
@@ -328,6 +337,8 @@ async function runAcceptAttempt(
   ) {
     throw new Error("agent_queue_attempt_input_binding_mismatch");
   }
+  const authoritativeJob = loadVerifiedLibraryAnalysisJob(runRoot, queue, input.jobId);
+  assertAttemptInputMatchesAuthoritative(queue, authoritativeJob, input);
   const responseArtifact = readExplicitPrivateResponse(options.response);
   let response: unknown;
   try {
@@ -336,16 +347,14 @@ async function runAcceptAttempt(
     sealRawResponse(runRoot, input, responseArtifact.bytes);
     throw new Error("agent_response_json_invalid");
   }
-  const job = {
-    job: input.job,
-    units: input.units.map(({ text, ...descriptor }) => ({ descriptor, text })),
-  } as unknown as LibraryAnalysisVerifiedJob;
   let accepted: LibraryAnalysisAcceptedSegment;
   try {
     accepted = validateLibraryAnalysisAgentSegmentResponse({
       queueHash: input.queueHash,
+      attempt: input.attempt,
+      inputHash: input.inputHash,
       expectedModel: input.expectedModel,
-      job,
+      job: authoritativeJob,
       response,
     });
   } catch (error) {
@@ -383,17 +392,13 @@ type ExplicitPrivateArtifact = { path: string; portablePath: string; bytes: Buff
 
 function readSealedAttemptInput(runRoot: string, rawPath: string): ExplicitPrivateArtifact & { jobId: string; attempt: number } {
   const path = resolve(rawPath);
-  const stat = lstatSync(path);
-  if (stat.isSymbolicLink() || !stat.isFile() || (stat.mode & 0o777) !== 0o400) {
-    throw new Error("agent_queue_attempt_input_artifact_invalid");
-  }
   const resolvedPath = realpathSync(path);
   const portablePath = relative(runRoot, resolvedPath);
   const match = /^jobs\/([a-z0-9][a-z0-9._:-]*)\/attempt-(\d{3})\/input\.json$/u.exec(portablePath);
   if (!match || portablePath.includes("\\") || portablePath.startsWith("..")) {
     throw new Error("agent_queue_attempt_input_path_invalid");
   }
-  const bytes = readFileSync(path);
+  const bytes = readPrivateFileByDescriptor(path, 0o400, "agent_queue_attempt_input_artifact_invalid");
   return {
     path,
     portablePath,
@@ -405,12 +410,76 @@ function readSealedAttemptInput(runRoot: string, rawPath: string): ExplicitPriva
 
 function readExplicitPrivateResponse(rawPath: string): ExplicitPrivateArtifact {
   const path = resolve(rawPath);
-  const stat = lstatSync(path);
-  const mode = stat.mode & 0o777;
-  if (stat.isSymbolicLink() || !stat.isFile() || (mode !== 0o400 && mode !== 0o600)) {
-    throw new Error("agent_response_artifact_invalid");
+  return {
+    path,
+    portablePath: path,
+    bytes: readPrivateFileByDescriptor(path, [0o400, 0o600], "agent_response_artifact_invalid"),
+  };
+}
+
+function readPrivateFileByDescriptor(
+  path: string,
+  expectedMode: 0o400 | 0o600 | readonly (0o400 | 0o600)[],
+  errorCode: string,
+): Buffer {
+  let descriptor: number | null = null;
+  try {
+    descriptor = openSync(path, constants.O_RDONLY | constants.O_NOFOLLOW);
+    const initial = fstatSync(descriptor);
+    const modes = Array.isArray(expectedMode) ? expectedMode : [expectedMode];
+    if (!initial.isFile() || !modes.includes((initial.mode & 0o777) as 0o400 | 0o600)) {
+      throw new Error(errorCode);
+    }
+    const bytes = Buffer.alloc(initial.size);
+    let offset = 0;
+    while (offset < bytes.length) {
+      const read = readSync(descriptor, bytes, offset, bytes.length - offset, offset);
+      if (read === 0) throw new Error(errorCode);
+      offset += read;
+    }
+    const final = fstatSync(descriptor);
+    if (
+      !final.isFile() ||
+      final.dev !== initial.dev ||
+      final.ino !== initial.ino ||
+      final.size !== initial.size ||
+      (final.mode & 0o777) !== (initial.mode & 0o777)
+    ) {
+      throw new Error(errorCode);
+    }
+    return bytes;
+  } catch (error) {
+    if (error instanceof Error && error.message === errorCode) throw error;
+    throw new Error(errorCode);
+  } finally {
+    if (descriptor !== null) closeSync(descriptor);
   }
-  return { path, portablePath: path, bytes: readFileSync(path) };
+}
+
+function assertAttemptInputMatchesAuthoritative(
+  queue: LibraryAnalysisAgentQueue,
+  authoritativeJob: LibraryAnalysisVerifiedJob,
+  input: LibraryAnalysisAgentAttemptInput,
+): void {
+  const expectedCore = {
+    schema: "library-analysis-agent-job-input/v1" as const,
+    queueId: queue.queueId,
+    queueHash: queue.queueHash,
+    jobId: authoritativeJob.job.jobId,
+    attempt: input.attempt,
+    expectedModel: input.expectedModel,
+    job: authoritativeJob.job,
+    executionPolicy: queue.executionPolicy,
+    workflow: queue.workflow,
+    analysisPrompt: queue.analysisPrompt,
+    validationWorkflow: queue.validationWorkflow,
+    validationPrompt: queue.validationPrompt,
+    units: authoritativeJob.units.map(({ descriptor, text }) => ({ ...descriptor, text })),
+  };
+  const { inputHash: _inputHash, ...actualCore } = input;
+  if (canonicalCandidateJson(actualCore as CandidateJsonValue) !== canonicalCandidateJson(expectedCore as CandidateJsonValue)) {
+    throw new Error("agent_queue_attempt_input_authority_mismatch");
+  }
 }
 
 function sealRawResponse(

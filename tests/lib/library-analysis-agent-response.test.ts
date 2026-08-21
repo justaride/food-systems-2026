@@ -17,6 +17,7 @@ import type {
 } from "../../src/lib/knowledge/library-analysis-agent-queue";
 
 const HASH = "a".repeat(64);
+const INPUT_HASH = "f".repeat(64);
 const EXPECTED_MODEL: LibraryAnalysisAgentModelReceipt = {
   provider: "openai-codex",
   name: "gpt-5.6-luna",
@@ -77,8 +78,11 @@ function segmentResponse(
 ): Record<string, unknown> {
   const response = {
     schema: "library-analysis-agent-segment-response/v1" as const,
+    queueHash: HASH,
     jobId: job.job.jobId,
     jobHash: job.job.inputEnvelopeHash,
+    attempt: 1,
+    inputHash: INPUT_HASH,
     model: EXPECTED_MODEL,
     unitCoverage: job.units.map(({ descriptor }) => ({
       contentUnitId: descriptor.id,
@@ -120,6 +124,8 @@ test("accepts complete coverage and derives claim IDs", () => {
   });
   const accepted = validateLibraryAnalysisAgentSegmentResponse({
     queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
     expectedModel: EXPECTED_MODEL,
     job,
     response,
@@ -137,11 +143,11 @@ test("rejects omitted units, foreign locators, fabricated evidence, and hash dri
     unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
     claims: [claim(job, 0, "verified evidence")],
   });
-  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, expectedModel: EXPECTED_MODEL, job, response: rehash({ ...complete, unitCoverage: [] }) }), /unit_coverage_mismatch/u);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, attempt: 1, inputHash: INPUT_HASH, expectedModel: EXPECTED_MODEL, job, response: rehash({ ...complete, unitCoverage: [] }) }), /unit_coverage_mismatch/u);
   const completeClaim = (complete.claims as unknown[])[0] as Record<string, unknown>;
-  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, expectedModel: EXPECTED_MODEL, job, response: rehash({ ...complete, claims: [{ ...completeClaim, locator: "foreign:locator" },] }) }), /locator_ownership_mismatch/u);
-  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, expectedModel: EXPECTED_MODEL, job, response: rehash({ ...complete, claims: [{ ...completeClaim, evidence: "invented" },] }) }), /evidence_not_contained/u);
-  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, expectedModel: EXPECTED_MODEL, job, response: { ...complete, responseHash: "0".repeat(64) } }), /response_hash_mismatch/u);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, attempt: 1, inputHash: INPUT_HASH, expectedModel: EXPECTED_MODEL, job, response: rehash({ ...complete, claims: [{ ...completeClaim, locator: "foreign:locator" },] }) }), /locator_ownership_mismatch/u);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, attempt: 1, inputHash: INPUT_HASH, expectedModel: EXPECTED_MODEL, job, response: rehash({ ...complete, claims: [{ ...completeClaim, evidence: "invented" },] }) }), /evidence_not_contained/u);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, attempt: 1, inputHash: INPUT_HASH, expectedModel: EXPECTED_MODEL, job, response: { ...complete, responseHash: "0".repeat(64) } }), /response_hash_mismatch/u);
 });
 
 test("requires the controller model receipt and never trusts a worker self-report", () => {
@@ -149,23 +155,23 @@ test("requires the controller model receipt and never trusts a worker self-repor
   const response = segmentResponse(job, {
     unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
     claims: [claim(job, 0, "Alpha grew by 12 percent.")],
-    model: { provider: "openai-codex", name: "gpt-5.6-sol", version: "unknown" },
+    model: { provider: "openai-codex", name: "gpt-5.6-luna", version: "worker-receipt" },
   });
-  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, expectedModel: EXPECTED_MODEL, job, response }), /model_receipt_mismatch/u);
-  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, expectedModel: EXPECTED_MODEL, job, response: { ...response, model: EXPECTED_MODEL } }), /response_hash_mismatch|model_receipt_mismatch/u);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, attempt: 1, inputHash: INPUT_HASH, expectedModel: EXPECTED_MODEL, job, response }), /model_receipt_mismatch/u);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, attempt: 1, inputHash: INPUT_HASH, expectedModel: EXPECTED_MODEL, job, response: { ...response, model: EXPECTED_MODEL } }), /response_hash_mismatch|model_receipt_mismatch/u);
 });
 
 test("requires typed blocked coverage and rejects claims without owned numeric evidence", () => {
   const job = verifiedJob(["Revenue was -12% and cost €4.50."]);
   const blocked = segmentResponse(job, {
-    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "blocked" }],
+    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "blocked", reasonCode: "insufficient_context" }],
   });
-  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, expectedModel: EXPECTED_MODEL, job, response: blocked }), /blocked_reason_required/u);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, attempt: 1, inputHash: INPUT_HASH, expectedModel: EXPECTED_MODEL, job, response: { ...blocked, unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "blocked" }] } }), /blocked_reason_code_required/u);
   const numericDrift = segmentResponse(job, {
     unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
     claims: [{ ...claim(job, 0, "Revenue was 12 percent and cost $4.50."), evidence: "Revenue was -12% and cost €4.50." }],
   });
-  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, expectedModel: EXPECTED_MODEL, job, response: numericDrift }), /numeric_token_mismatch/u);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ queueHash: HASH, attempt: 1, inputHash: INPUT_HASH, expectedModel: EXPECTED_MODEL, job, response: numericDrift }), /numeric_token_mismatch/u);
 });
 
 test("response schema rejects worker-supplied final claim IDs", () => {
@@ -175,4 +181,48 @@ test("response schema rejects worker-supplied final claim IDs", () => {
     unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
   });
   assert.throws(() => LibraryAnalysisAgentSegmentResponseSchema.parse(response));
+});
+
+test("binds queue, attempt, and sealed attempt input hash into acceptance", () => {
+  const job = verifiedJob(["evidence"]);
+  const response = segmentResponse(job, {
+    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [claim(job, 0, "evidence")],
+  });
+  for (const drift of [
+    { queueHash: "b".repeat(64) },
+    { attempt: 2 },
+    { inputHash: "c".repeat(64) },
+  ]) {
+    assert.throws(
+      () => validateLibraryAnalysisAgentSegmentResponse({
+        queueHash: HASH,
+        attempt: 1,
+        inputHash: INPUT_HASH,
+        expectedModel: EXPECTED_MODEL,
+        job,
+        response: rehash({ ...response, ...drift }),
+      }),
+      /job_binding_mismatch/u,
+    );
+  }
+});
+
+test("keeps lexical numeric markers attached to their own number", () => {
+  const job = verifiedJob(["Revenue 12% and rate 5%."]);
+  const response = segmentResponse(job, {
+    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{ ...claim(job, 0, "Revenue 12 and rate 5%."), evidence: "Revenue 12% and rate 5%." }],
+  });
+  assert.throws(
+    () => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }),
+    /numeric_token_mismatch/u,
+  );
 });

@@ -21,7 +21,7 @@ export const LIBRARY_ANALYSIS_AGENT_SEGMENT_RESPONSE_SCHEMA =
 
 export const LibraryAnalysisAgentModelReceiptSchema = z.object({
   provider: z.literal("openai-codex"),
-  name: textSchema,
+  name: z.literal("gpt-5.6-luna"),
   version: textSchema,
 }).strict();
 export type LibraryAnalysisAgentModelReceipt = z.infer<
@@ -33,12 +33,18 @@ const coverageStatusSchema = z.enum([
   "no_material_claim",
   "blocked",
 ]);
+const blockedReasonCodeSchema = z.enum([
+  "unreadable_content",
+  "ambiguous_content",
+  "unsupported_content",
+  "insufficient_context",
+]);
 
 const coverageSchema = z.object({
   contentUnitId: idSchema,
   status: coverageStatusSchema,
   reason: textSchema.optional(),
-  reasonCode: idSchema.optional(),
+  reasonCode: blockedReasonCodeSchema.optional(),
 }).strict();
 
 const responseClaimSchema = z.object({
@@ -53,8 +59,11 @@ const responseClaimSchema = z.object({
 
 const responseCoreSchema = z.object({
   schema: z.literal(LIBRARY_ANALYSIS_AGENT_SEGMENT_RESPONSE_SCHEMA),
+  queueHash: hashSchema,
   jobId: idSchema,
   jobHash: hashSchema,
+  attempt: z.number().int().positive(),
+  inputHash: hashSchema,
   model: LibraryAnalysisAgentModelReceiptSchema,
   unitCoverage: z.array(coverageSchema),
   claims: z.array(responseClaimSchema),
@@ -72,9 +81,11 @@ export const LibraryAnalysisAgentSegmentResponseSchema = responseCoreSchema
       context.addIssue({ code: "custom", message: "duplicate_claim_local_ordinal" });
     }
     for (const coverage of response.unitCoverage) {
-      const hasReason = coverage.reason !== undefined || coverage.reasonCode !== undefined;
-      if (coverage.status === "blocked" && !hasReason) {
-        context.addIssue({ code: "custom", message: "blocked_reason_required" });
+      if (coverage.status === "blocked" && coverage.reasonCode === undefined) {
+        context.addIssue({ code: "custom", message: "blocked_reason_code_required" });
+      }
+      if (coverage.status !== "blocked" && (coverage.reason !== undefined || coverage.reasonCode !== undefined)) {
+        context.addIssue({ code: "custom", message: "coverage_reason_not_allowed" });
       }
     }
     const claimUnitIds = new Set(response.claims.map(({ contentUnitId }) => contentUnitId));
@@ -163,6 +174,8 @@ export type LibraryAnalysisAgentAttemptInput = z.infer<
 
 export type LibraryAnalysisAgentSegmentResponseValidationInput = {
   queueHash: string;
+  attempt: number;
+  inputHash: string;
   expectedModel: LibraryAnalysisAgentModelReceipt;
   job: LibraryAnalysisVerifiedJob;
   response: unknown;
@@ -184,11 +197,19 @@ export function validateLibraryAnalysisAgentSegmentResponse(
 ): LibraryAnalysisAcceptedSegment {
   const expectedModel = LibraryAnalysisAgentModelReceiptSchema.parse(input.expectedModel);
   if (!HASH.test(input.queueHash)) throw new Error("agent_response_queue_hash_invalid");
+  if (!Number.isInteger(input.attempt) || input.attempt < 1) throw new Error("agent_response_attempt_invalid");
+  if (!HASH.test(input.inputHash)) throw new Error("agent_response_input_hash_invalid");
   const response = LibraryAnalysisAgentSegmentResponseSchema.parse(input.response);
   if (response.responseHash !== libraryAnalysisAgentSegmentResponseHash(response)) {
     throw new Error("agent_response_response_hash_mismatch");
   }
-  if (response.jobId !== input.job.job.jobId || response.jobHash !== input.job.job.inputEnvelopeHash) {
+  if (
+    response.queueHash !== input.queueHash ||
+    response.jobId !== input.job.job.jobId ||
+    response.jobHash !== input.job.job.inputEnvelopeHash ||
+    response.attempt !== input.attempt ||
+    response.inputHash !== input.inputHash
+  ) {
     throw new Error("agent_response_job_binding_mismatch");
   }
   if (
@@ -276,7 +297,7 @@ function assertNumericTokens(claimText: string, evidence: string): void {
     const index = remaining.findIndex((candidate) =>
       candidate.value === token.value &&
       candidate.sign === token.sign &&
-      (token.marker === "none" || candidate.marker === token.marker));
+      candidate.marker === token.marker);
     if (index < 0) throw new Error("agent_response_numeric_token_mismatch");
     remaining.splice(index, 1);
   }
@@ -284,17 +305,20 @@ function assertNumericTokens(claimText: string, evidence: string): void {
 
 function numericTokens(text: string): NumericToken[] {
   const tokens: NumericToken[] = [];
-  const pattern = /[+\-−]?\d+(?:[.,]\d+)?/gu;
+  const pattern = /[+\-−]?(?:\d{1,3}(?:[\s,]\d{3})+|\d+)(?:[.,]\d+)?/gu;
   for (const match of text.matchAll(pattern)) {
     const raw = match[0]!;
     const start = match.index ?? 0;
-    const context = text.slice(Math.max(0, start - 16), Math.min(text.length, start + raw.length + 16));
+    const before = text.slice(Math.max(0, start - 8), start);
+    const after = text.slice(start + raw.length, Math.min(text.length, start + raw.length + 12));
     const sign = raw.startsWith("-") || raw.startsWith("−")
       ? "negative"
       : raw.startsWith("+") ? "positive" : "unsigned";
-    const marker = /(?:%|percent(?:age)?|prosent)/iu.test(context)
+    const marker = /^(?:\s*)(?:%|percent(?:age)?|prosent)\b/iu.test(after) ||
+      /^(?:%)/u.test(after)
       ? "percent"
-      : /(?:[$€£]|\b(?:kr|nok|usd|eur|gbp)\b)/iu.test(context)
+      : /(?:[$€£]\s*)$/u.test(before) ||
+          /^(?:\s*)(?:kr|nok|usd|eur|gbp)\b/iu.test(after)
         ? "currency"
         : "none";
     tokens.push({ value: normalizeNumber(raw), sign, marker });

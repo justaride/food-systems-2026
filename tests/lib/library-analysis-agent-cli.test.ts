@@ -9,6 +9,7 @@ import assert from "node:assert/strict";
 import {
   candidateAnalysisEvidenceLocatorHash,
   candidateAnalysisSha256,
+  type CandidateJsonValue,
 } from "../../src/lib/knowledge/candidate-analysis-contract";
 import {
   LibraryAnalysisAcquisitionResolutionSchema,
@@ -32,7 +33,7 @@ const HASHES = {
 };
 const EXPECTED_MODEL = {
   provider: "openai-codex" as const,
-  name: "gpt-5.6-luna",
+  name: "gpt-5.6-luna" as const,
   version: "unknown",
 };
 
@@ -338,14 +339,20 @@ test("accept-attempt seals raw and accepted responses without leaking private co
     expectedModel: EXPECTED_MODEL,
   });
   const input = JSON.parse(readFileSync(prepared.inputPath, "utf8")) as {
+    queueHash: string;
+    attempt: number;
+    inputHash: string;
     job: { jobId: string; inputEnvelopeHash: string };
     expectedModel: typeof EXPECTED_MODEL;
     units: Array<{ id: string; locator: string; text: string }>;
   };
   const response = {
     schema: "library-analysis-agent-segment-response/v1",
+    queueHash: input.queueHash,
     jobId: input.job.jobId,
     jobHash: input.job.inputEnvelopeHash,
+    attempt: input.attempt,
+    inputHash: input.inputHash,
     model: input.expectedModel,
     unitCoverage: input.units.map((unit, index) => ({
       contentUnitId: unit.id,
@@ -368,6 +375,7 @@ test("accept-attempt seals raw and accepted responses without leaking private co
   const accepted = await runLibraryAnalysisAgentQueueCli({
     command: "accept-attempt",
     runRoot: fixture.runRoot,
+    queue: built.queuePath,
     attemptInput: prepared.inputPath,
     response: responsePath,
   });
@@ -378,6 +386,7 @@ test("accept-attempt seals raw and accepted responses without leaking private co
     runLibraryAnalysisAgentQueueCli({
       command: "accept-attempt",
       runRoot: fixture.runRoot,
+      queue: built.queuePath,
       attemptInput: prepared.inputPath,
       response: responsePath,
     }),
@@ -414,10 +423,62 @@ test("accept-attempt rejects a symlink response before reading it", async () => 
     runLibraryAnalysisAgentQueueCli({
       command: "accept-attempt",
       runRoot: fixture.runRoot,
+      queue: built.queuePath,
       attemptInput: prepared.inputPath,
       response: responsePath,
     }),
     /agent_queue_attempt_input_artifact_invalid|agent_response_artifact_invalid/u,
+  );
+});
+
+test("accept-attempt rejects a self-consistent forged attempt input", async () => {
+  const fixture = makeFixture();
+  const built = await runLibraryAnalysisAgentQueueCli({
+    command: "build",
+    runRoot: fixture.runRoot,
+    resolution: fixture.resolutionPath,
+    manifest: fixture.manifestPath,
+    costEnvelopeHash: fixture.costHash,
+    mergedInventoryHash: fixture.inventoryHash,
+    runtimeCommit: "5f3eb1c",
+    repositoryRoot: fixture.repositoryRoot,
+  });
+  const queue = JSON.parse(readFileSync(built.queuePath, "utf8")) as { jobs: Array<{ jobId: string }> };
+  const prepared = await runLibraryAnalysisAgentQueueCli({
+    command: "prepare-attempt",
+    runRoot: fixture.runRoot,
+    queue: built.queuePath,
+    jobId: queue.jobs[0]!.jobId,
+    attempt: 1,
+    expectedModel: EXPECTED_MODEL,
+  });
+  const original = JSON.parse(readFileSync(prepared.inputPath, "utf8")) as Record<string, unknown>;
+  const forgedCore = {
+    ...original,
+    attempt: 2,
+    units: (original.units as Array<Record<string, unknown>>).map((unit, index) =>
+      index === 0 ? { ...unit, text: "forged source bytes" } : unit),
+  };
+  const withoutHash = { ...forgedCore } as Record<string, unknown>;
+  delete withoutHash.inputHash;
+  const forged = {
+    ...forgedCore,
+    inputHash: candidateAnalysisSha256("library-analysis-agent-attempt-input", withoutHash as CandidateJsonValue),
+  };
+  const forgedPath = join(fixture.runRoot, "jobs", queue.jobs[0]!.jobId, "attempt-002", "input.json");
+  mkdirSync(join(fixture.runRoot, "jobs", queue.jobs[0]!.jobId, "attempt-002"), { recursive: true, mode: 0o700 });
+  writeFileSync(forgedPath, `${JSON.stringify(forged)}\n`, { mode: 0o400 });
+  const responsePath = join(fixture.base, "unused-response.json");
+  writeFileSync(responsePath, "{}", { mode: 0o600 });
+  await assert.rejects(
+    runLibraryAnalysisAgentQueueCli({
+      command: "accept-attempt",
+      runRoot: fixture.runRoot,
+      queue: built.queuePath,
+      attemptInput: forgedPath,
+      response: responsePath,
+    }),
+    /attempt_input_authority_mismatch/u,
   );
 });
 
@@ -445,6 +506,12 @@ test("CLI argument parsing is strict and keeps command paths absolute", () => {
     },
   );
   assert.throws(() => parseLibraryAnalysisAgentQueueArgs(["build", "--run-root=/tmp/run"]), /agent_queue_cli_arguments_invalid/);
+  assert.throws(() => parseLibraryAnalysisAgentQueueArgs([
+    "prepare-attempt", "--run-root=/tmp/run", "--queue=/tmp/queue.json",
+    "--job-id=job:fixture", "--attempt=1",
+    "--expected-model-provider=openai-codex", "--expected-model-name=gpt-5.6-sol",
+    "--expected-model-version=unknown",
+  ]), /agent_queue_cli_arguments_invalid/);
   assert.throws(() => parseLibraryAnalysisAgentQueueArgs([
     "build", "--unknown=value",
   ]), /agent_queue_cli_arguments_invalid/);
