@@ -698,6 +698,78 @@ test("status derives a sanitized pending snapshot from a sealed queue", async ()
   assert.equal(status.externalReady, false);
 });
 
+test("finalize seals complete private readback arrays and separates pre/post inventory audit", async () => {
+  const fixture = makeFixture();
+  const built = await runLibraryAnalysisAgentQueueCli({
+    command: "build", runRoot: fixture.runRoot, resolution: fixture.resolutionPath,
+    manifest: fixture.manifestPath, costEnvelopeHash: fixture.costHash,
+    mergedInventoryHash: fixture.inventoryHash, runtimeCommit: "5f3eb1c", repositoryRoot: fixture.repositoryRoot,
+  });
+  const queue = JSON.parse(readFileSync(built.queuePath, "utf8")) as {
+    queueHash: string;
+    queueId: string;
+    jobs: Array<{ jobId: string; sourceKind: string; sourceKey: string; inputEnvelopeHash: string }>;
+    sources: Array<{ sourceEnvelopeHash: string; sourceKind: string; sourceKey: string }>;
+  };
+  for (const job of queue.jobs) {
+    const prepared = await runLibraryAnalysisAgentQueueCli({
+      command: "prepare-attempt", runRoot: fixture.runRoot, queue: built.queuePath,
+      jobId: job.jobId, attempt: 1, expectedModel: EXPECTED_MODEL,
+    });
+    const input = JSON.parse(readFileSync(prepared.inputPath, "utf8")) as {
+      queueHash: string; jobId: string; attempt: number; inputHash: string;
+      job: { inputEnvelopeHash: string }; expectedModel: typeof EXPECTED_MODEL;
+      units: Array<{ id: string }>;
+    };
+    const response = {
+      schema: "library-analysis-agent-segment-response/v1" as const,
+      queueHash: input.queueHash, jobId: input.jobId, jobHash: input.job.inputEnvelopeHash,
+      attempt: input.attempt, inputHash: input.inputHash, model: input.expectedModel,
+      unitCoverage: input.units.map((unit) => ({ contentUnitId: unit.id, status: "no_material_claim" as const })),
+      claims: [], responseHash: "0".repeat(64),
+    };
+    response.responseHash = libraryAnalysisAgentSegmentResponseHash(response);
+    const responsePath = join(fixture.base, `${job.jobId.replaceAll(":", "-")}-response.json`);
+    writeFileSync(responsePath, JSON.stringify(response), { mode: 0o600 });
+    await runLibraryAnalysisAgentQueueCli({ command: "accept-attempt", runRoot: fixture.runRoot,
+      queue: built.queuePath, attemptInput: prepared.inputPath, response: responsePath });
+  }
+  for (const source of queue.sources) {
+    await runLibraryAnalysisAgentQueueCli({ command: "merge-source", runRoot: fixture.runRoot,
+      queue: built.queuePath, sourceId: source.sourceEnvelopeHash });
+    const prepared = await runLibraryAnalysisAgentQueueCli({ command: "validate-source", mode: "prepare",
+      runRoot: fixture.runRoot, queue: built.queuePath, sourceId: source.sourceEnvelopeHash,
+      validatorModel: { provider: "openai-codex", name: "gpt-5.6-sol", version: "receipt-b" } });
+    const request = JSON.parse(readFileSync(prepared.requestPath!, "utf8")) as {
+      requestHash: string; sourceResultHash: string; queueHash: string; sourceEnvelopeHash: string;
+      validatorModel: { provider: "openai-codex"; name: string; version: string };
+    };
+    const response = {
+      schema: "library-analysis-agent-validation-response/v1" as const,
+      requestHash: request.requestHash, sourceResultHash: request.sourceResultHash,
+      queueHash: request.queueHash, sourceEnvelopeHash: request.sourceEnvelopeHash,
+      validatorModel: request.validatorModel, findings: [], riskFlags: [], responseHash: "0".repeat(64),
+    };
+    response.responseHash = candidateAnalysisSha256("library-analysis-agent-validation-response", (() => {
+      const { responseHash: _hash, ...core } = response;
+      return core;
+    })() as unknown as CandidateJsonValue);
+    const responsePath = join(fixture.base, `${source.sourceEnvelopeHash}-validation.json`);
+    writeFileSync(responsePath, JSON.stringify(response), { mode: 0o600 });
+    await runLibraryAnalysisAgentQueueCli({ command: "validate-source", mode: "accept",
+      runRoot: fixture.runRoot, queue: built.queuePath, sourceId: source.sourceEnvelopeHash, response: responsePath });
+  }
+  const finalized = await runLibraryAnalysisAgentQueueCli({ command: "finalize", runRoot: fixture.runRoot,
+    queue: built.queuePath, finalMergeHash: "f".repeat(64) });
+  const privateReceipt = JSON.parse(readFileSync(finalized.receiptPath, "utf8")) as Record<string, unknown>;
+  assert.equal(finalized.receipt.sourceCount, queue.sources.length);
+  assert.equal((privateReceipt.sourceArtifacts as unknown[]).length, queue.sources.length);
+  assert.equal((privateReceipt.validationArtifacts as unknown[]).length, queue.sources.length);
+  assert.equal((privateReceipt.acceptedArtifacts as unknown[]).length, queue.jobs.length);
+  assert.notEqual(finalized.postPublicationAuditInventoryHash, privateReceipt.privateInventoryHash);
+  assert.equal(statSync(finalized.receiptPath).mode & 0o777, 0o400);
+});
+
 test("validate-source supports sealed prepare and later accept phases", () => {
   const prepare = parseLibraryAnalysisAgentQueueArgs([
     "validate-source",

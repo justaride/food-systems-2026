@@ -210,6 +210,15 @@ function resultHash(result: Omit<LibraryAnalysisAgentValidationResult, "resultHa
   return candidateAnalysisSha256("library-analysis-agent-validation-result", result as unknown as CandidateJsonValue);
 }
 
+export function verifyLibraryAnalysisAgentValidationResult(raw: unknown): LibraryAnalysisAgentValidationResult {
+  const parsed = LibraryAnalysisAgentValidationResultSchema.parse(raw);
+  const { resultHash: _hash, ...core } = parsed;
+  if (parsed.resultHash !== resultHash(core)) {
+    throw new Error("validation_result_hash_mismatch");
+  }
+  return parsed;
+}
+
 function normalizeUnit(input: LibraryAnalysisVerifiedSourceUnitInput): LibraryAnalysisVerifiedSourceUnit {
   if ("descriptor" in input) return { ...input.descriptor, text: input.text };
   return input;

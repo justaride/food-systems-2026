@@ -35,6 +35,7 @@ import {
   LibraryAnalysisTerminalSegmentSchema,
   deriveLibraryAnalysisAgentTerminalState,
   mergeLibraryAnalysisSourceSegments,
+  verifyLibraryAnalysisSourceResult,
   type LibraryAnalysisAgentAttemptInput,
   validateLibraryAnalysisAgentSegmentResponse,
   type LibraryAnalysisAcceptedSegment,
@@ -44,6 +45,7 @@ import {
   buildLibraryAnalysisAgentValidationRequest,
   deriveLibraryAnalysisAgentValidationResult,
   LibraryAnalysisAgentValidationRequestSchema,
+  verifyLibraryAnalysisAgentValidationResult,
   validateLibraryAnalysisAgentValidationResponse,
   type LibraryAnalysisAgentValidationRequest,
   type LibraryAnalysisAgentValidationResult,
@@ -68,6 +70,7 @@ import {
   deriveLibraryAnalysisAgentQueueState,
   sanitizeLibraryAnalysisAgentReceipt,
   LibraryAnalysisAgentAttemptReceiptSchema,
+  type AcceptedArtifactReadback,
 } from "../../src/lib/knowledge/library-analysis-agent-checkpoint";
 
 const hashSchema = z.string().regex(/^[a-f0-9]{64}$/u);
@@ -660,7 +663,7 @@ async function runValidateSource(
   });
   if (source === undefined) throw new Error("validation_source_not_found");
   const sourceResultPortable = `sources/source-${source.sourceEnvelopeHash}.json`;
-  const sourceResult = readSealedJson(runRoot, sourceResultPortable) as LibraryAnalysisSourceResult;
+  const sourceResult = verifyLibraryAnalysisSourceResult(readSealedJsonWithReadback(runRoot, sourceResultPortable).value);
   if (sourceResult.queueHash !== queue.queueHash || sourceResult.sourceEnvelopeHash !== source.sourceEnvelopeHash) {
     throw new Error("validation_source_result_binding_mismatch");
   }
@@ -748,8 +751,8 @@ async function runStatus(
   const options = statusOptionsSchema.parse(rawOptions);
   const runRoot = openRunRoot(options.runRoot);
   const queue = readQueue(runRoot, options.queue);
-  const attempts = collectAttemptReceipts(runRoot, queue);
-  const state = deriveLibraryAnalysisAgentQueueState({ queue, attempts });
+  const collected = collectAttemptReceipts(runRoot, queue);
+  const state = deriveLibraryAnalysisAgentQueueState({ queue, attempts: collected.attempts });
   const audit = auditPrivateLibraryAnalysisRunRoot(runRoot);
   return {
     command: "status",
@@ -773,24 +776,54 @@ async function runFinalize(
   const options = finalizeOptionsSchema.parse(rawOptions);
   const runRoot = openRunRoot(options.runRoot);
   const queue = readQueue(runRoot, options.queue);
-  const attempts = collectAttemptReceipts(runRoot, queue);
-  const sourceResults = queue.sources.map((source) => readSealedJson(
-    runRoot,
-    `sources/source-${source.sourceEnvelopeHash}.json`,
-  ));
-  const validationResults = queue.sources.map((source) => readSealedJson(
-    runRoot,
-    `validation/source-${source.sourceEnvelopeHash}/result.json`,
-  ));
+  const collected = collectAttemptReceipts(runRoot, queue);
+  const sourceReadbacks = queue.sources.map((source) => {
+    const portablePath = `sources/source-${source.sourceEnvelopeHash}.json`;
+    const read = readSealedJsonWithReadback(runRoot, portablePath);
+    const result = verifyLibraryAnalysisSourceResult(read.value);
+    if (result.queueHash !== queue.queueHash || result.sourceEnvelopeHash !== source.sourceEnvelopeHash) {
+      throw new Error("queue_terminal_source_binding_mismatch");
+    }
+    return {
+      ...read.receipt,
+      resultHash: result.sourceResultHash,
+      queueHash: result.queueHash,
+      sourceEnvelopeHash: result.sourceEnvelopeHash,
+      sourceKind: source.sourceKind,
+      sourceKey: source.sourceKey,
+      value: result,
+    };
+  });
+  const validationReadbacks = queue.sources.map((source) => {
+    const portablePath = `validation/source-${source.sourceEnvelopeHash}/result.json`;
+    const read = readSealedJsonWithReadback(runRoot, portablePath);
+    const result = verifyLibraryAnalysisAgentValidationResult(read.value);
+    if (result.queueHash !== queue.queueHash || result.sourceEnvelopeHash !== source.sourceEnvelopeHash) {
+      throw new Error("queue_terminal_validation_binding_mismatch");
+    }
+    return {
+      ...read.receipt,
+      resultHash: result.resultHash,
+      sourceResultHash: result.sourceResultHash,
+      queueHash: result.queueHash,
+      sourceEnvelopeHash: result.sourceEnvelopeHash,
+      sourceKind: source.sourceKind,
+      sourceKey: source.sourceKey,
+      value: result,
+    };
+  });
   const preReceiptAudit = auditPrivateLibraryAnalysisRunRoot(runRoot);
   const receipt = buildLibraryAnalysisAgentTerminalReceipt({
     queue,
-    attempts,
-    sourceResults,
-    validationResults,
+    attempts: collected.attempts,
+    sourceResults: sourceReadbacks.map((entry) => entry.value),
+    validationResults: validationReadbacks.map((entry) => entry.value),
     finalMergeHash: options.finalMergeHash,
     privateInventoryHash: preReceiptAudit.inventoryHash,
     privateAudit: preReceiptAudit,
+    acceptedArtifacts: collected.acceptedArtifacts,
+    sourceArtifacts: sourceReadbacks.map(({ value: _value, ...artifact }) => artifact),
+    validationArtifacts: validationReadbacks.map(({ value: _value, ...artifact }) => artifact),
   });
   const receiptPortablePath = "terminal/receipt.json";
   const written = writePrivateManifestAtomic(
@@ -818,8 +851,9 @@ async function runFinalize(
 function collectAttemptReceipts(
   runRoot: string,
   queue: LibraryAnalysisAgentQueue,
-): Array<Record<string, unknown>> {
+): { attempts: Array<Record<string, unknown>>; acceptedArtifacts: AcceptedArtifactReadback[] } {
   const receipts: Array<Record<string, unknown>> = [];
+  const acceptedArtifacts: AcceptedArtifactReadback[] = [];
   for (const job of queue.jobs) {
     let jobDirectory: string;
     let attemptDirectories: string[];
@@ -832,46 +866,84 @@ function collectAttemptReceipts(
     }
     for (const attemptDirectory of attemptDirectories) {
       const attempt = Number(attemptDirectory.slice("attempt-".length));
-      const candidates = ["terminal.json", "accepted.json"];
-      const candidate = candidates.find((name) => {
-        try {
-          lstatSync(safePrivatePath(runRoot, ["jobs", job.jobId, attemptDirectory, name]));
-          return true;
-        } catch {
-          return false;
+      const attemptRoot = `jobs/${job.jobId}/${attemptDirectory}`;
+      const names = readdirSync(safePrivatePath(runRoot, ["jobs", job.jobId, attemptDirectory])).sort();
+      const allowed = new Set(["input.json", "response.json", "accepted.json", "terminal.json"]);
+      if (names.some((name) => !allowed.has(name))) throw new Error("agent_queue_attempt_artifact_unexpected");
+      const hasAccepted = names.includes("accepted.json");
+      const hasTerminal = names.includes("terminal.json");
+      if (hasAccepted && hasTerminal) throw new Error("agent_queue_attempt_terminal_conflict");
+      if (!names.includes("input.json") || !names.includes("response.json")) continue;
+      const inputRead = readSealedJsonWithReadback(runRoot, `${attemptRoot}/input.json`);
+      const input = LibraryAnalysisAgentAttemptInputSchema.parse(inputRead.value);
+      const inputCore = { ...input } as Record<string, unknown>;
+      delete inputCore.inputHash;
+      if (input.queueHash !== queue.queueHash || input.queueId !== queue.queueId || input.jobId !== job.jobId ||
+          input.attempt !== attempt || input.job.jobId !== job.jobId || input.job.inputEnvelopeHash !== job.inputEnvelopeHash ||
+          inputHashOf(inputCore) !== input.inputHash) {
+        throw new Error("agent_queue_attempt_authority_mismatch");
+      }
+      const responseRead = readSealedJsonWithReadback(runRoot, `${attemptRoot}/response.json`);
+      let response: Record<string, unknown> | null = null;
+      try {
+        const parsed = JSON.parse(responseRead.bytes.toString("utf8")) as unknown;
+        if (parsed !== null && typeof parsed === "object" && !Array.isArray(parsed)) response = parsed as Record<string, unknown>;
+      } catch {
+        response = null;
+      }
+      const outputName = hasAccepted ? "accepted.json" : hasTerminal ? "terminal.json" : null;
+      const outputRead = outputName === null ? null : readSealedJsonWithReadback(runRoot, `${attemptRoot}/${outputName}`);
+      let output: Record<string, unknown> | null = null;
+      if (outputRead !== null) {
+        output = outputRead.value as Record<string, unknown>;
+        const segment = LibraryAnalysisTerminalSegmentSchema.parse(output);
+        if (segment.queueHash !== queue.queueHash || segment.jobId !== job.jobId || segment.jobHash !== job.inputEnvelopeHash || segment.attempt !== attempt) {
+          throw new Error("agent_queue_attempt_output_binding_mismatch");
         }
+      }
+      const outputHash = typeof output?.responseHash === "string" ? output.responseHash : undefined;
+      if (response !== null) {
+        if ((response.queueHash !== undefined && response.queueHash !== queue.queueHash) ||
+            (response.jobId !== undefined && response.jobId !== job.jobId) ||
+            (response.attempt !== undefined && response.attempt !== attempt) ||
+            (response.jobHash !== undefined && response.jobHash !== job.inputEnvelopeHash) ||
+            (outputHash !== undefined && response.responseHash !== undefined && response.responseHash !== outputHash)) {
+          throw new Error("agent_queue_attempt_response_binding_mismatch");
+        }
+      }
+      const status = outputName === "accepted.json" ? "accepted" : outputName === "terminal.json" ? (output?.terminalState ?? output?.status ?? "failed") : "invalid";
+      const receipt = LibraryAnalysisAgentAttemptReceiptSchema.parse({
+        queueHash: queue.queueHash,
+        jobId: job.jobId,
+        jobHash: job.inputEnvelopeHash,
+        attempt,
+        inputHash: input.inputHash,
+        responseHash: responseRead.receipt.sha256,
+        status,
+        inputArtifact: inputRead.receipt,
+        responseArtifact: responseRead.receipt,
+        ...(outputHash === undefined ? {} : { outputHash }),
+        ...(outputRead === null ? {} : { outputArtifact: outputRead.receipt }),
+        ...(output?.terminalReason === undefined ? {} : { terminalReason: output.terminalReason }),
+        ...(output?.model === undefined ? {} : { model: output.model }),
       });
-      if (candidate === undefined) continue;
-      const raw = readSealedJson(runRoot, `jobs/${job.jobId}/${attemptDirectory}/${candidate}`) as Record<string, unknown>;
-      const status = candidate === "accepted.json" ? "accepted" : (raw.terminalState ?? raw.status ?? "failed");
-      const segmentAttempts = Array.isArray(raw.attempts) ? raw.attempts : [];
-      if (segmentAttempts.length > 0) {
-        for (const nested of segmentAttempts) {
-          const parsed = LibraryAnalysisAgentAttemptReceiptSchema.parse({
-            ...(nested as Record<string, unknown>),
-            queueHash: queue.queueHash,
-            jobId: job.jobId,
-            jobHash: job.inputEnvelopeHash,
-          });
-          receipts.push(parsed as Record<string, unknown>);
-        }
-      } else {
-        receipts.push({
+      receipts.push(receipt as Record<string, unknown>);
+      if (outputName === "accepted.json" && outputHash !== undefined && outputRead !== null) {
+        acceptedArtifacts.push({
+          portablePath: outputRead.receipt.portablePath,
+          sha256: outputRead.receipt.sha256,
+          sizeBytes: outputRead.receipt.sizeBytes,
+          mode: 0o400,
+          outputHash,
           queueHash: queue.queueHash,
           jobId: job.jobId,
           jobHash: job.inputEnvelopeHash,
           attempt,
-          inputHash: raw.inputHash,
-          responseHash: raw.responseHash,
-          status,
-          verified: true,
-          sealed: true,
-          ...(raw.model === undefined ? {} : { model: raw.model }),
         });
       }
     }
   }
-  return receipts;
+  return { attempts: receipts, acceptedArtifacts };
 }
 
 function readCanonicalTerminalSegment(
@@ -891,6 +963,13 @@ function readCanonicalTerminalSegment(
     const attemptStat = lstatSync(attemptDirectory);
     if (!attemptStat.isDirectory() || (attemptStat.mode & 0o777) !== 0o700) {
       throw new Error("source_merge_segment_artifact_invalid");
+    }
+    const names = readdirSync(attemptDirectory).sort();
+    if (names.some((name) => !new Set(["input.json", "response.json", "accepted.json", "terminal.json"]).has(name))) {
+      throw new Error("source_merge_segment_artifact_invalid");
+    }
+    if (names.includes("accepted.json") && names.includes("terminal.json")) {
+      throw new Error("source_merge_terminal_conflict");
     }
     for (const name of ["accepted.json", "terminal.json"]) {
       let artifactPath: string;
@@ -1136,6 +1215,10 @@ function sha256Bytes(bytes: Buffer): string {
   return createHash("sha256").update(bytes).digest("hex");
 }
 
+function inputHashOf(input: Record<string, unknown>): string {
+  return candidateAnalysisSha256("library-analysis-agent-attempt-input", input as CandidateJsonValue);
+}
+
 function repositoryBinding(
   repositoryRoot: string,
   profile: "library_analysis_v1" | "library_validation_v1",
@@ -1200,10 +1283,27 @@ function readJson(path: string): unknown {
 }
 
 function readSealedJson(runRoot: string, portablePath: string): unknown {
+  return readSealedJsonWithReadback(runRoot, portablePath).value;
+}
+
+function readSealedJsonWithReadback(
+  runRoot: string,
+  portablePath: string,
+): { value: unknown; bytes: Buffer; receipt: { portablePath: string; sha256: string; sizeBytes: number; mode: 0o400 } } {
+  if (!/^[a-zA-Z0-9._:-]+(?:\/[a-zA-Z0-9._:-]+)*$/u.test(portablePath)) throw new Error("validation_artifact_invalid");
   const path = resolve(runRoot, portablePath);
   const bytes = readPrivateFileByDescriptor(path, 0o400, "validation_artifact_invalid");
-  const receipt = { sha256: sha256Bytes(bytes), sizeBytes: bytes.length, mode: 0o400 as const };
-  return JSON.parse(readAndVerifyPrivateArtifact(runRoot, portablePath, receipt).toString("utf8"));
+  let value: unknown;
+  try {
+    value = JSON.parse(bytes.toString("utf8"));
+  } catch {
+    throw new Error("validation_artifact_invalid");
+  }
+  return {
+    value,
+    bytes,
+    receipt: { portablePath, sha256: sha256Bytes(bytes), sizeBytes: bytes.length, mode: 0o400 },
+  };
 }
 
 function canonicalJsonBytes(value: CandidateJsonValue): Buffer {

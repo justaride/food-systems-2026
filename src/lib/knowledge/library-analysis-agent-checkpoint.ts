@@ -1,8 +1,10 @@
 import { z } from "zod";
 
 import {
+  verifyLibraryAnalysisSourceResult,
   type LibraryAnalysisSourceResult,
 } from "./library-analysis-agent-response";
+import { verifyLibraryAnalysisAgentValidationResult } from "./library-analysis-agent-validation";
 import type { LibraryAnalysisAgentQueue } from "./library-analysis-agent-queue";
 
 const HASH = /^[a-f0-9]{64}$/u;
@@ -20,33 +22,39 @@ const modelSchema = z.object({
 }).strict();
 
 const artifactSchema = z.object({
+  portablePath: z.string().regex(/^[a-zA-Z0-9._:-]+(?:\/[a-zA-Z0-9._:-]+)*$/u),
   sha256: hashSchema,
   sizeBytes: z.number().int().nonnegative(),
-  mode: z.union([z.literal(0o400), z.literal(0o600)]).optional(),
+  mode: z.literal(0o400),
 }).strict();
 
-/** A receipt is a small, immutable statement about one sealed attempt. */
-export const LibraryAnalysisAgentAttemptReceiptSchema = z.object({
-  queueHash: hashSchema.optional(),
-  jobId: idSchema.optional(),
-  jobHash: hashSchema.optional(),
+const attemptCommonSchema = z.object({
+  queueHash: hashSchema,
+  jobId: idSchema,
+  jobHash: hashSchema,
   attempt: z.number().int().min(1).max(3),
-  inputHash: hashSchema.optional(),
-  responseHash: hashSchema.optional(),
-  status: z.enum(["accepted", "partial", "failed", "quarantined", "invalid", "missing"]).optional(),
-  terminalState: z.enum(["accepted", "partial", "failed", "quarantined"]).optional(),
+  inputHash: hashSchema,
+  responseHash: hashSchema,
+  inputArtifact: artifactSchema,
+  responseArtifact: artifactSchema,
   terminalReason: z.string().min(1).optional(),
   model: modelSchema.optional(),
-  verified: z.boolean().optional(),
-  sealed: z.boolean().optional(),
-  inputArtifact: artifactSchema.optional(),
-  responseArtifact: artifactSchema.optional(),
-}).strict().superRefine((value, context) => {
-  if (value.status !== undefined && value.terminalState !== undefined &&
-      value.status !== value.terminalState) {
-    context.addIssue({ code: "custom", message: "attempt_state_conflict" });
-  }
-});
+}).strict();
+const acceptedAttemptReceiptSchema = attemptCommonSchema.extend({
+  status: z.enum(["accepted", "partial"]),
+  outputHash: hashSchema,
+  outputArtifact: artifactSchema,
+}).strict();
+const failedAttemptReceiptSchema = attemptCommonSchema.extend({
+  status: z.enum(["failed", "quarantined", "invalid"]),
+  outputHash: hashSchema.optional(),
+  outputArtifact: artifactSchema.optional(),
+}).strict();
+/** A receipt is reusable only when all of its sealed proof fields are present. */
+export const LibraryAnalysisAgentAttemptReceiptSchema = z.union([
+  acceptedAttemptReceiptSchema,
+  failedAttemptReceiptSchema,
+]);
 export type LibraryAnalysisAgentCheckpointAttemptReceipt = z.infer<
   typeof LibraryAnalysisAgentAttemptReceiptSchema
 >;
@@ -72,6 +80,40 @@ const terminalReceiptSchema = z.object({
   sourceResultHashes: z.array(hashSchema),
   validationResultHashes: z.array(hashSchema),
   acceptedAttemptReceipts: z.array(LibraryAnalysisAgentAttemptReceiptSchema),
+  acceptedArtifacts: z.array(z.object({
+    portablePath: artifactSchema.shape.portablePath,
+    sha256: artifactSchema.shape.sha256,
+    sizeBytes: artifactSchema.shape.sizeBytes,
+    mode: z.literal(0o400),
+    outputHash: hashSchema,
+    queueHash: hashSchema,
+    jobId: idSchema,
+    jobHash: hashSchema,
+    attempt: z.number().int().min(1).max(3),
+  }).strict()),
+  sourceArtifacts: z.array(z.object({
+    portablePath: artifactSchema.shape.portablePath,
+    sha256: artifactSchema.shape.sha256,
+    sizeBytes: artifactSchema.shape.sizeBytes,
+    mode: z.literal(0o400),
+    resultHash: hashSchema,
+    queueHash: hashSchema,
+    sourceEnvelopeHash: hashSchema,
+    sourceKind: idSchema,
+    sourceKey: z.string().min(1),
+  }).strict()),
+  validationArtifacts: z.array(z.object({
+    portablePath: artifactSchema.shape.portablePath,
+    sha256: artifactSchema.shape.sha256,
+    sizeBytes: artifactSchema.shape.sizeBytes,
+    mode: z.literal(0o400),
+    resultHash: hashSchema,
+    sourceResultHash: hashSchema,
+    queueHash: hashSchema,
+    sourceEnvelopeHash: hashSchema,
+    sourceKind: idSchema,
+    sourceKey: z.string().min(1),
+  }).strict()),
   finalMergeHash: hashSchema,
   privateInventoryHash: hashSchema,
   inventoryHash: hashSchema,
@@ -137,23 +179,28 @@ function asQueue(input: unknown): QueueLike {
 
 function normalizeAttempt(raw: unknown, queue: QueueLike): NormalizedAttempt {
   const parsed = LibraryAnalysisAgentAttemptReceiptSchema.parse(raw);
-  if (parsed.jobId === undefined) throw new Error("agent_queue_attempt_job_binding_missing");
-  if (parsed.queueHash !== undefined && parsed.queueHash !== queue.queueHash) {
+  if (parsed.queueHash !== queue.queueHash) {
     throw new Error("agent_queue_attempt_queue_hash_mismatch");
-  }
-  if (parsed.verified === false || parsed.sealed === false) {
-    return { ...parsed, jobId: parsed.jobId, status: "invalid" };
   }
   const job = queue.jobs.find((candidate) => candidate.jobId === parsed.jobId);
   if (job === undefined) throw new Error("agent_queue_attempt_job_not_found");
-  if (parsed.jobHash !== undefined && job.inputEnvelopeHash !== undefined && parsed.jobHash !== job.inputEnvelopeHash) {
+  if (job.inputEnvelopeHash !== undefined && parsed.jobHash !== job.inputEnvelopeHash) {
     throw new Error("agent_queue_attempt_job_hash_mismatch");
   }
-  if (parsed.inputHash === undefined || parsed.responseHash === undefined) {
-    return { ...parsed, jobId: parsed.jobId, status: "invalid" };
+  if (parsed.inputArtifact.portablePath !== `jobs/${parsed.jobId}/attempt-${String(parsed.attempt).padStart(3, "0")}/input.json`) {
+    throw new Error("agent_queue_attempt_input_path_mismatch");
   }
-  const status = parsed.status ?? parsed.terminalState;
-  return { ...parsed, jobId: parsed.jobId, status: status ?? "invalid" };
+  const attemptRoot = `jobs/${parsed.jobId}/attempt-${String(parsed.attempt).padStart(3, "0")}`;
+  if (parsed.responseArtifact.portablePath !== `${attemptRoot}/response.json`) {
+    throw new Error("agent_queue_attempt_response_path_mismatch");
+  }
+  if (parsed.outputArtifact !== undefined) {
+    const expectedName = parsed.status === "accepted" || parsed.status === "partial" ? "accepted.json" : "terminal.json";
+    if (parsed.outputArtifact.portablePath !== `${attemptRoot}/${expectedName}`) {
+      throw new Error("agent_queue_attempt_output_path_mismatch");
+    }
+  }
+  return parsed;
 }
 
 function normalizeAttempts(input: DeriveQueueStateInput): Map<string, NormalizedAttempt[]> {
@@ -205,7 +252,7 @@ export function deriveLibraryAnalysisAgentQueueState(
   let invalidAttempts = 0;
   for (const job of [...queue.jobs].sort((left, right) => utf8Compare(left.jobId, right.jobId))) {
     const receipts = byJob.get(job.jobId) ?? [];
-    invalidAttempts += receipts.filter((receipt) => receipt.status === "invalid" || receipt.status === "missing").length;
+    invalidAttempts += receipts.filter((receipt) => receipt.status === "invalid").length;
     const status = finalStatus(receipts);
     if (status === "accepted" || status === "partial") reusableJobIds.push(job.jobId);
     if (status === "quarantined") {
@@ -273,8 +320,45 @@ export type BuildTerminalReceiptInput = {
   finalMergeHash: string;
   privateInventoryHash: string;
   privateAudit?: { inventoryHash: string; files?: number; directories?: number; totalBytes?: number };
-  acceptedArtifacts?: readonly { jobId: string; attempt: number; sha256: string; sizeBytes: number; mode?: number }[];
+  acceptedArtifacts: readonly AcceptedArtifactReadback[];
+  sourceArtifacts: readonly SourceArtifactReadback[];
+  validationArtifacts: readonly ValidationArtifactReadback[];
   expectedCoverage?: { sourceCount?: number; unitCount?: number; jobCount?: number };
+};
+
+export type AcceptedArtifactReadback = {
+  portablePath: string;
+  sha256: string;
+  sizeBytes: number;
+  mode: 0o400;
+  outputHash: string;
+  queueHash: string;
+  jobId: string;
+  jobHash: string;
+  attempt: number;
+};
+export type SourceArtifactReadback = {
+  portablePath: string;
+  sha256: string;
+  sizeBytes: number;
+  mode: 0o400;
+  resultHash: string;
+  queueHash: string;
+  sourceEnvelopeHash: string;
+  sourceKind: string;
+  sourceKey: string;
+};
+export type ValidationArtifactReadback = {
+  portablePath: string;
+  sha256: string;
+  sizeBytes: number;
+  mode: 0o400;
+  resultHash: string;
+  sourceResultHash: string;
+  queueHash: string;
+  sourceEnvelopeHash: string;
+  sourceKind: string;
+  sourceKey: string;
 };
 
 function coverageMismatch(): never { throw new Error("queue_terminal_coverage_mismatch"); }
@@ -297,6 +381,11 @@ function validateQueueCoverage(queue: QueueLike): void {
   if (queue.jobs.some((job) => job.unitIds.length === 0 ||
       !queue.sources.some((source) => sourceKey(source) === `${job.sourceKind ?? ""}\u0000${job.sourceKey ?? ""}`))) coverageMismatch();
   if (!exactIds(queue.jobs.map((job) => job.jobId))) coverageMismatch();
+  for (const source of queue.sources) {
+    const jobs = queue.jobs.filter((job) => sourceKey(job) === sourceKey(source));
+    const units = jobs.flatMap((job) => job.unitIds);
+    if (!exactIds(units) || units.length !== source.unitIds.length || source.unitIds.some((id) => !units.includes(id))) coverageMismatch();
+  }
 }
 
 function assertTerminalState(value: string | undefined): void {
@@ -321,7 +410,7 @@ export function buildLibraryAnalysisAgentTerminalReceipt(
       (expected.unitCount ?? queue.units.length) !== queue.units.length ||
       (expected.jobCount ?? queue.jobs.length) !== queue.jobs.length) coverageMismatch();
   const sourceByEnvelope = new Map(queue.sources.map((source) => [source.sourceEnvelopeHash, source]));
-  const sourceResults = input.sourceResults.map((raw) => raw as SourceResultLike);
+  const sourceResults = input.sourceResults.map((raw) => verifyLibraryAnalysisSourceResult(raw) as SourceResultLike);
   if (sourceResults.length !== queue.sources.length ||
       sourceResults.some((result) => result.queueHash !== undefined && result.queueHash !== queue.queueHash)) coverageMismatch();
   const sourceResultHashes: string[] = [];
@@ -357,7 +446,7 @@ export function buildLibraryAnalysisAgentTerminalReceipt(
     sourceResultHashes.push(result.sourceResultHash!);
   }
   if (sourceSeen.size !== queue.sources.length) coverageMismatch();
-  const validationResults = input.validationResults.map((raw) => raw as ValidationResultLike);
+  const validationResults = input.validationResults.map((raw) => verifyLibraryAnalysisAgentValidationResult(raw) as ValidationResultLike);
   const validationResultHashes: string[] = [];
   const validationsBySource = new Set<string>();
   for (const result of validationResults) {
@@ -373,25 +462,51 @@ export function buildLibraryAnalysisAgentTerminalReceipt(
   const state = deriveLibraryAnalysisAgentQueueState({ queue, attempts: input.attempts });
   if (state.terminalJobIds.length !== queue.jobs.length) throw new Error("queue_terminal_analysis_nonterminal");
   const normalizedAttempts = normalizeAttempts({ queue, attempts: input.attempts });
-  if (input.acceptedArtifacts !== undefined) {
-    const accepted = [...normalizedAttempts.values()].flat().filter((attempt) => attempt.status === "accepted");
-    const artifactKeys = new Set<string>();
-    for (const artifact of input.acceptedArtifacts) {
-      if (!ID.test(artifact.jobId) || !Number.isInteger(artifact.attempt) ||
-          !HASH.test(artifact.sha256) || !Number.isSafeInteger(artifact.sizeBytes) || artifact.sizeBytes < 0 ||
-          (artifact.mode !== undefined && artifact.mode !== 0o400 && artifact.mode !== 0o600)) {
-        throw new Error("queue_terminal_artifact_readback_invalid");
-      }
-      const key = `${artifact.jobId}\u0000${artifact.attempt}`;
-      if (artifactKeys.has(key)) throw new Error("queue_terminal_artifact_readback_duplicate");
-      artifactKeys.add(key);
-      if (!accepted.some((attempt) => attempt.jobId === artifact.jobId && attempt.attempt === artifact.attempt)) {
-        throw new Error("queue_terminal_artifact_readback_unexpected");
-      }
+  const accepted = [...normalizedAttempts.values()].flat().filter((attempt) => attempt.status === "accepted" || attempt.status === "partial");
+  if (input.acceptedArtifacts.length !== accepted.length) throw new Error("queue_terminal_artifact_readback_missing");
+  const artifactKeys = new Set<string>();
+  for (const artifact of input.acceptedArtifacts) {
+    const key = `${artifact.jobId}\u0000${artifact.attempt}`;
+    if (artifactKeys.has(key) || !ID.test(artifact.jobId) || artifact.queueHash !== queue.queueHash ||
+        !HASH.test(artifact.sha256) || !HASH.test(artifact.outputHash) || !HASH.test(artifact.jobHash) ||
+        !Number.isSafeInteger(artifact.sizeBytes) || artifact.sizeBytes < 0 || artifact.mode !== 0o400 ||
+        artifact.portablePath !== `jobs/${artifact.jobId}/attempt-${String(artifact.attempt).padStart(3, "0")}/accepted.json`) {
+      throw new Error("queue_terminal_artifact_readback_invalid");
     }
-    if (accepted.some((attempt) => !artifactKeys.has(`${attempt.jobId}\u0000${attempt.attempt}`))) {
-      throw new Error("queue_terminal_artifact_readback_missing");
+    const attempt = accepted.find((candidate) => candidate.jobId === artifact.jobId && candidate.attempt === artifact.attempt);
+    if (attempt === undefined || attempt.jobHash !== artifact.jobHash || attempt.outputHash !== artifact.outputHash ||
+        attempt.outputArtifact?.sha256 !== artifact.sha256 || attempt.outputArtifact?.sizeBytes !== artifact.sizeBytes) {
+      throw new Error("queue_terminal_artifact_readback_binding_mismatch");
     }
+    artifactKeys.add(key);
+  }
+  const sourceArtifactKeys = new Set<string>();
+  if (input.sourceArtifacts.length !== queue.sources.length) throw new Error("queue_terminal_source_readback_missing");
+  for (const artifact of input.sourceArtifacts) {
+    if (!HASH.test(artifact.sha256) || !HASH.test(artifact.resultHash) || artifact.queueHash !== queue.queueHash ||
+        artifact.mode !== 0o400 || !Number.isSafeInteger(artifact.sizeBytes) || artifact.sizeBytes < 0 ||
+        artifact.portablePath !== `sources/source-${artifact.sourceEnvelopeHash}.json` || sourceArtifactKeys.has(artifact.sourceEnvelopeHash)) {
+      throw new Error("queue_terminal_source_readback_invalid");
+    }
+    const sourceResult = sourceResults.find((candidate) => candidate.sourceEnvelopeHash === artifact.sourceEnvelopeHash);
+    const source = queue.sources.find((candidate) => candidate.sourceEnvelopeHash === artifact.sourceEnvelopeHash);
+    if (sourceResult === undefined || source === undefined || sourceResult.sourceResultHash !== artifact.resultHash ||
+        source.sourceKind !== artifact.sourceKind || source.sourceKey !== artifact.sourceKey) throw new Error("queue_terminal_source_readback_binding_mismatch");
+    sourceArtifactKeys.add(artifact.sourceEnvelopeHash);
+  }
+  const validationArtifactKeys = new Set<string>();
+  if (input.validationArtifacts.length !== queue.sources.length) throw new Error("queue_terminal_validation_readback_missing");
+  for (const artifact of input.validationArtifacts) {
+    if (!HASH.test(artifact.sha256) || !HASH.test(artifact.resultHash) || !HASH.test(artifact.sourceResultHash) ||
+        artifact.queueHash !== queue.queueHash || artifact.mode !== 0o400 || !Number.isSafeInteger(artifact.sizeBytes) || artifact.sizeBytes < 0 ||
+        artifact.portablePath !== `validation/source-${artifact.sourceEnvelopeHash}/result.json` || validationArtifactKeys.has(artifact.sourceEnvelopeHash)) {
+      throw new Error("queue_terminal_validation_readback_invalid");
+    }
+    const validation = validationResults.find((candidate) => candidate.sourceEnvelopeHash === artifact.sourceEnvelopeHash);
+    const source = queue.sources.find((candidate) => candidate.sourceEnvelopeHash === artifact.sourceEnvelopeHash);
+    if (validation === undefined || source === undefined || validation.resultHash !== artifact.resultHash || validation.sourceResultHash !== artifact.sourceResultHash ||
+        source.sourceKind !== artifact.sourceKind || source.sourceKey !== artifact.sourceKey) throw new Error("queue_terminal_validation_readback_binding_mismatch");
+    validationArtifactKeys.add(artifact.sourceEnvelopeHash);
   }
   const governance: LibraryAnalysisAgentGovernance = {
     automatedOnly: true,
@@ -418,6 +533,9 @@ export function buildLibraryAnalysisAgentTerminalReceipt(
     sourceResultHashes: sortedSourceHashes,
     validationResultHashes: sortedValidationHashes,
     acceptedAttemptReceipts: receipts,
+    acceptedArtifacts: input.acceptedArtifacts,
+    sourceArtifacts: input.sourceArtifacts,
+    validationArtifacts: input.validationArtifacts,
     finalMergeHash: input.finalMergeHash,
     privateInventoryHash: input.privateInventoryHash,
     inventoryHash: input.privateInventoryHash,

@@ -188,6 +188,18 @@ export const LibraryAnalysisSourceResultSchema = z.object({
 }).strict();
 export type LibraryAnalysisSourceResult = z.infer<typeof LibraryAnalysisSourceResultSchema>;
 
+export function verifyLibraryAnalysisSourceResult(raw: unknown): LibraryAnalysisSourceResult {
+  const parsed = LibraryAnalysisSourceResultSchema.parse(raw);
+  const { sourceResultHash: _hash, ...core } = parsed;
+  if (parsed.sourceResultHash !== candidateAnalysisSha256(
+    "library-analysis-source-result",
+    core as unknown as CandidateJsonValue,
+  )) {
+    throw new Error("source_result_hash_mismatch");
+  }
+  return parsed;
+}
+
 const queueJobSchema = z.object({
   jobId: idSchema,
   sourceKind: idSchema,
