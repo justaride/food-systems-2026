@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.7`
+Workflow version: `1.0.8`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.7`
+Prompt template version: `1.0.8`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
@@ -26,6 +26,8 @@ Classify an omitted material denominator, universe, respondent count, period, as
 
 Bare generic references to work, method, mapping or results are unresolved anaphora unless the claim itself names the work, method, mapping object or result scope. Treat unresolved `arbeidet`, `metoden`, `kartleggingen`, `kartleggingene`, `resultatet`, `resultatene`, `the work`, `the method`, `the mapping`, `the result` and `the results` as F4 even when another sentence or unit contains the missing referent.
 
+Treat unresolved references to an appendix, authority analysis, sample, information object, similar analysis or unnamed analysis as F4 unless the claim and evidence name the referent. A double-counting statement without the counted object is F4. A market-share assertion without the share's source-visible measurement year or as-of date in both claim and evidence is F3.
+
 Treat bare singular `resultatet` or `the result`, and an excerpt opening with unresolved plural `resultatene` or `the results`, as F4 when the excerpt does not identify the result object, even if the rewritten claim supplies a scoped compound noun. Do not flag a plural reference whose antecedent and scope already appear earlier in the same excerpt.
 
 Unit-level survey context never repairs an excerpt: when the unit identifies a survey or respondent population, a survey-derived assertion missing the source-visible respondent count or universe in its own evidence is F3. A reported-measure assertion missing its source-visible reporting period or method/analytical basis is F3. An ownership or current-status assertion missing an as-of date or named project/scope is F3. A generic expectation such as “the expectation” or “Forventningen” without a same-excerpt actor or project antecedent is F4. Do not apply these requirements to an explicit complete-population statement, a timeless definition, or a complete qualitative proposition that does not assert status, ownership, reported measurement, survey-derived scope or an expectation.
@@ -33,6 +35,8 @@ Unit-level survey context never repairs an excerpt: when the unit identifies a s
 Classify as F3 an analytical-measure assertion about calculated or mapped RNOA, profitability, returns or operating margins whose claim or evidence omits the source-visible period or analytical basis. Evidence ending at `ikke har analysert`, `did not analyze` or `has not analyzed` is incomplete when the assertion supplies the missing object. A claim-level material exclusion, including franchise-owned stores being excluded, requires the same exclusion and object in the evidence.
 
 For possessive ownership, require the owned company identity in the evidence, not only owner, share and date. Treat an unresolved evidence opening such as `This survey` or its Norwegian equivalents as F4 when a named source identity appears only in the claim. For `sheet_range` evidence, treat a bare delimited row without header or explicit field labels as F4 when the claim interprets named fields.
+
+Treat a rewritten report-title assertion supported only by a bare title heading as F4 unless the excerpt includes an explicit report/title label or complete declarative title sentence. For figure and chart comparisons, omitted material caption or method qualifiers such as index base, transaction stage, exclusions or subsidy treatment are F3. Conflicting prose, chart or table values for the same measure and population must be surfaced; silently selecting one value is a material F5 omission.
 
 ## Output boundary
 

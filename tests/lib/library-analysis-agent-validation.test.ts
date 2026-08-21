@@ -150,6 +150,48 @@ for (const [candidateFinding, disposition] of [
   });
 }
 
+test("Pilot09 semantic figure-qualifier and source-conflict findings quarantine affected claims", () => {
+  const figure = sourceValidationFixture(
+    "Figure 7 shows an index for first-stage domestic electricity transactions, excluding electricity support. Monthly electricity prices were five times higher in 2022 than in 2015.",
+    "Monthly electricity prices were five times higher in 2022 than in 2015.",
+    "Monthly electricity prices were five times higher in 2022 than in 2015.",
+  );
+  const figureFinding = {
+    ...finding("F3", "material", true),
+    explanation: "The excerpt omits the source-visible transaction stage and subsidy treatment.",
+  };
+  assert.equal(deriveLibraryAnalysisAgentValidationResult({
+    candidateId: figure.candidateId,
+    sourceResult: figure.sourceResult,
+    units: figure.units,
+    analysisModels: figure.analysisModels,
+    validatorModel: figure.validatorModel,
+    populationEligibility: "eligible",
+    modelFindings: [figureFinding],
+    riskFlags: [],
+  }).disposition, "quarantined");
+
+  const conflicting = sourceValidationFixture(
+    "The chart reports 33.3% for house cricket. The prose reports 33.4% for house cricket.",
+    "House cricket accounts for 33.4%.",
+    "The prose reports 33.4% for house cricket.",
+  );
+  const conflictFinding = {
+    ...finding("F5", "material", true),
+    explanation: "The claim silently selects 33.4% although the same source unit also reports 33.3%.",
+  };
+  assert.equal(deriveLibraryAnalysisAgentValidationResult({
+    candidateId: conflicting.candidateId,
+    sourceResult: conflicting.sourceResult,
+    units: conflicting.units,
+    analysisModels: conflicting.analysisModels,
+    validatorModel: conflicting.validatorModel,
+    populationEligibility: "eligible",
+    modelFindings: [conflictFinding],
+    riskFlags: [],
+  }).disposition, "quarantined");
+});
+
 test("validation response cannot self-declare deterministic state or disposition", () => {
   const request = buildLibraryAnalysisAgentValidationRequest(sourceValidationFixture());
   const response = {

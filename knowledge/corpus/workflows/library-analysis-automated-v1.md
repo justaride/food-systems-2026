@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.7`
+Workflow version: `1.0.8`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.7`
+Prompt template version: `1.0.8`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
@@ -28,6 +28,8 @@ Pronouns and shorthand references such as "the method", "the results", "this ind
 
 Bare generic references to work, method, mapping or results are not self-contained. Terms such as `arbeidet`, `metoden`, `kartleggingen`, `kartleggingene`, `resultatet`, `resultatene`, `the work`, `the method`, `the mapping`, `the result` and `the results` require the claim itself to name the work, method, mapping object or result scope using wording visible in the same evidence excerpt. If that wording is absent, record `no_material_claim`; do not resolve the reference from another sentence or unit.
 
+Bare references to an appendix, authority analysis, sample, information object, similar analysis or unnamed analysis are also ineligible. The claim and evidence must name the appendix, authority, sample population, information object, analysis scope or comparison. A double-counting statement must identify what can be counted twice. A market-share claim must include the share's source-visible measurement year or as-of date in both claim and evidence.
+
 The evidence excerpt must also identify the result referent. Bare singular references such as `resultatet` or `the result`, and excerpts opening with unresolved plural `resultatene` or `the results`, are ineligible even when the rewritten claim names its scope. A plural reference is eligible only when its antecedent and scope already appear earlier in the same excerpt; otherwise expand the excerpt or emit `no_material_claim`.
 
 The evidence excerpt itself must contain every material fact and visible qualifier asserted by the claim. It must end at a complete source-visible proposition; an excerpt that ends mid-sentence, at a dangling preposition or conjunction, in a table/list continuation, or before a needed qualifier is incomplete and cannot support a claim. Preserve actor/source identity and geography exactly as written in the evidence. Do not translate, canonicalize, broaden or substitute a country, region or market label.
@@ -39,6 +41,8 @@ Unit-level survey context never repairs an excerpt: a survey-derived claim must 
 Apply the same locality rule to analytical-measure claims. A claim that says an actor calculated or mapped RNOA, profitability, returns or operating margins must include the source-visible period and analytical basis in both the claim and its evidence. An evidence excerpt must not stop at `ikke har analysert`, `did not analyze` or `has not analyzed`; include the object of that negative statement. If a claim adds a material exclusion such as franchise-owned stores being excluded, the same exclusion and object must appear in its evidence excerpt.
 
 For possessive ownership statements, the company whose ownership is described must be visible in the evidence excerpt, not only the owner, percentage and date. Evidence beginning with an unresolved `This survey`, `This questionnaire`, `This study` or equivalent Norwegian phrase must be expanded to include the named survey or report identity. For `sheet_range` units, a row alone is not interpretable evidence for named fields: include the header and row, or explicit source-visible field labels, in the same excerpt.
+
+A bare heading cannot by itself support a rewritten report-title assertion; require an explicit report/title label or complete declarative sentence. Figure and chart claims must preserve every materially relevant caption or method qualifier, including index base, transaction stage, exclusions and subsidy treatment. When prose, chart or table values conflict within the same supplied unit for the same measure and population, emit `no_material_claim`, or emit a supported `gap` or `contradiction` assertion that states both values and scopes; never silently select one value.
 
 ## Output boundary
 

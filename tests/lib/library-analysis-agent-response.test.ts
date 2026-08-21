@@ -415,6 +415,171 @@ test("keeps bounded analytical measures and unrelated mappings eligible", () => 
   }
 });
 
+test("rejects Pilot09 unresolved local references while preserving named scope", () => {
+  for (const contextualText of [
+    "I dette vedlegget presenteres Konkurransetilsynets metode for verdsetting av eiendeler.",
+    "Tilsynets analyser gir ikke grunnlag for å slå fast om andre faktorer var medvirkende.",
+    "Rapporten viser at tilsynets analyser gir ikke grunnlag for å slå fast om andre faktorer var medvirkende.",
+    "Trenden på tvers av utvalget er at lønnsomheten falt fra 2021 til 2022.",
+    "Mye av informasjonen må hentes fra årsrapporter og ulike kilder.",
+    "Lignende analyser finnes i enkelte regioner i Europa.",
+    "Når det gjelder offentlig sektor, er den i liten grad inkludert i analysen.",
+    "Analysen viser at offentlig sektor er lite inkludert.",
+    "Data kan føre til dobbeltelling.",
+    "Double counting may occur.",
+    "Det kan forekomme noe dobbeltelling, men dette vurderes som begrenset i praksis.",
+  ]) {
+    const job = verifiedJob([contextualText]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, contextualText)],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /context_dependent_claim/u);
+  }
+
+  for (const scopedText of [
+    "I vedlegg A presenteres Konkurransetilsynets metode for verdsetting av eiendeler.",
+    "Konkurransetilsynets analyser gir ikke grunnlag for å slå fast om andre faktorer var medvirkende.",
+    "Tilsynets analyser av driftsmarginer gir ikke grunnlag for å slå fast om andre faktorer var medvirkende.",
+    "Trenden på tvers av utvalget på åtte leverandører er at lønnsomheten falt fra 2021 til 2022.",
+    "Mye av informasjonen om regionale materialstrømmer må hentes fra årsrapporter og ulike kilder.",
+    "Lignende regionale ressurskartleggingsanalyser finnes i Bayern og Nederland.",
+    "Lignende analyser av RNOA finnes i Bayern og Nederland.",
+    "Offentlig sektor er i liten grad inkludert i den regionale ressursanalysen.",
+    "Offentlig sektor er i liten grad inkludert i analysen av regionale materialstrømmer.",
+    "Materialstrømmer kan dobbeltelles, men dette vurderes som begrenset i praksis.",
+    "Det kan forekomme dobbeltelling av samme virksomhet, men dette vurderes som begrenset i praksis.",
+  ]) {
+    const job = verifiedJob([scopedText]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, scopedText)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }));
+  }
+
+  for (const row of [
+    {
+      source: "I dette vedlegget presenteres Konkurransetilsynets metode for verdsetting av eiendeler.",
+      text: "Vedlegg A presenterer Konkurransetilsynets metode for verdsetting av eiendeler.",
+      evidence: "I dette vedlegget presenteres Konkurransetilsynets metode for verdsetting av eiendeler.",
+    },
+    {
+      source: "Tilsynets analyser gir ikke grunnlag for å slå fast om andre faktorer var medvirkende.",
+      text: "Konkurransetilsynets analyser av driftsmarginer gir ikke grunnlag for å slå fast om andre faktorer var medvirkende.",
+      evidence: "Tilsynets analyser gir ikke grunnlag for å slå fast om andre faktorer var medvirkende.",
+    },
+  ]) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /evidence_context_dependent/u);
+  }
+});
+
+test("rejects Pilot09 undated shares, title headings and unscoped survey results", () => {
+  const cases = [
+    {
+      source: "Coop Trading has a 33% market share in the Nordic region.",
+      text: "Coop Trading has a 33% market share in the Nordic region.",
+      evidence: "Coop Trading has a 33% market share in the Nordic region.",
+      error: /share_as_of_missing/u,
+    },
+    {
+      source: "Coop Trading has a 33% market share in the Nordic region. The report was published in 2025.",
+      text: "Coop Trading has a 33% market share in the Nordic region. The report was published in 2025.",
+      evidence: "Coop Trading has a 33% market share in the Nordic region. The report was published in 2025.",
+      error: /share_as_of_missing/u,
+    },
+    {
+      source: "IPIFF Survey: Main Findings Report",
+      text: "The report is titled IPIFF Survey: Main Findings Report.",
+      evidence: "IPIFF Survey: Main Findings Report",
+      error: /title_context_missing/u,
+    },
+    {
+      source: "The IPIFF survey gathered responses from 19 EU insect farming companies. 57.8% of companies responded that their main market is European.",
+      text: "57.8% of companies responded that their main market is European.",
+      evidence: "57.8% of companies responded that their main market is European.",
+      error: /survey_scope_missing/u,
+    },
+    {
+      source: "The IPIFF survey gathered responses from 19 EU insect farming companies. The most established companies have 10 to 18 years of experience, while newer entrants have 3 to 8 years.",
+      text: "The most established companies have 10 to 18 years of experience, while newer entrants have 3 to 8 years.",
+      evidence: "The most established companies have 10 to 18 years of experience, while newer entrants have 3 to 8 years.",
+      error: /survey_scope_missing/u,
+    },
+    {
+      source: "The IPIFF survey gathered responses from 19 EU insect farming companies. Most insect food companies produce yellow mealworm (50%) and house cricket (33.4%).",
+      text: "Most insect food companies produce yellow mealworm (50%) and house cricket (33.4%).",
+      evidence: "Most insect food companies produce yellow mealworm (50%) and house cricket (33.4%).",
+      error: /survey_scope_missing/u,
+    },
+  ];
+  for (const row of cases) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error);
+  }
+
+  for (const scopedText of [
+    "Coop Trading had a 33% Nordic market share in 2025.",
+    "Market share is the proportion of sales held by a company in a defined market.",
+    "The report title is IPIFF Survey: Main Findings Report.",
+    "The report is titled IPIFF Survey: Main Findings Report.",
+    "Among 19 EU insect farming companies, 57.8% responded that their main market is European.",
+    "Among 19 EU insect farming companies, the most established respondents had 10 to 18 years of experience.",
+    "Among 19 EU insect farming companies, 50% produced yellow mealworm and 33.4% produced house cricket.",
+  ]) {
+    const job = verifiedJob([scopedText]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, scopedText)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }));
+  }
+});
+
 test("rejects Pilot08 evidence that ends before the asserted object or exclusion", () => {
   const cases = [
     {

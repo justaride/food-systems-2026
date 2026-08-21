@@ -81,6 +81,14 @@ const AUDITED_HERE_REFERENCE = /^(?:driftsinntekter\s+her\s+økte|revenue\s+here
 const ANOTHER_FACTOR = /\b(?:en\s+annen\s+faktor|another\s+factor)\b/iu;
 const PRIOR_FACTOR = /\b(?:faktor|factor)\b/iu;
 const UNRESOLVED_GENERIC_REFERENCE = /\b(?:arbeidet(?!\s+(?:med|for|av)\b)|metoden(?!\s+(?:for|til|med)\b)|kartleggingen(?!\s+(?:av|for|i)\b)|kartleggingene|resultatet(?!\s+(?:av|fra|for|i)\b)|resultatene(?!\s+(?:av|fra|for|i)\b)|the\s+results?(?!\s+(?:of|from|for|in)\b))\b/iu;
+const BARE_APPENDIX_REFERENCE = /^(?:i\s+dette\s+vedlegget|in\s+this\s+appendix)\b/iu;
+const UNNAMED_AUTHORITY_ANALYSIS = /(?:\btilsynets\s+(?:analyser|analyse)\b(?!\s+(?:av|om|for|i|fra|basert\s+på)(?:\s|$))|\bthe\s+authority['’]s\s+(?:analyses|analysis)\b(?!\s+(?:of|on|for|in|from|based\s+on)\b))/iu;
+const NAMED_AUTHORITY = /\b(?:Konkurransetilsynet(?:s)?|Norwegian\s+Competition\s+Authority|Competition\s+and\s+Markets\s+Authority|CMA)\b/iu;
+const BARE_SAMPLE_REFERENCE = /(?:\butvalget(?!\s+(?:av|på|med|bestående\s+av)(?:\s|$))|\bthe\s+sample(?!\s+(?:of|with|comprising)\b))/iu;
+const BARE_INFORMATION_REFERENCE = /(?:\bmye\s+av\s+informasjonen(?!\s+(?:om|for|fra|i)\b)|\bmuch\s+of\s+the\s+information(?!\s+(?:about|for|from|in)\b))/iu;
+const BARE_SIMILAR_ANALYSIS = /(?:\blignende\s+analyser(?!\s+(?:av|om|for|i|fra|basert\s+på)(?:\s|$))|\bsimilar\s+analyses(?!\s+(?:of|on|for|in|from|based\s+on)\b))/iu;
+const BARE_ANALYSIS_REFERENCE = /(?:\banalysen(?!\s+(?:av|om|for|i|fra|basert\s+på)(?:\s|$))|\bthe\s+analysis(?!\s+(?:of|on|for|in|from|based\s+on)\b))/iu;
+const BARE_DOUBLE_COUNTING = /\b(?:dobbelttelling|dobbeltelling|double[- ]counting)(?!\s+(?:av|of)(?:\s|$))/iu;
 const UNRESOLVED_RESULT_EVIDENCE = /\b(?:resultatet(?!\s+(?:av|fra|for|i)\b)|the\s+result(?!\s+(?:of|from|for|in)\b))\b/iu;
 const UNRESOLVED_PLURAL_RESULT_EVIDENCE_OPENING = /^(?:resultatene(?!\s+(?:av|fra|for|i)\b)|the\s+results(?!\s+(?:of|from|for|in)\b))\b/iu;
 const EXPLICIT_YEAR = /\b(?:19|20)\d{2}\b/u;
@@ -91,6 +99,9 @@ const MATERIAL_SCOPE_QUALIFIERS = [
 const REPORTED_MEASURE = /\b(?:rapporterer|reports?)\b[\s\S]{0,180}\b(?:tiltak|measures?|actions?)\b/iu;
 const REPORTING_BASIS = /\b(?:kvalitativ\s+innholdsanalyse|content\s+analysis|b[\u00e6a]rekraftsrapporter|sustainability\s+reports?|based\s+on|basert\s+på)\b/iu;
 const OWNERSHIP_OR_CONTROL = /\b(?:eier|eid\s+av|kontrolleres\s+av|owns?|owned\s+by|controlled\s+by)\b/iu;
+const QUANTIFIED_MARKET_SHARE = /(?:\b\d+(?:[.,]\d+)?\s*(?:%|percent|prosent)[\s\S]{0,80}\b(?:markedsandel|market\s+share)\b|\b(?:markedsandel|market\s+share)\b[\s\S]{0,80}\b\d+(?:[.,]\d+)?\s*(?:%|percent|prosent))/iu;
+const REPORT_TITLE_CLAIM = /\b(?:the\s+report\s+is\s+titled|rapporten\s+(?:har\s+tittelen|heter))\b/iu;
+const REPORT_TITLE_CONTEXT = /\b(?:report\s+title|title\s+of\s+the\s+report|the\s+report\s+is\s+titled|rapporttittel|rapportens\s+tittel|rapporten\s+(?:har\s+tittelen|heter))\b/iu;
 const ANALYTICAL_ACTION = /\b(?:har\s+(?:beregnet|kartlagt)|(?:ble|er)\s+(?:beregnet|kartlagt)|beregner|beregnet|kartlegger|kartla|estimerer|estimerte|has\s+(?:calculated|mapped|estimated)|(?:was|were)\s+(?:calculated|mapped|estimated)|calculates?|mapped|maps?|estimates?|estimated)\b/iu;
 const ANALYTICAL_OUTCOME = /\b(?:avkastning|RNOA|lønnsomhet|driftsmarginer?|operating\s+margins?|returns?|profitability)\b/iu;
 const ANALYTICAL_BASIS = /\b(?:basert\s+på|med\s+utgangspunkt\s+i|på\s+grunnlag\s+av|ved\s+hjelp\s+av|regnskapstall|regnskapsdata|årsrapporter?|årsregnskap|based\s+on|using\s+(?:financial\s+statements?|accounts?|accounting\s+data|annual\s+reports?)|financial\s+statements?|annual\s+reports?)\b/iu;
@@ -114,7 +125,7 @@ const GENERIC_EXPECTATION = /^(?:forventningen\s+er|the\s+expectation\s+is)\b/iu
 const OPERATIONAL_STATUS = /(?:\bdashboard(?:et)?\b[\s\S]{0,80}\b(?:brukes|anvendes|is\s+used)\b|\b(?:ingen|no)\b[\s\S]{0,80}\b(?:partnere?|partners?)\b[\s\S]{0,80}\b(?:kontaktet|contacted)\b)/iu;
 const NAMED_SCOPE = /\bfor\s+(?!(?:prosjektet|søknaden|the\s+project|the\s+application)\b)[A-ZÆØÅ][\p{L}\p{N}-]*(?:\s+[A-ZÆØÅ][\p{L}\p{N}-]*)+/u;
 const SURVEY_UNIT_CONTEXT = /\b(?:survey|questionnaire|respondents?|responses?|companies\s+indicated|could\s+you\s+rank|your\s+company)\b/iu;
-const SURVEY_DEPENDENT_CLAIM = /\b(?:respondents?|respondent\s+companies|most\s+(?:of\s+the\s+)?companies|on\s+average|rank(?:ed|ing)?|total(?:\s+collective)?\s+production|forecast(?:ed)?|foreseen|projection)\b/iu;
+const SURVEY_DEPENDENT_CLAIM = /\b(?:respondents?|respondent\s+companies|companies\s+responded|most\s+(?:(?:of\s+the|insect(?:\s+food)?|food)\s+)?companies|most\s+established\s+companies|newer\s+entrants|on\s+average|rank(?:ed|ing)?|total(?:\s+collective)?\s+production|forecast(?:ed)?|foreseen|projection)\b/iu;
 const LOCAL_SURVEY_SCOPE = /\b(?:(?:among|from|of|sample\s+of)\s+|responses?\s+from\s+)?\d{1,4}\s+(?:(?:EU|European|Nordic|surveyed)\s+)?(?:(?:insect\s+farming|insect-food|food)\s+)?(?:companies|respondents|producers)\b/iu;
 const FORECAST_CLAIM = /\b(?:forecast(?:ed)?|foreseen|projection|projected)\b/iu;
 const FORECAST_BASIS = /\b(?:based\s+on|using|scenario|model(?:led|ed|ing)?|estimated?\s+from|responses?\s+from)\b/iu;
@@ -130,12 +141,23 @@ const AUTHORITY_TERMS = [
   /\b(?:rettighets|publiserings)godkjent\b/iu,
 ] as const;
 
+function hasUnresolvedLocalReference(value: string): boolean {
+  return BARE_APPENDIX_REFERENCE.test(value) ||
+    (UNNAMED_AUTHORITY_ANALYSIS.test(value) && !NAMED_AUTHORITY.test(value)) ||
+    BARE_SAMPLE_REFERENCE.test(value) ||
+    BARE_INFORMATION_REFERENCE.test(value) ||
+    BARE_SIMILAR_ANALYSIS.test(value) ||
+    BARE_ANALYSIS_REFERENCE.test(value) ||
+    BARE_DOUBLE_COUNTING.test(value);
+}
+
 function assertSelfContainedClaimText(claimText: string, evidence: string): void {
   const normalizedClaim = claimText.trim();
   const normalizedEvidence = evidence.trim();
   const anotherFactor = ANOTHER_FACTOR.exec(normalizedClaim);
   const unresolvedAnotherFactor = anotherFactor !== null &&
     !PRIOR_FACTOR.test(normalizedClaim.slice(0, anotherFactor.index));
+  const unresolvedLocalReference = hasUnresolvedLocalReference(normalizedClaim);
   if (
     CONTEXT_DEPENDENT_OPENING.test(normalizedClaim) ||
     (UNBOUNDED_PERIOD_REFERENCE.test(normalizedClaim) && !EXPLICIT_YEAR.test(normalizedClaim)) ||
@@ -143,13 +165,15 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     AUDITED_GENERIC_SUBJECT.test(normalizedClaim) ||
     AUDITED_HERE_REFERENCE.test(normalizedClaim) ||
     unresolvedAnotherFactor ||
-    UNRESOLVED_GENERIC_REFERENCE.test(normalizedClaim)
+    UNRESOLVED_GENERIC_REFERENCE.test(normalizedClaim) ||
+    unresolvedLocalReference
   ) {
     throw new Error("agent_response_context_dependent_claim");
   }
   if (
     UNRESOLVED_RESULT_EVIDENCE.test(normalizedEvidence) ||
-    UNRESOLVED_PLURAL_RESULT_EVIDENCE_OPENING.test(normalizedEvidence)
+    UNRESOLVED_PLURAL_RESULT_EVIDENCE_OPENING.test(normalizedEvidence) ||
+    hasUnresolvedLocalReference(normalizedEvidence)
   ) {
     throw new Error("agent_response_evidence_context_dependent");
   }
@@ -214,6 +238,22 @@ function assertAuditedScopeCompleteness(
     !EXPLICIT_YEAR.test(claimText) || !EXPLICIT_YEAR.test(evidence)
   )) {
     throw new Error("agent_response_ownership_as_of_missing");
+  }
+  const quantifiedShareClaim = claimText
+    .split(/[.!?]+/u)
+    .find((segment) => QUANTIFIED_MARKET_SHARE.test(segment));
+  const quantifiedShareEvidence = evidence
+    .split(/[.!?]+/u)
+    .find((segment) => QUANTIFIED_MARKET_SHARE.test(segment));
+  if (quantifiedShareClaim !== undefined && (
+    quantifiedShareEvidence === undefined ||
+    !EXPLICIT_YEAR.test(quantifiedShareClaim) ||
+    !EXPLICIT_YEAR.test(quantifiedShareEvidence)
+  )) {
+    throw new Error("agent_response_share_as_of_missing");
+  }
+  if (REPORT_TITLE_CLAIM.test(claimText) && !REPORT_TITLE_CONTEXT.test(evidence)) {
+    throw new Error("agent_response_title_context_missing");
   }
   const possessiveOwnershipTarget = POSSESSIVE_OWNERSHIP_TARGET.exec(claimText)?.[1]?.trim();
   const norwegianPossessiveOwnershipTarget = NORWEGIAN_POSSESSIVE_OWNERSHIP_TARGET
