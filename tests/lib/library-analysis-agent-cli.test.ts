@@ -641,6 +641,63 @@ test("CLI argument parsing is strict and keeps command paths absolute", () => {
   );
 });
 
+test("status and finalize commands have strict private-only arguments", () => {
+  assert.deepEqual(
+    parseLibraryAnalysisAgentQueueArgs([
+      "status",
+      "--run-root=/tmp/private-run",
+      "--queue=/tmp/private-run/queue/queue-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.json",
+    ]),
+    {
+      command: "status",
+      runRoot: "/tmp/private-run",
+      queue: "/tmp/private-run/queue/queue-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.json",
+    },
+  );
+  assert.deepEqual(
+    parseLibraryAnalysisAgentQueueArgs([
+      "finalize",
+      "--run-root=/tmp/private-run",
+      "--queue=/tmp/private-run/queue/queue-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.json",
+      `--final-merge-hash=${"b".repeat(64)}`,
+    ]),
+    {
+      command: "finalize",
+      runRoot: "/tmp/private-run",
+      queue: "/tmp/private-run/queue/queue-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.json",
+      finalMergeHash: "b".repeat(64),
+    },
+  );
+  assert.throws(() => parseLibraryAnalysisAgentQueueArgs([
+    "status", "--run-root=/tmp/private-run", "--queue=/tmp/private-run/queue.json", "--source-key=secret",
+  ]), /agent_queue_cli_arguments_invalid/);
+});
+
+test("status derives a sanitized pending snapshot from a sealed queue", async () => {
+  const fixture = makeFixture();
+  const built = await runLibraryAnalysisAgentQueueCli({
+    command: "build",
+    runRoot: fixture.runRoot,
+    resolution: fixture.resolutionPath,
+    manifest: fixture.manifestPath,
+    costEnvelopeHash: fixture.costHash,
+    mergedInventoryHash: fixture.inventoryHash,
+    runtimeCommit: "5f3eb1c",
+    repositoryRoot: fixture.repositoryRoot,
+  });
+  const status = await runLibraryAnalysisAgentQueueCli({
+    command: "status",
+    runRoot: fixture.runRoot,
+    queue: built.queuePath,
+  });
+  assert.equal(status.command, "status");
+  assert.equal(status.queueHash, built.queueHash);
+  assert.equal(status.state, "pending");
+  assert.equal(status.pendingJobs, built.jobs);
+  assert.equal(status.automatedOnly, true);
+  assert.equal(status.externalReady, false);
+});
+
 test("validate-source supports sealed prepare and later accept phases", () => {
   const prepare = parseLibraryAnalysisAgentQueueArgs([
     "validate-source",

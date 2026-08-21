@@ -63,6 +63,12 @@ import {
 import {
   verifyLibraryAnalysisContentUnitManifest,
 } from "./emit-library-analysis-content-units";
+import {
+  buildLibraryAnalysisAgentTerminalReceipt,
+  deriveLibraryAnalysisAgentQueueState,
+  sanitizeLibraryAnalysisAgentReceipt,
+  LibraryAnalysisAgentAttemptReceiptSchema,
+} from "../../src/lib/knowledge/library-analysis-agent-checkpoint";
 
 const hashSchema = z.string().regex(/^[a-f0-9]{64}$/u);
 const absolutePathSchema = z.string().min(1).refine(
@@ -137,13 +143,26 @@ const validateSourceOptionsSchema = z.object({
     context.addIssue({ code: "custom", message: "validation_accept_response_required" });
   }
 });
+const statusOptionsSchema = z.object({
+  command: z.literal("status"),
+  runRoot: absolutePathSchema,
+  queue: absolutePathSchema,
+}).strict();
+const finalizeOptionsSchema = z.object({
+  command: z.literal("finalize"),
+  runRoot: absolutePathSchema,
+  queue: absolutePathSchema,
+  finalMergeHash: hashSchema,
+}).strict();
 
 export type BuildQueueOptions = z.infer<typeof buildOptionsSchema>;
 export type PrepareAttemptOptions = z.infer<typeof prepareOptionsSchema>;
 export type AcceptAttemptOptions = z.infer<typeof acceptOptionsSchema>;
 export type MergeSourceOptions = z.infer<typeof mergeSourceOptionsSchema>;
 export type ValidateSourceOptions = z.infer<typeof validateSourceOptionsSchema>;
-export type LibraryAnalysisAgentQueueCommand = BuildQueueOptions | PrepareAttemptOptions | AcceptAttemptOptions | MergeSourceOptions | ValidateSourceOptions;
+export type StatusOptions = z.infer<typeof statusOptionsSchema>;
+export type FinalizeOptions = z.infer<typeof finalizeOptionsSchema>;
+export type LibraryAnalysisAgentQueueCommand = BuildQueueOptions | PrepareAttemptOptions | AcceptAttemptOptions | MergeSourceOptions | ValidateSourceOptions | StatusOptions | FinalizeOptions;
 
 export type LibraryAnalysisAgentQueueBuildResult = {
   command: "build";
@@ -209,19 +228,44 @@ export type LibraryAnalysisAgentQueueValidationResult = {
   automatedOnly: true;
   externalReady: false;
 };
+export type LibraryAnalysisAgentQueueStatusResult = {
+  command: "status";
+  queueHash: string;
+  sourceCount: number;
+  unitCount: number;
+  jobCount: number;
+  state: ReturnType<typeof deriveLibraryAnalysisAgentQueueState>["state"];
+  reusableJobs: number;
+  pendingJobs: number;
+  quarantinedJobs: number;
+  auditInventoryHash: string;
+  automatedOnly: true;
+  externalReady: false;
+};
+export type LibraryAnalysisAgentQueueFinalizeResult = {
+  command: "finalize";
+  queueHash: string;
+  receiptPath: string;
+  receipt: Record<string, unknown>;
+  postPublicationAuditInventoryHash: string;
+  automatedOnly: true;
+  externalReady: false;
+};
 
 export type LibraryAnalysisAgentQueueCliResult =
   | LibraryAnalysisAgentQueueBuildResult
   | LibraryAnalysisAgentQueueAttemptResult
   | LibraryAnalysisAgentQueueAcceptResult
   | LibraryAnalysisAgentQueueMergeResult
-  | LibraryAnalysisAgentQueueValidationResult;
+  | LibraryAnalysisAgentQueueValidationResult
+  | LibraryAnalysisAgentQueueStatusResult
+  | LibraryAnalysisAgentQueueFinalizeResult;
 
 export function parseLibraryAnalysisAgentQueueArgs(
   argv: readonly string[],
 ): LibraryAnalysisAgentQueueCommand {
   const command = argv[0];
-  if (command !== "build" && command !== "prepare-attempt" && command !== "accept-attempt" && command !== "merge-source" && command !== "validate-source") {
+  if (command !== "build" && command !== "prepare-attempt" && command !== "accept-attempt" && command !== "merge-source" && command !== "validate-source" && command !== "status" && command !== "finalize") {
     throw new Error("agent_queue_cli_arguments_invalid");
   }
   const values = new Map<string, string>();
@@ -233,9 +277,13 @@ export function parseLibraryAnalysisAgentQueueArgs(
         ? ["run-root", "queue", "job-id", "attempt", "expected-model-provider", "expected-model-name", "expected-model-version"]
         : command === "accept-attempt"
           ? ["run-root", "queue", "attempt-input", "response"]
-          : command === "merge-source"
+      : command === "merge-source"
             ? ["run-root", "queue", "source-id", "source-kind", "source-key"]
-            : ["mode", "run-root", "queue", "source-id", "source-kind", "source-key", "validator-model-provider", "validator-model-name", "validator-model-version", "response"];
+            : command === "validate-source"
+              ? ["mode", "run-root", "queue", "source-id", "source-kind", "source-key", "validator-model-provider", "validator-model-name", "validator-model-version", "response"]
+              : command === "status"
+                ? ["run-root", "queue"]
+                : ["run-root", "queue", "final-merge-hash"];
     if (!match || !allowed.includes(match[1]!) || values.has(match[1]!)) {
       throw new Error("agent_queue_cli_arguments_invalid");
     }
@@ -314,6 +362,20 @@ export function parseLibraryAnalysisAgentQueueArgs(
       throw new Error("agent_queue_cli_arguments_invalid");
     }
   }
+  if (command === "status") {
+    try {
+      return statusOptionsSchema.parse({ command, runRoot: value("run-root"), queue: value("queue") });
+    } catch {
+      throw new Error("agent_queue_cli_arguments_invalid");
+    }
+  }
+  if (command === "finalize") {
+    try {
+      return finalizeOptionsSchema.parse({ command, runRoot: value("run-root"), queue: value("queue"), finalMergeHash: value("final-merge-hash") });
+    } catch {
+      throw new Error("agent_queue_cli_arguments_invalid");
+    }
+  }
   try {
     return acceptOptionsSchema.parse({
       command,
@@ -343,6 +405,12 @@ export function runLibraryAnalysisAgentQueueCli(
   options: ValidateSourceOptions,
 ): Promise<LibraryAnalysisAgentQueueValidationResult>;
 export function runLibraryAnalysisAgentQueueCli(
+  options: StatusOptions,
+): Promise<LibraryAnalysisAgentQueueStatusResult>;
+export function runLibraryAnalysisAgentQueueCli(
+  options: FinalizeOptions,
+): Promise<LibraryAnalysisAgentQueueFinalizeResult>;
+export function runLibraryAnalysisAgentQueueCli(
   options: LibraryAnalysisAgentQueueCommand,
 ): Promise<LibraryAnalysisAgentQueueCliResult>;
 export async function runLibraryAnalysisAgentQueueCli(
@@ -352,7 +420,9 @@ export async function runLibraryAnalysisAgentQueueCli(
   if (options.command === "prepare-attempt") return runPrepareAttempt(options);
   if (options.command === "accept-attempt") return runAcceptAttempt(options);
   if (options.command === "merge-source") return runMergeSource(options);
-  return runValidateSource(options);
+  if (options.command === "validate-source") return runValidateSource(options);
+  if (options.command === "status") return runStatus(options);
+  return runFinalize(options);
 }
 
 async function runBuildQueue(
@@ -670,6 +740,138 @@ async function runValidateSource(
     automatedOnly: true,
     externalReady: false,
   };
+}
+
+async function runStatus(
+  rawOptions: StatusOptions,
+): Promise<LibraryAnalysisAgentQueueStatusResult> {
+  const options = statusOptionsSchema.parse(rawOptions);
+  const runRoot = openRunRoot(options.runRoot);
+  const queue = readQueue(runRoot, options.queue);
+  const attempts = collectAttemptReceipts(runRoot, queue);
+  const state = deriveLibraryAnalysisAgentQueueState({ queue, attempts });
+  const audit = auditPrivateLibraryAnalysisRunRoot(runRoot);
+  return {
+    command: "status",
+    queueHash: queue.queueHash,
+    sourceCount: queue.sources.length,
+    unitCount: queue.units.length,
+    jobCount: queue.jobs.length,
+    state: state.state,
+    reusableJobs: state.reusableJobIds.length,
+    pendingJobs: state.nextAttempts.length,
+    quarantinedJobs: state.quarantinedJobIds.length,
+    auditInventoryHash: audit.inventoryHash,
+    automatedOnly: true,
+    externalReady: false,
+  };
+}
+
+async function runFinalize(
+  rawOptions: FinalizeOptions,
+): Promise<LibraryAnalysisAgentQueueFinalizeResult> {
+  const options = finalizeOptionsSchema.parse(rawOptions);
+  const runRoot = openRunRoot(options.runRoot);
+  const queue = readQueue(runRoot, options.queue);
+  const attempts = collectAttemptReceipts(runRoot, queue);
+  const sourceResults = queue.sources.map((source) => readSealedJson(
+    runRoot,
+    `sources/source-${source.sourceEnvelopeHash}.json`,
+  ));
+  const validationResults = queue.sources.map((source) => readSealedJson(
+    runRoot,
+    `validation/source-${source.sourceEnvelopeHash}/result.json`,
+  ));
+  const preReceiptAudit = auditPrivateLibraryAnalysisRunRoot(runRoot);
+  const receipt = buildLibraryAnalysisAgentTerminalReceipt({
+    queue,
+    attempts,
+    sourceResults,
+    validationResults,
+    finalMergeHash: options.finalMergeHash,
+    privateInventoryHash: preReceiptAudit.inventoryHash,
+    privateAudit: preReceiptAudit,
+  });
+  const receiptPortablePath = "terminal/receipt.json";
+  const written = writePrivateManifestAtomic(
+    runRoot,
+    receiptPortablePath,
+    canonicalJsonBytes(receipt as unknown as CandidateJsonValue),
+  );
+  readAndVerifyPrivateArtifact(runRoot, receiptPortablePath, {
+    sha256: written.sha256,
+    sizeBytes: written.sizeBytes,
+    mode: 0o400,
+  });
+  const postPublicationAudit = auditPrivateLibraryAnalysisRunRoot(runRoot);
+  return {
+    command: "finalize",
+    queueHash: queue.queueHash,
+    receiptPath: written.path,
+    receipt: sanitizeLibraryAnalysisAgentReceipt(receipt),
+    postPublicationAuditInventoryHash: postPublicationAudit.inventoryHash,
+    automatedOnly: true,
+    externalReady: false,
+  };
+}
+
+function collectAttemptReceipts(
+  runRoot: string,
+  queue: LibraryAnalysisAgentQueue,
+): Array<Record<string, unknown>> {
+  const receipts: Array<Record<string, unknown>> = [];
+  for (const job of queue.jobs) {
+    let jobDirectory: string;
+    let attemptDirectories: string[];
+    try {
+      jobDirectory = safePrivatePath(runRoot, ["jobs", job.jobId]);
+      attemptDirectories = readdirSync(jobDirectory).filter((name) => /^attempt-\d{3}$/u.test(name)).sort();
+    } catch (error) {
+      if (error instanceof Error && "code" in error && error.code === "ENOENT") continue;
+      throw new Error("agent_queue_attempt_artifact_invalid");
+    }
+    for (const attemptDirectory of attemptDirectories) {
+      const attempt = Number(attemptDirectory.slice("attempt-".length));
+      const candidates = ["terminal.json", "accepted.json"];
+      const candidate = candidates.find((name) => {
+        try {
+          lstatSync(safePrivatePath(runRoot, ["jobs", job.jobId, attemptDirectory, name]));
+          return true;
+        } catch {
+          return false;
+        }
+      });
+      if (candidate === undefined) continue;
+      const raw = readSealedJson(runRoot, `jobs/${job.jobId}/${attemptDirectory}/${candidate}`) as Record<string, unknown>;
+      const status = candidate === "accepted.json" ? "accepted" : (raw.terminalState ?? raw.status ?? "failed");
+      const segmentAttempts = Array.isArray(raw.attempts) ? raw.attempts : [];
+      if (segmentAttempts.length > 0) {
+        for (const nested of segmentAttempts) {
+          const parsed = LibraryAnalysisAgentAttemptReceiptSchema.parse({
+            ...(nested as Record<string, unknown>),
+            queueHash: queue.queueHash,
+            jobId: job.jobId,
+            jobHash: job.inputEnvelopeHash,
+          });
+          receipts.push(parsed as Record<string, unknown>);
+        }
+      } else {
+        receipts.push({
+          queueHash: queue.queueHash,
+          jobId: job.jobId,
+          jobHash: job.inputEnvelopeHash,
+          attempt,
+          inputHash: raw.inputHash,
+          responseHash: raw.responseHash,
+          status,
+          verified: true,
+          sealed: true,
+          ...(raw.model === undefined ? {} : { model: raw.model }),
+        });
+      }
+    }
+  }
+  return receipts;
 }
 
 function readCanonicalTerminalSegment(
@@ -1065,6 +1267,34 @@ async function main(): Promise<void> {
       automatedOnly: result.automatedOnly,
       externalReady: result.externalReady,
       auditInventoryHash: result.audit.inventoryHash,
+    })}\n`);
+    return;
+  }
+  if (result.command === "status") {
+    process.stdout.write(`${JSON.stringify({
+      command: result.command,
+      queueHash: result.queueHash,
+      sources: result.sourceCount,
+      units: result.unitCount,
+      jobs: result.jobCount,
+      state: result.state,
+      reusableJobs: result.reusableJobs,
+      pendingJobs: result.pendingJobs,
+      quarantinedJobs: result.quarantinedJobs,
+      auditInventoryHash: result.auditInventoryHash,
+      automatedOnly: result.automatedOnly,
+      externalReady: result.externalReady,
+    })}\n`);
+    return;
+  }
+  if (result.command === "finalize") {
+    process.stdout.write(`${JSON.stringify({
+      command: result.command,
+      queueHash: result.queueHash,
+      receipt: result.receipt,
+      postPublicationAuditInventoryHash: result.postPublicationAuditInventoryHash,
+      automatedOnly: result.automatedOnly,
+      externalReady: result.externalReady,
     })}\n`);
     return;
   }
