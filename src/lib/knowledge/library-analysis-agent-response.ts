@@ -124,6 +124,18 @@ export const LIBRARY_ANALYSIS_AGENT_SOURCE_RESULT_SCHEMA =
 const terminalStateSchema = z.enum(["accepted", "partial", "failed", "quarantined"]);
 export type LibraryAnalysisAgentTerminalState = z.infer<typeof terminalStateSchema>;
 
+export function deriveLibraryAnalysisAgentTerminalState(
+  segment: Pick<LibraryAnalysisTerminalSegment, "terminalState" | "status" | "unitCoverage">,
+  fallback: "accepted" | "failed" = "accepted",
+): LibraryAnalysisAgentTerminalState {
+  if (segment.terminalState !== undefined && segment.status !== undefined && segment.terminalState !== segment.status) {
+    throw new Error("source_merge_terminal_state_conflict");
+  }
+  return segment.terminalState ?? segment.status ?? (
+    segment.unitCoverage.some((row) => row.status === "blocked") ? "partial" : fallback
+  );
+}
+
 const attemptReceiptSchema = z.object({
   attempt: z.number().int().positive(),
   inputHash: hashSchema,
@@ -158,6 +170,7 @@ export const LibraryAnalysisSourceSegmentReceiptSchema = z.object({
   attempt: z.number().int().positive(),
   inputHash: hashSchema,
   responseHash: hashSchema,
+  terminalReason: textSchema.optional(),
 }).strict();
 export type LibraryAnalysisSourceSegmentReceipt = z.infer<
   typeof LibraryAnalysisSourceSegmentReceiptSchema
@@ -453,9 +466,7 @@ function segmentReceipt(
     responseHash: segment.responseHash,
     model: segment.model,
   };
-  const terminalState = segment.terminalState ?? segment.status ?? (
-    segment.unitCoverage.some((row) => row.status === "blocked") ? "partial" : "accepted"
-  );
+  const terminalState = deriveLibraryAnalysisAgentTerminalState(segment);
   defaultAttempt.status = terminalState;
   if (segment.terminalReason !== undefined) defaultAttempt.terminalReason = segment.terminalReason;
   const attempts = segment.attempts ?? [defaultAttempt];
@@ -483,6 +494,7 @@ function segmentReceipt(
     attempt: segment.attempt,
     inputHash: segment.inputHash,
     responseHash: segment.responseHash,
+    ...(segment.terminalReason === undefined ? {} : { terminalReason: segment.terminalReason }),
   });
 }
 
@@ -501,9 +513,7 @@ function assertUniqueAttemptReceipts(segment: LibraryAnalysisTerminalSegment): v
 function deriveSourceAnalysisState(
   segments: readonly LibraryAnalysisTerminalSegment[],
 ): LibraryAnalysisSourceResult["analysisState"] {
-  const states = segments.map((segment) => segment.terminalState ?? segment.status ?? (
-    segment.unitCoverage.some((row) => row.status === "blocked") ? "partial" : "accepted"
-  ));
+  const states = segments.map((segment) => deriveLibraryAnalysisAgentTerminalState(segment));
   if (states.includes("quarantined")) return "quarantined";
   if (states.includes("failed")) return "failed";
   if (states.includes("partial")) return "partial";

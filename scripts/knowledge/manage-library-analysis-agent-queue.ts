@@ -33,6 +33,7 @@ import {
   LibraryAnalysisAgentAttemptInputSchema,
   LibraryAnalysisAgentModelReceiptSchema,
   LibraryAnalysisTerminalSegmentSchema,
+  deriveLibraryAnalysisAgentTerminalState,
   mergeLibraryAnalysisSourceSegments,
   type LibraryAnalysisAgentAttemptInput,
   validateLibraryAnalysisAgentSegmentResponse,
@@ -549,20 +550,18 @@ function readCanonicalTerminalSegment(
     inputHash: string;
     responseHash: string;
     status: "accepted" | "partial" | "failed" | "quarantined";
+    terminalReason?: string;
     model: typeof selected.segment.model;
   }>();
   for (const { artifact, segment } of parsedArtifacts) {
-    const status = segment.terminalState ?? segment.status ?? (
-      artifact.kind === "terminal" && segment.unitCoverage.some((row) => row.status === "blocked")
-        ? "partial"
-        : artifact.kind === "terminal" ? "failed" : "accepted"
-    );
+    const status = deriveLibraryAnalysisAgentTerminalState(segment, artifact.kind === "terminal" ? "failed" : "accepted");
     const receipt = {
       attempt: segment.attempt,
       inputHash: segment.inputHash,
       responseHash: segment.responseHash,
       status,
       model: segment.model,
+      ...(segment.terminalReason === undefined ? {} : { terminalReason: segment.terminalReason }),
     };
     const existing = receipts.get(receipt.attempt);
     if (existing !== undefined) {
@@ -573,8 +572,9 @@ function readCanonicalTerminalSegment(
     }
     receipts.set(receipt.attempt, receipt);
   }
-  const selectedState = selected.segment.terminalState ?? selected.segment.status ?? (
-    selected.segment.unitCoverage.some((row) => row.status === "blocked") ? "partial" : "accepted"
+  const selectedState = deriveLibraryAnalysisAgentTerminalState(
+    selected.segment,
+    selectedArtifact.kind === "terminal" ? "failed" : "accepted",
   );
   const nested = selected.segment.attempts ?? [];
   for (const receipt of nested) {
@@ -584,6 +584,7 @@ function readCanonicalTerminalSegment(
       responseHash: receipt.responseHash,
       status: receipt.status ?? selectedState,
       model: receipt.model,
+      ...(receipt.terminalReason === undefined ? {} : { terminalReason: receipt.terminalReason }),
     };
     const existing = receipts.get(receipt.attempt);
     if (existing !== undefined) {
@@ -596,6 +597,7 @@ function readCanonicalTerminalSegment(
   }
   return {
     ...selected.segment,
+    status: selectedState,
     attempts: [...receipts.values()].sort((left, right) => left.attempt - right.attempt),
   };
 }

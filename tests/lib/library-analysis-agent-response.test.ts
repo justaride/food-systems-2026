@@ -416,6 +416,13 @@ test("merge preserves retry receipts, rejects duplicate attempts, and hashes rec
     }, retry] }, segments[1]!],
   });
   assert.deepEqual(withRetry.segments[0]!.attempts.map((attempt) => attempt.attempt), [1, 2]);
+  const withReason = mergeLibraryAnalysisSourceSegments({
+    queueHash: HASH,
+    source,
+    expectedJobs: jobs.map(({ job }) => job),
+    segments: [{ ...segments[0]!, terminalState: "failed", terminalReason: "different_reason" }, segments[1]!],
+  });
+  assert.notEqual(withReason.sourceResultHash, withRetry.sourceResultHash);
   assert.notEqual(withRetry.sourceResultHash, mergeLibraryAnalysisSourceSegments({
     queueHash: HASH,
     source,

@@ -532,13 +532,22 @@ test("merge-source reads only sealed accepted segments and publishes an exclusiv
   response.responseHash = libraryAnalysisAgentSegmentResponseHash(response);
   const responsePath = join(fixture.base, "merge-response.json");
   writeFileSync(responsePath, JSON.stringify(response), { mode: 0o600 });
-  await runLibraryAnalysisAgentQueueCli({
+  const accepted = await runLibraryAnalysisAgentQueueCli({
     command: "accept-attempt",
     runRoot: fixture.runRoot,
     queue: built.queuePath,
     attemptInput: prepared.inputPath,
     response: responsePath,
   });
+  const terminal = JSON.parse(readFileSync(accepted.acceptedPath, "utf8")) as Record<string, unknown>;
+  terminal.attempt = 2;
+  terminal.terminalReason = "terminal_without_explicit_state";
+  mkdirSync(join(fixture.runRoot, "jobs", job.jobId, "attempt-002"), { recursive: true, mode: 0o700 });
+  writeFileSync(
+    join(fixture.runRoot, "jobs", job.jobId, "attempt-002", "terminal.json"),
+    JSON.stringify(terminal),
+    { mode: 0o400 },
+  );
 
   const merged = await runLibraryAnalysisAgentQueueCli({
     command: "merge-source",
@@ -546,9 +555,15 @@ test("merge-source reads only sealed accepted segments and publishes an exclusiv
     queue: built.queuePath,
     sourceId: source.sourceEnvelopeHash,
   });
-  assert.equal(merged.analysisState, "complete");
+  assert.equal(merged.analysisState, "failed");
   assert.equal(merged.claims, 0);
   assert.equal(statSync(merged.sourceResultPath).mode & 0o777, 0o400);
+  const mergedPayload = JSON.parse(readFileSync(merged.sourceResultPath, "utf8")) as {
+    segments: Array<{ terminalReason?: string; attempts: Array<{ status: string; terminalReason?: string }> }>;
+  };
+  assert.equal(mergedPayload.segments[0]!.terminalReason, "terminal_without_explicit_state");
+  assert.deepEqual(mergedPayload.segments[0]!.attempts.map((attempt) => attempt.status), ["accepted", "failed"]);
+  assert.equal(mergedPayload.segments[0]!.attempts[1]!.terminalReason, "terminal_without_explicit_state");
   await assert.rejects(
     runLibraryAnalysisAgentQueueCli({
       command: "merge-source",
