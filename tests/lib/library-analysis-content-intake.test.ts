@@ -52,7 +52,7 @@ test("content intake CLI accepts exactly one sealed snapshot", () => {
 
 test("eligible population rows bind exact source bytes to deterministic content units", () => {
   const units = buildLibraryAnalysisContentUnits(population, [
-    { documentId: "doc-1", content: sourceText },
+    { documentId: "doc-1", summary: null, content: sourceText },
   ]);
 
   assert.equal(units.length, 1);
@@ -65,10 +65,38 @@ test("eligible population rows bind exact source bytes to deterministic content 
   assert.doesNotMatch(JSON.stringify(units), /Source bytes/);
 });
 
+test("content intake verifies distinct content and source version hashes", () => {
+  const summary = "A summary that is part of the source version.";
+  const sourceVersionHash = createHash("sha256")
+    .update(Buffer.from(`${summary}\n\n${sourceText}`, "utf8"))
+    .digest("hex");
+  const summarizedPopulation = buildLibraryAnalysisPopulation([
+    {
+      sourceKind: "document",
+      sourceKey: "document:doc-1",
+      sourceVersionHash,
+      inputKind: "database_record",
+      locator: "database:Document:doc-1:content",
+      contentHash,
+      identityConfidence: "exact",
+      readableInput: true,
+      superseded: false,
+    },
+  ]);
+
+  const units = buildLibraryAnalysisContentUnits(summarizedPopulation, [
+    { documentId: "doc-1", summary, content: sourceText },
+  ]);
+
+  assert.equal(units.length, 1);
+  assert.equal(units[0]?.contentHash, contentHash);
+  assert.equal(units[0]?.sourceVersionHash, sourceVersionHash);
+});
+
 test("content intake rejects source-byte drift and missing eligible bytes", () => {
   assert.throws(
     () => buildLibraryAnalysisContentUnits(population, [
-      { documentId: "doc-1", content: `${sourceText} changed` },
+      { documentId: "doc-1", summary: null, content: `${sourceText} changed` },
     ]),
     /library_analysis_content_hash_mismatch/,
   );
@@ -78,10 +106,37 @@ test("content intake rejects source-byte drift and missing eligible bytes", () =
   );
 });
 
+test("content intake reports summary-only drift as source version drift", () => {
+  const summary = "Original summary.";
+  const sourceVersionHash = createHash("sha256")
+    .update(Buffer.from(`${summary}\n\n${sourceText}`, "utf8"))
+    .digest("hex");
+  const summarizedPopulation = buildLibraryAnalysisPopulation([
+    {
+      sourceKind: "document",
+      sourceKey: "document:doc-1",
+      sourceVersionHash,
+      inputKind: "database_record",
+      locator: "database:Document:doc-1:content",
+      contentHash,
+      identityConfidence: "exact",
+      readableInput: true,
+      superseded: false,
+    },
+  ]);
+
+  assert.throws(
+    () => buildLibraryAnalysisContentUnits(summarizedPopulation, [
+      { documentId: "doc-1", summary: "Changed summary.", content: sourceText },
+    ]),
+    /library_analysis_source_version_hash_mismatch/,
+  );
+});
+
 test("intake receipt contains only identities hashes counts and replay state", async () => {
   const receipt = await ingestLibraryAnalysisContentUnits({
     snapshot: population,
-    sourceRows: [{ documentId: "doc-1", content: sourceText }],
+    sourceRows: [{ documentId: "doc-1", summary: null, content: sourceText }],
     append: async (unit) => ({
       contentUnitId: unit.id,
       created: false,

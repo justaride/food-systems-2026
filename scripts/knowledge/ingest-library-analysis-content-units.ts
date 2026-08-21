@@ -22,6 +22,7 @@ export type LibraryAnalysisContentIntakeCliOptions = { snapshot: string };
 
 export type LibraryAnalysisSourceRow = {
   documentId: string;
+  summary: string | null;
   content: string;
 };
 
@@ -110,12 +111,12 @@ export function buildLibraryAnalysisContentUnits(
   sourceRows: readonly LibraryAnalysisSourceRow[],
 ): CandidateContentUnitInput[] {
   const snapshot = LibraryAnalysisPopulationSnapshotSchema.parse(rawSnapshot);
-  const sourceById = new Map<string, string>();
+  const sourceById = new Map<string, LibraryAnalysisSourceRow>();
   for (const source of sourceRows) {
     if (sourceById.has(source.documentId)) {
       throw new Error("duplicate_library_analysis_source_bytes");
     }
-    sourceById.set(source.documentId, source.content);
+    sourceById.set(source.documentId, source);
   }
   return snapshot.rows
     .filter((row) => row.eligibility === "eligible")
@@ -128,18 +129,25 @@ export function buildLibraryAnalysisContentUnits(
       ) {
         throw new Error("library_analysis_eligible_population_binding_invalid");
       }
-      const content = sourceById.get(documentId);
-      if (content === undefined) {
+      const source = sourceById.get(documentId);
+      if (source === undefined) {
         throw new Error("library_analysis_source_bytes_missing");
       }
-      const actualHash = createHash("sha256")
+      const { content } = source;
+      const actualContentHash = createHash("sha256")
         .update(Buffer.from(content, "utf8"))
         .digest("hex");
-      if (
-        actualHash !== row.contentHash ||
-        actualHash !== row.sourceVersionHash
-      ) {
+      if (actualContentHash !== row.contentHash) {
         throw new Error("library_analysis_content_hash_mismatch");
+      }
+      const sourceVersionContent = [source.summary, content]
+        .filter(Boolean)
+        .join("\n\n");
+      const actualSourceVersionHash = createHash("sha256")
+        .update(Buffer.from(sourceVersionContent, "utf8"))
+        .digest("hex");
+      if (actualSourceVersionHash !== row.sourceVersionHash) {
+        throw new Error("library_analysis_source_version_hash_mismatch");
       }
       const identityHash = candidateAnalysisSha256(
         "library-analysis-content-unit",
@@ -214,10 +222,11 @@ export async function readLibraryAnalysisSourceRows(
       await transaction.$executeRawUnsafe("SET TRANSACTION READ ONLY");
       const documents = await transaction.document.findMany({
         where: { id: { in: [...documentIds] } },
-        select: { id: true, content: true },
+        select: { id: true, summary: true, content: true },
       });
       return documents.map((document) => ({
         documentId: document.id,
+        summary: document.summary,
         content: document.content,
       }));
     },
