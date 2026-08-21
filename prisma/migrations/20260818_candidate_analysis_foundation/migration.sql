@@ -1194,23 +1194,23 @@ BEGIN
         ) OR (
           run_row."outputProfile" = 'library_analysis_v1'
           AND run_row."workflowId" = 'workflow.library_analysis.automated.v1'
-          AND run_row."workflowVersion" = '1.0.0'
+          AND run_row."workflowVersion" = '1.0.1'
           AND run_row."workflowPath" = 'knowledge/corpus/workflows/library-analysis-automated-v1.md'
-          AND run_row."workflowHash" = '52f7c8382df35d38d5bb900e70e8e04140e923bdc49649723b58bab3973bd98e'
+          AND run_row."workflowHash" = '43d72812234a5a91b91ec0d79bf15b765e828c9993ea638018c15629df32964a'
           AND run_row."promptId" = 'prompt.library_analysis.automated.v1'
-          AND run_row."promptVersion" = '1.0.0'
+          AND run_row."promptVersion" = '1.0.1'
           AND run_row."promptPath" = 'knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md'
-          AND run_row."promptHash" = 'd4d1171b7d17f7d7606b8df3ed71d8912316997f1566f0170313fb8c60835ef7'
+          AND run_row."promptHash" = '3cba0d27222b5205be2eb5098b2988aadc345bcb3a80ce76ce9c8ec4027ed85c'
         ) OR (
           run_row."outputProfile" = 'library_validation_v1'
           AND run_row."workflowId" = 'workflow.library_validation.automated.v1'
-          AND run_row."workflowVersion" = '1.0.0'
+          AND run_row."workflowVersion" = '1.0.1'
           AND run_row."workflowPath" = 'knowledge/corpus/workflows/library-validation-automated-v1.md'
-          AND run_row."workflowHash" = '860d009633f3cd27613cdd52bf76da1f71964840383b9157b277892d03a539f0'
+          AND run_row."workflowHash" = 'e7bb9148f38a6047279f54cda4eaa86e585d53378505c555c6173439160f58c8'
           AND run_row."promptId" = 'prompt.library_validation.automated.v1'
-          AND run_row."promptVersion" = '1.0.0'
+          AND run_row."promptVersion" = '1.0.1'
           AND run_row."promptPath" = 'knowledge/corpus/workflows/library-validation-automated-prompt-v1.md'
-          AND run_row."promptHash" = '1d9ab13eac4a5f8ae248a904ad6f179dd02155027616ef79a28af3079b20c476'
+          AND run_row."promptHash" = 'c12b53a1a3bc50895ed480a20d9c72fec970082001bf6acccba5cde4ca5b0084'
         )
       )
       OR (write_payload->'config') IS NULL

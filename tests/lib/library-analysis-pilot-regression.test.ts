@@ -56,6 +56,14 @@ type PilotReceipt = {
   populationSnapshotId: string
   populationHash: string
   validatorSeparationLevel: string
+  analysisProfile: {
+    workflowVersion: string
+    promptVersion: string
+  }
+  validationProfile: {
+    workflowVersion: string
+    promptVersion: string
+  }
   sourceResults: Array<{
     sourceKey: string
     analysisRunId: string
@@ -216,12 +224,12 @@ describe('IG-006 automated-only pilot regression', () => {
     }
   })
 
-  it('locks the governed receipt to the executable plan identities', () => {
+  it('preserves the governed historical receipt without rebinding it to a newer prompt', () => {
     const receipt = JSON.parse(readFileSync(
       'research/_status/library-analysis-pilot-automated-2026-08-20.json',
       'utf8',
     )) as PilotReceipt
-    const { population, sourceResults } = executePilotPlans()
+    const { population } = executePilotPlans()
 
     assert.equal(receipt.schema, 'library-analysis-pilot-automated-receipt/v1')
     assert.equal(receipt.pilotId, fixture.pilotId)
@@ -231,7 +239,21 @@ describe('IG-006 automated-only pilot regression', () => {
     assert.equal(receipt.populationSnapshotId, population.snapshotId)
     assert.equal(receipt.populationHash, population.populationHash)
     assert.equal(receipt.validatorSeparationLevel, fixture.executionProfile.validatorSeparationLevel)
-    assert.deepEqual(receipt.sourceResults, sourceResults)
+    assert.equal(receipt.analysisProfile.workflowVersion, '1.0.0')
+    assert.equal(receipt.analysisProfile.promptVersion, '1.0.0')
+    assert.equal(receipt.validationProfile.workflowVersion, '1.0.0')
+    assert.equal(receipt.validationProfile.promptVersion, '1.0.0')
+    assert.deepEqual(
+      receipt.sourceResults.map(({ sourceKey }) => sourceKey).sort(),
+      fixture.sources.map(({ sourceKey }) => sourceKey).sort(),
+    )
+    assert.equal(receipt.sourceResults.every(result => (
+      /^run:library-analysis:[a-f0-9]{64}$/.test(result.analysisRunId) &&
+      /^run:library-validation:[a-f0-9]{64}$/.test(result.validationRunId) &&
+      result.disposition === 'partial' &&
+      result.machineUse === 'candidate_only' &&
+      result.findings.length === 0
+    )), true)
     assert.equal(receipt.negativeRegressionResults.length, 2)
     assert.equal(receipt.negativeRegressionResults.every(result => (
       result.disposition === 'quarantined' &&
