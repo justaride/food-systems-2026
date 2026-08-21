@@ -20,12 +20,20 @@ import {
   parseLibraryAnalysisAgentQueueArgs,
   runLibraryAnalysisAgentQueueCli,
 } from "../../scripts/knowledge/manage-library-analysis-agent-queue";
+import {
+  libraryAnalysisAgentSegmentResponseHash,
+} from "../../src/lib/knowledge/library-analysis-agent-response";
 
 const HASHES = {
   population: "1".repeat(64),
   plan: "2".repeat(64),
   cost: "3".repeat(64),
   inventory: "4".repeat(64),
+};
+const EXPECTED_MODEL = {
+  provider: "openai-codex" as const,
+  name: "gpt-5.6-luna",
+  version: "unknown",
 };
 
 function sha256(text: string): string {
@@ -187,7 +195,7 @@ test("prepare-attempt emits exactly one job and refuses overwrite", async () => 
   const jobId = queue.jobs[0]!.jobId;
   const first = await runLibraryAnalysisAgentQueueCli({
     command: "prepare-attempt", runRoot: fixture.runRoot,
-    queue: built.queuePath, jobId, attempt: 1,
+    queue: built.queuePath, jobId, attempt: 1, expectedModel: EXPECTED_MODEL,
   });
   assert.equal(statSync(first.inputPath).mode & 0o777, 0o400);
   const input = readFileSync(first.inputPath, "utf8");
@@ -196,7 +204,7 @@ test("prepare-attempt emits exactly one job and refuses overwrite", async () => 
   await assert.rejects(
     runLibraryAnalysisAgentQueueCli({
       command: "prepare-attempt", runRoot: fixture.runRoot,
-      queue: built.queuePath, jobId, attempt: 1,
+      queue: built.queuePath, jobId, attempt: 1, expectedModel: EXPECTED_MODEL,
     }),
     /private_artifact_exists/,
   );
@@ -224,6 +232,7 @@ test("prepare-attempt accepts only the authoritative queue path for its queue ha
       queue: aliasPath,
       jobId: queue.jobs[0]!.jobId,
       attempt: 1,
+      expectedModel: EXPECTED_MODEL,
     }),
     /agent_queue_queue_path_mismatch/,
   );
@@ -236,6 +245,7 @@ test("prepare-attempt accepts only the authoritative queue path for its queue ha
       queue: symlinkPath,
       jobId: queue.jobs[0]!.jobId,
       attempt: 2,
+      expectedModel: EXPECTED_MODEL,
     }),
     /agent_queue_queue_artifact_invalid/,
   );
@@ -274,6 +284,9 @@ test("package command emits sanitized summaries for build and prepare-attempt", 
     `--queue=${queuePath}`,
     `--job-id=${queue.jobs[0]!.jobId}`,
     "--attempt=1",
+    "--expected-model-provider=openai-codex",
+    "--expected-model-name=gpt-5.6-luna",
+    "--expected-model-version=unknown",
   ]);
   assert.equal(prepare.status, 0, prepare.stderr);
   assert.equal(prepare.stderr, "");
@@ -287,17 +300,125 @@ test("package command reports generic diagnostics without rejected private argum
   const script = join(fixture.repositoryRoot, "scripts/knowledge/manage-library-analysis-agent-queue.ts");
   const rejectedPath = join(fixture.runRoot, "private-rejected.json");
   const result = spawnSync(process.execPath, [
-    "--import=tsx", script, "prepare-attempt",
+      "--import=tsx", script, "prepare-attempt",
     `--run-root=${fixture.runRoot}`,
     `--queue=${rejectedPath}`,
     "--job-id=job:missing",
     "--attempt=1",
+    "--expected-model-provider=openai-codex",
+    "--expected-model-name=gpt-5.6-luna",
+    "--expected-model-version=unknown",
   ], { cwd: fixture.repositoryRoot, encoding: "utf8" });
   assert.notEqual(result.status, 0);
   assert.equal(result.stdout, "");
   assert.equal(result.stderr.trim(), "library_analysis_agent_queue_failed");
   assert.doesNotMatch(result.stderr, new RegExp(escapeRegExp(fixture.runRoot)));
   assert.doesNotMatch(result.stderr, /private-rejected\.json/);
+});
+
+test("accept-attempt seals raw and accepted responses without leaking private content", async () => {
+  const fixture = makeFixture();
+  const built = await runLibraryAnalysisAgentQueueCli({
+    command: "build",
+    runRoot: fixture.runRoot,
+    resolution: fixture.resolutionPath,
+    manifest: fixture.manifestPath,
+    costEnvelopeHash: fixture.costHash,
+    mergedInventoryHash: fixture.inventoryHash,
+    runtimeCommit: "5f3eb1c",
+    repositoryRoot: fixture.repositoryRoot,
+  });
+  const queue = JSON.parse(readFileSync(built.queuePath, "utf8")) as { jobs: Array<{ jobId: string }> };
+  const prepared = await runLibraryAnalysisAgentQueueCli({
+    command: "prepare-attempt",
+    runRoot: fixture.runRoot,
+    queue: built.queuePath,
+    jobId: queue.jobs[0]!.jobId,
+    attempt: 1,
+    expectedModel: EXPECTED_MODEL,
+  });
+  const input = JSON.parse(readFileSync(prepared.inputPath, "utf8")) as {
+    job: { jobId: string; inputEnvelopeHash: string };
+    expectedModel: typeof EXPECTED_MODEL;
+    units: Array<{ id: string; locator: string; text: string }>;
+  };
+  const response = {
+    schema: "library-analysis-agent-segment-response/v1",
+    jobId: input.job.jobId,
+    jobHash: input.job.inputEnvelopeHash,
+    model: input.expectedModel,
+    unitCoverage: input.units.map((unit, index) => ({
+      contentUnitId: unit.id,
+      status: index === 0 ? "claims_extracted" : "no_material_claim",
+    })),
+    claims: [{
+      localOrdinal: 0,
+      assertionType: "claim",
+      contentUnitId: input.units[0]!.id,
+      text: input.units[0]!.text,
+      evidence: input.units[0]!.text,
+      locator: input.units[0]!.locator,
+      confidence: 0.9,
+    }],
+    responseHash: "0".repeat(64),
+  };
+  response.responseHash = libraryAnalysisAgentSegmentResponseHash(response);
+  const responsePath = join(fixture.base, "worker-response.json");
+  writeFileSync(responsePath, JSON.stringify(response), { mode: 0o600 });
+  const accepted = await runLibraryAnalysisAgentQueueCli({
+    command: "accept-attempt",
+    runRoot: fixture.runRoot,
+    attemptInput: prepared.inputPath,
+    response: responsePath,
+  });
+  assert.equal(statSync(accepted.rawResponsePath).mode & 0o777, 0o400);
+  assert.equal(statSync(accepted.acceptedPath).mode & 0o777, 0o400);
+  assert.match(readFileSync(accepted.acceptedPath, "utf8"), /claim:library-agent:[a-f0-9]{64}/u);
+  await assert.rejects(
+    runLibraryAnalysisAgentQueueCli({
+      command: "accept-attempt",
+      runRoot: fixture.runRoot,
+      attemptInput: prepared.inputPath,
+      response: responsePath,
+    }),
+    /private_artifact_exists/u,
+  );
+});
+
+test("accept-attempt rejects a symlink response before reading it", async () => {
+  const fixture = makeFixture();
+  const built = await runLibraryAnalysisAgentQueueCli({
+    command: "build",
+    runRoot: fixture.runRoot,
+    resolution: fixture.resolutionPath,
+    manifest: fixture.manifestPath,
+    costEnvelopeHash: fixture.costHash,
+    mergedInventoryHash: fixture.inventoryHash,
+    runtimeCommit: "5f3eb1c",
+    repositoryRoot: fixture.repositoryRoot,
+  });
+  const queue = JSON.parse(readFileSync(built.queuePath, "utf8")) as { jobs: Array<{ jobId: string }> };
+  const prepared = await runLibraryAnalysisAgentQueueCli({
+    command: "prepare-attempt",
+    runRoot: fixture.runRoot,
+    queue: built.queuePath,
+    jobId: queue.jobs[0]!.jobId,
+    attempt: 1,
+    expectedModel: EXPECTED_MODEL,
+  });
+  const responsePath = join(fixture.base, "response.json");
+  const targetPath = join(fixture.base, "target.json");
+  writeFileSync(targetPath, "private worker response", { mode: 0o600 });
+  symlinkSync(targetPath, responsePath);
+  await assert.rejects(
+    runLibraryAnalysisAgentQueueCli({
+      command: "accept-attempt",
+      runRoot: fixture.runRoot,
+      attemptInput: prepared.inputPath,
+      response: responsePath,
+    }),
+    /agent_queue_attempt_input_artifact_invalid|agent_response_artifact_invalid/u,
+  );
 });
 
 test("CLI argument parsing is strict and keeps command paths absolute", () => {

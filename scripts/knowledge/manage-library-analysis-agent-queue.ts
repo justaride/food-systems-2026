@@ -8,6 +8,7 @@ import { z } from "zod";
 
 import {
   canonicalCandidateJson,
+  candidateAnalysisSha256,
   candidateWorkflowProfile,
   type CandidateJsonValue,
 } from "../../src/lib/knowledge/candidate-analysis-contract";
@@ -16,7 +17,14 @@ import {
   loadVerifiedLibraryAnalysisJob,
   verifyLibraryAnalysisAgentQueue,
   type LibraryAnalysisAgentQueue,
+  type LibraryAnalysisVerifiedJob,
 } from "../../src/lib/knowledge/library-analysis-agent-queue";
+import {
+  LibraryAnalysisAgentAttemptInputSchema,
+  LibraryAnalysisAgentModelReceiptSchema,
+  validateLibraryAnalysisAgentSegmentResponse,
+  type LibraryAnalysisAcceptedSegment,
+} from "../../src/lib/knowledge/library-analysis-agent-response";
 import {
   LibraryAnalysisAcquisitionResolutionSchema,
 } from "../../src/lib/knowledge/library-analysis-acquisition-contract";
@@ -53,11 +61,19 @@ const prepareOptionsSchema = z.object({
   queue: absolutePathSchema,
   jobId: z.string().regex(/^[a-z0-9][a-z0-9._:-]*$/u),
   attempt: z.number().int().min(1).max(999),
+  expectedModel: LibraryAnalysisAgentModelReceiptSchema,
+}).strict();
+const acceptOptionsSchema = z.object({
+  command: z.literal("accept-attempt"),
+  runRoot: absolutePathSchema,
+  attemptInput: absolutePathSchema,
+  response: absolutePathSchema,
 }).strict();
 
 export type BuildQueueOptions = z.infer<typeof buildOptionsSchema>;
 export type PrepareAttemptOptions = z.infer<typeof prepareOptionsSchema>;
-export type LibraryAnalysisAgentQueueCommand = BuildQueueOptions | PrepareAttemptOptions;
+export type AcceptAttemptOptions = z.infer<typeof acceptOptionsSchema>;
+export type LibraryAnalysisAgentQueueCommand = BuildQueueOptions | PrepareAttemptOptions | AcceptAttemptOptions;
 
 export type LibraryAnalysisAgentQueueBuildResult = {
   command: "build";
@@ -84,15 +100,29 @@ export type LibraryAnalysisAgentQueueAttemptResult = {
   externalReady: false;
 };
 
+export type LibraryAnalysisAgentQueueAcceptResult = {
+  command: "accept-attempt";
+  queueHash: string;
+  jobId: string;
+  attempt: number;
+  claims: number;
+  rawResponsePath: string;
+  acceptedPath: string;
+  audit: ReturnType<typeof auditPrivateLibraryAnalysisRunRoot>;
+  automatedOnly: true;
+  externalReady: false;
+};
+
 export type LibraryAnalysisAgentQueueCliResult =
   | LibraryAnalysisAgentQueueBuildResult
-  | LibraryAnalysisAgentQueueAttemptResult;
+  | LibraryAnalysisAgentQueueAttemptResult
+  | LibraryAnalysisAgentQueueAcceptResult;
 
 export function parseLibraryAnalysisAgentQueueArgs(
   argv: readonly string[],
 ): LibraryAnalysisAgentQueueCommand {
   const command = argv[0];
-  if (command !== "build" && command !== "prepare-attempt") {
+  if (command !== "build" && command !== "prepare-attempt" && command !== "accept-attempt") {
     throw new Error("agent_queue_cli_arguments_invalid");
   }
   const values = new Map<string, string>();
@@ -100,7 +130,9 @@ export function parseLibraryAnalysisAgentQueueArgs(
     const match = /^--([a-z-]+)=(.*)$/u.exec(argument);
     const allowed = command === "build"
       ? ["run-root", "resolution", "manifest", "cost-envelope-hash", "merged-inventory-hash", "runtime-commit", "repository-root"]
-      : ["run-root", "queue", "job-id", "attempt"];
+      : command === "prepare-attempt"
+        ? ["run-root", "queue", "job-id", "attempt", "expected-model-provider", "expected-model-name", "expected-model-version"]
+        : ["run-root", "attempt-input", "response"];
     if (!match || !allowed.includes(match[1]!) || values.has(match[1]!)) {
       throw new Error("agent_queue_cli_arguments_invalid");
     }
@@ -123,14 +155,31 @@ export function parseLibraryAnalysisAgentQueueArgs(
       throw new Error("agent_queue_cli_arguments_invalid");
     }
   }
-  const attempt = value("attempt");
+  if (command === "prepare-attempt") {
+    const attempt = value("attempt");
+    try {
+      return prepareOptionsSchema.parse({
+        command,
+        runRoot: value("run-root"),
+        queue: value("queue"),
+        jobId: value("job-id"),
+        attempt: attempt === undefined ? undefined : Number(attempt),
+        expectedModel: {
+          provider: value("expected-model-provider"),
+          name: value("expected-model-name"),
+          version: value("expected-model-version"),
+        },
+      });
+    } catch {
+      throw new Error("agent_queue_cli_arguments_invalid");
+    }
+  }
   try {
-    return prepareOptionsSchema.parse({
+    return acceptOptionsSchema.parse({
       command,
       runRoot: value("run-root"),
-      queue: value("queue"),
-      jobId: value("job-id"),
-      attempt: attempt === undefined ? undefined : Number(attempt),
+      attemptInput: value("attempt-input"),
+      response: value("response"),
     });
   } catch {
     throw new Error("agent_queue_cli_arguments_invalid");
@@ -144,13 +193,17 @@ export function runLibraryAnalysisAgentQueueCli(
   options: PrepareAttemptOptions,
 ): Promise<LibraryAnalysisAgentQueueAttemptResult>;
 export function runLibraryAnalysisAgentQueueCli(
+  options: AcceptAttemptOptions,
+): Promise<LibraryAnalysisAgentQueueAcceptResult>;
+export function runLibraryAnalysisAgentQueueCli(
   options: LibraryAnalysisAgentQueueCommand,
 ): Promise<LibraryAnalysisAgentQueueCliResult>;
 export async function runLibraryAnalysisAgentQueueCli(
   options: LibraryAnalysisAgentQueueCommand,
 ): Promise<LibraryAnalysisAgentQueueCliResult> {
   if (options.command === "build") return runBuildQueue(options);
-  return runPrepareAttempt(options);
+  if (options.command === "prepare-attempt") return runPrepareAttempt(options);
+  return runAcceptAttempt(options);
 }
 
 async function runBuildQueue(
@@ -209,6 +262,7 @@ async function runPrepareAttempt(
     queueHash: queue.queueHash,
     jobId: loaded.job.jobId,
     attempt: options.attempt,
+    expectedModel: options.expectedModel,
     job: loaded.job,
     executionPolicy: queue.executionPolicy,
     workflow: queue.workflow,
@@ -218,7 +272,11 @@ async function runPrepareAttempt(
     units: loaded.units.map(({ descriptor, text }) => ({ ...descriptor, text })),
   };
   const portablePath = `jobs/${loaded.job.jobId}/attempt-${String(options.attempt).padStart(3, "0")}/input.json`;
-  const bytes = canonicalJsonBytes(input as CandidateJsonValue);
+  const inputHash = candidateAnalysisSha256(
+    "library-analysis-agent-attempt-input",
+    input as CandidateJsonValue,
+  );
+  const bytes = canonicalJsonBytes({ ...input, inputHash } as CandidateJsonValue);
   const receipt = writePrivateArtifactExclusive(runRoot, portablePath, bytes);
   sealPrivateArtifact(runRoot, portablePath, {
     sha256: receipt.sha256,
@@ -242,6 +300,134 @@ async function runPrepareAttempt(
     automatedOnly: true,
     externalReady: false,
   };
+}
+
+async function runAcceptAttempt(
+  rawOptions: AcceptAttemptOptions,
+): Promise<LibraryAnalysisAgentQueueAcceptResult> {
+  const options = acceptOptionsSchema.parse(rawOptions);
+  const runRoot = openRunRoot(options.runRoot);
+  const inputArtifact = readSealedAttemptInput(runRoot, options.attemptInput);
+  const inputBytes = readAndVerifyPrivateArtifact(runRoot, inputArtifact.portablePath, {
+    sha256: sha256Bytes(inputArtifact.bytes),
+    sizeBytes: inputArtifact.bytes.length,
+    mode: 0o400,
+  });
+  const input = LibraryAnalysisAgentAttemptInputSchema.parse(JSON.parse(inputBytes.toString("utf8")));
+  const { inputHash, ...inputCore } = input;
+  if (inputHash !== candidateAnalysisSha256("library-analysis-agent-attempt-input", inputCore as CandidateJsonValue)) {
+    throw new Error("agent_queue_attempt_input_hash_mismatch");
+  }
+  if (
+    inputArtifact.jobId !== input.jobId ||
+    inputArtifact.attempt !== input.attempt ||
+    input.queueId !== `library-analysis-agent-queue:${input.queueHash}` ||
+    input.job.jobId !== input.jobId ||
+    input.job.unitIds.length !== input.units.length ||
+    input.job.unitIds.some((id, index) => id !== input.units[index]!.id)
+  ) {
+    throw new Error("agent_queue_attempt_input_binding_mismatch");
+  }
+  const responseArtifact = readExplicitPrivateResponse(options.response);
+  let response: unknown;
+  try {
+    response = JSON.parse(responseArtifact.bytes.toString("utf8"));
+  } catch {
+    sealRawResponse(runRoot, input, responseArtifact.bytes);
+    throw new Error("agent_response_json_invalid");
+  }
+  const job = {
+    job: input.job,
+    units: input.units.map(({ text, ...descriptor }) => ({ descriptor, text })),
+  } as unknown as LibraryAnalysisVerifiedJob;
+  let accepted: LibraryAnalysisAcceptedSegment;
+  try {
+    accepted = validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: input.queueHash,
+      expectedModel: input.expectedModel,
+      job,
+      response,
+    });
+  } catch (error) {
+    sealRawResponse(runRoot, input, responseArtifact.bytes);
+    throw error;
+  }
+  const attemptRoot = `jobs/${input.jobId}/attempt-${String(input.attempt).padStart(3, "0")}`;
+  const rawReceipt = writePrivateArtifactExclusive(runRoot, `${attemptRoot}/response.json`, responseArtifact.bytes);
+  sealPrivateArtifact(runRoot, `${attemptRoot}/response.json`, {
+    sha256: rawReceipt.sha256,
+    sizeBytes: rawReceipt.sizeBytes,
+  });
+  const acceptedBytes = canonicalJsonBytes(accepted as unknown as CandidateJsonValue);
+  const acceptedReceipt = writePrivateArtifactExclusive(runRoot, `${attemptRoot}/accepted.json`, acceptedBytes);
+  sealPrivateArtifact(runRoot, `${attemptRoot}/accepted.json`, {
+    sha256: acceptedReceipt.sha256,
+    sizeBytes: acceptedReceipt.sizeBytes,
+  });
+  const audit = auditPrivateLibraryAnalysisRunRoot(runRoot);
+  return {
+    command: "accept-attempt",
+    queueHash: input.queueHash,
+    jobId: input.jobId,
+    attempt: input.attempt,
+    claims: accepted.claims.length,
+    rawResponsePath: rawReceipt.path,
+    acceptedPath: acceptedReceipt.path,
+    audit,
+    automatedOnly: true,
+    externalReady: false,
+  };
+}
+
+type ExplicitPrivateArtifact = { path: string; portablePath: string; bytes: Buffer };
+
+function readSealedAttemptInput(runRoot: string, rawPath: string): ExplicitPrivateArtifact & { jobId: string; attempt: number } {
+  const path = resolve(rawPath);
+  const stat = lstatSync(path);
+  if (stat.isSymbolicLink() || !stat.isFile() || (stat.mode & 0o777) !== 0o400) {
+    throw new Error("agent_queue_attempt_input_artifact_invalid");
+  }
+  const resolvedPath = realpathSync(path);
+  const portablePath = relative(runRoot, resolvedPath);
+  const match = /^jobs\/([a-z0-9][a-z0-9._:-]*)\/attempt-(\d{3})\/input\.json$/u.exec(portablePath);
+  if (!match || portablePath.includes("\\") || portablePath.startsWith("..")) {
+    throw new Error("agent_queue_attempt_input_path_invalid");
+  }
+  const bytes = readFileSync(path);
+  return {
+    path,
+    portablePath,
+    bytes,
+    jobId: match[1]!,
+    attempt: Number(match[2]),
+  };
+}
+
+function readExplicitPrivateResponse(rawPath: string): ExplicitPrivateArtifact {
+  const path = resolve(rawPath);
+  const stat = lstatSync(path);
+  const mode = stat.mode & 0o777;
+  if (stat.isSymbolicLink() || !stat.isFile() || (mode !== 0o400 && mode !== 0o600)) {
+    throw new Error("agent_response_artifact_invalid");
+  }
+  return { path, portablePath: path, bytes: readFileSync(path) };
+}
+
+function sealRawResponse(
+  runRoot: string,
+  input: { jobId: string; attempt: number },
+  bytes: Buffer,
+): void {
+  const portablePath = `jobs/${input.jobId}/attempt-${String(input.attempt).padStart(3, "0")}/response.json`;
+  const receipt = writePrivateArtifactExclusive(runRoot, portablePath, bytes);
+  sealPrivateArtifact(runRoot, portablePath, {
+    sha256: receipt.sha256,
+    sizeBytes: receipt.sizeBytes,
+  });
+}
+
+function sha256Bytes(bytes: Buffer): string {
+  return createHash("sha256").update(bytes).digest("hex");
 }
 
 function repositoryBinding(
@@ -322,6 +508,19 @@ async function main(): Promise<void> {
       sources: result.sources,
       units: result.units,
       jobs: result.jobs,
+      automatedOnly: result.automatedOnly,
+      externalReady: result.externalReady,
+      auditInventoryHash: result.audit.inventoryHash,
+    })}\n`);
+    return;
+  }
+  if (result.command === "accept-attempt") {
+    process.stdout.write(`${JSON.stringify({
+      command: result.command,
+      queueHash: result.queueHash,
+      jobId: result.jobId,
+      attempt: result.attempt,
+      claims: result.claims,
       automatedOnly: result.automatedOnly,
       externalReady: result.externalReady,
       auditInventoryHash: result.audit.inventoryHash,
