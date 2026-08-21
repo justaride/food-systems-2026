@@ -226,3 +226,35 @@ test("keeps lexical numeric markers attached to their own number", () => {
     /numeric_token_mismatch/u,
   );
 });
+
+test("rejects currency substitution while preserving prefix and suffix currency grammar", () => {
+  const symbolJob = verifiedJob(["Revenue cost €4.50."]);
+  const symbolResponse = segmentResponse(symbolJob, {
+    unitCoverage: [{ contentUnitId: symbolJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{ ...claim(symbolJob, 0, "Revenue cost $4.50."), evidence: "Revenue cost €4.50." }],
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH, attempt: 1, inputHash: INPUT_HASH, expectedModel: EXPECTED_MODEL,
+    job: symbolJob, response: symbolResponse,
+  }), /numeric_token_mismatch/u);
+
+  const grammarJob = verifiedJob(["Budget NOK 4.50 and 5.00 USD."]);
+  const grammarResponse = segmentResponse(grammarJob, {
+    unitCoverage: [{ contentUnitId: grammarJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [claim(grammarJob, 0, "Budget NOK 4.50 and 5.00 USD.")],
+  });
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH, attempt: 1, inputHash: INPUT_HASH, expectedModel: EXPECTED_MODEL,
+    job: grammarJob, response: grammarResponse,
+  }));
+
+  const nearbyJob = verifiedJob(["Budget USD 4.50 and tax $2.00."]);
+  const nearbyResponse = segmentResponse(nearbyJob, {
+    unitCoverage: [{ contentUnitId: nearbyJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{ ...claim(nearbyJob, 0, "Budget USD 4.50 and tax €2.00."), evidence: "Budget USD 4.50 and tax $2.00." }],
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH, attempt: 1, inputHash: INPUT_HASH, expectedModel: EXPECTED_MODEL,
+    job: nearbyJob, response: nearbyResponse,
+  }), /numeric_token_mismatch/u);
+});

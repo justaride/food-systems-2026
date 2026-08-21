@@ -286,7 +286,7 @@ function ownedUnit(
 type NumericToken = {
   value: string;
   sign: "negative" | "positive" | "unsigned";
-  marker: "percent" | "currency" | "none";
+  marker: string;
 };
 
 function assertNumericTokens(claimText: string, evidence: string): void {
@@ -317,13 +317,26 @@ function numericTokens(text: string): NumericToken[] {
     const marker = /^(?:\s*)(?:%|percent(?:age)?|prosent)\b/iu.test(after) ||
       /^(?:%)/u.test(after)
       ? "percent"
-      : /(?:[$€£]\s*)$/u.test(before) ||
-          /^(?:\s*)(?:kr|nok|usd|eur|gbp)\b/iu.test(after)
-        ? "currency"
-        : "none";
+      : currencyMarker(before, after) ?? "none";
     tokens.push({ value: normalizeNumber(raw), sign, marker });
   }
   return tokens;
+}
+
+function currencyMarker(before: string, after: string): string | null {
+  const prefix = /(?:[$€£]|kr|nok|usd|eur|gbp)\s*$/iu.exec(before)?.[0];
+  if (prefix !== undefined) return normalizeCurrencyMarker(prefix);
+  const suffix = /^\s*(?:kr|nok|usd|eur|gbp)\b/iu.exec(after)?.[0];
+  return suffix === undefined ? null : normalizeCurrencyMarker(suffix);
+}
+
+function normalizeCurrencyMarker(raw: string): string {
+  const normalized = raw.trim().toUpperCase();
+  if (normalized === "€") return "currency:EUR";
+  if (normalized === "$") return "currency:USD";
+  if (normalized === "£") return "currency:GBP";
+  if (normalized === "KR") return "currency:KR";
+  return `currency:${normalized}`;
 }
 
 function normalizeNumber(raw: string): string {
