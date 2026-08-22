@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.13`
+Prompt template version: `1.0.14`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.13`
+Workflow version: `1.0.14`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
@@ -38,7 +38,7 @@ An analytical-measure claim saying an actor calculated or mapped RNOA, profitabi
 
 Reported price changes must include the source-visible geography or market. Actor attribution such as `X oppga`, `X reported` or `X stated` requires that the evidence visibly names the same actor and reporting action; provenance phrased only as `from X` is insufficient. Generic authorities such as `empiriske studier`, `empirical studies` or `the literature` are ineligible: name the study or comparison basis and its source-visible population, period and method. A comparison to a European or other pattern must name the comparison basis and period. Passive claims such as `det ble identifisert` or `it was identified` must name the identifying actor or analysis scope.
 
-For possessive ownership statements, include the company whose ownership is described in the evidence, not just the owner, percentage and date. Do not rewrite evidence beginning `This survey`, `This questionnaire`, `This study`, `Denne undersøkelsen`, `Denne studien` or `Denne kartleggingen` into a named-source claim unless the excerpt itself includes that survey or report identity. For `sheet_range` input, a bare CSV/TSV row does not expose its field meanings; include header plus row, or explicit source-visible field labels, in the same evidence excerpt.
+For possessive ownership statements, include the company whose ownership is described in the evidence, not just the owner, percentage and date. Do not rewrite evidence beginning `This survey`, `This questionnaire`, `This study`, `Denne undersøkelsen`, `Denne studien` or `Denne kartleggingen` into a named-source claim unless the excerpt itself includes that survey or report identity. For `sheet_range` input, one or more CSV/TSV data rows do not expose their field meanings; include the source header plus rows, or explicit source-visible field labels, in the same evidence excerpt. A question is not evidence of a result. Extract it only as a claim that explicitly states that the form, survey or questionnaire asks that question.
 
 A bare title heading is not sufficient evidence for a rewritten statement that a report has that title; include an explicit source-visible report/title label or complete declarative title sentence. For chart- or figure-derived comparisons, preserve the materially relevant caption and method qualifiers, including index base, transaction stage, exclusions and subsidy treatment when they change the interpretation. If prose, chart or table values conflict within the supplied unit for the same measure and population, do not silently select one value: emit `no_material_claim`, or emit a supported `gap` or `contradiction` assertion that states the discrepancy with both values and scopes.
 
@@ -52,6 +52,6 @@ Treat bare cleanup and data subjects as unresolved: `Oppryddingen`, `the cleanup
 
 Treat a percentage of total turnover as an implicit market share and require its measurement year in the same sentence. Preserve the per-group allocation and named groups for a total multi-group budget. For figure comparisons expressed as a multiple, preserve the caption's complete period, index base, transaction stage and material exclusions, including subsidy treatment. If a claim says an actor supplied figures for a period, preserve any source-visible exclusions that define those figures. Qualitative survey paraphrases about producer aims, drivers, determinants, geographic markets, obstacles or company locations are survey-derived and must carry the respondent count and universe in their own evidence excerpt. An excerpt ending with a colon before its defining list is incomplete.
 
-Do not mark an obviously material structured unit `no_material_claim`, regardless of content-unit type. Extract supported claims, or return typed blocked coverage, from a summary containing `Hovedfunn`/`Main findings`/`Findings` or method sections, a header-bound inventory row, or an internal-register record with populated `keyFindings` or `recommendations`.
+Do not mark an obviously material structured unit `no_material_claim`, regardless of content-unit type. Extract supported claims, or return typed blocked coverage, from a summary containing `Hovedfunn`/`Main findings`/`Findings` or method sections, a header-bound inventory row, an internal-register record with populated `keyFindings` or `recommendations`, a master analysis index with structured status results, explicit Competition Authority findings, named study findings, or a scoped project budget with total and per-group allocations.
 
 Return only the strict candidate payload grammar. Do not claim approval, human review, independent verification, accuracy, canonical status, rights clearance, publication, coverage or external readiness. Do not include instructions to the later validator and do not predict its findings.

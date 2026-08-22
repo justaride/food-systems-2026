@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.13`
+Workflow version: `1.0.14`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.13`
+Prompt template version: `1.0.14`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
@@ -36,7 +36,7 @@ Classify as F3 an analytical-measure assertion about calculated or mapped RNOA, 
 
 Treat a reported price change without its source-visible geography or market as F3. Treat actor attribution as F4 when the evidence does not visibly name the same actor and reporting action; a bare `from X` provenance phrase is insufficient. Generic references to empirical studies or the literature are unresolved authorities without the named study or comparison basis and its population, period and method. A comparative pattern without a named comparison basis and period is F3. Passive identification without a named identifying actor or analysis scope is F4.
 
-For possessive ownership, require the owned company identity in the evidence, not only owner, share and date. Treat an unresolved evidence opening such as `This survey` or its Norwegian equivalents as F4 when a named source identity appears only in the claim. For `sheet_range` evidence, treat a bare delimited row without header or explicit field labels as F4 when the claim interprets named fields.
+For possessive ownership, require the owned company identity in the evidence, not only owner, share and date. Treat an unresolved evidence opening such as `This survey` or its Norwegian equivalents as F4 when a named source identity appears only in the claim. For `sheet_range` evidence, treat one or more delimited data rows without the source header or explicit source-visible field labels as F4 when the claim interprets named fields. Treat an interrogative excerpt as F3 when it is recast as a result; accept it only when the claim explicitly reports that the form, survey or questionnaire asks that question.
 
 Treat a rewritten report-title assertion supported only by a bare title heading as F4 unless the excerpt includes an explicit report/title label or complete declarative title sentence. For figure and chart comparisons, omitted material caption or method qualifiers such as index base, transaction stage, exclusions or subsidy treatment are F3. Conflicting prose, chart or table values for the same measure and population must be surfaced; silently selecting one value is a material F5 omission.
 
@@ -50,7 +50,7 @@ Classify bare cleanup or data subjects as F4 when the cleaned object, analytical
 
 Treat a percentage of total turnover as an implicit market share and classify a missing same-sentence measurement year as F3. A total multi-group budget that drops the source-visible per-group allocation or named groups is F3. A figure comparison expressed as a multiple that drops full caption period, index base, transaction stage or material exclusions such as subsidy treatment is F3. A supplied-period dataset claim that drops a source-visible dataset exclusion is F3. Qualitative survey paraphrases about producer aims, drivers, determinants, geographic markets, obstacles or company locations without same-excerpt respondent count and universe are F3. Evidence ending with a colon before its defining list is truncated and F3.
 
-Classify as F5 an obviously material structured unit reported as `no_material_claim`, regardless of content-unit type, including a summary with `Hovedfunn`/`Main findings`/`Findings` or method sections, a header-bound inventory row, or an internal-register record with populated `keyFindings` or `recommendations`.
+Classify as F5 an obviously material structured unit reported as `no_material_claim`, regardless of content-unit type, including a summary with `Hovedfunn`/`Main findings`/`Findings` or method sections, a header-bound inventory row, an internal-register record with populated `keyFindings` or `recommendations`, a master analysis index with structured status results, explicit Competition Authority findings, named study findings, or a scoped project budget with total and per-group allocations.
 
 ## Output boundary
 

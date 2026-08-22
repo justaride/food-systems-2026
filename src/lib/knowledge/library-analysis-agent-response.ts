@@ -210,6 +210,24 @@ const OBVIOUS_SECTIONED_FINDINGS = /(?:^|\n)#{1,6}\s+(?:Hovedfunn|Main\s+finding
 const PLAIN_SECTIONED_FINDINGS = /(?:^|\n)(?:Hovedfunn|Main\s+findings|Findings|Metode|Method)\s*(?::|\n)/imu;
 const STRUCTURED_REGISTER_FINDINGS = /"(?:keyFindings|recommendations)"\s*:\s*\[/u;
 const HEADER_BOUND_INVENTORY = /^(?:id|source_id)[,\t][^\n]+\n[^\n]+/iu;
+const MASTER_ANALYSIS_INDEX = /^#\s+Master\s+Analyse-Indeks\b[\s\S]{0,2000}\bStatus-sammendrag\b/imu;
+const AUTHORITY_RESULT_MATERIAL = /\bKonkurransetilsynet\s+(?:finner|vurderer|konkluderer|beregner|har\s+beregnet)\b/iu;
+const STUDY_FINDING_MATERIAL = /\bStudien\s+(?:finner|viser|rapporterer)\b/iu;
+const CLAIM_REPORTS_A_QUESTION = /\b(?:asks?|asked|question(?:naire)?\s+(?:asks?|asked)|(?:form|survey(?:\s+form)?|questionnaire)\s+(?:asks?|asked)|ber\s+(?:respondentene\s+)?om|(?:skjemaet|undersøkelsen|spørreskjemaet)\s+(?:spør|spurte)|stiller\s+spørsmålet|spørsmålet\s+(?:ber|spør))\b/iu;
+const CLAIM_ADDS_RESULT_TO_QUESTION = /(?:\band\b|\bog\b|\bwith\b|\bmed\b|[,.:;()\-—–])[\s\S]{0,160}\b(?:reports?|reported|finds?|found|shows?|showed|states?|stated|concludes?|concluded|identifies?|identified|confirms?|confirmed|establishes?|established|indicates?|indicated|rapporterer|rapporterte|finner|fant|viser|viste|oppgir|oppga|konkluderer|konkluderte|identifiserer|identifiserte|bekrefter|bekreftet|fastslår|fastslo|indikerer|indikerte|(?:is|are|was|were|er|var)\s+(?:the\s+)?(?:primary|main|most|least|hoved|viktigste)|as\s+(?:the\s+)?(?:primary|main|most|least))\b/iu;
+const CLAIM_ADDS_BARE_ANSWER_TO_QUESTION = /(?:\bwith\b|\bmed\b|[—–])\s*(?!(?:options?|choices?|svaralternativer)\b)[\p{L}\p{N}]/iu;
+const CLAIM_HAS_STANDALONE_ANSWER_CLAUSE = /(?:^|[.;])\s*(?:(?:the\s+answer|svaret)\s+(?:is|was|er|var)\s+[^.;]{1,80}|[^.;]{1,80}\s+(?:is|was|er|var)\s+(?:the\s+answer|svaret))\s*(?=[.;]|$)/iu;
+const FORM_INSTRUCTION_AFTER_QUESTION = /^(?:(?:select|choose|rank|tick|check|mark|velg|ranger|kryss\s+av)\b|(?:options?|response\s+options|answer\s+options|svaralternativer)\s*:)/iu;
+const TRAILING_QUESTION_CITATION = /^(?:\[[^\]\r\n]{1,80}\]|\([^\)\r\n]{1,80}\)|[¹²³⁴⁵⁶⁷⁸⁹⁰]+)\s*/u;
+const DECLARATIVE_RESULT_AFTER_QUESTION = /\b(?:reports?|reported|finds?|found|shows?|showed|states?|stated|concludes?|concluded|confirms?|confirmed|establishes?|established|indicates?|indicated|results?|findings?|rapporterer|rapporterte|finner|fant|viser|viste|oppgir|oppga|konkluderer|konkluderte|bekrefter|bekreftet|fastslår|fastslo|indikerer|indikerte|resultater?|funn)\b|\b\d+(?:[.,]\d+)?\s*(?:%|prosent|percent)\b/iu;
+const TABULAR_HEADER_WORDS = new Set([
+  "action", "actor", "author", "capture", "category", "city", "coding", "company", "country",
+  "current", "date",
+  "description", "end", "geography", "id", "language", "link", "metric", "name",
+  "method", "next", "notes", "organization", "outlet", "period", "pill", "poison", "priority",
+  "publisher", "region", "risk", "sector", "source", "start", "status", "target", "theme", "title",
+  "topic", "type", "unit", "url", "value", "year",
+]);
 const RETURN_SUPERLATIVE = /\b(?:avkastning(?:en)?|RNOA|lønnsomhet(?:en)?|returns?|profitability)\b[\s\S]{0,160}\b(?:høyest(?:e)?|mest\s+lønnsomm(?:e|t)|highest|most\s+profitable)\b|\b(?:høyest(?:e)?|mest\s+lønnsomm(?:e|t)|highest|most\s+profitable)\b[\s\S]{0,160}\b(?:avkastning(?:en)?|RNOA|lønnsomhet(?:en)?|returns?|profitability)\b/iu;
 const RETURN_COMPARISON_UNIVERSE = /\b(?:(?:for|blant|among)\s+(?:(?:de|the)\s+)?(?:tre|3|samtlige|alle|all)\s+(?:enheter|entities|units|selskaper|companies)|(?:de|the)\s+(?:tre|3)\s+(?:enhetene|entities|units)|samtlige\s+(?:enheter|selskaper)|all\s+(?:entities|units|companies))\b/iu;
 const RETAIL_MARGIN_MEASURE = /\b(?:driftsmargin(?:en|er|ene)?|operating\s+margin(?:s)?)\b/iu;
@@ -936,31 +954,125 @@ function assertAuthorityLanguageIsSourceVisible(claimText: string, evidence: str
   }
 }
 
-export function assertLibraryAnalysisClaimLocalityV113(input: {
+export function assertLibraryAnalysisClaimLocalityV114(input: {
   claimText: string;
   evidence: string;
   sourceText: string;
   unitType: string;
 }): void {
   assertSelfContainedClaimText(input.claimText, input.evidence);
+  assertDeclarativeEvidence(input.claimText, input.evidence);
   assertAuditedScopeCompleteness(input.claimText, input.evidence, input.sourceText);
   assertPilot12ScopeCompleteness(input.claimText, input.evidence, input.sourceText);
-  assertTabularEvidenceContext(input.evidence, input.unitType);
+  assertTabularEvidenceContext(input.evidence, input.unitType, input.sourceText);
   assertPilot13ScopeCompleteness(input.claimText, input.evidence);
   assertAuthorityLanguageIsSourceVisible(input.claimText, input.evidence);
 }
 
 /** @deprecated Use the current locality gate. Retained for import compatibility. */
-export const assertLibraryAnalysisClaimLocalityV112 = assertLibraryAnalysisClaimLocalityV113;
+export const assertLibraryAnalysisClaimLocalityV113 = assertLibraryAnalysisClaimLocalityV114;
+/** @deprecated Use the current locality gate. Retained for import compatibility. */
+export const assertLibraryAnalysisClaimLocalityV112 = assertLibraryAnalysisClaimLocalityV114;
 
-function assertTabularEvidenceContext(evidence: string, unitType: string): void {
+function assertDeclarativeEvidence(claimText: string, evidence: string): void {
+  if (
+    isInterrogativeEvidence(evidence) &&
+    (
+      !CLAIM_REPORTS_A_QUESTION.test(claimText) ||
+      CLAIM_ADDS_RESULT_TO_QUESTION.test(claimText) ||
+      CLAIM_ADDS_BARE_ANSWER_TO_QUESTION.test(claimText) ||
+      CLAIM_HAS_STANDALONE_ANSWER_CLAUSE.test(claimText) ||
+      claimAddsUnsupportedPunctuationAnswer(claimText, evidence)
+    )
+  ) {
+    throw new Error("agent_response_interrogative_evidence_not_result");
+  }
+}
+
+function claimAddsUnsupportedPunctuationAnswer(claimText: string, evidence: string): boolean {
+  const reportMatch = CLAIM_REPORTS_A_QUESTION.exec(claimText);
+  if (!reportMatch) return false;
+  const suffix = claimText.slice((reportMatch.index ?? 0) + reportMatch[0].length);
+  const tailMatch = /[,:(]\s*([^,;:()—–]{1,80}?)\)?[.]?\s*$/u.exec(suffix);
+  if (!tailMatch?.[1]) return false;
+  const evidenceTokens = new Set(
+    evidence.toLocaleLowerCase("en").match(/[\p{L}\p{N}]+/gu) ?? [],
+  );
+  const tailTokens = tailMatch[1].toLocaleLowerCase("en").match(/[\p{L}\p{N}]+/gu) ?? [];
+  return tailTokens.some((token) => !evidenceTokens.has(token));
+}
+
+function isInterrogativeEvidence(evidence: string): boolean {
+  const questionMark = evidence.lastIndexOf("?");
+  if (questionMark < 0) return false;
+  let trailing = evidence.slice(questionMark + 1).trim();
+  let prior = "";
+  while (trailing !== prior) {
+    prior = trailing;
+    trailing = trailing.replace(TRAILING_QUESTION_CITATION, "").trim();
+  }
+  return trailing.length === 0 ||
+    FORM_INSTRUCTION_AFTER_QUESTION.test(trailing) ||
+    !DECLARATIVE_RESULT_AFTER_QUESTION.test(trailing);
+}
+
+function parseDelimitedDataLine(line: string): { cells: string[]; delimiter: "," | "\t" } | null {
+  if (!DELIMITED_ROW.test(line)) return null;
+  const delimiter = line.includes("\t") ? "\t" : ",";
+  const cells = line.split(delimiter).map((cell) => cell.trim());
+  if (
+    delimiter === "," &&
+    /^(?:A|An|The|This|That|En|Et|Den|Det|Dette)\b/iu.test(line.trim()) &&
+    /[.!?]\s*$/u.test(line) &&
+    cells.every((cell) => !hasDelimitedDataLiteral(cell))
+  ) {
+    return null;
+  }
+  return cells.length >= 2 && cells.every((cell) => cell.length > 0)
+    ? { cells, delimiter }
+    : null;
+}
+
+function hasDelimitedDataLiteral(value: string): boolean {
+  return /(?:https?:\/\/|\b(?:19|20)\d{2}\b|(?:^|\s)[+-]?\d+(?:[.,]\d+)?(?:\s|$)|[%€$£]|\b(?:NOK|EUR|USD|P[0-9]+)\b)/iu.test(value);
+}
+
+function looksLikeDelimitedHeader(line: string, nextLine: string | undefined): boolean {
+  const parsed = parseDelimitedDataLine(line);
+  if (!parsed || parsed.cells.some(hasDelimitedDataLiteral)) return false;
+  const next = nextLine === undefined ? null : parseDelimitedDataLine(nextLine);
+  if (
+    next === null ||
+    next.delimiter !== parsed.delimiter ||
+    next.cells.length !== parsed.cells.length
+  ) {
+    return false;
+  }
+  const allNamedHeaderFields = parsed.cells.every((cell) => {
+    const words = cell.toLocaleLowerCase("en").split(/[^\p{L}\p{N}]+/u).filter(Boolean);
+    return words.length > 0 && words.every((word) => TABULAR_HEADER_WORDS.has(word));
+  });
+  return allNamedHeaderFields;
+}
+
+function assertTabularEvidenceContext(
+  evidence: string,
+  unitType: string,
+  sourceText: string,
+): void {
   const trimmedEvidence = evidence.trim();
   const isSingleLogicalLine = !trimmedEvidence.includes("\n") && !trimmedEvidence.includes("\r");
+  const sourceLines = sourceText.trim().split(/\r?\n/u).filter((line) => line.trim().length > 0);
+  const evidenceLines = trimmedEvidence.split(/\r?\n/u);
+  const sourceHeaders = sourceLines.filter((line, index) =>
+    looksLikeDelimitedHeader(line, sourceLines[index + 1]));
+  const evidenceHasDelimitedRow = evidenceLines.some((line) => parseDelimitedDataLine(line) !== null);
+  const evidenceIncludesSourceHeader = sourceHeaders.some((header) => evidenceLines.includes(header));
   if (
     (
       unitType === "sheet_range" &&
-      DELIMITED_ROW.test(trimmedEvidence) &&
-      isSingleLogicalLine &&
+      evidenceHasDelimitedRow &&
+      !evidenceIncludesSourceHeader &&
       !EXPLICIT_TABULAR_FIELDS.test(evidence)
     ) || (
       MARKDOWN_DATA_ROW.test(trimmedEvidence) &&
@@ -1227,7 +1339,7 @@ export function validateLibraryAnalysisAgentSegmentResponse(
     if (!unit.text.includes(claim.evidence)) {
       throw new Error("agent_response_evidence_not_contained");
     }
-    assertLibraryAnalysisClaimLocalityV113({
+    assertLibraryAnalysisClaimLocalityV114({
       claimText: claim.text,
       evidence: claim.evidence,
       sourceText: unit.text,
@@ -1250,7 +1362,11 @@ function hasObviousMaterialClaim(text: string): boolean {
   return OBVIOUS_SECTIONED_FINDINGS.test(text) ||
     PLAIN_SECTIONED_FINDINGS.test(text) ||
     STRUCTURED_REGISTER_FINDINGS.test(text) ||
-    HEADER_BOUND_INVENTORY.test(text);
+    HEADER_BOUND_INVENTORY.test(text) ||
+    MASTER_ANALYSIS_INDEX.test(text) ||
+    AUTHORITY_RESULT_MATERIAL.test(text) ||
+    (TOTAL_BUDGET_AMOUNT.test(text) && PER_GROUP_BUDGET_SCOPE.test(text)) ||
+    STUDY_FINDING_MATERIAL.test(text);
 }
 
 export function mergeLibraryAnalysisSourceSegments(input: {

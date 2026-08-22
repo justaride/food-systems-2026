@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.13`
+Workflow version: `1.0.14`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.13`
+Prompt template version: `1.0.14`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
@@ -42,7 +42,7 @@ Apply the same locality rule to analytical-measure claims. A claim that says an 
 
 Reported price changes require the source-visible geography or market. Attribution that an actor reported or stated something requires the same actor and reporting action in the evidence; a bare `from X` provenance phrase is insufficient. Generic authorities such as `empiriske studier`, `empirical studies` and `the literature` are ineligible without the named study or comparison basis and its population, period and method. Comparative pattern claims require a named comparison basis and period. Passive identification claims must name the identifying actor or analysis scope.
 
-For possessive ownership statements, the company whose ownership is described must be visible in the evidence excerpt, not only the owner, percentage and date. Evidence beginning with an unresolved `This survey`, `This questionnaire`, `This study` or equivalent Norwegian phrase must be expanded to include the named survey or report identity. For `sheet_range` units, a row alone is not interpretable evidence for named fields: include the header and row, or explicit source-visible field labels, in the same excerpt.
+For possessive ownership statements, the company whose ownership is described must be visible in the evidence excerpt, not only the owner, percentage and date. Evidence beginning with an unresolved `This survey`, `This questionnaire`, `This study` or equivalent Norwegian phrase must be expanded to include the named survey or report identity. For `sheet_range` units, one or more delimited data rows are not interpretable evidence for named fields unless the same excerpt includes the source header or explicit source-visible field labels. A question is not evidence of a result; it is eligible only for a claim that explicitly reports that the form, survey or questionnaire asks that question.
 
 A bare heading cannot by itself support a rewritten report-title assertion; require an explicit report/title label or complete declarative sentence. Figure and chart claims must preserve every materially relevant caption or method qualifier, including index base, transaction stage, exclusions and subsidy treatment. When prose, chart or table values conflict within the same supplied unit for the same measure and population, emit `no_material_claim`, or emit a supported `gap` or `contradiction` assertion that states both values and scopes; never silently select one value.
 
@@ -56,7 +56,7 @@ Bare cleanup and data subjects are context-dependent in the same way as bare wor
 
 Implicit shares expressed as a percentage of total turnover require a same-sentence measurement year just like an explicit `markedsandel`. A total multi-group budget must retain the source-visible per-group allocation and named groups. A figure comparison stated as `fem ganger høyere` or equivalent must retain its full caption period, index base, transaction stage and material exclusions such as electricity-subsidy treatment in both claim and evidence. A claim that an actor supplied a period dataset must preserve any source-visible exclusion defining that dataset. Survey-derived claims include qualitative paraphrases about producer aims, drivers, determinants, geographic markets, obstacles and company locations; they require the source-visible respondent count and universe in their own excerpt. Evidence ending in a colon before its defining list is incomplete.
 
-`no_material_claim` is not a shortcut around obvious source material. In any content-unit type, a structured summary with a `Hovedfunn`/`Main findings`/`Findings` or method section, a header-bound inventory row, or an internal-register record with populated `keyFindings` or `recommendations` must produce supported claims or a typed blocked result. Reporting such a unit as `no_material_claim` is a material omission.
+`no_material_claim` is not a shortcut around obvious source material. In any content-unit type, a structured summary with a `Hovedfunn`/`Main findings`/`Findings` or method section, a header-bound inventory row, an internal-register record with populated `keyFindings` or `recommendations`, a master analysis index with structured status results, explicit Competition Authority findings, named study findings, or a scoped project budget with total and per-group allocations must produce supported claims or a typed blocked result. Reporting such a unit as `no_material_claim` is a material omission.
 
 ## Output boundary
 

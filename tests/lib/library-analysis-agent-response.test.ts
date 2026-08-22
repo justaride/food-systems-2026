@@ -260,6 +260,26 @@ test("rejects obvious material Pilot14 units reported as no-material-claim", () 
       text: "id,source_name,year\nsource-1,Named report,2025",
       unitType: "dataset_slice",
     },
+    {
+      text: "# Master Analyse-Indeks: Evidence Pack\n\n## Status-sammendrag\n| Kategori | Filer |\n| Totalt | 96 |",
+      unitType: "database_record",
+    },
+    {
+      text: "Konkurransetilsynet finner gjennom hele perioden høy lønnsomhet for enkelte analyserte enheter.",
+      unitType: "document_section",
+    },
+    {
+      text: "Konkurransetilsynet beregner bruttomarginer, driftsmarginer og RNOA for Norgesgruppens egeneide butikker samlet etter metoden beskrevet i kapittel 3.",
+      unitType: "document_section",
+    },
+    {
+      text: "250 000 kr per transition group (Cities + Food). Totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      unitType: "database_record",
+    },
+    {
+      text: "1. Felles grep på tvers av kjeder: Studien finner at S Group, K Group og Lidl Finland rapporterer tiltak mot matsvinn.",
+      unitType: "database_record",
+    },
   ];
   for (const row of cases) {
     const job = verifiedJob([row.text]);
@@ -277,6 +297,437 @@ test("rejects obvious material Pilot14 units reported as no-material-claim", () 
       response,
     }), /material_claim_omission/u);
   }
+});
+
+test("rejects Pilot17 multi-row CSV excerpts without headers and questions recast as results", () => {
+  const csvSource = [
+    "id,priority,status,country,title,year",
+    "dk-usda,P1,candidate_fetch,dk,Retail Foods Annual,2025",
+    "fi-fcca,P1,candidate_fetch,fi,The FCCA studies the functioning of the food market,2023",
+  ].join("\n");
+  const csvJob = verifiedJob([csvSource]);
+  Object.assign(csvJob.units[0]!.descriptor, { unitType: "sheet_range" });
+  const csvEvidence = csvSource.split("\n").slice(1).join("\n");
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: csvJob,
+    response: segmentResponse(csvJob, {
+      unitCoverage: [{ contentUnitId: csvJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(csvJob, 0, "The catalog lists the FCCA food-market study as a 2023 P1 candidate_fetch source."),
+        evidence: csvEvidence,
+      }],
+    }),
+  }), /tabular_context_missing/u);
+
+  const lowerDataOnlySource = "acme,active,norway\nfoo,active,sweden";
+  const lowerDataOnlyJob = verifiedJob([lowerDataOnlySource]);
+  Object.assign(lowerDataOnlyJob.units[0]!.descriptor, { unitType: "sheet_range" });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: lowerDataOnlyJob,
+    response: segmentResponse(lowerDataOnlyJob, {
+      unitCoverage: [{ contentUnitId: lowerDataOnlyJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(lowerDataOnlyJob, 0, "The source records Acme as active in Norway."),
+        evidence: lowerDataOnlySource.split("\n")[0]!,
+      }],
+    }),
+  }), /tabular_context_missing/u);
+
+  const genericHeaderSource = [
+    "company,status,country",
+    "Acme Foods,active,Norway",
+  ].join("\n");
+  const genericHeaderJob = verifiedJob([genericHeaderSource]);
+  Object.assign(genericHeaderJob.units[0]!.descriptor, {
+    unitType: "sheet_range",
+    locator: "repository:fixture.csv#rows=1-2&chars=0-48",
+  });
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: genericHeaderJob,
+    response: segmentResponse(genericHeaderJob, {
+      unitCoverage: [{ contentUnitId: genericHeaderJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(genericHeaderJob, 0, "The table reports Acme Foods as active in Norway."),
+        evidence: genericHeaderSource,
+      }],
+    }),
+  }));
+
+  const headerLikeDataSource = [
+    "Acme,status,Norway",
+    "Foo,active,Sweden",
+  ].join("\n");
+  const headerLikeDataJob = verifiedJob([headerLikeDataSource]);
+  Object.assign(headerLikeDataJob.units[0]!.descriptor, {
+    unitType: "sheet_range",
+    locator: "repository:fixture.csv#rows=2-3&chars=0-42",
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: headerLikeDataJob,
+    response: segmentResponse(headerLikeDataJob, {
+      unitCoverage: [{ contentUnitId: headerLikeDataJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(headerLikeDataJob, 0, "The source records Acme with status Norway."),
+        evidence: headerLikeDataSource.split("\n")[0]!,
+      }],
+    }),
+  }), /tabular_context_missing/u);
+
+  const rowOneHeaderLikeDataJob = verifiedJob([headerLikeDataSource]);
+  Object.assign(rowOneHeaderLikeDataJob.units[0]!.descriptor, {
+    unitType: "sheet_range",
+    locator: "repository:fixture.csv#rows=1-2&chars=0-42",
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: rowOneHeaderLikeDataJob,
+    response: segmentResponse(rowOneHeaderLikeDataJob, {
+      unitCoverage: [{ contentUnitId: rowOneHeaderLikeDataJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(rowOneHeaderLikeDataJob, 0, "The source records Acme with status Norway."),
+        evidence: headerLikeDataSource.split("\n")[0]!,
+      }],
+    }),
+  }), /tabular_context_missing/u);
+
+  const arbitraryHeaderSource = [
+    "foo,bar,baz",
+    "Acme,active,Norway",
+  ].join("\n");
+  const arbitraryHeaderJob = verifiedJob([arbitraryHeaderSource]);
+  Object.assign(arbitraryHeaderJob.units[0]!.descriptor, {
+    unitType: "sheet_range",
+    locator: "repository:fixture.csv#rows=1-2&chars=0-37",
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: arbitraryHeaderJob,
+    response: segmentResponse(arbitraryHeaderJob, {
+      unitCoverage: [{ contentUnitId: arbitraryHeaderJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(arbitraryHeaderJob, 0, "The row links Acme, active and Norway in the three source fields."),
+        evidence: arbitraryHeaderSource,
+      }],
+    }),
+  }), /tabular_context_missing/u);
+
+  for (const completeHeaderSource of [
+    "Company Name,Current Status,Country\nAcme Foods,Active,Norway",
+  ]) {
+    const completeHeaderJob = verifiedJob([completeHeaderSource]);
+    Object.assign(completeHeaderJob.units[0]!.descriptor, {
+      unitType: "sheet_range",
+      locator: "repository:fixture.csv#rows=1-2&chars=0-72",
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job: completeHeaderJob,
+      response: segmentResponse(completeHeaderJob, {
+        unitCoverage: [{ contentUnitId: completeHeaderJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [{
+          ...claim(completeHeaderJob, 0, "The complete source row reports Acme as active in Norway."),
+          evidence: completeHeaderSource,
+        }],
+      }),
+    }));
+  }
+
+  const preambleSource = [
+    "Quarterly export",
+    "company,status,country",
+    "Acme Foods,active,Norway",
+  ].join("\n");
+  const preambleJob = verifiedJob([preambleSource]);
+  Object.assign(preambleJob.units[0]!.descriptor, { unitType: "sheet_range" });
+  const preambleEvidence = preambleSource.split("\n").slice(1).join("\n");
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: preambleJob,
+    response: segmentResponse(preambleJob, {
+      unitCoverage: [{ contentUnitId: preambleJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(preambleJob, 0, "The quarterly table reports Acme Foods as active in Norway."),
+        evidence: preambleEvidence,
+      }],
+    }),
+  }));
+
+  const multiCommaProseCell = "A complete qualitative note, stored in one spreadsheet cell, with additional context.";
+  const multiCommaProseJob = verifiedJob([multiCommaProseCell]);
+  Object.assign(multiCommaProseJob.units[0]!.descriptor, { unitType: "sheet_range" });
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: multiCommaProseJob,
+    response: segmentResponse(multiCommaProseJob, {
+      unitCoverage: [{ contentUnitId: multiCommaProseJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(multiCommaProseJob, 0, "A complete qualitative note with additional context is stored in one spreadsheet cell."),
+        evidence: multiCommaProseCell,
+      }],
+    }),
+  }));
+
+  const proseCell = "A complete qualitative note, stored in one spreadsheet cell.";
+  const proseCellJob = verifiedJob([proseCell]);
+  Object.assign(proseCellJob.units[0]!.descriptor, { unitType: "sheet_range" });
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: proseCellJob,
+    response: segmentResponse(proseCellJob, {
+      unitCoverage: [{ contentUnitId: proseCellJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(proseCellJob, 0, "A complete qualitative note is stored in one spreadsheet cell."),
+        evidence: proseCell,
+      }],
+    }),
+  }));
+
+  const question = "Could you rank by order of importance the possible main limiting factors for development of insect food in Europe?";
+  const questionJob = verifiedJob([question]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: questionJob,
+    response: segmentResponse(questionJob, {
+      unitCoverage: [{ contentUnitId: questionJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(questionJob, 0, "The source presents possible main limiting factors for development of insect food in Europe."),
+        evidence: question,
+      }],
+    }),
+  }), /interrogative_evidence_not_result/u);
+
+  for (const prefixedOrNorwegianQuestion of [
+    "Question: What are the main limiting factors for development?",
+    "Hva er de viktigste begrensende faktorene for utvikling?",
+    "Is the market competitive?",
+  ]) {
+    const prefixedQuestionJob = verifiedJob([prefixedOrNorwegianQuestion]);
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job: prefixedQuestionJob,
+      response: segmentResponse(prefixedQuestionJob, {
+        unitCoverage: [{ contentUnitId: prefixedQuestionJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [{
+          ...claim(prefixedQuestionJob, 0, "The source identifies the main limiting factors for development."),
+          evidence: prefixedOrNorwegianQuestion,
+        }],
+      }),
+    }), /interrogative_evidence_not_result/u);
+  }
+
+  const compoundQuestionJob = verifiedJob([question]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: compoundQuestionJob,
+    response: segmentResponse(compoundQuestionJob, {
+      unitCoverage: [{ contentUnitId: compoundQuestionJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(
+          compoundQuestionJob,
+          0,
+          "The source asks which limiting factors affected growth and reports that consumer reluctance was primary.",
+        ),
+        evidence: question,
+      }],
+    }),
+  }), /interrogative_evidence_not_result/u);
+
+  const safetyQuestion = "Is the product safe?";
+  const safetyQuestionJob = verifiedJob([safetyQuestion]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: safetyQuestionJob,
+    response: segmentResponse(safetyQuestionJob, {
+      unitCoverage: [{ contentUnitId: safetyQuestionJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(safetyQuestionJob, 0, "The source asks whether the product is safe, with safety confirmed."),
+        evidence: safetyQuestion,
+      }],
+    }),
+  }), /interrogative_evidence_not_result/u);
+
+  for (const compoundClaim of [
+    "The source asks whether the product is safe — safety confirmed.",
+    "The source asks whether the product is safe: safety confirmed.",
+    "The source asks whether the product is safe (safety confirmed).",
+    "The source asks whether the product is safe, safety confirmed.",
+    "The source asks whether the product is safe, with blue.",
+    "The source asks whether the product is safe — blue.",
+    "The source asks whether the product is safe, blue.",
+    "The source asks whether the product is safe: blue.",
+    "The source asks whether the product is safe (blue).",
+    "Blue is the answer; the source asks whether the product is safe.",
+    "The answer is blue. The source asks whether the product is safe.",
+    "The source asks whether the product is safe; the answer is blue.",
+  ]) {
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job: safetyQuestionJob,
+      response: segmentResponse(safetyQuestionJob, {
+        unitCoverage: [{ contentUnitId: safetyQuestionJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [{ ...claim(safetyQuestionJob, 0, compoundClaim), evidence: safetyQuestion }],
+      }),
+    }), /interrogative_evidence_not_result/u);
+  }
+
+  for (const trailingQuestion of [
+    "Could you rank the factors? — please answer",
+    "Could you rank the factors? See note",
+  ]) {
+    const trailingQuestionJob = verifiedJob([trailingQuestion]);
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job: trailingQuestionJob,
+      response: segmentResponse(trailingQuestionJob, {
+        unitCoverage: [{ contentUnitId: trailingQuestionJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [{
+          ...claim(trailingQuestionJob, 0, "The source identifies the factors in ranked order."),
+          evidence: trailingQuestion,
+        }],
+      }),
+    }), /interrogative_evidence_not_result/u);
+  }
+
+  const questionWithResult = "Is the product safe? The trial found no adverse events.";
+  const questionWithResultJob = verifiedJob([questionWithResult]);
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: questionWithResultJob,
+    response: segmentResponse(questionWithResultJob, {
+      unitCoverage: [{ contentUnitId: questionWithResultJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(questionWithResultJob, 0, "The trial found no adverse events."),
+        evidence: questionWithResult,
+      }],
+    }),
+  }));
+
+  const citedQuestion = "Could you rank the factors? [1]";
+  const citedQuestionJob = verifiedJob([citedQuestion]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: citedQuestionJob,
+    response: segmentResponse(citedQuestionJob, {
+      unitCoverage: [{ contentUnitId: citedQuestionJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(citedQuestionJob, 0, "The source identifies the factors in ranked order."),
+        evidence: citedQuestion,
+      }],
+    }),
+  }), /interrogative_evidence_not_result/u);
+
+  for (const instructedQuestion of [
+    "What is your preferred color? Select one.",
+    "What is your preferred color?\nOptions: red, blue.",
+  ]) {
+    const instructedQuestionJob = verifiedJob([instructedQuestion]);
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job: instructedQuestionJob,
+      response: segmentResponse(instructedQuestionJob, {
+        unitCoverage: [{ contentUnitId: instructedQuestionJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [{
+          ...claim(instructedQuestionJob, 0, "The source identifies red as the preferred color."),
+          evidence: instructedQuestion,
+        }],
+      }),
+    }), /interrogative_evidence_not_result/u);
+  }
+
+  const formQuestion = "What is your preferred color?";
+  const formJob = verifiedJob([formQuestion]);
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: formJob,
+    response: segmentResponse(formJob, {
+      unitCoverage: [{ contentUnitId: formJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(formJob, 0, "The form asks respondents for their preferred color."),
+        evidence: formQuestion,
+      }],
+    }),
+  }));
+
+  const norwegianQuestion = "Hva er din foretrukne farge?";
+  const norwegianFormJob = verifiedJob([norwegianQuestion]);
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: norwegianFormJob,
+    response: segmentResponse(norwegianFormJob, {
+      unitCoverage: [{ contentUnitId: norwegianFormJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(norwegianFormJob, 0, "Skjemaet spør respondentene hva som er deres foretrukne farge."),
+        evidence: norwegianQuestion,
+      }],
+    }),
+  }));
 });
 
 test("keeps explicitly scoped Pilot14 boundary cases eligible", () => {

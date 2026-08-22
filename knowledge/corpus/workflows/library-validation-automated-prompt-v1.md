@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.13`
+Prompt template version: `1.0.14`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.13`
+Workflow version: `1.0.14`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
@@ -36,7 +36,7 @@ Classify as F3 an analytical-measure claim about calculated or mapped RNOA, prof
 
 Classify a reported price change without its source-visible geography or market as F3. Classify actor attribution such as `X oppga`, `X reported` or `X stated` as F4 when the evidence does not visibly name that same actor and reporting action; a bare `from X` provenance phrase is insufficient. Treat `empiriske studier`, `empirical studies` and `the literature` as unresolved authorities unless the assertion names the study or comparison basis and its population, period and method. A comparative pattern without a named comparison basis and period is F3. Passive identification without a named identifying actor or analysis scope is F4.
 
-For possessive ownership statements, require the owned company identity in the evidence excerpt, not only the owner, percentage and date. Classify as F4 a named-survey claim whose evidence begins with unresolved `This survey`, `This questionnaire`, `This study` or a Norwegian equivalent without the name. For `sheet_range` units, classify a bare delimited row as F4 when the claim interprets named fields but the evidence provides neither the header nor explicit field labels.
+For possessive ownership statements, require the owned company identity in the evidence excerpt, not only the owner, percentage and date. Classify as F4 a named-survey claim whose evidence begins with unresolved `This survey`, `This questionnaire`, `This study` or a Norwegian equivalent without the name. For `sheet_range` units, classify one or more delimited data rows as F4 when the claim interprets named fields but the evidence provides neither the source header nor explicit source-visible field labels. Classify an interrogative excerpt as F3 when it is recast as a result; accept it only when the claim explicitly reports that the form, survey or questionnaire asks that question.
 
 Classify as F4 a rewritten report-title assertion supported only by a bare title heading without an explicit report/title label or complete declarative title sentence. For figure- or chart-derived comparisons, use F3 when the excerpt drops materially relevant caption or method qualifiers such as index base, transaction stage, exclusions or subsidy treatment. When the same supplied unit gives conflicting prose, chart or table values for the same measure and population, require the assertion to state the discrepancy and both values; silently selecting one value is a material F5 omission.
 
@@ -50,6 +50,6 @@ Classify bare cleanup or data subjects as F4 when the cleaned object, analytical
 
 Treat a percentage of total turnover as an implicit market share and classify a missing same-sentence measurement year as F3. A total multi-group budget that drops the source-visible per-group allocation or named groups is F3. A figure comparison expressed as a multiple that drops full caption period, index base, transaction stage or a material exclusion such as subsidy treatment is F3. A supplied-period dataset claim that drops a source-visible dataset exclusion is F3. Qualitative survey paraphrases about producer aims, drivers, determinants, geographic markets, obstacles or company locations without same-excerpt respondent count and universe are F3. Evidence ending with a colon before its defining list is truncated and F3.
 
-Classify as F5 an obviously material structured unit reported as `no_material_claim`, regardless of content-unit type, including a summary with `Hovedfunn`/`Main findings`/`Findings` or method sections, a header-bound inventory row, or an internal-register record with populated `keyFindings` or `recommendations`.
+Classify as F5 an obviously material structured unit reported as `no_material_claim`, regardless of content-unit type, including a summary with `Hovedfunn`/`Main findings`/`Findings` or method sections, a header-bound inventory row, an internal-register record with populated `keyFindings` or `recommendations`, a master analysis index with structured status results, explicit Competition Authority findings, named study findings, or a scoped project budget with total and per-group allocations.
 
 Do not rewrite the analysis into an approval. Do not claim human review, independent verification, accuracy, canonical status, promotion, rights clearance, publication, coverage or external readiness. A clean automated validation is still automated-only internal candidate evidence.
