@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.10`
+Workflow version: `1.0.11`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.10`
+Prompt template version: `1.0.11`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
@@ -47,6 +47,8 @@ For possessive ownership statements, the company whose ownership is described mu
 A bare heading cannot by itself support a rewritten report-title assertion; require an explicit report/title label or complete declarative sentence. Figure and chart claims must preserve every materially relevant caption or method qualifier, including index base, transaction stage, exclusions and subsidy treatment. When prose, chart or table values conflict within the same supplied unit for the same measure and population, emit `no_material_claim`, or emit a supported `gap` or `contradiction` assertion that states both values and scopes; never silently select one value.
 
 Actor universes qualified by participation in a mapping must retain that qualifier. Period references must carry both boundary years. Deictic study openings, bare approaches and `this indicator` references are not self-contained without a same-excerpt identity.
+
+Figure-derived quantitative claims must retain the material caption scope: aggregated actors, full figure period and inflation-adjustment status. Analytical superlatives require a bounded comparison period and entity universe; retail-margin trends require their source-visible sample. Bare deictic value clauses require a same-excerpt antecedent. Reported results retain the named speaker, and generic webinar or main-message references require a locally named event in both claim and evidence.
 
 ## Output boundary
 

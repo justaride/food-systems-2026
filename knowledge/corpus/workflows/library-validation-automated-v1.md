@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.10`
+Workflow version: `1.0.11`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.10`
+Prompt template version: `1.0.11`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
@@ -41,6 +41,8 @@ For possessive ownership, require the owned company identity in the evidence, no
 Treat a rewritten report-title assertion supported only by a bare title heading as F4 unless the excerpt includes an explicit report/title label or complete declarative title sentence. For figure and chart comparisons, omitted material caption or method qualifiers such as index base, transaction stage, exclusions or subsidy treatment are F3. Conflicting prose, chart or table values for the same measure and population must be surfaced; silently selecting one value is a material F5 omission.
 
 Automated validation must reject material actor-universe broadening, unbounded period references, unnamed deictic study openings, and unresolved approach or indicator references.
+
+It must also reject figure-derived numeric claims missing material caption scope, analytical superlatives or retail-margin trends missing their bounded universe, bare deictic value clauses without a same-excerpt antecedent, reported results that drop their speaker, and generic webinar or main-message references without the local event identity.
 
 ## Output boundary
 

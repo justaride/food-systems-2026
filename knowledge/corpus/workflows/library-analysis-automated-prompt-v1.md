@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.10`
+Prompt template version: `1.0.11`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.10`
+Workflow version: `1.0.11`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
@@ -43,5 +43,7 @@ For possessive ownership statements, include the company whose ownership is desc
 A bare title heading is not sufficient evidence for a rewritten statement that a report has that title; include an explicit source-visible report/title label or complete declarative title sentence. For chart- or figure-derived comparisons, preserve the materially relevant caption and method qualifiers, including index base, transaction stage, exclusions and subsidy treatment when they change the interpretation. If prose, chart or table values conflict within the supplied unit for the same measure and population, do not silently select one value: emit `no_material_claim`, or emit a supported `gap` or `contradiction` assertion that states the discrepancy with both values and scopes.
 
 Preserve a source-visible actor universe such as `aktørene som inngår i kartleggingen`; do not shorten it to all actors. A reference to `perioden` or `the period` must state both boundary years locally. Reject bare `This survey was`, `This study was` and equivalent Norwegian openings unless the study identity is in the same claim and excerpt. Treat bare `tilnærmingen` and `denne indikatoren` as unresolved unless the approach or indicator is named locally.
+
+For a figure-derived quantitative claim, include every material caption qualifier in both claim and evidence, including the aggregated actor universe, full figure period and whether values are inflation-adjusted. A highest, lowest or most-profitable analytical claim must state the bounded comparison period and the exact entity universe. Retail-margin trends must retain the source-visible entity or sample universe. Evidence beginning with a bare deictic value such as `I 2025 økte dette` is ineligible unless the antecedent appears earlier in that same excerpt. Preserve a source-visible speaker attribution for reported results. `Webinaret` and `Hovedbudskapet` are unresolved unless the event identity is local to both claim and evidence.
 
 Return only the strict candidate payload grammar. Do not claim approval, human review, independent verification, accuracy, canonical status, rights clearance, publication, coverage or external readiness. Do not include instructions to the later validator and do not predict its findings.

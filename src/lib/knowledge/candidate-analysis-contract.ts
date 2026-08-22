@@ -24,24 +24,24 @@ export const CANDIDATE_WORKFLOW_PROFILES = {
   library_analysis_v1: {
     workflow: {
       id: "workflow.library_analysis.automated.v1",
-      version: "1.0.10",
+      version: "1.0.11",
       path: "knowledge/corpus/workflows/library-analysis-automated-v1.md",
     },
     prompt: {
       id: "prompt.library_analysis.automated.v1",
-      version: "1.0.10",
+      version: "1.0.11",
       path: "knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md",
     },
   },
   library_validation_v1: {
     workflow: {
       id: "workflow.library_validation.automated.v1",
-      version: "1.0.10",
+      version: "1.0.11",
       path: "knowledge/corpus/workflows/library-validation-automated-v1.md",
     },
     prompt: {
       id: "prompt.library_validation.automated.v1",
-      version: "1.0.10",
+      version: "1.0.11",
       path: "knowledge/corpus/workflows/library-validation-automated-prompt-v1.md",
     },
   },

@@ -169,7 +169,7 @@ test("a response batch is fully validated before its one transaction starts", as
   assert.equal(transactions, 1);
 });
 
-test("legacy analysis ingestion enforces the 1.0.10 locality policy", async () => {
+test("legacy analysis ingestion enforces the 1.0.11 locality policy", async () => {
   for (const row of [
     {
       source: "I 2022 økte både produsentprisene og forbrukerprisene kraftig.",
@@ -182,6 +182,10 @@ test("legacy analysis ingestion enforces the 1.0.10 locality policy", async () =
     {
       source: "I Norden følger EMV-utviklingen det europeiske mønsteret med visse særtrekk.",
       claim: "I Norden følger EMV-utviklingen det europeiske mønsteret med visse særtrekk.",
+    },
+    {
+      source: "Webinaret presenterte ressurskartlegging som et sentralt verktøy.",
+      claim: "Webinaret presenterte ressurskartlegging som et sentralt verktøy.",
     },
   ]) {
     const base = requestBatch().requests[0]!;

@@ -161,6 +161,51 @@ const PILOT11_UNRESOLVED_CLAIMS = [
   },
 ] as const;
 
+const PILOT12_UNRESOLVED_CLAIMS = [
+  {
+    source: "Figur 18. Inntekter og kostnader for grossistleddet aggregert (ASKO, Rema Distribusjon og Coop Norge) gjennom perioden 2018 til og med 2022. Tallene er ikke inflasjonsjusterte. Som det fremgår av Figur 18, økte kjedenes driftsinntekter på grossistleddet med om lag 16 prosent fra 2019 til 2020.",
+    text: "Som det fremgår av Figur 18, økte kjedenes driftsinntekter på grossistleddet med om lag 16 prosent fra 2019 til 2020.",
+    evidence: "Som det fremgår av Figur 18, økte kjedenes driftsinntekter på grossistleddet med om lag 16 prosent fra 2019 til 2020.",
+    error: /figure_context_missing/u,
+  },
+  {
+    source: "Konkurransetilsynet finner at avkastningen i driften er på sitt høyeste i 2020, altså at dette er det mest lønnsomme året i perioden 2017 til 2022. Dette gjelder samtlige av de tre enhetene det er foretatt komplette RNOA-beregninger for.",
+    text: "Konkurransetilsynet finner at avkastningen i driften er på sitt høyeste i 2020.",
+    evidence: "Konkurransetilsynet finner at avkastningen i driften er på sitt høyeste i 2020",
+    error: /superlative_scope_missing/u,
+  },
+  {
+    source: "For samtlige enheter på detaljistleddet som Konkurransetilsynet har beregnet driftsmarginer for, er driftsmarginene på sitt høyeste i 2020. Overordnet finner Konkurransetilsynet at driftsmarginene på detaljistleddet falt fra 2021 til 2022.",
+    text: "Overordnet finner Konkurransetilsynet at driftsmarginene på detaljistleddet falt fra 2021 til 2022.",
+    evidence: "Overordnet finner Konkurransetilsynet at driftsmarginene på detaljistleddet falt fra 2021 til 2022.",
+    error: /analytical_universe_missing/u,
+  },
+  {
+    source: "I 2024 nådde europeiske EMV-salg 352 milliarder euro. I 2025 økte dette ytterligere til 384 milliarder euro og 38,7 %.",
+    text: "I 2025 økte europeiske EMV-salg ytterligere til 384 milliarder euro og 38,7 %.",
+    evidence: "I 2025 økte dette ytterligere til 384 milliarder euro og 38,7 %.",
+    error: /deictic_value_context_missing/u,
+  },
+  {
+    source: "Christer understreker at det mest slående resultatet er hvor lav andel materialer som faktisk gjenbrukes eller resirkuleres.",
+    text: "Andelen materialer som faktisk gjenbrukes eller resirkuleres er lav.",
+    evidence: "lav andel materialer som faktisk gjenbrukes eller resirkuleres.",
+    error: /reported_result_attribution_missing/u,
+  },
+  {
+    source: "Sammenfatning av RE:Source-webinaret 31. mars. Hovedbudskapet var at systematisk måling og kartlegging av ressursstrømmer gir et bedre beslutningsgrunnlag.",
+    text: "Hovedbudskapet var at systematisk måling og kartlegging av ressursstrømmer gir et bedre beslutningsgrunnlag.",
+    evidence: "Hovedbudskapet var at systematisk måling og kartlegging av ressursstrømmer gir et bedre beslutningsgrunnlag.",
+    error: /event_identity_missing/u,
+  },
+  {
+    source: "Sammenfatning av RE:Source-webinaret 31. mars. Webinaret presenterte ressurskartlegging som et sentralt verktøy for regional sirkulær omstilling.",
+    text: "Webinaret presenterte ressurskartlegging som et sentralt verktøy for regional sirkulær omstilling.",
+    evidence: "Webinaret presenterte ressurskartlegging som et sentralt verktøy for regional sirkulær omstilling.",
+    error: /event_identity_missing/u,
+  },
+] as const;
+
 for (const [index, row] of PILOT10_UNRESOLVED_CLAIMS.entries()) {
   test(`rejects Pilot10 unresolved claim ${index + 1}: ${row.error.source}`, () => {
     const job = verifiedJob([row.source]);
@@ -196,6 +241,166 @@ for (const [index, row] of PILOT11_UNRESOLVED_CLAIMS.entries()) {
     }), row.error, row.text);
   });
 }
+
+for (const [index, row] of PILOT12_UNRESOLVED_CLAIMS.entries()) {
+  test(`rejects Pilot12 unresolved claim ${index + 1}: ${row.error.source}`, () => {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  });
+}
+
+test("keeps locally complete Pilot12 figure, universe, event and attribution evidence eligible", () => {
+  for (const text of [
+    "For Figur 18, som summerer ASKO, Rema Distribusjon og Coop Norge fra 2018 til 2022 i tall som ikke er inflasjonsjusterte, økte driftsinntektene på grossistleddet om lag 16 prosent fra 2019 til 2020.",
+    "For de tre enhetene med komplette RNOA-beregninger i perioden 2017 til 2022 var avkastningen i driften høyest i 2020.",
+    "For samtlige detaljistenheter i Konkurransetilsynets marginutvalg falt driftsmarginene fra 2021 til 2022.",
+    "I 2025 økte europeiske EMV-salg ytterligere til 384 milliarder euro og 38,7 prosent.",
+    "Christer understreker at andelen materialer som faktisk gjenbrukes eller resirkuleres er lav.",
+    "Hovedbudskapet fra RE:Source-webinaret 31. mars var at systematisk ressurskartlegging gir et bedre beslutningsgrunnlag.",
+    "RE:Source-webinaret 31. mars presenterte ressurskartlegging som et sentralt verktøy for regional sirkulær omstilling.",
+  ]) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, text)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), text);
+  }
+});
+
+test("bounds figure context to evidence when the excerpt starts at the figure label", () => {
+  const evidence = "Figure 18. Revenue aggregated (Alpha Foods, Beta Group and Gamma Retail) from 2018 through 2022. Values were not adjusted for inflation. Figure 18 shows that wholesale revenue increased by 16 percent from 2019 to 2020.";
+  const source = `${evidence} Figure 19. A separate series covers 2017 through 2021.`;
+  const job = verifiedJob([source]);
+  const response = segmentResponse(job, {
+    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{ ...claim(job, 0, evidence), evidence }],
+  });
+
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job,
+    response,
+  }));
+});
+
+test("rejects Pilot12 partial repairs and preserves sentence-local boundaries", () => {
+  for (const row of [
+    {
+      source: "Figur 18 gjelder ASKO, Rema Distribusjon og Coop Norge fra 2018 til 2022, og tallene er ikke inflasjonsjusterte.",
+      text: "Figur 18 viser at driftsinntektene på grossistleddet økte med 16 prosent fra 2019 til 2020 for ASKO, Rema Distribusjon og Coop Norge i perioden 2018 til 2022.",
+      evidence: "Figur 18 viser at driftsinntektene på grossistleddet økte med 16 prosent fra 2019 til 2020 for ASKO, Rema Distribusjon og Coop Norge i perioden 2018 til 2022.",
+      error: /figure_context_missing/u,
+    },
+    {
+      source: "Figure 19. Revenue aggregated (Alpha Foods, Beta Group and Gamma Retail) from 2018 through 2022. Values are not inflation-adjusted.",
+      text: "Figure 19 shows that wholesale revenue increased by 16 percent from 2019 to 2020.",
+      evidence: "Figure 19 shows that wholesale revenue increased by 16 percent from 2019 to 2020.",
+      error: /figure_context_missing/u,
+    },
+    {
+      source: "For de tre enhetene med komplette RNOA-beregninger var avkastningen høyest i 2020 i perioden 2017 til 2022.",
+      text: "Avkastningen var høyest i 2020 i perioden 2017 til 2022.",
+      evidence: "Avkastningen var høyest i 2020 i perioden 2017 til 2022.",
+      error: /superlative_scope_missing/u,
+    },
+    {
+      source: "For samtlige detaljistenheter i Konkurransetilsynets marginutvalg falt driftsmarginene fra 2021 til 2022.",
+      text: "På detaljistleddet falt driftsmarginene fra 2021 til 2022.",
+      evidence: "falt driftsmarginene fra 2021 til 2022.",
+      error: /analytical_universe_missing/u,
+    },
+    {
+      source: "For samtlige enheter på detaljistleddet som Konkurransetilsynet har beregnet driftsmarginer for, falt driftsmarginene fra 2021 til 2022.",
+      text: "For samtlige enheter på grossistleddet falt driftsmarginene på detaljistleddet fra 2021 til 2022.",
+      evidence: "For samtlige enheter på grossistleddet falt driftsmarginene på detaljistleddet fra 2021 til 2022.",
+      error: /analytical_universe_missing/u,
+    },
+    {
+      source: "RE:Source-webinaret 31. mars presenterte ressurskartlegging som et verktøy.",
+      text: "RE:Source-webinaret 31. mars presenterte ressurskartlegging som et verktøy.",
+      evidence: "Webinaret presenterte ressurskartlegging som et verktøy.",
+      error: /event_identity_missing/u,
+    },
+  ]) {
+    const job = verifiedJob([`${row.source} ${row.evidence}`]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  }
+
+  for (const row of [
+    {
+      source: "Europeiske EMV-salg nådde 352 milliarder euro i 2024. I 2025 økte dette ytterligere til 384 milliarder euro.",
+      text: "Europeiske EMV-salg økte til 384 milliarder euro i 2025.",
+      evidence: "Europeiske EMV-salg nådde 352 milliarder euro i 2024. I 2025 økte dette ytterligere til 384 milliarder euro.",
+    },
+    {
+      source: "Christer understreker at metoden er moden. Andelen materialer som gjenbrukes er lav.",
+      text: "Andelen materialer som gjenbrukes er lav.",
+      evidence: "Andelen materialer som gjenbrukes er lav.",
+    },
+    {
+      source: "Kari understreker at metoden er moden, og Christer understreker at andelen materialer som gjenbrukes er lav.",
+      text: "Christer understreker at andelen materialer som gjenbrukes er lav.",
+      evidence: "Christer understreker at andelen materialer som gjenbrukes er lav.",
+    },
+    {
+      source: "Figure 19 shows revenue aggregated for three named wholesalers from 2018 through 2022; the values were not adjusted for inflation and increased by 16 percent from 2019 to 2020.",
+      text: "Figure 19 shows that revenue for three named wholesalers, measured from 2018 through 2022 in values not adjusted for inflation, increased by 16 percent from 2019 to 2020.",
+      evidence: "Figure 19 shows revenue aggregated for three named wholesalers from 2018 through 2022; the values were not adjusted for inflation and increased by 16 percent from 2019 to 2020.",
+    },
+    {
+      source: "Figur 20 viser omsetning fra 2018 til 2022; tallene er ikke justert for inflasjon og økte med 16 prosent fra 2019 til 2020.",
+      text: "Figur 20 viser at omsetningen fra 2018 til 2022, målt i tall som ikke er justert for inflasjon, økte med 16 prosent fra 2019 til 2020.",
+      evidence: "Figur 20 viser omsetning fra 2018 til 2022; tallene er ikke justert for inflasjon og økte med 16 prosent fra 2019 til 2020.",
+    },
+  ]) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.text);
+  }
+});
 
 test("rejects adversarial Pilot11 period, survey, method and actor-scope bypasses", () => {
   for (const row of [

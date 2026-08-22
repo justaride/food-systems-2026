@@ -167,6 +167,23 @@ const COMPARATIVE_PATTERN = /\b(?:(?:det\s+)?europeiske\s+mønsteret|the\s+Europ
 const NAMED_COMPARISON_BASIS = /\b(?:målt\s+av|ifølge|basert\s+på|measured\s+by|according\s+to|based\s+on)\s+([\p{Lu}][\p{L}\p{M}\p{N}.&+-]*)/u;
 const UNNAMED_STUDY_AUTHORITY = /\b(?:empiriske\s+studier|empirical\s+studies|litteraturen|the\s+literature)\s+(?:viser|indikerer|tyder\s+på|shows?|indicates?|suggests?)(?![\p{L}\p{N}_])/iu;
 const PASSIVE_IDENTIFICATION = /\b(?:(?:ble\s+det|det\s+ble)\s+identifisert\s+at|it\s+was\s+identified\s+that)\b/iu;
+const FIGURE_REFERENCE = /\b(?:Figur|Figure)\s+(\d{1,4})\b/iu;
+const FIGURE_PERCENT_VALUE = /\b\d+(?:[.,]\d+)?\s*(?:%|prosent|percent)\b/iu;
+const FIGURE_CHANGE = /(?:økte|steg|falt|increased|rose|fell|decreased)(?![\p{L}\p{N}_])/iu;
+const FIGURE_AGGREGATED_ACTORS = /\b(?:aggregert|aggregated)\s*\(([^)]{3,200})\)/iu;
+const BOUNDED_YEAR_RANGE_CAPTURE = /\b((?:19|20)\d{2})\b\s*(?:[-–—]|to|through|until|and|til(?:\s+og\s+med)?|gjennom|og)\s*\b((?:19|20)\d{2})\b/giu;
+const NOT_INFLATION_ADJUSTED = /\b(?:ikke\s+(?:er\s+)?(?:inflasjonsjustert(?:e)?|justert(?:e)?\s+for\s+inflasjon)|not\s+(?:inflation[- ]adjusted|adjusted\s+for\s+inflation))\b/iu;
+const RETURN_SUPERLATIVE = /\b(?:avkastning(?:en)?|RNOA|lønnsomhet(?:en)?|returns?|profitability)\b[\s\S]{0,160}\b(?:høyest(?:e)?|mest\s+lønnsomm(?:e|t)|highest|most\s+profitable)\b|\b(?:høyest(?:e)?|mest\s+lønnsomm(?:e|t)|highest|most\s+profitable)\b[\s\S]{0,160}\b(?:avkastning(?:en)?|RNOA|lønnsomhet(?:en)?|returns?|profitability)\b/iu;
+const RETURN_COMPARISON_UNIVERSE = /\b(?:(?:for|blant|among)\s+(?:(?:de|the)\s+)?(?:tre|3|samtlige|alle|all)\s+(?:enheter|entities|units|selskaper|companies)|(?:de|the)\s+(?:tre|3)\s+(?:enhetene|entities|units)|samtlige\s+(?:enheter|selskaper)|all\s+(?:entities|units|companies))\b/iu;
+const RETAIL_MARGIN_MEASURE = /\b(?:driftsmargin(?:en|er|ene)?|operating\s+margin(?:s)?)\b/iu;
+const RETAIL_SEGMENT = /\b(?:detaljist(?:leddet|enheter)?|retail(?:\s+segment|\s+entities)?)\b/iu;
+const MARGIN_TREND_CHANGE = /\b(?:falt|økte|steg|decreased|increased|rose)\b/iu;
+const RETAIL_MARGIN_UNIVERSE = /\b(?:samtlige\s+(?:enheter\s+på\s+detaljistleddet|detaljistenheter)|alle\s+(?:enheter\s+på\s+detaljistleddet|detaljistenheter)|all\s+(?:(?:retail\s+)?(?:entities|units)|(?:entities|units)\s+(?:in|on)\s+the\s+retail\s+segment)|Konkurransetilsynets\s+marginutvalg|the\s+authority['’]s\s+margin\s+sample|(?:NorgesGruppen|Rema|Coop)(?:s)?\s+driftsmargin)\b/iu;
+const BARE_DEICTIC_VALUE_OPENING = /^(?:(?:i|in)\s+(?:19|20)\d{2}\s+)?(?:(?:økte|steg|falt)\s+(?:dette|denne|disse)|(?:this|these|it)\s+(?:increased|rose|fell|decreased))\b/iu;
+const SOURCE_REPORTED_RESULT_ATTRIBUTION = /\b([A-ZÆØÅ][\p{L}\p{M}-]+(?:\s+[A-ZÆØÅ][\p{L}\p{M}-]+){0,3})\s+(understreker|påpeker|fremhever|emphasizes|notes|highlights)\b/u;
+const GENERIC_EVENT_OPENING = /^(?:Hovedbudskapet\s+var|The\s+main\s+message\s+was|Webinaret\b|The\s+webinar\b)/iu;
+const WEBINAR_CONTEXT = /\b(?:webinar(?:et)?|webbinarium)\b/iu;
+const NAMED_WEBINAR_IDENTITY = /\b(?:RE:Source[- ]webinar(?:et)?|webinar(?:et)?\s+om\s+[\p{L}\p{M}][^.!?]{2,120}|webinar\s+(?:on|about)\s+[\p{L}\p{M}][^.!?]{2,120})\b/iu;
 const AUTHORITY_TERMS = [
   /\bpublication[- ]ready\b/iu,
   /\bready for publication\b/iu,
@@ -585,6 +602,127 @@ function assertAuditedScopeCompleteness(
   }
 }
 
+function sourceAttributionBeforeEvidence(
+  sourceText: string,
+  evidence: string,
+): { actor: string; verb: string } | undefined {
+  const evidenceMatch = SOURCE_REPORTED_RESULT_ATTRIBUTION.exec(evidence);
+  if (evidenceMatch?.[1] !== undefined && evidenceMatch[2] !== undefined) {
+    return { actor: evidenceMatch[1], verb: evidenceMatch[2] };
+  }
+  const evidenceOffset = sourceText.indexOf(evidence);
+  if (evidenceOffset <= 0) return undefined;
+  const prefix = sourceText.slice(0, evidenceOffset);
+  const sentenceStart = Math.max(
+    prefix.lastIndexOf("."),
+    prefix.lastIndexOf("!"),
+    prefix.lastIndexOf("?"),
+    prefix.lastIndexOf(";"),
+  ) + 1;
+  const matches = [...prefix.slice(sentenceStart).matchAll(new RegExp(
+    SOURCE_REPORTED_RESULT_ATTRIBUTION.source,
+    `${SOURCE_REPORTED_RESULT_ATTRIBUTION.flags}g`,
+  ))];
+  const match = matches[matches.length - 1];
+  if (match?.[1] === undefined || match[2] === undefined) return undefined;
+  return { actor: match[1], verb: match[2] };
+}
+
+function boundedYearRangeKeys(value: string): Set<string> {
+  return new Set([...value.matchAll(BOUNDED_YEAR_RANGE_CAPTURE)]
+    .map((match) => `${match[1]}:${match[2]}`));
+}
+
+function figureContextBeforeEvidence(
+  sourceText: string,
+  evidence: string,
+  figureNumber: string,
+): { actors: string[]; yearRanges: Set<string>; inflationQualified: boolean } | undefined {
+  const sourceFigure = [...sourceText.matchAll(/\b(?:Figur|Figure)\s+(\d{1,4})\b/giu)]
+    .find((match) => match[1] === figureNumber);
+  if (sourceFigure?.index === undefined) return undefined;
+  const evidenceOffset = sourceText.indexOf(evidence);
+  const contextEnd = evidenceOffset > sourceFigure.index
+    ? evidenceOffset
+    : evidenceOffset === sourceFigure.index
+      ? evidenceOffset + evidence.length
+      : sourceText.length;
+  const context = sourceText.slice(sourceFigure.index, contextEnd);
+  const actorGroup = FIGURE_AGGREGATED_ACTORS.exec(context)?.[1];
+  const actors = actorGroup === undefined ? [] : actorGroup
+    .split(/\s*(?:,|\bog\b|\band\b)\s*/iu)
+    .map((actor) => actor.trim())
+    .filter((actor) => actor.length > 1);
+  return {
+    actors,
+    yearRanges: boundedYearRangeKeys(context),
+    inflationQualified: NOT_INFLATION_ADJUSTED.test(context),
+  };
+}
+
+function assertPilot12ScopeCompleteness(
+  claimText: string,
+  evidence: string,
+  sourceText: string,
+): void {
+  const figureNumber = FIGURE_REFERENCE.exec(claimText)?.[1];
+  if (
+    figureNumber !== undefined &&
+    FIGURE_PERCENT_VALUE.test(claimText) &&
+    FIGURE_CHANGE.test(claimText)
+  ) {
+    const context = figureContextBeforeEvidence(sourceText, evidence, figureNumber);
+    const claimRanges = boundedYearRangeKeys(claimText);
+    const evidenceRanges = boundedYearRangeKeys(evidence);
+    if (context !== undefined && (
+      context.actors.some((actor) =>
+        !normalizedMaterialText(claimText).includes(normalizedMaterialText(actor)) ||
+        !normalizedMaterialText(evidence).includes(normalizedMaterialText(actor))) ||
+      [...context.yearRanges].some((range) => !claimRanges.has(range) || !evidenceRanges.has(range)) ||
+      (context.inflationQualified &&
+        (!NOT_INFLATION_ADJUSTED.test(claimText) || !NOT_INFLATION_ADJUSTED.test(evidence)))
+    )) {
+      throw new Error("agent_response_figure_context_missing");
+    }
+  }
+  if (RETURN_SUPERLATIVE.test(claimText) && EXPLICIT_YEAR.test(claimText) && (
+    !BOUNDED_YEAR_RANGE.test(claimText) ||
+    !BOUNDED_YEAR_RANGE.test(evidence) ||
+    !RETURN_COMPARISON_UNIVERSE.test(claimText) ||
+    !RETURN_COMPARISON_UNIVERSE.test(evidence)
+  )) {
+    throw new Error("agent_response_superlative_scope_missing");
+  }
+  if (
+    RETAIL_MARGIN_MEASURE.test(claimText) &&
+    RETAIL_SEGMENT.test(claimText) &&
+    MARGIN_TREND_CHANGE.test(claimText) &&
+    RETAIL_MARGIN_UNIVERSE.test(sourceText) &&
+    (!RETAIL_MARGIN_UNIVERSE.test(claimText) || !RETAIL_MARGIN_UNIVERSE.test(evidence))
+  ) {
+    throw new Error("agent_response_analytical_universe_missing");
+  }
+  if (BARE_DEICTIC_VALUE_OPENING.test(evidence)) {
+    throw new Error("agent_response_deictic_value_context_missing");
+  }
+  const attribution = sourceAttributionBeforeEvidence(sourceText, evidence);
+  if (attribution !== undefined && (
+    !normalizedMaterialText(claimText).includes(normalizedMaterialText(attribution.actor)) ||
+    !normalizedMaterialText(claimText).includes(normalizedMaterialText(attribution.verb)) ||
+    !normalizedMaterialText(evidence).includes(normalizedMaterialText(attribution.actor)) ||
+    !normalizedMaterialText(evidence).includes(normalizedMaterialText(attribution.verb))
+  )) {
+    throw new Error("agent_response_reported_result_attribution_missing");
+  }
+  if (
+    WEBINAR_CONTEXT.test(sourceText) &&
+    (GENERIC_EVENT_OPENING.test(claimText) || GENERIC_EVENT_OPENING.test(evidence)) &&
+    (!NAMED_WEBINAR_IDENTITY.test(claimText) || !NAMED_WEBINAR_IDENTITY.test(evidence))
+  ) {
+    throw new Error("agent_response_event_identity_missing");
+  }
+}
+
 function assertAuthorityLanguageIsSourceVisible(claimText: string, evidence: string): void {
   if (ACTOR_ATTRIBUTION.test(claimText) && !ACTOR_ATTRIBUTION.test(evidence)) {
     throw new Error("agent_response_actor_attribution_not_source_visible");
@@ -602,7 +740,7 @@ function assertAuthorityLanguageIsSourceVisible(claimText: string, evidence: str
   }
 }
 
-export function assertLibraryAnalysisClaimLocalityV110(input: {
+export function assertLibraryAnalysisClaimLocalityV111(input: {
   claimText: string;
   evidence: string;
   sourceText: string;
@@ -610,6 +748,7 @@ export function assertLibraryAnalysisClaimLocalityV110(input: {
 }): void {
   assertSelfContainedClaimText(input.claimText, input.evidence);
   assertAuditedScopeCompleteness(input.claimText, input.evidence, input.sourceText);
+  assertPilot12ScopeCompleteness(input.claimText, input.evidence, input.sourceText);
   assertTabularEvidenceContext(input.evidence, input.unitType);
   assertAuthorityLanguageIsSourceVisible(input.claimText, input.evidence);
 }
@@ -873,7 +1012,7 @@ export function validateLibraryAnalysisAgentSegmentResponse(
     if (!unit.text.includes(claim.evidence)) {
       throw new Error("agent_response_evidence_not_contained");
     }
-    assertLibraryAnalysisClaimLocalityV110({
+    assertLibraryAnalysisClaimLocalityV111({
       claimText: claim.text,
       evidence: claim.evidence,
       sourceText: unit.text,
