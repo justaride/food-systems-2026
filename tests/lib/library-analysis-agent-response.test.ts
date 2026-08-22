@@ -1986,6 +1986,431 @@ test("binds survey universe and reporting basis identity", () => {
   }), /reported_measure_context_missing/u);
 });
 
+test("rejects Pilot18 non-declarative metadata and detached analytical context", () => {
+  const cases = [
+    {
+      source: "Konkurransetilsynets rapport. Dette dokumentet er importert som metadata fra en lokal PDF i `research/evidence-pack/`.",
+      text: "Dette dokumentet er importert som metadata fra en lokal PDF i `research/evidence-pack/`.",
+      evidence: "Dette dokumentet er importert som metadata fra en lokal PDF i `research/evidence-pack/`.",
+      error: /context_dependent_claim/u,
+    },
+    {
+      source: "Metadata-import av lokal PDF fra evidence-pack. 64 sider. Kilde: Konkurransetilsynet.",
+      text: "Metadata-import av lokal PDF fra evidence-pack.",
+      evidence: "Metadata-import av lokal PDF fra evidence-pack. 64 sider. Kilde: Konkurransetilsynet.",
+      error: /non_declarative_claim/u,
+    },
+    {
+      source: "Metadata-import av lokal PDF fra evidence-pack; status er local_pdf_downloaded.",
+      text: "Metadata-import av lokal PDF fra evidence-pack; status er local_pdf_downloaded.",
+      evidence: "Metadata-import av lokal PDF fra evidence-pack; status er local_pdf_downloaded.",
+      error: /non_declarative_claim/u,
+    },
+    {
+      source: "Figur 14. Vektet og uvektet gjennomsnittlig bruttomargin for åtte leverandører gjennom årene 2017 til og med 2022. Absoluttnivå for bruttomarginer varierer betydelig på tvers av leverandørene, mellom 30 og 65 prosent.",
+      text: "Absoluttnivå for bruttomarginer varierer betydelig på tvers av leverandørene, mellom 30 og 65 prosent.",
+      evidence: "Absoluttnivå for bruttomarginer varierer betydelig på tvers av leverandørene, mellom 30 og 65 prosent.",
+      error: /analytical_measure_context_missing/u,
+    },
+    {
+      source: "Gross margins ranged from 30–65 percent.",
+      text: "Gross margins ranged from 30–65 percent.",
+      evidence: "Gross margins ranged from 30–65 percent.",
+      error: /analytical_measure_context_missing/u,
+    },
+    {
+      source: "For 2017–2022, gross margins ranged from 30–65 percent based on accounting data.",
+      text: "For 2017–2022, gross margins ranged from 30–65 percent based on accounting data.",
+      evidence: "For 2017–2022, gross margins ranged from 30–65 percent based on accounting data.",
+      error: /analytical_measure_context_missing/u,
+    },
+    {
+      source: "Konkurransetilsynet har mottatt resultatoppstillinger og balanser fra 14 av de 16 leverandørene som mottok informasjonspålegg, og fra samtlige tre dagligvarekjeder.",
+      text: "Konkurransetilsynet har mottatt resultatoppstillinger og balanser fra 14 av de 16 leverandørene som mottok informasjonspålegg, og fra samtlige tre dagligvarekjeder.",
+      evidence: "Konkurransetilsynet har mottatt resultatoppstillinger og balanser fra 14 av de 16 leverandørene som mottok informasjonspålegg, og fra samtlige tre dagligvarekjeder.",
+      error: /reported_dataset_context_missing/u,
+    },
+    {
+      source: "Konkurransetilsynet mottok resultatoppstillinger og balanser fra 14 av 16 leverandører.",
+      text: "Konkurransetilsynet mottok resultatoppstillinger og balanser fra 14 av 16 leverandører.",
+      evidence: "Konkurransetilsynet mottok resultatoppstillinger og balanser fra 14 av 16 leverandører.",
+      error: /reported_dataset_context_missing/u,
+    },
+    {
+      source: "The authority received data from 14 suppliers.",
+      text: "The authority received data from 14 suppliers.",
+      evidence: "The authority received data from 14 suppliers.",
+      error: /reported_dataset_context_missing/u,
+    },
+    {
+      source: "The authority obtained figures from 14 suppliers.",
+      text: "The authority obtained figures from 14 suppliers.",
+      evidence: "The authority obtained figures from 14 suppliers.",
+      error: /reported_dataset_context_missing/u,
+    },
+    {
+      source: "The authority collected figures from 14 suppliers.",
+      text: "The authority collected figures from 14 suppliers.",
+      evidence: "The authority collected figures from 14 suppliers.",
+      error: /reported_dataset_context_missing/u,
+    },
+    {
+      source: "Elektro og øvrige faghandelsprofiler inngår ikke i de innsendte dataene. Coop har levert tall for perioden 2018 til og med 2022.",
+      text: "Elektro og øvrige faghandelsprofiler inngår ikke i de innsendte dataene.",
+      evidence: "Elektro og øvrige faghandelsprofiler inngår ikke i de innsendte dataene.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      source: "Electro profiles are absent from submitted data.",
+      text: "Electro profiles are absent from submitted data.",
+      evidence: "Electro profiles are absent from submitted data.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      source: "The dataset excludes electro profiles.",
+      text: "The dataset excludes electro profiles.",
+      evidence: "The dataset excludes electro profiles.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      source: "Electro profiles are omitted from the submitted dataset.",
+      text: "Electro profiles are omitted from the submitted dataset.",
+      evidence: "Electro profiles are omitted from the submitted dataset.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      source: "Electro profiles were left out of the submitted dataset.",
+      text: "Electro profiles were left out of the submitted dataset.",
+      evidence: "Electro profiles were left out of the submitted dataset.",
+      error: /material_exclusion_scope_missing/u,
+    },
+  ] as const;
+
+  for (const row of cases) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  }
+});
+
+test("rejects Pilot18 detached share, ownership and method references", () => {
+  const cases = [
+    {
+      source: "I 2024 nådde europeiske EMV-salg 352 milliarder euro, med en samlet markedsandel på 38,5 % av dagligvaremarkedets verdi. I 2025 økte dette ytterligere til 384 milliarder euro og 38,7 %.",
+      text: "I 2024 nådde europeiske EMV-salg 352 milliarder euro med en samlet markedsandel på 38,5 % av dagligvaremarkedets verdi, og i 2025 økte salget til 384 milliarder euro og 38,7 %.",
+      evidence: "I 2024 nådde europeiske EMV-salg 352 milliarder euro, med en samlet markedsandel på 38,5 % av dagligvaremarkedets verdi. I 2025 økte dette ytterligere til 384 milliarder euro og 38,7 %.",
+      error: /share_measure_missing/u,
+    },
+    {
+      source: "In 2024 European EMV sales reached 352 billion euros with a market share of 38.5% of grocery-market value, in 2025 sales rose to 384 billion euros and 38.7%.",
+      text: "In 2024 European EMV sales reached 352 billion euros with a market share of 38.5% of grocery-market value, in 2025 sales rose to 384 billion euros and 38.7%.",
+      evidence: "In 2024 European EMV sales reached 352 billion euros with a market share of 38.5% of grocery-market value, in 2025 sales rose to 384 billion euros and 38.7%.",
+      error: /share_measure_missing/u,
+    },
+    {
+      source: "In 2024 European EMV sales reached 352 billion euros with a market share of 38.5% of grocery-market value; in 2025 sales rose to 384 billion euros and 38.7%.",
+      text: "In 2024 European EMV sales reached 352 billion euros with a market share of 38.5% of grocery-market value; in 2025 sales rose to 384 billion euros and 38.7%.",
+      evidence: "In 2024 European EMV sales reached 352 billion euros with a market share of 38.5% of grocery-market value; in 2025 sales rose to 384 billion euros and 38.7%.",
+      error: /share_measure_missing/u,
+    },
+    {
+      source: "Mowi ASA. Storste aksjonaer: Geveran Trading Co. Ltd. (John Fredriksen) - ~14,4%.",
+      text: "Mowi ASA hadde Geveran Trading Co. Ltd. som største aksjonær, med ~14,4%.",
+      evidence: "Mowi ASA. Storste aksjonaer: Geveran Trading Co. Ltd. (John Fredriksen) - ~14,4%.",
+      error: /ownership_as_of_missing/u,
+    },
+    {
+      source: "Mowi eier Geveran. Årsrapport 2024.",
+      text: "Mowi eier Geveran. Årsrapport 2024.",
+      evidence: "Mowi eier Geveran. Årsrapport 2024.",
+      error: /ownership_as_of_missing/u,
+    },
+    {
+      source: "Et viktig funn er at et lite antall store selskaper ofte dekker 70–80 % av ressursbruken i en sektor, noe som gjør metoden praktisk gjennomførbar.",
+      text: "Et lite antall store selskaper dekker ofte 70–80 % av ressursbruken i en sektor i den beskrevne kartleggingsmetoden.",
+      evidence: "Et viktig funn er at et lite antall store selskaper ofte dekker 70–80 % av ressursbruken i en sektor, noe som gjør metoden praktisk gjennomførbar.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      source: "Et viktig poeng er at lokale variasjoner er store. Metoden måler vekt av innkjøpte materialer, ikke livsløp, energi, transport, vann eller menneskelige ressurser.",
+      text: "Ressurskartleggingsmetoden måler vekt av innkjøpte materialer, ikke livsløp, energi, transport, vann eller menneskelige ressurser.",
+      evidence: "Et viktig poeng er at lokale variasjoner er store. Metoden måler vekt av innkjøpte materialer, ikke livsløp, energi, transport, vann eller menneskelige ressurser.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      source: "Økonomiske data omregnes til fysiske materialmengder. Metoden bruker ikke GIS-data i denne sammenhengen.",
+      text: "Ressurskartleggingsmetoden bruker ikke GIS-data i denne sammenhengen.",
+      evidence: "Økonomiske data omregnes til fysiske materialmengder. Metoden bruker ikke GIS-data i denne sammenhengen.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      source: "The new method classifies costs.",
+      text: "The capital method classifies costs.",
+      evidence: "The new method classifies costs.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      source: "Their method classifies costs.",
+      text: "The capital method classifies costs.",
+      evidence: "Their method classifies costs.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      source: "Metoden klassifiserer kostnader. Tilnærmingen fokuserer på regnskapstall.",
+      text: "Konkurransetilsynets kapitalmetode klassifiserer kostnader.",
+      evidence: "Metoden klassifiserer kostnader. Tilnærmingen fokuserer på regnskapstall.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      source: "Kostnader beskrives. Metoden klassifiseres. Metoden for lønnsomhet er beskrevet i kapittel 3.",
+      text: "Konkurransetilsynets kapitalmetode klassifiserer kostnader.",
+      evidence: "Kostnader beskrives. Metoden klassifiseres. Metoden for lønnsomhet er beskrevet i kapittel 3.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      source: "Kostnader beskrives. Metoden klassifiseres. Kapitalmetoden er beskrevet separat.",
+      text: "Konkurransetilsynets kapitalmetode klassifiserer kostnader.",
+      evidence: "Kostnader beskrives. Metoden klassifiseres. Kapitalmetoden er beskrevet separat.",
+      error: /evidence_context_dependent/u,
+    },
+  ] as const;
+
+  for (const row of cases) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  }
+});
+
+test("rejects Pilot18 survey result units reported as no-material-claim", () => {
+  const cases = [
+    "What are the main activities performed by the company? Most companies are dedicated to primary production (close to 70%).",
+    "How many years of experience does your company have? On average, companies have approximately 9.5 years of industry experience.",
+    "Which species does your company produce? Most insect food companies produce yellow mealworm (50%), followed by house cricket (33,4%).",
+    "The total production of insects for human consumption in 2023 was 802,65 tonnes. This marks a substantial increase compared to 2022.",
+    "The total production foreseen for 2025 is 2 755,44 tonnes. The total forecasted insect food production in 2030 is 43 044,2 tonnes.",
+    "When asked to rank the most important factors for business growth, respondents identified regulatory barriers, consumer acceptance and funding opportunities.",
+    "When asked to rank the factors limiting growth, companies identified consumer reluctance, regulatory constraints and limited availability as the primary obstacles.",
+    "Respondentene identifiserte regulatoriske barrierer, forbrukeraksept og finansieringsmuligheter.",
+    "Totalt svarte 19 respondenter.",
+    "Totalt svarte 19 selskaper.",
+    "Totalt svarte 19 produsenter.",
+    "The total response count was 14.",
+    "The total number of respondents was 19.",
+    "The response total was 19.",
+    "There were 19 respondents.",
+    "The survey received 19 responses.",
+    "The survey gathered 19 responses.",
+    "The total response count was: 14.",
+    "The survey received 19 survey responses.",
+    "The forecast is 43 044 tonnes in 2030.",
+    "The forecast was 43 044 tonnes in 2030.",
+    "Forecasted production is 43 044 tonnes in 2030.",
+    "The projected production is 43 044 tonnes in 2030.",
+    "Forecast: 43 044 tonnes in 2030.",
+    "Forecasted output is 43 044 tonnes in 2030.",
+    "Prognosen er 43 044 tonn i 2030.",
+    "Prognose: 43 044 tonn i 2030.",
+    "Prognosen for 2030 er 43 044 tonn.",
+    "Respondents reported that regulatory barriers were important.",
+    "Most respondents selected regulatory barriers.",
+    "Respondents ranked funding opportunities first.",
+    "Companies reported consumer reluctance as a barrier.",
+    "Respondentene rapporterte at regulatoriske barrierer var viktige.",
+    "Flest respondenter valgte regulatoriske barrierer.",
+    "Respondentene rangerte finansiering først.",
+    "Selskapene oppga forbrukermotstand som en hindring.",
+    "De fleste selskapene foretrakk primærproduksjon.",
+    "Projected revenue is 10 million euros in 2030.",
+    "The forecast for 2030 is 43 044 units.",
+    "Forecasted production is expected to double by 2030.",
+    "The projection is 2.5 million euros by 2030.",
+    "Projisert omsetning er 10 millioner euro i 2030.",
+    "Prognosen for 2030 er 43 044 enheter.",
+  ];
+  for (const text of cases) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "no_material_claim" }],
+      claims: [],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /material_claim_omission/u, text);
+  }
+});
+
+test("keeps Pilot18 headings, contents and questions eligible for no-material coverage", () => {
+  const cases = [
+    "Contents\nMain findings\nAppendix",
+    "## Findings\n",
+    "Konkurransetilsynet finner hvilke priser?",
+    "Studien finner?",
+    "## Findings\nWhat are the main activities performed by the company?",
+    "Method\nWhat method was used?",
+    "Konkurransetilsynet finner hvilke priser?\nAlternativ A",
+    "Studien finner?\nSvar: A",
+    "## Findings\nWhat are the main activities performed by the company?\nOptions: A, B",
+    "Method\nWhat method was used?\nSelect one.",
+    "Contents\nMain findings\n1. Introduction",
+    "Table of contents\nFindings\n1. Methodology",
+    "Innhold\nHovedfunn\n1. Metode",
+    "## Findings\nHva fant studien?\nSvaralternativer: A, B",
+  ];
+  for (const text of cases) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "no_material_claim" }],
+      claims: [],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), text);
+  }
+});
+
+test("rejects Pilot18 document and attribution evidence bypasses", () => {
+  const cases = [
+    {
+      source: "Dette dokumentet er importert som metadata fra en lokal PDF.",
+      text: "Konkurransetilsynets rapport er importert som metadata.",
+      evidence: "Dette dokumentet er importert som metadata fra en lokal PDF.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      source: "Prisene steg.",
+      text: "Ifølge Konkurransetilsynet steg prisene.",
+      evidence: "Prisene steg.",
+      error: /actor_attribution_not_source_visible/u,
+    },
+    {
+      source: "Prisene steg.",
+      text: "Konkurransetilsynet oppgir at prisene steg.",
+      evidence: "Prisene steg.",
+      error: /actor_attribution_not_source_visible/u,
+    },
+    {
+      source: "Kildeopplysningen står først. Dette dokumentet er registrert lokalt.",
+      text: "Konkurransetilsynets rapport er importert.",
+      evidence: "Kildeopplysningen står først. Dette dokumentet er registrert lokalt.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      source: "I metadata er dette dokumentet importert fra en lokal PDF.",
+      text: "Konkurransetilsynets rapport er importert.",
+      evidence: "I metadata er dette dokumentet importert fra en lokal PDF.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      source: "Ifølge CMA steg prisene.",
+      text: "Ifølge CMA steg prisene, og Statistics Norway rapporterte kostnadene.",
+      evidence: "Ifølge CMA steg prisene.",
+      error: /actor_attribution_not_source_visible/u,
+    },
+    {
+      source: "Statistics Norway reported costs.",
+      text: "CMA, which reported prices, and Statistics Norway reported costs.",
+      evidence: "Statistics Norway reported costs.",
+      error: /actor_attribution_not_source_visible/u,
+    },
+    {
+      source: "Dette dokument er importert som metadata fra en lokal PDF.",
+      text: "Dette dokument er importert som metadata fra en lokal PDF.",
+      evidence: "Dette dokument er importert som metadata fra en lokal PDF.",
+      error: /context_dependent_claim/u,
+    },
+    {
+      source: "I metadata omtales dokumentet som lokalt.",
+      text: "I metadata omtales dokumentet som lokalt.",
+      evidence: "I metadata omtales dokumentet som lokalt.",
+      error: /context_dependent_claim/u,
+    },
+    {
+      source: "Disse dokumentene er importert som metadata.",
+      text: "Disse dokumentene er importert som metadata.",
+      evidence: "Disse dokumentene er importert som metadata.",
+      error: /context_dependent_claim/u,
+    },
+  ] as const;
+  for (const row of cases) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  }
+});
+
+test("keeps scoped Pilot18 counterparts eligible", () => {
+  const cases = [
+    "Konkurransetilsynets lønnsomhetsrapport er importert som metadata fra en lokal PDF i research/evidence-pack.",
+    "This document (the 2024 report) is imported as metadata.",
+    "Dette dokumentet: Konkurransetilsynets rapport 2024 er importert som metadata.",
+    "Dette dokumentet — Konkurransetilsynets rapport 2024 — er importert som metadata.",
+    "For åtte leverandører i 2017–2022 varierte absolutt bruttomargin mellom 30 og 65 prosent, basert på regnskapsdata i Konkurransetilsynets analyse.",
+    "Per rapportdatoen 2024 hadde Konkurransetilsynet mottatt resultatoppstillinger og balanser fra 14 av 16 leverandører og alle tre dagligvarekjedene.",
+    "Per report date 2024, the authority has received income statements and balance sheets from 14 suppliers for the 2024 reporting period.",
+    "Elektro og øvrige faghandelsprofiler inngår ikke i Coops innsendte tall for perioden 2018–2022.",
+    "I 2025 var europeiske EMV-salg 384 milliarder euro og markedsandelen var 38,7 prosent av dagligvaremarkedets verdi.",
+    "Per 31.12.2024 hadde Mowi ASA Geveran Trading Co. Ltd. som største aksjonær med omtrent 14,4 prosent.",
+    "Et lite antall store selskaper dekker ofte 70–80 prosent av ressursbruken i en sektor, noe som gjør den regionale ressurskartleggingsmetoden praktisk gjennomførbar.",
+    "Dette dokumentet, Konkurransetilsynets rapport 2024, er importert som metadata.",
+    "Ifølge Konkurransetilsynet steg prisene i Norge i 2024.",
+  ];
+  for (const text of cases) {
+    const job = verifiedJob([text]);
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [claim(job, 0, text)],
+      }),
+    }), text);
+  }
+});
+
 function verifiedJob(texts: string[]): LibraryAnalysisVerifiedJob {
   const units = texts.map((text, ordinal) => ({
     descriptor: unit(String(ordinal), ordinal, text),
