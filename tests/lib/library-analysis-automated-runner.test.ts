@@ -169,7 +169,7 @@ test("a response batch is fully validated before its one transaction starts", as
   assert.equal(transactions, 1);
 });
 
-test("legacy analysis ingestion enforces the 1.0.9 locality policy", async () => {
+test("legacy analysis ingestion enforces the 1.0.10 locality policy", async () => {
   for (const row of [
     {
       source: "I 2022 økte både produsentprisene og forbrukerprisene kraftig.",

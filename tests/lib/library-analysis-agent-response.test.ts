@@ -120,7 +120,46 @@ const PILOT10_UNRESOLVED_CLAIMS = [
       evidence: "For eksempel ble det identifisert at bygg og anlegg bør brytes ned i mer detaljerte kategorier.",
       error: /identification_actor_missing/u,
     },
-  ] as const;
+] as const;
+
+const PILOT11_UNRESOLVED_CLAIMS = [
+  {
+    source: "Konkurransetilsynet har bedt aktørene som inngår i kartleggingen levere balanseoppstillinger etter mal fra regnskapslovens § 6-2.",
+    text: "Konkurransetilsynet har bedt aktørene levere balanseoppstillinger etter mal fra regnskapslovens § 6-2.",
+    evidence: "Konkurransetilsynet har bedt aktørene som inngår i kartleggingen levere balanseoppstillinger etter mal fra regnskapslovens § 6-2.",
+    error: /mapped_actor_scope_missing/u,
+  },
+  {
+    source: "Konkurransetilsynet finner at avkastningen i driften er på sitt høyeste i 2020, altså at dette er det mest lønnsomme året i perioden.",
+    text: "Konkurransetilsynet finner at avkastningen i driften er på sitt høyeste i 2020, som er det mest lønnsomme året i perioden.",
+    evidence: "Konkurransetilsynet finner at avkastningen i driften er på sitt høyeste i 2020, altså at dette er det mest lønnsomme året i perioden.",
+    error: /period_scope_missing/u,
+  },
+  {
+    source: "This survey was conducted online in 2023, gathering responses from 19 EU insect farming companies.",
+    text: "This survey was conducted online in 2023, gathering responses from 19 EU insect farming companies.",
+    evidence: "This survey was conducted online in 2023, gathering responses from 19 EU insect farming companies.",
+    error: /study_identity_missing/u,
+  },
+  {
+    source: "Metoden er dokumentert og mulig å bruke over tid, men tilgang til god data og riktig organisering av datainnsamlingen er helt avgjørende for å lykkes i praksis.",
+    text: "Tilnærmingen er dokumentert og mulig å bruke over tid, men tilgang til god data og riktig organisering av datainnsamlingen er helt avgjørende for å lykkes i praksis.",
+    evidence: "Metoden er dokumentert og mulig å bruke over tid, men tilgang til god data og riktig organisering av datainnsamlingen er helt avgjørende for å lykkes i praksis.",
+    error: /context_dependent/u,
+  },
+  {
+    source: "Analysen har i hovedsak et produksjonsperspektiv.",
+    text: "Tilnærmingen har i hovedsak et produksjonsperspektiv.",
+    evidence: "Analysen har i hovedsak et produksjonsperspektiv.",
+    error: /context_dependent_claim/u,
+  },
+  {
+    source: "Kartleggingsmetoden som nå er brukt, er den første som faktisk har gitt konkret og anvendbar data til denne indikatoren.",
+    text: "Kartleggingsmetoden som nå er brukt, er den første som faktisk har gitt konkret og anvendbar data til denne indikatoren.",
+    evidence: "Kartleggingsmetoden som nå er brukt, er den første som faktisk har gitt konkret og anvendbar data til denne indikatoren.",
+    error: /indicator_context_missing/u,
+  },
+] as const;
 
 for (const [index, row] of PILOT10_UNRESOLVED_CLAIMS.entries()) {
   test(`rejects Pilot10 unresolved claim ${index + 1}: ${row.error.source}`, () => {
@@ -139,6 +178,121 @@ for (const [index, row] of PILOT10_UNRESOLVED_CLAIMS.entries()) {
     }), row.error, row.text);
   });
 }
+
+for (const [index, row] of PILOT11_UNRESOLVED_CLAIMS.entries()) {
+  test(`rejects Pilot11 unresolved claim ${index + 1}: ${row.error.source}`, () => {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  });
+}
+
+test("rejects adversarial Pilot11 period, survey, method and actor-scope bypasses", () => {
+  for (const row of [
+    { text: "The report compares 2017 and 2020. During the period, prices increased.", error: /period_scope_missing/u },
+    { text: "The period from 2017 to 2022 was analyzed. During the period, prices increased.", error: /period_scope_missing/u },
+    { text: "Over the period, prices increased.", error: /period_scope_missing/u },
+    { text: "After the period, prices increased.", error: /period_scope_missing/u },
+    { text: "In that period, prices increased.", error: /period_scope_missing/u },
+    { text: "I den perioden steg prisene.", error: /period_scope_missing/u },
+    { text: "For period 2017, prices increased.", error: /period_scope_missing/u },
+    { text: "Period 2017 was characterized by growth.", error: /period_scope_missing/u },
+    { text: "For the period 2017 to 2022, prices increased.", source: "For the period 2017, prices increased.", error: /period_scope_missing/u },
+    { text: "This survey, conducted online in 2023, gathered responses from 19 companies.", error: /study_identity_missing/u },
+    { text: "This survey gathered responses from 19 companies.", error: /study_identity_missing/u },
+    { text: "In this survey, respondents ranked funding first among 19 companies.", error: /study_identity_missing/u },
+    { text: "I denne undersøkelsen svarte 19 selskaper på spørsmålene.", error: /study_identity_missing/u },
+    { text: "The approach is documented and reusable over time.", error: /context_dependent_claim/u },
+    { text: "The method is documented and reusable over time.", error: /context_dependent_claim/u },
+    { text: "An approach is documented and reusable over time.", error: /context_dependent_claim/u },
+    { text: "Our method is documented and reusable over time.", error: /context_dependent_claim/u },
+    { text: "Methods are documented and reusable over time.", error: /context_dependent_claim/u },
+    { text: "This method is documented and reusable over time.", error: /context_dependent_claim/u },
+    { text: "This approach is documented and reusable over time.", error: /context_dependent_claim/u },
+    { text: "The methodology is documented and reusable over time.", error: /context_dependent_claim/u },
+    { text: "The actors submitted data.", source: "The actors included in the mapping submitted data.", error: /mapped_actor_scope_missing/u },
+    { text: "All actors, including the actors included in the mapping in Norway, submitted data.", source: "The actors included in the mapping submitted data.", error: /mapped_actor_scope_missing/u },
+    { text: "Alle aktører, også aktørene som inngår i kartleggingen i Norge, leverte data.", source: "Aktørene som inngår i kartleggingen leverte data.", error: /mapped_actor_scope_missing/u },
+    { text: "Actors generally, including the actors included in the mapping in Norway, submitted data.", source: "The actors included in the mapping submitted data.", error: /mapped_actor_scope_missing/u },
+    { text: "Every actor, including the actors included in the mapping, submitted data.", source: "The actors included in the mapping submitted data.", error: /mapped_actor_scope_missing/u },
+    { text: "Samtlige aktører, også aktørene som inngår i kartleggingen, leverte data.", source: "Aktørene som inngår i kartleggingen leverte data.", error: /mapped_actor_scope_missing/u },
+    { text: "Every participating actor, including the actors included in the mapping, submitted data.", source: "The actors included in the mapping submitted data.", error: /mapped_actor_scope_missing/u },
+    { text: "All market participants, including the actors included in the mapping, submitted data.", source: "The actors included in the mapping submitted data.", error: /mapped_actor_scope_missing/u },
+    { text: "Alle markedsaktører, også aktørene som inngår i kartleggingen, leverte data.", source: "Aktørene som inngår i kartleggingen leverte data.", error: /mapped_actor_scope_missing/u },
+    { text: "Actors submitted data.", source: "Actors covered by mapping submitted data.", error: /mapped_actor_scope_missing/u },
+    { text: "Actors submitted data.", source: "Actors within the mapping submitted data.", error: /mapped_actor_scope_missing/u },
+    { text: "Actors submitted data.", source: "Actors included in mapping submitted data.", error: /mapped_actor_scope_missing/u },
+    { text: "Actors submitted data.", source: "Actors selected for mapping submitted data.", error: /mapped_actor_scope_missing/u },
+    { text: "Actors submitted data.", source: "Actors taking part in the mapping submitted data.", error: /mapped_actor_scope_missing/u },
+    { text: "Aktørene leverte data.", source: "Aktørene som deltar i kartleggingen leverte data.", error: /mapped_actor_scope_missing/u },
+    { text: "This indicator is used in the programme.", source: "The resource-efficiency indicator measures material use; this indicator is used in the programme.", error: /indicator_context_missing/u },
+  ]) {
+    const source = row.source ?? row.text;
+    const job = verifiedJob([source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: source }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  }
+});
+
+test("keeps locally named Pilot11 actor, indicator and study identities eligible", () => {
+  for (const text of [
+    "Konkurransetilsynet har bedt aktørene som inngår i kartleggingen levere balanseoppstillinger.",
+    "Indikatoren for ressurseffektivitet måler materialbruk; denne indikatoren brukes i miljøprogrammet.",
+    "The resource-efficiency indicator measures material use; this indicator is used in the environmental programme.",
+    "This indicator, called resource efficiency, is used in the programme.",
+    "This indicator (resource efficiency) is used in the programme.",
+    "This indicator — resource efficiency — is used in the programme.",
+    "This indicator, abbreviated RE, is used in the programme.",
+    "The Insect Farming Survey gathered responses from 19 EU companies in 2023.",
+    "This survey by IPIFF was conducted online in 2023, gathering responses from 19 companies.",
+    "This survey, called IPIFF FOOD MARKET, was conducted online in 2023, gathering responses from 19 companies.",
+    "This survey, known as IPIFF FOOD MARKET, was conducted online in 2023, gathering responses from 19 companies.",
+    "This study (IPIFF FOOD MARKET) was conducted online in 2023, gathering responses from 19 companies.",
+    "This survey — IPIFF FOOD MARKET — was conducted online in 2023, gathering responses from 19 companies.",
+    "This survey, from IPIFF FOOD MARKET, was conducted online in 2023, gathering responses from 19 companies.",
+    "During the period 2017–2020, prices increased.",
+    "I perioden 2017-2020 steg prisene.",
+    "During this period (2017–2020), prices increased.",
+    "Gjennom perioden (2017–2020) steg prisene.",
+    "The period covered 2017–2020.",
+    "The period ran from 2017 to 2020.",
+    "Tilnærmingen fokuserer på virksomheter med store innkjøp av materialer.",
+  ]) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, text)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), text);
+  }
+});
 
 test("keeps Pilot10 claim classes eligible when their local scope is explicit", () => {
   for (const text of [
@@ -755,7 +909,7 @@ test("rejects claims and evidence with unresolved causal or temporal context", (
         job,
         response,
       }),
-      /context_dependent_claim/u,
+      /(?:context_dependent_claim|period_scope_missing)/u,
     );
   }
 
@@ -775,7 +929,7 @@ test("rejects claims and evidence with unresolved causal or temporal context", (
     expectedModel: EXPECTED_MODEL,
     job: unrelatedYearJob,
     response: unrelatedYear,
-  }), /context_dependent_claim/u);
+  }), /period_scope_missing/u);
 });
 
 test("keeps explicit subjects and bounded periods eligible", () => {

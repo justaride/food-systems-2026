@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.9`
+Workflow version: `1.0.10`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.9`
+Prompt template version: `1.0.10`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
@@ -39,6 +39,8 @@ Treat a reported price change without its source-visible geography or market as 
 For possessive ownership, require the owned company identity in the evidence, not only owner, share and date. Treat an unresolved evidence opening such as `This survey` or its Norwegian equivalents as F4 when a named source identity appears only in the claim. For `sheet_range` evidence, treat a bare delimited row without header or explicit field labels as F4 when the claim interprets named fields.
 
 Treat a rewritten report-title assertion supported only by a bare title heading as F4 unless the excerpt includes an explicit report/title label or complete declarative title sentence. For figure and chart comparisons, omitted material caption or method qualifiers such as index base, transaction stage, exclusions or subsidy treatment are F3. Conflicting prose, chart or table values for the same measure and population must be surfaced; silently selecting one value is a material F5 omission.
+
+Automated validation must reject material actor-universe broadening, unbounded period references, unnamed deictic study openings, and unresolved approach or indicator references.
 
 ## Output boundary
 

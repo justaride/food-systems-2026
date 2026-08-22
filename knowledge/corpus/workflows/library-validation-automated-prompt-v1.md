@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.9`
+Prompt template version: `1.0.10`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.9`
+Workflow version: `1.0.10`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
@@ -39,5 +39,7 @@ Classify a reported price change without its source-visible geography or market 
 For possessive ownership statements, require the owned company identity in the evidence excerpt, not only the owner, percentage and date. Classify as F4 a named-survey claim whose evidence begins with unresolved `This survey`, `This questionnaire`, `This study` or a Norwegian equivalent without the name. For `sheet_range` units, classify a bare delimited row as F4 when the claim interprets named fields but the evidence provides neither the header nor explicit field labels.
 
 Classify as F4 a rewritten report-title assertion supported only by a bare title heading without an explicit report/title label or complete declarative title sentence. For figure- or chart-derived comparisons, use F3 when the excerpt drops materially relevant caption or method qualifiers such as index base, transaction stage, exclusions or subsidy treatment. When the same supplied unit gives conflicting prose, chart or table values for the same measure and population, require the assertion to state the discrepancy and both values; silently selecting one value is a material F5 omission.
+
+Classify as F3 a claim that broadens a source-visible actor universe, including dropping `som inngår i kartleggingen`, or refers to `perioden` without both boundary years. Classify as F4 a bare deictic study opening, a generic `tilnærmingen`, or `denne indikatoren` when the identity is absent from the same claim and evidence excerpt.
 
 Do not rewrite the analysis into an approval. Do not claim human review, independent verification, accuracy, canonical status, promotion, rights clearance, publication, coverage or external readiness. A clean automated validation is still automated-only internal candidate evidence.

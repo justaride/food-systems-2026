@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.9`
+Prompt template version: `1.0.10`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.9`
+Workflow version: `1.0.10`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
@@ -41,5 +41,7 @@ Reported price changes must include the source-visible geography or market. Acto
 For possessive ownership statements, include the company whose ownership is described in the evidence, not just the owner, percentage and date. Do not rewrite evidence beginning `This survey`, `This questionnaire`, `This study`, `Denne undersøkelsen`, `Denne studien` or `Denne kartleggingen` into a named-source claim unless the excerpt itself includes that survey or report identity. For `sheet_range` input, a bare CSV/TSV row does not expose its field meanings; include header plus row, or explicit source-visible field labels, in the same evidence excerpt.
 
 A bare title heading is not sufficient evidence for a rewritten statement that a report has that title; include an explicit source-visible report/title label or complete declarative title sentence. For chart- or figure-derived comparisons, preserve the materially relevant caption and method qualifiers, including index base, transaction stage, exclusions and subsidy treatment when they change the interpretation. If prose, chart or table values conflict within the supplied unit for the same measure and population, do not silently select one value: emit `no_material_claim`, or emit a supported `gap` or `contradiction` assertion that states the discrepancy with both values and scopes.
+
+Preserve a source-visible actor universe such as `aktørene som inngår i kartleggingen`; do not shorten it to all actors. A reference to `perioden` or `the period` must state both boundary years locally. Reject bare `This survey was`, `This study was` and equivalent Norwegian openings unless the study identity is in the same claim and excerpt. Treat bare `tilnærmingen` and `denne indikatoren` as unresolved unless the approach or indicator is named locally.
 
 Return only the strict candidate payload grammar. Do not claim approval, human review, independent verification, accuracy, canonical status, rights clearance, publication, coverage or external readiness. Do not include instructions to the later validator and do not predict its findings.

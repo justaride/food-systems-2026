@@ -74,13 +74,15 @@ const responseCoreSchema = z.object({
 }).strict();
 
 const CONTEXT_DEPENDENT_OPENING = /^(?:derfor|dermed|følgelig|således|therefore|thus|hence|consequently)\b/iu;
-const UNBOUNDED_PERIOD_REFERENCE = /(?:\b(?:during|throughout|across|in|for)\s+(?:the|this)\s+period\b|\b(?:gjennom|over|i)\s+(?:denne\s+)?perioden\b)/iu;
+const BOUNDED_YEAR_RANGE = /\b(?:19|20)\d{2}\b\s*(?:[-–—]|to|through|until|and|til(?:\s+og\s+med)?|gjennom|og)\s*\b(?:19|20)\d{2}\b/iu;
+const EXPLICIT_SCOPED_APPROACH = /\b(?:tilnærmingen\s+fokuserer\s+på|the\s+approach\s+focuses\s+on)(?=\s|[.,;:]|$)/iu;
 const UNANCHORED_RELATIVE_REFERENCE = /\b(?:i\s+økende\s+grad|de\s+siste\s+to\s+tiårene|foreløpig|currently)\b/iu;
 const AUDITED_GENERIC_SUBJECT = /^(?:(?:oppgaven|studien)\s+(?:dokumenterer|finner|viser)|(?:the\s+(?:study|assignment))\s+(?:documents?|finds?|shows?))\b/iu;
 const AUDITED_HERE_REFERENCE = /^(?:driftsinntekter\s+her\s+økte|revenue\s+here\s+increased)\b/iu;
 const ANOTHER_FACTOR = /\b(?:en\s+annen\s+faktor|another\s+factor)\b/iu;
 const PRIOR_FACTOR = /\b(?:faktor|factor)\b/iu;
-const UNRESOLVED_GENERIC_REFERENCE = /\b(?:arbeidet(?!\s+(?:med|for|av)\b)|metoden(?!\s+(?:for|til|med)\b)|kartleggingen(?!\s+(?:av|for|i)\b)|kartleggingene|resultatet(?!\s+(?:av|fra|for|i)\b)|resultatene(?!\s+(?:av|fra|for|i)\b)|the\s+results?(?!\s+(?:of|from|for|in)\b))\b/iu;
+const UNRESOLVED_GENERIC_REFERENCE = /\b(?:arbeidet(?!\s+(?:med|for|av)\b)|metoden(?!\s+(?:for|til|med)\b)|tilnærmingen(?!\s+(?:for|til|med|fokuserer\s+på)\b)|kartleggingen(?!\s+(?:av|for|i)\b)|kartleggingene|resultatet(?!\s+(?:av|fra|for|i)\b)|resultatene(?!\s+(?:av|fra|for|i)\b)|the\s+work(?!\s+(?:on|for|of)\b)|the\s+method(?!\s+(?:for|of|to|using)\b)|the\s+approach(?!\s+(?:for|to|using|focuses\s+on)\b)|the\s+mapping(?!\s+(?:of|for)\b)|the\s+results?(?!\s+(?:of|from|for|in)\b))\b/iu;
+const UNRESOLVED_GENERIC_METHOD_OPENING = /^(?:(?:(?:an?|the|our|this)\s+)?(?:approach(?:es)?|methods?|methodolog(?:y|ies))(?!\s+(?:for|of|to|using|on)\b)|(?:(?:en|et|vår|denne)\s+)?(?:tilnærming(?:en|er|ene)?|metod(?:e|en|er|ene))(?!(?:\s+(?:for|til|med|av)\b|\s+fokuserer\s+på(?=\s|[.,;:]|$))))\b/iu;
 const BARE_APPENDIX_REFERENCE = /^(?:i\s+dette\s+vedlegget|in\s+this\s+appendix)\b/iu;
 const UNNAMED_AUTHORITY_ANALYSIS = /(?:\btilsynets\s+(?:(?:analyser|analyse)\b(?!\s+(?:av|om|for|i|fra|basert\s+på)(?:\s|$))|datagrunnlag\b)|\bthe\s+authority['’]s\s+(?:(?:analyses|analysis)\b(?!\s+(?:of|on|for|in|from|based\s+on)\b)|data\s+basis\b))/iu;
 const NAMED_AUTHORITY = /\b(?:Konkurransetilsynet(?:s)?|Norwegian\s+Competition\s+Authority|Competition\s+and\s+Markets\s+Authority|CMA)\b/iu;
@@ -111,8 +113,17 @@ const FRANCHISE_SCOPE = /\b(?:franchise[- ]owned\s+stores?|franchiseeide\s+butik
 const POSSESSIVE_OWNERSHIP_TARGET = /\b(?:is|was)\s+(?:(?:listed|identified|reported)\s+as\s+)?(?:the\s+)?([\p{L}\p{N}.& -]{2,80}?)'s\s+(?:largest|majority|controlling)\s+(?:owner|shareholder)\b/iu;
 const NORWEGIAN_POSSESSIVE_OWNERSHIP_TARGET = /\b(?:er|var)\s+([\p{Lu}][\p{L}\p{N}.& -]{1,80}?)s\s+største\s+eier\b/u;
 const CONTEXT_DEPENDENT_EVIDENCE_OPENING = /^(?:this\s+(?:survey|questionnaire|study)|denne\s+(?:undersøkelsen|studien|kartleggingen))\b/iu;
+const DEICTIC_STUDY_REFERENCE = /\b(?:this\s+(?:survey|questionnaire|study)|denne\s+(?:undersøkelsen|studien|kartleggingen))\b/iu;
+const UNRESOLVED_INDICATOR_REFERENCE = /\b(?:denne\s+indikatoren|this\s+indicator)\b/iu;
+const MAPPED_ACTOR_SCOPE = /\b(?:(?:actors?|participants?)\b[^.;!?\n]{0,80}\b(?:the\s+)?mapping|(?:[\p{L}-]*aktør(?:er|ene)?|deltaker(?:e|ne)?)\b[^.;!?\n]{0,80}\bkartleggingen)\b/iu;
+const BROAD_ALL_ACTORS = /\b(?:(?:all|every|each)\s+(?:[\p{L}-]+\s+){0,4}(?:actors?|participants?)|each\s+of\s+the\s+(?:actors?|participants?)|(?:alle|samtlige|enhver|hver)\s+(?:[\p{L}-]+\s+){0,4}(?:[\p{L}-]*aktør(?:er|ene)?|deltaker(?:e|ne)?)|(?:actors?|participants?)\s+(?:generally|in\s+general))\b/iu;
 const NAMED_STUDY_IDENTITY = /\b(?:the\s+)?([A-Z][A-Z0-9&.-]{2,})\s+(?:survey|questionnaire|study)\b/u;
 const NAMED_NORWEGIAN_STUDY_IDENTITY = /\b([A-ZÆØÅ][A-ZÆØÅ0-9&.-]{2,})[- ](?:undersøkelsen|studien|kartleggingen)\b/u;
+const TITLE_CASE_STUDY_IDENTITY = /\b(?:the\s+)?([A-Z][\p{L}\p{M}-]+(?:\s+[A-Z][\p{L}\p{M}-]+){1,5})\s+(?:survey|questionnaire|study)\b/u;
+const DEICTIC_STUDY_BY_IDENTITY = /\bthis\s+(?:survey|questionnaire|study)\s+by\s+([A-Z][\p{L}\p{M}0-9&.-]+)\b/iu;
+const DEICTIC_STUDY_CALLED_IDENTITY = /\b(?:this\s+(?:survey|questionnaire|study)|denne\s+(?:undersøkelsen|studien|kartleggingen))\s*,\s*(?:called|known\s+as|from|kalt|kjent\s+som|fra)\s+([\p{L}\p{N}][\p{L}\p{M}\p{N}&.' -]{1,100}?)(?=\s*,|\s+(?:was|is|ble|var|er)\b)/iu;
+const DEICTIC_STUDY_PAREN_IDENTITY = /\b(?:this\s+(?:survey|questionnaire|study)|denne\s+(?:undersøkelsen|studien|kartleggingen))\s*\(\s*([\p{L}\p{N}][^)]{1,100}?)\s*\)/iu;
+const DEICTIC_STUDY_DASH_IDENTITY = /\b(?:this\s+(?:survey|questionnaire|study)|denne\s+(?:undersøkelsen|studien|kartleggingen))\s+[—–-]\s*([^—–-]{2,100}?)\s*[—–-]/iu;
 const EXPLICIT_TABULAR_FIELDS = /\b(?:id|priority|status|country|coding_target|next_action)\s*[:=]/iu;
 const DELIMITED_ROW = /^(?:[^,\t]*[,\t]){1,}[^,\t]*$/u;
 const ENGLISH_EXCLUSION_AFTER_MARKER = /\b(?:excludes?|does\s+not\s+include|did\s+not\s+include)\s+([^.;,:]{2,120})/iu;
@@ -269,24 +280,95 @@ function reportingBasisIds(value: string): Set<string> {
   return ids;
 }
 
+function hasUnboundedPeriodReference(value: string): boolean {
+  for (const match of value.matchAll(/\b(?:period|perioden|periode)\b/giu)) {
+    const offset = match.index;
+    const before = value.slice(0, offset);
+    const after = value.slice(offset);
+    const sentenceStart = Math.max(
+      before.lastIndexOf("."),
+      before.lastIndexOf("!"),
+      before.lastIndexOf("?"),
+      before.lastIndexOf(";"),
+      before.lastIndexOf("\n"),
+    ) + 1;
+    const sentenceEndOffset = [".", "!", "?", ";", "\n"]
+      .map((boundary) => after.indexOf(boundary))
+      .filter((candidate) => candidate >= 0)
+      .reduce((minimum, candidate) => Math.min(minimum, candidate), after.length);
+    const sentence = value.slice(sentenceStart, offset + sentenceEndOffset);
+    if (!BOUNDED_YEAR_RANGE.test(sentence)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function hasResolvedIndicatorReference(value: string): boolean {
+  return /(?:indikatoren\s+(?:for|om|kalt|heter)|indicator\s+(?:for|of|called|named)|[\p{L}\p{M}-]+\s+indicator\b)[\s\S]{0,240}(?:denne\s+indikatoren|this\s+indicator)/iu.test(value) ||
+    /(?:denne\s+indikatoren|this\s+indicator)\s*,?\s*(?:kalt|heter|forkortet|called|named|known\s+as|abbreviated)\s+[\p{L}\p{N}][\p{L}\p{M}\p{N}&.' -]{1,100}/iu.test(value) ||
+    /(?:denne\s+indikatoren|this\s+indicator)\s*(?:\(\s*[^)]{2,100}\s*\)|[—–-]\s*[^—–-]{2,100}\s*[—–-])/iu.test(value);
+}
+
 function assertSelfContainedClaimText(claimText: string, evidence: string): void {
   const normalizedClaim = claimText.trim();
   const normalizedEvidence = evidence.trim();
+  const namedStudyIdentity = NAMED_STUDY_IDENTITY.exec(normalizedClaim)?.[1] ??
+    NAMED_NORWEGIAN_STUDY_IDENTITY.exec(normalizedClaim)?.[1] ??
+    TITLE_CASE_STUDY_IDENTITY.exec(normalizedClaim)?.[1] ??
+    DEICTIC_STUDY_BY_IDENTITY.exec(normalizedClaim)?.[1] ??
+    DEICTIC_STUDY_CALLED_IDENTITY.exec(normalizedClaim)?.[1] ??
+    DEICTIC_STUDY_PAREN_IDENTITY.exec(normalizedClaim)?.[1] ??
+    DEICTIC_STUDY_DASH_IDENTITY.exec(normalizedClaim)?.[1];
   const anotherFactor = ANOTHER_FACTOR.exec(normalizedClaim);
   const unresolvedAnotherFactor = anotherFactor !== null &&
     !PRIOR_FACTOR.test(normalizedClaim.slice(0, anotherFactor.index));
   const unresolvedLocalReference = hasUnresolvedLocalReference(normalizedClaim);
+  const unresolvedGenericReference = UNRESOLVED_GENERIC_REFERENCE.test(normalizedClaim) &&
+    !MAPPED_ACTOR_SCOPE.test(normalizedClaim) &&
+    !EXPLICIT_SCOPED_APPROACH.test(normalizedClaim);
   if (
     CONTEXT_DEPENDENT_OPENING.test(normalizedClaim) ||
-    (UNBOUNDED_PERIOD_REFERENCE.test(normalizedClaim) && !EXPLICIT_YEAR.test(normalizedClaim)) ||
     (UNANCHORED_RELATIVE_REFERENCE.test(normalizedClaim) && !EXPLICIT_YEAR.test(normalizedClaim)) ||
     AUDITED_GENERIC_SUBJECT.test(normalizedClaim) ||
     AUDITED_HERE_REFERENCE.test(normalizedClaim) ||
     unresolvedAnotherFactor ||
-    UNRESOLVED_GENERIC_REFERENCE.test(normalizedClaim) ||
+    unresolvedGenericReference ||
+    UNRESOLVED_GENERIC_METHOD_OPENING.test(normalizedClaim) ||
     unresolvedLocalReference
   ) {
     throw new Error("agent_response_context_dependent_claim");
+  }
+  if (
+    hasUnboundedPeriodReference(normalizedClaim)
+  ) {
+    throw new Error("agent_response_period_scope_missing");
+  }
+  if (
+    namedStudyIdentity === undefined &&
+    (DEICTIC_STUDY_REFERENCE.test(normalizedClaim) ||
+      DEICTIC_STUDY_REFERENCE.test(normalizedEvidence))
+  ) {
+    throw new Error("agent_response_study_identity_missing");
+  }
+  if (
+    (UNRESOLVED_INDICATOR_REFERENCE.test(normalizedClaim) &&
+      !hasResolvedIndicatorReference(normalizedClaim)) ||
+    (UNRESOLVED_INDICATOR_REFERENCE.test(normalizedEvidence) &&
+      !hasResolvedIndicatorReference(normalizedEvidence))
+  ) {
+    throw new Error("agent_response_indicator_context_missing");
+  }
+  if (
+    MAPPED_ACTOR_SCOPE.test(normalizedEvidence) &&
+    (!MAPPED_ACTOR_SCOPE.test(normalizedClaim) || BROAD_ALL_ACTORS.test(normalizedClaim))
+  ) {
+    throw new Error("agent_response_mapped_actor_scope_missing");
+  }
+  if (
+    hasUnboundedPeriodReference(normalizedEvidence)
+  ) {
+    throw new Error("agent_response_period_scope_missing");
   }
   if (
     UNRESOLVED_RESULT_EVIDENCE.test(normalizedEvidence) ||
@@ -295,8 +377,6 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
   ) {
     throw new Error("agent_response_evidence_context_dependent");
   }
-  const namedStudyIdentity = NAMED_STUDY_IDENTITY.exec(normalizedClaim)?.[1] ??
-    NAMED_NORWEGIAN_STUDY_IDENTITY.exec(normalizedClaim)?.[1];
   if (
     CONTEXT_DEPENDENT_EVIDENCE_OPENING.test(normalizedEvidence) &&
     namedStudyIdentity !== undefined &&
@@ -522,7 +602,7 @@ function assertAuthorityLanguageIsSourceVisible(claimText: string, evidence: str
   }
 }
 
-export function assertLibraryAnalysisClaimLocalityV109(input: {
+export function assertLibraryAnalysisClaimLocalityV110(input: {
   claimText: string;
   evidence: string;
   sourceText: string;
@@ -793,7 +873,7 @@ export function validateLibraryAnalysisAgentSegmentResponse(
     if (!unit.text.includes(claim.evidence)) {
       throw new Error("agent_response_evidence_not_contained");
     }
-    assertLibraryAnalysisClaimLocalityV109({
+    assertLibraryAnalysisClaimLocalityV110({
       claimText: claim.text,
       evidence: claim.evidence,
       sourceText: unit.text,
