@@ -47,6 +47,564 @@ function unit(id: string, ordinal: number, text: string): LibraryAnalysisAgentQu
   };
 }
 
+const PILOT10_UNRESOLVED_CLAIMS = [
+    {
+      source: "Kun én av de syv leverandørene hadde lavere RNOA i 2020 enn i 2017. I snitt hadde leverandørene 35 og 28 prosent høyere avkastning i 2020 og 2021, målt mot 2017.",
+      text: "For syv leverandører var gjennomsnittlig avkastning 35 og 28 prosent høyere i 2020 og 2021, målt mot 2017.",
+      evidence: "Kun én av de syv leverandørene hadde lavere RNOA i 2020 enn i 2017. I snitt hadde leverandørene 35 og 28 prosent høyere avkastning i 2020 og 2021, målt mot 2017.",
+      error: /analytical_measure_context_missing/u,
+    },
+    {
+      source: "Kjøpmannseide butikker (franchise) inngår med andre ord ikke i tallene.",
+      text: "Kjøpmannseide butikker (franchise) inngår med andre ord ikke i tallene.",
+      evidence: "Kjøpmannseide butikker (franchise) inngår med andre ord ikke i tallene.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      source: "Tilsynets datagrunnlag på detaljistleddet omfatter butikker med om lag 165 milliarder kroner i omsetning i 2022.",
+      text: "Tilsynets datagrunnlag på detaljistleddet omfatter butikker med om lag 165 milliarder kroner i omsetning i 2022.",
+      evidence: "Tilsynets datagrunnlag på detaljistleddet omfatter butikker med om lag 165 milliarder kroner i omsetning i 2022.",
+      error: /context_dependent_claim/u,
+    },
+    {
+      source: "Økt etterspørsel under pandemien antas å være en viktig årsak til økt lønnsomhet. Samtidig understrekes det at Konkurransetilsynet ikke har analysert kausale sammenhenger.",
+      text: "Konkurransetilsynet har ikke analysert kausale sammenhenger mellom økt etterspørsel under pandemien og økt lønnsomhet for leverandørene.",
+      evidence: "Økt etterspørsel under pandemien antas å være en viktig årsak til økt lønnsomhet. Samtidig understrekes det at Konkurransetilsynet ikke har analysert kausale sammenhenger.",
+      error: /evidence_incomplete/u,
+    },
+    {
+      source: "I 2022 økte både produsentprisene og forbrukerprisene kraftig.",
+      text: "I 2022 økte både produsentprisene og forbrukerprisene kraftig.",
+      evidence: "I 2022 økte både produsentprisene og forbrukerprisene kraftig.",
+      error: /price_geography_missing/u,
+    },
+    {
+      source: "Prisene for dagligvarer økte moderat i perioden 2017 til 2020.",
+      text: "Prisene for dagligvarer økte moderat i perioden 2017 til 2020.",
+      evidence: "Prisene for dagligvarer økte moderat i perioden 2017 til 2020.",
+      error: /price_geography_missing/u,
+    },
+    {
+      source: "Statusmøtet 13. april 2026 noterte 250 000 kr per transition group (Cities + Food).",
+      text: "Nordic Innovation Hotspot Transition Groups oppga et budsjett på 250 000 kr per transition group (Cities + Food).",
+      evidence: "Statusmøtet 13. april 2026 noterte 250 000 kr per transition group (Cities + Food).",
+      error: /actor_attribution_not_source_visible/u,
+    },
+    {
+      source: "Statusmøtet 13. april 2026 noterte totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      text: "Nordic Innovation Hotspot oppga totalt 500 000 kr for Transition Groups (Cities + Food).",
+      evidence: "Statusmøtet 13. april 2026 noterte totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      error: /actor_attribution_not_source_visible/u,
+    },
+    {
+      source: "I Norden følger EMV-utviklingen det europeiske mønsteret med visse særtrekk.",
+      text: "I Norden følger EMV-utviklingen det europeiske mønsteret med visse særtrekk.",
+      evidence: "I Norden følger EMV-utviklingen det europeiske mønsteret med visse særtrekk.",
+      error: /comparison_context_missing/u,
+    },
+    {
+      source: "Empiriske studier viser at EMV-vekst kan redusere det totale innovasjonsnivået i matsektoren.",
+      text: "Empiriske studier viser at EMV-vekst kan redusere det totale innovasjonsnivået i matsektoren.",
+      evidence: "Empiriske studier viser at EMV-vekst kan redusere det totale innovasjonsnivået i matsektoren.",
+      error: /unnamed_study_authority/u,
+    },
+    {
+      source: "Sammenlignet med litteraturen bruker kjedene bare en begrenset del av virkemidlene for et mer plantebasert kosthold.",
+      text: "Sammenlignet med litteraturen bruker kjedene bare en begrenset del av virkemidlene for et mer plantebasert kosthold.",
+      evidence: "Sammenlignet med litteraturen bruker kjedene bare en begrenset del av virkemidlene for et mer plantebasert kosthold.",
+      error: /comparison_context_missing/u,
+    },
+    {
+      source: "For eksempel ble det identifisert at bygg og anlegg bør brytes ned i mer detaljerte kategorier.",
+      text: "For eksempel ble det identifisert at bygg og anlegg bør brytes ned i mer detaljerte kategorier.",
+      evidence: "For eksempel ble det identifisert at bygg og anlegg bør brytes ned i mer detaljerte kategorier.",
+      error: /identification_actor_missing/u,
+    },
+  ] as const;
+
+for (const [index, row] of PILOT10_UNRESOLVED_CLAIMS.entries()) {
+  test(`rejects Pilot10 unresolved claim ${index + 1}: ${row.error.source}`, () => {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  });
+}
+
+test("keeps Pilot10 claim classes eligible when their local scope is explicit", () => {
+  for (const text of [
+    "For leverandørene i Konkurransetilsynets Figur 16 var gjennomsnittlig RNOA 35 prosent høyere i 2020 enn i 2017.",
+    "Kjøpmannseide butikker inngår ikke i tallene for NorgesGruppens egeneide butikker.",
+    "Franchise-owned stores are not included in the figures for company-owned stores in Norway in 2022.",
+    "Franchise-owned stores are not included in the figures used by NorgesGruppen for company-owned stores in 2022.",
+    "Kjøpmannseide butikker er ekskludert fra dataene brukt av Konkurransetilsynet for 2022.",
+    "Konkurransetilsynets datagrunnlag på detaljistleddet omfatter butikker med om lag 165 milliarder kroner i omsetning i Norge i 2022.",
+    "Konkurransetilsynet har ikke analysert kausale sammenhenger mellom økt etterspørsel under pandemien og økt lønnsomhet for leverandørene.",
+    "I 2022 økte både produsentprisene og forbrukerprisene for dagligvarer i Norge kraftig.",
+    "Nordic Innovation Hotspot oppga på statusmøtet 13. april 2026 et totalbudsjett på 500 000 kr for Transition Groups.",
+    "Fra 2024 til 2025 fulgte nordisk EMV-markedsandel den europeiske vekstretningen målt av PLMA.",
+    "Smith og Lee (2024) viser i en panelstudie av 120 europeiske dagligvareprodusenter at EMV-vekst kan redusere innovasjonsnivået.",
+    "Sammenlignet med virkemiddeloversikten i Smith (2024) bruker S Group, K Group og Lidl Finland en begrenset del av tiltakene.",
+    "Malmö kommune identifiserte at bygg og anlegg bør brytes ned i mer detaljerte kategorier.",
+  ]) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, text)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), text);
+  }
+});
+
+test("keeps full Norwegian RNOA wording and requires it in the evidence", () => {
+  const complete = "For syv leverandører var gjennomsnittlig avkastning på netto driftsrelaterte eiendeler 35 prosent høyere i 2020 enn i 2017.";
+  const job = verifiedJob([complete]);
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job,
+    response: segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, complete)],
+    }),
+  }));
+
+  const genericEvidence = "For syv leverandører var gjennomsnittlig avkastning 35 prosent høyere i 2020 enn i 2017.";
+  const driftJob = verifiedJob([genericEvidence]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: driftJob,
+    response: segmentResponse(driftJob, {
+      unitCoverage: [{ contentUnitId: driftJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(driftJob, 0, complete), evidence: genericEvidence }],
+    }),
+  }), /analytical_measure_context_missing/u);
+});
+
+test("requires the same price geography while allowing source-visible place names", () => {
+  const mismatchEvidence = "I EU økte forbrukerprisene for dagligvarer i 2022.";
+  const mismatchJob = verifiedJob([mismatchEvidence]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: mismatchJob,
+    response: segmentResponse(mismatchJob, {
+      unitCoverage: [{ contentUnitId: mismatchJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(mismatchJob, 0, "I Norge økte forbrukerprisene for dagligvarer i 2022."),
+        evidence: mismatchEvidence,
+      }],
+    }),
+  }), /price_geography_missing/u);
+
+  for (const text of [
+    "På Island økte forbrukerprisene for dagligvarer i 2022.",
+    "I Tyskland økte produsentprisene i 2022.",
+    "In the Netherlands, consumer prices for groceries increased in 2022.",
+    "I Malmö økte dagligvareprisene i 2022.",
+    "I Bayern økte produsentprisene i 2022.",
+  ]) {
+    const job = verifiedJob([text]);
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [claim(job, 0, text)],
+      }),
+    }), text);
+  }
+});
+
+test("rejects mismatched causal endpoints and attribution actors", () => {
+  const causalEvidence = "Konkurransetilsynet har ikke analysert kausale sammenhenger mellom økte råvarekostnader og redusert tilbud.";
+  const causalJob = verifiedJob([causalEvidence]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: causalJob,
+    response: segmentResponse(causalJob, {
+      unitCoverage: [{ contentUnitId: causalJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(causalJob, 0, "Konkurransetilsynet har ikke analysert kausale sammenhenger mellom økt etterspørsel og økt lønnsomhet."),
+        evidence: causalEvidence,
+      }],
+    }),
+  }), /evidence_incomplete/u);
+
+  const actorEvidence = "Nordic Innovation Hotspot oppga et budsjett på 500 000 kr.";
+  const actorJob = verifiedJob([actorEvidence]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: actorJob,
+    response: segmentResponse(actorJob, {
+      unitCoverage: [{ contentUnitId: actorJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(actorJob, 0, "Oslo kommune oppga et budsjett på 500 000 kr."),
+        evidence: actorEvidence,
+      }],
+    }),
+  }), /actor_attribution_not_source_visible/u);
+});
+
+test("rejects passive identification after an introductory scope phrase", () => {
+  const text = "I rapporten ble det identifisert at bygg og anlegg bør deles i flere kategorier.";
+  const job = verifiedJob([text]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job,
+    response: segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, text)],
+    }),
+  }), /identification_actor_missing/u);
+});
+
+test("rejects generic study and literature authority variants", () => {
+  for (const text of [
+    "Empirical studies indicate that private-label growth can reduce innovation.",
+    "The literature suggests that private-label growth can reduce innovation.",
+    "Empiriske studier tyder på at EMV-vekst kan redusere innovasjon.",
+    "Litteraturen indikerer at EMV-vekst kan redusere innovasjon.",
+  ]) {
+    const job = verifiedJob([text]);
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [claim(job, 0, text)],
+      }),
+    }), /unnamed_study_authority/u, text);
+  }
+});
+
+test("rejects empty causal and material-exclusion scope continuations", () => {
+  for (const row of [
+    {
+      text: "Konkurransetilsynet har ikke analysert kausale sammenhenger mellom.",
+      error: /evidence_incomplete/u,
+    },
+    {
+      text: "The authority did not analyze causal relationships between. Supply and demand were discussed.",
+      error: /evidence_incomplete/u,
+    },
+    {
+      text: "Kjøpmannseide butikker inngår ikke i tallene for",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      text: "Franchise-owned stores are not included in the figures for",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      text: "Franchise-owned stores are excluded from the figures.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      text: "Franchise-owned stores are excluded from the figures for.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      text: "Kjøpmannseide butikker er ekskludert fra dataene.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      text: "Kjøpmannseide butikker er utelatt fra tallene for.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      text: "Kjøpmannseide butikker er ikke medregnet i tallene.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      text: "Kjøpmannseide butikker er ikke inkludert i dataene.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      text: "Franchise-owned stores are not counted in the figures.",
+      error: /material_exclusion_scope_missing/u,
+    },
+  ]) {
+    const job = verifiedJob([row.text]);
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [claim(job, 0, row.text)],
+      }),
+    }), row.error, row.text);
+  }
+});
+
+test("requires the exact return metric in the quantified evidence sentence", () => {
+  const evidence = "RNOA var en av indikatorene. For syv leverandører var gjennomsnittlig avkastning 35 prosent høyere i 2020 enn i 2017.";
+  const job = verifiedJob([evidence]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job,
+    response: segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(job, 0, "For syv leverandører var gjennomsnittlig RNOA-avkastning 35 prosent høyere i 2020 enn i 2017."),
+        evidence,
+      }],
+    }),
+  }), /analytical_measure_context_missing/u);
+
+  const sameSentenceDrift = "RNOA var 10 prosent; gjennomsnittlig avkastning var 35 prosent høyere i 2020 enn i 2017.";
+  const sameSentenceJob = verifiedJob([sameSentenceDrift]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: sameSentenceJob,
+    response: segmentResponse(sameSentenceJob, {
+      unitCoverage: [{ contentUnitId: sameSentenceJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(sameSentenceJob, 0, "Gjennomsnittlig RNOA-avkastning var 35 prosent høyere i 2020 enn i 2017."),
+        evidence: sameSentenceDrift,
+      }],
+    }),
+  }), /analytical_measure_context_missing/u);
+
+  const wrongMetricEvidence = "For syv leverandører var gjennomsnittlig operating margin-avkastning 35 prosent høyere i 2020 enn i 2017.";
+  const wrongMetricJob = verifiedJob([wrongMetricEvidence]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: wrongMetricJob,
+    response: segmentResponse(wrongMetricJob, {
+      unitCoverage: [{ contentUnitId: wrongMetricJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(wrongMetricJob, 0, "For syv leverandører var gjennomsnittlig RNOA-avkastning 35 prosent høyere i 2020 enn i 2017."),
+        evidence: wrongMetricEvidence,
+      }],
+    }),
+  }), /analytical_measure_context_missing/u);
+
+  for (const text of [
+    "Average return was 35 percent higher in 2020 than in 2017.",
+    "A 35 percent higher return was reported in 2020 than in 2017.",
+  ]) {
+    const englishJob = verifiedJob([text]);
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job: englishJob,
+      response: segmentResponse(englishJob, {
+        unitCoverage: [{ contentUnitId: englishJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [claim(englishJob, 0, text)],
+      }),
+    }), /analytical_measure_context_missing/u, text);
+  }
+});
+
+test("accepts source-visible inverted attribution and possessive geography", () => {
+  for (const row of [
+    {
+      claim: "Nordic Innovation Hotspot oppga et budsjett på 500 000 kr.",
+      evidence: "I statusmøtet oppga Nordic Innovation Hotspot et budsjett på 500 000 kr.",
+    },
+    {
+      claim: "Germany's consumer prices for groceries increased in 2022.",
+      evidence: "Germany's consumer prices for groceries increased in 2022.",
+    },
+    {
+      claim: "Germany's prices for groceries increased in 2022.",
+      evidence: "Germany's prices for groceries increased in 2022.",
+    },
+    {
+      claim: "Consumer prices for groceries increased throughout Germany in 2022.",
+      evidence: "Consumer prices for groceries increased throughout Germany in 2022.",
+    },
+    {
+      claim: "Producer prices increased for Germany in 2022.",
+      evidence: "Producer prices increased for Germany in 2022.",
+    },
+  ]) {
+    const job = verifiedJob([row.evidence]);
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [{ ...claim(job, 0, row.claim), evidence: row.evidence }],
+      }),
+    }), row.claim);
+  }
+});
+
+test("does not treat figure labels as price geographies", () => {
+  const evidence = "Figure 16 shows that consumer prices increased in Germany in 2022.";
+  const job = verifiedJob([evidence]);
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job,
+    response: segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(job, 0, "For Figure 16, consumer prices increased in Germany in 2022."),
+        evidence,
+      }],
+    }),
+  }));
+});
+
+test("requires a named and dated basis for a comparative pattern", () => {
+  const vague = "I 2024 fulgte EMV-utviklingen det europeiske mønsteret.";
+  const vagueJob = verifiedJob([vague]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: vagueJob,
+    response: segmentResponse(vagueJob, {
+      unitCoverage: [{ contentUnitId: vagueJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(vagueJob, 0, vague)],
+    }),
+  }), /comparison_context_missing/u);
+
+  const scoped = "I 2024 fulgte EMV-utviklingen det europeiske mønsteret målt av PLMA for 2024.";
+  const scopedJob = verifiedJob([scoped]);
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: scopedJob,
+    response: segmentResponse(scopedJob, {
+      unitCoverage: [{ contentUnitId: scopedJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(scopedJob, 0, scoped)],
+    }),
+  }));
+
+  const wrongBasisEvidence = "I 2024 fulgte EMV-utviklingen det europeiske mønsteret målt av Eurostat for 2024.";
+  const wrongBasisJob = verifiedJob([wrongBasisEvidence]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: wrongBasisJob,
+    response: segmentResponse(wrongBasisJob, {
+      unitCoverage: [{ contentUnitId: wrongBasisJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(wrongBasisJob, 0, scoped), evidence: wrongBasisEvidence }],
+    }),
+  }), /comparison_context_missing/u);
+});
+
+test("binds price direction to each asserted geography", () => {
+  const evidence = "In 2022, consumer prices for groceries increased in Norway and fell in Germany.";
+  const job = verifiedJob([evidence]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job,
+    response: segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(job, 0, "In 2022, consumer prices for groceries increased in Norway and Germany."),
+        evidence,
+      }],
+    }),
+  }), /price_geography_missing/u);
+});
+
+test("binds survey universe and reporting basis identity", () => {
+  const surveyEvidence = "Among 19 Nordic companies, most respondents ranked price first.";
+  const surveyJob = verifiedJob([surveyEvidence]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: surveyJob,
+    response: segmentResponse(surveyJob, {
+      unitCoverage: [{ contentUnitId: surveyJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(surveyJob, 0, "Among 19 EU companies, most respondents ranked price first."),
+        evidence: surveyEvidence,
+      }],
+    }),
+  }), /survey_scope_missing/u);
+
+  const basisEvidence = "In 2024, the chains reported 10 measures based on financial statements.";
+  const basisJob = verifiedJob([basisEvidence]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: basisJob,
+    response: segmentResponse(basisJob, {
+      unitCoverage: [{ contentUnitId: basisJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(basisJob, 0, "In 2024, the chains reported 10 measures based on content analysis."),
+        evidence: basisEvidence,
+      }],
+    }),
+  }), /reported_measure_context_missing/u);
+});
+
 function verifiedJob(texts: string[]): LibraryAnalysisVerifiedJob {
   const units = texts.map((text, ordinal) => ({
     descriptor: unit(String(ordinal), ordinal, text),

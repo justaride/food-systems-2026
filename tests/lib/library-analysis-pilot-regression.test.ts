@@ -111,6 +111,7 @@ function executePilotPlans() {
     contentUnits: fixture.sources.map(source => ({
       sourceKey: source.sourceKey,
       id: `content:pilot:${source.sourceKey.split(':')[1]}`,
+      unitType: "document_section" as const,
       locator: source.path,
       contentHash: source.contentHash,
       text: contentBySource.get(source.sourceKey)!,

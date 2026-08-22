@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.8`
+Workflow version: `1.0.9`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.8`
+Prompt template version: `1.0.9`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
@@ -38,7 +38,9 @@ Before emission, perform an evidence-locality check on the subject, predicate an
 
 Unit-level survey context never repairs an excerpt: a survey-derived claim must include the source-visible respondent count and universe in the same evidence excerpt, even when the unit elsewhere states them. Reported measures must include their source-visible reporting period and method or analytical basis. Ownership and current-status claims must include a source-visible as-of date and named project or scope. A generic expectation such as “the expectation” or “Forventningen” is not a source-grounded actor or project scope; emit `no_material_claim` unless that antecedent is visible in the same excerpt. Do not apply these requirements to an explicit complete-population statement, a timeless definition, or a complete qualitative proposition that does not assert status, ownership, reported measurement, survey-derived scope or an expectation.
 
-Apply the same locality rule to analytical-measure claims. A claim that says an actor calculated or mapped RNOA, profitability, returns or operating margins must include the source-visible period and analytical basis in both the claim and its evidence. An evidence excerpt must not stop at `ikke har analysert`, `did not analyze` or `has not analyzed`; include the object of that negative statement. If a claim adds a material exclusion such as franchise-owned stores being excluded, the same exclusion and object must appear in its evidence excerpt.
+Apply the same locality rule to analytical-measure claims. A claim that says an actor calculated or mapped RNOA, profitability, returns or operating margins must name the exact metric, sample identity or basis, period and analytical basis in both the claim and its evidence. An evidence excerpt must not stop at `ikke har analysert`, `did not analyze` or `has not analyzed`; include the complete object of that negative statement. If a claim adds a material exclusion such as franchise-owned stores being excluded, name the exact excluded population and the containing numbers, sample or dataset in both claim and evidence. `Tilsynets datagrunnlag` or `the authority's data basis` is unresolved unless the authority is named.
+
+Reported price changes require the source-visible geography or market. Attribution that an actor reported or stated something requires the same actor and reporting action in the evidence; a bare `from X` provenance phrase is insufficient. Generic authorities such as `empiriske studier`, `empirical studies` and `the literature` are ineligible without the named study or comparison basis and its population, period and method. Comparative pattern claims require a named comparison basis and period. Passive identification claims must name the identifying actor or analysis scope.
 
 For possessive ownership statements, the company whose ownership is described must be visible in the evidence excerpt, not only the owner, percentage and date. Evidence beginning with an unresolved `This survey`, `This questionnaire`, `This study` or equivalent Norwegian phrase must be expanded to include the named survey or report identity. For `sheet_range` units, a row alone is not interpretable evidence for named fields: include the header and row, or explicit source-visible field labels, in the same excerpt.
 

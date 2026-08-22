@@ -7,6 +7,7 @@ import { z } from "zod";
 import { writeCandidateControlSnapshotAtomic } from "../../../scripts/knowledge/export-candidate-control-snapshot";
 import {
   CANDIDATE_ANALYSIS_SCHEMA_VERSION,
+  CANDIDATE_CONTENT_UNIT_TYPES,
   CANDIDATE_OUTPUT_MANIFEST_VERSION,
   CANDIDATE_ASSERTION_TYPES,
   CandidateAnalysisArtifactInputSchema,
@@ -44,6 +45,7 @@ import {
   type AutomatedLibraryAnalysisResult,
 } from "./library-analysis-automated-validation";
 import { runDeterministicLibraryGates } from "./library-analysis-evidence-gates";
+import { assertLibraryAnalysisClaimLocalityV109 } from "./library-analysis-agent-response";
 import {
   LibraryAnalysisPopulationSnapshotSchema,
   type LibraryAnalysisPopulationSnapshot,
@@ -68,6 +70,7 @@ export const LibraryAnalysisRequestSchema = z.object({
   sourceVersionHash: hashSchema,
   contentUnits: z.array(z.object({
     id: identifierSchema,
+    unitType: z.enum(CANDIDATE_CONTENT_UNIT_TYPES),
     locator: nonEmptyTextSchema,
     contentHash: hashSchema,
     text: nonEmptyTextSchema,
@@ -172,6 +175,7 @@ export type LibraryValidationResponse = z.infer<
 export type LibraryAnalysisEmissionContentUnit = {
   sourceKey: string;
   id: string;
+  unitType: (typeof CANDIDATE_CONTENT_UNIT_TYPES)[number];
   locator: string;
   contentHash: string;
   text: string;
@@ -936,6 +940,16 @@ function validateAnalysisResponse(
       assertionId: claim.claimId,
     });
     if (gate.findings.length > 0) {
+      throw new Error("library_analysis_response_deterministic_gate_failed");
+    }
+    try {
+      assertLibraryAnalysisClaimLocalityV109({
+        claimText: claim.text,
+        evidence: claim.evidence,
+        sourceText: unit.text,
+        unitType: unit.unitType,
+      });
+    } catch {
       throw new Error("library_analysis_response_deterministic_gate_failed");
     }
   }

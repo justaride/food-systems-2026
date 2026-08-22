@@ -75,6 +75,7 @@ function requestBatch() {
     contentUnits: [{
       sourceKey: "document:runner-1",
       id: `content:library-analysis:${"a".repeat(64)}`,
+      unitType: "database_record",
       locator: "database:Document:runner-1:content",
       contentHash,
       text,
@@ -166,6 +167,79 @@ test("a response batch is fully validated before its one transaction starts", as
     },
   }));
   assert.equal(transactions, 1);
+});
+
+test("legacy analysis ingestion enforces the 1.0.9 locality policy", async () => {
+  for (const row of [
+    {
+      source: "I 2022 økte både produsentprisene og forbrukerprisene kraftig.",
+      claim: "I 2022 økte både produsentprisene og forbrukerprisene kraftig.",
+    },
+    {
+      source: "Empiriske studier viser at EMV-vekst kan redusere innovasjonsnivået.",
+      claim: "Empiriske studier viser at EMV-vekst kan redusere innovasjonsnivået.",
+    },
+    {
+      source: "I Norden følger EMV-utviklingen det europeiske mønsteret med visse særtrekk.",
+      claim: "I Norden følger EMV-utviklingen det europeiske mønsteret med visse særtrekk.",
+    },
+  ]) {
+    const base = requestBatch().requests[0]!;
+    const unit = {
+      ...base.contentUnits[0]!,
+      contentHash: createHash("sha256").update(row.source).digest("hex"),
+      text: row.source,
+    };
+    const request = { ...base, contentUnits: [unit] };
+    const response = LibraryAnalysisResponseSchema.parse({
+      ...responseFor(base),
+      requestHash: libraryAnalysisRequestHash(request),
+      claims: [{
+        ...responseFor(base).claims[0]!,
+        text: row.claim,
+        evidence: row.source,
+      }],
+    });
+    let transactions = 0;
+    await assert.rejects(() => ingestAnalysisResponsesAtomically({
+      requests: [request],
+      responses: [response],
+      transaction: async () => {
+        transactions += 1;
+      },
+    }), /library_analysis_response_deterministic_gate_failed/u);
+    assert.equal(transactions, 0);
+  }
+});
+
+test("legacy analysis ingestion rejects a bare sheet row", async () => {
+  const base = requestBatch().requests[0]!;
+  const source = "company-a,10,Norway";
+  const unit = {
+    ...base.contentUnits[0]!,
+    unitType: "sheet_range" as const,
+    contentHash: createHash("sha256").update(source).digest("hex"),
+    text: source,
+  };
+  const request = { ...base, contentUnits: [unit] };
+  const response = LibraryAnalysisResponseSchema.parse({
+    ...responseFor(base),
+    requestHash: libraryAnalysisRequestHash(request),
+    claims: [{
+      ...responseFor(base).claims[0]!,
+      text: source,
+      evidence: source,
+    }],
+  });
+  let transactions = 0;
+  await assert.rejects(() => ingestAnalysisResponsesAtomically({
+    requests: [request],
+    responses: [response],
+    transaction: async () => {
+      transactions += 1;
+    },
+  }), /library_analysis_response_deterministic_gate_failed/u);
+  assert.equal(transactions, 0);
 });
 
 test("accepted analysis becomes a fully sealed candidate writer plan", () => {

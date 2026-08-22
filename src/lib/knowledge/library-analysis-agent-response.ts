@@ -82,7 +82,7 @@ const ANOTHER_FACTOR = /\b(?:en\s+annen\s+faktor|another\s+factor)\b/iu;
 const PRIOR_FACTOR = /\b(?:faktor|factor)\b/iu;
 const UNRESOLVED_GENERIC_REFERENCE = /\b(?:arbeidet(?!\s+(?:med|for|av)\b)|metoden(?!\s+(?:for|til|med)\b)|kartleggingen(?!\s+(?:av|for|i)\b)|kartleggingene|resultatet(?!\s+(?:av|fra|for|i)\b)|resultatene(?!\s+(?:av|fra|for|i)\b)|the\s+results?(?!\s+(?:of|from|for|in)\b))\b/iu;
 const BARE_APPENDIX_REFERENCE = /^(?:i\s+dette\s+vedlegget|in\s+this\s+appendix)\b/iu;
-const UNNAMED_AUTHORITY_ANALYSIS = /(?:\btilsynets\s+(?:analyser|analyse)\b(?!\s+(?:av|om|for|i|fra|basert\s+på)(?:\s|$))|\bthe\s+authority['’]s\s+(?:analyses|analysis)\b(?!\s+(?:of|on|for|in|from|based\s+on)\b))/iu;
+const UNNAMED_AUTHORITY_ANALYSIS = /(?:\btilsynets\s+(?:(?:analyser|analyse)\b(?!\s+(?:av|om|for|i|fra|basert\s+på)(?:\s|$))|datagrunnlag\b)|\bthe\s+authority['’]s\s+(?:(?:analyses|analysis)\b(?!\s+(?:of|on|for|in|from|based\s+on)\b)|data\s+basis\b))/iu;
 const NAMED_AUTHORITY = /\b(?:Konkurransetilsynet(?:s)?|Norwegian\s+Competition\s+Authority|Competition\s+and\s+Markets\s+Authority|CMA)\b/iu;
 const BARE_SAMPLE_REFERENCE = /(?:\butvalget(?!\s+(?:av|på|med|bestående\s+av)(?:\s|$))|\bthe\s+sample(?!\s+(?:of|with|comprising)\b))/iu;
 const BARE_INFORMATION_REFERENCE = /(?:\bmye\s+av\s+informasjonen(?!\s+(?:om|for|fra|i)\b)|\bmuch\s+of\s+the\s+information(?!\s+(?:about|for|from|in)\b))/iu;
@@ -96,7 +96,7 @@ const MATERIAL_SCOPE_QUALIFIERS = [
   /\bi\s+denne\s+sammenhengen\b/iu,
   /\bin\s+this\s+context\b/iu,
 ] as const;
-const REPORTED_MEASURE = /\b(?:rapporterer|reports?)\b[\s\S]{0,180}\b(?:tiltak|measures?|actions?)\b/iu;
+const REPORTED_MEASURE = /(?:\b(?:rapporterer|reports?|reporting)\b[\s\S]{0,180}\b(?:tiltak|measures?|actions?)\b|\breported\b(?=[\s\S]{0,80}\d)[\s\S]{0,180}\b(?:measures?|actions?)\b)/iu;
 const REPORTING_BASIS = /\b(?:kvalitativ\s+innholdsanalyse|content\s+analysis|b[\u00e6a]rekraftsrapporter|sustainability\s+reports?|based\s+on|basert\s+på)\b/iu;
 const OWNERSHIP_OR_CONTROL = /\b(?:eier|eid\s+av|kontrolleres\s+av|owns?|owned\s+by|controlled\s+by)\b/iu;
 const QUANTIFIED_MARKET_SHARE = /(?:\b\d+(?:[.,]\d+)?\s*(?:%|percent|prosent)[\s\S]{0,80}\b(?:markedsandel|market\s+share)\b|\b(?:markedsandel|market\s+share)\b[\s\S]{0,80}\b\d+(?:[.,]\d+)?\s*(?:%|percent|prosent))/iu;
@@ -129,6 +129,33 @@ const SURVEY_DEPENDENT_CLAIM = /\b(?:respondents?|respondent\s+companies|compani
 const LOCAL_SURVEY_SCOPE = /\b(?:(?:among|from|of|sample\s+of)\s+|responses?\s+from\s+)?\d{1,4}\s+(?:(?:EU|European|Nordic|surveyed)\s+)?(?:(?:insect\s+farming|insect-food|food)\s+)?(?:companies|respondents|producers)\b/iu;
 const FORECAST_CLAIM = /\b(?:forecast(?:ed)?|foreseen|projection|projected)\b/iu;
 const FORECAST_BASIS = /\b(?:based\s+on|using|scenario|model(?:led|ed|ing)?|estimated?\s+from|responses?\s+from)\b/iu;
+const QUANTIFIED_GENERIC_RETURN = /(?:\b(?:(?:gjennomsnittlig\s+)?avkastning|(?:average\s+)?returns?)\b[\s\S]{0,120}\b\d+(?:[.,]\d+)?\s*(?:%|prosent|percent)\b|\b\d+(?:[.,]\d+)?\s*(?:%|prosent|percent)\b[\s\S]{0,120}\b(?:avkastning|returns?)\b)/iu;
+const RETURN_METRICS = [
+  { id: "rnoa", pattern: /\b(?:RNOA|avkastning\s+på\s+netto\s+driftsrelaterte\s+eiendeler|return\s+on\s+net\s+operating\s+assets)\b/iu },
+  { id: "operating_margin", pattern: /\b(?:driftsmarginer?|operating\s+margins?)\b/iu },
+] as const;
+const BARE_MATERIAL_EXCLUSION_SCOPE = /\b(?:inngår[\s\S]{0,40}?ikke\s+i\s+(?:tallene|dataene)(?!\s+(?:for|fra|i|til|som|basert\s+på|brukt\s+av)\b)|(?:er\s+)?(?:ekskludert|utelatt)\s+fra\s+(?:tallene|dataene|datasettet|utvalget)(?!\s+(?:for|fra|i|til|som|basert\s+på|brukt\s+av)\b)|(?:er\s+)?ikke\s+(?:medregnet|inkludert)\s+i\s+(?:tallene|dataene|datasettet|utvalget)(?!\s+(?:for|fra|i|til|som|basert\s+på|brukt\s+av)\b)|(?:is|are)\s+(?:not\s+included\s+in|excluded\s+from|not\s+counted\s+in)\s+(?:the\s+)?(?:figures|data|numbers|dataset|sample)(?!\s+(?:for|from|in|of|that|based\s+on|used\s+by)\b))\b/iu;
+const INCOMPLETE_MATERIAL_EXCLUSION_SCOPE = /(?:\b(?:tallene|dataene|datasettet|utvalget)\s+(?:for|fra|i|til|som|basert\s+på|brukt\s+av)|\b(?:figures|data|numbers|dataset|sample)\s+(?:for|from|in|of|that|based\s+on|used\s+by))\s*[.!?]?\s*$/iu;
+const SCOPED_NEGATED_CAUSAL_ANALYSIS = /\b(?:(?:ikke\s+har|har\s+ikke)\s+analysert\s+kausale\s+sammenhenger\s+mellom|(?:did\s+not\s+analy[sz]e|has\s+not\s+analy[sz]ed)\s+causal\s+(?:links|relationships?)\s+between)\b/iu;
+const CAUSAL_ANALYSIS_SCOPE = /\b(?:(?:ikke\s+har|har\s+ikke)\s+analysert\s+kausale\s+sammenhenger\s+mellom|(?:did\s+not\s+analy[sz]e|has\s+not\s+analy[sz]ed)\s+causal\s+(?:links|relationships?)\s+between)\s+([^.!?]{3,300})/iu;
+const PRICE_MEASURE = /\b(?:(?:produsent|forbruker|dagligvare)pris(?:ene)?|pris(?:ene)?\s+for\s+dagligvarer|prices?\s+(?:for\s+groceries|of\s+groceries)|producer\s+prices?|consumer\s+prices?)\b/iu;
+const PRICE_CHANGE = /(?<![\p{L}\p{N}_])(?:økte|falt|steg|increased|decreased|rose|fell)(?![\p{L}\p{N}_])/iu;
+const KNOWN_GEOGRAPHY = /\b(?:Norge|Norway|norsk(?:e)?|EU(?:27)?|Europa|Europe|europeisk(?:e)?|European|Norden|Nordic|Sverige|Sweden|Danmark|Denmark|Finland)\b/giu;
+const CONTEXTUAL_GEOGRAPHY = /\b(?:[Ii]|[Pp]å|[Ii]n|[Aa]cross|[Ff]or|[Tt]hroughout|[Gg]jennom)\s+(?:the\s+)?([\p{Lu}][\p{L}\p{M}-]*(?:\s+[\p{Lu}][\p{L}\p{M}-]*){0,2})/gu;
+const COORDINATED_GEOGRAPHY = /\b(?:and|og)\s+([\p{Lu}][\p{L}\p{M}-]*(?:\s+[\p{Lu}][\p{L}\p{M}-]*){0,2})/gu;
+const POSSESSIVE_PRICE_GEOGRAPHY = /\b([\p{Lu}][\p{L}\p{M}-]+)['’]s\s+(?:(?:consumer|producer|grocery)\s+prices?|prices?\s+for\s+groceries)/gu;
+const NON_GEOGRAPHY_CONTEXT = new Set([
+  "appendix", "chapter", "figure", "figur", "kapittel", "rapport", "report",
+  "section", "seksjon", "table", "tabell",
+]);
+const ACTOR_ATTRIBUTION = /\b(?:oppga|opplyste|rapporterte|stated|reported|said)\b/iu;
+const ATTRIBUTION_ACTOR_BEFORE = /([\p{Lu}][\p{L}\p{M}\p{N}.&+-]*(?:\s+(?:[\p{Lu}][\p{L}\p{M}\p{N}.&+-]*|kommune|tilsynet|authority|agency|group)){0,5})\s+(?:oppga|opplyste|rapporterte|stated|reported|said)\b/gu;
+const ATTRIBUTION_ACTOR_AFTER = /\b(?:oppga|opplyste|rapporterte|stated|reported|said)\s+([\p{Lu}][\p{L}\p{M}\p{N}.&+-]*(?:\s+(?:[\p{Lu}][\p{L}\p{M}\p{N}.&+-]*|kommune|tilsynet|authority|agency|group)){0,5})/gu;
+const VAGUE_COMPARISON = /\b(?:med\s+visse\s+særtrekk|with\s+certain\s+(?:features|characteristics)|sammenlignet\s+med\s+litteraturen|compared\s+with\s+the\s+literature)\b/iu;
+const COMPARATIVE_PATTERN = /\b(?:(?:det\s+)?europeiske\s+mønsteret|the\s+European\s+pattern)\b/iu;
+const NAMED_COMPARISON_BASIS = /\b(?:målt\s+av|ifølge|basert\s+på|measured\s+by|according\s+to|based\s+on)\s+([\p{Lu}][\p{L}\p{M}\p{N}.&+-]*)/u;
+const UNNAMED_STUDY_AUTHORITY = /\b(?:empiriske\s+studier|empirical\s+studies|litteraturen|the\s+literature)\s+(?:viser|indikerer|tyder\s+på|shows?|indicates?|suggests?)(?![\p{L}\p{N}_])/iu;
+const PASSIVE_IDENTIFICATION = /\b(?:(?:ble\s+det|det\s+ble)\s+identifisert\s+at|it\s+was\s+identified\s+that)\b/iu;
 const AUTHORITY_TERMS = [
   /\bpublication[- ]ready\b/iu,
   /\bready for publication\b/iu,
@@ -149,6 +176,97 @@ function hasUnresolvedLocalReference(value: string): boolean {
     BARE_SIMILAR_ANALYSIS.test(value) ||
     BARE_ANALYSIS_REFERENCE.test(value) ||
     BARE_DOUBLE_COUNTING.test(value);
+}
+
+function normalizedMaterialText(value: string): string {
+  return value.trim().replace(/\s+/gu, " ").toLocaleLowerCase("en");
+}
+
+function geographyMarkers(value: string): Set<string> {
+  const markers = new Set<string>();
+  for (const match of value.matchAll(KNOWN_GEOGRAPHY)) {
+    markers.add(normalizedMaterialText(match[0]));
+  }
+  for (const match of value.matchAll(CONTEXTUAL_GEOGRAPHY)) {
+    if (match[1] !== undefined) {
+      const marker = normalizedMaterialText(match[1]);
+      if (!NON_GEOGRAPHY_CONTEXT.has(marker.split(" ")[0]!)) {
+        markers.add(marker);
+      }
+    }
+  }
+  for (const match of value.matchAll(COORDINATED_GEOGRAPHY)) {
+    if (match[1] !== undefined) {
+      markers.add(normalizedMaterialText(match[1]));
+    }
+  }
+  for (const match of value.matchAll(POSSESSIVE_PRICE_GEOGRAPHY)) {
+    if (match[1] !== undefined) {
+      markers.add(normalizedMaterialText(match[1]));
+    }
+  }
+  return markers;
+}
+
+function attributionSubjects(value: string): string[] {
+  const before = [...value.matchAll(ATTRIBUTION_ACTOR_BEFORE)]
+    .map((match) => match[1])
+    .filter((subject): subject is string => subject !== undefined)
+    .map(normalizedMaterialText);
+  if (before.length > 0) return before;
+  return [...value.matchAll(ATTRIBUTION_ACTOR_AFTER)]
+    .map((match) => match[1])
+    .filter((subject): subject is string => subject !== undefined)
+    .map(normalizedMaterialText);
+}
+
+function quantifiedReturnSegment(value: string): string | undefined {
+  return value
+    .split(/[.!?;]+/u)
+    .find((candidate) => QUANTIFIED_GENERIC_RETURN.test(candidate));
+}
+
+function returnMetricIds(value: string): Set<string> {
+  return new Set(RETURN_METRICS
+    .filter(({ pattern }) => pattern.test(value))
+    .map(({ id }) => id));
+}
+
+function comparisonBasis(value: string): string | undefined {
+  const basis = NAMED_COMPARISON_BASIS.exec(value)?.[1];
+  return basis === undefined ? undefined : normalizedMaterialText(basis);
+}
+
+function priceDirectionsByGeography(value: string): Map<string, "increase" | "decrease"> {
+  const allGeographies = geographyMarkers(value);
+  const chunks = value.split(/\b(?:and|og|while|mens|but|men)\b/iu);
+  const rows = chunks.map((chunk) => ({
+    geographies: [...allGeographies].filter((geography) =>
+      normalizedMaterialText(chunk).includes(geography)),
+    direction: /(?<![\p{L}\p{N}_])(?:økte|steg|increased|rose)(?![\p{L}\p{N}_])/iu.test(chunk)
+      ? "increase" as const
+      : /(?<![\p{L}\p{N}_])(?:falt|decreased|fell)(?![\p{L}\p{N}_])/iu.test(chunk)
+        ? "decrease" as const
+        : undefined,
+  }));
+  const directions = new Map<string, "increase" | "decrease">();
+  for (const [index, row] of rows.entries()) {
+    const direction = row.direction ??
+      rows.slice(0, index).reverse().find((candidate) => candidate.direction !== undefined)?.direction ??
+      rows.slice(index + 1).find((candidate) => candidate.direction !== undefined)?.direction;
+    if (direction !== undefined) {
+      for (const geography of row.geographies) directions.set(geography, direction);
+    }
+  }
+  return directions;
+}
+
+function reportingBasisIds(value: string): Set<string> {
+  const ids = new Set<string>();
+  if (/\b(?:kvalitativ\s+innholdsanalyse|content\s+analysis)\b/iu.test(value)) ids.add("content_analysis");
+  if (/\b(?:b[\u00e6a]rekraftsrapporter|sustainability\s+reports?)\b/iu.test(value)) ids.add("sustainability_reports");
+  if (/\b(?:regnskapstall|regnskapsdata|årsregnskap|financial\s+statements?|accounts?|accounting\s+data)\b/iu.test(value)) ids.add("financial_data");
+  return ids;
 }
 
 function assertSelfContainedClaimText(claimText: string, evidence: string): void {
@@ -190,6 +308,46 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     throw new Error("agent_response_evidence_incomplete");
   }
   if (
+    SCOPED_NEGATED_CAUSAL_ANALYSIS.test(normalizedClaim) &&
+    !SCOPED_NEGATED_CAUSAL_ANALYSIS.test(normalizedEvidence)
+  ) {
+    throw new Error("agent_response_evidence_incomplete");
+  }
+  const causalScope = CAUSAL_ANALYSIS_SCOPE.exec(normalizedClaim)?.[1];
+  if (SCOPED_NEGATED_CAUSAL_ANALYSIS.test(normalizedClaim) && causalScope === undefined) {
+    throw new Error("agent_response_evidence_incomplete");
+  }
+  if (
+    causalScope !== undefined &&
+    !normalizedMaterialText(normalizedEvidence).includes(normalizedMaterialText(causalScope))
+  ) {
+    throw new Error("agent_response_evidence_incomplete");
+  }
+  if (
+    BARE_MATERIAL_EXCLUSION_SCOPE.test(normalizedClaim) ||
+    INCOMPLETE_MATERIAL_EXCLUSION_SCOPE.test(normalizedClaim)
+  ) {
+    throw new Error("agent_response_material_exclusion_scope_missing");
+  }
+  if (UNNAMED_STUDY_AUTHORITY.test(normalizedClaim)) {
+    throw new Error("agent_response_unnamed_study_authority");
+  }
+  if (VAGUE_COMPARISON.test(normalizedClaim)) {
+    throw new Error("agent_response_comparison_context_missing");
+  }
+  if (COMPARATIVE_PATTERN.test(normalizedClaim) && (
+    !EXPLICIT_YEAR.test(normalizedClaim) ||
+    !EXPLICIT_YEAR.test(normalizedEvidence) ||
+    !NAMED_COMPARISON_BASIS.test(normalizedClaim) ||
+    !NAMED_COMPARISON_BASIS.test(normalizedEvidence) ||
+    comparisonBasis(normalizedClaim) !== comparisonBasis(normalizedEvidence)
+  )) {
+    throw new Error("agent_response_comparison_context_missing");
+  }
+  if (PASSIVE_IDENTIFICATION.test(normalizedClaim)) {
+    throw new Error("agent_response_identification_actor_missing");
+  }
+  if (
     MATERIAL_EXCLUSION.test(normalizedClaim) &&
     FRANCHISE_SCOPE.test(normalizedClaim) &&
     (!MATERIAL_EXCLUSION.test(normalizedEvidence) || !FRANCHISE_SCOPE.test(normalizedEvidence))
@@ -226,6 +384,36 @@ function assertAuditedScopeCompleteness(
   evidence: string,
   sourceText: string,
 ): void {
+  if (QUANTIFIED_GENERIC_RETURN.test(claimText)) {
+    const claimSegment = quantifiedReturnSegment(claimText);
+    const evidenceSegment = quantifiedReturnSegment(evidence);
+    const claimMetrics = returnMetricIds(claimSegment ?? "");
+    const evidenceMetrics = returnMetricIds(evidenceSegment ?? "");
+    if (
+      claimSegment === undefined ||
+      evidenceSegment === undefined ||
+      claimMetrics.size === 0 ||
+      [...claimMetrics].some((metric) => !evidenceMetrics.has(metric))
+    ) {
+      throw new Error("agent_response_analytical_measure_context_missing");
+    }
+  }
+  if (PRICE_MEASURE.test(claimText) && PRICE_CHANGE.test(claimText)) {
+    const claimGeographies = geographyMarkers(claimText);
+    const evidenceGeographies = geographyMarkers(evidence);
+    if (
+      claimGeographies.size === 0 ||
+      [...claimGeographies].some((geography) => !evidenceGeographies.has(geography))
+    ) {
+      throw new Error("agent_response_price_geography_missing");
+    }
+    const claimDirections = priceDirectionsByGeography(claimText);
+    const evidenceDirections = priceDirectionsByGeography(evidence);
+    if ([...claimDirections].some(([geography, direction]) =>
+      evidenceDirections.get(geography) !== direction)) {
+      throw new Error("agent_response_price_geography_missing");
+    }
+  }
   if (REPORTED_MEASURE.test(claimText) && (
     !EXPLICIT_YEAR.test(claimText) ||
     !EXPLICIT_YEAR.test(evidence) ||
@@ -233,6 +421,13 @@ function assertAuditedScopeCompleteness(
     !REPORTING_BASIS.test(evidence)
   )) {
     throw new Error("agent_response_reported_measure_context_missing");
+  }
+  if (REPORTED_MEASURE.test(claimText)) {
+    const claimBases = reportingBasisIds(claimText);
+    const evidenceBases = reportingBasisIds(evidence);
+    if ([...claimBases].some((basis) => !evidenceBases.has(basis))) {
+      throw new Error("agent_response_reported_measure_context_missing");
+    }
   }
   if (OWNERSHIP_OR_CONTROL.test(claimText) && (
     !EXPLICIT_YEAR.test(claimText) || !EXPLICIT_YEAR.test(evidence)
@@ -294,7 +489,10 @@ function assertAuditedScopeCompleteness(
   if (
     SURVEY_UNIT_CONTEXT.test(sourceText) &&
     SURVEY_DEPENDENT_CLAIM.test(claimText) &&
-    !LOCAL_SURVEY_SCOPE.test(evidence)
+    (!LOCAL_SURVEY_SCOPE.test(claimText) ||
+      !LOCAL_SURVEY_SCOPE.test(evidence) ||
+      normalizedMaterialText(LOCAL_SURVEY_SCOPE.exec(claimText)?.[0] ?? "") !==
+        normalizedMaterialText(LOCAL_SURVEY_SCOPE.exec(evidence)?.[0] ?? ""))
   ) {
     throw new Error("agent_response_survey_scope_missing");
   }
@@ -308,11 +506,32 @@ function assertAuditedScopeCompleteness(
 }
 
 function assertAuthorityLanguageIsSourceVisible(claimText: string, evidence: string): void {
+  if (ACTOR_ATTRIBUTION.test(claimText) && !ACTOR_ATTRIBUTION.test(evidence)) {
+    throw new Error("agent_response_actor_attribution_not_source_visible");
+  }
+  const evidenceSubjects = new Set(attributionSubjects(evidence));
+  if (
+    attributionSubjects(claimText).some((subject) => !evidenceSubjects.has(subject))
+  ) {
+    throw new Error("agent_response_actor_attribution_not_source_visible");
+  }
   for (const term of AUTHORITY_TERMS) {
     if (term.test(claimText) && !term.test(evidence)) {
       throw new Error("agent_response_authority_overreach");
     }
   }
+}
+
+export function assertLibraryAnalysisClaimLocalityV109(input: {
+  claimText: string;
+  evidence: string;
+  sourceText: string;
+  unitType: string;
+}): void {
+  assertSelfContainedClaimText(input.claimText, input.evidence);
+  assertAuditedScopeCompleteness(input.claimText, input.evidence, input.sourceText);
+  assertTabularEvidenceContext(input.evidence, input.unitType);
+  assertAuthorityLanguageIsSourceVisible(input.claimText, input.evidence);
 }
 
 function assertTabularEvidenceContext(evidence: string, unitType: string): void {
@@ -574,10 +793,12 @@ export function validateLibraryAnalysisAgentSegmentResponse(
     if (!unit.text.includes(claim.evidence)) {
       throw new Error("agent_response_evidence_not_contained");
     }
-    assertSelfContainedClaimText(claim.text, claim.evidence);
-    assertAuditedScopeCompleteness(claim.text, claim.evidence, unit.text);
-    assertTabularEvidenceContext(claim.evidence, unit.descriptor.unitType);
-    assertAuthorityLanguageIsSourceVisible(claim.text, claim.evidence);
+    assertLibraryAnalysisClaimLocalityV109({
+      claimText: claim.text,
+      evidence: claim.evidence,
+      sourceText: unit.text,
+      unitType: unit.descriptor.unitType,
+    });
     assertNumericTokens(claim.text, claim.evidence);
     return {
       ...claim,

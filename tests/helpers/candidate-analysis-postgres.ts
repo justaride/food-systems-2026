@@ -212,6 +212,7 @@ export async function withCandidateAnalysisPostgres(
       "prisma/migrations/20260822_library_analysis_prompt_1_0_6/migration.sql",
       "prisma/migrations/20260822_library_analysis_prompt_1_0_7/migration.sql",
       "prisma/migrations/20260822_library_analysis_prompt_1_0_8/migration.sql",
+      "prisma/migrations/20260822_library_analysis_prompt_1_0_9/migration.sql",
     ]) {
       const migrated = run(binaries.psql, [
         "-X",

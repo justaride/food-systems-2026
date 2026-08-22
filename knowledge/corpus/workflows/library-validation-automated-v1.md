@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.8`
+Workflow version: `1.0.9`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.8`
+Prompt template version: `1.0.9`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
@@ -32,7 +32,9 @@ Treat bare singular `resultatet` or `the result`, and an excerpt opening with un
 
 Unit-level survey context never repairs an excerpt: when the unit identifies a survey or respondent population, a survey-derived assertion missing the source-visible respondent count or universe in its own evidence is F3. A reported-measure assertion missing its source-visible reporting period or method/analytical basis is F3. An ownership or current-status assertion missing an as-of date or named project/scope is F3. A generic expectation such as “the expectation” or “Forventningen” without a same-excerpt actor or project antecedent is F4. Do not apply these requirements to an explicit complete-population statement, a timeless definition, or a complete qualitative proposition that does not assert status, ownership, reported measurement, survey-derived scope or an expectation.
 
-Classify as F3 an analytical-measure assertion about calculated or mapped RNOA, profitability, returns or operating margins whose claim or evidence omits the source-visible period or analytical basis. Evidence ending at `ikke har analysert`, `did not analyze` or `has not analyzed` is incomplete when the assertion supplies the missing object. A claim-level material exclusion, including franchise-owned stores being excluded, requires the same exclusion and object in the evidence.
+Classify as F3 an analytical-measure assertion about calculated or mapped RNOA, profitability, returns or operating margins whose claim or evidence omits the exact metric, sample identity or basis, period or analytical basis. Evidence ending at `ikke har analysert`, `did not analyze` or `has not analyzed` is incomplete when the assertion supplies the missing object. A claim-level material exclusion, including franchise-owned stores being excluded, must name the exact excluded population and containing numbers, sample or dataset in both claim and evidence. Treat `Tilsynets datagrunnlag` or `the authority's data basis` as unresolved authority unless the authority is named.
+
+Treat a reported price change without its source-visible geography or market as F3. Treat actor attribution as F4 when the evidence does not visibly name the same actor and reporting action; a bare `from X` provenance phrase is insufficient. Generic references to empirical studies or the literature are unresolved authorities without the named study or comparison basis and its population, period and method. A comparative pattern without a named comparison basis and period is F3. Passive identification without a named identifying actor or analysis scope is F4.
 
 For possessive ownership, require the owned company identity in the evidence, not only owner, share and date. Treat an unresolved evidence opening such as `This survey` or its Norwegian equivalents as F4 when a named source identity appears only in the claim. For `sheet_range` evidence, treat a bare delimited row without header or explicit field labels as F4 when the claim interprets named fields.
 

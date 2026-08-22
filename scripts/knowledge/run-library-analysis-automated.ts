@@ -7,6 +7,7 @@ import { pathToFileURL } from "node:url";
 import { z } from "zod";
 
 import type { PrismaClient } from "../../src/generated/prisma/client";
+import { CANDIDATE_CONTENT_UNIT_TYPES } from "../../src/lib/knowledge/candidate-analysis-contract";
 import {
   LibraryAnalysisRequestBatchSchema,
   LibraryAnalysisRequestSchema,
@@ -36,6 +37,7 @@ const EmissionContentSchema = z.object({
   contentUnits: z.array(z.object({
     sourceKey: identifierSchema,
     id: identifierSchema,
+    unitType: z.enum(CANDIDATE_CONTENT_UNIT_TYPES),
     locator: z.string().min(1),
     contentHash: hashSchema,
     text: z.string().min(1),
