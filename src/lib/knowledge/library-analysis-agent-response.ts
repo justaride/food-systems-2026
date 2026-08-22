@@ -207,6 +207,14 @@ const REPORTED_DATASET_COVERAGE = /\b(?:har\s+levert\s+(?:tall|data)|(?:leverte|
 const EARLY_GENERIC_EVIDENCE_REFERENCE = /^(?:metodisk|methodologically)\s+[\s\S]{0,60}\b(?:tilnærmingen|metoden|the\s+approach|the\s+method)\b/iu;
 const TOTAL_BUDGET_AMOUNT = /\b(?:totalt|total)\b[\s\S]{0,40}\b\d+(?:[\s.,]\d+)*\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\b/iu;
 const PER_GROUP_BUDGET_SCOPE = /\b(?:per|for\s+hver)\s+(?:transition\s+group|gruppe)\b|\bCities\s*\+\s*Food\b/iu;
+const AWARD_ACTION = /\b(?:bevilg(?:et|er|a|ning(?:en)?)|tildel(?:te|t|er|ing(?:en)?)|innvilg(?:et|er)|alloker(?:te|t|er|ing(?:en)?)|award(?:ed|s|ing)?|grant(?:ed|s|ing)?|allocat(?:ed|es?|ing|ion))\b/iu;
+const FINANCIAL_AWARD_CONTEXT = /(?:\b\d+(?:[\s.,]\d+)*\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\b|\b(?:finansiering(?:en)?|funding|tilskudd(?:et)?|grant)\b)/iu;
+const NOMINAL_CHALLENGE_HEADING = /^(?:utfordring(?:er)?(?:\s+(?:med|ved|for)|\s*:)|challenges?(?:\s+(?:with|for)|\s*:)|(?:neste\s+)?steg\s+for|next\s+step\s*:)(?=\s|$)/iu;
+const DECLARATIVE_COPULA_OR_VERB_TOKENS = new Set([
+  "er", "var", "ble", "blir", "har", "hadde", "gjør", "gjorde", "viser", "viste", "gir", "ga",
+  "is", "are", "was", "were", "became", "become", "becomes", "has", "have", "had", "show", "shows",
+  "showed", "give", "gives", "gave",
+]);
 const OBVIOUS_SECTIONED_FINDINGS = /(?:^|\n)#{1,6}\s+(?:Hovedfunn|Main\s+findings|Findings|Metode|Method)\b/imu;
 const PLAIN_SECTIONED_FINDINGS = /(?:^|\n)(?:Hovedfunn|Main\s+findings|Findings|Metode|Method)\s*(?::|\n)/imu;
 const STRUCTURED_REGISTER_FINDINGS = /"(?:keyFindings|recommendations)"\s*:\s*\[/u;
@@ -327,6 +335,69 @@ function attributionSubjects(value: string): string[] {
     .filter((subject): subject is string => subject !== undefined)
     .map(normalizedMaterialText);
   return [...new Set([...prefixed, ...before, ...after, ...relative])];
+}
+
+function namedAuthorityIdentities(value: string): Set<string> {
+  const identities = new Set<string>();
+  for (const match of value.matchAll(new RegExp(NAMED_AUTHORITY.source, `${NAMED_AUTHORITY.flags}g`))) {
+    const normalized = normalizedMaterialText(match[0]).replace(/['’]s$/u, "");
+    if (
+      normalized === "konkurransetilsynet" ||
+      normalized === "konkurransetilsynets" ||
+      normalized === "norwegian competition authority"
+    ) {
+      identities.add("norwegian-competition-authority");
+    } else if (normalized === "competition and markets authority" || normalized === "cma") {
+      identities.add("competition-and-markets-authority");
+    }
+  }
+  return identities;
+}
+
+function localClauses(value: string): string[] {
+  return value
+    .split(/(?<!\d)[.!?](?!\d)|[;\n]+/u)
+    .map((clause) => clause.trim())
+    .filter((clause) => clause.length > 0);
+}
+
+function financialAwardActor(value: string): string | undefined {
+  const awardMatch = AWARD_ACTION.exec(value);
+  if (awardMatch?.index === undefined) return undefined;
+  const prefix = value.slice(0, awardMatch.index).trim()
+    .replace(/\b(?:is|are|was|were|has|have|had|er|var|har|hadde|blir)\s*$/iu, "")
+    .trim();
+  const actorMatch = /([\p{Lu}][\p{L}\p{M}\p{N}.&+-]*(?:\s+[\p{Lu}][\p{L}\p{M}\p{N}.&+-]*){0,7})\s*$/u.exec(prefix);
+  return actorMatch?.[1] === undefined ? undefined : normalizedMaterialText(actorMatch[1]);
+}
+
+function hasSourceVisibleFinancialAward(claimText: string, evidence: string): boolean {
+  const claimClauses = localClauses(claimText)
+    .filter((clause) => AWARD_ACTION.test(clause) && FINANCIAL_AWARD_CONTEXT.test(clause));
+  if (claimClauses.length === 0) return true;
+  const evidenceAwardClauses = localClauses(evidence)
+    .filter((clause) => AWARD_ACTION.test(clause) && FINANCIAL_AWARD_CONTEXT.test(clause));
+  return claimClauses.every((claimClause) => {
+    const actor = financialAwardActor(claimClause);
+    return evidenceAwardClauses.some((evidenceClause) =>
+      actor === undefined || normalizedMaterialText(evidenceClause).includes(actor));
+  });
+}
+
+function normalizedLeadingEvidenceClause(value: string): string {
+  const firstClause = localClauses(value)[0] ?? "";
+  return firstClause
+    .replace(/^(?:(?:#{1,6}|[-*•])\s*)+/u, "")
+    .replace(/^(?:(?:tema|topic)\s*:\s*)/iu, "")
+    .trim();
+}
+
+function hasDeclarativeCopulaOrVerb(value: string): boolean {
+  const tokens = value.match(/[\p{L}\p{M}]+/gu) ?? [];
+  return tokens.some((token) => {
+    if (token.length <= 3 && token === token.toLocaleUpperCase("en")) return false;
+    return DECLARATIVE_COPULA_OR_VERB_TOKENS.has(token.toLocaleLowerCase("en"));
+  });
 }
 
 function quantifiedReturnSegment(value: string): string | undefined {
@@ -1037,6 +1108,14 @@ function assertAuthorityLanguageIsSourceVisible(claimText: string, evidence: str
   ) {
     throw new Error("agent_response_actor_attribution_not_source_visible");
   }
+  const claimAuthorities = namedAuthorityIdentities(claimText);
+  const evidenceAuthorities = namedAuthorityIdentities(evidence);
+  if ([...claimAuthorities].some((authority) => !evidenceAuthorities.has(authority))) {
+    throw new Error("agent_response_authority_actor_not_source_visible");
+  }
+  if (!hasSourceVisibleFinancialAward(claimText, evidence)) {
+    throw new Error("agent_response_award_action_not_source_visible");
+  }
   for (const term of AUTHORITY_TERMS) {
     if (term.test(claimText) && !term.test(evidence)) {
       throw new Error("agent_response_authority_overreach");
@@ -1065,6 +1144,13 @@ export const assertLibraryAnalysisClaimLocalityV113 = assertLibraryAnalysisClaim
 export const assertLibraryAnalysisClaimLocalityV112 = assertLibraryAnalysisClaimLocalityV114;
 
 function assertDeclarativeEvidence(claimText: string, evidence: string): void {
+  const leadingEvidenceClause = normalizedLeadingEvidenceClause(evidence);
+  if (
+    NOMINAL_CHALLENGE_HEADING.test(leadingEvidenceClause) &&
+    !hasDeclarativeCopulaOrVerb(leadingEvidenceClause)
+  ) {
+    throw new Error("agent_response_non_declarative_evidence");
+  }
   if (
     isInterrogativeEvidence(evidence) &&
     (

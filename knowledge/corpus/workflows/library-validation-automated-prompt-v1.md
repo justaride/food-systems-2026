@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.15`
+Prompt template version: `1.0.16`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.15`
+Workflow version: `1.0.16`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
@@ -63,3 +63,5 @@ Classify as F5 an obviously material structured unit reported as `no_material_cl
 Also classify declarative survey results, response totals and forecasts reported as `no_material_claim` as F5. Missing local survey context requires typed `blocked` coverage, not omission.
 
 Do not rewrite the analysis into an approval. Do not claim human review, independent verification, accuracy, canonical status, promotion, rights clearance, publication, coverage or external readiness. A clean automated validation is still automated-only internal candidate evidence.
+
+Classify as F1 an inferred award, grant or allocation action when evidence only states bare funding provenance such as `fra X` or `from X`. Classify as F3 a claim that replaces `tilsynet`, `the authority` or equivalent generic shorthand with a named authority absent from its own evidence excerpt. Classify as F4 a nominal challenge/step fragment or similar heading-like text without a finite declarative verb that has been promoted into a declarative claim.

@@ -2944,6 +2944,167 @@ test("rejects Pilot09 undated shares, title headings and unscoped survey results
   }
 });
 
+test("rejects Pilot19 inferred awards, generic authority substitutions and heading fragments", () => {
+  const cases = [
+    {
+      source: "250 000 kr per transition group (Cities + Food) - Totalt 500 000 kr fra Nordic Innovation Hotspot",
+      text: "Nordic Innovation Hotspot bevilget totalt 500 000 kr, fordelt med 250 000 kr per transition group (Cities + Food).",
+      evidence: "250 000 kr per transition group (Cities + Food) - Totalt 500 000 kr fra Nordic Innovation Hotspot",
+      error: /award_action_not_source_visible/u,
+    },
+    {
+      source: "I dette vedlegget beskrives Konkurransetilsynets metode. I lys av denne usikkerheten har tilsynet valgt å runde av de beregnede avkastningskravene til nærmeste halve prosent.",
+      text: "Konkurransetilsynet har valgt å runde av de beregnede avkastningskravene til nærmeste halve prosent.",
+      evidence: "I lys av denne usikkerheten har tilsynet valgt å runde av de beregnede avkastningskravene til nærmeste halve prosent.",
+      error: /authority_actor_not_source_visible/u,
+    },
+    {
+      source: "Utfordring med sirkulære næringsliv, stor steg for Malmø kommune – med Ressurs-strøm-kartleggingen.",
+      text: "Ressurs-strøm-kartleggingen i Malmø kommune var knyttet til et stort steg.",
+      evidence: "Utfordring med sirkulære næringsliv, stor steg for Malmø kommune – med Ressurs-strøm-kartleggingen.",
+      error: /non_declarative_evidence/u,
+    },
+  ] as const;
+
+  for (const row of cases) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  }
+});
+
+test("rejects Pilot19 gate bypasses found by adversarial review", () => {
+  const rejected = [
+    {
+      source: "Totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      text: "Nordic Innovation Hotspot awards 500 000 kr.",
+      evidence: "Totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      error: /award_action_not_source_visible/u,
+    },
+    {
+      source: "Totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      text: "Nordic Innovation Hotspot grants 500 000 kr.",
+      evidence: "Totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      error: /award_action_not_source_visible/u,
+    },
+    {
+      source: "Totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      text: "Nordic Innovation Hotspot is allocating 500 000 kr.",
+      evidence: "Totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      error: /award_action_not_source_visible/u,
+    },
+    {
+      source: "Totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      text: "Nordic Innovation Hotspot bevilga 500 000 kr.",
+      evidence: "Totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      error: /award_action_not_source_visible/u,
+    },
+    {
+      source: "Totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      text: "Nordic Innovation Hotspot allokerer 500 000 kr.",
+      evidence: "Totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      error: /award_action_not_source_visible/u,
+    },
+    {
+      source: "County X granted 500 000 kr; funding from Nordic Innovation Hotspot.",
+      text: "Nordic Innovation Hotspot awarded 500 000 kr.",
+      evidence: "County X granted 500 000 kr; funding from Nordic Innovation Hotspot.",
+      error: /award_action_not_source_visible/u,
+    },
+    {
+      source: "The Competition and Markets Authority published the report. The report states an operating margin of 4.1% in 2024.",
+      text: "The Norwegian Competition Authority calculated an operating margin of 4.1% in 2024.",
+      evidence: "The Competition and Markets Authority published the report. The report states an operating margin of 4.1% in 2024.",
+      error: /authority_actor_not_source_visible/u,
+    },
+    {
+      source: "## Utfordring ved sirkulære næringsliv, stort steg for Malmö kommune – med ressurskartleggingen.",
+      text: "Ressurskartleggingen var et stort steg for Malmö kommune.",
+      evidence: "## Utfordring ved sirkulære næringsliv, stort steg for Malmö kommune – med ressurskartleggingen.",
+      error: /non_declarative_evidence/u,
+    },
+    {
+      source: "Tema: Challenge: circular business, a major step for Malmö – with resource mapping.",
+      text: "Resource mapping was a major step for Malmö.",
+      evidence: "Tema: Challenge: circular business, a major step for Malmö – with resource mapping.",
+      error: /non_declarative_evidence/u,
+    },
+    {
+      source: "Next step: resource mapping in Malmö.",
+      text: "Resource mapping was the next step in Malmö.",
+      evidence: "Next step: resource mapping in Malmö.",
+      error: /non_declarative_evidence/u,
+    },
+    {
+      source: "Steg for Malmö – ressurskartlegging.",
+      text: "Ressurskartleggingen var et steg for Malmö.",
+      evidence: "Steg for Malmö – ressurskartlegging.",
+      error: /non_declarative_evidence/u,
+    },
+    {
+      source: "Utfordring med ER-data. Metoden er dokumentert.",
+      text: "ER-data var en dokumentert utfordring.",
+      evidence: "Utfordring med ER-data. Metoden er dokumentert.",
+      error: /non_declarative_evidence/u,
+    },
+  ] as const;
+
+  for (const row of rejected) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  }
+
+  for (const row of [
+    {
+      source: "The model allocates observations to categories.",
+      text: "The model allocates observations to categories.",
+    },
+    {
+      source: "Challenges with rising costs were identified.",
+      text: "Challenges with rising costs were identified.",
+    },
+    {
+      source: "Next step: resource mapping is scheduled for Malmö.",
+      text: "Next step: resource mapping is scheduled for Malmö.",
+    },
+  ] as const) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, row.text)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.text);
+  }
+});
+
 test("rejects Pilot08 evidence that ends before the asserted object or exclusion", () => {
   const cases = [
     {
