@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.11`
+Workflow version: `1.0.12`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.11`
+Prompt template version: `1.0.12`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
@@ -43,6 +43,8 @@ Treat a rewritten report-title assertion supported only by a bare title heading 
 Automated validation must reject material actor-universe broadening, unbounded period references, unnamed deictic study openings, and unresolved approach or indicator references.
 
 It must also reject figure-derived numeric claims missing material caption scope, analytical superlatives or retail-margin trends missing their bounded universe, bare deictic value clauses without a same-excerpt antecedent, reported results that drop their speaker, and generic webinar or main-message references without the local event identity.
+
+Classify as F3 current-status language such as `i dag`, `today`, `nå` or `now` without a reference year in the same status sentence in claim and evidence, including when the marker appears only in evidence. Every qualitative profitability finding, return comparison, profitability mapping, margin trend or gross-margin calculation, including copular findings such as `lønnsomheten var høy`, requires a bounded period and analytical basis locally in claim and evidence; classify either omission as F3 even when the unit supplies neither. A timeless definition or explicit no-support conclusion exempts only its own analytical clause, not a coordinated or separate analytical-result clause. Classify a definition/calculation `her`/`here` whose evidence or claim sentence omits its appendix, method or analytical object as F4. Classify an interpretive index value, including `tolkes`/`interpreted`, whose interpreting evidence or claim sentence omits the index identity as F4. Classify changed personnel allocation without its reference year and named project in the same allocation sentence as F3; accept an unambiguous acronym as a one-word project identity. When the source identifies a percentage paired with a sales amount as market share of market value, omission of that measure or denominator is F3. Treat a syntactic Markdown row with two or more columns, expressed either with an outer pipe or as compact cell-only content without sentence punctuation, without its header or explicit field labels as F4 in every unit type; surrounding whitespace or a trailing newline does not repair it. Ordinary prose containing only an internal `A | B` phrase is not a Markdown row.
 
 ## Output boundary
 

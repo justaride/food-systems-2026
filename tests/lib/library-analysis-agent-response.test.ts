@@ -206,6 +206,81 @@ const PILOT12_UNRESOLVED_CLAIMS = [
   },
 ] as const;
 
+const PILOT13_UNRESOLVED_CLAIMS = [
+  {
+    source: "Rapporten ble publisert i 2024. I Norge finnes det i dag fire større nasjonale dagligvarekjeder: Norgesgruppen, Coop, Rema og Bunnpris.",
+    text: "I Norge finnes det i dag fire større nasjonale dagligvarekjeder: Norgesgruppen, Coop, Rema og Bunnpris.",
+    evidence: "I Norge finnes det i dag fire større nasjonale dagligvarekjeder: Norgesgruppen, Coop, Rema og Bunnpris.",
+    error: /status_as_of_missing/u,
+  },
+  {
+    source: "Dataene dekker perioden 2017 til og med 2022 og bygger på årlige resultat- og balanseoppstillinger. Derimot viser Konkurransetilsynets kartlegging at det jevnt over er lønnsomt å produsere og selge dagligvarer i Norge.",
+    text: "Derimot viser Konkurransetilsynets kartlegging at det jevnt over er lønnsomt å produsere og selge dagligvarer i Norge.",
+    evidence: "Derimot viser Konkurransetilsynets kartlegging at det jevnt over er lønnsomt å produsere og selge dagligvarer i Norge.",
+    error: /analytical_measure_context_missing/u,
+  },
+  {
+    source: "Dataene dekker perioden 2017 til og med 2022 og bygger på årlige resultat- og balanseoppstillinger med RNOA som avkastningsmål. Konkurransetilsynet finner at dagligvarekjedenes grossistselskap har en avkastning i driften som ikke er betydelig høyere enn normal avkastning.",
+    text: "Konkurransetilsynet finner at dagligvarekjedenes grossistselskap har en avkastning i driften som ikke er betydelig høyere enn normal avkastning.",
+    evidence: "Konkurransetilsynet finner at dagligvarekjedenes grossistselskap har en avkastning i driften som ikke er betydelig høyere enn normal avkastning.",
+    error: /analytical_measure_context_missing/u,
+  },
+  {
+    source: "Kartleggingen bruker regnskapsdata for perioden 2017 til og med 2022. Konkurransetilsynet finner at driftsmarginene og avkastningen i driften økte under koronapandemien, både på leverandør-, grossist- og detaljistleddet.",
+    text: "Konkurransetilsynet finner at driftsmarginene og avkastningen i driften økte under koronapandemien, både på leverandør-, grossist- og detaljistleddet.",
+    evidence: "Konkurransetilsynet finner at driftsmarginene og avkastningen i driften økte under koronapandemien, både på leverandør-, grossist- og detaljistleddet.",
+    error: /analytical_measure_context_missing/u,
+  },
+  {
+    source: "Konkurransetilsynet har på oppdrag fra Nærings- og fiskeridepartementet kartlagt lønnsomheten til et utvalg aktører på leverandør-, grossist- og detaljistleddet i verdikjeden for dagligvarer. Kartleggingen bygger på årlige resultat- og balanseoppstillinger og dekker perioden 2017 til og med 2022.",
+    text: "Konkurransetilsynet har på oppdrag fra Nærings- og fiskeridepartementet kartlagt lønnsomheten til et utvalg aktører på leverandør-, grossist- og detaljistleddet i verdikjeden for dagligvarer.",
+    evidence: "Konkurransetilsynet har på oppdrag fra Nærings- og fiskeridepartementet kartlagt lønnsomheten til et utvalg aktører på leverandør-, grossist- og detaljistleddet i verdikjeden for dagligvarer.",
+    error: /analytical_measure_context_missing/u,
+  },
+  {
+    source: "Coop har levert tall for perioden 2018 til og med 2022. Konkurransetilsynet beregner bruttomarginer både for samvirkelagene samlet og for de egeneide butikkene i Norsk Butikkdrift etter metoden beskrevet i kapittel 3.",
+    text: "Konkurransetilsynet beregner bruttomarginer både for samvirkelagene samlet og for de egeneide butikkene i Norsk Butikkdrift i tråd med beskrivelsen i kapittel 3.",
+    evidence: "Konkurransetilsynet beregner bruttomarginer både for samvirkelagene samlet og for de egeneide butikkene i Norsk Butikkdrift etter metoden beskrevet i kapittel 3.",
+    error: /analytical_measure_context_missing/u,
+  },
+  {
+    source: "I dette vedlegget presenteres Konkurransetilsynets VTB-metode for verdsetting av driftsrelaterte eiendeler. Gjenanskaffelseskost defineres her som kostnaden ved å erstatte eiendelens funksjon i dagens marked, justert for gjenværende økonomisk levetid.",
+    text: "Gjenanskaffelseskost defineres her som kostnaden ved å erstatte eiendelens funksjon i dagens marked, justert for gjenværende økonomisk levetid.",
+    evidence: "Gjenanskaffelseskost defineres her som kostnaden ved å erstatte eiendelens funksjon i dagens marked, justert for gjenværende økonomisk levetid.",
+    error: /local_reference_missing/u,
+  },
+  {
+    source: "Figur 8 viser valutakursutviklingen målt ved det importveide kronekursmålet I-44. Høyere indeksverdi betyr svakere kronekurs.",
+    text: "Høyere indeksverdi betyr svakere kronekurs.",
+    evidence: "Høyere indeksverdi betyr svakere kronekurs.",
+    error: /index_identity_missing/u,
+  },
+  {
+    source: "Statusmøte for Nordic Innovation Hotspot Transition Groups 13. april 2026. Thea har mange andre oppgaver, opprinnelig satt til 30% men redusert til 20%.",
+    text: "Thea har mange andre oppgaver, opprinnelig satt til 30% men redusert til 20%.",
+    evidence: "Thea har mange andre oppgaver, opprinnelig satt til 30% men redusert til 20%.",
+    error: /staffing_scope_or_as_of_missing/u,
+  },
+  {
+    source: "| Person | Andel | Rolle |\n|---|---|---|\n| Cathrine Barth | ~20% (1 dag/uke) | Strategisk roadmap, kvalitetsoppfølging, innsiktsintervjuer |",
+    text: "Cathrine Barth er satt til ~20% (1 dag/uke) for strategisk roadmap, kvalitetsoppfølging og innsiktsintervjuer.",
+    evidence: "| Cathrine Barth | ~20% (1 dag/uke) | Strategisk roadmap, kvalitetsoppfølging, innsiktsintervjuer |",
+    error: /tabular_context_missing/u,
+  },
+  {
+    source: "| Person | Andel | Rolle |\n|---|---|---|\n| Jan Thomas Odegard | ~30–40% | Prosjektledelse, koordinering, mandatdefinering og aktivitetsplanlegging |",
+    text: "Jan Thomas Odegard er satt til ~30–40% for prosjektledelse, koordinering, mandatdefinering og aktivitetsplanlegging.",
+    evidence: "| Jan Thomas Odegard | ~30–40% | Prosjektledelse, koordinering, mandatdefinering og aktivitetsplanlegging |",
+    error: /tabular_context_missing/u,
+  },
+  {
+    source: "I 2024 nådde europeiske EMV-salg 352 milliarder euro, med en samlet markedsandel på 38,5 % av dagligvaremarkedets verdi. I 2025 økte dette ytterligere til 384 milliarder euro og 38,7 %.",
+    text: "Europeiske EMV-salg økte ytterligere i 2025 til 384 milliarder euro og 38,7 %.",
+    evidence: "I 2024 nådde europeiske EMV-salg 352 milliarder euro, med en samlet markedsandel på 38,5 % av dagligvaremarkedets verdi. I 2025 økte dette ytterligere til 384 milliarder euro og 38,7 %.",
+    error: /share_measure_missing/u,
+  },
+] as const;
+
 for (const [index, row] of PILOT10_UNRESOLVED_CLAIMS.entries()) {
   test(`rejects Pilot10 unresolved claim ${index + 1}: ${row.error.source}`, () => {
     const job = verifiedJob([row.source]);
@@ -260,11 +335,230 @@ for (const [index, row] of PILOT12_UNRESOLVED_CLAIMS.entries()) {
   });
 }
 
+for (const [index, row] of PILOT13_UNRESOLVED_CLAIMS.entries()) {
+  test(`rejects Pilot13 unresolved claim ${index + 1}: ${row.error.source}`, () => {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  });
+}
+
+test("keeps complete Pilot13 analytical, status, index, share and table context eligible", () => {
+  for (const row of [
+    {
+      text: "For perioden 2017 til 2022 viser Konkurransetilsynets kartlegging basert på årlige resultat- og balanseoppstillinger at det jevnt over er lønnsomt å produsere og selge dagligvarer i Norge.",
+    },
+    {
+      text: "For perioden 2017 til 2022 finner Konkurransetilsynet, basert på RNOA-beregninger fra årlige resultat- og balanseoppstillinger, at grossistselskapenes avkastning ikke er betydelig høyere enn normal avkastning.",
+    },
+    {
+      text: "Driftsmarginene og avkastningen økte i 2020 og 2021 basert på regnskapstall for 2017 til 2022.",
+    },
+    {
+      text: "Konkurransetilsynet kartla lønnsomheten for perioden 2017 til 2022 på grunnlag av årlige resultat- og balanseoppstillinger.",
+    },
+    {
+      text: "Konkurransetilsynet beregnet bruttomarginer for Coop for perioden 2018 til 2022 etter lønnsomhetsmetoden i kapittel 3.",
+    },
+    { text: "Per 2024 finnes det fire større nasjonale dagligvarekjeder i Norge." },
+    { text: "As of 2024, there are four national grocery chains in Norway." },
+    { text: "Gjenanskaffelseskost defineres som kostnaden ved å erstatte eiendelens funksjon i dagens marked." },
+    { text: "I dette VTB-vedlegget defineres gjenanskaffelseskost her som kostnaden ved å erstatte eiendelens funksjon." },
+    { text: "Høyere indeksverdi i det importveide kronekursmålet I-44 betyr svakere kronekurs." },
+    { text: "Thea ble 13. april 2026 allokert 20% til Nordic Innovation Hotspot Transition Groups." },
+    { text: "Thea ble i 2026 redusert fra 30% til 20% for VTB." },
+    { text: "I 2025 nådde europeiske EMV-salg 384 milliarder euro, med en samlet markedsandel på 38,7 % av dagligvaremarkedets verdi." },
+    { text: "RNOA måler avkastning på netto driftsrelaterte eiendeler." },
+    { text: "Konkurransetilsynet finner ikke støtte for at prisøkningene i 2022 økte lønnsomheten." },
+    { text: "Konkurransetilsynet finner ikke støtte for økt lønnsomhet og økte driftsmarginer." },
+    {
+      source: "Analysen bygger på regnskapstall for perioden 2017 til 2022. Konkurransetilsynet finner med andre ord ikke støtte for at prisøkningene i 2022 økte lønnsomheten.",
+      text: "Konkurransetilsynet finner med andre ord ikke støtte for at prisøkningene i 2022 økte lønnsomheten.",
+    },
+    {
+      source: "Analysen bygger på regnskapstall for perioden 2017 til 2022. Konkurransetilsynet finner derfor ikke støtte for at prisøkningene i 2022 økte lønnsomheten.",
+      text: "Konkurransetilsynet finner derfor ikke støtte for at prisøkningene i 2022 økte lønnsomheten.",
+    },
+    { text: "Norges indeksverdi på 146 betyr at matvareprisene i Norge var 46 prosent høyere enn EU-gjennomsnittet på 100 i 2022." },
+    { text: "I dagligvaremarkedet selges både egne og eksterne merkevarer." },
+    { text: "The phrase Alpha | Beta is used in the title." },
+  ]) {
+    const job = verifiedJob([
+      "source" in row && typeof row.source === "string" ? row.source : row.text,
+    ]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, row.text)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.text);
+  }
+
+  for (const row of [
+    {
+      source: "| Person | Andel | Rolle |\n|---|---|---|\n| Cathrine Barth | ~20% | Strategisk roadmap |",
+      text: "Cathrine Barth er allokert ~20% til strategisk roadmap.",
+    },
+    {
+      source: "Person: Cathrine Barth; Andel: ~20%; Rolle: Strategisk roadmap",
+      text: "Cathrine Barth er allokert ~20% til strategisk roadmap.",
+    },
+  ]) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.source }],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.text);
+  }
+});
+
+test("rejects Pilot13 detached dates, standalone analysis and cross-sentence identity bypasses", () => {
+  for (const row of [
+    {
+      source: "Rapporten ble publisert i 2024. I Norge finnes det i dag fire større nasjonale dagligvarekjeder.",
+      text: "Rapporten ble publisert i 2024. I Norge finnes det i dag fire større nasjonale dagligvarekjeder.",
+      error: /status_as_of_missing/u,
+    },
+    {
+      source: "I dag finnes det fire større nasjonale dagligvarekjeder. Rapporten har 2024-data.",
+      text: "I dag finnes det fire større nasjonale dagligvarekjeder. Rapporten har 2024-data.",
+      error: /status_as_of_missing/u,
+    },
+    {
+      source: "Konkurransetilsynet viser at det er lønnsomt å produsere og selge dagligvarer i Norge.",
+      text: "Konkurransetilsynet viser at det er lønnsomt å produsere og selge dagligvarer i Norge.",
+      error: /analytical_measure_context_missing/u,
+    },
+    {
+      source: "Indeksverdi tolkes som et mål på svakere kronekurs.",
+      text: "Indeksverdi tolkes som et mål på svakere kronekurs.",
+      error: /index_identity_missing/u,
+    },
+    {
+      source: "VTB omtales i vedlegget. Gjenanskaffelseskost defineres her som kostnaden ved å erstatte funksjonen.",
+      text: "VTB omtales i vedlegget. Gjenanskaffelseskost defineres her som kostnaden ved å erstatte funksjonen.",
+      error: /local_reference_missing/u,
+    },
+    {
+      source: "Prisindeks omtales først. Høyere indeksverdi betyr svakere kronekurs.",
+      text: "Prisindeks omtales først. Høyere indeksverdi betyr svakere kronekurs.",
+      error: /index_identity_missing/u,
+    },
+    {
+      source: "I Norge finnes det i dag fire større nasjonale dagligvarekjeder.",
+      text: "I Norge finnes det fire større nasjonale dagligvarekjeder.",
+      evidence: "I Norge finnes det i dag fire større nasjonale dagligvarekjeder.",
+      error: /status_as_of_missing/u,
+    },
+    {
+      source: "Gjenanskaffelseskost defineres her som kostnaden ved å erstatte funksjonen.",
+      text: "Gjenanskaffelseskost defineres som kostnaden ved å erstatte funksjonen.",
+      evidence: "Gjenanskaffelseskost defineres her som kostnaden ved å erstatte funksjonen.",
+      error: /local_reference_missing/u,
+    },
+    {
+      source: "Analysen bygger på regnskapstall. Lønnsomheten var høy i perioden 2017 til 2022.",
+      text: "Lønnsomheten var høy i perioden 2017 til 2022.",
+      error: /analytical_measure_context_missing/u,
+    },
+    {
+      source: "RNOA måler avkastning. Driftsmarginene økte.",
+      text: "RNOA måler avkastning. Driftsmarginene økte.",
+      error: /analytical_measure_context_missing/u,
+    },
+    {
+      source: "Konkurransetilsynet finner ikke støtte for prisøkning. Driftsmarginene økte.",
+      text: "Konkurransetilsynet finner ikke støtte for prisøkning. Driftsmarginene økte.",
+      error: /analytical_measure_context_missing/u,
+    },
+    {
+      source: "RNOA måler avkastning og driftsmarginene økte.",
+      text: "RNOA måler avkastning og driftsmarginene økte.",
+      error: /analytical_measure_context_missing/u,
+    },
+    {
+      source: "The report finds no support for price increases while profitability increased.",
+      text: "The report finds no support for price increases while profitability increased.",
+      error: /analytical_measure_context_missing/u,
+    },
+    {
+      source: "Planen for Nordic Innovation Hotspot er godkjent. Thea var opprinnelig allokert 30% men ble redusert til 20% i 2026.",
+      text: "Planen for Nordic Innovation Hotspot er godkjent. Thea var opprinnelig allokert 30% men ble redusert til 20% i 2026.",
+      error: /staffing_scope_or_as_of_missing/u,
+    },
+    {
+      source: "| Person | Andel |",
+      text: "Person og andel er oppført i tabellen.",
+      evidence: "| Person | Andel |",
+      error: /tabular_context_missing/u,
+    },
+    {
+      source: "| Person | Andel |\n",
+      text: "Person og andel er oppført i tabellen.",
+      evidence: "| Person | Andel |\n",
+      error: /tabular_context_missing/u,
+    },
+    {
+      source: "Person | Andel",
+      text: "Person og andel er oppført i tabellen.",
+      evidence: "Person | Andel",
+      error: /tabular_context_missing/u,
+    },
+    {
+      source: "Person | Andel\n",
+      text: "Person og andel er oppført i tabellen.",
+      evidence: "Person | Andel\n",
+      error: /tabular_context_missing/u,
+    },
+  ]) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{
+        ...claim(job, 0, row.text),
+        evidence: "evidence" in row ? row.evidence : row.text,
+      }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  }
+});
+
 test("keeps locally complete Pilot12 figure, universe, event and attribution evidence eligible", () => {
   for (const text of [
     "For Figur 18, som summerer ASKO, Rema Distribusjon og Coop Norge fra 2018 til 2022 i tall som ikke er inflasjonsjusterte, økte driftsinntektene på grossistleddet om lag 16 prosent fra 2019 til 2020.",
     "For de tre enhetene med komplette RNOA-beregninger i perioden 2017 til 2022 var avkastningen i driften høyest i 2020.",
-    "For samtlige detaljistenheter i Konkurransetilsynets marginutvalg falt driftsmarginene fra 2021 til 2022.",
+    "For samtlige detaljistenheter i Konkurransetilsynets marginutvalg falt driftsmarginene, basert på regnskapstall, fra 2021 til 2022.",
     "I 2025 økte europeiske EMV-salg ytterligere til 384 milliarder euro og 38,7 prosent.",
     "Christer understreker at andelen materialer som faktisk gjenbrukes eller resirkuleres er lav.",
     "Hovedbudskapet fra RE:Source-webinaret 31. mars var at systematisk ressurskartlegging gir et bedre beslutningsgrunnlag.",
@@ -1365,7 +1659,7 @@ test("rejects Pilot09 unresolved local references while preserving named scope",
     "I vedlegg A presenteres Konkurransetilsynets metode for verdsetting av eiendeler.",
     "Konkurransetilsynets analyser gir ikke grunnlag for å slå fast om andre faktorer var medvirkende.",
     "Tilsynets analyser av driftsmarginer gir ikke grunnlag for å slå fast om andre faktorer var medvirkende.",
-    "Trenden på tvers av utvalget på åtte leverandører er at lønnsomheten falt fra 2021 til 2022.",
+    "Trenden på tvers av utvalget på åtte leverandører, basert på regnskapstall, er at lønnsomheten falt fra 2021 til 2022.",
     "Mye av informasjonen om regionale materialstrømmer må hentes fra årsrapporter og ulike kilder.",
     "Lignende regionale ressurskartleggingsanalyser finnes i Bayern og Nederland.",
     "Lignende analyser av RNOA finnes i Bayern og Nederland.",
@@ -2048,12 +2342,12 @@ test("rejects unresolved plural result references without matching word-prefix f
   }
 
   for (const text of [
-    "Resultatene fra ressurskartleggingen viser økt lønnsomhet.",
-    "Resultatene i rapporten viser økt lønnsomhet.",
-    "Resultatet i rapporten viser økt lønnsomhet.",
-    "The results of the resource mapping show increased profitability.",
-    "The results in the report show increased profitability.",
-    "The result in the report shows increased profitability.",
+    "Resultatene fra ressurskartleggingen viser økt materialgjenvinning.",
+    "Resultatene i rapporten viser økt materialgjenvinning.",
+    "Resultatet i rapporten viser økt materialgjenvinning.",
+    "The results of the resource mapping show increased material recycling.",
+    "The results in the report show increased material recycling.",
+    "The result in the report shows increased material recycling.",
     "Resultateneity is not a Norwegian reference word.",
   ]) {
     const job = verifiedJob([text]);

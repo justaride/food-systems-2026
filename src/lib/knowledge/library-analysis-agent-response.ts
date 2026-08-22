@@ -106,7 +106,24 @@ const REPORT_TITLE_CLAIM = /\b(?:the\s+report\s+is\s+titled|rapporten\s+(?:har\s
 const REPORT_TITLE_CONTEXT = /\b(?:report\s+title|title\s+of\s+the\s+report|the\s+report\s+is\s+titled|rapporttittel|rapportens\s+tittel|rapporten\s+(?:har\s+tittelen|heter))\b/iu;
 const ANALYTICAL_ACTION = /\b(?:har\s+(?:beregnet|kartlagt)|(?:ble|er)\s+(?:beregnet|kartlagt)|beregner|beregnet|kartlegger|kartla|estimerer|estimerte|has\s+(?:calculated|mapped|estimated)|(?:was|were)\s+(?:calculated|mapped|estimated)|calculates?|mapped|maps?|estimates?|estimated)\b/iu;
 const ANALYTICAL_OUTCOME = /\b(?:avkastning|RNOA|lønnsomhet|driftsmarginer?|operating\s+margins?|returns?|profitability)\b/iu;
-const ANALYTICAL_BASIS = /\b(?:basert\s+på|med\s+utgangspunkt\s+i|på\s+grunnlag\s+av|ved\s+hjelp\s+av|regnskapstall|regnskapsdata|årsrapporter?|årsregnskap|based\s+on|using\s+(?:financial\s+statements?|accounts?|accounting\s+data|annual\s+reports?)|financial\s+statements?|annual\s+reports?)\b/iu;
+const ANALYTICAL_BASIS = /\b(?:basert\s+på|med\s+utgangspunkt\s+i|på\s+grunnlag\s+av|ved\s+hjelp\s+av|regnskapstall|regnskapsdata|årsrapporter?|årsregnskap|(?:årlige\s+)?resultat-\s*og\s+balanseoppstillinger|etter\s+(?:den\s+)?(?:[\p{L}\p{M}-]+)?metoden(?:\s+beskrevet)?\s+i\s+kapittel\s+\d+|based\s+on|using\s+(?:financial\s+statements?|accounts?|accounting\s+data|annual\s+reports?)|financial\s+statements?|annual\s+reports?|income\s+statements?\s+and\s+balance\s+sheets?)\b/iu;
+const PILOT13_ANALYTICAL_ACTION = /\b(?:viser|finner|fant|kartlagt|shows?|finds?|found|mapped)\b/iu;
+const PILOT13_ANALYTICAL_OUTCOME = /\b(?:avkastning(?:en)?|RNOA|lønnsomhet(?:en)?|lønnsomt|profitab(?:le|ility)|driftsmargin(?:en|er|ene)?|bruttomargin(?:en|er|ene)?|operating\s+margins?|gross\s+margins?|returns?)\b/iu;
+const PILOT13_ANALYTICAL_TREND = /(?<![\p{L}\p{N}_])(?:økte|steg|falt|increased|rose|fell|decreased)(?![\p{L}\p{N}_])/iu;
+const ANALYTICAL_DEFINITION = /\b(?:måler|måles|definerer|defineres|measures?|is\s+defined|are\s+defined)\b/iu;
+const ANALYTICAL_NO_SUPPORT = /\b(?:finner(?:\s+(?:med\s+andre\s+ord|derfor))?\s+ikke\s+støtte\s+for|finds?(?:\s+(?:therefore|in\s+other\s+words))?\s+no\s+support\s+for)\b/iu;
+const CURRENT_STATUS_REFERENCE = /\b(?:i\s+dag|today|nå|now)\b/iu;
+const CURRENT_STATUS_PREDICATE = /\b(?:finnes|har|er|foreligger|exists?|there\s+(?:is|are)|has|have)\b/iu;
+const LOCAL_HERE_DEFINITION = /\b(?:defineres|beregnes|fastsettes|defined|calculated|determined)\s+(?:her|here)\b/iu;
+const NAMED_LOCAL_CONTEXT = /\b(?:VTB|NOA|value\s+to\s+business|netto\s+driftsrelaterte\s+eiendeler|(?:i|in)\s+(?:dette|this)\s+[\p{L}\p{M}-]*(?:vedlegg|appendix))\b/iu;
+const INTERPRETIVE_INDEX_VALUE = /\b(?:indeksverdi(?:en)?|index\s+value)\b[\s\S]{0,100}\b(?:høyere|lavere|betyr|tolkes|means?|higher|lower|interpreted)\b|\b(?:høyere|lavere|higher|lower)\b[\s\S]{0,100}\b(?:indeksverdi(?:en)?|index\s+value)\b/iu;
+const NAMED_INDEX_IDENTITY = /\b(?:[A-ZÆØÅ]\s*-\s*\d{1,4}|importveid(?:e)?\s+(?:kronekursmål|kursindeks)|valutakursindeks|byggekostnadsindeks|prisindeks|kursindeks|price\s+index|exchange-rate\s+index|import-weighted\s+(?:exchange-rate\s+)?index|(?:Norges|Norway(?:'s)?|EU(?:s)?|European)\s+indeksverdi)\b/iu;
+const STAFFING_ALLOCATION_CHANGE = /\b(?:(?:opprinnelig|originally)\b[\s\S]{0,100}\b(?:redusert|økt|reduced|increased)\b|(?:redusert|økt|reduced|increased)\s+(?:fra|from)\b[\s\S]{0,80}\b(?:til|to)\b)[\s\S]{0,80}\d+(?:[.,]\d+)?\s*%/iu;
+const NAMED_PROJECT_SCOPE = /\b(?:for|til|i|on|to|for\s+the)\s+(?:the\s+)?(?:[A-ZÆØÅ]{2,}[A-ZÆØÅ0-9&:+-]*|[A-ZÆØÅ][\p{L}\p{M}\p{N}&:+-]*(?:\s+[A-ZÆØÅ][\p{L}\p{M}\p{N}&:+-]*){1,8})\b/u;
+const SALES_AMOUNT = /\b\d+(?:[.,]\d+)?\s*(?:milliarder?|millioner?|billions?|millions?)\s+(?:euro|EUR|kroner|NOK|dollars?|USD)\b/iu;
+const PERCENT_VALUE = /\b\d+(?:[.,]\d+)?\s*(?:%(?![\p{L}\p{N}_])|prosent\b|percent\b)/iu;
+const MARKET_SHARE_LABEL = /\b(?:markedsandel|market\s+share)\b/iu;
+const MARKET_VALUE_DENOMINATOR = /\b(?:av|of)\s+[^.!?]{0,80}\b(?:verdi|value)\b/iu;
 const INCOMPLETE_NEGATED_ANALYSIS_EVIDENCE = /\b(?:ikke\s+har\s+analysert|did\s+not\s+analy[sz]e|has\s+not\s+analy[sz]ed)\s*$/iu;
 const MATERIAL_EXCLUSION = /\b(?:not\s+included|excluded|not\s+counted|inngår\s+ikke|ikke\s+inkludert|ikke\s+medregnet)\b/iu;
 const FRANCHISE_SCOPE = /\b(?:franchise[- ]owned\s+stores?|franchiseeide\s+butikker|kjøpmannseide\s+butikker)\b/iu;
@@ -126,6 +143,8 @@ const DEICTIC_STUDY_PAREN_IDENTITY = /\b(?:this\s+(?:survey|questionnaire|study)
 const DEICTIC_STUDY_DASH_IDENTITY = /\b(?:this\s+(?:survey|questionnaire|study)|denne\s+(?:undersøkelsen|studien|kartleggingen))\s+[—–-]\s*([^—–-]{2,100}?)\s*[—–-]/iu;
 const EXPLICIT_TABULAR_FIELDS = /\b(?:id|priority|status|country|coding_target|next_action)\s*[:=]/iu;
 const DELIMITED_ROW = /^(?:[^,\t]*[,\t]){1,}[^,\t]*$/u;
+const MARKDOWN_DATA_ROW = /^(?:\|\s*[^|\n]+\s*\|\s*[^|\n]+(?:\s*\|\s*[^|\n]+)*\s*\|?|\s*[^|\n]+\s*\|\s*[^|\n]+(?:\s*\|\s*[^|\n]+)*\s*\||\s*[^|\n.!?]+\s*\|\s*[^|\n.!?]+(?:\s*\|\s*[^|\n.!?]+)*\s*)$/u;
+const EXPLICIT_MARKDOWN_FIELDS = /\b(?:person|andel|allocation|rolle|role)\s*:/iu;
 const ENGLISH_EXCLUSION_AFTER_MARKER = /\b(?:excludes?|does\s+not\s+include|did\s+not\s+include)\s+([^.;,:]{2,120})/iu;
 const NORWEGIAN_EXCLUSION_AFTER_MARKER = /\b(?:utelater|utelot|ekskluderer|ekskluderte|inkluderer\s+ikke)\s+([^.;,:]{2,120})/iu;
 const ENGLISH_EXCLUSION_MARKER = /\b(?:not\s+included|excluded|not\s+counted|excludes?|does\s+not\s+include|did\s+not\s+include)\b/iu;
@@ -252,6 +271,40 @@ function quantifiedReturnSegment(value: string): string | undefined {
   return value
     .split(/[.!?;]+/u)
     .find((candidate) => QUANTIFIED_GENERIC_RETURN.test(candidate));
+}
+
+function firstSentenceMatching(value: string, pattern: RegExp): string | undefined {
+  return value
+    .split(/[.!?;\n]+/u)
+    .find((candidate) => pattern.test(candidate));
+}
+
+function hasLocallyDatedStatus(value: string): boolean {
+  const markedStatusSentence = firstSentenceMatching(value, CURRENT_STATUS_REFERENCE);
+  if (
+    markedStatusSentence !== undefined &&
+    CURRENT_STATUS_PREDICATE.test(markedStatusSentence)
+  ) {
+    return EXPLICIT_YEAR.test(markedStatusSentence);
+  }
+  return value
+    .split(/[.!?;\n]+/u)
+    .some((candidate) => CURRENT_STATUS_PREDICATE.test(candidate) && EXPLICIT_YEAR.test(candidate));
+}
+
+function isPilot13AnalyticalResult(value: string): boolean {
+  const outcomeOffset = value.search(PILOT13_ANALYTICAL_OUTCOME);
+  const trendOffset = value.search(PILOT13_ANALYTICAL_TREND);
+  return (
+    (ANALYTICAL_ACTION.test(value) || PILOT13_ANALYTICAL_ACTION.test(value)) &&
+    PILOT13_ANALYTICAL_OUTCOME.test(value)
+  ) || (
+    outcomeOffset >= 0 &&
+    trendOffset > outcomeOffset
+  ) || (
+    PILOT13_ANALYTICAL_OUTCOME.test(value) &&
+    /\b(?:er|var|is|was|were)\s+(?:høy|høyt|høye|lav|lavt|lave|high|low)\b/iu.test(value)
+  );
 }
 
 function returnMetricIds(value: string): Set<string> {
@@ -723,6 +776,85 @@ function assertPilot12ScopeCompleteness(
   }
 }
 
+function assertPilot13ScopeCompleteness(
+  claimText: string,
+  evidence: string,
+): void {
+  const claimStatusSentence = firstSentenceMatching(claimText, CURRENT_STATUS_REFERENCE);
+  const evidenceStatusSentence = firstSentenceMatching(evidence, CURRENT_STATUS_REFERENCE);
+  if (
+    (
+      (claimStatusSentence !== undefined && CURRENT_STATUS_PREDICATE.test(claimStatusSentence)) ||
+      (evidenceStatusSentence !== undefined && CURRENT_STATUS_PREDICATE.test(evidenceStatusSentence))
+    ) &&
+    (!hasLocallyDatedStatus(claimText) || !hasLocallyDatedStatus(evidence))
+  ) {
+    throw new Error("agent_response_status_as_of_missing");
+  }
+
+  const nonExemptAnalyticalResult = claimText
+    .split(/[.!?;\n]+/u)
+    .flatMap((sentence) => sentence.split(/\b(?:og|and|while|mens|but|men)\b/iu))
+    .some((clause) =>
+      isPilot13AnalyticalResult(clause) &&
+      !ANALYTICAL_DEFINITION.test(clause) &&
+      !ANALYTICAL_NO_SUPPORT.test(clause));
+  if (
+    nonExemptAnalyticalResult &&
+    (
+      !BOUNDED_YEAR_RANGE.test(claimText) ||
+      !BOUNDED_YEAR_RANGE.test(evidence) ||
+      !ANALYTICAL_BASIS.test(claimText) ||
+      !ANALYTICAL_BASIS.test(evidence)
+    )
+  ) {
+    throw new Error("agent_response_analytical_measure_context_missing");
+  }
+
+  const claimLocalSentence = firstSentenceMatching(claimText, LOCAL_HERE_DEFINITION);
+  const evidenceLocalSentence = firstSentenceMatching(evidence, LOCAL_HERE_DEFINITION);
+  if (
+    (claimLocalSentence !== undefined && !NAMED_LOCAL_CONTEXT.test(claimLocalSentence)) ||
+    (evidenceLocalSentence !== undefined && !NAMED_LOCAL_CONTEXT.test(evidenceLocalSentence))
+  ) {
+    throw new Error("agent_response_local_reference_missing");
+  }
+
+  const claimIndexSentence = firstSentenceMatching(claimText, INTERPRETIVE_INDEX_VALUE);
+  const evidenceIndexSentence = firstSentenceMatching(evidence, INTERPRETIVE_INDEX_VALUE);
+  if (
+    (claimIndexSentence !== undefined && !NAMED_INDEX_IDENTITY.test(claimIndexSentence)) ||
+    (evidenceIndexSentence !== undefined && !NAMED_INDEX_IDENTITY.test(evidenceIndexSentence))
+  ) {
+    throw new Error("agent_response_index_identity_missing");
+  }
+
+  const claimStaffingSentence = firstSentenceMatching(claimText, STAFFING_ALLOCATION_CHANGE);
+  const evidenceStaffingSentence = firstSentenceMatching(evidence, STAFFING_ALLOCATION_CHANGE);
+  if (
+    claimStaffingSentence !== undefined &&
+    (
+      !EXPLICIT_YEAR.test(claimStaffingSentence) ||
+      !NAMED_PROJECT_SCOPE.test(claimStaffingSentence) ||
+      evidenceStaffingSentence === undefined ||
+      !EXPLICIT_YEAR.test(evidenceStaffingSentence) ||
+      !NAMED_PROJECT_SCOPE.test(evidenceStaffingSentence)
+    )
+  ) {
+    throw new Error("agent_response_staffing_scope_or_as_of_missing");
+  }
+
+  if (
+    SALES_AMOUNT.test(claimText) &&
+    PERCENT_VALUE.test(claimText) &&
+    MARKET_SHARE_LABEL.test(evidence) &&
+    MARKET_VALUE_DENOMINATOR.test(evidence) &&
+    (!MARKET_SHARE_LABEL.test(claimText) || !MARKET_VALUE_DENOMINATOR.test(claimText))
+  ) {
+    throw new Error("agent_response_share_measure_missing");
+  }
+}
+
 function assertAuthorityLanguageIsSourceVisible(claimText: string, evidence: string): void {
   if (ACTOR_ATTRIBUTION.test(claimText) && !ACTOR_ATTRIBUTION.test(evidence)) {
     throw new Error("agent_response_actor_attribution_not_source_visible");
@@ -740,7 +872,7 @@ function assertAuthorityLanguageIsSourceVisible(claimText: string, evidence: str
   }
 }
 
-export function assertLibraryAnalysisClaimLocalityV111(input: {
+export function assertLibraryAnalysisClaimLocalityV112(input: {
   claimText: string;
   evidence: string;
   sourceText: string;
@@ -750,15 +882,24 @@ export function assertLibraryAnalysisClaimLocalityV111(input: {
   assertAuditedScopeCompleteness(input.claimText, input.evidence, input.sourceText);
   assertPilot12ScopeCompleteness(input.claimText, input.evidence, input.sourceText);
   assertTabularEvidenceContext(input.evidence, input.unitType);
+  assertPilot13ScopeCompleteness(input.claimText, input.evidence);
   assertAuthorityLanguageIsSourceVisible(input.claimText, input.evidence);
 }
 
 function assertTabularEvidenceContext(evidence: string, unitType: string): void {
+  const trimmedEvidence = evidence.trim();
+  const isSingleLogicalLine = !trimmedEvidence.includes("\n") && !trimmedEvidence.includes("\r");
   if (
-    unitType === "sheet_range" &&
-    DELIMITED_ROW.test(evidence) &&
-    !evidence.includes("\n") &&
-    !EXPLICIT_TABULAR_FIELDS.test(evidence)
+    (
+      unitType === "sheet_range" &&
+      DELIMITED_ROW.test(trimmedEvidence) &&
+      isSingleLogicalLine &&
+      !EXPLICIT_TABULAR_FIELDS.test(evidence)
+    ) || (
+      MARKDOWN_DATA_ROW.test(trimmedEvidence) &&
+      isSingleLogicalLine &&
+      !EXPLICIT_MARKDOWN_FIELDS.test(evidence)
+    )
   ) {
     throw new Error("agent_response_tabular_context_missing");
   }
@@ -1012,7 +1153,7 @@ export function validateLibraryAnalysisAgentSegmentResponse(
     if (!unit.text.includes(claim.evidence)) {
       throw new Error("agent_response_evidence_not_contained");
     }
-    assertLibraryAnalysisClaimLocalityV111({
+    assertLibraryAnalysisClaimLocalityV112({
       claimText: claim.text,
       evidence: claim.evidence,
       sourceText: unit.text,

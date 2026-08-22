@@ -189,10 +189,10 @@ test("binds analysis and validation to different workflow and prompt bytes", () 
   const analysis = candidateWorkflowProfile("library_analysis_v1");
   const validation = candidateWorkflowProfile("library_validation_v1");
 
-  assert.equal(analysis.workflow.version, "1.0.11");
-  assert.equal(analysis.prompt.version, "1.0.11");
-  assert.equal(validation.workflow.version, "1.0.11");
-  assert.equal(validation.prompt.version, "1.0.11");
+  assert.equal(analysis.workflow.version, "1.0.12");
+  assert.equal(analysis.prompt.version, "1.0.12");
+  assert.equal(validation.workflow.version, "1.0.12");
+  assert.equal(validation.prompt.version, "1.0.12");
   assert.notEqual(analysis.workflow.path, validation.workflow.path);
   assert.notEqual(analysis.prompt.path, validation.prompt.path);
   assert.notEqual(analysis.workflow.id, validation.workflow.id);

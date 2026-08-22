@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.11`
+Workflow version: `1.0.12`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.11`
+Prompt template version: `1.0.12`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
@@ -49,6 +49,8 @@ A bare heading cannot by itself support a rewritten report-title assertion; requ
 Actor universes qualified by participation in a mapping must retain that qualifier. Period references must carry both boundary years. Deictic study openings, bare approaches and `this indicator` references are not self-contained without a same-excerpt identity.
 
 Figure-derived quantitative claims must retain the material caption scope: aggregated actors, full figure period and inflation-adjustment status. Analytical superlatives require a bounded comparison period and entity universe; retail-margin trends require their source-visible sample. Bare deictic value clauses require a same-excerpt antecedent. Reported results retain the named speaker, and generic webinar or main-message references require a locally named event in both claim and evidence.
+
+Current-status expressions such as `i dag`, `today`, `nå` and `now` require a source-visible reference year in the same status sentence in claim and evidence, including when the current-status marker appears only in the evidence. Every qualitative profitability finding, return comparison, profitability mapping, margin trend or gross-margin calculation, including copular findings such as `lønnsomheten var høy`, must carry its bounded period and analytical basis locally in claim and evidence; reject the analytical result when either is absent from the unit. A timeless definition or explicit no-support conclusion exempts only the analytical clause that contains that formulation, not a coordinated or separate analytical-result clause. A definition or calculation using bare `her`/`here` must name its appendix, method or analytical object in that evidence or claim sentence. An interpretation of `indeksverdi`/`index value`, including `tolkes`/`interpreted`, must name the index in the interpreting evidence or claim sentence. A changed personnel allocation must retain its reference year and named project in the same allocation sentence; an unambiguous acronym is a valid one-word project identity. A sales claim pairing a currency amount with a percentage must identify a source-visible market-share measure and market-value denominator when those define the percentage. A syntactic Markdown table row with two or more columns, expressed either with an outer pipe or as compact cell-only content without sentence punctuation, is not self-contained evidence in any unit type; surrounding whitespace or a trailing newline does not repair it. Include its header plus row or explicit field labels. Ordinary prose containing an internal `A | B` phrase is not a Markdown row.
 
 ## Output boundary
 

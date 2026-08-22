@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.11`
+Prompt template version: `1.0.12`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.11`
+Workflow version: `1.0.12`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
@@ -43,5 +43,7 @@ Classify as F4 a rewritten report-title assertion supported only by a bare title
 Classify as F3 a claim that broadens a source-visible actor universe, including dropping `som inngår i kartleggingen`, or refers to `perioden` without both boundary years. Classify as F4 a bare deictic study opening, a generic `tilnærmingen`, or `denne indikatoren` when the identity is absent from the same claim and evidence excerpt.
 
 Classify as F3 a figure-derived numeric claim that omits a material caption qualifier such as aggregated actors, full figure period or inflation-adjustment status. Analytical superlatives without their bounded comparison period and entity universe, and retail-margin trends without their source-visible sample, are F3. Classify as F4 a bare deictic value clause whose antecedent is outside the evidence excerpt, a reported result that drops its source-visible speaker attribution, or generic `Webinaret`/`Hovedbudskapet` wording without the locally named event.
+
+Classify `i dag`, `today`, `nå` or `now` without a reference year in the same status sentence in claim and evidence as F3, including when the marker appears only in evidence. Every qualitative profitability finding, return comparison, profitability mapping, margin trend or gross-margin calculation, including `lønnsomheten var høy`/`profitability was high`, requires a bounded period and analytical basis locally in claim and evidence; classify either omission as F3 even when the unit supplies neither. A timeless definition or explicit no-support conclusion exempts only its own analytical clause, not a coordinated or separate analytical-result clause. Classify definitional/calculation `her`/`here` whose evidence or claim sentence omits its appendix, method or analytical object as F4. Classify an interpretive index value, including `tolkes`/`interpreted`, whose interpreting evidence or claim sentence omits the index identity as F4. A changed personnel allocation without its reference year and named project in the same allocation sentence is F3; accept an unambiguous acronym as a one-word project identity. If a sales amount is paired with a percentage that the source identifies as market share of market value, omission of the measure or denominator is F3. A syntactic Markdown row with two or more columns, expressed either with an outer pipe or as compact cell-only content without sentence punctuation, without its header or explicit field labels is F4 regardless of unit type; surrounding whitespace or a trailing newline does not repair it. Ordinary prose containing only an internal `A | B` phrase is not a Markdown row.
 
 Do not rewrite the analysis into an approval. Do not claim human review, independent verification, accuracy, canonical status, promotion, rights clearance, publication, coverage or external readiness. A clean automated validation is still automated-only internal candidate evidence.

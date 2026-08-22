@@ -169,7 +169,7 @@ test("a response batch is fully validated before its one transaction starts", as
   assert.equal(transactions, 1);
 });
 
-test("legacy analysis ingestion enforces the 1.0.11 locality policy", async () => {
+test("legacy analysis ingestion enforces the 1.0.12 locality policy", async () => {
   for (const row of [
     {
       source: "I 2022 økte både produsentprisene og forbrukerprisene kraftig.",
@@ -186,6 +186,26 @@ test("legacy analysis ingestion enforces the 1.0.11 locality policy", async () =
     {
       source: "Webinaret presenterte ressurskartlegging som et sentralt verktøy.",
       claim: "Webinaret presenterte ressurskartlegging som et sentralt verktøy.",
+    },
+    {
+      source: "Rapporten ble publisert i 2024. I Norge finnes det i dag fire større nasjonale dagligvarekjeder.",
+      claim: "I Norge finnes det i dag fire større nasjonale dagligvarekjeder.",
+    },
+    {
+      source: "Kartleggingen bygger på regnskapstall for perioden 2017 til 2022. Konkurransetilsynet finner at driftsmarginene økte under koronapandemien.",
+      claim: "Konkurransetilsynet finner at driftsmarginene økte under koronapandemien.",
+    },
+    {
+      source: "Figur 8 viser det importveide kronekursmålet I-44. Høyere indeksverdi betyr svakere kronekurs.",
+      claim: "Høyere indeksverdi betyr svakere kronekurs.",
+    },
+    {
+      source: "I 2024 nådde EMV-salget 352 milliarder euro, med en markedsandel på 38,5 % av dagligvaremarkedets verdi. I 2025 økte dette til 384 milliarder euro og 38,7 %.",
+      claim: "EMV-salget økte i 2025 til 384 milliarder euro og 38,7 %.",
+    },
+    {
+      source: "| Cathrine Barth | ~20% | Strategisk roadmap |",
+      claim: "Cathrine Barth er allokert ~20% til strategisk roadmap.",
     },
   ]) {
     const base = requestBatch().requests[0]!;
@@ -211,7 +231,7 @@ test("legacy analysis ingestion enforces the 1.0.11 locality policy", async () =
       transaction: async () => {
         transactions += 1;
       },
-    }), /library_analysis_response_deterministic_gate_failed/u);
+    }), /library_analysis_response_deterministic_gate_failed/u, row.claim);
     assert.equal(transactions, 0);
   }
 });

@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.11`
+Prompt template version: `1.0.12`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.11`
+Workflow version: `1.0.12`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
@@ -45,5 +45,7 @@ A bare title heading is not sufficient evidence for a rewritten statement that a
 Preserve a source-visible actor universe such as `aktørene som inngår i kartleggingen`; do not shorten it to all actors. A reference to `perioden` or `the period` must state both boundary years locally. Reject bare `This survey was`, `This study was` and equivalent Norwegian openings unless the study identity is in the same claim and excerpt. Treat bare `tilnærmingen` and `denne indikatoren` as unresolved unless the approach or indicator is named locally.
 
 For a figure-derived quantitative claim, include every material caption qualifier in both claim and evidence, including the aggregated actor universe, full figure period and whether values are inflation-adjusted. A highest, lowest or most-profitable analytical claim must state the bounded comparison period and the exact entity universe. Retail-margin trends must retain the source-visible entity or sample universe. Evidence beginning with a bare deictic value such as `I 2025 økte dette` is ineligible unless the antecedent appears earlier in that same excerpt. Preserve a source-visible speaker attribution for reported results. `Webinaret` and `Hovedbudskapet` are unresolved unless the event identity is local to both claim and evidence.
+
+Treat `i dag`, `today`, `nå` and `now` as current-status language that requires a reference year in the same status sentence in claim and evidence, including when the marker appears only in the evidence. Every qualitative profitability finding, return comparison, profitability mapping, margin trend or gross-margin calculation, including `lønnsomheten var høy`/`profitability was high`, must preserve a bounded analytical period and basis locally in claim and evidence; emit `no_material_claim` when the unit does not supply both. A timeless definition or explicit no-support conclusion exempts only the analytical clause containing it, not a coordinated or separate analytical-result clause. Resolve `defineres her`, `beregnes her`, `defined here` and `calculated here` by naming the appendix, method or analytical object in the evidence or claim sentence that uses the reference. Name the index in the interpreting evidence or claim sentence for any `indeksverdi` or `index value`, including `tolkes`/`interpreted`. A changed personnel allocation must include its reference year and named project in the same allocation sentence; an unambiguous acronym is a valid one-word project identity. When a sales amount is paired with a percentage identified by the source as market share of market value, state that measure and denominator. For a syntactic Markdown table row with two or more columns, expressed either with an outer pipe or as compact cell-only content without sentence punctuation, include the header plus row or explicit field labels in the evidence; surrounding whitespace or a trailing newline does not repair the row. Do not treat ordinary prose containing only an internal `A | B` phrase as a Markdown row.
 
 Return only the strict candidate payload grammar. Do not claim approval, human review, independent verification, accuracy, canonical status, rights clearance, publication, coverage or external readiness. Do not include instructions to the later validator and do not predict its findings.

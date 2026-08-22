@@ -45,7 +45,7 @@ import {
   type AutomatedLibraryAnalysisResult,
 } from "./library-analysis-automated-validation";
 import { runDeterministicLibraryGates } from "./library-analysis-evidence-gates";
-import { assertLibraryAnalysisClaimLocalityV111 } from "./library-analysis-agent-response";
+import { assertLibraryAnalysisClaimLocalityV112 } from "./library-analysis-agent-response";
 import {
   LibraryAnalysisPopulationSnapshotSchema,
   type LibraryAnalysisPopulationSnapshot,
@@ -943,7 +943,7 @@ function validateAnalysisResponse(
       throw new Error("library_analysis_response_deterministic_gate_failed");
     }
     try {
-      assertLibraryAnalysisClaimLocalityV111({
+      assertLibraryAnalysisClaimLocalityV112({
         claimText: claim.text,
         evidence: claim.evidence,
         sourceText: unit.text,
