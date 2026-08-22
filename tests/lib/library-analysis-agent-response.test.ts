@@ -3052,6 +3052,26 @@ test("rejects Pilot19 gate bypasses found by adversarial review", () => {
       error: /non_declarative_evidence/u,
     },
     {
+      source: "stor steg for Malmø kommune – med Ressurs-strøm-kartleggingen.",
+      text: "Ressurs-strøm-kartleggingen i Malmø kommune var knyttet til et stort steg.",
+      evidence: "stor steg for Malmø kommune – med Ressurs-strøm-kartleggingen.",
+      error: /non_declarative_evidence/u,
+    },
+    ...[
+      "Prosjektstatus: stor steg for Malmö kommune – med ressurskartleggingen.",
+      "Punkt 1 — stor steg for Malmö kommune – med ressurskartleggingen.",
+      "Et stort steg for Malmö kommune – med ressurskartleggingen.",
+      "En stor utfordring for Malmö kommune – med ressurskartleggingen.",
+      "Store utfordringer for Malmö kommune – med ressurskartleggingen.",
+      "A significant step for Malmö — with resource mapping.",
+      "Challenge — a major step for Malmö — with resource mapping.",
+    ].map((evidence) => ({
+      source: evidence,
+      text: "Ressurskartleggingen var et stort steg for Malmö kommune.",
+      evidence,
+      error: /non_declarative_evidence/u,
+    })),
+    {
       source: "Utfordring med ER-data. Metoden er dokumentert.",
       text: "ER-data var en dokumentert utfordring.",
       evidence: "Utfordring med ER-data. Metoden er dokumentert.",
@@ -3088,6 +3108,15 @@ test("rejects Pilot19 gate bypasses found by adversarial review", () => {
       source: "Next step: resource mapping is scheduled for Malmö.",
       text: "Next step: resource mapping is scheduled for Malmö.",
     },
+    ...[
+      "Utfordringer med stigende kostnader oppsto i 2024.",
+      "Stort steg for Malmö kommune førte til nye tiltak.",
+      "Neste steg for prosjektet inkluderer ressurskartlegging.",
+      "Et stort steg for Malmö kommune innebar ressurskartlegging.",
+      "Challenges with rising costs emerged in 2024.",
+      "A major step for Malmö involved resource mapping.",
+      "A big step for Malmö enabled new measures.",
+    ].map((text) => ({ source: text, text })),
   ] as const) {
     const job = verifiedJob([row.source]);
     const response = segmentResponse(job, {

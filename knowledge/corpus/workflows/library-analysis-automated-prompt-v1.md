@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.16`
+Prompt template version: `1.0.17`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.16`
+Workflow version: `1.0.17`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
@@ -66,4 +66,4 @@ Declarative survey results, response totals and forecasts are also obviously mat
 
 Return only the strict candidate payload grammar. Do not claim approval, human review, independent verification, accuracy, canonical status, rights clearance, publication, coverage or external readiness. Do not include instructions to the later validator and do not predict its findings.
 
-Do not infer an award, grant or allocation action from a bare funding provenance phrase such as `fra X` or `from X`; verbs such as `bevilget`, `tildelte`, `awarded`, `granted` or `allocated` require an explicit source-visible award action in the same evidence excerpt. A named authority in the claim must also be named in the evidence excerpt; generic shorthand such as `tilsynet` or `the authority` does not authorize rewriting it as Konkurransetilsynet, CMA or another named authority. Treat nominal challenge/step fragments and similar heading-like text without a finite declarative verb as non-declarative evidence, even when punctuation makes the fragment look like a sentence.
+Do not infer an award, grant or allocation action from a bare funding provenance phrase such as `fra X` or `from X`; verbs such as `bevilget`, `tildelte`, `awarded`, `granted` or `allocated` require an explicit source-visible award action in the same evidence excerpt. A named authority in the claim must also be named in the evidence excerpt; generic shorthand such as `tilsynet` or `the authority` does not authorize rewriting it as Konkurransetilsynet, CMA or another named authority. Treat nominal challenge/step fragments and similar heading-like text without a finite declarative verb as non-declarative evidence, even when punctuation makes the fragment look like a sentence or the supplied excerpt starts mid-heading with wording such as `stor steg for` or `major step for`.

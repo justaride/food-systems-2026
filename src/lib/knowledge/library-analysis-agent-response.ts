@@ -209,11 +209,13 @@ const TOTAL_BUDGET_AMOUNT = /\b(?:totalt|total)\b[\s\S]{0,40}\b\d+(?:[\s.,]\d+)*
 const PER_GROUP_BUDGET_SCOPE = /\b(?:per|for\s+hver)\s+(?:transition\s+group|gruppe)\b|\bCities\s*\+\s*Food\b/iu;
 const AWARD_ACTION = /\b(?:bevilg(?:et|er|a|ning(?:en)?)|tildel(?:te|t|er|ing(?:en)?)|innvilg(?:et|er)|alloker(?:te|t|er|ing(?:en)?)|award(?:ed|s|ing)?|grant(?:ed|s|ing)?|allocat(?:ed|es?|ing|ion))\b/iu;
 const FINANCIAL_AWARD_CONTEXT = /(?:\b\d+(?:[\s.,]\d+)*\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\b|\b(?:finansiering(?:en)?|funding|tilskudd(?:et)?|grant)\b)/iu;
-const NOMINAL_CHALLENGE_HEADING = /^(?:utfordring(?:er)?(?:\s+(?:med|ved|for)|\s*:)|challenges?(?:\s+(?:with|for)|\s*:)|(?:neste\s+)?steg\s+for|next\s+step\s*:)(?=\s|$)/iu;
+const NOMINAL_CHALLENGE_HEADING = /^(?:utfordring(?:er)?(?:\s+(?:med|ved|for)|\s*[:–—-])|(?:en\s+stor\s+utfordring|store\s+utfordringer)\s+for|challenges?(?:\s+(?:with|for)|\s*[:–—-])|(?:(?:et|en)\s+)?(?:(?:neste|stor(?:t|e)?)\s+)?steg\s+for|next\s+step\s*:|(?:(?:a|the)\s+)?(?:(?:major|big|significant)\s+)?step\s+for)(?=\s|$)/iu;
 const DECLARATIVE_COPULA_OR_VERB_TOKENS = new Set([
   "er", "var", "ble", "blir", "har", "hadde", "gjør", "gjorde", "viser", "viste", "gir", "ga",
   "is", "are", "was", "were", "became", "become", "becomes", "has", "have", "had", "show", "shows",
   "showed", "give", "gives", "gave",
+  "oppstår", "oppsto", "fører", "førte", "inkluderer", "inkluderte", "innebærer", "innebar",
+  "emerge", "emerges", "emerged", "involve", "involves", "involved", "enable", "enables", "enabled",
 ]);
 const OBVIOUS_SECTIONED_FINDINGS = /(?:^|\n)#{1,6}\s+(?:Hovedfunn|Main\s+findings|Findings|Metode|Method)\b/imu;
 const PLAIN_SECTIONED_FINDINGS = /(?:^|\n)(?:Hovedfunn|Main\s+findings|Findings|Metode|Method)\s*(?::|\n)/imu;
@@ -389,6 +391,7 @@ function normalizedLeadingEvidenceClause(value: string): string {
   return firstClause
     .replace(/^(?:(?:#{1,6}|[-*•])\s*)+/u, "")
     .replace(/^(?:(?:tema|topic)\s*:\s*)/iu, "")
+    .replace(/^(?:(?:prosjektstatus|project\s+status)\s*:\s*|(?:punkt|point)\s+\d+\s*[–—:-]\s*)/iu, "")
     .trim();
 }
 

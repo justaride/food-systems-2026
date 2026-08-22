@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.16`
+Workflow version: `1.0.17`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.16`
+Prompt template version: `1.0.17`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
