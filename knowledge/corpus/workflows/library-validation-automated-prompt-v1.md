@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.12`
+Prompt template version: `1.0.13`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.12`
+Workflow version: `1.0.13`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
@@ -45,5 +45,11 @@ Classify as F3 a claim that broadens a source-visible actor universe, including 
 Classify as F3 a figure-derived numeric claim that omits a material caption qualifier such as aggregated actors, full figure period or inflation-adjustment status. Analytical superlatives without their bounded comparison period and entity universe, and retail-margin trends without their source-visible sample, are F3. Classify as F4 a bare deictic value clause whose antecedent is outside the evidence excerpt, a reported result that drops its source-visible speaker attribution, or generic `Webinaret`/`Hovedbudskapet` wording without the locally named event.
 
 Classify `i dag`, `today`, `nå` or `now` without a reference year in the same status sentence in claim and evidence as F3, including when the marker appears only in evidence. Every qualitative profitability finding, return comparison, profitability mapping, margin trend or gross-margin calculation, including `lønnsomheten var høy`/`profitability was high`, requires a bounded period and analytical basis locally in claim and evidence; classify either omission as F3 even when the unit supplies neither. A timeless definition or explicit no-support conclusion exempts only its own analytical clause, not a coordinated or separate analytical-result clause. Classify definitional/calculation `her`/`here` whose evidence or claim sentence omits its appendix, method or analytical object as F4. Classify an interpretive index value, including `tolkes`/`interpreted`, whose interpreting evidence or claim sentence omits the index identity as F4. A changed personnel allocation without its reference year and named project in the same allocation sentence is F3; accept an unambiguous acronym as a one-word project identity. If a sales amount is paired with a percentage that the source identifies as market share of market value, omission of the measure or denominator is F3. A syntactic Markdown row with two or more columns, expressed either with an outer pipe or as compact cell-only content without sentence punctuation, without its header or explicit field labels is F4 regardless of unit type; surrounding whitespace or a trailing newline does not repair it. Ordinary prose containing only an internal `A | B` phrase is not a Markdown row.
+
+Classify bare cleanup or data subjects as F4 when the cleaned object, analytical dataset or owning analysis is not named locally. This includes `Oppryddingen`, `the cleanup`, sentence-opening `Data`, `Datagrunnlaget` and `the data basis`; keep explicitly scoped forms eligible. Evidence opening with unresolved `I stedet`/`Instead` is F4. Passive introduction or evaluation without the introducing or evaluating actor is F4.
+
+Treat a percentage of total turnover as an implicit market share and classify a missing same-sentence measurement year as F3. A total multi-group budget that drops the source-visible per-group allocation or named groups is F3. A figure comparison expressed as a multiple that drops full caption period, index base, transaction stage or a material exclusion such as subsidy treatment is F3. A supplied-period dataset claim that drops a source-visible dataset exclusion is F3. Qualitative survey paraphrases about producer aims, drivers, determinants, geographic markets, obstacles or company locations without same-excerpt respondent count and universe are F3. Evidence ending with a colon before its defining list is truncated and F3.
+
+Classify as F5 an obviously material structured unit reported as `no_material_claim`, regardless of content-unit type, including a summary with `Hovedfunn`/`Main findings`/`Findings` or method sections, a header-bound inventory row, or an internal-register record with populated `keyFindings` or `recommendations`.
 
 Do not rewrite the analysis into an approval. Do not claim human review, independent verification, accuracy, canonical status, promotion, rights clearance, publication, coverage or external readiness. A clean automated validation is still automated-only internal candidate evidence.

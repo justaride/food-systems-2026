@@ -47,6 +47,283 @@ function unit(id: string, ordinal: number, text: string): LibraryAnalysisAgentQu
   };
 }
 
+test("rejects Pilot14 generic data, cleanup, evidence and passive-method references", () => {
+  const cases = [
+    {
+      source: "Oppryddingen som var planlagt 2026-04-14 ble først gjennomført 2026-04-21.",
+      text: "Oppryddingen som var planlagt 2026-04-14 ble først gjennomført 2026-04-21.",
+      evidence: "Oppryddingen som var planlagt 2026-04-14 ble først gjennomført 2026-04-21.",
+      error: /context_dependent_claim/u,
+    },
+    {
+      source: "Data er hentet fra årsrapporter for 2021 og 2022.",
+      text: "Data er hentet fra årsrapporter for 2021 og 2022.",
+      evidence: "Data er hentet fra årsrapporter for 2021 og 2022.",
+      error: /context_dependent_claim/u,
+    },
+    {
+      source: "Datagrunnlaget er avgrenset til produksjon og salg av dagligvarer.",
+      text: "Datagrunnlaget er avgrenset til produksjon og salg av dagligvarer.",
+      evidence: "Datagrunnlaget er avgrenset til produksjon og salg av dagligvarer.",
+      error: /context_dependent_claim/u,
+    },
+    {
+      source: "Metoden bruker ikke GIS-data i denne sammenhengen.",
+      text: "Metoden for regional ressurskartlegging bruker ikke GIS-data i denne sammenhengen.",
+      evidence: "Metoden bruker ikke GIS-data i denne sammenhengen.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      source: "I stedet knyttes data til geografi ved å se på hvilken kommune aktiviteten foregår i.",
+      text: "Aktivitetsdata knyttes til geografi ved å se på hvilken kommune aktiviteten foregår i.",
+      evidence: "I stedet knyttes data til geografi ved å se på hvilken kommune aktiviteten foregår i.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      source: "Metodisk kombinerer tilnærmingen bottom-up og top-down.",
+      text: "Ressurskartleggingsmetoden kombinerer bottom-up og top-down.",
+      evidence: "Metodisk kombinerer tilnærmingen bottom-up og top-down.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      source: "Kombinasjonen av lokal innsikt og systematisk datakartlegging beskrives som en stor styrke.",
+      text: "Kombinasjonen av lokal innsikt og systematisk datakartlegging beskrives som en stor styrke.",
+      evidence: "Kombinasjonen av lokal innsikt og systematisk datakartlegging beskrives som en stor styrke.",
+      error: /identification_actor_missing/u,
+    },
+    {
+      source: "Det ble introdusert en ny metode for kommuner og regioner.",
+      text: "Det ble introdusert en ny metode for kommuner og regioner.",
+      evidence: "Det ble introdusert en ny metode for kommuner og regioner.",
+      error: /identification_actor_missing/u,
+    },
+  ] as const;
+
+  for (const row of cases) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  }
+});
+
+test("rejects Pilot14 missing status, implicit-share, figure and dataset qualifiers", () => {
+  const cases = [
+    {
+      source: "Dokumentert i 2026. RE:Source-webinaret bekrefter at det nå utvikles mer sammenlignbare metoder.",
+      text: "RE:Source-webinaret bekrefter at det nå utvikles mer sammenlignbare metoder.",
+      evidence: "RE:Source-webinaret bekrefter at det nå utvikles mer sammenlignbare metoder.",
+      error: /status_as_of_missing/u,
+    },
+    {
+      source: "De tre store dagligvarekjedene står for om lag 95 prosent av den samlede omsetningen i den tradisjonelle dagligvarehandelen.",
+      text: "De tre store dagligvarekjedene står for om lag 95 prosent av den samlede omsetningen i den tradisjonelle dagligvarehandelen.",
+      evidence: "De tre store dagligvarekjedene står for om lag 95 prosent av den samlede omsetningen i den tradisjonelle dagligvarehandelen.",
+      error: /share_as_of_missing/u,
+    },
+    {
+      source: "250 000 kr per transition group (Cities + Food). Totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      text: "Totalt 500 000 kr kom fra Nordic Innovation Hotspot.",
+      evidence: "Totalt 500 000 kr fra Nordic Innovation Hotspot",
+      error: /budget_scope_missing/u,
+    },
+    {
+      source: "Dashboard for matsystemdata ble vist og diskutert:\n- Butikkfordeling\n- Selvforsyningsgrad",
+      text: "Dashboard for matsystemdata ble vist og diskutert.",
+      evidence: "Dashboard for matsystemdata ble vist og diskutert:",
+      error: /evidence_incomplete/u,
+    },
+    {
+      source: "Figur 7. Prisindeks for førstegangsomsetning av elektrisk strøm innenlands for perioden 2017 til og med 2022. (2015 = 100) Prisindeksen hensyntar ikke strømstøtte. Figur 7 viser at månedlig snittpris var fem ganger høyere i 2022 enn i 2015.",
+      text: "Figur 7 viser at månedlig snittpris var fem ganger høyere i 2022 enn i 2015.",
+      evidence: "Figur 7 viser at månedlig snittpris var fem ganger høyere i 2022 enn i 2015.",
+      error: /figure_context_missing/u,
+    },
+    {
+      source: "Elektro og øvrige faghandelsprofiler inngår ikke i de innsendte dataene. Coop har levert tall for perioden 2018 til og med 2022.",
+      text: "Coop har levert tall for perioden 2018 til og med 2022.",
+      evidence: "Elektro og øvrige faghandelsprofiler inngår ikke i de innsendte dataene. Coop har levert tall for perioden 2018 til og med 2022.",
+      error: /material_exclusion_missing/u,
+    },
+    {
+      source: "Electro profiles are not included in submitted data. Coop has provided data for the period 2018 to 2022.",
+      text: "Coop has provided data for the period 2018 to 2022.",
+      evidence: "Electro profiles are not included in submitted data. Coop has provided data for the period 2018 to 2022.",
+      error: /material_exclusion_missing/u,
+    },
+    {
+      source: "Figure 7. Domestic first-sale electricity price index for 2017 to 2022. (2015 = 100) The index does not include electricity support. Figure 7 shows a fivefold higher price in 2022 than in 2015.",
+      text: "Figure 7 shows a fivefold higher price in 2022 than in 2015.",
+      evidence: "Figure 7 shows a fivefold higher price in 2022 than in 2015.",
+      error: /figure_context_missing/u,
+    },
+    {
+      source: "Figure 7. Domestic first-sale electricity price index for 2017 to 2022. (2015 = 100) The index does not include electricity support. Figure 7 shows a 5-fold higher price in 2022 than in 2015.",
+      text: "Figure 7 shows a 5-fold higher price in 2022 than in 2015.",
+      evidence: "Figure 7 shows a 5-fold higher price in 2022 than in 2015.",
+      error: /figure_context_missing/u,
+    },
+    {
+      source: "Figure 7. Domestic first-sale electricity price index for 2017 to 2022. (2015 = 100) The index does not include electricity support. Figure 7 shows prices doubled from 2015 to 2022.",
+      text: "Figure 7 shows prices doubled from 2015 to 2022.",
+      evidence: "Figure 7 shows prices doubled from 2015 to 2022.",
+      error: /figure_context_missing/u,
+    },
+  ] as const;
+
+  for (const row of cases) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  }
+});
+
+test("rejects Pilot14 survey paraphrases without same-excerpt respondent scope", () => {
+  const cases = [
+    "Compared to 2022, insect food producers seem to aim to specialize in food products rather than whole insects.",
+    "Environmental sustainability and economic factors are influential drivers for purchasing insect food products.",
+    "Funding opportunities and staff training are critical determinants of business growth.",
+    "The source identifies Europe and the international market as main geographic markets for insect food producing companies.",
+    "Companies identified consumer reluctance and regulatory constraints as primary obstacles to growth.",
+    "Companies in the source are located in Europe, with a few exceptions in Asia.",
+    "Companies are located in Europe, with a few exceptions in Asia.",
+    "Companies were located in Europe, with a few exceptions in Asia.",
+    "Companies have been located in Europe, with a few exceptions in Asia.",
+  ];
+  for (const text of cases) {
+    const job = verifiedJob([`IPIFF Survey: Main Findings Report. ${text}`]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, text), evidence: text }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /survey_scope_missing/u, text);
+  }
+});
+
+test("rejects obvious material Pilot14 units reported as no-material-claim", () => {
+  const cases = [
+    {
+      text: "# Sammendrag: Rislakki\n\n## Hovedfunn\n1. Studien finner flere tiltak.\n\n## Metode\nKvalitativ innholdsanalyse av bærekraftsrapporter fra 2022.",
+      unitType: "database_record",
+    },
+    {
+      text: "id,priority,status,country,title,year,url\nsource-1,P1,candidate_fetch,no,Named report,2025,https://example.invalid/report",
+      unitType: "sheet_range",
+    },
+    {
+      text: '{"provenanceType":"internal_register","keyFindings":["Promptbiblioteket dokumenterer deep-research-sporet"],"recommendations":["Behandle artefaktene som interne kildebevis"]}',
+      unitType: "database_record",
+    },
+    {
+      text: "# Hovedfunn\n1. Studien finner flere tiltak.",
+      unitType: "document_section",
+    },
+    {
+      text: "## Main findings\nThe study reports a material result.",
+      unitType: "slide",
+    },
+    {
+      text: "## Findings\nThe register records a material recommendation.",
+      unitType: "database_record",
+    },
+    {
+      text: "Hovedfunn\nStudien finner flere tiltak.\nMetode\nKvalitativ analyse.",
+      unitType: "database_record",
+    },
+    {
+      text: "id,source_name,year\nsource-1,Named report,2025",
+      unitType: "dataset_slice",
+    },
+  ];
+  for (const row of cases) {
+    const job = verifiedJob([row.text]);
+    Object.assign(job.units[0]!.descriptor, { unitType: row.unitType });
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "no_material_claim" }],
+      claims: [],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /material_claim_omission/u);
+  }
+});
+
+test("keeps explicitly scoped Pilot14 boundary cases eligible", () => {
+  const cases = [
+    "Oppryddingen av dupliserte kildeposter ble gjennomført 2026-04-21.",
+    "Data for Konkurransetilsynets lønnsomhetsanalyse er hentet fra årsrapporter for 2021 og 2022.",
+    "Konkurransetilsynets datagrunnlag for lønnsomhetsanalysen er avgrenset til produksjon og salg av dagligvarer.",
+    "Metoden for regional ressurskartlegging bruker ikke GIS-data i denne sammenhengen.",
+    "Konkurransetilsynet beskriver kombinasjonen av lokal innsikt og datakartlegging som en styrke.",
+    "RE:Source introduserte en ny ressurskartleggingsmetode for kommuner og regioner.",
+    "A new method was introduced by RE:Source for municipalities and regions.",
+    "I 2026 utvikles det nå mer sammenlignbare metoder.",
+    "I 2022 sto de tre store dagligvarekjedene for om lag 95 prosent av samlet omsetning i tradisjonell dagligvarehandel.",
+    "Among 19 EU insect farming companies, respondents identified funding as a critical determinant of business growth.",
+  ];
+  for (const text of cases) {
+    const source = text.includes("Among 19") ? `IPIFF Survey: Main Findings Report. ${text}` : text;
+    const job = verifiedJob([source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, text), evidence: text }],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }));
+  }
+
+  const generic = "A title and a list continuation without a complete declarative proposition:";
+  const genericJob = verifiedJob([generic]);
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: genericJob,
+    response: segmentResponse(genericJob, {
+      unitCoverage: [{ contentUnitId: genericJob.units[0]!.descriptor.id, status: "no_material_claim" }],
+      claims: [],
+    }),
+  }));
+});
+
 const PILOT10_UNRESOLVED_CLAIMS = [
     {
       source: "Kun én av de syv leverandørene hadde lavere RNOA i 2020 enn i 2017. I snitt hadde leverandørene 35 og 28 prosent høyere avkastning i 2020 og 2021, målt mot 2017.",

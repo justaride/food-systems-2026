@@ -81,7 +81,8 @@ const AUDITED_GENERIC_SUBJECT = /^(?:(?:oppgaven|studien)\s+(?:dokumenterer|finn
 const AUDITED_HERE_REFERENCE = /^(?:driftsinntekter\s+her\s+økte|revenue\s+here\s+increased)\b/iu;
 const ANOTHER_FACTOR = /\b(?:en\s+annen\s+faktor|another\s+factor)\b/iu;
 const PRIOR_FACTOR = /\b(?:faktor|factor)\b/iu;
-const UNRESOLVED_GENERIC_REFERENCE = /\b(?:arbeidet(?!\s+(?:med|for|av)\b)|metoden(?!\s+(?:for|til|med)\b)|tilnærmingen(?!\s+(?:for|til|med|fokuserer\s+på)\b)|kartleggingen(?!\s+(?:av|for|i)\b)|kartleggingene|resultatet(?!\s+(?:av|fra|for|i)\b)|resultatene(?!\s+(?:av|fra|for|i)\b)|the\s+work(?!\s+(?:on|for|of)\b)|the\s+method(?!\s+(?:for|of|to|using)\b)|the\s+approach(?!\s+(?:for|to|using|focuses\s+on)\b)|the\s+mapping(?!\s+(?:of|for)\b)|the\s+results?(?!\s+(?:of|from|for|in)\b))\b/iu;
+const UNRESOLVED_GENERIC_REFERENCE = /\b(?:oppryddingen(?!\s+(?:av|i|for)\b)|arbeidet(?!\s+(?:med|for|av)\b)|metoden(?!\s+(?:for|til|med)\b)|tilnærmingen(?!\s+(?:for|til|med|fokuserer\s+på)\b)|kartleggingen(?!\s+(?:av|for|i)\b)|kartleggingene|resultatet(?!\s+(?:av|fra|for|i)\b)|resultatene(?!\s+(?:av|fra|for|i)\b)|the\s+cleanup(?!\s+(?:of|in|for)\b)|the\s+work(?!\s+(?:on|for|of)\b)|the\s+method(?!\s+(?:for|of|to|using)\b)|the\s+approach(?!\s+(?:for|to|using|focuses\s+on)\b)|the\s+mapping(?!\s+(?:of|for)\b)|the\s+results?(?!\s+(?:of|from|for|in)\b))\b/iu;
+const BARE_DATA_REFERENCE = /^(?:data(?:ene)?|datagrunnlaget|the\s+data(?:\s+basis)?)(?!\s+(?:for|fra|om|i|til|basert\s+på|brukt\s+av|from|about|in|to|based\s+on|used\s+by)\b)\b/iu;
 const UNRESOLVED_GENERIC_METHOD_OPENING = /^(?:(?:(?:an?|the|our|this)\s+)?(?:approach(?:es)?|methods?|methodolog(?:y|ies))(?!\s+(?:for|of|to|using|on)\b)|(?:(?:en|et|vår|denne)\s+)?(?:tilnærming(?:en|er|ene)?|metod(?:e|en|er|ene))(?!(?:\s+(?:for|til|med|av)\b|\s+fokuserer\s+på(?=\s|[.,;:]|$))))\b/iu;
 const BARE_APPENDIX_REFERENCE = /^(?:i\s+dette\s+vedlegget|in\s+this\s+appendix)\b/iu;
 const UNNAMED_AUTHORITY_ANALYSIS = /(?:\btilsynets\s+(?:(?:analyser|analyse)\b(?!\s+(?:av|om|for|i|fra|basert\s+på)(?:\s|$))|datagrunnlag\b)|\bthe\s+authority['’]s\s+(?:(?:analyses|analysis)\b(?!\s+(?:of|on|for|in|from|based\s+on)\b)|data\s+basis\b))/iu;
@@ -112,8 +113,8 @@ const PILOT13_ANALYTICAL_OUTCOME = /\b(?:avkastning(?:en)?|RNOA|lønnsomhet(?:en
 const PILOT13_ANALYTICAL_TREND = /(?<![\p{L}\p{N}_])(?:økte|steg|falt|increased|rose|fell|decreased)(?![\p{L}\p{N}_])/iu;
 const ANALYTICAL_DEFINITION = /\b(?:måler|måles|definerer|defineres|measures?|is\s+defined|are\s+defined)\b/iu;
 const ANALYTICAL_NO_SUPPORT = /\b(?:finner(?:\s+(?:med\s+andre\s+ord|derfor))?\s+ikke\s+støtte\s+for|finds?(?:\s+(?:therefore|in\s+other\s+words))?\s+no\s+support\s+for)\b/iu;
-const CURRENT_STATUS_REFERENCE = /\b(?:i\s+dag|today|nå|now)\b/iu;
-const CURRENT_STATUS_PREDICATE = /\b(?:finnes|har|er|foreligger|exists?|there\s+(?:is|are)|has|have)\b/iu;
+const CURRENT_STATUS_REFERENCE = /(?<![\p{L}\p{N}_])(?:i\s+dag|today|nå|now)(?![\p{L}\p{N}_])/iu;
+const CURRENT_STATUS_PREDICATE = /(?<![\p{L}\p{N}_])(?:finnes|har|er|foreligger|utvikles|utviklet|exists?|there\s+(?:is|are)|has|have|developed|being\s+developed)(?![\p{L}\p{N}_])/iu;
 const LOCAL_HERE_DEFINITION = /\b(?:defineres|beregnes|fastsettes|defined|calculated|determined)\s+(?:her|here)\b/iu;
 const NAMED_LOCAL_CONTEXT = /\b(?:VTB|NOA|value\s+to\s+business|netto\s+driftsrelaterte\s+eiendeler|(?:i|in)\s+(?:dette|this)\s+[\p{L}\p{M}-]*(?:vedlegg|appendix))\b/iu;
 const INTERPRETIVE_INDEX_VALUE = /\b(?:indeksverdi(?:en)?|index\s+value)\b[\s\S]{0,100}\b(?:høyere|lavere|betyr|tolkes|means?|higher|lower|interpreted)\b|\b(?:høyere|lavere|higher|lower)\b[\s\S]{0,100}\b(?:indeksverdi(?:en)?|index\s+value)\b/iu;
@@ -125,11 +126,13 @@ const PERCENT_VALUE = /\b\d+(?:[.,]\d+)?\s*(?:%(?![\p{L}\p{N}_])|prosent\b|perce
 const MARKET_SHARE_LABEL = /\b(?:markedsandel|market\s+share)\b/iu;
 const MARKET_VALUE_DENOMINATOR = /\b(?:av|of)\s+[^.!?]{0,80}\b(?:verdi|value)\b/iu;
 const INCOMPLETE_NEGATED_ANALYSIS_EVIDENCE = /\b(?:ikke\s+har\s+analysert|did\s+not\s+analy[sz]e|has\s+not\s+analy[sz]ed)\s*$/iu;
+const INCOMPLETE_LIST_LEAD_IN_EVIDENCE = /:\s*$/u;
 const MATERIAL_EXCLUSION = /\b(?:not\s+included|excluded|not\s+counted|inngår\s+ikke|ikke\s+inkludert|ikke\s+medregnet)\b/iu;
 const FRANCHISE_SCOPE = /\b(?:franchise[- ]owned\s+stores?|franchiseeide\s+butikker|kjøpmannseide\s+butikker)\b/iu;
 const POSSESSIVE_OWNERSHIP_TARGET = /\b(?:is|was)\s+(?:(?:listed|identified|reported)\s+as\s+)?(?:the\s+)?([\p{L}\p{N}.& -]{2,80}?)'s\s+(?:largest|majority|controlling)\s+(?:owner|shareholder)\b/iu;
 const NORWEGIAN_POSSESSIVE_OWNERSHIP_TARGET = /\b(?:er|var)\s+([\p{Lu}][\p{L}\p{N}.& -]{1,80}?)s\s+største\s+eier\b/u;
 const CONTEXT_DEPENDENT_EVIDENCE_OPENING = /^(?:this\s+(?:survey|questionnaire|study)|denne\s+(?:undersøkelsen|studien|kartleggingen))\b/iu;
+const CONTEXT_DEPENDENT_DISCOURSE_OPENING = /^(?:i\s+stedet(?!\s+for\b)|instead(?!\s+of\b))/iu;
 const DEICTIC_STUDY_REFERENCE = /\b(?:this\s+(?:survey|questionnaire|study)|denne\s+(?:undersøkelsen|studien|kartleggingen))\b/iu;
 const UNRESOLVED_INDICATOR_REFERENCE = /\b(?:denne\s+indikatoren|this\s+indicator)\b/iu;
 const MAPPED_ACTOR_SCOPE = /\b(?:(?:actors?|participants?)\b[^.;!?\n]{0,80}\b(?:the\s+)?mapping|(?:[\p{L}-]*aktør(?:er|ene)?|deltaker(?:e|ne)?)\b[^.;!?\n]{0,80}\bkartleggingen)\b/iu;
@@ -155,7 +158,7 @@ const GENERIC_EXPECTATION = /^(?:forventningen\s+er|the\s+expectation\s+is)\b/iu
 const OPERATIONAL_STATUS = /(?:\bdashboard(?:et)?\b[\s\S]{0,80}\b(?:brukes|anvendes|is\s+used)\b|\b(?:ingen|no)\b[\s\S]{0,80}\b(?:partnere?|partners?)\b[\s\S]{0,80}\b(?:kontaktet|contacted)\b)/iu;
 const NAMED_SCOPE = /\bfor\s+(?!(?:prosjektet|søknaden|the\s+project|the\s+application)\b)[A-ZÆØÅ][\p{L}\p{N}-]*(?:\s+[A-ZÆØÅ][\p{L}\p{N}-]*)+/u;
 const SURVEY_UNIT_CONTEXT = /\b(?:survey|questionnaire|respondents?|responses?|companies\s+indicated|could\s+you\s+rank|your\s+company)\b/iu;
-const SURVEY_DEPENDENT_CLAIM = /\b(?:respondents?|respondent\s+companies|companies\s+responded|most\s+(?:(?:of\s+the|insect(?:\s+food)?|food)\s+)?companies|most\s+established\s+companies|newer\s+entrants|on\s+average|rank(?:ed|ing)?|total(?:\s+collective)?\s+production|forecast(?:ed)?|foreseen|projection)\b/iu;
+const SURVEY_DEPENDENT_CLAIM = /\b(?:respondents?|respondent\s+companies|companies\s+(?:responded|identified|(?:are|were|have\s+been)\s+(?:located|based))|companies\s+in\s+the\s+source|insect\s+food\s+producers\s+seem|most\s+(?:(?:of\s+the|insect(?:\s+food)?|food)\s+)?companies|most\s+established\s+companies|newer\s+entrants|on\s+average|rank(?:ed|ing)?|total(?:\s+collective)?\s+production|forecast(?:ed)?|foreseen|projection|influential\s+drivers?|critical\s+determinants?|source\s+identifies[\s\S]{0,100}\bmain\s+geographic\s+markets?)\b/iu;
 const LOCAL_SURVEY_SCOPE = /\b(?:(?:among|from|of|sample\s+of)\s+|responses?\s+from\s+)?\d{1,4}\s+(?:(?:EU|European|Nordic|surveyed)\s+)?(?:(?:insect\s+farming|insect-food|food)\s+)?(?:companies|respondents|producers)\b/iu;
 const FORECAST_CLAIM = /\b(?:forecast(?:ed)?|foreseen|projection|projected)\b/iu;
 const FORECAST_BASIS = /\b(?:based\s+on|using|scenario|model(?:led|ed|ing)?|estimated?\s+from|responses?\s+from)\b/iu;
@@ -185,13 +188,28 @@ const VAGUE_COMPARISON = /\b(?:med\s+visse\s+særtrekk|with\s+certain\s+(?:featu
 const COMPARATIVE_PATTERN = /\b(?:(?:det\s+)?europeiske\s+mønsteret|the\s+European\s+pattern)\b/iu;
 const NAMED_COMPARISON_BASIS = /\b(?:målt\s+av|ifølge|basert\s+på|measured\s+by|according\s+to|based\s+on)\s+([\p{Lu}][\p{L}\p{M}\p{N}.&+-]*)/u;
 const UNNAMED_STUDY_AUTHORITY = /\b(?:empiriske\s+studier|empirical\s+studies|litteraturen|the\s+literature)\s+(?:viser|indikerer|tyder\s+på|shows?|indicates?|suggests?)(?![\p{L}\p{N}_])/iu;
-const PASSIVE_IDENTIFICATION = /\b(?:(?:ble\s+det|det\s+ble)\s+identifisert\s+at|it\s+was\s+identified\s+that)\b/iu;
+const PASSIVE_IDENTIFICATION = /\b(?:(?:ble\s+det|det\s+ble)\s+identifisert\s+at|det\s+ble\s+introdusert\s+en\s+ny\s+metode|it\s+was\s+identified\s+that|a\s+new\s+method\s+was\s+introduced)\b/iu;
+const PASSIVE_EVALUATION = /\b(?:beskrives\s+som|is\s+described\s+as)\b/iu;
+const PASSIVE_NAMED_ACTOR = /(?<![\p{L}\p{N}_])(?:av|by)\s+[\p{Lu}][\p{L}\p{M}\p{N}.:&+-]*(?:\s+[\p{Lu}][\p{L}\p{M}\p{N}.:&+-]*){0,5}/u;
 const FIGURE_REFERENCE = /\b(?:Figur|Figure)\s+(\d{1,4})\b/iu;
 const FIGURE_PERCENT_VALUE = /\b\d+(?:[.,]\d+)?\s*(?:%|prosent|percent)\b/iu;
-const FIGURE_CHANGE = /(?:økte|steg|falt|increased|rose|fell|decreased)(?![\p{L}\p{N}_])/iu;
+const FIGURE_MULTIPLE_VALUE = /(?:\b(?:\d+(?:[.,]\d+)?|en|to|tre|fire|fem|seks|syv|sju|åtte|ni|ti|one|two|three|four|five|six|seven|eight|nine|ten)\s+(?:ganger|times)\b|\b(?:twofold|threefold|fourfold|fivefold|sixfold|sevenfold|eightfold|ninefold|tenfold|twice|double|doubled|tripled|dobling|doblet|tredoblet)\b|\b\d+(?:[.,]\d+)?(?:x|-fold)\b)/iu;
+const FIGURE_CHANGE = /(?:økte|steg|falt|høyere|lavere|doblet|tredoblet|increased|rose|fell|decreased|higher|lower|doubled|tripled)(?![\p{L}\p{N}_])/iu;
 const FIGURE_AGGREGATED_ACTORS = /\b(?:aggregert|aggregated)\s*\(([^)]{3,200})\)/iu;
 const BOUNDED_YEAR_RANGE_CAPTURE = /\b((?:19|20)\d{2})\b\s*(?:[-–—]|to|through|until|and|til(?:\s+og\s+med)?|gjennom|og)\s*\b((?:19|20)\d{2})\b/giu;
 const NOT_INFLATION_ADJUSTED = /\b(?:ikke\s+(?:er\s+)?(?:inflasjonsjustert(?:e)?|justert(?:e)?\s+for\s+inflasjon)|not\s+(?:inflation[- ]adjusted|adjusted\s+for\s+inflation))\b/iu;
+const FIGURE_INDEX_BASE = /\b((?:19|20)\d{2}\s*=\s*100)\b/iu;
+const FIGURE_FIRST_TRANSACTION_SCOPE = /\b(?:førstegangsomsetning[\s\S]{0,80}\binnenlands|first(?:[- ]transaction|\s+sale)[\s\S]{0,80}\bdomestic)\b/iu;
+const FIGURE_ELECTRICITY_SUPPORT_EXCLUSION = /\b(?:hensyntar\s+ikke\s+strømstøtte|does\s+not\s+(?:account\s+for|include)\s+electricity\s+support)\b/iu;
+const IMPLICIT_MARKET_SHARE = /\b(?:står\s+for|utgjør|accounts?\s+for)\b[\s\S]{0,80}\b\d+(?:[.,]\d+)?\s*(?:%|prosent|percent)\b[\s\S]{0,120}\b(?:den\s+)?(?:samlet|samlede|total)\s+(?:omsetningen?|turnover|sales)\b[\s\S]{0,100}\b(?:dagligvare(?:handelen?)?|grocery)\b/iu;
+const REPORTED_DATASET_COVERAGE = /\b(?:har\s+levert\s+(?:tall|data)|(?:leverte|sendte\s+inn)\s+(?:tall|data)|(?:has\s+)?(?:supplied|provided)\s+(?:figures|data)|submitted\s+(?:figures|data)|figures\s+for\s+the\s+period)\b/iu;
+const EARLY_GENERIC_EVIDENCE_REFERENCE = /^(?:metodisk|methodologically)\s+[\s\S]{0,60}\b(?:tilnærmingen|metoden|the\s+approach|the\s+method)\b/iu;
+const TOTAL_BUDGET_AMOUNT = /\b(?:totalt|total)\b[\s\S]{0,40}\b\d+(?:[\s.,]\d+)*\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\b/iu;
+const PER_GROUP_BUDGET_SCOPE = /\b(?:per|for\s+hver)\s+(?:transition\s+group|gruppe)\b|\bCities\s*\+\s*Food\b/iu;
+const OBVIOUS_SECTIONED_FINDINGS = /(?:^|\n)#{1,6}\s+(?:Hovedfunn|Main\s+findings|Findings|Metode|Method)\b/imu;
+const PLAIN_SECTIONED_FINDINGS = /(?:^|\n)(?:Hovedfunn|Main\s+findings|Findings|Metode|Method)\s*(?::|\n)/imu;
+const STRUCTURED_REGISTER_FINDINGS = /"(?:keyFindings|recommendations)"\s*:\s*\[/u;
+const HEADER_BOUND_INVENTORY = /^(?:id|source_id)[,\t][^\n]+\n[^\n]+/iu;
 const RETURN_SUPERLATIVE = /\b(?:avkastning(?:en)?|RNOA|lønnsomhet(?:en)?|returns?|profitability)\b[\s\S]{0,160}\b(?:høyest(?:e)?|mest\s+lønnsomm(?:e|t)|highest|most\s+profitable)\b|\b(?:høyest(?:e)?|mest\s+lønnsomm(?:e|t)|highest|most\s+profitable)\b[\s\S]{0,160}\b(?:avkastning(?:en)?|RNOA|lønnsomhet(?:en)?|returns?|profitability)\b/iu;
 const RETURN_COMPARISON_UNIVERSE = /\b(?:(?:for|blant|among)\s+(?:(?:de|the)\s+)?(?:tre|3|samtlige|alle|all)\s+(?:enheter|entities|units|selskaper|companies)|(?:de|the)\s+(?:tre|3)\s+(?:enhetene|entities|units)|samtlige\s+(?:enheter|selskaper)|all\s+(?:entities|units|companies))\b/iu;
 const RETAIL_MARGIN_MEASURE = /\b(?:driftsmargin(?:en|er|ene)?|operating\s+margin(?:s)?)\b/iu;
@@ -404,6 +422,7 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     AUDITED_HERE_REFERENCE.test(normalizedClaim) ||
     unresolvedAnotherFactor ||
     unresolvedGenericReference ||
+    BARE_DATA_REFERENCE.test(normalizedClaim) ||
     UNRESOLVED_GENERIC_METHOD_OPENING.test(normalizedClaim) ||
     unresolvedLocalReference
   ) {
@@ -443,6 +462,12 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
   if (
     UNRESOLVED_RESULT_EVIDENCE.test(normalizedEvidence) ||
     UNRESOLVED_PLURAL_RESULT_EVIDENCE_OPENING.test(normalizedEvidence) ||
+    CONTEXT_DEPENDENT_DISCOURSE_OPENING.test(normalizedEvidence) ||
+    EARLY_GENERIC_EVIDENCE_REFERENCE.test(normalizedEvidence) ||
+    BARE_DATA_REFERENCE.test(normalizedEvidence) ||
+    (UNRESOLVED_GENERIC_REFERENCE.exec(normalizedEvidence)?.index === 0 &&
+      !MAPPED_ACTOR_SCOPE.test(normalizedEvidence) &&
+      !EXPLICIT_SCOPED_APPROACH.test(normalizedEvidence)) ||
     hasUnresolvedLocalReference(normalizedEvidence)
   ) {
     throw new Error("agent_response_evidence_context_dependent");
@@ -454,7 +479,10 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
   ) {
     throw new Error("agent_response_evidence_context_dependent");
   }
-  if (INCOMPLETE_NEGATED_ANALYSIS_EVIDENCE.test(normalizedEvidence)) {
+  if (
+    INCOMPLETE_NEGATED_ANALYSIS_EVIDENCE.test(normalizedEvidence) ||
+    INCOMPLETE_LIST_LEAD_IN_EVIDENCE.test(normalizedEvidence)
+  ) {
     throw new Error("agent_response_evidence_incomplete");
   }
   if (
@@ -494,8 +522,18 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
   )) {
     throw new Error("agent_response_comparison_context_missing");
   }
-  if (PASSIVE_IDENTIFICATION.test(normalizedClaim)) {
+  if (
+    (PASSIVE_IDENTIFICATION.test(normalizedClaim) || PASSIVE_EVALUATION.test(normalizedClaim)) &&
+    !PASSIVE_NAMED_ACTOR.test(normalizedClaim)
+  ) {
     throw new Error("agent_response_identification_actor_missing");
+  }
+  if (
+    REPORTED_DATASET_COVERAGE.test(normalizedClaim) &&
+    MATERIAL_EXCLUSION.test(normalizedEvidence) &&
+    !MATERIAL_EXCLUSION.test(normalizedClaim)
+  ) {
+    throw new Error("agent_response_material_exclusion_missing");
   }
   if (
     MATERIAL_EXCLUSION.test(normalizedClaim) &&
@@ -584,12 +622,19 @@ function assertAuditedScopeCompleteness(
   )) {
     throw new Error("agent_response_ownership_as_of_missing");
   }
+  if (
+    TOTAL_BUDGET_AMOUNT.test(claimText) &&
+    PER_GROUP_BUDGET_SCOPE.test(sourceText) &&
+    (!PER_GROUP_BUDGET_SCOPE.test(claimText) || !PER_GROUP_BUDGET_SCOPE.test(evidence))
+  ) {
+    throw new Error("agent_response_budget_scope_missing");
+  }
   const quantifiedShareClaim = claimText
     .split(/[.!?]+/u)
-    .find((segment) => QUANTIFIED_MARKET_SHARE.test(segment));
+    .find((segment) => QUANTIFIED_MARKET_SHARE.test(segment) || IMPLICIT_MARKET_SHARE.test(segment));
   const quantifiedShareEvidence = evidence
     .split(/[.!?]+/u)
-    .find((segment) => QUANTIFIED_MARKET_SHARE.test(segment));
+    .find((segment) => QUANTIFIED_MARKET_SHARE.test(segment) || IMPLICIT_MARKET_SHARE.test(segment));
   if (quantifiedShareClaim !== undefined && (
     quantifiedShareEvidence === undefined ||
     !EXPLICIT_YEAR.test(quantifiedShareClaim) ||
@@ -690,7 +735,14 @@ function figureContextBeforeEvidence(
   sourceText: string,
   evidence: string,
   figureNumber: string,
-): { actors: string[]; yearRanges: Set<string>; inflationQualified: boolean } | undefined {
+): {
+  actors: string[];
+  yearRanges: Set<string>;
+  inflationQualified: boolean;
+  indexBase: string | undefined;
+  firstTransactionScoped: boolean;
+  electricitySupportExcluded: boolean;
+} | undefined {
   const sourceFigure = [...sourceText.matchAll(/\b(?:Figur|Figure)\s+(\d{1,4})\b/giu)]
     .find((match) => match[1] === figureNumber);
   if (sourceFigure?.index === undefined) return undefined;
@@ -710,6 +762,9 @@ function figureContextBeforeEvidence(
     actors,
     yearRanges: boundedYearRangeKeys(context),
     inflationQualified: NOT_INFLATION_ADJUSTED.test(context),
+    indexBase: FIGURE_INDEX_BASE.exec(context)?.[1],
+    firstTransactionScoped: FIGURE_FIRST_TRANSACTION_SCOPE.test(context),
+    electricitySupportExcluded: FIGURE_ELECTRICITY_SUPPORT_EXCLUSION.test(context),
   };
 }
 
@@ -721,7 +776,7 @@ function assertPilot12ScopeCompleteness(
   const figureNumber = FIGURE_REFERENCE.exec(claimText)?.[1];
   if (
     figureNumber !== undefined &&
-    FIGURE_PERCENT_VALUE.test(claimText) &&
+    (FIGURE_PERCENT_VALUE.test(claimText) || FIGURE_MULTIPLE_VALUE.test(claimText)) &&
     FIGURE_CHANGE.test(claimText)
   ) {
     const context = figureContextBeforeEvidence(sourceText, evidence, figureNumber);
@@ -733,7 +788,16 @@ function assertPilot12ScopeCompleteness(
         !normalizedMaterialText(evidence).includes(normalizedMaterialText(actor))) ||
       [...context.yearRanges].some((range) => !claimRanges.has(range) || !evidenceRanges.has(range)) ||
       (context.inflationQualified &&
-        (!NOT_INFLATION_ADJUSTED.test(claimText) || !NOT_INFLATION_ADJUSTED.test(evidence)))
+        (!NOT_INFLATION_ADJUSTED.test(claimText) || !NOT_INFLATION_ADJUSTED.test(evidence))) ||
+      (context.indexBase !== undefined && (
+        !normalizedMaterialText(claimText).includes(normalizedMaterialText(context.indexBase)) ||
+        !normalizedMaterialText(evidence).includes(normalizedMaterialText(context.indexBase)))) ||
+      (context.firstTransactionScoped && (
+        !FIGURE_FIRST_TRANSACTION_SCOPE.test(claimText) ||
+        !FIGURE_FIRST_TRANSACTION_SCOPE.test(evidence))) ||
+      (context.electricitySupportExcluded && (
+        !FIGURE_ELECTRICITY_SUPPORT_EXCLUSION.test(claimText) ||
+        !FIGURE_ELECTRICITY_SUPPORT_EXCLUSION.test(evidence)))
     )) {
       throw new Error("agent_response_figure_context_missing");
     }
@@ -872,7 +936,7 @@ function assertAuthorityLanguageIsSourceVisible(claimText: string, evidence: str
   }
 }
 
-export function assertLibraryAnalysisClaimLocalityV112(input: {
+export function assertLibraryAnalysisClaimLocalityV113(input: {
   claimText: string;
   evidence: string;
   sourceText: string;
@@ -885,6 +949,9 @@ export function assertLibraryAnalysisClaimLocalityV112(input: {
   assertPilot13ScopeCompleteness(input.claimText, input.evidence);
   assertAuthorityLanguageIsSourceVisible(input.claimText, input.evidence);
 }
+
+/** @deprecated Use the current locality gate. Retained for import compatibility. */
+export const assertLibraryAnalysisClaimLocalityV112 = assertLibraryAnalysisClaimLocalityV113;
 
 function assertTabularEvidenceContext(evidence: string, unitType: string): void {
   const trimmedEvidence = evidence.trim();
@@ -1140,6 +1207,13 @@ export function validateLibraryAnalysisAgentSegmentResponse(
     throw new Error("agent_response_model_receipt_mismatch");
   }
   assertExactCoverage(input.job, response.unitCoverage);
+  for (const coverage of response.unitCoverage) {
+    if (coverage.status !== "no_material_claim") continue;
+    const unit = ownedUnit(input.job, coverage.contentUnitId);
+    if (hasObviousMaterialClaim(unit.text)) {
+      throw new Error("agent_response_material_claim_omission");
+    }
+  }
   const coverageByUnit = new Map(response.unitCoverage.map((coverage) => [coverage.contentUnitId, coverage]));
   const claims = response.claims.map((claim) => {
     const unit = ownedUnit(input.job, claim.contentUnitId);
@@ -1153,7 +1227,7 @@ export function validateLibraryAnalysisAgentSegmentResponse(
     if (!unit.text.includes(claim.evidence)) {
       throw new Error("agent_response_evidence_not_contained");
     }
-    assertLibraryAnalysisClaimLocalityV112({
+    assertLibraryAnalysisClaimLocalityV113({
       claimText: claim.text,
       evidence: claim.evidence,
       sourceText: unit.text,
@@ -1170,6 +1244,13 @@ export function validateLibraryAnalysisAgentSegmentResponse(
     segmentOrdinal: input.job.job.segmentOrdinal,
     claims,
   });
+}
+
+function hasObviousMaterialClaim(text: string): boolean {
+  return OBVIOUS_SECTIONED_FINDINGS.test(text) ||
+    PLAIN_SECTIONED_FINDINGS.test(text) ||
+    STRUCTURED_REGISTER_FINDINGS.test(text) ||
+    HEADER_BOUND_INVENTORY.test(text);
 }
 
 export function mergeLibraryAnalysisSourceSegments(input: {

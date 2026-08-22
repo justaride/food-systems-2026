@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.12`
+Workflow version: `1.0.13`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.12`
+Prompt template version: `1.0.13`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
@@ -51,6 +51,12 @@ Actor universes qualified by participation in a mapping must retain that qualifi
 Figure-derived quantitative claims must retain the material caption scope: aggregated actors, full figure period and inflation-adjustment status. Analytical superlatives require a bounded comparison period and entity universe; retail-margin trends require their source-visible sample. Bare deictic value clauses require a same-excerpt antecedent. Reported results retain the named speaker, and generic webinar or main-message references require a locally named event in both claim and evidence.
 
 Current-status expressions such as `i dag`, `today`, `nå` and `now` require a source-visible reference year in the same status sentence in claim and evidence, including when the current-status marker appears only in the evidence. Every qualitative profitability finding, return comparison, profitability mapping, margin trend or gross-margin calculation, including copular findings such as `lønnsomheten var høy`, must carry its bounded period and analytical basis locally in claim and evidence; reject the analytical result when either is absent from the unit. A timeless definition or explicit no-support conclusion exempts only the analytical clause that contains that formulation, not a coordinated or separate analytical-result clause. A definition or calculation using bare `her`/`here` must name its appendix, method or analytical object in that evidence or claim sentence. An interpretation of `indeksverdi`/`index value`, including `tolkes`/`interpreted`, must name the index in the interpreting evidence or claim sentence. A changed personnel allocation must retain its reference year and named project in the same allocation sentence; an unambiguous acronym is a valid one-word project identity. A sales claim pairing a currency amount with a percentage must identify a source-visible market-share measure and market-value denominator when those define the percentage. A syntactic Markdown table row with two or more columns, expressed either with an outer pipe or as compact cell-only content without sentence punctuation, is not self-contained evidence in any unit type; surrounding whitespace or a trailing newline does not repair it. Include its header plus row or explicit field labels. Ordinary prose containing an internal `A | B` phrase is not a Markdown row.
+
+Bare cleanup and data subjects are context-dependent in the same way as bare work or method subjects. `Oppryddingen`, `the cleanup`, sentence-opening `Data`, `Datagrunnlaget` or `the data basis` must name the cleaned object, analytical dataset or owning analysis locally; an explicit construction such as `Oppryddingen av dupliserte kildeposter` or `Data for Konkurransetilsynets lønnsomhetsanalyse` is eligible. Evidence opening with `I stedet`/`Instead` requires the contrasted alternative in the same excerpt. Passive introduction or evaluation such as `Det ble introdusert en ny metode` or `beskrives som en styrke` must name the introducing or evaluating actor.
+
+Implicit shares expressed as a percentage of total turnover require a same-sentence measurement year just like an explicit `markedsandel`. A total multi-group budget must retain the source-visible per-group allocation and named groups. A figure comparison stated as `fem ganger høyere` or equivalent must retain its full caption period, index base, transaction stage and material exclusions such as electricity-subsidy treatment in both claim and evidence. A claim that an actor supplied a period dataset must preserve any source-visible exclusion defining that dataset. Survey-derived claims include qualitative paraphrases about producer aims, drivers, determinants, geographic markets, obstacles and company locations; they require the source-visible respondent count and universe in their own excerpt. Evidence ending in a colon before its defining list is incomplete.
+
+`no_material_claim` is not a shortcut around obvious source material. In any content-unit type, a structured summary with a `Hovedfunn`/`Main findings`/`Findings` or method section, a header-bound inventory row, or an internal-register record with populated `keyFindings` or `recommendations` must produce supported claims or a typed blocked result. Reporting such a unit as `no_material_claim` is a material omission.
 
 ## Output boundary
 
