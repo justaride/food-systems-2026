@@ -229,6 +229,12 @@ const SURVEY_RESPONSE_TOTAL_MATERIAL = /\b(?:totalt\s+svarte\s+\d+[\d ,.]*(?:\s+
 const SURVEY_FORECAST_MATERIAL = /\b(?:forecast(?:ed)?|projected|projection|prognose(?:n)?)\b(?=[^.!?\n]{0,200}\b(?:19|20)\d{2}\b)(?=[^.!?\n]{0,200}\b\d[\d ,.]*\s*(?:tonnes?|tons?|tonn)\b)[^.!?\n]{0,200}/iu;
 const SURVEY_QUALITATIVE_RESULT_MATERIAL = /\b(?:(?:most\s+)?respondents\s+(?:reported|selected|ranked|identified|indicated)|companies\s+(?:reported|selected|ranked|identified|indicated)|respondentene\s+(?:rapporterte|valgte|rangerte|identifiserte|indikerte)|flest\s+respondenter\s+(?:rapporterte|valgte|rangerte)|selskapene\s+(?:oppga|rapporterte|valgte|rangerte)|de\s+fleste\s+selskapene\s+(?:foretrakk|valgte|rapporterte))\b/iu;
 const SURVEY_GENERAL_FORECAST_MATERIAL = /\b(?:forecast(?:ed)?|projected|projection|projisert|prognose(?:n)?)\b(?=[^!?\n]{0,200}\b(?:19|20)\d{2}\b)(?=[^!?\n]{0,200}(?:\b\d+(?:[.,]\d+)?(?:\s+\d{3})*\s*(?:million(?:er)?|euros?|EUR|units?|enheter)\b|\b(?:double|doubled|doble|doblet)\b))[^!?\n]{0,200}/iu;
+const NUMBERED_LEARNING_SECTION = /(?:^|\n)(?:#{1,6}\s*)?(?:læring(?:spunkt)?|learning(?:\s+point)?)\s*(?:#\s*|nr\.?\s*|number\s*)?\d+\b/imu;
+const NUMBERED_LEARNING_HEADING_LINE = /^(?:#{1,6}\s*)?(?:læring(?:spunkt)?|learning(?:\s+point)?)\s*(?:#\s*|nr\.?\s*|number\s*)?\d+\b[^.!?]{0,200}$/iu;
+const NUMBERED_LEARNING_TOC_LINE = /^(?:#{1,6}\s*)?(?:læring(?:spunkt)?|learning(?:\s+point)?)\s*(?:#\s*|nr\.?\s*|number\s*)?\d+\b[^\n]{0,240}$/iu;
+const LEARNING_SECTION_DECLARATIVE_VERB = /(?<![\p{L}\p{N}_])(?:er|var|ble|blir|har|hadde|gir|ga|gjør|gjorde|viser|viste|finner|fant|opplever|opplevde|produserer|produserte|identifiserer|identifiserte|demonstrerer|demonstrerte|inneholder|inneholdt|inkluderer|inkluderte|indikerer|indikerte|rapporterer|rapporterte|avdekker|avdekket|støtter|støttet|beskriver|beskrev|forklarer|forklarte|fremhever|fremhevet|bruker|brukte|sikrer|sikret|måler|målte|bekrefter|bekreftet|omfatter|omfattet|anvender|anvendte|kan|skal|må|is|are|was|were|became|has|have|had|gives?|gave|provides?|provided|produces?|produced|shows?|showed|finds?|found|demonstrates?|demonstrated|identifies?|identified|contains?|contained|includes?|included|indicates?|indicated|reports|reported|supports?|supported|describes?|described|explains?|explained|reveals?|revealed|highlights?|highlighted|outlines?|outlined|suggests?|suggested|summari[sz]es?|summari[sz]ed|confirms?|confirmed|covers?|covered|applies|applied|enables?|enabled|uses?|ensures?|measures?|measured|can|will|must)(?![\p{L}\p{N}_])/iu;
+const LEARNING_SECTION_IMPERATIVE = /^(?:[:/—–-]\s*)?(?:(?:please|vennligst)\s+|(?:(?:can|could|will|would)\s+you|kan\s+du)\s+)?(?:describe|explain|discuss|list|select|choose|identify|rank|state|summari[sz]e|beskriv|forklar|diskuter|list|velg|identifiser|ranger|oppsummer)(?![\p{L}\p{N}_])/iu;
+const LEARNING_SECTION_META_HEADING = /\b(?:this\s+is\s+)?(?:a\s+)?(?:report|document|section|slide|chapter|rapport|dokument|seksjon|lysbilde|kapittel)\s+(?:heading|title|overskrift|tittel)\b/iu;
 const DEICTIC_DOCUMENT_REFERENCE = /\b(?:dette\s+dokument(?:et)?|disse\s+dokumentene|dokumentet|this\s+document)\b/iu;
 const NAMED_DOCUMENT_REFERENCE = /\b(?:dette\s+dokumentet|this\s+document)\s*(?:,\s*(?:the\s+)?[^,\n]{2,120}\b(?:rapport(?:en)?|report)\b(?:\s+(?:19|20)\d{2})?\s*,|\(\s*(?:the\s+)?[^)\n]{2,120}\b(?:rapport(?:en)?|report)\b[^)\n]{0,40}\)|:\s*[^.!?\n]{2,120}\b(?:rapport(?:en)?|report)\b(?:\s+(?:19|20)\d{2})?(?=\s+(?:is|was|er|var|ble)\b)|[—–-]\s*[^—–\n]{2,120}\b(?:rapport(?:en)?|report)\b[^—–\n]{0,40}[—–-])/iu;
 const NON_DECLARATIVE_METADATA_CLAIM = /^(?:metadata[- ]import|metadata\s+(?:record|entry))\b/iu;
@@ -1541,12 +1547,19 @@ function hasObviousMaterialClaim(text: string): boolean {
   const nonemptyLines = text.split(/\r?\n/u)
     .map((line) => line.trim())
     .filter((line) => line.length > 0);
+  const learningTableOfContents = nonemptyLines.length >= 3 &&
+    /^(?:table\s+of\s+contents|contents|innhold)\s*:?\s*$/iu.test(nonemptyLines[0]!) &&
+    /^(?:appendix|vedlegg)\s*:?\s*$/iu.test(nonemptyLines.at(-1)!) &&
+    nonemptyLines.slice(1, -1).every((line) => NUMBERED_LEARNING_TOC_LINE.test(line));
+  if (learningTableOfContents) return false;
   const structuralPromptOnly = nonemptyLines.length > 0 && nonemptyLines.every((line) =>
     /^(?:#{1,6}\s*)?(?:table\s+of\s+contents|contents|innhold|main\s+findings|hovedfunn|findings|appendix|vedlegg|method|metode)\s*:?\s*$/iu.test(line) ||
+    isNumberedLearningHeadingLine(line) ||
     /\?\s*$/u.test(line) ||
     /^(?:(?:alternativ|option|choice)\s+[A-Z0-9]|(?:svar|answer)\s*:\s*[A-Z0-9]|(?:options?|choices?|svaralternativer)\s*:\s*.+|(?:select|choose|velg)\s+(?:one|ett|én)|\d+[.)]\s*(?:introduction|methodology|metode|appendix|vedlegg))\s*[.]?\s*$/iu.test(line));
   if (structuralPromptOnly) return false;
   return OBVIOUS_SECTIONED_FINDINGS.test(text) ||
+    hasNumberedLearningSectionMaterial(text) ||
     PLAIN_SECTIONED_FINDINGS.test(text) ||
     STRUCTURED_REGISTER_FINDINGS.test(text) ||
     HEADER_BOUND_INVENTORY.test(text) ||
@@ -1559,6 +1572,31 @@ function hasObviousMaterialClaim(text: string): boolean {
     SURVEY_FORECAST_MATERIAL.test(text) ||
     SURVEY_QUALITATIVE_RESULT_MATERIAL.test(text) ||
     SURVEY_GENERAL_FORECAST_MATERIAL.test(text);
+}
+
+function isNumberedLearningHeadingLine(line: string): boolean {
+  if (!NUMBERED_LEARNING_HEADING_LINE.test(line)) return false;
+  const match = NUMBERED_LEARNING_SECTION.exec(line);
+  if (match === null) return false;
+  const tail = line.slice(match.index + match[0].length).trim();
+  return tail.length === 0 ||
+    LEARNING_SECTION_IMPERATIVE.test(tail) ||
+    LEARNING_SECTION_META_HEADING.test(tail) ||
+    !LEARNING_SECTION_DECLARATIVE_VERB.test(tail);
+}
+
+function hasNumberedLearningSectionMaterial(text: string): boolean {
+  const match = NUMBERED_LEARNING_SECTION.exec(text);
+  if (match === null) return false;
+  const tail = text.slice(match.index + match[0].length, match.index + match[0].length + 6000);
+  return tail.split(/(?<=[.!?])(?:\s+|$)|\r?\n/u).some((part) => {
+    const sentence = part.trim();
+    return sentence.length >= 20 &&
+      !/\?\s*$/u.test(sentence) &&
+      !LEARNING_SECTION_IMPERATIVE.test(sentence) &&
+      !LEARNING_SECTION_META_HEADING.test(sentence) &&
+      LEARNING_SECTION_DECLARATIVE_VERB.test(sentence);
+  });
 }
 
 export function mergeLibraryAnalysisSourceSegments(input: {

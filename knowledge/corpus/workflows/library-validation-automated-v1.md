@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.17`
+Workflow version: `1.0.18`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.17`
+Prompt template version: `1.0.18`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
@@ -58,7 +58,7 @@ Classify bare cleanup or data subjects as F4 when the cleaned object, analytical
 
 Treat a percentage of total turnover as an implicit market share and classify a missing same-sentence measurement year as F3. A total multi-group budget that drops the source-visible per-group allocation or named groups is F3. A figure comparison expressed as a multiple that drops full caption period, index base, transaction stage or material exclusions such as subsidy treatment is F3. A supplied-period dataset claim that drops a source-visible dataset exclusion is F3. Qualitative survey paraphrases about producer aims, drivers, determinants, geographic markets, obstacles or company locations without same-excerpt respondent count and universe are F3. Evidence ending with a colon before its defining list is truncated and F3.
 
-Classify as F5 an obviously material structured unit reported as `no_material_claim`, regardless of content-unit type, including a summary with `Hovedfunn`/`Main findings`/`Findings` or method sections, a header-bound inventory row, an internal-register record with populated `keyFindings` or `recommendations`, a master analysis index with structured status results, explicit Competition Authority findings, named study findings, or a scoped project budget with total and per-group allocations.
+Classify as F5 an obviously material structured unit reported as `no_material_claim`, regardless of content-unit type, including a summary with `Hovedfunn`/`Main findings`/`Findings` or method sections, a numbered `Læring`/`Læringspunkt`/`Learning`/`Learning point` section followed by declarative findings, a header-bound inventory row, an internal-register record with populated `keyFindings` or `recommendations`, a master analysis index with structured status results, explicit Competition Authority findings, named study findings, or a scoped project budget with total and per-group allocations. A bare numbered learning heading, table-of-contents entry, learning question or imperative prompt without a declarative answer is not material by itself.
 
 Declarative survey results, response totals and forecasts reported as `no_material_claim` are also F5. Missing local survey context requires typed `blocked` coverage rather than omission.
 

@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.17`
+Workflow version: `1.0.18`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.17`
+Prompt template version: `1.0.18`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
@@ -64,7 +64,7 @@ Bare cleanup and data subjects are context-dependent in the same way as bare wor
 
 Implicit shares expressed as a percentage of total turnover require a same-sentence measurement year just like an explicit `markedsandel`. A total multi-group budget must retain the source-visible per-group allocation and named groups. A figure comparison stated as `fem ganger høyere` or equivalent must retain its full caption period, index base, transaction stage and material exclusions such as electricity-subsidy treatment in both claim and evidence. A claim that an actor supplied a period dataset must preserve any source-visible exclusion defining that dataset. Survey-derived claims include qualitative paraphrases about producer aims, drivers, determinants, geographic markets, obstacles and company locations; they require the source-visible respondent count and universe in their own excerpt. Evidence ending in a colon before its defining list is incomplete.
 
-`no_material_claim` is not a shortcut around obvious source material. In any content-unit type, a structured summary with a `Hovedfunn`/`Main findings`/`Findings` or method section, a header-bound inventory row, an internal-register record with populated `keyFindings` or `recommendations`, a master analysis index with structured status results, explicit Competition Authority findings, named study findings, or a scoped project budget with total and per-group allocations must produce supported claims or a typed blocked result. Reporting such a unit as `no_material_claim` is a material omission.
+`no_material_claim` is not a shortcut around obvious source material. In any content-unit type, a structured summary with a `Hovedfunn`/`Main findings`/`Findings` or method section, a numbered `Læring`/`Læringspunkt`/`Learning`/`Learning point` section followed by declarative findings, a header-bound inventory row, an internal-register record with populated `keyFindings` or `recommendations`, a master analysis index with structured status results, explicit Competition Authority findings, named study findings, or a scoped project budget with total and per-group allocations must produce supported claims or a typed blocked result. Reporting such a unit as `no_material_claim` is a material omission. A bare numbered learning heading, table-of-contents entry, learning question or imperative prompt without a declarative answer remains eligible for `no_material_claim`.
 
 Declarative survey results, response totals and forecasts are also obviously material. If required local survey context is missing, record typed `blocked` coverage rather than `no_material_claim`.
 

@@ -2265,6 +2265,100 @@ test("rejects Pilot18 survey result units reported as no-material-claim", () => 
   }
 });
 
+test("rejects Pilot21 numbered learning sections with declarative findings as no-material-claim", () => {
+  const cases = [
+    "LÆRING 2 / Malmø\nDenne delen løfter frem at lokale materialstrømsanalyser er en nøkkel for å drive sirkulær omstilling videre. Malmö kommune opplever kartleggingene som svært nyttige.",
+    "Læring 6: Denne delen utdyper hvordan indikatorer og kategorier er valgt. Kartleggingsmetoden har gitt konkret og anvendbar data til indikatoren.",
+    "LEARNING 3 — Regional mapping\nThe municipality reports that the mapping gives usable data for the indicator.",
+    "Learning 3\nThe mapping provides useful data for the indicator.",
+    "Læring 3\nMetoden produserer nyttige data for indikatoren.",
+    "Learning 3\nThe study demonstrates a material improvement.",
+    "Læring 3\nMetoden identifiserer sektorer med høy ressursbruk.",
+    "Learning #3\nThe municipality reports that the mapping gives usable data.",
+    "Læring nr. 2\nKommunen rapporterer at kartleggingen gir bedre data.",
+    "Læringspunkt 2\nKommunen rapporterer at kartleggingen gir bedre data.",
+    "Learning point 2\nThe municipality reports that the mapping gives usable data.",
+    "Learning 3: The mapping provides useful data for the indicator",
+    "Learning 3 — The mapping provides useful data",
+    "Læring 3: Kartleggingen avdekker store lokale forskjeller",
+    "Learning 3\nThe mapping supports better decisions for the municipality.",
+    "Læring 3\nKartleggingen avdekker store lokale forskjeller.",
+    "Læring 3\nMetoden inkluderer fem ressurskategorier.",
+    "Learning 3: The mapping reveals useful data",
+    "Learning 3 — The mapping highlights important differences",
+    "Læring 3: Metoden beskriver lokale ressursstrømmer",
+    "Learning 3: The method enables better planning",
+    "Læring 3: Metoden måler materialvekter",
+    "Læring 3: Metoden bruker fem kategorier",
+    "Læring 3: Metoden sikrer sammenlignbarhet",
+    "Learning 3: The document reveals useful findings",
+    "Learning 3: The findings highlight important differences",
+    "Learning 3: The chapter explains the method",
+    "Learning 3: In practice, the mapping reveals useful data",
+    "Learning 3: Malmö kommune beskriver lokale forskjeller",
+    "Learning 3: A framework highlights important differences",
+    "Læring 3: Denne metoden beskriver lokale ressursstrømmer",
+    "Learning 3: The document outlines useful findings",
+    "Learning 3: The findings suggest important differences",
+    "Learning 3: The chapter summarizes the method",
+    "Læring 3: Kartleggingen bekrefter store forskjeller",
+    "Læring 3: Metoden omfatter fem ressurskategorier",
+    "Læring 3: Kommunen anvender metoden lokalt",
+    "Learning 3: In practice, the mapping outlines useful data",
+  ];
+  for (const text of cases) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "no_material_claim" }],
+      claims: [],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /material_claim_omission/u, text);
+  }
+});
+
+test("keeps Pilot21 numbered learning headings and questions eligible for no-material coverage", () => {
+  const cases = [
+    "LÆRING 2 / Malmø",
+    "Learning 3\nWhat did the municipality learn?",
+    "## Læring 6\nHva er neste steg?",
+    "Learning 1\nDescribe how the municipality reports findings.",
+    "Learning 1: Explain how the municipality reports findings.",
+    "Learning 1\nThis is a report heading",
+    "Contents\nLearning 1 — Learning outcomes\nLearning 2 — The report is clear\nAppendix",
+    "Learning 1\nPlease describe how the municipality reports findings.",
+    "Learning 1\nCan you describe how the municipality reports findings",
+    "Contents\nLearning 1 — Learning outcomes\nLearning 2 — The report is clear.\nAppendix",
+    "Contents\nLearning 1 — Learning outcomes\nLearning 2 — Regional report: The report is clear.\nAppendix",
+    "Learning 1\nThe mapping overview for Malmö municipality",
+    "Learning 1\nThe method used for regional resource mapping",
+    "Learning 1\nThe report overview for the municipality",
+    "Læring 1\nMetoden for regional ressurskartlegging",
+    "Læring 1\nRapporten om regional kartlegging",
+  ];
+  for (const text of cases) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "no_material_claim" }],
+      claims: [],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), text);
+  }
+});
+
 test("keeps Pilot18 headings, contents and questions eligible for no-material coverage", () => {
   const cases = [
     "Contents\nMain findings\nAppendix",

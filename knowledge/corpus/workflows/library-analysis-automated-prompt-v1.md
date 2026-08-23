@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.17`
+Prompt template version: `1.0.18`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.17`
+Workflow version: `1.0.18`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
@@ -60,7 +60,7 @@ Treat bare cleanup and data subjects as unresolved: `Oppryddingen`, `the cleanup
 
 Treat a percentage of total turnover as an implicit market share and require its measurement year in the same sentence. Preserve the per-group allocation and named groups for a total multi-group budget. For figure comparisons expressed as a multiple, preserve the caption's complete period, index base, transaction stage and material exclusions, including subsidy treatment. If a claim says an actor supplied figures for a period, preserve any source-visible exclusions that define those figures. Qualitative survey paraphrases about producer aims, drivers, determinants, geographic markets, obstacles or company locations are survey-derived and must carry the respondent count and universe in their own evidence excerpt. An excerpt ending with a colon before its defining list is incomplete.
 
-Do not mark an obviously material structured unit `no_material_claim`, regardless of content-unit type. Extract supported claims, or return typed blocked coverage, from a summary containing `Hovedfunn`/`Main findings`/`Findings` or method sections, a header-bound inventory row, an internal-register record with populated `keyFindings` or `recommendations`, a master analysis index with structured status results, explicit Competition Authority findings, named study findings, or a scoped project budget with total and per-group allocations.
+Do not mark an obviously material structured unit `no_material_claim`, regardless of content-unit type. Extract supported claims, or return typed blocked coverage, from a summary containing `Hovedfunn`/`Main findings`/`Findings` or method sections, a numbered `Læring`/`Læringspunkt`/`Learning`/`Learning point` section followed by declarative findings, a header-bound inventory row, an internal-register record with populated `keyFindings` or `recommendations`, a master analysis index with structured status results, explicit Competition Authority findings, named study findings, or a scoped project budget with total and per-group allocations. A bare numbered learning heading, table-of-contents entry, learning question or imperative prompt without a declarative answer may still use `no_material_claim`.
 
 Declarative survey results, response totals and forecasts are also obviously material. They must not be covered as `no_material_claim`; when the supplied excerpt lacks the respondent universe, count, period or forecast basis required for a supportable claim, return typed `blocked` coverage instead.
 
