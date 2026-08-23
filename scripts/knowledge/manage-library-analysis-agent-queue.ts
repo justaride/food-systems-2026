@@ -127,7 +127,7 @@ const validateSourceOptionsSchema = z.object({
   sourceKind: z.string().min(1).optional(),
   sourceKey: z.string().min(1).optional(),
   validatorModel: z.object({
-    provider: z.literal("openai-codex"),
+    provider: z.enum(["openai-codex", "anthropic-claude-code"]),
     name: z.string().min(1),
     version: z.string().min(1),
   }).strict().optional(),
