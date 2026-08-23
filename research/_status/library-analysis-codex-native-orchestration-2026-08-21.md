@@ -83,7 +83,13 @@ run, per calibration plan §3.
 - Pilot semantic stop rule: pass under the revised rule; the F3/F4 findings that failed the original rule are recorded as the quality rate.
 - Private pilot queue: terminal and sealed.
 - Full queue: not executed; awaiting the scheduling decision.
-- Known baseline: corpus-health foundation schema hash mismatch remains; one load-sensitive cleanup-pressure check is green in isolation.
+- Corpus-health schema-hash mismatch: expected while this branch is unmerged, and
+  previously mis-recorded here as a pre-existing baseline failure. It is not.
+  `origin/main` is self-consistent — its `schema.prisma` hashes to exactly what
+  the tracked bundle records. This branch adds 334 lines to `schema.prisma`, so
+  the inherited bundle no longer matches. The snapshot compares the migration
+  directory set against completed database migrations, so the bundle must be
+  refreshed only after the migration is deployed, never before merge.
 - Next gate: schedule the full run in waves, publish the critical and quality rates per stratum as they accumulate, and draw the stratified calibration sample from the completed population.
 
 Governance:
