@@ -4505,6 +4505,21 @@ test("Pilot25 rejects generic mappings, nominal fragments, and unnamed passive e
       /agent_response_context_dependent_claim/u,
     ],
     [
+      "Data for lokale kartlegginger viser lokale forskjeller.",
+      "Data for lokale kartlegginger viser lokale forskjeller.",
+      /agent_response_context_dependent_claim/u,
+    ],
+    [
+      "Malmö reports that local mappings improve resource planning.",
+      "Malmö reports that local mappings improve resource planning.",
+      /agent_response_context_dependent_claim/u,
+    ],
+    [
+      "Malmö reports that regional mapping improves resource planning.",
+      "Malmö reports that regional mapping improves resource planning.",
+      /agent_response_context_dependent_claim/u,
+    ],
+    [
       "Det er få tilsvarende initiativer i Norden.",
       "få tilsvarende initiativer i Norden",
       /agent_response_evidence_context_dependent/u,
@@ -4517,6 +4532,11 @@ test("Pilot25 rejects generic mappings, nominal fragments, and unnamed passive e
     [
       "The five categories are regarded as coarse but functional.",
       "The five categories are regarded as coarse but functional.",
+      /agent_response_identification_actor_missing/u,
+    ],
+    [
+      "The five categories are considered coarse but functional in this analysis.",
+      "The five categories are considered coarse but functional in this analysis.",
       /agent_response_identification_actor_missing/u,
     ],
   ] as const;
@@ -4539,9 +4559,11 @@ test("Pilot25 rejects generic mappings, nominal fragments, and unnamed passive e
     "Malmö kommune opplever lokale ressurskartlegginger som svært nyttige.",
     "Malmö kommune opplever kartlegginger av lokale materialstrømmer som nyttige.",
     "Regionale materialstrømskartlegginger gir kommuner et bedre beslutningsgrunnlag.",
+    "Malmö reports that mapping of local material flows improves resource planning.",
     "Det er få tilsvarende initiativer i Norden.",
     "Malmö kommune vurderer de fem hovedkategoriene som grove, men tydelige og funksjonelle.",
     "The report considers the five categories coarse but functional.",
+    "The five categories are considered coarse but functional in the Circularity Report 2024.",
     "Konkurransetilsynet beskriver kombinasjonen av lokal innsikt og datakartlegging som en styrke.",
   ]) {
     const job = verifiedJob([text]);
@@ -4593,6 +4615,23 @@ test("Pilot25 survey claims preserve local universe, geography, identity, and su
     }), row.error, row.claim);
   }
 
+  {
+    const claimText = "This survey, the IPIFF Survey, was conducted online in 2023 and gathered responses from 19 EU insect farming companies.";
+    const evidence = "A survey was conducted online in 2023 and gathered responses from 19 EU insect farming companies.";
+    const job = verifiedJob([`${source} ${evidence}`]);
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [{ ...claim(job, 0, claimText), evidence }],
+      }),
+    }), /agent_response_evidence_context_dependent/u, claimText);
+  }
+
   for (const text of [
     "The IPIFF Survey was conducted online in 2023, gathering responses from 19 EU insect farming companies.",
     "The IPIFF Survey aims to update data on EU insect food production among 19 EU insect farming companies.",
@@ -4642,9 +4681,9 @@ test("keeps a scoped result claim eligible when the evidence names the result sc
     "Kvaliteten på resultatet av den regionale ressurskartleggingen avhenger sterkt av tilgang til gode data.",
     "Resultatet fra ressurskartleggingen avhenger sterkt av tilgang til gode data.",
     "Resultatet for den regionale ressurskartleggingen avhenger sterkt av tilgang til gode data.",
-    "The result of the regional mapping depends strongly on access to good data.",
-    "The result from the regional mapping depends strongly on access to good data.",
-    "The result for the regional mapping depends strongly on access to good data.",
+    "The result of the regional material-flow mapping depends strongly on access to good data.",
+    "The result from the regional material-flow mapping depends strongly on access to good data.",
+    "The result for the regional material-flow mapping depends strongly on access to good data.",
     "Resultatets kvalitet avhenger sterkt av tilgang til gode data.",
     "The resulting estimate depends strongly on access to good data.",
   ]) {

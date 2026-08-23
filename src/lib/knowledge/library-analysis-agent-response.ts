@@ -124,8 +124,8 @@ const EMPIRICAL_GENERALIZER = /\b(?:generelt|generally|typically|often|ofte)\b/i
 const QUANTIFIED_RESOURCE_SHARE = /\b\d+(?:[.,]\d+)?\s*(?:[-–—]\s*\d+(?:[.,]\d+)?\s*)?(?:%|prosent|percent)(?![\p{L}\p{N}_])[^.!?]{0,120}\b(?:dekker|utgjør|omfatter|covers?|accounts?\s+for)\b[^.!?]{0,100}\b(?:ressursbruken|ressursbruk|resource\s+use)\b|\b(?:dekker|utgjør|omfatter|covers?|accounts?\s+for)\b[^.!?]{0,100}\b\d+(?:[.,]\d+)?\s*(?:[-–—]\s*\d+(?:[.,]\d+)?\s*)?(?:%|prosent|percent)(?![\p{L}\p{N}_])[^.!?]{0,100}\b(?:ressursbruken|ressursbruk|resource\s+use)\b/iu;
 const RESOURCE_SHARE_BASIS = /\b(?:basert\s+på|med\s+utgangspunkt\s+i|på\s+grunnlag\s+av|regnskapsdata|regnskapstall|based\s+on|using\s+(?:accounting\s+data|financial\s+statements?|accounts?))\b/iu;
 const ARTIFACT_RETENTION_STATUS = /\b(?:behold(?:es|t)|retained|kept|remains?)\b[\s\S]{0,100}\b(?:PDF(?:-ene|-en)?|files?|filer?|exports?|ekspor(?:ter|t)|markdown\s+extract|markdown-ekstrakt|artefacts?|artefakter?)\b|\b(?:PDF(?:-ene|-en)?|files?|filer?|exports?|ekspor(?:ter|t)|markdown\s+extract|markdown-ekstrakt|artefacts?|artefakter?)\b[\s\S]{0,100}\b(?:behold(?:es|t)|retained|kept|remains?)\b/iu;
-const RESOLVED_MAPPING_OBJECT_OR_METHOD = /\b(?:[\p{L}\p{M}-]+kartlegging(?:en|er|ene)?|resource[- ]mapping|regional\s+mapping|material[- ]flow[- ]mapping|kartlegging(?:en|er|ene)?\s+(?:av|for|i)\s+[\p{L}\p{M}\p{N}-]+|mapping\s+(?:of|for)\s+[\p{L}\p{M}\p{N}-]+|[\p{L}\p{M}-]+kartleggingsmetoden|[\p{L}\p{M}-]+\s+mapping\s+method)\b/iu;
-const NAMED_MAPPING_METHOD = /\b(?:Konkurransetilsynet(?:s)?|Norwegian\s+Competition\s+Authority|RE:Source)\s+(?:kartlegging(?:en)?|mapping)\b|\b(?:metoden|method)\s+(?:for|of|til|to)\s+[^.!?]*?\b(?:kartlegging|mapping)\b/iu;
+const RESOLVED_MAPPING_OBJECT_OR_METHOD = /\b(?:[\p{L}\p{M}-]+kartlegging(?:en|er|ene)?|resource[- ]mapping|material[- ]flow[- ]mapping|local\s+mapping\s+method|kartlegging(?:en|er|ene)?\s+(?:av|for|i)\s+[\p{L}\p{M}\p{N}-]+|mapping\s+(?:of|for)\s+[\p{L}\p{M}\p{N}-]+|[\p{L}\p{M}-]+kartleggingsmetoden|[\p{L}\p{M}-]+\s+mapping\s+method)\b/iu;
+const NAMED_MAPPING_METHOD = /\b(?:Konkurransetilsynet(?:s)?|Norwegian\s+Competition\s+Authority|RE:Source)\s+(?:kartlegging(?:en)?|mapping)\b|\b(?:kartlegging(?:en)?|mapping)\b[^.!?]{0,80}\b(?:Konkurransetilsynet(?:s)?|Norwegian\s+Competition\s+Authority|RE:Source)\b|\b(?:metoden|method)\s+(?:for|of|til|to)\s+[^.!?]*?\b(?:kartlegging|mapping)\b/iu;
 const NOMINAL_QUANTIFIER_FRAGMENT = /^(?:få|et\s+lite\s+antall|many|several)\s+[\p{L}\p{M}\d][^.!?]*$/iu;
 const PARTICIPIAL_SURVEY_EVIDENCE = /^(?:conducted|gathering|collected|responding|gjennomført|samlet|innsamlet|utført)\b/iu;
 const DEFINITE_SURVEY_REFERENCE = /\b(?:(?:the|this(?:\s+new)?|den|denne)\s+(?:survey|questionnaire|undersøkelsen|spørreskjema(?:et)?))\b/iu;
@@ -211,9 +211,9 @@ const COMPARATIVE_PATTERN = /\b(?:(?:det\s+)?europeiske\s+mønsteret|the\s+Europ
 const NAMED_COMPARISON_BASIS = /\b(?:målt\s+av|ifølge|basert\s+på|measured\s+by|according\s+to|based\s+on)\s+([\p{Lu}][\p{L}\p{M}\p{N}.&+-]*)/u;
 const UNNAMED_STUDY_AUTHORITY = /\b(?:empiriske\s+studier|empirical\s+studies|litteraturen|the\s+literature)\s+(?:viser|indikerer|tyder\s+på|shows?|indicates?|suggests?)(?![\p{L}\p{N}_])/iu;
 const PASSIVE_IDENTIFICATION = /\b(?:(?:ble\s+det|det\s+ble)\s+identifisert\s+at|det\s+ble\s+introdusert\s+en\s+ny\s+metode|it\s+was\s+identified\s+that|a\s+new\s+method\s+was\s+introduced)\b/iu;
-const PASSIVE_EVALUATION = /\b(?:beskrives\s+som|vurderes\s+som|anses\s+som|regnes\s+som|is\s+described\s+as|is\s+considered\s+as?|are\s+considered\s+as?|is\s+regarded\s+as?|are\s+regarded\s+as?)\b/iu;
+const PASSIVE_EVALUATION = /\b(?:beskrives\s+som|vurderes\s+som|anses\s+som|regnes\s+som|is\s+described\s+as?|is\s+considered(?:\s+as)?|are\s+considered(?:\s+as)?|is\s+regarded\s+as?|are\s+regarded\s+as?)\b/iu;
 const PASSIVE_NAMED_ACTOR = /(?<![\p{L}\p{N}_])(?:av|by)\s+[\p{Lu}][\p{L}\p{M}\p{N}.:&+-]*(?:\s+[\p{Lu}][\p{L}\p{M}\p{N}.:&+-]*){0,5}/u;
-const PASSIVE_NAMED_EVALUATOR_SCOPE = /\b(?:rapport(?:en|ets)?|report|analys(?:en|is)|analysis)\b/iu;
+const PASSIVE_NAMED_EVALUATOR_SCOPE = /\b(?:(?:[Rr]apport(?:en|ets)?|[Rr]eport|[Aa]nalys(?:en|is)|[Aa]nalysis)\s+(?:19|20)\d{2}|(?:[Rr]apport(?:en|ets)?|[Rr]eport|[Aa]nalys(?:en|is)|[Aa]nalysis)\s+(?:i|in)\s+(?:[Vv]edlegg|[Aa]ppendix)\s+[A-ZÆØÅ0-9-]+|(?:[Rr]apport(?:en|ets)?|[Rr]eport|[Aa]nalys(?:en|is)|[Aa]nalysis)\s+[A-ZÆØÅ][\p{L}\p{M}\d.&:+-]*(?:\s+[A-ZÆØÅ][\p{L}\p{M}\d.&:+-]*){0,4}|(?:[A-ZÆØÅ][\p{L}\p{M}\d.&:+-]*\s+){1,4}(?<!this\s)(?<!This\s)(?:[Rr]apport|[Rr]eport|[Aa]nalyse|[Aa]nalys(?:e|is)|[Aa]nalysis)(?:\s+(?:19|20)\d{2})?)\b/u;
 const PASSIVE_LOCAL_CLASSIFICATION = /\b(?:(?:klassifiseres|(?:ble|er|var|blir|har\s+blitt|har\s+vært)\s+klassifisert)[^.!?\n]{0,100}\bher|(?:(?:is|are|was|were)\s+(?:being\s+)?classified|(?:has|have|had)\s+been\s+classified)[^.!?\n]{0,100}\bhere)\b/iu;
 const NAMED_CLASSIFICATION_CONTEXT = /\b(?:Konkurransetilsynet|Norwegian\s+Competition\s+Authority|margin(?:analyse(?:n)?|studie(?:n)?)|denne\s+analysen|this\s+analysis|vedlegg\s+[A-ZÆØÅ]|appendix\s+[A-Z])\b/iu;
 const FIGURE_REFERENCE = /\b(?:Figur|Figure)\s+(\d{1,4})\b/iu;
@@ -332,18 +332,11 @@ function hasUnresolvedLocalReference(value: string): boolean {
 
 function hasResolvedMappingIdentity(value: string): boolean {
   return RESOLVED_MAPPING_OBJECT_OR_METHOD.test(value) ||
-    NAMED_MAPPING_METHOD.test(value) ||
-    MAPPED_ACTOR_SCOPE.test(value);
+    NAMED_MAPPING_METHOD.test(value);
 }
 
 function hasGenericMappingIdentity(value: string): boolean {
-  const genericMapping = /\b(?:lokale\s+)?kartlegging(?:en|er|ene)?\b/giu;
-  for (const match of value.matchAll(genericMapping)) {
-    const index = match.index ?? 0;
-    const prefix = value.slice(Math.max(0, index - 24), index);
-    if (!/(?:\b(?:til|for|i|av|med|på)\s+)$/iu.test(prefix)) return true;
-  }
-  return /(?:^|[.!?\n])\s*(?:local\s+)?mappings?\b/iu.test(value);
+  return !MAPPED_ACTOR_SCOPE.test(value) && /\b(?:lokale\s+)?kartlegging(?:en|er|ene)?\b|\b(?:local|regional)\s+mappings?\b/iu.test(value);
 }
 
 function normalizedMaterialText(value: string): string {
@@ -781,9 +774,9 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     throw new Error("agent_response_evidence_context_dependent");
   }
   if (
-    CONTEXT_DEPENDENT_EVIDENCE_OPENING.test(normalizedEvidence) &&
     namedStudyIdentity !== undefined &&
-    !normalizedEvidence.includes(namedStudyIdentity)
+    (CONTEXT_DEPENDENT_EVIDENCE_OPENING.test(normalizedEvidence) || surveySubjectClaim) &&
+    !normalizedMaterialText(normalizedEvidence).includes(normalizedMaterialText(namedStudyIdentity))
   ) {
     throw new Error("agent_response_evidence_context_dependent");
   }
