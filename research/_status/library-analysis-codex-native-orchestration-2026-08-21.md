@@ -102,3 +102,35 @@ Governance:
 - `humanSourceReviewRequired=false`
 
 The execution used Codex-native orchestration only. No external AI API, Ollama/local model, candidate-database write, production mutation, merge, or deployment occurred. The branch was pushed to `origin` on 2026-08-23 and opened as a pull request, both on explicit human instruction, to back up unpushed local work and put the revised gate under review.
+
+## Full-run progress readback — 2026-08-23 (session start)
+
+The human scheduling decision for the full queue was given 2026-08-23 14:30
+("gjør det" / "fortsett til køen er ferdig"). The full run started the same
+afternoon from the sealed queue `35387b39…` (1,569 sources, 8,393 units,
+2,766 jobs), driven by Claude Code workers under the extended two-identity
+model-receipt contract (openai-codex/gpt-5.6-luna and
+anthropic-claude-code/claude-fable-5; any other identity still fails closed).
+
+Progress at this readback:
+
+- Sources terminal: 15 of 1,569 (13 partial, 2 quarantined; 0 quarantined jobs).
+- Jobs reusable: 21 of 2,766; segment attempts required one retry in 2 cases
+  (evidence-contiguity gate), both accepted on attempt 2.
+- Adjudicated claims through the accept gate: ~250.
+- Validation findings so far: 2×F4, 2×F3, 2×F5 — **critical rate (F1+F2): 0**.
+- Waves respect the execution policy (max 3 concurrent analyzers); every
+  accept, merge and validation acceptance runs through the sealed CLI gates
+  with audit inventory hashes recorded per step.
+- From source 4 onward the waves are driven by a deterministic workflow
+  orchestrator (tranche batches; operator agents run only the sealed CLI
+  steps; analyzers and validators never see each other's material).
+
+Contract clarifications learned and enforced during startup, without touching
+sealed artifacts: response artifacts must be mode 0600/0400; claim evidence
+must be one contiguous verbatim substring of its unit text; validation
+findings not bound to a specific claim must use the literal
+`assertion:deterministic-gate`.
+
+Governance flags are unchanged: `automatedOnly=true`, `externalReady=false`,
+no external AI API, no candidate-database write, no production mutation.
