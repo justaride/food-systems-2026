@@ -1367,15 +1367,15 @@ test("tracked implementation receipt is sanitized and states only allowed gates"
     /\b(?:the|a|this|actual)\s+(?:full queue|semantic pilot)\s+(?:was\s+)?(?:run|executed|completed)\b/iu,
   ]) assert.doesNotMatch(receipt, forbidden);
   assert.match(receipt, /Expected full coverage: `1,569 \/ 8,393`/u);
-  assert.match(receipt, /Status: real semantic pilot terminal; full queue NO-GO and not executed\./u);
+  assert.match(receipt, /Status: real semantic pilot terminal at prompt\/runtime `1\.0\.23`; pilot stop rule revised 2026-08-23; full queue not executed\./u);
   assert.match(receipt, /Private pilot queue: terminal and sealed\./u);
-  assert.match(receipt, /Full queue: deliberately not executed after pilot NO-GO\./u);
-  assert.match(receipt, /Next gate: strengthen analysis eligibility/u);
+  assert.match(receipt, /Full queue: not executed; awaiting the scheduling decision\./u);
+  assert.match(receipt, /Next gate: schedule the full run in waves/u);
   for (const flag of [
     "automatedOnly=true", "externalReady=false", "externalApiUsed=false",
     "candidateDatabaseWritten=false", "productionDataMutated=false", "humanSourceReviewRequired=false",
   ]) assert.match(receipt, new RegExp(`\\x60${flag}\\x60`, "u"));
-  assert.match(receipt, /No external AI API, Ollama\/local model, candidate-database write, production mutation, push, PR, merge, or deployment occurred\./u);
+  assert.match(receipt, /No external AI API, Ollama\/local model, candidate-database write, production mutation, merge, or deployment occurred\./u);
 });
 
 function escapeRegExp(value: string): string {
