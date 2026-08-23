@@ -3,7 +3,6 @@ import { lstatSync, readFileSync, readdirSync } from "node:fs";
 import { basename, join } from "node:path";
 
 import {
-  deterministicClaimId,
   validateLibraryAnalysisAgentSegmentResponse,
 } from "../../src/lib/knowledge/library-analysis-agent-response";
 
@@ -37,6 +36,17 @@ function assertArtifact(path: string, artifact: Artifact, expectedMode: number, 
   if ((stat.mode & 0o777) !== expectedMode) throw new Error(`${label}_mode_mismatch`);
   if (stat.size !== artifact.sizeBytes || sha256(path) !== artifact.sha256) throw new Error(`${label}_integrity_mismatch`);
 }
+function exactSetMatch(actual: ReadonlySet<string>, expected: ReadonlySet<string>): boolean {
+  return actual.size === expected.size && [...expected].every((value) => actual.has(value));
+}
+function runReplayMutationSelfTests(): void {
+  const expectedAccepted = new Set(["accepted-a", "accepted-b"]);
+  if (exactSetMatch(new Set(["accepted-a"]), expectedAccepted)) throw new Error("replay_self_test_missing_accepted_not_detected");
+  if (exactSetMatch(new Set(["accepted-a", "unknown"]), expectedAccepted)) throw new Error("replay_self_test_substituted_accepted_not_detected");
+  const expectedBinding = new Set(["job|claim|finding"]);
+  if (exactSetMatch(new Set([...expectedBinding, "job|extra-claim|finding"]), expectedBinding)) throw new Error("replay_self_test_extra_rejected_claim_not_detected");
+}
+runReplayMutationSelfTests();
 
 const queue = readJson<{ queueHash: string; jobs: Array<{ jobId: string; inputEnvelopeHash: string }> }>(queuePath);
 const receipt = readJson<{ queueHash: string; jobCount: number; state: string; acceptedAttemptReceipts: AttemptReceipt[] }>(receiptPath);
@@ -71,6 +81,9 @@ const expectedRejectedClaims = new Map([
 ]);
 
 const failures: Array<{ jobId: string; error: string }> = [];
+const acceptedJobIds = new Set<string>();
+const rejectedJobIds = new Set<string>();
+const rejectedClaimBindings = new Set<string>();
 const responsePaths = collectResponsePaths(responseRoot);
 const responseJobIds = responsePaths.map((path) => `job:library-analysis-agent:${basename(path, ".json")}`);
 const responseSet = new Set(responseJobIds);
@@ -105,24 +118,32 @@ for (const responsePath of responsePaths) {
       response,
     });
     accepted += 1;
+    acceptedJobIds.add(response.jobId);
   } catch (error) {
-    failures.push({ jobId: response.jobId, error: error instanceof Error ? error.message : String(error) });
+    rejectedJobIds.add(response.jobId);
+    const detail = error instanceof Error ? error.message : String(error);
+    const claimBinding = /^(.*):(claim:library-agent:[a-f0-9]{64})$/u.exec(detail);
+    if (claimBinding !== null) {
+      rejectedClaimBindings.add(`${response.jobId}|${claimBinding[2]}|${claimBinding[1]}`);
+      failures.push({ jobId: response.jobId, error: claimBinding[1]! });
+    } else {
+      failures.push({ jobId: response.jobId, error: detail });
+    }
   }
 }
 
-const actualRejected = new Set(failures.map(({ jobId }) => jobId));
 const expectedRejected = new Set(expectedRejectedJobs.keys());
-const partitionExact = expectedAcceptedJobIds.size === 13 && [...expectedRejected].every((id) => actualRejected.has(id)) && [...actualRejected].every((id) => expectedRejected.has(id)) && [...expectedAcceptedJobIds].every((id) => !actualRejected.has(id));
-if (!partitionExact) failures.push({ jobId: "replay", error: "accepted_rejected_partition_mismatch" });
-for (const [jobId, [claimId, finding]] of expectedRejectedClaims) {
-  const path = responsePaths.find((candidate) => basename(candidate, ".json") === jobId.split(":").at(-1));
-  if (path === undefined) { failures.push({ jobId, error: "rejected_claim_response_missing" }); continue; }
-  const response = readJson<{ claims: Array<{ contentUnitId: string; localOrdinal: number }> }>(path);
-  const input = readJson<AttemptInput>(join(runRoot, "jobs", jobId, "attempt-001/input.json"));
-  if (!response.claims.some((claim) => deterministicClaimId(input.job as never, claim) === claimId)) failures.push({ jobId, error: `rejected_claim_id_mismatch:${claimId}` });
-  const observed = failures.find((failure) => failure.jobId === jobId)?.error;
-  if (observed !== finding) failures.push({ jobId, error: `rejected_finding_mismatch:${finding}` });
-}
+const expectedQueueIds = new Set([...expectedAcceptedJobIds, ...expectedRejected]);
+const expectedRejectedBindings = new Set([...expectedRejectedClaims].map(([jobId, [claimId, finding]]) => `${jobId}|${claimId}|${finding}`));
+const partitionExact = expectedAcceptedJobIds.size === 13 &&
+  exactSetMatch(acceptedJobIds, expectedAcceptedJobIds) &&
+  exactSetMatch(queueSet, expectedQueueIds) &&
+  exactSetMatch(rejectedJobIds, expectedRejected) &&
+  exactSetMatch(rejectedClaimBindings, expectedRejectedBindings);
+if (!exactSetMatch(acceptedJobIds, expectedAcceptedJobIds)) failures.push({ jobId: "replay", error: "accepted_job_set_mismatch" });
+if (!exactSetMatch(queueSet, expectedQueueIds)) failures.push({ jobId: "replay", error: "sealed_queue_literal_set_mismatch" });
+if (!exactSetMatch(rejectedJobIds, expectedRejected)) failures.push({ jobId: "replay", error: "rejected_job_set_mismatch" });
+if (!exactSetMatch(rejectedClaimBindings, expectedRejectedBindings)) failures.push({ jobId: "replay", error: "rejected_claim_binding_set_mismatch" });
 
 const errors = Object.fromEntries([...new Set(failures.map(({ error }) => error))].sort().map((error) => [error, failures.filter((failure) => failure.error === error).length]));
 const exact = failures.length === expectedRejectedJobs.size && accepted === expectedAcceptedJobIds.size && partitionExact;

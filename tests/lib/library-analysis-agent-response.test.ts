@@ -4520,6 +4520,16 @@ test("Pilot25 rejects generic mappings, nominal fragments, and unnamed passive e
       /agent_response_context_dependent_claim/u,
     ],
     [
+      "Actors use the local mapping to improve planning.",
+      "Actors use the local mapping to improve planning.",
+      /agent_response_context_dependent_claim/u,
+    ],
+    [
+      "Regional actors use the regional mapping.",
+      "Regional actors use the regional mapping.",
+      /agent_response_context_dependent_claim/u,
+    ],
+    [
       "Det er få tilsvarende initiativer i Norden.",
       "få tilsvarende initiativer i Norden",
       /agent_response_evidence_context_dependent/u,

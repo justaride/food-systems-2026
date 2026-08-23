@@ -336,7 +336,7 @@ function hasResolvedMappingIdentity(value: string): boolean {
 }
 
 function hasGenericMappingIdentity(value: string): boolean {
-  return !MAPPED_ACTOR_SCOPE.test(value) && /\b(?:lokale\s+)?kartlegging(?:en|er|ene)?\b|\b(?:local|regional)\s+mappings?\b/iu.test(value);
+  return /\b(?:lokale|regionale)\s+kartlegging(?:en|er|ene)?\b|\b(?:local|regional)\s+mappings?\b/iu.test(value);
 }
 
 function normalizedMaterialText(value: string): string {
@@ -1780,6 +1780,7 @@ export function validateLibraryAnalysisAgentSegmentResponse(
   }
   const coverageByUnit = new Map(response.unitCoverage.map((coverage) => [coverage.contentUnitId, coverage]));
   const claims = response.claims.map((claim) => {
+    const claimId = deterministicLibraryAnalysisAgentClaimId(input.job.job, claim);
     const unit = ownedUnit(input.job, claim.contentUnitId);
     const coverage = coverageByUnit.get(claim.contentUnitId);
     if (coverage?.status !== "claims_extracted") {
@@ -1791,16 +1792,21 @@ export function validateLibraryAnalysisAgentSegmentResponse(
     if (!unit.text.includes(claim.evidence)) {
       throw new Error("agent_response_evidence_not_contained");
     }
-    assertLibraryAnalysisClaimLocalityV114({
-      claimText: claim.text,
-      evidence: claim.evidence,
-      sourceText: unit.text,
-      unitType: unit.descriptor.unitType,
-    });
-    assertNumericTokens(claim.text, claim.evidence);
+    try {
+      assertLibraryAnalysisClaimLocalityV114({
+        claimText: claim.text,
+        evidence: claim.evidence,
+        sourceText: unit.text,
+        unitType: unit.descriptor.unitType,
+      });
+      assertNumericTokens(claim.text, claim.evidence);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      throw new Error(`${message}:${claimId}`);
+    }
     return {
       ...claim,
-      claimId: deterministicLibraryAnalysisAgentClaimId(input.job.job, claim),
+      claimId,
     };
   });
   return LibraryAnalysisAcceptedSegmentSchema.parse({
