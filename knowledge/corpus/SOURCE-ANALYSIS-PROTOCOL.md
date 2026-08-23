@@ -21,7 +21,16 @@ exact source identity and bytes
 
 Every arrow needs a receipt. A later step may use only the exact output hash from the preceding step. A filename, word count, stored summary, triage card or successful OCR run is never proof that the source was read and understood.
 
-The executable workflow contracts are [source identity verification v1](workflows/source-identity-verification-v1.md) and [full source analysis v1](workflows/source-analysis-v1.md). Their separate canonical prompt templates are [source identity prompt v1](workflows/source-identity-verification-prompt-v1.md) and [full source-analysis prompt v1](workflows/source-analysis-prompt-v1.md). Each run must bind the exact ID, version, repository path and file hash of both the workflow and its prompt template; a similarly named ad-hoc prompt is not the same execution.
+The executable workflow contracts are [source identity verification v1](workflows/source-identity-verification-v1.md), [candidate analysis v1](workflows/candidate-analysis-v1.md) and [full source analysis v1](workflows/source-analysis-v1.md). Their separate canonical prompt templates are [source identity prompt v1](workflows/source-identity-verification-prompt-v1.md), [candidate-analysis prompt v1](workflows/candidate-analysis-prompt-v1.md) and [full source-analysis prompt v1](workflows/source-analysis-prompt-v1.md). Each run must bind the exact ID, version, repository path and file hash of both the workflow and its prompt template; a similarly named ad-hoc prompt is not the same execution.
+
+## Analysis profiles
+
+Two profiles keep machine reading open without weakening later authority gates:
+
+1. **Candidate analysis from stable bytes** uses [candidate analysis v1](workflows/candidate-analysis-v1.md). Stable, readable and hash-bound input may be read with identity confidence `exact`, `provisional` or `unresolved`. Every result remains `candidate`; it cannot create human review, canonical data, publication or coverage.
+2. **High-assurance verified analysis** uses [full source analysis v1](workflows/source-analysis-v1.md). It retains its exact identity, eligibility, complete ordered-input and stage checks for strict whole-source analysis.
+
+Identity confidence constrains later target-profile promotion. It does not create a human precondition for machine reading, and no confidence, repetition or model agreement supplies human-review, publication or coverage authority.
 
 ## When full-text AI processing is complete
 

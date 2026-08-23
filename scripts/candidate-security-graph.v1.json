@@ -1,0 +1,7 @@
+{
+  "manifestVersion": "candidate-security-graph-v1",
+  "postgresMajor": 16,
+  "ownerPolicy": "database_owner",
+  "checkerSha256": "259af6b67a7bd58df666d13cb910015b1cfd1eb98e300f81e0c54a4f2b76602c",
+  "graphSha256": "ed7d3f1954017655f95ada329bed78dbd6c47b6b495741b630d34890a5095627"
+}

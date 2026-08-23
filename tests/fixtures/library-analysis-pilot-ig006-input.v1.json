@@ -1,0 +1,116 @@
+{
+  "schema": "library-analysis-pilot-ig006-input/v1",
+  "pilotId": "ig006-automated-2026-08-20",
+  "executionProfile": {
+    "analysis": {
+      "provider": "openai",
+      "name": "codex-gpt-5",
+      "version": "runtime-unspecified-2026-08-20"
+    },
+    "validator": {
+      "provider": "openai",
+      "name": "codex-gpt-5",
+      "version": "runtime-unspecified-2026-08-20"
+    },
+    "validatorSeparation": "same_model",
+    "validatorSeparationLevel": "same_model_distinct_prompt"
+  },
+  "sources": [
+    {
+      "sourceKind": "document",
+      "sourceKey": "document:cmp11sfln0009zq0d3lmqruhq",
+      "path": "research/evidence-pack/okologisk-norden-2026-04-29/text/fi-proluomu-market-2024.txt",
+      "contentHash": "4508dc6535e4f7d7c49b80a084f6aee985fda4a28cae1f701a8a24a3d9537b36",
+      "claims": [
+        {
+          "claimId": "claim:market:sales",
+          "assertionType": "quantitative_observation",
+          "text": "Organic products were sold in grocery stores for €335 million in 2024.",
+          "evidence": "Organic products were sold in grocery stores for €335 million in 2024, according to an estimate by the Finnish Organic Food Association Pro Luomu ry."
+        },
+        {
+          "claimId": "claim:market:baby-food",
+          "assertionType": "quantitative_observation",
+          "text": "In 2024, the market share of organic baby food reached 25 percent of total sales value.",
+          "evidence": "In 2024, the market share of organic baby food reached a record 25 percent of total sales value."
+        },
+        {
+          "claimId": "claim:market:estimate-basis",
+          "assertionType": "source_role_suggestion",
+          "text": "The estimate of organic sales is based on data collected by Pro Luomu from retail groups.",
+          "evidence": "The estimate of organic sales is based on data collected by Pro Luomu from retail groups."
+        }
+      ]
+    },
+    {
+      "sourceKind": "document",
+      "sourceKey": "document:cmp11sflk0008zq0dfczax8mp",
+      "path": "research/evidence-pack/okologisk-norden-2026-04-29/text/fi-proluomu-organics-in-finland.txt",
+      "contentHash": "fd923fd733198618650b68744f4a8b9496097fabf230d3405f6b465323267833",
+      "claims": [
+        {
+          "claimId": "claim:finland:public-kitchens",
+          "assertionType": "quantitative_observation",
+          "text": "In 2024, 63% of public kitchens reported using at least some organic product daily.",
+          "evidence": "The use of organic products in public kitchens is on the rise; according to a survey conducted in 2024, as many as 63% of public kitchens reported using at least some organic product daily."
+        },
+        {
+          "claimId": "claim:finland:school-milk",
+          "assertionType": "quantitative_observation",
+          "text": "During the 2023–2024 school year, 3.1 million litres of fat-free organic milk were consumed, representing 28% of subsidized milk.",
+          "evidence": "According to statistics from the Finnish Food Authority, a total of 3.1 million litres of fat-free organic milk were consumed in daycare centres and schools during the 2023–2024 school year. The share of organic milk out of all milk subsidized through the school distribution scheme rose to 28%."
+        },
+        {
+          "claimId": "claim:finland:farmland",
+          "assertionType": "quantitative_observation",
+          "text": "In 2024, organic farmland in Finland totalled 309,487 hectares.",
+          "evidence": "In 2024, the area of organic farmland in Finland remained nearly the same as the previous year, totalling 309,487 hectares."
+        }
+      ]
+    },
+    {
+      "sourceKind": "document",
+      "sourceKey": "document:cmp11sfn7000mzq0dx4h670du",
+      "path": "research/evidence-pack/okologisk-norden-2026-04-29/text/se-ekomatcentrum-ekomatsligan-2024-page.txt",
+      "contentHash": "d9c99b9b98ba5e53f3b8d4c1527d5f86855854e507276674e97e9b31c3a2c0e0",
+      "claims": [
+        {
+          "claimId": "claim:sweden:organic-share",
+          "assertionType": "quantitative_observation",
+          "text": "Under 2023 minskade andelen ekologiska livsmedel i offentlig sektor till 34,2 %, en nedgång med 2,8 procentenheter.",
+          "evidence": "Under 2023 minskade andelen ekologiska livsmedel i offentlig sektor till 34,2 %, vilket är en nedgång med 2,8 procentenheter jämfört med föregående år."
+        },
+        {
+          "claimId": "claim:sweden:dairy-origin",
+          "assertionType": "quantitative_observation",
+          "text": "97 % av de ekologiska mejeriprodukterna hade svenskt ursprung, jämfört med 79 % av de konventionella.",
+          "evidence": "Statistiken från 2023 visar att 97 % av de ekologiska mejeriprodukterna i offentlig sektor har svenskt ursprung, jämfört med 79 % av de konventionella."
+        },
+        {
+          "claimId": "claim:sweden:institution-share",
+          "assertionType": "quantitative_observation",
+          "text": "Förskolorna hade 48 % ekologiska måltider och äldreomsorgen 29 %.",
+          "evidence": "Förskolorna är föregångare när det gäller ekologiska måltider, med en andel på hela 48 %. Grundskolorna når 42 %, gymnasieskolorna 35 %, och äldreomsorgen ligger på blygsamma 29 %."
+        }
+      ]
+    }
+  ],
+  "negativeCases": [
+    {
+      "caseId": "negative:partial-numeric-evidence",
+      "sourceKey": "document:cmp11sflk0008zq0dfczax8mp",
+      "claim": "3.1 million litres were consumed and represented 28 percent of subsidised milk.",
+      "evidence": "3.1 million litres",
+      "expectedErrorClass": "F3",
+      "validatorKind": "deterministic"
+    },
+    {
+      "caseId": "negative:partial-method-evidence",
+      "sourceKey": "document:cmp11sfln0009zq0d3lmqruhq",
+      "claim": "The estimate of organic sales is based on data collected by Pro Luomu from retail groups.",
+      "evidence": "retail groups.",
+      "expectedErrorClass": "F3",
+      "validatorKind": "model"
+    }
+  ]
+}

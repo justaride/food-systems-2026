@@ -4,6 +4,82 @@ import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 
 describe('package scripts', () => {
+  it('wires the autonomous candidate contracts and manual control commands', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    const scripts = packageJson.scripts
+
+    assert.equal(
+      scripts['knowledge:candidate-contracts:check'],
+      'node --import=tsx --test tests/lib/autonomous-analysis-contract.test.ts tests/lib/candidate-analysis-contract.test.ts tests/lib/candidate-analysis-schema.test.ts tests/lib/candidate-analysis-writer.test.ts tests/lib/candidate-analysis-role-contract.test.ts tests/lib/library-analysis-candidate-compat.test.ts tests/lib/library-analysis-content-intake.test.ts tests/lib/library-analysis-automated-validation.test.ts tests/lib/library-analysis-evidence-gates.test.ts tests/lib/library-analysis-automated-runner.test.ts tests/lib/library-analysis-automated-status.test.ts tests/lib/library-analysis-pilot-regression.test.ts tests/lib/candidate-control-snapshot.test.ts',
+    )
+    assert.equal(
+      scripts['candidate:roles:bootstrap'],
+      'scripts/bootstrap-candidate-analysis-roles.sh --apply',
+    )
+    assert.equal(
+      scripts['candidate:roles:disable'],
+      'scripts/disable-candidate-analysis-writes.sh --apply',
+    )
+    assert.equal(
+      scripts['candidate:roles:verify'],
+      'scripts/verify-candidate-analysis-roles.sh',
+    )
+    assert.equal(
+      scripts['candidate:control:snapshot'],
+      'tsx scripts/knowledge/export-candidate-control-snapshot.ts',
+    )
+    assert.equal(
+      scripts['knowledge:library-analysis:population'],
+      'tsx scripts/knowledge/export-library-analysis-population.ts',
+    )
+    assert.equal(
+      scripts['knowledge:library-analysis:acquisition:plan'],
+      'tsx scripts/knowledge/plan-library-analysis-acquisition.ts',
+    )
+    assert.equal(
+      scripts['knowledge:library-analysis:acquisition:check'],
+      'tsx scripts/knowledge/execute-library-analysis-acquisition.ts --check-only',
+    )
+    assert.equal(
+      scripts['knowledge:library-analysis:acquisition:execute'],
+      'tsx scripts/knowledge/execute-library-analysis-acquisition.ts --execute-network',
+    )
+    assert.equal(
+      scripts['knowledge:library-analysis:acquisition:emit'],
+      'tsx scripts/knowledge/emit-library-analysis-content-units.ts',
+    )
+    assert.equal(
+      scripts['knowledge:library-analysis:pilot:select'],
+      'tsx scripts/knowledge/select-library-analysis-pilot.ts',
+    )
+    assert.equal(
+      scripts['knowledge:library-analysis:intake'],
+      'tsx scripts/knowledge/ingest-library-analysis-content-units.ts',
+    )
+    assert.equal(
+      scripts['knowledge:library-analysis:automated'],
+      'tsx scripts/knowledge/run-library-analysis-automated.ts',
+    )
+
+    const knowledgeCheckSteps = scripts['knowledge:check']?.split(' && ') ?? []
+    const processingIndex = knowledgeCheckSteps.indexOf(
+      'npm run knowledge:processing-contracts:check',
+    )
+    assert.ok(processingIndex >= 0)
+    assert.equal(
+      knowledgeCheckSteps[processingIndex + 1],
+      'npm run knowledge:candidate-contracts:check',
+    )
+    assert.equal(
+      knowledgeCheckSteps.filter(
+        (step) => step === 'npm run knowledge:candidate-contracts:check',
+      ).length,
+      1,
+    )
+  })
+
   it('uses the standalone Next.js server when standalone output is enabled', () => {
     const nextConfig = readFileSync(join(process.cwd(), 'next.config.ts'), 'utf8')
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {

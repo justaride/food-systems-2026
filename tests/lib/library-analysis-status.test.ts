@@ -3,6 +3,7 @@ import { describe, it } from 'node:test'
 import {
   buildLibraryAnalysisStatusPayload,
   hasExternalAnswerEligibleCitation,
+  LIBRARY_ANALYSIS_CALIBRATION,
   toLibraryAnalysisBadge,
   type LibraryAnalysisStatusRecord,
 } from '../../src/lib/queries/library-analysis'
@@ -17,6 +18,17 @@ const records: LibraryAnalysisStatusRecord[] = [
 ]
 
 describe('library analysis status query helpers', () => {
+  it('publishes automated-only calibration rates without accuracy claims', () => {
+    assert.equal(LIBRARY_ANALYSIS_CALIBRATION.schemaVersion, '2.0')
+    assert.equal(LIBRARY_ANALYSIS_CALIBRATION.mode, 'automated_only')
+    assert.equal(LIBRARY_ANALYSIS_CALIBRATION.automatedRounds.length, 1)
+    assert.deepEqual(LIBRARY_ANALYSIS_CALIBRATION.humanReferenceRounds, [])
+    assert.equal(
+      JSON.stringify(LIBRARY_ANALYSIS_CALIBRATION).toLowerCase().includes('accuracy'),
+      false,
+    )
+  })
+
   it('builds the cockpit/API readiness counts', () => {
     assert.deepEqual(buildLibraryAnalysisStatusPayload(records), {
       operational: true,

@@ -13,7 +13,13 @@ import {
   assessLibraryAnalysisExternalCitationPolicy,
   readLibraryAnalysisExternalCitationPolicyHash,
 } from '@/lib/library-analysis-external-citations'
-import libraryAnalysisCalibration from '../../../knowledge/calibration/library-analysis-calibration.v1.json'
+import {
+  buildAutomatedLibraryAnalysisStatusFromRunConfigs,
+  type AutomatedLibraryAnalysisStatus,
+} from '@/lib/knowledge/library-analysis-automated-status'
+import libraryAnalysisCalibration from '../../../knowledge/calibration/library-analysis-calibration.v2.json'
+
+export const LIBRARY_ANALYSIS_CALIBRATION = libraryAnalysisCalibration
 
 export type LibraryAnalysisStatusRecord = {
   sourceKind?: string | null
@@ -43,7 +49,10 @@ export type LibraryAnalysisBadge = {
   externalClaimEligible: boolean
 }
 
-export type LibraryAnalysisStatusPayload = ReturnType<typeof buildLibraryAnalysisStatusPayload>
+export type LibraryAnalysisStatusPayload = ReturnType<typeof buildLibraryAnalysisStatusPayload> & {
+  automated: AutomatedLibraryAnalysisStatus
+  calibration: typeof libraryAnalysisCalibration
+}
 
 export type LibraryAnalysisRecordRow = {
   id: string
@@ -313,10 +322,31 @@ export async function getLibraryAnalysisStatus() {
       currentExternalCitationPolicyHash: externalCitationPolicy.policyHash,
     }
   }))
+  let validationConfigs: unknown[] = []
+  const automatedQueryErrors: string[] = []
+  try {
+    const validationRuns = await prisma.candidateAnalysisRun.findMany({
+      where: { outputProfile: 'library_validation_v1' },
+      orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+      select: { config: true },
+    })
+    validationConfigs = validationRuns.map(run => run.config)
+  } catch {
+    // Candidate tables may be intentionally absent before the migration is
+    // applied. Keep the established library status available, but make the
+    // automated-only subsection fail closed.
+    automatedQueryErrors.push('candidate_validation_query_failed')
+  }
+  const automated = buildAutomatedLibraryAnalysisStatusFromRunConfigs({
+    populationTotal: records.length,
+    configs: validationConfigs,
+    queryErrors: automatedQueryErrors,
+  })
   // Calibration state is governed repository data (trust-model tier 2), not a
   // database readout; `not_yet_run` is a valid, honest state.
   return {
     ...payload,
+    automated,
     calibration: libraryAnalysisCalibration,
   }
 }

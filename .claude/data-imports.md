@@ -42,6 +42,12 @@ main()
 - Prefer Prisma upserts so imports stay idempotent
 - For company entities, check [Company Registry](company-registry.md) before adding new records
 
+## Candidate-history boundary
+
+Candidate history follows the [autonomous analysis contract](../knowledge/candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md), not the idempotent import pattern above. Use only `src/lib/knowledge/candidate-analysis-writer.ts` for `CandidateAnalysisRun` and related append-only candidate events. Never use generic upsert or update for candidate history; never delete it or add generic/mutating raw SQL. Only the bounded writer's internal parameterized advisory locks and read-only dependency-integrity query are permitted.
+
+Candidate writes remain `candidate` only. They must not create or modify human review, canonical data, publication, coverage or target-promotion records.
+
 ## Import Script Inventory
 
 | Script | Models | npm command |

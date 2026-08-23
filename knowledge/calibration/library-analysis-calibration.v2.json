@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "2.0",
+  "mode": "automated_only",
+  "state": "pilot_complete",
+  "plan": "research/_plans/kalibreringsplan-utvalg-2026-08-20.md",
+  "trustModel": "docs/project/status/food-systems-tillitsmodell-2026-08-20.md",
+  "highRiskTriageRule": "usageRule in {safe_for_external_claims, requires_actor_gate, claim_candidate_review} OR riskFlags contains type_b_actor_gate OR claimCandidateCount > 0",
+  "errorTaxonomy": ["F1_fabrication", "F2_miscitation", "F3_misextraction", "F4_misclassification", "F5_omission"],
+  "automatedRounds": [
+    {
+      "roundId": "ig006-automated-2026-08-20",
+      "receipt": "research/_status/library-analysis-pilot-automated-2026-08-20.json",
+      "populationHash": "187667dd2fef5ef14ee27b2e2b35670f5c41afa170f29ce90184e6547653ddb3",
+      "populationTotal": 3,
+      "reusableForAiContext": 0
+    }
+  ],
+  "humanReferenceRounds": [],
+  "automatedFindingRate": {
+    "overall": 0,
+    "byDataClass": {
+      "document": 0
+    }
+  },
+  "automatedRejectionRate": {
+    "overall": 1,
+    "byDataClass": {
+      "document": 1
+    }
+  },
+  "analysisValidatorDisagreementRate": 1,
+  "rateBasis": "Three corrected pilot source plans. Negative regression fixtures are reported separately and are not included in the pilot-source finding denominator.",
+  "negativeRegressionFindingCounts": {
+    "F1": 0,
+    "F2": 0,
+    "F3": 2,
+    "F4": 0,
+    "F5": 0
+  },
+  "updatedAt": "2026-08-20"
+}

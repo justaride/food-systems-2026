@@ -1,0 +1,115 @@
+{
+  "schema": "library-analysis-pilot-automated-receipt/v1",
+  "pilotId": "ig006-automated-2026-08-20",
+  "generatedAt": "2026-08-20T15:44:44.000Z",
+  "automatedOnly": true,
+  "externalReady": false,
+  "persistenceState": "candidate_plan_only_not_applied",
+  "populationSnapshotId": "library-analysis-population:187667dd2fef5ef14ee27b2e2b35670f5c41afa170f29ce90184e6547653ddb3",
+  "populationHash": "187667dd2fef5ef14ee27b2e2b35670f5c41afa170f29ce90184e6547653ddb3",
+  "populationTotal": 3,
+  "readableTotal": 3,
+  "blockedInput": 0,
+  "analysisProfile": {
+    "workflowId": "workflow.library_analysis.automated.v1",
+    "workflowVersion": "1.0.0",
+    "workflowHash": "52f7c8382df35d38d5bb900e70e8e04140e923bdc49649723b58bab3973bd98e",
+    "promptId": "prompt.library_analysis.automated.v1",
+    "promptVersion": "1.0.0",
+    "promptHash": "d4d1171b7d17f7d7606b8df3ed71d8912316997f1566f0170313fb8c60835ef7",
+    "model": {
+      "provider": "openai",
+      "name": "codex-gpt-5",
+      "version": "runtime-unspecified-2026-08-20"
+    },
+    "modelIdentityHash": "1f090cecbc691bf56496ae52e7497942095473ed08592ad915f6f2346aea6fa8"
+  },
+  "validationProfile": {
+    "workflowId": "workflow.library_validation.automated.v1",
+    "workflowVersion": "1.0.0",
+    "workflowHash": "860d009633f3cd27613cdd52bf76da1f71964840383b9157b277892d03a539f0",
+    "promptId": "prompt.library_validation.automated.v1",
+    "promptVersion": "1.0.0",
+    "promptHash": "1d9ab13eac4a5f8ae248a904ad6f179dd02155027616ef79a28af3079b20c476",
+    "model": {
+      "provider": "openai",
+      "name": "codex-gpt-5",
+      "version": "runtime-unspecified-2026-08-20"
+    },
+    "modelIdentityHash": "1f090cecbc691bf56496ae52e7497942095473ed08592ad915f6f2346aea6fa8"
+  },
+  "validatorSeparationLevel": "same_model_distinct_prompt",
+  "sourceResults": [
+    {
+      "sourceKey": "document:cmp11sflk0008zq0dfczax8mp",
+      "analysisRunId": "run:library-analysis:e4a8a9bb3bbd6625826c34e152c73fc502d89224e2b24c23a04ae30c801022b1",
+      "validationRunId": "run:library-validation:e9d75f45d972073f969800ec005278e1199adb40ef343fd15e5a4a6599e63a15",
+      "disposition": "partial",
+      "machineUse": "candidate_only",
+      "findings": []
+    },
+    {
+      "sourceKey": "document:cmp11sfln0009zq0d3lmqruhq",
+      "analysisRunId": "run:library-analysis:52f33ada40950a722460941003edbec102093e34722d35176e72a415b88a0ef2",
+      "validationRunId": "run:library-validation:e8adaaeca502fed595f311f0c0bd1b426c67125868744f3c83d753c45f986e7d",
+      "disposition": "partial",
+      "machineUse": "candidate_only",
+      "findings": []
+    },
+    {
+      "sourceKey": "document:cmp11sfn7000mzq0dx4h670du",
+      "analysisRunId": "run:library-analysis:1dc87dcee070302a5ed709892f5f4820af94d650afc6179fdb7f9ebfb6717126",
+      "validationRunId": "run:library-validation:f8091f6b8c2a95f89f4056344498cc58acbedee442496e8b7459bec7ba84a2f4",
+      "disposition": "partial",
+      "machineUse": "candidate_only",
+      "findings": []
+    }
+  ],
+  "negativeRegressionResults": [
+    {
+      "caseId": "negative:partial-numeric-evidence",
+      "disposition": "quarantined",
+      "machineUse": "quarantined",
+      "findings": [
+        {
+          "errorClass": "F3",
+          "validatorKind": "deterministic",
+          "deterministicRuleId": "rule:quantitative:percentage",
+          "explanation": "Evidence contains 3.1 million litres but omits the claim's 28 percent fact."
+        }
+      ]
+    },
+    {
+      "caseId": "negative:partial-method-evidence",
+      "disposition": "quarantined",
+      "machineUse": "quarantined",
+      "findings": [
+        {
+          "errorClass": "F3",
+          "validatorKind": "model",
+          "deterministicRuleId": null,
+          "explanation": "The excerpt supports only the object 'retail groups', not who collected the data or that it is the estimate basis."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "candidateComplete": 0,
+    "partial": 3,
+    "quarantinedRegressionCases": 2,
+    "reusableForAiContext": 0,
+    "automatedFindingsByClass": {
+      "F1": 0,
+      "F2": 0,
+      "F3": 2,
+      "F4": 0,
+      "F5": 0
+    }
+  },
+  "limitations": [
+    "Analysis and validation used the same named model runtime with distinct governed prompts; the validator separation is therefore conservative.",
+    "The exact provider-side model build identifier was not exposed to this session and is recorded as runtime-unspecified.",
+    "This receipt proves deterministic candidate plan construction only. No candidate rows were written to a database.",
+    "No human review, external approval, rights approval or publication authority is asserted."
+  ]
+}

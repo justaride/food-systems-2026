@@ -14,6 +14,12 @@ Food Systems 2026 is researched primarily by Gabriel Freeman and AI. AI may acqu
 
 These are independent axes, not one ladder called “human review”. A positive result on one axis never silently satisfies another. Missing or unrecorded decisions fail closed.
 
+## Candidate-analysis authority boundary
+
+The [autonomous analysis contract](../candidates/AUTONOMOUS-ANALYSIS-CONTRACT.md) defines `candidate`, `human_review` and `promotion` for autonomous candidate work. Candidate analysis is an `ai_processing` event only: it may append an exact hash-bound candidate result but may not create a human-review receipt, canonical record, publication decision, coverage assessment or target-promotion event.
+
+Identity confidence (`exact`, `provisional` or `unresolved`) travels with a candidate and constrains later target-profile promotion. Confidence, repetition, reconciliation and model agreement are not authority and do not satisfy any review, rights, publication or coverage gate.
+
 ## Canonical layers
 
 | Layer                           | What a receipt proves                                                                                                       | Authorized actor                                                                        | It does not prove                                                                                                        |

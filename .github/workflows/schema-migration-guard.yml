@@ -86,6 +86,9 @@ jobs:
           DATABASE_URL: postgresql://ci:ci@db.invalid:5432/foodsystems_ci?schema=public
         run: ./node_modules/.bin/prisma generate --schema prisma/schema.prisma
 
+      - name: Run autonomous candidate contracts
+        run: npm run knowledge:candidate-contracts:check
+
       - name: Validate database operations shell syntax
         shell: bash
         run: |
@@ -96,6 +99,10 @@ jobs:
             scripts/bootstrap-mcp-readonly-role.sh
             scripts/bootstrap-library-analysis-writer.sh
             scripts/verify-mcp-readonly-role.sh
+            scripts/bootstrap-candidate-analysis-roles.sh
+            scripts/disable-candidate-analysis-writes.sh
+            scripts/enable-candidate-analysis-logins.sh
+            scripts/verify-candidate-analysis-roles.sh
             scripts/create-database-backup.sh
             scripts/verify-database-backup.sh
             scripts/restore-database-backup-drill.sh
@@ -114,6 +121,7 @@ jobs:
         run: >-
           node --import=tsx --test
           tests/lib/db-ops-hardening.test.ts
+          tests/lib/candidate-analysis-role-contract.test.ts
           tests/lib/coolify-db-watcher-workflow.test.ts
           tests/lib/docker-runtime-migration.test.ts
           tests/lib/food-tg-board-schema.test.ts

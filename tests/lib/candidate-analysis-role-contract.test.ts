@@ -1,0 +1,6796 @@
+import assert from "node:assert/strict";
+import {
+  chmodSync,
+  existsSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  statSync,
+  writeFileSync,
+} from "node:fs";
+import { tmpdir } from "node:os";
+import { join, resolve } from "node:path";
+import {
+  spawn,
+  spawnSync,
+  type ChildProcess,
+  type SpawnSyncReturns,
+} from "node:child_process";
+import { test } from "node:test";
+
+import { PrismaPg } from "@prisma/adapter-pg";
+
+import { PrismaClient } from "../../src/generated/prisma/client";
+import {
+  candidateAnalysisAssertionPayloadHash,
+  candidateAnalysisAssertionScopeHash,
+  candidateAnalysisEvidenceLocatorHash,
+  candidateAnalysisReconciliationPayloadHash,
+  candidateAnalysisReconciliationScopeHash,
+  candidateAnalysisRunEventHash,
+  candidateAnalysisRunIdempotencyKey,
+  candidateAnalysisRunScopeHash,
+  type CandidateAssertionInput,
+  type CandidateReconciliationSnapshotInput,
+} from "../../src/lib/knowledge/candidate-analysis-contract";
+import {
+  createCandidateAnalysisWriter,
+  createCandidateContentUnitIntakeWriter,
+  createCandidateReconciliationWriter,
+} from "../../src/lib/knowledge/candidate-analysis-writer";
+import { candidateAnalysisFixture } from "../fixtures/candidate-analysis-fixture";
+import {
+  withCandidateAnalysisPostgres,
+  type CandidateAnalysisPostgresContext,
+} from "../helpers/candidate-analysis-postgres";
+
+const repoRoot = process.cwd();
+const bootstrapPath = resolve("scripts/bootstrap-candidate-analysis-roles.sh");
+const disablePath = resolve("scripts/disable-candidate-analysis-writes.sh");
+const enablePath = resolve("scripts/enable-candidate-analysis-logins.sh");
+const verifyPath = resolve("scripts/verify-candidate-analysis-roles.sh");
+const securityGraphManifestPath = resolve(
+  "scripts/candidate-security-graph.v1.json",
+);
+const securityGraphManifestReaderPath = resolve(
+  "scripts/read-candidate-security-graph-manifest.mjs",
+);
+const ambientGuardPath = resolve("scripts/reject-ambient-candidate-libpq-env.mjs");
+const urlHelperPath = resolve("scripts/normalize-candidate-postgres-url.mjs");
+const bootstrapApplyArgs = [
+  "--apply",
+  "--confirm-database-session-drain",
+] as const;
+
+const candidateCriticalTriggers = [
+  ["CandidateContentUnit", "CandidateContentUnit_reject_update_delete"],
+  ["CandidateContentUnit", "CandidateContentUnit_reject_truncate"],
+  ["CandidateAnalysisRun", "CandidateAnalysisRun_reject_invalid_scope"],
+  ["CandidateAnalysisRun", "CandidateAnalysisRun_reject_update_delete"],
+  ["CandidateAnalysisRun", "CandidateAnalysisRun_reject_truncate"],
+  ["CandidateAnalysisRunInput", "CandidateAnalysisRunInput_reject_update_delete"],
+  ["CandidateAnalysisRunInput", "CandidateAnalysisRunInput_reject_truncate"],
+  ["CandidateAnalysisRunEvent", "CandidateAnalysisRunEvent_reject_invalid_machine_payload"],
+  ["CandidateAnalysisRunEvent", "CandidateAnalysisRunEvent_reject_update_delete"],
+  ["CandidateAnalysisRunEvent", "CandidateAnalysisRunEvent_reject_truncate"],
+  ["CandidateAnalysisArtifact", "CandidateAnalysisArtifact_reject_invalid_machine_payload"],
+  ["CandidateAnalysisArtifact", "CandidateAnalysisArtifact_reject_update_delete"],
+  ["CandidateAnalysisArtifact", "CandidateAnalysisArtifact_reject_truncate"],
+  ["CandidateAssertion", "CandidateAssertion_reject_invalid_machine_payload"],
+  ["CandidateAssertion", "CandidateAssertion_reject_update_delete"],
+  ["CandidateAssertion", "CandidateAssertion_reject_truncate"],
+  ["CandidateEvidenceLink", "CandidateEvidenceLink_reject_update_delete"],
+  ["CandidateEvidenceLink", "CandidateEvidenceLink_reject_truncate"],
+  ["CandidateDependency", "CandidateDependency_reject_update_delete"],
+  ["CandidateDependency", "CandidateDependency_reject_truncate"],
+  ["CandidateReconciliationSnapshot", "CandidateReconciliationSnapshot_reject_invalid_machine_payload"],
+  ["CandidateReconciliationSnapshot", "CandidateReconciliationSnapshot_reject_update_delete"],
+  ["CandidateReconciliationSnapshot", "CandidateReconciliationSnapshot_reject_truncate"],
+  ["CandidateHumanReviewDecision", "CandidateHumanReviewDecision_reject_update_delete"],
+  ["CandidateHumanReviewDecision", "CandidateHumanReviewDecision_reject_truncate"],
+  ["CandidatePromotionDecision", "CandidatePromotionDecision_reject_update_delete"],
+  ["CandidatePromotionDecision", "CandidatePromotionDecision_reject_truncate"],
+] as const;
+
+function executable(path: string): boolean {
+  return existsSync(path) && (statSync(path).mode & 0o111) !== 0;
+}
+
+function rolePrisma(databaseUrl: string): PrismaClient {
+  return new PrismaClient({
+    adapter: new PrismaPg({ connectionString: databaseUrl }),
+  });
+}
+
+function postgresPath(): string {
+  const configured = process.env.POSTGRES_BINDIR?.trim();
+  if (configured) return `${configured}:${process.env.PATH ?? ""}`;
+  const result = spawnSync("pg_config", ["--bindir"], { encoding: "utf8" });
+  return result.status === 0 && result.stdout.trim()
+    ? `${result.stdout.trim()}:${process.env.PATH ?? ""}`
+    : process.env.PATH ?? "";
+}
+
+async function waitFor(
+  predicate: () => boolean,
+  message: string,
+  timeoutMs = 5_000,
+): Promise<void> {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    if (predicate()) return;
+    await new Promise((resolvePromise) => setTimeout(resolvePromise, 50));
+  }
+  throw new Error(message);
+}
+
+type RecoveryFixture = {
+  intakeUrl: string;
+  path: string;
+  reconcilerUrl: string;
+  workerUrl: string;
+};
+
+function prepareRecoveryFixture(
+  context: CandidateAnalysisPostgresContext,
+): RecoveryFixture {
+  const { adminUrl, database, port, psql } = context;
+  const setup = psql(`
+    CREATE TABLE public."Document" (id text PRIMARY KEY);
+    CREATE TABLE public."SourceDoc" (id text PRIMARY KEY);
+    CREATE TABLE public."LibraryAnalysisRecord" (id text PRIMARY KEY);
+    CREATE SCHEMA sidecar;
+    REVOKE CREATE, TEMPORARY ON DATABASE ${database} FROM PUBLIC;
+    REVOKE ALL PRIVILEGES ON SCHEMA public, sidecar FROM PUBLIC;
+    REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public, sidecar FROM PUBLIC;
+    REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public, sidecar FROM PUBLIC;
+    REVOKE EXECUTE ON ALL FUNCTIONS IN SCHEMA public, sidecar FROM PUBLIC;
+    ALTER DEFAULT PRIVILEGES FOR ROLE postgres
+      REVOKE EXECUTE ON FUNCTIONS FROM PUBLIC;
+  `);
+  assert.equal(setup.status, 0, setup.stderr);
+
+  const path = postgresPath();
+  const adminEnv = {
+    ...process.env,
+    PATH: path,
+    DATABASE_ADMIN_URL: adminUrl,
+  };
+  const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    env: adminEnv,
+  });
+  assert.equal(bootstrap.status, 0, bootstrap.stderr);
+
+  const intakePassword = "candidate-intake-recovery-test-password";
+  const workerPassword = "candidate-worker-recovery-test-password";
+  const reconcilerPassword = "candidate-reconciler-recovery-test-password";
+  const provision = psql(`
+    ALTER ROLE foodsystems_candidate_intake PASSWORD '${intakePassword}';
+    ALTER ROLE foodsystems_candidate_worker PASSWORD '${workerPassword}';
+    ALTER ROLE foodsystems_candidate_reconciler PASSWORD '${reconcilerPassword}';
+  `);
+  assert.equal(provision.status, 0, provision.stderr);
+
+  return {
+    path,
+    intakeUrl: `postgresql://foodsystems_candidate_intake:${intakePassword}@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-intake`,
+    workerUrl: `postgresql://foodsystems_candidate_worker:${workerPassword}@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-worker`,
+    reconcilerUrl: `postgresql://foodsystems_candidate_reconciler:${reconcilerPassword}@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-reconciler`,
+  };
+}
+
+function recoveryEnableEnv(
+  fixture: RecoveryFixture,
+  databaseAdminUrl: string,
+  path = fixture.path,
+): NodeJS.ProcessEnv {
+  return {
+    ...process.env,
+    PATH: path,
+    DATABASE_ADMIN_URL: databaseAdminUrl,
+    CANDIDATE_INTAKE_DATABASE_URL: fixture.intakeUrl,
+    CANDIDATE_WORKER_DATABASE_URL: fixture.workerUrl,
+    CANDIDATE_RECONCILER_DATABASE_URL: fixture.reconcilerUrl,
+  };
+}
+
+function activityCount(
+  context: CandidateAnalysisPostgresContext,
+  applicationName: string,
+): string {
+  const result = context.psql(
+    `SELECT count(*) FROM pg_stat_activity WHERE application_name = '${applicationName}'`,
+  );
+  return result.status === 0 ? result.stdout.trim() : "error";
+}
+
+function candidateRowsSnapshot(
+  context: CandidateAnalysisPostgresContext,
+): string {
+  const result = context.psql(`
+    WITH candidate_snapshot(table_name, row_count, rows) AS (
+      SELECT 'CandidateContentUnit', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateContentUnit" candidate_row
+      UNION ALL
+      SELECT 'CandidateAnalysisRun', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateAnalysisRun" candidate_row
+      UNION ALL
+      SELECT 'CandidateAnalysisRunInput', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateAnalysisRunInput" candidate_row
+      UNION ALL
+      SELECT 'CandidateAnalysisRunEvent', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateAnalysisRunEvent" candidate_row
+      UNION ALL
+      SELECT 'CandidateAnalysisArtifact', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateAnalysisArtifact" candidate_row
+      UNION ALL
+      SELECT 'CandidateAssertion', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateAssertion" candidate_row
+      UNION ALL
+      SELECT 'CandidateEvidenceLink', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateEvidenceLink" candidate_row
+      UNION ALL
+      SELECT 'CandidateDependency', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateDependency" candidate_row
+      UNION ALL
+      SELECT 'CandidateReconciliationSnapshot', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateReconciliationSnapshot" candidate_row
+      UNION ALL
+      SELECT 'CandidateHumanReviewDecision', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidateHumanReviewDecision" candidate_row
+      UNION ALL
+      SELECT 'CandidatePromotionDecision', count(*),
+        COALESCE(jsonb_agg(to_jsonb(candidate_row) ORDER BY candidate_row.id), '[]')
+      FROM public."CandidatePromotionDecision" candidate_row
+    )
+    SELECT jsonb_object_agg(
+      table_name,
+      jsonb_build_object('count', row_count, 'rows', rows)
+      ORDER BY table_name
+    )
+    FROM candidate_snapshot;
+  `);
+  assert.equal(result.status, 0, result.stderr);
+  return result.stdout.trim();
+}
+
+function psqlInDatabase(
+  context: CandidateAnalysisPostgresContext,
+  database: string,
+  sql: string,
+  user = "postgres",
+): SpawnSyncReturns<string> {
+  return spawnSync(
+    "psql",
+    [
+      "-X",
+      "-A",
+      "-t",
+      "-h",
+      "127.0.0.1",
+      "-p",
+      String(context.port),
+      "-U",
+      user,
+      "-d",
+      database,
+      "-v",
+      "ON_ERROR_STOP=1",
+      "-c",
+      sql,
+    ],
+    {
+      cwd: repoRoot,
+      encoding: "utf8",
+      env: { ...process.env, PATH: postgresPath() },
+    },
+  );
+}
+
+function attemptBootstrapAdditionalCandidateDatabase(
+  context: CandidateAnalysisPostgresContext,
+  database: string,
+): { adminUrl: string; bootstrapped: SpawnSyncReturns<string> } {
+  assert.match(database, /^[a-z0-9_]+$/);
+  const commandEnv = { ...process.env, PATH: postgresPath() };
+  const created = spawnSync(
+    "createdb",
+    [
+      "-h",
+      "127.0.0.1",
+      "-p",
+      String(context.port),
+      "-U",
+      "postgres",
+      database,
+    ],
+    { cwd: repoRoot, encoding: "utf8", env: commandEnv },
+  );
+  assert.equal(created.status, 0, created.stderr);
+  const migrated = spawnSync(
+    "psql",
+    [
+      "-X",
+      "-h",
+      "127.0.0.1",
+      "-p",
+      String(context.port),
+      "-U",
+      "postgres",
+      "-d",
+      database,
+      "-v",
+      "ON_ERROR_STOP=1",
+      "-f",
+      resolve(
+        repoRoot,
+        "prisma/migrations/20260818_candidate_analysis_foundation/migration.sql",
+      ),
+    ],
+    { cwd: repoRoot, encoding: "utf8", env: commandEnv },
+  );
+  assert.equal(migrated.status, 0, migrated.stderr);
+  const hardened = psqlInDatabase(context, database, `
+    CREATE TABLE public."Document" (id text PRIMARY KEY);
+    CREATE TABLE public."SourceDoc" (id text PRIMARY KEY);
+    CREATE TABLE public."LibraryAnalysisRecord" (id text PRIMARY KEY);
+    REVOKE CREATE, TEMPORARY ON DATABASE ${database} FROM PUBLIC;
+    REVOKE ALL PRIVILEGES ON SCHEMA public FROM PUBLIC;
+    REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM PUBLIC;
+    REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public FROM PUBLIC;
+    REVOKE EXECUTE ON ALL FUNCTIONS IN SCHEMA public FROM PUBLIC;
+    ALTER DEFAULT PRIVILEGES FOR ROLE postgres
+      REVOKE EXECUTE ON FUNCTIONS FROM PUBLIC;
+  `);
+  assert.equal(hardened.status, 0, hardened.stderr);
+  const adminUrl = `postgresql://postgres@127.0.0.1:${context.port}/${database}`;
+  const bootstrapped = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+    cwd: repoRoot,
+    encoding: "utf8",
+    env: { ...commandEnv, DATABASE_ADMIN_URL: adminUrl },
+  });
+  return { adminUrl, bootstrapped };
+}
+
+function candidateAuthoritySnapshot(
+  context: CandidateAnalysisPostgresContext,
+): string {
+  const result = context.psql(`
+    WITH candidate_role AS (
+      SELECT oid, rolname FROM pg_roles
+      WHERE rolname IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler')
+    ), state_line(kind, identity, value) AS (
+      SELECT 'role', auth.rolname,
+        jsonb_build_object(
+          'super', auth.rolsuper,
+          'inherit', auth.rolinherit,
+          'createRole', auth.rolcreaterole,
+          'createDb', auth.rolcreatedb,
+          'canLogin', auth.rolcanlogin,
+          'replication', auth.rolreplication,
+          'connectionLimit', auth.rolconnlimit,
+          'bypassRls', auth.rolbypassrls
+        )::text
+      FROM pg_authid auth WHERE auth.oid IN (SELECT oid FROM candidate_role)
+      UNION ALL
+      SELECT 'membership', granted.rolname || '->' || member.rolname,
+        jsonb_build_object('admin', membership.admin_option, 'grantor', grantor.rolname)::text
+      FROM pg_auth_members membership
+      JOIN pg_roles granted ON granted.oid = membership.roleid
+      JOIN pg_roles member ON member.oid = membership.member
+      JOIN pg_roles grantor ON grantor.oid = membership.grantor
+      WHERE granted.oid IN (SELECT oid FROM candidate_role)
+         OR member.oid IN (SELECT oid FROM candidate_role)
+      UNION ALL
+      SELECT 'setting', role.rolname || '@' || setting.setdatabase::text,
+        setting.setconfig::text
+      FROM pg_db_role_setting setting
+      JOIN pg_roles role ON role.oid = setting.setrole
+      WHERE role.oid IN (SELECT oid FROM candidate_role)
+      UNION ALL
+      SELECT 'database', database.datname,
+        jsonb_build_object(
+          'owner', pg_get_userbyid(database.datdba),
+          'acl', COALESCE(database.datacl::text, '<null>')
+        )::text
+      FROM pg_database database WHERE database.datname = current_database()
+      UNION ALL
+      SELECT 'schema', namespace.nspname,
+        jsonb_build_object(
+          'owner', pg_get_userbyid(namespace.nspowner),
+          'acl', COALESCE(namespace.nspacl::text, '<null>')
+        )::text
+      FROM pg_namespace namespace
+      WHERE namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_'
+      UNION ALL
+      SELECT 'relation', namespace.nspname || '.' || class.relname,
+        jsonb_build_object(
+          'kind', class.relkind,
+          'owner', pg_get_userbyid(class.relowner),
+          'acl', COALESCE(class.relacl::text, '<null>')
+        )::text
+      FROM pg_class class
+      JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+      WHERE namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_'
+        AND class.relkind IN ('r', 'p', 'v', 'm', 'f', 'S')
+      UNION ALL
+      SELECT 'column', namespace.nspname || '.' || class.relname || '.' || attribute.attname,
+        COALESCE(attribute.attacl::text, '<null>')
+      FROM pg_attribute attribute
+      JOIN pg_class class ON class.oid = attribute.attrelid
+      JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+      WHERE namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_'
+        AND attribute.attnum > 0 AND NOT attribute.attisdropped
+      UNION ALL
+      SELECT 'routine', namespace.nspname || '.' || procedure.oid::regprocedure::text,
+        jsonb_build_object(
+          'owner', pg_get_userbyid(procedure.proowner),
+          'securityDefiner', procedure.prosecdef,
+          'acl', COALESCE(procedure.proacl::text, '<null>')
+        )::text
+      FROM pg_proc procedure
+      JOIN pg_namespace namespace ON namespace.oid = procedure.pronamespace
+      WHERE namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_'
+      UNION ALL
+      SELECT 'type', namespace.nspname || '.' || type.typname,
+        pg_get_userbyid(type.typowner)
+      FROM pg_type type
+      JOIN pg_namespace namespace ON namespace.oid = type.typnamespace
+      WHERE namespace.nspname <> 'information_schema' AND namespace.nspname !~ '^pg_'
+      UNION ALL
+      SELECT 'default-acl', owner.rolname || '@' ||
+        COALESCE(namespace.nspname, '<global>') || ':' || defaults.defaclobjtype::text,
+        defaults.defaclacl::text
+      FROM pg_default_acl defaults
+      JOIN pg_roles owner ON owner.oid = defaults.defaclrole
+      LEFT JOIN pg_namespace namespace ON namespace.oid = defaults.defaclnamespace
+      UNION ALL
+      SELECT 'parameter-acl', parameter.parname,
+        COALESCE(parameter.paracl::text, '<null>')
+      FROM pg_parameter_acl parameter
+      UNION ALL
+      SELECT 'ownership-dependency', role.rolname,
+        pg_describe_object(dependency.classid, dependency.objid, dependency.objsubid)
+      FROM pg_shdepend dependency
+      JOIN candidate_role role ON role.oid = dependency.refobjid
+      WHERE dependency.refclassid = 'pg_authid'::regclass
+        AND dependency.deptype = 'o'
+        AND (dependency.dbid = 0 OR dependency.dbid =
+          (SELECT oid FROM pg_database WHERE datname = current_database()))
+      UNION ALL
+      SELECT 'session', activity.pid::text,
+        jsonb_build_object(
+          'user', activity.usename,
+          'applicationName', activity.application_name,
+          'state', activity.state,
+          'query', activity.query
+        )::text
+      FROM pg_stat_activity activity
+      WHERE activity.usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler')
+    )
+    SELECT kind || '|' || identity || '|' || value
+    FROM state_line ORDER BY kind, identity, value;
+  `);
+  assert.equal(result.status, 0, result.stderr);
+  return result.stdout;
+}
+
+class ChildExitTimeoutError extends Error {}
+
+function childHasExited(child: ChildProcess): boolean {
+  return child.exitCode !== null || child.signalCode !== null;
+}
+
+function waitForChildExit(
+  child: ChildProcess,
+  timeoutMs: number,
+): Promise<number | null> {
+  if (childHasExited(child)) return Promise.resolve(child.exitCode);
+  return new Promise((resolvePromise, rejectPromise) => {
+    const cleanupListeners = () => {
+      clearTimeout(timeout);
+      child.off("error", onError);
+      child.off("exit", onExit);
+    };
+    const onError = (error: Error) => {
+      cleanupListeners();
+      rejectPromise(error);
+    };
+    const onExit = (code: number | null) => {
+      cleanupListeners();
+      resolvePromise(code);
+    };
+    const timeout = setTimeout(() => {
+      cleanupListeners();
+      rejectPromise(
+        new ChildExitTimeoutError(
+          `child process ${String(child.pid)} did not exit within ${timeoutMs}ms`,
+        ),
+      );
+    }, timeoutMs);
+    child.once("error", onError);
+    child.once("exit", onExit);
+  });
+}
+
+async function childExit(
+  child: ChildProcess,
+  timeoutMs = 5_000,
+): Promise<number | null> {
+  try {
+    return await waitForChildExit(child, timeoutMs);
+  } catch (error) {
+    if (!(error instanceof ChildExitTimeoutError)) throw error;
+    if (!childHasExited(child)) child.kill("SIGKILL");
+    try {
+      await waitForChildExit(child, 1_000);
+    } catch (forceError) {
+      throw new Error(
+        `${error.message}; SIGKILL reap also failed: ${String(forceError)}`,
+      );
+    }
+    throw new Error(`${error.message}; sent SIGKILL`);
+  }
+}
+
+type CleanupStep = {
+  label: string;
+  run: () => Promise<void> | void;
+};
+
+type CleanupDiagnosticsState = {
+  callSite: string;
+  cleanupFailures: AggregateError[];
+  correlationId: string;
+  primaryFailure?: unknown;
+  primaryFailureRecorded: boolean;
+};
+
+type CleanupDiagnosticsSink = {
+  consume: () => Readonly<CleanupDiagnosticsState>;
+  recordCleanupFailure: (cleanupFailure: AggregateError) => void;
+  recordPrimaryFailure: (primaryFailure: unknown) => void;
+};
+
+let cleanupDiagnosticsSequence = 0;
+
+function createCleanupDiagnostics(
+  callSite = "cleanup-pressure",
+): CleanupDiagnosticsSink {
+  const state: CleanupDiagnosticsState = {
+    callSite,
+    cleanupFailures: [],
+    correlationId: `${callSite}:${String(++cleanupDiagnosticsSequence)}`,
+    primaryFailureRecorded: false,
+  };
+  return Object.freeze({
+    consume: () => ({
+      callSite: state.callSite,
+      cleanupFailures: [...state.cleanupFailures],
+      correlationId: state.correlationId,
+      primaryFailure: state.primaryFailure,
+      primaryFailureRecorded: state.primaryFailureRecorded,
+    }),
+    recordCleanupFailure: (cleanupFailure: AggregateError) => {
+      state.cleanupFailures.push(cleanupFailure);
+    },
+    recordPrimaryFailure: (primaryFailure: unknown) => {
+      state.primaryFailure = primaryFailure;
+      state.primaryFailureRecorded = true;
+    },
+  });
+}
+
+function recordPrimaryFailure(
+  diagnostics: CleanupDiagnosticsSink,
+  primaryFailure: unknown,
+): void {
+  diagnostics.recordPrimaryFailure(primaryFailure);
+}
+
+function capturePrimaryCleanupDiagnostics(
+  diagnostics: CleanupDiagnosticsSink,
+  primaryFailure: unknown,
+): CleanupDiagnosticsSink {
+  try {
+    recordPrimaryFailure(diagnostics, primaryFailure);
+  } catch {
+    // A failed diagnostic side channel must never replace the primary.
+  }
+  return diagnostics;
+}
+
+function readCleanupDiagnostics(
+  diagnostics: CleanupDiagnosticsSink,
+): Readonly<CleanupDiagnosticsState> {
+  return diagnostics.consume();
+}
+
+function recordCleanupFailure(
+  diagnostics: CleanupDiagnosticsSink,
+  cleanupFailure: AggregateError,
+): void {
+  diagnostics.recordCleanupFailure(cleanupFailure);
+}
+
+class CleanupStepFailure extends Error {
+  readonly label: string;
+
+  constructor(label: string, cause: unknown) {
+    super(`cleanup step failed: ${label}`, { cause });
+    this.name = "CleanupStepFailure";
+    this.label = label;
+  }
+}
+
+async function runBestEffortCleanup(
+  steps: CleanupStep[],
+  diagnostics?: CleanupDiagnosticsSink,
+  primaryFailurePending = diagnostics !== undefined,
+): Promise<void> {
+  const failures: Error[] = [];
+  for (const step of steps) {
+    try {
+      await step.run();
+    } catch (error) {
+      failures.push(new CleanupStepFailure(step.label, error));
+    }
+  }
+  if (failures.length > 0) {
+    const cleanupFailures = new AggregateError(
+      failures,
+      "candidate test cleanup failed",
+    );
+    if (primaryFailurePending) {
+      try {
+        if (diagnostics !== undefined) {
+          recordCleanupFailure(diagnostics, cleanupFailures);
+        }
+      } catch {
+        // A failed diagnostic side channel must never replace the primary.
+      }
+      return;
+    }
+    throw cleanupFailures;
+  }
+}
+
+type ObservableCleanupDiagnostics = Readonly<CleanupDiagnosticsState & {
+  primaryCorrelated: boolean;
+}>;
+
+type RecoveryCleanupCallSiteOptions = {
+  callSite: string;
+  cleanupSteps: CleanupStep[];
+  diagnostics?: CleanupDiagnosticsSink;
+  report: (
+    diagnostics: ObservableCleanupDiagnostics,
+  ) => Promise<void> | void;
+  run: () => Promise<void>;
+};
+
+async function reportCleanupDiagnosticsBestEffort(
+  diagnostics: CleanupDiagnosticsSink,
+  primaryFailure: unknown,
+  report: RecoveryCleanupCallSiteOptions["report"],
+): Promise<void> {
+  try {
+    const observed = readCleanupDiagnostics(diagnostics);
+    if (observed.cleanupFailures.length === 0) return;
+    await report({
+      ...observed,
+      primaryCorrelated: observed.primaryFailureRecorded
+        && Object.is(observed.primaryFailure, primaryFailure),
+    });
+  } catch {
+    // Diagnostic consumption and reporting are subordinate to the exact primary.
+  }
+}
+
+function serializeCleanupDiagnostics(
+  diagnostics: ObservableCleanupDiagnostics,
+): string {
+  const cleanupStepLabels: string[] = [];
+  for (const cleanupFailure of diagnostics.cleanupFailures) {
+    for (const failure of cleanupFailure.errors as unknown[]) {
+      cleanupStepLabels.push(
+        failure instanceof CleanupStepFailure
+          ? failure.label
+          : "unlabelled cleanup failure",
+      );
+    }
+  }
+  return JSON.stringify({
+    schema: "candidate-recovery-cleanup/v1",
+    callSite: diagnostics.callSite,
+    correlationId: diagnostics.correlationId,
+    primaryCorrelated: diagnostics.primaryCorrelated,
+    cleanupFailureCount: diagnostics.cleanupFailures.length,
+    cleanupStepLabels,
+  });
+}
+
+async function runRecoveryCleanupCallSite(
+  options: RecoveryCleanupCallSiteOptions,
+): Promise<void> {
+  const cleanupDiagnostics = options.diagnostics
+    ?? createCleanupDiagnostics(options.callSite);
+  let primaryCleanupDiagnostics: CleanupDiagnosticsSink | undefined;
+  let primaryFailure: unknown;
+  let primaryFailureCaptured = false;
+
+  try {
+    await options.run();
+  } catch (error) {
+    primaryFailure = error;
+    primaryFailureCaptured = true;
+    primaryCleanupDiagnostics = capturePrimaryCleanupDiagnostics(
+      cleanupDiagnostics,
+      error,
+    );
+    throw error;
+  } finally {
+    await runBestEffortCleanup(
+      options.cleanupSteps,
+      primaryCleanupDiagnostics,
+      primaryFailureCaptured,
+    );
+    if (primaryFailureCaptured) {
+      await reportCleanupDiagnosticsBestEffort(
+        cleanupDiagnostics,
+        primaryFailure,
+        options.report,
+      );
+    }
+  }
+}
+
+function writeRecoveryRacePsql(
+  tempRoot: string,
+  context: CandidateAnalysisPostgresContext,
+): {
+  countFile: string;
+  markerFile: string;
+  mutationFile: string;
+  path: string;
+  realPsql: string;
+  releaseFile: string;
+} {
+  const fakePsql = join(tempRoot, "psql");
+  const countFile = join(tempRoot, "count");
+  const markerFile = join(tempRoot, "second-psql-complete");
+  const mutationFile = join(tempRoot, "mutation-complete");
+  const releaseFile = join(tempRoot, "release");
+  const realPsql = postgresPath().split(":")[0] + "/psql";
+  writeFileSync(
+    fakePsql,
+    `#!/bin/sh
+count=0
+if [ -f "$RACE_COUNT_FILE" ]; then
+  count=$(sed -n '1p' "$RACE_COUNT_FILE")
+fi
+count=$((count + 1))
+printf '%s\n' "$count" > "$RACE_COUNT_FILE"
+"$REAL_PSQL" "$@"
+status=$?
+if [ "$status" -eq 0 ] && [ "$count" -eq 3 ]; then
+  "$REAL_PSQL" -X -q -h 127.0.0.1 -p "$RACE_PORT" -U postgres -d "$RACE_DATABASE" -v ON_ERROR_STOP=1 -c "$RACE_MUTATION_SQL" >/dev/null
+  : > "$RACE_MUTATION_FILE"
+fi
+if [ "$status" -eq 0 ] && [ "$count" -eq 4 ]; then
+  : > "$RACE_MARKER_FILE"
+  deadline=200
+  while [ ! -f "$RACE_RELEASE_FILE" ] && [ "$deadline" -gt 0 ]; do
+    sleep 0.05
+    deadline=$((deadline - 1))
+  done
+fi
+exit "$status"
+`,
+  );
+  chmodSync(fakePsql, 0o755);
+  return {
+    countFile,
+    markerFile,
+    mutationFile,
+    releaseFile,
+    path: `${tempRoot}:${postgresPath()}`,
+    realPsql,
+  };
+}
+
+function writePostActivationVerifierBarrier(
+  tempRoot: string,
+): {
+  markerFile: string;
+  path: string;
+  realPsql: string;
+  releaseFile: string;
+} {
+  const fakePsql = join(tempRoot, "psql");
+  const markerFile = join(tempRoot, "worker-verifier-started");
+  const releaseFile = join(tempRoot, "release-worker-verifier");
+  const realPsql = postgresPath().split(":")[0] + "/psql";
+  writeFileSync(
+    fakePsql,
+    `#!/bin/sh
+case "$*" in
+  *application_name=foodsystems-candidate-worker*)
+    : > "$ACTIVATION_MARKER_FILE"
+    deadline=200
+    while [ ! -f "$ACTIVATION_RELEASE_FILE" ] && [ "$deadline" -gt 0 ]; do
+      sleep 0.05
+      deadline=$((deadline - 1))
+    done
+    ;;
+esac
+exec "$REAL_PSQL" "$@"
+`,
+  );
+  chmodSync(fakePsql, 0o755);
+  return {
+    markerFile,
+    path: `${tempRoot}:${postgresPath()}`,
+    realPsql,
+    releaseFile,
+  };
+}
+
+test("candidate role scripts are explicit, credential-safe, and exact-allowlist", () => {
+  const bootstrap = readFileSync(bootstrapPath, "utf8");
+  const disable = readFileSync(disablePath, "utf8");
+  const verify = readFileSync(verifyPath, "utf8");
+  const enable = readFileSync(enablePath, "utf8");
+  const ambientGuard = readFileSync(ambientGuardPath, "utf8");
+  const urlHelper = readFileSync(urlHelperPath, "utf8");
+
+  assert.ok(executable(bootstrapPath));
+  assert.ok(executable(disablePath));
+  assert.ok(executable(verifyPath));
+  assert.ok(executable(ambientGuardPath));
+  assert.ok(executable(urlHelperPath));
+  for (const script of [bootstrap, disable, verify]) {
+    assert.match(script, /^#!\/bin\/sh/);
+    assert.match(script, /set -eu/);
+    assert.match(script, /PGPASSFILE/);
+    assert.match(script, /normalize-candidate-postgres-url\.mjs/);
+    assert.match(script, /reject-ambient-candidate-libpq-env\.mjs/);
+  }
+  for (const script of [bootstrap, enable, verify]) {
+    assert.equal(
+      (script.match(/read-candidate-security-graph-manifest\.mjs/g) ?? [])
+        .length,
+      1,
+    );
+    assert.match(script, /CANDIDATE_SECURITY_CHECKER_SHA256/);
+    assert.match(script, /CANDIDATE_SECURITY_GRAPH_SHA256/);
+    assert.match(script, /attest-candidate-security-graph\.sql/);
+  }
+  assert.match(ambientGuard, /\^PG\[A-Z0-9_\]\*\$/);
+  assert.match(urlHelper, /allowedSearchParameters/);
+  assert.match(urlHelper, /url\.password = ""/);
+  assert.match(urlHelper, /unsupported database URL parameter/);
+
+  assert.match(bootstrap, /--apply --confirm-database-session-drain/);
+  assert.match(
+    bootstrap,
+    /NOINHERIT NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS/,
+  );
+  assert.doesNotMatch(bootstrap, /GRANT INSERT ON TABLE/);
+  assert.match(bootstrap, /GRANT EXECUTE ON FUNCTION %I\.candidate_content_unit_append/);
+  assert.match(bootstrap, /GRANT EXECUTE ON FUNCTION %I\.candidate_worker_append/);
+  assert.match(bootstrap, /GRANT EXECUTE ON FUNCTION %I\.candidate_reconciler_append/);
+  assert.doesNotMatch(bootstrap, /GRANT (?:ALL|UPDATE|DELETE|TRUNCATE)/);
+  assert.doesNotMatch(bootstrap, /review_operator|promotion_service/);
+  assert.match(bootstrap, /CREATE ROLE %I NOLOGIN/);
+  assert.doesNotMatch(bootstrap, /CANDIDATE_(?:INTAKE|WORKER|RECONCILER)_DB_PASSWORD/);
+  assert.doesNotMatch(bootstrap, /PASSWORD %L|Buffer\.from\([^\n]*password/i);
+  assert.doesNotMatch(bootstrap, /REVOKE[^\n]*FROM PUBLIC/);
+  assert.match(bootstrap, /incompatible PUBLIC or default ACL surface/i);
+
+  assert.match(verify, /CandidateHumanReviewDecision/);
+  assert.match(verify, /CandidatePromotionDecision/);
+  assert.match(verify, /canonical or unrelated write privilege is effective/i);
+  assert.match(verify, /has_table_privilege\(current_user, relation_oid, 'SELECT'\)/);
+  assert.match(verify, /has_table_privilege\(current_user, relation_oid, 'INSERT'\)/);
+  assert.match(verify, /has_table_privilege\(current_user, relation_oid, 'UPDATE'\)/);
+  assert.match(verify, /has_any_column_privilege\(current_user, relation_oid, 'UPDATE'\)/);
+  assert.match(verify, /has_database_privilege\(current_user, current_database\(\), 'TEMP'\)/);
+  assert.match(verify, /has_schema_privilege\(current_user, schema_oid, 'CREATE'\)/);
+  assert.match(verify, /has_function_privilege\(current_user, routine_oid, 'EXECUTE'\)/);
+  assert.match(verify, /session_user <> current_user/);
+  assert.match(urlHelper, /url\.username/);
+  assert.match(urlHelper, /allowedSearchParameters/);
+  assert.match(verify, /pg_type/);
+
+  assert.match(disable, /refusing to disable candidate writes without --apply/);
+  assert.match(disable, /ALTER ROLE .* NOLOGIN/);
+  assert.match(disable, /pg_terminate_backend/);
+  assert.doesNotMatch(disable, /DROP (?:TABLE|ROLE)|DELETE FROM|TRUNCATE/);
+});
+
+test(
+  "candidate security manifest reader rejects schema hash major and byte drift",
+  () => {
+    const validText = readFileSync(securityGraphManifestPath, "utf8");
+    const valid = JSON.parse(validText) as Record<string, unknown>;
+    const validResult = spawnSync(
+      process.execPath,
+      [securityGraphManifestReaderPath, securityGraphManifestPath],
+      { cwd: repoRoot, encoding: "utf8" },
+    );
+    assert.equal(validResult.status, 0, validResult.stderr);
+    assert.equal(validResult.stdout.trim().split(" ").length, 5);
+
+    const tempRoot = mkdtempSync(join(tmpdir(), "candidate-security-manifest-"));
+    try {
+      const variants = [
+        { ...valid, graphSha256: undefined },
+        { ...valid, unexpected: true },
+        { ...valid, postgresMajor: 17 },
+        { ...valid, checkerSha256: "A".repeat(64) },
+        { ...valid, graphSha256: "0".repeat(63) },
+      ];
+      for (const [index, variant] of variants.entries()) {
+        const path = join(tempRoot, `invalid-${index}.json`);
+        writeFileSync(path, `${JSON.stringify(variant, null, 2)}\n`);
+        const result = spawnSync(
+          process.execPath,
+          [securityGraphManifestReaderPath, path],
+          { cwd: repoRoot, encoding: "utf8" },
+        );
+        assert.notEqual(result.status, 0, `variant ${index} passed`);
+        assert.equal(result.stdout, "");
+      }
+      const noncanonicalPath = join(tempRoot, "noncanonical.json");
+      writeFileSync(noncanonicalPath, JSON.stringify(valid));
+      const noncanonical = spawnSync(
+        process.execPath,
+        [securityGraphManifestReaderPath, noncanonicalPath],
+        { cwd: repoRoot, encoding: "utf8" },
+      );
+      assert.notEqual(noncanonical.status, 0);
+      assert.match(noncanonical.stderr, /canonical v1 form/);
+    } finally {
+      rmSync(tempRoot, { recursive: true, force: true });
+    }
+  },
+);
+
+test(
+  "candidate security graph detects routine owner ABI body ACL and trigger drift",
+  { timeout: 45_000 },
+  async (t) => {
+    const manifest = JSON.parse(
+      readFileSync(securityGraphManifestPath, "utf8"),
+    ) as { checkerSha256: string; graphSha256: string };
+    assert.match(manifest.checkerSha256, /^[a-f0-9]{64}$/);
+    assert.match(manifest.graphSha256, /^[a-f0-9]{64}$/);
+    await withCandidateAnalysisPostgres(t, async ({ psql }) => {
+      const driftSql = `COALESCE(public.candidate_security_graph_drift(
+        '${manifest.checkerSha256}', '${manifest.graphSha256}'
+      ), 'clean')`;
+      const clean = psql(`SELECT ${driftSql}`);
+      assert.equal(clean.status, 0, clean.stderr);
+      assert.equal(clean.stdout.trim(), "clean");
+
+      const role = psql("CREATE ROLE candidate_wrong_owner NOLOGIN");
+      assert.equal(role.status, 0, role.stderr);
+
+      const mutations = [
+        {
+          name: "wrong routine owner",
+          expected: "candidate_security_owner_drift",
+          sql: `ALTER FUNCTION public.candidate_worker_append(TEXT, JSONB)
+            OWNER TO candidate_wrong_owner`,
+        },
+        {
+          name: "writer security invoker",
+          expected: "candidate_writer_abi_drift",
+          sql: `ALTER FUNCTION public.candidate_worker_append(TEXT, JSONB)
+            SECURITY INVOKER`,
+        },
+        {
+          name: "writer search path",
+          expected: "candidate_security_graph_hash_mismatch",
+          sql: `ALTER FUNCTION public.candidate_worker_append(TEXT, JSONB)
+            SET search_path = public`,
+        },
+        {
+          name: "PUBLIC writer execute",
+          expected: "candidate_security_graph_hash_mismatch",
+          sql: `GRANT EXECUTE ON FUNCTION
+            public.candidate_worker_append(TEXT, JSONB) TO PUBLIC`,
+        },
+        {
+          name: "PUBLIC intake execute",
+          expected: "candidate_security_graph_hash_mismatch",
+          sql: `GRANT EXECUTE ON FUNCTION
+            public.candidate_content_unit_append(JSONB) TO PUBLIC`,
+        },
+        {
+          name: "changed writer body",
+          expected: "candidate_security_graph_hash_mismatch",
+          sql: `CREATE OR REPLACE FUNCTION
+            public.candidate_worker_append(writer_operation TEXT, write_payload JSONB)
+            RETURNS JSONB LANGUAGE plpgsql VOLATILE SECURITY DEFINER
+            SET search_path = pg_catalog AS $body$
+            BEGIN RETURN '{}'::JSONB; END
+            $body$`,
+        },
+        {
+          name: "trigger retargeting",
+          expected: "candidate_trigger_function_drift",
+          sql: `DROP TRIGGER "CandidateAnalysisRun_reject_invalid_scope"
+              ON public."CandidateAnalysisRun";
+            CREATE TRIGGER "CandidateAnalysisRun_reject_invalid_scope"
+              BEFORE INSERT ON public."CandidateAnalysisRun"
+              FOR EACH ROW EXECUTE FUNCTION
+              public.reject_candidate_history_change();
+            ALTER TABLE public."CandidateAnalysisRun" ENABLE ALWAYS TRIGGER
+              "CandidateAnalysisRun_reject_invalid_scope"`,
+        },
+        {
+          name: "trigger timing",
+          expected: "candidate_trigger_identity_drift",
+          sql: `DROP TRIGGER "CandidateContentUnit_reject_update_delete"
+              ON public."CandidateContentUnit";
+            CREATE TRIGGER "CandidateContentUnit_reject_update_delete"
+              AFTER UPDATE OR DELETE ON public."CandidateContentUnit"
+              FOR EACH ROW EXECUTE FUNCTION
+              public.reject_candidate_history_change();
+            ALTER TABLE public."CandidateContentUnit" ENABLE ALWAYS TRIGGER
+              "CandidateContentUnit_reject_update_delete"`,
+        },
+        {
+          name: "unexpected custom trigger",
+          expected: "candidate_trigger_identity_drift",
+          sql: `CREATE TRIGGER "CandidateContentUnit_unexpected"
+              BEFORE UPDATE ON public."CandidateContentUnit"
+              FOR EACH ROW EXECUTE FUNCTION
+              public.reject_candidate_history_change();
+            ALTER TABLE public."CandidateContentUnit" ENABLE ALWAYS TRIGGER
+              "CandidateContentUnit_unexpected"`,
+        },
+      ] as const;
+
+      for (const mutation of mutations) {
+        const result = psql(`BEGIN; ${mutation.sql}; SELECT ${driftSql}; ROLLBACK`);
+        assert.equal(result.status, 0, `${mutation.name}: ${result.stderr}`);
+        const driftCodes = result.stdout
+          .split("\n")
+          .map((line) => line.trim())
+          .filter((line) => line.startsWith("candidate_"));
+        assert.deepEqual(driftCodes, [mutation.expected], mutation.name);
+      }
+    });
+  },
+);
+
+test(
+  "bootstrap and enable fail closed on checker and graph drift without deleting candidate rows",
+  { timeout: 60_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const adminEnv = {
+        ...process.env,
+        PATH: fixture.path,
+        DATABASE_ADMIN_URL: context.adminUrl,
+      };
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      const seeded = context.psql(`
+        INSERT INTO public."CandidateContentUnit" (
+          id, "sourceKind", "sourceKey", "sourceVersionHash", "unitType",
+          ordinal, locator, "locatorHash", "contentHash", "identityConfidence"
+        ) VALUES (
+          'content:security-drift', 'document', 'document:security-drift',
+          '${"a".repeat(64)}', 'document_section', 0, 'section:security-drift',
+          '${"b".repeat(64)}', '${"c".repeat(64)}', 'exact'
+        )
+      `);
+      assert.equal(seeded.status, 0, seeded.stderr);
+      const rowsBefore = candidateRowsSnapshot(context);
+
+      const checkerMutation = context.psql(`
+        ALTER FUNCTION public.candidate_security_graph_drift(TEXT, TEXT)
+          SECURITY DEFINER
+      `);
+      assert.equal(checkerMutation.status, 0, checkerMutation.stderr);
+      const checkerBlocked = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.notEqual(checkerBlocked.status, 0);
+      assert.match(checkerBlocked.stderr, /candidate_security_checker_drift/);
+      assert.equal(candidateRowsSnapshot(context), rowsBefore);
+
+      const restoreChecker = context.psql(`
+        ALTER FUNCTION public.candidate_security_graph_drift(TEXT, TEXT)
+          SECURITY INVOKER
+      `);
+      assert.equal(restoreChecker.status, 0, restoreChecker.stderr);
+      const cleanBootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(cleanBootstrap.status, 0, cleanBootstrap.stderr);
+
+      const graphMutation = context.psql(`
+        ALTER FUNCTION public.candidate_worker_append(TEXT, JSONB)
+          SET search_path = public
+      `);
+      assert.equal(graphMutation.status, 0, graphMutation.stderr);
+      const authorityBeforeEnable = candidateAuthoritySnapshot(context);
+      const enableBlocked = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: recoveryEnableEnv(fixture, context.adminUrl),
+        },
+      );
+      assert.notEqual(enableBlocked.status, 0);
+      assert.match(
+        `${enableBlocked.stdout}${enableBlocked.stderr}`,
+        /candidate_security_graph_hash_mismatch/,
+      );
+      assert.equal(candidateRowsSnapshot(context), rowsBefore);
+      const disabledState = context.psql(`
+        SELECT
+          bool_or(role.rolcanlogin),
+          bool_or(has_function_privilege(
+            role.oid,
+            to_regprocedure('public.candidate_worker_append(text,jsonb)'),
+            'EXECUTE'
+          )),
+          bool_or(has_function_privilege(
+            role.oid,
+            to_regprocedure('public.candidate_reconciler_append(jsonb)'),
+            'EXECUTE'
+          ))
+        FROM pg_roles role
+        WHERE role.rolname IN (
+          'foodsystems_candidate_worker',
+          'foodsystems_candidate_reconciler'
+        )
+      `);
+      assert.equal(disabledState.status, 0, disabledState.stderr);
+      assert.equal(disabledState.stdout.trim(), "f|f|f");
+      assert.notEqual(candidateAuthoritySnapshot(context), authorityBeforeEnable);
+    });
+  },
+);
+
+test(
+  "post-LOGIN semantic graph drift makes verification fail-safe disable all candidate roles",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const seeded = context.psql(`
+        INSERT INTO public."CandidateContentUnit" (
+          id, "sourceKind", "sourceKey", "sourceVersionHash", "unitType",
+          ordinal, locator, "locatorHash", "contentHash", "identityConfidence"
+        ) VALUES (
+          'content:post-login-drift', 'document', 'document:post-login-drift',
+          '${"d".repeat(64)}', 'document_section', 0, 'section:post-login-drift',
+          '${"e".repeat(64)}', '${"f".repeat(64)}', 'exact'
+        )
+      `);
+      assert.equal(seeded.status, 0, seeded.stderr);
+      const rowsBefore = candidateRowsSnapshot(context);
+      const tempRoot = mkdtempSync(join(tmpdir(), "candidate-graph-post-login-"));
+      const barrier = writePostActivationVerifierBarrier(tempRoot);
+      try {
+        const enable = spawn(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            env: {
+              ...recoveryEnableEnv(fixture, context.adminUrl, barrier.path),
+              ACTIVATION_MARKER_FILE: barrier.markerFile,
+              ACTIVATION_RELEASE_FILE: barrier.releaseFile,
+              REAL_PSQL: barrier.realPsql,
+            },
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        let output = "";
+        enable.stdout?.on("data", (chunk) => { output += chunk.toString(); });
+        enable.stderr?.on("data", (chunk) => { output += chunk.toString(); });
+        const enableExit = childExit(enable);
+        await waitFor(
+          () => existsSync(barrier.markerFile) || enable.exitCode !== null,
+          "enable never reached the post-LOGIN verifier",
+        );
+        assert.ok(existsSync(barrier.markerFile), output);
+        const mutation = context.psql(`
+          CREATE OR REPLACE FUNCTION public.candidate_worker_append(
+            writer_operation TEXT,
+            write_payload JSONB
+          ) RETURNS JSONB LANGUAGE plpgsql VOLATILE SECURITY DEFINER
+          SET search_path = pg_catalog AS $body$
+          BEGIN RETURN '{}'::JSONB; END
+          $body$
+        `);
+        assert.equal(mutation.status, 0, mutation.stderr);
+        writeFileSync(barrier.releaseFile, "release\n");
+        const exitCode = await enableExit;
+        assert.notEqual(exitCode, 0, output);
+        assert.match(output, /candidate_security_graph_hash_mismatch/);
+        const safeState = context.psql(`
+          SELECT
+            bool_or(role.rolcanlogin),
+            bool_or(has_function_privilege(
+              role.oid,
+              to_regprocedure('public.candidate_worker_append(text,jsonb)'),
+              'EXECUTE'
+            )),
+            bool_or(has_function_privilege(
+              role.oid,
+              to_regprocedure('public.candidate_reconciler_append(jsonb)'),
+              'EXECUTE'
+            ))
+          FROM pg_roles role
+          WHERE role.rolname IN (
+            'foodsystems_candidate_worker',
+            'foodsystems_candidate_reconciler'
+          )
+        `);
+        assert.equal(safeState.status, 0, safeState.stderr);
+        assert.equal(safeState.stdout.trim(), "f|f|f");
+        assert.equal(candidateRowsSnapshot(context), rowsBefore);
+      } finally {
+        rmSync(tempRoot, { recursive: true, force: true });
+      }
+    });
+  },
+);
+
+test("bootstrap database-session-drain CLI rejects every non-exact call before psql", () => {
+  const tempRoot = mkdtempSync(join(tmpdir(), "candidate-bootstrap-drain-cli-"));
+  const fakePsql = join(tempRoot, "psql");
+  const invocationMarker = join(tempRoot, "psql-invoked");
+  writeFileSync(
+    fakePsql,
+    `#!/bin/sh
+: > "$FAKE_PSQL_MARKER"
+exit 0
+`,
+  );
+  chmodSync(fakePsql, 0o755);
+
+  try {
+    const cleanEnv = { ...process.env };
+    for (const name of Object.keys(cleanEnv)) {
+      if (/^PG[A-Z0-9_]*$/.test(name)) delete cleanEnv[name];
+    }
+    for (const args of [
+      [],
+      ["--apply"],
+      ["--confirm-database-session-drain", "--apply"],
+      ["--apply", "--confirm-database-session-drain", "unexpected"],
+    ]) {
+      rmSync(invocationMarker, { force: true });
+      const result = spawnSync(bootstrapPath, args, {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...cleanEnv,
+          PATH: `${tempRoot}:${cleanEnv.PATH ?? ""}`,
+          DATABASE_ADMIN_URL: "postgresql://admin@example.invalid/foodsystems",
+          FAKE_PSQL_MARKER: invocationMarker,
+        },
+      });
+      assert.notEqual(result.status, 0);
+      assert.match(
+        result.stderr,
+        /exactly --apply --confirm-database-session-drain is required/,
+      );
+      assert.equal(
+        existsSync(invocationMarker),
+        false,
+        `invalid bootstrap call invoked psql: ${args.join(" ")}`,
+      );
+    }
+  } finally {
+    rmSync(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("candidate scripts sanitize malformed URLs and keep credentials out of role SQL", () => {
+  const tempRoot = mkdtempSync(join(tmpdir(), "candidate-role-secret-contract-"));
+  const fakePsql = join(tempRoot, "psql");
+  const invocationLog = join(tempRoot, "psql.log");
+  writeFileSync(
+    fakePsql,
+    `#!/bin/sh
+if [ -n "\${CANDIDATE_WORKER_DB_PASSWORD:-}" ] || [ -n "\${CANDIDATE_RECONCILER_DB_PASSWORD:-}" ]; then
+  printf '%s\n' password-env-present > "$FAKE_PSQL_LOG"
+  exit 91
+fi
+printf '%s\n' "$*" > "$FAKE_PSQL_LOG"
+exit 0
+`,
+  );
+  chmodSync(fakePsql, 0o755);
+
+  try {
+    const secret = "do-not-leak-this-password";
+    const commonEnv = {
+      ...process.env,
+      PATH: `${tempRoot}:${process.env.PATH ?? ""}`,
+      FAKE_PSQL_LOG: invocationLog,
+    };
+    for (const [script, args, env] of [
+      [
+        bootstrapPath,
+        [...bootstrapApplyArgs],
+        {
+          ...commonEnv,
+          DATABASE_ADMIN_URL: `postgresql://admin:${secret}@[invalid/db`,
+          CANDIDATE_WORKER_DB_PASSWORD: secret,
+          CANDIDATE_RECONCILER_DB_PASSWORD: secret,
+        },
+      ],
+      [
+        disablePath,
+        ["--apply"],
+        {
+          ...commonEnv,
+          DATABASE_ADMIN_URL: `postgresql://admin:${secret}@[invalid/db`,
+        },
+      ],
+      [
+        verifyPath,
+        ["--role=worker"],
+        {
+          ...commonEnv,
+          CANDIDATE_WORKER_DATABASE_URL: `postgresql://foodsystems_candidate_worker:${secret}@[invalid/db`,
+        },
+      ],
+    ] as const) {
+      const result = spawnSync(script, args, {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env,
+      });
+      assert.notEqual(result.status, 0);
+      assert.doesNotMatch(`${result.stdout}${result.stderr}`, new RegExp(secret));
+      assert.match(result.stderr, /invalid PostgreSQL URL/);
+    }
+
+    for (const [script, args, env] of [
+      [
+        bootstrapPath,
+        [...bootstrapApplyArgs],
+        {
+          ...commonEnv,
+          DATABASE_ADMIN_URL: `postgresql://admin:${secret}%E0%A4%A@example.invalid/db`,
+          CANDIDATE_WORKER_DB_PASSWORD: secret,
+          CANDIDATE_RECONCILER_DB_PASSWORD: secret,
+        },
+      ],
+      [
+        disablePath,
+        ["--apply"],
+        {
+          ...commonEnv,
+          DATABASE_ADMIN_URL: `postgresql://admin:${secret}%E0%A4%A@example.invalid/db`,
+        },
+      ],
+      [
+        verifyPath,
+        ["--role=worker"],
+        {
+          ...commonEnv,
+          CANDIDATE_WORKER_DATABASE_URL: `postgresql://foodsystems_candidate_worker:${secret}%E0%A4%A@example.invalid/db?application_name=foodsystems-candidate-worker`,
+        },
+      ],
+    ] as const) {
+      const result = spawnSync(script, args, {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env,
+      });
+      assert.notEqual(result.status, 0);
+      assert.doesNotMatch(`${result.stdout}${result.stderr}`, new RegExp(secret));
+      assert.match(result.stderr, /invalid PostgreSQL URL/);
+    }
+
+    const safeBootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+      cwd: repoRoot,
+      encoding: "utf8",
+      env: {
+        ...commonEnv,
+        DATABASE_ADMIN_URL: "postgresql://admin:admin-secret@example.invalid/foodsystems",
+      },
+    });
+    assert.equal(safeBootstrap.status, 0, safeBootstrap.stderr);
+    const invocation = readFileSync(invocationLog, "utf8");
+    assert.doesNotMatch(invocation, /password-env-present/);
+    assert.doesNotMatch(invocation, new RegExp(secret));
+
+    for (const parameter of [
+      "host",
+      "port",
+      "dbname",
+      "user",
+      "password",
+      "passfile",
+      "options",
+      "service",
+    ]) {
+      const queryValue = encodeURIComponent(`${secret}-${parameter}`);
+      const attempts = [
+        {
+          script: bootstrapPath,
+          args: [...bootstrapApplyArgs],
+          env: {
+            ...commonEnv,
+            DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems?${parameter}=${queryValue}`,
+          },
+        },
+        {
+          script: disablePath,
+          args: ["--apply"],
+          env: {
+            ...commonEnv,
+            DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems?${parameter}=${queryValue}`,
+          },
+        },
+        {
+          script: verifyPath,
+          args: ["--role=worker"],
+          env: {
+            ...commonEnv,
+            CANDIDATE_WORKER_DATABASE_URL: `postgresql://foodsystems_candidate_worker:${secret}@example.invalid/foodsystems?application_name=foodsystems-candidate-worker&${parameter}=${queryValue}`,
+          },
+        },
+      ];
+      for (const attempt of attempts) {
+        const result = spawnSync(attempt.script, attempt.args, {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: attempt.env,
+        });
+        assert.notEqual(result.status, 0, `${attempt.script} accepted ${parameter}`);
+        assert.match(result.stderr, /unsupported database URL parameter/);
+        assert.doesNotMatch(`${result.stdout}${result.stderr}`, new RegExp(secret));
+      }
+    }
+
+    for (const [script, args, urlEnvironment] of [
+      [
+        bootstrapPath,
+        [...bootstrapApplyArgs],
+        { DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems` },
+      ],
+      [
+        disablePath,
+        ["--apply"],
+        { DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems` },
+      ],
+      [
+        verifyPath,
+        ["--role=worker"],
+        {
+          CANDIDATE_WORKER_DATABASE_URL: `postgresql://foodsystems_candidate_worker:${secret}@example.invalid/foodsystems?application_name=foodsystems-candidate-worker`,
+        },
+      ],
+    ] as const) {
+      const result = spawnSync(script, args, {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: { ...commonEnv, ...urlEnvironment, PGHOST: "override.invalid" },
+      });
+      assert.notEqual(result.status, 0);
+      assert.match(result.stderr, /PGHOST is not permitted/);
+      assert.doesNotMatch(`${result.stdout}${result.stderr}`, new RegExp(secret));
+    }
+
+    for (const [script, args, urlEnvironment] of [
+      [
+        bootstrapPath,
+        [...bootstrapApplyArgs],
+        { DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems` },
+      ],
+      [
+        disablePath,
+        ["--apply"],
+        { DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems` },
+      ],
+      [
+        verifyPath,
+        ["--role=worker"],
+        {
+          CANDIDATE_WORKER_DATABASE_URL: `postgresql://foodsystems_candidate_worker:${secret}@example.invalid/foodsystems?application_name=foodsystems-candidate-worker`,
+        },
+      ],
+    ] as const) {
+      const result = spawnSync(script, args, {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: { ...commonEnv, ...urlEnvironment, PGREQUIREPEER: "attacker" },
+      });
+      assert.notEqual(result.status, 0);
+      assert.match(result.stderr, /PGREQUIREPEER is not permitted/);
+      assert.doesNotMatch(`${result.stdout}${result.stderr}`, new RegExp(secret));
+    }
+  } finally {
+    rmSync(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("candidate scripts reject PGSSLCERTMODE, PGGSSDELEGATION, and future libpq variables before psql", () => {
+  const tempRoot = mkdtempSync(join(tmpdir(), "candidate-role-ambient-libpq-"));
+  const fakePsql = join(tempRoot, "psql");
+  const invocationLog = join(tempRoot, "psql.log");
+  writeFileSync(
+    fakePsql,
+    `#!/bin/sh
+printf '%s\n' psql-invoked > "$FAKE_PSQL_LOG"
+exit 0
+`,
+  );
+  chmodSync(fakePsql, 0o755);
+
+  try {
+    const secret = "ambient-libpq-secret";
+    const commonEnv = { ...process.env };
+    for (const name of Object.keys(commonEnv)) {
+      if (/^PG[A-Z0-9_]*$/.test(name)) delete commonEnv[name];
+    }
+    const attempts = [
+      {
+        script: bootstrapPath,
+        args: [...bootstrapApplyArgs],
+        urlEnvironment: {
+          DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems`,
+        },
+      },
+      {
+        script: disablePath,
+        args: ["--apply"],
+        urlEnvironment: {
+          DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems`,
+        },
+      },
+      {
+        script: enablePath,
+        args: ["--apply", "--confirm-existing-credentials"],
+        urlEnvironment: {
+          DATABASE_ADMIN_URL: `postgresql://admin:${secret}@example.invalid/foodsystems`,
+          CANDIDATE_INTAKE_DATABASE_URL: `postgresql://foodsystems_candidate_intake:${secret}@example.invalid/foodsystems?application_name=foodsystems-candidate-intake`,
+          CANDIDATE_WORKER_DATABASE_URL: `postgresql://foodsystems_candidate_worker:${secret}@example.invalid/foodsystems?application_name=foodsystems-candidate-worker`,
+          CANDIDATE_RECONCILER_DATABASE_URL: `postgresql://foodsystems_candidate_reconciler:${secret}@example.invalid/foodsystems?application_name=foodsystems-candidate-reconciler`,
+        },
+      },
+      {
+        script: verifyPath,
+        args: ["--role=worker"],
+        urlEnvironment: {
+          CANDIDATE_WORKER_DATABASE_URL: `postgresql://foodsystems_candidate_worker:${secret}@example.invalid/foodsystems?application_name=foodsystems-candidate-worker`,
+        },
+      },
+    ] as const;
+
+    for (const variableName of [
+      "PGSSLCERTMODE",
+      "PGGSSDELEGATION",
+      "PGFUTURECLIENTMODE",
+    ] as const) {
+      for (const attempt of attempts) {
+        rmSync(invocationLog, { force: true });
+        const result = spawnSync(attempt.script, attempt.args, {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...commonEnv,
+            PATH: `${tempRoot}:${commonEnv.PATH ?? ""}`,
+            FAKE_PSQL_LOG: invocationLog,
+            ...attempt.urlEnvironment,
+            [variableName]: "1",
+          },
+        });
+        assert.notEqual(
+          result.status,
+          0,
+          `${attempt.script} accepted ambient ${variableName}`,
+        );
+        assert.equal(
+          existsSync(invocationLog),
+          false,
+          `${attempt.script} invoked psql before rejecting ${variableName}`,
+        );
+        assert.match(result.stderr, new RegExp(variableName));
+        assert.doesNotMatch(`${result.stdout}${result.stderr}`, new RegExp(secret));
+      }
+    }
+  } finally {
+    rmSync(tempRoot, { recursive: true, force: true });
+  }
+});
+
+test("explicit login recovery is guarded and has no credential mutation or logging path", () => {
+  assert.ok(existsSync(enablePath), "explicit login recovery script is missing");
+  const enable = readFileSync(enablePath, "utf8");
+
+  assert.ok(executable(enablePath));
+  assert.match(enable, /^#!\/bin\/sh/);
+  assert.match(enable, /--apply --confirm-existing-credentials/);
+  assert.match(enable, /reject-ambient-candidate-libpq-env\.mjs/);
+  assert.match(enable, /normalize-candidate-postgres-url\.mjs/);
+  assert.match(enable, /verify-candidate-analysis-roles\.sh/);
+  assert.match(enable, /disable-candidate-analysis-writes\.sh/);
+  assert.match(enable, /connected recovery administrator must be SUPERUSER/);
+  assert.match(enable, /IN SHARE ROW EXCLUSIVE MODE/);
+  for (const catalog of [
+    "pg_authid",
+    "pg_auth_members",
+    "pg_database",
+    "pg_namespace",
+    "pg_class",
+    "pg_attribute",
+    "pg_proc",
+    "pg_type",
+    "pg_default_acl",
+    "pg_db_role_setting",
+    "pg_parameter_acl",
+    "pg_shdepend",
+  ]) {
+    assert.match(enable, new RegExp(`pg_catalog\\.${catalog}`));
+  }
+  assert.match(enable, /pg_control_system\(\)/);
+  assert.match(enable, /CANDIDATE_TARGET_IDENTITY_FILE/);
+  assert.match(
+    enable,
+    /activation target changed between admin identity read and authoritative transaction/i,
+  );
+  assert.match(enable, /dedicated database URLs must match the exact admin endpoint and database/i);
+  assert.match(enable, /pg_terminate_backend\(activity\.pid, 5000\)/);
+  assert.doesNotMatch(enable, /\bCREATE ROLE\b/i);
+  assert.doesNotMatch(enable, /\bALTER ROLE\b[^\n]*\bPASSWORD\b/i);
+  assert.doesNotMatch(enable, /randomBytes|openssl\s+rand|uuidgen/i);
+  assert.doesNotMatch(enable, /set -x/);
+  assert.doesNotMatch(
+    enable,
+    /printf[^\n]*(?:DATABASE_ADMIN_URL|CANDIDATE_WORKER_DATABASE_URL|CANDIDATE_RECONCILER_DATABASE_URL)/,
+  );
+  for (const args of [
+    [],
+    ["--apply"],
+    ["--confirm-existing-credentials", "--apply"],
+    ["--apply", "--confirm-existing-credentials", "unexpected"],
+  ]) {
+    const result = spawnSync(enablePath, args, {
+      cwd: repoRoot,
+      encoding: "utf8",
+    });
+    assert.notEqual(result.status, 0);
+    assert.match(result.stderr, /exactly --apply --confirm-existing-credentials is required/);
+  }
+});
+
+test(
+  "type-only owner preflight holds while candidate bootstrap preserves NOLOGIN, explicit login recovery succeeds, and failed login recovery disables all roles",
+  { timeout: 60_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async ({ adminUrl, database, port, psql }) => {
+      const setup = psql(`
+        CREATE TABLE public."Document" (id text PRIMARY KEY);
+        CREATE TABLE public."SourceDoc" (id text PRIMARY KEY);
+        CREATE TABLE public."LibraryAnalysisRecord" (id text PRIMARY KEY);
+        CREATE TABLE public."CanonicalOutsideAllowlist" (id text PRIMARY KEY);
+        CREATE SCHEMA sidecar;
+        CREATE TABLE sidecar.unrelated (id text PRIMARY KEY);
+        INSERT INTO sidecar.unrelated (id) VALUES ('preserve-through-preflight');
+        CREATE FUNCTION sidecar.unrelated_fn() RETURNS integer
+          LANGUAGE sql AS $$ SELECT 1 $$;
+        CREATE ROLE candidate_inherited_writer NOLOGIN;
+        CREATE ROLE foodsystems_candidate_intake NOLOGIN NOINHERIT CONNECTION LIMIT 10;
+        CREATE ROLE foodsystems_candidate_worker NOLOGIN NOINHERIT CONNECTION LIMIT 10;
+        CREATE ROLE foodsystems_candidate_reconciler NOLOGIN NOINHERIT CONNECTION LIMIT 10;
+        GRANT USAGE ON SCHEMA sidecar TO candidate_inherited_writer;
+        GRANT INSERT ON sidecar.unrelated TO candidate_inherited_writer;
+        GRANT candidate_inherited_writer TO foodsystems_candidate_worker;
+        ALTER ROLE foodsystems_candidate_worker SET default_transaction_read_only TO 'on';
+        GRANT INSERT ON public."CanonicalOutsideAllowlist" TO PUBLIC;
+        ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA sidecar
+          GRANT SELECT ON TABLES TO PUBLIC;
+      `);
+      assert.equal(setup.status, 0, setup.stderr);
+
+      const path = postgresPath();
+      const intakePassword = "candidate-intake-test-password";
+      const workerPassword = "candidate-worker-test-password";
+      const reconcilerPassword = "candidate-reconciler-test-password";
+      const intakeUrl = `postgresql://foodsystems_candidate_intake:${intakePassword}@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-intake`;
+      const workerUrl = `postgresql://foodsystems_candidate_worker:${workerPassword}@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-worker`;
+      const reconcilerUrl = `postgresql://foodsystems_candidate_reconciler:${reconcilerPassword}@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-reconciler`;
+      const adminEnv = {
+        ...process.env,
+        PATH: path,
+        DATABASE_ADMIN_URL: adminUrl,
+      };
+
+      const databaseState = () => psql(`
+        WITH state_line(kind, identity, value) AS (
+          SELECT 'role', auth.rolname,
+            jsonb_build_object(
+              'super', auth.rolsuper,
+              'inherit', auth.rolinherit,
+              'createRole', auth.rolcreaterole,
+              'createDb', auth.rolcreatedb,
+              'canLogin', auth.rolcanlogin,
+              'replication', auth.rolreplication,
+              'connectionLimit', auth.rolconnlimit,
+              'password', auth.rolpassword,
+              'bypassRls', auth.rolbypassrls
+            )::text
+          FROM pg_authid auth
+          WHERE auth.rolname IN (
+            'candidate_inherited_writer',
+            'candidate_type_only_owner',
+            'foodsystems_candidate_worker',
+            'foodsystems_candidate_reconciler'
+          )
+          UNION ALL
+          SELECT 'membership', granted.rolname || '->' || member.rolname,
+            jsonb_build_object(
+              'admin', membership.admin_option,
+              'grantor', grantor.rolname
+            )::text
+          FROM pg_auth_members membership
+          JOIN pg_roles granted ON granted.oid = membership.roleid
+          JOIN pg_roles member ON member.oid = membership.member
+          JOIN pg_roles grantor ON grantor.oid = membership.grantor
+          WHERE granted.rolname LIKE 'foodsystems_candidate_%'
+             OR member.rolname LIKE 'foodsystems_candidate_%'
+          UNION ALL
+          SELECT 'setting', role.rolname || '@' || settings.setdatabase::text,
+            settings.setconfig::text
+          FROM pg_db_role_setting settings
+          JOIN pg_roles role ON role.oid = settings.setrole
+          WHERE role.rolname LIKE 'foodsystems_candidate_%'
+          UNION ALL
+          SELECT 'database-acl', database.datname,
+            COALESCE(database.datacl::text, '<null>')
+          FROM pg_database database
+          WHERE database.datname = current_database()
+          UNION ALL
+          SELECT 'schema-acl', namespace.nspname,
+            COALESCE(namespace.nspacl::text, '<null>')
+          FROM pg_namespace namespace
+          WHERE namespace.nspname <> 'information_schema'
+            AND namespace.nspname !~ '^pg_'
+          UNION ALL
+          SELECT 'relation-acl', namespace.nspname || '.' || class.relname,
+            COALESCE(class.relacl::text, '<null>')
+          FROM pg_class class
+          JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+          WHERE namespace.nspname <> 'information_schema'
+            AND namespace.nspname !~ '^pg_'
+            AND class.relkind IN ('r', 'p', 'v', 'm', 'f', 'S')
+          UNION ALL
+          SELECT 'column-acl', namespace.nspname || '.' || class.relname || '.' || attribute.attname,
+            attribute.attacl::text
+          FROM pg_attribute attribute
+          JOIN pg_class class ON class.oid = attribute.attrelid
+          JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+          WHERE namespace.nspname <> 'information_schema'
+            AND namespace.nspname !~ '^pg_'
+            AND attribute.attnum > 0
+            AND NOT attribute.attisdropped
+            AND attribute.attacl IS NOT NULL
+          UNION ALL
+          SELECT 'routine-acl', namespace.nspname || '.' || procedure.oid::regprocedure::text,
+            COALESCE(procedure.proacl::text, '<null>')
+          FROM pg_proc procedure
+          JOIN pg_namespace namespace ON namespace.oid = procedure.pronamespace
+          WHERE namespace.nspname <> 'information_schema'
+            AND namespace.nspname !~ '^pg_'
+          UNION ALL
+          SELECT 'default-acl', owner.rolname || '@' ||
+            COALESCE(namespace.nspname, '<global>') || ':' || defaults.defaclobjtype::text,
+            defaults.defaclacl::text
+          FROM pg_default_acl defaults
+          JOIN pg_roles owner ON owner.oid = defaults.defaclrole
+          LEFT JOIN pg_namespace namespace ON namespace.oid = defaults.defaclnamespace
+          UNION ALL
+          SELECT 'type-owner', namespace.nspname || '.' || type.typname,
+            owner.rolname
+          FROM pg_type type
+          JOIN pg_namespace namespace ON namespace.oid = type.typnamespace
+          JOIN pg_roles owner ON owner.oid = type.typowner
+          WHERE namespace.nspname <> 'information_schema'
+            AND namespace.nspname !~ '^pg_'
+          UNION ALL
+          SELECT 'data', 'sidecar.unrelated',
+            COALESCE(jsonb_agg(unrelated.id ORDER BY unrelated.id)::text, '[]')
+          FROM sidecar.unrelated unrelated
+          UNION ALL
+          SELECT 'data', 'candidate-protected-row-counts',
+            jsonb_build_object(
+              'contentUnit', (SELECT count(*) FROM public."CandidateContentUnit"),
+              'run', (SELECT count(*) FROM public."CandidateAnalysisRun"),
+              'runInput', (SELECT count(*) FROM public."CandidateAnalysisRunInput"),
+              'runEvent', (SELECT count(*) FROM public."CandidateAnalysisRunEvent"),
+              'artifact', (SELECT count(*) FROM public."CandidateAnalysisArtifact"),
+              'assertion', (SELECT count(*) FROM public."CandidateAssertion"),
+              'evidenceLink', (SELECT count(*) FROM public."CandidateEvidenceLink"),
+              'dependency', (SELECT count(*) FROM public."CandidateDependency"),
+              'reconciliation', (SELECT count(*) FROM public."CandidateReconciliationSnapshot"),
+              'humanReview', (SELECT count(*) FROM public."CandidateHumanReviewDecision"),
+              'promotion', (SELECT count(*) FROM public."CandidatePromotionDecision")
+            )::text
+        )
+        SELECT kind || '|' || identity || '|' || value
+        FROM state_line
+        ORDER BY kind, identity, value;
+      `);
+
+      const beforeBlockedBootstrap = databaseState();
+      assert.equal(beforeBlockedBootstrap.status, 0, beforeBlockedBootstrap.stderr);
+      const blockedBootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.notEqual(blockedBootstrap.status, 0);
+      assert.match(blockedBootstrap.stderr, /incompatible PUBLIC or default ACL surface/i);
+      const afterBlockedBootstrap = databaseState();
+      assert.equal(afterBlockedBootstrap.status, 0, afterBlockedBootstrap.stderr);
+      assert.equal(
+        afterBlockedBootstrap.stdout,
+        beforeBlockedBootstrap.stdout,
+        "failed bootstrap changed roles, ACLs, default ACLs, or protected data",
+      );
+
+      const externalHardening = psql(`
+        REVOKE CREATE, TEMPORARY ON DATABASE ${database} FROM PUBLIC;
+        REVOKE ALL PRIVILEGES ON SCHEMA public, sidecar FROM PUBLIC;
+        REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public, sidecar FROM PUBLIC;
+        REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public, sidecar FROM PUBLIC;
+        REVOKE EXECUTE ON ALL FUNCTIONS IN SCHEMA public, sidecar FROM PUBLIC;
+        ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA sidecar
+          REVOKE ALL PRIVILEGES ON TABLES FROM PUBLIC;
+        ALTER DEFAULT PRIVILEGES FOR ROLE postgres
+          REVOKE EXECUTE ON FUNCTIONS FROM PUBLIC;
+      `);
+      assert.equal(externalHardening.status, 0, externalHardening.stderr);
+
+      const typeOnlyOwnerSetup = psql(`
+        CREATE ROLE candidate_type_only_owner NOLOGIN;
+        CREATE TYPE sidecar.type_only_enum AS ENUM ('one');
+        ALTER TYPE sidecar.type_only_enum OWNER TO candidate_type_only_owner;
+      `);
+      assert.equal(typeOnlyOwnerSetup.status, 0, typeOnlyOwnerSetup.stderr);
+      const beforeTypeOnlyOwnerBootstrap = databaseState();
+      assert.equal(
+        beforeTypeOnlyOwnerBootstrap.status,
+        0,
+        beforeTypeOnlyOwnerBootstrap.stderr,
+      );
+      const typeOnlyOwnerBootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.notEqual(typeOnlyOwnerBootstrap.status, 0);
+      assert.match(
+        typeOnlyOwnerBootstrap.stderr,
+        /incompatible PUBLIC or default ACL surface/i,
+      );
+      const afterTypeOnlyOwnerBootstrap = databaseState();
+      assert.equal(
+        afterTypeOnlyOwnerBootstrap.status,
+        0,
+        afterTypeOnlyOwnerBootstrap.stderr,
+      );
+      assert.equal(
+        afterTypeOnlyOwnerBootstrap.stdout,
+        beforeTypeOnlyOwnerBootstrap.stdout,
+        "type-only owner preflight failure changed roles, ACLs, default ACLs, or protected rows",
+      );
+      const typeOnlyOwnerHardening = psql(`
+        ALTER DEFAULT PRIVILEGES FOR ROLE candidate_type_only_owner
+          REVOKE EXECUTE ON FUNCTIONS FROM PUBLIC;
+      `);
+      assert.equal(
+        typeOnlyOwnerHardening.status,
+        0,
+        typeOnlyOwnerHardening.stderr,
+      );
+
+      const disableBeforeBootstrap = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(
+        disableBeforeBootstrap.status,
+        0,
+        disableBeforeBootstrap.stderr,
+      );
+
+      const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(bootstrap.status, 0, bootstrap.stderr);
+
+      const provisionLogins = () => psql(`
+        ALTER ROLE foodsystems_candidate_intake LOGIN PASSWORD '${intakePassword}';
+        ALTER ROLE foodsystems_candidate_worker LOGIN PASSWORD '${workerPassword}';
+        ALTER ROLE foodsystems_candidate_reconciler LOGIN PASSWORD '${reconcilerPassword}';
+      `);
+      const provisioned = provisionLogins();
+      assert.equal(provisioned.status, 0, provisioned.stderr);
+
+      const verifyWorker = () =>
+        spawnSync(verifyPath, ["--role=worker"], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: path,
+            CANDIDATE_WORKER_DATABASE_URL: workerUrl,
+            CANDIDATE_ADMIN_DATABASE_URL: adminUrl,
+          },
+        });
+      const verifyReconciler = () =>
+        spawnSync(verifyPath, ["--role=reconciler"], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: path,
+            CANDIDATE_RECONCILER_DATABASE_URL: reconcilerUrl,
+            CANDIDATE_ADMIN_DATABASE_URL: adminUrl,
+          },
+        });
+
+      const initialWorker = verifyWorker();
+      assert.equal(initialWorker.status, 0, initialWorker.stderr);
+      const initialReconciler = verifyReconciler();
+      assert.equal(initialReconciler.status, 0, initialReconciler.stderr);
+
+      const roleFixture = candidateAnalysisFixture({ runId: "run:role-api:1" });
+      const adminPrisma = rolePrisma(adminUrl);
+      try {
+        await adminPrisma.candidateContentUnit.create({
+          data: roleFixture.contentUnit,
+        });
+      } finally {
+        await adminPrisma.$disconnect();
+      }
+      const workerPrisma = rolePrisma(workerUrl);
+      try {
+        const workerWriter = createCandidateAnalysisWriter(workerPrisma);
+        await workerWriter.createRun(roleFixture.run);
+        await workerWriter.appendRunEvent(roleFixture.events.started);
+        await workerWriter.appendAssertion(roleFixture.assertion);
+        const upstreamPayload: CandidateAssertionInput["payload"] = {
+          namespace: "candidate",
+          kind: "assertion",
+          data: {
+            entries: [
+              {
+                role: "proposition",
+                valueType: "text",
+                value: "Role-scoped dependency upstream.",
+              },
+            ],
+          },
+        };
+        const upstream = {
+          ...roleFixture.assertion,
+          id: "assertion:role-api:upstream",
+          payload: upstreamPayload,
+          payloadHash: candidateAnalysisAssertionPayloadHash(upstreamPayload),
+          scopeKey: "claim:role-api:upstream",
+          scopeHash: candidateAnalysisAssertionScopeHash(
+            "claim:role-api:upstream",
+          ),
+        };
+        await workerWriter.appendAssertion(upstream);
+        await workerWriter.appendDependency({
+          id: "dependency:role-api:1",
+          assertionId: roleFixture.assertion.id,
+          upstreamAssertionId: upstream.id,
+          relation: "derived_from",
+          inheritedLimitations: [...upstream.limitations].sort(),
+        });
+      } finally {
+        await workerPrisma.$disconnect();
+      }
+      const reconcilerPrisma = rolePrisma(reconcilerUrl);
+      try {
+        const scope = { runId: roleFixture.run.id };
+        const payload: CandidateReconciliationSnapshotInput["payload"] = {
+          namespace: "candidate",
+          kind: "reconciliation",
+          data: {
+            entries: [
+              {
+                role: "contradiction",
+                valueType: "flag",
+                value: false,
+              },
+            ],
+          },
+        };
+        await createCandidateReconciliationWriter(
+          reconcilerPrisma,
+        ).appendSnapshot({
+          id: "snapshot:role-api:1",
+          runId: roleFixture.run.id,
+          scope,
+          scopeHash: candidateAnalysisReconciliationScopeHash(scope),
+          payload,
+          payloadHash: candidateAnalysisReconciliationPayloadHash(payload),
+          conflictCount: 0,
+        });
+      } finally {
+        await reconcilerPrisma.$disconnect();
+      }
+
+      const candidateTables = [
+        "CandidateContentUnit",
+        "CandidateAnalysisRun",
+        "CandidateAnalysisRunInput",
+        "CandidateAnalysisRunEvent",
+        "CandidateAnalysisArtifact",
+        "CandidateAssertion",
+        "CandidateEvidenceLink",
+        "CandidateDependency",
+        "CandidateReconciliationSnapshot",
+        "CandidateHumanReviewDecision",
+        "CandidatePromotionDecision",
+      ] as const;
+      const canonicalTables = [
+        "Document",
+        "SourceDoc",
+        "LibraryAnalysisRecord",
+      ] as const;
+      const tablePrivileges = [
+        "SELECT",
+        "INSERT",
+        "UPDATE",
+        "DELETE",
+        "TRUNCATE",
+        "REFERENCES",
+        "TRIGGER",
+      ] as const;
+      const matrix = psql(`
+        SELECT role_name, schema_name, relation_name, privilege_name,
+          has_table_privilege(role_name, format('%I.%I', schema_name, relation_name), privilege_name)
+        FROM unnest(ARRAY['foodsystems_candidate_worker', 'foodsystems_candidate_reconciler']) role_name
+        CROSS JOIN (VALUES
+          ('public', 'Document'), ('public', 'SourceDoc'),
+          ('public', 'LibraryAnalysisRecord'),
+          ('public', 'CandidateContentUnit'), ('public', 'CandidateAnalysisRun'),
+          ('public', 'CandidateAnalysisRunInput'), ('public', 'CandidateAnalysisRunEvent'),
+          ('public', 'CandidateAnalysisArtifact'), ('public', 'CandidateAssertion'),
+          ('public', 'CandidateEvidenceLink'), ('public', 'CandidateDependency'),
+          ('public', 'CandidateReconciliationSnapshot'),
+          ('public', 'CandidateHumanReviewDecision'),
+          ('public', 'CandidatePromotionDecision'),
+          ('public', 'CanonicalOutsideAllowlist'), ('sidecar', 'unrelated')
+        ) relation(schema_name, relation_name)
+        CROSS JOIN unnest(ARRAY[
+          'SELECT', 'INSERT', 'UPDATE', 'DELETE', 'TRUNCATE', 'REFERENCES', 'TRIGGER'
+        ]) privilege_name
+        ORDER BY role_name, relation_name, privilege_name;
+      `);
+      assert.equal(matrix.status, 0, matrix.stderr);
+      const actualMatrix = new Map(
+        matrix.stdout.trim().split("\n").map((line) => {
+          const [role, schema, relation, privilege, value] = line.split("|");
+          return [`${role}|${schema}|${relation}|${privilege}`, value === "t"];
+        }),
+      );
+      for (const role of [
+        "foodsystems_candidate_worker",
+        "foodsystems_candidate_reconciler",
+      ] as const) {
+        for (const relation of [...canonicalTables, ...candidateTables]) {
+          for (const privilege of tablePrivileges) {
+            const expected = privilege === "SELECT"
+              ? candidateTables.includes(relation as typeof candidateTables[number])
+                || (role === "foodsystems_candidate_worker"
+                  && canonicalTables.includes(relation as typeof canonicalTables[number]))
+              : false;
+            assert.equal(
+              actualMatrix.get(`${role}|public|${relation}|${privilege}`),
+              expected,
+              `${role} ${privilege} public.${relation}`,
+            );
+          }
+        }
+      }
+      const outsideRelations = [
+        { schema: "public", relation: "CanonicalOutsideAllowlist" },
+        { schema: "sidecar", relation: "unrelated" },
+      ] as const;
+      for (const role of [
+        "foodsystems_candidate_worker",
+        "foodsystems_candidate_reconciler",
+      ] as const) {
+        for (const { schema, relation } of outsideRelations) {
+          for (const privilege of tablePrivileges) {
+            assert.equal(
+              actualMatrix.get(`${role}|${schema}|${relation}|${privilege}`),
+              false,
+              `${role} ${privilege} ${schema}.${relation}`,
+            );
+          }
+        }
+      }
+      const columnMatrix = psql(`
+        SELECT role_name, schema_name, relation_name, privilege_name,
+          has_any_column_privilege(role_name, format('%I.%I', schema_name, relation_name), privilege_name)
+        FROM unnest(ARRAY['foodsystems_candidate_worker', 'foodsystems_candidate_reconciler']) role_name
+        CROSS JOIN (VALUES
+          ('public', 'Document'), ('public', 'SourceDoc'),
+          ('public', 'LibraryAnalysisRecord'),
+          ('public', 'CandidateContentUnit'), ('public', 'CandidateAnalysisRun'),
+          ('public', 'CandidateAnalysisRunInput'), ('public', 'CandidateAnalysisRunEvent'),
+          ('public', 'CandidateAnalysisArtifact'), ('public', 'CandidateAssertion'),
+          ('public', 'CandidateEvidenceLink'), ('public', 'CandidateDependency'),
+          ('public', 'CandidateReconciliationSnapshot'),
+          ('public', 'CandidateHumanReviewDecision'),
+          ('public', 'CandidatePromotionDecision'),
+          ('public', 'CanonicalOutsideAllowlist'), ('sidecar', 'unrelated')
+        ) relation(schema_name, relation_name)
+        CROSS JOIN unnest(ARRAY['INSERT', 'UPDATE', 'REFERENCES']) privilege_name
+        ORDER BY role_name, relation_name, privilege_name;
+      `);
+      assert.equal(columnMatrix.status, 0, columnMatrix.stderr);
+      const actualColumnMatrix = new Map(
+        columnMatrix.stdout.trim().split("\n").map((line) => {
+          const [role, schema, relation, privilege, value] = line.split("|");
+          return [`${role}|${schema}|${relation}|${privilege}`, value === "t"];
+        }),
+      );
+      for (const role of [
+        "foodsystems_candidate_worker",
+        "foodsystems_candidate_reconciler",
+      ] as const) {
+        for (const relation of [...canonicalTables, ...candidateTables]) {
+          for (const privilege of ["INSERT", "UPDATE", "REFERENCES"] as const) {
+            const expected = false;
+            assert.equal(
+              actualColumnMatrix.get(`${role}|public|${relation}|${privilege}`),
+              expected,
+              `${role} column ${privilege} public.${relation}`,
+            );
+          }
+        }
+        for (const { schema, relation } of outsideRelations) {
+          for (const privilege of ["INSERT", "UPDATE", "REFERENCES"] as const) {
+            assert.equal(
+              actualColumnMatrix.get(`${role}|${schema}|${relation}|${privilege}`),
+              false,
+              `${role} column ${privilege} ${schema}.${relation}`,
+            );
+          }
+        }
+      }
+
+      assert.equal(
+        psql("CREATE TYPE sidecar.candidate_owned_enum AS ENUM ('one')").status,
+        0,
+      );
+      assert.equal(
+        psql("ALTER TYPE sidecar.candidate_owned_enum OWNER TO foodsystems_candidate_worker").status,
+        0,
+      );
+      const ownershipLeak = verifyWorker();
+      assert.notEqual(ownershipLeak.status, 0);
+      assert.match(ownershipLeak.stderr, /owns user-defined type|ownership dependency/i);
+      assert.equal(
+        psql("ALTER TYPE sidecar.candidate_owned_enum OWNER TO postgres").status,
+        0,
+      );
+      assert.equal(verifyWorker().status, 0);
+
+      const gatewayUrl = `postgresql://postgres@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-worker&options=-c%20role%3Dfoodsystems_candidate_worker`;
+      const gatewayAttempt = spawnSync(verifyPath, ["--role=worker"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: path,
+          CANDIDATE_WORKER_DATABASE_URL: gatewayUrl,
+        },
+      });
+      assert.notEqual(gatewayAttempt.status, 0);
+      assert.match(gatewayAttempt.stderr, /unsupported database URL parameter: options/);
+      const gatewayUsernameAttempt = spawnSync(verifyPath, ["--role=worker"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: path,
+          CANDIDATE_WORKER_DATABASE_URL: `postgresql://postgres@127.0.0.1:${port}/${database}?application_name=foodsystems-candidate-worker`,
+        },
+      });
+      assert.notEqual(gatewayUsernameAttempt.status, 0);
+      assert.match(gatewayUsernameAttempt.stderr, /username does not match expected role/);
+      const inheritedOptionsAttempt = spawnSync(verifyPath, ["--role=worker"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: path,
+          PGOPTIONS: "-c role=foodsystems_candidate_worker",
+          CANDIDATE_WORKER_DATABASE_URL: workerUrl,
+        },
+      });
+      assert.notEqual(inheritedOptionsAttempt.status, 0);
+      assert.match(inheritedOptionsAttempt.stderr, /PGOPTIONS is not permitted/);
+      const gatewayIdentity = psql(
+        "SET ROLE foodsystems_candidate_worker; SELECT session_user, current_user; RESET ROLE",
+      );
+      assert.equal(gatewayIdentity.status, 0, gatewayIdentity.stderr);
+      assert.match(
+        gatewayIdentity.stdout,
+        /postgres\s*\|\s*foodsystems_candidate_worker/,
+      );
+      assert.equal(psql("CREATE ROLE candidate_gateway LOGIN").status, 0);
+      assert.equal(
+        psql("GRANT foodsystems_candidate_worker TO candidate_gateway").status,
+        0,
+      );
+      const inboundMembershipLeak = verifyWorker();
+      assert.notEqual(inboundMembershipLeak.status, 0);
+      assert.match(inboundMembershipLeak.stderr, /can SET ROLE into the candidate identity/i);
+      const activeCleanupRefusal = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.notEqual(activeCleanupRefusal.status, 0);
+      assert.match(activeCleanupRefusal.stderr, /must be disabled before bootstrap/i);
+      const disableBeforeMembershipCleanup = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(
+        disableBeforeMembershipCleanup.status,
+        0,
+        disableBeforeMembershipCleanup.stderr,
+      );
+      const membershipCleanupBootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(membershipCleanupBootstrap.status, 0, membershipCleanupBootstrap.stderr);
+      const enableAfterMembershipCleanup = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: path,
+            DATABASE_ADMIN_URL: adminUrl,
+            CANDIDATE_INTAKE_DATABASE_URL: intakeUrl,
+            CANDIDATE_WORKER_DATABASE_URL: workerUrl,
+            CANDIDATE_RECONCILER_DATABASE_URL: reconcilerUrl,
+          },
+        },
+      );
+      assert.equal(
+        enableAfterMembershipCleanup.status,
+        0,
+        enableAfterMembershipCleanup.stderr,
+      );
+      assert.equal(verifyWorker().status, 0);
+
+      const effective = psql(`
+        SELECT
+          has_table_privilege('foodsystems_candidate_worker', 'public."Document"', 'SELECT'),
+          has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+          has_table_privilege('foodsystems_candidate_worker', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+          has_table_privilege('foodsystems_candidate_worker', 'public."CandidateHumanReviewDecision"', 'INSERT'),
+          has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateAssertion"', 'SELECT'),
+          has_table_privilege('foodsystems_candidate_reconciler', 'public."Document"', 'SELECT'),
+          has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+          has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateAssertion"', 'INSERT');
+      `);
+      assert.equal(effective.status, 0, effective.stderr);
+      assert.match(
+        effective.stdout,
+        /t\s*\|\s*f\s*\|\s*f\s*\|\s*f\s*\|\s*t\s*\|\s*f\s*\|\s*f\s*\|\s*f/,
+      );
+
+      assert.equal(
+        psql('GRANT INSERT ON public."Document" TO foodsystems_candidate_worker').status,
+        0,
+      );
+      const canonicalLeak = verifyWorker();
+      assert.notEqual(canonicalLeak.status, 0);
+      assert.match(canonicalLeak.stderr, /canonical or unrelated write privilege is effective/i);
+      assert.equal(
+        psql('REVOKE INSERT ON public."Document" FROM foodsystems_candidate_worker').status,
+        0,
+      );
+      assert.equal(verifyWorker().status, 0);
+
+      assert.equal(
+        psql('GRANT candidate_inherited_writer TO foodsystems_candidate_worker').status,
+        0,
+      );
+      const membershipLeak = verifyWorker();
+      assert.notEqual(membershipLeak.status, 0);
+      assert.match(membershipLeak.stderr, /membership/i);
+      assert.equal(
+        psql('REVOKE candidate_inherited_writer FROM foodsystems_candidate_worker').status,
+        0,
+      );
+      assert.equal(verifyWorker().status, 0);
+
+      const falseScopeRunId = "run:worker:false-scope";
+      const falseScopeInsert = psql(`
+        INSERT INTO public."CandidateAnalysisRun" (
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+          "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+        ) VALUES (
+          '${falseScopeRunId}', '${"f".repeat(64)}', 'workflow.candidate_analysis.v1', '1.0.0',
+          'workflow.md', '${"0".repeat(64)}', 'prompt.candidate_analysis.v1', '1.0.0',
+          'prompt.md', 'provider', 'model', 'version', '${"1".repeat(64)}', '{}',
+          '${"2".repeat(64)}', '${"3".repeat(64)}', 'false worker scope', 'candidate_only',
+          'worker:false-scope', '${"4".repeat(64)}', 1
+        )
+      `, "foodsystems_candidate_worker");
+      assert.notEqual(
+        falseScopeInsert.status,
+        0,
+        `worker inserted false run scope instead of ${candidateAnalysisRunScopeHash(falseScopeRunId)}`,
+      );
+      assert.match(falseScopeInsert.stderr, /permission denied for table CandidateAnalysisRun/);
+
+      const hash = "a".repeat(64);
+      const preservationRunId = "disable-preservation-run";
+      const preservationRunScope = candidateAnalysisRunScopeHash(preservationRunId);
+      const seeded = psql(`
+        INSERT INTO public."CandidateAnalysisRun" (
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+          "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+        ) VALUES (
+          '${preservationRunId}', '${preservationRunScope}', 'candidate-analysis', 'v1',
+          'knowledge/corpus/workflows/candidate-analysis-v1.md', '${hash}',
+          'candidate-analysis-prompt', 'v1',
+          'knowledge/corpus/workflows/candidate-analysis-prompt-v1.md',
+          'test', 'test-model', 'v1', '${hash}', '{}', '${hash}', '${hash}',
+          'disable preservation',
+          'candidate-only', 'test-worker', '${hash}', 1
+        );
+        INSERT INTO public."CandidateReconciliationSnapshot" (
+          "id", "runId", "scope", "scopeHash", "payload", "payloadHash", "conflictCount"
+        ) VALUES (
+          'disable-preservation-snapshot', '${preservationRunId}', '{}',
+          '${hash}',
+          '{"namespace":"candidate","kind":"reconciliation","data":{"entries":[{"role":"contradiction","valueType":"flag","value":false}]}}',
+          '${hash}', 0
+        );
+      `);
+      assert.equal(seeded.status, 0, seeded.stderr);
+
+      const candidateSession = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "foodsystems_candidate_worker", "-d", database,
+          "-c", "SELECT pg_sleep(30)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: path,
+            PGAPPNAME: "candidate-disable-session-test",
+          },
+          stdio: "ignore",
+        },
+      );
+      const unrelatedSession = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "postgres", "-d", database,
+          "-c", "SELECT pg_sleep(30)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: path,
+            PGAPPNAME: "candidate-unrelated-session-test",
+          },
+          stdio: "ignore",
+        },
+      );
+      const reconcilerSession = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "foodsystems_candidate_reconciler", "-d", database,
+          "-c", "SELECT pg_sleep(30)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: path,
+            PGAPPNAME: "candidate-disable-reconciler-session-test",
+          },
+          stdio: "ignore",
+        },
+      );
+      const activityCount = (applicationName: string) => {
+        const result = psql(
+          `SELECT count(*) FROM pg_stat_activity WHERE application_name = '${applicationName}'`,
+        );
+        return result.status === 0 ? result.stdout.trim() : "error";
+      };
+      await waitFor(
+        () => activityCount("candidate-disable-session-test") === "1",
+        "candidate session did not become active",
+      );
+      await waitFor(
+        () => activityCount("candidate-unrelated-session-test") === "1",
+        "unrelated session did not become active",
+      );
+      await waitFor(
+        () => activityCount("candidate-disable-reconciler-session-test") === "1",
+        "reconciler session did not become active",
+      );
+
+      const beforeDisable = psql(`
+        SELECT sum(row_count) FROM (
+          SELECT count(*) AS row_count FROM public."CandidateAnalysisRun"
+          UNION ALL
+          SELECT count(*) FROM public."CandidateReconciliationSnapshot"
+        ) rows;
+      `);
+      assert.equal(beforeDisable.status, 0, beforeDisable.stderr);
+
+      assert.equal(
+        psql('GRANT INSERT ON public."Document" TO foodsystems_candidate_worker').status,
+        0,
+      );
+      assert.equal(
+        psql('GRANT INSERT (id) ON sidecar.unrelated TO foodsystems_candidate_reconciler').status,
+        0,
+      );
+      assert.equal(
+        psql("GRANT foodsystems_candidate_worker TO candidate_gateway").status,
+        0,
+      );
+
+      const disable = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: path,
+          DATABASE_ADMIN_URL: adminUrl,
+        },
+      });
+      assert.equal(disable.status, 0, disable.stderr);
+      await waitFor(
+        () => activityCount("candidate-disable-session-test") === "0",
+        "candidate session survived disable",
+      );
+      await waitFor(
+        () => candidateSession.exitCode !== null,
+        "candidate psql process did not observe termination",
+      );
+      await waitFor(
+        () => activityCount("candidate-disable-reconciler-session-test") === "0",
+        "reconciler session survived disable",
+      );
+      await waitFor(
+        () => reconcilerSession.exitCode !== null,
+        "reconciler psql process did not observe termination",
+      );
+      assert.equal(activityCount("candidate-unrelated-session-test"), "1");
+
+      const disabled = psql(`
+        SELECT
+          (SELECT NOT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          (SELECT NOT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+          NOT has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+          NOT has_table_privilege('foodsystems_candidate_worker', 'public."Document"', 'INSERT'),
+          NOT has_any_column_privilege('foodsystems_candidate_reconciler', 'sidecar.unrelated', 'INSERT'),
+          NOT EXISTS (
+            SELECT 1 FROM pg_auth_members membership
+            JOIN pg_roles granted ON granted.oid = membership.roleid
+            WHERE granted.rolname IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler')
+          );
+      `);
+      assert.equal(disabled.status, 0, disabled.stderr);
+      assert.match(
+        disabled.stdout,
+        /t\s*\|\s*t\s*\|\s*t\s*\|\s*t\s*\|\s*t\s*\|\s*t\s*\|\s*t/,
+      );
+      const afterDisable = psql(`
+        SELECT sum(row_count) FROM (
+          SELECT count(*) AS row_count FROM public."CandidateAnalysisRun"
+          UNION ALL
+          SELECT count(*) FROM public."CandidateReconciliationSnapshot"
+        ) rows;
+      `);
+      assert.equal(afterDisable.status, 0, afterDisable.stderr);
+      assert.equal(afterDisable.stdout.trim(), beforeDisable.stdout.trim());
+
+      const rebootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(rebootstrap.status, 0, rebootstrap.stderr);
+      const bootstrapNoLogin = psql(`
+        SELECT
+          (SELECT NOT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          (SELECT NOT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+          has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT');
+      `);
+      assert.equal(bootstrapNoLogin.status, 0, bootstrapNoLogin.stderr);
+      assert.match(bootstrapNoLogin.stdout, /t\s*\|\s*t\s*\|\s*f\s*\|\s*f/);
+
+      const explicitEnable = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: path,
+            DATABASE_ADMIN_URL: adminUrl,
+            CANDIDATE_INTAKE_DATABASE_URL: intakeUrl,
+            CANDIDATE_WORKER_DATABASE_URL: workerUrl,
+            CANDIDATE_RECONCILER_DATABASE_URL: reconcilerUrl,
+          },
+        },
+      );
+      assert.equal(explicitEnable.status, 0, explicitEnable.stderr);
+      assert.equal(verifyWorker().status, 0);
+      assert.equal(verifyReconciler().status, 0);
+
+      const disableBeforeFailedRecovery = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(
+        disableBeforeFailedRecovery.status,
+        0,
+        disableBeforeFailedRecovery.stderr,
+      );
+      const bootstrapBeforeFailedRecovery = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(
+        bootstrapBeforeFailedRecovery.status,
+        0,
+        bootstrapBeforeFailedRecovery.stderr,
+      );
+      const beforeFailedRecoveryRows = psql(`
+        SELECT jsonb_build_object(
+          'contentUnit', (SELECT count(*) FROM public."CandidateContentUnit"),
+          'run', (SELECT count(*) FROM public."CandidateAnalysisRun"),
+          'runInput', (SELECT count(*) FROM public."CandidateAnalysisRunInput"),
+          'runEvent', (SELECT count(*) FROM public."CandidateAnalysisRunEvent"),
+          'artifact', (SELECT count(*) FROM public."CandidateAnalysisArtifact"),
+          'assertion', (SELECT count(*) FROM public."CandidateAssertion"),
+          'evidenceLink', (SELECT count(*) FROM public."CandidateEvidenceLink"),
+          'dependency', (SELECT count(*) FROM public."CandidateDependency"),
+          'reconciliation', (SELECT count(*) FROM public."CandidateReconciliationSnapshot"),
+          'humanReview', (SELECT count(*) FROM public."CandidateHumanReviewDecision"),
+          'promotion', (SELECT count(*) FROM public."CandidatePromotionDecision")
+        );
+      `);
+      assert.equal(
+        beforeFailedRecoveryRows.status,
+        0,
+        beforeFailedRecoveryRows.stderr,
+      );
+
+      const verifierFailureRoot = mkdtempSync(
+        join(tmpdir(), "candidate-verifier-failure-"),
+      );
+      const verifierFailurePsql = join(verifierFailureRoot, "psql");
+      const realPsql = postgresPath().split(":")[0] + "/psql";
+      writeFileSync(
+        verifierFailurePsql,
+        `#!/bin/sh
+case "$*" in
+  *application_name=foodsystems-candidate-worker*) exit 71 ;;
+esac
+exec "${realPsql}" "$@"
+`,
+      );
+      chmodSync(verifierFailurePsql, 0o755);
+      let failedEnable: SpawnSyncReturns<string>;
+      try {
+        failedEnable = spawnSync(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            encoding: "utf8",
+            env: {
+              ...process.env,
+              PATH: `${verifierFailureRoot}:${path}`,
+              DATABASE_ADMIN_URL: adminUrl,
+              CANDIDATE_INTAKE_DATABASE_URL: intakeUrl,
+              CANDIDATE_WORKER_DATABASE_URL: workerUrl,
+              CANDIDATE_RECONCILER_DATABASE_URL: reconcilerUrl,
+            },
+          },
+        );
+      } finally {
+        rmSync(verifierFailureRoot, { recursive: true, force: true });
+      }
+      const failedEnableOutput = `${failedEnable.stdout ?? ""}${failedEnable.stderr ?? ""}`;
+      assert.notEqual(failedEnable.status, 0, failedEnableOutput);
+      const failedRecoveryState = psql(`
+        SELECT
+          (SELECT NOT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          (SELECT NOT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+          NOT has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT');
+      `);
+      assert.equal(failedRecoveryState.status, 0, failedRecoveryState.stderr);
+      assert.match(failedRecoveryState.stdout, /t\s*\|\s*t\s*\|\s*t\s*\|\s*t/);
+      const afterFailedRecoveryRows = psql(`
+        SELECT jsonb_build_object(
+          'contentUnit', (SELECT count(*) FROM public."CandidateContentUnit"),
+          'run', (SELECT count(*) FROM public."CandidateAnalysisRun"),
+          'runInput', (SELECT count(*) FROM public."CandidateAnalysisRunInput"),
+          'runEvent', (SELECT count(*) FROM public."CandidateAnalysisRunEvent"),
+          'artifact', (SELECT count(*) FROM public."CandidateAnalysisArtifact"),
+          'assertion', (SELECT count(*) FROM public."CandidateAssertion"),
+          'evidenceLink', (SELECT count(*) FROM public."CandidateEvidenceLink"),
+          'dependency', (SELECT count(*) FROM public."CandidateDependency"),
+          'reconciliation', (SELECT count(*) FROM public."CandidateReconciliationSnapshot"),
+          'humanReview', (SELECT count(*) FROM public."CandidateHumanReviewDecision"),
+          'promotion', (SELECT count(*) FROM public."CandidatePromotionDecision")
+        );
+      `);
+      assert.equal(afterFailedRecoveryRows.status, 0, afterFailedRecoveryRows.stderr);
+      assert.equal(
+        afterFailedRecoveryRows.stdout.trim(),
+        beforeFailedRecoveryRows.stdout.trim(),
+      );
+      const cleanupUnrelated = psql(`
+        SELECT pg_terminate_backend(pid)
+        FROM pg_stat_activity
+        WHERE application_name = 'candidate-unrelated-session-test';
+      `);
+      assert.equal(cleanupUnrelated.status, 0, cleanupUnrelated.stderr);
+      await waitFor(
+        () => unrelatedSession.exitCode !== null,
+        "unrelated psql process did not close after the test",
+      );
+      const reservedRoles = psql(
+        "SELECT count(*) FROM pg_roles WHERE rolname IN ('review_operator', 'promotion_service')",
+      );
+      assert.equal(reservedRoles.status, 0, reservedRoles.stderr);
+      assert.equal(reservedRoles.stdout.trim(), "0");
+    });
+  },
+);
+
+test(
+  "enable preflight failure disables already-active unsafe candidate roles without deleting rows",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const { adminUrl, database, port, psql } = context;
+      const fixture = prepareRecoveryFixture(context);
+      const runId = "run:recovery-preflight-failure";
+      const scopeHash = candidateAnalysisRunScopeHash(runId);
+      const hash = "a".repeat(64);
+      const setup = psql(`
+        INSERT INTO public."CandidateAnalysisRun" (
+          "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+          "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+          "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+          "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+        ) VALUES (
+          '${runId}', '${scopeHash}', 'candidate-analysis', 'v1', 'workflow.md', '${hash}',
+          'candidate-analysis-prompt', 'v1', 'prompt.md', 'test', 'test-model', 'v1',
+          '${hash}', '{}', '${hash}', '${hash}', 'preflight fail-safe preservation',
+          'candidate-only', 'test-worker', '${hash}', 1
+        );
+        CREATE ROLE candidate_preflight_member NOLOGIN;
+        CREATE TYPE sidecar.preflight_owned_enum AS ENUM ('one');
+        ALTER ROLE foodsystems_candidate_worker LOGIN CREATEROLE;
+        ALTER ROLE foodsystems_candidate_reconciler LOGIN;
+        GRANT candidate_preflight_member TO foodsystems_candidate_worker;
+        ALTER TYPE sidecar.preflight_owned_enum OWNER TO foodsystems_candidate_worker;
+      `);
+      assert.equal(setup.status, 0, setup.stderr);
+
+      const workerSession = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "foodsystems_candidate_worker", "-d", database,
+          "-c", "SELECT pg_sleep(30)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: "candidate-enable-preflight-worker",
+          },
+          stdio: "ignore",
+        },
+      );
+      const reconcilerSession = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "foodsystems_candidate_reconciler", "-d", database,
+          "-c", "SELECT pg_sleep(30)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: "candidate-enable-preflight-reconciler",
+          },
+          stdio: "ignore",
+        },
+      );
+      await waitFor(
+        () => activityCount(context, "candidate-enable-preflight-worker") === "1",
+        "unsafe worker session did not become active",
+      );
+      await waitFor(
+        () => activityCount(context, "candidate-enable-preflight-reconciler") === "1",
+        "unsafe reconciler session did not become active",
+      );
+
+      const beforeRows = psql('SELECT count(*) FROM public."CandidateAnalysisRun"');
+      assert.equal(beforeRows.status, 0, beforeRows.stderr);
+      assert.equal(beforeRows.stdout.trim(), "1");
+      const failedEnable = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: recoveryEnableEnv(fixture, adminUrl),
+        },
+      );
+      assert.notEqual(failedEnable.status, 0, failedEnable.stderr);
+      const afterRows = psql('SELECT count(*) FROM public."CandidateAnalysisRun"');
+      assert.equal(afterRows.status, 0, afterRows.stderr);
+      assert.equal(afterRows.stdout.trim(), beforeRows.stdout.trim());
+
+      const safeState = psql(`
+        SELECT
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+          NOT has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+          (SELECT count(*) FROM pg_stat_activity WHERE application_name = 'candidate-enable-preflight-worker'),
+          (SELECT count(*) FROM pg_stat_activity WHERE application_name = 'candidate-enable-preflight-reconciler');
+      `);
+      assert.equal(safeState.status, 0, safeState.stderr);
+      assert.equal(
+        safeState.stdout.trim(),
+        "t|t|t|t|0|0",
+        "preflight failure did not establish NOLOGIN, revoke exact INSERT, and terminate exact sessions",
+      );
+      await Promise.all([childExit(workerSession), childExit(reconcilerSession)]);
+    });
+  },
+);
+
+test(
+  "enable terminates stale candidate sessions before restoring all exact logins",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const { adminUrl, database, port, psql } = context;
+      const fixture = prepareRecoveryFixture(context);
+      const preservedFixture = candidateAnalysisFixture({
+        contentUnitId: "content:stale-session-preservation:1",
+      });
+      const adminPrisma = rolePrisma(adminUrl);
+      try {
+        await adminPrisma.candidateContentUnit.create({
+          data: preservedFixture.contentUnit,
+        });
+      } finally {
+        await adminPrisma.$disconnect();
+      }
+      const beforeCandidateRows = candidateRowsSnapshot(context);
+      const beforeCandidateSnapshot = JSON.parse(beforeCandidateRows) as Record<
+        string,
+        { count: number; rows: unknown[] }
+      >;
+      assert.deepEqual(
+        Object.fromEntries(
+          Object.entries(beforeCandidateSnapshot).map(([tableName, snapshot]) => [
+            tableName,
+            snapshot.count,
+          ]),
+        ),
+        {
+          CandidateAnalysisArtifact: 0,
+          CandidateAnalysisRun: 0,
+          CandidateAnalysisRunEvent: 0,
+          CandidateAnalysisRunInput: 0,
+          CandidateAssertion: 0,
+          CandidateContentUnit: 1,
+          CandidateDependency: 0,
+          CandidateEvidenceLink: 0,
+          CandidateHumanReviewDecision: 0,
+          CandidatePromotionDecision: 0,
+          CandidateReconciliationSnapshot: 0,
+        },
+      );
+      const temporarilyEnabled = psql(`
+        ALTER ROLE foodsystems_candidate_worker LOGIN;
+        ALTER ROLE foodsystems_candidate_reconciler LOGIN;
+      `);
+      assert.equal(temporarilyEnabled.status, 0, temporarilyEnabled.stderr);
+
+      const staleWorker = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "foodsystems_candidate_worker", "-d", database,
+          "-c", "SELECT pg_sleep(30)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: "candidate-enable-stale-worker",
+          },
+          stdio: "ignore",
+        },
+      );
+      const staleReconciler = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "foodsystems_candidate_reconciler", "-d", database,
+          "-c", "SELECT pg_sleep(30)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: "candidate-enable-stale-reconciler",
+          },
+          stdio: "ignore",
+        },
+      );
+      await waitFor(
+        () => activityCount(context, "candidate-enable-stale-worker") === "1",
+        "stale worker session did not become active",
+      );
+      await waitFor(
+        () => activityCount(context, "candidate-enable-stale-reconciler") === "1",
+        "stale reconciler session did not become active",
+      );
+
+      const disabledWithoutTermination = psql(`
+        ALTER ROLE foodsystems_candidate_worker NOLOGIN;
+        ALTER ROLE foodsystems_candidate_reconciler NOLOGIN;
+      `);
+      assert.equal(
+        disabledWithoutTermination.status,
+        0,
+        disabledWithoutTermination.stderr,
+      );
+      const staleState = psql(`
+        SELECT
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          (SELECT count(*) FROM pg_stat_activity WHERE application_name = 'candidate-enable-stale-worker'),
+          (SELECT count(*) FROM pg_stat_activity WHERE application_name = 'candidate-enable-stale-reconciler');
+      `);
+      assert.equal(staleState.status, 0, staleState.stderr);
+      assert.equal(staleState.stdout.trim(), "t|t|1|1");
+
+      const enable = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: recoveryEnableEnv(fixture, adminUrl),
+        },
+      );
+      assert.equal(enable.status, 0, `${enable.stdout}${enable.stderr}`);
+      await Promise.all([childExit(staleWorker), childExit(staleReconciler)]);
+      const enabledState = psql(`
+        SELECT
+          (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          (SELECT count(*) FROM pg_stat_activity WHERE application_name = 'candidate-enable-stale-worker'),
+          (SELECT count(*) FROM pg_stat_activity WHERE application_name = 'candidate-enable-stale-reconciler');
+      `);
+      assert.equal(enabledState.status, 0, enabledState.stderr);
+      assert.equal(enabledState.stdout.trim(), "t|t|0|0");
+      const afterCandidateRows = candidateRowsSnapshot(context);
+      assert.equal(
+        afterCandidateRows,
+        beforeCandidateRows,
+        "stale-session recovery changed exact content or counts in the 11 candidate tables",
+      );
+    });
+  },
+);
+
+test(
+  "concurrent membership, elevated-attribute, and ownership drift cannot cross enable's activation boundary",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const { adminUrl, psql } = context;
+      const fixture = prepareRecoveryFixture(context);
+      const raceSetup = psql(`
+        CREATE ROLE candidate_concurrent_member NOLOGIN;
+        CREATE TYPE sidecar.concurrent_owned_enum AS ENUM ('one');
+      `);
+      assert.equal(raceSetup.status, 0, raceSetup.stderr);
+      const tempRoot = mkdtempSync(join(tmpdir(), "candidate-enable-race-"));
+      const race = writeRecoveryRacePsql(tempRoot, context);
+      try {
+        const enable = spawn(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            env: {
+              ...recoveryEnableEnv(fixture, adminUrl, race.path),
+              RACE_COUNT_FILE: race.countFile,
+              RACE_DATABASE: context.database,
+              RACE_MARKER_FILE: race.markerFile,
+              RACE_MUTATION_FILE: race.mutationFile,
+              RACE_MUTATION_SQL: `ALTER ROLE foodsystems_candidate_worker CREATEROLE;
+                GRANT candidate_concurrent_member TO foodsystems_candidate_worker;
+                ALTER TYPE sidecar.concurrent_owned_enum OWNER TO foodsystems_candidate_worker;`,
+              RACE_PORT: String(context.port),
+              RACE_RELEASE_FILE: race.releaseFile,
+              REAL_PSQL: race.realPsql,
+            },
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        let output = "";
+        enable.stdout?.on("data", (chunk) => {
+          output += chunk.toString();
+        });
+        enable.stderr?.on("data", (chunk) => {
+          output += chunk.toString();
+        });
+        const enableExit = childExit(enable);
+        await waitFor(
+          () => existsSync(race.markerFile) || enable.exitCode !== null,
+          "concurrent enable neither exposed LOGIN nor rejected drift",
+        );
+        assert.ok(existsSync(race.mutationFile), "race mutation did not complete");
+        const durableDrift = psql(`
+          SELECT
+            (SELECT rolcreaterole FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+            (SELECT owner.rolname = 'foodsystems_candidate_worker'
+             FROM pg_type type JOIN pg_roles owner ON owner.oid = type.typowner
+             WHERE type.oid = 'sidecar.concurrent_owned_enum'::regtype);
+        `);
+        assert.equal(durableDrift.status, 0, durableDrift.stderr);
+        assert.equal(
+          durableDrift.stdout.trim(),
+          "t|t",
+          "durable elevated-attribute/ownership race mutations did not land",
+        );
+        const exposedLogin = existsSync(race.markerFile);
+        if (exposedLogin) {
+          const loginState = psql(`
+            SELECT bool_and(rolcanlogin)
+            FROM pg_roles
+            WHERE rolname IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler');
+          `);
+          assert.equal(loginState.status, 0, loginState.stderr);
+          assert.equal(loginState.stdout.trim(), "t", "race marker preceded LOGIN commit");
+          writeFileSync(race.releaseFile, "release\n");
+        }
+        const exitCode = await enableExit;
+        assert.notEqual(exitCode, 0, output);
+        assert.equal(
+          exposedLogin,
+          false,
+          "concurrent unsafe role state crossed the enable preflight/LOGIN gap",
+        );
+      } finally {
+        writeFileSync(race.releaseFile, "release\n");
+        rmSync(tempRoot, { recursive: true, force: true });
+      }
+    });
+  },
+);
+
+test("recovery scripts bind fail-safe identity, bound execution budgets, trigger state, database isolation, and quoted schema probes", () => {
+  const bootstrap = readFileSync(bootstrapPath, "utf8");
+  const disable = readFileSync(disablePath, "utf8");
+  const enable = readFileSync(enablePath, "utf8");
+  const verify = readFileSync(verifyPath, "utf8");
+
+  for (const script of [bootstrap, disable, enable]) {
+    assert.match(script, /lock_timeout/);
+    assert.match(script, /statement_timeout/);
+  }
+  assert.match(enable, /unresolved_active_security_incident/);
+  assert.match(disable, /CANDIDATE_EXPECTED_TARGET_SYSTEM_IDENTIFIER/);
+  assert.match(disable, /CANDIDATE_EXPECTED_TARGET_DATABASE_HEX/);
+  assert.match(disable, /CANDIDATE_EXPECTED_TARGET_SERVER_ADDRESS_HEX/);
+  assert.match(disable, /CANDIDATE_EXPECTED_TARGET_SERVER_PORT/);
+  assert.match(disable, /target_identity_mismatch/);
+  assert.match(bootstrap, /candidate critical trigger drift/i);
+  assert.match(enable, /candidate critical trigger drift/i);
+  assert.match(verify, /candidate critical trigger drift/i);
+  assert.match(bootstrap, /other database.*CONNECT|CONNECT.*other database/i);
+  assert.match(enable, /other database.*CONNECT|CONNECT.*other database/i);
+  assert.match(verify, /other database.*CONNECT|CONNECT.*other database/i);
+  assert.ok(
+    verify.includes('INSERT INTO \\"$CANDIDATE_DB_SCHEMA\\".\\"Document\\"'),
+  );
+  assert.ok(
+    verify.includes('CREATE TABLE \\"$CANDIDATE_DB_SCHEMA\\".candidate_role_probe'),
+  );
+});
+
+test(
+  "enable catalog lock acquisition is bounded and leaves the disabled authority state unchanged",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const blockerApp = "candidate-enable-budget-blocker";
+      const blocker = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c",
+          "BEGIN; LOCK TABLE pg_catalog.pg_shdepend IN ACCESS EXCLUSIVE MODE; SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: { ...process.env, PATH: fixture.path, PGAPPNAME: blockerApp },
+          stdio: "ignore",
+        },
+      );
+      let enable: ChildProcess | null = null;
+      let enableOutput = "";
+      let timedOut = false;
+      let enableStatus: number | null = null;
+      try {
+        await waitFor(
+          () => activityCount(context, blockerApp) === "1",
+          "enable budget blocker did not become active",
+        );
+        const safetyState = () => context.psql(`
+          SELECT
+            string_agg(rolname || ':' || rolcanlogin::text, ',' ORDER BY rolname),
+            has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+            has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+            (SELECT count(*) FROM pg_stat_activity
+             WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'))
+          FROM pg_roles
+          WHERE rolname IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler');
+        `);
+        const beforeSafety = safetyState();
+        assert.equal(beforeSafety.status, 0, beforeSafety.stderr);
+        const beforeRows = candidateRowsSnapshot(context);
+        enable = spawn(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            env: recoveryEnableEnv(fixture, context.adminUrl),
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        enable.stdout?.on("data", (chunk) => { enableOutput += chunk.toString(); });
+        enable.stderr?.on("data", (chunk) => { enableOutput += chunk.toString(); });
+        try {
+          enableStatus = await waitForChildExit(enable, 5_000);
+        } catch (error) {
+          if (!(error instanceof ChildExitTimeoutError)) throw error;
+          timedOut = true;
+        }
+        assert.deepEqual(
+          {
+            timedOut,
+            statusIsFailure: enableStatus !== null && enableStatus !== 0,
+            actionable: /lock timeout|retry/i.test(enableOutput),
+            authorityUnchanged: safetyState().stdout === beforeSafety.stdout,
+            rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+          },
+          {
+            timedOut: false,
+            statusIsFailure: true,
+            actionable: true,
+            authorityUnchanged: true,
+            rowsUnchanged: true,
+          },
+          enableOutput,
+        );
+      } finally {
+        const cleanup = context.psql(`
+          SELECT pg_terminate_backend(pid)
+          FROM pg_stat_activity
+          WHERE application_name = '${blockerApp}';
+        `);
+        assert.equal(cleanup.status, 0, cleanup.stderr);
+        if (blocker.exitCode === null) await childExit(blocker);
+        if (enable?.exitCode === null) await childExit(enable);
+        spawnSync(disablePath, ["--apply"], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            DATABASE_ADMIN_URL: context.adminUrl,
+          },
+        });
+      }
+    });
+  },
+);
+
+test(
+  "bootstrap and enable fail closed on ordinary or disabled critical trigger drift without touching FK triggers",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const adminEnv = {
+        ...process.env,
+        PATH: fixture.path,
+        DATABASE_ADMIN_URL: context.adminUrl,
+      };
+      const initiallyDisabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(
+        initiallyDisabled.status,
+        0,
+        `${initiallyDisabled.stdout}${initiallyDisabled.stderr}`,
+      );
+      const fkBefore = context.psql(
+        "SELECT count(*) FROM pg_trigger WHERE tgisinternal AND tgconstraint <> 0",
+      );
+      assert.equal(fkBefore.status, 0, fkBefore.stderr);
+      const beforeRows = candidateRowsSnapshot(context);
+      const beforeAuthority = candidateAuthoritySnapshot(context);
+
+      const ordinary = context.psql(`
+        ALTER TABLE public."CandidateAnalysisRun"
+          ENABLE TRIGGER "CandidateAnalysisRun_reject_invalid_scope";
+      `);
+      assert.equal(ordinary.status, 0, ordinary.stderr);
+      const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.notEqual(bootstrap.status, 0, `${bootstrap.stdout}${bootstrap.stderr}`);
+      assert.match(`${bootstrap.stdout}${bootstrap.stderr}`, /trigger drift/i);
+      assert.equal(candidateRowsSnapshot(context), beforeRows);
+      assert.equal(candidateAuthoritySnapshot(context), beforeAuthority);
+      assert.equal(
+        context.psql(`
+          SELECT tgenabled FROM pg_trigger
+          WHERE tgname = 'CandidateAnalysisRun_reject_invalid_scope'
+        `).stdout.trim(),
+        "O",
+      );
+
+      assert.equal(
+        context.psql(`
+          ALTER TABLE public."CandidateAnalysisRun"
+            ENABLE ALWAYS TRIGGER "CandidateAnalysisRun_reject_invalid_scope";
+        `).status,
+        0,
+      );
+      const cleanBootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(
+        cleanBootstrap.status,
+        0,
+        `${cleanBootstrap.stdout}${cleanBootstrap.stderr}`,
+      );
+      const disabledTrigger = context.psql(`
+        ALTER TABLE public."CandidateAssertion"
+          DISABLE TRIGGER "CandidateAssertion_reject_invalid_machine_payload";
+      `);
+      assert.equal(disabledTrigger.status, 0, disabledTrigger.stderr);
+      const enable = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: recoveryEnableEnv(fixture, context.adminUrl),
+        },
+      );
+      assert.notEqual(enable.status, 0, `${enable.stdout}${enable.stderr}`);
+      assert.match(`${enable.stdout}${enable.stderr}`, /trigger drift/i);
+      const state = context.psql(`
+        SELECT
+          bool_and(NOT rolcanlogin),
+          (SELECT count(*) FROM pg_stat_activity
+           WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'))
+        FROM pg_roles
+        WHERE rolname IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler');
+      `);
+      assert.equal(state.status, 0, state.stderr);
+      assert.equal(state.stdout.trim(), "t|0");
+      assert.equal(candidateRowsSnapshot(context), beforeRows);
+      assert.equal(
+        context.psql(
+          "SELECT count(*) FROM pg_trigger WHERE tgisinternal AND tgconstraint <> 0",
+        ).stdout.trim(),
+        fkBefore.stdout.trim(),
+      );
+
+      const restored = context.psql(`
+        ALTER TABLE public."CandidateAssertion"
+          ENABLE ALWAYS TRIGGER "CandidateAssertion_reject_invalid_machine_payload";
+      `);
+      assert.equal(restored.status, 0, restored.stderr);
+      const expectedValues = candidateCriticalTriggers
+        .map(([table, trigger], index) => `(${index + 1}, '${table}', '${trigger}')`)
+        .join(",");
+      const clean = context.psql(`
+        SELECT count(*), bool_and(trigger.tgenabled = 'A')
+        FROM (VALUES ${expectedValues}) expected(ordinal, relname, tgname)
+        JOIN pg_class class ON class.relname = expected.relname
+        JOIN pg_namespace namespace ON namespace.oid = class.relnamespace
+          AND namespace.nspname = 'public'
+        JOIN pg_trigger trigger ON trigger.tgrelid = class.oid
+          AND trigger.tgname = expected.tgname;
+      `);
+      assert.equal(clean.status, 0, clean.stderr);
+      assert.equal(clean.stdout.trim(), "27|t");
+    });
+  },
+);
+
+test(
+  "enable refuses cluster-global candidate login while another database is effectively reachable and writable",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const otherDatabase = "candidate_cross_database_trap";
+      assert.equal(context.psql(`CREATE DATABASE ${otherDatabase}`).status, 0);
+      const trap = psqlInDatabase(context, otherDatabase, `
+        CREATE TABLE public.candidate_write_trap (id text PRIMARY KEY);
+        GRANT INSERT ON public.candidate_write_trap
+          TO foodsystems_candidate_worker;
+      `);
+      assert.equal(trap.status, 0, trap.stderr);
+      const beforeRows = candidateRowsSnapshot(context);
+      const enable = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: recoveryEnableEnv(fixture, context.adminUrl),
+        },
+      );
+      const crossDatabaseWrite = psqlInDatabase(
+        context,
+        otherDatabase,
+        "INSERT INTO public.candidate_write_trap(id) VALUES ('must-not-write')",
+        "foodsystems_candidate_worker",
+      );
+      const trapCount = psqlInDatabase(
+        context,
+        otherDatabase,
+        "SELECT count(*) FROM public.candidate_write_trap",
+      );
+      assert.equal(trapCount.status, 0, trapCount.stderr);
+      const targetDisabled = context.psql(`
+        SELECT
+          bool_and(NOT rolcanlogin),
+          (SELECT count(*) = 0 FROM pg_stat_activity
+           WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler')),
+          NOT EXISTS (
+            SELECT 1
+            FROM pg_proc procedure
+            JOIN pg_namespace namespace ON namespace.oid = procedure.pronamespace
+            CROSS JOIN (VALUES
+              ('foodsystems_candidate_worker'),
+              ('foodsystems_candidate_reconciler')
+            ) candidate(role_name)
+            WHERE namespace.nspname <> 'information_schema'
+              AND namespace.nspname !~ '^pg_'
+              AND has_function_privilege(candidate.role_name, procedure.oid, 'EXECUTE')
+          )
+        FROM pg_roles
+        WHERE rolname IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler');
+      `);
+      assert.equal(targetDisabled.status, 0, targetDisabled.stderr);
+      assert.deepEqual(
+        {
+          enableFailed: enable.status !== 0,
+          explainsIsolation: /other database.*CONNECT|CONNECT.*other database/i.test(
+            `${enable.stdout}${enable.stderr}`,
+          ),
+          crossDatabaseWriteFailed: crossDatabaseWrite.status !== 0,
+          trapRows: trapCount.stdout.trim(),
+          targetDisabled: targetDisabled.stdout.trim(),
+          candidateRowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+        },
+        {
+          enableFailed: true,
+          explainsIsolation: true,
+          crossDatabaseWriteFailed: true,
+          trapRows: "0",
+          targetDisabled: "t|t|t",
+          candidateRowsUnchanged: true,
+        },
+        `${enable.stdout}${enable.stderr}\n${crossDatabaseWrite.stderr}`,
+      );
+    });
+  },
+);
+
+test(
+  "candidate login roles cannot bypass writer invariants with direct INSERT on any writer surface",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const analysis = candidateAnalysisFixture({
+        contentUnitId: "content:raw-authority:1",
+        runId: "run:raw-authority:1",
+        assertionId: "assertion:raw-authority:1",
+      });
+      const adminPrisma = rolePrisma(context.adminUrl);
+      try {
+        await adminPrisma.candidateContentUnit.create({ data: analysis.contentUnit });
+        const adminWriter = createCandidateAnalysisWriter(adminPrisma);
+        await adminWriter.createRun(analysis.run);
+        await adminWriter.appendRunEvent(analysis.events.started);
+        await adminWriter.appendAssertion(analysis.assertion);
+      } finally {
+        await adminPrisma.$disconnect();
+      }
+      const enabled = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: recoveryEnableEnv(fixture, context.adminUrl),
+        },
+      );
+      assert.equal(enabled.status, 0, `${enabled.stdout}${enabled.stderr}`);
+      const beforeRows = candidateRowsSnapshot(context);
+      const jsonb = (value: unknown) =>
+        `$candidate_json$${JSON.stringify(value)}$candidate_json$::jsonb`;
+      const invalidCreate = {
+        ...analysis.run,
+        id: "run:raw-function:invalid",
+        scopeHash: "f".repeat(64),
+        initialEvent: {
+          ...analysis.run.initialEvent,
+          id: "event:run:raw-function:invalid:1",
+          runId: "run:raw-function:invalid",
+        },
+      };
+      const rawRun = (id: string, purpose: string) => {
+        const scopeHash = candidateAnalysisRunScopeHash(id);
+        const initialEvent = {
+          ...analysis.run.initialEvent,
+          id: `event:${id}:1`,
+          runId: id,
+          scopeHash,
+        };
+        initialEvent.eventHash = candidateAnalysisRunEventHash(initialEvent);
+        const run = {
+          ...analysis.run,
+          id,
+          purpose,
+          scopeHash,
+          initialEvent,
+        };
+        run.idempotencyKey = candidateAnalysisRunIdempotencyKey(run);
+        return run;
+      };
+      const malformedInitialEventIdRun = rawRun(
+        "run:raw-function:malformed-initial-event-id",
+        "database boundary malformed initial event id probe",
+      );
+      malformedInitialEventIdRun.initialEvent.id = "INVALID_INITIAL_EVENT_ID";
+      malformedInitialEventIdRun.initialEvent.eventHash =
+        candidateAnalysisRunEventHash(malformedInitialEventIdRun.initialEvent);
+      const malformedWorkerIdRun = rawRun(
+        "run:raw-function:malformed-worker-id",
+        "database boundary malformed worker id probe",
+      );
+      malformedWorkerIdRun.workerId = "INVALID WORKER ID";
+      const stringPositionRun = rawRun(
+        "run:raw-function:string-input-position",
+        "database boundary string input position probe",
+      );
+      const rawStringPositionRun = {
+        ...stringPositionRun,
+        inputs: stringPositionRun.inputs.map((input) => ({
+          ...input,
+          position: "0",
+        })),
+      };
+      const invalidScopeKey = "INVALID_ASSERTION_SCOPE";
+      const assertionProbe = (id: string, value: string) => {
+        const payload = {
+          namespace: "candidate" as const,
+          kind: "assertion" as const,
+          data: {
+            entries: [
+              {
+                role: "proposition" as const,
+                valueType: "text" as const,
+                value,
+              },
+            ],
+          },
+        };
+        return {
+          ...analysis.assertion,
+          id,
+          payload,
+          payloadHash: candidateAnalysisAssertionPayloadHash(payload),
+        };
+      };
+      const reconciliationScope = { runId: analysis.run.id };
+      const reconciliationPayload = {
+        namespace: "candidate" as const,
+        kind: "reconciliation" as const,
+        data: {
+          entries: [
+            {
+              role: "summary" as const,
+              valueType: "text" as const,
+              value: "No conflict found.",
+            },
+          ],
+        },
+      };
+      const invalidFunctionAttempts = [
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('not_allowed', '{}'::jsonb)`,
+          /candidate_writer_operation_invalid/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('create_run', ${jsonb(invalidCreate)})`,
+          /candidate_run_(?:integrity|scope|idempotency)_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('create_run', ${jsonb(malformedInitialEventIdRun)})`,
+          /candidate_initial_event_invalid/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('create_run', ${jsonb(malformedWorkerIdRun)})`,
+          /candidate_run_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('create_run', ${jsonb(rawStringPositionRun)})`,
+          /candidate_run_input_schema_invalid/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_event', ${jsonb({
+            ...analysis.events.checkpoint1,
+            eventHash: "f".repeat(64),
+          })})`,
+          /candidate_event_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_event', ${jsonb({
+            ...analysis.events.checkpoint1,
+            sequence: "3",
+          })})`,
+          /candidate_event_input_schema_invalid/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_artifact', ${jsonb({
+            ...analysis.artifact,
+            payloadHash: "f".repeat(64),
+          })})`,
+          /candidate_artifact_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_assertion', ${jsonb({
+            ...analysis.assertion,
+            id: "assertion:raw-function:invalid",
+            payloadHash: "f".repeat(64),
+          })})`,
+          /candidate_assertion_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_assertion', ${jsonb({
+            ...assertionProbe(
+              "assertion:raw-function:invalid-scope-key",
+              "Invalid scope key procedure probe.",
+            ),
+            scopeKey: invalidScopeKey,
+            scopeHash: candidateAnalysisAssertionScopeHash(invalidScopeKey),
+          })})`,
+          /candidate_assertion_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_assertion', ${jsonb({
+            ...assertionProbe(
+              "assertion:raw-function:invalid-limitations-type",
+              "Invalid limitations procedure probe.",
+            ),
+            limitations: [7],
+          })})`,
+          /candidate_assertion_input_schema_invalid/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_evidence', ${jsonb({
+            ...analysis.evidenceLink,
+            id: "evidence:raw-function:invalid",
+            locatorHash: "f".repeat(64),
+          })})`,
+          /candidate_evidence_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_evidence', ${jsonb({
+            ...analysis.evidenceLink,
+            id: "evidence:raw-function:empty-locator",
+            locator: "",
+            locatorHash: candidateAnalysisEvidenceLocatorHash(""),
+          })})`,
+          /candidate_evidence_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_worker",
+          `SELECT public.candidate_worker_append('append_dependency', ${jsonb({
+            id: "dependency:raw-function:invalid",
+            assertionId: analysis.assertion.id,
+            upstreamAssertionId: analysis.assertion.id,
+            relation: "derived_from",
+            inheritedLimitations: [...analysis.assertion.limitations].sort(),
+          })})`,
+          /candidate_dependency_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_reconciler",
+          `SELECT public.candidate_reconciler_append(${jsonb({
+            id: "snapshot:raw-function:invalid",
+            runId: analysis.run.id,
+            scope: { runId: analysis.run.id },
+            scopeHash: "f".repeat(64),
+            payload: {
+              namespace: "candidate",
+              kind: "reconciliation",
+              data: { entries: [] },
+            },
+            payloadHash: "f".repeat(64),
+            conflictCount: 0,
+          })})`,
+          /candidate_reconciliation_integrity_mismatch/i,
+        ],
+        [
+          "foodsystems_candidate_reconciler",
+          `SELECT public.candidate_reconciler_append(${jsonb({
+            id: "snapshot:raw-function:string-conflict-count",
+            runId: analysis.run.id,
+            scope: reconciliationScope,
+            scopeHash:
+              candidateAnalysisReconciliationScopeHash(reconciliationScope),
+            payload: reconciliationPayload,
+            payloadHash:
+              candidateAnalysisReconciliationPayloadHash(reconciliationPayload),
+            conflictCount: "0",
+          })})`,
+          /candidate_reconciliation_input_schema_invalid/i,
+        ],
+      ] as const;
+      const bypassedFunctionAttempts: string[] = [];
+      for (const [role, sql, expectedError] of invalidFunctionAttempts) {
+        const attempted = psqlInDatabase(
+          context,
+          context.database,
+          `BEGIN; ${sql}; ROLLBACK;`,
+          role,
+        );
+        if (attempted.status === 0) {
+          bypassedFunctionAttempts.push(expectedError.source);
+          continue;
+        }
+        assert.match(attempted.stderr, expectedError);
+        assert.equal(candidateRowsSnapshot(context), beforeRows);
+      }
+      assert.deepEqual(
+        bypassedFunctionAttempts,
+        [],
+        "actual candidate roles bypassed audited function input contracts",
+      );
+      const attempts = [
+        ["foodsystems_candidate_worker", "CandidateAnalysisRun"],
+        ["foodsystems_candidate_worker", "CandidateAnalysisRunInput"],
+        ["foodsystems_candidate_worker", "CandidateAnalysisRunEvent"],
+        ["foodsystems_candidate_worker", "CandidateAnalysisArtifact"],
+        ["foodsystems_candidate_worker", "CandidateAssertion"],
+        ["foodsystems_candidate_worker", "CandidateEvidenceLink"],
+        ["foodsystems_candidate_worker", "CandidateDependency"],
+        ["foodsystems_candidate_reconciler", "CandidateReconciliationSnapshot"],
+      ] as const;
+      for (const [role, table] of attempts) {
+        const attempted = psqlInDatabase(
+          context,
+          context.database,
+          `BEGIN; INSERT INTO public."${table}" DEFAULT VALUES; ROLLBACK`,
+          role,
+        );
+        assert.notEqual(attempted.status, 0, `${role} inserted into ${table}`);
+        assert.match(
+          attempted.stderr,
+          new RegExp(`permission denied for table ${table}`, "i"),
+        );
+        assert.equal(candidateRowsSnapshot(context), beforeRows);
+      }
+    });
+  },
+);
+
+test(
+  "post-LOGIN verifier failure cannot rebind fail-safe mutation onto a different live cluster",
+  { timeout: 75_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (targetA) => {
+      const fixtureA = prepareRecoveryFixture(targetA);
+      await withCandidateAnalysisPostgres(t, async (targetB) => {
+        prepareRecoveryFixture(targetB);
+        const enableB = targetB.psql(`
+          ALTER ROLE foodsystems_candidate_worker LOGIN;
+          ALTER ROLE foodsystems_candidate_reconciler LOGIN;
+        `);
+        assert.equal(enableB.status, 0, enableB.stderr);
+        const rowsA = candidateRowsSnapshot(targetA);
+        const rowsB = candidateRowsSnapshot(targetB);
+        const authorityB = candidateAuthoritySnapshot(targetB);
+        const tempRoot = mkdtempSync(join(tmpdir(), "candidate-failsafe-rebind-"));
+        const fakePsql = join(tempRoot, "psql");
+        const reboundMarker = join(tempRoot, "post-login-verifier-failed");
+        const realPsql = postgresPath().split(":")[0] + "/psql";
+        writeFileSync(
+          fakePsql,
+          `#!/bin/sh
+case "$1" in
+  *foodsystems_candidate_worker*)
+    : > "$REBOUND_MARKER"
+    exit 97
+    ;;
+esac
+if [ -f "$REBOUND_MARKER" ] && [ "$1" = "$REBOUND_SOURCE_URL" ]; then
+  shift
+  exec "$REAL_PSQL" "$REBOUND_TARGET_URL" "$@"
+fi
+exec "$REAL_PSQL" "$@"
+`,
+        );
+        chmodSync(fakePsql, 0o755);
+        try {
+          const enable = spawnSync(
+            enablePath,
+            ["--apply", "--confirm-existing-credentials"],
+            {
+              cwd: repoRoot,
+              encoding: "utf8",
+              env: {
+                ...recoveryEnableEnv(
+                  fixtureA,
+                  targetA.adminUrl,
+                  `${tempRoot}:${fixtureA.path}`,
+                ),
+                REAL_PSQL: realPsql,
+                REBOUND_MARKER: reboundMarker,
+                REBOUND_SOURCE_URL: targetA.adminUrl,
+                REBOUND_TARGET_URL: targetB.adminUrl,
+              },
+            },
+          );
+          const activeA = targetA.psql(`
+            SELECT bool_and(rolcanlogin),
+              (SELECT count(*) FROM pg_stat_activity
+               WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'))
+            FROM pg_roles
+            WHERE rolname IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler');
+          `);
+          assert.equal(activeA.status, 0, activeA.stderr);
+          assert.deepEqual(
+            {
+              failed: enable.status !== 0,
+              stableIncident: /unresolved_active_security_incident/.test(
+                `${enable.stdout}${enable.stderr}`,
+              ),
+              targetAStillActive: activeA.stdout.trim(),
+              reboundAuthorityUnchanged:
+                candidateAuthoritySnapshot(targetB) === authorityB,
+              targetARowsUnchanged: candidateRowsSnapshot(targetA) === rowsA,
+              targetBRowsUnchanged: candidateRowsSnapshot(targetB) === rowsB,
+            },
+            {
+              failed: true,
+              stableIncident: true,
+              targetAStillActive: "t|0",
+              reboundAuthorityUnchanged: true,
+              targetARowsUnchanged: true,
+              targetBRowsUnchanged: true,
+            },
+            `${enable.stdout}${enable.stderr}`,
+          );
+        } finally {
+          rmSync(tempRoot, { recursive: true, force: true });
+          for (const [context, path] of [
+            [targetA, fixtureA.path],
+            [targetB, postgresPath()],
+          ] as const) {
+            spawnSync(disablePath, ["--apply"], {
+              cwd: repoRoot,
+              encoding: "utf8",
+              env: {
+                ...process.env,
+                PATH: path,
+                DATABASE_ADMIN_URL: context.adminUrl,
+              },
+            });
+          }
+        }
+      });
+    });
+  },
+);
+
+test(
+  "post-LOGIN fail-safe catalog blocker is bounded and reports an unresolved active security incident",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const beforeRows = candidateRowsSnapshot(context);
+      const tempRoot = mkdtempSync(join(tmpdir(), "candidate-failsafe-blocker-"));
+      const barrier = writePostActivationVerifierBarrier(tempRoot);
+      let blocker: ChildProcess | null = null;
+      try {
+        const enable = spawn(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            env: {
+              ...recoveryEnableEnv(fixture, context.adminUrl, barrier.path),
+              ACTIVATION_MARKER_FILE: barrier.markerFile,
+              ACTIVATION_RELEASE_FILE: barrier.releaseFile,
+              REAL_PSQL: barrier.realPsql,
+            },
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        let output = "";
+        enable.stdout?.on("data", (chunk) => { output += chunk.toString(); });
+        enable.stderr?.on("data", (chunk) => { output += chunk.toString(); });
+        const enableExit = childExit(enable, 15_000);
+        await waitFor(
+          () => existsSync(barrier.markerFile) || enable.exitCode !== null,
+          "enable never reached the post-LOGIN verifier barrier",
+        );
+        assert.ok(existsSync(barrier.markerFile), output);
+
+        blocker = spawn(
+          "psql",
+          [
+            "-X", "-h", "127.0.0.1", "-p", String(context.port),
+            "-U", "postgres", "-d", context.database, "-v", "ON_ERROR_STOP=1",
+            "-c", "BEGIN; LOCK TABLE pg_catalog.pg_shdepend IN ACCESS EXCLUSIVE MODE; SELECT pg_sleep(30)",
+          ],
+          {
+            cwd: repoRoot,
+            env: {
+              ...process.env,
+              PATH: fixture.path,
+              PGAPPNAME: "candidate-failsafe-catalog-blocker",
+            },
+            stdio: "ignore",
+          },
+        );
+        await waitFor(
+          () => context.psql(`
+            SELECT count(*) FROM pg_locks lock
+            JOIN pg_class class ON class.oid = lock.relation
+            WHERE class.relname = 'pg_shdepend'
+              AND lock.mode = 'AccessExclusiveLock' AND lock.granted
+          `).stdout.trim() === "1",
+          "fail-safe catalog blocker did not acquire pg_shdepend",
+        );
+        const drift = context.psql(
+          "ALTER ROLE foodsystems_candidate_worker CREATEROLE",
+        );
+        assert.equal(drift.status, 0, drift.stderr);
+        writeFileSync(barrier.releaseFile, "release\n");
+        const status = await enableExit;
+        const unresolvedState = context.psql(`
+          SELECT
+            (SELECT rolcanlogin AND rolcreaterole FROM pg_roles
+             WHERE rolname = 'foodsystems_candidate_worker'),
+            (SELECT rolcanlogin FROM pg_roles
+             WHERE rolname = 'foodsystems_candidate_reconciler'),
+            (SELECT count(*) FROM pg_stat_activity
+             WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'));
+        `);
+        assert.equal(unresolvedState.status, 0, unresolvedState.stderr);
+        assert.deepEqual(
+          {
+            failed: status !== 0,
+            stableIncident: /unresolved_active_security_incident/.test(output),
+            boundedRetry: /lock\/statement timeout|resolve.*retry/i.test(output),
+            unresolvedState: unresolvedState.stdout.trim(),
+            rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+          },
+          {
+            failed: true,
+            stableIncident: true,
+            boundedRetry: true,
+            unresolvedState: "t|t|0",
+            rowsUnchanged: true,
+          },
+          output,
+        );
+      } finally {
+        if (blocker?.exitCode === null) blocker.kill("SIGTERM");
+        if (blocker !== null) await childExit(blocker).catch(() => undefined);
+        context.psql("ALTER ROLE foodsystems_candidate_worker NOCREATEROLE");
+        spawnSync(disablePath, ["--apply"], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            DATABASE_ADMIN_URL: context.adminUrl,
+          },
+        });
+        rmSync(tempRoot, { recursive: true, force: true });
+      }
+    });
+  },
+);
+
+test(
+  "CREATEROLE-only recovery admin cannot expose candidate LOGIN or let an active candidate transaction survive fallback",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const { database, port, psql } = context;
+      const fixture = prepareRecoveryFixture(context);
+      const adminSetup = psql(`
+        CREATE ROLE candidate_recovery_admin LOGIN CREATEROLE;
+        GRANT CONNECT ON DATABASE ${database} TO candidate_recovery_admin;
+      `);
+      assert.equal(adminSetup.status, 0, adminSetup.stderr);
+      const recoveryAdminUrl = `postgresql://candidate_recovery_admin@127.0.0.1:${port}/${database}`;
+      const runId = "run:createrole-survivor";
+      const tempRoot = mkdtempSync(join(tmpdir(), "candidate-createrole-recovery-"));
+      const race = writeRecoveryRacePsql(tempRoot, context);
+      try {
+        const enable = spawn(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            env: {
+              ...recoveryEnableEnv(fixture, recoveryAdminUrl, race.path),
+              RACE_COUNT_FILE: race.countFile,
+              RACE_DATABASE: database,
+              RACE_MARKER_FILE: race.markerFile,
+              RACE_MUTATION_FILE: race.mutationFile,
+              RACE_MUTATION_SQL: `GRANT foodsystems_candidate_worker, foodsystems_candidate_reconciler
+                TO candidate_recovery_admin WITH ADMIN OPTION;`,
+              RACE_PORT: String(port),
+              RACE_RELEASE_FILE: race.releaseFile,
+              REAL_PSQL: race.realPsql,
+            },
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        let output = "";
+        enable.stdout?.on("data", (chunk) => {
+          output += chunk.toString();
+        });
+        enable.stderr?.on("data", (chunk) => {
+          output += chunk.toString();
+        });
+        const enableExit = childExit(enable);
+        await waitFor(
+          () => existsSync(race.markerFile) || enable.exitCode !== null,
+          "CREATEROLE-only recovery neither exposed LOGIN nor failed closed",
+        );
+        const exposedLogin = existsSync(race.markerFile);
+        let candidateTransaction: ChildProcess | null = null;
+        if (exposedLogin) {
+          const scopeHash = candidateAnalysisRunScopeHash(runId);
+          const hash = "b".repeat(64);
+          candidateTransaction = spawn(
+            "psql",
+            [
+              "-X", "-h", "127.0.0.1", "-p", String(port),
+              "-U", "foodsystems_candidate_worker", "-d", database,
+              "-v", "ON_ERROR_STOP=1", "-c", `
+                BEGIN;
+                INSERT INTO public."CandidateAnalysisRun" (
+                  "id", "scopeHash", "workflowId", "workflowVersion", "workflowPath", "workflowHash",
+                  "promptId", "promptVersion", "promptPath", "modelProvider", "modelName",
+                  "modelVersion", "promptHash", "config", "configHash", "inputEnvelopeHash",
+                  "purpose", "outputProfile", "workerId", "idempotencyKey", "attempt"
+                ) VALUES (
+                  '${runId}', '${scopeHash}', 'candidate-analysis', 'v1', 'workflow.md', '${hash}',
+                  'candidate-analysis-prompt', 'v1', 'prompt.md', 'test', 'test-model', 'v1',
+                  '${hash}', '{}', '${hash}', '${hash}', 'survive failed fallback',
+                  'candidate-only', 'test-worker', '${hash}', 1
+                );
+                SELECT pg_sleep(2);
+                COMMIT;
+              `,
+            ],
+            {
+              cwd: repoRoot,
+              env: {
+                ...process.env,
+                PATH: fixture.path,
+                PGAPPNAME: "candidate-createrole-survivor-transaction",
+              },
+              stdio: "ignore",
+            },
+          );
+          await waitFor(
+            () => activityCount(context, "candidate-createrole-survivor-transaction") === "1",
+            "candidate transaction did not become active after exposed LOGIN",
+          );
+          writeFileSync(race.releaseFile, "release\n");
+        }
+        const exitCode = await enableExit;
+        assert.notEqual(exitCode, 0, output);
+        assert.match(output, /connected recovery administrator must be SUPERUSER/);
+        if (candidateTransaction) await childExit(candidateTransaction);
+        const committed = psql(
+          `SELECT count(*) FROM public."CandidateAnalysisRun" WHERE id = '${runId}'`,
+        );
+        assert.equal(committed.status, 0, committed.stderr);
+        assert.equal(
+          `${exposedLogin ? "LOGIN" : "NOLOGIN"}|${committed.stdout.trim()}`,
+          "NOLOGIN|0",
+          "CREATEROLE-only recovery exposed LOGIN and its failed fallback allowed a candidate transaction to commit",
+        );
+      } finally {
+        writeFileSync(race.releaseFile, "release\n");
+        rmSync(tempRoot, { recursive: true, force: true });
+      }
+    });
+  },
+);
+
+test(
+  "bootstrap rejects existing LOGIN and stale exact sessions before mutation, then succeeds only after explicit disable",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const { adminUrl, database, port, psql } = context;
+      const fixture = prepareRecoveryFixture(context);
+      const enabled = psql(`
+        ALTER ROLE foodsystems_candidate_worker LOGIN;
+        ALTER ROLE foodsystems_candidate_reconciler LOGIN;
+      `);
+      assert.equal(enabled.status, 0, enabled.stderr);
+      const workerSession = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "foodsystems_candidate_worker", "-d", database,
+          "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: "candidate-bootstrap-active-worker",
+          },
+          stdio: "ignore",
+        },
+      );
+      const reconcilerSession = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(port),
+          "-U", "foodsystems_candidate_reconciler", "-d", database,
+          "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: "candidate-bootstrap-active-reconciler",
+          },
+          stdio: "ignore",
+        },
+      );
+      await waitFor(
+        () => activityCount(context, "candidate-bootstrap-active-worker") === "1",
+        "bootstrap worker session did not become active",
+      );
+      await waitFor(
+        () => activityCount(context, "candidate-bootstrap-active-reconciler") === "1",
+        "bootstrap reconciler session did not become active",
+      );
+
+      const runBootstrap = () => spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: fixture.path,
+          DATABASE_ADMIN_URL: adminUrl,
+        },
+      });
+      const beforeLoginBootstrap = candidateAuthoritySnapshot(context);
+      const beforeLoginRows = candidateRowsSnapshot(context);
+      const loginBootstrap = runBootstrap();
+      const afterLoginBootstrap = candidateAuthoritySnapshot(context);
+      assert.deepEqual(
+        {
+          statusIsFailure: loginBootstrap.status !== 0,
+          stateUnchanged: afterLoginBootstrap === beforeLoginBootstrap,
+          rowsUnchanged: candidateRowsSnapshot(context) === beforeLoginRows,
+          tellsOperatorToDisable: /disable-candidate-analysis-writes\.sh --apply/i.test(
+            `${loginBootstrap.stdout}${loginBootstrap.stderr}`,
+          ),
+        },
+        {
+          statusIsFailure: true,
+          stateUnchanged: true,
+          rowsUnchanged: true,
+          tellsOperatorToDisable: true,
+        },
+      );
+
+      const noLoginWithStaleSessions = psql(`
+        ALTER ROLE foodsystems_candidate_worker NOLOGIN;
+        ALTER ROLE foodsystems_candidate_reconciler NOLOGIN;
+      `);
+      assert.equal(
+        noLoginWithStaleSessions.status,
+        0,
+        noLoginWithStaleSessions.stderr,
+      );
+      const beforeStaleBootstrap = candidateAuthoritySnapshot(context);
+      const beforeStaleRows = candidateRowsSnapshot(context);
+      const staleBootstrap = runBootstrap();
+      assert.deepEqual(
+        {
+          statusIsFailure: staleBootstrap.status !== 0,
+          stateUnchanged:
+            candidateAuthoritySnapshot(context) === beforeStaleBootstrap,
+          rowsUnchanged: candidateRowsSnapshot(context) === beforeStaleRows,
+          tellsOperatorToDisable: /disable-candidate-analysis-writes\.sh --apply/i.test(
+            `${staleBootstrap.stdout}${staleBootstrap.stderr}`,
+          ),
+        },
+        {
+          statusIsFailure: true,
+          stateUnchanged: true,
+          rowsUnchanged: true,
+          tellsOperatorToDisable: true,
+        },
+      );
+
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: fixture.path,
+          DATABASE_ADMIN_URL: adminUrl,
+        },
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      await Promise.all([childExit(workerSession), childExit(reconcilerSession)]);
+      const safeBootstrap = runBootstrap();
+      assert.equal(safeBootstrap.status, 0, safeBootstrap.stderr);
+      const finalState = psql(`
+        SELECT
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+          has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+          (SELECT count(*) FROM pg_stat_activity
+            WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'));
+      `);
+      assert.equal(finalState.status, 0, finalState.stderr);
+      assert.equal(finalState.stdout.trim(), "t|t|f|f|0");
+    });
+  },
+);
+
+test(
+  "stale gateway database-session-drain terminates only target-database clients and rolls back hidden candidate writes",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const expectedAuthority = candidateAuthoritySnapshot(context);
+      const controlDatabase = "candidate_recovery_control";
+      const gatewayApp = "candidate-recovery-stale-gateway";
+      const targetApp = "candidate-recovery-target-client";
+      const controlApp = "candidate-recovery-other-database";
+      const runId = "run:recovery-hidden-gateway";
+      const analysis = candidateAnalysisFixture({
+        contentUnitId: "content:recovery-hidden-gateway",
+        runId,
+      });
+      const adminPrisma = rolePrisma(context.adminUrl);
+      try {
+        await adminPrisma.candidateContentUnit.create({ data: analysis.contentUnit });
+      } finally {
+        await adminPrisma.$disconnect();
+      }
+      const runPayload = `$candidate_run$${JSON.stringify(analysis.run)}$candidate_run$::jsonb`;
+      const gatewaySetup = context.psql(`
+        CREATE ROLE candidate_gateway LOGIN;
+        GRANT foodsystems_candidate_worker TO candidate_gateway;
+      `);
+      assert.equal(gatewaySetup.status, 0, gatewaySetup.stderr);
+      const controlCreated = context.psql(`CREATE DATABASE ${controlDatabase}`);
+      assert.equal(controlCreated.status, 0, controlCreated.stderr);
+      assert.equal(
+        context.psql(`REVOKE CONNECT ON DATABASE ${controlDatabase} FROM PUBLIC`).status,
+        0,
+      );
+
+      const gateway = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "candidate_gateway", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c", `
+            SET ROLE foodsystems_candidate_worker;
+            BEGIN;
+            SELECT public.candidate_worker_append('create_run', ${runPayload});
+            SELECT pg_sleep(60);
+            COMMIT;
+          `,
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: gatewayApp,
+          },
+          stdio: "ignore",
+        },
+      );
+      const targetClient = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: targetApp,
+          },
+          stdio: "ignore",
+        },
+      );
+      const controlClient = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", controlDatabase,
+          "-v", "ON_ERROR_STOP=1", "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: controlApp,
+          },
+          stdio: "ignore",
+        },
+      );
+
+      try {
+        await waitFor(
+          () => activityCount(context, gatewayApp) === "1",
+          "stale gateway did not become active",
+        );
+        await waitFor(
+          () => activityCount(context, targetApp) === "1",
+          "unrelated target-database client did not become active",
+        );
+        await waitFor(
+          () => activityCount(context, controlApp) === "1",
+          "other-database control did not become active",
+        );
+
+        const disabled = spawnSync(disablePath, ["--apply"], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            DATABASE_ADMIN_URL: context.adminUrl,
+          },
+        });
+        assert.equal(disabled.status, 0, disabled.stderr);
+        const disabledState = context.psql(`
+          SELECT
+            NOT (SELECT rolcanlogin FROM pg_roles
+              WHERE rolname = 'foodsystems_candidate_worker'),
+            NOT (SELECT rolcanlogin FROM pg_roles
+              WHERE rolname = 'foodsystems_candidate_reconciler'),
+            NOT has_table_privilege(
+              'foodsystems_candidate_worker',
+              'public."CandidateAnalysisRun"',
+              'INSERT'
+            ),
+            NOT EXISTS (
+              SELECT 1 FROM pg_auth_members membership
+              JOIN pg_roles granted ON granted.oid = membership.roleid
+              JOIN pg_roles member ON member.oid = membership.member
+              WHERE granted.rolname IN (
+                'foodsystems_candidate_worker',
+                'foodsystems_candidate_reconciler'
+              ) OR member.rolname IN (
+                'foodsystems_candidate_worker',
+                'foodsystems_candidate_reconciler'
+              )
+            );
+        `);
+        assert.equal(disabledState.status, 0, disabledState.stderr);
+        assert.equal(disabledState.stdout.trim(), "t|t|t|t");
+        assert.equal(activityCount(context, gatewayApp), "1");
+
+        const beforeRows = candidateRowsSnapshot(context);
+        const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            DATABASE_ADMIN_URL: context.adminUrl,
+          },
+        });
+        assert.equal(bootstrap.status, 0, bootstrap.stderr);
+        await waitFor(
+          () => gateway.exitCode !== null,
+          "stale gateway process did not observe database-session drain",
+        );
+        await waitFor(
+          () => targetClient.exitCode !== null,
+          "target-database client did not observe database-session drain",
+        );
+        assert.equal(activityCount(context, gatewayApp), "0");
+        assert.equal(activityCount(context, targetApp), "0");
+        assert.equal(activityCount(context, controlApp), "1");
+        assert.equal(
+          candidateRowsSnapshot(context),
+          beforeRows,
+          "stale gateway INSERT committed instead of rolling back",
+        );
+        assert.equal(
+          candidateAuthoritySnapshot(context),
+          expectedAuthority,
+          "bootstrap did not restore the exact NOLOGIN authority baseline",
+        );
+      } finally {
+        const cleanup = context.psql(`
+          SELECT pg_terminate_backend(pid)
+          FROM pg_stat_activity
+          WHERE application_name IN ('${gatewayApp}', '${targetApp}', '${controlApp}');
+        `);
+        assert.equal(cleanup.status, 0, cleanup.stderr);
+        await Promise.all([
+          childExit(gateway),
+          childExit(targetClient),
+          childExit(controlClient),
+        ]);
+      }
+    });
+  },
+);
+
+test(
+  "cleanup failure pressure still reaps a stubborn child and removes later resources",
+  { timeout: 5_000 },
+  async () => {
+    const tempRoot = mkdtempSync(join(tmpdir(), "candidate-cleanup-pressure-"));
+    const readyFile = join(tempRoot, "child-ready");
+    const stubbornChild = spawn(
+      process.execPath,
+      [
+        "-e",
+        `require("node:fs").writeFileSync(process.env.READY_FILE, "ready"); process.on("SIGTERM", () => {}); setInterval(() => {}, 1000)`,
+      ],
+      {
+        cwd: repoRoot,
+        env: { ...process.env, READY_FILE: readyFile },
+        stdio: "ignore",
+      },
+    );
+
+    try {
+      await waitFor(
+        () => existsSync(readyFile),
+        "cleanup-pressure child did not become ready",
+      );
+      let cleanupFailure: unknown;
+      try {
+        await runBestEffortCleanup([
+          {
+            label: "injected first cleanup failure",
+            run: () => {
+              throw new Error("injected cleanup failure");
+            },
+          },
+          {
+            label: "signal stubborn cleanup child",
+            run: () => {
+              stubbornChild.kill("SIGTERM");
+            },
+          },
+          {
+            label: "bounded stubborn child reap",
+            run: async () => {
+              await childExit(stubbornChild, 100);
+            },
+          },
+          {
+            label: "remove cleanup-pressure temp directory",
+            run: () => rmSync(tempRoot, { recursive: true, force: true }),
+          },
+        ]);
+      } catch (error) {
+        cleanupFailure = error;
+      }
+
+      assert.deepEqual(
+        {
+          aggregated: cleanupFailure instanceof AggregateError,
+          childReaped: childHasExited(stubbornChild),
+          tempDirectoryRemoved: !existsSync(tempRoot),
+          reportsInjectedFailure: cleanupFailure instanceof AggregateError
+            && cleanupFailure.errors.some((error) =>
+              String(error).includes("injected first cleanup failure")
+            ),
+          reportsBoundedReap: cleanupFailure instanceof AggregateError
+            && cleanupFailure.errors.some((error) =>
+              String(error).includes("bounded stubborn child reap")
+            ),
+        },
+        {
+          aggregated: true,
+          childReaped: true,
+          tempDirectoryRemoved: true,
+          reportsInjectedFailure: true,
+          reportsBoundedReap: true,
+        },
+      );
+    } finally {
+      if (!childHasExited(stubbornChild)) stubbornChild.kill("SIGKILL");
+      await childExit(stubbornChild, 1_000).catch(() => undefined);
+      rmSync(tempRoot, { recursive: true, force: true });
+    }
+  },
+);
+
+test(
+  "cleanup failure preserves the primary operation error with aggregate diagnostics",
+  async () => {
+    const primaryFailure = new Error("primary operation failed");
+    const diagnostics = createCleanupDiagnostics();
+    let primaryDiagnostics: CleanupDiagnosticsSink | undefined;
+    let visibleFailure: unknown;
+    let laterCleanupAttempted = false;
+
+    try {
+      try {
+        throw primaryFailure;
+      } catch (error) {
+        primaryDiagnostics = capturePrimaryCleanupDiagnostics(
+          diagnostics,
+          error,
+        );
+        throw error;
+      } finally {
+        await runBestEffortCleanup([
+          {
+            label: "injected cleanup failure",
+            run: () => {
+              throw new Error("cleanup operation failed");
+            },
+          },
+          {
+            label: "later cleanup control",
+            run: () => {
+              laterCleanupAttempted = true;
+            },
+          },
+        ], primaryDiagnostics);
+      }
+    } catch (error) {
+      visibleFailure = error;
+    }
+
+    const cleanupDiagnostics = readCleanupDiagnostics(diagnostics);
+    const cleanupFailures = cleanupDiagnostics.cleanupFailures[0];
+    assert.deepEqual(
+      {
+        primaryIdentityPreserved: visibleFailure === primaryFailure,
+        primaryMessage: visibleFailure instanceof Error
+          ? visibleFailure.message
+          : String(visibleFailure),
+        cleanupIsAggregate: cleanupFailures instanceof AggregateError,
+        cleanupIsMachineReadable: cleanupFailures instanceof AggregateError
+          && cleanupFailures.errors.some((error) =>
+            String(error).includes("injected cleanup failure")
+          ),
+        diagnosticsCorrelated: Object.is(
+          cleanupDiagnostics.primaryFailure,
+          primaryFailure,
+        ),
+        primaryWasRecorded: cleanupDiagnostics.primaryFailureRecorded,
+        laterCleanupAttempted,
+      },
+      {
+        primaryIdentityPreserved: true,
+        primaryMessage: "primary operation failed",
+        cleanupIsAggregate: true,
+        cleanupIsMachineReadable: true,
+        diagnosticsCorrelated: true,
+        primaryWasRecorded: true,
+        laterCleanupAttempted: true,
+      },
+    );
+  },
+);
+
+test(
+  "cleanup failure cannot mask frozen, property-hostile, or proxy Error primaries",
+  async () => {
+    let throwingPropertyTouches = 0;
+    const throwingProperty = new Error("throwing-property primary");
+    Object.defineProperty(throwingProperty, "cleanupFailures", {
+      configurable: false,
+      get: () => {
+        throwingPropertyTouches += 1;
+        throw new Error("cleanupFailures getter trap");
+      },
+      set: () => {
+        throwingPropertyTouches += 1;
+        throw new Error("cleanupFailures setter trap");
+      },
+    });
+    const nonWritableProperty = new Error("non-writable-property primary");
+    Object.defineProperty(nonWritableProperty, "cleanupFailures", {
+      configurable: false,
+      value: "user-owned cleanupFailures value",
+      writable: false,
+    });
+    let proxyMutationTouches = 0;
+    const proxyPrimary = new Proxy(new Error("proxy primary"), {
+      defineProperty: () => {
+        proxyMutationTouches += 1;
+        throw new Error("proxy defineProperty trap");
+      },
+      set: () => {
+        proxyMutationTouches += 1;
+        throw new Error("proxy set trap");
+      },
+    });
+    const cases = [
+      { label: "frozen", primary: Object.freeze(new Error("frozen primary")) },
+      { label: "non-writable", primary: nonWritableProperty },
+      { label: "throwing-property", primary: throwingProperty },
+      { label: "proxy", primary: proxyPrimary },
+    ];
+    const outcomes = [];
+
+    for (const { label, primary } of cases) {
+      const diagnostics = createCleanupDiagnostics();
+      let primaryDiagnostics: CleanupDiagnosticsSink | undefined;
+      let visibleFailure: unknown;
+      let laterCleanupAttempted = false;
+      try {
+        try {
+          throw primary;
+        } catch (error) {
+          primaryDiagnostics = capturePrimaryCleanupDiagnostics(
+            diagnostics,
+            error,
+          );
+          throw error;
+        } finally {
+          await runBestEffortCleanup([
+            {
+              label: `${label} cleanup failure`,
+              run: () => {
+                throw new Error(`${label} cleanup failed`);
+              },
+            },
+            {
+              label: `${label} later cleanup control`,
+              run: () => {
+                laterCleanupAttempted = true;
+              },
+            },
+          ], primaryDiagnostics);
+        }
+      } catch (error) {
+        visibleFailure = error;
+      }
+      const cleanupDiagnostics = readCleanupDiagnostics(diagnostics);
+      outcomes.push({
+        cleanupIsAggregate:
+          cleanupDiagnostics.cleanupFailures[0] instanceof AggregateError,
+        diagnosticsCorrelated: Object.is(
+          cleanupDiagnostics.primaryFailure,
+          primary,
+        ),
+        primaryWasRecorded: cleanupDiagnostics.primaryFailureRecorded,
+        label,
+        primaryIdentityPreserved: Object.is(visibleFailure, primary),
+        visibleMessage: visibleFailure instanceof Error
+          ? visibleFailure.message
+          : String(visibleFailure),
+        visibleStack: visibleFailure instanceof Error
+          ? visibleFailure.stack
+          : undefined,
+        expectedMessage: primary.message,
+        expectedStack: primary.stack,
+        laterCleanupAttempted,
+      });
+    }
+
+    assert.deepEqual(
+      {
+        outcomes,
+        proxyMutationTouches,
+        throwingPropertyTouches,
+      },
+      {
+        outcomes: cases.map(({ label, primary }) => ({
+          cleanupIsAggregate: true,
+          diagnosticsCorrelated: true,
+          label,
+          primaryIdentityPreserved: true,
+          primaryWasRecorded: true,
+          visibleMessage: primary.message,
+          visibleStack: primary.stack,
+          expectedMessage: primary.message,
+          expectedStack: primary.stack,
+          laterCleanupAttempted: true,
+        })),
+        proxyMutationTouches: 0,
+        throwingPropertyTouches: 0,
+      },
+    );
+  },
+);
+
+test(
+  "cleanup failure preserves exact primitive thrown values",
+  async () => {
+    const primaries: unknown[] = [
+      undefined,
+      null,
+      false,
+      0,
+      -0,
+      Number.NaN,
+      "",
+      BigInt(42),
+      Symbol("primitive primary"),
+    ];
+    const outcomes = [];
+
+    for (const primary of primaries) {
+      const diagnostics = createCleanupDiagnostics();
+      let primaryDiagnostics: CleanupDiagnosticsSink | undefined;
+      let visibleFailure: unknown;
+      let laterCleanupAttempted = false;
+      try {
+        try {
+          throw primary;
+        } catch (error) {
+          primaryDiagnostics = capturePrimaryCleanupDiagnostics(
+            diagnostics,
+            error,
+          );
+          throw error;
+        } finally {
+          await runBestEffortCleanup([
+            {
+              label: "primitive cleanup failure",
+              run: () => {
+                throw new Error("primitive cleanup failed");
+              },
+            },
+            {
+              label: "primitive later cleanup control",
+              run: () => {
+                laterCleanupAttempted = true;
+              },
+            },
+          ], primaryDiagnostics);
+        }
+      } catch (error) {
+        visibleFailure = error;
+      }
+      const cleanupDiagnostics = readCleanupDiagnostics(diagnostics);
+      outcomes.push({
+        cleanupIsAggregate:
+          cleanupDiagnostics.cleanupFailures[0] instanceof AggregateError,
+        diagnosticsCorrelated: Object.is(
+          cleanupDiagnostics.primaryFailure,
+          primary,
+        ),
+        primaryWasRecorded: cleanupDiagnostics.primaryFailureRecorded,
+        exactPrimaryPreserved: Object.is(visibleFailure, primary),
+        laterCleanupAttempted,
+      });
+    }
+
+    assert.deepEqual(
+      outcomes,
+      primaries.map(() => ({
+        cleanupIsAggregate: true,
+        diagnosticsCorrelated: true,
+        exactPrimaryPreserved: true,
+        laterCleanupAttempted: true,
+        primaryWasRecorded: true,
+      })),
+    );
+  },
+);
+
+test(
+  "equal primitive primaries keep concurrent cleanup diagnostics isolated",
+  async () => {
+    const primary = 0;
+    const observed: ObservableCleanupDiagnostics[] = [];
+
+    const exercise = async (callSite: string): Promise<unknown> => {
+      try {
+        await runRecoveryCleanupCallSite({
+          callSite,
+          run: async () => {
+            throw primary;
+          },
+          cleanupSteps: [
+            {
+              label: `${callSite} cleanup failure`,
+              run: () => {
+                throw new Error(`${callSite} cleanup failed`);
+              },
+            },
+          ],
+          report: (diagnostics) => {
+            observed.push(diagnostics);
+          },
+        });
+      } catch (error) {
+        return error;
+      }
+      return Symbol("missing primary");
+    };
+
+    const visible = await Promise.all([
+      exercise("equal-primitive-a"),
+      exercise("equal-primitive-b"),
+    ]);
+    const observedByCallSite = [...observed].sort((left, right) =>
+      left.callSite.localeCompare(right.callSite)
+    );
+
+    assert.deepEqual(
+      {
+        cleanupLabels: observedByCallSite.map((diagnostics) =>
+          (diagnostics.cleanupFailures[0]?.errors[0] as CleanupStepFailure)
+            .label
+        ),
+        correlationsAreUnique:
+          new Set(observed.map(({ correlationId }) => correlationId)).size === 2,
+        exactPrimaries: visible.map((failure) => Object.is(failure, primary)),
+        observedCallSites: observedByCallSite.map(({ callSite }) => callSite),
+        observedPrimaries: observedByCallSite.map(({ primaryFailure }) =>
+          Object.is(primaryFailure, primary)
+        ),
+      },
+      {
+        cleanupLabels: [
+          "equal-primitive-a cleanup failure",
+          "equal-primitive-b cleanup failure",
+        ],
+        correlationsAreUnique: true,
+        exactPrimaries: [true, true],
+        observedCallSites: ["equal-primitive-a", "equal-primitive-b"],
+        observedPrimaries: [true, true],
+      },
+    );
+  },
+);
+
+test(
+  "diagnostics storage failure cannot mask an exact primary value",
+  async () => {
+    const invalidDiagnostics = Object.freeze({}) as unknown as
+      CleanupDiagnosticsSink;
+    const primaries: unknown[] = [
+      Object.freeze(new Error("storage-failure primary")),
+      0,
+    ];
+    const outcomes = [];
+
+    for (const primary of primaries) {
+      let visibleFailure: unknown;
+      let laterCleanupAttempted = false;
+      try {
+        try {
+          throw primary;
+        } catch (error) {
+          capturePrimaryCleanupDiagnostics(invalidDiagnostics, error);
+          throw error;
+        } finally {
+          await runBestEffortCleanup([
+            {
+              label: "storage-failure cleanup",
+              run: () => {
+                throw new Error("cleanup before storage failure");
+              },
+            },
+            {
+              label: "storage-failure later cleanup control",
+              run: () => {
+                laterCleanupAttempted = true;
+              },
+            },
+          ], invalidDiagnostics);
+        }
+      } catch (error) {
+        visibleFailure = error;
+      }
+      outcomes.push({
+        exactPrimaryPreserved: Object.is(visibleFailure, primary),
+        laterCleanupAttempted,
+      });
+    }
+
+    assert.deepEqual(
+      outcomes,
+      primaries.map(() => ({
+        exactPrimaryPreserved: true,
+        laterCleanupAttempted: true,
+      })),
+    );
+  },
+);
+
+test(
+  "cleanup diagnostic storage, consume, reporting, and read traps cannot mask the primary",
+  async () => {
+    const outcomes = [];
+
+    const invalidTokenPrimary = Object.freeze(new Error("invalid-token primary"));
+    let invalidTokenVisible: unknown;
+    let invalidTokenLaterCleanup = false;
+    try {
+      await runRecoveryCleanupCallSite({
+        callSite: "invalid-token-pressure",
+        diagnostics: 0 as unknown as CleanupDiagnosticsSink,
+        run: async () => {
+          throw invalidTokenPrimary;
+        },
+        cleanupSteps: [
+          {
+            label: "invalid-token cleanup failure",
+            run: () => {
+              throw new Error("invalid-token cleanup failed");
+            },
+          },
+          {
+            label: "invalid-token later cleanup",
+            run: () => {
+              invalidTokenLaterCleanup = true;
+            },
+          },
+        ],
+        report: () => {
+          throw new Error("invalid-token reporter must not run");
+        },
+      });
+    } catch (error) {
+      invalidTokenVisible = error;
+    }
+    outcomes.push({
+      case: "invalid-token",
+      exactPrimary: invalidTokenVisible === invalidTokenPrimary,
+      laterCleanup: invalidTokenLaterCleanup,
+    });
+
+    let storageAttempts = 0;
+    const storageFailureDiagnostics = Object.freeze({
+      consume: () => ({
+        cleanupFailures: [],
+        primaryFailureRecorded: false,
+      }),
+      recordCleanupFailure: () => {
+        storageAttempts += 1;
+        throw new Error("cleanup diagnostic storage failed");
+      },
+      recordPrimaryFailure: () => {
+        storageAttempts += 1;
+        throw new Error("primary diagnostic storage failed");
+      },
+    }) as unknown as CleanupDiagnosticsSink;
+    const storagePrimary = Object.freeze(new Error("storage primary"));
+    let storageVisible: unknown;
+    let storageLaterCleanup = false;
+    try {
+      await runRecoveryCleanupCallSite({
+        callSite: "storage-failure-pressure",
+        diagnostics: storageFailureDiagnostics,
+        run: async () => {
+          throw storagePrimary;
+        },
+        cleanupSteps: [
+          {
+            label: "storage pressure cleanup failure",
+            run: () => {
+              throw new Error("storage pressure cleanup failed");
+            },
+          },
+          {
+            label: "storage pressure later cleanup",
+            run: () => {
+              storageLaterCleanup = true;
+            },
+          },
+        ],
+        report: () => {
+          throw new Error("storage reporter must not run");
+        },
+      });
+    } catch (error) {
+      storageVisible = error;
+    }
+    outcomes.push({
+      case: "storage-failure",
+      exactPrimary: storageVisible === storagePrimary,
+      laterCleanup: storageLaterCleanup,
+      storageAttempts,
+    });
+
+    let consumeAttempts = 0;
+    const consumeFailureDiagnostics = Object.freeze({
+      consume: () => {
+        consumeAttempts += 1;
+        throw new Error("cleanup diagnostic consume failed");
+      },
+      recordCleanupFailure: () => undefined,
+      recordPrimaryFailure: () => undefined,
+    }) as unknown as CleanupDiagnosticsSink;
+    const consumePrimary = Object.freeze(new Error("consume primary"));
+    let consumeVisible: unknown;
+    let consumeLaterCleanup = false;
+    try {
+      await runRecoveryCleanupCallSite({
+        callSite: "consume-failure-pressure",
+        diagnostics: consumeFailureDiagnostics,
+        run: async () => {
+          throw consumePrimary;
+        },
+        cleanupSteps: [
+          {
+            label: "consume pressure cleanup failure",
+            run: () => {
+              throw new Error("consume pressure cleanup failed");
+            },
+          },
+          {
+            label: "consume pressure later cleanup",
+            run: () => {
+              consumeLaterCleanup = true;
+            },
+          },
+        ],
+        report: () => {
+          throw new Error("consume reporter must not run");
+        },
+      });
+    } catch (error) {
+      consumeVisible = error;
+    }
+    outcomes.push({
+      case: "consume-failure",
+      consumeAttempts,
+      exactPrimary: consumeVisible === consumePrimary,
+      laterCleanup: consumeLaterCleanup,
+    });
+
+    let reporterAttempts = 0;
+    const reporterPrimary = Object.freeze(new Error("reporter primary"));
+    let reporterVisible: unknown;
+    let reporterLaterCleanup = false;
+    try {
+      await runRecoveryCleanupCallSite({
+        callSite: "reporter-failure-pressure",
+        run: async () => {
+          throw reporterPrimary;
+        },
+        cleanupSteps: [
+          {
+            label: "reporter pressure cleanup failure",
+            run: () => {
+              throw new Error("reporter pressure cleanup failed");
+            },
+          },
+          {
+            label: "reporter pressure later cleanup",
+            run: () => {
+              reporterLaterCleanup = true;
+            },
+          },
+        ],
+        report: () => {
+          reporterAttempts += 1;
+          throw new Error("diagnostic reporter failed");
+        },
+      });
+    } catch (error) {
+      reporterVisible = error;
+    }
+    outcomes.push({
+      case: "reporter-failure",
+      exactPrimary: reporterVisible === reporterPrimary,
+      laterCleanup: reporterLaterCleanup,
+      reporterAttempts,
+    });
+
+    let cleanupReadTraps = 0;
+    const hostileCleanupFailure = new Proxy(Object.freeze(Object.create(null)), {
+      get: () => {
+        cleanupReadTraps += 1;
+        throw new Error("cleanup failure get trap");
+      },
+      getOwnPropertyDescriptor: () => {
+        cleanupReadTraps += 1;
+        throw new Error("cleanup failure descriptor trap");
+      },
+      getPrototypeOf: () => {
+        cleanupReadTraps += 1;
+        throw new Error("cleanup failure prototype trap");
+      },
+      has: () => {
+        cleanupReadTraps += 1;
+        throw new Error("cleanup failure has trap");
+      },
+      ownKeys: () => {
+        cleanupReadTraps += 1;
+        throw new Error("cleanup failure ownKeys trap");
+      },
+    });
+    const hostileCleanupPrimary = Object.freeze(
+      new Error("hostile-cleanup primary"),
+    );
+    let hostileCleanupVisible: unknown;
+    let hostileCleanupLater = false;
+    const hostileCleanupReports: ObservableCleanupDiagnostics[] = [];
+    try {
+      await runRecoveryCleanupCallSite({
+        callSite: "cleanup-read-trap-pressure",
+        run: async () => {
+          throw hostileCleanupPrimary;
+        },
+        cleanupSteps: [
+          {
+            label: "hostile cleanup failure",
+            run: () => {
+              throw hostileCleanupFailure;
+            },
+          },
+          {
+            label: "hostile cleanup later control",
+            run: () => {
+              hostileCleanupLater = true;
+            },
+          },
+        ],
+        report: (diagnostics) => {
+          hostileCleanupReports.push(diagnostics);
+        },
+      });
+    } catch (error) {
+      hostileCleanupVisible = error;
+    }
+    outcomes.push({
+      case: "cleanup-read-trap",
+      cleanupReadTraps,
+      diagnosticCount: hostileCleanupReports.length,
+      exactPrimary: hostileCleanupVisible === hostileCleanupPrimary,
+      laterCleanup: hostileCleanupLater,
+    });
+
+    assert.deepEqual(outcomes, [
+      {
+        case: "invalid-token",
+        exactPrimary: true,
+        laterCleanup: true,
+      },
+      {
+        case: "storage-failure",
+        exactPrimary: true,
+        laterCleanup: true,
+        storageAttempts: 2,
+      },
+      {
+        case: "consume-failure",
+        consumeAttempts: 1,
+        exactPrimary: true,
+        laterCleanup: true,
+      },
+      {
+        case: "reporter-failure",
+        exactPrimary: true,
+        laterCleanup: true,
+        reporterAttempts: 1,
+      },
+      {
+        case: "cleanup-read-trap",
+        cleanupReadTraps: 0,
+        diagnosticCount: 1,
+        exactPrimary: true,
+        laterCleanup: true,
+      },
+    ]);
+  },
+);
+
+test(
+  "catalog lock timeout aborts recovery before drain or grant repair",
+  { timeout: 15_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const adminEnv = {
+        ...process.env,
+        PATH: fixture.path,
+        DATABASE_ADMIN_URL:
+          `${context.adminUrl}?application_name=candidate-bootstrap-lock-timeout`,
+      };
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: fixture.path,
+          DATABASE_ADMIN_URL: context.adminUrl,
+        },
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      const blockerApp = "candidate-bootstrap-catalog-lock-blocker";
+      const sleeperApp = "candidate-bootstrap-lock-timeout-sleeper";
+      const blocker = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c",
+          "BEGIN; LOCK TABLE pg_catalog.pg_authid IN SHARE MODE; SELECT pg_sleep(60); COMMIT",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: blockerApp,
+          },
+          stdio: "ignore",
+        },
+      );
+      const sleeper = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: sleeperApp,
+          },
+          stdio: "ignore",
+        },
+      );
+      let bootstrap: ChildProcess | null = null;
+      const pressurePrimary = Object.freeze(
+        new Error("catalog-lock cleanup-observability primary"),
+      );
+      const pressureStack = pressurePrimary.stack;
+      const observedDiagnostics: ObservableCleanupDiagnostics[] = [];
+      const observedDiagnosticMessages: string[] = [];
+      let visibleFailure: unknown;
+
+      try {
+        await runRecoveryCleanupCallSite({
+          callSite: "catalog-lock-timeout",
+          run: async () => {
+            await waitFor(() => {
+              const held = context.psql(`
+                SELECT count(*)
+                FROM pg_locks lock
+                JOIN pg_stat_activity activity ON activity.pid = lock.pid
+                WHERE activity.application_name = '${blockerApp}'
+                  AND lock.relation = 'pg_catalog.pg_authid'::regclass
+                  AND lock.mode = 'ShareLock'
+                  AND lock.granted;
+              `);
+              return held.status === 0 && held.stdout.trim() === "1";
+            }, "catalog lock blocker did not acquire pg_authid ShareLock");
+            await waitFor(
+              () => activityCount(context, sleeperApp) === "1",
+              "lock-timeout sleeper did not become active",
+            );
+            const beforeAuthority = candidateAuthoritySnapshot(context);
+            const beforeRows = candidateRowsSnapshot(context);
+            bootstrap = spawn(bootstrapPath, [...bootstrapApplyArgs], {
+              cwd: repoRoot,
+              env: adminEnv,
+              stdio: ["ignore", "pipe", "pipe"],
+            });
+            let output = "";
+            bootstrap.stdout?.on("data", (chunk) => {
+              output += chunk.toString();
+            });
+            bootstrap.stderr?.on("data", (chunk) => {
+              output += chunk.toString();
+            });
+            let exitCode: number | null = null;
+            let boundedExit = true;
+            try {
+              exitCode = await waitForChildExit(bootstrap, 4_000);
+            } catch (error) {
+              if (!(error instanceof ChildExitTimeoutError)) throw error;
+              boundedExit = false;
+            }
+
+            assert.deepEqual(
+              {
+                boundedFailure: boundedExit && exitCode !== 0,
+                explainsLockTimeout: /lock timeout/i.test(output),
+                blockerStillConnected: activityCount(context, blockerApp),
+                sleeperStillConnected: activityCount(context, sleeperApp),
+                authorityUnchanged:
+                  candidateAuthoritySnapshot(context) === beforeAuthority,
+                rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+              },
+              {
+                boundedFailure: true,
+                explainsLockTimeout: true,
+                blockerStillConnected: "1",
+                sleeperStillConnected: "1",
+                authorityUnchanged: true,
+                rowsUnchanged: true,
+              },
+              output,
+            );
+            throw pressurePrimary;
+          },
+          cleanupSteps: [
+            {
+              label: "injected catalog-lock cleanup failure",
+              run: () => {
+                throw new Error("catalog-lock cleanup failed");
+              },
+            },
+            {
+              label: "terminate catalog-lock pressure sessions",
+              run: () => {
+                const cleanup = context.psql(`
+                  SELECT pg_terminate_backend(pid)
+                  FROM pg_stat_activity
+                  WHERE application_name IN (
+                    '${blockerApp}',
+                    '${sleeperApp}',
+                    'candidate-bootstrap-lock-timeout'
+                  );
+                `);
+                assert.equal(cleanup.status, 0, cleanup.stderr);
+              },
+            },
+            {
+              label: "reap catalog-lock bootstrap",
+              run: async () => {
+                if (bootstrap) await childExit(bootstrap);
+              },
+            },
+            {
+              label: "reap catalog-lock blocker",
+              run: async () => {
+                await childExit(blocker);
+              },
+            },
+            {
+              label: "reap catalog-lock sleeper",
+              run: async () => {
+                await childExit(sleeper);
+              },
+            },
+          ],
+          report: (diagnostics) => {
+            observedDiagnostics.push(diagnostics);
+            const message = serializeCleanupDiagnostics(diagnostics);
+            observedDiagnosticMessages.push(message);
+            t.diagnostic(message);
+          },
+        });
+      } catch (error) {
+        if (error !== pressurePrimary) throw error;
+        visibleFailure = error;
+      }
+      const diagnosticPayload = observedDiagnosticMessages[0]
+        ? JSON.parse(observedDiagnosticMessages[0]) as Record<string, unknown>
+        : undefined;
+
+      assert.deepEqual(
+        {
+          cleanupIsAggregate:
+            observedDiagnostics[0]?.cleanupFailures[0] instanceof
+              AggregateError,
+          diagnosticCount: observedDiagnostics.length,
+          diagnosticPrimary: observedDiagnostics[0]?.primaryFailure,
+          diagnosticPayload: {
+            callSite: diagnosticPayload?.callSite,
+            cleanupFailureCount: diagnosticPayload?.cleanupFailureCount,
+            cleanupStepLabels: diagnosticPayload?.cleanupStepLabels,
+            correlationIsScoped:
+              typeof diagnosticPayload?.correlationId === "string"
+              && diagnosticPayload.correlationId.startsWith(
+                "catalog-lock-timeout:",
+              ),
+            primaryCorrelated: diagnosticPayload?.primaryCorrelated,
+            schema: diagnosticPayload?.schema,
+          },
+          primaryCorrelated: observedDiagnostics[0]?.primaryCorrelated,
+          primaryIdentityPreserved: visibleFailure === pressurePrimary,
+          primaryMessage: pressurePrimary.message,
+          primaryStack: pressurePrimary.stack,
+        },
+        {
+          cleanupIsAggregate: true,
+          diagnosticCount: 1,
+          diagnosticPrimary: pressurePrimary,
+          diagnosticPayload: {
+            callSite: "catalog-lock-timeout",
+            cleanupFailureCount: 1,
+            cleanupStepLabels: ["injected catalog-lock cleanup failure"],
+            correlationIsScoped: true,
+            primaryCorrelated: true,
+            schema: "candidate-recovery-cleanup/v1",
+          },
+          primaryCorrelated: true,
+          primaryIdentityPreserved: true,
+          primaryMessage: "catalog-lock cleanup-observability primary",
+          primaryStack: pressureStack,
+        },
+      );
+    });
+  },
+);
+
+test(
+  "prepared transaction rejects database-session-drain before sleeper, authority, or rows change",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: fixture.path,
+          DATABASE_ADMIN_URL: context.adminUrl,
+        },
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      const prepared = context.psql(
+        "BEGIN; SELECT 1; PREPARE TRANSACTION 'candidate-recovery-pending'",
+      );
+      assert.equal(prepared.status, 0, prepared.stderr);
+      const sleeperApp = "candidate-recovery-prepared-sleeper";
+      const sleeper = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: sleeperApp,
+          },
+          stdio: "ignore",
+        },
+      );
+      const pressurePrimary = 0;
+      const observedDiagnostics: ObservableCleanupDiagnostics[] = [];
+      const observedDiagnosticMessages: string[] = [];
+      let visibleFailure: unknown;
+
+      try {
+        await runRecoveryCleanupCallSite({
+          callSite: "prepared-transaction",
+          run: async () => {
+            await waitFor(
+              () => activityCount(context, sleeperApp) === "1",
+              "prepared-transaction control sleeper did not become active",
+            );
+            const beforeAuthority = candidateAuthoritySnapshot(context);
+            const beforeRows = candidateRowsSnapshot(context);
+            const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+              cwd: repoRoot,
+              encoding: "utf8",
+              env: {
+                ...process.env,
+                PATH: fixture.path,
+                DATABASE_ADMIN_URL: context.adminUrl,
+              },
+            });
+            const preparedAfter = context.psql(`
+              SELECT count(*) FROM pg_prepared_xacts
+              WHERE database = current_database()
+                AND gid = 'candidate-recovery-pending';
+            `);
+            assert.equal(preparedAfter.status, 0, preparedAfter.stderr);
+            assert.deepEqual(
+              {
+                statusIsFailure: bootstrap.status !== 0,
+                explainsPreparedTransaction: /prepared transaction/i.test(
+                  `${bootstrap.stdout}${bootstrap.stderr}`,
+                ),
+                sleeperStillConnected: activityCount(context, sleeperApp),
+                preparedTransactionStillExists: preparedAfter.stdout.trim(),
+                authorityUnchanged:
+                  candidateAuthoritySnapshot(context) === beforeAuthority,
+                rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+              },
+              {
+                statusIsFailure: true,
+                explainsPreparedTransaction: true,
+                sleeperStillConnected: "1",
+                preparedTransactionStillExists: "1",
+                authorityUnchanged: true,
+                rowsUnchanged: true,
+              },
+              `${bootstrap.stdout}${bootstrap.stderr}`,
+            );
+            throw pressurePrimary;
+          },
+          cleanupSteps: [
+            {
+              label: "injected prepared-transaction cleanup failure",
+              run: () => {
+                throw new Error("prepared-transaction cleanup failed");
+              },
+            },
+            {
+              label: "rollback prepared recovery transaction",
+              run: () => {
+                const rollbackPrepared = context.psql(
+                  "ROLLBACK PREPARED 'candidate-recovery-pending'",
+                );
+                assert.equal(
+                  rollbackPrepared.status,
+                  0,
+                  rollbackPrepared.stderr,
+                );
+              },
+            },
+            {
+              label: "terminate prepared-transaction sleeper",
+              run: () => {
+                const cleanup = context.psql(`
+                  SELECT pg_terminate_backend(pid)
+                  FROM pg_stat_activity
+                  WHERE application_name = '${sleeperApp}';
+                `);
+                assert.equal(cleanup.status, 0, cleanup.stderr);
+              },
+            },
+            {
+              label: "reap prepared-transaction sleeper",
+              run: async () => {
+                await childExit(sleeper);
+              },
+            },
+          ],
+          report: (diagnostics) => {
+            observedDiagnostics.push(diagnostics);
+            const message = serializeCleanupDiagnostics(diagnostics);
+            observedDiagnosticMessages.push(message);
+            t.diagnostic(message);
+          },
+        });
+      } catch (error) {
+        if (!Object.is(error, pressurePrimary)) throw error;
+        visibleFailure = error;
+      }
+
+      const preparedGone = context.psql(`
+        SELECT count(*) FROM pg_prepared_xacts
+        WHERE database = current_database()
+          AND gid = 'candidate-recovery-pending';
+      `);
+      assert.equal(preparedGone.status, 0, preparedGone.stderr);
+      const diagnosticPayload = observedDiagnosticMessages[0]
+        ? JSON.parse(observedDiagnosticMessages[0]) as Record<string, unknown>
+        : undefined;
+      assert.deepEqual(
+        {
+          cleanupIsAggregate:
+            observedDiagnostics[0]?.cleanupFailures[0] instanceof
+              AggregateError,
+          diagnosticCount: observedDiagnostics.length,
+          diagnosticPrimary: observedDiagnostics[0]?.primaryFailure,
+          diagnosticPayload: {
+            callSite: diagnosticPayload?.callSite,
+            cleanupFailureCount: diagnosticPayload?.cleanupFailureCount,
+            cleanupStepLabels: diagnosticPayload?.cleanupStepLabels,
+            correlationIsScoped:
+              typeof diagnosticPayload?.correlationId === "string"
+              && diagnosticPayload.correlationId.startsWith(
+                "prepared-transaction:",
+              ),
+            primaryCorrelated: diagnosticPayload?.primaryCorrelated,
+            schema: diagnosticPayload?.schema,
+          },
+          primaryCorrelated: observedDiagnostics[0]?.primaryCorrelated,
+          primaryIdentityPreserved: Object.is(visibleFailure, pressurePrimary),
+          preparedTransactionReaped: preparedGone.stdout.trim(),
+          sleeperReaped: activityCount(context, sleeperApp),
+        },
+        {
+          cleanupIsAggregate: true,
+          diagnosticCount: 1,
+          diagnosticPrimary: pressurePrimary,
+          diagnosticPayload: {
+            callSite: "prepared-transaction",
+            cleanupFailureCount: 1,
+            cleanupStepLabels: [
+              "injected prepared-transaction cleanup failure",
+            ],
+            correlationIsScoped: true,
+            primaryCorrelated: true,
+            schema: "candidate-recovery-cleanup/v1",
+          },
+          primaryCorrelated: true,
+          primaryIdentityPreserved: true,
+          preparedTransactionReaped: "0",
+          sleeperReaped: "0",
+        },
+      );
+    }, { maxPreparedTransactions: 10 });
+  },
+);
+
+test(
+  "survivor guard aborts database-session-drain before grant repair when termination is disabled",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: fixture.path,
+          DATABASE_ADMIN_URL: context.adminUrl,
+        },
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      const beforeAuthority = candidateAuthoritySnapshot(context);
+      const beforeRows = candidateRowsSnapshot(context);
+      const productionBootstrap = readFileSync(bootstrapPath, "utf8");
+      const terminationCall = "pg_terminate_backend(activity.pid, 5000)";
+      assert.equal(
+        productionBootstrap.split(terminationCall).length - 1,
+        1,
+        "production bootstrap must contain exactly one drain termination call",
+      );
+      const tempRoot = mkdtempSync(join(tmpdir(), "candidate-survivor-guard-"));
+      const mutatedBootstrap = join(
+        tempRoot,
+        "bootstrap-candidate-analysis-roles.sh",
+      );
+      writeFileSync(
+        mutatedBootstrap,
+        productionBootstrap.replace(terminationCall, "false"),
+      );
+      writeFileSync(
+        join(tempRoot, "normalize-candidate-postgres-url.mjs"),
+        readFileSync(urlHelperPath, "utf8"),
+      );
+      writeFileSync(
+        join(tempRoot, "reject-ambient-candidate-libpq-env.mjs"),
+        readFileSync(ambientGuardPath, "utf8"),
+      );
+      writeFileSync(
+        join(tempRoot, "read-candidate-security-graph-manifest.mjs"),
+        readFileSync(securityGraphManifestReaderPath, "utf8"),
+      );
+      writeFileSync(
+        join(tempRoot, "candidate-security-graph.v1.json"),
+        readFileSync(securityGraphManifestPath, "utf8"),
+      );
+      writeFileSync(
+        join(tempRoot, "attest-candidate-security-graph.sql"),
+        readFileSync("scripts/attest-candidate-security-graph.sql", "utf8"),
+      );
+      chmodSync(mutatedBootstrap, 0o755);
+      const sleeperApp = "candidate-recovery-survivor-guard";
+      const sleeper = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: sleeperApp,
+          },
+          stdio: "ignore",
+        },
+      );
+      let primaryReadTraps = 0;
+      const pressurePrimary = new Proxy(Object.freeze(Object.create(null)), {
+        get: () => {
+          primaryReadTraps += 1;
+          throw new Error("survivor primary get trap");
+        },
+        getOwnPropertyDescriptor: () => {
+          primaryReadTraps += 1;
+          throw new Error("survivor primary descriptor trap");
+        },
+        getPrototypeOf: () => {
+          primaryReadTraps += 1;
+          throw new Error("survivor primary prototype trap");
+        },
+        has: () => {
+          primaryReadTraps += 1;
+          throw new Error("survivor primary has trap");
+        },
+        ownKeys: () => {
+          primaryReadTraps += 1;
+          throw new Error("survivor primary ownKeys trap");
+        },
+      });
+      const observedDiagnostics: ObservableCleanupDiagnostics[] = [];
+      const observedDiagnosticMessages: string[] = [];
+      let visibleFailure: unknown;
+
+      try {
+        await runRecoveryCleanupCallSite({
+          callSite: "survivor-guard",
+          run: async () => {
+            await waitFor(
+              () => activityCount(context, sleeperApp) === "1",
+              "survivor-guard sleeper did not become active",
+            );
+            const bootstrap = spawnSync(
+              mutatedBootstrap,
+              [...bootstrapApplyArgs],
+              {
+                cwd: repoRoot,
+                encoding: "utf8",
+                env: {
+                  ...process.env,
+                  PATH: fixture.path,
+                  DATABASE_ADMIN_URL: context.adminUrl,
+                },
+              },
+            );
+            assert.notEqual(bootstrap.status, 0);
+            assert.match(
+              `${bootstrap.stdout}${bootstrap.stderr}`,
+              /survived.*drain|drain.*survived/i,
+            );
+            assert.equal(activityCount(context, sleeperApp), "1");
+            assert.equal(candidateAuthoritySnapshot(context), beforeAuthority);
+            assert.equal(candidateRowsSnapshot(context), beforeRows);
+            assert.equal(
+              readFileSync(bootstrapPath, "utf8"),
+              productionBootstrap,
+              "survivor mutation changed the production bootstrap",
+            );
+            throw pressurePrimary;
+          },
+          cleanupSteps: [
+            {
+              label: "injected survivor-guard cleanup failure",
+              run: () => {
+                throw new Error("survivor-guard cleanup failed");
+              },
+            },
+            {
+              label: "terminate survivor-guard sleeper",
+              run: () => {
+                const cleanup = context.psql(`
+                  SELECT pg_terminate_backend(pid)
+                  FROM pg_stat_activity
+                  WHERE application_name = '${sleeperApp}';
+                `);
+                assert.equal(cleanup.status, 0, cleanup.stderr);
+              },
+            },
+            {
+              label: "reap survivor-guard sleeper",
+              run: async () => {
+                await childExit(sleeper);
+              },
+            },
+            {
+              label: "remove survivor-guard temp directory",
+              run: () => rmSync(tempRoot, { recursive: true, force: true }),
+            },
+          ],
+          report: (diagnostics) => {
+            observedDiagnostics.push(diagnostics);
+            const message = serializeCleanupDiagnostics(diagnostics);
+            observedDiagnosticMessages.push(message);
+            t.diagnostic(message);
+          },
+        });
+      } catch (error) {
+        if (!Object.is(error, pressurePrimary)) throw error;
+        visibleFailure = error;
+      }
+      const diagnosticPayload = observedDiagnosticMessages[0]
+        ? JSON.parse(observedDiagnosticMessages[0]) as Record<string, unknown>
+        : undefined;
+
+      assert.deepEqual(
+        {
+          cleanupIsAggregate:
+            observedDiagnostics[0]?.cleanupFailures[0] instanceof
+              AggregateError,
+          diagnosticCount: observedDiagnostics.length,
+          diagnosticPrimary: observedDiagnostics[0]?.primaryFailure,
+          diagnosticPayload: {
+            callSite: diagnosticPayload?.callSite,
+            cleanupFailureCount: diagnosticPayload?.cleanupFailureCount,
+            cleanupStepLabels: diagnosticPayload?.cleanupStepLabels,
+            correlationIsScoped:
+              typeof diagnosticPayload?.correlationId === "string"
+              && diagnosticPayload.correlationId.startsWith("survivor-guard:"),
+            primaryCorrelated: diagnosticPayload?.primaryCorrelated,
+            schema: diagnosticPayload?.schema,
+          },
+          primaryCorrelated: observedDiagnostics[0]?.primaryCorrelated,
+          primaryIdentityPreserved: Object.is(visibleFailure, pressurePrimary),
+          primaryReadTraps,
+          sleeperReaped: activityCount(context, sleeperApp),
+          tempDirectoryRemoved: !existsSync(tempRoot),
+        },
+        {
+          cleanupIsAggregate: true,
+          diagnosticCount: 1,
+          diagnosticPrimary: pressurePrimary,
+          diagnosticPayload: {
+            callSite: "survivor-guard",
+            cleanupFailureCount: 1,
+            cleanupStepLabels: ["injected survivor-guard cleanup failure"],
+            correlationIsScoped: true,
+            primaryCorrelated: true,
+            schema: "candidate-recovery-cleanup/v1",
+          },
+          primaryCorrelated: true,
+          primaryIdentityPreserved: true,
+          primaryReadTraps: 0,
+          sleeperReaped: "0",
+          tempDirectoryRemoved: true,
+        },
+      );
+    });
+  },
+);
+
+test(
+  "a second candidate database on the same cluster cannot be bootstrapped while the target grant remains reachable",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      prepareRecoveryFixture(context);
+      const otherDatabase = "candidate_analysis_other";
+      const beforeRows = candidateRowsSnapshot(context);
+      const beforeAuthority = candidateAuthoritySnapshot(context);
+      const { bootstrapped } = attemptBootstrapAdditionalCandidateDatabase(
+        context,
+        otherDatabase,
+      );
+      const safeState = context.psql(`
+        SELECT
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+          NOT has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+          (SELECT count(*) FROM pg_stat_activity
+            WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'));
+      `);
+      assert.equal(safeState.status, 0, safeState.stderr);
+      assert.deepEqual(
+        {
+          statusIsFailure: bootstrapped.status !== 0,
+          explainsIsolation: /other database.*CONNECT|CONNECT.*other database/i.test(
+            `${bootstrapped.stdout}${bootstrapped.stderr}`,
+          ),
+          state: safeState.stdout.trim(),
+          authorityUnchanged: candidateAuthoritySnapshot(context) === beforeAuthority,
+          rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+        },
+        {
+          statusIsFailure: true,
+          explainsIsolation: true,
+          state: "t|t|t|t|0",
+          authorityUnchanged: true,
+          rowsUnchanged: true,
+        },
+        `${bootstrapped.stdout}${bootstrapped.stderr}`,
+      );
+    });
+  },
+);
+
+test(
+  "enable rejects same-named database credentials from a second live cluster before target-A activation",
+  { timeout: 60_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (targetA) => {
+      const fixtureA = prepareRecoveryFixture(targetA);
+      await withCandidateAnalysisPostgres(t, async (targetB) => {
+        const fixtureB = prepareRecoveryFixture(targetB);
+        const enabledB = targetB.psql(`
+          ALTER ROLE foodsystems_candidate_worker LOGIN;
+          ALTER ROLE foodsystems_candidate_reconciler LOGIN;
+        `);
+        assert.equal(enabledB.status, 0, enabledB.stderr);
+        const beforeRows = candidateRowsSnapshot(targetA);
+        const enable = spawnSync(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            encoding: "utf8",
+            env: {
+              ...process.env,
+              PATH: fixtureA.path,
+              DATABASE_ADMIN_URL: targetA.adminUrl,
+              CANDIDATE_WORKER_DATABASE_URL: fixtureB.workerUrl,
+              CANDIDATE_RECONCILER_DATABASE_URL: fixtureB.reconcilerUrl,
+            },
+          },
+        );
+        const safeState = targetA.psql(`
+          SELECT
+            NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+            NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+            NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+            NOT has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+            (SELECT count(*) FROM pg_stat_activity
+              WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'));
+        `);
+        assert.equal(safeState.status, 0, safeState.stderr);
+        assert.deepEqual(
+          {
+            statusIsFailure: enable.status !== 0,
+            state: safeState.stdout.trim(),
+            rowsUnchanged: candidateRowsSnapshot(targetA) === beforeRows,
+          },
+          {
+            statusIsFailure: true,
+            state: "t|t|t|t|0",
+            rowsUnchanged: true,
+          },
+        );
+      });
+    });
+  },
+);
+
+test(
+  "same-target forbidden human-review and promotion ACLs fail before LOGIN and expose no commit window",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const { adminUrl, database, port, psql } = context;
+      const fixture = prepareRecoveryFixture(context);
+      const seededFixture = candidateAnalysisFixture({
+        contentUnitId: "content:activation-window:1",
+        runId: "run:activation-window:1",
+        assertionId: "assertion:activation-window:1",
+      });
+      const adminPrisma = rolePrisma(adminUrl);
+      try {
+        await adminPrisma.candidateContentUnit.create({
+          data: seededFixture.contentUnit,
+        });
+        const writer = createCandidateAnalysisWriter(adminPrisma);
+        await writer.createRun(seededFixture.run);
+        await writer.appendAssertion(seededFixture.assertion);
+      } finally {
+        await adminPrisma.$disconnect();
+      }
+      const forbidden = psql(`
+        GRANT INSERT ON public."CandidateHumanReviewDecision" TO foodsystems_candidate_worker;
+        GRANT INSERT ON public."CandidatePromotionDecision" TO foodsystems_candidate_worker;
+      `);
+      assert.equal(forbidden.status, 0, forbidden.stderr);
+      const beforeRows = candidateRowsSnapshot(context);
+      const tempRoot = mkdtempSync(join(tmpdir(), "candidate-activation-window-"));
+      const barrier = writePostActivationVerifierBarrier(tempRoot);
+      let workerSession: ChildProcess | null = null;
+      let reconcilerSession: ChildProcess | null = null;
+      try {
+        const enable = spawn(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            env: {
+              ...recoveryEnableEnv(fixture, adminUrl, barrier.path),
+              ACTIVATION_MARKER_FILE: barrier.markerFile,
+              ACTIVATION_RELEASE_FILE: barrier.releaseFile,
+              REAL_PSQL: barrier.realPsql,
+            },
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        let output = "";
+        enable.stdout?.on("data", (chunk) => {
+          output += chunk.toString();
+        });
+        enable.stderr?.on("data", (chunk) => {
+          output += chunk.toString();
+        });
+        const enableExit = childExit(enable);
+        await waitFor(
+          () => existsSync(barrier.markerFile) || enable.exitCode !== null,
+          "unsafe ACL neither failed pre-activation nor reached the verifier barrier",
+        );
+        const exposedWindow = existsSync(barrier.markerFile);
+        if (exposedWindow) {
+          const maliciousInsert = psqlInDatabase(
+            context,
+            database,
+            `
+              INSERT INTO public."CandidateHumanReviewDecision" (
+                "id", "assertionId", "decision", "reviewProfile", "reviewProfileHash",
+                "reviewer", "authority", "assertionPayloadHash", "sourceContentSetHash",
+                "evidenceSetHash", "decisionHash", "limitations"
+              ) VALUES (
+                'review:activation-window:1', '${seededFixture.assertion.id}', 'accepted',
+                'unauthorized-profile', '${"b".repeat(64)}', 'machine-worker',
+                'unauthorized-machine-window', '${seededFixture.assertion.payloadHash}',
+                '${"c".repeat(64)}', '${"d".repeat(64)}', '${"e".repeat(64)}', ARRAY[]::text[]
+              );
+              INSERT INTO public."CandidatePromotionDecision" (
+                "id", "assertionId", "assertionPayloadHash", "reviewDecisionId",
+                "reviewDecisionHash", "targetProfile", "targetProfileHash", "state",
+                "policyVersion", "policyHash", "preconditionsHash", "targetRefs",
+                "targetSetHash", "result", "resultHash", "decisionHash", "operator", "authority"
+              ) VALUES (
+                'promotion:activation-window:1', '${seededFixture.assertion.id}',
+                '${seededFixture.assertion.payloadHash}', 'review:activation-window:1',
+                '${"e".repeat(64)}', 'public', '${"f".repeat(64)}', 'published',
+                'v1', '${"1".repeat(64)}', '${"2".repeat(64)}', '[]',
+                '${"3".repeat(64)}', '{}', '${"4".repeat(64)}', '${"5".repeat(64)}',
+                'machine-worker', 'unauthorized-machine-window'
+              );
+            `,
+            "foodsystems_candidate_worker",
+          );
+          assert.equal(maliciousInsert.status, 0, maliciousInsert.stderr);
+          workerSession = spawn(
+            "psql",
+            [
+              "-X", "-h", "127.0.0.1", "-p", String(port),
+              "-U", "foodsystems_candidate_worker", "-d", database,
+              "-c", "SELECT pg_sleep(60)",
+            ],
+            {
+              cwd: repoRoot,
+              env: {
+                ...process.env,
+                PATH: fixture.path,
+                PGAPPNAME: "candidate-activation-window-worker",
+              },
+              stdio: "ignore",
+            },
+          );
+          reconcilerSession = spawn(
+            "psql",
+            [
+              "-X", "-h", "127.0.0.1", "-p", String(port),
+              "-U", "foodsystems_candidate_reconciler", "-d", database,
+              "-c", "SELECT pg_sleep(60)",
+            ],
+            {
+              cwd: repoRoot,
+              env: {
+                ...process.env,
+                PATH: fixture.path,
+                PGAPPNAME: "candidate-activation-window-reconciler",
+              },
+              stdio: "ignore",
+            },
+          );
+          await waitFor(
+            () => activityCount(context, "candidate-activation-window-worker") === "1",
+            "worker session did not enter the exposed activation window",
+          );
+          await waitFor(
+            () => activityCount(context, "candidate-activation-window-reconciler") === "1",
+            "reconciler session did not enter the exposed activation window",
+          );
+          writeFileSync(barrier.releaseFile, "release\n");
+        }
+        const exitCode = await enableExit;
+        assert.notEqual(exitCode, 0, output);
+        if (workerSession) await childExit(workerSession);
+        if (reconcilerSession) await childExit(reconcilerSession);
+        const safeState = psql(`
+          SELECT
+            NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+            NOT (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+            NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+            NOT has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+            NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateHumanReviewDecision"', 'INSERT'),
+            NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidatePromotionDecision"', 'INSERT'),
+            (SELECT count(*) FROM pg_stat_activity
+              WHERE usename IN ('foodsystems_candidate_worker', 'foodsystems_candidate_reconciler'));
+        `);
+        assert.equal(safeState.status, 0, safeState.stderr);
+        assert.deepEqual(
+          {
+            exposedWindow,
+            state: safeState.stdout.trim(),
+            rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+          },
+          {
+            exposedWindow: false,
+            state: "t|t|t|t|t|t|0",
+            rowsUnchanged: true,
+          },
+        );
+      } finally {
+        writeFileSync(barrier.releaseFile, "release\n");
+        rmSync(tempRoot, { recursive: true, force: true });
+      }
+    });
+  },
+);
+
+test(
+  "clean same-target activation preserves exact role verification and usable candidate writers",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const enable = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: recoveryEnableEnv(fixture, context.adminUrl),
+        },
+      );
+      assert.equal(enable.status, 0, `${enable.stdout}${enable.stderr}`);
+      const analysis = candidateAnalysisFixture({
+        contentUnitId: "content:clean-activation:1",
+        runId: "run:clean-activation:1",
+        assertionId: "assertion:clean-activation:1",
+      });
+      const intakePrisma = rolePrisma(fixture.intakeUrl);
+      try {
+        assert.deepEqual(
+          await createCandidateContentUnitIntakeWriter(
+            intakePrisma,
+          ).appendContentUnit(analysis.contentUnit),
+          { contentUnitId: analysis.contentUnit.id, created: true },
+        );
+        await assert.rejects(
+          () => intakePrisma.candidateContentUnit.findMany(),
+          /permission denied/i,
+        );
+      } finally {
+        await intakePrisma.$disconnect();
+      }
+      const workerPrisma = rolePrisma(fixture.workerUrl);
+      try {
+        const writer = createCandidateAnalysisWriter(workerPrisma);
+        await writer.createRun(analysis.run);
+        await writer.appendAssertion(analysis.assertion);
+      } finally {
+        await workerPrisma.$disconnect();
+      }
+      const reconcilerPrisma = rolePrisma(fixture.reconcilerUrl);
+      try {
+        const scope = { runId: analysis.run.id };
+        const payload: CandidateReconciliationSnapshotInput["payload"] = {
+          namespace: "candidate",
+          kind: "reconciliation",
+          data: {
+            entries: [
+              { role: "checkpoint", valueType: "text", value: "clean target" },
+            ],
+          },
+        };
+        await createCandidateReconciliationWriter(reconcilerPrisma).appendSnapshot({
+          id: "snapshot:clean-activation:1",
+          runId: analysis.run.id,
+          scope,
+          scopeHash: candidateAnalysisReconciliationScopeHash(scope),
+          payload,
+          payloadHash: candidateAnalysisReconciliationPayloadHash(payload),
+          conflictCount: 0,
+        });
+      } finally {
+        await reconcilerPrisma.$disconnect();
+      }
+      const state = context.psql(`
+        SELECT
+          (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_intake'),
+          (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_worker'),
+          (SELECT rolcanlogin FROM pg_roles WHERE rolname = 'foodsystems_candidate_reconciler'),
+          has_table_privilege('foodsystems_candidate_worker', 'public."CandidateAnalysisRun"', 'INSERT'),
+          has_table_privilege('foodsystems_candidate_reconciler', 'public."CandidateReconciliationSnapshot"', 'INSERT'),
+          NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidateHumanReviewDecision"', 'INSERT'),
+          NOT has_table_privilege('foodsystems_candidate_worker', 'public."CandidatePromotionDecision"', 'INSERT'),
+          has_function_privilege('foodsystems_candidate_intake',
+            'public.candidate_content_unit_append(jsonb)', 'EXECUTE'),
+          NOT has_function_privilege('foodsystems_candidate_intake',
+            'public.candidate_worker_append(text,jsonb)', 'EXECUTE'),
+          NOT has_function_privilege('foodsystems_candidate_worker',
+            'public.candidate_content_unit_append(jsonb)', 'EXECUTE'),
+          NOT has_table_privilege('foodsystems_candidate_intake',
+            'public."CandidateContentUnit"', 'SELECT'),
+          (SELECT count(*) FROM public."CandidateAnalysisRun" WHERE id = 'run:clean-activation:1'),
+          (SELECT count(*) FROM public."CandidateReconciliationSnapshot"
+            WHERE id = 'snapshot:clean-activation:1');
+      `);
+      assert.equal(state.status, 0, state.stderr);
+      assert.equal(state.stdout.trim(), "t|t|t|f|f|t|t|t|t|t|t|1|1");
+    });
+  },
+);
+
+test(
+  "database-specific candidate settings cannot survive recovery or override runtime origin",
+  { timeout: 45_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const controlDatabase = "candidate_setting_control";
+      assert.equal(
+        context.psql(`CREATE DATABASE ${controlDatabase}`).status,
+        0,
+      );
+      assert.equal(
+        context.psql(`REVOKE CONNECT ON DATABASE ${controlDatabase} FROM PUBLIC`).status,
+        0,
+      );
+      const dirtySettings = context.psql(`
+        CREATE ROLE candidate_setting_control NOLOGIN;
+        ALTER ROLE foodsystems_candidate_worker
+          IN DATABASE ${context.database}
+          SET session_replication_role TO 'replica';
+        ALTER ROLE foodsystems_candidate_reconciler
+          IN DATABASE ${context.database}
+          SET session_replication_role TO 'replica';
+        ALTER ROLE foodsystems_candidate_worker
+          IN DATABASE ${controlDatabase}
+          SET statement_timeout TO '99s';
+        ALTER ROLE candidate_setting_control
+          IN DATABASE ${controlDatabase}
+          SET statement_timeout TO '77s';
+        ALTER ROLE foodsystems_candidate_worker LOGIN;
+      `);
+      assert.equal(dirtySettings.status, 0, dirtySettings.stderr);
+      const runtimeBefore = spawnSync(
+        "psql",
+        [
+          "-X", "-A", "-t", "-v", "ON_ERROR_STOP=1",
+          "-d", fixture.workerUrl,
+          "-c", "SHOW session_replication_role",
+        ],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: { ...process.env, PATH: fixture.path },
+        },
+      );
+      assert.equal(runtimeBefore.status, 0, runtimeBefore.stderr);
+      assert.equal(runtimeBefore.stdout.trim(), "replica");
+
+      const adminEnv = {
+        ...process.env,
+        PATH: fixture.path,
+        DATABASE_ADMIN_URL: context.adminUrl,
+      };
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      const beforeRows = candidateRowsSnapshot(context);
+
+      try {
+        const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: adminEnv,
+        });
+        assert.equal(bootstrap.status, 0, bootstrap.stderr);
+        const settingsAfter = context.psql(`
+          SELECT
+            (SELECT count(*)
+             FROM pg_db_role_setting setting
+             JOIN pg_roles role ON role.oid = setting.setrole
+             WHERE role.rolname IN (
+               'foodsystems_candidate_worker',
+               'foodsystems_candidate_reconciler'
+             ) AND setting.setdatabase <> 0),
+            (SELECT count(*)
+             FROM pg_db_role_setting setting
+             JOIN pg_roles role ON role.oid = setting.setrole
+             JOIN pg_database database ON database.oid = setting.setdatabase
+             WHERE role.rolname = 'candidate_setting_control'
+               AND database.datname = '${controlDatabase}'
+               AND setting.setconfig = ARRAY['statement_timeout=77s']);
+        `);
+        assert.equal(settingsAfter.status, 0, settingsAfter.stderr);
+
+        const enabled = spawnSync(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            encoding: "utf8",
+            env: recoveryEnableEnv(fixture, context.adminUrl),
+          },
+        );
+        const runtimeAfter = spawnSync(
+          "psql",
+          [
+            "-X", "-A", "-t", "-v", "ON_ERROR_STOP=1",
+            "-d", fixture.workerUrl,
+            "-c", "SHOW session_replication_role",
+          ],
+          {
+            cwd: repoRoot,
+            encoding: "utf8",
+            env: { ...process.env, PATH: fixture.path },
+          },
+        );
+        assert.deepEqual(
+          {
+            candidateDatabaseSettings: settingsAfter.stdout.trim(),
+            enable: enabled.status,
+            runtimeReplicationRole: runtimeAfter.stdout.trim(),
+            rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+          },
+          {
+            candidateDatabaseSettings: "0|1",
+            enable: 0,
+            runtimeReplicationRole: "origin",
+            rowsUnchanged: true,
+          },
+          [enabled.stderr, runtimeAfter.stderr].join("\n"),
+        );
+      } finally {
+        const cleanup = spawnSync(disablePath, ["--apply"], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: adminEnv,
+        });
+        assert.equal(cleanup.status, 0, cleanup.stderr);
+      }
+    });
+  },
+);
+
+test(
+  "parameter ACLs are scrubbed and the candidate replication role stays origin",
+  { timeout: 60_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const adminEnv = {
+        ...process.env,
+        PATH: fixture.path,
+        DATABASE_ADMIN_URL: context.adminUrl,
+      };
+      const enableEnv = recoveryEnableEnv(fixture, context.adminUrl);
+      const dirtyGrant = context.psql(`
+        GRANT SET, ALTER SYSTEM ON PARAMETER session_replication_role
+          TO foodsystems_candidate_worker;
+      `);
+      assert.equal(dirtyGrant.status, 0, dirtyGrant.stderr);
+
+      const disableBeforeBootstrap = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(
+        disableBeforeBootstrap.status,
+        0,
+        disableBeforeBootstrap.stderr,
+      );
+
+      const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      const directAfterBootstrap = context.psql(`
+        SELECT count(*)
+        FROM pg_parameter_acl parameter,
+        LATERAL aclexplode(parameter.paracl) privilege
+        WHERE parameter.parname = 'session_replication_role'
+          AND privilege.grantee = (
+            SELECT oid FROM pg_roles
+            WHERE rolname = 'foodsystems_candidate_worker'
+          );
+      `);
+      assert.equal(directAfterBootstrap.status, 0, directAfterBootstrap.stderr);
+
+      const enabled = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        { cwd: repoRoot, encoding: "utf8", env: enableEnv },
+      );
+      const showReplicationRole = spawnSync(
+        "psql",
+        [
+          "-X", "-A", "-t", "-v", "ON_ERROR_STOP=1",
+          "-d", fixture.workerUrl,
+          "-c", "SHOW session_replication_role",
+        ],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: { ...process.env, PATH: fixture.path },
+        },
+      );
+      const selectReplica = spawnSync(
+        "psql",
+        [
+          "-X", "-A", "-t", "-v", "ON_ERROR_STOP=1",
+          "-d", fixture.workerUrl,
+          "-c", "SET session_replication_role TO replica",
+        ],
+        {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: { ...process.env, PATH: fixture.path },
+        },
+      );
+
+      const regrant = context.psql(`
+        GRANT SET ON PARAMETER session_replication_role
+          TO foodsystems_candidate_worker;
+      `);
+      assert.equal(regrant.status, 0, regrant.stderr);
+      const verifyWithGrant = spawnSync(verifyPath, ["--role=worker"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: fixture.path,
+          CANDIDATE_WORKER_DATABASE_URL: fixture.workerUrl,
+          CANDIDATE_ADMIN_DATABASE_URL: context.adminUrl,
+        },
+      });
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      const beforeFailedEnableAuthority = candidateAuthoritySnapshot(context);
+      const beforeFailedEnableRows = candidateRowsSnapshot(context);
+      const enableWithGrant = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        { cwd: repoRoot, encoding: "utf8", env: enableEnv },
+      );
+      const directAfterFailedEnable = context.psql(`
+        SELECT count(*)
+        FROM pg_parameter_acl parameter,
+        LATERAL aclexplode(parameter.paracl) privilege
+        WHERE parameter.parname = 'session_replication_role'
+          AND privilege.grantee = (
+            SELECT oid FROM pg_roles
+            WHERE rolname = 'foodsystems_candidate_worker'
+          )
+          AND privilege.privilege_type = 'SET';
+      `);
+      assert.equal(
+        directAfterFailedEnable.status,
+        0,
+        directAfterFailedEnable.stderr,
+      );
+      const afterFailedEnableAuthority = candidateAuthoritySnapshot(context);
+      const afterFailedEnableRows = candidateRowsSnapshot(context);
+
+      const cleanupGrant = context.psql(`
+        REVOKE ALL PRIVILEGES ON PARAMETER session_replication_role
+          FROM foodsystems_candidate_worker;
+      `);
+      assert.equal(cleanupGrant.status, 0, cleanupGrant.stderr);
+      const cleanBootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: adminEnv,
+      });
+      const cleanEnable = spawnSync(
+        enablePath,
+        ["--apply", "--confirm-existing-credentials"],
+        { cwd: repoRoot, encoding: "utf8", env: enableEnv },
+      );
+      const cleanState = context.psql(`
+        SELECT
+          (SELECT count(*)
+           FROM pg_parameter_acl parameter,
+           LATERAL aclexplode(parameter.paracl) privilege
+           WHERE privilege.grantee IN (
+             SELECT oid FROM pg_roles
+             WHERE rolname IN (
+               'foodsystems_candidate_worker',
+               'foodsystems_candidate_reconciler'
+             )
+           )),
+          (SELECT bool_and(rolcanlogin)
+           FROM pg_roles
+           WHERE rolname IN (
+             'foodsystems_candidate_worker',
+             'foodsystems_candidate_reconciler'
+           ));
+      `);
+      assert.equal(cleanState.status, 0, cleanState.stderr);
+
+      assert.deepEqual(
+        {
+          bootstrap: bootstrap.status,
+          directGrantCount: directAfterBootstrap.stdout.trim(),
+          enable: enabled.status,
+          runtimeReplicationRole: showReplicationRole.stdout.trim(),
+          replicaModeDenied: selectReplica.status !== 0,
+          verifyRejectsGrant:
+            verifyWithGrant.status !== 0
+            && /configuration parameter privilege is effective: session_replication_role/i.test(
+              `${verifyWithGrant.stdout}${verifyWithGrant.stderr}`,
+            ),
+          enableRejectsGrant:
+            enableWithGrant.status !== 0
+            && /configuration parameter privilege is effective/i.test(
+              `${enableWithGrant.stdout}${enableWithGrant.stderr}`,
+            ),
+          failedEnableAuthorityUnchanged:
+            afterFailedEnableAuthority === beforeFailedEnableAuthority,
+          failedEnableRowsUnchanged:
+            afterFailedEnableRows === beforeFailedEnableRows,
+          grantRetainedAfterFailedEnable:
+            directAfterFailedEnable.stdout.trim(),
+          cleanBootstrap: cleanBootstrap.status,
+          cleanEnable: cleanEnable.status,
+          cleanState: cleanState.stdout.trim(),
+        },
+        {
+          bootstrap: 0,
+          directGrantCount: "0",
+          enable: 0,
+          runtimeReplicationRole: "origin",
+          replicaModeDenied: true,
+          verifyRejectsGrant: true,
+          enableRejectsGrant: true,
+          failedEnableAuthorityUnchanged: true,
+          failedEnableRowsUnchanged: true,
+          grantRetainedAfterFailedEnable: "1",
+          cleanBootstrap: 0,
+          cleanEnable: 0,
+          cleanState: "0|t",
+        },
+        [
+          bootstrap.stderr,
+          enabled.stderr,
+          selectReplica.stderr,
+          verifyWithGrant.stderr,
+          enableWithGrant.stderr,
+          directAfterFailedEnable.stderr,
+          cleanBootstrap.stderr,
+          cleanEnable.stderr,
+        ].join("\n"),
+      );
+    });
+  },
+);
+
+test(
+  "PUBLIC parameter ACL fails before bootstrap mutates state or drains an unrelated session",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const disabled = spawnSync(disablePath, ["--apply"], {
+        cwd: repoRoot,
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: fixture.path,
+          DATABASE_ADMIN_URL: context.adminUrl,
+        },
+      });
+      assert.equal(disabled.status, 0, disabled.stderr);
+      const publicGrant = context.psql(
+        "GRANT SET ON PARAMETER session_replication_role TO PUBLIC",
+      );
+      assert.equal(publicGrant.status, 0, publicGrant.stderr);
+      const sleeper = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c", "SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            PGAPPNAME: "candidate-public-parameter-unrelated-sleeper",
+          },
+          stdio: "ignore",
+        },
+      );
+      try {
+        await waitFor(
+          () => activityCount(
+            context,
+            "candidate-public-parameter-unrelated-sleeper",
+          ) === "1",
+          "unrelated target-database sleeper did not become active",
+        );
+        const beforeAuthority = candidateAuthoritySnapshot(context);
+        const beforeRows = candidateRowsSnapshot(context);
+        const bootstrap = spawnSync(bootstrapPath, [...bootstrapApplyArgs], {
+          cwd: repoRoot,
+          encoding: "utf8",
+          env: {
+            ...process.env,
+            PATH: fixture.path,
+            DATABASE_ADMIN_URL: context.adminUrl,
+          },
+        });
+        const publicGrantAfter = context.psql(`
+          SELECT count(*)
+          FROM pg_parameter_acl parameter,
+          LATERAL aclexplode(parameter.paracl) privilege
+          WHERE parameter.parname = 'session_replication_role'
+            AND privilege.grantee = 0
+            AND privilege.privilege_type = 'SET';
+        `);
+        assert.equal(publicGrantAfter.status, 0, publicGrantAfter.stderr);
+        assert.deepEqual(
+          {
+            statusIsFailure: bootstrap.status !== 0,
+            explainsPublicParameter:
+              /PUBLIC[\s\S]*parameter|parameter[\s\S]*PUBLIC/i.test(
+              `${bootstrap.stdout}${bootstrap.stderr}`,
+            ),
+            publicGrantStillExists: publicGrantAfter.stdout.trim(),
+            authorityUnchanged:
+              candidateAuthoritySnapshot(context) === beforeAuthority,
+            rowsUnchanged: candidateRowsSnapshot(context) === beforeRows,
+            sleeperStillConnected: activityCount(
+              context,
+              "candidate-public-parameter-unrelated-sleeper",
+            ),
+          },
+          {
+            statusIsFailure: true,
+            explainsPublicParameter: true,
+            publicGrantStillExists: "1",
+            authorityUnchanged: true,
+            rowsUnchanged: true,
+            sleeperStillConnected: "1",
+          },
+          `${bootstrap.stdout}${bootstrap.stderr}`,
+        );
+      } finally {
+        const cleanup = context.psql(`
+          REVOKE SET ON PARAMETER session_replication_role FROM PUBLIC;
+          SELECT pg_terminate_backend(pid)
+          FROM pg_stat_activity
+          WHERE application_name = 'candidate-public-parameter-unrelated-sleeper';
+        `);
+        assert.equal(cleanup.status, 0, cleanup.stderr);
+        await childExit(sleeper);
+      }
+    });
+  },
+);
+
+test(
+  "concurrent parameter GRANT cannot cross enable's catalog lock",
+  { timeout: 30_000 },
+  async (t) => {
+    await withCandidateAnalysisPostgres(t, async (context) => {
+      const fixture = prepareRecoveryFixture(context);
+      const blockerApp = "candidate-parameter-acl-shdepend-blocker";
+      const enableApp = "candidate-parameter-acl-enable";
+      const grantApp = "candidate-parameter-acl-concurrent-grant";
+      const adminUrl = new URL(context.adminUrl);
+      adminUrl.searchParams.set("application_name", enableApp);
+      const blocker = spawn(
+        "psql",
+        [
+          "-X", "-h", "127.0.0.1", "-p", String(context.port),
+          "-U", "postgres", "-d", context.database,
+          "-v", "ON_ERROR_STOP=1", "-c",
+          "BEGIN; LOCK TABLE pg_catalog.pg_shdepend IN ACCESS EXCLUSIVE MODE; SELECT pg_sleep(60)",
+        ],
+        {
+          cwd: repoRoot,
+          env: { ...process.env, PATH: fixture.path, PGAPPNAME: blockerApp },
+          stdio: "ignore",
+        },
+      );
+      let enable: ChildProcess | null = null;
+      let enableOutput = "";
+      try {
+        await waitFor(
+          () => activityCount(context, blockerApp) === "1",
+          "pg_shdepend blocker did not become active",
+        );
+        enable = spawn(
+          enablePath,
+          ["--apply", "--confirm-existing-credentials"],
+          {
+            cwd: repoRoot,
+            env: recoveryEnableEnv(fixture, adminUrl.toString()),
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        enable.stdout?.on("data", (chunk) => {
+          enableOutput += chunk.toString();
+        });
+        enable.stderr?.on("data", (chunk) => {
+          enableOutput += chunk.toString();
+        });
+        const enableExit = childExit(enable);
+        await waitFor(
+          () => {
+            const blocked = context.psql(`
+              SELECT count(*)
+              FROM pg_stat_activity
+              WHERE application_name = '${enableApp}'
+                AND wait_event_type = 'Lock'
+                AND query LIKE '%pg_shdepend%';
+            `);
+            return blocked.status === 0 && blocked.stdout.trim() === "1";
+          },
+          "enable did not block on the deliberately later pg_shdepend lock",
+        );
+        const concurrentGrant = spawn(
+          "psql",
+          [
+            "-X", "-h", "127.0.0.1", "-p", String(context.port),
+            "-U", "postgres", "-d", context.database,
+            "-v", "ON_ERROR_STOP=1", "-c",
+            "SET lock_timeout = '250ms'; GRANT SET ON PARAMETER session_replication_role TO foodsystems_candidate_worker",
+          ],
+          {
+            cwd: repoRoot,
+            env: { ...process.env, PATH: fixture.path, PGAPPNAME: grantApp },
+            stdio: ["ignore", "pipe", "pipe"],
+          },
+        );
+        let grantOutput = "";
+        concurrentGrant.stdout?.on("data", (chunk) => {
+          grantOutput += chunk.toString();
+        });
+        concurrentGrant.stderr?.on("data", (chunk) => {
+          grantOutput += chunk.toString();
+        });
+        const concurrentGrantExit = childExit(concurrentGrant);
+        let grantWaitRelation = "";
+        await waitFor(
+          () => {
+            const waiting = context.psql(`
+              SELECT class.relname
+              FROM pg_locks lock
+              JOIN pg_stat_activity activity ON activity.pid = lock.pid
+              JOIN pg_class class ON class.oid = lock.relation
+              WHERE activity.application_name = '${grantApp}'
+                AND NOT lock.granted;
+            `);
+            if (waiting.status !== 0) return false;
+            grantWaitRelation = waiting.stdout.trim();
+            return grantWaitRelation !== "";
+          },
+          "concurrent parameter GRANT did not expose its catalog wait",
+        );
+        const concurrentGrantStatus = await concurrentGrantExit;
+        const terminateBlocker = context.psql(`
+          SELECT pg_terminate_backend(pid)
+          FROM pg_stat_activity
+          WHERE application_name = '${blockerApp}';
+        `);
+        assert.equal(terminateBlocker.status, 0, terminateBlocker.stderr);
+        await childExit(blocker);
+        const enableStatus = await enableExit;
+        const state = context.psql(`
+          SELECT
+            (SELECT bool_and(rolcanlogin)
+             FROM pg_roles
+             WHERE rolname IN (
+               'foodsystems_candidate_worker',
+               'foodsystems_candidate_reconciler'
+             )),
+            (SELECT count(*)
+             FROM pg_parameter_acl parameter,
+             LATERAL aclexplode(parameter.paracl) privilege
+             WHERE privilege.grantee IN (
+               SELECT oid FROM pg_roles
+               WHERE rolname IN (
+                 'foodsystems_candidate_worker',
+                 'foodsystems_candidate_reconciler'
+               )
+             ));
+        `);
+        assert.equal(state.status, 0, state.stderr);
+        assert.deepEqual(
+          {
+            grantTimedOut: concurrentGrantStatus !== 0,
+            grantFailure: /lock timeout/i.test(grantOutput),
+            grantWaitRelation,
+            enableStatus,
+            state: state.stdout.trim(),
+          },
+          {
+            grantTimedOut: true,
+            grantFailure: true,
+            grantWaitRelation: "pg_parameter_acl",
+            enableStatus: 0,
+            state: "t|0",
+          },
+          `${grantOutput}\n${enableOutput}`,
+        );
+      } finally {
+        const cleanup = context.psql(`
+          SELECT pg_terminate_backend(pid)
+          FROM pg_stat_activity
+          WHERE application_name IN ('${blockerApp}', '${enableApp}', '${grantApp}');
+          ALTER ROLE foodsystems_candidate_worker NOLOGIN;
+          ALTER ROLE foodsystems_candidate_reconciler NOLOGIN;
+          REVOKE ALL PRIVILEGES ON PARAMETER session_replication_role
+            FROM foodsystems_candidate_worker;
+        `);
+        assert.equal(cleanup.status, 0, cleanup.stderr);
+        if (blocker.exitCode === null) await childExit(blocker);
+        if (enable?.exitCode === null) await childExit(enable);
+      }
+    });
+  },
+);
