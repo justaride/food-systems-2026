@@ -116,6 +116,13 @@ const ANALYTICAL_DEFINITION = /\b(?:måler|måles|definerer|defineres|measures?|
 const ANALYTICAL_NO_SUPPORT = /\b(?:finner(?:\s+(?:med\s+andre\s+ord|derfor))?\s+ikke\s+støtte\s+for|finds?(?:\s+(?:therefore|in\s+other\s+words))?\s+no\s+support\s+for)\b/iu;
 const CURRENT_STATUS_REFERENCE = /(?<![\p{L}\p{N}_])(?:i\s+dag|today|nå|now)(?![\p{L}\p{N}_])/iu;
 const CURRENT_STATUS_PREDICATE = /(?<![\p{L}\p{N}_])(?:finnes|har|er|foreligger|utvikles|utviklet|exists?|there\s+(?:is|are)|has|have|developed|being\s+developed)(?![\p{L}\p{N}_])/iu;
+const INVENTORY_STATUS_MARKER = /\b(?:eksisterende|gjenværende|existing|remaining)\b/iu;
+const INVENTORY_STATUS_ACTION = /\b(?:kartlegger|kartla|lister|listet|viser|viste|inneholder|inneholdt|maps?|mapped|lists?|listed|shows?|showed|contains?|contained)\b/iu;
+const INVENTORY_STATUS_OBJECT = /\b(?:datafiler?|filer?|datasett(?:et)?|grenser?|artefakter?|poster|files?|datasets?|boundaries|artifacts?|records?)\b/iu;
+const CONDITIONAL_PROFITABILITY_OUTCOME = /\b(?:kan|may|could|might)\b[^.!?]{0,360}(?:økt\s+lønnsomhet|increased\s+profitability)\b/iu;
+const PROFITABILITY_MECHANISM = /\b(?:føre|bidra)\s+til\s+økt\s+lønnsomhet\b|\b(?:lead|contribute)\s+to\s+increased\s+profitability\b/iu;
+const PLURAL_ACTOR_PRONOUN = /\b(?:de\s+har\s+hatt|they\s+have\s+had)\b/iu;
+const PLURAL_ACTOR_ANTECEDENT = /\b(?:kommun(?:e|en|er|ene)|selskaper?|bedrifter|aktører|grupper|respondenter|produsenter|companies|municipalit(?:y|ies)|actors?|groups?|respondents?|producers?)\b|\b[\p{Lu}][\p{L}\p{M}\p{N}.&+-]*(?:\s+[\p{Lu}][\p{L}\p{M}\p{N}.&+-]*){0,4}\s+(?:og|and)\s+[\p{Lu}][\p{L}\p{M}\p{N}.&+-]*(?:\s+[\p{Lu}][\p{L}\p{M}\p{N}.&+-]*){0,4}\b/u;
 const LOCAL_HERE_DEFINITION = /\b(?:defineres|beregnes|fastsettes|defined|calculated|determined)\s+(?:her|here)\b/iu;
 const NAMED_LOCAL_CONTEXT = /\b(?:VTB|NOA|value\s+to\s+business|netto\s+driftsrelaterte\s+eiendeler|(?:i|in)\s+(?:dette|this)\s+[\p{L}\p{M}-]*(?:vedlegg|appendix))\b/iu;
 const INTERPRETIVE_INDEX_VALUE = /\b(?:indeksverdi(?:en)?|index\s+value)\b[\s\S]{0,100}\b(?:høyere|lavere|betyr|tolkes|means?|higher|lower|interpreted)\b|\b(?:høyere|lavere|higher|lower)\b[\s\S]{0,100}\b(?:indeksverdi(?:en)?|index\s+value)\b/iu;
@@ -488,7 +495,25 @@ function isPilot13AnalyticalResult(value: string): boolean {
   ) || (
     PILOT13_ANALYTICAL_OUTCOME.test(value) &&
     /\b(?:er|var|is|was|were)\s+(?:høy|høyt|høye|lav|lavt|lave|high|low)\b/iu.test(value)
+  ) || (
+    CONDITIONAL_PROFITABILITY_OUTCOME.test(value) &&
+    !PROFITABILITY_MECHANISM.test(value)
   );
+}
+
+function hasUnresolvedPluralActorPronoun(value: string): boolean {
+  const match = PLURAL_ACTOR_PRONOUN.exec(value);
+  if (match?.index === undefined) return false;
+  return !PLURAL_ACTOR_ANTECEDENT.test(value.slice(0, match.index));
+}
+
+function inventoryStatusSentence(value: string): string | undefined {
+  return value
+    .split(/[.!?;\n]+/u)
+    .find((candidate) =>
+      INVENTORY_STATUS_MARKER.test(candidate) &&
+      INVENTORY_STATUS_ACTION.test(candidate) &&
+      INVENTORY_STATUS_OBJECT.test(candidate));
 }
 
 function returnMetricIds(value: string): Set<string> {
@@ -646,6 +671,7 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     AUDITED_HERE_REFERENCE.test(normalizedClaim) ||
     unresolvedAnotherFactor ||
     unresolvedGenericReference ||
+    hasUnresolvedPluralActorPronoun(normalizedClaim) ||
     BARE_DATA_REFERENCE.test(normalizedClaim) ||
     UNRESOLVED_GENERIC_METHOD_OPENING.test(normalizedClaim) ||
     unresolvedLocalReference
@@ -1123,7 +1149,23 @@ function assertPilot13ScopeCompleteness(
     throw new Error("agent_response_status_as_of_missing");
   }
 
-  const nonExemptAnalyticalResult = claimText
+  const claimInventoryStatus = inventoryStatusSentence(claimText);
+  const evidenceInventoryStatus = inventoryStatusSentence(evidence);
+  if (
+    claimInventoryStatus !== undefined &&
+    (
+      evidenceInventoryStatus === undefined ||
+      !EXPLICIT_YEAR.test(claimInventoryStatus) ||
+      !EXPLICIT_YEAR.test(evidenceInventoryStatus)
+    )
+  ) {
+    throw new Error("agent_response_status_as_of_missing");
+  }
+
+  const conditionalProfitabilityOutcome =
+    CONDITIONAL_PROFITABILITY_OUTCOME.test(claimText) &&
+    !PROFITABILITY_MECHANISM.test(claimText);
+  const nonExemptAnalyticalResult = conditionalProfitabilityOutcome || claimText
     .split(/[.!?;\n]+/u)
     .flatMap((sentence) => sentence.split(/\b(?:og|and|while|mens|but|men)\b/iu))
     .some((clause) =>

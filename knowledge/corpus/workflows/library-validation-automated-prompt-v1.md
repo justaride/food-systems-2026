@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.20`
+Prompt template version: `1.0.21`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.20`
+Workflow version: `1.0.21`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
@@ -22,7 +22,7 @@ Treat headings, labels, table-of-contents rows, bare values and context-dependen
 
 Classify a nominal metadata label such as `Metadata-import` as F4 when promoted as a claim. Classify `Dette dokumentet` or `This document` as unresolved F4 unless the same claim and evidence excerpt name the document.
 
-Anaphoric language is valid only when its antecedent and scope are source-visible in the same evidence excerpt. This includes pronouns and shorthand such as "the method", "the results", "this indicator", "the companies", "another factor", "here", "the study" and "the task". Otherwise emit F4 for context-dependent classification overreach. Use F3 when the proposition is otherwise explicit but omits a materially necessary denominator, universe, respondent count, period, as-of date, unit, method, geography or market, comparison basis, forecast/projection basis or horizon. For current-status, ownership/share and forecast claims, require the source-visible reference date. For negative or absolute method claims, require all source-visible scope qualifiers, including phrases such as "in this context", "for this analysis" and "for this dataset". Do not demand non-material context from a complete qualitative proposition, and do not classify a proposition as F4 only because it is formatted as a bullet.
+Anaphoric language is valid only when its antecedent and scope are source-visible in the same evidence excerpt. This includes pronouns and shorthand such as "the method", "the results", "this indicator", "the companies", "another factor", "here", "the study" and "the task". Finite-verb plural personal pronouns such as `de har`/`they have` require a named plural actor antecedent earlier in that excerpt; a location such as `i Malmö`/`in Malmö` is not an actor antecedent. Otherwise emit F4 for context-dependent classification overreach. Use F3 when the proposition is otherwise explicit but omits a materially necessary denominator, universe, respondent count, period, as-of date, unit, method, geography or market, comparison basis, forecast/projection basis or horizon. For current-status, ownership/share and forecast claims, require the source-visible reference date. For negative or absolute method claims, require all source-visible scope qualifiers, including phrases such as "in this context", "for this analysis" and "for this dataset". Do not demand non-material context from a complete qualitative proposition, and do not classify a proposition as F4 only because it is formatted as a bullet.
 
 Classify as F4 a bare generic work, method, mapping or result reference whose object and scope are not named in the claim itself. This includes unresolved uses of `arbeidet`, `metoden`, `kartleggingen`, `kartleggingene`, `resultatet`, `resultatene`, `the work`, `the method`, `the mapping`, `the result` and `the results`. A description elsewhere in the unit does not resolve it; the claim and its own evidence excerpt must make the referent explicit.
 
@@ -51,6 +51,8 @@ Classify as F3 a claim that broadens a source-visible actor universe, including 
 Classify as F3 a figure-derived numeric claim that omits a material caption qualifier such as aggregated actors, full figure period or inflation-adjustment status. Analytical superlatives without their bounded comparison period and entity universe, and retail-margin trends without their source-visible sample, are F3. Classify as F4 a bare deictic value clause whose antecedent is outside the evidence excerpt, a reported result that drops its source-visible speaker attribution, or generic `Webinaret`/`Hovedbudskapet` wording without the locally named event.
 
 Classify `i dag`, `today`, `nå` or `now` without a reference year in the same status sentence in claim and evidence as F3, including when the marker appears only in evidence. Every qualitative profitability finding, return comparison, profitability mapping, margin trend or gross-margin calculation, including `lønnsomheten var høy`/`profitability was high`, requires a bounded period and analytical basis locally in claim and evidence; classify either omission as F3 even when the unit supplies neither. A timeless definition or explicit no-support conclusion exempts only its own analytical clause, not a coordinated or separate analytical-result clause. Classify definitional/calculation `her`/`here` whose evidence or claim sentence omits its appendix, method or analytical object as F4. Classify an interpretive index value, including `tolkes`/`interpreted`, whose interpreting evidence or claim sentence omits the index identity as F4. A changed personnel allocation without its reference year and named project in the same allocation sentence is F3; accept an unambiguous acronym as a one-word project identity. If a sales amount is paired with a percentage that the source identifies as market share of market value, omission of the measure or denominator is F3. A syntactic Markdown row with two or more columns, expressed either with an outer pipe or as compact cell-only content without sentence punctuation, without its header or explicit field labels is F4 regardless of unit type; surrounding whitespace or a trailing newline does not repair it. Ordinary prose containing only an internal `A | B` phrase is not a Markdown row.
+
+Inventory assertions that map, list, show or contain `eksisterende`/`existing` files, datasets, records or boundaries, or `gjenværende`/`remaining` files, datasets or boundaries, are current-status assertions; classify a missing reference date in that same sentence as F3, and do not accept a named inventory or project as a date substitute. Hedged outcomes such as `kan ha fått økt lønnsomhet`/`may have increased profitability` remain qualitative profitability findings and require a bounded period and analytical basis in claim and evidence. A general causal mechanism such as `kan føre til økt lønnsomhet`/`can lead to increased profitability` is not by itself a reported profitability outcome.
 
 Classify a quantified gross-margin range as F3 when it omits its bounded period, entity universe or analytical basis. Where each period pairs sales with a percentage, classify any period whose percentage does not locally retain the source-visible share measure and denominator as F3.
 

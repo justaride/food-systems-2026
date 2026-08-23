@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.20`
+Workflow version: `1.0.21`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.20`
+Prompt template version: `1.0.21`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
@@ -22,7 +22,7 @@ Validate only a sealed analysis run and its exact assertions against the same ha
 
 Decompose every assertion into facts and test source support, contradiction, numeric semantics, locator integrity, omissions, classifications and risk. Check exact actor/source identity and whether the claim preserves source-visible period, as-of date, universe, respondent count, method, geography, comparison basis and forecast/projection basis. Record findings as F1 factual contradiction, F2 fabricated or wrong-source support, F3 insufficient or semantically incomplete evidence, F4 classification or authority overreach, or F5 material omission and risk. Bind each finding to assessed assertions, content units and deterministic rules where applicable.
 
-Classify an omitted material denominator, universe, respondent count, period, as-of date, unit, geography or market, method, comparison basis, forecast/projection basis or horizon as F3. Treat an evidence excerpt that ends mid-clause, at a dangling preposition or conjunction, in a table/list continuation, or before a source-visible qualifier as F3. Classify a heading, label, isolated value, context-dependent fragment, unresolved anaphoric proposition, unidentified actor/source attribution, publication-readiness statement, approval statement or other unsupported authority claim as F4. An anaphoric expression is resolved only when its antecedent and scope are visible in the same evidence excerpt. A scoped method limitation must not be validated as an absolute method claim. Do not classify a complete declarative sentence as F4 merely because it is formatted as a bullet.
+Classify an omitted material denominator, universe, respondent count, period, as-of date, unit, geography or market, method, comparison basis, forecast/projection basis or horizon as F3. Treat an evidence excerpt that ends mid-clause, at a dangling preposition or conjunction, in a table/list continuation, or before a source-visible qualifier as F3. Classify a heading, label, isolated value, context-dependent fragment, unresolved anaphoric proposition, unidentified actor/source attribution, publication-readiness statement, approval statement or other unsupported authority claim as F4. An anaphoric expression is resolved only when its antecedent and scope are visible in the same evidence excerpt. Finite-verb plural personal pronouns such as `de har`/`they have` require a named plural actor antecedent earlier in that excerpt; a location such as `i Malmö`/`in Malmö` is not an actor antecedent. A scoped method limitation must not be validated as an absolute method claim. Do not classify a complete declarative sentence as F4 merely because it is formatted as a bullet.
 
 Treat a nominal metadata label such as `Metadata-import` as F4 when promoted as a claim. Treat `Dette dokumentet` or `This document` as unresolved F4 unless the same claim and evidence excerpt name the document.
 
@@ -51,6 +51,8 @@ Automated validation must reject material actor-universe broadening, unbounded p
 It must also reject figure-derived numeric claims missing material caption scope, analytical superlatives or retail-margin trends missing their bounded universe, bare deictic value clauses without a same-excerpt antecedent, reported results that drop their speaker, and generic webinar or main-message references without the local event identity.
 
 Classify as F3 current-status language such as `i dag`, `today`, `nå` or `now` without a reference year in the same status sentence in claim and evidence, including when the marker appears only in evidence. Every qualitative profitability finding, return comparison, profitability mapping, margin trend or gross-margin calculation, including copular findings such as `lønnsomheten var høy`, requires a bounded period and analytical basis locally in claim and evidence; classify either omission as F3 even when the unit supplies neither. A timeless definition or explicit no-support conclusion exempts only its own analytical clause, not a coordinated or separate analytical-result clause. Classify a definition/calculation `her`/`here` whose evidence or claim sentence omits its appendix, method or analytical object as F4. Classify an interpretive index value, including `tolkes`/`interpreted`, whose interpreting evidence or claim sentence omits the index identity as F4. Classify changed personnel allocation without its reference year and named project in the same allocation sentence as F3; accept an unambiguous acronym as a one-word project identity. When the source identifies a percentage paired with a sales amount as market share of market value, omission of that measure or denominator is F3. Treat a syntactic Markdown row with two or more columns, expressed either with an outer pipe or as compact cell-only content without sentence punctuation, without its header or explicit field labels as F4 in every unit type; surrounding whitespace or a trailing newline does not repair it. Ordinary prose containing only an internal `A | B` phrase is not a Markdown row.
+
+Inventory assertions that map, list, show or contain `eksisterende`/`existing` files, datasets, records or boundaries, or `gjenværende`/`remaining` files, datasets or boundaries, are current-status assertions; classify a missing reference date in that same sentence as F3, and do not accept a named inventory or project as a date substitute. Hedged outcomes such as `kan ha fått økt lønnsomhet`/`may have increased profitability` remain qualitative profitability findings and require a bounded period and analytical basis in claim and evidence. A general causal mechanism such as `kan føre til økt lønnsomhet`/`can lead to increased profitability` is not by itself a reported profitability outcome.
 
 A quantified gross-margin range missing its bounded period, entity universe or analytical basis is F3. When each period pairs sales with a percentage, every period's percentage must locally retain the source-visible share measure and denominator.
 

@@ -47,6 +47,124 @@ function unit(id: string, ordinal: number, text: string): LibraryAnalysisAgentQu
   };
 }
 
+test("rejects conditional profitability outcomes without bounded period and analytical basis", () => {
+  for (const text of [
+    "Samtidig kan det ikke utelukkes at enkeltaktører kan ha fått økte inntekter som følge av prisøkningene i 2022, uten å ha opplevd en tilsvarende økning i driftskostnader, og dermed fått økt lønnsomhet.",
+    "Individual actors may have gained higher revenues and increased profitability in 2022.",
+  ]) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, text)],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /agent_response_analytical_measure_context_missing/u);
+  }
+
+  for (const text of [
+    "På grunnlag av årsregnskap for perioden 2017 til 2022 kan enkeltaktører ha fått økte inntekter og økt lønnsomhet.",
+    "Based on annual reports for 2017 to 2022, individual actors may have gained higher revenues and increased profitability.",
+    "Et positivt etterspørselssjokk kan føre til økt lønnsomhet.",
+  ]) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, text)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), text);
+  }
+});
+
+test("rejects unresolved plural actor pronouns while preserving named antecedents", () => {
+  const unresolved = "I Malmö beskrives lokale kartlegginger som det beste verktøyet de har hatt så langt for å følge opp ressurseffektivitet i miljøprogrammet.";
+  const unresolvedJob = verifiedJob([unresolved]);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: unresolvedJob,
+    response: segmentResponse(unresolvedJob, {
+      unitCoverage: [{ contentUnitId: unresolvedJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(unresolvedJob, 0, unresolved)],
+    }),
+  }), /agent_response_context_dependent_claim/u);
+
+  for (const text of [
+    "Malmö kommune og Bengtsfors kommune rapporterer om funnene. De har brukt dem i regional planlegging.",
+    "S Group og K Group deltok i møtet. De har også publisert veiledning.",
+    "The companies reported the findings. They have used them in regional planning.",
+    "I Malmö beskrives lokale kartlegginger som det beste verktøyet Malmö kommune har hatt.",
+    "De tre store dagligvarekjedene deltok i møtet.",
+  ]) {
+    const job = verifiedJob([text]);
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [claim(job, 0, text)],
+      }),
+    }), text);
+  }
+});
+
+test("rejects undated existing and remaining status while preserving dated and non-status uses", () => {
+  for (const text of [
+    "Open-data README-en kartlegger eksisterende Mission 4-datafiler og gjenværende refetch-/analysegrenser.",
+    "The open-data README maps existing Mission 4 data files and remaining refetch and analysis boundaries.",
+  ]) {
+    const job = verifiedJob([text]);
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [claim(job, 0, text)],
+      }),
+    }), /agent_response_status_as_of_missing/u);
+  }
+
+  for (const text of [
+    "Per 2026 kartlegger open-data README-en eksisterende Mission 4-datafiler og gjenværende refetch-/analysegrenser.",
+    "As of 2026, the open-data README maps existing Mission 4 data files and remaining refetch and analysis boundaries.",
+    "Gjenanskaffelseskost justeres for gjenværende økonomisk levetid.",
+    "Replacement cost is adjusted for remaining useful life.",
+  ]) {
+    const job = verifiedJob([text]);
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [claim(job, 0, text)],
+      }),
+    }), text);
+  }
+});
+
 test("rejects Pilot14 generic data, cleanup, evidence and passive-method references", () => {
   const cases = [
     {

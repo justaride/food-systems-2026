@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.20`
+Workflow version: `1.0.21`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.20`
+Prompt template version: `1.0.21`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
@@ -26,7 +26,7 @@ A claim is eligible only when it is a self-contained declarative proposition wit
 
 A nominal metadata label such as `Metadata-import` is not a declarative claim. Deictic document subjects such as `Dette dokumentet` or `This document` are unresolved unless the claim and evidence excerpt name the document.
 
-Pronouns and shorthand references such as "the method", "the results", "this indicator", "the survey", "the companies", "another factor", "here" or "this period" are eligible only when their antecedent and scope appear in the same evidence excerpt. Current-status language such as "now", "currently", "as of" or an undated ownership/share statement requires the source-visible reference date. A survey or ranking claim must retain the stated respondent universe, sample count and geography; a forecast or projection must retain its basis, horizon and as-of/forecast date. A complete qualitative proposition does not require unrelated surrounding context.
+Pronouns and shorthand references such as "the method", "the results", "this indicator", "the survey", "the companies", "another factor", "here" or "this period" are eligible only when their antecedent and scope appear in the same evidence excerpt. Finite-verb plural personal pronouns such as `de har`/`they have` require a named plural actor antecedent earlier in the same excerpt; a location such as `i Malmö`/`in Malmö` is not an actor antecedent. Current-status language such as "now", "currently", "as of" or an undated ownership/share statement requires the source-visible reference date. A survey or ranking claim must retain the stated respondent universe, sample count and geography; a forecast or projection must retain its basis, horizon and as-of/forecast date. A complete qualitative proposition does not require unrelated surrounding context.
 
 Bare generic references to work, method, mapping or results are not self-contained. Terms such as `arbeidet`, `metoden`, `kartleggingen`, `kartleggingene`, `resultatet`, `resultatene`, `the work`, `the method`, `the mapping`, `the result` and `the results` require the claim itself to name the work, method, mapping object or result scope using wording visible in the same evidence excerpt. If that wording is absent, record `no_material_claim`; do not resolve the reference from another sentence or unit.
 
@@ -57,6 +57,8 @@ Actor universes qualified by participation in a mapping must retain that qualifi
 Figure-derived quantitative claims must retain the material caption scope: aggregated actors, full figure period and inflation-adjustment status. Analytical superlatives require a bounded comparison period and entity universe; retail-margin trends require their source-visible sample. Bare deictic value clauses require a same-excerpt antecedent. Reported results retain the named speaker, and generic webinar or main-message references require a locally named event in both claim and evidence.
 
 Current-status expressions such as `i dag`, `today`, `nå` and `now` require a source-visible reference year in the same status sentence in claim and evidence, including when the current-status marker appears only in the evidence. Every qualitative profitability finding, return comparison, profitability mapping, margin trend or gross-margin calculation, including copular findings such as `lønnsomheten var høy`, must carry its bounded period and analytical basis locally in claim and evidence; reject the analytical result when either is absent from the unit. A timeless definition or explicit no-support conclusion exempts only the analytical clause that contains that formulation, not a coordinated or separate analytical-result clause. A definition or calculation using bare `her`/`here` must name its appendix, method or analytical object in that evidence or claim sentence. An interpretation of `indeksverdi`/`index value`, including `tolkes`/`interpreted`, must name the index in the interpreting evidence or claim sentence. A changed personnel allocation must retain its reference year and named project in the same allocation sentence; an unambiguous acronym is a valid one-word project identity. A sales claim pairing a currency amount with a percentage must identify a source-visible market-share measure and market-value denominator when those define the percentage. A syntactic Markdown table row with two or more columns, expressed either with an outer pipe or as compact cell-only content without sentence punctuation, is not self-contained evidence in any unit type; surrounding whitespace or a trailing newline does not repair it. Include its header plus row or explicit field labels. Ordinary prose containing an internal `A | B` phrase is not a Markdown row.
+
+Inventory assertions that map, list, show or contain `eksisterende`/`existing` files, datasets, records or boundaries, or `gjenværende`/`remaining` files, datasets or boundaries, are current-status assertions and require the reference date in that same sentence; naming the inventory or project does not replace the date. Hedged outcomes such as `kan ha fått økt lønnsomhet`/`may have increased profitability` remain qualitative profitability findings and require a bounded period and analytical basis in claim and evidence. A general causal mechanism such as `kan føre til økt lønnsomhet`/`can lead to increased profitability` is not by itself a reported profitability outcome.
 
 A quantified gross-margin range requires its bounded period, entity universe and analytical basis. When each period's sales amount is paired with a percentage, every period's percentage must locally retain the source-visible share measure and denominator.
 
