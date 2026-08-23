@@ -92,3 +92,25 @@ test("identical quantitative facts pass regardless of surrounding prose", () => 
   });
   assert.deepEqual(findings, []);
 });
+
+test("rejects EU survey geography when the exact evidence excerpt omits EU", () => {
+  const claim = "The survey aims to update data on EU insect food production and provide more accurate figures specifically addressing current and future insect food production market trends.";
+  const evidence = "this new questionnaire addresses current and future insect food production market trends";
+  const findings = checkQuantitativeFacts({
+    claim,
+    evidence,
+    contentUnitId: "content:library-analysis:f6468a45dbb2ce3a7ecff41c9fcd36e3b0c3bb40952e541439809dbb90a2d46b",
+    assertionId: "claim:library-agent:9757afcb729e2cb89b19512ca25a15a10faef76b50563a39d0a2135f5fb32997",
+  });
+  assert.deepEqual(
+    findings.filter((finding) => finding.errorClass === "F3").flatMap((finding) => finding.deterministicRuleIds),
+    ["rule:quantitative:geography"],
+  );
+
+  assert.deepEqual(checkQuantitativeFacts({
+    claim,
+    evidence: "The IPIFF Survey covers EU insect food production and current and future market trends.",
+    contentUnitId: "content:library-analysis:f6468a45dbb2ce3a7ecff41c9fcd36e3b0c3bb40952e541439809dbb90a2d46b",
+    assertionId: "claim:library-agent:9757afcb729e2cb89b19512ca25a15a10faef76b50563a39d0a2135f5fb32997",
+  }).filter((finding) => finding.errorClass === "F3"), []);
+});

@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.21`
+Workflow version: `1.0.22`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.21`
+Prompt template version: `1.0.22`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
@@ -75,6 +75,10 @@ Repeated company-analysis sections containing ownership, financial tables, publi
 Master analysis-index result bullets require local measurement scope. Date both a CR3 value and its historical comparator. A percentage reduction, increase, `higher` or `lower` result must name its measurement period and baseline, control or other comparison basis; a bibliographic or publication year is not a measurement period, whether parenthesized or written in prose. An anonymous exclusion such as `en av leverandørene`/`one of the suppliers` is ineligible unless the exact actor or source-defined category and containing sample are named. Passive `klassifiseres ... her`/`is classified ... here` requires the named actor, appendix or analysis scope in both claim and evidence.
 
 A numbered or plain budget heading followed only by monetary list fragments remains nominal even when its bullets can be combined into a grammatical sentence; do not add a copula or funding action. `blocked` is not a shortcut around complete local findings. When a unit contains a complete named-study finding, a bounded named-authority method/result or repeated locally identified company findings, extract the supported proposition and use `claims_extracted`; do not blanket-mark the unit `blocked`. Preserve typed `blocked` for genuinely unresolved survey scope, headerless tabular meaning, nominal fragments, unreadable content, incomplete company continuations and truncation with no complete local proposition. If a truncated unit contains a complete proposition before a dangling continuation, extract only that complete proposition.
+
+## Pilot25 repair gates
+
+Require local, source-visible context for comparative retail-cost claims (dated bounded range plus timeless cost definition), quantified resource-share claims (bounded period plus analytical basis), current artifact-retention claims (as-of date/year), mappings (named object or method), passive evaluations (named evaluator or report/analysis scope), nominal fragments, and survey purpose/result/respondent claims (local universe/count, geography and named survey identity). A participial evidence opening must retain its claim subject in the same complete excerpt. Preserve `automatedOnly=true` and `externalReady=false`.
 
 ## Output boundary
 

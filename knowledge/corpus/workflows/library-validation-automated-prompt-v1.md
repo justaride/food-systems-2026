@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.21`
+Prompt template version: `1.0.22`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.21`
+Workflow version: `1.0.22`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
@@ -69,6 +69,8 @@ Repeated company-analysis sections with ownership, financial tables, public-supp
 Classify a master analysis-index result as F3 when a CR3 comparison fails to date both values locally, or when a percentage reduction, increase, `higher` or `lower` result omits its measurement period or named baseline, control or comparison basis. Do not treat a citation, bibliographic or publication year as the result period, whether parenthesized or written in prose. An anonymous supplier exclusion must name the exact actor or source-defined category and containing sample; otherwise it is F3. Passive `klassifiseres ... her`/`is classified ... here` without a named actor, appendix or analysis scope in both claim and evidence is F4.
 
 A declarative budget claim synthesized from a heading and monetary list fragments without a source-visible finite predicate is F4. A complete named-study finding, bounded named-authority method/result or locally identified repeated company finding blanket-reported as `blocked` is F5. Preserve `blocked` as valid fail-closed coverage for unresolved survey scope, missing tabular headers, nominal fragments, unreadable content, incomplete company continuations and truncation with no complete local proposition. A complete proposition before a dangling continuation remains claimable; omitting it is F5.
+
+Pilot25 context gates: classify an undated comparative retail-cost generalization, a quantified resource-share assertion without bounded period and analytical basis, or current artifact-retention wording without an as-of date/year as F3. Classify bare `kartlegginger`/`kartleggingene` or `local mappings` without a named mapped object or method in both claim and evidence (for example `regionale ressurskartlegginger` or `kartlegginger av lokale materialstrømmer`) as F4; a municipality or location alone does not resolve the mapping. Classify nominal fragments such as `få tilsvarende initiativer i Norden`, and passive evaluations (`vurderes som`, `anses som`, `regnes som`, `is considered` or `is regarded`) without a named evaluator or report/analysis scope as F4; a list continuation does not supply that evaluator. Survey purpose, result and respondent claims missing local universe/count or analytical scope, or whose evidence omits a claim geography such as EU, are F3. Definite/deictic `the survey` or `this new questionnaire` without a named identity is F4. Evidence beginning with `conducted`, `gathering`, `collected` or equivalent participial wording is incomplete/F4 unless the claim supplies its subject in the same excerpt and the excerpt preserves the complete local proposition.
 
 Do not rewrite the analysis into an approval. Do not claim human review, independent verification, accuracy, canonical status, promotion, rights clearance, publication, coverage or external readiness. A clean automated validation is still automated-only internal candidate evidence.
 

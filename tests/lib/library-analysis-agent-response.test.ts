@@ -107,7 +107,7 @@ test("rejects unresolved plural actor pronouns while preserving named antecedent
     "Malmö kommune og Bengtsfors kommune rapporterer om funnene. De har brukt dem i regional planlegging.",
     "S Group og K Group deltok i møtet. De har også publisert veiledning.",
     "The companies reported the findings. They have used them in regional planning.",
-    "I Malmö beskrives lokale kartlegginger som det beste verktøyet Malmö kommune har hatt.",
+    "I Malmö beskrives lokale ressurskartlegginger som det beste verktøyet Malmö kommune har hatt.",
     "De tre store dagligvarekjedene deltok i møtet.",
   ]) {
     const job = verifiedJob([text]);
@@ -2697,7 +2697,7 @@ test("keeps scoped Pilot18 counterparts eligible", () => {
     "Elektro og øvrige faghandelsprofiler inngår ikke i Coops innsendte tall for perioden 2018–2022.",
     "I 2025 var europeiske EMV-salg 384 milliarder euro og markedsandelen var 38,7 prosent av dagligvaremarkedets verdi.",
     "Per 31.12.2024 hadde Mowi ASA Geveran Trading Co. Ltd. som største aksjonær med omtrent 14,4 prosent.",
-    "Et lite antall store selskaper dekker ofte 70–80 prosent av ressursbruken i en sektor, noe som gjør den regionale ressurskartleggingsmetoden praktisk gjennomførbar.",
+    "I perioden 2018 til 2022, basert på regnskapsdata, dekket et lite antall store selskaper 70–80 prosent av ressursbruken i en sektor, noe som gjør den regionale ressurskartleggingsmetoden praktisk gjennomførbar.",
     "Dette dokumentet, Konkurransetilsynets rapport 2024, er importert som metadata.",
     "Ifølge Konkurransetilsynet steg prisene i Norge i 2024.",
   ];
@@ -2893,7 +2893,7 @@ test("rejects claims and evidence with unresolved causal or temporal context", (
 test("keeps explicit subjects and bounded periods eligible", () => {
   for (const selfContainedText of [
     "The Norwegian retail-price index increased from 2022 to 2024.",
-    "The survey method used responses from 19 Nordic companies.",
+    "The IPIFF survey method used responses from 19 Nordic companies.",
     "Kartleggingsmetoden for norske dagligvarebutikker bruker GIS-data.",
     "Throughout the period from 2022 to 2024, prices increased.",
   ]) {
@@ -4416,7 +4416,7 @@ test("keeps explicitly scoped work, method, mapping, and result references eligi
     "Kartleggingen av regionale materialstrømmer tar utgangspunkt i fem ressurskategorier.",
     "De regionale ressurskartleggingene fungerer som en bro mellom strategi og praksis.",
     "Malmö kommune opplever de regionale ressurskartleggingene som svært nyttige.",
-    "Et lite antall store selskaper dekker 70 prosent av ressursbruken, noe som gjør ressurskartleggingsmetoden praktisk gjennomførbar.",
+    "I perioden 2018 til 2022, basert på regnskapsdata, dekket et lite antall store selskaper 70 prosent av ressursbruken, noe som gjør ressurskartleggingsmetoden praktisk gjennomførbar.",
     "Kvaliteten på resultatet av den regionale ressurskartleggingen avhenger sterkt av tilgang til gode data.",
     "Metoden for regional ressurskartlegging bruker ikke GIS-data i svensk kommunekartlegging.",
   ]) {
@@ -4433,6 +4433,184 @@ test("keeps explicitly scoped work, method, mapping, and result references eligi
       job,
       response,
     }));
+  }
+});
+
+test("Pilot25 closes residual comparative, resource-share, and retention context gaps", () => {
+  const rejected = [
+    [
+      "Lavprisbutikker har generelt lavere kostnader per omsatt krone enn supermarkeder og nærbutikker.",
+      "Lavprisbutikker har generelt lavere kostnader per omsatt krone enn supermarkeder og nærbutikker.",
+      /agent_response_comparative_cost_context_missing/u,
+    ],
+    [
+      "Et lite antall store selskaper dekker ofte 70–80 % av ressursbruken i en sektor.",
+      "Et lite antall store selskaper dekker ofte 70–80 % av ressursbruken i en sektor.",
+      /agent_response_resource_share_context_missing/u,
+    ],
+    [
+      "Figur-PDF-ene beholdes som publiseringsklare vektoreksporter ved siden av PNG-renderingene.",
+      "Figur-PDF-ene beholdes som publiseringsklare vektoreksporter ved siden av PNG-renderingene.",
+      /agent_response_retention_as_of_missing/u,
+    ],
+  ] as const;
+  for (const [text, evidence, error] of rejected) {
+    const job = verifiedJob([evidence]);
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [{ ...claim(job, 0, text), evidence }],
+      }),
+    }), error, text);
+  }
+
+  for (const text of [
+    "Lavprisbutikker hadde generelt lavere kostnader per omsatt krone enn supermarkeder og nærbutikker i perioden 2018 til 2022.",
+    "I perioden 2018 til 2022, basert på regnskapsdata, dekket et lite antall store selskaper 70–80 % av ressursbruken i sektoren.",
+    "Kostnad per omsatt krone beregnes som driftskostnader delt på omsetning.",
+    "Ressurskartleggingsmetoden brukes på regioner, sektorer og enkeltorganisasjoner.",
+    "I 2026 beholdes Figur-PDF-ene som publiseringsklare vektoreksporter ved siden av PNG-renderingene.",
+    "Kontrakts-PDF-en ble beholdt som original ved siden av strukturert markdown-ekstrakt i 2025.",
+  ]) {
+    const job = verifiedJob([text]);
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [claim(job, 0, text)],
+      }),
+    }), text);
+  }
+});
+
+test("Pilot25 rejects generic mappings, nominal fragments, and unnamed passive evaluations", () => {
+  const rejected = [
+    [
+      "Lokale kartlegginger gir kommuner et bedre beslutningsgrunnlag.",
+      "Lokale kartlegginger gir kommuner et bedre beslutningsgrunnlag.",
+      /agent_response_context_dependent_claim/u,
+    ],
+    [
+      "Malmö kommune opplever lokale kartlegginger som svært nyttige.",
+      "Innledningsvis beskrives arbeidet. Kartleggingene gir nyttige data.",
+      /agent_response_context_dependent_claim/u,
+    ],
+    [
+      "Det er få tilsvarende initiativer i Norden.",
+      "få tilsvarende initiativer i Norden",
+      /agent_response_evidence_context_dependent/u,
+    ],
+    [
+      "De fem hovedkategoriene vurderes som grove, men tydelige og funksjonelle.",
+      "De fem hovedkategoriene vurderes som grove, men tydelige og funksjonelle.",
+      /agent_response_identification_actor_missing/u,
+    ],
+    [
+      "The five categories are regarded as coarse but functional.",
+      "The five categories are regarded as coarse but functional.",
+      /agent_response_identification_actor_missing/u,
+    ],
+  ] as const;
+  for (const [text, evidence, error] of rejected) {
+    const job = verifiedJob([evidence]);
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [{ ...claim(job, 0, text), evidence }],
+      }),
+    }), error, text);
+  }
+
+  for (const text of [
+    "Malmö kommune opplever lokale ressurskartlegginger som svært nyttige.",
+    "Malmö kommune opplever kartlegginger av lokale materialstrømmer som nyttige.",
+    "Regionale materialstrømskartlegginger gir kommuner et bedre beslutningsgrunnlag.",
+    "Det er få tilsvarende initiativer i Norden.",
+    "Malmö kommune vurderer de fem hovedkategoriene som grove, men tydelige og funksjonelle.",
+    "The report considers the five categories coarse but functional.",
+    "Konkurransetilsynet beskriver kombinasjonen av lokal innsikt og datakartlegging som en styrke.",
+  ]) {
+    const job = verifiedJob([text]);
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [claim(job, 0, text)],
+      }),
+    }), text);
+  }
+});
+
+test("Pilot25 survey claims preserve local universe, geography, identity, and subject", () => {
+  const source = "IPIFF FOOD MARKET survey. This survey was conducted online in 2023, gathering responses from 19 EU insect farming companies.";
+  const cases = [
+    {
+      claim: "The survey aims to update data on EU insect food production and provide more accurate figures addressing current and future insect food production market trends.",
+      evidence: "this new questionnaire addresses current and future insect food market trends",
+      error: /agent_response_survey_scope_missing/u,
+    },
+    {
+      claim: "A survey conducted online in 2023 gathered responses from 19 EU insect farming companies.",
+      evidence: "conducted online in 2023, gathering responses from 19 EU insect farming companies.",
+      error: /agent_response_evidence_context_dependent/u,
+    },
+    {
+      claim: "The IPIFF Survey aims to update data on EU insect food production among 19 EU insect farming companies.",
+      evidence: "The IPIFF Survey aims to update data on EU insect food production among 19 insect farming companies.",
+      error: /agent_response_survey_scope_missing/u,
+    },
+  ] as const;
+  for (const row of cases) {
+    const job = verifiedJob([`${source} ${row.evidence}`]);
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [{ ...claim(job, 0, row.claim), evidence: row.evidence }],
+      }),
+    }), row.error, row.claim);
+  }
+
+  for (const text of [
+    "The IPIFF Survey was conducted online in 2023, gathering responses from 19 EU insect farming companies.",
+    "The IPIFF Survey aims to update data on EU insect food production among 19 EU insect farming companies.",
+    "This survey, the IPIFF Survey, was conducted online in 2023, gathering responses from 19 EU insect farming companies.",
+    "A survey was conducted online in 2023, gathering responses from 19 EU insect farming companies.",
+  ]) {
+    const job = verifiedJob([`${source} ${text}`]);
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response: segmentResponse(job, {
+        unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+        claims: [claim(job, 0, text)],
+      }),
+    }), text);
   }
 });
 

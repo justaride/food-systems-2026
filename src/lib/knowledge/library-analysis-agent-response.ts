@@ -119,6 +119,16 @@ const CURRENT_STATUS_PREDICATE = /(?<![\p{L}\p{N}_])(?:finnes|har|er|foreligger|
 const INVENTORY_STATUS_MARKER = /\b(?:eksisterende|gjenværende|existing|remaining)\b/iu;
 const INVENTORY_STATUS_ACTION = /\b(?:kartlegger|kartla|lister|listet|viser|viste|inneholder|inneholdt|maps?|mapped|lists?|listed|shows?|showed|contains?|contained)\b/iu;
 const INVENTORY_STATUS_OBJECT = /\b(?:datafiler?|filer?|datasett(?:et)?|grenser?|artefakter?|poster|files?|datasets?|boundaries|artifacts?|records?)\b/iu;
+const COMPARATIVE_RETAIL_COST = /\b(?:lavprisbutikker|supermarkeder|nærbutikker|discount\s+stores?|supermarkets?|convenience\s+stores?|grocery\s+(?:stores?|retailers?))\b[^.!?]{0,160}\b(?:lavere|høyere|lower|higher)\s+(?:kostnader?|costs?)\b[^.!?]{0,100}\b(?:enn|than)\b|\b(?:lavere|høyere|lower|higher)\s+(?:kostnader?|costs?)\b[^.!?]{0,100}\b(?:enn|than)\b[^.!?]{0,160}\b(?:lavprisbutikker|supermarkeder|nærbutikker|discount\s+stores?|supermarkets?|convenience\s+stores?|grocery\s+(?:stores?|retailers?))\b/iu;
+const EMPIRICAL_GENERALIZER = /\b(?:generelt|generally|typically|often|ofte)\b/iu;
+const QUANTIFIED_RESOURCE_SHARE = /\b\d+(?:[.,]\d+)?\s*(?:[-–—]\s*\d+(?:[.,]\d+)?\s*)?(?:%|prosent|percent)(?![\p{L}\p{N}_])[^.!?]{0,120}\b(?:dekker|utgjør|omfatter|covers?|accounts?\s+for)\b[^.!?]{0,100}\b(?:ressursbruken|ressursbruk|resource\s+use)\b|\b(?:dekker|utgjør|omfatter|covers?|accounts?\s+for)\b[^.!?]{0,100}\b\d+(?:[.,]\d+)?\s*(?:[-–—]\s*\d+(?:[.,]\d+)?\s*)?(?:%|prosent|percent)(?![\p{L}\p{N}_])[^.!?]{0,100}\b(?:ressursbruken|ressursbruk|resource\s+use)\b/iu;
+const RESOURCE_SHARE_BASIS = /\b(?:basert\s+på|med\s+utgangspunkt\s+i|på\s+grunnlag\s+av|regnskapsdata|regnskapstall|based\s+on|using\s+(?:accounting\s+data|financial\s+statements?|accounts?))\b/iu;
+const ARTIFACT_RETENTION_STATUS = /\b(?:behold(?:es|t)|retained|kept|remains?)\b[\s\S]{0,100}\b(?:PDF(?:-ene|-en)?|files?|filer?|exports?|ekspor(?:ter|t)|markdown\s+extract|markdown-ekstrakt|artefacts?|artefakter?)\b|\b(?:PDF(?:-ene|-en)?|files?|filer?|exports?|ekspor(?:ter|t)|markdown\s+extract|markdown-ekstrakt|artefacts?|artefakter?)\b[\s\S]{0,100}\b(?:behold(?:es|t)|retained|kept|remains?)\b/iu;
+const RESOLVED_MAPPING_OBJECT_OR_METHOD = /\b(?:[\p{L}\p{M}-]+kartlegging(?:en|er|ene)?|resource[- ]mapping|regional\s+mapping|material[- ]flow[- ]mapping|kartlegging(?:en|er|ene)?\s+(?:av|for|i)\s+[\p{L}\p{M}\p{N}-]+|mapping\s+(?:of|for)\s+[\p{L}\p{M}\p{N}-]+|[\p{L}\p{M}-]+kartleggingsmetoden|[\p{L}\p{M}-]+\s+mapping\s+method)\b/iu;
+const NAMED_MAPPING_METHOD = /\b(?:Konkurransetilsynet(?:s)?|Norwegian\s+Competition\s+Authority|RE:Source)\s+(?:kartlegging(?:en)?|mapping)\b|\b(?:metoden|method)\s+(?:for|of|til|to)\s+[^.!?]*?\b(?:kartlegging|mapping)\b/iu;
+const NOMINAL_QUANTIFIER_FRAGMENT = /^(?:få|et\s+lite\s+antall|many|several)\s+[\p{L}\p{M}\d][^.!?]*$/iu;
+const PARTICIPIAL_SURVEY_EVIDENCE = /^(?:conducted|gathering|collected|responding|gjennomført|samlet|innsamlet|utført)\b/iu;
+const DEFINITE_SURVEY_REFERENCE = /\b(?:(?:the|this(?:\s+new)?|den|denne)\s+(?:survey|questionnaire|undersøkelsen|spørreskjema(?:et)?))\b/iu;
 const CONDITIONAL_PROFITABILITY_OUTCOME = /\b(?:kan|may|could|might)\b[^.!?]{0,360}(?:økt\s+lønnsomhet|increased\s+profitability)\b/iu;
 const PROFITABILITY_MECHANISM = /\b(?:føre|bidra)\s+til\s+økt\s+lønnsomhet\b|\b(?:lead|contribute)\s+to\s+increased\s+profitability\b/iu;
 const PLURAL_ACTOR_PRONOUN = /\b(?:de\s+har\s+hatt|they\s+have\s+had)\b/iu;
@@ -146,7 +156,7 @@ const DEICTIC_STUDY_REFERENCE = /\b(?:this\s+(?:survey|questionnaire|study)|denn
 const UNRESOLVED_INDICATOR_REFERENCE = /\b(?:denne\s+indikatoren|this\s+indicator)\b/iu;
 const MAPPED_ACTOR_SCOPE = /\b(?:(?:actors?|participants?)\b[^.;!?\n]{0,80}\b(?:the\s+)?mapping|(?:[\p{L}-]*aktør(?:er|ene)?|deltaker(?:e|ne)?)\b[^.;!?\n]{0,80}\bkartleggingen)\b/iu;
 const BROAD_ALL_ACTORS = /\b(?:(?:all|every|each)\s+(?:[\p{L}-]+\s+){0,4}(?:actors?|participants?)|each\s+of\s+the\s+(?:actors?|participants?)|(?:alle|samtlige|enhver|hver)\s+(?:[\p{L}-]+\s+){0,4}(?:[\p{L}-]*aktør(?:er|ene)?|deltaker(?:e|ne)?)|(?:actors?|participants?)\s+(?:generally|in\s+general))\b/iu;
-const NAMED_STUDY_IDENTITY = /\b(?:the\s+)?([A-Z][A-Z0-9&.-]{2,})\s+(?:survey|questionnaire|study)\b/u;
+const NAMED_STUDY_IDENTITY = /\b(?:the\s+)?([A-Z][A-Z0-9&.-]{2,})\s+(?:[Ss]urvey|[Qq]uestionnaire|[Ss]tudy)\b/u;
 const NAMED_NORWEGIAN_STUDY_IDENTITY = /\b([A-ZÆØÅ][A-ZÆØÅ0-9&.-]{2,})[- ](?:undersøkelsen|studien|kartleggingen)\b/u;
 const TITLE_CASE_STUDY_IDENTITY = /\b(?:the\s+)?([A-Z][\p{L}\p{M}-]+(?:\s+[A-Z][\p{L}\p{M}-]+){1,5})\s+(?:survey|questionnaire|study)\b/u;
 const DEICTIC_STUDY_BY_IDENTITY = /\bthis\s+(?:survey|questionnaire|study)\s+by\s+([A-Z][\p{L}\p{M}0-9&.-]+)\b/iu;
@@ -168,6 +178,8 @@ const OPERATIONAL_STATUS = /(?:\bdashboard(?:et)?\b[\s\S]{0,80}\b(?:brukes|anven
 const NAMED_SCOPE = /\bfor\s+(?!(?:prosjektet|søknaden|the\s+project|the\s+application)\b)[A-ZÆØÅ][\p{L}\p{N}-]*(?:\s+[A-ZÆØÅ][\p{L}\p{N}-]*)+/u;
 const SURVEY_UNIT_CONTEXT = /\b(?:survey|questionnaire|respondents?|responses?|companies\s+indicated|could\s+you\s+rank|your\s+company)\b/iu;
 const SURVEY_DEPENDENT_CLAIM = /\b(?:respondents?|respondent\s+companies|companies\s+(?:responded|identified|(?:are|were|have\s+been)\s+(?:located|based))|companies\s+in\s+the\s+source|insect\s+food\s+producers\s+seem|most\s+(?:(?:of\s+the|insect(?:\s+food)?|food)\s+)?companies|most\s+established\s+companies|newer\s+entrants|on\s+average|rank(?:ed|ing)?|total(?:\s+collective)?\s+production|forecast(?:ed)?|foreseen|projection|influential\s+drivers?|critical\s+determinants?|source\s+identifies[\s\S]{0,100}\bmain\s+geographic\s+markets?)\b/iu;
+const SURVEY_PURPOSE_CLAIM = /\b(?:survey|questionnaire)\b[\s\S]{0,180}\b(?:aims?|intends?|designed|update(?:s)?\s+(?:the\s+)?data|provide\s+more\s+accurate\s+figures?|production|market\s+trends?)\b/iu;
+const SURVEY_SUBJECT_CLAIM = /\b(?:survey|questionnaire)\b[\s\S]{0,120}\b(?:conducted|gathered|received|collected|responded|responses?)\b/iu;
 const LOCAL_SURVEY_SCOPE = /\b(?:(?:among|from|of|sample\s+of)\s+|responses?\s+from\s+)?\d{1,4}\s+(?:(?:EU|European|Nordic|surveyed)\s+)?(?:(?:insect\s+farming|insect-food|food)\s+)?(?:companies|respondents|producers)\b/iu;
 const FORECAST_CLAIM = /\b(?:forecast(?:ed)?|foreseen|projection|projected)\b/iu;
 const FORECAST_BASIS = /\b(?:based\s+on|using|scenario|model(?:led|ed|ing)?|estimated?\s+from|responses?\s+from)\b/iu;
@@ -199,8 +211,9 @@ const COMPARATIVE_PATTERN = /\b(?:(?:det\s+)?europeiske\s+mønsteret|the\s+Europ
 const NAMED_COMPARISON_BASIS = /\b(?:målt\s+av|ifølge|basert\s+på|measured\s+by|according\s+to|based\s+on)\s+([\p{Lu}][\p{L}\p{M}\p{N}.&+-]*)/u;
 const UNNAMED_STUDY_AUTHORITY = /\b(?:empiriske\s+studier|empirical\s+studies|litteraturen|the\s+literature)\s+(?:viser|indikerer|tyder\s+på|shows?|indicates?|suggests?)(?![\p{L}\p{N}_])/iu;
 const PASSIVE_IDENTIFICATION = /\b(?:(?:ble\s+det|det\s+ble)\s+identifisert\s+at|det\s+ble\s+introdusert\s+en\s+ny\s+metode|it\s+was\s+identified\s+that|a\s+new\s+method\s+was\s+introduced)\b/iu;
-const PASSIVE_EVALUATION = /\b(?:beskrives\s+som|is\s+described\s+as)\b/iu;
+const PASSIVE_EVALUATION = /\b(?:beskrives\s+som|vurderes\s+som|anses\s+som|regnes\s+som|is\s+described\s+as|is\s+considered\s+as?|are\s+considered\s+as?|is\s+regarded\s+as?|are\s+regarded\s+as?)\b/iu;
 const PASSIVE_NAMED_ACTOR = /(?<![\p{L}\p{N}_])(?:av|by)\s+[\p{Lu}][\p{L}\p{M}\p{N}.:&+-]*(?:\s+[\p{Lu}][\p{L}\p{M}\p{N}.:&+-]*){0,5}/u;
+const PASSIVE_NAMED_EVALUATOR_SCOPE = /\b(?:rapport(?:en|ets)?|report|analys(?:en|is)|analysis)\b/iu;
 const PASSIVE_LOCAL_CLASSIFICATION = /\b(?:(?:klassifiseres|(?:ble|er|var|blir|har\s+blitt|har\s+vært)\s+klassifisert)[^.!?\n]{0,100}\bher|(?:(?:is|are|was|were)\s+(?:being\s+)?classified|(?:has|have|had)\s+been\s+classified)[^.!?\n]{0,100}\bhere)\b/iu;
 const NAMED_CLASSIFICATION_CONTEXT = /\b(?:Konkurransetilsynet|Norwegian\s+Competition\s+Authority|margin(?:analyse(?:n)?|studie(?:n)?)|denne\s+analysen|this\s+analysis|vedlegg\s+[A-ZÆØÅ]|appendix\s+[A-Z])\b/iu;
 const FIGURE_REFERENCE = /\b(?:Figur|Figure)\s+(\d{1,4})\b/iu;
@@ -315,6 +328,22 @@ function hasUnresolvedLocalReference(value: string): boolean {
     BARE_SIMILAR_ANALYSIS.test(value) ||
     (BARE_ANALYSIS_REFERENCE.test(value) && !EXPLICIT_LOCAL_ANALYSIS_CONTEXT.test(value)) ||
     BARE_DOUBLE_COUNTING.test(value);
+}
+
+function hasResolvedMappingIdentity(value: string): boolean {
+  return RESOLVED_MAPPING_OBJECT_OR_METHOD.test(value) ||
+    NAMED_MAPPING_METHOD.test(value) ||
+    MAPPED_ACTOR_SCOPE.test(value);
+}
+
+function hasGenericMappingIdentity(value: string): boolean {
+  const genericMapping = /\b(?:lokale\s+)?kartlegging(?:en|er|ene)?\b/giu;
+  for (const match of value.matchAll(genericMapping)) {
+    const index = match.index ?? 0;
+    const prefix = value.slice(Math.max(0, index - 24), index);
+    if (!/(?:\b(?:til|for|i|av|med|på)\s+)$/iu.test(prefix)) return true;
+  }
+  return /(?:^|[.!?\n])\s*(?:local\s+)?mappings?\b/iu.test(value);
 }
 
 function normalizedMaterialText(value: string): string {
@@ -653,8 +682,14 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     !PRIOR_FACTOR.test(normalizedClaim.slice(0, anotherFactor.index));
   const unresolvedLocalReference = hasUnresolvedLocalReference(normalizedClaim);
   const unresolvedGenericReference = UNRESOLVED_GENERIC_REFERENCE.test(normalizedClaim) &&
+    !hasGenericMappingIdentity(normalizedClaim) &&
     !MAPPED_ACTOR_SCOPE.test(normalizedClaim) &&
     !EXPLICIT_SCOPED_APPROACH.test(normalizedClaim);
+  const unresolvedMappingIdentity = hasGenericMappingIdentity(normalizedClaim) &&
+    !hasResolvedMappingIdentity(normalizedClaim);
+  const surveyScopeSensitiveClaim = SURVEY_DEPENDENT_CLAIM.test(normalizedClaim) ||
+    SURVEY_PURPOSE_CLAIM.test(normalizedClaim);
+  const surveySubjectClaim = surveyScopeSensitiveClaim || SURVEY_SUBJECT_CLAIM.test(normalizedClaim);
   const bareMethodEvidenceClause = firstLocalClauseMatching(
     normalizedEvidence,
     BARE_METHOD_EVIDENCE_REFERENCE,
@@ -671,6 +706,7 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     AUDITED_HERE_REFERENCE.test(normalizedClaim) ||
     unresolvedAnotherFactor ||
     unresolvedGenericReference ||
+    unresolvedMappingIdentity ||
     hasUnresolvedPluralActorPronoun(normalizedClaim) ||
     BARE_DATA_REFERENCE.test(normalizedClaim) ||
     UNRESOLVED_GENERIC_METHOD_OPENING.test(normalizedClaim) ||
@@ -694,7 +730,10 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
   if (
     namedStudyIdentity === undefined &&
     (DEICTIC_STUDY_REFERENCE.test(normalizedClaim) ||
-      DEICTIC_STUDY_REFERENCE.test(normalizedEvidence))
+      DEICTIC_STUDY_REFERENCE.test(normalizedEvidence) ||
+      DEFINITE_SURVEY_REFERENCE.test(normalizedClaim) ||
+      DEFINITE_SURVEY_REFERENCE.test(normalizedEvidence)) &&
+    !surveyScopeSensitiveClaim
   ) {
     throw new Error("agent_response_study_identity_missing");
   }
@@ -726,8 +765,13 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     EARLY_GENERIC_EVIDENCE_REFERENCE.test(normalizedEvidence) ||
     BARE_DATA_REFERENCE.test(normalizedEvidence) ||
     (UNRESOLVED_GENERIC_REFERENCE.exec(normalizedEvidence)?.index === 0 &&
+      !hasGenericMappingIdentity(normalizedEvidence) &&
       !MAPPED_ACTOR_SCOPE.test(normalizedEvidence) &&
       !EXPLICIT_SCOPED_APPROACH.test(normalizedEvidence)) ||
+    (hasGenericMappingIdentity(normalizedEvidence) &&
+      !hasResolvedMappingIdentity(normalizedEvidence)) ||
+    (NOMINAL_QUANTIFIER_FRAGMENT.test(normalizedEvidence) &&
+      !hasDeclarativeCopulaOrVerb(normalizedEvidence)) ||
     (CLAIM_METHOD_REFERENCE.test(normalizedClaim) &&
       bareMethodEvidenceClause !== undefined &&
       !NAMED_METHOD_CONTEXT.test(bareMethodEvidenceClause) &&
@@ -740,6 +784,13 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     CONTEXT_DEPENDENT_EVIDENCE_OPENING.test(normalizedEvidence) &&
     namedStudyIdentity !== undefined &&
     !normalizedEvidence.includes(namedStudyIdentity)
+  ) {
+    throw new Error("agent_response_evidence_context_dependent");
+  }
+  if (
+    surveySubjectClaim &&
+    PARTICIPIAL_SURVEY_EVIDENCE.test(normalizedEvidence) &&
+    !/\b(?:survey|questionnaire|undersøkelsen|spørreskjema)\b/iu.test(normalizedEvidence)
   ) {
     throw new Error("agent_response_evidence_context_dependent");
   }
@@ -788,9 +839,14 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
   )) {
     throw new Error("agent_response_comparison_context_missing");
   }
+  if (PASSIVE_IDENTIFICATION.test(normalizedClaim) && !PASSIVE_NAMED_ACTOR.test(normalizedClaim)) {
+    throw new Error("agent_response_identification_actor_missing");
+  }
   if (
-    (PASSIVE_IDENTIFICATION.test(normalizedClaim) || PASSIVE_EVALUATION.test(normalizedClaim)) &&
-    !PASSIVE_NAMED_ACTOR.test(normalizedClaim)
+    PASSIVE_EVALUATION.test(normalizedClaim) &&
+    !/\bdette\s+vurderes\s+som\b/iu.test(normalizedClaim) &&
+    ((!PASSIVE_NAMED_ACTOR.test(normalizedClaim) && !PASSIVE_NAMED_EVALUATOR_SCOPE.test(normalizedClaim)) ||
+      (!PASSIVE_NAMED_ACTOR.test(normalizedEvidence) && !PASSIVE_NAMED_EVALUATOR_SCOPE.test(normalizedEvidence)))
   ) {
     throw new Error("agent_response_identification_actor_missing");
   }
@@ -864,6 +920,37 @@ function assertAuditedScopeCompleteness(
       [...claimMetrics].some((metric) => !evidenceMetrics.has(metric))
     ) {
       throw new Error("agent_response_analytical_measure_context_missing");
+    }
+  }
+  if (COMPARATIVE_RETAIL_COST.test(claimText) && EMPIRICAL_GENERALIZER.test(claimText)) {
+    const claimPeriods = boundedYearRangeKeys(claimText);
+    const evidencePeriods = boundedYearRangeKeys(evidence);
+    if (
+      claimPeriods.size === 0 ||
+      evidencePeriods.size === 0 ||
+      [...claimPeriods].some((period) => !evidencePeriods.has(period))
+    ) {
+      throw new Error("agent_response_comparative_cost_context_missing");
+    }
+  }
+  if (QUANTIFIED_RESOURCE_SHARE.test(claimText)) {
+    const claimPeriods = boundedYearRangeKeys(claimText);
+    const evidencePeriods = boundedYearRangeKeys(evidence);
+    if (
+      claimPeriods.size === 0 ||
+      evidencePeriods.size === 0 ||
+      [...claimPeriods].some((period) => !evidencePeriods.has(period)) ||
+      !RESOURCE_SHARE_BASIS.test(claimText) ||
+      !RESOURCE_SHARE_BASIS.test(evidence)
+    ) {
+      throw new Error("agent_response_resource_share_context_missing");
+    }
+  }
+  if (ARTIFACT_RETENTION_STATUS.test(claimText)) {
+    if (!ARTIFACT_RETENTION_STATUS.test(evidence) ||
+      !EXPLICIT_YEAR.test(claimText) ||
+      !EXPLICIT_YEAR.test(evidence)) {
+      throw new Error("agent_response_retention_as_of_missing");
     }
   }
   if (PRICE_MEASURE.test(claimText) && PRICE_CHANGE.test(claimText)) {
@@ -976,13 +1063,38 @@ function assertAuditedScopeCompleteness(
   }
   if (
     SURVEY_UNIT_CONTEXT.test(sourceText) &&
-    SURVEY_DEPENDENT_CLAIM.test(claimText) &&
+    (SURVEY_DEPENDENT_CLAIM.test(claimText) ||
+      SURVEY_PURPOSE_CLAIM.test(claimText) ||
+      SURVEY_SUBJECT_CLAIM.test(claimText)) &&
     (!LOCAL_SURVEY_SCOPE.test(claimText) ||
       !LOCAL_SURVEY_SCOPE.test(evidence) ||
       normalizedMaterialText(LOCAL_SURVEY_SCOPE.exec(claimText)?.[0] ?? "") !==
-        normalizedMaterialText(LOCAL_SURVEY_SCOPE.exec(evidence)?.[0] ?? ""))
+        normalizedMaterialText(LOCAL_SURVEY_SCOPE.exec(evidence)?.[0] ?? "") ||
+      [...geographyMarkers(claimText)].some((geography) => !geographyMarkers(evidence).has(geography)))
   ) {
     throw new Error("agent_response_survey_scope_missing");
+  }
+  const namedStudyIdentity = NAMED_STUDY_IDENTITY.exec(claimText)?.[1] ??
+    NAMED_NORWEGIAN_STUDY_IDENTITY.exec(claimText)?.[1] ??
+    TITLE_CASE_STUDY_IDENTITY.exec(claimText)?.[1] ??
+    DEICTIC_STUDY_BY_IDENTITY.exec(claimText)?.[1] ??
+    DEICTIC_STUDY_CALLED_IDENTITY.exec(claimText)?.[1] ??
+    DEICTIC_STUDY_PAREN_IDENTITY.exec(claimText)?.[1] ??
+    DEICTIC_STUDY_DASH_IDENTITY.exec(claimText)?.[1];
+  if (
+    SURVEY_UNIT_CONTEXT.test(sourceText) &&
+    (SURVEY_DEPENDENT_CLAIM.test(claimText) || SURVEY_PURPOSE_CLAIM.test(claimText) || SURVEY_SUBJECT_CLAIM.test(claimText)) &&
+    DEFINITE_SURVEY_REFERENCE.test(claimText) &&
+    namedStudyIdentity === undefined
+  ) {
+    throw new Error("agent_response_study_identity_missing");
+  }
+  if (
+    namedStudyIdentity !== undefined &&
+    DEFINITE_SURVEY_REFERENCE.test(evidence) &&
+    !normalizedMaterialText(evidence).includes(normalizedMaterialText(namedStudyIdentity))
+  ) {
+    throw new Error("agent_response_evidence_context_dependent");
   }
   if (
     SURVEY_UNIT_CONTEXT.test(sourceText) &&

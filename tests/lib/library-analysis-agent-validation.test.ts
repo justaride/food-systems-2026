@@ -286,6 +286,26 @@ test("deterministic validation rejects quantitative evidence ending on a danglin
   );
 });
 
+test("Pilot25 deterministic validation keeps EU geography bound to the exact evidence excerpt", () => {
+  const claim = "The 2023 survey covered 19 EU insect farming companies.";
+  const omittedEu = validationResult(
+    claim,
+    "The 2023 survey covered 19 insect farming companies.",
+    "The 2023 survey covered 19 EU insect farming companies.",
+  );
+  const geographyFinding = omittedEu.findings.find((finding) =>
+    finding.errorClass === "F3" && finding.validatorKind === "deterministic" &&
+    finding.deterministicRuleIds.includes("rule:quantitative:geography")
+  );
+  assert.ok(geographyFinding, "expected the exact EU geography rule to quarantine the claim");
+
+  const preservedEu = validationResult(claim, claim, claim);
+  assert.equal(
+    preservedEu.findings.some((finding) => finding.errorClass === "F3" && finding.validatorKind === "deterministic"),
+    false,
+  );
+});
+
 test("authoritative numeric gates reject explicit positive-sign drift", () => {
   const result = numericValidation("The report says +12% growth.", "12% growth.");
   assert.ok(result.findings.some((finding) => finding.errorClass === "F3" && finding.validatorKind === "deterministic"));
