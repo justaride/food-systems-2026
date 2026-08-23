@@ -205,27 +205,6 @@ export async function withCandidateAnalysisPostgres(
 
     for (const migrationPath of [
       "prisma/migrations/20260818_candidate_analysis_foundation/migration.sql",
-      "prisma/migrations/20260821_library_analysis_prompt_1_0_2/migration.sql",
-      "prisma/migrations/20260821_library_analysis_prompt_1_0_3/migration.sql",
-      "prisma/migrations/20260821_library_analysis_prompt_1_0_4/migration.sql",
-      "prisma/migrations/20260821_library_analysis_prompt_1_0_5/migration.sql",
-      "prisma/migrations/20260822_library_analysis_prompt_1_0_6/migration.sql",
-      "prisma/migrations/20260822_library_analysis_prompt_1_0_7/migration.sql",
-      "prisma/migrations/20260822_library_analysis_prompt_1_0_8/migration.sql",
-      "prisma/migrations/20260822_library_analysis_prompt_1_0_9/migration.sql",
-      "prisma/migrations/20260822_library_analysis_prompt_1_0_10/migration.sql",
-      "prisma/migrations/20260822_library_analysis_prompt_1_0_11/migration.sql",
-      "prisma/migrations/20260822_library_analysis_prompt_1_0_12/migration.sql",
-      "prisma/migrations/20260822_library_analysis_prompt_1_0_13/migration.sql",
-      "prisma/migrations/20260822_library_analysis_prompt_1_0_14/migration.sql",
-      "prisma/migrations/20260823_library_analysis_prompt_1_0_15/migration.sql",
-      "prisma/migrations/20260823_library_analysis_prompt_1_0_16/migration.sql",
-      "prisma/migrations/20260823_library_analysis_prompt_1_0_17/migration.sql",
-      "prisma/migrations/20260823_library_analysis_prompt_1_0_18/migration.sql",
-      "prisma/migrations/20260823_library_analysis_prompt_1_0_19/migration.sql",
-      "prisma/migrations/20260823_library_analysis_prompt_1_0_20/migration.sql",
-      "prisma/migrations/20260823_library_analysis_prompt_1_0_21/migration.sql",
-      "prisma/migrations/20260823_library_analysis_prompt_1_0_22/migration.sql",
       "prisma/migrations/20260823_library_analysis_prompt_1_0_23/migration.sql",
     ]) {
       const migrated = run(binaries.psql, [

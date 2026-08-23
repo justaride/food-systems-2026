@@ -1,12 +1,16 @@
 import { createHash } from "node:crypto";
 import { lstatSync, readFileSync, readdirSync } from "node:fs";
+import { homedir } from "node:os";
 import { basename, join } from "node:path";
 
 import {
   validateLibraryAnalysisAgentSegmentResponse,
 } from "../../src/lib/knowledge/library-analysis-agent-response";
 
-const runRoot = "/Users/gabrielfreeman/.local/share/foodsystems/library-analysis-runs/20260823-ai-validation/codex-native-pilot-25";
+const runsRoot =
+  process.env.LIBRARY_ANALYSIS_RUNS_ROOT ??
+  join(homedir(), ".local/share/foodsystems/library-analysis-runs");
+const runRoot = join(runsRoot, "20260823-ai-validation/codex-native-pilot-25");
 const queuePath = join(runRoot, "queue/queue-4b8a6412fb288daeb17f42aeec0548dd21b224b98a5f6ea93f48a48dfa156e21.json");
 const receiptPath = join(runRoot, "terminal/receipt.json");
 const responseRoot = join(process.cwd(), ".superpowers/sdd/2026-08-21-codex-native-library-analysis-orchestration/pilot25-worker-responses");

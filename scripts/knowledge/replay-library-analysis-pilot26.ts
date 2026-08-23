@@ -1,12 +1,16 @@
 import { createHash } from "node:crypto";
 import { lstatSync, readFileSync, readdirSync } from "node:fs";
+import { homedir } from "node:os";
 import { basename, join } from "node:path";
 
 import { LibraryAnalysisAgentTerminalReceiptSchema } from "../../src/lib/knowledge/library-analysis-agent-checkpoint";
 import { verifyLibraryAnalysisAgentQueue } from "../../src/lib/knowledge/library-analysis-agent-queue";
 import { validateLibraryAnalysisAgentSegmentResponse } from "../../src/lib/knowledge/library-analysis-agent-response";
 
-const runRoot = "/Users/gabrielfreeman/.local/share/foodsystems/library-analysis-runs/20260823-ai-validation/codex-native-pilot-26";
+const runsRoot =
+  process.env.LIBRARY_ANALYSIS_RUNS_ROOT ??
+  join(homedir(), ".local/share/foodsystems/library-analysis-runs");
+const runRoot = join(runsRoot, "20260823-ai-validation/codex-native-pilot-26");
 const queueHash = "e83e94e45a46f32eda4684ee703e3dabda75c961f1f74667cf70901978ae8359";
 const queuePath = join(runRoot, `queue/queue-${queueHash}.json`);
 const receiptPath = join(runRoot, "terminal/receipt.json");
