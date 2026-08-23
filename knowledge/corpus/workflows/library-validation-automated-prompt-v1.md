@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.18`
+Prompt template version: `1.0.19`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.18`
+Workflow version: `1.0.19`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
@@ -61,6 +61,8 @@ Treat a percentage of total turnover as an implicit market share and classify a 
 Classify as F5 an obviously material structured unit reported as `no_material_claim`, regardless of content-unit type, including a summary with `Hovedfunn`/`Main findings`/`Findings` or method sections, a numbered `Læring`/`Læringspunkt`/`Learning`/`Learning point` section followed by declarative findings, a header-bound inventory row, an internal-register record with populated `keyFindings` or `recommendations`, a master analysis index with structured status results, explicit Competition Authority findings, named study findings, or a scoped project budget with total and per-group allocations. A bare numbered learning heading, table-of-contents entry, learning question or imperative prompt without a declarative answer is not material by itself.
 
 Also classify declarative survey results, response totals and forecasts reported as `no_material_claim` as F5. Missing local survey context requires typed `blocked` coverage, not omission.
+
+Repeated company-analysis sections with ownership, financial tables, public-support or IP/patent findings reported as `no_material_claim` are F5. Multiple stable-width, comma-delimited data rows are material even without a local header; missing field meanings require typed `blocked` coverage rather than `no_material_claim`. A nominal budget label or per-group/total funding fragment without a finite predicate is F4. A practical-success proposition using `lykkes i praksis`/`succeed in practice` without naming the relevant method, project, work, delivery, mapping or calculation in the same proposition and evidence clause is context-dependent F4.
 
 Do not rewrite the analysis into an approval. Do not claim human review, independent verification, accuracy, canonical status, promotion, rights clearance, publication, coverage or external readiness. A clean automated validation is still automated-only internal candidate evidence.
 

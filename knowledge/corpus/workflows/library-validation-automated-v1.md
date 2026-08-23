@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.18`
+Workflow version: `1.0.19`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.18`
+Prompt template version: `1.0.19`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
@@ -61,6 +61,8 @@ Treat a percentage of total turnover as an implicit market share and classify a 
 Classify as F5 an obviously material structured unit reported as `no_material_claim`, regardless of content-unit type, including a summary with `Hovedfunn`/`Main findings`/`Findings` or method sections, a numbered `Læring`/`Læringspunkt`/`Learning`/`Learning point` section followed by declarative findings, a header-bound inventory row, an internal-register record with populated `keyFindings` or `recommendations`, a master analysis index with structured status results, explicit Competition Authority findings, named study findings, or a scoped project budget with total and per-group allocations. A bare numbered learning heading, table-of-contents entry, learning question or imperative prompt without a declarative answer is not material by itself.
 
 Declarative survey results, response totals and forecasts reported as `no_material_claim` are also F5. Missing local survey context requires typed `blocked` coverage rather than omission.
+
+Repeated company-analysis sections and multiple stable-width comma-delimited data rows reported as `no_material_claim` are also F5; missing local labels or headers require typed `blocked` coverage. A nominal budget fragment without a finite predicate is F4. A practical-success proposition that does not name its method, project, work, delivery, mapping or calculation in the same claim and evidence clause is context-dependent F4.
 
 ## Output boundary
 

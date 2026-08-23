@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.18`
+Prompt template version: `1.0.19`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.18`
+Workflow version: `1.0.19`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
@@ -64,6 +64,10 @@ Do not mark an obviously material structured unit `no_material_claim`, regardles
 
 Declarative survey results, response totals and forecasts are also obviously material. They must not be covered as `no_material_claim`; when the supplied excerpt lacks the respondent universe, count, period or forecast basis required for a supportable claim, return typed `blocked` coverage instead.
 
+Repeated company-analysis sections containing ownership, financial tables, public-support findings or IP/patent findings are obviously material. Multiple stable-width, comma-delimited data rows are also material even when a local header is missing; use typed `blocked` coverage when field meanings cannot be established, never `no_material_claim`.
+
 Return only the strict candidate payload grammar. Do not claim approval, human review, independent verification, accuracy, canonical status, rights clearance, publication, coverage or external readiness. Do not include instructions to the later validator and do not predict its findings.
 
 Do not infer an award, grant or allocation action from a bare funding provenance phrase such as `fra X` or `from X`; verbs such as `bevilget`, `tildelte`, `awarded`, `granted` or `allocated` require an explicit source-visible award action in the same evidence excerpt. A named authority in the claim must also be named in the evidence excerpt; generic shorthand such as `tilsynet` or `the authority` does not authorize rewriting it as Konkurransetilsynet, CMA or another named authority. Treat nominal challenge/step fragments and similar heading-like text without a finite declarative verb as non-declarative evidence, even when punctuation makes the fragment look like a sentence or the supplied excerpt starts mid-heading with wording such as `stor steg for` or `major step for`.
+
+Treat a nominal budget label or allocation fragment without a finite predicate as non-declarative evidence, including `Budsjett: 500 000 kr` and bare per-group/total funding lines. A statement that data or organization is critical to `lykkes i praksis`/`succeed in practice` must name the method, project, work, delivery, mapping or calculation in the same proposition and evidence clause; a bare `Metoden` in surrounding text does not resolve it.

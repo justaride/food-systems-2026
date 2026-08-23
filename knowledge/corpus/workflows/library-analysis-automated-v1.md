@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.18`
+Workflow version: `1.0.19`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.18`
+Prompt template version: `1.0.19`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
@@ -67,6 +67,8 @@ Implicit shares expressed as a percentage of total turnover require a same-sente
 `no_material_claim` is not a shortcut around obvious source material. In any content-unit type, a structured summary with a `Hovedfunn`/`Main findings`/`Findings` or method section, a numbered `Læring`/`Læringspunkt`/`Learning`/`Learning point` section followed by declarative findings, a header-bound inventory row, an internal-register record with populated `keyFindings` or `recommendations`, a master analysis index with structured status results, explicit Competition Authority findings, named study findings, or a scoped project budget with total and per-group allocations must produce supported claims or a typed blocked result. Reporting such a unit as `no_material_claim` is a material omission. A bare numbered learning heading, table-of-contents entry, learning question or imperative prompt without a declarative answer remains eligible for `no_material_claim`.
 
 Declarative survey results, response totals and forecasts are also obviously material. If required local survey context is missing, record typed `blocked` coverage rather than `no_material_claim`.
+
+Repeated company-analysis sections containing ownership, financial tables, public-support or IP/patent findings, and multiple stable-width comma-delimited data rows, are also obviously material. Missing local labels or headers require typed `blocked` coverage rather than `no_material_claim`. Nominal budget fragments without a finite predicate are ineligible. A practical-success proposition must name its method, project, work, delivery, mapping or calculation in the same claim and evidence clause.
 
 ## Output boundary
 

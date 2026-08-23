@@ -2359,6 +2359,100 @@ test("keeps Pilot21 numbered learning headings and questions eligible for no-mat
   }
 });
 
+test("rejects Pilot22 structured company analysis and headerless CSV continuations as no-material", () => {
+  const cases = [
+    `## 10. Mowi ASA
+
+### A. Eierskap
+- Storste aksjonaer: Geveran Trading Co. Ltd. - 14,4%
+
+### B. Finansielle data (2024)
+| Nokkeltall | Verdi |
+|---|---|
+| Omsetning | EUR 5,62 mrd. |
+| Operasjonelt EBIT | EUR 829 mill. |
+
+### C. Offentlig stotte
+- Horizon 2020-prosjekt med REEtec og SINTEF
+
+### D. IP - Patenter
+- 2 000+ patenter og patentsoknader`,
+    `dk-usda-gain-retail-2025,P1,candidate_fetch,dk,markedsmakt,market-report,USDA FAS,Retail Foods Annual Denmark,2025,https://example.test/denmark.pdf,official_pdf,low,country_profile
+fi-kkv-food-market-study-2023,P1,candidate_fetch,fi,prispress,authority-news,FCCA,The FCCA studies the food market,2023,https://example.test/finland,official_html,low,entry`,
+  ];
+  for (const text of cases) {
+    const job = verifiedJob([text]);
+    if (text.startsWith("dk-usda-")) {
+      Object.assign(job.units[0]!.descriptor, { unitType: "sheet_range" });
+    }
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "no_material_claim" }],
+      claims: [],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /material_claim_omission/u, text);
+  }
+});
+
+test("keeps Pilot22 prose and a lone headerless comma row eligible for no-material coverage", () => {
+  const cases = [
+    "This note mentions Mowi, ownership, finance, patents, and support without reporting a finding.",
+    "dk-usda-gain-retail-2025,P1,candidate_fetch,dk,markedsmakt,market-report",
+    "Alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota\nOmega, sigma, tau, upsilon, phi, chi, psi, rho, kappa",
+    `### A. Ownership
+### B. Financial data
+| Metric | Value |
+|---|---|
+| Revenue | 2024 NOK |
+| Margin | 4% |
+### C. Public support
+### D. IP`,
+    `## 1. Generic Report
+### A. Ownership
+### B. Financial data
+| Metric | Value |
+|---|---|
+| Revenue | 2024 NOK |
+| Margin | 4% |
+### C. Public support
+### D. IP`,
+  ];
+  for (const text of cases) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "no_material_claim" }],
+      claims: [],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), text);
+  }
+
+  const proseSheet = verifiedJob([
+    "Alpha, beta, gamma, delta, epsilon, zeta, eta, theta, iota\nOmega, sigma, tau, upsilon, phi, chi, psi, rho, kappa",
+  ]);
+  Object.assign(proseSheet.units[0]!.descriptor, { unitType: "sheet_range" });
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: proseSheet,
+    response: segmentResponse(proseSheet),
+  }));
+});
+
 test("keeps Pilot18 headings, contents and questions eligible for no-material coverage", () => {
   const cases = [
     "Contents\nMain findings\nAppendix",
@@ -3058,6 +3152,30 @@ test("rejects Pilot19 inferred awards, generic authority substitutions and headi
       evidence: "Utfordring med sirkulære næringsliv, stor steg for Malmø kommune – med Ressurs-strøm-kartleggingen.",
       error: /non_declarative_evidence/u,
     },
+    {
+      source: "Budsjett per transition group: 250 000 kr.",
+      text: "Budsjett per transition group: 250 000 kr.",
+      evidence: "Budsjett per transition group: 250 000 kr.",
+      error: /non_declarative_evidence/u,
+    },
+    {
+      source: "Budget allocation: 500,000 NOK.",
+      text: "Budget allocation: 500,000 NOK.",
+      evidence: "Budget allocation: 500,000 NOK.",
+      error: /non_declarative_evidence/u,
+    },
+    ...[
+      "Totalt budsjett: 500 000 kr.",
+      "Totalt budsjett – 500 000 kr.",
+      "Total budget — 500,000 NOK.",
+      "Totalbudsjett: 500 000 kr.",
+      "BUDSJETT PER GRUPPE - 250 000 kr.",
+    ].map((value) => ({
+      source: value,
+      text: value,
+      evidence: value,
+      error: /non_declarative_evidence/u,
+    })),
   ] as const;
 
   for (const row of cases) {
@@ -3074,6 +3192,103 @@ test("rejects Pilot19 inferred awards, generic authority substitutions and headi
       job,
       response,
     }), row.error, row.text);
+  }
+});
+
+test("rejects Pilot22 nominal budget fragments and unscoped practical-success claims", () => {
+  const cases = [
+    {
+      source: "250 000 kr per transition group (Cities + Food) - Totalt 500 000 kr fra Nordic Innovation Hotspot",
+      text: "250 000 kr per transition group (Cities + Food) og totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      evidence: "250 000 kr per transition group (Cities + Food) - Totalt 500 000 kr fra Nordic Innovation Hotspot",
+      error: /non_declarative_evidence/u,
+    },
+    {
+      source: "Kort sagt:\nMetoden er dokumentert og mulig a bruke over tid, men tilgang til god data og riktig organisering av datainnsamlingen er helt avgjorende for a lykkes i praksis.",
+      text: "Tilgang til god data og riktig organisering av datainnsamlingen er helt avgjorende for a lykkes i praksis.",
+      evidence: "Kort sagt:\nMetoden er dokumentert og mulig a bruke over tid, men tilgang til god data og riktig organisering av datainnsamlingen er helt avgjorende for a lykkes i praksis.",
+      error: /practical_success_scope_missing/u,
+    },
+    {
+      source: "The method for food-waste mapping is documented, but access to data is critical to succeed in practice.",
+      text: "The method for food-waste mapping is documented, but access to data is critical to succeed in practice.",
+      evidence: "The method for food-waste mapping is documented, but access to data is critical to succeed in practice.",
+      error: /practical_success_scope_missing/u,
+    },
+    {
+      source: "Metoden for kartlegging er dokumentert, men tilgang til data er avgjorende for a lykkes i praksis.",
+      text: "Metoden for kartlegging er dokumentert, men tilgang til data er avgjorende for a lykkes i praksis.",
+      evidence: "Metoden for kartlegging er dokumentert, men tilgang til data er avgjorende for a lykkes i praksis.",
+      error: /practical_success_scope_missing/u,
+    },
+    {
+      source: "The method for food-waste mapping is documented, and access to data is critical to succeed in practice.",
+      text: "The method for food-waste mapping is documented, and access to data is critical to succeed in practice.",
+      evidence: "The method for food-waste mapping is documented, and access to data is critical to succeed in practice.",
+      error: /practical_success_scope_missing/u,
+    },
+    {
+      source: "Metoden for kartlegging er dokumentert, og tilgang til data er avgjorende for a lykkes i praksis.",
+      text: "Metoden for kartlegging er dokumentert, og tilgang til data er avgjorende for a lykkes i praksis.",
+      evidence: "Metoden for kartlegging er dokumentert, og tilgang til data er avgjorende for a lykkes i praksis.",
+      error: /practical_success_scope_missing/u,
+    },
+    ...[
+      "For generic project, access to data is critical to succeed in practice.",
+      "For the project, access to data is critical to succeed in practice.",
+      "For a project, access to data is critical to succeed in practice.",
+      "For Cities + Food, the scope is broad, but access to data is critical to succeed in practice.",
+      "For Cities + Food, funding is available, and access to data is critical to succeed in practice.",
+    ].map((value) => ({
+      source: value,
+      text: value,
+      evidence: value,
+      error: /practical_success_scope_missing/u,
+    })),
+  ] as const;
+
+  for (const row of cases) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  }
+});
+
+test("accepts Pilot22 budget and practical-success claims with local declarative scope", () => {
+  const cases = [
+    "Budsjettet var 250 000 kr per transition group (Cities + Food), totalt 500 000 kr fra Nordic Innovation Hotspot.",
+    "For Malmo kommunes regionale ressurskartlegging er tilgang til gode data og riktig organisering av datainnsamlingen avgjorende for a lykkes i praksis.",
+    "Metoden for kartlegging av matsvinn er helt avgjorende for a lykkes i praksis.",
+    "The method for food-waste mapping is critical to succeed in practice.",
+    "Tilgang til data er avgjorende for a lykkes i praksis med RNOA-beregningen.",
+    "Access to data is critical to succeed in practice with the RNOA calculation.",
+    "For Cities + Food, access to data is critical to succeed in practice.",
+    "For RE:Source, access to data is critical to succeed in practice.",
+  ];
+  for (const text of cases) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [claim(job, 0, text)],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), text);
   }
 });
 

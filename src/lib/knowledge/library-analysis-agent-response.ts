@@ -207,6 +207,7 @@ const REPORTED_DATASET_COVERAGE = /\b(?:har\s+levert\s+(?:tall|data)|(?:leverte|
 const EARLY_GENERIC_EVIDENCE_REFERENCE = /^(?:metodisk|methodologically)\s+[\s\S]{0,60}\b(?:tilnærmingen|metoden|the\s+approach|the\s+method)\b/iu;
 const TOTAL_BUDGET_AMOUNT = /\b(?:totalt|total)\b[\s\S]{0,40}\b\d+(?:[\s.,]\d+)*\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\b/iu;
 const PER_GROUP_BUDGET_SCOPE = /\b(?:per|for\s+hver)\s+(?:transition\s+group|gruppe)\b|\bCities\s*\+\s*Food\b/iu;
+const NOMINAL_BUDGET_FRAGMENT = /^(?:(?:totalt?|total)\s+)?(?:budsjett|budget)|^totalbudsjett/iu;
 const AWARD_ACTION = /\b(?:bevilg(?:et|er|a|ning(?:en)?)|tildel(?:te|t|er|ing(?:en)?)|innvilg(?:et|er)|alloker(?:te|t|er|ing(?:en)?)|award(?:ed|s|ing)?|grant(?:ed|s|ing)?|allocat(?:ed|es?|ing|ion))\b/iu;
 const FINANCIAL_AWARD_CONTEXT = /(?:\b\d+(?:[\s.,]\d+)*\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\b|\b(?:finansiering(?:en)?|funding|tilskudd(?:et)?|grant)\b)/iu;
 const NOMINAL_CHALLENGE_HEADING = /^(?:utfordring(?:er)?(?:\s+(?:med|ved|for)|\s*[:–—-])|(?:en\s+stor\s+utfordring|store\s+utfordringer)\s+for|challenges?(?:\s+(?:with|for)|\s*[:–—-])|(?:(?:et|en)\s+)?(?:(?:neste|stor(?:t|e)?)\s+)?steg\s+for|next\s+step\s*:|(?:(?:a|the)\s+)?(?:(?:major|big|significant)\s+)?step\s+for)(?=\s|$)/iu;
@@ -221,6 +222,8 @@ const OBVIOUS_SECTIONED_FINDINGS = /(?:^|\n)#{1,6}\s+(?:Hovedfunn|Main\s+finding
 const PLAIN_SECTIONED_FINDINGS = /(?:^|\n)(?:Hovedfunn|Main\s+findings|Findings|Metode|Method)\s*(?::|\n)/imu;
 const STRUCTURED_REGISTER_FINDINGS = /"(?:keyFindings|recommendations)"\s*:\s*\[/u;
 const HEADER_BOUND_INVENTORY = /^(?:id|source_id)[,\t][^\n]+\n[^\n]+/iu;
+const STRUCTURED_COMPANY_SECTION = /^###\s+[A-D]\.\s+(?:Eierskap|Ownership|Finansielle\s+data|Financial\s+data|Offentlig\s+stotte|Public\s+support|IP(?:\s*[-—:]\s*[^\n]+)?)/gimu;
+const NUMBERED_COMPANY_HEADING = /^##\s+\d+\.\s+[^\n]{1,100}\b(?:AS|ASA|AB|A\/S|Ltd\.?|Limited|Holdings?|Group|Company|Corp(?:oration)?)\b[^\n]{0,80}$/gmu;
 const MASTER_ANALYSIS_INDEX = /^#\s+Master\s+Analyse-Indeks\b[\s\S]{0,2000}\bStatus-sammendrag\b/imu;
 const AUTHORITY_RESULT_MATERIAL = /\bKonkurransetilsynet\s+(?:finner|vurderer|konkluderer|beregner|har\s+beregnet)\b/iu;
 const STUDY_FINDING_MATERIAL = /\bStudien\s+(?:finner|viser|rapporterer)\b/iu;
@@ -238,6 +241,9 @@ const LEARNING_SECTION_META_HEADING = /\b(?:this\s+is\s+)?(?:a\s+)?(?:report|doc
 const DEICTIC_DOCUMENT_REFERENCE = /\b(?:dette\s+dokument(?:et)?|disse\s+dokumentene|dokumentet|this\s+document)\b/iu;
 const NAMED_DOCUMENT_REFERENCE = /\b(?:dette\s+dokumentet|this\s+document)\s*(?:,\s*(?:the\s+)?[^,\n]{2,120}\b(?:rapport(?:en)?|report)\b(?:\s+(?:19|20)\d{2})?\s*,|\(\s*(?:the\s+)?[^)\n]{2,120}\b(?:rapport(?:en)?|report)\b[^)\n]{0,40}\)|:\s*[^.!?\n]{2,120}\b(?:rapport(?:en)?|report)\b(?:\s+(?:19|20)\d{2})?(?=\s+(?:is|was|er|var|ble)\b)|[—–-]\s*[^—–\n]{2,120}\b(?:rapport(?:en)?|report)\b[^—–\n]{0,40}[—–-])/iu;
 const NON_DECLARATIVE_METADATA_CLAIM = /^(?:metadata[- ]import|metadata\s+(?:record|entry))\b/iu;
+const PRACTICAL_SUCCESS_DEPENDENCY = /\b(?:avgjorende|avgjørende|critical|essential)\b[^.!?\n]{0,120}\b(?:lykkes|succeed)\b[^.!?\n]{0,60}\b(?:i\s+praksis|in\s+practice)\b/iu;
+const NAMED_PRACTICAL_SUCCESS_SCOPE = /(?:\b(?:metoden|method)\s+(?:for|til|of)\s+[^.!?\n]{3,100}?\b(?:er|is)\b|\b(?:for|i|innenfor|in|within)\s+(?:(?:[\p{Lu}][\p{L}\p{M}-]*|regional(?:e)?|kommunal(?:e)?|local|regional)\s+){0,5}(?:ressurskartlegging(?:en)?|resource\s+mapping|arbeid(?:et)?|work|leveranse(?:n)?|delivery)\b|\b(?:i\s+praksis|in\s+practice)\s+(?:med|with)\s+[^.!?\n]{2,100}\b(?:beregning(?:en)?|calculation|kartlegging(?:en)?|mapping|prosjekt(?:et)?|project)\b)/iu;
+const NAMED_PROJECT_LABEL_SCOPE = /\b(?:for|i|in)\s+[A-ZÆØÅ][\p{L}\p{M}\p{N}-]*(?:\s*\+\s*[A-ZÆØÅ][\p{L}\p{M}\p{N}-]*|:[\p{L}\p{M}\p{N}-]+)\s*,/iu;
 const BARE_METHOD_EVIDENCE_REFERENCE = /\b(?:metoden|the\s+method|the\s+new\s+method|(?:their|its|our)\s+method)\b/iu;
 const CLAIM_METHOD_REFERENCE = /(?:\b(?:metod(?:e|en)|method)\b|(?<![\p{L}\p{N}_])[\p{L}\p{M}-]+metode(?:n)?(?![\p{L}\p{N}_]))/iu;
 const SCOPED_METHOD_REFERENCE = /\b(?:metoden\s+(?:for|til|med)\b|the\s+method\s+(?:for|of|to|using|on)\b)/iu;
@@ -431,6 +437,23 @@ function firstLocalClauseMatching(value: string, pattern: RegExp): string | unde
     .find((candidate) => pattern.test(candidate));
 }
 
+function hasNamedPracticalSuccessScope(value: string): boolean {
+  const practicalSentence = localClauses(value)
+    .find((clause) => PRACTICAL_SUCCESS_DEPENDENCY.test(clause));
+  if (practicalSentence === undefined) return false;
+  const projectLabel = NAMED_PROJECT_LABEL_SCOPE.exec(practicalSentence);
+  if (projectLabel?.index !== undefined) {
+    const projectScopedClause = practicalSentence
+      .slice(projectLabel.index + projectLabel[0].length)
+      .split(/,\s*(?:(?:but|men|and|og)\s+)?/iu)[0] ?? "";
+    if (PRACTICAL_SUCCESS_DEPENDENCY.test(projectScopedClause)) return true;
+  }
+  const practicalClause = practicalSentence
+    .split(/,\s*(?:(?:but|men|and|og)\s+)?/iu)
+    .find((clause) => PRACTICAL_SUCCESS_DEPENDENCY.test(clause));
+  return practicalClause !== undefined && NAMED_PRACTICAL_SUCCESS_SCOPE.test(practicalClause);
+}
+
 function hasLocallyDatedStatus(value: string): boolean {
   const markedStatusSentence = firstSentenceMatching(value, CURRENT_STATUS_REFERENCE);
   if (
@@ -570,6 +593,14 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     unresolvedLocalReference
   ) {
     throw new Error("agent_response_context_dependent_claim");
+  }
+  if (
+    (PRACTICAL_SUCCESS_DEPENDENCY.test(normalizedClaim) ||
+      PRACTICAL_SUCCESS_DEPENDENCY.test(normalizedEvidence)) &&
+    (!hasNamedPracticalSuccessScope(normalizedClaim) ||
+      !hasNamedPracticalSuccessScope(normalizedEvidence))
+  ) {
+    throw new Error("agent_response_practical_success_scope_missing");
   }
   if (
     hasUnboundedPeriodReference(normalizedClaim)
@@ -1155,7 +1186,14 @@ export const assertLibraryAnalysisClaimLocalityV112 = assertLibraryAnalysisClaim
 function assertDeclarativeEvidence(claimText: string, evidence: string): void {
   const leadingEvidenceClause = normalizedLeadingEvidenceClause(evidence);
   if (
-    NOMINAL_CHALLENGE_HEADING.test(leadingEvidenceClause) &&
+    (
+      NOMINAL_CHALLENGE_HEADING.test(leadingEvidenceClause) ||
+      (NOMINAL_BUDGET_FRAGMENT.test(leadingEvidenceClause) &&
+        /(?:\s*[:–—-]\s*|\s+per\s+)[^.!?\n]{0,160}\b\d+(?:[\s.,]\d+)*\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\b/iu.test(leadingEvidenceClause)) ||
+      (TOTAL_BUDGET_AMOUNT.test(leadingEvidenceClause) &&
+        PER_GROUP_BUDGET_SCOPE.test(leadingEvidenceClause) &&
+        !AWARD_ACTION.test(claimText))
+    ) &&
     !hasDeclarativeCopulaOrVerb(leadingEvidenceClause)
   ) {
     throw new Error("agent_response_non_declarative_evidence");
@@ -1507,7 +1545,7 @@ export function validateLibraryAnalysisAgentSegmentResponse(
   for (const coverage of response.unitCoverage) {
     if (coverage.status !== "no_material_claim") continue;
     const unit = ownedUnit(input.job, coverage.contentUnitId);
-    if (hasObviousMaterialClaim(unit.text)) {
+    if (hasObviousMaterialClaim(unit.text, unit.descriptor.unitType)) {
       throw new Error("agent_response_material_claim_omission");
     }
   }
@@ -1543,7 +1581,7 @@ export function validateLibraryAnalysisAgentSegmentResponse(
   });
 }
 
-function hasObviousMaterialClaim(text: string): boolean {
+function hasObviousMaterialClaim(text: string, unitType: string): boolean {
   const nonemptyLines = text.split(/\r?\n/u)
     .map((line) => line.trim())
     .filter((line) => line.length > 0);
@@ -1563,6 +1601,8 @@ function hasObviousMaterialClaim(text: string): boolean {
     PLAIN_SECTIONED_FINDINGS.test(text) ||
     STRUCTURED_REGISTER_FINDINGS.test(text) ||
     HEADER_BOUND_INVENTORY.test(text) ||
+    hasStructuredCompanyAnalysisMaterial(text) ||
+    (unitType === "sheet_range" && hasHeaderlessCsvContinuationMaterial(text)) ||
     MASTER_ANALYSIS_INDEX.test(text) ||
     AUTHORITY_RESULT_MATERIAL.test(text) ||
     (TOTAL_BUDGET_AMOUNT.test(text) && PER_GROUP_BUDGET_SCOPE.test(text)) ||
@@ -1572,6 +1612,30 @@ function hasObviousMaterialClaim(text: string): boolean {
     SURVEY_FORECAST_MATERIAL.test(text) ||
     SURVEY_QUALITATIVE_RESULT_MATERIAL.test(text) ||
     SURVEY_GENERAL_FORECAST_MATERIAL.test(text);
+}
+
+function hasStructuredCompanyAnalysisMaterial(text: string): boolean {
+  const sectionCount = [...text.matchAll(STRUCTURED_COMPANY_SECTION)].length;
+  const companyCount = [...text.matchAll(NUMBERED_COMPANY_HEADING)].length;
+  const tableRows = text.split(/\r?\n/u).filter((line) =>
+    /^\|[^|\n]{1,100}\|[^|\n]{1,160}\|\s*$/u.test(line.trim()) &&
+    !/^\|\s*[-:]+\s*\|/u.test(line.trim()));
+  return sectionCount >= 3 && companyCount >= 1 && tableRows.length >= 2 &&
+    /\b\d+(?:[.,]\d+)?\s*(?:%|NOK|kr|EUR|USD|mrd\.?|mill\.?|tonn|tonnes?)\b/iu.test(text);
+}
+
+function hasHeaderlessCsvContinuationMaterial(text: string): boolean {
+  const lines = text.split(/\r?\n/u)
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0);
+  if (lines.length < 2) return false;
+  const delimiterWidths = lines.map((line) => (line.match(/,/gu) ?? []).length);
+  return delimiterWidths[0]! >= 8 &&
+    delimiterWidths.every((width) => width === delimiterWidths[0]) &&
+    lines.every((line) =>
+      /^[a-z0-9][a-z0-9-]{5,},/u.test(line) &&
+      /,(?:P[1-9]|WATCH),/u.test(line) &&
+      /(?:https?:\/\/|,(?:19|20)\d{2},)/u.test(line));
 }
 
 function isNumberedLearningHeadingLine(line: string): boolean {
