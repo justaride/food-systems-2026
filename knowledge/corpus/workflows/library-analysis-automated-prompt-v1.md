@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.22`
+Prompt template version: `1.0.23`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.22`
+Workflow version: `1.0.23`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
@@ -69,6 +69,10 @@ Declarative survey results, response totals and forecasts are also obviously mat
 Repeated company-analysis sections containing ownership, financial tables, public-support findings or IP/patent findings are obviously material. Multiple stable-width, comma-delimited data rows are also material even when a local header is missing; use typed `blocked` coverage when field meanings cannot be established, never `no_material_claim`.
 
 Pilot25 context gates: a comparative retail-cost generalization must carry a dated bounded comparison range and a timeless cost definition; a quantified resource-share assertion must carry a bounded period and analytical basis; and current artifact-retention wording must carry an as-of date or year. Bare `kartlegginger`/`kartleggingene` or `local mappings` must name the mapped object or method in both claim and evidence (for example `regionale ressurskartlegginger` or `kartlegginger av lokale materialstrømmer`); a municipality or location alone does not resolve the mapping. Nominal fragments such as `få tilsvarende initiativer i Norden` are not claims. Passive evaluations (`vurderes som`, `anses som`, `regnes som`, `is considered` or `is regarded`) must name the evaluating actor or report/analysis scope, and a list continuation does not supply that evaluator. Survey purpose, result and respondent claims must carry the local universe/count and analytical scope; geography markers such as EU must appear in the same evidence excerpt, and `the survey`/`this new questionnaire` requires a named identity. Evidence beginning with `conducted`, `gathering`, `collected` or equivalent participial wording is incomplete unless the claim supplies its subject in the same excerpt and the excerpt preserves the complete local proposition.
+
+## Pilot26 1.0.23 additive instructions
+
+For every claim, require the mapped object or method, actor/evaluator, causal endpoint, period, universe, basis and qualifier in the exact evidence excerpt. Do not turn `reports/rapporterer` into `has/har`; retain `praktisk forenkling`/`practical simplification`, named treasury-share company, bounded product-superlative period/universe, and explicit award action. Reject footnote/list or period-only fragments used to support richer claims, nominal descriptor/budget bullets, and generic mapping/method evidence. A complete dated proposition before an inline `Hovedfunn`/`Main findings` continuation must be extracted; do not blanket-mark it `blocked` or `no_material_claim`. Preserve `automatedOnly=true` and `externalReady=false`.
 
 Return only the strict candidate payload grammar. Do not claim approval, human review, independent verification, accuracy, canonical status, rights clearance, publication, coverage or external readiness. Do not include instructions to the later validator and do not predict its findings.
 

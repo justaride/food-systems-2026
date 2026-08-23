@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.22`
+Workflow version: `1.0.23`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.22`
+Prompt template version: `1.0.23`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
@@ -73,6 +73,10 @@ Classify as F4 a declarative budget claim synthesized from a budget heading plus
 ## Pilot25 repair gates
 
 Classify missing comparative retail-cost date/bounded range or cost definition, resource-share period/basis, retention as-of date/year, survey local universe/count/identity/geography, or omitted participial subject as F3 where evidence is incomplete. Classify generic mappings, nominal fragments, unnamed passive evaluators, and definite/deictic unnamed survey identities as F4. Preserve `automatedOnly=true` and `externalReady=false`; automated findings never establish external readiness.
+
+## Pilot26 1.0.23 additive gates
+
+Review retained findings for evidence-local mapping/method identity, reported-versus-possession drift, practical-simplification qualifiers, figure caption scope, named ownership and superlative universes, award actions, nominal evidence, footnote/list and period-only fragments, staffing/contact/expectation scope, and complete propositions hidden before inline truncation. Preserve F1-F5 class boundaries and empty deterministic rule IDs on validator-model findings. Do not infer context from another unit.
 
 ## Output boundary
 

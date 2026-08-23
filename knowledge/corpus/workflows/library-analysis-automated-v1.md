@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.22`
+Workflow version: `1.0.23`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.22`
+Prompt template version: `1.0.23`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
@@ -79,6 +79,10 @@ A numbered or plain budget heading followed only by monetary list fragments rema
 ## Pilot25 repair gates
 
 Require local, source-visible context for comparative retail-cost claims (dated bounded range plus timeless cost definition), quantified resource-share claims (bounded period plus analytical basis), current artifact-retention claims (as-of date/year), mappings (named object or method), passive evaluations (named evaluator or report/analysis scope), nominal fragments, and survey purpose/result/respondent claims (local universe/count, geography and named survey identity). A participial evidence opening must retain its claim subject in the same complete excerpt. Preserve `automatedOnly=true` and `externalReady=false`.
+
+## Pilot26 1.0.23 additive gates
+
+Keep mapping, method, actor, evaluator and causal identity inside the supplied claim/evidence excerpt. A generic `kartlegging(en|er|ene)`, `mapping`, `metoden` or `the method` does not resolve an explicit local/resource/material-flow mapping claim. Preserve `reports/rapporterer` rather than rewriting it as `has/har`; preserve practical-simplification qualifiers, named ownership subjects, bounded superlative universes, and source-visible award actions. A period-only or footnote-only excerpt cannot support a richer dataset or unit-set claim. Reject nominal descriptor/budget evidence and complete propositions hidden before inline `Hovedfunn`/`Main findings` truncation. Existing positive controls and automated-only output restrictions remain unchanged.
 
 ## Output boundary
 

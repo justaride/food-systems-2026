@@ -151,7 +151,7 @@ test("machine payload grammar accepts only strict typed candidate entries", () =
   }
 });
 
-test("run contract binds canonical workflow and prompt path version and file hashes", () => {
+test("candidate-only run contract binds canonical workflow and prompt metadata", () => {
   const fixture = candidateAnalysisFixture();
   const workflowPath = "knowledge/corpus/workflows/candidate-analysis-v1.md";
   const promptPath =
@@ -189,29 +189,71 @@ test("binds analysis and validation to different workflow and prompt bytes", () 
   const analysis = candidateWorkflowProfile("library_analysis_v1");
   const validation = candidateWorkflowProfile("library_validation_v1");
 
-  assert.equal(analysis.workflow.version, "1.0.22");
-  assert.equal(analysis.prompt.version, "1.0.22");
-  assert.equal(validation.workflow.version, "1.0.22");
-  assert.equal(validation.prompt.version, "1.0.22");
+  assert.equal(analysis.workflow.version, "1.0.23");
+  assert.equal(analysis.prompt.version, "1.0.23");
+  assert.equal(validation.workflow.version, "1.0.23");
+  assert.equal(validation.prompt.version, "1.0.23");
+  assert.equal(analysis.workflow.hash, createHash("sha256").update(readFileSync(analysis.workflow.path)).digest("hex"));
+  assert.equal(analysis.prompt.hash, createHash("sha256").update(readFileSync(analysis.prompt.path)).digest("hex"));
+  assert.equal(validation.workflow.hash, createHash("sha256").update(readFileSync(validation.workflow.path)).digest("hex"));
+  assert.equal(validation.prompt.hash, createHash("sha256").update(readFileSync(validation.prompt.path)).digest("hex"));
   assert.notEqual(analysis.workflow.path, validation.workflow.path);
   assert.notEqual(analysis.prompt.path, validation.prompt.path);
   assert.notEqual(analysis.workflow.id, validation.workflow.id);
   assert.notEqual(analysis.prompt.id, validation.prompt.id);
 });
 
+test("library profiles reject valid but non-canonical workflow and prompt hashes", () => {
+  const fixture = candidateAnalysisFixture();
+  for (const outputProfile of ["library_analysis_v1", "library_validation_v1"] as const) {
+    const profile = candidateWorkflowProfile(outputProfile);
+    assert.ok("hash" in profile.workflow);
+    assert.ok("hash" in profile.prompt);
+    const binding = {
+      ...fixture.run,
+      outputProfile,
+      workflowId: profile.workflow.id,
+      workflowVersion: profile.workflow.version,
+      workflowPath: profile.workflow.path,
+      workflowHash: profile.workflow.hash,
+      promptId: profile.prompt.id,
+      promptVersion: profile.prompt.version,
+      promptPath: profile.prompt.path,
+      promptHash: profile.prompt.hash,
+    };
+    for (const mutation of [
+      { workflowHash: "f".repeat(64) },
+      { promptHash: "e".repeat(64) },
+    ]) {
+      const mutated = { ...binding, ...mutation };
+      assert.throws(
+        () => CandidateAnalysisRunInputSchema.parse({
+          ...mutated,
+          idempotencyKey: candidateAnalysisRunIdempotencyKey(mutated),
+        }),
+        /candidate_run_binding_mismatch/u,
+      );
+    }
+  }
+});
+
 test("rejects an analysis prompt on a validation output profile", () => {
   const fixture = candidateAnalysisFixture();
   const analysis = candidateWorkflowProfile("library_analysis_v1");
   const validation = candidateWorkflowProfile("library_validation_v1");
+  assert.ok("hash" in validation.workflow);
+  assert.ok("hash" in validation.prompt);
   const runBinding = {
     ...fixture.run,
     outputProfile: "library_validation_v1",
     workflowId: validation.workflow.id,
     workflowVersion: validation.workflow.version,
     workflowPath: validation.workflow.path,
+    workflowHash: validation.workflow.hash,
     promptId: validation.prompt.id,
     promptVersion: validation.prompt.version,
     promptPath: analysis.prompt.path,
+    promptHash: validation.prompt.hash,
   };
   const run = {
     ...runBinding,

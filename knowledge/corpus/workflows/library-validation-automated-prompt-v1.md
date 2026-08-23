@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.22`
+Prompt template version: `1.0.23`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.22`
+Workflow version: `1.0.23`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
@@ -75,3 +75,7 @@ Pilot25 context gates: classify an undated comparative retail-cost generalizatio
 Do not rewrite the analysis into an approval. Do not claim human review, independent verification, accuracy, canonical status, promotion, rights clearance, publication, coverage or external readiness. A clean automated validation is still automated-only internal candidate evidence.
 
 Classify as F1 an inferred award, grant or allocation action when evidence only states bare funding provenance such as `fra X` or `from X`. Classify as F3 a claim that replaces `tilsynet`, `the authority` or equivalent generic shorthand with a named authority absent from its own evidence excerpt. Classify as F4 a nominal challenge/step fragment or similar heading-like text without a finite declarative verb that has been promoted into a declarative claim, including an excerpt that begins mid-heading with wording such as `stor steg for` or `major step for`.
+
+## Pilot26 1.0.23 additive instructions
+
+For each claim and unit coverage decision, check the exact local excerpt for mapped object/method identity, actor/evaluator, causal endpoint, period, universe, basis, ownership subject, award action and material qualifier. Classify reports rewritten as possession as F2; missing scope, qualifier, figure caption, ownership, superlative or staffing/contact/expectation context as F3; generic mapping/method, nominal descriptor, footnote/list, period-only or evidence-fragment interpretation as F4; and omission of a complete proposition before inline `Hovedfunn`/`Main findings` truncation as F5. Keep positive complete excerpts clean, preserve empty deterministic rule IDs on model findings, and retain `automatedOnly=true`/`externalReady=false`.

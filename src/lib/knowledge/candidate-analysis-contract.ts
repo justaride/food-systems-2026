@@ -24,25 +24,29 @@ export const CANDIDATE_WORKFLOW_PROFILES = {
   library_analysis_v1: {
     workflow: {
       id: "workflow.library_analysis.automated.v1",
-      version: "1.0.22",
+      version: "1.0.23",
       path: "knowledge/corpus/workflows/library-analysis-automated-v1.md",
+      hash: "6cf060374095c957622f85e564cb4a54289204771b48d4a089ca9caf7d4232ec",
     },
     prompt: {
       id: "prompt.library_analysis.automated.v1",
-      version: "1.0.22",
+      version: "1.0.23",
       path: "knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md",
+      hash: "9102479172020252a62c5d8cce4762872ab97f8b2b077adad2382bcf685340e3",
     },
   },
   library_validation_v1: {
     workflow: {
       id: "workflow.library_validation.automated.v1",
-      version: "1.0.22",
+      version: "1.0.23",
       path: "knowledge/corpus/workflows/library-validation-automated-v1.md",
+      hash: "71e2e5a9ff4ca20bd2b4c87d305b34f20426c11e7c4d467e203771ac9ee25acc",
     },
     prompt: {
       id: "prompt.library_validation.automated.v1",
-      version: "1.0.22",
+      version: "1.0.23",
       path: "knowledge/corpus/workflows/library-validation-automated-prompt-v1.md",
+      hash: "82f61c3911262c110eb281d95a2378153001e69a71ce6d573415511b899f1f87",
     },
   },
 } as const;
@@ -616,13 +620,19 @@ export const CandidateAnalysisRunInputSchema = z
       ctx.addIssue({ code: "custom", message: "candidate_run_scope_mismatch" });
     }
     const profile = candidateWorkflowProfile(run.outputProfile);
+    const workflowHashMismatch = "hash" in profile.workflow &&
+      run.workflowHash !== profile.workflow.hash;
+    const promptHashMismatch = "hash" in profile.prompt &&
+      run.promptHash !== profile.prompt.hash;
     if (
       run.workflowId !== profile.workflow.id ||
       run.workflowVersion !== profile.workflow.version ||
       run.workflowPath !== profile.workflow.path ||
+      workflowHashMismatch ||
       run.promptId !== profile.prompt.id ||
       run.promptVersion !== profile.prompt.version ||
-      run.promptPath !== profile.prompt.path
+      run.promptPath !== profile.prompt.path ||
+      promptHashMismatch
     ) {
       ctx.addIssue({ code: "custom", message: "candidate_run_binding_mismatch" });
     }

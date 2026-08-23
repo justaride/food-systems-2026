@@ -3807,6 +3807,479 @@ test("keeps legitimate Pilot23 blocked inputs fail-closed without treating them 
   }
 });
 
+test("Pilot26 1.0.23 retained locality findings are rejected from exact excerpts", () => {
+  const cases = [
+    {
+      text: "The register states that specific SkatteFUNN projects and Innovasjon Norge grants for the listed companies were not publicly searchable in aggregated form.",
+      evidence: "**Merknad om subsidier:** Spesifikke SkatteFUNN-prosjekter og Innovasjon Norge-tilskudd for disse selskapene er ikke offentlig soekbare i aggregert form.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      text: "NorgesGruppen ASA held 1 085 105 treasury shares, equal to 2,71% of share capital, as of 31.12.2024.",
+      evidence: "- **Egne aksjer:** 1 085 105 aksjer (2,71% av aksjekapital) per 31.12.2024",
+      error: /ownership_scope_missing/u,
+    },
+    {
+      text: "The Orkla section describes Grandiosa as Norway’s best-selling frozen pizza at approximately 38 million units per year.",
+      evidence: "- **Grandiosa** - Norges mest solgte frossenpizza (~38 mill. enheter/ar)",
+      error: /superlative_scope_missing/u,
+    },
+    {
+      text: "Nortura’s Green Platform project ‘Reduce, Reuse, Recycle’ received 67 mill. NOK for circular solutions for plastic food packaging.",
+      evidence: "- **Gronn plattform-prosjekt:** 67 mill. NOK for \"Reduce, Reuse, Recycle\" - sirkulaere losninger for plastemballasje til mat",
+      error: /award_action_not_source_visible/u,
+    },
+    {
+      text: "The only real contacts listed were E-Klei, a circular-city actor, in a working meeting in February 2025, and the NMBU Sustainable Foods Centre in an insight interview by Cathrine.",
+      evidence: "**Eneste reell kontakt:**\n  - E-Klei (sirkulær by-aktør, internasjonalt) — arbeidsmøte februar 2025\n  - NMBU Sustainable Foods-senteret — innsiktsintervju av Cathrine",
+      error: /status_scope_or_as_of_missing/u,
+    },
+    {
+      text: "The meeting record describes the expected scope as a ‘10-step start’, not full delivery but the start of longer work.",
+      evidence: "- **Forventningen er en «10-step start»** — ikke full levering, men oppstart av et lengre arbeid",
+      error: /expectation_actor_scope_missing/u,
+    },
+    {
+      text: "Restaurant Rest in Oslo was described as a gourmet restaurant with a zero-waste concept and a Michelin Green Star.",
+      evidence: "- **Restaurant Rest** (Oslo) — gourmetrestaurant med zero-waste-konsept, Michelin Green Star",
+      error: /(?:non_declarative_evidence|identification_actor_missing)/u,
+    },
+    {
+      text: "The Nordic Innovation Hotspot budget was 250 000 kr per transition group for Cities + Food, totalling 500 000 kr from Nordic Innovation Hotspot.",
+      evidence: "- 250 000 kr per transition group (Cities + Food)\n- Totalt 500 000 kr fra Nordic Innovation Hotspot",
+      error: /non_declarative_evidence/u,
+    },
+    {
+      text: "The fragment says Jan Thomas’s capacity reduction must be reversed because the arrangement otherwise does not work.",
+      evidence: "Einars tidligere beskjed om å redusere Jan Thomas' kapasitet **må reverseres** — det går ikke opp ellers",
+      error: /staffing_scope_or_as_of_missing/u,
+    },
+    {
+      text: "Local resource mappings can be used as a strategic decision basis in municipalities and regions to reduce the use of virgin materials and strengthen circular resource use.",
+      evidence: "Poenget er at slike kartlegginger ikke bare er analyser, men kan brukes som strategisk beslutningsgrunnlag i kommuner og regioner for å redusere bruken av jomfruelige materialer og styrke sirkulær ressursbruk.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      text: "Erfaringen fra Malmö er at lokale materialstrømskartlegginger er praktiske verktøy for styring, oppfølging og læring i kommunens sirkulære arbeid.",
+      evidence: "Kort sagt: Erfaringen fra Malmö er at slike kartlegginger ikke bare er analytiske øvelser, men praktiske verktøy for styring, oppfølging og læring i kommunens sirkulære arbeid, samtidig som de må videreutvikles for å bli enda mer treffsikre.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      text: "Malmö kommune opplever lokale materialstrømskartlegginger som svært nyttige fordi de gir data som kan kobles direkte til mål i miljøprogrammet, særlig knyttet til økt ressurseffektivitet (mål 12).",
+      evidence: "Malmö kommune opplever kartleggingene som svært nyttige, særlig fordi de gir data som kan kobles direkte til mål i miljøprogrammet, spesielt knyttet til økt ressurseffektivitet (mål 12).",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      text: "Den lokale ressurskartleggingen og datagrunnlaget er relativt godt dokumentert i rapporten med en steg-for-steg-beskrivelse av hvordan en tilsvarende kartlegging kan gjennomføres.",
+      evidence: "Det bekreftes at metoden og datagrunnlaget er relativt godt dokumentert i rapporten, med en steg-for-steg-beskrivelse av hvordan man kan gjennomføre en tilsvarende kartlegging selv.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      text: "I Malmö er indikatoren for sirkulær økonomi i miljøprogrammet formulert åpent fordi man ved utformingen ikke visste hvilken metode som ville være best egnet.",
+      evidence: "I Malmö forklares det at indikatoren for sirkulær økonomi i miljøprogrammet bevisst er formulert åpent (“virksomheters omstilling til en sirkulær økonomi”).",
+      error: /evidence_incomplete/u,
+    },
+    {
+      text: "Bengtsfors' lokale, mer kvalitative kartlegginger kompletteres av metodens kvantitative makroperspektiv.",
+      evidence: "Det nye med denne metoden er at den gir et kvantitativt “makroperspektiv” som kompletterer det lokale, mer praktiske arbeidet.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      text: "Den lokale ressurskartleggingen viser at det som ofte forstås som økonomiske verdier i realiteten også representerer store fysiske materialmengder.",
+      evidence: "Et viktig poeng er også koblingen mellom økonomi og materialstrømmer: Kartleggingen viser at det som ofte forstås som økonomiske verdier, i realiteten også representerer store fysiske materialmengder, noe som styrker forståelsen av ressursbrukens omfang.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      text: "I Malmö beskrives den lokale ressurskartleggingen som det beste verktøyet kommunen har hatt så langt for å følge opp ressurseffektivitet i miljøprogrammet.",
+      evidence: "I Malmö beskrives kartleggingen som det beste verktøyet de har hatt så langt for å følge opp ressurseffektivitet i miljøprogrammet.",
+      error: /(?:evidence_context_dependent|identification_actor_missing)/u,
+    },
+    {
+      text: "Lokale ressurskartlegginger fungerer som en bro mellom strategi og praksis og gir legitimitet, retning og konkret handlingsgrunnlag for sirkulær omstilling lokalt og regionalt.",
+      evidence: "Kort sagt: Kartleggingene fungerer som en bro mellom strategi og praksis – de gir både legitimitet, retning og konkret handlingsgrunnlag for sirkulær omstilling, lokalt og regionalt.",
+      error: /evidence_context_dependent/u,
+    },
+    {
+      text: "S Group og K Group har flere tiltak enn Lidl, blant annet informasjon og veiledning om baerekraftig spising via nettinnhold og butikkmateriell.",
+      evidence: "S Group og K Group rapporterer flere tiltak enn Lidl, blant annet informasjon og veiledning om baerekraftig spising via nettinnhold og butikkmateriell.",
+      error: /reported_measure_context_missing/u,
+    },
+    {
+      text: "Operating liquidity is defined as 10% of the sum of inventory and customer receivables, while the excess is treated as surplus liquidity, a financial asset.",
+      evidence: "Tilsynet har valgt å gjøre en praktisk forenkling ved å definere driftslikviditet (driftsrelatert eiendel) som 10 prosent av summen av varelager og kundefordringer, mens det overskytende anses som overskuddslikviditet (finansiell eiendel).",
+      error: /practical_simplification/u,
+    },
+    {
+      text: "De syv leverandørene hadde i snitt 35 og 28 prosent høyere RNOA i 2020 og 2021 enn i 2017; ved omsetningsvekting var tilsvarende tall 21 prosent i 2020 og 11 prosent i 2021.",
+      evidence: "Kun én av de syv leverandørene i figuren hadde lavere RNOA i 2020 enn i 2017. To av de syv leverandørene hadde lavere RNOA i 2021 enn i 2017. • I snitt hadde leverandørene 35 og 28 prosent høyere avkastning i 2020 og 2021, målt mot 2017. Dersom leverandørene vektes etter omsetning, er tilsvarende tall 21 prosent i 2020 og 11 prosent i 2021.",
+      error: /figure_context_missing/u,
+    },
+    {
+      text: "Footnote 84 identifies the retail-level units as Norgesgruppen stores, Coops samvirkelag, Norsk Butikkdrift, Rema 1000 Norge and Rema’s franchisees.",
+      evidence: "84\n   Norgesgruppens egeneide butikker, Coops samvirkelag, Norsk Butikkdrift, Rema 1000 Norge og Remas\nfranchisetakere.",
+      error: /footnote_context_missing/u,
+    },
+    {
+      text: "Norgesgruppens egeneide butikker inngår samlet i resultat- og balanseoppstillinger for 2017 til og med 2022.",
+      evidence: "2017 til og med\n2022.",
+      error: /period_fragment_context_missing/u,
+    },
+  ] as const;
+
+  for (const row of cases) {
+    const job = verifiedJob([row.evidence]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  }
+});
+
+test("Pilot26 rejects blocked coverage that hides a complete proposition before inline truncation", () => {
+  const text = "Oppryddingen som var planlagt 2026-04-14 ble først gjennomført 2026-04-21. Se `git log` for hash-verifikasjon. Hovedfunn pa tvers av korpuset: - **Norge CR3**: 96.";
+  const job = verifiedJob([text]);
+  for (const status of ["no_material_claim", "blocked"] as const) {
+    const response = segmentResponse(job, {
+      unitCoverage: [{
+        contentUnitId: job.units[0]!.descriptor.id,
+        status,
+        ...(status === "blocked" ? { reasonCode: "insufficient_context" as const } : {}),
+      }],
+      claims: [],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), status === "blocked" ? /blocked_(?:material_claim|complete_claim_omission)/u : /material_claim_omission/u, status);
+  }
+});
+
+test("Pilot26 1.0.23 keeps complete local counterparts eligible", () => {
+  const cases = [
+    {
+      text: "S Group og K Group rapporterer i 2022, basert på en kvalitativ innholdsanalyse av bærekraftsrapporter, flere tiltak enn Lidl.",
+      evidence: "S Group og K Group rapporterer i 2022, basert på en kvalitativ innholdsanalyse av bærekraftsrapporter, flere tiltak enn Lidl.",
+    },
+    {
+      text: "As a practical simplification, operating liquidity is defined as 10 percent of inventory and customer receivables.",
+      evidence: "Som en praktisk forenkling defineres driftslikviditet som 10 prosent av varelager og kundefordringer.",
+    },
+    {
+      text: "Malmö kommune beskriver kartleggingen av lokale materialstrømmer som et nyttig styringsverktøy.",
+      evidence: "Malmö kommune beskriver kartleggingen av lokale materialstrømmer som et nyttig styringsverktøy.",
+    },
+    {
+      text: "The indicator was formulated openly because the suitable method was unknown at design time.",
+      evidence: "Indikatoren ble formulert åpent fordi egnet metode var ukjent da den ble utformet.",
+    },
+    {
+      text: "NorgesGruppen ASA held 1 085 105 treasury shares as of 31.12.2024.",
+      evidence: "NorgesGruppen ASA hadde 1 085 105 egne aksjer per 31.12.2024.",
+    },
+    {
+      text: "Grandiosa was Norway's best-selling frozen pizza in 2024 among frozen pizzas sold in Norway.",
+      evidence: "Grandiosa var Norges mest solgte frossenpizza i 2024 blant frossenpizzaer solgt i Norge.",
+    },
+    {
+      text: "Forskningsrådet awarded Nortura 67 mill. NOK for the Reduce, Reuse, Recycle project.",
+      evidence: "Forskningsrådet tildelte Nortura 67 mill. NOK til prosjektet Reduce, Reuse, Recycle.",
+    },
+    {
+      text: "As of 2025, the only real contacts listed for the Food transition group were E-Klei and NMBU.",
+      evidence: "Per 2025 var de eneste reelle kontaktene listet for Food transition group E-Klei og NMBU.",
+    },
+    {
+      text: "For Nordic Innovation Hotspot Transition Groups, the expectation is a 10-step start.",
+      evidence: "For Nordic Innovation Hotspot Transition Groups er forventningen en 10-step start.",
+    },
+    {
+      text: "Restaurant Rest in Oslo is a gourmet restaurant with a zero-waste concept.",
+      evidence: "Restaurant Rest i Oslo er en gourmetrestaurant med zero-waste-konsept.",
+    },
+    {
+      text: "For Nordic Innovation Hotspot Transition Groups in 2026, Einar's instruction to reduce Jan Thomas's capacity must be reversed.",
+      evidence: "For Nordic Innovation Hotspot Transition Groups i 2026 må Einars beskjed om å redusere Jan Thomas' kapasitet reverseres.",
+    },
+    {
+      text: "Footnote 84 lists the retail-level units as Norgesgruppen stores and Coop samvirkelag.",
+      evidence: "Footnote 84 lists the retail-level units as Norgesgruppen stores and Coop samvirkelag.",
+    },
+    {
+      text: "Norgesgruppens egeneide butikker inngår i resultat- og balanseoppstillinger for 2017 til og med 2022.",
+      evidence: "Norgesgruppens egeneide butikker inngår i resultat- og balanseoppstillinger for 2017 til og med 2022.",
+    },
+  ] as const;
+
+  for (const row of cases) {
+    const job = verifiedJob([row.evidence]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.text);
+  }
+
+  for (const text of [
+    "Hovedfunn pa tvers av korpuset:",
+    "Hovedfunn pa tvers av korpuset: - Norge CR3:",
+  ]) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "blocked", reasonCode: "insufficient_context" }],
+      claims: [],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), text);
+  }
+});
+
+test("Pilot26 1.0.23 rejects adversarial scope substitutions and preserves unrelated lists", () => {
+  const rejected = [
+    {
+      text: "Nortura received 67 mill. NOK for the Reduce, Reuse, Recycle project.",
+      evidence: "OtherCo AS was awarded 67 mill. NOK for another project.",
+      error: /award_action_not_source_visible/u,
+    },
+    {
+      text: "Nortura received 67 mill. NOK for the 'Reduce, Reuse, Recycle' project.",
+      evidence: "Nortura was awarded 67 mill. NOK for the 'Other Project'.",
+      error: /award_action_not_source_visible/u,
+    },
+    {
+      text: "Nortura received 67 mill. NOK for the Reduce, Reuse, Recycle project.",
+      evidence: "Nortura was awarded 67 mill. NOK for the Other Project.",
+      error: /award_action_not_source_visible/u,
+    },
+    {
+      text: "Nortura received 67 mill. NOK for the Reduce project.",
+      evidence: "Nortura was awarded 68 mill. NOK for the Reduce project.",
+      error: /numeric_token_mismatch/u,
+    },
+    {
+      text: "Nortura received 67 mill. NOK for the Reduce project.",
+      evidence: "Nortura was awarded 67 mill. EUR for the Reduce project.",
+      error: /numeric_token_mismatch/u,
+    },
+    {
+      text: "Nortura received 67 mill. NOK in 2024 for the Reduce project.",
+      evidence: "Nortura was awarded 67 mill. NOK in 2023 for the Reduce project.",
+      error: /numeric_token_mismatch/u,
+    },
+    {
+      text: "Nortura received 67 mill. NOK for the reduce, reuse, recycle project.",
+      evidence: "Nortura was awarded 67 mill. NOK for the other project.",
+      error: /award_action_not_source_visible/u,
+    },
+    {
+      text: "Nortura received 67 mill. NOK for Project A.",
+      evidence: "Nortura was awarded 67 mill. NOK for Project B.",
+      error: /award_action_not_source_visible/u,
+    },
+    {
+      text: "OtherCo held 1 085 105 treasury shares as of 31.12.2024.",
+      evidence: "NorgesGruppen ASA held 1 085 105 treasury shares as of 31.12.2024.",
+      error: /ownership_scope_missing/u,
+    },
+    {
+      text: "NorgesGruppen held 1 085 105 treasury shares as of 31.12.2024.",
+      evidence: "NorgesGruppen held 2 085 105 treasury shares as of 31.12.2024.",
+      error: /numeric_token_mismatch/u,
+    },
+    {
+      text: "NorgesGruppen held 1 085 105 treasury shares as of 31.12.2024.",
+      evidence: "NorgesGruppen held 1 085 105 treasury shares as of 31.12.2023.",
+      error: /numeric_token_mismatch/u,
+    },
+    {
+      text: "NorgesGruppen held 1 085 105 treasury shares, equal to 2.71% of share capital, as of 31.12.2024.",
+      evidence: "NorgesGruppen held 1 085 105 treasury shares, equal to 3.71% of share capital, as of 31.12.2024.",
+      error: /numeric_token_mismatch/u,
+    },
+    {
+      text: "Grants for the listed companies were not publicly searchable in aggregated form.",
+      evidence: "Grants for the listed companies were not publicly searchable in aggregated form.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      text: "In 2024, grants for Nortura and Orkla, the listed companies, were not publicly searchable in aggregated form.",
+      evidence: "In 2024, grants for Nortura and Lidl, the listed companies, were not publicly searchable in aggregated form.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    {
+      text: "For Nordic Innovation Hotspot Transition Groups, the expectation is a 10-step start.",
+      evidence: "The expectation is a 10-step start.",
+      error: /expectation_actor_scope_missing/u,
+    },
+    {
+      text: "For Nordic Innovation Hotspot Transition Groups, the expectation is a 10-step start.",
+      evidence: "For Other Project, the expectation is a 10-step start.",
+      error: /expectation_actor_scope_missing/u,
+    },
+    {
+      text: "Grandiosa was Norway's best-selling frozen pizza in 2024.",
+      evidence: "Grandiosa was Sweden's best-selling frozen pizza in 2024.",
+      error: /superlative_scope_missing/u,
+    },
+    {
+      text: "Restaurant Rest in Oslo was described as a gourmet restaurant with a zero-waste concept.",
+      evidence: "Restaurant venues:\n- **Restaurant Rest** (Oslo) — gourmetrestaurant med zero-waste-konsept",
+      error: /non_declarative_evidence/u,
+    },
+    {
+      text: "In 2026, Einar's instruction to reduce Jan Thomas's capacity must be reversed.",
+      evidence: "In 2026, Einar's instruction to reduce Jan Thomas's capacity must be reversed.",
+      error: /staffing_scope_or_as_of_missing/u,
+    },
+    {
+      text: "The only real contacts listed were E-Klei in 2025.",
+      evidence: "Only real contacts were E-Klei in 2025.",
+      error: /status_scope_or_as_of_missing/u,
+    },
+    {
+      text: "For Food Transition Group in 2024, the only real contacts listed were E-Klei.",
+      evidence: "For Food Transition Group and Other Project in 2024, the only real contacts were E-Klei.",
+      error: /status_scope_or_as_of_missing/u,
+    },
+    {
+      text: "For Food Transition Group and Other Project in 2024, the only real contacts listed were E-Klei.",
+      evidence: "For Food Transition Group in 2024, the only real contacts were E-Klei.",
+      error: /status_scope_or_as_of_missing/u,
+    },
+    {
+      text: "For Food Transition Group in 2025, the only real contacts listed were E-Klei and NMBU.",
+      evidence: "For Food Transition Group in 2025, the only real contacts were E-Klei.",
+      error: /status_scope_or_as_of_missing/u,
+    },
+    {
+      text: "For Food Transition Group in 2025, the only real contacts listed were E-Klei and NMBU.",
+      evidence: "For Food Transition Group in 2025, the only real contacts were E-Klei and Orkla.",
+      error: /status_scope_or_as_of_missing/u,
+    },
+    {
+      text: "For Food Transition Group in 2025, the only real contacts listed were E-Klei.",
+      evidence: "For Food Transition Group in 2025, no contacts were listed.",
+      error: /status_scope_or_as_of_missing/u,
+    },
+    {
+      text: "For Food Transition Group and Other Project, the expectation is a 10-step start.",
+      evidence: "For Food Transition Group, the expectation is a 10-step start.",
+      error: /expectation_actor_scope_missing/u,
+    },
+    {
+      text: "For Food Transition Group, the expectation is a 10-step start.",
+      evidence: "For Food Transition Group, the expectation is a 12-step start.",
+      error: /expectation_actor_scope_missing/u,
+    },
+    {
+      text: "For Food Transition Group, the expectation is a 10-step start.",
+      evidence: "For Food Transition Group, the expectation is full delivery.",
+      error: /expectation_actor_scope_missing/u,
+    },
+    {
+      text: "For Food Transition Group and Other Project in 2026, Einar's instruction to reduce Jan Thomas's capacity must be reversed.",
+      evidence: "For Food Transition Group in 2026, Einar's instruction to reduce Jan Thomas's capacity must be reversed.",
+      error: /staffing_scope_or_as_of_missing/u,
+    },
+    {
+      text: "For Nordic Innovation Hotspot Transition Groups in 2026, Einar's instruction to reduce Jan Thomas's capacity must be reversed.",
+      evidence: "For Other Project in 2026, Einar's instruction to reduce Jan Thomas's capacity must be reversed.",
+      error: /staffing_scope_or_as_of_missing/u,
+    },
+  ] as const;
+
+  for (const row of rejected) {
+    const job = verifiedJob([row.evidence]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  }
+
+  const accepted = [
+    {
+      text: "Nortura received 67 mill. NOK for the Reduce, Reuse, Recycle project.",
+      evidence: "Nortura was awarded 67 mill. NOK for the Reduce, Reuse, Recycle project.",
+    },
+    {
+      text: "Nortura ASA received 67 mill. NOK for the Reduce, Reuse, Recycle project.",
+      evidence: "Nortura was awarded 67 mill. NOK for the Reduce, Reuse, Recycle project.",
+    },
+    {
+      text: "OtherCo ASA held 1 085 105 treasury shares as of 31.12.2024.",
+      evidence: "OtherCo ASA\n- **Treasury shares:** 1 085 105 shares as of 31.12.2024.",
+    },
+    {
+      text: "NorgesGruppen ASA held 1 085 105 treasury shares as of 31.12.2024.",
+      evidence: "NorgesGruppen held 1 085 105 treasury shares as of 31.12.2024.",
+    },
+    {
+      text: "In 2024, grants for Nortura SA and Orkla ASA, the listed companies, were not publicly searchable in aggregated form.",
+      evidence: "In 2024, grants for Nortura SA and Orkla ASA, the listed companies, were not publicly searchable in aggregated form.",
+    },
+    {
+      text: "In 2024, grants for Nortura and Orkla, the listed companies, were not publicly searchable in aggregated form.",
+      evidence: "In 2024, grants for Nortura and Orkla, the listed companies, were not publicly searchable in aggregated form.",
+    },
+    {
+      text: "For Food Transition Group in 2025, the only real contacts listed were E-Klei and NMBU.",
+      evidence: "For Food Transition Group in 2025, the only real contacts listed were E-Klei and NMBU.",
+    },
+    {
+      text: "Oslo and Bergen received the listed municipal allocations.",
+      evidence: "- Oslo: 250 000 kr\n- Bergen: 500 000 kr",
+    },
+  ] as const;
+
+  for (const row of accepted) {
+    const job = verifiedJob([row.evidence]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.text);
+  }
+});
+
 test("rejects Pilot19 gate bypasses found by adversarial review", () => {
   const rejected = [
     {

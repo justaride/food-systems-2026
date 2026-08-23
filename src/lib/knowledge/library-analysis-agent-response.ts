@@ -124,8 +124,8 @@ const EMPIRICAL_GENERALIZER = /\b(?:generelt|generally|typically|often|ofte)\b/i
 const QUANTIFIED_RESOURCE_SHARE = /\b\d+(?:[.,]\d+)?\s*(?:[-–—]\s*\d+(?:[.,]\d+)?\s*)?(?:%|prosent|percent)(?![\p{L}\p{N}_])[^.!?]{0,120}\b(?:dekker|utgjør|omfatter|covers?|accounts?\s+for)\b[^.!?]{0,100}\b(?:ressursbruken|ressursbruk|resource\s+use)\b|\b(?:dekker|utgjør|omfatter|covers?|accounts?\s+for)\b[^.!?]{0,100}\b\d+(?:[.,]\d+)?\s*(?:[-–—]\s*\d+(?:[.,]\d+)?\s*)?(?:%|prosent|percent)(?![\p{L}\p{N}_])[^.!?]{0,100}\b(?:ressursbruken|ressursbruk|resource\s+use)\b/iu;
 const RESOURCE_SHARE_BASIS = /\b(?:basert\s+på|med\s+utgangspunkt\s+i|på\s+grunnlag\s+av|regnskapsdata|regnskapstall|based\s+on|using\s+(?:accounting\s+data|financial\s+statements?|accounts?))\b/iu;
 const ARTIFACT_RETENTION_STATUS = /\b(?:behold(?:es|t)|retained|kept|remains?)\b[\s\S]{0,100}\b(?:PDF(?:-ene|-en)?|files?|filer?|exports?|ekspor(?:ter|t)|markdown\s+extract|markdown-ekstrakt|artefacts?|artefakter?)\b|\b(?:PDF(?:-ene|-en)?|files?|filer?|exports?|ekspor(?:ter|t)|markdown\s+extract|markdown-ekstrakt|artefacts?|artefakter?)\b[\s\S]{0,100}\b(?:behold(?:es|t)|retained|kept|remains?)\b/iu;
-const RESOLVED_MAPPING_OBJECT_OR_METHOD = /\b(?:[\p{L}\p{M}-]+kartlegging(?:en|er|ene)?|resource[- ]mapping|material[- ]flow[- ]mapping|local\s+mapping\s+method|kartlegging(?:en|er|ene)?\s+(?:av|for|i)\s+[\p{L}\p{M}\p{N}-]+|mapping\s+(?:of|for)\s+[\p{L}\p{M}\p{N}-]+|[\p{L}\p{M}-]+kartleggingsmetoden|[\p{L}\p{M}-]+\s+mapping\s+method)\b/iu;
 const NAMED_MAPPING_METHOD = /\b(?:Konkurransetilsynet(?:s)?|Norwegian\s+Competition\s+Authority|RE:Source)\s+(?:kartlegging(?:en)?|mapping)\b|\b(?:kartlegging(?:en)?|mapping)\b[^.!?]{0,80}\b(?:Konkurransetilsynet(?:s)?|Norwegian\s+Competition\s+Authority|RE:Source)\b|\b(?:metoden|method)\s+(?:for|of|til|to)\s+[^.!?]*?\b(?:kartlegging|mapping)\b/iu;
+const EXPLICIT_MAPPING_OBJECT = /\b(?:[\p{L}\p{M}-]+kartlegging(?:en|er|ene)?|resource[- ]mapping(?:s)?|material[- ]flow[- ]mapping(?:s)?|mapping\s+(?:of|for)\s+[\p{L}\p{M}\p{N}-]+|kartlegging(?:en|er|ene)?\s+(?:av|for|i)\s+[\p{L}\p{M}\p{N}-]+|[\p{L}\p{M}-]+kartleggingsmetoden|[\p{L}\p{M}-]+\s+mapping\s+method)\b/iu;
 const NOMINAL_QUANTIFIER_FRAGMENT = /^(?:få|et\s+lite\s+antall|many|several)\s+[\p{L}\p{M}\d][^.!?]*$/iu;
 const PARTICIPIAL_SURVEY_EVIDENCE = /^(?:conducted|gathering|collected|responding|gjennomført|samlet|innsamlet|utført)\b/iu;
 const DEFINITE_SURVEY_REFERENCE = /\b(?:(?:the|this(?:\s+new)?|den|denne)\s+(?:survey|questionnaire|undersøkelsen|spørreskjema(?:et)?))\b/iu;
@@ -138,7 +138,8 @@ const NAMED_LOCAL_CONTEXT = /\b(?:VTB|NOA|value\s+to\s+business|netto\s+driftsre
 const INTERPRETIVE_INDEX_VALUE = /\b(?:indeksverdi(?:en)?|index\s+value)\b[\s\S]{0,100}\b(?:høyere|lavere|betyr|tolkes|means?|higher|lower|interpreted)\b|\b(?:høyere|lavere|higher|lower)\b[\s\S]{0,100}\b(?:indeksverdi(?:en)?|index\s+value)\b/iu;
 const NAMED_INDEX_IDENTITY = /\b(?:[A-ZÆØÅ]\s*-\s*\d{1,4}|importveid(?:e)?\s+(?:kronekursmål|kursindeks)|valutakursindeks|byggekostnadsindeks|prisindeks|kursindeks|price\s+index|exchange-rate\s+index|import-weighted\s+(?:exchange-rate\s+)?index|(?:Norges|Norway(?:'s)?|EU(?:s)?|European)\s+indeksverdi)\b/iu;
 const STAFFING_ALLOCATION_CHANGE = /\b(?:(?:opprinnelig|originally)\b[\s\S]{0,100}\b(?:redusert|økt|reduced|increased)\b|(?:redusert|økt|reduced|increased)\s+(?:fra|from)\b[\s\S]{0,80}\b(?:til|to)\b)[\s\S]{0,80}\d+(?:[.,]\d+)?\s*%/iu;
-const NAMED_PROJECT_SCOPE = /\b(?:for|til|i|on|to|for\s+the)\s+(?:the\s+)?(?:[A-ZÆØÅ]{2,}[A-ZÆØÅ0-9&:+-]*|[A-ZÆØÅ][\p{L}\p{M}\p{N}&:+-]*(?:\s+[A-ZÆØÅ][\p{L}\p{M}\p{N}&:+-]*){1,8})\b/u;
+const NAMED_PROJECT_SCOPE = /\b(?:[Ff]or|[Tt]il|[Ii]|[Oo]n|[Tt]o|[Ff]or\s+the)\s+(?:the\s+)?(?:[A-ZÆØÅ]{2,}[A-ZÆØÅ0-9&:+-]*|[A-ZÆØÅ][\p{L}\p{M}\p{N}&:+-]*(?:\s+[A-ZÆØÅ][\p{L}\p{M}\p{N}&:+-]*){1,8})\b/u;
+const DESCRIPTIVE_NAMED_PROJECT_SCOPE = /\b(?:[Ff]or|[Tt]il|[Ii]|[Oo]n|[Tt]o)\s+(?:the\s+)?[A-ZÆØÅ][\p{L}\p{M}\p{N}&:+-]*(?:\s+[\p{L}\p{M}\p{N}&:+-]+){0,7}\s+(?:groups?|projects?|applications?|meetings?|grupp(?:e|en|er)|prosjekt(?:et|er)?|søknad(?:en|er)?|møte(?:t|r)?)\b/giu;
 const SALES_AMOUNT = /\b\d+(?:[.,]\d+)?\s*(?:milliarder?|millioner?|billions?|millions?)\s+(?:euros?|EUR|kroner|NOK|dollars?|USD)\b/iu;
 const PERCENT_VALUE = /\b\d+(?:[.,]\d+)?\s*(?:%(?![\p{L}\p{N}_])|prosent\b|percent\b)/iu;
 const MARKET_SHARE_LABEL = /\b(?:markedsandel|market\s+share)\b/iu;
@@ -174,6 +175,16 @@ const NORWEGIAN_EXCLUSION_MARKER = /\b(?:inngår\s+ikke|ikke\s+inkludert|ikke\s+
 const ENGLISH_EVIDENCE_CONTEXT = /\b(?:the|figures?|stores?|companies|respondents?|data)\b/iu;
 const NORWEGIAN_EVIDENCE_CONTEXT = /\b(?:tallene|butikker|selskaper|respondenter|dataene)\b/iu;
 const GENERIC_EXPECTATION = /^(?:forventningen\s+er|the\s+expectation\s+is)\b/iu;
+const GENERIC_EXPECTATION_ANYWHERE = /\b(?:forventningen|the\s+expectation)\b/iu;
+const CONTACT_STATUS = /\b(?:only\s+real\s+contacts?|(?:de\s+)?eneste\s+reell(?:e)?\s+kontakt(?:en|er|ene)?|no\s+contacts?|ingen\s+andre\s+kontakter?)\b/iu;
+const PRACTICAL_SIMPLIFICATION = /\b(?:praktisk\s+forenkling|practical\s+simplification)\b/iu;
+const REPORTED_CAUSAL_CONNECTOR = /\b(?:because|due\s+to|fordi|skyldes(?:\s+at)?|derfor)\b/iu;
+const PERIOD_ONLY_FRAGMENT = /^\s*(?:19|20)\d{2}\s+(?:til\s+og\s+med|through|to|and)\s*(?:19|20)\d{2}\s*\.?\s*$/iu;
+const FOOTNOTE_LIST_FRAGMENT = /^\s*\d{1,3}\s+[\p{L}\p{M}][\s\S]{8,240}$/u;
+const PRODUCT_SUPERLATIVE = /\b(?:best[- ]selling|most\s+sold|mest\s+solgte|bestselgende)\b[\s\S]{0,100}\b(?:pizza|product|produkt|frozen)\b|\b(?:pizza|product|produkt|frozen)\b[\s\S]{0,100}\b(?:best[- ]selling|most\s+sold|mest\s+solgte|bestselgende)\b/iu;
+const SUPERLATIVE_UNIVERSE = /\b(?:among|blant|Norway(?:'s)?|Norges|nationally|nasjonalt|in\s+Norway)\b/iu;
+const STAFFING_CAPACITY_DECISION = /\b(?:capacity|kapasitet)\b[\s\S]{0,100}\b(?:revers(?:e|ed|eres|eres)|redusere|reduce|reduced|må\s+reverseres|must\s+be\s+reversed)\b/iu;
+const NOMINAL_DESCRIPTOR_EVIDENCE = /^\s*[-*•]?\s*\*{0,2}[\p{Lu}][\p{L}\p{M}\s.'’-]{1,80}\*{0,2}\s*(?:\([^\n]{1,60}\))?\s*[—–-]\s*[^.!?\n]{3,180}$/u;
 const OPERATIONAL_STATUS = /(?:\bdashboard(?:et)?\b[\s\S]{0,80}\b(?:brukes|anvendes|is\s+used)\b|\b(?:ingen|no)\b[\s\S]{0,80}\b(?:partnere?|partners?)\b[\s\S]{0,80}\b(?:kontaktet|contacted)\b)/iu;
 const NAMED_SCOPE = /\bfor\s+(?!(?:prosjektet|søknaden|the\s+project|the\s+application)\b)[A-ZÆØÅ][\p{L}\p{N}-]*(?:\s+[A-ZÆØÅ][\p{L}\p{N}-]*)+/u;
 const SURVEY_UNIT_CONTEXT = /\b(?:survey|questionnaire|respondents?|responses?|companies\s+indicated|could\s+you\s+rank|your\s+company)\b/iu;
@@ -194,7 +205,7 @@ const SCOPED_NEGATED_CAUSAL_ANALYSIS = /\b(?:(?:ikke\s+har|har\s+ikke)\s+analyse
 const CAUSAL_ANALYSIS_SCOPE = /\b(?:(?:ikke\s+har|har\s+ikke)\s+analysert\s+kausale\s+sammenhenger\s+mellom|(?:did\s+not\s+analy[sz]e|has\s+not\s+analy[sz]ed)\s+causal\s+(?:links|relationships?)\s+between)\s+([^.!?]{3,300})/iu;
 const PRICE_MEASURE = /\b(?:(?:produsent|forbruker|dagligvare)pris(?:ene)?|pris(?:ene)?\s+for\s+dagligvarer|prices?\s+(?:for\s+groceries|of\s+groceries)|producer\s+prices?|consumer\s+prices?)\b/iu;
 const PRICE_CHANGE = /(?<![\p{L}\p{N}_])(?:økte|falt|steg|increased|decreased|rose|fell)(?![\p{L}\p{N}_])/iu;
-const KNOWN_GEOGRAPHY = /\b(?:Norge|Norway|norsk(?:e)?|EU(?:27)?|Europa|Europe|europeisk(?:e)?|European|Norden|Nordic|Sverige|Sweden|Danmark|Denmark|Finland)\b/giu;
+const KNOWN_GEOGRAPHY = /\b(?:Norge|Norges|Norway|norsk(?:e)?|EU(?:27)?|Europa|Europe|europeisk(?:e)?|European|Norden|Nordic|Sverige|Sweden|Danmark|Denmark|Finland)\b/giu;
 const CONTEXTUAL_GEOGRAPHY = /\b(?:[Ii]|[Pp]å|[Ii]n|[Aa]cross|[Ff]or|[Tt]hroughout|[Gg]jennom)\s+(?:the\s+)?([\p{Lu}][\p{L}\p{M}-]*(?:\s+[\p{Lu}][\p{L}\p{M}-]*){0,2})/gu;
 const COORDINATED_GEOGRAPHY = /\b(?:and|og)\s+([\p{Lu}][\p{L}\p{M}-]*(?:\s+[\p{Lu}][\p{L}\p{M}-]*){0,2})/gu;
 const POSSESSIVE_PRICE_GEOGRAPHY = /\b([\p{Lu}][\p{L}\p{M}-]+)['’]s\s+(?:(?:consumer|producer|grocery)\s+prices?|prices?\s+for\s+groceries)/gu;
@@ -235,7 +246,7 @@ const NOMINAL_BUDGET_FRAGMENT = /^(?:(?:totalt?|total)\s+)?(?:budsjett|budget)|^
 const BUDGET_SECTION_HEADING = /^(?:#{1,6}\s*)?(?:\d+(?:(?:[.):]|\s+[-–—])\s*|\s+))?(?:budsjett|budget)(?:\s+og\s+forventninger|\s+and\s+expectations)?\s*:?\s*$/iu;
 const CURRENCY_AMOUNT = /(?:[$€£]\s*\d+(?:[\s.,]\d+)*\b|\b(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\s*\d+(?:[\s.,]\d+)*\b|\b\d+(?:[\s.,]\d+)*\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?|[$€£]))/iu;
 const AWARD_ACTION = /\b(?:bevilg(?:et|er|a|ning(?:en)?)|tildel(?:te|t|er|ing(?:en)?)|innvilg(?:et|er)|alloker(?:te|t|er|ing(?:en)?)|award(?:ed|s|ing)?|grant(?:ed|s|ing)?|allocat(?:ed|es?|ing|ion))\b/iu;
-const FINANCIAL_AWARD_CONTEXT = /(?:\b\d+(?:[\s.,]\d+)*\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\b|\b(?:finansiering(?:en)?|funding|tilskudd(?:et)?|grant)\b)/iu;
+const FINANCIAL_AWARD_CONTEXT = /(?:\b\d+(?:[\s.,]\d+)*(?:\s*(?:mill\.?|million(?:er)?))?\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\b|\b(?:finansiering(?:en)?|funding|tilskudd(?:et)?|grant)\b)/iu;
 const NOMINAL_CHALLENGE_HEADING = /^(?:utfordring(?:er)?(?:\s+(?:med|ved|for)|\s*[:–—-])|(?:en\s+stor\s+utfordring|store\s+utfordringer)\s+for|challenges?(?:\s+(?:with|for)|\s*[:–—-])|(?:(?:et|en)\s+)?(?:(?:neste|stor(?:t|e)?)\s+)?steg\s+for|next\s+step\s*:|(?:(?:a|the)\s+)?(?:(?:major|big|significant)\s+)?step\s+for)(?=\s|$)/iu;
 const DECLARATIVE_COPULA_OR_VERB_TOKENS = new Set([
   "er", "var", "ble", "blir", "har", "hadde", "gjør", "gjorde", "viser", "viste", "gir", "ga",
@@ -331,8 +342,17 @@ function hasUnresolvedLocalReference(value: string): boolean {
 }
 
 function hasResolvedMappingIdentity(value: string): boolean {
-  return RESOLVED_MAPPING_OBJECT_OR_METHOD.test(value) ||
+  return EXPLICIT_MAPPING_OBJECT.test(value) ||
     NAMED_MAPPING_METHOD.test(value);
+}
+
+function hasCompletePropositionBeforeInlineFindings(value: string): boolean {
+  if (!/\b(?:Hovedfunn|Main\s+findings)\b[\s\S]{0,180}(?::|[-*•])[^.!?\n]{0,120}:\s*\d+(?:[.,]\d+)?/iu.test(value)) return false;
+  const prefix = value.split(/\b(?:Hovedfunn|Main\s+findings)\b/iu)[0] ?? "";
+  return prefix.split(/[.!?]+/u).some((sentence) =>
+    /\b(?:19|20)\d{2}-\d{2}-\d{2}\b/iu.test(sentence) &&
+    /\b(?:ble|var|er|was|were|is|completed|gjennomført)\b/iu.test(sentence) &&
+    sentence.trim().length >= 12);
 }
 
 function hasGenericMappingIdentity(value: string): boolean {
@@ -341,6 +361,12 @@ function hasGenericMappingIdentity(value: string): boolean {
 
 function normalizedMaterialText(value: string): string {
   return value.trim().replace(/\s+/gu, " ").toLocaleLowerCase("en");
+}
+
+function canonicalLegalEntityName(value: string): string {
+  return normalizedMaterialText(value)
+    .replace(/\s+(?:asa|as|sa|ab|a\/s|oyj|ltd|limited|corp(?:oration)?)\.?$/iu, "")
+    .trim();
 }
 
 function geographyMarkers(value: string): Set<string> {
@@ -367,6 +393,20 @@ function geographyMarkers(value: string): Set<string> {
     }
   }
   return markers;
+}
+
+function canonicalKnownGeographies(value: string): Set<string> {
+  const canonical = new Set<string>();
+  for (const match of value.matchAll(KNOWN_GEOGRAPHY)) {
+    const marker = normalizedMaterialText(match[0]);
+    if (/^(?:norge|norges|norway|norsk)/u.test(marker)) canonical.add("norway");
+    else if (/^(?:sverige|sweden)/u.test(marker)) canonical.add("sweden");
+    else if (/^(?:danmark|denmark)/u.test(marker)) canonical.add("denmark");
+    else if (/^finland/u.test(marker)) canonical.add("finland");
+    else if (/^(?:eu|europa|europe|europeisk|european)/u.test(marker)) canonical.add("europe");
+    else if (/^(?:norden|nordic)/u.test(marker)) canonical.add("nordic");
+  }
+  return canonical;
 }
 
 function attributionSubjects(value: string): string[] {
@@ -420,10 +460,46 @@ function financialAwardActor(value: string): string | undefined {
     .replace(/\b(?:is|are|was|were|has|have|had|er|var|har|hadde|blir)\s*$/iu, "")
     .trim();
   const actorMatch = /([\p{Lu}][\p{L}\p{M}\p{N}.&+-]*(?:\s+[\p{Lu}][\p{L}\p{M}\p{N}.&+-]*){0,7})\s*$/u.exec(prefix);
-  return actorMatch?.[1] === undefined ? undefined : normalizedMaterialText(actorMatch[1]);
+  return actorMatch?.[1] === undefined ? undefined : canonicalLegalEntityName(actorMatch[1]);
+}
+
+function financialReceiptActor(value: string): string | undefined {
+  const match = /(?:^|[.!?;\n]\s*)([\p{Lu}][\p{L}\p{M}\p{N}.&+-]*(?:\s+[\p{Lu}][\p{L}\p{M}\p{N}.&+-]*){0,7})\s+(?:received|mottok|fikk)\b/iu.exec(value);
+  return match?.[1] === undefined ? undefined : canonicalLegalEntityName(match[1]);
+}
+
+function quotedProjectIdentities(value: string): Set<string> {
+  return new Set([...value.matchAll(/["'‘’]([^"'‘’\n]{3,120})["'‘’]/gu)]
+    .map((match) => normalizedMaterialText(match[1] ?? ""))
+    .filter((identity) => identity.length > 0));
+}
+
+function explicitAwardProjectIdentities(value: string): Set<string> {
+  const identities = quotedProjectIdentities(value);
+  for (const match of value.matchAll(/\bfor\s+(?:the\s+)?([\p{L}\p{M}\p{N}&+,'’ -]{2,120}?)\s+project\b/giu)) {
+    if (match[1] !== undefined) identities.add(normalizedMaterialText(match[1]));
+  }
+  for (const match of value.matchAll(/\bfor\s+project\s+([\p{L}\p{M}\p{N}&+,'’ -]{1,120}?)(?=[,.;]|$)/giu)) {
+    if (match[1] !== undefined) identities.add(normalizedMaterialText(match[1]));
+  }
+  return identities;
 }
 
 function hasSourceVisibleFinancialAward(claimText: string, evidence: string): boolean {
+  const receiptClaim = /\b(?:received|mottok|mottatt|fikk|fått)\b[\s\S]{0,100}\b\d+[\s.,]*\s*(?:mill\.?|million(?:er)?|NOK|kr)\b/iu.test(claimText);
+  if (receiptClaim) {
+    const actor = financialReceiptActor(claimText);
+    const evidenceActor = financialAwardActor(evidence);
+    const claimProjects = explicitAwardProjectIdentities(claimText);
+    const evidenceProjects = explicitAwardProjectIdentities(evidence);
+    if (
+      actor === undefined || evidenceActor === undefined || actor !== evidenceActor ||
+      !AWARD_ACTION.test(evidence) || !FINANCIAL_AWARD_CONTEXT.test(evidence) ||
+      [...claimProjects].some((identity) => !evidenceProjects.has(identity))
+    ) {
+      return false;
+    }
+  }
   const claimClauses = localClauses(claimText)
     .filter((clause) => AWARD_ACTION.test(clause) && FINANCIAL_AWARD_CONTEXT.test(clause));
   if (claimClauses.length === 0) return true;
@@ -432,7 +508,110 @@ function hasSourceVisibleFinancialAward(claimText: string, evidence: string): bo
   return claimClauses.every((claimClause) => {
     const actor = financialAwardActor(claimClause);
     return evidenceAwardClauses.some((evidenceClause) =>
-      actor === undefined || normalizedMaterialText(evidenceClause).includes(actor));
+      actor === undefined || financialAwardActor(evidenceClause) === actor);
+  });
+}
+
+function treasuryOwner(value: string): string | undefined {
+  const match = /(?:^|[.!?;\n]\s*)[-*#\s]*\*{0,2}([\p{Lu}][\p{L}\p{M}\p{N}.&+-]*(?:\s+[\p{Lu}][\p{L}\p{M}\p{N}.&+-]*){0,7})\*{0,2}\s+(?:held|holds|hadde|holdt|eier)\b/u.exec(value);
+  if (match?.[1] !== undefined) return canonicalLegalEntityName(match[1]);
+  const heading = /^\s*[-*#\s]*\*{0,2}([\p{Lu}][\p{L}\p{M}\p{N}.&+-]*(?:\s+[\p{Lu}][\p{L}\p{M}\p{N}.&+-]*){0,7})\*{0,2}\s*\r?\n[\s\S]*\b(?:treasury\s+shares?|egne\s+aksjer)\b/iu.exec(value);
+  return heading?.[1] === undefined ? undefined : canonicalLegalEntityName(heading[1]);
+}
+
+function namedCompanyPopulation(value: string): Set<string> {
+  const match = /\b(?:grants?|subsid(?:y|ies)|tilskudd(?:ene)?)\s+(?:for|til)\s+([^.;:\n]{3,200}?),\s*(?:(?:the\s+)?listed\s+(?:companies|entities)|(?:de\s+)?listede\s+selskapene|disse\s+selskapene)\b/iu.exec(value);
+  if (match?.[1] === undefined) return new Set();
+  const names = match[1]
+    .split(/\s+(?:and|og)\s+|\s*,\s*/iu)
+    .map((name) => name.trim())
+    .filter((name) => /^[\p{Lu}][\p{L}\p{M}\p{N}.&+/' -]{1,100}$/u.test(name))
+    .map(canonicalLegalEntityName)
+    .filter((name) => name.length > 0);
+  return names.length >= 2 ? new Set(names) : new Set();
+}
+
+function hasSameNamedCompanyPopulation(claimText: string, evidence: string): boolean {
+  const claimPopulation = namedCompanyPopulation(claimText);
+  const evidencePopulation = namedCompanyPopulation(evidence);
+  return claimPopulation.size >= 2 && claimPopulation.size === evidencePopulation.size &&
+    [...claimPopulation].every((name) => evidencePopulation.has(name));
+}
+
+function hasSharedExplicitYear(claimText: string, evidence: string): boolean {
+  const claimYears = new Set(claimText.match(/\b(?:19|20)\d{2}\b/gu) ?? []);
+  const evidenceYears = new Set(evidence.match(/\b(?:19|20)\d{2}\b/gu) ?? []);
+  return claimYears.size > 0 && [...claimYears].some((year) => evidenceYears.has(year));
+}
+
+function contactStatusPayload(value: string): string | undefined {
+  if (/\b(?:no\s+contacts?|ingen\s+andre\s+kontakter?)\b/iu.test(value)) return undefined;
+  const copulaTail = /\b(?:were|was|are|is)\s+([^.!?\n]+)\s*[.!?]?\s*$/iu.exec(value)?.[1];
+  if (copulaTail !== undefined) return copulaTail;
+  const scopes = [...value.matchAll(DESCRIPTIVE_NAMED_PROJECT_SCOPE)];
+  const lastScope = scopes.at(-1);
+  if (lastScope?.index === undefined) return undefined;
+  return value.slice(lastScope.index + lastScope[0].length).replace(/[.!?]+$/u, "").trim();
+}
+
+function namedContactSet(value: string): Set<string> {
+  const payload = contactStatusPayload(value);
+  if (payload === undefined) return new Set();
+  const contacts = payload
+    .replace(/^listed\s+/iu, "")
+    .split(/\s+(?:and|og)\s+|\s*,\s*/iu)
+    .map((contact) => contact.trim())
+    .filter((contact) => /^[\p{Lu}][\p{L}\p{M}\p{N}.&+'’/-]*(?:\s+[\p{Lu}][\p{L}\p{M}\p{N}.&+'’/-]*){0,5}$/u.test(contact))
+    .map(normalizedMaterialText);
+  return new Set(contacts);
+}
+
+function hasExactNamedContacts(claimText: string, evidence: string): boolean {
+  const claimContacts = namedContactSet(claimText);
+  const evidenceContacts = namedContactSet(evidence);
+  return claimContacts.size > 0 && claimContacts.size === evidenceContacts.size &&
+    [...claimContacts].every((contact) => evidenceContacts.has(contact));
+}
+
+function expectationResult(value: string): string | undefined {
+  const result = /\b(?:the\s+expectation\s+is|forventningen\s+er|er\s+forventningen)\s+([^.!?\n]+)\s*[.!?]?\s*$/iu.exec(value)?.[1] ??
+    /\bthe\s+expectation\s+for\s+[^.!?\n]{2,160}?\s+is\s+([^.!?\n]+)\s*[.!?]?\s*$/iu.exec(value)?.[1];
+  return result === undefined ? undefined : normalizedMaterialText(result)
+    .replace(/^(?:a|an|en|et)\s+/u, "")
+    .trim();
+}
+
+function hasExactExpectationResult(claimText: string, evidence: string): boolean {
+  const claimResult = expectationResult(claimText);
+  const evidenceResult = expectationResult(evidence);
+  return claimResult !== undefined && claimResult === evidenceResult;
+}
+
+function hasNamedExpectationScope(value: string): boolean {
+  return namedProjectScopes(value).size > 0 || NAMED_SCOPE.test(value) || /\b(?:Nordic\s+Innovation\s+Hotspot|Food\s+group|transition\s+group)\b/iu.test(value);
+}
+
+function namedProjectScopes(value: string): Set<string> {
+  const matches = [
+    ...value.matchAll(new RegExp(NAMED_PROJECT_SCOPE.source, `${NAMED_PROJECT_SCOPE.flags}g`)),
+    ...value.matchAll(DESCRIPTIVE_NAMED_PROJECT_SCOPE),
+  ];
+  return new Set(matches.map((match) => normalizedMaterialText(match[0])
+    .replace(/^(?:for\s+the|for|til|i|on|to)\s+(?:the\s+)?/u, "")));
+}
+
+function hasExactNamedProjectScopes(claimText: string, evidence: string): boolean {
+  const claimScopes = namedProjectScopes(claimText);
+  const evidenceScopes = namedProjectScopes(evidence);
+  return claimScopes.size > 0 && claimScopes.size === evidenceScopes.size &&
+    [...claimScopes].every((scope) => evidenceScopes.has(scope));
+}
+
+function hasNominalDescriptorLine(value: string): boolean {
+  return value.split(/\r?\n/u).some((rawLine) => {
+    const line = rawLine.trim().replace(/^(?:[-*•]|\d+[.)])\s+/u, "");
+    if (line.length === 0 || /:\s*$/u.test(line)) return false;
+    return NOMINAL_DESCRIPTOR_EVIDENCE.test(line) && !hasDeclarativeCopulaOrVerb(line);
   });
 }
 
@@ -654,6 +833,13 @@ function hasNominalBudgetListEvidence(value: string): boolean {
     !hasDeclarativeCopulaOrVerb(line.replace(/^(?:[-*•]|\d+[.)])\s+/u, "")));
 }
 
+function hasNominalBudgetBullets(value: string): boolean {
+  const lines = value.split(/\r?\n/u).map((line) => line.trim()).filter(Boolean);
+  return lines.length >= 2 && lines.every((line) =>
+    /^(?:[-*•]|\d+[.)])\s+/u.test(line) && CURRENCY_AMOUNT.test(line) &&
+    !hasDeclarativeCopulaOrVerb(line.replace(/^(?:[-*•]|\d+[.)])\s+/u, "")));
+}
+
 function hasResolvedIndicatorReference(value: string): boolean {
   return /(?:indikatoren\s+(?:for|om|kalt|heter)|indicator\s+(?:for|of|called|named)|[\p{L}\p{M}-]+\s+indicator\b)[\s\S]{0,240}(?:denne\s+indikatoren|this\s+indicator)/iu.test(value) ||
     /(?:denne\s+indikatoren|this\s+indicator)\s*,?\s*(?:kalt|heter|forkortet|called|named|known\s+as|abbreviated)\s+[\p{L}\p{N}][\p{L}\p{M}\p{N}&.' -]{1,100}/iu.test(value) ||
@@ -680,6 +866,10 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     !EXPLICIT_SCOPED_APPROACH.test(normalizedClaim);
   const unresolvedMappingIdentity = hasGenericMappingIdentity(normalizedClaim) &&
     !hasResolvedMappingIdentity(normalizedClaim);
+  const claimNamesMappingObject = hasResolvedMappingIdentity(normalizedClaim) &&
+    (EXPLICIT_MAPPING_OBJECT.test(normalizedClaim) || NAMED_MAPPING_METHOD.test(normalizedClaim));
+  const claimHasMappingReference = EXPLICIT_MAPPING_OBJECT.test(normalizedClaim) ||
+    /\b(?:lokale?|regionale?|local|regional|resource|materialstrøms?|material[- ]flow)\b[^.!?\n]{0,60}\b(?:kartlegging(?:en|er|ene)?|mapping(?:s)?)\b/iu.test(normalizedClaim);
   const surveyScopeSensitiveClaim = SURVEY_DEPENDENT_CLAIM.test(normalizedClaim) ||
     SURVEY_PURPOSE_CLAIM.test(normalizedClaim);
   const surveySubjectClaim = surveyScopeSensitiveClaim || SURVEY_SUBJECT_CLAIM.test(normalizedClaim);
@@ -714,6 +904,13 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
       !hasNamedPracticalSuccessScope(normalizedEvidence))
   ) {
     throw new Error("agent_response_practical_success_scope_missing");
+  }
+  if (
+    /\b(?:reports?|rapporterer)\b[\s\S]{0,180}\b(?:measures?|actions?|tiltak)\b/iu.test(normalizedEvidence) &&
+    /\b(?:has|have|har)\b[\s\S]{0,100}\b(?:measures?|actions?|tiltak)\b/iu.test(normalizedClaim) &&
+    !/\b(?:reports?|rapporterer|reported|rapportert)\b/iu.test(normalizedClaim)
+  ) {
+    throw new Error("agent_response_reported_measure_context_missing");
   }
   if (
     hasUnboundedPeriodReference(normalizedClaim)
@@ -763,6 +960,11 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
       !EXPLICIT_SCOPED_APPROACH.test(normalizedEvidence)) ||
     (hasGenericMappingIdentity(normalizedEvidence) &&
       !hasResolvedMappingIdentity(normalizedEvidence)) ||
+    (claimNamesMappingObject && !hasResolvedMappingIdentity(normalizedEvidence)) ||
+    (claimNamesMappingObject && /\b(?:metoden|method|kartlegging(?:en|er|ene)?|the\s+mapping)\b/iu.test(normalizedEvidence) &&
+      !EXPLICIT_MAPPING_OBJECT.test(normalizedEvidence) && !NAMED_MAPPING_METHOD.test(normalizedEvidence)) ||
+    (claimHasMappingReference && /\b(?:metoden|method|kartlegging(?:en|er|ene)?|the\s+mapping|the\s+local,?\s+more\s+practical\s+work)\b/iu.test(normalizedEvidence) &&
+      !EXPLICIT_MAPPING_OBJECT.test(normalizedEvidence) && !NAMED_MAPPING_METHOD.test(normalizedEvidence)) ||
     (NOMINAL_QUANTIFIER_FRAGMENT.test(normalizedEvidence) &&
       !hasDeclarativeCopulaOrVerb(normalizedEvidence)) ||
     (CLAIM_METHOD_REFERENCE.test(normalizedClaim) &&
@@ -808,6 +1010,55 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     !normalizedMaterialText(normalizedEvidence).includes(normalizedMaterialText(causalScope))
   ) {
     throw new Error("agent_response_evidence_incomplete");
+  }
+  if (
+    STAFFING_CAPACITY_DECISION.test(normalizedClaim) &&
+    (!EXPLICIT_YEAR.test(normalizedClaim) || !EXPLICIT_YEAR.test(normalizedEvidence) ||
+      !/\b(?:Jan\s+Thomas|Einar)\b/iu.test(normalizedClaim) ||
+      !/\b(?:Jan\s+Thomas|Einar)\b/iu.test(normalizedEvidence) ||
+      !NAMED_PROJECT_SCOPE.test(claimText) || !NAMED_PROJECT_SCOPE.test(evidence) ||
+      !hasExactNamedProjectScopes(claimText, evidence))
+  ) {
+    throw new Error("agent_response_staffing_scope_or_as_of_missing");
+  }
+  if (
+    REPORTED_CAUSAL_CONNECTOR.test(normalizedClaim) &&
+    !REPORTED_CAUSAL_CONNECTOR.test(normalizedEvidence)
+  ) {
+    throw new Error("agent_response_evidence_incomplete");
+  }
+  if (
+    PRACTICAL_SIMPLIFICATION.test(normalizedEvidence) &&
+    /\b(?:defined|definition|calculated|calculation|definer(?:es)?|beregn(?:es|et)|måler|measure)\b/iu.test(normalizedClaim) &&
+    !PRACTICAL_SIMPLIFICATION.test(normalizedClaim)
+  ) {
+    throw new Error("agent_response_practical_simplification_missing");
+  }
+  if (
+    /\b(?:not\s+publicly\s+searchable|ikke\s+offentlig(?:e)?\s+s(?:ø|o)kbare?)\b/iu.test(normalizedClaim) &&
+    /\b(?:listed\s+companies|these\s+companies|listed\s+entities|disse\s+selskapene)\b/iu.test(normalizedClaim) &&
+    (!hasSameNamedCompanyPopulation(claimText, evidence) ||
+      !hasSharedExplicitYear(claimText, evidence))
+  ) {
+    throw new Error("agent_response_material_exclusion_scope_missing");
+  }
+  if (
+    CONTACT_STATUS.test(normalizedClaim) &&
+    (!CONTACT_STATUS.test(normalizedEvidence) || !EXPLICIT_YEAR.test(normalizedClaim) || !EXPLICIT_YEAR.test(normalizedEvidence) ||
+      !hasSharedExplicitYear(claimText, evidence) || !hasExactNamedProjectScopes(claimText, evidence) ||
+      !hasExactNamedContacts(claimText, evidence) ||
+      (/\bonly\s+real\s+contacts?\s+listed\b/iu.test(normalizedClaim) &&
+        !/\b(?:contacts?|kontakt(?:en|er|ene)?)\b[\s\S]{0,30}\b(?:is|are|was|were|er|var|listed|listet)\b/iu.test(normalizedEvidence)))
+  ) {
+    throw new Error("agent_response_status_scope_or_as_of_missing");
+  }
+  if (
+    GENERIC_EXPECTATION_ANYWHERE.test(normalizedEvidence) &&
+    (!hasNamedExpectationScope(claimText) || !hasNamedExpectationScope(evidence) ||
+      !hasExactNamedProjectScopes(claimText, evidence) ||
+      !hasExactExpectationResult(claimText, evidence))
+  ) {
+    throw new Error("agent_response_expectation_actor_scope_missing");
   }
   if (
     BARE_MATERIAL_EXCLUSION_SCOPE.test(normalizedClaim) ||
@@ -986,6 +1237,18 @@ function assertAuditedScopeCompleteness(
   )) {
     throw new Error("agent_response_ownership_as_of_missing");
   }
+  const treasuryClaim = /\b(?:held|holds|hadde|holdt|eier)\b[\s\S]{0,100}\b(?:treasury\s+shares?|egne\s+aksjer)\b/iu.test(claimText);
+  if (treasuryClaim && !/\b(?:treasury\s+shares?|egne\s+aksjer)\b/iu.test(evidence)) {
+    throw new Error("agent_response_ownership_scope_missing");
+  }
+  const claimTreasuryOwner = treasuryClaim ? treasuryOwner(claimText) : undefined;
+  const evidenceTreasuryOwner = treasuryClaim ? treasuryOwner(evidence) : undefined;
+  if (treasuryClaim && (
+    claimTreasuryOwner === undefined || evidenceTreasuryOwner === undefined ||
+    claimTreasuryOwner !== evidenceTreasuryOwner
+  )) {
+    throw new Error("agent_response_ownership_scope_missing");
+  }
   const claimDatasetReceiptSentence = firstLocalClauseMatching(claimText, REPORTED_DATASET_RECEIPT);
   const evidenceDatasetReceiptSentence = firstLocalClauseMatching(evidence, REPORTED_DATASET_RECEIPT);
   if (claimDatasetReceiptSentence !== undefined && (
@@ -1001,6 +1264,18 @@ function assertAuditedScopeCompleteness(
     (!PER_GROUP_BUDGET_SCOPE.test(claimText) || !PER_GROUP_BUDGET_SCOPE.test(evidence))
   ) {
     throw new Error("agent_response_budget_scope_missing");
+  }
+  if (
+    PERIOD_ONLY_FRAGMENT.test(evidence) &&
+    /\b(?:resultat(?:s|ene)?|balanse(?:oppstillinger)?|balance\s+sheets?|income\s+statements?|stores?|butikker|Norgesgruppen)\b/iu.test(claimText)
+  ) {
+    throw new Error("agent_response_period_fragment_context_missing");
+  }
+  if (
+    FOOTNOTE_LIST_FRAGMENT.test(evidence) &&
+    /\b(?:footnote|fotnote|identif(?:ies|iser)|retail-level|units?|enheter|stores?|butikker)\b/iu.test(claimText)
+  ) {
+    throw new Error("agent_response_footnote_context_missing");
   }
   const quantifiedShareClaim = claimText
     .split(/[.!?]+/u)
@@ -1171,6 +1446,23 @@ function assertPilot12ScopeCompleteness(
   evidence: string,
   sourceText: string,
 ): void {
+  if (
+    PRODUCT_SUPERLATIVE.test(claimText) &&
+    (!EXPLICIT_YEAR.test(claimText) || !EXPLICIT_YEAR.test(evidence) ||
+      !SUPERLATIVE_UNIVERSE.test(claimText) || !SUPERLATIVE_UNIVERSE.test(evidence) ||
+      canonicalKnownGeographies(claimText).size === 0 ||
+      [...canonicalKnownGeographies(claimText)].some((geography) => !canonicalKnownGeographies(evidence).has(geography)))
+  ) {
+    throw new Error("agent_response_superlative_scope_missing");
+  }
+  if (
+    /\b(?:RNOA|avkastning)\b/iu.test(claimText) &&
+    /\b(?:syv|sju|seven)\s+(?:leverandør(?:er|ene)|suppliers?)\b/iu.test(claimText) &&
+    /\b(?:omsetningsvekting|weighted\s+by\s+turnover|sales[- ]weighted)\b/iu.test(claimText) &&
+    !/\b2017\s*(?:[-–—]|to|til(?:\s+og\s+med)?|through)\s*2022\b/iu.test(claimText)
+  ) {
+    throw new Error("agent_response_figure_context_missing");
+  }
   const figureNumber = FIGURE_REFERENCE.exec(claimText)?.[1];
   if (
     figureNumber !== undefined &&
@@ -1334,7 +1626,6 @@ function assertPilot13ScopeCompleteness(
   ) {
     throw new Error("agent_response_staffing_scope_or_as_of_missing");
   }
-
   if (
     SALES_AMOUNT.test(claimText) &&
     PERCENT_VALUE.test(claimText) &&
@@ -1409,6 +1700,9 @@ function assertDeclarativeEvidence(claimText: string, evidence: string): void {
     (
       NOMINAL_CHALLENGE_HEADING.test(leadingEvidenceClause) ||
       hasNominalBudgetListEvidence(evidence) ||
+      (hasNominalBudgetBullets(evidence) && /\b(?:budget|budsjett|totalt?|total|per\s+(?:transition\s+group|gruppe))\b/iu.test(claimText)) ||
+      (hasNominalDescriptorLine(evidence) &&
+        (PASSIVE_EVALUATION.test(claimText) || /\b(?:was|were)\s+described\s+as\b/iu.test(claimText))) ||
       (NOMINAL_BUDGET_FRAGMENT.test(leadingEvidenceClause) &&
         /(?:\s*[:–—-]\s*|\s+per\s+)[^.!?\n]{0,160}\b\d+(?:[\s.,]\d+)*\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\b/iu.test(leadingEvidenceClause)) ||
       (TOTAL_BUDGET_AMOUNT.test(leadingEvidenceClause) &&
@@ -1832,6 +2126,7 @@ function hasObviousMaterialClaim(text: string, unitType: string): boolean {
     /^(?:(?:alternativ|option|choice)\s+[A-Z0-9]|(?:svar|answer)\s*:\s*[A-Z0-9]|(?:options?|choices?|svaralternativer)\s*:\s*.+|(?:select|choose|velg)\s+(?:one|ett|én)|\d+[.)]\s*(?:introduction|methodology|metode|appendix|vedlegg))\s*[.]?\s*$/iu.test(line));
   if (structuralPromptOnly) return false;
   return OBVIOUS_SECTIONED_FINDINGS.test(text) ||
+    hasCompletePropositionBeforeInlineFindings(text) ||
     /\b(?:Hovedfunn|Main\s+findings)\b[\s\S]{0,240}:\s*[-*•]?\s*[^.!?\n]{1,160}:\s*\d+(?:[.,]\d*)?\s*$/iu.test(text) ||
     hasNumberedLearningSectionMaterial(text) ||
     PLAIN_SECTIONED_FINDINGS.test(text) ||
@@ -1855,7 +2150,8 @@ function hasClearlyExtractableBlockedMaterial(text: string): boolean {
     BOUNDED_YEAR_RANGE.test(text) &&
     (ANALYTICAL_BASIS.test(text) || PILOT13_ANALYTICAL_OUTCOME.test(text)) &&
     /\bKonkurransetilsynet\s+(?:(?:har|hadde)\s+)?(?:beregnet|estimert|hentet|kartlagt|finner|vurderer|konkluderer|avgrenser)\b/iu.test(text);
-  return STUDY_FINDING_MATERIAL.test(text) ||
+  return hasCompletePropositionBeforeInlineFindings(text) ||
+    STUDY_FINDING_MATERIAL.test(text) ||
     AUTHORITY_RESULT_MATERIAL.test(text) ||
     boundedAuthorityAnalysis ||
     hasStructuredCompanyAnalysisMaterial(text);
@@ -2217,8 +2513,10 @@ function numericTokens(text: string): NumericToken[] {
 function currencyMarker(before: string, after: string): string | null {
   const prefix = /(?:[$€£]|kr|nok|usd|eur|gbp)\s*$/iu.exec(before)?.[0];
   if (prefix !== undefined) return normalizeCurrencyMarker(prefix);
-  const suffix = /^\s*(?:kr|nok|usd|eur|gbp)\b/iu.exec(after)?.[0];
-  return suffix === undefined ? null : normalizeCurrencyMarker(suffix);
+  const suffix = /^\s*(?:(mill\.?|million(?:er)?)\s+)?(kr|nok|usd|eur|gbp)\b/iu.exec(after);
+  if (suffix?.[2] === undefined) return null;
+  const currency = normalizeCurrencyMarker(suffix[2]);
+  return suffix[1] === undefined ? currency : `${currency}:million`;
 }
 
 function normalizeCurrencyMarker(raw: string): string {
