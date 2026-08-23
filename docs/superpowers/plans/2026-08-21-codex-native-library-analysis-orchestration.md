@@ -791,7 +791,21 @@ Restart status derivation from sealed artifacts without in-memory state. Confirm
 
 - [ ] **Step 6: Finalize and apply the pilot stop rule**
 
-The pilot is GO only if exact coverage, hash readback, disjoint assignments, deterministic replay, separate passes, resume, leakage scan, and private audit all pass. Any unexplained F1/F2, claim-bearing F3, F4, material F5, invalid evidence, missing coverage, or identity/hash drift is NO-GO and must be repaired in code before the full queue.
+The stop rule separates two things the original gate conflated: pipeline integrity, which repository code can repair, and model output quality, which it cannot. Revised 2026-08-23 after ten consecutive NO-GO rounds; see `research/_status/library-analysis-codex-native-orchestration-2026-08-21.md` for the evidence.
+
+**Integrity gate (blocking).** The pilot is NO-GO if any of exact coverage, hash readback, disjoint assignments, deterministic replay, separate passes, resume, leakage scan, private audit, or identity/hash drift fails. These are contract properties, they are repairable in code, and a failure here stops the full queue exactly as before.
+
+**Quality gate (measured, not zero-defect).** Derive the critical error rate `F1+F2` over adjudicated claims and apply the stop rules in `research/_plans/kalibreringsplan-utvalg-2026-08-20.md` §5:
+
+- `> 5 %`: NO-GO. Freeze the class, find the root cause, re-run after repair.
+- `2-5 %`: GO with reservation. Publish the rate, prioritise repair, do not freeze the queue.
+- `<= 2 %`: GO. Mark the class calibrated with its measured rate.
+
+`F3-F5` are quality errors, not hallucinations. They set per-source disposition — `partial` or `quarantined` — exactly as before, and a quarantined source never becomes citable. They do not block the queue, and they are reported as the quality rate beside the critical rate. Publish every rate, including a poor one: a measured weak rate is trust metadata, a hidden rate is not.
+
+**Anti-loop rule.** A repair round is triggered only by an integrity failure or by an `F1`/`F2` root cause. Tightening the validator so it detects more `F3-F5` is a prompt-quality change, not a pilot repair: it raises detection sensitivity against a roughly constant model error rate, so it moves the pilot away from GO rather than toward it. Such changes belong to re-calibration under §7 of the calibration plan, not to this gate.
+
+**Statistical honesty.** One pilot adjudicates far fewer claims than the per-stratum `n` the calibration plan requires, so its critical rate is indicative, not calibrated, and its confidence interval is wide. The pilot exists to prove the pipeline; the completed full run is what produces the population from which the stratified calibration sample is drawn.
 
 - [ ] **Step 7: Run the full queue only after pilot GO**
 
