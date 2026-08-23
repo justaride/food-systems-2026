@@ -3292,6 +3292,403 @@ test("accepts Pilot22 budget and practical-success claims with local declarative
   }
 });
 
+test("rejects Pilot23 master-index measures without local comparison and measurement scope", () => {
+  const cases = [
+    {
+      source: "# Master Analyse-Indeks\nStatus-sammendrag\n- Norge CR3: 96.6% (NorgesGruppen ~44%, Coop ~29%, REMA ~24%). Opp fra 93% i 2015",
+      text: "Norge CR3 var 96.6%, med NorgesGruppen ~44%, Coop ~29% og REMA ~24%, opp fra 93% i 2015.",
+      evidence: "- Norge CR3: 96.6% (NorgesGruppen ~44%, Coop ~29%, REMA ~24%). Opp fra 93% i 2015",
+    },
+    {
+      source: "# Master Analyse-Indeks\nStatus-sammendrag\n- AI-basert matsvinnsporing: 23-51% reduksjon i HORECA (Sigala 2025)",
+      text: "AI-basert matsvinnsporing ga 23-51% reduksjon i HORECA (Sigala 2025).",
+      evidence: "- AI-basert matsvinnsporing: 23-51% reduksjon i HORECA (Sigala 2025)",
+    },
+    {
+      source: "# Master Analyse-Indeks\nStatus-sammendrag\n- Biogas fra matavfall: 26% hoyere metanutbytte ved co-digestion (Zamanzadeh 2017)",
+      text: "Biogas fra matavfall hadde 26% hoyere metanutbytte ved co-digestion (Zamanzadeh 2017).",
+      evidence: "- Biogas fra matavfall: 26% hoyere metanutbytte ved co-digestion (Zamanzadeh 2017)",
+    },
+  ] as const;
+
+  for (const row of cases) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /quantitative_measure_context_missing/u, row.text);
+  }
+});
+
+test("rejects publication and citation years as Pilot23 master-index measurement scope", () => {
+  const cases = [
+    "AI tracking gave 23-51% reduction in HORECA versus Sigala 2025.",
+    "Biogas yield was 26% higher than Zamanzadeh 2017.",
+    "Norge CR3 var 96.6% in the report published in 2025, up from 93% in 2015.",
+  ];
+
+  for (const text of cases) {
+    const source = `# Master Analyse-Indeks\nStatus-sammendrag\n${text}`;
+    const job = verifiedJob([source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, text), evidence: text }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /quantitative_measure_context_missing/u, text);
+  }
+});
+
+test("accepts explicit Pilot23 master-index measurement years including bare parentheses", () => {
+  const cases = [
+    "Norge CR3 var 96.6% (2024), opp fra 93% i 2015.",
+    "AI tracking gave a 23-51% reduction in HORECA during 2024 compared with the 2020 baseline.",
+  ];
+
+  for (const text of cases) {
+    const source = `# Master Analyse-Indeks\nStatus-sammendrag\n${text}`;
+    const job = verifiedJob([source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, text), evidence: text }],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), text);
+  }
+});
+
+test("rejects Pilot23 anonymous supplier exclusions", () => {
+  const cases = [
+    {
+      source: "En av leverandorene som inngar i tidligere figurer, holdes utenfor i Figur 17.",
+      text: "En av leverandorene som inngar i tidligere figurer, holdes utenfor i Figur 17.",
+      evidence: "En av leverandorene som inngar i tidligere figurer, holdes utenfor i Figur 17.",
+      error: /material_exclusion_scope_missing/u,
+    },
+    ...[
+      "One of the suppliers was excluded from Figure 17.",
+      "One of the suppliers was left out of Figure 17.",
+      "One of the suppliers has been excluded from Figure 17.",
+      "En av leverandørene ble holdt utenfor i Figur 17.",
+      "En av leverandørene ble ekskludert fra Figur 17.",
+      "Suppliers are excluded from the figures for 2022.",
+      "According to the report, suppliers are excluded from the figures for 2022.",
+      "The report states that suppliers are excluded from the figures for 2022.",
+      "In the dataset, suppliers are excluded from the figures for 2022.",
+    ].map((value) => ({
+      source: value,
+      text: value,
+      evidence: value,
+      error: /material_exclusion_scope_missing/u,
+    })),
+  ] as const;
+
+  for (const row of cases) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.error, row.text);
+  }
+});
+
+test("rejects Pilot23 local passive classifications without actor or analysis scope", () => {
+  const cases = [
+    {
+      source: "Varelageret er en nodvendig eiendel i driften. Folgelig klassifiseres varelageret her som en driftsrelatert eiendel.",
+      text: "Varelageret er en nodvendig eiendel i driften og klassifiseres som en driftsrelatert eiendel.",
+    },
+    ...[
+      "Costs were classified here as direct material costs.",
+      "Costs have been classified here as direct material costs.",
+      "Kostnader ble klassifisert her som direkte materialkostnader.",
+      "Kostnader er klassifisert her som direkte materialkostnader.",
+      "Costs had been classified here as direct material costs.",
+      "Costs are being classified here as direct material costs.",
+      "Costs were being classified here as direct material costs.",
+      "Kostnader var klassifisert her som direkte materialkostnader.",
+    ].map((value) => ({ source: value, text: value })),
+  ];
+
+  for (const row of cases) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.source }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /classification_context_missing/u, row.text);
+  }
+});
+
+test("accepts explicit local analysis scope for passive classifications", () => {
+  const text = "I denne analysen klassifiseres kostnader som direkte materialkostnader.";
+  const job = verifiedJob([text]);
+  const response = segmentResponse(job, {
+    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [claim(job, 0, text)],
+  });
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job,
+    response,
+  }));
+});
+
+test("accepts a named supplier exclusion as locally identified", () => {
+  const text = "Supplier A is excluded from the figures for 2022.";
+  const job = verifiedJob([text]);
+  const response = segmentResponse(job, {
+    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [claim(job, 0, text)],
+  });
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job,
+    response,
+  }));
+});
+
+test("rejects nominal budget lists across currency and numbered-heading variants", () => {
+  const cases = [
+    "### Budget and expectations\n- EUR 250,000 per group\n- Total EUR 500,000",
+    "### Budget and expectations\n- €250,000 per group\n- Total €500,000",
+    "### Budget and expectations\n- £250,000 per group\n- Total £500,000",
+    "### 3: Budsjett og forventninger\n- 250 000 NOK per group\n- Total 500 000 NOK",
+    "### 3 - Budsjett og forventninger\n- 250 000 NOK per group\n- Total 500 000 NOK",
+    "### 3 Budsjett og forventninger\n- 250 000 NOK per group\n- Total 500 000 NOK",
+  ];
+
+  for (const source of cases) {
+    const job = verifiedJob([source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, "The project budget was EUR 500,000."), evidence: source }],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /non_declarative_evidence/u, source);
+  }
+});
+
+test("accepts a complete declarative budget proposition before nominal budget bullets", () => {
+  const source = "### Budget and expectations\nThe project has a budget.\n- 250 000 NOK per group\n- Total 500 000 NOK";
+  const job = verifiedJob([source]);
+  const response = segmentResponse(job, {
+    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{ ...claim(job, 0, "The project has a budget."), evidence: source }],
+  });
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job,
+    response,
+  }));
+});
+
+test("rejects Pilot23 inline truncated findings as no-material coverage", () => {
+  const text = "Oppryddingen ble gjennomfort 2026-04-21. Hovedfunn pa tvers av korpuset: - Norge CR3: 96.";
+  const job = verifiedJob([text]);
+  const response = segmentResponse(job, {
+    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "no_material_claim" }],
+    claims: [],
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job,
+    response,
+  }), /material_claim_omission/u);
+});
+
+test("rejects Pilot23 blocked coverage that suppresses complete local findings", () => {
+  const cases = [
+    "1. Felles grep: Studien finner at S Group, K Group og Lidl Finland rapporterer tiltak mot matsvinn. 2.",
+    "# Sammendrag: Rislakki (JYU, 2024)\n## Hovedfunn\nStudien finner at S Group, K Group og Lidl Finland rapporterer tiltak mot matsvinn.\n## Metode\nKvalitativ innholdsanalyse av baerekraftsrapporter fra 2022.",
+    "Konkurransetilsynet har hentet inn regnskapstall fra et utvalg aktorer for perioden 2017 til 2022. Basert pa regnskapstallene finner Konkurransetilsynet betydelig variasjon i lonnsomhet mellom leverandorer.",
+    "## 10. Mowi ASA\n### A. Eierskap\nStorste aksjonaer var Geveran Trading med 14,4% i 2024.\n### B. Finansielle data\n| Nokkeltall | Verdi |\n|---|---|\n| Omsetning | EUR 5,62 mrd. |\n| EBIT | EUR 829 mill. |\n### C. Offentlig stotte\nIngen spesifikke tilskudd ble identifisert.\n### D. IP\nSelskapet rapporterte 2 000 patenter.",
+  ];
+
+  for (const text of cases) {
+    const job = verifiedJob([text]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{
+        contentUnitId: job.units[0]!.descriptor.id,
+        status: "blocked",
+        reasonCode: "insufficient_context",
+      }],
+      claims: [],
+    });
+    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), /blocked_material_claim/u, text);
+  }
+});
+
+test("rejects Pilot23 multi-line nominal budget lists promoted to a declarative claim", () => {
+  const source = "### 3. Budsjett og forventninger\n\n- 250 000 kr per transition group (Cities + Food)\n- Totalt 500 000 kr fra Nordic Innovation Hotspot";
+  const text = "Prosjektets budsjett var 250 000 kr per transition group (Cities + Food), med totalt 500 000 kr fra Nordic Innovation Hotspot.";
+  const job = verifiedJob([source]);
+  const response = segmentResponse(job, {
+    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [{ ...claim(job, 0, text), evidence: source }],
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job,
+    response,
+  }), /non_declarative_evidence/u);
+});
+
+test("keeps fully scoped Pilot23 quantitative, exclusion, classification and budget claims eligible", () => {
+  const cases = [
+    {
+      source: "# Master Analyse-Indeks\nStatus-sammendrag\n- I 2024 var Norge CR3 96.6%, opp fra 93% i 2015.",
+      text: "I 2024 var Norge CR3 96.6%, opp fra 93% i 2015.",
+      evidence: "- I 2024 var Norge CR3 96.6%, opp fra 93% i 2015.",
+    },
+    {
+      source: "# Master Analyse-Indeks\nStatus-sammendrag\n- I 2022 reduserte AI-basert matsvinnsporing HORECA-svinn med 23-51% versus 2021-baseline.",
+      text: "I 2022 reduserte AI-basert matsvinnsporing HORECA-svinn med 23-51% versus 2021-baseline.",
+      evidence: "- I 2022 reduserte AI-basert matsvinnsporing HORECA-svinn med 23-51% versus 2021-baseline.",
+    },
+    {
+      source: "Leverandor A holdes utenfor i Figur 17, som sammenligner atte leverandorer i perioden 2017 til 2022.",
+      text: "Leverandor A holdes utenfor i Figur 17, som sammenligner atte leverandorer i perioden 2017 til 2022.",
+      evidence: "Leverandor A holdes utenfor i Figur 17, som sammenligner atte leverandorer i perioden 2017 til 2022.",
+    },
+    {
+      source: "I Konkurransetilsynets marginanalyse klassifiseres varelageret her som en driftsrelatert eiendel.",
+      text: "I Konkurransetilsynets marginanalyse klassifiseres varelageret som en driftsrelatert eiendel.",
+      evidence: "I Konkurransetilsynets marginanalyse klassifiseres varelageret her som en driftsrelatert eiendel.",
+    },
+    {
+      source: "### 3. Budsjett og forventninger\nProsjektets budsjett var 250 000 kr per transition group (Cities + Food), totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      text: "Prosjektets budsjett var 250 000 kr per transition group (Cities + Food), totalt 500 000 kr fra Nordic Innovation Hotspot.",
+      evidence: "Prosjektets budsjett var 250 000 kr per transition group (Cities + Food), totalt 500 000 kr fra Nordic Innovation Hotspot.",
+    },
+  ] as const;
+
+  for (const row of cases) {
+    const job = verifiedJob([row.source]);
+    const response = segmentResponse(job, {
+      unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+      claims: [{ ...claim(job, 0, row.text), evidence: row.evidence }],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.text);
+  }
+});
+
+test("keeps legitimate Pilot23 blocked inputs fail-closed without treating them as complete", () => {
+  const cases = [
+    {
+      text: "What is your main market? 57.8% selected Europe.",
+      unitType: "document_section",
+    },
+    {
+      text: "dk-usda,2025,official_pdf,https://example.test/a.pdf\nfi-kkv,2023,official_html,https://example.test/b",
+      unitType: "sheet_range",
+    },
+    {
+      text: "### Budsjett og forventninger\n- 250 000 kr per transition group\n- Totalt 500 000 kr fra Nordic Innovation Hotspot",
+      unitType: "document_section",
+    },
+    {
+      text: "Storste eier: Joh. Johannson Handel AS - 74,4% per 31.12.",
+      unitType: "document_section",
+    },
+    {
+      text: "Hovedfunn: Norge CR3 var 96.",
+      unitType: "document_section",
+    },
+  ] as const;
+
+  for (const row of cases) {
+    const job = verifiedJob([row.text]);
+    Object.assign(job.units[0]!.descriptor, { unitType: row.unitType });
+    const response = segmentResponse(job, {
+      unitCoverage: [{
+        contentUnitId: job.units[0]!.descriptor.id,
+        status: "blocked",
+        reasonCode: "insufficient_context",
+      }],
+      claims: [],
+    });
+    assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+      queueHash: HASH,
+      attempt: 1,
+      inputHash: INPUT_HASH,
+      expectedModel: EXPECTED_MODEL,
+      job,
+      response,
+    }), row.text);
+  }
+});
+
 test("rejects Pilot19 gate bypasses found by adversarial review", () => {
   const rejected = [
     {

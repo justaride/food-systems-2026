@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.19`
+Prompt template version: `1.0.20`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.19`
+Workflow version: `1.0.20`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
@@ -63,6 +63,10 @@ Classify as F5 an obviously material structured unit reported as `no_material_cl
 Also classify declarative survey results, response totals and forecasts reported as `no_material_claim` as F5. Missing local survey context requires typed `blocked` coverage, not omission.
 
 Repeated company-analysis sections with ownership, financial tables, public-support or IP/patent findings reported as `no_material_claim` are F5. Multiple stable-width, comma-delimited data rows are material even without a local header; missing field meanings require typed `blocked` coverage rather than `no_material_claim`. A nominal budget label or per-group/total funding fragment without a finite predicate is F4. A practical-success proposition using `lykkes i praksis`/`succeed in practice` without naming the relevant method, project, work, delivery, mapping or calculation in the same proposition and evidence clause is context-dependent F4.
+
+Classify a master analysis-index result as F3 when a CR3 comparison fails to date both values locally, or when a percentage reduction, increase, `higher` or `lower` result omits its measurement period or named baseline, control or comparison basis. Do not treat a citation, bibliographic or publication year as the result period, whether parenthesized or written in prose. An anonymous supplier exclusion must name the exact actor or source-defined category and containing sample; otherwise it is F3. Passive `klassifiseres ... her`/`is classified ... here` without a named actor, appendix or analysis scope in both claim and evidence is F4.
+
+A declarative budget claim synthesized from a heading and monetary list fragments without a source-visible finite predicate is F4. A complete named-study finding, bounded named-authority method/result or locally identified repeated company finding blanket-reported as `blocked` is F5. Preserve `blocked` as valid fail-closed coverage for unresolved survey scope, missing tabular headers, nominal fragments, unreadable content, incomplete company continuations and truncation with no complete local proposition. A complete proposition before a dangling continuation remains claimable; omitting it is F5.
 
 Do not rewrite the analysis into an approval. Do not claim human review, independent verification, accuracy, canonical status, promotion, rights clearance, publication, coverage or external readiness. A clean automated validation is still automated-only internal candidate evidence.
 

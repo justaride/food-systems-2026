@@ -91,6 +91,7 @@ const BARE_SAMPLE_REFERENCE = /(?:\butvalget(?!\s+(?:av|på|med|bestående\s+av)
 const BARE_INFORMATION_REFERENCE = /(?:\bmye\s+av\s+informasjonen(?!\s+(?:om|for|fra|i)\b)|\bmuch\s+of\s+the\s+information(?!\s+(?:about|for|from|in)\b))/iu;
 const BARE_SIMILAR_ANALYSIS = /(?:\blignende\s+analyser(?!\s+(?:av|om|for|i|fra|basert\s+på)(?:\s|$))|\bsimilar\s+analyses(?!\s+(?:of|on|for|in|from|based\s+on)\b))/iu;
 const BARE_ANALYSIS_REFERENCE = /(?:\banalysen(?!\s+(?:av|om|for|i|fra|basert\s+på)(?:\s|$))|\bthe\s+analysis(?!\s+(?:of|on|for|in|from|based\s+on)\b))/iu;
+const EXPLICIT_LOCAL_ANALYSIS_CONTEXT = /\b(?:denne\s+analysen|this\s+analysis)\b/iu;
 const BARE_DOUBLE_COUNTING = /\b(?:dobbelttelling|dobbeltelling|double[- ]counting)(?!\s+(?:av|of)(?:\s|$))/iu;
 const UNRESOLVED_RESULT_EVIDENCE = /\b(?:resultatet(?!\s+(?:av|fra|for|i)\b)|the\s+result(?!\s+(?:of|from|for|in)\b))\b/iu;
 const UNRESOLVED_PLURAL_RESULT_EVIDENCE_OPENING = /^(?:resultatene(?!\s+(?:av|fra|for|i)\b)|the\s+results(?!\s+(?:of|from|for|in)\b))\b/iu;
@@ -128,6 +129,7 @@ const MARKET_VALUE_DENOMINATOR = /\b(?:av|of)\s+[^.!?]{0,80}\b(?:verdi|value)\b/
 const INCOMPLETE_NEGATED_ANALYSIS_EVIDENCE = /\b(?:ikke\s+har\s+analysert|did\s+not\s+analy[sz]e|has\s+not\s+analy[sz]ed)\s*$/iu;
 const INCOMPLETE_LIST_LEAD_IN_EVIDENCE = /:\s*$/u;
 const MATERIAL_EXCLUSION = /\b(?:not\s+included|excluded|not\s+counted|inngår\s+ikke|ikke\s+inkludert|ikke\s+medregnet)\b/iu;
+const ANONYMOUS_SUPPLIER_EXCLUSION = /\b(?:(?:en|ett)\s+av\s+(?:de\s+)?leverand(?:ø|o)rene|one\s+of\s+the\s+suppliers?|leverand(?:ø|o)rene|suppliers)\b[^.!?\n]{0,160}\b(?:(?:holdes|ble\s+holdt|er\s+holdt)\s+utenfor|(?:utelates|ble\s+utelatt|er\s+utelatt)|(?:ekskluderes|ble\s+ekskludert|er\s+ekskludert)|(?:(?:is|are|was|were|has\s+been|have\s+been)\s+)(?:excluded|left\s+out))\b/iu;
 const FRANCHISE_SCOPE = /\b(?:franchise[- ]owned\s+stores?|franchiseeide\s+butikker|kjøpmannseide\s+butikker)\b/iu;
 const POSSESSIVE_OWNERSHIP_TARGET = /\b(?:is|was)\s+(?:(?:listed|identified|reported)\s+as\s+)?(?:the\s+)?([\p{L}\p{N}.& -]{2,80}?)'s\s+(?:largest|majority|controlling)\s+(?:owner|shareholder)\b/iu;
 const NORWEGIAN_POSSESSIVE_OWNERSHIP_TARGET = /\b(?:er|var)\s+([\p{Lu}][\p{L}\p{N}.& -]{1,80}?)s\s+største\s+eier\b/u;
@@ -192,6 +194,8 @@ const UNNAMED_STUDY_AUTHORITY = /\b(?:empiriske\s+studier|empirical\s+studies|li
 const PASSIVE_IDENTIFICATION = /\b(?:(?:ble\s+det|det\s+ble)\s+identifisert\s+at|det\s+ble\s+introdusert\s+en\s+ny\s+metode|it\s+was\s+identified\s+that|a\s+new\s+method\s+was\s+introduced)\b/iu;
 const PASSIVE_EVALUATION = /\b(?:beskrives\s+som|is\s+described\s+as)\b/iu;
 const PASSIVE_NAMED_ACTOR = /(?<![\p{L}\p{N}_])(?:av|by)\s+[\p{Lu}][\p{L}\p{M}\p{N}.:&+-]*(?:\s+[\p{Lu}][\p{L}\p{M}\p{N}.:&+-]*){0,5}/u;
+const PASSIVE_LOCAL_CLASSIFICATION = /\b(?:(?:klassifiseres|(?:ble|er|var|blir|har\s+blitt|har\s+vært)\s+klassifisert)[^.!?\n]{0,100}\bher|(?:(?:is|are|was|were)\s+(?:being\s+)?classified|(?:has|have|had)\s+been\s+classified)[^.!?\n]{0,100}\bhere)\b/iu;
+const NAMED_CLASSIFICATION_CONTEXT = /\b(?:Konkurransetilsynet|Norwegian\s+Competition\s+Authority|margin(?:analyse(?:n)?|studie(?:n)?)|denne\s+analysen|this\s+analysis|vedlegg\s+[A-ZÆØÅ]|appendix\s+[A-Z])\b/iu;
 const FIGURE_REFERENCE = /\b(?:Figur|Figure)\s+(\d{1,4})\b/iu;
 const FIGURE_PERCENT_VALUE = /\b\d+(?:[.,]\d+)?\s*(?:%|prosent|percent)\b/iu;
 const FIGURE_MULTIPLE_VALUE = /(?:\b(?:\d+(?:[.,]\d+)?|en|to|tre|fire|fem|seks|syv|sju|åtte|ni|ti|one|two|three|four|five|six|seven|eight|nine|ten)\s+(?:ganger|times)\b|\b(?:twofold|threefold|fourfold|fivefold|sixfold|sevenfold|eightfold|ninefold|tenfold|twice|double|doubled|tripled|dobling|doblet|tredoblet)\b|\b\d+(?:[.,]\d+)?(?:x|-fold)\b)/iu;
@@ -208,6 +212,8 @@ const EARLY_GENERIC_EVIDENCE_REFERENCE = /^(?:metodisk|methodologically)\s+[\s\S
 const TOTAL_BUDGET_AMOUNT = /\b(?:totalt|total)\b[\s\S]{0,40}\b\d+(?:[\s.,]\d+)*\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\b/iu;
 const PER_GROUP_BUDGET_SCOPE = /\b(?:per|for\s+hver)\s+(?:transition\s+group|gruppe)\b|\bCities\s*\+\s*Food\b/iu;
 const NOMINAL_BUDGET_FRAGMENT = /^(?:(?:totalt?|total)\s+)?(?:budsjett|budget)|^totalbudsjett/iu;
+const BUDGET_SECTION_HEADING = /^(?:#{1,6}\s*)?(?:\d+(?:(?:[.):]|\s+[-–—])\s*|\s+))?(?:budsjett|budget)(?:\s+og\s+forventninger|\s+and\s+expectations)?\s*:?\s*$/iu;
+const CURRENCY_AMOUNT = /(?:[$€£]\s*\d+(?:[\s.,]\d+)*\b|\b(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\s*\d+(?:[\s.,]\d+)*\b|\b\d+(?:[\s.,]\d+)*\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?|[$€£]))/iu;
 const AWARD_ACTION = /\b(?:bevilg(?:et|er|a|ning(?:en)?)|tildel(?:te|t|er|ing(?:en)?)|innvilg(?:et|er)|alloker(?:te|t|er|ing(?:en)?)|award(?:ed|s|ing)?|grant(?:ed|s|ing)?|allocat(?:ed|es?|ing|ion))\b/iu;
 const FINANCIAL_AWARD_CONTEXT = /(?:\b\d+(?:[\s.,]\d+)*\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\b|\b(?:finansiering(?:en)?|funding|tilskudd(?:et)?|grant)\b)/iu;
 const NOMINAL_CHALLENGE_HEADING = /^(?:utfordring(?:er)?(?:\s+(?:med|ved|for)|\s*[:–—-])|(?:en\s+stor\s+utfordring|store\s+utfordringer)\s+for|challenges?(?:\s+(?:with|for)|\s*[:–—-])|(?:(?:et|en)\s+)?(?:(?:neste|stor(?:t|e)?)\s+)?steg\s+for|next\s+step\s*:|(?:(?:a|the)\s+)?(?:(?:major|big|significant)\s+)?step\s+for)(?=\s|$)/iu;
@@ -225,6 +231,9 @@ const HEADER_BOUND_INVENTORY = /^(?:id|source_id)[,\t][^\n]+\n[^\n]+/iu;
 const STRUCTURED_COMPANY_SECTION = /^###\s+[A-D]\.\s+(?:Eierskap|Ownership|Finansielle\s+data|Financial\s+data|Offentlig\s+stotte|Public\s+support|IP(?:\s*[-—:]\s*[^\n]+)?)/gimu;
 const NUMBERED_COMPANY_HEADING = /^##\s+\d+\.\s+[^\n]{1,100}\b(?:AS|ASA|AB|A\/S|Ltd\.?|Limited|Holdings?|Group|Company|Corp(?:oration)?)\b[^\n]{0,80}$/gmu;
 const MASTER_ANALYSIS_INDEX = /^#\s+Master\s+Analyse-Indeks\b[\s\S]{0,2000}\bStatus-sammendrag\b/imu;
+const MASTER_INDEX_CONCENTRATION_COMPARISON = /\bCR\d+\b[^.!?\n]{0,180}\b\d+(?:[.,]\d+)?\s*%[^.!?\n]{0,180}\b(?:opp\s+fra|up\s+from)\b[^.!?\n]{0,80}\b\d+(?:[.,]\d+)?\s*%/iu;
+const MASTER_INDEX_PERCENT_CHANGE = /(?:\b\d+(?:[.,]\d+)?\s*(?:[-–—]\s*\d+(?:[.,]\d+)?)?\s*%[^.!?\n]{0,100}\b(?:reduksjon|reduction|høyere|hoyere|lavere|higher|lower)\b|\b(?:reduksjon|reduction|høyere|hoyere|lavere|higher|lower)\b[^.!?\n]{0,100}\b\d+(?:[.,]\d+)?\s*%)/iu;
+const EXPLICIT_COMPARISON_BASIS = /\b(?:opp\s+fra|up\s+from|versus|vs\.?|sammenlignet\s+med|compared\s+(?:with|to)|relative\s+to|baseline|kontrollgruppe|control\s+group|enn|than)\b/iu;
 const AUTHORITY_RESULT_MATERIAL = /\bKonkurransetilsynet\s+(?:finner|vurderer|konkluderer|beregner|har\s+beregnet)\b/iu;
 const STUDY_FINDING_MATERIAL = /\bStudien\s+(?:finner|viser|rapporterer)\b/iu;
 const SURVEY_RESULT_MATERIAL = /\b(?:(?:respondents?|companies)\s+(?:identified|indicated|responded)|respondentene\s+(?:identifiserte|indikerte|svarte)|most\s+(?:(?:insect\s+food|respondent)\s+)?companies\s+(?:are|have|produce)|on\s+average,?\s+companies\s+have|totalt\s+svarte\s+\d+[\d ,.]*(?:\s+\w+){0,3}\s+respondenter|(?:the\s+)?total\s+response\s+count\s+(?:was|is)\s+\d+|the\s+survey\s+received\s+\d+\s+responses?|total(?:\s+collective)?[^.!?\n]{0,60}\bproduction\b[^.!?\n]{0,120}\b(?:was|is)\s+\d[\d ,.]*(?=\s|[.;:]|$)|total\s+(?:forecasted\s+)?[^.!?\n]{0,60}\bproduction\b[^.!?\n]{0,120}\b(?:foreseen\s+for\s+\d{4}\s+is|in\s+\d{4}\s+is)\s+\d[\d ,.]*(?=\s|[.;:]|$)|(?:the\s+forecast|forecasted\s+production)\s+(?:is\s+)?\d[\d ,.]*[^.!?\n]{0,60}\b(?:19|20)\d{2}\b|prognosen\s+er\s+\d[\d ,.]*[^.!?\n]{0,60}\b(?:19|20)\d{2}\b)\b/iu;
@@ -297,7 +306,7 @@ function hasUnresolvedLocalReference(value: string): boolean {
     BARE_SAMPLE_REFERENCE.test(value) ||
     BARE_INFORMATION_REFERENCE.test(value) ||
     BARE_SIMILAR_ANALYSIS.test(value) ||
-    BARE_ANALYSIS_REFERENCE.test(value) ||
+    (BARE_ANALYSIS_REFERENCE.test(value) && !EXPLICIT_LOCAL_ANALYSIS_CONTEXT.test(value)) ||
     BARE_DOUBLE_COUNTING.test(value);
 }
 
@@ -549,6 +558,55 @@ function hasUnboundedPeriodReference(value: string): boolean {
   return false;
 }
 
+function measurementYears(value: string): string[] {
+  const years = new Set<string>();
+  for (const range of value.matchAll(new RegExp(BOUNDED_YEAR_RANGE.source, "giu"))) {
+    for (const year of range[0].match(/\b(?:19|20)\d{2}\b/gu) ?? []) years.add(year);
+  }
+  for (const match of value.matchAll(/\b(?:19|20)\d{2}\b/gu)) {
+    const year = match[0];
+    const offset = match.index;
+    const before = value.slice(Math.max(0, offset - 80), offset);
+    const after = value.slice(offset + year.length, offset + year.length + 2);
+    const openParenthesis = before.lastIndexOf("(");
+    const closeParenthesis = before.lastIndexOf(")");
+    if (openParenthesis > closeParenthesis) {
+      const parenthetical = `${before.slice(openParenthesis)}${year}${after}`;
+      if (/^\(\s*(?:19|20)\d{2}\s*\)/u.test(parenthetical)) years.add(year);
+      continue;
+    }
+    if (/\b(?:published|publication|publisert|utgitt|issued)\b[^.!?\n]{0,30}(?:\bi|\bin)?\s*$/iu.test(before)) {
+      continue;
+    }
+    if (/\b(?:i|in|during|for|as\s+of|per|fra|from|til|to|through|between|mellom)\s*$/iu.test(before)) {
+      years.add(year);
+    }
+  }
+  return [...years];
+}
+
+function hasIncompleteMasterIndexQuantitativeResult(value: string): boolean {
+  const years = measurementYears(value);
+  if (MASTER_INDEX_CONCENTRATION_COMPARISON.test(value)) return years.length < 2;
+  if (!MASTER_INDEX_PERCENT_CHANGE.test(value)) return false;
+  return years.length < 1 || !EXPLICIT_COMPARISON_BASIS.test(value);
+}
+
+function hasNominalBudgetListEvidence(value: string): boolean {
+  const lines = value.split(/\r?\n/u)
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0);
+  if (lines.length < 3 || !BUDGET_SECTION_HEADING.test(lines[0]!)) return false;
+  const contentLines = lines.slice(1);
+  if (contentLines.some((line) =>
+    !/^(?:[-*•]|\d+[.)])\s+/u.test(line) && hasDeclarativeCopulaOrVerb(line))) {
+    return false;
+  }
+  const amountLines = contentLines.filter((line) => CURRENCY_AMOUNT.test(line));
+  return amountLines.length >= 2 && amountLines.every((line) =>
+    !hasDeclarativeCopulaOrVerb(line.replace(/^(?:[-*•]|\d+[.)])\s+/u, "")));
+}
+
 function hasResolvedIndicatorReference(value: string): boolean {
   return /(?:indikatoren\s+(?:for|om|kalt|heter)|indicator\s+(?:for|of|called|named)|[\p{L}\p{M}-]+\s+indicator\b)[\s\S]{0,240}(?:denne\s+indikatoren|this\s+indicator)/iu.test(value) ||
     /(?:denne\s+indikatoren|this\s+indicator)\s*,?\s*(?:kalt|heter|forkortet|called|named|known\s+as|abbreviated)\s+[\p{L}\p{N}][\p{L}\p{M}\p{N}&.' -]{1,100}/iu.test(value) ||
@@ -684,7 +742,8 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
   if (
     BARE_MATERIAL_EXCLUSION_SCOPE.test(normalizedClaim) ||
     BARE_DATASET_EXCLUSION_VARIANT.test(normalizedClaim) ||
-    INCOMPLETE_MATERIAL_EXCLUSION_SCOPE.test(normalizedClaim)
+    INCOMPLETE_MATERIAL_EXCLUSION_SCOPE.test(normalizedClaim) ||
+    ANONYMOUS_SUPPLIER_EXCLUSION.test(normalizedClaim)
   ) {
     throw new Error("agent_response_material_exclusion_scope_missing");
   }
@@ -708,6 +767,13 @@ function assertSelfContainedClaimText(claimText: string, evidence: string): void
     !PASSIVE_NAMED_ACTOR.test(normalizedClaim)
   ) {
     throw new Error("agent_response_identification_actor_missing");
+  }
+  if (
+    PASSIVE_LOCAL_CLASSIFICATION.test(normalizedEvidence) &&
+    (!NAMED_CLASSIFICATION_CONTEXT.test(normalizedClaim) ||
+      !NAMED_CLASSIFICATION_CONTEXT.test(normalizedEvidence))
+  ) {
+    throw new Error("agent_response_classification_context_missing");
   }
   if (
     REPORTED_DATASET_COVERAGE.test(normalizedClaim) &&
@@ -753,6 +819,13 @@ function assertAuditedScopeCompleteness(
   evidence: string,
   sourceText: string,
 ): void {
+  if (
+    MASTER_ANALYSIS_INDEX.test(sourceText) &&
+    (hasIncompleteMasterIndexQuantitativeResult(claimText) ||
+      hasIncompleteMasterIndexQuantitativeResult(evidence))
+  ) {
+    throw new Error("agent_response_quantitative_measure_context_missing");
+  }
   if (QUANTIFIED_GENERIC_RETURN.test(claimText)) {
     const claimSegment = quantifiedReturnSegment(claimText);
     const evidenceSegment = quantifiedReturnSegment(evidence);
@@ -1188,6 +1261,7 @@ function assertDeclarativeEvidence(claimText: string, evidence: string): void {
   if (
     (
       NOMINAL_CHALLENGE_HEADING.test(leadingEvidenceClause) ||
+      hasNominalBudgetListEvidence(evidence) ||
       (NOMINAL_BUDGET_FRAGMENT.test(leadingEvidenceClause) &&
         /(?:\s*[:–—-]\s*|\s+per\s+)[^.!?\n]{0,160}\b\d+(?:[\s.,]\d+)*\s*(?:kr|NOK|kroner|EUR|euro|USD|dollars?)\b/iu.test(leadingEvidenceClause)) ||
       (TOTAL_BUDGET_AMOUNT.test(leadingEvidenceClause) &&
@@ -1543,10 +1617,18 @@ export function validateLibraryAnalysisAgentSegmentResponse(
   }
   assertExactCoverage(input.job, response.unitCoverage);
   for (const coverage of response.unitCoverage) {
-    if (coverage.status !== "no_material_claim") continue;
     const unit = ownedUnit(input.job, coverage.contentUnitId);
-    if (hasObviousMaterialClaim(unit.text, unit.descriptor.unitType)) {
+    if (
+      coverage.status === "no_material_claim" &&
+      hasObviousMaterialClaim(unit.text, unit.descriptor.unitType)
+    ) {
       throw new Error("agent_response_material_claim_omission");
+    }
+    if (
+      coverage.status === "blocked" &&
+      hasClearlyExtractableBlockedMaterial(unit.text)
+    ) {
+      throw new Error("agent_response_blocked_material_claim");
     }
   }
   const coverageByUnit = new Map(response.unitCoverage.map((coverage) => [coverage.contentUnitId, coverage]));
@@ -1597,6 +1679,7 @@ function hasObviousMaterialClaim(text: string, unitType: string): boolean {
     /^(?:(?:alternativ|option|choice)\s+[A-Z0-9]|(?:svar|answer)\s*:\s*[A-Z0-9]|(?:options?|choices?|svaralternativer)\s*:\s*.+|(?:select|choose|velg)\s+(?:one|ett|én)|\d+[.)]\s*(?:introduction|methodology|metode|appendix|vedlegg))\s*[.]?\s*$/iu.test(line));
   if (structuralPromptOnly) return false;
   return OBVIOUS_SECTIONED_FINDINGS.test(text) ||
+    /\b(?:Hovedfunn|Main\s+findings)\b[\s\S]{0,240}:\s*[-*•]?\s*[^.!?\n]{1,160}:\s*\d+(?:[.,]\d*)?\s*$/iu.test(text) ||
     hasNumberedLearningSectionMaterial(text) ||
     PLAIN_SECTIONED_FINDINGS.test(text) ||
     STRUCTURED_REGISTER_FINDINGS.test(text) ||
@@ -1612,6 +1695,17 @@ function hasObviousMaterialClaim(text: string, unitType: string): boolean {
     SURVEY_FORECAST_MATERIAL.test(text) ||
     SURVEY_QUALITATIVE_RESULT_MATERIAL.test(text) ||
     SURVEY_GENERAL_FORECAST_MATERIAL.test(text);
+}
+
+function hasClearlyExtractableBlockedMaterial(text: string): boolean {
+  const boundedAuthorityAnalysis = NAMED_AUTHORITY.test(text) &&
+    BOUNDED_YEAR_RANGE.test(text) &&
+    (ANALYTICAL_BASIS.test(text) || PILOT13_ANALYTICAL_OUTCOME.test(text)) &&
+    /\bKonkurransetilsynet\s+(?:(?:har|hadde)\s+)?(?:beregnet|estimert|hentet|kartlagt|finner|vurderer|konkluderer|avgrenser)\b/iu.test(text);
+  return STUDY_FINDING_MATERIAL.test(text) ||
+    AUTHORITY_RESULT_MATERIAL.test(text) ||
+    boundedAuthorityAnalysis ||
+    hasStructuredCompanyAnalysisMaterial(text);
 }
 
 function hasStructuredCompanyAnalysisMaterial(text: string): boolean {

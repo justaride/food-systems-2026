@@ -2,13 +2,13 @@
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.19`
+Prompt template version: `1.0.20`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.19`
+Workflow version: `1.0.20`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
@@ -71,3 +71,7 @@ Return only the strict candidate payload grammar. Do not claim approval, human r
 Do not infer an award, grant or allocation action from a bare funding provenance phrase such as `fra X` or `from X`; verbs such as `bevilget`, `tildelte`, `awarded`, `granted` or `allocated` require an explicit source-visible award action in the same evidence excerpt. A named authority in the claim must also be named in the evidence excerpt; generic shorthand such as `tilsynet` or `the authority` does not authorize rewriting it as Konkurransetilsynet, CMA or another named authority. Treat nominal challenge/step fragments and similar heading-like text without a finite declarative verb as non-declarative evidence, even when punctuation makes the fragment look like a sentence or the supplied excerpt starts mid-heading with wording such as `stor steg for` or `major step for`.
 
 Treat a nominal budget label or allocation fragment without a finite predicate as non-declarative evidence, including `Budsjett: 500 000 kr` and bare per-group/total funding lines. A statement that data or organization is critical to `lykkes i praksis`/`succeed in practice` must name the method, project, work, delivery, mapping or calculation in the same proposition and evidence clause; a bare `Metoden` in surrounding text does not resolve it.
+
+For master analysis-index result bullets, require local measurement scope rather than treating a citation, bibliographic or publication year as the result period, whether parenthesized or written in prose. Date both a CR3 value and its historical comparator. For a percentage reduction, increase, `higher` or `lower` result, retain the measurement period and named baseline, control or comparison basis. Do not emit an anonymous supplier exclusion unless the exact actor or source-defined category and containing sample are visible. Passive `klassifiseres ... her`/`is classified ... here` must retain its named actor, appendix or analysis scope in claim and evidence.
+
+Do not combine a budget heading and multiple monetary bullets into a declarative budget or funding claim when the source has no finite predicate. Do not use `blocked` to suppress a complete named-study finding, bounded named-authority method/result or locally identified repeated company finding. If any complete proposition is locally supported, emit that proposition and mark the unit `claims_extracted`; a dangling continuation does not invalidate a preceding complete proposition. Continue to use typed `blocked` for unresolved survey scope, missing table headers, nominal fragments, unreadable content, incomplete company continuations and truncation with no complete local proposition.

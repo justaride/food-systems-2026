@@ -2,13 +2,13 @@
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.19`
+Workflow version: `1.0.20`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.19`
+Prompt template version: `1.0.20`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
@@ -63,6 +63,10 @@ Classify as F5 an obviously material structured unit reported as `no_material_cl
 Declarative survey results, response totals and forecasts reported as `no_material_claim` are also F5. Missing local survey context requires typed `blocked` coverage rather than omission.
 
 Repeated company-analysis sections and multiple stable-width comma-delimited data rows reported as `no_material_claim` are also F5; missing local labels or headers require typed `blocked` coverage. A nominal budget fragment without a finite predicate is F4. A practical-success proposition that does not name its method, project, work, delivery, mapping or calculation in the same claim and evidence clause is context-dependent F4.
+
+Classify a master analysis-index quantitative result as F3 when a CR3 comparison does not locally date both values, or when a percentage reduction, increase, `higher` or `lower` result omits its measurement period or named baseline, control or comparison basis. A bibliographic or publication year is not a measurement period, whether parenthesized or written in prose. Classify an anonymous supplier exclusion without the exact actor or source-defined category and containing sample as F3. Classify passive `klassifiseres ... her`/`is classified ... here` without a named actor, appendix or analysis scope in claim and evidence as F4.
+
+Classify as F4 a declarative budget claim synthesized from a budget heading plus monetary list fragments with no source-visible finite predicate. Classify as F5 a complete named-study finding, bounded named-authority method/result or locally identified repeated company finding blanket-reported as `blocked`. Do not apply that F5 rule to genuinely unresolved survey scope, headerless tabular meaning, nominal fragments, unreadable content, incomplete company continuations or truncation containing no complete local proposition. When a truncated unit contains a complete proposition before a dangling continuation, omission of that complete proposition is F5.
 
 ## Output boundary
 
