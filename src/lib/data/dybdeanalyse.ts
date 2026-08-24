@@ -37,8 +37,9 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     kortFunn:
       'Gini 0,52–0,55 (2022–2025). Øverste 10 % av mottakerne får omtrent en tredjedel av tilskuddene, øverste 1 % bare ~5 %, og medianmottakeren ~250 000 kr. Nederste halvpart deler ~12 %. Konsentrasjonen er strukturdrevet (husdyr/areal) og peker mot at makten ligger i marked/distribusjon, ikke i selve støtten.',
     evidenceStatus: 'observed',
-    citationReadiness: 'internal_context',
-    citationNote: 'Intern baseline — ikke ekstern faktastemme før PCQ-verifisering av 2024 og strukturkontroll.',
+    citationReadiness: 'citable_with_note',
+    citationNote:
+      'Gjelder 2022–2024: avstemt mot publisert primærtotal (2024: 18,61 mrd mot publisert 18,39 mrd) og reprodusert identisk 2026-08-24. 2025 er IKKE avstemt og skal holdes utenfor ekstern bruk til det er gjort. Lever alltid med struktur-forbeholdet (husdyr/areal).',
     coverageNote:
       'Dekning: 2022–2025. 2024 lukket 2026-06-14 (tidligere «kun 3 av 15 ordninger» var en kolonnematch-bug, nå fikset; total 18,61 mrd verifisert mot publisert 18,39 mrd). 2022–2024 ble reprodusert identisk 2026-08-24; 2025 (18,97 mrd, Gini 0,547) er lagt til, men ennå ikke avstemt mot publisert primærtotal.',
     method: 'Reproduserbart skript mot Landbruksdirektoratets åpne data; Gini/Lorenz enhetstestet.',
@@ -50,6 +51,7 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
       'Ikke fremstill den tidligere 2024-totalen (10,94 mrd) som reell nedgang — det var et skript-artefakt, nå rettet.',
       'Ikke kall konsentrasjonen urettferdig uten struktur-/policy-kontekst.',
       'Ikke presenter 2022→2025 (0,521→0,547) som en etablert stigende trend — fire årspunkter uten usikkerhetsestimat bærer ingen trendpåstand.',
+      'Ikke bruk 2025-tallene (36 728 mottakere, 18,97 mrd, Gini 0,547) eksternt — året er ennå ikke avstemt mot publisert primærtotal. Det citerbare vinduet er 2022–2024.',
     ],
     docRefs: ['docs/project/analysis/food-tg-ap3-tilskuddskonsentrasjon-funn-2026-06-14.md'],
   },

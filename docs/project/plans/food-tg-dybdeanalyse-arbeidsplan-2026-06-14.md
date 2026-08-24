@@ -185,8 +185,11 @@ Tabellen over ble kontrollert mot filene i `research/analyse/` og `docs/project/
 
 | AP | Var i denne tabellen | Var i appen | Nå |
 |---|---|---|---|
+| AP-3 | `klar-med-forbehold` | `internal_context`, blokkeringstekst «før PCQ-verifisering av 2024» | `citable_with_note` **avgrenset til 2022–2024**; 2025 holdt utenfor til det er avstemt |
 | AP-5 | `klar-med-forbehold` for struktur; eierandel-% `needs-data` | `internal_context`, blokkeringstekst «ikke ekstern bruk før stikkprøve … mot Brønnøysund» | `citable_with_note`, med BAMA-splitten som reelt restforbehold |
 | AP-6 | `intern baseline` | `internal_context`, blokkeringstekst «ikke ekstern bruk før konsern-rollup stikkprøves» | `citable_with_note`, med eierandels-% og MTB ≠ slaktevolum som restforbehold |
+
+AP-3 var samme mønster som de to andre — `citable-acceptance.ts` (CA-014) og hvitbok-kapittelet sto allerede på `citable_with_note`, mens appen ba om en PCQ-verifisering av 2024 som §4 lukket 2026-06-14. Forskjellen er at AP-3 nå er **delt**: 2022–2024 er avstemt mot publisert primærtotal, 2025 er ikke. Badgen er derfor eksplisitt avgrenset framfor å oppgraderes udifferensiert, med en stoppspråk-linje mot ekstern bruk av 2025-tallene.
 
 Begrunnelsen: **den betingelsen appen navngav som blokkerer, var allerede innfridd** — §6b og §7b dokumenterer nettopp de stikkprøvene, med orgnr og kilde. Appen var ikke den forsiktige parten, men den siste etternølende: funnnotatene, `citable-acceptance.ts` (der `ap5-krysseie` allerede sto på `citable_with_note`) og hvitbok-kapittelet (som allerede omtalte AP-6 slik) var enige. En badge som ber om en stikkprøve som er gjort, koster dobbeltarbeid.
 
