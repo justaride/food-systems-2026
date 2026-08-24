@@ -168,8 +168,8 @@ Alle åtte arbeidspakkene er kjørt minst én gang. Status er intern baseline / 
 | AP-2 eierskap | `klar-med-forbehold` for kryss-node-HHI | Ekte markeds-HHI for 5/8 noder; **konsentrasjonen topper i foredling (samvirke), ikke retail** | `...ap2-nodekonsentrasjon...`, `...ap2-kryssnode-hhi...`, `...section8-3-4...` |
 | AP-3 tilskudd | `klar-med-forbehold` | 2024 lukket (var skript-bug); Gini 0,52–0,55, **2022–2025** (2025 lagt til 2026-08-24, ikke avstemt mot publisert total) | `...ap3-tilskuddskonsentrasjon...` |
 | AP-4 verdifangst | delvis; kjerne `needs-data` | Sjømat ~2× verdi/tonn; per-aktør volum↔margin krever DB-join | `...ap4-ap8-partial...` |
-| AP-5 konsern | `klar-med-forbehold` for struktur | Form+styrekontroll primærsjekket; eierandel-% `needs-data` (Aksjonærregister) | `...ap5-krysseie...`, `...maktkart-bronnoysund-stikkprove...` |
-| AP-6 havbruk | `intern baseline` | Sjøbasert MTB CR4 57 %, HHI ~929; land-RAS fortynner totaltall | `...ap6-havbrukskonsentrasjon...` |
+| AP-5 konsern | `klar-med-forbehold (citable_with_note)` | Form, styrekontroll og eierandel-% primærsjekket (§6b, ni av ni konsern mot IR-/årsrapport). Restforbehold: BAMA-splitten NG/Reitan | `...ap5-krysseie...`, `...maktkart-bronnoysund-stikkprove...` |
+| AP-6 havbruk | `klar-med-forbehold (citable_with_note)` | Sjøbasert MTB CR4 57 %, HHI ~929; land-RAS fortynner totaltall. Konsern-rollup stikkprøvet mot Brønnøysund (§7b). Restforbehold: eierandels-% + MTB ≠ slaktevolum | `...ap6-havbrukskonsentrasjon...` |
 | AP-7 pris-asymmetri | `intern SVEKKET` — retning bekreftet, signifikans ikke etablert (revidert 2026-08-24). Fôr-leddet: `testet, negativt` | Reprodusert med skript: punktestimatene holder (~0,29 opp mot ~0,09 ned, n=91), men asymmetrien er ikke signifikant (t=1,25) og valutakontroll fjerner ~60 %. Juni-tallet «t=14,0» kom fra nivåregresjon på trendende serier og er trukket. Fôr→oppdrett gir nullfunn | `...ap7-prisasymmetri...` (funnnotat §6c + `research/analyse/ap7-prisasymmetri.json`) |
 | AP-8 tilskudd↔konsentrasjon | `needs-data`-kjerne + regionalt null-funn | Node-HHI nå delvis tilgjengelig (R11); regionalt strukturnøytral | `...ap4-ap8-partial...` |
 
@@ -177,18 +177,23 @@ Gjenstående mot citable: eierandel-% (AP-5), logistikk-/foodservice-HHI + presi
 
 *Lukket 2026-08-24:* «fôr→oppdrett-PPI (AP-7)» er ute av listen. Leddet er kjørt via proxy (Verdensbankens fôrråvarepriser → lakseråpris, med USDNOK som eksogen regressor) og lukket som **testet, negativt** — ingen asymmetrisk gjennomslag på noen horisont, vindu, råvare eller valutabehandling. Se §6c (d) i AP-7-notatet. Det som mangler er ikke data: en native norsk fôr-PPI ville ikke endret nullfunnet.
 
-*Presisert 2026-08-24:* «eierandel-% (AP-5)» er i praksis nesten lukket — §6b i AP-5-notatet verifiserte topp-eier-andelen for ni av ni konsern mot offentlige primærkilder (IR-/årsrapportsider). Det som genuint gjenstår er **BAMA-splitten NG/Reitan** (krever Aksjonærregisteret eller BAMAs egen årsrapport); Reitan og ASKO står som strukturelt sikre, men inferte, 100 %.
+*Erstattet 2026-08-24:* «eierandel-% (AP-5)» utgår som eget punkt — §6b i AP-5-notatet verifiserte topp-eier-andelen for ni av ni konsern mot offentlige primærkilder (IR-/årsrapportsider). Det som genuint gjenstår er **BAMA-splitten NG/Reitan** (krever Aksjonærregisteret eller BAMAs egen årsrapport); Reitan og ASKO står som strukturelt sikre, men inferte, 100 %. Merk også at SalMar, Mowi og Orkla har største aksjeblokk, ikke flertall, som topp-eier — de skal ikke omtales som majoritetseid.
 
 ### Statuskontroll 2026-08-24
 
-Tabellen over ble kontrollert mot filene i `research/analyse/` og `docs/project/analysis/`. Alle åtte funnnotatene finnes. Kontrollen avdekket at tabellen har **drevet fra funnnotatene på to punkter**, og at appen ikke har fått med seg den samme oppdateringen:
+Tabellen over ble kontrollert mot filene i `research/analyse/` og `docs/project/analysis/`. Alle åtte funnnotatene finnes. Kontrollen avdekket at AP-5 og AP-6 hadde drevet fra hverandre på tvers av flatene. **Lukket samme dag** — tabellen over og appen er nå i takt med funnnotatene:
 
-| AP | Denne tabellen | Funnnotatets egen frontmatter | Appen (`dybdeanalyse.ts`) |
+| AP | Var i denne tabellen | Var i appen | Nå |
 |---|---|---|---|
-| AP-5 | `klar-med-forbehold` for struktur; eierandel-% `needs-data` | `klar-med-forbehold (citable_with_note)` — eierandel-% verifisert fra offentlige primærkilder 2026-06-15 (§6b) | `internal_context`, med blokkeringstekst «ikke ekstern bruk før stikkprøve … mot Brønnøysund» |
-| AP-6 | `intern baseline` | `klar-med-forbehold (citable_with_note)` — konsern-rollup stikkprøvet mot Brønnøysund 2026-06-15 (§7b) | `internal_context`, med blokkeringstekst «ikke ekstern bruk før konsern-rollup stikkprøves» |
+| AP-5 | `klar-med-forbehold` for struktur; eierandel-% `needs-data` | `internal_context`, blokkeringstekst «ikke ekstern bruk før stikkprøve … mot Brønnøysund» | `citable_with_note`, med BAMA-splitten som reelt restforbehold |
+| AP-6 | `intern baseline` | `internal_context`, blokkeringstekst «ikke ekstern bruk før konsern-rollup stikkprøves» | `citable_with_note`, med eierandels-% og MTB ≠ slaktevolum som restforbehold |
 
-I begge tilfellene er **den betingelsen appen navngir som blokkerer, allerede innfridd** — §6b og §7b dokumenterer nettopp de stikkprøvene, med orgnr og kilde. Statusene er **ikke** oppgradert her: hevingen fra `internal_context` til `citable_with_note` på appflaten er en claim-gate-beslutning som ligger hos eier, ikke en opprydding. AP-2s kryss-node-funn står allerede på `citable_with_note` i appen, så nivået er i bruk.
+Begrunnelsen: **den betingelsen appen navngav som blokkerer, var allerede innfridd** — §6b og §7b dokumenterer nettopp de stikkprøvene, med orgnr og kilde. Appen var ikke den forsiktige parten, men den siste etternølende: funnnotatene, `citable-acceptance.ts` (der `ap5-krysseie` allerede sto på `citable_with_note`) og hvitbok-kapittelet (som allerede omtalte AP-6 slik) var enige. En badge som ber om en stikkprøve som er gjort, koster dobbeltarbeid.
+
+Et par ting som er verdt å vite for den som rører dette igjen:
+
+- **`citationReadiness` i `dybdeanalyse.ts` er kun en badge.** Den mates til `EvidenceStatusBadge` og er ikke koblet til `citable-acceptance.ts`. Den faktiske gaten er den håndholdte lista der, hvor `isExternallyCitable()` returnerer `true` for `citable_with_note`. **To sannhetskilder** — det er skjørt, og verdt å samle hvis noen får anledning.
+- **IG-005 er fortsatt `blocked_external`**, så ingenting publiseres eksternt uansett. Den gaten ligger et annet sted enn denne badgen; å holde badgen kunstig lav implementerer ikke IG-005, den gjør bare at badgen lyver om hva som er verifisert.
 
 To presiseringer utover det:
 

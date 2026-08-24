@@ -105,9 +105,11 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     kortFunn:
       'AP-5 sporer kontrollerende eierskap (datter/≥50 %) gjennom konsernstrukturen og finner 19 tverrsektorielle kontrollører. NorgesGruppen kontrollerer 39 selskaper over fire ledd (butikk + logistikk + foredling + servering); Reitan, Coop, BAMA og samvirkene (TINE, Nortura, Felleskjøpet) spenner tre. Sektorparene (logistikk↔retail 7, foredling↔retail 6) er nesten identiske med AP-1s styrebroer — to uavhengige datakilder gir samme strukturkart. Det forklarer AP-2: makten som ikke vises i aksje-HHI vises som vertikal konsernkontroll.',
     evidenceStatus: 'observed',
-    citationReadiness: 'internal_context',
-    citationNote: 'Intern baseline — ikke ekstern bruk før stikkprøve av ultimate ownership mot Brønnøysund.',
-    coverageNote: 'Dekning: 183/275 selskaper i eiergrafen (67 %). Kontroll = datter/≥50 %; JV/delt kontroll (f.eks. BAMA) underrapporteres. Eierskap ≠ operativ kontroll.',
+    citationReadiness: 'citable_with_note',
+    citationNote:
+      'Struktur primærsjekket mot Brønnøysund + offentlige primærkilder 2026-06-15 (§6b). Restforbehold: BAMA-splitten NG/Reitan er ikke register-bekreftet, og Reitan/ASKO 100 % er strukturelt sikkert men inferert.',
+    coverageNote:
+      'Dekning: 183/275 selskaper i eiergrafen (67 %). Kontroll = datter/≥50 %; JV/delt kontroll (f.eks. BAMA) underrapporteres. Eierskap ≠ operativ kontroll. Eierandel-% er verifisert for ni av ni konsern mot IR-/årsrapportsider.',
     method: 'Skript mot intern DB (CompanyOwnership × Company); transitiv kontroll-rekkevidde enhetstestet.',
     figure: null,
     tags: ['eierskap', 'konsern', 'krysseie'],
@@ -115,7 +117,8 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     notSay: [
       'Ikke si «samordner» eller «operativ kontroll» — dette er eierstruktur.',
       'Ikke tell research/property/holding som verdikjede-integrasjon.',
-      'Ikke bruk ultimate-eierskap eksternt før stikkprøve mot Brønnøysund.',
+      'Ikke fremstill SalMar (44,3 %), Mowi (15,5 %) eller Orkla (25,3 %) som majoritetseid — der er topp-eieren største aksjeblokk, ikke flertall.',
+      'Ikke oppgi en eksakt NG/Reitan-split for BAMA — den er ikke register-bekreftet.',
     ],
     graphHref: '/graf',
     docRefs: ['docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md'],
@@ -160,9 +163,9 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     kortFunn:
       'Fire konsern (Mowi, SalMar, Lerøy, Cermaq) kontrollerer ~57 % av sjøbasert MTB (CR4 57 %, HHI ~929). Regnes alle kommersielle matfisk-tillatelser med (inkl. store land-RAS/offshore-utviklingstillatelser) faller HHI til ~510 — de nye tillatelsene har høy nominell MTB men ligger ofte på én lokalitet og er ennå ikke i drift, så de fortynner totaltallet og maskerer at produksjonen som faktisk genererer marint restråstoff i dag er vesentlig mer konsentrert. Siden restråstoff skalerer med biomasse, er MTB-konsentrasjonen rett utgangspunkt for «hvem genererer restråstoff-strømmene».',
     evidenceStatus: 'observed',
-    citationReadiness: 'internal_context',
+    citationReadiness: 'citable_with_note',
     citationNote:
-      'Intern baseline — ikke ekstern bruk før konsern-rollup stikkprøves mot Brønnøysund/Aksjonærregister.',
+      'Konsern-rollup stikkprøvet mot Brønnøysund 2026-06-15 (§7b) — ingen feilallokering funnet. Restforbehold: eierandels-% er offentlig kjent men ikke register-bekreftet (→ AP-5), og MTB er tildelt kapasitet, ikke slaktevolum.',
     coverageNote:
       'Dekning: sjøbasert matfisk laks/ørret, n=92 innehavere (konsern-rollup); total-MTB-brakett n=140. MTB = tildelt kapasitet, ikke realisert slaktevolum. Restråstoffvolum per aktør = needs-data (RUBIN/SINTEF).',
     method:
