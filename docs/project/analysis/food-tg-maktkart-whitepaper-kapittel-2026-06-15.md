@@ -69,8 +69,17 @@ Et inntekts-HHI regnet på tvers av noder er mekanisk følsomt for hvor mange se
 ## 5. Tilstøtende siterbare funn
 
 - **Produksjonstilskudd (AP-3, citable_with_note):** Samlede produksjonstilskudd i 2024 var ~18,6 mrd kr (verifisert mot Landbruksdirektoratets publiserte 18,39 mrd). Fordelingen er moderat konsentrert (Gini ~0,52–0,54), strukturdrevet av husdyrhold og areal. Den tidligere 10,94 mrd-totalen for 2024 var et skript-artefakt (kolonnematch-bug), ikke en reell nedgang.
-- **Pris-asymmetri i fiskeforedling (AP-7, intern STØTTET — ikke ekstern ennå):** Nedstrøms foredlings-PPI fanger oppstrøms lakseråpris-økninger raskere/fullere enn prisfall (NARDL-asymmetri t=14,0). Holdes utenfor faktastemmen til valutaeffekten er kontrollert.
 - **Havbrukskonsentrasjon (AP-6, citable_with_note):** Sjøbasert MTB er klart mer konsentrert (HHI ~929; CR4 57 %) enn totaltallet (~510) antyder, fordi store land-RAS-tillatelser fortynner totalen. Konsern-rollupen er stikkprøvd mot Brønnøysund 2026-06-15 (alle aktive innehaver-enheter bekreftet, SalMar/NTS/SalmoNor/NRS-konsolidering konsistent, fem land-RAS-eksklusjoner uavhengige). Restforbehold ved ekstern bruk: eierandels-% er offentlig kjent men ikke register-bekreftet (→ Aksjonærregister/AP-5), og MTB ≠ slaktevolum.
+
+> **Strøket 2026-08-24:** punktet om pris-asymmetri i fiskeforedling (AP-7) er
+> fjernet fra denne listen. Det sto her med «NARDL-asymmetri t=14,0» som
+> belegg. Reproduksjon med skript viste at den t-verdien kom fra en
+> nivåregresjon på partialsummer av to trendende serier og ikke holder i
+> differansespesifikasjonen (t=1,25), og at valutakontroll fjerner rundt 60 % av
+> effekten. AP-7 er revidert til `intern SVEKKET` og CL-AP7-001 er trukket, så
+> funnet hører ikke hjemme under «siterbare». Retningen står fortsatt, og er nå
+> reproduserbar — se §6c i `food-tg-ap7-prisasymmetri-funn-2026-06-14.md` hvis
+> det senere skal inn igjen i en svakere formulering.
 
 ## 6. CL-MAKTKART-001-status etter Strøm A
 

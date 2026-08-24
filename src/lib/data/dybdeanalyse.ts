@@ -1,5 +1,6 @@
 import type { EvidenceStatus } from '@/lib/visualization/types'
 import type { CitationReadinessLevel } from '@/lib/citations/citation-status'
+import { gateReadinessForLocators } from '@/lib/citations/citable-acceptance'
 
 export type DybdeanalyseFigure = 'lorenz' | 'sektorbro' | 'kryssnodeHhi' | null
 
@@ -10,7 +11,16 @@ export type DybdeanalyseFinding = {
   title: string
   kortFunn: string
   evidenceStatus: EvidenceStatus
-  citationReadiness: CitationReadinessLevel
+  /**
+   * Siterbarhetsnivå for funn som IKKE er dekket av en acceptance-test.
+   *
+   * Settes bare når `docRefs` ikke treffer noen lokator i
+   * `citable-acceptance.ts`. Er funnet gate-dekket, utledes nivået derfra —
+   * se `citationReadinessFor`. Invarianten håndheves av
+   * `tests/lib/dybdeanalyse-readiness.test.ts`: nøyaktig én av de to kildene
+   * skal gjelde per funn, aldri begge og aldri ingen.
+   */
+  readinessWhenUngated?: CitationReadinessLevel
   citationNote: string
   coverageNote: string
   method: string
@@ -22,7 +32,25 @@ export type DybdeanalyseFinding = {
   docRefs: string[]
 }
 
-export const DYBDEANALYSE_UPDATED = '2026-06-15'
+export const DYBDEANALYSE_UPDATED = '2026-08-24'
+
+/**
+ * Siterbarhetsnivået som skal vises for et funn.
+ *
+ * Gaten (`citable-acceptance.ts`) er sannhetskilden der den har en mening.
+ * Bare når ingen acceptance-test dekker funnets lokatorer faller vi tilbake på
+ * `readinessWhenUngated`. Poenget er at nivået ikke skal kunne gjentas to
+ * steder og drive fra hverandre — det var nettopp det som skjedde med AP-3,
+ * AP-5 og AP-6 fram til 2026-08-24.
+ */
+export function citationReadinessFor(finding: DybdeanalyseFinding): CitationReadinessLevel {
+  return gateReadinessForLocators(finding.docRefs) ?? finding.readinessWhenUngated ?? 'blocked_unsourced'
+}
+
+/** Om nivået kommer fra gaten eller fra funnets eget fallback-felt. */
+export function citationReadinessSourceFor(finding: DybdeanalyseFinding): 'gate' | 'ungated' {
+  return gateReadinessForLocators(finding.docRefs) === null ? 'ungated' : 'gate'
+}
 
 export const DYBDEANALYSE_RULE =
   'Interne dybdeanalyse-funn fra arbeidspakkene (AP). «Makt»/«konsentrasjon» betyr strukturell posisjon i data, ikke intensjon eller anklage. ' +
@@ -35,11 +63,12 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     claimId: 'CL-AP3-001',
     title: 'Produksjonstilskudd: moderat konsentrert, ikke ekstremt',
     kortFunn:
-      'Gini ~0,52 (2022–2023). Øverste 10 % av mottakerne får omtrent en tredjedel av tilskuddene, øverste 1 % bare ~5 %, og medianmottakeren ~250 000 kr. Nederste halvpart deler ~12 %. Konsentrasjonen er strukturdrevet (husdyr/areal) og peker mot at makten ligger i marked/distribusjon, ikke i selve støtten.',
+      'Gini 0,52–0,55 (2022–2025). Øverste 10 % av mottakerne får omtrent en tredjedel av tilskuddene, øverste 1 % bare ~5 %, og medianmottakeren ~250 000 kr. Nederste halvpart deler ~12 %. Konsentrasjonen er strukturdrevet (husdyr/areal) og peker mot at makten ligger i marked/distribusjon, ikke i selve støtten.',
     evidenceStatus: 'observed',
-    citationReadiness: 'internal_context',
-    citationNote: 'Intern baseline — ikke ekstern faktastemme før PCQ-verifisering av 2024 og strukturkontroll.',
-    coverageNote: 'Dekning: 2022–2024 pålitelig. 2024 lukket 2026-06-14 (tidligere «kun 3 av 15 ordninger» var en kolonnematch-bug, nå fikset; total 18,61 mrd verifisert mot publisert 18,39 mrd).',
+    citationNote:
+      'Gjelder 2022–2024: avstemt mot publisert primærtotal (2024: 18,61 mrd mot publisert 18,39 mrd) og reprodusert identisk 2026-08-24. 2025 er IKKE avstemt og skal holdes utenfor ekstern bruk til det er gjort. Lever alltid med struktur-forbeholdet (husdyr/areal).',
+    coverageNote:
+      'Dekning: 2022–2025. 2024 lukket 2026-06-14 (tidligere «kun 3 av 15 ordninger» var en kolonnematch-bug, nå fikset; total 18,61 mrd verifisert mot publisert 18,39 mrd). 2022–2024 ble reprodusert identisk 2026-08-24; 2025 (18,97 mrd, Gini 0,547) er lagt til, men ennå ikke avstemt mot publisert primærtotal.',
     method: 'Reproduserbart skript mot Landbruksdirektoratets åpne data; Gini/Lorenz enhetstestet.',
     figure: 'lorenz',
     tags: ['tilskudd', 'gini', 'konsentrasjon'],
@@ -48,6 +77,8 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
       'Ikke si at tilskudd er «kapret av de store».',
       'Ikke fremstill den tidligere 2024-totalen (10,94 mrd) som reell nedgang — det var et skript-artefakt, nå rettet.',
       'Ikke kall konsentrasjonen urettferdig uten struktur-/policy-kontekst.',
+      'Ikke presenter 2022→2025 (0,521→0,547) som en etablert stigende trend — fire årspunkter uten usikkerhetsestimat bærer ingen trendpåstand.',
+      'Ikke bruk 2025-tallene (36 728 mottakere, 18,97 mrd, Gini 0,547) eksternt — året er ennå ikke avstemt mot publisert primærtotal. Det citerbare vinduet er 2022–2024.',
     ],
     docRefs: ['docs/project/analysis/food-tg-ap3-tilskuddskonsentrasjon-funn-2026-06-14.md'],
   },
@@ -59,7 +90,6 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     kortFunn:
       '32 interlockere og 11 tverrsektorielle broer i styregrafen. Sterkest: logistikk↔retail (7) og foredling↔retail (6). Knutepunkter etter interlock-grad: BAMA, ASKO, NorgesGruppen, Reitan. Broene fordeler seg ikke jevnt over verdikjeden — de klumper seg i marked/distribusjon.',
     evidenceStatus: 'estimated',
-    citationReadiness: 'internal_context',
     citationNote: 'Intern baseline — pekepinn for AP-2/AP-5, ikke konklusjon. Ikke ekstern bruk før primærsjekk og dekningsutvidelse.',
     coverageNote: 'Dekning: 98 av 275 selskaper har styredata (36 %); favoriserer store/velinnsamlede selskaper.',
     method: 'Skript mot intern DB (BoardMember × Company); interlock-logikk enhetstestet.',
@@ -81,7 +111,7 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     kortFunn:
       'Inntekts-HHI kan ikke sammenlignes på tvers av noder (mekanisk n-følsom: retail n=100 vs inputs n=13). Det robuste funnet er strukturelt: retail/logistikk er kooperativ-/familiedominert (Coop, NorgesGruppen, Reitan, BAMA), sjømat er børsnotert (Mowi/Lerøy/Austevoll), fôr er kooperativ + utenlandsk. Derfor fanget AP-1 (styrer) makten i retail/logistikk som AP-2 (eierandeler) ikke ser — kontrollen går via samvirke og styreverv, ikke via konsentrert aksjepost.',
     evidenceStatus: 'estimated',
-    citationReadiness: 'internal_context',
+    readinessWhenUngated: 'internal_context',
     citationNote: 'Intern baseline — ekte markeds-HHI er needs-data. Ikke ekstern bruk før markedscensus og eierdekning.',
     coverageNote: 'Dekning: 173/275 selskaper m/inntekt; bare 66/275 m/eierdata (24 %). HHI ikke sammenlignbar på tvers.',
     method: 'Skript mot intern DB (Company × Financial × Shareholder); HHI/topp-andel enhetstestet.',
@@ -103,9 +133,10 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     kortFunn:
       'AP-5 sporer kontrollerende eierskap (datter/≥50 %) gjennom konsernstrukturen og finner 19 tverrsektorielle kontrollører. NorgesGruppen kontrollerer 39 selskaper over fire ledd (butikk + logistikk + foredling + servering); Reitan, Coop, BAMA og samvirkene (TINE, Nortura, Felleskjøpet) spenner tre. Sektorparene (logistikk↔retail 7, foredling↔retail 6) er nesten identiske med AP-1s styrebroer — to uavhengige datakilder gir samme strukturkart. Det forklarer AP-2: makten som ikke vises i aksje-HHI vises som vertikal konsernkontroll.',
     evidenceStatus: 'observed',
-    citationReadiness: 'internal_context',
-    citationNote: 'Intern baseline — ikke ekstern bruk før stikkprøve av ultimate ownership mot Brønnøysund.',
-    coverageNote: 'Dekning: 183/275 selskaper i eiergrafen (67 %). Kontroll = datter/≥50 %; JV/delt kontroll (f.eks. BAMA) underrapporteres. Eierskap ≠ operativ kontroll.',
+    citationNote:
+      'Struktur primærsjekket mot Brønnøysund + offentlige primærkilder 2026-06-15 (§6b). Restforbehold: BAMA-splitten NG/Reitan er ikke register-bekreftet, og Reitan/ASKO 100 % er strukturelt sikkert men inferert.',
+    coverageNote:
+      'Dekning: 183/275 selskaper i eiergrafen (67 %). Kontroll = datter/≥50 %; JV/delt kontroll (f.eks. BAMA) underrapporteres. Eierskap ≠ operativ kontroll. Eierandel-% er verifisert for ni av ni konsern mot IR-/årsrapportsider.',
     method: 'Skript mot intern DB (CompanyOwnership × Company); transitiv kontroll-rekkevidde enhetstestet.',
     figure: null,
     tags: ['eierskap', 'konsern', 'krysseie'],
@@ -113,7 +144,8 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     notSay: [
       'Ikke si «samordner» eller «operativ kontroll» — dette er eierstruktur.',
       'Ikke tell research/property/holding som verdikjede-integrasjon.',
-      'Ikke bruk ultimate-eierskap eksternt før stikkprøve mot Brønnøysund.',
+      'Ikke fremstill SalMar (44,3 %), Mowi (15,5 %) eller Orkla (25,3 %) som majoritetseid — der er topp-eieren største aksjeblokk, ikke flertall.',
+      'Ikke oppgi en eksakt NG/Reitan-split for BAMA — den er ikke register-bekreftet.',
     ],
     graphHref: '/graf',
     docRefs: ['docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md'],
@@ -126,7 +158,6 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     kortFunn:
       'Et ekte markeds-HHI per node — bygget fra kildebelagte markedsandeler, ikke det n-følsomme inntekts-HHI-et — viser at konsentrasjonen topper oppstrøms i foredling: meieri (~6000), egg (~5500–6800) og rødt kjøtt (~4600–4800) er mer konsentrert enn dagligvare (~3327), mens primærproduksjon (laks/ørret ~950) er minst konsentrert. De tre mest konsentrerte nodene er alle samvirke-foredling — TINE (meieri) og Nortura/Prior (egg + kjøtt). Ordinal-funnet (foredling > retail > primær) er robust mot usikkerhet i utfordrer-andelene fordi leder-kvadratleddet alene gir gulv over retail (TINE 76,4² = 5837; Nortura egg 70² = 4900).',
     evidenceStatus: 'estimated',
-    citationReadiness: 'citable_with_note',
     citationNote:
       'Citable m/forbehold — ordinal-funnet (foredling > retail > primær) er robust via leder-gulv. Per-node presise HHI varierer (estimerte utfordrer-andeler, ulike referanseår/baser).',
     coverageNote:
@@ -158,9 +189,9 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     kortFunn:
       'Fire konsern (Mowi, SalMar, Lerøy, Cermaq) kontrollerer ~57 % av sjøbasert MTB (CR4 57 %, HHI ~929). Regnes alle kommersielle matfisk-tillatelser med (inkl. store land-RAS/offshore-utviklingstillatelser) faller HHI til ~510 — de nye tillatelsene har høy nominell MTB men ligger ofte på én lokalitet og er ennå ikke i drift, så de fortynner totaltallet og maskerer at produksjonen som faktisk genererer marint restråstoff i dag er vesentlig mer konsentrert. Siden restråstoff skalerer med biomasse, er MTB-konsentrasjonen rett utgangspunkt for «hvem genererer restråstoff-strømmene».',
     evidenceStatus: 'observed',
-    citationReadiness: 'internal_context',
+    readinessWhenUngated: 'citable_with_note',
     citationNote:
-      'Intern baseline — ikke ekstern bruk før konsern-rollup stikkprøves mot Brønnøysund/Aksjonærregister.',
+      'Konsern-rollup stikkprøvet mot Brønnøysund 2026-06-15 (§7b) — ingen feilallokering funnet. Restforbehold: eierandels-% er offentlig kjent men ikke register-bekreftet (→ AP-5), og MTB er tildelt kapasitet, ikke slaktevolum.',
     coverageNote:
       'Dekning: sjøbasert matfisk laks/ørret, n=92 innehavere (konsern-rollup); total-MTB-brakett n=140. MTB = tildelt kapasitet, ikke realisert slaktevolum. Restråstoffvolum per aktør = needs-data (RUBIN/SINTEF).',
     method:
@@ -178,25 +209,34 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
   {
     id: 'ins-ap7-001',
     arbeidspakke: 'AP-7',
-    claimId: 'CL-AP7-001',
-    title: 'Pris-asymmetri («rockets and feathers») finnes også i fiskeforedling',
+    claimId: 'CL-AP7-001r',
+    title: 'Pris-asymmetri i fiskeforedling: retning bekreftet, signifikans ikke',
     kortFunn:
-      'Nedstrøms produsentprisindeks for fiskeforedling (SSB 12462, SNN102) fanger kumulativt ~0,27 av oppstrøms lakseråpris-økninger (SSB 03024), men kun ~0,13 av prisfall — en statistisk sterk asymmetri (NARDL β_opp−β_ned = +0,14, t=14,0; 2019M01–2025M12, n=84). I 2025 falt råprisen ~13 % (94,4 → 81,8 kr/kg) mens foredlings-PPI steg ~10 %. Et selvstendig domene-funn (laks→foredling), ikke en overføring av dagligvarefunnet.',
+      'Nedstrøms produsentprisindeks for fiskeforedling (SSB 12462, SNN102) fanger kumulativt ~0,27 av oppstrøms lakseråpris-økninger (SSB 03024), men kun ~0,13 av prisfall (2019M01–2026M07, n=91). Retningen reproduserer, men den er ikke statistisk etablert: i differansespesifikasjonen er asymmetrien ikke signifikant (t=1,25), og med valutakontroll faller den fra +0,21 til +0,08. Mønsteret er svakest i hjemmemarkedet og sterkest i eksportmarkedet — som om en vesentlig del er NOK-svekkelse. Fôr→oppdrett-leddet er separat testet og gir nullfunn.',
     evidenceStatus: 'estimated',
-    citationReadiness: 'internal_context',
+    readinessWhenUngated: 'internal_context',
     citationNote:
-      'Intern STØTTET (medium-høy tillit) — ikke ekstern faktastemme før valuta kontrolleres (NOK-svekkelse løfter eksport-PPI; deflater EUR/USD).',
+      'Intern SVEKKET — retning bekreftet, signifikans ikke etablert. Status revidert fra «STØTTET» 2026-08-24 etter reproduksjon med skript; CL-AP7-001 trukket og erstattet av CL-AP7-001r (§5 i funnnotatet). Ikke ekstern faktastemme.',
     coverageNote:
-      'Dekning: 84 månedsobservasjoner 2019–2025; ett domene (laks→foredling). Valuta ikke kontrollert; SNN102 dekker all fisk, ikke kun laks. Fôr→oppdrett-leddet = needs-data (SSB har ingen ren månedlig fôr-PPI).',
+      'Dekning: 91 månedsobservasjoner 2019M01–2026M07; ett domene (laks→foredling). SNN102 dekker all fisk, ikke kun laks. Valuta er nå kontrollert (USDNOK som eksogen regressor + hjemme-/eksportmarked hver for seg) og fjerner mesteparten av asymmetrien. Fôr→oppdrett-leddet er kjørt via fôrråvare-proxy og lukket som «testet, negativt» — ikke lenger needs-data.',
     method:
-      'NARDL + distribuert-lag (lag 0–3, opp/ned-splittet) + fortegnstest; metodepresedens kvantitativ-dybdeanalyse §H-NY1; SSBs åpne JSON-stat-API.',
+      'Reproduserbart skript (scripts/analyze-price-asymmetry.ts, enhetstestet): distribuert lag 0–3 i log-differanser med opp/ned-splittet oppstrøms som hovedspesifikasjon, nivåregresjon på partialsummer for sammenlignbarhet, fortegnstest, Newey-West-HAC. Kilder: SSBs åpne JSON-stat-API, Norges Bank EXR, Verdensbankens Pink Sheet.',
     figure: null,
     tags: ['pris', 'asymmetri', 'havbruk', 'foredling'],
-    sources: ['funnnotat AP-7', 'SSB 03024 lakseeksport kilopris', 'SSB 12462 PPI SNN102'],
+    sources: [
+      'funnnotat AP-7 §6c',
+      'analyze-price-asymmetry.ts',
+      'ap7-prisasymmetri.json',
+      'SSB 03024 lakseeksport kilopris',
+      'SSB 12462 PPI SNN102',
+      'Norges Bank EXR USDNOK',
+      'Verdensbanken Pink Sheet (fôrråvarer)',
+    ],
     notSay: [
       'Formuler som prisatferd/mønster, ikke intensjon eller margin-anklage.',
       'Ikke generaliser til grønt eller andre utestede domener.',
-      'Ikke lån funnet til det utestede fôr→oppdrett-leddet.',
+      'Ikke bruk «NARDL t=14,0» eller «statistisk sterk» — den t-verdien kom fra en nivåregresjon på trendende serier og reproduserer ikke i differansespesifikasjonen.',
+      'Ikke si at fôrpris slår asymmetrisk ut i lakseprisen — det leddet er testet og gir nullfunn.',
     ],
     docRefs: ['docs/project/analysis/food-tg-ap7-prisasymmetri-funn-2026-06-14.md'],
   },
@@ -208,7 +248,7 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     kortFunn:
       'På 2024-tall flytter norsk primærlandbruk og sjømat tilnærmet lik tonnasje (3,3 mot 3,8 mill. tonn), men sjømat skaper ~2× verdi per tonn (≈16 700 mot ≈8 500 NOK GVA/tonn). Nedstrøms har detaljhandelen høyest konsentrasjon (CR3 96,6 %) men blant de laveste rapporterte prosentmarginene (NG retail-segment 2,6 %, Coop 1,0 %); Konkurransetilsynet/Oslo Economics plasserer høyere marginer oppstrøms. Selve per-aktør volum↔margin-testen krever en DB-join (DeliveryVolume × CompanyFinancial, ~50 % dekning) og står som needs-data.',
     evidenceStatus: 'observed',
-    citationReadiness: 'internal_context',
+    readinessWhenUngated: 'internal_context',
     citationNote:
       'Delfunn klar-med-forbehold (committet value-chain/financial_insights). Hovedpåstanden (per-aktør volum↔margin) er needs-data — krever DB-join, ikke ekstrapolerbar (~50 % finansdekning).',
     coverageNote:
@@ -233,7 +273,7 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     kortFunn:
       'Den egentlige testen (tilskuddsintensitet per node × node-markeds-HHI) er blokkert: produksjonstilskudd går til primærprodusenter, og ekte markeds-HHI mangler for produksjonsnodene — så aksen hypotesen krever, finnes ikke ennå (needs-data). Et testbart regionalt resultat finnes: produksjonstilskudd fordeles i hovedsak proporsjonalt med mottakertetthet (r ≈ 0,92), uten signifikant samvariasjon mellom mottakertetthet og tilskudd per mottaker (r ≈ −0,05, ikke-sign., n ≈ 350, alle tre år) — støtten er regionalt strukturnøytral på dette målet.',
     evidenceStatus: 'observed',
-    citationReadiness: 'internal_context',
+    readinessWhenUngated: 'internal_context',
     citationNote:
       'Regional subpåstand klar-med-forbehold; kjernen (node-HHI × tilskudd) er needs-data. Ikke lån retail-HHI eller AP-2s inntekts-HHI inn i en tilskuddskorrelasjon.',
     coverageNote:

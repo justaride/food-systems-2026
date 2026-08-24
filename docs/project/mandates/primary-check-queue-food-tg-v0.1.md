@@ -236,7 +236,7 @@ De fire un-startede lensene kjørt som parallelle subagenter. Funnnotater: `...a
 | Queue-ID | Tema | Status/funn | Berører | Status |
 |---|---|---|---|---|
 | PCQ-MAKT-005 | AP-6 havbruk | Sjøbasert laks/ørret-MTB CR4 57 %, HHI ~929 (Fiskeridir. 15.06.2026); land-RAS fortynner totaltallet (HHI 510). Restråstoffvolum = `needs-data` (RUBIN/SINTEF). | CL-AP6-001 | partly; restråstoff `needs-data` |
-| PCQ-MAKT-006 | AP-7 pris-asymmetri | Asymmetri bekreftet laks→foredling (SSB 03024×12462; NARDL β_opp−β_ned +0,14, t=14,0). Valuta ikke kontrollert. Fôr→oppdrett = `needs-data`. | CL-AP7-001 | støttet m/valuta-forbehold |
+| PCQ-MAKT-006 | AP-7 pris-asymmetri | **Revidert 2026-08-24.** Retning bekreftet, signifikans ikke etablert: ~0,29 opp mot ~0,09 ned (SSB 03024×12462, n=91), asymmetri +0,205 med t=1,25 — ikke signifikant. Valuta er nå kontrollert (USDNOK + hjemme-/eksportmarked) og fjerner ~60 %. Juni-tallet t=14,0 kom fra nivåregresjon på trendende serier og er trukket. Fôr→oppdrett: kjørt via proxy, **testet negativt** — ikke lenger `needs-data`. | ~~CL-AP7-001~~ → **CL-AP7-001r** | `intern SVEKKET`; valuta-forbeholdet lukket (det svekket funnet) |
 | PCQ-MAKT-007 | AP-4 verdifangst | Sjømat ~2× verdi/tonn; per-aktør volum↔margin = `needs-data` (DeliveryVolume×CompanyFinancial). | CL-AP4-001 | delvis; kjerne `needs-data` (DB) |
 | PCQ-MAKT-008 | AP-8 tilskudd↔konsentrasjon | Node-HHI×tilskudd blokkert; regionalt null-funn (r≈−0,05, n≈350, strukturnøytral). | CL-AP8-001 | `needs-data`-kjerne + regionalt klar-med-forbehold |
 
