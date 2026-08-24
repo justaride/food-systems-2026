@@ -1,8 +1,9 @@
 ---
 tittel: Food TG AP-3 — Tilskuddskonsentrasjon: funn 2026-06-14
-status: Internt analysefunn (første kjøring)
+status: Internt analysefunn (første kjøring; reprodusert og utvidet med 2025 den 2026-08-24)
 eier: Gabriel
 dato: 2026-06-14
+oppdatert: 2026-08-24
 arbeidspakke: AP-3 i docs/project/plans/food-tg-dybdeanalyse-arbeidsplan-2026-06-14.md
 datakilde: Landbruksdirektoratet åpne data — produksjons- og avløsertilskudd (samme primærkilde som scripts/import-produksjonstilskudd.ts)
 bruksregel: Internt analysefunn. Tilskudd ≠ misbruk. Tallene er mottaker-nivå (sum av alle ordninger per orgnr/år), ikke transaksjoner. Går gjennom claim-lock/PCQ før ekstern bruk. 2024-tallene er verifisert etter kolonnefiks (se §4), men skal brukes med struktur- og ordningsforbehold.
@@ -23,17 +24,20 @@ Norske produksjons- og avløsertilskudd er **moderat konsentrert — ikke ekstre
 
 Konsentrasjonen drives av de strukturavhengige ordningene (husdyr-, areal- og kulturlandskapstilskudd), som skalerer med dyretall og areal — så en del av konsentrasjonen reflekterer gårdsstruktur, ikke «kapring». Dette er et kalibreringsfunn, ikke en anklage.
 
-**Datakvalitetsflagg:** 2024-tallene er ufullstendige i åpne data (kun 3 av 15 ordninger fylt inn) og er holdt utenfor sammenligningen — se §4.
+**Datakvalitetsflagg:** det opprinnelige 2024-flagget er lukket — det var en skript-bug, ikke et datahull (se §4). 2025 er lagt til 2026-08-24 og er **ikke** avstemt mot publisert primærtotal ennå (se §2 og §8).
 
 ## 2. Tall
 
-Pålitelige år (alle ordninger til stede): **2022, 2023 og 2024** (2024 fanget etter kolonnefiks 2026-06-14; tidligere artefakt-lav).
+Pålitelige år (alle ordninger til stede): **2022, 2023, 2024 og 2025** (2024 fanget etter kolonnefiks 2026-06-14; tidligere artefakt-lav. 2025 hentet 2026-08-24 med 15 ordninger i `schemeBreakdown` — full ordningsdekning, men ikke avstemt mot publisert total).
 
 | År | Mottakere | Total (mrd NOK) | Gini (mottaker) | Topp 1 % | Topp 10 % | Median | Gini (kommune) |
 |---|---|---|---|---|---|---|---|
 | 2022 | 37 748 | 15,21 | 0,521 | 5,3 % | 32,2 % | 244 000 | 0,471 |
 | 2023 | 37 390 | 17,25 | 0,541 | 5,5 % | 33,8 % | 260 000 | 0,476 |
 | 2024 | 37 016 | 18,61 | 0,542 | 5,5 % | 33,8 % | 286 000 | 0,475 |
+| 2025 | 36 728 | 18,97 | 0,547 | 5,5 % | 34,2 % | 287 000 | 0,477 |
+
+**Utvidet 2026-08-24:** 2022–2024 ble reprodusert identisk (rad for rad, samme Gini/andeler) mot samme åpne kilde — kildedataene er ikke revidert siden juni. 2025 forelå ikke i juni og er nå lagt til. Topp-ordninger 2025: husdyrtilskudd 25,4 %, arealtilskudd 18,9 %, kulturlandskapstilskudd 14,3 %, melkeproduksjon 11,0 %, avløsertilskudd 8,6 %, utmarksbeitetilskudd 8,2 %.
 
 **Korrigert 2026-06-14:** Den tidligere 2024-raden (10,94 mrd, «kun 3 ordninger») var en kolonnematch-bug i skriptet, ikke ufullstendige åpne data. Etter alias-fiks (slug↔prosa) summeres alle ordninger: 18,61 mrd brutto, verifisert mot publisert netto-total 18,39 mrd (Landbruksdirektoratet/LMD, 12.02.2025). 2024 er nå på linje med 2023. Se `food-tg-maktkart-section8-3-4-funn-2026-06-14.md`.
 
@@ -49,7 +53,7 @@ Tre forsvarbare, ikke-trivielle observasjoner:
 2. **Tynn bunn, ikke tung topp.** Skjevheten ligger mer i halen enn i toppen: nederste 50 % deler ~12 %, mens topp 1 % bare tar ~5 %. Fordelingen er «mange små, en bred midt», ikke «få giganter».
 3. **Strukturdrevet.** Konsentrasjonen følger husdyr-/areal-/kulturlandskapsordningene, som per design skalerer med produksjonsomfang. Det betyr at konsentrasjonen delvis måler gårdsstruktur, ikke fordelingspolitisk skjevhet — en viktig nyanse før noen leser tallet som «urettferdig».
 
-Regional fordeling er jevnere (Gini ~0,47 over 350 kommuner) enn mottakerfordelingen — pengene er spredt bredere geografisk enn per foretak.
+Regional fordeling er jevnere (Gini ~0,47 over ~350 kommuner, stabilt 2022–2025) enn mottakerfordelingen — pengene er spredt bredere geografisk enn per foretak.
 
 ## 4. Datakvalitetsflagg: 2024 — løst (var skript-bug, ikke datahull)
 
@@ -66,11 +70,11 @@ Analysen fanget opprinnelig en tilsynelatende datafelle: 2024-totalen kom ut på
 | Felt | Innhold |
 |---|---|
 | Claim-ID | CL-AP3-001 (utkast) |
-| Påstand | Norske produksjons- og avløsertilskudd er moderat konsentrert på mottakernivå (Gini ~0,52–0,54, 2022–2024); øverste 10 % får ~⅓, nederste 50 % får ~12 %. |
-| Evidens | Landbruksdirektoratet åpne data 2022–2024; mottaker-aggregat; `scripts/analyze-subsidy-concentration.ts` (matematikk + kolonneresolver enhetstestet); 2024-total verifisert mot publisert primærtotal (LMD 12.02.2025). |
+| Påstand | Norske produksjons- og avløsertilskudd er moderat konsentrert på mottakernivå (Gini ~0,52–0,55, 2022–2025); øverste 10 % får ~⅓, nederste 50 % får ~12 %. |
+| Evidens | Landbruksdirektoratet åpne data 2022–2025; mottaker-aggregat; `scripts/analyze-subsidy-concentration.ts` (matematikk + kolonneresolver enhetstestet); 2024-total verifisert mot publisert primærtotal (LMD 12.02.2025); 2022–2024 reprodusert identisk 2026-08-24; 2025 lagt til, ennå ikke avstemt. |
 | Risiko | Kan leses som «misbruk» eller fordelingsdom; struktur-effekt kan overses. |
 | Stoppspråk | Ikke si at tilskudd er «kapret av de store», ikke kall konsentrasjon urettferdig uten struktur-/policy-kontekst. (Tidligere «ikke bruk 2024-total» er løst — 2024 er verifisert, se §4.) |
-| Status | `klar-med-forbehold` — 2024 verifisert mot publisert total (§4); konsentrasjon konsistent 2022–2024. Ikke ekstern faktastemme før full operator-sekvens; lever alltid med struktur-forbeholdet. |
+| Status | `klar-med-forbehold` — uendret. 2024 verifisert mot publisert total (§4); konsentrasjon konsistent 2022–2025. 2025 er lagt til som intern baseline, ikke avstemt — statusen er ikke oppgradert av utvidelsen. Ikke ekstern faktastemme før full operator-sekvens; lever alltid med struktur-forbeholdet. |
 
 ## 7. Forbehold
 
@@ -78,7 +82,9 @@ Analysen fanget opprinnelig en tilsynelatende datafelle: 2024-totalen kom ut på
 - **Kun produksjons- og avløsertilskudd:** ikke totalt landbruksstøtte (markedsordninger, investeringsstøtte, kvoteverdi, tollvern er ikke med). Konklusjonen gjelder denne tilskuddstypen.
 - **Struktur ≠ skjevhet:** ordningene er delvis utformet etter omfang; konsentrasjon reflekterer dels gårdsstruktur.
 - **2024 verifisert/lukket** (§4) — tidligere artefakt-lav var en skript-bug, nå rettet.
-- **Tre pålitelige år** (2022–2024); 0,521 → 0,541 → 0,542 er flatt/innenfor støy, ikke en stigende trend.
+- **Fire år** (2022–2025): 0,521 → 0,541 → 0,542 → 0,547. Nivåskiftet ligger mellom 2022 og 2023; etter det er bevegelsen liten (+0,006 på to år). Behandles fortsatt som flatt-til-svakt-stigende, **ikke** som en etablert trend — fire årspunkter uten usikkerhetsestimat bærer ingen trendpåstand.
+- **2025 ikke avstemt:** 2022–2024 er avstemt mot publisert primærtotal; 2025-totalen (18,97 mrd brutto) er så langt bare skriptets aggregat. Bruk 2025 som intern baseline til avstemmingen i §8 er gjort.
+- **Mottakertallet faller** jevnt (37 748 → 36 728, −2,7 % på tre år) mens totalen stiger. Det er konsistent med kjent strukturrasjonalisering i norsk landbruk og skal ikke presenteres som et selvstendig funn fra dette datasettet.
 
 ## 8. Neste
 
@@ -86,7 +92,8 @@ Analysen fanget opprinnelig en tilsynelatende datafelle: 2024-totalen kom ut på
 2. Kjør AP-1 (styreoverlapp/maktnettverk) — der ligger den mer sannsynlige «makt»-historien.
 3. Hvis ønsket: AP-2 (HHI per verdikjede-node) for å teste hypotesen i §5 om at konsentrasjonen er størst utenfor produksjonstilskuddet.
 4. Løft CL-AP3-001 til claim-register ved bruk; behold som intern baseline til da.
+5. **Åpen etter 2026-08-24:** avstem 2025-totalen (18,97 mrd brutto) mot Landbruksdirektoratets publiserte netto-total for 2025, slik 2024 ble avstemt i §4. Til da står 2025 som intern baseline.
 
 ## 9. Verifikasjon
 
-Tall er produsert av `scripts/analyze-subsidy-concentration.ts` (kjørt 14.06.2026, år 2022–2024) mot Landbruksdirektoratets åpne data; rådata-aggregat i `research/analyse/ap3-tilskuddskonsentrasjon.json`. Gini/Lorenz/topp-andel-funksjonene er enhetstestet i `tests/scripts/analyze-subsidy-concentration.test.ts` mot kjente verdier: lik fordeling → 0, [1,2,3,4] → 0,25, sterkt skjev [1,1,1,100] → 0,7209, toppandel og Lorenz-deciler. 2024-flagget er utledet av at kun 3 ordninger har data i schemeBreakdown. Ingen påstand er løftet til ekstern bruk.
+Tall er produsert av `scripts/analyze-subsidy-concentration.ts` (kjørt 14.06.2026 for 2022–2024; reprodusert og utvidet 24.08.2026 for 2022–2025) mot Landbruksdirektoratets åpne data; rådata-aggregat i `research/analyse/ap3-tilskuddskonsentrasjon.json`. Reproduksjonen 24.08.2026 ga bit-identiske `results` for 2022–2024 mot det committede aggregatet — kilden er ikke revidert. Gini/Lorenz/topp-andel-funksjonene er enhetstestet i `tests/scripts/analyze-subsidy-concentration.test.ts` mot kjente verdier: lik fordeling → 0, [1,2,3,4] → 0,25, sterkt skjev [1,1,1,100] → 0,7209, toppandel og Lorenz-deciler. 2025-fila har 15 ordninger i `schemeBreakdown` (mot 14 i 2024), altså ingen kolonnematch-svikt av typen §4. Ingen påstand er løftet til ekstern bruk.
