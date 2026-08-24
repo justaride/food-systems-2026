@@ -34,6 +34,12 @@ function postgresBindir(): string | null {
     : null;
 }
 
+/**
+ * Låner en ledig port av kjernen. Reservasjonen kan ikke gjøres vanntett:
+ * lytteren må lukkes før postgres kan binde porten, og fra lukkingen til
+ * postmasterens bind() står porten fritt til å deles ut til noen andre.
+ * Kalleren må derfor tåle at porten er opptatt — se oppstartsløkka under.
+ */
 async function reserveTcpPort(): Promise<number> {
   return await new Promise((resolvePort, reject) => {
     const server = createServer();
@@ -46,6 +52,12 @@ async function reserveTcpPort(): Promise<number> {
     });
   });
 }
+
+/**
+ * Nok forsøk til at racen forsvinner i praksis. Hvert forsøk låner en ny port,
+ * så en kollisjon gjentar seg ikke — den koster ett tapt oppstartsforsøk.
+ */
+const MAX_START_ATTEMPTS = 5;
 
 function commandError(
   command: string,
@@ -86,12 +98,13 @@ export async function withCandidateAnalysisPostgres(
   }
 
   const repoRoot = process.cwd();
-  const port = await reserveTcpPort();
   const tempRoot = mkdtempSync("/tmp/fs-candidate-pg-");
   const dataDir = join(tempRoot, "data");
   const socketDir = join(tempRoot, "socket");
   const database = "candidate_analysis_test";
-  const adminUrl = `postgresql://postgres@127.0.0.1:${port}/${database}`;
+  // Settes av oppstartsløkka, ikke her: porten som gjelder er den serveren
+  // faktisk klarte å binde. `psql` under leser den ved kalltidspunkt.
+  let port = 0;
   const processEnv: NodeJS.ProcessEnv = {
     ...process.env,
     PATH: `${bindir}:${process.env.PATH ?? ""}`,
@@ -135,30 +148,71 @@ export async function withCandidateAnalysisPostgres(
     if (initialized.status !== 0) throw commandError("initdb", initialized);
 
     mkdirSync(socketDir);
-    const serverOptions = [
-      "-F",
-      `-p ${port}`,
-      `-k ${socketDir}`,
-      ...(options.maxPreparedTransactions === undefined
-        ? []
-        : [`-c max_prepared_transactions=${options.maxPreparedTransactions}`]),
-    ].join(" ");
-    const start = run(binaries.pg_ctl, [
-      "-D",
-      dataDir,
-      "-l",
-      join(tempRoot, "postgres.log"),
-      "-o",
-      serverOptions,
-      "-w",
-      "start",
-    ]);
-    if (start.status !== 0) {
-      const logPath = join(tempRoot, "postgres.log");
+    const serverOptions = (chosenPort: number) =>
+      [
+        "-F",
+        `-p ${chosenPort}`,
+        `-k ${socketDir}`,
+        // Bind bare IPv4, ikke initdb-standarden `localhost` (som er BÅDE
+        // ::1 og 127.0.0.1). Med begge kan en halv kollisjon — noen andre
+        // holder 127.0.0.1, ::1 er ledig — la postgres starte på ::1 og
+        // returnere 0, mens alle klientene under kobler til 127.0.0.1 og
+        // havner hos den andre prosessen. Det henger i stedet for å feile,
+        // og retryen ser aldri en feil å reagere på. Bundet til én familie
+        // blir enhver kollisjon en oppstartsfeil retryen fanger.
+        "-c listen_addresses=127.0.0.1",
+        ...(options.maxPreparedTransactions === undefined
+          ? []
+          : [`-c max_prepared_transactions=${options.maxPreparedTransactions}`]),
+      ].join(" ");
+
+    // Porten lånes her, rett før start — ikke sammen med resten av oppsettet.
+    // Lå reservasjonen der, spente vinduet mellom lukket lytter og postgres'
+    // bind() over hele initdb, altså sekunder der kjernen fritt kunne dele ut
+    // porten til noen andre. `knowledge:candidate-contracts:check` kjører
+    // tretten testfiler i én `node --test`, altså parallelt, så flere slike
+    // vinduer overlapper i hver eneste kjøring.
+    //
+    // Resten tas av retry, for vinduet kan ikke lukkes helt: lytteren MÅ være
+    // borte før postgres kan binde. En kollisjon er heller ikke en feil i
+    // serveren — det er bare en annen port som er ledig.
+    //
+    // Målt 2026-08-24 (kjøring 32770422258): rødt på main med et tre som var
+    // identisk med et grønt build. 253 av 257 tester passerte, og den ene
+    // feilen var «could not bind ... port 41919 ... Address already in use».
+    for (let attempt = 1; attempt <= MAX_START_ATTEMPTS; attempt += 1) {
+      port = await reserveTcpPort();
+      // Egen logg per forsøk. `pg_ctl -l` appender, så en delt logg ville latt
+      // forrige forsøks kollisjon avgjøre om neste feil ble lest som en.
+      const logPath = join(tempRoot, `postgres-attempt-${attempt}.log`);
+      const start = run(binaries.pg_ctl, [
+        "-D",
+        dataDir,
+        "-l",
+        logPath,
+        "-o",
+        serverOptions(port),
+        "-w",
+        "start",
+      ]);
+      if (start.status === 0) {
+        started = true;
+        break;
+      }
+
       const serverLog = existsSync(logPath) ? readFileSync(logPath, "utf8") : "";
-      throw new Error(`${commandError("pg_ctl start", start).message}\n${serverLog}`);
+      // Bare portkollisjon er verdt et nytt forsøk. En ødelagt datakatalog
+      // eller en ugyldig serveropsjon blir ikke bedre av fem forsøk — den skal
+      // opp med serverloggen med én gang, slik den gjorde før.
+      if (
+        attempt === MAX_START_ATTEMPTS ||
+        !serverLog.includes("Address already in use")
+      ) {
+        throw new Error(`${commandError("pg_ctl start", start).message}\n${serverLog}`);
+      }
     }
-    started = true;
+
+    const adminUrl = `postgresql://postgres@127.0.0.1:${port}/${database}`;
 
     const created = run(binaries.createdb, [
       "-h",
