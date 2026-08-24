@@ -7,6 +7,21 @@ on:
       - main
   workflow_dispatch:
 
+# Push og pull_request fyrer begge for en gren som har åpen PR, så uten guard
+# kjøres hele workflowen to ganger på samme commit. Det koster dobbel
+# runner-tid, og duplikatene konkurrerer om runnere slik at den ene kan treffe
+# `timeout-minutes` og bli rapportert som `cancelled` — et rødt merke som
+# ser ut som en testfeil, men ikke er det (skjedde på PR #363, 2026-08-24).
+#
+# Nøkkelen må gi SAMME verdi for begge hendelsene på samme kode:
+#   pull_request → github.event.pull_request.head.sha  (grenens head)
+#   push         → github.sha                          (samme head)
+# `github.ref` duger ikke: PR-hendelsen har refs/pull/N/merge og push har
+# refs/heads/<gren>, altså to ulike grupper og ingen deduplisering.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.sha || github.sha }}
+  cancel-in-progress: true
+
 jobs:
   test-and-audit:
     runs-on: ubuntu-latest
