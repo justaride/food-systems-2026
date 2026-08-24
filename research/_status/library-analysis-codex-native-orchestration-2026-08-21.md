@@ -102,3 +102,50 @@ Governance:
 - `humanSourceReviewRequired=false`
 
 The execution used Codex-native orchestration only. No external AI API, Ollama/local model, candidate-database write, production mutation, merge, or deployment occurred. The branch was pushed to `origin` on 2026-08-23 and opened as a pull request, both on explicit human instruction, to back up unpushed local work and put the revised gate under review.
+
+## Full-run start and sample calibration — 2026-08-23
+
+The human scheduling decision for the full queue was given 2026-08-23. The run
+started from the sealed queue `35387b39…` (1,569 sources, 8,393 units, 2,766
+jobs), driven by Claude Code workers under the extended two-identity model
+receipt contract (openai-codex/gpt-5.6-luna and
+anthropic-claude-code/claude-fable-5; any other identity still fails closed).
+
+The owner stopped the census the same day on cost grounds and chose the
+sampling route the calibration plan already specified. Census is abandoned;
+the population is not exhaustively adjudicated and is not planned to be.
+
+### Sample calibration round `ig006-sample-calibration-2026-08-23`
+
+- Frame: stratified draw, seed `20260823`, archived with strata counts in the
+  private run root; strata derived from a local structural heuristic.
+- Adjudicated: 38 sources, 717 adjudicated assertions, dispositions 28 partial
+  and 10 quarantined; 0 quarantined jobs.
+- Critical rate `F1+F2`: 1 of 717 — 0.14 %, Wilson 95 % `[0.02 %, 0.79 %]`.
+- Quality rate `F3-F5`: 29 of 717 — 4.04 %, Wilson 95 % `[2.83 %, 5.75 %]`.
+- Per stratum: prose-rich 348 adjudicated at 0.29 % critical; mixed 107 at
+  0.00 %; pre-frame queue-order sources 262 at 0.00 %.
+- Plan §5 verdict: every adjudicated stratum sits below the 2 % band, so the
+  measured state is calibrated with a published rate and no class is frozen.
+  This supersedes the pilot's wide `[0.7 %, 8.6 %]` indicative interval.
+
+### Declared limits of the measurement
+
+- The small-source stratum has no adjudicated source; its profile is unmeasured.
+- The mixed stratum rests on two sources, so its interval is wide.
+- Sources above six jobs were excluded from the frame for cost control, so the
+  long-document profile is under-represented.
+- Table-inventory sources were excluded by owner decision; the rate does not
+  describe them.
+- Pre-frame rows were not randomly selected and are reported separately.
+- Analyzer and validator are the same model family: `validatorSeparation` is
+  recorded as `same_model`. This measures drift and grounding, not independent
+  verification.
+
+Startup contract clarifications enforced without touching sealed artifacts:
+response artifacts must carry restrictive modes; an excerpt must be one
+contiguous verbatim substring of its unit text; a finding not bound to one
+assessed assertion must use the fixed deterministic-gate identifier.
+
+Governance flags are unchanged: `automatedOnly=true`, `externalReady=false`,
+no external AI API, no candidate-database write, no production mutation.

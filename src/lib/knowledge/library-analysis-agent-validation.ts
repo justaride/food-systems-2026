@@ -46,7 +46,7 @@ export const LIBRARY_ANALYSIS_AGENT_VALIDATION_RESULT_SCHEMA =
   "library-analysis-agent-validation-result/v1" as const;
 
 export const LibraryAnalysisValidatorModelReceiptSchema = z.object({
-  provider: z.literal("openai-codex"),
+  provider: z.enum(["openai-codex", "anthropic-claude-code"]),
   name: textSchema,
   version: textSchema,
 }).strict();

@@ -1,41 +1,133 @@
 {
-  "schemaVersion": "2.0",
-  "mode": "automated_only",
-  "state": "pilot_complete",
-  "plan": "research/_plans/kalibreringsplan-utvalg-2026-08-20.md",
-  "trustModel": "docs/project/status/food-systems-tillitsmodell-2026-08-20.md",
-  "highRiskTriageRule": "usageRule in {safe_for_external_claims, requires_actor_gate, claim_candidate_review} OR riskFlags contains type_b_actor_gate OR claimCandidateCount > 0",
-  "errorTaxonomy": ["F1_fabrication", "F2_miscitation", "F3_misextraction", "F4_misclassification", "F5_omission"],
-  "automatedRounds": [
-    {
-      "roundId": "ig006-automated-2026-08-20",
-      "receipt": "research/_status/library-analysis-pilot-automated-2026-08-20.json",
-      "populationHash": "187667dd2fef5ef14ee27b2e2b35670f5c41afa170f29ce90184e6547653ddb3",
-      "populationTotal": 3,
-      "reusableForAiContext": 0
-    }
-  ],
-  "humanReferenceRounds": [],
-  "automatedFindingRate": {
-    "overall": 0,
-    "byDataClass": {
-      "document": 0
-    }
+ "schemaVersion": "2.0",
+ "mode": "automated_only",
+ "state": "sample_calibrated",
+ "plan": "research/_plans/kalibreringsplan-utvalg-2026-08-20.md",
+ "trustModel": "docs/project/status/food-systems-tillitsmodell-2026-08-20.md",
+ "highRiskTriageRule": "usageRule in {safe_for_external_claims, requires_actor_gate, claim_candidate_review} OR riskFlags contains type_b_actor_gate OR claimCandidateCount > 0",
+ "errorTaxonomy": [
+  "F1_fabrication",
+  "F2_miscitation",
+  "F3_misextraction",
+  "F4_misclassification",
+  "F5_omission"
+ ],
+ "automatedRounds": [
+  {
+   "roundId": "ig006-automated-2026-08-20",
+   "receipt": "research/_status/library-analysis-pilot-automated-2026-08-20.json",
+   "populationHash": "187667dd2fef5ef14ee27b2e2b35670f5c41afa170f29ce90184e6547653ddb3",
+   "populationTotal": 3,
+   "reusableForAiContext": 0
   },
-  "automatedRejectionRate": {
-    "overall": 1,
-    "byDataClass": {
-      "document": 1
-    }
-  },
-  "analysisValidatorDisagreementRate": 1,
-  "rateBasis": "Three corrected pilot source plans. Negative regression fixtures are reported separately and are not included in the pilot-source finding denominator.",
-  "negativeRegressionFindingCounts": {
+  {
+   "roundId": "ig006-sample-calibration-2026-08-23",
+   "method": "stratified sample per research/_plans/kalibreringsplan-utvalg-2026-08-20.md §3; seeded draw (seed 20260823) archived in the private run root as calibration-sample-extract-2026-08-23.json",
+   "queueHash": "35387b397c3d9e5e7b1c799d374fb28b708e9920ab75364f1e319e335cb1f92a",
+   "promptVersion": "1.0.23",
+   "analyzerModel": "anthropic-claude-code/claude-fable-5",
+   "validatorModel": "anthropic-claude-code/claude-fable-5",
+   "validatorSeparation": "same_model",
+   "sourcesAdjudicated": 38,
+   "claimsAdjudicated": 717,
+   "dispositions": {
+    "partial": 28,
+    "quarantined": 10
+   },
+   "findingCounts": {
     "F1": 0,
-    "F2": 0,
-    "F3": 2,
-    "F4": 0,
-    "F5": 0
-  },
-  "updatedAt": "2026-08-20"
+    "F2": 1,
+    "F3": 19,
+    "F4": 2,
+    "F5": 8
+   },
+   "criticalRate": {
+    "count": 1,
+    "denominator": 717,
+    "rate": 0.0014,
+    "wilson95": [
+     0.0002,
+     0.0079
+    ]
+   },
+   "qualityRate": {
+    "count": 29,
+    "denominator": 717,
+    "rate": 0.0404,
+    "wilson95": [
+     0.0283,
+     0.0575
+    ]
+   },
+   "byStratum": {
+    "prose_rich": {
+     "sources": 18,
+     "claims": 348,
+     "critical": 1,
+     "criticalRate": 0.0029,
+     "wilson95": [
+      0.0005,
+      0.0161
+     ],
+     "quality": 22,
+     "qualityRate": 0.0632
+    },
+    "mixed": {
+     "sources": 2,
+     "claims": 107,
+     "critical": 0,
+     "criticalRate": 0.0,
+     "wilson95": [
+      0.0,
+      0.0347
+     ],
+     "quality": 1,
+     "qualityRate": 0.0093
+    },
+    "pre_sample": {
+     "sources": 18,
+     "claims": 262,
+     "critical": 0,
+     "criticalRate": 0.0,
+     "wilson95": [
+      0.0,
+      0.0145
+     ],
+     "quality": 6,
+     "qualityRate": 0.0229
+    }
+   },
+   "planVerdict": "critical rate below the plan §5 2 % band in every adjudicated stratum: calibrated with measured rate; no class frozen",
+   "caveats": [
+    "The `tiny` stratum has no adjudicated source in this round; its error profile is unmeasured.",
+    "`mixed` rests on 2 sources / 107 claims, so its interval is wide.",
+    "Sources with more than 6 jobs were excluded from the sampling frame for cost control, so the long-document profile is under-represented.",
+    "`table_inventory` sources were excluded by owner decision; the rate does not describe them.",
+    "`pre_sample` rows are the 2026-08-23 queue-order sources adjudicated before the sampling frame was drawn; they are reported separately because they were not randomly selected.",
+    "Analyzer and validator are the same model family, so validatorSeparation is same_model: this is drift and grounding control, not independent verification."
+   ]
+  }
+ ],
+ "humanReferenceRounds": [],
+ "automatedFindingRate": {
+  "overall": 0.0404,
+  "critical": 0.0014,
+  "basis": "ig006-sample-calibration-2026-08-23; 717 adjudicated claims"
+ },
+ "automatedRejectionRate": {
+  "overall": 1,
+  "byDataClass": {
+   "document": 1
+  }
+ },
+ "analysisValidatorDisagreementRate": 1,
+ "rateBasis": "Sample calibration 2026-08-23: 717 claims adjudicated across 38 sources under prompt/validation version 1.0.23. Critical (F1+F2) 0.14 % [0.02 %, 0.79 %]; quality (F3-F5) 4.04 % [2.83 %, 5.75 %]. This is an automated-only measurement of pipeline drift and grounding, not human or external verification.",
+ "negativeRegressionFindingCounts": {
+  "F1": 0,
+  "F2": 0,
+  "F3": 2,
+  "F4": 0,
+  "F5": 0
+ },
+ "updatedAt": "2026-08-23"
 }

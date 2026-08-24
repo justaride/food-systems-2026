@@ -21,11 +21,20 @@ const textSchema = z.string().min(1);
 export const LIBRARY_ANALYSIS_AGENT_SEGMENT_RESPONSE_SCHEMA =
   "library-analysis-agent-segment-response/v1" as const;
 
-export const LibraryAnalysisAgentModelReceiptSchema = z.object({
-  provider: z.literal("openai-codex"),
-  name: z.literal("gpt-5.6-luna"),
-  version: textSchema,
-}).strict();
+// Exact worker identities only: each provider literal binds its own model
+// literal so a response can never claim a foreign or invented identity.
+export const LibraryAnalysisAgentModelReceiptSchema = z.discriminatedUnion("provider", [
+  z.object({
+    provider: z.literal("openai-codex"),
+    name: z.literal("gpt-5.6-luna"),
+    version: textSchema,
+  }).strict(),
+  z.object({
+    provider: z.literal("anthropic-claude-code"),
+    name: z.literal("claude-fable-5"),
+    version: textSchema,
+  }).strict(),
+]);
 export type LibraryAnalysisAgentModelReceipt = z.infer<
   typeof LibraryAnalysisAgentModelReceiptSchema
 >;
