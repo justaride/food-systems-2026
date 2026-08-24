@@ -134,9 +134,9 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
       'AP-5 sporer kontrollerende eierskap (datter/≥50 %) gjennom konsernstrukturen og finner 19 tverrsektorielle kontrollører. NorgesGruppen kontrollerer 39 selskaper over fire ledd (butikk + logistikk + foredling + servering); Reitan, Coop, BAMA og samvirkene (TINE, Nortura, Felleskjøpet) spenner tre. Sektorparene (logistikk↔retail 7, foredling↔retail 6) er nesten identiske med AP-1s styrebroer — to uavhengige datakilder gir samme strukturkart. Det forklarer AP-2: makten som ikke vises i aksje-HHI vises som vertikal konsernkontroll.',
     evidenceStatus: 'observed',
     citationNote:
-      'Struktur primærsjekket mot Brønnøysund + offentlige primærkilder 2026-06-15 (§6b). Restforbehold: BAMA-splitten NG/Reitan er ikke register-bekreftet, og Reitan/ASKO 100 % er strukturelt sikkert men inferert.',
+      'Struktur primærsjekket mot Brønnøysund + offentlige primærkilder 2026-06-15 (§6b); BAMA-splitten lukket fra BAMAs egen årsrapport 2026-08-24 (§6c). Restforbehold: Reitan/ASKO 100 % er strukturelt sikkert, men inferert.',
     coverageNote:
-      'Dekning: 183/275 selskaper i eiergrafen (67 %). Kontroll = datter/≥50 %; JV/delt kontroll (f.eks. BAMA) underrapporteres. Eierskap ≠ operativ kontroll. Eierandel-% er verifisert for ni av ni konsern mot IR-/årsrapportsider.',
+      'Dekning: 183/275 selskaper i eiergrafen (67 %). Kontroll = datter/≥50 %; JV/delt kontroll underrapporteres, og BAMA framstår derfor som egen topp. Eierskap ≠ operativ kontroll. Eierandel-% er verifisert for ni av ni konsern mot IR-/årsrapportsider, og BAMA-splitten mot selskapets årsrapport (46/34/20 pr. 31.12.2023).',
     method: 'Skript mot intern DB (CompanyOwnership × Company); transitiv kontroll-rekkevidde enhetstestet.',
     figure: null,
     tags: ['eierskap', 'konsern', 'krysseie'],
@@ -145,7 +145,7 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
       'Ikke si «samordner» eller «operativ kontroll» — dette er eierstruktur.',
       'Ikke tell research/property/holding som verdikjede-integrasjon.',
       'Ikke fremstill SalMar (44,3 %), Mowi (15,5 %) eller Orkla (25,3 %) som majoritetseid — der er topp-eieren største aksjeblokk, ikke flertall.',
-      'Ikke oppgi en eksakt NG/Reitan-split for BAMA — den er ikke register-bekreftet.',
+      'Ikke omtal BAMA som en NG–Reitan-JV eller «50/50» — fordelingen er NorgesGruppen 46 %, Banan II (Nergaard) 34 %, Rema Industrier 20 %, og ingen har flertall.',
     ],
     graphHref: '/graf',
     docRefs: ['docs/project/analysis/food-tg-ap5-krysseie-funn-2026-06-14.md'],
