@@ -1,23 +1,32 @@
 name: PR Quality Gates
 
+# Kjører BARE på pull_request (pluss manuell dispatch). Tidligere fyrte også
+# `push: branches-ignore: [main]`, og for en gren med åpen PR fyrte begge på
+# samme commit — hele workflowen kjørte to ganger, med to jobber hver, altså
+# fire sjekk-kjøringer der to holder.
+#
+# Det var ikke bare sløsing: duplikatene konkurrerte om runnere, og på PR #363
+# traff den ene `test-and-audit` taket i `timeout-minutes: 15` og ble rapportert
+# som `cancelled` — et rødt merke som så ut som en testfeil, men var en duplikat
+# som gikk tom for tid.
+#
+# En concurrency-guard alene løste ikke dette. Den kappet duplikaten fra ~15 min
+# til ~1 min, men kanselleringen skjer fortsatt, så HVER PR fikk to
+# `cancelled`-merker og `mergeable_state: unstable` — nettopp det som stoppet
+# merge av #363. Duplikaten må ikke starte i det hele tatt.
+#
+# Kostnad: en gren får ikke CI før PR-en er åpnet. Arbeidsflyten her er
+# gren → PR, så det vinduet er kort, og `workflow_dispatch` dekker manuelle
+# kjøringer. Main dekkes ikke av denne workflowen (jf. dispatch etter direkte
+# push til main).
 on:
   pull_request:
-  push:
-    branches-ignore:
-      - main
   workflow_dispatch:
 
-# Push og pull_request fyrer begge for en gren som har åpen PR, så uten guard
-# kjøres hele workflowen to ganger på samme commit. Det koster dobbel
-# runner-tid, og duplikatene konkurrerer om runnere slik at den ene kan treffe
-# `timeout-minutes` og bli rapportert som `cancelled` — et rødt merke som
-# ser ut som en testfeil, men ikke er det (skjedde på PR #363, 2026-08-24).
-#
-# Nøkkelen må gi SAMME verdi for begge hendelsene på samme kode:
-#   pull_request → github.event.pull_request.head.sha  (grenens head)
-#   push         → github.sha                          (samme head)
-# `github.ref` duger ikke: PR-hendelsen har refs/pull/N/merge og push har
-# refs/heads/<gren>, altså to ulike grupper og ingen deduplisering.
+# Guarden beholdes selv om dobbelt-triggeren er borte: den hindrer at to
+# raske pushes til samme PR, eller to workflow_dispatch-kjøringer, overlapper.
+# Nøkkelen er grenens head-SHA — `github.ref` duger ikke, siden PR-hendelsen
+# har refs/pull/N/merge og en dispatch har refs/heads/<gren>.
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.head.sha || github.sha }}
   cancel-in-progress: true
