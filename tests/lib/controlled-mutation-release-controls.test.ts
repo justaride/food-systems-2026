@@ -1,11 +1,12 @@
 import assert from 'node:assert/strict'
 import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs'
-import { createServer, type AddressInfo } from 'node:net'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { describe, it } from 'node:test'
 import { Client } from 'pg'
+
+import { startEphemeralPostgres } from '../helpers/ephemeral-postgres'
 
 const repoRoot = process.cwd()
 const migrationPath = join(
@@ -37,17 +38,6 @@ function postgresBindir(): string | null {
 
   const result = spawnSync('pg_config', ['--bindir'], { encoding: 'utf8' })
   return result.status === 0 && result.stdout.trim() ? result.stdout.trim() : null
-}
-
-async function reserveTcpPort(): Promise<number> {
-  return await new Promise((resolvePort, reject) => {
-    const server = createServer()
-    server.once('error', reject)
-    server.listen(0, '127.0.0.1', () => {
-      const address = server.address() as AddressInfo
-      server.close(error => error ? reject(error) : resolvePort(address.port))
-    })
-  })
 }
 
 describe('controlled mutation release-control schema', () => {
@@ -214,9 +204,10 @@ describe('controlled mutation release-control schema', () => {
     const tempRoot = mkdtempSync(join(tmpdir(), 'foodsystems-release-controls-'))
     const dataDir = join(tempRoot, 'data')
     const socketDir = mkdtempSync('/tmp/foodsystems-rc-socket-')
-    const postgresLog = join(tempRoot, 'postgres.log')
     const database = 'foodsystems_release_controls_test'
-    const port = await reserveTcpPort()
+    // Settes av startEphemeralPostgres: porten som gjelder er den serveren
+    // faktisk klarte å binde. Lukkingene under leser den ved kalltidspunkt.
+    let port = 0
     const processEnv: NodeJS.ProcessEnv = {
       ...process.env,
       PATH: `${bindir}:${process.env.PATH ?? ''}`,
@@ -292,17 +283,13 @@ describe('controlled mutation release-control schema', () => {
 
     try {
       assert.equal(run(binaries.initdb!, ['-A', 'trust', '-U', 'postgres', '-D', dataDir]).status, 0)
-      const start = run(binaries.pg_ctl!, [
-        '-D', dataDir,
-        '-l', postgresLog,
-        '-o', `-F -p ${port} -k ${socketDir}`,
-        '-w', 'start',
-      ])
-      assert.equal(
-        start.status,
-        0,
-        `${start.stderr}\n${existsSync(postgresLog) ? readFileSync(postgresLog, 'utf8') : ''}`,
-      )
+      port = await startEphemeralPostgres({
+        run,
+        pgCtl: binaries.pg_ctl!,
+        dataDir,
+        socketDir,
+        logPathFor: attempt => join(tempRoot, `postgres-attempt-${attempt}.log`),
+      })
       started = true
       const created = run(binaries.createdb!, [
         '-h', '127.0.0.1', '-p', String(port), '-U', 'postgres', database,

@@ -11,11 +11,12 @@ import {
   statSync,
   writeFileSync,
 } from 'node:fs'
-import { createServer, type AddressInfo } from 'node:net'
 import { tmpdir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { describe, it } from 'node:test'
+
+import { startEphemeralPostgres } from '../helpers/ephemeral-postgres'
 
 const repoRoot = process.cwd()
 const baselineLastMigration = '20260618_library_analysis_record'
@@ -59,17 +60,6 @@ function postgresBindir(): string | null {
 
   const result = spawnSync('pg_config', ['--bindir'], { encoding: 'utf8' })
   return result.status === 0 && result.stdout.trim() ? result.stdout.trim() : null
-}
-
-async function reserveTcpPort(): Promise<number> {
-  return await new Promise((resolvePort, reject) => {
-    const server = createServer()
-    server.once('error', reject)
-    server.listen(0, '127.0.0.1', () => {
-      const address = server.address() as AddressInfo
-      server.close(error => error ? reject(error) : resolvePort(address.port))
-    })
-  })
 }
 
 describe('production migration runner', () => {
@@ -563,10 +553,12 @@ describe('MCP role and backup/restore safety contracts', () => {
     const tempRoot = mkdtempSync(join(tmpdir(), 'foodsystems-mcp-acl-'))
     const dataDir = join(tempRoot, 'data')
     const socketDir = join(tempRoot, 'socket')
-    const port = await reserveTcpPort()
     const database = 'foodsystems_acl_test'
-    const adminUrl = `postgresql://postgres@127.0.0.1:${port}/${database}`
-    const mcpUrl = `postgresql://foodsystems_mcp_ro:acl-test-password@127.0.0.1:${port}/${database}?application_name=foodsystems-mcp-ro`
+    // Settes av startEphemeralPostgres: porten som gjelder er den serveren
+    // faktisk klarte å binde. URL-ene bygges derfor først etter oppstart.
+    let port = 0
+    let adminUrl = ''
+    let mcpUrl = ''
     const processEnv: NodeJS.ProcessEnv = {
       ...process.env,
       PATH: `${bindir}:${process.env.PATH ?? ''}`,
@@ -586,14 +578,16 @@ describe('MCP role and backup/restore safety contracts', () => {
     try {
       assert.equal(run(binaries.initdb!, ['-A', 'trust', '-U', 'postgres', '-D', dataDir]).status, 0)
       mkdirSync(socketDir)
-      const start = run(binaries.pg_ctl!, [
-        '-D', dataDir,
-        '-l', join(tempRoot, 'postgres.log'),
-        '-o', `-F -p ${port} -k ${socketDir}`,
-        '-w', 'start',
-      ])
-      assert.equal(start.status, 0, start.stderr)
+      port = await startEphemeralPostgres({
+        run,
+        pgCtl: binaries.pg_ctl!,
+        dataDir,
+        socketDir,
+        logPathFor: attempt => join(tempRoot, `postgres-attempt-${attempt}.log`),
+      })
       started = true
+      adminUrl = `postgresql://postgres@127.0.0.1:${port}/${database}`
+      mcpUrl = `postgresql://foodsystems_mcp_ro:acl-test-password@127.0.0.1:${port}/${database}?application_name=foodsystems-mcp-ro`
       const createDatabase = run(binaries.createdb!, [
         '-h', '127.0.0.1', '-p', String(port), '-U', 'postgres', database,
       ])
