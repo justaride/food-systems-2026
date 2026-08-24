@@ -22,7 +22,7 @@ export type DybdeanalyseFinding = {
   docRefs: string[]
 }
 
-export const DYBDEANALYSE_UPDATED = '2026-06-15'
+export const DYBDEANALYSE_UPDATED = '2026-08-24'
 
 export const DYBDEANALYSE_RULE =
   'Interne dybdeanalyse-funn fra arbeidspakkene (AP). «Makt»/«konsentrasjon» betyr strukturell posisjon i data, ikke intensjon eller anklage. ' +
@@ -35,11 +35,12 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     claimId: 'CL-AP3-001',
     title: 'Produksjonstilskudd: moderat konsentrert, ikke ekstremt',
     kortFunn:
-      'Gini ~0,52 (2022–2023). Øverste 10 % av mottakerne får omtrent en tredjedel av tilskuddene, øverste 1 % bare ~5 %, og medianmottakeren ~250 000 kr. Nederste halvpart deler ~12 %. Konsentrasjonen er strukturdrevet (husdyr/areal) og peker mot at makten ligger i marked/distribusjon, ikke i selve støtten.',
+      'Gini 0,52–0,55 (2022–2025). Øverste 10 % av mottakerne får omtrent en tredjedel av tilskuddene, øverste 1 % bare ~5 %, og medianmottakeren ~250 000 kr. Nederste halvpart deler ~12 %. Konsentrasjonen er strukturdrevet (husdyr/areal) og peker mot at makten ligger i marked/distribusjon, ikke i selve støtten.',
     evidenceStatus: 'observed',
     citationReadiness: 'internal_context',
     citationNote: 'Intern baseline — ikke ekstern faktastemme før PCQ-verifisering av 2024 og strukturkontroll.',
-    coverageNote: 'Dekning: 2022–2024 pålitelig. 2024 lukket 2026-06-14 (tidligere «kun 3 av 15 ordninger» var en kolonnematch-bug, nå fikset; total 18,61 mrd verifisert mot publisert 18,39 mrd).',
+    coverageNote:
+      'Dekning: 2022–2025. 2024 lukket 2026-06-14 (tidligere «kun 3 av 15 ordninger» var en kolonnematch-bug, nå fikset; total 18,61 mrd verifisert mot publisert 18,39 mrd). 2022–2024 ble reprodusert identisk 2026-08-24; 2025 (18,97 mrd, Gini 0,547) er lagt til, men ennå ikke avstemt mot publisert primærtotal.',
     method: 'Reproduserbart skript mot Landbruksdirektoratets åpne data; Gini/Lorenz enhetstestet.',
     figure: 'lorenz',
     tags: ['tilskudd', 'gini', 'konsentrasjon'],
@@ -48,6 +49,7 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
       'Ikke si at tilskudd er «kapret av de store».',
       'Ikke fremstill den tidligere 2024-totalen (10,94 mrd) som reell nedgang — det var et skript-artefakt, nå rettet.',
       'Ikke kall konsentrasjonen urettferdig uten struktur-/policy-kontekst.',
+      'Ikke presenter 2022→2025 (0,521→0,547) som en etablert stigende trend — fire årspunkter uten usikkerhetsestimat bærer ingen trendpåstand.',
     ],
     docRefs: ['docs/project/analysis/food-tg-ap3-tilskuddskonsentrasjon-funn-2026-06-14.md'],
   },
@@ -179,24 +181,33 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     id: 'ins-ap7-001',
     arbeidspakke: 'AP-7',
     claimId: 'CL-AP7-001',
-    title: 'Pris-asymmetri («rockets and feathers») finnes også i fiskeforedling',
+    title: 'Pris-asymmetri i fiskeforedling: retning bekreftet, signifikans ikke',
     kortFunn:
-      'Nedstrøms produsentprisindeks for fiskeforedling (SSB 12462, SNN102) fanger kumulativt ~0,27 av oppstrøms lakseråpris-økninger (SSB 03024), men kun ~0,13 av prisfall — en statistisk sterk asymmetri (NARDL β_opp−β_ned = +0,14, t=14,0; 2019M01–2025M12, n=84). I 2025 falt råprisen ~13 % (94,4 → 81,8 kr/kg) mens foredlings-PPI steg ~10 %. Et selvstendig domene-funn (laks→foredling), ikke en overføring av dagligvarefunnet.',
+      'Nedstrøms produsentprisindeks for fiskeforedling (SSB 12462, SNN102) fanger kumulativt ~0,27 av oppstrøms lakseråpris-økninger (SSB 03024), men kun ~0,13 av prisfall (2019M01–2026M07, n=91). Retningen reproduserer, men den er ikke statistisk etablert: i differansespesifikasjonen er asymmetrien ikke signifikant (t=1,25), og med valutakontroll faller den fra +0,21 til +0,08. Mønsteret er svakest i hjemmemarkedet og sterkest i eksportmarkedet — som om en vesentlig del er NOK-svekkelse. Fôr→oppdrett-leddet er separat testet og gir nullfunn.',
     evidenceStatus: 'estimated',
     citationReadiness: 'internal_context',
     citationNote:
-      'Intern STØTTET (medium-høy tillit) — ikke ekstern faktastemme før valuta kontrolleres (NOK-svekkelse løfter eksport-PPI; deflater EUR/USD).',
+      'Intern baseline, svekket 2026-08-24 — ikke ekstern faktastemme. Statusrevisjon fra «STØTTET» er anbefalt og venter på eier (se §6c (e) i funnnotatet).',
     coverageNote:
-      'Dekning: 84 månedsobservasjoner 2019–2025; ett domene (laks→foredling). Valuta ikke kontrollert; SNN102 dekker all fisk, ikke kun laks. Fôr→oppdrett-leddet = needs-data (SSB har ingen ren månedlig fôr-PPI).',
+      'Dekning: 91 månedsobservasjoner 2019M01–2026M07; ett domene (laks→foredling). SNN102 dekker all fisk, ikke kun laks. Valuta er nå kontrollert (USDNOK som eksogen regressor + hjemme-/eksportmarked hver for seg) og fjerner mesteparten av asymmetrien. Fôr→oppdrett-leddet er kjørt via fôrråvare-proxy og lukket som «testet, negativt» — ikke lenger needs-data.',
     method:
-      'NARDL + distribuert-lag (lag 0–3, opp/ned-splittet) + fortegnstest; metodepresedens kvantitativ-dybdeanalyse §H-NY1; SSBs åpne JSON-stat-API.',
+      'Reproduserbart skript (scripts/analyze-price-asymmetry.ts, enhetstestet): distribuert lag 0–3 i log-differanser med opp/ned-splittet oppstrøms som hovedspesifikasjon, nivåregresjon på partialsummer for sammenlignbarhet, fortegnstest, Newey-West-HAC. Kilder: SSBs åpne JSON-stat-API, Norges Bank EXR, Verdensbankens Pink Sheet.',
     figure: null,
     tags: ['pris', 'asymmetri', 'havbruk', 'foredling'],
-    sources: ['funnnotat AP-7', 'SSB 03024 lakseeksport kilopris', 'SSB 12462 PPI SNN102'],
+    sources: [
+      'funnnotat AP-7 §6c',
+      'analyze-price-asymmetry.ts',
+      'ap7-prisasymmetri.json',
+      'SSB 03024 lakseeksport kilopris',
+      'SSB 12462 PPI SNN102',
+      'Norges Bank EXR USDNOK',
+      'Verdensbanken Pink Sheet (fôrråvarer)',
+    ],
     notSay: [
       'Formuler som prisatferd/mønster, ikke intensjon eller margin-anklage.',
       'Ikke generaliser til grønt eller andre utestede domener.',
-      'Ikke lån funnet til det utestede fôr→oppdrett-leddet.',
+      'Ikke bruk «NARDL t=14,0» eller «statistisk sterk» — den t-verdien kom fra en nivåregresjon på trendende serier og reproduserer ikke i differansespesifikasjonen.',
+      'Ikke si at fôrpris slår asymmetrisk ut i lakseprisen — det leddet er testet og gir nullfunn.',
     ],
     docRefs: ['docs/project/analysis/food-tg-ap7-prisasymmetri-funn-2026-06-14.md'],
   },
