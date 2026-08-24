@@ -1,8 +1,9 @@
 ---
 tittel: Food TG AP-7 — Pris-asymmetri replikert til havbruk/foredling: funn 2026-06-14
-status: Internt analysefunn (fan-out-subagent + coordinator-verifikasjon) — STØTTET, valuta-forbehold
+status: Internt analysefunn (fan-out-subagent + coordinator-verifikasjon) — STØTTET, valuta-forbehold. **UNDER REVISJON pr. 2026-08-24: reproduksjon med skript (§6c) bekrefter punktestimatene, men ikke signifikansen; statusrevisjon er anbefalt og venter på eier.**
 eier: Gabriel
 dato: 2026-06-14
+oppdatert: 2026-08-24
 arbeidspakke: AP-7 i docs/project/plans/food-tg-dybdeanalyse-arbeidsplan-2026-06-14.md
 datakilde: SSB åpne tabeller 03024 (lakseeksport kilopris) + 12462 (PPI bearbeiding fisk, SNN102); metodepresedens research/norge/kvantitativ-dybdeanalyse.md §H-NY1
 bruksregel: Internt analysefunn. Formuleres som prisatferd/mønster i kjeden, ikke som intensjon eller margin-anklage. Gjelder testet domene (laks→foredling), ikke generalisert. Valuta er ikke kontrollert (se §4). Går gjennom claim-lock/PCQ før ekstern bruk.
@@ -11,6 +12,9 @@ relaterte_filer:
   - docs/project/plans/food-tg-dybdeanalyse-arbeidsplan-2026-06-14.md
   - docs/project/analysis/food-tg-maktkart-section8-3-4-funn-2026-06-14.md
   - docs/project/figures/food-tg-2026-06-15/fig-ap7-pris-asymmetri.svg
+  - scripts/analyze-price-asymmetry.ts
+  - tests/scripts/analyze-price-asymmetry.test.ts
+  - research/analyse/ap7-prisasymmetri.json
 ---
 
 # AP-7 — Pris-asymmetri replikert til havbruk/foredling
@@ -82,9 +86,135 @@ Research mot navngitte kilder skjerper avgrensningen: **ingen ren månedlig nors
 
 **Kilder (§6b):** IndexMundi/Verdensbanken fiskemel (<https://www.indexmundi.com/commodities/?commodity=fish-meal&months=120>) + soyamel; Fiskeridirektoratet Lønnsomhetsundersøkelse (<https://www.fiskeridir.no/statistikk-tall-og-analyse/data-og-statistikk-om-akvakultur/lonnsomhetsundersokelse-for-laks-og-regnbueorret>); SalmonBusiness (kvartalsvis fôrpris + Skretting valuta-sitat); Mowi Salmon Farming Industry Handbook 2024.
 
+### 6c. Reproduksjon med skript + fôr-leddet kjørt (2026-08-24)
+
+Juni-kjøringen ble gjort av en subagent uten skript, og §7 ba selv om
+re-verifisering. `scripts/analyze-price-asymmetry.ts` (DB-fri, enhetstestet i
+`tests/scripts/analyze-price-asymmetry.test.ts`, 21 tester) gjør nå hele
+beregningen reproduserbar, og kjører i tillegg det leddet §6/§6b lot stå åpent.
+Aggregat: `research/analyse/ap7-prisasymmetri.json`.
+
+**Datakilder (alle åpne, alle hentet i kjøringen):** SSB 03024 (lakseråpris,
+uke→måned **volumvektet**, ikke uvektet snitt), SSB 12462 SNN102 **per marked**,
+Norges Bank `EXR M.USD.NOK.SP`, og Verdensbankens Pink Sheet (fiskemel og
+soyamel, månedlig USD/tonn, «Updated on August 04, 2026»). Pink Sheet-lenken
+oppdages fra Verdensbankens landingsside framfor å hardkodes — den forrige
+publiserte lenken peker fortsatt på et øyeblikksbilde som stopper 2024M12.
+
+#### (a) Reproduksjonen treffer — på punktestimatene
+
+Kjørt på juni-kjøringens eget vindu (2019M01–2025M12, marked = i alt):
+
+| Størrelse | Juni (subagent) | Reproduksjon 2026-08-24 |
+|---|---:|---:|
+| n | 84 | 84 |
+| Distribuert lag, kumulativt opp | +0,272 | +0,289 |
+| Distribuert lag, kumulativt ned | +0,081 | +0,077 |
+| Distribuert lag, R² | 0,43 | 0,437 |
+| Nivå/partialsum, β_opp | +0,272 | +0,279 |
+| Nivå/partialsum, β_ned | +0,134 | +0,119 |
+| Nivå/partialsum, R² | 0,94 | 0,940 |
+| Fortegnstest, opp / ned | 78 % / 51 % | 76 % / 52 % |
+
+Retningen og størrelsesordenen er altså bekreftet. Restavvikene er i tråd med at
+denne kjøringen volumvekter uke→måned.
+
+#### (b) …men signifikansen er spesifikasjonsavhengig
+
+Juni rapporterte «asymmetri t=14,0, sterkt signifikant». Den t-verdien kommer fra
+**nivåregresjonen på partialsummer**, ikke fra differansespesifikasjonen. Kjørt
+på begge (2019M01–2026M07, n=91, marked = i alt):
+
+| Spesifikasjon | Asymmetri | t | HAC t | R² |
+|---|---:|---:|---:|---:|
+| Distribuert lag 0–3, i differanser | +0,205 | **1,25** | **1,63** | 0,42 |
+| Nivå på partialsummer | +0,171 | 27,4 | 17,6 | 0,95 |
+
+Dette er ikke en vindueffekt: på juni-kjøringens eget vindu (2019M01–2025M12,
+n=84) er differansespesifikasjonens asymmetri +0,212 med t=1,26 (HAC 1,65) —
+praktisk talt samme avlesning.
+
+Differansespesifikasjonen er den forsvarlige: nivåregresjon på to trendende
+serier gir høy R² og høye t-verdier også når det ikke finnes noen sammenheng.
+**I den forsvarlige spesifikasjonen er asymmetrien ikke statistisk signifikant.**
+
+At dette ikke er en teoretisk innvending, viser fôr-leddet under: samme
+nivåspesifikasjon gir der t = 28,6 med R² = 0,85 (fiskemel → lakseråpris,
+2000M01–2026M07, n=319) — på et forhold der de kumulative koeffisientene er
+**negative** (høyere fôrpris → lavere lakspris).
+Det er en økonomisk meningsløs sammenheng som nivåspesifikasjonen likevel
+stempler som svært signifikant. Det er spuriøs regresjon demonstrert på egne
+data, og det er samme spesifikasjon som bar juni-tallet t=14,0.
+
+#### (c) Valutaforbeholdet i §4 er nå målt — og det spiser mesteparten
+
+§4 krevde valutakontroll før ekstern bruk. Med USDNOK som eksogen regressor, og
+med hjemme- og eksportmarked hver for seg (2019M01–2026M07, n=91, distribuert
+lag):
+
+| Marked | Asymmetri, ukontrollert | t | Asymmetri, valutakontrollert | t |
+|---|---:|---:|---:|---:|
+| I alt | +0,205 | 1,25 | +0,079 | 0,53 |
+| Hjemmemarked | +0,109 | 0,58 | +0,019 | 0,10 |
+| Eksportmarked | +0,280 | 1,37 | +0,122 | 0,66 |
+
+To ting følger. Valutakontroll fjerner rundt 60 % av den målte asymmetrien. Og
+asymmetrien er **størst i eksportmarkedet og minst i hjemmemarkedet** — akkurat
+mønsteret man venter hvis en vesentlig del av PPI-løftet er NOK-svekkelse
+snarere enn prisatferd. Hjemmemarkedet, som er den minst valutaeksponerte
+avlesningen, viser praktisk talt ingen asymmetri.
+
+#### (d) Fôr→oppdrett: testet, negativt
+
+Leddet §6 satte som `needs-data` er nå kjørt via proxy-veien §6b anbefalte
+(fôrråvarepris → lakseråpris, med USDNOK som eksogen regressor). Resultatet er
+et nullfunn, og det er robust på tvers av alt vi varierte:
+
+| Variant | n | Asymmetri | t | HAC t | R² |
+|---|---:|---:|---:|---:|---:|
+| Fiskemel, 2019–2026, lag 0–3 | 91 | +5,57 | 1,82 | 1,90 | 0,10 |
+| Fiskemel, 2000–2026, lag 0–3 | 319 | +0,17 | 0,33 | 0,29 | 0,03 |
+| Fiskemel, 2000–2026, lag 0–18 | 319 | +0,94 | 1,13 | 1,11 | 0,12 |
+| Soyamel, 2000–2026, lag 0–3 | 319 | +0,62 | 1,51 | 1,80 | 0,02 |
+| Soyamel, 2000–2026, lag 0–18 | 319 | +1,12 | 1,23 | 1,23 | 0,13 |
+
+Ingen variant er signifikant, valutakontroll endrer ingenting, og fortegnstesten
+ligger på myntkast (fiskemel 2000–2026: nedstrøms stiger i 48 % av
+oppgangsmånedene og 52 % av nedgangsmånedene). Den lange lag-strukturen (0–18
+måneder) ble kjørt fordi laksens sjøfase er 18–24 måneder — et kostnadsledd kan
+ikke rimeligvis slå ut på tre måneder. Den forlengede horisonten hjelper ikke.
+
+Lesningen: **lakseprisen settes av etterspørsel i et globalt marked, ikke av
+fôrkostnad.** Fôr er en kostnadsinnsats, ikke en prisdriver — asymmetri-rammen
+(«rockets and feathers») forutsetter et gjennomslagsledd som ikke ser ut til å
+finnes her. Per planens §6 lukkes leddet som **testet, negativt**, ikke som
+`needs-data`: mangelen på en native norsk fôr-PPI var ikke det som stoppet
+funnet.
+
+#### (e) Anbefalt statusrevisjon (eiers beslutning)
+
+Statusen står urørt i påvente av eier. Anbefalingen er:
+
+- **Laks→foredling:** fra `intern STØTTET` til `intern SVEKKET / retning bekreftet,
+  signifikans ikke etablert`. Punktestimatene reproduserer, men den forsvarlige
+  spesifikasjonen gir ikke signifikans, og valutakontroll fjerner mesteparten av
+  effekten. Påstanden om «NARDL t=14,0» bør ikke brukes videre — heller ikke internt.
+- **CL-AP7-001:** trekkes tilbake i nåværende ordlyd. Den siterer t=14,0 og
+  n=84 fra nivåspesifikasjonen.
+- **Fôr→oppdrett:** fra `needs-data` til `testet, negativt`.
+- **Figuren** `fig-ap7-pris-asymmetri.svg` viser β_opp +0,272 vs β_ned +0,134
+  som hovedtall og bør ikke brukes før den er oppdatert.
+
 ## 7. Verifikasjon
 
 Tall regnet av subagent fra SSBs åpne JSON-stat-API (tabell 03024 + 12462), metode replikert fra `kvantitativ-dybdeanalyse.md` §H-NY1. Coordinator-forbehold: regresjonskoeffisientene (β, t) er subagent-beregnet og bør re-verifiseres med valutadeflatering før ekstern bruk; den retningsbestemte 2025-illustrasjonen (laks −13 %, PPI +10 %) er den enkleste etterprøvbare påstanden. Ingen committet fil endret; ingen påstand løftet til ekstern bruk.
+
+**Oppdatert 2026-08-24:** re-verifiseringen §7 ba om er utført, og forbeholdet er innfridd — se §6c. Tallene er ikke lenger subagent-beregnede: de produseres av `scripts/analyze-price-asymmetry.ts`, hvis matematikk (OLS, Newey-West-HAC, kontrast-standardfeil, asymmetrispesifikasjonene, ISO-uke→måned, xlsx-/zip-lesing) er enhetstestet mot kjente fasitverdier i 21 tester. Reproduksjonen bekrefter punktestimatene, men **ikke** signifikansen: den kom fra en nivåregresjon på trendende serier. Valutadeflateringen §7 etterlyste er nå kjørt og fjerner mesteparten av effekten. Kjør selv:
+
+```
+npx tsx scripts/analyze-price-asymmetry.ts --leg=alle --from=2019M01 --to=2025M12
+npx tsx scripts/analyze-price-asymmetry.ts --leg=for-oppdrett --from=2000M01 --max-lag=18
+```
 
 ## 8. Kilder
 
@@ -92,3 +222,9 @@ Tall regnet av subagent fra SSBs åpne JSON-stat-API (tabell 03024 + 12462), met
 - SSB tabell 12462 «Produsentprisindeks» (SNN102 bearbeiding fisk, indeksnivå, måned) — <https://data.ssb.no/api/v0/no/table/12462/>
 - SSB tabell 14700 (KPI mat, referanse til dagligvarefunn) — <https://data.ssb.no/api/v0/no/table/14700/>
 - Metodepresedens: `research/norge/kvantitativ-dybdeanalyse.md` §H-NY1.
+
+Lagt til 2026-08-24 (§6c):
+
+- Norges Bank, valutakurser `EXR M.USD.NOK.SP` (månedlig) — <https://data.norges-bank.no/api/data/EXR/>
+- Verdensbanken, *Commodity Price Data (The Pink Sheet)*, arket «Monthly Prices», kolonnene «Fish meal» og «Soybean meal» (månedlig, USD/tonn) — <https://www.worldbank.org/en/research/commodity-markets>. Skriptet oppdager gjeldende xlsx-lenke fra landingssiden; kjøringen 2026-08-24 brukte utgaven merket «Updated on August 04, 2026».
+- SSB tabell 12462, dimensjonen `Marked` (00 i alt / 01 hjemmemarked / 02 eksportmarked) — grunnlaget for valutakontrollen i §6c (c).

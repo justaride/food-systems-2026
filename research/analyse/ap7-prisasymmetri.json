@@ -1,0 +1,379 @@
+{
+  "generatedAt": "2026-08-24T10:06:20.544Z",
+  "sources": {
+    "salmon": "SSB tabell 03024 (eksport av oppalen laks, fersk, kilopris + vekt, ukentlig)",
+    "ppi": "SSB tabell 12462 (produsentprisindeks, SNN102, per marked, månedlig)",
+    "fx": "Norges Bank EXR M.USD.NOK.SP (månedlig)",
+    "feed": "Verdensbanken Pink Sheet, «August 04, 2026» (https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx)"
+  },
+  "method": "Distribuert lag 0–3 i log-differanser med opp/ned-splittet oppstrøms (hovedspesifikasjon), samt nivåregresjon på NARDL-partialsummer (sammenlignbarhet med juni-kjøringen). t-verdier oppgis både klassisk og Newey-West HAC.",
+  "legs": [
+    {
+      "id": "laks-foredling-marked-00",
+      "label": "Lakseråpris → foredlings-PPI (PPI SNN102, hjemme- og eksportmarked)",
+      "upstream": "SSB 03024 fersk oppalen laks, kilopris (NOK/kg, volumvektet uke→måned)",
+      "downstream": "SSB 12462 PPI SNN102, hjemme- og eksportmarked (2021=100)",
+      "fxControl": "Norges Bank USDNOK",
+      "window": {
+        "from": "2019M01",
+        "to": "2026M07",
+        "months": 91,
+        "maxLag": 3
+      },
+      "distributedLag": {
+        "cumulativeUp": 0.29,
+        "cumulativeDown": 0.0847,
+        "asymmetry": 0.2053,
+        "tUp": 3.33,
+        "tDown": 0.95,
+        "tAsymmetry": 1.25,
+        "tAsymmetryHac": 1.63,
+        "r2": 0.4194,
+        "n": 87
+      },
+      "distributedLagFxControlled": {
+        "cumulativeUp": 0.2128,
+        "cumulativeDown": 0.1336,
+        "asymmetry": 0.0792,
+        "tUp": 2.68,
+        "tDown": 1.66,
+        "tAsymmetry": 0.53,
+        "tAsymmetryHac": 0.61,
+        "r2": 0.5443,
+        "n": 87
+      },
+      "cumulativeLevels": {
+        "cumulativeUp": 0.2646,
+        "cumulativeDown": 0.0933,
+        "asymmetry": 0.1713,
+        "tUp": 10.37,
+        "tDown": 3.19,
+        "tAsymmetry": 27.37,
+        "tAsymmetryHac": 17.58,
+        "r2": 0.9475,
+        "n": 90
+      },
+      "cumulativeLevelsFxControlled": {
+        "cumulativeUp": 0.2236,
+        "cumulativeDown": 0.0609,
+        "asymmetry": 0.1627,
+        "tUp": 7.86,
+        "tDown": 2.01,
+        "tAsymmetry": 24.17,
+        "tAsymmetryHac": 11.84,
+        "r2": 0.952,
+        "n": 90
+      },
+      "signTest": {
+        "upMonths": 44,
+        "downMonths": 46,
+        "shareDownstreamUpWhenUpstreamUp": 0.7273,
+        "shareDownstreamUpWhenUpstreamDown": 0.5
+      },
+      "endpoints": {
+        "upstreamFirst": 62.0867,
+        "upstreamLast": 70.2744,
+        "downstreamFirst": 99.6,
+        "downstreamLast": 174.7
+      },
+      "caveats": [
+        "SNN102 dekker all fisk/skalldyr/bløtdyr, ikke bare laks — nedstrøms er kategori-bredere enn oppstrøms.",
+        "Hjemmemarkedsvarianten (Marked=01) er den som er minst eksponert for valutaeffekt; sammenlign den med eksportvarianten før noe sies om marginer."
+      ]
+    },
+    {
+      "id": "laks-foredling-marked-01",
+      "label": "Lakseråpris → foredlings-PPI (PPI SNN102, hjemmemarked)",
+      "upstream": "SSB 03024 fersk oppalen laks, kilopris (NOK/kg, volumvektet uke→måned)",
+      "downstream": "SSB 12462 PPI SNN102, hjemmemarked (2021=100)",
+      "fxControl": "Norges Bank USDNOK",
+      "window": {
+        "from": "2019M01",
+        "to": "2026M07",
+        "months": 91,
+        "maxLag": 3
+      },
+      "distributedLag": {
+        "cumulativeUp": 0.2203,
+        "cumulativeDown": 0.1109,
+        "asymmetry": 0.1094,
+        "tUp": 2.2,
+        "tDown": 1.08,
+        "tAsymmetry": 0.58,
+        "tAsymmetryHac": 1.05,
+        "r2": 0.2594,
+        "n": 87
+      },
+      "distributedLagFxControlled": {
+        "cumulativeUp": 0.1647,
+        "cumulativeDown": 0.1462,
+        "asymmetry": 0.0185,
+        "tUp": 1.67,
+        "tDown": 1.46,
+        "tAsymmetry": 0.1,
+        "tAsymmetryHac": 0.16,
+        "r2": 0.322,
+        "n": 87
+      },
+      "cumulativeLevels": {
+        "cumulativeUp": 0.2766,
+        "cumulativeDown": 0.1487,
+        "asymmetry": 0.1279,
+        "tUp": 12.24,
+        "tDown": 5.74,
+        "tAsymmetry": 23.06,
+        "tAsymmetryHac": 19.85,
+        "r2": 0.9385,
+        "n": 90
+      },
+      "cumulativeLevelsFxControlled": {
+        "cumulativeUp": 0.2166,
+        "cumulativeDown": 0.1013,
+        "asymmetry": 0.1154,
+        "tUp": 9.4,
+        "tDown": 4.12,
+        "tAsymmetry": 21.14,
+        "tAsymmetryHac": 11.75,
+        "r2": 0.953,
+        "n": 90
+      },
+      "signTest": {
+        "upMonths": 44,
+        "downMonths": 46,
+        "shareDownstreamUpWhenUpstreamUp": 0.6818,
+        "shareDownstreamUpWhenUpstreamDown": 0.5217
+      },
+      "endpoints": {
+        "upstreamFirst": 62.0867,
+        "upstreamLast": 70.2744,
+        "downstreamFirst": 99.9,
+        "downstreamLast": 154.9
+      },
+      "caveats": [
+        "SNN102 dekker all fisk/skalldyr/bløtdyr, ikke bare laks — nedstrøms er kategori-bredere enn oppstrøms.",
+        "Hjemmemarkedsvarianten (Marked=01) er den som er minst eksponert for valutaeffekt; sammenlign den med eksportvarianten før noe sies om marginer."
+      ]
+    },
+    {
+      "id": "laks-foredling-marked-02",
+      "label": "Lakseråpris → foredlings-PPI (PPI SNN102, eksportmarked)",
+      "upstream": "SSB 03024 fersk oppalen laks, kilopris (NOK/kg, volumvektet uke→måned)",
+      "downstream": "SSB 12462 PPI SNN102, eksportmarked (2021=100)",
+      "fxControl": "Norges Bank USDNOK",
+      "window": {
+        "from": "2019M01",
+        "to": "2026M07",
+        "months": 91,
+        "maxLag": 3
+      },
+      "distributedLag": {
+        "cumulativeUp": 0.3467,
+        "cumulativeDown": 0.0669,
+        "asymmetry": 0.2798,
+        "tUp": 3.22,
+        "tDown": 0.6,
+        "tAsymmetry": 1.37,
+        "tAsymmetryHac": 1.52,
+        "r2": 0.409,
+        "n": 87
+      },
+      "distributedLagFxControlled": {
+        "cumulativeUp": 0.2499,
+        "cumulativeDown": 0.1282,
+        "asymmetry": 0.1217,
+        "tUp": 2.55,
+        "tDown": 1.29,
+        "tAsymmetry": 0.66,
+        "tAsymmetryHac": 0.66,
+        "r2": 0.5393,
+        "n": 87
+      },
+      "cumulativeLevels": {
+        "cumulativeUp": 0.255,
+        "cumulativeDown": 0.0459,
+        "asymmetry": 0.2091,
+        "tUp": 7.9,
+        "tDown": 1.24,
+        "tAsymmetry": 26.39,
+        "tAsymmetryHac": 15.09,
+        "r2": 0.9386,
+        "n": 90
+      },
+      "cumulativeLevelsFxControlled": {
+        "cumulativeUp": 0.2285,
+        "cumulativeDown": 0.0249,
+        "asymmetry": 0.2036,
+        "tUp": 6.14,
+        "tDown": 0.63,
+        "tAsymmetry": 23.1,
+        "tAsymmetryHac": 11.34,
+        "r2": 0.9399,
+        "n": 90
+      },
+      "signTest": {
+        "upMonths": 44,
+        "downMonths": 46,
+        "shareDownstreamUpWhenUpstreamUp": 0.75,
+        "shareDownstreamUpWhenUpstreamDown": 0.5
+      },
+      "endpoints": {
+        "upstreamFirst": 62.0867,
+        "upstreamLast": 70.2744,
+        "downstreamFirst": 99.6,
+        "downstreamLast": 193.2
+      },
+      "caveats": [
+        "SNN102 dekker all fisk/skalldyr/bløtdyr, ikke bare laks — nedstrøms er kategori-bredere enn oppstrøms.",
+        "Hjemmemarkedsvarianten (Marked=01) er den som er minst eksponert for valutaeffekt; sammenlign den med eksportvarianten før noe sies om marginer."
+      ]
+    },
+    {
+      "id": "for-oppdrett-fishmeal",
+      "label": "Fôrråvare (fiskemel) → lakseråpris",
+      "upstream": "Verdensbanken Pink Sheet fiskemel (USD/tonn)",
+      "downstream": "SSB 03024 fersk oppalen laks, kilopris (NOK/kg)",
+      "fxControl": "Norges Bank USDNOK",
+      "window": {
+        "from": "2019M01",
+        "to": "2026M07",
+        "months": 91,
+        "maxLag": 3
+      },
+      "distributedLag": {
+        "cumulativeUp": 1.1425,
+        "cumulativeDown": -4.4236,
+        "asymmetry": 5.5661,
+        "tUp": 0.8,
+        "tDown": -2.15,
+        "tAsymmetry": 1.82,
+        "tAsymmetryHac": 1.9,
+        "r2": 0.1043,
+        "n": 87
+      },
+      "distributedLagFxControlled": {
+        "cumulativeUp": 1.1431,
+        "cumulativeDown": -4.4256,
+        "asymmetry": 5.5687,
+        "tUp": 0.8,
+        "tDown": -2.11,
+        "tAsymmetry": 1.79,
+        "tAsymmetryHac": 1.94,
+        "r2": 0.1043,
+        "n": 87
+      },
+      "cumulativeLevels": {
+        "cumulativeUp": 0.9077,
+        "cumulativeDown": 0.5454,
+        "asymmetry": 0.3623,
+        "tUp": 3.25,
+        "tDown": 1.27,
+        "tAsymmetry": 2.05,
+        "tAsymmetryHac": 1.58,
+        "r2": 0.3982,
+        "n": 90
+      },
+      "cumulativeLevelsFxControlled": {
+        "cumulativeUp": 0.773,
+        "cumulativeDown": 0.7865,
+        "asymmetry": -0.0135,
+        "tUp": 3.06,
+        "tDown": 2.03,
+        "tAsymmetry": -0.08,
+        "tAsymmetryHac": -0.06,
+        "r2": 0.5199,
+        "n": 90
+      },
+      "signTest": {
+        "upMonths": 46,
+        "downMonths": 41,
+        "shareDownstreamUpWhenUpstreamUp": 0.5,
+        "shareDownstreamUpWhenUpstreamDown": 0.4878
+      },
+      "endpoints": {
+        "upstreamFirst": 1486,
+        "upstreamLast": 2105,
+        "downstreamFirst": 62.0867,
+        "downstreamLast": 70.2744
+      },
+      "caveats": [
+        "PROXY: importert råvarepris i USD, ikke en norsk fôr-PPI. En native månedlig norsk fôr-PPI finnes ikke (verifisert mot SSB 12462 — kun sammenblandet SNN108).",
+        "Fôrråvarer prises i USD mens lakseprisen er i NOK; les alltid den valutakontrollerte varianten sammen med den ukontrollerte.",
+        "Råvarepris er ikke fôrpris: fôrprodusentenes marginer, resept-endringer og kontraktsstruktur ligger mellom."
+      ]
+    },
+    {
+      "id": "for-oppdrett-soybeanMeal",
+      "label": "Fôrråvare (soyamel) → lakseråpris",
+      "upstream": "Verdensbanken Pink Sheet soyamel (USD/tonn)",
+      "downstream": "SSB 03024 fersk oppalen laks, kilopris (NOK/kg)",
+      "fxControl": "Norges Bank USDNOK",
+      "window": {
+        "from": "2019M01",
+        "to": "2026M07",
+        "months": 91,
+        "maxLag": 3
+      },
+      "distributedLag": {
+        "cumulativeUp": 1.0092,
+        "cumulativeDown": -0.471,
+        "asymmetry": 1.4802,
+        "tUp": 1.78,
+        "tDown": -0.63,
+        "tAsymmetry": 1.32,
+        "tAsymmetryHac": 1.54,
+        "r2": 0.1537,
+        "n": 87
+      },
+      "distributedLagFxControlled": {
+        "cumulativeUp": 1.0093,
+        "cumulativeDown": -0.471,
+        "asymmetry": 1.4803,
+        "tUp": 1.74,
+        "tDown": -0.62,
+        "tAsymmetry": 1.29,
+        "tAsymmetryHac": 1.49,
+        "r2": 0.1537,
+        "n": 87
+      },
+      "cumulativeLevels": {
+        "cumulativeUp": 0.4222,
+        "cumulativeDown": 0.1699,
+        "asymmetry": 0.2523,
+        "tUp": 3.96,
+        "tDown": 1.53,
+        "tAsymmetry": 7.24,
+        "tAsymmetryHac": 4.71,
+        "r2": 0.431,
+        "n": 90
+      },
+      "cumulativeLevelsFxControlled": {
+        "cumulativeUp": 0.3616,
+        "cumulativeDown": 0.2349,
+        "asymmetry": 0.1268,
+        "tUp": 3.76,
+        "tDown": 2.35,
+        "tAsymmetry": 3.11,
+        "tAsymmetryHac": 2.64,
+        "r2": 0.5498,
+        "n": 90
+      },
+      "signTest": {
+        "upMonths": 37,
+        "downMonths": 49,
+        "shareDownstreamUpWhenUpstreamUp": 0.5676,
+        "shareDownstreamUpWhenUpstreamDown": 0.449
+      },
+      "endpoints": {
+        "upstreamFirst": 362,
+        "upstreamLast": 398,
+        "downstreamFirst": 62.0867,
+        "downstreamLast": 70.2744
+      },
+      "caveats": [
+        "PROXY: importert råvarepris i USD, ikke en norsk fôr-PPI. En native månedlig norsk fôr-PPI finnes ikke (verifisert mot SSB 12462 — kun sammenblandet SNN108).",
+        "Fôrråvarer prises i USD mens lakseprisen er i NOK; les alltid den valutakontrollerte varianten sammen med den ukontrollerte.",
+        "Råvarepris er ikke fôrpris: fôrprodusentenes marginer, resept-endringer og kontraktsstruktur ligger mellom."
+      ]
+    }
+  ]
+}
