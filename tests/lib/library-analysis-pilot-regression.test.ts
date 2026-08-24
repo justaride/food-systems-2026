@@ -277,23 +277,36 @@ describe('IG-006 automated-only pilot regression', () => {
         reusableForAiContext: number
       }>
       humanReferenceRounds: unknown[]
-      automatedFindingRate: { overall: number; byDataClass: Record<string, number> }
+      automatedFindingRate: { overall: number; critical: number; basis: string }
       automatedRejectionRate: { overall: number; byDataClass: Record<string, number> }
       analysisValidatorDisagreementRate: number
     }
 
-    assert.equal(calibration.state, 'pilot_complete')
+    assert.equal(calibration.state, 'sample_calibrated')
     assert.deepEqual(calibration.humanReferenceRounds, [])
-    assert.deepEqual(calibration.automatedRounds, [{
+    // The pilot round stays byte-stable as the first entry; later rounds append.
+    assert.deepEqual(calibration.automatedRounds[0], {
       roundId: fixture.pilotId,
       receipt: 'research/_status/library-analysis-pilot-automated-2026-08-20.json',
       populationHash: '187667dd2fef5ef14ee27b2e2b35670f5c41afa170f29ce90184e6547653ddb3',
       populationTotal: 3,
       reusableForAiContext: 0,
-    }])
+    })
+    const sampleRound = calibration.automatedRounds.find(
+      round => (round as { roundId: string }).roundId === 'ig006-sample-calibration-2026-08-23',
+    ) as unknown as {
+      validatorSeparation: string
+      criticalRate: { count: number; denominator: number }
+      caveats: string[]
+    }
+    assert.ok(sampleRound, 'sample calibration round is registered')
+    assert.equal(sampleRound.validatorSeparation, 'same_model')
+    assert.ok(sampleRound.criticalRate.denominator >= 300, 'sample meets the plan §3 denominator')
+    assert.ok(sampleRound.caveats.length > 0, 'unmeasured strata are declared')
     assert.deepEqual(calibration.automatedFindingRate, {
-      overall: 0,
-      byDataClass: { document: 0 },
+      overall: 0.0404,
+      critical: 0.0014,
+      basis: 'ig006-sample-calibration-2026-08-23; 717 adjudicated claims',
     })
     assert.deepEqual(calibration.automatedRejectionRate, {
       overall: 1,
