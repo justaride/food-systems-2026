@@ -195,7 +195,8 @@ Begrunnelsen: **den betingelsen appen navngav som blokkerer, var allerede innfri
 
 Et par ting som er verdt å vite for den som rører dette igjen:
 
-- **`citationReadiness` i `dybdeanalyse.ts` er kun en badge.** Den mates til `EvidenceStatusBadge` og er ikke koblet til `citable-acceptance.ts`. Den faktiske gaten er den håndholdte lista der, hvor `isExternallyCitable()` returnerer `true` for `citable_with_note`. **To sannhetskilder** — det er skjørt, og verdt å samle hvis noen får anledning.
+- **Årsaken er rettet 2026-08-24: badgen utledes nå fra gaten.** Driften oppsto fordi `dybdeanalyse.ts` gjentok siterbarhetsnivået i sin egen liste, uavhengig av `citable-acceptance.ts`. Feltet `citationReadiness` er fjernet. `citationReadinessFor()` slår i stedet opp funnets `docRefs` mot acceptance-testenes lokatorer via `gateReadinessForLocators()` og bruker gatens nivå — svakeste ved flere treff. Bare når *ingen* acceptance-test dekker funnet, faller den tilbake på et eksplisitt `readinessWhenUngated`. `tests/lib/dybdeanalyse-readiness.test.ts` håndhever invarianten: nøyaktig én kilde per funn, aldri begge og aldri ingen. Refaktoren er atferdsbevarende — alle ni funn løser til samme nivå som før.
+- **Fire av ni funn er gate-dekket.** AP-3, AP-1, AP-5 og AP-2 kryss-node har en acceptance-test bak seg. AP-2 node, AP-4, AP-6, AP-7 og AP-8 har det ikke og bærer derfor et lokalt deklarert nivå. Verdt å merke seg: **AP-6 står som `citable_with_note` uten acceptance-test** — hvitbok-kapittelet omtaler det som siterbart, men gaten tester det ikke. Det er ikke drift, men et hull i testdekningen.
 - **IG-005 er fortsatt `blocked_external`**, så ingenting publiseres eksternt uansett. Den gaten ligger et annet sted enn denne badgen; å holde badgen kunstig lav implementerer ikke IG-005, den gjør bare at badgen lyver om hva som er verifisert.
 
 To presiseringer utover det:

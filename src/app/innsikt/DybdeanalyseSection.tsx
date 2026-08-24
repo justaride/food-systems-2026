@@ -2,6 +2,7 @@ import { Card } from '@/components/ui/Card'
 import { InternalBanner } from '@/components/ui/InternalBanner'
 import { EvidenceStatusBadge } from '@/components/visualization/EvidenceStatusBadge'
 import {
+  citationReadinessFor,
   DYBDEANALYSE_RULE,
   DYBDEANALYSE_UPDATED,
   dybdeanalyseFindings,
@@ -121,7 +122,7 @@ export function DybdeanalyseSection() {
               <div className="flex flex-wrap justify-end gap-1.5 max-w-[55%]">
                 <EvidenceStatusBadge
                   status={finding.evidenceStatus}
-                  citationReadiness={finding.citationReadiness}
+                  citationReadiness={citationReadinessFor(finding)}
                   citationNote={finding.citationNote}
                   detail={finding.citationNote}
                 />

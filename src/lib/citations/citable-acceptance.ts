@@ -699,6 +699,31 @@ export const ACCEPTANCE_TESTS: CitableAcceptanceTest[] = [
   },
 ]
 
+/**
+ * Svakeste readiness gaten gir for én eller flere lokatorer.
+ *
+ * Dette er oppslaget andre flater skal utlede siterbarhet fra, framfor å
+ * gjenta et nivå i egne lister. Duplisering var årsaken til at AP-3, AP-5 og
+ * AP-6 lå på `internal_context` i appen mens gaten og hvitboka sa
+ * `citable_with_note` — med badgetekster som etterlyste stikkprøver som var
+ * gjort.
+ *
+ * Returnerer `null` når ingen acceptance-test dekker lokatorene. Null betyr
+ * «gaten har ingen mening», ikke «blokkert» — kallstedet må da si eksplisitt
+ * hvilket nivå som gjelder.
+ */
+export function gateReadinessForLocators(
+  locators: string[],
+  tests: CitableAcceptanceTest[] = ACCEPTANCE_TESTS,
+): CitationReadinessLevel | null {
+  const wanted = new Set(locators.filter(Boolean))
+  if (wanted.size === 0) return null
+
+  const matched = tests.flatMap(test => test.citations.filter(citation => wanted.has(citation.locator)))
+
+  return matched.length === 0 ? null : weakestReadiness(matched)
+}
+
 function weakestReadiness(citations: CitableAcceptanceCitation[]): CitationReadinessLevel {
   if (citations.length === 0) return 'blocked_unsourced'
 
