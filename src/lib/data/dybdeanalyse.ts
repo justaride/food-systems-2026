@@ -66,9 +66,9 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
       'Gini 0,52–0,55 (2022–2025). Øverste 10 % av mottakerne får omtrent en tredjedel av tilskuddene, øverste 1 % bare ~5 %, og medianmottakeren ~250 000 kr. Nederste halvpart deler ~12 %. Konsentrasjonen er strukturdrevet (husdyr/areal) og peker mot at makten ligger i marked/distribusjon, ikke i selve støtten.',
     evidenceStatus: 'observed',
     citationNote:
-      'Gjelder 2022–2024: avstemt mot publisert primærtotal (2024: 18,61 mrd mot publisert 18,39 mrd) og reprodusert identisk 2026-08-24. 2025 er IKKE avstemt og skal holdes utenfor ekstern bruk til det er gjort. Lever alltid med struktur-forbeholdet (husdyr/areal).',
+      'Alle fire år (2022–2025) er avstemt mot publisert primærtotal og reprodusert 2026-08-24. Avviket mot Landbruksdirektoratets februar-utbetaling (+1,2 % for 2024, +1,4 % for 2025) skyldes juni-etterbetalinger som ligger i årsdatasettet. Lever alltid med struktur-forbeholdet (husdyr/areal).',
     coverageNote:
-      'Dekning: 2022–2025. 2024 lukket 2026-06-14 (tidligere «kun 3 av 15 ordninger» var en kolonnematch-bug, nå fikset; total 18,61 mrd verifisert mot publisert 18,39 mrd). 2022–2024 ble reprodusert identisk 2026-08-24; 2025 (18,97 mrd, Gini 0,547) er lagt til, men ennå ikke avstemt mot publisert primærtotal.',
+      'Dekning: 2022–2025. 2024 lukket 2026-06-14 (tidligere «kun 3 av 15 ordninger» var en kolonnematch-bug, nå fikset; total 18,61 mrd verifisert mot publisert 18,39 mrd). 2022–2024 ble reprodusert identisk 2026-08-24; 2025 (18,97 mrd, Gini 0,547) er lagt til og avstemt mot publisert hovedutbetaling «nærmere 18,7 mrd» (11.02.2026).',
     method: 'Reproduserbart skript mot Landbruksdirektoratets åpne data; Gini/Lorenz enhetstestet.',
     figure: 'lorenz',
     tags: ['tilskudd', 'gini', 'konsentrasjon'],
@@ -78,7 +78,7 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
       'Ikke fremstill den tidligere 2024-totalen (10,94 mrd) som reell nedgang — det var et skript-artefakt, nå rettet.',
       'Ikke kall konsentrasjonen urettferdig uten struktur-/policy-kontekst.',
       'Ikke presenter 2022→2025 (0,521→0,547) som en etablert stigende trend — fire årspunkter uten usikkerhetsestimat bærer ingen trendpåstand.',
-      'Ikke bruk 2025-tallene (36 728 mottakere, 18,97 mrd, Gini 0,547) eksternt — året er ennå ikke avstemt mot publisert primærtotal. Det citerbare vinduet er 2022–2024.',
+      'Ikke oppgi totalene som eksakte kronetall — avstemmingen mot publisert total er på prosentnivå, siden pressemeldingene runder av.',
     ],
     docRefs: ['docs/project/analysis/food-tg-ap3-tilskuddskonsentrasjon-funn-2026-06-14.md'],
   },
@@ -189,7 +189,6 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     kortFunn:
       'Fire konsern (Mowi, SalMar, Lerøy, Cermaq) kontrollerer ~57 % av sjøbasert MTB (CR4 57 %, HHI ~929). Regnes alle kommersielle matfisk-tillatelser med (inkl. store land-RAS/offshore-utviklingstillatelser) faller HHI til ~510 — de nye tillatelsene har høy nominell MTB men ligger ofte på én lokalitet og er ennå ikke i drift, så de fortynner totaltallet og maskerer at produksjonen som faktisk genererer marint restråstoff i dag er vesentlig mer konsentrert. Siden restråstoff skalerer med biomasse, er MTB-konsentrasjonen rett utgangspunkt for «hvem genererer restråstoff-strømmene».',
     evidenceStatus: 'observed',
-    readinessWhenUngated: 'citable_with_note',
     citationNote:
       'Konsern-rollup stikkprøvet mot Brønnøysund 2026-06-15 (§7b) — ingen feilallokering funnet. Restforbehold: eierandels-% er offentlig kjent men ikke register-bekreftet (→ AP-5), og MTB er tildelt kapasitet, ikke slaktevolum.',
     coverageNote:

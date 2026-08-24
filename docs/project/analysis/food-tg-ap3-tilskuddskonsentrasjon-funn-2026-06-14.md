@@ -24,11 +24,11 @@ Norske produksjons- og avløsertilskudd er **moderat konsentrert — ikke ekstre
 
 Konsentrasjonen drives av de strukturavhengige ordningene (husdyr-, areal- og kulturlandskapstilskudd), som skalerer med dyretall og areal — så en del av konsentrasjonen reflekterer gårdsstruktur, ikke «kapring». Dette er et kalibreringsfunn, ikke en anklage.
 
-**Datakvalitetsflagg:** det opprinnelige 2024-flagget er lukket — det var en skript-bug, ikke et datahull (se §4). 2025 er lagt til 2026-08-24 og er **ikke** avstemt mot publisert primærtotal ennå (se §2 og §8).
+**Datakvalitetsflagg:** ingen åpne. Det opprinnelige 2024-flagget er lukket — det var en skript-bug, ikke et datahull (se §4). 2025 ble lagt til 2026-08-24 og er avstemt mot publisert primærtotal samme dag (§4b). Alle fire år er dermed avstemt.
 
 ## 2. Tall
 
-Pålitelige år (alle ordninger til stede): **2022, 2023, 2024 og 2025** (2024 fanget etter kolonnefiks 2026-06-14; tidligere artefakt-lav. 2025 hentet 2026-08-24 med 15 ordninger i `schemeBreakdown` — full ordningsdekning, men ikke avstemt mot publisert total).
+Pålitelige år (alle ordninger til stede): **2022, 2023, 2024 og 2025** (2024 fanget etter kolonnefiks 2026-06-14; tidligere artefakt-lav. 2025 hentet 2026-08-24 med 15 ordninger i `schemeBreakdown` — full ordningsdekning, og avstemt mot publisert primærtotal 2026-08-24, se §4b).
 
 | År | Mottakere | Total (mrd NOK) | Gini (mottaker) | Topp 1 % | Topp 10 % | Median | Gini (kommune) |
 |---|---|---|---|---|---|---|---|
@@ -59,6 +59,40 @@ Regional fordeling er jevnere (Gini ~0,47 over ~350 kommuner, stabilt 2022–202
 
 Analysen fanget opprinnelig en tilsynelatende datafelle: 2024-totalen kom ut på 10,94 mrd mot 15–17 mrd for 2022–2023. Primærsjekk (§8 steg 4, 2026-06-14) viste at dette **ikke** var ufullstendige åpne data, men en **kolonnematch-bug**: Landbruksdirektoratet omdøpte beløpskolonnene fra maskin-slugger (≤2023) til prosa-etiketter i 2024-fila, og skriptet matchet eksakt på slug — så bare 3 av 15 ordninger traff. Etter fiks (`SCHEME_ALIASES` + `resolveSchemeHeaders`, enhetstestet) er reell 2024 = **18,61 mrd brutto / 18,39 mrd netto** (publisert), verifisert mot Landbruksdirektoratet + LMD (12.02.2025). 2024-konsentrasjonen (Gini 0,54, topp-10 % 33,8 %) er på linje med 2023. Disiplin-lærdommen står: et tall som *så ut* som et dramatisk kutt var et skript-artefakt — men nå **løst**, ikke bare flagget.
 
+### 4b. 2025 avstemt mot publisert primærtotal (2026-08-24)
+
+2025 ble lagt til samme dag og sto som `ikke avstemt` fram til denne sjekken.
+Avstemmingen er nå gjort på samme måte som 2024, og **2025 oppfører seg
+identisk med det allerede verifiserte året**:
+
+| Produksjonsår | Skript (brutto, hele året) | Publisert hovedutbetaling | Avvik | Skript, mottakere | Publisert, foretak |
+|---|---:|---:|---:|---:|---:|
+| 2024 | 18,61 mrd | «over 18,3 mrd» (12.02.2025) | +1,2 % | 37 016 | ~36 800 |
+| 2025 | 18,97 mrd | «nærmere 18,7 mrd» (11.02.2026) | +1,4 % | 36 728 | ~36 500 |
+
+Både beløpsavviket (+1,2 % mot +1,4 %) og mottakeravviket (~0,6 % begge år)
+er av samme størrelse og retning. 2025 har altså ikke et avvik som krever egen
+forklaring — det har samme avvik som året vi allerede har verifisert.
+
+**Hva avviket faktisk er.** Landbruksdirektoratets egen statistikkside sier at
+hovedutbetalingen skjer i slutten av februar, «med oppdateringer i juni for
+etterfølgende betalinger». Årsdatasettet skriptet summerer inneholder dermed
+legitimt mer enn februar-pressemeldingens tall. Det er en mer presis forklaring
+enn brutto/netto-formuleringen i §4, og den gjelder begge år.
+
+**Retningssjekk:** Landbruksdirektoratet oppgir at 2025-utbetalingen er «nærmere
+0,4 mrd» høyere enn året før. Skriptet gir +0,36 mrd (18,61 → 18,97). Endringen
+i nivå stemmer altså også, ikke bare nivået selv.
+
+**Forbehold som står igjen:** de publiserte tallene er avrundet i
+pressemeldingene («over 18,3», «nærmere 18,7»), så avstemmingen er på
+prosentnivå, ikke krone. For 2024 finnes en mer presis publisert netto-total
+(18,39 mrd); et tilsvarende presist 2025-tall er ikke publisert på
+Landbruksdirektoratets statistikksider pr. 2026-08-24.
+
+**Status:** 2025 går fra `intern baseline, ikke avstemt` til **avstemt på linje
+med 2024**. Det citerbare vinduet er dermed 2022–2025.
+
 ## 5. Lakmustest
 
 > Produserer pakken minst én påstand en bransjeinnsider ikke allerede vet, forsvarbar med data?
@@ -71,10 +105,10 @@ Analysen fanget opprinnelig en tilsynelatende datafelle: 2024-totalen kom ut på
 |---|---|
 | Claim-ID | CL-AP3-001 (utkast) |
 | Påstand | Norske produksjons- og avløsertilskudd er moderat konsentrert på mottakernivå (Gini ~0,52–0,55, 2022–2025); øverste 10 % får ~⅓, nederste 50 % får ~12 %. |
-| Evidens | Landbruksdirektoratet åpne data 2022–2025; mottaker-aggregat; `scripts/analyze-subsidy-concentration.ts` (matematikk + kolonneresolver enhetstestet); 2024-total verifisert mot publisert primærtotal (LMD 12.02.2025); 2022–2024 reprodusert identisk 2026-08-24; 2025 lagt til, ennå ikke avstemt. |
+| Evidens | Landbruksdirektoratet åpne data 2022–2025; mottaker-aggregat; `scripts/analyze-subsidy-concentration.ts` (matematikk + kolonneresolver enhetstestet); 2024-total verifisert mot publisert primærtotal (LMD 12.02.2025); 2022–2024 reprodusert identisk 2026-08-24; 2025-total avstemt mot publisert hovedutbetaling «nærmere 18,7 mrd» (Landbruksdirektoratet 11.02.2026), §4b. |
 | Risiko | Kan leses som «misbruk» eller fordelingsdom; struktur-effekt kan overses. |
 | Stoppspråk | Ikke si at tilskudd er «kapret av de store», ikke kall konsentrasjon urettferdig uten struktur-/policy-kontekst. (Tidligere «ikke bruk 2024-total» er løst — 2024 er verifisert, se §4.) |
-| Status | `klar-med-forbehold` — uendret. 2024 verifisert mot publisert total (§4); konsentrasjon konsistent 2022–2025. 2025 er lagt til som intern baseline, ikke avstemt — statusen er ikke oppgradert av utvidelsen. Ikke ekstern faktastemme før full operator-sekvens; lever alltid med struktur-forbeholdet. |
+| Status | `klar-med-forbehold` — uendret. 2024 verifisert mot publisert total (§4); konsentrasjon konsistent 2022–2025. 2025 er avstemt mot publisert primærtotal på linje med 2024 (§4b), så det citerbare vinduet er 2022–2025. Ikke ekstern faktastemme før full operator-sekvens; lever alltid med struktur-forbeholdet. |
 
 ## 7. Forbehold
 
@@ -83,7 +117,7 @@ Analysen fanget opprinnelig en tilsynelatende datafelle: 2024-totalen kom ut på
 - **Struktur ≠ skjevhet:** ordningene er delvis utformet etter omfang; konsentrasjon reflekterer dels gårdsstruktur.
 - **2024 verifisert/lukket** (§4) — tidligere artefakt-lav var en skript-bug, nå rettet.
 - **Fire år** (2022–2025): 0,521 → 0,541 → 0,542 → 0,547. Nivåskiftet ligger mellom 2022 og 2023; etter det er bevegelsen liten (+0,006 på to år). Behandles fortsatt som flatt-til-svakt-stigende, **ikke** som en etablert trend — fire årspunkter uten usikkerhetsestimat bærer ingen trendpåstand.
-- **2025 ikke avstemt:** 2022–2024 er avstemt mot publisert primærtotal; 2025-totalen (18,97 mrd brutto) er så langt bare skriptets aggregat. Bruk 2025 som intern baseline til avstemmingen i §8 er gjort.
+- **Avstemming er på prosentnivå, ikke krone:** de publiserte totalene er avrundet i pressemeldingene («over 18,3», «nærmere 18,7»). Avviket mellom skriptets årstotal og februar-utbetalingen (+1,2 % for 2024, +1,4 % for 2025) skyldes at årsdatasettet også inneholder juni-etterbetalinger.
 - **Mottakertallet faller** jevnt (37 748 → 36 728, −2,7 % på tre år) mens totalen stiger. Det er konsistent med kjent strukturrasjonalisering i norsk landbruk og skal ikke presenteres som et selvstendig funn fra dette datasettet.
 
 ## 8. Neste
@@ -92,8 +126,15 @@ Analysen fanget opprinnelig en tilsynelatende datafelle: 2024-totalen kom ut på
 2. Kjør AP-1 (styreoverlapp/maktnettverk) — der ligger den mer sannsynlige «makt»-historien.
 3. Hvis ønsket: AP-2 (HHI per verdikjede-node) for å teste hypotesen i §5 om at konsentrasjonen er størst utenfor produksjonstilskuddet.
 4. Løft CL-AP3-001 til claim-register ved bruk; behold som intern baseline til da.
-5. **Åpen etter 2026-08-24:** avstem 2025-totalen (18,97 mrd brutto) mot Landbruksdirektoratets publiserte netto-total for 2025, slik 2024 ble avstemt i §4. Til da står 2025 som intern baseline.
+5. ~~**Åpen etter 2026-08-24:** avstem 2025-totalen (18,97 mrd brutto) mot Landbruksdirektoratets publiserte netto-total for 2025, slik 2024 ble avstemt i §4.~~ **Gjort 2026-08-24 (§4b):** avstemt mot publisert hovedutbetaling «nærmere 18,7 mrd» (11.02.2026). Avvik +1,4 %, samme størrelse og retning som 2024s +1,2 % — forklart av juni-etterbetalinger som ligger i årsdatasettet, men ikke i februar-tallet. Retningen stemmer også: publisert endring «nærmere 0,4 mrd» mot skriptets +0,36 mrd.
+6. Hvis et mer presist publisert 2025-tall dukker opp (tilsvarende 18,39 mrd for 2024), stram avstemmingen fra prosentnivå til krone.
 
 ## 9. Verifikasjon
 
 Tall er produsert av `scripts/analyze-subsidy-concentration.ts` (kjørt 14.06.2026 for 2022–2024; reprodusert og utvidet 24.08.2026 for 2022–2025) mot Landbruksdirektoratets åpne data; rådata-aggregat i `research/analyse/ap3-tilskuddskonsentrasjon.json`. Reproduksjonen 24.08.2026 ga bit-identiske `results` for 2022–2024 mot det committede aggregatet — kilden er ikke revidert. Gini/Lorenz/topp-andel-funksjonene er enhetstestet i `tests/scripts/analyze-subsidy-concentration.test.ts` mot kjente verdier: lik fordeling → 0, [1,2,3,4] → 0,25, sterkt skjev [1,1,1,100] → 0,7209, toppandel og Lorenz-deciler. 2025-fila har 15 ordninger i `schemeBreakdown` (mot 14 i 2024), altså ingen kolonnematch-svikt av typen §4. Ingen påstand er løftet til ekstern bruk.
+
+**Kilder for avstemmingen i §4b (hentet 2026-08-24):**
+
+- Landbruksdirektoratet, «Betaler ut nærmere 18,7 milliarder kroner til norske bønder» (utbetalt 11.02.2026, ~36 500 foretak, søknader basert på produksjon i 2025) — <https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/betaler-ut-naermere-18-7-milliarder-kroner-til-norske-bonder>
+- Landbruksdirektoratet, «Betaler ut over 18,3 milliarder kroner til norske bønder» (utbetalt 12.02.2025, ~36 800 foretak, produksjonsår 2024) — <https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/betaler-ut-over-18-3-milliarder-kroner-til-norske-bonder>
+- Landbruksdirektoratet, «Tilskudd til jordbruksforetak» — kilden for at hovedutbetalingen skjer i slutten av februar med oppdateringer i juni for etterfølgende betalinger — <https://www.landbruksdirektoratet.no/nb/statistikk-og-utviklingstrekk/tilskudd-til-jordbruksforetak>

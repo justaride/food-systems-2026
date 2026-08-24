@@ -697,6 +697,37 @@ export const ACCEPTANCE_TESTS: CitableAcceptanceTest[] = [
       },
     ],
   },
+  {
+    id: 'CA-017',
+    category: 'market_concentration',
+    question:
+      'Kan vi sitere at fire konsern kontrollerer ~57 % av sjøbasert MTB i norsk laks-/ørretoppdrett, og at totaltallet underdriver konsentrasjonen?',
+    expectedSourceType:
+      'open register data (Fiskeridirektoratet Akvakulturregister) with Brønnøysund-checked konsern rollup',
+    requiredReadinessLevel: 'citable_with_note',
+    mustUse: ['docs/project/analysis/food-tg-ap6-havbrukskonsentrasjon-funn-2026-06-14.md'],
+    mustNotUse: [
+      'Lokalitetstall, MTB og restråstoffvolum brukt om hverandre — tre atskilte nivåer',
+      'Denne MTB-HHI sammenlignet direkte mot AP-2s node-HHI (ulike størrelser)',
+      'MTB framstilt som realisert slaktevolum',
+      'Restråstoff-kontroll framstilt som målt strøm eller intensjon framfor strukturell posisjon',
+    ],
+    knownCaveat:
+      'MTB er tildelt kapasitet, ikke slaktevolum. Konsern-rollupen er stikkprøvet mot Brønnøysund 2026-06-15 (§7b) uten feilallokering, men eierandels-%/ultimat eierskap er offentlig kjent og ikke register-bekreftet her (→ AP-5/Aksjonærregisteret). Per-aktør restråstoff-tonnasje er needs-data.',
+    proposedAnswer:
+      'Ja, med forbehold: CR4 ~57 % og HHI ~929 for sjøbasert MTB (n=92 innehavere), mot HHI ~510 når store land-RAS-/offshore-tillatelser regnes med — de har høy nominell MTB på få lokaliteter og fortynner totaltallet. Restråstoff-koblingen er strukturell posisjon, ikke målt strøm.',
+    citations: [
+      {
+        id: 'ap6-havbruk',
+        title: 'AP-6 havbrukskonsentrasjon og restråstoff-tilgang',
+        locator: 'docs/project/analysis/food-tg-ap6-havbrukskonsentrasjon-funn-2026-06-14.md',
+        sourceType: 'internal analysis over open register data, konsern rollup primary-checked',
+        readiness: 'citable_with_note',
+        supportsClaim:
+          'Dokumenterer CR4/HHI for sjøbasert MTB mot totalbraketten, og stikkprøven som lukket konsern-rollup-forbeholdet (§7b).',
+      },
+    ],
+  },
 ]
 
 /**

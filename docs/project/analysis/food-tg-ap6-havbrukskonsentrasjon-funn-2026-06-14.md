@@ -72,7 +72,7 @@ Ja. Det opplagte er «tre–fire store dominerer». Det ikke-opplagte er **nivå
 | Dekning | Sjøbasert matfisk laks/ørret, n=92 innehavere (konsern-rollup). Total-MTB-brakett n=140. |
 | Risiko | MTB ≠ faktisk slaktevolum (kapasitetstak); konsern-rollup på navn må stikkprøves; HHI på tildelt MTB, ikke markedsandel av slaktet volum. |
 | Stoppspråk | Ikke konflater lokalitet/MTB/restråstoffvolum. Ikke sammenlign denne HHI direkte mot AP-2s node-HHI (ulike størrelser). Restråstoff-kontroll er strukturell posisjon, ikke målt strøm eller intensjon. |
-| Status | `klar-med-forbehold` (citable_with_note) — oppgradert fra `intern baseline` 2026-06-15 etter at konsern-rollupen er stikkprøvet mot Brønnøysund (§7b: alle aktive innehaver-enheter bekreftet, ingen feilallokering, SalMar/NTS/SalmoNor/NRS-konsolidering konsistent) og restråstoffvolum delvis tallfestet (§6b). Gjenstående forbehold ved ekstern bruk: (a) eierandels-%/ultimat eierskap er offentlig kjent men ikke register-bekreftet her — krever Aksjonærregisteret (AP-5); (b) MTB ≠ slaktevolum; (c) per-aktør restråstoff-tonnasje forblir `needs-data`. |
+| Status | `klar-med-forbehold` (citable_with_note) — dekket av acceptance-test `CA-017` fra 2026-08-24; oppgradert fra `intern baseline` 2026-06-15 etter at konsern-rollupen er stikkprøvet mot Brønnøysund (§7b: alle aktive innehaver-enheter bekreftet, ingen feilallokering, SalMar/NTS/SalmoNor/NRS-konsolidering konsistent) og restråstoffvolum delvis tallfestet (§6b). Gjenstående forbehold ved ekstern bruk: (a) eierandels-%/ultimat eierskap er offentlig kjent men ikke register-bekreftet her — krever Aksjonærregisteret (AP-5); (b) MTB ≠ slaktevolum; (c) per-aktør restråstoff-tonnasje forblir `needs-data`. |
 
 ## 6. Forbehold og needs-data
 

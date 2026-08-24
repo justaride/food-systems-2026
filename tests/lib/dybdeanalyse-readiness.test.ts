@@ -74,22 +74,21 @@ describe('dybdeanalyse-funn utleder siterbarhet fra acceptance-gaten', () => {
     }
   })
 
-  it('regresjonsvern: de tre funnene som faktisk drev, står på citable_with_note', () => {
-    // AP-3 (CA-014), AP-5 og AP-2 kryss-node (CL-MAKTKART-001) er gate-dekket.
-    for (const id of ['ins-ap3-001', 'ins-ap5-001', 'ins-ap2-002']) {
+  it('regresjonsvern: de fire funnene som faktisk drev, står på citable_with_note fra gaten', () => {
+    // AP-3 (CA-014), AP-5 + AP-2 kryss-node (CL-MAKTKART-001) og AP-6 (CA-017,
+    // lagt til 2026-08-24 for å tette hullet der hvitboka omtalte AP-6 som
+    // siterbart uten at gaten testet det).
+    for (const id of ['ins-ap3-001', 'ins-ap5-001', 'ins-ap2-002', 'ins-ap6-001']) {
       const finding = dybdeanalyseFindings.find(f => f.id === id)
       assert.ok(finding, `fant ikke ${id}`)
       assert.equal(citationReadinessFor(finding), 'citable_with_note', `${id} skal være citable_with_note`)
       assert.equal(citationReadinessSourceFor(finding), 'gate', `${id} skal hente nivået fra gaten`)
+      assert.equal(
+        finding.readinessWhenUngated,
+        undefined,
+        `${id} er gate-dekket og skal ikke bære et lokalt nivå`,
+      )
     }
-
-    // AP-6 er ikke dekket av noen acceptance-test, men står som citable_with_note
-    // i hvitbok-kapittelet. Nivået er derfor deklarert lokalt — og det er verdt
-    // å vite at det ikke har en acceptance-test bak seg.
-    const ap6 = dybdeanalyseFindings.find(f => f.id === 'ins-ap6-001')
-    assert.ok(ap6)
-    assert.equal(citationReadinessSourceFor(ap6), 'ungated')
-    assert.equal(ap6.readinessWhenUngated, 'citable_with_note')
   })
 })
 
