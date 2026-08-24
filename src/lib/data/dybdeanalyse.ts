@@ -180,14 +180,14 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
   {
     id: 'ins-ap7-001',
     arbeidspakke: 'AP-7',
-    claimId: 'CL-AP7-001',
+    claimId: 'CL-AP7-001r',
     title: 'Pris-asymmetri i fiskeforedling: retning bekreftet, signifikans ikke',
     kortFunn:
       'Nedstrøms produsentprisindeks for fiskeforedling (SSB 12462, SNN102) fanger kumulativt ~0,27 av oppstrøms lakseråpris-økninger (SSB 03024), men kun ~0,13 av prisfall (2019M01–2026M07, n=91). Retningen reproduserer, men den er ikke statistisk etablert: i differansespesifikasjonen er asymmetrien ikke signifikant (t=1,25), og med valutakontroll faller den fra +0,21 til +0,08. Mønsteret er svakest i hjemmemarkedet og sterkest i eksportmarkedet — som om en vesentlig del er NOK-svekkelse. Fôr→oppdrett-leddet er separat testet og gir nullfunn.',
     evidenceStatus: 'estimated',
     citationReadiness: 'internal_context',
     citationNote:
-      'Intern baseline, svekket 2026-08-24 — ikke ekstern faktastemme. Statusrevisjon fra «STØTTET» er anbefalt og venter på eier (se §6c (e) i funnnotatet).',
+      'Intern SVEKKET — retning bekreftet, signifikans ikke etablert. Status revidert fra «STØTTET» 2026-08-24 etter reproduksjon med skript; CL-AP7-001 trukket og erstattet av CL-AP7-001r (§5 i funnnotatet). Ikke ekstern faktastemme.',
     coverageNote:
       'Dekning: 91 månedsobservasjoner 2019M01–2026M07; ett domene (laks→foredling). SNN102 dekker all fisk, ikke kun laks. Valuta er nå kontrollert (USDNOK som eksogen regressor + hjemme-/eksportmarked hver for seg) og fjerner mesteparten av asymmetrien. Fôr→oppdrett-leddet er kjørt via fôrråvare-proxy og lukket som «testet, negativt» — ikke lenger needs-data.',
     method:

@@ -36,7 +36,7 @@ Forrige handoff (2026-06-14) sto med fire AP-pakker + maktkart. Denne sesjonen k
 | AP-4 verdifangst | delvis; kjerne `needs-data` | Sjømat ~2× verdi/tonn; per-aktør volum↔margin = DB-join |
 | AP-5 konsern | `klar-med-forbehold` for struktur | 19 tverrsektorielle kontrollører; form+styre primærsjekket; eierandel-% `needs-data` |
 | AP-6 havbruk | `intern baseline` | Sjøbasert MTB CR4 57 %, HHI ~929; land-RAS fortynner totaltall |
-| AP-7 pris-asymmetri | `intern STØTTET` (valuta-forbehold) | Asymmetri bekreftet laks→foredling (NARDL t=14,0) |
+| AP-7 pris-asymmetri | `intern STØTTET` (valuta-forbehold) ⚠️ **utdatert — revidert til `intern SVEKKET` 2026-08-24** | Asymmetri bekreftet laks→foredling (NARDL t=14,0) ⚠️ **t=14,0 er trukket; se §6c i AP-7-funnnotatet** |
 | AP-8 tilskudd↔konsentrasjon | `needs-data`-kjerne + regionalt null-funn | Regionalt strukturnøytral (r≈−0,05) |
 | Syntese | `klar-med-forbehold` for struktur | CL-MAKTKART-001; CL-DAGLIGVARE-HHI-001 citable-kvalifisert m/forbehold |
 
