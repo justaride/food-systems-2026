@@ -1,6 +1,6 @@
 ---
 tittel: Food TG AP-5 — Krysseie og tverrsektoriell kontroll: funn 2026-06-14
-status: klar-med-forbehold (citable_with_note) — eierandel-% verifisert fra offentlige primærkilder 2026-06-15 (§6b); restforbehold BAMA-split (Aksjonærregister) + Reitan/ASKO inferert 100 %
+status: klar-med-forbehold (citable_with_note) — eierandel-% verifisert fra offentlige primærkilder 2026-06-15 (§6b); BAMA-splitten lukket fra BAMAs egen årsrapport 2026-08-24 (§6c, 46/34/20 — den tidligere ~46/46-inferensen var feil); restforbehold: Reitan/ASKO inferert 100 %
 eier: Gabriel
 dato: 2026-06-14
 arbeidspakke: AP-5 i docs/project/plans/food-tg-dybdeanalyse-arbeidsplan-2026-06-14.md
@@ -66,7 +66,7 @@ Det ikke-opplagte: samvirkeselskapene (Coop SA, TINE SA, Nortura SA, Felleskjøp
 
 - **Eierdekning 67 %** (183/275) — bedre enn styredata (36 %), men fortsatt delvis.
 - **Støtte-/adminledd skal ikke telles som verdikjede-integrasjon:** `research` (Animalia, Felleskjøpet Forutvikling), `property` og `holding` er industri-/forvaltningsenheter. Kjerne-integrasjonen er retail + logistikk + foredling + servering + inputs.
-- **JV/delt kontroll underrapporteres:** terskelen (≥ 50 %) gjør at delte vehikler havner som «ultimate». BAMA (eid ~46/46 av NorgesGruppen/Reitan) framstår derfor som egen topp — i realiteten er den delt kontroll mellom de to største. Konsernkartet **underdriver** dermed samkontrollen mellom de store.
+- **JV/delt kontroll underrapporteres:** terskelen (≥ 50 %) gjør at delte vehikler havner som «ultimate». BAMA framstår derfor som egen topp. *Korrigert 2026-08-24 (§6c):* den opprinnelige begrunnelsen her sa «eid ~46/46 av NorgesGruppen/Reitan … delt kontroll mellom de to største». Faktisk fordeling er **NorgesGruppen 46 %, Banan II (Nergaard) 34 %, Rema Industrier 20 %** — ingen har flertall, Reitan er minst, og en tredjepart utenfor begge kjedene holder 34 %. Terskeleffekten er reell, men BAMA er ikke et NG–Reitan-fellesvehikkel; si ikke at kartet underdriver «samkontrollen mellom de to største» på dette grunnlaget.
 - **Eierskap ≠ operativ kontroll;** ultimate ownership stikkprøves mot Brønnøysund før ekstern bruk.
 
 ## 5. Lakmustest
@@ -85,7 +85,7 @@ Det ikke-opplagte: samvirkeselskapene (Coop SA, TINE SA, Nortura SA, Felleskjøp
 | Dekning | 183/275 selskaper i eiergrafen (67 %). |
 | Risiko | Eierskap kan feiltolkes som operativ kontroll/samordning; JV-/delt kontroll undertelles; adminledd kan overtelles som integrasjon. |
 | Stoppspråk | Ikke si «samordner» eller «operativ kontroll». Ikke tell research/property/holding som verdikjede-integrasjon. Ikke bruk ultimate-eierskap eksternt før Brønnøysund-stikkprøve. |
-| Status | `klar-med-forbehold` (citable_with_note) — form + styrekontroll primærsjekket mot Brønnøysund 2026-06-14 (22/22 formmatch), og eierandel-% nå verifisert fra offentlige primærkilder 2026-06-15 (§6b): eier-identitet match for alle 9, topp-andel primærkildebelagt for 6 (Lerøy/Austevoll/SalMar/Mowi/Orkla + NorgesGruppen via SNL). Resterende forbehold: Reitan/ASKO 100 % strukturelt sikkert men inferert; **BAMAs eksakte NG/Reitan-split** trenger fortsatt Aksjonærregister el. BAMA-årsrapport; majoritetskontroll (≥50 %) gjelder kun NG/Reitan/ASKO/Lerøy/Austevoll (SalMar/Mowi/Orkla = største blokk, ikke flertall). |
+| Status | `klar-med-forbehold` (citable_with_note) — form + styrekontroll primærsjekket mot Brønnøysund 2026-06-14 (22/22 formmatch), og eierandel-% nå verifisert fra offentlige primærkilder 2026-06-15 (§6b): eier-identitet match for alle 9, topp-andel primærkildebelagt for 6 (Lerøy/Austevoll/SalMar/Mowi/Orkla + NorgesGruppen via SNL). Resterende forbehold: Reitan/ASKO 100 % strukturelt sikkert men inferert; **BAMA-splitten er lukket** 2026-08-24 fra BAMAs årsrapport (46/34/20, §6c); majoritetskontroll (≥50 %) gjelder kun NG/Reitan/ASKO/Lerøy/Austevoll (SalMar/Mowi/Orkla = største blokk, ikke flertall). |
 
 ## 6b. Eierandel-% verifisert fra offentlige primærkilder (2026-06-15)
 
@@ -101,11 +101,36 @@ CL-AP5-001-status (§6) hadde eierandel-%/≥50 %-kontroll stående som `krever-
 | NorgesGruppen ASA | Johannson-familien | **>74 %** | SNL «NorgesGruppen» (sekundær; NGs egen eierstruktur-side var utilgjengelig) | ✅ citable — konsistent med 74,4 |
 | Reitan Retail AS | Reitan-familien | **100 %** (familieeid) | SNL «Reitan Retail»; brreg-entitet bekreftet | ⚠️ inferert — 100 % strukturelt sikkert, men ikke trykt som %-tall på nåbar side |
 | ASKO Norge AS | NorgesGruppen ASA | **100 %** (heleid datter) | SNL «ASKO»; brreg-entitet bekreftet | ⚠️ inferert — 100 % strukturelt sikkert, ikke trykt som %-tall |
-| BAMA Gruppen AS | NorgesGruppen (største) + Reitan | **~46 / ~46 %** | SNL «BAMA» (NG største eier bekreftet) | 🔴 inferert — eksakt NG/Reitan-split ikke på nåbar offentlig side; trenger Aksjonærregister el. BAMA-årsrapport |
+| BAMA Gruppen AS | NorgesGruppen ASA | **46 %** (138 av 300 aksjer) | BAMA Gruppen AS årsrapport 2023, note 15 «Aksjekapital og aksjonærinformasjon», pr. 31.12.2023 | ✅ primær — **lukket 2026-08-24, se §6c. Den tidligere «~46 / ~46 %»-inferensen var feil.** |
 
 **Kontroll-nyanse (viktig for stoppspråk):** ≥50 %-majoritetskontroll er bekreftet for **NorgesGruppen (>74 %), Reitan (100 %), ASKO (100 %), Lerøy (Austevoll 52,69 %) og Austevoll (Laco 55,55 %)**. For **SalMar (44,3 %), Mowi (15,47 %) og Orkla (25,32 %)** er topp-eieren en *største aksjeblokk*, **ikke** ≥50 %-majoritet — her er «kontroll» de facto via største blokk, ikke flertall. Ikke fremstill disse tre som majoritetseid.
 
-**Stoppspråk (§6b):** «Verifisert fra offentlig årsrapport» gjelder topp-eier-andel pr. oppgitt dato, ikke et fullstendig register-kryss av hele aksjonærlista. De forventede tallene i verify-skriptet var stedvis utdaterte — bruk de primærkilde-verifiserte tallene over. Reitan/ASKO 100 % er strukturelt sikkert men inferert (ikke trykt %-tall); BAMAs eksakte split forblir det ene punktet som genuint trenger Aksjonærregisteret eller BAMAs egen årsrapport.
+**Stoppspråk (§6b):** «Verifisert fra offentlig årsrapport» gjelder topp-eier-andel pr. oppgitt dato, ikke et fullstendig register-kryss av hele aksjonærlista. De forventede tallene i verify-skriptet var stedvis utdaterte — bruk de primærkilde-verifiserte tallene over. Reitan/ASKO 100 % er strukturelt sikkert men inferert (ikke trykt %-tall). ~~BAMAs eksakte split forblir det ene punktet som genuint trenger Aksjonærregisteret eller BAMAs egen årsrapport.~~ **Lukket 2026-08-24 fra BAMAs egen årsrapport — se §6c.**
+
+### 6c. BAMA-splitten lukket — og inferensen var feil (2026-08-24)
+
+BAMA sto som det siste 🔴-punktet i §6b, med den inferte fordelingen «NorgesGruppen ~46 % / Reitan ~46 %». Note 15 i **BAMA Gruppen AS' egen årsrapport 2023** («Aksjekapital og aksjonærinformasjon», aksjonæroversikt pr. 31.12.2023) gir den faktiske fordelingen — og den er en annen:
+
+| Aksjonær | Antall aksjer | Eierandel | Stemmeandel |
+|---|---:|---:|---:|
+| NorgesGruppen ASA | 138 | **46 %** | 46 % |
+| Banan II AS | 102 | **34 %** | 34 % |
+| Rema Industrier AS | 60 | **20 %** | 20 % |
+| **Sum** | **300** | **100 %** | **100 %** |
+
+Årsrapporten oppgir også at «Banan II AS kontrolleres av styreleder Kristian Nergaard med nærstående», og at alle aksjene gir samme rettigheter.
+
+**Tre ting korrigeres:**
+
+1. **Reitan har 20 %, ikke ~46 %.** Reitan-siden er den *minste* av de tre eierne, ikke likestilt med NorgesGruppen. Lesningen av BAMA som en balansert NG–Reitan-JV holder ikke.
+2. **En tredje eier på 34 % manglet helt** i AP-5-bildet: Banan II AS (Nergaard-familien). Det er en større post enn Reitans, og den er hverken NorgesGruppen eller Reitan.
+3. **Ingen eier har ≥50 %.** BAMA har ingen majoritetseier. NorgesGruppen er største aksjonær, men kontroll kan ikke utledes av posten alene — samme disiplin som for SalMar/Mowi/Orkla i §6b.
+
+**Konsekvens for AP-1/AP-5-sammenstillingen.** AP-1 fant BAMA som bro mellom Reitan og NorgesGruppen. Broen finnes fortsatt — begge er inne på eiersiden — men den er asymmetrisk (46 mot 20) og går via et selskap der en tredjepart holder 34 %. Formuleringer som «BAMA er felleseid av de to kjedene» eller «50/50» skal ikke brukes.
+
+**Stoppspråk (§6c):** Oppgi 46 / 34 / 20 med dato (pr. 31.12.2023) og kilde. Ikke omtal BAMA som NG–Reitan-JV. Ikke utled kontroll fra NorgesGruppens 46 % — ingen har flertall. Ikke utelat Banan II.
+
+**Kilde:** BAMA Gruppen AS, årsrapport 2023, regnskap og noter, note 15 — <https://www.bama.no/siteassets/bama/arsrapport/bama-arsrapport_2023_regskap-noter.pdf>. Fordelingen er konsistent med Konkurransetilsynets og Proffs gjengivelse av aksjonærlista. 2023 er siste tilgjengelige årsrapport pr. 2026-08-24.
 
 ## 7. Forbehold
 
@@ -116,7 +141,7 @@ CL-AP5-001-status (§6) hadde eierandel-%/≥50 %-kontroll stående som `krever-
 
 ## 8. Neste
 
-1. ~~Stikkprøv ultimate ownership for topp-konsernene mot Brønnøysund~~ **— gjort:** form/styre 2026-06-14, eierandel-% fra offentlige primærkilder 2026-06-15 (§6b). Gjenstår kun BAMA-split.
+1. ~~Stikkprøv ultimate ownership for topp-konsernene mot Brønnøysund~~ **— gjort:** form/styre 2026-06-14, eierandel-% fra offentlige primærkilder 2026-06-15 (§6b), BAMA-splitten fra BAMAs årsrapport 2026-08-24 (§6c). Ingenting gjenstår på eierandel-%.
 2. Modeller delt/JV-kontroll eksplisitt (BAMA, fellesvehikler) for å fange samkontroll mellom de store.
 3. Lukk AP-1 styredata-dekning (36 %) så styre- og eierkart kan sammenstilles på likt grunnlag.
 4. **Skriv synteserapporten:** AP-1+AP-2+AP-3+AP-5 er nå et sammenhengende maktkart — kandidat for ett samlende citable uttak (etter primærsjekk).

@@ -173,11 +173,41 @@ Alle åtte arbeidspakkene er kjørt minst én gang. Status er intern baseline / 
 | AP-7 pris-asymmetri | `intern SVEKKET` — retning bekreftet, signifikans ikke etablert (revidert 2026-08-24). Fôr-leddet: `testet, negativt` | Reprodusert med skript: punktestimatene holder (~0,29 opp mot ~0,09 ned, n=91), men asymmetrien er ikke signifikant (t=1,25) og valutakontroll fjerner ~60 %. Juni-tallet «t=14,0» kom fra nivåregresjon på trendende serier og er trukket. Fôr→oppdrett gir nullfunn | `...ap7-prisasymmetri...` (funnnotat §6c + `research/analyse/ap7-prisasymmetri.json`) |
 | AP-8 tilskudd↔konsentrasjon | `needs-data`-kjerne + regionalt null-funn | Node-HHI nå delvis tilgjengelig (R11); regionalt strukturnøytral | `...ap4-ap8-partial...` |
 
-Gjenstående mot citable: eierandel-% (AP-5), logistikk-/foodservice-HHI + presise fôr-/egg-andeler (AP-2), fôr→oppdrett-PPI (AP-7), restråstoffvolum (AP-6), per-aktør volum↔margin (AP-4, DB), og full operator-sekvens.
+~~Gjenstående mot citable: eierandel-% (AP-5), logistikk-/foodservice-HHI + presise fôr-/egg-andeler (AP-2), fôr→oppdrett-PPI (AP-7), restråstoffvolum (AP-6), per-aktør volum↔margin (AP-4, DB), og full operator-sekvens.~~
+
+### Gjenstående mot citable — revidert 2026-08-24
+
+Lista over var utdatert på fem av seks punkter: den listet arbeid funnnotatene allerede hadde lukket. Kontrollert mot notatene, og delt etter **hva slags** hindring det faktisk er:
+
+**Lukket (var på lista, er gjort):**
+
+| Punkt | Lukket |
+|---|---|
+| eierandel-% (AP-5) | §6b 2026-06-15 (9 av 9 konsern) + §6c 2026-08-24 (BAMA 46/34/20 fra selskapets årsrapport) |
+| fôr→oppdrett-PPI (AP-7) | §6c (d) 2026-08-24 — kjørt via proxy, **testet negativt** |
+| logistikk-HHI (AP-2) | §12 2026-06-15 — ekte HHI 3697 sporet til Menon 2023-omsetningstall |
+| egg-andeler (AP-2) | §12 2026-06-15 — oppgradert til citable m/forbehold (HHI ~5500–6800) |
+| restråstoffvolum (AP-6) | §6b 2026-06-15 — nasjonalt ~1,13 Mt og akvakultur ~546 kt kildebelagt (SINTEF/Kontali) |
+
+**Åpent, men ikke løsbart fra åpne kilder** — dette er ikke arbeid som venter, det er data som ikke publiseres:
+
+- **Presise fôr-produsentandeler (AP-2).** Struktur er kildebelagt (4 aktører ≈ 100 %), men produsentene publiserer ikke volumandeler. Kraftfôr ~3100–3700, oppdrettsfôr ~2500–2900 står som intervall.
+- **Foodservice-distribusjon, lederandel (AP-2).** Omstridt mellom NorgesGruppens egen 36 % og bransjens 70–75 %; HHI ~2900–5400. Høyt konsentrert under enhver lesning, men ett punktanslag er ikke forsvarlig.
+- **Restråstoff-tonnasje per selskap (AP-6).** SINTEF avstår eksplisitt fra å publisere per-aktør-split.
+- **Foodservice-operatører (AP-2)** er dessuten **metodisk uegnet for HHI**, ikke needs-data: anbudsmarked med lave byttekostnader, og Konkurransetilsynet advarer at spot-andeler overdriver konsentrasjon.
+
+**Åpent og løsbart — krever DB via `prod-data-import.yml`:**
+
+- **Per-aktør volum↔margin (AP-4).** Krever `DeliveryVolume × CompanyFinancial`-join.
+- **Styredekningsutvidelse (AP-1)** 36 % → ~47 %, som er forutsetningen for å løfte AP-1 fra `internal_context`.
+
+**Åpent, avventer tredjepart:** presist publisert 2025-tall for produksjonstilskudd (AP-3) ville stramme avstemmingen fra prosentnivå til krone. Ikke noe vi kan framskynde.
+
+Til slutt: **full operator-sekvens** i `research/CITABLE-KNOWLEDGE-BASE-STATUS.md` gjenstår for alt som skal bli ekstern faktastemme, uavhengig av punktene over.
 
 *Lukket 2026-08-24:* «fôr→oppdrett-PPI (AP-7)» er ute av listen. Leddet er kjørt via proxy (Verdensbankens fôrråvarepriser → lakseråpris, med USDNOK som eksogen regressor) og lukket som **testet, negativt** — ingen asymmetrisk gjennomslag på noen horisont, vindu, råvare eller valutabehandling. Se §6c (d) i AP-7-notatet. Det som mangler er ikke data: en native norsk fôr-PPI ville ikke endret nullfunnet.
 
-*Erstattet 2026-08-24:* «eierandel-% (AP-5)» utgår som eget punkt — §6b i AP-5-notatet verifiserte topp-eier-andelen for ni av ni konsern mot offentlige primærkilder (IR-/årsrapportsider). Det som genuint gjenstår er **BAMA-splitten NG/Reitan** (krever Aksjonærregisteret eller BAMAs egen årsrapport); Reitan og ASKO står som strukturelt sikre, men inferte, 100 %. Merk også at SalMar, Mowi og Orkla har største aksjeblokk, ikke flertall, som topp-eier — de skal ikke omtales som majoritetseid.
+*Erstattet 2026-08-24:* «eierandel-% (AP-5)» er lukket. §6b verifiserte topp-eier-andelen for ni av ni konsern mot offentlige primærkilder, og §6c lukket BAMA-splitten fra selskapets egen årsrapport: **NorgesGruppen 46 %, Banan II (Nergaard) 34 %, Rema Industrier 20 %** pr. 31.12.2023. Den tidligere inferensen «~46/46 NG/Reitan» var **feil** — Reitan er minst av tre, og en tredjepart utenfor begge kjedene holder 34 %. Reitan og ASKO står fortsatt som strukturelt sikre, men inferte, 100 %. Merk også at SalMar, Mowi og Orkla har største aksjeblokk, ikke flertall, som topp-eier — de skal ikke omtales som majoritetseid.
 
 ### Statuskontroll 2026-08-24
 
