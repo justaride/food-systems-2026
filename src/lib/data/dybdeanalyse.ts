@@ -245,7 +245,7 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     claimId: 'CL-AP4-001',
     title: 'Verdifangst: sjømat skaper ~2× verdi per tonn — per-aktør-testen er lukket som ikke beregnbar',
     kortFunn:
-      'På 2024-tall flytter norsk primærlandbruk og sjømat tilnærmet lik tonnasje (3,3 mot 3,8 mill. tonn), men sjømat skaper ~2× verdi per tonn (≈16 700 mot ≈8 500 NOK GVA/tonn). Nedstrøms har detaljhandelen høyest konsentrasjon (CR3 96,6 %) men blant de laveste rapporterte prosentmarginene (NG retail-segment 2,6 %, Coop 1,0 %); Konkurransetilsynet/Oslo Economics plasserer høyere marginer oppstrøms. Selve per-aktør volum↔margin-testen er lukket 2026-08-25: den er ikke beregnbar mot denne datamodellen — leveranseregisterets leverandørside er produsenter (Producer), ikke selskaper, og kjøpersiden er tre selskaper. Det er ikke DB-tilgang som mangler.',
+      'På 2024-tall flytter norsk primærlandbruk og sjømat tilnærmet lik tonnasje (3,3 mot 3,8 mill. tonn), men sjømat skaper ~2× verdi per tonn (≈16 700 mot ≈8 500 NOK GVA/tonn). Nedstrøms har detaljhandelen høyest konsentrasjon (CR3 96,6 %) men blant de laveste rapporterte prosentmarginene (NG retail-segment 2,6 %, Coop 1,0 %); Konkurransetilsynet/Oslo Economics plasserer høyere marginer oppstrøms. Selve per-aktør volum↔margin-testen er lukket 2026-08-25: den er ikke beregnbar mot denne datamodellen — leveranseregisterets leverandørside er produsenter (Producer), ikke selskaper, og kjøpersiden er tre selskaper (målt mot prod). Alle tre har regnskap, så det er ikke finansdekning eller DB-tilgang som mangler — det er aktører å korrelere over.',
     evidenceStatus: 'observed',
     readinessWhenUngated: 'internal_context',
     citationNote:

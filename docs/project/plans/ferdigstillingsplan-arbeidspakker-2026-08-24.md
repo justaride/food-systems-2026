@@ -22,8 +22,12 @@ svaret er nei.
 
 | | Antatt i denne planen | Målt 2026-08-25 |
 |---|---|---|
-| Finansdekning | ~50 % | **16,6 %** (60 av 361) |
-| AP-4s join-univers | «dataene finnes allerede der» | **≤ 3 selskaper** |
+| Finansdekning (hele korpus) | ~50 % | **16,6 %** (60 av 361) |
+| AP-4s join-univers (kjøpersiden) | «dataene finnes allerede der» | **3 selskaper** — alle med regnskap |
+
+Bekreftet mot prod etter deploy (`f062e37`). Merk at kjøpersidens finansdekning
+er **100 %** (3 av 3): flere regnskap gjør ikke AP-4 byggbar, for regnskapene er
+der allerede. Det som mangler er aktører å korrelere over.
 
 Og grunnen er strukturell, ikke et datahull: `DeliveryVolume` har to
 selskapssider. Leverandørsiden er tom ved konstruksjon (bønder ligger i
