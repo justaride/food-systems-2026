@@ -153,9 +153,21 @@ async function fetchRoleGroups(orgNr: string): Promise<{ groups: BrregRoleGroup[
  * Idempotent upsert av styreverv — speiler enrich-offentligdata.ts: matcher
  * eksisterende på personKey+role eller navnekompatibilitet, oppdaterer da
  * provenans; ellers oppretter ny rad. Returnerer antall nye rader.
+ *
+ * Tar en strukturell klienttype framfor hele `PrismaClient`, slik at
+ * skrivestien kan testes uten DB. Det er ikke kosmetikk: denne funksjonen
+ * muterer prod og hadde ingen test før den skulle kjøres første gang.
  */
-async function upsertBoardRows(
-  prisma: PrismaClient,
+export type BoardWriteClient = {
+  boardMember: {
+    findMany: (args: unknown) => Promise<{ id: string; personKey: string; personName: string; role: string }[]>
+    updateMany: (args: unknown) => Promise<unknown>
+    create: (args: unknown) => Promise<unknown>
+  }
+}
+
+export async function upsertBoardRows(
+  prisma: BoardWriteClient,
   companyId: string,
   activeOrgNr: string,
   rows: ParsedBoardRow[],
