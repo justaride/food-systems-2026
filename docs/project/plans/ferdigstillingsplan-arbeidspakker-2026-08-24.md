@@ -44,7 +44,7 @@ Full begrunnelse i AP-4-notatet §4b; måleendringen i PR #373.
 | **O3** | ❌ **Utgår.** `analyze-value-capture.ts` ville regnet en Spearman på n ≤ 3. |
 | **O4** | ❌ **Utgår.** Ingen AP-4-funn å surface eller gate. |
 | **O2** | ⚠️ **Beholdes, men på nytt grunnlag** — se under. |
-| **O5** | Uendret. Egen økt, egen beslutning. |
+| **O5** | ✅ **Kjørt 2026-08-25 — null-funn.** Tørrkjøring gir 0 rader; dekningen er 72,0 %, ikke 36 %. Ingen skriving utført, for det finnes ingenting å skrive. Se §0b. |
 | **O6** | Utvidet: AP-4s kjerne hører nå hjemme her. |
 
 **O2 mister sin opprinnelige begrunnelse, men ikke sin verdi.** Den ble foreslått
@@ -54,6 +54,28 @@ for å låse opp AP-4. Det behovet er borte. Men `analyze-board-interlocks.ts`
 nettopp en re-kjøring av AP-1-analysen etter skrivingen. O2 bør derfor vurderes
 som infrastruktur for O5 og for senere re-kjøringer, ikke som et AP-4-steg. Den
 avgjørelsen er ikke tatt her.
+
+## 0b. Oppdatering 2026-08-25 (senere samme dag) — O5 er også et null-funn
+
+Samme mønster som AP-4, tredje gang: en billig måling foran en dyr kjøring.
+
+Tørrkjøringen (`board-coverage-dry`, run 32859020542) gir **0 nye rader**. Av 40
+selskaper i målsektorene mangler bare 5 styredata, og alle fem har orgnr som ikke
+slår opp i Brønnøysund. Dekning: 260/361 (72,0 %) → 260/361.
+
+Premisset «36 % → ~47 %» holdt ikke. `BoardMember.effectiveTo` skrives ikke av
+noe i kodebasen, så `--active-only` har aldri filtrert noe; forskjellen mellom de
+to juni-artefaktene er **tid, ikke filter**. En import landet mellom 14. og 15.
+juni, og hullet var lukket dagen etter at «36 %» ble målt.
+
+**O5 er dermed lukket uten prod-mutasjon.** Skriptet og `board-coverage`-targetet
+består og er nå testdekket — men det finnes ingenting å skrive.
+
+Restposten er datakvalitet, ikke dekning: Lerøy Seafood Group ASA står med orgnr
+975320637, mens selskapet er aktivt på 975350940. Egen beslutning; den endrer
+`Company.orgNr` i prod.
+
+**Etter dette er hele oppgavelista tom.**
 
 **Spart:** O3+O4 var estimert til 6–9 timer. De bygde på et premiss som ikke
 holdt. Det er hele poenget med å legge en billig måling foran en dyr bygging —

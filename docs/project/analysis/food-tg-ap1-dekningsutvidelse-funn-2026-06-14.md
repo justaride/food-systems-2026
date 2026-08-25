@@ -133,3 +133,69 @@ npx tsx scripts/analyze-board-interlocks.ts --out=research/analyse/ap1-styreover
 ## 9. Verifikasjon
 
 Datasettet er hentet fra Brønnøysund `/roller` 2026-06-14 og ligger i `research/analyse/ap1-board-coverage-extension-brreg-2026-06-14.json`. Den rene parsing-/personKey-kjernen er enhetstestet (`tests/lib/brreg-roles.test.ts`, 7 tester), og det DB-baserte skriptet importeres uten å kjøre main og har testet dekningsmatematikk og arg-parsing (`tests/scripts/extend-board-coverage-brreg.test.ts`). Repoets faktiske gater er grønne (`npm test` 504/504, `npm run lint`, `npm run build`, `git diff --check`). Ingen påstand er løftet til ekstern bruk; dekningstallene «etter» er projisert til den lokale kjøringen er gjennomført.
+
+## §9 — Kjørt 2026-08-25: null-funn. Hullet er borte, og «36 %» var et tidsartefakt
+
+Tørrkjøringen er utført mot prod (`prod-data-import.yml`, target
+`board-coverage-dry`, run 32859020542). Den lukker denne arbeidspakken — med
+null nye rader.
+
+```
+Dekning før: 260/361 (72,0 %). Målsektorer inputs/seafood/production:
+40 selskaper, 5 uten styredata. Behandler 5.
+  [404] × 5 — alle
+  Selskaper som fikk styredata: 0
+  Nye styreverv (rader):        0
+  Dekning: 260/361 (72,0 %) → 260/361 (72,0 %)
+```
+
+### Hvorfor premisset «36 % → ~47 %» ikke holdt
+
+**«36 %» var aldri en dekningsgrad for sittende styre.** `BoardMember.effectiveTo`
+skrives ikke av noe i kodebasen — verken skript, migrasjon eller seed. Søk i
+`scripts/`, `src/lib/` og `prisma/migrations/` gir kun treff på
+`CompanyOwnership.effectiveTo`, en annen modell. Kolonnen finnes, men fylles
+aldri. `--active-only`-filteret har derfor **aldri ekskludert en eneste rad**.
+
+Forskjellen mellom de to juni-artefaktene er tid, ikke filter:
+
+| Artefakt | Generert | Univers | Seter |
+|---|---|---|---|
+| `ap1-styreoverlapp-active-only.json` | 14.06 kl. 11:21 | 275 | 555 |
+| `ap1-styreoverlapp.json` | 15.06 kl. 12:01 | 351 | 1892 |
+
+Både univers og seter vokste over natten — en import landet mellom kjøringene.
+De 555 setene var alt som fantes 14. juni. **Dekningshullet ble altså lukket
+dagen etter at «36 %» ble målt**, og planen har båret tallet i to og en halv
+måned.
+
+Bekreftet mot prod 2026-08-25: `boardRows` 1844, `boardRowsActive` 1844,
+`withBoard` 260, `withActiveBoard` 260 — identiske par, som er signaturen på at
+`effectiveTo` aldri settes.
+
+### Følge: `ap1-styreoverlapp-active-only.json` er feilmerket
+
+De to artefaktene utgir seg for å måle ulike ting, men måler det samme. Filen
+er ikke «aktive verv» — den er «alle verv, målt 14. juni». Kjørt i dag ville de
+to gitt identiske tall. Det bør ikke siteres som en aktiv/historisk-distinksjon,
+for den distinksjonen finnes ikke i dataene.
+
+### Restposten er datakvalitet, ikke dekning
+
+De fem gjenstående selskapene mangler ikke styredata fordi Brønnøysund ikke har
+dem, men fordi orgnr-et vårt ikke slår opp:
+
+| Orgnr i DB | Selskap | Brreg |
+|---|---|---|
+| 975320637 | Lerøy Seafood Group ASA | **404 — feil nummer.** Selskapet er aktivt på **975350940** |
+| 952662813 | SalmoNor AS | 200, men `slettedato` 2021-12-27 (fusjonert inn i SalMar) |
+| 914353561 | Hallvard Lerøy AS | 404 — nummeret finnes ikke |
+| 952587687 | NTS ASA | 404 — nummeret finnes ikke (fusjonert inn i SalMar) |
+| 980358088 | Skretting Norge AS | 404 — nummeret finnes ikke |
+
+Lerøy Seafood Group ASA er det tydelige tilfellet: et aktivt konsern med feil
+orgnr i vår base. Det er en datafeil å rette, ikke et dekningshull å fylle — og
+det er en egen beslutning, siden det endrer `Company.orgNr` i prod.
+
+**Status: dekningsutvidelsen er lukket som gjennomført med null-funn.** Skriptet
+og write-targetet består (`board-coverage`), men det finnes ingenting å skrive.
