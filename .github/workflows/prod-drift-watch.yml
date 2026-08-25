@@ -1,0 +1,116 @@
+name: Prod Drift Watch
+
+# Fanger at prod og main går fra hverandre uten at noe lyser rødt.
+#
+# Bakgrunnen (målt 2026-08-25): `chore(snapshot)`-commiten b41ad9f ble laget av
+# github-actions[bot]. En push med GITHUB_TOKEN utløser per GitHubs design ingen
+# workflows, så `Coolify SHA Sync` fyrte ikke. Coolifys egen Auto Deploy bygde
+# og deployet b41ad9f likevel — men SOURCE_COMMIT ble stående på forrige verdi,
+# og /api/version rapporterte 55ed5d7 i ~40 minutter mens prod kjørte b41ad9f.
+# `builtAt` var hele tiden korrekt, så kvitteringen så fersk ut. Det ble bare
+# oppdaget fordi noen tilfeldigvis merget noe etterpå.
+#
+# Den underliggende årsaken er fjernet (den manuelle SOURCE_COMMIT-variabelen
+# er slettet, så Coolify injiserer deployens egen commit). Denne workflowen er
+# nettet under: en deploy kan fortsatt feile i etterkant og la prod bli
+# stående bak main. `aca2ac8` (#362) har en Failed-deploy fra 2026-08-24 som
+# ingen la merke til — akkurat det tilfellet denne fanger.
+#
+# Repository secrets (samme som de andre Coolify-workflowene):
+#   CF_ACCESS_CLIENT_ID / CF_ACCESS_CLIENT_SECRET
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: prod-drift-watch
+  cancel-in-progress: false
+
+env:
+  APP_DOMAIN: food-systems.naturalstateproject.com
+  # Et bygg tar ~4-8 min. Under grensen regnes avvik som «deploy underveis»,
+  # ikke som drift, slik at alarmen ikke fyrer på hver eneste merge.
+  GRACE_MINUTES: ${{ vars.PROD_DRIFT_GRACE_MINUTES || '25' }}
+
+jobs:
+  compare-runtime-to-main:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: production
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v6
+
+      - name: Compare runtime SHA against main HEAD
+        env:
+          MAIN_SHA: ${{ github.sha }}
+          CF_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: |
+          set -euo pipefail
+          version_file=$(mktemp)
+          access_header_file=$(mktemp)
+          trap 'rm -f "$version_file" "$access_header_file"' EXIT
+
+          case "$CF_ID" in
+            ''|*$'\r'*|*$'\n'*) echo '::error::Invalid Cloudflare Access client ID'; exit 1 ;;
+          esac
+          case "$CF_SECRET" in
+            ''|*$'\r'*|*$'\n'*) echo '::error::Invalid Cloudflare Access client secret'; exit 1 ;;
+          esac
+          (umask 077; {
+            printf 'CF-Access-Client-Id: %s\n' "$CF_ID"
+            printf 'CF-Access-Client-Secret: %s\n' "$CF_SECRET"
+          } > "$access_header_file")
+          chmod 600 "$access_header_file"
+          unset CF_ID CF_SECRET
+
+          http_status=$(curl -sS -m 20 --header "@$access_header_file" \
+            -o "$version_file" -w '%{http_code}' \
+            "https://$APP_DOMAIN/api/version")
+          if [ "$http_status" != "200" ]; then
+            echo "::error::/api/version svarte $http_status. 503 betyr at endepunktet ikke kan bevise hvilken commit runtime kjører — se src/app/api/version/route.ts."
+            cat "$version_file" || true
+            exit 1
+          fi
+
+          main_committed_at=$(git log -1 --format=%cI "$MAIN_SHA")
+
+          python3 - "$version_file" "$MAIN_SHA" "$main_committed_at" "$GRACE_MINUTES" <<'PY'
+          import datetime
+          import json
+          import sys
+
+          version_path, main_sha, committed_at, grace = sys.argv[1:]
+          with open(version_path, encoding='utf-8') as handle:
+              version = json.load(handle)
+
+          runtime_sha = version.get('sha')
+          if runtime_sha == main_sha:
+              print(f'OK: prod kjører main HEAD ({main_sha[:7]}), bygget {version.get("builtAt")}')
+              raise SystemExit(0)
+
+          age_minutes = (
+              datetime.datetime.now(datetime.timezone.utc)
+              - datetime.datetime.fromisoformat(committed_at)
+          ).total_seconds() / 60
+
+          if age_minutes < float(grace):
+              print(
+                  f'Avvik, men main HEAD er bare {age_minutes:.0f} min gammel '
+                  f'(grense {grace}) — deployen er trolig underveis.'
+              )
+              raise SystemExit(0)
+
+          print(
+              f'::error::Prod og main er ikke i takt. Runtime: {runtime_sha}. '
+              f'main HEAD: {main_sha} ({age_minutes:.0f} min gammel, over grensen på {grace} min). '
+              f'Sjekk deploy-historikken i Coolify for en feilet deploy.'
+          )
+          raise SystemExit(1)
+          PY

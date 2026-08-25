@@ -138,15 +138,22 @@ describe('Coolify database health workflows', () => {
     }
   })
 
-  it('keeps the automatic deployment path guarded and exact-SHA verified', () => {
+  it('verifies the deployment without writing envs or triggering its own build', () => {
     assert.match(deployVerify, /^name: Coolify SHA Sync$/m)
     assert.match(deployVerify, /push:\s*\n\s+branches:\s*\n\s+- main/)
     assert.match(deployVerify, /permissions:\s*\n\s+contents: read/)
     assert.match(deployVerify, /COOLIFY_API_TOKEN/)
-    assert.match(deployVerify, /SOURCE_COMMIT/)
-    assert.match(deployVerify, /-X POST/)
-    assert.match(deployVerify, /-X PATCH/)
-    assert.match(deployVerify, /COOLIFY_API_PATH="\/api\/v1\/deploy\?uuid=\$UUID&force=true"/)
+
+    // Kontrakten er snudd 2026-08-25. Den håndhevet før at workflowen SKREV
+    // SOURCE_COMMIT og trigget sin egen deploy. Begge deler var feil:
+    // en eksplisitt env-variabel skygget for commiten Coolify selv injiserer,
+    // så /api/version rapporterte det workflowen sist skrev framfor det som
+    // faktisk kjørte — og API-deployen doblet hver merge til to samtidige bygg.
+    // Disse tre vokter at ingen av delene sniker seg inn igjen.
+    assert.doesNotMatch(deployVerify, /-X (POST|PATCH|PUT|DELETE)/)
+    assert.doesNotMatch(deployVerify, /api\/v1\/applications\/\$UUID\/envs/)
+    assert.doesNotMatch(deployVerify, /api\/v1\/deploy\?/)
+
     assert.match(deployVerify, /COOLIFY_API_PATH="\/api\/v1\/deployments\/applications\/\$UUID"/)
     assert.match(deployVerify, /curl --config "\$curl_config_file" -fsS/)
     assert.match(deployVerify, /actual_sha != expected_sha/)
