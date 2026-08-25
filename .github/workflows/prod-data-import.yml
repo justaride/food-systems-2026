@@ -38,6 +38,8 @@ on:
           - board-coverage
           - leroy-duplicate-dry
           - leroy-duplicate
+          - financial-units-dry
+          - financial-units
       confirm:
         description: 'Type IMPORT to confirm a production database operation'
         required: true
@@ -87,12 +89,14 @@ jobs:
           cloudflared --version
 
       - name: Require a recent successful off-node backup before mutation
-        # board-coverage-dry og leroy-duplicate-dry er unntatt av samme grunn
-        # som verify-only: de skriver ingenting, og en lesende diagnose skal
-        # ikke kunne blokkeres av at en backup mangler. De skrivende
-        # `board-coverage` og `leroy-duplicate` er IKKE unntatt — sistnevnte
-        # sletter en rad, og er den kjøringen som trenger backupen mest.
-        if: ${{ inputs.target != 'verify-only' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' }}
+        # board-coverage-dry, leroy-duplicate-dry og financial-units-dry er
+        # unntatt av samme grunn som verify-only: de skriver ingenting, og en
+        # lesende diagnose skal ikke kunne blokkeres av at en backup mangler.
+        # De skrivende `board-coverage`, `leroy-duplicate` og `financial-units`
+        # er IKKE unntatt. `financial-units` rører hver eneste pengerad i
+        # korpuset og ganger 158 av dem med en million — det er den bredeste
+        # mutasjonen i denne workflowen, og den trenger backupen mest.
+        if: ${{ inputs.target != 'verify-only' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' && inputs.target != 'financial-units-dry' }}
         env:
           COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_READ_API_TOKEN }}
           COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
@@ -317,6 +321,26 @@ jobs:
                 | tee research/_status/leroy-duplicate-applied.log
               npm run db:verify
               ;;
+            financial-units-dry)
+              # Enhetsnormalisering: tørrkjøring. Rapporterer hvilke rader som
+              # står i MNOK og hva de ville blitt — uten å røre DB-en.
+              # Aksept før ekte kjøring: BLOKKERT = 0 og «uten kilde» = 0.
+              mkdir -p research/_status
+              npx tsx scripts/normalize-financial-units.ts \
+                --json-out=research/_status/financial-units-dryrun.json \
+                | tee research/_status/financial-units-dryrun.log
+              ;;
+            financial-units)
+              # Ekte kjøring: konverterer MNOK-radene i CompanyFinancial til rå
+              # NOK (revenueNok, operatingResult, ebitda). Skriptet er
+              # idempotent — felt som allerede står over båndet røres ikke — så
+              # en gjenkjøring er en no-op, ikke en dobbeltkonvertering.
+              mkdir -p research/_status
+              npx tsx scripts/normalize-financial-units.ts --apply \
+                --json-out=research/_status/financial-units-applied.json \
+                | tee research/_status/financial-units-applied.log
+              npm run db:verify
+              ;;
             *)
               echo "::error::Unsupported prod data import target: $TARGET"
               exit 1
@@ -369,6 +393,17 @@ jobs:
           path: |
             research/_status/leroy-duplicate-*.json
             research/_status/leroy-duplicate-*.log
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Upload financial-unit normalization evidence
+        if: ${{ always() && (inputs.target == 'financial-units-dry' || inputs.target == 'financial-units') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: financial-units-${{ inputs.target }}-${{ github.run_id }}
+          path: |
+            research/_status/financial-units-*.json
+            research/_status/financial-units-*.log
           if-no-files-found: warn
           retention-days: 90
 

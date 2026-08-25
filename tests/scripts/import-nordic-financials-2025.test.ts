@@ -41,6 +41,11 @@ describe('import-nordic-financials-2025', () => {
       )
 
       const data = mod.companyFinancialDataForRow(mod.NORDIC_FINANCIAL_2025_ROWS[0])
+      // Radene står i MNOK, kolonnen er rå NOK. Uten konverteringen her ville
+      // en ny kjøring gjeninnført MNOK i et normalisert korpus.
+      assert.equal(mod.NORDIC_FINANCIAL_2025_ROWS[0].revenueNok, 150781.97)
+      assert.equal(data.revenueNok, 150_781_970_000)
+      assert.equal(data.operatingResult, mod.NORDIC_FINANCIAL_2025_ROWS[0].operatingResult * 1_000_000)
       assert.equal(data.verificationStatus, 'human_verified')
       assert.equal(data.verifiedAt.toISOString(), '2026-07-02T00:00:00.000Z')
       assert.equal(data.reportingCurrency, 'SEK')

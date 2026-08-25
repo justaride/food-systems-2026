@@ -1,5 +1,6 @@
 import 'dotenv/config'
 import { canonicalPersonKey as normalizePersonKey } from '../src/lib/person-key'
+import { millionNokToRawNok } from '../src/lib/queries/financial-units'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import {
@@ -24,6 +25,11 @@ type CompanyData = {
   employees?: number
   ownershipType: string
   valueChainStage: string
+  /**
+   * Beløpene i tabellene under står i MNOK — det er enheten årsrapportene
+   * oppgir, og den holder literalene lesbare. DB-kolonnen er rå NOK, så
+   * `millionNokToRawNok()` konverterer ved skriving. Se `prisma/schema.prisma`.
+   */
   financials?: {
     year: number
     revenueNok?: number
@@ -924,7 +930,7 @@ const companies: CompanyData[] = [
     valueChainStage: 'retail',
     financials: [
       // Franchise-/IP-selskapet i Reitan-strukturen (NACE 77.400), ikke konsolidert kjedeomsetning.
-      // Tall stored i MNOK (source-streng trigger million-konvertering i financialAmountToNok).
+      // Tall i MNOK, som resten av tabellene; konverteres til rå NOK ved skriving.
       { year: 2025, revenueNok: 5890, operatingResult: 970, operatingMargin: 16.5, groupEmployees: 550, source: 'Regnskapsregisteret (Brønnøysund) API regnskap/982254604, årsregnskap 2025 key figures — driftsinntekter 5 889,6 MNOK, driftsresultat 970,2 MNOK; antallAnsatte fra Enhetsregisteret; hentet 2026-06-16' },
     ],
     shareholders: [
@@ -1551,24 +1557,17 @@ async function main() {
 
     if (c.financials) {
       for (const f of c.financials) {
+        const financialData = {
+          revenueNok: millionNokToRawNok(f.revenueNok),
+          operatingResult: millionNokToRawNok(f.operatingResult),
+          operatingMargin: f.operatingMargin,
+          groupEmployees: f.groupEmployees,
+          source: f.source,
+        }
         await prisma.companyFinancial.upsert({
           where: { companyId_year: { companyId: company.id, year: f.year } },
-          update: {
-            revenueNok: f.revenueNok,
-            operatingResult: f.operatingResult,
-            operatingMargin: f.operatingMargin,
-            groupEmployees: f.groupEmployees,
-            source: f.source,
-          },
-          create: {
-            companyId: company.id,
-            year: f.year,
-            revenueNok: f.revenueNok,
-            operatingResult: f.operatingResult,
-            operatingMargin: f.operatingMargin,
-            groupEmployees: f.groupEmployees,
-            source: f.source,
-          },
+          update: financialData,
+          create: { companyId: company.id, year: f.year, ...financialData },
         })
       }
     }

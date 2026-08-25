@@ -1008,10 +1008,26 @@ model CompanyFinancial {
   id                 String    @id @default(cuid())
   companyId          String
   year               Int
+  /// ENHET: rå NOK (kroner) — ikke MNOK, ikke tNOK. Gjelder også
+  /// `operatingResult` og `ebitda`. NorgesGruppen 2024 = 118000000000.
+  ///
+  /// Korpuset lå tidligere i to enheter samtidig: registerimportene skrev rå
+  /// NOK, seed-importene MNOK. All sammenligning på tvers av selskaper var
+  /// dermed feil med faktor 10^6 for en delmengde. Normalisert av
+  /// `scripts/normalize-financial-units.ts`, som også forklarer hvorfor
+  /// enheten må avgjøres av kilde og ikke av størrelsesorden: rå-NOK-rader
+  /// går helt ned i 20 og 0 kroner.
+  ///
+  /// Nye importstier MÅ skrive rå NOK. Har du tall i MNOK, gang med
+  /// 1_000_000 ved skriving, slik tre-importene gjør.
   revenueNok         Decimal?  @db.Decimal(15, 2)
+  /// Rå NOK, samme enhet som `revenueNok`.
   operatingResult    Decimal?  @db.Decimal(15, 2)
+  /// Prosent, ikke beløp — røres ikke av enhetsnormaliseringen.
   operatingMargin    Decimal?  @db.Decimal(5, 2)
+  /// Rå NOK, samme enhet som `revenueNok`.
   ebitda             Decimal?  @db.Decimal(15, 2)
+  /// Prosent, ikke beløp — røres ikke av enhetsnormaliseringen.
   equityRatio        Decimal?  @db.Decimal(5, 2)
   groupEmployees     Int?
   source             String?
