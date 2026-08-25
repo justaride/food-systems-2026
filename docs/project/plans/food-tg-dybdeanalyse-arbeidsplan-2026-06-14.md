@@ -167,7 +167,7 @@ Alle åtte arbeidspakkene er kjørt minst én gang. Status er intern baseline / 
 | AP-1 styrer | `klar-med-forbehold` | Primærsjekket (9/10 broer) + dekningsutvidelse klar (36 %→~47 %) | `...ap1-styreoverlapp...`, `...ap1-dekningsutvidelse...` |
 | AP-2 eierskap | `klar-med-forbehold` for kryss-node-HHI | Ekte markeds-HHI for 5/8 noder; **konsentrasjonen topper i foredling (samvirke), ikke retail** | `...ap2-nodekonsentrasjon...`, `...ap2-kryssnode-hhi...`, `...section8-3-4...` |
 | AP-3 tilskudd | `klar-med-forbehold` | 2024 lukket (var skript-bug); Gini 0,52–0,55, **2022–2025 — alle fire år avstemt** mot publisert primærtotal (2025 lukket 2026-08-24, §4b) | `...ap3-tilskuddskonsentrasjon...` |
-| AP-4 verdifangst | delvis; kjerne `needs-data` | Sjømat ~2× verdi/tonn; per-aktør volum↔margin krever DB-join | `...ap4-ap8-partial...` |
+| AP-4 verdifangst | delvis; kjerne **lukket — ikke beregnbar som spesifisert** (2026-08-25) | Sjømat ~2× verdi/tonn står. Per-aktør volum↔margin er ikke DB-tilgang som mangler: leverandørsiden er `Producer`, ikke `Company`, og kjøpersiden er tre selskaper (n ≤ 3). Målt finansdekning 16,6 %, ikke ~50 % | `...ap4-ap8-partial...` §4b |
 | AP-5 konsern | `klar-med-forbehold (citable_with_note)` | Form, styrekontroll og eierandel-% primærsjekket (§6b, ni av ni konsern mot IR-/årsrapport). Restforbehold: BAMA-splitten NG/Reitan | `...ap5-krysseie...`, `...maktkart-bronnoysund-stikkprove...` |
 | AP-6 havbruk | `klar-med-forbehold (citable_with_note)` | Sjøbasert MTB CR4 57 %, HHI ~929; land-RAS fortynner totaltall. Konsern-rollup stikkprøvet mot Brønnøysund (§7b). Restforbehold: eierandels-% + MTB ≠ slaktevolum | `...ap6-havbrukskonsentrasjon...` |
 | AP-7 pris-asymmetri | `intern SVEKKET` — retning bekreftet, signifikans ikke etablert (revidert 2026-08-24). Fôr-leddet: `testet, negativt` | Reprodusert med skript: punktestimatene holder (~0,29 opp mot ~0,09 ned, n=91), men asymmetrien er ikke signifikant (t=1,25) og valutakontroll fjerner ~60 %. Juni-tallet «t=14,0» kom fra nivåregresjon på trendende serier og er trukket. Fôr→oppdrett gir nullfunn | `...ap7-prisasymmetri...` (funnnotat §6c + `research/analyse/ap7-prisasymmetri.json`) |
@@ -189,7 +189,7 @@ Lista over var utdatert på fem av seks punkter: den listet arbeid funnnotatene 
 | egg-andeler (AP-2) | §12 2026-06-15 — oppgradert til citable m/forbehold (HHI ~5500–6800) |
 | restråstoffvolum (AP-6) | §6b 2026-06-15 — nasjonalt ~1,13 Mt og akvakultur ~546 kt kildebelagt (SINTEF/Kontali) |
 
-**Åpent, men ikke løsbart fra åpne kilder** — dette er ikke arbeid som venter, det er data som ikke publiseres:
+**Lukket — ikke tilgjengelig fra åpne kilder** *(omklassifisert 2026-08-25, O6)*. Disse sto som «åpent», og det er misvisende: ingen av dem venter på arbeid. De publiseres ikke av noen, og skal ikke telle som gjenstående. Begrunnelse per punkt:
 
 - **Presise fôr-produsentandeler (AP-2).** Struktur er kildebelagt (4 aktører ≈ 100 %), men produsentene publiserer ikke volumandeler. Kraftfôr ~3100–3700, oppdrettsfôr ~2500–2900 står som intervall.
 - **Foodservice-distribusjon, lederandel (AP-2).** Omstridt mellom NorgesGruppens egen 36 % og bransjens 70–75 %; HHI ~2900–5400. Høyt konsentrert under enhver lesning, men ett punktanslag er ikke forsvarlig.
@@ -198,10 +198,31 @@ Lista over var utdatert på fem av seks punkter: den listet arbeid funnnotatene 
 
 **Åpent og løsbart — krever DB via `prod-data-import.yml`:**
 
-- **Per-aktør volum↔margin (AP-4).** Krever `DeliveryVolume × CompanyFinancial`-join.
 - **Styredekningsutvidelse (AP-1)** 36 % → ~47 %, som er forutsetningen for å løfte AP-1 fra `internal_context`.
 
-**Åpent, avventer tredjepart:** presist publisert 2025-tall for produksjonstilskudd (AP-3) ville stramme avstemmingen fra prosentnivå til krone. Ikke noe vi kan framskynde.
+~~**Per-aktør volum↔margin (AP-4).** Krever `DeliveryVolume × CompanyFinancial`-join.~~
+**Lukket 2026-08-25 — ikke beregnbar som spesifisert.** Se AP-4-notatet §4b. Kort:
+`DeliveryVolume` har to selskapssider, og leverandørsiden er tom ved konstruksjon
+(bønder ligger i `Producer`, ikke `Company`, etter produsentseparasjonen — så
+«bro via `Company.id`» beskriver en kobling som ikke finnes). Kjøpersiden er
+foredlingsleddet, og `import-leveransedata.ts` — eneste skriver av
+`DeliveryVolume` — har tre distinkte kjøpere. Med n ≤ 3 er Spearman på tvers av
+aktører uten fortolkning. Målt finansdekning er dessuten 16,6 %, ikke ~50 %.
+**Dette er ikke DB-tilgang som mangler.** AP-1 er nå den eneste gjenstående
+posten i denne kategorien.
+
+**Åpent, avventer tredjepart** *(eneste kategori som faktisk venter på noe)***:** presist publisert 2025-tall for produksjonstilskudd (AP-3) ville stramme avstemmingen fra prosentnivå til krone. Ikke noe vi kan framskynde.
+
+> **Hvorfor skillet er verdt sin plass (O6, 2026-08-25).** «Ikke gjort ennå» og «kan ikke gjøres» ser like ut på en liste, og koster helt ulikt å møte. Denne planen har sett den forvekslingen gå i loop flere ganger — senest ved at AP-4 sto som DB-arbeid som ventet, mens den i virkeligheten ikke var beregnbar mot datamodellen i det hele tatt. Kategoriene over er derfor sorterte etter **hva slags hindring** det er, ikke etter hvor mye som gjenstår:
+>
+> | Kategori | Hva den betyr | Gjenstående arbeid |
+> |---|---|---|
+> | Lukket — ikke tilgjengelig | Data publiseres ikke av noen | Ingen |
+> | Lukket — ikke beregnbar | Metoden passer ikke datamodellen | Ingen *(ny metode ville vært ny pakke)* |
+> | Avventer tredjepart | Noen andre må publisere først | Ingen, men kan gjenåpnes |
+> | Åpent og løsbart | Krever vår innsats | Reelt |
+>
+> Bare siste rad er en oppgaveliste. Etter 2026-08-25 inneholder den **én** post: AP-1 dekningsutvidelse.
 
 Til slutt: **full operator-sekvens** i `research/CITABLE-KNOWLEDGE-BASE-STATUS.md` gjenstår for alt som skal bli ekstern faktastemme, uavhengig av punktene over.
 
