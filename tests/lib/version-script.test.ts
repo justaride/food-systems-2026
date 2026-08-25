@@ -42,7 +42,7 @@ describe('version script wiring', () => {
 
       assert.equal(version.sha, sourceCommit)
       assert.equal(version.shortSha, sourceCommit.slice(0, 7))
-      assert.equal(version.shaSource, 'manual-env')
+      assert.equal(version.shaSource, 'coolify-build')
       assert.equal(version.branch, 'main')
     } finally {
       rmSync(workdir, { recursive: true, force: true })
@@ -108,11 +108,11 @@ function runOutsideGit(env: Record<string, string>) {
 }
 
 describe('write-version shaSource', () => {
-  it('merker SOURCE_COMMIT som manual-env så lenge den vedlikeholdes utenfra', () => {
+  it('merker SOURCE_COMMIT som coolify-build, siden Coolify injiserer deployens commit', () => {
     const version = runOutsideGit({ SOURCE_COMMIT: 'c'.repeat(40) })
 
     assert.equal(version.sha, 'c'.repeat(40))
-    assert.equal(version.shaSource, 'manual-env')
+    assert.equal(version.shaSource, 'coolify-build')
   })
 
   // Kjeden foretrakk tidligere COOLIFY_GIT_COMMIT_SHA, og testen som «beviste»

@@ -11,10 +11,9 @@
  *
  * 2. `SOURCE_COMMIT` er den ENESTE variabelen Coolify injiserer med deployens
  *    egen commit, og bare når per-app-innstillingen
- *    `include_source_commit_in_build` er slått PÅ. Den står AV for denne appen
- *    per 2026-08-16, så verdien er fortsatt den en workflow setter utenfra —
- *    derfor er stempelet fremdeles `manual-env`. Slås innstillingen på, kommer
- *    verdien fra deployen selv og kan ikke bli stale.
+ *    `include_source_commit_in_build` er slått PÅ. Den STÅR PÅ (verifisert i
+ *    Coolify-UI 2026-08-25), så verdien kommer fra deployen selv og kan ikke
+ *    bli stale — derfor er stempelet `coolify-build`.
  *
  * `COOLIFY_GIT_COMMIT_SHA` er fjernet. Den finnes ikke i Coolifys kildekode;
  * kjeden foretrakk en variabel som aldri blir satt, og testen som «beviste»
@@ -22,13 +21,16 @@
  * motsatt grunn: de kunne bare komme utenfra bygget, og det var nettopp den
  * stien som løy.
  *
- * Bakgrunn: fram til 2026-08-16 holdt workflowen `coolify-sync-source-commit`
- * SOURCE_COMMIT synkronisert utenfra. Den sluttet å kunne fyre da de daglige
- * commitene til main ble laget av `github-actions[bot]` — en push med
- * GITHUB_TOKEN utløser per GitHubs design ingen workflows. Coolifys egen
- * webhook-deploy brydde seg ikke, så imaget avanserte hver dag mens
- * /api/version ble stående på 9443177b fra 11. august. Verdien var fem dager
- * gammel og så helt fersk ut, fordi `builtAt` var korrekt.
+ * Bakgrunn: fram til 2026-08-25 skrev workflowen `coolify-sync-source-commit`
+ * en eksplisitt SOURCE_COMMIT-miljøvariabel til appen, og den SKYGGET for den
+ * Coolify injiserer. Workflowen sluttet å kunne fyre da de daglige commitene
+ * til main ble laget av `github-actions[bot]` — en push med GITHUB_TOKEN
+ * utløser per GitHubs design ingen workflows. Coolifys egen webhook-deploy
+ * brydde seg ikke, så imaget avanserte mens /api/version ble stående: fem
+ * dager på 9443177b i august, og ~40 minutter på 55ed5d7 den 25. mens prod
+ * kjørte b41ad9f. Begge ganger så verdien helt fersk ut, fordi `builtAt` var
+ * korrekt. Den manuelle variabelen er slettet, og en test vokter at
+ * workflowen aldri skriver den igjen.
  */
 
 import { execSync } from 'child_process'
@@ -59,14 +61,15 @@ function firstKnownValue(...candidates: Array<string | undefined>): string | und
     .find(candidate => Boolean(candidate && candidate.toLowerCase() !== 'unknown'))
 }
 
-// To ledd. `shaSource` skrives fortsatt ned, og `manual-env` betyr fortsatt
-// «denne verdien vedlikeholdes utenfra bygget og kan være stale» — det er
-// nettopp det stempelet som gjorde det mulig å oppdage feilen over. Det blir
-// stående til `include_source_commit_in_build` er slått på; da er SOURCE_COMMIT
-// deployens egen commit og stempelet kan snus til noe sterkere.
+// To ledd. `shaSource` skrives fortsatt ned, men stempelet er snudd fra
+// `manual-env` til `coolify-build`: `manual-env` betydde «denne verdien
+// vedlikeholdes utenfra bygget og kan være stale», og det var sant så lenge en
+// workflow skrev variabelen. Nå injiserer Coolify den med deployens egen
+// commit, så det gamle stempelet ville selv vært en foreldet påstand — akkurat
+// den sorten det ble laget for å avsløre.
 const SHA_CANDIDATES: ReadonlyArray<readonly [string, string | undefined]> = [
   ['git', tryGit('rev-parse HEAD')],
-  ['manual-env', process.env.SOURCE_COMMIT],
+  ['coolify-build', process.env.SOURCE_COMMIT],
 ]
 const validCandidate = SHA_CANDIDATES
   .map(([source, candidate]) => [source, firstValidSha(candidate)] as const)
