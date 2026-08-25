@@ -34,6 +34,8 @@ on:
           - knowledge
           - full
           - innhenting-2026-08-05
+          - board-coverage-dry
+          - board-coverage
       confirm:
         description: 'Type IMPORT to confirm a production database operation'
         required: true
@@ -83,7 +85,11 @@ jobs:
           cloudflared --version
 
       - name: Require a recent successful off-node backup before mutation
-        if: ${{ inputs.target != 'verify-only' }}
+        # board-coverage-dry er unntatt av samme grunn som verify-only: den
+        # skriver ingenting (--dry-run), og en lesende diagnose skal ikke kunne
+        # blokkeres av at en backup mangler. Den skrivende `board-coverage` er
+        # IKKE unntatt.
+        if: ${{ inputs.target != 'verify-only' && inputs.target != 'board-coverage-dry' }}
         env:
           COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_READ_API_TOKEN }}
           COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
@@ -260,6 +266,35 @@ jobs:
               npm run db:import:innhenting
               npm run db:verify
               ;;
+            board-coverage-dry)
+              # AP-1 (O5) tørrkjøring: henter sittende styre fra Brønnøysund for
+              # selskaper uten styredata i målsektorene, rapporterer dekning
+              # før/etter og skriver et snapshot — uten å røre DB-en.
+              # Ferskt uttrekk, IKKE --snapshot-in: juni-snapshotet ville skrevet
+              # gammel styresammensetning som sittende, siden skriptet ikke
+              # markerer avgåtte medlemmer.
+              mkdir -p research/_status
+              npx tsx scripts/extend-board-coverage-brreg.ts \
+                --dry-run \
+                --snapshot-out=research/_status/ap1-board-coverage-dryrun.json \
+                | tee research/_status/ap1-board-coverage-dryrun.log
+              ;;
+            board-coverage)
+              # AP-1 (O5) ekte kjøring. Rekkefølgen er ikke valgfri:
+              # dedupe-person-keys MÅ gå før analysen, ellers telles samme person
+              # som flere noder på tvers av historiske og nye rader.
+              mkdir -p research/_status
+              npx tsx scripts/extend-board-coverage-brreg.ts \
+                --snapshot-out=research/_status/ap1-board-coverage-applied.json \
+                | tee research/_status/ap1-board-coverage-applied.log
+              npx tsx scripts/dedupe-person-keys.ts --commit \
+                | tee research/_status/ap1-dedupe-person-keys.log
+              npx tsx scripts/analyze-board-interlocks.ts \
+                --out=research/analyse/ap1-styreoverlapp.json
+              npx tsx scripts/analyze-board-interlocks.ts --active-only \
+                --out=research/analyse/ap1-styreoverlapp-active-only.json
+              npm run db:verify
+              ;;
             *)
               echo "::error::Unsupported prod data import target: $TARGET"
               exit 1
@@ -288,6 +323,20 @@ jobs:
             research/_status/library-analysis-prune-backup.jsonl
             research/_status/library-analysis-approval-revocation-backup.jsonl
           if-no-files-found: ignore
+          retention-days: 90
+
+      - name: Upload AP-1 board-coverage evidence
+        if: ${{ always() && (inputs.target == 'board-coverage-dry' || inputs.target == 'board-coverage') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ap1-board-coverage-${{ inputs.target }}-${{ github.run_id }}
+          path: |
+            research/_status/ap1-board-coverage-*.json
+            research/_status/ap1-board-coverage-*.log
+            research/_status/ap1-dedupe-person-keys.log
+            research/analyse/ap1-styreoverlapp.json
+            research/analyse/ap1-styreoverlapp-active-only.json
+          if-no-files-found: warn
           retention-days: 90
 
       - name: Stop tunnel
