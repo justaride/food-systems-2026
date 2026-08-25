@@ -156,6 +156,7 @@ export type RowPlan = {
   id: string
   year: number
   companyName: string | null
+  source: string | null
   unit: FinancialUnit
   action: 'convert' | 'unchanged' | 'blocked'
   changes: FieldChange[]
@@ -187,6 +188,7 @@ export function planRowConversion(row: MoneyRow): RowPlan {
     id: row.id,
     year: row.year,
     companyName: row.companyName ?? null,
+    source: row.source,
     unit,
     action: 'unchanged',
     changes: [],
@@ -320,6 +322,26 @@ export type NormalizationSummary = {
   maxMillionValue: number
 }
 
+/**
+ * Oppsummering per kildestreng. Dette er review-flaten før en ekte kjøring:
+ * en kilde som er ukjent fra kartleggingen dukker opp her som en egen linje,
+ * og en rå-NOK-kilde som mønstrene ikke fanger vil stå som `million_nok`.
+ */
+export function summarizeBySource(
+  plans: RowPlan[],
+): { source: string; unit: FinancialUnit; rows: number; converted: number }[] {
+  const groups = new Map<string, { source: string; unit: FinancialUnit; rows: number; converted: number }>()
+  for (const plan of plans) {
+    const source = plan.source ?? '(uten kilde)'
+    const key = `${plan.unit}\u0000${source}`
+    const entry = groups.get(key) ?? { source, unit: plan.unit, rows: 0, converted: 0 }
+    entry.rows++
+    if (plan.action === 'convert') entry.converted++
+    groups.set(key, entry)
+  }
+  return [...groups.values()].sort((a, b) => b.rows - a.rows || a.source.localeCompare(b.source))
+}
+
 export function summarize(plans: RowPlan[]): NormalizationSummary {
   const summary: NormalizationSummary = {
     rows: plans.length,
@@ -424,10 +446,17 @@ async function main() {
       if (await applyRowConversion(prisma, plan, options.apply)) written++
     }
 
+    const bySource = summarizeBySource(plans)
+    console.log('\nKILDER SOM KONVERTERES (gå gjennom disse før en ekte kjøring):')
+    for (const entry of bySource.filter(e => e.converted > 0)) {
+      console.log(`  ${String(entry.converted).padStart(4)} rader  ${entry.source.slice(0, 90)}`)
+    }
+
     const report = {
       generatedAt: new Date().toISOString(),
       applied: options.apply,
       summary,
+      bySource,
       written,
       blocked: blocked.map(p => ({ id: p.id, company: p.companyName, year: p.year, blockers: p.blockers })),
       warnings: warned.map(p => ({ id: p.id, company: p.companyName, year: p.year, warnings: p.warnings })),
@@ -437,6 +466,7 @@ async function main() {
           id: p.id,
           company: p.companyName,
           year: p.year,
+          source: p.source,
           alreadyRaw: p.alreadyRaw,
           changes: p.changes,
         })),

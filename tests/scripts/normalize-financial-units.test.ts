@@ -299,6 +299,25 @@ describe('normalize-financial-units', () => {
       // Båndet forutsetter at ingen konvertert MNOK-verdi når 10^6.
       assert.ok(summary.maxMillionValue < mod.UNIT_BAND_NOK)
 
+      // ---- summarizeBySource ----
+      // Review-flaten før en ekte kjøring: en kilde som mønstrene ikke kjenner
+      // skal dukke opp som sin egen linje, ikke smelte inn i totalen.
+      const bySource = mod.summarizeBySource([tine, tineAgain, hagar, holding, noSource])
+      const tineLine = bySource.find((e: { source: string }) => e.source === 'Årsrapport 2024')
+      assert.equal(tineLine.unit, 'million_nok')
+      assert.equal(tineLine.rows, 2) // tine + tineAgain deler kilde
+      assert.equal(tineLine.converted, 1) // men bare den ukonverterte telles
+      const rawLine = bySource.find((e: { unit: string }) => e.unit === 'raw_nok')
+      assert.equal(rawLine.converted, 0)
+      const unknownLine = bySource.find((e: { unit: string }) => e.unit === 'unknown')
+      assert.equal(unknownLine.source, '(uten kilde)')
+      assert.equal(unknownLine.converted, 0)
+
+      // Planen bærer kilden den klassifiserte på — uten den er
+      // konverteringslista i rapporten ikke reviewbar.
+      assert.equal(tine.source, 'Årsrapport 2024')
+      assert.equal(noSource.source, null)
+
       // ---- konstanter ----
       assert.equal(mod.MILLION_NOK_IN_NOK, 1_000_000)
       assert.equal(mod.UNIT_BAND_NOK, 1_000_000)
