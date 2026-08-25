@@ -105,10 +105,26 @@ describe('prod data import workflow', () => {
       workflow.indexOf('Run selected prod data operation'),
     )
     const exempted = [...gate.matchAll(/inputs\.target != '([^']+)'/g)].map(m => m[1]).sort()
-    // Kun targets som beviselig ikke skriver: verify-only og tørrkjøringen.
-    assert.deepEqual(exempted, ['board-coverage-dry', 'verify-only'])
-    // Det skrivende AP-1-targetet skal aldri stå her.
+    // Kun targets som beviselig ikke skriver: verify-only og de to tørrkjøringene.
+    assert.deepEqual(exempted, ['board-coverage-dry', 'leroy-duplicate-dry', 'verify-only'])
+    // De skrivende targetene skal aldri stå her.
     assert.ok(!exempted.includes('board-coverage'), 'board-coverage muterer og må kreve backup')
+    assert.ok(!exempted.includes('leroy-duplicate'), 'leroy-duplicate sletter en rad og må kreve backup')
+  })
+
+  it('Lerøy-targetene: tørrkjøring skriver ikke, og ekte kjøring bærer --apply', () => {
+    const ops = workflow.slice(workflow.indexOf('Run selected prod data operation'))
+    const dry = ops.slice(ops.indexOf('leroy-duplicate-dry)'), ops.indexOf('leroy-duplicate)'))
+    // Tørrkjøringen er default i skriptet; den må IKKE bære --apply.
+    assert.match(dry, /resolve-leroy-duplicate\.ts/)
+    assert.doesNotMatch(dry, /--apply/)
+
+    const apply = ops.slice(ops.indexOf('leroy-duplicate)'), ops.indexOf('*)'))
+    // Den skrivende kjøringen må faktisk be om å skrive — uten --apply ville
+    // targetet sett ut som en utført sletting og vært en stille no-op.
+    assert.match(apply, /resolve-leroy-duplicate\.ts --apply/)
+    // Og verifisere DB-en etterpå, som de andre muterende targetene.
+    assert.match(apply, /npm run db:verify/)
   })
 
   it('AP-1-targetene: tørrkjøring skriver ikke, og ekte kjøring holder rekkefølgen', () => {
