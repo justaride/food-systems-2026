@@ -17,6 +17,7 @@ export type DataStatusDb = {
   deliveryVolume: CountDelegate
   businessRelationship: CountDelegate
   company: CountDelegate
+  companyFinancial: CountDelegate
   phase: CountDelegate
   teamMember: CountDelegate
   kPI: CountDelegate
@@ -111,6 +112,16 @@ async function safeCount(label: string, count: () => Promise<number>): Promise<{
   }
 }
 
+/**
+ * Andel som desimaltall med tre siffer, eller `null` når et av tallene ikke
+ * kunne leses. Null her betyr «vet ikke», ikke «null dekning» — derfor ingen
+ * fallback til 0.
+ */
+export function coverageShare(part: number | null, whole: number | null): number | null {
+  if (part === null || whole === null || whole === 0) return null
+  return Math.round((part / whole) * 1000) / 1000
+}
+
 export function buildCountStatus(actual: number | null, minRequired: number, error?: string): CountStatus {
   return {
     ok: actual !== null && actual >= minRequired,
@@ -148,6 +159,18 @@ export async function getDataStatus(db: DataStatusDb) {
     safeCount('actors', () => db.actor.count()),
     safeCount('companies', () => db.company.count()),
     safeCount('personProfiles', () => db.personProfile.count()),
+    // AP-4 (verdifangst) kobler DeliveryVolume × CompanyFinancial. Om pakken er
+    // verdt å bygge avhenger ikke av radtallet, men av hvor mange selskaper som
+    // faktisk har BEGGE deler — se `financialCoverage` under.
+    safeCount('companyFinancials', () => db.companyFinancial.count()),
+    safeCount('companiesWithFinancials', () =>
+      db.company.count({ where: { financials: { some: {} } } }),
+    ),
+    safeCount('companiesWithFinancialsAndDeliveries', () =>
+      db.company.count({
+        where: { AND: [{ financials: { some: {} } }, { deliveriesFrom: { some: {} } }] },
+      }),
+    ),
   ])
 
   const countByLabel = Object.fromEntries(countResults.map(result => [result.label, result]))
@@ -218,6 +241,20 @@ export async function getDataStatus(db: DataStatusDb) {
     },
   }
 
+  // Finansdekning — grunnlaget for å avgjøre om AP-4 er verdt å bygge.
+  // `share` svarer på det juni-anslaget sa (~50 %); `joinShare` svarer på det
+  // AP-4 faktisk trenger, siden hypotesetesten krever både leveransevolum og
+  // regnskap for samme selskap. Dekning på én av delene alene kan være høy mens
+  // snittet er lite.
+  const financialCoverage = {
+    companies: actual('companies'),
+    withFinancials: actual('companiesWithFinancials'),
+    withFinancialsAndDeliveries: actual('companiesWithFinancialsAndDeliveries'),
+    financialRows: actual('companyFinancials'),
+    share: coverageShare(actual('companiesWithFinancials'), actual('companies')),
+    joinShare: coverageShare(actual('companiesWithFinancialsAndDeliveries'), actual('companies')),
+  }
+
   const dbOk = Object.keys(tableErrors).length === 0
   const pageGatesOk = Object.values(pages).every(page => page.ok)
   const knowledgeBaseGatesOk = Object.values(knowledgeBase).every(gate => gate.ok)
@@ -231,6 +268,7 @@ export async function getDataStatus(db: DataStatusDb) {
     tableErrors,
     pages,
     knowledgeBase,
+    financialCoverage,
     fallbackSurfaces,
     fallbackSensitiveTables,
   }

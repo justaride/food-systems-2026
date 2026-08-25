@@ -1,6 +1,11 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert/strict'
-import { buildCountStatus, fallbackSurfaces, getDataStatus } from '../../src/lib/data-status'
+import {
+  buildCountStatus,
+  coverageShare,
+  fallbackSurfaces,
+  getDataStatus,
+} from '../../src/lib/data-status'
 
 describe('data status helpers', () => {
   it('fails a page gate when the count is below the required threshold', () => {
@@ -18,6 +23,16 @@ describe('data status helpers', () => {
       actual: null,
       error: 'P1001 database unavailable',
     })
+  })
+
+  it('regner dekningsandel, og skiller «vet ikke» fra «null dekning»', () => {
+    assert.equal(coverageShare(180, 361), 0.499)
+    assert.equal(coverageShare(0, 361), 0)
+    // null betyr at tellingen feilet — ikke at dekningen er null
+    assert.equal(coverageShare(null, 361), null)
+    assert.equal(coverageShare(180, null), null)
+    // ingen selskaper i det hele tatt gir ingen meningsfull andel
+    assert.equal(coverageShare(0, 0), null)
   })
 
   it('documents known static fallback surfaces for status output', () => {
@@ -52,6 +67,7 @@ describe('data status helpers', () => {
       libraryAnalysisRecord: count(1295),
       actor: count(1636),
       personProfile: count(1594),
+      companyFinancial: count(180),
     })
 
     assert.equal(status.ok, false)
@@ -87,6 +103,7 @@ describe('data status helpers', () => {
       libraryAnalysisRecord: count(1295),
       actor: count(1636),
       personProfile: count(1594),
+      companyFinancial: count(180),
     })
 
     assert.equal(status.pages.havbruk.ok, true)
@@ -95,6 +112,100 @@ describe('data status helpers', () => {
     assert.equal(status.knowledgeBase.actors.minRequired, 1636)
     assert.equal(status.knowledgeBaseGatesOk, true)
     assert.equal(status.ok, true)
+  })
+
+  it('rapporterer finansdekning, og skiller totaldekning fra AP-4s join-univers', async () => {
+    const count = (value: number) => ({ count: async () => value })
+    // Selskapstellingen svarer ulikt etter filter — det er nettopp poenget:
+    // 361 selskaper, 180 med regnskap, men bare 24 med BÅDE regnskap og
+    // leveransevolum. AP-4 kan bare bruke de 24.
+    const companyDelegate = {
+      count: async (args?: unknown) => {
+        const where = (args as { where?: Record<string, unknown> } | undefined)?.where
+        if (!where) return 361
+        if ('AND' in where) return 24
+        if ('financials' in where) return 180
+        return 4 // landbruksregister-filteret
+      },
+    }
+    const status = await getDataStatus({
+      subsidy: count(179310),
+      aquacultureSite: count(287),
+      aquacultureApplication: count(110),
+      fishHealthObservation: count(0),
+      deliveryVolume: count(60310),
+      businessRelationship: count(105),
+      company: companyDelegate,
+      companyFinancial: count(742),
+      phase: count(4),
+      teamMember: count(9),
+      kPI: count(5),
+      tenStep: count(10),
+      evidenceDoc: count(23),
+      application: count(3),
+      insight: count(132),
+      meeting: count(9),
+      communication: count(0),
+      document: count(1615),
+      sourceCitation: count(5265),
+      fieldCitation: count(247477),
+      libraryAnalysisRecord: count(1770),
+      actor: count(1636),
+      personProfile: count(1740),
+    })
+
+    assert.equal(status.tables.companyFinancials, 742)
+    assert.equal(status.tables.companiesWithFinancials, 180)
+    assert.equal(status.tables.companiesWithFinancialsAndDeliveries, 24)
+
+    assert.deepEqual(status.financialCoverage, {
+      companies: 361,
+      withFinancials: 180,
+      withFinancialsAndDeliveries: 24,
+      financialRows: 742,
+      share: 0.499,
+      joinShare: 0.066,
+    })
+
+    // Finansdekningen er rapportering, ikke en gate — den skal ikke kunne
+    // felle helsesjekken.
+    assert.equal(status.ok, true)
+  })
+
+  it('lar finansdekningen bli null når tellingen feiler, uten å felle helsesjekken', async () => {
+    const count = (value: number) => ({ count: async () => value })
+    const missing = { count: async () => { throw new Error('P2021 table does not exist') } }
+    const status = await getDataStatus({
+      subsidy: count(179310),
+      aquacultureSite: count(287),
+      aquacultureApplication: count(110),
+      fishHealthObservation: count(0),
+      deliveryVolume: count(60310),
+      businessRelationship: count(105),
+      company: count(361),
+      companyFinancial: missing,
+      phase: count(4),
+      teamMember: count(9),
+      kPI: count(5),
+      tenStep: count(10),
+      evidenceDoc: count(23),
+      application: count(3),
+      insight: count(132),
+      meeting: count(9),
+      communication: count(0),
+      document: count(1615),
+      sourceCitation: count(5265),
+      fieldCitation: count(247477),
+      libraryAnalysisRecord: count(1770),
+      actor: count(1636),
+      personProfile: count(1740),
+    })
+
+    assert.equal(status.financialCoverage.financialRows, null)
+    assert.equal(status.tableErrors.companyFinancials, 'P2021 table does not exist')
+    // En manglende telling slår ut på dbOk (som alle tabellfeil gjør), men
+    // dekningsandelene skal være null framfor 0 — «vet ikke», ikke «ingen».
+    assert.equal(status.dbOk, false)
   })
 
   it('fails closed when the library-analysis table is unavailable', async () => {
@@ -123,6 +234,7 @@ describe('data status helpers', () => {
       libraryAnalysisRecord: missingTable,
       actor: count(1636),
       personProfile: count(1594),
+      companyFinancial: count(180),
     })
 
     assert.equal(status.ok, false)
