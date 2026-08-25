@@ -34,18 +34,33 @@ export const DUPLICATE_ORGNR = '975320637'
 /**
  * Konserntall, Lerøy Seafood Group ASA årsrapport 2024, konsolidert
  * resultatregnskap: driftsinntekter 31 124 691 og driftsresultat (EBIT)
- * 2 964 266 — begge i NOK 1 000.
+ * 2 964 266 — begge i NOK 1 000, som er rapportens egen enhet.
  *
- * Lagres i MNOK fordi det er enheten de to Lerøy-radene allerede bruker
- * (30 000 / 34 009). `revenueNok` har inkonsistente enheter på tvers av
- * korpuset — noen rader står i rå NOK — men det er en egen sak, og å
- * skifte enhet her ville gjort denne raden uforenlig med sin egen historikk.
- * De eksakte tNOK-tallene ligger i `source` så presisjonen ikke går tapt.
+ * Lagres i RÅ NOK (×1000 fra rapportens tall). `revenueNok` hadde
+ * inkonsistente enheter på tvers av korpuset da dette skriptet ble skrevet;
+ * normaliseringssporet valgte rå NOK fordi MNOK ville rundet små rader —
+ * f.eks. NorgesGruppen Merkevare på 20 NOK — til `0.00` i `Decimal(15,2)`,
+ * altså slettet data. Denne konstanten følger det valget.
+ *
+ * REKKEFØLGE MOT `financial-units`: begge veier er trygge, og det er verdt
+ * å vite hvorfor, siden `source`-strengen under IKKE matcher noen av
+ * `RAW_NOK_SOURCE_PATTERNS` og derfor klassifiseres som `million_nok`.
+ * Det som redder raden er `UNIT_BAND_NOK` (10^6): begge beløpene ligger
+ * langt over båndet, så de havner i `alreadyRaw` og konverteres ikke.
+ * Verifisert mot `scripts/normalize-financial-units.ts`.
+ *
+ * Det er båndvakten som bærer dette, ikke rekkefølgen — så hvis noen senere
+ * senker båndet eller fjerner det, blir denne raden ganget med 10^6.
+ * Å legge en `Annual Report`-regel i `RAW_NOK_SOURCE_PATTERNS` ville gjort
+ * sikkerheten eksplisitt framfor å hvile på en størrelsesterskel.
+ *
+ * 31 124 691 000 har 11 siffer og får plass i `Decimal(15,2)`.
+ * Marginen er en prosent og er enhetsuavhengig: 2 964 266 / 31 124 691 = 9,52 %.
  */
 export const FY2024 = {
   year: 2024,
-  revenueNok: 31125,
-  operatingResult: 2964,
+  revenueNok: 31_124_691_000,
+  operatingResult: 2_964_266_000,
   operatingMargin: 9.52,
   source:
     'Lerøy Seafood Group ASA, Annual Report 2024, konsolidert resultatregnskap: ' +
