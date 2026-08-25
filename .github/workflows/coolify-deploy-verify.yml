@@ -1,11 +1,12 @@
-name: Coolify SHA Sync
+name: Coolify Deploy Verify
 
 # Verifiserer deployen Coolify allerede har gjort. Synker ingenting, og
 # trigger ingen build.
 #
-# Navnet er historisk. Fram til 2026-08-25 skrev denne workflowen en eksplisitt
-# SOURCE_COMMIT-miljøvariabel til appen og trigget sin egen redeploy. Begge
-# delene er fjernet, og ingen av dem må komme tilbake:
+# Het `Coolify SHA Sync` / `coolify-sync-source-commit.yml` fram til
+# 2026-08-25, da den fortsatt skrev en eksplisitt SOURCE_COMMIT-miljøvariabel
+# til appen og trigget sin egen redeploy. Begge delene er fjernet, og ingen av
+# dem må komme tilbake:
 #
 # 1. Coolify injiserer selv deployens commit i bygget når per-app-innstillingen
 #    `Include Source Commit in Build` står PÅ — den står PÅ, og Dockerfile har

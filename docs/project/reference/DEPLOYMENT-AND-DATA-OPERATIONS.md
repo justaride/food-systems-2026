@@ -151,8 +151,8 @@ historisk ledger er derfor en hard stopp, ikke et signal om å kjøre gammel DDL
 `scripts/write-version.ts` leser Coolifys dokumenterte `SOURCE_COMMIT` og
 `COOLIFY_BRANCH` under bygging. `/api/version.sha` skal være identisk med
 deployens commit, ikke bare en commit som tidligere var på `main`. Repoets
-tidligere SHA-mutatorer er pensjonert: `coolify-sync-source-commit.yml` er nå kun
-manuell read-only verifikasjon, og både `scripts/deploy.sh` og
+tidligere SHA-mutatorer er pensjonert: `coolify-deploy-verify.yml` (tidligere
+`coolify-sync-source-commit.yml`) er nå kun verifikasjon, og både `scripts/deploy.sh` og
 `scripts/coolify-sync-source-commit.sh` feiler med en pensjoneringsmelding.
 Dette beviser ikke at en eksisterende statisk
 `SOURCE_COMMIT` allerede er fjernet i Coolify; det er en separat operatørjobb.

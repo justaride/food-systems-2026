@@ -21,8 +21,8 @@ kan gjenbrukes som mal for andre Coolify/Cloudflare/Hetzner-prosjekter i
   Utvikler (Mac)                         GitHub Actions
    │  ssh cloudbrain                       │  (secrets: se §4)
    │  (= 77.42.43.227) [V]                 │
-   │                                       ├── coolify-sync-source-commit  ─┐ Coolify API
-   │                                       │     (push main → redeploy)      │ coolify.gabistudio.dev [V 08-06]
+   │                                       ├── coolify-deploy-verify       ─┐ Coolify API
+   │                                       │     (push main → verifiser)     │ coolify.gabistudio.dev [V 08-06]
    │                                       ├── coolify-db-watcher (5 min)    │  bak CF Access — kall MÅ
    │                                       ├── coolify-resource-snapshot     │  sende CF-Access-headere
    │                                       ├── citation-verification (cron)  │
@@ -95,7 +95,7 @@ Workflowene mapper GitHub-secretene `CF_ACCESS_CLIENT_ID/SECRET` til
 
 | Workflow | Trigger | Rolle | Tunnel? |
 |---|---|---|---|
-| `coolify-sync-source-commit.yml` | push til `main`, manuell | Verifiserer deployen Coolify allerede har gjort: venter på en ferdig deploy for commiten, sjekker eksakt runtime-SHA + data-/bibliotekhelse. Skriver ingen env og trigger ingen build (filnavnet er historisk) | nei |
+| `coolify-deploy-verify.yml` | push til `main`, manuell | Verifiserer deployen Coolify allerede har gjort: venter på en ferdig deploy for commiten, sjekker eksakt runtime-SHA + data-/bibliotekhelse. Skriver ingen env og trigger ingen build | nei |
 | `prod-drift-watch.yml` | cron hvert 15. min, manuell | Sammenligner runtime-SHA mot `main` HEAD med slingringsmonn for deploys underveis; rødt = prod og main er ikke i takt | nei |
 | `citation-verification.yml` | cron søn 03:00 UTC, manuell | `db:verify:filehash` + url-health mot prod | **ja** |
 | `prod-data-import.yml` | manuell (`confirm=IMPORT`) | Sanksjonert prod-data-operasjon via eksplisitte targetvalg: `verify-only`, `seed`, `nordic-pdf`, `ownership`, `registers`, `knowledge`, `full` | **ja** |
@@ -106,7 +106,8 @@ Workflowene mapper GitHub-secretene `CF_ACCESS_CLIENT_ID/SECRET` til
 
 **Deploy-modell:** push til `main` → Coolifys `Auto Deploy` bygger via
 GitHub-appens webhook. Det er den ENESTE deploy-triggeren; fram til 2026-08-25
-trigget `coolify-sync-source-commit.yml` i tillegg en API-deploy, slik at hver
+trigget `coolify-deploy-verify.yml` (den gang `coolify-sync-source-commit.yml`)
+i tillegg en API-deploy, slik at hver
 merge ga to samtidige bygg uten rekkefølgegaranti. Deployens egen commit kommer
 fra Coolify-innstillingen `Include Source Commit in Build` — ikke fra en
 env-variabel satt utenfra; se workflow-headeren for hvorfor det skillet ga en
@@ -273,8 +274,10 @@ tunnel/Access.
 
 **Historisk hendelse:** `/api/version` viste `f2e2d20` (bygget 2026-05-25) selv om `main` var
 mange merger foran. **En grønn Coolify-redeploy-trigger betyr ikke at buildet
-lyktes** — `coolify-sync-source-commit` trigger redeploy, men Coolify-*buildet*
-feilet hver gang. Sjekk faktisk build-status, ikke bare at trigger gikk.
+lyktes** — workflowen trigget den gang redeploy, men Coolify-*buildet* feilet
+hver gang. Sjekk faktisk build-status, ikke bare at trigger gikk. (Workflowen
+trigger ikke lenger deploy i det hele tatt; `Auto Deploy` gjør det, og
+`coolify-deploy-verify.yml` kontrollerer utfallet.)
 
 **Hvor build-loggen ligger** (GitHub-workflowen ser bare «Deploy failed» fra
 Coolify-API): i Coolify-DB-en på serveren —

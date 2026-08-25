@@ -21,7 +21,8 @@
  * motsatt grunn: de kunne bare komme utenfra bygget, og det var nettopp den
  * stien som løy.
  *
- * Bakgrunn: fram til 2026-08-25 skrev workflowen `coolify-sync-source-commit`
+ * Bakgrunn: fram til 2026-08-25 skrev workflowen `coolify-deploy-verify`
+ * (den gang `coolify-sync-source-commit`)
  * en eksplisitt SOURCE_COMMIT-miljøvariabel til appen, og den SKYGGET for den
  * Coolify injiserer. Workflowen sluttet å kunne fyre da de daglige commitene
  * til main ble laget av `github-actions[bot]` — en push med GITHUB_TOKEN
