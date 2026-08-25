@@ -111,8 +111,8 @@ describe('resolve-leroy-duplicate', () => {
         mod.planFinancialCorrection({
           id: 'x',
           year: 2024,
-          revenueNok: '31125',
-          operatingResult: '2964',
+          revenueNok: '31124691000',
+          operatingResult: '2964266000',
           operatingMargin: '9.52',
           source: mod.FY2024.source,
         }).action,
@@ -120,13 +120,14 @@ describe('resolve-leroy-duplicate', () => {
       )
 
       // Decimal-felt kommer ut av Prisma som strenger; sammenlikningen må
-      // være numerisk, ellers ser 31125 og '31125.00' ut som en endring.
+      // være numerisk, ellers ser 31124691000 og '31124691000.00' ut som
+      // en endring.
       assert.equal(
         mod.planFinancialCorrection({
           id: 'x',
           year: 2024,
-          revenueNok: '31125.00',
-          operatingResult: '2964.00',
+          revenueNok: '31124691000.00',
+          operatingResult: '2964266000.00',
           operatingMargin: '9.52',
           source: mod.FY2024.source,
         }).action,
@@ -134,10 +135,16 @@ describe('resolve-leroy-duplicate', () => {
       )
 
       // ---- tallene mot årsrapporten ----
-      // 31 124 691 / 2 964 266 tNOK → MNOK, samme enhet som raden allerede
-      // bruker. Marginen skal stemme med de to andre.
-      assert.equal(mod.FY2024.revenueNok, 31125)
-      assert.equal(mod.FY2024.operatingResult, 2964)
+      // Rapporten oppgir 31 124 691 / 2 964 266 i NOK 1 000. Lagres i RÅ NOK,
+      // som er enheten normaliseringssporet valgte.
+      assert.equal(mod.FY2024.revenueNok, 31_124_691_000)
+      assert.equal(mod.FY2024.operatingResult, 2_964_266_000)
+
+      // Enhetsvakt: et tilbakefall til MNOK ville lagret 31125 og lest som
+      // 31 125 kroner etter normaliseringen — feil med faktor 10^6. Lerøy
+      // omsetter for titalls milliarder, så rå NOK må ligge over 10^9.
+      assert.ok(mod.FY2024.revenueNok > 1e9, 'revenueNok må være rå NOK, ikke MNOK')
+      assert.ok(mod.FY2024.operatingResult > 1e9, 'operatingResult må være rå NOK, ikke MNOK')
       const impliedMargin = (mod.FY2024.operatingResult / mod.FY2024.revenueNok) * 100
       assert.ok(
         Math.abs(impliedMargin - mod.FY2024.operatingMargin) < 0.05,
