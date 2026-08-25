@@ -164,7 +164,7 @@ Alle åtte arbeidspakkene er kjørt minst én gang. Status er intern baseline / 
 
 | AP | Status | Kort | Funnnotat |
 |---|---|---|---|
-| AP-1 styrer | `klar-med-forbehold` | Primærsjekket (9/10 broer) + dekningsutvidelse klar (36 %→~47 %) | `...ap1-styreoverlapp...`, `...ap1-dekningsutvidelse...` |
+| AP-1 styrer | `klar-med-forbehold` | Primærsjekket (9/10 broer). Dekningsutvidelsen **kjørt 2026-08-25: null-funn** — dekning er 72,0 %, ikke 36 %, og de 5 gjenstående har ugyldige orgnr. `...active-only.json` er feilmerket: `effectiveTo` settes aldri, så filteret skiller ingenting | `...ap1-styreoverlapp...`, `...ap1-dekningsutvidelse...` §9 |
 | AP-2 eierskap | `klar-med-forbehold` for kryss-node-HHI | Ekte markeds-HHI for 5/8 noder; **konsentrasjonen topper i foredling (samvirke), ikke retail** | `...ap2-nodekonsentrasjon...`, `...ap2-kryssnode-hhi...`, `...section8-3-4...` |
 | AP-3 tilskudd | `klar-med-forbehold` | 2024 lukket (var skript-bug); Gini 0,52–0,55, **2022–2025 — alle fire år avstemt** mot publisert primærtotal (2025 lukket 2026-08-24, §4b) | `...ap3-tilskuddskonsentrasjon...` |
 | AP-4 verdifangst | delvis; kjerne **lukket — ikke beregnbar som spesifisert** (2026-08-25) | Sjømat ~2× verdi/tonn står. Per-aktør volum↔margin er ikke DB-tilgang som mangler: leverandørsiden er `Producer`, ikke `Company`, og kjøpersiden er tre selskaper (n ≤ 3). Målt finansdekning 16,6 %, ikke ~50 % | `...ap4-ap8-partial...` §4b |
@@ -198,7 +198,19 @@ Lista over var utdatert på fem av seks punkter: den listet arbeid funnnotatene 
 
 **Åpent og løsbart — krever DB via `prod-data-import.yml`:**
 
-- **Styredekningsutvidelse (AP-1)** 36 % → ~47 %, som er forutsetningen for å løfte AP-1 fra `internal_context`.
+~~**Styredekningsutvidelse (AP-1)** 36 % → ~47 %.~~
+**Kjørt og lukket 2026-08-25 — null-funn.** Tørrkjøring mot prod
+(`board-coverage-dry`, run 32859020542) gir 0 nye rader: av 40 selskaper i
+målsektorene mangler bare 5 styredata, og alle fem har orgnr som ikke slår opp i
+Brønnøysund. Dekning 260/361 (72,0 %) → 260/361.
+
+Premisset holdt ikke: «36 %» var aldri sittende-styre-dekning.
+`BoardMember.effectiveTo` skrives ikke av noe i kodebasen, så
+`--active-only` har aldri filtrert noe. De to juni-artefaktene skiller seg i
+**tid**, ikke filter — en import landet mellom 14. og 15. juni, og hullet var
+lukket dagen etter at tallet ble målt. Se AP-1-notatet §9.
+
+**Denne kategorien er nå tom.** Alt som kunne lukkes fra vår side, er lukket.
 
 ~~**Per-aktør volum↔margin (AP-4).** Krever `DeliveryVolume × CompanyFinancial`-join.~~
 **Lukket 2026-08-25 — ikke beregnbar som spesifisert.** Se AP-4-notatet §4b. Kort:
