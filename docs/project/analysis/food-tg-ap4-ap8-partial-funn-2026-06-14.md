@@ -1,6 +1,6 @@
 ---
 tittel: Food TG AP-4 + AP-8 — delfunn og needs-data-avgrensning: 2026-06-14
-status: Internt — AP-4 delvis (kjerne needs-data), AP-8 needs-data-kjerne + regionalt null-funn
+status: Internt — AP-4 delvis (kjerne lukket 2026-08-25: ikke beregnbar som spesifisert, §4b), AP-8 needs-data-kjerne + regionalt null-funn
 eier: Gabriel
 dato: 2026-06-14
 arbeidspakke: AP-4 + AP-8 i docs/project/plans/food-tg-dybdeanalyse-arbeidsplan-2026-06-14.md
@@ -27,9 +27,54 @@ Committet `no/value-chain.json` (2024) gir node-/kjedeledd-tall (ikke per aktør
 1. **Verdi-tetthet stiger kraftig oppstrøms på lik tonnasje.** Primærlandbruk og sjømat flytter nesten lik tonnasje (3,29 mot 3,80 mill. tonn), men sjømat skaper **~2× verdi per tonn**: ≈16 700 NOK GVA/tonn (sjømat) mot ≈8 500 NOK/tonn (landbruk).
 2. **Volum-dominans ≠ marginfangst nedstrøms.** Detaljhandelen har høyest konsentrasjon (CR3 96,6 %, HHI 3327 — KT-omsetning 2024, harmonisert jf. D2/kryss-node §11) men blant de tynneste rapporterte marginene (NorgesGruppen retail-segment 2,6 %, Coop 1,0 %, Virke-snitt 1,9 %). Konkurransetilsynet og Oslo Economics (sitert i `financial_insights_2024.json`) plasserer høyere marginer / «super profit» på **leverandørleddet**, ikke detaljistleddet. Dette er andres analyse referert i committet fil, ikke et eget regnestykke.
 
-### Kjerne = needs-data (DB-join)
+### Kjerne = needs-data (DB-join) — *avkreftet som spesifisert, se §4b*
+
+> **Denne spesifikasjonen holder ikke.** Den ble målt mot prod 2026-08-25 og
+> bygger på to premisser som begge er feil: at leverandørsiden broes via
+> `Company.id`, og at finansdekningen er ~50 %. Avsnittet står som skrevet for
+> sporbarhet; §4b under er det som gjelder.
 
 Selve hypotese-testen — per-aktør volum↔margin-divergens — krever DB-en: `DeliveryVolume` (~60 310 rader, volum per leverandør) × `CompanyFinancial` (omsetning/margin), bro via `Company.id`. Metode for lokal kjøring: normaliser volum til tonn per commodity, left-join til regnskap, flagg `hasFinancial` (~50 % treff), Spearman volum↔margin, aggreger til ledd. **Finansdekning ~50 % (funn A1) → systematisk skjev mot store/konsern; ingen korpus-ekstrapolering.**
+
+### §4b — Målt mot prod 2026-08-25: kjernen er ikke `needs-data`, den er ikke beregnbar som spesifisert
+
+O1 (PR #372) la finansdekning til `/api/data-status` nettopp for å avgjøre om
+AP-4 var verdt å bygge før vi bygget den. Tallet er nå lest. Det avkrefter
+premisset, og på en annen måte enn ventet.
+
+**Målt fra prod (`/api/data-status`, commit `8234c2a`):**
+
+| Størrelse | Junianslag | Målt |
+|---|---|---|
+| Selskaper med regnskap | ~50 % | **16,6 %** (60 av 361) |
+| Selskaper med regnskap **og** leveransevolum | forutsatt brukbart | **1** |
+
+Men det andre tallet er ikke et datahull, og det er den viktige delen:
+
+**`DeliveryVolume` har to selskapssider, og spesifikasjonen over peker på feil.**
+`deliveriesFrom` (`DeliverySupplier`) er bondeleddet — og bønder ligger i
+`Producer` etter produsentseparasjonen, ikke i `Company`. `import-leveransedata.ts`
+setter `supplierProducerId` → `Producer`, aldri `supplierId` → `Company`.
+Leverandørsiden er derfor tom **ved konstruksjon**. Den blir ikke høyere av mer
+import, og «bro via `Company.id`» beskriver en kobling som ikke finnes.
+
+Verdifangst måles uansett på kjøpersiden. Der er grensen hard på en annen måte:
+`import-leveransedata.ts` er eneste skriver av `DeliveryVolume`, og den har
+**tre** distinkte kjøpere — TINE SA, Nortura SA, Felleskjøpet Agri SA. Hele
+kjøpersiden er altså ≤ 3 selskaper.
+
+**Konsekvens for statusen.** AP-4s kjerne er spesifisert som Spearman
+volum↔margin *på tvers av aktører*. Med n ≤ 3 er den rangkorrelasjonen ikke
+beregnbar — ikke «tynn», ikke «skjev», men uten fortolkning. Kjernen flyttes
+derfor fra `needs-data` (som betyr «venter på data») til **`lukket — ikke
+beregnbar som spesifisert`**. Det er ikke arbeid som venter på DB-tilgang.
+
+To ting dette **ikke** betyr:
+
+- Det avkrefter ikke delfunnet. Kjedeledd-tallene fra `value-chain.json` (§«Delfunn») står uendret — de er node-nivå og rører ikke per-aktør-joinen.
+- Det sier ikke at verdifangst er umålelig i prinsippet. Det sier at *denne* operasjonaliseringen ikke er det mot *denne* datamodellen. En per-aktør-test ville kreve en annen kilde til aktørnivå-volum enn leveranseregisteret — ikke en DB-tilkobling til det vi har.
+
+*Registrert 2026-08-25. Måleendringen som gjør begge sider synlige, ligger i PR #373.*
 
 ### CL-AP4-001 (utkast)
 

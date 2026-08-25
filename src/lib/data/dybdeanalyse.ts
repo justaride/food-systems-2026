@@ -243,24 +243,25 @@ export const dybdeanalyseFindings: DybdeanalyseFinding[] = [
     id: 'ins-ap4-001',
     arbeidspakke: 'AP-4',
     claimId: 'CL-AP4-001',
-    title: 'Verdifangst: sjømat skaper ~2× verdi per tonn — per-aktør-testen er needs-data',
+    title: 'Verdifangst: sjømat skaper ~2× verdi per tonn — per-aktør-testen er lukket som ikke beregnbar',
     kortFunn:
-      'På 2024-tall flytter norsk primærlandbruk og sjømat tilnærmet lik tonnasje (3,3 mot 3,8 mill. tonn), men sjømat skaper ~2× verdi per tonn (≈16 700 mot ≈8 500 NOK GVA/tonn). Nedstrøms har detaljhandelen høyest konsentrasjon (CR3 96,6 %) men blant de laveste rapporterte prosentmarginene (NG retail-segment 2,6 %, Coop 1,0 %); Konkurransetilsynet/Oslo Economics plasserer høyere marginer oppstrøms. Selve per-aktør volum↔margin-testen krever en DB-join (DeliveryVolume × CompanyFinancial, ~50 % dekning) og står som needs-data.',
+      'På 2024-tall flytter norsk primærlandbruk og sjømat tilnærmet lik tonnasje (3,3 mot 3,8 mill. tonn), men sjømat skaper ~2× verdi per tonn (≈16 700 mot ≈8 500 NOK GVA/tonn). Nedstrøms har detaljhandelen høyest konsentrasjon (CR3 96,6 %) men blant de laveste rapporterte prosentmarginene (NG retail-segment 2,6 %, Coop 1,0 %); Konkurransetilsynet/Oslo Economics plasserer høyere marginer oppstrøms. Selve per-aktør volum↔margin-testen er lukket 2026-08-25: den er ikke beregnbar mot denne datamodellen — leveranseregisterets leverandørside er produsenter (Producer), ikke selskaper, og kjøpersiden er tre selskaper. Det er ikke DB-tilgang som mangler.',
     evidenceStatus: 'observed',
     readinessWhenUngated: 'internal_context',
     citationNote:
-      'Delfunn klar-med-forbehold (committet value-chain/financial_insights). Hovedpåstanden (per-aktør volum↔margin) er needs-data — krever DB-join, ikke ekstrapolerbar (~50 % finansdekning).',
+      'Delfunn klar-med-forbehold (committet value-chain/financial_insights). Hovedpåstanden (per-aktør volum↔margin) er lukket som ikke beregnbar som spesifisert — ikke needs-data. Målt finansdekning er 16,6 %, ikke ~50 %.',
     coverageNote:
       'Dekning: node-/kjedeledd-tall fra committet 2024-data, ikke per aktør. GVA/tonn blander inn importert råstoff (sjømat-fôr ~92 % importert) → verdi/tonn ≠ ren norsk verdiskaping. Node-margin for foredling/distribusjon mangler i committet data.',
     method:
-      'Committet value-chain.json + financial_insights_2024.json (2024). Hovedtest = DeliveryVolume × CompanyFinancial Spearman-join (needs-data, DB).',
+      'Committet value-chain.json + financial_insights_2024.json (2024). Hovedtesten (DeliveryVolume × CompanyFinancial Spearman-join) er forsøkt spesifisert, men avkreftet: joinen finnes ikke på leverandørsiden, og kjøpersiden gir n ≤ 3. Se funnnotatet §4b.',
     figure: null,
-    tags: ['verdifangst', 'margin', 'volum', 'needs-data'],
+    tags: ['verdifangst', 'margin', 'volum', 'ikke-beregnbar'],
     sources: ['funnnotat AP-4/AP-8', 'value-chain.json', 'financial_insights_2024.json'],
     notSay: [
       'Ikke fremstill GVA/tonn som ren norsk verdiskaping (importert råstoff inngår).',
       'Ikke presenter referert KT/Oslo Economics-marginanalyse som eget regnestykke.',
-      'Ikke ekstrapoler ~50 %-finansdekningen til hele selskapskorpuset.',
+      'Ikke gjenta ~50 % finansdekning — målt verdi er 16,6 %, og den skal ikke ekstrapoleres til hele selskapskorpuset.',
+      'Ikke omtal per-aktør-testen som needs-data eller som noe DB-tilgang ville løst — den er ikke beregnbar mot denne datamodellen.',
     ],
     docRefs: ['docs/project/analysis/food-tg-ap4-ap8-partial-funn-2026-06-14.md'],
   },

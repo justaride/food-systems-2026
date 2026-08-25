@@ -162,6 +162,14 @@ export async function getDataStatus(db: DataStatusDb) {
     // AP-4 (verdifangst) kobler DeliveryVolume × CompanyFinancial. Om pakken er
     // verdt å bygge avhenger ikke av radtallet, men av hvor mange selskaper som
     // faktisk har BEGGE deler — se `financialCoverage` under.
+    //
+    // DeliveryVolume har TO selskapssider, og de er ikke likeverdige for AP-4:
+    // leverandørsiden (`deliveriesFrom`) er bønder, som ligger i `Producer` og
+    // ikke i `Company` etter produsentseparasjonen — den er tom ved
+    // konstruksjon, ikke av datamangel. Kjøpersiden (`deliveriesTo`) er
+    // foredlingsleddet, og det er der verdifangst faktisk kan måles. Begge
+    // telles, slik at tallet ikke kan leses som en datamangel når det er en
+    // modellgrense.
     safeCount('companyFinancials', () => db.companyFinancial.count()),
     safeCount('companiesWithFinancials', () =>
       db.company.count({ where: { financials: { some: {} } } }),
@@ -169,6 +177,14 @@ export async function getDataStatus(db: DataStatusDb) {
     safeCount('companiesWithFinancialsAndDeliveries', () =>
       db.company.count({
         where: { AND: [{ financials: { some: {} } }, { deliveriesFrom: { some: {} } }] },
+      }),
+    ),
+    safeCount('companiesWithDeliveriesTo', () =>
+      db.company.count({ where: { deliveriesTo: { some: {} } } }),
+    ),
+    safeCount('companiesWithFinancialsAndDeliveriesTo', () =>
+      db.company.count({
+        where: { AND: [{ financials: { some: {} } }, { deliveriesTo: { some: {} } }] },
       }),
     ),
   ])
@@ -242,16 +258,32 @@ export async function getDataStatus(db: DataStatusDb) {
   }
 
   // Finansdekning — grunnlaget for å avgjøre om AP-4 er verdt å bygge.
-  // `share` svarer på det juni-anslaget sa (~50 %); `joinShare` svarer på det
+  // `share` svarer på det juni-anslaget sa (~50 %); join-tallene svarer på det
   // AP-4 faktisk trenger, siden hypotesetesten krever både leveransevolum og
   // regnskap for samme selskap. Dekning på én av delene alene kan være høy mens
   // snittet er lite.
+  //
+  // `buyerSide` er det tallet AP-4 skal leses mot. `supplierSide` beholdes fordi
+  // det var det første målet, og fordi det er lærerikt: det er lavt av
+  // strukturelle grunner (bønder er `Producer`, ikke `Company`), ikke fordi
+  // regnskap mangler. Å rapportere bare det ene ville invitert til å lese en
+  // modellgrense som et datahull.
   const financialCoverage = {
     companies: actual('companies'),
     withFinancials: actual('companiesWithFinancials'),
-    withFinancialsAndDeliveries: actual('companiesWithFinancialsAndDeliveries'),
     financialRows: actual('companyFinancials'),
     share: coverageShare(actual('companiesWithFinancials'), actual('companies')),
+    supplierSide: {
+      withDeliveries: actual('companiesWithFinancialsAndDeliveries'),
+      note: 'Leverandørsiden er bønder i Producer-tabellen; lav verdi er en modellgrense, ikke datamangel.',
+    },
+    buyerSide: {
+      withDeliveries: actual('companiesWithDeliveriesTo'),
+      withFinancialsAndDeliveries: actual('companiesWithFinancialsAndDeliveriesTo'),
+      note: 'Foredlingsleddet — AP-4s faktiske univers for volum↔margin.',
+    },
+    // Bakoverkompatible felt: samme leverandørside-tall som før, uendret form.
+    withFinancialsAndDeliveries: actual('companiesWithFinancialsAndDeliveries'),
     joinShare: coverageShare(actual('companiesWithFinancialsAndDeliveries'), actual('companies')),
   }
 

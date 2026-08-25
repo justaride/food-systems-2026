@@ -1,6 +1,6 @@
 ---
 tittel: Ferdigstillingsplan for arbeidspakkene — anbefalte valg og arbeidsmengde 2026-08-24
-status: Forslag — venter på eiers valg
+status: Delvis utført — O1 landet (#372) og felte AP-4; se §0 (2026-08-25)
 eier: Gabriel
 dato: 2026-08-24
 scope: Hva som faktisk gjenstår i AP-1…AP-8 etter opprydningen 2026-08-24, hva jeg anbefaler, og hva hver bit koster i arbeid. Ingen analyse i seg selv.
@@ -13,6 +13,50 @@ relaterte_filer:
 ---
 
 # Ferdigstillingsplan — arbeidspakkene
+
+## 0. Oppdatering 2026-08-25 — O1 er kjørt, og svaret felte AP-4
+
+**O1 gjorde jobben sin.** Den ble lagt inn (#372) for å avgjøre om AP-4 var verdt
+å bygge *før* vi brukte 7–13,5 timer på O2–O4. Tallet er nå lest fra prod, og
+svaret er nei.
+
+| | Antatt i denne planen | Målt 2026-08-25 |
+|---|---|---|
+| Finansdekning | ~50 % | **16,6 %** (60 av 361) |
+| AP-4s join-univers | «dataene finnes allerede der» | **≤ 3 selskaper** |
+
+Og grunnen er strukturell, ikke et datahull: `DeliveryVolume` har to
+selskapssider. Leverandørsiden er tom ved konstruksjon (bønder ligger i
+`Producer`, ikke `Company`), og kjøpersiden er de tre kjøperne
+`import-leveransedata.ts` skriver — TINE, Nortura, Felleskjøpet. AP-4s
+spesifiserte metode er Spearman **på tvers av aktører**; n ≤ 3 bærer den ikke.
+Full begrunnelse i AP-4-notatet §4b; måleendringen i PR #373.
+
+**Følgen for oppgavelista:**
+
+| | Status etter måling |
+|---|---|
+| **O1** | ✅ Utført (#372). Leverte beslutningsgrunnlaget den ble laget for. |
+| **O3** | ❌ **Utgår.** `analyze-value-capture.ts` ville regnet en Spearman på n ≤ 3. |
+| **O4** | ❌ **Utgår.** Ingen AP-4-funn å surface eller gate. |
+| **O2** | ⚠️ **Beholdes, men på nytt grunnlag** — se under. |
+| **O5** | Uendret. Egen økt, egen beslutning. |
+| **O6** | Utvidet: AP-4s kjerne hører nå hjemme her. |
+
+**O2 mister sin opprinnelige begrunnelse, men ikke sin verdi.** Den ble foreslått
+for å låse opp AP-4. Det behovet er borte. Men `analyze-board-interlocks.ts`
+(AP-1), `analyze-node-concentration.ts` (AP-2) og `analyze-cross-holdings.ts`
+(AP-5) krever alle `DATABASE_URL` og kan ikke re-kjøres lokalt — og O5 krever
+nettopp en re-kjøring av AP-1-analysen etter skrivingen. O2 bør derfor vurderes
+som infrastruktur for O5 og for senere re-kjøringer, ikke som et AP-4-steg. Den
+avgjørelsen er ikke tatt her.
+
+**Spart:** O3+O4 var estimert til 6–9 timer. De bygde på et premiss som ikke
+holdt. Det er hele poenget med å legge en billig måling foran en dyr bygging —
+og verdt å merke seg neste gang en plan sier «dataene finnes allerede der».
+
+---
+
 
 ## 1. Hvor vi står
 
@@ -51,7 +95,7 @@ raskere første gang og dyrere hver gang etterpå.
 
 ## 3. Oppgaver, anbefaling og estimat
 
-### O1 — Bekreft finansdekningen i prod *(anbefalt: gjør denne først)*
+### O1 — Bekreft finansdekningen i prod *(UTFØRT — #372, se §0)*
 
 Legg `companyFinancials` og dekningsgrad (hvor mange av 361 selskaper har regnskapsrad)
 til `/api/data-status`. Det er en liten, deploybar endring som svarer på om AP-4 i det hele
@@ -63,7 +107,7 @@ konsern. **Det bør vi vite før vi bygger, ikke etter.**
 
 **Estimat: ~0,5 time.** Lav risiko.
 
-### O2 — Read-only analyse-target
+### O2 — Read-only analyse-target *(begrunnelsen er endret — se §0)*
 
 Ny workflow (eller target) som kobler til prod via CF Access, kjører ett navngitt skript fra
 en allowlist, og laster opp JSON-resultatet som artefakt. Allowlisten skal bare inneholde
@@ -71,7 +115,7 @@ en allowlist, og laster opp JSON-resultatet som artefakt. Allowlisten skal bare 
 
 **Estimat: 2–4 timer.** Spennet er tunnel-feilsøking; selve workflowen er enkel.
 
-### O3 — `scripts/analyze-value-capture.ts` + enhetstester
+### O3 — `scripts/analyze-value-capture.ts` + enhetstester *(UTGÅR — se §0)*
 
 Metoden er allerede spesifisert i AP-4-notatet §«Kjerne = needs-data»: normaliser volum til
 tonn per vare, left-join til regnskap, flagg `hasFinancial`, Spearman volum↔margin, aggreger
@@ -81,7 +125,7 @@ funksjoner, ingen logging ved import.
 **Estimat: 4–6 timer.** Sammenlignbart med `analyze-price-asymmetry.ts` i dag, men enklere
 statistikk og mer datavask.
 
-### O4 — AP-4 funnnotat, surfacing og claim-gate
+### O4 — AP-4 funnnotat, surfacing og claim-gate *(UTGÅR — se §0)*
 
 Funnnotat med dekningsforbehold, oppdatert `ins-ap4-001` i `dybdeanalyse.ts`, figur hvis
 funnet bærer en, og acceptance-test i `citable-acceptance.ts` **hvis** det når
