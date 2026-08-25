@@ -7,7 +7,7 @@ import { spawnSync } from 'node:child_process'
 
 const watcher = readFileSync('.github/workflows/coolify-db-watcher.yml', 'utf8')
 const prodImport = readFileSync('.github/workflows/prod-data-import.yml', 'utf8')
-const deployVerify = readFileSync('.github/workflows/coolify-sync-source-commit.yml', 'utf8')
+const deployVerify = readFileSync('.github/workflows/coolify-deploy-verify.yml', 'utf8')
 const retiredShaSync = readFileSync('scripts/coolify-sync-source-commit.sh', 'utf8')
 const retiredDeployHelper = readFileSync('scripts/deploy.sh', 'utf8')
 
@@ -139,7 +139,7 @@ describe('Coolify database health workflows', () => {
   })
 
   it('verifies the deployment without writing envs or triggering its own build', () => {
-    assert.match(deployVerify, /^name: Coolify SHA Sync$/m)
+    assert.match(deployVerify, /^name: Coolify Deploy Verify$/m)
     assert.match(deployVerify, /push:\s*\n\s+branches:\s*\n\s+- main/)
     assert.match(deployVerify, /permissions:\s*\n\s+contents: read/)
     assert.match(deployVerify, /COOLIFY_API_TOKEN/)

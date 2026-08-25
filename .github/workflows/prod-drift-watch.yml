@@ -4,7 +4,7 @@ name: Prod Drift Watch
 #
 # Bakgrunnen (målt 2026-08-25): `chore(snapshot)`-commiten b41ad9f ble laget av
 # github-actions[bot]. En push med GITHUB_TOKEN utløser per GitHubs design ingen
-# workflows, så `Coolify SHA Sync` fyrte ikke. Coolifys egen Auto Deploy bygde
+# workflows, så `Coolify Deploy Verify` (den gang `Coolify SHA Sync`) fyrte ikke. Coolifys egen Auto Deploy bygde
 # og deployet b41ad9f likevel — men SOURCE_COMMIT ble stående på forrige verdi,
 # og /api/version rapporterte 55ed5d7 i ~40 minutter mens prod kjørte b41ad9f.
 # `builtAt` var hele tiden korrekt, så kvitteringen så fersk ut. Det ble bare
