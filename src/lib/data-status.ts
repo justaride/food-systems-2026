@@ -18,6 +18,7 @@ export type DataStatusDb = {
   businessRelationship: CountDelegate
   company: CountDelegate
   companyFinancial: CountDelegate
+  boardMember: CountDelegate
   phase: CountDelegate
   teamMember: CountDelegate
   kPI: CountDelegate
@@ -187,6 +188,19 @@ export async function getDataStatus(db: DataStatusDb) {
         where: { AND: [{ financials: { some: {} } }, { deliveriesTo: { some: {} } }] },
       }),
     ),
+    // AP-1 (styreoverlapp) måles som andel selskaper med styredata. To nivåer,
+    // og de svarer på ulike spørsmål: `boardMembers` teller alle rader, mens
+    // AP-1s `--active-only`-kjøring filtrerer på `effectiveTo: null` (sittende
+    // styre). Dekningstallene i planen er active-only, så begge rapporteres —
+    // ellers leses 72 % og 36 % som om de var samme størrelse.
+    safeCount('boardMembers', () => db.boardMember.count()),
+    safeCount('boardMembersActive', () => db.boardMember.count({ where: { effectiveTo: null } })),
+    safeCount('companiesWithBoard', () =>
+      db.company.count({ where: { boardMembers: { some: {} } } }),
+    ),
+    safeCount('companiesWithActiveBoard', () =>
+      db.company.count({ where: { boardMembers: { some: { effectiveTo: null } } } }),
+    ),
   ])
 
   const countByLabel = Object.fromEntries(countResults.map(result => [result.label, result]))
@@ -287,6 +301,21 @@ export async function getDataStatus(db: DataStatusDb) {
     joinShare: coverageShare(actual('companiesWithFinancialsAndDeliveries'), actual('companies')),
   }
 
+  // Styredekning — grunnlaget for å vurdere AP-1 dekningsutvidelse (O5).
+  // `activeShare` er tallet planen omtaler («36 %»); `allShare` er det høyere
+  // tallet som inkluderer historiske verv. Begge måles mot dagens
+  // selskapsunivers, som er poenget: AP-1-baselinene ble regnet mot 275 og 351
+  // selskaper, og de universene finnes ikke lenger.
+  const boardCoverage = {
+    companies: actual('companies'),
+    boardRows: actual('boardMembers'),
+    boardRowsActive: actual('boardMembersActive'),
+    withBoard: actual('companiesWithBoard'),
+    withActiveBoard: actual('companiesWithActiveBoard'),
+    allShare: coverageShare(actual('companiesWithBoard'), actual('companies')),
+    activeShare: coverageShare(actual('companiesWithActiveBoard'), actual('companies')),
+  }
+
   const dbOk = Object.keys(tableErrors).length === 0
   const pageGatesOk = Object.values(pages).every(page => page.ok)
   const knowledgeBaseGatesOk = Object.values(knowledgeBase).every(gate => gate.ok)
@@ -301,6 +330,7 @@ export async function getDataStatus(db: DataStatusDb) {
     pages,
     knowledgeBase,
     financialCoverage,
+    boardCoverage,
     fallbackSurfaces,
     fallbackSensitiveTables,
   }
