@@ -206,8 +206,11 @@ Lista over var utdatert på fem av seks punkter: den listet arbeid funnnotatene 
 (bønder ligger i `Producer`, ikke `Company`, etter produsentseparasjonen — så
 «bro via `Company.id`» beskriver en kobling som ikke finnes). Kjøpersiden er
 foredlingsleddet, og `import-leveransedata.ts` — eneste skriver av
-`DeliveryVolume` — har tre distinkte kjøpere. Med n ≤ 3 er Spearman på tvers av
-aktører uten fortolkning. Målt finansdekning er dessuten 16,6 %, ikke ~50 %.
+`DeliveryVolume` — har tre distinkte kjøpere. Med n = 3 (bekreftet mot prod
+etter deploy `f062e37`) er Spearman på tvers av aktører uten fortolkning. Og
+alle tre har regnskap, så kjøpersidens finansdekning er 100 % — **flere
+regnskap gjør ikke pakken byggbar**; det som mangler er aktører å korrelere
+over. Korpusdekningen på 16,6 % (mot antatte ~50 %) er et separat forbehold.
 **Dette er ikke DB-tilgang som mangler.** AP-1 er nå den eneste gjenstående
 posten i denne kategorien.
 

@@ -60,11 +60,26 @@ import, og «bro via `Company.id`» beskriver en kobling som ikke finnes.
 
 Verdifangst måles uansett på kjøpersiden. Der er grensen hard på en annen måte:
 `import-leveransedata.ts` er eneste skriver av `DeliveryVolume`, og den har
-**tre** distinkte kjøpere — TINE SA, Nortura SA, Felleskjøpet Agri SA. Hele
-kjøpersiden er altså ≤ 3 selskaper.
+**tre** distinkte kjøpere — TINE SA, Nortura SA, Felleskjøpet Agri SA.
+
+**Bekreftet mot prod 2026-08-25** etter at målingen ble deployet (`f062e37`):
+
+```json
+"supplierSide": { "withDeliveries": 1 },
+"buyerSide":    { "withDeliveries": 3, "withFinancialsAndDeliveries": 3 }
+```
+
+Legg merke til hva det siste tallet sier: **alle tre kjøperne har regnskap.**
+Finansdekningen på kjøpersiden er 100 %, ikke 16,6 %. Den bindende
+begrensningen for AP-4 er altså *ikke* dekningsgrad i det hele tatt — det er at
+kjeden er modellert med tre kjøpere.
+
+Dette er verdt å være presis på, fordi den nærliggende slutningen er feil:
+**å importere flere regnskap gjør ikke AP-4 byggbar.** Regnskapene er der
+allerede for hele universet. Det som mangler er aktører å korrelere over.
 
 **Konsekvens for statusen.** AP-4s kjerne er spesifisert som Spearman
-volum↔margin *på tvers av aktører*. Med n ≤ 3 er den rangkorrelasjonen ikke
+volum↔margin *på tvers av aktører*. Med n = 3 er den rangkorrelasjonen ikke
 beregnbar — ikke «tynn», ikke «skjev», men uten fortolkning. Kjernen flyttes
 derfor fra `needs-data` (som betyr «venter på data») til **`lukket — ikke
 beregnbar som spesifisert`**. Det er ikke arbeid som venter på DB-tilgang.
