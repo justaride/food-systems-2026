@@ -116,14 +116,19 @@ describe('data status helpers', () => {
 
   it('rapporterer finansdekning, og skiller totaldekning fra AP-4s join-univers', async () => {
     const count = (value: number) => ({ count: async () => value })
-    // Selskapstellingen svarer ulikt etter filter — det er nettopp poenget:
-    // 361 selskaper, 180 med regnskap, men bare 24 med BÅDE regnskap og
-    // leveransevolum. AP-4 kan bare bruke de 24.
+    // Selskapstellingen svarer ulikt etter filter — det er nettopp poenget.
+    // Formen speiler prod: leverandørsiden er nesten tom fordi bønder ligger i
+    // `Producer`, mens kjøpersiden er foredlingsleddet og er det AP-4 kan bruke.
     const companyDelegate = {
       count: async (args?: unknown) => {
         const where = (args as { where?: Record<string, unknown> } | undefined)?.where
         if (!where) return 361
-        if ('AND' in where) return 24
+        if (Array.isArray(where.AND)) {
+          const clauses = where.AND as Record<string, unknown>[]
+          if (clauses.some(clause => 'deliveriesTo' in clause)) return 3
+          return 1 // regnskap + leverandørside
+        }
+        if ('deliveriesTo' in where) return 3
         if ('financials' in where) return 180
         return 4 // landbruksregister-filteret
       },
@@ -156,16 +161,20 @@ describe('data status helpers', () => {
 
     assert.equal(status.tables.companyFinancials, 742)
     assert.equal(status.tables.companiesWithFinancials, 180)
-    assert.equal(status.tables.companiesWithFinancialsAndDeliveries, 24)
+    assert.equal(status.tables.companiesWithFinancialsAndDeliveries, 1)
+    assert.equal(status.tables.companiesWithFinancialsAndDeliveriesTo, 3)
 
-    assert.deepEqual(status.financialCoverage, {
-      companies: 361,
-      withFinancials: 180,
-      withFinancialsAndDeliveries: 24,
-      financialRows: 742,
-      share: 0.499,
-      joinShare: 0.066,
-    })
+    assert.equal(status.financialCoverage.companies, 361)
+    assert.equal(status.financialCoverage.withFinancials, 180)
+    assert.equal(status.financialCoverage.share, 0.499)
+    // Leverandørsiden er lav ved konstruksjon, ikke av datamangel …
+    assert.equal(status.financialCoverage.supplierSide.withDeliveries, 1)
+    // … og kjøpersiden er den AP-4 skal leses mot.
+    assert.equal(status.financialCoverage.buyerSide.withDeliveries, 3)
+    assert.equal(status.financialCoverage.buyerSide.withFinancialsAndDeliveries, 3)
+    // Bakoverkompatible felt beholder leverandørsidens tall uendret.
+    assert.equal(status.financialCoverage.withFinancialsAndDeliveries, 1)
+    assert.equal(status.financialCoverage.joinShare, 0.003)
 
     // Finansdekningen er rapportering, ikke en gate — den skal ikke kunne
     // felle helsesjekken.
