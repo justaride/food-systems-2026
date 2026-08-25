@@ -68,6 +68,7 @@ describe('data status helpers', () => {
       actor: count(1636),
       personProfile: count(1594),
       companyFinancial: count(180),
+      boardMember: count(555),
     })
 
     assert.equal(status.ok, false)
@@ -104,6 +105,7 @@ describe('data status helpers', () => {
       actor: count(1636),
       personProfile: count(1594),
       companyFinancial: count(180),
+      boardMember: count(555),
     })
 
     assert.equal(status.pages.havbruk.ok, true)
@@ -130,6 +132,7 @@ describe('data status helpers', () => {
         }
         if ('deliveriesTo' in where) return 3
         if ('financials' in where) return 180
+        if ('boardMembers' in where) return 0
         return 4 // landbruksregister-filteret
       },
     }
@@ -142,6 +145,7 @@ describe('data status helpers', () => {
       businessRelationship: count(105),
       company: companyDelegate,
       companyFinancial: count(742),
+      boardMember: count(555),
       phase: count(4),
       teamMember: count(9),
       kPI: count(5),
@@ -193,6 +197,7 @@ describe('data status helpers', () => {
       businessRelationship: count(105),
       company: count(361),
       companyFinancial: missing,
+      boardMember: count(555),
       phase: count(4),
       teamMember: count(9),
       kPI: count(5),
@@ -215,6 +220,64 @@ describe('data status helpers', () => {
     // En manglende telling slår ut på dbOk (som alle tabellfeil gjør), men
     // dekningsandelene skal være null framfor 0 — «vet ikke», ikke «ingen».
     assert.equal(status.dbOk, false)
+  })
+
+  it('rapporterer styredekning, og skiller sittende styre fra alle verv', async () => {
+    const count = (value: number) => ({ count: async () => value })
+    // AP-1s to nivåer er ulike størrelser og må ikke leses som samme tall:
+    // 253 selskaper har en styrerad i det hele tatt, men bare 98 har et
+    // SITTENDE styre (effectiveTo: null). Planens «36 %» er det siste.
+    const companyDelegate = {
+      count: async (args?: unknown) => {
+        const where = (args as { where?: Record<string, unknown> } | undefined)?.where
+        if (!where) return 361
+        const board = where.boardMembers as { some?: Record<string, unknown> } | undefined
+        if (board) return board.some && 'effectiveTo' in board.some ? 98 : 253
+        return 4
+      },
+    }
+    const boardDelegate = {
+      count: async (args?: unknown) => {
+        const where = (args as { where?: Record<string, unknown> } | undefined)?.where
+        return where && 'effectiveTo' in where ? 555 : 1892
+      },
+    }
+    const status = await getDataStatus({
+      subsidy: count(179310),
+      aquacultureSite: count(287),
+      aquacultureApplication: count(110),
+      fishHealthObservation: count(0),
+      deliveryVolume: count(60310),
+      businessRelationship: count(105),
+      company: companyDelegate,
+      companyFinancial: count(742),
+      boardMember: boardDelegate,
+      phase: count(4),
+      teamMember: count(9),
+      kPI: count(5),
+      tenStep: count(10),
+      evidenceDoc: count(23),
+      application: count(3),
+      insight: count(132),
+      meeting: count(9),
+      communication: count(0),
+      document: count(1615),
+      sourceCitation: count(5265),
+      fieldCitation: count(247477),
+      libraryAnalysisRecord: count(1770),
+      actor: count(1636),
+      personProfile: count(1740),
+    })
+
+    assert.equal(status.boardCoverage.boardRows, 1892)
+    assert.equal(status.boardCoverage.boardRowsActive, 555)
+    assert.equal(status.boardCoverage.withBoard, 253)
+    assert.equal(status.boardCoverage.withActiveBoard, 98)
+    // Mot dagens univers (361), ikke mot de historiske 275/351.
+    assert.equal(status.boardCoverage.allShare, 0.701)
+    assert.equal(status.boardCoverage.activeShare, 0.271)
+    // Styredekning er rapportering, ikke en gate.
+    assert.equal(status.ok, true)
   })
 
   it('fails closed when the library-analysis table is unavailable', async () => {
@@ -244,6 +307,7 @@ describe('data status helpers', () => {
       actor: count(1636),
       personProfile: count(1594),
       companyFinancial: count(180),
+      boardMember: count(555),
     })
 
     assert.equal(status.ok, false)

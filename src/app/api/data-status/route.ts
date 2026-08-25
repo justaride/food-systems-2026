@@ -22,6 +22,7 @@ export async function GET() {
       pages: status.pages,
       knowledgeBase: status.knowledgeBase,
       financialCoverage: status.financialCoverage,
+      boardCoverage: status.boardCoverage,
       fallbackSurfaces: status.fallbackSurfaces,
       fallbackSensitiveTables: status.fallbackSensitiveTables,
     },

@@ -95,4 +95,41 @@ describe('prod data import workflow', () => {
     assert.match(workflow, /library-analysis-approval-revocation-backup\.jsonl/)
     assert.match(workflow, /retention-days: 90/)
   })
+
+  it('unntar bare ikke-muterende targets fra backup-gaten', () => {
+    // Gaten er den siste linjen med forsvar før en prod-mutasjon. Den forrige
+    // testen sjekket bare at 'verify-only' står der, så et unntak for et
+    // SKRIVENDE target ville gått rett gjennom. Denne låser retningen.
+    const gate = workflow.slice(
+      workflow.indexOf('Require a recent successful off-node backup before mutation'),
+      workflow.indexOf('Run selected prod data operation'),
+    )
+    const exempted = [...gate.matchAll(/inputs\.target != '([^']+)'/g)].map(m => m[1]).sort()
+    // Kun targets som beviselig ikke skriver: verify-only og tørrkjøringen.
+    assert.deepEqual(exempted, ['board-coverage-dry', 'verify-only'])
+    // Det skrivende AP-1-targetet skal aldri stå her.
+    assert.ok(!exempted.includes('board-coverage'), 'board-coverage muterer og må kreve backup')
+  })
+
+  it('AP-1-targetene: tørrkjøring skriver ikke, og ekte kjøring holder rekkefølgen', () => {
+    const ops = workflow.slice(workflow.indexOf('Run selected prod data operation'))
+    const dry = ops.slice(ops.indexOf('board-coverage-dry)'), ops.indexOf('board-coverage)'))
+    // Tørrkjøringen må bære --dry-run, ellers er navnet en løgn som muterer prod.
+    assert.match(dry, /extend-board-coverage-brreg\.ts[\s\\]*--dry-run/)
+    assert.doesNotMatch(dry, /dedupe-person-keys/)
+
+    const apply = ops.slice(ops.indexOf('board-coverage)'))
+    const extend = apply.indexOf('extend-board-coverage-brreg.ts')
+    const dedupe = apply.indexOf('dedupe-person-keys.ts --commit')
+    const analyze = apply.indexOf('analyze-board-interlocks.ts')
+    assert.ok(extend > -1 && dedupe > -1 && analyze > -1, 'alle tre stegene må finnes')
+    // Rekkefølgen er ikke kosmetisk: kjøres analysen før dedupe, telles samme
+    // person som flere noder på tvers av historiske og nye rader, og
+    // interlock-tallene blir for høye. Skriptets egen header sier det samme.
+    assert.ok(extend < dedupe, 'utvidelsen må gå før dedupe')
+    assert.ok(dedupe < analyze, 'dedupe MÅ gå før interlock-analysen')
+    // Ferskt uttrekk, ikke det gamle snapshotet — som ville skrevet juni-styret
+    // som sittende, siden skriptet ikke markerer avgåtte medlemmer.
+    assert.doesNotMatch(apply.slice(0, analyze), /--snapshot-in=/)
+  })
 })
