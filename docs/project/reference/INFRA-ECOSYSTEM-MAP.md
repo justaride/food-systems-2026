@@ -102,7 +102,7 @@ Workflowene mapper GitHub-secretene `CF_ACCESS_CLIENT_ID/SECRET` til
 | `coolify-db-watcher.yml` | (sjekk fila) | DB-overvåking | [A] |
 | `coolify-resource-snapshot.yml` | (sjekk fila) | Ressurs-snapshot | [A] |
 | `schema-migration-guard.yml` | PR | Schema-drift-gate | nei [A] |
-| `pr-quality-gates.yml` | PR | Test/lint/build-gates | nei |
+| `quality-gates.yml` | PR, push til `main`, manuell | Test/lint/typecheck + migrasjonsidempotens. Het `pr-quality-gates.yml` fram til 2026-08-25, da `push: main` kom til: en PR testes mot sin egen head-SHA, ikke mot merge-resultatet | nei |
 
 **Deploy-modell:** push til `main` → Coolifys `Auto Deploy` bygger via
 GitHub-appens webhook. Det er den ENESTE deploy-triggeren; fram til 2026-08-25

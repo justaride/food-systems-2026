@@ -1,9 +1,24 @@
-name: PR Quality Gates
+name: Quality Gates
 
-# Kjører BARE på pull_request (pluss manuell dispatch). Tidligere fyrte også
-# `push: branches-ignore: [main]`, og for en gren med åpen PR fyrte begge på
-# samme commit — hele workflowen kjørte to ganger, med to jobber hver, altså
-# fire sjekk-kjøringer der to holder.
+# Het `PR Quality Gates` / `pr-quality-gates.yml` fram til 2026-08-25, da
+# `push: [main]` kom til. Den kjører ikke lenger bare på PR-er, og et navn som
+# var sant én gang er samme feilklasse som et feil tall.
+#
+# Fyrer på tre hendelser, og hver av dem dekker et hull de to andre har:
+#
+#   pull_request  — porten før merge.
+#   push: main    — merge-commiten selv. En PR testes grønn mot sin egen
+#                   head-SHA, ikke mot resultatet av å merge den. To PR-er som
+#                   hver for seg er grønne kan bryte main sammen, og fram til
+#                   2026-08-25 fantes det ingen kjøring som ville sagt fra.
+#                   Det betyr noe her fordi container-entrypointet anvender
+#                   migrasjoner ved oppstart: en brukket main er en deploy.
+#   workflow_dispatch — manuelle kjøringer.
+#
+# Merk at `push` bevisst er avgrenset til main. Tidligere fyrte
+# `push: branches-ignore: [main]` — stikk motsatt — og for en gren med åpen PR
+# fyrte begge på samme commit: hele workflowen kjørte to ganger, med to jobber
+# hver, altså fire sjekk-kjøringer der to holder.
 #
 # Det var ikke bare sløsing: duplikatene konkurrerte om runnere, og på PR #363
 # traff den ene `test-and-audit` taket i `timeout-minutes: 15` og ble rapportert
@@ -15,18 +30,27 @@ name: PR Quality Gates
 # `cancelled`-merker og `mergeable_state: unstable` — nettopp det som stoppet
 # merge av #363. Duplikaten må ikke starte i det hele tatt.
 #
-# Kostnad: en gren får ikke CI før PR-en er åpnet. Arbeidsflyten her er
-# gren → PR, så det vinduet er kort, og `workflow_dispatch` dekker manuelle
-# kjøringer. Main dekkes ikke av denne workflowen (jf. dispatch etter direkte
-# push til main).
+# Main-triggeren gjenskaper ikke duplikaten: en PR-hendelse bærer grenens
+# head-SHA, en push til main bærer merge-commitens SHA. Ulike commits, ulikt
+# arbeid, ulik concurrency-gruppe.
+#
+# Kostnad: en gren får ikke CI før PR-en er åpnet (arbeidsflyten er gren → PR,
+# så vinduet er kort), og hver merge til main koster ett fullt testbygg pluss
+# migrasjonsjobben.
 on:
   pull_request:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 # Guarden beholdes selv om dobbelt-triggeren er borte: den hindrer at to
 # raske pushes til samme PR, eller to workflow_dispatch-kjøringer, overlapper.
 # Nøkkelen er grenens head-SHA — `github.ref` duger ikke, siden PR-hendelsen
-# har refs/pull/N/merge og en dispatch har refs/heads/<gren>.
+# har refs/pull/N/merge og en dispatch har refs/heads/<gren>. For en push til
+# main er `github.event.pull_request.head.sha` tom, så fallbacken `github.sha`
+# gjelder: merge-commitens egen SHA. Hver merge er en unik gruppe, så to raske
+# merger avbryter ikke hverandre — begge merge-resultater blir testet.
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.head.sha || github.sha }}
   cancel-in-progress: true
