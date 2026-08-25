@@ -36,6 +36,8 @@ on:
           - innhenting-2026-08-05
           - board-coverage-dry
           - board-coverage
+          - leroy-duplicate-dry
+          - leroy-duplicate
       confirm:
         description: 'Type IMPORT to confirm a production database operation'
         required: true
@@ -85,11 +87,12 @@ jobs:
           cloudflared --version
 
       - name: Require a recent successful off-node backup before mutation
-        # board-coverage-dry er unntatt av samme grunn som verify-only: den
-        # skriver ingenting (--dry-run), og en lesende diagnose skal ikke kunne
-        # blokkeres av at en backup mangler. Den skrivende `board-coverage` er
-        # IKKE unntatt.
-        if: ${{ inputs.target != 'verify-only' && inputs.target != 'board-coverage-dry' }}
+        # board-coverage-dry og leroy-duplicate-dry er unntatt av samme grunn
+        # som verify-only: de skriver ingenting, og en lesende diagnose skal
+        # ikke kunne blokkeres av at en backup mangler. De skrivende
+        # `board-coverage` og `leroy-duplicate` er IKKE unntatt — sistnevnte
+        # sletter en rad, og er den kjøringen som trenger backupen mest.
+        if: ${{ inputs.target != 'verify-only' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' }}
         env:
           COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_READ_API_TOKEN }}
           COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
@@ -295,6 +298,25 @@ jobs:
                 --out=research/analyse/ap1-styreoverlapp-active-only.json
               npm run db:verify
               ;;
+            leroy-duplicate-dry)
+              # Lerøy-duplikatet: tørrkjøring. Rapporterer hva rettingen ville
+              # endret og hvilke avhengigheter duplikatraden har — uten å røre DB-en.
+              mkdir -p research/_status
+              npx tsx scripts/resolve-leroy-duplicate.ts \
+                --json-out=research/_status/leroy-duplicate-dryrun.json \
+                | tee research/_status/leroy-duplicate-dryrun.log
+              ;;
+            leroy-duplicate)
+              # Ekte kjøring: retter 2024-regnskapet mot årsrapporten på den
+              # kanoniske raden (975350940), og sletter deretter duplikatet
+              # (975320637). Skriptet nekter selv å slette hvis duplikatet har
+              # avhengigheter utover financials/shareholders.
+              mkdir -p research/_status
+              npx tsx scripts/resolve-leroy-duplicate.ts --apply \
+                --json-out=research/_status/leroy-duplicate-applied.json \
+                | tee research/_status/leroy-duplicate-applied.log
+              npm run db:verify
+              ;;
             *)
               echo "::error::Unsupported prod data import target: $TARGET"
               exit 1
@@ -336,6 +358,17 @@ jobs:
             research/_status/ap1-dedupe-person-keys.log
             research/analyse/ap1-styreoverlapp.json
             research/analyse/ap1-styreoverlapp-active-only.json
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Upload Lerøy duplicate-resolution evidence
+        if: ${{ always() && (inputs.target == 'leroy-duplicate-dry' || inputs.target == 'leroy-duplicate') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: leroy-duplicate-${{ inputs.target }}-${{ github.run_id }}
+          path: |
+            research/_status/leroy-duplicate-*.json
+            research/_status/leroy-duplicate-*.log
           if-no-files-found: warn
           retention-days: 90
 
