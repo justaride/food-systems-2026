@@ -210,8 +210,6 @@ Premisset holdt ikke: «36 %» var aldri sittende-styre-dekning.
 **tid**, ikke filter — en import landet mellom 14. og 15. juni, og hullet var
 lukket dagen etter at tallet ble målt. Se AP-1-notatet §9.
 
-**Denne kategorien er nå tom.** Alt som kunne lukkes fra vår side, er lukket.
-
 ~~**Per-aktør volum↔margin (AP-4).** Krever `DeliveryVolume × CompanyFinancial`-join.~~
 **Lukket 2026-08-25 — ikke beregnbar som spesifisert.** Se AP-4-notatet §4b. Kort:
 `DeliveryVolume` har to selskapssider, og leverandørsiden er tom ved konstruksjon
@@ -223,8 +221,9 @@ etter deploy `f062e37`) er Spearman på tvers av aktører uten fortolkning. Og
 alle tre har regnskap, så kjøpersidens finansdekning er 100 % — **flere
 regnskap gjør ikke pakken byggbar**; det som mangler er aktører å korrelere
 over. Korpusdekningen på 16,6 % (mot antatte ~50 %) er et separat forbehold.
-**Dette er ikke DB-tilgang som mangler.** AP-1 er nå den eneste gjenstående
-posten i denne kategorien.
+**Dette er ikke DB-tilgang som mangler.**
+
+**Denne kategorien er nå tom.** Alt som kunne lukkes fra vår side, er lukket.
 
 **Åpent, avventer tredjepart** *(eneste kategori som faktisk venter på noe)***:** presist publisert 2025-tall for produksjonstilskudd (AP-3) ville stramme avstemmingen fra prosentnivå til krone. Ikke noe vi kan framskynde.
 
@@ -237,7 +236,7 @@ posten i denne kategorien.
 > | Avventer tredjepart | Noen andre må publisere først | Ingen, men kan gjenåpnes |
 > | Åpent og løsbart | Krever vår innsats | Reelt |
 >
-> Bare siste rad er en oppgaveliste. Etter 2026-08-25 inneholder den **én** post: AP-1 dekningsutvidelse.
+> Bare siste rad er en oppgaveliste. Etter 2026-08-25 er den **tom**.
 
 Til slutt: **full operator-sekvens** i `research/CITABLE-KNOWLEDGE-BASE-STATUS.md` gjenstår for alt som skal bli ekstern faktastemme, uavhengig av punktene over.
 
