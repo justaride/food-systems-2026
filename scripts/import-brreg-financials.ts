@@ -21,17 +21,24 @@
  *     HOLDING_CONSOLIDATED_ORGNRS og hoppes over MED MINDRE API faktisk leverer
  *     et `KONSERN`-regnskap — slik at kuraterte konserntall fra årsrapport ikke
  *     blir overskrevet av et lite holdingtall.
- *  2. Standard skrivepolitikk klobber ALDRI en kuratert rad (kilde uten
- *     "Regnskapsregisteret"-prefiks). Den fyller bare manglende år og oppdaterer
- *     rader denne importeren selv har skrevet. Bruk --overwrite for å la
- *     registeret også erstatte kuraterte enkeltselskapsrader.
+ *  2. Standard skrivepolitikk klobber ALDRI en kuratert rad (kilde som ikke er
+ *     en Regnskapsregisteret-lokator fra denne importeren, jf.
+ *     `isRegistrySourced`). Den fyller bare manglende år og oppdaterer rader
+ *     denne importeren selv har skrevet. Bruk --overwrite for å la registeret
+ *     også erstatte kuraterte enkeltselskapsrader.
  *  3. Ansatte (`groupEmployees`) settes fra `Company.employees` (som
  *     `refresh:brreg` fyller fra Enhetsregisteret) — regnskaps-API-et har ikke
  *     ansatte. Kjør gjerne `refresh:brreg` først for ferske ansattetall.
  *
- * Kildedisiplin: hver rad får `source` med endepunkt + regnskapsår + aksessdato,
- * `reportingCurrency='NOK'` og `verificationStatus='machine_verified'`. Med
- * --snapshot arkiveres rå JSON som registry_snapshot med SHA-256.
+ * Kildedisiplin: hver rad får `source` satt til register-endepunktet for
+ * selskapet (`REGNSKAP_BASE` + `/` + orgnr), `reportingCurrency='NOK'` og
+ * `verificationStatus='machine_verified'`; aksessdatoen ligger i `verifiedAt`.
+ * Med --snapshot arkiveres rå JSON som registry_snapshot med SHA-256.
+ *
+ * Formen på `source` er BINDENDE utover denne fila: `RAW_NOK_SOURCE_PATTERNS` i
+ * scripts/normalize-financial-units.ts bruker URL-formen til å avgjøre at raden
+ * står i rå NOK. Endres strengen uten at det mønsteret følger med, blir nye
+ * rader klassifisert som MNOK og ganget opp med 10^6.
  *
  * Ren kjerne (parsing) er eksportert og enhetstestet. main() kjører kun ved
  * direkte kjøring, ikke ved import.
@@ -159,9 +166,27 @@ export function pickBestPerYear(records: BrregRegnskap[]): Map<number, ParsedFin
   return byYear
 }
 
-/** Sann hvis raden i DB er skrevet av denne importeren (trygt å oppdatere). */
+/**
+ * Sann hvis raden i DB er skrevet av denne importeren (trygt å oppdatere).
+ *
+ * To former må godtas fordi `buildSourceString` har endret seg:
+ *   - `https://data.brreg.no/regnskapsregisteret/regnskap/{orgnr}` — dagens form
+ *   - `Regnskapsregisteret (Brønnøysund) API regnskap/...` — formen før 590235d
+ *
+ * Predikatet godtok tidligere bare prefiks-formen. Siden URL-formen er den
+ * eneste `buildSourceString` skriver, var predikatet dermed usant for HVER rad
+ * importeren selv hadde laget (95 rader i det lokale korpuset, 0 med
+ * prefiks-formen). Egne rader ble talt som kuraterte og aldri oppdatert uten
+ * --overwrite, og `[OVERWRITE-CURATED]`-taggen ble skrevet for rader som i
+ * virkeligheten var registerhentede.
+ *
+ * Merk at `Regnskapsregisteret 2024`/`2025` bevisst IKKE er med: de radene
+ * kommer fra et separat registeruttrekk, ikke fra denne importeren, og skal
+ * fortsatt være beskyttet.
+ */
 export function isRegistrySourced(source: string | null | undefined): boolean {
-  return !!source && source.startsWith(SOURCE_PREFIX)
+  if (!source) return false
+  return source.startsWith(`${REGNSKAP_BASE}/`) || source.startsWith(SOURCE_PREFIX)
 }
 
 /**

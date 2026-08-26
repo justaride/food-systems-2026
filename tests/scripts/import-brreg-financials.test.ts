@@ -131,9 +131,27 @@ describe('skrivepolitikk-helpere', () => {
     assert.equal(isRegistrySourced('Årsrapport 2024'), false)
     assert.equal(isRegistrySourced(null), false)
   })
+  // Regresjonsvakt: dette er koblingen mellom skriving og lesing som manglet.
+  // buildSourceString sluttet å skrive prefiks-formen i 590235d uten at
+  // isRegistrySourced fulgte med, så importeren så alle sine egne 95 rader som
+  // kuraterte og kunne ikke oppdatere dem uten --overwrite.
+  it('isRegistrySourced godtar det buildSourceString faktisk skriver', () => {
+    assert.equal(isRegistrySourced(buildSourceString('982254604', 2025, '2026-06-16')), true)
+  })
+  it('isRegistrySourced holder registeruttrekkene utenfor (annen importsti)', () => {
+    assert.equal(isRegistrySourced('Regnskapsregisteret 2024'), false)
+    assert.equal(isRegistrySourced('Regnskapsregisteret 2025'), false)
+  })
   it('buildSourceString returnerer direkte Regnskapsregisteret-lokator', () => {
     const s = buildSourceString('982254604', 2025, '2026-06-16')
     assert.equal(s, 'https://data.brreg.no/regnskapsregisteret/regnskap/982254604')
+  })
+  // Enhetsklassifiseringen i scripts/normalize-financial-units.ts leser denne
+  // formen som «rå NOK». Endres strengen uten at mønsteret der følger med,
+  // blir nye rader tolket som MNOK og ganget opp med 10^6.
+  it('buildSourceString beholder formen RAW_NOK_SOURCE_PATTERNS matcher på', () => {
+    const rawNokLocator = /^https:\/\/data\.brreg\.no\/regnskapsregisteret\/regnskap\//
+    assert.match(buildSourceString('982254604', 2025, '2026-06-16'), rawNokLocator)
   })
   it('isNokReported slipper bare NOK gjennom til revenueNok (Mowi EUR blokkeres)', () => {
     assert.equal(isNokReported('NOK'), true)
