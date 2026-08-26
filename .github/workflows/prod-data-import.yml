@@ -53,6 +53,12 @@ concurrency:
   cancel-in-progress: false
 
 env:
+  # Prod-Postgres. Containeren HETER `food-systems-pgvector-db`, men det er
+  # korpusdatabasen — CF-tunnelen under peker hit, og det er denne alle
+  # db:*-kommandoene i denne workflowen treffer. Navnet er misvisende:
+  # `food-systems-db` (ks8sks4oo4k4gk8c080sk0ko) er en ANNEN container og
+  # ikke den prod bruker. Ikke «rett» denne UUID-en uten å verifisere mot
+  # docs/project/reference/INFRA-ECOSYSTEM-MAP.md først.
   DB_UUID: l0s8o8oo00c8gossw0gksswk
   BACKUP_MAX_AGE_HOURS: ${{ vars.DB_BACKUP_MAX_AGE_HOURS || '36' }}
 
