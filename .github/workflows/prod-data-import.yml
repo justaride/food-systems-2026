@@ -38,6 +38,7 @@ on:
           - board-coverage
           - leroy-duplicate-dry
           - leroy-duplicate
+          - brreg-financials-dry
       confirm:
         description: 'Type IMPORT to confirm a production database operation'
         required: true
@@ -87,12 +88,12 @@ jobs:
           cloudflared --version
 
       - name: Require a recent successful off-node backup before mutation
-        # board-coverage-dry og leroy-duplicate-dry er unntatt av samme grunn
-        # som verify-only: de skriver ingenting, og en lesende diagnose skal
-        # ikke kunne blokkeres av at en backup mangler. De skrivende
+        # board-coverage-dry, leroy-duplicate-dry og brreg-financials-dry er
+        # unntatt av samme grunn som verify-only: de skriver ingenting, og en
+        # lesende diagnose skal ikke kunne blokkeres av at en backup mangler. De skrivende
         # `board-coverage` og `leroy-duplicate` er IKKE unntatt — sistnevnte
         # sletter en rad, og er den kjøringen som trenger backupen mest.
-        if: ${{ inputs.target != 'verify-only' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' }}
+        if: ${{ inputs.target != 'verify-only' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' && inputs.target != 'brreg-financials-dry' }}
         env:
           COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_READ_API_TOKEN }}
           COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
@@ -317,6 +318,21 @@ jobs:
                 | tee research/_status/leroy-duplicate-applied.log
               npm run db:verify
               ;;
+            brreg-financials-dry)
+              # Regnskapsregisteret-importen: tørrkjøring mot prod. Leser
+              # Company + CompanyFinancial, henter regnskap fra det åpne
+              # brreg-API-et og rapporterer hva den VILLE skrevet. Ingen
+              # DB-skriving, derfor unntatt backup-gaten over.
+              #
+              # Formålet er å måle skrivepolitikken etter #382: «oppdatert N»
+              # er rader importeren nå kjenner igjen som sine egne. Før fiksen
+              # var det tallet null uansett hvor mange egne rader prod hadde,
+              # fordi isRegistrySourced ikke godtok strengen buildSourceString
+              # skriver. «Kuraterte rader beholdt» er komplementet.
+              mkdir -p research/_status
+              npx tsx scripts/import-brreg-financials.ts --dry-run \
+                | tee research/_status/brreg-financials-dryrun.log
+              ;;
             *)
               echo "::error::Unsupported prod data import target: $TARGET"
               exit 1
@@ -369,6 +385,15 @@ jobs:
           path: |
             research/_status/leroy-duplicate-*.json
             research/_status/leroy-duplicate-*.log
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Upload Regnskapsregisteret dry-run evidence
+        if: ${{ always() && inputs.target == 'brreg-financials-dry' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: brreg-financials-dryrun-${{ github.run_id }}
+          path: research/_status/brreg-financials-dryrun.log
           if-no-files-found: warn
           retention-days: 90
 
