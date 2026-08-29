@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { spawnSync } from "node:child_process";
+import { existsSync } from "node:fs";
 import { mkdir, mkdtemp, readFile, rename, rm, writeFile } from "node:fs/promises";
 import { basename, dirname, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
@@ -45,9 +46,12 @@ export type SnapshotPromotion = {
   contents: Buffer;
 };
 
+type RenameFile = (sourcePath: string, targetPath: string) => Promise<void>;
+
 export async function promoteSnapshotTransaction(
   outputs: SnapshotPromotion[],
   beforePromote: () => void | Promise<void> = () => undefined,
+  renameFile: RenameFile = rename,
 ): Promise<void> {
   if (outputs.length === 0) return;
   await mkdir(dirname(outputs[0].targetPath), { recursive: true });
@@ -55,15 +59,37 @@ export async function promoteSnapshotTransaction(
   try {
     const staged = await Promise.all(outputs.map(async (output, index) => {
       await mkdir(dirname(output.targetPath), { recursive: true });
-      const stagePath = resolve(stageDirectory, `${index}-${basename(output.targetPath)}`);
+      const stagePath = resolve(stageDirectory, `staged-${index}-${basename(output.targetPath)}`);
       await writeFile(stagePath, output.contents);
-      return { stagePath, targetPath: output.targetPath };
+      return { index, stagePath, targetPath: output.targetPath };
     }));
     await beforePromote();
-    for (const output of staged) await rename(output.stagePath, output.targetPath);
+    const journal: Array<{ targetPath: string; backupPath?: string; promoted: boolean }> = [];
+    try {
+      for (const output of staged) {
+        const backupPath = existsSync(output.targetPath)
+          ? resolve(stageDirectory, `backup-${output.index}-${basename(output.targetPath)}`)
+          : undefined;
+        if (backupPath) await renameFile(output.targetPath, backupPath);
+        const entry = { targetPath: output.targetPath, backupPath, promoted: false };
+        journal.push(entry);
+        await renameFile(output.stagePath, output.targetPath);
+        entry.promoted = true;
+      }
+    } catch (error) {
+      for (const entry of journal.reverse()) {
+        if (entry.promoted) await rm(entry.targetPath, { force: true });
+        if (entry.backupPath) await renameFile(entry.backupPath, entry.targetPath);
+      }
+      throw error;
+    }
   } finally {
     await rm(stageDirectory, { recursive: true, force: true });
   }
+}
+
+export function versionSnapshotFileName(fileName: string, accessDate: string): string {
+  return fileName.replace(/(\.csv(?:\.gz)?)$/, `-accessed-${accessDate}$1`);
 }
 
 export function resolveAccessDate(args: string[], invokedAt = new Date()): string {
@@ -92,7 +118,8 @@ async function main(args = process.argv.slice(2), invokedAt = new Date()) {
       throw new Error(`FSD snapshot failed for ${source.url}: ${response.status} ${response.statusText}`);
     }
     const raw = Buffer.from(await response.arrayBuffer());
-    const snapshotPath = resolve(SNAPSHOT_DIR, source.file);
+    const versionedFile = versionSnapshotFileName(source.file, accessDate);
+    const snapshotPath = resolve(SNAPSHOT_DIR, versionedFile);
     if (source.compress) {
       const compressed = gzipDeterministic(raw);
       promotionOutputs.push({ targetPath: snapshotPath, contents: compressed });
@@ -100,7 +127,7 @@ async function main(args = process.argv.slice(2), invokedAt = new Date()) {
         id: source.id,
         role: source.role,
         url: source.url,
-        compressedPath: `research/landscape/snapshots/${source.file}`,
+        compressedPath: `research/landscape/snapshots/${versionedFile}`,
         accessedAt: accessDate,
         contentType: response.headers.get("content-type") ?? "application/octet-stream",
         compressedBytes: compressed.byteLength,
@@ -115,7 +142,7 @@ async function main(args = process.argv.slice(2), invokedAt = new Date()) {
         id: source.id,
         role: source.role,
         url: source.url,
-        localPath: `research/landscape/snapshots/${source.file}`,
+        localPath: `research/landscape/snapshots/${versionedFile}`,
         accessedAt: accessDate,
         contentType: response.headers.get("content-type") ?? "text/csv",
         bytes: raw.byteLength,

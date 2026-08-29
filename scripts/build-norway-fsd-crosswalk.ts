@@ -1,14 +1,17 @@
 import { createHash } from "node:crypto";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { dirname, resolve } from "node:path";
-import { parseCsv, type CsvRow } from "./lib/parse-rfc4180.ts";
-import { readVerifiedGzipSnapshot } from "./lib/snapshot-integrity.ts";
+import { readFile, writeFile } from "node:fs/promises";
+import { resolve } from "node:path";
+import { pathToFileURL } from "node:url";
+import type { CsvRow } from "./lib/parse-rfc4180.ts";
+import {
+  readNorwayFsdSnapshotSet,
+  resolveNorwayFsdManifestPath,
+} from "./lib/norway-fsd-snapshot-set.ts";
 
 const ROOT = resolve(process.cwd());
-const ACCESS_DATE = "2026-08-10";
+let ACCESS_DATE = "2026-08-10";
 const SNAPSHOT_DATE = "2026-04-20";
 const LANDSCAPE_DIR = resolve(ROOT, "research/landscape");
-const SNAPSHOT_DIR = resolve(LANDSCAPE_DIR, "snapshots");
 
 type AnyRecord = Record<string, any>;
 type ComparisonStatus =
@@ -57,16 +60,6 @@ interface SourceRow {
   license: string;
   notes: string;
 }
-
-type FullExportManifest = {
-  id: string;
-  compressedPath: string;
-  compressedBytes: number;
-  compressedSha256: string;
-  rawBytes: number;
-  rawSha256: string;
-  compression: "gzip -n -9";
-};
 
 const sourceRows = new Map<string, SourceRow>();
 
@@ -458,18 +451,21 @@ function markdownTable(rows: AnyRecord[], columns: Array<[string, (row: AnyRecor
   return `${header}\n${divider}\n${body}`;
 }
 
-async function main() {
-  const profile = JSON.parse(await readFile(resolve(SNAPSHOT_DIR, "norway-fsd-profile-2026-08-10.json"), "utf8"));
-  const metadataRows = parseCsv(await readFile(resolve(SNAPSHOT_DIR, "fsd-metadata-export-2026-04-20.csv"), "utf8"));
-  const snapshotManifest = JSON.parse(
-    await readFile(resolve(LANDSCAPE_DIR, "norway-fsd-snapshot-manifest-2026-08-10.json"), "utf8"),
-  ) as { sources: FullExportManifest[] };
-  const manifest = snapshotManifest.sources.find((source) => source.id === "fsd-full-export-2026-04-20");
-  if (!manifest) throw new Error("FSD snapshot manifest mangler full export");
-  const fullExportPath = resolve(ROOT, manifest.compressedPath);
-  const fullExport = parseCsv(
-    readVerifiedGzipSnapshot(fullExportPath, manifest.compressedSha256, manifest.rawSha256).toString("utf8"),
-  );
+export function loadNorwayFsdBuildInputs(root: string, manifestPath: string) {
+  return readNorwayFsdSnapshotSet(root, manifestPath);
+}
+
+async function main(args = process.argv.slice(2)) {
+  sourceRows.clear();
+  const manifestPath = resolveNorwayFsdManifestPath(args, LANDSCAPE_DIR);
+  const snapshotSet = loadNorwayFsdBuildInputs(ROOT, manifestPath);
+  ACCESS_DATE = snapshotSet.snapshotDate;
+  const profile = snapshotSet.profile;
+  const metadataRows = snapshotSet.metadataRows;
+  const fullExport = snapshotSet.fullExport;
+  const manifest = snapshotSet.fullManifest;
+  const metadataManifest = snapshotSet.metadataManifest;
+  const profileManifest = snapshotSet.profileManifest;
   const metadata = new Map(metadataRows.map((row) => [row.Name, row]));
   const fullNorway = fullExport.filter((row) => row.ISO3 === "NOR");
 
@@ -490,9 +486,9 @@ async function main() {
       citationReadiness: "citable_with_note",
       verificationStatus: "verified",
       url: FSD_PROFILE_URL,
-      localPath: "research/landscape/snapshots/norway-fsd-profile-2026-08-10.json",
-      accessDate: ACCESS_DATE,
-      contentHash: await sha256(resolve(SNAPSHOT_DIR, "norway-fsd-profile-2026-08-10.json")),
+      localPath: profileManifest.localPath,
+      accessDate: profileManifest.accessedAt,
+      contentHash: profileManifest.sha256,
       license: "FSD-/underliggende datakildevilkår må kontrolleres per indikator",
       notes: "Snapshot av renderte Norway-indikatorer; FSD benchmark-status er avledet fra profilens avstandskategori.",
     }),
@@ -509,7 +505,7 @@ async function main() {
       verificationStatus: "verified",
       url: "https://d3e9iu03zzh17w.cloudfront.net/bulk-data-downloads/fsd-full-export-2026-04-20.csv",
       localPath: manifest.compressedPath,
-      accessDate: ACCESS_DATE,
+      accessDate: manifest.accessedAt,
       contentHash: manifest.compressedSha256,
       license: "FSD-/underliggende datakildevilkår må kontrolleres per indikator",
       notes: `Eksportfilen er datert ${SNAPSHOT_DATE}; lokalt snapshot hentet ${ACCESS_DATE}. Komprimert SHA-256 ${manifest.compressedSha256}; rå SHA-256 ${manifest.rawSha256}.`,
@@ -524,9 +520,9 @@ async function main() {
       citationReadiness: "citable_with_note",
       verificationStatus: "verified",
       url: "https://d3e9iu03zzh17w.cloudfront.net/bulk-data-downloads/fsd-metadata-export-2026-04-20.csv",
-      localPath: "research/landscape/snapshots/fsd-metadata-export-2026-04-20.csv",
-      accessDate: ACCESS_DATE,
-      contentHash: await sha256(resolve(SNAPSHOT_DIR, "fsd-metadata-export-2026-04-20.csv")),
+      localPath: metadataManifest.localPath,
+      accessDate: metadataManifest.accessedAt,
+      contentHash: metadataManifest.sha256,
       license: "FSD-/underliggende datakildevilkår må kontrolleres per indikator",
       notes: `Eksportfilen er datert ${SNAPSHOT_DATE}; lokalt snapshot hentet ${ACCESS_DATE}.`,
     }),
@@ -571,6 +567,7 @@ async function main() {
       theme: indicator.fsciTheme,
       domain: indicator.fsciDomain,
       rawValue,
+      valueOrigin: "fsd_profile",
       displayValue: displayValue(rawValue, numeric(indicator.significantFigures)),
       displayValueRule: "Avledet med FSD significantFigures når feltet finnes; råverdi beholdes separat og skal brukes i beregninger.",
       significantFigures: numeric(indicator.significantFigures),
@@ -596,8 +593,8 @@ async function main() {
       recommendedCitation: `Food Systems Dashboard, ${indicator.name}, Norway, accessed ${ACCESS_DATE}; cite underlying source ${metadataRow?.Source ?? "as named in FSD metadata"} and FSD DOI https://doi.org/10.36072/db.`,
       license,
       snapshotUrl: FSD_PROFILE_URL,
-      accessDate: ACCESS_DATE,
-      contentHash: await sha256(resolve(SNAPSHOT_DIR, "norway-fsd-profile-2026-08-10.json")),
+      accessDate: profileManifest.accessedAt,
+      contentHash: profileManifest.sha256,
       metadataSourceName: metadataRow?.Source ?? null,
       metadataSourceUrl: sourceUrls,
       fullExportIndicatorName: latestFull?.Indicator ?? null,
@@ -778,7 +775,10 @@ _Rapporten er generert fra de tre JSONL-artiklene og kan kontrolleres med valida
   console.log(`Wrote ${indicatorRows.length} indicators, ${crosswalkRows.length} crosswalk rows and ${sourceRows.size} sources.`);
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+const invokedPath = process.argv[1];
+if (invokedPath && import.meta.url === pathToFileURL(invokedPath).href) {
+  main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}

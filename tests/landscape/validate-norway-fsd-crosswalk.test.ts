@@ -31,7 +31,7 @@ test("validation rejects a source ledger detached from the verified snapshot man
   );
 });
 
-test("validation rejects derived indicator values detached from the verified full export", () => {
+test("validation reconstructs a direct indicator value from the verified profile", () => {
   const bundle = loadNorwayFsdBundle(path.join(process.cwd(), "research", "landscape"));
   const indicators = bundle.indicators.map((indicator) =>
     indicator.id === "fsd-nor-66"
@@ -41,6 +41,32 @@ test("validation rejects derived indicator values detached from the verified ful
 
   assert.throws(
     () => validateNorwayFsdBundle({ ...bundle, indicators }),
-    /full export snapshot/i,
+    /verified Norway profile/i,
+  );
+});
+
+test("validation reconstructs a mapped indicator value from the verified profile", () => {
+  const bundle = loadNorwayFsdBundle(path.join(process.cwd(), "research", "landscape"));
+  const indicators = bundle.indicators.map((indicator) =>
+    indicator.id === "fsd-nor-1103"
+      ? { ...indicator, rawValue: 91.25, displayValue: "91.25" }
+      : indicator,
+  );
+
+  assert.throws(
+    () => validateNorwayFsdBundle({ ...bundle, indicators }),
+    /verified Norway profile/i,
+  );
+});
+
+test("validation fails closed for an unsupported indicator value origin", () => {
+  const bundle = loadNorwayFsdBundle(path.join(process.cwd(), "research", "landscape"));
+  const indicators = bundle.indicators.map((indicator, index) =>
+    index === 0 ? { ...indicator, valueOrigin: "unreconstructable" } : indicator,
+  );
+
+  assert.throws(
+    () => validateNorwayFsdBundle({ ...bundle, indicators }),
+    /unsupported value origin/i,
   );
 });

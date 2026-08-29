@@ -1,10 +1,12 @@
-import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
-import { parseCsv, type CsvRow } from "./lib/parse-rfc4180.ts";
-import { readVerifiedGzipSnapshot } from "./lib/snapshot-integrity.ts";
+import type { CsvRow } from "./lib/parse-rfc4180.ts";
+import {
+  readNorwayFsdSnapshotSet,
+  resolveNorwayFsdManifestPath,
+} from "./lib/norway-fsd-snapshot-set.ts";
 
 type JsonRecord = Record<string, any>;
 
@@ -26,8 +28,10 @@ export type NorwayFsdBundle = {
   sources: JsonRecord[];
   report: string;
   manifest: FullExportManifest;
+  manifestPath: string;
   snapshotSources: JsonRecord[];
   fullExport: CsvRow[];
+  profile: JsonRecord;
 };
 
 export type NorwayFsdSummary = {
@@ -108,32 +112,10 @@ function assertArrayOfStrings(value: unknown, label: string): void {
   if (!Array.isArray(value) || value.some((item) => typeof item !== "string" || item.length === 0)) fail(`${label} må være en liste med tekststrenger`);
 }
 
-export function loadNorwayFsdBundle(directory: string): NorwayFsdBundle {
+export function loadNorwayFsdBundle(directory: string, manifestPath?: string): NorwayFsdBundle {
   const root = path.resolve(directory, "..", "..");
-  const snapshotManifest = JSON.parse(
-    fs.readFileSync(path.join(directory, "norway-fsd-snapshot-manifest-2026-08-10.json"), "utf8"),
-  ) as { sources: JsonRecord[] };
-  const manifest = snapshotManifest.sources.find((source) => source.id === "fsd-full-export-2026-04-20") as FullExportManifest | undefined;
-  if (!manifest) fail("Snapshotmanifestet mangler FSD full export");
-  assertString(manifest.compressedPath, "fullExport.compressedPath");
-  if (manifest.compression !== "gzip -n -9") fail("FSD full export må bruke gzip -n -9");
-  if (!Number.isInteger(manifest.compressedBytes) || manifest.compressedBytes < 1) fail("fullExport.compressedBytes må være positivt heltall");
-  if (!Number.isInteger(manifest.rawBytes) || manifest.rawBytes < 1) fail("fullExport.rawBytes må være positivt heltall");
-  if (!hashPattern.test(manifest.compressedSha256)) fail("fullExport.compressedSha256 må være SHA-256");
-  if (!hashPattern.test(manifest.rawSha256)) fail("fullExport.rawSha256 må være SHA-256");
-  const fullExportPath = path.resolve(root, manifest.compressedPath);
-  const raw = readVerifiedGzipSnapshot(fullExportPath, manifest.compressedSha256, manifest.rawSha256);
-  if (fs.statSync(fullExportPath).size !== manifest.compressedBytes) fail("FSD full export har feil komprimert byteantall");
-  if (raw.byteLength !== manifest.rawBytes) fail("FSD full export har feil rått byteantall");
-  const fullExport = parseCsv(raw.toString("utf8"));
-  for (const source of snapshotManifest.sources.filter((source) => source.id !== manifest.id)) {
-    assertString(source.localPath, `${source.id}.localPath`);
-    if (!Number.isInteger(source.bytes) || source.bytes < 1) fail(`${source.id}.bytes må være positivt heltall`);
-    if (!hashPattern.test(source.sha256)) fail(`${source.id}.sha256 må være SHA-256`);
-    const contents = fs.readFileSync(path.resolve(root, source.localPath));
-    if (contents.byteLength !== source.bytes) fail(`${source.id} har feil byteantall`);
-    if (createHash("sha256").update(contents).digest("hex") !== source.sha256) fail(`${source.id} har feil SHA-256`);
-  }
+  const selectedManifestPath = manifestPath ?? resolveNorwayFsdManifestPath([], directory);
+  const snapshotSet = readNorwayFsdSnapshotSet(root, selectedManifestPath);
 
   return {
     root,
@@ -142,9 +124,11 @@ export function loadNorwayFsdBundle(directory: string): NorwayFsdBundle {
     crosswalk: readJsonl(path.join(directory, "norway-fsd-crosswalk-2026-08-10.jsonl")),
     sources: readJsonl(path.join(directory, "norway-fsd-source-ledger-2026-08-10.jsonl")),
     report: fs.readFileSync(path.join(directory, "norway-fsd-report-2026-08-10.md"), "utf8"),
-    manifest,
-    snapshotSources: snapshotManifest.sources,
-    fullExport,
+    manifest: snapshotSet.fullManifest as FullExportManifest,
+    manifestPath: snapshotSet.manifestPath,
+    snapshotSources: snapshotSet.sources,
+    fullExport: snapshotSet.fullExport,
+    profile: snapshotSet.profile,
   };
 }
 
@@ -229,7 +213,6 @@ function validateIndicators(indicators: JsonRecord[], sourceMap: Map<string, Jso
     if (indicator.primaryCheckStatus !== (indicator.primarySourceRefs.length > 0 ? "not_required_for_locator" : "needs_primary_check")) fail(`${indicator.id} har feil primaryCheckStatus`);
     assertUrl(indicator.snapshotUrl, `${indicator.id}.snapshotUrl`);
     assertDate(indicator.accessDate, `${indicator.id}.accessDate`);
-    if (indicator.accessDate !== "2026-08-10") fail(`${indicator.id} har feil tilgangsdato`);
     if (!hashPattern.test(indicator.contentHash)) fail(`${indicator.id}.contentHash må være SHA-256`);
     if (!Array.isArray(indicator.metadataSourceUrl) || indicator.metadataSourceUrl.some((url: unknown) => typeof url !== "string")) fail(`${indicator.id}.metadataSourceUrl må være liste`);
     for (const url of indicator.metadataSourceUrl) assertUrl(url, `${indicator.id}.metadataSourceUrl`);
@@ -341,21 +324,40 @@ function validateSnapshotProvenance(bundle: NorwayFsdBundle, sourceMap: Map<stri
   }
 
   const profileManifest = manifestMap.get("fsd-norway-profile-2026-08-10");
+  const profileIndicators = new Map(
+    (bundle.profile.indicators as JsonRecord[]).map((indicator) => [indicator.fsdIndicatorId, indicator]),
+  );
   for (const indicator of bundle.indicators) {
-    if (indicator.contentHash !== profileManifest?.sha256) {
+    if (indicator.contentHash !== profileManifest?.sha256 || indicator.accessDate !== profileManifest?.accessedAt) {
       fail(`${indicator.id} does not match the verified Norway profile manifest`);
     }
-    if (indicator.rawValue === null || indicator.fullExportIndicatorName === null) continue;
-    const snapshotRow = bundle.fullExport.find((row) =>
+    if (indicator.valueOrigin !== "fsd_profile") {
+      fail(`${indicator.id} has unsupported value origin ${String(indicator.valueOrigin)}`);
+    }
+    const profileIndicator = profileIndicators.get(indicator.fsdIndicatorId);
+    const expectedRawValue = profileIndicator?.rawValue === null ? null : Number(profileIndicator?.rawValue);
+    const expectedStartYear = profileIndicator?.startYear === null ? null : Number(profileIndicator?.startYear);
+    const expectedEndYear = profileIndicator?.endYear === null ? null : Number(profileIndicator?.endYear);
+    if (
+      !profileIndicator
+      || indicator.name !== profileIndicator.name
+      || indicator.rawValue !== expectedRawValue
+      || indicator.startYear !== expectedStartYear
+      || indicator.endYear !== expectedEndYear
+    ) {
+      fail(`${indicator.id} does not match the verified Norway profile`);
+    }
+    if (indicator.fullExportIndicatorName === null) {
+      if (indicator.fullExportLatestYear !== null) fail(`${indicator.id} has an incomplete full export mapping`);
+      continue;
+    }
+    const mappedRow = bundle.fullExport.find((row) =>
       row.ISO3 === "NOR"
       && row.Indicator === indicator.fullExportIndicatorName
-      && Number(row["End Year"]) === indicator.endYear,
+      && Number(row["End Year"]) === indicator.fullExportLatestYear,
     );
-    if (
-      !snapshotRow
-      || (indicator.name === indicator.fullExportIndicatorName && Number(snapshotRow.Value) !== indicator.rawValue)
-    ) {
-      fail(`${indicator.id} does not match the verified full export snapshot`);
+    if (!mappedRow) {
+      fail(`${indicator.id} does not match the verified full export mapping`);
     }
   }
 }
@@ -374,8 +376,10 @@ export function validateNorwayFsdBundle(bundle: NorwayFsdBundle): NorwayFsdSumma
   };
 }
 
-function main(): void {
-  const bundle = loadNorwayFsdBundle(path.join(process.cwd(), "research", "landscape"));
+function main(args = process.argv.slice(2)): void {
+  const directory = path.join(process.cwd(), "research", "landscape");
+  const manifestPath = resolveNorwayFsdManifestPath(args, directory);
+  const bundle = loadNorwayFsdBundle(directory, manifestPath);
   const summary = validateNorwayFsdBundle(bundle);
   console.log(`Norway FSD crosswalk validation passed: ${summary.indicators} indicators, ${summary.crosswalk} crosswalk rows, ${summary.sources} sources.`);
 }
