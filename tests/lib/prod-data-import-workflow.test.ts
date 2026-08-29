@@ -105,11 +105,20 @@ describe('prod data import workflow', () => {
       workflow.indexOf('Run selected prod data operation'),
     )
     const exempted = [...gate.matchAll(/inputs\.target != '([^']+)'/g)].map(m => m[1]).sort()
-    // Kun targets som beviselig ikke skriver: verify-only og de to tørrkjøringene.
-    assert.deepEqual(exempted, ['board-coverage-dry', 'leroy-duplicate-dry', 'verify-only'])
+    // Kun targets som beviselig ikke skriver: verify-only og tørrkjøringene.
+    assert.deepEqual(exempted, [
+      'board-coverage-dry',
+      'financial-units-dry',
+      'leroy-duplicate-dry',
+      'verify-only',
+    ])
     // De skrivende targetene skal aldri stå her.
     assert.ok(!exempted.includes('board-coverage'), 'board-coverage muterer og må kreve backup')
     assert.ok(!exempted.includes('leroy-duplicate'), 'leroy-duplicate sletter en rad og må kreve backup')
+    assert.ok(
+      !exempted.includes('financial-units'),
+      'financial-units ganger 158 rader med en million og må kreve backup',
+    )
   })
 
   it('Lerøy-targetene: tørrkjøring skriver ikke, og ekte kjøring bærer --apply', () => {
@@ -119,11 +128,25 @@ describe('prod data import workflow', () => {
     assert.match(dry, /resolve-leroy-duplicate\.ts/)
     assert.doesNotMatch(dry, /--apply/)
 
-    const apply = ops.slice(ops.indexOf('leroy-duplicate)'), ops.indexOf('*)'))
+    const apply = ops.slice(ops.indexOf('leroy-duplicate)'), ops.indexOf('financial-units-dry)'))
     // Den skrivende kjøringen må faktisk be om å skrive — uten --apply ville
     // targetet sett ut som en utført sletting og vært en stille no-op.
     assert.match(apply, /resolve-leroy-duplicate\.ts --apply/)
     // Og verifisere DB-en etterpå, som de andre muterende targetene.
+    assert.match(apply, /npm run db:verify/)
+  })
+
+  it('enhets-targetene: tørrkjøring skriver ikke, og ekte kjøring bærer --apply', () => {
+    const ops = workflow.slice(workflow.indexOf('Run selected prod data operation'))
+    const dry = ops.slice(ops.indexOf('financial-units-dry)'), ops.indexOf('financial-units)'))
+    // Tørrkjøring er default i skriptet; targetet må IKKE bære --apply.
+    assert.match(dry, /normalize-financial-units\.ts/)
+    assert.doesNotMatch(dry, /--apply/)
+
+    const apply = ops.slice(ops.indexOf('financial-units)'), ops.indexOf('*)'))
+    // Uten --apply ville targetet sett ut som en utført normalisering og vært
+    // en stille no-op — samme fellen som for Lerøy-targetet.
+    assert.match(apply, /normalize-financial-units\.ts --apply/)
     assert.match(apply, /npm run db:verify/)
   })
 

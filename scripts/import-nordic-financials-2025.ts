@@ -11,6 +11,7 @@ import 'dotenv/config'
 import { pathToFileURL } from 'node:url'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { millionNokToRawNok } from '../src/lib/queries/financial-units'
 
 export const NORDIC_FINANCIALS_2025_VERIFIED_AT = new Date('2026-07-02T00:00:00.000Z')
 
@@ -26,7 +27,9 @@ const FX_SOURCE_NOK = 'Reported directly in NOK by Reitan Retail Annual Report 2
 export type NordicFinancial2025Row = {
   orgNr: string
   year: 2025
+  /** MNOK, som i kildeoppstillingene. Skrives til DB i rå NOK. */
   revenueNok: number
+  /** MNOK, som i kildeoppstillingene. Skrives til DB i rå NOK. */
   operatingResult: number
   operatingMargin: number
   reportingCurrency: 'SEK' | 'DKK' | 'NOK'
@@ -136,8 +139,9 @@ export function parseApplyMode(argv: string[] = process.argv.slice(2)): boolean 
 
 export function companyFinancialDataForRow(row: NordicFinancial2025Row) {
   return {
-    revenueNok: row.revenueNok,
-    operatingResult: row.operatingResult,
+    // Radene over står i MNOK; kolonnen er rå NOK. Se `prisma/schema.prisma`.
+    revenueNok: millionNokToRawNok(row.revenueNok),
+    operatingResult: millionNokToRawNok(row.operatingResult),
     operatingMargin: row.operatingMargin,
     reportingCurrency: row.reportingCurrency,
     fxRateNokPerUnit: row.fxRateNokPerUnit,
