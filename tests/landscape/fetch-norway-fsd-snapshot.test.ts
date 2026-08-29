@@ -6,9 +6,40 @@ import path from "node:path";
 import test from "node:test";
 
 import {
+  assertRefreshTargetsAvailable,
   promoteSnapshotTransaction,
   resolveAccessDate,
 } from "../../scripts/fetch-norway-fsd-snapshot";
+
+test("frozen output collisions are rejected before promotion", () => {
+  const frozenAccessDate = resolveAccessDate(["--access-date=2026-08-10"]);
+  const frozenManifestPath = path.join(
+    process.cwd(),
+    `research/landscape/norway-fsd-snapshot-manifest-${frozenAccessDate}.json`,
+  );
+  const frozenBytes = readFileSync(frozenManifestPath);
+
+  assert.throws(
+    () => assertRefreshTargetsAvailable(
+      [{ targetPath: frozenManifestPath, contents: Buffer.from("replacement") }],
+      frozenManifestPath,
+    ),
+    /frozen default/i,
+  );
+  assert.deepEqual(readFileSync(frozenManifestPath), frozenBytes);
+
+  const directory = mkdtempSync(path.join(tmpdir(), "fsd-existing-set-"));
+  const existingTarget = path.join(directory, "fsd-full-export-accessed-2026-09-01.csv.gz");
+  writeFileSync(existingTarget, "existing frozen bytes");
+  assert.throws(
+    () => assertRefreshTargetsAvailable(
+      [{ targetPath: existingTarget, contents: Buffer.from("different bytes") }],
+      frozenManifestPath,
+    ),
+    /already exists/i,
+  );
+  assert.equal(readFileSync(existingTarget, "utf8"), "existing frozen bytes");
+});
 
 test("a pre-promotion failure leaves every governed snapshot target unchanged", async () => {
   const directory = mkdtempSync(path.join(tmpdir(), "fsd-promotion-"));

@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import type { CsvRow } from "./lib/parse-rfc4180.ts";
@@ -9,7 +9,7 @@ import {
 } from "./lib/norway-fsd-snapshot-set.ts";
 
 const ROOT = resolve(process.cwd());
-let ACCESS_DATE = "2026-08-10";
+const BASELINE_CONTEXT_ACCESS_DATE = "2026-08-10";
 const SNAPSHOT_DATE = "2026-04-20";
 const LANDSCAPE_DIR = resolve(ROOT, "research/landscape");
 
@@ -118,7 +118,7 @@ function addExternalSource({
     citationReadiness: "citable_with_note",
     verificationStatus: "partially_verified",
     url: normalized,
-    accessDate: ACCESS_DATE,
+    accessDate: BASELINE_CONTEXT_ACCESS_DATE,
     license: normalized.includes("fao.org") ? "CC-BY-4.0 oppgitt for FAOSTAT; kontroller gjeldende vilkår før redistribusjon" : "Ikke fastslått i dette auditsteget",
     notes,
   });
@@ -135,6 +135,7 @@ function addLocalSource({
   sourceClass,
   role,
   notes,
+  root = ROOT,
 }: {
   id: string;
   name: string;
@@ -142,8 +143,9 @@ function addLocalSource({
   sourceClass: string;
   role: string;
   notes: string;
+  root?: string;
 }): Promise<string> {
-  const path = resolve(ROOT, file);
+  const path = resolve(root, file);
   return sha256(path).then((contentHash) =>
     addSource({
       id,
@@ -155,7 +157,7 @@ function addLocalSource({
       citationReadiness: "internal_context",
       verificationStatus: "partially_verified",
       localPath: file,
-      accessDate: ACCESS_DATE,
+      accessDate: BASELINE_CONTEXT_ACCESS_DATE,
       contentHash,
       license: "Intern arbeidsmateriale; ikke ekstern publisering uten kilde- og rettighetskontroll",
       notes,
@@ -455,11 +457,18 @@ export function loadNorwayFsdBuildInputs(root: string, manifestPath: string) {
   return readNorwayFsdSnapshotSet(root, manifestPath);
 }
 
-async function main(args = process.argv.slice(2)) {
+export type NorwayFsdBuildOptions = {
+  root?: string;
+  manifestPath?: string;
+  outputDirectory?: string;
+};
+
+export async function buildNorwayFsdCrosswalk(options: NorwayFsdBuildOptions = {}): Promise<void> {
   sourceRows.clear();
-  const manifestPath = resolveNorwayFsdManifestPath(args, LANDSCAPE_DIR);
-  const snapshotSet = loadNorwayFsdBuildInputs(ROOT, manifestPath);
-  ACCESS_DATE = snapshotSet.snapshotDate;
+  const root = options.root ?? ROOT;
+  const outputDirectory = options.outputDirectory ?? resolve(root, "research/landscape");
+  const manifestPath = options.manifestPath ?? resolveNorwayFsdManifestPath([], resolve(root, "research/landscape"));
+  const snapshotSet = loadNorwayFsdBuildInputs(root, manifestPath);
   const profile = snapshotSet.profile;
   const metadataRows = snapshotSet.metadataRows;
   const fullExport = snapshotSet.fullExport;
@@ -469,11 +478,11 @@ async function main(args = process.argv.slice(2)) {
   const metadata = new Map(metadataRows.map((row) => [row.Name, row]));
   const fullNorway = fullExport.filter((row) => row.ISO3 === "NOR");
 
-  const ssb = JSON.parse(await readFile(resolve(ROOT, "public/data/food-systems/ssb_landbruk_2024.json"), "utf8"));
-  const valueChain = JSON.parse(await readFile(resolve(ROOT, "public/data/food-systems/no/value-chain.json"), "utf8"));
-  const trade = JSON.parse(await readFile(resolve(ROOT, "public/data/food-systems/trade_volumes_2024.json"), "utf8"));
-  const chart = JSON.parse(await readFile(resolve(ROOT, "public/data/food-systems/no/chart-metrics.json"), "utf8"));
-  const flows = JSON.parse(await readFile(resolve(ROOT, "public/data/food-systems/no/flows.json"), "utf8"));
+  const ssb = JSON.parse(await readFile(resolve(root, "public/data/food-systems/ssb_landbruk_2024.json"), "utf8"));
+  const valueChain = JSON.parse(await readFile(resolve(root, "public/data/food-systems/no/value-chain.json"), "utf8"));
+  const trade = JSON.parse(await readFile(resolve(root, "public/data/food-systems/trade_volumes_2024.json"), "utf8"));
+  const chart = JSON.parse(await readFile(resolve(root, "public/data/food-systems/no/chart-metrics.json"), "utf8"));
+  const flows = JSON.parse(await readFile(resolve(root, "public/data/food-systems/no/flows.json"), "utf8"));
 
   const refs = {
     fsdProfile: addSource({
@@ -508,7 +517,7 @@ async function main(args = process.argv.slice(2)) {
       accessDate: manifest.accessedAt,
       contentHash: manifest.compressedSha256,
       license: "FSD-/underliggende datakildevilkår må kontrolleres per indikator",
-      notes: `Eksportfilen er datert ${SNAPSHOT_DATE}; lokalt snapshot hentet ${ACCESS_DATE}. Komprimert SHA-256 ${manifest.compressedSha256}; rå SHA-256 ${manifest.rawSha256}.`,
+      notes: `Eksportfilen er datert ${SNAPSHOT_DATE}; lokalt snapshot hentet ${manifest.accessedAt}. Komprimert SHA-256 ${manifest.compressedSha256}; rå SHA-256 ${manifest.rawSha256}.`,
     }),
     fsdMetadata: addSource({
       id: "src-fsd-metadata-export-2026-04-20",
@@ -524,14 +533,14 @@ async function main(args = process.argv.slice(2)) {
       accessDate: metadataManifest.accessedAt,
       contentHash: metadataManifest.sha256,
       license: "FSD-/underliggende datakildevilkår må kontrolleres per indikator",
-      notes: `Eksportfilen er datert ${SNAPSHOT_DATE}; lokalt snapshot hentet ${ACCESS_DATE}.`,
+      notes: `Eksportfilen er datert ${SNAPSHOT_DATE}; lokalt snapshot hentet ${metadataManifest.accessedAt}.`,
     }),
-    ssb: await addLocalSource({ id: "src-internal-ssb-landbruk-2024", name: "Intern SSB/Landbruksdirektoratet/Matvett datasett", file: "public/data/food-systems/ssb_landbruk_2024.json", sourceClass: "internal_primary", role: "Norway production, self-sufficiency, market and food-waste baseline", notes: "DATA-SOURCES.md sier at selvforsyning er kalenderåret 2023 og matsvinnfordelingen er estimert." }),
-    valueChain: await addLocalSource({ id: "src-internal-value-chain-no", name: "Intern Norway value-chain baseline", file: "public/data/food-systems/no/value-chain.json", sourceClass: "internal_synthesis", role: "Norway value-chain synthesis and conflict register", notes: "Beholder eksplisitte scope-, quality- og needs-primary-check-notater." }),
-    trade: await addLocalSource({ id: "src-internal-trade-volumes-2024", name: "Intern trade volumes 2024", file: "public/data/food-systems/trade_volumes_2024.json", sourceClass: "internal_primary", role: "Norway domestic production/import/export baseline", notes: "Kombinerer SSB utenrikshandel, Sjømatrådet og Landbruksdirektoratet; kategorier kan være aggregert." }),
-    chart: await addLocalSource({ id: "src-internal-chart-metrics-no", name: "Intern Norway chart metrics", file: "public/data/food-systems/no/chart-metrics.json", sourceClass: "internal_construct", role: "store-count-derived market structure metrics", notes: "HHI 3445 er butikkantallsbasert og skal ikke blandes med omsetnings-HHI 3327." }),
-    flows: await addLocalSource({ id: "src-internal-flows-no", name: "Intern Norway flow prototype", file: "public/data/food-systems/no/flows.json", sourceClass: "internal_construct", role: "illustrative value-chain flow visualization", notes: "Verdier er illustrative, low confidence og ikke observerte tonn/kroner/frekvens." }),
-    sustainability: await addLocalSource({ id: "src-internal-sustainability-country-metrics", name: "Intern sustainability country metrics seed", file: "prisma/seed-data/sustainability-country-metrics.ts", sourceClass: "internal_synthesis", role: "Nordic sustainability metric definitions and staged rows", notes: "Ikke endret; brukes kun til å vise at en tilsvarende verifisert norsk GHG-rad ikke er etablert." }),
+    ssb: await addLocalSource({ id: "src-internal-ssb-landbruk-2024", name: "Intern SSB/Landbruksdirektoratet/Matvett datasett", file: "public/data/food-systems/ssb_landbruk_2024.json", sourceClass: "internal_primary", role: "Norway production, self-sufficiency, market and food-waste baseline", notes: "DATA-SOURCES.md sier at selvforsyning er kalenderåret 2023 og matsvinnfordelingen er estimert.", root }),
+    valueChain: await addLocalSource({ id: "src-internal-value-chain-no", name: "Intern Norway value-chain baseline", file: "public/data/food-systems/no/value-chain.json", sourceClass: "internal_synthesis", role: "Norway value-chain synthesis and conflict register", notes: "Beholder eksplisitte scope-, quality- og needs-primary-check-notater.", root }),
+    trade: await addLocalSource({ id: "src-internal-trade-volumes-2024", name: "Intern trade volumes 2024", file: "public/data/food-systems/trade_volumes_2024.json", sourceClass: "internal_primary", role: "Norway domestic production/import/export baseline", notes: "Kombinerer SSB utenrikshandel, Sjømatrådet og Landbruksdirektoratet; kategorier kan være aggregert.", root }),
+    chart: await addLocalSource({ id: "src-internal-chart-metrics-no", name: "Intern Norway chart metrics", file: "public/data/food-systems/no/chart-metrics.json", sourceClass: "internal_construct", role: "store-count-derived market structure metrics", notes: "HHI 3445 er butikkantallsbasert og skal ikke blandes med omsetnings-HHI 3327.", root }),
+    flows: await addLocalSource({ id: "src-internal-flows-no", name: "Intern Norway flow prototype", file: "public/data/food-systems/no/flows.json", sourceClass: "internal_construct", role: "illustrative value-chain flow visualization", notes: "Verdier er illustrative, low confidence og ikke observerte tonn/kroner/frekvens.", root }),
+    sustainability: await addLocalSource({ id: "src-internal-sustainability-country-metrics", name: "Intern sustainability country metrics seed", file: "prisma/seed-data/sustainability-country-metrics.ts", sourceClass: "internal_synthesis", role: "Nordic sustainability metric definitions and staged rows", notes: "Ikke endret; brukes kun til å vise at en tilsvarende verifisert norsk GHG-rad ikke er etablert.", root }),
   };
 
   const sourceUrlsByIndicator = new Map<string, string[]>();
@@ -590,7 +599,7 @@ async function main(args = process.argv.slice(2)) {
       benchmarkStatusInterpretation: "Avledet fra FSD-profilens global-benchmark distanceCategory; ikke et norsk datapunkt.",
       primarySourceRefs: primaryRefs,
       fsdSourceRefs: [refs.fsdProfile, refs.fsdMetadata, refs.fsdFull, refs.fsdMethodology],
-      recommendedCitation: `Food Systems Dashboard, ${indicator.name}, Norway, accessed ${ACCESS_DATE}; cite underlying source ${metadataRow?.Source ?? "as named in FSD metadata"} and FSD DOI https://doi.org/10.36072/db.`,
+      recommendedCitation: `Food Systems Dashboard, ${indicator.name}, Norway, accessed ${profileManifest.accessedAt}; cite underlying source ${metadataRow?.Source ?? "as named in FSD metadata"} and FSD DOI https://doi.org/10.36072/db.`,
       license,
       snapshotUrl: FSD_PROFILE_URL,
       accessDate: profileManifest.accessedAt,
@@ -624,9 +633,10 @@ async function main(args = process.argv.slice(2)) {
   crosswalkRows.push(...conflicts);
 
   const jsonl = (rows: AnyRecord[]) => `${rows.map((row) => JSON.stringify(row)).join("\n")}\n`;
-  const indicatorPath = resolve(LANDSCAPE_DIR, "norway-fsd-indicators-2026-08-10.jsonl");
-  const crosswalkPath = resolve(LANDSCAPE_DIR, "norway-fsd-crosswalk-2026-08-10.jsonl");
-  const sourcePath = resolve(LANDSCAPE_DIR, "norway-fsd-source-ledger-2026-08-10.jsonl");
+  await mkdir(outputDirectory, { recursive: true });
+  const indicatorPath = resolve(outputDirectory, "norway-fsd-indicators-2026-08-10.jsonl");
+  const crosswalkPath = resolve(outputDirectory, "norway-fsd-crosswalk-2026-08-10.jsonl");
+  const sourcePath = resolve(outputDirectory, "norway-fsd-source-ledger-2026-08-10.jsonl");
   await writeFile(indicatorPath, jsonl(indicatorRows), "utf8");
   await writeFile(crosswalkPath, jsonl(crosswalkRows), "utf8");
   await writeFile(sourcePath, jsonl([...sourceRows.values()]), "utf8");
@@ -638,13 +648,16 @@ async function main(args = process.argv.slice(2)) {
   const externalOnly = crosswalkRows.filter((row) => row.disposition === "external_reference_only");
   const noImport = crosswalkRows.filter((row) => row.disposition === "no_import");
   const auditSummary = { indicators: indicatorRows.length, indicatorCrosswalkRows: crosswalkRows.length - conflicts.length, internalControlRows: conflicts.length, sources: sourceRows.size, missingNorwayValues: missing.length, comparisonCounts, dispositionCounts };
+  const exportRefreshLine = snapshotSet.snapshotDate === profileManifest.accessedAt
+    ? ""
+    : `**Eksportoppfriskning:** ${snapshotSet.snapshotDate}\n\n`;
   const report = `# Norge/FSD-indikatoraudit mot vårt eksisterende datagrunnlag
 
 <!-- FSD_AUDIT_SUMMARY: ${JSON.stringify(auditSummary)} -->
 
-**Tilgangsdato:** ${ACCESS_DATE}
+**Tilgangsdato:** ${profileManifest.accessedAt}
 
-**FSD-eksport snapshot:** ${SNAPSHOT_DATE}
+${exportRefreshLine}**FSD-eksport snapshot:** ${SNAPSHOT_DATE}
 
 **Omfang:** ${indicatorRows.length} indikatorer fra Norway-profilen, ${crosswalkRows.length - conflicts.length} indikator-krysskoblinger og ${conflicts.length} eksplisitte interne kontrollrader.
 
@@ -771,8 +784,13 @@ Ingen Prisma-, API- eller produksjonsdatabasefiler inngår i denne fasen.
 
 _Rapporten er generert fra de tre JSONL-artiklene og kan kontrolleres med validatoren._
 `;
-  await writeFile(resolve(LANDSCAPE_DIR, "norway-fsd-report-2026-08-10.md"), report, "utf8");
+  await writeFile(resolve(outputDirectory, "norway-fsd-report-2026-08-10.md"), report, "utf8");
   console.log(`Wrote ${indicatorRows.length} indicators, ${crosswalkRows.length} crosswalk rows and ${sourceRows.size} sources.`);
+}
+
+async function main(args = process.argv.slice(2)): Promise<void> {
+  const manifestPath = resolveNorwayFsdManifestPath(args, LANDSCAPE_DIR);
+  await buildNorwayFsdCrosswalk({ root: ROOT, manifestPath, outputDirectory: LANDSCAPE_DIR });
 }
 
 const invokedPath = process.argv[1];

@@ -29,6 +29,7 @@ export type NorwayFsdBundle = {
   report: string;
   manifest: FullExportManifest;
   manifestPath: string;
+  snapshotDate: string;
   snapshotSources: JsonRecord[];
   fullExport: CsvRow[];
   profile: JsonRecord;
@@ -64,6 +65,7 @@ const citationReadiness = new Set(["citable_external", "citable_with_note", "int
 const evidenceStatuses = new Set(["verified", "partially_verified", "needs_review", "failed", "unverified", "machine_verified", "human_verified", "disputed", "rejected"]);
 const datePattern = /^\d{4}-\d{2}-\d{2}$/;
 const hashPattern = /^[a-f0-9]{64}$/;
+const BASELINE_CONTEXT_ACCESS_DATE = "2026-08-10";
 
 function fail(message: string): never {
   throw new Error(message);
@@ -112,8 +114,7 @@ function assertArrayOfStrings(value: unknown, label: string): void {
   if (!Array.isArray(value) || value.some((item) => typeof item !== "string" || item.length === 0)) fail(`${label} må være en liste med tekststrenger`);
 }
 
-export function loadNorwayFsdBundle(directory: string, manifestPath?: string): NorwayFsdBundle {
-  const root = path.resolve(directory, "..", "..");
+export function loadNorwayFsdBundle(directory: string, manifestPath?: string, root = path.resolve(directory, "..", "..")): NorwayFsdBundle {
   const selectedManifestPath = manifestPath ?? resolveNorwayFsdManifestPath([], directory);
   const snapshotSet = readNorwayFsdSnapshotSet(root, selectedManifestPath);
 
@@ -126,6 +127,7 @@ export function loadNorwayFsdBundle(directory: string, manifestPath?: string): N
     report: fs.readFileSync(path.join(directory, "norway-fsd-report-2026-08-10.md"), "utf8"),
     manifest: snapshotSet.fullManifest as FullExportManifest,
     manifestPath: snapshotSet.manifestPath,
+    snapshotDate: snapshotSet.snapshotDate,
     snapshotSources: snapshotSet.sources,
     fullExport: snapshotSet.fullExport,
     profile: snapshotSet.profile,
@@ -166,7 +168,7 @@ function validateSources(sources: JsonRecord[], root: string): Map<string, JsonR
     if (source.url !== undefined) assertUrl(source.url, `${source.id}.url`);
     if (source.localPath !== undefined) {
       assertString(source.localPath, `${source.id}.localPath`);
-      if (!fs.existsSync(path.join(root, source.localPath))) fail(`${source.id}.localPath peker ikke til eksisterende fil: ${source.localPath}`);
+      if (!fs.existsSync(path.resolve(root, source.localPath))) fail(`${source.id}.localPath peker ikke til eksisterende fil: ${source.localPath}`);
     }
     if (source.sourceKind === "underlying_primary" && source.url === undefined) fail(`${source.id} underliggende kilde mangler URL`);
     if (source.sourceKind === "fsd_export" && (!source.url || !source.localPath)) fail(`${source.id} FSD-eksport må ha URL og lokalt snapshot`);
@@ -222,7 +224,7 @@ function validateIndicators(indicators: JsonRecord[], sourceMap: Map<string, Jso
 
 function validateInternalMatch(match: JsonRecord, label: string, sourceMap: Map<string, JsonRecord>, root: string): void {
   for (const field of ["file", "dataset", "metricKey", "geography", "definition", "sourceRef", "provenanceStatus"]) assertString(match[field], `${label}.${field}`);
-  if (!fs.existsSync(path.join(root, match.file))) fail(`${label}.file finnes ikke: ${match.file}`);
+  if (!fs.existsSync(path.resolve(root, match.file))) fail(`${label}.file finnes ikke: ${match.file}`);
   if (!sourceMap.has(match.sourceRef)) fail(`${label}.sourceRef peker til ukjent kilde ${match.sourceRef}`);
   assertNumberOrNull(match.value, `${label}.value`);
   assertYearOrNull(match.year, `${label}.year`);
@@ -318,8 +320,19 @@ function validateSnapshotProvenance(bundle: NorwayFsdBundle, sourceMap: Map<stri
     const ledger = sourceMap.get(binding.ledgerId);
     const manifest = manifestMap.get(binding.manifestId);
     if (!ledger || !manifest) fail(`${binding.label} mangler i source ledger eller snapshot manifest`);
-    if (ledger.localPath !== manifest[binding.pathKey] || ledger.contentHash !== manifest[binding.hashKey]) {
+    if (
+      ledger.localPath !== manifest[binding.pathKey]
+      || ledger.contentHash !== manifest[binding.hashKey]
+      || ledger.accessDate !== manifest.accessedAt
+    ) {
       fail(`${binding.label} source ledger does not match snapshot manifest`);
+    }
+  }
+
+  const snapshotBoundLedgerIds = new Set(bindings.map((binding) => binding.ledgerId));
+  for (const source of bundle.sources) {
+    if (!snapshotBoundLedgerIds.has(source.id) && source.accessDate !== BASELINE_CONTEXT_ACCESS_DATE) {
+      fail(`${source.id} has an access date that is not bound to its unchanged source context`);
     }
   }
 
@@ -359,6 +372,16 @@ function validateSnapshotProvenance(bundle: NorwayFsdBundle, sourceMap: Map<stri
     if (!mappedRow) {
       fail(`${indicator.id} does not match the verified full export mapping`);
     }
+  }
+
+  if (!bundle.report.includes(`**Tilgangsdato:** ${profileManifest?.accessedAt}`)) {
+    fail("report access date does not match the verified Norway profile manifest");
+  }
+  if (
+    bundle.snapshotDate !== profileManifest?.accessedAt
+    && !bundle.report.includes(`**Eksportoppfriskning:** ${bundle.snapshotDate}`)
+  ) {
+    fail("report export refresh date does not match the selected snapshot manifest");
   }
 }
 

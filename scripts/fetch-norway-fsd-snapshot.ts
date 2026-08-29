@@ -4,6 +4,7 @@ import { existsSync } from "node:fs";
 import { mkdir, mkdtemp, readFile, rename, rm, writeFile } from "node:fs/promises";
 import { basename, dirname, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
+import { DEFAULT_NORWAY_FSD_MANIFEST } from "./lib/norway-fsd-snapshot-set.ts";
 
 const ROOT = resolve(process.cwd());
 const PROFILE_ACCESS_DATE = "2026-08-10";
@@ -45,6 +46,20 @@ export type SnapshotPromotion = {
   targetPath: string;
   contents: Buffer;
 };
+
+export function assertRefreshTargetsAvailable(
+  outputs: Array<Pick<SnapshotPromotion, "targetPath">>,
+  frozenManifestPath: string,
+): void {
+  for (const output of outputs) {
+    if (resolve(output.targetPath) === resolve(frozenManifestPath)) {
+      throw new Error(`refresh targets the frozen default FSD manifest: ${frozenManifestPath}`);
+    }
+    if (existsSync(output.targetPath)) {
+      throw new Error(`refresh target already exists: ${output.targetPath}`);
+    }
+  }
+}
 
 type RenameFile = (sourcePath: string, targetPath: string) => Promise<void>;
 
@@ -109,6 +124,17 @@ export function resolveAccessDate(args: string[], invokedAt = new Date()): strin
 
 async function main(args = process.argv.slice(2), invokedAt = new Date()) {
   const accessDate = resolveAccessDate(args, invokedAt);
+  const manifestPath = resolve(ROOT, `research/landscape/norway-fsd-snapshot-manifest-${accessDate}.json`);
+  const prospectiveOutputs = [
+    ...SOURCES.map((source) => ({
+      targetPath: resolve(SNAPSHOT_DIR, versionSnapshotFileName(source.file, accessDate)),
+    })),
+    { targetPath: manifestPath },
+  ];
+  assertRefreshTargetsAvailable(
+    prospectiveOutputs,
+    resolve(ROOT, "research/landscape", DEFAULT_NORWAY_FSD_MANIFEST),
+  );
   const manifestSources: Array<Record<string, string | number>> = [];
   const promotionOutputs: SnapshotPromotion[] = [];
 
@@ -165,7 +191,6 @@ async function main(args = process.argv.slice(2), invokedAt = new Date()) {
     sha256: sha256(profile),
   });
 
-  const manifestPath = resolve(ROOT, `research/landscape/norway-fsd-snapshot-manifest-${accessDate}.json`);
   promotionOutputs.push({
     targetPath: manifestPath,
     contents: Buffer.from(`${JSON.stringify({ snapshotDate: accessDate, sources: manifestSources }, null, 2)}\n`, "utf8"),
