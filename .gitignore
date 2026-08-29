@@ -69,3 +69,12 @@ docs/**/*.pdf
 
 # Stale node_modules-katalog fra npm-reset
 node_modules.old*/
+
+# Root-level malformed page image exports.
+/--*.png
+
+# Local deletion/tarball holding area; contents are recoverable outside Git.
+/masterhjerne/_to_delete/
+
+# FSD full export is tracked only as deterministic gzip with dual hashes.
+/research/landscape/snapshots/fsd-full-export-2026-04-20.csv
