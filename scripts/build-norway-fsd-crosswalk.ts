@@ -3,6 +3,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import type { CsvRow } from "./lib/parse-rfc4180";
+import { resolveSupportedInternalMetric } from "./lib/norway-fsd-internal-metrics";
 import {
   readNorwayFsdSnapshotSet,
   resolveNorwayFsdManifestPath,
@@ -234,6 +235,19 @@ function baseMatch(sourceRef: string, file: string, dataset: string, metricKey: 
   return internalMatch({ file, dataset, metricKey, value, unit, year: yearValue, geography: "Norway", definition, sourceRef, notes });
 }
 
+function localMetricMatch(
+  document: AnyRecord,
+  sourceRef: string,
+  file: string,
+  dataset: string,
+  metricKey: string,
+  definition: string,
+  notes?: string,
+): InternalMatch {
+  const metric = resolveSupportedInternalMetric(document, file, metricKey);
+  return baseMatch(sourceRef, file, dataset, metricKey, metric.value, metric.unit, metric.year, definition, notes);
+}
+
 function crosswalkFor(
   indicator: AnyRecord,
   internal: {
@@ -252,8 +266,6 @@ function crosswalkFor(
   disposition: Disposition;
   nextAction: string;
 } {
-  const year2023 = 2023;
-  const valueChainYear = internal.valueChain.year ?? 2024;
   const no = internal.refs;
   const name = indicator.name as string;
 
@@ -261,8 +273,8 @@ function crosswalkFor(
     return {
       comparisonStatus: "same_theme_different_measure",
       internalMatches: [
-        baseMatch(no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", "steps.primary.breakdown.fruit_veg_breakdown.fruit", 25576, "tonnes", valueChainYear, "Intern registrert norsk fruktproduksjon; måler innenlandsk produksjon, ikke matforsyningstilgjengelighet."),
-        baseMatch(no.ssb, "public/data/food-systems/ssb_landbruk_2024.json", "ssb_landbruk_2024", "production.self_sufficiency_2023.fruit", 4, "%", year2023, "Selvforsyningsgrad for frukt basert på kalorier; norsk del av forbruket.", "0,04 som andel i JSON er projisert til 4 prosentpoeng."),
+        localMetricMatch(internal.valueChain, no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", "steps[id=primary].breakdown.fruit_veg_breakdown.fruit", "Intern registrert norsk fruktproduksjon; måler innenlandsk produksjon, ikke matforsyningstilgjengelighet."),
+        localMetricMatch(internal.ssb, no.ssb, "public/data/food-systems/ssb_landbruk_2024.json", "ssb_landbruk_2024", "production.self_sufficiency_2023.fruit", "Selvforsyningsgrad for frukt basert på kalorier; norsk del av forbruket.", "Råverdien 0,04 i JSON er en andel, tilsvarende 4 prosent."),
       ],
       numericDifference: null,
       differenceReason: "FSD måler tilgjengelig mengde fra nasjonal matbalanse (produksjon + import + lager minus anvendelser) i g/capita/day. Våre tall måler produksjon og selvforsyning; geografi/år er delvis sammenfallende, men enhet og denominator er ikke det.",
@@ -275,8 +287,8 @@ function crosswalkFor(
     return {
       comparisonStatus: "same_theme_different_measure",
       internalMatches: [
-        baseMatch(no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", "steps.primary.breakdown.fruit_veg_breakdown.vegetables", 184445, "tonnes", valueChainYear, "Intern registrert norsk grønnsaksproduksjon; ikke nasjonal tilgjengelighet."),
-        baseMatch(no.ssb, "public/data/food-systems/ssb_landbruk_2024.json", "ssb_landbruk_2024", "production.self_sufficiency_2023.vegetables", 49, "%", year2023, "Selvforsyningsgrad for grønnsaker basert på kalorier."),
+        localMetricMatch(internal.valueChain, no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", "steps[id=primary].breakdown.fruit_veg_breakdown.vegetables", "Intern registrert norsk grønnsaksproduksjon; ikke nasjonal tilgjengelighet."),
+        localMetricMatch(internal.ssb, no.ssb, "public/data/food-systems/ssb_landbruk_2024.json", "ssb_landbruk_2024", "production.self_sufficiency_2023.vegetables", "Selvforsyningsgrad for grønnsaker basert på kalorier.", "Råverdien 0,49 i JSON er en andel, tilsvarende 49 prosent."),
       ],
       numericDifference: null,
       differenceReason: "FSDs 401,04 g/capita/day er matbalanse-tilgjengelighet, mens intern 49 % er selvforsyning. De kan ikke subtraheres eller konverteres uten felles denominator og metode.",
@@ -289,7 +301,7 @@ function crosswalkFor(
     return {
       comparisonStatus: "blocked_source",
       internalMatches: [
-        baseMatch(no.flows, "public/data/food-systems/no/flows.json", "norway_flow_prototype", "flows[].value", null, "illustrative weight", 2024, "Prototypeflyt for visualisering; verdiene er ikke observerte tonn, kroner eller frekvens.", "Må aldri brukes som empirisk matforsyningsvariabilitet."),
+        localMetricMatch(internal.flows, no.flows, "public/data/food-systems/no/flows.json", "norway_flow_prototype", "flows[*].value", "Prototypeflyt for visualisering; verdiene er ikke observerte tonn, kroner eller frekvens.", "Må aldri brukes som empirisk matforsyningsvariabilitet."),
       ],
       numericDifference: null,
       differenceReason: "FSD-indikatoren er beregnet standardavvik i kcal/capita/day over foregående fem år. Intern flows.json er eksplisitt illustrativ og har ikke samme måleenhet, observasjonsstatus eller tidsserie.",
@@ -302,7 +314,7 @@ function crosswalkFor(
     return {
       comparisonStatus: "same_theme_different_measure",
       internalMatches: [
-        baseMatch(no.ssb, "public/data/food-systems/ssb_landbruk_2024.json", "ssb_landbruk_2024", "economics.cpi_food_oct24_oct25", 3.1, "% change", 2025, "Års-/periodeendring i mat-KPI, ikke volatilitetsstandardavvik."),
+        localMetricMatch(internal.ssb, no.ssb, "public/data/food-systems/ssb_landbruk_2024.json", "ssb_landbruk_2024", "economics.cpi_food_oct24_oct25", "Års-/periodeendring i mat-KPI, ikke volatilitetsstandardavvik.", "Råverdien 0,031 i JSON er en ratioendring, tilsvarende 3,1 prosent."),
       ],
       numericDifference: null,
       differenceReason: "FSD måler prisvolatilitet med en modellert/avledet variasjonsindikator; intern 3,1 % er en bestemt mat-KPI-periode. Samme tema, ulik statistikk.",
@@ -311,18 +323,18 @@ function crosswalkFor(
     };
   }
 
-  const yieldMap: Record<string, { key: string; value: number; definition: string }> = {
-    "Fruit yield": { key: "steps.primary.breakdown.fruit_veg_tonnes", value: 25576, definition: "Intern fruktproduksjon i tonn; volum, ikke avling per hektar." },
-    "Vegetable yield": { key: "steps.primary.breakdown.fruit_veg_tonnes", value: 184445, definition: "Intern grønnsaksproduksjon i tonn; volum, ikke avling per hektar." },
-    "Cereals yield": { key: "steps.primary.breakdown.grain_tonnes", value: 1183800, definition: "Intern kornproduksjon i tonn; volum, ikke avling per hektar." },
-    "Cow's milk yield": { key: "steps.primary.breakdown.milk_tonnes", value: 1524400, definition: "Intern melkeproduksjon i tonn; volum, ikke yield per dyr." },
-    "Beef yield": { key: "steps.primary.breakdown.meat_breakdown.beef", value: 86090, definition: "Intern storfekjøttproduksjon i tonn; volum, ikke kg per dyr." },
+  const yieldMap: Record<string, { key: string; definition: string }> = {
+    "Fruit yield": { key: "steps[id=primary].breakdown.fruit_veg_breakdown.fruit", definition: "Intern fruktproduksjon i tonn; volum, ikke avling per hektar." },
+    "Vegetable yield": { key: "steps[id=primary].breakdown.fruit_veg_breakdown.vegetables", definition: "Intern grønnsaksproduksjon i tonn; volum, ikke avling per hektar." },
+    "Cereals yield": { key: "steps[id=primary].breakdown.grain_tonnes", definition: "Intern kornproduksjon i tonn; volum, ikke avling per hektar." },
+    "Cow's milk yield": { key: "steps[id=primary].breakdown.milk_tonnes", definition: "Intern melkeproduksjon i tonn; volum, ikke yield per dyr." },
+    "Beef yield": { key: "steps[id=primary].breakdown.meat_breakdown.beef", definition: "Intern storfekjøttproduksjon i tonn; volum, ikke kg per dyr." },
   };
   const yieldEntry = yieldMap[name];
   if (yieldEntry) {
     return {
       comparisonStatus: "same_theme_different_measure",
-      internalMatches: [baseMatch(no.trade, "public/data/food-systems/trade_volumes_2024.json", "trade_volumes_2024", `domestic_production.${yieldEntry.key.split(".").pop()}`, yieldEntry.value, "tonnes", 2024, yieldEntry.definition)],
+      internalMatches: [localMetricMatch(internal.valueChain, no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", yieldEntry.key, yieldEntry.definition)],
       numericDifference: null,
       differenceReason: "FSD er FAOSTAT-avling per hektar eller per dyr for siste tilgjengelige år. Intern verdi er total norsk produksjon i tonn og mangler felles denominator.",
       disposition: "dual_series",
@@ -333,9 +345,7 @@ function crosswalkFor(
   if (name.includes("greenhouse gas emissions") || name.includes("Greenhouse gas emissions intensity")) {
     return {
       comparisonStatus: "no_match",
-      internalMatches: [
-        baseMatch(no.sustainability, "prisma/seed-data/sustainability-country-metrics.ts", "sustainability_country_metrics", "Norway-specific GHG row", null, indicator.unit ?? null, indicator.endYear ?? null, "Intern seed har relaterte nordiske klima-/landbruksmetrikker, men ingen verifisert Norge-rad med samme FSD-scope.", "Ikke en nullobservasjon; uttrykker at intern match ikke er etablert."),
-      ],
+      internalMatches: [],
       numericDifference: null,
       differenceReason: "FSD bruker FAOSTAT food-system/agri-food scope eller farm-gate intensity. Intern klimadekning er enten et annet scope eller andre nordiske land; ingen legitim norsk differanse.",
       disposition: "needs_primary_check",
@@ -346,9 +356,7 @@ function crosswalkFor(
   if (name === "Cost of a healthy diet" || name === "Population who cannot afford a healthy diet") {
     return {
       comparisonStatus: "complementary_only",
-      internalMatches: [
-        baseMatch(no.sustainability, "prisma/seed-data/sustainability-country-metrics.ts", "sustainability_country_metrics", "Nordic Nutrition Recommendations diet targets", null, indicator.unit ?? null, null, "Interne NNR-/kostholdsreferanser gir mål eller anbefalinger, ikke FSDs PPP-kostnad eller fordelingsestimat."),
-      ],
+      internalMatches: [],
       numericDifference: null,
       differenceReason: "FSD er en internasjonalt sammenlignbar affordability-modell i PPP-dollar eller et estimat av befolkningsandel; våre kostholdsdata er normative/tematiske og har ingen legitim norsk differanse.",
       disposition: "external_reference_only",
@@ -377,7 +385,7 @@ function crosswalkFor(
   };
 }
 
-function internalConflictRows(internal: { ssb: AnyRecord; valueChain: AnyRecord; chart: AnyRecord; refs: Record<string, string> }) {
+function internalConflictRows(internal: { ssb: AnyRecord; valueChain: AnyRecord; chart: AnyRecord; flows: AnyRecord; refs: Record<string, string> }) {
   const no = internal.refs;
   const row = (input: AnyRecord) => ({
     sourceType: "internal_audit",
@@ -390,9 +398,9 @@ function internalConflictRows(internal: { ssb: AnyRecord; valueChain: AnyRecord;
       indicatorName: "Intern kontroll: norsk selvforsyning",
       comparisonStatus: "internal_conflict" as const,
       internalMatches: [
-        baseMatch(no.ssb, "public/data/food-systems/ssb_landbruk_2024.json", "ssb_landbruk_2024", "production.self_sufficiency_2023.calories", 44, "%", 2023, "Kaloribasert selvforsyning i chart-/SSB-datasettet."),
-        baseMatch(no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", "selfSufficiency.caloric_pct", 41.3, "%", 2024, "Nyere NIBIO-baserte totalserie, inkl. fisk."),
-        baseMatch(no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", "selfSufficiency.feed_corrected_pct", 34.9, "%", 2024, "NIBIO-baserte selvforsyning korrigert for importert kraftfôr; ikke fiskefôr."),
+        localMetricMatch(internal.ssb, no.ssb, "public/data/food-systems/ssb_landbruk_2024.json", "ssb_landbruk_2024", "production.self_sufficiency_2023.calories", "Kaloribasert selvforsyning i chart-/SSB-datasettet.", "Råverdien 0,44 i JSON er en andel, tilsvarende 44 prosent."),
+        localMetricMatch(internal.valueChain, no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", "selfSufficiency.caloric_pct", "Nyere NIBIO-baserte totalserie, inkl. fisk."),
+        localMetricMatch(internal.valueChain, no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", "selfSufficiency.feed_corrected_pct", "NIBIO-baserte selvforsyning korrigert for importert kraftfôr; ikke fiskefôr."),
       ],
       numericDifference: null,
       differenceReason: "44 % er 2023-serien i ssb_landbruk/chart; 41,3 % og 34,9 % er 2024 value-chain-serier med annen kilde-/scopebeskrivelse. 34,9 % er feed-korrigert og skal ikke avrundes inn i 41,3 %.",
@@ -406,8 +414,8 @@ function internalConflictRows(internal: { ssb: AnyRecord; valueChain: AnyRecord;
       indicatorName: "Intern kontroll: dagligvarekonsentrasjon",
       comparisonStatus: "internal_conflict" as const,
       internalMatches: [
-        baseMatch(no.chart, "public/data/food-systems/no/chart-metrics.json", "chart_metrics_no", "parentCompany.parentHHI", 3445, "HHI index", 2024, "HHI beregnet på butikkantall/OSM-kjedeattribusjon."),
-        baseMatch(no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", "steps.retail.concentration.hhi", 3327, "HHI index", 2024, "HHI beregnet på omsetningsandeler fra Konkurransetilsynets dagligvarerapport."),
+        localMetricMatch(internal.chart, no.chart, "public/data/food-systems/no/chart-metrics.json", "chart_metrics_no", "parentCompany.parentHHI", "HHI beregnet på butikkantall/OSM-kjedeattribusjon; måleår er ikke lagret i dette JSON-artefaktet."),
+        localMetricMatch(internal.valueChain, no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", "steps[id=retail].concentration.hhi", "HHI beregnet på omsetningsandeler fra Konkurransetilsynets dagligvarerapport."),
       ],
       numericDifference: 118,
       differenceReason: "3445 − 3327 = 118, men differansen er ikke en tidsendring: denominatoren er butikkantall versus omsetningsandel. HHI-tallene er derfor ikke samme indikator.",
@@ -421,9 +429,9 @@ function internalConflictRows(internal: { ssb: AnyRecord; valueChain: AnyRecord;
       indicatorName: "Intern kontroll: matsvinn",
       comparisonStatus: "internal_conflict" as const,
       internalMatches: [
-        baseMatch(no.ssb, "public/data/food-systems/ssb_landbruk_2024.json", "ssb_landbruk_2024", "food_waste_2024.total_edible_tonnes", 390000, "tonnes edible", 2024, "Spiselig matsvinn-estimat med kategorifordeling; kilden beskriver begrensninger."),
-        baseMatch(no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", "food_waste_by_category.summary.norway_total_food_waste_2023_tonnes", 451600, "tonnes", 2023, "Value-chain/NORSUS/Matvett/Nordic estimate with broader stated scope and year."),
-        baseMatch(no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", "steps.waste.total_waste_tonnes", 407100, "tonnes", 2024, "Separat value-chain step total; scope not identical to the summary estimate."),
+        localMetricMatch(internal.ssb, no.ssb, "public/data/food-systems/ssb_landbruk_2024.json", "ssb_landbruk_2024", "food_waste_2024.total_edible_tonnes", "Spiselig matsvinn-estimat med kategorifordeling; kilden beskriver begrensninger."),
+        localMetricMatch(internal.valueChain, no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", "food_waste_by_category.summary.norway_total_food_waste_2023_tonnes", "Value-chain/NORSUS/Matvett/Nordic estimate with broader stated scope and year."),
+        localMetricMatch(internal.valueChain, no.valueChain, "public/data/food-systems/no/value-chain.json", "no_value_chain", "steps[id=waste].total_waste_tonnes", "Separat value-chain step total; scope not identical to the summary estimate."),
       ],
       numericDifference: 61600,
       differenceReason: "451 600 − 390 000 = 61 600 tonn, men år, avgrensning (spiselig versus total/estimert) og metode er ikke like. 407 100 tonn er i tillegg en separat value-chain-baseline.",
@@ -436,7 +444,7 @@ function internalConflictRows(internal: { ssb: AnyRecord; valueChain: AnyRecord;
       fsdIndicatorId: null,
       indicatorName: "Intern kontroll: illustrerte verdikjedestrømmer",
       comparisonStatus: "blocked_source" as const,
-      internalMatches: [baseMatch(no.flows, "public/data/food-systems/no/flows.json", "norway_flow_prototype", "flows[].value", null, "illustrative weight", 2024, "Illustrert prototypevekt; ikke observert tonn, kroner eller handelsvolum.", "observedOrEstimated=illustrative; confidence=low." )],
+      internalMatches: [localMetricMatch(internal.flows, no.flows, "public/data/food-systems/no/flows.json", "norway_flow_prototype", "flows[*].value", "Illustrert prototypevekt; ikke observert tonn, kroner eller handelsvolum.", "observedOrEstimated=illustrative; confidence=low." )],
       numericDifference: null,
       differenceReason: "Visualiseringsvekter har ikke empirisk enhet eller fullstendig observasjonsgrunnlag.",
       disposition: "no_import" as const,
@@ -629,7 +637,7 @@ export async function buildNorwayFsdCrosswalk(options: NorwayFsdBuildOptions = {
     });
   }
 
-  const conflicts = internalConflictRows({ ssb, valueChain, chart, refs: { ssb: refs.ssb, valueChain: refs.valueChain, chart: refs.chart, flows: refs.flows } });
+  const conflicts = internalConflictRows({ ssb, valueChain, chart, flows, refs: { ssb: refs.ssb, valueChain: refs.valueChain, chart: refs.chart, flows: refs.flows } });
   crosswalkRows.push(...conflicts);
 
   const jsonl = (rows: AnyRecord[]) => `${rows.map((row) => JSON.stringify(row)).join("\n")}\n`;

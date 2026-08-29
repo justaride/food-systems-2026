@@ -226,8 +226,13 @@ for i, (title, del_, claim, links) in enumerate(INNSIKTER):
             f"**Bevis-kjeden:** forrige: {prev_} · neste: {next_}", "",
             "## Handler om", ""]
     body += [f"- [[{l}]]" for l in links]
-    body += ["", "## Kilde", "",
-             "- `research/rammeverk/narrativ-struktur.md` (T1–T5-syntesen)",
+    sources = ["- [[Kilde – narrativ-struktur]] — `research/rammeverk/narrativ-struktur.md` (T1–T5-syntesen)"]
+    if title.startswith("I01 "):
+        sources += [
+            "- `research/CITABLE-ACCEPTANCE-TESTS.md` — CA-004 (omsetnings-HHI 3 327 / CR3 96,6 %)",
+            "- `public/data/food-systems/no/value-chain.json` — `steps[id=retail].concentration` (2024-serien)",
+        ]
+    body += ["", "## Kilde", "", *sources,
              "- ⚠️ _Internt arbeidskart: for ekstern bruk må claimet gjennom siterbarhets-gaten (se [[Kilder]])._"]
     note(f"{BASE}/Innsikter/{title}.md", title, ["innsikt", f"del/{del_}"],
          f"Innsikt {i+1}/26 · {DELNAVN[del_]} · Del av [[Innsiktskartet]]", body,

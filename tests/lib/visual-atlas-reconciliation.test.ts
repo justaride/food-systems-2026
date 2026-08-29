@@ -10,6 +10,8 @@ test("vault distinguishes store-count proxy from turnover HHI", () => {
   const note = read("Food Systems Obsidian/10 Innsiktskart/Innsikter/I01 Triopolet – 93,4 % av butikkene.md");
   assert.match(note, /butikkantall[\s\S]*3 445/i);
   assert.match(note, /omsetning[\s\S]*3 327[\s\S]*96,6 %/i);
+  assert.match(note, /research\/CITABLE-ACCEPTANCE-TESTS\.md[\s\S]*CA-004/i);
+  assert.match(note, /public\/data\/food-systems\/no\/value-chain\.json/i);
 });
 
 test("Nordic HHI note refuses an unharmonised ranking", () => {

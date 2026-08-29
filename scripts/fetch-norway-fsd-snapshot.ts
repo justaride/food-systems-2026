@@ -103,6 +103,22 @@ export async function promoteSnapshotTransaction(
   }
 }
 
+export async function promoteFreshSnapshotTransaction(
+  outputs: SnapshotPromotion[],
+  frozenManifestPath: string,
+  beforeRecheck: () => void | Promise<void> = () => undefined,
+  renameFile: RenameFile = rename,
+): Promise<void> {
+  await promoteSnapshotTransaction(
+    outputs,
+    async () => {
+      await beforeRecheck();
+      assertRefreshTargetsAvailable(outputs, frozenManifestPath);
+    },
+    renameFile,
+  );
+}
+
 export function versionSnapshotFileName(fileName: string, accessDate: string): string {
   return fileName.replace(/(\.csv(?:\.gz)?)$/, `-accessed-${accessDate}$1`);
 }
@@ -131,10 +147,8 @@ async function main(args = process.argv.slice(2), invokedAt = new Date()) {
     })),
     { targetPath: manifestPath },
   ];
-  assertRefreshTargetsAvailable(
-    prospectiveOutputs,
-    resolve(ROOT, "research/landscape", DEFAULT_NORWAY_FSD_MANIFEST),
-  );
+  const frozenManifestPath = resolve(ROOT, "research/landscape", DEFAULT_NORWAY_FSD_MANIFEST);
+  assertRefreshTargetsAvailable(prospectiveOutputs, frozenManifestPath);
   const manifestSources: Array<Record<string, string | number>> = [];
   const promotionOutputs: SnapshotPromotion[] = [];
 
@@ -195,7 +209,7 @@ async function main(args = process.argv.slice(2), invokedAt = new Date()) {
     targetPath: manifestPath,
     contents: Buffer.from(`${JSON.stringify({ snapshotDate: accessDate, sources: manifestSources }, null, 2)}\n`, "utf8"),
   });
-  await promoteSnapshotTransaction(promotionOutputs);
+  await promoteFreshSnapshotTransaction(promotionOutputs, frozenManifestPath);
   console.log(`Frozen ${manifestSources.length} FSD sources in ${manifestPath}`);
 }
 

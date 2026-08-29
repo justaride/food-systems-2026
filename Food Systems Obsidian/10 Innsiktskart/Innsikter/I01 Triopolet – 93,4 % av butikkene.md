@@ -24,7 +24,9 @@ Tre paraplykjeder kontrollerer 93,4 % av Norges dagligvarebutikker: NorgesGruppe
 
 ## Kilde
 
-- [[Kilde – narrativ-struktur]] — `research/rammeverk/narrativ-struktur.md` (T1-T5-syntesen)
+- [[Kilde – narrativ-struktur]] — `research/rammeverk/narrativ-struktur.md` (T1–T5-syntesen)
+- `research/CITABLE-ACCEPTANCE-TESTS.md` — CA-004 (omsetnings-HHI 3 327 / CR3 96,6 %)
+- `public/data/food-systems/no/value-chain.json` — `steps[id=retail].concentration` (2024-serien)
 - ⚠️ _Internt arbeidskart: for ekstern bruk må claimet gjennom siterbarhets-gaten (se [[Kilder]])._
 ## Notater
 

@@ -38,6 +38,19 @@ The seven HTML captures remain on the recovery branch and are not copied into th
 | `research/bibliotek/primaerkilder-2026-08-05/ragnsells-insect-breakthrough.html` | https://newsroom.ragnsells.com/posts/pressreleases/new-technology-leads-to-breakthrough-in-insec | `4c89ea5` | `9f7250d1d0e54419a02f87dd85b124079fdea638` | `human_gate` |
 | `research/bibliotek/primaerkilder-2026-08-05/riksdagen-prop-2025-26-205-beredskapslager.html` | https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/beredskapslager-i-livsmedelskedjan_hd03205/ | `4c89ea5` | `4a34f10cdda13d14e02aaa079bf2b682efd7aefe` | `human_gate` |
 
+## Source-checkout untracked capture inventory
+
+The following six files are dirty, untracked raw captures in the recovery source checkout. They were inspected read-only and were not copied into this candidate. Each SHA-256 was computed over the exact local file bytes on 2026-08-29 with `shasum -a 256`; because the files are untracked, none has a Git object. The locators record the known review target without granting publication or redistribution rights.
+
+| Source-checkout path | Source URL | Locator | Local SHA-256 | Git object | rightsStatus |
+|---|---|---|---|---|---|
+| `research/innhenting-2026-08-05/staging/brod-2017-ambio-fish-sludge-pmc.html` | https://doi.org/10.1007/s13280-017-0927-5 | abstract + Table 3; field-trial results; Table 2 | `7757de89f940ab5853a20b78f63f613f5c0eaae64e8431e3fd9b30ce19487656` | no Git blob (untracked) | `human_gate` |
+| `research/innhenting-2026-08-05/staging/estatenyheter-coop-union-2015.html` | http://www.estatenyheter.no/2015/07/08/coop-selger-stort-til-union/ | brødtekst avsn. 1–4 | `56e776c3c7b0faa93ed9869dc4f63a9d7b06379c35810a6e511be4d2e57a762e` | no Git blob (untracked) | `human_gate` |
+| `research/innhenting-2026-08-05/staging/estatenyheter-coop-union-2015.md` | http://www.estatenyheter.no/2015/07/08/coop-selger-stort-til-union/ | brødtekst avsn. 1–4 | `2a42785baf986bf27da0d7abd0d158f79f644f7f95415721ba88c84a6599756e` | no Git blob (untracked) | `human_gate` |
+| `research/innhenting-2026-08-05/staging/frontiers-p-flow-norway-2023.html` | https://doi.org/10.3389/fsufs.2023.1248984 | discussion; ref. 12 = SINTEF 2020:00342 | `a53c3e5cd5e2a2a21feff75f650338bbd7c96d5d663b4bc08d8907589a17c014` | no Git blob (untracked) | `human_gate` |
+| `research/innhenting-2026-08-05/staging/lovdata-forskrift-2023-12-11-2037.html` | https://lovdata.no/dokument/SF/forskrift/2023-12-11-2037 | §§ 1–3 | `ec09e81c924a3ef8da8a39783247208b980ad82258ddb98aa3dd87b122d3e6b2` | no Git blob (untracked) | `human_gate` |
+| `research/innhenting-2026-08-05/staging/lovdata-forskrift-2023-12-11-2037.txt` | https://lovdata.no/dokument/SF/forskrift/2023-12-11-2037 | §§ 1–3 | `b1983e65a2dcf3c76e85f23b7bba772cb26df635ba6afcdf12d823f860c85e22` | no Git blob (untracked) | `human_gate` |
+
 ## Dirty-tree ledger
 
 | Dirty material | Final disposition | Candidate commit | Verification |
@@ -45,11 +58,11 @@ The seven HTML captures remain on the recovery branch and are not copied into th
 | 7 tracked paths | Integrated or parked after path-level reconciliation; current-main versions remain where the source was superseded. | `489c71e`, `1a0099c`, `94c14b9`, `0840e5b` | Final name-status inventory is source-controlled and `git diff --check origin/main...HEAD` passes; no source-checkout paths were changed. |
 | 201 untracked files identical to main | Already integrated; do not copy or stage. | None | Byte comparison against main recorded in approved census. |
 | 8 differing untracked files | Integrated only selected governed documents/research; all other differing source-only material is parked. | `489c71e`, `94c14b9` | `489c71e` records the 14 selected dated governed paths and `94c14b9` records the governed FSD subset; branch name-status excludes parked source-only files. |
-| 19 main-absent untracked files | Parked on the recovery source; no later task selected them. | None | Excluded from `origin/main...HEAD` name-status; recovery source and non-deletion boundary remain recorded below. |
-| five newline-only chart metrics | Excluded as generated noise; never integrated. | None | Required build produces timestamp-only local diffs; each diff was verified absent from `origin/main...HEAD` and restored to `HEAD`. |
+| 19 main-absent untracked files | Split by disposition: the 12-path source-side FSD group was reconstructed into the governed Task 4 bundle (the 88.9 MB raw CSV itself remains absent); six raw captures remain blocked; one local QA screenshot remains parked. The FSD material is therefore not classified wholly as parked. | `94c14b9` for the governed FSD reconstruction; none for the captures or screenshot | The FSD bundle is in `origin/main...HEAD`; the raw CSV, six capture paths, and screenshot are excluded. The capture byte inventory is recorded above. |
+| five source-checkout chart metrics with newline-only dirty diffs | Excluded as source-checkout generated noise; never integrated. | None | The source-side difference is newline-only. Separately, the required candidate build changes only each metric's generated timestamp; those five explicit candidate paths are verified and restored to `HEAD` after the build. |
 | citation-readiness preview | Blocked from canonical evidence; retained only as a generated review candidate on the recovery source. | None | Excluded from branch name-status; canonical evidence review remains required before any promotion. |
 | FSD bundle | Integrated through the current landscape model and offline dual-hash gzip contract; the raw CSV remains untracked. | Task 4 commit | Integrated: 60 indicators, 64 crosswalk rows, 31 sources; compressed artifact 7,336,927 bytes / `cd37ea4ddd80df3a94424e5cb16540ea6c53e4697d9a0cfb8d4ea21741d103f3`; verified raw 88,884,423 bytes / `d155d1e2269169760fbdb0904199c54e4af7439c7493b65c8b4ae999e434002a`; focused, combined, deterministic rebuild, general landscape, and artifact-audit gates green. |
-| six extra raw captures | Blocked from integration pending an owner-approved evidence-intake decision. | None | The provenance ledger records source URLs, source commits, blob IDs, and `human_gate`; no capture path is in branch name-status. |
+| six extra raw captures | Blocked from integration pending an owner-approved evidence-intake decision. | None | The source-checkout inventory above records exact paths, local-byte SHA-256 values, known locators, `no Git blob (untracked)`, and `human_gate`; no capture path is in branch name-status. |
 | local QA screenshot | Parked on the recovery source; do not integrate. | None | Excluded from branch name-status and from the artifact-audit added-path inventory. |
 
 This ledger proves only local reconciliation against the recorded Git objects. It does not prove push, pull request, merge, deployment, runtime SHA, authenticated UI, publication authority, or external-source rights.

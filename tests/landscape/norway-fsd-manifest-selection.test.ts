@@ -62,6 +62,44 @@ test("the real builder and validator preserve per-source dates for a selected fu
   const bundle = loadNorwayFsdBundle(futureOutputDirectory, futureManifestPath, root);
   assert.deepEqual(validateNorwayFsdBundle(bundle), { indicators: 60, crosswalk: 64, sources: 31 });
 
+  const generatedByName = new Map(bundle.crosswalk.map((row) => [row.indicatorName, row]));
+  assert.deepEqual(generatedByName.get("Fruit yield")?.internalMatches, [{
+    provenanceStatus: "internal_primary",
+    file: "public/data/food-systems/no/value-chain.json",
+    dataset: "no_value_chain",
+    metricKey: "steps[id=primary].breakdown.fruit_veg_breakdown.fruit",
+    value: 25576,
+    unit: "tonnes",
+    year: 2024,
+    geography: "Norway",
+    definition: "Intern fruktproduksjon i tonn; volum, ikke avling per hektar.",
+    sourceRef: "src-internal-value-chain-no",
+  }]);
+  assert.deepEqual(generatedByName.get("Vegetable yield")?.internalMatches[0], {
+    provenanceStatus: "internal_primary",
+    file: "public/data/food-systems/no/value-chain.json",
+    dataset: "no_value_chain",
+    metricKey: "steps[id=primary].breakdown.fruit_veg_breakdown.vegetables",
+    value: 184445,
+    unit: "tonnes",
+    year: 2024,
+    geography: "Norway",
+    definition: "Intern grønnsaksproduksjon i tonn; volum, ikke avling per hektar.",
+    sourceRef: "src-internal-value-chain-no",
+  });
+  assert.deepEqual(generatedByName.get("Beef yield")?.internalMatches[0], {
+    provenanceStatus: "internal_primary",
+    file: "public/data/food-systems/no/value-chain.json",
+    dataset: "no_value_chain",
+    metricKey: "steps[id=primary].breakdown.meat_breakdown.beef",
+    value: 86090,
+    unit: "tonnes",
+    year: 2024,
+    geography: "Norway",
+    definition: "Intern storfekjøttproduksjon i tonn; volum, ikke kg per dyr.",
+    sourceRef: "src-internal-value-chain-no",
+  });
+
   const sourceMap = new Map(bundle.sources.map((source) => [source.id, source]));
   assert.equal(sourceMap.get("src-fsd-full-export-2026-04-20")?.accessDate, "2026-09-01");
   assert.equal(sourceMap.get("src-fsd-metadata-export-2026-04-20")?.accessDate, "2026-09-01");

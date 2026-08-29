@@ -1,8 +1,10 @@
+import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 import type { CsvRow } from "./lib/parse-rfc4180";
+import { readSupportedInternalMetric } from "./lib/norway-fsd-internal-metrics";
 import {
   readNorwayFsdSnapshotSet,
   resolveNorwayFsdManifestPath,
@@ -172,7 +174,16 @@ function validateSources(sources: JsonRecord[], root: string): Map<string, JsonR
     }
     if (source.sourceKind === "underlying_primary" && source.url === undefined) fail(`${source.id} underliggende kilde mangler URL`);
     if (source.sourceKind === "fsd_export" && (!source.url || !source.localPath)) fail(`${source.id} FSD-eksport må ha URL og lokalt snapshot`);
-    if (source.sourceKind === "internal" && !source.localPath) fail(`${source.id} intern kilde må ha localPath`);
+    if (source.sourceKind === "internal") {
+      if (!source.localPath) fail(`${source.id} intern kilde må ha localPath`);
+      if (!hashPattern.test(source.contentHash)) fail(`${source.id} intern kilde må ha contentHash`);
+      const actualHash = createHash("sha256")
+        .update(fs.readFileSync(path.resolve(root, source.localPath)))
+        .digest("hex");
+      if (source.contentHash !== actualHash) {
+        fail(`${source.id} internal source contentHash does not match actual bytes`);
+      }
+    }
   }
   return sourceMap;
 }
@@ -225,10 +236,18 @@ function validateIndicators(indicators: JsonRecord[], sourceMap: Map<string, Jso
 function validateInternalMatch(match: JsonRecord, label: string, sourceMap: Map<string, JsonRecord>, root: string): void {
   for (const field of ["file", "dataset", "metricKey", "geography", "definition", "sourceRef", "provenanceStatus"]) assertString(match[field], `${label}.${field}`);
   if (!fs.existsSync(path.resolve(root, match.file))) fail(`${label}.file finnes ikke: ${match.file}`);
-  if (!sourceMap.has(match.sourceRef)) fail(`${label}.sourceRef peker til ukjent kilde ${match.sourceRef}`);
+  const source = sourceMap.get(match.sourceRef);
+  if (!source) fail(`${label}.sourceRef peker til ukjent kilde ${match.sourceRef}`);
+  if (source.sourceKind !== "internal" || source.localPath !== match.file) {
+    fail(`${label}.sourceRef is not bound to internal match file ${match.file}`);
+  }
   assertNumberOrNull(match.value, `${label}.value`);
   assertYearOrNull(match.year, `${label}.year`);
-  if (match.value !== null && (!match.unit || match.year === null)) fail(`${label} numerisk internverdi mangler unit eller year`);
+  assertString(match.unit, `${label}.unit`);
+  const resolved = readSupportedInternalMetric(root, match.file, match.metricKey);
+  if (!Object.is(match.value, resolved.value)) fail(`${label} internal metric value does not match actual source`);
+  if (!Object.is(match.year, resolved.year)) fail(`${label} internal metric year does not match actual source`);
+  if (match.unit !== resolved.unit) fail(`${label} internal metric unit does not match actual source`);
 }
 
 function validateCrosswalk(crosswalk: JsonRecord[], indicatorIds: Set<number>, sourceMap: Map<string, JsonRecord>, root: string): void {

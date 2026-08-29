@@ -7,6 +7,7 @@ import test from "node:test";
 
 import {
   assertRefreshTargetsAvailable,
+  promoteFreshSnapshotTransaction,
   promoteSnapshotTransaction,
   resolveAccessDate,
 } from "../../scripts/fetch-norway-fsd-snapshot";
@@ -64,6 +65,24 @@ test("a pre-promotion failure leaves every governed snapshot target unchanged", 
   assert.equal(readFileSync(first, "utf8"), "old-first");
   assert.equal(readFileSync(second, "utf8"), "old-second");
   assert.deepEqual(readdirSync(directory).sort(), ["first.csv.gz", "manifest.json"]);
+});
+
+test("a target appearing after staging is rejected without overwrite or residue", async () => {
+  const directory = mkdtempSync(path.join(tmpdir(), "fsd-toctou-"));
+  const target = path.join(directory, "fsd-full-export-accessed-2026-09-01.csv.gz");
+  const frozenManifest = path.join(directory, "frozen-default-manifest.json");
+
+  await assert.rejects(
+    promoteFreshSnapshotTransaction(
+      [{ targetPath: target, contents: Buffer.from("new snapshot") }],
+      frozenManifest,
+      () => writeFileSync(target, "concurrent snapshot"),
+    ),
+    /already exists/i,
+  );
+
+  assert.equal(readFileSync(target, "utf8"), "concurrent snapshot");
+  assert.deepEqual(readdirSync(directory), ["fsd-full-export-accessed-2026-09-01.csv.gz"]);
 });
 
 test("access date reflects the invocation date unless explicitly supplied", () => {
