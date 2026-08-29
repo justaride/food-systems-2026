@@ -2,11 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
-import type { CsvRow } from "./lib/parse-rfc4180.ts";
+import type { CsvRow } from "./lib/parse-rfc4180";
 import {
   readNorwayFsdSnapshotSet,
   resolveNorwayFsdManifestPath,
-} from "./lib/norway-fsd-snapshot-set.ts";
+} from "./lib/norway-fsd-snapshot-set";
 
 type JsonRecord = Record<string, any>;
 

@@ -8,8 +8,8 @@ const loop = (id: string) => loops.existing_loops.find((row: { id: string }) => 
 
 test("vault distinguishes store-count proxy from turnover HHI", () => {
   const note = read("Food Systems Obsidian/10 Innsiktskart/Innsikter/I01 Triopolet – 93,4 % av butikkene.md");
-  assert.match(note, /butikkantall.*3 445/is);
-  assert.match(note, /omsetning.*3 327.*96,6 %/is);
+  assert.match(note, /butikkantall[\s\S]*3 445/i);
+  assert.match(note, /omsetning[\s\S]*3 327[\s\S]*96,6 %/i);
 });
 
 test("Nordic HHI note refuses an unharmonised ranking", () => {

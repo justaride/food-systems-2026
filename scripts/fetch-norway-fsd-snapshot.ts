@@ -4,7 +4,7 @@ import { existsSync } from "node:fs";
 import { mkdir, mkdtemp, readFile, rename, rm, writeFile } from "node:fs/promises";
 import { basename, dirname, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
-import { DEFAULT_NORWAY_FSD_MANIFEST } from "./lib/norway-fsd-snapshot-set.ts";
+import { DEFAULT_NORWAY_FSD_MANIFEST } from "./lib/norway-fsd-snapshot-set";
 
 const ROOT = resolve(process.cwd());
 const PROFILE_ACCESS_DATE = "2026-08-10";

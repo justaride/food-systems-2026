@@ -21,7 +21,7 @@ test("frozen output collisions are rejected before promotion", () => {
 
   assert.throws(
     () => assertRefreshTargetsAvailable(
-      [{ targetPath: frozenManifestPath, contents: Buffer.from("replacement") }],
+      [{ targetPath: frozenManifestPath }],
       frozenManifestPath,
     ),
     /frozen default/i,
@@ -33,7 +33,7 @@ test("frozen output collisions are rejected before promotion", () => {
   writeFileSync(existingTarget, "existing frozen bytes");
   assert.throws(
     () => assertRefreshTargetsAvailable(
-      [{ targetPath: existingTarget, contents: Buffer.from("different bytes") }],
+      [{ targetPath: existingTarget }],
       frozenManifestPath,
     ),
     /already exists/i,

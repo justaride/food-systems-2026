@@ -2,11 +2,11 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
-import type { CsvRow } from "./lib/parse-rfc4180.ts";
+import type { CsvRow } from "./lib/parse-rfc4180";
 import {
   readNorwayFsdSnapshotSet,
   resolveNorwayFsdManifestPath,
-} from "./lib/norway-fsd-snapshot-set.ts";
+} from "./lib/norway-fsd-snapshot-set";
 
 const ROOT = resolve(process.cwd());
 const BASELINE_CONTEXT_ACCESS_DATE = "2026-08-10";

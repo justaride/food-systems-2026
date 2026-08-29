@@ -2,8 +2,8 @@ import { createHash } from "node:crypto";
 import { readFileSync, statSync } from "node:fs";
 import path from "node:path";
 
-import { parseCsv, type CsvRow } from "./parse-rfc4180.ts";
-import { readVerifiedGzipSnapshot } from "./snapshot-integrity.ts";
+import { parseCsv, type CsvRow } from "./parse-rfc4180";
+import { readVerifiedGzipSnapshot } from "./snapshot-integrity";
 
 type JsonRecord = Record<string, any>;
 
