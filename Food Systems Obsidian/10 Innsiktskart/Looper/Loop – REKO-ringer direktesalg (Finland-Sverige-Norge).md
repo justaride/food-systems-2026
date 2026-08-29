@@ -16,7 +16,7 @@ siterbarhet: intern
 
 - R-nivå: **R1** · TRL 9 · Modenhet: **scaled**
 - Volum: Unavailable: ring, user, and turnover counts are not verified against a current primary source.
-- Aktører: 274 independent rings, DIGIFOOD (USN/NordForsk)
+- Aktører: Independent REKO rings, DIGIFOOD (USN/NordForsk)
 - Politikkstøtte: Grassroots, NordForsk research funding
 - Tema: `direktehandel` · Kilder: SA-02
 

@@ -23,6 +23,7 @@ test("unsupported Matsentralen and REKO quantities are unavailable", () => {
   assert.match(loop("fi-se-reko").volume, /^Unavailable:/);
   assert.doesNotMatch(loop("no-matsentralen").volume, /5,735|10\.2M/);
   assert.doesNotMatch(loop("fi-se-reko").volume, /274|786,000|500 MNOK/);
+  assert.doesNotMatch(JSON.stringify(loop("fi-se-reko")), /\b274\b/);
 });
 
 test("unresolved company identities are not deleted from generated state", () => {
