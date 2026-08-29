@@ -48,7 +48,7 @@ The seven HTML captures remain on the recovery branch and are not copied into th
 | 19 main-absent untracked files | Park unless explicitly selected by a later task. | None unless later task selects | Pending final parked-artifact audit. |
 | five newline-only chart metrics | Generated/noise; do not integrate. | None | Pending diff check. |
 | citation-readiness preview | Preserve as generated review candidate; do not promote to canonical evidence. | None | Pending provenance/status check. |
-| FSD bundle | Refit through the current landscape model and offline gzip/hash contract. | Task 4 commit | Pending FSD test and deterministic rebuild. |
+| FSD bundle | Integrated through the current landscape model and offline dual-hash gzip contract; the raw CSV remains untracked. | Task 4 commit | Integrated: 60 indicators, 64 crosswalk rows, 31 sources; compressed artifact 7,336,927 bytes / `cd37ea4ddd80df3a94424e5cb16540ea6c53e4697d9a0cfb8d4ea21741d103f3`; verified raw 88,884,423 bytes / `d155d1e2269169760fbdb0904199c54e4af7439c7493b65c8b4ae999e434002a`; focused, combined, deterministic rebuild, general landscape, and artifact-audit gates green. |
 | six extra raw captures | Separate evidence-intake review with rights, locator, hash, and manifest checks. | None pending review | Pending evidence-intake review. |
 | local QA screenshot | Local QA artifact; do not integrate. | None | Pending final parked-artifact audit. |
 

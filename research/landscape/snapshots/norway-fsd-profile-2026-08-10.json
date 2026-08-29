@@ -1,0 +1,4683 @@
+{
+  "indicators": [
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 0.915,
+        "id": 63,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.452,
+        "quartile3Value": 0.682,
+        "quartile4Value": 0.823
+      },
+      "benchmarkIncome": {
+        "achievedValue": 0.964,
+        "id": 461,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.682,
+        "quartile3Value": 0.848,
+        "quartile4Value": 0.898
+      },
+      "benchmarkRegional": {
+        "achievedValue": 0.965,
+        "id": 256,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.686,
+        "quartile3Value": 0.839,
+        "quartile4Value": 0.905
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:0:globalBenchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:0:globalTargetQuartiles",
+          "distanceCategory": "close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:0:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:0:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        }
+      },
+      "benchmarkStatus": "Benchmark Met",
+      "benchmarkStatusRaw": "target-met",
+      "benchmarkTarget": {
+        "achievedValue": 2.5,
+        "id": 28,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.499,
+        "quartile3Value": 0.705,
+        "quartile4Value": 0.839
+      },
+      "calculation": null,
+      "countryObservationId": 165571,
+      "dataRows": 1,
+      "definition": "The core civil society index is designed to provide a measure of a robust civil society, understood as one that enjoys autonomy from the state and in which citizens freely and actively pursue their political and civic goals, however conceived.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 5519.594
+      },
+      "endYear": 2023,
+      "fsciDomain": "Shared vision and strategic planning",
+      "fsciTheme": "Governance",
+      "fsdIndicatorId": 66,
+      "isProjection": false,
+      "maxYear": 2023,
+      "minYear": 2000,
+      "name": "Civil society participation index",
+      "position": 1,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 0.985,
+      "relevance": "Captures whether an enabling environment exists for citizens to articulate their preferences over the food system, ensuring that policy goals are broadly representative",
+      "significantFigures": null,
+      "slug": "civil-society-participation-index",
+      "startYear": 2023,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 1177569,
+      "dataRows": 1,
+      "definition": "Proportion of the total national urban population living in cities that signed on to the Milan Urban Food Policy Pact. There were 221 cities from 73 different countries in 2020.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2025,
+      "fsciDomain": "Shared vision and strategic planning",
+      "fsciTheme": "Governance",
+      "fsdIndicatorId": 190,
+      "isProjection": false,
+      "maxYear": 2025,
+      "minYear": 2000,
+      "name": "Urban population living in cities signed onto the Milan Urban Food Policy Pact",
+      "position": 2,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 0,
+      "relevance": "Indicates intentionality by subnational governments to prioritize food policy in their urban planning.",
+      "significantFigures": null,
+      "slug": "percent-urban-population-living-in-cities-signed-onto-the-milan-urban-food-policy-pact",
+      "startYear": 2025,
+      "treatmentOfMissingValues": null,
+      "unit": "%",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. n.d. The Right to Food around the Globe. In: FAO. https://www.fao.org/right-to-food-around-the-globe/constitutional-level-of-recognition/en/ and Schneider, K.R., Fanzo, J., Haddad, L. et al. 2023. The state of food systems worldwide in the countdown to 2030. Nat Food 4, 1090–1110. https://doi.org/10.1038/s43016-023-00885-9",
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "Policies are classified based on the FAOLEX database five-group typology as: 1) Explicit protection of the right to food or directive of state policy. 2) Some other implicit recognition, codification of international statues, or other pertinent provisions. 3) None: countries with no policies catalogued in the FAOLEX database.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Shared vision and strategic planning",
+      "fsciTheme": "Governance",
+      "fsdIndicatorId": 92,
+      "isProjection": false,
+      "maxYear": null,
+      "minYear": null,
+      "name": "Legal recognition of the right to food",
+      "position": 3,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "Indicates a government’s recognition that guaranteeing food security to its citizens is one of its main responsibilities. As a human right, governments have duties to protect and fulfil this right, and the citizens have entitlements to be free from hunger and food insecurity.",
+      "significantFigures": null,
+      "slug": "degree-of-legal-recognition-of-the-right-to-food",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. Pathways analysis. In: FAO. https://www.fao.org/datalab/dashboard/food-systems-summit/ and Schneider, K.R., Fanzo, J., Haddad, L. et al. 2023. The state of food systems worldwide in the countdown to 2030. Nat Food 4, 1090–1110. https://doi.org/10.1038/s43016-023-00885-9",
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "The country has developed a food system transformation pathway, as reported to the FAO UN Food Systems Summit Hub.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Shared vision and strategic planning",
+      "fsciTheme": "Governance",
+      "fsdIndicatorId": 201,
+      "isProjection": false,
+      "maxYear": null,
+      "minYear": null,
+      "name": "National food system transformation pathway",
+      "position": 4,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "Specific strategy that addresses food systems from a systems perspective at the country level.",
+      "significantFigures": null,
+      "slug": "presence-of-a-national-food-system-transformation-pathway",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 1.391,
+        "id": 66,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": -0.842,
+        "quartile3Value": -0.248,
+        "quartile4Value": 0.373
+      },
+      "benchmarkIncome": {
+        "achievedValue": 1.836,
+        "id": 456,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.403,
+        "quartile3Value": 1.038,
+        "quartile4Value": 1.404
+      },
+      "benchmarkRegional": {
+        "achievedValue": 1.831,
+        "id": 248,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.189,
+        "quartile3Value": 0.752,
+        "quartile4Value": 1.233
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:4:globalBenchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:4:globalTargetQuartiles",
+          "distanceCategory": "close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:4:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:4:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        }
+      },
+      "benchmarkStatus": "Benchmark Met",
+      "benchmarkStatusRaw": "target-met",
+      "benchmarkTarget": {
+        "achievedValue": 2.5,
+        "id": 32,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": -0.78,
+        "quartile3Value": -0.093,
+        "quartile4Value": 0.58
+      },
+      "calculation": null,
+      "countryObservationId": 980723,
+      "dataRows": 1,
+      "definition": "Perceptions of the quality of public services, the quality of the civil service, and the degree of its independence from political pressures, the quality of policy formulation and implementation, and the credibility of the government's commitment to such policies.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 5519.594
+      },
+      "endYear": 2023,
+      "fsciDomain": "Effective implementation",
+      "fsciTheme": "Governance",
+      "fsdIndicatorId": 119,
+      "isProjection": false,
+      "maxYear": 2023,
+      "minYear": 2000,
+      "name": "Government effectiveness index",
+      "position": 5,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 1.79993534088135,
+      "relevance": "A credible government with high levels of bureaucratic quality is more likely to effectively implement complex food systems policies.",
+      "significantFigures": null,
+      "slug": "government-effectiveness-index",
+      "startYear": 2023,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 85.405,
+        "id": 71,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 40,
+        "quartile3Value": 80,
+        "quartile4Value": 80
+      },
+      "benchmarkIncome": {
+        "achievedValue": 100,
+        "id": 454,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 80,
+        "quartile3Value": 80,
+        "quartile4Value": 80
+      },
+      "benchmarkRegional": {
+        "achievedValue": 100,
+        "id": 238,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 80,
+        "quartile3Value": 80,
+        "quartile4Value": 80
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:5:globalBenchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:5:globalTargetQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:5:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:5:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        }
+      },
+      "benchmarkStatus": "Benchmark Met",
+      "benchmarkStatusRaw": "target-met",
+      "benchmarkTarget": {
+        "achievedValue": 100,
+        "id": 42,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 40,
+        "quartile3Value": 80,
+        "quartile4Value": 80
+      },
+      "calculation": null,
+      "countryObservationId": 349617,
+      "dataRows": 1,
+      "definition": "Mechanisms are established and functioning for detecting and responding to foodborne disease and food contamination.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 5379.475
+      },
+      "endYear": 2020,
+      "fsciDomain": "Effective implementation",
+      "fsciTheme": "Governance",
+      "fsdIndicatorId": 146,
+      "isProjection": false,
+      "maxYear": 2020,
+      "minYear": 2018,
+      "name": "Food safety capacity",
+      "position": 6,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 100,
+      "relevance": "Indicates whether a government can effectively manage food safety challenges.",
+      "significantFigures": null,
+      "slug": "international-health-regulations-state-party-assessment-report-food-safety-capacity",
+      "startYear": 2020,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "Reflects the presence of any health-related tax at all in the country (defined as binary given the diversity of policy mechanisms and objectives catalogued). In some countries; however, the tax may not be a federal policy and may only apply to certain subnational areas such as municipalities.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Effective implementation",
+      "fsciTheme": "Governance",
+      "fsdIndicatorId": 202,
+      "isProjection": false,
+      "maxYear": null,
+      "minYear": null,
+      "name": "Health-related food environment policies",
+      "position": 8,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "Indicates a government’s willingness and ability to implement policy instruments aimed at promoting consumer health.",
+      "significantFigures": null,
+      "slug": "presence-of-health-related-food-taxes",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 1.635,
+        "id": 64,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": -0.212,
+        "quartile3Value": 0.644,
+        "quartile4Value": 1.068
+      },
+      "benchmarkIncome": {
+        "achievedValue": 1.813,
+        "id": 449,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 1.24,
+        "quartile3Value": 1.466,
+        "quartile4Value": 1.608
+      },
+      "benchmarkRegional": {
+        "achievedValue": 1.834,
+        "id": 232,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.952,
+        "quartile3Value": 1.476,
+        "quartile4Value": 1.687
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:7:globalBenchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:7:globalTargetQuartiles",
+          "distanceCategory": "close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:7:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:7:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        }
+      },
+      "benchmarkStatus": "Benchmark Met",
+      "benchmarkStatusRaw": "target-met",
+      "benchmarkTarget": {
+        "achievedValue": 2.5,
+        "id": 31,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": -0.075,
+        "quartile3Value": 0.756,
+        "quartile4Value": 1.265
+      },
+      "calculation": null,
+      "countryObservationId": 730252,
+      "dataRows": 1,
+      "definition": "Combines horizontal (across government ministries), vertical (between voters and leaders), and diagonal (between civil society organizations, media, and government) accountability. It is measured by the following questions: 1) To what extent is the ideal of government accountability achieved? 2) Does the state’s population hold government accountable through elections? 3) Are there checks and balances between institutions? 4) Is there oversight by civil society organizations and media activity?",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 5519.594
+      },
+      "endYear": 2023,
+      "fsciDomain": "Accountability",
+      "fsciTheme": "Governance",
+      "fsdIndicatorId": 277,
+      "isProjection": false,
+      "maxYear": 2023,
+      "minYear": 2000,
+      "name": "Government accountability index",
+      "position": 9,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 1.834,
+      "relevance": "Governments that demonstrate higher levels of general accountability are more likely to allow for citizen/legislative oversight of food system commitments and spending.",
+      "significantFigures": null,
+      "slug": "v-dem-accountability-index",
+      "startYear": 2023,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 75.953,
+        "id": 69,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 26.36,
+        "quartile3Value": 46.307,
+        "quartile4Value": 59.86
+      },
+      "benchmarkIncome": {
+        "achievedValue": 81.208,
+        "id": 437,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 59.56,
+        "quartile3Value": 62.944,
+        "quartile4Value": 72.244
+      },
+      "benchmarkRegional": {
+        "achievedValue": 80.135,
+        "id": 250,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 52.079,
+        "quartile3Value": 61.991,
+        "quartile4Value": 68.275
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:8:globalBenchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:8:globalTargetQuartiles",
+          "distanceCategory": "close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:8:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:8:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        }
+      },
+      "benchmarkStatus": "Benchmark Met",
+      "benchmarkStatusRaw": "target-met",
+      "benchmarkTarget": {
+        "achievedValue": 100,
+        "id": 36,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 29.869,
+        "quartile3Value": 49.372,
+        "quartile4Value": 62.729
+      },
+      "calculation": null,
+      "countryObservationId": 990809,
+      "dataRows": 1,
+      "definition": "A score based on an assessment of the public's access to information on how the central government raises and spends public resources.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 5519.594
+      },
+      "endYear": 2023,
+      "fsciDomain": "Accountability",
+      "fsciTheme": "Governance",
+      "fsdIndicatorId": 176,
+      "isProjection": false,
+      "maxYear": 2023,
+      "minYear": 2017,
+      "name": "Open budget index",
+      "position": 10,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 80.0560747663551,
+      "relevance": "Governments that demonstrate higher levels of general accountability are more likely to allow for citizen/legislative oversight of food system commitments and spending.",
+      "significantFigures": null,
+      "slug": "open-budget-index-score",
+      "startYear": 2023,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "The number of countries that adopt and implement constitutional, statutory, and/or policy guarantees for public access to information.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Accountability",
+      "fsciTheme": "Governance",
+      "fsdIndicatorId": 136,
+      "isProjection": false,
+      "maxYear": null,
+      "minYear": null,
+      "name": "Public access to information (SDG 16.10.2)",
+      "position": 11,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "Citizens are more likely to be able to hold their governments accountable for food system and other policies if they can access information about government activities.",
+      "significantFigures": null,
+      "slug": "guarantees-for-public-access-to-information",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 552860,
+      "dataRows": 1,
+      "definition": "Total estimated damages (nominal 000’USD, meaning unadjusted for inflation) divided by GDP (nominal 000’USD) and multiplied by 100 for readability. A disaster is only capture in the database if it meets at least one of the following criteria: 10 or more dead, 100 or more affected/injured, call for external assistance, or declaration of emergency. Therefore the events captured are significant, and can be characterized as medium or extreme events.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 367633418886.627
+      },
+      "endYear": 2020,
+      "fsciDomain": "Exposure to shocks",
+      "fsciTheme": "Resilience",
+      "fsdIndicatorId": 225,
+      "isProjection": false,
+      "maxYear": 2023,
+      "minYear": 2000,
+      "name": "Disaster costs as share of GDP",
+      "position": 12,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 0.0000353613119268926,
+      "relevance": "An essential element of any resilience analysis is to assess and, if possible, document the intensity, nature, and frequency of the shock and stressors that a particular system is exposed to. The EMDAT database has superior country and year coverage to other available options such as the SDG indicators related to economic losses due to disasters.",
+      "significantFigures": 3,
+      "slug": "ratio-of-total-damages-of-all-disasters-to-gdp",
+      "startYear": 2020,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. Unpublished data.",
+      "benchmarkGlobal": {
+        "achievedValue": 0.87,
+        "id": 73,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.622,
+        "quartile3Value": 0.687,
+        "quartile4Value": 0.758
+      },
+      "benchmarkIncome": {
+        "achievedValue": 0.932,
+        "id": 467,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.715,
+        "quartile3Value": 0.79,
+        "quartile4Value": 0.866
+      },
+      "benchmarkRegional": {
+        "achievedValue": 0.925,
+        "id": 257,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.71,
+        "quartile3Value": 0.771,
+        "quartile4Value": 0.85
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:11:globalBenchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:11:globalTargetQuartiles",
+          "distanceCategory": "close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:11:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:11:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        }
+      },
+      "benchmarkStatus": "Close",
+      "benchmarkStatusRaw": "close",
+      "benchmarkTarget": {
+        "achievedValue": 1,
+        "id": 50,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.629,
+        "quartile3Value": 0.696,
+        "quartile4Value": 0.779
+      },
+      "calculation": null,
+      "countryObservationId": 975784,
+      "dataRows": 1,
+      "definition": "Measures the diversity of pathways through which food reaches consumers. Expresses how difficult it is to disrupt a country's food supply. Considers three possible pathways a unit of food can reach a consumer: 1) Food produced domestically; 2) Imported food; 3) Stocks carried over from the previous year. Total sources for calories is the indicator used, disaggregation by source and for other nutrients and food groups are available.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 5379.475
+      },
+      "endYear": 2020,
+      "fsciDomain": "Resilience capacities",
+      "fsciTheme": "Resilience",
+      "fsdIndicatorId": 94,
+      "isProjection": false,
+      "maxYear": 2020,
+      "minYear": 2011,
+      "name": "Dietary sourcing flexibility index",
+      "position": 13,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 0.815378890680208,
+      "relevance": "Diversification (of portfolios, livelihoods, income, source of food, etc.) is an essential risk strategy well established both theoretically and empirically in the general literature. In the present case the dietary sourcing flexibility index captures the possible diversification of sources of food supply.",
+      "significantFigures": null,
+      "slug": "dietary-sourcing-flexibility-index",
+      "startYear": 2020,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 100,
+        "id": 77,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 56.554,
+        "quartile3Value": 73.967,
+        "quartile4Value": 91.231
+      },
+      "benchmarkIncome": {
+        "achievedValue": 100,
+        "id": 452,
+        "overriddenByTarget": true,
+        "quartile1Value": null,
+        "quartile2Value": 56.554,
+        "quartile3Value": 73.967,
+        "quartile4Value": 91.231
+      },
+      "benchmarkRegional": {
+        "achievedValue": 100,
+        "id": 251,
+        "overriddenByTarget": true,
+        "quartile1Value": null,
+        "quartile2Value": 56.554,
+        "quartile3Value": 73.967,
+        "quartile4Value": 91.231
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:12:globalBenchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:12:globalTargetQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:12:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:12:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        }
+      },
+      "benchmarkStatus": "Benchmark Met",
+      "benchmarkStatusRaw": "target-met",
+      "benchmarkTarget": {
+        "achievedValue": 100,
+        "id": 52,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 56.554,
+        "quartile3Value": 73.967,
+        "quartile4Value": 91.231
+      },
+      "calculation": null,
+      "countryObservationId": 371047,
+      "dataRows": 1,
+      "definition": "Subscriptions to a public mobile telephone service using cellular technology, which provides access to the public switched telephone network. Includes post-paid and prepaid subscriptions.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 1
+      },
+      "endYear": 2022,
+      "fsciDomain": "Resilience capacities",
+      "fsciTheme": "Resilience",
+      "fsdIndicatorId": 155,
+      "isProjection": false,
+      "maxYear": 2022,
+      "minYear": 2000,
+      "name": "Mobile phone subscriptions",
+      "position": 14,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 110.6788541,
+      "relevance": "The number of mobile cellular telephone subscriptions has been included in the computation of food system resilience as a proxy for countries’ infrastructure level as well as a direct indicator of response capacity.",
+      "significantFigures": null,
+      "slug": "mobile-cellular-subscriptions",
+      "startYear": 2022,
+      "treatmentOfMissingValues": null,
+      "unit": "Number per 100 people",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 0.664,
+        "id": 76,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.34,
+        "quartile3Value": 0.402,
+        "quartile4Value": 0.468
+      },
+      "benchmarkIncome": {
+        "achievedValue": 0.792,
+        "id": 440,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.431,
+        "quartile3Value": 0.536,
+        "quartile4Value": 0.652
+      },
+      "benchmarkRegional": {
+        "achievedValue": 0.778,
+        "id": 252,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.411,
+        "quartile3Value": 0.463,
+        "quartile4Value": 0.573
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:13:globalBenchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:13:globalTargetQuartiles",
+          "distanceCategory": "close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:13:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:13:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        }
+      },
+      "benchmarkStatus": "Benchmark Met",
+      "benchmarkStatusRaw": "target-met",
+      "benchmarkTarget": {
+        "achievedValue": 1,
+        "id": 62,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.344,
+        "quartile3Value": 0.41,
+        "quartile4Value": 0.488
+      },
+      "calculation": null,
+      "countryObservationId": 593727,
+      "dataRows": 1,
+      "definition": "A composite index based on a subset of indicators from the Social Capital pillar of the Legatum Prosperity Index, which assesses social cohesion and engagement, community and family networks, and political participation and institutional trust. The social capital index used here is a composite of the indicators of \"Help from family & friends ”; “Generalized interpersonal trust ”; “Confidence in financial institutions ”; and “Public trust in politicians or confidence in national government ”, based on the relevance of these indicators to resilience. The index is calculated as the geometric mean of the four variables, each measured on a scale that ranges from 0 (low) to 100 (high).",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 5408.32
+      },
+      "endYear": 2021,
+      "fsciDomain": "Resilience capacities",
+      "fsciTheme": "Resilience",
+      "fsdIndicatorId": 241,
+      "isProjection": false,
+      "maxYear": 2021,
+      "minYear": 2007,
+      "name": "Social capital index",
+      "position": 15,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 0.893955055298912,
+      "relevance": "Social capital is another extremely important element of resilience in general. The score on the Social Capital pillar of the Legatum Prosperity Index has been included in that regard.",
+      "significantFigures": 6,
+      "slug": "social-capital-index",
+      "startYear": 2021,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 95.415,
+        "id": 74,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 14.31,
+        "quartile3Value": 31.406,
+        "quartile4Value": 49.284
+      },
+      "benchmarkIncome": {
+        "achievedValue": 70.345,
+        "id": 463,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 5.714,
+        "quartile3Value": 20.817,
+        "quartile4Value": 38.785
+      },
+      "benchmarkRegional": {
+        "achievedValue": 71.874,
+        "id": 247,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 11.76,
+        "quartile3Value": 25.359,
+        "quartile4Value": 41.23
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:14:globalBenchmarkQuartiles",
+          "distanceCategory": "very-far"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:14:globalTargetQuartiles",
+          "distanceCategory": "very-far"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:14:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "far"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:14:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "very-far"
+        }
+      },
+      "benchmarkStatus": "Very Far",
+      "benchmarkStatusRaw": "very-far",
+      "benchmarkTarget": {
+        "achievedValue": 100,
+        "id": 51,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 15.037,
+        "quartile3Value": 34.118,
+        "quartile4Value": 56.356
+      },
+      "calculation": null,
+      "countryObservationId": 530849,
+      "dataRows": 1,
+      "definition": "The proportion of agricultural land with minimum species diversity is defined by the top global quartile of land with the highest species richness. The threshold number of species at which (and above) covers 25% of total global ag land (the 25% of land with the most diversity) is 24 species. Therefore, the indicator reflects the percentage of agricultural land per country with 24 or more species.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 7828
+      },
+      "endYear": 2020,
+      "fsciDomain": "Agro- and Food Diversity",
+      "fsciTheme": "Resilience",
+      "fsdIndicatorId": 208,
+      "isProjection": false,
+      "maxYear": 2020,
+      "minYear": 2010,
+      "name": "Minimum species diversity",
+      "position": 16,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 5.87634133878385,
+      "relevance": "Diversification (of portfolios, livelihoods, income, source of food, etc.) is an essential risk strategy well established in both theoretically and empirically in the general literature. The proportion of agricultural land with minimum level of species diversity (crop and pasture) contributes to landscape and livelihood buffering capacity, with more functionality to cope with for example unexpected environmental changes or shocks and spreading risks to cope with for example market volatility. It is therefore a relevant indicator reflecting the diversity of the agricultural production component of the food system.",
+      "significantFigures": null,
+      "slug": "proportion-of-agricultural-land-with-minimum-level-of-species-diversity",
+      "startYear": 2020,
+      "treatmentOfMissingValues": null,
+      "unit": "% agricultural land",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2025. FAOSTAT: SDG Indicators. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/SDGB. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 1176158,
+      "dataRows": 1,
+      "definition": "The conservation of plant genetic resources for food and agriculture in medium- or long-term conservation facilities (ex situ in gene banks) represents the most trusted means of conserving genetic resources worldwide. Measured as plant genetic resources accessions stored ex situ (number).",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2024,
+      "fsciDomain": "Agro- and Food Diversity",
+      "fsciTheme": "Resilience",
+      "fsdIndicatorId": 169,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2000,
+      "name": "Conserved plant genetic resources (SDG 2.5.1a)",
+      "position": 17,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 2246,
+      "relevance": "Diversification (of portfolios, livelihoods, income, source of food, etc.) is an essential risk strategy well established both theoretically and empirically in the general literature. The number of plant and animal genetic resources for food and agriculture secured in conservation facilities is considered a buffering capacity, providing a back-up in times of crises and shocks and indicating the food and agricultural diversity ex-situ ‘stock’ of a country",
+      "significantFigures": null,
+      "slug": "number-of-plant-genetic-resources-for-food-and-agriculture-secured-in-either-medium-or-long-term-conservation-facilities",
+      "startYear": 2024,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2025. FAOSTAT: SDG Indicators. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/SDGB. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 1175783,
+      "dataRows": 1,
+      "definition": "The conservation of animal genetic resources for food and agriculture in medium- or long-term conservation facilities (ex situ in gene banks) represents the most trusted means of conserving genetic resources worldwide. Measured as number of animal genetic resources that represents the number of species with sufficient genetic material stored for reconstitution.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2025,
+      "fsciDomain": "Agro- and Food Diversity",
+      "fsciTheme": "Resilience",
+      "fsdIndicatorId": 166,
+      "isProjection": false,
+      "maxYear": 2025,
+      "minYear": 2000,
+      "name": "Conserved animal genetic resources (SDG 2.5.1b)",
+      "position": 18,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 19,
+      "relevance": "Diversification (of portfolios, livelihoods, income, source of food, etc.) is an essential risk strategy well established both theoretically and empirically in the general literature. The number of plant and animal genetic resources for food and agriculture secured in conservation facilities is considered a buffering capacity, providing a back-up in times of crises and shocks and indicating the food and agricultural diversity ex-situ ‘stock’ of a country",
+      "significantFigures": null,
+      "slug": "number-of-animal-genetic-resources-for-food-and-agriculture-secured-in-either-medium-or-long-term-conservation-facilities",
+      "startYear": 2025,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 0.17,
+        "id": 78,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.41,
+        "quartile3Value": 0.35,
+        "quartile4Value": 0.281
+      },
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:17:globalBenchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:17:globalTargetQuartiles",
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": {
+        "achievedValue": 0,
+        "id": 60,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.402,
+        "quartile3Value": 0.33,
+        "quartile4Value": 0.24
+      },
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "The reduced Coping Strategies Index (rCSI) measures the frequency and severity of household behaviors when faced with shortages of food or financial resources to buy food. It is calculated using five standard food consumption-based strategies and severity weighting, a higher score indicates more frequent and/or extreme negative coping strategies. It measures the proportion of population using extreme coping strategies (with a rCSI >=19). It is the highest observed daily prevalence throughout the year.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Resilience responses/strategies",
+      "fsciTheme": "Resilience",
+      "fsdIndicatorId": 68,
+      "isProjection": false,
+      "maxYear": 2025,
+      "minYear": 2020,
+      "name": "Extreme coping strategies",
+      "position": 19,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "Understanding and documenting the type of responses that actors adopt when they are faced with shocks or stressors is an essential part of resilience analysis. In theory the objective of a resilience building intervention is to reduce the propensity of actors to engage in detrimental responses and to increase their ability to engage in more ‘positive’, adaptive or transformative responses. At the present time the rCSI is only recorded in a limited number of, mostly lowincome, countries.",
+      "significantFigures": null,
+      "slug": "coping-strategies-index",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2025. FAOSTAT: Consumer Price Indices. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/CP. Licence: CC-BY-4.0 and Schneider, K.R., Fanzo, J., Haddad, L. et al. 2023. The state of food systems worldwide in the countdown to 2030. Nat Food 4, 1090–1110. https://doi.org/10.1038/s43016-023-00885-9",
+      "benchmarkGlobal": {
+        "achievedValue": 0.407,
+        "id": 75,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.856,
+        "quartile3Value": 0.75,
+        "quartile4Value": 0.623
+      },
+      "benchmarkIncome": {
+        "achievedValue": 0.514,
+        "id": 466,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.886,
+        "quartile3Value": 0.774,
+        "quartile4Value": 0.677
+      },
+      "benchmarkRegional": {
+        "achievedValue": 0.481,
+        "id": 255,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.925,
+        "quartile3Value": 0.806,
+        "quartile4Value": 0.678
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:18:globalBenchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:18:globalTargetQuartiles",
+          "distanceCategory": "close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:18:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:18:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        }
+      },
+      "benchmarkStatus": "Close",
+      "benchmarkStatusRaw": "close",
+      "benchmarkTarget": {
+        "achievedValue": 0,
+        "id": 55,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.853,
+        "quartile3Value": 0.741,
+        "quartile4Value": 0.59
+      },
+      "calculation": null,
+      "countryObservationId": 976190,
+      "dataRows": 1,
+      "definition": "Domestic food price volatility index measures the variation (volatility) in domestic food prices over time, measured as the relative variation in the domestic food price index, a standardized measure of the cost of a basket of goods. High values indicate a higher volatility (more variation) in food prices.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 1
+      },
+      "endYear": 2024,
+      "fsciDomain": "Long-term outcomes",
+      "fsciTheme": "Resilience",
+      "fsdIndicatorId": 107,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2000,
+      "name": "Food price volatility",
+      "position": 20,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 0.500588496620377,
+      "relevance": "Different indicators can be used to assess the long-term outcomes of a system resilience. In the case of food systems, the ability of the system to maintain a low price-volatility in the face of shocks, is a direct way to assess the system resilience. The lower the volatility, the better.",
+      "significantFigures": null,
+      "slug": "food-price-volatility",
+      "startYear": 2024,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Suite of Food Security Indicators. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/FS. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": {
+        "achievedValue": 13.722,
+        "id": 56,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 40,
+        "quartile3Value": 31,
+        "quartile4Value": 21
+      },
+      "benchmarkIncome": {
+        "achievedValue": 13.4,
+        "id": 462,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 36,
+        "quartile3Value": 32,
+        "quartile4Value": 23
+      },
+      "benchmarkRegional": {
+        "achievedValue": 13,
+        "id": 246,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 40.25,
+        "quartile3Value": 33.5,
+        "quartile4Value": 24.5
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:19:globalBenchmarkQuartiles",
+          "distanceCategory": "very-far"
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:19:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "very-far"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:19:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "very-far"
+        }
+      },
+      "benchmarkStatus": "Very Far",
+      "benchmarkStatusRaw": "very-far",
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 991115,
+      "dataRows": 1,
+      "definition": "This indicator uses the data on dietary energy supply from the Food Balance Sheet to measure annual fluctuations in the per capita food supply (kcal), represented as the standard deviation over the previous five years per capita food supply. Food supply variability results from a combination of instability and responses in production, trade, consumption, and storage, in addition to changes in government policies such as trade restrictions, taxes and subsidies, stockholding, and public distribution.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 1
+      },
+      "endYear": 2023,
+      "fsciDomain": "Long-term outcomes",
+      "fsciTheme": "Resilience",
+      "fsdIndicatorId": 179,
+      "isProjection": false,
+      "maxYear": 2023,
+      "minYear": 2000,
+      "name": "Food supply variability",
+      "position": 21,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 52,
+      "relevance": "Along with food price volatility, the ability of the system to maintain a low variability in the supply of food products in the face of shocks is a direct way to assess the system long-term resilience. A resilient food system would be able to keep the variability of food supply low despite being hit by shocks. Therefore, the lower the food supply variability, the better.",
+      "significantFigures": null,
+      "slug": "per-capita-food-supply-variability-3-year-average",
+      "startYear": 2023,
+      "treatmentOfMissingValues": null,
+      "unit": "kcal/capita/day",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Cost and Affordability of a Healthy Diet (CoAHD). [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/CAHD. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 974341,
+      "dataRows": 1,
+      "definition": "The per capita cost of the least expensive locally available foods to meet requirements for energy and food-based dietary guidelines, per capita, per day (current PPP US$).",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2024,
+      "fsciDomain": "Food environments",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 69,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2017,
+      "name": "Cost of a healthy diet",
+      "position": 49,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 4.55,
+      "relevance": "Food-based dietary guidelines are designed to achieve nutrient adequacy and provide protection of health. This indicator reflects the cost of purchasing a diet aligned to a diet that reflects average amounts in guidelines.",
+      "significantFigures": 2,
+      "slug": "cost-of-a-healthy-diet",
+      "startYear": 2024,
+      "treatmentOfMissingValues": null,
+      "unit": "PPP dollar/capita/day",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Cost and Affordability of a Healthy Diet (CoAHD). [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/CAHD. Licence: CC-BY-4.0.\nMore information: Bai,Y., Herforth, A., Cafiero, C., Conti, V., Rissanen, M.O., Masters, W.A. &Rosero Moncayo, J. 2024. Methods for monitoring the affordability of a healthy diet. FAO Statistics Working Paper Series, No. 24‑44. Rome,FAO. https://doi.org/10.4060/cd3703en",
+      "benchmarkGlobal": {
+        "achievedValue": 2.013,
+        "id": 45,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 58.7,
+        "quartile3Value": 34.75,
+        "quartile4Value": 12.075
+      },
+      "benchmarkIncome": {
+        "achievedValue": 0.844,
+        "id": 429,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 13.1,
+        "quartile3Value": 4.7,
+        "quartile4Value": 2.35
+      },
+      "benchmarkRegional": {
+        "achievedValue": 0.887,
+        "id": 240,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 11.95,
+        "quartile3Value": 5.8,
+        "quartile4Value": 1.95
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:21:globalBenchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:21:globalTargetQuartiles",
+          "distanceCategory": "close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:21:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:21:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        }
+      },
+      "benchmarkStatus": "Benchmark Met",
+      "benchmarkStatusRaw": "target-met",
+      "benchmarkTarget": {
+        "achievedValue": 0,
+        "id": 14,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 56.2,
+        "quartile3Value": 25.05,
+        "quartile4Value": 7
+      },
+      "calculation": null,
+      "countryObservationId": 991997,
+      "dataRows": 1,
+      "definition": "The percent of the population whose food budget is below the cost of a healthy diet.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2024,
+      "fsciDomain": "Food security",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 889,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2017,
+      "name": "Population who cannot afford a healthy diet",
+      "position": 53,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 1.4,
+      "relevance": "$44",
+      "significantFigures": null,
+      "slug": "percent-of-the-population-who-cannot-afford-a-healthy-diet",
+      "startYear": 2024,
+      "treatmentOfMissingValues": null,
+      "unit": "%",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Food Balances (2010-). [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/FBS. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": {
+        "achievedValue": 400,
+        "id": 49,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 137.616,
+        "quartile3Value": 208.877,
+        "quartile4Value": 276.603
+      },
+      "benchmarkIncome": {
+        "achievedValue": 400,
+        "id": 442,
+        "overriddenByTarget": true,
+        "quartile1Value": null,
+        "quartile2Value": 137.616,
+        "quartile3Value": 208.877,
+        "quartile4Value": 276.603
+      },
+      "benchmarkRegional": {
+        "achievedValue": 400,
+        "id": 225,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 137.616,
+        "quartile3Value": 208.877,
+        "quartile4Value": 276.603
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:22:globalBenchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:22:globalTargetQuartiles",
+          "distanceCategory": "close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:22:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:22:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        }
+      },
+      "benchmarkStatus": "Close",
+      "benchmarkStatusRaw": "close",
+      "benchmarkTarget": {
+        "achievedValue": 400,
+        "id": 18,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 137.616,
+        "quartile3Value": 208.877,
+        "quartile4Value": 276.603
+      },
+      "calculation": null,
+      "countryObservationId": 1037281,
+      "dataRows": 1,
+      "definition": "Amounts of fruits available in a country's food supply (sum of production, imports, and net stocks minus exports, food manufacturing, feed, seed, waste, and other uses) at the national level (expressed as grams per person per day).",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2023,
+      "fsciDomain": "Food environments",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 30,
+      "isProjection": false,
+      "maxYear": 2023,
+      "minYear": 2010,
+      "name": "Fruit availability",
+      "position": 69,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 311.8630136986301,
+      "relevance": "Availability of fruits is an essential precondition, yet not a guarantee, for their consumption. Consumption of abundant fruits and vegetables is universally recommended in global and national dietary guidance.",
+      "significantFigures": null,
+      "slug": "availability-of-fruits",
+      "startYear": 2023,
+      "treatmentOfMissingValues": null,
+      "unit": "g/capita/day",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Food Balances (2010-). [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/FBS. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": {
+        "achievedValue": 400,
+        "id": 39,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 104.562,
+        "quartile3Value": 180.192,
+        "quartile4Value": 293.932
+      },
+      "benchmarkIncome": {
+        "achievedValue": 400,
+        "id": 455,
+        "overriddenByTarget": true,
+        "quartile1Value": null,
+        "quartile2Value": 104.562,
+        "quartile3Value": 180.192,
+        "quartile4Value": 293.932
+      },
+      "benchmarkRegional": {
+        "achievedValue": 400,
+        "id": 253,
+        "overriddenByTarget": true,
+        "quartile1Value": null,
+        "quartile2Value": 104.562,
+        "quartile3Value": 180.192,
+        "quartile4Value": 293.932
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:23:globalBenchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:23:globalTargetQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:23:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:23:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        }
+      },
+      "benchmarkStatus": "Benchmark Met",
+      "benchmarkStatusRaw": "target-met",
+      "benchmarkTarget": {
+        "achievedValue": 400,
+        "id": 8,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 104.562,
+        "quartile3Value": 180.192,
+        "quartile4Value": 293.932
+      },
+      "calculation": null,
+      "countryObservationId": 1037929,
+      "dataRows": 1,
+      "definition": "Amounts of vegetables available in a country's food supply (sum of production, imports, and net stocks minus exports, food manufacturing, feed, seed, waste, and other uses) at the national level (expressed as grams per person per day).",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2023,
+      "fsciDomain": "Food environments",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 32,
+      "isProjection": false,
+      "maxYear": 2023,
+      "minYear": 2010,
+      "name": "Vegetable availability",
+      "position": 70,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 401.0410958904109,
+      "relevance": "Availability of vegetables is an essential precondition, yet not a guarantee, for their consumption. Consumption of abundant fruits and vegetables is universally recommended in global and national dietary guidance.",
+      "significantFigures": null,
+      "slug": "availability-of-vegetables",
+      "startYear": 2023,
+      "treatmentOfMissingValues": null,
+      "unit": "g/capita/day",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 99.603,
+        "id": 2,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 24.719,
+        "quartile3Value": 60.43,
+        "quartile4Value": 91.517
+      },
+      "benchmarkIncome": {
+        "achievedValue": 99.989,
+        "id": 404,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 95.732,
+        "quartile3Value": 98.019,
+        "quartile4Value": 99.559
+      },
+      "benchmarkRegional": {
+        "achievedValue": 99.967,
+        "id": 171,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 86.886,
+        "quartile3Value": 96.734,
+        "quartile4Value": 99.547
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:24:globalBenchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:24:globalTargetQuartiles",
+          "distanceCategory": "close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:24:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:24:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        }
+      },
+      "benchmarkStatus": "Close",
+      "benchmarkStatusRaw": "close",
+      "benchmarkTarget": {
+        "achievedValue": 100,
+        "id": 1,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 26.161,
+        "quartile3Value": 65.085,
+        "quartile4Value": 95.732
+      },
+      "calculation": null,
+      "countryObservationId": 1177028,
+      "dataRows": 1,
+      "definition": "Percentage of the population that obtains drinking water from an improved water source, defined as one located on premises, available when needed, and free from fecal and chemical contamination.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2024,
+      "fsciDomain": "Food environments",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 188,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2000,
+      "name": "Access to safe water (SDG 6.1.1)",
+      "position": 85,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 99.06248474,
+      "relevance": "Access to clean water is essential for food and nutrition security, to avoid foodborne and waterborne illness.",
+      "significantFigures": null,
+      "slug": "percent-of-the-population-using-safely-managed-drinking-water-services",
+      "startYear": 2024,
+      "treatmentOfMissingValues": null,
+      "unit": "%",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Note that for some countries, data is modeled by Euromonitor based on estimates from other countries with similar geographic, sociodemographic, and macroeconomic dimensions. Although Euromonitor International aims to correct inaccuracies of which it is aware, it does not warrant that the Intelligence will be accurate, up-to-date or complete as the accuracy and completeness of the data and other content available in respect of different parts of the Content will vary depending on the availability and quality of sources on which each part is based. Furthermore, Euromonitor International does not warrant that the Intelligence will be fit for any particular purpose(s) for which they are used as Euromonitor International does not have any knowledge of, nor control over, those purposes.",
+      "benchmarkGlobal": {
+        "achievedValue": 29.032,
+        "id": 30,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 529.38,
+        "quartile3Value": 273.782,
+        "quartile4Value": 115.505
+      },
+      "benchmarkIncome": {
+        "achievedValue": 393.929,
+        "id": 457,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 1036.119,
+        "quartile3Value": 756.3,
+        "quartile4Value": 534.244
+      },
+      "benchmarkRegional": {
+        "achievedValue": 341.139,
+        "id": 245,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 1107.347,
+        "quartile3Value": 706.671,
+        "quartile4Value": 526.313
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:25:globalBenchmarkQuartiles",
+          "distanceCategory": "very-far"
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:25:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "very-far"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:25:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "very-far"
+        }
+      },
+      "benchmarkStatus": "Very Far",
+      "benchmarkStatusRaw": "very-far",
+      "benchmarkTarget": null,
+      "calculation": "Sales of ultra-processed food/country population. Population was determined using estimates from the World Bank.",
+      "countryObservationId": 1170703,
+      "dataRows": 1,
+      "definition": "Total sales of ultra-processed foods in the calendar year per person (USD/person).",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2024,
+      "fsciDomain": "Food environments",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 229,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2017,
+      "name": "Ultra-processed food sales",
+      "position": 94,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 1629.31540219002,
+      "relevance": "This indicator proxies the availability of UPFs, defined as foods made of mostly industrial ingredients and additives with minimal amounts of unprocessed foods. These additives are not naturally occurring in the food but are added in the processing phase in order to increase palatability and shelf life. Examples of UPFs include sweet and savory snacks, instant noodles, confectionery, meat substitutes, and soft drinks, among others.",
+      "significantFigures": null,
+      "slug": "retail-value-of-ultra-processed-food-sales-per-capita",
+      "startYear": 2024,
+      "treatmentOfMissingValues": null,
+      "unit": "USD/capita",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Cropland Nutrient Balance. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/ESB. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": "Nitrogen outputs/inputs within a full soil nutrient budget.",
+      "countryObservationId": 1109258,
+      "dataRows": 1,
+      "definition": "Indicates the efficiency of human-driven nitrogen inputs on cropland for crop production.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2023,
+      "fsciDomain": "Pollution",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 164,
+      "isProjection": false,
+      "maxYear": 2023,
+      "minYear": 1961,
+      "name": "Nitrogen use efficiency",
+      "position": 127,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 11.9368,
+      "relevance": null,
+      "significantFigures": null,
+      "slug": "nitrogen-use-efficiency",
+      "startYear": 2023,
+      "treatmentOfMissingValues": null,
+      "unit": "%",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Crops and livestock products. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/QCL. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 1124857,
+      "dataRows": 1,
+      "definition": "Yield means the harvested production per hectare for the area under cultivation, expressed in tonnes per hectare or kilograms per animal.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2024,
+      "fsciDomain": "Production",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 59,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 1961,
+      "name": "Cereals yield",
+      "position": 144,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 0.4219600000000001,
+      "relevance": "Yields measure the efficiency with which inputs are used to produce agricultural output. Improving production efficiency is considered a critical path to meet food and nutrition security needs of current and future generations. The yields data, subtracted from consumptive need can serve as an indicator of coherence between sustainable production and healthy consumption targets.",
+      "significantFigures": 6,
+      "slug": "cereal-yield",
+      "startYear": 2024,
+      "treatmentOfMissingValues": null,
+      "unit": "tonnes/ha",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Crops and livestock products. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/QCL. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 1129746,
+      "dataRows": 1,
+      "definition": "Yield means the harvested production per hectare for the area under cultivation, expressed in tonnes per hectare or kilograms per animal.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2024,
+      "fsciDomain": "Production",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 113,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 1961,
+      "name": "Fruit yield",
+      "position": 146,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 0.8662200000000001,
+      "relevance": "Yields measure the efficiency with which inputs are used to produce agricultural output. Improving production efficiency is considered a critical path to meet food and nutrition security needs of current and future generations. The yields data, subtracted from consumptive need can serve as an indicator of coherence between sustainable production and healthy consumption targets.",
+      "significantFigures": 6,
+      "slug": "fruit-yield",
+      "startYear": 2024,
+      "treatmentOfMissingValues": null,
+      "unit": "tonnes/ha",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Crops and livestock products. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/QCL. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 1143170,
+      "dataRows": 1,
+      "definition": "Yield means the harvested production per hectare for the area under cultivation, expressed in tonnes per hectare or kilograms per animal.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2024,
+      "fsciDomain": "Production",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 279,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 1961,
+      "name": "Vegetable yield",
+      "position": 148,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 2.55969,
+      "relevance": "Yields measure the efficiency with which inputs are used to produce agricultural output. Improving production efficiency is considered a critical path to meet food and nutrition security needs of current and future generations. The yields data, subtracted from consumptive need can serve as an indicator of coherence between sustainable production and healthy consumption targets.",
+      "significantFigures": 6,
+      "slug": "vegetable-yield",
+      "startYear": 2024,
+      "treatmentOfMissingValues": null,
+      "unit": "tonnes/ha",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Crops and livestock products. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/QCL. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 1127216,
+      "dataRows": 1,
+      "definition": "Yield means the harvested production per hectare for the area under cultivation, expressed in tonnes per hectare or kilograms per animal.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2024,
+      "fsciDomain": "Production",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 88,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 1961,
+      "name": "Cow's milk yield",
+      "position": 151,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 7069,
+      "relevance": "Yields measure the efficiency with which inputs are used to produce agricultural output. Improving production efficiency is considered a critical path to meet food and nutrition security needs of current and future generations. The yields data, subtracted from consumptive need can serve as an indicator of coherence between sustainable production and healthy consumption targets.",
+      "significantFigures": 0,
+      "slug": "cows-milk-yield",
+      "startYear": 2024,
+      "treatmentOfMissingValues": null,
+      "unit": "100 g/animal",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Crops and livestock products. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/QCL. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 1124065,
+      "dataRows": 1,
+      "definition": "Yield means the harvested production per hectare for the area under cultivation, expressed in tonnes per hectare or kilograms per animal.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2024,
+      "fsciDomain": "Production",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 43,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 1961,
+      "name": "Beef yield",
+      "position": 155,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 28.2,
+      "relevance": "Yields measure the efficiency with which inputs are used to produce agricultural output. Improving production efficiency is considered a critical path to meet food and nutrition security needs of current and future generations. The yields data, subtracted from consumptive need can serve as an indicator of coherence between sustainable production and healthy consumption targets.",
+      "significantFigures": null,
+      "slug": "beef-yield",
+      "startYear": 2024,
+      "treatmentOfMissingValues": null,
+      "unit": "kg/animal",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 87.545,
+        "id": 40,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 51.58,
+        "quartile3Value": 63.92,
+        "quartile4Value": 76.5
+      },
+      "benchmarkIncome": {
+        "achievedValue": 90.89,
+        "id": 430,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 81.59,
+        "quartile3Value": 85.31,
+        "quartile4Value": 87.113
+      },
+      "benchmarkRegional": {
+        "achievedValue": 90.935,
+        "id": 235,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 73.538,
+        "quartile3Value": 77.38,
+        "quartile4Value": 81.42
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:32:globalBenchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:32:globalTargetQuartiles",
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:32:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:32:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": {
+        "achievedValue": 100,
+        "id": 10,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 52.88,
+        "quartile3Value": 71.39,
+        "quartile4Value": 79.93
+      },
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "Percentage of women 15-49 years of age who consumed at least five out of ten defined food groups the previous day or night. It is associated with a higher probability of nutrient adequacy for 11 micronutrients.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Diet quality",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 152,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2021,
+      "name": "Minimum dietary diversity for women (SDG 2.2.4)",
+      "position": 184,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "MDD-W is a food group diversity indicator that reflects micronutrient adequacy, summarized across 11 micronutrients. The proportion of women aged 15-49 years who consume at least five food groups out of ten is a proxy indicator for higher micronutrient adequacy of diets among women in the population.",
+      "significantFigures": null,
+      "slug": "mdd-w",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": "%",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 51.328,
+        "id": 65,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 22.215,
+        "quartile3Value": 28.265,
+        "quartile4Value": 38.64
+      },
+      "benchmarkIncome": {
+        "achievedValue": 56.31,
+        "id": 427,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 36.663,
+        "quartile3Value": 41.63,
+        "quartile4Value": 44.305
+      },
+      "benchmarkRegional": {
+        "achievedValue": 54.31,
+        "id": 234,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 27.823,
+        "quartile3Value": 30.68,
+        "quartile4Value": 37.672
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:33:globalBenchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:33:globalTargetQuartiles",
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:33:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:33:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": {
+        "achievedValue": 100,
+        "id": 33,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 22.68,
+        "quartile3Value": 29.3,
+        "quartile4Value": 41.47
+      },
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "Proportion of the population age 15 years and older consuming all five food groups typically recommended for daily consumption: fruits; vegetables; pulses, nuts, or seeds; animal-source foods; and starchy staples.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Diet quality",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 22,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2021,
+      "name": "All five food groups consumption",
+      "position": 185,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "This indicator reflects the proportion of the population consuming any non-zero amount of each food group, to capture minimal adherence to dietary guidelines. These food groups are aligned with the food groups used in the “Cost of a healthy diet” indicator.",
+      "significantFigures": null,
+      "slug": "all-5",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": "%",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 10.839,
+        "id": 7,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 41.18,
+        "quartile3Value": 25.14,
+        "quartile4Value": 17.89
+      },
+      "benchmarkIncome": {
+        "achievedValue": 24.07,
+        "id": 431,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 46.25,
+        "quartile3Value": 44.03,
+        "quartile4Value": 37.615
+      },
+      "benchmarkRegional": {
+        "achievedValue": 22.535,
+        "id": 219,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 37.028,
+        "quartile3Value": 30.205,
+        "quartile4Value": 24.738
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:34:globalBenchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:34:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:34:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "Proportion of the population age 15 years and older who consumed a sugar-sweetened soft drink during the previous day or night. Sugarsweetened soft drinks include soda, energy drinks, and sports drinks.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Diet quality",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 248,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2021,
+      "name": "Soft drink consumption",
+      "position": 196,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "Sugar-sweetened soft drinks are a large source of free sugars; WHO recommends added sugars be limited to less than 10% of total energy. Excessive consumption may increase the risk of overweight and obesity and diet-related noncommunicable diseases.",
+      "significantFigures": null,
+      "slug": "sugar-sweetened-soft-drink-consumption",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": "%",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 4.326,
+        "id": 23,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 2.87,
+        "quartile3Value": 3.25,
+        "quartile4Value": 3.625
+      },
+      "benchmarkIncome": {
+        "achievedValue": 4.82,
+        "id": 426,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 3.752,
+        "quartile3Value": 3.975,
+        "quartile4Value": 4.053
+      },
+      "benchmarkRegional": {
+        "achievedValue": 4.27,
+        "id": 218,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 3.237,
+        "quartile3Value": 3.25,
+        "quartile4Value": 3.285
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:35:globalBenchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:35:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:35:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "The NCD-Protect score is an indicator of dietary factors protective against NCDs, based on consumption during the previous day or night of nine food groups that are associated with meeting WHO recommendations on fruits, vegetables, whole grains, pulses, nuts and seeds, and fiber. The score ranges from zero to nine expressed as an average score for the population age 15 years and older.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Diet quality",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 162,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2021,
+      "name": "NCD-Protect",
+      "position": 210,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "Dietary factors protective against NCDs include consumption of whole grains, pulses, nuts or seeds, at least 400g fruits and vegetables per day, and at least 25g of fiber per day. A higher NCD-Protect score indicates inclusion of more healthpromoting foods in the diet, and correlates positively with meeting global dietary recommendations.",
+      "significantFigures": null,
+      "slug": "ncd-protect",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 1.169,
+        "id": 12,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 3.04,
+        "quartile3Value": 2.46,
+        "quartile4Value": 1.625
+      },
+      "benchmarkIncome": {
+        "achievedValue": 2.26,
+        "id": 438,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 3.31,
+        "quartile3Value": 3.15,
+        "quartile4Value": 2.987
+      },
+      "benchmarkRegional": {
+        "achievedValue": 2.37,
+        "id": 226,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 3.07,
+        "quartile3Value": 2.945,
+        "quartile4Value": 2.79
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:36:globalBenchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:36:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:36:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "The NCD-Risk score is an indicator of dietary risk factors for NCDs, based on consumption during the previous day or night of eight food groups that are negatively associated with meeting WHO recommendations on free sugar, salt, total and saturated fat, and red and processed meat. The score ranges from zero to nine expressed as an average score for the population age 15 years and older.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Diet quality",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 163,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2021,
+      "name": "NCD-Risk",
+      "position": 211,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "Dietary risk factors for NCDs include consumption of >10% of dietary energy from free sugar/day, >5g of salt/day, >30% of total fat/day, >10% of dietary energy from saturated fat/day, >350-500g red meat/week, and any processed meat. A higher NCD-Risk score indicates inclusion of more foods and drinks to limit in the diet, and correlates negatively with meeting global dietary recommendations. The NCD-Risk score is also a proxy for ultra-processed food intake; a higher NCD-Risk score indicates higher ultraprocessed food consumption.",
+      "significantFigures": null,
+      "slug": "ncd-risk",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 2.536,
+        "id": 48,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 15.19,
+        "quartile3Value": 9.68,
+        "quartile4Value": 5.435
+      },
+      "benchmarkIncome": {
+        "achievedValue": 0.15,
+        "id": 436,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 5.03,
+        "quartile3Value": 3.93,
+        "quartile4Value": 3.02
+      },
+      "benchmarkRegional": {
+        "achievedValue": 0.915,
+        "id": 228,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 4.55,
+        "quartile3Value": 3.285,
+        "quartile4Value": 2.665
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:37:globalBenchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:37:globalTargetQuartiles",
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:37:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:37:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": {
+        "achievedValue": 0,
+        "id": 15,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 14.225,
+        "quartile3Value": 8.53,
+        "quartile4Value": 4.235
+      },
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "Proportion of the population age 15 years and older who did not consume any vegetables or fruits in the previous day.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Diet quality",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 284,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2021,
+      "name": "Zero fruit or vegetable consumption for adults",
+      "position": 213,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "Consumption of zero vegetables or fruits is an unhealthy practice, as these food groups are associated with reduced risk of NCDs. It is a general population diet quality indicator aligned with the infant and young child feeding indicator.",
+      "significantFigures": null,
+      "slug": "zero-vegetable-or-fruit-consumption",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": "%",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 44.99,
+        "id": 61,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 9.36,
+        "quartile3Value": 20.528,
+        "quartile4Value": 24.12
+      },
+      "benchmarkIncome": {
+        "achievedValue": 54.213,
+        "id": 460,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 20.858,
+        "quartile3Value": 29.657,
+        "quartile4Value": 39.937
+      },
+      "benchmarkRegional": {
+        "achievedValue": 56.126,
+        "id": 241,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 20.437,
+        "quartile3Value": 29.657,
+        "quartile4Value": 38.38
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:38:globalBenchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:38:globalTargetQuartiles",
+          "distanceCategory": "close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:38:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:38:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        }
+      },
+      "benchmarkStatus": "Benchmark Met",
+      "benchmarkStatusRaw": "target-met",
+      "benchmarkTarget": {
+        "achievedValue": 100,
+        "id": 25,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 11.357,
+        "quartile3Value": 22.148,
+        "quartile4Value": 30.314
+      },
+      "calculation": null,
+      "countryObservationId": 226861,
+      "dataRows": 1,
+      "definition": "The product of stock data availability and stock sustainability.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 5408.32
+      },
+      "endYear": 2021,
+      "fsciDomain": "Biosphere integrity",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 105,
+      "isProjection": false,
+      "maxYear": 2021,
+      "minYear": 2021,
+      "name": "Fisheries health index",
+      "position": 223,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 60.3255689041972,
+      "relevance": "Fisheries can provide a substantial contribution to people’s diets. Overfishing and environmental degradation have resulted in a drop of catching rates and raised questions about the future contribution that some fisheries could have in the future.",
+      "significantFigures": null,
+      "slug": "fishery-health-index-progress-score",
+      "startYear": 2021,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Emissions totals. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/GT. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": {
+        "achievedValue": 572.551,
+        "id": 70,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 83745.444,
+        "quartile3Value": 22604.212,
+        "quartile4Value": 9213.65
+      },
+      "benchmarkIncome": {
+        "achievedValue": 366.496,
+        "id": 459,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 57443.877,
+        "quartile3Value": 21326.859,
+        "quartile4Value": 10074.839
+      },
+      "benchmarkRegional": {
+        "achievedValue": 1049.818,
+        "id": 249,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 56773.236,
+        "quartile3Value": 21720.551,
+        "quartile4Value": 8776.962
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:39:globalBenchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:39:globalTargetQuartiles",
+          "distanceCategory": "moderately-close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:39:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:39:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        }
+      },
+      "benchmarkStatus": "Moderately Close",
+      "benchmarkStatusRaw": "moderately-close",
+      "benchmarkTarget": {
+        "achievedValue": 0,
+        "id": 38,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 60804.545,
+        "quartile3Value": 19349.704,
+        "quartile4Value": 4586.165
+      },
+      "calculation": null,
+      "countryObservationId": 976676,
+      "dataRows": 1,
+      "definition": "Production based greenhouse gas emissions (carbon dioxide, methane, nitrous oxide, and F-gases) for food systems, expressed in kT CO2eq (AR5).",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 1
+      },
+      "endYear": 2022,
+      "fsciDomain": "Greenhouse gas emissions",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 109,
+      "isProjection": false,
+      "maxYear": 2022,
+      "minYear": 2000,
+      "name": "Food systems greenhouse gas emissions",
+      "position": 232,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 15024.7239,
+      "relevance": "Food systems account for about 30% of total anthropogenic emissions. Reducing food systems emissions is crucial to reduce the impact of climate change and reach the targets of the Paris Agreement. And it is a sub-indicator of the FAO monitoring progress towards sustainable agriculture (SDG 2.4.1).",
+      "significantFigures": null,
+      "slug": "food-systems-greenhouse-gas-emissions",
+      "startYear": 2022,
+      "treatmentOfMissingValues": null,
+      "unit": "kT CO2eq",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Emissions indicators. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/EM. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": {
+        "achievedValue": 78.309,
+        "id": 59,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 135.85,
+        "quartile3Value": 115.371,
+        "quartile4Value": 100.229
+      },
+      "benchmarkIncome": {
+        "achievedValue": 76.854,
+        "id": 464,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 117.957,
+        "quartile3Value": 103.128,
+        "quartile4Value": 92.931
+      },
+      "benchmarkRegional": {
+        "achievedValue": 77.58,
+        "id": 243,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 107.175,
+        "quartile3Value": 95.673,
+        "quartile4Value": 85.805
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:40:globalBenchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:40:globalTargetQuartiles",
+          "distanceCategory": "close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:40:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:40:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        }
+      },
+      "benchmarkStatus": "Close",
+      "benchmarkStatusRaw": "close",
+      "benchmarkTarget": {
+        "achievedValue": 0,
+        "id": 27,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 134.914,
+        "quartile3Value": 112.956,
+        "quartile4Value": 95.989
+      },
+      "calculation": null,
+      "countryObservationId": 1174130,
+      "dataRows": 1,
+      "definition": "The percent change in production based greenhouse gas emissions (carbon dioxide, methane, nitrous oxide, and F-gases) for food systems relative to the 2000-2010 country average baseline, scaled to 0 = 100 for interpretability.",
+      "desirableDirection": null,
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 1
+      },
+      "endYear": 2022,
+      "fsciDomain": "Greenhouse gas emissions",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 1103,
+      "isProjection": false,
+      "maxYear": 2022,
+      "minYear": 2011,
+      "name": "Food systems greenhouse gas emissions change",
+      "position": 234,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 92.4859751192078,
+      "relevance": "Food systems account for about 30% of total anthropogenic emissions. Reducing food systems emissions is crucial to reduce the impact of climate change and reach the targets of the Paris Agreement. Total food systems emissions is a sub-indicator of the FAO monitoring progress towards sustainable agriculture (SDG 2.4.1).",
+      "significantFigures": null,
+      "slug": "food-systems-greenhouse-gas-emissions-change",
+      "startYear": 2022,
+      "treatmentOfMissingValues": null,
+      "unit": "% change relative to 2000-2010 country average baseline, scaled to 0 = 100 for interpretability",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Emissions intensities. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/EI. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": null,
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$undefined",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 981547,
+      "dataRows": 1,
+      "definition": "Greenhouse gas emissions, CO2 equivalents (carbon dioxide, methane, and nitrous oxide) from the production of different crops and livestock and commodities within the farm gate.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 1325000
+      },
+      "endYear": 2022,
+      "fsciDomain": "Greenhouse gas emissions",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 122,
+      "isProjection": false,
+      "maxYear": 2022,
+      "minYear": 2000,
+      "name": "Greenhouse gas emissions intensity for cereals (excluding rice)",
+      "position": 235,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 0.1995,
+      "relevance": "Reducing the emissions intensity is a necessary, but not sufficient, solution to reduce GHG emissions. Differences in emission intensities across countries reflect differences in environmental conditions, production systems, and production efficiency. Changes in emission intensity over time help to track improvements in efficiency, adoption of better practices, and other changes in production systems. And it is a sub-indicator of the FAO monitoring progress towards sustainable agriculture (SDG 2.4.1).",
+      "significantFigures": null,
+      "slug": "greenhouse-gas-emissions-intensity-for-cereals-excluding-rice",
+      "startYear": 2022,
+      "treatmentOfMissingValues": null,
+      "unit": "kg CO2eq/kg product",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Emissions intensities. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/EI. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": {
+        "achievedValue": 0.574,
+        "id": 9,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 3.208,
+        "quartile3Value": 1.657,
+        "quartile4Value": 1.052
+      },
+      "benchmarkIncome": {
+        "achievedValue": 0.76,
+        "id": 453,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 3.859,
+        "quartile3Value": 2.657,
+        "quartile4Value": 1.346
+      },
+      "benchmarkRegional": {
+        "achievedValue": 1.917,
+        "id": 229,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 21.922,
+        "quartile3Value": 3.843,
+        "quartile4Value": 2.889
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:42:globalBenchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:42:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:42:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "Greenhouse gas emissions, CO2 equivalents (carbon dioxide, methane, and nitrous oxide) from the production of different crops and livestock and commodities within the farm gate.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Greenhouse gas emissions",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 127,
+      "isProjection": false,
+      "maxYear": 2022,
+      "minYear": 2000,
+      "name": "Greenhouse gas emissions intensity for rice",
+      "position": 236,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "Reducing the emissions intensity is a necessary, but not sufficient, solution to reduce GHG emissions. Differences in emission intensities across countries reflect differences in environmental conditions, production systems, and production efficiency. Changes in emission intensity over time help to track improvements in efficiency, adoption of better practices, and other changes in production systems. And it is a sub-indicator of the FAO monitoring progress towards sustainable agriculture (SDG 2.4.1).",
+      "significantFigures": null,
+      "slug": "greenhouse-gas-emissions-intensity-for-rice",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": "kg CO2eq/kg product",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Emissions intensities. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/EI. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": {
+        "achievedValue": 0.467,
+        "id": 5,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 3.747,
+        "quartile3Value": 1.524,
+        "quartile4Value": 0.814
+      },
+      "benchmarkIncome": {
+        "achievedValue": 0.332,
+        "id": 439,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.896,
+        "quartile3Value": 0.652,
+        "quartile4Value": 0.551
+      },
+      "benchmarkRegional": {
+        "achievedValue": 0.47,
+        "id": 217,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.814,
+        "quartile3Value": 0.669,
+        "quartile4Value": 0.563
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:43:globalBenchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:43:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:43:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        }
+      },
+      "benchmarkStatus": "Close",
+      "benchmarkStatusRaw": "close",
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 981951,
+      "dataRows": 1,
+      "definition": "Greenhouse gas emissions, CO2 equivalents (carbon dioxide, methane, and nitrous oxide) from the production of different crops and livestock and commodities within the farm gate.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 1494018
+      },
+      "endYear": 2022,
+      "fsciDomain": "Greenhouse gas emissions",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 124,
+      "isProjection": false,
+      "maxYear": 2022,
+      "minYear": 2000,
+      "name": "Greenhouse gas emissions intensity for milk",
+      "position": 237,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 0.6518,
+      "relevance": "Reducing the emissions intensity is a necessary, but not sufficient, solution to reduce GHG emissions. Differences in emission intensities across countries reflect differences in environmental conditions, production systems, and production efficiency. Changes in emission intensity over time help to track improvements in efficiency, adoption of better practices, and other changes in production systems. And it is a sub-indicator of the FAO monitoring progress towards sustainable agriculture (SDG 2.4.1).",
+      "significantFigures": null,
+      "slug": "greenhouse-gas-emissions-intensity-for-cows-milk",
+      "startYear": 2022,
+      "treatmentOfMissingValues": null,
+      "unit": "kg CO2eq/kg product",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Emissions intensities. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/EI. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": {
+        "achievedValue": 8.479,
+        "id": 11,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 70.117,
+        "quartile3Value": 39.825,
+        "quartile4Value": 20.121
+      },
+      "benchmarkIncome": {
+        "achievedValue": 7.919,
+        "id": 448,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 31.654,
+        "quartile3Value": 20.178,
+        "quartile4Value": 16.017
+      },
+      "benchmarkRegional": {
+        "achievedValue": 10.854,
+        "id": 223,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 29.187,
+        "quartile3Value": 18.391,
+        "quartile4Value": 15.814
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:44:globalBenchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:44:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:44:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        }
+      },
+      "benchmarkStatus": "Close",
+      "benchmarkStatusRaw": "close",
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 981138,
+      "dataRows": 1,
+      "definition": "Greenhouse gas emissions, CO2 equivalents (carbon dioxide, methane, and nitrous oxide) from the production of different crops and livestock and commodities within the farm gate.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 92311
+      },
+      "endYear": 2022,
+      "fsciDomain": "Greenhouse gas emissions",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 121,
+      "isProjection": false,
+      "maxYear": 2022,
+      "minYear": 2000,
+      "name": "Greenhouse gas emissions intensity for beef",
+      "position": 241,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 16.3718,
+      "relevance": "Reducing the emissions intensity is a necessary, but not sufficient, solution to reduce GHG emissions. Differences in emission intensities across countries reflect differences in environmental conditions, production systems, and production efficiency. Changes in emission intensity over time help to track improvements in efficiency, adoption of better practices, and other changes in production systems. And it is a sub-indicator of the FAO monitoring progress towards sustainable agriculture (SDG 2.4.1).",
+      "significantFigures": null,
+      "slug": "greenhouse-gas-emissions-intensity-for-beef",
+      "startYear": 2022,
+      "treatmentOfMissingValues": null,
+      "unit": "kg CO2eq/kg product",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 0,
+        "id": 26,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 1.551,
+        "quartile3Value": 0.671,
+        "quartile4Value": 0.205
+      },
+      "benchmarkIncome": {
+        "achievedValue": 0,
+        "id": 465,
+        "overriddenByTarget": true,
+        "quartile1Value": null,
+        "quartile2Value": 1.551,
+        "quartile3Value": 0.671,
+        "quartile4Value": 0.205
+      },
+      "benchmarkRegional": {
+        "achievedValue": 0,
+        "id": 242,
+        "overriddenByTarget": true,
+        "quartile1Value": null,
+        "quartile2Value": 1.551,
+        "quartile3Value": 0.671,
+        "quartile4Value": 0.205
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:45:globalBenchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:45:globalTargetQuartiles",
+          "distanceCategory": "close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:45:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:45:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        }
+      },
+      "benchmarkStatus": "Close",
+      "benchmarkStatusRaw": "close",
+      "benchmarkTarget": {
+        "achievedValue": 0,
+        "id": 3,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 1.551,
+        "quartile3Value": 0.671,
+        "quartile4Value": 0.205
+      },
+      "calculation": null,
+      "countryObservationId": 975392,
+      "dataRows": 1,
+      "definition": "Average change in total cropland over previous 5 years in percentage terms relative to the total cropland (total cropland as of year 5 of each 5-year window, the year to which the change value is assigned). Computed for every year except the first five years in the time series (1961-1966). Cropland is defined according to the FAO land use classification, based on the World Census of Agriculture.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 807
+      },
+      "endYear": 2022,
+      "fsciDomain": "Land",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 90,
+      "isProjection": false,
+      "maxYear": 2022,
+      "minYear": 2005,
+      "name": "Cropland area change",
+      "position": 244,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 0.0617322403207508,
+      "relevance": "The increasing demand for food can be met by increasing yields or expanding agricultural lands. Land use change is a major driver of biodiversity loss and climate change. Even with improved production efficiency, the total impact of the food system can still increase. Halting or reducing cropland expansion is another crucial step towards reducing the impact of the food system.",
+      "significantFigures": null,
+      "slug": "cropland-expansion",
+      "startYear": 2022,
+      "treatmentOfMissingValues": null,
+      "unit": "% change",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 0.932,
+        "id": 58,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.384,
+        "quartile3Value": 0.509,
+        "quartile4Value": 0.766
+      },
+      "benchmarkIncome": {
+        "achievedValue": 0.896,
+        "id": 458,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.367,
+        "quartile3Value": 0.491,
+        "quartile4Value": 0.692
+      },
+      "benchmarkRegional": {
+        "achievedValue": 0.826,
+        "id": 254,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.324,
+        "quartile3Value": 0.396,
+        "quartile4Value": 0.604
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:46:globalBenchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:46:globalTargetQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:46:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:46:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        }
+      },
+      "benchmarkStatus": "Benchmark Met",
+      "benchmarkStatusRaw": "target-met",
+      "benchmarkTarget": {
+        "achievedValue": 1,
+        "id": 24,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 0.391,
+        "quartile3Value": 0.552,
+        "quartile4Value": 0.8
+      },
+      "calculation": null,
+      "countryObservationId": 250480,
+      "dataRows": 1,
+      "definition": "Measures the proportion of semi-natural or natural habitat per km2 of cropland or rangeland. The threshold is set at 10%, based on evidence that agroecosystem services are lost below 10%. At national level, this indicator is articulated as the proportion of the country’s agricultural lands having above or below the integrity threshold.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 1454762.26353404
+      },
+      "endYear": 2015,
+      "fsciDomain": "Biosphere integrity",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 114,
+      "isProjection": false,
+      "maxYear": 2015,
+      "minYear": 2000,
+      "name": "Functional integrity",
+      "position": 247,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 75.60844100262159,
+      "relevance": "There is great pressure to expand agricultural area to increase food production. At the same time, there is growing concern about the loss of biodiversity and ecosystem services provided by natural habitats in agriculture. For example, fruit, vegetable, and legume production depend on pollination services and safe food production is dependent on regulations of pests and diseases provided by natural predators.",
+      "significantFigures": null,
+      "slug": "functional-integrity-percent-of-agricultural-land-with-minimum-level-of-natural-habitat",
+      "startYear": 2015,
+      "treatmentOfMissingValues": null,
+      "unit": null,
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2025. AQUASTAT: AQUASTAT Dissemination System. [Accessed June 2024]. https://data.apps.fao.org/aquastat/?lang=en. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": {
+        "achievedValue": 0.124,
+        "id": 16,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 18.105,
+        "quartile3Value": 2.883,
+        "quartile4Value": 0.624
+      },
+      "benchmarkIncome": {
+        "achievedValue": 0.06,
+        "id": 435,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 15.846,
+        "quartile3Value": 1.782,
+        "quartile4Value": 0.325
+      },
+      "benchmarkRegional": {
+        "achievedValue": 0.039,
+        "id": 239,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 2.296,
+        "quartile3Value": 0.634,
+        "quartile4Value": 0.28
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:47:globalBenchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:47:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:47:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        }
+      },
+      "benchmarkStatus": "Close",
+      "benchmarkStatusRaw": "close",
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 1064395,
+      "dataRows": 1,
+      "definition": "Water withdrawn for irrigation in a given year, expressed in percent of the total renewable water resources.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2022,
+      "fsciDomain": "Water",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 19,
+      "isProjection": false,
+      "maxYear": 2022,
+      "minYear": 2000,
+      "name": "Agricultural water withdrawal",
+      "position": 250,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 0.214987277,
+      "relevance": "Water is often a limiting factor for agricultural production and increasing irrigation is one of the main proposed ways to increase food production. At the same time, water scarcity is already a serious issue in many regions of the world and the situation is expected to get worse under climate change and increasing demand. This is also one of the eight proxy sub-indicators currently proposed for monitoring SDG 2.4.1 ‘’sustainable and productive agriculture’’.",
+      "significantFigures": null,
+      "slug": "agricultural-water-withdrawal-as-percentage-of-total-renewable-water-resources",
+      "startYear": 2022,
+      "treatmentOfMissingValues": null,
+      "unit": "%",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Pesticides Use. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/RP. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": {
+        "achievedValue": 0.181,
+        "id": 29,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 6.11,
+        "quartile3Value": 1.86,
+        "quartile4Value": 0.87
+      },
+      "benchmarkIncome": {
+        "achievedValue": 1.108,
+        "id": 447,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 11.6,
+        "quartile3Value": 4.53,
+        "quartile4Value": 2.11
+      },
+      "benchmarkRegional": {
+        "achievedValue": 0.597,
+        "id": 230,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 4.45,
+        "quartile3Value": 2.09,
+        "quartile4Value": 1.302
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:48:globalBenchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:48:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:48:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "close"
+        }
+      },
+      "benchmarkStatus": "Close",
+      "benchmarkStatusRaw": "close",
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 997266,
+      "dataRows": 1,
+      "definition": "The use of pesticides per area of cropland (which is the sum of arable land and land under permanent crops) at national level expressed as kg active ingredient per hectare.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2023,
+      "fsciDomain": "Pollution",
+      "fsciTheme": "Environment, Natural Resources, and Production",
+      "fsdIndicatorId": 196,
+      "isProjection": false,
+      "maxYear": 2023,
+      "minYear": 1990,
+      "name": "Pesticide use",
+      "position": 254,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 0.78,
+      "relevance": "Indicator of agriculture intensity.",
+      "significantFigures": null,
+      "slug": "pesticides-per-ha-of-arable-land",
+      "startYear": 2023,
+      "treatmentOfMissingValues": null,
+      "unit": "kg/ha",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Suite of Food Security Indicators. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/FS. Licence: CC-BY-4.0.\nNotes: The lowest value provided by FAO is <2.5%. These countries are shown on the FSD as 0% but the real value may be between 0-2.5%.",
+      "benchmarkGlobal": {
+        "achievedValue": 3.328,
+        "id": 44,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 21.825,
+        "quartile3Value": 12.15,
+        "quartile4Value": 5.725
+      },
+      "benchmarkIncome": {
+        "achievedValue": 2.7,
+        "id": 446,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 4.6,
+        "quartile3Value": 3.5,
+        "quartile4Value": 2.95
+      },
+      "benchmarkRegional": {
+        "achievedValue": 2.6,
+        "id": 224,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 3.5,
+        "quartile3Value": 2.9,
+        "quartile4Value": 2.8
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:49:globalBenchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:49:globalTargetQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:49:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:49:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "target-met"
+        }
+      },
+      "benchmarkStatus": "Benchmark Met",
+      "benchmarkStatusRaw": "target-met",
+      "benchmarkTarget": {
+        "achievedValue": 0,
+        "id": 13,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 19.4,
+        "quartile3Value": 7.3,
+        "quartile4Value": 3.6
+      },
+      "calculation": null,
+      "countryObservationId": 998348,
+      "dataRows": 1,
+      "definition": "An estimate of the proportion of the population that lacks enough dietary energy for a healthy, active life.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2024,
+      "fsciDomain": "Food security",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 205,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2002,
+      "name": "Prevalence of undernourishment (SDG 2.1.1)",
+      "position": 255,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 0,
+      "relevance": "An indicator used to monitor hunger at the global and regional level. The estimate is obtained with a model that compares the distribution of habitual food consumption levels with the dietary energy",
+      "significantFigures": null,
+      "slug": "prevalence-of-undernourishment",
+      "startYear": 2024,
+      "treatmentOfMissingValues": null,
+      "unit": "%",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2024. FAOSTAT: Suite of Food Security Indicators. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/FS. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": {
+        "achievedValue": 5.813,
+        "id": 47,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 55.1,
+        "quartile3Value": 31.1,
+        "quartile4Value": 13.4
+      },
+      "benchmarkIncome": {
+        "achievedValue": 4.364,
+        "id": 450,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 13.95,
+        "quartile3Value": 8.85,
+        "quartile4Value": 6.925
+      },
+      "benchmarkRegional": {
+        "achievedValue": 3.775,
+        "id": 231,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 12.8,
+        "quartile3Value": 7.9,
+        "quartile4Value": 6.25
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:50:globalBenchmarkQuartiles",
+          "distanceCategory": "close"
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:50:globalTargetQuartiles",
+          "distanceCategory": "close"
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:50:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:50:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        }
+      },
+      "benchmarkStatus": "Close",
+      "benchmarkStatusRaw": "close",
+      "benchmarkTarget": {
+        "achievedValue": 0,
+        "id": 17,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 52.2,
+        "quartile3Value": 28.6,
+        "quartile4Value": 10.15
+      },
+      "calculation": null,
+      "countryObservationId": 997972,
+      "dataRows": 1,
+      "definition": "Prevalence of the population experiencing moderate or severe food insecurity as measured by the FIES.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2024,
+      "fsciDomain": "Food security",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 203,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2016,
+      "name": "Population experiencing food insecurity (SDG 2.1.2)",
+      "position": 256,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 7.8,
+      "relevance": "The FIES is an experience-based food security scale used to produce a measure of access to food at different levels of severity that can be compared across contexts. It relies on data obtained by asking people, directly in surveys, about the occurrence of conditions and behaviors that are known to reflect constrained access to food.",
+      "significantFigures": null,
+      "slug": "prevalence-of-food-insecurity",
+      "startYear": 2024,
+      "treatmentOfMissingValues": null,
+      "unit": "%",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 69.33,
+        "id": 22,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 19.95,
+        "quartile3Value": 31.7,
+        "quartile4Value": 48.85
+      },
+      "benchmarkIncome": {
+        "achievedValue": 69.8,
+        "id": 443,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": null,
+        "quartile3Value": null,
+        "quartile4Value": null
+      },
+      "benchmarkRegional": {
+        "achievedValue": 85.9,
+        "id": 236,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 54.2,
+        "quartile3Value": 66,
+        "quartile4Value": 69.6
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:51:globalBenchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:51:globalTargetQuartiles",
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:51:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:51:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": {
+        "achievedValue": 100,
+        "id": 4,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 21.3,
+        "quartile3Value": 36,
+        "quartile4Value": 54.35
+      },
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "Percentage of children 6–23 months of age who consumed foods and beverages from at least five out of eight defined food groups during the previous day.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Diet quality",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 143,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2005,
+      "name": "Minimum dietary diversity for children (SDG 2.2.4)",
+      "position": 262,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "WHO guiding principles for infant and young child feeding recommend that children aged 6–23 months be fed a variety of foods to ensure that nutrient needs are met. A diet lacking in diversity can increase the risk of micronutrient deficiencies, which may have a damaging effect on children’s physical and cognitive development.",
+      "significantFigures": null,
+      "slug": "infants-and-children-6-23-months-minimum-diet-diversity-mdd",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": "%",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 15.75,
+        "id": 53,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 46.15,
+        "quartile3Value": 35.25,
+        "quartile4Value": 28.475
+      },
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:52:globalBenchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:52:globalTargetQuartiles",
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": {
+        "achievedValue": 0,
+        "id": 21,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 43.7,
+        "quartile3Value": 33.3,
+        "quartile4Value": 25.7
+      },
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "Percentage of children 6–23 months of age who did not consume any vegetables or fruits during the previous day.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Diet quality",
+      "fsciTheme": "Diets, Nutrition, and Health",
+      "fsdIndicatorId": 64,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2005,
+      "name": "Zero fruit or vegetable consumption for children",
+      "position": 264,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "Consumption of zero vegetables or fruits is an unhealthy practice, as these food groups are recommended for IYC, and are associated with reduced risk of NCDs.",
+      "significantFigures": null,
+      "slug": "children623-months-zero-fruit-or-vegetable-consumption",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": "% population 6-23 months",
+      "updating": false
+    },
+    {
+      "additionalInformation": "Recommended citation: FAO. 2025. FAOSTAT: SDG Indicators. [Accessed the first week of every month]. https://www.fao.org/faostat/en/#data/SDGB. Licence: CC-BY-4.0.",
+      "benchmarkGlobal": null,
+      "benchmarkIncome": {
+        "achievedValue": 0.375,
+        "id": 444,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 2.576,
+        "quartile3Value": 1.79,
+        "quartile4Value": 1.118
+      },
+      "benchmarkRegional": {
+        "achievedValue": 0.527,
+        "id": 221,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 4.231,
+        "quartile3Value": 2.364,
+        "quartile4Value": 1.495
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:53:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:53:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 999418,
+      "dataRows": 1,
+      "definition": "The share of income derived from agriculture is a key parameter in agricultural transformation and the evolution of food systems. Historically, structural transformation has been characterized by a transition from a low-productivity, agriculture-based economy that employs the majority of workers and generates the most output, to one dominated by industry and services and a smaller, more productive agriculture sector.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": 485310823603.662
+      },
+      "endYear": 2023,
+      "fsciDomain": "Poverty and income",
+      "fsciTheme": "Livelihoods, Poverty, and Equity",
+      "fsdIndicatorId": 236,
+      "isProjection": false,
+      "maxYear": 2023,
+      "minYear": 2000,
+      "name": "Share of agriculture in GDP (SDG 2.a.1)",
+      "position": 267,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 1.637871,
+      "relevance": "The indicator is a measure of the stage of structural transformation in the economy, closely related to the economic dimensions of food system transformation. It is correlated with economic development: countries with larger share of income coming from agriculture are poorer.",
+      "significantFigures": null,
+      "slug": "share-of-agriculture-in-gdp",
+      "startYear": 2023,
+      "treatmentOfMissingValues": null,
+      "unit": "% GDP",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 0.87,
+        "id": 41,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 6.992,
+        "quartile3Value": 4.404,
+        "quartile4Value": 2.42
+      },
+      "benchmarkIncome": {
+        "achievedValue": 2.318,
+        "id": 441,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 6.842,
+        "quartile3Value": 5.067,
+        "quartile4Value": 3.263
+      },
+      "benchmarkRegional": {
+        "achievedValue": 2.135,
+        "id": 237,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 7.996,
+        "quartile3Value": 5.685,
+        "quartile4Value": 3.677
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:54:globalBenchmarkQuartiles",
+          "distanceCategory": "far"
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:54:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:54:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        }
+      },
+      "benchmarkStatus": "Far",
+      "benchmarkStatusRaw": "far",
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 717934,
+      "dataRows": 1,
+      "definition": "Share of people of employment age who are unemployed, disaggregated by total, urban, and rural.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2020,
+      "fsciDomain": "Employment",
+      "fsciTheme": "Livelihoods, Poverty, and Equity",
+      "fsdIndicatorId": 275,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 2000,
+      "name": "Unemployment",
+      "position": 268,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 4.42,
+      "relevance": "The share of unemployed people in rural areas is an indicator of economic activity and livelihood opportunities for people in areas dominated by agriculture.",
+      "significantFigures": null,
+      "slug": "unemployment",
+      "startYear": 2020,
+      "treatmentOfMissingValues": null,
+      "unit": "% working age population",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 0.785,
+        "id": 35,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 7.652,
+        "quartile3Value": 4.517,
+        "quartile4Value": 2.374
+      },
+      "benchmarkIncome": {
+        "achievedValue": 0.981,
+        "id": 432,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 5.476,
+        "quartile3Value": 3.621,
+        "quartile4Value": 2.443
+      },
+      "benchmarkRegional": {
+        "achievedValue": 0.722,
+        "id": 222,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 4.202,
+        "quartile3Value": 3.145,
+        "quartile4Value": 2.066
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:55:globalBenchmarkQuartiles",
+          "distanceCategory": "moderately-close"
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:55:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "far"
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:55:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": "far"
+        }
+      },
+      "benchmarkStatus": "Moderately Close",
+      "benchmarkStatusRaw": "moderately-close",
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": 690422,
+      "dataRows": 1,
+      "definition": "Time-related underemployment is defined as people who (during the reference period) are: willing and available to work additional hours and worked less than a relevant nationally determined threshold of working time.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": "ALL",
+        "regionId": 184,
+        "urbanRural": "ALL",
+        "weightForAverages": null
+      },
+      "endYear": 2021,
+      "fsciDomain": "Employment",
+      "fsciTheme": "Livelihoods, Poverty, and Equity",
+      "fsdIndicatorId": 273,
+      "isProjection": false,
+      "maxYear": 2024,
+      "minYear": 1996,
+      "name": "Underemployment",
+      "position": 269,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": 4,
+      "relevance": "The use of the time-based underemployment rate is recommended to be used in combination with the unemployment rate, as unemployment does not capture the quality of employment. The use of these two indicators together was recommended in the 19th International Conference of Labour Statisticians in 2013. Monitoring the relationship between unemployment and time-related underemployment in rural vs urban areas by region may be useful in tracking shifts in agricultural employment. Disaggregated analysis by sex provides additional understanding of the shifts taking place in rural agricultural employment.",
+      "significantFigures": null,
+      "slug": "underemployment",
+      "startYear": 2021,
+      "treatmentOfMissingValues": null,
+      "unit": "% working age population",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 83.357,
+        "id": 72,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 16.403,
+        "quartile3Value": 38.957,
+        "quartile4Value": 58.31
+      },
+      "benchmarkIncome": {
+        "achievedValue": 81.436,
+        "id": 445,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 71.45,
+        "quartile3Value": 74.61,
+        "quartile4Value": 77.458
+      },
+      "benchmarkRegional": {
+        "achievedValue": 79.479,
+        "id": 244,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 58.3,
+        "quartile3Value": 61.83,
+        "quartile4Value": 71.466
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:56:globalBenchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:56:globalTargetQuartiles",
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:56:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:56:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": {
+        "achievedValue": 100,
+        "id": 46,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 18.107,
+        "quartile3Value": 42.857,
+        "quartile4Value": 64.644
+      },
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "The share of individuals in the total population from households where at least one member participates in a social protection and labor market program, including non-contributory social safety nets (e.g. cash transfers, school feeding), contributory social insurance (e.g. old-age pension, health insurance), and labor market programs (e.g. job training, unemployment insurance).",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Social protection",
+      "fsciTheme": "Livelihoods, Poverty, and Equity",
+      "fsdIndicatorId": 243,
+      "isProjection": false,
+      "maxYear": 2021,
+      "minYear": 2000,
+      "name": "Social protection coverage",
+      "position": 270,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "Social protection supports food systems through demand and supply channels for both labor and food items. For example, social protection supports healthier diets when implemented in the form of school feeding, contains nutrition sensitive programming, or provides income support for increased consumption of nutrientdense foods, dietary diversity, and micronutrient intake. Cash transfers, especially when combined with skills development interventions and entrepreneurship support programs, may have positive impacts on supply of products from food systems, including through spurring entrepreneurship in nonfarming businesses and increasing the smallholder farmer productivity by providing a safety net to take risks and try new technologies or invest in assets or capital improvements.",
+      "significantFigures": null,
+      "slug": "social-protection-coverage",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": "% population",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 56.949,
+        "id": 43,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 10.486,
+        "quartile3Value": 22.32,
+        "quartile4Value": 32.344
+      },
+      "benchmarkIncome": {
+        "achievedValue": 54.802,
+        "id": 451,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 32.297,
+        "quartile3Value": 33.187,
+        "quartile4Value": 41.827
+      },
+      "benchmarkRegional": {
+        "achievedValue": 57.684,
+        "id": 220,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 32.333,
+        "quartile3Value": 41.827,
+        "quartile4Value": 50.858
+      },
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:57:globalBenchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:57:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": "$a:props:data:57:unContinentalRegionIndicatorBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": null,
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "The total social protection benefit amount received by beneficiary households (direct and indirect beneficiaries) as a percentage of beneficiaries’ post-transfer, household wealth. This includes non-contributory social safety nets and contributory social insurance with monetary transfers but excludes safety nets without a monetary transfer and labor market programs.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Social protection",
+      "fsciTheme": "Livelihoods, Poverty, and Equity",
+      "fsdIndicatorId": 242,
+      "isProjection": false,
+      "maxYear": 2021,
+      "minYear": 2000,
+      "name": "Social protection adequacy",
+      "position": 271,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "The adequacy of social protection programs measures the likelihood that social protection intervention will have desired impacts on households’ consumption of healthy diets and on improving the productivity of food production and distribution.",
+      "significantFigures": null,
+      "slug": "social-protection-adequacy",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": "% welfare of beneficiary households",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 2.52,
+        "id": 68,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 22,
+        "quartile3Value": 14.5,
+        "quartile4Value": 6.85
+      },
+      "benchmarkIncome": {
+        "achievedValue": 2.3,
+        "id": 434,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": null,
+        "quartile3Value": null,
+        "quartile4Value": null
+      },
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:58:globalBenchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:58:globalTargetQuartiles",
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": "$a:props:data:58:incomeGroupBenchmarks:benchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": {
+        "achievedValue": 0,
+        "id": 34,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 20.35,
+        "quartile3Value": 13.9,
+        "quartile4Value": 4.3
+      },
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "Percent of children 5-17 years classified as engaged in child labor over the total population aged 5-17 years, disaggregated by sex. Criteria for child labor varies by age group: 1) Age 5 to 11 years: At least 1 hour of economic work or 21 hours of unpaid household services per week. 2) Age 12 to 14 years: At least 14 hours of economic work or 21 hours of unpaid household services per week. 3) Age 15 to 17 years: At least 43 hours of economic work per week.",
+      "desirableDirection": "DESCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Rights",
+      "fsciTheme": "Livelihoods, Poverty, and Equity",
+      "fsdIndicatorId": 183,
+      "isProjection": false,
+      "maxYear": 2025,
+      "minYear": 2010,
+      "name": "Child labor",
+      "position": 272,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "ILO conventions 138 and 182 (which outlaw child labor and exploitation) have been almost universally ratified. It is a regularly monitored indicator with good global coverage.",
+      "significantFigures": null,
+      "slug": "percent-of-children517-years-engaged-in-child-labor",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": "% children 5-17",
+      "updating": false
+    },
+    {
+      "additionalInformation": null,
+      "benchmarkGlobal": {
+        "achievedValue": 50,
+        "id": 67,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 16.9,
+        "quartile3Value": 28.61,
+        "quartile4Value": 37.66
+      },
+      "benchmarkIncome": null,
+      "benchmarkRegional": null,
+      "benchmarkSets": {
+        "global-benchmark": {
+          "benchmarks": "$a:props:data:59:globalBenchmarkQuartiles",
+          "distanceCategory": null
+        },
+        "global-target": {
+          "benchmarks": "$a:props:data:59:globalTargetQuartiles",
+          "distanceCategory": null
+        },
+        "income-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        },
+        "regional-benchmark": {
+          "benchmarks": null,
+          "distanceCategory": null
+        }
+      },
+      "benchmarkStatus": "No benchmark",
+      "benchmarkStatusRaw": null,
+      "benchmarkTarget": {
+        "achievedValue": 50,
+        "id": 37,
+        "overriddenByTarget": false,
+        "quartile1Value": null,
+        "quartile2Value": 16.9,
+        "quartile3Value": 28.61,
+        "quartile4Value": 37.66
+      },
+      "calculation": null,
+      "countryObservationId": null,
+      "dataRows": 0,
+      "definition": "Measures the share of women among owners or rights-bearers of agricultural land.",
+      "desirableDirection": "ASCENDING",
+      "dimensions": {
+        "femaleMale": null,
+        "regionId": null,
+        "urbanRural": null,
+        "weightForAverages": null
+      },
+      "endYear": null,
+      "fsciDomain": "Rights",
+      "fsciTheme": "Livelihoods, Poverty, and Equity",
+      "fsdIndicatorId": 240,
+      "isProjection": false,
+      "maxYear": 2023,
+      "minYear": 2009,
+      "name": "Female agricultural landowners (SDG 5.a.1)",
+      "position": 274,
+      "publicationStatus": "PUBLISHED",
+      "published": true,
+      "rawValue": null,
+      "relevance": "The stark inequality in female land ownership occurs in countries of all income levels and belies other types of gender-based discrimination with profound consequences for livelihoods and resource use within and beyond the food system.",
+      "significantFigures": 2,
+      "slug": "share-of-women-among-owners-or-rights-bearers-of-agricultural-land",
+      "startYear": null,
+      "treatmentOfMissingValues": null,
+      "unit": "% female land owners",
+      "updating": false
+    }
+  ],
+  "profileSummary": {
+    "assessed": 29,
+    "indicatorCount": 29,
+    "insufficientData": 14,
+    "statusCounts": {
+      "benchmarkMet": 12,
+      "close": 11,
+      "far": 1,
+      "moderatelyClose": 2,
+      "veryFar": 3
+    }
+  },
+  "region": {
+    "alpha2Code": "NO",
+    "alpha3Code": "NOR",
+    "id": 184,
+    "incomeGroupClassification": "HIGH_INCOME",
+    "name": "Norway",
+    "unContinentalRegion": {
+      "id": 4,
+      "name": "Europe",
+      "slug": "europe"
+    },
+    "unContinentalRegionId": 4
+  },
+  "snapshotVersion": "2026-08-10",
+  "sourceUrl": "https://www.foodsystemsdashboard.org/countries/nor"
+}
