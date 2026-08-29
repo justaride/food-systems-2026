@@ -1,11 +1,11 @@
 import { createHash } from "node:crypto";
 import { spawnSync } from "node:child_process";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
-import { dirname, resolve } from "node:path";
+import { mkdir, mkdtemp, readFile, rename, rm, writeFile } from "node:fs/promises";
+import { basename, dirname, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 
 const ROOT = resolve(process.cwd());
-const SNAPSHOT_DATE = "2026-08-10";
+const PROFILE_ACCESS_DATE = "2026-08-10";
 const SNAPSHOT_DIR = resolve(ROOT, "research/landscape/snapshots");
 
 const SOURCES = [
@@ -40,9 +40,51 @@ function gzipDeterministic(raw: Buffer): Buffer {
   return result.stdout;
 }
 
-async function main() {
-  await mkdir(SNAPSHOT_DIR, { recursive: true });
+export type SnapshotPromotion = {
+  targetPath: string;
+  contents: Buffer;
+};
+
+export async function promoteSnapshotTransaction(
+  outputs: SnapshotPromotion[],
+  beforePromote: () => void | Promise<void> = () => undefined,
+): Promise<void> {
+  if (outputs.length === 0) return;
+  await mkdir(dirname(outputs[0].targetPath), { recursive: true });
+  const stageDirectory = await mkdtemp(resolve(dirname(outputs[0].targetPath), ".fsd-refresh-"));
+  try {
+    const staged = await Promise.all(outputs.map(async (output, index) => {
+      await mkdir(dirname(output.targetPath), { recursive: true });
+      const stagePath = resolve(stageDirectory, `${index}-${basename(output.targetPath)}`);
+      await writeFile(stagePath, output.contents);
+      return { stagePath, targetPath: output.targetPath };
+    }));
+    await beforePromote();
+    for (const output of staged) await rename(output.stagePath, output.targetPath);
+  } finally {
+    await rm(stageDirectory, { recursive: true, force: true });
+  }
+}
+
+export function resolveAccessDate(args: string[], invokedAt = new Date()): string {
+  const supplied = args.find((argument) => argument.startsWith("--access-date="))?.slice("--access-date=".length);
+  if (supplied !== undefined) {
+    const parsed = new Date(`${supplied}T00:00:00.000Z`);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(supplied) || Number.isNaN(parsed.valueOf()) || parsed.toISOString().slice(0, 10) !== supplied) {
+      throw new Error("--access-date must be a valid YYYY-MM-DD date");
+    }
+    return supplied;
+  }
+  const year = invokedAt.getFullYear();
+  const month = String(invokedAt.getMonth() + 1).padStart(2, "0");
+  const day = String(invokedAt.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+async function main(args = process.argv.slice(2), invokedAt = new Date()) {
+  const accessDate = resolveAccessDate(args, invokedAt);
   const manifestSources: Array<Record<string, string | number>> = [];
+  const promotionOutputs: SnapshotPromotion[] = [];
 
   for (const source of SOURCES) {
     const response = await fetch(source.url, { headers: { accept: "text/csv,*/*" } });
@@ -53,13 +95,13 @@ async function main() {
     const snapshotPath = resolve(SNAPSHOT_DIR, source.file);
     if (source.compress) {
       const compressed = gzipDeterministic(raw);
-      await writeFile(snapshotPath, compressed);
+      promotionOutputs.push({ targetPath: snapshotPath, contents: compressed });
       manifestSources.push({
         id: source.id,
         role: source.role,
         url: source.url,
         compressedPath: `research/landscape/snapshots/${source.file}`,
-        accessedAt: SNAPSHOT_DATE,
+        accessedAt: accessDate,
         contentType: response.headers.get("content-type") ?? "application/octet-stream",
         compressedBytes: compressed.byteLength,
         compressedSha256: sha256(compressed),
@@ -68,13 +110,13 @@ async function main() {
         compression: "gzip -n -9",
       });
     } else {
-      await writeFile(snapshotPath, raw);
+      promotionOutputs.push({ targetPath: snapshotPath, contents: raw });
       manifestSources.push({
         id: source.id,
         role: source.role,
         url: source.url,
         localPath: `research/landscape/snapshots/${source.file}`,
-        accessedAt: SNAPSHOT_DATE,
+        accessedAt: accessDate,
         contentType: response.headers.get("content-type") ?? "text/csv",
         bytes: raw.byteLength,
         sha256: sha256(raw),
@@ -83,24 +125,25 @@ async function main() {
   }
 
   const profilePath = resolve(SNAPSHOT_DIR, "norway-fsd-profile-2026-08-10.json");
+  const profile = await readFile(profilePath);
+  JSON.parse(profile.toString("utf8"));
   manifestSources.push({
     id: "fsd-norway-profile-2026-08-10",
     role: "fsd_country_profile",
     url: "https://www.foodsystemsdashboard.org/countries/nor",
     localPath: "research/landscape/snapshots/norway-fsd-profile-2026-08-10.json",
-    accessedAt: SNAPSHOT_DATE,
+    accessedAt: PROFILE_ACCESS_DATE,
     contentType: "application/json",
-    bytes: (await readFile(profilePath)).byteLength,
-    sha256: sha256(await readFile(profilePath)),
+    bytes: profile.byteLength,
+    sha256: sha256(profile),
   });
 
-  const manifestPath = resolve(ROOT, `research/landscape/norway-fsd-snapshot-manifest-${SNAPSHOT_DATE}.json`);
-  await mkdir(dirname(manifestPath), { recursive: true });
-  await writeFile(
-    manifestPath,
-    `${JSON.stringify({ snapshotDate: SNAPSHOT_DATE, sources: manifestSources }, null, 2)}\n`,
-    "utf8",
-  );
+  const manifestPath = resolve(ROOT, `research/landscape/norway-fsd-snapshot-manifest-${accessDate}.json`);
+  promotionOutputs.push({
+    targetPath: manifestPath,
+    contents: Buffer.from(`${JSON.stringify({ snapshotDate: accessDate, sources: manifestSources }, null, 2)}\n`, "utf8"),
+  });
+  await promoteSnapshotTransaction(promotionOutputs);
   console.log(`Frozen ${manifestSources.length} FSD sources in ${manifestPath}`);
 }
 

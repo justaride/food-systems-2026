@@ -16,3 +16,31 @@ test("the governed Norway FSD bundle is complete and reproducible", () => {
   assert.match(bundle.report, /not a Norwegian primary series/i);
   assert.match(bundle.report, /not production data/i);
 });
+
+test("validation rejects a source ledger detached from the verified snapshot manifest", () => {
+  const bundle = loadNorwayFsdBundle(path.join(process.cwd(), "research", "landscape"));
+  const sources = bundle.sources.map((source) =>
+    source.id === "src-fsd-full-export-2026-04-20"
+      ? { ...source, contentHash: "0".repeat(64) }
+      : source,
+  );
+
+  assert.throws(
+    () => validateNorwayFsdBundle({ ...bundle, sources }),
+    /full export.*manifest/i,
+  );
+});
+
+test("validation rejects derived indicator values detached from the verified full export", () => {
+  const bundle = loadNorwayFsdBundle(path.join(process.cwd(), "research", "landscape"));
+  const indicators = bundle.indicators.map((indicator) =>
+    indicator.id === "fsd-nor-66"
+      ? { ...indicator, rawValue: 0.986, displayValue: "0.986" }
+      : indicator,
+  );
+
+  assert.throws(
+    () => validateNorwayFsdBundle({ ...bundle, indicators }),
+    /full export snapshot/i,
+  );
+});
