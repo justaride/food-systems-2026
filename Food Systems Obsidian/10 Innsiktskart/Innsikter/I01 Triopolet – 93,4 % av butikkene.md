@@ -10,7 +10,7 @@ siterbarhet: intern
 
 > Innsikt 1/26 · Del 1 – Det norske systemet · Del av [[Innsiktskartet]]
 
-Tre paraplykjeder kontrollerer 93,4 % av Norges dagligvarebutikker: NorgesGruppen 48,4 %, Coop 27,1 %, Reitan 18,0 % (Bunnpris 6,6 %). HHI ≈ 3 445 — langt over grensen for «høykonsentrert» (2 500).
+Tre paraplykjeder kontrollerer 93,4 % av Norges dagligvarebutikker: NorgesGruppen 48,4 %, Coop 27,1 %, Reitan 18,0 % (Bunnpris 6,6 %). Butikkantall-proxyen gir HHI ≈ 3 445. Omsetningsserien for 2024 gir HHI 3 327 og CR3 96,6 %; seriene må ikke blandes.
 
 **Bevis-kjeden:** forrige: — · neste: [[I02 4,9 mrd-boten]]
 

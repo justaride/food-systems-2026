@@ -138,7 +138,7 @@ for name, desc, rel in REGULATORER:
 # (id-title, del, claim, links)
 INNSIKTER = [
     ("I01 Triopolet – 93,4 % av butikkene", 1,
-     "Tre paraplykjeder kontrollerer 93,4 % av Norges dagligvarebutikker: NorgesGruppen 48,4 %, Coop 27,1 %, Reitan 18,0 % (Bunnpris 6,6 %). HHI ≈ 3 445 — langt over grensen for «høykonsentrert» (2 500).",
+     "Tre paraplykjeder kontrollerer 93,4 % av Norges dagligvarebutikker: NorgesGruppen 48,4 %, Coop 27,1 %, Reitan 18,0 % (Bunnpris 6,6 %). Butikkantall-proxyen gir HHI ≈ 3 445. Omsetningsserien for 2024 gir HHI 3 327 og CR3 96,6 %; seriene må ikke blandes.",
      ["NorgesGruppen", "Coop Norge", "Reitan Retail", "Bunnpris", "Ledd 5 – Dagligvare og detaljhandel"]),
     ("I02 4,9 mrd-boten", 1,
      "I august 2024 ble kjedene bøtelagt 4,9 milliarder kroner for ulovlig prissamarbeid. Likevel: bøtene alene endrer ikke systemet.",
@@ -165,7 +165,7 @@ INNSIKTER = [
      "Sesongbasert marginekspansjon i juli — femdoblet over ti år. Kjedene hever marginene når oppmerksomheten er lavest (fellesferien).",
      ["I08 Spread-tidslinjen – fem faser", "Ledd 5 – Dagligvare og detaljhandel"]),
     ("I10 Hele Norden er høykonsentrert", 3,
-     "Alle fire nordiske dagligvaremarkeder har HHI over 2 500 — høykonsentrert etter internasjonale mål (Figur 6). Norge er ikke unikt, men mest ekstremt.",
+     "Alle fire nordiske dagligvaremarkeder har HHI over 2 500 — høykonsentrert etter internasjonale mål (Figur 6). Landverdiene kan ikke rangeres direkte før år, markedsunivers, operatørgruppering og kildemetode er harmonisert.",
      ["Norge", "Sverige", "Danmark", "Finland", "I09 Juli-effekten"]),
     ("I11 Norge har høyest topp-3", 3,
      "Norge har høyeste topp-3-andel i Norden: 93,4 % — og ingen internasjonale konkurrenter av betydning (Figur 7).",
