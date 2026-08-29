@@ -24,6 +24,20 @@ Target baseline: `origin/main` at `3f4726854fd10240093d4cd67285c033894a0df3`
 | `4c89ea5` | docs(research): primærkildematrise for strøkne tall — 12 klynger verifisert mot primærdok | `selective_salvage` | Primary-source matrix and captured public pages can be retained with locators and rights boundaries. | Task 2 — salvage dated research artifacts. | Salvage reviewed matrix and governed captures only. | Task 2 commit | Pending research-artifact and provenance checks. |
 | `d35b206` | docs(research): orphanRoots-eieranalyse, aksjonærregister-utkast og nordisk registerplan | `selective_salvage` | Ownership analysis, unsent draft, and registry plan are useful but remain bounded research artifacts. | Task 2 — salvage dated research artifacts. | Salvage with explicit unsent, non-authoritative, and source-status labels. | Task 2 commit | Pending research-artifact and provenance checks. |
 
+## Historical capture provenance ledger
+
+The seven HTML captures remain on the recovery branch and are not copied into the target worktree. These entries preserve their source locators and require a human rights decision before any further use.
+
+| Branch path | Source URL | Source commit | Git blob id | rightsStatus |
+|---|---|---|---|---|
+| `research/bibliotek/primaerkilder-2026-08-05/landbruksdirektoratet-82500-tonn-matkorn-2029.html` | https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/82-500-tonn-matkorn-pa-lager-innen-2029--i-mal-med-kontrakter | `4c89ea5` | `0a3ea3a0cefc7552f77df1e6aa96b4267b14e2a7` | `human_gate` |
+| `research/bibliotek/primaerkilder-2026-08-05/landbruksdirektoratet-matkorn-kontrakter-2026-2027.html` | https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/inngar-kontrakter-for-lagring-av-matkorn-med-oppstart-i-2026-og-2027 | `4c89ea5` | `e68dbeec72ae7e39fbf05cd218c7402575270328` | `human_gate` |
+| `research/bibliotek/primaerkilder-2026-08-05/leroy-kelp-mussel-meal.html` | https://www.leroyseafood.com/en/tasty-seafood/environment-and-society/increasing-production-of-kelp-and-mussel-meal/ | `4c89ea5` | `306edd668193064650de99f26b4d8c758d97deaf` | `human_gate` |
+| `research/bibliotek/primaerkilder-2026-08-05/miljodirektoratet-landbasert-oppdrett-utslippskontroll-2025.html` | https://www.miljodirektoratet.no/aktuelt/nyheter/2025/mai-2025/landbasert-oppdrett-har-for-darlig-utslippskontroll/ | `4c89ea5` | `276362ce2e5a181d637126e33d3560fba3cd6029` | `human_gate` |
+| `research/bibliotek/primaerkilder-2026-08-05/nesa-finland-emergency-grain-stockpiles-2022.html` | https://www.huoltovarmuuskeskus.fi/en/a/national-emergency-supply-agency-boosting-finlands-emergency-grain-stockpiles | `4c89ea5` | `6d6c03df6fa6ff1f8f1001692f0368b61c757a93` | `human_gate` |
+| `research/bibliotek/primaerkilder-2026-08-05/ragnsells-insect-breakthrough.html` | https://newsroom.ragnsells.com/posts/pressreleases/new-technology-leads-to-breakthrough-in-insec | `4c89ea5` | `9f7250d1d0e54419a02f87dd85b124079fdea638` | `human_gate` |
+| `research/bibliotek/primaerkilder-2026-08-05/riksdagen-prop-2025-26-205-beredskapslager.html` | https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/beredskapslager-i-livsmedelskedjan_hd03205/ | `4c89ea5` | `4a34f10cdda13d14e02aaa079bf2b682efd7aefe` | `human_gate` |
+
 ## Dirty-tree ledger
 
 | Dirty material | Final disposition | Candidate commit | Verification |
