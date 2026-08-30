@@ -1,0 +1,619 @@
+{
+  "byStatus": {
+    "exited:unhealthy": 1,
+    "running:healthy": 53,
+    "running:unhealthy": 2,
+    "running:unknown": 44
+  },
+  "byType": {
+    "application": 79,
+    "service": 4,
+    "standalone-postgresql": 16,
+    "standalone-redis": 1
+  },
+  "fetchedAt": "2026-08-30T06:29:24.587020+00:00",
+  "resources": [
+    {
+      "name": "AVV1 Dashboard v2",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "vww4ockwgw"
+    },
+    {
+      "name": "FYRA Circular Platform",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "o0cg04soc8"
+    },
+    {
+      "name": "FundingMap",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "h0wksog88c"
+    },
+    {
+      "name": "Himkok Academy",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "v44ggwoskw"
+    },
+    {
+      "name": "Himkok Connect",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "owk4swkc08"
+    },
+    {
+      "name": "Himkok Dashboard",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "pgk4gkkco4"
+    },
+    {
+      "name": "Himkok Standards",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "uo8ckogcoc"
+    },
+    {
+      "name": "MisterPresentations Live Data Hub",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "uo44cogo0g"
+    },
+    {
+      "name": "Nordic Circular Buildings",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "ig4488koo4"
+    },
+    {
+      "name": "Oslo Andelsbakeri Staging",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "j4seayp91g"
+    },
+    {
+      "name": "Oslo&Co Welcome Services",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "myt3b0s7nv"
+    },
+    {
+      "name": "VisitLokkaPortal",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "aoccow4844"
+    },
+    {
+      "name": "amelia-the-cold-case",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "9c36f31fac"
+    },
+    {
+      "name": "arshjul-template",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "c88s8kc04o"
+    },
+    {
+      "name": "brocode",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "b8w8k4w48w"
+    },
+    {
+      "name": "circular-cities-2026",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "fs40gw0ww0"
+    },
+    {
+      "name": "coffee-and-forest",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "fkc00g0kks"
+    },
+    {
+      "name": "den-store-julelunsjen",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "ehwkpvhi6r"
+    },
+    {
+      "name": "dinnermatch",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "nggg044c08"
+    },
+    {
+      "name": "dinnermatch-staging",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "v0o8wokwg4"
+    },
+    {
+      "name": "dockergraphics",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "y4c4cosg8w"
+    },
+    {
+      "name": "drammen-banenor-master",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "v4sc0oo0ww"
+    },
+    {
+      "name": "fabricair",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "9qvrc89gdb"
+    },
+    {
+      "name": "filipstad-kb-dashboard",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "sccsscckgs"
+    },
+    {
+      "name": "food-systems-2026",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "so8ko44goc"
+    },
+    {
+      "name": "fuglen-cockpit",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "fs4sgcggw4"
+    },
+    {
+      "name": "gabistudio",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "wkoskg8g04"
+    },
+    {
+      "name": "gronland2a-site",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "iwccc0o08c"
+    },
+    {
+      "name": "hetlevikstraumen",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "qc8wsokogs"
+    },
+    {
+      "name": "hovfaret13-database",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "u0w4w4cckc"
+    },
+    {
+      "name": "hoybraaten-vel",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "g040g0wc0o"
+    },
+    {
+      "name": "hoybraten-43-dashboard",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "ks0kcgcc8w"
+    },
+    {
+      "name": "igs-gamle-oslo",
+      "status": "running:unhealthy",
+      "type": "application",
+      "uuid": "rkkogwgg0k"
+    },
+    {
+      "name": "julaften-gutta",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "7e7b83c8af"
+    },
+    {
+      "name": "justaride/filipstad-dashboard:main-mw0ssg8g800sg0kcgw04w8wo",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "kosw0sww0o"
+    },
+    {
+      "name": "justaride/skyggn:main-ygkc804gkkkogg48c0kg8k4s",
+      "status": "running:unhealthy",
+      "type": "application",
+      "uuid": "ygkc804gkk"
+    },
+    {
+      "name": "justaride/wcef2026project:main-l0sskcswg0k480ook8g8o4cs",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "l0sskcswg0"
+    },
+    {
+      "name": "kairos-alignment-hub",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "u40o0kc0gc"
+    },
+    {
+      "name": "konseptskisse-web",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "bk1cfawnq3"
+    },
+    {
+      "name": "konseptskisse-worker",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "oybomib0s9"
+    },
+    {
+      "name": "kristianhus",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "cwg88wcsc4"
+    },
+    {
+      "name": "lawyer-averoy",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "gk8woww080"
+    },
+    {
+      "name": "lokka-dashboard",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "ks88k8c0kg"
+    },
+    {
+      "name": "lokka-platform",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "q4k4soo4o8"
+    },
+    {
+      "name": "maloy-talegrense",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "nokooooks4"
+    },
+    {
+      "name": "markveien44",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "vkggo4848c"
+    },
+    {
+      "name": "mars-real-estate",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "eg8oosoggs"
+    },
+    {
+      "name": "mister-presentations",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "rwswoo4880"
+    },
+    {
+      "name": "mistermaps",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "j8s40s4gcs"
+    },
+    {
+      "name": "mistermister",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "e4oo0wkc84"
+    },
+    {
+      "name": "misternews",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "fsk0go0ocg"
+    },
+    {
+      "name": "misterremotecontrol",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "64du9c4kxo"
+    },
+    {
+      "name": "natural-state-design",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "8ee9391d6b"
+    },
+    {
+      "name": "natural-state-portal",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "po4c8k8w4s"
+    },
+    {
+      "name": "ncc-report",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "ug80wkgosk"
+    },
+    {
+      "name": "necc-dashboard",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "g480gw4wcs"
+    },
+    {
+      "name": "nmbu-kart-atlas",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "ggs80go40w"
+    },
+    {
+      "name": "nordic-circular-summit-2025",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "ackkowkswk"
+    },
+    {
+      "name": "nye-oslo-s",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "c4c4k0wwwg"
+    },
+    {
+      "name": "oslo-cocktail-festival",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "ncwk0csgcc"
+    },
+    {
+      "name": "oslococktailfestival-no",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "loowwcsk4k"
+    },
+    {
+      "name": "perronggarden-dashboard",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "a44wkkgk84"
+    },
+    {
+      "name": "perronggarden-landing",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "j84ooc4skw"
+    },
+    {
+      "name": "planvarde",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "sw00k0kswo"
+    },
+    {
+      "name": "r21-dashboard",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "a08s4ocsw4"
+    },
+    {
+      "name": "ranheimtorg",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "qkwtbzxbxl"
+    },
+    {
+      "name": "rendalen-besoksstrategi",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "pk0004k048"
+    },
+    {
+      "name": "rendalen-dashboard",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "h0kkgsco40"
+    },
+    {
+      "name": "sirkulare-fasader-research-cockpit",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "veluplxpc9"
+    },
+    {
+      "name": "skamarken",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "qg0s44w0gw"
+    },
+    {
+      "name": "skyggn",
+      "status": "exited:unhealthy",
+      "type": "application",
+      "uuid": "bg0ogg0044"
+    },
+    {
+      "name": "sthalvardsgate33",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "ygg04kwscs"
+    },
+    {
+      "name": "storfotograf",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "scoc48kw00"
+    },
+    {
+      "name": "sundland-bolig-kart",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "wc0088w4c4"
+    },
+    {
+      "name": "sunnmorsalpene-dashboard",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "ic0gcw4w4g"
+    },
+    {
+      "name": "svanen-dashboard",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "l448s8gk8w"
+    },
+    {
+      "name": "svev-glassware",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "uewoelhsuo"
+    },
+    {
+      "name": "tangenkaia",
+      "status": "running:unknown",
+      "type": "application",
+      "uuid": "rkg4c4s4g0"
+    },
+    {
+      "name": "vardemarket",
+      "status": "running:healthy",
+      "type": "application",
+      "uuid": "q00o48os40"
+    },
+    {
+      "name": "Grafana",
+      "status": "running:healthy",
+      "type": "service",
+      "uuid": "i40g0g4s0k"
+    },
+    {
+      "name": "Uptime Kuma",
+      "status": "running:healthy",
+      "type": "service",
+      "uuid": "uco4wcssog"
+    },
+    {
+      "name": "cloudflared-db-tunnel",
+      "status": "running:unknown",
+      "type": "service",
+      "uuid": "vskowwk4gk"
+    },
+    {
+      "name": "perronggarden-supabase",
+      "status": "running:healthy",
+      "type": "service",
+      "uuid": "g4sc8ckc8o"
+    },
+    {
+      "name": "areographic-postgres",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "c0k044o8s0"
+    },
+    {
+      "name": "comparison-restore-db",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "h51vmotxgb"
+    },
+    {
+      "name": "food-systems-db",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "ks8sks4oo4"
+    },
+    {
+      "name": "food-systems-pgvector-db",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "l0s8o8oo00"
+    },
+    {
+      "name": "fundingmap-db",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "vgcww0gg44"
+    },
+    {
+      "name": "himkok-db",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "g0scwgo4ow"
+    },
+    {
+      "name": "hoybraten43-db",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "eo44s0cokc"
+    },
+    {
+      "name": "konsepskisse-db",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "hj20tlo9au"
+    },
+    {
+      "name": "lokka-arshjul-db",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "osokwokwog"
+    },
+    {
+      "name": "natural-state-arshjul-db",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "usgw8sgs8o"
+    },
+    {
+      "name": "necc-dashboard-db",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "aw0s8co0s4"
+    },
+    {
+      "name": "nye-oslo-s-db",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "a4swcogoww"
+    },
+    {
+      "name": "planvarde-db",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "so0cw0g880"
+    },
+    {
+      "name": "planvarde-db-v2",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "ikgsgogso4"
+    },
+    {
+      "name": "stargate-db",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "tgsc4ssw0w"
+    },
+    {
+      "name": "svanen-db",
+      "status": "running:healthy",
+      "type": "standalone-postgresql",
+      "uuid": "kswwscos0c"
+    },
+    {
+      "name": "konsepskisse-queue",
+      "status": "running:healthy",
+      "type": "standalone-redis",
+      "uuid": "mg08k0co8k"
+    }
+  ],
+  "serverUuid": "jgo40o4os80ssock0ck0ockg",
+  "totalResources": 100
+}
