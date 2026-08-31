@@ -15,7 +15,7 @@ siterbarhet: intern
 **Strøm:** Surplus food from retail/industry → food banks → vulnerable populations
 
 - R-nivå: **R1** · TRL 9 · Modenhet: **operational**
-- Volum: 5,735 tonnes (2024) = 10.2M meals
+- Volum: Unavailable: 2024 tonnes and meal count are not verified against a current primary source.
 - Aktører: Matsentralen (8 locations)
 - Politikkstøtte: Voluntary partnerships, matsvinnloven will boost
 - Tema: `matsvinn` · Kilder: Matsentralen, SA-02

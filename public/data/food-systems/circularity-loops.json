@@ -103,7 +103,7 @@
       "maturity": "operational",
       "trl": 9,
       "rLevel": "R1",
-      "volume": "5,735 tonnes (2024) = 10.2M meals",
+      "volume": "Unavailable: 2024 tonnes and meal count are not verified against a current primary source.",
       "value_chain_step": [
         "retail",
         "horeca",
@@ -150,14 +150,14 @@
       "maturity": "scaled",
       "trl": 9,
       "rLevel": "R1",
-      "volume": "274 rings, 786,000 users, ~500 MNOK/year",
+      "volume": "Unavailable: ring, user, and turnover counts are not verified against a current primary source.",
       "value_chain_step": [
         "primary",
         "retail"
       ],
       "flow": "Local producers → Facebook groups → consumers pick up at designated spots",
       "actors": [
-        "274 independent rings",
+        "Independent REKO rings",
         "DIGIFOOD (USN/NordForsk)"
       ],
       "policy_support": "Grassroots, NordForsk research funding",

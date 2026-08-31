@@ -76,6 +76,7 @@
     "test": "node --import=tsx --test $(find tests -name '*.test.ts')",
     "landscape:report": "tsx scripts/render-project-landscape-report.ts",
     "landscape:validate": "tsx scripts/validate-project-landscape.ts",
+    "landscape:norway-fsd:validate": "tsx scripts/validate-norway-fsd-crosswalk.ts",
     "test:landscape": "node --import=tsx --test tests/landscape/*.test.ts",
     "phase:validate": "tsx scripts/validate-phase-readiness.ts",
     "mcp:kb": "tsx mcp/foodsystems-kb/server.ts",

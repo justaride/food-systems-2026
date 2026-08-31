@@ -345,7 +345,7 @@ const M2_SELF_CONTAINED_INSIGHT_REQUIREMENTS = new Map<string, string[]>([
   ],
   [
     'I36 Næringsgjenvinning er et prioritert gap',
-    ['66 000 tonn nitrogen', '14 000 tonn fosfor', 'omtrent to prosent', '218 000 tonn'],
+    ['unavailable in the current claim-locked primary-source set'],
   ],
   ['I37 Maktkartet må leses gjennom fire linser', ['AP-3', 'AP-1', 'AP-2', 'AP-5', '183 av 275']],
   [

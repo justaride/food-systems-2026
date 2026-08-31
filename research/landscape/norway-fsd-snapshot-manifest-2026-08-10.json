@@ -1,0 +1,38 @@
+{
+  "snapshotDate": "2026-08-10",
+  "sources": [
+    {
+      "id": "fsd-full-export-2026-04-20",
+      "role": "fsd_full_data_export",
+      "url": "https://d3e9iu03zzh17w.cloudfront.net/bulk-data-downloads/fsd-full-export-2026-04-20.csv",
+      "compressedPath": "research/landscape/snapshots/fsd-full-export-2026-04-20.csv.gz",
+      "accessedAt": "2026-08-10",
+      "contentType": "application/octet-stream",
+      "compressedBytes": 7336927,
+      "compressedSha256": "cd37ea4ddd80df3a94424e5cb16540ea6c53e4697d9a0cfb8d4ea21741d103f3",
+      "rawBytes": 88884423,
+      "rawSha256": "d155d1e2269169760fbdb0904199c54e4af7439c7493b65c8b4ae999e434002a",
+      "compression": "gzip -n -9"
+    },
+    {
+      "id": "fsd-metadata-export-2026-04-20",
+      "role": "fsd_metadata_export",
+      "url": "https://d3e9iu03zzh17w.cloudfront.net/bulk-data-downloads/fsd-metadata-export-2026-04-20.csv",
+      "localPath": "research/landscape/snapshots/fsd-metadata-export-2026-04-20.csv",
+      "accessedAt": "2026-08-10",
+      "contentType": "application/octet-stream",
+      "bytes": 314861,
+      "sha256": "d09004553efcb53b7509f6827a1628b40b0dd556b9d3307f6d14dd0d15a5dd5c"
+    },
+    {
+      "id": "fsd-norway-profile-2026-08-10",
+      "role": "fsd_country_profile",
+      "url": "https://www.foodsystemsdashboard.org/countries/nor",
+      "localPath": "research/landscape/snapshots/norway-fsd-profile-2026-08-10.json",
+      "accessedAt": "2026-08-10",
+      "contentType": "application/json",
+      "bytes": 179812,
+      "sha256": "2d211fd67538b3c0cb0f959a084a5646ecbee5d783fbad17a27c9bcf0c746577"
+    }
+  ]
+}

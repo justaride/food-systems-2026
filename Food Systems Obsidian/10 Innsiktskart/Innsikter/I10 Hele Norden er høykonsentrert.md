@@ -10,7 +10,7 @@ siterbarhet: intern
 
 > Innsikt 10/26 · Del 3 – Nordisk perspektiv · Del av [[Innsiktskartet]]
 
-Alle fire nordiske dagligvaremarkeder har HHI over 2 500 — høykonsentrert etter internasjonale mål (Figur 6). Norge er ikke unikt, men mest ekstremt.
+Alle fire nordiske dagligvaremarkeder har HHI over 2 500 — høykonsentrert etter internasjonale mål (Figur 6). Landverdiene kan ikke rangeres direkte før år, markedsunivers, operatørgruppering og kildemetode er harmonisert.
 
 **Bevis-kjeden:** forrige: [[I09 Juli-effekten]] · neste: [[I11 Norge har høyest topp-3]]
 

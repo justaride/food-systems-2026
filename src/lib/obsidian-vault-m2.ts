@@ -84,14 +84,12 @@ const INSIGHT_DRAFTS: M2InsightDraftInput[] = [
     fileName: 'I36 Næringsgjenvinning er et prioritert gap.md',
     sourcePath: FOCUS_SOURCE,
     draft: [
-      'Fokuskapittelet peker på næringsgjenvinning som et konkret kunnskapsgap: norsk akvakultur slipper ut omtrent 66 000 tonn nitrogen og 14 000 tonn fosfor per år, mens bare omtrent to prosent av ekskret materiale samles som slam.',
-      'Samtidig er dokumenterte gjenvinningsvolumer små eller ufullstendige: RecoLab rapporterte under 1,5 tonn gjenvunnet produkt i 2024, og norsk biorest i 2022 var omtrent 218 000 tonn avvannet og 370 000 tonn flytende, hvor 84 prosent ble spredt på jordbruksareal uten at næringsinnholdet er tallfestet i samme kildebilde.',
-      'Bruksspråk: prioritert datagap og mulig systemtap. Ikke bruk tallene som full nasjonal materialbalanse før primærkildene er låst.',
+      'Fokuskapittelet peker på næringsgjenvinning som et konkret kunnskapsgap.',
+      'Kvantitative påstander om akvakultur-N/P, innsamlet slam og biorest er unavailable in the current claim-locked primary-source set.',
+      'Bruksspråk: prioritert datagap og mulig systemtap. Ikke bruk kvantitative påstander som full nasjonal materialbalanse før primærkildene er låst.',
     ],
     evidence: [
-      'Akvakultursporet oppgir omtrent 66 000 tonn nitrogen og 14 000 tonn fosfor per år.',
-      'Bare omtrent to prosent av ekskret materiale samles som slam.',
-      'Bioresttallene inkluderer omtrent 218 000 tonn avvannet materiale i 2022.',
+      'Kvantitative påstander om akvakultur-N/P, innsamlet slam og biorest er unavailable in the current claim-locked primary-source set.',
       'Forbehold: dette er et prioritert datagap, ikke en komplett nasjonal materialbalanse.',
     ],
     approvalAsk: 'Godkjenn om næringsgjenvinning skal beholdes som prioritert gap i I36, eller om tallene skal deles opp i egne gap-noter.',

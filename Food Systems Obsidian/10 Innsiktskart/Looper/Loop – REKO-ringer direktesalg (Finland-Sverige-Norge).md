@@ -15,8 +15,8 @@ siterbarhet: intern
 **Strøm:** Local producers → Facebook groups → consumers pick up at designated spots
 
 - R-nivå: **R1** · TRL 9 · Modenhet: **scaled**
-- Volum: 274 rings, 786,000 users, ~500 MNOK/year
-- Aktører: 274 independent rings, DIGIFOOD (USN/NordForsk)
+- Volum: Unavailable: ring, user, and turnover counts are not verified against a current primary source.
+- Aktører: Independent REKO rings, DIGIFOOD (USN/NordForsk)
 - Politikkstøtte: Grassroots, NordForsk research funding
 - Tema: `direktehandel` · Kilder: SA-02
 
