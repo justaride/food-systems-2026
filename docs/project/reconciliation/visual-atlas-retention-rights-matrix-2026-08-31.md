@@ -35,6 +35,19 @@ Dette dokumentet er en kilde- og risikoklassifisering, ikke juridisk rådgivning
 | `U06` | `research/innhenting-2026-08-05/staging/lovdata-forskrift-2023-12-11-2037.txt` | Tekstuttrekk av forskriften, men inneholder UI-rester og mangler en fullstendig proveniens-/versjonsblokk. Selve forskriftsteksten er uten vern etter åndsverkloven § 14. | `replace_then_remove`: normaliser mot offisiell kunngjort tekst, registrer tilgangsdato og eksakt locator, og behold kun den verifiserte varianten. | Godkjenn normalisert erstatning og sletting av råuttrekket. |
 | `Q01` | `f-test-folketall-trend-import-urbaniseringsgrad.png` | Lokal QA-skjermdump, 1489 × 2104. Bildet viser et F-test-resultat, men filen mangler datasettbinding, kommando, modellspesifikasjon og genereringskvittering. | `delete_after_receipt`: ikke integrer eller publiser. Behold midlertidig til eier har avgjort om analysen skal reproduseres og dokumenteres. | Enten bind bildet til en reproducerbar analyse, eller godkjenn sletting som foreldreløs QA-artefakt. |
 
+## Replacement preparation (2026-08-31)
+
+Den kandidatavgrensede [manifesten](../../../research/_status/visual-atlas-replacement-manifest-2026-08-31.json) og [forberedelseskvitteringen](visual-atlas-replacement-preparation-receipt-2026-08-31.md) dokumenterer kun at avgrensede erstatningsnotater er klargjort. Dette endrer ikke opprinnelig disposisjon eller rettighetsanalyse i beslutningsmatrisen, og det utgjør ikke klarering, review, kanonisering eller publiseringsgodkjenning.
+
+| ID | Preparasjonsstatus | Erstatningssti | Rettighetsgate | `publication_ready` | `deletion_authorized` |
+|---|---|---|---|---|---|
+| `U01` | `replacement_candidate_prepared` | `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/ambio-fish-sludge-2017.md` | `human_gate` | `false` | `false` |
+| `U03` | `replacement_candidate_prepared` | `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/estate-coop-union-2015.md` | `human_gate` | `false` | `false` |
+| `U04` | `replacement_candidate_prepared` | `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/frontiers-phosphorus-flow-norway-2023.md` | `human_gate` | `false` | `false` |
+| `T07` | `replacement_candidate_prepared` | `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/riksdagen-prop-2025-26-205.md` | `human_gate` | `false` | `false` |
+| `U05` | `replacement_candidate_prepared` | `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/forskrift-2023-12-11-2037.md` | `human_gate` | `false` | `false` |
+| `U06` | `replacement_candidate_prepared` | `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/forskrift-2023-12-11-2037.md` | `human_gate` | `false` | `false` |
+
 ## Verifisert byteinventar
 
 | ID | Størrelse | Git-objekt | SHA-256 av eksakte bytes |

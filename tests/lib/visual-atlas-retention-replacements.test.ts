@@ -31,6 +31,15 @@ type Manifest = {
 };
 
 const manifestPath = "research/_status/visual-atlas-replacement-manifest-2026-08-31.json";
+const retentionMatrixPath =
+  "docs/project/reconciliation/visual-atlas-retention-rights-matrix-2026-08-31.md";
+const preparationReceiptPath =
+  "docs/project/reconciliation/visual-atlas-replacement-preparation-receipt-2026-08-31.md";
+const preparationReceiptReference =
+  "visual-atlas-replacement-preparation-receipt-2026-08-31.md";
+const coveredSourceIds = ["U01", "U03", "U04", "T07", "U05", "U06"];
+const baselineCommit = "eb3e68cc5285f9c8f173b0f7fc1998f56691e55f";
+const retentionMatrixCommit = "8f8886e8c63dc6cbfc8ffe95d45b8eef0cb25c69";
 const expectedInputs: SourceInput[] = [
   {
     sourceId: "U01",
@@ -127,5 +136,38 @@ test("replacement notes remain bounded, internal-only records", () => {
     ]) {
       assert.doesNotMatch(note, new RegExp(forbidden, "i"));
     }
+  }
+});
+
+test("replacement preparation remains human-gated for each covered source", () => {
+  const matrix = fs.readFileSync(retentionMatrixPath, "utf8");
+
+  assert.match(matrix, new RegExp(manifestPath));
+  assert.match(matrix, new RegExp(preparationReceiptReference));
+  for (const sourceId of coveredSourceIds) {
+    const preparedRecord = new RegExp(
+      "\\\\| `" +
+        sourceId +
+        "` \\\\|[^\\\\n]*\\\\| `replacement_candidate_prepared` \\\\|[^\\\\n]*\\\\| `human_gate` \\\\| `false` \\\\| `false` \\\\|",
+    );
+    assert.match(matrix, preparedRecord);
+  }
+});
+
+test("replacement preparation receipt records bounded work without promotion", () => {
+  assert.ok(fs.existsSync(preparationReceiptPath), "missing preparation receipt");
+  const receipt = fs.readFileSync(preparationReceiptPath, "utf8");
+
+  for (const expected of [
+    manifestPath,
+    baselineCommit,
+    retentionMatrixCommit,
+    ...coveredSourceIds,
+    "No source capture was deleted or modified.",
+    "No publication or status promotion occurred.",
+    "No database or corpus-health workflow occurred.",
+    "No push, PR, merge, or deployment occurred.",
+  ]) {
+    assert.match(receipt, new RegExp(expected));
   }
 });
