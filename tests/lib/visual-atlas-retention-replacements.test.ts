@@ -40,6 +40,57 @@ const preparationReceiptReference =
 const coveredSourceIds = ["U01", "U03", "U04", "T07", "U05", "U06"];
 const baselineCommit = "eb3e68cc5285f9c8f173b0f7fc1998f56691e55f";
 const retentionMatrixCommit = "8f8886e8c63dc6cbfc8ffe95d45b8eef0cb25c69";
+const replacementPreparationHeading = "## Replacement preparation (2026-08-31)";
+const expectedPreparationRows = [
+  [
+    "U01",
+    "replacement_candidate_prepared",
+    "research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/ambio-fish-sludge-2017.md",
+    "human_gate",
+    "false",
+    "false",
+  ],
+  [
+    "U03",
+    "replacement_candidate_prepared",
+    "research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/estate-coop-union-2015.md",
+    "human_gate",
+    "false",
+    "false",
+  ],
+  [
+    "U04",
+    "replacement_candidate_prepared",
+    "research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/frontiers-phosphorus-flow-norway-2023.md",
+    "human_gate",
+    "false",
+    "false",
+  ],
+  [
+    "T07",
+    "replacement_candidate_prepared",
+    "research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/riksdagen-prop-2025-26-205.md",
+    "human_gate",
+    "false",
+    "false",
+  ],
+  [
+    "U05",
+    "replacement_candidate_prepared",
+    "research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/forskrift-2023-12-11-2037.md",
+    "human_gate",
+    "false",
+    "false",
+  ],
+  [
+    "U06",
+    "replacement_candidate_prepared",
+    "research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/forskrift-2023-12-11-2037.md",
+    "human_gate",
+    "false",
+    "false",
+  ],
+];
 const expectedInputs: SourceInput[] = [
   {
     sourceId: "U01",
@@ -75,6 +126,32 @@ const expectedInputs: SourceInput[] = [
 ];
 
 const readManifest = (): Manifest => JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+
+const readReplacementPreparationRows = (matrix: string): string[][] => {
+  const sectionStart = matrix.indexOf(replacementPreparationHeading);
+  assert.notEqual(sectionStart, -1, "missing replacement preparation section");
+
+  const lines = matrix.slice(sectionStart + replacementPreparationHeading.length).split("\n");
+  const tableStart = lines.findIndex((line) => line.startsWith("|"));
+  assert.notEqual(tableStart, -1, "missing replacement preparation table");
+
+  const rows: string[][] = [];
+  for (const line of lines.slice(tableStart + 1)) {
+    if (!line.startsWith("|")) break;
+    if (/^\|[-:| ]+\|$/.test(line)) continue;
+    rows.push(
+      line
+        .slice(1, -1)
+        .split("|")
+        .map((cell) => cell.trim().replace(/^`|`$/g, "")),
+    );
+  }
+  return rows;
+};
+
+const assertReplacementPreparationRows = (matrix: string): void => {
+  assert.deepEqual(readReplacementPreparationRows(matrix), expectedPreparationRows);
+};
 
 test("replacement manifest preserves the candidate-only governance boundary", () => {
   const manifest = readManifest();
@@ -144,14 +221,20 @@ test("replacement preparation remains human-gated for each covered source", () =
 
   assert.match(matrix, new RegExp(manifestPath));
   assert.match(matrix, new RegExp(preparationReceiptReference));
-  for (const sourceId of coveredSourceIds) {
-    const preparedRecord = new RegExp(
-      "\\\\| `" +
-        sourceId +
-        "` \\\\|[^\\\\n]*\\\\| `replacement_candidate_prepared` \\\\|[^\\\\n]*\\\\| `human_gate` \\\\| `false` \\\\| `false` \\\\|",
-    );
-    assert.match(matrix, preparedRecord);
-  }
+  assertReplacementPreparationRows(matrix);
+});
+
+test("replacement preparation rejects a status moved into the replacement path", () => {
+  const matrix = fs.readFileSync(retentionMatrixPath, "utf8");
+  const malformedRow =
+    "| `U01` | `wrong_status` | `replacement_candidate_prepared; research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/ambio-fish-sludge-2017.md` | `human_gate` | `false` | `false` |";
+  const malformedMatrix = matrix.replace(
+    "| `U01` | `replacement_candidate_prepared` | `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/ambio-fish-sludge-2017.md` | `human_gate` | `false` | `false` |",
+    malformedRow,
+  );
+
+  assert.notEqual(malformedMatrix, matrix, "missing U01 replacement preparation row");
+  assert.throws(() => assertReplacementPreparationRows(malformedMatrix));
 });
 
 test("replacement preparation receipt records bounded work without promotion", () => {
