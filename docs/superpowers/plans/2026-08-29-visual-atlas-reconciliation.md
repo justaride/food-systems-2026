@@ -645,7 +645,7 @@ Run one command at a time and retain exit code plus concise output:
 
 ```bash
 npm test
-npm run typecheck
+npx tsc --noEmit
 npm run lint
 npm run build
 npm run landscape:report
