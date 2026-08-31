@@ -41,12 +41,12 @@ Den kandidatavgrensede [manifesten](../../../research/_status/visual-atlas-repla
 
 | ID | Preparasjonsstatus | Erstatningssti | Rettighetsgate | `publication_ready` | `deletion_authorized` |
 |---|---|---|---|---|---|
-| `U01` | `replacement_candidate_prepared` | `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/ambio-fish-sludge-2017.md` | `human_gate` | `false` | `false` |
-| `U03` | `replacement_candidate_prepared` | `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/estate-coop-union-2015.md` | `human_gate` | `false` | `false` |
-| `U04` | `replacement_candidate_prepared` | `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/frontiers-phosphorus-flow-norway-2023.md` | `human_gate` | `false` | `false` |
-| `T07` | `replacement_candidate_prepared` | `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/riksdagen-prop-2025-26-205.md` | `human_gate` | `false` | `false` |
-| `U05` | `replacement_candidate_prepared` | `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/forskrift-2023-12-11-2037.md` | `human_gate` | `false` | `false` |
-| `U06` | `replacement_candidate_prepared` | `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/forskrift-2023-12-11-2037.md` | `human_gate` | `false` | `false` |
+| `U01` | `replacement_candidate_prepared` | `docs/project/reconciliation/visual-atlas-replacements-2026-08-31/ambio-fish-sludge-2017.md` | `human_gate` | `false` | `false` |
+| `U03` | `replacement_candidate_prepared` | `docs/project/reconciliation/visual-atlas-replacements-2026-08-31/estate-coop-union-2015.md` | `human_gate` | `false` | `false` |
+| `U04` | `replacement_candidate_prepared` | `docs/project/reconciliation/visual-atlas-replacements-2026-08-31/frontiers-phosphorus-flow-norway-2023.md` | `human_gate` | `false` | `false` |
+| `T07` | `replacement_candidate_prepared` | `docs/project/reconciliation/visual-atlas-replacements-2026-08-31/riksdagen-prop-2025-26-205.md` | `human_gate` | `false` | `false` |
+| `U05` | `replacement_candidate_prepared` | `docs/project/reconciliation/visual-atlas-replacements-2026-08-31/forskrift-2023-12-11-2037.md` | `human_gate` | `false` | `false` |
+| `U06` | `replacement_candidate_prepared` | `docs/project/reconciliation/visual-atlas-replacements-2026-08-31/forskrift-2023-12-11-2037.md` | `human_gate` | `false` | `false` |
 
 ## Verifisert byteinventar
 

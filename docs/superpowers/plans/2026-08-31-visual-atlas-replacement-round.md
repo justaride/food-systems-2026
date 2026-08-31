@@ -4,9 +4,9 @@
 
 **Goal:** Replace six parked browser captures with five compact, provenance-preserving Markdown source notes and a machine-readable manifest, while preserving the original captures and keeping every artifact behind a human gate.
 
-**Architecture:** A JSON manifest is the single machine-readable inventory. Five Markdown notes carry bounded metadata, rights context, source locators, and short factual summaries without copied wrappers or article full text. One focused Vitest file enforces coverage, provenance, file type, authority, and no-fulltext/no-deletion invariants. The existing retention/rights matrix is then updated with preparation status and linked to a dated receipt.
+**Architecture:** A JSON manifest is the single machine-readable inventory. Five Markdown notes outside the importer-scanned `research/` tree carry bounded metadata, rights context, source locators, and short factual summaries without copied wrappers or article full text. One focused Node test-runner file enforces coverage, provenance, file type, authority, bounded size, and no-fulltext/no-deletion invariants. The existing retention/rights matrix is then updated with preparation status and linked to a dated receipt.
 
-**Tech stack:** Markdown, JSON, TypeScript, Vitest, Node.js.
+**Tech stack:** Markdown, JSON, TypeScript, Node.js test runner.
 
 **Baseline:** Work from branch `codex/visual-atlas-retention-matrix-2026-08-31`, based on `origin/main` at `eb3e68cc5285f9c8f173b0f7fc1998f56691e55f`, with the retention matrix commit `8f8886e8c63dc6cbfc8ffe95d45b8eef0cb25c69` already present.
 
@@ -19,11 +19,11 @@
 **Files:**
 - Create: `tests/lib/visual-atlas-retention-replacements.test.ts`
 - Create: `research/_status/visual-atlas-replacement-manifest-2026-08-31.json`
-- Create: `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/estate-coop-union-2015.md`
-- Create: `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/ambio-fish-sludge-2017.md`
-- Create: `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/frontiers-phosphorus-flow-norway-2023.md`
-- Create: `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/riksdagen-prop-2025-26-205.md`
-- Create: `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/forskrift-2023-12-11-2037.md`
+- Create: `docs/project/reconciliation/visual-atlas-replacements-2026-08-31/estate-coop-union-2015.md`
+- Create: `docs/project/reconciliation/visual-atlas-replacements-2026-08-31/ambio-fish-sludge-2017.md`
+- Create: `docs/project/reconciliation/visual-atlas-replacements-2026-08-31/frontiers-phosphorus-flow-norway-2023.md`
+- Create: `docs/project/reconciliation/visual-atlas-replacements-2026-08-31/riksdagen-prop-2025-26-205.md`
+- Create: `docs/project/reconciliation/visual-atlas-replacements-2026-08-31/forskrift-2023-12-11-2037.md`
 
 **Step 1: Write the failing manifest and note contract test**
 
@@ -45,7 +45,7 @@ Create a focused test that expects:
 Run:
 
 ```bash
-npm test -- tests/lib/visual-atlas-retention-replacements.test.ts
+node --import=tsx --test tests/lib/visual-atlas-retention-replacements.test.ts
 ```
 
 Expected: FAIL because the manifest and notes do not exist yet.
@@ -71,14 +71,14 @@ Source-specific requirements:
 - Ambio: preserve DOI `10.1007/s13280-017-0927-5`, PMCID `PMC5639799`, the exact title/authors extracted from local citation metadata, and the explicit CC BY 4.0 status found in the capture. Do not copy the abstract or article body.
 - Frontiers: preserve DOI `10.3389/fsufs.2023.1248984`, the exact title and authors from source metadata, and distinguish the article's CC BY 4.0 licence from Frontiers site chrome, code, branding, and third-party material. Do not reuse the existing oversized scraped wrapper as a replacement.
 - Riksdagen: preserve the proposition title and official URL `https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/beredskapslager-i-livsmedelskedjan_hd03205/`; describe the official-act copyright boundary and retain any locator/date caveat visible in the source record. Do not invent or normalize a duration claim that is not directly verified.
-- Lovdata: one note covers both the HTML and TXT captures for `Forskrift om endring i forskrift om administrative tollnedsettelser for landbruksvarer`; preserve the Lovdata URL and issuer/date metadata, summarize the affected provisions without reproducing the captured wrapper, and state that statutory text and Lovdata's database/interface rights are separate layers.
+- Lovdata: one note covers both the HTML and TXT captures for `Forskrift om forbud mot negative servitutter som begrenser etablering av dagligvarevirksomhet`; preserve the Lovdata URL and issuer/date metadata, summarize the affected provisions without reproducing the captured wrapper, and state that statutory text and Lovdata's database/interface rights are separate layers.
 
 **Step 4: Run focused verification**
 
 Run:
 
 ```bash
-npm test -- tests/lib/visual-atlas-retention-replacements.test.ts
+node --import=tsx --test tests/lib/visual-atlas-retention-replacements.test.ts
 git diff --check
 git status --short
 ```
@@ -90,7 +90,7 @@ Expected: focused test PASS; diff check clean; only the planned files changed.
 ```bash
 git add tests/lib/visual-atlas-retention-replacements.test.ts \
   research/_status/visual-atlas-replacement-manifest-2026-08-31.json \
-  research/bibliotek/rettighetsavgrensede-kilder-2026-08-31
+  docs/project/reconciliation/visual-atlas-replacements-2026-08-31
 git commit -m "docs: prepare bounded visual atlas replacements"
 ```
 
@@ -110,7 +110,7 @@ Add failing assertions that the retention matrix links the manifest and receipt 
 Run:
 
 ```bash
-npm test -- tests/lib/visual-atlas-retention-replacements.test.ts
+node --import=tsx --test tests/lib/visual-atlas-retention-replacements.test.ts
 ```
 
 Expected: FAIL because the matrix and receipt do not yet satisfy the contract.
@@ -137,7 +137,7 @@ Add a dated `Replacement preparation` section that links the manifest and receip
 Run:
 
 ```bash
-npm test -- tests/lib/visual-atlas-retention-replacements.test.ts
+node --import=tsx --test tests/lib/visual-atlas-retention-replacements.test.ts
 npm test
 git diff --check
 git status --short

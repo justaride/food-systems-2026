@@ -26,9 +26,10 @@ in relation to nitrogen fertilisation effects and logistics.
 
 ## Rights and licence context
 
-The capture explicitly identifies the article as CC BY 4.0. This short record
-does not reproduce the abstract or article body. It remains internal-only,
-human-gated, and not publication-ready.
+The capture explicitly identifies the article as [CC BY
+4.0](https://creativecommons.org/licenses/by/4.0/). This short record does not
+reproduce the abstract or article body. It remains internal-only, human-gated,
+and not publication-ready.
 
 ## Unresolved human checks
 

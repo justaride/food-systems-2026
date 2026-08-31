@@ -25,13 +25,15 @@ aquatic food systems, framed through a circular-economy perspective.
 
 ## Rights and licence context
 
-The capture identifies the article as CC BY 4.0. That article licence does not
-by itself license Frontiers site chrome, code, branding, or third-party
+The capture identifies the article as [CC BY
+4.0](https://creativecommons.org/licenses/by/4.0/). That article licence does
+not by itself license Frontiers site chrome, code, branding, or third-party
 material. This compact note replaces neither the article nor the oversized
 captured wrapper; it is internal-only, human-gated, and not publication-ready.
 
 ## Unresolved human checks
 
-- Reopen the DOI and article licence before any reuse.
+- Reopen the DOI and article licence before any reuse, and preserve attribution
+  and change-marking requirements.
 - Identify any third-party material or separate permissions requirement.
 - Do not treat this note as human-reviewed or as completed coverage.

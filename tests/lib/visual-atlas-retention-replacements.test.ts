@@ -14,6 +14,7 @@ type Replacement = {
   sourceInputs: SourceInput[];
   replacementPath: string;
   canonicalUrl: string;
+  accessedAt: string;
   disposition: string;
   authority: string;
   rightsStatus: string;
@@ -41,11 +42,13 @@ const coveredSourceIds = ["U01", "U03", "U04", "T07", "U05", "U06"];
 const baselineCommit = "eb3e68cc5285f9c8f173b0f7fc1998f56691e55f";
 const retentionMatrixCommit = "8f8886e8c63dc6cbfc8ffe95d45b8eef0cb25c69";
 const replacementPreparationHeading = "## Replacement preparation (2026-08-31)";
+const replacementDirectory =
+  "docs/project/reconciliation/visual-atlas-replacements-2026-08-31";
 const expectedPreparationRows = [
   [
     "U01",
     "replacement_candidate_prepared",
-    "research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/ambio-fish-sludge-2017.md",
+    `${replacementDirectory}/ambio-fish-sludge-2017.md`,
     "human_gate",
     "false",
     "false",
@@ -53,7 +56,7 @@ const expectedPreparationRows = [
   [
     "U03",
     "replacement_candidate_prepared",
-    "research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/estate-coop-union-2015.md",
+    `${replacementDirectory}/estate-coop-union-2015.md`,
     "human_gate",
     "false",
     "false",
@@ -61,7 +64,7 @@ const expectedPreparationRows = [
   [
     "U04",
     "replacement_candidate_prepared",
-    "research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/frontiers-phosphorus-flow-norway-2023.md",
+    `${replacementDirectory}/frontiers-phosphorus-flow-norway-2023.md`,
     "human_gate",
     "false",
     "false",
@@ -69,7 +72,7 @@ const expectedPreparationRows = [
   [
     "T07",
     "replacement_candidate_prepared",
-    "research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/riksdagen-prop-2025-26-205.md",
+    `${replacementDirectory}/riksdagen-prop-2025-26-205.md`,
     "human_gate",
     "false",
     "false",
@@ -77,7 +80,7 @@ const expectedPreparationRows = [
   [
     "U05",
     "replacement_candidate_prepared",
-    "research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/forskrift-2023-12-11-2037.md",
+    `${replacementDirectory}/forskrift-2023-12-11-2037.md`,
     "human_gate",
     "false",
     "false",
@@ -85,7 +88,7 @@ const expectedPreparationRows = [
   [
     "U06",
     "replacement_candidate_prepared",
-    "research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/forskrift-2023-12-11-2037.md",
+    `${replacementDirectory}/forskrift-2023-12-11-2037.md`,
     "human_gate",
     "false",
     "false",
@@ -125,6 +128,46 @@ const expectedInputs: SourceInput[] = [
   },
 ];
 
+const expectedReplacementMappings = [
+  {
+    sourceIds: ["U03"],
+    sourceInputs: [expectedInputs[1]],
+    replacementPath: `${replacementDirectory}/estate-coop-union-2015.md`,
+    canonicalUrl: "https://www.estatenyheter.no/aktuelt/coop-selger-stort-til-union/199604",
+    accessedAt: "2026-08-31",
+  },
+  {
+    sourceIds: ["U01"],
+    sourceInputs: [expectedInputs[0]],
+    replacementPath: `${replacementDirectory}/ambio-fish-sludge-2017.md`,
+    canonicalUrl: "https://pmc.ncbi.nlm.nih.gov/articles/PMC5639799/",
+    accessedAt: "2026-08-31",
+  },
+  {
+    sourceIds: ["U04"],
+    sourceInputs: [expectedInputs[2]],
+    replacementPath: `${replacementDirectory}/frontiers-phosphorus-flow-norway-2023.md`,
+    canonicalUrl:
+      "https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2023.1248984/full",
+    accessedAt: "2026-08-31",
+  },
+  {
+    sourceIds: ["T07"],
+    sourceInputs: [expectedInputs[3]],
+    replacementPath: `${replacementDirectory}/riksdagen-prop-2025-26-205.md`,
+    canonicalUrl:
+      "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/proposition/beredskapslager-i-livsmedelskedjan_hd03205/",
+    accessedAt: "2026-08-31",
+  },
+  {
+    sourceIds: ["U05", "U06"],
+    sourceInputs: [expectedInputs[4], expectedInputs[5]],
+    replacementPath: `${replacementDirectory}/forskrift-2023-12-11-2037.md`,
+    canonicalUrl: "https://lovdata.no/forskrift/2023-12-11-2037",
+    accessedAt: "2026-08-31",
+  },
+];
+
 const readManifest = (): Manifest => JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 
 const readReplacementPreparationRows = (matrix: string): string[][] => {
@@ -153,6 +196,21 @@ const assertReplacementPreparationRows = (matrix: string): void => {
   assert.deepEqual(readReplacementPreparationRows(matrix), expectedPreparationRows);
 };
 
+const assertExactReplacementMappings = (manifest: Manifest): void => {
+  assert.deepEqual(
+    manifest.entries.map(
+      ({ sourceIds, sourceInputs, replacementPath, canonicalUrl, accessedAt }) => ({
+        sourceIds,
+        sourceInputs,
+        replacementPath,
+        canonicalUrl,
+        accessedAt,
+      }),
+    ),
+    expectedReplacementMappings,
+  );
+};
+
 test("replacement manifest preserves the candidate-only governance boundary", () => {
   const manifest = readManifest();
 
@@ -171,10 +229,11 @@ test("replacement manifest preserves the candidate-only governance boundary", ()
   }
 });
 
-test("replacement manifest has exact one-time source coverage and immutable input provenance", () => {
+test("replacement manifest binds exact inputs and locators to each replacement", () => {
   const manifest = readManifest();
   const inputs = manifest.entries.flatMap((entry) => entry.sourceInputs);
 
+  assertExactReplacementMappings(manifest);
   assert.deepEqual(
     [...manifest.entries.flatMap((entry) => entry.sourceIds)].sort(),
     ["T07", "U01", "U03", "U04", "U05", "U06"],
@@ -188,14 +247,42 @@ test("replacement manifest has exact one-time source coverage and immutable inpu
   assert.equal(regulation?.sourceInputs.length, 2);
 });
 
+test("replacement manifest rejects source IDs swapped between complete entries", () => {
+  const manifest = structuredClone(readManifest());
+  const estate = manifest.entries[0];
+  const ambio = manifest.entries[1];
+
+  [estate.sourceIds, ambio.sourceIds] = [ambio.sourceIds, estate.sourceIds];
+  [estate.sourceInputs[0].sourceId, ambio.sourceInputs[0].sourceId] = [
+    ambio.sourceInputs[0].sourceId,
+    estate.sourceInputs[0].sourceId,
+  ];
+
+  assert.deepEqual(
+    [...manifest.entries.flatMap((entry) => entry.sourceIds)].sort(),
+    ["T07", "U01", "U03", "U04", "U05", "U06"],
+    "mutation must preserve flattened source coverage",
+  );
+  assert.throws(() => assertExactReplacementMappings(manifest));
+});
+
 test("replacement notes remain bounded, internal-only records", () => {
   const manifest = readManifest();
 
   for (const entry of manifest.entries) {
     assert.match(entry.replacementPath, /\.md$/);
+    assert.ok(
+      !entry.replacementPath.startsWith("research/"),
+      `replacement path must remain outside importer-scanned research/: ${entry.replacementPath}`,
+    );
     assert.ok(!entry.sourceInputs.some((input) => input.path === entry.replacementPath));
     assert.ok(fs.existsSync(entry.replacementPath), `missing ${entry.replacementPath}`);
     const note = fs.readFileSync(entry.replacementPath, "utf8");
+    const byteLength = Buffer.byteLength(note, "utf8");
+    const wordCount = note.trim() === "" ? 0 : note.trim().split(/\s+/u).length;
+
+    assert.ok(byteLength <= 4_000, `${entry.replacementPath} is ${byteLength} UTF-8 bytes`);
+    assert.ok(wordCount <= 500, `${entry.replacementPath} is ${wordCount} words`);
 
     assert.match(note, /authority:\s*internal_only/);
     assert.match(note, /publication_ready:\s*false/);
@@ -227,9 +314,9 @@ test("replacement preparation remains human-gated for each covered source", () =
 test("replacement preparation rejects a status moved into the replacement path", () => {
   const matrix = fs.readFileSync(retentionMatrixPath, "utf8");
   const malformedRow =
-    "| `U01` | `wrong_status` | `replacement_candidate_prepared; research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/ambio-fish-sludge-2017.md` | `human_gate` | `false` | `false` |";
+    `| \`U01\` | \`wrong_status\` | \`replacement_candidate_prepared; ${replacementDirectory}/ambio-fish-sludge-2017.md\` | \`human_gate\` | \`false\` | \`false\` |`;
   const malformedMatrix = matrix.replace(
-    "| `U01` | `replacement_candidate_prepared` | `research/bibliotek/rettighetsavgrensede-kilder-2026-08-31/ambio-fish-sludge-2017.md` | `human_gate` | `false` | `false` |",
+    `| \`U01\` | \`replacement_candidate_prepared\` | \`${replacementDirectory}/ambio-fish-sludge-2017.md\` | \`human_gate\` | \`false\` | \`false\` |`,
     malformedRow,
   );
 
@@ -246,10 +333,15 @@ test("replacement preparation receipt records bounded work without promotion", (
     baselineCommit,
     retentionMatrixCommit,
     ...coveredSourceIds,
-    "No source capture was deleted or modified.",
+    "This final fix did not write to, delete, or modify any source capture",
     "No publication or status promotion occurred.",
     "No database or corpus-health workflow occurred.",
     "No push, PR, merge, or deployment occurred.",
+    "2026-08-31 is the verification-access date",
+    "separate primary checkout",
+    "shasum -a 256",
+    "all six files matched",
+    "repository tests verify declarations but do not read the external raw bytes",
   ]) {
     assert.match(receipt, new RegExp(expected));
   }
