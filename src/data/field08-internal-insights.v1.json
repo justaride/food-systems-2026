@@ -1,0 +1,231 @@
+{
+  "documentType": "field08_internal_insight_register",
+  "schemaVersion": "1.0.0",
+  "evidencePackageHash": "sha256:54fd715ed4088360a84f66309022f2a6e399513692316084f1596ea089a3446a",
+  "insights": [
+    {
+      "insightId": "insight.field08.dk.within-source-stage-distribution.v1",
+      "statement": "Danmarks 2023-tall kan brukes til å undersøke fordelingen mellom ledd innen den samme Eurostat-definisjonen; dette er ikke en nordisk rangering.",
+      "observationIds": [
+        "fs:observation:field08.dk.eurostat-food-waste-total-2023",
+        "fs:observation:field08.dk.eurostat-food-waste-primary-2023",
+        "fs:observation:field08.dk.eurostat-food-waste-manufacturing-2023",
+        "fs:observation:field08.dk.eurostat-food-waste-retail-2023",
+        "fs:observation:field08.dk.eurostat-food-waste-foodservice-2023",
+        "fs:observation:field08.dk.eurostat-food-waste-household-2023"
+      ],
+      "calculationMethod": "Hvert kompatibelt leddelt Danmark-tall divideres på Eurostat-totalen for Danmark i samme uttrekk.",
+      "denominator": "1 553 763 tonn, Danmark TOT, 2023, samme Eurostat-uttrekk",
+      "period": "2023",
+      "systemBoundary": "Danmark; W091_092_101_FD; COL; de fem deklarerte NACE-/husholdningsleddene.",
+      "comparabilityClass": "within_source_same_country_compatible",
+      "alternativeExplanations": [
+        "Fordelingen kan påvirkes av nasjonal målemetode og klassifisering mellom ledd."
+      ],
+      "disconfirmingEvidence": [
+        "Eurostat-strukturen alene dokumenterer ikke harmonisert målemetode mellom land."
+      ],
+      "sourceIds": [
+        "fs:source:field08.eu.eurostat-env-wasfw-2023-dk-fi"
+      ],
+      "ownerReceiptId": "owner_review.field08.eurostat.2026-08-31.1",
+      "ownerReceiptHash": "sha256:dfbf34f18dc4c7e2d70dfef328d93ebe2f536280fa02720b8dc7a32156a04c72",
+      "limitations": [
+        "Ingen nordisk rangering.",
+        "Ingen Finland-verdi fra uttrekket før Finland–Åland-grensen er avklart.",
+        "Eurostats felles tabellstruktur dokumenterer ikke harmoniserte nasjonale målemetoder.",
+        "Tallene dokumenterer ikke sidestrømmer, behandlingsutfall eller N–P–K-gjenvinning."
+      ],
+      "citationReadiness": "internal_context",
+      "externalUseAllowed": false,
+      "coveragePromotionAllowed": false
+    },
+    {
+      "insightId": "insight.field08.npk-accounting-gap.v1",
+      "statement": "Luke-tallene synliggjør et kunnskapshull mellom jordbruksbalanser og dokumentert næringsstoffgjenvinning; Finland- og Åland-ratene er ikke additive.",
+      "observationIds": [
+        "fs:observation:field08.fi.luke-n-balance-2024",
+        "fs:observation:field08.fi.luke-p-balance-2024",
+        "fs:observation:field08.ax.luke-n-balance-2024",
+        "fs:observation:field08.ax.luke-p-balance-2024"
+      ],
+      "calculationMethod": "Kvalitativ gap-identifikasjon; ingen summering eller subtraksjon.",
+      "denominator": "Ikke relevant; kildeverdiene er separate kg/ha-rater.",
+      "period": "2024",
+      "systemBoundary": "Jordbruksarealets N- og P-balanser; Finland-raden inkluderer Åland.",
+      "comparabilityClass": "nested_geographies_non_additive",
+      "alternativeExplanations": [
+        "Balanseoverskudd kan skyldes flere innsats- og uttaksforhold enn sidestrømmer."
+      ],
+      "disconfirmingEvidence": [
+        "Kilden måler ikke faktisk substitusjon av mineralgjødsel."
+      ],
+      "sourceIds": [
+        "fs:source:field08.fi.luke-np-balance-2024"
+      ],
+      "ownerReceiptId": "owner_review.field08.luke.2026-08-31.1",
+      "ownerReceiptHash": "sha256:20cd5e8cdd32b794a3ddb19c2520dbddc9154a3970fcffb423c25ee76561b00f",
+      "limitations": [
+        "Finland- og Åland-ratene må aldri summeres eller trekkes fra hverandre.",
+        "Finland-raden inkluderer Åland og de nasjonale og regionale beregningene har ulike inputledd.",
+        "Ålands 0,0 kg/ha fosfor er en avrundet balanse og dokumenterer ikke fravær av fosfor.",
+        "Kilden dokumenterer ikke faktisk næringsstoffgjenvinning, utslipp eller substitusjon.",
+        "Kalium er ikke dekket."
+      ],
+      "citationReadiness": "internal_context",
+      "externalUseAllowed": false,
+      "coveragePromotionAllowed": false
+    },
+    {
+      "insightId": "insight.field08.no.agriculture-boundary.v1",
+      "statement": "Den norske kilden kan belyse intern fordeling av matsvinn innen jordbrukssektoren, men ikke norsk total for matsystemet.",
+      "observationIds": [
+        "fs:observation:field08.no.food-waste-total-table-2024",
+        "fs:observation:field08.no.food-waste-total-prose-2024",
+        "fs:observation:field08.no.food-waste-share-2024"
+      ],
+      "calculationMethod": "Kildeintern sammenstilling av deklarerte jordbruksledd.",
+      "denominator": "Kildens total for jordbrukssektoren, ikke hele matsystemet.",
+      "period": "2024",
+      "systemBoundary": "Norsk jordbrukssektor som definert i Rapport 45/2025.",
+      "comparabilityClass": "within_source_sector_only",
+      "alternativeExplanations": [
+        "Rapporteringsgrad og produktsammensetning kan drive forskjeller mellom ledd."
+      ],
+      "disconfirmingEvidence": [
+        "Kilden utelater andre deler av matsystemet."
+      ],
+      "sourceIds": [
+        "fs:source:field08.no.landbruksdirektoratet-food-waste-2024"
+      ],
+      "ownerReceiptId": "owner_review.field08.norway.2026-08-31.1",
+      "ownerReceiptHash": "sha256:f4978586bda8c7fa64de7320482e9d86e9ae2ad5065e432e117084b8347a169e",
+      "limitations": [
+        "Kilden må aldri omtales som norsk total for hele matsystemet.",
+        "Konflikten mellom 43 132 tonn i tabellen og 43 152 tonn i brødteksten forblir åpen; ingen verdi velges i skjul.",
+        "Aggregatet kombinerer sektorspesifikke metoder, enheter og referanseperioder.",
+        "Korndata går til juni 2025 og underliggende melkedata er oppgitt i liter.",
+        "Kilden dokumenterer ikke et fullstendig sidestrøms- eller N–P–K-regnskap."
+      ],
+      "citationReadiness": "internal_context",
+      "externalUseAllowed": false,
+      "coveragePromotionAllowed": false
+    },
+    {
+      "insightId": "insight.field08.ax.treatment-input-not-recovery.v1",
+      "statement": "ÅSUB skiller mellom avfallsmengde, behandlingskode og eksport; ingen av disse dokumenterer faktisk N–P–K-substitusjon.",
+      "observationIds": [
+        "fs:observation:field08.ax.animal-mixed-food-waste-2024",
+        "fs:observation:field08.ax.r3-animal-mixed-treatment-2024"
+      ],
+      "calculationMethod": "Begreps- og grenseanalyse av deklarerte tabeller; ingen massebalanse beregnes.",
+      "denominator": "Ikke etablert for næringsstoffgjenvinning.",
+      "period": "2024",
+      "systemBoundary": "Ålands mottatte avfallsmasse, behandlingskoder og eksportposter.",
+      "comparabilityClass": "treatment_input_not_outcome",
+      "alternativeExplanations": [
+        "R3+-koding kan dekke ulike faktiske prosesser og utbytter."
+      ],
+      "disconfirmingEvidence": [
+        "Ingen dokumentert N-, P- eller K-mengde som erstatter jomfruelig innsats."
+      ],
+      "sourceIds": [
+        "fs:source:field08.ax.asub-waste-statistics-2024"
+      ],
+      "ownerReceiptId": "owner_review.field08.asub.2026-08-31.1",
+      "ownerReceiptHash": "sha256:90a646143747a1808a6b49723c2d3ac6dc588e28b52a38e6de7f110d22e9af82",
+      "limitations": [
+        "R3+-kode og mottatt våtmasse dokumenterer ikke faktisk N-, P- eller K-gjenvinning eller substitusjon.",
+        "Eksporttotalene 19 132, 19 131 og 19 105 tonn forblir en åpen kildekonflikt.",
+        "Eksporttallene gjelder alt avfall og kan ikke uten videre sammenlignes med kategorien animalsk avfall og blandet matavfall.",
+        "Våtmasse kan variere betydelig i næringsinnhold og utbytte."
+      ],
+      "citationReadiness": "internal_context",
+      "externalUseAllowed": false,
+      "coveragePromotionAllowed": false
+    },
+    {
+      "insightId": "insight.field08.is.method-conflict.v1",
+      "statement": "Islands tilsynelatende totaler må leses sammen med kildekonflikter og dokumenterte målefeil; de er ikke et sikkert nordisk sammenligningspunkt.",
+      "observationIds": [
+        "fs:observation:field08.is.food-waste-total-2022",
+        "fs:observation:field08.is.abstract-manufacturing-2022",
+        "fs:observation:field08.is.abstract-retail-2022",
+        "fs:observation:field08.is.abstract-foodservice-2022",
+        "fs:observation:field08.is.abstract-household-share-2022",
+        "fs:observation:field08.is.section-household-share-2022"
+      ],
+      "calculationMethod": "Metodisk konfliktanalyse uten rangering.",
+      "denominator": "Kildens deklarerte univers, med eksplisitte frafalls- og klassifikasjonsproblemer.",
+      "period": "2022",
+      "systemBoundary": "Island, kildefordelte matsvinnestimater i sluttrapporten.",
+      "comparabilityClass": "source_conflict_requires_caution",
+      "alternativeExplanations": [
+        "Frafall, falske nuller og ulik sektoravgrensning kan forklare avvik."
+      ],
+      "disconfirmingEvidence": [
+        "Rapporten dokumenterer selv metodiske svakheter og motstridende verdier."
+      ],
+      "sourceIds": [
+        "fs:source:field08.is.environment-agency-food-waste-2022"
+      ],
+      "ownerReceiptId": "owner_review.field08.iceland.2026-08-31.1",
+      "ownerReceiptHash": "sha256:d8d5304f71f0eb3efcfb0398eb8203703fab174a250b945b630023313f2c07f9",
+      "limitations": [
+        "Ingen nordisk rangering.",
+        "Alle dokumenterte kildekonflikter må følge intern bruk og kan ikke korrigeres eller skjules automatisk.",
+        "Sammendragets 1,6, 1,93 og 3,86 tonn står i konflikt med detaljverdiene 1 596,2, 1 927 og 3 856 tonn.",
+        "Husholdningsandelen oppgis både som 39 prosent og 36 prosent.",
+        "Akvakulturens 0* er en falsk null på grunn av manglende data og må behandles som ukjent.",
+        "Frafall, metode og sektoravgrensning begrenser generalisering."
+      ],
+      "citationReadiness": "internal_context",
+      "externalUseAllowed": false,
+      "coveragePromotionAllowed": false
+    }
+  ],
+  "gaps": [],
+  "blockedComparisons": [
+    {
+      "statement": "Ingen nordisk rangering av matsvinn eller N–P–K.",
+      "reason": "Definisjoner, perioder og systemgrenser avviker."
+    },
+    {
+      "statement": "Ingen Finland-verdi fra Eurostat.",
+      "reason": "Finland–Åland-grensen er uavklart."
+    },
+    {
+      "statement": "Ingen summering eller subtraksjon av Luke-rater.",
+      "reason": "Finland inkluderer Åland; Finland- og Åland-ratene er ikke additive."
+    },
+    {
+      "statement": "Ingen norsk matsystemtotal fra jordbruksrapporten.",
+      "reason": "Kilden dekker bare jordbrukssektoren."
+    },
+    {
+      "statement": "Ingen dokumentert N–P–K-gjenvinning fra behandlingskode eller våtmasse.",
+      "reason": "Input og kode dokumenterer ikke faktisk næringsstoffsubstitusjon."
+    }
+  ],
+  "doNotSay": [
+    "Danmark har mest eller minst matsvinn i Norden.",
+    "Eurostat dokumenterer et sikkert Finland-tall uten avklart Åland-grense.",
+    "Luke-ratene kan summeres eller trekkes fra hverandre.",
+    "Landbruksdirektoratets tall er norsk total for matsystemet.",
+    "R3+-kode eller mottatt våtmasse beviser N–P–K-gjenvinning."
+  ],
+  "externalUseAllowed": false,
+  "coveragePromotionAllowed": false,
+  "packageGeneratedAt": "2026-07-28T23:30:02+02:00",
+  "sourceCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+  "nextDataNeeds": [
+    "Avklar Finland–Åland-grensen i Eurostat-uttrekket før Finland-verdi brukes.",
+    "Koble avfallsinput til målte N-, P- og K-utbytter og faktisk substitusjon.",
+    "Skaff sammenlignbare definisjoner, perioder og systemgrenser før landanalyse."
+  ],
+  "laterExpertGates": [
+    "Uavhengig metodevurdering av hver kilde.",
+    "Partner- og rettighetsvurdering før videre deling.",
+    "Separat publiserings- og coverage-beslutning; denne piloten åpner ingen av delene."
+  ]
+}

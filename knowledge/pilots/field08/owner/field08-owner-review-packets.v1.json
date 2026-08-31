@@ -1,0 +1,1906 @@
+{
+  "documentType": "field08_owner_review_packet_set",
+  "schemaVersion": "1.0.0",
+  "packageId": "owner_packets.field08.v1",
+  "generatedFrom": {
+    "sourceCommit": "7715aa32441c5bb229be3298e4413230fd23e63b",
+    "generatedAt": "2026-07-28T23:30:02+02:00",
+    "evidencePackageHash": "sha256:54fd715ed4088360a84f66309022f2a6e399513692316084f1596ea089a3446a",
+    "inputSnapshotCount": 21,
+    "outputCount": 6
+  },
+  "sources": [
+    {
+      "packetId": "owner_packet.field08.eurostat.v1",
+      "evidencePackageHash": "sha256:54fd715ed4088360a84f66309022f2a6e399513692316084f1596ea089a3446a",
+      "source": {
+        "sourceId": "fs:source:field08.eu.eurostat-env-wasfw-2023-dk-fi",
+        "sourceHash": "sha256:1fc5939217233738e48fcaa3b87ee27db28d09694c3fbdfb1d5bbf40e13075fc",
+        "title": "Food waste and food waste prevention, env_wasfw, 2023 Denmark and Finland query",
+        "publisher": "Eurostat",
+        "geographyIds": [
+          "geo.dk",
+          "geo.fi"
+        ],
+        "locatorCount": 2
+      },
+      "locators": [
+        {
+          "acquisitionId": "acq.field08.eu.eurostat-dk-2023",
+          "citationId": "fs:citation:field08.eu.eurostat-dk-2023",
+          "citationText": "Eurostat, env_wasfw, 2023 DK/FI tonne query, captured 2026-07-28.",
+          "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/env_wasfw?lang=en&freq=A&wst_oper=COL&waste=W091_092_101_FD&nace_r2=TOT&nace_r2=A01_A03_FOOD&nace_r2=C10_C11&nace_r2=G46_G47_FOOD&nace_r2=I55_I56_N-S_FOOD&nace_r2=HH&unit=T&geo=DK&geo=FI&time=2023",
+          "locator": "geo=DK; time=2023; unit=T; waste=W091_092_101_FD; nace_r2=TOT,A01_A03_FOOD,C10_C11,G46_G47_FOOD,I55_I56_N-S_FOOD,HH",
+          "captureSha256": "sha256:8e87e2dde29dd0b3cca341f2d4f04b9dfbf1f20152b0f3073c6af85c0cd511d0"
+        },
+        {
+          "acquisitionId": "acq.field08.eu.eurostat-fi-2023",
+          "citationId": "fs:citation:field08.eu.eurostat-fi-2023-boundary-unresolved",
+          "citationText": "Eurostat, env_wasfw, 2023 DK/FI tonne query, FI reporting geography, captured 2026-07-28.",
+          "sourceUrl": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/env_wasfw?lang=en&freq=A&wst_oper=COL&waste=W091_092_101_FD&nace_r2=TOT&nace_r2=A01_A03_FOOD&nace_r2=C10_C11&nace_r2=G46_G47_FOOD&nace_r2=I55_I56_N-S_FOOD&nace_r2=HH&unit=T&geo=DK&geo=FI&time=2023",
+          "locator": "geo=FI; time=2023; unit=T; waste=W091_092_101_FD; nace_r2=TOT,A01_A03_FOOD,C10_C11,G46_G47_FOOD,I55_I56_N-S_FOOD,HH",
+          "captureSha256": "sha256:8e87e2dde29dd0b3cca341f2d4f04b9dfbf1f20152b0f3073c6af85c0cd511d0"
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "fs:claim:field08.dk.eurostat-food-waste-total-2023",
+          "claimText": "Eurostat reports 1,553,763 tonnes for Denmark's total food waste in 2023 under NACE aggregate TOT, waste W091_092_101_FD and operation COL.",
+          "systemBoundary": {
+            "included": [
+              "Denmark; 2023; unit T; W091_092_101_FD; operation COL; NACE aggregate TOT."
+            ],
+            "excluded": [
+              "Finland observations.",
+              "Waste categories outside W091_092_101_FD.",
+              "Treatment destination and realized circular outcomes."
+            ],
+            "functionalUnit": "tonnes fresh mass"
+          },
+          "limitations": [
+            "Eurostat permits national measurement methods that can differ; this value is not by itself cross-country comparable.",
+            "The total exactly equals the five captured stage rows within this query."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.dk.eurostat-food-waste-primary-2023",
+          "claimText": "Eurostat reports 115,343 tonnes for Denmark's primary-production food waste in 2023 under NACE A01_A03_FOOD, waste W091_092_101_FD and operation COL.",
+          "systemBoundary": {
+            "included": [
+              "Denmark; 2023; unit T; W091_092_101_FD; operation COL; NACE A01_A03_FOOD."
+            ],
+            "excluded": [
+              "Finland observations.",
+              "Waste categories outside W091_092_101_FD.",
+              "Treatment destination and realized circular outcomes."
+            ],
+            "functionalUnit": "tonnes fresh mass"
+          },
+          "limitations": [
+            "Eurostat permits national measurement methods that can differ; this value is not by itself cross-country comparable."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.dk.eurostat-food-waste-manufacturing-2023",
+          "claimText": "Eurostat reports 737,599 tonnes for Denmark's food-manufacturing food waste in 2023 under NACE C10_C11, waste W091_092_101_FD and operation COL.",
+          "systemBoundary": {
+            "included": [
+              "Denmark; 2023; unit T; W091_092_101_FD; operation COL; NACE C10_C11."
+            ],
+            "excluded": [
+              "Finland observations.",
+              "Waste categories outside W091_092_101_FD.",
+              "Treatment destination and realized circular outcomes."
+            ],
+            "functionalUnit": "tonnes fresh mass"
+          },
+          "limitations": [
+            "Eurostat permits national measurement methods that can differ; this value is not by itself cross-country comparable."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.dk.eurostat-food-waste-retail-2023",
+          "claimText": "Eurostat reports 107,676 tonnes for Denmark's food-retail and distribution food waste in 2023 under NACE G46_G47_FOOD, waste W091_092_101_FD and operation COL.",
+          "systemBoundary": {
+            "included": [
+              "Denmark; 2023; unit T; W091_092_101_FD; operation COL; NACE G46_G47_FOOD."
+            ],
+            "excluded": [
+              "Finland observations.",
+              "Waste categories outside W091_092_101_FD.",
+              "Treatment destination and realized circular outcomes."
+            ],
+            "functionalUnit": "tonnes fresh mass"
+          },
+          "limitations": [
+            "Eurostat permits national measurement methods that can differ; this value is not by itself cross-country comparable."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.dk.eurostat-food-waste-foodservice-2023",
+          "claimText": "Eurostat reports 78,071 tonnes for Denmark's restaurant and food-service food waste in 2023 under NACE I55_I56_N-S_FOOD, waste W091_092_101_FD and operation COL.",
+          "systemBoundary": {
+            "included": [
+              "Denmark; 2023; unit T; W091_092_101_FD; operation COL; NACE I55_I56_N-S_FOOD."
+            ],
+            "excluded": [
+              "Finland observations.",
+              "Waste categories outside W091_092_101_FD.",
+              "Treatment destination and realized circular outcomes."
+            ],
+            "functionalUnit": "tonnes fresh mass"
+          },
+          "limitations": [
+            "Eurostat permits national measurement methods that can differ; this value is not by itself cross-country comparable."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.dk.eurostat-food-waste-household-2023",
+          "claimText": "Eurostat reports 515,074 tonnes for Denmark's household food waste in 2023 under NACE HH, waste W091_092_101_FD and operation COL.",
+          "systemBoundary": {
+            "included": [
+              "Denmark; 2023; unit T; W091_092_101_FD; operation COL; NACE HH."
+            ],
+            "excluded": [
+              "Finland observations.",
+              "Waste categories outside W091_092_101_FD.",
+              "Treatment destination and realized circular outcomes."
+            ],
+            "functionalUnit": "tonnes fresh mass"
+          },
+          "limitations": [
+            "Eurostat permits national measurement methods that can differ; this value is not by itself cross-country comparable."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.eu.eurostat-fi-boundary-unresolved-2023",
+          "claimText": "The captured Eurostat response reports a 2023 FI series but does not establish whether Åland is included for the project's separate Finland and Åland geography cells; no Finland measurement is admitted.",
+          "systemBoundary": {
+            "included": [
+              "The presence of a reporting geography labelled FI in the captured API response."
+            ],
+            "excluded": [
+              "Any inferred mainland-Finland value.",
+              "Any allocation to Åland.",
+              "Coverage or readiness promotion."
+            ],
+            "functionalUnit": "boundary-status claim only"
+          },
+          "limitations": [
+            "Eurostat's captured payload does not resolve the project-specific Finland–Åland split."
+          ]
+        }
+      ],
+      "observations": [
+        {
+          "observationId": "fs:observation:field08.dk.eurostat-food-waste-total-2023",
+          "title": "Denmark Eurostat total food waste, 2023 observation",
+          "value": 1553763,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2023-01-01",
+            "to": "2023-12-31",
+            "asOf": "2023-12-31"
+          },
+          "denominatorOrUniverse": "The selected Eurostat DK/TOT query cell.",
+          "method": "Direct value from the captured Eurostat JSON-stat response.",
+          "systemBoundary": {
+            "included": [
+              "Denmark; 2023; unit T; W091_092_101_FD; operation COL; NACE aggregate TOT."
+            ],
+            "excluded": [
+              "Finland observations.",
+              "Waste categories outside W091_092_101_FD.",
+              "Treatment destination and realized circular outcomes."
+            ],
+            "functionalUnit": "tonnes fresh mass"
+          },
+          "limitations": [
+            "Eurostat permits national measurement methods that can differ; this value is not by itself cross-country comparable.",
+            "The total exactly equals the five captured stage rows within this query.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.dk.eurostat-food-waste-primary-2023",
+          "title": "Denmark Eurostat primary-production food waste, 2023 observation",
+          "value": 115343,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2023-01-01",
+            "to": "2023-12-31",
+            "asOf": "2023-12-31"
+          },
+          "denominatorOrUniverse": "The selected Eurostat Denmark Primary production of food, NACE A01_A03_FOOD. query cell.",
+          "method": "Direct value from the captured Eurostat JSON-stat response.",
+          "systemBoundary": {
+            "included": [
+              "Denmark; 2023; unit T; W091_092_101_FD; operation COL; NACE A01_A03_FOOD."
+            ],
+            "excluded": [
+              "Finland observations.",
+              "Waste categories outside W091_092_101_FD.",
+              "Treatment destination and realized circular outcomes."
+            ],
+            "functionalUnit": "tonnes fresh mass"
+          },
+          "limitations": [
+            "Eurostat permits national measurement methods that can differ; this value is not by itself cross-country comparable.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.dk.eurostat-food-waste-manufacturing-2023",
+          "title": "Denmark Eurostat food-manufacturing food waste, 2023 observation",
+          "value": 737599,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2023-01-01",
+            "to": "2023-12-31",
+            "asOf": "2023-12-31"
+          },
+          "denominatorOrUniverse": "The selected Eurostat Denmark Manufacture of food products and beverages, NACE C10_C11. query cell.",
+          "method": "Direct value from the captured Eurostat JSON-stat response.",
+          "systemBoundary": {
+            "included": [
+              "Denmark; 2023; unit T; W091_092_101_FD; operation COL; NACE C10_C11."
+            ],
+            "excluded": [
+              "Finland observations.",
+              "Waste categories outside W091_092_101_FD.",
+              "Treatment destination and realized circular outcomes."
+            ],
+            "functionalUnit": "tonnes fresh mass"
+          },
+          "limitations": [
+            "Eurostat permits national measurement methods that can differ; this value is not by itself cross-country comparable.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.dk.eurostat-food-waste-retail-2023",
+          "title": "Denmark Eurostat food-retail and distribution food waste, 2023 observation",
+          "value": 107676,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2023-01-01",
+            "to": "2023-12-31",
+            "asOf": "2023-12-31"
+          },
+          "denominatorOrUniverse": "The selected Eurostat Denmark Retail and other distribution of food, NACE G46_G47_FOOD. query cell.",
+          "method": "Direct value from the captured Eurostat JSON-stat response.",
+          "systemBoundary": {
+            "included": [
+              "Denmark; 2023; unit T; W091_092_101_FD; operation COL; NACE G46_G47_FOOD."
+            ],
+            "excluded": [
+              "Finland observations.",
+              "Waste categories outside W091_092_101_FD.",
+              "Treatment destination and realized circular outcomes."
+            ],
+            "functionalUnit": "tonnes fresh mass"
+          },
+          "limitations": [
+            "Eurostat permits national measurement methods that can differ; this value is not by itself cross-country comparable.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.dk.eurostat-food-waste-foodservice-2023",
+          "title": "Denmark Eurostat restaurant and food-service food waste, 2023 observation",
+          "value": 78071,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2023-01-01",
+            "to": "2023-12-31",
+            "asOf": "2023-12-31"
+          },
+          "denominatorOrUniverse": "The selected Eurostat Denmark Restaurants and food services, NACE I55_I56_N-S_FOOD. query cell.",
+          "method": "Direct value from the captured Eurostat JSON-stat response.",
+          "systemBoundary": {
+            "included": [
+              "Denmark; 2023; unit T; W091_092_101_FD; operation COL; NACE I55_I56_N-S_FOOD."
+            ],
+            "excluded": [
+              "Finland observations.",
+              "Waste categories outside W091_092_101_FD.",
+              "Treatment destination and realized circular outcomes."
+            ],
+            "functionalUnit": "tonnes fresh mass"
+          },
+          "limitations": [
+            "Eurostat permits national measurement methods that can differ; this value is not by itself cross-country comparable.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.dk.eurostat-food-waste-household-2023",
+          "title": "Denmark Eurostat household food waste, 2023 observation",
+          "value": 515074,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2023-01-01",
+            "to": "2023-12-31",
+            "asOf": "2023-12-31"
+          },
+          "denominatorOrUniverse": "The selected Eurostat Denmark Household activities, NACE HH. query cell.",
+          "method": "Direct value from the captured Eurostat JSON-stat response.",
+          "systemBoundary": {
+            "included": [
+              "Denmark; 2023; unit T; W091_092_101_FD; operation COL; NACE HH."
+            ],
+            "excluded": [
+              "Finland observations.",
+              "Waste categories outside W091_092_101_FD.",
+              "Treatment destination and realized circular outcomes."
+            ],
+            "functionalUnit": "tonnes fresh mass"
+          },
+          "limitations": [
+            "Eurostat permits national measurement methods that can differ; this value is not by itself cross-country comparable.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        }
+      ],
+      "contradictions": [],
+      "proposedInternalUse": "Analyser fordelingen mellom danske ledd innen samme 2023-uttrekk; behold Finland blokkert.",
+      "whatItMeasures": "Kilde-definert matsvinn i tonn for de valgte Eurostat-cellene og NACE-/husholdningsleddene.",
+      "whatItDoesNotMeasure": "Et harmonisert nordisk ranggrunnlag, sidestrømmer, behandlingsutfall eller næringsstoffgjenvinning.",
+      "alternativeExplanations": [
+        "Nasjonale målemetoder og klassifisering mellom ledd kan forklare forskjeller.",
+        "Finland-cellen kan ikke tolkes før Finland–Åland-grensen er avklart."
+      ],
+      "requiredLimitations": [
+        "Ingen nordisk rangering.",
+        "Ingen Finland-verdi fra dette uttrekket før grensen mot Åland er løst."
+      ],
+      "reviewInstruction": "Gabriel må åpne den private PDF-lenken eller det replayede API-uttrekket, velge beslutning og bekrefte den kanoniske attestasjonsformuleringen før en kvittering appendes.",
+      "privateReviewLinkIncludedInDeployableArtifact": false,
+      "externalUseAllowed": false,
+      "coveragePromotionAllowed": false
+    },
+    {
+      "packetId": "owner_packet.field08.luke.v1",
+      "evidencePackageHash": "sha256:54fd715ed4088360a84f66309022f2a6e399513692316084f1596ea089a3446a",
+      "source": {
+        "sourceId": "fs:source:field08.fi.luke-np-balance-2024",
+        "sourceHash": "sha256:d15a3bf66c3db6d342f984e30d1629f759f131cbc6ea005237b33f808fc836dc",
+        "title": "Nitrogen and phosphorus balance",
+        "publisher": "Natural Resources Institute Finland (Luke)",
+        "geographyIds": [
+          "geo.ax",
+          "geo.fi"
+        ],
+        "locatorCount": 2
+      },
+      "locators": [
+        {
+          "acquisitionId": "acq.field08.fi.luke-np-balance-whole-2024",
+          "citationId": "fs:citation:field08.fi.luke-np-balance-whole-2024",
+          "citationText": "Luke, Development of nitrogen and phosphorus balances, whole-country 2024 row, captured 2026-07-28.",
+          "sourceUrl": "https://statdb.luke.fi/PxWeb/api/v1/en/LUKE/08a%20CAP-indikaattorit/06%20Tehokas%20ymp%C3%A4rist%C3%B6nhoito%20ja%20suojelu/03%20Maatalousmaan%20ravinnetase/01_Typpi_fosforitase.px",
+          "locator": "ELY-keskus=00 (WHOLE COUNTRY); Ravinne=N,P; Vuosi=2024; unit=kg/ha; response note states Åland is included",
+          "captureSha256": "sha256:ad6d6d3669386e9b0d5f7cadaeda327a341d611d4714792b52390ed37c9922ef"
+        },
+        {
+          "acquisitionId": "acq.field08.ax.luke-np-balance-2024",
+          "citationId": "fs:citation:field08.ax.luke-np-balance-2024",
+          "citationText": "Luke, Development of nitrogen and phosphorus balances, Ahvenanmaa 2024 row, captured 2026-07-28.",
+          "sourceUrl": "https://statdb.luke.fi/PxWeb/api/v1/en/LUKE/08a%20CAP-indikaattorit/06%20Tehokas%20ymp%C3%A4rist%C3%B6nhoito%20ja%20suojelu/03%20Maatalousmaan%20ravinnetase/01_Typpi_fosforitase.px",
+          "locator": "ELY-keskus=16 (Ahvenanmaa); Ravinne=N,P; Vuosi=2024; unit=kg/ha",
+          "captureSha256": "sha256:ad6d6d3669386e9b0d5f7cadaeda327a341d611d4714792b52390ed37c9922ef"
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "fs:claim:field08.fi.luke-n-balance-2024",
+          "claimText": "Luke reports a 54.9 kg/ha nitrogen balance for whole-country Finland in 2024; the national balance includes Åland.",
+          "systemBoundary": {
+            "included": [
+              "Luke ELY-keskus 00 whole-country nitrogen balance for 2024."
+            ],
+            "excluded": [
+              "A mainland-Finland-only rate.",
+              "Measured nitrogen pollution or realized nutrient recycling."
+            ],
+            "functionalUnit": "kg nitrogen balance per hectare"
+          },
+          "limitations": [
+            "The national method includes inputs and outputs not used in regional balances.",
+            "A per-hectare rate cannot be disaggregated by subtracting Åland's rate."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.fi.luke-p-balance-2024",
+          "claimText": "Luke reports a 4.0 kg/ha phosphorus balance for whole-country Finland in 2024; the national balance includes Åland.",
+          "systemBoundary": {
+            "included": [
+              "Luke ELY-keskus 00 whole-country phosphorus balance for 2024."
+            ],
+            "excluded": [
+              "A mainland-Finland-only rate.",
+              "Measured phosphorus pollution or realized nutrient recycling."
+            ],
+            "functionalUnit": "kg phosphorus balance per hectare"
+          },
+          "limitations": [
+            "The national method includes inputs and outputs not used in regional balances.",
+            "A per-hectare rate cannot be disaggregated by subtracting Åland's rate."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.ax.luke-n-balance-2024",
+          "claimText": "Luke reports a 28.6 kg/ha regional nitrogen balance for Åland in 2024.",
+          "systemBoundary": {
+            "included": [
+              "Luke ELY-keskus 16 Ahvenanmaa regional nitrogen balance for 2024."
+            ],
+            "excluded": [
+              "Whole-country Finland.",
+              "Measured nitrogen pollution or realized nutrient recycling."
+            ],
+            "functionalUnit": "kg nitrogen balance per hectare"
+          },
+          "limitations": [
+            "The regional method differs from the national method.",
+            "The Åland rate is non-additive with the national rate that already includes Åland."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.ax.luke-p-balance-2024",
+          "claimText": "Luke reports a rounded regional phosphorus balance of 0.0 kg/ha for Åland in 2024.",
+          "systemBoundary": {
+            "included": [
+              "Luke ELY-keskus 16 Ahvenanmaa regional phosphorus balance for 2024."
+            ],
+            "excluded": [
+              "Whole-country Finland.",
+              "Proof that phosphorus inputs, outputs or losses are absent."
+            ],
+            "functionalUnit": "kg phosphorus balance per hectare"
+          },
+          "limitations": [
+            "The value is reported to one decimal place and must not be interpreted as absence.",
+            "The Åland rate is non-additive with the national rate that already includes Åland."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.fi.luke-national-regional-nonadditive-2024",
+          "claimText": "Luke states that Åland is included in national balances and separately reported regionally, while national and regional calculations use different input terms; the per-hectare rates cannot be added or subtracted.",
+          "systemBoundary": {
+            "included": [
+              "Luke's dataset note on whole-country and Åland coverage and method."
+            ],
+            "excluded": [
+              "A derived mainland-Finland rate.",
+              "Aggregation of national and Åland rates."
+            ],
+            "functionalUnit": "method and geography-boundary claim"
+          },
+          "limitations": [
+            "No underlying area-weighted numerators and denominators are captured for reconciliation."
+          ]
+        }
+      ],
+      "observations": [
+        {
+          "observationId": "fs:observation:field08.fi.luke-n-balance-2024",
+          "title": "Whole-country Finland nitrogen balance, 2024 observation",
+          "value": 54.9,
+          "unit": "kg_per_hectare",
+          "period": {
+            "kind": "interval",
+            "from": "2024-01-01",
+            "to": "2024-12-31",
+            "asOf": "2024-12-31"
+          },
+          "denominatorOrUniverse": "Agricultural area used by the national calculation.",
+          "method": "Direct Luke PxWeb API value for ELY-keskus 00, nutrient N and year 2024.",
+          "systemBoundary": {
+            "included": [
+              "Luke ELY-keskus 00 whole-country nitrogen balance for 2024."
+            ],
+            "excluded": [
+              "A mainland-Finland-only rate.",
+              "Measured nitrogen pollution or realized nutrient recycling."
+            ],
+            "functionalUnit": "kg nitrogen balance per hectare"
+          },
+          "limitations": [
+            "The national method includes inputs and outputs not used in regional balances.",
+            "A per-hectare rate cannot be disaggregated by subtracting Åland's rate.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.fi.luke-p-balance-2024",
+          "title": "Whole-country Finland phosphorus balance, 2024 observation",
+          "value": 4,
+          "unit": "kg_per_hectare",
+          "period": {
+            "kind": "interval",
+            "from": "2024-01-01",
+            "to": "2024-12-31",
+            "asOf": "2024-12-31"
+          },
+          "denominatorOrUniverse": "Agricultural area used by the national calculation.",
+          "method": "Direct Luke PxWeb API value for ELY-keskus 00, nutrient P and year 2024.",
+          "systemBoundary": {
+            "included": [
+              "Luke ELY-keskus 00 whole-country phosphorus balance for 2024."
+            ],
+            "excluded": [
+              "A mainland-Finland-only rate.",
+              "Measured phosphorus pollution or realized nutrient recycling."
+            ],
+            "functionalUnit": "kg phosphorus balance per hectare"
+          },
+          "limitations": [
+            "The national method includes inputs and outputs not used in regional balances.",
+            "A per-hectare rate cannot be disaggregated by subtracting Åland's rate.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.ax.luke-n-balance-2024",
+          "title": "Åland nitrogen balance, 2024 observation",
+          "value": 28.6,
+          "unit": "kg_per_hectare",
+          "period": {
+            "kind": "interval",
+            "from": "2024-01-01",
+            "to": "2024-12-31",
+            "asOf": "2024-12-31"
+          },
+          "denominatorOrUniverse": "Agricultural area used by the Åland regional calculation.",
+          "method": "Direct Luke PxWeb API value for ELY-keskus 16, nutrient N and year 2024.",
+          "systemBoundary": {
+            "included": [
+              "Luke ELY-keskus 16 Ahvenanmaa regional nitrogen balance for 2024."
+            ],
+            "excluded": [
+              "Whole-country Finland.",
+              "Measured nitrogen pollution or realized nutrient recycling."
+            ],
+            "functionalUnit": "kg nitrogen balance per hectare"
+          },
+          "limitations": [
+            "The regional method differs from the national method.",
+            "The Åland rate is non-additive with the national rate that already includes Åland.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.ax.luke-p-balance-2024",
+          "title": "Åland phosphorus balance, 2024 observation",
+          "value": 0,
+          "unit": "kg_per_hectare",
+          "period": {
+            "kind": "interval",
+            "from": "2024-01-01",
+            "to": "2024-12-31",
+            "asOf": "2024-12-31"
+          },
+          "denominatorOrUniverse": "Agricultural area used by the Åland regional calculation.",
+          "method": "Direct Luke PxWeb API value for ELY-keskus 16, nutrient P and year 2024, reported to one decimal place.",
+          "systemBoundary": {
+            "included": [
+              "Luke ELY-keskus 16 Ahvenanmaa regional phosphorus balance for 2024."
+            ],
+            "excluded": [
+              "Whole-country Finland.",
+              "Proof that phosphorus inputs, outputs or losses are absent."
+            ],
+            "functionalUnit": "kg phosphorus balance per hectare"
+          },
+          "limitations": [
+            "The value is reported to one decimal place and must not be interpreted as absence.",
+            "The Åland rate is non-additive with the national rate that already includes Åland.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        }
+      ],
+      "contradictions": [],
+      "proposedInternalUse": "Bruk de separate N- og P-ratene til å beskrive et regnskaps- og datagap, uten aritmetikk mellom Finland og Åland.",
+      "whatItMeasures": "Jordbruksbalanse i kg/ha for N og P for hele Finland og separat Åland-rad.",
+      "whatItDoesNotMeasure": "Faktisk N–P–K-gjenvinning, utslipp, substitusjon eller en additiv nasjonal/regional massebalanse.",
+      "alternativeExplanations": [
+        "Balanser drives av flere innsats- og uttaksforhold enn sidestrømmer.",
+        "Finland-raden inkluderer Åland."
+      ],
+      "requiredLimitations": [
+        "Finland- og Åland-ratene må aldri summeres eller trekkes fra hverandre.",
+        "K er ikke dekket."
+      ],
+      "reviewInstruction": "Gabriel må åpne den private PDF-lenken eller det replayede API-uttrekket, velge beslutning og bekrefte den kanoniske attestasjonsformuleringen før en kvittering appendes.",
+      "privateReviewLinkIncludedInDeployableArtifact": false,
+      "externalUseAllowed": false,
+      "coveragePromotionAllowed": false
+    },
+    {
+      "packetId": "owner_packet.field08.norway.v1",
+      "evidencePackageHash": "sha256:54fd715ed4088360a84f66309022f2a6e399513692316084f1596ea089a3446a",
+      "source": {
+        "sourceId": "fs:source:field08.no.landbruksdirektoratet-food-waste-2024",
+        "sourceHash": "sha256:b062682e00762b9de258d66188159b9f1e3d54162735c3b30e477cd8c054b291",
+        "title": "Matsvinn i jordbrukssektoren – Kartlegging for 2024, Rapport 45/2025",
+        "publisher": "Landbruksdirektoratet",
+        "geographyIds": [
+          "geo.no"
+        ],
+        "locatorCount": 5
+      },
+      "locators": [
+        {
+          "acquisitionId": "acq.field08.no.landbruksdirektoratet-table1",
+          "citationId": "fs:citation:field08.no.landbruksdirektoratet-p8-table1",
+          "citationText": "Landbruksdirektoratet Rapport 45/2025, PDF p. 8, Table 1.",
+          "sourceUrl": "https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/Matsvinn%20i%20jordbrukssektoren%20Kartlegging%20for%202024%20Rapport%2045%202025.pdf",
+          "locator": "PDF p. 8, Table 1, Totalsum 2024",
+          "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2"
+        },
+        {
+          "acquisitionId": "acq.field08.no.landbruksdirektoratet-p8-prose",
+          "citationId": "fs:citation:field08.no.landbruksdirektoratet-p8-prose",
+          "citationText": "Landbruksdirektoratet Rapport 45/2025, PDF p. 8, results prose.",
+          "sourceUrl": "https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/Matsvinn%20i%20jordbrukssektoren%20Kartlegging%20for%202024%20Rapport%2045%202025.pdf",
+          "locator": "PDF p. 8, section 2.1 first paragraph",
+          "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2"
+        },
+        {
+          "acquisitionId": "acq.field08.no.landbruksdirektoratet-grain-period",
+          "citationId": "fs:citation:field08.no.landbruksdirektoratet-grain-period",
+          "citationText": "Landbruksdirektoratet Rapport 45/2025, grain data period and method.",
+          "sourceUrl": "https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/Matsvinn%20i%20jordbrukssektoren%20Kartlegging%20for%202024%20Rapport%2045%202025.pdf",
+          "locator": "PDF p. 17, section 3.4",
+          "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2"
+        },
+        {
+          "acquisitionId": "acq.field08.no.landbruksdirektoratet-milk-unit",
+          "citationId": "fs:citation:field08.no.landbruksdirektoratet-milk-unit",
+          "citationText": "Landbruksdirektoratet Rapport 45/2025, milk volume source table.",
+          "sourceUrl": "https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/Matsvinn%20i%20jordbrukssektoren%20Kartlegging%20for%202024%20Rapport%2045%202025.pdf",
+          "locator": "PDF p. 20, Table 6",
+          "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2"
+        },
+        {
+          "acquisitionId": "acq.field08.no.landbruksdirektoratet-table2-share",
+          "citationId": "fs:citation:field08.no.landbruksdirektoratet-p10-table2-share",
+          "citationText": "Landbruksdirektoratet Rapport 45/2025, PDF p. 10, Table 2, agricultural-sector sum and production share.",
+          "sourceUrl": "https://www.landbruksdirektoratet.no/nb/filarkiv/rapporter/Matsvinn%20i%20jordbrukssektoren%20Kartlegging%20for%202024%20Rapport%2045%202025.pdf",
+          "locator": "PDF p. 10, Table 2, Jordbrukssektoren Sum",
+          "captureSha256": "sha256:bc5a13497396ac8b919074f494cc5ae978140765bd31540f31ea24ccfa7521f2"
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "fs:claim:field08.no.food-waste-total-table-2024",
+          "claimText": "Landbruksdirektoratet Table 1 reports a 2024 agricultural-sector food-waste total of 43,132 tonnes.",
+          "systemBoundary": {
+            "included": [
+              "The source-defined Norwegian agricultural sectors summarized in Table 1, including mixed reference periods."
+            ],
+            "excluded": [
+              "The rest of Norway's food system.",
+              "Homogeneous component observations in a single unit and calendar period."
+            ],
+            "functionalUnit": "tonnes as labelled in the aggregate table"
+          },
+          "limitations": [
+            "This figure conflicts with the 43,152-tonne prose statement.",
+            "The aggregate combines sector-specific methods, source units and periods."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.no.food-waste-total-prose-2024",
+          "claimText": "Landbruksdirektoratet's results prose states a 2024 agricultural-sector food-waste total of 43,152 tonnes.",
+          "systemBoundary": {
+            "included": [
+              "The source's results prose for the agricultural-sector total and its mixed underlying reference periods."
+            ],
+            "excluded": [
+              "The rest of Norway's food system.",
+              "Resolution of the internal 20-tonne discrepancy."
+            ],
+            "functionalUnit": "tonnes as stated in prose"
+          },
+          "limitations": [
+            "This figure conflicts with Table 1, Table 2, the component sum, summary and official landing page.",
+            "The report combines sector-specific methods and periods."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.no.food-waste-share-2024",
+          "claimText": "Landbruksdirektoratet Table 2 reports agricultural-sector food waste as 1.8 percent of the source-defined production basis.",
+          "systemBoundary": {
+            "included": [
+              "Table 2's agricultural-sector food-waste numerator and source-defined production denominator."
+            ],
+            "excluded": [
+              "A share of the entire Norwegian food system.",
+              "An independently reconstructed denominator."
+            ],
+            "functionalUnit": "percent of source-defined production"
+          },
+          "limitations": [
+            "The percentage inherits the report's mixed sector methods and periods.",
+            "The aggregate numerator's prose/table discrepancy remains unresolved."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.no.food-waste-mixed-method-2024",
+          "claimText": "The Norwegian aggregate combines sector-specific methods and reference periods: grain uses July 2024 to June 2025 and the underlying milk table reports 2,545,024 litres, so its components must not be retyped as homogeneous calendar-year tonne observations.",
+          "systemBoundary": {
+            "included": [
+              "Method and unit caveats for the source's aggregate agricultural-sector result."
+            ],
+            "excluded": [
+              "Typed component measurements.",
+              "A claim that every component is a calendar-year tonne value."
+            ],
+            "functionalUnit": "method-boundary claim only"
+          },
+          "limitations": [
+            "The source's aggregation method requires human appraisal before component reuse."
+          ]
+        }
+      ],
+      "observations": [
+        {
+          "observationId": "fs:observation:field08.no.food-waste-total-table-2024",
+          "title": "Norway agricultural-sector food-waste table total observation",
+          "value": 43132,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2024-01-01",
+            "to": "2025-06-30",
+            "asOf": "2025-06-30"
+          },
+          "denominatorOrUniverse": "Agricultural sectors included in the report, with sector-specific units, methods and reference periods.",
+          "method": "Source-reported aggregate; components are deliberately not materialized because grain uses a crop-year period and the underlying milk result is in litres.",
+          "systemBoundary": {
+            "included": [
+              "The source-defined Norwegian agricultural sectors summarized in Table 1, including mixed reference periods."
+            ],
+            "excluded": [
+              "The rest of Norway's food system.",
+              "Homogeneous component observations in a single unit and calendar period."
+            ],
+            "functionalUnit": "tonnes as labelled in the aggregate table"
+          },
+          "limitations": [
+            "This figure conflicts with the 43,152-tonne prose statement.",
+            "The aggregate combines sector-specific methods, source units and periods.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.no.food-waste-total-prose-2024",
+          "title": "Norway agricultural-sector food-waste prose total observation",
+          "value": 43152,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2024-01-01",
+            "to": "2025-06-30",
+            "asOf": "2025-06-30"
+          },
+          "denominatorOrUniverse": "The source-defined agricultural-sector scope.",
+          "method": "Literal source-reported prose value retained as counterevidence.",
+          "systemBoundary": {
+            "included": [
+              "The source's results prose for the agricultural-sector total and its mixed underlying reference periods."
+            ],
+            "excluded": [
+              "The rest of Norway's food system.",
+              "Resolution of the internal 20-tonne discrepancy."
+            ],
+            "functionalUnit": "tonnes as stated in prose"
+          },
+          "limitations": [
+            "This figure conflicts with Table 1, Table 2, the component sum, summary and official landing page.",
+            "The report combines sector-specific methods and periods.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.no.food-waste-share-2024",
+          "title": "Norway agricultural-sector food-waste share observation",
+          "value": 1.8,
+          "unit": "percent",
+          "period": {
+            "kind": "interval",
+            "from": "2024-01-01",
+            "to": "2025-06-30",
+            "asOf": "2025-06-30"
+          },
+          "denominatorOrUniverse": "Table 2's source-defined production total for the covered agricultural sectors.",
+          "method": "Source-reported percentage in Table 2; no independent denominator reconstruction.",
+          "systemBoundary": {
+            "included": [
+              "Table 2's agricultural-sector food-waste numerator and source-defined production denominator."
+            ],
+            "excluded": [
+              "A share of the entire Norwegian food system.",
+              "An independently reconstructed denominator."
+            ],
+            "functionalUnit": "percent of source-defined production"
+          },
+          "limitations": [
+            "The percentage inherits the report's mixed sector methods and periods.",
+            "The aggregate numerator's prose/table discrepancy remains unresolved.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        }
+      ],
+      "contradictions": [
+        {
+          "contradictionSetId": "contradiction.field08.no-agricultural-total-2024",
+          "status": "open",
+          "claimIds": [
+            "fs:claim:field08.no.food-waste-total-table-2024",
+            "fs:claim:field08.no.food-waste-total-prose-2024"
+          ],
+          "observationIds": [
+            "fs:observation:field08.no.food-waste-total-table-2024",
+            "fs:observation:field08.no.food-waste-total-prose-2024"
+          ],
+          "observationPairs": [
+            {
+              "leftObservationId": "fs:observation:field08.no.food-waste-total-prose-2024",
+              "rightObservationId": "fs:observation:field08.no.food-waste-total-table-2024"
+            }
+          ],
+          "citationIds": [
+            "fs:citation:field08.no.landbruksdirektoratet-p8-table1",
+            "fs:citation:field08.no.landbruksdirektoratet-p8-prose"
+          ],
+          "description": "The same report gives 43,132 tonnes in its table/summary evidence and 43,152 tonnes in one results-prose passage. Neither value is silently selected.",
+          "aggregationAllowed": false,
+          "resolution": null
+        }
+      ],
+      "proposedInternalUse": "Analyser fordelingen av matsvinn mellom ledd innen den norske jordbrukssektoren.",
+      "whatItMeasures": "Rapportert og estimert matsvinn i jordbrukssektoren innen rapportens egen avgrensning.",
+      "whatItDoesNotMeasure": "Norsk total for matsystemet eller et fullstendig sidestrøms-/næringsstoffregnskap.",
+      "alternativeExplanations": [
+        "Rapporteringsgrad, produksjonsvolum og produktsammensetning kan drive leddforskjeller."
+      ],
+      "requiredLimitations": [
+        "Omtal aldri jordbrukssektoren som hele det norske matsystemet."
+      ],
+      "reviewInstruction": "Gabriel må åpne den private PDF-lenken eller det replayede API-uttrekket, velge beslutning og bekrefte den kanoniske attestasjonsformuleringen før en kvittering appendes.",
+      "privateReviewLinkIncludedInDeployableArtifact": false,
+      "externalUseAllowed": false,
+      "coveragePromotionAllowed": false
+    },
+    {
+      "packetId": "owner_packet.field08.asub.v1",
+      "evidencePackageHash": "sha256:54fd715ed4088360a84f66309022f2a6e399513692316084f1596ea089a3446a",
+      "source": {
+        "sourceId": "fs:source:field08.ax.asub-waste-statistics-2024",
+        "sourceHash": "sha256:0911985de52b690eaaddaa0ad4c4dce66a15cfb4b92036005e0e0d40bae24b5a",
+        "title": "Avfallsstatistik 2024",
+        "publisher": "ÅSUB",
+        "geographyIds": [
+          "geo.ax"
+        ],
+        "locatorCount": 4
+      },
+      "locators": [
+        {
+          "acquisitionId": "acq.field08.ax.asub-table1-food-waste",
+          "citationId": "fs:citation:field08.ax.asub-p11-table1-food-waste",
+          "citationText": "ÅSUB Statistik 2025:3, PDF p. 11, Table 1, category 09.1.",
+          "sourceUrl": "https://www.asub.ax/sites/default/files/media/document/avfall24.pdf",
+          "locator": "PDF p. 11, Table 1, animaliskt avfall och blandat matavfall",
+          "captureSha256": "sha256:22bab6a3537fca2673ff82dc2de7fa8ecdd7b6f1938a08e6d43de33d199c5e7c"
+        },
+        {
+          "acquisitionId": "acq.field08.ax.asub-table4-r3",
+          "citationId": "fs:citation:field08.ax.asub-p15-table4-r3",
+          "citationText": "ÅSUB Statistik 2025:3, PDF p. 15, Table 4, R3+ category.",
+          "sourceUrl": "https://www.asub.ax/sites/default/files/media/document/avfall24.pdf",
+          "locator": "PDF p. 15, Table 4, R3+ animaliskt avfall och blandat matavfall",
+          "captureSha256": "sha256:22bab6a3537fca2673ff82dc2de7fa8ecdd7b6f1938a08e6d43de33d199c5e7c"
+        },
+        {
+          "acquisitionId": "acq.field08.ax.asub-export-table3",
+          "citationId": "fs:citation:field08.ax.asub-p13-table3-export",
+          "citationText": "ÅSUB Statistik 2025:3, PDF pp. 13–14, export narrative and Table 3.",
+          "sourceUrl": "https://www.asub.ax/sites/default/files/media/document/avfall24.pdf",
+          "locator": "PDF p. 13 narrative and p. 14 Table 3; Appendix 2 destination total",
+          "captureSha256": "sha256:22bab6a3537fca2673ff82dc2de7fa8ecdd7b6f1938a08e6d43de33d199c5e7c"
+        },
+        {
+          "acquisitionId": "acq.field08.ax.asub-export-table5",
+          "citationId": "fs:citation:field08.ax.asub-p15-table5-export",
+          "citationText": "ÅSUB Statistik 2025:3, PDF p. 15, Table 5, 2024 exported waste.",
+          "sourceUrl": "https://www.asub.ax/sites/default/files/media/document/avfall24.pdf",
+          "locator": "PDF p. 15, Table 5, Borttransporterat avfall 2024",
+          "captureSha256": "sha256:22bab6a3537fca2673ff82dc2de7fa8ecdd7b6f1938a08e6d43de33d199c5e7c"
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "fs:claim:field08.ax.animal-mixed-food-waste-2024",
+          "claimText": "ÅSUB Table 1 reports 18,178 tonnes in category 09.1, animal waste and mixed food waste, in Åland for 2024.",
+          "systemBoundary": {
+            "included": [
+              "ÅSUB category 09.1 animal waste and mixed food waste in the 2024 waste statistics."
+            ],
+            "excluded": [
+              "An edible-food-waste-only total.",
+              "Household composting and illegal disposal omitted by the source."
+            ],
+            "functionalUnit": "tonnes in ÅSUB category 09.1"
+          },
+          "limitations": [
+            "The category combines animal and mixed food waste.",
+            "Some weights are calculated from volume."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.ax.r3-animal-mixed-treatment-2024",
+          "claimText": "ÅSUB Table 4 reports 12,381 tonnes of animal waste and mixed food waste under the local R3+ treatment class in 2024.",
+          "systemBoundary": {
+            "included": [
+              "ÅSUB Table 4 category 31 under R3+ local treatment in 2024."
+            ],
+            "excluded": [
+              "Recovered-product output.",
+              "Closed-loop nutrient reuse.",
+              "A direct mapping to the project's circular-strategy ontology."
+            ],
+            "functionalUnit": "tonnes entering the source-defined R3+ operation class"
+          },
+          "limitations": [
+            "R3+ identifies measures that can lead to recovery; it does not prove the recovery outcome."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.ax.export-narrative-2024",
+          "claimText": "ÅSUB's narrative and Appendix 2 report 19,132 tonnes of waste transported out of Åland during 2024.",
+          "systemBoundary": {
+            "included": [
+              "All waste transported out of Åland for treatment or reuse in 2024 according to the narrative and Appendix 2."
+            ],
+            "excluded": [
+              "A food-waste-only flow.",
+              "Resolution of conflict with the visible destination-row sum and Table 5."
+            ],
+            "functionalUnit": "tonnes of all exported waste"
+          },
+          "limitations": [
+            "The figure conflicts with the 19,131-tonne visible destination-row sum and the 19,105-tonne Table 5 series value."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.ax.export-row-sum-2024",
+          "claimText": "The visible 2024 destination rows in ÅSUB Appendix 2 sum to 19,131 tonnes: Finland 6,351, Sweden 12,722, Estonia 31 and Poland 27.",
+          "systemBoundary": {
+            "included": [
+              "Arithmetic sum of the four visible destination totals in Appendix 2."
+            ],
+            "excluded": [
+              "A source-printed grand total of 19,131.",
+              "A food-waste-only flow.",
+              "Resolution of the internal conflict."
+            ],
+            "functionalUnit": "tonnes of all exported waste derived from visible rows"
+          },
+          "limitations": [
+            "This is a transparent arithmetic derivation, not a separately printed total.",
+            "It conflicts with the printed 19,132-tonne total and Table 5's 19,105 tonnes."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.ax.export-table5-2024",
+          "claimText": "ÅSUB Table 5 reports 19,105 tonnes of waste transported out of Åland in 2024.",
+          "systemBoundary": {
+            "included": [
+              "Table 5's 2024 all-waste series row for waste transported out of Åland."
+            ],
+            "excluded": [
+              "A food-waste-only flow.",
+              "Resolution of conflict with the narrative, Appendix total and destination rows."
+            ],
+            "functionalUnit": "tonnes of all exported waste"
+          },
+          "limitations": [
+            "The figure conflicts with 19,132 tonnes in the narrative and Appendix total and 19,131 tonnes implied by visible destination rows."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.ax.r3-does-not-prove-closed-loop-2024",
+          "claimText": "ÅSUB's R3+ operation class identifies treatment that can lead to recovery; the 12,381-tonne input does not by itself establish recovered output, nutrient return or closed-loop circularity.",
+          "systemBoundary": {
+            "included": [
+              "The semantic limitation of the R3+ treatment label."
+            ],
+            "excluded": [
+              "A verified circular-strategy mapping.",
+              "Recovered-product mass.",
+              "Nutrient-return outcome."
+            ],
+            "functionalUnit": "method and outcome-boundary claim"
+          },
+          "limitations": [
+            "Destination and output evidence has not been captured."
+          ]
+        }
+      ],
+      "observations": [
+        {
+          "observationId": "fs:observation:field08.ax.animal-mixed-food-waste-2024",
+          "title": "Åland animal and mixed food waste, 2024 observation",
+          "value": 18178,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2024-01-01",
+            "to": "2024-12-31",
+            "asOf": "2024-12-31"
+          },
+          "denominatorOrUniverse": "All source-reported waste in category 09.1 for 2024.",
+          "method": "Source-reported Table 1 value; source notes that some weights are calculated from volume.",
+          "systemBoundary": {
+            "included": [
+              "ÅSUB category 09.1 animal waste and mixed food waste in the 2024 waste statistics."
+            ],
+            "excluded": [
+              "An edible-food-waste-only total.",
+              "Household composting and illegal disposal omitted by the source."
+            ],
+            "functionalUnit": "tonnes in ÅSUB category 09.1"
+          },
+          "limitations": [
+            "The category combines animal and mixed food waste.",
+            "Some weights are calculated from volume.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.ax.r3-animal-mixed-treatment-2024",
+          "title": "Åland animal and mixed food waste under R3+ observation",
+          "value": 12381,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2024-01-01",
+            "to": "2024-12-31",
+            "asOf": "2024-12-31"
+          },
+          "denominatorOrUniverse": "The source's local-treatment Table 4 operation class.",
+          "method": "Source-reported Table 4 value; no recovered-output conversion is made.",
+          "systemBoundary": {
+            "included": [
+              "ÅSUB Table 4 category 31 under R3+ local treatment in 2024."
+            ],
+            "excluded": [
+              "Recovered-product output.",
+              "Closed-loop nutrient reuse.",
+              "A direct mapping to the project's circular-strategy ontology."
+            ],
+            "functionalUnit": "tonnes entering the source-defined R3+ operation class"
+          },
+          "limitations": [
+            "R3+ identifies measures that can lead to recovery; it does not prove the recovery outcome.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.ax.export-narrative-2024",
+          "title": "Åland exported-waste narrative total, 2024 observation",
+          "value": 19132,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2024-01-01",
+            "to": "2024-12-31",
+            "asOf": "2024-12-31"
+          },
+          "denominatorOrUniverse": "All waste transported from Åland for treatment or reuse.",
+          "method": "Literal source-reported total retained without reconciliation.",
+          "systemBoundary": {
+            "included": [
+              "All waste transported out of Åland for treatment or reuse in 2024 according to the narrative and Appendix 2."
+            ],
+            "excluded": [
+              "A food-waste-only flow.",
+              "Resolution of conflict with the visible destination-row sum and Table 5."
+            ],
+            "functionalUnit": "tonnes of all exported waste"
+          },
+          "limitations": [
+            "The figure conflicts with the 19,131-tonne visible destination-row sum and the 19,105-tonne Table 5 series value.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.ax.export-row-sum-2024",
+          "title": "Åland exported-waste destination-row sum, 2024 observation",
+          "value": 19131,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2024-01-01",
+            "to": "2024-12-31",
+            "asOf": "2024-12-31"
+          },
+          "denominatorOrUniverse": "The four visible destination rows in Appendix 2.",
+          "method": "Transparent arithmetic derivation from source rows; not a source-printed grand total.",
+          "systemBoundary": {
+            "included": [
+              "Arithmetic sum of the four visible destination totals in Appendix 2."
+            ],
+            "excluded": [
+              "A source-printed grand total of 19,131.",
+              "A food-waste-only flow.",
+              "Resolution of the internal conflict."
+            ],
+            "functionalUnit": "tonnes of all exported waste derived from visible rows"
+          },
+          "limitations": [
+            "This is a transparent arithmetic derivation, not a separately printed total.",
+            "It conflicts with the printed 19,132-tonne total and Table 5's 19,105 tonnes.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.ax.export-table5-2024",
+          "title": "Åland exported-waste Table 5 total, 2024 observation",
+          "value": 19105,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2024-01-01",
+            "to": "2024-12-31",
+            "asOf": "2024-12-31"
+          },
+          "denominatorOrUniverse": "All waste transported out of Åland in Table 5's annual series.",
+          "method": "Literal source-reported Table 5 value retained without reconciliation.",
+          "systemBoundary": {
+            "included": [
+              "Table 5's 2024 all-waste series row for waste transported out of Åland."
+            ],
+            "excluded": [
+              "A food-waste-only flow.",
+              "Resolution of conflict with the narrative, Appendix total and destination rows."
+            ],
+            "functionalUnit": "tonnes of all exported waste"
+          },
+          "limitations": [
+            "The figure conflicts with 19,132 tonnes in the narrative and Appendix total and 19,131 tonnes implied by visible destination rows.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        }
+      ],
+      "contradictions": [
+        {
+          "contradictionSetId": "contradiction.field08.ax-export-total-2024",
+          "status": "open",
+          "claimIds": [
+            "fs:claim:field08.ax.export-narrative-2024",
+            "fs:claim:field08.ax.export-row-sum-2024",
+            "fs:claim:field08.ax.export-table5-2024"
+          ],
+          "observationIds": [
+            "fs:observation:field08.ax.export-narrative-2024",
+            "fs:observation:field08.ax.export-row-sum-2024",
+            "fs:observation:field08.ax.export-table5-2024"
+          ],
+          "observationPairs": [
+            {
+              "leftObservationId": "fs:observation:field08.ax.export-narrative-2024",
+              "rightObservationId": "fs:observation:field08.ax.export-row-sum-2024"
+            },
+            {
+              "leftObservationId": "fs:observation:field08.ax.export-narrative-2024",
+              "rightObservationId": "fs:observation:field08.ax.export-table5-2024"
+            },
+            {
+              "leftObservationId": "fs:observation:field08.ax.export-row-sum-2024",
+              "rightObservationId": "fs:observation:field08.ax.export-table5-2024"
+            }
+          ],
+          "citationIds": [
+            "fs:citation:field08.ax.asub-p13-table3-export",
+            "fs:citation:field08.ax.asub-p15-table5-export"
+          ],
+          "description": "ÅSUB reports 19,132 tonnes in narrative/Appendix totals, the visible destination rows sum to 19,131 tonnes, and Table 5 reports 19,105 tonnes. The dispute is limited to the all-waste export total.",
+          "aggregationAllowed": false,
+          "resolution": null
+        }
+      ],
+      "proposedInternalUse": "Skill mellom mottatt avfallsmasse, behandlingskode og eksport, og identifiser manglende utfallsdata.",
+      "whatItMeasures": "Ålands avfallsmengder, behandlingskoder og eksportposter slik tabellene definerer dem.",
+      "whatItDoesNotMeasure": "Faktisk N-, P- eller K-utbytte eller dokumentert substitusjon av jomfruelige innsatsfaktorer.",
+      "alternativeExplanations": [
+        "R3+-kode kan dekke ulike faktiske prosesser og utbytter.",
+        "Våtmasse kan avvike sterkt i næringsinnhold."
+      ],
+      "requiredLimitations": [
+        "Behandlingskode og våtmasse er ikke dokumentasjon på N–P–K-gjenvinning.",
+        "Eksporttabellene inneholder motstridende totaler."
+      ],
+      "reviewInstruction": "Gabriel må åpne den private PDF-lenken eller det replayede API-uttrekket, velge beslutning og bekrefte den kanoniske attestasjonsformuleringen før en kvittering appendes.",
+      "privateReviewLinkIncludedInDeployableArtifact": false,
+      "externalUseAllowed": false,
+      "coveragePromotionAllowed": false
+    },
+    {
+      "packetId": "owner_packet.field08.iceland.v1",
+      "evidencePackageHash": "sha256:54fd715ed4088360a84f66309022f2a6e399513692316084f1596ea089a3446a",
+      "source": {
+        "sourceId": "fs:source:field08.is.environment-agency-food-waste-2022",
+        "sourceHash": "sha256:3a329efc2b5ea4941fe1728d2feedbf1fa887b4df29a1302b209f202a6c2a521",
+        "title": "Food Waste in Iceland 2022 – Final methodological report",
+        "publisher": "Icelandic Environment and Energy Agency",
+        "geographyIds": [
+          "geo.is"
+        ],
+        "locatorCount": 4
+      },
+      "locators": [
+        {
+          "acquisitionId": "acq.field08.is.food-waste-detailed-tables",
+          "citationId": "fs:citation:field08.is.food-waste-2022-detailed-tables",
+          "citationText": "Environment Agency of Iceland, Food Waste in Iceland 2022, detailed results, PDF pp. 14–16.",
+          "sourceUrl": "https://www.umhverfisstofnun.is/library/Skrar/utgefid-efni/Annad/Food_waste_in_Iceland_2022_UPD.pdf",
+          "locator": "PDF pp. 14–16, Tables 1–4 and household section",
+          "captureSha256": "sha256:07bf2d6b14b521cd1d1a94f62f116be6c34f784913c8a52910983717b28708ab"
+        },
+        {
+          "acquisitionId": "acq.field08.is.food-waste-abstract",
+          "citationId": "fs:citation:field08.is.food-waste-2022-abstract",
+          "citationText": "Environment Agency of Iceland, Food Waste in Iceland 2022, abstract, PDF p. 4.",
+          "sourceUrl": "https://www.umhverfisstofnun.is/library/Skrar/utgefid-efni/Annad/Food_waste_in_Iceland_2022_UPD.pdf",
+          "locator": "PDF p. 4 abstract",
+          "captureSha256": "sha256:07bf2d6b14b521cd1d1a94f62f116be6c34f784913c8a52910983717b28708ab"
+        },
+        {
+          "acquisitionId": "acq.field08.is.food-waste-false-zero",
+          "citationId": "fs:citation:field08.is.food-waste-2022-false-zero",
+          "citationText": "Environment Agency of Iceland, Food Waste in Iceland 2022, aquaculture data gap, PDF p. 13.",
+          "sourceUrl": "https://www.umhverfisstofnun.is/library/Skrar/utgefid-efni/Annad/Food_waste_in_Iceland_2022_UPD.pdf",
+          "locator": "PDF pp. 12–13, nonresponse errors and aquaculture false zero",
+          "captureSha256": "sha256:07bf2d6b14b521cd1d1a94f62f116be6c34f784913c8a52910983717b28708ab"
+        },
+        {
+          "acquisitionId": "acq.field08.is.food-waste-household-share",
+          "citationId": "fs:citation:field08.is.food-waste-2022-household-share",
+          "citationText": "Environment Agency of Iceland, Food Waste in Iceland 2022, household result, PDF p. 16.",
+          "sourceUrl": "https://www.umhverfisstofnun.is/library/Skrar/utgefid-efni/Annad/Food_waste_in_Iceland_2022_UPD.pdf",
+          "locator": "PDF p. 16, section 3.5",
+          "captureSha256": "sha256:07bf2d6b14b521cd1d1a94f62f116be6c34f784913c8a52910983717b28708ab"
+        }
+      ],
+      "claims": [
+        {
+          "claimId": "fs:claim:field08.is.food-waste-total-2022",
+          "claimText": "The Iceland report states a 2022 total of 60.3 thousand tonnes, represented as 60,300 tonnes and consistent with rounding the five detailed stage values.",
+          "systemBoundary": {
+            "included": [
+              "Iceland food waste in the five reported value-chain stages during 2022, including edible and non-edible parts."
+            ],
+            "excluded": [
+              "Liquid food waste discharged to wastewater.",
+              "Animal feed, missing sectors and illegal fish discards."
+            ],
+            "functionalUnit": "tonnes of source-defined food waste"
+          },
+          "limitations": [
+            "The total is rounded to the nearest 100 tonnes.",
+            "The component methods vary and no error interval is reported."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.is.food-waste-primary-2022",
+          "claimText": "The detailed Iceland results report 29,130 tonnes of food waste from primary production in 2022.",
+          "systemBoundary": {
+            "included": [
+              "Reported primary-production categories in the detailed results."
+            ],
+            "excluded": [
+              "Illegal fish discards.",
+              "An aquaculture quantity, whose recorded zero is explicitly no data.",
+              "Missing primary-production sectors."
+            ],
+            "functionalUnit": "tonnes of source-defined food waste"
+          },
+          "limitations": [
+            "The value is dominated by fish and excludes illegal discards.",
+            "Aquaculture is a false zero and does not support an absence claim."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.is.food-waste-manufacturing-2022",
+          "claimText": "The detailed Iceland results report 1,596.2 tonnes of food waste from processing and manufacturing in 2022.",
+          "systemBoundary": {
+            "included": [
+              "The detailed Table 2 processing and manufacturing categories."
+            ],
+            "excluded": [
+              "Manufacturers that did not report and unlisted processing activities.",
+              "The abstract's unscaled 1.6-tonne wording."
+            ],
+            "functionalUnit": "tonnes of source-defined food waste"
+          },
+          "limitations": [
+            "Questionnaire nonresponse and substitutions affect the estimate.",
+            "The abstract drops the thousand scale and creates an open contradiction."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.is.food-waste-retail-2022",
+          "claimText": "The detailed Iceland results report 1,927 tonnes of food waste from retail and distribution in 2022.",
+          "systemBoundary": {
+            "included": [
+              "The detailed retail and distribution result for 2022."
+            ],
+            "excluded": [
+              "Unmeasured retail activity and liquid food waste to wastewater.",
+              "The abstract's unscaled 1.93-tonne wording."
+            ],
+            "functionalUnit": "tonnes of source-defined food waste"
+          },
+          "limitations": [
+            "The source uses survey and estimation inputs without a reported error interval.",
+            "The abstract drops the thousand scale and creates an open contradiction."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.is.food-waste-foodservice-2022",
+          "claimText": "The detailed Iceland results report 3,856 tonnes of food waste from restaurants and food services in 2022.",
+          "systemBoundary": {
+            "included": [
+              "The detailed restaurant and food-service result for 2022."
+            ],
+            "excluded": [
+              "Unmeasured food-service activity and liquid food waste to wastewater.",
+              "The abstract's unscaled 3.86-tonne wording."
+            ],
+            "functionalUnit": "tonnes of source-defined food waste"
+          },
+          "limitations": [
+            "The source uses survey and estimation inputs without a reported error interval.",
+            "The abstract drops the thousand scale and creates an open contradiction."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.is.food-waste-household-2022",
+          "claimText": "The detailed Iceland results report 23,781 tonnes of household food waste in 2022.",
+          "systemBoundary": {
+            "included": [
+              "Household food waste extrapolated nationally from the source's Reykjavík-area composition study."
+            ],
+            "excluded": [
+              "Liquid food waste to wastewater.",
+              "A nationally sampled direct household measurement."
+            ],
+            "functionalUnit": "tonnes of source-defined household food waste"
+          },
+          "limitations": [
+            "The household estimate is extrapolated from the Reykjavík area.",
+            "No error interval is reported."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.is.abstract-manufacturing-2022",
+          "claimText": "The Iceland report abstract states 1.6 tonnes for processing and manufacturing, dropping the thousand scale used by the detailed 1,596.2-tonne result.",
+          "systemBoundary": {
+            "included": [
+              "The literal number and unit printed in the abstract."
+            ],
+            "excluded": [
+              "Correction or silent reinterpretation of the abstract value.",
+              "The detailed table result."
+            ],
+            "functionalUnit": "tonnes as literally printed"
+          },
+          "limitations": [
+            "This value is disputed because it is inconsistent by roughly three orders of magnitude with the detailed result and stated total."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.is.abstract-retail-2022",
+          "claimText": "The Iceland report abstract states 1.93 tonnes for retail and distribution, dropping the thousand scale used by the detailed 1,927-tonne result.",
+          "systemBoundary": {
+            "included": [
+              "The literal number and unit printed in the abstract."
+            ],
+            "excluded": [
+              "Correction or silent reinterpretation of the abstract value.",
+              "The detailed result."
+            ],
+            "functionalUnit": "tonnes as literally printed"
+          },
+          "limitations": [
+            "This value is disputed because it is inconsistent by roughly three orders of magnitude with the detailed result and stated total."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.is.abstract-foodservice-2022",
+          "claimText": "The Iceland report abstract states 3.86 tonnes for restaurants and food services, dropping the thousand scale used by the detailed 3,856-tonne result.",
+          "systemBoundary": {
+            "included": [
+              "The literal number and unit printed in the abstract."
+            ],
+            "excluded": [
+              "Correction or silent reinterpretation of the abstract value.",
+              "The detailed result."
+            ],
+            "functionalUnit": "tonnes as literally printed"
+          },
+          "limitations": [
+            "This value is disputed because it is inconsistent by roughly three orders of magnitude with the detailed result and stated total."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.is.abstract-household-share-2022",
+          "claimText": "The Iceland report abstract states that households account for 39 percent of total food waste in 2022.",
+          "systemBoundary": {
+            "included": [
+              "The literal household percentage stated in the abstract."
+            ],
+            "excluded": [
+              "Resolution against section 3.5's 36 percent statement.",
+              "An independently selected denominator."
+            ],
+            "functionalUnit": "percent of the source-defined food-waste total"
+          },
+          "limitations": [
+            "The 39 percent statement conflicts with section 3.5's 36 percent.",
+            "Arithmetic from 23,781 and 60,300 is about 39.44 percent, but does not resolve which printed percentage is authoritative."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.is.section-household-share-2022",
+          "claimText": "Section 3.5 of the Iceland report states that households account for 36 percent of total food waste in 2022.",
+          "systemBoundary": {
+            "included": [
+              "The literal household percentage stated in section 3.5."
+            ],
+            "excluded": [
+              "Resolution against the abstract's 39 percent statement.",
+              "An independently selected denominator."
+            ],
+            "functionalUnit": "percent of the source-defined food-waste total"
+          },
+          "limitations": [
+            "The 36 percent statement conflicts with the abstract and is inconsistent with arithmetic from the reported household and total masses."
+          ]
+        },
+        {
+          "claimId": "fs:claim:field08.is.aquaculture-false-zero-2022",
+          "claimText": "The Iceland report marks aquaculture food waste as 0* because data were unavailable; it is a false zero and must remain unknown rather than evidence of no aquaculture food waste.",
+          "systemBoundary": {
+            "included": [
+              "The source's explicit caveat attached to the aquaculture row."
+            ],
+            "excluded": [
+              "A numeric zero observation.",
+              "An absence claim.",
+              "Coverage promotion."
+            ],
+            "functionalUnit": "unknown source-defined aquaculture food waste in tonnes"
+          },
+          "limitations": [
+            "No substitute aquaculture measurement is captured in Gate 2C."
+          ]
+        }
+      ],
+      "observations": [
+        {
+          "observationId": "fs:observation:field08.is.food-waste-total-2022",
+          "title": "Iceland food-waste total, 2022 observation",
+          "value": 60300,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2022-01-01",
+            "to": "2022-12-31",
+            "asOf": "2022-12-31"
+          },
+          "denominatorOrUniverse": "The five detailed value-chain-stage results reported for Iceland in 2022.",
+          "method": "Source-reported rounded total; the five detailed components sum to 60,290.2 tonnes and round to 60,300 tonnes.",
+          "systemBoundary": {
+            "included": [
+              "Iceland food waste in the five reported value-chain stages during 2022, including edible and non-edible parts."
+            ],
+            "excluded": [
+              "Liquid food waste discharged to wastewater.",
+              "Animal feed, missing sectors and illegal fish discards."
+            ],
+            "functionalUnit": "tonnes of source-defined food waste"
+          },
+          "limitations": [
+            "The total is rounded to the nearest 100 tonnes.",
+            "The component methods vary and no error interval is reported.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.is.food-waste-primary-2022",
+          "title": "Iceland primary-production food waste, 2022 observation",
+          "value": 29130,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2022-01-01",
+            "to": "2022-12-31",
+            "asOf": "2022-12-31"
+          },
+          "denominatorOrUniverse": "Reported primary-production categories in Table 1.",
+          "method": "Source compilation of sector data and estimates; aquaculture's marked false zero is not treated as a measured zero.",
+          "systemBoundary": {
+            "included": [
+              "Reported primary-production categories in the detailed results."
+            ],
+            "excluded": [
+              "Illegal fish discards.",
+              "An aquaculture quantity, whose recorded zero is explicitly no data.",
+              "Missing primary-production sectors."
+            ],
+            "functionalUnit": "tonnes of source-defined food waste"
+          },
+          "limitations": [
+            "The value is dominated by fish and excludes illegal discards.",
+            "Aquaculture is a false zero and does not support an absence claim.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.is.food-waste-manufacturing-2022",
+          "title": "Iceland processing and manufacturing food waste, 2022 observation",
+          "value": 1596.2,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2022-01-01",
+            "to": "2022-12-31",
+            "asOf": "2022-12-31"
+          },
+          "denominatorOrUniverse": "Manufacturing respondents and source substitutions represented in Table 2.",
+          "method": "Source questionnaire and substitution estimates summarized in the detailed table.",
+          "systemBoundary": {
+            "included": [
+              "The detailed Table 2 processing and manufacturing categories."
+            ],
+            "excluded": [
+              "Manufacturers that did not report and unlisted processing activities.",
+              "The abstract's unscaled 1.6-tonne wording."
+            ],
+            "functionalUnit": "tonnes of source-defined food waste"
+          },
+          "limitations": [
+            "Questionnaire nonresponse and substitutions affect the estimate.",
+            "The abstract drops the thousand scale and creates an open contradiction.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.is.food-waste-retail-2022",
+          "title": "Iceland retail and distribution food waste, 2022 observation",
+          "value": 1927,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2022-01-01",
+            "to": "2022-12-31",
+            "asOf": "2022-12-31"
+          },
+          "denominatorOrUniverse": "Retail and distribution activities covered by the source method.",
+          "method": "Source-reported detailed-stage estimate.",
+          "systemBoundary": {
+            "included": [
+              "The detailed retail and distribution result for 2022."
+            ],
+            "excluded": [
+              "Unmeasured retail activity and liquid food waste to wastewater.",
+              "The abstract's unscaled 1.93-tonne wording."
+            ],
+            "functionalUnit": "tonnes of source-defined food waste"
+          },
+          "limitations": [
+            "The source uses survey and estimation inputs without a reported error interval.",
+            "The abstract drops the thousand scale and creates an open contradiction.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.is.food-waste-foodservice-2022",
+          "title": "Iceland restaurant and food-service waste, 2022 observation",
+          "value": 3856,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2022-01-01",
+            "to": "2022-12-31",
+            "asOf": "2022-12-31"
+          },
+          "denominatorOrUniverse": "Restaurant and food-service activities covered by the source method.",
+          "method": "Source-reported detailed-stage estimate.",
+          "systemBoundary": {
+            "included": [
+              "The detailed restaurant and food-service result for 2022."
+            ],
+            "excluded": [
+              "Unmeasured food-service activity and liquid food waste to wastewater.",
+              "The abstract's unscaled 3.86-tonne wording."
+            ],
+            "functionalUnit": "tonnes of source-defined food waste"
+          },
+          "limitations": [
+            "The source uses survey and estimation inputs without a reported error interval.",
+            "The abstract drops the thousand scale and creates an open contradiction.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.is.food-waste-household-2022",
+          "title": "Iceland household food waste, 2022 observation",
+          "value": 23781,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2022-01-01",
+            "to": "2022-12-31",
+            "asOf": "2022-12-31"
+          },
+          "denominatorOrUniverse": "Households nationally, extrapolated from a Reykjavík-area composition study.",
+          "method": "Source extrapolation of Reykjavík-area household composition results to Iceland.",
+          "systemBoundary": {
+            "included": [
+              "Household food waste extrapolated nationally from the source's Reykjavík-area composition study."
+            ],
+            "excluded": [
+              "Liquid food waste to wastewater.",
+              "A nationally sampled direct household measurement."
+            ],
+            "functionalUnit": "tonnes of source-defined household food waste"
+          },
+          "limitations": [
+            "The household estimate is extrapolated from the Reykjavík area.",
+            "No error interval is reported.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.is.abstract-manufacturing-2022",
+          "title": "Iceland abstract manufacturing figure, 2022 observation",
+          "value": 1.6,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2022-01-01",
+            "to": "2022-12-31",
+            "asOf": "2022-12-31"
+          },
+          "denominatorOrUniverse": "The abstract's stated 2022 source-defined food-waste scope.",
+          "method": "Literal transcription retained as counterevidence; the missing thousand scale is not silently repaired.",
+          "systemBoundary": {
+            "included": [
+              "The literal number and unit printed in the abstract."
+            ],
+            "excluded": [
+              "Correction or silent reinterpretation of the abstract value.",
+              "The detailed table result."
+            ],
+            "functionalUnit": "tonnes as literally printed"
+          },
+          "limitations": [
+            "This value is disputed because it is inconsistent by roughly three orders of magnitude with the detailed result and stated total.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.is.abstract-retail-2022",
+          "title": "Iceland abstract retail figure, 2022 observation",
+          "value": 1.93,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2022-01-01",
+            "to": "2022-12-31",
+            "asOf": "2022-12-31"
+          },
+          "denominatorOrUniverse": "The abstract's stated 2022 source-defined food-waste scope.",
+          "method": "Literal transcription retained as counterevidence; the missing thousand scale is not silently repaired.",
+          "systemBoundary": {
+            "included": [
+              "The literal number and unit printed in the abstract."
+            ],
+            "excluded": [
+              "Correction or silent reinterpretation of the abstract value.",
+              "The detailed result."
+            ],
+            "functionalUnit": "tonnes as literally printed"
+          },
+          "limitations": [
+            "This value is disputed because it is inconsistent by roughly three orders of magnitude with the detailed result and stated total.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.is.abstract-foodservice-2022",
+          "title": "Iceland abstract food-service figure, 2022 observation",
+          "value": 3.86,
+          "unit": "tonnes",
+          "period": {
+            "kind": "interval",
+            "from": "2022-01-01",
+            "to": "2022-12-31",
+            "asOf": "2022-12-31"
+          },
+          "denominatorOrUniverse": "The abstract's stated 2022 source-defined food-waste scope.",
+          "method": "Literal transcription retained as counterevidence; the missing thousand scale is not silently repaired.",
+          "systemBoundary": {
+            "included": [
+              "The literal number and unit printed in the abstract."
+            ],
+            "excluded": [
+              "Correction or silent reinterpretation of the abstract value.",
+              "The detailed result."
+            ],
+            "functionalUnit": "tonnes as literally printed"
+          },
+          "limitations": [
+            "This value is disputed because it is inconsistent by roughly three orders of magnitude with the detailed result and stated total.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.is.abstract-household-share-2022",
+          "title": "Iceland abstract household share, 2022 observation",
+          "value": 39,
+          "unit": "percent",
+          "period": {
+            "kind": "interval",
+            "from": "2022-01-01",
+            "to": "2022-12-31",
+            "asOf": "2022-12-31"
+          },
+          "denominatorOrUniverse": "The abstract's total source-defined food waste for 2022.",
+          "method": "Literal source-reported percentage retained without choosing between conflicting sections.",
+          "systemBoundary": {
+            "included": [
+              "The literal household percentage stated in the abstract."
+            ],
+            "excluded": [
+              "Resolution against section 3.5's 36 percent statement.",
+              "An independently selected denominator."
+            ],
+            "functionalUnit": "percent of the source-defined food-waste total"
+          },
+          "limitations": [
+            "The 39 percent statement conflicts with section 3.5's 36 percent.",
+            "Arithmetic from 23,781 and 60,300 is about 39.44 percent, but does not resolve which printed percentage is authoritative.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        },
+        {
+          "observationId": "fs:observation:field08.is.section-household-share-2022",
+          "title": "Iceland section 3.5 household share, 2022 observation",
+          "value": 36,
+          "unit": "percent",
+          "period": {
+            "kind": "interval",
+            "from": "2022-01-01",
+            "to": "2022-12-31",
+            "asOf": "2022-12-31"
+          },
+          "denominatorOrUniverse": "Section 3.5's stated source-defined total food waste for 2022.",
+          "method": "Literal source-reported percentage retained without choosing between conflicting sections.",
+          "systemBoundary": {
+            "included": [
+              "The literal household percentage stated in section 3.5."
+            ],
+            "excluded": [
+              "Resolution against the abstract's 39 percent statement.",
+              "An independently selected denominator."
+            ],
+            "functionalUnit": "percent of the source-defined food-waste total"
+          },
+          "limitations": [
+            "The 36 percent statement conflicts with the abstract and is inconsistent with arithmetic from the reported household and total masses.",
+            "Human review and source-method appraisal remain pending."
+          ]
+        }
+      ],
+      "contradictions": [
+        {
+          "contradictionSetId": "contradiction.field08.is-abstract-stage-scale-2022",
+          "status": "open",
+          "claimIds": [
+            "fs:claim:field08.is.food-waste-manufacturing-2022",
+            "fs:claim:field08.is.abstract-manufacturing-2022",
+            "fs:claim:field08.is.food-waste-retail-2022",
+            "fs:claim:field08.is.abstract-retail-2022",
+            "fs:claim:field08.is.food-waste-foodservice-2022",
+            "fs:claim:field08.is.abstract-foodservice-2022"
+          ],
+          "observationIds": [
+            "fs:observation:field08.is.food-waste-manufacturing-2022",
+            "fs:observation:field08.is.abstract-manufacturing-2022",
+            "fs:observation:field08.is.food-waste-retail-2022",
+            "fs:observation:field08.is.abstract-retail-2022",
+            "fs:observation:field08.is.food-waste-foodservice-2022",
+            "fs:observation:field08.is.abstract-foodservice-2022"
+          ],
+          "observationPairs": [
+            {
+              "leftObservationId": "fs:observation:field08.is.abstract-manufacturing-2022",
+              "rightObservationId": "fs:observation:field08.is.food-waste-manufacturing-2022"
+            },
+            {
+              "leftObservationId": "fs:observation:field08.is.abstract-retail-2022",
+              "rightObservationId": "fs:observation:field08.is.food-waste-retail-2022"
+            },
+            {
+              "leftObservationId": "fs:observation:field08.is.abstract-foodservice-2022",
+              "rightObservationId": "fs:observation:field08.is.food-waste-foodservice-2022"
+            }
+          ],
+          "citationIds": [
+            "fs:citation:field08.is.food-waste-2022-detailed-tables",
+            "fs:citation:field08.is.food-waste-2022-abstract"
+          ],
+          "description": "The abstract prints 1.6, 1.93 and 3.86 tonnes while detailed results report 1,596.2, 1,927 and 3,856 tonnes. The likely dropped thousand scale remains an explicit unresolved contradiction.",
+          "aggregationAllowed": false,
+          "resolution": null
+        },
+        {
+          "contradictionSetId": "contradiction.field08.is-household-share-2022",
+          "status": "open",
+          "claimIds": [
+            "fs:claim:field08.is.abstract-household-share-2022",
+            "fs:claim:field08.is.section-household-share-2022"
+          ],
+          "observationIds": [
+            "fs:observation:field08.is.abstract-household-share-2022",
+            "fs:observation:field08.is.section-household-share-2022"
+          ],
+          "observationPairs": [
+            {
+              "leftObservationId": "fs:observation:field08.is.abstract-household-share-2022",
+              "rightObservationId": "fs:observation:field08.is.section-household-share-2022"
+            }
+          ],
+          "citationIds": [
+            "fs:citation:field08.is.food-waste-2022-abstract",
+            "fs:citation:field08.is.food-waste-2022-household-share"
+          ],
+          "description": "The abstract reports households at 39 percent while section 3.5 reports 36 percent. Arithmetic from 23,781 and 60,300 is about 39.44 percent but does not authorize an automatic textual correction.",
+          "aggregationAllowed": false,
+          "resolution": null
+        }
+      ],
+      "proposedInternalUse": "Bruk rapporten til å dokumentere metodeforskjeller og kildekonflikter, ikke til nordisk rangering.",
+      "whatItMeasures": "Islandske matsvinnestimater innen rapportens sektor- og metodeavgrensninger.",
+      "whatItDoesNotMeasure": "Et konfliktfritt nasjonalt referansetall eller et harmonisert nordisk sammenligningsgrunnlag.",
+      "alternativeExplanations": [
+        "Frafall, falske nuller og ulik sektoravgrensning kan forklare avvik.",
+        "Sammendrags- og tabellverdier kan bygge på ulike univers."
+      ],
+      "requiredLimitations": [
+        "Alle dokumenterte kildekonflikter må følge eventuell intern bruk.",
+        "Ingen nordisk rangering."
+      ],
+      "reviewInstruction": "Gabriel må åpne den private PDF-lenken eller det replayede API-uttrekket, velge beslutning og bekrefte den kanoniske attestasjonsformuleringen før en kvittering appendes.",
+      "privateReviewLinkIncludedInDeployableArtifact": false,
+      "externalUseAllowed": false,
+      "coveragePromotionAllowed": false
+    }
+  ],
+  "externalUseAllowed": false,
+  "coveragePromotionAllowed": false
+}
