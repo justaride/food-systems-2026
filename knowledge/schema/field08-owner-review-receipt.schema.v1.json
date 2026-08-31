@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/field08-owner-review-receipt.schema.v1.json",
+  "title": "Field08OwnerReviewReceipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "documentType", "schemaVersion", "receiptId", "sequence", "supersedesReceiptId",
+    "previousReceiptHash", "evidencePackageHash", "sourceId", "sourceHash", "signer",
+    "decision", "allowedInternalUses", "limitations", "openQuestions", "aiAssistance",
+    "externalUseAllowed", "coveragePromotionAllowed", "contentHash"
+  ],
+  "properties": {
+    "documentType": { "const": "field08_owner_review_receipt" },
+    "schemaVersion": { "const": "1.0.0" },
+    "receiptId": { "type": "string", "minLength": 1 },
+    "sequence": { "type": "integer", "minimum": 1 },
+    "supersedesReceiptId": { "type": ["string", "null"] },
+    "previousReceiptHash": { "$ref": "#/$defs/nullableHash" },
+    "evidencePackageHash": { "$ref": "#/$defs/hash" },
+    "sourceId": { "type": "string", "minLength": 1 },
+    "sourceHash": { "$ref": "#/$defs/hash" },
+    "signer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["personId", "signedAt", "attestation"],
+      "properties": {
+        "personId": { "const": "person.gabriel_freeman" },
+        "signedAt": { "type": "string", "format": "date-time" },
+        "attestation": {
+          "const": "Jeg, Gabriel Freeman, har personlig gjennomgått den eksakte kildepakken og bekrefter denne beslutningen for intern bruk med de oppgitte begrensningene. AI har bare bistått med forberedelse og har ikke signert eller tatt beslutningen."
+        }
+      }
+    },
+    "decision": {
+      "enum": ["accepted_internal_with_limitations", "returned_for_revision", "rejected", "retained_open"]
+    },
+    "allowedInternalUses": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "limitations": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "openQuestions": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "aiAssistance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["used", "disclosure"],
+      "properties": {
+        "used": { "type": "boolean" },
+        "disclosure": { "type": "string", "minLength": 1 }
+      }
+    },
+    "externalUseAllowed": { "const": false },
+    "coveragePromotionAllowed": { "const": false },
+    "contentHash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "nullableHash": { "oneOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }] }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foodsystems.local/schema/field08-owner-review-status.schema.v1.json",
+  "title": "Field08OwnerReviewStatus",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "documentType", "schemaVersion", "evidencePackageHash", "packageStatus", "sources",
+    "axes", "externalUseAllowed", "coveragePromotionAllowed", "packageGeneratedAt", "sourceCommit"
+  ],
+  "properties": {
+    "documentType": { "const": "field08_owner_review_status" },
+    "schemaVersion": { "const": "1.0.0" },
+    "evidencePackageHash": { "$ref": "#/$defs/hash" },
+    "packageStatus": { "enum": ["owner_review_in_progress", "owner_review_complete_internal_only"] },
+    "sources": {
+      "type": "array", "minItems": 5, "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["sourceId", "sourceHash", "title", "publisher", "geographyIds", "locatorCount", "decision", "receiptId", "receiptHash", "limitations", "openQuestions", "externalUseAllowed", "coveragePromotionAllowed"],
+        "properties": {
+          "sourceId": { "type": "string" },
+          "sourceHash": { "$ref": "#/$defs/hash" },
+          "title": { "type": "string" },
+          "publisher": { "type": "string" },
+          "geographyIds": { "type": "array", "items": { "type": "string" } },
+          "locatorCount": { "type": "integer", "minimum": 1 },
+          "decision": { "enum": ["pending_owner_review", "accepted_internal_with_limitations", "returned_for_revision", "rejected", "retained_open"] },
+          "receiptId": { "type": ["string", "null"] },
+          "receiptHash": { "oneOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }] },
+          "limitations": { "type": "array", "items": { "type": "string" } },
+          "openQuestions": { "type": "array", "items": { "type": "string" } },
+          "externalUseAllowed": { "const": false },
+          "coveragePromotionAllowed": { "const": false }
+        },
+        "additionalProperties": false
+      }
+    },
+    "axes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ownerReview", "expertReview", "partnerReview", "rights", "publication", "coverage"],
+      "properties": {
+        "ownerReview": { "enum": ["in_progress", "complete_internal_only"] },
+        "expertReview": { "const": "unchanged_pending" },
+        "partnerReview": { "const": "unchanged_pending" },
+        "rights": { "const": "unchanged_pending" },
+        "publication": { "const": "unchanged_blocked" },
+        "coverage": { "const": "unchanged_blocked" }
+      }
+    },
+    "externalUseAllowed": { "const": false },
+    "coveragePromotionAllowed": { "const": false },
+    "packageGeneratedAt": { "type": "string", "format": "date-time" },
+    "sourceCommit": { "type": "string", "pattern": "^[a-f0-9]{40}$" }
+  },
+  "$defs": { "hash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" } }
+}
