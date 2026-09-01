@@ -1,74 +1,74 @@
 # KI-priority — Reports + Theses
 
 > Auto-generert av `scripts/compute-ki-priority.ts` — ikke rediger manuelt.
-> Generert: 2026-07-01T02:08:50.743Z
-> Totalt: **208** poster (130 rapporter + 78 avhandlinger)
+> Generert: 2026-09-01T02:06:38.035Z
+> Totalt: **217** poster (139 rapporter + 78 avhandlinger)
 
 ## Score-distribusjon
 
 | Score | Reports | Theses | Sum |
 |---|---:|---:|---:|
-| 5.0 | 105 | 58 | 163 |
-| 4.5 | 15 | 20 | 35 |
-| 4.0 | 2 | 0 | 2 |
-| 3.5 | 4 | 0 | 4 |
-| 3.0 | 3 | 0 | 3 |
-| 1.0 | 1 | 0 | 1 |
+| 5.0 | 85 | 58 | 143 |
+| 4.5 | 18 | 20 | 38 |
+| 4.0 | 15 | 0 | 15 |
+| 3.5 | 8 | 0 | 8 |
+| 3.0 | 5 | 0 | 5 |
+| 1.0 | 8 | 0 | 8 |
 
 ## Topp 30
 
 | # | Score | Type | Kategori | Provenance | År | Tittel |
 |---:|---|---|---|---|---|---|
-| 1 | 5.0 | report | nou | external_report | 2026 | Matsystemutvalget — Status 2026 |
-| 2 | 5.0 | report | konkurransetilsyn | external_report | 2026 | Markedsundersokelser § 14 — Status |
-| 3 | 5.0 | report | konsulentrapport | external_report | 2026 | Funksjonelt og regnskapsmessig skille |
-| 4 | 5.0 | report | beredskap | external_report | 2026 | NIBIO: Norsk selvforsyningsgrad 2026 |
-| 5 | 5.0 | report | akademia | external_report | 2026 | SIFO: Lojalitetsprogrammer og prisdata |
-| 6 | 5.0 | report | offentlig | external_report | 2026 | Guide for Responsible Procurement of Food (Motiva, januar 2026) |
-| 7 | 5.0 | thesis | master | external_report | 2026 | Impact of food retail market power on small food producers in Sweden: Challenges |
-| 8 | 5.0 | report | konkurransetilsyn | external_report | 2025 | Dagligvarerapport 2024-25 |
-| 9 | 5.0 | report | konkurransetilsyn | external_report | 2025 | Marginstudie Del 2 |
-| 10 | 5.0 | report | konkurransetilsyn | external_report | 2025 | Salling Group / Coop Danmark-oppkjop |
+| 1 | 5.0 | report | konkurransetilsyn | external_article | 2026 | Markedsundersokelser § 14 — Status |
+| 2 | 5.0 | report | konsulentrapport | external_report | 2026 | Funksjonelt og regnskapsmessig skille |
+| 3 | 5.0 | report | beredskap | external_report | 2026 | NIBIO: Norsk selvforsyningsgrad 2026 |
+| 4 | 5.0 | report | akademia | external_report | 2026 | SIFO: Lojalitetsprogrammer og prisdata |
+| 5 | 5.0 | report | offentlig | external_report | 2026 | Guide for Responsible Procurement of Food (Motiva, januar 2026) |
+| 6 | 5.0 | report | konkurransetilsyn | external_report | 2026 | Dagligvarerapport 2025 |
+| 7 | 5.0 | report | konkurransetilsyn | external_report | 2026 | Åtgärder för att förbättra förutsättningarna för etablering av dagligvarubutiker |
+| 8 | 5.0 | thesis | master | external_report | 2026 | Impact of food retail market power on small food producers in Sweden: Challenges |
+| 9 | 5.0 | report | konkurransetilsyn | external_report | 2025 | Dagligvarerapport 2024-25 |
+| 10 | 5.0 | report | konkurransetilsyn | external_report | 2025 | Marginstudie Del 2 |
 | 11 | 5.0 | report | offentlig | external_report | 2025 | Samarbeidsklima-undersokelsen 2025 |
-| 12 | 5.0 | report | bransje | external_report | 2025 | ASKO — Infrastruktur og Logistikkmakt |
-| 13 | 5.0 | report | bransje | external_report | 2025 | Dagligvarerapporten 2025 |
-| 14 | 5.0 | report | bransje | external_report | 2025 | NBS — Systemkritikk |
-| 15 | 5.0 | report | akademia | external_report | 2025 | Status of Danish imports of sustainable and deforestation- and conversion-free s |
-| 16 | 5.0 | report | offentlig | external_report | 2025 | Biogasstatus for 2024 |
-| 17 | 5.0 | report | offentlig | external_report | 2025 | Statens insatser for jordbrukets klimatomstallning |
-| 18 | 5.0 | report | offentlig | external_report | 2025 | Livsmedelsavfall i Sverige 2024 |
-| 19 | 5.0 | report | offentlig | external_report | 2025 | Livsmedelskonsumtion och näringsinnehåll 2024 |
-| 20 | 5.0 | report | offentlig | external_report | 2025 | Two per cent more biogas was produced in 2024 |
-| 21 | 5.0 | report | bransje | external_report | 2025 | Valio Sustainability Report 2024 |
-| 22 | 5.0 | report | juridisk | external_report | 2025 | EUDR og norsk dagligvare |
-| 23 | 5.0 | report | akademia | external_report | 2025 | SIFO: Retail media og forbrukermakt |
-| 24 | 5.0 | report | akademia | external_report | 2025 | NHH/Foros: Vertikal integrasjon i media og dagligvare |
-| 25 | 5.0 | report | bransje | external_report | 2025 | Hagar plc — Management Report 2024/25 and Q4 Results |
-| 26 | 5.0 | report | juridisk | external_report | 2025 | Salling Group A/S erhvervelse af dele af Coop Danmark A/S (Konkurrencerådsafgøre |
-| 27 | 5.0 | report | akademia | external_report | 2025 | Analyse af Salling Group A/S og Coop Danmark A/S — Erhvervsøkonomisk metode |
-| 28 | 5.0 | report | offentlig | external_report | 2025 | Beyond Zero — Nordic Architecture on the Road Towards Renewed Practices (Nord 20 |
-| 29 | 5.0 | report | akademia | external_report | 2025 | Reducing food waste in the HORECA sector using AI-based waste tracking technolog |
-| 30 | 5.0 | report | bransje | external_report | 2025 | NorgesGruppen halvarsrapport H1 2025 |
+| 12 | 5.0 | report | bransje | external_report | 2025 | Dagligvarerapporten 2025 |
+| 13 | 5.0 | report | akademia | external_report | 2025 | Status of Danish imports of sustainable and deforestation- and conversion-free s |
+| 14 | 5.0 | report | offentlig | external_report | 2025 | Biogasstatus for 2024 |
+| 15 | 5.0 | report | offentlig | external_report | 2025 | Statens insatser for jordbrukets klimatomstallning |
+| 16 | 5.0 | report | offentlig | external_report | 2025 | Livsmedelsavfall i Sverige 2024 |
+| 17 | 5.0 | report | offentlig | external_report | 2025 | Livsmedelskonsumtion och näringsinnehåll 2024 |
+| 18 | 5.0 | report | offentlig | external_report | 2025 | Two per cent more biogas was produced in 2024 |
+| 19 | 5.0 | report | bransje | external_report | 2025 | Valio Sustainability Report 2024 |
+| 20 | 5.0 | report | bransje | external_report | 2025 | Hagar plc — Management Report 2024/25 and Q4 Results |
+| 21 | 5.0 | report | juridisk | external_report | 2025 | Salling Group A/S erhvervelse af dele af Coop Danmark A/S (Konkurrencerådsafgøre |
+| 22 | 5.0 | report | akademia | external_report | 2025 | Analyse af Salling Group A/S og Coop Danmark A/S — Erhvervsøkonomisk metode |
+| 23 | 5.0 | report | offentlig | external_report | 2025 | Beyond Zero — Nordic Architecture on the Road Towards Renewed Practices (Nord 20 |
+| 24 | 5.0 | report | bransje | external_report | 2025 | NorgesGruppen halvarsrapport H1 2025 |
+| 25 | 5.0 | report | konkurransetilsyn | external_report | 2025 | Konkurrensverket rapport 2025:5 — livsmedelsutredningen |
+| 26 | 5.0 | report | konkurransetilsyn | external_report | 2025 | Lönsamheten i livsmedelsindustrin, dagligvaruhandeln och dess grossister – en ek |
+| 27 | 5.0 | report | bransje | external_report | 2025 | Recept för resiliens |
+| 28 | 5.0 | report | offentlig | external_report | 2025 | L 2025 nr 07: Matsvinn i kommunala förskolor och skolor – Kartläggning av matsvi |
+| 29 | 5.0 | report | akademia | external_article | 2025 | Tackling the challenges of food waste diary studies — Testing strategies with Fi |
+| 30 | 5.0 | report | konsulentrapport | external_report | 2025 | Madaffald i detailhandel og anden fødevaredistribution 2023 |
 
 ## Bunn 15 (deprioritert i KI-bruk)
 
 | Score | Type | Kategori | Provenance | År | Tittel |
 |---|---|---|---|---|---|
+| 1.0 | report | konsulentrapport | blocked_source | 2023 | SOA — EMV og Vertikal integrasjon |
+| 1.0 | report | bransje | blocked_source | 2024 | Coop Norge ÅRS- og bærekraftsrapport 2024 |
+| 1.0 | report | akademia | blocked_source | 2024 | UiB: Kjoepermakt i nordisk dagligvare |
+| 1.0 | report | bransje | blocked_source | 2024 | Reitan Retail / REMA 1000 (2024/2025) |
 | 1.0 | report | bransje | blocked_source | 2025 | Bondens andel av forbrukerkronen 2025 |
+| 1.0 | report | akademia | blocked_source | 2025 | NHH/Foros: Vertikal integrasjon i media og dagligvare |
+| 1.0 | report | konkurransetilsyn | blocked_source | 2025 | Salling Group / Coop Danmark-oppkjop |
+| 1.0 | report | nou | blocked_source | 2026 | Matsystemutvalget — Status 2026 |
 | 3.0 | report | oversikt | internal_register | 2025 | Nordisk avhandlingsregister — matpolitikk |
+| 3.0 | report | oversikt | internal_synthesis | 2025 | Akademisk forskning paa nordisk dagligvare — oversikt |
 | 3.0 | report | oversikt | internal_register | 2025 | Offentlig rapportlogg — matsektor |
 | 3.0 | report | oversikt | internal_register | 2025 | NOU-er og stortingsdokumenter — juridisk oversikt |
+| 3.0 | report | oversikt | internal_register | 2026 | Food Systems 2026 interne metode- og figurartefakter |
+| 3.5 | report | oversikt | composite_source | 2024 | Bransjestatistikk og beredskapstall |
 | 3.5 | report | oversikt | internal_synthesis | 2025 | Tenketanker og NGO-er i nordisk matdebatt |
-| 3.5 | report | oversikt | internal_synthesis | 2025 | Sirkularitet i nordisk mat — dypanalyse |
-| 3.5 | report | oversikt | internal_synthesis | 2025 | Nordisk matmaktkonsentrasjon — historikk |
-| 3.5 | report | oversikt | internal_synthesis | 2025 | Nordiske mat-tenkere og paavirkernettverk |
-| 4.0 | report | tenketank | external_report | 2019 | Stockholm Resilience Centre — Nordic Food Systems |
-| 4.0 | report | bransje | internal_synthesis | 2024 | Merkevarenes historie — Orkla og TINE |
-| 4.5 | thesis | master | external_report | 2006 | Det norske dagligvaremarkedet: relasjoner mellom detaljist og produsent |
-| 4.5 | thesis | master | external_report | 2010 | Consumer-owned retail cooperative in duopoly with horizontally differentiated go |
-| 4.5 | thesis | master | external_report | 2011 | Food Security in Iceland: Present Vulnerabilities, Possible Solutions |
-| 4.5 | thesis | master | external_report | 2012 | Horisontal konkurranse i dagligvaremarkedet: Bruken av egne merkevarer |
-| 4.5 | thesis | master | external_report | 2013 | Nokkelhull pa matvarer — private aktorers okonomiske interesser og konsekvensene |
 
 ## Tolkning av score
 

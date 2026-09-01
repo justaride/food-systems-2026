@@ -1,15 +1,15 @@
 # HTML triage — research/ snapshots
 
 > Auto-generert av `scripts/triage-html.ts` — ikke rediger manuelt.
-> Generert: 2026-07-04T16:28:22.185Z
-> Totalt: **29** HTML-filer skannet (utelater `_plans/`, `_status/`, `intake/`)
+> Generert: 2026-09-01T02:07:03.219Z
+> Totalt: **41** HTML-filer skannet (utelater `_plans/`, `_status/`, `intake/`)
 
 ## Klassifisering
 
 | Klasse | Antall |
 |---|---:|
-| ok-snapshot | 29 |
-| needs-md-extraction | 0 |
+| ok-snapshot | 40 |
+| needs-md-extraction | 1 |
 | navigation-only | 0 |
 | error-page | 0 |
 
@@ -18,8 +18,8 @@
 | Severity | Antall |
 |---|---:|
 | HIGH | 0 |
-| MEDIUM | 0 |
-| LOW | 29 |
+| MEDIUM | 1 |
+| LOW | 40 |
 
 ## Error-pages
 
@@ -33,7 +33,9 @@ _Ingen navigation-only-filer funnet._
 
 > Sortert: referenced_in_seed først, deretter word_count desc.
 
-_Ingen needs-md-extraction-filer funnet._
+| # | Severity | Referenced | Words | Path | Tittel |
+|---:|---|---|---:|---|---|
+| 1 | MEDIUM | no | 946 | innhenting-2026-08-05/staging/stockmann.html | Stockmann to sell its Delicatessen business in Finland to S  |
 
 ## Severity-regler
 
