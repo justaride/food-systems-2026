@@ -32,8 +32,11 @@ export type DerivedMarginTarget = {
   year: number
   expectedSourceLocator: string
   expectedSource: string
+  alternateExpectedSource?: string
+  alternateExpectedSourceLocator?: string
   expectedVerificationStatus: 'human_verified' | null
   expectedVerifiedAt: string | null
+  allowUnverifiedInternal: boolean
   expectedMargin: number
 }
 
@@ -84,6 +87,7 @@ export const DERIVED_MARGIN_TARGETS: DerivedMarginTarget[] = [
       'ICA Gruppen Annual Report 2025. SEK 142403m net sales; SEK 5408m operating profit excl. items; Norges Bank 2025 average SEK/NOK',
     expectedVerificationStatus: 'human_verified',
     expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+    allowUnverifiedInternal: true,
     expectedMargin: 3.8,
   },
   {
@@ -96,6 +100,7 @@ export const DERIVED_MARGIN_TARGETS: DerivedMarginTarget[] = [
       'Axfood Annual and Sustainability Report 2025. SEK 89152m net sales; SEK 3572m adjusted operating profit; Norges Bank 2025 average SEK/NOK',
     expectedVerificationStatus: 'human_verified',
     expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+    allowUnverifiedInternal: true,
     expectedMargin: 4.01,
   },
   {
@@ -108,6 +113,7 @@ export const DERIVED_MARGIN_TARGETS: DerivedMarginTarget[] = [
       'Coop Sverige/KF Annual Report 2025. SEK 36377m net sales; SEK -305m operating result; Norges Bank 2025 average SEK/NOK',
     expectedVerificationStatus: 'human_verified',
     expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+    allowUnverifiedInternal: true,
     expectedMargin: -0.84,
   },
   {
@@ -117,8 +123,12 @@ export const DERIVED_MARGIN_TARGETS: DerivedMarginTarget[] = [
     year: 2025,
     expectedSourceLocator: 'https://sallinggroup.com/en/stores/key-figures',
     expectedSource: 'https://sallinggroup.com/en/stores/key-figures',
+    alternateExpectedSource:
+      'Salling Group Key Figures 2025. DKK 83168m revenue; DKK 3245m EBIT; Norges Bank 2025 average DKK/NOK',
+    alternateExpectedSourceLocator: 'https://sallinggroup.com/en/stores/key-figures',
     expectedVerificationStatus: 'human_verified',
     expectedVerifiedAt: '2026-07-03T00:00:00.000Z',
+    allowUnverifiedInternal: true,
     expectedMargin: 3.9,
   },
   {
@@ -131,6 +141,7 @@ export const DERIVED_MARGIN_TARGETS: DerivedMarginTarget[] = [
       'Coop Danmark Annual Report 2025. DKK 32565m net sales; DKK -215m operating result; Norges Bank 2025 average DKK/NOK',
     expectedVerificationStatus: 'human_verified',
     expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+    allowUnverifiedInternal: true,
     expectedMargin: -0.66,
   },
   {
@@ -143,6 +154,7 @@ export const DERIVED_MARGIN_TARGETS: DerivedMarginTarget[] = [
       'Reitan Retail Annual Report 2025. REMA 1000 Denmark segment: NOK 45239m revenue; NOK 1518m operating profit',
     expectedVerificationStatus: 'human_verified',
     expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+    allowUnverifiedInternal: true,
     expectedMargin: 3.36,
   },
   {
@@ -154,6 +166,7 @@ export const DERIVED_MARGIN_TARGETS: DerivedMarginTarget[] = [
     expectedSource: 'Kesko Annual Report 2024. EUR 11.92B, 1 EUR ≈ 11.5 NOK',
     expectedVerificationStatus: 'human_verified',
     expectedVerifiedAt: '2026-05-18T00:00:00.000Z',
+    allowUnverifiedInternal: true,
     expectedMargin: 5.5,
   },
   {
@@ -169,6 +182,7 @@ export const DERIVED_MARGIN_TARGETS: DerivedMarginTarget[] = [
     // unreviewed and internal. This backfill must not manufacture human review.
     expectedVerificationStatus: null,
     expectedVerifiedAt: null,
+    allowUnverifiedInternal: true,
     expectedMargin: 3.5,
   },
   {
@@ -180,6 +194,7 @@ export const DERIVED_MARGIN_TARGETS: DerivedMarginTarget[] = [
     expectedSource: 'Hagar hf Annual Report 2024. EUR ~1.23B, 1 EUR ≈ 11.5 NOK',
     expectedVerificationStatus: 'human_verified',
     expectedVerifiedAt: '2026-05-18T00:00:00.000Z',
+    allowUnverifiedInternal: true,
     expectedMargin: 5.79,
   },
 ]
@@ -294,24 +309,29 @@ export function buildDerivedMarginMetricData(
     }
   }
 
-  if (financial.source !== target.expectedSource) {
+  const primarySourceContract =
+    financial.source === target.expectedSource &&
+    resolvedSourceLocator === target.expectedSourceLocator
+  const alternateSourceContract =
+    target.alternateExpectedSource !== undefined &&
+    financial.source === target.alternateExpectedSource &&
+    resolvedSourceLocator === target.alternateExpectedSourceLocator
+  if (!primarySourceContract && !alternateSourceContract) {
     return {
       data: null,
-      skipped: `${target.country}/${target.companyName}/${target.year}: source contract mismatch`,
+      skipped: `${target.country}/${target.companyName}/${target.year}: source and locator contract mismatch`,
     }
   }
 
-  if (resolvedSourceLocator !== target.expectedSourceLocator) {
-    return {
-      data: null,
-      skipped: `${target.country}/${target.companyName}/${target.year}: source locator contract mismatch`,
-    }
-  }
-
-  if (
-    financial.verificationStatus !== target.expectedVerificationStatus ||
-    asIso(financial.verifiedAt) !== target.expectedVerifiedAt
-  ) {
+  const verifiedAt = asIso(financial.verifiedAt)
+  const primaryAuthorityContract =
+    financial.verificationStatus === target.expectedVerificationStatus &&
+    verifiedAt === target.expectedVerifiedAt
+  const unverifiedInternalContract =
+    target.allowUnverifiedInternal &&
+    financial.verificationStatus === null &&
+    verifiedAt === null
+  if (!primaryAuthorityContract && !unverifiedInternalContract) {
     return {
       data: null,
       skipped: `${target.country}/${target.companyName}/${target.year}: verification contract mismatch`,
@@ -346,7 +366,7 @@ export function buildDerivedMarginMetricData(
       value: calculatedMargin,
       unit: '%',
       year: String(target.year),
-      source: target.expectedSource,
+      source: financial.source,
       subtitle: 'Operating margin derived from CompanyFinancial revenue and operating result',
       metadata: {
         sourceUrl: resolvedSourceLocator,
@@ -364,10 +384,10 @@ export function buildDerivedMarginMetricData(
             ? 'calculated_from_revenue_and_operating_result'
             : 'companyFinancial.operatingMargin',
         companyFinancialVerificationStatus: financial.verificationStatus,
-        companyFinancialVerifiedAt: target.expectedVerifiedAt,
-        companyFinancialSource: target.expectedSource,
+        companyFinancialVerifiedAt: verifiedAt,
+        companyFinancialSource: financial.source,
         sourceQuality:
-          target.expectedVerificationStatus === 'human_verified'
+          financial.verificationStatus === 'human_verified'
             ? 'human_verified_financial'
             : 'unverified_internal_financial',
       },

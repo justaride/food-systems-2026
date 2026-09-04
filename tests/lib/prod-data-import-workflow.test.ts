@@ -20,6 +20,8 @@ describe('prod data import workflow', () => {
       'ownership',
       'registers',
       'full',
+      'nordic-financials-2025-dry',
+      'nordic-financials-2025',
       'country-metric-harmonization-dry',
       'country-metric-harmonization',
       'nordic-spine-dry',
@@ -119,6 +121,7 @@ describe('prod data import workflow', () => {
       'board-coverage-dry',
       'country-metric-harmonization-dry',
       'leroy-duplicate-dry',
+      'nordic-financials-2025-dry',
       'nordic-spine-dry',
       'verify-only',
     ])
@@ -129,7 +132,43 @@ describe('prod data import workflow', () => {
       'country-metric-harmonization muterer og må kreve backup',
     )
     assert.ok(!exempted.includes('leroy-duplicate'), 'leroy-duplicate sletter en rad og må kreve backup')
+    assert.ok(
+      !exempted.includes('nordic-financials-2025'),
+      'nordic-financials-2025 muterer og må kreve backup',
+    )
     assert.ok(!exempted.includes('nordic-spine'), 'nordic-spine muterer og må kreve backup')
+  })
+
+  it('Nordic 2025 financial prerequisite is create-only, protected, and evidence-bound', () => {
+    const ops = workflow.slice(workflow.indexOf('Run selected prod data operation'))
+    const dry = ops.slice(
+      ops.indexOf('nordic-financials-2025-dry)'),
+      ops.indexOf('nordic-financials-2025)'),
+    )
+    const apply = ops.slice(
+      ops.indexOf('nordic-financials-2025)'),
+      ops.indexOf('country-metric-harmonization-dry)'),
+    )
+    assert.match(dry, /db:import:nordic-financials-2025:dry-run/)
+    assert.doesNotMatch(dry, /:apply/)
+    assert.match(dry, /planned.*6/)
+    assert.match(dry, /creates.*6/)
+    assert.match(dry, /updates.*0/)
+    assert.match(dry, /identityMismatches.*0/)
+    assert.match(dry, /provenanceRowsVerified.*6/)
+
+    const preflight = apply.indexOf('db:import:nordic-financials-2025:dry-run')
+    const mutation = apply.indexOf('db:import:nordic-financials-2025:apply')
+    const marginGate = apply.indexOf('db:backfill:country-metric-harmonization:dry-run')
+    assert.ok(preflight > -1 && mutation > preflight)
+    assert.ok(marginGate > mutation)
+    assert.match(apply.slice(preflight, mutation), /creates.*6/)
+    assert.match(apply.slice(preflight, mutation), /updates.*0/)
+    assert.match(apply.slice(preflight, mutation), /identityMismatches.*0/)
+    assert.match(apply.slice(mutation, marginGate), /persistedRowsVerified.*6/)
+    assert.match(apply.slice(marginGate), /derivedMarginRowsPlanned.*9/)
+    assert.match(apply.slice(marginGate), /derivedMarginRowsSkipped.*\[\]/)
+    assert.match(workflow, /nordic-financials-2025-evidence-\$\{\{ github\.run_id \}\}/)
   })
 
   it('CountryMetric prerequisite keeps dry-run and protected apply separate', () => {

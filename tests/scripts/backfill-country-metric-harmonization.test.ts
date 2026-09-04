@@ -84,6 +84,7 @@ describe('backfill-country-metric-harmonization', () => {
           expectedSource: 'Annual report',
           expectedVerificationStatus: 'human_verified',
           expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+          allowUnverifiedInternal: true,
           expectedMargin: 12.35,
         },
         {
@@ -101,6 +102,34 @@ describe('backfill-country-metric-harmonization', () => {
       assert.equal(margin.data?.value, 12.35)
       assert.equal(margin.data?.metadata.operatingMarginSource, 'calculated_from_revenue_and_operating_result')
 
+      const unreviewedInternal = mod.buildDerivedMarginMetricData(
+        {
+          country: 'SE',
+          companyName: 'Axfood AB',
+          orgNr: 'SE-556542-5353',
+          year: 2025,
+          expectedSourceLocator: 'https://example.test/annual-report',
+          expectedSource: 'Annual report',
+          expectedVerificationStatus: 'human_verified',
+          expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+          allowUnverifiedInternal: true,
+          expectedMargin: 12.35,
+        },
+        {
+          revenueNok: 1000,
+          operatingResult: 123.45,
+          operatingMargin: null,
+          source: 'Annual report',
+          verificationStatus: null,
+          verifiedAt: null,
+          company: { name: 'Axfood AB', orgNr: 'SE-556542-5353', country: 'SE' },
+        },
+        'https://example.test/annual-report',
+      )
+      assert.equal(unreviewedInternal.skipped, null)
+      assert.equal(unreviewedInternal.data?.metadata.companyFinancialVerificationStatus, null)
+      assert.equal(unreviewedInternal.data?.metadata.sourceQuality, 'unverified_internal_financial')
+
       const explicit = mod.buildDerivedMarginMetricData(
         {
           country: 'DK',
@@ -111,6 +140,7 @@ describe('backfill-country-metric-harmonization', () => {
           expectedSource: 'Salling source',
           expectedVerificationStatus: null,
           expectedVerifiedAt: null,
+          allowUnverifiedInternal: true,
           expectedMargin: 3.9,
         },
         {
@@ -161,7 +191,7 @@ describe('backfill-country-metric-harmonization', () => {
             operatingResult: 123.45,
             operatingMargin: null,
             source: 'Annual report',
-            verificationStatus: null,
+            verificationStatus: 'machine_verified',
             verifiedAt: null,
             company: { name: 'Axfood AB', orgNr: 'SE-556542-5353', country: 'SE' },
           },
@@ -189,6 +219,7 @@ describe('backfill-country-metric-harmonization', () => {
             expectedSource: 'Annual report',
             expectedVerificationStatus: 'human_verified',
             expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+            allowUnverifiedInternal: true,
             expectedMargin: 12.35,
           },
           financial,
@@ -208,6 +239,7 @@ describe('backfill-country-metric-harmonization', () => {
           expectedSource: 'Annual report',
           expectedVerificationStatus: 'human_verified',
           expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+          allowUnverifiedInternal: true,
           expectedMargin: 12.35,
         },
         {
@@ -222,7 +254,7 @@ describe('backfill-country-metric-harmonization', () => {
         'https://wrong.example/annual-report',
       )
       assert.equal(locatorRejected.data, null)
-      assert.match(locatorRejected.skipped ?? '', /source locator contract mismatch/)
+      assert.match(locatorRejected.skipped ?? '', /source and locator contract mismatch/)
 
       const expectedPersisted = margin.data!
       mod.assertPersistedDerivedMarginRows([expectedPersisted], [
