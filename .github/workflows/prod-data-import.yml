@@ -34,6 +34,8 @@ on:
           - knowledge
           - full
           - innhenting-2026-08-05
+          - nordic-financials-2025-dry
+          - nordic-financials-2025
           - country-metric-harmonization-dry
           - country-metric-harmonization
           - nordic-spine-dry
@@ -94,7 +96,7 @@ jobs:
         # Tørrkjøringene er unntatt av samme grunn som verify-only: de skriver
         # ingenting, og en lesende diagnose skal ikke blokkeres av manglende
         # backup. De skrivende targetene er aldri unntatt.
-        if: ${{ inputs.target != 'verify-only' && inputs.target != 'country-metric-harmonization-dry' && inputs.target != 'nordic-spine-dry' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' }}
+        if: ${{ inputs.target != 'verify-only' && inputs.target != 'nordic-financials-2025-dry' && inputs.target != 'country-metric-harmonization-dry' && inputs.target != 'nordic-spine-dry' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' }}
         env:
           COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_READ_API_TOKEN }}
           COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
@@ -270,6 +272,35 @@ jobs:
             innhenting-2026-08-05)
               npm run db:import:innhenting
               npm run db:verify
+              ;;
+            nordic-financials-2025-dry)
+              mkdir -p research/_status
+              npm run db:import:nordic-financials-2025:dry-run \
+                2>&1 | tee research/_status/nordic-financials-2025-dryrun.log
+              grep -Fq '"planned": 6' research/_status/nordic-financials-2025-dryrun.log
+              grep -Fq '"creates": 6' research/_status/nordic-financials-2025-dryrun.log
+              grep -Fq '"updates": 0' research/_status/nordic-financials-2025-dryrun.log
+              grep -Fq '"identityMismatches": 0' research/_status/nordic-financials-2025-dryrun.log
+              grep -Fq '"provenanceRowsVerified": 6' research/_status/nordic-financials-2025-dryrun.log
+              ;;
+            nordic-financials-2025)
+              mkdir -p research/_status
+              npm run db:import:nordic-financials-2025:dry-run \
+                2>&1 | tee research/_status/nordic-financials-2025-preapply.log
+              grep -Fq '"planned": 6' research/_status/nordic-financials-2025-preapply.log
+              grep -Fq '"creates": 6' research/_status/nordic-financials-2025-preapply.log
+              grep -Fq '"updates": 0' research/_status/nordic-financials-2025-preapply.log
+              grep -Fq '"identityMismatches": 0' research/_status/nordic-financials-2025-preapply.log
+              npm run db:import:nordic-financials-2025:apply \
+                2>&1 | tee research/_status/nordic-financials-2025-applied.log
+              grep -Fq '"persistedRowsVerified": 6' research/_status/nordic-financials-2025-applied.log
+              npm run db:backfill:country-metric-harmonization:dry-run \
+                2>&1 | tee research/_status/nordic-financials-2025-margin-postapply.log
+              grep -Fq '"derivedMarginRowsPlanned": 9' \
+                research/_status/nordic-financials-2025-margin-postapply.log
+              grep -Fq '"derivedMarginRowsSkipped": []' \
+                research/_status/nordic-financials-2025-margin-postapply.log
+              npm run db:verify 2>&1 | tee research/_status/nordic-financials-2025-db-verify.log
               ;;
             country-metric-harmonization-dry)
               # Read-only prerequisite plan for the Nordic C1 spine. Require
@@ -481,6 +512,15 @@ jobs:
         with:
           name: country-metric-harmonization-evidence-${{ github.run_id }}
           path: research/_status/country-metric-harmonization-*.log
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Upload Nordic 2025 financial evidence
+        if: ${{ always() && (inputs.target == 'nordic-financials-2025-dry' || inputs.target == 'nordic-financials-2025') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: nordic-financials-2025-evidence-${{ github.run_id }}
+          path: research/_status/nordic-financials-2025-*.log
           if-no-files-found: error
           retention-days: 90
 

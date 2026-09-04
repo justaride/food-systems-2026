@@ -422,7 +422,9 @@ describe('package scripts', () => {
     )
     assert.match(scriptSource, /DATABASE_URL is required/)
     assert.match(scriptSource, /parseApplyMode/)
-    assert.match(scriptSource, /companyFinancial\.upsert/)
+    assert.match(scriptSource, /transaction\.companyFinancial\.create/)
+    assert.match(scriptSource, /all six rows are absent/)
+    assert.doesNotMatch(scriptSource, /companyFinancial\.upsert/)
   })
 
   it('exposes guarded country metric harmonization commands', () => {
