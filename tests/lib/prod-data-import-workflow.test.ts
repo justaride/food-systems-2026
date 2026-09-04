@@ -98,6 +98,20 @@ describe('prod data import workflow', () => {
     assert.doesNotMatch(workflow, /curl[^\n]*(?:\$COOLIFY_API_TOKEN|\$COOLIFY_BASE_URL|\$TOKEN|\$BASE)/)
   })
 
+  it('authenticates the Coolify backup preflight through Cloudflare Access', () => {
+    const backupGate = workflow.slice(
+      workflow.indexOf('Require a recent successful off-node backup before mutation'),
+      workflow.indexOf('Start TCP tunnel to prod DB'),
+    )
+
+    assert.match(backupGate, /CF_ACCESS_CLIENT_ID: \$\{\{ secrets\.CF_ACCESS_CLIENT_ID \}\}/)
+    assert.match(backupGate, /CF_ACCESS_CLIENT_SECRET: \$\{\{ secrets\.CF_ACCESS_CLIENT_SECRET \}\}/)
+    assert.match(
+      backupGate,
+      /unset COOLIFY_API_TOKEN COOLIFY_BASE_URL CF_ACCESS_CLIENT_ID CF_ACCESS_CLIENT_SECRET/,
+    )
+  })
+
   it('regenerates and preserves database-matched knowledge evidence', () => {
     assert.match(workflow, /verify-only\)[\s\S]*npm run research:library:ledger[\s\S]*npm run audit:library-analysis/)
     assert.match(workflow, /prod-knowledge-verification-/)

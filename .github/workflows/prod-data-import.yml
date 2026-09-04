@@ -100,6 +100,8 @@ jobs:
         env:
           COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
           COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
+          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
         run: |
           set -euo pipefail
           backup_file=$(mktemp)
@@ -107,7 +109,7 @@ jobs:
           trap 'rm -f "$backup_file" "$curl_config_file"' EXIT
           COOLIFY_API_PATH="/api/v1/databases/$DB_UUID/backups" \
             scripts/write-private-coolify-curl-config.py "$curl_config_file"
-          unset COOLIFY_API_TOKEN COOLIFY_BASE_URL
+          unset COOLIFY_API_TOKEN COOLIFY_BASE_URL CF_ACCESS_CLIENT_ID CF_ACCESS_CLIENT_SECRET
           curl --config "$curl_config_file" -fsS -m 15 > "$backup_file"
           python3 - "$backup_file" "$BACKUP_MAX_AGE_HOURS" <<'PY'
           import datetime as dt
