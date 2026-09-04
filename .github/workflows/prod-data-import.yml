@@ -34,6 +34,8 @@ on:
           - knowledge
           - full
           - innhenting-2026-08-05
+          - nordic-spine-dry
+          - nordic-spine
           - board-coverage-dry
           - board-coverage
           - leroy-duplicate-dry
@@ -87,12 +89,10 @@ jobs:
           cloudflared --version
 
       - name: Require a recent successful off-node backup before mutation
-        # board-coverage-dry og leroy-duplicate-dry er unntatt av samme grunn
-        # som verify-only: de skriver ingenting, og en lesende diagnose skal
-        # ikke kunne blokkeres av at en backup mangler. De skrivende
-        # `board-coverage` og `leroy-duplicate` er IKKE unntatt — sistnevnte
-        # sletter en rad, og er den kjøringen som trenger backupen mest.
-        if: ${{ inputs.target != 'verify-only' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' }}
+        # Tørrkjøringene er unntatt av samme grunn som verify-only: de skriver
+        # ingenting, og en lesende diagnose skal ikke blokkeres av manglende
+        # backup. De skrivende targetene er aldri unntatt.
+        if: ${{ inputs.target != 'verify-only' && inputs.target != 'nordic-spine-dry' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' }}
         env:
           COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_READ_API_TOKEN }}
           COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
@@ -269,6 +269,42 @@ jobs:
               npm run db:import:innhenting
               npm run db:verify
               ;;
+            nordic-spine-dry)
+              # Read-only production plan. Preserve all three summaries as the
+              # comparison receipt before the separately authorized apply run.
+              mkdir -p research/_status
+              npm run db:backfill:nordic-c1:dry-run \
+                | tee research/_status/nordic-spine-c1-dryrun.log
+              npm run db:backfill:nordic-c2-c3:dry-run \
+                | tee research/_status/nordic-spine-c2-c3-dryrun.log
+              npm run db:backfill:nordic-activity-aqua:dry-run \
+                | tee research/_status/nordic-spine-activity-dryrun.log
+              ;;
+            nordic-spine)
+              # Fail closed by reproducing the read-only plans in the same run
+              # before mutation. Then apply in dependency order and repeat the
+              # exact idempotent operations so the logs prove no duplicates.
+              mkdir -p research/_status
+              npm run db:backfill:nordic-c1:dry-run \
+                | tee research/_status/nordic-spine-c1-preapply.log
+              npm run db:backfill:nordic-c2-c3:dry-run \
+                | tee research/_status/nordic-spine-c2-c3-preapply.log
+              npm run db:backfill:nordic-activity-aqua:dry-run \
+                | tee research/_status/nordic-spine-activity-preapply.log
+              npm run db:backfill:nordic-c1:apply \
+                | tee research/_status/nordic-spine-c1-applied.log
+              npm run db:backfill:nordic-c2-c3:apply \
+                | tee research/_status/nordic-spine-c2-c3-applied.log
+              npm run db:backfill:nordic-activity-aqua:apply \
+                | tee research/_status/nordic-spine-activity-applied.log
+              npm run db:backfill:nordic-c1:apply \
+                | tee research/_status/nordic-spine-c1-idempotency.log
+              npm run db:backfill:nordic-c2-c3:apply \
+                | tee research/_status/nordic-spine-c2-c3-idempotency.log
+              npm run db:backfill:nordic-activity-aqua:apply \
+                | tee research/_status/nordic-spine-activity-idempotency.log
+              npm run db:verify
+              ;;
             board-coverage-dry)
               # AP-1 (O5) tørrkjøring: henter sittende styre fra Brønnøysund for
               # selskaper uten styredata i målsektorene, rapporterer dekning
@@ -370,6 +406,15 @@ jobs:
             research/_status/leroy-duplicate-*.json
             research/_status/leroy-duplicate-*.log
           if-no-files-found: warn
+          retention-days: 90
+
+      - name: Upload Nordic spine production evidence
+        if: ${{ always() && (inputs.target == 'nordic-spine-dry' || inputs.target == 'nordic-spine') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: nordic-spine-evidence-${{ github.run_id }}
+          path: research/_status/nordic-spine-*.log
+          if-no-files-found: error
           retention-days: 90
 
       - name: Stop tunnel
