@@ -12,6 +12,7 @@ import 'dotenv/config'
 import { pathToFileURL } from 'node:url'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { resolveCompanyFinancialSourceLocator } from '../src/lib/row-source-locators'
 
 export type JsonRecord = Record<string, unknown>
 
@@ -27,8 +28,13 @@ export const RELEVANT_COUNTRY_METRIC_TYPES = [
 export type DerivedMarginTarget = {
   country: string
   companyName: string
+  orgNr: string
   year: number
-  sourceUrl: string
+  expectedSourceLocator: string
+  expectedSource: string
+  expectedVerificationStatus: 'human_verified' | null
+  expectedVerifiedAt: string | null
+  expectedMargin: number
 }
 
 export type FinancialForDerivedMargin = {
@@ -37,6 +43,7 @@ export type FinancialForDerivedMargin = {
   operatingMargin: number | { toString(): string } | null
   source: string | null
   verificationStatus: string | null
+  verifiedAt: Date | string | null
   company: {
     name: string
     orgNr: string | null
@@ -70,56 +77,110 @@ export const DERIVED_MARGIN_TARGETS: DerivedMarginTarget[] = [
   {
     country: 'SE',
     companyName: 'ICA Gruppen AB',
+    orgNr: 'SE-556048-2837',
     year: 2025,
-    sourceUrl: 'https://www.icagruppen.se/en/annual-report-2025/',
+    expectedSourceLocator: 'https://www.icagruppen.se/en/annual-report-2025/',
+    expectedSource:
+      'ICA Gruppen Annual Report 2025. SEK 142403m net sales; SEK 5408m operating profit excl. items; Norges Bank 2025 average SEK/NOK',
+    expectedVerificationStatus: 'human_verified',
+    expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+    expectedMargin: 3.8,
   },
   {
     country: 'SE',
     companyName: 'Axfood AB',
+    orgNr: 'SE-556542-5353',
     year: 2025,
-    sourceUrl: 'https://www.axfood.com/investors/reports-and-presentations/annual-and-sustainability-report-20252/',
+    expectedSourceLocator: 'https://www.axfood.com/investors/reports-and-presentations/annual-and-sustainability-report-20252/',
+    expectedSource:
+      'Axfood Annual and Sustainability Report 2025. SEK 89152m net sales; SEK 3572m adjusted operating profit; Norges Bank 2025 average SEK/NOK',
+    expectedVerificationStatus: 'human_verified',
+    expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+    expectedMargin: 4.01,
   },
   {
     country: 'SE',
     companyName: 'Coop Sverige AB',
+    orgNr: 'SE-702001-3469',
     year: 2025,
-    sourceUrl: 'https://kf.se/wp-content/uploads/2026/03/kf-arsredovisning-2025.pdf',
+    expectedSourceLocator: 'https://kf.se/wp-content/uploads/2026/03/kf-arsredovisning-2025.pdf',
+    expectedSource:
+      'Coop Sverige/KF Annual Report 2025. SEK 36377m net sales; SEK -305m operating result; Norges Bank 2025 average SEK/NOK',
+    expectedVerificationStatus: 'human_verified',
+    expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+    expectedMargin: -0.84,
   },
   {
     country: 'DK',
     companyName: 'Salling Group A/S',
+    orgNr: 'DK-35954716',
     year: 2025,
-    sourceUrl: 'https://sallinggroup.com/en/stores/key-figures',
+    expectedSourceLocator: 'https://sallinggroup.com/en/stores/key-figures',
+    expectedSource: 'https://sallinggroup.com/en/stores/key-figures',
+    expectedVerificationStatus: 'human_verified',
+    expectedVerifiedAt: '2026-07-03T00:00:00.000Z',
+    expectedMargin: 3.9,
   },
   {
     country: 'DK',
     companyName: 'Coop Danmark A/S',
+    orgNr: 'DK-26259495',
     year: 2025,
-    sourceUrl: 'https://coop.dk/media/hv1lo4bk/coop-danmark-aarsrapport-2025.pdf',
+    expectedSourceLocator: 'https://coop.dk/media/hv1lo4bk/coop-danmark-aarsrapport-2025.pdf',
+    expectedSource:
+      'Coop Danmark Annual Report 2025. DKK 32565m net sales; DKK -215m operating result; Norges Bank 2025 average DKK/NOK',
+    expectedVerificationStatus: 'human_verified',
+    expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+    expectedMargin: -0.66,
   },
   {
     country: 'DK',
     companyName: 'REMA 1000 A/S',
+    orgNr: 'DK-14705627',
     year: 2025,
-    sourceUrl: 'https://www.reitanretail.no/en/about/reports',
+    expectedSourceLocator: 'https://www.reitanretail.no/en/about/reports',
+    expectedSource:
+      'Reitan Retail Annual Report 2025. REMA 1000 Denmark segment: NOK 45239m revenue; NOK 1518m operating profit',
+    expectedVerificationStatus: 'human_verified',
+    expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+    expectedMargin: 3.36,
   },
   {
     country: 'FI',
     companyName: 'Kesko Oyj',
+    orgNr: 'FI-0110456-8',
     year: 2024,
-    sourceUrl: 'document:evidence-pack/arsrapporter/kesko-annual-report-2024',
+    expectedSourceLocator: 'document:evidence-pack/arsrapporter/kesko-annual-report-2024',
+    expectedSource: 'Kesko Annual Report 2024. EUR 11.92B, 1 EUR ≈ 11.5 NOK',
+    expectedVerificationStatus: 'human_verified',
+    expectedVerifiedAt: '2026-05-18T00:00:00.000Z',
+    expectedMargin: 5.5,
   },
   {
     country: 'FI',
     companyName: 'SOK (S Group)',
+    orgNr: 'FI-0116323-9',
     year: 2024,
-    sourceUrl: 'https://s-ryhma.fi/en/news/s-groups-investments-in-finland-nearly-eur-1-billi/7chnW0iL7yorOogGzyYcSa',
+    expectedSourceLocator:
+      'https://s-ryhma.fi/en/news/s-groups-investments-in-finland-nearly-eur-1-billi/7chnW0iL7yorOogGzyYcSa',
+    expectedSource:
+      'SOK Financial Statements Bulletin 2024. EUR 14.3B (retail sales), 1 EUR ≈ 11.5 NOK',
+    // Preserve the existing authority state: this row remains explicitly
+    // unreviewed and internal. This backfill must not manufacture human review.
+    expectedVerificationStatus: null,
+    expectedVerifiedAt: null,
+    expectedMargin: 3.5,
   },
   {
     country: 'IS',
     companyName: 'Hagar hf',
+    orgNr: 'IS-670203-2120',
     year: 2024,
-    sourceUrl: 'document:evidence-pack/arsrapporter/hagar-2024-25',
+    expectedSourceLocator: 'document:evidence-pack/arsrapporter/hagar-2024-25',
+    expectedSource: 'Hagar hf Annual Report 2024. EUR ~1.23B, 1 EUR ≈ 11.5 NOK',
+    expectedVerificationStatus: 'human_verified',
+    expectedVerifiedAt: '2026-05-18T00:00:00.000Z',
+    expectedMargin: 5.79,
   },
 ]
 
@@ -138,6 +199,18 @@ export function metadataRecord(metadata: unknown): JsonRecord {
 
 export function round2(value: number): number {
   return Math.round(value * 100) / 100
+}
+
+function asIso(value: Date | string | null): string | null {
+  if (value === null) return null
+  const date = value instanceof Date ? value : new Date(value)
+  return Number.isNaN(date.getTime()) ? null : date.toISOString()
+}
+
+function numberValue(value: number | { toString(): string } | null): number | null {
+  if (value === null) return null
+  const parsed = typeof value === 'number' ? value : Number(value.toString())
+  return Number.isFinite(parsed) ? parsed : null
 }
 
 export function sourceQuality(source: string | null | undefined): string {
@@ -201,6 +274,7 @@ export function buildCountryMetricMethodMetadata(row: CountryMetricMethodRow): J
 export function buildDerivedMarginMetricData(
   target: DerivedMarginTarget,
   financial: FinancialForDerivedMargin | null,
+  resolvedSourceLocator: string | null,
 ): { data: CountryMetricWriteData | null; skipped: string | null } {
   if (!financial) {
     return {
@@ -209,11 +283,44 @@ export function buildDerivedMarginMetricData(
     }
   }
 
-  const revenue = financial.revenueNok === null ? null : Number(financial.revenueNok)
-  const operatingResult =
-    financial.operatingResult === null ? null : Number(financial.operatingResult)
-  const explicitMargin =
-    financial.operatingMargin === null ? null : Number(financial.operatingMargin)
+  if (
+    financial.company.orgNr !== target.orgNr ||
+    financial.company.name !== target.companyName ||
+    financial.company.country !== target.country
+  ) {
+    return {
+      data: null,
+      skipped: `${target.country}/${target.companyName}/${target.year}: organization number or company identity mismatch`,
+    }
+  }
+
+  if (financial.source !== target.expectedSource) {
+    return {
+      data: null,
+      skipped: `${target.country}/${target.companyName}/${target.year}: source contract mismatch`,
+    }
+  }
+
+  if (resolvedSourceLocator !== target.expectedSourceLocator) {
+    return {
+      data: null,
+      skipped: `${target.country}/${target.companyName}/${target.year}: source locator contract mismatch`,
+    }
+  }
+
+  if (
+    financial.verificationStatus !== target.expectedVerificationStatus ||
+    asIso(financial.verifiedAt) !== target.expectedVerifiedAt
+  ) {
+    return {
+      data: null,
+      skipped: `${target.country}/${target.companyName}/${target.year}: verification contract mismatch`,
+    }
+  }
+
+  const revenue = numberValue(financial.revenueNok)
+  const operatingResult = numberValue(financial.operatingResult)
+  const explicitMargin = numberValue(financial.operatingMargin)
   const calculatedMargin =
     explicitMargin ?? (revenue && operatingResult !== null ? round2((operatingResult / revenue) * 100) : null)
 
@@ -221,6 +328,13 @@ export function buildDerivedMarginMetricData(
     return {
       data: null,
       skipped: `${target.country}/${target.companyName}/${target.year}: no margin numerator/denominator`,
+    }
+  }
+
+  if (calculatedMargin !== target.expectedMargin) {
+    return {
+      data: null,
+      skipped: `${target.country}/${target.companyName}/${target.year}: margin contract mismatch; expected ${target.expectedMargin}, found ${calculatedMargin}`,
     }
   }
 
@@ -232,10 +346,11 @@ export function buildDerivedMarginMetricData(
       value: calculatedMargin,
       unit: '%',
       year: String(target.year),
-      source: financial.source ?? 'CompanyFinancial derived margin',
+      source: target.expectedSource,
       subtitle: 'Operating margin derived from CompanyFinancial revenue and operating result',
       metadata: {
-        sourceUrl: target.sourceUrl,
+        sourceUrl: resolvedSourceLocator,
+        targetOrgNr: target.orgNr,
         methodLabel: 'operating_margin_percent_operating_result_over_revenue',
         methodScope: 'company_level_latest_verified_or_available_financial_row',
         harmonizationPass: COUNTRY_METRIC_HARMONIZATION_PASS,
@@ -249,10 +364,67 @@ export function buildDerivedMarginMetricData(
             ? 'calculated_from_revenue_and_operating_result'
             : 'companyFinancial.operatingMargin',
         companyFinancialVerificationStatus: financial.verificationStatus,
-        companyFinancialSource: financial.source,
+        companyFinancialVerifiedAt: target.expectedVerifiedAt,
+        companyFinancialSource: target.expectedSource,
+        sourceQuality:
+          target.expectedVerificationStatus === 'human_verified'
+            ? 'human_verified_financial'
+            : 'unverified_internal_financial',
       },
     },
     skipped: null,
+  }
+}
+
+type PersistedDerivedMarginRow = {
+  id?: string
+  country: string
+  metricType: string
+  category: string
+  value: number | { toString(): string }
+  unit: string | null
+  year: string
+  source: string
+  subtitle: string | null
+  metadata: unknown
+}
+
+function normalizeJson(value: unknown): unknown {
+  if (Array.isArray(value)) return value.map(normalizeJson)
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value as Record<string, unknown>)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([key, item]) => [key, normalizeJson(item)]),
+    )
+  }
+  return value
+}
+
+function canonicalDerivedMarginRow(row: CountryMetricWriteData | PersistedDerivedMarginRow) {
+  return {
+    country: row.country,
+    metricType: row.metricType,
+    category: row.category,
+    value: numberValue(row.value),
+    unit: row.unit,
+    year: row.year,
+    source: row.source,
+    subtitle: row.subtitle,
+    metadata: normalizeJson(row.metadata),
+  }
+}
+
+export function assertPersistedDerivedMarginRows(
+  expected: CountryMetricWriteData[],
+  actual: PersistedDerivedMarginRow[],
+) {
+  const key = (row: ReturnType<typeof canonicalDerivedMarginRow>) =>
+    [row.country, row.metricType, row.category, row.year].join('|')
+  const sorted = (rows: Array<CountryMetricWriteData | PersistedDerivedMarginRow>) =>
+    rows.map(canonicalDerivedMarginRow).sort((a, b) => key(a).localeCompare(key(b)))
+  if (JSON.stringify(sorted(expected)) !== JSON.stringify(sorted(actual))) {
+    throw new Error('persisted derived margin rows differ from the exact plan')
   }
 }
 
@@ -271,8 +443,7 @@ async function fetchFinancialForTarget(
     where: {
       year: target.year,
       company: {
-        country: target.country,
-        name: target.companyName,
+        orgNr: target.orgNr,
       },
     },
     include: {
@@ -311,11 +482,26 @@ export async function runCountryMetricHarmonization(argv: string[] = process.arg
   const prisma = new PrismaClient({ adapter })
 
   try {
+    const documents = await prisma.document.findMany({
+      select: { id: true, slug: true },
+    })
+    const documentRefs = new Set(
+      documents.flatMap((document) => [document.id, document.slug].filter(Boolean) as string[]),
+    )
     const marginPlans = await Promise.all(
-      DERIVED_MARGIN_TARGETS.map(async (target) => ({
-        target,
-        ...(buildDerivedMarginMetricData(target, await fetchFinancialForTarget(prisma, target))),
-      })),
+      DERIVED_MARGIN_TARGETS.map(async (target) => {
+        const financial = await fetchFinancialForTarget(prisma, target)
+        return {
+          target,
+          ...buildDerivedMarginMetricData(
+            target,
+            financial,
+            financial
+              ? resolveCompanyFinancialSourceLocator(financial, documentRefs)
+              : null,
+          ),
+        }
+      }),
     )
 
     const countryMetricRows = await readCountryMetricMethodRows(prisma)
@@ -347,31 +533,80 @@ export async function runCountryMetricHarmonization(argv: string[] = process.arg
     for (const message of skipped) console.log(`  [SKIP] ${message}`)
 
     if (apply) {
-      for (const data of marginData) {
-        await prisma.countryMetric.upsert({
-          where: {
-            country_metricType_category_year: {
-              country: data.country,
-              metricType: data.metricType,
-              category: data.category,
-              year: data.year,
+      if (marginData.length !== DERIVED_MARGIN_TARGETS.length || skipped.length > 0) {
+        throw new Error('refusing partial derived-margin apply because the exact target contract did not pass')
+      }
+
+      await prisma.$transaction(async (transaction) => {
+        for (const data of marginData) {
+          await transaction.countryMetric.upsert({
+            where: {
+              country_metricType_category_year: {
+                country: data.country,
+                metricType: data.metricType,
+                category: data.category,
+                year: data.year,
+              },
             },
+            update: data,
+            create: data,
+          })
+        }
+
+        for (const plan of metadataPlans) {
+          await transaction.countryMetric.update({
+            where: { id: plan.id },
+            data: { metadata: plan.metadata },
+          })
+        }
+
+        const verifiedRows = await transaction.countryMetric.findMany({
+          where: { metricType: { in: RELEVANT_COUNTRY_METRIC_TYPES } },
+          select: {
+            id: true,
+            country: true,
+            metricType: true,
+            category: true,
+            year: true,
+            source: true,
+            metadata: true,
           },
-          update: data,
-          create: data,
+          orderBy: [
+            { country: 'asc' },
+            { metricType: 'asc' },
+            { category: 'asc' },
+            { year: 'asc' },
+          ],
         })
-      }
+        const missing = findMethodLabelGaps(verifiedRows)
+        if (missing.length > 0) {
+          throw new Error(`CountryMetric methodLabel missing on ${missing.length} rows`)
+        }
 
-      for (const plan of metadataPlans) {
-        await prisma.countryMetric.update({
-          where: { id: plan.id },
-          data: { metadata: plan.metadata },
+        const persistedMargins = await transaction.countryMetric.findMany({
+          where: {
+            OR: marginData.map((row) => ({
+              country: row.country,
+              metricType: row.metricType,
+              category: row.category,
+              year: row.year,
+            })),
+          },
+          select: {
+            id: true,
+            country: true,
+            metricType: true,
+            category: true,
+            value: true,
+            unit: true,
+            year: true,
+            source: true,
+            subtitle: true,
+            metadata: true,
+          },
         })
-      }
-
-      const verifiedRows = await readCountryMetricMethodRows(prisma)
-      const missing = findMethodLabelGaps(verifiedRows)
-      if (missing.length > 0) throw new Error(`CountryMetric methodLabel missing on ${missing.length} rows`)
+        assertPersistedDerivedMarginRows(marginData, persistedMargins)
+      }, { maxWait: 20_000, timeout: 120_000 })
     }
 
     const summary = {
@@ -379,6 +614,7 @@ export async function runCountryMetricHarmonization(argv: string[] = process.arg
       derivedMarginRowsSkipped: skipped,
       countryMetricRowsLabelled: metadataPlans.length,
       methodLabelVerifiedRows: simulatedRows.length,
+      persistedDerivedMarginRowsVerified: apply ? marginData.length : 0,
       applied: apply,
     }
     console.log(JSON.stringify(summary, null, 2))

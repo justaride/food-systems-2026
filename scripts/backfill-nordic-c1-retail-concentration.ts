@@ -84,10 +84,11 @@ function isRetailerMarginCategory(category: string): boolean {
   return true
 }
 
-function metricQuality(row: MetricRow): 'measured' | 'modelled' {
+function metricQuality(row: MetricRow): 'measured' | 'modelled' | 'unknown' {
   const metadataText =
     row.metadata && typeof row.metadata === 'object' ? JSON.stringify(row.metadata) : ''
   const provenance = `${row.source} ${metadataText}`.toLocaleLowerCase('nb-NO')
+  if (provenance.includes('unverified_internal_financial')) return 'unknown'
   return /(beregnet|calculated|derived|modell)/.test(provenance) ? 'modelled' : 'measured'
 }
 
