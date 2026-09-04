@@ -22,6 +22,8 @@ describe('prod data import workflow', () => {
       'full',
       'nordic-financials-2025-dry',
       'nordic-financials-2025',
+      'nordic-margin-financial-units-dry',
+      'nordic-margin-financial-units',
       'country-metric-harmonization-dry',
       'country-metric-harmonization',
       'nordic-spine-dry',
@@ -127,6 +129,7 @@ describe('prod data import workflow', () => {
       'country-metric-harmonization-dry',
       'leroy-duplicate-dry',
       'nordic-financials-2025-dry',
+      'nordic-margin-financial-units-dry',
       'nordic-spine-dry',
       'verify-only',
     ])
@@ -141,6 +144,10 @@ describe('prod data import workflow', () => {
       !exempted.includes('nordic-financials-2025'),
       'nordic-financials-2025 muterer og må kreve backup',
     )
+    assert.ok(
+      !exempted.includes('nordic-margin-financial-units'),
+      'nordic-margin-financial-units muterer og må kreve backup',
+    )
     assert.ok(!exempted.includes('nordic-spine'), 'nordic-spine muterer og må kreve backup')
   })
 
@@ -152,7 +159,7 @@ describe('prod data import workflow', () => {
     )
     const apply = ops.slice(
       ops.indexOf('nordic-financials-2025)'),
-      ops.indexOf('country-metric-harmonization-dry)'),
+      ops.indexOf('nordic-margin-financial-units-dry)'),
     )
     assert.match(dry, /db:import:nordic-financials-2025:dry-run/)
     assert.doesNotMatch(dry, /:apply/)
@@ -164,16 +171,44 @@ describe('prod data import workflow', () => {
 
     const preflight = apply.indexOf('db:import:nordic-financials-2025:dry-run')
     const mutation = apply.indexOf('db:import:nordic-financials-2025:apply')
-    const marginGate = apply.indexOf('db:backfill:country-metric-harmonization:dry-run')
     assert.ok(preflight > -1 && mutation > preflight)
-    assert.ok(marginGate > mutation)
     assert.match(apply.slice(preflight, mutation), /creates.*6/)
     assert.match(apply.slice(preflight, mutation), /updates.*0/)
     assert.match(apply.slice(preflight, mutation), /identityMismatches.*0/)
-    assert.match(apply.slice(mutation, marginGate), /persistedRowsVerified.*6/)
-    assert.match(apply.slice(marginGate), /derivedMarginRowsPlanned.*9/)
-    assert.match(apply.slice(marginGate), /derivedMarginRowsSkipped.*\[\]/)
+    assert.match(apply.slice(mutation), /persistedRowsVerified.*6/)
+    assert.doesNotMatch(apply, /country-metric-harmonization/)
     assert.match(workflow, /nordic-financials-2025-evidence-\$\{\{ github\.run_id \}\}/)
+  })
+
+  it('repairs Nordic margin units through a separate idempotent protected target', () => {
+    const ops = workflow.slice(workflow.indexOf('Run selected prod data operation'))
+    const dry = ops.slice(
+      ops.indexOf('nordic-margin-financial-units-dry)'),
+      ops.indexOf('nordic-margin-financial-units)'),
+    )
+    const apply = ops.slice(
+      ops.indexOf('nordic-margin-financial-units)'),
+      ops.indexOf('country-metric-harmonization-dry)'),
+    )
+
+    assert.match(dry, /db:repair:nordic-margin-financial-units:dry-run/)
+    assert.doesNotMatch(dry, /:apply/)
+    assert.match(dry, /eligible.*9/)
+    assert.match(dry, /contractMismatches.*0/)
+    assert.match(dry, /provenanceRowsVerified.*9/)
+
+    const preflight = apply.indexOf('db:repair:nordic-margin-financial-units:dry-run')
+    const firstApply = apply.indexOf('db:repair:nordic-margin-financial-units:apply')
+    const secondApply = apply.indexOf('db:repair:nordic-margin-financial-units:apply', firstApply + 1)
+    const postflight = apply.indexOf('db:repair:nordic-margin-financial-units:dry-run', secondApply + 1)
+    assert.ok(preflight > -1 && firstApply > preflight)
+    assert.ok(secondApply > firstApply && postflight > secondApply)
+    assert.match(apply.slice(preflight, firstApply), /eligible.*9/)
+    assert.match(apply.slice(preflight, firstApply), /contractMismatches.*0/)
+    assert.match(apply.slice(firstApply, secondApply), /persistedRowsVerified.*9/)
+    assert.match(apply.slice(secondApply, postflight), /persistedRowsVerified.*9/)
+    assert.match(apply.slice(postflight), /unchanged.*9/)
+    assert.match(workflow, /nordic-margin-financial-units-evidence-\$\{\{ github\.run_id \}\}/)
   })
 
   it('CountryMetric prerequisite keeps dry-run and protected apply separate', () => {

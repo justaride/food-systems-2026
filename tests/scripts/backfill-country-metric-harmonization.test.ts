@@ -92,6 +92,9 @@ describe('backfill-country-metric-harmonization', () => {
           operatingResult: 123.45,
           operatingMargin: null,
           source: 'Annual report',
+          fiscalYearLabel: null,
+          unitScale: 1_000_000,
+          amountUnitNote: 'NOK millions',
           verificationStatus: 'human_verified',
           verifiedAt: new Date('2026-07-02T00:00:00.000Z'),
           company: { name: 'Axfood AB', orgNr: 'SE-556542-5353', country: 'SE' },
@@ -101,6 +104,7 @@ describe('backfill-country-metric-harmonization', () => {
       assert.equal(margin.skipped, null)
       assert.equal(margin.data?.value, 12.35)
       assert.equal(margin.data?.metadata.operatingMarginSource, 'calculated_from_revenue_and_operating_result')
+      assert.equal(margin.data?.metadata.companyFinancialUnitScale, 1_000_000)
 
       const unreviewedInternal = mod.buildDerivedMarginMetricData(
         {
@@ -120,6 +124,9 @@ describe('backfill-country-metric-harmonization', () => {
           operatingResult: 123.45,
           operatingMargin: null,
           source: 'Annual report',
+          fiscalYearLabel: null,
+          unitScale: 1_000_000,
+          amountUnitNote: 'NOK millions',
           verificationStatus: null,
           verifiedAt: null,
           company: { name: 'Axfood AB', orgNr: 'SE-556542-5353', country: 'SE' },
@@ -148,6 +155,9 @@ describe('backfill-country-metric-harmonization', () => {
           operatingResult: 1,
           operatingMargin: 3.9,
           source: 'Salling source',
+          fiscalYearLabel: '2024/25',
+          unitScale: 1_000_000,
+          amountUnitNote: 'NOK millions',
           verificationStatus: null,
           verifiedAt: null,
           company: { name: 'Salling Group A/S', orgNr: 'DK-35954716', country: 'DK' },
@@ -156,6 +166,7 @@ describe('backfill-country-metric-harmonization', () => {
       )
       assert.equal(explicit.data?.value, 3.9)
       assert.equal(explicit.data?.source, 'Salling source')
+      assert.equal(explicit.data?.year, '2024/25')
       assert.equal(explicit.data?.metadata.operatingMarginSource, 'companyFinancial.operatingMargin')
       assert.equal(explicit.data?.metadata.sourceQuality, 'unverified_internal_financial')
 
@@ -167,6 +178,9 @@ describe('backfill-country-metric-harmonization', () => {
             operatingResult: 123.45,
             operatingMargin: null,
             source: 'Annual report',
+            fiscalYearLabel: null,
+            unitScale: 1_000_000,
+            amountUnitNote: 'NOK millions',
             verificationStatus: 'human_verified',
             verifiedAt: new Date('2026-07-02T00:00:00.000Z'),
             company: { name: 'Axfood AB', orgNr: 'wrong-org', country: 'SE' },
@@ -179,6 +193,9 @@ describe('backfill-country-metric-harmonization', () => {
             operatingResult: 123.45,
             operatingMargin: null,
             source: 'Wrong source',
+            fiscalYearLabel: null,
+            unitScale: 1_000_000,
+            amountUnitNote: 'NOK millions',
             verificationStatus: 'human_verified',
             verifiedAt: new Date('2026-07-02T00:00:00.000Z'),
             company: { name: 'Axfood AB', orgNr: 'SE-556542-5353', country: 'SE' },
@@ -191,6 +208,9 @@ describe('backfill-country-metric-harmonization', () => {
             operatingResult: 123.45,
             operatingMargin: null,
             source: 'Annual report',
+            fiscalYearLabel: null,
+            unitScale: 1_000_000,
+            amountUnitNote: 'NOK millions',
             verificationStatus: 'machine_verified',
             verifiedAt: null,
             company: { name: 'Axfood AB', orgNr: 'SE-556542-5353', country: 'SE' },
@@ -203,6 +223,9 @@ describe('backfill-country-metric-harmonization', () => {
             operatingResult: 120,
             operatingMargin: null,
             source: 'Annual report',
+            fiscalYearLabel: null,
+            unitScale: 1_000_000,
+            amountUnitNote: 'NOK millions',
             verificationStatus: 'human_verified',
             verifiedAt: new Date('2026-07-02T00:00:00.000Z'),
             company: { name: 'Axfood AB', orgNr: 'SE-556542-5353', country: 'SE' },
@@ -247,6 +270,9 @@ describe('backfill-country-metric-harmonization', () => {
           operatingResult: 123.45,
           operatingMargin: null,
           source: 'Annual report',
+          fiscalYearLabel: null,
+          unitScale: 1_000_000,
+          amountUnitNote: 'NOK millions',
           verificationStatus: 'human_verified',
           verifiedAt: new Date('2026-07-02T00:00:00.000Z'),
           company: { name: 'Axfood AB', orgNr: 'SE-556542-5353', country: 'SE' },
@@ -255,6 +281,36 @@ describe('backfill-country-metric-harmonization', () => {
       )
       assert.equal(locatorRejected.data, null)
       assert.match(locatorRejected.skipped ?? '', /source and locator contract mismatch/)
+
+      const unitRejected = mod.buildDerivedMarginMetricData(
+        {
+          country: 'SE',
+          companyName: 'Axfood AB',
+          orgNr: 'SE-556542-5353',
+          year: 2025,
+          expectedSourceLocator: 'https://example.test/annual-report',
+          expectedSource: 'Annual report',
+          expectedVerificationStatus: 'human_verified',
+          expectedVerifiedAt: '2026-07-02T00:00:00.000Z',
+          allowUnverifiedInternal: true,
+          expectedMargin: 12.35,
+        },
+        {
+          revenueNok: 1000,
+          operatingResult: 123.45,
+          operatingMargin: null,
+          source: 'Annual report',
+          fiscalYearLabel: null,
+          unitScale: 1,
+          amountUnitNote: null,
+          verificationStatus: 'human_verified',
+          verifiedAt: new Date('2026-07-02T00:00:00.000Z'),
+          company: { name: 'Axfood AB', orgNr: 'SE-556542-5353', country: 'SE' },
+        },
+        'https://example.test/annual-report',
+      )
+      assert.equal(unitRejected.data, null)
+      assert.match(unitRejected.skipped ?? '', /unit scale contract mismatch/)
 
       const expectedPersisted = margin.data!
       mod.assertPersistedDerivedMarginRows([expectedPersisted], [

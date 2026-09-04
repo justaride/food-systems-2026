@@ -271,6 +271,8 @@
     "db:fix:nordic-orgnr": "tsx scripts/fix-nordic-orgnr.ts",
     "db:import:nordic-financials-2025:dry-run": "tsx scripts/import-nordic-financials-2025.ts --dry-run",
     "db:import:nordic-financials-2025:apply": "tsx scripts/import-nordic-financials-2025.ts --apply",
+    "db:repair:nordic-margin-financial-units:dry-run": "tsx scripts/repair-nordic-margin-financial-units.ts --dry-run",
+    "db:repair:nordic-margin-financial-units:apply": "tsx scripts/repair-nordic-margin-financial-units.ts --apply",
     "validate:fi-is-financial-candidates": "tsx scripts/validate-fi-is-financial-candidates.ts",
     "db:backfill:country-metric-harmonization:dry-run": "tsx scripts/backfill-country-metric-harmonization.ts --dry-run",
     "db:backfill:country-metric-harmonization:apply": "tsx scripts/backfill-country-metric-harmonization.ts --apply",
