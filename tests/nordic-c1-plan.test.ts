@@ -72,3 +72,22 @@ test('planC1Indicators keeps derived margin rows modelled with source method met
     assert.deepEqual(margin?.metadata.sourceMetadata, sourceMetadata)
   }
 })
+
+test('planC1Indicators keeps explicitly unreviewed internal margins at unknown quality', () => {
+  const planned = planC1Indicators([
+    {
+      country: 'FI',
+      metricType: 'margin',
+      category: 'SOK (S Group)',
+      value: 3.5,
+      unit: '%',
+      year: '2024',
+      source: 'SOK Financial Statements Bulletin 2024',
+      metadata: { sourceQuality: 'unverified_internal_financial' },
+    },
+  ])
+
+  const margin = planned.find(row => row.country === 'FI' && row.indicatorId === 'margin_top1')
+  assert.equal(margin?.value, 3.5)
+  assert.equal(margin?.quality, 'unknown')
+})

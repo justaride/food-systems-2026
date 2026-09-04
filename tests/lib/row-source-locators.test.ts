@@ -1248,6 +1248,18 @@ describe('row source locators', () => {
     assert.equal(
       resolveCompanyFinancialSourceLocator(
         {
+          source: 'https://sallinggroup.com/en/stores/key-figures',
+          year: 2025,
+          company: { orgNr: 'DK-35954716' },
+        },
+        new Set(),
+      ),
+      'https://sallinggroup.com/en/stores/key-figures',
+    )
+
+    assert.equal(
+      resolveCompanyFinancialSourceLocator(
+        {
           source:
             'Axfood City Gross key figures 2025. SEK 8,898M net sales; SEK -192M operating profit; 1 SEK ≈ 1.00 NOK',
           year: 2025,

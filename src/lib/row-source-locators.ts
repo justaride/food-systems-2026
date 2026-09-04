@@ -487,6 +487,7 @@ const COMPANY_FINANCIAL_OFFICIAL_RESULT_LOCATORS: Array<{
   orgNr: string
   year: number
   sourceTokens: string[]
+  exactSource?: string
   url: string
 }> = [
   {
@@ -499,6 +500,7 @@ const COMPANY_FINANCIAL_OFFICIAL_RESULT_LOCATORS: Array<{
     orgNr: 'DK-35954716',
     year: 2025,
     sourceTokens: ['salling', 'group', 'key', 'figures', '2025'],
+    exactSource: SALLING_GROUP_KEY_FIGURES_URL,
     url: SALLING_GROUP_KEY_FIGURES_URL,
   },
   {
@@ -1405,7 +1407,8 @@ function officialCompanyFinancialResultUrlForRow(row: CompanyFinancialSourceRow)
     return (
       candidate.orgNr === orgNr &&
       candidate.year === row.year &&
-      candidate.sourceTokens.every((token) => normalized.includes(token))
+      (candidate.exactSource === source ||
+        candidate.sourceTokens.every((token) => normalized.includes(token)))
     )
   })
 

@@ -302,6 +302,14 @@ jobs:
                 research/_status/country-metric-harmonization-postapply.log
               grep -Fq '"derivedMarginRowsSkipped": []' \
                 research/_status/country-metric-harmonization-postapply.log
+              npm run db:backfill:nordic-c1:dry-run \
+                2>&1 | tee research/_status/country-metric-harmonization-c1-postapply.log
+              grep -Fq '"plannedRows": 37' \
+                research/_status/country-metric-harmonization-c1-postapply.log
+              grep -Fq '"withValues": 34' \
+                research/_status/country-metric-harmonization-c1-postapply.log
+              grep -Fq '"holes": 3' \
+                research/_status/country-metric-harmonization-c1-postapply.log
               npm run db:verify 2>&1 \
                 | tee research/_status/country-metric-harmonization-db-verify.log
               ;;
