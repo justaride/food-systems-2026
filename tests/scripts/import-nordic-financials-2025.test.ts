@@ -56,6 +56,8 @@ describe('import-nordic-financials-2025', () => {
       assert.equal(data.verificationStatus, null)
       assert.equal(data.verifiedAt, null)
       assert.equal(data.reportingCurrency, 'SEK')
+      assert.equal(data.unitScale, 1_000_000)
+      assert.match(data.amountUnitNote, /NOK millions/)
       assert.match(data.fxRateSource, /Norges Bank/)
       assert.match(mod.NORDIC_FINANCIAL_2025_ROWS[0].expectedSourceLocator, /^https:\/\//)
 

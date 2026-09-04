@@ -4,6 +4,21 @@ import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 
 describe('package scripts', () => {
+  it('exposes separate dry-run and apply commands for Nordic margin unit repair', () => {
+    const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
+      scripts: Record<string, string>
+    }
+
+    assert.equal(
+      packageJson.scripts['db:repair:nordic-margin-financial-units:dry-run'],
+      'tsx scripts/repair-nordic-margin-financial-units.ts --dry-run',
+    )
+    assert.equal(
+      packageJson.scripts['db:repair:nordic-margin-financial-units:apply'],
+      'tsx scripts/repair-nordic-margin-financial-units.ts --apply',
+    )
+  })
+
   it('wires the autonomous candidate contracts and manual control commands', () => {
     const packageJson = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf8')) as {
       scripts: Record<string, string>

@@ -38,6 +38,8 @@ on:
           - innhenting-2026-08-05
           - nordic-financials-2025-dry
           - nordic-financials-2025
+          - nordic-margin-financial-units-dry
+          - nordic-margin-financial-units
           - country-metric-harmonization-dry
           - country-metric-harmonization
           - nordic-spine-dry
@@ -98,7 +100,7 @@ jobs:
         # Tørrkjøringene er unntatt av samme grunn som verify-only: de skriver
         # ingenting, og en lesende diagnose skal ikke blokkeres av manglende
         # backup. De skrivende targetene er aldri unntatt.
-        if: ${{ inputs.target != 'verify-only' && inputs.target != 'nordic-financials-2025-dry' && inputs.target != 'country-metric-harmonization-dry' && inputs.target != 'nordic-spine-dry' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' }}
+        if: ${{ inputs.target != 'verify-only' && inputs.target != 'nordic-financials-2025-dry' && inputs.target != 'nordic-margin-financial-units-dry' && inputs.target != 'country-metric-harmonization-dry' && inputs.target != 'nordic-spine-dry' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' }}
         env:
           BACKUP_RECEIPT: config/production-backup-receipts/food-systems-pgvector-db-2026-09-04.json
         run: |
@@ -254,13 +256,38 @@ jobs:
               npm run db:import:nordic-financials-2025:apply \
                 2>&1 | tee research/_status/nordic-financials-2025-applied.log
               grep -Fq '"persistedRowsVerified": 6' research/_status/nordic-financials-2025-applied.log
-              npm run db:backfill:country-metric-harmonization:dry-run \
-                2>&1 | tee research/_status/nordic-financials-2025-margin-postapply.log
-              grep -Fq '"derivedMarginRowsPlanned": 9' \
-                research/_status/nordic-financials-2025-margin-postapply.log
-              grep -Fq '"derivedMarginRowsSkipped": []' \
-                research/_status/nordic-financials-2025-margin-postapply.log
               npm run db:verify 2>&1 | tee research/_status/nordic-financials-2025-db-verify.log
+              ;;
+            nordic-margin-financial-units-dry)
+              mkdir -p research/_status
+              npm run db:repair:nordic-margin-financial-units:dry-run \
+                2>&1 | tee research/_status/nordic-margin-financial-units-dryrun.log
+              grep -Fq '"eligible": 9' research/_status/nordic-margin-financial-units-dryrun.log
+              grep -Fq '"contractMismatches": 0' research/_status/nordic-margin-financial-units-dryrun.log
+              grep -Fq '"provenanceRowsVerified": 9' research/_status/nordic-margin-financial-units-dryrun.log
+              ;;
+            nordic-margin-financial-units)
+              # Exact-state repair for the nine CompanyFinancial rows consumed
+              # by the governed margin pass. Apply twice and require the second
+              # pass plus the final dry-run to be fully unchanged.
+              mkdir -p research/_status
+              npm run db:repair:nordic-margin-financial-units:dry-run \
+                2>&1 | tee research/_status/nordic-margin-financial-units-preapply.log
+              grep -Fq '"eligible": 9' research/_status/nordic-margin-financial-units-preapply.log
+              grep -Fq '"contractMismatches": 0' research/_status/nordic-margin-financial-units-preapply.log
+              npm run db:repair:nordic-margin-financial-units:apply \
+                2>&1 | tee research/_status/nordic-margin-financial-units-applied.log
+              grep -Fq '"persistedRowsVerified": 9' research/_status/nordic-margin-financial-units-applied.log
+              npm run db:repair:nordic-margin-financial-units:apply \
+                2>&1 | tee research/_status/nordic-margin-financial-units-idempotency.log
+              grep -Fq '"persistedRowsVerified": 9' research/_status/nordic-margin-financial-units-idempotency.log
+              grep -Fq '"unchanged": 9' research/_status/nordic-margin-financial-units-idempotency.log
+              npm run db:repair:nordic-margin-financial-units:dry-run \
+                2>&1 | tee research/_status/nordic-margin-financial-units-postapply.log
+              grep -Fq '"unchanged": 9' research/_status/nordic-margin-financial-units-postapply.log
+              grep -Fq '"contractMismatches": 0' research/_status/nordic-margin-financial-units-postapply.log
+              grep -Fq '"provenanceRowsVerified": 9' research/_status/nordic-margin-financial-units-postapply.log
+              npm run db:verify 2>&1 | tee research/_status/nordic-margin-financial-units-db-verify.log
               ;;
             country-metric-harmonization-dry)
               # Read-only prerequisite plan for the Nordic C1 spine. Require
@@ -472,6 +499,15 @@ jobs:
         with:
           name: country-metric-harmonization-evidence-${{ github.run_id }}
           path: research/_status/country-metric-harmonization-*.log
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Upload Nordic margin financial unit evidence
+        if: ${{ always() && (inputs.target == 'nordic-margin-financial-units-dry' || inputs.target == 'nordic-margin-financial-units') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: nordic-margin-financial-units-evidence-${{ github.run_id }}
+          path: research/_status/nordic-margin-financial-units-*.log
           if-no-files-found: error
           retention-days: 90
 

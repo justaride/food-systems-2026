@@ -45,6 +45,9 @@ export type FinancialForDerivedMargin = {
   operatingResult: number | { toString(): string } | null
   operatingMargin: number | { toString(): string } | null
   source: string | null
+  fiscalYearLabel: string | null
+  unitScale: number
+  amountUnitNote: string | null
   verificationStatus: string | null
   verifiedAt: Date | string | null
   company: {
@@ -191,11 +194,12 @@ export const DERIVED_MARGIN_TARGETS: DerivedMarginTarget[] = [
     orgNr: 'IS-670203-2120',
     year: 2024,
     expectedSourceLocator: 'document:evidence-pack/arsrapporter/hagar-2024-25',
-    expectedSource: 'Hagar hf Annual Report 2024. EUR ~1.23B, 1 EUR ≈ 11.5 NOK',
+    expectedSource:
+      'Hagar Annual Report 2024/25. ISK 180342m sales; ISK 10429m EBIT; Norges Bank 2024-03-01..2025-02-28 average ISK/NOK',
     expectedVerificationStatus: 'human_verified',
     expectedVerifiedAt: '2026-05-18T00:00:00.000Z',
     allowUnverifiedInternal: true,
-    expectedMargin: 5.79,
+    expectedMargin: 5.78,
   },
 ]
 
@@ -338,6 +342,17 @@ export function buildDerivedMarginMetricData(
     }
   }
 
+  if (
+    financial.unitScale !== 1_000_000 ||
+    typeof financial.amountUnitNote !== 'string' ||
+    !financial.amountUnitNote.trim()
+  ) {
+    return {
+      data: null,
+      skipped: `${target.country}/${target.companyName}/${target.year}: unit scale contract mismatch`,
+    }
+  }
+
   const revenue = numberValue(financial.revenueNok)
   const operatingResult = numberValue(financial.operatingResult)
   const explicitMargin = numberValue(financial.operatingMargin)
@@ -365,7 +380,7 @@ export function buildDerivedMarginMetricData(
       category: financial.company.name,
       value: calculatedMargin,
       unit: '%',
-      year: String(target.year),
+      year: financial.fiscalYearLabel ?? String(target.year),
       source: financial.source,
       subtitle: 'Operating margin derived from CompanyFinancial revenue and operating result',
       metadata: {
@@ -386,6 +401,9 @@ export function buildDerivedMarginMetricData(
         companyFinancialVerificationStatus: financial.verificationStatus,
         companyFinancialVerifiedAt: verifiedAt,
         companyFinancialSource: financial.source,
+        companyFinancialFiscalYearLabel: financial.fiscalYearLabel,
+        companyFinancialUnitScale: financial.unitScale,
+        companyFinancialAmountUnitNote: financial.amountUnitNote,
         sourceQuality:
           financial.verificationStatus === 'human_verified'
             ? 'human_verified_financial'

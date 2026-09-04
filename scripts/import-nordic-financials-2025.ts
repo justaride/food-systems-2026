@@ -21,6 +21,7 @@ const FX_SOURCE_SEK =
 const FX_SOURCE_DKK =
   'Norges Bank EXR/B.DKK.NOK.SP arithmetic average, 2025-01-01..2025-12-31, 251 observations, fetched 2026-07-02'
 const FX_SOURCE_NOK = 'Reported directly in NOK by Reitan Retail Annual Report 2025'
+const NOK_MILLION_UNIT_SCALE = 1_000_000
 
 export type NordicFinancial2025Row = {
   orgNr: string
@@ -154,6 +155,11 @@ export function companyFinancialDataForRow(row: NordicFinancial2025Row) {
     operatingResult: row.operatingResult,
     operatingMargin: row.operatingMargin,
     reportingCurrency: row.reportingCurrency,
+    unitScale: NOK_MILLION_UNIT_SCALE,
+    amountUnitNote:
+      row.reportingCurrency === 'NOK'
+        ? 'NOK millions reported directly by source'
+        : 'NOK millions converted from source-currency millions with documented fxRateNokPerUnit',
     fxRateNokPerUnit: row.fxRateNokPerUnit,
     fxRateSource: row.fxRateSource,
     source: row.source,
@@ -185,6 +191,8 @@ function canonicalFinancialRow(row: NordicFinancial2025PlannedRow | PersistedNor
       operatingResult: data.operatingResult,
       operatingMargin: data.operatingMargin,
       reportingCurrency: data.reportingCurrency,
+      unitScale: data.unitScale,
+      amountUnitNote: data.amountUnitNote,
       fxRateNokPerUnit: data.fxRateNokPerUnit,
       fxRateSource: data.fxRateSource,
       source: data.source,
@@ -199,6 +207,8 @@ function canonicalFinancialRow(row: NordicFinancial2025PlannedRow | PersistedNor
     operatingResult: numeric(row.operatingResult),
     operatingMargin: numeric(row.operatingMargin),
     reportingCurrency: row.reportingCurrency,
+    unitScale: row.unitScale,
+    amountUnitNote: row.amountUnitNote,
     fxRateNokPerUnit: numeric(row.fxRateNokPerUnit),
     fxRateSource: row.fxRateSource,
     source: row.source,
@@ -353,6 +363,8 @@ export async function runNordicFinancial2025Import(argv: string[] = process.argv
             operatingResult: true,
             operatingMargin: true,
             reportingCurrency: true,
+            unitScale: true,
+            amountUnitNote: true,
             fxRateNokPerUnit: true,
             fxRateSource: true,
             source: true,
