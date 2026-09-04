@@ -21,8 +21,8 @@ sludge. Gate: internal only.
 | capacityTonnes IS NOT NULL | yes |
 | capacityUnit IN (TN, MTB) | included (both treated as tonnes) |
 | capacityUnit STK / DA | **excluded** |
-| licenseStatus | prefer aktiv/active/i drift when present (all 250 TN were `aktiv`) |
-| year | 2024 (no usable licenseIssuedYear on TN sites) |
+| licenseStatus | require an exact active value (`aktiv`, `active`, `i drift`, `idriftsatt`, `in drift`); inactive or unknown fails closed (all 250 included TN were `aktiv`) |
+| year | observation year 2024; `licenseIssuedYear` is retained only as metadata |
 
 ## Local DB counts (after apply)
 

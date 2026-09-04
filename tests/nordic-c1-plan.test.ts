@@ -47,3 +47,28 @@ test('planC1Indicators keeps derived HHI modelled with source method metadata', 
     sourceUrl: 'https://example.test/market-shares',
   })
 })
+
+test('planC1Indicators keeps derived margin rows modelled with source method metadata', () => {
+  const sourceMetadata = {
+    methodLabel: 'calculated_operating_margin',
+    sourceUrl: 'https://example.test/annual-report',
+  }
+  const planned = planC1Indicators([
+    {
+      country: 'NO',
+      metricType: 'margin',
+      category: 'Test Retailer',
+      value: 4.2,
+      unit: '%',
+      year: '2024',
+      source: 'Annual report calculation',
+      metadata: sourceMetadata,
+    },
+  ])
+
+  for (const indicatorId of ['margin_top1', 'margin_banner_test-retailer']) {
+    const margin = planned.find((row) => row.country === 'NO' && row.indicatorId === indicatorId)
+    assert.equal(margin?.quality, 'modelled')
+    assert.deepEqual(margin?.metadata.sourceMetadata, sourceMetadata)
+  }
+})
