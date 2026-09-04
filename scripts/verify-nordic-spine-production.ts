@@ -1,17 +1,26 @@
 /**
  * Fail-closed production verification for the internal Nordic spine backfills.
  *
- * Reads only the three spine tables and the exact current ActivitySignal pass,
- * then checks counts, logical-key uniqueness, internal authority and a stable
- * post-state fingerprint. It performs no writes.
+ * Rebuilds the current plans from their source tables, compares every persisted
+ * field written by the backfills, and emits a stable post-state fingerprint.
+ * It performs no writes.
  */
 
 import 'dotenv/config'
 import { pathToFileURL } from 'node:url'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { planC1Indicators, COUNTRIES as C1_COUNTRIES } from './backfill-nordic-c1-retail-concentration'
+import {
+  planC2Flows,
+  planC3Flows,
+  COUNTRIES as FLOW_COUNTRIES,
+  type NoCapacityContext,
+} from './backfill-nordic-c2-c3-flow-skeletons'
+import { planAquaNoActivitySignals } from './backfill-nordic-activity-signals-aqua-no'
 import {
   verifyNordicSpineProductionSnapshot,
+  type NordicSpineExpectedSnapshot,
   type NordicSpineProductionSnapshot,
 } from '../src/lib/nordic-spine-production-verifier'
 
@@ -22,14 +31,17 @@ const CELL_IDS = [
 ] as const
 const ACTIVITY_PASS = 'nordic-activity-aqua-no-2026-09-04'
 
-function metadataPass(metadata: unknown): string | null {
-  if (!metadata || typeof metadata !== 'object' || Array.isArray(metadata)) return null
-  const pass = (metadata as Record<string, unknown>).pass
-  return typeof pass === 'string' ? pass : null
-}
-
 export async function verifyNordicSpineProduction(prisma: PrismaClient) {
-  const [cells, indicators, flows, activities] = await Promise.all([
+  const [
+    cells,
+    indicators,
+    flows,
+    activities,
+    c1Metrics,
+    foodWasteMetrics,
+    noCapacityAggregate,
+    aquaSites,
+  ] = await Promise.all([
     prisma.nordicCell.findMany({
       where: { id: { in: [...CELL_IDS] } },
       select: { id: true, status: true },
@@ -52,10 +64,7 @@ export async function verifyNordicSpineProduction(prisma: PrismaClient) {
       },
     }),
     prisma.flowCell.findMany({
-      where: {
-        cellId: { in: ['seafood-residue-flow', 'food-waste-digestate'] },
-        substance: 'mass',
-      },
+      where: { cellId: { in: ['seafood-residue-flow', 'food-waste-digestate'] } },
       select: {
         id: true,
         cellId: true,
@@ -67,16 +76,13 @@ export async function verifyNordicSpineProduction(prisma: PrismaClient) {
         quantity: true,
         unit: true,
         quality: true,
+        systemBoundary: true,
         holeReason: true,
         metadata: true,
       },
     }),
     prisma.activitySignal.findMany({
-      where: {
-        domain: 'seafood',
-        signalType: 'licensed_capacity_mtb',
-        metadata: { path: ['pass'], equals: ACTIVITY_PASS },
-      },
+      where: { metadata: { path: ['pass'], equals: ACTIVITY_PASS } },
       select: {
         id: true,
         entityType: true,
@@ -87,29 +93,99 @@ export async function verifyNordicSpineProduction(prisma: PrismaClient) {
         value: true,
         unit: true,
         confidence: true,
+        source: true,
         metadata: true,
       },
     }),
+    prisma.countryMetric.findMany({
+      where: {
+        metricType: { in: ['hhi', 'retailerShare', 'margin'] },
+        country: { in: [...C1_COUNTRIES] },
+      },
+      select: {
+        country: true,
+        metricType: true,
+        category: true,
+        value: true,
+        unit: true,
+        year: true,
+        source: true,
+        metadata: true,
+      },
+    }),
+    prisma.countryMetric.findMany({
+      where: {
+        metricType: { in: ['foodWaste', 'foodWastePerCapita'] },
+        country: { in: [...FLOW_COUNTRIES] },
+      },
+      select: {
+        country: true,
+        metricType: true,
+        category: true,
+        value: true,
+        unit: true,
+        year: true,
+        source: true,
+        metadata: true,
+      },
+    }),
+    prisma.aquacultureSite.aggregate({
+      where: {
+        country: 'NO',
+        capacityTonnes: { not: null },
+        capacityUnit: { in: ['TN', 'MTB'] },
+      },
+      _count: { _all: true },
+      _sum: { capacityTonnes: true },
+    }),
+    prisma.aquacultureSite.findMany({
+      where: { country: 'NO' },
+      select: {
+        id: true,
+        country: true,
+        capacityTonnes: true,
+        capacityUnit: true,
+        licenseStatus: true,
+        licenseIssuedYear: true,
+        source: true,
+      },
+    }),
   ])
+
+  const noCapacityContext: NoCapacityContext | undefined =
+    noCapacityAggregate._count._all > 0
+      ? {
+          siteCount: noCapacityAggregate._count._all,
+          sumTonnes: Math.round(noCapacityAggregate._sum.capacityTonnes ?? 0),
+          capacityUnit: 'TN/MTB',
+        }
+      : undefined
 
   const snapshot: NordicSpineProductionSnapshot = {
     cells,
     indicators: indicators.map(row => ({
       ...row,
-      value: row.value?.toString() ?? null,
-      metadataPass: metadataPass(row.metadata),
+      value: row.value == null ? null : Number(row.value.toString()),
     })),
-    flows: flows.map(row => ({
-      ...row,
-      metadataPass: metadataPass(row.metadata),
-    })),
-    activities: activities.map(row => ({
-      ...row,
-      metadataPass: metadataPass(row.metadata),
-    })),
+    flows,
+    activities,
   }
 
-  return verifyNordicSpineProductionSnapshot(snapshot)
+  const expected: NordicSpineExpectedSnapshot = {
+    cells: CELL_IDS.map(id => ({ id, status: 'frozen' })),
+    indicators: planC1Indicators(
+      c1Metrics as Parameters<typeof planC1Indicators>[0],
+    ),
+    flows: [
+      ...planC2Flows({ noCapacityContext }),
+      ...planC3Flows(foodWasteMetrics as Parameters<typeof planC3Flows>[0]),
+    ],
+    activities: planAquaNoActivitySignals(
+      aquaSites as Parameters<typeof planAquaNoActivitySignals>[0],
+    ),
+  }
+
+  return verifyNordicSpineProductionSnapshot(snapshot, expected)
 }
 
 function createPrisma() {
