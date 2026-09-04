@@ -1,4 +1,5 @@
 import { createHash } from 'node:crypto'
+import { scoreboardCounts } from './nordic-spine'
 
 const C1_CELL_ID = 'retail-concentration'
 const C2_CELL_ID = 'seafood-residue-flow'
@@ -187,21 +188,9 @@ export function verifyNordicSpineProductionSnapshot(
   requireUnique('ActivitySignal', snapshot.activities.map(activityKey))
 
   const counts: VerificationCounts = {
-    c1: {
-      filled: snapshot.indicators.filter(row => row.value != null).length,
-      holes: snapshot.indicators.filter(row => row.value == null).length,
-      total: snapshot.indicators.length,
-    },
-    c2: {
-      filled: c2.filter(row => row.quantity != null).length,
-      holes: c2.filter(row => row.quantity == null).length,
-      total: c2.length,
-    },
-    c3: {
-      filled: c3.filter(row => row.quantity != null).length,
-      holes: c3.filter(row => row.quantity == null).length,
-      total: c3.length,
-    },
+    c1: scoreboardCounts(snapshot.indicators),
+    c2: scoreboardCounts(c2.map(row => ({ value: row.quantity, quality: row.quality }))),
+    c3: scoreboardCounts(c3.map(row => ({ value: row.quantity, quality: row.quality }))),
     activity: {
       count: snapshot.activities.length,
       sum: Math.round(snapshot.activities.reduce((sum, row) => sum + (row.value ?? 0), 0)),

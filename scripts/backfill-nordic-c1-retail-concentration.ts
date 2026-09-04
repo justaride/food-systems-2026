@@ -13,6 +13,7 @@ import 'dotenv/config'
 import { pathToFileURL } from 'node:url'
 import { PrismaClient, Prisma } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { parseInventoryUrl } from '../src/lib/source-url-inventory'
 
 export const C1_CELL_ID = 'retail-concentration'
 export const C1_PASS = 'nordic-c1-retail-concentration-2026-09-04'
@@ -84,12 +85,46 @@ function isRetailerMarginCategory(category: string): boolean {
   return true
 }
 
+function hasDirectMetricLocator(value: unknown): boolean {
+  if (typeof value !== 'string') return false
+  const locator = value.trim()
+  if (!locator) return false
+
+  if (locator.startsWith('document:')) {
+    const ref = locator.slice('document:'.length)
+    return (
+      /^[a-z0-9][a-z0-9._/-]*$/i.test(ref) &&
+      ref.split('/').every(segment => segment !== '.' && segment !== '..')
+    )
+  }
+
+  const parsed = parseInventoryUrl(locator)
+  return parsed?.protocol === 'http' || parsed?.protocol === 'https'
+}
+
 function metricQuality(row: MetricRow): 'measured' | 'modelled' | 'unknown' {
-  const metadataText =
-    row.metadata && typeof row.metadata === 'object' ? JSON.stringify(row.metadata) : ''
+  const metadata =
+    row.metadata && typeof row.metadata === 'object' && !Array.isArray(row.metadata)
+      ? (row.metadata as Record<string, unknown>)
+      : null
+  const metadataText = metadata ? JSON.stringify(metadata) : ''
   const provenance = `${row.source} ${metadataText}`.toLocaleLowerCase('nb-NO')
+  const hasLocator = hasDirectMetricLocator(metadata?.sourceUrl)
+  const explicitlyReportedMargin =
+    row.metricType === 'margin' &&
+    metadata?.operatingMarginSource === 'companyFinancial.operatingMargin'
+  if (explicitlyReportedMargin) return hasLocator ? 'measured' : 'unknown'
+
+  const hasExplicitRatioMethod =
+    row.metricType === 'margin' &&
+    metadata?.methodLabel === 'operating_margin_percent_operating_result_over_revenue'
+  if (hasExplicitRatioMethod || /(beregnet|calculated|derived|modell)/.test(provenance)) {
+    return 'modelled'
+  }
+
+  if (row.metricType === 'margin' && !hasLocator) return 'unknown'
   if (provenance.includes('unverified_internal_financial')) return 'unknown'
-  return /(beregnet|calculated|derived|modell)/.test(provenance) ? 'modelled' : 'measured'
+  return 'measured'
 }
 
 export function planC1Indicators(metrics: MetricRow[]): PlannedIndicator[] {

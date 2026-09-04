@@ -50,7 +50,7 @@ Source readback: `research/_status/nordic-c1-retail-concentration-readback-2026-
 | SE | 3339 | 88.1 | Axfood 4.01 (2025) | ICA 3.80 | Coop −0.84 |
 | DK | 2642 | 87.0 | Salling 3.90 (2025) | REMA 3.36 | Coop −0.66 |
 | FI | 3671 | 91.9 | Kesko 5.50 (2024) | SOK 3.50 | **hole** — fewer than 3 retailer margin rows |
-| IS | 2378 | 76.5 | Hagar 5.79 (2024) | **hole** — panel incomplete (Samkaup) | **hole** — same |
+| IS | 2378 | 76.5 | Hagar 5.78 (2024) | **hole** — panel incomplete (Samkaup) | **hole** — same |
 
 CR3 remains `modelled` (sum of top-3 retailerShare). Do not treat as independently
 audited market power without method notes.

@@ -125,6 +125,16 @@ describe('Nordic spine production verifier', () => {
     )
   })
 
+  it('counts a non-null unknown-quality C1 row as a UI-visible hole', () => {
+    const snapshot = validSnapshot()
+    snapshot.indicators[0] = { ...snapshot.indicators[0]!, quality: 'unknown' }
+
+    assert.throws(
+      () => verifyNordicSpineProductionSnapshot(snapshot, expectedFrom(validSnapshot())),
+      /C1 filled expected 34, found 33/,
+    )
+  })
+
   it('rejects a missing activity signal and an incorrect capacity sum', () => {
     const missing = validSnapshot()
     missing.activities.pop()

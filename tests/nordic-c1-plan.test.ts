@@ -91,3 +91,98 @@ test('planC1Indicators keeps explicitly unreviewed internal margins at unknown q
   assert.equal(margin?.value, 3.5)
   assert.equal(margin?.quality, 'unknown')
 })
+
+test('planC1Indicators keeps locator-bound reported margins measured while preserving review status', () => {
+  const sourceMetadata = {
+    sourceUrl: 'https://example.test/annual-report',
+    operatingMarginSource: 'companyFinancial.operatingMargin',
+    sourceQuality: 'unverified_internal_financial',
+  }
+  const planned = planC1Indicators([
+    {
+      country: 'SE',
+      metricType: 'margin',
+      category: 'Example Retailer AB',
+      value: 4.01,
+      unit: '%',
+      year: '2024',
+      source: 'Example Retailer annual report 2024',
+      metadata: sourceMetadata,
+    },
+  ])
+
+  for (const indicatorId of ['margin_top1', 'margin_banner_example-retailer-ab']) {
+    const margin = planned.find(row => row.country === 'SE' && row.indicatorId === indicatorId)
+    assert.equal(margin?.value, 4.01)
+    assert.equal(margin?.quality, 'measured')
+    assert.deepEqual(margin?.metadata.sourceMetadata, sourceMetadata)
+  }
+})
+
+test('planC1Indicators rejects a label-only margin locator', () => {
+  const planned = planC1Indicators([
+    {
+      country: 'SE',
+      metricType: 'margin',
+      category: 'Example Retailer AB',
+      value: 4.01,
+      unit: '%',
+      year: '2024',
+      source: 'Example Retailer annual report 2024',
+      metadata: {
+        sourceUrl: 'Annual report 2024',
+        operatingMarginSource: 'companyFinancial.operatingMargin',
+        sourceQuality: 'human_verified_financial',
+      },
+    },
+  ])
+
+  const margin = planned.find(row => row.country === 'SE' && row.indicatorId === 'margin_top1')
+  assert.equal(margin?.quality, 'unknown')
+})
+
+test('planC1Indicators keeps locator-bound calculated margins modelled despite pending review', () => {
+  const sourceMetadata = {
+    sourceUrl: 'document:evidence-pack/arsrapporter/example-retailer-2024',
+    methodLabel: 'operating_margin_percent_operating_result_over_revenue',
+    operatingMarginSource: 'calculated_from_revenue_and_operating_result',
+    sourceQuality: 'unverified_internal_financial',
+  }
+  const planned = planC1Indicators([
+    {
+      country: 'FI',
+      metricType: 'margin',
+      category: 'Example Retailer Oyj',
+      value: 3.5,
+      unit: '%',
+      year: '2024',
+      source: 'Example Retailer annual report 2024',
+      metadata: sourceMetadata,
+    },
+  ])
+
+  const margin = planned.find(row => row.country === 'FI' && row.indicatorId === 'margin_top1')
+  assert.equal(margin?.quality, 'modelled')
+  assert.deepEqual(margin?.metadata.sourceMetadata, sourceMetadata)
+})
+
+test('planC1Indicators keeps an explicit ratio-method margin modelled without inventing a locator', () => {
+  const planned = planC1Indicators([
+    {
+      country: 'NO',
+      metricType: 'margin',
+      category: 'Example Retailer AS',
+      value: 3.3,
+      unit: '%',
+      year: '2024',
+      source: 'Annual reports 2024',
+      metadata: {
+        methodLabel: 'operating_margin_percent_operating_result_over_revenue',
+        sourceQuality: 'source_label',
+      },
+    },
+  ])
+
+  const margin = planned.find(row => row.country === 'NO' && row.indicatorId === 'margin_top1')
+  assert.equal(margin?.quality, 'modelled')
+})

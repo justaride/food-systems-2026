@@ -49,7 +49,7 @@ Verification query returned `MISSING_METHOD_LABELS 0` for all 160 relevant rows 
 | DK | Salling Group A/S | 2025 | 3.90 | `CompanyFinancial` row from Salling Group Key Figures 2025 |
 | FI | Kesko Oyj | 2024 | 5.50 | `CompanyFinancial` row from Kesko Annual Report 2024 |
 | FI | SOK (S Group) | 2024 | 3.50 | `CompanyFinancial.operatingMargin` from SOK 2024 financial-results row |
-| IS | Hagar hf | 2024 | 5.79 | Calculated from `CompanyFinancial` revenue and operating result for Hagar 2024 |
+| IS | Hagar hf | 2024 | 5.78 | Reported operating margin from the source-bound `CompanyFinancial` row for Hagar 2024 |
 | SE | Axfood AB | 2025 | 4.01 | `CompanyFinancial` row from Axfood Annual and Sustainability Report 2025 |
 | SE | Coop Sverige AB | 2025 | -0.84 | `CompanyFinancial` row from Coop Sverige/KF Annual Report 2025 |
 | SE | ICA Gruppen AB | 2025 | 3.80 | `CompanyFinancial` row from ICA Gruppen Annual Report 2025 |
