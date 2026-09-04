@@ -398,7 +398,9 @@
     "research:intake:food-process:import:dry-run": "tsx scripts/import-food-research-process-intake.ts --dry-run",
     "db:import:mvk-havbruk-akvakultur-2026-06-27": "tsx scripts/import-domain-actors.ts --csv=research/_status/mvk-havbruk-akvakultur-node-kandidater-2026-06-27.csv --dataset=mvk-havbruk-akvakultur-2026-06-27",
     "db:import:mvk-villfisk-fiskeri-2026-06-27": "tsx scripts/import-domain-actors.ts --csv=research/_status/mvk-villfisk-fiskeri-node-kandidater-2026-06-27.csv --dataset=mvk-villfisk-fiskeri-2026-06-27",
-    "db:import:mvk-grossist-distributor-2026-06-27": "tsx scripts/import-domain-actors.ts --csv=research/_status/mvk-grossist-distributor-node-kandidater-2026-06-27.csv --dataset=mvk-grossist-distributor-2026-06-27"
+    "db:import:mvk-grossist-distributor-2026-06-27": "tsx scripts/import-domain-actors.ts --csv=research/_status/mvk-grossist-distributor-node-kandidater-2026-06-27.csv --dataset=mvk-grossist-distributor-2026-06-27",
+    "db:backfill:nordic-c1:dry-run": "tsx scripts/backfill-nordic-c1-retail-concentration.ts",
+    "db:backfill:nordic-c1:apply": "tsx scripts/backfill-nordic-c1-retail-concentration.ts --apply"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
