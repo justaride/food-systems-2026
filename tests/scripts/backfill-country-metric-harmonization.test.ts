@@ -1,7 +1,26 @@
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
 import { describe, it } from 'node:test'
+import { resolve } from 'node:path'
 
 describe('backfill-country-metric-harmonization', () => {
+  it('keeps all production writes and exact readback checks in one transaction', () => {
+    const source = readFileSync(
+      resolve(process.cwd(), 'scripts/backfill-country-metric-harmonization.ts'),
+      'utf8',
+    )
+    const transactionStart = source.indexOf('prisma.$transaction(async (transaction) =>')
+    const transactionEnd = source.indexOf('\n      })', transactionStart)
+    assert.ok(transactionStart > -1, 'apply must open a transaction')
+    assert.ok(transactionEnd > transactionStart, 'apply transaction must close after its work')
+
+    const transactionBody = source.slice(transactionStart, transactionEnd)
+    assert.match(transactionBody, /transaction\.countryMetric\.upsert/)
+    assert.match(transactionBody, /transaction\.countryMetric\.update/)
+    assert.match(transactionBody, /assertPersistedDerivedMarginRows/)
+    assert.match(transactionBody, /CountryMetric methodLabel missing/)
+  })
+
   it('plans method metadata and derived margins without running the DB-backed CLI on import', async () => {
     const logs: string[] = []
     const originalLog = console.log

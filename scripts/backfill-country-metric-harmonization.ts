@@ -537,55 +537,76 @@ export async function runCountryMetricHarmonization(argv: string[] = process.arg
         throw new Error('refusing partial derived-margin apply because the exact target contract did not pass')
       }
 
-      for (const data of marginData) {
-        await prisma.countryMetric.upsert({
-          where: {
-            country_metricType_category_year: {
-              country: data.country,
-              metricType: data.metricType,
-              category: data.category,
-              year: data.year,
+      await prisma.$transaction(async (transaction) => {
+        for (const data of marginData) {
+          await transaction.countryMetric.upsert({
+            where: {
+              country_metricType_category_year: {
+                country: data.country,
+                metricType: data.metricType,
+                category: data.category,
+                year: data.year,
+              },
             },
+            update: data,
+            create: data,
+          })
+        }
+
+        for (const plan of metadataPlans) {
+          await transaction.countryMetric.update({
+            where: { id: plan.id },
+            data: { metadata: plan.metadata },
+          })
+        }
+
+        const verifiedRows = await transaction.countryMetric.findMany({
+          where: { metricType: { in: RELEVANT_COUNTRY_METRIC_TYPES } },
+          select: {
+            id: true,
+            country: true,
+            metricType: true,
+            category: true,
+            year: true,
+            source: true,
+            metadata: true,
           },
-          update: data,
-          create: data,
+          orderBy: [
+            { country: 'asc' },
+            { metricType: 'asc' },
+            { category: 'asc' },
+            { year: 'asc' },
+          ],
         })
-      }
+        const missing = findMethodLabelGaps(verifiedRows)
+        if (missing.length > 0) {
+          throw new Error(`CountryMetric methodLabel missing on ${missing.length} rows`)
+        }
 
-      for (const plan of metadataPlans) {
-        await prisma.countryMetric.update({
-          where: { id: plan.id },
-          data: { metadata: plan.metadata },
+        const persistedMargins = await transaction.countryMetric.findMany({
+          where: {
+            OR: marginData.map((row) => ({
+              country: row.country,
+              metricType: row.metricType,
+              category: row.category,
+              year: row.year,
+            })),
+          },
+          select: {
+            id: true,
+            country: true,
+            metricType: true,
+            category: true,
+            value: true,
+            unit: true,
+            year: true,
+            source: true,
+            subtitle: true,
+            metadata: true,
+          },
         })
-      }
-
-      const verifiedRows = await readCountryMetricMethodRows(prisma)
-      const missing = findMethodLabelGaps(verifiedRows)
-      if (missing.length > 0) throw new Error(`CountryMetric methodLabel missing on ${missing.length} rows`)
-
-      const persistedMargins = await prisma.countryMetric.findMany({
-        where: {
-          OR: marginData.map((row) => ({
-            country: row.country,
-            metricType: row.metricType,
-            category: row.category,
-            year: row.year,
-          })),
-        },
-        select: {
-          id: true,
-          country: true,
-          metricType: true,
-          category: true,
-          value: true,
-          unit: true,
-          year: true,
-          source: true,
-          subtitle: true,
-          metadata: true,
-        },
+        assertPersistedDerivedMarginRows(marginData, persistedMargins)
       })
-      assertPersistedDerivedMarginRows(marginData, persistedMargins)
     }
 
     const summary = {
