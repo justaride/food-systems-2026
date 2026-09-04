@@ -1,13 +1,8 @@
 import assert from 'node:assert/strict'
+import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import {
-  lstatSync,
-  readFileSync,
-  readdirSync,
-  readlinkSync,
-  statSync,
-} from 'node:fs'
-import { join, relative, resolve } from 'node:path'
+import { readFileSync, statSync } from 'node:fs'
+import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import test from 'node:test'
 
@@ -82,50 +77,42 @@ function assertCanonicalContentHash(value: JsonObject, label: string) {
   assert.equal(value.contentHash, canonicalSha256(withoutContentHash(value)), label)
 }
 
-function walkSnapshotEntries(absolutePath: string): SnapshotEntry[] {
-  const rootStat = lstatSync(absolutePath)
-  if (rootStat.isSymbolicLink()) {
-    const target = readlinkSync(absolutePath)
-    return [{
-      path: '.',
-      kind: 'symlink',
-      sizeBytes: Buffer.byteLength(target),
-      sha256: sha256Bytes(target),
-    }]
-  }
-  if (rootStat.isFile()) {
-    const bytes = readFileSync(absolutePath)
-    return [{ path: '.', kind: 'file', sizeBytes: bytes.length, sha256: sha256Bytes(bytes) }]
-  }
+function git(...args: string[]): Buffer {
+  return execFileSync('git', args, { cwd: root, maxBuffer: 64 * 1024 * 1024 })
+}
 
-  const entries: SnapshotEntry[] = []
-  const visit = (directory: string) => {
-    for (const name of readdirSync(directory).sort()) {
-      const fullPath = join(directory, name)
-      const stat = lstatSync(fullPath)
-      if (stat.isDirectory()) {
-        visit(fullPath)
-      } else if (stat.isSymbolicLink()) {
-        const target = readlinkSync(fullPath)
-        entries.push({
-          path: relative(absolutePath, fullPath),
-          kind: 'symlink',
-          sizeBytes: Buffer.byteLength(target),
-          sha256: sha256Bytes(target),
-        })
-      } else if (stat.isFile()) {
-        const bytes = readFileSync(fullPath)
-        entries.push({
-          path: relative(absolutePath, fullPath),
-          kind: 'file',
-          sizeBytes: bytes.length,
-          sha256: sha256Bytes(bytes),
-        })
+function walkSnapshotEntriesAtCommit(
+  baseCommit: string,
+  snapshotPath: string,
+  snapshotKind: string,
+): SnapshotEntry[] {
+  const tree = git('ls-tree', '-r', '-z', baseCommit, '--', snapshotPath).toString('utf8')
+  return tree
+    .split('\0')
+    .filter(Boolean)
+    .map((record) => {
+      const tab = record.indexOf('\t')
+      assert.ok(tab > 0, `Malformed git tree record for ${snapshotPath}`)
+      const [mode, type, objectId] = record.slice(0, tab).split(' ')
+      const fullPath = record.slice(tab + 1)
+      assert.equal(type, 'blob', `${fullPath} must resolve to a blob`)
+      const bytes = git('cat-file', 'blob', objectId)
+      return {
+        path: snapshotKind === 'directory' ? fullPath.slice(snapshotPath.length + 1) : '.',
+        kind: mode === '120000' ? 'symlink' : 'file',
+        sizeBytes: bytes.length,
+        sha256: sha256Bytes(bytes),
+      } satisfies SnapshotEntry
+    })
+    .sort((a, b) => {
+      const left = a.path.split('/')
+      const right = b.path.split('/')
+      for (let index = 0; index < Math.min(left.length, right.length); index += 1) {
+        if (left[index] === right[index]) continue
+        return left[index]! < right[index]! ? -1 : 1
       }
-    }
-  }
-  visit(absolutePath)
-  return entries
+      return left.length - right.length
+    })
 }
 
 function collectKeys(value: unknown, keys = new Set<string>()): Set<string> {
@@ -427,7 +414,7 @@ test('keeps configured-database lineage exact and fails closed on identity, appr
   assert.equal(summaryMetrics.pdfOpenUnregisteredSourceCandidateBlockers, 10)
 })
 
-test('recomputes immutable content, source and generation-output hashes', () => {
+test('recomputes immutable content, pinned-source and generation-output hashes', () => {
   for (const [label, artifact] of [
     ['source snapshot set', sourceSnapshots],
     ['current pointer', current],
@@ -444,8 +431,11 @@ test('recomputes immutable content, source and generation-output hashes', () => 
   }
 
   for (const snapshot of asObjectArray(sourceSnapshots.snapshots, 'sourceSnapshots.snapshots')) {
-    const absolutePath = resolve(root, String(snapshot.path))
-    const entries = walkSnapshotEntries(absolutePath)
+    const snapshotPath = String(snapshot.path)
+    const baseCommit = String(snapshot.baseCommit)
+    const gitObjectId = git('rev-parse', `${baseCommit}:${snapshotPath}`).toString('utf8').trim()
+    assert.equal(snapshot.gitObjectId, gitObjectId, `${String(snapshot.snapshotId)} git object`)
+    const entries = walkSnapshotEntriesAtCommit(baseCommit, snapshotPath, String(snapshot.kind))
     const expectedHash = entries.length === 1 && entries[0]?.path === '.'
       ? entries[0].sha256
       : canonicalSha256(entries)
