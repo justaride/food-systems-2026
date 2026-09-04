@@ -36,6 +36,7 @@
     "produsentregister": { "name": "Produsentregister", "description": "Jordbruksforetak fra register (rådata)" },
     "subsidier": { "name": "Subsidier", "description": "Tilskudd per kommune, ordning og mottaker" },
     "sammenligning": { "name": "Sammenligning", "description": "Nordisk sammenligning" },
+    "nordicSpine": { "name": "Nordic spine", "description": "Intern C1–C3 spine med hull-etiketter" },
     "politikk": { "name": "Politikk", "description": "Nordisk matpolitikk-sammenligning" },
     "kart": { "name": "Kart", "description": "Butikker og kommunegrenser" },
     "media": { "name": "Media", "description": "Medieomtale og narrativer" },
