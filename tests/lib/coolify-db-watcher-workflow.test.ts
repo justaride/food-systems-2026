@@ -78,23 +78,25 @@ describe('Coolify database health workflows', () => {
 
     assert.match(watcher, /scripts\/write-private-coolify-curl-config\.py "\$curl_config_file"/)
     assert.match(watcher, /--header "@\$access_header_file"/)
-    assert.match(prodImport, /curl --config "\$curl_config_file"/)
     assert.match(deployVerify, /curl --config "\$curl_config_file"/)
     assert.match(deployVerify, /--header "@\$access_header_file"/)
 
-    for (const source of [watcher, prodImport, deployVerify]) {
+    for (const source of [watcher, deployVerify]) {
       assert.match(source, /write-private-coolify-curl-config\.py/)
       assert.doesNotMatch(
         source,
         /curl[^\n]*(?:\$COOLIFY_API_TOKEN|\$COOLIFY_BASE_URL|\$TOKEN|\$BASE|\$CF_ID|\$CF_SECRET|\$UUID)/,
       )
     }
+    assert.doesNotMatch(prodImport, /COOLIFY_(?:API_TOKEN|BASE_URL)/)
+    assert.doesNotMatch(prodImport, /write-private-coolify-curl-config\.py/)
+    assert.match(prodImport, /scripts\/verify-estate-backup-receipt\.ts/)
     assert.match(watcher, /chmod 600 "\$access_header_file"/)
     assert.match(deployVerify, /chmod 600 "\$access_header_file"/)
   })
 
   it('checks out the private curl helper before any workflow invokes it', () => {
-    for (const source of [watcher, prodImport, deployVerify]) {
+    for (const source of [watcher, deployVerify]) {
       const checkoutIndex = source.indexOf('uses: actions/checkout@v6')
       const helperIndex = source.indexOf('scripts/write-private-coolify-curl-config.py')
       assert.ok(checkoutIndex >= 0, 'workflow must check out the helper')

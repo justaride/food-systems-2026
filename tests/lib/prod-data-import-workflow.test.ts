@@ -48,13 +48,14 @@ describe('prod data import workflow', () => {
   })
 
   it('fails closed on backup, ledger, drift, and count preflights before mutation', () => {
-    const backupIndex = workflow.indexOf('Require a recent successful off-node backup before mutation')
+    const backupIndex = workflow.indexOf('Require a fresh Estate backup receipt before mutation')
     const operationIndex = workflow.indexOf('Run selected prod data operation')
     assert.ok(backupIndex > 0 && backupIndex < operationIndex)
     assert.match(workflow, /inputs\.target != 'verify-only'/)
-    assert.match(workflow, /save_s3.*is not True/)
-    assert.match(workflow, /s3_uploaded.*is not True/)
-    assert.match(workflow, /No recent successful off-node S3 backup; refusing production mutation/)
+    assert.match(workflow, /npx tsx scripts\/verify-estate-backup-receipt\.ts/)
+    assert.match(workflow, /--asset-key="coolify:\$DB_UUID"/)
+    assert.match(workflow, /--database-uuid="\$DB_UUID"/)
+    assert.match(workflow, /--max-age-hours="\$BACKUP_MAX_AGE_HOURS"/)
     assert.match(workflow, /npx prisma migrate status --schema prisma\/schema\.prisma/)
     assert.match(workflow, /scripts\/verify-database-schema-drift\.sh/)
     assert.match(workflow, /npm run db:verify/)
@@ -88,28 +89,16 @@ describe('prod data import workflow', () => {
     )
   })
 
-  it('keeps Coolify API secrets in a private curl config, not curl argv', () => {
-    assert.match(workflow, /COOLIFY_API_TOKEN: \$\{\{ secrets\.COOLIFY_API_TOKEN \}\}/)
-    assert.doesNotMatch(workflow, /secrets\.COOLIFY_READ_API_TOKEN/)
-    assert.match(workflow, /scripts\/write-private-coolify-curl-config\.py "\$curl_config_file"/)
-    assert.match(workflow, /unset COOLIFY_API_TOKEN COOLIFY_BASE_URL/)
-    assert.match(workflow, /curl --config "\$curl_config_file" -fsS -m 15/)
-    assert.doesNotMatch(workflow, /(?:-H|--header) "Authorization: Bearer \$TOKEN"/)
-    assert.doesNotMatch(workflow, /curl[^\n]*(?:\$COOLIFY_API_TOKEN|\$COOLIFY_BASE_URL|\$TOKEN|\$BASE)/)
-  })
-
-  it('authenticates the Coolify backup preflight through Cloudflare Access', () => {
+  it('uses the approved immutable Estate receipt without unrelated control-plane secrets', () => {
     const backupGate = workflow.slice(
-      workflow.indexOf('Require a recent successful off-node backup before mutation'),
+      workflow.indexOf('Require a fresh Estate backup receipt before mutation'),
       workflow.indexOf('Start TCP tunnel to prod DB'),
     )
 
-    assert.match(backupGate, /CF_ACCESS_CLIENT_ID: \$\{\{ secrets\.CF_ACCESS_CLIENT_ID \}\}/)
-    assert.match(backupGate, /CF_ACCESS_CLIENT_SECRET: \$\{\{ secrets\.CF_ACCESS_CLIENT_SECRET \}\}/)
-    assert.match(
-      backupGate,
-      /unset COOLIFY_API_TOKEN COOLIFY_BASE_URL CF_ACCESS_CLIENT_ID CF_ACCESS_CLIENT_SECRET/,
-    )
+    assert.match(backupGate, /BACKUP_RECEIPT: config\/production-backup-receipts\/[\w.-]+\.json/)
+    assert.doesNotMatch(backupGate, /COOLIFY_(?:API_TOKEN|BASE_URL)/)
+    assert.doesNotMatch(backupGate, /CF_ACCESS_CLIENT_(?:ID|SECRET)/)
+    assert.doesNotMatch(backupGate, /curl/)
   })
 
   it('regenerates and preserves database-matched knowledge evidence', () => {
@@ -128,7 +117,7 @@ describe('prod data import workflow', () => {
     // testen sjekket bare at 'verify-only' står der, så et unntak for et
     // SKRIVENDE target ville gått rett gjennom. Denne låser retningen.
     const gate = workflow.slice(
-      workflow.indexOf('Require a recent successful off-node backup before mutation'),
+      workflow.indexOf('Require a fresh Estate backup receipt before mutation'),
       workflow.indexOf('Run selected prod data operation'),
     )
     const exempted = [...gate.matchAll(/inputs\.target != '([^']+)'/g)].map(m => m[1]).sort()
