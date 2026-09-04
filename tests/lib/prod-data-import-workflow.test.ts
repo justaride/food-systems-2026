@@ -15,7 +15,14 @@ describe('prod data import workflow', () => {
   })
 
   it('exposes only sanctioned prod operation targets', () => {
-    for (const target of ['verify-only', 'ownership', 'registers', 'full']) {
+    for (const target of [
+      'verify-only',
+      'ownership',
+      'registers',
+      'full',
+      'nordic-spine-dry',
+      'nordic-spine',
+    ]) {
       assert.match(workflow, new RegExp(`- ${target}\\b`))
     }
   })
@@ -105,11 +112,68 @@ describe('prod data import workflow', () => {
       workflow.indexOf('Run selected prod data operation'),
     )
     const exempted = [...gate.matchAll(/inputs\.target != '([^']+)'/g)].map(m => m[1]).sort()
-    // Kun targets som beviselig ikke skriver: verify-only og de to tørrkjøringene.
-    assert.deepEqual(exempted, ['board-coverage-dry', 'leroy-duplicate-dry', 'verify-only'])
+    // Kun targets som beviselig ikke skriver: verify-only og tørrkjøringene.
+    assert.deepEqual(exempted, [
+      'board-coverage-dry',
+      'leroy-duplicate-dry',
+      'nordic-spine-dry',
+      'verify-only',
+    ])
     // De skrivende targetene skal aldri stå her.
     assert.ok(!exempted.includes('board-coverage'), 'board-coverage muterer og må kreve backup')
     assert.ok(!exempted.includes('leroy-duplicate'), 'leroy-duplicate sletter en rad og må kreve backup')
+    assert.ok(!exempted.includes('nordic-spine'), 'nordic-spine muterer og må kreve backup')
+  })
+
+  it('Nordic spine-targetene holder tørrkjøring, apply og idempotensbevis adskilt', () => {
+    const ops = workflow.slice(workflow.indexOf('Run selected prod data operation'))
+    const dry = ops.slice(ops.indexOf('nordic-spine-dry)'), ops.indexOf('nordic-spine)'))
+    const apply = ops.slice(ops.indexOf('nordic-spine)'), ops.indexOf('board-coverage-dry)'))
+
+    for (const command of [
+      'db:backfill:nordic-c1:dry-run',
+      'db:backfill:nordic-c2-c3:dry-run',
+      'db:backfill:nordic-activity-aqua:dry-run',
+    ]) {
+      assert.match(dry, new RegExp(`npm run ${command}`))
+    }
+    assert.doesNotMatch(dry, /(?:--apply|:apply)/)
+
+    const expectedApplyOrder = [
+      'db:backfill:nordic-c1:dry-run',
+      'db:backfill:nordic-c2-c3:dry-run',
+      'db:backfill:nordic-activity-aqua:dry-run',
+      'db:backfill:nordic-c1:apply',
+      'db:backfill:nordic-c2-c3:apply',
+      'db:backfill:nordic-activity-aqua:apply',
+      'db:verify:nordic-spine',
+      'db:backfill:nordic-c1:apply',
+      'db:backfill:nordic-c2-c3:apply',
+      'db:backfill:nordic-activity-aqua:apply',
+      'db:verify:nordic-spine',
+      'db:verify',
+    ]
+    let previous = -1
+    for (const command of expectedApplyOrder) {
+      const index = apply.indexOf(`npm run ${command}`, previous + 1)
+      assert.ok(index > previous, `${command} må finnes i riktig rekkefølge`)
+      previous = index
+    }
+
+    assert.match(workflow, /nordic-spine-evidence-\$\{\{ github\.run_id \}\}/)
+    assert.match(workflow, /research\/_status\/nordic-spine-\*\.log/)
+    assert.doesNotMatch(
+      `${dry}\n${apply}`,
+      /npm run db:backfill:[^\n]+\\\n\s*\| tee/,
+      'backfill stderr must be retained with stdout',
+    )
+    assert.match(apply, /NORDIC_SPINE_FINGERPRINT=/)
+    assert.match(apply, /first_fingerprint[\s\S]*second_fingerprint/)
+    assert.match(apply, /Nordic spine idempotency fingerprint mismatch/)
+    assert.match(
+      apply,
+      /npm run db:verify 2>&1 \\\s*\| tee research\/_status\/nordic-spine-postverify\.log/,
+    )
   })
 
   it('Lerøy-targetene: tørrkjøring skriver ikke, og ekte kjøring bærer --apply', () => {

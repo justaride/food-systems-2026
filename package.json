@@ -388,6 +388,7 @@
     "media:scrape-candidates": "node --import=tsx scripts/scrape-media-source-candidates.ts",
     "media:build-review-queue": "node --import=tsx scripts/build-media-source-review-queue.ts",
     "db:verify": "tsx scripts/verify-prod-counts.ts",
+    "db:verify:nordic-spine": "tsx scripts/verify-nordic-spine-production.ts",
     "db:check-drift": "prisma migrate diff --from-config-datasource --to-schema prisma/schema.prisma",
     "db:verify:migration-idempotency": "tsx scripts/verify-migration-idempotency.ts",
     "db:prod-sync:registers": "npm run db:import:landbruksregister && npm run db:import:produksjonstilskudd && npm run db:import:akvakulturregister && npm run db:import:akvakultursoknader && npm run db:import:fiskehelse && npm run db:import:leveransedata",
