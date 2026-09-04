@@ -274,11 +274,11 @@ jobs:
               # comparison receipt before the separately authorized apply run.
               mkdir -p research/_status
               npm run db:backfill:nordic-c1:dry-run \
-                | tee research/_status/nordic-spine-c1-dryrun.log
+                2>&1 | tee research/_status/nordic-spine-c1-dryrun.log
               npm run db:backfill:nordic-c2-c3:dry-run \
-                | tee research/_status/nordic-spine-c2-c3-dryrun.log
+                2>&1 | tee research/_status/nordic-spine-c2-c3-dryrun.log
               npm run db:backfill:nordic-activity-aqua:dry-run \
-                | tee research/_status/nordic-spine-activity-dryrun.log
+                2>&1 | tee research/_status/nordic-spine-activity-dryrun.log
               ;;
             nordic-spine)
               # Fail closed by reproducing the read-only plans in the same run
@@ -286,24 +286,38 @@ jobs:
               # exact idempotent operations so the logs prove no duplicates.
               mkdir -p research/_status
               npm run db:backfill:nordic-c1:dry-run \
-                | tee research/_status/nordic-spine-c1-preapply.log
+                2>&1 | tee research/_status/nordic-spine-c1-preapply.log
               npm run db:backfill:nordic-c2-c3:dry-run \
-                | tee research/_status/nordic-spine-c2-c3-preapply.log
+                2>&1 | tee research/_status/nordic-spine-c2-c3-preapply.log
               npm run db:backfill:nordic-activity-aqua:dry-run \
-                | tee research/_status/nordic-spine-activity-preapply.log
+                2>&1 | tee research/_status/nordic-spine-activity-preapply.log
               npm run db:backfill:nordic-c1:apply \
-                | tee research/_status/nordic-spine-c1-applied.log
+                2>&1 | tee research/_status/nordic-spine-c1-applied.log
               npm run db:backfill:nordic-c2-c3:apply \
-                | tee research/_status/nordic-spine-c2-c3-applied.log
+                2>&1 | tee research/_status/nordic-spine-c2-c3-applied.log
               npm run db:backfill:nordic-activity-aqua:apply \
-                | tee research/_status/nordic-spine-activity-applied.log
+                2>&1 | tee research/_status/nordic-spine-activity-applied.log
+              npm run db:verify:nordic-spine \
+                2>&1 | tee research/_status/nordic-spine-first-verification.log
+              first_fingerprint=$(sed -n 's/^NORDIC_SPINE_FINGERPRINT=//p' \
+                research/_status/nordic-spine-first-verification.log | tail -1)
               npm run db:backfill:nordic-c1:apply \
-                | tee research/_status/nordic-spine-c1-idempotency.log
+                2>&1 | tee research/_status/nordic-spine-c1-idempotency.log
               npm run db:backfill:nordic-c2-c3:apply \
-                | tee research/_status/nordic-spine-c2-c3-idempotency.log
+                2>&1 | tee research/_status/nordic-spine-c2-c3-idempotency.log
               npm run db:backfill:nordic-activity-aqua:apply \
-                | tee research/_status/nordic-spine-activity-idempotency.log
-              npm run db:verify
+                2>&1 | tee research/_status/nordic-spine-activity-idempotency.log
+              npm run db:verify:nordic-spine \
+                2>&1 | tee research/_status/nordic-spine-second-verification.log
+              second_fingerprint=$(sed -n 's/^NORDIC_SPINE_FINGERPRINT=//p' \
+                research/_status/nordic-spine-second-verification.log | tail -1)
+              if [ -z "$first_fingerprint" ] || [ "$first_fingerprint" != "$second_fingerprint" ]; then
+                echo "::error::Nordic spine idempotency fingerprint mismatch"
+                exit 1
+              fi
+              echo "Nordic spine idempotency PASS: $second_fingerprint"
+              npm run db:verify 2>&1 \
+                | tee research/_status/nordic-spine-postverify.log
               ;;
             board-coverage-dry)
               # AP-1 (O5) tørrkjøring: henter sittende styre fra Brønnøysund for

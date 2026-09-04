@@ -146,9 +146,11 @@ describe('prod data import workflow', () => {
       'db:backfill:nordic-c1:apply',
       'db:backfill:nordic-c2-c3:apply',
       'db:backfill:nordic-activity-aqua:apply',
+      'db:verify:nordic-spine',
       'db:backfill:nordic-c1:apply',
       'db:backfill:nordic-c2-c3:apply',
       'db:backfill:nordic-activity-aqua:apply',
+      'db:verify:nordic-spine',
       'db:verify',
     ]
     let previous = -1
@@ -160,6 +162,18 @@ describe('prod data import workflow', () => {
 
     assert.match(workflow, /nordic-spine-evidence-\$\{\{ github\.run_id \}\}/)
     assert.match(workflow, /research\/_status\/nordic-spine-\*\.log/)
+    assert.doesNotMatch(
+      `${dry}\n${apply}`,
+      /npm run db:backfill:[^\n]+\\\n\s*\| tee/,
+      'backfill stderr must be retained with stdout',
+    )
+    assert.match(apply, /NORDIC_SPINE_FINGERPRINT=/)
+    assert.match(apply, /first_fingerprint[\s\S]*second_fingerprint/)
+    assert.match(apply, /Nordic spine idempotency fingerprint mismatch/)
+    assert.match(
+      apply,
+      /npm run db:verify 2>&1 \\\s*\| tee research\/_status\/nordic-spine-postverify\.log/,
+    )
   })
 
   it('Lerøy-targetene: tørrkjøring skriver ikke, og ekte kjøring bærer --apply', () => {
