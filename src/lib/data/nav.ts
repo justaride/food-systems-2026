@@ -38,6 +38,7 @@ export const navGroups: NavGroup[] = [
   ]},
   { groupKey: 'nordisk', items: [
     { key: 'sammenligning', href: '/sammenligning' },
+    { key: 'nordicSpine', href: '/nordic' },
     { key: 'politikk', href: '/politikk' },
     { key: 'kart', href: '/kart' },
     { key: 'media', href: '/media' },

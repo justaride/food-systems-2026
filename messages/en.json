@@ -36,6 +36,7 @@
     "produsentregister": { "name": "Producer registry", "description": "Agricultural holdings from register (raw data)" },
     "subsidier": { "name": "Subsidies", "description": "Subsidies by municipality, scheme and recipient" },
     "sammenligning": { "name": "Comparison", "description": "Nordic comparison" },
+    "nordicSpine": { "name": "Nordic spine", "description": "Internal C1–C3 spine with hole labels" },
     "politikk": { "name": "Policy", "description": "Nordic food-policy comparison" },
     "kart": { "name": "Map", "description": "Stores and municipal boundaries" },
     "media": { "name": "Media", "description": "Media coverage and narratives" },
