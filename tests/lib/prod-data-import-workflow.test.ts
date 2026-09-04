@@ -20,6 +20,8 @@ describe('prod data import workflow', () => {
       'ownership',
       'registers',
       'full',
+      'country-metric-harmonization-dry',
+      'country-metric-harmonization',
       'nordic-spine-dry',
       'nordic-spine',
     ]) {
@@ -115,14 +117,53 @@ describe('prod data import workflow', () => {
     // Kun targets som beviselig ikke skriver: verify-only og tørrkjøringene.
     assert.deepEqual(exempted, [
       'board-coverage-dry',
+      'country-metric-harmonization-dry',
       'leroy-duplicate-dry',
       'nordic-spine-dry',
       'verify-only',
     ])
     // De skrivende targetene skal aldri stå her.
     assert.ok(!exempted.includes('board-coverage'), 'board-coverage muterer og må kreve backup')
+    assert.ok(
+      !exempted.includes('country-metric-harmonization'),
+      'country-metric-harmonization muterer og må kreve backup',
+    )
     assert.ok(!exempted.includes('leroy-duplicate'), 'leroy-duplicate sletter en rad og må kreve backup')
     assert.ok(!exempted.includes('nordic-spine'), 'nordic-spine muterer og må kreve backup')
+  })
+
+  it('CountryMetric prerequisite keeps dry-run and protected apply separate', () => {
+    const ops = workflow.slice(workflow.indexOf('Run selected prod data operation'))
+    const dry = ops.slice(
+      ops.indexOf('country-metric-harmonization-dry)'),
+      ops.indexOf('country-metric-harmonization)'),
+    )
+    const apply = ops.slice(
+      ops.indexOf('country-metric-harmonization)'),
+      ops.indexOf('nordic-spine-dry)'),
+    )
+
+    assert.match(dry, /npm run db:backfill:country-metric-harmonization:dry-run/)
+    assert.doesNotMatch(dry, /:apply/)
+    assert.match(dry, /derivedMarginRowsPlanned.*9/)
+    assert.match(dry, /derivedMarginRowsSkipped.*\[\]/)
+
+    const preflight = apply.indexOf('db:backfill:country-metric-harmonization:dry-run')
+    const mutation = apply.indexOf('db:backfill:country-metric-harmonization:apply')
+    const postflight = apply.indexOf(
+      'db:backfill:country-metric-harmonization:dry-run',
+      preflight + 1,
+    )
+    const databaseVerification = apply.indexOf('db:verify', postflight + 1)
+    assert.ok(preflight > -1, 'apply-targetet må først gjenskape tørrkjøringsplanen')
+    assert.ok(mutation > preflight, 'mutasjonen må komme etter tørrkjøringsplanen')
+    const applyPreflight = apply.slice(preflight, mutation)
+    assert.match(applyPreflight, /derivedMarginRowsPlanned.*9/)
+    assert.match(applyPreflight, /derivedMarginRowsSkipped.*\[\]/)
+    assert.ok(postflight > mutation, 'planen må gjenskapes etter mutasjonen')
+    assert.ok(databaseVerification > postflight, 'DB-verifikasjon må komme til slutt')
+    assert.match(workflow, /country-metric-harmonization-evidence-\$\{\{ github\.run_id \}\}/)
+    assert.match(workflow, /research\/_status\/country-metric-harmonization-\*\.log/)
   })
 
   it('Nordic spine-targetene holder tørrkjøring, apply og idempotensbevis adskilt', () => {

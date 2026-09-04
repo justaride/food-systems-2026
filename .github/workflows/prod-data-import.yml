@@ -34,6 +34,8 @@ on:
           - knowledge
           - full
           - innhenting-2026-08-05
+          - country-metric-harmonization-dry
+          - country-metric-harmonization
           - nordic-spine-dry
           - nordic-spine
           - board-coverage-dry
@@ -92,7 +94,7 @@ jobs:
         # Tørrkjøringene er unntatt av samme grunn som verify-only: de skriver
         # ingenting, og en lesende diagnose skal ikke blokkeres av manglende
         # backup. De skrivende targetene er aldri unntatt.
-        if: ${{ inputs.target != 'verify-only' && inputs.target != 'nordic-spine-dry' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' }}
+        if: ${{ inputs.target != 'verify-only' && inputs.target != 'country-metric-harmonization-dry' && inputs.target != 'nordic-spine-dry' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' }}
         env:
           COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_READ_API_TOKEN }}
           COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
@@ -269,6 +271,40 @@ jobs:
               npm run db:import:innhenting
               npm run db:verify
               ;;
+            country-metric-harmonization-dry)
+              # Read-only prerequisite plan for the Nordic C1 spine. Require
+              # all nine governed CompanyFinancial-derived margin targets and
+              # no skips before this target can be treated as a green gate.
+              mkdir -p research/_status
+              npm run db:backfill:country-metric-harmonization:dry-run \
+                2>&1 | tee research/_status/country-metric-harmonization-dryrun.log
+              grep -Fq '"derivedMarginRowsPlanned": 9' \
+                research/_status/country-metric-harmonization-dryrun.log
+              grep -Fq '"derivedMarginRowsSkipped": []' \
+                research/_status/country-metric-harmonization-dryrun.log
+              ;;
+            country-metric-harmonization)
+              # Protected prerequisite mutation. Reproduce and validate the
+              # exact nine-row plan before writing, then re-plan and verify the
+              # database after the idempotent upserts and metadata updates.
+              mkdir -p research/_status
+              npm run db:backfill:country-metric-harmonization:dry-run \
+                2>&1 | tee research/_status/country-metric-harmonization-preapply.log
+              grep -Fq '"derivedMarginRowsPlanned": 9' \
+                research/_status/country-metric-harmonization-preapply.log
+              grep -Fq '"derivedMarginRowsSkipped": []' \
+                research/_status/country-metric-harmonization-preapply.log
+              npm run db:backfill:country-metric-harmonization:apply \
+                2>&1 | tee research/_status/country-metric-harmonization-applied.log
+              npm run db:backfill:country-metric-harmonization:dry-run \
+                2>&1 | tee research/_status/country-metric-harmonization-postapply.log
+              grep -Fq '"derivedMarginRowsPlanned": 9' \
+                research/_status/country-metric-harmonization-postapply.log
+              grep -Fq '"derivedMarginRowsSkipped": []' \
+                research/_status/country-metric-harmonization-postapply.log
+              npm run db:verify 2>&1 \
+                | tee research/_status/country-metric-harmonization-db-verify.log
+              ;;
             nordic-spine-dry)
               # Read-only production plan. Preserve all three summaries as the
               # comparison receipt before the separately authorized apply run.
@@ -428,6 +464,15 @@ jobs:
         with:
           name: nordic-spine-evidence-${{ github.run_id }}
           path: research/_status/nordic-spine-*.log
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Upload CountryMetric harmonization evidence
+        if: ${{ always() && (inputs.target == 'country-metric-harmonization-dry' || inputs.target == 'country-metric-harmonization') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: country-metric-harmonization-evidence-${{ github.run_id }}
+          path: research/_status/country-metric-harmonization-*.log
           if-no-files-found: error
           retention-days: 90
 
