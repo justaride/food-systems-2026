@@ -12,7 +12,7 @@ name: Prod Data Import (manual)
 #   DATABASE_URL              — prod connection (host localhost:5432 — tunnel proxies)
 #   CF_ACCESS_CLIENT_ID       — CF Access service token client ID
 #   CF_ACCESS_CLIENT_SECRET   — CF Access service token client secret
-#   COOLIFY_READ_API_TOKEN    — read-scoped token for the backup preflight
+#   COOLIFY_API_TOKEN         — configured Coolify token for the backup preflight
 #   COOLIFY_BASE_URL          — Coolify API base URL
 #
 # Guard: the job only runs when the `confirm` input is exactly "IMPORT".
@@ -98,7 +98,7 @@ jobs:
         # backup. De skrivende targetene er aldri unntatt.
         if: ${{ inputs.target != 'verify-only' && inputs.target != 'nordic-financials-2025-dry' && inputs.target != 'country-metric-harmonization-dry' && inputs.target != 'nordic-spine-dry' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' }}
         env:
-          COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_READ_API_TOKEN }}
+          COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
           COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
         run: |
           set -euo pipefail

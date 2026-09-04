@@ -89,6 +89,8 @@ describe('prod data import workflow', () => {
   })
 
   it('keeps Coolify API secrets in a private curl config, not curl argv', () => {
+    assert.match(workflow, /COOLIFY_API_TOKEN: \$\{\{ secrets\.COOLIFY_API_TOKEN \}\}/)
+    assert.doesNotMatch(workflow, /secrets\.COOLIFY_READ_API_TOKEN/)
     assert.match(workflow, /scripts\/write-private-coolify-curl-config\.py "\$curl_config_file"/)
     assert.match(workflow, /unset COOLIFY_API_TOKEN COOLIFY_BASE_URL/)
     assert.match(workflow, /curl --config "\$curl_config_file" -fsS -m 15/)
