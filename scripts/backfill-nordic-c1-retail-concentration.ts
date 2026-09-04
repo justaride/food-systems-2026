@@ -84,6 +84,13 @@ function isRetailerMarginCategory(category: string): boolean {
   return true
 }
 
+function metricQuality(row: MetricRow): 'measured' | 'modelled' {
+  const metadataText =
+    row.metadata && typeof row.metadata === 'object' ? JSON.stringify(row.metadata) : ''
+  const provenance = `${row.source} ${metadataText}`.toLocaleLowerCase('nb-NO')
+  return /(beregnet|calculated|derived|modell)/.test(provenance) ? 'modelled' : 'measured'
+}
+
 export function planC1Indicators(metrics: MetricRow[]): PlannedIndicator[] {
   const planned: PlannedIndicator[] = []
   const byCountry = new Map<string, MetricRow[]>()
@@ -113,7 +120,7 @@ export function planC1Indicators(metrics: MetricRow[]): PlannedIndicator[] {
         value: num(hhi.value),
         unit: hhi.unit ?? 'index',
         methodId: 'retail-hhi-v1',
-        quality: 'measured',
+        quality: metricQuality(hhi),
         holeReason: null,
         partnerStatus: 'internal',
         metadata: {
@@ -122,6 +129,7 @@ export function planC1Indicators(metrics: MetricRow[]): PlannedIndicator[] {
           sourceCategory: hhi.category,
           source: hhi.source,
           sourceYearLabel: hhi.year,
+          sourceMetadata: hhi.metadata,
         },
       })
     } else {
@@ -238,7 +246,7 @@ export function planC1Indicators(metrics: MetricRow[]): PlannedIndicator[] {
             value: r.v,
             unit: 'percent',
             methodId: 'retail-opmargin-fy-v1',
-            quality: 'measured',
+            quality: metricQuality(r),
             holeReason: null,
             partnerStatus: 'internal',
             metadata: {
@@ -246,6 +254,7 @@ export function planC1Indicators(metrics: MetricRow[]): PlannedIndicator[] {
               banner: r.category,
               source: r.source,
               sourceYearLabel: r.year,
+              sourceMetadata: r.metadata,
             },
           })
         }
@@ -257,7 +266,7 @@ export function planC1Indicators(metrics: MetricRow[]): PlannedIndicator[] {
           value: r.v,
           unit: 'percent',
           methodId: 'retail-opmargin-fy-v1',
-          quality: 'measured',
+          quality: metricQuality(r),
           holeReason: null,
           partnerStatus: 'internal',
           metadata: {
@@ -265,6 +274,7 @@ export function planC1Indicators(metrics: MetricRow[]): PlannedIndicator[] {
             banner: r.category,
             source: r.source,
             sourceYearLabel: r.year,
+            sourceMetadata: r.metadata,
           },
         })
       })
@@ -384,7 +394,7 @@ export async function runC1Backfill(argv: string[] = process.argv.slice(2)) {
           quality: row.quality,
           holeReason: row.holeReason,
           partnerStatus: row.partnerStatus,
-          metadata: row.metadata,
+          metadata: row.metadata as Prisma.InputJsonValue,
         },
         update: {
           value: row.value,
@@ -392,7 +402,7 @@ export async function runC1Backfill(argv: string[] = process.argv.slice(2)) {
           quality: row.quality,
           holeReason: row.holeReason,
           partnerStatus: row.partnerStatus,
-          metadata: row.metadata,
+          metadata: row.metadata as Prisma.InputJsonValue,
         },
       })
       written += 1

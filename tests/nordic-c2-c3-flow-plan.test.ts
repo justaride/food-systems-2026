@@ -6,7 +6,7 @@ import {
   C2_CELL_ID,
   C3_CELL_ID,
   COUNTRIES,
-} from '../scripts/backfill-nordic-c2-c3-flow-skeletons.ts'
+} from '../scripts/backfill-nordic-c2-c3-flow-skeletons'
 
 test('planC2Flows emits 5x4 unknown mass holes and never fills quantity', () => {
   const planned = planC2Flows({

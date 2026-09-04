@@ -1,6 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
-import { planC1Indicators } from '../scripts/backfill-nordic-c1-retail-concentration.ts'
+import { planC1Indicators } from '../scripts/backfill-nordic-c1-retail-concentration'
 
 test('planC1Indicators derives CR3 and leaves IS margin holes', () => {
   const planned = planC1Indicators([
@@ -21,4 +21,29 @@ test('planC1Indicators derives CR3 and leaves IS margin holes', () => {
   const isTop2 = planned.find((p) => p.country === 'IS' && p.indicatorId === 'margin_top2')
   assert.equal(isTop2?.value, null)
   assert.equal(isTop2?.quality, 'unknown')
+})
+
+test('planC1Indicators keeps derived HHI modelled with source method metadata', () => {
+  const planned = planC1Indicators([
+    {
+      country: 'NO',
+      metricType: 'hhi',
+      category: 'dagligvare',
+      value: 3327,
+      unit: 'index',
+      year: '2024',
+      source: 'Beregnet fra markedsandeler',
+      metadata: {
+        methodLabel: 'derived_hhi_sum_of_squared_retailer_turnover_shares',
+        sourceUrl: 'https://example.test/market-shares',
+      },
+    },
+  ])
+
+  const hhi = planned.find((p) => p.country === 'NO' && p.indicatorId === 'hhi')
+  assert.equal(hhi?.quality, 'modelled')
+  assert.deepEqual(hhi?.metadata.sourceMetadata, {
+    methodLabel: 'derived_hhi_sum_of_squared_retailer_turnover_shares',
+    sourceUrl: 'https://example.test/market-shares',
+  })
 })

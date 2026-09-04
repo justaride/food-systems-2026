@@ -2,9 +2,11 @@ import { prisma } from '@/lib/db'
 import { isPrismaDataUnavailable } from '@/lib/queries/prisma-errors'
 import {
   NORDIC_CELL_ORDER,
+  NORDIC_AQUA_ACTIVITY_PASS,
   scoreboardCounts,
   shapeFlowMatrix,
   shapeIndicatorMatrix,
+  summarizeActivitySignals,
   type FlowMatrixRow,
   type IndicatorMatrixRow,
   type NordicCellId,
@@ -43,17 +45,17 @@ const C1_INDICATOR_ORDER = [
 ]
 
 const C2_EDGES = [
-  { fromNode: 'aquaculture_site', toNode: 'sludge_generated' },
-  { fromNode: 'sludge_generated', toNode: 'sludge_collected' },
-  { fromNode: 'sludge_collected', toNode: 'treatment' },
-  { fromNode: 'treatment', toNode: 'unknown_sink' },
+  { substance: 'mass', fromNode: 'aquaculture_site', toNode: 'sludge_generated' },
+  { substance: 'mass', fromNode: 'sludge_generated', toNode: 'sludge_collected' },
+  { substance: 'mass', fromNode: 'sludge_collected', toNode: 'treatment' },
+  { substance: 'mass', fromNode: 'treatment', toNode: 'unknown_sink' },
 ]
 
 const C3_EDGES = [
-  { fromNode: 'household_municipal_waste', toNode: 'collection' },
-  { fromNode: 'collection', toNode: 'biogas_ad' },
-  { fromNode: 'biogas_ad', toNode: 'digestate' },
-  { fromNode: 'digestate', toNode: 'land_application' },
+  { substance: 'mass', fromNode: 'household_municipal_waste', toNode: 'collection' },
+  { substance: 'mass', fromNode: 'collection', toNode: 'biogas_ad' },
+  { substance: 'mass', fromNode: 'biogas_ad', toNode: 'digestate' },
+  { substance: 'mass', fromNode: 'digestate', toNode: 'land_application' },
 ]
 
 function decimalToNumber(value: { toString(): string } | number | null | undefined): number | null {
@@ -72,11 +74,19 @@ export async function getNordicSpinePayload(): Promise<NordicSpinePayload> {
         orderBy: [{ country: 'asc' }, { indicatorId: 'asc' }, { year: 'desc' }],
       }),
       prisma.flowCell.findMany({
-        where: { cellId: { in: ['seafood-residue-flow', 'food-waste-digestate'] } },
+        where: {
+          cellId: { in: ['seafood-residue-flow', 'food-waste-digestate'] },
+          substance: 'mass',
+        },
         orderBy: [{ cellId: 'asc' }, { country: 'asc' }, { fromNode: 'asc' }],
       }),
       prisma.activitySignal.findMany({
-        where: { domain: 'seafood', signalType: 'licensed_capacity_mtb' },
+        where: {
+          domain: 'seafood',
+          signalType: 'licensed_capacity_mtb',
+          metadata: { path: ['pass'], equals: NORDIC_AQUA_ACTIVITY_PASS },
+        },
+        orderBy: { updatedAt: 'asc' },
       }),
     ])
 
@@ -101,6 +111,7 @@ export async function getNordicSpinePayload(): Promise<NordicSpinePayload> {
     const mapFlow = (f: (typeof flows)[number]) => ({
       country: f.country,
       year: f.year,
+      substance: f.substance,
       fromNode: f.fromNode,
       toNode: f.toNode,
       quantity: f.quantity,
@@ -109,8 +120,7 @@ export async function getNordicSpinePayload(): Promise<NordicSpinePayload> {
       holeReason: f.holeReason,
     })
 
-    const sumMtb = signals.reduce((acc, s) => acc + (typeof s.value === 'number' ? s.value : 0), 0)
-    const years = [...new Set(signals.map((s) => s.year))]
+    const activity = summarizeActivitySignals(signals)
 
     return {
       available: true,
@@ -137,9 +147,9 @@ export async function getNordicSpinePayload(): Promise<NordicSpinePayload> {
         ),
       },
       activity: {
-        count: signals.length,
-        sumMtb,
-        year: years.length === 1 ? years[0]! : years.sort((a, b) => b - a)[0] ?? null,
+        count: activity.count,
+        sumMtb: activity.sumMtb,
+        year: activity.year,
         signalType: signals[0]?.signalType ?? null,
         domain: signals[0]?.domain ?? null,
       },

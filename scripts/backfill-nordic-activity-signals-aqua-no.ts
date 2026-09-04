@@ -11,17 +11,18 @@
 
 import 'dotenv/config'
 import { pathToFileURL } from 'node:url'
-import { PrismaClient } from '../src/generated/prisma/client'
+import { Prisma, PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { NORDIC_AQUA_ACTIVITY_PASS } from '../src/lib/nordic-spine'
 
-export const AQUA_PASS = 'nordic-activity-aqua-no-2026-09-04'
+export const AQUA_PASS = NORDIC_AQUA_ACTIVITY_PASS
 export const SIGNAL_TYPE = 'licensed_capacity_mtb'
 export const DOMAIN = 'seafood'
 export const DEFAULT_YEAR = 2024
 export const ALLOWED_CAPACITY_UNITS = new Set(['TN', 'MTB'])
 export const SKIP_CAPACITY_UNITS = new Set(['STK', 'DA'])
 
-const ACTIVE_STATUS_HINTS = ['aktiv', 'active', 'i drift', 'idriftsatt', 'in drift']
+const ACTIVE_STATUSES = new Set(['aktiv', 'active', 'i drift', 'idriftsatt', 'in drift'])
 
 export type AquaSiteInput = {
   id: string
@@ -49,16 +50,10 @@ export type PlannedActivitySignal = {
 function looksActive(status: string | null): boolean {
   if (!status) return false
   const s = status.trim().toLocaleLowerCase('nb-NO')
-  return ACTIVE_STATUS_HINTS.some((h) => s === h || s.includes(h))
+  return ACTIVE_STATUSES.has(s)
 }
 
-function resolveYear(site: AquaSiteInput): number {
-  const y = site.licenseIssuedYear
-  if (y != null && y >= 1990 && y <= DEFAULT_YEAR + 1) return y
-  return DEFAULT_YEAR
-}
-
-/** Plan licensed_capacity_mtb signals; excludes STK/DA; prefers active licenses when any are clear. */
+/** Plan licensed_capacity_mtb signals; excludes STK/DA and requires a known active status. */
 export function planAquaNoActivitySignals(sites: AquaSiteInput[]): PlannedActivitySignal[] {
   const eligible = sites.filter((s) => {
     if (s.country !== 'NO') return false
@@ -69,14 +64,9 @@ export function planAquaNoActivitySignals(sites: AquaSiteInput[]): PlannedActivi
     return true
   })
 
-  const anyClearActive = eligible.some((s) => looksActive(s.licenseStatus))
-  const selected = anyClearActive
-    ? eligible.filter((s) => looksActive(s.licenseStatus))
-    : eligible
-
-  const inclusionNote = anyClearActive
-    ? 'Filtered to licenseStatus matching active hints (aktiv/active/i drift).'
-    : 'No clear active licenseStatus among TN/MTB sites — included all with capacity.'
+  const selected = eligible.filter((s) => looksActive(s.licenseStatus))
+  const inclusionNote =
+    'Included only exact active licenseStatus values (aktiv/active/i drift/idriftsatt/in drift); unknown or inactive statuses fail closed.'
 
   return selected.map((site) => {
     const unit = (site.capacityUnit ?? 'MTB').toUpperCase()
@@ -85,7 +75,7 @@ export function planAquaNoActivitySignals(sites: AquaSiteInput[]): PlannedActivi
       entityId: site.id,
       domain: DOMAIN,
       signalType: SIGNAL_TYPE,
-      year: resolveYear(site),
+      year: DEFAULT_YEAR,
       value: site.capacityTonnes as number,
       unit: 't',
       confidence: 'high',
@@ -94,6 +84,7 @@ export function planAquaNoActivitySignals(sites: AquaSiteInput[]): PlannedActivi
         pass: AQUA_PASS,
         capacityUnitRaw: unit,
         licenseStatus: site.licenseStatus,
+        licenseIssuedYear: site.licenseIssuedYear,
         inclusionNote,
         note: 'Licensed/installed capacity (MTB/TN as tonnes) — not realized production or sludge.',
       },
@@ -128,7 +119,7 @@ async function upsertSignal(prisma: PrismaClient, row: PlannedActivitySignal) {
     unit: row.unit,
     confidence: row.confidence,
     source: row.source,
-    metadata: row.metadata,
+    metadata: row.metadata as Prisma.InputJsonValue,
   }
   if (existing) {
     await prisma.activitySignal.update({ where: { id: existing.id }, data })

@@ -290,7 +290,7 @@ async function upsertFlow(prisma: PrismaClient, row: PlannedFlow) {
     quality: row.quality,
     systemBoundary: row.systemBoundary,
     holeReason: row.holeReason,
-    metadata: row.metadata,
+    metadata: row.metadata as Prisma.InputJsonValue,
   }
   if (existing) {
     await prisma.flowCell.update({ where: { id: existing.id }, data })

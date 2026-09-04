@@ -3,6 +3,8 @@
 export const NORDIC_SPINE_COUNTRIES = ['NO', 'SE', 'DK', 'FI', 'IS'] as const
 export type NordicSpineCountry = (typeof NORDIC_SPINE_COUNTRIES)[number]
 
+export const NORDIC_AQUA_ACTIVITY_PASS = 'nordic-activity-aqua-no-2026-09-04'
+
 export const NORDIC_CELL_ORDER = [
   'retail-concentration',
   'seafood-residue-flow',
@@ -95,6 +97,7 @@ export type IndicatorMatrixRow = {
 
 export type FlowMatrixRow = {
   edge: string
+  substance: string
   fromNode: string
   toNode: string
   cells: Record<NordicSpineCountry, DisplayCell>
@@ -113,6 +116,7 @@ export type IndicatorLike = {
 export type FlowLike = {
   country: string
   year: number
+  substance: string
   fromNode: string
   toNode: string
   quantity: number | null
@@ -166,28 +170,36 @@ export function shapeIndicatorMatrix(
   })
 }
 
-export function shapeFlowMatrix(rows: FlowLike[], edgeOrder?: Array<{ fromNode: string; toNode: string }>): FlowMatrixRow[] {
+export function shapeFlowMatrix(
+  rows: FlowLike[],
+  edgeOrder?: Array<{ substance?: string; fromNode: string; toNode: string }>,
+): FlowMatrixRow[] {
   const best = new Map<string, FlowLike>()
   for (const row of rows) {
-    const key = `${row.country}::${row.fromNode}::${row.toNode}`
+    const key = `${row.country}::${row.substance}::${row.fromNode}::${row.toNode}`
     const prev = best.get(key)
     if (!prev || row.year > prev.year) best.set(key, row)
   }
 
   const edges =
     edgeOrder?.length
-      ? edgeOrder
-      : [...new Set([...best.values()].map((r) => `${r.fromNode}→${r.toNode}`))]
+      ? edgeOrder.map((edge) => ({ substance: edge.substance ?? 'mass', ...edge }))
+      : [...new Set([...best.values()].map((r) => `${r.substance}→${r.fromNode}→${r.toNode}`))]
           .map((edge) => {
-            const [fromNode, toNode] = edge.split('→')
-            return { fromNode, toNode }
+            const [substance, fromNode, toNode] = edge.split('→')
+            return { substance, fromNode, toNode }
           })
-          .sort((a, b) => a.fromNode.localeCompare(b.fromNode) || a.toNode.localeCompare(b.toNode))
+          .sort(
+            (a, b) =>
+              a.substance.localeCompare(b.substance) ||
+              a.fromNode.localeCompare(b.fromNode) ||
+              a.toNode.localeCompare(b.toNode),
+          )
 
-  return edges.map(({ fromNode, toNode }) => {
+  return edges.map(({ substance, fromNode, toNode }) => {
     const cells = {} as Record<NordicSpineCountry, DisplayCell>
     for (const country of NORDIC_SPINE_COUNTRIES) {
-      const row = best.get(`${country}::${fromNode}::${toNode}`)
+      const row = best.get(`${country}::${substance}::${fromNode}::${toNode}`)
       cells[country] = toDisplayCell(
         row
           ? {
@@ -202,11 +214,53 @@ export function shapeFlowMatrix(rows: FlowLike[], edgeOrder?: Array<{ fromNode: 
     }
     return {
       edge: `${fromNode} → ${toNode}`,
+      substance,
       fromNode,
       toNode,
       cells,
     }
   })
+}
+
+export type ActivitySignalLike = {
+  entityId: string
+  year: number
+  value: number | null
+  metadata: unknown
+}
+
+function activityPass(metadata: unknown): string | null {
+  if (!metadata || typeof metadata !== 'object' || Array.isArray(metadata)) return null
+  const pass = (metadata as Record<string, unknown>).pass
+  return typeof pass === 'string' ? pass : null
+}
+
+/** Summarize only the current import pass at its latest observation year. */
+export function summarizeActivitySignals(rows: ActivitySignalLike[]): {
+  count: number
+  sumMtb: number
+  year: number | null
+} {
+  const current = rows.filter((row) => activityPass(row.metadata) === NORDIC_AQUA_ACTIVITY_PASS)
+  const year = current.reduce<number | null>(
+    (latest, row) => (latest == null || row.year > latest ? row.year : latest),
+    null,
+  )
+  if (year == null) return { count: 0, sumMtb: 0, year: null }
+
+  const latestByEntity = new Map<string, ActivitySignalLike>()
+  for (const row of current) {
+    if (row.year === year) latestByEntity.set(row.entityId, row)
+  }
+  const latest = [...latestByEntity.values()]
+  return {
+    count: latest.length,
+    sumMtb: latest.reduce(
+      (total, row) => total + (typeof row.value === 'number' && Number.isFinite(row.value) ? row.value : 0),
+      0,
+    ),
+    year,
+  }
 }
 
 export function scoreboardCounts(rows: Array<{ value: number | string | null; quality: string }>) {

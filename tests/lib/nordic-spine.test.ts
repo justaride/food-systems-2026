@@ -6,9 +6,10 @@ import {
   shapeFlowMatrix,
   shapeIndicatorMatrix,
   scoreboardCounts,
+  summarizeActivitySignals,
   toDisplayCell,
   truncateHoleReason,
-} from '../../src/lib/nordic-spine.ts'
+} from '../../src/lib/nordic-spine'
 
 test('isHoleQuality treats null and unknown as holes', () => {
   assert.equal(isHoleQuality('unknown', null), true)
@@ -72,6 +73,7 @@ test('shapeFlowMatrix keeps 5×4 edge order and unknown holes', () => {
       {
         country: 'NO',
         year: 2024,
+        substance: 'mass',
         fromNode: 'aquaculture_site',
         toNode: 'sludge_generated',
         quantity: null,
@@ -82,6 +84,7 @@ test('shapeFlowMatrix keeps 5×4 edge order and unknown holes', () => {
       {
         country: 'NO',
         year: 2024,
+        substance: 'mass',
         fromNode: 'household_municipal_waste',
         toNode: 'collection',
         quantity: 451000,
@@ -99,6 +102,77 @@ test('shapeFlowMatrix keeps 5×4 edge order and unknown holes', () => {
   if (matrix[1]!.cells.NO.kind === 'value') {
     assert.match(matrix[1]!.cells.NO.text, /451/)
   }
+})
+
+test('shapeFlowMatrix preserves the requested substance for same-year edges', () => {
+  const matrix = shapeFlowMatrix(
+    [
+      {
+        country: 'NO',
+        year: 2024,
+        substance: 'N',
+        fromNode: 'digestate',
+        toNode: 'land_application',
+        quantity: 15,
+        unit: 't N',
+        quality: 'measured',
+      },
+      {
+        country: 'NO',
+        year: 2024,
+        substance: 'mass',
+        fromNode: 'digestate',
+        toNode: 'land_application',
+        quantity: 451000,
+        unit: 't',
+        quality: 'measured',
+      },
+    ],
+    [{ substance: 'mass', fromNode: 'digestate', toNode: 'land_application' }],
+  )
+
+  assert.equal(matrix[0]?.substance, 'mass')
+  assert.equal(matrix[0]?.cells.NO.kind, 'value')
+  if (matrix[0]?.cells.NO.kind === 'value') {
+    assert.equal(matrix[0].cells.NO.text, '451 000 t')
+  }
+})
+
+test('summarizeActivitySignals keeps only the current pass and latest year', () => {
+  const summary = summarizeActivitySignals([
+    {
+      entityId: 'site-a',
+      year: 2023,
+      value: 90,
+      metadata: { pass: 'nordic-activity-aqua-no-2026-09-04' },
+    },
+    {
+      entityId: 'site-a',
+      year: 2024,
+      value: 100,
+      metadata: { pass: 'nordic-activity-aqua-no-2026-09-04' },
+    },
+    {
+      entityId: 'site-b',
+      year: 2024,
+      value: 200,
+      metadata: { pass: 'nordic-activity-aqua-no-2026-09-04' },
+    },
+    {
+      entityId: 'site-a',
+      year: 2024,
+      value: 125,
+      metadata: { pass: 'nordic-activity-aqua-no-2026-09-04' },
+    },
+    {
+      entityId: 'site-other-pass',
+      year: 2024,
+      value: 999,
+      metadata: { pass: 'another-pass' },
+    },
+  ])
+
+  assert.deepEqual(summary, { count: 2, sumMtb: 325, year: 2024 })
 })
 
 test('scoreboardCounts and formatSpineNumber', () => {
