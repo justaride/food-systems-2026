@@ -19,9 +19,11 @@ migrasjoner, backup eller faglig ekstern readiness er i orden.
 Produksjon er **NO-GO** for full dataimport eller MCP-tilkobling før disse er
 dokumentert hver for seg:
 
-- minst én aktiv Coolify-backupplan med S3-kompatibel off-node lagring
-- en vellykket, ikke-tom off-node backup innen tillatt alder
-- vellykket restore-drill mot en ny disponibel database
+- en fersk, reviewet GabiBFree Estate-kvittering fra `data_asset_proofs` og
+  `MANIFEST-COOLIFY-v1.tsv`
+- en vellykket, ikke-tom backup med verifisert iCloud- og S3/R2-offsite-kopi
+  innen tillatt alder
+- vellykket restore-drill bundet til samme artefakt og SHA-256
 - `prisma migrate status` uten manglende eller ukjente ledgerposter
 - `scripts/verify-database-schema-drift.sh` uten ukjent drift
 - `npm run db:verify` mot måldatabasen
@@ -89,10 +91,13 @@ godkjente endringsflaten til en ren gren/worktree først.
 
 ### 2. Sikre backup og restore
 
-Coolify-planen skal være aktiv, lagre off-node og ha varsling for
-`backup_failed` og `backup_success_with_s3_warning`. Repoets watcher krever som
-standard en vellykket S3-upload siste 36 timer; terskelen kan settes med
-repository variable `DB_BACKUP_MAX_AGE_HOURS`.
+Den sentrale backupkjeden eies av GabiBFree Estate, ikke av Coolifys native
+backupplaner. Food Systems skal derfor bruke en ny, immutable kvittering fra
+Estate før hver risikofylt produksjonsmutasjon. Kvitteringen binder asset key,
+database-UUID, artefakt, SHA-256 og separate backup-, offsite- og restorebevis.
+Workflowen avviser manglende bindinger, feil identitet, fremtidige tidsstempler
+og bevis eldre enn 36 timer; terskelen kan settes med repository variable
+`DB_BACKUP_MAX_AGE_HOURS`.
 
 I tillegg skal en faktisk dump restore-testes. Før en kontrollert
 identitets-/citation-mutasjon må backupen bruke metadata v2, bestå streng
@@ -247,9 +252,11 @@ AI-utkast automatisk. Arbeid gjennom den genererte review-/reparasjonskøen.
 
 ### Backup-port feiler
 
-En konfigurert tidsplan alene er ikke backupbevis. Kontroller siste execution,
-filstørrelse, S3-upload og varsling. Kollektiv GO krever også en dokumentert
-restore-drill.
+En konfigurert tidsplan alene er ikke backupbevis. Kontroller gjeldende
+GabiBFree Estate-kvittering mot `data_asset_proofs` og
+`MANIFEST-COOLIFY-v1.tsv`: asset, artefakt, SHA-256, filstørrelse, begge
+offsite-mål og restore-drill må samsvare. Lag en ny kvittering; ikke forleng
+eller omgå en utløpt kvittering.
 
 ## Historisk merknad
 

@@ -12,8 +12,10 @@ name: Prod Data Import (manual)
 #   DATABASE_URL              — prod connection (host localhost:5432 — tunnel proxies)
 #   CF_ACCESS_CLIENT_ID       — CF Access service token client ID
 #   CF_ACCESS_CLIENT_SECRET   — CF Access service token client secret
-#   COOLIFY_API_TOKEN         — configured Coolify token for the backup preflight
-#   COOLIFY_BASE_URL          — Coolify API base URL
+#
+# Mutating targets also require a fresh, reviewed GabiBFree Estate receipt in
+# config/production-backup-receipts. The receipt expires after the configured
+# maximum age and binds backup, offsite, and restore proofs to one artifact.
 #
 # Guard: the job only runs when the `confirm` input is exactly "IMPORT".
 
@@ -92,64 +94,20 @@ jobs:
           chmod +x /usr/local/bin/cloudflared
           cloudflared --version
 
-      - name: Require a recent successful off-node backup before mutation
+      - name: Require a fresh Estate backup receipt before mutation
         # Tørrkjøringene er unntatt av samme grunn som verify-only: de skriver
         # ingenting, og en lesende diagnose skal ikke blokkeres av manglende
         # backup. De skrivende targetene er aldri unntatt.
         if: ${{ inputs.target != 'verify-only' && inputs.target != 'nordic-financials-2025-dry' && inputs.target != 'country-metric-harmonization-dry' && inputs.target != 'nordic-spine-dry' && inputs.target != 'board-coverage-dry' && inputs.target != 'leroy-duplicate-dry' }}
         env:
-          COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
-          COOLIFY_BASE_URL: ${{ secrets.COOLIFY_BASE_URL }}
-          CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
-          CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+          BACKUP_RECEIPT: config/production-backup-receipts/food-systems-pgvector-db-2026-09-04.json
         run: |
           set -euo pipefail
-          backup_file=$(mktemp)
-          curl_config_file=$(mktemp)
-          trap 'rm -f "$backup_file" "$curl_config_file"' EXIT
-          COOLIFY_API_PATH="/api/v1/databases/$DB_UUID/backups" \
-            scripts/write-private-coolify-curl-config.py "$curl_config_file"
-          unset COOLIFY_API_TOKEN COOLIFY_BASE_URL CF_ACCESS_CLIENT_ID CF_ACCESS_CLIENT_SECRET
-          curl --config "$curl_config_file" -fsS -m 15 > "$backup_file"
-          python3 - "$backup_file" "$BACKUP_MAX_AGE_HOURS" <<'PY'
-          import datetime as dt
-          import json
-          import sys
-
-          path, max_age_raw = sys.argv[1:]
-          max_age_hours = float(max_age_raw)
-          with open(path, encoding='utf-8') as handle:
-              schedules = json.load(handle)
-          if not isinstance(schedules, list) or max_age_hours <= 0:
-              raise SystemExit('Invalid backup preflight configuration')
-
-          now = dt.datetime.now(dt.timezone.utc)
-          valid = []
-          for schedule in schedules:
-              if schedule.get('enabled') is not True or schedule.get('save_s3') is not True:
-                  continue
-              for execution in schedule.get('executions') or []:
-                  if execution.get('status') != 'success' or execution.get('s3_uploaded') is not True:
-                      continue
-                  if not execution.get('filename') or int(execution.get('size') or 0) <= 0:
-                      continue
-                  created_raw = execution.get('created_at')
-                  if not created_raw:
-                      continue
-                  try:
-                      created_at = dt.datetime.fromisoformat(created_raw.replace('Z', '+00:00'))
-                  except ValueError:
-                      continue
-                  if created_at.tzinfo is None:
-                      created_at = created_at.replace(tzinfo=dt.timezone.utc)
-                  age = (now - created_at.astimezone(dt.timezone.utc)).total_seconds() / 3600
-                  if 0 <= age <= max_age_hours:
-                      valid.append(age)
-
-          if not valid:
-              raise SystemExit('No recent successful off-node S3 backup; refusing production mutation')
-          print(f'Backup preflight PASS: latest valid backup age={min(valid):.2f}h')
-          PY
+          npx tsx scripts/verify-estate-backup-receipt.ts \
+            --receipt="$BACKUP_RECEIPT" \
+            --asset-key="coolify:$DB_UUID" \
+            --database-uuid="$DB_UUID" \
+            --max-age-hours="$BACKUP_MAX_AGE_HOURS"
 
       - name: Start TCP tunnel to prod DB
         env:

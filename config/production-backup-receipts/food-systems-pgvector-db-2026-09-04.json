@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "authority": "gabibfree-estate-data-asset-proofs",
+  "assetKey": "coolify:l0s8o8oo00c8gossw0gksswk",
+  "databaseUuid": "l0s8o8oo00c8gossw0gksswk",
+  "source": {
+    "repository": "justaride/gabibfree-dashboard",
+    "commit": "8e346e8329b948f326d6ffe3a3935b74a829d85d",
+    "manifest": "MANIFEST-COOLIFY-v1.tsv",
+    "manifestLine": 748
+  },
+  "artifact": {
+    "ref": "coolify-food-systems-pgvector-db-20260904-013008-8cb16d.dump.age",
+    "sha256": "63f6d3c6158824b71d65d2eda465e5eb5a5ab528962fe95edcc0ff89f4fb9f9e",
+    "bytes": 21475773,
+    "icloudStatus": "verified",
+    "s3Status": "verified"
+  },
+  "proofs": [
+    {
+      "kind": "backup",
+      "artifactRef": "coolify-food-systems-pgvector-db-20260904-013008-8cb16d.dump.age",
+      "artifactSha256": "63f6d3c6158824b71d65d2eda465e5eb5a5ab528962fe95edcc0ff89f4fb9f9e",
+      "provenAt": "2026-09-04T01:30:28Z"
+    },
+    {
+      "kind": "offsite",
+      "artifactRef": "coolify-food-systems-pgvector-db-20260904-013008-8cb16d.dump.age",
+      "artifactSha256": "63f6d3c6158824b71d65d2eda465e5eb5a5ab528962fe95edcc0ff89f4fb9f9e",
+      "provenAt": "2026-09-04T01:30:28Z"
+    },
+    {
+      "kind": "restore",
+      "artifactRef": "coolify-food-systems-pgvector-db-20260904-013008-8cb16d.dump.age",
+      "artifactSha256": "63f6d3c6158824b71d65d2eda465e5eb5a5ab528962fe95edcc0ff89f4fb9f9e",
+      "provenAt": "2026-09-04T01:30:25Z"
+    }
+  ],
+  "capturedAt": "2026-09-04T14:24:18Z"
+}
