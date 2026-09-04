@@ -85,3 +85,22 @@
 
 - Use `npm run db:audit` when you need current counts or integrity status
 - Treat historical record counts in notes as snapshots, not stable instructions
+
+## Nordic systems spine (WP3 internal)
+
+| Model | Purpose | Notes |
+|---|---|---|
+| `NordicCell` | Frozen comparison cell shell (C1–C3) | ids: `retail-concentration`, `seafood-residue-flow`, `food-waste-digestate` |
+| `NordicIndicatorRow` | Country × indicator × year values or dated holes | **No** `country` default; `quality` + `holeReason` required discipline |
+| `ActivitySignal` | Activity / volume signals on existing entities | Not a new actor census |
+| `FlowCell` | Mass / N / P / K edges for C2–C3 | `measured\|modelled\|capacity\|plan\|potential\|unknown` |
+
+Codebook: `docs/project/plans/nordic-spine-codebook-2026-09-04.md`.
+
+### `CompanyFinancial` unit fields
+
+- `reportingCurrency` — ISO currency when not NOK
+- `unitScale` — `1` (as stored major units), `1000` (thousands), `1000000` (millions / legacy MNOK)
+- `amountUnitNote` — optional human note; do not branch logic on it
+
+Interpret `revenueNok` / `operatingResult` only together with `unitScale` and `reportingCurrency`.

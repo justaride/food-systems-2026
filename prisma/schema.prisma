@@ -1019,6 +1019,11 @@ model CompanyFinancial {
   fiscalPeriodStart  DateTime?
   fiscalPeriodEnd    DateTime?
   reportingCurrency  String?
+  // unitScale: 1 = amount already in currency major units as stored;
+  // 1000 = reported in thousands; 1000000 = millions (legacy MNOK rows).
+  // revenueNok/operatingResult remain the stored numeric fields; interpret with unitScale + reportingCurrency.
+  unitScale          Int       @default(1)
+  amountUnitNote     String? // optional human note; do not use for logic
   fxRateNokPerUnit   Decimal?  @db.Decimal(18, 8)
   fxRateSource       String?
   verificationStatus String?
@@ -1641,4 +1646,96 @@ model MediaEntryCoding {
   @@index([country, primaryTheme])
   @@index([tone])
   @@index([frame])
+}
+
+// ─── Domain 12: Nordic systems spine (WP3 internal) ─────────────────
+// Codebook: docs/project/plans/nordic-spine-codebook-2026-09-04.md
+// Empty indicator/flow tables are intentional; fill later under IG-009/010/011.
+// No @default("NO") on country fields in this domain.
+
+model NordicCell {
+  id           String @id // retail-concentration | seafood-residue-flow | food-waste-digestate
+  title        String
+  definitionMd String // frozen codebook excerpt or full definition
+  periodRule   String
+  status       String @default("draft") // draft | frozen | partner_reviewed
+  codebookPath String @default("docs/project/plans/nordic-spine-codebook-2026-09-04.md")
+
+  indicatorRows NordicIndicatorRow[]
+  flowCells     FlowCell[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model NordicIndicatorRow {
+  id            String   @id @default(cuid())
+  cellId        String
+  country       String // NO | SE | DK | FI | IS — no default
+  indicatorId   String
+  year          Int
+  value         Decimal? @db.Decimal(18, 6)
+  unit          String
+  methodId      String
+  quality       String // measured | modelled | capacity | plan | potential | unknown
+  holeReason    String?
+  citationId    String?
+  partnerStatus String   @default("internal") // internal | sent | reviewed | disputed
+  metadata      Json?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  cell NordicCell @relation(fields: [cellId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@unique([cellId, country, indicatorId, year, methodId])
+  @@index([cellId, country])
+  @@index([country, year])
+  @@index([quality])
+  @@index([partnerStatus])
+}
+
+model ActivitySignal {
+  id         String   @id @default(cuid())
+  entityType String // company | producer | site
+  entityId   String
+  domain     String // seafood | retail | waste | other
+  signalType String
+  year       Int
+  value      Float?
+  unit       String?
+  confidence String // high | mid | low
+  source     String
+  citationId String?
+  metadata   Json?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([entityType, entityId, domain])
+  @@index([domain, year])
+  @@index([confidence])
+}
+
+model FlowCell {
+  id             String   @id @default(cuid())
+  cellId         String
+  country        String // no default
+  year           Int
+  substance      String // mass | N | P | K
+  fromNode       String
+  toNode         String
+  quantity       Float?
+  unit           String
+  quality        String // measured | modelled | capacity | plan | potential | unknown
+  systemBoundary String
+  citationId     String?
+  holeReason     String?
+  metadata       Json?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  cell NordicCell @relation(fields: [cellId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+
+  @@index([cellId, country, year])
+  @@index([substance])
+  @@index([quality])
 }
