@@ -606,7 +606,7 @@ export async function runCountryMetricHarmonization(argv: string[] = process.arg
           },
         })
         assertPersistedDerivedMarginRows(marginData, persistedMargins)
-      })
+      }, { maxWait: 20_000, timeout: 120_000 })
     }
 
     const summary = {

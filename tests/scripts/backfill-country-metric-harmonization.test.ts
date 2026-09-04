@@ -10,7 +10,10 @@ describe('backfill-country-metric-harmonization', () => {
       'utf8',
     )
     const transactionStart = source.indexOf('prisma.$transaction(async (transaction) =>')
-    const transactionEnd = source.indexOf('\n      })', transactionStart)
+    const transactionEnd = source.indexOf(
+      '\n      }, { maxWait: 20_000, timeout: 120_000 })',
+      transactionStart,
+    )
     assert.ok(transactionStart > -1, 'apply must open a transaction')
     assert.ok(transactionEnd > transactionStart, 'apply transaction must close after its work')
 
@@ -19,6 +22,11 @@ describe('backfill-country-metric-harmonization', () => {
     assert.match(transactionBody, /transaction\.countryMetric\.update/)
     assert.match(transactionBody, /assertPersistedDerivedMarginRows/)
     assert.match(transactionBody, /CountryMetric methodLabel missing/)
+    assert.match(
+      source.slice(transactionStart),
+      /\}, \{ maxWait: 20_000, timeout: 120_000 \}\)/,
+      'production transaction must have bounded, tunnel-safe wait and execution timeouts',
+    )
   })
 
   it('plans method metadata and derived margins without running the DB-backed CLI on import', async () => {
