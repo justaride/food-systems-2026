@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+import { buildLibraryAnalysisWorkPacket } from "../../src/lib/knowledge/library-analysis-work-packet";
+
 import { createHash } from "node:crypto";
 import {
   closeSync,
@@ -87,6 +89,13 @@ const buildOptionsSchema = z.object({
   mergedInventoryHash: hashSchema,
   runtimeCommit: z.string().min(1),
   repositoryRoot: absolutePathSchema,
+  policy: z.object({
+    maximumAttempts: z.literal(3),
+    maximumConcurrentAnalyzers: z.literal(3),
+    maximumCodePointsPerJob: z.number().int().min(1).max(48_000),
+    maximumUnitsPerJob: z.number().int().min(1).max(4),
+    requireItemCoverage: z.literal(true).optional(),
+  }).strict().optional(),
 }).strict();
 const prepareOptionsSchema = z.object({
   command: z.literal("prepare-attempt"),
@@ -448,6 +457,7 @@ async function runBuildQueue(
     analysisPrompt: analysis.prompt,
     validationWorkflow: validation.workflow,
     validationPrompt: validation.prompt,
+    policy: options.policy,
   });
   const portablePath = `queue/queue-${queue.queueHash}.json`;
   const bytes = canonicalJsonBytes(queue);
@@ -498,6 +508,9 @@ async function runPrepareAttempt(
     validationWorkflow: queue.validationWorkflow,
     validationPrompt: queue.validationPrompt,
     units: loaded.units.map(({ descriptor, text }) => ({ ...descriptor, text })),
+    ...(queue.executionPolicy.requireItemCoverage ? { workPacket: buildLibraryAnalysisWorkPacket(
+      loaded.units.map(({ descriptor, text }) => ({ contentUnitId: descriptor.id, locator: descriptor.locator, text })),
+    ) } : {}),
   };
   const portablePath = `jobs/${loaded.job.jobId}/attempt-${String(options.attempt).padStart(3, "0")}/input.json`;
   const inputHash = candidateAnalysisSha256(
@@ -572,6 +585,7 @@ async function runAcceptAttempt(
       expectedModel: input.expectedModel,
       job: authoritativeJob,
       response,
+      requireItemCoverage: queue.executionPolicy.requireItemCoverage,
     });
   } catch (error) {
     sealRawResponse(runRoot, input, responseArtifact.bytes);
@@ -697,6 +711,7 @@ async function runValidateSource(
       units: source.unitIds.map((id) => unitsById.get(id)!),
       validatorModel: options.validatorModel,
       analysisModels: sourceResult.segments.map((segment) => segment.model),
+      requireItemCoverage: queue.executionPolicy.requireItemCoverage,
     });
     const receipt = writePrivateManifestAtomic(runRoot, requestPortable, canonicalJsonBytes(request as unknown as CandidateJsonValue));
     readAndVerifyPrivateArtifact(runRoot, requestPortable, { sha256: receipt.sha256, sizeBytes: receipt.sizeBytes, mode: 0o400 });
@@ -1217,6 +1232,9 @@ function assertAttemptInputMatchesAuthoritative(
     validationWorkflow: queue.validationWorkflow,
     validationPrompt: queue.validationPrompt,
     units: authoritativeJob.units.map(({ descriptor, text }) => ({ ...descriptor, text })),
+    ...(queue.executionPolicy.requireItemCoverage ? { workPacket: buildLibraryAnalysisWorkPacket(
+      authoritativeJob.units.map(({ descriptor, text }) => ({ contentUnitId: descriptor.id, locator: descriptor.locator, text })),
+    ) } : {}),
   };
   const { inputHash: _inputHash, ...actualCore } = input;
   if (canonicalCandidateJson(actualCore as CandidateJsonValue) !== canonicalCandidateJson(expectedCore as CandidateJsonValue)) {

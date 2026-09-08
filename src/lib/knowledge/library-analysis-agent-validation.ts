@@ -27,6 +27,11 @@ import {
   type LibraryAnalysisSourceResult,
 } from "./library-analysis-agent-response";
 import type { LibraryAnalysisAgentQueueUnit } from "./library-analysis-agent-queue";
+import {
+  buildLibraryAnalysisWorkPacket,
+  LibraryAnalysisWorkPacketSchema,
+  type LibraryAnalysisWorkPacket,
+} from "./library-analysis-work-packet";
 
 const HASH = /^[a-f0-9]{64}$/u;
 const hashSchema = z.string().regex(HASH);
@@ -83,6 +88,7 @@ export const LibraryAnalysisAgentValidationRequestSchema = z.object({
   validatorModel: LibraryAnalysisValidatorModelReceiptSchema,
   claims: z.array(validationClaimSchema),
   units: z.array(validationUnitSchema).min(1),
+  workPacket: LibraryAnalysisWorkPacketSchema.optional(),
   requestHash: hashSchema,
 }).strict();
 export type LibraryAnalysisAgentValidationRequest = z.infer<
@@ -93,6 +99,27 @@ const responseFindingSchema = AutomatedValidationFindingSchema.refine(
   (finding) => finding.validatorKind === "model" && finding.deterministicRuleIds.length === 0,
   "model_findings_must_not_claim_deterministic_rules",
 );
+const itemReviewSchema = z.object({
+  itemId: identifierSchema,
+  disposition: z.enum(["supported", "source_limited", "issue", "structural"]),
+  claimIds: z.array(identifierSchema),
+  findingIds: z.array(identifierSchema),
+  reason: textSchema,
+}).strict().superRefine((review, context) => {
+  if (review.reason.trim().length === 0) {
+    context.addIssue({ code: "custom", message: "item_review_reason_required" });
+  }
+  if (new Set(review.claimIds).size !== review.claimIds.length) {
+    context.addIssue({ code: "custom", message: "duplicate_item_review_claim_id" });
+  }
+  if (new Set(review.findingIds).size !== review.findingIds.length) {
+    context.addIssue({ code: "custom", message: "duplicate_item_review_finding_id" });
+  }
+  if ((review.disposition === "source_limited" || review.disposition === "structural") &&
+      (review.claimIds.length > 0 || review.findingIds.length > 0)) {
+    context.addIssue({ code: "custom", message: "item_review_unbound_non_support" });
+  }
+});
 export const LibraryAnalysisAgentValidationResponseSchema = z.object({
   schema: z.literal(LIBRARY_ANALYSIS_AGENT_VALIDATION_RESPONSE_SCHEMA),
   requestHash: hashSchema,
@@ -101,6 +128,7 @@ export const LibraryAnalysisAgentValidationResponseSchema = z.object({
   sourceEnvelopeHash: hashSchema,
   validatorModel: LibraryAnalysisValidatorModelReceiptSchema,
   findings: z.array(responseFindingSchema),
+  itemReviews: z.array(itemReviewSchema).optional(),
   riskFlags: z.array(z.enum(["actor", "rights", "person", "health", "causal"])),
   responseHash: hashSchema,
 }).strict().superRefine((response, context) => {
@@ -157,6 +185,7 @@ export type BuildLibraryAnalysisAgentValidationRequestInput = {
   validatorModel?: AgentModelReceipt;
   analysisModels?: readonly AgentModelReceipt[];
   candidateId?: string;
+  requireItemCoverage?: true;
 };
 
 export type LibraryAnalysisAgentValidationInput = {
@@ -226,6 +255,33 @@ function normalizeUnit(input: LibraryAnalysisVerifiedSourceUnitInput): LibraryAn
   return input;
 }
 
+function packetForRequestUnits(units: readonly ValidationUnit[]): LibraryAnalysisWorkPacket {
+  return buildLibraryAnalysisWorkPacket(units.map(({ contentUnitId, locator, text }) => ({
+    contentUnitId,
+    locator,
+    text,
+  })));
+}
+
+function evidenceOverlapsItem(
+  evidence: string,
+  item: LibraryAnalysisWorkPacket["items"][number],
+  units: readonly ValidationUnit[],
+): boolean {
+  const unit = units.find((candidate) => candidate.contentUnitId === item.contentUnitId);
+  if (unit === undefined) return false;
+  let from = 0;
+  while (from <= unit.text.length - evidence.length) {
+    const index = unit.text.indexOf(evidence, from);
+    if (index < 0) return false;
+    const startCodePoint = [...unit.text.slice(0, index)].length;
+    const endCodePoint = startCodePoint + [...evidence].length;
+    if (startCodePoint < item.endCodePoint && endCodePoint > item.startCodePoint) return true;
+    from = index + 1;
+  }
+  return false;
+}
+
 function unitMap(units: readonly LibraryAnalysisVerifiedSourceUnitInput[]): Map<string, LibraryAnalysisVerifiedSourceUnit> {
   const map = new Map<string, LibraryAnalysisVerifiedSourceUnit>();
   for (const rawUnit of units) {
@@ -287,6 +343,9 @@ export function buildLibraryAnalysisAgentValidationRequest(
     validatorModel: modelReceipt(rawInput.validatorModel ?? { provider: "openai-codex", name: "gpt-5.6-sol", version: "unknown" }),
     claims,
     units: requestUnits,
+    ...(rawInput.requireItemCoverage === true
+      ? { workPacket: packetForRequestUnits(requestUnits) }
+      : {}),
   } satisfies Omit<LibraryAnalysisAgentValidationRequest, "requestHash">;
   return LibraryAnalysisAgentValidationRequestSchema.parse({ ...core, requestHash: requestHash(core) });
 }
@@ -313,6 +372,81 @@ export function validateLibraryAnalysisAgentValidationResponse(input: {
   for (const finding of response.findings) {
     if (finding.assertionId !== "assertion:deterministic-gate" && !claimIds.has(finding.assertionId)) throw new Error("validation_response_assertion_binding_mismatch");
     if (finding.contentUnitIds.some((id) => !unitIds.has(id))) throw new Error("validation_response_unit_binding_mismatch");
+  }
+  if (request.workPacket === undefined) {
+    if (response.itemReviews !== undefined) throw new Error("validation_response_item_reviews_without_packet");
+    return response;
+  }
+  const recomputedPacket = packetForRequestUnits(request.units);
+  if (canonicalCandidateJson(request.workPacket as unknown as CandidateJsonValue) !==
+      canonicalCandidateJson(recomputedPacket as unknown as CandidateJsonValue)) {
+    throw new Error("validation_work_packet_mismatch");
+  }
+  const reviews = response.itemReviews;
+  if (reviews === undefined) throw new Error("validation_response_item_reviews_missing");
+  const itemById = new Map(request.workPacket.items.map((item) => [item.itemId, item]));
+  if (new Set(reviews.map((review) => review.itemId)).size !== reviews.length ||
+      reviews.length !== request.workPacket.items.length ||
+      reviews.some((review) => !itemById.has(review.itemId))) {
+    throw new Error("validation_response_item_review_itemset_mismatch");
+  }
+  const claimById = new Map(request.claims.map((claim) => [claim.claimId, claim]));
+  const findingById = new Map(response.findings.map((finding) => [finding.findingId, finding]));
+  const mappedClaimIds = new Set<string>();
+  for (const review of reviews) {
+    const item = itemById.get(review.itemId)!;
+    if (review.disposition === "structural" &&
+        !["heading", "table_header", "table_separator"].includes(item.kind)) {
+      throw new Error("validation_structural_item_kind_mismatch");
+    }
+    if (review.disposition === "supported") {
+      if (review.claimIds.length === 0) throw new Error("validation_supported_item_claim_missing");
+      if (review.findingIds.length > 0) throw new Error("validation_supported_item_finding_mismatch");
+      for (const claimId of review.claimIds) {
+        const claim = claimById.get(claimId);
+        if (claim === undefined || claim.contentUnitId !== item.contentUnitId ||
+            !evidenceOverlapsItem(claim.evidence, item, request.units)) {
+          throw new Error("validation_supported_item_claim_mismatch");
+        }
+        mappedClaimIds.add(claimId);
+      }
+    }
+    if (review.disposition === "issue") {
+      if (review.findingIds.length === 0) throw new Error("validation_issue_item_finding_missing");
+      for (const claimId of review.claimIds) {
+        const claim = claimById.get(claimId);
+        if (claim === undefined || claim.contentUnitId !== item.contentUnitId ||
+            !evidenceOverlapsItem(claim.evidence, item, request.units)) {
+          throw new Error("validation_issue_item_claim_mismatch");
+        }
+        const hasMatchingFinding = review.findingIds.some((findingId) => {
+          const finding = findingById.get(findingId);
+          return finding?.assertionId === claimId;
+        });
+        if (!hasMatchingFinding) throw new Error("validation_issue_item_claim_finding_mismatch");
+        mappedClaimIds.add(claimId);
+      }
+      for (const findingId of review.findingIds) {
+        const finding = findingById.get(findingId);
+        if (finding === undefined || !finding.contentUnitIds.includes(item.contentUnitId)) {
+          throw new Error("validation_issue_item_finding_mismatch");
+        }
+      }
+    }
+    for (const claimId of review.claimIds) {
+      if (review.disposition !== "supported" && review.disposition !== "issue") {
+        throw new Error("validation_item_review_claim_disposition_mismatch");
+      }
+    }
+    for (const findingId of review.findingIds) {
+      if (review.disposition !== "issue") {
+        throw new Error("validation_item_review_finding_disposition_mismatch");
+      }
+      if (!findingById.has(findingId)) throw new Error("validation_item_review_finding_missing");
+    }
+  }
+  if (mappedClaimIds.size !== claimIds.size || [...claimIds].some((claimId) => !mappedClaimIds.has(claimId))) {
+    throw new Error("validation_response_claim_item_review_missing");
   }
   return response;
 }

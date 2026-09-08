@@ -30,6 +30,7 @@ import {
 import {
   chunkLogicalContentUnit,
   DEFAULT_LIBRARY_ANALYSIS_CHUNK_POLICY,
+  type LibraryAnalysisChunkPolicy,
   type LogicalContentUnit,
 } from "../../src/lib/knowledge/library-analysis-content-chunker";
 import {
@@ -167,6 +168,7 @@ export async function emitLibraryAnalysisContentUnitBundle(input: {
   extractions: readonly PrivateLibraryAnalysisExtraction[];
   failures: readonly PrivateLibraryAnalysisFailure[];
   writeUnit: (portablePath: string, text: string) => Promise<void>;
+  chunkPolicy?: LibraryAnalysisChunkPolicy;
 }): Promise<LibraryAnalysisPrivateEmitOutput> {
   const snapshot = LibraryAnalysisPopulationSnapshotSchema.parse(input.snapshot);
   const plan = LibraryAnalysisAcquisitionPlanSchema.parse(input.plan);
@@ -226,7 +228,7 @@ export async function emitLibraryAnalysisContentUnitBundle(input: {
       continue;
     }
     validateExtractionBinding(planRow, snapshot, extraction);
-    const sourceUnits = buildEmittedUnits(planRow, extraction);
+    const sourceUnits = buildEmittedUnits(planRow, extraction, input.chunkPolicy ?? DEFAULT_LIBRARY_ANALYSIS_CHUNK_POLICY);
     if (sourceUnits.length === 0) {
       resolutionRows.push(blockedResolutionRow(planRow, {
         sourceKind: planRow.sourceKind,
@@ -268,7 +270,7 @@ export async function emitLibraryAnalysisContentUnitBundle(input: {
   const resolution = sealLibraryAnalysisResolution(plan, resolutionRows);
   const chunkPolicyHash = candidateAnalysisSha256(
     "library-analysis-chunk-policy",
-    DEFAULT_LIBRARY_ANALYSIS_CHUNK_POLICY,
+    input.chunkPolicy ?? DEFAULT_LIBRARY_ANALYSIS_CHUNK_POLICY,
   );
   const orderedUnits = contentUnits.sort(compareEmittedUnits);
   const contentManifestCore = {
@@ -336,6 +338,7 @@ export async function emitLibraryAnalysisContentUnitBundle(input: {
 function buildEmittedUnits(
   planRow: LibraryAnalysisAcquisitionPlan["rows"][number],
   extraction: PrivateLibraryAnalysisExtraction,
+  chunkPolicy: LibraryAnalysisChunkPolicy,
 ): Array<{ descriptor: EmittedLibraryAnalysisContentUnit; text: string }> {
   const logicalUnits = [...extraction.units].sort((left, right) => left.ordinal - right.ordinal);
   const logicalOrdinals = new Set<number>();
@@ -345,7 +348,7 @@ function buildEmittedUnits(
       throw new Error("library_analysis_emit_logical_ordinal_duplicate");
     }
     logicalOrdinals.add(logical.ordinal);
-    for (const chunk of chunkLogicalContentUnit(logical, DEFAULT_LIBRARY_ANALYSIS_CHUNK_POLICY)) {
+    for (const chunk of chunkLogicalContentUnit(logical, chunkPolicy)) {
       const ordinal = emitted.length;
       const identityHash = candidateAnalysisSha256("library-analysis-content-unit", {
         sourceKind: planRow.sourceKind,

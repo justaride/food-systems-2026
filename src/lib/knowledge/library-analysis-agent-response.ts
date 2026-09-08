@@ -1,4 +1,10 @@
 import { z } from "zod";
+import {
+  buildLibraryAnalysisWorkPacket,
+  LibraryAnalysisWorkPacketSchema,
+  LibraryAnalysisItemCoverageSchema,
+  validateLibraryAnalysisItemCoverage,
+} from "./library-analysis-work-packet";
 
 import {
   CANDIDATE_ASSERTION_TYPES,
@@ -80,6 +86,8 @@ const responseCoreSchema = z.object({
   model: LibraryAnalysisAgentModelReceiptSchema,
   unitCoverage: z.array(coverageSchema),
   claims: z.array(responseClaimSchema),
+  workPacketHash: hashSchema.optional(),
+  itemCoverage: LibraryAnalysisItemCoverageSchema.optional(),
 }).strict();
 
 const CONTEXT_DEPENDENT_OPENING = /^(?:derfor|dermed|følgelig|således|therefore|thus|hence|consequently)\b/iu;
@@ -361,7 +369,9 @@ function hasCompletePropositionBeforeInlineFindings(value: string): boolean {
   return prefix.split(/[.!?]+/u).some((sentence) =>
     /\b(?:19|20)\d{2}-\d{2}-\d{2}\b/iu.test(sentence) &&
     /\b(?:ble|var|er|was|were|is|completed|gjennomført)\b/iu.test(sentence) &&
-    sentence.trim().length >= 12);
+    sentence.trim().length >= 12 &&
+    !hasUnresolvedLocalReference(sentence) &&
+    !UNRESOLVED_GENERIC_REFERENCE.test(sentence));
 }
 
 function hasGenericMappingIdentity(value: string): boolean {
@@ -1883,12 +1893,15 @@ const terminalStateSchema = z.enum(["accepted", "partial", "failed", "quarantine
 export type LibraryAnalysisAgentTerminalState = z.infer<typeof terminalStateSchema>;
 
 export function deriveLibraryAnalysisAgentTerminalState(
-  segment: Pick<LibraryAnalysisTerminalSegment, "terminalState" | "status" | "unitCoverage">,
+  segment: Pick<LibraryAnalysisTerminalSegment, "terminalState" | "status" | "unitCoverage" | "itemCoverage">,
   fallback: "accepted" | "failed" = "accepted",
 ): LibraryAnalysisAgentTerminalState {
   if (segment.terminalState !== undefined && segment.status !== undefined && segment.terminalState !== segment.status) {
     throw new Error("source_merge_terminal_state_conflict");
   }
+  const declared = segment.terminalState ?? segment.status;
+  if (segment.itemCoverage?.some((row) => row.status === "blocked") &&
+      (declared === undefined || declared === "accepted")) return "partial";
   return segment.terminalState ?? segment.status ?? (
     segment.unitCoverage.some((row) => row.status === "blocked") ? "partial" : fallback
   );
@@ -2012,6 +2025,7 @@ export const LibraryAnalysisAgentAttemptInputSchema = z.object({
   validationWorkflow: fileBindingSchema,
   validationPrompt: fileBindingSchema,
   units: z.array(attemptUnitSchema).min(1),
+  workPacket: LibraryAnalysisWorkPacketSchema.optional(),
   inputHash: hashSchema,
 }).strict();
 export type LibraryAnalysisAgentAttemptInput = z.infer<
@@ -2025,6 +2039,7 @@ export type LibraryAnalysisAgentSegmentResponseValidationInput = {
   expectedModel: LibraryAnalysisAgentModelReceipt;
   job: LibraryAnalysisVerifiedJob;
   response: unknown;
+  requireItemCoverage?: true;
 };
 
 export function libraryAnalysisAgentSegmentResponseHash(response: unknown): string {
@@ -2066,6 +2081,18 @@ export function validateLibraryAnalysisAgentSegmentResponse(
     throw new Error("agent_response_model_receipt_mismatch");
   }
   assertExactCoverage(input.job, response.unitCoverage);
+  if (input.requireItemCoverage) {
+    const packet = buildLibraryAnalysisWorkPacket(input.job.units.map(({ descriptor, text }) => ({
+      contentUnitId: descriptor.id, locator: descriptor.locator, text,
+    })));
+    if (response.workPacketHash !== packet.workPacketHash || response.itemCoverage === undefined) {
+      throw new Error("agent_response_work_packet_binding_mismatch");
+    }
+    validateLibraryAnalysisItemCoverage(packet, response.itemCoverage, response.claims,
+      input.job.units.map(({ descriptor, text }) => ({ contentUnitId: descriptor.id, locator: descriptor.locator, text })));
+  } else if (response.workPacketHash !== undefined || response.itemCoverage !== undefined) {
+    throw new Error("agent_response_unsolicited_item_coverage");
+  }
   for (const coverage of response.unitCoverage) {
     const unit = ownedUnit(input.job, coverage.contentUnitId);
     if (

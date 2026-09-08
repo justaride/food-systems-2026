@@ -107,6 +107,42 @@ function validationInput(overrides: Partial<LibraryAnalysisAgentValidationInput>
   };
 }
 
+function itemCoverageResponse(
+  request: ReturnType<typeof buildLibraryAnalysisAgentValidationRequest>,
+  itemReviews: unknown[],
+  findings: unknown[] = [],
+) {
+  const response = {
+    schema: "library-analysis-agent-validation-response/v1" as const,
+    requestHash: request.requestHash,
+    sourceResultHash: request.sourceResultHash,
+    queueHash: request.queueHash,
+    sourceEnvelopeHash: request.sourceEnvelopeHash,
+    validatorModel: request.validatorModel,
+    findings,
+    itemReviews,
+    riskFlags: [],
+    responseHash: "0".repeat(64),
+  };
+  const { responseHash: _ignored, ...core } = response;
+  response.responseHash = candidateAnalysisSha256(
+    "library-analysis-agent-validation-response",
+    core as unknown as CandidateJsonValue,
+  );
+  return response;
+}
+
+function rehashRequest(request: ReturnType<typeof buildLibraryAnalysisAgentValidationRequest>) {
+  const { requestHash: _ignored, ...core } = request;
+  return {
+    ...request,
+    requestHash: candidateAnalysisSha256(
+      "library-analysis-agent-validation-request",
+      core as unknown as CandidateJsonValue,
+    ),
+  };
+}
+
 test("validation request carries claim text evidence locator and unit binding", () => {
   const request = buildLibraryAnalysisAgentValidationRequest(sourceValidationFixture());
   assert.deepEqual(Object.keys(request.claims[0]!).sort(), [
@@ -115,6 +151,178 @@ test("validation request carries claim text evidence locator and unit binding", 
   assert.equal(request.claims[0]!.text, "The cooperative reported 12 percent growth in Norway.");
   assert.equal(request.claims[0]!.locator, "document:source-1#section-1");
   assert.equal(request.claims[0]!.contentUnitId, "content:unit-1");
+});
+
+test("item coverage binds every packet item to supported or structural review", () => {
+  const fixture = sourceValidationFixture();
+  const request = buildLibraryAnalysisAgentValidationRequest({ ...fixture, requireItemCoverage: true });
+  assert.ok(request.workPacket);
+  const reviews = request.workPacket.items.map((item) => item.kind === "content"
+    ? { itemId: item.itemId, disposition: "supported" as const, claimIds: ["claim:1"], findingIds: [], reason: "claim evidence covers this content" }
+    : { itemId: item.itemId, disposition: "structural" as const, claimIds: [], findingIds: [], reason: "heading only" });
+  const response = {
+    schema: "library-analysis-agent-validation-response/v1" as const,
+    requestHash: request.requestHash,
+    sourceResultHash: request.sourceResultHash,
+    queueHash: request.queueHash,
+    sourceEnvelopeHash: request.sourceEnvelopeHash,
+    validatorModel: request.validatorModel,
+    findings: [],
+    itemReviews: reviews,
+    riskFlags: [],
+    responseHash: "0".repeat(64),
+  };
+  const { responseHash: _ignored, ...core } = response;
+  response.responseHash = candidateAnalysisSha256(
+    "library-analysis-agent-validation-response",
+    core as unknown as CandidateJsonValue,
+  );
+  const accepted = validateLibraryAnalysisAgentValidationResponse({ request, response });
+  assert.equal(accepted.itemReviews?.length, request.workPacket.items.length);
+});
+
+test("item coverage is required when requested and unsolicited reviews remain invalid", () => {
+  const fixture = sourceValidationFixture();
+  const requiredRequest = buildLibraryAnalysisAgentValidationRequest({ ...fixture, requireItemCoverage: true });
+  const missingReviews = {
+    schema: "library-analysis-agent-validation-response/v1" as const,
+    requestHash: requiredRequest.requestHash,
+    sourceResultHash: requiredRequest.sourceResultHash,
+    queueHash: requiredRequest.queueHash,
+    sourceEnvelopeHash: requiredRequest.sourceEnvelopeHash,
+    validatorModel: requiredRequest.validatorModel,
+    findings: [],
+    riskFlags: [],
+    responseHash: "0".repeat(64),
+  };
+  const { responseHash: _missingHash, ...missingCore } = missingReviews;
+  missingReviews.responseHash = candidateAnalysisSha256(
+    "library-analysis-agent-validation-response",
+    missingCore as unknown as CandidateJsonValue,
+  );
+  assert.throws(() => validateLibraryAnalysisAgentValidationResponse({ request: requiredRequest, response: missingReviews }), /item_reviews_missing/u);
+
+  const legacyRequest = buildLibraryAnalysisAgentValidationRequest(fixture);
+  const unsolicited = {
+    ...missingReviews,
+    requestHash: legacyRequest.requestHash,
+    sourceResultHash: legacyRequest.sourceResultHash,
+    queueHash: legacyRequest.queueHash,
+    sourceEnvelopeHash: legacyRequest.sourceEnvelopeHash,
+    validatorModel: legacyRequest.validatorModel,
+    itemReviews: [],
+  };
+  const { responseHash: _unsolicitedHash, ...unsolicitedCore } = unsolicited;
+  unsolicited.responseHash = candidateAnalysisSha256(
+    "library-analysis-agent-validation-response",
+    unsolicitedCore as unknown as CandidateJsonValue,
+  );
+  assert.throws(() => validateLibraryAnalysisAgentValidationResponse({ request: legacyRequest, response: unsolicited }), /item_reviews_without_packet/u);
+});
+
+test("one repeated claim may cover multiple packet items", () => {
+  const fixture = sourceValidationFixture(
+    "Shared finding\nShared finding",
+    "The report repeats the shared finding.",
+    "Shared finding",
+  );
+  const request = buildLibraryAnalysisAgentValidationRequest({ ...fixture, requireItemCoverage: true });
+  const reviews = request.workPacket!.items.map((item) => ({
+    itemId: item.itemId,
+    disposition: "supported" as const,
+    claimIds: ["claim:1"],
+    findingIds: [],
+    reason: "same evidence occurrence on this line",
+  }));
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentValidationResponse({
+    request,
+    response: itemCoverageResponse(request, reviews),
+  }));
+});
+
+test("item coverage rejects forged packets and malformed item sets", () => {
+  const fixture = sourceValidationFixture();
+  const request = buildLibraryAnalysisAgentValidationRequest({ ...fixture, requireItemCoverage: true });
+  const forgedPacket = structuredClone(request);
+  forgedPacket.workPacket!.items[0]!.text = "forged packet text";
+  const forgedRequest = rehashRequest(forgedPacket);
+  assert.throws(() => validateLibraryAnalysisAgentValidationResponse({
+    request: forgedRequest,
+    response: itemCoverageResponse(forgedRequest, [{
+      itemId: forgedRequest.workPacket!.items[0]!.itemId,
+      disposition: "supported",
+      claimIds: ["claim:1"],
+      findingIds: [],
+      reason: "forged",
+    }]),
+  }), /work_packet_mismatch/u);
+
+  const validReview = {
+    itemId: request.workPacket!.items[0]!.itemId,
+    disposition: "supported" as const,
+    claimIds: ["claim:1"],
+    findingIds: [],
+    reason: "evidence covers item",
+  };
+  assert.throws(() => validateLibraryAnalysisAgentValidationResponse({
+    request,
+    response: itemCoverageResponse(request, []),
+  }), /item_review_itemset_mismatch/u);
+  assert.throws(() => validateLibraryAnalysisAgentValidationResponse({
+    request,
+    response: itemCoverageResponse(request, [validReview, validReview]),
+  }), /item_review_itemset_mismatch/u);
+  assert.throws(() => validateLibraryAnalysisAgentValidationResponse({
+    request,
+    response: itemCoverageResponse(request, [{ ...validReview, itemId: "item:foreign" }]),
+  }), /item_review_itemset_mismatch/u);
+});
+
+test("item coverage rejects wrong same-unit evidence, unbound findings, and unmapped claims", () => {
+  const twoLine = sourceValidationFixture(
+    "First evidence\nSecond line",
+    "The source contains first evidence.",
+    "First evidence",
+  );
+  const twoLineRequest = buildLibraryAnalysisAgentValidationRequest({ ...twoLine, requireItemCoverage: true });
+  const [firstItem, secondItem] = twoLineRequest.workPacket!.items;
+  assert.ok(firstItem && secondItem);
+  assert.throws(() => validateLibraryAnalysisAgentValidationResponse({
+    request: twoLineRequest,
+    response: itemCoverageResponse(twoLineRequest, [
+      { itemId: firstItem.itemId, disposition: "source_limited", claimIds: [], findingIds: [], reason: "manual review" },
+      { itemId: secondItem.itemId, disposition: "supported", claimIds: ["claim:1"], findingIds: [], reason: "wrong line" },
+    ]),
+  }), /supported_item_claim_mismatch/u);
+
+  const oneLine = buildLibraryAnalysisAgentValidationRequest({ ...sourceValidationFixture(), requireItemCoverage: true });
+  const item = oneLine.workPacket!.items[0]!;
+  const deterministicGateFinding = {
+    ...finding("F5", "material", true),
+    findingId: "finding:deterministic:test",
+    assertionId: "assertion:deterministic-gate",
+  };
+  assert.throws(() => validateLibraryAnalysisAgentValidationResponse({
+    request: oneLine,
+    response: itemCoverageResponse(oneLine, [{
+      itemId: item.itemId,
+      disposition: "issue",
+      claimIds: ["claim:1"],
+      findingIds: ["finding:deterministic:test"],
+      reason: "source issue",
+    }], [deterministicGateFinding]),
+  }), /issue_item_claim_finding_mismatch/u);
+
+  assert.throws(() => validateLibraryAnalysisAgentValidationResponse({
+    request: oneLine,
+    response: itemCoverageResponse(oneLine, [{
+      itemId: item.itemId,
+      disposition: "source_limited",
+      claimIds: [],
+      findingIds: [],
+      reason: "claim intentionally omitted",
+    }]),
+  }), /claim_item_review_missing/u);
 });
 
 test("separation is derived from receipts and never trusted from model text", () => {

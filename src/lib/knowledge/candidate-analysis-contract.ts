@@ -24,29 +24,29 @@ export const CANDIDATE_WORKFLOW_PROFILES = {
   library_analysis_v1: {
     workflow: {
       id: "workflow.library_analysis.automated.v1",
-      version: "1.0.23",
+      version: "1.0.24",
       path: "knowledge/corpus/workflows/library-analysis-automated-v1.md",
-      hash: "6cf060374095c957622f85e564cb4a54289204771b48d4a089ca9caf7d4232ec",
+      hash: "5794414381dc0c90ade32eac4c36a52a49bdd203f7d93213c7a2851d3620da15",
     },
     prompt: {
       id: "prompt.library_analysis.automated.v1",
-      version: "1.0.23",
+      version: "1.0.24",
       path: "knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md",
-      hash: "9102479172020252a62c5d8cce4762872ab97f8b2b077adad2382bcf685340e3",
+      hash: "7dccdf2f546b2ddde693f5c361c20e6467e66a02bf11a6750ca8265271f9a2cd",
     },
   },
   library_validation_v1: {
     workflow: {
       id: "workflow.library_validation.automated.v1",
-      version: "1.0.23",
+      version: "1.0.24",
       path: "knowledge/corpus/workflows/library-validation-automated-v1.md",
-      hash: "71e2e5a9ff4ca20bd2b4c87d305b34f20426c11e7c4d467e203771ac9ee25acc",
+      hash: "06c88137dd654376edb65493ac6eb041661385c578f35475036e4cf1ab55d8ec",
     },
     prompt: {
       id: "prompt.library_validation.automated.v1",
-      version: "1.0.23",
+      version: "1.0.24",
       path: "knowledge/corpus/workflows/library-validation-automated-prompt-v1.md",
-      hash: "82f61c3911262c110eb281d95a2378153001e69a71ce6d573415511b899f1f87",
+      hash: "861563dbf1a9494752b8ef359a1f6b7717911942dbebe170aba0b60c9d98e0b8",
     },
   },
 } as const;

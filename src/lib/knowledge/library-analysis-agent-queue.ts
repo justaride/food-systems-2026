@@ -49,6 +49,7 @@ const executionPolicySchema = z.object({
   maximumConcurrentAnalyzers: z.literal(3),
   maximumCodePointsPerJob: z.number().int().positive(),
   maximumUnitsPerJob: z.number().int().positive(),
+  requireItemCoverage: z.literal(true).optional(),
 }).strict();
 
 export type LibraryAnalysisAgentExecutionPolicy = z.infer<
@@ -180,6 +181,7 @@ export type BuildLibraryAnalysisAgentQueueInput = {
     maximumConcurrentAnalyzers: 3;
     maximumCodePointsPerJob: number;
     maximumUnitsPerJob: number;
+    requireItemCoverage?: true;
   };
 };
 
@@ -272,6 +274,7 @@ export function buildLibraryAnalysisAgentQueue(
     maximumConcurrentAnalyzers: 3 as const,
     maximumCodePointsPerJob: input.policy?.maximumCodePointsPerJob ?? 48_000,
     maximumUnitsPerJob: input.policy?.maximumUnitsPerJob ?? 4,
+    ...(input.policy?.requireItemCoverage ? { requireItemCoverage: true as const } : {}),
   };
   if (
     policy.maximumCodePointsPerJob < 1 ||
