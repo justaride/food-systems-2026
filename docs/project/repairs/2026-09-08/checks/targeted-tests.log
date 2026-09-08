@@ -1,0 +1,26 @@
+✔ the governed Norway FSD bundle is complete and reproducible (2071.46575ms)
+✔ every local metric tuple is an exact supported selector result (1640.704541ms)
+✔ every internal source ledger hash matches the actual local bytes (1367.489916ms)
+✔ validation rejects value drift for every local metric tuple (4286.852208ms)
+✔ validation rejects year drift for every local metric tuple (4157.573542ms)
+✔ validation rejects unit drift for every local metric tuple (4125.249334ms)
+✔ validation recomputes internal source hashes from actual bytes (1334.572ms)
+✔ validation fails closed for unsupported local selectors and origins (1702.711167ms)
+✔ validation rejects a source ledger detached from the verified snapshot manifest (1481.295917ms)
+✔ validation reconstructs a direct indicator value from the verified profile (1344.87925ms)
+✔ validation reconstructs a mapped indicator value from the verified profile (1547.008167ms)
+✔ validation fails closed for an unsupported indicator value origin (1359.888166ms)
+✔ unknown owners suppress HHI and CR3 instead of inventing one concentrated owner (0.977292ms)
+✔ interlocks count distinct dated board companies, not role count or executive jobs (1.696333ms)
+✔ synthetic identity overrides permissive legacy badges and AI use without changing review history (2.157542ms)
+✔ pagination retains filters and rejects malformed page coordinates (0.253ms)
+✔ identity aliases resolve known placeholders without merging same-name legal branches (0.0645ms)
+✔ work queue preserves source owners, dates and closed gates (0.182458ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 26595.682

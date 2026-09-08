@@ -1,0 +1,5 @@
+
+> food-systems-2026@1.0.0 audit:citable-reports
+> tsx scripts/audit-citable-reports.ts
+
+Citable report audit passed: no issues found.

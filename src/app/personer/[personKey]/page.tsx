@@ -1,3 +1,4 @@
+import { currentBoardCompanyCount } from '@/lib/board-interlocks'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
@@ -55,7 +56,7 @@ function deriveAutoBio(person: {
   if (person.affiliations.length > 0) {
     pieces.push(`Tilknyttet ${person.affiliations.slice(0, 3).join(', ')}.`)
   }
-  if (person.roles.length > 1) {
+  if (currentBoardCompanyCount(person.roles) > 1) {
     pieces.push('Opptrer som kryssstyremedlem i kartleggingen.')
   }
   return pieces.join(' ')

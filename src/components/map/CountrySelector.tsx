@@ -5,7 +5,7 @@ import { COUNTRY_LIST, type CountryCode } from '@/lib/config/countries'
 
 export default function CountrySelector({ currentCountry }: { currentCountry: CountryCode }) {
   return (
-    <div className="absolute top-4 left-1/2 -translate-x-1/2 z-[1000] flex gap-1 bg-white rounded-lg border border-stone-200/80 shadow-sm p-1">
+    <div className="absolute top-16 sm:top-4 left-1/2 -translate-x-1/2 z-[1000] flex gap-1 bg-white rounded-lg border border-stone-200/80 shadow-sm p-1">
       {COUNTRY_LIST.map(({ code, name, flag }) => {
         const active = code === currentCountry
         return (

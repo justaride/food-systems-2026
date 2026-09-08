@@ -1,5 +1,7 @@
 'use client'
 
+import { ClientPagination, useClientPagination } from '@/components/ui/ClientPagination'
+
 import Link from 'next/link'
 import { useDeferredValue, useState } from 'react'
 import { Card } from '@/components/ui/Card'
@@ -130,6 +132,8 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
     return haystack.includes(deferredQuery.toLowerCase())
   })
 
+  const pagination = useClientPagination(filteredActors, JSON.stringify([deferredQuery, typeFilter, priorityFilter, stanceFilter, themeFilter]))
+
   const stats = {
     total: actors.length,
     p1: actors.filter(actor => actor.priorityTier === 'p1').length,
@@ -166,6 +170,7 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
             Prioritert aktøroversikt for TG-mobilisering. Kombinerer rolle, stance, power/interesse,
             konkrete asks og neste steg med dokumentgrunnlag og relasjoner.
           </p>
+          <Link href="/arbeidsko?kind=actor" className="mt-2 inline-block text-sm text-emerald-800 underline">Åpne prioritert aktøroppfølging med ansvar og neste handling →</Link>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
@@ -325,11 +330,12 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
         </Card>
       )}
 
+      <ClientPagination {...pagination} />
       {filteredActors.length === 0 ? (
         <EmptyState message="Ingen aktorer matcher filteret" />
       ) : (
         <div className="grid gap-4 lg:grid-cols-2">
-          {filteredActors.map(actor => (
+          {pagination.rows.map(actor => (
             <Card key={actor.id} className="!p-5">
               <div className="flex items-start justify-between gap-4">
                 <div className="min-w-0">

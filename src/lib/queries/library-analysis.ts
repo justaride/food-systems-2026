@@ -1,3 +1,5 @@
+import type { Prisma } from '@/generated/prisma/client'
+import { isQuarantinedSource, quarantineLibraryRecord } from '@/lib/source-quarantine'
 import {
   LIBRARY_ANALYSIS_USAGE_RULES,
   assessLibraryAnalysisExternalApproval,
@@ -60,6 +62,7 @@ export type LibraryAnalysisRecordRow = {
   sourceKey: string
   title: string
   canonicalPath: string | null
+  documentSlug: string | null
   status: string
   usageRule: string
   reviewStatus: string
@@ -75,6 +78,7 @@ export type LibraryAnalysisRecordRow = {
 }
 
 export function buildLibraryAnalysisStatusPayload(records: LibraryAnalysisStatusRecord[]) {
+  records = records.map(quarantineLibraryRecord)
   const summary = summarizeLibraryAnalysisRecords(records.map(record => ({
     status: record.status,
     usageRule: record.usageRule,
@@ -162,6 +166,7 @@ export function buildLibraryAnalysisStatusPayload(records: LibraryAnalysisStatus
 
 export function toLibraryAnalysisBadge(record: LibraryAnalysisStatusRecord | null | undefined): LibraryAnalysisBadge | null {
   if (!record) return null
+  record = quarantineLibraryRecord(record)
 
   return {
     status: record.status,
@@ -233,7 +238,7 @@ function assessExternalApproval(record: LibraryAnalysisStatusRecord) {
 }
 
 function isExternalClaimEligible(record: LibraryAnalysisStatusRecord): boolean {
-  return isExternalApprovalEligible(record) && record.externalCitationEligible === true
+  return !isQuarantinedSource(record) && isExternalApprovalEligible(record) && record.externalCitationEligible === true
 }
 
 export function hasExternalAnswerEligibleCitation(
@@ -252,6 +257,8 @@ export async function getLibraryAnalysisStatus() {
   const prisma = await getPrisma()
   const records = await prisma.libraryAnalysisRecord.findMany({
     select: {
+      id: true,
+      canonicalPath: true,
       sourceKind: true,
       sourceKey: true,
       documentId: true,
@@ -351,13 +358,46 @@ export async function getLibraryAnalysisStatus() {
   }
 }
 
-export async function getLibraryAnalysisRecords(opts?: {
+export type LibraryAnalysisFilters = { status?: string; usage?: string; query?: string }
+
+// Filter the effective classification, including negative source quarantines.
+export function libraryAnalysisWhere(filters: LibraryAnalysisFilters = {}): Prisma.LibraryAnalysisRecordWhereInput {
+  const quarantined: Prisma.LibraryAnalysisRecordWhereInput = { OR: [
+    { documentId: 'cmppas6oi00003evmux65v0s6' },
+    { id: 'cmqjoewzd00vbzpvmkzfba3bw' },
+    { sourceKey: 'document:cmppas6oi00003evmux65v0s6' },
+    { canonicalPath: 'research/thesis-matsvinnloven-2025.md' },
+    { riskFlags: { has: 'synthetic_identity' } },
+  ] }
+  const AND: Prisma.LibraryAnalysisRecordWhereInput[] = []
+  for (const [field, value, blocked] of [
+    ['status', filters.status, 'blocked'], ['usageRule', filters.usage, 'do_not_use_for_claims'],
+  ] as const) {
+    if (!value || value === 'alle') continue
+    AND.push(value === blocked
+      ? { OR: [{ [field]: value }, quarantined] }
+      : { AND: [{ [field]: value }, { NOT: quarantined }] })
+  }
+  if (filters.query) AND.push({ OR: [
+    { title: { contains: filters.query, mode: 'insensitive' } },
+    { canonicalPath: { contains: filters.query, mode: 'insensitive' } },
+    { sourceKey: { contains: filters.query, mode: 'insensitive' } },
+  ] })
+  return { AND }
+}
+
+export async function getLibraryAnalysisRecordCount(filters: LibraryAnalysisFilters = {}) {
+  const prisma = await getPrisma()
+  return prisma.libraryAnalysisRecord.count({ where: libraryAnalysisWhere(filters) })
+}
+
+export async function getLibraryAnalysisRecords(opts?: LibraryAnalysisFilters & {
   limit?: number
-  status?: string
+  offset?: number
 }): Promise<LibraryAnalysisRecordRow[]> {
   const prisma = await getPrisma()
   const records = await prisma.libraryAnalysisRecord.findMany({
-    where: opts?.status ? { status: opts.status } : undefined,
+    where: libraryAnalysisWhere(opts),
     select: {
       id: true,
       sourceKind: true,
@@ -381,6 +421,7 @@ export async function getLibraryAnalysisRecords(opts?: {
       document: {
         select: {
           id: true,
+          slug: true,
           summary: true,
           content: true,
           sourceCitations: {
@@ -403,11 +444,14 @@ export async function getLibraryAnalysisRecords(opts?: {
       { status: 'asc' },
       { usageRule: 'asc' },
       { title: 'asc' },
+      { id: 'asc' },
     ],
     take: opts?.limit ?? 200,
+    skip: opts?.offset ?? 0,
   })
 
-  return records.map(record => {
+  return records.map(rawRecord => {
+    const record = quarantineLibraryRecord(rawRecord)
     const {
       claimCandidates,
       reviewedAt,
@@ -429,6 +473,7 @@ export async function getLibraryAnalysisRecords(opts?: {
     )
     return {
       ...publicRecord,
+      documentSlug: document?.slug ?? null,
       claimCandidateCount: claimCandidateCount(claimCandidates),
       externalClaimEligible: isExternalClaimEligible({
         status: record.status,

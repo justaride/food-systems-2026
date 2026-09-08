@@ -1,3 +1,4 @@
+import { isQuarantinedSource, SOURCE_QUARANTINE_MESSAGE } from '../../src/lib/source-quarantine'
 import { existsSync, lstatSync, readFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -379,6 +380,13 @@ export async function kbGetDocument(input: {
       found: false,
       warnings: [`Document not found for ${input.slug ? `slug=${input.slug}` : `id=${input.id}`}`],
     }
+  }
+
+  if (isQuarantinedSource(document)) {
+    return { found: true, quarantined: true, id: document.id, slug: document.slug,
+      title: 'Karantene: syntetisk oppgaveplassholder', content: null, summary: SOURCE_QUARANTINE_MESSAGE,
+      sourceCitations: [], allowedForAnswer: false, allowedForAiContext: false,
+      warnings: [SOURCE_QUARANTINE_MESSAGE] }
   }
 
   const libraryAnalysisRecord = await prisma.libraryAnalysisRecord.findFirst({

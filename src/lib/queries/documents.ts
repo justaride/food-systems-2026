@@ -1,3 +1,4 @@
+import { isQuarantinedSource, quarantineDocument } from '@/lib/source-quarantine'
 import { prisma } from '@/lib/db'
 import { getLibraryAnalysisBadgesByDocumentIds } from './library-analysis'
 import { isPrismaDataUnavailable } from './prisma-errors'
@@ -53,11 +54,11 @@ export async function getDocuments(opts?: {
     prisma.document.count({ where }),
   ])
 
-  return { documents, total }
+  return { documents: documents.map(quarantineDocument), total }
 }
 
 export async function getDocumentsList() {
-  const documents = await prisma.document.findMany({
+  const rawDocuments = await prisma.document.findMany({
     select: {
       id: true,
       slug: true,
@@ -75,6 +76,8 @@ export async function getDocumentsList() {
     orderBy: { title: 'asc' },
   })
 
+  const documents = rawDocuments.map(quarantineDocument)
+
   try {
     const badges = await getLibraryAnalysisBadgesByDocumentIds(documents.map(document => document.id))
     return documents.map(document => ({
@@ -91,17 +94,18 @@ export async function getDocumentsList() {
 }
 
 export async function getDocumentById(id: string) {
-  return prisma.document.findUnique({
+  const document = await prisma.document.findUnique({
     where: { id },
     include: {
       refsFrom: { include: { to: { select: { id: true, title: true, slug: true } } } },
       refsTo: { include: { from: { select: { id: true, title: true, slug: true } } } },
     },
   })
+  return document ? quarantineDocument(document) : null
 }
 
 export async function getDocumentBySlug(slug: string) {
-  return prisma.document.findUnique({
+  const document = await prisma.document.findUnique({
     where: { slug },
     include: {
       sourceCitations: {
@@ -150,6 +154,7 @@ export async function getDocumentBySlug(slug: string) {
       },
     },
   })
+  return document ? quarantineDocument(document) : null
 }
 
 /**
@@ -283,6 +288,7 @@ export async function getPolicyDocumentsByCountry(opts?: {
     // initial OR already surfaces anything with POLICY_DOCUMENT_TYPES, the
     // substring pass is just a secondary filter to drop any false-positive.
     const filtered = rows.filter((r) => {
+      if (isQuarantinedSource(r)) return false
       const typeOk =
         r.documentType !== null &&
         POLICY_DOCUMENT_TYPES.includes(r.documentType as (typeof POLICY_DOCUMENT_TYPES)[number])

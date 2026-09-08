@@ -201,8 +201,8 @@ export function verifyNordicSpineProductionSnapshot(
   requireExact('C1 holes', counts.c1.holes, 3)
   requireExact('C2 filled', counts.c2.filled, 0)
   requireExact('C2 holes', counts.c2.holes, 20)
-  requireExact('C3 filled', counts.c3.filled, 2)
-  requireExact('C3 holes', counts.c3.holes, 18)
+  requireExact('C3 filled', counts.c3.filled, 0)
+  requireExact('C3 holes', counts.c3.holes, 20)
   requireExact('ActivitySignal sum', counts.activity.sum, 988478)
 
   requirePlannedRows(

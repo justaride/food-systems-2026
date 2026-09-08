@@ -1,6 +1,6 @@
-'use client'
-
-import { useMemo, useState } from 'react'
+import Link from 'next/link'
+import { Pagination } from '@/components/ui/Pagination'
+import type { LibraryAnalysisFilters } from '@/lib/queries/library-analysis'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
 import type { LibraryAnalysisStatusPayload } from '@/lib/queries/library-analysis'
@@ -10,6 +10,7 @@ type AiKunnskapRecord = {
   sourceKind: string
   sourceKey: string
   title: string
+  documentSlug: string | null
   canonicalPath: string | null
   status: string
   usageRule: string
@@ -28,6 +29,10 @@ type AiKunnskapRecord = {
 type Props = {
   status: LibraryAnalysisStatusPayload
   records: AiKunnskapRecord[]
+  filters: LibraryAnalysisFilters
+  total: number
+  page: number
+  pageSize: number
 }
 
 const STATUS_LABELS: Record<string, string> = {
@@ -51,21 +56,12 @@ const USAGE_LABELS: Record<string, string> = {
   type_c_gap: 'Type-C gap',
 }
 
-export function AiKunnskapContent({ status, records }: Props) {
-  const [statusFilter, setStatusFilter] = useState('alle')
-  const [usageFilter, setUsageFilter] = useState('alle')
-
-  const statuses = useMemo(() => unique(records.map(record => record.status)), [records])
-  const usageRules = useMemo(() => unique(records.map(record => record.usageRule)), [records])
-  const filtered = useMemo(() => records.filter(record => {
-    if (statusFilter !== 'alle' && record.status !== statusFilter) return false
-    if (usageFilter !== 'alle' && record.usageRule !== usageFilter) return false
-    return true
-  }), [records, statusFilter, usageFilter])
-
+export function AiKunnskapContent({ status, records, filters, total, page, pageSize }: Props) {
+  const statuses = Object.keys(status.byStatus).sort()
+  const usageRules = Object.keys(status.byUsageRule).sort()
   return (
     <div className="space-y-5">
-      <section className="rounded-lg border border-sky-200 bg-sky-50/60 p-4">
+      <details className="rounded-lg border border-sky-200 bg-sky-50/60 p-4"><summary className="cursor-pointer text-sm font-medium">Detaljer om automatisk kandidatvalidering · {automatedStateLabel(status.automated.automatedValidationState)}</summary>
         <div className="flex flex-wrap items-start justify-between gap-2">
           <div>
             <h2 className="text-sm font-semibold text-stone-900">Automatisk kandidatvalidering</h2>
@@ -77,7 +73,7 @@ export function AiKunnskapContent({ status, records }: Props) {
             {automatedStateLabel(status.automated.automatedValidationState)}
           </span>
         </div>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
+        <div className="mt-4 grid grid-cols-2 gap-3 lg:grid-cols-6">
           <Metric label="Automatisk disponert" value={`${status.automated.disposedTotal}/${status.automated.populationTotal}`} detail="Forseglet populasjon" />
           <Metric label="Automatisk validert kandidat" value={status.automated.candidateComplete.toString()} detail="Kandidatstatus, ikke autoritet" />
           <Metric label="Gjenbrukbar intern KI-kontekst" value={status.automated.reusableForAiContext.toString()} detail="automatedOnly" />
@@ -85,9 +81,9 @@ export function AiKunnskapContent({ status, records }: Props) {
           <Metric label="Mangler lesbart input" value={status.automated.blockedInput.toString()} detail="Kildegrunnlag blokkert" />
           <Metric label="Delvis / feilet" value={`${status.automated.partial}/${status.automated.failed}`} detail="Må rettes eller kjøres på nytt" />
         </div>
-      </section>
+      </details>
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
+      <div className="grid grid-cols-2 gap-3 lg:grid-cols-6">
         <Metric label="Klassifisert" value={`${status.classificationPct}%`} detail={`${status.processed}/${status.total} kilder`} />
         <Metric label="Eksisterende policy-kontekst" value={status.approvedForAi.toString()} detail="Legacy safe_for_ai_context" />
         <Metric label="Review queue" value={status.pendingReview.toString()} detail="Uklare, claim eller lavtekst" />
@@ -96,10 +92,11 @@ export function AiKunnskapContent({ status, records }: Props) {
         <Metric label="Gap" value={`${status.typeB}/${status.typeC}`} detail="Type-B aktørgate / type-C" />
       </div>
 
-      <div className="flex flex-wrap gap-2 items-center">
+      <form action="/ai-kunnskap" method="get" className="flex flex-wrap gap-2 items-center">
+        <label className="sr-only" htmlFor="source-query">Søk i alle kilder</label>
+        <input id="source-query" name="q" defaultValue={filters.query} placeholder="Søk i alle kilder" className="rounded-lg border border-stone-200 px-3 py-2 text-sm" />
         <select
-          value={statusFilter}
-          onChange={event => setStatusFilter(event.target.value)}
+          name="status" aria-label="Status" defaultValue={filters.status || 'alle'}
           className="rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs text-stone-700 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
         >
           <option value="alle">Status: Alle</option>
@@ -109,8 +106,7 @@ export function AiKunnskapContent({ status, records }: Props) {
         </select>
 
         <select
-          value={usageFilter}
-          onChange={event => setUsageFilter(event.target.value)}
+          name="usage" aria-label="Bruksregel" defaultValue={filters.usage || 'alle'}
           className="rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs text-stone-700 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
         >
           <option value="alle">Bruksregel: Alle</option>
@@ -119,13 +115,15 @@ export function AiKunnskapContent({ status, records }: Props) {
           ))}
         </select>
 
-        <span className="text-xs text-stone-400">{filtered.length} kilder</span>
-      </div>
+        <button className="rounded-lg bg-emerald-700 px-3 py-2 text-sm text-white" type="submit">Søk og filtrer</button>
+        <Link href="/ai-kunnskap" className="text-sm underline">Nullstill</Link>
+        <span className="text-xs text-stone-500">{total} kilder i utvalget</span>
+      </form>
 
-      {filtered.length === 0 ? (
+      {records.length === 0 ? (
         <EmptyState message="Ingen library analysis-rader funnet" />
       ) : (
-        <div className="overflow-hidden rounded-lg border border-stone-200 bg-white">
+        <div className="overflow-x-auto rounded-lg border border-stone-200 bg-white">
           <table className="w-full min-w-[900px] text-left text-xs">
             <thead className="bg-stone-50 text-[10px] uppercase tracking-wider text-stone-500">
               <tr>
@@ -137,10 +135,12 @@ export function AiKunnskapContent({ status, records }: Props) {
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-100">
-              {filtered.map(record => (
+              {records.map(record => (
                 <tr key={record.id} className="align-top">
                   <td className="px-3 py-3">
-                    <p className="font-medium text-stone-800">{record.title}</p>
+                    <p className="font-medium text-stone-800">{record.documentSlug
+                      ? <Link href={`/bibliotek/${record.documentSlug}`} className="underline">{record.title}</Link>
+                      : record.title}</p>
                     <p className="mt-1 font-mono text-[10px] text-stone-400 break-all">{record.canonicalPath ?? record.sourceKey}</p>
                     <p className="mt-1 text-[10px] text-stone-400">
                       {record.sourceKind} · {record.wordCount} ord · {record.citationReadiness ?? 'ikke citation-check'}
@@ -175,8 +175,17 @@ export function AiKunnskapContent({ status, records }: Props) {
                   </td>
                   <td className="px-3 py-3">
                     <p className="max-w-md text-xs leading-relaxed text-stone-600 line-clamp-3">
-                      {record.aiSummary ?? record.projectImplications[0] ?? record.keyFindings[0] ?? 'Mangler AI-kort'}
+                      {record.riskFlags.includes('synthetic_identity') ? 'Karantenesatt syntetisk kilde. Skal ikke brukes.' : record.aiSummary ?? record.projectImplications[0] ?? record.keyFindings[0] ?? 'Mangler AI-kort'}
                     </p>
+                    <details className="mt-2 max-w-md">
+                      <summary className="cursor-pointer font-medium text-emerald-800">Underlag og neste handling</summary>
+                      <p className="mt-2">{nextAction(record)}</p>
+                      <p className="mt-2 text-stone-500">Kildeoppføringen ble oppdatert {record.updatedAt.slice(0, 10)}. Dette er ikke en dato for menneskelig godkjenning.</p>
+                      <ul className="mt-2 list-disc pl-4">{record.riskFlags.map(flag => <li key={flag}>{flag}</li>)}</ul>
+                      {!record.riskFlags.includes('synthetic_identity') && <p className="mt-2 whitespace-pre-line">{record.aiSummary ?? 'Ingen analyse tilgjengelig.'}</p>}
+                      {!record.documentSlug && <p className="mt-2 text-amber-800">Mangler koblet dokument. Avstem kilden via referansen i første kolonne før gjennomgang.</p>}
+                      <p className="mt-2 text-stone-500">En kildekontroll her endrer ingen godkjenning. Navngitt vurdering må registreres i prosjektets kilde- og claimprosess.</p>
+                    </details>
                   </td>
                 </tr>
               ))}
@@ -184,6 +193,7 @@ export function AiKunnskapContent({ status, records }: Props) {
           </table>
         </div>
       )}
+      <Pagination path="/ai-kunnskap" page={page} pageSize={pageSize} total={total} filters={{ q: filters.query, status: filters.status, usage: filters.usage }} />
     </div>
   )
 }
@@ -214,8 +224,13 @@ function StatusPill({ status, review }: { status: string; review: boolean }) {
   )
 }
 
-function unique(values: string[]) {
-  return [...new Set(values)].sort((a, b) => a.localeCompare(b))
+function nextAction(record: AiKunnskapRecord): string {
+  if (record.riskFlags.includes('synthetic_identity')) return 'Behold i karantene. Erstatt med en identifisert primærkilde før videre analyse.'
+  if (record.status === 'blocked') return 'Avklar blokkeringen og dokumenter nytt kildegrunnlag før bruk.'
+  if (record.wordCount === 0) return 'Hent lesbart originalmateriale og kontroller identitet og proveniens.'
+  if (record.usageRule === 'requires_actor_gate') return 'Kildeansvarlig må avklare spørsmålet med relevant aktør og dokumentere svaret.'
+  if (record.reviewStatus === 'queued' || record.status === 'review_required') return 'Kildeansvarlig må kontrollere original, datagrunnlag og konkrete påstander. Navngitt review gjenstår.'
+  return 'Åpne originalunderlaget og kontroller relevans og kildehenvisning for den konkrete bruken.'
 }
 
 function automatedStateLabel(

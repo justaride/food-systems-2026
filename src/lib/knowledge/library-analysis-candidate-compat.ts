@@ -1,3 +1,4 @@
+import { isQuarantinedSource } from '../source-quarantine'
 import type {
   CandidateAnalysisMachineState,
   CandidateEvidenceLevel,
@@ -170,7 +171,7 @@ function projectMachineUse(
   record: LegacyLibraryAnalysisRecordInput,
   machineState: CandidateAnalysisMachineState,
 ): CandidateMachineUse {
-  if (machineState === 'failed' || machineState === 'superseded') {
+  if (isQuarantinedSource(record) || machineState === 'failed' || machineState === 'superseded') {
     return 'quarantined'
   }
   return record.usageRule === 'safe_for_ai_context'
@@ -181,7 +182,7 @@ function projectMachineUse(
 function projectIdentityConfidence(
   record: LegacyLibraryAnalysisRecordInput,
 ): CandidateIdentityConfidence {
-  if (!isSha256(record.contentHash)) return 'unresolved'
+  if (isQuarantinedSource(record) || !isSha256(record.contentHash)) return 'unresolved'
 
   const exactDocumentBinding =
     record.sourceKind === 'document' &&

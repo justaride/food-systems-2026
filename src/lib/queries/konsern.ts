@@ -20,7 +20,7 @@ export type KonsernSubsidies = {
 export async function getProducerIdsForKonsern(treeIds: string[]): Promise<string[]> {
   if (treeIds.length === 0) return []
   const deliveries = await prisma.deliveryVolume.findMany({
-    where: { buyerId: { in: treeIds }, supplierProducerId: { not: null } },
+    where: { buyerId: { in: treeIds }, buyerVerification: 'source_verified', buyerSourceUrl: { not: null }, supplierProducerId: { not: null } },
     select: { supplierProducerId: true },
   })
   return [...new Set(
@@ -273,7 +273,7 @@ export type KonsernFinancialsAggregate = {
   }>
 }
 
-export async function getKonsernFinancials(treeIds: string[]): Promise<KonsernFinancialsAggregate> {
+export async function getKonsernFinancials(treeIds: string[], rootCompanyId?: string): Promise<KonsernFinancialsAggregate> {
   if (treeIds.length === 0) {
     return { perYear: [], topRevenueChildren: [], childrenWithoutLatestFinancial: [] }
   }
@@ -307,7 +307,7 @@ export async function getKonsernFinancials(treeIds: string[]): Promise<KonsernFi
 
   // Aggregate per year
   const yearMap = new Map<number, { totalRevenueNok: number | null; totalEbitdaNok: number | null; totalEmployees: number | null }>()
-  for (const f of financials) {
+  for (const f of financials.filter(f => f.companyId === rootCompanyId)) {
     const rev = financialAmountToNok(f.revenueNok, f.source)
     const ebitda = financialAmountToNok(f.ebitda, f.source)
     const employees = f.groupEmployees != null ? f.groupEmployees : null
@@ -341,6 +341,7 @@ export async function getKonsernFinancials(treeIds: string[]): Promise<KonsernFi
   }
 
   const topRevenueChildren = Array.from(revenueByCompany.entries())
+    .filter(([companyId]) => companyId !== rootCompanyId)
     .sort((a, b) => b[1] - a[1])
     .slice(0, 5)
     .map(([companyId, revenueNok]) => ({

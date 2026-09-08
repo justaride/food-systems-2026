@@ -1,0 +1,181 @@
+
+> food-systems-2026@1.0.0 build
+> tsx scripts/write-version.ts && prisma generate && npm run compute-metrics && next build --webpack
+
+[write-version] wrote src/generated/version.json: 76b8d43 on codex/project-repair-2026-09-08 (kilde: git)
+Loaded Prisma config from prisma.config.ts.
+
+Prisma schema loaded from prisma/schema.prisma.
+
+✔ Generated Prisma Client (7.9.1) to ./src/generated/prisma in 185ms
+
+
+> food-systems-2026@1.0.0 compute-metrics
+> tsx scripts/compute-chart-metrics.ts --country=all
+
+
+=== Computing metrics for NO ===
+Loading data...
+Loaded 3849 stores, 358 municipalities
+Running PIP assignment...
+Assigned 3849/3849 stores to municipalities
+Computing parent company shares...
+Parent shares: NorgesGruppen: 48.4% (1862), Coop Norge: 27.1% (1042), Reitangruppen: 18% (692), Bunnpris AS: 6.6% (253)
+Parent HHI: 3440
+Computing Zipf distribution...
+Zipf: slope=-0.955, R²=0.907, isZipf=true
+Computing Lorenz curve...
+Lorenz: Gini=0.211, 21 chart points
+Wrote /Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/project-repair-2026-09-08/public/data/food-systems/no/chart-metrics.json
+
+=== Computing metrics for SE ===
+Loading data...
+Loaded 5049 stores, 290 municipalities
+Running PIP assignment...
+Assigned 5049/5049 stores to municipalities
+Computing parent company shares...
+Parent shares: Unknown: 42.6% (2150), ICA Gruppen: 25.5% (1287), Coop Sverige: 14.8% (747), Axfood: 12.4% (625), Lidl: 4% (204), Bergendahls: 0.7% (36)
+Parent HHI: unknown owner coverage
+Computing Zipf distribution...
+Zipf: slope=-0.835, R²=0.906, isZipf=true
+Computing Lorenz curve...
+Lorenz: Gini=0.408, 21 chart points
+Wrote /Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/project-repair-2026-09-08/public/data/food-systems/se/chart-metrics.json
+
+=== Computing metrics for DK ===
+Loading data...
+Loaded 3869 stores, 98 municipalities
+Running PIP assignment...
+Assigned 3855/3869 stores to municipalities
+Computing parent company shares...
+Parent shares: Unknown: 32.5% (1256), Coop Danmark: 22% (850), Salling Group: 18.2% (704), Dagrofa: 12% (464), Reitangruppen: 11.1% (428), Lidl: 4.3% (167)
+Parent HHI: unknown owner coverage
+Computing Zipf distribution...
+Zipf: slope=-0.718, R²=0.812, isZipf=true
+Computing Lorenz curve...
+Lorenz: Gini=0.116, 21 chart points
+Wrote /Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/project-repair-2026-09-08/public/data/food-systems/dk/chart-metrics.json
+
+=== Computing metrics for FI ===
+Loading data...
+Loaded 2860 stores, 320 municipalities
+Running PIP assignment...
+Assigned 1701/2860 stores to municipalities
+Computing parent company shares...
+Parent shares: Kesko: 36.2% (1034), S-Group: 32.6% (932), Unknown: 22.7% (649), Lidl: 7.2% (207), Tokmanni Group: 1.1% (32), Minimani: 0.2% (6)
+Parent HHI: unknown owner coverage
+Computing Zipf distribution...
+Zipf: slope=-0.965, R²=0.937, isZipf=true
+Computing Lorenz curve...
+Lorenz: Gini=0.514, 21 chart points
+Wrote /Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/project-repair-2026-09-08/public/data/food-systems/fi/chart-metrics.json
+
+=== Computing metrics for IS ===
+Loading data...
+Loaded 243 stores, 66 municipalities
+Running PIP assignment...
+Assigned 203/243 stores to municipalities
+Computing parent company shares...
+Parent shares: Unknown: 43.6% (106), Festi: 20.2% (49), Samkaup: 18.5% (45), Hagar: 17.7% (43)
+Parent HHI: unknown owner coverage
+Computing Zipf distribution...
+Zipf: slope=-1.177, R²=0.956, isZipf=true
+Computing Lorenz curve...
+Lorenz: Gini=0.355, 21 chart points
+Wrote /Users/gabrielfreeman/Documents/Food Systems 2026/.worktrees/project-repair-2026-09-08/public/data/food-systems/is/chart-metrics.json
+▲ Next.js 16.3.0 (webpack)
+- Environments: .env
+✓ Running next.config.ts took 27ms
+
+  Creating an optimized production build ...
+Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+✓ Compiled successfully in 4.4s
+  Running TypeScript ...
+  Finished TypeScript in 2.6s ...
+  Collecting page data using 15 workers ...
+  Generating static pages using 15 workers (0/23) ...
+  Generating static pages using 15 workers (5/23)
+  Generating static pages using 15 workers (11/23)
+  Generating static pages using 15 workers (17/23)
+✓ Generating static pages using 15 workers (23/23) in 278ms
+  Finalizing page optimization ...
+  Collecting build traces ...
+
+Route (app)
+┌ ƒ /
+├ ƒ /_not-found
+├ ƒ /ai-kunnskap
+├ ƒ /aktorer
+├ ƒ /aktorer/[slug]
+├ ƒ /api/actors
+├ ƒ /api/aquaculture-sites
+├ ƒ /api/companies
+├ ƒ /api/data-status
+├ ƒ /api/documents
+├ ƒ /api/documents/[id]
+├ ƒ /api/export/bibtex
+├ ƒ /api/insights
+├ ƒ /api/library-analysis/status
+├ ƒ /api/properties
+├ ƒ /api/search
+├ ƒ /api/sources
+├ ○ /api/version
+├ ƒ /arbeidsko
+├ ƒ /bibliotek
+├ ƒ /bibliotek/[...slug]
+├ ƒ /casestatus
+├ ƒ /casestatus/[anchor]
+├ ƒ /casestatus/oversikt
+├ ƒ /eiendommer
+├ ƒ /eierskap
+├ ƒ /eierskap/[slug]
+├ ƒ /forskningsrunder
+├ ƒ /forsyningskjede
+├ ƒ /graf
+├ ƒ /havbruk
+├ ƒ /hvitbok
+├ ƒ /hvitbok/[chapter]
+├ ƒ /hvitbok/proveniens
+├ ƒ /innsikt
+├ ƒ /kart
+├ ƒ /kart/[country]
+├ ƒ /kart/[country]/flow
+├ ƒ /kilder
+├ ƒ /kommunikasjon
+├ ƒ /mandat
+├ ƒ /masterhjerne
+├ ƒ /masteroppgaver
+├ ƒ /media
+├ ƒ /metodikk
+├ ƒ /metodikk/prompts
+├ ƒ /moter
+├ ƒ /nordic
+├ ƒ /okonomi
+├ ƒ /personer
+├ ƒ /personer/[personKey]
+├ ƒ /piloter/field08
+├ ƒ /politikk
+├ ƒ /produsenter
+├ ƒ /prosjektlandskap
+├ ƒ /rapporter
+├ ƒ /rapporter/nordisk-sirkularitetsrapport-2026-05
+├ ƒ /rapporter/statusrapport-siden-10dager-2026-06-29
+├ ƒ /relasjoner
+├ ƒ /sammenligning
+├ ƒ /selskap
+├ ƒ /selskap/[id]
+├ ƒ /selskap/avstemming
+├ ƒ /sirkularitet
+├ ƒ /sok
+├ ƒ /styremedlemmer
+├ ƒ /subsidier
+├ ƒ /team
+├ ƒ /tidslinje
+├ ƒ /veiledning
+└ ƒ /verdikjede
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

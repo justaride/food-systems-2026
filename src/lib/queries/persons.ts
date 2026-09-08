@@ -1,3 +1,5 @@
+import { boardInterlockTags, currentBoardCompanyCount } from '@/lib/board-interlocks'
+import { COMPANY_IDENTITY_ALIASES, resolvedCompanyOrgNr } from '@/lib/company-identities'
 import { prisma } from '@/lib/db'
 import { isMissingPrismaTable } from './prisma-errors'
 
@@ -196,17 +198,36 @@ async function buildFallbackProfilesFromBoardMembers(personKey?: string): Promis
     ...profile,
     tags: mergeTags(
       profile.tags,
-      profile.roles.length > 1
+      currentBoardCompanyCount(profile.roles) > 1
         ? ['auto-detected', 'board-member', 'interlocking-director']
         : ['auto-detected', 'board-member'],
     ),
   }))
 }
 
+async function loadCompanyIdentityResolution() {
+  const companies = await prisma.company.findMany({
+    where: { orgNr: { in: [...Object.keys(COMPANY_IDENTITY_ALIASES), ...Object.values(COMPANY_IDENTITY_ALIASES)] } },
+    select: { id: true, orgNr: true, name: true },
+  })
+  const byOrg = new Map(companies.map(company => [company.orgNr, company]))
+  return new Map(companies.map(company => [company.id, byOrg.get(resolvedCompanyOrgNr(company.orgNr)) ?? company]))
+}
+
+function projectResolvedProfile(profile: PersonProfileRow, identities: Awaited<ReturnType<typeof loadCompanyIdentityResolution>>): PersonProfileRow {
+  // Resolve only explicit legacy aliases in this read projection; stored role history is unchanged.
+  const roles = profile.roles.map(role => {
+    const company = role.companyId ? identities.get(role.companyId) : undefined
+    return company ? { ...role, companyId: company.id, companyName: company.name } : role
+  })
+  return { ...profile, roles, tags: boardInterlockTags(profile.tags, roles) }
+}
+
 export async function getPersonProfiles(): Promise<PersonProfileRow[]> {
-  const [profiles, fallbackProfiles] = await Promise.all([
+  const [profiles, fallbackProfiles, identities] = await Promise.all([
     loadStoredProfiles(),
     buildFallbackProfilesFromBoardMembers(),
+    loadCompanyIdentityResolution(),
   ])
 
   const merged = new Map<string, PersonProfileRow>()
@@ -219,16 +240,18 @@ export async function getPersonProfiles(): Promise<PersonProfileRow[]> {
     merged.set(profile.personKey, mergeProfileRows(profile, merged.get(profile.personKey) ?? null)!)
   }
 
-  return [...merged.values()].sort((a, b) => a.name.localeCompare(b.name, 'nb'))
+  return [...merged.values()].map(profile => projectResolvedProfile(profile, identities)).sort((a, b) => a.name.localeCompare(b.name, 'nb'))
 }
 
 export async function getPersonByKey(personKey: string): Promise<PersonProfileRow | null> {
-  const [profile, fallback] = await Promise.all([
+  const [profile, fallback, identities] = await Promise.all([
     loadStoredProfileByKey(personKey),
     buildFallbackProfilesFromBoardMembers(personKey).then((rows) => rows[0] ?? null),
+    loadCompanyIdentityResolution(),
   ])
 
-  return mergeProfileRows(profile, fallback)
+  const merged = mergeProfileRows(profile, fallback)
+  return merged ? projectResolvedProfile(merged, identities) : null
 }
 
 export async function getPersonKeysWithProfiles(): Promise<Set<string>> {

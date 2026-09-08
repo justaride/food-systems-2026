@@ -15,7 +15,7 @@ type LocalTuple = {
 };
 
 const expectedLocalTuples: LocalTuple[] = [
-  { file: "public/data/food-systems/no/chart-metrics.json", metricKey: "parentCompany.parentHHI", value: 3445, year: null, unit: "HHI index" },
+  { file: "public/data/food-systems/no/chart-metrics.json", metricKey: "parentCompany.parentHHI", value: 3440, year: null, unit: "HHI index" },
   { file: "public/data/food-systems/no/flows.json", metricKey: "flows[*].value", value: null, year: 2024, unit: "index" },
   { file: "public/data/food-systems/no/value-chain.json", metricKey: "food_waste_by_category.summary.norway_total_food_waste_2023_tonnes", value: 451600, year: 2023, unit: "tonnes" },
   { file: "public/data/food-systems/no/value-chain.json", metricKey: "selfSufficiency.caloric_pct", value: 41.3, year: 2024, unit: "%" },

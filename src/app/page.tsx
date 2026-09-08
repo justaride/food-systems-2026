@@ -56,6 +56,8 @@ export default async function OversiktPage() {
         </p>
       </header>
 
+      <Link href="/arbeidsko" className="block rounded-lg border border-emerald-200 bg-emerald-50 p-4 text-emerald-900"><strong>Fortsett arbeidet →</strong><span className="mt-1 block text-sm">Samlet kø med prosjektgap, case, kildegjennomgang og selskapsavstemming.</span></Link>
+      <p className="text-xs text-stone-500">Faseindikatorene nedenfor viser internt utarbeidet materiale. Formelt mandat og videreføring venter på eieravklaring; se arbeidskøen.</p>
       <MatsystemetsSnitt />
 
       <Glossary category="prosjekt" title="Nøkkelbegreper" />

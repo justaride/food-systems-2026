@@ -1,3 +1,4 @@
+import { parentConcentration } from '@/lib/parent-concentration'
 import type { Store, Municipality } from './types'
 import type { ChainConfig } from '@/lib/config/countries'
 
@@ -43,8 +44,8 @@ export type ConcentrationAnalysis = {
     byChain: Array<{ chain: string; count: number; share: number }>
     byParent: Array<{ parent: string; count: number; share: number }>
     chainHHI: number
-    parentHHI: number
-    top3Share: number
+    parentHHI: number | null
+    top3Share: number | null
   }
   giniCoefficient: number
   lorenzCurve: Array<{ cumulativePopShare: number; cumulativeStoreShare: number }>
@@ -137,16 +138,15 @@ export function analyzeConcentration(
     .sort((a, b) => b.count - a.count)
 
   const chainHHI = byChain.reduce((sum, c) => sum + c.share * c.share, 0)
-  const parentHHI = byParent.reduce((sum, p) => sum + p.share * p.share, 0)
-  const top3Share = byParent.slice(0, 3).reduce((sum, p) => sum + p.share, 0)
+  const concentration = parentConcentration(byParent)
 
   return {
     national: {
       byChain,
       byParent,
       chainHHI: Math.round(chainHHI),
-      parentHHI: Math.round(parentHHI),
-      top3Share: Math.round(top3Share * 10) / 10,
+      parentHHI: concentration.hhi,
+      top3Share: concentration.cr3,
     },
     giniCoefficient: calculateGiniCoefficient(stores),
     lorenzCurve: calculateLorenzCurve(municipalities),

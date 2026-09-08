@@ -1,8 +1,11 @@
+import { parsePage } from '@/lib/pagination'
 import type { Metadata } from 'next'
 import { InternalBanner } from '@/components/ui/InternalBanner'
 import { PageFraming } from '@/components/ui/PageFraming'
 import {
   getLibraryAnalysisRecords,
+  getLibraryAnalysisRecordCount,
+  type LibraryAnalysisFilters,
   getLibraryAnalysisStatus,
   LIBRARY_ANALYSIS_CALIBRATION,
   type LibraryAnalysisRecordRow,
@@ -70,8 +73,13 @@ const EMPTY_STATUS: LibraryAnalysisStatusPayload = {
   calibration: LIBRARY_ANALYSIS_CALIBRATION,
 }
 
-export default async function AiKunnskapPage() {
-  const { status, records, runGroups, unavailable } = await loadPageData()
+export default async function AiKunnskapPage({ searchParams }: {
+  searchParams: Promise<Record<string, string | string[] | undefined>>
+}) {
+  const params = await searchParams
+  const value = (key: string) => typeof params[key] === 'string' ? (params[key] as string).trim().slice(0, 200) : ''
+  const filters = { query: value('q'), status: value('status'), usage: value('usage') }
+  const { status, records, runGroups, unavailable, total, page } = await loadPageData(filters, parsePage(params.page))
 
   return (
     <div className="space-y-6">
@@ -91,17 +99,9 @@ export default async function AiKunnskapPage() {
           'Siden viser bruksregel per kilde slik at teamet kan skille intern bakgrunn fra claim-kandidater, aktørgate og type-C gap.',
         ]}
         takeaways={[
-          status.automated.automatedValidationState === 'complete'
-            ? `${status.automated.disposedTotal} av ${status.automated.populationTotal} kilder har en avstemt automatisk kandidatdisposisjon.`
-            : `Automatisk validering er ${automatedStateLabel(status.automated.automatedValidationState)}; dette gir ingen menneskelig eller ekstern godkjenning.`,
-          `${status.automated.reusableForAiContext} kilder er gjenbrukbar intern KI-kontekst etter automatiske kontroller.`,
-          `${status.processed} av ${status.total} kilder har en avsluttet policyklassifisering.`,
-          `${status.approvedForAi} kilder har eksisterende policyklassifisering safe_for_ai_context; dette er adskilt fra den automatiske kandidatstatusen.`,
-          `${status.pendingReview} kilder venter på review; ${status.safelyBlocked} er eksplisitt og trygt blokkert.`,
-          status.externalReady
-            ? `${status.externalClaimEligible} kilder er eksplisitt klare for eksterne claims.`
-            : `Ikke eksternt claim-klar: ${status.humanReviewed} navngitte/daterte reviews og ${status.externalClaimEligible} eksplisitt godkjente kilder.`,
-          `${status.claimCandidates} claim-kandidater må via eksisterende claim/citation-gater.`,
+          `${status.processed} av ${status.total} kilder har en avsluttet policyklassifisering; ${status.pendingReview} venter på review.`,
+          `Automatisk kandidatvalidering er ${automatedStateLabel(status.automated.automatedValidationState)}. ${status.automated.reusableForAiContext} kilder kan gjenbrukes som KI-kontekst etter disse kontrollene.`,
+          `${status.externalClaimEligible} kilder er eksplisitt godkjent for eksterne claims. Kildekontroll og bruksregler følger hver oppføring.`,
         ]}
         caveat="V1 åpner ingen nye claims automatisk. Eksterne flater kan fortsatt bare bruke innhold etter eksisterende claim/citation-gater."
       />
@@ -112,7 +112,7 @@ export default async function AiKunnskapPage() {
         </div>
       )}
 
-      <AiKunnskapContent status={status} records={records} />
+      <AiKunnskapContent status={status} records={records} filters={filters} total={total} page={page} pageSize={100} />
 
       <LibraryAnalysisRuns groups={runGroups} />
     </div>
@@ -128,20 +128,25 @@ function automatedStateLabel(state: LibraryAnalysisStatusPayload['automated']['a
   }
 }
 
-async function loadPageData(): Promise<{
+async function loadPageData(filters: LibraryAnalysisFilters, requestedPage: number): Promise<{
+  total: number
+  page: number
   status: LibraryAnalysisStatusPayload
   records: SerializableRecord[]
   runGroups: LibraryAnalysisRunGroup[]
   unavailable: boolean
 }> {
   try {
+    const total = await getLibraryAnalysisRecordCount(filters)
+    const page = Math.min(requestedPage, Math.max(1, Math.ceil(total / 100)))
     const [status, records, runGroups] = await Promise.all([
       getLibraryAnalysisStatus(),
-      getLibraryAnalysisRecords({ limit: 500 }),
+      getLibraryAnalysisRecords({ ...filters, limit: 100, offset: (page - 1) * 100 }),
       getLibraryAnalysisRunGroups({ limit: 500 }),
     ])
 
     return {
+      total, page,
       status,
       records: records.map(record => ({
         ...record,
@@ -153,6 +158,7 @@ async function loadPageData(): Promise<{
   } catch (error) {
     if (!isPrismaDataUnavailable(error)) throw error
     return {
+      total: 0, page: 1,
       status: EMPTY_STATUS,
       records: [],
       runGroups: [],

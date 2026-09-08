@@ -1,3 +1,5 @@
+import { currentCompanyIdentityWhere } from '@/lib/company-identities'
+import { isQuarantinedSource, SOURCE_QUARANTINE_MESSAGE } from '@/lib/source-quarantine'
 import { prisma } from '@/lib/db'
 import {
   SemanticSearchUnavailableError,
@@ -224,6 +226,14 @@ function interleaveByType(results: SearchResult[], cap: number): SearchResult[] 
 }
 
 async function enrichLibraryAnalysisBadges(results: SearchResult[]): Promise<SearchResult[]> {
+  results = results.map(result => isQuarantinedSource({ id: result.id, slug: result.url?.replace('/bibliotek/', '') }) ? {
+    ...result,
+    title: 'Karantene: syntetisk oppgaveplassholder',
+    excerpt: SOURCE_QUARANTINE_MESSAGE,
+    sourceUrl: null,
+    libraryAnalysis: { status: 'blocked', usageRule: 'do_not_use_for_claims', reviewRequired: false, claimCandidateCount: 0, riskFlags: ['synthetic_identity', 'not_citable'], externalClaimEligible: false },
+  } : result)
+
   const documentIds = results
     .filter(result => result.type === 'document')
     .map(result => result.id)
@@ -232,7 +242,7 @@ async function enrichLibraryAnalysisBadges(results: SearchResult[]): Promise<Sea
   try {
     const badges = await getLibraryAnalysisBadgesByDocumentIds(documentIds)
     return results.map(result => {
-      if (result.type !== 'document') return result
+      if (result.type !== 'document' || isQuarantinedSource({ id: result.id })) return result
       return {
         ...result,
         libraryAnalysis: badges.get(result.id) ?? null,
@@ -459,6 +469,7 @@ async function keywordSearch(query: string, limit: number, types?: readonly stri
 
   const companiesResult = await prisma.company.findMany({
     where: {
+      ...currentCompanyIdentityWhere,
       OR: searchValues.flatMap(value => [
         { name: { contains: value, mode: 'insensitive' as const } },
         { naceDescription: { contains: value, mode: 'insensitive' as const } },

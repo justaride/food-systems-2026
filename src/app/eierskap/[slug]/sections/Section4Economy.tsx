@@ -9,18 +9,19 @@ export function Section4Economy({ financials }: { financials: KonsernFinancialsA
 
   return (
     <div>
-      <h2 className="text-lg font-semibold text-stone-900 mb-3">Aggregert økonomi</h2>
+      <h2 className="text-lg font-semibold text-stone-900 mb-3">Regnskap for konsernroten</h2>
 
       {!hasData ? (
-        <p className="text-sm text-stone-400 italic">Ingen aggregert finansiell data tilgjengelig</p>
+        <p className="text-sm text-stone-400 italic">Ingen regnskapsdata for konsernroten tilgjengelig</p>
       ) : (
         <div className="space-y-5">
+          <p className="text-sm text-stone-600">Rotens regnskap vises uten å legge til datterselskapenes tall. Kontroller regnskapets konsolideringsomfang i originalkilden.</p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border border-stone-200 rounded-lg overflow-hidden">
               <thead className="bg-stone-50 border-b border-stone-200 text-xs text-stone-600">
                 <tr>
                   <th className="text-left px-3 py-2">År</th>
-                  <th className="text-right px-3 py-2">Omsetning</th>
+                  <th className="text-right px-3 py-2">Rotens omsetning</th>
                   <th className="text-right px-3 py-2">EBITDA</th>
                   <th className="text-right px-3 py-2">Ansatte</th>
                 </tr>

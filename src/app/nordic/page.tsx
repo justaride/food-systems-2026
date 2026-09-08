@@ -139,7 +139,7 @@ export default async function NordicSpinePage() {
         takeaways={[
           'C1 retail concentration is mostly filled; FI/IS margin tops remain holes.',
           'C2 seafood residue mass-flow edges are all unknown (capacity is ActivitySignal only).',
-          'C3 has two measured inlet edges (NO Totalt, SE retail+consumer) and open digestate-loop holes.',
+          'C3 collection and digestate-loop edges remain holes: food-waste statistics do not measure collected household/municipal mass.',
         ]}
         caveat="Internal working surface only. No citable_external upgrade and no Norway actor breadth expansion from this page."
       />

@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { useMapContext } from '@/lib/map/MapContext'
 import type { MapLayer } from '@/lib/map/types'
 
@@ -48,6 +49,7 @@ const BASE_LAYER_GROUPS: LayerGroup[] = [
 ]
 
 export default function LayerPanel() {
+  const [mobileOpen, setMobileOpen] = useState(false)
   const { activeLayers, toggleLayer, activeChains, toggleChain, stores, isLoading, aquacultureSites, processingPlants, ports, logisticsHubs, farms, vulnerabilityScores, companyProperties, countryConfig, circularNodes } = useMapContext()
 
   const hasData: Record<string, boolean> = {
@@ -73,7 +75,9 @@ export default function LayerPanel() {
   const visibleCount = stores.filter(s => activeChains.includes(s.chainId)).length
 
   return (
-    <div className="absolute top-4 left-4 z-[1000] w-56 bg-white rounded-xl border border-stone-200/80 shadow-sm overflow-hidden">
+    <div className={`absolute top-4 left-4 z-[1000] ${mobileOpen ? 'w-56' : 'w-28'} sm:w-56 bg-white rounded-xl border border-stone-200/80 shadow-sm overflow-hidden`}>
+      <button type="button" className="w-full p-3 text-left text-sm font-semibold sm:hidden" aria-expanded={mobileOpen} aria-controls="map-layer-options" onClick={() => setMobileOpen(!mobileOpen)}>{mobileOpen ? 'Lukk kartlag ×' : 'Kartlag +'}</button>
+      <div id="map-layer-options" className={`${mobileOpen ? 'block' : 'hidden'} sm:block`}>
       <div className="p-4 border-b border-stone-100">
         <h3 className="text-sm font-semibold text-stone-800">Kartlag</h3>
         {isLoading && (
@@ -92,7 +96,7 @@ export default function LayerPanel() {
         )}
       </div>
 
-      <div className="p-4 space-y-3 max-h-[calc(100vh-200px)] overflow-y-auto">
+      <div className="p-4 space-y-3 max-h-[55dvh] sm:max-h-[calc(100vh-200px)] overflow-y-auto">
         {layerGroups.map(group => (
           <div key={group.label}>
             <p className="text-[10px] uppercase tracking-wider text-stone-400 mb-1.5">{group.label}</p>
@@ -146,6 +150,7 @@ export default function LayerPanel() {
             </div>
           </>
         )}
+      </div>
       </div>
     </div>
   )

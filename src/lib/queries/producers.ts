@@ -11,9 +11,14 @@ export type ProducerListRow = {
   deliveryCount: number
 }
 
-export async function getProducerCount(): Promise<number> {
+export function producerSearchWhere(search?: string) {
+  const query = search?.trim()
+  return query ? { OR: [{ name: { contains: query, mode: 'insensitive' as const } }, { orgNr: { contains: query } }, { municipality: { contains: query, mode: 'insensitive' as const } }] } : undefined
+}
+
+export async function getProducerCount(search?: string): Promise<number> {
   try {
-    return await prisma.producer.count()
+    return await prisma.producer.count({ where: producerSearchWhere(search) })
   } catch (error) {
     if (isPrismaDataUnavailable(error)) return 0
     throw error
@@ -24,10 +29,8 @@ export async function getProducers(opts?: { take?: number; skip?: number; search
   const { take = 100, skip = 0, search } = opts ?? {}
   try {
     const rows = await prisma.producer.findMany({
-      where: search
-        ? { OR: [{ name: { contains: search, mode: 'insensitive' } }, { orgNr: { contains: search } }] }
-        : undefined,
-      orderBy: { name: 'asc' },
+      where: producerSearchWhere(search),
+      orderBy: [{ name: 'asc' }, { id: 'asc' }],
       take,
       skip,
       include: { _count: { select: { subsidies: true, deliveries: true } } },

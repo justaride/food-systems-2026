@@ -1525,6 +1525,8 @@ model DeliveryVolume {
   buyerId            String?
   buyer              Company?  @relation("DeliveryBuyer", fields: [buyerId], references: [id])
   buyerName          String?
+  buyerVerification  String    @default("unverified")
+  buyerSourceUrl     String?
 
   commodity String // melk-ku, melk-geit, egg, korn, slakt-storfe, slakt-svin, slakt-saue, slakt-fjorfe
   year      Int

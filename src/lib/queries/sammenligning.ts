@@ -94,6 +94,7 @@ type ChartMetricsJson = {
   parentCompany?: {
     data?: Array<{ id?: string; label?: string; name?: string; value: number; count?: number; color?: string }>
     parentHHI?: number | null
+    cr3?: number | null
   } | null
   lorenzCurve?: { gini?: number | null } | null
 }
@@ -304,13 +305,7 @@ function buildCountry(
         : null)
 
   const hhiVal = cm?.parentCompany?.parentHHI ?? null
-  const cr3Val = cm?.parentCompany?.data?.length
-    ? Math.round(cm.parentCompany.data
-        .map(p => p.value)
-        .sort((a, b) => b - a)
-        .slice(0, 3)
-        .reduce((sum, v) => sum + v, 0) * 10) / 10
-    : null
+  const cr3Val = cm?.parentCompany?.cr3 ?? null
   const giniVal = cm?.lorenzCurve?.gini ?? null
   const totalStoresVal = cm?.totalStores ?? null
   const emvVal = processing?.emv_share_pct ?? null

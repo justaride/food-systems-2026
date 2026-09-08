@@ -36,55 +36,27 @@ export type PrimaryDeliveriesData = {
 
 export async function getPrimaryProducerDeliveries(): Promise<PrimaryDeliveriesData> {
   try {
-    const [buyerRows, totals] = await Promise.all([
+    const [commodityRows, buyerRows, suppliers, totals] = await Promise.all([
+      prisma.deliveryVolume.groupBy({ by: ['commodity', 'unit'], _sum: { quantity: true }, _count: true }),
       prisma.deliveryVolume.groupBy({
         by: ['buyerId', 'buyerName', 'commodity', 'unit'],
-        _sum: { quantity: true },
-        _count: true,
+        where: { buyerVerification: 'source_verified', buyerId: { not: null }, buyerSourceUrl: { not: null } },
+        _sum: { quantity: true }, _count: true,
       }),
+      prisma.deliveryVolume.groupBy({ by: ['supplierOrgNr'], _count: true }),
       prisma.deliveryVolume.aggregate({ _count: true }),
     ])
-
-    const distinctSuppliers = await prisma.deliveryVolume.groupBy({
-      by: ['supplierOrgNr'],
-      _count: true,
-    })
-
-    const byBuyer: DeliveryBuyerRow[] = buyerRows
-      .map(r => ({
-        buyerId: r.buyerId,
-        buyerName: r.buyerName,
-        commodity: r.commodity,
-        supplierCount: r._count,
-        totalQuantity: Number(r._sum.quantity ?? 0),
-        unit: r.unit,
-      }))
-      .filter(r => r.totalQuantity > 0)
-      .sort((a, b) => b.totalQuantity - a.totalQuantity)
-
-    const commodityMap = new Map<string, DeliveryCommoditySummary>()
-    for (const row of byBuyer) {
-      const existing = commodityMap.get(row.commodity) ?? {
-        commodity: row.commodity,
-        unit: row.unit,
-        totalQuantity: 0,
-        supplierCount: 0,
-        buyers: [],
-      }
-      existing.totalQuantity += row.totalQuantity
-      existing.supplierCount += row.supplierCount
-      existing.buyers.push({
-        buyerId: row.buyerId,
-        buyerName: row.buyerName,
-        quantity: row.totalQuantity,
-        supplierCount: row.supplierCount,
-      })
-      commodityMap.set(row.commodity, existing)
-    }
-
-    const byCommodity = Array.from(commodityMap.values())
-      .map(c => ({ ...c, buyers: c.buyers.sort((a, b) => b.quantity - a.quantity) }))
-      .sort((a, b) => b.totalQuantity - a.totalQuantity)
+    const distinctSuppliers = suppliers
+    const byBuyer: DeliveryBuyerRow[] = buyerRows.map(row => ({
+      buyerId: row.buyerId, buyerName: row.buyerName, commodity: row.commodity, unit: row.unit,
+      supplierCount: row._count, totalQuantity: Number(row._sum.quantity ?? 0),
+    })).filter(row => row.totalQuantity > 0)
+    const byCommodity: DeliveryCommoditySummary[] = commodityRows.map(row => ({
+      commodity: row.commodity, unit: row.unit, totalQuantity: Number(row._sum.quantity ?? 0), supplierCount: row._count,
+      buyers: byBuyer.filter(buyer => buyer.commodity === row.commodity && buyer.unit === row.unit)
+        .map(buyer => ({ buyerId: buyer.buyerId, buyerName: buyer.buyerName, quantity: buyer.totalQuantity, supplierCount: buyer.supplierCount }))
+        .sort((a, b) => b.quantity - a.quantity),
+    })).sort((a, b) => b.totalQuantity - a.totalQuantity)
 
     return {
       byBuyer,

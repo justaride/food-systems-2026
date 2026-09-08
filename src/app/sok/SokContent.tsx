@@ -132,8 +132,8 @@ function LibraryAnalysisBadges({ analysis }: { analysis?: LibraryAnalysisBadge |
   )
 }
 
-export function SokContent() {
-  const [query, setQuery] = useState('')
+export function SokContent({ semanticAvailable = false, initialQuery = '' }: { semanticAvailable?: boolean; initialQuery?: string }) {
+  const [query, setQuery] = useState(initialQuery)
   const [mode, setMode] = useState<SearchMode>('keyword')
   const [executedMode, setExecutedMode] = useState<SearchMode>('keyword')
   const [results, setResults] = useState<SearchResult[]>([])
@@ -211,7 +211,9 @@ export function SokContent() {
           <button
             key={m}
             onClick={() => setMode(m)}
-            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+            disabled={m !== 'keyword' && !semanticAvailable}
+            aria-pressed={mode === m}
+            className={`disabled:opacity-40 disabled:cursor-not-allowed px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
               mode === m
                 ? 'bg-emerald-50 text-emerald-700'
                 : 'text-stone-500 hover:bg-stone-50 hover:text-stone-700'
@@ -221,6 +223,8 @@ export function SokContent() {
           </button>
         ))}
       </div>
+
+      {!semanticAvailable && <p className="text-xs text-stone-600">Semantisk søk og hybrid er ikke tilgjengelige. Nøkkelordsøket søker i hele registeret.</p>}
 
       {hasSearched && !isLoading && !error && (
         <div className="text-xs text-stone-500 px-1">

@@ -1,0 +1,12 @@
+BEGIN
+CREATE TABLE
+ALTER TABLE
+CREATE TABLE
+INSERT 0 1
+INSERT 0 1
+ALTER TABLE
+UPDATE 1
+UPDATE 1
+psql:/tmp/food-repair-migration-probe.sql:32: NOTICE:  PASS: quantities preserved, inferred buyers removed with history, C3 quantity retracted with history
+DO
+ROLLBACK

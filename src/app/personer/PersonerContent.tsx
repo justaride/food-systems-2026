@@ -1,5 +1,6 @@
 'use client'
 
+import { currentBoardCompanyCount } from '@/lib/board-interlocks'
 import Link from 'next/link'
 import { useDeferredValue, useState } from 'react'
 import { Card } from '@/components/ui/Card'
@@ -36,7 +37,7 @@ export function PersonerContent({ persons }: { persons: PersonProfileRow[] }) {
 
   const allTags = [...new Set(persons.flatMap(p => p.tags))].sort()
   const totalRoles = persons.reduce((sum, p) => sum + p.roles.length, 0)
-  const interlockingCount = persons.filter(p => p.roles.length > 1).length
+  const interlockingCount = persons.filter(p => currentBoardCompanyCount(p.roles) > 1).length
 
   const filtered = persons.filter(person => {
     if (tagFilter && !person.tags.includes(tagFilter)) return false
@@ -59,7 +60,7 @@ export function PersonerContent({ persons }: { persons: PersonProfileRow[] }) {
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-stone-900">Nøkkelpersoner</h1>
-          <p className="text-sm text-stone-500 mt-1">Profiler, roller og tilknytninger på tvers av selskaper</p>
+          <p className="text-sm text-stone-500 mt-1">Profiler, roller og tilknytninger på tvers av selskaper. Kryssstyrer krever ulike selskaper; verv uten sluttdato regnes som registrerte, men er ikke bekreftet aktive.</p>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
@@ -71,7 +72,7 @@ export function PersonerContent({ persons }: { persons: PersonProfileRow[] }) {
             <div className="text-2xl font-bold text-stone-900">{totalRoles}</div>
           </div>
           <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
-            <div className="text-xs uppercase tracking-wider text-stone-400">Kryssverv</div>
+            <div className="text-xs uppercase tracking-wider text-stone-400">Registrerte kryssstyrer</div>
             <div className="text-2xl font-bold text-stone-900">{interlockingCount}</div>
           </div>
         </div>
@@ -132,7 +133,7 @@ function PersonCard({ person }: { person: PersonProfileRow }) {
           </Link>
           <p className="text-xs text-stone-400 mt-0.5">
             {person.roles.length} roller
-            {person.roles.length > 1 && ' \u00b7 Kryssstyremedlem'}
+            {currentBoardCompanyCount(person.roles) > 1 && ' \u00b7 Flere registrerte selskapsstyrer'}
           </p>
         </div>
       </div>

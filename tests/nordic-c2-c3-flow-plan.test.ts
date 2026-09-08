@@ -30,7 +30,7 @@ test('planC2Flows emits 5x4 unknown mass holes and never fills quantity', () => 
   assert.equal(seMeta, undefined)
 })
 
-test('planC3Flows fills NO Totalt and SE retail+consumer; leaves DK hole; ignores per-capita', () => {
+test('planC3Flows rejects waste-generation and retail totals as collection measurements; preserves all holes', () => {
   const planned = planC3Flows([
     {
       country: 'NO',
@@ -83,8 +83,8 @@ test('planC3Flows fills NO Totalt and SE retail+consumer; leaves DK hole; ignore
       p.fromNode === 'household_municipal_waste' &&
       p.toNode === 'collection',
   )
-  assert.equal(noEdge1?.quantity, 451000)
-  assert.equal(noEdge1?.quality, 'measured')
+  assert.equal(noEdge1?.quantity, null)
+  assert.equal(noEdge1?.quality, 'unknown')
   assert.equal(noEdge1?.year, 2024)
 
   const seEdge1 = planned.find(
@@ -93,9 +93,9 @@ test('planC3Flows fills NO Totalt and SE retail+consumer; leaves DK hole; ignore
       p.fromNode === 'household_municipal_waste' &&
       p.toNode === 'collection',
   )
-  assert.equal(seEdge1?.quantity, 880000)
-  assert.equal(seEdge1?.quality, 'measured')
-  assert.ok(seEdge1?.holeReason?.includes('retail+consumer'))
+  assert.equal(seEdge1?.quantity, null)
+  assert.equal(seEdge1?.quality, 'unknown')
+  assert.ok(seEdge1?.holeReason?.includes('collected household/municipal'))
 
   const dkEdge1 = planned.find(
     (p) =>
