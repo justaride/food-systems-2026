@@ -18,7 +18,7 @@ export default async function WorkQueuePage({ searchParams }: { searchParams: Pr
       <Link href="/casestatus" className="rounded-lg border p-4 text-emerald-800 underline">Åpne caseunderlaget →</Link>
     </div>
     <p className="rounded-lg bg-amber-50 p-3 text-sm text-amber-900">Datoene nedenfor er siste kontroll i underlaget. Eldre casekort må revideres før nye påstander brukes. Denne køen registrerer ingen godkjenning eller endring i kildestatus.</p>
-    <form className="flex flex-wrap gap-2" action="/arbeidsko" method="get">
+    <form className="flex flex-col gap-2 sm:flex-row sm:flex-wrap" action="/arbeidsko" method="get">
       <input aria-label="Søk i oppgaver og ansvar" name="q" defaultValue={params.q} placeholder="Oppgave, ansvar eller neste handling" className="min-w-0 flex-1 rounded border p-2" />
       <select aria-label="Oppgavetype" name="kind" defaultValue={params.kind || 'all'} className="rounded border p-2"><option value="all">Alle typer</option><option value="gap">Prosjektgap</option><option value="case">Case</option><option value="actor">Aktør</option></select>
       <select aria-label="Oppgavestatus" name="status" defaultValue={params.status || 'open'} className="rounded border p-2"><option value="open">Gjenstående</option><option value="all">Inkluder lukkede</option></select>

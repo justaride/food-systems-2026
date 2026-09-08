@@ -14,7 +14,7 @@ import { getPersonProfiles } from '../src/lib/queries/persons'
 import { currentBoardCompanyCount } from '../src/lib/board-interlocks'
 import { getWorkQueue } from '../src/lib/queries/work-queue'
 import { generateBibtexFile } from '../src/lib/bibtex'
-import { SYNTHETIC_MATSVINN_DOCUMENT_ID, SOURCE_QUARANTINE_MESSAGE } from '../src/lib/source-quarantine'
+import { isQuarantinedSource, SYNTHETIC_MATSVINN_DOCUMENT_ID, SOURCE_QUARANTINE_MESSAGE } from '../src/lib/source-quarantine'
 
 async function main() {
   const producerCount = await getProducerCount()
@@ -23,10 +23,14 @@ async function main() {
   const matches = await getProducers({ search: target.orgNr })
   assert.ok(matches.some(p => p.id === target.id), 'Search must reach outside the first page')
   assert.equal(await getProducerCount(target.orgNr), matches.length)
-  const blocked = await getLibraryAnalysisRecords({ query: 'matsvinnloven' })
+  // The production library also contains the real law as a separate source.
+  // Scope this acceptance probe to the synthetic document's canonical path.
+  const quarantineQuery = 'thesis-matsvinnloven-2025'
+  const blocked = await getLibraryAnalysisRecords({ query: quarantineQuery })
   assert.ok(blocked.length > 0)
+  assert.ok(blocked.every(isQuarantinedSource))
   assert.ok(blocked.every(r => r.status === 'blocked' && r.usageRule === 'do_not_use_for_claims' && !r.externalClaimEligible))
-  assert.equal(await getLibraryAnalysisRecordCount({ query: 'matsvinnloven', usage: 'safe_for_ai_context' }), 0)
+  assert.equal(await getLibraryAnalysisRecordCount({ query: quarantineQuery, usage: 'safe_for_ai_context' }), 0)
   const document = await getDocumentById(SYNTHETIC_MATSVINN_DOCUMENT_ID)
   assert.equal(document?.content, SOURCE_QUARANTINE_MESSAGE)
   assert.equal(document?.author, null)
@@ -48,6 +52,8 @@ async function main() {
     const dossier = await getKonsernDossier(group.slug)
     assert.equal(dossier?.root.id, group.rootCompanyId)
     assert.equal(dossier?.metrics.totalRevenue, group.totalRevenue)
+    assert.equal(dossier?.metrics.treeSize, group.treeSize)
+    assert.equal(dossier?.metrics.daysSinceBrregRefresh, group.daysSinceBrregRefresh)
   }
   const persons = await getPersonProfiles()
   assert.ok(persons.length > 0)
