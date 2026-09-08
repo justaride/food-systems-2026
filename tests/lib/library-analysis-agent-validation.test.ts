@@ -565,3 +565,15 @@ test("authoritative numeric gates reject sign, currency, and nearby-number drift
     assert.equal(result.disposition, "quarantined");
   }
 });
+
+test("an item issue can report fabricated evidence without approving it", () => {
+  const fixture = sourceValidationFixture("Actual source text.", "An unsupported assertion.", "Fabricated source excerpt.");
+  const request = buildLibraryAnalysisAgentValidationRequest({ ...fixture, requireItemCoverage: true });
+  const review = { itemId: request.workPacket!.items[0]!.itemId, disposition: "issue", claimIds: ["claim:1"], findingIds: ["finding:f1"], reason: "The quoted evidence is absent from the original source." };
+  const response = itemCoverageResponse(request, [review], [finding("F1", "critical", true)]);
+  const acceptedResponse = validateLibraryAnalysisAgentValidationResponse({ request, response });
+  assert.throws(() => validateLibraryAnalysisAgentValidationResponse({ request, response: itemCoverageResponse(request, [{ ...review, disposition: "supported", findingIds: [] }]) }), /supported_item_claim_mismatch/u);
+  const result = deriveLibraryAnalysisAgentValidationResult({ ...fixture, populationEligibility: "eligible", request, response: acceptedResponse });
+  assert.equal(result.disposition, "quarantined");
+  assert.equal(result.externalReady, false);
+});

@@ -415,8 +415,10 @@ export function validateLibraryAnalysisAgentValidationResponse(input: {
       if (review.findingIds.length === 0) throw new Error("validation_issue_item_finding_missing");
       for (const claimId of review.claimIds) {
         const claim = claimById.get(claimId);
-        if (claim === undefined || claim.contentUnitId !== item.contentUnitId ||
-            !evidenceOverlapsItem(claim.evidence, item, request.units)) {
+        // Invalid or fabricated evidence is itself reviewable. Requiring an
+        // exact source occurrence here would prevent reporting that defect.
+        // The issue must instead bind this claim and the item's source unit.
+        if (claim === undefined || claim.contentUnitId !== item.contentUnitId) {
           throw new Error("validation_issue_item_claim_mismatch");
         }
         const hasMatchingFinding = review.findingIds.some((findingId) => {
