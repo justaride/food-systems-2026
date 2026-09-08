@@ -187,7 +187,7 @@ export function OwnershipTreeDiagram({ tree }: Props) {
 
     const inner = (
       <g>
-        <title>{node.name} · {node.orgNr}</title>
+        <title>{`${node.name} · ${node.orgNr}`}</title>
         <rect
           x={node.x}
           y={node.y}
