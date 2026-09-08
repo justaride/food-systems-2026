@@ -24,7 +24,9 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const execution = await searchWithDiagnostics(q, limit, mode)
+    const requestedTypes = request.nextUrl.searchParams.get('types')
+    const types = requestedTypes === 'document' ? ['document'] : undefined
+    const execution = await searchWithDiagnostics(q, limit, mode, types)
     return NextResponse.json({
       query: q,
       requestedMode: execution.requestedMode,

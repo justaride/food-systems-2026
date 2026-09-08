@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/db'
-import { financialAmountToNok } from '@/lib/queries/financial-units'
+import { financialAmountToNok, financialUnitSelect } from '@/lib/queries/financial-units'
 import { sectorFromValueChainStage, type SectorKey } from '@/lib/sector'
 
 type InterlockNode = {
@@ -178,7 +178,7 @@ export async function getInterlockGraph(): Promise<InterlockGraphData> {
           financials: {
             orderBy: { year: 'desc' },
             take: 1,
-            select: { year: true, revenueNok: true, source: true },
+            select: { year: true, revenueNok: true, ...financialUnitSelect, source: true },
           },
           _count: {
             select: {
@@ -285,7 +285,7 @@ export async function getInterlockGraph(): Promise<InterlockGraphData> {
     const latestFinancial = company.financials[0]
     return {
       companyId: company.id,
-      latestRevenueNok: financialAmountToNok(latestFinancial?.revenueNok, latestFinancial?.source),
+      latestRevenueNok: financialAmountToNok(latestFinancial?.revenueNok, latestFinancial),
       latestRevenueYear: latestFinancial?.year ?? null,
       subsidyTotalNok: subsidyTotalByCompany.get(company.id) ?? 0,
       ownershipLinkCount: company._count.parentOf + company._count.childOf,

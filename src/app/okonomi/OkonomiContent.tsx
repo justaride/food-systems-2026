@@ -284,6 +284,7 @@ export function OkonomiContent({
   const employeeData = buildChartData(selectedCompanies, 'groupEmployees', companyLabelById)
 
   const totalRecords = companies.reduce((sum, c) => sum + c.financials.length, 0)
+  const financialIssues = companies.flatMap(c => c.financials.filter(f => f.unitIssue).map(f => ({ company: c, financial: f })))
   const allYears = companies.flatMap(c => c.financials.map(f => f.year))
   const minYear = allYears.length > 0 ? Math.min(...allYears) : 0
   const maxYear = allYears.length > 0 ? Math.max(...allYears) : 0
@@ -394,6 +395,8 @@ export function OkonomiContent({
       </div>
 
       <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+        <p className="mb-2">Beløp uten avstemt enhet er utelatt. Enhetsavstemming bekrefter ikke kildeinnholdet eller eldre estimater.</p>
+        {financialIssues.length > 0 && <details className="mb-3"><summary className="cursor-pointer font-medium">{financialIssues.length} regnskapsrader har åpne avvik</summary><ul className="mt-2 space-y-2">{financialIssues.map(({ company, financial }) => <li key={`${company.id}-${financial.year}`}><Link className="underline" href={`/selskap/${company.id}`}>{company.name}, {financial.year}</Link>: {financial.unitIssue}</li>)}</ul></details>}
         <strong>{companies.length} selskaper</strong> har regnskapsdata i databasen
         {totalCompanyCount > 0 ? (
           <>

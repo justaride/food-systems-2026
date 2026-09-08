@@ -1,55 +1,16 @@
 'use client'
 
-import { ClientPagination, useClientPagination } from '@/components/ui/ClientPagination'
+import { ClientPagination } from '@/components/ui/ClientPagination'
 
 import Link from 'next/link'
-import { useDeferredValue, useState } from 'react'
+import { useServerPagination } from '@/components/ui/useServerPagination'
+import { CatalogRequestStatus } from '@/components/ui/CatalogRequestStatus'
+import type { getActorCatalogPage } from '@/lib/queries/catalog-pages'
+import { useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { InternalBanner } from '@/components/ui/InternalBanner'
 import { Glossary } from '@/components/ui/Glossary'
-
-type ActorRow = {
-  id: string
-  slug: string
-  name: string
-  actorType: string
-  country: string
-  organizationType: string | null
-  roleSummary: string
-  currentRelevance: string | null
-  website: string | null
-  currentStance: string | null
-  desiredStance: string | null
-  specificAsk: string | null
-  priorityTier: string | null
-  verificationStatus: string | null
-  owner: string | null
-  nextStep: string | null
-  powerScore: number | null
-  interestScore: number | null
-  themeTags: string[]
-  company: {
-    id: string
-    name: string
-    orgNr: string
-    valueChainStage: string | null
-    ownershipType: string | null
-  } | null
-  contacts: {
-    id: string
-    name: string
-    role: string | null
-    email: string | null
-    organization: string | null
-    note: string | null
-  }[]
-  _count: {
-    documentRefs: number
-    relationshipsFrom: number
-    relationshipsTo: number
-  }
-}
 
 const ACTOR_TYPE_LABELS: Record<string, string> = {
   company: 'Selskap',
@@ -95,70 +56,15 @@ const PRIORITY_STYLES: Record<string, string> = {
   p3: 'bg-white text-stone-500 border-stone-200',
 }
 
-function isKeyPlayer(actor: ActorRow) {
-  return (actor.powerScore ?? 0) >= 4 && (actor.interestScore ?? 0) >= 4
-}
-
-export function AktorerContent({ actors }: { actors: ActorRow[] }) {
+export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof getActorCatalogPage>> }) {
   const [query, setQuery] = useState('')
   const [typeFilter, setTypeFilter] = useState('alle')
   const [priorityFilter, setPriorityFilter] = useState('alle')
   const [stanceFilter, setStanceFilter] = useState('alle')
   const [themeFilter, setThemeFilter] = useState('alle')
-  const deferredQuery = useDeferredValue(query)
-
-  const actorTypes = [...new Set(actors.map(actor => actor.actorType))].sort()
-  const stances = [...new Set(actors.map(actor => actor.currentStance).filter(Boolean))].sort() as string[]
-  const allThemeTags = [...new Set(actors.flatMap(a => a.themeTags ?? []))].sort()
-
-  const filteredActors = actors.filter(actor => {
-    if (typeFilter !== 'alle' && actor.actorType !== typeFilter) return false
-    if (priorityFilter !== 'alle' && actor.priorityTier !== priorityFilter) return false
-    if (stanceFilter !== 'alle' && actor.currentStance !== stanceFilter) return false
-    if (themeFilter !== 'alle' && !actor.themeTags?.includes(themeFilter)) return false
-
-    if (!deferredQuery.trim()) return true
-
-    const haystack = [
-      actor.name,
-      actor.roleSummary,
-      actor.currentRelevance ?? '',
-      actor.specificAsk ?? '',
-      actor.nextStep ?? '',
-      actor.company?.name ?? '',
-      ...actor.themeTags,
-    ].join(' ').toLowerCase()
-
-    return haystack.includes(deferredQuery.toLowerCase())
-  })
-
-  const pagination = useClientPagination(filteredActors, JSON.stringify([deferredQuery, typeFilter, priorityFilter, stanceFilter, themeFilter]))
-
-  const stats = {
-    total: actors.length,
-    p1: actors.filter(actor => actor.priorityTier === 'p1').length,
-    keyPlayers: actors.filter(isKeyPlayer).length,
-    withAsks: actors.filter(actor => Boolean(actor.specificAsk)).length,
-  }
-
-  const quadrants = {
-    keyPlayers: actors.filter(actor => (actor.powerScore ?? 0) >= 4 && (actor.interestScore ?? 0) >= 4).length,
-    keepSatisfied: actors.filter(actor => (actor.powerScore ?? 0) >= 4 && (actor.interestScore ?? 0) < 4).length,
-    keepInformed: actors.filter(actor => (actor.powerScore ?? 0) < 4 && (actor.interestScore ?? 0) >= 4).length,
-    monitor: actors.filter(actor => (actor.powerScore ?? 0) < 4 && (actor.interestScore ?? 0) < 4).length,
-  }
-
-  const topKeyPlayersPool = themeFilter !== 'alle'
-    ? actors.filter(actor => actor.themeTags?.includes(themeFilter))
-    : actors
-  const topKeyPlayers = [...topKeyPlayersPool]
-    .map(actor => ({ actor, score: (actor.powerScore ?? 0) * (actor.interestScore ?? 0) }))
-    .filter(entry => entry.score > 0)
-    .sort((a, b) => {
-      if (b.score !== a.score) return b.score - a.score
-      return a.actor.name.localeCompare(b.actor.name, 'no')
-    })
-    .slice(0, 10)
+  const pagination = useServerPagination('actors', initial, { q: query, type: typeFilter, priority: priorityFilter, stance: stanceFilter, theme: themeFilter })
+  const { stats, quadrants, topKeyPlayers, topKeyPlayersPoolCount } = pagination
+  const { types: actorTypes, stances, themes: allThemeTags } = pagination.facets
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-12">
@@ -295,7 +201,7 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
               </p>
             </div>
             <div className="text-[10px] uppercase tracking-wider text-stone-400">
-              {topKeyPlayersPool.length} aktorer i utvalget
+              {topKeyPlayersPoolCount} aktorer i utvalget
             </div>
           </div>
           <ol className="grid gap-1.5 md:grid-cols-2">
@@ -330,8 +236,9 @@ export function AktorerContent({ actors }: { actors: ActorRow[] }) {
         </Card>
       )}
 
-      <ClientPagination {...pagination} />
-      {filteredActors.length === 0 ? (
+      <CatalogRequestStatus {...pagination} />
+      {!pagination.loading && !pagination.error && <ClientPagination {...pagination} />}
+      {!pagination.loading && !pagination.error && pagination.total === 0 ? (
         <EmptyState message="Ingen aktorer matcher filteret" />
       ) : (
         <div className="grid gap-4 lg:grid-cols-2">

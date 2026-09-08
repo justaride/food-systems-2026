@@ -1,9 +1,12 @@
 'use client'
 
-import { ClientPagination, useClientPagination } from '@/components/ui/ClientPagination'
+import { ClientPagination } from '@/components/ui/ClientPagination'
 
 import { useState } from 'react'
 import Link from 'next/link'
+import { useServerPagination } from '@/components/ui/useServerPagination'
+import { CatalogRequestStatus } from '@/components/ui/CatalogRequestStatus'
+import type { getSourceCatalogPage } from '@/lib/queries/catalog-pages'
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
 import type { BacklogRound, SourceDownloadStatus } from '@/lib/queries/download-backlog'
@@ -29,12 +32,6 @@ export type SourceRow = {
   backlogPriority: string | null
   backlogTargetPath: string | null
   matchedBy: 'url' | 'filename' | 'target-basename' | 'title' | null
-}
-
-type RoundOption = {
-  id: BacklogRound
-  label: string
-  count: number
 }
 
 const typeLabels: Record<string, string> = {
@@ -125,59 +122,17 @@ function statusDot(status: SourceDownloadStatus): { className: string; label: st
   return { className: config.dotClassName, label: config.label }
 }
 
-export function KilderContent({
-  sources,
-  rounds,
-  dbCount,
-  documentCount,
-  backlogOnlyCount,
-  initialRoundFilter = 'all',
-}: {
-  sources: SourceRow[]
-  rounds: RoundOption[]
-  dbCount: number
-  documentCount: number
-  backlogOnlyCount: number
-  initialRoundFilter?: 'all' | BacklogRound
+export function KilderContent({ initial, initialRoundFilter = 'all' }: {
+  initial: Awaited<ReturnType<typeof getSourceCatalogPage>>; initialRoundFilter?: string
 }) {
   const [filter, setFilter] = useState<string>('alle')
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState<SourceDownloadStatus | 'all'>('all')
-  const [roundFilter, setRoundFilter] = useState<'all' | BacklogRound>(initialRoundFilter)
+  const [roundFilter, setRoundFilter] = useState<string>(initialRoundFilter)
   const [originFilter, setOriginFilter] = useState<'all' | 'db' | 'document' | 'backlog'>('all')
 
-  const filteredSources = sources.filter((src) => {
-    const matchesType = filter === 'alle' || src.sourceType === filter
-    const matchesStatus = statusFilter === 'all' || src.downloadStatus === statusFilter
-    const matchesRound = roundFilter === 'all' || src.researchRound === roundFilter
-    const matchesOrigin = originFilter === 'all' || src.origin === originFilter
-    const q = search.toLowerCase()
-    const matchesSearch =
-      !q ||
-      src.title?.toLowerCase().includes(q) ||
-      src.filename.toLowerCase().includes(q) ||
-      src.author?.toLowerCase().includes(q) ||
-      src.description.toLowerCase().includes(q) ||
-      src.backlogTheme?.toLowerCase().includes(q)
-    return matchesType && matchesStatus && matchesRound && matchesOrigin && matchesSearch
-  })
-
-  const pagination = useClientPagination(filteredSources, JSON.stringify([search, filter, statusFilter, roundFilter, originFilter]))
-
-  const statusStats = Object.fromEntries(
-    sourceDownloadStatuses.map((status) => [
-      status,
-      sources.filter((s) => s.downloadStatus === status).length,
-    ]),
-  ) as Record<SourceDownloadStatus, number>
-
-  const stats = {
-    total: sources.length,
-    nou: sources.filter((s) => s.sourceType === 'nou').length,
-    rapport: sources.filter((s) => s.sourceType === 'rapport').length,
-    analyse: sources.filter((s) => s.sourceType === 'analyse').length,
-    lovverk: sources.filter((s) => s.sourceType === 'lovverk').length,
-  }
+  const pagination = useServerPagination('sources', initial, { q: search, type: filter, status: statusFilter, round: roundFilter, origin: originFilter })
+  const { stats, statusStats, typeCounts, roundCount, rounds, dbCount, documentCount, backlogOnlyCount } = pagination
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-12">
@@ -195,7 +150,7 @@ export function KilderContent({
             Nedlastingsstatus spores internt.
           </p>
         </div>
-        <div className="flex gap-3">
+        <div className="grid grid-cols-2 gap-3 sm:flex">
           <div className="bg-white px-4 py-2 rounded-lg border border-stone-200 shadow-sm">
             <div className="text-xs text-stone-400 uppercase font-bold tracking-wider">Total</div>
             <div className="text-xl font-bold text-stone-900">{stats.total}</div>
@@ -229,7 +184,7 @@ export function KilderContent({
                 : 'bg-white text-blue-700 border-blue-200 hover:bg-blue-100'
             }`}
           >
-            Alle runder ({sources.filter((s) => s.researchRound !== null).length})
+            Alle runder ({roundCount})
           </button>
           {rounds.map((r) => (
             <button
@@ -285,7 +240,7 @@ export function KilderContent({
                 <div className="flex items-center gap-2">
                   <span className={`w-2 h-2 rounded-full ${config.dotClassName}`}></span>
                   <div className={`text-lg font-bold ${config.countClassName}`}>
-                    {statusStats[status]}
+                    {statusStats[status] ?? 0}
                   </div>
                 </div>
                 <div className="text-[11px] text-stone-700 mt-0.5">{config.shortLabel}</div>
@@ -306,7 +261,7 @@ export function KilderContent({
               }`}
             >
               {o === 'all'
-                ? `Alle (${sources.length})`
+                ? `Alle (${stats.total})`
                 : o === 'db'
                   ? `Database (${dbCount})`
                   : o === 'document'
@@ -331,7 +286,7 @@ export function KilderContent({
         <div className="flex flex-wrap gap-2">
           {Object.entries(typeLabels).map(([key, label]) => {
             const count =
-              key === 'alle' ? sources.length : sources.filter((s) => s.sourceType === key).length
+              key === 'alle' ? stats.total : (typeCounts[key] ?? 0)
             if (count === 0 && key !== 'alle') return null
 
             return (
@@ -574,8 +529,9 @@ export function KilderContent({
         </Card>
       )}
 
-      <ClientPagination {...pagination} />
-      {filteredSources.length === 0 && (
+      <CatalogRequestStatus {...pagination} />
+      {!pagination.loading && !pagination.error && <ClientPagination {...pagination} />}
+      {!pagination.loading && !pagination.error && pagination.total === 0 && (
         <div className="text-center py-20 bg-stone-50 rounded-2xl border-2 border-dashed border-stone-200">
           <div className="text-stone-400 mb-2">Ingen kilder matchet søket ditt.</div>
           <button

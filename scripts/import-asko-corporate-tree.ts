@@ -1,3 +1,4 @@
+import { wholeNokStorage } from '../src/lib/queries/financial-units'
 import 'dotenv/config'
 import { canonicalPersonKey as normalizePersonKey } from '../src/lib/person-key'
 import { PrismaClient } from '../src/generated/prisma/client'
@@ -452,18 +453,18 @@ async function importFinancials() {
 
     await prisma.companyFinancial.upsert({
       where: { companyId_year: { companyId, year: f.year } },
-      update: {
+      update: { ...wholeNokStorage,
         revenueNok: f.revenueNok,
-        operatingResult: f.operatingResult,
+        operatingResult: f.operatingResult ?? null,
         operatingMargin: f.operatingMargin,
         groupEmployees: f.groupEmployees,
         source: 'Brønnøysund / offentligdata MCP 2026-03',
       },
-      create: {
+      create: { ...wholeNokStorage,
         companyId,
         year: f.year,
         revenueNok: f.revenueNok,
-        operatingResult: f.operatingResult,
+        operatingResult: f.operatingResult ?? null,
         operatingMargin: f.operatingMargin,
         groupEmployees: f.groupEmployees,
         source: 'Brønnøysund / offentligdata MCP 2026-03',

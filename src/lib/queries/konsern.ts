@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/db'
-import { financialAmountToNok } from '@/lib/queries/financial-units'
+import { financialAmountToNok, financialUnitSelect } from '@/lib/queries/financial-units'
 
 // ─── Section 6: Tilskudd inn ──────────────────────────────────────────────────
 
@@ -294,7 +294,7 @@ export async function getKonsernFinancials(treeIds: string[], rootCompanyId?: st
         revenueNok: true,
         ebitda: true,
         groupEmployees: true,
-        source: true,
+        ...financialUnitSelect, source: true,
       },
     }),
     prisma.company.findMany({
@@ -308,8 +308,8 @@ export async function getKonsernFinancials(treeIds: string[], rootCompanyId?: st
   // Aggregate per year
   const yearMap = new Map<number, { totalRevenueNok: number | null; totalEbitdaNok: number | null; totalEmployees: number | null }>()
   for (const f of financials.filter(f => f.companyId === rootCompanyId)) {
-    const rev = financialAmountToNok(f.revenueNok, f.source)
-    const ebitda = financialAmountToNok(f.ebitda, f.source)
+    const rev = financialAmountToNok(f.revenueNok, f)
+    const ebitda = financialAmountToNok(f.ebitda, f)
     const employees = f.groupEmployees != null ? f.groupEmployees : null
     const existing = yearMap.get(f.year) ?? { totalRevenueNok: null, totalEbitdaNok: null, totalEmployees: null }
     yearMap.set(f.year, {
@@ -334,7 +334,7 @@ export async function getKonsernFinancials(treeIds: string[], rootCompanyId?: st
   // Top 5 by latest revenue
   const revenueByCompany = new Map<string, number>()
   for (const f of latestByCompany.values()) {
-    const rev = financialAmountToNok(f.revenueNok, f.source)
+    const rev = financialAmountToNok(f.revenueNok, f)
     if (rev != null) {
       revenueByCompany.set(f.companyId, rev)
     }

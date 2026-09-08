@@ -1,7 +1,5 @@
-import { getActors } from '@/lib/queries/actors'
+import { getActorCatalogPage } from '@/lib/queries/catalog-pages'
 import { AktorerContent } from './AktorerContent'
-
 export default async function AktorerPage() {
-  const actors = await getActors()
-  return <AktorerContent actors={actors} />
+  return <AktorerContent initial={await getActorCatalogPage()} />
 }

@@ -61,7 +61,7 @@ function FlowPrototypeLink() {
   return (
     <Link
       href={`/kart/${country}/flow`}
-      className="absolute top-4 right-4 z-[1000] inline-flex items-center gap-2 rounded-lg border border-emerald-200 bg-white px-3 py-2 text-xs font-medium text-emerald-700 shadow-sm transition-colors hover:bg-emerald-50"
+      className="inline-flex shrink-0 items-center gap-2 rounded-lg border border-emerald-200 bg-white px-3 py-2 text-xs font-medium text-emerald-700 shadow-sm transition-colors hover:bg-emerald-50"
       title="Åpne den separate flow-prototypen"
     >
       <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" />
@@ -79,24 +79,21 @@ export default function KartCountryPage({ params }: { params: Promise<{ country:
 
   return (
     <MapProvider country={country}>
-      <div className="w-full h-full relative" style={{ height: 'calc(100vh - 57px)' }}>
+      <div className="flex w-full flex-col" style={{ height: 'calc(100dvh - 57px)' }}>
         <h1 className="sr-only">Matkart for {COUNTRY_NAMES[country] ?? country}</h1>
-        <div className="pointer-events-none absolute top-3 left-1/2 z-[1000] -translate-x-1/2 max-w-[90vw] rounded-lg border border-stone-200 bg-white/95 px-3 py-1.5 text-center shadow-sm backdrop-blur">
-          <p className="text-[10px] font-semibold uppercase tracking-wider text-stone-400">
-            Matkart {COUNTRY_NAMES[country] ?? country}
-          </p>
-          <p className="text-[11px] leading-snug text-stone-500">
-            Butikker, kjeder og forsyningsledd — kilder nederst til venstre
-          </p>
-        </div>
+        <header className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-b border-stone-200 bg-white px-3 py-2">
+          <div><p className="text-sm font-semibold text-stone-800">Matkart {COUNTRY_NAMES[country] ?? country}</p><p className="hidden text-xs text-stone-500 lg:block">Butikker, kjeder og forsyningsledd</p></div>
+          <CountrySelector currentCountry={country} />
+          <FlowPrototypeLink />
+        </header>
+        <div className="relative min-h-0 flex-1">
         <FoodMap />
         <MapErrorOverlay />
-        <FlowPrototypeLink />
-        <CountrySelector currentCountry={country} />
         <LayerPanel />
         <FoodDesertPanel />
         <VulnerabilityPanel />
         <DataSourcesPanel />
+        </div>
       </div>
     </MapProvider>
   )

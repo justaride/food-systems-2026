@@ -27,6 +27,7 @@ import { writeFileSync } from 'node:fs'
 import { pathToFileURL } from 'node:url'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import { wholeNokStorage } from '../src/lib/queries/financial-units'
 
 export const CANONICAL_ORGNR = '975350940'
 export const DUPLICATE_ORGNR = '975320637'
@@ -42,17 +43,8 @@ export const DUPLICATE_ORGNR = '975320637'
  * f.eks. NorgesGruppen Merkevare på 20 NOK — til `0.00` i `Decimal(15,2)`,
  * altså slettet data. Denne konstanten følger det valget.
  *
- * REKKEFØLGE MOT `financial-units`: begge veier er trygge, og det er verdt
- * å vite hvorfor, siden `source`-strengen under IKKE matcher noen av
- * `RAW_NOK_SOURCE_PATTERNS` og derfor klassifiseres som `million_nok`.
- * Det som redder raden er `UNIT_BAND_NOK` (10^6): begge beløpene ligger
- * langt over båndet, så de havner i `alreadyRaw` og konverteres ikke.
- * Verifisert mot `scripts/normalize-financial-units.ts`.
- *
- * Det er båndvakten som bærer dette, ikke rekkefølgen — så hvis noen senere
- * senker båndet eller fjerner det, blir denne raden ganget med 10^6.
- * Å legge en `Annual Report`-regel i `RAW_NOK_SOURCE_PATTERNS` ville gjort
- * sikkerheten eksplisitt framfor å hvile på en størrelsesterskel.
+ * Skrivingen setter eksplisitt amountCurrency=NOK og unitScale=1 sammen
+ * med beløpene. Visningen trenger ikke kildeord eller størrelsesgrenser.
  *
  * 31 124 691 000 har 11 siffer og får plass i `Decimal(15,2)`.
  * Marginen er en prosent og er enhetsuavhengig: 2 964 266 / 31 124 691 = 9,52 %.
@@ -220,7 +212,7 @@ export async function applyFinancialCorrection(
 
   if (plan.action === 'create') {
     await client.companyFinancial.create({
-      data: {
+      data: { ...wholeNokStorage,
         companyId,
         year: FY2024.year,
         revenueNok: FY2024.revenueNok,
@@ -234,7 +226,7 @@ export async function applyFinancialCorrection(
 
   await client.companyFinancial.update({
     where: { companyId_year: { companyId, year: FY2024.year } },
-    data: {
+    data: { ...wholeNokStorage,
       revenueNok: FY2024.revenueNok,
       operatingResult: FY2024.operatingResult,
       operatingMargin: FY2024.operatingMargin,

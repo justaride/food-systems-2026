@@ -1,7 +1,5 @@
-import { getDocumentsList } from '@/lib/queries/documents'
+import { getDocumentCatalogPage } from '@/lib/queries/catalog-pages'
 import { BibliotekContent } from './BibliotekContent'
-
 export default async function BibliotekPage() {
-  const documents = await getDocumentsList()
-  return <BibliotekContent documents={documents} />
+  return <BibliotekContent initial={await getDocumentCatalogPage()} />
 }

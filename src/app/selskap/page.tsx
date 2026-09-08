@@ -26,7 +26,7 @@ export default async function SelskaperPage({
     country: c.country,
     ownershipType: c.ownershipType,
     valueChainStage: c.valueChainStage,
-    revenueNok: financialAmountToNok(c.financials[0]?.revenueNok, c.financials[0]?.source),
+    revenueNok: financialAmountToNok(c.financials[0]?.revenueNok, c.financials[0]),
     employees: c.financials[0]?.groupEmployees ?? c.employees ?? null,
     controllingOwner: c.shareholders[0]?.name ?? null,
     boardCount: c._count.boardMembers,

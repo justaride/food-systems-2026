@@ -1,6 +1,7 @@
 import { currentCompanyIdentityWhere } from '@/lib/company-identities'
+import { financialSourceIssue } from '@/lib/financial-source-issues'
 import { prisma } from '@/lib/db'
-import { financialAmountToNok } from '@/lib/queries/financial-units'
+import { financialAmountToNok, financialUnitSelect, financialUnitIssue } from '@/lib/queries/financial-units'
 import { isPrismaDataUnavailable } from './prisma-errors'
 
 export type FinancialRecord = {
@@ -12,6 +13,7 @@ export type FinancialRecord = {
   equityRatio: number | null
   groupEmployees: number | null
   source: string | null
+  unitIssue: string | null
 }
 
 export type CompanyWithFinancials = {
@@ -43,7 +45,7 @@ export async function getFinancialTrends(): Promise<CompanyWithFinancials[]> {
             ebitda: true,
             equityRatio: true,
             groupEmployees: true,
-            source: true,
+            ...financialUnitSelect, source: true,
           },
         },
       },
@@ -54,13 +56,14 @@ export async function getFinancialTrends(): Promise<CompanyWithFinancials[]> {
       ...c,
       financials: c.financials.map(f => ({
         year: f.year,
-        revenueNok: financialAmountToNok(f.revenueNok, f.source),
-        operatingResult: financialAmountToNok(f.operatingResult, f.source),
-        operatingMargin: f.operatingMargin != null ? Number(f.operatingMargin) : null,
-        ebitda: financialAmountToNok(f.ebitda, f.source),
+        revenueNok: financialSourceIssue(c.orgNr, f) ? null : financialAmountToNok(f.revenueNok, f),
+        operatingResult: financialSourceIssue(c.orgNr, f) ? null : financialAmountToNok(f.operatingResult, f),
+        operatingMargin: !financialSourceIssue(c.orgNr, f) && f.operatingMargin != null ? Number(f.operatingMargin) : null,
+        ebitda: financialSourceIssue(c.orgNr, f) ? null : financialAmountToNok(f.ebitda, f),
         equityRatio: f.equityRatio != null ? Number(f.equityRatio) : null,
         groupEmployees: f.groupEmployees,
         source: f.source,
+        unitIssue: financialSourceIssue(c.orgNr, f) ?? financialUnitIssue(f),
       })),
     }))
   } catch (error) {

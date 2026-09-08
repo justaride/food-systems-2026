@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { prisma } from '@/lib/db'
-import { financialAmountToNok } from '@/lib/queries/financial-units'
+import { financialAmountToNok, financialUnitSelect } from '@/lib/queries/financial-units'
 import type { KonsernFinancialsAggregate, KonsernBoardMember, KonsernSubsidies, KonsernProperties, KonsernRelationships } from '@/lib/queries/konsern'
 import { getKonsernFinancials, getKonsernBoard, getKonsernSubsidies, getKonsernProperties, getKonsernRelationships } from '@/lib/queries/konsern'
 
@@ -113,7 +113,7 @@ export async function getOwnershipMap(): Promise<OwnershipMapData> {
         financials: {
           orderBy: { year: 'desc' },
           take: 1,
-          select: { year: true, revenueNok: true, operatingResult: true, operatingMargin: true, source: true },
+          select: { year: true, revenueNok: true, operatingResult: true, operatingMargin: true, ...financialUnitSelect, source: true },
         },
       },
     }),
@@ -210,8 +210,8 @@ export async function getOwnershipMap(): Promise<OwnershipMapData> {
           ownershipType: comp.ownershipType,
           valueChainStage: comp.valueChainStage,
           latestFinancialYear,
-          latestRevenueNok: financialAmountToNok(latestFinancial?.revenueNok, latestFinancial?.source),
-          latestOperatingResultNok: financialAmountToNok(latestFinancial?.operatingResult, latestFinancial?.source),
+          latestRevenueNok: financialAmountToNok(latestFinancial?.revenueNok, latestFinancial),
+          latestOperatingResultNok: financialAmountToNok(latestFinancial?.operatingResult, latestFinancial),
           latestOperatingMargin: latestFinancial?.operatingMargin != null ? Number(latestFinancial.operatingMargin) : null,
           subsidyTotalNok: subsidiesByCompany.get(comp.id) ?? 0,
           latestYearSubsidyNok: latestYearSubsidy?.amountNok ?? 0,
@@ -342,7 +342,7 @@ export async function getKonsernIndex(): Promise<KonsernIndexRow[]> {
     const currentYear = new Date().getFullYear()
     const financials = await prisma.companyFinancial.findMany({
       where: { companyId: root.id, year: { gte: currentYear - 6 } },
-      select: { companyId: true, year: true, revenueNok: true, source: true },
+      select: { companyId: true, year: true, revenueNok: true, ...financialUnitSelect, source: true },
       orderBy: { year: 'desc' },
     })
     // Sum each company's latest available record rather than one fixed year.
@@ -354,7 +354,7 @@ export async function getKonsernIndex(): Promise<KonsernIndexRow[]> {
     }
     const totalRevenue = [...latestByCompany.values()].reduce<number | null>(
       (acc, f) => {
-        const nok = financialAmountToNok(f.revenueNok, f.source)
+        const nok = financialAmountToNok(f.revenueNok, f)
         return nok != null ? (acc ?? 0) + nok : acc
       },
       null,
@@ -438,7 +438,7 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
   const [financialsRange, ownerships, treeCompanies, konsernFinancials, konsernBoard, konsernSubsidies, konsernProperties, konsernRelationships] = await Promise.all([
     prisma.companyFinancial.findMany({
       where: { companyId: { in: treeIds }, year: { gte: currentYear - 6 } },
-      select: { companyId: true, revenueNok: true, source: true, groupEmployees: true, operatingResult: true, operatingMargin: true, year: true },
+      select: { companyId: true, revenueNok: true, ...financialUnitSelect, source: true, groupEmployees: true, operatingResult: true, operatingMargin: true, year: true },
       orderBy: { year: 'desc' },
     }),
     prisma.companyOwnership.findMany({
@@ -477,7 +477,7 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
   const financials = [...financialsByCompany.values()]
 
   const totalRevenue = financials.filter(f => f.companyId === rootCompany.id).reduce<number | null>((acc, f) => {
-    const nok = financialAmountToNok(f.revenueNok, f.source)
+    const nok = financialAmountToNok(f.revenueNok, f)
     return nok != null ? (acc ?? 0) + nok : acc
   }, null)
 
@@ -527,8 +527,8 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
       ownershipType: comp.ownershipType,
       valueChainStage: comp.valueChainStage,
       latestFinancialYear: f?.year ?? null,
-      latestRevenueNok: f ? financialAmountToNok(f.revenueNok, f.source) : null,
-      latestOperatingResultNok: f ? financialAmountToNok(f.operatingResult, f.source) : null,
+      latestRevenueNok: f ? financialAmountToNok(f.revenueNok, f) : null,
+      latestOperatingResultNok: f ? financialAmountToNok(f.operatingResult, f) : null,
       latestOperatingMargin: f?.operatingMargin != null ? Number(f.operatingMargin) : null,
     })
   }

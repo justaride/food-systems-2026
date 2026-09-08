@@ -1,15 +1,18 @@
 'use client'
 
-import { ClientPagination, useClientPagination } from '@/components/ui/ClientPagination'
+import { ClientPagination } from '@/components/ui/ClientPagination'
 
-import { useState, useMemo, useCallback, useRef, useEffect } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import { useServerPagination } from '@/components/ui/useServerPagination'
+import { CatalogRequestStatus } from '@/components/ui/CatalogRequestStatus'
+import type { getDocumentCatalogPage } from '@/lib/queries/catalog-pages'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
 import { PageFraming } from '@/components/ui/PageFraming'
 import { StatusLegend } from '@/components/visualization/StatusLegend'
 
-type DocumentRow = {
+export type DocumentRow = {
   id: string
   slug: string
   title: string
@@ -68,7 +71,7 @@ const MODE_LABELS: Record<SearchMode, string> = {
 }
 
 const MODE_DESCRIPTIONS: Record<SearchMode, string> = {
-  local: 'Filtrer pre-lastede dokumenter på tittel/forfatter/sammendrag/tags',
+  local: 'Søk i alle dokumenters tittel, forfatter, sammendrag og tags',
   fts: 'Postgres fulltekst-rangert søk i hele dokumentinnholdet',
 }
 
@@ -81,10 +84,6 @@ function highlightText(text: string, query: string) {
       ? <mark key={i} className="bg-yellow-200 text-yellow-900 rounded-sm px-0.5">{part}</mark>
       : part
   )
-}
-
-function uniqueSorted(values: (string | null | undefined)[]): string[] {
-  return [...new Set(values.filter((v): v is string => !!v))].sort()
 }
 
 function formatWordCount(n: number): string {
@@ -138,7 +137,7 @@ function LibraryAnalysisBadges({ analysis }: { analysis?: LibraryAnalysisBadge |
   )
 }
 
-export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
+export function BibliotekContent({ initial }: { initial: Awaited<ReturnType<typeof getDocumentCatalogPage>> }) {
   const [search, setSearch] = useState('')
   const [typeFilter, setTypeFilter] = useState('alle')
   const [categoryFilter, setCategoryFilter] = useState('alle')
@@ -177,7 +176,7 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
     let cancelled = false
     setApiLoading(true)
     setApiError(null)
-    fetch(`/api/search?q=${encodeURIComponent(debouncedSearch)}&limit=50&mode=keyword`)
+    fetch(`/api/search?q=${encodeURIComponent(debouncedSearch)}&limit=50&mode=keyword&types=document`)
       .then(async (res) => {
         const data = (await res.json()) as SearchApiResponse
         if (!res.ok) throw new Error(data.error ?? 'Søk er utilgjengelig akkurat nå')
@@ -199,27 +198,9 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
     }
   }, [debouncedSearch, searchMode])
 
-  const types = useMemo(() => uniqueSorted(documents.map(d => d.documentType)), [documents])
-  const categories = useMemo(() => uniqueSorted(documents.map(d => d.category)), [documents])
-  const countries = useMemo(() => uniqueSorted(documents.map(d => d.country)), [documents])
-
-  const filtered = useMemo(() => {
-    const q = debouncedSearch.toLowerCase()
-    return documents.filter(d => {
-      if (typeFilter !== 'alle' && d.documentType !== typeFilter) return false
-      if (categoryFilter !== 'alle' && d.category !== categoryFilter) return false
-      if (countryFilter !== 'alle' && d.country !== countryFilter) return false
-      if (q) {
-        const searchable = [d.title, d.slug, d.author, d.summary, ...d.tags].filter(Boolean).join(' ').toLowerCase()
-        if (!searchable.includes(q)) return false
-      }
-      return true
-    })
-  }, [documents, debouncedSearch, typeFilter, categoryFilter, countryFilter])
-
-  const pagination = useClientPagination(filtered, JSON.stringify([debouncedSearch, typeFilter, categoryFilter, countryFilter]))
-
-  const totalWords = useMemo(() => documents.reduce((sum, d) => sum + d.wordCount, 0), [documents])
+  const pagination = useServerPagination('documents', initial, { q: searchMode === 'local' ? debouncedSearch : '', type: typeFilter, category: categoryFilter, country: countryFilter })
+  const { types, categories, countries } = pagination.facets
+  const { totalWords } = pagination.stats
 
   const toggleExpand = useCallback(async (id: string) => {
     setExpandedIds(prev => {
@@ -259,7 +240,7 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
             Dokumentleser — fulltekst og søk i nedlastede dokumenter
           </p>
           <p className="text-sm text-stone-400 mt-1">
-            {documents.length} forskningsdokumenter · {formatWordCount(totalWords)} totalt
+            {pagination.stats.total} forskningsdokumenter · {formatWordCount(totalWords)} totalt
           </p>
         </div>
       </div>
@@ -271,7 +252,7 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
           'Den er kontrollflate for fulltekst, metadata, filtrering og dokumentkoblinger før funn brukes utenfor biblioteket.',
         ]}
         takeaways={[
-          'Raskt søk filtrerer pre-lastede dokumenter; Fulltekst-søket søker i dokumentinnhold når serverlaget svarer.',
+          'Raskt søk søker i dokumentenes metadata på serveren; Fulltekst-søket søker i dokumentinnhold når serverlaget svarer.',
           'Hvert dokument kan åpnes for sammendrag, innhold og relasjoner til andre dokumenter.',
           'Biblioteket er inngang til kildekontroll, ikke alene en vurdering av claim-styrke.',
         ]}
@@ -359,11 +340,12 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
           results={apiResults}
           loading={apiLoading}
         />
-      ) : filtered.length === 0 ? (
+      ) : !pagination.loading && !pagination.error && pagination.total === 0 ? (
         <EmptyState message="Ingen dokumenter matcher filteret" />
       ) : (
         <div className="space-y-2">
-          <ClientPagination {...pagination} />
+          <CatalogRequestStatus {...pagination} />
+          {!pagination.loading && !pagination.error && <ClientPagination {...pagination} />}
           {pagination.rows.map(doc => {
             const isExpanded = expandedIds.has(doc.id)
             const loaded = loadedDocs.get(doc.id)
@@ -521,7 +503,7 @@ function ApiResultsView({ query, results, loading }: ApiResultsViewProps) {
   return (
     <div className="space-y-2">
       <p className="text-xs text-stone-400">
-        {results.length} dokumenter
+        {results.length >= 50 ? 'Viser de første 50 dokumenttreffene. Avgrens søket for mer presise treff.' : `${results.length} dokumenter`}
       </p>
       {results.map((r) => (
         <Card key={r.id} className="!p-0">

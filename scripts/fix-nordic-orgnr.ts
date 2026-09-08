@@ -126,6 +126,8 @@ async function addCityGross() {
   await prisma.companyFinancial.upsert({
     where: { companyId_year: { companyId: cityGross.id, year: 2025 } },
     update: {
+      amountCurrency: 'SEK', unitScale: 1_000_000, reportingCurrency: 'SEK',
+      fxRateNokPerUnit: null, fxRateSource: null, ebitda: null,
       revenueNok: 8898,
       operatingResult: -192,
       operatingMargin: -2.2,
@@ -133,6 +135,8 @@ async function addCityGross() {
       source: 'Axfood City Gross key figures 2025. SEK 8,898M net sales; SEK -192M operating profit; 1 SEK ≈ 1.00 NOK',
     },
     create: {
+      amountCurrency: 'SEK', unitScale: 1_000_000, reportingCurrency: 'SEK',
+      fxRateNokPerUnit: null, fxRateSource: null, ebitda: null,
       companyId: cityGross.id,
       year: 2025,
       revenueNok: 8898,
