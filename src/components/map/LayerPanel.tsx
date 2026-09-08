@@ -75,7 +75,7 @@ export default function LayerPanel() {
   const visibleCount = stores.filter(s => activeChains.includes(s.chainId)).length
 
   return (
-    <div className={`absolute top-4 left-4 z-[1000] ${mobileOpen ? 'w-56' : 'w-28'} sm:w-56 bg-white rounded-xl border border-stone-200/80 shadow-sm overflow-hidden`}>
+    <div className={`absolute top-4 left-4 z-[1100] ${mobileOpen ? 'w-56' : 'w-28'} sm:w-56 bg-white rounded-xl border border-stone-200/80 shadow-sm overflow-hidden`}>
       <button type="button" className="w-full p-3 text-left text-sm font-semibold sm:hidden" aria-expanded={mobileOpen} aria-controls="map-layer-options" onClick={() => setMobileOpen(!mobileOpen)}>{mobileOpen ? 'Lukk kartlag ×' : 'Kartlag +'}</button>
       <div id="map-layer-options" className={`${mobileOpen ? 'block' : 'hidden'} sm:block`}>
       <div className="p-4 border-b border-stone-100">

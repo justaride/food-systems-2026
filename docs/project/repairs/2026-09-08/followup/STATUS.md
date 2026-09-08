@@ -13,7 +13,7 @@ Denne pakken følger opp restlisten etter PR #397/#398. Produktrettingene nedenf
 | Semantisk søk | Fersk kontroll av konfigurasjon og indeks; nøkkelordsøk og dokumentavgrenset fulltekst kontrollert. | OPENAI_API_KEY mangler og 0 av 1615 produksjonsdokumenter har embeddings. Nøkkel og kontrollert indeksering kreves. |
 | Store lister | Serverfiltrering og avgrenset levering av 50 rader for bibliotek, aktører og kilder. Laste-/feiltilstand, avbrudd av foreldede forespørsler og nytt sidevalg ved filterskifte. | Kildeforeningen av database/dokument/backlog beregnes fortsatt på serveren. Fulltekstsøk viser maksimalt 50 treff og sier dette eksplisitt. |
 | Store konserntrær | Lesbar grunnstørrelse, zoom 75–200 %, rulling og valg av enkeltgren. Fullt navn tilgjengelig, tabell bevart. | Ingen kjente åpne feil i de kontrollerte interaksjonene. |
-| Mobilkart | Overskrift og land-/flytvalg flyttet til egen rad. Analysepaneler får tilgjengelig plass og rulling. Ekstra mobiloverløp på kildesiden rettet. | Kontrollert ved faktisk 390 CSS-piksler; øvrige enheter må fortsatt vurderes ved større designendringer. |
+| Mobilkart | Overskrift og land-/flytvalg flyttet til egen rad. Analysepaneler får tilgjengelig plass og rulling, fri zoomkontroll og en kartlagmeny som forblir klikkbar. Ekstra mobiloverløp på kildesiden rettet. | Kontrollert ved faktisk 390 CSS-piksler; øvrige enheter må fortsatt vurderes ved større designendringer. |
 | Mac-forsegling | Eksakt avvik isolert til llhttp-aliaset. Forseglingen er bevart. | Kontrollert ny runtime og ny autorisert forsegling. Det gamle manifestet forventer llhttp 9.4.2, mens maskinen peker på 9.4.3. |
 
 ## Regnskapskontroll
