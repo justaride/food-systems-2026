@@ -81,12 +81,14 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
   const konsernSlug = konsernRootOrgNr ? (KONSERN_REGISTRY[konsernRootOrgNr]?.slug ?? null) : null
 
   const latestFinancial = company.financials[0]
-  const latestRevenueNok = financialAmountToNok(latestFinancial?.revenueNok, latestFinancial)
-  const latestOperatingResultNok = financialAmountToNok(
+  const latestSourceIssue = latestFinancial ? financialSourceIssue(company.orgNr, latestFinancial) : null
+  const latestIssue = latestSourceIssue ?? financialUnitIssue(latestFinancial)
+  const latestRevenueNok = latestSourceIssue ? null : financialAmountToNok(latestFinancial?.revenueNok, latestFinancial)
+  const latestOperatingResultNok = latestSourceIssue ? null : financialAmountToNok(
     latestFinancial?.operatingResult,
     latestFinancial
   )
-  const latestEbitdaNok = financialAmountToNok(latestFinancial?.ebitda, latestFinancial)
+  const latestEbitdaNok = latestSourceIssue ? null : financialAmountToNok(latestFinancial?.ebitda, latestFinancial)
 
   return (
     <div className="space-y-6">
@@ -168,7 +170,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
       {latestFinancial && (
         <Card title="Regnskap">
           <p className="mb-3 text-xs text-stone-500">Beløp i NOK. Enhetsavstemming bekrefter ikke kildeinnholdet; eldre estimater og kildeavvik må kontrolleres før ekstern bruk.</p>
-          {financialUnitIssue(latestFinancial) && <p role="status" className="mb-3 text-sm text-amber-800">{financialUnitIssue(latestFinancial)}</p>}
+          {latestIssue && <p role="status" className="mb-3 text-sm text-amber-800">{latestIssue}</p>}
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Omsetning</p>
@@ -186,7 +188,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Driftsmargin</p>
               <p className="text-lg font-bold text-stone-900">
-                {formatPct(latestFinancial.operatingMargin)}
+                {formatPct(latestSourceIssue ? null : latestFinancial.operatingMargin)}
               </p>
             </div>
             <div>
