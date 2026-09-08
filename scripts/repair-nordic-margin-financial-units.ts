@@ -461,6 +461,7 @@ export async function runNordicMarginUnitRepair(argv: string[] = process.argv.sl
             where: { id: item.financial.id },
             data: {
               ...item.target.finalData,
+              amountCurrency: 'NOK',
               fiscalPeriodStart: item.target.finalData.fiscalPeriodStart
                 ? new Date(item.target.finalData.fiscalPeriodStart)
                 : null,

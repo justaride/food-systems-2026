@@ -6,7 +6,8 @@ import { getCompanyById, getResolvedCompanyId } from '@/lib/queries/companies'
 import { getCompanyTreeIds, resolveKonsernRootOrgNr, KONSERN_REGISTRY } from '@/lib/queries/ownership'
 import { getPersonKeysWithProfiles } from '@/lib/queries/persons'
 import { getInterlockSummaryForCompany } from '@/lib/queries/interlocks'
-import { financialAmountToNok } from '@/lib/queries/financial-units'
+import { financialAmountToNok, financialUnitIssue } from '@/lib/queries/financial-units'
+import { financialSourceIssue } from '@/lib/financial-source-issues'
 import { CompanyPropertiesPanel } from './CompanyPropertiesPanel'
 import { EntityNeighborhood } from '@/components/graph/EntityNeighborhood'
 import { Citation, type CitationViewModel } from '@/components/citations/Citation'
@@ -80,12 +81,12 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
   const konsernSlug = konsernRootOrgNr ? (KONSERN_REGISTRY[konsernRootOrgNr]?.slug ?? null) : null
 
   const latestFinancial = company.financials[0]
-  const latestRevenueNok = financialAmountToNok(latestFinancial?.revenueNok, latestFinancial?.source)
+  const latestRevenueNok = financialAmountToNok(latestFinancial?.revenueNok, latestFinancial)
   const latestOperatingResultNok = financialAmountToNok(
     latestFinancial?.operatingResult,
-    latestFinancial?.source
+    latestFinancial
   )
-  const latestEbitdaNok = financialAmountToNok(latestFinancial?.ebitda, latestFinancial?.source)
+  const latestEbitdaNok = financialAmountToNok(latestFinancial?.ebitda, latestFinancial)
 
   return (
     <div className="space-y-6">
@@ -166,6 +167,8 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
 
       {latestFinancial && (
         <Card title="Regnskap">
+          <p className="mb-3 text-xs text-stone-500">Beløp i NOK. Enhetsavstemming bekrefter ikke kildeinnholdet; eldre estimater og kildeavvik må kontrolleres før ekstern bruk.</p>
+          {financialUnitIssue(latestFinancial) && <p role="status" className="mb-3 text-sm text-amber-800">{financialUnitIssue(latestFinancial)}</p>}
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
             <div>
               <p className="text-xs text-stone-400 uppercase tracking-wider">Omsetning</p>
@@ -222,12 +225,14 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                 </thead>
                 <tbody>
                   {company.financials.map(f => {
-                    const revenueNok = financialAmountToNok(f.revenueNok, f.source)
-                    const operatingResultNok = financialAmountToNok(f.operatingResult, f.source)
-                    const ebitdaNok = financialAmountToNok(f.ebitda, f.source)
+                    const sourceIssue = financialSourceIssue(company.orgNr, f)
+                    const issue = sourceIssue ?? financialUnitIssue(f)
+                    const revenueNok = sourceIssue ? null : financialAmountToNok(f.revenueNok, f)
+                    const operatingResultNok = sourceIssue ? null : financialAmountToNok(f.operatingResult, f)
+                    const ebitdaNok = sourceIssue ? null : financialAmountToNok(f.ebitda, f)
                     return (
                       <tr key={f.id} className="border-b border-stone-100">
-                        <td className="py-2 text-stone-700">{f.year}</td>
+                        <td className="py-2 text-stone-700">{f.year}{issue && <span className="block max-w-48 text-amber-800">{issue}</span>}</td>
                         <td className="text-right py-2 text-stone-700 tabular-nums">
                           {formatNokBillions(revenueNok)}
                         </td>
@@ -235,7 +240,7 @@ export default async function SelskapPage({ params }: { params: Promise<{ id: st
                           {formatNokMillions(operatingResultNok)}
                         </td>
                         <td className="text-right py-2 text-stone-700 tabular-nums">
-                          {formatPct(f.operatingMargin)}
+                          {formatPct(sourceIssue ? null : f.operatingMargin)}
                         </td>
                         <td className="text-right py-2 text-stone-700 tabular-nums">
                           {formatNokMillions(ebitdaNok)}

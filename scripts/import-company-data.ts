@@ -1,3 +1,4 @@
+import { millionNokStorage } from '../src/lib/queries/financial-units'
 import 'dotenv/config'
 import { canonicalPersonKey as normalizePersonKey } from '../src/lib/person-key'
 import { PrismaClient } from '../src/generated/prisma/client'
@@ -1553,18 +1554,18 @@ async function main() {
       for (const f of c.financials) {
         await prisma.companyFinancial.upsert({
           where: { companyId_year: { companyId: company.id, year: f.year } },
-          update: {
+          update: { ...millionNokStorage,
             revenueNok: f.revenueNok,
-            operatingResult: f.operatingResult,
+            operatingResult: f.operatingResult ?? null,
             operatingMargin: f.operatingMargin,
             groupEmployees: f.groupEmployees,
             source: f.source,
           },
-          create: {
+          create: { ...millionNokStorage,
             companyId: company.id,
             year: f.year,
             revenueNok: f.revenueNok,
-            operatingResult: f.operatingResult,
+            operatingResult: f.operatingResult ?? null,
             operatingMargin: f.operatingMargin,
             groupEmployees: f.groupEmployees,
             source: f.source,

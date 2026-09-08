@@ -1,3 +1,4 @@
+import { wholeNokStorage } from '../src/lib/queries/financial-units'
 import 'dotenv/config'
 import { canonicalPersonKey as normalizePersonKey } from '../src/lib/person-key'
 import { PrismaClient } from '../src/generated/prisma/client'
@@ -190,8 +191,8 @@ async function importFinancials() {
     if (!companyId) continue
     await prisma.companyFinancial.upsert({
       where: { companyId_year: { companyId, year: f.year } },
-      update: { revenueNok: f.revenueNok, operatingResult: f.operatingResult, operatingMargin: f.operatingMargin, groupEmployees: f.groupEmployees, source: 'BAMA Gruppen Aarsrapport 2024 / web research 2026-03' },
-      create: { companyId, year: f.year, revenueNok: f.revenueNok, operatingResult: f.operatingResult, operatingMargin: f.operatingMargin, groupEmployees: f.groupEmployees, source: 'BAMA Gruppen Aarsrapport 2024 / web research 2026-03' },
+      update: { ...wholeNokStorage, revenueNok: f.revenueNok, operatingResult: f.operatingResult ?? null, operatingMargin: f.operatingMargin, groupEmployees: f.groupEmployees, source: 'BAMA Gruppen Aarsrapport 2024 / web research 2026-03' },
+      create: { ...wholeNokStorage, companyId, year: f.year, revenueNok: f.revenueNok, operatingResult: f.operatingResult ?? null, operatingMargin: f.operatingMargin, groupEmployees: f.groupEmployees, source: 'BAMA Gruppen Aarsrapport 2024 / web research 2026-03' },
     })
     console.log(`  ${f.name}: ${(f.revenueNok / 1e9).toFixed(1)}B NOK`)
     imported++

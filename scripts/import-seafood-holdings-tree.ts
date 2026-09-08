@@ -1,3 +1,4 @@
+import { wholeNokStorage } from '../src/lib/queries/financial-units'
 import 'dotenv/config'
 import { canonicalPersonKey as normalizePersonKey } from '../src/lib/person-key'
 import { PrismaClient } from '../src/generated/prisma/client'
@@ -95,8 +96,8 @@ async function importFinancials() {
   if (!companyId) return
   await prisma.companyFinancial.upsert({
     where: { companyId_year: { companyId, year: 2024 } },
-    update: { revenueNok: 35_366_000_000, operatingResult: 4_200_000_000, operatingMargin: 11.88, source: 'Austevoll Seafood Annual Report 2024 / web research 2026-03' },
-    create: { companyId, year: 2024, revenueNok: 35_366_000_000, operatingResult: 4_200_000_000, operatingMargin: 11.88, source: 'Austevoll Seafood Annual Report 2024 / web research 2026-03' },
+    update: { ...wholeNokStorage, revenueNok: 35_366_000_000, operatingResult: 4_200_000_000, operatingMargin: 11.88, source: 'Austevoll Seafood Annual Report 2024 / web research 2026-03' },
+    create: { ...wholeNokStorage, companyId, year: 2024, revenueNok: 35_366_000_000, operatingResult: 4_200_000_000, operatingMargin: 11.88, source: 'Austevoll Seafood Annual Report 2024 / web research 2026-03' },
   })
   console.log(`  Austevoll Seafood ASA: 35.4B NOK`)
 }

@@ -155,6 +155,7 @@ export function companyFinancialDataForRow(row: NordicFinancial2025Row) {
     operatingResult: row.operatingResult,
     operatingMargin: row.operatingMargin,
     reportingCurrency: row.reportingCurrency,
+    amountCurrency: 'NOK',
     unitScale: NOK_MILLION_UNIT_SCALE,
     amountUnitNote:
       row.reportingCurrency === 'NOK'

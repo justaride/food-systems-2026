@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useLayoutEffect, useMemo, useRef, useState } from 'react'
 import type { OwnershipTree } from '@/lib/queries/ownership'
 
 type Props = {
@@ -121,7 +122,15 @@ function nodeFillClass(isSynthetic?: boolean): string {
 }
 
 export function OwnershipTreeDiagram({ tree }: Props) {
-  const nodes = layoutTree(tree)
+  const [focusId, setFocusId] = useState(tree.rootId)
+  const [zoom, setZoom] = useState(1)
+  const viewport = useRef<HTMLDivElement>(null)
+  const nodes = useMemo(() => layoutTree({ ...tree, rootId: focusId }), [tree, focusId])
+  const focusX = nodes.find(n => n.id === focusId)?.x ?? 0
+  useLayoutEffect(() => {
+    const pane = viewport.current
+    if (pane) { pane.scrollLeft = (focusX + NODE_WIDTH / 2 + 10) * zoom - pane.clientWidth / 2; pane.scrollTop = 0 }
+  }, [focusX, focusId, zoom])
   const nodeById = new Map(nodes.map(n => [n.id, n]))
 
   if (nodes.length === 0) return null
@@ -178,6 +187,7 @@ export function OwnershipTreeDiagram({ tree }: Props) {
 
     const inner = (
       <g>
+        <title>{node.name} · {node.orgNr}</title>
         <rect
           x={node.x}
           y={node.y}
@@ -235,16 +245,31 @@ export function OwnershipTreeDiagram({ tree }: Props) {
   })
 
   return (
-    <div className="overflow-x-auto">
+    <div className="min-w-0 space-y-3">
+      <div className="flex flex-wrap items-end gap-2">
+        <label className="min-w-0 flex-1 text-xs text-stone-600">Utforsk del av konsernet
+          <select aria-label="Utforsk del av konsernet" value={focusId} onChange={e => setFocusId(e.target.value)} className="mt-1 block w-full min-w-0 rounded border bg-white px-3 py-2 text-sm text-stone-900">
+            {tree.nodes.map(n => <option key={n.id} value={n.id}>{n.name}</option>)}
+          </select>
+        </label>
+        <button aria-label="Zoom ut i konserntre" disabled={zoom <= 0.75} onClick={() => setZoom(z => Math.max(.75, z - .25))} className="rounded border px-3 py-2 disabled:opacity-40">−</button>
+        <span className="py-2 text-sm tabular-nums">{Math.round(zoom * 100)}%</span>
+        <button aria-label="Zoom inn i konserntre" disabled={zoom >= 2} onClick={() => setZoom(z => Math.min(2, z + .25))} className="rounded border px-3 py-2 disabled:opacity-40">+</button>
+        <button onClick={() => { setFocusId(tree.rootId); setZoom(1) }} className="rounded border px-3 py-2 text-sm">Hele konsernet</button>
+      </div>
+      <p className="text-xs text-stone-500">{nodes.length} av {tree.nodes.length} enheter. Rull i treet for å se mer, eller velg en gren. Klikk et selskap for detaljer.</p>
+      <div ref={viewport} tabIndex={0} role="region" aria-label="Konserntre, rull for å utforske" className="max-w-full overflow-auto rounded-lg border border-stone-100 bg-stone-50/50" style={{ height: Math.min(460, (svgHeight + 40) * zoom) }}>
       <svg
         viewBox={`-10 -10 ${svgWidth + 20} ${svgHeight + 20}`}
-        width="100%"
-        style={{ minWidth: Math.min(svgWidth, 400), maxHeight: 500 }}
+        width={(svgWidth + 20) * zoom}
+        height={(svgHeight + 20) * zoom}
+        style={{ maxWidth: 'none' }}
         className="block"
       >
         {edgeElements}
         {nodeElements}
       </svg>
+      </div>
     </div>
   )
 }

@@ -1021,7 +1021,9 @@ model CompanyFinancial {
   reportingCurrency  String?
   // unitScale: 1 = amount already in currency major units as stored;
   // 1000 = reported in thousands; 1000000 = millions (legacy MNOK rows).
-  // revenueNok/operatingResult remain the stored numeric fields; interpret with unitScale + reportingCurrency.
+  // amountCurrency describes the STORED amounts; reportingCurrency describes the source report.
+  // A null amountCurrency means that legacy storage has not been reconciled.
+  amountCurrency     String?
   unitScale          Int       @default(1)
   amountUnitNote     String? // optional human note; do not use for logic
   fxRateNokPerUnit   Decimal?  @db.Decimal(18, 8)

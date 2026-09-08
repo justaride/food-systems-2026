@@ -20,15 +20,17 @@ function sortActors<T extends { priorityTier: string | null; powerScore: number 
 }
 
 export async function getActors(opts?: {
+  ids?: string[]
   actorType?: string
   priorityTier?: string
   stance?: string
   country?: string
   query?: string
 }) {
-  const { actorType, priorityTier, stance, country, query } = opts ?? {}
+  const { ids, actorType, priorityTier, stance, country, query } = opts ?? {}
 
   const where = {
+    ...(ids && { id: { in: ids } }),
     ...(actorType && { actorType }),
     ...(priorityTier && { priorityTier }),
     ...(stance && { currentStance: stance }),

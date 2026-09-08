@@ -367,8 +367,14 @@ async function main() {
         }
 
         const dataRow = {
-          revenueNok: fin.revenueNok ?? undefined,
-          operatingResult: fin.operatingResult ?? undefined,
+          amountCurrency: fin.reportingCurrency,
+          unitScale: 1,
+          ebitda: null,
+          fxRateNokPerUnit: null,
+          fxRateSource: null,
+          amountUnitNote: null,
+          revenueNok: fin.revenueNok,
+          operatingResult: fin.operatingResult,
           operatingMargin: fin.operatingMargin ?? undefined,
           groupEmployees: company.employees ?? undefined,
           source: buildSourceString(company.orgNr, year, accessedAt),
