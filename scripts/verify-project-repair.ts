@@ -52,6 +52,8 @@ async function main() {
     const dossier = await getKonsernDossier(group.slug)
     assert.equal(dossier?.root.id, group.rootCompanyId)
     assert.equal(dossier?.metrics.totalRevenue, group.totalRevenue)
+    assert.equal(dossier?.metrics.treeSize, group.treeSize)
+    assert.equal(dossier?.metrics.daysSinceBrregRefresh, group.daysSinceBrregRefresh)
   }
   const persons = await getPersonProfiles()
   assert.ok(persons.length > 0)

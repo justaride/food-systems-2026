@@ -596,10 +596,10 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
     ownershipType: rootCompany.ownershipType,
     controllingOwner,
     metrics: {
-      treeSize: entry.metrics.treeSize as number,
+      treeSize: treeIds.length,
       totalRevenue,
       totalEmployees,
-      daysSinceBrregRefresh: (entry.metrics.daysSinceBrregRefresh ?? null) as number | null,
+      daysSinceBrregRefresh: rootCompany.lastBrregRefreshAt ? Math.max(0, Math.floor((Date.now() - rootCompany.lastBrregRefreshAt.getTime()) / 86_400_000)) : null,
     },
     coverage: {
       qualityScore: entry.qualityScore as number,

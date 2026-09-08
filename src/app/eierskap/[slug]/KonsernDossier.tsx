@@ -63,7 +63,7 @@ function fmtEmployees(n: number | null): string {
 }
 
 function fmtDaysSince(n: number | null): string {
-  if (n === null) return 'Aldri'
+  if (n === null) return 'Ikke registrert'
   if (n === 0) return 'I dag'
   if (n < 30) return `${n} dager siden`
   if (n < 365) return `${Math.floor(n / 30)} mnd siden`
