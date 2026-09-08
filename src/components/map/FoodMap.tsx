@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react'
 import L from 'leaflet'
+import { addBaseLayer } from '@/lib/map/base-layer'
 import 'leaflet/dist/leaflet.css'
 import { useMapContext } from '@/lib/map/MapContext'
 import {
@@ -128,12 +129,11 @@ export default function FoodMap() {
       zoom: countryConfig.zoom,
       minZoom: 4,
       maxZoom: 18,
-      zoomControl: true,
+      zoomControl: false,
     })
 
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OpenStreetMap &copy; CARTO',
-    }).addTo(map)
+    L.control.zoom({ position: 'bottomright' }).addTo(map)
+    addBaseLayer(map)
 
     markersRef.current = L.layerGroup().addTo(map)
     mapRef.current = map

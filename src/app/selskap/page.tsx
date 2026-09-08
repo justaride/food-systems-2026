@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { getCompanies } from '@/lib/queries/companies'
 import { financialAmountToNok } from '@/lib/queries/financial-units'
 import { SelskaperContent } from './SelskaperContent'
@@ -34,5 +35,5 @@ export default async function SelskaperPage({
     relationshipCount: c._count.relationshipsFrom + c._count.relationshipsTo,
   }))
 
-  return <SelskaperContent companies={rows} initialStages={initialStages} />
+  return <div className="space-y-4"><Link className="block text-sm text-emerald-800 underline" href="/selskap/avstemming">Selskapsavstemming: eldre identiteter og kontrollpunkter →</Link><SelskaperContent companies={rows} initialStages={initialStages} /></div>
 }

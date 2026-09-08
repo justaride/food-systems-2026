@@ -89,13 +89,14 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
             number={1}
             title="Markedsstruktur & makt"
             question="Hvor konsentrert er nordisk dagligvare?"
-            narrative="Norge har Nordens mest konsentrerte dagligvaremarked. Den kryssnasjonale butikkantall-proxyen gir HHI ~3445 (NO) mot Danmarks 2157; den citerbare omsetnings-HHI-en (Konkurransetilsynet 2024: NG 43,5/Coop 29,2/Rema 23,9/Bunnpris 3,3) er 3327 med CR3 96,6 %. Begge signaliserer høy markedsmakt hos få aktører."
-            researchStatus="primary_snapshot"
-            researchStatusDetail="Den viste HHI-en er butikkantall-proxy (chart-metrics parentHHI), brukt likt på tvers av land for sammenlignbarhet. Den autoritative omsetnings-HHI-en for Norge er 3327 (KT Dagligvarerapport 2024-25). Full nordisk paritet på omsetning gjenstår (B11 gap)."
+            narrative="Butikkregisteret gir en oversikt over kjeder og eiere. Flere land har ufullstendig eiertilknytning; derfor vises ikke HHI eller CR3 der ukjente eiere kan endre resultatet. En nordisk rangering krever sammenlignbare og fullstendige datagrunnlag."
+            researchStatus="local_research_needs_primary_check"
+            researchStatusDetail="Butikkantall er en proxy, ikke omsetningsandel. Ukjent eier er et dekningshull og telles ikke som ett konsern."
+
             takeaway={
               <KeyTakeaway
-                headline={`HHI ${hhiNo ?? '—'} (NO høyest) vs ${hhiDk ?? '—'} (DK lavest)`}
-                subline="Herfindahl-Hirschman-indeks for dagligvarekjeder"
+                headline={`HHI ${hhiNo ?? 'ikke beregnbar'} (NO) · ${hhiDk ?? 'ikke beregnbar'} (DK)`}
+                subline="Butikkantall etter eier; bare ved fullstendig eierdekning"
               />
             }
             charts={

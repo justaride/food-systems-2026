@@ -1,3 +1,4 @@
+import { isQuarantinedSource, SOURCE_QUARANTINE_MESSAGE } from '@/lib/source-quarantine'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getDocumentBySlug } from '@/lib/queries/documents'
@@ -98,8 +99,10 @@ export default async function DocumentDetailPage({ params }: Props) {
     ...doc.sourceCitations.map(mapSourceCitation),
     ...(doc.sourceDoc?.sourceCitations ?? []).map(mapSourceCitation),
   ]
-  const documentCitations =
-    storedCitations.length > 0
+  const quarantined = isQuarantinedSource(doc)
+  const documentCitations: CitationViewModel[] = quarantined
+    ? [{ label: 'Blokkert kildeidentitet', citationReadiness: 'blocked_unsourced', note: SOURCE_QUARANTINE_MESSAGE }]
+    : storedCitations.length > 0
       ? storedCitations
       : [
           fallbackCitation({
@@ -131,6 +134,8 @@ export default async function DocumentDetailPage({ params }: Props) {
         )}
         <p className="text-xs text-stone-400 mt-0.5">{formatWordCount(doc.wordCount)}</p>
       </div>
+
+      {quarantined && <div role="status" className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-900">{SOURCE_QUARANTINE_MESSAGE} Historikken er bevart; innholdet er stengt for bruk.</div>}
 
       {doc.tags.length > 0 && (
         <div className="flex gap-1.5 flex-wrap">
@@ -254,7 +259,7 @@ export default async function DocumentDetailPage({ params }: Props) {
         </Card>
       )}
 
-      {doc.thesis && (
+      {doc.thesis && !quarantined && (
         <Card title="Masteroppgave / PhD">
           <div className="space-y-2 text-sm">
             <div className="flex gap-2">

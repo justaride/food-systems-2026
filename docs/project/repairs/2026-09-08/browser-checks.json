@@ -1,0 +1,72 @@
+[
+  {
+    "path": "/kilder",
+    "elements": 1236,
+    "heading": "Kunnskapsgrunnlag",
+    "overflow": false,
+    "status": [
+      "1–50 av 1 661 · Side 1 av 34"
+    ],
+    "text": "INTERN ARBEIDSFLATE\n\nKilderegister og nedlastings-/kurasjonsstatus — internt arbeidsgrunnlag, ikke ferdig formidling. Tall og status kan endres.\n\nKunnskapsgrunnlag\n\nKILDEREGISTER — ALLE KILDER SOM LIGGER TIL GRUNN FOR ANALYSENE\n\nFull kildeoversikt for Food Systems 2026. Inkluderer både sporede kilder i databasen (252), dokumenter i biblioteket uten egen kilderegistrering (1150) og backlog-kilder fra 7 forskningsrunder (259 uregistrerte). Nedlastingsstatus spores internt.\n\nTOTAL\n1661\nDATABASE\n252\nDOKUMENT\n1150\nBACKLOG-ONLY\n259\nForskningsrunder\nA"
+  },
+  {
+    "path": "/bibliotek",
+    "elements": 1301,
+    "heading": "Bibliotek",
+    "overflow": false,
+    "status": [
+      "1–50 av 1 539 · Side 1 av 31"
+    ],
+    "text": "Bibliotek\n\nDOKUMENTLESER — FULLTEKST OG SØK I NEDLASTEDE DOKUMENTER\n\n1539 forskningsdokumenter · 5817.7k ord totalt\n\nHva svarer denne siden på?\n\nSiden svarer på hvilke dokumenter som finnes i det nedlastede kildegrunnlaget og hvor de kan leses videre.\n\nDen er kontrollflate for fulltekst, metadata, filtrering og dokumentkoblinger før funn brukes utenfor biblioteket.\n\nTRE NØKKELSVAR\n\nRaskt søk filtrerer pre-lastede dokumenter; Fulltekst-søket søker i dokumentinnhold når serverlaget svarer.\nHvert dokument kan åpnes for sammendrag, innhold og relas"
+  },
+  {
+    "path": "/aktorer",
+    "elements": 2439,
+    "heading": "Aktørkart",
+    "overflow": false,
+    "status": [
+      "1–50 av 1 636 · Side 1 av 33"
+    ],
+    "text": "INTERN ARBEIDSFLATE\n\nIntern interessent-/påvirkningsanalyse: stance, makt/interesse-score og «asks» er teamets arbeidsvurderinger, ikke eksterne fakta.\n\nAktørkart\n\nPrioritert aktøroversikt for TG-mobilisering. Kombinerer rolle, stance, power/interesse, konkrete asks og neste steg med dokumentgrunnlag og relasjoner.\n\nAKTØRER\n1636\nP1\n36\nKEY PLAYERS\n21\nMED ASK\n41\nSTATUSFORKLARINGER\nStance · Prioritet (P1–P3) · Researchstatus · Innsiktstype\nType: Alle\nbiogas-operator\nSivilsamfunn\ncluster\nSelskap\nRaadgiver\ncooperative\ncorporate\nDepartement\ndeposit-s"
+  },
+  {
+    "path": "/eierskap",
+    "elements": 445,
+    "heading": "Eierskap & konsernstrukturer",
+    "overflow": false,
+    "status": [],
+    "text": "INTERN ARBEIDSFLATE\n\nEierskap-kartlegging med datakvalitet-score og Brønnøysund-ferskhet — internt arbeidsgrunnlag, ikke en vurdering av selskapene.\n\nEierskap & konsernstrukturer\n\n13 sporede konserner · 158 selskapsforekomster i trærne (overlapp mulig) · 13 åpne datakvalitet-gap\n\nHva svarer denne siden på?\n\nSiden viser eierstruktur, konsern og maktkonsentrasjon i matsektoren — hvem som eier hva og hvor styreroller krysser.\n\nDen brukes til å forstå strukturell makt og konsentrasjon, ikke som påstand om ulovlig adferd.\n\nTRE NØKKELSVAR\n\nKonserntre"
+  },
+  {
+    "path": "/okonomi",
+    "elements": 5650,
+    "heading": "Finansielle trender",
+    "overflow": false,
+    "status": [],
+    "text": "Finansielle trender\n\nOmsetning, marginer og ansatte over tid\n\nRegnskapene kan omfatte både konsern og datterselskap, ulike år og geografier. De summeres ikke til en markedsstørrelse. Se identitetsavstemming og åpne kontrollpunkter.\n\n253 selskaper har regnskapsdata i databasen (av 335 totalt registrert). Se /selskap for full liste, /selskap?all=1 for alle 335 foretak, eller /eierskap for konsernstrukturer.\nSELSKAPER\n253\nDATAPUNKTER\n406\nTIDSROM\n2020–2025\nSUM PÅ TVERS AV KONSERN\nIkke avstemt\nMED TILSKUDD\n1\nTILSKUDD (SUM)\n283 MNOK\nMargin vs omsetni"
+  },
+  {
+    "path": "/forsyningskjede",
+    "elements": 1802,
+    "heading": "Forsyningskjede",
+    "overflow": false,
+    "status": [],
+    "text": "Forsyningskjede\n\nLeverandørkjeder, primærleveranser og forretningsrelasjoner\n\nHva svarer denne siden på?\n\nSiden viser hvordan produsenter, kjøpere, infrastruktur og returstrømmer er koblet i dagens interne kartlegging.\n\nDen skal skille observerte Norge-data fra kuraterte relasjoner, kandidater og proxy-modeller.\n\nTRE NØKKELSVAR\n\nPrimærflyt er Norge-observert registerdata og skal ikke generaliseres til hele Norden.\nNettverkskartet er en locator for relasjoner, dokumentkoblinger, konfidens og kildegrunnlag.\nImport, infrastruktur og returstrømmer "
+  },
+  {
+    "path": "/nordic",
+    "elements": 679,
+    "heading": "Nordic spine",
+    "overflow": false,
+    "status": [],
+    "text": "Nordic spine\n\nInternal C1–C3 comparison matrices with explicit hole labels. Values OR dated holes — no proxies.\n\nINTERNAL ONLY — GATE:INTERNAL\n\nNot for external publication. Partner tables remain blocked on IG-005. Holes are True-C gaps; do not fill with capacity proxies or invented population conversions.\n\nWhat does this page answer?\n\nShows the frozen Nordic spine cells country × indicator/flow for roadmap and phase-0 planning.\n\nEvery missing figure is labelled as a hole with reason — fail-closed, no silent blanks as “zero”.\n\nTRE NØKKELSVAR\n\nC"
+  },
+  {
+    "path": "/sammenligning",
+    "elements": 1432,
+    "heading": "Nordisk sammenligning",
+    "overflow": false,
+    "status": [],
+    "text": "Nordisk sammenligning\n\nMarkedsmakt, beredskap, verdikjede, sirkularitet og politikk på tvers av Norge, Sverige, Danmark, Finland og Island.\n\nKilder og metode: /metodikk\n\nHva svarer denne siden på?\n\nSiden setter de fem nordiske landene ved siden av hverandre på markedsmakt, beredskap, verdikjede, sirkularitet og politikk.\n\nDen skal gjøre forskjeller og metodegap synlige før tallene brukes i hvitbok eller beslutningsnotat.\n\nTRE NØKKELSVAR\n\nNorge leses mot nordiske referanser, men flere indikatorer bruker ulik kilde- og definisjonsbaseline.\nBolken"
+  }
+]

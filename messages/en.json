@@ -1,8 +1,9 @@
 {
   "header": { "appName": "Food Systems 2026", "appTagline": "NCH Transition Group", "menu": "Menu" },
-  "common": { "phase": "Phase", "deadline": "Deadline", "deadlineValue": "June 2026" },
+  "common": { "phase": "Phase", "deadline": "Deadline", "deadlineValue": "To be confirmed" },
   "language": { "switchAria": "Switch language" },
   "nav": {
+    "arbeidsko": { "name": "Work queue", "description": "Owners and next actions" },
     "internalBadge": "internal",
     "group": {
       "intern": "Internal", "selskap": "Companies & ownership", "matsystem": "Food system",

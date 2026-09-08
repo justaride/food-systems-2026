@@ -9,7 +9,6 @@ type CommoditySpec = {
   dataset: string
   unit: string
   buyerOrgNr?: string
-  buyerName: string
   orgNrColumn: string
   nameColumn: string
   kommuneColumn?: string
@@ -26,8 +25,6 @@ const SPECS: CommoditySpec[] = [
   {
     dataset: 'leveransedata-melk',
     unit: 'liter',
-    buyerOrgNr: '947942638',
-    buyerName: 'TINE SA',
     orgNrColumn: 'orgnr',
     nameColumn: 'navn',
     kommuneColumn: 'komnr',
@@ -40,8 +37,6 @@ const SPECS: CommoditySpec[] = [
   {
     dataset: 'leveransedata-egg',
     unit: 'kg',
-    buyerName: 'Nortura SA',
-    buyerOrgNr: '938752648',
     orgNrColumn: 'produsentorgnr.',
     nameColumn: 'produsentnavn',
     pathTemplate: standardPath('leveransedata-egg'),
@@ -50,8 +45,6 @@ const SPECS: CommoditySpec[] = [
   {
     dataset: 'leveransedata-korn',
     unit: 'kg',
-    buyerName: 'Felleskjøpet Agri SA',
-    buyerOrgNr: '911608103',
     orgNrColumn: 'orgnr',
     nameColumn: 'orgnr',
     kommuneColumn: 'komnr',
@@ -99,8 +92,6 @@ const SPECS: CommoditySpec[] = [
   {
     dataset: 'leveransedata-slakt',
     unit: 'kg',
-    buyerName: 'Nortura SA',
-    buyerOrgNr: '938752648',
     orgNrColumn: 'orgnr',
     nameColumn: 'navn',
     kommuneColumn: 'komnr',
@@ -225,9 +216,6 @@ async function importDataset(spec: CommoditySpec, year: number, dryRun: boolean,
 
   const entries = Array.from(aggregates.entries())
   const slice = limit ? entries.slice(0, limit) : entries
-  const buyer = spec.buyerOrgNr
-    ? await prisma.company.findUnique({ where: { orgNr: spec.buyerOrgNr } })
-    : null
 
   let written = 0
 
@@ -255,8 +243,10 @@ async function importDataset(spec: CommoditySpec, year: number, dryRun: boolean,
         create: {
           supplierProducerId: supplier.id,
           supplierOrgNr,
-          buyerId: buyer?.id,
-          buyerName: spec.buyerName,
+          buyerId: null,
+          buyerName: null,
+          buyerVerification: 'unverified',
+          buyerSourceUrl: null,
           commodity,
           year,
           quantity: qty,
@@ -267,8 +257,10 @@ async function importDataset(spec: CommoditySpec, year: number, dryRun: boolean,
         update: {
           quantity: qty,
           kommuneNr,
-          buyerId: buyer?.id,
-          buyerName: spec.buyerName,
+          buyerId: null,
+          buyerName: null,
+          buyerVerification: 'unverified',
+          buyerSourceUrl: null,
         },
       })
       written++

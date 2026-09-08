@@ -1,3 +1,4 @@
+import { isQuarantinedSource } from '@/lib/source-quarantine'
 import { prisma } from '@/lib/db'
 
 export async function getTheses(opts?: { tag?: string }) {
@@ -5,8 +6,9 @@ export async function getTheses(opts?: { tag?: string }) {
   const where = {
     ...(tag && { tags: { has: tag } }),
   }
-  return prisma.thesis.findMany({
+  const records = await prisma.thesis.findMany({
     where,
     orderBy: { year: 'desc' },
   })
+  return records.filter(record => !isQuarantinedSource(record))
 }

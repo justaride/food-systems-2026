@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-03T10:30:56.296Z",
+  "generated": "2026-09-08T15:57:59.546Z",
   "country": "se",
   "totalStores": 5049,
   "parentCompany": {
@@ -47,7 +47,9 @@
         "color": "#FF6900"
       }
     ],
-    "parentHHI": 2854
+    "parentHHI": null,
+    "cr3": null,
+    "knownSharePct": 57.41731035848683
   },
   "lorenzCurve": {
     "data": [

@@ -129,7 +129,7 @@ function getRevenueYoY(c: CompanyWithFinancials): number | null {
 function formatNokMillions(value: number): string {
   if (value >= 1e9) return `${(value / 1e9).toFixed(1)} mrd`
   if (value >= 1e6) return `${(value / 1e6).toFixed(0)} MNOK`
-  if (value > 0) return `${(value / 1e3).toFixed(0)} TNOK`
+  if (value !== 0) return `${(value / 1e3).toFixed(0)} TNOK`
   return '—'
 }
 
@@ -153,7 +153,7 @@ function getLatestFinancialPoint(
     year: latest.year,
     revenueNok: latest.revenueNok,
     marginPct: latest.operatingMargin,
-    operatingResultNok: latest.operatingResult ?? latest.revenueNok * (latest.operatingMargin / 100),
+    operatingResultNok: latest.operatingResult,
     subsidyNok: subsidySumsByCompany[c.id]?.totalAmountNok ?? 0,
   }
 }
@@ -287,7 +287,7 @@ export function OkonomiContent({
   const allYears = companies.flatMap(c => c.financials.map(f => f.year))
   const minYear = allYears.length > 0 ? Math.min(...allYears) : 0
   const maxYear = allYears.length > 0 ? Math.max(...allYears) : 0
-  const latestTotalRevenue = companies.reduce((sum, c) => sum + getLatestRevenue(c), 0)
+
   const companiesWithSubsidy = companies.filter(
     c => (subsidySumsByCompany[c.id]?.totalAmountNok ?? 0) > 0
   ).length
@@ -390,6 +390,7 @@ export function OkonomiContent({
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Finansielle trender</h1>
         <p className="text-sm text-stone-500 mt-1">Omsetning, marginer og ansatte over tid</p>
+        <p className="mt-3 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">Regnskapene kan omfatte både konsern og datterselskap, ulike år og geografier. De summeres ikke til en markedsstørrelse. <Link className="underline" href="/selskap/avstemming">Se identitetsavstemming og åpne kontrollpunkter</Link>.</p>
       </div>
 
       <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
@@ -433,9 +434,9 @@ export function OkonomiContent({
           </div>
         </div>
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
-          <div className="text-xs uppercase tracking-wider text-stone-400">Samlet omsetning</div>
+          <div className="text-xs uppercase tracking-wider text-stone-400">Sum på tvers av konsern</div>
           <div className="text-2xl font-bold text-stone-900">
-            {(latestTotalRevenue / 1e9).toFixed(0)} mrd
+            Ikke avstemt
           </div>
         </div>
         <div className="bg-white px-4 py-3 rounded-lg border border-stone-200 shadow-sm">
@@ -492,12 +493,10 @@ export function OkonomiContent({
         </div>
       </div>
 
-      <Card title="Konsentrasjon i omsetning/resultat">
+      <Card title="Regnskapsstørrelse per selskap">
         <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <p className="max-w-3xl text-xs leading-5 text-stone-500">
-            Treemapet viser de største selskapene etter valgt mål, pluss en samlet
-            øvrig-kategori. Driftsresultat bruker siste registrerte driftsresultat når
-            det finnes, ellers omsetning multiplisert med driftsmargin.
+            Absolutte regnskapstall per selskap fra siste tilgjengelige år. Selskapene kan inngå i samme konsern og er ikke uavhengige markedsandeler. Ingen øvrig-kategori eller systemtotal beregnes.
           </p>
           <div className="inline-flex w-fit rounded-lg border border-stone-200 bg-white p-0.5">
             {([
@@ -817,10 +816,11 @@ function MarginRevenueScatter({ points }: { points: LatestFinancialPoint[] }) {
     }
   }
 
+  // SVG needs stable serialized coordinates across Node and browser math engines.
   const xFor = (revenue: number) =>
-    padding.left + ((Math.log10(revenue) - logMin) / revenueRange) * plotWidth
+    Number((padding.left + ((Math.log10(revenue) - logMin) / revenueRange) * plotWidth).toFixed(3))
   const yFor = (margin: number) =>
-    padding.top + (1 - ((margin - minMargin) / marginRange)) * plotHeight
+    Number((padding.top + (1 - ((margin - minMargin) / marginRange)) * plotHeight).toFixed(3))
   const zeroY = yFor(0)
 
   return (
@@ -861,7 +861,7 @@ function MarginRevenueScatter({ points }: { points: LatestFinancialPoint[] }) {
               key={point.id}
               cx={x}
               cy={y}
-              r={radius}
+              r={Number(radius.toFixed(3))}
               fill={color}
               fillOpacity="0.72"
               stroke="#ffffff"
@@ -901,212 +901,17 @@ function MarginRevenueScatter({ points }: { points: LatestFinancialPoint[] }) {
 }
 
 function StageFinancialTile({ summary }: { summary: StageFinancialSummary }) {
-  const subsidyShare = summary.subsidySharePct ?? 0
-  const subsidyWidth = Math.max(2, Math.min(100, subsidyShare * 10))
-
-  return (
-    <div className="rounded-lg border border-stone-200 bg-white p-4 shadow-sm">
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="text-sm font-semibold text-stone-900">{labelStage(summary.stage)}</p>
-          <p className="text-xs text-stone-400">
-            {summary.companyCount.toLocaleString('nb-NO')} selskaper
-          </p>
-        </div>
-        <p className="text-right text-xs font-medium text-stone-500">
-          {summary.weightedMarginPct === null ? '—' : `${summary.weightedMarginPct.toFixed(1)}% margin`}
-        </p>
-      </div>
-      <div className="mt-4 grid grid-cols-2 gap-3 text-xs">
-        <div>
-          <p className="text-stone-400">Omsetning</p>
-          <p className="mt-1 font-semibold tabular-nums text-stone-900">
-            {formatNokMillions(summary.totalRevenueNok)}
-          </p>
-        </div>
-        <div>
-          <p className="text-stone-400">Tilskudd</p>
-          <p className="mt-1 font-semibold tabular-nums text-stone-900">
-            {summary.totalSubsidyNok > 0 ? formatNokMillions(summary.totalSubsidyNok) : '—'}
-          </p>
-        </div>
-      </div>
-      <div className="mt-3">
-        <div className="flex justify-between text-[10px] text-stone-400">
-          <span>Tilskudd / siste omsetning</span>
-          <span>{summary.subsidySharePct === null ? '—' : `${summary.subsidySharePct.toFixed(2)}%`}</span>
-        </div>
-        <div className="mt-1 h-1.5 overflow-hidden rounded-full bg-stone-100">
-          <div className="h-full rounded-full bg-emerald-600" style={{ width: `${subsidyWidth}%` }} />
-        </div>
-      </div>
-    </div>
-  )
+  return <div className="rounded-lg border border-stone-200 p-3 text-sm"><p className="font-semibold">{labelStage(summary.stage)}</p><p>{summary.companyCount} regnskapsenheter</p><p className="mt-1 text-xs text-stone-500">Samlet margin og omsetning utelates inntil konsernomfang er avstemt.</p></div>
 }
 
-type TreemapItem = {
-  id: string
-  label: string
-  value: number
-  stage: string
-}
-
-type TreemapRect = TreemapItem & {
-  x: number
-  y: number
-  width: number
-  height: number
-}
-
-function splitTreemap(
-  items: TreemapItem[],
-  x: number,
-  y: number,
-  width: number,
-  height: number,
-  vertical: boolean
-): TreemapRect[] {
-  if (items.length === 0) return []
-  if (items.length === 1) return [{ ...items[0], x, y, width, height }]
-
-  const total = items.reduce((sum, item) => sum + item.value, 0)
-  let running = 0
-  let splitIndex = 1
-  let bestDiff = Number.POSITIVE_INFINITY
-
-  for (let i = 1; i < items.length; i++) {
-    running += items[i - 1].value
-    const diff = Math.abs(total / 2 - running)
-    if (diff < bestDiff) {
-      bestDiff = diff
-      splitIndex = i
-    }
-  }
-
-  const first = items.slice(0, splitIndex)
-  const second = items.slice(splitIndex)
-  const firstTotal = first.reduce((sum, item) => sum + item.value, 0)
-  const ratio = total > 0 ? firstTotal / total : 0.5
-
-  if (vertical) {
-    const firstWidth = width * ratio
-    return [
-      ...splitTreemap(first, x, y, firstWidth, height, !vertical),
-      ...splitTreemap(second, x + firstWidth, y, width - firstWidth, height, !vertical),
-    ]
-  }
-
-  const firstHeight = height * ratio
-  return [
-    ...splitTreemap(first, x, y, width, firstHeight, !vertical),
-    ...splitTreemap(second, x, y + firstHeight, width, height - firstHeight, !vertical),
-  ]
-}
-
-function ConcentrationTreemap({
-  points,
-  metric,
-}: {
-  points: LatestFinancialPoint[]
-  metric: ConcentrationMetric
-}) {
-  const metricLabel = metric === 'revenue' ? 'omsetning' : 'driftsresultat'
-  const ranked = points
-    .map(point => ({
-      id: point.id,
-      label: point.name,
-      stage: point.stage,
-      value: metric === 'revenue' ? point.revenueNok : Math.max(0, point.operatingResultNok ?? 0),
-    }))
-    .filter(item => item.value > 0)
-    .sort((a, b) => b.value - a.value)
-
-  if (ranked.length === 0) {
-    return (
-      <div className="flex h-72 items-center justify-center rounded-lg border border-stone-200 bg-stone-50 text-sm text-stone-400">
-        Ingen positive verdier for valgt konsentrasjonsmål.
-      </div>
-    )
-  }
-
-  const visible = ranked.slice(0, 18)
-  const rest = ranked.slice(18)
-  const restValue = rest.reduce((sum, item) => sum + item.value, 0)
-  const items = restValue > 0
-    ? [...visible, { id: 'other', label: 'Øvrige selskaper', stage: 'unknown', value: restValue }]
-    : visible
-  const total = items.reduce((sum, item) => sum + item.value, 0)
-  const rects = splitTreemap(items, 0, 0, 100, 100, true)
-  const stagePalette = ['#047857', '#2563eb', '#dc2626', '#d97706', '#7c3aed', '#0891b2', '#78716c']
-  const stageColor = new Map<string, string>()
-
-  for (const item of items) {
-    if (!stageColor.has(item.stage)) {
-      stageColor.set(item.stage, stagePalette[stageColor.size % stagePalette.length])
-    }
-  }
-
-  return (
-    <div className="min-w-0">
-      <svg
-        viewBox="0 0 100 100"
-        role="img"
-        aria-label={`Treemap for konsentrasjon i ${metricLabel}`}
-        className="h-96 w-full rounded-lg border border-stone-200 bg-stone-50"
-        preserveAspectRatio="none"
-      >
-        {rects.map(rect => {
-          const share = total > 0 ? (rect.value / total) * 100 : 0
-          const showLabel = rect.width > 13 && rect.height > 9
-          const fill = stageColor.get(rect.stage) ?? '#78716c'
-
-          return (
-            <g key={rect.id}>
-              <rect
-                x={rect.x}
-                y={rect.y}
-                width={Math.max(0, rect.width)}
-                height={Math.max(0, rect.height)}
-                fill={fill}
-                fillOpacity={rect.id === 'other' ? 0.35 : 0.76}
-                stroke="#ffffff"
-                strokeWidth="0.45"
-              >
-                <title>
-                  {`${rect.label}: ${formatNokMillions(rect.value)} (${share.toFixed(1)}% av ${metricLabel})`}
-                </title>
-              </rect>
-              {showLabel && (
-                <>
-                  <text x={rect.x + 1.4} y={rect.y + 4.4} className="fill-white text-[2.8px] font-semibold">
-                    {rect.label.slice(0, 28)}
-                  </text>
-                  <text x={rect.x + 1.4} y={rect.y + 8.4} className="fill-white/85 text-[2.5px]">
-                    {share.toFixed(1)}% · {formatNokMillions(rect.value)}
-                  </text>
-                </>
-              )}
-            </g>
-          )
-        })}
-      </svg>
-      <div className="mt-3 grid gap-2 text-xs sm:grid-cols-2 lg:grid-cols-3">
-        {items.slice(0, 6).map(item => (
-          <div key={item.id} className="flex items-center justify-between gap-3 rounded border border-stone-200 bg-white px-3 py-2">
-            <span className="min-w-0 truncate text-stone-700">{item.label}</span>
-            <span className="shrink-0 tabular-nums text-stone-500">
-              {((item.value / total) * 100).toFixed(1)}%
-            </span>
-          </div>
-        ))}
-      </div>
-      {metric === 'operatingResult' && (
-        <p className="mt-3 text-xs leading-5 text-stone-400">
-          Selskaper med null eller negativt driftsresultat vises ikke i resultat-treemapet.
-        </p>
-      )}
-    </div>
-  )
+function ConcentrationTreemap({ points, metric }: { points: LatestFinancialPoint[]; metric: ConcentrationMetric }) {
+  const ranked = points.map(p => ({ ...p, value: metric === 'revenue' ? p.revenueNok : p.operatingResultNok }))
+    .filter((p): p is typeof p & { value: number } => p.value !== null).sort((a, b) => b.value - a.value).slice(0, 18)
+  const max = Math.max(1, ...ranked.map(p => Math.abs(p.value)))
+  return <ol className="space-y-3">{ranked.map(p => <li key={p.id}>
+    <div className="flex justify-between gap-3 text-sm"><Link href={`/selskap/${p.id}`} className="text-emerald-800 underline">{p.name}</Link><span>{formatNokMillions(p.value)} · {p.year}</span></div>
+    <div className="mt-1 h-2 bg-stone-100"><div className="h-2 bg-emerald-600" style={{ width: `${Math.abs(p.value) / max * 100}%` }} /></div>
+  </li>)}</ol>
 }
 
 function SubsidyMarginMatchedView({

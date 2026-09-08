@@ -11,6 +11,7 @@ type KonsernIndexRow = {
   slug: string
   rootCompanyId: string
   rootName: string
+  coverageCheckedAt: string
   qualityScore: number
   treeSize: number
   totalRevenue: number | null
@@ -35,7 +36,7 @@ function fmtRevenue(n: number | null): string {
 }
 
 function fmtDays(n: number | null): string {
-  if (n === null) return 'Aldri'
+  if (n === null) return 'Ikke registrert'
   if (n < 30) return `${n} dager siden`
   if (n < 365) return `${Math.floor(n / 30)} mnd siden`
   return `${Math.floor(n / 365)} år siden`
@@ -68,7 +69,7 @@ export function EierskapContent({ konserner }: { konserner: KonsernIndexRow[] })
       <div>
         <h1 className="text-2xl font-bold text-stone-900">Eierskap &amp; konsernstrukturer</h1>
         <p className="text-sm text-stone-400 mt-1">
-          {totals.konserner} sporede konserner · {totals.selskap} datterselskap kartlagt · {totals.gaps} åpne datakvalitet-gap
+          {totals.konserner} sporede konserner · {totals.selskap} selskapsforekomster i trærne (overlapp mulig) · {totals.gaps} åpne datakvalitet-gap
         </p>
       </div>
 
@@ -86,6 +87,7 @@ export function EierskapContent({ konserner }: { konserner: KonsernIndexRow[] })
         caveat="Internt kildegrunnlag med forbehold: bygger på register-/Brønnøysund-data med varierende ferskhet, og er ikke ekstern validering."
       />
 
+      <p className="text-xs text-stone-500">Datakvalitetsscore og gap er fra {konserner[0]?.coverageCheckedAt ?? 'udatert snapshot'}. Selskapskoblinger, regnskap og Brønnøysund-dato leses fra databasen.</p>
       <Card>
         <div className="flex gap-4 flex-wrap items-center">
           <input
@@ -113,7 +115,7 @@ export function EierskapContent({ konserner }: { konserner: KonsernIndexRow[] })
                 <th className="text-left px-3 py-2">Konsern</th>
                 <th className="text-left px-3 py-2">Kontr. eier</th>
                 <th className="text-right px-3 py-2">Selskap i tre</th>
-                <th className="text-right px-3 py-2">Omsetning</th>
+                <th className="text-right px-3 py-2">Rotens omsetning</th>
                 <th className="text-right px-3 py-2">M&amp;A</th>
                 <th className="text-center px-3 py-2" title="0–10: hvor komplett kartleggingen er, ikke en vurdering av selskapet.">Datakvalitet</th>
                 <th className="text-right px-3 py-2">Brreg</th>

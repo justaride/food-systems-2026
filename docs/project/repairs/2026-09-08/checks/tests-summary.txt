@@ -1,0 +1,39 @@
+✖ nested rehearsal receives the purpose-limited FD3 attestation without any source or admin URL (3699.718625ms)
+✖ nested rehearsal child rejects a wrong-purpose envelope or tampered inner runtime before private work (2664.730875ms)
+✖ rehashes the exact Node, dylib and loader-alias closure bound to the verified system runtime (1.771042ms)
+✖ logical-restore companion has a fixed allowlist and every preload pin is caller-authorized (2883.06625ms)
+✖ actual companion mode reports one safe trusted-entrypoint diagnostic before secret input (3283.374959ms)
+✖ attestation never executes a caller-PATH psql canary (2741.610458ms)
+✖ wrong companion preload pin stops in the builtins-only launcher (2685.9195ms)
+✖ trusted secret input is purpose-bound before the database child starts (2671.030791ms)
+✖ complete companion preload pins reach only the fixed attested child (2734.301542ms)
+✖ a committed receipt-pair journal refuses without database access and preserves the pair (2770.520917ms)
+✖ attest-only executes both strong runtime verifiers before project imports (2760.035708ms)
+✖ execution snapshot preserves attestation and the pinned minimal TSX config blocks a repo-root canary (2882.673458ms)
+✖ runs the database-free trusted probe child and reattests after child failure (31.547ms)
+✖ preflight verifies runtime, roots, evidence and unlinked capabilities without a database (3389.5255ms)
+✖ parent removes launcher and capabilities after a path-free child refusal (2849.768709ms)
+✖ harmless probe proves clean argv, copy-path/FD3 identity, unlinked FD4/FD5 and cleanup (2676.515917ms)
+ℹ tests 2604
+ℹ suites 284
+ℹ pass 2587
+ℹ fail 16
+ℹ skipped 1
+ℹ duration_ms 134269.093833
+✖ failing tests:
+test at tests/lib/database-logical-restore-companion.test.ts:9:29208
+test at tests/lib/database-logical-restore-companion.test.ts:9:33832
+test at tests/lib/node-runtime-closure.test.ts:2:3322
+test at tests/lib/source-registration-runtime-launcher.test.ts:3:4392
+test at tests/lib/source-registration-runtime-launcher.test.ts:8:1912
+test at tests/lib/source-registration-runtime-launcher.test.ts:8:3404
+test at tests/lib/source-registration-runtime-launcher.test.ts:8:4519
+test at tests/lib/source-registration-runtime-launcher.test.ts:8:5527
+test at tests/lib/source-registration-runtime-launcher.test.ts:8:6495
+test at tests/lib/source-registration-runtime-launcher.test.ts:8:7487
+test at tests/lib/source-registration-runtime-launcher.test.ts:10:2327
+test at tests/lib/source-registration-snapshot-loader-trust.test.ts:2:1553
+test at tests/lib/source-registration-trusted-entrypoint.test.ts:4:7668
+test at tests/lib/trusted-logical-restore-companion-bootstrap.test.ts:16:299
+test at tests/lib/trusted-logical-restore-companion-bootstrap.test.ts:16:1258
+test at tests/lib/trusted-logical-restore-companion-bootstrap.test.ts:16:2071

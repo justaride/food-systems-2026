@@ -1,3 +1,5 @@
+import { isQuarantinedSource } from '@/lib/source-quarantine'
+import { currentCompanyIdentityWhere } from '@/lib/company-identities'
 import { prisma } from '@/lib/db'
 import { actorRelationshipGraphEdge } from '@/lib/actor-relationship-graph'
 import { buildBoardMemberGraphArtifacts } from '@/lib/graph-board-members'
@@ -199,7 +201,7 @@ export async function getFullGraph(): Promise<GraphData> {
       where: { documentId: { not: null } },
       select: { id: true, title: true, tags: true, documentId: true },
     }),
-    prisma.company.findMany({ select: { id: true, name: true, orgNr: true } }),
+    prisma.company.findMany({ where: currentCompanyIdentityWhere, select: { id: true, name: true, orgNr: true } }),
   ])
 
   let actors: Array<{ id: string; slug: string; name: string; themeTags: string[]; companyId: string | null }> = []
@@ -290,7 +292,7 @@ export async function getFullGraph(): Promise<GraphData> {
   const nodes: GraphNode[] = [
     ...docs.map(d => ({
       id: d.id,
-      label: d.title,
+      label: isQuarantinedSource(d) ? 'Karantene: syntetisk oppgaveplassholder' : d.title,
       type: 'document' as const,
       tags: d.tags,
       href: `/bibliotek/${d.slug}`,
@@ -302,7 +304,7 @@ export async function getFullGraph(): Promise<GraphData> {
       tags: i.tags,
       href: `/innsikt#${i.id}`,
     })),
-    ...theses.map(t => ({
+    ...theses.filter(t => !isQuarantinedSource(t)).map(t => ({
       id: t.id,
       label: t.title,
       type: 'thesis' as const,

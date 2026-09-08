@@ -1,4 +1,5 @@
 import type { Thesis as ThesisRow, Report as ReportRow } from '@/generated/prisma/client'
+import { isQuarantinedSource } from './source-quarantine'
 
 const BIBTEX_SPECIAL = /[&%$#_{}~^]/g
 const SPECIAL_MAP: Record<string, string> = {
@@ -35,6 +36,7 @@ function resolveNonStandardId(doi: string): string {
 }
 
 export function thesisToBibtex(t: ThesisRow): string {
+  if (isQuarantinedSource(t)) return ''
   const entryType = t.degree === 'phd' ? 'phdthesis' : 'mastersthesis'
   const author = escapeBibtex(t.authors)
   const title = escapeBibtex(t.title)
@@ -60,6 +62,7 @@ export function thesisToBibtex(t: ThesisRow): string {
 }
 
 export function reportToBibtex(r: ReportRow): string {
+  if (isQuarantinedSource(r)) return ''
   const entryType = r.isbn ? 'book' : 'techreport'
   const author = r.author ? escapeBibtex(r.author) : null
   const institution = r.institution ? escapeBibtex(r.institution) : null
@@ -86,6 +89,8 @@ export function reportToBibtex(r: ReportRow): string {
 }
 
 export function generateBibtexFile(theses: ThesisRow[], reports: ReportRow[]): string {
+  theses = theses.filter(thesis => !isQuarantinedSource(thesis))
+  reports = reports.filter(report => !isQuarantinedSource(report))
   const now = new Date().toISOString()
   const header = [
     '% Food Systems 2026 --- Bibliography',

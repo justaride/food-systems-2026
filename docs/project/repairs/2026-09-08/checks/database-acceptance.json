@@ -1,0 +1,15 @@
+{
+  "producerCount": 55371,
+  "producerBeyondFirstPage": true,
+  "quarantineReadProjection": true,
+  "quarantineBibtexExport": true,
+  "quarantinedRows": 1,
+  "c3Holes": 20,
+  "legacyBuyersRemoved": true,
+  "deliveryCommodityCount": 14,
+  "financialCompanies": 253,
+  "validKonsernRoots": 13,
+  "consistentInterlockProfiles": 1642,
+  "actorFollowups": 68,
+  "totalWorkItems": 94
+}

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import L from 'leaflet'
+import { addBaseLayer } from '@/lib/map/base-layer'
 import 'leaflet/dist/leaflet.css'
 
 type PropertyFeature = {
@@ -64,12 +65,7 @@ export function PropertiesMap({ filter, className = 'h-[480px] w-full' }: Props)
       zoomControl: true,
       scrollWheelZoom: false,
     })
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 18,
-    }).addTo(map)
+    addBaseLayer(map)
     mapRef.current = map
     return () => {
       map.remove()

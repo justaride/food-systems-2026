@@ -244,6 +244,7 @@ export function ForsyningskjedeContent({
   const concentrationRows = useMemo(
     () =>
       deliveries.byCommodity
+        .filter(commodity => commodity.buyers.length > 0 && Math.abs(commodity.buyers.reduce((sum, buyer) => sum + buyer.quantity, 0) - commodity.totalQuantity) < 0.001)
         .map(commodity => {
           const topBuyer = commodity.buyers[0]
           const topThreeQuantity = commodity.buyers
@@ -420,11 +421,15 @@ export function ForsyningskjedeContent({
       <section id="primaerflyt" className="scroll-mt-6 space-y-4">
         <SectionHeader
           title="Primærflyt (Norge)"
-          description="Observerte leveranser fra norske primærprodusenter via Landbruksdirektoratet — ikke et nordisk lag. Lest per varegruppe og avtakertype."
-          researchStatus="validated"
-          researchStatusDetail="Leveransevolum-dataene er Norge-observert register-data (Landbruksdirektoratet); SE/DK/FI/IS har ingen ekvivalent serie."
+          description="Registrerte produsentmengder fra Landbruksdirektoratet, per varegruppe. Registeret dokumenterer ikke hvem som kjøper mengdene."
+          researchStatus="primary_snapshot"
+          researchStatusDetail="Produsentmengdene er registrert. Kjøperrelasjoner og kjøperkonsentrasjon krever separat kildebevis."
         />
 
+        <p className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+          Kjøper er ikke dokumentert for de importerte produsentmengdene. Tidligere kjøpertilordninger per varetype er trukket tilbake.
+          Kjøperkonsentrasjon vises bare når hele mengden har kildebelagt mottaker.
+        </p>
         {concentrationRows.length > 0 && (
           <Card title="Kjøperkonsentrasjon per varegruppe">
             <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,1.4fr)] gap-5">
@@ -503,9 +508,9 @@ export function ForsyningskjedeContent({
         )}
 
         {deliveries.totalDeliveryRows > 0 && (
-        <Card title={`Primærleveranser — ${deliveries.totalSuppliers.toLocaleString('no')} bønder leverer til ${deliveries.byCommodity.reduce((acc, c) => acc + c.buyers.length, 0)} avtagere`}>
+        <Card title={`Registrerte mengder — ${deliveries.totalSuppliers.toLocaleString('no')} produsenter`}>
           <p className="text-xs text-stone-500 mb-4">
-            Norge-observert: aggregert levering fra norske jordbruksforetak til grossister og foredlingsbedrifter
+            Norge: registrerte mengder fra norske jordbruksforetak
             for melk, egg, korn, slakt og ull (Landbruksdirektoratet, siste
             tilgjengelige år per varekategori). Tabellen har ikke ekvivalente serier for SE/DK/FI/IS og skal ikke leses som nordisk paritet.
           </p>
@@ -518,10 +523,11 @@ export function ForsyningskjedeContent({
                   <div className="flex items-baseline justify-between mb-1.5">
                     <div className="text-sm font-medium text-stone-800">{labels}</div>
                     <div className="text-xs text-stone-500">
-                      {formatQuantity(c.totalQuantity, c.unit)} · {c.supplierCount.toLocaleString('no')} leverandør-relasjoner
+                      {formatQuantity(c.totalQuantity, c.unit)} · {c.supplierCount.toLocaleString('no')} produsentoppføringer
                     </div>
                   </div>
                   <div className="space-y-1">
+                    {c.buyers.length === 0 && <p className="text-sm text-stone-500">Mottaker ukjent · ingen dokumentert kjøperfordeling</p>}
                     {c.buyers.slice(0, 5).map(b => {
                       const pct = (b.quantity / maxQty) * 100
                       return (
@@ -556,7 +562,7 @@ export function ForsyningskjedeContent({
             })}
           </div>
           <div className="mt-4 pt-3 border-t border-stone-100 text-xs text-stone-400">
-            Kilde: Landbruksdirektoratet leveransedata (NLOD). Merk at «leverandør-relasjoner»
+            Kilde: Landbruksdirektoratet leveransedata (NLOD). Merk at «produsentoppføringer»
             teller foretak-år-par — ett foretak som leverer fem forskjellige korntyper
             telles fem ganger innen korn.
           </div>

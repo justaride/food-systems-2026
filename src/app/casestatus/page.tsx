@@ -36,6 +36,7 @@ export default function CasestatusPage() {
         </Link>
       </div>
 
+      <Link href="/arbeidsko?kind=case" className="block rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900 underline">Gå til samlet caseoppfølging. Casegrunnlaget nedenfor er sist kontrollert {CASESTATUS_UPDATED} og krever ny kontroll før videre bruk.</Link>
       <InternalBanner note={CASESTATUS_RULE} />
 
       <PageFraming
@@ -46,8 +47,8 @@ export default function CasestatusPage() {
         ]}
         takeaways={[
           `${counts.kartlagt} av ${caseAnchors.length} ankre er kartlagt med tallgrunnlag; ${counts.delvis} er delvis kartlagt.`,
-          'Relasjonscasene (kaffe/kakao) venter kun på interne dokumenter — mer research avgjør dem ikke.',
-          'Kjernefunnet på tvers: avhengigheter og høyverdigap er nå tallfestet, ikke bare påstått.',
+          'Relasjonscasene krever dokumentasjon og navngitt avklaring før videre løft.',
+          'Tallgrunnlaget har ulik alder og modenhet. Kontroller hver kilde og blocker før en påstand gjenbrukes.',
         ]}
         caveat="Intern modenhetsstatus med forbehold: ingen claims er eksternt validert, ingen aktører er kontaktet, og tall merket internt tallgrunnlag re-trekkes autorisert før ekstern bruk."
       />

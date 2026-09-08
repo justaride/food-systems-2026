@@ -1,3 +1,4 @@
+import { parentConcentration } from '../src/lib/parent-concentration'
 import { readFileSync, writeFileSync, existsSync } from 'fs'
 import { join } from 'path'
 import { bbox as turfBbox, booleanPointInPolygon, point } from '@turf/turf'
@@ -291,10 +292,11 @@ function computeForCountry(countryCode: string) {
     }))
     .sort((a, b) => b.count - a.count)
 
-  const parentHHI = byParent.reduce((sum, p) => sum + p.value * p.value, 0)
+  const concentration = parentConcentration(byParent.map(p => ({ parent: p.id, count: p.count })))
+  const parentHHI = concentration.hhi
 
   console.log('Parent shares:', byParent.map(p => `${p.id}: ${p.value}% (${p.count})`).join(', '))
-  console.log('Parent HHI:', Math.round(parentHHI))
+  console.log('Parent HHI:', parentHHI ?? 'unknown owner coverage')
 
   const muniStoreData: Array<{ code: string; name: string; population: number; storeCount: number }> = []
 
@@ -384,7 +386,9 @@ function computeForCountry(countryCode: string) {
     totalStores: stores.length,
     parentCompany: {
       data: byParent,
-      parentHHI: Math.round(parentHHI),
+      parentHHI,
+      cr3: concentration.cr3,
+      knownSharePct: concentration.knownSharePct,
     },
     lorenzCurve: {
       data: lorenzCurve,
@@ -406,6 +410,14 @@ function computeForCountry(countryCode: string) {
   }
 
   const outPath = join(def.dataDir, 'chart-metrics.json')
+  // Preserve generation time when the result is unchanged, so builds do not
+  // invalidate source-ledger hashes merely by regenerating identical metrics.
+  if (existsSync(outPath)) {
+    const previous = JSON.parse(readFileSync(outPath, 'utf8'))
+    if (JSON.stringify({ ...previous, generated: null }) === JSON.stringify({ ...output, generated: null })) {
+      output.generated = previous.generated
+    }
+  }
   writeFileSync(outPath, JSON.stringify(output, null, 2))
   console.log(`Wrote ${outPath}`)
 }

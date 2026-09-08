@@ -1,3 +1,4 @@
+import { currentCompanyIdentityWhere } from '@/lib/company-identities'
 import { prisma } from '@/lib/db'
 import { financialAmountToNok } from '@/lib/queries/financial-units'
 import { isPrismaDataUnavailable } from './prisma-errors'
@@ -25,7 +26,7 @@ export type CompanyWithFinancials = {
 export async function getFinancialTrends(): Promise<CompanyWithFinancials[]> {
   try {
     const companies = await prisma.company.findMany({
-      where: { financials: { some: {} } },
+      where: { ...currentCompanyIdentityWhere, financials: { some: {} } },
       select: {
         id: true,
         name: true,
@@ -122,7 +123,7 @@ export async function getSubsidySumsByCompanyYear(): Promise<SubsidySumsByCompan
 
 export async function getTotalCompanyCount(): Promise<number> {
   try {
-    return await prisma.company.count()
+    return await prisma.company.count({ where: currentCompanyIdentityWhere })
   } catch (error) {
     if (isPrismaDataUnavailable(error)) return 0
     throw error

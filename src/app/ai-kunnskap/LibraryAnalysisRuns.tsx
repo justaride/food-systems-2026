@@ -17,7 +17,7 @@ export function LibraryAnalysisRuns({ groups }: Props) {
   if (groups.length === 0) {
     return (
       <div className="rounded-lg border border-stone-200 bg-white px-4 py-6 text-center text-xs text-stone-400">
-        Ingen modellkjøringer registrert. Kjør <code className="font-mono">research:library:analyse:apply</code> for å legge inn kandidater.
+        Ingen modellkjøringer er registrert. Kunnskapsansvarlig må følge opp kandidatbehandling og dokumentert review; køen over viser hvilket kildeunderlag som venter.
       </div>
     )
   }

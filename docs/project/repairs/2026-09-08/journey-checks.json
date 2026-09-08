@@ -1,0 +1,65 @@
+{
+  "environment": "Local app at http://localhost:3015 using isolated database foodsystems_repair_20260908_v2; not production",
+  "checks": [
+    {
+      "journey": "Producer search beyond the first page",
+      "result": "pass",
+      "detail": "An org.nr. sampled after row 50100 returns the matching producer; server count and result agree.",
+      "screenshot": "screenshots/producer-search-mobile.png"
+    },
+    {
+      "journey": "Bibliotek pagination and filter reset",
+      "result": "pass",
+      "detail": "Next showed 51–100 of 1539, Side 2 of 31. Search returned Side 1; after slug search was added, matsvinnloven returns 5 rows including the quarantine tombstone."
+    },
+    {
+      "journey": "AI source queue to document",
+      "result": "pass",
+      "detail": "Global matsvinnloven filter returns one blocked row. Its document link opens a tombstone with no author, no original content and blocked source status.",
+      "screenshot": "screenshots/source-quarantine.png"
+    },
+    {
+      "journey": "Mobile navigation",
+      "result": "pass",
+      "detail": "40 destinations, scrollable menu, link closes menu, Escape closes and returns focus.",
+      "screenshot": "screenshots/mobile-menu.png"
+    },
+    {
+      "journey": "Mobile map",
+      "result": "pass",
+      "detail": "10 loaded tiles, collapsible layers, bottom-right zoom and attribution; no horizontal overflow.",
+      "cssViewport": {
+        "width": 433,
+        "height": 937
+      },
+      "screenshot": "screenshots/map-mobile.png"
+    },
+    {
+      "journey": "Global keyword search",
+      "result": "pass",
+      "detail": "Yara returns one current company; unconfigured semantic/hybrid controls are disabled.",
+      "screenshot": "screenshots/search.png"
+    },
+    {
+      "journey": "Gap queue filter",
+      "result": "pass",
+      "detail": "IG-006 filter returns one existing gap with source owner and last-verified date."
+    },
+    {
+      "journey": "Actor follow-up queue to actor",
+      "result": "pass",
+      "detail": "68 actor follow-ups. Dagligvareleverand filter returns one task with registered owner Gabriel and the existing next action; link opens the corresponding actor profile with three document links.",
+      "screenshot": "screenshots/actor-followup.png"
+    },
+    {
+      "journey": "Desktop register layout",
+      "result": "pass",
+      "detail": "Kilder, bibliotek, aktorer, eierskap, okonomi, forsyningskjede, nordic and sammenligning loaded without horizontal overflow. DOM counts retained in browser-checks.json."
+    },
+    {
+      "journey": "Economy chart hydration",
+      "result": "pass",
+      "detail": "Observed server/browser Math.log10 rounding difference in SVG coordinates. Coordinates rounded to 3 decimals; a fresh page load produced no new error logs."
+    }
+  ]
+}

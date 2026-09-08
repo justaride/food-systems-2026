@@ -1,3 +1,4 @@
+import { currentCompanyIdentityWhere, resolvedCompanyOrgNr } from '@/lib/company-identities'
 import { prisma } from '@/lib/db'
 import { isMissingPrismaTable, isPrismaDataUnavailable } from './prisma-errors'
 
@@ -11,6 +12,7 @@ async function runCompanyQuery(opts: {
   const { valueChainStage, ownershipType, useExtendedRelations } = opts
 
   const where = {
+    ...currentCompanyIdentityWhere,
     ...(valueChainStage && { valueChainStage }),
     ...(ownershipType && { ownershipType }),
   }
@@ -240,4 +242,13 @@ export async function getInterlockingDirectorates() {
   }
 
   return interlocks
+}
+
+export async function getResolvedCompanyId(id: string): Promise<string> {
+  const stored = await prisma.company.findUnique({ where: { id }, select: { orgNr: true } })
+  if (!stored) return id
+  const orgNr = resolvedCompanyOrgNr(stored.orgNr)
+  if (orgNr === stored.orgNr) return id
+  const target = await prisma.company.findUnique({ where: { orgNr }, select: { id: true } })
+  return target?.id ?? id
 }

@@ -1,29 +1,12 @@
-'use client'
-
-import { useDeferredValue, useMemo, useState } from 'react'
 import Link from 'next/link'
+import { Pagination } from '@/components/ui/Pagination'
 import { Card } from '@/components/ui/Card'
 import { EmptyState } from '@/components/ui/EmptyState'
 import type { ProducerListRow } from '@/lib/queries/producers'
 
-export function ProdusenterContent({
-  producers,
-  total,
-}: {
-  producers: ProducerListRow[]
-  total: number
+export function ProdusenterContent({ producers, total, matches, page, pageSize, query }: {
+  producers: ProducerListRow[]; total: number; matches: number; page: number; pageSize: number; query: string
 }) {
-  const [query, setQuery] = useState('')
-  const deferredQuery = useDeferredValue(query)
-
-  const filtered = useMemo(() => {
-    if (!deferredQuery.trim()) return producers
-    const q = deferredQuery.toLowerCase()
-    return producers.filter(
-      p => p.name.toLowerCase().includes(q) || p.orgNr.includes(q)
-    )
-  }, [producers, deferredQuery])
-
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-12">
       <div>
@@ -46,23 +29,22 @@ export function ProdusenterContent({
       </div>
 
       <Card>
-        <div className="flex flex-wrap gap-2 items-center">
+        <form action="/produsenter" className="flex flex-wrap gap-2 items-center">
           <input
             type="text"
-            value={query}
-            onChange={e => setQuery(e.target.value)}
-            placeholder="Søk etter navn eller orgnr..."
-            aria-label="Søk etter navn eller orgnr"
+            name="q"
+            defaultValue={query}
+            key={query}
+            placeholder="Søk etter navn, orgnr eller kommune..."
+            aria-label="Søk etter navn, orgnr eller kommune"
             className="flex-1 min-w-[220px] px-3 py-1.5 rounded-lg border border-stone-200 bg-white text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
           />
-          <span className="text-xs text-stone-400">
-            {filtered.length} treff · søket filtrerer de {producers.length} viste av{' '}
-            {total.toLocaleString('no')}
-          </span>
-        </div>
+          <button className="rounded-lg bg-stone-900 px-4 py-2 text-sm text-white" type="submit">Søk i hele registeret</button>
+          {query && <Link href="/produsenter" className="text-sm underline">Nullstill</Link>}
+        </form>
       </Card>
 
-      {filtered.length === 0 ? (
+      {producers.length === 0 ? (
         <EmptyState
           message={
             query.trim() === ''
@@ -84,9 +66,9 @@ export function ProdusenterContent({
                 </tr>
               </thead>
               <tbody className="divide-y divide-stone-100">
-                {filtered.map(p => (
+                {producers.map(p => (
                   <tr key={p.id} className="hover:bg-stone-50">
-                    <td className="py-2 pr-4 text-stone-900 font-medium">{p.name}</td>
+                    <td className="py-2 pr-4 text-stone-900 font-medium">{p.name === p.orgNr ? 'Navn ikke registrert' : p.name}</td>
                     <td className="py-2 pr-4 font-mono text-xs text-stone-500">{p.orgNr}</td>
                     <td className="py-2 pr-4 text-stone-600">{p.municipality ?? '—'}</td>
                     <td className="py-2 pr-4 text-right text-stone-600">
@@ -103,12 +85,7 @@ export function ProdusenterContent({
         </Card>
       )}
 
-      {producers.length < total && query.trim() === '' && (
-        <p className="text-xs text-stone-400 text-center">
-          Viser de første {producers.length.toLocaleString('no')} av{' '}
-          {total.toLocaleString('no')} produsenter i registeret.
-        </p>
-      )}
+      <Pagination path="/produsenter" page={page} pageSize={pageSize} total={matches} filters={{ q: query }} />
     </div>
   )
 }

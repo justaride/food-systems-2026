@@ -1,5 +1,7 @@
 'use client'
 
+import { ClientPagination, useClientPagination } from '@/components/ui/ClientPagination'
+
 import { useState } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
@@ -159,6 +161,8 @@ export function KilderContent({
       src.backlogTheme?.toLowerCase().includes(q)
     return matchesType && matchesStatus && matchesRound && matchesOrigin && matchesSearch
   })
+
+  const pagination = useClientPagination(filteredSources, JSON.stringify([search, filter, statusFilter, roundFilter, originFilter]))
 
   const statusStats = Object.fromEntries(
     sourceDownloadStatuses.map((status) => [
@@ -375,7 +379,7 @@ export function KilderContent({
 
       {filter === 'nou' || filter === 'analyse' ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSources.map((src) => {
+          {pagination.rows.map((src) => {
             const dot = statusDot(src.downloadStatus)
             return (
               <Card
@@ -464,7 +468,7 @@ export function KilderContent({
                 </tr>
               </thead>
               <tbody className="divide-y divide-stone-100">
-                {filteredSources.map((src) => {
+                {pagination.rows.map((src) => {
                   const dot = statusDot(src.downloadStatus)
                   return (
                     <tr
@@ -570,6 +574,7 @@ export function KilderContent({
         </Card>
       )}
 
+      <ClientPagination {...pagination} />
       {filteredSources.length === 0 && (
         <div className="text-center py-20 bg-stone-50 rounded-2xl border-2 border-dashed border-stone-200">
           <div className="text-stone-400 mb-2">Ingen kilder matchet søket ditt.</div>

@@ -17,7 +17,9 @@ export type ChartMetrics = {
   totalStores: number
   parentCompany: {
     data: ParentCompanyData[]
-    parentHHI: number
+    parentHHI: number | null
+    knownSharePct: number
+    cr3: number | null
   }
   lorenzCurve: {
     data: Array<{ popShare: number; storeShare: number }>

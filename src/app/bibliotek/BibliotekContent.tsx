@@ -1,5 +1,7 @@
 'use client'
 
+import { ClientPagination, useClientPagination } from '@/components/ui/ClientPagination'
+
 import { useState, useMemo, useCallback, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
@@ -208,12 +210,14 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
       if (categoryFilter !== 'alle' && d.category !== categoryFilter) return false
       if (countryFilter !== 'alle' && d.country !== countryFilter) return false
       if (q) {
-        const searchable = [d.title, d.author, d.summary, ...d.tags].filter(Boolean).join(' ').toLowerCase()
+        const searchable = [d.title, d.slug, d.author, d.summary, ...d.tags].filter(Boolean).join(' ').toLowerCase()
         if (!searchable.includes(q)) return false
       }
       return true
     })
   }, [documents, debouncedSearch, typeFilter, categoryFilter, countryFilter])
+
+  const pagination = useClientPagination(filtered, JSON.stringify([debouncedSearch, typeFilter, categoryFilter, countryFilter]))
 
   const totalWords = useMemo(() => documents.reduce((sum, d) => sum + d.wordCount, 0), [documents])
 
@@ -359,8 +363,8 @@ export function BibliotekContent({ documents }: { documents: DocumentRow[] }) {
         <EmptyState message="Ingen dokumenter matcher filteret" />
       ) : (
         <div className="space-y-2">
-          <p className="text-xs text-stone-400">{filtered.length} dokumenter</p>
-          {filtered.map(doc => {
+          <ClientPagination {...pagination} />
+          {pagination.rows.map(doc => {
             const isExpanded = expandedIds.has(doc.id)
             const loaded = loadedDocs.get(doc.id)
             const isLoading = loadingIds.has(doc.id)

@@ -200,11 +200,11 @@ export function KonsernDossier({ dossier }: Props) {
             value={metrics.treeSize.toString()}
           />
           <StatBox
-            label="Sum omsetning"
+            label="Omsetning i rotens regnskap"
             value={fmtRevenueMNok(metrics.totalRevenue)}
           />
           <StatBox
-            label="Sum ansatte"
+            label="Ansatte i rotens regnskap"
             value={fmtEmployees(metrics.totalEmployees)}
           />
           <StatBox

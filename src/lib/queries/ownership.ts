@@ -310,6 +310,7 @@ type KonsernIndexRow = {
   slug: string
   rootCompanyId: string
   rootName: string
+  coverageCheckedAt: string
   qualityScore: number
   treeSize: number
   totalRevenue: number | null
@@ -333,10 +334,14 @@ export async function getKonsernIndex(): Promise<KonsernIndexRow[]> {
   const coverage = loadCoverage()
   const rows: KonsernIndexRow[] = []
   for (const entry of coverage.entries) {
-    const treeIds = await gatherTreeIds(entry.rootCompanyId)
+    const orgNr = orgNrForSlug(entry.slug)
+    if (!orgNr) continue
+    const root = await prisma.company.findUnique({ where: { orgNr }, select: { id: true, name: true, lastBrregRefreshAt: true } })
+    if (!root) continue
+    const treeIds = await gatherTreeIds(root.id)
     const currentYear = new Date().getFullYear()
     const financials = await prisma.companyFinancial.findMany({
-      where: { companyId: { in: treeIds }, year: { gte: currentYear - 6 } },
+      where: { companyId: root.id, year: { gte: currentYear - 6 } },
       select: { companyId: true, year: true, revenueNok: true, source: true },
       orderBy: { year: 'desc' },
     })
@@ -356,13 +361,14 @@ export async function getKonsernIndex(): Promise<KonsernIndexRow[]> {
     )
     rows.push({
       slug: entry.slug,
-      rootCompanyId: entry.rootCompanyId,
-      rootName: entry.rootName,
+      rootCompanyId: root.id,
+      rootName: root.name,
+      coverageCheckedAt: String(coverage.generatedAt).slice(0, 10),
       qualityScore: entry.qualityScore,
-      treeSize: entry.metrics.treeSize,
+      treeSize: treeIds.length,
       totalRevenue,
       maEventsCount: entry.metrics.maEventCount,
-      daysSinceBrregRefresh: entry.metrics.daysSinceBrregRefresh,
+      daysSinceBrregRefresh: root.lastBrregRefreshAt ? Math.max(0, Math.floor((Date.now() - root.lastBrregRefreshAt.getTime()) / 86_400_000)) : null,
       controllingOwner: entry.controllingOwner ? {
         name: entry.controllingOwner.name,
         pct: entry.controllingOwner.pct != null ? parseFloat(entry.controllingOwner.pct) : null,
@@ -454,7 +460,7 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
         shareholders: { where: { isControlling: true }, select: { name: true, ownershipPct: true } },
       },
     }),
-    getKonsernFinancials(treeIds),
+    getKonsernFinancials(treeIds, rootCompany.id),
     getKonsernBoard(treeIds),
     getKonsernSubsidies(treeIds),
     getKonsernProperties(treeIds),
@@ -470,12 +476,12 @@ export async function getKonsernDossier(slug: string): Promise<KonsernDossierDat
   }
   const financials = [...financialsByCompany.values()]
 
-  const totalRevenue = financials.reduce<number | null>((acc, f) => {
+  const totalRevenue = financials.filter(f => f.companyId === rootCompany.id).reduce<number | null>((acc, f) => {
     const nok = financialAmountToNok(f.revenueNok, f.source)
     return nok != null ? (acc ?? 0) + nok : acc
   }, null)
 
-  const totalEmployees = financials.reduce<number | null>((acc, f) => {
+  const totalEmployees = financials.filter(f => f.companyId === rootCompany.id).reduce<number | null>((acc, f) => {
     return f.groupEmployees != null ? (acc ?? 0) + f.groupEmployees : acc
   }, null)
 

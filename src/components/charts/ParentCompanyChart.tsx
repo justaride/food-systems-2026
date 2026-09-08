@@ -11,19 +11,19 @@ export function ParentCompanyChart({ country = 'no' }: { country?: string }) {
   if (isLoading || !data) {
     return (
       <Card>
-        <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Eierkonsentrasjon (2024)</h3>
+        <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Eierfordeling i butikkregisteret</h3>
         <div className="h-[220px] flex items-center justify-center text-xs text-stone-400">Laster...</div>
       </Card>
     )
   }
 
-  const { data: chartData, parentHHI } = data.parentCompany
+  const { data: chartData, parentHHI, knownSharePct } = data.parentCompany
 
   return (
     <Card>
-      <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Eierkonsentrasjon (2024)</h3>
-      <p className="text-xs text-stone-400 mb-1">Butikkandel etter morselskap &middot; HHI &asymp; {parentHHI.toLocaleString()}</p>
-      <p className="text-[10px] text-stone-400 mb-3">Omsetningsandel: NG ~44%, Coop ~29%, Reitan ~23%, Bunnpris ~4% (Dagligvarerapporten 2024)</p>
+      <h3 className="text-sm font-semibold text-stone-700 mb-0.5">Eierfordeling i butikkregisteret</h3>
+      <p className="text-xs text-stone-400 mb-1">Butikkandel etter morselskap &middot; {parentHHI == null ? `HHI utelatt: ${knownSharePct.toFixed(1)} % har kjent eier` : `HHI ≈ ${parentHHI.toLocaleString('nb-NO')}`}</p>
+      <p className="text-[10px] text-stone-500 mb-3">Ukjent eier er en udekket gruppe. Butikkandeler må ikke brukes som omsetningsandeler.</p>
       <div className="h-[220px]">
         <ResponsivePie
           data={chartData}
@@ -65,7 +65,7 @@ export function ParentCompanyChart({ country = 'no' }: { country?: string }) {
           }}
         />
       </div>
-      <ChartSource source="Kilde: OSM/Overpass butikkdata 2024 (n=3 849)" />
+      <ChartSource source={`Kilde: OSM/Overpass butikkregister · ${data.totalStores.toLocaleString('nb-NO')} butikker`} />
     </Card>
   )
 }

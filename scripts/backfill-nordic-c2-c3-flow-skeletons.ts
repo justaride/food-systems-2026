@@ -5,7 +5,7 @@
  * - dry-run default (no writes)
  * - --apply upserts FlowCell rows via metadata.pass + keys (no unique constraint)
  * - C2: never invent sludge quantities from AquacultureSite capacity
- * - C3: fill edge1 only from absolute foodWaste tonnes (Totalt / SE retail+consumer); never per-capita→national
+ * - C3: preserve collection holes; waste-generation statistics are context, never collection measurements
  * - internal / gate:internal only
  */
 
@@ -25,7 +25,7 @@ export const C2_SYSTEM_BOUNDARY =
   'Marine/land aquaculture production sites → sludge/residue generation → collection → treatment / land application / other sink. Feed and harvested biomass out of scope for this skeleton.'
 
 export const C3_SYSTEM_BOUNDARY =
-  'Household + municipal food-waste collection → biogas / AD → digestate → land application. Industrial food-waste only if the national series cannot separate — then flagged in metadata.'
+  'Household + municipal food-waste collection → biogas / AD → digestate → land application. Waste generation and industrial/retail totals are outside the collection boundary.'
 
 const C2_EDGES = [
   { fromNode: 'aquaculture_site', toNode: 'sludge_generated' },
@@ -165,96 +165,18 @@ export function planC3Flows(metrics: MetricRow[]): PlannedFlow[] {
 }
 
 function resolveC3Edge1(country: string, rows: MetricRow[]): PlannedFlow {
-  // Prefer absolute Totalt foodWaste (NO).
-  const totalt = rows
-    .filter(
-      (r) =>
-        r.metricType === 'foodWaste' &&
-        r.category.trim().toLocaleLowerCase('nb-NO') === 'totalt',
-    )
-    .map((r) => ({ ...r, y: parseYear(r.year), v: num(r.value) }))
-    .filter((r) => r.y != null && r.v != null) as Array<MetricRow & { y: number; v: number }>
-  totalt.sort((a, b) => b.y - a.y)
-  const bestTotalt = totalt[0]
-  if (bestTotalt) {
-    return {
-      cellId: C3_CELL_ID,
-      country,
-      year: bestTotalt.y,
-      substance: 'mass',
-      fromNode: 'household_municipal_waste',
-      toNode: 'collection',
-      quantity: bestTotalt.v,
-      unit: 't',
-      quality: 'measured',
-      systemBoundary: C3_SYSTEM_BOUNDARY,
-      holeReason: null,
-      metadata: {
-        pass: C3_PASS,
-        sourceMetricType: 'foodWaste',
-        sourceCategory: bestTotalt.category,
-        source: bestTotalt.source,
-        sourceYearLabel: bestTotalt.year,
-        sourceUnit: bestTotalt.unit,
-        methodNote:
-          'CountryMetric foodWaste Totalt as absolute tonnes. Totalt may include industry/other stages if the national series cannot separate household+municipal only.',
-      },
-    }
-  }
-
-  // SE retail+consumer stage absolute total (not full national Totalt / not full AD feedstock).
-  const seRetail = rows
-    .filter(
-      (r) =>
-        r.metricType === 'foodWaste' &&
-        r.category === 'retailAndConsumerStageTotal',
-    )
-    .map((r) => ({ ...r, y: parseYear(r.year), v: num(r.value) }))
-    .filter((r) => r.y != null && r.v != null) as Array<MetricRow & { y: number; v: number }>
-  seRetail.sort((a, b) => b.y - a.y)
-  const bestSe = seRetail[0]
-  if (bestSe) {
-    const scopeNote =
-      'retailAndConsumerStageTotal — retail+consumer stage only (not full AD feedstock / not national Totalt).'
-    return {
-      cellId: C3_CELL_ID,
-      country,
-      year: bestSe.y,
-      substance: 'mass',
-      fromNode: 'household_municipal_waste',
-      toNode: 'collection',
-      quantity: bestSe.v,
-      unit: 't',
-      quality: 'measured',
-      systemBoundary: C3_SYSTEM_BOUNDARY,
-      holeReason: scopeNote,
-      metadata: {
-        pass: C3_PASS,
-        sourceMetricType: 'foodWaste',
-        sourceCategory: bestSe.category,
-        source: bestSe.source,
-        sourceYearLabel: bestSe.year,
-        sourceUnit: bestSe.unit,
-        scopeNote,
-        methodNote: scopeNote,
-      },
-    }
-  }
-
   return {
-    cellId: C3_CELL_ID,
-    country,
-    year: DEFAULT_YEAR,
-    substance: 'mass',
-    fromNode: 'household_municipal_waste',
-    toNode: 'collection',
-    quantity: null,
-    unit: 't',
-    quality: 'unknown',
-    systemBoundary: C3_SYSTEM_BOUNDARY,
-    holeReason:
-      'No absolute CountryMetric foodWaste Totalt (tonnes) for country; foodWastePerCapita not converted to national tonnes (would invent population).',
-    metadata: { pass: C3_PASS },
+    cellId: C3_CELL_ID, country, year: DEFAULT_YEAR, substance: 'mass',
+    fromNode: 'household_municipal_waste', toNode: 'collection',
+    quantity: null, unit: 't', quality: 'unknown', systemBoundary: C3_SYSTEM_BOUNDARY,
+    holeReason: 'Food-waste statistics do not document collected household/municipal mass. No compatible collection measurement is available. foodWastePerCapita is not converted to national collection.',
+    metadata: {
+      pass: C3_PASS,
+      excludedStatistics: rows.filter(row => row.metricType === 'foodWaste').map(row => ({
+        category: row.category, value: num(row.value), unit: row.unit, year: row.year, source: row.source,
+        reason: 'Waste generation/scope does not match collected household/municipal mass',
+      })),
+    },
   }
 }
 
@@ -290,7 +212,10 @@ async function upsertFlow(prisma: PrismaClient, row: PlannedFlow) {
     quality: row.quality,
     systemBoundary: row.systemBoundary,
     holeReason: row.holeReason,
-    metadata: row.metadata as Prisma.InputJsonValue,
+    metadata: {
+      ...(existing?.metadata && typeof existing.metadata === 'object' && !Array.isArray(existing.metadata) ? existing.metadata : {}),
+      ...row.metadata,
+    } as Prisma.InputJsonValue,
   }
   if (existing) {
     await prisma.flowCell.update({ where: { id: existing.id }, data })

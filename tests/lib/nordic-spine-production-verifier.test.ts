@@ -51,11 +51,11 @@ function validSnapshot(): NordicSpineProductionSnapshot {
         substance: 'mass',
         fromNode: `c3-from-${Math.floor(index / 5)}`,
         toNode: `c3-to-${Math.floor(index / 5)}`,
-        quantity: index < 2 ? 451000 + index : null,
+        quantity: null,
         unit: 't',
-        quality: index < 2 ? 'measured' : 'unknown',
+        quality: 'unknown',
         systemBoundary: 'C3 test boundary',
-        holeReason: index < 2 ? null : 'True-C hole',
+        holeReason: 'True-C hole',
         metadata: { pass: 'nordic-c3-food-waste-digestate-2026-09-04' },
       })),
     ],
@@ -98,7 +98,7 @@ describe('Nordic spine production verifier', () => {
     assert.deepEqual(first.counts, {
       c1: { filled: 34, holes: 3, total: 37 },
       c2: { filled: 0, holes: 20, total: 20 },
-      c3: { filled: 2, holes: 18, total: 20 },
+      c3: { filled: 0, holes: 20, total: 20 },
       activity: { count: 250, sum: 988478 },
     })
     assert.match(first.fingerprint, /^[a-f0-9]{64}$/)

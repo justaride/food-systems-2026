@@ -1,8 +1,8 @@
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
 import { StatusBadge } from '@/components/ui/StatusBadge'
-import { getCompanyById } from '@/lib/queries/companies'
+import { getCompanyById, getResolvedCompanyId } from '@/lib/queries/companies'
 import { getCompanyTreeIds, resolveKonsernRootOrgNr, KONSERN_REGISTRY } from '@/lib/queries/ownership'
 import { getPersonKeysWithProfiles } from '@/lib/queries/persons'
 import { getInterlockSummaryForCompany } from '@/lib/queries/interlocks'
@@ -60,6 +60,8 @@ function companyCitation(args: {
 
 export default async function SelskapPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
+  const resolvedId = await getResolvedCompanyId(id)
+  if (resolvedId !== id) redirect(`/selskap/${resolvedId}`)
   const [company, treeIds, profileKeys, interlockSummary, konsernRootOrgNr] = await Promise.all([
     getCompanyById(id),
     getCompanyTreeIds(),
