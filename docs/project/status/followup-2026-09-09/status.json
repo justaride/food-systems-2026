@@ -11,7 +11,10 @@
     "Prepared four library document candidates and a 256-page index",
     "Reconciled all 392 library queue rows",
     "Prepared unsent source/owner requests for twenty packages",
-    "Refreshed runtime and database status evidence"
+    "Refreshed runtime and database status evidence",
+    "Extracted and first-page inspected 140 distinct PDF files; retained document and edition mismatches",
+    "Corrected binary PDF URL extraction and decoded three gzip annual reports",
+    "Verified newer 9 September Estate backup receipt against encrypted local bytes"
   ],
   "researchReview": {
     "reviewComplete": true,
@@ -46,12 +49,28 @@
   },
   "library": {
     "queueRows": 392,
-    "localFileCandidateRows": 187,
-    "newDocumentCandidates": 4,
-    "withoutNewDocumentCandidate": 388,
-    "physicalPageBindings": 256,
+    "localFileFormats": {
+      "md": 86,
+      "pdf": 97,
+      "txt": 4
+    },
+    "uniquePdfRawFiles": 140,
+    "visuallyInspectedFirstPages": 140,
+    "physicalPageBindings": 9919,
+    "rowOutcomes": {
+      "no_explicit_original_available": 147,
+      "access_failed_or_denied": 22,
+      "pdf_identity_candidate_available": 138,
+      "html_available_identity_unresolved": 75,
+      "different_document_or_edition_only": 4,
+      "pdf_title_identity_unresolved": 1,
+      "internal_context_candidate_only": 4,
+      "structured_search_not_unique_document": 1
+    },
     "productionQueueChanged": false,
-    "fullSemanticAnalysisComplete": false
+    "fullSemanticAnalysisComplete": false,
+    "continuationPath": "docs/project/status/followup-2026-09-09/continuation-001/status.json",
+    "continuationSha256": "44f8c448d40a5d70a54ae73263621db5488b19ed924a1525d8207a458b03b0b0"
   },
   "open": [
     "Precise owner/source returns listed in KILDE-OG-DATAEIERBEHOV.md",
@@ -72,5 +91,16 @@
     "newDeployment": false,
     "newAuthenticatedUiCheck": false,
     "newRestoreTest": false
-  }
+  },
+  "libraryFirstPass": {
+    "queueRows": 392,
+    "localFileCandidateRows": 187,
+    "newDocumentCandidates": 4,
+    "withoutNewDocumentCandidate": 388,
+    "physicalPageBindings": 256,
+    "productionQueueChanged": false,
+    "fullSemanticAnalysisComplete": false
+  },
+  "backupContinuationPath": "docs/project/status/followup-2026-09-09/continuation-001/estate-evidence.json",
+  "backupContinuationSha256": "02926136a914f1416d62f4e889221bdcc01e2cbe8070e7a3badcf366833f2d31"
 }

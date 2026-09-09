@@ -15,6 +15,16 @@ status={'schema':'food-systems-followup-status/v1','asOf':'2026-09-09','scope':'
 'open':['Precise owner/source returns listed in KILDE-OG-DATAEIERBEHOV.md','Full library repair and authorized document/source binding','Model-version attestation and human review','Mandate, owner, capacity/funding, pilot and sharing decisions','RPO/RTO, retention and next restore exercise'],
 'operationsEvidencePath':str((HERE/'operational-evidence.json').relative_to(ROOT)),'operationsEvidenceSha256':sha(HERE/'operational-evidence.json'),
 'authority':{'humanReviewRecorded':False,'canonicalDataChanged':False,'readinessChanged':False,'published':False,'contactsSent':False,'databaseMutation':False,'newDeployment':False,'newAuthenticatedUiCheck':False,'newRestoreTest':False}}
+
+continuation=HERE/'continuation-001/status.json'
+if continuation.is_file():
+ c=load(continuation)
+ status['libraryFirstPass']=status['library']
+ status['library']={'queueRows':c['rows'],'localFileFormats':c['localFileFormats'],'uniquePdfRawFiles':c['uniquePdfRawFiles'],'visuallyInspectedFirstPages':c['visuallyInspectedFirstPages'],'physicalPageBindings':c['physicalPageBindings'],'rowOutcomes':c['rowOutcomes'],'productionQueueChanged':False,'fullSemanticAnalysisComplete':False,'continuationPath':str(continuation.relative_to(ROOT)),'continuationSha256':sha(continuation)}
+ status['completed'] += ['Extracted and first-page inspected 140 distinct PDF files; retained document and edition mismatches','Corrected binary PDF URL extraction and decoded three gzip annual reports','Verified newer 9 September Estate backup receipt against encrypted local bytes']
+ status['backupContinuationPath']=str((HERE/'continuation-001/estate-evidence.json').relative_to(ROOT))
+ status['backupContinuationSha256']=sha(HERE/'continuation-001/estate-evidence.json')
+
 content=json.dumps(status,ensure_ascii=False,indent=2)+'\n';p=HERE/'status.json'
 if '--write' in sys.argv:p.write_text(content)
 else:assert p.read_text()==content,'Stale generated status'

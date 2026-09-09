@@ -2,7 +2,13 @@
 
 Det lokale oppfølgingsarbeidet er samlet her. Produksjon er teknisk grønn, mens kildegrunnlag, bibliotekreview og prosjektbeslutninger har egne restanser. Dette er intern dokumentasjon og kandidatarbeid; ingen menneskelig godkjenning, kanonisk promotering eller publisering er utført.
 
-## Utført
+## Siste oppfølging
+
+[Fortsettelse 001](continuation-001/README.md) inneholder den nyeste bibliotek- og backupkontrollen: 140 ulike PDF-filer, 9 919 fysiske sidebindinger og 138 poster med minst én avgrenset, forenlig dokumentkandidat. Alle 392 poster har oppdatert lokal disposisjon. Originalfiler, feil dokumenter/årganger og fire interne kontekstdokumenter er skilt ut. Ny backupkvittering fra 9. september er kontrollert mot krypterte bytes. Produksjonskø og godkjenningsporter er uendret.
+
+Tabellen nedenfor bevarer første oppfølgingsrunde; bibliotekets fire kandidater og 388 restposter er historiske tall. Gjeldende fordeling ligger i fortsettelsen og [status.json](status.json).
+
+## Første oppfølgingsrunde
 
 | Arbeid | Konkret resultat | Grense for resultatet |
 |---|---|---|

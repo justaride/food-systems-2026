@@ -1,0 +1,18 @@
+{
+  "schema": "estate-followup-evidence/v1",
+  "manifestPath": "/Users/gabrielfreeman/Documents/GabiBFree-DashBoard-db-backups/MANIFEST-COOLIFY-v1.tsv",
+  "manifestRowNumber": 878,
+  "manifestRowSha256": "a24ffe5d37e232179e13c4ec4ca8463d5047b0898107432d08ad2b2c90434d3c",
+  "encryptedArtifactPath": "/Users/gabrielfreeman/Documents/GabiBFree-DashBoard-db-backups/coolify-food-systems-pgvector-db-20260909-013007-3d6720.dump.age",
+  "encryptedArtifactSha256": "4aab73c14155bded368764e8cd1c686c47b70d44dca13545417d0609b6213fcc",
+  "receiptPath": "config/production-backup-receipts/food-systems-pgvector-db-2026-09-09-013028.json",
+  "encryptedBytesVerified": true,
+  "newRestoreExecutedByThisTask": false,
+  "restoreEvidenceOwner": "Estate scheduled job",
+  "offsiteNetworkReadbackPerformed": false,
+  "workflowConfigurationChanged": false,
+  "limitations": [
+    "Verified statements and encrypted local bytes; no new restore or offsite network readback in this task.",
+    "RPO/RTO, retention and accountable operations owner remain human decisions."
+  ]
+}

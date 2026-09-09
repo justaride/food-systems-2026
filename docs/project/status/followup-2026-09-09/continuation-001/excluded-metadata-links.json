@@ -1,0 +1,1062 @@
+{
+  "schema": "library-acquisition-correction/v1",
+  "historicalLedgerPreserved": true,
+  "items": [
+    {
+      "libraryAnalysisRecordId": "cmsomp34i00c8knkx4fzd8sw1",
+      "url": "https://www.slu.se/site/bibliotek/publicera-och-analysera/registrera-och-publicera/avtal-for-publicering/",
+      "basis": "research/evidence-pack/akademia/adlers-2022.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp34i00c8knkx4fzd8sw1",
+      "url": "https://books.mec.biz/tmp/books/NXHQRTHBQ2L87NIU6YVN.pdf",
+      "basis": "research/evidence-pack/akademia/adlers-2022.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp35000c9knkx67dcnbvs",
+      "url": "http://www.nhh.no/en/employees/faculty/oystein-foros/",
+      "basis": "research/evidence-pack/akademia/akademia-nhh-foros-media-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp35000c9knkx67dcnbvs",
+      "url": "https://voxeu.org/article/when-or-where-buy-under-saw-tooth-gasoline-price-cycles",
+      "basis": "research/evidence-pack/akademia/akademia-nhh-foros-media-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp35j00caknkxhewr9x7p",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/akademia-sifo-kundeprogram-2026.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp35j00caknkxhewr9x7p",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/akademia/akademia-sifo-kundeprogram-2026.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp36100cbknkxvqdjqida",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/brancoli-phd-2021.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp36100cbknkxvqdjqida",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/akademia/brancoli-phd-2021.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp37200cdknkx9rp1uits",
+      "url": "http://www.color.org",
+      "basis": "research/evidence-pack/akademia/duong-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp37200cdknkx9rp1uits",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/duong-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp38200cfknkxg9u2isez",
+      "url": "https://www.nielsen.com/no/no/insights/news/2019/nielsen-quarterly-report-for-grocery-market-q1-2019.html",
+      "basis": "research/evidence-pack/akademia/gangstoe-2019-uib.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp38200cfknkxg9u2isez",
+      "url": "https://konkurransetilsynet.no/wp-content/uploads/2018/08/rapport-konkurransen_i_norge.pdf",
+      "basis": "research/evidence-pack/akademia/gangstoe-2019-uib.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp39200chknkx76pkb54z",
+      "url": "https://www.berlingske.dk/business/salling-groups-omsaetning-runder-70-milliarder-kroner",
+      "basis": "research/evidence-pack/akademia/huynh-mortensen-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp39200chknkx76pkb54z",
+      "url": "https://www.berlingske.dk/virksomheder/coop-har-kurs-mod-underskud",
+      "basis": "research/evidence-pack/akademia/huynh-mortensen-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3a200cjknkxunoqh2tl",
+      "url": "https://www.cfl.dk/artikler/maslows-behovspyramide#mangelbehov-og-udviklingsbehov",
+      "basis": "research/evidence-pack/akademia/jorgensen-ahmadi-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3a200cjknkxunoqh2tl",
+      "url": "https://avisendanmark.dk/erhverv/nu-overhaler-rema-1000-snart-netto-det-handler-ekstremt-meget-om-priser",
+      "basis": "research/evidence-pack/akademia/jorgensen-ahmadi-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ak00ckknkxuuhmxau5",
+      "url": "http://ns.adobe.com/xap/1.0/\u0000",
+      "basis": "research/evidence-pack/akademia/kayhan-ronnback-2019.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ak00ckknkxuuhmxau5",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/kayhan-ronnback-2019.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3b200clknkxihuadog1",
+      "url": "http://ns.adobe.com/xap/1.0/\u0000",
+      "basis": "research/evidence-pack/akademia/khandaker-2021.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3b200clknkxihuadog1",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/khandaker-2021.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3bj00cmknkxa6u7hhwu",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/lehtokunnas-phd-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3bj00cmknkxa6u7hhwu",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/akademia/lehtokunnas-phd-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ci00coknkx728y4l1e",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/makela-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ci00coknkx728y4l1e",
+      "url": "http://ns.adobe.com/pdf/1.3/",
+      "basis": "research/evidence-pack/akademia/makela-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3di00cqknkxhemsdtvr",
+      "url": "https://ghgprotocol.org/sites/default/files/standards/ghg-protocol-revised.pdf",
+      "basis": "research/evidence-pack/akademia/mattila-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3di00cqknkxhemsdtvr",
+      "url": "https://wedocs.unep.org/20.500.11822/45230",
+      "basis": "research/evidence-pack/akademia/mattila-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3eh00csknkxjsbi06mw",
+      "url": "https://www.brookings.edu/wp-content/uploads/2021/06/Social-and-economic-impact-COVID.pdf",
+      "basis": "research/evidence-pack/akademia/nikolaev-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3eh00csknkxjsbi06mw",
+      "url": "https://libanswers.slu.se/en/faq/228318",
+      "basis": "research/evidence-pack/akademia/nikolaev-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ey00ctknkxxcodldb9",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/nilsen-paulsen-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ey00ctknkxxcodldb9",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/akademia/nilsen-paulsen-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ff00cuknkxf20cw2j5",
+      "url": "https://www.gardsnara.se/uppsala",
+      "basis": "research/evidence-pack/akademia/ortiz-cuadra-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ff00cuknkxf20cw2j5",
+      "url": "https://www.government.se/contentassets/16ef73aaa6f74faab86ade5ef239b659/livsmedelsstrategin_kortversion_eng.pdf",
+      "basis": "research/evidence-pack/akademia/ortiz-cuadra-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3fw00cvknkx70utaxsr",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/pubmed/hiis-eg-2024-unlocking-bacterial-potential-to-reduce.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3fw00cvknkx70utaxsr",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/akademia/pubmed/hiis-eg-2024-unlocking-bacterial-potential-to-reduce.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3fw00cvknkx70utaxsr",
+      "url": "http://prismstandard.org/namespaces/basic/2.0/",
+      "basis": "research/evidence-pack/akademia/pubmed/hiis-eg-2024-unlocking-bacterial-potential-to-reduce.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ge00cwknkx2x7bag5f",
+      "url": "https://www.elsevier.com/open-access/userlicense/1.0/",
+      "basis": "research/evidence-pack/akademia/pubmed/javourez-u-2021-waste-to-nutrition-a-review.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ge00cwknkx2x7bag5f",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0734975021001634",
+      "basis": "research/evidence-pack/akademia/pubmed/javourez-u-2021-waste-to-nutrition-a-review.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ge00cwknkx2x7bag5f",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/pubmed/javourez-u-2021-waste-to-nutrition-a-review.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ha00cxknkxj0y7l1w0",
+      "url": "http://crossmark.crossref.org/dialog/?doi=10.1016/j.scitotenv.2018.10.377&domain=pdf",
+      "basis": "research/evidence-pack/akademia/pubmed/recanati-f-2019-assessing-the-role-of-cap.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ha00cxknkxj0y7l1w0",
+      "url": "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "basis": "research/evidence-pack/akademia/pubmed/recanati-f-2019-assessing-the-role-of-cap.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ha00cxknkxj0y7l1w0",
+      "url": "https://doi.org/10.1016/j.scitotenv.2018.10.377",
+      "basis": "research/evidence-pack/akademia/pubmed/recanati-f-2019-assessing-the-role-of-cap.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3hr00cyknkxjb6qjyib",
+      "url": "https://www.elsevier.com/locate/wasman",
+      "basis": "research/evidence-pack/akademia/pubmed/sigala-eg-2025-reducing-food-waste-in-the.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3hr00cyknkxjb6qjyib",
+      "url": "https://doi.org/10.1016/j.wasman.2025.02.044",
+      "basis": "research/evidence-pack/akademia/pubmed/sigala-eg-2025-reducing-food-waste-in-the.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3hr00cyknkxjb6qjyib",
+      "url": "http://crossmark.crossref.org/dialog/?doi=10.1016/j.wasman.2025.02.044&domain=pdf",
+      "basis": "research/evidence-pack/akademia/pubmed/sigala-eg-2025-reducing-food-waste-in-the.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3i900czknkx4uqzbb1h",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/pubmed/szulecka-j-2024-food-waste-governance-architectures-in.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3i900czknkx4uqzbb1h",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/akademia/pubmed/szulecka-j-2024-food-waste-governance-architectures-in.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3i900czknkx4uqzbb1h",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/akademia/pubmed/szulecka-j-2024-food-waste-governance-architectures-in.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3iq00d0knkxfx1dwux0",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/pubmed/van-der-fels-klerx-hj-2024-framework-for-evaluation-of-food.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3iq00d0knkxfx1dwux0",
+      "url": "http://springernature.com/ns/xmpExtensions/2.0/authorInfo/",
+      "basis": "research/evidence-pack/akademia/pubmed/van-der-fels-klerx-hj-2024-framework-for-evaluation-of-food.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3iq00d0knkxfx1dwux0",
+      "url": "http://crossref.org/crossmark/1.0/",
+      "basis": "research/evidence-pack/akademia/pubmed/van-der-fels-klerx-hj-2024-framework-for-evaluation-of-food.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3j700d1knkx5orxg6i8",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/pubmed/van-leeuwen-spj-2024-a-novel-approach-to-identify.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3j700d1knkx5orxg6i8",
+      "url": "http://springernature.com/ns/xmpExtensions/2.0/authorInfo/",
+      "basis": "research/evidence-pack/akademia/pubmed/van-leeuwen-spj-2024-a-novel-approach-to-identify.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3j700d1knkx5orxg6i8",
+      "url": "http://crossref.org/crossmark/1.0/",
+      "basis": "research/evidence-pack/akademia/pubmed/van-leeuwen-spj-2024-a-novel-approach-to-identify.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3jo00d2knkxh0jmtlw5",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/pubmed/wohner-b-2020-environmental-and-economic-assessment-of.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3jo00d2knkxh0jmtlw5",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/akademia/pubmed/wohner-b-2020-environmental-and-economic-assessment-of.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3jo00d2knkxh0jmtlw5",
+      "url": "http://ns.adobe.com/xap/1.0/g/img/",
+      "basis": "research/evidence-pack/akademia/pubmed/wohner-b-2020-environmental-and-economic-assessment-of.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3k500d3knkxr5q6fir9",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/pubmed/zamanzadeh-m-2017-biogas-production-from-food-waste.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3k500d3knkxr5q6fir9",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/akademia/pubmed/zamanzadeh-m-2017-biogas-production-from-food-waste.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3k500d3knkxr5q6fir9",
+      "url": "http://prismstandard.org/namespaces/basic/2.0/",
+      "basis": "research/evidence-pack/akademia/pubmed/zamanzadeh-m-2017-biogas-production-from-food-waste.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ll00d6knkx0yyaq61z",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/sifo-kundeprogram-2026.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ll00d6knkx0yyaq61z",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/akademia/sifo-kundeprogram-2026.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3m300d7knkxwwvunfan",
+      "url": "http://ns.adobe.com/xap/1.0/\u0000",
+      "basis": "research/evidence-pack/akademia/skjervheim-flo-2016.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3m300d7knkxwwvunfan",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/skjervheim-flo-2016.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3n200d9knkxpxusl68p",
+      "url": "https://orbit.dtu.dk/en/publications/e0cbbf4a-4ee8-4cb8-8049-26e9f08c9c29",
+      "basis": "research/evidence-pack/akademia/sorensen-phd-2016-danish-public-kitchens.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3n200d9knkxpxusl68p",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/sorensen-phd-2016-danish-public-kitchens.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3nk00daknkxm6ts07be",
+      "url": "http://ns.adobe.com/xap/1.0/\u0000",
+      "basis": "research/evidence-pack/akademia/stahl-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3nk00daknkxm6ts07be",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/stahl-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3o200dbknkxlv1vetig",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/sturen-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3o200dbknkxlv1vetig",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/akademia/sturen-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ok00dcknkxndvcvxj2",
+      "url": "https://hildebrandtbrandi.com/wp-content/uploads/2018/02/Andelsselskabet-%E2%80%93-Ejerskab-for-fremtiden.pdf",
+      "basis": "research/evidence-pack/akademia/tanderup-rasmussen-hansen-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ok00dcknkxndvcvxj2",
+      "url": "https://www.bt.dk/forbrug/priskrig-midt-i-krisen-voldsom-kamp-mellem-pressede-supermarkeder",
+      "basis": "research/evidence-pack/akademia/tanderup-rasmussen-hansen-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3p300ddknkxl1j6c592",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/ulsaker-phd-thesis.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3p300ddknkxl1j6c592",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/akademia/ulsaker-phd-thesis.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3pm00deknkxyfnzmy5o",
+      "url": "https://www-sciencedirect-com.ezproxy.its.uu.se/topics/mathematics/mean-square-error",
+      "basis": "research/evidence-pack/akademia/zakeri-lei-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3pm00deknkxyfnzmy5o",
+      "url": "https://books.google.se/books?id=Cdk5DQAAQBAJ",
+      "basis": "research/evidence-pack/akademia/zakeri-lei-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3q400dfknkx0rj90uzn",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/arsrapporter/asko-barekraft-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3q400dfknkx0rj90uzn",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/arsrapporter/asko-barekraft-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3qn00dgknkxwffionrl",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/arsrapporter/axfood-annual-report-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3qn00dgknkxwffionrl",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/arsrapporter/axfood-annual-report-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3r500dhknkxbt9m7qmt",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/arsrapporter/coop-danmark-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3r500dhknkxbt9m7qmt",
+      "url": "http://ns.adobe.com/pdf/1.3/",
+      "basis": "research/evidence-pack/arsrapporter/coop-danmark-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3rn00diknkxc9rleczg",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/arsrapporter/coop-norge-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3rn00diknkxc9rleczg",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/arsrapporter/coop-norge-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3sn00dkknkx8t39slfd",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/arsrapporter/ica-gruppen-annual-report-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3sn00dkknkx8t39slfd",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/arsrapporter/ica-gruppen-annual-report-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3t900dlknkxihnfsx7r",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/arsrapporter/kesko-annual-report-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3t900dlknkxihnfsx7r",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/arsrapporter/kesko-annual-report-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3tr00dmknkx3sre8d16",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/arsrapporter/norgesgruppen-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3tr00dmknkx3sre8d16",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/arsrapporter/norgesgruppen-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3u900dnknkxw7ddidyt",
+      "url": "http://www.iec.ch\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0016IEC",
+      "basis": "research/evidence-pack/arsrapporter/norgesgruppen-halvarsrapport-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3u900dnknkxw7ddidyt",
+      "url": "http://www.iec.ch\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000desc\u0000\u0000\u0000\u0000\u0000\u0000\u0000.IEC",
+      "basis": "research/evidence-pack/arsrapporter/norgesgruppen-halvarsrapport-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ur00doknkxt7fza4ll",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/arsrapporter/reitan-retail-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3ur00doknkxt7fza4ll",
+      "url": "http://ns.adobe.com/xap/1.0/mm/",
+      "basis": "research/evidence-pack/arsrapporter/reitan-retail-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3v900dpknkx6i51npxp",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/arsrapporter/salling-group-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3v900dpknkx6i51npxp",
+      "url": "http://ns.adobe.com/pdf/1.3/",
+      "basis": "research/evidence-pack/arsrapporter/salling-group-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3wl00drknkxt6wtv9x9",
+      "url": "https://konkurransetilsynet.no/lite-forbigaende-griskflasjon-men-hoy-lonnsomhet-i-dagligvare/",
+      "basis": "research/evidence-pack/konsulentrapport/oslo-economics-forsvar-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3wl00drknkxt6wtv9x9",
+      "url": "https://www.nettavisen.no/okonomi/tjener-fett-pa-godteri-og-pizza-disse-har-hoyest-marginer-i-dagligvarebransjen/s/5-95-864909",
+      "basis": "research/evidence-pack/konsulentrapport/oslo-economics-forsvar-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3x100dsknkxpa788qcz",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/nordisk/finland-food-market-ombudsman-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3x100dsknkxpa788qcz",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/nordisk/finland-food-market-ombudsman-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3xj00dtknkxe2c355l4",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/nordisk/finland-food2030.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3xj00dtknkxe2c355l4",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/nordisk/finland-food2030.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3xj00dtknkxe2c355l4",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/nordisk/finland-food2030.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3y000duknkxuiyjf776",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/nordisk/is-samkeppni-annual-report-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3y000duknkxuiyjf776",
+      "url": "http://iptc.org/std/Iptc4xmpExt/2008-02-29/",
+      "basis": "research/evidence-pack/nordisk/is-samkeppni-annual-report-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3yh00dvknkxfy8lszy9",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/nordisk/kfst-salling-coop-2025-full.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3yh00dvknkxfy8lszy9",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/nordisk/kfst-salling-coop-2025-full.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3yx00dwknkxhsfaqabt",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/nordisk/konkurrensverket-2024-4-dagligvaruhandelns-etablering.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3yx00dwknkxhsfaqabt",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/nordisk/konkurrensverket-2024-4-dagligvaruhandelns-etablering.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3zf00dxknkx18ekb1wt",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/nordisk/konkurrensverket-summary-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3zf00dxknkx18ekb1wt",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/nordisk/konkurrensverket-summary-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3zw00dyknkx79j05u5w",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/nordisk/nordic-food-markets-2005.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3zw00dyknkx79j05u5w",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/nordisk/nordic-food-markets-2005.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp3zw00dyknkx79j05u5w",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/nordisk/nordic-food-markets-2005.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp40e00dzknkxncwh9316",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/nordisk/pty-finnish-grocery-trade-statistics-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp40e00dzknkxncwh9316",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/nordisk/pty-finnish-grocery-trade-statistics-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp41d00e1knkxuthed87n",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/nordisk/sou-2024-8-livsmedelsberedskap.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp41d00e1knkxuthed87n",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/nordisk/sou-2024-8-livsmedelsberedskap.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp41t00e2knkxudid3zt1",
+      "url": "https://www.regjeringen.no/contentassets/b1b101a2ecfc4d889894f29653097b09/no/pdfs/nou201320130006000dddpdfs.pdf",
+      "basis": "research/evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2021.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp41t00e2knkxudid3zt1",
+      "url": "https://www.dlf.no/wp-content/uploads/2021/02/NielsenIQ-pressemelding-Dagligvarerapporten-2021.pdf",
+      "basis": "research/evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2021.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp42900e3knkxlrs825sl",
+      "url": "http://www.dagligvaretilsynet.no/",
+      "basis": "research/evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2022.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp42900e3knkxlrs825sl",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2022.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp42p00e4knkxdbf99o98",
+      "url": "http://www.dagligvaretilsynet.no/",
+      "basis": "research/evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp42p00e4knkxdbf99o98",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp43500e5knkxgdtrbtlt",
+      "url": "http://www.dagligvaretilsynet.no/",
+      "basis": "research/evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp43500e5knkxgdtrbtlt",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/offentlig/dagligvaretilsynet-aarsrapport-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp43l00e6knkxub6b6jig",
+      "url": "https://static1.squarespace.com/static/576280dd6b8f5b9b197512ef/t/64412ade51a92e312dfd3aac/1681992416191/Notat+-+Definisjon+av+Egne+merkevarer+%28EMV%29.pdf",
+      "basis": "research/evidence-pack/offentlig/emv-kartlegging-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp43l00e6knkxub6b6jig",
+      "url": "https://lovdata.no/lov/1998-07-17-56/%C2%A75-17",
+      "basis": "research/evidence-pack/offentlig/emv-kartlegging-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp44100e7knkxvu8spqhz",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/offentlig/eu-utp-report-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp44100e7knkxvu8spqhz",
+      "url": "http://ns.adobe.com/pdf/1.3/",
+      "basis": "research/evidence-pack/offentlig/eu-utp-report-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp44100e7knkxvu8spqhz",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/offentlig/eu-utp-report-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp44i00e8knkxxo7jrd6m",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/offentlig/eu-utp-staff-working-doc-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp44i00e8knkxxo7jrd6m",
+      "url": "http://ns.adobe.com/pdf/1.3/",
+      "basis": "research/evidence-pack/offentlig/eu-utp-staff-working-doc-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp44i00e8knkxxo7jrd6m",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/offentlig/eu-utp-staff-working-doc-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp45000e9knkxqgiypryd",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/offentlig/matsvinnutvalget-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp45000e9knkxqgiypryd",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/offentlig/matsvinnutvalget-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp45h00eaknkx1989bfsg",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/offentlig/meld-st-11-selvforsyning-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp45h00eaknkx1989bfsg",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/offentlig/meld-st-11-selvforsyning-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp45y00ebknkxbkey1g9j",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/offentlig/meld-st-4-2024-2025-dagligvare.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp45y00ebknkxbkey1g9j",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/offentlig/meld-st-4-2024-2025-dagligvare.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp46f00ecknkx86o24e79",
+      "url": "http://www.iec.ch\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0016IEC",
+      "basis": "research/evidence-pack/offentlig/menon-funksjonelt-skille-2026.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp46f00ecknkx86o24e79",
+      "url": "http://www.iec.ch\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000desc\u0000\u0000\u0000\u0000\u0000\u0000\u0000.IEC",
+      "basis": "research/evidence-pack/offentlig/menon-funksjonelt-skille-2026.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp46w00edknkxhwqfi4sf",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/offentlig/nibio-selvforsyning-2026.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp46w00edknkxhwqfi4sf",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/offentlig/nibio-selvforsyning-2026.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp48d00egknkxjbeaosbn",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/offentlig/nou-2022-14.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp48d00egknkxjbeaosbn",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/offentlig/nou-2022-14.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp48v00ehknkx5p98029r",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/offentlig/riksrevisjonen-matsikkerhet-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp48v00ehknkx5p98029r",
+      "url": "http://ns.adobe.com/pdf/1.3/",
+      "basis": "research/evidence-pack/offentlig/riksrevisjonen-matsikkerhet-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp49c00eiknkxys3nwhg8",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/offentlig/src-73.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4ar00ekknkxdeexz5cr",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/tenketank/stockholm-resilience-2019.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4ar00ekknkxdeexz5cr",
+      "url": "http://ns.adobe.com/tiff/1.0/",
+      "basis": "research/evidence-pack/tenketank/stockholm-resilience-2019.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4b900elknkxu3rimfga",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/tilsyn/dagligvarerapport-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4b900elknkxu3rimfga",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/tilsyn/dagligvarerapport-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4br00emknkx1efubiik",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/tilsyn/dagligvaretilsynet-samarbeidsklima-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4br00emknkx1efubiik",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/tilsyn/dagligvaretilsynet-samarbeidsklima-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4cs00eoknkxgx542e04",
+      "url": "http://www.color.org",
+      "basis": "research/evidence-pack/tilsyn/marginstudie-2024-del1-offisiell.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4cs00eoknkxgx542e04",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/tilsyn/marginstudie-2024-del1-offisiell.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4d900epknkx22sn7g4l",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/tilsyn/marginstudie-2024-del1.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4d900epknkx22sn7g4l",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/tilsyn/marginstudie-2024-del1.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4dq00eqknkx37wsajtv",
+      "url": "http://www.color.org",
+      "basis": "research/evidence-pack/tilsyn/marginstudie-2025-del2-offisiell.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4dq00eqknkx37wsajtv",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/tilsyn/marginstudie-2025-del2-offisiell.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4e800erknkxnjloom8t",
+      "url": "http://www.color.org",
+      "basis": "research/evidence-pack/tilsyn/marginstudie-2025-del2.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4e800erknkxnjloom8t",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/tilsyn/marginstudie-2025-del2.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4eq00esknkxt7bhz3re",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/tilsyn/prisjeger-saken-2024-offentlig-versjon.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4eq00esknkxt7bhz3re",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/tilsyn/prisjeger-saken-2024-offentlig-versjon.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4f800etknkxhkpcedyn",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/tilsyn/prisjusteringsvinduer-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp4f800etknkxhkpcedyn",
+      "url": "http://ns.adobe.com/xap/1.0/",
+      "basis": "research/evidence-pack/tilsyn/prisjusteringsvinduer-2023.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp73x00k6knkxv51c3van",
+      "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "basis": "research/evidence-pack/akademia/nguyen-hartmann-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp73x00k6knkxv51c3van",
+      "url": "http://purl.org/dc/elements/1.1/",
+      "basis": "research/evidence-pack/akademia/nguyen-hartmann-2024.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp74w00k8knkx5kq53xr3",
+      "url": "https://www.axfood.com/newsroom/press-releases/2021/07/new-e-commerce-warehouse-in-gothenburg-and-increased-automation-as-axfood-lays-foundation-for-logistics-of-the-future/",
+      "basis": "research/evidence-pack/akademia/sedwall-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp74w00k8knkx5kq53xr3",
+      "url": "https://www.semanticscholar.org/paper/The-Potential-for-Innovation-in-the-Swedish-Food-Beckeman/fd1f3225783891f5bd5180b3347c3b13f760bafa",
+      "basis": "research/evidence-pack/akademia/sedwall-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp74w00k8knkx5kq53xr3",
+      "url": "https://mark-bridges.medium.com/strategic-sourcing-revolutionizing-procurement-for-cost-reduction-and-efficient-channel-strategy-8a2fbbb8a76d",
+      "basis": "research/evidence-pack/akademia/sedwall-2025.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp8zs00nyknkx5mf7gr0a",
+      "url": "http://www.naturalstate.no/",
+      "basis": "Natural State AS Mail - Fwd_ NCH_ application 2025 # adjusted.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp8zs00nyknkx5mf7gr0a",
+      "url": "https://www.facebook.com/naturalstateas/",
+      "basis": "Natural State AS Mail - Fwd_ NCH_ application 2025 # adjusted.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp8zs00nyknkx5mf7gr0a",
+      "url": "https://www.linkedin.com/company/natural-state-as/",
+      "basis": "Natural State AS Mail - Fwd_ NCH_ application 2025 # adjusted.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp90a00nzknkxm4i56x4d",
+      "url": "https://workspace.google.com/",
+      "basis": "Natural State AS Mail - 2026 1401 DRØFTING TRANSITION GROUPS.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    },
+    {
+      "libraryAnalysisRecordId": "cmsomp90a00nzknkxm4i56x4d",
+      "url": "https://mail.google.com/mail/u/0/?ui=2&ik=b329ca6546&view=att&th=19cd2f9c839e2a73&attid=0.1&disp=attd&safe=1&zw",
+      "basis": "Natural State AS Mail - 2026 1401 DRØFTING TRANSITION GROUPS.pdf",
+      "reason": "URL found by decoding binary PDF bytes is not a verified subject-source link; local PDF processed directly."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "library-identity-target/v1",
+  "purpose": "Candidate identity and availability only; no canonical document/source mutation",
+  "allowedClaims": [
+    "observed title and edition on physical first page",
+    "download and extraction outcome",
+    "explicit identity mismatch or scope limit"
+  ],
+  "notEstablished": [
+    "full scientific reading",
+    "claim correctness",
+    "current operational/legal/financial status",
+    "human approval",
+    "external redistribution rights"
+  ],
+  "human_verified": false,
+  "readinessChanged": false
+}
