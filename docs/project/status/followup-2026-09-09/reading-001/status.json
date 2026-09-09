@@ -1,5 +1,6 @@
 {
-  "assessmentVersions": 3,
+  "activeClaimCandidates": 55,
+  "assessmentVersions": 6,
   "authority": {
     "canonicalChanged": false,
     "databaseWritePerformed": false,
@@ -8,21 +9,23 @@
     "published": false,
     "readinessChanged": false
   },
-  "claimCandidates": 33,
+  "claimCandidates": 65,
+  "countNote": "claimCandidates and visualPageChecks count all retained assessment versions; activeClaimCandidates and uniqueVisualPages avoid revision double counting.",
   "documentStates": {
-    "full_document_read": 3,
+    "full_document_read": 5,
     "identity_or_context_hold": 15,
-    "unread": 122
+    "unread": 120
   },
   "frozenLibraryRecords": 392,
   "fullLibraryReadingComplete": false,
   "inheritedCommit": "0d72eb8a7edc8aca7a61affcc0fb2b423d2b3e6d",
   "physicalPages": 9919,
-  "readPhysicalPages": 81,
+  "readPhysicalPages": 132,
   "schema": "offline-library-reading-status/v1",
   "supplementaryDocuments": 1,
   "supplementaryPagesRead": 8,
   "uniquePdfFiles": 140,
+  "uniqueVisualPages": 48,
   "verificationScope": "Local source hashes, exact passage bindings, page accounting and reproducibility. No CI/runtime/release proof; no automatic semantic-reading attestation.",
-  "visualPageChecks": 29
+  "visualPageChecks": 55
 }

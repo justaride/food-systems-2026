@@ -2775,14 +2775,11 @@
     {
       "associationStatus": "compatible_limited",
       "identityCandidateId": "LIB-20260909-CONT001-031",
-      "latestAssessmentId": null,
-      "latestAssessmentSha256": null,
+      "latestAssessmentId": "READ-20260909-031-001",
+      "latestAssessmentSha256": "e3b94c6eafc62d6cb1554c34e6bc7fe224880faeeb410236387f759733e4cb6e",
       "physicalPages": 32,
       "rawSha256": "3602ea8a39223aa911470dd6eccb2f90c7549691e6dce184ba00e58c3ea81961",
-      "readPhysicalPages": [],
-      "state": "unread",
-      "title": "Biorest fra marine råstoffer og husdyrgjødsel: Klimapåvirkning og gjenvinning av nitrogen og fosfor",
-      "unreadPhysicalPages": [
+      "readPhysicalPages": [
         1,
         2,
         3,
@@ -2815,7 +2812,10 @@
         30,
         31,
         32
-      ]
+      ],
+      "state": "full_document_read",
+      "title": "Biorest fra marine råstoffer og husdyrgjødsel: Klimapåvirkning og gjenvinning av nitrogen og fosfor",
+      "unreadPhysicalPages": []
     },
     {
       "associationStatus": "compatible_limited",
@@ -3226,14 +3226,11 @@
     {
       "associationStatus": "compatible_limited",
       "identityCandidateId": "LIB-20260909-CONT001-038",
-      "latestAssessmentId": null,
-      "latestAssessmentSha256": null,
+      "latestAssessmentId": "READ-20260909-038-002",
+      "latestAssessmentSha256": "bb99343daf55fe74cc1d787dd56d01b5dbc1b4c29aecef8a0df591ec7a5cefdb",
       "physicalPages": 19,
       "rawSha256": "45363337ce92e09b1e25e0af2c212c68065052d47b409ddaa0396c15a1c9f137",
-      "readPhysicalPages": [],
-      "state": "unread",
-      "title": "Evaluation of Filamentous Fungal Biomass Cultivated on Vinasse as an Alternative Nutrient Source of Fish Feed: Protein, Lipid, and Mineral Composition",
-      "unreadPhysicalPages": [
+      "readPhysicalPages": [
         1,
         2,
         3,
@@ -3253,7 +3250,10 @@
         17,
         18,
         19
-      ]
+      ],
+      "state": "full_document_read",
+      "title": "Evaluation of Filamentous Fungal Biomass Cultivated on Vinasse as an Alternative Nutrient Source of Fish Feed: Protein, Lipid, and Mineral Composition",
+      "unreadPhysicalPages": []
     },
     {
       "associationStatus": "compatible_limited",
@@ -13666,7 +13666,9 @@
     },
     {
       "availabilityStatus": "pdf_identity_candidate_available",
-      "fullyReadCandidateIds": [],
+      "fullyReadCandidateIds": [
+        "LIB-20260909-CONT001-038"
+      ],
       "libraryAnalysisRecordId": "cmsompiw2017lknkxunkiadgr",
       "nextAction": "Read remaining originals; preserve version dependence and candidate-only authority.",
       "title": "Evaluation of Filamentous Fungal Biomass Cultivated on Vinasse as an Alternative Nutrient Source of Fish Feed",
@@ -14916,7 +14918,9 @@
     },
     {
       "availabilityStatus": "pdf_identity_candidate_available",
-      "fullyReadCandidateIds": [],
+      "fullyReadCandidateIds": [
+        "LIB-20260909-CONT001-031"
+      ],
       "libraryAnalysisRecordId": "cmsompl1v01c1knkxhcafuvyn",
       "nextAction": "Read remaining originals; preserve version dependence and candidate-only authority.",
       "title": "Biorest fra marine råstoffer og husdyrgjødsel: Klimapåvirkning og gjenvinning av nitrogen og fosfor",

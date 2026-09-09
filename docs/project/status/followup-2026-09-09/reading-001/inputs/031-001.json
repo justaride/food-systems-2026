@@ -1,0 +1,443 @@
+{
+  "assessmentId": "READ-20260909-031-001",
+  "identityCandidateId": "LIB-20260909-CONT001-031",
+  "status": "full_document_read",
+  "printedPageLabels": {
+    "1": null,
+    "2": null,
+    "3": "i",
+    "4": "ii",
+    "5": null,
+    "6": null,
+    "7": null,
+    "8": null,
+    "9": null,
+    "10": null,
+    "11": null,
+    "12": null,
+    "13": null,
+    "14": null,
+    "15": null,
+    "16": null,
+    "17": null,
+    "18": null,
+    "19": null,
+    "20": null,
+    "21": null,
+    "22": null,
+    "23": null,
+    "24": null,
+    "25": null,
+    "26": null,
+    "27": null,
+    "28": null,
+    "29": null,
+    "30": null,
+    "31": null,
+    "32": null
+  },
+  "readingBlocks": [
+    {
+      "physicalPages": [
+        1,
+        4
+      ],
+      "mode": "front_back_matter",
+      "assessment": "Omslag, kolofon, sammendrag og innhold lest. NORSUS OR 48.23, 2023, oppdragsrapport for Landbruksdirektoratet; 32 fysiske sider selv om kolofonen oppgir 29."
+    },
+    {
+      "physicalPages": [
+        5,
+        9
+      ],
+      "mode": "semantic_text",
+      "assessment": "Innledning, systemavgrensning og baseline lest: norsk gjødselbruk 2018, biogassråstoff 2022, sekundærdata og antakelser; tap ved avvanning er omtalt."
+    },
+    {
+      "physicalPages": [
+        10,
+        16
+      ],
+      "mode": "semantic_text",
+      "assessment": "Nasjonale og regionale materialstrømmer, fosforbegrensning, ti ganger-scenario og brukerbehov lest; figurene kontrollert og tallkonflikter bevart."
+    },
+    {
+      "physicalPages": [
+        17,
+        24
+      ],
+      "mode": "semantic_text",
+      "assessment": "Hele klimakapitlet lest: livsløpsgrenser, faktorer, Tier-nivåer, lagring, spredning, allokering og utelatelser. Ingen full klimaberegning av marint biorestprodukt."
+    },
+    {
+      "physicalPages": [
+        25,
+        31
+      ],
+      "mode": "semantic_text",
+      "assessment": "Konklusjon, alle referanser og begge vedlegg lest. Tabell 5-1 har uforenlige summer; vedlegg 1 viser betydningen av om reaktorutslipp inkluderes. Referanser er ikke selvstendig lest gjennom henvisningen."
+    },
+    {
+      "physicalPages": [
+        32,
+        32
+      ],
+      "mode": "front_back_matter",
+      "assessment": "Bakside med instituttbeskrivelse lest; ikke ny empirisk evidens."
+    }
+  ],
+  "claims": [
+    {
+      "claimId": "READ031-01",
+      "claim": "Rapporten kombinerer SSBs gjødselbruk i 2018 med biorest-/råstoffmengder fra 2022 i en nasjonal og regional materialstrømsanalyse.",
+      "epistemicStatus": "source_method",
+      "caveat": "Ikke nytt feltforsøk, representativ anleggsprøve eller status for 2026. 2018 velges for regional detaljering; dataår er forskjellige.",
+      "locators": [
+        {
+          "physicalPage": 7,
+          "lines": [
+            1,
+            25
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "claimId": "READ031-02",
+      "claim": "Rapporten omtaler næringstap ved avvanning til renseanlegg, men antar i potensialberegningen at alt N og P i de utvalgte råstoffene kan utnyttes. Innholdet estimeres fra litteratur/analysedata og bevares gjennom utråtning i modellen.",
+      "epistemicStatus": "source_model_assumption",
+      "caveat": "Tilgjengelig råstoffnæring er ikke målt levert eller anvendt næring. Fiskeensilasjeestimatet omtales som meget usikkert.",
+      "locators": [
+        {
+          "physicalPage": 9,
+          "lines": [
+            8,
+            27
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "claimId": "READ031-03",
+      "claim": "Biorest fra husdyrgjødsel erstatter ubehandlet husdyrgjødsel i modellen; marine substrater erstatter mineralgjødsel. Modellen antar 100 prosent substitusjon for P og 70 prosent for N som plantetilgjengelig andel.",
+      "epistemicStatus": "source_model_assumption",
+      "caveat": "Eksisterende gjødselresirkulering må ikke telles som ny mineralgjødselerstatning. Tilgjengelighetsfaktorene er forutsetninger, ikke påvist lokal gjødselvirkning.",
+      "locators": [
+        {
+          "physicalPage": 10,
+          "lines": [
+            27,
+            36
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "claimId": "READ031-04",
+      "claim": "Vedlegg 2 tabell 5-1s tre synlige rader summerer til 27 948 tonn tørrstoff, 4 302 tonn N og 663 tonn P per år. Totalraden oppgir 87 310, 11 145 og 1 177. Brødteksten oppgir 4 302 og 1 177.",
+      "epistemicStatus": "source_internal_contradiction",
+      "caveat": "Visuelt bekreftet. Bildeteksten nevner matavfall, men ingen matavfallsrad vises og hovedanalysen utelater matavfall. Mulig forskjellig omfang er ikke dokumentert forklaring; ingen totalsum adopteres som korrigert fasit.",
+      "locators": [
+        {
+          "physicalPage": 30,
+          "lines": [
+            2,
+            15
+          ],
+          "region": "Table 5-1, three visible substrate rows and total; image checked"
+        },
+        {
+          "physicalPage": 10,
+          "lines": [
+            18,
+            22
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "physicalPage": 12,
+          "lines": [
+            8,
+            18
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "claimId": "READ031-05",
+      "claim": "Figur 2-3s nitrogenstrømmer balanserer ved 94 783 mineral-N + 34 838 ubehandlet husdyr-N + 4 302 biorest-N minus 1 193 ikke plantetilgjengelig N = 132 730. Dette gir ca. 71,4 prosent mineral-N og 28,6 prosent netto sirkulært N, mens teksten sier 71 og 32 prosent.",
+      "epistemicStatus": "analyst_mass_balance_conflict",
+      "caveat": "Diagramtallene er lest visuelt; tekstlinjene binder figurens bildetekst og prosentpåstand. Nettoindikatoren her er eksplisitt definert, ikke en autorisert rettelse. Forfatternes 32 prosent krever forklaring.",
+      "locators": [
+        {
+          "physicalPage": 11,
+          "lines": [
+            1,
+            10
+          ],
+          "region": "Figure 2-3 upper nitrogen flow diagram and paragraph below; numbers bound by page image"
+        }
+      ]
+    },
+    {
+      "claimId": "READ031-06",
+      "claim": "Rapportens scenariopåstand er om lag 3 prosent redusert mineral-N og 7 prosent redusert mineral-P ved full bruk, sammenliknet med den historiske baselinen.",
+      "epistemicStatus": "conditional_model_result",
+      "caveat": "Figurtallene gir ca. 2,86 og 7,20 prosent, men total-/P-avvikene og antatt full utnyttelse står åpne. Tallene er ikke faktisk substitusjon eller en oppdatert nasjonal effekt.",
+      "locators": [
+        {
+          "physicalPage": 8,
+          "lines": [
+            4,
+            7
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "physicalPage": 11,
+          "lines": [
+            1,
+            10
+          ],
+          "region": "Figure 2-3 and its conditional result; visually checked"
+        }
+      ]
+    },
+    {
+      "claimId": "READ031-07",
+      "claim": "Regionfordelingen av marine råstoffer er estimert fra myndighetsinformasjon og forfatternes anleggskunnskap; 90 prosent tilordnes Trøndelag. Nasjonal kapasitet til å ta imot næring betyr ikke regional kapasitet.",
+      "epistemicStatus": "source_scope_and_spatial_assumption",
+      "caveat": "Fordeling er antatt, ikke fylkesfordelt biogasstatistikk. Transport, mottakerbehov og historisk regioninndeling begrenser overføring til konkrete anlegg.",
+      "locators": [
+        {
+          "physicalPage": 13,
+          "lines": [
+            4,
+            19
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "physicalPage": 30,
+          "lines": [
+            18,
+            27
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "physicalPage": 25,
+          "lines": [
+            18,
+            22
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "claimId": "READ031-08",
+      "claim": "Trøndelags diagramverdier viser ca. 40,6 prosent mulig reduksjon i mineral-P. Tekstens formulering om økning med mer enn 250 prosent er uklar: enkel oppskalering av 544 mot 1 340 gir ca. 2,46 ganger volumet, det vil si om lag 146 prosent økning.",
+      "epistemicStatus": "analyst_scale_and_denominator_ambiguity",
+      "caveat": "Dette gjelder metning av mineral-P-erstatning under uendrede forutsetninger. Teksten viser også til landbrukets totale P-bruk, som har en annen nevner. Ingen fast anleggsterskel eller korrigert prognose vedtas.",
+      "locators": [
+        {
+          "physicalPage": 13,
+          "lines": [
+            1,
+            2
+          ],
+          "region": "Figure 2-4: Trøndelag mineral P 1340; image checked"
+        },
+        {
+          "physicalPage": 14,
+          "lines": [
+            1,
+            17
+          ],
+          "region": "Figure 2-5: Trøndelag mineral P 796 and replacement 544; paragraph with 250 percent"
+        }
+      ]
+    },
+    {
+      "claimId": "READ031-09",
+      "claim": "Næringsstoffene produseres ikke i biogassanlegget. Rapporten skiller mellom ingen håndtering, å hindre tap og å hindre tap samtidig som andre produkter erstattes.",
+      "epistemicStatus": "source_system_boundary",
+      "caveat": "Miljøgevinst ved å gå fra ingen håndtering til utnyttelse er ikke kvantifisert i denne rapporten. Må ikke legges oppå andre effekter uten felles baseline.",
+      "locators": [
+        {
+          "physicalPage": 15,
+          "lines": [
+            23,
+            38
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "claimId": "READ031-10",
+      "claim": "Klimasammenstillingen krever like livsløpsgrenser og allokering mellom produkter. Tabell 3-3 utelater energibruk og utslipp fra selve utråtningsprosessen og fordeler ikke lagergevinsten mellom husdyrprodukter og biogjødsel.",
+      "epistemicStatus": "source_system_boundary",
+      "caveat": "Tabellens totaler er ikke komplett klimafotavtrykk for et marint biorestprodukt. Kg total-N er ikke kg plantetilgjengelig N eller kg produkt.",
+      "locators": [
+        {
+          "physicalPage": 17,
+          "lines": [
+            13,
+            33
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "physicalPage": 23,
+          "lines": [
+            13,
+            47
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "physicalPage": 24,
+          "lines": [
+            1,
+            14
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "claimId": "READ031-11",
+      "claim": "Vedlegg 1 viser storfe-biorestsum 10,07 uten og 21,55 med oppgitt reaktor-CH4, og gris 12,23 uten og 30,27 med.",
+      "epistemicStatus": "source_boundary_sensitivity",
+      "caveat": "Viser virkningen av valgt utslippsavgrensning i regnegrunnlaget, ikke livsløpsrangering av biogass mot alternativ bruk. Enheten for tabellen må avklares mot underliggende Carbon Limits-modell før tall brukes operativt.",
+      "locators": [
+        {
+          "physicalPage": 29,
+          "lines": [
+            17,
+            32
+          ],
+          "region": "Appendix 1, digestate block and inclusion/exclusion totals; image checked"
+        },
+        {
+          "physicalPage": 23,
+          "lines": [
+            39,
+            47
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    },
+    {
+      "claimId": "READ031-12",
+      "claim": "Rapporten understreker at lagringstid, temperatur, lager og prosess påvirker biorestutslipp, og at inventarfaktorer ikke fanger alle dyrkingstiltak.",
+      "epistemicStatus": "source_limitations",
+      "caveat": "Ingen generisk utslippsbesparelse kan tildeles et nytt anlegg uten relevante driftsdata. Svensk lagerforsøk er sekundært referert, ikke ny norsk effektmåling.",
+      "locators": [
+        {
+          "physicalPage": 20,
+          "lines": [
+            37,
+            46
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "physicalPage": 21,
+          "lines": [
+            1,
+            10
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        },
+        {
+          "physicalPage": 22,
+          "lines": [
+            6,
+            22
+          ],
+          "region": "Main text or table, physical PDF page; no visible printed page number"
+        }
+      ]
+    }
+  ],
+  "visualChecks": [
+    {
+      "physicalPage": 5,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-005.png",
+      "finding": "Innledningen henviser kjemisk kvalitet til separat NIBIO-rapport; denne rapporten er potensial-/klimasammenstilling. Ingen trykt sidenummer synlig."
+    },
+    {
+      "physicalPage": 8,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-008.png",
+      "finding": "Figur 2-1: N 97570+35160=132730; P 8490+7120=15610. Ingen trykt sidenummer synlig."
+    },
+    {
+      "physicalPage": 10,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-010.png",
+      "finding": "Figur 2-2 og tekstens 4302/1177; forutsetning om 70 prosent N og 100 prosent P. Stolper er ikke en ny måleserie."
+    },
+    {
+      "physicalPage": 11,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-011.png",
+      "finding": "Figur 2-3: nitrogenmassene og tapet lest; P-biorest 662 og totalbruk 15600 mot tidligere15610; tekstens32 prosent N kan ikke reproduseres."
+    },
+    {
+      "physicalPage": 13,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-013.png",
+      "finding": "Figur 2-4 regional P-baseline; mineral-P i Trøndelag1340, Agder/Telemark410 og Rogaland320. Nasjonale/regionale summer avviker; rapporten nevner avrunding."
+    },
+    {
+      "physicalPage": 14,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-014.png",
+      "finding": "Figur 2-5 regional P-scenario; Trøndelag796 mineral-P og544 biorest-P. Tekstens250 prosent må skille økning fra multiplikator og mineral-P fra total-P."
+    },
+    {
+      "physicalPage": 18,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-018.png",
+      "finding": "Tabell3-1: kgCO2ekv/kgN i produksjonsfasen, ulike land og publikasjoner1998-2016."
+    },
+    {
+      "physicalPage": 19,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-019.png",
+      "finding": "Tabell3-2: ulike produkter og land; en rad har tre faktortall og fire geografier, ikke entydig mapping. Ikke en komplett livsløpssammenligning."
+    },
+    {
+      "physicalPage": 22,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-022.png",
+      "finding": "Figur3-2 skiller lager, spredning, forgjødsel, reaktor og biorestlager; prosessutslipp må avgrenses eksplisitt."
+    },
+    {
+      "physicalPage": 23,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-023.png",
+      "finding": "Tabell3-3 har total-N-nevner; eksplisitt utelatt produksjonsbelastning/allokering under tabellen."
+    },
+    {
+      "physicalPage": 29,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-029.png",
+      "finding": "Vedlegg1: reaktor-CH4 inkludert/ekskludert gir svært ulike summer. Enkelte avrundinger kan ikke gjenskapes helt fra viste delrader."
+    },
+    {
+      "physicalPage": 30,
+      "imagePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08695-b1eb-7b73-ab4a-4372b102a17a/full-reading/031/page-030.png",
+      "finding": "Tabell5-1 viser bare tre råstoffrader; totalraden passer ikke. Regional husdyrfordeling summerer101 prosent; marine100. Ikke stille normalisering."
+    }
+  ],
+  "appraisal": {
+    "question": "Hvilket potensial har biorest fra husdyrgjødsel og marine råstoffer til næringsgjenvinning, og hvordan kan gjødselprodukters klimabelastning vurderes?",
+    "method": "Materialstrømsanalyse i STAN med historisk nasjonal statistikk, litteraturverdier og estimert regionfordeling; litteratur-/modellbasert klimasammenstilling. Ingen ny agronomisk effektstudie.",
+    "dataPeriodGeography": "Norge og sju historiske regioner; gjødselundersøkelse2018, biogassstatistikk2022 publisert2023, eldre nærings-/utslippsfaktorer. Ikke september2026-status.",
+    "denominator": "Tonn tørrstoff/år, kgN/P per tonnTS og tonn næringsstoff/år. Mineralgjødselandel, samlet gjødselandel og plantetilgjengelig N er forskjellige nevnere. Klimatabell per kg total-N; produksjonsfase skilles fra full livsløpseffekt.",
+    "results": "Faglig relevant for C3-baseline, tap, tilgjengelighet, regional avsetning og allokering. Næring i eksisterende husdyrgjødsel er allerede sirkulær. Rapporterte tilleggspotensialer er betingede og har interne tallkonflikter.",
+    "limitations": "Ulike dataår, estimert kjemi og regionfordeling, usikker fiskeensilasje, antatt full bruk og tilgjengelighet, utelatt matavfall/slam i hovedanalysen, ingen komplett marint-biorest-LCA eller eutrofieringseffekt. Regelomtale fra2023 er historisk.",
+    "contradictions": "Tabell5-1s totalsummer avviker vesentlig fra tre synlige rader; N32 prosent avviker fra figurens nettoandel; P-total15600/15610 og662/663/1177/601/611 må avklares; 250prosent-formulering blander mulig faktor/økning og P-nevner. Regional husdyrfordeling101prosent kan være avrunding og normaliseres ikke. Tabell3-2 land/faktor-mapping er ufullstendig.",
+    "transferability": "Begrunn C3-datakrav til baselineanvendelse, inn/ut-næring, avvanningstap, faktisk levering/spredning og mottakerareal/-behov. Ikke bevis på Hias-struvitt, oppnådd nasjonal substitusjon, nåværende regeladgang eller C1–C5 beredskapseffekt."
+  }
+}

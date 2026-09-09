@@ -1,0 +1,101 @@
+{
+  "assessmentSha256": "e3b94c6eafc62d6cb1554c34e6bc7fe224880faeeb410236387f759733e4cb6e",
+  "checks": [
+    {
+      "check": "tonnTS sum of visible Table5-1 rows",
+      "claimId": "READ031-04",
+      "note": "Confirmed scope/sum mismatch; no corrected canonical total",
+      "recomputed": 27948,
+      "sourceValue": 87310
+    },
+    {
+      "check": "tonnN sum of visible Table5-1 rows",
+      "claimId": "READ031-04",
+      "note": "Confirmed scope/sum mismatch; no corrected canonical total",
+      "recomputed": 4302,
+      "sourceValue": 11145
+    },
+    {
+      "check": "tonnP sum of visible Table5-1 rows",
+      "claimId": "READ031-04",
+      "note": "Confirmed scope/sum mismatch; no corrected canonical total",
+      "recomputed": 663,
+      "sourceValue": 1177
+    },
+    {
+      "check": "N mass balance",
+      "claimId": "READ031-05",
+      "note": "Figure2-3 closes with explicit unavailable N",
+      "recomputed": 132730,
+      "sourceValue": 132730
+    },
+    {
+      "check": "net circular N percent",
+      "claimId": "READ031-05",
+      "note": "Net definition uses available N; source32 percent not reproduced",
+      "recomputed": 28.589618,
+      "sourceValue": 32
+    },
+    {
+      "check": "mineral N reduction percent",
+      "claimId": "READ031-06",
+      "note": "Conditional figure arithmetic, not observed effect",
+      "recomputed": 2.856411,
+      "sourceValue": 3
+    },
+    {
+      "check": "mineral P reduction percent",
+      "claimId": "READ031-06",
+      "note": "Source P totals have further mismatches",
+      "recomputed": 7.196702,
+      "sourceValue": 7
+    },
+    {
+      "check": "Trøndelag mineral P reduction percent",
+      "claimId": "READ031-08",
+      "note": "Region/scenario dependent",
+      "recomputed": 40.597015,
+      "sourceValue": "over40"
+    },
+    {
+      "check": "factor to replace baseline mineral P",
+      "claimId": "READ031-08",
+      "note": "Factor2.46 means growth146 percent; not total agricultural P",
+      "recomputed": 2.463235,
+      "sourceValue": null
+    },
+    {
+      "check": "growth percent under same assumption",
+      "claimId": "READ031-08",
+      "note": "Source wording/denominator unclear; no adopted capacity threshold",
+      "recomputed": 146.323529,
+      "sourceValue": 250
+    },
+    {
+      "check": "regional manure share sum",
+      "claimId": "READ031-07",
+      "note": "One point may be rounding; preserve without normalization",
+      "recomputed": 101,
+      "sourceValue": 100
+    },
+    {
+      "check": "cattle digestate excluding reactor CH4",
+      "claimId": "READ031-11",
+      "note": "Boundary check only; not full LCA",
+      "recomputed": 10.07,
+      "sourceValue": 10.07
+    },
+    {
+      "check": "pig digestate excluding reactor CH4",
+      "claimId": "READ031-11",
+      "note": "0.01 residual may reflect underlying rounding",
+      "recomputed": 12.22,
+      "sourceValue": 12.23
+    }
+  ],
+  "human_verified": false,
+  "readinessChanged": false,
+  "result": "passed_with_preserved_source_conflicts",
+  "schema": "offline-biorest-consistency-check/v1",
+  "scriptSha256": "d36689dc3016289e6cc4cf5f3bd0aebd4f7df41f50869d22f38b41835795ec5c"
+}

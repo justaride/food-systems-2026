@@ -145,6 +145,9 @@ def main():
                   frozenLibraryRecords=len(queue), uniquePdfFiles=len(rows), physicalPages=sum(r['physicalPages'] for r in rows),
                   documentStates=counts, readPhysicalPages=sum(len(r['readPhysicalPages']) for r in rows),
                   claimCandidates=sum(len(d['claims']) for d in dossiers), assessmentVersions=len(dossiers),
+                  activeClaimCandidates=sum(len(d['claims']) for d in latest.values()),
+                  uniqueVisualPages=len({(d['identityCandidateId'], v['physicalPage']) for d in dossiers for v in d['visualChecks']}),
+                  countNote='claimCandidates and visualPageChecks count all retained assessment versions; activeClaimCandidates and uniqueVisualPages avoid revision double counting.',
                   visualPageChecks=sum(len(d['visualChecks']) for d in dossiers), fullLibraryReadingComplete=False,
                   supplementaryDocuments=len(supplements), supplementaryPagesRead=sum(s['physicalPages'] for s in supplements),
                   authority=authority, verificationScope='Local source hashes, exact passage bindings, page accounting and reproducibility. No CI/runtime/release proof; no automatic semantic-reading attestation.')
