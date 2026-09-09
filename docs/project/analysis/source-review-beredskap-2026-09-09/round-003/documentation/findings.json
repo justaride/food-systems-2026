@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-09-09",
+  "authority": "internal_analysis_only",
+  "human_verified": false,
+  "sources": [
+    {
+      "sourceId": "D-S001",
+      "url": "https://statfin.stat.fi/PxWeb/api/v1/en/StatFin/eot/132a.px",
+      "status": "bound",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/documentation/statfin-response.json",
+      "rawSha256": "419d81bd8778882b1c7ea4262271f2c321ae76a32f44b2a3232f5f22f5bcccc2",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/documentation/statfin-response.json",
+      "textSha256": "419d81bd8778882b1c7ea4262271f2c321ae76a32f44b2a3232f5f22f5bcccc2",
+      "contentKind": "json_original",
+      "readScope": "JSON-stat2 dimensions, labels, units, all 15 values, update date and notes"
+    },
+    {
+      "sourceId": "D-S002",
+      "url": "https://www.finlex.fi/files/extra/statute-book-of-finland-pdf/fin/2006/20060071.pdf",
+      "status": "bound",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/documentation/Finlex-law445-original.pdf",
+      "rawSha256": "3cc9cd3a87308af23fe5c37589fbc3709b78ada3ae61f4b1424f30d5bf11b4df",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/documentation/Finlex-law445-original.txt",
+      "textSha256": "5dcc977865e58d564372d1e86b01df3510112fb6c134032b3f06113045131dfb",
+      "contentKind": "pdf_original",
+      "readScope": "PDF page15 / printed1323, law445/2006 §§1–3, visually checked"
+    },
+    {
+      "sourceId": "D-S003",
+      "url": "https://www.finlex.fi/files/extra/treaty-series-pdf/fin/2006/20060035.pdf",
+      "status": "bound",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/documentation/Finlex-treaty95-original.pdf",
+      "rawSha256": "ed46db3d71f188d503a02ec2e247dde8e3c653fd842c2b11c27e886d3f8664be",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/documentation/Finlex-treaty95-original.txt",
+      "textSha256": "7b13f08a618d90e498fa4a7ab019cdfcaabc02b8bf7f33af3493f69abf37761d",
+      "contentKind": "pdf_original",
+      "readScope": "PDF page1 / printed957; heading and §§1–2, visually checked"
+    },
+    {
+      "sourceId": "D-S004",
+      "url": "https://www.finlex.fi/files/extra/treaty-series-pdf/fin/2006/20060019.pdf",
+      "status": "bound",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/documentation/Finlex-treaty55-original.pdf",
+      "rawSha256": "4bb3e948bc1361e2d758b907b8240a0f97ba168e4d082f9223e5962a6e4cc9ba",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/documentation/Finlex-treaty55-original.txt",
+      "textSha256": "002679392c4054ae195e4caa1aa5932546c751ece175d31aa1713dd494767e24",
+      "contentKind": "pdf_original",
+      "readScope": "PDF pages2–6 / printed566–570; treaty, particularly articles3/4 at PDF4, visually checked"
+    },
+    {
+      "sourceId": "D-S005",
+      "url": "https://kommunikasjon.ntb.no/files/15678779/18624855/193305/no",
+      "status": "bound",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/documentation/SIFO-7-2025.pdf",
+      "rawSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/documentation/SIFO-7-2025.txt",
+      "textSha256": "6c2b98fb5080a1279386267d4da5362bb932b6427df4066498e4240f96fe164a",
+      "contentKind": "pdf_original",
+      "readScope": "PDF pages1–9: title, ISBN, authors, foreword and summary; PDF3 visually checked; binary identity with prior A3-S001"
+    }
+  ],
+  "observations": [
+    {
+      "observationId": "D-O001",
+      "claim": "De 15 utvalgte StatFin-cellene for 2021–2025 samsvarer med tidligere kandidattall når eksakt tabell, husholdningsgruppe og mål er bundet til originalresponsen.",
+      "parentReference": "A3-O012",
+      "observationPeriod": "2021–2025",
+      "unit": "prosent husholdninger",
+      "value": [
+        {
+          "lifeCycleCode": "SS",
+          "year": "2021",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 0,
+          "value": 6.6,
+          "previousValue": 6.6,
+          "matches": true,
+          "unit": "percent_households"
+        },
+        {
+          "lifeCycleCode": "SS",
+          "year": "2022",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 1,
+          "value": 7.3,
+          "previousValue": 7.3,
+          "matches": true,
+          "unit": "percent_households"
+        },
+        {
+          "lifeCycleCode": "SS",
+          "year": "2023",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 2,
+          "value": 8.6,
+          "previousValue": 8.6,
+          "matches": true,
+          "unit": "percent_households"
+        },
+        {
+          "lifeCycleCode": "SS",
+          "year": "2024",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 3,
+          "value": 9.6,
+          "previousValue": 9.6,
+          "matches": true,
+          "unit": "percent_households"
+        },
+        {
+          "lifeCycleCode": "SS",
+          "year": "2025",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 4,
+          "value": 10.3,
+          "previousValue": 10.3,
+          "matches": true,
+          "unit": "percent_households"
+        },
+        {
+          "lifeCycleCode": "31",
+          "year": "2021",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 5,
+          "value": 4.4,
+          "previousValue": 4.4,
+          "matches": true,
+          "unit": "percent_households"
+        },
+        {
+          "lifeCycleCode": "31",
+          "year": "2022",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 6,
+          "value": 3.6,
+          "previousValue": 3.6,
+          "matches": true,
+          "unit": "percent_households"
+        },
+        {
+          "lifeCycleCode": "31",
+          "year": "2023",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 7,
+          "value": 5.3,
+          "previousValue": 5.3,
+          "matches": true,
+          "unit": "percent_households"
+        },
+        {
+          "lifeCycleCode": "31",
+          "year": "2024",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 8,
+          "value": 8.2,
+          "previousValue": 8.2,
+          "matches": true,
+          "unit": "percent_households"
+        },
+        {
+          "lifeCycleCode": "31",
+          "year": "2025",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 9,
+          "value": 6.2,
+          "previousValue": 6.2,
+          "matches": true,
+          "unit": "percent_households"
+        },
+        {
+          "lifeCycleCode": "32",
+          "year": "2021",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 10,
+          "value": 14,
+          "previousValue": 14.0,
+          "matches": true,
+          "unit": "percent_households"
+        },
+        {
+          "lifeCycleCode": "32",
+          "year": "2022",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 11,
+          "value": 17,
+          "previousValue": 17.0,
+          "matches": true,
+          "unit": "percent_households"
+        },
+        {
+          "lifeCycleCode": "32",
+          "year": "2023",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 12,
+          "value": 18.6,
+          "previousValue": 18.6,
+          "matches": true,
+          "unit": "percent_households"
+        },
+        {
+          "lifeCycleCode": "32",
+          "year": "2024",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 13,
+          "value": 17.8,
+          "previousValue": 17.8,
+          "matches": true,
+          "unit": "percent_households"
+        },
+        {
+          "lifeCycleCode": "32",
+          "year": "2025",
+          "informationCode": "koti_vaik_pros",
+          "flatIndex": 14,
+          "value": 23.6,
+          "previousValue": 23.6,
+          "matches": true,
+          "unit": "percent_households"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "D-S001",
+          "locator": "JSON pointers /dimension, /value/0–14, /note/2"
+        }
+      ],
+      "scopeLimits": "Måler generell økonomisk vanskelighet, ikke FIES eller direkte matmangel. Metodebrudd2022 beholdes. Ingen nordisk rangering.",
+      "human_verified": false
+    },
+    {
+      "observationId": "D-O002",
+      "claim": "Original lov445/2006 er hentet; den setter relevante bestemmelser i Norge–Finland-avtalen fra14.april2005 i kraft som lov og delegerer detaljer og ikrafttredelse til forskrift.",
+      "parentReference": "A5-S002",
+      "observationPeriod": "2006",
+      "unit": "institusjonell bestemmelse",
+      "value": null,
+      "sourceRefs": [
+        {
+          "sourceId": "D-S002",
+          "locator": "PDF15 / trykt1323, §§1–3"
+        }
+      ],
+      "scopeLimits": "Opprinnelig historisk tekst; ingen ny juridisk vurdering av gjeldende rett eller nåværende leveransestatus.",
+      "human_verified": false
+    },
+    {
+      "observationId": "D-O003",
+      "claim": "Den tidligere S004-lenken95/2006 gjelder nordisk folkeregistrering og er feil identitet for Norge–Finland-avtalen om vare- og tjenestebytte.",
+      "parentReference": "A5-S004",
+      "observationPeriod": "2006",
+      "unit": "dokumentidentitet",
+      "value": null,
+      "sourceRefs": [
+        {
+          "sourceId": "D-S003",
+          "locator": "PDF1 / trykt957, tittel og §1"
+        }
+      ],
+      "scopeLimits": "Rett kilde finnes som separat D-S004; original S004 og A5-O003 overskrives ikke. Feillenken er ikke bevis for fravær av matprotokoll.",
+      "human_verified": false
+    },
+    {
+      "observationId": "D-O004",
+      "claim": "Norge–Finland-avtalens artikkel3 åpner for særskilte leveranseprotokoller; artikkel4 gir et betinget unntak for midlertidige produktrestriksjoner etter konsultasjon.",
+      "parentReference": "A5-O003",
+      "observationPeriod": "2005 avtale /2006 ikrafttredelse",
+      "unit": "institusjonell bestemmelse",
+      "value": null,
+      "sourceRefs": [
+        {
+          "sourceId": "D-S004",
+          "locator": "PDF4 / trykt568, norsk kolonne artikkel3–4; PDF2 og5–6 for dato/endring"
+        }
+      ],
+      "scopeLimits": "Avtalens hovedtekst er ingen matspesifikk leveranseprotokoll. Nåværende vedlegg, volum, rett og ledetid ikke dokumentert. Historisk tekst er ikke attestasjon på aktuell rettstilstand.",
+      "human_verified": false
+    },
+    {
+      "observationId": "D-O005",
+      "claim": "OsloMets vedlagte SIFO7-2025-original er byteidentisk med allerede vurdert A3-S001; den gir en direkte utgiverkanal for dokumentet bak handle-posten.",
+      "parentReference": "A3-S002",
+      "observationPeriod": "rapportaugust2025 / data2019–2024",
+      "unit": "dokumentidentitet",
+      "value": null,
+      "sourceRefs": [
+        {
+          "sourceId": "D-S005",
+          "locator": "PDF3, forfattere/ISBN978-82-7063-585-6; SHA256 hele PDF mot A3-S001"
+        }
+      ],
+      "scopeLimits": "Dette er én rapport via flere kanaler, ikke uavhengig evidens. Handle-tjenestens nettskall er fortsatt ikke reparert. Ingen ny helrapportlesing.",
+      "human_verified": false
+    }
+  ],
+  "accessDisposition": {
+    "A3-S002": "same_original_recovered_via_publisher; handle_shell_remains",
+    "A5-S002": "original_text_recovered",
+    "A5-S004": "wrong_identity_demonstrated; correct_original_added_separately",
+    "StatFin15": "15_of_15_preserved_response_matches; methodology_limits_retained"
+  },
+  "packetSha256": "dc776b6baeeb81ed1d7f3f012af3ee2b479ec7e8621e2ffdea7eac03b588c170",
+  "privatePacketPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/documentation/review-packet.json"
+}

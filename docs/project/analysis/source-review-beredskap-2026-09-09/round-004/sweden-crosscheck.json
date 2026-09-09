@@ -1,0 +1,98 @@
+[
+  {
+    "year": 2015,
+    "crop": "wheat",
+    "scb_winter_plus_spring_t": 3300400,
+    "eurostat_t": 3300400.0,
+    "eurostat_minus_scb_t": 0.0,
+    "interpretation": "Separate extraction of related official streams; sum of winter/spring compared with Eurostat category; residual retained."
+  },
+  {
+    "year": 2015,
+    "crop": "barley",
+    "scb_winter_plus_spring_t": 1672300,
+    "eurostat_t": 1672300.0,
+    "eurostat_minus_scb_t": 0.0,
+    "interpretation": "Separate extraction of related official streams; sum of winter/spring compared with Eurostat category; residual retained."
+  },
+  {
+    "year": 2016,
+    "crop": "wheat",
+    "scb_winter_plus_spring_t": 2841600,
+    "eurostat_t": 2841600.0,
+    "eurostat_minus_scb_t": 0.0,
+    "interpretation": "Separate extraction of related official streams; sum of winter/spring compared with Eurostat category; residual retained."
+  },
+  {
+    "year": 2016,
+    "crop": "barley",
+    "scb_winter_plus_spring_t": 1537900,
+    "eurostat_t": 1537900.0,
+    "eurostat_minus_scb_t": 0.0,
+    "interpretation": "Separate extraction of related official streams; sum of winter/spring compared with Eurostat category; residual retained."
+  },
+  {
+    "year": 2017,
+    "crop": "wheat",
+    "scb_winter_plus_spring_t": 3298600,
+    "eurostat_t": 3298600.0,
+    "eurostat_minus_scb_t": 0.0,
+    "interpretation": "Separate extraction of related official streams; sum of winter/spring compared with Eurostat category; residual retained."
+  },
+  {
+    "year": 2017,
+    "crop": "barley",
+    "scb_winter_plus_spring_t": 1635200,
+    "eurostat_t": 1635200.0,
+    "eurostat_minus_scb_t": 0.0,
+    "interpretation": "Separate extraction of related official streams; sum of winter/spring compared with Eurostat category; residual retained."
+  },
+  {
+    "year": 2018,
+    "crop": "wheat",
+    "scb_winter_plus_spring_t": 1620300,
+    "eurostat_t": 1620300.0,
+    "eurostat_minus_scb_t": 0.0,
+    "interpretation": "Separate extraction of related official streams; sum of winter/spring compared with Eurostat category; residual retained."
+  },
+  {
+    "year": 2018,
+    "crop": "barley",
+    "scb_winter_plus_spring_t": 1094400,
+    "eurostat_t": 1094400.0,
+    "eurostat_minus_scb_t": 0.0,
+    "interpretation": "Separate extraction of related official streams; sum of winter/spring compared with Eurostat category; residual retained."
+  },
+  {
+    "year": 2019,
+    "crop": "wheat",
+    "scb_winter_plus_spring_t": 3476800,
+    "eurostat_t": 3476800.0,
+    "eurostat_minus_scb_t": 0.0,
+    "interpretation": "Separate extraction of related official streams; sum of winter/spring compared with Eurostat category; residual retained."
+  },
+  {
+    "year": 2019,
+    "crop": "barley",
+    "scb_winter_plus_spring_t": 1546500,
+    "eurostat_t": 1546500.0,
+    "eurostat_minus_scb_t": 0.0,
+    "interpretation": "Separate extraction of related official streams; sum of winter/spring compared with Eurostat category; residual retained."
+  },
+  {
+    "year": 2020,
+    "crop": "wheat",
+    "scb_winter_plus_spring_t": 3214300,
+    "eurostat_t": 3214300.0,
+    "eurostat_minus_scb_t": 0.0,
+    "interpretation": "Separate extraction of related official streams; sum of winter/spring compared with Eurostat category; residual retained."
+  },
+  {
+    "year": 2020,
+    "crop": "barley",
+    "scb_winter_plus_spring_t": 1513500,
+    "eurostat_t": 1513500.0,
+    "eurostat_minus_scb_t": 0.0,
+    "interpretation": "Separate extraction of related official streams; sum of winter/spring compared with Eurostat category; residual retained."
+  }
+]

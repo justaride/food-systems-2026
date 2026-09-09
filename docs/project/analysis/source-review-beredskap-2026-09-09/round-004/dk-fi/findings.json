@@ -1,0 +1,2096 @@
+{
+  "schemaVersion": "round004-dk-fi-v1",
+  "asOf": "2026-09-09",
+  "authority": "internal_candidate_only",
+  "humanVerified": false,
+  "canonicalPromotion": false,
+  "readinessChanged": false,
+  "scope": "One national table per country,2015–2020 wheat/barley; metadata may be supplementary documents.",
+  "sources": [
+    {
+      "sourceId": "DKFI-S001",
+      "url": "https://api.statbank.dk/v1/tableinfo/HST77?format=JSON&lang=en",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-tableinfo.json",
+      "rawSha256": "8fa4338957e4aab0f881dc97188926837658974df83f5991ef4565bc4685dd1d",
+      "retrievedDate": "2026-09-09",
+      "httpStatus": 200,
+      "readScope": "Full JSON: variables, active, updated, footnote, documentation",
+      "fullDocumentReviewed": true,
+      "requestPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-tableinfo-request.json",
+      "requestSha256": "db2a2844147ea0af1ffa3dd69f761c747790a1ea063ae3df86a0216ac17f6e14"
+    },
+    {
+      "sourceId": "DKFI-S002",
+      "url": "https://api.statbank.dk/v1/data",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-data.csv",
+      "rawSha256": "fff437a29bf465a2b99f16f25a5dfb382b15ee5c78331ad2b5986f9bf69b3c78",
+      "retrievedDate": "2026-09-09",
+      "httpStatus": 200,
+      "readScope": "Header and all 72 selected data rows",
+      "fullDocumentReviewed": true,
+      "requestPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-data-request.json",
+      "requestSha256": "21118adf736e926ba1c3f1c1969fbe8329a64808af7ab57b65021da4eca2a618"
+    },
+    {
+      "sourceId": "DKFI-S003",
+      "url": "https://statdb.luke.fi/PxWeb/api/v1/en/LUKE/maa/sattil/0100_sattil.px",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-tableinfo.json",
+      "rawSha256": "7a2a524dbcb4322e988b09a2a9f56dfcbf37bea2caf99b8ec448d1c36880e018",
+      "retrievedDate": "2026-09-09",
+      "httpStatus": 200,
+      "readScope": "Full JSON: variable codes and labels",
+      "fullDocumentReviewed": true,
+      "requestPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-tableinfo-request.json",
+      "requestSha256": "e250d19ef0c2a5215e73f973bab6460a6c81426eb8de953539e84096d188a144"
+    },
+    {
+      "sourceId": "DKFI-S004",
+      "url": "https://statdb.luke.fi/PxWeb/api/v1/en/LUKE/maa/sattil/0100_sattil.px",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-data.json",
+      "rawSha256": "dc2f14c611da62e385ca8deab342cb51c5d269088d371554ca086c90b2dcf286",
+      "retrievedDate": "2026-09-09",
+      "httpStatus": 200,
+      "readScope": "All dimension/notes metadata; all 36 wheat-total/barley-total values 2015–2020 and all 21 selected 2018 values; 75 other component cells acquired but not individually read",
+      "fullDocumentReviewed": false,
+      "requestPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-data-request.json",
+      "requestSha256": "2d61492e353a840361496364c369c9b0d00565acbaed4a6d34b8a78e4e885a9f"
+    },
+    {
+      "sourceId": "DKFI-S005",
+      "url": "https://www.dst.dk/Site/Dst/SingleFiles/kvaldeklbilag.aspx?filename=fc4a352b-8c03-44e9-82bc-cf5d6870b32eHarvest_of_Cereals_etc._2018&ext=.pdf",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-quality-2018.pdf",
+      "rawSha256": "ba7c3eabfd0e2688777dd1e4ba9ec2b8478776c3f315aad17bb0eed60655e28c",
+      "retrievedDate": "2026-09-09",
+      "httpStatus": 200,
+      "readScope": "Physical/printed pages 1–4,6–7,9–10; page7 visually inspected",
+      "fullDocumentReviewed": false,
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-quality-2018.txt",
+      "textSha256": "e1c6c26e447a21dc429e2a307424280116f28daf6dee4df53fe6a580f5a2fcca",
+      "textExtraction": "pdftotext -layout",
+      "requestPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-quality-2018-request.json",
+      "requestSha256": "59603822fd2eb0bea58507d8883f431eabff3cdb5c9c912b3864bc67a59bec91"
+    },
+    {
+      "sourceId": "DKFI-S006",
+      "url": "https://www.luke.fi/sites/default/files/2024-02/Satotilasto%20Laaturaportti_EN%2014022024.pdf",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-quality-original.pdf",
+      "rawSha256": "5dc0d13df107b10d36e990e99107ab4f0bded9fb56ed143749b35d1dc124c1b7",
+      "retrievedDate": "2026-09-09",
+      "httpStatus": 200,
+      "readScope": "Physical pages7,12,14,16,18–19; printed pages6,11,13,15,17–18; page19 visually inspected",
+      "fullDocumentReviewed": false,
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-quality-original.txt",
+      "textSha256": "f247d58b9801f6d488ce5309a1982f77ba0f1ec5f3af65f350dc5d469027b2c0",
+      "textExtraction": "pdftotext -layout",
+      "requestPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-quality-original-request.json",
+      "requestSha256": "57936605fc5143d5ea636e293d20e7ef124a3bf864951fdd53a17acf84f8312b"
+    },
+    {
+      "sourceId": "DKFI-S007",
+      "url": "https://statdb.luke.fi/PxWeb/pxweb/en/LUKE/LUKE__maa__sattil/0100_sattil.px/",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-tablepage.html",
+      "rawSha256": "845bf3d1d4c41600c47d7b4cfa5835dfe2fc359d69596b6b04208e3ecbcfa062",
+      "retrievedDate": "2026-09-09",
+      "httpStatus": 200,
+      "readScope": "Extracted text lines191–220 and247–252; table source/update fields",
+      "fullDocumentReviewed": false,
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-tablepage.html.txt",
+      "textSha256": "6c8ca5034316314ee2d1319cb65e83258edf25edf99c6aee16c650f15ea82968",
+      "textExtraction": "Python HTMLParser, normalized nonempty data lines, scripts/styles omitted"
+    },
+    {
+      "sourceId": "DKFI-S008",
+      "url": "https://ec.europa.eu/eurostat/cache/metadata/EN/apro_cp_esqrscn2_fi.htm",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-eurostat-metadata-attempt.html",
+      "rawSha256": "beb0fac3d0761a1033550a63670df18ffbf01723179fc414bd38559d8b91da75",
+      "retrievedDate": "2026-09-09",
+      "httpStatus": 200,
+      "readScope": "Metadata identity, scoped moisture-term search, and extracted text lines223–257 section3.3 classification deviations",
+      "fullDocumentReviewed": false,
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-eurostat-metadata.txt",
+      "textSha256": "34bbb50883bc86ee55422523a96a334618b2c42800f0d86fede91f87878a2dd9",
+      "textExtraction": "Python HTMLParser, normalized nonempty data lines, scripts/styles omitted"
+    },
+    {
+      "sourceId": "DKFI-S009",
+      "url": "https://doi.org/10.2908/APRO_CPSH1",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/panel-response.json",
+      "rawSha256": "a91101d823537347924e1129df2d32c02d573eafc63bf3e927425774ad1a7d1d",
+      "requestPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/panel-request.json",
+      "requestSha256": "eebbc2e70e49f6715b4dffc0fb439a919e4326b583aa906240c558f7bf74f49c",
+      "retrievedDate": "2026-09-09",
+      "acquiredBy": "parent",
+      "readScope": "All dimension codes;20 DK/FI2018 cells; response updated and structure metadata",
+      "fullDocumentReviewed": false
+    }
+  ],
+  "tableSelections": {
+    "DK": {
+      "table": "HST77",
+      "endpoint": "https://api.statbank.dk/v1/data",
+      "regionCode": "000",
+      "cropCodes": [
+        "H110",
+        "H120",
+        "H150",
+        "H160"
+      ],
+      "measureCodes": [
+        "010",
+        "020",
+        "030"
+      ],
+      "timeCodes": [
+        "2015",
+        "2016",
+        "2017",
+        "2018",
+        "2019",
+        "2020"
+      ],
+      "cells": 72,
+      "updated": "2025-09-08T08:00:00",
+      "active": false,
+      "note": "HST77 discontinued for2025 onward; suitable historical table for2015–2020. API suppressedDataValue=\"0\" retained; selected values all positive."
+    },
+    "FI": {
+      "table": "0100_sattil.px",
+      "matrix": "Luke_Maa_Sato_01a",
+      "endpoint": "https://statdb.luke.fi/PxWeb/api/v1/en/LUKE/maa/sattil/0100_sattil.px",
+      "regionCode": "SSS",
+      "productionMethod": "TUOTT_YHT",
+      "cropCodes": [
+        "VEHN",
+        "VENHSY",
+        "VEHNKE",
+        "OHRA",
+        "OHRARE",
+        "OHRAMA",
+        "OHRASY"
+      ],
+      "measureCodes": [
+        "SATOKGM",
+        "HASATO",
+        "KORJHAT"
+      ],
+      "timeCodes": [
+        "2015",
+        "2016",
+        "2017",
+        "2018",
+        "2019",
+        "2020"
+      ],
+      "cells": 126,
+      "updated": "2026-03-13T06:00:00Z",
+      "notes": "OHRASY values for2015–2020 are null with status=\"..\"; not zero. JSON extension official-statistics=false retained without redefining the primary agency/source."
+    }
+  },
+  "observations": [
+    {
+      "observationId": "DKFI-O001",
+      "claim": "HST77 har vinter- og vårhvete, samt vinter- og vårbygg, men ingen egen totalhvetekode i utvalget. I2018 blir komponentenes sum2654.8millionkg hvete og3485.7millionkg bygg.",
+      "sourceIds": [
+        "DKFI-S001",
+        "DKFI-S002"
+      ],
+      "locators": [
+        "/variables/1/values",
+        "CSV lines17,35,53,71"
+      ],
+      "inference": "Summene er egne beregninger fra komponentene. Hvetesummen er ikke automatisk identisk med Eurostat C1100 inklusive spelt/durum."
+    },
+    {
+      "observationId": "DKFI-O002",
+      "claim": "Danmarks2018-metode standardiserer korn til15% vann. Area under cultivation er et dyrket arealbegrep; generell arealkilde er IACS og landbruksundersøkelsen. Lesingen bekrefter ikke en eksplisitt fratrekksregel for totalt uhøstet kornareal i HST77.",
+      "sourceIds": [
+        "DKFI-S005"
+      ],
+      "locators": [
+        "PDF pp.2,4,6–7; sections2.1,2.4,3.1,3.5"
+      ],
+      "inference": "Ikke ommerk nationalArea til Eurostats harvestedArea uten konkret bro.15% vann er ikke100% tørrstoff."
+    },
+    {
+      "observationId": "DKFI-O003",
+      "claim": "Luke oppgir2018 totalhvete494.7millionkg og bygg1336.1millionkg. Høsta areal er177.8 og405.1tusenha; avling2780 og3300kg/ha. Total produksjonsform er valgt.",
+      "sourceIds": [
+        "DKFI-S004"
+      ],
+      "locators": [
+        "/value/63",
+        "/value/66",
+        "/value/77",
+        "/value/80",
+        "/value/70",
+        "/value/73"
+      ],
+      "inference": "Produksjon, areal og avling er separat publisert avrundet; deres produkt trenger ikke stemme nøyaktig. Avling sier ikke mat-/møllekvalitet."
+    },
+    {
+      "observationId": "DKFI-O004",
+      "claim": "Luke bruker estimert høstet areal fra2016; fram til2015 ble totalskadet uhøstet areal trukket fra dyrket areal. Korn høstet grønt ble skilt fra vårhvete/bygg fra2007, og fra vinterhvete først2021.",
+      "sourceIds": [
+        "DKFI-S004",
+        "DKFI-S006",
+        "DKFI-S007"
+      ],
+      "locators": [
+        "/dimension/INFO/category/note/KORJHAT",
+        "/dimension/LJ/category/note/VEHN",
+        "/dimension/LJ/category/note/VENHSY",
+        "PDF physicalp.19=printedp.18; section17.5"
+      ],
+      "inference": "Det finske2015–2020-vinduet krysser en arealmetodeendring. Vinter/vårsum kan ikke antas metodisk identisk med totalhvete eller Eurostat uten kategorikontroll."
+    },
+    {
+      "observationId": "DKFI-O005",
+      "claim": "Lukes leste kvalitetsrapport sier dried crop yield, men angir ikke den eksakte vannprosenten. Det undersøkte nasjonale Eurostat-metadatasporet løser heller ikke dette gjennom den avgrensede søkelesingen.",
+      "sourceIds": [
+        "DKFI-S006",
+        "DKFI-S008"
+      ],
+      "locators": [
+        "PDF physicalp.7=printedp.6, Unit of measure",
+        "FI-eurostat-metadata.txt: scoped term-search; no exact moisture percentage established"
+      ],
+      "inference": "Finsk14% er ikke satt som bekreftet nasjonal metadata i denne pakken. Videre harmonisering trenger spesifisert primærlokator."
+    },
+    {
+      "observationId": "DKFI-O006",
+      "claim": "Den bevarte Eurostat-responsen gir Danmark2623.93kt hvete og3445.17kt bygg ved14% vann. Danske15%-tall omregnet med85/86 stemmer innen0.01kt. Finland gir501.60/1353.19kt og avviker+6.90/+17.09kt fraLuke; arealene er numerisk like.",
+      "sourceIds": [
+        "DKFI-S002",
+        "DKFI-S004",
+        "DKFI-S005",
+        "DKFI-S009"
+      ],
+      "locators": [
+        "Eurostat/value/75,/value/195,/value/81,/value/201",
+        "Eurostat/value/3,/value/9,/value/123,/value/129"
+      ],
+      "inference": "Finsk likhet er ikke godkjent. Et felles fuktforhold forklarer ikke begge finske avvik presist fra de avrundede nasjonale tallene."
+    },
+    {
+      "observationId": "DKFI-O007",
+      "claim": "Finlands nasjonale Eurostat-metadata oppgir et avvik fra Handbook: G9100 inkluderer korn høstet før modning, som Handbook legger tilC0000.",
+      "sourceIds": [
+        "DKFI-S008"
+      ],
+      "locators": [
+        "FI-eurostat-metadata.txt lines223–257; section3.3"
+      ],
+      "inference": "Dette er et dokumentert definisjonsavvik og et mulig forklaringsspor. Metadata beskriver2022-kontekst og gir ikke en numerisk2018-bro på6.90/17.09kt. Verken årsak eller korrigert verdi fastslås."
+    }
+  ],
+  "nationalSeries": [
+    {
+      "country": "DK",
+      "year": 2015,
+      "crop": "wheat",
+      "cropDefinition": "sum of Winter wheat + Spring wheat",
+      "cropCodes": [
+        "H110",
+        "H120"
+      ],
+      "sourceId": "DKFI-S002",
+      "values": {
+        "area": {
+          "value": 632.4,
+          "unit": "Area (1000 hectare)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 2,
+              "cropLabel": "Winter wheat",
+              "publishedValue": 617.5
+            },
+            {
+              "csvLine": 20,
+              "cropLabel": "Spring wheat",
+              "publishedValue": 14.9
+            }
+          ]
+        },
+        "production": {
+          "value": 5029.3,
+          "unit": "Production (million kg)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 14,
+              "cropLabel": "Winter wheat",
+              "publishedValue": 4957.7
+            },
+            {
+              "csvLine": 32,
+              "cropLabel": "Spring wheat",
+              "publishedValue": 71.6
+            }
+          ]
+        },
+        "yield": {
+          "value": 7952.719797596458,
+          "unit": "kg/ha",
+          "derivation": "production_million_kg * 1000 / area_thousand_ha; ratio of rounded published totals, not arithmetic mean of component yields",
+          "reportedBySource": false
+        }
+      },
+      "moisturePercent": 15
+    },
+    {
+      "country": "DK",
+      "year": 2015,
+      "crop": "barley",
+      "cropDefinition": "sum of Winter barley + Spring barley",
+      "cropCodes": [
+        "H150",
+        "H160"
+      ],
+      "sourceId": "DKFI-S002",
+      "values": {
+        "area": {
+          "value": 631.3,
+          "unit": "Area (1000 hectare)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 38,
+              "cropLabel": "Winter barley",
+              "publishedValue": 119.1
+            },
+            {
+              "csvLine": 56,
+              "cropLabel": "Spring barley",
+              "publishedValue": 512.2
+            }
+          ]
+        },
+        "production": {
+          "value": 3856.0,
+          "unit": "Production (million kg)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 50,
+              "cropLabel": "Winter barley",
+              "publishedValue": 805.2
+            },
+            {
+              "csvLine": 68,
+              "cropLabel": "Spring barley",
+              "publishedValue": 3050.8
+            }
+          ]
+        },
+        "yield": {
+          "value": 6108.031047045779,
+          "unit": "kg/ha",
+          "derivation": "production_million_kg * 1000 / area_thousand_ha; ratio of rounded published totals, not arithmetic mean of component yields",
+          "reportedBySource": false
+        }
+      },
+      "moisturePercent": 15
+    },
+    {
+      "country": "FI",
+      "year": 2015,
+      "crop": "wheat",
+      "cropDefinition": "Wheat total 1)",
+      "cropCodes": [
+        "VEHN"
+      ],
+      "sourceId": "DKFI-S004",
+      "values": {
+        "area": {
+          "value": 241.8,
+          "unit": "Harvested area (1 000 ha)",
+          "locator": "/value/14",
+          "exactKey": {
+            "A": "2015",
+            "MK": "SSS",
+            "INFO": "KORJHAT",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "production": {
+          "value": 992.1,
+          "unit": "Yield (million kg)",
+          "locator": "/value/0",
+          "exactKey": {
+            "A": "2015",
+            "MK": "SSS",
+            "INFO": "SATOKGM",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "yield": {
+          "value": 4100,
+          "unit": "Yield per hectare (kg/ha)",
+          "locator": "/value/7",
+          "exactKey": {
+            "A": "2015",
+            "MK": "SSS",
+            "INFO": "HASATO",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        }
+      },
+      "moisturePercent": null,
+      "moistureReason": "Official metadata read says dried crop yield, without exact percentage; do not silently assume14%."
+    },
+    {
+      "country": "FI",
+      "year": 2015,
+      "crop": "barley",
+      "cropDefinition": "Barley total",
+      "cropCodes": [
+        "OHRA"
+      ],
+      "sourceId": "DKFI-S004",
+      "values": {
+        "area": {
+          "value": 451.6,
+          "unit": "Harvested area (1 000 ha)",
+          "locator": "/value/17",
+          "exactKey": {
+            "A": "2015",
+            "MK": "SSS",
+            "INFO": "KORJHAT",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "production": {
+          "value": 1569,
+          "unit": "Yield (million kg)",
+          "locator": "/value/3",
+          "exactKey": {
+            "A": "2015",
+            "MK": "SSS",
+            "INFO": "SATOKGM",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "yield": {
+          "value": 3470,
+          "unit": "Yield per hectare (kg/ha)",
+          "locator": "/value/10",
+          "exactKey": {
+            "A": "2015",
+            "MK": "SSS",
+            "INFO": "HASATO",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        }
+      },
+      "moisturePercent": null,
+      "moistureReason": "Official metadata read says dried crop yield, without exact percentage; do not silently assume14%."
+    },
+    {
+      "country": "DK",
+      "year": 2016,
+      "crop": "wheat",
+      "cropDefinition": "sum of Winter wheat + Spring wheat",
+      "cropCodes": [
+        "H110",
+        "H120"
+      ],
+      "sourceId": "DKFI-S002",
+      "values": {
+        "area": {
+          "value": 583.0,
+          "unit": "Area (1000 hectare)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 3,
+              "cropLabel": "Winter wheat",
+              "publishedValue": 565.6
+            },
+            {
+              "csvLine": 21,
+              "cropLabel": "Spring wheat",
+              "publishedValue": 17.4
+            }
+          ]
+        },
+        "production": {
+          "value": 4201.5,
+          "unit": "Production (million kg)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 15,
+              "cropLabel": "Winter wheat",
+              "publishedValue": 4116.7
+            },
+            {
+              "csvLine": 33,
+              "cropLabel": "Spring wheat",
+              "publishedValue": 84.8
+            }
+          ]
+        },
+        "yield": {
+          "value": 7206.689536878216,
+          "unit": "kg/ha",
+          "derivation": "production_million_kg * 1000 / area_thousand_ha; ratio of rounded published totals, not arithmetic mean of component yields",
+          "reportedBySource": false
+        }
+      },
+      "moisturePercent": 15
+    },
+    {
+      "country": "DK",
+      "year": 2016,
+      "crop": "barley",
+      "cropDefinition": "sum of Winter barley + Spring barley",
+      "cropCodes": [
+        "H150",
+        "H160"
+      ],
+      "sourceId": "DKFI-S002",
+      "values": {
+        "area": {
+          "value": 706.9,
+          "unit": "Area (1000 hectare)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 39,
+              "cropLabel": "Winter barley",
+              "publishedValue": 110.0
+            },
+            {
+              "csvLine": 57,
+              "cropLabel": "Spring barley",
+              "publishedValue": 596.9
+            }
+          ]
+        },
+        "production": {
+          "value": 3949.6,
+          "unit": "Production (million kg)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 51,
+              "cropLabel": "Winter barley",
+              "publishedValue": 678.3
+            },
+            {
+              "csvLine": 69,
+              "cropLabel": "Spring barley",
+              "publishedValue": 3271.3
+            }
+          ]
+        },
+        "yield": {
+          "value": 5587.211769698684,
+          "unit": "kg/ha",
+          "derivation": "production_million_kg * 1000 / area_thousand_ha; ratio of rounded published totals, not arithmetic mean of component yields",
+          "reportedBySource": false
+        }
+      },
+      "moisturePercent": 15
+    },
+    {
+      "country": "FI",
+      "year": 2016,
+      "crop": "wheat",
+      "cropDefinition": "Wheat total 1)",
+      "cropCodes": [
+        "VEHN"
+      ],
+      "sourceId": "DKFI-S004",
+      "values": {
+        "area": {
+          "value": 215.1,
+          "unit": "Harvested area (1 000 ha)",
+          "locator": "/value/35",
+          "exactKey": {
+            "A": "2016",
+            "MK": "SSS",
+            "INFO": "KORJHAT",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "production": {
+          "value": 823.9,
+          "unit": "Yield (million kg)",
+          "locator": "/value/21",
+          "exactKey": {
+            "A": "2016",
+            "MK": "SSS",
+            "INFO": "SATOKGM",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "yield": {
+          "value": 3830,
+          "unit": "Yield per hectare (kg/ha)",
+          "locator": "/value/28",
+          "exactKey": {
+            "A": "2016",
+            "MK": "SSS",
+            "INFO": "HASATO",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        }
+      },
+      "moisturePercent": null,
+      "moistureReason": "Official metadata read says dried crop yield, without exact percentage; do not silently assume14%."
+    },
+    {
+      "country": "FI",
+      "year": 2016,
+      "crop": "barley",
+      "cropDefinition": "Barley total",
+      "cropCodes": [
+        "OHRA"
+      ],
+      "sourceId": "DKFI-S004",
+      "values": {
+        "area": {
+          "value": 435.9,
+          "unit": "Harvested area (1 000 ha)",
+          "locator": "/value/38",
+          "exactKey": {
+            "A": "2016",
+            "MK": "SSS",
+            "INFO": "KORJHAT",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "production": {
+          "value": 1580.7,
+          "unit": "Yield (million kg)",
+          "locator": "/value/24",
+          "exactKey": {
+            "A": "2016",
+            "MK": "SSS",
+            "INFO": "SATOKGM",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "yield": {
+          "value": 3630,
+          "unit": "Yield per hectare (kg/ha)",
+          "locator": "/value/31",
+          "exactKey": {
+            "A": "2016",
+            "MK": "SSS",
+            "INFO": "HASATO",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        }
+      },
+      "moisturePercent": null,
+      "moistureReason": "Official metadata read says dried crop yield, without exact percentage; do not silently assume14%."
+    },
+    {
+      "country": "DK",
+      "year": 2017,
+      "crop": "wheat",
+      "cropDefinition": "sum of Winter wheat + Spring wheat",
+      "cropCodes": [
+        "H110",
+        "H120"
+      ],
+      "sourceId": "DKFI-S002",
+      "values": {
+        "area": {
+          "value": 586.6,
+          "unit": "Area (1000 hectare)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 4,
+              "cropLabel": "Winter wheat",
+              "publishedValue": 572.1
+            },
+            {
+              "csvLine": 22,
+              "cropLabel": "Spring wheat",
+              "publishedValue": 14.5
+            }
+          ]
+        },
+        "production": {
+          "value": 4834.1,
+          "unit": "Production (million kg)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 16,
+              "cropLabel": "Winter wheat",
+              "publishedValue": 4761.3
+            },
+            {
+              "csvLine": 34,
+              "cropLabel": "Spring wheat",
+              "publishedValue": 72.8
+            }
+          ]
+        },
+        "yield": {
+          "value": 8240.879645414252,
+          "unit": "kg/ha",
+          "derivation": "production_million_kg * 1000 / area_thousand_ha; ratio of rounded published totals, not arithmetic mean of component yields",
+          "reportedBySource": false
+        }
+      },
+      "moisturePercent": 15
+    },
+    {
+      "country": "DK",
+      "year": 2017,
+      "crop": "barley",
+      "cropDefinition": "sum of Winter barley + Spring barley",
+      "cropCodes": [
+        "H150",
+        "H160"
+      ],
+      "sourceId": "DKFI-S002",
+      "values": {
+        "area": {
+          "value": 665.4,
+          "unit": "Area (1000 hectare)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 40,
+              "cropLabel": "Winter barley",
+              "publishedValue": 124.8
+            },
+            {
+              "csvLine": 58,
+              "cropLabel": "Spring barley",
+              "publishedValue": 540.6
+            }
+          ]
+        },
+        "production": {
+          "value": 3992.3,
+          "unit": "Production (million kg)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 52,
+              "cropLabel": "Winter barley",
+              "publishedValue": 846.0
+            },
+            {
+              "csvLine": 70,
+              "cropLabel": "Spring barley",
+              "publishedValue": 3146.3
+            }
+          ]
+        },
+        "yield": {
+          "value": 5999.849714457469,
+          "unit": "kg/ha",
+          "derivation": "production_million_kg * 1000 / area_thousand_ha; ratio of rounded published totals, not arithmetic mean of component yields",
+          "reportedBySource": false
+        }
+      },
+      "moisturePercent": 15
+    },
+    {
+      "country": "FI",
+      "year": 2017,
+      "crop": "wheat",
+      "cropDefinition": "Wheat total 1)",
+      "cropCodes": [
+        "VEHN"
+      ],
+      "sourceId": "DKFI-S004",
+      "values": {
+        "area": {
+          "value": 194.3,
+          "unit": "Harvested area (1 000 ha)",
+          "locator": "/value/56",
+          "exactKey": {
+            "A": "2017",
+            "MK": "SSS",
+            "INFO": "KORJHAT",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "production": {
+          "value": 802,
+          "unit": "Yield (million kg)",
+          "locator": "/value/42",
+          "exactKey": {
+            "A": "2017",
+            "MK": "SSS",
+            "INFO": "SATOKGM",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "yield": {
+          "value": 4130,
+          "unit": "Yield per hectare (kg/ha)",
+          "locator": "/value/49",
+          "exactKey": {
+            "A": "2017",
+            "MK": "SSS",
+            "INFO": "HASATO",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        }
+      },
+      "moisturePercent": null,
+      "moistureReason": "Official metadata read says dried crop yield, without exact percentage; do not silently assume14%."
+    },
+    {
+      "country": "FI",
+      "year": 2017,
+      "crop": "barley",
+      "cropDefinition": "Barley total",
+      "cropCodes": [
+        "OHRA"
+      ],
+      "sourceId": "DKFI-S004",
+      "values": {
+        "area": {
+          "value": 358.3,
+          "unit": "Harvested area (1 000 ha)",
+          "locator": "/value/59",
+          "exactKey": {
+            "A": "2017",
+            "MK": "SSS",
+            "INFO": "KORJHAT",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "production": {
+          "value": 1460.1,
+          "unit": "Yield (million kg)",
+          "locator": "/value/45",
+          "exactKey": {
+            "A": "2017",
+            "MK": "SSS",
+            "INFO": "SATOKGM",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "yield": {
+          "value": 4070,
+          "unit": "Yield per hectare (kg/ha)",
+          "locator": "/value/52",
+          "exactKey": {
+            "A": "2017",
+            "MK": "SSS",
+            "INFO": "HASATO",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        }
+      },
+      "moisturePercent": null,
+      "moistureReason": "Official metadata read says dried crop yield, without exact percentage; do not silently assume14%."
+    },
+    {
+      "country": "DK",
+      "year": 2018,
+      "crop": "wheat",
+      "cropDefinition": "sum of Winter wheat + Spring wheat",
+      "cropCodes": [
+        "H110",
+        "H120"
+      ],
+      "sourceId": "DKFI-S002",
+      "values": {
+        "area": {
+          "value": 425.8,
+          "unit": "Area (1000 hectare)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 5,
+              "cropLabel": "Winter wheat",
+              "publishedValue": 392.6
+            },
+            {
+              "csvLine": 23,
+              "cropLabel": "Spring wheat",
+              "publishedValue": 33.2
+            }
+          ]
+        },
+        "production": {
+          "value": 2654.8,
+          "unit": "Production (million kg)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 17,
+              "cropLabel": "Winter wheat",
+              "publishedValue": 2523.8
+            },
+            {
+              "csvLine": 35,
+              "cropLabel": "Spring wheat",
+              "publishedValue": 131.0
+            }
+          ]
+        },
+        "yield": {
+          "value": 6234.852043212776,
+          "unit": "kg/ha",
+          "derivation": "production_million_kg * 1000 / area_thousand_ha; ratio of rounded published totals, not arithmetic mean of component yields",
+          "reportedBySource": false
+        }
+      },
+      "moisturePercent": 15
+    },
+    {
+      "country": "DK",
+      "year": 2018,
+      "crop": "barley",
+      "cropDefinition": "sum of Winter barley + Spring barley",
+      "cropCodes": [
+        "H150",
+        "H160"
+      ],
+      "sourceId": "DKFI-S002",
+      "values": {
+        "area": {
+          "value": 795.3,
+          "unit": "Area (1000 hectare)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 41,
+              "cropLabel": "Winter barley",
+              "publishedValue": 83.5
+            },
+            {
+              "csvLine": 59,
+              "cropLabel": "Spring barley",
+              "publishedValue": 711.8
+            }
+          ]
+        },
+        "production": {
+          "value": 3485.7,
+          "unit": "Production (million kg)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 53,
+              "cropLabel": "Winter barley",
+              "publishedValue": 438.2
+            },
+            {
+              "csvLine": 71,
+              "cropLabel": "Spring barley",
+              "publishedValue": 3047.5
+            }
+          ]
+        },
+        "yield": {
+          "value": 4382.874387023765,
+          "unit": "kg/ha",
+          "derivation": "production_million_kg * 1000 / area_thousand_ha; ratio of rounded published totals, not arithmetic mean of component yields",
+          "reportedBySource": false
+        }
+      },
+      "moisturePercent": 15
+    },
+    {
+      "country": "FI",
+      "year": 2018,
+      "crop": "wheat",
+      "cropDefinition": "Wheat total 1)",
+      "cropCodes": [
+        "VEHN"
+      ],
+      "sourceId": "DKFI-S004",
+      "values": {
+        "area": {
+          "value": 177.8,
+          "unit": "Harvested area (1 000 ha)",
+          "locator": "/value/77",
+          "exactKey": {
+            "A": "2018",
+            "MK": "SSS",
+            "INFO": "KORJHAT",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "production": {
+          "value": 494.7,
+          "unit": "Yield (million kg)",
+          "locator": "/value/63",
+          "exactKey": {
+            "A": "2018",
+            "MK": "SSS",
+            "INFO": "SATOKGM",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "yield": {
+          "value": 2780,
+          "unit": "Yield per hectare (kg/ha)",
+          "locator": "/value/70",
+          "exactKey": {
+            "A": "2018",
+            "MK": "SSS",
+            "INFO": "HASATO",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        }
+      },
+      "moisturePercent": null,
+      "moistureReason": "Official metadata read says dried crop yield, without exact percentage; do not silently assume14%."
+    },
+    {
+      "country": "FI",
+      "year": 2018,
+      "crop": "barley",
+      "cropDefinition": "Barley total",
+      "cropCodes": [
+        "OHRA"
+      ],
+      "sourceId": "DKFI-S004",
+      "values": {
+        "area": {
+          "value": 405.1,
+          "unit": "Harvested area (1 000 ha)",
+          "locator": "/value/80",
+          "exactKey": {
+            "A": "2018",
+            "MK": "SSS",
+            "INFO": "KORJHAT",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "production": {
+          "value": 1336.1,
+          "unit": "Yield (million kg)",
+          "locator": "/value/66",
+          "exactKey": {
+            "A": "2018",
+            "MK": "SSS",
+            "INFO": "SATOKGM",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "yield": {
+          "value": 3300,
+          "unit": "Yield per hectare (kg/ha)",
+          "locator": "/value/73",
+          "exactKey": {
+            "A": "2018",
+            "MK": "SSS",
+            "INFO": "HASATO",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        }
+      },
+      "moisturePercent": null,
+      "moistureReason": "Official metadata read says dried crop yield, without exact percentage; do not silently assume14%."
+    },
+    {
+      "country": "DK",
+      "year": 2019,
+      "crop": "wheat",
+      "cropDefinition": "sum of Winter wheat + Spring wheat",
+      "cropCodes": [
+        "H110",
+        "H120"
+      ],
+      "sourceId": "DKFI-S002",
+      "values": {
+        "area": {
+          "value": 573.4,
+          "unit": "Area (1000 hectare)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 6,
+              "cropLabel": "Winter wheat",
+              "publishedValue": 559.7
+            },
+            {
+              "csvLine": 24,
+              "cropLabel": "Spring wheat",
+              "publishedValue": 13.7
+            }
+          ]
+        },
+        "production": {
+          "value": 4696.7,
+          "unit": "Production (million kg)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 18,
+              "cropLabel": "Winter wheat",
+              "publishedValue": 4626.6
+            },
+            {
+              "csvLine": 36,
+              "cropLabel": "Spring wheat",
+              "publishedValue": 70.1
+            }
+          ]
+        },
+        "yield": {
+          "value": 8190.9661667248,
+          "unit": "kg/ha",
+          "derivation": "production_million_kg * 1000 / area_thousand_ha; ratio of rounded published totals, not arithmetic mean of component yields",
+          "reportedBySource": false
+        }
+      },
+      "moisturePercent": 15
+    },
+    {
+      "country": "DK",
+      "year": 2019,
+      "crop": "barley",
+      "cropDefinition": "sum of Winter barley + Spring barley",
+      "cropCodes": [
+        "H150",
+        "H160"
+      ],
+      "sourceId": "DKFI-S002",
+      "values": {
+        "area": {
+          "value": 583.2,
+          "unit": "Area (1000 hectare)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 42,
+              "cropLabel": "Winter barley",
+              "publishedValue": 99.7
+            },
+            {
+              "csvLine": 60,
+              "cropLabel": "Spring barley",
+              "publishedValue": 483.5
+            }
+          ]
+        },
+        "production": {
+          "value": 3667.2,
+          "unit": "Production (million kg)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 54,
+              "cropLabel": "Winter barley",
+              "publishedValue": 700.7
+            },
+            {
+              "csvLine": 72,
+              "cropLabel": "Spring barley",
+              "publishedValue": 2966.5
+            }
+          ]
+        },
+        "yield": {
+          "value": 6288.065843621399,
+          "unit": "kg/ha",
+          "derivation": "production_million_kg * 1000 / area_thousand_ha; ratio of rounded published totals, not arithmetic mean of component yields",
+          "reportedBySource": false
+        }
+      },
+      "moisturePercent": 15
+    },
+    {
+      "country": "FI",
+      "year": 2019,
+      "crop": "wheat",
+      "cropDefinition": "Wheat total 1)",
+      "cropCodes": [
+        "VEHN"
+      ],
+      "sourceId": "DKFI-S004",
+      "values": {
+        "area": {
+          "value": 197.6,
+          "unit": "Harvested area (1 000 ha)",
+          "locator": "/value/98",
+          "exactKey": {
+            "A": "2019",
+            "MK": "SSS",
+            "INFO": "KORJHAT",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "production": {
+          "value": 901.6,
+          "unit": "Yield (million kg)",
+          "locator": "/value/84",
+          "exactKey": {
+            "A": "2019",
+            "MK": "SSS",
+            "INFO": "SATOKGM",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "yield": {
+          "value": 4560,
+          "unit": "Yield per hectare (kg/ha)",
+          "locator": "/value/91",
+          "exactKey": {
+            "A": "2019",
+            "MK": "SSS",
+            "INFO": "HASATO",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        }
+      },
+      "moisturePercent": null,
+      "moistureReason": "Official metadata read says dried crop yield, without exact percentage; do not silently assume14%."
+    },
+    {
+      "country": "FI",
+      "year": 2019,
+      "crop": "barley",
+      "cropDefinition": "Barley total",
+      "cropCodes": [
+        "OHRA"
+      ],
+      "sourceId": "DKFI-S004",
+      "values": {
+        "area": {
+          "value": 397.9,
+          "unit": "Harvested area (1 000 ha)",
+          "locator": "/value/101",
+          "exactKey": {
+            "A": "2019",
+            "MK": "SSS",
+            "INFO": "KORJHAT",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "production": {
+          "value": 1682.4,
+          "unit": "Yield (million kg)",
+          "locator": "/value/87",
+          "exactKey": {
+            "A": "2019",
+            "MK": "SSS",
+            "INFO": "SATOKGM",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "yield": {
+          "value": 4230,
+          "unit": "Yield per hectare (kg/ha)",
+          "locator": "/value/94",
+          "exactKey": {
+            "A": "2019",
+            "MK": "SSS",
+            "INFO": "HASATO",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        }
+      },
+      "moisturePercent": null,
+      "moistureReason": "Official metadata read says dried crop yield, without exact percentage; do not silently assume14%."
+    },
+    {
+      "country": "DK",
+      "year": 2020,
+      "crop": "wheat",
+      "cropDefinition": "sum of Winter wheat + Spring wheat",
+      "cropCodes": [
+        "H110",
+        "H120"
+      ],
+      "sourceId": "DKFI-S002",
+      "values": {
+        "area": {
+          "value": 502.6,
+          "unit": "Area (1000 hectare)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 7,
+              "cropLabel": "Winter wheat",
+              "publishedValue": 484.3
+            },
+            {
+              "csvLine": 25,
+              "cropLabel": "Spring wheat",
+              "publishedValue": 18.3
+            }
+          ]
+        },
+        "production": {
+          "value": 4118.3,
+          "unit": "Production (million kg)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 19,
+              "cropLabel": "Winter wheat",
+              "publishedValue": 4018.3
+            },
+            {
+              "csvLine": 37,
+              "cropLabel": "Spring wheat",
+              "publishedValue": 100.0
+            }
+          ]
+        },
+        "yield": {
+          "value": 8193.991245523279,
+          "unit": "kg/ha",
+          "derivation": "production_million_kg * 1000 / area_thousand_ha; ratio of rounded published totals, not arithmetic mean of component yields",
+          "reportedBySource": false
+        }
+      },
+      "moisturePercent": 15
+    },
+    {
+      "country": "DK",
+      "year": 2020,
+      "crop": "barley",
+      "cropDefinition": "sum of Winter barley + Spring barley",
+      "cropCodes": [
+        "H150",
+        "H160"
+      ],
+      "sourceId": "DKFI-S002",
+      "values": {
+        "area": {
+          "value": 653.2,
+          "unit": "Area (1000 hectare)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 43,
+              "cropLabel": "Winter barley",
+              "publishedValue": 87.8
+            },
+            {
+              "csvLine": 61,
+              "cropLabel": "Spring barley",
+              "publishedValue": 565.4
+            }
+          ]
+        },
+        "production": {
+          "value": 4205.4,
+          "unit": "Production (million kg)",
+          "derivation": "sum of published winter and spring values; rounded components",
+          "locators": [
+            {
+              "csvLine": 55,
+              "cropLabel": "Winter barley",
+              "publishedValue": 622.3
+            },
+            {
+              "csvLine": 73,
+              "cropLabel": "Spring barley",
+              "publishedValue": 3583.1
+            }
+          ]
+        },
+        "yield": {
+          "value": 6438.150642988365,
+          "unit": "kg/ha",
+          "derivation": "production_million_kg * 1000 / area_thousand_ha; ratio of rounded published totals, not arithmetic mean of component yields",
+          "reportedBySource": false
+        }
+      },
+      "moisturePercent": 15
+    },
+    {
+      "country": "FI",
+      "year": 2020,
+      "crop": "wheat",
+      "cropDefinition": "Wheat total 1)",
+      "cropCodes": [
+        "VEHN"
+      ],
+      "sourceId": "DKFI-S004",
+      "values": {
+        "area": {
+          "value": 198.8,
+          "unit": "Harvested area (1 000 ha)",
+          "locator": "/value/119",
+          "exactKey": {
+            "A": "2020",
+            "MK": "SSS",
+            "INFO": "KORJHAT",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "production": {
+          "value": 677.4,
+          "unit": "Yield (million kg)",
+          "locator": "/value/105",
+          "exactKey": {
+            "A": "2020",
+            "MK": "SSS",
+            "INFO": "SATOKGM",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "yield": {
+          "value": 3410,
+          "unit": "Yield per hectare (kg/ha)",
+          "locator": "/value/112",
+          "exactKey": {
+            "A": "2020",
+            "MK": "SSS",
+            "INFO": "HASATO",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          },
+          "status": null,
+          "reportedBySource": true
+        }
+      },
+      "moisturePercent": null,
+      "moistureReason": "Official metadata read says dried crop yield, without exact percentage; do not silently assume14%."
+    },
+    {
+      "country": "FI",
+      "year": 2020,
+      "crop": "barley",
+      "cropDefinition": "Barley total",
+      "cropCodes": [
+        "OHRA"
+      ],
+      "sourceId": "DKFI-S004",
+      "values": {
+        "area": {
+          "value": 392.1,
+          "unit": "Harvested area (1 000 ha)",
+          "locator": "/value/122",
+          "exactKey": {
+            "A": "2020",
+            "MK": "SSS",
+            "INFO": "KORJHAT",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "production": {
+          "value": 1381.9,
+          "unit": "Yield (million kg)",
+          "locator": "/value/108",
+          "exactKey": {
+            "A": "2020",
+            "MK": "SSS",
+            "INFO": "SATOKGM",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        },
+        "yield": {
+          "value": 3520,
+          "unit": "Yield per hectare (kg/ha)",
+          "locator": "/value/115",
+          "exactKey": {
+            "A": "2020",
+            "MK": "SSS",
+            "INFO": "HASATO",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          },
+          "status": null,
+          "reportedBySource": true
+        }
+      },
+      "moisturePercent": null,
+      "moistureReason": "Official metadata read says dried crop yield, without exact percentage; do not silently assume14%."
+    }
+  ],
+  "selectedComponentCells2018": {
+    "DK": [
+      {
+        "OMRÅDE": "All Denmark",
+        "AFGRØDE": "Winter wheat",
+        "MÆNGDE4": "Area (1000 hectare)",
+        "TID": "2018",
+        "INDHOLD": "392.6",
+        "csvLine": 5
+      },
+      {
+        "OMRÅDE": "All Denmark",
+        "AFGRØDE": "Winter wheat",
+        "MÆNGDE4": "Average yield (hkg per hectare)",
+        "TID": "2018",
+        "INDHOLD": "64.3",
+        "csvLine": 11
+      },
+      {
+        "OMRÅDE": "All Denmark",
+        "AFGRØDE": "Winter wheat",
+        "MÆNGDE4": "Production (million kg)",
+        "TID": "2018",
+        "INDHOLD": "2523.8",
+        "csvLine": 17
+      },
+      {
+        "OMRÅDE": "All Denmark",
+        "AFGRØDE": "Spring wheat",
+        "MÆNGDE4": "Area (1000 hectare)",
+        "TID": "2018",
+        "INDHOLD": "33.2",
+        "csvLine": 23
+      },
+      {
+        "OMRÅDE": "All Denmark",
+        "AFGRØDE": "Spring wheat",
+        "MÆNGDE4": "Average yield (hkg per hectare)",
+        "TID": "2018",
+        "INDHOLD": "39.5",
+        "csvLine": 29
+      },
+      {
+        "OMRÅDE": "All Denmark",
+        "AFGRØDE": "Spring wheat",
+        "MÆNGDE4": "Production (million kg)",
+        "TID": "2018",
+        "INDHOLD": "131.0",
+        "csvLine": 35
+      },
+      {
+        "OMRÅDE": "All Denmark",
+        "AFGRØDE": "Winter barley",
+        "MÆNGDE4": "Area (1000 hectare)",
+        "TID": "2018",
+        "INDHOLD": "83.5",
+        "csvLine": 41
+      },
+      {
+        "OMRÅDE": "All Denmark",
+        "AFGRØDE": "Winter barley",
+        "MÆNGDE4": "Average yield (hkg per hectare)",
+        "TID": "2018",
+        "INDHOLD": "52.5",
+        "csvLine": 47
+      },
+      {
+        "OMRÅDE": "All Denmark",
+        "AFGRØDE": "Winter barley",
+        "MÆNGDE4": "Production (million kg)",
+        "TID": "2018",
+        "INDHOLD": "438.2",
+        "csvLine": 53
+      },
+      {
+        "OMRÅDE": "All Denmark",
+        "AFGRØDE": "Spring barley",
+        "MÆNGDE4": "Area (1000 hectare)",
+        "TID": "2018",
+        "INDHOLD": "711.8",
+        "csvLine": 59
+      },
+      {
+        "OMRÅDE": "All Denmark",
+        "AFGRØDE": "Spring barley",
+        "MÆNGDE4": "Average yield (hkg per hectare)",
+        "TID": "2018",
+        "INDHOLD": "42.8",
+        "csvLine": 65
+      },
+      {
+        "OMRÅDE": "All Denmark",
+        "AFGRØDE": "Spring barley",
+        "MÆNGDE4": "Production (million kg)",
+        "TID": "2018",
+        "INDHOLD": "3047.5",
+        "csvLine": 71
+      }
+    ],
+    "FI": [
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "SATOKGM",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "VEHN"
+        },
+        "value": 494.7,
+        "status": null,
+        "pointer": "/value/63"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "SATOKGM",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "VENHSY"
+        },
+        "value": 26.8,
+        "status": null,
+        "pointer": "/value/64"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "SATOKGM",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "VEHNKE"
+        },
+        "value": 467.9,
+        "status": null,
+        "pointer": "/value/65"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "SATOKGM",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "OHRA"
+        },
+        "value": 1336.1,
+        "status": null,
+        "pointer": "/value/66"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "SATOKGM",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "OHRARE"
+        },
+        "value": 1051,
+        "status": null,
+        "pointer": "/value/67"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "SATOKGM",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "OHRAMA"
+        },
+        "value": 285,
+        "status": null,
+        "pointer": "/value/68"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "SATOKGM",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "OHRASY"
+        },
+        "value": null,
+        "status": "..",
+        "pointer": "/value/69"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "HASATO",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "VEHN"
+        },
+        "value": 2780,
+        "status": null,
+        "pointer": "/value/70"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "HASATO",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "VENHSY"
+        },
+        "value": 2540,
+        "status": null,
+        "pointer": "/value/71"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "HASATO",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "VEHNKE"
+        },
+        "value": 2800,
+        "status": null,
+        "pointer": "/value/72"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "HASATO",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "OHRA"
+        },
+        "value": 3300,
+        "status": null,
+        "pointer": "/value/73"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "HASATO",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "OHRARE"
+        },
+        "value": 3290,
+        "status": null,
+        "pointer": "/value/74"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "HASATO",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "OHRAMA"
+        },
+        "value": 3320,
+        "status": null,
+        "pointer": "/value/75"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "HASATO",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "OHRASY"
+        },
+        "value": null,
+        "status": "..",
+        "pointer": "/value/76"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "KORJHAT",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "VEHN"
+        },
+        "value": 177.8,
+        "status": null,
+        "pointer": "/value/77"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "KORJHAT",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "VENHSY"
+        },
+        "value": 10.5,
+        "status": null,
+        "pointer": "/value/78"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "KORJHAT",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "VEHNKE"
+        },
+        "value": 167.2,
+        "status": null,
+        "pointer": "/value/79"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "KORJHAT",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "OHRA"
+        },
+        "value": 405.1,
+        "status": null,
+        "pointer": "/value/80"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "KORJHAT",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "OHRARE"
+        },
+        "value": 319.2,
+        "status": null,
+        "pointer": "/value/81"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "KORJHAT",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "OHRAMA"
+        },
+        "value": 85.9,
+        "status": null,
+        "pointer": "/value/82"
+      },
+      {
+        "key": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "KORJHAT",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "OHRASY"
+        },
+        "value": null,
+        "status": "..",
+        "pointer": "/value/83"
+      }
+    ]
+  },
+  "harmonization": {
+    "productionUnits": "1millionkg =1thousandtonnes exactly. hkg/ha×100=kg/ha exactly.",
+    "DKconditionalMoistureConversion": {
+      "condition": "If comparison target is14% moisture and crop coverage matches, preserve dry-matter mass.",
+      "factor": "(100-15)/(100-14)=85/86",
+      "wheat2018ThousandTonnes": 2623.93023255814,
+      "barley2018ThousandTonnes": 3445.1686046511627,
+      "status": "conditional calculation, not observed Eurostat values"
+    },
+    "wheatScope": "National winter/spring labels versus C1100 wheat and spelt, including durum: no silent equivalence.",
+    "areaScope": "DK cultivated/IACS wording unresolved vs harvested. FI explicitly harvested, with2016 estimation change.",
+    "FIstandardMoisturePercent": null,
+    "EurostatCrosscheck": "Read parent panel-response.json and exact2018 DK/FI cells; results below. Denmark numbers consistent after conditional moisture conversion; Finland is not reconciled.",
+    "nationalDataNotIndependentOfEurostat": "Agency quality report describes EU reporting; national and Eurostat series may share data lineage, not independent empirical replication."
+  },
+  "openGaps": [
+    {
+      "id": "DKFI-G001",
+      "variable": "Exact Finnish national standard moisture percentage for2018 wheat/barley",
+      "route": "method",
+      "stop": "Official quality report+national Eurostat metadata examined; no exact percentage established. A research-paper search lead is not substituted for table-level official metadata."
+    },
+    {
+      "id": "DKFI-G002",
+      "variable": "HST77 cultivated vs harvested area handling in2018 and crop-code bridge for spelt/durum",
+      "route": "method",
+      "stop": "Keep original labels; no area or wheat-coverage equivalence inferred from similar numeric totals."
+    },
+    {
+      "id": "DKFI-G003",
+      "variable": "Finsk2018 produksjonsavvik mot Eurostat:+6.90kt hvete,+17.09kt bygg",
+      "route": "method/revision_mapping",
+      "stop": "Primærkilder viser nasjonalt avvik i grønt/umodent kornklassifikasjon, men ingen2018 mengde-/revisjonsbro. Bevar begge serier; ingen tvungen avstemming."
+    }
+  ],
+  "checks": {
+    "jsonParse": "passed",
+    "allSourceAndRequestHashes": "passed:9raw,4text,7request",
+    "cellCounts": "72DK+126FI",
+    "nationalTotalRecords": 24,
+    "winterBarleyMissingValuesPreserved": true,
+    "selectedValuesFinite": true,
+    "PDFVisualInspection": [
+      "DK2018p.7",
+      "FIphysicalp.19/printedp.18"
+    ],
+    "noDBWrites": true,
+    "noContacts": true,
+    "noPublication": true,
+    "noCommit": true,
+    "eurostat2018CellLocators": "20cells decoded from original JSON-stat dimensions; missing MAR values remain absent"
+  },
+  "acquisitionLimitations": [
+    "Initial FI quality request returned406; new request with application/pdf and ordinary browser User-Agent returned200/PDF and is preserved separately.",
+    "First DK archived search-result URL returned404; followed table-linked official documentation archive to2018PDF200. Failed responses remain private and are not evidence."
+  ],
+  "comparison2018": [
+    {
+      "country": "DK",
+      "crop": "wheat",
+      "year": 2018,
+      "nationalProductionThousandTonnes": 2654.8,
+      "eurostatCropCode": "C1100",
+      "eurostatProductionThousandTonnes": 2623.93,
+      "eurostatProductionLocator": "/value/75",
+      "eurostatStandardMoisturePercent": 14.0,
+      "eurostatMoistureLocator": "/value/51",
+      "nationalAreaThousandHa": 425.8,
+      "eurostatAreaThousandHa": 425.8,
+      "eurostatAreaLocator": "/value/3",
+      "conditionalConvertedNationalThousandTonnes": 2623.93023255814,
+      "eurostatMinusComparatorThousandTonnes": -0.00023255813994182972,
+      "eurostatMinusNationalPct": -1.1627994575862721,
+      "numericAgreement": "within0.01kt after15to14 conversion; crop/area definition not promoted as fully equivalent",
+      "interpretation": "A national metadata/definition bridge remains necessary; matching area alone does not explain production."
+    },
+    {
+      "country": "DK",
+      "crop": "barley",
+      "year": 2018,
+      "nationalProductionThousandTonnes": 3485.7,
+      "eurostatCropCode": "C1300",
+      "eurostatProductionThousandTonnes": 3445.17,
+      "eurostatProductionLocator": "/value/195",
+      "eurostatStandardMoisturePercent": 14.0,
+      "eurostatMoistureLocator": "/value/171",
+      "nationalAreaThousandHa": 795.3,
+      "eurostatAreaThousandHa": 795.3,
+      "eurostatAreaLocator": "/value/123",
+      "conditionalConvertedNationalThousandTonnes": 3445.1686046511627,
+      "eurostatMinusComparatorThousandTonnes": 0.0013953488373772416,
+      "eurostatMinusNationalPct": -1.1627506670109256,
+      "numericAgreement": "within0.01kt after15to14 conversion; crop/area definition not promoted as fully equivalent",
+      "interpretation": "A national metadata/definition bridge remains necessary; matching area alone does not explain production."
+    },
+    {
+      "country": "FI",
+      "crop": "wheat",
+      "year": 2018,
+      "nationalProductionThousandTonnes": 494.7,
+      "eurostatCropCode": "C1100",
+      "eurostatProductionThousandTonnes": 501.6,
+      "eurostatProductionLocator": "/value/81",
+      "eurostatStandardMoisturePercent": 14.0,
+      "eurostatMoistureLocator": "/value/57",
+      "nationalAreaThousandHa": 177.8,
+      "eurostatAreaThousandHa": 177.8,
+      "eurostatAreaLocator": "/value/9",
+      "conditionalConvertedNationalThousandTonnes": null,
+      "eurostatMinusComparatorThousandTonnes": 6.900000000000034,
+      "eurostatMinusNationalPct": 1.394784718010933,
+      "numericAgreement": "not_reconciled",
+      "interpretation": "A national metadata/definition bridge remains necessary; matching area alone does not explain production."
+    },
+    {
+      "country": "FI",
+      "crop": "barley",
+      "year": 2018,
+      "nationalProductionThousandTonnes": 1336.1,
+      "eurostatCropCode": "C1300",
+      "eurostatProductionThousandTonnes": 1353.19,
+      "eurostatProductionLocator": "/value/201",
+      "eurostatStandardMoisturePercent": 14.0,
+      "eurostatMoistureLocator": "/value/177",
+      "nationalAreaThousandHa": 405.1,
+      "eurostatAreaThousandHa": 405.1,
+      "eurostatAreaLocator": "/value/129",
+      "conditionalConvertedNationalThousandTonnes": null,
+      "eurostatMinusComparatorThousandTonnes": 17.090000000000146,
+      "eurostatMinusNationalPct": 1.2790958760571902,
+      "numericAgreement": "not_reconciled",
+      "interpretation": "A national metadata/definition bridge remains necessary; matching area alone does not explain production."
+    }
+  ]
+}

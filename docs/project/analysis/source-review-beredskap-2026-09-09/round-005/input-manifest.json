@@ -1,0 +1,43 @@
+{
+  "asOf": "2026-09-09",
+  "inputs": {
+    "eu_panel": {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/panel-response.json",
+      "sha256": "a91101d823537347924e1129df2d32c02d573eafc63bf3e927425774ad1a7d1d"
+    },
+    "eu_no": {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/norway-common-wheat-response.json",
+      "sha256": "16cba9088974cd33a0d7072f1b78f377091927522c44800d8484eb09631e9033"
+    },
+    "no_production": {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/norway/04609-response.json",
+      "sha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967"
+    },
+    "no_area": {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/norway/04607-response.json",
+      "sha256": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727"
+    },
+    "no_yield": {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/ssb-yield-data.json",
+      "sha256": "8deed02271792f4af34c3e7d160cd57845cb3ff0989035e09605885cb0fcc57e"
+    },
+    "fi": {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-data.json",
+      "sha256": "dc2f14c611da62e385ca8deab342cb51c5d269088d371554ca086c90b2dcf286"
+    },
+    "se": {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/scb-slice.json",
+      "sha256": "d2deffd5254ed0324971d1fc03b9849c531ef24e201af5a8cd77f25f80557fc9"
+    },
+    "dk_csv": {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-data.csv",
+      "sha256": "fff437a29bf465a2b99f16f25a5dfb382b15ee5c78331ad2b5986f9bf69b3c78"
+    },
+    "case": {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/c465/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+      "sha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff"
+    }
+  },
+  "scriptSha256": "6c6faaf01f50bce7927beffeff9f42e8ac454adc41a06b0bd2f0626f2f3ef26c",
+  "dependencyScriptSha256": "b3e54da553555918cdfbcdd63e4c9f6b924fe951f6f9df9c3c0dc83f0a0c3236"
+}

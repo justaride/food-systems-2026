@@ -1,0 +1,208 @@
+{
+  "asOf": "2026-09-09",
+  "authority": "internal_analysis_only",
+  "previous41Gaps": "Preserved and not automatically closed; these13 are subdivisions of3 new missions and partly link to old gaps. Do not add counts as disjoint populations.",
+  "newThematicSubgaps": 13,
+  "gaps": [
+    {
+      "topic": "nutrients",
+      "parentResearchGap": "NEW-NPK-01",
+      "state": "open",
+      "original": {
+        "id": "R3-NPK-G001",
+        "parentGap": "NEW-NPK-01",
+        "variable": "2026 disponibel produktbeholdning per parti, lagersted og dato",
+        "value": null,
+        "reason": "2024 årsproduksjon og udattert deklarasjon har ikke denne variabelen.",
+        "route": "data_owner",
+        "requiredEvidence": "Daterte lager- og batchsertifikater; eksisterende allokering; faktisk leveringsvindu."
+      }
+    },
+    {
+      "topic": "nutrients",
+      "parentResearchGap": "NEW-NPK-01",
+      "state": "open",
+      "original": {
+        "id": "R3-NPK-G002",
+        "parentGap": "NEW-NPK-01",
+        "variable": "Faktisk anvendt og plantetilgjengelig P for én byggåker/sesong og erstattet mineralvare",
+        "value": null,
+        "reason": "Potte- og engforsøk kan ikke kobles til en aktuell mottakers leveranse eller faktura.",
+        "route": "measurement_and_data_owner",
+        "requiredEvidence": "Navngitt mottaker med jordprøve, gjødslingsjournal, innkjøpsbaseline, batch og høsteutfall."
+      }
+    },
+    {
+      "topic": "nutrients",
+      "parentResearchGap": "NEW-NPK-01",
+      "state": "open",
+      "original": {
+        "id": "R3-NPK-G003",
+        "parentGap": "NEW-NPK-01",
+        "variable": "Ekstra sirkulær funksjon over eksisterende slamanvendelse",
+        "value": null,
+        "reason": "Årsrapporten omtaler separat biomasse til jordbruk; samme P kan ikke telles i både slam og struvitt.",
+        "route": "mass_balance_method",
+        "requiredEvidence": "Før/etter massebalanse for samme avløps-P inkludert slamdisponering, tilgjengelighet og tap."
+      }
+    },
+    {
+      "topic": "nutrients",
+      "parentResearchGap": "NEW-NPK-01",
+      "state": "open",
+      "original": {
+        "id": "R3-NPK-G004",
+        "parentGap": "NEW-NPK-01",
+        "variable": "Leverbar P under energi-/kjemikalie-/transportforstyrrelse",
+        "value": null,
+        "reason": "Prosessavhengigheter er navngitt, men funksjonsdata under avbrudd mangler i lest materiale.",
+        "route": "operator_and_exercise",
+        "requiredEvidence": "Separat struvittprosess: effektbehov, reservekraft, Mg-lager, bemanning, nedetid, restart, transport."
+      }
+    },
+    {
+      "topic": "nutrients",
+      "parentResearchGap": "NEW-NPK-01",
+      "state": "open",
+      "original": {
+        "id": "R3-NPK-G005",
+        "parentGap": "NEW-NPK-01",
+        "variable": "Ekstra nordisk bidrag utover norsk alternativ",
+        "value": null,
+        "reason": "Ingen paret nordisk mottaker-/leverandørtest inngår; norske resultater er ikke nordisk merverdi.",
+        "route": "paired_method_and_data_owner",
+        "requiredEvidence": "Samme jord, vekst, sesong, avbrudd og kvalitet; nasjonal løsning mot navngitt komplementær nordisk løsning, med kapasitet/rett/ledetid."
+      }
+    },
+    {
+      "topic": "nutrients",
+      "parentResearchGap": "NEW-NPK-01",
+      "state": "open",
+      "original": {
+        "id": "R3-NPK-G006",
+        "parentGap": "NEW-NPK-01",
+        "variable": "Korrigerte feltprosent- og doseenheter",
+        "value": null,
+        "reason": "R3-NPK-O006 viser intern kildekonflikt.",
+        "route": "source_correction_or_raw_data",
+        "requiredEvidence": "Erratum eller rekonstruerbare rådata; ingen kontakt utført."
+      }
+    },
+    {
+      "topic": "meals",
+      "parentResearchGap": "NEW-MEAL-01",
+      "state": "open",
+      "original": {
+        "id": "MEAL-G001",
+        "kind": "data_owner",
+        "variable": "Hyltes eksakte øvelsesdato, tidslogg, matkontroll og næringsberegning",
+        "ownerRole": "kommunens øvelsesledelse, måltidsfunksjon og matkontroll",
+        "nextRoute": "Be om eksisterende øvelsesprotokoll ved senere godkjent kontakt; ingen kontakt utført.",
+        "stopRule": "Kommunal nyhet kan ikke fylle rå driftsdata. Datomotsigelsen beholdes til primærlogg foreligger."
+      }
+    },
+    {
+      "topic": "meals",
+      "parentResearchGap": "NEW-MEAL-01",
+      "state": "open",
+      "original": {
+        "id": "MEAL-G002",
+        "kind": "measurement",
+        "variable": "Spist ernæringsmessig egnet måltid, spiselig svinn, vann, brensel, arbeid og kostnad under identisk avbrudd",
+        "ownerRole": "navngitt kjøkken og måleansvarlig",
+        "nextRoute": "MEAL-T001; offentlig veiledning erstatter ikke pilotmåling.",
+        "stopRule": "Ingen sirkulær effektstørrelse før kompatible før-/etterdata og innsatsbalanse."
+      }
+    },
+    {
+      "topic": "meals",
+      "parentResearchGap": "NEW-MEAL-01",
+      "state": "open",
+      "original": {
+        "id": "MEAL-G003",
+        "kind": "data_owner",
+        "variable": "Gjenværende lager, fornyet nødvann/brensel, kritiske leveranser og spesialkost over flere måltider",
+        "ownerRole": "kjøkken, vannverk, logistikk og kontraktseier",
+        "nextRoute": "Eksisterende lokale kontinuitetsdata og kontrollert flerdøgnsøvelse.",
+        "stopRule": "Én tilberedningsøkt skaleres ikke til daglig kapasitet."
+      }
+    },
+    {
+      "topic": "meals",
+      "parentResearchGap": "NEW-MEAL-01",
+      "state": "open",
+      "original": {
+        "id": "MEAL-G004",
+        "kind": "method",
+        "variable": "Nordisk metodetillegg utover norsk baseline for samme kjøkken/scenario",
+        "ownerRole": "pilotens metodeansvarlige",
+        "nextRoute": "Spesifiser innholdet i metodetillegget; sammenlign deretter paret.",
+        "stopRule": "Flere nasjonale øvelsesberetninger beviser ikke nordisk tillegg."
+      }
+    },
+    {
+      "topic": "climate",
+      "parentResearchGap": "NEW-CLIMATE-01",
+      "state": "open",
+      "original": {
+        "id": "CLIM-G01",
+        "parentGapId": "NEW-CLIMATE-01",
+        "missing": "Samtidige distriktsserier for mathvetevolum, matkvalitet, innenlandsk behov og eksportabel mengde i samme høstår",
+        "routes": [
+          "existing_dataset",
+          "method"
+        ],
+        "directChannel": "Beillouin originalstudie med avlingsdata",
+        "alternativeChannel": "Tootoonchi svensk SCB-basert studie; SCB-tabell lenket men rådata ikke hentet",
+        "stop": "Tre originalstudier gir ikke harmonisert nordisk vare-/kvalitetsserie; ikke beregn landkorrelasjon eller reservevolum fra publiserte sammendrag.",
+        "nextArtifact": "frossen felles region×år×vekst-tabell med avling, areal, kvalitet og eksplisitt missingness; tidsvinduer fastsettes før korrelasjon"
+      }
+    },
+    {
+      "topic": "climate",
+      "parentResearchGap": "NEW-CLIMATE-01",
+      "state": "open",
+      "original": {
+        "id": "CLIM-G02",
+        "parentGapIds": [
+          "A1-G003",
+          "A1-G005",
+          "A5-G004"
+        ],
+        "missing": "Anleggsspesifikt vann/kraft/drivstoff/tørking og faktisk mattransportkapasitet under samme sjokk",
+        "routes": [
+          "data_owner",
+          "measurement"
+        ],
+        "directChannel": "Bakke primære vannføringsmålinger",
+        "alternativeChannel": "samme studies begrensninger og datatilgjengelighet; transportvirkninger i innledningen er sekundærreferater og ikke tatt inn som observasjoner",
+        "stop": "Stopp ved hydrologisk eksponering; ingen målt matsystemtransport eller regulert kraftkapasitet i de tre kildene.",
+        "nextArtifact": "node- og rute-IDer med felles dependencyId, leveransedagbok og dokumentert ledig kapasitet"
+      }
+    },
+    {
+      "topic": "climate",
+      "parentResearchGap": "NEW-CLIMATE-01",
+      "state": "open",
+      "original": {
+        "id": "CLIM-G03",
+        "parentGapIds": [
+          "A5-G005",
+          "A5-G006"
+        ],
+        "missing": "Netto ekstra nordisk leveranse når begge land trenger samme volum, sammenlignet med nasjonal løsning",
+        "routes": [
+          "method",
+          "data_owner",
+          "measurement"
+        ],
+        "stop": "En kontrakt eller europeisk avlingsmotvekt gir ikke demonstrert nordisk bistand. Ingen ny generell litteraturrunde uten ny variabel.",
+        "nextArtifact": "paret C1/C5-scenario med allokering, kvalitet, frist og kapasitetsbevis; C2/C3/C4 testes separat"
+      }
+    }
+  ],
+  "documentationDisposition": "documentation/findings.json#accessDisposition",
+  "feedAccess": "feed-access/findings.json",
+  "nextInternalPriority": "CLIM-G01: bounded2018 region×year×crop data table; no inferred exportable volume",
+  "externalDecisionsDoNotBlockInternalAnalysis": true
+}

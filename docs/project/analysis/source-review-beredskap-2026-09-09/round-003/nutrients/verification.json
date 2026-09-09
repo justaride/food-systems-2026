@@ -1,0 +1,135 @@
+{
+  "scope": "Local content integrity, references, units/arithmetic and authority fields. Not independent scientific validation or runtime evidence.",
+  "findingsSha256": "6471f04ae470387eabdc38a175935b6b77c00ac2ef45802c47fc6240adf717a9",
+  "checkCount": 30,
+  "checks": [
+    {
+      "name": "authority remains candidate-only",
+      "status": "passed"
+    },
+    {
+      "name": "unique IDs",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-S001 raw bytes SHA256",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-S001 text bytes SHA256",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-S001 PDF magic",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-S001 read page bounds",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-S002 raw bytes SHA256",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-S002 text bytes SHA256",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-S002 PDF magic",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-S002 read page bounds",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-S003 raw bytes SHA256",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-S003 text bytes SHA256",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-S004 raw bytes SHA256",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-S004 text bytes SHA256",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-S004 PDF magic",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-S004 read page bounds",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-O001 source binding R3-NPK-S001",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-O002 source binding R3-NPK-S001",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-O002 source binding R3-NPK-S004",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-O003 source binding R3-NPK-S002",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-O004 source binding R3-NPK-S004",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-O005 source binding R3-NPK-S003",
+      "status": "passed"
+    },
+    {
+      "name": "R3-NPK-O006 source binding R3-NPK-S004",
+      "status": "passed"
+    },
+    {
+      "name": "all unknown values explicit null",
+      "status": "passed"
+    },
+    {
+      "name": "all six chain fields present",
+      "status": "passed"
+    },
+    {
+      "name": "all five purposes covered",
+      "status": "passed"
+    },
+    {
+      "name": "annual P arithmetic consistent with reported rounding",
+      "status": "passed"
+    },
+    {
+      "name": "NORSOK percent inconsistency reproduced",
+      "status": "passed"
+    },
+    {
+      "name": "NIBIO four-pot mean consistent",
+      "status": "passed"
+    },
+    {
+      "name": "no originals in public folder",
+      "status": "passed"
+    }
+  ],
+  "visualChecks": [
+    "Hias PDF p28: original numbers and P unit",
+    "NIBIO PDF p22: tab10 rows, mean, sample size and aboveground biomass",
+    "NORSOK PDF p20/p27: table values, manure-unit header and conflicting percentage"
+  ],
+  "privateEvidenceAvailable": true,
+  "databaseTouched": false,
+  "humanReviewRecorded": false
+}

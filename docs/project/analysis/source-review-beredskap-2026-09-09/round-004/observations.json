@@ -1,0 +1,429 @@
+[
+  {
+    "observationId": "R4-EU-O001",
+    "claim": "Norge Vanlig hvete og spelt (C1110): Eurostat2018 produksjon 136.07 tusen tonn ved14% vann; -65.7272% mot eget gjennomsnitt2015–2017. Areal -22.9371%; beregnet produksjon/areal -55.1241% mot samme årsbaserte referanse.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-EU-S002",
+        "locator": "geo=NO;crops=C1110;time=2015,2016,2017,2018;strucpro=AR_THS_HA,HPRD_HUMD_EU_THS_T,HUMD_EU_PC; exact /value pointers in analysis.records.locators"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Deskriptivt. Årsbasert gjennomsnitt av P/A er ikke ratio av baseline-summer. NO C1110 er snevrere enn C1100. Matkvalitet, eget behov og eksportabel mengde ukjent."
+  },
+  {
+    "observationId": "R4-EU-O002",
+    "claim": "Norge Bygg (C1300): Eurostat2018 produksjon 435.73 tusen tonn ved14% vann; -23.0879% mot eget gjennomsnitt2015–2017. Areal 12.1626%; beregnet produksjon/areal -31.3077% mot samme årsbaserte referanse.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-EU-S001",
+        "locator": "geo=NO;crops=C1300;time=2015,2016,2017,2018;strucpro=AR_THS_HA,HPRD_HUMD_EU_THS_T,HUMD_EU_PC; exact /value pointers in analysis.records.locators"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Deskriptivt. Årsbasert gjennomsnitt av P/A er ikke ratio av baseline-summer. NO C1110 er snevrere enn C1100. Matkvalitet, eget behov og eksportabel mengde ukjent."
+  },
+  {
+    "observationId": "R4-EU-O003",
+    "claim": "Sverige Hvete og spelt (C1100): Eurostat2018 produksjon 1620.30 tusen tonn ved14% vann; -48.5107% mot eget gjennomsnitt2015–2017. Areal -18.9377%; beregnet produksjon/areal -36.4384% mot samme årsbaserte referanse.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-EU-S001",
+        "locator": "geo=SE;crops=C1100;time=2015,2016,2017,2018;strucpro=AR_THS_HA,HPRD_HUMD_EU_THS_T,HUMD_EU_PC; exact /value pointers in analysis.records.locators"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Deskriptivt. Årsbasert gjennomsnitt av P/A er ikke ratio av baseline-summer. NO C1110 er snevrere enn C1100. Matkvalitet, eget behov og eksportabel mengde ukjent."
+  },
+  {
+    "observationId": "R4-EU-O004",
+    "claim": "Sverige Bygg (C1300): Eurostat2018 produksjon 1094.40 tusen tonn ved14% vann; -32.2409% mot eget gjennomsnitt2015–2017. Areal 14.2973%; beregnet produksjon/areal -40.7369% mot samme årsbaserte referanse.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-EU-S001",
+        "locator": "geo=SE;crops=C1300;time=2015,2016,2017,2018;strucpro=AR_THS_HA,HPRD_HUMD_EU_THS_T,HUMD_EU_PC; exact /value pointers in analysis.records.locators"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Deskriptivt. Årsbasert gjennomsnitt av P/A er ikke ratio av baseline-summer. NO C1110 er snevrere enn C1100. Matkvalitet, eget behov og eksportabel mengde ukjent."
+  },
+  {
+    "observationId": "R4-EU-O005",
+    "claim": "Danmark Hvete og spelt (C1100): Eurostat2018 produksjon 2623.93 tusen tonn ved14% vann; -43.3768% mot eget gjennomsnitt2015–2017. Areal -29.1121%; beregnet produksjon/areal -20.0708% mot samme årsbaserte referanse.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-EU-S001",
+        "locator": "geo=DK;crops=C1100;time=2015,2016,2017,2018;strucpro=AR_THS_HA,HPRD_HUMD_EU_THS_T,HUMD_EU_PC; exact /value pointers in analysis.records.locators"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Deskriptivt. Årsbasert gjennomsnitt av P/A er ikke ratio av baseline-summer. NO C1110 er snevrere enn C1100. Matkvalitet, eget behov og eksportabel mengde ukjent."
+  },
+  {
+    "observationId": "R4-EU-O006",
+    "claim": "Danmark Bygg (C1300): Eurostat2018 produksjon 3445.17 tusen tonn ved14% vann; -11.3647% mot eget gjennomsnitt2015–2017. Areal 19.0985%; beregnet produksjon/areal -25.7055% mot samme årsbaserte referanse.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-EU-S001",
+        "locator": "geo=DK;crops=C1300;time=2015,2016,2017,2018;strucpro=AR_THS_HA,HPRD_HUMD_EU_THS_T,HUMD_EU_PC; exact /value pointers in analysis.records.locators"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Deskriptivt. Årsbasert gjennomsnitt av P/A er ikke ratio av baseline-summer. NO C1110 er snevrere enn C1100. Matkvalitet, eget behov og eksportabel mengde ukjent."
+  },
+  {
+    "observationId": "R4-EU-O007",
+    "claim": "Finland Hvete og spelt (C1100): Eurostat2018 produksjon 501.60 tusen tonn ved14% vann; -43.2712% mot eget gjennomsnitt2015–2017. Areal -18.0872%; beregnet produksjon/areal -30.7427% mot samme årsbaserte referanse.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-EU-S001",
+        "locator": "geo=FI;crops=C1100;time=2015,2016,2017,2018;strucpro=AR_THS_HA,HPRD_HUMD_EU_THS_T,HUMD_EU_PC; exact /value pointers in analysis.records.locators"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Deskriptivt. Årsbasert gjennomsnitt av P/A er ikke ratio av baseline-summer. NO C1110 er snevrere enn C1100. Matkvalitet, eget behov og eksportabel mengde ukjent."
+  },
+  {
+    "observationId": "R4-EU-O008",
+    "claim": "Finland Bygg (C1300): Eurostat2018 produksjon 1353.19 tusen tonn ved14% vann; -12.9826% mot eget gjennomsnitt2015–2017. Areal -2.4482%; beregnet produksjon/areal -11.3944% mot samme årsbaserte referanse.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-EU-S001",
+        "locator": "geo=FI;crops=C1300;time=2015,2016,2017,2018;strucpro=AR_THS_HA,HPRD_HUMD_EU_THS_T,HUMD_EU_PC; exact /value pointers in analysis.records.locators"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Deskriptivt. Årsbasert gjennomsnitt av P/A er ikke ratio av baseline-summer. NO C1110 er snevrere enn C1100. Matkvalitet, eget behov og eksportabel mengde ukjent."
+  },
+  {
+    "observationId": "R4-EU-O009",
+    "claim": "C1100/NO mangler12 måleceller i2018–2020. C1110 brukes som en særskilt vanlig-hvete-og-spelt-serie gjennom hele2015–2020, uten å fylle C1100-hull eller slå sammen de to kodene.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-EU-S001",
+        "locator": "dimension/crops/category;C1100 NO2018–2020 absent value cells; C1110 NO2015–2020"
+      },
+      {
+        "sourceId": "R4-EU-S002",
+        "locator": "dimension/crops/category;C1100 NO2018–2020 absent value cells; C1110 NO2015–2020"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Ingen felles firelands totalhvete eller pool av hvete."
+  },
+  {
+    "observationId": "R4-EU-O010",
+    "claim": "Panelet har48 land–vekst–år-poster med191 av192 etterspurte måleceller. Ett rapportert avlingstall mangler; 8 publiserte avlingstall ligger utenfor den oppgitte avrundingskontrollen. Beregnet avling P/A holdes separat fra rapportert avling.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-EU-S001",
+        "locator": "all selected coordinates and analysis.warnings; DK C1100 YLD2015 missing; NO C1110 YLD2015=5.53 while489.44/85.8=5.7044289"
+      },
+      {
+        "sourceId": "R4-EU-S002",
+        "locator": "all selected coordinates and analysis.warnings; DK C1100 YLD2015 missing; NO C1110 YLD2015=5.53 while489.44/85.8=5.7044289"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Kontrollintervallet er en eksplisitt diagnostisk regel, ikke statistisk sikkerhetsintervall eller bevis på feil."
+  },
+  {
+    "observationId": "R4-EU-O011",
+    "claim": "Svensk vinter+vår-produksjon fraSCB samsvarer numerisk med Eurostat for alle12 land–vekst–år-sammenligninger2015–2020. Begge har14% vanninnhold.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-EU-S001",
+        "locator": "SCB Groda10+20 and35+45,ContentsCode000005G3,Tid2015–2020;EurostatSE C1100/C1300 HPRD;sweden-crosscheck.json"
+      },
+      {
+        "sourceId": "METH-S09",
+        "locator": "SCB Groda10+20 and35+45,ContentsCode000005G3,Tid2015–2020;EurostatSE C1100/C1300 HPRD;sweden-crosscheck.json"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "To avlesninger av beslektede offisielle rapporteringsstrømmer, ikke uavhengig empirisk replikasjon."
+  },
+  {
+    "observationId": "R4-EU-O012",
+    "claim": "Alle åtte produksjonsserier er lavere i2018 også med2016–2017 som alternativ førperiode. Retningen er derfor ikke avhengig av at2015 inngår i referansen.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-EU-S001",
+        "locator": "HPRD series2016–2018;sensitivity.two_year_baseline"
+      },
+      {
+        "sourceId": "R4-EU-S002",
+        "locator": "HPRD series2016–2018;sensitivity.two_year_baseline"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Sensitivitetskontroll, ikke kausal klimaeffekt; Finland har fortsatt metode-/versjonsgap."
+  },
+  {
+    "observationId": "R4-NO-O001",
+    "claim": "SSB2018 oppgir137.7 tusen tonn hvete og440.9 tusen tonn bygg ved15% vann. Byggjustering85/86 gir435773.2558tonn mot Eurostat435730tonn; rest43.2558tonn kan ligge innen vanlig nærmesteavrunding.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-NO-S001",
+        "locator": "SSB04609 Region0,Kveite/Bygg,Tid2018,/note/0;Eurostat/value/213"
+      },
+      {
+        "sourceId": "R4-EU-S001",
+        "locator": "SSB04609 Region0,Kveite/Bygg,Tid2018,/note/0;Eurostat/value/213"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Fuktjustering er beregnet. Avrunding er mulig forklaring, ikke fastslått årsak."
+  },
+  {
+    "observationId": "R4-NO-O002",
+    "claim": "SSBs beskrevne kornavling bygger på leveranser til salg; korn til eget bruk er ikke med. Mengdene er derfor ikke en direkte måling av all norsk kornproduksjon, lager eller disponibel beredskapsmengde.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-NO-S003",
+        "locator": "Om statistikken, produksjon/metode og omfang; norway/findings.json definitions"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Ingen estimering av utelatt eget bruk."
+  },
+  {
+    "observationId": "METH-O01",
+    "claim": "Den direkte Beillouin-samlingen inneholder én DOCX med figurvedlegg. Landlisten inkluderer DK/FI/SE, ikke NO. Forfatterne viser videre til nasjonale statistikkontorer og ERA5; eget replikasjonspanel eller kjørbar kode er ikke levert i dette vedlegget.",
+    "sourceRefs": [
+      {
+        "sourceId": "METH-S01",
+        "locator": "METH-S02 /articles_count; METH-S04 /files; METH-S05 FigureS1 caption lines7–8; METH-S01 Data accessibility printedp11, text845–846 and880–883"
+      },
+      {
+        "sourceId": "METH-S02",
+        "locator": "METH-S02 /articles_count; METH-S04 /files; METH-S05 FigureS1 caption lines7–8; METH-S01 Data accessibility printedp11, text845–846 and880–883"
+      },
+      {
+        "sourceId": "METH-S03",
+        "locator": "METH-S02 /articles_count; METH-S04 /files; METH-S05 FigureS1 caption lines7–8; METH-S01 Data accessibility printedp11, text845–846 and880–883"
+      },
+      {
+        "sourceId": "METH-S04",
+        "locator": "METH-S02 /articles_count; METH-S04 /files; METH-S05 FigureS1 caption lines7–8; METH-S01 Data accessibility printedp11, text845–846 and880–883"
+      },
+      {
+        "sourceId": "METH-S05",
+        "locator": "METH-S02 /articles_count; METH-S04 /files; METH-S05 FigureS1 caption lines7–8; METH-S01 Data accessibility printedp11, text845–846 and880–883"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": [
+      "Only the named collection and study attachments inspected; not a claim of global nonexistence",
+      "No original climate/yield panel fetched from national dataowners for this paper"
+    ]
+  },
+  {
+    "observationId": "METH-O02",
+    "claim": "Tootoonchi analyserer 21 svenske län i1965–2020 for høsthvete, vårhvete, vårbygg og havre. Offentlig supplement gir modellformler; full Matlab-kjøring oppgis på forespørsel.",
+    "sourceRefs": [
+      {
+        "sourceId": "METH-S06",
+        "locator": "METH-S06 text224–227; METH-S06 text706–710; METH-S07 physicalPDFp2 printedp1 eq.S1–S3"
+      },
+      {
+        "sourceId": "METH-S07",
+        "locator": "METH-S06 text224–227; METH-S06 text706–710; METH-S07 physicalPDFp2 printedp1 eq.S1–S3"
+      },
+      {
+        "sourceId": "METH-S08",
+        "locator": "METH-S06 text224–227; METH-S06 text706–710; METH-S07 physicalPDFp2 printedp1 eq.S1–S3"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": [
+      "formula text is not complete code/data environment",
+      "no author contact; no model reproduced"
+    ]
+  },
+  {
+    "observationId": "METH-O03",
+    "claim": "Den direkte SCB-tabellen er faktisk tilgjengelig. Bevarte48celler dekker Riket, høst/vårhvete og høst/vårbygg,kg/ha og totaltonn,2015–2020. Kornbasis er14prosent vann.",
+    "sourceRefs": [
+      {
+        "sourceId": "METH-S08",
+        "locator": "METH-S09 /note/1; METH-S09 /dimension; METH-S09 /value; METH-S09 /updated"
+      },
+      {
+        "sourceId": "METH-S09",
+        "locator": "METH-S09 /note/1; METH-S09 /dimension; METH-S09 /value; METH-S09 /updated"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "See method boundaries"
+  },
+  {
+    "observationId": "METH-O04",
+    "claim": "Hovedartikkelens metode omtaler permutasjon og økning i MSE for variabelviktighet; vedleggets S4/S6-tekster omtaler Gini-impurity. Beskrivelsene er forskjellige; faktisk implementasjon er ikke fastslått.",
+    "sourceRefs": [
+      {
+        "sourceId": "METH-S01",
+        "locator": "METH-S01 Methods2(b), text151–158; METH-S05 FigureS4/S6 caption lines20/28"
+      },
+      {
+        "sourceId": "METH-S05",
+        "locator": "METH-S01 Methods2(b), text151–158; METH-S05 FigureS4/S6 caption lines20/28"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": [
+      "not a conclusion that substantive results are wrong",
+      "no attempt to choose which description is authoritative without code"
+    ]
+  },
+  {
+    "observationId": "DKFI-O001",
+    "claim": "HST77 har vinter- og vårhvete, samt vinter- og vårbygg, men ingen egen totalhvetekode i utvalget. I2018 blir komponentenes sum2654.8millionkg hvete og3485.7millionkg bygg.",
+    "sourceRefs": [
+      {
+        "sourceId": "DKFI-S001",
+        "locator": "/variables/1/values; CSV lines17,35,53,71"
+      },
+      {
+        "sourceId": "DKFI-S002",
+        "locator": "/variables/1/values; CSV lines17,35,53,71"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Summene er egne beregninger fra komponentene. Hvetesummen er ikke automatisk identisk med Eurostat C1100 inklusive spelt/durum."
+  },
+  {
+    "observationId": "DKFI-O002",
+    "claim": "Danmarks2018-metode standardiserer korn til15% vann. Area under cultivation er et dyrket arealbegrep; generell arealkilde er IACS og landbruksundersøkelsen. Lesingen bekrefter ikke en eksplisitt fratrekksregel for totalt uhøstet kornareal i HST77.",
+    "sourceRefs": [
+      {
+        "sourceId": "DKFI-S005",
+        "locator": "PDF pp.2,4,6–7; sections2.1,2.4,3.1,3.5"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Ikke ommerk nationalArea til Eurostats harvestedArea uten konkret bro.15% vann er ikke100% tørrstoff."
+  },
+  {
+    "observationId": "DKFI-O003",
+    "claim": "Luke oppgir2018 totalhvete494.7millionkg og bygg1336.1millionkg. Høsta areal er177.8 og405.1tusenha; avling2780 og3300kg/ha. Total produksjonsform er valgt.",
+    "sourceRefs": [
+      {
+        "sourceId": "DKFI-S004",
+        "locator": "/value/63; /value/66; /value/77; /value/80; /value/70; /value/73"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Produksjon, areal og avling er separat publisert avrundet; deres produkt trenger ikke stemme nøyaktig. Avling sier ikke mat-/møllekvalitet."
+  },
+  {
+    "observationId": "DKFI-O004",
+    "claim": "Luke bruker estimert høstet areal fra2016; fram til2015 ble totalskadet uhøstet areal trukket fra dyrket areal. Korn høstet grønt ble skilt fra vårhvete/bygg fra2007, og fra vinterhvete først2021.",
+    "sourceRefs": [
+      {
+        "sourceId": "DKFI-S004",
+        "locator": "/dimension/INFO/category/note/KORJHAT; /dimension/LJ/category/note/VEHN; /dimension/LJ/category/note/VENHSY; PDF physicalp.19=printedp.18; section17.5"
+      },
+      {
+        "sourceId": "DKFI-S006",
+        "locator": "/dimension/INFO/category/note/KORJHAT; /dimension/LJ/category/note/VEHN; /dimension/LJ/category/note/VENHSY; PDF physicalp.19=printedp.18; section17.5"
+      },
+      {
+        "sourceId": "DKFI-S007",
+        "locator": "/dimension/INFO/category/note/KORJHAT; /dimension/LJ/category/note/VEHN; /dimension/LJ/category/note/VENHSY; PDF physicalp.19=printedp.18; section17.5"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Det finske2015–2020-vinduet krysser en arealmetodeendring. Vinter/vårsum kan ikke antas metodisk identisk med totalhvete eller Eurostat uten kategorikontroll."
+  },
+  {
+    "observationId": "DKFI-O005",
+    "claim": "Lukes leste kvalitetsrapport sier dried crop yield, men angir ikke den eksakte vannprosenten. Det undersøkte nasjonale Eurostat-metadatasporet løser heller ikke dette gjennom den avgrensede søkelesingen.",
+    "sourceRefs": [
+      {
+        "sourceId": "DKFI-S006",
+        "locator": "PDF physicalp.7=printedp.6, Unit of measure; FI-eurostat-metadata.txt: scoped term-search; no exact moisture percentage established"
+      },
+      {
+        "sourceId": "DKFI-S008",
+        "locator": "PDF physicalp.7=printedp.6, Unit of measure; FI-eurostat-metadata.txt: scoped term-search; no exact moisture percentage established"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Finsk14% er ikke satt som bekreftet nasjonal metadata i denne pakken. Videre harmonisering trenger spesifisert primærlokator."
+  },
+  {
+    "observationId": "DKFI-O006",
+    "claim": "Den bevarte Eurostat-responsen gir Danmark2623.93kt hvete og3445.17kt bygg ved14% vann. Danske15%-tall omregnet med85/86 stemmer innen0.01kt. Finland gir501.60/1353.19kt og avviker+6.90/+17.09kt fraLuke; arealene er numerisk like.",
+    "sourceRefs": [
+      {
+        "sourceId": "DKFI-S002",
+        "locator": "Eurostat/value/75,/value/195,/value/81,/value/201; Eurostat/value/3,/value/9,/value/123,/value/129"
+      },
+      {
+        "sourceId": "DKFI-S004",
+        "locator": "Eurostat/value/75,/value/195,/value/81,/value/201; Eurostat/value/3,/value/9,/value/123,/value/129"
+      },
+      {
+        "sourceId": "DKFI-S005",
+        "locator": "Eurostat/value/75,/value/195,/value/81,/value/201; Eurostat/value/3,/value/9,/value/123,/value/129"
+      },
+      {
+        "sourceId": "DKFI-S009",
+        "locator": "Eurostat/value/75,/value/195,/value/81,/value/201; Eurostat/value/3,/value/9,/value/123,/value/129"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Finsk likhet er ikke godkjent. Et felles fuktforhold forklarer ikke begge finske avvik presist fra de avrundede nasjonale tallene."
+  },
+  {
+    "observationId": "DKFI-O007",
+    "claim": "Finlands nasjonale Eurostat-metadata oppgir et avvik fra Handbook: G9100 inkluderer korn høstet før modning, som Handbook legger tilC0000.",
+    "sourceRefs": [
+      {
+        "sourceId": "DKFI-S008",
+        "locator": "FI-eurostat-metadata.txt lines223–257; section3.3"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Dette er et dokumentert definisjonsavvik og et mulig forklaringsspor. Metadata beskriver2022-kontekst og gir ikke en numerisk2018-bro på6.90/17.09kt. Verken årsak eller korrigert verdi fastslås."
+  },
+  {
+    "observationId": "R4-EU-O013",
+    "claim": "Eurostats metadata skiller areal under dyrking/faktisk høstet før2025 fra sådd areal fra2025. Panelet2015–2020 bruker den eldre tidsperioden; dagens generiske kodeetikett omskriver ikke historisk arealdefinisjon.",
+    "sourceRefs": [
+      {
+        "sourceId": "R4-EU-S003",
+        "locator": "section3.4, paragraphs beginning Under the pre-SAIO and For cereals;section4"
+      }
+    ],
+    "human_verified": false,
+    "authority": "internal_analysis_only",
+    "limits": "Nasjonale implementerings- og avgrensningsforskjeller består. Den offisielle metadatateksten alene beviser ikke identisk praksis."
+  }
+]

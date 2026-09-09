@@ -1,0 +1,450 @@
+{
+  "asOf": "2026-09-09T07:29:20.074216+00:00",
+  "ok": true,
+  "authority": "internal_analysis_only",
+  "checks": [
+    {
+      "check": "21_unique_observations",
+      "ok": true
+    },
+    {
+      "check": "17_unique_bound_source_versions",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-S001:rawPath",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-S001:textPath",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-S002:rawPath",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-S002:textPath",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-S003:rawPath",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-S003:textPath",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-S004:rawPath",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-S004:textPath",
+      "ok": true
+    },
+    {
+      "check": "MEAL-S001:rawPath",
+      "ok": true
+    },
+    {
+      "check": "MEAL-S001:textPath",
+      "ok": true
+    },
+    {
+      "check": "MEAL-S002:rawPath",
+      "ok": true
+    },
+    {
+      "check": "MEAL-S002:textPath",
+      "ok": true
+    },
+    {
+      "check": "MEAL-S003:rawPath",
+      "ok": true
+    },
+    {
+      "check": "MEAL-S003:textPath",
+      "ok": true
+    },
+    {
+      "check": "MEAL-S004:rawPath",
+      "ok": true
+    },
+    {
+      "check": "MEAL-S004:textPath",
+      "ok": true
+    },
+    {
+      "check": "MEAL-S005:rawPath",
+      "ok": true
+    },
+    {
+      "check": "MEAL-S005:textPath",
+      "ok": true
+    },
+    {
+      "check": "CLIM-S01:rawPath",
+      "ok": true
+    },
+    {
+      "check": "CLIM-S01:textPath",
+      "ok": true
+    },
+    {
+      "check": "CLIM-S02:rawPath",
+      "ok": true
+    },
+    {
+      "check": "CLIM-S02:textPath",
+      "ok": true
+    },
+    {
+      "check": "CLIM-S03:rawPath",
+      "ok": true
+    },
+    {
+      "check": "CLIM-S03:textPath",
+      "ok": true
+    },
+    {
+      "check": "D-S001:rawPath",
+      "ok": true
+    },
+    {
+      "check": "D-S001:textPath",
+      "ok": true
+    },
+    {
+      "check": "D-S002:rawPath",
+      "ok": true
+    },
+    {
+      "check": "D-S002:textPath",
+      "ok": true
+    },
+    {
+      "check": "D-S003:rawPath",
+      "ok": true
+    },
+    {
+      "check": "D-S003:textPath",
+      "ok": true
+    },
+    {
+      "check": "D-S004:rawPath",
+      "ok": true
+    },
+    {
+      "check": "D-S004:textPath",
+      "ok": true
+    },
+    {
+      "check": "D-S005:rawPath",
+      "ok": true
+    },
+    {
+      "check": "D-S005:textPath",
+      "ok": true
+    },
+    {
+      "check": "model_input:/Users/gabrielfreeman/.codex/worktrees/3c32/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/nutrients/findings.json",
+      "ok": true
+    },
+    {
+      "check": "model_input:/Users/gabrielfreeman/.codex/worktrees/3c32/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/meals/findings.json",
+      "ok": true
+    },
+    {
+      "check": "model_input:/Users/gabrielfreeman/.codex/worktrees/3c32/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/climate/findings.json",
+      "ok": true
+    },
+    {
+      "check": "model_input:/Users/gabrielfreeman/.codex/worktrees/3c32/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/findings.json",
+      "ok": true
+    },
+    {
+      "check": "model_addendum_binding",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-CHAIN-01:six_stages",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-CHAIN-01:R3-NPK-O001",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-CHAIN-01:R3-NPK-O002",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-CHAIN-01:R3-NPK-O003",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-CHAIN-01:R3-NPK-O004",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-CHAIN-01:R3-NPK-O005",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-CHAIN-01:R3-NPK-O006",
+      "ok": true
+    },
+    {
+      "check": "R3-NPK-CHAIN-01:unknown_additionality",
+      "ok": true
+    },
+    {
+      "check": "CLIM-CHAIN-01:six_stages",
+      "ok": true
+    },
+    {
+      "check": "CLIM-CHAIN-01:CLIM-O01",
+      "ok": true
+    },
+    {
+      "check": "CLIM-CHAIN-01:CLIM-O02",
+      "ok": true
+    },
+    {
+      "check": "CLIM-CHAIN-01:CLIM-O03",
+      "ok": true
+    },
+    {
+      "check": "CLIM-CHAIN-01:CLIM-O04",
+      "ok": true
+    },
+    {
+      "check": "CLIM-CHAIN-01:CLIM-O05",
+      "ok": true
+    },
+    {
+      "check": "CLIM-CHAIN-01:unknown_additionality",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O001:six_stages",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O001:MEAL-O001",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O001:unknown_additionality",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O002:six_stages",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O002:MEAL-O002",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O002:unknown_additionality",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O003:six_stages",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O003:MEAL-O003",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O003:unknown_additionality",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O004:six_stages",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O004:MEAL-O004",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O004:unknown_additionality",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O005:six_stages",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O005:MEAL-O005",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-MEAL-O005:unknown_additionality",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-BILATERAL:six_stages",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-BILATERAL:D-O002",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-BILATERAL:D-O003",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-BILATERAL:D-O004",
+      "ok": true
+    },
+    {
+      "check": "CHAIN-BILATERAL:unknown_additionality",
+      "ok": true
+    },
+    {
+      "check": "15_chapters_exact",
+      "ok": true
+    },
+    {
+      "check": "five_purposes",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:1",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:2",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:3",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:4",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:5",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:6",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:7",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:8",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:9",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:10",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:11",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:12",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:13",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:14",
+      "ok": true
+    },
+    {
+      "check": "chapter_refs:15",
+      "ok": true
+    },
+    {
+      "check": "five_test_missions",
+      "ok": true
+    },
+    {
+      "check": "30_original_FS_criteria",
+      "ok": true
+    },
+    {
+      "check": "FS_acceptance_preserved",
+      "ok": true
+    },
+    {
+      "check": "actual_current_queue_passed",
+      "ok": true
+    },
+    {
+      "check": "queue_result:round003-all21",
+      "ok": true
+    },
+    {
+      "check": "queue_result:round003-doc5",
+      "ok": true
+    },
+    {
+      "check": "runner_hash_current",
+      "ok": true
+    },
+    {
+      "check": "verifier_historical_bytes_unchanged",
+      "ok": true
+    },
+    {
+      "check": "no_prior_tracked_files_modified",
+      "ok": true
+    },
+    {
+      "check": "no_source_bytes_in_round_repo",
+      "ok": true
+    },
+    {
+      "check": "relative_markdown_links",
+      "ok": true
+    }
+  ],
+  "passedCheckCount": 104,
+  "tests": {
+    "queue": 20,
+    "existingReviewVerifier": 34,
+    "existingAudit": 4,
+    "total": 58,
+    "failed": 0
+  },
+  "queue": {
+    "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/review-queue-current-001/summary.json",
+    "sha256": "61410bcf07c4721b4ffe21c1c4a731f2498257006b9785d85a54067aeb64e4fe",
+    "uniqueObservations": 21,
+    "sourceVersions": 17,
+    "documentationSubset": 5,
+    "subsetCountedAgain": false
+  },
+  "semanticTruthVerifiedByScript": false,
+  "humanReview": "not_performed",
+  "canonicalPromotion": false,
+  "readinessChanged": false,
+  "fullAppSuite": "not_rerun",
+  "CI": "not_run",
+  "migration": "not_performed",
+  "deployment": "not_performed",
+  "runtimeSha": "not_reverified",
+  "authenticatedUi": "not_reverified",
+  "scope": "Local Python and artifact validation; historical-byte preservation, not new DB corpus-health audit"
+}

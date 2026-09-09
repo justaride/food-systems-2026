@@ -1,0 +1,350 @@
+{
+  "asOf": "2026-09-09",
+  "authority": "internal_analysis_only",
+  "humanReview": "not_performed",
+  "semanticTruthVerifiedByScript": false,
+  "scope": "Local Python,source-byte,descriptive-number and HTML reader checks; no CI/migration/deployment/runtime/UI claim",
+  "checks": [
+    {
+      "check": "analysis_matches_final_run",
+      "passed": true
+    },
+    {
+      "check": "R4-NO-S001:raw",
+      "passed": true
+    },
+    {
+      "check": "R4-NO-S001:text",
+      "passed": true
+    },
+    {
+      "check": "R4-NO-S002:raw",
+      "passed": true
+    },
+    {
+      "check": "R4-NO-S002:text",
+      "passed": true
+    },
+    {
+      "check": "R4-NO-S003:raw",
+      "passed": true
+    },
+    {
+      "check": "R4-NO-S003:text",
+      "passed": true
+    },
+    {
+      "check": "METH-S01:raw",
+      "passed": true
+    },
+    {
+      "check": "METH-S01:text",
+      "passed": true
+    },
+    {
+      "check": "METH-S02:raw",
+      "passed": true
+    },
+    {
+      "check": "METH-S02:text",
+      "passed": true
+    },
+    {
+      "check": "METH-S03:raw",
+      "passed": true
+    },
+    {
+      "check": "METH-S03:text",
+      "passed": true
+    },
+    {
+      "check": "METH-S04:raw",
+      "passed": true
+    },
+    {
+      "check": "METH-S04:text",
+      "passed": true
+    },
+    {
+      "check": "METH-S05:raw",
+      "passed": true
+    },
+    {
+      "check": "METH-S05:text",
+      "passed": true
+    },
+    {
+      "check": "METH-S06:raw",
+      "passed": true
+    },
+    {
+      "check": "METH-S06:text",
+      "passed": true
+    },
+    {
+      "check": "METH-S07:raw",
+      "passed": true
+    },
+    {
+      "check": "METH-S07:text",
+      "passed": true
+    },
+    {
+      "check": "METH-S08:raw",
+      "passed": true
+    },
+    {
+      "check": "METH-S08:text",
+      "passed": true
+    },
+    {
+      "check": "METH-S09:raw",
+      "passed": true
+    },
+    {
+      "check": "METH-S09:text",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S001:raw",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S001:text",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S002:raw",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S002:text",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S003:raw",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S003:text",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S004:raw",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S004:text",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S005:raw",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S005:text",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S006:raw",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S006:text",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S007:raw",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S007:text",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S008:raw",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S008:text",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S009:raw",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S009:text",
+      "passed": true
+    },
+    {
+      "check": "R4-EU-S001:raw",
+      "passed": true
+    },
+    {
+      "check": "R4-EU-S001:text",
+      "passed": true
+    },
+    {
+      "check": "R4-EU-S002:raw",
+      "passed": true
+    },
+    {
+      "check": "R4-EU-S002:text",
+      "passed": true
+    },
+    {
+      "check": "R4-EU-S003:raw",
+      "passed": true
+    },
+    {
+      "check": "R4-EU-S003:text",
+      "passed": true
+    },
+    {
+      "check": "48_unique_records",
+      "passed": true
+    },
+    {
+      "check": "191_present_of192_selected_cells",
+      "passed": true
+    },
+    {
+      "check": "all_prod_area_complete_unflagged",
+      "passed": true
+    },
+    {
+      "check": "all14pct",
+      "passed": true
+    },
+    {
+      "check": "unknown_measures_stay_null",
+      "passed": true
+    },
+    {
+      "check": "all8proddeclines",
+      "passed": true
+    },
+    {
+      "check": "all8sensitivitydeclines",
+      "passed": true
+    },
+    {
+      "check": "12scbmatches",
+      "passed": true
+    },
+    {
+      "check": "sql72matches",
+      "passed": true
+    },
+    {
+      "check": "queuepassed",
+      "passed": true
+    },
+    {
+      "check": "report_QA_passed",
+      "passed": true
+    },
+    {
+      "check": "historical_tracked_files_unchanged",
+      "passed": true
+    },
+    {
+      "check": "14unit_tests",
+      "passed": true
+    },
+    {
+      "check": "critical_review_fix_receipt_present",
+      "passed": true
+    },
+    {
+      "check": "all_package_json_parse",
+      "passed": true
+    }
+  ],
+  "counts": {
+    "checks": 64,
+    "unitTests": 14,
+    "records": 48,
+    "contrasts": 24,
+    "reviewObservations": 26,
+    "sourceBindings": 24,
+    "distinctRawHashes": 23,
+    "primaryMeasureCellsPresent": 143,
+    "humidityCellsPresent": 48,
+    "reportedYieldWarnings": 8,
+    "reportedYieldMissing": 1,
+    "SQLPercentageComparisons": 72
+  },
+  "scriptSha256": "b3e54da553555918cdfbcdd63e4c9f6b924fe951f6f9df9c3c0dc83f0a0c3236",
+  "testScriptSha256": "c3f54380c8f3d809bdee07971a27c37260715ffa652bb1c9ad042903051c61dc",
+  "queueSummarySha256": "67ab41282d65312895e4709c1ac20b53405d080ff87cbb7eacdeb68d9f717905",
+  "report": {
+    "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/report.html",
+    "sha256": "4ff249d7850e9ea257987b130854160f2fdd7154559685fa22e93fd349a56bc4",
+    "deliveryReceipt": {
+      "ok": true,
+      "html": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/report.html",
+      "stages": {
+        "validation": "passed",
+        "package": "passed",
+        "verification": "passed"
+      },
+      "counts": {
+        "blocks": 11,
+        "charts": 1,
+        "html": 0,
+        "metrics": 0,
+        "tables": 2
+      },
+      "sourceDialog": "passed",
+      "sourceInteraction": "keyboard_menu_semantic_click",
+      "viewports": [
+        1440,
+        390
+      ],
+      "timings": {
+        "validateAndPackageMs": 1149,
+        "staticChartExtractionMs": 1091.2,
+        "browserRunMs": 543.7,
+        "readerReadyMs": 42,
+        "contentChecksMs": 32.1,
+        "sourceDialogMs": 31.9,
+        "responsiveChecksMs": 31.9,
+        "verificationMs": 554.2,
+        "totalMs": 1708.3
+      }
+    }
+  },
+  "notebook": {
+    "ok": true,
+    "codeCellsExecuted": 1,
+    "method": "Code cells executed sequentially with CPython exec in a shared namespace; not a Jupyter kernel run. nbformat/nbclient unavailable in bundled and system Python.",
+    "notebookSha256": "b501ca119cfc98ac58cf21089894542d4d938ce9458c8d8e07e66fecf04442f4",
+    "time": "2026-09-09T07:53:04.327656+00:00"
+  },
+  "criticalReview": {
+    "initial": "method/ANALYSE-KONTROLL.md",
+    "fix": "method/ANALYSE-RETTELSESKONTROLL.md",
+    "openP0P1P2": 0
+  },
+  "gates": {
+    "local": "passed",
+    "CI": "not_run",
+    "migration": "not_run",
+    "deployment": "not_run",
+    "runtimeSHA": "not_checked",
+    "authenticatedProductionUI": "not_checked",
+    "DBWrites": false,
+    "canonicalPromotion": false,
+    "coverageReadinessChanged": false,
+    "push": "not_performed",
+    "publication": "not_performed"
+  },
+  "artifactPreflight": {
+    "maxBytes": 52428800,
+    "addedPathCount": 22,
+    "trackedFileCount": 6201,
+    "violations": []
+  }
+}

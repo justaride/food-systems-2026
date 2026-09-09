@@ -1,0 +1,392 @@
+{
+  "asOf": "2026-09-09",
+  "authority": "internal_analysis_only",
+  "humanReview": "not_performed",
+  "semanticTruthVerifiedByScript": false,
+  "passed": true,
+  "checks": [
+    {
+      "check": "unique_source_ids",
+      "passed": true
+    },
+    {
+      "check": "R5-S12:raw",
+      "passed": true
+    },
+    {
+      "check": "R5-S12:text",
+      "passed": true
+    },
+    {
+      "check": "R5-S14:raw",
+      "passed": true
+    },
+    {
+      "check": "R5-S14:text",
+      "passed": true
+    },
+    {
+      "check": "R5-S15:raw",
+      "passed": true
+    },
+    {
+      "check": "R5-S15:text",
+      "passed": true
+    },
+    {
+      "check": "R5-S16:raw",
+      "passed": true
+    },
+    {
+      "check": "R5-S16:text",
+      "passed": true
+    },
+    {
+      "check": "R5-S17:raw",
+      "passed": true
+    },
+    {
+      "check": "R5-S17:text",
+      "passed": true
+    },
+    {
+      "check": "R5-S18:raw",
+      "passed": true
+    },
+    {
+      "check": "R5-S18:text",
+      "passed": true
+    },
+    {
+      "check": "R5-S18:request",
+      "passed": true
+    },
+    {
+      "check": "R5-S01:raw",
+      "passed": true
+    },
+    {
+      "check": "R5-S01:text",
+      "passed": true
+    },
+    {
+      "check": "R5-S02:raw",
+      "passed": true
+    },
+    {
+      "check": "R5-S02:text",
+      "passed": true
+    },
+    {
+      "check": "R5-S03:raw",
+      "passed": true
+    },
+    {
+      "check": "R5-S03:text",
+      "passed": true
+    },
+    {
+      "check": "R5-S04:raw",
+      "passed": true
+    },
+    {
+      "check": "R5-S04:text",
+      "passed": true
+    },
+    {
+      "check": "R5-S06:raw",
+      "passed": true
+    },
+    {
+      "check": "R5-S06:text",
+      "passed": true
+    },
+    {
+      "check": "R5-S07:raw",
+      "passed": true
+    },
+    {
+      "check": "R5-S07:text",
+      "passed": true
+    },
+    {
+      "check": "R5-S08:raw",
+      "passed": true
+    },
+    {
+      "check": "R5-S08:text",
+      "passed": true
+    },
+    {
+      "check": "R5-S09:raw",
+      "passed": true
+    },
+    {
+      "check": "R5-S09:text",
+      "passed": true
+    },
+    {
+      "check": "R4-NO-S001:raw",
+      "passed": true
+    },
+    {
+      "check": "R4-NO-S001:text",
+      "passed": true
+    },
+    {
+      "check": "R4-NO-S002:raw",
+      "passed": true
+    },
+    {
+      "check": "R4-NO-S002:text",
+      "passed": true
+    },
+    {
+      "check": "R4-NO-S003:raw",
+      "passed": true
+    },
+    {
+      "check": "R4-NO-S003:text",
+      "passed": true
+    },
+    {
+      "check": "METH-S09:raw",
+      "passed": true
+    },
+    {
+      "check": "METH-S09:text",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S002:raw",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S002:text",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S004:raw",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S004:text",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S005:raw",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S005:text",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S008:raw",
+      "passed": true
+    },
+    {
+      "check": "DKFI-S008:text",
+      "passed": true
+    },
+    {
+      "check": "R4-EU-S001:raw",
+      "passed": true
+    },
+    {
+      "check": "R4-EU-S001:text",
+      "passed": true
+    },
+    {
+      "check": "R4-EU-S002:raw",
+      "passed": true
+    },
+    {
+      "check": "R4-EU-S002:text",
+      "passed": true
+    },
+    {
+      "check": "119_predecessor_files_byte_identical",
+      "passed": true
+    },
+    {
+      "check": "calculations_reproduce_exactly",
+      "passed": true
+    },
+    {
+      "check": "script_hash",
+      "passed": true
+    },
+    {
+      "check": "dependency_hash",
+      "passed": true
+    },
+    {
+      "check": "all_package_json_parse",
+      "passed": true
+    },
+    {
+      "check": "R5-O01:bindings",
+      "passed": true
+    },
+    {
+      "check": "R5-O02:bindings",
+      "passed": true
+    },
+    {
+      "check": "R5-O03:bindings",
+      "passed": true
+    },
+    {
+      "check": "R5-O04:bindings",
+      "passed": true
+    },
+    {
+      "check": "R5-O05:bindings",
+      "passed": true
+    },
+    {
+      "check": "R5-O06:bindings",
+      "passed": true
+    },
+    {
+      "check": "R5-O07:bindings",
+      "passed": true
+    },
+    {
+      "check": "R5-O08:bindings",
+      "passed": true
+    },
+    {
+      "check": "R5-O09:bindings",
+      "passed": true
+    },
+    {
+      "check": "R5-O10:bindings",
+      "passed": true
+    },
+    {
+      "check": "R5-O11:bindings",
+      "passed": true
+    },
+    {
+      "check": "R5-O12:bindings",
+      "passed": true
+    },
+    {
+      "check": "26_operational_fields_null",
+      "passed": true
+    },
+    {
+      "check": "five_purpose_updates",
+      "passed": true
+    },
+    {
+      "check": "historical_gaps_not_closed",
+      "passed": true
+    },
+    {
+      "check": "no_readiness_or_authority_change",
+      "passed": true
+    },
+    {
+      "check": "ten_open_gaps",
+      "passed": true
+    },
+    {
+      "check": "kernel_receipt_matches_notebook",
+      "passed": true
+    },
+    {
+      "check": "five_code_cells_executed_without_error",
+      "passed": true
+    },
+    {
+      "check": "test-analyze-beredskap-c1.py",
+      "passed": true
+    },
+    {
+      "check": "test-analyze-beredskap-cereals.py",
+      "passed": true
+    },
+    {
+      "check": "git_diff_check",
+      "passed": true
+    },
+    {
+      "check": "no_predecessor_tracked_files_changed",
+      "passed": true
+    },
+    {
+      "check": "ancestry:9a4ae7d0d457b0d0c2e0f681b7595f942c40bd1b",
+      "passed": true
+    },
+    {
+      "check": "ancestry:52d410158341cce852be1b7c0e9c17d3629b5633",
+      "passed": true
+    }
+  ],
+  "counts": {
+    "checks": 80,
+    "sourceBindings": 24,
+    "observations": 12,
+    "gaps": 10,
+    "yieldWarnings": 8,
+    "newUnitTests": 9,
+    "priorCerealUnitTests": 14,
+    "preservedPredecessorFiles": 119
+  },
+  "notebook": {
+    "method": "nbclient with isolated ipykernel, full top-to-bottom execution",
+    "passed": true,
+    "codeCellsExecuted": 5,
+    "pythonExecutable": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/notebook-runtime/bin/python",
+    "pythonVersion": "3.12.12 (main, Feb 12 2026, 00:42:34) [Clang 21.1.4 ]",
+    "notebookSha256": "41714c5587f4480b7b1aac1ed089d76e9d26412a1ded5de1235187b0e62da6fd",
+    "executedAt": "2026-09-09T08:24:41.895234+00:00"
+  },
+  "testRuns": [
+    {
+      "script": "test-analyze-beredskap-c1.py",
+      "exitCode": 0,
+      "output": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.008s\n\nOK\n"
+    },
+    {
+      "script": "test-analyze-beredskap-cereals.py",
+      "exitCode": 0,
+      "output": "..............\n----------------------------------------------------------------------\nRan 14 tests in 0.004s\n\nOK\n"
+    }
+  ],
+  "PDFVisualRead": {
+    "method": "pdftoppm + view_image",
+    "pages": [
+      "no-products.pdf physical3 printed5",
+      "se-products-2026.pdf physical/printed5",
+      "no-distribution.pdf physical/printed6"
+    ],
+    "scope": "selected source rows only; no complete-catalog review"
+  },
+  "sourceProfile": {
+    "grain": "source identity; eight country/crop/year diagnostics; no operational observation rows",
+    "newOpenedSources": 14,
+    "reusedFrozenSources": 10,
+    "warningShareOfPanel": 0.16666666666666666,
+    "operationalFieldsMissing": "26/26",
+    "materialRisk": "Critical for a delivery decision: need, quality acceptance, allocation and physical throughput absent"
+  },
+  "gates": {
+    "local": "passed",
+    "CI": "not_run",
+    "migration": "not_run",
+    "deployment": "not_run",
+    "runtimeSHA": "not_checked",
+    "authenticatedProductionUI": "not_checked",
+    "DBWrites": false,
+    "canonicalPromotion": false,
+    "coverageReadinessChanged": false,
+    "contact": "not_performed",
+    "push": "not_performed",
+    "PR": "not_created",
+    "publication": "not_performed"
+  }
+}

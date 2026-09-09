@@ -1,0 +1,98 @@
+{
+  "asOf": "2026-09-09",
+  "baseCommit": "9a4ae7d0d457b0d0c2e0f681b7595f942c40bd1b",
+  "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+  "scope": "Final analysis artifacts and scripts; excludes this manifest itself. Does not bind a human review.",
+  "files": [
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/DEFINISJONER.md",
+      "sha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+      "bytes": 6362
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+      "sha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+      "bytes": 8811
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/NESTE-SESJON.md",
+      "sha256": "0ebc08d3572efc654074600f8811c57f03a1245a32d7ec5b68dc7ef415eec44d",
+      "bytes": 4432
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/README.md",
+      "sha256": "4fce9edd188b87804322fb71fa882c91d7f0f00a9ca46fd3b10efa01360f783b",
+      "bytes": 6193
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/WHITEPAPER-TILLEGG.md",
+      "sha256": "c60e8d902a71bcd988e157c7168d6c3b62c0ed5cef1ae2ecac9cd2a5f88f747f",
+      "bytes": 2920
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/acquisition-log.json",
+      "sha256": "4e26782a8328d7d6515bf38f52b3ef154672c1941fd7eab49431cf611c9d45f3",
+      "bytes": 14230
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/analysis.ipynb",
+      "sha256": "41714c5587f4480b7b1aac1ed089d76e9d26412a1ded5de1235187b0e62da6fd",
+      "bytes": 8965
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/calculations.json",
+      "sha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+      "bytes": 23349
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+      "sha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+      "bytes": 5403
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/data-gaps.json",
+      "sha256": "fff782cff4add3d7e2bce9e747c8854090a269916607c831a960dc655ef632c1",
+      "bytes": 6425
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/input-manifest.json",
+      "sha256": "b757555ee2d59eadf3491b6d1275669e09813d0e0b633a6baa9d9bfcc2ed9e27",
+      "bytes": 2495
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/observations.json",
+      "sha256": "3ecdc93a7c1b3d7a86b8af6dac6c5e9bb37d17dbc1efd5ff2104a0ee8cbf169d",
+      "bytes": 11456
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/source-bindings.json",
+      "sha256": "61ba2210eec8eeaaf3eb8cd2752482288ee438c38cd8a381d31c98fc22ab9433",
+      "bytes": 26937
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/status-delta.json",
+      "sha256": "b0cea32987dd1cae8ae46da6f75c76d91b405d0460d49fcfac50fbc97552c6ff",
+      "bytes": 2390
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/verification.json",
+      "sha256": "d9aca10a433bda6e565315aeb302a3d952ad6b1e4e3cc9ee2c3c6b746b929b0c",
+      "bytes": 8025
+    },
+    {
+      "path": "scripts/analyze-beredskap-c1.py",
+      "sha256": "6c6faaf01f50bce7927beffeff9f42e8ac454adc41a06b0bd2f0626f2f3ef26c",
+      "bytes": 8843
+    },
+    {
+      "path": "scripts/test-analyze-beredskap-c1.py",
+      "sha256": "b52db6ad1b2c9da14e6c7ad65240cb71d509a5c2574125af59988738b6f22d8a",
+      "bytes": 3900
+    },
+    {
+      "path": "scripts/verify-beredskap-c1.py",
+      "sha256": "cbb9edc14d2c3e6cad12cf8441934febb7c0571610718d6aeda2137cda54109f",
+      "bytes": 7147
+    }
+  ]
+}

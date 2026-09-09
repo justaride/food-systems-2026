@@ -1,0 +1,120 @@
+{
+  "asOf": "2026-09-09",
+  "caseId": "R5-C1-FURUSET-Q1-T72",
+  "authority": "internal_analysis_only",
+  "human_verified": false,
+  "testPerformed": false,
+  "partnerAgreement": false,
+  "recipient": {
+    "name": "Bakehuset Møllhausen Furuset",
+    "address": "Søren Bulls vei 27, 1051 Oslo",
+    "basis": [
+      "R5-S01"
+    ],
+    "actualProcurementOrRecipeKnown": false,
+    "bulkReceptionVerified": false
+  },
+  "quality": {
+    "id": "Q1",
+    "target": "Siktet sterkt bakerihvetemel til steinovnsbrød, bulk; referanse Regal Hvetemel standard 160105",
+    "referenceSourceId": "R5-S04",
+    "referenceDate": "2021-02",
+    "targetStatus": "Analytisk referanse; ikke mottakers godkjente spesifikasjon",
+    "ingredientsReference": [
+      "siktet hvetemel",
+      "askorbinsyre"
+    ],
+    "acceptanceRequired": [
+      "mottaker signerer eksakt spesifikasjonsversjon og mel-/reseptkode",
+      "partiets protein med angitt fuktbasis, glutenfunksjon, falltall, aske, vanninnhold og partikkelprofil",
+      "dokumenterte grenser og resultater for mattrygghet/allergener, sporbarhet og holdbarhet",
+      "sammenlignbar prøvebakst i samme resept og prosess med forhåndsbestemte toleranser",
+      "bulkkompatibilitet, tilgjengelig mottakssilo og lossing"
+    ],
+    "numericAcceptanceLimits": null,
+    "crossProductEquivalenceVerified": false
+  },
+  "scenario": {
+    "id": "R5-SC01",
+    "type": "designed_stress_case_not_forecast_or_historical_event",
+    "t0": "2026-10-05T08:00:00+02:00",
+    "deadline": "2026-10-08T08:00:00+02:00",
+    "deadlineHours": 72,
+    "deadlineBasis": "Analytisk valgt målevindu; ingen dokumentert bestillingsfrist eller SLA",
+    "commonConditions": [
+      "Ved t0 starter 24 timer uten nettstrøm og offentlig vannforsyning ved begge møller og mottakeren. Drift innen dette vinduet teller bare med dokumentert reservekraft og egnet reservevann.",
+      "Begge valgte utgående vegkorridorer er utilgjengelige i 24 timer fra t0. Etter gjenåpning må faktisk kjøre-, kø-, laste-, losse- og eventuell grensebehandlingstid måles.",
+      "Ingen ny drivstoffleveranse til møller, transport eller mottaker i hele 72-timersvinduet. Bare dokumentert startbeholdning kan budsjetteres.",
+      "Ordrebok og konkurrerende behov fryses ved samme t0. Ressurser som prioriteres til andre mottakere trekkes fra før beregning. Ingen antatt prioritet til caset."
+    ],
+    "background": "2018-panelet begrunner undersøkelse av samtidig eksponering. Ingen2018-prosent er brukt til å redusere2026-lager eller kapasitet.",
+    "nationalRoute": "Bjølsen → planlagt lokal vegkorridor → Furuset; eksakt tungbilrute og tilgang til rampe må verifiseres",
+    "nordicRoute": "Malmö → planlagt E6 via Göteborg og Svinesund → Furuset; veggeometri, tungbilvilkår og tur er ikke operativt verifisert",
+    "routeSourceId": "R5-S12",
+    "distances_km": null,
+    "travelTimes_h": null
+  },
+  "alternatives": [
+    {
+      "id": "NO",
+      "mill": "Lantmännen Cerealia Bjølsen, Oslo",
+      "candidateProduct": "Regal Hvetemel standard, bulk160105",
+      "sourceIds": [
+        "R5-S02",
+        "R5-S04",
+        "R5-S07"
+      ],
+      "selectionStatus": "Analytisk alternativ, ikke dokumentert leverandørforhold",
+      "productEquivalentToQ1": null,
+      "grainOrigin": "Ukjent for konkret parti; mølleland er ikke kornets opprinnelsesland",
+      "observedQuantities": {
+        "recipientNetNeed_t": null,
+        "grainStockQualified_t": null,
+        "competingGrainNeed_t": null,
+        "allocatedGrain_t": null,
+        "finishedFlourAllocated_t": null,
+        "millingRateGrain_t_h": null,
+        "usableRunHours_h": null,
+        "extractionFraction": null,
+        "flourHandlingCapacity_t": null,
+        "transportCapacity_t": null,
+        "receptionCapacity_t": null,
+        "bakingUsableFlour_t": null,
+        "deliveredAcceptedFlour_t": null
+      }
+    },
+    {
+      "id": "SE",
+      "mill": "Lantmännen Cerealia Malmö",
+      "candidateProduct": "Nord Mills Bagarns Manitoba, bulk160585",
+      "sourceIds": [
+        "R5-S03",
+        "R5-S16"
+      ],
+      "selectionStatus": "Analytisk alternativ, ikke dokumentert leverandørforhold",
+      "productEquivalentToQ1": null,
+      "grainOrigin": "Ukjent for konkret parti; mølleland er ikke kornets opprinnelsesland",
+      "observedQuantities": {
+        "recipientNetNeed_t": null,
+        "grainStockQualified_t": null,
+        "competingGrainNeed_t": null,
+        "allocatedGrain_t": null,
+        "finishedFlourAllocated_t": null,
+        "millingRateGrain_t_h": null,
+        "usableRunHours_h": null,
+        "extractionFraction": null,
+        "flourHandlingCapacity_t": null,
+        "transportCapacity_t": null,
+        "receptionCapacity_t": null,
+        "bakingUsableFlour_t": null,
+        "deliveredAcceptedFlour_t": null
+      }
+    }
+  ],
+  "outcomes": {
+    "primary": "Tonn Q1-mel veid, frigitt og akseptert ved Furuset innen72timer",
+    "secondary": "Tonn av dette melet som inngår i godkjent bakst innen samme frist; ferdig brød og svinn veies separat",
+    "nationalVersusNordic": "To gjensidig utelukkende alternativer i samme scenario. Forskjell mellom dem er ikke tilleggseffekt av å kombinere dem.",
+    "additionalEffect": "Krever tredje arm norsk+nordisk, med delte ressurser og konkurrerende behov avstemt. Ingen slik prøve utført."
+  }
+}

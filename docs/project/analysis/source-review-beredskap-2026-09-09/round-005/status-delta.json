@@ -1,0 +1,74 @@
+{
+  "asOf": "2026-09-09",
+  "authority": "internal_analysis_only",
+  "human_verified": false,
+  "canonicalChanged": false,
+  "coverageReadinessChanged": false,
+  "priorBaseCommit": "9a4ae7d0d457b0d0c2e0f681b7595f942c40bd1b",
+  "priorPackage": "../round-004",
+  "completed": [
+    "One named recipient, one reference quality and one72hour scenario defined",
+    "Paired national and named Swedish mill/product paths documented",
+    "Measurement protocol and null-preserving source-bound calculations",
+    "Eight yield diagnostics individually traced; Finland exact stop retained"
+  ],
+  "purposeUpdates": [
+    {
+      "id": "P1",
+      "status": "Common energy/water/transport exposure specified as designed stress case; no probability or climate attribution"
+    },
+    {
+      "id": "P2",
+      "status": "National recipient chain bounded; need, released stock and deliverable food remain unknown"
+    },
+    {
+      "id": "P3",
+      "status": "Named Swedish comparator with same recipient/quality/deadline; functional equivalence and additional effect unproven"
+    },
+    {
+      "id": "P4",
+      "status": "No circular effect established; bran is not automatically added to human food or substituted feed"
+    },
+    {
+      "id": "P5",
+      "status": "Owner-specific data request schema and paired test criteria ready for internal review; no partner or execution authorization"
+    }
+  ],
+  "candidateTestUpdates": [
+    {
+      "id": "C1",
+      "caseId": "R5-C1-FURUSET-Q1-T72",
+      "status": "recipient_and_quality_reference_bounded; measurement_protocol_ready; delivery_unproven",
+      "numericAdditionalEffect": null,
+      "testPerformed": false
+    }
+  ],
+  "parentGapUpdates": [
+    {
+      "id": "R4-G001",
+      "status": "open",
+      "closeOriginalGap": false
+    },
+    {
+      "id": "R4-G002",
+      "status": "open",
+      "closeOriginalGap": false
+    },
+    {
+      "id": "R4-G003",
+      "status": "partially_addressed",
+      "closeOriginalGap": false
+    },
+    {
+      "id": "R4-G004",
+      "status": "partially_addressed",
+      "closeOriginalGap": false
+    }
+  ],
+  "chapterUpdates": {
+    "mode": "new dated addendum only",
+    "chapterCompletionChanged": false,
+    "previous15ChapterAssessmentsPreserved": true
+  },
+  "countsPolicy": "12 local observations and10 C1 data gaps are scoped round005 records, not disjoint additions to prior counts."
+}

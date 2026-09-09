@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "round003-feed-access-v1",
+  "asOf": "2026-09-09",
+  "authority": "internal_candidate_only",
+  "purpose": "Bounded legitimate full-text access check for four pre-existing abstract-only reviews",
+  "priorReviewPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/review-register.json",
+  "sources": [
+    {
+      "sourceId": "A2-S012",
+      "doi": "10.3168/jds.S0022-0302(94)76942-3",
+      "metadata": {
+        "id": "A2-S012",
+        "doi": "10.3168/jds.S0022-0302(94)76942-3",
+        "metadataUrl": "https://api.openalex.org/works/https://doi.org/10.3168/jds.S0022-0302(94)76942-3",
+        "metadataStatus": "200",
+        "metadataPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/feed-access/A2-S012-openalex.json",
+        "retrievedAt": "2026-09-09T07:16:04.588137+00:00",
+        "metadataSha256": "6a7859e814132d48eedce03b7fde927530ef079bd1f6de30093a109b782d8031",
+        "openAccess": {
+          "is_oa": true,
+          "oa_status": "bronze",
+          "oa_url": "https://doi.org/10.3168/jds.s0022-0302(94)76942-3",
+          "any_repository_has_fulltext": false
+        },
+        "locations": [
+          {
+            "isOa": true,
+            "landingPageUrl": "https://doi.org/10.3168/jds.s0022-0302(94)76942-3",
+            "pdfUrl": "https://doi.org/10.3168/jds.s0022-0302(94)76942-3",
+            "source": "Journal of Dairy Science"
+          },
+          {
+            "isOa": false,
+            "landingPageUrl": "https://pubmed.ncbi.nlm.nih.gov/8120187",
+            "pdfUrl": null,
+            "source": "PubMed"
+          }
+        ]
+      },
+      "metadataReadScope": [
+        "/id",
+        "/doi",
+        "/open_access",
+        "/locations"
+      ],
+      "directAttempt": {
+        "id": "A2-S012",
+        "requestUrl": "https://doi.org/10.3168/jds.s0022-0302(94)76942-3",
+        "responseInfo": "200\nhttps://linkinghub.elsevier.com/retrieve/pii/S0022030294769423\ntext/html;charset=UTF-8",
+        "retrievedAt": "2026-09-09T07:16:24.908410+00:00",
+        "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/feed-access/A2-S012-direct.response",
+        "sha256": "1d318f6c1f0b77cad15408fa16917f3246eafa4abb1038176c852d1907239718",
+        "error": ""
+      },
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/feed-access/A2-S012-direct.txt",
+      "textSha256": "c3611a5f39adcedef6efb584e4036a2e388e2dc07f86f651c07ab75518026f30",
+      "directReadScope": {
+        "lines": [
+          1,
+          1
+        ]
+      },
+      "fullTextAcquired": false,
+      "fullMethodsRead": false,
+      "originalReviewChanged": false,
+      "nextRoute": "authorized institutional library access or legitimate supplied full text; no contact performed",
+      "openSearchStopped": true,
+      "redirectTargetAttempt": {
+        "id": "A2-S012",
+        "requestUrl": "https://journalofdairyscience.org/retrieve/pii/S0022030294769423",
+        "responseInfo": "403\nhttps://journalofdairyscience.org/retrieve/pii/S0022030294769423\ntext/html; charset=UTF-8",
+        "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/feed-access/A2-S012-redirect-target.response",
+        "sha256": "fceabc3923dbf4c5b1243d2d081142c177d097225eb8e7e70f0db451c37ddb74",
+        "retrievedAt": "2026-09-09T07:17:02.762222+00:00"
+      },
+      "finding": "OpenAlex merker artikkelen bronze OA, men DOI/påstått PDF-URL leverte bare et HTML-redirect. Målets publiseringsside returnerte HTTP403. OA-metadata er ikke dokumentasjon på lest fulltekst.",
+      "remainingGap": "Forsøksmetode, full rasjon og usikkerhets-/statistikktabeller.",
+      "readScopeSha256": "e55fb1a1d731153e943b68844af12dcce8bfac917c98ffdea64c80da0607dd47"
+    },
+    {
+      "sourceId": "A2-S013",
+      "doi": "10.3168/jds.S0022-0302(03)73888-0",
+      "metadata": {
+        "id": "A2-S013",
+        "doi": "10.3168/jds.S0022-0302(03)73888-0",
+        "metadataUrl": "https://api.openalex.org/works/https://doi.org/10.3168/jds.S0022-0302(03)73888-0",
+        "metadataStatus": "200",
+        "metadataPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/feed-access/A2-S013-openalex.json",
+        "retrievedAt": "2026-09-09T07:16:04.951827+00:00",
+        "metadataSha256": "d9d78516d17d7d11609cb056734dd9c81ca972e04f8e529dcaa50d0eb9aa6b47",
+        "openAccess": {
+          "is_oa": true,
+          "oa_status": "bronze",
+          "oa_url": "http://www.journalofdairyscience.org/article/S0022030203738880/pdf",
+          "any_repository_has_fulltext": false
+        },
+        "locations": [
+          {
+            "isOa": true,
+            "landingPageUrl": "https://doi.org/10.3168/jds.s0022-0302(03)73888-0",
+            "pdfUrl": "http://www.journalofdairyscience.org/article/S0022030203738880/pdf",
+            "source": "Journal of Dairy Science"
+          },
+          {
+            "isOa": false,
+            "landingPageUrl": "https://pubmed.ncbi.nlm.nih.gov/14507027",
+            "pdfUrl": null,
+            "source": "PubMed"
+          },
+          {
+            "isOa": false,
+            "landingPageUrl": "https://digitalcommons.usu.edu/advs_facpub/457",
+            "pdfUrl": null,
+            "source": "Digital Commons - USU (Utah State University)"
+          }
+        ]
+      },
+      "metadataReadScope": [
+        "/id",
+        "/doi",
+        "/open_access",
+        "/locations"
+      ],
+      "directAttempt": {
+        "id": "A2-S013",
+        "requestUrl": "https://digitalcommons.usu.edu/advs_facpub/457",
+        "responseInfo": "200\nhttps://digitalcommons.usu.edu/advs_facpub/457/\ntext/html; charset=UTF-8",
+        "retrievedAt": "2026-09-09T07:16:25.479921+00:00",
+        "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/feed-access/A2-S013-direct.response",
+        "sha256": "baa3aba4d4f56ffa99f6956530098a3250d7a3c3c17acf00ecea4a24cbd40cbf",
+        "error": ""
+      },
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/feed-access/A2-S013-direct.txt",
+      "textSha256": "848d8837e29e808f3636b546dfaebe834c8b4e5af3fa67598995aded3b16ff0b",
+      "directReadScope": {
+        "lines": [
+          27,
+          107
+        ]
+      },
+      "fullTextAcquired": false,
+      "fullMethodsRead": false,
+      "originalReviewChanged": false,
+      "nextRoute": "authorized institutional library access or legitimate supplied full text; no contact performed",
+      "openSearchStopped": true,
+      "finding": "USU har en institusjonell metadata-/abstractpost. Link to Full Text leder tilbake til samme DOI; ingen lokal PDF eller metodeavsnitt ble funnet på denne posten.",
+      "remainingGap": "Full rasjon, maskegenskaper, statistikk og tabeller. Abstractsammenligningen våt/tørr er ikke generell soyaerstatning.",
+      "readScopeSha256": "43f915aeb90f4d2f4bf03e8059b4eb72f8b3f7f78e432dffafce7f08abe8e0bb"
+    },
+    {
+      "sourceId": "A2-S014",
+      "doi": "10.3168/jds.S0022-0302(85)81063-8",
+      "metadata": {
+        "id": "A2-S014",
+        "doi": "10.3168/jds.S0022-0302(85)81063-8",
+        "metadataUrl": "https://api.openalex.org/works/https://doi.org/10.3168/jds.S0022-0302(85)81063-8",
+        "metadataStatus": "200",
+        "metadataPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/feed-access/A2-S014-openalex.json",
+        "retrievedAt": "2026-09-09T07:16:04.937032+00:00",
+        "metadataSha256": "062e803c5a573be7ca09f063643b897d7b0be9dc451ea19f12c053cafa305811",
+        "openAccess": {
+          "is_oa": true,
+          "oa_status": "bronze",
+          "oa_url": "https://doi.org/10.3168/jds.s0022-0302(85)81063-8",
+          "any_repository_has_fulltext": false
+        },
+        "locations": [
+          {
+            "isOa": true,
+            "landingPageUrl": "https://doi.org/10.3168/jds.s0022-0302(85)81063-8",
+            "pdfUrl": "https://doi.org/10.3168/jds.s0022-0302(85)81063-8",
+            "source": "Journal of Dairy Science"
+          },
+          {
+            "isOa": false,
+            "landingPageUrl": "https://pubmed.ncbi.nlm.nih.gov/4044965",
+            "pdfUrl": null,
+            "source": "PubMed"
+          }
+        ]
+      },
+      "metadataReadScope": [
+        "/id",
+        "/doi",
+        "/open_access",
+        "/locations"
+      ],
+      "directAttempt": {
+        "id": "A2-S014",
+        "requestUrl": "https://doi.org/10.3168/jds.s0022-0302(85)81063-8",
+        "responseInfo": "200\nhttps://linkinghub.elsevier.com/retrieve/pii/S0022030285810638\ntext/html;charset=UTF-8",
+        "retrievedAt": "2026-09-09T07:16:24.939813+00:00",
+        "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/feed-access/A2-S014-direct.response",
+        "sha256": "bb144a6539a333e40d9ed21f0f798e6f241c00f7cf89070e1da2cad10e80f789",
+        "error": ""
+      },
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/feed-access/A2-S014-direct.txt",
+      "textSha256": "c3611a5f39adcedef6efb584e4036a2e388e2dc07f86f651c07ab75518026f30",
+      "directReadScope": {
+        "lines": [
+          1,
+          1
+        ]
+      },
+      "fullTextAcquired": false,
+      "fullMethodsRead": false,
+      "originalReviewChanged": false,
+      "nextRoute": "authorized institutional library access or legitimate supplied full text; no contact performed",
+      "openSearchStopped": true,
+      "redirectTargetAttempt": {
+        "id": "A2-S014",
+        "requestUrl": "https://journalofdairyscience.org/retrieve/pii/S0022030285810638",
+        "responseInfo": "403\nhttps://journalofdairyscience.org/retrieve/pii/S0022030285810638\ntext/html; charset=UTF-8",
+        "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/feed-access/A2-S014-redirect-target.response",
+        "sha256": "912b7c815353290c5ed9788f0449351f720b265834d01b078a4f348e5c7172a0",
+        "retrievedAt": "2026-09-09T07:17:02.765230+00:00"
+      },
+      "finding": "OpenAlex merker artikkelen bronze OA, men DOI/påstått PDF-URL leverte bare et HTML-redirect. Målets publiseringsside returnerte HTTP403. OA-metadata er ikke dokumentasjon på lest fulltekst.",
+      "remainingGap": "Forsøksmetode, full rasjon og usikkerhets-/statistikktabeller.",
+      "readScopeSha256": "e55fb1a1d731153e943b68844af12dcce8bfac917c98ffdea64c80da0607dd47"
+    },
+    {
+      "sourceId": "A2-S015",
+      "doi": "10.2527/jas1982.54118x",
+      "metadata": {
+        "id": "A2-S015",
+        "doi": "10.2527/jas1982.54118x",
+        "metadataUrl": "https://api.openalex.org/works/https://doi.org/10.2527/jas1982.54118x",
+        "metadataStatus": "200",
+        "metadataPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/feed-access/A2-S015-openalex.json",
+        "retrievedAt": "2026-09-09T07:16:04.929857+00:00",
+        "metadataSha256": "9c62856211caee6374c2e377d3da12adb1c62550e854c5dfe5fd7948e749245c",
+        "openAccess": {
+          "is_oa": false,
+          "oa_status": "closed",
+          "oa_url": null,
+          "any_repository_has_fulltext": false
+        },
+        "locations": [
+          {
+            "isOa": false,
+            "landingPageUrl": "https://doi.org/10.2527/jas1982.54118x",
+            "pdfUrl": null,
+            "source": "Journal of Animal Science"
+          },
+          {
+            "isOa": false,
+            "landingPageUrl": "https://pubmed.ncbi.nlm.nih.gov/7085497",
+            "pdfUrl": null,
+            "source": "PubMed"
+          }
+        ]
+      },
+      "metadataReadScope": [
+        "/id",
+        "/doi",
+        "/open_access",
+        "/locations"
+      ],
+      "directAttempt": {
+        "id": "A2-S015",
+        "requestUrl": "https://doi.org/10.2527/jas1982.54118x",
+        "responseInfo": "403\nhttps://academic.oup.com/jas/article/54/1/18-22/4662711\ntext/html; charset=UTF-8",
+        "retrievedAt": "2026-09-09T07:16:24.645513+00:00",
+        "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/feed-access/A2-S015-direct.response",
+        "sha256": "f06ea7b2cf148b168ce6b6ec4b6e98c9960ed5b83ee1cdf1991ad8e8d55d04db",
+        "error": ""
+      },
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/feed-access/A2-S015-direct.txt",
+      "textSha256": "766be4bcbef0163ad3da498967e1872fbcc6d356acd857b017bff4542faa9ff1",
+      "directReadScope": {
+        "lines": [
+          1,
+          2
+        ]
+      },
+      "fullTextAcquired": false,
+      "fullMethodsRead": false,
+      "originalReviewChanged": false,
+      "nextRoute": "authorized institutional library access or legitimate supplied full text; no contact performed",
+      "openSearchStopped": true,
+      "finding": "OpenAlex oppgir closed OA og bare DOI/PubMed-lokasjoner. DOI løste til OUP, som returnerte HTTP403 og JavaScript/cookie-utfordring.",
+      "remainingGap": "Full metode og statistikk. Tidligere abstractbasert korreksjonsforslag om 36 kviger totalt beholdes uendret; denne runden tilfører ingen fulltekstbekreftelse.",
+      "readScopeSha256": "05f8bdf19ca64ec98ac31c13061fb810966197580390f0688c67e092c21b5a3f"
+    }
+  ],
+  "summary": {
+    "metadataQueries": 4,
+    "directOpeningRounds": 4,
+    "htmlRedirectTargetsFollowed": 2,
+    "fullTextsAcquired": 0,
+    "methodsRead": 0,
+    "newInstitutionalAbstractLocations": 1,
+    "newEvidenceAboutFeedingEffect": false
+  },
+  "searchBoundary": "Én OpenAlex metadataforespørsel og én direkte åpningsrunde per artikkel. West/Murdock HTML-redirect ble fulgt til oppgitt tidsskriftmål som del av samme runde. Dhiman brukte nytt institusjonelt spor, ikke gjentatt tidsskriftforsøk. Crickenberger DOI ble først identifisert via PMID/metadata. Ingen omgåelse av tilgangskontroll.",
+  "sourceRole": "OpenAlex brukes kun som søkemetadata. USU er institusjonell abstractpost. 403 og Redirecting-responser er tilgangsbevis, aldri faglig fulltekstevidens.",
+  "stopRule": "Ingen flere generelle søk uten en ny konkret fulltekstlokasjon, lovlig tilgang eller originalfil. Manglende metoder forblir tilgangsgap.",
+  "checks": {
+    "jsonParse": "passed",
+    "allPreservedHashes": "passed: 4 metadata, 4 direct responses, 2 redirect targets, 4 extracted texts; read-scope hashes recorded",
+    "rawResponsesPrivate": true,
+    "humanReview": false,
+    "canonicalPromotion": false,
+    "readinessChanged": false,
+    "databaseWrites": false,
+    "publication": false,
+    "contact": false
+  }
+}

@@ -1,0 +1,447 @@
+{
+  "schemaVersion": "round003-meals-v1",
+  "asOf": "2026-09-09",
+  "authority": "internal_candidate_only",
+  "humanVerified": false,
+  "canonicalPromotion": false,
+  "readinessChanged": false,
+  "candidateId": "C4",
+  "gapId": "NEW-MEAL-01",
+  "sources": [
+    {
+      "id": "MEAL-S001",
+      "url": "https://www.hylte.se/nyheter/nyhetsarkiv/2025-04-22-val-genomford-krisovning-matforsorjning-testades-utan-el-och-rinnande-vatten",
+      "retrievedAt": "2026-09-09T07:11:16.511070+00:00",
+      "httpStatus": 200,
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S001.html",
+      "rawSha256": "e51d292785420d5d696497232ac0603a28d4483d56d7a4b52eeb719042207d7f",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S001.txt",
+      "textSha256": "70ba4d407583eb17e77a59b526add4f72a1f404b1d01754622071d6b1e00fc15",
+      "extraction": "Python HTMLParser; scripts/styles/noscript removed; nonempty data normalized to one line",
+      "title": "Väl genomförd krisövning: Matförsörjning testades utan el och rinnande vatten",
+      "primary": true,
+      "readScope": {
+        "lines": [
+          12,
+          24
+        ]
+      },
+      "fullDocumentReviewed": false,
+      "locatorSystem": "1-based lines in preserved normalized HTML text",
+      "readScopeSha256": "7b0105f825d81c052a850c1aaa7e4b8e86ea018e7c4c31ee94e18f036517c4d8",
+      "sourceType": "municipal_operator_news",
+      "readReview": "AI direct reading of specified scope; not human review",
+      "visualPagesInspected": []
+    },
+    {
+      "id": "MEAL-S002",
+      "url": "https://www.trelleborg.se/nyheter/beredskapsovning-resulterade-i-en-annorlunda-lunch/",
+      "retrievedAt": "2026-09-09T07:11:16.413790+00:00",
+      "httpStatus": 200,
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S002.html",
+      "rawSha256": "51c0b3ebddb8d30599ee9105894033cca77136bc92686d89870781c0b07df75f",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S002.txt",
+      "textSha256": "fdb4bdb5641f244f0bd36abca8f0f5e6c26f98251a05b1545701233f7d56bb1a",
+      "extraction": "Python HTMLParser; scripts/styles/noscript removed; nonempty data normalized to one line",
+      "title": "Beredskapsövning resulterade i annorlunda lunch",
+      "primary": true,
+      "readScope": {
+        "lines": [
+          37,
+          52
+        ]
+      },
+      "fullDocumentReviewed": false,
+      "locatorSystem": "1-based lines in preserved normalized HTML text",
+      "readScopeSha256": "3fe7d3f080168a48f0bc1e1596a63243bc171bf743a6bc9e8031237350de8fce",
+      "sourceType": "municipal_operator_news",
+      "readReview": "AI direct reading of specified scope; not human review",
+      "visualPagesInspected": []
+    },
+    {
+      "id": "MEAL-S003",
+      "url": "https://www.ulricehamn.se/arkiv/nyheter/2025/2025-09-17-beredskapsmat-till-elever-pa-tva-skolor-i-ulricehamn",
+      "retrievedAt": "2026-09-09T07:11:16.299975+00:00",
+      "httpStatus": 200,
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S003.html",
+      "rawSha256": "70f4a3cbae4f5ade741b8c826216711566f4b3e475e58b76b2267d6df4490a8c",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S003.txt",
+      "textSha256": "5f76297ffc80788b490ead9ff271974062e139c509713fdd4eeb845548946371",
+      "extraction": "Python HTMLParser; scripts/styles/noscript removed; nonempty data normalized to one line",
+      "title": "Beredskapsmat till elever på två skolor i Ulricehamn",
+      "primary": true,
+      "readScope": {
+        "lines": [
+          28,
+          37
+        ]
+      },
+      "fullDocumentReviewed": false,
+      "locatorSystem": "1-based lines in preserved normalized HTML text",
+      "readScopeSha256": "94a96bc00f8ffd0410079787993b7e33344f464237af551ad330b81c80f403df",
+      "sourceType": "municipal_operator_news",
+      "readReview": "AI direct reading of specified scope; not human review",
+      "visualPagesInspected": []
+    },
+    {
+      "id": "MEAL-S004",
+      "url": "https://www.livsmedelsverket.se/globalassets/publikationsdatabas/handbocker-verktyg/beredskapshandbok-for-offentliga-maltider-2022/beredskapshandbok_for_offentliga_maltider_2022_webb.pdf",
+      "retrievedAt": "2026-09-09T07:11:16.376411+00:00",
+      "httpStatus": 200,
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S004.pdf",
+      "rawSha256": "e1e899d8b311b99294a7b4df34f35f3522431d090076ec363ae1412913a73f46",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S004.txt",
+      "textSha256": "44c8cc8692800159ead66bd5776cfa23b67879b304302969ab68a9722bf9bdd5",
+      "extraction": "pdftotext -layout",
+      "title": "Beredskapshandbok för offentliga måltider",
+      "primary": true,
+      "readScope": {
+        "pages": [
+          60,
+          61,
+          62,
+          63,
+          64,
+          65,
+          66
+        ]
+      },
+      "fullDocumentReviewed": false,
+      "locatorSystem": "1-based physical PDF pages; printed page markers agree on inspected pages",
+      "readScopeSha256": "5023b44ace56863e7d8f6dd70238e4c60576ec47f75ce6b9c9edc08859f00e41",
+      "sourceType": "national_authority_guidance",
+      "readReview": "AI direct reading of specified scope; not human review",
+      "visualPagesInspected": [
+        64
+      ]
+    },
+    {
+      "id": "MEAL-S005",
+      "url": "https://www.livsmedelsverket.se/globalassets/publikationsdatabas/handbocker-verktyg/handbok-for-minska-matsvinn.pdf",
+      "retrievedAt": "2026-09-09T07:11:18.799833+00:00",
+      "httpStatus": 200,
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S005.pdf",
+      "rawSha256": "7b1305f86a632056fd1d91ca9f2492705663b6c1c0a213adc973279761e15b10",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S005.txt",
+      "textSha256": "d8bc586d6f4c9b3f22efefa21f0aaaa3ed0a74ed59eaefaae13e2e52593f419b",
+      "extraction": "pdftotext -layout",
+      "title": "Handbok för minskat matsvinn – för verksamheter inom vård, skola och omsorg",
+      "primary": true,
+      "readScope": {
+        "pages": [
+          11,
+          20,
+          27,
+          28,
+          29,
+          30
+        ]
+      },
+      "fullDocumentReviewed": false,
+      "locatorSystem": "1-based physical PDF pages; printed page markers agree on inspected pages",
+      "readScopeSha256": "71e02cc82b035b5a85da90e962819f831d31c31f99b736f7130bcaa707019ae8",
+      "sourceType": "national_authority_guidance",
+      "readReview": "AI direct reading of specified scope; not human review",
+      "visualPagesInspected": [
+        29
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "id": "MEAL-O001",
+      "sourceIds": [
+        "MEAL-S001"
+      ],
+      "locator": "MEAL-S001.txt lines 16–23; Snabb reaktion och effektiv samverkan",
+      "claim": "Hylte rapporterer at innkalt personell var samlet innen én time og laget et måltid for 180 personer med gass og åpen ild i en øvelse uten nettstrøm og rennende vann. Fire timer var øvelsens mål for etablering, ikke dokumentert faktisk leveringstid.",
+      "evidenceStatus": "operator_reported_exercise_result",
+      "period": {
+        "publicationDate": "2025-04-23",
+        "eventDate": null,
+        "eventDateVerbatim": "Tisdagen den 16 april",
+        "conflict": "16.04.2025 var onsdag; artikkelen/URL har april 2025. Ukedag eller dato/år er uavklart. Ingen stille retting."
+      },
+      "metrics": [
+        {
+          "value": 180,
+          "unit": "personer som det ble laget ett måltid for",
+          "capacityType": "reported_exercise_output",
+          "not": "daglig eller disponibel krisekapasitet"
+        },
+        {
+          "value": 1,
+          "unit": "time",
+          "meaning": "øvre rapportert tid til personellsamling"
+        },
+        {
+          "value": 4,
+          "unit": "timer",
+          "meaning": "mål for etablering; faktisk målt sluttid ukjent"
+        }
+      ],
+      "unknowns": [
+        "Mottatt/spist volum og porsjonsstørrelse",
+        "næringsberegning og spesialkost",
+        "vannliter, gass/ved, arbeidstimer, kostnad og svinn",
+        "faktisk tid til første/siste servering og gjentakbare driftsdøgn",
+        "rå øvelseslogg og kontrollresultater"
+      ],
+      "chain": {
+        "node": "Örnaskolan og Malmagården, Hylte",
+        "flow": "matvarer og nødvann til utekjøkken og én måltidsrunde",
+        "dependency": "innkalt personell, gass/ved, vanntanker, tilgjengelige råvarer",
+        "disruption": "simulert bortfall av nettstrøm og rennende vann",
+        "measure": "utekjøkken, innkalling, nødvann etter lokal plan",
+        "outcome": "operatørens rapport om mat til 180 personer; ikke målt langtidskontinuitet"
+      }
+    },
+    {
+      "id": "MEAL-O002",
+      "sourceIds": [
+        "MEAL-S002"
+      ],
+      "locator": "MEAL-S002.txt lines 43–51",
+      "claim": "Trelleborg rapporterer 100 porsjoner suppe laget på grillplassen i Smyge förskola under beredskapsuken 2023. Artikkelen omtaler også øvelse med vanntanker eller forhåndsfylte kar. Den dokumenterer ikke at begge avbrudd traff samme 100-porsjonsøkt.",
+      "evidenceStatus": "operator_reported_exercise_result",
+      "period": {
+        "publicationDate": "2023-09-29",
+        "updatedDate": "2026-02-06",
+        "eventPeriod": "beredskapsuken 2023; torsdag for suppeøkten, eksakt dato ikke angitt"
+      },
+      "metrics": [
+        {
+          "value": 100,
+          "unit": "tilberedte porsjoner suppe",
+          "capacityType": "reported_exercise_output",
+          "not": "100 dokumentert spiste ernæringsmessig egnede fullmåltider"
+        }
+      ],
+      "unknowns": [
+        "faktisk spist mat og måltidsbehov",
+        "samtidighet av strøm- og vannbortfall",
+        "relevant eldre-/sykehusspesialkost",
+        "varighet og brensel/vannforbruk",
+        "råvarer fra lager versus ordinær leveranse"
+      ],
+      "chain": {
+        "node": "Smyge förskola og øvrige deltakende kommunale kjøkken",
+        "flow": "ingredienser til suppe; lagret vann til matlaging og oppvask",
+        "dependency": "grill/brensel, kokk og vannlager",
+        "disruption": "simulert bortfall av strøm og egne vannøvelser",
+        "measure": "lokal alternativ tilberedning og vannlagring",
+        "outcome": "100 tilberedte porsjoner; full kontinuitet og samtidighet uavklart"
+      }
+    },
+    {
+      "id": "MEAL-O003",
+      "sourceIds": [
+        "MEAL-S003"
+      ],
+      "locator": "MEAL-S003.txt lines 30–37",
+      "claim": "Ulricehamn annonserte porsjoneringsøvelse ved to skoler 23.–24.09.2025 og oppga at krisemenyene var næringsberegnet. Dette er forhåndsomtale; den viser ikke gjennomført øvelse, faktisk matinntak eller effekt under el-/vannbortfall.",
+      "evidenceStatus": "announced_exercise_and_operator_menu_claim",
+      "period": {
+        "publicationDate": "2025-09-17",
+        "plannedExerciseDates": [
+          "2025-09-23",
+          "2025-09-24"
+        ]
+      },
+      "metrics": [],
+      "unknowns": [
+        "rå næringsberegning med målgruppe og mengder",
+        "etterrapport og avbruddsbetingelser",
+        "spist mengde og svinn"
+      ],
+      "chain": {
+        "node": "Hössna og Dalum skoler",
+        "flow": "porsjonsbestemte krisemenyer til elever",
+        "dependency": "råvarer, menyberegning, personell og tilberedning",
+        "disruption": "scenarioavhengig el/vannbrudd i menyarbeid; planlagt øvelse fokuserer på porsjonering",
+        "measure": "tre krisemenyer og planlagt porsjonsservering",
+        "outcome": "plan, ingen etterkontroll lest"
+      }
+    },
+    {
+      "id": "MEAL-O004",
+      "sourceIds": [
+        "MEAL-S004"
+      ],
+      "locator": "PDF pp.60–66, sections 5.3–5.6; table p.64 visually inspected",
+      "claim": "Livsmedelsverkets håndbok tilbyr en menytest mot råvaretilgang, personell, strøm, vann, utstyr og transport. Oppskrifter og lageromløp kan knyttes til slike tester. Eksempeltabellen er planleggingsstøtte, ikke et forsøk eller en kapasitetsmåling.",
+      "evidenceStatus": "guidance_method_not_demonstration",
+      "period": {
+        "editionLabel": "2022",
+        "observationPeriod": null
+      },
+      "metrics": [],
+      "unknowns": [
+        "lokale menymengder og flerdøgnsresultat",
+        "faktiske tilgjengelige reserver og allokering"
+      ],
+      "chain": {
+        "node": "ett navngitt institusjonskjøkken i en framtidig test",
+        "flow": "rullert råvarelager til tilpasset måltid",
+        "dependency": "seks ressurskategorier og målgruppens behov",
+        "disruption": "separate og kombinerte ressursbortfall",
+        "measure": "menymatrise, oppskrift, lager- og omløpsplan",
+        "outcome": "testdesign; ingen målt effekt"
+      }
+    },
+    {
+      "id": "MEAL-O005",
+      "sourceIds": [
+        "MEAL-S005"
+      ],
+      "locator": "PDF p.11 Lageromsättning; pp.20,27–30 consumption/measurement; p.29 visually inspected",
+      "claim": "Målemetoden skiller kjøkken-, serverings- og tallerkensvinn og bruker faktisk antall spisende. Praktiske avgrensninger inkluderer uspiselige fraksjoner og utelater drikke. Redusert totalavfall er derfor ikke direkte et mål på spart spiselig mat eller ernæring.",
+      "evidenceStatus": "measurement_method_not_disruption_effect",
+      "period": {
+        "publicationDate": null,
+        "pdfMetadataCreation": "2020-03-06; metadata, ikke bekreftet utgivelsesdato",
+        "observationPeriod": null
+      },
+      "metrics": [],
+      "unknowns": [
+        "spiselig andel av målt avfall",
+        "avvikende tetthet ved literomregning",
+        "drikke, energi og næringsstoffer",
+        "måleusikkerhet ved kar-/porsjonssampling"
+      ],
+      "chain": {
+        "node": "produksjons- og mottakskjøkken med navngitt måleansvar",
+        "flow": "tilberedt → servert → spist/avfall/trygt lagret",
+        "dependency": "kalibrert vekt, tare, korrekt gjestetall, sporbarhet",
+        "disruption": "metoden gjelder ordinær drift; avbruddsanvendelse må testes",
+        "measure": "materialbalanse med separate avfallsfraksjoner og konsum",
+        "outcome": "sammenlignbar måleplan; ikke sirkulær effekt dokumentert"
+      }
+    }
+  ],
+  "purposeMapping": [
+    {
+      "purposeId": "P1",
+      "contribution": "To øvelsesberetninger gjør kjøkkenets energi-/vannavhengighet konkret. Ingen import- eller klimakausal effekt beregnet."
+    },
+    {
+      "purposeId": "P2",
+      "contribution": "Svenske lokale øvelser viser avgrenset innenlandsk tilberedning. De er ikke norsk eller svensk nasjonal tilgjengelig kapasitet."
+    },
+    {
+      "purposeId": "P3",
+      "contribution": "Nordisk metodeoverføring er en testbar hypotese. Ingen nordisk tilleggseffekt eller grensekryssende leveringsrett dokumentert."
+    },
+    {
+      "purposeId": "P4",
+      "contribution": "Lageromløp og mindre spiselig svinn kan testes separat fra reserveutstyr; dagens kilder viser ingen effektstørrelse under avbrudd."
+    },
+    {
+      "purposeId": "P5",
+      "contribution": "C4 kan gå videre til spesifisert operatørmåling. Prosjektvedtak, partner og readiness er uendret."
+    }
+  ],
+  "comparison": {
+    "nationalBaseline": "Samme norske kjøkken, målgruppe, menyfunksjon og avbrudd med eksisterende lager, lokalkompetanse og reserveutstyr. Svenske øvelser er metodeeksempler.",
+    "circularIncrement": "Forskjell ved dokumentert lageromløp/spiselig svinnreduksjon og menytilpasning, med identisk nødvann/utstyr/personell. Grill eller nødvann alene telles ikke som sirkularitet.",
+    "nordicIncrement": "Tillegg fra konkret svensk/nordisk metode etter norsk lokal optimering, testet med samme ressurser og forstyrrelse. Kompetanseutveksling er ikke tilgjengelig volum.",
+    "demonstratedNationalCapacity": null,
+    "demonstratedCircularIncrement": null,
+    "demonstratedNordicIncrement": null
+  },
+  "candidateTest": {
+    "id": "MEAL-T001",
+    "status": "proposed_not_executed",
+    "decisionToChange": "Om C4 bør prioriteres til pilot hos navngitt institusjonskjøkken og hvilken ressurs som begrenser egnede måltider.",
+    "unitOfAnalysis": "kjøkken × mottakergruppe × måltidsøkt × scenario × menyversjon",
+    "design": "Sekvensiell pilot: lokal baseline; samme ressurser med lageromløp/meny/svinnmetode; deretter navngitt nordisk metodetillegg. Bruk sammenlignbare gjestedager og kontroller meny- og læringseffekter. Registrer alle forskjeller før målingen.",
+    "scenarios": [
+      "nettel borte",
+      "rennende vann borte",
+      "forsinket planlagt råvareleveranse",
+      "kombinert bortfall med samme dokumenterte varighet"
+    ],
+    "timeHorizon": "Fastsettes fra kjøkkenets faktiske kontinuitetsbehov; hver måltidsøkt logges over hele valgt avbrudd. Fire timer fra Hylte er ikke universell terskel.",
+    "inputs": [
+      "initialt råvarelager per produkt/lot/kg/holdbarhet",
+      "vann liter etter drikke, tilberedning, hygiene og oppvask",
+      "brensel kg/liter og reserveenergi kWh",
+      "bemanning og arbeidstimer",
+      "utstyr, oppstart og siste leveringstid",
+      "råvare-/leverandør- og transportavhengigheter",
+      "målgruppe, spesialkost, oppskrift og ernæringsversjon"
+    ],
+    "outcomes": [
+      "egnede måltider servert i tide / dokumentert behov",
+      "faktisk spisende og konsumert mat g/person",
+      "energi og relevante næringsstoffer per målgruppe etter oppskrift og observert konsum; massetall alene er utilstrekkelig",
+      "spiselig svinn kg og g/spisende, separat uspiselig fraksjon",
+      "trygt lagret overskudd og senere brukt mengde; ikke dobbelttelling",
+      "kostnad NOK per egnet måltid og arbeidstimer",
+      "vann/brensel per egnet måltid og driftstid før kritisk innsats stopper"
+    ],
+    "methodAdaptation": "Den svenske avfallsmetoden brukes som klassifikasjon. For sirkulær effekt må spiselig fraksjon skilles fra bein/skall/servietter, drikke inkluderes ved ernæringsregnskap og faktisk produktmasse måles fremfor ukritisk 1 liter = 1 kg. Én ansvarlig node måler servering, så produksjon og mottak ikke dobbelttelles.",
+    "disconfirmation": [
+      "Mindre avfall følger av færre eller mindre egnede måltider.",
+      "Energi-/vann-/arbeidsbehov øker slik at kontinuitet svekkes.",
+      "Effekten forsvinner når vanlig lokalkompetanse og utstyr er likt.",
+      "Reservevaren kan ikke erstattes under samme leveransebrudd.",
+      "Metoden gir ikke bedre utfall enn nasjonal baseline."
+    ],
+    "successRule": "Ingen forhåndsoppdiktet effektterskel; rapporter endring med usikkerhet og oppfyllelse av dokumentert målgruppebehov. Operatørdefinerte funksjonskrav må foreligge før testen."
+  },
+  "openGaps": [
+    {
+      "id": "MEAL-G001",
+      "kind": "data_owner",
+      "variable": "Hyltes eksakte øvelsesdato, tidslogg, matkontroll og næringsberegning",
+      "ownerRole": "kommunens øvelsesledelse, måltidsfunksjon og matkontroll",
+      "nextRoute": "Be om eksisterende øvelsesprotokoll ved senere godkjent kontakt; ingen kontakt utført.",
+      "stopRule": "Kommunal nyhet kan ikke fylle rå driftsdata. Datomotsigelsen beholdes til primærlogg foreligger."
+    },
+    {
+      "id": "MEAL-G002",
+      "kind": "measurement",
+      "variable": "Spist ernæringsmessig egnet måltid, spiselig svinn, vann, brensel, arbeid og kostnad under identisk avbrudd",
+      "ownerRole": "navngitt kjøkken og måleansvarlig",
+      "nextRoute": "MEAL-T001; offentlig veiledning erstatter ikke pilotmåling.",
+      "stopRule": "Ingen sirkulær effektstørrelse før kompatible før-/etterdata og innsatsbalanse."
+    },
+    {
+      "id": "MEAL-G003",
+      "kind": "data_owner",
+      "variable": "Gjenværende lager, fornyet nødvann/brensel, kritiske leveranser og spesialkost over flere måltider",
+      "ownerRole": "kjøkken, vannverk, logistikk og kontraktseier",
+      "nextRoute": "Eksisterende lokale kontinuitetsdata og kontrollert flerdøgnsøvelse.",
+      "stopRule": "Én tilberedningsøkt skaleres ikke til daglig kapasitet."
+    },
+    {
+      "id": "MEAL-G004",
+      "kind": "method",
+      "variable": "Nordisk metodetillegg utover norsk baseline for samme kjøkken/scenario",
+      "ownerRole": "pilotens metodeansvarlige",
+      "nextRoute": "Spesifiser innholdet i metodetillegget; sammenlign deretter paret.",
+      "stopRule": "Flere nasjonale øvelsesberetninger beviser ikke nordisk tillegg."
+    }
+  ],
+  "searchClosure": {
+    "directChannel": "Livsmedelsverkets originalhåndbøker, s.60–66 og svinnmetodens navngitte sider",
+    "alternativeChannel": "Hylte og Trelleborgs kommunale etteromtaler; Ulricehamns forhåndsomtale som ernæringsspor",
+    "newContribution": "Operatørrapporterte begrensede øvelsesutfall finnes. Ingen av de fem leste kildene dokumenterer sammenlignbar sirkulær/nordisk effekt under avbrudd.",
+    "boundedNotUniversalAbsenceClaim": true,
+    "stoppedAt": "drifts-, rådata- og metodegap",
+    "acquisitionNote": "web.open returnerte 403 for begge PDF-ene; direkte curl returnerte HTTP 200 og PDF-magic. Originalbytes og uttrekk er bevart privat. Søketreff alene er ikke evidens."
+  },
+  "checks": {
+    "jsonParse": "passed",
+    "hashVerification": "passed: 5 raw, 5 extracted text, 5 read-scope hashes",
+    "sourceCount": 5,
+    "observationCount": 5,
+    "privateOriginalsOnly": true,
+    "dbWrites": false,
+    "publication": false,
+    "contacts": false,
+    "independentReview": "not yet performed; parent may inspect exact packet",
+    "limits": "Denne pakken er intern KI-analyse; ingen reviewkvittering er utstedt av kandidatarkivet."
+  }
+}

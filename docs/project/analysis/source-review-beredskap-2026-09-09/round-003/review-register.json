@@ -1,0 +1,495 @@
+{
+  "runId": "beredskap-round003-thematic-documentation",
+  "authority": "internal_analysis_only",
+  "packetSha256": "e4c53d9e4b4fcd7e8fc8f7a3498686ed9c71351c99ae05b08f92f920df1b02ed",
+  "inputBindings": [
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/3c32/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/nutrients/findings.json",
+      "sha256": "6471f04ae470387eabdc38a175935b6b77c00ac2ef45802c47fc6240adf717a9"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/3c32/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/meals/findings.json",
+      "sha256": "f4d28e30937dbe13ad678d761ea620519187a28edd352023b60355de28ca6a80"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/3c32/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/climate/findings.json",
+      "sha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/3c32/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/findings.json",
+      "sha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6"
+    }
+  ],
+  "reviews": [
+    {
+      "observationId": "R3-NPK-O001",
+      "claimSha256": "6ed929f80f0d6034d9659734466bcaeae63faf8bf355cca9274d3839d355e5cd",
+      "observationSha256": "d4b49c9e272e9125e8be3e751e129a9bb0b8c3bbe49c22bc451262de6cf1eb17",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"2026 stock\", \"sales to agriculture\", \"applied plant-available P\", \"displaced mineral fertiliser\"]",
+      "reviewer": "nutrients agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "R3-NPK-S001",
+          "rawSha256": "0fec17d06fe21211787b3a91e775216c3c82fc2fd5b2113b19f737abec19f694",
+          "textSha256": "91487ec2c23f6747ba60f9aa7c4124b93957d6ac5237562049ee4139c69b0f85",
+          "locator": "{\"heading\": \"Struvitt\", \"pdfPage\": 28, \"printedPage\": \"28\"}",
+          "readScope": "{\"detail\": \"Avløpsrensing, Struvitt, Slambehandling og Disponering av biomasse; tabeller på s35–36. Ikke full årsrapportreview.\", \"pdfPages\": [27, 28, 35, 36]}"
+        }
+      ]
+    },
+    {
+      "observationId": "R3-NPK-O002",
+      "claimSha256": "8c33746a1d4a5d518ae357d92ca510866962d7d68999d68e333db05b4d9d85d8",
+      "observationSha256": "1cdc254d630aa2eb4201f0d5b50992247beccf1f90f5641431c88dd887db3ba2",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"kg P/hour during power loss\", \"magnesium stock and supplier origin\", \"standalone recovery-process energy use\", \"restart duration\"]",
+      "reviewer": "nutrients agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "R3-NPK-S001",
+          "rawSha256": "0fec17d06fe21211787b3a91e775216c3c82fc2fd5b2113b19f737abec19f694",
+          "textSha256": "91487ec2c23f6747ba60f9aa7c4124b93957d6ac5237562049ee4139c69b0f85",
+          "locator": "{\"heading\": \"Avløpsrensing\", \"pdfPage\": 27, \"printedPage\": \"27\"}",
+          "readScope": "{\"detail\": \"Avløpsrensing, Struvitt, Slambehandling og Disponering av biomasse; tabeller på s35–36. Ikke full årsrapportreview.\", \"pdfPages\": [27, 28, 35, 36]}"
+        },
+        {
+          "sourceId": "R3-NPK-S004",
+          "rawSha256": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+          "textSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+          "locator": "{\"heading\": \"2.1 Struvite production at Hias IKS\", \"pdfPage\": 8, \"printedPage\": \"8\"}",
+          "readScope": "{\"detail\": \"Metadata, forsøksmetode, feltavling, balanse og diskusjon. Tabell 5 og diskusjon s27 visuelt kontrollert; ikke full vedleggs-/rådataanalyse.\", \"pdfPages\": [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 19, 20, 24, 27, 28, 29]}"
+        }
+      ]
+    },
+    {
+      "observationId": "R3-NPK-O003",
+      "claimSha256": "3036ece722795b7080cda0bbfe2b5aa92d0c2bf8c9b29585ae47dcd739d5826d",
+      "observationSha256": "2ed47bc4e36b24ebf312fd27c39867fd1fa12aeb34c724fd11ab5a29d983adc4",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"field barley response to current batch\", \"dose-response substitution factor\", \"grain quality and yield\", \"full nutrient balance under import interruption\"]",
+      "reviewer": "nutrients agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "R3-NPK-S002",
+          "rawSha256": "bee5c3e89579c0c02f939250c74b3000df4dd5959f0c91ac95edb26e01465d30",
+          "textSha256": "0ac6a2c80e5731f7ffcf8583b26fd0242919b4e0aa1aee0ae70e0c1fc293742c",
+          "locator": "{\"anchors\": [\"2.1.1\", \"3.2.4\", \"Tabell 10\", \"Tabell 13\"], \"pdfPages\": [9, 10, 11, 14, 22, 26], \"printedPages\": [\"9\", \"10\", \"11\", \"14\", \"22\", \"26\"]}",
+          "readScope": "{\"detail\": \"Metadata, metode og byggresultat; gras omtalt kun for avgrensning. Tabell 10 visuelt kontrollert.\", \"pdfPages\": [1, 2, 3, 5, 6, 7, 9, 10, 11, 12, 14, 22, 25, 26, 28, 29]}"
+        }
+      ]
+    },
+    {
+      "observationId": "R3-NPK-O004",
+      "claimSha256": "fa42360165f000ae54f4d9ad42f04881e8adde42a41a8c2db6082c28c3db4101",
+      "observationSha256": "792a2b397e00fb0531fd666cf79f46376bd6d4b036e7fa9e1030e88df60a5e9a",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"additional mineral P actually avoided\", \"response in other soils/seasons\", \"purchased product and continuity at scale\"]",
+      "reviewer": "nutrients agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "R3-NPK-S004",
+          "rawSha256": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+          "textSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+          "locator": "{\"anchors\": [\"2.2 Study site and experimental design\", \"Table 5\", \"5 Conclusions\"], \"pdfPages\": [10, 12, 19, 20, 29], \"printedPages\": [\"10\", \"12\", \"19\", \"20\", \"29\"]}",
+          "readScope": "{\"detail\": \"Metadata, forsøksmetode, feltavling, balanse og diskusjon. Tabell 5 og diskusjon s27 visuelt kontrollert; ikke full vedleggs-/rådataanalyse.\", \"pdfPages\": [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 19, 20, 24, 27, 28, 29]}"
+        }
+      ]
+    },
+    {
+      "observationId": "R3-NPK-O005",
+      "claimSha256": "99c98011ec7d04e6719251766cb04c10a38c8c13bd3b84ab5fdb6ec0719df6ca",
+      "observationSha256": "9f5226c729c59f8df22747288552abf0dce0b3fd8ded1d2eea503619e60bbb0a",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"sample date and batch\", \"current laboratory certificates\", \"current permitted use for chosen recipient\"]",
+      "reviewer": "nutrients agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "R3-NPK-S003",
+          "rawSha256": "4a8cb14b8f4250147b8fef75d12bf1ca0a37fcba1a3127685bad592fd157871b",
+          "textSha256": "4efe923aa90bffc31500a4afdf46c898c48cdcff8ead168ef37bc300310f9e5a",
+          "locator": "{\"htmlHeading\": \"Varedeklarasjon Struvitt Hias IKS > Innhold; Anbefalt bruk\", \"rowLabels\": [\"TS %\", \"Fosfor (P)\", \"Kalium (K)\"]}",
+          "readScope": "{\"detail\": \"Hele tekstuttrekket lest. Udattert produsentside; relative uttrykk som mai i fjor tidfestes ikke.\", \"htmlHeadings\": [\"Varedeklarasjon Struvitt Hias IKS\", \"Innhold\", \"Anbefalt bruk\"]}"
+        }
+      ]
+    },
+    {
+      "observationId": "R3-NPK-O006",
+      "claimSha256": "029ddb874daf61ce2b0fb29769b6ed0264f4fbba553669a9c5f1ac5a545227f7",
+      "observationSha256": "96bd40da885c17f70764041b61a8c08d5e0d36b403c8ef7fd72439b4cb2d3111",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"author-corrected calculations and table units\"]",
+      "reviewer": "nutrients agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "R3-NPK-S004",
+          "rawSha256": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+          "textSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+          "locator": "{\"anchors\": [\"Table 5\", \"4 Discussion\", \"2.2 Study site and experimental design\"], \"pdfPages\": [10, 20, 27], \"printedPages\": [\"10\", \"20\", \"27\"]}",
+          "readScope": "{\"detail\": \"Metadata, forsøksmetode, feltavling, balanse og diskusjon. Tabell 5 og diskusjon s27 visuelt kontrollert; ikke full vedleggs-/rådataanalyse.\", \"pdfPages\": [1, 2, 3, 4, 5, 8, 9, 10, 11, 12, 19, 20, 24, 27, 28, 29]}"
+        }
+      ]
+    },
+    {
+      "observationId": "MEAL-O001",
+      "claimSha256": "558429f47ead35134ffbaab6d1b6ebe2097a470ff2bf1a5b67aee4fbb587f17d",
+      "observationSha256": "fa4e7ccfd8a669f934559032f321cc84c275816028e0e8714213d24cc16ddd8f",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"Mottatt/spist volum og porsjonsstørrelse\", \"næringsberegning og spesialkost\", \"vannliter, gass/ved, arbeidstimer, kostnad og svinn\", \"faktisk tid til første/siste servering og gjentakbare driftsdøgn\", \"rå øvelseslogg og kontrollresultater\"]",
+      "reviewer": "meals agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "MEAL-S001",
+          "rawSha256": "e51d292785420d5d696497232ac0603a28d4483d56d7a4b52eeb719042207d7f",
+          "textSha256": "70ba4d407583eb17e77a59b526add4f72a1f404b1d01754622071d6b1e00fc15",
+          "locator": "MEAL-S001.txt lines 16–23; Snabb reaktion och effektiv samverkan",
+          "readScope": "{\"lines\": [12, 24]}"
+        }
+      ]
+    },
+    {
+      "observationId": "MEAL-O002",
+      "claimSha256": "e108c4685d5ca416f2c1020d3692dc49eb425d2ddeed10645fa10739fbd386b2",
+      "observationSha256": "d8e815b34663ab90c136bdbaf7ca359564a24bd5d16e1269b302281295ade9dd",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"faktisk spist mat og måltidsbehov\", \"samtidighet av strøm- og vannbortfall\", \"relevant eldre-/sykehusspesialkost\", \"varighet og brensel/vannforbruk\", \"råvarer fra lager versus ordinær leveranse\"]",
+      "reviewer": "meals agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "MEAL-S002",
+          "rawSha256": "51c0b3ebddb8d30599ee9105894033cca77136bc92686d89870781c0b07df75f",
+          "textSha256": "fdb4bdb5641f244f0bd36abca8f0f5e6c26f98251a05b1545701233f7d56bb1a",
+          "locator": "MEAL-S002.txt lines 43–51",
+          "readScope": "{\"lines\": [37, 52]}"
+        }
+      ]
+    },
+    {
+      "observationId": "MEAL-O003",
+      "claimSha256": "e5e3eee2d0e4617fe1ad1a8c89037cc8627b7ace1c5c4a2d1d0e13dd36ccc19e",
+      "observationSha256": "f06e4d367b9b7fe2361bb5f7ba95f31f4f3951f089abf90c246a88f54172f335",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"rå næringsberegning med målgruppe og mengder\", \"etterrapport og avbruddsbetingelser\", \"spist mengde og svinn\"]",
+      "reviewer": "meals agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "MEAL-S003",
+          "rawSha256": "70f4a3cbae4f5ade741b8c826216711566f4b3e475e58b76b2267d6df4490a8c",
+          "textSha256": "5f76297ffc80788b490ead9ff271974062e139c509713fdd4eeb845548946371",
+          "locator": "MEAL-S003.txt lines 30–37",
+          "readScope": "{\"lines\": [28, 37]}"
+        }
+      ]
+    },
+    {
+      "observationId": "MEAL-O004",
+      "claimSha256": "e029d3e41a927ae0399c5ae1ab8141f79c8e5585b24019e0de98ea896abc9701",
+      "observationSha256": "8d0fe3f797f9621466cb23e27e87834a6dacecbab81c6d3b12a923bb9696801b",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"lokale menymengder og flerdøgnsresultat\", \"faktiske tilgjengelige reserver og allokering\"]",
+      "reviewer": "meals agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "MEAL-S004",
+          "rawSha256": "e1e899d8b311b99294a7b4df34f35f3522431d090076ec363ae1412913a73f46",
+          "textSha256": "44c8cc8692800159ead66bd5776cfa23b67879b304302969ab68a9722bf9bdd5",
+          "locator": "PDF pp.60–66, sections 5.3–5.6; table p.64 visually inspected",
+          "readScope": "{\"pages\": [60, 61, 62, 63, 64, 65, 66]}"
+        }
+      ]
+    },
+    {
+      "observationId": "MEAL-O005",
+      "claimSha256": "7da98823249faeffcfb3a9a6ad7f88d678caad824b46126fdc52cdf5dba42861",
+      "observationSha256": "eebbffe133979b6c8bb94522407f96ad00b6399b9458d84d4dc8a992f7c8f9b1",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"spiselig andel av målt avfall\", \"avvikende tetthet ved literomregning\", \"drikke, energi og næringsstoffer\", \"måleusikkerhet ved kar-/porsjonssampling\"]",
+      "reviewer": "meals agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "MEAL-S005",
+          "rawSha256": "7b1305f86a632056fd1d91ca9f2492705663b6c1c0a213adc973279761e15b10",
+          "textSha256": "d8bc586d6f4c9b3f22efefa21f0aaaa3ed0a74ed59eaefaae13e2e52593f419b",
+          "locator": "PDF p.11 Lageromsättning; pp.20,27–30 consumption/measurement; p.29 visually inspected",
+          "readScope": "{\"pages\": [11, 20, 27, 28, 29, 30]}"
+        }
+      ]
+    },
+    {
+      "observationId": "CLIM-O01",
+      "claimSha256": "cef34eb4dab6b7d2d52d97638507d6ec9f22b63c62d334882a363a5c7954ab33",
+      "observationSha256": "d7ba68f69dd1609644266df7ba97b9dcdb1483451e140ec1822e626a572937f8",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"ingen nytt nordisk korrelasjonsestimat\", \"ikke tapt tonnasje eller mathvetekvalitet\", \"RF-assosiasjon, ikke isolert kausalt eksperiment\"]",
+      "reviewer": "climate agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "CLIM-S01",
+          "rawSha256": "66136c4f6bdcb235eb78117cfa870ac1f148ffb596824ea2ef54732a12cff8e2",
+          "textSha256": "703a5c2172ae56edd65fc2b04694818cf1e3304fe3fec4a9a1c4395265509aa6",
+          "locator": "{\"section\": \"3(b), printed page 3\", \"textLines\": [218, 242]}",
+          "readScope": "{\"excluded\": [\"underliggende datasett ikke hentet eller reanalysert\", \"supplement ikke lest\", \"figurer ikke visuelt replikert\"], \"lineConvention\": \"1-based Python str.splitlines(), including PDF form-feed boundaries\", \"ranges\": [[1, 165], [205, 245], [397, 425], [515, 531]], \"sections\": [\"Abstract; Methods 2(a); Results 3(b), printed p.3; Discussion 4(a)\"], \"type\": \"bounded_text_read\"}"
+        }
+      ]
+    },
+    {
+      "observationId": "CLIM-O02",
+      "claimSha256": "b41e99f5ed53be164f1e77f69737d1c72dd18a81757b46f270ca42185cfd6cad",
+      "observationSha256": "45cad0003be3f616f64f1a4af6ab2f15b99fc294067697fe18ce073f4d6cc309",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"europeisk motvekt dokumenterer ikke nordisk overskudd, leveringsrett eller transport\", \"ikke evidens for at framtidig risiko er uendret\"]",
+      "reviewer": "climate agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "CLIM-S01",
+          "rawSha256": "66136c4f6bdcb235eb78117cfa870ac1f148ffb596824ea2ef54732a12cff8e2",
+          "textSha256": "703a5c2172ae56edd65fc2b04694818cf1e3304fe3fec4a9a1c4395265509aa6",
+          "locator": "{\"section\": \"Abstract and 4(a)\", \"textLines\": [39, 48]}",
+          "readScope": "{\"excluded\": [\"underliggende datasett ikke hentet eller reanalysert\", \"supplement ikke lest\", \"figurer ikke visuelt replikert\"], \"lineConvention\": \"1-based Python str.splitlines(), including PDF form-feed boundaries\", \"ranges\": [[1, 165], [205, 245], [397, 425], [515, 531]], \"sections\": [\"Abstract; Methods 2(a); Results 3(b), printed p.3; Discussion 4(a)\"], \"type\": \"bounded_text_read\"}"
+        }
+      ]
+    },
+    {
+      "observationId": "CLIM-O03",
+      "claimSha256": "a2c0d351f79b5f4f494ef3983286c30711e694492336419cc4ef2993fc6c53fb",
+      "observationSha256": "a8c521b5a35450c8291873086fbe4dae9532b647131d8b08df58b3ef730204fe",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"stasjonsnettet er geografisk skjevt, jf. 5.4\", \"ikke andel vannmengde, vannkraft eller matkapasitet\", \"nær-naturlige vassdrag; regulerte magasiner og faktiske transportleveranser ikke målt\"]",
+      "reviewer": "climate agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "CLIM-S02",
+          "rawSha256": "1b775328532fafbf11c1c047d7b090aa69ab44d34bc99241267fba8cb2b15648",
+          "textSha256": "7abcf5e9ddf59def2751049d53216ebff896429db358f0d34338567cb64bd117",
+          "locator": "{\"section\": \"2.2 and 4.3\", \"textLines\": [1018, 1022]}",
+          "readScope": "{\"excluded\": [\"underliggende datasett ikke hentet eller reanalysert\", \"supplement ikke lest\", \"figurer ikke visuelt replikert\"], \"lineConvention\": \"1-based Python str.splitlines(), including PDF form-feed boundaries\", \"ranges\": [[170, 180], [549, 552], [1016, 1045], [1250, 1280]], \"sections\": [\"Abstract; 2.2 hydrological data; 4.3; 5.4; 6\"], \"type\": \"bounded_text_read\"}"
+        }
+      ]
+    },
+    {
+      "observationId": "CLIM-O04",
+      "claimSha256": "4dc8fadb8afd989e8db9dc172559d9d89a1d2998a4b37e8688b6142bb1f4fcdd",
+      "observationSha256": "193f8296415f5d1d76a521205c84df0a41f10f3920a046fe99c932e5ae0a5011",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"mønsteret er ikke korrelasjon mellom eksportbare kornvolumer\", \"juniverdi utelatt: resultattekst angir 46 prosent, konklusjon 43 prosent; ikke harmonisert av KI\"]",
+      "reviewer": "climate agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "CLIM-S02",
+          "rawSha256": "1b775328532fafbf11c1c047d7b090aa69ab44d34bc99241267fba8cb2b15648",
+          "textSha256": "7abcf5e9ddf59def2751049d53216ebff896429db358f0d34338567cb64bd117",
+          "locator": "{\"section\": \"6\", \"textLines\": [1277, 1280]}",
+          "readScope": "{\"excluded\": [\"underliggende datasett ikke hentet eller reanalysert\", \"supplement ikke lest\", \"figurer ikke visuelt replikert\"], \"lineConvention\": \"1-based Python str.splitlines(), including PDF form-feed boundaries\", \"ranges\": [[170, 180], [549, 552], [1016, 1045], [1250, 1280]], \"sections\": [\"Abstract; 2.2 hydrological data; 4.3; 5.4; 6\"], \"type\": \"bounded_text_read\"}"
+        }
+      ]
+    },
+    {
+      "observationId": "CLIM-O05",
+      "claimSha256": "34684551b3cd1544bf0a745ff2e0f13d2c4ead9863262b462daee3026f2f39be",
+      "observationSha256": "6451b7d253364a1185b214602c37608318c07a121c8ba921b1c12098700d403c",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. [\"høy samlet R² er ikke klimavariablenes isolerte forklaringsgrad\", \"kun Sverige; ikke prognose for leverbar nordisk kapasitet\", \"arealmaske CLC2006 holdt fast; manglende rapporterte avlinger etter vekst\", \"Matlab-kode kun tilgjengelig på forespørsel; ingen kontakt gjort\"]",
+      "reviewer": "climate agent source reading; root scoped synthesis and critical spot checks",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "CLIM-S03",
+          "rawSha256": "2735f4877b26956fb4568fe51886eb49c236ad89ea95d789e6c885e3f3dd5537",
+          "textSha256": "70a6c99b9085872901b55dcca970d5dac34982aa52a10578569a0db5389f56f6",
+          "locator": "{\"section\": \"2.3; 3; 5\", \"textLines\": [619, 652]}",
+          "readScope": "{\"excluded\": [\"underliggende datasett ikke hentet eller reanalysert\", \"supplement ikke lest\", \"figurer ikke visuelt replikert\"], \"lineConvention\": \"1-based Python str.splitlines(), including PDF form-feed boundaries\", \"ranges\": [[150, 205], [219, 250], [275, 355], [610, 667], [702, 714]], \"sections\": [\"Abstract; 2.1; 2.3; Results; Conclusions; Code and data availability\"], \"type\": \"bounded_text_read\"}"
+        }
+      ]
+    },
+    {
+      "observationId": "D-O001",
+      "claimSha256": "fb20f61b82222c9464f7ec46e8a34d26c028841f1ca58ede94b01c6200666224",
+      "observationSha256": "4f192b159ae08fe0b12fed368d1631b413038c7007b070a70d1d6380585b1306",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. \"Måler generell økonomisk vanskelighet, ikke FIES eller direkte matmangel. Metodebrudd2022 beholdes. Ingen nordisk rangering.\"",
+      "reviewer": "root documentation source reading with nutrients critique",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "D-S001",
+          "rawSha256": "419d81bd8778882b1c7ea4262271f2c321ae76a32f44b2a3232f5f22f5bcccc2",
+          "textSha256": "419d81bd8778882b1c7ea4262271f2c321ae76a32f44b2a3232f5f22f5bcccc2",
+          "locator": "JSON pointers /dimension, /value/0–14, /note/2",
+          "readScope": "\"JSON-stat2 dimensions, labels, units, all 15 values, update date and notes\""
+        }
+      ]
+    },
+    {
+      "observationId": "D-O002",
+      "claimSha256": "932957afaa81789ec86c837cb648f6cba68e2e27fd463cfd3472cab76e49849b",
+      "observationSha256": "1a5c9a3ab772c53f6dce2c2e6ef2fa67b54caeea331a720929317700431d24e8",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. \"Opprinnelig historisk tekst; ingen ny juridisk vurdering av gjeldende rett eller nåværende leveransestatus.\"",
+      "reviewer": "root documentation source reading with nutrients critique",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "D-S002",
+          "rawSha256": "3cc9cd3a87308af23fe5c37589fbc3709b78ada3ae61f4b1424f30d5bf11b4df",
+          "textSha256": "5dcc977865e58d564372d1e86b01df3510112fb6c134032b3f06113045131dfb",
+          "locator": "PDF15 / trykt1323, §§1–3",
+          "readScope": "\"PDF page15 / printed1323, law445/2006 §§1–3, visually checked\""
+        }
+      ]
+    },
+    {
+      "observationId": "D-O003",
+      "claimSha256": "a819869e938c2277ccfba90ca230da452538ab79d79d7e535f1e9ffabc74f450",
+      "observationSha256": "d34b0c8f955e88c573f608bbeaf1a9fbcb142283d5beb7b6cdbc32ce4a3b0447",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. \"Rett kilde finnes som separat D-S004; original S004 og A5-O003 overskrives ikke. Feillenken er ikke bevis for fravær av matprotokoll.\"",
+      "reviewer": "root documentation source reading with nutrients critique",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "D-S003",
+          "rawSha256": "ed46db3d71f188d503a02ec2e247dde8e3c653fd842c2b11c27e886d3f8664be",
+          "textSha256": "7b13f08a618d90e498fa4a7ab019cdfcaabc02b8bf7f33af3493f69abf37761d",
+          "locator": "PDF1 / trykt957, tittel og §1",
+          "readScope": "\"PDF page1 / printed957; heading and §§1–2, visually checked\""
+        }
+      ]
+    },
+    {
+      "observationId": "D-O004",
+      "claimSha256": "b47d3b790c9e029faadda9079e36b30ef19fdf8f095dfdf044966d22820b6dc3",
+      "observationSha256": "094d70bbec47e7b5045e423554eabeddd6fcc46529128d0677813d65c43995f6",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. \"Avtalens hovedtekst er ingen matspesifikk leveranseprotokoll. Nåværende vedlegg, volum, rett og ledetid ikke dokumentert. Historisk tekst er ikke attestasjon på aktuell rettstilstand.\"",
+      "reviewer": "root documentation source reading with nutrients critique",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "D-S004",
+          "rawSha256": "4bb3e948bc1361e2d758b907b8240a0f97ba168e4d082f9223e5962a6e4cc9ba",
+          "textSha256": "002679392c4054ae195e4caa1aa5932546c751ece175d31aa1713dd494767e24",
+          "locator": "PDF4 / trykt568, norsk kolonne artikkel3–4; PDF2 og5–6 for dato/endring",
+          "readScope": "\"PDF pages2–6 / printed566–570; treaty, particularly articles3/4 at PDF4, visually checked\""
+        }
+      ]
+    },
+    {
+      "observationId": "D-O005",
+      "claimSha256": "8e2470ecc1599c50a949c730318242e2369e1905613aad5a5dc1451d0218407d",
+      "observationSha256": "b35691fa6b94d08a35682dcfc69d40db4f6c4e209e0622a50adc293b287f1045",
+      "runId": "beredskap-round003-thematic-documentation",
+      "policySha256": "522db70088473967c9bff7116ff8e32118f2b62c92a90f7986349cdd0fcc16a1",
+      "targetProfile": "internal_beredskap_working",
+      "outcome": "supported_with_limits",
+      "rationale": "Avgrenset kildevurdering i temapakken; behold originalens fullstendige status og grenser. \"Dette er én rapport via flere kanaler, ikke uavhengig evidens. Handle-tjenestens nettskall er fortsatt ikke reparert. Ingen ny helrapportlesing.\"",
+      "reviewer": "root documentation source reading with nutrients critique",
+      "authority": "internal_analysis_only",
+      "modelVersionAttested": false,
+      "evidence": [
+        {
+          "sourceId": "D-S005",
+          "rawSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+          "textSha256": "6c2b98fb5080a1279386267d4da5362bb932b6427df4066498e4240f96fe164a",
+          "locator": "PDF3, forfattere/ISBN978-82-7063-585-6; SHA256 hele PDF mot A3-S001",
+          "readScope": "\"PDF pages1–9: title, ISBN, authors, foreword and summary; PDF3 visually checked; binary identity with prior A3-S001\""
+        }
+      ]
+    }
+  ],
+  "normalization": "Whole original records are embedded in private baseline and hash-bound. supported_with_limits concerns each bounded claim, including reported inconsistencies; it is not approval of effect or DB promotion."
+}

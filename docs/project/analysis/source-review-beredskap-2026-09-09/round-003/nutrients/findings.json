@@ -1,0 +1,720 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-09-09",
+  "authority": "internal_candidate_only",
+  "human_verified": false,
+  "canonicalPromotion": false,
+  "coverageReadinessChanged": false,
+  "effectDemonstrated": false,
+  "candidateTestId": "C3",
+  "parentGapId": "NEW-NPK-01",
+  "scope": "One wastewater-P/struvite chain; Norway operator 2024 plus 2018/2019 experiments. No national NPK total.",
+  "privateEvidenceLocation": "Caller private round-003/nutrients directory; artifact names below. No source bytes in repository.",
+  "sourceIndependence": "Four documents are not four independent replications. Hias publishes operator data and supplied experimental material; NIBIO report commissioned by Hias; NORSØK report includes Hias coauthors.",
+  "sources": [
+    {
+      "id": "R3-NPK-S001",
+      "title": "Bærekrafts- og årsrapport Hias IKS 2024",
+      "url": "https://www.hias.no/getfile.php/133754-1747294746/HIAS/Dokumenter/B%C3%A6rekrafts-%20og%20%C3%A5rsrapporter/2024%20b%C3%A6rekrafts-%20og%20%C3%A5rsrapport%20Hias%20IKS.pdf",
+      "retrievedAt": "2026-09-09T07:09:56.776360+00:00",
+      "rawArtifact": "R3-NPK-S001.pdf",
+      "rawSha256": "0fec17d06fe21211787b3a91e775216c3c82fc2fd5b2113b19f737abec19f694",
+      "textArtifact": "R3-NPK-S001.txt",
+      "textSha256": "91487ec2c23f6747ba60f9aa7c4124b93957d6ac5237562049ee4139c69b0f85",
+      "rawBytes": 1883649,
+      "textMethod": "pdftotext -layout",
+      "readScope": {
+        "pdfPages": [
+          27,
+          28,
+          35,
+          36
+        ],
+        "detail": "Avløpsrensing, Struvitt, Slambehandling og Disponering av biomasse; tabeller på s35–36. Ikke full årsrapportreview."
+      },
+      "contentStatus": "preserved_and_bounded_read",
+      "sourceType": "operator_primary",
+      "human_verified": false
+    },
+    {
+      "id": "R3-NPK-S002",
+      "title": "Forprosjekt struvitt – undersøkelse av gjødselverdien i struvitt fra HIAS IKS; NIBIO 6(32), 2020",
+      "url": "https://www.hias.no/getfile.php/133034-1711021970/HIAS/Dokumenter/Avl%C3%B8p/nibio_rapport_struvitt.pdf",
+      "retrievedAt": "2026-09-09T07:09:57.670542+00:00",
+      "rawArtifact": "R3-NPK-S002.pdf",
+      "rawSha256": "bee5c3e89579c0c02f939250c74b3000df4dd5959f0c91ac95edb26e01465d30",
+      "textArtifact": "R3-NPK-S002.txt",
+      "textSha256": "0ac6a2c80e5731f7ffcf8583b26fd0242919b4e0aa1aee0ae70e0c1fc293742c",
+      "rawBytes": 2132388,
+      "textMethod": "pdftotext -layout",
+      "readScope": {
+        "pdfPages": [
+          1,
+          2,
+          3,
+          5,
+          6,
+          7,
+          9,
+          10,
+          11,
+          12,
+          14,
+          22,
+          25,
+          26,
+          28,
+          29
+        ],
+        "detail": "Metadata, metode og byggresultat; gras omtalt kun for avgrensning. Tabell 10 visuelt kontrollert."
+      },
+      "contentStatus": "preserved_and_bounded_read",
+      "sourceType": "original_experimental_report",
+      "human_verified": false
+    },
+    {
+      "id": "R3-NPK-S003",
+      "title": "Hias Struvitt – varedeklarasjon og anbefalt bruk",
+      "url": "https://www.hias.no/avlop/struvitt/",
+      "retrievedAt": "2026-09-09T07:09:58.000165+00:00",
+      "rawArtifact": "R3-NPK-S003.html",
+      "rawSha256": "4a8cb14b8f4250147b8fef75d12bf1ca0a37fcba1a3127685bad592fd157871b",
+      "textArtifact": "R3-NPK-S003.txt",
+      "textSha256": "4efe923aa90bffc31500a4afdf46c898c48cdcff8ead168ef37bc300310f9e5a",
+      "rawBytes": 52624,
+      "textMethod": "python stdlib HTMLParser; script/style excluded",
+      "readScope": {
+        "htmlHeadings": [
+          "Varedeklarasjon Struvitt Hias IKS",
+          "Innhold",
+          "Anbefalt bruk"
+        ],
+        "detail": "Hele tekstuttrekket lest. Udattert produsentside; relative uttrykk som mai i fjor tidfestes ikke."
+      },
+      "contentStatus": "preserved_and_bounded_read",
+      "sourceType": "operator_primary",
+      "human_verified": false
+    },
+    {
+      "id": "R3-NPK-S004",
+      "title": "Effects of struvite application on soil and plants: a short-term field study; NORSØK 4(10), 2019",
+      "url": "https://www.hias.no/getfile.php/133031-1711021760/HIAS/Bilder/Avl%C3%B8p/NORS%C3%98K%20RAPPORT%2010%20struvitt%20FINAL%20Sept%205%202019%20trykk.pdf",
+      "retrievedAt": "2026-09-09T07:11:15.365029+00:00",
+      "rawArtifact": "R3-NPK-S004.pdf",
+      "rawSha256": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+      "textArtifact": "R3-NPK-S004.txt",
+      "textSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+      "rawBytes": 4589242,
+      "textMethod": "pdftotext -layout",
+      "readScope": {
+        "pdfPages": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          8,
+          9,
+          10,
+          11,
+          12,
+          19,
+          20,
+          24,
+          27,
+          28,
+          29
+        ],
+        "detail": "Metadata, forsøksmetode, feltavling, balanse og diskusjon. Tabell 5 og diskusjon s27 visuelt kontrollert; ikke full vedleggs-/rådataanalyse."
+      },
+      "contentStatus": "preserved_and_bounded_read",
+      "sourceType": "original_experimental_report",
+      "human_verified": false
+    }
+  ],
+  "observations": [
+    {
+      "id": "R3-NPK-O001",
+      "claim": "Hias rapporterer faktisk struvittproduksjon i 2024; dette er verken aktuell beholdning, ledig kapasitet eller anvendt plantetilgjengelig P.",
+      "evidence": [
+        {
+          "sourceId": "R3-NPK-S001",
+          "url": "https://www.hias.no/getfile.php/133754-1747294746/HIAS/Dokumenter/B%C3%A6rekrafts-%20og%20%C3%A5rsrapporter/2024%20b%C3%A6rekrafts-%20og%20%C3%A5rsrapport%20Hias%20IKS.pdf",
+          "rawSha256": "0fec17d06fe21211787b3a91e775216c3c82fc2fd5b2113b19f737abec19f694",
+          "textSha256": "91487ec2c23f6747ba60f9aa7c4124b93957d6ac5237562049ee4139c69b0f85",
+          "locator": {
+            "pdfPage": 28,
+            "printedPage": "28",
+            "heading": "Struvitt"
+          }
+        }
+      ],
+      "period": "2024",
+      "geography": "Hias renseanlegg, Norge",
+      "metrics": [
+        {
+          "variable": "struviteProduced",
+          "value": 24424,
+          "unit": "kg product/year",
+          "capacityType": "actual_reported_production"
+        },
+        {
+          "variable": "PContentAnnualReport",
+          "value": 12,
+          "unit": "percent product mass",
+          "basis": "as reported; not merged with dry-matter declaration"
+        },
+        {
+          "variable": "PProducedReported",
+          "value": 2931,
+          "unit": "kg elemental P/year"
+        },
+        {
+          "variable": "monthlyProductRange",
+          "value": [
+            409,
+            4118
+          ],
+          "unit": "kg product/month"
+        },
+        {
+          "variable": "shareOfInfluentTotalPRecoveredAsStruvite",
+          "value": 5.8,
+          "unit": "percent",
+          "denominator": 50850,
+          "denominatorUnit": "kg total P/year"
+        }
+      ],
+      "assessment": "supported_with_scope_limits",
+      "unknown": [
+        "2026 stock",
+        "sales to agriculture",
+        "applied plant-available P",
+        "displaced mineral fertiliser"
+      ]
+    },
+    {
+      "id": "R3-NPK-O002",
+      "claim": "Nedbør, organisk belastning og pH er dokumenterte prosessavhengigheter. En beredskapstest må inkludere renseprosessen; årsproduksjonen gir ingen ytelse under avbrudd.",
+      "evidence": [
+        {
+          "sourceId": "R3-NPK-S001",
+          "url": "https://www.hias.no/getfile.php/133754-1747294746/HIAS/Dokumenter/B%C3%A6rekrafts-%20og%20%C3%A5rsrapporter/2024%20b%C3%A6rekrafts-%20og%20%C3%A5rsrapport%20Hias%20IKS.pdf",
+          "rawSha256": "0fec17d06fe21211787b3a91e775216c3c82fc2fd5b2113b19f737abec19f694",
+          "textSha256": "91487ec2c23f6747ba60f9aa7c4124b93957d6ac5237562049ee4139c69b0f85",
+          "locator": {
+            "pdfPage": 27,
+            "printedPage": "27",
+            "heading": "Avløpsrensing"
+          }
+        },
+        {
+          "sourceId": "R3-NPK-S004",
+          "url": "https://www.hias.no/getfile.php/133031-1711021760/HIAS/Bilder/Avl%C3%B8p/NORS%C3%98K%20RAPPORT%2010%20struvitt%20FINAL%20Sept%205%202019%20trykk.pdf",
+          "rawSha256": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+          "textSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+          "locator": {
+            "pdfPage": 8,
+            "printedPage": "8",
+            "heading": "2.1 Struvite production at Hias IKS"
+          }
+        }
+      ],
+      "period": "2024 operational report; 2017 pilot-process description",
+      "geography": "Hias, Norge",
+      "assessment": "supported_process_dependency; disruption_effect_inference_only",
+      "unknown": [
+        "kg P/hour during power loss",
+        "magnesium stock and supplier origin",
+        "standalone recovery-process energy use",
+        "restart duration"
+      ],
+      "inference": "Magnesiumtilsetning er beskrevet i pilotprosessen; dagens dosering og importavhengighet må dokumenteres på nytt."
+    },
+    {
+      "id": "R3-NPK-O003",
+      "claim": "Hias-struvitt ga lavere overjordisk byggtørrstoff enn Opti-P i det kontrollerte potteforsøket. Dette tester P-respons, ikke kornleveranse eller en full NPK-erstatning.",
+      "evidence": [
+        {
+          "sourceId": "R3-NPK-S002",
+          "url": "https://www.hias.no/getfile.php/133034-1711021970/HIAS/Dokumenter/Avl%C3%B8p/nibio_rapport_struvitt.pdf",
+          "rawSha256": "bee5c3e89579c0c02f939250c74b3000df4dd5959f0c91ac95edb26e01465d30",
+          "textSha256": "0ac6a2c80e5731f7ffcf8583b26fd0242919b4e0aa1aee0ae70e0c1fc293742c",
+          "locator": {
+            "pdfPages": [
+              9,
+              10,
+              11,
+              14,
+              22,
+              26
+            ],
+            "printedPages": [
+              "9",
+              "10",
+              "11",
+              "14",
+              "22",
+              "26"
+            ],
+            "anchors": [
+              "2.1.1",
+              "3.2.4",
+              "Tabell 10",
+              "Tabell 13"
+            ]
+          }
+        }
+      ],
+      "period": "2019-09-05/2019-12-03; barley sown one week after grasses",
+      "geography": "NIBIO Landvik, Norway",
+      "population": "Heder barley; 4 pots per treatment; sand/peat pH 5.7; equal P dose; other nutrients supplied",
+      "metrics": [
+        {
+          "variable": "abovegroundDryMatterMean",
+          "unit": "g/pot",
+          "values": {
+            "noP": 7.32,
+            "struvite": 12.0975,
+            "OptiP": 13.805
+          },
+          "note": "stems, leaves and ears together; significant treatment groups A/B/C; not grain yield"
+        },
+        {
+          "variable": "abovegroundPUptakeReported",
+          "unit": "mg P/pot",
+          "values": {
+            "noP": 4.7,
+            "struvite": 12.1,
+            "OptiP": 15.9
+          }
+        },
+        {
+          "variable": "dose",
+          "value": 36.8,
+          "unit": "mg total P/pot"
+        }
+      ],
+      "assessment": "supported_with_scope_limits",
+      "unknown": [
+        "field barley response to current batch",
+        "dose-response substitution factor",
+        "grain quality and yield",
+        "full nutrient balance under import interruption"
+      ]
+    },
+    {
+      "id": "R3-NPK-O004",
+      "claim": "Tingvoll-forsøket gir feltbelegg for at struvittrespons avhenger av eksisterende husdyrgjødseltilførsel. Det er ikke en prøve av mineralgjødselerstatning eller nordisk leveranse.",
+      "evidence": [
+        {
+          "sourceId": "R3-NPK-S004",
+          "url": "https://www.hias.no/getfile.php/133031-1711021760/HIAS/Bilder/Avl%C3%B8p/NORS%C3%98K%20RAPPORT%2010%20struvitt%20FINAL%20Sept%205%202019%20trykk.pdf",
+          "rawSha256": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+          "textSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+          "locator": {
+            "pdfPages": [
+              10,
+              12,
+              19,
+              20,
+              29
+            ],
+            "printedPages": [
+              "10",
+              "12",
+              "19",
+              "20",
+              "29"
+            ],
+            "anchors": [
+              "2.2 Study site and experimental design",
+              "Table 5",
+              "5 Conclusions"
+            ]
+          }
+        }
+      ],
+      "period": "2018-04-19 application; harvest 2018-06-05 and 2018-08-28",
+      "geography": "Tingvoll, Norway",
+      "population": "4th-year perennial ley; four replicate plots per treatment; low/high manure with and without struvite",
+      "metrics": [
+        {
+          "variable": "struvitePApplication",
+          "value": 40,
+          "unit": "kg P/ha"
+        },
+        {
+          "variable": "totalLeyDryMatterNoManure",
+          "unit": "kg DM/daa",
+          "values": {
+            "withoutStruvite": 240,
+            "withStruvite": 410
+          },
+          "standardErrors": {
+            "withoutStruvite": 70,
+            "withStruvite": 30
+          }
+        }
+      ],
+      "assessment": "supported_with_scope_limits",
+      "unknown": [
+        "additional mineral P actually avoided",
+        "response in other soils/seasons",
+        "purchased product and continuity at scale"
+      ],
+      "note": "Tørke preget første slått; ingen kontrollert normalår-versus-tørke-kontrast. Dataene viser ikke at struvitt forårsaker tørkeresiliens."
+    },
+    {
+      "id": "R3-NPK-O005",
+      "claim": "Produsentdeklarasjonen viser P-dominert produkt med lite K. Deklarasjonsverdier er produktmetadata og dokumenterer ikke P-opptak i felt.",
+      "evidence": [
+        {
+          "sourceId": "R3-NPK-S003",
+          "url": "https://www.hias.no/avlop/struvitt/",
+          "rawSha256": "4a8cb14b8f4250147b8fef75d12bf1ca0a37fcba1a3127685bad592fd157871b",
+          "textSha256": "4efe923aa90bffc31500a4afdf46c898c48cdcff8ead168ef37bc300310f9e5a",
+          "locator": {
+            "htmlHeading": "Varedeklarasjon Struvitt Hias IKS > Innhold; Anbefalt bruk",
+            "rowLabels": [
+              "TS %",
+              "Fosfor (P)",
+              "Kalium (K)"
+            ]
+          }
+        }
+      ],
+      "period": "undated declaration fetched 2026-09-09; batch/sample date unknown",
+      "geography": "Hias product",
+      "metrics": [
+        {
+          "variable": "dryMatter",
+          "value": 97.7,
+          "unit": "percent"
+        },
+        {
+          "variable": "elementalP",
+          "value": 134,
+          "unit": "g/kg dry matter"
+        },
+        {
+          "variable": "elementalK",
+          "value": 0.38,
+          "unit": "g/kg dry matter"
+        }
+      ],
+      "assessment": "supported_as_operator_declaration_only",
+      "unknown": [
+        "sample date and batch",
+        "current laboratory certificates",
+        "current permitted use for chosen recipient"
+      ],
+      "note": "134 g P/kg TS er ikke samme prøve, periode eller nevner som årsrapportens 12 prosent. Ingen sammenslåing eller juridisk godkjenning registrert."
+    },
+    {
+      "id": "R3-NPK-O006",
+      "claim": "Feltkildens prosent- og enhetsangivelser trenger avklaring før de kan brukes i effektberegning.",
+      "evidence": [
+        {
+          "sourceId": "R3-NPK-S004",
+          "url": "https://www.hias.no/getfile.php/133031-1711021760/HIAS/Bilder/Avl%C3%B8p/NORS%C3%98K%20RAPPORT%2010%20struvitt%20FINAL%20Sept%205%202019%20trykk.pdf",
+          "rawSha256": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+          "textSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+          "locator": {
+            "pdfPages": [
+              10,
+              20,
+              27
+            ],
+            "printedPages": [
+              "10",
+              "20",
+              "27"
+            ],
+            "anchors": [
+              "Table 5",
+              "4 Discussion",
+              "2.2 Study site and experimental design"
+            ]
+          }
+        }
+      ],
+      "period": "2018 trial; 2019 report",
+      "geography": "Tingvoll",
+      "assessment": "internal_source_inconsistency",
+      "conflicts": [
+        {
+          "reported": "Discussion p27: 130 percent yield increase for no-manure plots",
+          "comparison": "Table 5 p20: 240 to 410 kg DM/daa",
+          "arithmetic": "(410-240)/240*100 = 70.8333 percent; diagnostic calculation, not replacement effect estimate"
+        },
+        {
+          "reported": "Table 5 manure-rate unit kg N/m2",
+          "comparison": "Methods p10 defines 110 and 220 kg N/ha",
+          "handling": "Preserve printed header; use methods only to identify treatments. Do not import table header as normalized dose."
+        }
+      ],
+      "unknown": [
+        "author-corrected calculations and table units"
+      ],
+      "proposedAction": "Datert kandidatnotat; innhent rådata/erratum ved senere effektmodellering. Originalen er urørt."
+    }
+  ],
+  "chain": {
+    "id": "R3-NPK-CHAIN-01",
+    "candidateTestId": "C3",
+    "parentGapId": "NEW-NPK-01",
+    "status": "partially_evidenced_chain; not_delivery_demonstrated",
+    "node": {
+      "value": "Hias avløpsrenseanlegg → struvittparti → mottakende byggåker",
+      "evidenceIds": [
+        "R3-NPK-O001",
+        "R3-NPK-O003"
+      ],
+      "unknown": "Aktuell mottaker/åker er ikke valgt eller avtalt."
+    },
+    "flow": {
+      "value": "Fosfor i avløp → total P i produsert struvitt → levert P → anvendt P → planteopptak",
+      "evidenceIds": [
+        "R3-NPK-O001",
+        "R3-NPK-O003"
+      ],
+      "unknown": "Kun produksjon 2024 og separat biologisk forsøksrespons er kjent; ingen tids- eller batchkompatibel gjennomgående strøm."
+    },
+    "dependency": {
+      "value": "Rensing, Mg-tilsetning, energi, rett produkt/jord/vekst og øvrig næring",
+      "evidenceIds": [
+        "R3-NPK-O002",
+        "R3-NPK-O003",
+        "R3-NPK-O005"
+      ],
+      "unknown": "Aktuelle forbruk, lager, leverandørland og reservekraft."
+    },
+    "disruption": {
+      "value": "Foreslått testscenario: fosformineralleveranse bortfaller før såing, med separat stressvariant for kraft/Mg/transport",
+      "evidenceIds": [
+        "R3-NPK-O002"
+      ],
+      "epistemicStatus": "analyst_proposed_scenario_not_observed_trial"
+    },
+    "intervention": {
+      "value": "Kvalifiser og lever ett gjenvunnet P-parti til mottaker med målt P-behov og sammenlignbar baseline",
+      "evidenceIds": [
+        "R3-NPK-O003",
+        "R3-NPK-O004"
+      ],
+      "epistemicStatus": "test_proposal_not_project_decision"
+    },
+    "outcome": {
+      "value": null,
+      "definition": "Plantetilgjengelig og faktisk anvendt kg P, beholdt kg egnet korn, unngått mineralvare, kostnad, tap og ledetid under samme sjokk",
+      "evidenceIds": [
+        "R3-NPK-O003",
+        "R3-NPK-O004"
+      ],
+      "unknown": "Mottakerbundet effekt mangler."
+    }
+  },
+  "comparators": {
+    "nationalCapacity": {
+      "status": "historical_operator_production_and_experimental_response",
+      "evidenceIds": [
+        "R3-NPK-O001",
+        "R3-NPK-O003",
+        "R3-NPK-O004"
+      ],
+      "limit": "Ett norsk anlegg; ikke nasjonal kapasitetstotal eller 2026 beholdning."
+    },
+    "additionalNordicContribution": {
+      "status": "unknown",
+      "value": null,
+      "gapIds": [
+        "R3-NPK-G005"
+      ],
+      "test": "Kvalitet/behandling/leveranse må gi mer funksjon enn samme mottakers dokumenterte norske alternativ."
+    },
+    "additionalCircularContribution": {
+      "status": "plausible_mechanism_not_measured_substitution",
+      "value": null,
+      "gapIds": [
+        "R3-NPK-G002",
+        "R3-NPK-G003"
+      ],
+      "test": "Trekk fra eksisterende gjenbruk; mål ekstra mineralvare som unngås ved samme avling og næringsbalanse."
+    }
+  },
+  "unknowns": [
+    {
+      "id": "R3-NPK-G001",
+      "parentGap": "NEW-NPK-01",
+      "variable": "2026 disponibel produktbeholdning per parti, lagersted og dato",
+      "value": null,
+      "reason": "2024 årsproduksjon og udattert deklarasjon har ikke denne variabelen.",
+      "route": "data_owner",
+      "requiredEvidence": "Daterte lager- og batchsertifikater; eksisterende allokering; faktisk leveringsvindu."
+    },
+    {
+      "id": "R3-NPK-G002",
+      "parentGap": "NEW-NPK-01",
+      "variable": "Faktisk anvendt og plantetilgjengelig P for én byggåker/sesong og erstattet mineralvare",
+      "value": null,
+      "reason": "Potte- og engforsøk kan ikke kobles til en aktuell mottakers leveranse eller faktura.",
+      "route": "measurement_and_data_owner",
+      "requiredEvidence": "Navngitt mottaker med jordprøve, gjødslingsjournal, innkjøpsbaseline, batch og høsteutfall."
+    },
+    {
+      "id": "R3-NPK-G003",
+      "parentGap": "NEW-NPK-01",
+      "variable": "Ekstra sirkulær funksjon over eksisterende slamanvendelse",
+      "value": null,
+      "reason": "Årsrapporten omtaler separat biomasse til jordbruk; samme P kan ikke telles i både slam og struvitt.",
+      "route": "mass_balance_method",
+      "requiredEvidence": "Før/etter massebalanse for samme avløps-P inkludert slamdisponering, tilgjengelighet og tap."
+    },
+    {
+      "id": "R3-NPK-G004",
+      "parentGap": "NEW-NPK-01",
+      "variable": "Leverbar P under energi-/kjemikalie-/transportforstyrrelse",
+      "value": null,
+      "reason": "Prosessavhengigheter er navngitt, men funksjonsdata under avbrudd mangler i lest materiale.",
+      "route": "operator_and_exercise",
+      "requiredEvidence": "Separat struvittprosess: effektbehov, reservekraft, Mg-lager, bemanning, nedetid, restart, transport."
+    },
+    {
+      "id": "R3-NPK-G005",
+      "parentGap": "NEW-NPK-01",
+      "variable": "Ekstra nordisk bidrag utover norsk alternativ",
+      "value": null,
+      "reason": "Ingen paret nordisk mottaker-/leverandørtest inngår; norske resultater er ikke nordisk merverdi.",
+      "route": "paired_method_and_data_owner",
+      "requiredEvidence": "Samme jord, vekst, sesong, avbrudd og kvalitet; nasjonal løsning mot navngitt komplementær nordisk løsning, med kapasitet/rett/ledetid."
+    },
+    {
+      "id": "R3-NPK-G006",
+      "parentGap": "NEW-NPK-01",
+      "variable": "Korrigerte feltprosent- og doseenheter",
+      "value": null,
+      "reason": "R3-NPK-O006 viser intern kildekonflikt.",
+      "route": "source_correction_or_raw_data",
+      "requiredEvidence": "Erratum eller rekonstruerbare rådata; ingen kontakt utført."
+    }
+  ],
+  "testableMissions": [
+    {
+      "id": "R3-NPK-T001",
+      "candidateTestId": "C3",
+      "purposeIds": [
+        "P1",
+        "P2",
+        "P4",
+        "P5"
+      ],
+      "decision": "Om ett Hias-parti skal utredes videre for en byggmottaker i én sesong.",
+      "design": "Par jord/vekst/sesong og P-dose; sammenlign eksisterende norsk gjødsling med struvittalternativ. Hold N/K/Mg og øvrige faktorer eksplisitte. Bind partiet til journal, laboratorieprøve, transportkvittering og faktisk innkjøpsendring.",
+      "outcomes": [
+        "kg P delivered/applied/plant uptake separately",
+        "grain yield and food/feed quality separately",
+        "kg named mineral product displaced",
+        "P balance and losses",
+        "cost and delivery time"
+      ],
+      "disconfirmingConditions": [
+        "Behovet er allerede dekket av jord og lokal gjenbruk.",
+        "Partiet leveres etter agronomisk frist.",
+        "Uegnet batch eller manglende øvrige næringsstoffer reduserer avling.",
+        "Substitusjonen er bare omfordelt eksisterende gjenbruk."
+      ],
+      "requiresGapIds": [
+        "R3-NPK-G001",
+        "R3-NPK-G002",
+        "R3-NPK-G003",
+        "R3-NPK-G004"
+      ],
+      "status": "proposed_not_authorized_trial"
+    },
+    {
+      "id": "R3-NPK-T002",
+      "candidateTestId": "C3",
+      "purposeIds": [
+        "P3",
+        "P5"
+      ],
+      "decision": "Om nordisk kvalifisering eller behandling tilfører målbar funksjon utover T001.",
+      "design": "Etter nasjonal baseline: samme sjokk, frist, mottaker og kvalitet. Navngi én nordisk komplementær funksjon; dokumenter disponible mengder og fellesavhengigheter.",
+      "outcomes": [
+        "additional kg usable P arriving before deadline",
+        "additional quality-compatible crop output",
+        "changed energy/logistics needs"
+      ],
+      "disconfirmingConditions": [
+        "Ingen funksjonsøkning over nasjonal løsning.",
+        "Samme innsatsvare/transport faller bort i begge alternativer.",
+        "Eksporterende land har samtidig behov uten allokeringsrett."
+      ],
+      "requiresGapIds": [
+        "R3-NPK-G005"
+      ],
+      "status": "proposed_not_partner_decision"
+    }
+  ],
+  "purposeMapping": [
+    {
+      "purposeId": "P1",
+      "contribution": "Navngitte rense-/inputavhengigheter; ingen nasjonal importandel.",
+      "observationIds": [
+        "R3-NPK-O002"
+      ]
+    },
+    {
+      "purposeId": "P2",
+      "contribution": "Dokumentert historisk norsk produksjon og avgrenset forsøksfunksjon.",
+      "observationIds": [
+        "R3-NPK-O001",
+        "R3-NPK-O003"
+      ]
+    },
+    {
+      "purposeId": "P3",
+      "contribution": "Nordisk tillegg holdes ukjent; paret test spesifisert.",
+      "gapIds": [
+        "R3-NPK-G005"
+      ]
+    },
+    {
+      "purposeId": "P4",
+      "contribution": "Behovs-, jord- og baselineavhengig mekanisme med substitusjon fortsatt ukjent.",
+      "observationIds": [
+        "R3-NPK-O003",
+        "R3-NPK-O004",
+        "R3-NPK-O005"
+      ]
+    },
+    {
+      "purposeId": "P5",
+      "contribution": "C3 får to konkrete etterprøvbare oppdrag, ikke vedtak om pilot.",
+      "testIds": [
+        "R3-NPK-T001",
+        "R3-NPK-T002"
+      ]
+    }
+  ],
+  "stopDecision": {
+    "status": "bounded_search_complete_operational_gap_open",
+    "reason": "Direkte operatørkilde og alternative originale forsøk dokumenterer produksjon og mekanisme, men mangler sammenbundet 2026 parti→mottaker→anvendelse→substitusjon. Flere generelle rapporter fyller ikke denne koblingen.",
+    "newSearchTrigger": "Ny datert operatør-/batch-/mottakerversjon, rådata eller navngitt nordisk funksjon.",
+    "latestness": "Søk etter Hias 2025 årsrapport og struvittproduksjon ga 2024 rapport; ikke en påstand om at nyere data ikke finnes.",
+    "searchQueries": [
+      "site.nibio.no struvitt fosfor gjødsel bygg Hias",
+      "site.hias.no struvitt 2025 gjødsel fosfor produksjon",
+      "site.hias.no \"2025\" \"Totalproduksjon\" \"struvitt\"",
+      "site.hias.no \"2025\" \"årsrapport\""
+    ],
+    "contactPerformed": false
+  },
+  "review": {
+    "status": "bounded_agent_read_and_arithmetic_check_completed; independent_factual_review_pending",
+    "modelIdentityAttested": false,
+    "scope": "Listed pages/sections only; visual checks on NIBIO p22 and Hias p28 and NORSØK p20/p27",
+    "method": "Source bytes → text extraction → bounded reading → source conflict checks → structured chain; no candidate-writer or DB operation."
+  }
+}
