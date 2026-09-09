@@ -1,0 +1,350 @@
+{
+  "schema": "beredskap-observations/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B07",
+  "runId": "B07-20260909T102902Z-2f712e23",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B07-C01",
+      "packageId": "B07",
+      "runId": "B07-20260909T102902Z-2f712e23",
+      "claim": "No dated 2018 Luke→Eurostat transfer or revision log is present in the authorized B07 channels (exact stop in round-005 DEFINISJONER.md; R5-S08 release page; R5-S09 method page explicitly not a timestamped 2018 transfer form; DKFI-S008 metadata).",
+      "claimType": "absence_within_inspected_channels",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Finland cereal statistics (wheat/barley as scoped)",
+      "period": "2018_reference_year; channels_as_of_round-004/005_frozen_2026-09-09",
+      "geography": "Finland",
+      "commodityQuality": "wheat VEHN/C1100; barley OHRA/C1300; G9100 green/immature cereals classification boundary",
+      "moistureBasis": null,
+      "method": "Channel reuse + stop-rule application; inventory of round-005 private FI captures shows fi-2018-release and fi-method only — no transfer/revision filename",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R5-DEFINISJONER",
+            "rawSha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+            "extractedTextSha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+            "exactLocator": {
+              "type": "markdown_section",
+              "label": "Stopp R4-G001"
+            }
+          },
+          {
+            "sourceId": "R5-S09",
+            "rawSha256": "489c67533c5758299d9c11f37eeebc0a45febbf63c2887b4e8c1e71ad75c51e1",
+            "extractedTextSha256": "2a3b55dc5a0ec4dd42ed6bfa80e4924a521f661f2a8349a66378dfdfadaf92c3",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 435,
+              "end": 446,
+              "label": "§1.2 concepts; not transfer log"
+            }
+          },
+          {
+            "sourceId": "R5-S08",
+            "rawSha256": "697bbf908b350ac9236b71587aeff8a976f9af9b9dbf549f47561c7f624472bb",
+            "extractedTextSha256": "5c8a80a399332a33dc147b1735e241567bd9009b7f751725db77e8ab5c362319",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 427,
+              "end": 437,
+              "label": "2018 release identity only"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "DEFINISJONER Stopp R4-G001 requires the dated 2018 transfer basis with version/revision log, standard moisture per crop, and quantitative C1100/C1300 vs dry/fresh reconciliation. R5-S09 source-bindings note: not a timestamped 2018 transfer form. R5-S08 gives 14.3.2019 publication and rounded 495/1336 milj. kg only.",
+        "extractionMethod": "Hash-verified re-read of frozen round-005 extracts and DEFINISJONER; no new live fetch; no broad search"
+      },
+      "evidenceSha256": "72c9258ad8cd585313adf134bbb3319d64fa1c7876da03d4700ddadc9548985e",
+      "candidateSha256": "48b59f556c485f55f31b79e2d6b42deda075825dab57a72593c4a078b37c9cec",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/candidate-target-profile.json",
+      "targetProfileSha256": "8c6c3557b27731dd2f96d16f22470a24fffa98f8ebc2af52f54e05576c9e4347",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "FI",
+        "C1100",
+        "C1300",
+        "G9100"
+      ],
+      "gapIds": [
+        "R4-G001",
+        "DKFI-G003"
+      ],
+      "limitations": [
+        "Scoped negative finding; does not prove a private Luke/Eurostat annex does not exist",
+        "Broad web search forbidden by B07 stop rule"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B07-C02",
+      "packageId": "B07",
+      "runId": "B07-20260909T102902Z-2f712e23",
+      "claim": "Exact Finnish national standard moisture percentage for 2018 wheat and barley remains unknown (observed_national_moisture_pct=null). A single common multiplicative moisture-only factor is already rejected by the frozen round-005 control because wheat and barley EU/national ratios 1.0139478471801093 and 1.012790958760572 have non-overlapping intervals under ±0.05 kt display-rounding bounds.",
+      "claimType": "method_gap_and_prior_negative_control",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Finland cereal statistics (wheat/barley as scoped)",
+      "period": "2018",
+      "geography": "Finland",
+      "commodityQuality": "wheat VEHN/C1100; barley OHRA/C1300; G9100 green/immature cereals classification boundary",
+      "moistureBasis": "unknown_national; Eurostat panel uses HPRD_HUMD_EU_THS_T humidity-labelled production",
+      "method": "Reuse of round-005 reproducible control; B07 performs no new arithmetic beyond citing frozen outputs",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R5-CALC",
+            "rawSha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+            "extractedTextSha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+            "exactLocator": {
+              "type": "jsonPointer",
+              "pointer": "/finland2018"
+            }
+          },
+          {
+            "sourceId": "R5-CALC",
+            "rawSha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+            "extractedTextSha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+            "exactLocator": {
+              "type": "jsonPointer",
+              "pointer": "/commonMoistureOnlyFactorCompatibleWithBoth"
+            }
+          },
+          {
+            "sourceId": "R5-DEFINISJONER",
+            "rawSha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+            "extractedTextSha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+            "exactLocator": {
+              "type": "markdown_section",
+              "label": "Finland 2018 factor test"
+            }
+          },
+          {
+            "sourceId": "DKFI-S006",
+            "rawSha256": "5dc0d13df107b10d36e990e99107ab4f0bded9fb56ed143749b35d1dc124c1b7",
+            "extractedTextSha256": "f247d58b9801f6d488ce5309a1982f77ba0f1ec5f3af65f350dc5d469027b2c0",
+            "exactLocator": {
+              "type": "prior_gap_stop",
+              "gapId": "DKFI-G001"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "calculations.json: commonMoistureOnlyFactorCompatibleWithBoth=false; wheat residual_kt≈6.90 ratio≈1.013948; barley residual_kt≈17.09 ratio≈1.012791; observed_national_moisture_pct=null; implied moisture fields labeled inverse diagnostic only. DKFI-G001 stop: official quality report + national Eurostat metadata examined; no exact percentage established.",
+        "extractionMethod": "Read frozen calculations.json and prior openGaps; re-verified file SHA-256; no new calculation invented"
+      },
+      "evidenceSha256": "e1b0a9fe1a8d08cb148a24eaa7d2746c5be448d8b0542e7ecda8950015c4c45c",
+      "candidateSha256": "cf4c32fd05169143b715aae8416534f480360b1557897f83e2616332cba5a99b",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/candidate-target-profile.json",
+      "targetProfileSha256": "8c6c3557b27731dd2f96d16f22470a24fffa98f8ebc2af52f54e05576c9e4347",
+      "calculationFiles": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/calculations.json"
+      ],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "FI",
+        "C1100",
+        "C1300",
+        "G9100"
+      ],
+      "gapIds": [
+        "DKFI-G001",
+        "R4-G001",
+        "DKFI-G003"
+      ],
+      "limitations": [
+        "Implied moisture must not be recorded as measured national moisture",
+        "Crop-specific moisture, coverage, or version effects not rejected"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B07-C03",
+      "packageId": "B07",
+      "runId": "B07-20260909T102902Z-2f712e23",
+      "claim": "Frozen series retain Luke 2018 production 494.7 kt wheat and 1336.1 kt barley versus Eurostat 501.6 kt and 1353.19 kt (residuals EU−Luke +6.90 and +17.09 kt). DKFI-S008 documents a G9100 classification deviation (green/immature grain cereals) but supplies no 2018 tonne allocation to that boundary. Both series are preserved; no forced harmonization.",
+      "claimType": "reported_residual_preserved",
+      "value": null,
+      "unit": "thousand_tonnes_residual_EU_minus_Luke",
+      "denominator": null,
+      "population": "Finland cereal statistics (wheat/barley as scoped)",
+      "period": "2018",
+      "geography": "Finland",
+      "commodityQuality": "wheat VEHN/C1100; barley OHRA/C1300; G9100 green/immature cereals classification boundary",
+      "moistureBasis": null,
+      "method": "Preservation of dual series per DEFINISJONER stop",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R5-CALC",
+            "rawSha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+            "extractedTextSha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+            "exactLocator": {
+              "type": "jsonPointer",
+              "pointer": "/finland2018/0"
+            }
+          },
+          {
+            "sourceId": "R5-CALC",
+            "rawSha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+            "extractedTextSha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+            "exactLocator": {
+              "type": "jsonPointer",
+              "pointer": "/finland2018/1"
+            }
+          },
+          {
+            "sourceId": "DKFI-S004",
+            "rawSha256": "dc2f14c611da62e385ca8deab342cb51c5d269088d371554ca086c90b2dcf286",
+            "extractedTextSha256": "dc2f14c611da62e385ca8deab342cb51c5d269088d371554ca086c90b2dcf286",
+            "exactLocator": {
+              "type": "jsonPointer",
+              "pointer": "/value/63"
+            }
+          },
+          {
+            "sourceId": "R4-EU-S001",
+            "rawSha256": "a91101d823537347924e1129df2d32c02d573eafc63bf3e927425774ad1a7d1d",
+            "extractedTextSha256": "a91101d823537347924e1129df2d32c02d573eafc63bf3e927425774ad1a7d1d",
+            "exactLocator": {
+              "type": "jsonPointer",
+              "pointer": "/value/81"
+            }
+          },
+          {
+            "sourceId": "DKFI-S008",
+            "rawSha256": "beb0fac3d0761a1033550a63670df18ffbf01723179fc414bd38559d8b91da75",
+            "extractedTextSha256": "34bbb50883bc86ee55422523a96a334618b2c42800f0d86fede91f87878a2dd9",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 229,
+              "end": 248
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "finland2018 wheat: national 494.7, eurostat_kt 501.6, residual_kt 6.900000000000034; barley: 1336.1 vs 1353.19, residual_kt 17.090000000000146. Metadata: YES differences; G9100 includes grain cereals harvested before maturity (HB guides to C0000).",
+        "extractionMethod": "Cite frozen calculations locators; verify private raw SHA-256 on this machine"
+      },
+      "evidenceSha256": "326d3a3857cecf306f44557f3e571ff90df1520b4dd30e7d97f2aa279c3a5618",
+      "candidateSha256": "6dd0c44c87dc89fa5ea33c3bc0b0b0fbe9a2e9dfdb9f9f32133691b8ba446c5d",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/candidate-target-profile.json",
+      "targetProfileSha256": "8c6c3557b27731dd2f96d16f22470a24fffa98f8ebc2af52f54e05576c9e4347",
+      "calculationFiles": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/calculations.json"
+      ],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "FI",
+        "C1100",
+        "C1300",
+        "G9100"
+      ],
+      "gapIds": [
+        "DKFI-G003",
+        "R4-G001"
+      ],
+      "limitations": [
+        "Residual magnitudes are from frozen prior calculation; B07 does not recompute or alter them",
+        "G9100 deviation is qualitative without 2018 quantity bridge"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B07-C04",
+      "packageId": "B07",
+      "runId": "B07-20260909T102902Z-2f712e23",
+      "claim": "Finnish yield alerts FI C1100 2020 (reported 3.46 t/ha vs P/A 3.4538229376257545 t/ha; residual +6.177062374245423 kg/ha) and FI C1300 2016 (3.68 vs 3.6726772195457675 t/ha; residual +7.322780454232625 kg/ha) remain unresolved. National Luke cells exist but moisture/item bridge is missing; reported Eurostat yield cells must not be overwritten with P/A. 2016 also crosses the harvested-area method change described in Luke §2.1.",
+      "claimType": "unresolved_yield_alert_no_overwrite",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Finland cereal statistics (wheat/barley as scoped)",
+      "period": "2016_and_2020",
+      "geography": "Finland",
+      "commodityQuality": "wheat VEHN/C1100; barley OHRA/C1300; G9100 green/immature cereals classification boundary",
+      "moistureBasis": null,
+      "method": "Diagnostic reuse; explicit non-overwrite rule",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R5-CALC",
+            "rawSha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+            "extractedTextSha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+            "exactLocator": {
+              "type": "jsonPointer",
+              "pointer": "/yieldDiagnostics"
+            }
+          },
+          {
+            "sourceId": "R5-DEFINISJONER",
+            "rawSha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+            "extractedTextSha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+            "exactLocator": {
+              "type": "markdown_table_rows",
+              "label": "FI C1100 2020; FI C1300 2016"
+            }
+          },
+          {
+            "sourceId": "R5-S09",
+            "rawSha256": "489c67533c5758299d9c11f37eeebc0a45febbf63c2887b4e8c1e71ad75c51e1",
+            "extractedTextSha256": "2a3b55dc5a0ec4dd42ed6bfa80e4924a521f661f2a8349a66378dfdfadaf92c3",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 462,
+              "end": 463,
+              "label": "area method change from 2016"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "DEFINISJONER: FI C1100 2020 Luke 677.4 kt / 198.8 kha / 3410 kg/ha; FI C1300 2016 Luke 1580.7 kt / 435.9 kha / 3630 kg/ha; same moisture/item bridge missing. Stop R4-G002: do not correct reported values to P/A.",
+        "extractionMethod": "Frozen yieldDiagnostics + DEFINISJONER table; no cell overwrite"
+      },
+      "evidenceSha256": "1377cafc8cff8428040cddf1d85bb090cfc911fb9491b3df3e9a6d99515bfdf5",
+      "candidateSha256": "f658af26289f2f97a781c8500f0832cc225a42723881d1095b967f8c220489df",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/candidate-target-profile.json",
+      "targetProfileSha256": "8c6c3557b27731dd2f96d16f22470a24fffa98f8ebc2af52f54e05576c9e4347",
+      "calculationFiles": [
+        "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/calculations.json"
+      ],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "FI",
+        "C1100",
+        "C1300",
+        "G9100"
+      ],
+      "gapIds": [
+        "R4-G001",
+        "DKFI-G001"
+      ],
+      "limitations": [
+        "Yield-alert parent gap R4-G002 is multi-country; B07 owns only the Finnish moisture/item-bridge portion needed for FI rows",
+        "Explanation without overwrite requires the same missing transfer/moisture annex"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B02",
+  "runId": "B02-20260909T101901Z-4aaad87a",
+  "createdAt": "2026-09-09T10:25:10Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/controls/git-status.txt",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a",
+  "status": "waiting_owner",
+  "stopReason": "Missing dated bulk specification/COA for SKU 160585 after exhausting R6-S02/R6-S10 and documented public product-link channels; R6-G03 intake unsent. Data owner: Cerealia Sverige produkt-/laboratorieansvarlig.",
+  "model": {
+    "requestedModel": "user_configured_default; no forced override",
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent has no attested session model metadata; identity self-claim is not attestation"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B02.md",
+      "sha256": "119ffca5df8c33edcf43f6daec1c412a986dae57c1fa77f496e9824214e936a8",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/q1-comparison.json",
+      "sha256": "9403e6a60b6c2b39ae802e9a4f25396f169e312268c0bb4fe3db859a6c97b35f",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/source-bindings.json",
+      "sha256": "3f07f92ce318b6675084b2ccb3d32e89e2694b1a1fcfc9b775208dfd7bf05871",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json",
+      "sha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/data-gaps.json",
+      "sha256": "3fec3de5c79ad141918000cee8e937f14ae7257916e8e2efc80fca64c42d9957",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "sha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/observations.json",
+      "sha256": "61221a07af29f4d36502132bbf263d7a109e4fdb95aa6e3c55a1d96970f85196",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/INNTAK-USENDT.md",
+      "sha256": "969f57ff79a717ebcdc45241b9a76fe0a2cacfe283a9390144ee4ff2dfb828c4",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/manitoba-bulk.html",
+      "sha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+      "private": true,
+      "accessRequired": true,
+      "label": "R6-S02 raw"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/manitoba-bulk.txt",
+      "sha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+      "private": true,
+      "accessRequired": true,
+      "label": "R6-S02 text"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/se-catalog.pdf",
+      "sha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+      "private": true,
+      "accessRequired": true,
+      "label": "R6-S10 raw"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/se-catalog.txt",
+      "sha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+      "private": true,
+      "accessRequired": true,
+      "label": "R6-S10 text"
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/findings.md",
+      "sha256": "d56a6c7f4e2246a201a450f636275d0594f468609d35affdf6c91d8a043ab93a",
+      "role": "findings"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/sources.json",
+      "sha256": "9da17bcdd6387de76b368e3512c9cccdd8bc96b87456597b1f66aeca6dc83de2",
+      "role": "sources"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/observations.json",
+      "sha256": "71b11648b885b3c920d28afbb63cef149bf906094964c61d7c26c2486f100ce2",
+      "role": "observations"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/gaps.json",
+      "sha256": "b938fcff4e1378564d8fc3ffd1e5adccdbba404b7c21143f03a5c53d2d037271",
+      "role": "gaps"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/search-log.json",
+      "sha256": "51fcc2cc9bdf058a2ebe84ccdbe66d001950ef6ab8623e6bc82f9735d5584142",
+      "role": "search-log"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/verification.json",
+      "sha256": "d269480c8c51b8be8a625e95cbc25cc051fdb0b16b5f18efdafce1c9267ffa5b",
+      "role": "verification"
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "R6-G03",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "id": 1,
+      "status": "precise_stop_waiting_owner",
+      "summary": "No dated full bulk specification in inspected public/frozen channels"
+    },
+    {
+      "id": 2,
+      "status": "precise_stop_methods_unknown",
+      "summary": "Methods/moisture basis absent; comparability not established"
+    },
+    {
+      "id": 3,
+      "status": "precise_stop_bulk_shelf_life_unresolved",
+      "summary": "Catalog 12 months on shared bag+bulk row; bulk storage conditions unknown"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator may authorize owner intake for R6-G03 fields; new runId required for any returned documents. Coordinate method profile with B03 after SE methods exist.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false
+}

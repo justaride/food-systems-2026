@@ -1,0 +1,285 @@
+{
+  "schema": "beredskap-sources/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B07",
+  "runId": "B07-20260909T102902Z-2f712e23",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R5-S08",
+      "title": "Sato ja viljasadon laatu 2018",
+      "publisher": "Luke (Natural Resources Institute Finland)",
+      "url": "https://www.luke.fi/fi/tilastot/satotilasto/sato-ja-viljasadon-laatu-2018",
+      "documentVersion": "published 14.3.2019 (as stated in frozen extract)",
+      "publishedAt": "2019-03-14",
+      "accessedAt": "2026-09-09",
+      "readScope": "Frozen text lines 427–437 (publication date; wheat 495 milj. kg; barley 1 336 milj. kg). No live re-fetch in B07.",
+      "sourceRole": "national_2018_release_identity",
+      "accessStatus": "private_raw_verified_on_this_machine",
+      "rights": {
+        "internalUseBasis": "public_web_capture_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/fi-2018-release.html",
+      "rawSha256": "697bbf908b350ac9236b71587aeff8a976f9af9b9dbf549f47561c7f624472bb",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/fi-2018-release.txt",
+      "extractedTextSha256": "5c8a80a399332a33dc147b1735e241567bd9009b7f751725db77e8ab5c362319",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 427,
+          "end": 437
+        }
+      ],
+      "limitations": [
+        "Does not prove identical source version to API extract; not a Eurostat transfer log"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R5-S09",
+      "title": "Satotilaston laatuseloste",
+      "publisher": "Luke",
+      "url": "https://www.luke.fi/fi/tilastot/satotilasto/satotilaston-laatuseloste",
+      "documentVersion": "as captured in round-005 private raw (not a dated 2018 transfer form)",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Frozen text lines 435–446 and 457–464 (§§1.2, 2.1): dried yield statement; fresh-grain classes; harvested-area method change from 2016",
+      "sourceRole": "national_method_page",
+      "accessStatus": "private_raw_verified_on_this_machine",
+      "rights": {
+        "internalUseBasis": "public_web_capture_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/fi-method.html",
+      "rawSha256": "489c67533c5758299d9c11f37eeebc0a45febbf63c2887b4e8c1e71ad75c51e1",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/fi-method.txt",
+      "extractedTextSha256": "2a3b55dc5a0ec4dd42ed6bfa80e4924a521f661f2a8349a66378dfdfadaf92c3",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 435,
+          "end": 446
+        },
+        {
+          "type": "text_lines",
+          "start": 457,
+          "end": 464
+        }
+      ],
+      "limitations": [
+        "Explicitly not a timestamped 2018 Luke→Eurostat transfer/revision annex; no standard moisture % per crop"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "DKFI-S004",
+      "title": "Luke PxWeb 0100_sattil.px data extract (FI wheat/barley)",
+      "publisher": "Luke",
+      "url": "https://statdb.luke.fi/PxWeb/api/v1/en/LUKE/maa/sattil/0100_sattil.px",
+      "documentVersion": "response updated field recorded in round-004 findings as 2026-03-13T06:00:00Z",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Re-used frozen JSON; 2018 VEHN/OHRA SATOKGM cells via calculations.json pointers /value/63 and /value/66; FI yield national cells for 2016/2020",
+      "sourceRole": "national_production_series",
+      "accessStatus": "private_raw_verified_on_this_machine",
+      "rights": {
+        "internalUseBasis": "public_api_capture_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-data.json",
+      "rawSha256": "dc2f14c611da62e385ca8deab342cb51c5d269088d371554ca086c90b2dcf286",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-data.json",
+      "extractedTextSha256": "dc2f14c611da62e385ca8deab342cb51c5d269088d371554ca086c90b2dcf286",
+      "exactLocators": [
+        {
+          "type": "jsonPointer",
+          "pointer": "/value/63",
+          "label": "2018 wheat SATOKGM 494.7"
+        },
+        {
+          "type": "jsonPointer",
+          "pointer": "/value/66",
+          "label": "2018 barley SATOKGM 1336.1"
+        }
+      ],
+      "limitations": [
+        "No moisture percentage field in selected cells; not a transfer log"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "DKFI-S006",
+      "title": "Satotilasto Laaturaportti EN 14022024",
+      "publisher": "Luke",
+      "url": "https://www.luke.fi/sites/default/files/2024-02/Satotilasto%20Laaturaportti_EN%2014022024.pdf",
+      "documentVersion": "14.02.2024 (filename)",
+      "publishedAt": "2024-02-14",
+      "accessedAt": "2026-09-09",
+      "readScope": "Prior round-004 scoped pages only; reused as negative channel for exact 2018 standard moisture % (DKFI-G001 stop). No new PDF pages opened beyond prior stop.",
+      "sourceRole": "national_quality_report",
+      "accessStatus": "private_raw_verified_on_this_machine",
+      "rights": {
+        "internalUseBasis": "public_pdf_capture_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-quality-original.pdf",
+      "rawSha256": "5dc0d13df107b10d36e990e99107ab4f0bded9fb56ed143749b35d1dc124c1b7",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-quality-original.txt",
+      "extractedTextSha256": "f247d58b9801f6d488ce5309a1982f77ba0f1ec5f3af65f350dc5d469027b2c0",
+      "exactLocators": [
+        {
+          "type": "prior_gap_stop",
+          "gapId": "DKFI-G001"
+        }
+      ],
+      "limitations": [
+        "Does not establish exact Finnish national standard moisture % for 2018 wheat/barley"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "DKFI-S008",
+      "title": "Finland Eurostat crop statistics metadata (apro_cp ESQRS)",
+      "publisher": "Eurostat / Finland national metadata",
+      "url": "https://ec.europa.eu/eurostat/cache/metadata/EN/apro_cp_esqrscn2_fi.htm",
+      "documentVersion": "as captured round-004",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Frozen extracted text lines 223–257 §3.3: G9100 includes grain cereals harvested before maturity; no 2018 residual quantity allocation",
+      "sourceRole": "national_eurostat_metadata",
+      "accessStatus": "private_raw_verified_on_this_machine",
+      "rights": {
+        "internalUseBasis": "public_web_capture_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-eurostat-metadata-attempt.html",
+      "rawSha256": "beb0fac3d0761a1033550a63670df18ffbf01723179fc414bd38559d8b91da75",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-eurostat-metadata.txt",
+      "extractedTextSha256": "34bbb50883bc86ee55422523a96a334618b2c42800f0d86fede91f87878a2dd9",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 223,
+          "end": 257
+        }
+      ],
+      "limitations": [
+        "Classification deviation noted; no tonne split of 2018 residuals"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R4-EU-S001",
+      "title": "Eurostat apro_cpsh1 panel NO/SE/DK/FI C1100/C1300 2015–2020",
+      "publisher": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/apro_cpsh1",
+      "documentVersion": "frozen panel-response.json from round-004",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Reused via calculations.json finland2018 and FI yieldDiagnostics locators only; no new API call",
+      "sourceRole": "eurostat_production_yield_panel",
+      "accessStatus": "private_raw_verified_on_this_machine",
+      "rights": {
+        "internalUseBasis": "public_api_capture_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/panel-response.json",
+      "rawSha256": "a91101d823537347924e1129df2d32c02d573eafc63bf3e927425774ad1a7d1d",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/panel-response.json",
+      "extractedTextSha256": "a91101d823537347924e1129df2d32c02d573eafc63bf3e927425774ad1a7d1d",
+      "exactLocators": [
+        {
+          "type": "jsonPointer",
+          "pointer": "/value/81",
+          "label": "FI 2018 wheat HPRD 501.6"
+        },
+        {
+          "type": "jsonPointer",
+          "pointer": "/value/201",
+          "label": "FI 2018 barley HPRD 1353.19"
+        }
+      ],
+      "limitations": [
+        "Panel values retained; not overwritten"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R5-DEFINISJONER",
+      "title": "Presise definisjonsrester — round-005 DEFINISJONER.md",
+      "publisher": "internal_candidate_round",
+      "url": null,
+      "documentVersion": "round-005 as of 2026-09-09",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full document; exact stop R4-G001 and FI yield-alert rows",
+      "sourceRole": "prior_round_stop_authority_within_program",
+      "accessStatus": "repo_file_hash_verified",
+      "rights": {
+        "internalUseBasis": "internal_research_artifact",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/DEFINISJONER.md",
+      "rawSha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/DEFINISJONER.md",
+      "extractedTextSha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+      "exactLocators": [
+        {
+          "type": "markdown_section",
+          "label": "Stopp R4-G001; FI C1100 2020; FI C1300 2016"
+        }
+      ],
+      "limitations": [
+        "Internal candidate stop; human_verified false"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R5-CALC",
+      "title": "round-005 calculations.json finland2018 + FI yieldDiagnostics",
+      "publisher": "internal_candidate_round",
+      "url": null,
+      "documentVersion": "round-005",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "finland2018 array; commonMoistureOnlyFactorCompatibleWithBoth; FI yieldDiagnostics entries",
+      "sourceRole": "reproducible_prior_calculation",
+      "accessStatus": "repo_file_hash_verified",
+      "rights": {
+        "internalUseBasis": "internal_research_artifact",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/calculations.json",
+      "rawSha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/calculations.json",
+      "extractedTextSha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+      "exactLocators": [
+        {
+          "type": "jsonPointer",
+          "pointer": "/finland2018"
+        },
+        {
+          "type": "jsonPointer",
+          "pointer": "/commonMoistureOnlyFactorCompatibleWithBoth"
+        },
+        {
+          "type": "jsonPointer",
+          "pointer": "/yieldDiagnostics"
+        }
+      ],
+      "limitations": [
+        "Implied moisture fields are diagnostics only; observed_national_moisture_pct is null"
+      ]
+    }
+  ]
+}

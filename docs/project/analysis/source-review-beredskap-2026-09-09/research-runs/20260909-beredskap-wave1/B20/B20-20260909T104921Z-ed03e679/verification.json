@@ -1,0 +1,83 @@
+{
+  "schema": "beredskap-verification/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B20",
+  "runId": "B20-20260909T104921Z-ed03e679",
+  "createdAt": "2026-09-09T10:52:00Z",
+  "checks": [
+    {
+      "id": "V01",
+      "name": "worktree_head_matches_planCommit",
+      "result": "passed",
+      "evidence": "git rev-parse HEAD == 5c3d735712f3b5fe929ba8043ee57a74cb318e1a == planCommit"
+    },
+    {
+      "id": "V02",
+      "name": "dependency_handoff_sha256_all_19",
+      "result": "passed",
+      "evidence": "Verified 19 handoffs against dependency-handoffs-B01-B19.json; ALL_OK"
+    },
+    {
+      "id": "V03",
+      "name": "no_research_plan_or_prior_round_edits",
+      "result": "passed",
+      "evidence": "This run wrote only under research-runs/.../B20/... and private artifact root"
+    },
+    {
+      "id": "V04",
+      "name": "owned_gaps_not_marked_closed",
+      "result": "passed",
+      "evidence": "CLIM-G03, R4-G004, R5-G10 all semanticGapClosed=false"
+    },
+    {
+      "id": "V05",
+      "name": "no_invented_numeric_effects",
+      "result": "passed",
+      "evidence": "All C1–C5 effect observations use value=null; no computed tonnes"
+    },
+    {
+      "id": "V06",
+      "name": "chapter15_not_claimed_approved",
+      "result": "passed",
+      "evidence": "findings and B20-C10 state human_decision_only; no approval recorded"
+    },
+    {
+      "id": "V07",
+      "name": "observation_candidate_and_evidence_hashes",
+      "result": "passed",
+      "evidence": "Recomputed evidenceSha256 and candidateSha256 for all observations"
+    },
+    {
+      "id": "V08",
+      "name": "human_verified_false",
+      "result": "passed",
+      "evidence": "All delivery docs set human_verified=false"
+    },
+    {
+      "id": "V09",
+      "name": "model_attestation",
+      "result": "passed",
+      "evidence": "attestedModel left null with reason; not invented"
+    },
+    {
+      "id": "V10",
+      "name": "waiting_status_not_treated_as_scientific_coverage",
+      "result": "passed",
+      "evidence": "findings explicitly separate dependency-terminal from coverage; B20-C12"
+    }
+  ],
+  "failures": [],
+  "notPerformed": [
+    "Astra semantic re-read of all primary sources cited by B01–B19",
+    "CI pipeline verification",
+    "Deployment verification",
+    "Authenticated UI verification",
+    "External human authority / chapter 15 approval",
+    "Recomputation of C-case physical deliveries (inputs absent)"
+  ],
+  "human_verified": false,
+  "ciVerified": false,
+  "deploymentVerified": false,
+  "readinessChanged": false
+}

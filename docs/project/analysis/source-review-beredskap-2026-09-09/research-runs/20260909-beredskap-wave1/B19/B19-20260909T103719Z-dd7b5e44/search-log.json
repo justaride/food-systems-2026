@@ -1,0 +1,39 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B19",
+  "runId": "B19-20260909T103719Z-dd7b5e44",
+  "entries": [
+    {
+      "id": "B19-SL01",
+      "question": "Are carried-forward round-002/003 claims bound to correct document identity, version, read scope, and rights within authorized channels?",
+      "date": "2026-09-09",
+      "channel": "Reuse round-002 review-register + RETTELSER; round-003 provenance-addendum/findings/KRITISK-KONTROLL; private review-queue-run-003; packet hash check",
+      "queryOrDocument": "review-register.json; review-packet.json; review-queue-run-003 summary/job; findings.json D-S*; provenance-addendum.json; oslomet-publication.html",
+      "result": "Packet integrity passed; 10 non-supported with correction traces; D-S001–D-S005 hashes match; D-O004/D-O005 dated amendments present; rights internal-only",
+      "readStatus": "read_frozen_bytes_hash_verified",
+      "stopReason": "Scoped channels exhausted for Q1; no full-library rebind authorized"
+    },
+    {
+      "id": "B19-SL02",
+      "question": "Which prior corrections are already dated/traced, and which synthetic-source / coverage remainders still need candidates?",
+      "date": "2026-09-09",
+      "channel": "operational-restlist FS-01/11/21; RETTELSER; provenance-addendum; coverage.json B19 rows; REVIEW-QUEUE.md",
+      "queryOrDocument": "FS-01, FS-11, FS-21 rows; non-supported observation IDs; stop rule 1770/399",
+      "result": "Dated amendments for documentation provenance exist; synthetic identities not auto-rewritten; 1770 historical not fresh; correction traces inventory complete but not applied",
+      "readStatus": "read",
+      "stopReason": "Stop rule forbids mass rewrite/DB import/candidate-writer; remainders registered as G01/G02/G04"
+    },
+    {
+      "id": "B19-SL03",
+      "question": "Which model identity and read coverage are tool-attested, reported, or unknown?",
+      "date": "2026-09-09",
+      "channel": "Executor session metadata; review-queue job.verification; FS-03/FS-11; KRITISK-KONTROLL independence disclaimer",
+      "queryOrDocument": "modelVersionAttested; independentModelValidation; reviewer role labels",
+      "result": "Attested model null for B19; historical reviews lack modelVersionAttested; read coverage = scoped packet+documentation+FS/plan pointers, not full library",
+      "readStatus": "read",
+      "stopReason": "Do not invent model ids; attestation treated as unknown, not human review"
+    }
+  ]
+}

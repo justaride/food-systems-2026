@@ -1,0 +1,246 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B09",
+  "runId": "B09-20260909T103719Z-8a62fde2",
+  "createdAt": "2026-09-09T10:42:00Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/git-status.txt",
+  "gitStatusSha256": "6fae902448bd7eb3169f8cfc56d12d84cea25d3eedd122af5b43a48b9489f575",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2",
+  "status": "waiting_source",
+  "stopReason": "Compatible region×year×commodity food-grade panel and norskandel primary numerator/denominator absent in authorized channels; B07/B08 waiting_source block moisture/crop harmonized calculation; exact Beillouin/Tootoonchi replication not required for descriptive scope and panel/code/FigureS1 cells remain unavailable if later claimed; no exportable-from-gross-yield; no broad search; no owner contact",
+  "model": {
+    "requestedModel": null,
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent session exposes no reliable model id/attestation tool metadata; values left null rather than invented"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B09.md",
+      "sha256": "cd0369ed6d0a14d8d3efb455a30d9a60323102244af413ee2d0d142427dc6fe2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/input-manifest.json",
+      "sha256": "770910bbd0fa2ad6980104117895238b9ed4923b69ed5b49fed114e0356955b4",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/work-packages.json",
+      "sha256": "bab3c5d30c23dda1320fbe2c486f9876b609ab817a6fda3157ed16f039a6e5e3",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/method/findings.json",
+      "sha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/norway/findings.json",
+      "sha256": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/DEFINISJONER.md",
+      "sha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/climate/findings.json",
+      "sha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A1/data.json",
+      "sha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/candidate-target-profile.json",
+      "sha256": "d0c29f7836594a5e9944936812551c6472de2746376d7f4081044d57d77778ff",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-supplement.docx",
+      "sha256": "faf6bc5f54a67b4694d43f8dc4b3ad6b6b5a78ac4f1955b0cdb4d0ecf51a0d9c",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/norway/04609-response.json",
+      "sha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/git-status.txt",
+      "sha256": "6fae902448bd7eb3169f8cfc56d12d84cea25d3eedd122af5b43a48b9489f575",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/required-document-B09.json",
+      "sha256": "ab8a50a713952462d355b6bb383f981b781fb963adfabb55210d400fa804eea8",
+      "private": true,
+      "accessRequired": true
+    }
+  ],
+  "dependencies": [
+    {
+      "packageId": "B07",
+      "runId": "B07-20260909T102902Z-2f712e23",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/handoff.json",
+      "handoffSha256": "66ad992acf0567ca674c686a7d5c850ac48f4a2ae8eb7bd0eb8fbe439b82b419",
+      "status": "waiting_source"
+    },
+    {
+      "packageId": "B08",
+      "runId": "B08-20260909T102902Z-7e1f9a59",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/handoff.json",
+      "handoffSha256": "443e4dd88373f1170ce6a2de02d8f9882e953cafcc571fbf4e806a8fba5b343f",
+      "status": "waiting_source"
+    }
+  ],
+  "files": [
+    {
+      "path": "findings.md",
+      "sha256": "c8b833d8ec23a889def5363f46510cc4273b1ae77af96adb01b8f34e9409421b",
+      "private": false
+    },
+    {
+      "path": "sources.json",
+      "sha256": "2663ebfe1ca1867042934a48224ebdc57f5cb5fc2541eef3ecefe22fee1221f0",
+      "private": false
+    },
+    {
+      "path": "observations.json",
+      "sha256": "5348ef52768b431fb587c8f65ed0d31f5ddcfde083b17f00bff25fdccbf209d4",
+      "private": false
+    },
+    {
+      "path": "gaps.json",
+      "sha256": "021fa81d35e147bbf1f553d7856fb6cf335b5df23112173c7aae0eaaf271da6d",
+      "private": false
+    },
+    {
+      "path": "search-log.json",
+      "sha256": "dea3e26bac8a0efce4ba8857b581e87f918918d488c8e171b03ac0939a6c3913",
+      "private": false
+    },
+    {
+      "path": "verification.json",
+      "sha256": "d8593a2d69c73c6fee75973b1431a99167f4c3cff40ebaaf194524da34ca020c",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "A1-G008",
+      "disposition": "waiting_source_exact_primary_table_required",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "NEW-CLIMATE-01",
+      "disposition": "partially_illuminated_waiting_source_for_contemporaneous_series",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "CLIM-G01",
+      "disposition": "waiting_source",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R4-G005",
+      "disposition": "retained_open_replication_not_required_for_B09_scope",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "METH-G01",
+      "disposition": "retained_open_waiting_source_if_replication_claimed",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "METH-G02",
+      "disposition": "retained_open_waiting_source_if_replication_claimed",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "METH-G04",
+      "disposition": "retained_open_caption_only_chart_cells_unread",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R4-NO-G002",
+      "disposition": "national_slice_selected_waiting_source_for_county_continuity",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R4-NO-G003",
+      "disposition": "waiting_source_not_measured_by_selected_tables",
+      "semanticGapClosed": false
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "id": "Q1",
+      "status": "answered_with_comparability_inventory_and_stops",
+      "candidateIds": [
+        "B09-C01"
+      ]
+    },
+    {
+      "id": "Q2",
+      "status": "precise_stop_primary_numerator_denominator_absent",
+      "candidateIds": [
+        "B09-C02"
+      ]
+    },
+    {
+      "id": "Q3",
+      "status": "answered_replication_not_required_artifacts_missing_if_claimed",
+      "candidateIds": [
+        "B09-C03"
+      ]
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Await named primary norskandel year table and contemporaneous food-grade/need/exportable series; await B07/B08 annexes before any moisture/crop-harmonized absolute Nordic panel; no broad search without new named document; no owner email in this run",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false
+}

@@ -1,0 +1,356 @@
+{
+  "schema": "beredskap-observations-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B02",
+  "runId": "B02-20260909T101901Z-4aaad87a",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B02-C01",
+      "packageId": "B02",
+      "runId": "B02-20260909T101901Z-4aaad87a",
+      "claim": "Public and frozen Cerealia Sverige product channels for SKU 160585 show an undated bulk product page and a marketing catalog row, but no dated revision or full operative bulk specification (min/max bake parameters, methods, moisture basis, validity window).",
+      "claimType": "negative_finding_within_scope",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "SKU 160585 bulk only; not 142052 or other Nord Mills products",
+      "period": "as_of_2026-09-09_public_and_frozen_round006",
+      "geography": "Sweden / Lantmännen Cerealia Nord Mills (Malmö listed in catalog row)",
+      "commodityQuality": "Bagarns Manitoba bulk SKU 160585",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R6-S02",
+            "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+            "extractedTextSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 170,
+              "end": 187,
+              "label": "Bagarns Manitoba / Art no 160585 / EAN / ingredients / use / disclaimer"
+            },
+            "locatorEvidenceSha256": "297b33cd6bf20d53862a064f12d61ed5d277c6e6c2d623d7166a33a30482eb03"
+          },
+          {
+            "sourceId": "R6-S10",
+            "rawSha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+            "extractedTextSha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 146,
+              "end": 153,
+              "label": "PDF physical/printed page 5; first product row Bagarns Manitoba"
+            },
+            "locatorEvidenceSha256": "78c97299badd3e4b8660ac89c0213dab1d6b4f44d98b4a437fbf65f38235137a"
+          },
+          {
+            "sourceId": "R6-S10",
+            "rawSha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+            "extractedTextSha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 206,
+              "end": 206,
+              "label": "Footer: current specifications and certificates on nordmills.se"
+            },
+            "locatorEvidenceSha256": "4f8d9d537386f743676e516dbf752e189f6db150a820e3c0462c642e2d32a15c"
+          },
+          {
+            "sourceId": "B02-S01",
+            "rawSha256": "bdc9621d47181c39882c31407d148735ea2bee8a924224fafb4dca853d87a5ae",
+            "extractedTextSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 170,
+              "end": 187,
+              "label": "Live Art no 160585 Bulk identity window"
+            },
+            "locatorEvidenceSha256": "297b33cd6bf20d53862a064f12d61ed5d277c6e6c2d623d7166a33a30482eb03"
+          },
+          {
+            "sourceId": "B02-S03",
+            "rawSha256": "40680eeba4bcad2abf2cc9396809f8509de1b96db74f21de15235d16de7f356b",
+            "extractedTextSha256": "d796f474c0b44db04a0ffccf2c38c1e0f60f556b87beba3c040c9ec127e83e8c",
+            "exactLocator": {
+              "type": "note",
+              "label": "Public landing after nordmills.se redirect; no 160585 dated bulk specification located"
+            },
+            "locatorEvidenceSha256": null
+          },
+          {
+            "sourceId": "R6-INTAKE-001-G03",
+            "rawSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+            "extractedTextSha256": "969f57ff79a717ebcdc45241b9a76fe0a2cacfe283a9390144ee4ff2dfb828c4",
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/sections/2",
+              "label": "R6-G03 fields all null; unsent"
+            },
+            "locatorEvidenceSha256": null
+          }
+        ],
+        "relevantExtractOrParaphrase": "R6-S02 lists Art no 160585 / Bulk without revision/valid-from. R6-S10 Bagarns Manitoba row lists 142052 sack and 160585 bulk with Hållbarhetstid 12 mån and Malmö, and footer points to nordmills.se for current specifications. B02 live re-fetch text hash matches R6-S02; nordmills.se public landing and page link scans expose no dated 160585 bulk specification PDF/COA. R6-G03 intake remains unsent with null fields.",
+        "extractionMethod": "round-006 evidence rule: SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF; bindings also cite source raw/text hashes"
+      },
+      "evidenceSha256": "894d438abb98a7ad7e0374c6b88891f8f4065ea1eb5bd80238041600663b66d4",
+      "candidateSha256": "ac0923177a42a5cb957d07c1fa2f6feffbefcb126d6589513b1a9461fda0e3a0",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1"
+      ],
+      "gapIds": [
+        "R6-G03",
+        "B02-20260909T101901Z-4aaad87a-G01"
+      ],
+      "limitations": [
+        "Stop rule: no functional equivalence from product name/ingredients/nutrition",
+        "Private customer-portal documents may exist but were not accessed",
+        "Absence in inspected public channels is scoped negative finding, not proof of non-existence"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B02-C02",
+      "packageId": "B02",
+      "runId": "B02-20260909T101901Z-4aaad87a",
+      "claim": "Measurement methods and moisture basis for 160585 bulk are not stated in the public product page or HT2026 catalog; therefore comparability with Q1 recipient acceptance limits and with Regal 160105 cannot be established from these sources.",
+      "claimType": "method_basis_unknown",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "SKU 160585 bulk only; not 142052 or other Nord Mills products",
+      "period": "as_of_2026-09-09_public_and_frozen_round006",
+      "geography": "Sweden / Lantmännen Cerealia Nord Mills (Malmö listed in catalog row)",
+      "commodityQuality": "Bagarns Manitoba bulk SKU 160585",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R6-S02",
+            "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+            "extractedTextSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 170,
+              "end": 187,
+              "label": "Bagarns Manitoba / Art no 160585 / EAN / ingredients / use / disclaimer"
+            },
+            "locatorEvidenceSha256": "297b33cd6bf20d53862a064f12d61ed5d277c6e6c2d623d7166a33a30482eb03"
+          },
+          {
+            "sourceId": "R6-S02",
+            "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+            "extractedTextSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 188,
+              "end": 206,
+              "label": "Näringsvärde per 100g; Protein 12 g"
+            },
+            "locatorEvidenceSha256": "b05423aaea17cbe62c099c852669aa4e23743d9b5d425f552159e8c327afa087"
+          },
+          {
+            "sourceId": "R6-S10",
+            "rawSha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+            "extractedTextSha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 146,
+              "end": 153,
+              "label": "PDF physical/printed page 5; first product row Bagarns Manitoba"
+            },
+            "locatorEvidenceSha256": "78c97299badd3e4b8660ac89c0213dab1d6b4f44d98b4a437fbf65f38235137a"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Public SE sources declare nutrition protein 12 g/100 g and qualitative dough/volume language only. No method ID, nitrogen factor, falling number method, ash basis, particle-size method or moisture basis appears in the bound locators. q1-comparison.json records allAcceptanceLimitsUnknown=true and SE_batchResult null for bake parameters.",
+        "extractionMethod": "round-006 evidence rule: SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF; bindings also cite source raw/text hashes"
+      },
+      "evidenceSha256": "3f2ebc16d11cf99bbd183db25e21eef38c149cd0de3b876fe2e6b3c56acb8524",
+      "candidateSha256": "82d51a13449bcdfe9451adcdc776cc4fd027f1a9b855fecbf87bc96ee1864651",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1"
+      ],
+      "gapIds": [
+        "R6-G03",
+        "B02-20260909T101901Z-4aaad87a-G02"
+      ],
+      "limitations": [
+        "Nutrition declaration is not a laboratory specification method statement",
+        "Q1 recipient limits themselves are owned by B03/R6-G04 and remain null in target profile",
+        "Cross-package coordination with B03 noted; no mutual wait"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B02-C03",
+      "packageId": "B02",
+      "runId": "B02-20260909T101901Z-4aaad87a",
+      "claim": "HT2026 catalog states Hållbarhetstid 12 mån on the shared Bagarns Manitoba row that includes both 10 kg 142052 and bulk 160585; bulk-specific storage conditions (°C / RH%) and remaining shelf-life rules for bulk are not resolved in that row.",
+      "claimType": "catalog_shelf_life_unresolved_for_bulk",
+      "value": 12,
+      "unit": "months_catalog_row_shared_with_bag_SKU",
+      "denominator": null,
+      "population": "SKU 160585 bulk only; not 142052 or other Nord Mills products",
+      "period": "as_of_2026-09-09_public_and_frozen_round006",
+      "geography": "Sweden / Lantmännen Cerealia Nord Mills (Malmö listed in catalog row)",
+      "commodityQuality": "Bagarns Manitoba bulk SKU 160585",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R6-S10",
+            "rawSha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+            "extractedTextSha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 146,
+              "end": 153,
+              "label": "PDF physical/printed page 5; first product row Bagarns Manitoba"
+            },
+            "locatorEvidenceSha256": "78c97299badd3e4b8660ac89c0213dab1d6b4f44d98b4a437fbf65f38235137a"
+          },
+          {
+            "sourceId": "R6-S10",
+            "rawSha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+            "extractedTextSha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 30,
+              "end": 35,
+              "label": "Catalog delivery note: at least 50% remaining shelf life"
+            },
+            "locatorEvidenceSha256": "c026bc723f12fd5ad53f177e09b41e8ea25dabb4711a6f412b2e7ffd8474c850"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Catalog row: BAGARNS MANITOBA / 142052 - Säck 10 kg MTO / 160585 - Bulk / Hållbarhetstid: 12 mån / Malmö. Separate delivery note says customer deliveries should retain at least 50% of stated shelf life. No °C/RH bulk storage clause in the bound row.",
+        "extractionMethod": "round-006 evidence rule: SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF; bindings also cite source raw/text hashes"
+      },
+      "evidenceSha256": "5a79a7a189142f5e3390526f2b04ddfc14f6593948be5346aa7c95b15b8ac344",
+      "candidateSha256": "5c1085d0b404772da87d9158f71c8aa7e7354953177a501610c3afd0330d7a2f",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1"
+      ],
+      "gapIds": [
+        "R6-G03",
+        "B02-20260909T101901Z-4aaad87a-G03"
+      ],
+      "limitations": [
+        "Shared row prevents attributing 12 months to bulk alone without owner confirmation",
+        "50% remaining-life note is general catalog language, not bulk storage specification",
+        "value 12 is catalog-reported, not a measured or verified bulk shelf life"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B02-C04",
+      "packageId": "B02",
+      "runId": "B02-20260909T101901Z-4aaad87a",
+      "claim": "SKU 142052 (10 kg) is a separate product page and must not be treated as the bulk 160585 specification.",
+      "claimType": "identity_control",
+      "value": "142052",
+      "unit": "SKU",
+      "denominator": null,
+      "population": "SKU 160585 bulk only; not 142052 or other Nord Mills products",
+      "period": "as_of_2026-09-09_public_and_frozen_round006",
+      "geography": "Sweden / Lantmännen Cerealia Nord Mills (Malmö listed in catalog row)",
+      "commodityQuality": "Bagarns Manitoba bulk SKU 160585",
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B02-S02",
+            "rawSha256": "1c21292f208f6e48e2166090bb73f18079b17c1ad8514371fed245277a83273b",
+            "extractedTextSha256": "c8288d07d5434b7dc53bd0288a25fdff0820338b3bfdea02eeefff14f0a2ed1b",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 170,
+              "end": 187,
+              "label": "Art no 142052 / 10 kg identity control"
+            },
+            "locatorEvidenceSha256": "bdc6df32f631f5e6a5114aec12fce9cf86a0d3328f89a5961eba4c804bc184b1"
+          },
+          {
+            "sourceId": "R6-S02",
+            "rawSha256": "dd5cee14c1e30b7b8848c87427f9f5b76a4ce37737b80908aa536a46b791b357",
+            "extractedTextSha256": "2b597255a557d9901623728cf12ef7759a994d2bbfb1a01d0dba2c36cecdb915",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 170,
+              "end": 187,
+              "label": "Bagarns Manitoba / Art no 160585 / EAN / ingredients / use / disclaimer"
+            },
+            "locatorEvidenceSha256": "297b33cd6bf20d53862a064f12d61ed5d277c6e6c2d623d7166a33a30482eb03"
+          },
+          {
+            "sourceId": "R6-S10",
+            "rawSha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+            "extractedTextSha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 146,
+              "end": 153,
+              "label": "PDF physical/printed page 5; first product row Bagarns Manitoba"
+            },
+            "locatorEvidenceSha256": "78c97299badd3e4b8660ac89c0213dab1d6b4f44d98b4a437fbf65f38235137a"
+          }
+        ],
+        "relevantExtractOrParaphrase": "bagarns-manitoba2 page: Art no 142052 / Vikt 10 kg / EAN 07310130008795. Bulk page and catalog separately identify 160585 as Bulk.",
+        "extractionMethod": "round-006 evidence rule: SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF; bindings also cite source raw/text hashes"
+      },
+      "evidenceSha256": "4b35699f0ffe81aaed1aa036a09e98bc65d2f3e0180e03ba8de83f995e089191",
+      "candidateSha256": "b9b610ddc6781b9c6725c95a95cbf9651621bc7df197914a6c4551f7bc5e0389",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1"
+      ],
+      "gapIds": [
+        "R6-G03"
+      ],
+      "limitations": [
+        "Identity control only; bag page does not supply bulk bake limits"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    }
+  ],
+  "human_verified": false
+}

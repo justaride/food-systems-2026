@@ -1,0 +1,80 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B05",
+  "runId": "B05-20260909T102531Z-5341273b",
+  "entries": [
+    {
+      "id": "B05-SL01",
+      "askedAt": "2026-09-09T10:30:00Z",
+      "question": "Do frozen R5-S03/R5-S16 identify quality-bound Malmö batches, ownership, stock tons or release conditions for Furuset?",
+      "channel": "frozen_private_raw_round005",
+      "queryOrDocument": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/malmo.txt + /Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/se-products-2026.txt",
+      "result": "Mill function + bulk; SKU 160585 Malmö + warehouse legend; no batch/COA/ownership/tons/release",
+      "readStatus": "full_or_locator_text_read_hash_verified",
+      "stopReason": null
+    },
+    {
+      "id": "B05-SL02",
+      "askedAt": "2026-09-09T10:30:00Z",
+      "question": "Do live Malmö EN/SE operator pages add allocation or release documentation beyond frozen R5-S03?",
+      "channel": "public_http_get",
+      "queryOrDocument": "lantmannencerealia.com/.../malmo/ ; lantmannencerealia.se/.../malmo/",
+      "result": "Bulk statements restated; live EN text hash ≠ frozen; still no batch/allocation book",
+      "readStatus": "raw_saved_text_extracted_hash_recorded",
+      "stopReason": null
+    },
+    {
+      "id": "B05-SL03",
+      "askedAt": "2026-09-09T10:30:00Z",
+      "question": "Does the Malmö certificate/history page provide released-batch COA or allocatable stock?",
+      "channel": "public_http_get",
+      "queryOrDocument": "https://www.lantmannencerealia.se/hallbarhet/certifikat/malmo/",
+      "result": "Facility history includes «775 ton per dygn»; BRC/organic cert links; not batch COA or Furuset allocation",
+      "readStatus": "raw_saved_text_extracted_hash_recorded",
+      "stopReason": null
+    },
+    {
+      "id": "B05-SL04",
+      "askedAt": "2026-09-09T10:30:00Z",
+      "question": "Is there public documentation of competing Swedish customer/export bindings or national priority that allocates Malmö flour to Furuset?",
+      "channel": "web_search",
+      "queryOrDocument": "Lantmännen Cerealia Malmö kvarn bulk lager allokering beredskap 2026",
+      "result": "Hits to Malmö site pages + Jordbruksverket national beredskapslager (northern counties); no Malmö→Furuset allocation book",
+      "readStatus": "search_snippets_then_selected_pages_fetched",
+      "stopReason": null
+    },
+    {
+      "id": "B05-SL05",
+      "askedAt": "2026-09-09T10:30:00Z",
+      "question": "Does Jordbruksverket beredskapslager page document a Malmö mill release right usable in the Furuset case?",
+      "channel": "public_http_get",
+      "queryOrDocument": "https://jordbruksverket.se/beredskap/sveriges-livsmedelsberedskap/beredskapslager-av-spannmal-och-insatsvaror",
+      "result": "National preparedness stocks via northern-county frame agreements; not recipient-bound Malmö allocation",
+      "readStatus": "raw_saved_text_extracted_hash_recorded",
+      "stopReason": null
+    },
+    {
+      "id": "B05-SL06",
+      "askedAt": "2026-09-09T10:30:00Z",
+      "question": "Is there a public dated COA / partianalys / lagersaldo for Bagarns Manitoba 160585 Malmö?",
+      "channel": "web_search",
+      "queryOrDocument": "\"Bagarns Manitoba\" 160585 COA OR partianalys OR lagersaldo Malmö",
+      "result": "Product/index pages only (incl. bag 142052); Unibake/INCERT unrelated; no public batch COA",
+      "readStatus": "search_snippets_no_batch_coa_document",
+      "stopReason": null
+    },
+    {
+      "id": "B05-SL07",
+      "askedAt": "2026-09-09T10:30:00Z",
+      "question": "Has R6-G08 owner intake been answered; does nordmills.se expose an allocation/timeline document?",
+      "channel": "internal_round006_files_and_public_http_get",
+      "queryOrDocument": "round-006/intake-template.json + INNTAK-USENDT.md; https://nordmills.se/",
+      "result": "sent=false; G08 fields null; nordmills landing/catalog pointers only",
+      "readStatus": "full_section_read_and_landing_saved",
+      "stopReason": "B05 stop rule: channels examined without allocation/COA/timeline docs; unconfirmed right/quantity remain unknown; no further broad reformulations"
+    }
+  ],
+  "human_verified": false
+}

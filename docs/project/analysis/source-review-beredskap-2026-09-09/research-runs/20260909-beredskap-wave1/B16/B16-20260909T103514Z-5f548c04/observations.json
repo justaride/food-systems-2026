@@ -1,0 +1,517 @@
+{
+  "schema": "beredskap-observations/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B16",
+  "runId": "B16-20260909T103514Z-5f548c04",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B16-C01",
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "claim": "2021 Rit LbhÍ nr. 139 states domestic production of grain for human food is about 1% of total consumption, and separately reports about 344 t/year domestic human-food grain and about 25 thousand t imported human-food grain (2019 context). These are not shown with a compatible shared numerator/denominator/period validating reconstruction of the 1% as a new fraction.",
+      "claimType": "reported_claim_with_incompatible_components",
+      "value": {
+        "shareAsReported": "um 1%",
+        "domesticHumanGrain_t_per_year_asReported": 344,
+        "importedHumanGrain_t_2019_asReported": 25000,
+        "reconstructedShare": null
+      },
+      "unit": "mixed_reported_units_not_a_validated_fraction",
+      "denominator": null,
+      "population": "Iceland human-food grain as scoped by the 2021 report",
+      "period": "report_year_2021; production annual estimate; import calendar 2019",
+      "geography": "Iceland",
+      "commodityQuality": "korn til manneldis",
+      "moistureBasis": null,
+      "method": "Locate claim + components in verified PDF text; refuse new fraction",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B16-S001",
+            "rawSha256": "7c38200f4fa301662859fe483b634bc0a6473fa050c9e8fac75608c7151bc9ba",
+            "extractedTextSha256": "c5d820db22ec49e2268f48fcd09d58cb88dcd50af8ee80e2add139c194a2389f",
+            "exactLocator": {
+              "type": "text_line",
+              "line": 100
+            }
+          },
+          {
+            "sourceId": "B16-S001",
+            "rawSha256": "7c38200f4fa301662859fe483b634bc0a6473fa050c9e8fac75608c7151bc9ba",
+            "extractedTextSha256": "c5d820db22ec49e2268f48fcd09d58cb88dcd50af8ee80e2add139c194a2389f",
+            "exactLocator": {
+              "type": "text_line",
+              "line": 572
+            }
+          },
+          {
+            "sourceId": "B16-S001",
+            "rawSha256": "7c38200f4fa301662859fe483b634bc0a6473fa050c9e8fac75608c7151bc9ba",
+            "extractedTextSha256": "c5d820db22ec49e2268f48fcd09d58cb88dcd50af8ee80e2add139c194a2389f",
+            "exactLocator": {
+              "type": "text_line",
+              "line": 1847
+            }
+          },
+          {
+            "sourceId": "B16-S010",
+            "rawSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+            "extractedTextSha256": "9f78d378c7bb94d2e3bd721389002df1584d8732251339dd7ce20d486c8bcb90",
+            "exactLocator": {
+              "type": "gap",
+              "gapId": "A4-G003"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Line 100 um 1%; line 572 um 344 tonn; line 1847 um 25 þúsund tonn innflutt.",
+        "extractionMethod": "direct_read_of_fetched_or_frozen_bytes"
+      },
+      "evidenceSha256": "f6609eed0a00250ee225cdd27ae71b156b7ace1f730cd38fce51c877db625daa",
+      "candidateSha256": "5c825a0c871c2c343d62d7e87441c3cdd3383014d33e3db2ae7773ffec0c971a",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/candidate-target-profile.json",
+      "targetProfileSha256": "3210c3489e48b25dfd2a3d0ec3c3e10dc9e52ead3e5f83f88b62df124b9fc834",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A4-G003"
+      ],
+      "limitations": [
+        "No new percentage computed",
+        "Not a 2026 share"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B16-C02",
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "claim": "As of 2026-09-09 public pages: Þorvaldseyri site historical (2008–2009); Lífland lists Byggmjöl 20 kg by Eyrarbúið ehf not for sale in webshop; Korngrís still future-tense Við munum selja with no products. No dated 2026 primary ops log classifying these as active food-cereal mills found in authorized channels.",
+      "claimType": "status_from_public_pages_insufficient_for_2026_ops_classification",
+      "value": {
+        "thorvaldseyriPageCharacter": "historical",
+        "eyrarbuidOnlinePurchaseAvailableAtRead": false,
+        "korngrisVisibleProductsAtRead": 0,
+        "korngrisLanguage": "future_tense_will_sell",
+        "classifiedAsActiveFoodMillFromThesePages": null
+      },
+      "unit": null,
+      "denominator": null,
+      "population": "Named actors Þorvaldseyri/Eyrarbúið and Korngrís",
+      "period": "pages_accessed_2026-09-09",
+      "geography": "Iceland",
+      "commodityQuality": "food cereal products as marketed",
+      "moistureBasis": null,
+      "method": "Re-fetch named pages; separate product pages from ops/capacity",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B16-S003",
+            "rawSha256": "4c337fff5b19c8c7e9a4c42362f54da24b86cf5e9d9bd22634c764a1bf1080eb",
+            "extractedTextSha256": "0a0148797f0bb9283ed7311f9f671527d8b7aedf6269f62eb1fe5a7a4e2c377b",
+            "exactLocator": {
+              "type": "text_phrase",
+              "label": "2008–2009 historical"
+            }
+          },
+          {
+            "sourceId": "B16-S004",
+            "rawSha256": "563f6074d3929c783b9803c98b4cff1fda228ca5c99d9d6d7768e0470ecdd9c1",
+            "extractedTextSha256": "b22771e504e1b87944da531c7cc929258ea145275438bbb5b96f7cf4c9762263",
+            "exactLocator": {
+              "type": "text_phrase",
+              "label": "ekki til sölu"
+            }
+          },
+          {
+            "sourceId": "B16-S005",
+            "rawSha256": "b7f6f999c742ed31910435f73544e29f4f29b19c287391e6311da20365a6222d",
+            "extractedTextSha256": "91a9b36cc195a2199086af289277648c2c6e5eb210465a21b6956b1c9671ce45",
+            "exactLocator": {
+              "type": "text_phrase",
+              "label": "Við munum selja; no products"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Korngrís future-tense + empty products; Lífland webshop not-for-sale.",
+        "extractionMethod": "direct_read_of_fetched_or_frozen_bytes"
+      },
+      "evidenceSha256": "87540b1b894f5f7521a9724c0d9d0ba52f9304eecfbd2a486041f87e12a436fa",
+      "candidateSha256": "bc3e869baec219b7238177c217f202386228b93467396b79b90398f46e575b10",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/candidate-target-profile.json",
+      "targetProfileSha256": "3210c3489e48b25dfd2a3d0ec3c3e10dc9e52ead3e5f83f88b62df124b9fc834",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A4-G006"
+      ],
+      "limitations": [
+        "BBL secondary separate (B16-C04)",
+        "Do not upgrade webshop flag to general market absence"
+      ],
+      "contradictions": [
+        {
+          "with": "round-002 A4-O022",
+          "note": "onlinePurchaseAvailableAtRead=false only"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B16-C03",
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "claim": "MAST approved-establishment export 2026-09-09 lists Eyrarbúið ehf at Þorvaldseyri under Feed (A981, Section XX, Frum 3) for feed drying/handling — not a Food-sector cereal mill approval. Korngrís/KORNAX name searches missed on Food/registration/HD MAT. MAST Food approved sections have no cereal-milling section; plant-based food processing is under municipal heilbrigðiseftirlit.",
+      "claimType": "permit_identity_food_vs_feed_separation",
+      "value": {
+        "eyrarbuidApprovalNumber": "A981",
+        "eyrarbuidSector": "Feed",
+        "eyrarbuidActivityCode": "Frum 3",
+        "eyrarbuidFoodSectorHitUnderNameSearch": false,
+        "korngrisNameSearchHitsFoodRegHd": 0,
+        "mastFoodSectionsIncludeCerealMilling": false
+      },
+      "unit": null,
+      "denominator": null,
+      "population": "MAST skyrslur registers exported/searched 2026-09-09",
+      "period": "register_access_2026-09-09",
+      "geography": "Iceland",
+      "commodityQuality": "feed drying vs food plant processing",
+      "moistureBasis": null,
+      "method": "getpage + Export; Food getSections; mat/fôr stop rule",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B16-S013",
+            "rawSha256": "e7445d56ef73f41a51b8de54981fb14e02e7eff02e26be362f054ed41bed65fd",
+            "extractedTextSha256": "e7445d56ef73f41a51b8de54981fb14e02e7eff02e26be362f054ed41bed65fd",
+            "exactLocator": {
+              "type": "html_table_row",
+              "label": "A981"
+            }
+          },
+          {
+            "sourceId": "B16-S008",
+            "rawSha256": "db734582b814b7f834d3a38821b3bfc7ac58dc3fd1205aabc1b74b43e92f7898",
+            "extractedTextSha256": "b07d0c82b018f4dd31b8521a26b4183af4bca3fb0f135786e59bd977be0267fb",
+            "exactLocator": {
+              "type": "xlsx_row_filter",
+              "label": "A981"
+            }
+          },
+          {
+            "sourceId": "B16-S007",
+            "rawSha256": "11571705389f2c504497a89f2403235db6b49b529f9a48b9994ed7594213a3d6",
+            "extractedTextSha256": "c0dafde9a2e489573c36cdc6ff5b31895710789b273b9085bcd067e0ce7652d7",
+            "exactLocator": {
+              "type": "text_phrase",
+              "label": "municipal plant-food licensing"
+            }
+          },
+          {
+            "sourceId": "B16-S009",
+            "rawSha256": "be25cabf48ad5b3d4a231dabbfb153b85c1fe872b03608d5d76a38e10fb234fe",
+            "extractedTextSha256": "6288f3417b7ba43bfea1f7b9bcc314d7e62e3010795fc559ab1b6ae20ee5cd71",
+            "exactLocator": {
+              "type": "search_result",
+              "label": "no Eyrarbúið/Korngrís hits"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "A981 Feed Frum 3 Óbein þurrkun á korni; Food sections lack cereal mill.",
+        "extractionMethod": "direct_read_of_fetched_or_frozen_bytes"
+      },
+      "evidenceSha256": "4a38a6f2a28f6241dd992ad5bc08a5b56ed9604d6a1cd2aefec1c6239d95a3c7",
+      "candidateSha256": "1ebd2d5bf8e2e19b78b2116f80bc469536a2564446c68aa377b437a22da9f1ba",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/candidate-target-profile.json",
+      "targetProfileSha256": "3210c3489e48b25dfd2a3d0ec3c3e10dc9e52ead3e5f83f88b62df124b9fc834",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A4-G005",
+        "A4-G006",
+        "A4-G004"
+      ],
+      "limitations": [
+        "List≠capacity",
+        "Name miss≠proof under alternate legal names"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B16-C04",
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "claim": "Secondary BBL 2025-09-19 reports all grain at Þorvaldseyri dried before storage; up to about half harvest to beer; some sold as barley flour to bakeries; new Húsavík dryer aims hátt í fimm hundruð tonn used by up to about ten farmers. Per stop rule not national capacity and not primary capacity definitions for mill/rolling/packing/storage.",
+      "claimType": "secondary_nowcast_not_capacity_register",
+      "value": {
+        "thorvaldseyriDryingBeforeStorage_asInterviewed": true,
+        "thorvaldseyriShareToBeer_asInterviewed": "upp undir helming",
+        "thorvaldseyriSomeByggmjolToBakeries_asInterviewed": true,
+        "husavikDryerAim_tonnes_asInterviewed": "hátt í fimm hundruð",
+        "husavikUsers_asInterviewed": "upp undir tíu bændur",
+        "usableAsNationalCapacity": false
+      },
+      "unit": null,
+      "denominator": null,
+      "population": "Interview subjects in BBL article",
+      "period": "article_dated_2025-09-19; accessed_2026-09-09",
+      "geography": "Þorvaldseyri and Húsavík area",
+      "commodityQuality": "farm grain drying; some barley flour mention",
+      "moistureBasis": null,
+      "method": "Read secondary article; refuse nationalization",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B16-S006",
+            "rawSha256": "865a96ada9eeee6b8eeedc69b827d1bcc4e2a53c5c8ba6efc102feefdc233be7",
+            "extractedTextSha256": "4201c6b9b4b5e9d1b8824ae7608583148f78054074ec79210c69cd4f5fc2c89e",
+            "exactLocator": {
+              "type": "text_phrase",
+              "label": "drying/beer/byggmjöl; Húsavík aim"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Quotes on drying before storage; beer/byggmjöl; Húsavík ~500 t aim.",
+        "extractionMethod": "direct_read_of_fetched_or_frozen_bytes"
+      },
+      "evidenceSha256": "9fc78fe9e15594f96fd399821a11f62f2dd3e97abb898e3f75c652514e9848ca",
+      "candidateSha256": "0f35d2a48e3c5983c2e819b83e3eaddde08686b2bd29c942314416af3b77549a",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/candidate-target-profile.json",
+      "targetProfileSha256": "3210c3489e48b25dfd2a3d0ec3c3e10dc9e52ead3e5f83f88b62df124b9fc834",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A4-G004",
+        "A4-G006",
+        "A4-G007"
+      ],
+      "limitations": [
+        "Secondary",
+        "Aim language for Húsavík tonnes"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B16-C05",
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "claim": "KORNAX announcement 2025-04-11: last wheat milled at Korngarðar; Valsemøllen Denmark will mill wheat for KORNAX thereafter. Documents local wheat-mill stop at that plant, not absence of all Icelandic cereal processing.",
+      "claimType": "operator_reported_local_wheat_mill_stop",
+      "value": {
+        "localWheatMillingAtKorngardar": "stopped_as_of_announcement",
+        "futureWheatMillingProvider": "Valsemøllen, Denmark"
+      },
+      "unit": null,
+      "denominator": null,
+      "population": "KORNAX Korngarðar wheat mill",
+      "period": "2025-04-11",
+      "geography": "Iceland/Denmark",
+      "commodityQuality": "wheat milling",
+      "moistureBasis": null,
+      "method": "Read operator announcement",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B16-S002",
+            "rawSha256": "67dff8ece2865fbc858b8c5f34f6af3735ef1507b6a41cfe19492cba810e533b",
+            "extractedTextSha256": "04f1b43b50435282ffd7fab8efff3ffd3b527e5534f88432001218cb5f032f4f",
+            "exactLocator": {
+              "type": "text_phrase",
+              "label": "11.04.2025; Valsemøllen"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Síðasta hveitið malað; Valsemøllen annast mölun.",
+        "extractionMethod": "direct_read_of_fetched_or_frozen_bytes"
+      },
+      "evidenceSha256": "c45d31e52f370df65802c1f1888a3c8d72d9e03ae5fbebaf917c55d3c1aef2aa",
+      "candidateSha256": "4b45da5898217cc5692513a088fea3f90a65e96d0e40bd826660cda85ef6ce58",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/candidate-target-profile.json",
+      "targetProfileSha256": "3210c3489e48b25dfd2a3d0ec3c3e10dc9e52ead3e5f83f88b62df124b9fc834",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A4-G004",
+        "A4-G007"
+      ],
+      "limitations": [
+        "No tph/tpy",
+        "Does not prove barley/oat status"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B16-C06",
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "claim": "No linked public documentation found in B16 channels connecting reserve/raw grain through drying, food milling/rolling, packing, energy, transport, staffing and activation into deliverable consumer food under import interruption. Register hits and product pages do not close this chain gap.",
+      "claimType": "absence_of_linked_deliverable_food_chain",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Iceland cereal preparedness chain as scoped by B16",
+      "period": "channels_as_of_2026-09-09",
+      "geography": "Iceland",
+      "commodityQuality": "food cereal chain",
+      "moistureBasis": null,
+      "method": "Reuse A4-G007 + new MAST/operator evidence; stop rule",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B16-S010",
+            "rawSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+            "extractedTextSha256": "9f78d378c7bb94d2e3bd721389002df1584d8732251339dd7ce20d486c8bcb90",
+            "exactLocator": {
+              "type": "gap",
+              "gapId": "A4-G007"
+            }
+          },
+          {
+            "sourceId": "B16-S008",
+            "rawSha256": "db734582b814b7f834d3a38821b3bfc7ac58dc3fd1205aabc1b74b43e92f7898",
+            "extractedTextSha256": "b07d0c82b018f4dd31b8521a26b4183af4bca3fb0f135786e59bd977be0267fb",
+            "exactLocator": {
+              "type": "note",
+              "label": "list≠capacity"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "A4-G007 remains; lists/one farm cannot synthesize deliverable-food pathway.",
+        "extractionMethod": "direct_read_of_fetched_or_frozen_bytes"
+      },
+      "evidenceSha256": "45875c6f472de86c856083fa0b825543c8f693cf1f5c579055ddc6a300837268",
+      "candidateSha256": "6e6e236f9f064ebdbbc39953c7286a49e811d0787b655165019e999b0ab0eb9c",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/candidate-target-profile.json",
+      "targetProfileSha256": "3210c3489e48b25dfd2a3d0ec3c3e10dc9e52ead3e5f83f88b62df124b9fc834",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A4-G007",
+        "A4-G004"
+      ],
+      "limitations": [
+        "Cannot state deliverable calories/days"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B16-C07",
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "claim": "HD MAT export shows Móðir Jörð ehf., Vallanes (SF-2669) with activity Vinnsla og pökkun úr jurtaríkinu under Framleiðsla-Pökkun code 4 — plant-food processing/packing permit class, not measured milling capacity. Sandhóll bú ehf appears as MAST Feed A848 Frum 3, separate from Sandhóll consumer oat product page.",
+      "claimType": "permit_class_not_capacity",
+      "value": {
+        "modirJordHdPermit": "SF-2669",
+        "modirJordActivityText": "Vinnsla og pökkun úr jurtaríkinu",
+        "sandhollFeedApproval": "A848",
+        "capacityTonnesFromTheseRecords": null
+      },
+      "unit": null,
+      "denominator": null,
+      "population": "Named related processors in open registers",
+      "period": "register_access_2026-09-09",
+      "geography": "Iceland",
+      "commodityQuality": "plant food processing / feed drying",
+      "moistureBasis": null,
+      "method": "Filter HD MAT + MAST export",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B16-S009",
+            "rawSha256": "be25cabf48ad5b3d4a231dabbfb153b85c1fe872b03608d5d76a38e10fb234fe",
+            "extractedTextSha256": "6288f3417b7ba43bfea1f7b9bcc314d7e62e3010795fc559ab1b6ae20ee5cd71",
+            "exactLocator": {
+              "type": "xlsx_row_filter",
+              "label": "SF-2669"
+            }
+          },
+          {
+            "sourceId": "B16-S008",
+            "rawSha256": "db734582b814b7f834d3a38821b3bfc7ac58dc3fd1205aabc1b74b43e92f7898",
+            "extractedTextSha256": "b07d0c82b018f4dd31b8521a26b4183af4bca3fb0f135786e59bd977be0267fb",
+            "exactLocator": {
+              "type": "xlsx_row_filter",
+              "label": "A848"
+            }
+          },
+          {
+            "sourceId": "B16-S011",
+            "rawSha256": "a67906e099bfc0f930ad07422fd9fe94e3a53d871b3b638d7311dee86621aaa0",
+            "extractedTextSha256": "32b32a9954ae531685744cbb2c3bd35c1e8cc07f29ad1aac9c009b12afd0cbb2",
+            "exactLocator": {
+              "type": "text_phrase",
+              "label": "oat products"
+            }
+          },
+          {
+            "sourceId": "B16-S012",
+            "rawSha256": "09f1b0d7e56d9a89ac16ec1a2db180628f45691aee5e38a4c9c07ac23c831095",
+            "extractedTextSha256": "40451abfffb1872af823c641ca1c4766991f1986e0371bbabd66829781a8927a",
+            "exactLocator": {
+              "type": "text_phrase",
+              "label": "bygg products"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "SF-2669 plant packing class; A848 Feed Frum 3.",
+        "extractionMethod": "direct_read_of_fetched_or_frozen_bytes"
+      },
+      "evidenceSha256": "d2fd4636a375f2f715e15872fd5d77ac5dc1594c2946edbb3036705d33472742",
+      "candidateSha256": "c6416c3d3f0fc9a80eb530a53a6c6178b373b9fd78cb755b248b1d3b678b4e9c",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/candidate-target-profile.json",
+      "targetProfileSha256": "3210c3489e48b25dfd2a3d0ec3c3e10dc9e52ead3e5f83f88b62df124b9fc834",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A4-G004",
+        "A4-G005"
+      ],
+      "limitations": [
+        "Permit≠capacity"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    }
+  ]
+}

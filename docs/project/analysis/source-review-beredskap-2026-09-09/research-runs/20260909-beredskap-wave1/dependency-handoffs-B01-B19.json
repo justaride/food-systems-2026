@@ -1,0 +1,138 @@
+{
+  "schema": "beredskap-dependency-handoffs/v1",
+  "packages": [
+    {
+      "packageId": "B01",
+      "runId": "B01-20260909T101901Z-dcaf4365",
+      "status": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B01/B01-20260909T101901Z-dcaf4365/handoff.json",
+      "handoffSha256": "e4a7ec6495b7d59092f602594853f6099e652e6183ac853e559979eb5f079c96"
+    },
+    {
+      "packageId": "B02",
+      "runId": "B02-20260909T101901Z-4aaad87a",
+      "status": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/handoff.json",
+      "handoffSha256": "104892445dedc11d9399a4ae3dcbc3ed8d609e6cc4b8ef72bf0578992ae86ed1"
+    },
+    {
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "status": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/handoff.json",
+      "handoffSha256": "f221694f5523e18c926d66cb3aa0f8cf210a8d5232071796f336edb4ba599329"
+    },
+    {
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "status": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/handoff.json",
+      "handoffSha256": "e2a5ab7077c8059508289aca2078f403c46869e6c5670afd8985210f377498df"
+    },
+    {
+      "packageId": "B05",
+      "runId": "B05-20260909T102531Z-5341273b",
+      "status": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/handoff.json",
+      "handoffSha256": "d768a6134f391bfb55efa80bec49cd9f88e4eb6b8750a439055e20a67d1ca672"
+    },
+    {
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "status": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B06/B06-20260909T102531Z-22c1a4ab/handoff.json",
+      "handoffSha256": "ffa0b60f69dc190934d30d741329a9cf296a8ccb08b9b7c0c73879c48e59f9fd"
+    },
+    {
+      "packageId": "B07",
+      "runId": "B07-20260909T102902Z-2f712e23",
+      "status": "waiting_source",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/handoff.json",
+      "handoffSha256": "66ad992acf0567ca674c686a7d5c850ac48f4a2ae8eb7bd0eb8fbe439b82b419"
+    },
+    {
+      "packageId": "B08",
+      "runId": "B08-20260909T102902Z-7e1f9a59",
+      "status": "waiting_source",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/handoff.json",
+      "handoffSha256": "443e4dd88373f1170ce6a2de02d8f9882e953cafcc571fbf4e806a8fba5b343f"
+    },
+    {
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "status": "waiting_source",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/handoff.json",
+      "handoffSha256": "b696c15be8f3f512b9a6bcd2db34e3383d4a7684c4595961e53fb1ff7dc9b528"
+    },
+    {
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "status": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/handoff.json",
+      "handoffSha256": "792a1c1552d11aac89e3c22f6dd77693f1d5f9d35219976f4f521f3986a4ad5a"
+    },
+    {
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "status": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/handoff.json",
+      "handoffSha256": "772f752d0c62d2657782902694d162ccfc27087c9991491ad4e4d75e74cd7c5e"
+    },
+    {
+      "packageId": "B12",
+      "runId": "B12-20260909T103158Z-efdd0743",
+      "status": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/handoff.json",
+      "handoffSha256": "e239fb1c99c631838cd207df23034e6a88340a9516ca2a4a4de4ee493e1ec1c4"
+    },
+    {
+      "packageId": "B13",
+      "runId": "B13-20260909T103514Z-3261c6cc",
+      "status": "waiting_source",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/handoff.json",
+      "handoffSha256": "422c3962da0b4e6127d4ea1ebcf1ee4b7664d3bb2f7560e8edc0bbe6600c64c0"
+    },
+    {
+      "packageId": "B14",
+      "runId": "B14-20260909T103514Z-4679b359",
+      "status": "complete_within_scope",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/handoff.json",
+      "handoffSha256": "e8e3abc18908ecf0f80012ad70128a43583e622773407b662ff4ccd5f38c9dc3"
+    },
+    {
+      "packageId": "B15",
+      "runId": "B15-20260909T103514Z-9d38b3c0",
+      "status": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/handoff.json",
+      "handoffSha256": "05fe5d77c919e34e3cdb17bf05e86598037a44aa6366a2818a2d2ab4457d7cfc"
+    },
+    {
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "status": "complete_within_scope",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/handoff.json",
+      "handoffSha256": "bbf8558fbd2fe23c4081fade5337d2ae921258fcbb2e58a6753a94a479b4c773"
+    },
+    {
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "status": "waiting_owner",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/handoff.json",
+      "handoffSha256": "7f8c359d0a2548a9f262b07c2107954a3c8ecf2ffa6ec3d60c3ef1cf93f806a5"
+    },
+    {
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "status": "complete_within_scope",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/handoff.json",
+      "handoffSha256": "b3f24d148ce96d501742498f0d30aa3c94b9f3e5bdb4e401831a49870563be5f"
+    },
+    {
+      "packageId": "B19",
+      "runId": "B19-20260909T103719Z-dd7b5e44",
+      "status": "complete_within_scope",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/handoff.json",
+      "handoffSha256": "12b51f8516e26def4a7fc16fde7cd391290087845eae1b207659717b76417087"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "schema": "beredskap-verification/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B15",
+  "runId": "B15-20260909T103514Z-9d38b3c0",
+  "checkedAt": "2026-09-09T10:45:00Z",
+  "checks": [
+    {
+      "name": "worktree_head_matches_planCommit",
+      "result": "pass",
+      "evidence": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a"
+    },
+    {
+      "name": "foundation_commit_recorded",
+      "result": "pass",
+      "evidence": "4026a90d62edf129d4323f7f0971ace716b03983"
+    },
+    {
+      "name": "policy_AGENTS_md_hash",
+      "result": "pass",
+      "evidence": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140"
+    },
+    {
+      "name": "candidate_target_profile_hash",
+      "result": "pass",
+      "evidence": "9f2972adc6565f6d80a13433f0dc518ee659545ba193665288a314083530a85d"
+    },
+    {
+      "name": "A4_data_json_hash",
+      "result": "pass",
+      "evidence": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd"
+    },
+    {
+      "name": "island_check_md_hash",
+      "result": "pass",
+      "evidence": "d68280232de5952bac89e2ac9775a7a106342b45e4d7e9ae3c39e84ed6b7a5c7"
+    },
+    {
+      "name": "LBHI_pdf_matches_A4_S002",
+      "result": "pass",
+      "evidence": "b5e4454c1c3f3bc43be871a6d830001cd1cde8f65ef7bfa1d29babeb9c923fdd"
+    },
+    {
+      "name": "MNHI_pdf_matches_A4_S003",
+      "result": "pass",
+      "evidence": "029d2a2aff389a76562be84b15ca1eede07d918b54e41283f13b470fe413e585"
+    },
+    {
+      "name": "observation_evidence_hashes_canonical",
+      "result": "pass",
+      "evidence": "71a3d4d539046bf2a6fdf72fc9f68596ebbd9d12dc1a086a730de4d59d47b3c8,2ac1d0a42469400ef8c97690ff9269007214ab1dbc039109626ba15325bb099a,581a2f20b98feb0253347a92da54b2f1fb5b3f348c9ccc7d119d869972f9003d,b3d47100d5a492dd85892d87e32cbe3c67f486abb3b87817d46972f7cb63098d,f3c88915ea93a936d29704b16fd3edddc04709f5c114da994451e5adde09108d,4444c26bdc634d586ef07ba310576776e1f051263de6c3a263bdef265e490e1e,4bd3afd02ce4f83d64b30b74645fcb4b116adfefdd8b817e1c85750da2280aa0,097e6a36e6000815efd42ec7cef4304a4ef565b6b1f8523bfefd56cf987668cd"
+    },
+    {
+      "name": "observation_candidate_hashes_exclude_self",
+      "result": "pass",
+      "evidence": "e381cf573b3efe4e20f8db7d7124db6deef1e0f5c675be4bd55a94430be613d7,d4a758bdc7a9279d2ccf08a165e5ddea09f77be6f7bae4ea1086517960b00e2d,0238b8624c575b3784e0a97aa3c31725455ad307eb51b6c7605b194cdcd0ba53,9727ea36d6bb0c6edd20f6551f83df628e8696249e75d75eef0d130f122b7e95,273abcb771be3d6c21289e4cac82cce1d00cfb98450ea4a281ad785e04e35bb2,26d74305316538ce2257694a5f415927f1a6d9d2d52afc77c4acf570d39f2983,51d59cd80180852844ec9273d7a37e27f52f753c93ac23500113b0583f4c87e1,493d67feb68a13d3be47d84d72625ed9b0a6acef62a78a8194c9009cfde5767f"
+    },
+    {
+      "name": "owned_gap_A4-G001_disposition_present",
+      "result": "pass",
+      "evidence": "remains_open_waiting_owner"
+    },
+    {
+      "name": "owned_gap_A4-G002_disposition_present",
+      "result": "pass",
+      "evidence": "remains_open_waiting_owner"
+    },
+    {
+      "name": "semanticGapClosed_all_false",
+      "result": "pass",
+      "evidence": "all_false"
+    },
+    {
+      "name": "human_verified_false",
+      "result": "pass",
+      "evidence": "false"
+    },
+    {
+      "name": "no_email_sent",
+      "result": "pass",
+      "evidence": "intakes.sent=false"
+    },
+    {
+      "name": "stop_rule_scenario_vs_stock_applied",
+      "result": "pass",
+      "evidence": "B15-C04/C05/C06"
+    },
+    {
+      "name": "ferill_access_blocked_documented",
+      "result": "pass",
+      "evidence": "B15-S008"
+    },
+    {
+      "name": "stjornarradid_blazor_empty_extract_documented",
+      "result": "pass",
+      "evidence": "B15-SL07/G04"
+    }
+  ],
+  "notPerformed": [
+    {
+      "name": "human_review_gate",
+      "reason": "KI candidates only; human_verified remains false"
+    },
+    {
+      "name": "canonical_gap_closure",
+      "reason": "Contract forbids automatic gap closure / readiness change"
+    },
+    {
+      "name": "primary_stjornarradid_article_body_read",
+      "reason": "Blazor shell; no extractable body"
+    },
+    {
+      "name": "ferill_or_committee_fulltext_read",
+      "reason": "Cloudflare/403"
+    },
+    {
+      "name": "ci_or_deployment_verification",
+      "reason": "Out of package scope"
+    }
+  ],
+  "failures": [],
+  "human_verified": false
+}

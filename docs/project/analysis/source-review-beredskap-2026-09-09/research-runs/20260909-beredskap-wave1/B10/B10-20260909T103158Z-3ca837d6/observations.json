@@ -1,0 +1,482 @@
+{
+  "schema": "beredskap-observations-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B10",
+  "runId": "B10-20260909T103158Z-3ca837d6",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B10-C01",
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "claim": "Aass year-specific sustainability reports state spent-grain (mask) volumes of 8.3 million liters (2022), 7.9 (2023), 7.8 (2024) and 7.7 (2025), with 2023–2025 stating 100% went to animal feed via local farmers/bondelag; adjacent Kilde lines for 2023–2025 read «Egne målinger»; reports do not publish measurement point, instrument, uncertainty, kg wet mass, density or dry matter.",
+      "claimType": "reported_operator_volume_series",
+      "value": {
+        "2022": 8300000,
+        "2023": 7900000,
+        "2024": 7800000,
+        "2025": 7700000
+      },
+      "unit": "liter_per_year",
+      "denominator": null,
+      "population": "Aass' reported annual mask stream",
+      "period": "2022-2025 calendar years as labeled in each report",
+      "geography": "Drammen / Aass Bryggeri",
+      "commodityQuality": "bryggerimask (spent grain); fraction definition process-level only",
+      "moistureBasis": null,
+      "method": "Operator-reported liters; 2023–2025 Kilde «Egne målinger»; measurement protocol not published",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B10-S04",
+            "rawSha256": "e469bd60b9091ef5c12611ec89eef1464e5022f82505f695d6faf2172d8a39b2",
+            "extractedTextSha256": "15913b49ca0de49e1cc69bafe75c3750a9fc5fea4f2b3237cfc4cbaca17c15e3",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 355,
+              "end": 367,
+              "label": "2022 8.3M liter mask + dyrefôr"
+            },
+            "locatorEvidenceSha256": "eb54f4e5ae31af0160a898e75f7dd075f3af343c8783f5ed98d425cdc0094003"
+          },
+          {
+            "sourceId": "B10-S03",
+            "rawSha256": "7c24e009cfeded248441d08ba33dfc763835ee58a0b321a742b530cb98bc369b",
+            "extractedTextSha256": "b1d349ea6df4d17fa545058fea33b3c7cc8cc229ed032f11da9ce43e257bf2a1",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 214,
+              "end": 232,
+              "label": "2023 Kilde egne målinger + 7.9M + 100%"
+            },
+            "locatorEvidenceSha256": "a9a813d8f17b4acd8950357008322393fd8eefd9c0359b6eb04bdcd6682d51f5"
+          },
+          {
+            "sourceId": "B10-S02",
+            "rawSha256": "cdaa2bba9e399ba0079459116ae5e7110c5b3d9d90155f56bb9ee0fa8d9f5b9e",
+            "extractedTextSha256": "71b4e0b2bbaaa42424c61f82e7ae79736e29c451ab98b81c377fd7660bbf345c",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 221,
+              "end": 237,
+              "label": "2024 Kilde egne målinger + 7.8M + 100%"
+            },
+            "locatorEvidenceSha256": "954c258e1fff2557ccd93e0d94bfac6ba2ace625815c0b1f453f665347dd9f56"
+          },
+          {
+            "sourceId": "B10-S01",
+            "rawSha256": "f5a205d9480348cb2d1a6501535699746ee6b8b6eb67e031ce23784ce4f7020a",
+            "extractedTextSha256": "51a628adb731c10980500e794fb82fb74f265ded51c862bbcf2ea42b98c3a52d",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 159,
+              "end": 169,
+              "label": "2025 Kilde egne målinger + 7.7M + 100%"
+            },
+            "locatorEvidenceSha256": "379afe945e22f45b5984721c8f8611dd1aee5d363cf06c0c07986dd90513c074"
+          }
+        ],
+        "relevantExtractOrParaphrase": "2025 lines 159–169: Kilde Egne målinger; 7,7 millioner liter mask hentet av lokale bønder; næringsrik dyrefôr; 100% mat for dyr. Parallel year-specific blocks in 2022–2024. No kg/DM/protocol.",
+        "extractionMethod": "pdftotext -layout; SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF"
+      },
+      "evidenceSha256": "23bdabbd77edf85e2927ba02ae4d9c36201f19c0d8ac19c6f76e9ae001ab63bd",
+      "candidateSha256": "7e70ba42b80e0e62248a25d02932319c08c3c6a2054099f1387519c5943ec34a",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/target-profile/C2-candidate-target-profile.json",
+      "targetProfileSha256": "0e67ba7852903863f25d671738aff59bb55bcda9001c1d01d415f32ed53c2e30",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C2"
+      ],
+      "gapIds": [
+        "A2-G001",
+        "A2-G006"
+      ],
+      "limitations": [
+        "Liters are not wet-mass kg, dry matter, protein or soy-substitution",
+        "2022 block has no adjacent «Egne målinger» Kilde in extracted text (prior page Kilde is SAI Global for another KPI)",
+        "No monthly/daily volumes or recipient counts"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B10-C02",
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "claim": "The live Aass landbruk page states that «over 8 million liters» of mask are collected by local farmers each year, without stating coverage year, rounding rule or measurement definition; this undated formulation is not identical to the year-specific 2025 report figure of 7.7 million liters and must not be merged without owner clarification.",
+      "claimType": "operator_wording_conflict",
+      "value": {
+        "website_formulation": "over 8 millioner liter",
+        "report_2025_liters": 7700000
+      },
+      "unit": "liter_per_year_vs_undated_website",
+      "denominator": null,
+      "population": "Aass public communications about annual mask volume",
+      "period": "website undated as of retrieval 2026-09-09; report year 2025",
+      "geography": "Drammen / Aass Bryggeri",
+      "commodityQuality": "bryggerimask",
+      "moistureBasis": null,
+      "method": "Side-by-side reading of live HTML and 2025 PDF extract; no reconciliation calculation performed",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B10-S05",
+            "rawSha256": "0e6b0f3bbd738aa3aeeb2ca207411327af61cc1712a469aabd552a61cc2945d3",
+            "extractedTextSha256": "41bf15bb02312a9724db38edfab1568d470fbb94eda1b0428f3a93a15525c64d",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 81,
+              "end": 83,
+              "label": "over 8 millioner liter + rør/bondelag"
+            },
+            "locatorEvidenceSha256": "4b7e689124e1e9b6c056d289b8c92b737306f8da39318db8c743a1663085e048"
+          },
+          {
+            "sourceId": "B10-S01",
+            "rawSha256": "f5a205d9480348cb2d1a6501535699746ee6b8b6eb67e031ce23784ce4f7020a",
+            "extractedTextSha256": "51a628adb731c10980500e794fb82fb74f265ded51c862bbcf2ea42b98c3a52d",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 159,
+              "end": 169,
+              "label": "2025 7.7M year-specific"
+            },
+            "locatorEvidenceSha256": "379afe945e22f45b5984721c8f8611dd1aee5d363cf06c0c07986dd90513c074"
+          }
+        ],
+        "relevantExtractOrParaphrase": "landbruk L81: «Hvert år blir over 8 millioner liter mask … hentet av lokale bønder.» 2025 PDF: «2025 ble 7,7 millioner liter mask …».",
+        "extractionMethod": "HTML tag-stripped text; pdftotext; locator line hashes"
+      },
+      "evidenceSha256": "cfafced4a7d7c8a381a58badc7243b984b2ad488a9435a5e351bd1e887622eec",
+      "candidateSha256": "a95c381c0277b3ff6f7ac96fbe85770525d48a86cd6a0d3c813c9bbea94d330a",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/target-profile/C2-candidate-target-profile.json",
+      "targetProfileSha256": "0e67ba7852903863f25d671738aff59bb55bcda9001c1d01d415f32ed53c2e30",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C2"
+      ],
+      "gapIds": [
+        "A2-G006",
+        "A2-G001"
+      ],
+      "limitations": [
+        "Cannot decide rounding vs historical vs different boundary without data owner",
+        "No invented blended average or «about 8M» substitute figure"
+      ],
+      "contradictions": [
+        {
+          "description": "Undated website «over 8M» vs year-specific 2025 «7.7M» liters",
+          "status": "unresolved"
+        }
+      ],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B10-C03",
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "claim": "Open Aass channels re-read in this run describe mask qualitatively as nutritious/fiber-rich and document process flow to a masksilo and farmer pickup, but they contain no Aass-specific numeric wet mass, density, dry matter, crude protein, NDF/ADF/fiber, fat, ash, energy, minerals, hygienic quality or seasonal/batch variation analyses; the laboratory page states brew quality control, not feed analysis.",
+      "claimType": "negative_finding_missing_Aass_composition",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Aass open publications on mask as feed",
+      "period": "as_of_2026-09-09_open_Aass_channels",
+      "geography": "Drammen / Aass Bryggeri",
+      "commodityQuality": "bryggerimask; bitter post-boil residue excluded from feed per process page",
+      "moistureBasis": null,
+      "method": "Full relevant sections of landbruk, olbrygging, laboratoriet and 2022–2025 reports; search for numeric feed analytes returned none",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B10-S05",
+            "rawSha256": "0e6b0f3bbd738aa3aeeb2ca207411327af61cc1712a469aabd552a61cc2945d3",
+            "extractedTextSha256": "41bf15bb02312a9724db38edfab1568d470fbb94eda1b0428f3a93a15525c64d",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 81,
+              "end": 83,
+              "label": "qualitative næringsrik; no analytes"
+            },
+            "locatorEvidenceSha256": "4b7e689124e1e9b6c056d289b8c92b737306f8da39318db8c743a1663085e048"
+          },
+          {
+            "sourceId": "B10-S06",
+            "rawSha256": "be2809f7c9749296c400e7b2c1e5d648650606b01ed59837658ee2f37952c3bb",
+            "extractedTextSha256": "652c9577fbd19d9dbb46ac241b95780e91920852111d3204f7f7e7269a323012",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 87,
+              "end": 90,
+              "label": "masksilo + bitter non-feed fraction"
+            },
+            "locatorEvidenceSha256": "2bb134b11414343e5d6d6d1aa7b6afafa870dc33bd5a46580b2ff4f92e77b301"
+          },
+          {
+            "sourceId": "B10-S07",
+            "rawSha256": "36d1233485d3abf7314cbed32299ffdb6898689fcd27e1ebd29569c8259ba943",
+            "extractedTextSha256": "84ad668aead680d4267c5a669cac700c65bf722b23be106183c045dbaede32f4",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 78,
+              "end": 79,
+              "label": "lab = brew QC not feed"
+            },
+            "locatorEvidenceSha256": "e9647e797e296b0f63b6e02e02eb7fc2f0bb7ab544c4d962caa234db8a2c670a"
+          },
+          {
+            "sourceId": "B10-S01",
+            "rawSha256": "f5a205d9480348cb2d1a6501535699746ee6b8b6eb67e031ce23784ce4f7020a",
+            "extractedTextSha256": "51a628adb731c10980500e794fb82fb74f265ded51c862bbcf2ea42b98c3a52d",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 159,
+              "end": 169,
+              "label": "2025 qualitative næringsrik only"
+            },
+            "locatorEvidenceSha256": "379afe945e22f45b5984721c8f8611dd1aee5d363cf06c0c07986dd90513c074"
+          }
+        ],
+        "relevantExtractOrParaphrase": "olbrygging L87: fiberrike masken → masksilo → storfôr; L90: bitter malt/humle cake not suitable as dyrefôr. Lab: kvalitetskontroll av bryggene. No DM%/CP%/etc.",
+        "extractionMethod": "HTML strip + pdftotext; negative scan for tørrstoff/råprotein/NDF in Aass texts"
+      },
+      "evidenceSha256": "f2911462ea120903a25f1cbeecf9c8516d17b57284dc1f922c10b6e9d0c08179",
+      "candidateSha256": "b99b4b667eda442b688fc4562836fcc09bffc4fec432377004895f346a000c0a",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/target-profile/C2-candidate-target-profile.json",
+      "targetProfileSha256": "0e67ba7852903863f25d671738aff59bb55bcda9001c1d01d415f32ed53c2e30",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C2"
+      ],
+      "gapIds": [
+        "A2-G002"
+      ],
+      "limitations": [
+        "B10 stop rule: no sampling or feeding trials in this package",
+        "General non-Aass brewery trial composition (prior A2) is not Aass-specific evidence and is not used here as a substitute value"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B10-C04",
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "claim": "Aass documents physical mask flow (mash → lauter → masksilo via pipe; local farmers collect; bondelag distributes) and separates a non-feed bitter residue after wort boiling, but open pages do not quantify silo/pump capacity, vehicles, backup for electricity/natural gas/water, stop frequency, contractual obligations or alternative feed chains.",
+      "claimType": "process_flow_without_resilience_metrics",
+      "value": "brygging → rør → masksilo/hentested → lokale bønder → storfôr",
+      "unit": null,
+      "denominator": null,
+      "population": "Aass' documented mask logistics chain",
+      "period": "current process pages as of 2026-09-09",
+      "geography": "Drammen / Aass Bryggeri",
+      "commodityQuality": "mask vs bitter post-boil residue",
+      "moistureBasis": null,
+      "method": "Operator process and landbruk pages",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B10-S06",
+            "rawSha256": "be2809f7c9749296c400e7b2c1e5d648650606b01ed59837658ee2f37952c3bb",
+            "extractedTextSha256": "652c9577fbd19d9dbb46ac241b95780e91920852111d3204f7f7e7269a323012",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 87,
+              "end": 90,
+              "label": "masksilo and non-feed fraction"
+            },
+            "locatorEvidenceSha256": "2bb134b11414343e5d6d6d1aa7b6afafa870dc33bd5a46580b2ff4f92e77b301"
+          },
+          {
+            "sourceId": "B10-S05",
+            "rawSha256": "0e6b0f3bbd738aa3aeeb2ca207411327af61cc1712a469aabd552a61cc2945d3",
+            "extractedTextSha256": "41bf15bb02312a9724db38edfab1568d470fbb94eda1b0428f3a93a15525c64d",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 81,
+              "end": 83,
+              "label": "rør to hentested; bondelag"
+            },
+            "locatorEvidenceSha256": "4b7e689124e1e9b6c056d289b8c92b737306f8da39318db8c743a1663085e048"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Flow and fraction split documented; capacity/backup/stop frequency absent.",
+        "extractionMethod": "HTML strip; locator line hashes"
+      },
+      "evidenceSha256": "b7ad23c445bcd14c6afaaf8860a464d9e0abdba84f71500bb91855c912b8088f",
+      "candidateSha256": "e6961f6962550af34fb845404c7cba2fb4ce06918e7b2a0cf955b8b64d8867c0",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/target-profile/C2-candidate-target-profile.json",
+      "targetProfileSha256": "0e67ba7852903863f25d671738aff59bb55bcda9001c1d01d415f32ed53c2e30",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C2"
+      ],
+      "gapIds": [
+        "A2-G005"
+      ],
+      "limitations": [
+        "Dependency model only; not measured beredskap performance"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B10-C05",
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "claim": "Open Aass sources document destination «dyrefôr/storfôr» and bondelag distribution, but do not document actual recipient rations, dose (kg wet or kg DM per animal/day), which ingredient is replaced, storage time/temperature/loss, or fallback ration if mask supply stops; therefore no Aass-specific soy/protein/preparedness substitution effect can be calculated from liters alone.",
+      "claimType": "negative_finding_missing_ration_substitution",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Aass mask recipients",
+      "period": "as_of_2026-09-09_open_Aass_channels",
+      "geography": "Drammen / Aass Bryggeri recipient farms (unenumerated)",
+      "commodityQuality": "storfôr / dyrefôr (unspecified ration)",
+      "moistureBasis": null,
+      "method": "Reading of reports + landbruk + olbrygging; B10 stop rule forbids using general brewery trials as Aass effect",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B10-S05",
+            "rawSha256": "0e6b0f3bbd738aa3aeeb2ca207411327af61cc1712a469aabd552a61cc2945d3",
+            "extractedTextSha256": "41bf15bb02312a9724db38edfab1568d470fbb94eda1b0428f3a93a15525c64d",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 81,
+              "end": 83,
+              "label": "dyrefôr only; no ration"
+            },
+            "locatorEvidenceSha256": "4b7e689124e1e9b6c056d289b8c92b737306f8da39318db8c743a1663085e048"
+          },
+          {
+            "sourceId": "B10-S01",
+            "rawSha256": "f5a205d9480348cb2d1a6501535699746ee6b8b6eb67e031ce23784ce4f7020a",
+            "extractedTextSha256": "51a628adb731c10980500e794fb82fb74f265ded51c862bbcf2ea42b98c3a52d",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 159,
+              "end": 169,
+              "label": "100% dyrefôr; no dose"
+            },
+            "locatorEvidenceSha256": "379afe945e22f45b5984721c8f8611dd1aee5d363cf06c0c07986dd90513c074"
+          },
+          {
+            "sourceId": "B10-S10",
+            "rawSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "extractedTextSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "exactLocator": {
+              "type": "json_object",
+              "label": "C2 test maturity and null numericEffect"
+            },
+            "locatorEvidenceSha256": "8ae82fda08fec7c37343af0a26701d2421470a653cf2a0cdf85ac9d728fd9e80"
+          }
+        ],
+        "relevantExtractOrParaphrase": "C2 candidate-tests: numericEffect null; maturity abstract_scope_retained_after_bounded_fulltext_attempt; mechanism requires named replaced ingredient.",
+        "extractionMethod": "HTML/PDF extracts + canonical JSON hash of C2 test object"
+      },
+      "evidenceSha256": "e9d1295f8a751b019d88870e9396891bf645b1d1a7c592dd4dc1415dff50e500",
+      "candidateSha256": "77126a23b5a2663b8408def3e89dc7a1971158dc6d44904509256605f8d93205",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/target-profile/C2-candidate-target-profile.json",
+      "targetProfileSha256": "0e67ba7852903863f25d671738aff59bb55bcda9001c1d01d415f32ed53c2e30",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C2"
+      ],
+      "gapIds": [
+        "A2-G003",
+        "A2-G004"
+      ],
+      "limitations": [
+        "Prior open Holstein heifer trial (A2-S010) is transfer design input only; not Aass-matched",
+        "Stop rule: general brewery studies + liters alone give no Aass-specific soy/protein/beredskap effect"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B10-C06",
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "claim": "Round-003 bounded feed-access check for A2-S012–S015 acquired zero full texts and zero methods sections (OpenAlex OA metadata ≠ full text; DOI/redirect/403 responses); B10 stop rule forbids repeating the DOI/OA redirect loop. Aass-matched original trials with Norwegian breed/dose/environment therefore remain unavailable in authorized open channels.",
+      "claimType": "access_stop_inherited",
+      "value": {
+        "fullTextsAcquired": 0,
+        "methodsRead": 0,
+        "newEvidenceAboutFeedingEffect": false
+      },
+      "unit": null,
+      "denominator": null,
+      "population": "Previously blocked full-text targets A2-S012–S015",
+      "period": "round-003 asOf 2026-09-09; reaffirmed B10 2026-09-09",
+      "geography": "n/a (access metadata)",
+      "commodityQuality": "non-Aass Journal of Dairy Science / JAS abstracts only",
+      "moistureBasis": null,
+      "method": "Re-read of round-003 feed-access findings.json; no new HTTP attempt to DOI/OA targets in B10",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B10-S09",
+            "rawSha256": "eed39c1c926c22b3dd9d7d526c3e9a94ed567d478126adf8d0d65ea62e50f8c6",
+            "extractedTextSha256": "eed39c1c926c22b3dd9d7d526c3e9a94ed567d478126adf8d0d65ea62e50f8c6",
+            "exactLocator": {
+              "type": "json_object",
+              "label": "feed-access summary+stopRule"
+            },
+            "locatorEvidenceSha256": "f731afddb2d53e3f88abf4e03fe627506fb8ed63c77eb7709d486b8e566f0161"
+          }
+        ],
+        "relevantExtractOrParaphrase": "summary.fullTextsAcquired=0; stopRule: no further general searches without new concrete fulltext location, lawful access or original file.",
+        "extractionMethod": "canonical JSON hash of {stopRule,summary}"
+      },
+      "evidenceSha256": "24e670433799ff62880e4eb4ae66369f681fc53fcacecfce86e1597f94489765",
+      "candidateSha256": "6d89b8def35a9f48f4350acc94350bacffaf92b26c8e6ca867bafa12c638a59d",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/target-profile/C2-candidate-target-profile.json",
+      "targetProfileSha256": "0e67ba7852903863f25d671738aff59bb55bcda9001c1d01d415f32ed53c2e30",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C2"
+      ],
+      "gapIds": [
+        "A2-G004"
+      ],
+      "limitations": [
+        "Next route remains authorized institutional library access or legitimately supplied full text; no contact performed",
+        "Even if full text later obtained, studies are not Aass-matched without local dose/breed/environment bridge"
+      ],
+      "contradictions": [],
+      "human_verified": false
+    }
+  ],
+  "human_verified": false
+}

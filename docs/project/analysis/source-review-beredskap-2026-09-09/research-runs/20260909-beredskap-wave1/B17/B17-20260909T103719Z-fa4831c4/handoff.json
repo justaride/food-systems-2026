@@ -1,0 +1,192 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B17",
+  "runId": "B17-20260909T103719Z-fa4831c4",
+  "createdAt": "2026-09-09T10:45:00Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/git-status.txt",
+  "gitStatusSha256": "38998f6dd3c580526e1944aa098186a3222418655d693b3eefba03ff7abc0949",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4",
+  "status": "waiting_owner",
+  "stopReason": "Named public channels exhausted per B17 stop rule: no food protocol; no Overvåkingskomité minutes; 2027 study lacks TOR/budget/owner; no finalized civil/military/allied food priority rule; no finance→delivery chain. Åland protocol retrieved. MoU 2020-date conflict not adopted. Owner documents required; no emails sent.",
+  "model": {
+    "requestedModel": null,
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent session exposes no reliable model id/attestation tool metadata; values left null rather than invented"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B17.md",
+      "sha256": "5759345e08fb8d15aeedc72c5ff822646138583e4d452cc89c17d1f837cf30ea",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A5/data.json",
+      "sha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/NORDISK-BEREDSKAP-RETTELSE.md",
+      "sha256": "9ca6c2e9a26398d5de9fa833e64d8a3cf5c7be4725fae03407f4e97e72379c9a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/provenance-addendum.json",
+      "sha256": "7bd208c91734aa0e4161372f311cd4e5ff4f3e7aea182b13e190a99632758af7",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/target-profile-candidate.json",
+      "sha256": "ae9ba9021a30eff87a7504c49685c6d7c7526fd4f627b09ec0786691108001d6",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/raw/aland-nr57-2026.pdf",
+      "sha256": "59da8d3de810cbd3f95543a666b0c1fb0e8892fe79673f0155979600a9b9c1ac",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/raw/lovdata-2005-04-14-10.html",
+      "sha256": "0dbe91a22b9c076973511736216950f7f92012fb5216d0da64c44b640614b084",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/raw/fi-no-mou.pdf",
+      "sha256": "5fbd556d10854747930ced6a3dcad449cd3f65260f71d521bc766af2dd7831ed",
+      "private": true,
+      "accessRequired": true
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "findings.md",
+      "sha256": "d1f9642a2ac80c4b25355ca5c7c533965a7b7ed05ba7e82a7fe5f83716745228",
+      "private": false
+    },
+    {
+      "path": "sources.json",
+      "sha256": "abe63ea0b1d65a1bac19a2e7cea1c8db264faeb2d330da5eafa40ceb52e3958c",
+      "private": false
+    },
+    {
+      "path": "observations.json",
+      "sha256": "1554c73a7b8a016cfd1132b4ff5042fed324d1a123896d714d4ad2e0075526fe",
+      "private": false
+    },
+    {
+      "path": "gaps.json",
+      "sha256": "634af5633f4328c16c5842c9dd700178491373f3318347a453f13d5a4f3bbb31",
+      "private": false
+    },
+    {
+      "path": "search-log.json",
+      "sha256": "1ed585fbf98bb21541615ab097a1219249909b8c879f0d1738185ece6b214044",
+      "private": false
+    },
+    {
+      "path": "verification.json",
+      "sha256": "6a28f32ce97624040db0d96546c7e6bb7c5783deee2627c36e216fc0afc8b1fd",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "A5-G001",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A5-G002",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A5-G003",
+      "disposition": "partially_illuminated_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A5-G005",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A5-G006",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "A5-G007",
+      "disposition": "partially_illuminated_waiting_source_or_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "B17-B17-20260909T103719Z-fa4831c4-G01",
+      "disposition": "new_subgap_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "B17-B17-20260909T103719Z-fa4831c4-G02",
+      "disposition": "new_subgap_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "B17-B17-20260909T103719Z-fa4831c4-G03",
+      "disposition": "new_subgap_open_waiting_source",
+      "semanticGapClosed": false
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "id": 1,
+      "summary": "Lovdata 2005 identity + Art.3/5/9; no public food protocol; Åland protocol 57/ÅLR 2026/5369 retrieved; MoU 2020-date conflict not adopted"
+    },
+    {
+      "id": 2,
+      "summary": "2027 study/report planned in non-binding declaration to NSSN; mandate/budget/owner/progress absent"
+    },
+    {
+      "id": 3,
+      "summary": "Priority mechanisms recommended only; no finalized rule; no finance→food-delivery chain"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator may intake hash-bound waiting_owner return; owner docs for protocol/committee/2027 TOR/priority rule/delivery chain need new runId; no email from this package",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false
+}

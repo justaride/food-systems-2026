@@ -1,0 +1,308 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B08",
+  "runId": "B08-20260909T102902Z-7e1f9a59",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R4-G002",
+      "packageId": "B08",
+      "runId": "B08-20260909T102902Z-7e1f9a59",
+      "originalGapId": "R4-G002",
+      "question": "Resolve eight reported yield versus P/A consistency warnings and missing DKwheat2015 yield",
+      "disposition": "partially_illuminated_waiting_source",
+      "evidenceCandidateIds": [
+        "B08-C01",
+        "B08-C02",
+        "B08-C03"
+      ],
+      "overlapWithGapIds": [
+        "R4-NO-G001",
+        "R4-G003",
+        "METH-G03",
+        "DKFI-G002"
+      ],
+      "missingFields": [
+        "NO_dated_Eurostat_transmission_version_and_reported_yield_rule",
+        "Eurostat_SE_C1100_2015_reported_YLD_aggregation_rule",
+        "DK_Eurostat_C1100_2015_missing_YLD_explanation",
+        "FI_yield_warnings_2016_2020_owned_boundary_with_B07"
+      ],
+      "searchLogRefs": [
+        "B08-SL01",
+        "B08-SL02",
+        "B08-SL03",
+        "B08-SL04",
+        "B08-SL05"
+      ],
+      "dataOwnerRole": "SSB cereal statistics + Eurostat crop production metadata; SCB/Jordbruksverket; DST/Eurostat",
+      "nextAction": "Obtain named transmission/revision annexes listed in new subgaps; do not overwrite reported YLD with P/A; FI rows coordinate with B07",
+      "stopReason": "Named public annexes searched; SE component areas found; NO ESQRS absent; DK missing YLD unexplained; stop rule blocks imputation and broad re-search",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": true,
+      "sourceStatusPreserved": "open"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R4-G003",
+      "packageId": "B08",
+      "runId": "B08-20260909T102902Z-7e1f9a59",
+      "originalGapId": "R4-G003",
+      "question": "Verify historical crop and area bridges including NO C1110/C1100, DK cultivation and FI2016 break",
+      "disposition": "partially_illuminated_waiting_source",
+      "evidenceCandidateIds": [
+        "B08-C01",
+        "B08-C03",
+        "B08-C04"
+      ],
+      "overlapWithGapIds": [
+        "R4-NO-G001",
+        "DKFI-G002",
+        "METH-G03"
+      ],
+      "missingFields": [
+        "NO_C1110_vs_C1100_transmission_mapping",
+        "DK_2015_cultivated_vs_Eurostat_AR_bridge",
+        "FI2016_area_method_break_owned_with_B07"
+      ],
+      "searchLogRefs": [
+        "B08-SL03",
+        "B08-SL04",
+        "B08-SL05"
+      ],
+      "dataOwnerRole": "National statistical institutes + Eurostat",
+      "nextAction": "Keep historical labels; await year-specific bridges; no retroactive 2025 SAIO definitions",
+      "stopReason": "Definitions juxtaposed; no full historical equivalence proven",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "METH-G03",
+      "packageId": "B08",
+      "runId": "B08-20260909T102902Z-7e1f9a59",
+      "originalGapId": "METH-G03",
+      "question": "Common moisture/crop/area definitions and status flags for NO/DK/FI versus SCB and Eurostat",
+      "disposition": "still_open_waiting_method",
+      "evidenceCandidateIds": [
+        "B08-C04"
+      ],
+      "overlapWithGapIds": [
+        "R4-G003",
+        "R4-NO-G001"
+      ],
+      "missingFields": [
+        "common_EU_standard_humidity_flag",
+        "common_area_denominator_flag",
+        "common_crop_coverage_flag"
+      ],
+      "searchLogRefs": [
+        "B08-SL03",
+        "B08-SL04",
+        "B08-SL05"
+      ],
+      "dataOwnerRole": "Eurostat crop production method + national ESQRS owners",
+      "nextAction": "Parent Eurostat humidity/area status documentation that binds NO/DK/FI/SE without guessed factors",
+      "stopReason": "SCB 14% verified previously; NO/DK 15% notes read; no common flag set; no correction factor applied",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R4-NO-G001",
+      "packageId": "B08",
+      "runId": "B08-20260909T102902Z-7e1f9a59",
+      "originalGapId": "R4-NO-G001",
+      "question": "Exact Eurostat alignment of crop year, delivered-for-sale versus gross production, and field/harvested area",
+      "disposition": "waiting_source",
+      "evidenceCandidateIds": [
+        "B08-C01",
+        "B08-C04"
+      ],
+      "overlapWithGapIds": [
+        "R4-NO-G004",
+        "R4-G002",
+        "R4-G003"
+      ],
+      "missingFields": [
+        "dated_NO_Eurostat_transmission_mapping",
+        "area_denominator_equality_proof",
+        "own_use_adjustment_if_any"
+      ],
+      "searchLogRefs": [
+        "B08-SL03"
+      ],
+      "dataOwnerRole": "SSB Seksjon for eiendoms-, areal- og primærnæringsstatistikk / Eurostat",
+      "nextAction": "Unsent document request for dated transmission version covering C1110/C1300 2015–2017 reported YLD calculation",
+      "stopReason": "Public NO ESQRS missing; SSB method confirms sale deliveries only; no equality to Eurostat gross production established",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "compare_explicit_metadata_before_harmonized_inference"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R4-NO-G004",
+      "packageId": "B08",
+      "runId": "B08-20260909T102902Z-7e1f9a59",
+      "originalGapId": "R4-NO-G004",
+      "question": "Meaning of refperiod31.07/Stock metadata for annual production and own-use volume",
+      "disposition": "waiting_source",
+      "evidenceCandidateIds": [
+        "B08-C01"
+      ],
+      "overlapWithGapIds": [
+        "R4-NO-G001"
+      ],
+      "missingFields": [
+        "authoritative_interpretation_of_refperiod_31_07_Stock",
+        "own_use_volume"
+      ],
+      "searchLogRefs": [
+        "B08-SL01"
+      ],
+      "dataOwnerRole": "SSB table 04610 metadata steward",
+      "nextAction": "Keep annual year label; do not derive dated inventory or gross production from Stock/refperiod alone",
+      "stopReason": "API metadata still shows refperiod 31.07 and measuringType Stock on yield cells; no clarifying annex in this run",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "definition_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "DKFI-G002",
+      "packageId": "B08",
+      "runId": "B08-20260909T102902Z-7e1f9a59",
+      "originalGapId": "DKFI-G002",
+      "question": "HST77 cultivated vs harvested area handling in2018 and crop-code bridge for spelt/durum",
+      "disposition": "still_open_waiting_source",
+      "evidenceCandidateIds": [
+        "B08-C03"
+      ],
+      "overlapWithGapIds": [
+        "R4-G003",
+        "R4-G002"
+      ],
+      "missingFields": [
+        "2018_cultivated_vs_harvested_quantitative_bridge",
+        "spelt_durum_to_C1100_code_bridge"
+      ],
+      "searchLogRefs": [
+        "B08-SL04",
+        "B08-SL05"
+      ],
+      "dataOwnerRole": "DST crop statistics / Eurostat DK ESQRS",
+      "nextAction": "Keep original HST77 labels; seek named crop-code and area-denominator annex; do not infer equivalence from similar totals",
+      "stopReason": "DST definitions read; no spelt/durum bridge; 2018 quality PDF not reused as silent 2015 fix",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B08-B08-20260909T102902Z-7e1f9a59-G01",
+      "packageId": "B08",
+      "runId": "B08-20260909T102902Z-7e1f9a59",
+      "originalGapId": null,
+      "question": "Dated Norwegian Eurostat crop-production transmission package / ESQRS equivalent covering reported YLD for C1110/C1300 2015–2017",
+      "disposition": "new_document_need",
+      "evidenceCandidateIds": [
+        "B08-C01"
+      ],
+      "overlapWithGapIds": [
+        "R4-G002",
+        "R4-NO-G001"
+      ],
+      "missingFields": [
+        "transmission_version_id",
+        "transmission_date",
+        "yield_calculation_rule",
+        "crop_year_definition"
+      ],
+      "searchLogRefs": [
+        "B08-SL03"
+      ],
+      "dataOwnerRole": "SSB / Eurostat",
+      "nextAction": "Unsent request for named annex; do not repeat broad web search",
+      "stopReason": "Public ESQRS for NO absent (404); required for Q1",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B08-B08-20260909T102902Z-7e1f9a59-G02",
+      "packageId": "B08",
+      "runId": "B08-20260909T102902Z-7e1f9a59",
+      "originalGapId": null,
+      "question": "Eurostat rule that publishes SE C1100 2015 reported YLD 7.22 given component areas now known",
+      "disposition": "new_document_need",
+      "evidenceCandidateIds": [
+        "B08-C02"
+      ],
+      "overlapWithGapIds": [
+        "R4-G002"
+      ],
+      "missingFields": [
+        "reported_YLD_rounding_or_aggregation_rule"
+      ],
+      "searchLogRefs": [
+        "B08-SL02"
+      ],
+      "dataOwnerRole": "Eurostat apro_cp / SCB",
+      "nextAction": "Keep 7.22 and P/A distinct until rule documented",
+      "stopReason": "Component areas found; reported-vs-P/A residual remains",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B08-B08-20260909T102902Z-7e1f9a59-G03",
+      "packageId": "B08",
+      "runId": "B08-20260909T102902Z-7e1f9a59",
+      "originalGapId": null,
+      "question": "Eurostat/DST explanation for missing DK C1100 2015 reported yield cell and 0.3 thousand ha barley area residual",
+      "disposition": "new_document_need",
+      "evidenceCandidateIds": [
+        "B08-C03"
+      ],
+      "overlapWithGapIds": [
+        "R4-G002",
+        "DKFI-G002"
+      ],
+      "missingFields": [
+        "missing_cell_flag_meaning",
+        "2015_area_version_note"
+      ],
+      "searchLogRefs": [
+        "B08-SL04",
+        "B08-SL05"
+      ],
+      "dataOwnerRole": "DST / Eurostat",
+      "nextAction": "Do not impute reported yield from national HST77; request revision note",
+      "stopReason": "National yields exist; Eurostat reported YLD missing; stop rule forbids fill",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    }
+  ]
+}

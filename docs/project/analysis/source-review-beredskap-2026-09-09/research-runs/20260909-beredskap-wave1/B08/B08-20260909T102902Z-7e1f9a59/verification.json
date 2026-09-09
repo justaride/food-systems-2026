@@ -1,0 +1,157 @@
+{
+  "schema": "beredskap-verification/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B08",
+  "runId": "B08-20260909T102902Z-7e1f9a59",
+  "createdAt": "2026-09-09T10:40:00Z",
+  "checks": [
+    {
+      "id": "V01",
+      "name": "worktree_head_matches_planCommit",
+      "result": "passed",
+      "evidence": "HEAD=5c3d735712f3b5fe929ba8043ee57a74cb318e1a"
+    },
+    {
+      "id": "V02",
+      "name": "foundation_commit_recorded",
+      "result": "passed",
+      "evidence": "4026a90d62edf129d4323f7f0971ace716b03983"
+    },
+    {
+      "id": "V03",
+      "name": "private_raw_sha256_for_new_annexes",
+      "result": "passed",
+      "evidence": {
+        "jo16sm1601.pdf": "a6ca107a2dcb32fb3f1295852c6045a019f4e817137b7924214008ce715432bd",
+        "jo0601_bs_2015.pdf": "d9da46e06e7f376e40e1943f847771fefaf40dcfb98942058a4bc8cdc512ebc4",
+        "eurostat-metadata-index.html": "0c0f61077a6168cab8dec00cd8a56e5afd89108ccb2396cf525ad4826805c8de",
+        "apro_cp_esms.htm": "fa2b6662e083811c73fbbd674aa07574cb335085ea00a6bd6011415ed575e47e",
+        "apro_cp_esqrscn2_dk.htm": "597086d44c780a142dc27d802a17ff6be92a6fb6e2d3b78177c8af0262fee770",
+        "apro_cp_esqrscn2_se.htm": "91a09988e89705d37d33c671e13bc78a34d9b53c1b3bad2a98e21643f3ee8bee",
+        "apro_cp_esqrscn2_no.htm": "9448f8a1159c9b14e3e1b9d8eab1a6ddf88d26e1f888a34cef430c756e4e6e1e",
+        "dst-hoest-indhold.html": "cf2131a3fd8d6526c1046109542e715501daf8637094dab58e4fee604a14ae37",
+        "dst-hoest-behandling.html": "f7af131c3ad01e766e55482d881167471cbf546a933c4e4001f2c74b5369c6af"
+      }
+    },
+    {
+      "id": "V04",
+      "name": "extract_sha256_for_new_annexes",
+      "result": "passed",
+      "evidence": {
+        "jo16sm1601.txt": "d25a33964b97a32f48b5548f9f1d8049a97cf682e9dde49e166e9ba616b5c9e3",
+        "jo0601_bs_2015.txt": "e53597a1721a972b687755854632886e547418637e9c4e6b711c4f92940d4900",
+        "eurostat-metadata-index.txt": "7548e9d87fc57f4e7028a504655249ce1f6c496413e051b29801b6ea3a6588a7",
+        "apro_cp_esms.txt": "27001746dddf7f73050ddf0d97391646cde4febb895a9104a38dfbe21d71c858",
+        "apro_cp_esqrscn2_dk.txt": "e683e302d59fb1a9cc12a70063580e39b1b9dff2d002ebd223fa39efc552c9b9",
+        "apro_cp_esqrscn2_se.txt": "a09576e9db4cf43af4e7891a5c20cebaf9833ffddd4d4b7a7f5402c7a2abad7c",
+        "apro_cp_esqrscn2_no.txt": "8dcdd5cfe58f1d1393bfa59de3e3f04ee1ff8f4e76880e92d5b6129af1eede2f",
+        "dst-hoest-indhold.txt": "cdc89b036680c148d1504fe234dcb639fb7994cb1f6ebd20afa972f4b405257c",
+        "dst-hoest-behandling.txt": "706c603c10c7da0ade15c35a9db76a53ac59cb045e8291a3941c80570a5a036a"
+      }
+    },
+    {
+      "id": "V05",
+      "name": "prior_ssb_scb_hst_hashes_rechecked",
+      "result": "passed",
+      "evidence": {
+        "R5_SSB_DATA": "8deed02271792f4af34c3e7d160cd57845cb3ff0989035e09605885cb0fcc57e",
+        "METH_S09": "d2deffd5254ed0324971d1fc03b9849c531ef24e201af5a8cd77f25f80557fc9",
+        "DKFI_S002": "fff437a29bf465a2b99f16f25a5dfb382b15ee5c78331ad2b5986f9bf69b3c78",
+        "R4_NO_METHOD_TXT": "dccee0bdce57cdee9751b4792c1eade50c88dd3c4301e194e1d399b57a83695c"
+      }
+    },
+    {
+      "id": "V06",
+      "name": "policy_and_target_profile_hashes",
+      "result": "passed",
+      "evidence": {
+        "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+        "targetProfileSha256": "5d1e4198c27c96c7cb59a7da52017490ceefdf3b1765d043491c2d92f575c8cb"
+      }
+    },
+    {
+      "id": "V07",
+      "name": "stop_rule_reported_vs_PA_not_collapsed",
+      "result": "passed",
+      "evidence": "findings+B08-C02 keep 7.22 vs P/A distinct; DK missing YLD not imputed"
+    },
+    {
+      "id": "V08",
+      "name": "no_owner_contact_sent",
+      "result": "passed",
+      "evidence": "only unsent document needs in gaps"
+    },
+    {
+      "id": "V09",
+      "name": "observation_candidate_hashes",
+      "result": "passed",
+      "evidence": [
+        {
+          "candidateId": "B08-C01",
+          "evidenceSha256": "90cc69e1d3d2386bdf19804728f941a71f9e2aa267a2f324880e914a58976d74",
+          "candidateSha256": "82568fa22f6465f3a5042715f97b4ee67f63eda0e07fc8058fe0755a9eba72e1"
+        },
+        {
+          "candidateId": "B08-C02",
+          "evidenceSha256": "c69da793fd9447047f1886a8c031265ce0c190817dce68642a4917a11fe0c128",
+          "candidateSha256": "ebc76bce6f196de842a74195ad6fd35afd173fc07811045af96ab8d6aca49a33"
+        },
+        {
+          "candidateId": "B08-C03",
+          "evidenceSha256": "8a648b5e298730d0ad21af581729422672443f8c27188d21804ec4abe2f2aaa4",
+          "candidateSha256": "3760db5ee0a078ea97f274730a466aef43f18844d3ffc2214aa121714a2face4"
+        },
+        {
+          "candidateId": "B08-C04",
+          "evidenceSha256": "12c6ed2b05dbf6b75501d17436e5863a26715482ac66fcc62f5dc00b0aa94bed",
+          "candidateSha256": "ba11d53ecf0fc949d49e6938f0b946430c1382f10ee01b6d4927ad6b2af67351"
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "name": "SE_component_area_sum_equals_eurostat_area",
+      "result": "passed",
+      "evidence": {
+        "sum_ha": 457550,
+        "eurostat_area_kha_x1000": 457550,
+        "calcSha256": "b2c59526d71648e239c3077d66b0d9f9fdba13cb23e402fd725c15c0c94c53cf"
+      }
+    },
+    {
+      "id": "V11",
+      "name": "NO_esqrscn_http_404",
+      "result": "passed",
+      "evidence": {
+        "http": 404,
+        "rawSha256": "9448f8a1159c9b14e3e1b9d8eab1a6ddf88d26e1f888a34cef430c756e4e6e1e"
+      }
+    },
+    {
+      "id": "V12",
+      "name": "astra_master_review",
+      "result": "not_performed",
+      "evidence": "Master gpt-6-astra review is out of scope for worker package"
+    },
+    {
+      "id": "V13",
+      "name": "human_review",
+      "result": "not_performed",
+      "evidence": "human_verified remains false"
+    },
+    {
+      "id": "V14",
+      "name": "canonical_or_readiness_change",
+      "result": "not_performed",
+      "evidence": "forbidden by contract; flags false"
+    }
+  ],
+  "failures": [],
+  "notPerformed": [
+    "V12",
+    "V13",
+    "V14"
+  ],
+  "human_verified": false
+}

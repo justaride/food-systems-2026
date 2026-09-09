@@ -1,0 +1,129 @@
+{
+  "schema": "beredskap-verification/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B19",
+  "runId": "B19-20260909T103719Z-dd7b5e44",
+  "createdAt": "2026-09-09T10:42:54Z",
+  "checks": [
+    {
+      "id": "V01",
+      "name": "worktree_head_matches_planCommit",
+      "result": "passed",
+      "evidence": "git rev-parse HEAD == 5c3d735712f3b5fe929ba8043ee57a74cb318e1a == planCommit"
+    },
+    {
+      "id": "V02",
+      "name": "foundation_commit_recorded",
+      "result": "passed",
+      "evidence": "4026a90d62edf129d4323f7f0971ace716b03983"
+    },
+    {
+      "id": "V03",
+      "name": "review_packet_sha_matches_register",
+      "result": "passed",
+      "evidence": {
+        "packetSha256": "5a0934125eccdcb3fa0612baa1edaa01488dba1d24e18eeb0a0d46cd5f12fc10",
+        "registerPacketSha256": "5a0934125eccdcb3fa0612baa1edaa01488dba1d24e18eeb0a0d46cd5f12fc10"
+      }
+    },
+    {
+      "id": "V04",
+      "name": "review_queue_run_003_passed",
+      "result": "passed",
+      "evidence": {
+        "summarySha256": "27483f10f5315452371e7fedbfbc041a79591315b2ea063816a359045d53e466",
+        "jobSha256": "370ad1ed06399cccc5661b070ae5a8c5326a78ca62e04520378adc3aaf18555b",
+        "status": "passed",
+        "observationCount": 127,
+        "reviewCount": 127,
+        "boundSourceCount": 83
+      }
+    },
+    {
+      "id": "V05",
+      "name": "documentation_D-S_raw_text_hashes",
+      "result": "passed",
+      "evidence": {
+        "D-S001": {
+          "rawMatch": true,
+          "textMatch": true
+        },
+        "D-S002": {
+          "rawMatch": true,
+          "textMatch": true
+        },
+        "D-S003": {
+          "rawMatch": true,
+          "textMatch": true
+        },
+        "D-S004": {
+          "rawMatch": true,
+          "textMatch": true
+        },
+        "D-S005": {
+          "rawMatch": true,
+          "textMatch": true
+        }
+      }
+    },
+    {
+      "id": "V06",
+      "name": "oslomet_html_matches_provenance_addendum",
+      "result": "passed",
+      "evidence": {
+        "rawSha256": "b3897218cec83a9c5a30f3a028b4ae2a331304f9b5298a2363be6b7af2100ddf",
+        "expected": "b3897218cec83a9c5a30f3a028b4ae2a331304f9b5298a2363be6b7af2100ddf"
+      }
+    },
+    {
+      "id": "V07",
+      "name": "policy_and_candidate_target_profile_hashes",
+      "result": "passed",
+      "evidence": {
+        "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+        "targetProfileSha256": "dbef0618d29a34ee4895cb9ad843db4c079257cb39cd70eb2e0c78b49f01a1b4"
+      }
+    },
+    {
+      "id": "V08",
+      "name": "stop_rule_no_mass_library_processing",
+      "result": "passed",
+      "evidence": "search-log uses frozen named channels only; no DB import, candidate-writer, or 1770 mass read"
+    },
+    {
+      "id": "V09",
+      "name": "model_attestation_left_null_not_invented",
+      "result": "passed",
+      "evidence": "handoff.model.attestedModel=null; queue modelVersionAttested=false"
+    },
+    {
+      "id": "V10",
+      "name": "no_owner_contact_or_publish",
+      "result": "passed",
+      "evidence": "No emails; published=false; canonicalChanges=false; readinessChanged=false"
+    },
+    {
+      "id": "V11",
+      "name": "human_verified_false_everywhere",
+      "result": "passed",
+      "evidence": "All candidates/gaps/handoff human_verified=false"
+    },
+    {
+      "id": "V12",
+      "name": "research_plan_and_prior_rounds_unedited",
+      "result": "passed",
+      "evidence": "Delivery written only under research-runs/.../B19/... and private artifact root"
+    }
+  ],
+  "failures": [],
+  "checksNotPerformed": [
+    "Full semantic re-review of all 127 observation bodies",
+    "Fresh visual re-check of all Finlex/SIFO PDF pages",
+    "Live production UI / CI / deployment / runtime SHA gates",
+    "Independent multi-model attestation",
+    "Human authority review",
+    "Current library population census"
+  ],
+  "human_verified": false
+}

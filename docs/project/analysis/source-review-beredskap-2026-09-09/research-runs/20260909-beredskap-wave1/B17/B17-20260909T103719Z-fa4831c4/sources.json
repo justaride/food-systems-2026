@@ -1,0 +1,333 @@
+{
+  "schema": "beredskap-sources/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B17",
+  "runId": "B17-20260909T103719Z-fa4831c4",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B17-S01",
+      "title": "Avtale mellom Norge og Finland om opprettholdelse av vare- og tjenestebyttet i krigs- og krisesituasjoner",
+      "publisher": "Lovdata / Norge og Finland",
+      "url": "https://lovdata.no/dokument/TRAKTAT/traktat/2005-04-14-10",
+      "documentVersion": "Ident 14-04-2005 nr 10",
+      "publishedAt": "2005-04-14",
+      "accessedAt": "2026-09-09",
+      "readScope": "Metadata + Artikkel 1-3, 5, 6, 9",
+      "sourceRole": "primary_treaty_text",
+      "accessStatus": "retrieved_http_200",
+      "rights": {
+        "internalUseBasis": "public_official_treaty_publication",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/raw/lovdata-2005-04-14-10.html",
+      "rawSha256": "0dbe91a22b9c076973511736216950f7f92012fb5216d0da64c44b640614b084",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/extracts/lovdata-2005-04-14-10.txt",
+      "extractedTextSha256": "35d3886249d49c5c2d073f59a4510542520411ea753703f3bca5cf129932cee1",
+      "exactLocators": [
+        "Ident 14-04-2005 nr 10; ikrafttredelse Norge 21-07-2006",
+        "Artikkel 3 protokoller/leveranseforpliktelser",
+        "Artikkel 5 Overvåkingskomité",
+        "Artikkel 9 tiårsperiode"
+      ],
+      "limitations": [
+        "HTML-portal; artikkeltekst verifisert i rå-HTML"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B17-S02",
+      "title": "Finlex 445/2006 ikraftsettelseslov for Norge-avtalen",
+      "publisher": "Finlex",
+      "url": "https://finlex.fi/fi/lainsaadanto/saadoskokoelma/2006/445",
+      "documentVersion": "445/2006",
+      "publishedAt": "2006-06-08",
+      "accessedAt": "2026-09-09",
+      "readScope": "Metadata/tittel; ingen matprotokoll",
+      "sourceRole": "implementing_statute_register",
+      "accessStatus": "retrieved_http_200",
+      "rights": {
+        "internalUseBasis": "public_official_law_publication",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/raw/finlex-445-2006.html",
+      "rawSha256": "706d7007cf12b67d167c295773a426d6f81db5ae5834fdaa8459e199da9d46c5",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/extracts/finlex-445-2006.txt",
+      "extractedTextSha256": "85c4b49227ebc92bdfc7bf4f9e93a57a5f3a392673ce2dca5b1b75564df0195d",
+      "exactLocators": [
+        "445/2006 tittel om Norge-avtalen"
+      ],
+      "limitations": [
+        "Ikke matprotokoll"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B17-S03",
+      "title": "Protokoll nr 57 (1.9.2026) Nordic Declaration (ÅLR 2026/5369) bilaga Rk1a26E57",
+      "publisher": "Ålands landskapsregering",
+      "url": "https://www.regeringen.ax/sites/default/files/attachments/protocol/nr57-2026-enskild-rk1a.pdf",
+      "documentVersion": "Protokoll 57 / 1.9.2026 / ÅLR 2026/5369 / Bilaga Rk1a26E57",
+      "publishedAt": "2026-09-01",
+      "accessedAt": "2026-09-09",
+      "readScope": "Hele PDF 5 sider",
+      "sourceRole": "primary_aland_decision_and_declaration_annex",
+      "accessStatus": "retrieved_http_200",
+      "rights": {
+        "internalUseBasis": "public_official_protocol_publication",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/raw/aland-nr57-2026.pdf",
+      "rawSha256": "59da8d3de810cbd3f95543a666b0c1fb0e8892fe79673f0155979600a9b9c1ac",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/extracts/aland-nr57-2026.txt",
+      "extractedTextSha256": "62ad9d9b97f643be3588f8df8865cfe4887bf245bbb8e616e317fbd58494965b",
+      "exactLocators": [
+        "page1 Protokoll 57 / ÅLR 2026/5369 beslut underteckna",
+        "page4 not legally binding",
+        "page4 feasibility study NSSN during 2027; joint report autumn 2027",
+        "page4-5 Nordic agreement replace/complement bilaterals; seminar 2028",
+        "page5 signature placeholders 2608XX"
+      ],
+      "limitations": [
+        "A5 fikk 403; B17 fikk 200",
+        "Signeringsfelter delvis plassholdere"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B17-S04",
+      "title": "Nordiske land styrker samarbeidet om forsyningssikkerhet",
+      "publisher": "Regjeringen.no",
+      "url": "https://www.regjeringen.no/no/aktuelt/nordiske-land-styrker-samarbeidet-om-forsyningssikkerhet/id3171741/",
+      "documentVersion": null,
+      "publishedAt": "2026-09-02",
+      "accessedAt": "2026-09-09",
+      "readScope": "Hele pressemelding",
+      "sourceRole": "official_press_summary",
+      "accessStatus": "retrieved_http_200",
+      "rights": {
+        "internalUseBasis": "public_government_press_release",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/raw/regjeringen-nordisk-forsyning.html",
+      "rawSha256": "94379d3c617879ef685ab35b6fce083f64b6d5aeeec21c7d587f5b31332bc74b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/extracts/regjeringen-nordisk-forsyning.txt",
+      "extractedTextSha256": "656f335eacb85122358d2db07538bfb5c8a56b3d9dbb2ba164377e244ed7c6da",
+      "exactLocators": [
+        "NSSN-forankring; felles studie; mulig senere avtale"
+      ],
+      "limitations": [
+        "Pressespråk 'Avtalen ble underskrevet' vs non-binding klausul",
+        "Ingen budsjett/TOR"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B17-S05",
+      "title": "Nordisk deklaration om försörjningsberedskap undertecknad",
+      "publisher": "Regeringen.se",
+      "url": "https://www.regeringen.se/pressmeddelanden/2026/09/nordisk-deklaration-om-forsorjningsberedskap-undertecknad/",
+      "documentVersion": null,
+      "publishedAt": "2026-09-02",
+      "accessedAt": "2026-09-09",
+      "readScope": "Svensk pressemelding",
+      "sourceRole": "official_press_summary",
+      "accessStatus": "retrieved_http_200",
+      "rights": {
+        "internalUseBasis": "public_government_press_release",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/raw/regeringen-se-press-nordisk.html",
+      "rawSha256": "32344e017000ca52ed5c861ac726e9a69a3e47925518231282cf34900ee3d331",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/extracts/regeringen-se-press-nordisk.txt",
+      "extractedTextSha256": "f114740fe4f42cdbb1288f94b9f9f6348a4c734520f8e9a2cbb11c6c954844eb",
+      "exactLocators": [
+        "Publicerad 02 september 2026; Nordic Supplies Summit"
+      ],
+      "limitations": [
+        "Ikke full deklarasjonstekst; government.se/statements 403"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B17-S06",
+      "title": "Joint Nordic Strategy for Transport System Preparedness",
+      "publisher": "Nordic Transport Preparedness Committee / Regjeringen.no",
+      "url": "https://www.regjeringen.no/contentassets/13bf930aa5ec406b8df0ec6b881752b0/joint-nordic-strategy-for-transport-system-preparedness.pdf",
+      "documentVersion": null,
+      "publishedAt": "2026-02-24",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full PDF 13 pages; food string search=0",
+      "sourceRole": "nordic_transport_strategy",
+      "accessStatus": "retrieved_http_200",
+      "rights": {
+        "internalUseBasis": "public_government_pdf",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/raw/transport-strategy.pdf",
+      "rawSha256": "eb0e366c79e0a0a69a56088eb961a1fb1e72f94b22efb315e9621a3645b2b013",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/extracts/transport-strategy.txt",
+      "extractedTextSha256": "dea089bcb1cf41a83df14525435d86e31f3c233f951704138c10112540e0bcd4",
+      "exactLocators": [
+        "§5.4 pre-defined process may be required",
+        "allocate railway capacity military/civilian",
+        "food matches=0"
+      ],
+      "limitations": [
+        "Anbefaling ≠ ferdig prioriteringsregel"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B17-S07",
+      "title": "FFI-rapport 26/010 Nasjonal forsyningssikkerhet i krise og krig",
+      "publisher": "FFI / Regjeringen.no",
+      "url": "https://www.regjeringen.no/contentassets/ae61fb43e430495f8d9b9e40d22ffa95/ffi-rapport-oppdatert.pdf",
+      "documentVersion": "FFI-RAPPORT 26/010",
+      "publishedAt": "2026",
+      "accessedAt": "2026-09-09",
+      "readScope": "Utvalgte sider 4,18,70,90,92,102,133-135",
+      "sourceRole": "analytical_recommendation",
+      "accessStatus": "retrieved_http_200_encrypted_pdf",
+      "rights": {
+        "internalUseBasis": "public_government_hosted_report",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/raw/ffi-rapport.pdf",
+      "rawSha256": "f91325ff99e04b048a01cbee67cbcc6013d385150118282ec0a6aa6516cc2f86",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/extracts/ffi-rapport-selected-pages.txt",
+      "extractedTextSha256": "3c79923d731aedbeacf340141c5e815dd2583535275b81eb1167f2306baa695d",
+      "exactLocators": [
+        "s.133-135 utvikle sivilmilitære prioriteringsmekanismer"
+      ],
+      "limitations": [
+        "Anbefaling ≠ ferdig regel/leveringslogg"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B17-S08",
+      "title": "MoU Finland–Norway Bilateral Defence Cooperation",
+      "publisher": "Regjeringen.no",
+      "url": "https://www.regjeringen.no/contentassets/ff21fcf7df95401db9f0d712a323dcfd/fi-no-mou.pdf",
+      "documentVersion": null,
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Hele MoU 7 sider",
+      "sourceRole": "defence_mou_secondary_citation",
+      "accessStatus": "retrieved_http_200",
+      "rights": {
+        "internalUseBasis": "public_government_pdf",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/raw/fi-no-mou.pdf",
+      "rawSha256": "5fbd556d10854747930ced6a3dcad449cd3f65260f71d521bc766af2dd7831ed",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/extracts/fi-no-mou.txt",
+      "extractedTextSha256": "f787b2192958dee4e81448ce5800073b5fce72a2dfd94cf0a4a35c7232d400db",
+      "exactLocators": [
+        "page2 dated 5 November 2020 for same treaty title",
+        "Section 7 not legally binding",
+        "Section 2 i military security of supply"
+      ],
+      "limitations": [
+        "STOP: 2020-dato brukes ikke som traktatidentitet",
+        "Ingen matvolumrett"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B17-S09",
+      "title": "A5 prior research data.json",
+      "publisher": "internal_research",
+      "url": null,
+      "documentVersion": "A5-2026-09-08",
+      "publishedAt": "2026-09-08",
+      "accessedAt": "2026-09-09",
+      "readScope": "Hele JSON sources/observations/gaps",
+      "sourceRole": "inherited_prior_search_and_gap_register",
+      "accessStatus": "local_file",
+      "rights": {
+        "internalUseBasis": "internal_research_corpus",
+        "redistributionAllowed": false
+      },
+      "rawPath": "research/agent-research-2026-09-08/resultater/A5/data.json",
+      "rawSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        "/gaps A5-G001-G007",
+        "/sources S001-S015"
+      ],
+      "limitations": [
+        "human_verified false"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B17-S10",
+      "title": "NORDISK-BEREDSKAP-RETTELSE.md",
+      "publisher": "internal_analysis",
+      "url": null,
+      "documentVersion": "FS2026-RES-004",
+      "publishedAt": "2026-09-07",
+      "accessedAt": "2026-09-09",
+      "readScope": "Hele rettelsen",
+      "sourceRole": "internal_correction_note",
+      "accessStatus": "local_file",
+      "rights": {
+        "internalUseBasis": "internal_analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/NORDISK-BEREDSKAP-RETTELSE.md",
+      "rawSha256": "9ca6c2e9a26398d5de9fa833e64d8a3cf5c7be4725fae03407f4e97e72379c9a",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        "Karlstad/deklarasjon som politisk ramme ≠ dokumentert reserve"
+      ],
+      "limitations": [
+        "Ikke originalavtale"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B17-S11",
+      "title": "government.se Joint Nordic Declaration (access attempt)",
+      "publisher": "Government Offices of Sweden",
+      "url": "https://www.government.se/statements/2026/09/joint-nordic-declaration-on-security-of-supply/",
+      "documentVersion": null,
+      "publishedAt": "2026-09-02",
+      "accessedAt": "2026-09-09",
+      "readScope": "HTTP 403 — innhold ikke lest",
+      "sourceRole": "attempted_primary_declaration_host",
+      "accessStatus": "http_403_forbidden",
+      "rights": {
+        "internalUseBasis": "public_intended_but_blocked",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/raw/govse-joint-nordic-declaration.html",
+      "rawSha256": "0741fd1eded47d4a6903c4b3c2ac1d832705fb1d476afa73e198720e035f64d3",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        "HTTP 403 body as access evidence only"
+      ],
+      "limitations": [
+        "Ingen innholdspåstand"
+      ]
+    }
+  ],
+  "human_verified": false
+}

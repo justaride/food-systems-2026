@@ -1,0 +1,39 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B07",
+  "runId": "B07-20260909T102902Z-2f712e23",
+  "entries": [
+    {
+      "id": "B07-SL01",
+      "question": "Is there a concrete new named Luke/Eurostat 2018 transfer or revision annex beyond the exact stop in round-005/DEFINISJONER.md?",
+      "date": "2026-09-09",
+      "channel": "Reuse exact stop + R5-S08/R5-S09 private inventory; no broad web search",
+      "queryOrDocument": "DEFINISJONER Stopp R4-G001; PRIV5 round-005 filenames fi-2018-release.* / fi-method.*; source-bindings R5-S08/R5-S09",
+      "result": "No named transfer/revision file present; R5-S09 is method quality description, not timestamped 2018 transfer form; R5-S08 is 14.3.2019 release identity only",
+      "readStatus": "read_frozen_bytes_hash_verified",
+      "stopReason": "B07 stop rule: without concrete new bridge/version deliver waiting_source; do not repeat broad searches"
+    },
+    {
+      "id": "B07-SL02",
+      "question": "What is the exact Finnish national standard moisture % for 2018 wheat/barley, and does one common moisture factor explain both residuals?",
+      "date": "2026-09-09",
+      "channel": "Frozen calculations.json + DKFI-G001 prior stop (quality report + Eurostat metadata)",
+      "queryOrDocument": "/finland2018; /commonMoistureOnlyFactorCompatibleWithBoth; DKFI-G001",
+      "result": "observed_national_moisture_pct=null; commonMoistureOnlyFactorCompatibleWithBoth=false; ratios non-overlapping under ±0.05 kt bounds; implied moisture diagnostic only",
+      "readStatus": "read",
+      "stopReason": "One common moisture factor alone already insufficient in executed control; exact % still unknown"
+    },
+    {
+      "id": "B07-SL03",
+      "question": "What explains FI yield alerts 2016/2020 without overwriting reported Eurostat yield cells?",
+      "date": "2026-09-09",
+      "channel": "Frozen yieldDiagnostics + DEFINISJONER FI rows + R5-S09 §2.1",
+      "queryOrDocument": "FI C1100 2020; FI C1300 2016; Luke lines 462–463 area method change",
+      "result": "Alerts retained unresolved; national cells available but moisture/item bridge missing; 2016 crosses harvested-area method change; overwrite forbidden",
+      "readStatus": "read",
+      "stopReason": "Same missing bridge/version document required; no new method annex found"
+    }
+  ]
+}

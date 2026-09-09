@@ -1,0 +1,347 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B20",
+  "runId": "B20-20260909T104921Z-ed03e679",
+  "createdAt": "2026-09-09T10:52:00Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B20/B20-20260909T104921Z-ed03e679/git-status.txt",
+  "gitStatusSha256": "4db888589add40d4894e2cfeecea170ad19877724e32b4f932a3a590ea970c4d",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B20/B20-20260909T104921Z-ed03e679",
+  "status": "complete_within_scope",
+  "stopReason": "Wave3 synthesis delivered under B20 stop rule: all 19 predecessors hash-bound and terminal; C1–C5 effects remain unknown; owned gaps CLIM-G03/R4-G004/R5-G10 stay open (semanticGapClosed=false); conditional recommendations only; chapter 15 human-only; no new source hunt",
+  "model": {
+    "requestedModel": null,
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent session exposes no reliable model id/attestation tool metadata; values left null rather than invented"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B20.md",
+      "sha256": "911b48b05ec20af4be7bdaca2501a51b38fd090aee2cea60cfcd8fcb8f8b3df1",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/MASTER-ASTRA.md",
+      "sha256": "8100f06f14baeb6b3b97027e7ea01a2f3e35487af72a1017c5330cdcdecb7921",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/GAP-KART.md",
+      "sha256": "8620c3d4b0ac61a8c1f8a96c7324fba1330072c9ba5b0920f736c82043022f43",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/work-packages.json",
+      "sha256": "bab3c5d30c23dda1320fbe2c486f9876b609ab817a6fda3157ed16f039a6e5e3",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/candidate-tests.json",
+      "sha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "sha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+      "sha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "sha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/dependency-handoffs-B01-B19.json",
+      "sha256": "5f3700688d018926c59fccb16bdca45596fd6f88f454c4f872796fe22c927cc0",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B20/B20-20260909T104921Z-ed03e679",
+      "sha256": "21e3637337e78af10359d56cea8301e606536fc0f5b3cd82da6b7983ce85f8c7",
+      "private": true,
+      "accessRequired": true,
+      "note": "private run artifact root; per-file hashes in raw-manifest.json"
+    }
+  ],
+  "dependencies": [
+    {
+      "packageId": "B01",
+      "runId": "B01-20260909T101901Z-dcaf4365",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B01/B01-20260909T101901Z-dcaf4365/handoff.json",
+      "handoffSha256": "e4a7ec6495b7d59092f602594853f6099e652e6183ac853e559979eb5f079c96",
+      "terminalStatus": "waiting_owner"
+    },
+    {
+      "packageId": "B02",
+      "runId": "B02-20260909T101901Z-4aaad87a",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/handoff.json",
+      "handoffSha256": "104892445dedc11d9399a4ae3dcbc3ed8d609e6cc4b8ef72bf0578992ae86ed1",
+      "terminalStatus": "waiting_owner"
+    },
+    {
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/handoff.json",
+      "handoffSha256": "f221694f5523e18c926d66cb3aa0f8cf210a8d5232071796f336edb4ba599329",
+      "terminalStatus": "waiting_owner"
+    },
+    {
+      "packageId": "B04",
+      "runId": "B04-20260909T102531Z-f14ff7f2",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/handoff.json",
+      "handoffSha256": "e2a5ab7077c8059508289aca2078f403c46869e6c5670afd8985210f377498df",
+      "terminalStatus": "waiting_owner"
+    },
+    {
+      "packageId": "B05",
+      "runId": "B05-20260909T102531Z-5341273b",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/handoff.json",
+      "handoffSha256": "d768a6134f391bfb55efa80bec49cd9f88e4eb6b8750a439055e20a67d1ca672",
+      "terminalStatus": "waiting_owner"
+    },
+    {
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B06/B06-20260909T102531Z-22c1a4ab/handoff.json",
+      "handoffSha256": "ffa0b60f69dc190934d30d741329a9cf296a8ccb08b9b7c0c73879c48e59f9fd",
+      "terminalStatus": "waiting_owner"
+    },
+    {
+      "packageId": "B07",
+      "runId": "B07-20260909T102902Z-2f712e23",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/handoff.json",
+      "handoffSha256": "66ad992acf0567ca674c686a7d5c850ac48f4a2ae8eb7bd0eb8fbe439b82b419",
+      "terminalStatus": "waiting_source"
+    },
+    {
+      "packageId": "B08",
+      "runId": "B08-20260909T102902Z-7e1f9a59",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/handoff.json",
+      "handoffSha256": "443e4dd88373f1170ce6a2de02d8f9882e953cafcc571fbf4e806a8fba5b343f",
+      "terminalStatus": "waiting_source"
+    },
+    {
+      "packageId": "B09",
+      "runId": "B09-20260909T103719Z-8a62fde2",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/handoff.json",
+      "handoffSha256": "b696c15be8f3f512b9a6bcd2db34e3383d4a7684c4595961e53fb1ff7dc9b528",
+      "terminalStatus": "waiting_source"
+    },
+    {
+      "packageId": "B10",
+      "runId": "B10-20260909T103158Z-3ca837d6",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/handoff.json",
+      "handoffSha256": "792a1c1552d11aac89e3c22f6dd77693f1d5f9d35219976f4f521f3986a4ad5a",
+      "terminalStatus": "waiting_owner"
+    },
+    {
+      "packageId": "B11",
+      "runId": "B11-20260909T103158Z-e6b97281",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/handoff.json",
+      "handoffSha256": "772f752d0c62d2657782902694d162ccfc27087c9991491ad4e4d75e74cd7c5e",
+      "terminalStatus": "waiting_owner"
+    },
+    {
+      "packageId": "B12",
+      "runId": "B12-20260909T103158Z-efdd0743",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/handoff.json",
+      "handoffSha256": "e239fb1c99c631838cd207df23034e6a88340a9516ca2a4a4de4ee493e1ec1c4",
+      "terminalStatus": "waiting_owner"
+    },
+    {
+      "packageId": "B13",
+      "runId": "B13-20260909T103514Z-3261c6cc",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/handoff.json",
+      "handoffSha256": "422c3962da0b4e6127d4ea1ebcf1ee4b7664d3bb2f7560e8edc0bbe6600c64c0",
+      "terminalStatus": "waiting_source"
+    },
+    {
+      "packageId": "B14",
+      "runId": "B14-20260909T103514Z-4679b359",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/handoff.json",
+      "handoffSha256": "e8e3abc18908ecf0f80012ad70128a43583e622773407b662ff4ccd5f38c9dc3",
+      "terminalStatus": "complete_within_scope"
+    },
+    {
+      "packageId": "B15",
+      "runId": "B15-20260909T103514Z-9d38b3c0",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/handoff.json",
+      "handoffSha256": "05fe5d77c919e34e3cdb17bf05e86598037a44aa6366a2818a2d2ab4457d7cfc",
+      "terminalStatus": "waiting_owner"
+    },
+    {
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/handoff.json",
+      "handoffSha256": "bbf8558fbd2fe23c4081fade5337d2ae921258fcbb2e58a6753a94a479b4c773",
+      "terminalStatus": "complete_within_scope"
+    },
+    {
+      "packageId": "B17",
+      "runId": "B17-20260909T103719Z-fa4831c4",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/handoff.json",
+      "handoffSha256": "7f8c359d0a2548a9f262b07c2107954a3c8ecf2ffa6ec3d60c3ef1cf93f806a5",
+      "terminalStatus": "waiting_owner"
+    },
+    {
+      "packageId": "B18",
+      "runId": "B18-20260909T103719Z-707c9a03",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/handoff.json",
+      "handoffSha256": "b3f24d148ce96d501742498f0d30aa3c94b9f3e5bdb4e401831a49870563be5f",
+      "terminalStatus": "complete_within_scope"
+    },
+    {
+      "packageId": "B19",
+      "runId": "B19-20260909T103719Z-dd7b5e44",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/handoff.json",
+      "handoffSha256": "12b51f8516e26def4a7fc16fde7cd391290087845eae1b207659717b76417087",
+      "terminalStatus": "complete_within_scope"
+    }
+  ],
+  "files": [
+    {
+      "path": "findings.md",
+      "sha256": "0fce73bc0a25239a8452647afeba97806aac2b9c777691a0322e60e848ccd691",
+      "private": false
+    },
+    {
+      "path": "sources.json",
+      "sha256": "ce008736ce0069e15f6028ad71afb29755f44d49f9b507dfe812cfb556f4576d",
+      "private": false
+    },
+    {
+      "path": "observations.json",
+      "sha256": "edd9f52acd932ff86c1f3b96da7d581d71dd977a10ac3891ebafdc05d8e928eb",
+      "private": false
+    },
+    {
+      "path": "gaps.json",
+      "sha256": "3f05df427cc69a11d7be986e795feac4ad65a21b0f4247e57cd92b0789ca16a6",
+      "private": false
+    },
+    {
+      "path": "search-log.json",
+      "sha256": "abc467d4a23f6edd0cfa854ac69267c26f7347a50d98e5f86f7f72b049949d8c",
+      "private": false
+    },
+    {
+      "path": "verification.json",
+      "sha256": "1e0604f97eca0ffe822a2322683c209ff811fecb9a864e33e12647eef4e651d8",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "CLIM-G03",
+      "disposition": "remains_open_unknown_effect_after_wave1_synthesis",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Senere autorisert forsøks-/måleansvarlig + B01–B06/B15–B17 owners"
+    },
+    {
+      "gapId": "R4-G004",
+      "disposition": "remains_open_waiting_owner_and_source_prerequisites",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Furuset + mill/allocation owners via B01–B06 intakes"
+    },
+    {
+      "gapId": "R5-G10",
+      "disposition": "remains_open_measurement_not_performed",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Senere autorisert forsøksansvarlig"
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "id": "Q1",
+      "status": "answered_fail_closed_not_measured_equal_arms",
+      "candidateIds": [
+        "B20-C01",
+        "B20-C12"
+      ]
+    },
+    {
+      "id": "Q2",
+      "status": "answered_all_C1_C5_effects_unknown",
+      "candidateIds": [
+        "B20-C02",
+        "B20-C03",
+        "B20-C04",
+        "B20-C05",
+        "B20-C06",
+        "B20-C07",
+        "B20-C08",
+        "B20-C09"
+      ]
+    },
+    {
+      "id": "Q3",
+      "status": "answered_conditional_recommendations_only_ch15_human",
+      "candidateIds": [
+        "B20-C10",
+        "B20-C11"
+      ]
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator may freeze master-intake using handoff hashes (see optional master-intake-candidate.json; not frozen). Route waiting_owner/waiting_source intakes. Astra must treat B20 as candidate synthesis and re-verify sources; do not treat gaps as closed.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false,
+  "coordinationWith": [
+    "coordinator"
+  ],
+  "candidateArea": [
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5"
+  ],
+  "purposeIds": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5"
+  ]
+}

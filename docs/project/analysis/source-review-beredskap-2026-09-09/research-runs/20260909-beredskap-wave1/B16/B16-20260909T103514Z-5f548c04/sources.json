@@ -1,0 +1,446 @@
+{
+  "schema": "beredskap-sources/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B16",
+  "runId": "B16-20260909T103514Z-5f548c04",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B16-S001",
+      "title": "Fæðuöryggi á Íslandi, Rit LbhÍ nr. 139",
+      "publisher": "Landbúnaðarháskóli Íslands",
+      "url": "https://branda.lbhi.is/utgefid_efni/Rit_LbhI_139.pdf",
+      "documentVersion": "Rit LbhÍ nr. 139; 2021",
+      "publishedAt": "2021",
+      "accessedAt": "2026-09-09",
+      "readScope": "Verified PDF+text; lines 100 (um 1%), 572 (um 344 tonn), 1847 (um 25 þúsund tonn). Refetch identical.",
+      "sourceRole": "primary_2021_one_percent_claim",
+      "accessStatus": "private_raw_verified_on_this_machine",
+      "rights": {
+        "internalUseBasis": "public_pdf_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/Rit_LbhI_139.pdf",
+      "rawSha256": "7c38200f4fa301662859fe483b634bc0a6473fa050c9e8fac75608c7151bc9ba",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/Rit_LbhI_139.txt",
+      "extractedTextSha256": "c5d820db22ec49e2268f48fcd09d58cb88dcd50af8ee80e2add139c194a2389f",
+      "exactLocators": [
+        {
+          "type": "text_line",
+          "line": 100
+        },
+        {
+          "type": "text_line",
+          "line": 572
+        },
+        {
+          "type": "text_line",
+          "line": 1847
+        }
+      ],
+      "limitations": [
+        "A4 data.json sha string ...e9c8... vs verified ...c9e8...; B16 binds verified bytes",
+        "No compatible denominator table in read scope"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B16-S002",
+      "title": "Tímamót í sögu KORNAX – síðasta hveitið malað í Korngörðum",
+      "publisher": "Lífland / KORNAX",
+      "url": "https://www.lifland.is/is/moya/news/timamot-i-sogu-kornax-sidasta-hveitid-malad-i-korngordum",
+      "documentVersion": null,
+      "publishedAt": "2025-04-11",
+      "accessedAt": "2026-09-09",
+      "readScope": "Announcement: last wheat milled Korngarðar; Valsemøllen DK thereafter",
+      "sourceRole": "operator_announcement_local_wheat_mill_stop",
+      "accessStatus": "fetched_2026-09-09",
+      "rights": {
+        "internalUseBasis": "public_web_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/kornax-announcement.html",
+      "rawSha256": "67dff8ece2865fbc858b8c5f34f6af3735ef1507b6a41cfe19492cba810e533b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/extracts/kornax-announcement.txt",
+      "extractedTextSha256": "04f1b43b50435282ffd7fab8efff3ffd3b527e5534f88432001218cb5f032f4f",
+      "exactLocators": [
+        {
+          "type": "text_phrase",
+          "label": "11.04.2025; síðasta hveitið malað; Valsemøllen"
+        }
+      ],
+      "limitations": [
+        "One wheat mill stop; not all cereal processing",
+        "No tph/tpy"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B16-S003",
+      "title": "Þorvaldseyri – Um okkur / Sagan",
+      "publisher": "Þorvaldseyri",
+      "url": "https://www.thorvaldseyri.is/is/sidur/um-okkur",
+      "documentVersion": null,
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Historical through 2008–2009 Eyrarbúið/Kornax flour distribution; dryer history; no 2025/2026 ops log",
+      "sourceRole": "historical_operator_page",
+      "accessStatus": "fetched_2026-09-09",
+      "rights": {
+        "internalUseBasis": "public_web_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/thorvaldseyri-um-okkur.html",
+      "rawSha256": "4c337fff5b19c8c7e9a4c42362f54da24b86cf5e9d9bd22634c764a1bf1080eb",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/extracts/thorvaldseyri-um-okkur.txt",
+      "extractedTextSha256": "0a0148797f0bb9283ed7311f9f671527d8b7aedf6269f62eb1fe5a7a4e2c377b",
+      "exactLocators": [
+        {
+          "type": "text_phrase",
+          "label": "2008–2009 distribution; grain dryer"
+        }
+      ],
+      "limitations": [
+        "Historical not current capacity"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B16-S004",
+      "title": "Byggmjöl 20 kg product page",
+      "publisher": "Lífland (manufacturer Eyrarbúið ehf)",
+      "url": "https://www.lifland.is/is/vefverslun/sekkjad-mjol/byggmjol-20-kg",
+      "documentVersion": null,
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Manufacturer Eyrarbúið ehf; not for sale in webshop",
+      "sourceRole": "retail_listing_not_ops_log",
+      "accessStatus": "fetched_2026-09-09",
+      "rights": {
+        "internalUseBasis": "public_web_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/lifland-byggmjol-20kg.html",
+      "rawSha256": "563f6074d3929c783b9803c98b4cff1fda228ca5c99d9d6d7768e0470ecdd9c1",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/extracts/lifland-byggmjol-20kg.txt",
+      "extractedTextSha256": "b22771e504e1b87944da531c7cc929258ea145275438bbb5b96f7cf4c9762263",
+      "exactLocators": [
+        {
+          "type": "text_phrase",
+          "label": "Eyrarbúið ehf; ekki til sölu í vefverslun"
+        }
+      ],
+      "limitations": [
+        "onlinePurchaseAvailableAtRead=false only; not general unavailability",
+        "Not capacity/permit"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B16-S005",
+      "title": "Korngrís – Kornvörur",
+      "publisher": "Korngrís / Laxárdalur",
+      "url": "https://www.korngris.is/kornvoerur",
+      "documentVersion": null,
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Future-tense will-sell language; empty products message",
+      "sourceRole": "operator_marketing_page",
+      "accessStatus": "fetched_2026-09-09",
+      "rights": {
+        "internalUseBasis": "public_web_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/korngris-kornvoerur.html",
+      "rawSha256": "b7f6f999c742ed31910435f73544e29f4f29b19c287391e6311da20365a6222d",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/extracts/korngris-kornvoerur.txt",
+      "extractedTextSha256": "91a9b36cc195a2199086af289277648c2c6e5eb210465a21b6956b1c9671ce45",
+      "exactLocators": [
+        {
+          "type": "text_phrase",
+          "label": "Við munum selja; no products to show"
+        }
+      ],
+      "limitations": [
+        "Insufficient for active milling/capacity"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B16-S006",
+      "title": "Afbragðsgott sumar til kornræktar",
+      "publisher": "Bændablaðið / BBL",
+      "url": "https://www.bbl.is/frettir/afbragdsgott-sumar-til-kornraektar",
+      "documentVersion": null,
+      "publishedAt": "2025-09-19",
+      "accessedAt": "2026-09-09",
+      "readScope": "Þorvaldseyri drying/beer/byggmjöl interview; Húsavík dryer aim hátt í fimm hundruð tonn; upp undir tíu bændur",
+      "sourceRole": "secondary_interview_reportage",
+      "accessStatus": "fetched_2026-09-09",
+      "rights": {
+        "internalUseBasis": "public_web_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/bbl-kornraekt-2025-09-19.html",
+      "rawSha256": "865a96ada9eeee6b8eeedc69b827d1bcc4e2a53c5c8ba6efc102feefdc233be7",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/extracts/bbl-kornraekt-2025-09-19.txt",
+      "extractedTextSha256": "4201c6b9b4b5e9d1b8824ae7608583148f78054074ec79210c69cd4f5fc2c89e",
+      "exactLocators": [
+        {
+          "type": "text_phrase",
+          "label": "Þorvaldseyri drying + beer/byggmjöl"
+        },
+        {
+          "type": "text_phrase",
+          "label": "Húsavík ~500 t aim"
+        }
+      ],
+      "limitations": [
+        "Secondary; not national capacity"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B16-S007",
+      "title": "Stofnun matvælafyrirtækis og leyfi",
+      "publisher": "Matvælastofnun (MAST)",
+      "url": "https://www.mast.is/is/matvaelafyrirtaeki/stofnun-matvaelafyrirtaekis-og-leyfi/stofnun-matvaelafyrtaekis",
+      "documentVersion": null,
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "MAST vs municipal licensing; plant-based food processors under municipal heilbrigðiseftirlit",
+      "sourceRole": "permit_regime_guidance",
+      "accessStatus": "fetched_2026-09-09",
+      "rights": {
+        "internalUseBasis": "public_web_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/mast-stofnun-leyfi.html",
+      "rawSha256": "11571705389f2c504497a89f2403235db6b49b529f9a48b9994ed7594213a3d6",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/extracts/mast-stofnun-leyfi.txt",
+      "extractedTextSha256": "c0dafde9a2e489573c36cdc6ff5b31895710789b273b9085bcd067e0ce7652d7",
+      "exactLocators": [
+        {
+          "type": "text_phrase",
+          "label": "municipal plant-food licensing"
+        }
+      ],
+      "limitations": [
+        "Guidance not named-plant audit"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B16-S008",
+      "title": "MAST approved establishments Excel export (all sectors)",
+      "publisher": "MAST via skyrslur.mast.is",
+      "url": "https://skyrslur.mast.is/establishment/Export/",
+      "documentVersion": "export_accessed_2026-09-09",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "776 rows; A981 Eyrarbúið Feed Frum 3; A848 Sandhóll bú Feed Frum 3; Food sections lack cereal milling",
+      "sourceRole": "mast_approved_establishment_register_export",
+      "accessStatus": "fetched_2026-09-09",
+      "rights": {
+        "internalUseBasis": "public_register_export_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/mast-est-export-all.xls",
+      "rawSha256": "db734582b814b7f834d3a38821b3bfc7ac58dc3fd1205aabc1b74b43e92f7898",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/extracts/mast-est-export-all.csv.txt",
+      "extractedTextSha256": "b07d0c82b018f4dd31b8521a26b4183af4bca3fb0f135786e59bd977be0267fb",
+      "exactLocators": [
+        {
+          "type": "xlsx_row_filter",
+          "label": "A981"
+        },
+        {
+          "type": "xlsx_row_filter",
+          "label": "A848"
+        },
+        {
+          "type": "ui_section_list",
+          "label": "Food sections without cereal mill"
+        }
+      ],
+      "limitations": [
+        "List≠capacity",
+        "Frum 3 is feed drying class",
+        "Korngrís/Kornax name misses on Food"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B16-S009",
+      "title": "MAST municipal HD MAT Excel export",
+      "publisher": "MAST / municipal lists via skyrslur.mast.is",
+      "url": "https://skyrslur.mast.is/healthdepartments/Export/",
+      "documentVersion": "export_accessed_2026-09-09",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "1716 MAT rows; Eyrarbúið/Korngrís/Þorvaldseyri/Sandhóll name searches empty; SF-2669 Móðir Jörð plant packing class",
+      "sourceRole": "municipal_food_plant_register_export",
+      "accessStatus": "fetched_2026-09-09",
+      "rights": {
+        "internalUseBasis": "public_register_export_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/mast-hd-export-mat.xls",
+      "rawSha256": "be25cabf48ad5b3d4a231dabbfb153b85c1fe872b03608d5d76a38e10fb234fe",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/extracts/mast-hd-export-mat.csv.txt",
+      "extractedTextSha256": "6288f3417b7ba43bfea1f7b9bcc314d7e62e3010795fc559ab1b6ae20ee5cd71",
+      "exactLocators": [
+        {
+          "type": "xlsx_row_filter",
+          "label": "SF-2669"
+        },
+        {
+          "type": "search_result",
+          "label": "no Eyrarbúið/Korngrís name hits"
+        }
+      ],
+      "limitations": [
+        "Permit class≠capacity",
+        "Name miss≠proof under alternate legal name"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B16-S010",
+      "title": "A4 track package",
+      "publisher": "Food Systems internal A4-2026-09-08-island",
+      "url": null,
+      "documentVersion": "A4-2026-09-08-island",
+      "publishedAt": "2026-09-08",
+      "accessedAt": "2026-09-09",
+      "readScope": "Pre-read gaps A4-G003–G007 and A4-L014 MAST timeout",
+      "sourceRole": "prior_channel_inventory",
+      "accessStatus": "worktree_file",
+      "rights": {
+        "internalUseBasis": "internal_research_package",
+        "redistributionAllowed": false
+      },
+      "rawPath": "research/agent-research-2026-09-08/resultater/A4/data.json",
+      "rawSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+      "extractedTextPath": "research/agent-research-2026-09-08/resultater/A4/funn.md",
+      "extractedTextSha256": "9f78d378c7bb94d2e3bd721389002df1584d8732251339dd7ce20d486c8bcb90",
+      "exactLocators": [
+        {
+          "type": "json_pointer",
+          "pointer": "/gaps/2"
+        },
+        {
+          "type": "json_pointer",
+          "pointer": "/gaps/5"
+        }
+      ],
+      "limitations": [
+        "Prior run; B16 reopened MAST channel"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B16-S011",
+      "title": "Sandhóll – Hafrar",
+      "publisher": "Sandhóll",
+      "url": "https://sandholl.is/hafrar",
+      "documentVersion": null,
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Oat product claims; no capacity table",
+      "sourceRole": "operator_product_page",
+      "accessStatus": "fetched_2026-09-09",
+      "rights": {
+        "internalUseBasis": "public_web_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/sandholl-hafrar.html",
+      "rawSha256": "a67906e099bfc0f930ad07422fd9fe94e3a53d871b3b638d7311dee86621aaa0",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/extracts/sandholl-hafrar.txt",
+      "extractedTextSha256": "32b32a9954ae531685744cbb2c3bd35c1e8cc07f29ad1aac9c009b12afd0cbb2",
+      "exactLocators": [
+        {
+          "type": "text_phrase",
+          "label": "haframjöl / tröllahafrar"
+        }
+      ],
+      "limitations": [
+        "Product only; Feed A848 separate"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B16-S012",
+      "title": "Móðir Jörð – Bygg er ofurfæða",
+      "publisher": "Móðir Jörð",
+      "url": "https://modirjord.is/en/bygg-er-ofurfaeda/",
+      "documentVersion": null,
+      "publishedAt": "2023-01-11",
+      "accessedAt": "2026-09-09",
+      "readScope": "Bygg product forms listed",
+      "sourceRole": "operator_product_page",
+      "accessStatus": "fetched_2026-09-09",
+      "rights": {
+        "internalUseBasis": "public_web_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/modirjord-bygg.html",
+      "rawSha256": "09f1b0d7e56d9a89ac16ec1a2db180628f45691aee5e38a4c9c07ac23c831095",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/extracts/modirjord-bygg.txt",
+      "extractedTextSha256": "40451abfffb1872af823c641ca1c4766991f1986e0371bbabd66829781a8927a",
+      "exactLocators": [
+        {
+          "type": "text_phrase",
+          "label": "bygg product forms"
+        }
+      ],
+      "limitations": [
+        "No tonne capacity"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B16-S013",
+      "title": "MAST getpage search Eyrarbúið (all sectors)",
+      "publisher": "MAST via skyrslur.mast.is",
+      "url": "https://skyrslur.mast.is/establishment",
+      "documentVersion": "getpage_2026-09-09",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "A981 Feed Frum 3 detail Óbein þurrkun á korni",
+      "sourceRole": "mast_named_hit_detail",
+      "accessStatus": "fetched_2026-09-09",
+      "rights": {
+        "internalUseBasis": "public_register_for_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/raw/mast-est-all-Eyrarb_i_.html",
+      "rawSha256": "e7445d56ef73f41a51b8de54981fb14e02e7eff02e26be362f054ed41bed65fd",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "html_table_row",
+          "label": "A981 Feed Frum 3"
+        }
+      ],
+      "limitations": [
+        "Feed only"
+      ]
+    }
+  ]
+}

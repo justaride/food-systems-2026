@@ -1,0 +1,125 @@
+{
+  "schema": "beredskap-verification/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B13",
+  "runId": "B13-20260909T103514Z-3261c6cc",
+  "createdAt": "2026-09-09T10:50:00Z",
+  "checks": [
+    {
+      "id": "V01",
+      "name": "worktree_head_matches_planCommit",
+      "result": "passed",
+      "evidence": "git rev-parse HEAD == 5c3d735712f3b5fe929ba8043ee57a74cb318e1a == planCommit"
+    },
+    {
+      "id": "V02",
+      "name": "foundation_commit_recorded",
+      "result": "passed",
+      "evidence": "4026a90d62edf129d4323f7f0971ace716b03983"
+    },
+    {
+      "id": "V03",
+      "name": "pre_read_input_sha256",
+      "result": "passed",
+      "evidence": {
+        "AGENTS.md": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+        "FELLES-KONTRAKT.md": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+        "prompts/B13.md": "25d63f56d3828c0d964298fc2f45761924935e00fd9450498d91629b170d94c7",
+        "coverage.json": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+        "input-manifest.json": "770910bbd0fa2ad6980104117895238b9ed4923b69ed5b49fed114e0356955b4",
+        "work-packages.json": "bab3c5d30c23dda1320fbe2c486f9876b609ab817a6fda3157ed16f039a6e5e3",
+        "A3/data.json": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+        "round-003/documentation/findings.json": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+        "round-002/review-register.json": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9"
+      }
+    },
+    {
+      "id": "V04",
+      "name": "private_raw_sha256_reverified",
+      "result": "passed",
+      "evidence": {
+        "SIFO_PDF": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+        "Fafo_PDF": "900d309b024d516f6897ad076d757a1e97c66fca63a213cbb511ff4b898f55ee",
+        "SIFO_full_text": "6c2b98fb5080a1279386267d4da5362bb932b6427df4066498e4240f96fe164a",
+        "Fafo_full_text": "bb6fa3209ad1b458bbf4257b143b1330640f63895cc85656a1d4bfbb6467282f"
+      }
+    },
+    {
+      "id": "V05",
+      "name": "a3_sifo_hash_discrepancy_documented",
+      "result": "passed",
+      "evidence": "A3 recorded ...4db0...; verified/round-003 ...4cb0...; B13 binds verified"
+    },
+    {
+      "id": "V06",
+      "name": "stop_rule_no_national_recipient_prevalence",
+      "result": "passed",
+      "evidence": "B13-C03/C04; no national prevalence observation created from 1906/31 sample"
+    },
+    {
+      "id": "V07",
+      "name": "stop_rule_no_sifo_fies_conversion",
+      "result": "passed",
+      "evidence": "No conversion calculation files; instruments kept separate"
+    },
+    {
+      "id": "V08",
+      "name": "no_microdata_access",
+      "result": "passed",
+      "evidence": "Only published PDFs and prior package JSON; no FAO/SIFO microdata download"
+    },
+    {
+      "id": "V09",
+      "name": "observation_candidate_and_evidence_hashes",
+      "result": "passed",
+      "evidence": {
+        "B13-C01": {
+          "evidenceSha256": "9d93658d5241c9dc7e79eed5c56be0af3dd6a0ee15ae2d4dbfa74efed13a303c",
+          "candidateSha256": "29e609eddc92b0eff3210176f9e70f34fb97cfe0d97e78dd4f420b23242f48cf"
+        },
+        "B13-C02": {
+          "evidenceSha256": "51cb2c47f063eb6519fed4b1e39ac22fbbe7ef012ffb0f65085dc5d31b9123bc",
+          "candidateSha256": "dd3342a3992b7d1c7c7b2e771b62807f384282076bf63b7c19b033caae5021ce"
+        },
+        "B13-C03": {
+          "evidenceSha256": "0bac51d3419dc421c7ac7f3b77f1439c0e4acf30f2a5fef96c4d9b0c0ad8ebfa",
+          "candidateSha256": "d2e8762ca5dfd54bb6381fcf8762ae6c2fc5c4defdf960bfe6118ebfb17ae2b9"
+        },
+        "B13-C04": {
+          "evidenceSha256": "9bf4584890d012f909261d045b1af39c106da0ffd1c12ea3125a3c56bd5e3f37",
+          "candidateSha256": "239f2fa5aabf0af7b3d07047c3624405166996130c3455a672d21e5f4e8e614d"
+        },
+        "B13-C05": {
+          "evidenceSha256": "05bf7289fbce3127e56a899c38870e370c5385704112da1d4e10d2704190bd79",
+          "candidateSha256": "f73c3d70020e83f395a5cbd5dab9442d3c22452c01026fbb9c4dbda25d83178e"
+        }
+      }
+    },
+    {
+      "id": "V10",
+      "name": "no_research_plan_or_prior_round_edits",
+      "result": "passed",
+      "evidence": "Writes only under research-runs/.../B13/... and private artifact root"
+    },
+    {
+      "id": "V11",
+      "name": "human_verified_false_everywhere",
+      "result": "passed",
+      "evidence": "All delivery records set human_verified false"
+    },
+    {
+      "id": "V12",
+      "name": "oda_handle_live_fetch",
+      "result": "not_passed_timeout",
+      "evidence": "WebFetch https://hdl.handle.net/11250/3213110 timed out; treated as access issue, not as proof of absence of ODA record"
+    }
+  ],
+  "errors": [],
+  "notPerformed": [
+    "Master Astra validation (separate)",
+    "Owner contact / email",
+    "Opening all Kempson/Poppe/Gyüre wave reports listed in footnote 8 as a new broad corpus (named annex still required for food-security item-wave tables)",
+    "Canonical promotion or readiness change"
+  ]
+}

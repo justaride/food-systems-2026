@@ -1,0 +1,184 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B13",
+  "runId": "B13-20260909T103514Z-3261c6cc",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A3-G001",
+      "packageId": "B13",
+      "runId": "B13-20260909T103514Z-3261c6cc",
+      "originalGapId": "A3-G001",
+      "question": "SIFO-batteriets komplette bølgeforløp og svarfordeling per item",
+      "disposition": "partial_evidence_waiting_source",
+      "evidenceCandidateIds": [
+        "B13-C01",
+        "B13-C05"
+      ],
+      "overlapWithGapIds": [
+        "A3-G002"
+      ],
+      "missingFields": [
+        "B13-TP-01 machine-readable authoritative item table",
+        "B13-TP-02 item response distribution by wave"
+      ],
+      "searchLogRefs": [
+        "B13-SL01",
+        "B13-SL02",
+        "A3-L001",
+        "A3-L012"
+      ],
+      "dataOwnerRole": "SIFO/OsloMet, steward of report underlying survey/method files",
+      "nextAction": "Keep Vedlegg 6 item/scoring as bounded method evidence; obtain wave-level item distributions (or confirm none exist publicly) via unsent owner request / new run after delivery",
+      "stopReason": "Item wording/scoring found in published Vedlegg 6; complete wave-by-wave item distributions still absent from inspected channels",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": true,
+      "sourceStatusPreserved": "inherited_open_gap",
+      "requiredDocument": "Machine-readable item table plus per-wave item response distributions for waves used in Figur 4-3/4-4"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A3-G002",
+      "packageId": "B13",
+      "runId": "B13-20260909T103514Z-3261c6cc",
+      "originalGapId": "A3-G002",
+      "question": "Delutvalgs-N, vekter, frafall, standardfeil/konfidensintervall for SIFO Figur 4-3 og 4-4",
+      "disposition": "waiting_source_exact_document_required",
+      "evidenceCandidateIds": [
+        "B13-C02"
+      ],
+      "overlapWithGapIds": [
+        "A3-G001",
+        "A3-G006"
+      ],
+      "missingFields": [
+        "B13-TP-03",
+        "B13-TP-04",
+        "B13-TP-05"
+      ],
+      "searchLogRefs": [
+        "B13-SL01",
+        "B13-SL02",
+        "A3-L001"
+      ],
+      "dataOwnerRole": "SIFO/OsloMet",
+      "nextAction": "Do not use figure percentages as if subgroup N/SE known; request technical table or estimator documentation",
+      "stopReason": "Report gives total-N and p<0.05 only; subgroup N/weights/nonresponse/SE/CI not in SIFO-rapport 7-2025 body/Vedlegg 6",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap",
+      "requiredDocument": "Technical table with subgroup N, weights/nonresponse, and SE or CI for Figur 4-3 and 4-4 cells"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A3-G006",
+      "packageId": "B13",
+      "runId": "B13-20260909T103514Z-3261c6cc",
+      "originalGapId": "A3-G006",
+      "question": "SIFO-undergruppeestimater med robust usikkerhetsrapportering for inntekt og familietype",
+      "disposition": "waiting_source_exact_document_required",
+      "evidenceCandidateIds": [
+        "B13-C02",
+        "B13-C04"
+      ],
+      "overlapWithGapIds": [
+        "A3-G002"
+      ],
+      "missingFields": [
+        "B13-TP-06"
+      ],
+      "searchLogRefs": [
+        "B13-SL01",
+        "B13-SL02"
+      ],
+      "dataOwnerRole": "SIFO/OsloMet",
+      "nextAction": "Retain Figur 4-5 as association pattern only; wait for prevalence cross-tabs with N and intervals",
+      "stopReason": "OLS association figure is not a prevalence table with robust uncertainty",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap",
+      "requiredDocument": "Income/family-type prevalence tables with N and intervals for relevant waves"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A3-G007",
+      "packageId": "B13",
+      "runId": "B13-20260909T103514Z-3261c6cc",
+      "originalGapId": "A3-G007",
+      "question": "Nasjonal mottakerpopulasjon og svarandel per matutdelingssted i Fafo",
+      "disposition": "confirmed_open_waiting_source_or_owner",
+      "evidenceCandidateIds": [
+        "B13-C03",
+        "B13-C04"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "B13-TP-07",
+        "B13-TP-08"
+      ],
+      "searchLogRefs": [
+        "B13-SL03",
+        "A3-L003"
+      ],
+      "dataOwnerRole": "Fafo / participating food-distribution sites",
+      "nextAction": "Use recipient mapping only as participating-site description; national frame and per-site response denominators require owner data not published in report appendices",
+      "stopReason": "Fafo explicitly states no full recipient population information and no registration of answer share per site; stop rule forbids national prevalence from this sample",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap",
+      "requiredDocument": "National recipient population frame and per-site respondent denominators/response shares for the September 2025 mapping"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B13-B13-20260909T103514Z-3261c6cc-G01",
+      "packageId": "B13",
+      "runId": "B13-20260909T103514Z-3261c6cc",
+      "originalGapId": null,
+      "question": "Named public technical annex (separate from SIFO-rapport 7-2025 / Fafo 2026:01 body) supplying B13-TP-02..TP-08",
+      "disposition": "waiting_source_or_unsent_owner_request",
+      "evidenceCandidateIds": [
+        "B13-C01",
+        "B13-C02",
+        "B13-C03"
+      ],
+      "overlapWithGapIds": [
+        "A3-G001",
+        "A3-G002",
+        "A3-G006",
+        "A3-G007"
+      ],
+      "missingFields": [
+        "B13-TP-02",
+        "B13-TP-03",
+        "B13-TP-04",
+        "B13-TP-05",
+        "B13-TP-06",
+        "B13-TP-07",
+        "B13-TP-08"
+      ],
+      "searchLogRefs": [
+        "B13-SL02",
+        "B13-SL03"
+      ],
+      "dataOwnerRole": "SIFO/OsloMet and/or Fafo method owners",
+      "nextAction": "Coordinator may send the prepared unsent method request; do not repeat broad web search",
+      "stopReason": "Targeted search of published channels found the same reports already frozen; no separate technical annex with the missing fields",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "new_subgap",
+      "requiredDocument": "See private unsent-method-request-B13.json"
+    }
+  ]
+}

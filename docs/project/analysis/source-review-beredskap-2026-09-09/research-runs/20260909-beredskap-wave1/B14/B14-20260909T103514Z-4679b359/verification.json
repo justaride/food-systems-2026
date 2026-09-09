@@ -1,0 +1,187 @@
+{
+  "schema": "beredskap-verification/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B14",
+  "runId": "B14-20260909T103514Z-4679b359",
+  "createdAt": "2026-09-09T10:42:00Z",
+  "checks": [
+    {
+      "id": "V01",
+      "name": "worktree_head_matches_planCommit",
+      "result": "passed",
+      "evidence": "git rev-parse HEAD == 5c3d735712f3b5fe929ba8043ee57a74cb318e1a == planCommit"
+    },
+    {
+      "id": "V02",
+      "name": "foundation_commit_recorded",
+      "result": "passed",
+      "evidence": "4026a90d62edf129d4323f7f0971ace716b03983"
+    },
+    {
+      "id": "V03",
+      "name": "A3_data_json_sha256",
+      "result": "passed",
+      "evidence": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c"
+    },
+    {
+      "id": "V04",
+      "name": "faostat_zip_sha256",
+      "result": "passed",
+      "evidence": "1ccced40d8e228693c6fcc5d172de9bcaa3a1c6a1581ebde345d71c1dfa9b692"
+    },
+    {
+      "id": "V05",
+      "name": "statfin_15_cell_recheck",
+      "result": "passed",
+      "evidence": {
+        "responseSha256": "419d81bd8778882b1c7ea4262271f2c321ae76a32f44b2a3232f5f22f5bcccc2",
+        "matchesRound003": true,
+        "values": [
+          6.6,
+          7.3,
+          8.6,
+          9.6,
+          10.3,
+          4.4,
+          3.6,
+          5.3,
+          8.2,
+          6.2,
+          14,
+          17,
+          18.6,
+          17.8,
+          23.6
+        ]
+      }
+    },
+    {
+      "id": "V06",
+      "name": "stop_rule_no_single_year_from_3year",
+      "result": "passed",
+      "evidence": "B14-C01 nordicAnnual210090ValueRowCount=0; no conversion performed"
+    },
+    {
+      "id": "V07",
+      "name": "stop_rule_no_cross_instrument_ranking",
+      "result": "passed",
+      "evidence": "B14-C06 / findings Q3 forbid ranking and SIFO↔FIES conversion"
+    },
+    {
+      "id": "V08",
+      "name": "no_owner_email_or_publish",
+      "result": "passed",
+      "evidence": "search-log and gaps register unsent needs only"
+    },
+    {
+      "id": "V09",
+      "name": "observation_hashes",
+      "result": "passed",
+      "evidence": [
+        {
+          "candidateId": "B14-C01",
+          "evidenceSha256": "5683b6a45714b195cb4f5748e6103071ecd8d15dc7055125c8685cf6cfa6c089",
+          "candidateSha256": "0d95ad5c0d708fd116204835fac8fd3c355827402638c24b0836d2351e62a12a"
+        },
+        {
+          "candidateId": "B14-C02",
+          "evidenceSha256": "603632a440b698891dd8d6854d8044364442c448bfecd4379fd12cdf6b2feb07",
+          "candidateSha256": "09fc716a8e54966aeb4883a111e7a1b305e711f4ada0e67039864ca706bc7c13"
+        },
+        {
+          "candidateId": "B14-C03",
+          "evidenceSha256": "008617c483e6a8e5c6787e345581dfce03973d45251f90d80d8673a0097230c9",
+          "candidateSha256": "8642ea0827730a1cd1f63ccb8a51a9e60baf17a53f05ed982791af108e20bdc1"
+        },
+        {
+          "candidateId": "B14-C04",
+          "evidenceSha256": "d41e7603726de85ef8e76ce2f788d10a6cbc6e2c114690ab450dc6b7eaca9fd1",
+          "candidateSha256": "0fbf1b0516c0c2eae66c4a73d9f1b5d220aa1f8b7ee8dc51cb4bba04b49d827e"
+        },
+        {
+          "candidateId": "B14-C05",
+          "evidenceSha256": "cc3e9d1151bd364532dd4e56cfaaa288d1efe4d3a6e14f66f405fc207014645d",
+          "candidateSha256": "98987e8bc21160929e3670d1049c927e57f33d08dd4a34e5c54f178fcfb5cd3f"
+        },
+        {
+          "candidateId": "B14-C06",
+          "evidenceSha256": "6cad20095be7cccc03d2058e34647aa9021eb6613fee7547931c568bc7e7d56e",
+          "candidateSha256": "76a4270d932901767c8ec766b0b7761c219cac08da53247dec20ee09b174303b"
+        },
+        {
+          "candidateId": "B14-C07",
+          "evidenceSha256": "f7cf3da3cc7e03ce2214a16caf7611a1ba8d962168045c94b29efc89cc24bfc9",
+          "candidateSha256": "e4eaf64bfee6e3de6234e59045eaeaaf469d8eaf4038d615d4717d089b6e2cf8"
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "name": "gap_semantic_not_auto_closed",
+      "result": "passed",
+      "evidence": "all owned gaps semanticGapClosed=false"
+    },
+    {
+      "id": "V11",
+      "name": "sifo_pdf_sha_mismatch_vs_A3_recorded",
+      "result": "passed_with_limitation",
+      "evidence": {
+        "local": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+        "A3_S001_recorded": "3c319ff322e379204db0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b"
+      }
+    },
+    {
+      "id": "V12",
+      "name": "research-plan_and_prior_rounds_unmodified",
+      "result": "passed",
+      "evidence": "writes only under research-runs/.../B14/... and private visualizations path"
+    },
+    {
+      "id": "V13",
+      "name": "policy_and_target_profile_hashes",
+      "result": "passed",
+      "evidence": {
+        "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+        "targetProfileSha256": "15c931ded200b39f702a70a49eaa7e46495799a4b1b2fe7e40ebbd6054a21690"
+      }
+    }
+  ],
+  "failures": [],
+  "notPerformed": [
+    {
+      "id": "NP01",
+      "name": "fao_microdata_download",
+      "reason": "Requires FAO research agreement; contract forbids unauthorized redistribution"
+    },
+    {
+      "id": "NP02",
+      "name": "fsd3431_aila_login_download",
+      "reason": "Guest download blocked; registration/login not authorized in package"
+    },
+    {
+      "id": "NP03",
+      "name": "data_owner_email",
+      "reason": "Contract forbids contact"
+    },
+    {
+      "id": "NP04",
+      "name": "human_review_or_canonical_promotion",
+      "reason": "Out of worker authority"
+    },
+    {
+      "id": "NP05",
+      "name": "model_attestation",
+      "reason": "Executor session exposes no reliable model id"
+    },
+    {
+      "id": "NP06",
+      "name": "deriving_single_year_from_210091",
+      "reason": "Forbidden by B14 stop rule"
+    }
+  ],
+  "human_verified": false,
+  "ciVerified": false,
+  "deploymentVerified": false,
+  "readinessChanged": false
+}

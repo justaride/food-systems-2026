@@ -1,0 +1,249 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B07",
+  "runId": "B07-20260909T102902Z-2f712e23",
+  "createdAt": "2026-09-09T10:45:00Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/git-status.txt",
+  "gitStatusSha256": "b9b94457262e8290e5e692936a302cbe05151195ed903a4e773514f03207ba39",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23",
+  "status": "waiting_source",
+  "stopReason": "No concrete new named Luke/Eurostat 2018 transfer/revision annex in authorized channels; exact document requirement registered; common moisture-only factor already insufficient; broad search not repeated; dual series preserved",
+  "model": {
+    "requestedModel": null,
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent session exposes no reliable model id/attestation tool metadata; values left null rather than invented"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B07.md",
+      "sha256": "f4c490c1cc52e07959dc7290ec9c1e0e741665b75c12db5bf98299ca3fa6f704",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/input-manifest.json",
+      "sha256": "770910bbd0fa2ad6980104117895238b9ed4923b69ed5b49fed114e0356955b4",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/work-packages.json",
+      "sha256": "bab3c5d30c23dda1320fbe2c486f9876b609ab817a6fda3157ed16f039a6e5e3",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/DEFINISJONER.md",
+      "sha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/calculations.json",
+      "sha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/dk-fi/findings.json",
+      "sha256": "f867a863a53894adbcc2fc2c2b2d2348ce656dd6a792ec66ff78780d4a8bc3ab",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/source-bindings.json",
+      "sha256": "61ba2210eec8eeaaf3eb8cd2752482288ee438c38cd8a381d31c98fc22ab9433",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/status-delta.json",
+      "sha256": "b0cea32987dd1cae8ae46da6f75c76d91b405d0460d49fcfac50fbc97552c6ff",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/fi-2018-release.html",
+      "sha256": "697bbf908b350ac9236b71587aeff8a976f9af9b9dbf549f47561c7f624472bb",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/fi-2018-release.txt",
+      "sha256": "5c8a80a399332a33dc147b1735e241567bd9009b7f751725db77e8ab5c362319",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/fi-method.html",
+      "sha256": "489c67533c5758299d9c11f37eeebc0a45febbf63c2887b4e8c1e71ad75c51e1",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/fi-method.txt",
+      "sha256": "2a3b55dc5a0ec4dd42ed6bfa80e4924a521f661f2a8349a66378dfdfadaf92c3",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-data.json",
+      "sha256": "dc2f14c611da62e385ca8deab342cb51c5d269088d371554ca086c90b2dcf286",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-quality-original.pdf",
+      "sha256": "5dc0d13df107b10d36e990e99107ab4f0bded9fb56ed143749b35d1dc124c1b7",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-quality-original.txt",
+      "sha256": "f247d58b9801f6d488ce5309a1982f77ba0f1ec5f3af65f350dc5d469027b2c0",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-eurostat-metadata-attempt.html",
+      "sha256": "beb0fac3d0761a1033550a63670df18ffbf01723179fc414bd38559d8b91da75",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/FI-eurostat-metadata.txt",
+      "sha256": "34bbb50883bc86ee55422523a96a334618b2c42800f0d86fede91f87878a2dd9",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/eurostat/panel-response.json",
+      "sha256": "a91101d823537347924e1129df2d32c02d573eafc63bf3e927425774ad1a7d1d",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/candidate-target-profile.json",
+      "sha256": "8c6c3557b27731dd2f96d16f22470a24fffa98f8ebc2af52f54e05576c9e4347",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/required-document-B07.json",
+      "sha256": "7fb3219bb91bf3c075c20b8a2b9a32172f3e37a1ccc3e5e9dfd7b39fa8335a33",
+      "private": true,
+      "accessRequired": true
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "findings.md",
+      "sha256": "0eb25caf96a8a176d5ae9c8e8f93a74b7d3f62481c3ece5e9047db83376d3e80",
+      "private": false
+    },
+    {
+      "path": "sources.json",
+      "sha256": "bc02377dbd2f1b610867608926d903cf660a8c1f214cded63a366c2e588e175d",
+      "private": false
+    },
+    {
+      "path": "observations.json",
+      "sha256": "09fe4d50d4c6c70b0e54e6bf5038bd4789f542a1f2c8ee8689021f44369c8bfc",
+      "private": false
+    },
+    {
+      "path": "gaps.json",
+      "sha256": "1d9f8431856a6dbf24abef716cd47ffa3a8901609f719a7857aec74526dd117b",
+      "private": false
+    },
+    {
+      "path": "search-log.json",
+      "sha256": "436ed64817b46936415477343d7c5ea9038088bbbd6773909e6d89ba6bb7d807",
+      "private": false
+    },
+    {
+      "path": "verification.json",
+      "sha256": "78e5938c81f43cfeea44e16f04b81cc4e07612ba156f92355bd84f53f8d84521",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "R4-G001",
+      "disposition": "waiting_source_exact_document_required",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Luke crop statistics transmission/method owner and/or FI Eurostat crop statistics correspondent"
+    },
+    {
+      "gapId": "DKFI-G001",
+      "disposition": "waiting_source_exact_document_required",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Luke crop statistics method owner"
+    },
+    {
+      "gapId": "DKFI-G003",
+      "disposition": "waiting_source_exact_document_required",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Luke / FI Eurostat correspondent"
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "question": "Finnes datert 2018-overføring/revisjonslogg mellom Luke og Eurostat?",
+      "result": "precise_stop_no_named_transfer_annex_in_channels"
+    },
+    {
+      "question": "Hva er standardfukt per vare og kvantitativ bro mellom tørt/ferskt korn og C1100/C1300/G9100?",
+      "result": "precise_stop_moisture_unknown_common_factor_insufficient_no_tonne_bridge"
+    },
+    {
+      "question": "Hva forklarer de finske avlingsvarslene 2016/2020 uten å overskrive rapporterte celler?",
+      "result": "precise_stop_alerts_unresolved_same_bridge_missing_no_overwrite"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator/source path: obtain named dated 2018 Luke↔Eurostat transfer/revision annex with per-crop moisture and quantitative dry/fresh↔C1100/C1300/G9100 mapping; start new runId to hash-bind. B09 may consume this waiting_source terminal as hash-bound dependency.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false,
+  "coordinationWith": [
+    "coordinator",
+    "B09_consumer_of_terminal"
+  ],
+  "candidateArea": [
+    "C1",
+    "C5"
+  ],
+  "purposeIds": [
+    "P1",
+    "P3"
+  ]
+}

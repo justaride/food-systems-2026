@@ -1,0 +1,110 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B15",
+  "runId": "B15-20260909T103514Z-9d38b3c0",
+  "entries": [
+    {
+      "id": "B15-SL01",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "What do frozen A4 pre-reads already establish about case 57, stocks, and follow-up?",
+      "channel": "frozen_repo_preread",
+      "queryOrDocument": "research/.../A4/data.json + island-check.md + A4 funn/sokelogg",
+      "result": "Open gaps A4-G001/G002; O026–O028 process/proposal; island-check keeps gaps open; no register",
+      "readStatus": "full_or_locator_text_read_hash_verified",
+      "stopReason": null
+    },
+    {
+      "id": "B15-SL02",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "Do LBHI 2024 durable PDF/text document dated commodity holdings or only qualitative/recommendations?",
+      "channel": "private_durable_a4_archive",
+      "queryOrDocument": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/raw/a4-inherited/LBHI_neydarbirgdir_matvaelaframleidsla.pdf",
+      "result": "AFMÖRKUN scenarios; importer 1–2 months / farm days–weeks; recommendations — not register",
+      "readStatus": "raw_saved_text_extracted_hash_verified",
+      "stopReason": null
+    },
+    {
+      "id": "B15-SL03",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "Does HI June 2025 Tafla 4 document physical stocks?",
+      "channel": "private_durable_a4_archive",
+      "queryOrDocument": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/raw/a4-inherited/MNHI_neydarbirgdir_matvaela.pdf",
+      "result": "Tafla 4 framed as lagt til / proposed dimensioning for ~450000 persons",
+      "readStatus": "raw_saved_text_extracted_hash_verified",
+      "stopReason": null
+    },
+    {
+      "id": "B15-SL04",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "What do Alþingi PDFs 0057/1505/1348 state about adoption, financing, withdrawal?",
+      "channel": "public_http_get_pdf",
+      "queryOrDocument": "althingi.is/altext/pdf/156/s/0057.pdf ; .../157/s/1505.pdf ; .../157/s/1348.pdf",
+      "result": "0057=proposal; 1505=report follow-up + report/dashboard costs; 1348=ongoing work needing authorities/procedures",
+      "readStatus": "raw_saved_pdftotext_hash_verified",
+      "stopReason": null
+    },
+    {
+      "id": "B15-SL05",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "Can ferill/committee pages supply final vote or nefndarálit fulltext for case 57?",
+      "channel": "public_http_get_and_headless_chrome",
+      "queryOrDocument": "ferill/?ltg=156&mnr=57 and /ferill/156/57/ ; atvinnuveganefnd list ?lthing=156",
+      "result": "HTTP 403 / Cloudflare challenge; no vote fulltext",
+      "readStatus": "access_blocked_raw_saved",
+      "stopReason": "Stop further identical broad process-page retries without new access path; escalate to owner/document IDs"
+    },
+    {
+      "id": "B15-SL06",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "Web search for dated implementation after case 57 / neyðarbirgðir framkvæmd 2025–2026",
+      "channel": "web_search",
+      "queryOrDocument": "Alþingi neyðarbirgðir matvæla framkvæmd 2025 2026; fyrirkomulag sak 57",
+      "result": "Hits to proposal 0057, reports, Nov 2025 conference pages, matvælastefna action PDF; no adopted-implementation PDF identified for reading",
+      "readStatus": "search_hits_only_not_evidence",
+      "stopReason": null
+    },
+    {
+      "id": "B15-SL07",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "Did 2026 agricultural-agreement path implement the case-57 scheme?",
+      "channel": "web_search_plus_public_http",
+      "queryOrDocument": "búvörusamningar 2026 neyðarbirgðir; stjornarradid 2026/06/04 extension URL; bbl.is article",
+      "result": "Search points to June 2026 extension; Stjórnarráðið Blazor shell empty of article text; BBL secondary readable and quotes extension without stock-scheme clause",
+      "readStatus": "secondary_full_read_primary_shell_only",
+      "stopReason": "Primary government article text unavailable in this tool path; do not invent clause presence/absence beyond BBL extract"
+    },
+    {
+      "id": "B15-SL08",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "Any public register of emergency/minimum food stocks with date/owner/location?",
+      "channel": "web_search_reuse_plus_departmental_answers",
+      "queryOrDocument": "site:island.is / stjornarradid.is lágmarksbirgðir matvæla korn register; answers 1348/1505",
+      "result": "No register found; answers describe ongoing definitional/procedural work",
+      "readStatus": "negative_within_scoped_channels",
+      "stopReason": "B15 stop rule reached for stock question: only scenario/qualitative/process sources"
+    },
+    {
+      "id": "B15-SL09",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "Is there a searchable adopted resolution or nefndarálit titled like case 57?",
+      "channel": "web_search",
+      "queryOrDocument": "site:althingi.is \"fyrirkomulag matvælaframleiðslu til neyðarbirgða\" nefndarálit OR samþykkt",
+      "result": "No results returned by search provider for that exact query set",
+      "readStatus": "search_empty_not_proof_of_absence",
+      "stopReason": "Empty search ≠ absence; remains owner/ferill task"
+    },
+    {
+      "id": "B15-SL10",
+      "askedAt": "2026-09-09T10:45:00Z",
+      "question": "Does Alþingi question 807 / answer path add withdrawal basis beyond 1348?",
+      "channel": "public_http_get",
+      "queryOrDocument": "https://www.althingi.is/altext/157/s/0807.html and PDF answer 1348 already read",
+      "result": "0807 is the question; 1348 is the answer already used — no additional operational reserve statute found there",
+      "readStatus": "full_or_locator_text_read_hash_verified",
+      "stopReason": "Channel set for Q3 exhausted without operational withdrawal/financing instrument"
+    }
+  ],
+  "human_verified": false
+}

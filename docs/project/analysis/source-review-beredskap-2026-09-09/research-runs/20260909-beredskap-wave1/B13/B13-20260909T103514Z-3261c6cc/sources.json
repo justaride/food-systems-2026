@@ -1,0 +1,208 @@
+{
+  "schema": "beredskap-sources/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B13",
+  "runId": "B13-20260909T103514Z-3261c6cc",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B13-S001",
+      "title": "Familiefattigdom. En undersøkelse av materielle mangler og økonomisk utrygghet i barnefamilier (SIFO-rapport 7-2025)",
+      "publisher": "Forbruksforskningsinstituttet SIFO, OsloMet",
+      "url": "https://www.parat.com/files/2025/08/21/SIFO-rapport%207-2025%20Familiefattigdom.pdf",
+      "documentVersion": "SIFO-rapport 7-2025; PDF CreationDate 2025-08-20; 56 pages",
+      "publishedAt": "2025-08",
+      "accessedAt": "2026-09-09",
+      "readScope": "Re-verified private PDF bytes; pdftotext Tabell 2-1 (PDF pp.11–12), Figur 4-3/4-4 body (PDF ~p.25), Vedlegg 6 (PDF pp.52–53) including OCR of item scoring table image on p.52; method notes on Gallup/Kantar sampling and footnote 8.",
+      "sourceRole": "primary_sifo_report",
+      "accessStatus": "private_raw_verified_on_this_machine",
+      "rights": {
+        "internalUseBasis": "public_pdf_mirror_archived_privately_for_internal_research_control",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/raw/SIFO-rapport-7-2025-Familiefattigdom-parat.pdf",
+      "rawSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/extracts/SIFO-full-prior-text.txt",
+      "extractedTextSha256": "6c2b98fb5080a1279386267d4da5362bb932b6427df4066498e4240f96fe164a",
+      "exactLocators": [
+        {
+          "type": "pdf_pages",
+          "start": 11,
+          "end": 12,
+          "label": "Tabell 2-1 and sampling method"
+        },
+        {
+          "type": "pdf_pages",
+          "start": 52,
+          "end": 53,
+          "label": "Vedlegg 6 item scoring and categories"
+        },
+        {
+          "type": "pdf_pages",
+          "start": 25,
+          "end": 26,
+          "label": "Figur 4-3 and 4-4 body"
+        },
+        {
+          "type": "extract_file",
+          "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/extracts/SIFO-vedlegg6-page52-ocr.txt",
+          "sha256": "39fa5773300b603c5448fa1488c5df2b14458c6e86fb6420f7f752a8a2ce376a"
+        }
+      ],
+      "limitations": [
+        "A3-S001 previously recorded sha256 ending ...4db0...; verified bytes on this machine are ...4cb0... (same as round-003 D-S005). B13 binds the verified bytes.",
+        "Item wording table on Vedlegg 6 is image-like; OCR used for locator support and may contain character noise.",
+        "No wave-by-wave item response distributions in the published report body/annex."
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B13-S002",
+      "title": "Matutdeling – et etablert tilbud i velferdssamfunnet. Oppfølgingsstudie av det norske matutdelingstilbudet (Fafo-rapport 2026:01)",
+      "publisher": "Fafo",
+      "url": "https://fafo.no/images/pub/2026/20952.pdf",
+      "documentVersion": "Fafo-rapport 2026:01; ISBN 978-82-324-0793-4; ID-nr. 20952",
+      "publishedAt": "2026-02",
+      "accessedAt": "2026-09-09",
+      "readScope": "Re-verified private PDF bytes; pdftotext method §§2.1–2.2 (organization survey response 49%; recipient mapping recruitment/fieldwork/limitations, PDF pages ~18–23 / printed ~14–21).",
+      "sourceRole": "primary_fafo_report",
+      "accessStatus": "private_raw_verified_on_this_machine",
+      "rights": {
+        "internalUseBasis": "public_pdf_archived_privately_for_internal_research_control",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/raw/Fafo-rapport-2026-01-Matutdeling.pdf",
+      "rawSha256": "900d309b024d516f6897ad076d757a1e97c66fca63a213cbb511ff4b898f55ee",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/extracts/Fafo-full-prior-text.txt",
+      "extractedTextSha256": "bb6fa3209ad1b458bbf4257b143b1330640f63895cc85656a1d4bfbb6467282f",
+      "exactLocators": [
+        {
+          "type": "extract_file",
+          "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/extracts/Fafo-recipient-method-pages21-23.txt",
+          "sha256": "9ce1d12fcc34ded273ffa3eb4c18502ed11ad398ba805d641f5a0953c4d31099"
+        },
+        {
+          "type": "pdf_text_phrase",
+          "label": "Vi har ingen registering av hvor stor andel av matmottakeren..."
+        },
+        {
+          "type": "pdf_text_phrase",
+          "label": "Vi kan ikke trekke slutninger om hele populasjonen av matmottakere"
+        }
+      ],
+      "limitations": [
+        "Appendices 1–3 are questionnaires/org lists, not a national recipient population frame.",
+        "Organization-survey response rate is not a recipient response rate."
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B13-S003",
+      "title": "A3 prior package data.json (food access research 2026-09-08)",
+      "publisher": "internal_research_package_A3",
+      "url": null,
+      "documentVersion": "A3-2026-09-08-food-access",
+      "publishedAt": "2026-09-08",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full JSON: sources A3-S001/A3-S012, gaps A3-G001/G002/G006/G007, observations A3-O001–O009 and A3-O021–O022; used as prior channel inventory, not as independent primary evidence.",
+      "sourceRole": "prior_package_inventory",
+      "accessStatus": "worktree_file_hash_verified",
+      "rights": {
+        "internalUseBasis": "internal_candidate_research_artifact",
+        "redistributionAllowed": false
+      },
+      "rawPath": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "rawSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "extractedTextPath": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "extractedTextSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "exactLocators": [
+        {
+          "type": "json_pointer",
+          "pointer": "/gaps/0"
+        },
+        {
+          "type": "json_pointer",
+          "pointer": "/gaps/1"
+        },
+        {
+          "type": "json_pointer",
+          "pointer": "/gaps/5"
+        },
+        {
+          "type": "json_pointer",
+          "pointer": "/gaps/6"
+        }
+      ],
+      "limitations": [
+        "Prior agent candidate only; human_verified false.",
+        "A3-S001 sha256 field does not match verified SIFO PDF bytes on this machine."
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B13-S004",
+      "title": "round-003 documentation findings.json (includes SIFO PDF binary identity check)",
+      "publisher": "internal_analysis_round-003",
+      "url": null,
+      "documentVersion": "asOf 2026-09-09",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Source D-S005 binding for SIFO-7-2025.pdf rawSha256 ...4cb0... and note of binary identity with prior A3-S001 path.",
+      "sourceRole": "documentation_crosscheck",
+      "accessStatus": "worktree_file_hash_verified",
+      "rights": {
+        "internalUseBasis": "internal_analysis_only",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/findings.json",
+      "rawSha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/findings.json",
+      "extractedTextSha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+      "exactLocators": [
+        {
+          "type": "json_pointer",
+          "pointer": "/sources/4"
+        }
+      ],
+      "limitations": [
+        "Round-003 D-S005 readScope was title/ISBN/foreword/summary pages, not Vedlegg 6 re-read."
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B13-S005",
+      "title": "round-002 review-register.json (SIFO/Fafo claim review notes)",
+      "publisher": "internal_analysis_round-002",
+      "url": null,
+      "documentVersion": null,
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Keyword scan and claim entries for SIFO instrument, waves, Figur 4-3/4-4 patterns, and Fafo 1906/31-site recipient mapping limitations.",
+      "sourceRole": "prior_review_register",
+      "accessStatus": "worktree_file_hash_verified",
+      "rights": {
+        "internalUseBasis": "internal_analysis_only",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/review-register.json",
+      "rawSha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/review-register.json",
+      "extractedTextSha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+      "exactLocators": [
+        {
+          "type": "review_register_keyword",
+          "label": "SIFO/Fafo related claim reviews"
+        }
+      ],
+      "limitations": [
+        "Scoped source/claim review only; not independent empirical replication."
+      ]
+    }
+  ]
+}

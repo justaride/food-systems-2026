@@ -1,0 +1,161 @@
+{
+  "schema": "beredskap-verification/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B16",
+  "runId": "B16-20260909T103514Z-5f548c04",
+  "createdAt": "2026-09-09T11:05:00Z",
+  "checks": [
+    {
+      "id": "V01",
+      "name": "worktree_head_matches_planCommit",
+      "result": "passed",
+      "evidence": "HEAD 5c3d735712f3b5fe929ba8043ee57a74cb318e1a == planCommit"
+    },
+    {
+      "id": "V02",
+      "name": "foundation_commit_recorded",
+      "result": "passed",
+      "evidence": "4026a90d62edf129d4323f7f0971ace716b03983"
+    },
+    {
+      "id": "V03",
+      "name": "pre_read_input_sha256",
+      "result": "passed",
+      "evidence": {
+        "AGENTS": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+        "FELLES": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+        "B16": "1a5fec97e4d4f9916e40b60e0218696f9c31f210b8c3babd3c7175b768ab910f",
+        "coverage": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+        "inputManifest": "770910bbd0fa2ad6980104117895238b9ed4923b69ed5b49fed114e0356955b4",
+        "workPackages": "bab3c5d30c23dda1320fbe2c486f9876b609ab817a6fda3157ed16f039a6e5e3",
+        "A4data": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+        "A4funn": "9f78d378c7bb94d2e3bd721389002df1584d8732251339dd7ce20d486c8bcb90",
+        "A4sok": "3ecaf9e1c549c1f3e91fced0bff88ed82513d4f1b57f4cc4f48da958ac953cf7",
+        "R2reg": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+        "gitStatus": "f89405b51cfb6695891d790aacc287122e76e85666e7198300ef50105956907c"
+      }
+    },
+    {
+      "id": "V04",
+      "name": "rit_pdf_sha256_reverified_including_refetch",
+      "result": "passed",
+      "evidence": {
+        "pdf": "7c38200f4fa301662859fe483b634bc0a6473fa050c9e8fac75608c7151bc9ba",
+        "refetch": "7c38200f4fa301662859fe483b634bc0a6473fa050c9e8fac75608c7151bc9ba",
+        "identical": true,
+        "A4_recorded": "7c38200f4fa301662859fe483b634bc0a6473fa050e9c8fac75608c7151bc9ba"
+      }
+    },
+    {
+      "id": "V05",
+      "name": "policy_and_target_profile_hashes",
+      "result": "passed",
+      "evidence": {
+        "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+        "targetProfileSha256": "3210c3489e48b25dfd2a3d0ec3c3e10dc9e52ead3e5f83f88b62df124b9fc834"
+      }
+    },
+    {
+      "id": "V06",
+      "name": "stop_rule_list_not_capacity_mat_vs_for",
+      "result": "passed",
+      "evidence": "A981/A848 Feed only; no national capacity from Húsavík interview"
+    },
+    {
+      "id": "V07",
+      "name": "no_invented_one_percent_reconstruction",
+      "result": "passed",
+      "evidence": "reconstructedShare=null"
+    },
+    {
+      "id": "V08",
+      "name": "mast_channel_reopened_after_A4_timeout",
+      "result": "passed",
+      "evidence": {
+        "est": "db734582b814b7f834d3a38821b3bfc7ac58dc3fd1205aabc1b74b43e92f7898",
+        "hd": "be25cabf48ad5b3d4a231dabbfb153b85c1fe872b03608d5d76a38e10fb234fe"
+      }
+    },
+    {
+      "id": "V09",
+      "name": "no_owner_contact_sent",
+      "result": "passed",
+      "evidence": {
+        "contactSent": false,
+        "requiredDocumentSha256": "1da6016d226aa34e211aed2584df98266106e4ea23de2a583c0f9f3f9bd8e1be"
+      }
+    },
+    {
+      "id": "V10",
+      "name": "no_research_plan_or_prior_round_edits",
+      "result": "passed",
+      "evidence": "writes limited to delivery dir + private artifact root"
+    },
+    {
+      "id": "V11",
+      "name": "observation_hashes",
+      "result": "passed",
+      "evidence": [
+        {
+          "id": "B16-C01",
+          "evidenceSha256": "f6609eed0a00250ee225cdd27ae71b156b7ace1f730cd38fce51c877db625daa",
+          "candidateSha256": "5c825a0c871c2c343d62d7e87441c3cdd3383014d33e3db2ae7773ffec0c971a"
+        },
+        {
+          "id": "B16-C02",
+          "evidenceSha256": "87540b1b894f5f7521a9724c0d9d0ba52f9304eecfbd2a486041f87e12a436fa",
+          "candidateSha256": "bc3e869baec219b7238177c217f202386228b93467396b79b90398f46e575b10"
+        },
+        {
+          "id": "B16-C03",
+          "evidenceSha256": "4a38a6f2a28f6241dd992ad5bc08a5b56ed9604d6a1cd2aefec1c6239d95a3c7",
+          "candidateSha256": "1ebd2d5bf8e2e19b78b2116f80bc469536a2564446c68aa377b437a22da9f1ba"
+        },
+        {
+          "id": "B16-C04",
+          "evidenceSha256": "9fc78fe9e15594f96fd399821a11f62f2dd3e97abb898e3f75c652514e9848ca",
+          "candidateSha256": "0f35d2a48e3c5983c2e819b83e3eaddde08686b2bd29c942314416af3b77549a"
+        },
+        {
+          "id": "B16-C05",
+          "evidenceSha256": "c45d31e52f370df65802c1f1888a3c8d72d9e03ae5fbebaf917c55d3c1aef2aa",
+          "candidateSha256": "4b45da5898217cc5692513a088fea3f90a65e96d0e40bd826660cda85ef6ce58"
+        },
+        {
+          "id": "B16-C06",
+          "evidenceSha256": "45875c6f472de86c856083fa0b825543c8f693cf1f5c579055ddc6a300837268",
+          "candidateSha256": "6e6e236f9f064ebdbbc39953c7286a49e811d0787b655165019e999b0ab0eb9c"
+        },
+        {
+          "id": "B16-C07",
+          "evidenceSha256": "d2fd4636a375f2f715e15872fd5d77ac5dc1594c2946edbb3036705d33472742",
+          "candidateSha256": "c6416c3d3f0fc9a80eb530a53a6c6178b373b9fd78cb755b248b1d3b678b4e9c"
+        }
+      ]
+    },
+    {
+      "id": "V12",
+      "name": "human_verified_false",
+      "result": "passed",
+      "evidence": "all false"
+    }
+  ],
+  "notPerformed": [
+    {
+      "id": "NP01",
+      "name": "authorized_owner_outreach",
+      "reason": "contract forbids contact/email"
+    },
+    {
+      "id": "NP02",
+      "name": "canonical_promotion_or_readiness_change",
+      "reason": "AGENTS.md authority boundary"
+    },
+    {
+      "id": "NP03",
+      "name": "live_pdfinfo_page_map_for_Rit",
+      "reason": "pdfinfo unavailable; text-line locators used"
+    }
+  ]
+}

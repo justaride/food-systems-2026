@@ -1,0 +1,204 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B01",
+  "runId": "B01-20260909T101901Z-dcaf4365",
+  "createdAt": "2026-09-09T10:24:00Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B01/B01-20260909T101901Z-dcaf4365/git-status.txt",
+  "gitStatusSha256": "38998f6dd3c580526e1944aa098186a3222418655d693b3eefba03ff7abc0949",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B01/B01-20260909T101901Z-dcaf4365",
+  "status": "waiting_owner",
+  "stopReason": "No new named current bulk specification for 160105 in R6-S01/R6-S09 channels; document need registered to Cerealia Norge via unsent R6-G02 intake; catalog search not repeated; nutrition protein not used as limit",
+  "model": {
+    "requestedModel": null,
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent session exposes no reliable model id/attestation tool metadata; values left null rather than invented"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B01.md",
+      "sha256": "886f0aa889833a690fda30cc5fa1ef656c7dcb6c4012757725353c480dbc3a7c",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/README.md",
+      "sha256": "50dfe94b65f60ac7b7b9bce7f55daa10d66f7ba7cd2846317e463c3bd331b0d6",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/q1-comparison.json",
+      "sha256": "9403e6a60b6c2b39ae802e9a4f25396f169e312268c0bb4fe3db859a6c97b35f",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/source-bindings.json",
+      "sha256": "3f07f92ce318b6675084b2ccb3d32e89e2694b1a1fcfc9b775208dfd7bf05871",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json",
+      "sha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/data-gaps.json",
+      "sha256": "3fec3de5c79ad141918000cee8e937f14ae7257916e8e2efc80fca64c42d9957",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "sha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/observations.json",
+      "sha256": "61221a07af29f4d36502132bbf263d7a109e4fdb95aa6e3c55a1d96970f85196",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/access-review.json",
+      "sha256": "6e2d5930293e23317794cc2740a54855744f36b918f12913c2367717bc466892",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/regal-bulk.html",
+      "sha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/regal-bulk.txt",
+      "sha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/no-catalog.pdf",
+      "sha256": "4d7e7415748bc8a84670daff7d56067242efc886f11904ffb05c23996aed0474",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/no-catalog.txt",
+      "sha256": "cff4fc76912f18c650fe1c41388bc6dc70174bb8881d23cd690024b220eae2b6",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/regal-bag.html",
+      "sha256": "d3b6a6400bf2ef578aefb665f794246729cf57b6e5394aa0a08299e29eaaab2c",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/regal-bag.txt",
+      "sha256": "ff5c9368024d388604cfcb07d4ee4a13468c0d991c44643049e0aa71d0a3dbae",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/regal-bulk-links.json",
+      "sha256": "ab167cab94ac17098f38aaeac95ccf3cbd58bbb3c70e36987df7b022a77f0b6a",
+      "private": true,
+      "accessRequired": true
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "findings.md",
+      "sha256": "c0625c37ab34c598ac67b577dc06ae14e6c3021c36774f42ae00f1c4ab973232",
+      "private": false
+    },
+    {
+      "path": "sources.json",
+      "sha256": "1c55e486da341d60ec9f7f4d6ed5dfd05791b84240793836201233626035f54d",
+      "private": false
+    },
+    {
+      "path": "observations.json",
+      "sha256": "fc211d73acecb9783a4e12feeafe29959fd04d9b794744e121d2203fbee71de6",
+      "private": false
+    },
+    {
+      "path": "gaps.json",
+      "sha256": "39eb8154d80812182b714e17c9ebd8628f13c23596f5a145f37d805c2404a3d0",
+      "private": false
+    },
+    {
+      "path": "search-log.json",
+      "sha256": "47fa05f286bb38170d1261264a0be37c6488d31abc7bba75104c722bce2a6df3",
+      "private": false
+    },
+    {
+      "path": "verification.json",
+      "sha256": "9da40daa47cbfa17dd03c9f172ff91523b68a1fda6195464b0bce54d08a2b4e6",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "R6-G02",
+      "disposition": "document_need_registered_waiting_owner",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Cerealia Norge produkt-/laboratorieansvarlig"
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "question": "Finnes en ny, datert gjeldende spesifikasjon med revisjon og gyldighetsperiode?",
+      "result": "precise_stop_no_named_spec_in_channels"
+    },
+    {
+      "question": "Hva er min/maks og metode for protein/fuktbasis, falltall, glutenfunksjon, aske og granulometri?",
+      "result": "precise_stop_limits_absent_publicly_nutrition_protein_not_used"
+    },
+    {
+      "question": "Hva gjelder allergener, krysskontakt, mattrygghet og bulkholdbarhet?",
+      "result": "precise_stop_ingredient_only_no_full_allergen_or_bulk_shelf_life"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator/owner path: obtain dated Cerealia Norge bulk 160105 specification covering R6-G02-01..11; start a new runId to hash-bind returned document. Coordinate surfaces with B03/B04 without mutual waiting.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false,
+  "coordinationWith": [
+    "B03",
+    "B04"
+  ],
+  "candidateArea": "C1",
+  "purposeIds": [
+    "P2",
+    "P3"
+  ]
+}

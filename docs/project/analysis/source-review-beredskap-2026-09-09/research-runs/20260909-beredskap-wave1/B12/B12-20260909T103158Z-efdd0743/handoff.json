@@ -1,0 +1,229 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B12",
+  "runId": "B12-20260909T103158Z-efdd0743",
+  "createdAt": "2026-09-09T10:45:00Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/controls/git-status.txt",
+  "gitStatusSha256": "38998f6dd3c580526e1944aa098186a3222418655d693b3eefba03ff7abc0949",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743",
+  "status": "waiting_owner",
+  "stopReason": "Primary Hylte Patricia protocol/time log/nutrition not in public news or MeetingPlus titles/tertial bodies; date contradiction unresolved; MEAL-T001 not executed (stop rule); Nordic method increment unspecified; ordinary 270 g / 700000 SEK not disruption multi-meal metrics; unsent owner request registered",
+  "model": {
+    "requestedModel": null,
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent session exposes no reliable model id/attestation tool metadata; values left null rather than invented"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B12.md",
+      "sha256": "35cabda94d4c77fb5e5a5f7a9b9fb2bc865b6c7a2b4e8947757836371fb5449c",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/meals/findings.json",
+      "sha256": "f4d28e30937dbe13ad678d761ea620519187a28edd352023b60355de28ca6a80",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/meals/README.md",
+      "sha256": "ec9c31e4076645f586fa98000aff8ea93da7b0ef961e99a5f114d727db216b2c",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/gap-intake.json",
+      "sha256": "a8bc6acea53e64785ecb10f760c60daa0e0577913fd0a057314175ce9e0f59bd",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/candidate-tests.json",
+      "sha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S001.html",
+      "sha256": "e51d292785420d5d696497232ac0603a28d4483d56d7a4b52eeb719042207d7f",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S001.txt",
+      "sha256": "70ba4d407583eb17e77a59b526add4f72a1f404b1d01754622071d6b1e00fc15",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S004.pdf",
+      "sha256": "e1e899d8b311b99294a7b4df34f35f3522431d090076ec363ae1412913a73f46",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/meals/MEAL-S005.pdf",
+      "sha256": "7b1305f86a632056fd1d91ca9f2492705663b6c1c0a213adc973279761e15b10",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/raw/B12-S23-tertialrapport1-2025.pdf",
+      "sha256": "4363e1698f6b217f55d08caeb2e4b51942c4dd7c20e2354d057333fcffc31d0c",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/raw/B12-S24-tertial2-sbn-2025.pdf",
+      "sha256": "5ce1254f4c008492e0fdba615da56099db298437157bc3c4779410d38133b01b",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/raw/B12-S26-underlag-sbn-tertial1.pdf",
+      "sha256": "4e0c27160349eccdc4c84e87c54e7e040495ad124f6a396bcff9a3f8dd8e29ab",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/controls/candidate-target-profile-C4.json",
+      "sha256": "7795b679a5cba67bbe3392ff03b11f6c1d03ce3bac9d21b9332fa2aa73f49608",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/controls/git-status.txt",
+      "sha256": "38998f6dd3c580526e1944aa098186a3222418655d693b3eefba03ff7abc0949",
+      "private": true,
+      "accessRequired": true
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "findings.md",
+      "sha256": "4d1ac7c3c327c2c63fc077b8c9e5c3b6ba33db2fd9835397359f4c727cd17b70",
+      "private": false
+    },
+    {
+      "path": "sources.json",
+      "sha256": "cba3d808faaaabf9a89d744b1d9c76fdd7327735706020d9b5ff682029c88f24",
+      "private": false
+    },
+    {
+      "path": "observations.json",
+      "sha256": "d40112b0d6cb6846b08149e9841cd0c7e31da1bfb465f18dc5ba3d59e1e08f04",
+      "private": false
+    },
+    {
+      "path": "gaps.json",
+      "sha256": "21a8c444e8384be554e0d4110c7f3d481af8b89f7951ae986ba48fe98b29fd0e",
+      "private": false
+    },
+    {
+      "path": "search-log.json",
+      "sha256": "f4e009f961136e0e7832462358e7c6920deeafd561a8ddf7adb12f39dbd6e13a",
+      "private": false
+    },
+    {
+      "path": "verification.json",
+      "sha256": "46e2c7497f8df96fc5eff4027f4df9d66084e867be0d5cd58d5311e5096544d4",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "NEW-MEAL-01",
+      "disposition": "remains_open_method_and_measurement_need",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "pilot metodeansvarlig + navngitt kjøkken"
+    },
+    {
+      "gapId": "MEAL-G001",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Hylte øvelsesledelse/måltid/matkontroll"
+    },
+    {
+      "gapId": "MEAL-G002",
+      "disposition": "remains_open_waiting_measurement",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "navngitt kjøkken og måleansvarlig"
+    },
+    {
+      "gapId": "MEAL-G003",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "kjøkken, vannverk, logistikk og kontraktseier"
+    },
+    {
+      "gapId": "MEAL-G004",
+      "disposition": "remains_open_waiting_method",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "pilotens metodeansvarlige"
+    },
+    {
+      "gapId": "B12-20260909T103158Z-efdd0743-G01",
+      "disposition": "new_subgap_search_tooling_limit",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "koordinator"
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "question": "Kan Hyltes datomotsigelse og faktisk tids-/måltidslogg avklares i primærprotokoll?",
+      "result": "precise_stop_waiting_owner_no_public_primary_protocol"
+    },
+    {
+      "question": "Hva er spist egnet mat, spesialkost, spiselig svinn, arbeid, kostnad, vann og brensel over flere måltider?",
+      "result": "precise_stop_unknown_under_disruption_MEAL-T001_not_executed"
+    },
+    {
+      "question": "Hva er et konkret nordisk metodetillegg utover kjøkkenets nasjonale baseline?",
+      "result": "precise_stop_waiting_method_unspecified"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator/owner: obtain Hylte primary Patricia protocol covering B12-REQ-01..08 (unsent). New runId to hash-bind returned bytes. Specify MEAL-G004 Nordic method content before any authorized MEAL-T001. Optional: capture MeetingPlus Patricia page-2 titles.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false,
+  "coordinationWith": [
+    "koordinator"
+  ],
+  "candidateArea": "C4",
+  "purposeIds": [
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ]
+}

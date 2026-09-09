@@ -1,0 +1,252 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B03",
+  "runId": "B03-20260909T101901Z-1e1d2425",
+  "createdAt": "2026-09-09T10:24:48Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/controls/git-status-evidence.txt",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425",
+  "status": "waiting_owner",
+  "stopReason": "Authorized PBE public channel re-checked without a new attachment documenting today's bulk reception; operational production/Q1/need/stock/acceptance values require Furuset owner documents via still-unsent R6-INTAKE-001. No contact sent. Missing quantities remain unknown.",
+  "model": {
+    "requestedModel": null,
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "No tool/session metadata provided an attested model id; executor self-identification is not model attestation"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B03.md",
+      "sha256": "3bbc13e28309dd9a0c1624c7b885b80dc893148f5a33d167403b8e0104387f1b",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/input-manifest.json",
+      "sha256": "770910bbd0fa2ad6980104117895238b9ed4923b69ed5b49fed114e0356955b4",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/work-packages.json",
+      "sha256": "bab3c5d30c23dda1320fbe2c486f9876b609ab817a6fda3157ed16f039a6e5e3",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/NESTE-SESJON.md",
+      "sha256": "6b8e94414de6389a2f577f4aa6c3432c189ebb9dd6675a7d1d1b9d05b9b9a95f",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/observations.json",
+      "sha256": "61221a07af29f4d36502132bbf263d7a109e4fdb95aa6e3c55a1d96970f85196",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json",
+      "sha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/INNTAK-USENDT.md",
+      "sha256": "969f57ff79a717ebcdc45241b9a76fe0a2cacfe283a9390144ee4ff2dfb828c4",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/source-bindings.json",
+      "sha256": "3f07f92ce318b6675084b2ccb3d32e89e2694b1a1fcfc9b775208dfd7bf05871",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "sha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/data-gaps.json",
+      "sha256": "3fec3de5c79ad141918000cee8e937f14ae7257916e8e2efc80fca64c42d9957",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+      "sha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+      "sha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/controls/git-status-evidence.txt",
+      "sha256": "d8c756d27b9c04977bada9aeee9205590938ffabb270dfb6720f7497b8dcc8dc",
+      "private": true,
+      "accessRequired": true,
+      "portability": "absolute path on coordinator machine; not in git"
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/findings.md",
+      "sha256": "1893ab8f5526a01cbe478b2c2065d9ff0c504ae8476815f1f0e49dbfe89e2b69",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/sources.json",
+      "sha256": "571a90990f56f4f3549d13ba0e2815d7a8e782835dc6e86c501d1b01fe5fbaf3",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/observations.json",
+      "sha256": "f27ee890b5de729fc80e4b8ae77f3282ccd8fa40a5d9958bd3709a799fe84c5a",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/gaps.json",
+      "sha256": "f130cc43a2e08b8017182eeee1edf2234bfe622c71efd56f4706603952390906",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/search-log.json",
+      "sha256": "f0e86ca56daa94a1f1c275ff82f532d6d2e8f3c842a25b0aa7bad09bd9b4416b",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/verification.json",
+      "sha256": "85069b0d3f1330e1b59bba2ad01dab4ed7d08f5242fb8484df3dc5685f090ce3",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "A1-G006",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R5-G01",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R5-G02",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R5-G05",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R5-G09",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R6-G01",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R6-G04",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R6-G05",
+      "disposition": "remains_open_waiting_owner_and_source",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R6-G07",
+      "disposition": "remains_open_waiting_owner",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "B03-B03-20260909T101901Z-1e1d2425-G01",
+      "disposition": "new_precise_gap_recorded",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "B03-B03-20260909T101901Z-1e1d2425-G02",
+      "disposition": "new_precise_gap_recorded",
+      "semanticGapClosed": false
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "id": "Q1",
+      "question": "Hva produseres fortsatt på stedet, og bruker dette faktisk Q1-mel?",
+      "answerType": "precise_stop_unknown_ops",
+      "observationIds": [
+        "B03-O02",
+        "B03-O05"
+      ]
+    },
+    {
+      "id": "Q2",
+      "question": "Hvor er siloer og innblåsingspunkt etter den beskrevne flyttingen, og hva viser som-bygget-dokumentasjon?",
+      "answerType": "precise_stop_waiting_asbuilt",
+      "observationIds": [
+        "B03-O01",
+        "B03-O03",
+        "B03-O04"
+      ]
+    },
+    {
+      "id": "Q3",
+      "question": "Hvilke resept-/batchbehov, akseptregler, lager, karantener og tidsfrister kan dokumenteres?",
+      "answerType": "none_documentable_waiting_owner",
+      "observationIds": [
+        "B03-O05"
+      ]
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator may authorize owner intake (R6-INTAKE-001 G01/G04/G05/G07) or open a newly appearing public as-built/ferdigattest attachment in a new runId; do not broaden PBE search or move case to Økern/sekk/ferdig bakst.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false,
+  "coordinationWith": [
+    "B01",
+    "B02",
+    "B06"
+  ]
+}

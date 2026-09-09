@@ -1,0 +1,110 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B17",
+  "runId": "B17-20260909T103719Z-fa4831c4",
+  "entries": [
+    {
+      "id": "B17-SL01",
+      "askedAt": "2026-09-09",
+      "question": "Q1 matprotokoll/status?",
+      "channel": "web_search",
+      "queryOrDocument": "Norge Finland avtale 2005 vare- og tjenestebyttet protokoll matvarer blandet komité 2026",
+      "result": "Ingen matprotokoll; irrelevante treff",
+      "readStatus": "search_hits_reviewed_no_food_protocol",
+      "stopReason": null
+    },
+    {
+      "id": "B17-SL02",
+      "askedAt": "2026-09-09",
+      "question": "Q1 Overvåkingskomité-referat?",
+      "channel": "web_search",
+      "queryOrDocument": "Overvåkingskomité/övervakningskommitté/valvontakomitea Norge Finland vare- og tjenestebyttet",
+      "result": "Ingen Art.5-komitétreff; Interreg-treff er andre organer",
+      "readStatus": "no_relevant_committee_minute",
+      "stopReason": null
+    },
+    {
+      "id": "B17-SL03",
+      "askedAt": "2026-09-09",
+      "question": "Q1 les Lovdata+Finlex",
+      "channel": "direct_http_fetch",
+      "queryOrDocument": "lovdata 2005-04-14-10; finlex 445/2006",
+      "result": "HTTP 200; Art.1-3/5/9 OK; ingen matprotokoll",
+      "readStatus": "fulltext_relevant_parts_read",
+      "stopReason": null
+    },
+    {
+      "id": "B17-SL04",
+      "askedAt": "2026-09-09",
+      "question": "Q2 2027-studie mandat/budsjett?",
+      "channel": "web_search",
+      "queryOrDocument": "Joint Nordic Declaration 2027 feasibility study mandate budget NSSN",
+      "result": "Press/sekundær omtale; ingen budsjett/TOR; AU-NSSN filtrert",
+      "readStatus": "no_funded_mandate_found",
+      "stopReason": null
+    },
+    {
+      "id": "B17-SL05",
+      "askedAt": "2026-09-09",
+      "question": "Q1/Q2 Åland + government.se",
+      "channel": "direct_http_fetch",
+      "queryOrDocument": "aland nr57-2026 PDF; government.se statements declaration",
+      "result": "Åland HTTP 200 sha59da8d3d...; government.se HTTP 403",
+      "readStatus": "aland_full_pdf_read; government_se_blocked",
+      "stopReason": null
+    },
+    {
+      "id": "B17-SL06",
+      "askedAt": "2026-09-09",
+      "question": "Q2 NO/SE press",
+      "channel": "direct_http_fetch",
+      "queryOrDocument": "regjeringen.no id3171741; regeringen.se press 2026-09",
+      "result": "HTTP 200; NSSN+studie; 2027-detaljer fra Åland-bilaga",
+      "readStatus": "fulltext_relevant_parts_read",
+      "stopReason": null
+    },
+    {
+      "id": "B17-SL07",
+      "askedAt": "2026-09-09",
+      "question": "Q3 prioritering/leveransekjede",
+      "channel": "web_search_plus_direct_fetch",
+      "queryOrDocument": "transport-strategy.pdf; ffi-rapport; prioritering matleveranse",
+      "result": "Anbefalinger; ingen ferdig regel/leveringslogg",
+      "readStatus": "strategy_full_extract; ffi_selected_pages_read",
+      "stopReason": null
+    },
+    {
+      "id": "B17-SL08",
+      "askedAt": "2026-09-09",
+      "question": "Q1 MoU 2020-dato",
+      "channel": "direct_http_fetch_plus_web_search",
+      "queryOrDocument": "fi-no-mou.pdf; opprettholdelse ... 5 November 2020",
+      "result": "MoU bekrefter 2020-dato; ingen selvstendig 2020-traktat; Lovdata 2005 beholdt",
+      "readStatus": "mou_full_pdf_read; conflict_recorded",
+      "stopReason": null
+    },
+    {
+      "id": "B17-SL09",
+      "askedAt": "2026-09-09",
+      "question": "Q1 HE145 fulltekst",
+      "channel": "direct_http_fetch",
+      "queryOrDocument": "finlex HE145/2025 mainPdf",
+      "result": "HTTP 200 men PNG 800x800; ingen fulltekst",
+      "readStatus": "access_failed_wrong_payload",
+      "stopReason": null
+    },
+    {
+      "id": "B17-SL10",
+      "askedAt": "2026-09-09",
+      "question": "Stoppregel: flere brede søk?",
+      "channel": "reuse_A5_search_log",
+      "queryOrDocument": "A5-L001–L024 + B17-SL01–SL09",
+      "result": "Kanaler uttømt; stopp",
+      "readStatus": "stop_rule_applied",
+      "stopReason": "B17 stop rule: named channels exhausted; do not rephrase; do not reintroduce wrong document identity; non-binding ≠ food volume rights"
+    }
+  ],
+  "human_verified": false
+}

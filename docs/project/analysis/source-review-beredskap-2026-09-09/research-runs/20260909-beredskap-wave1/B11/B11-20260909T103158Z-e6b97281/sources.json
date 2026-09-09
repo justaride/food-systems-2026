@@ -1,0 +1,356 @@
+{
+  "schema": "beredskap-sources/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B11",
+  "runId": "B11-20260909T103158Z-e6b97281",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R3-NPK-S001",
+      "title": "Bærekrafts- og årsrapport Hias IKS 2024",
+      "publisher": "Hias IKS",
+      "url": "https://www.hias.no/getfile.php/133754-1747294746/HIAS/Dokumenter/B%C3%A6rekrafts-%20og%20%C3%A5rsrapporter/2024%20b%C3%A6rekrafts-%20og%20%C3%A5rsrapport%20Hias%20IKS.pdf",
+      "documentVersion": "2024 report as frozen in round-003",
+      "publishedAt": "2024",
+      "accessedAt": "2026-09-09",
+      "readScope": "Re-verified private raw/text SHA-256; prior bounded pages 27–28,35–36 used via findings.json; no full re-review",
+      "sourceRole": "operator_primary_prior_freeze",
+      "accessStatus": "private_bytes_hash_verified_on_this_machine",
+      "rights": {
+        "internalUseBasis": "public operator PDF preserved privately for research integrity",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/nutrients/R3-NPK-S001.pdf",
+      "rawSha256": "0fec17d06fe21211787b3a91e775216c3c82fc2fd5b2113b19f737abec19f694",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/nutrients/R3-NPK-S001.txt",
+      "extractedTextSha256": "91487ec2c23f6747ba60f9aa7c4124b93957d6ac5237562049ee4139c69b0f85",
+      "exactLocators": [
+        {
+          "type": "pdfPage",
+          "page": 28,
+          "heading": "Struvitt"
+        }
+      ],
+      "limitations": [
+        "Annual production is not 2026 stock",
+        "P% basis not merged with dry-matter declaration"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R3-NPK-S002",
+      "title": "Forprosjekt struvitt – undersøkelse av gjødselverdien i struvitt fra HIAS IKS; NIBIO 6(32), 2020",
+      "publisher": "NIBIO / hosted on hias.no",
+      "url": "https://www.hias.no/getfile.php/133034-1711021970/HIAS/Dokumenter/Avl%C3%B8p/nibio_rapport_struvitt.pdf",
+      "documentVersion": "NIBIO rapport 6(32) 2020",
+      "publishedAt": "2020",
+      "accessedAt": "2026-09-09",
+      "readScope": "Private raw/text SHA-256 re-verified; pot barley response used only as mechanism bound, not field substitution",
+      "sourceRole": "original_experimental_report_prior_freeze",
+      "accessStatus": "private_bytes_hash_verified_on_this_machine",
+      "rights": {
+        "internalUseBasis": "public experimental PDF preserved privately",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/nutrients/R3-NPK-S002.pdf",
+      "rawSha256": "bee5c3e89579c0c02f939250c74b3000df4dd5959f0c91ac95edb26e01465d30",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/nutrients/R3-NPK-S002.txt",
+      "extractedTextSha256": "0ac6a2c80e5731f7ffcf8583b26fd0242919b4e0aa1aee0ae70e0c1fc293742c",
+      "exactLocators": [
+        {
+          "type": "pdfPage",
+          "page": 22,
+          "anchor": "Tabell 10"
+        }
+      ],
+      "limitations": [
+        "Pot aboveground DM, not grain field delivery"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R3-NPK-S003",
+      "title": "Hias Struvitt – varedeklarasjon og anbefalt bruk",
+      "publisher": "Hias IKS",
+      "url": "https://www.hias.no/avlop/struvitt/",
+      "documentVersion": "undated producer page as frozen round-003",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Private HTML/text SHA-256 re-verified; declaration content for product quality identity",
+      "sourceRole": "operator_primary_prior_freeze",
+      "accessStatus": "private_bytes_hash_verified_on_this_machine",
+      "rights": {
+        "internalUseBasis": "public web page preserved privately",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/nutrients/R3-NPK-S003.html",
+      "rawSha256": "4a8cb14b8f4250147b8fef75d12bf1ca0a37fcba1a3127685bad592fd157871b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/nutrients/R3-NPK-S003.txt",
+      "extractedTextSha256": "4efe923aa90bffc31500a4afdf46c898c48cdcff8ead168ef37bc300310f9e5a",
+      "exactLocators": [
+        {
+          "type": "htmlHeading",
+          "heading": "Varedeklarasjon Struvitt Hias IKS"
+        }
+      ],
+      "limitations": [
+        "Undated; product content ≠ field uptake; relative timing phrases not dated"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R3-NPK-S004",
+      "title": "Effects of struvite application on soil and plants: a short-term field study; NORSØK 4(10), 2019",
+      "publisher": "NORSØK",
+      "url": "https://www.hias.no/getfile.php/133031-1711021760/HIAS/Bilder/Avl%C3%B8p/NORS%C3%98K%20RAPPORT%2010%20struvitt%20FINAL%20Sept%205%202019%20trykk.pdf",
+      "documentVersion": "FINAL Sept 5 2019 trykk; round-003 freeze",
+      "publishedAt": "2019-09-05",
+      "accessedAt": "2026-09-09",
+      "readScope": "Private raw/text SHA-256 re-verified; conflict pages 10,20,27 re-read for dose/percent inconsistency",
+      "sourceRole": "original_experimental_report_prior_freeze",
+      "accessStatus": "private_bytes_hash_verified_on_this_machine",
+      "rights": {
+        "internalUseBasis": "public report preserved privately",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/nutrients/R3-NPK-S004.pdf",
+      "rawSha256": "cbe8e7f0b367aea5e335a4eae489579fa996fb47f32ccf1ddcd04aec53cf79f6",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/nutrients/R3-NPK-S004.txt",
+      "extractedTextSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+      "exactLocators": [
+        {
+          "type": "pdfPage",
+          "page": 10,
+          "anchor": "2.2 Study site and experimental design"
+        },
+        {
+          "type": "pdfPage",
+          "page": 20,
+          "anchor": "Table 5"
+        },
+        {
+          "type": "pdfPage",
+          "page": 27,
+          "anchor": "4 Discussion"
+        }
+      ],
+      "limitations": [
+        "Internal percent and manure-rate unit conflict unresolved without erratum/raw data; ley not barley recipient season"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B11-S000",
+      "title": "Hias bærekrafts- og årsrapporter index page",
+      "publisher": "Hias IKS",
+      "url": "https://www.hias.no/om-hias/dokumenter/baerekrafts-og-arsrapporter/",
+      "documentVersion": "live HTML captured 2026-09-09",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Full HTML used to locate 2025 report href",
+      "sourceRole": "operator_index",
+      "accessStatus": "retrieved",
+      "rights": {
+        "internalUseBasis": "public webpage",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/raw/B11-S000-arsrapporter-index.html",
+      "rawSha256": "baa272a8c955b2409ee8af338e6029456afca44291f25fe1c17e9f6090e126f5",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "href",
+          "url": "https://www.hias.no/getfile.php/134354-1778223006/HIAS/Dokumenter/B%C3%A6rekrafts-%20og%20%C3%A5rsrapporter/B%C3%A6rekrafts-%20og%20%C3%A5rsrapport%202025.pdf"
+        }
+      ],
+      "limitations": [
+        "Index only; content claims require PDF"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B11-S001",
+      "title": "Bærekrafts- og årsrapport 2025",
+      "publisher": "Hias IKS",
+      "url": "https://www.hias.no/getfile.php/134354-1778223006/HIAS/Dokumenter/B%C3%A6rekrafts-%20og%20%C3%A5rsrapporter/B%C3%A6rekrafts-%20og%20%C3%A5rsrapport%202025.pdf",
+      "documentVersion": "2025 combined sustainability and annual report PDF (26 pages per file(1))",
+      "publishedAt": "2025",
+      "accessedAt": "2026-09-09",
+      "readScope": "pdftotext -layout full extract; struvite section on PDF text page 14 and slam/biomass context page 16 inspected",
+      "sourceRole": "operator_primary_new",
+      "accessStatus": "retrieved_and_hash_bound",
+      "rights": {
+        "internalUseBasis": "public operator PDF",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/raw/B11-S001-hias-arsrapport-2025.pdf",
+      "rawSha256": "462ccf452d4f84b462b4a3e21667f8a32be1df2e3473bd9de213f4d9a5391a9c",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/extracted/B11-S001-hias-arsrapport-2025.txt",
+      "extractedTextSha256": "72fec03db012a434910a761eb74b059d6312b661583b3de1e5892e905b9ec084",
+      "exactLocators": [
+        {
+          "type": "pdfTextPage",
+          "page": 14,
+          "heading": "Struvitt",
+          "quote": "Totalproduksjonen i 2025 var 29 850 kg struvitt med 12 % P-innhold. Altså 3 582 kg fosfor. Det utgjør 6,9 % av 52 026 kg tilført Tot-P."
+        },
+        {
+          "type": "pdfTextPage",
+          "page": 16,
+          "topic": "slam/biomasse til jordbruk; separat fra struvittavsnitt"
+        }
+      ],
+      "limitations": [
+        "Reports annual production, not dated batch stock by location",
+        "No recipient fertilisation journal",
+        "No before/after P mass balance linking sludge and struvite",
+        "No disruption performance data"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B11-S002",
+      "title": "Organic Eprints record 36472 — Effects of struvite application…",
+      "publisher": "Organic Eprints / NORSØK",
+      "url": "https://orgprints.org/id/eprint/36472/",
+      "documentVersion": "eprint landing page HTML 2026-09-09",
+      "publishedAt": "2019",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full HTML scanned for erratum/corrigendum/rettelse/supplementary raw data links",
+      "sourceRole": "publication_record",
+      "accessStatus": "retrieved",
+      "rights": {
+        "internalUseBasis": "public metadata page",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/raw/B11-S002-orgprints-36472.html",
+      "rawSha256": "eee4ed449ab77d51a4a097a9cc4b44ffe23145ceb1b746be9f1aebe69ba864fd",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "html",
+          "finding": "erratum/corrigendum/rettelse count=0; one PDF file link only"
+        }
+      ],
+      "limitations": [
+        "Absence of erratum link is scoped to this landing page, not a universal proof no private author note exists"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B11-S003",
+      "title": "Debio-hosted Varedeklarasjon STRUVITT Hias IKS",
+      "publisher": "Hias IKS (hosted on debio.no)",
+      "url": "https://debio.no/content/uploads/2026/03/HIAS-struvitt.pdf",
+      "documentVersion": "PDF captured 2026-09-09; Mattilsynet nr. 083386",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Full one-page declaration via pdftotext",
+      "sourceRole": "product_declaration_copy",
+      "accessStatus": "retrieved",
+      "rights": {
+        "internalUseBasis": "public product declaration PDF",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/raw/B11-S003-debio-hias-struvitt.pdf",
+      "rawSha256": "91287e9fb5d2c658b1bd596b89ec0fd3bc9de244f058a61bead3b4c0217da2fb",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/extracted/B11-S003-debio-hias-struvitt.txt",
+      "extractedTextSha256": "743192073e85eefe4c08f70d7b53d9916d8c4567c44920ba186cff935a04ede5",
+      "exactLocators": [
+        {
+          "type": "pdfPage",
+          "page": 1,
+          "fields": [
+            "Fosfor (P): 134 g/kgTS",
+            "TS% 97,7",
+            "Mattilsynet 083386"
+          ]
+        }
+      ],
+      "limitations": [
+        "Undated declaration PDF; dry-matter P concentration must not be treated as field plant uptake or blindly merged with annual-report 12% product-mass P"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B11-S004",
+      "title": "Organic Eprints PDF copy of NORSØK RAPPORT 10 struvitt FINAL Sept 5 2019",
+      "publisher": "NORSØK via orgprints.org",
+      "url": "https://orgprints.org/id/eprint/36472/1/NORS%C3%98K%20RAPPORT%2010%20struvitt%20FINAL%20Sept%205%202019%20trykk.pdf",
+      "documentVersion": "orgprints file bytes 2026-09-09",
+      "publishedAt": "2019-09-05",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full pdftotext; compared to R3-NPK-S004 text extract",
+      "sourceRole": "alternate_byte_copy_same_report",
+      "accessStatus": "retrieved",
+      "rights": {
+        "internalUseBasis": "public report PDF",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/raw/B11-S004-orgprints-norsok-struvitt.pdf",
+      "rawSha256": "5cd11532388f6893c7d21a29f56c8480f3afcbac76246550d0812ac8d731b306",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/extracted/B11-S004-orgprints-norsok-struvitt.txt",
+      "extractedTextSha256": "d36e48abf5103ee7dcc2b597fa18fcbe1648868cc21a4120c53e43387a8007d6",
+      "exactLocators": [
+        {
+          "type": "note",
+          "text": "PDF raw SHA differs from R3-NPK-S004 freeze; pdftotext layout extract is byte-identical to R3-NPK-S004.txt including 130% and kg N /m2 conflicts"
+        }
+      ],
+      "limitations": [
+        "Not an erratum; alternate container bytes with same conflict text"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R3-NPK-FINDINGS",
+      "title": "Round-003 nutrients findings.json (C3 chain)",
+      "publisher": "internal research artifact",
+      "url": null,
+      "documentVersion": "asOf 2026-09-09",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full JSON: sources, observations O001–O006, unknowns G001–G006, stopDecision, chain",
+      "sourceRole": "prior_round_structured_findings",
+      "accessStatus": "repo_file_hash_verified",
+      "rights": {
+        "internalUseBasis": "internal candidate analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/nutrients/findings.json",
+      "rawSha256": "6471f04ae470387eabdc38a175935b6b77c00ac2ef45802c47fc6240adf717a9",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "jsonPointer",
+          "path": "/observations"
+        },
+        {
+          "type": "jsonPointer",
+          "path": "/unknowns"
+        },
+        {
+          "type": "jsonPointer",
+          "path": "/stopDecision"
+        }
+      ],
+      "limitations": [
+        "Candidate-only; human_verified false; not canonical"
+      ]
+    }
+  ]
+}

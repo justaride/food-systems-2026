@@ -1,0 +1,383 @@
+{
+  "schema": "beredskap-sources/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B06",
+  "runId": "B06-20260909T102531Z-22c1a4ab",
+  "createdAt": "2026-09-09T10:34:46Z",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B06-S01",
+      "title": "Svinesund tollkontor (E6)",
+      "publisher": "Tolletaten",
+      "url": "https://www.toll.no/no/om-oss/kontakt-oss/ekspedisjonssteder/svinesund",
+      "documentVersion": "Live page; Oppdatert 27.11.2025; re-fetched this run",
+      "publishedAt": "2025-11-27",
+      "accessedAt": "2026-09-09T10:31:22.345681+00:00",
+      "readScope": "Extracted text lines 14–33; ordinary border-crossing hours only",
+      "sourceRole": "official_border_office_page",
+      "accessStatus": "available_private_raw_verified",
+      "rights": {
+        "internalUseBasis": "Public Tolletaten page acquired into coordinator private artifact root for hash-bound internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B06/B06-20260909T102531Z-22c1a4ab/raw/svinesund-tollkontor.html",
+      "rawSha256": "8824f8bd0d2e9eab1588fda1e5b3de8eb89ee52503d5f3b6813659e59d7718d5",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B06/B06-20260909T102531Z-22c1a4ab/raw/svinesund-tollkontor.txt",
+      "extractedTextSha256": "c61ff68aa8447e6bb5e69fa4f5a01186f32172e9df5da34ba4d5c85c66142306",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 16,
+          "end": 18,
+          "label": "Åpningstider"
+        },
+        {
+          "type": "text_lines",
+          "start": 24,
+          "end": 24,
+          "label": "Digitoll"
+        },
+        {
+          "type": "text_lines",
+          "start": 32,
+          "end": 33,
+          "label": "Oppdatert 27.11.2025"
+        }
+      ],
+      "limitations": [
+        "Ordinary border-crossing availability only — not crisis lead time",
+        "HTML raw differs from R5-S12; extracted text hash matches",
+        "B06 stop rule: vegåpning/generelle tolltider er ikke kriseledetid"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R5-S12",
+      "title": "Svinesund tollkontor (E6)",
+      "publisher": "Tolletaten",
+      "url": "https://www.toll.no/no/om-oss/kontakt-oss/ekspedisjonssteder/svinesund",
+      "documentVersion": "Prior round-005 acquisition; text hash identical to B06-S01 extract",
+      "publishedAt": "2025-11-27",
+      "accessedAt": "2026-09-09T08:06:31.487321+00:00",
+      "readScope": "Prior scoped read text lines 14–24; re-verified hashes this run",
+      "sourceRole": "official_border_office_page_prior",
+      "accessStatus": "available_private_raw_verified",
+      "rights": {
+        "internalUseBasis": "Already acquired in round-005 private artifact root; re-used in-place",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/customs.html",
+      "rawSha256": "f04137dd11655cef5d78d470f72759f0159cb4fe331a0928ed5e9245d0569ac8",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/customs.txt",
+      "extractedTextSha256": "c61ff68aa8447e6bb5e69fa4f5a01186f32172e9df5da34ba4d5c85c66142306",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 14,
+          "end": 24,
+          "label": "døgnåpen grensepassering og Digitoll"
+        }
+      ],
+      "limitations": [
+        "Ordinary conditions only",
+        "Cited in R5-O07 as scope limit"
+      ],
+      "reverifiedInRun": true,
+      "reverifiedAt": "2026-09-09T10:34:46Z"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-S17",
+      "title": "F-02 Følgebrev til rammesøknad",
+      "publisher": "Studio Fyr AS / Bakehuset AS; held by PBE",
+      "url": "https://innsyn.pbe.oslo.kommune.no/saksinnsyn/showfile.asp?jno=2025522835&fileid=11779000",
+      "documentVersion": "jno 2025522835; fileid 11779000",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:55:42.210438+00:00",
+      "readScope": "Full pdftotext; silo/ventilation/electrical locators; no coupling specs",
+      "sourceRole": "applicant_statement",
+      "accessStatus": "available_private_raw_verified",
+      "rights": {
+        "internalUseBasis": "Already acquired in round-006 private artifact root",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/pbe-original-letter.pdf",
+      "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/pbe-original-letter.txt",
+      "extractedTextSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 80,
+          "end": 86,
+          "label": "elektrisk/ventilasjonsaggregater/silo"
+        },
+        {
+          "type": "text_lines",
+          "start": 17,
+          "end": 18,
+          "label": "melsilo øst"
+        },
+        {
+          "type": "text_lines",
+          "start": 45,
+          "end": 47,
+          "label": "silorom til fryserom"
+        }
+      ],
+      "limitations": [
+        "Ventilation aggregater ≠ backup-power load test",
+        "No coupling/pressure/air/hygiene unload sheet",
+        "Not as-built reception interface"
+      ],
+      "reverifiedInRun": true,
+      "reverifiedAt": "2026-09-09T10:34:46Z"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-S11",
+      "title": "En verden av korn og mel",
+      "publisher": "Lantmännen Cerealia / Regal (historical brochure)",
+      "url": null,
+      "documentVersion": "Historical brochure PDF round-006 R6-S11",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:00:00+00:00",
+      "readScope": "pdftotext lines 196–205 bulk/tankbil history",
+      "sourceRole": "operator_historical_brochure",
+      "accessStatus": "available_private_raw_verified",
+      "rights": {
+        "internalUseBasis": "Already acquired in round-006 private artifact root",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/bulk-conditions.pdf",
+      "rawSha256": "a84cd99d441497c5716558a768cf4bea5a7cbdac550629b80b49daa44de8d2fc",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/bulk-conditions.txt",
+      "extractedTextSha256": "bdc2cf0f3eeafdaaa51eb97ea13461c9adff7456bb8dc4cf71b7aaf7203e983f",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 196,
+          "end": 205,
+          "label": "historical bulk/tankbil"
+        }
+      ],
+      "limitations": [
+        "Not reserved tanker/driver/route/hygiene for Furuset under R5-SC01"
+      ],
+      "reverifiedInRun": true,
+      "reverifiedAt": "2026-09-09T10:34:46Z"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R5-CASE",
+      "title": "R5-C1-FURUSET-Q1-T72 case definition",
+      "publisher": "Internal round-005",
+      "url": null,
+      "documentVersion": "asOf 2026-09-09",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09T10:34:46Z",
+      "readScope": "Full case.json scenario commonConditions and routes",
+      "sourceRole": "internal_scenario_definition",
+      "accessStatus": "repo_file_hash_verified",
+      "rights": {
+        "internalUseBasis": "Internal analysis artifact",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+      "rawSha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+      "extractedTextSha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff",
+      "exactLocators": [
+        {
+          "type": "json_pointer",
+          "pointer": "/scenario/commonConditions",
+          "label": "shared outage"
+        },
+        {
+          "type": "json_pointer",
+          "pointer": "/scenario/nordicRoute",
+          "label": "SE route via Svinesund"
+        }
+      ],
+      "limitations": [
+        "Designed stress case; distances/times null; testPerformed false"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R5-PROTO",
+      "title": "C1-måleprotokoll",
+      "publisher": "Internal round-005",
+      "url": null,
+      "documentVersion": "2026-09-09 designed not executed",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09T10:34:46Z",
+      "readScope": "R5-G07/G08 fields",
+      "sourceRole": "internal_measurement_protocol",
+      "accessStatus": "repo_file_hash_verified",
+      "rights": {
+        "internalUseBasis": "Internal analysis artifact",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+      "rawSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+      "extractedTextSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+      "exactLocators": [
+        {
+          "type": "markdown_table_row",
+          "gap": "R5-G07",
+          "label": "Energi/vann"
+        },
+        {
+          "type": "markdown_table_row",
+          "gap": "R5-G08",
+          "label": "Transport"
+        }
+      ],
+      "limitations": [
+        "Protocol designed not performed"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-INTAKE",
+      "title": "R6-INTAKE-001 unsent intake template",
+      "publisher": "Internal round-006",
+      "url": null,
+      "documentVersion": "sent=false",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09T10:34:46Z",
+      "readScope": "R6-G06 and R6-G09 sections; all values null",
+      "sourceRole": "unsent_owner_intake_template",
+      "accessStatus": "repo_file_hash_verified",
+      "rights": {
+        "internalUseBasis": "Internal unsent template",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json",
+      "rawSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json",
+      "extractedTextSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+      "exactLocators": [
+        {
+          "type": "json_pointer",
+          "pointer": "/sections/[gapId=R6-G06]",
+          "label": "G06 null"
+        },
+        {
+          "type": "json_pointer",
+          "pointer": "/sections/[gapId=R6-G09]",
+          "label": "G09 null"
+        }
+      ],
+      "limitations": [
+        "Not owner responses; contact not sent"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "CLIM-FINDINGS",
+      "title": "round-003 climate findings",
+      "publisher": "Internal round-003",
+      "url": null,
+      "documentVersion": "round-003-climate-1",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09T10:34:46Z",
+      "readScope": "CLIM-G02 and stoppingDecision",
+      "sourceRole": "internal_prior_findings",
+      "accessStatus": "repo_file_hash_verified",
+      "rights": {
+        "internalUseBasis": "Internal analysis artifact",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/climate/findings.json",
+      "rawSha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/climate/findings.json",
+      "extractedTextSha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+      "exactLocators": [
+        {
+          "type": "json_pointer",
+          "pointer": "/gaps/[id=CLIM-G02]",
+          "label": "CLIM-G02"
+        }
+      ],
+      "limitations": [
+        "Yield/hydrology only; not facility reserve power or food tanker capacity"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "A5-DATA",
+      "title": "A5 data.json gap A5-G004",
+      "publisher": "Internal A5 2026-09-08",
+      "url": null,
+      "documentVersion": "A5-G004 open",
+      "publishedAt": "2026-09-08",
+      "accessedAt": "2026-09-09T10:34:46Z",
+      "readScope": "A5-G004 + sokelogg L016/L018",
+      "sourceRole": "internal_prior_gap_record",
+      "accessStatus": "repo_file_hash_verified",
+      "rights": {
+        "internalUseBasis": "Internal analysis artifact",
+        "redistributionAllowed": false
+      },
+      "rawPath": "research/agent-research-2026-09-08/resultater/A5/data.json",
+      "rawSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+      "extractedTextPath": "research/agent-research-2026-09-08/resultater/A5/data.json",
+      "extractedTextSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+      "exactLocators": [
+        {
+          "type": "json_pointer",
+          "pointer": "/gaps/[gapId=A5-G004]",
+          "label": "A5-G004"
+        }
+      ],
+      "limitations": [
+        "Prior open-web search; no reserved food capacity/lead time"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B03-HANDOFF",
+      "title": "B03 findings coordination surface",
+      "publisher": "Internal wave1 B03",
+      "url": null,
+      "documentVersion": "B03-20260909T101901Z-1e1d2425 waiting_owner",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09T10:34:46Z",
+      "readScope": "Coordination note: B06 blocked on unknown receiving point R6-G05",
+      "sourceRole": "sibling_package_coordination",
+      "accessStatus": "repo_file_hash_verified",
+      "rights": {
+        "internalUseBasis": "Same programRun coordination artifact",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/findings.md",
+      "rawSha256": "1893ab8f5526a01cbe478b2c2065d9ff0c504ae8476815f1f0e49dbfe89e2b69",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/findings.md",
+      "extractedTextSha256": "1893ab8f5526a01cbe478b2c2065d9ff0c504ae8476815f1f0e49dbfe89e2b69",
+      "exactLocators": [
+        {
+          "type": "markdown_section",
+          "label": "Coordination notes B06"
+        }
+      ],
+      "limitations": [
+        "Sibling KI candidate; human_verified false"
+      ]
+    }
+  ]
+}

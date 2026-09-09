@@ -1,0 +1,319 @@
+{
+  "schema": "beredskap-sources-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B05",
+  "runId": "B05-20260909T102531Z-5341273b",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R5-S03",
+      "title": "Malmö mill page (English) — frozen round-005",
+      "publisher": "Lantmännen Cerealia",
+      "url": "https://www.lantmannencerealia.com/about-lantmannen-cerealia/our-office-and-production-location/malmo/",
+      "documentVersion": "Frozen retrieval 2026-09-09T08:05:48.723285+00:00; undated page body",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:05:48.723285+00:00",
+      "readScope": "Full extracted text (140 lines); lines 105-116 used for mill function, bulk statement and visiting address",
+      "sourceRole": "operator_site_description_not_allocation_book",
+      "accessStatus": "public_http_200_frozen",
+      "rights": {
+        "internalUseBasis": "public web page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/malmo.html",
+      "rawSha256": "50749f6bfc8c475dd127356b5d28153178aa885c95fb480b84a2b9cbdd852ea9",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/malmo.txt",
+      "extractedTextSha256": "ababeac9308788d14b78a2fa8ac5a26541f2346d97722fd1ff0d68c41e071ebd",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 105,
+          "end": 116,
+          "label": "Malmö mill: flour/mixes; bulk to bakery customers; Bassängkajen 14"
+        }
+      ],
+      "limitations": [
+        "Describes possible mill functions, not free capacity, ownership or release rights",
+        "No batch IDs, COA, tonnages or Furuset allocation",
+        "Stop rule: corporate site page is not proof of access"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R5-S16",
+      "title": "Nord Mills produktkatalog HT2026 (frozen; same bytes as R6-S10)",
+      "publisher": "Lantmännen Cerealia Sverige",
+      "url": "https://www.lantmannencerealia.se/siteassets/3.-produkter/se/vara-produktkataloger/lantmannen_lan-2606-1368_nord_mills_produktkatalog_ht_2026_24sid_aug_6.pdf",
+      "documentVersion": "HT2026 filename aug_6; frozen round-005/round-006 identical PDF bytes",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:07:40.911927+00:00",
+      "readScope": "Full pdftotext extract; warehouse/bulk legend lines 115-119; Bagarns Manitoba 160585 Malmö row lines 148-153",
+      "sourceRole": "marketing_catalog_not_stock_or_coa",
+      "accessStatus": "public_http_200_frozen",
+      "rights": {
+        "internalUseBasis": "public PDF catalog retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/se-products-2026.pdf",
+      "rawSha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/se-products-2026.txt",
+      "extractedTextSha256": "fc63b92b9dbfd43ba0b0f1b3ec6f400d9d3c0625167f11e50da71c0d61e5f167",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 115,
+          "end": 119,
+          "label": "Warehouses Malmö/Eskilstuna/Järna; bulk default Malmö & Strängnäs"
+        },
+        {
+          "type": "text_lines",
+          "start": 148,
+          "end": 153,
+          "label": "BAGARNS MANITOBA 160585 Bulk; Hållbarhetstid 12 mån; Malmö"
+        }
+      ],
+      "limitations": [
+        "Catalog product/location legend is not a dated stock extract or allocation ID",
+        "No ownership, release conditions, competing order quantities or COA",
+        "Shared marketing row; specifications may change per catalog language"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R5-S15",
+      "title": "Jordbruksverket — Priser och marknadsinformation för livsmedel (frozen)",
+      "publisher": "Jordbruksverket",
+      "url": "https://jordbruksverket.se/mat-och-drycker/handel-och-marknad/priser-och-marknadsinformation-for-livsmedel",
+      "documentVersion": "Frozen retrieval 2026-09-09T08:07:22.156432+00:00",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:07:22.156432+00:00",
+      "readScope": "Full extracted landing text; market-info entry only; annual balance annexes not fetched",
+      "sourceRole": "national_market_entry_not_recipient_allocation",
+      "accessStatus": "public_http_200_frozen",
+      "rights": {
+        "internalUseBasis": "public authority page for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/se-market.html",
+      "rawSha256": "2cd1dedbbc361fdf85e53c4b87794e028ba17fb155fb72cc4e9bbb920922089f",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a08531-1139-7b81-a008-7e9ca5eeca4d/round-005/se-market.txt",
+      "extractedTextSha256": "a582fb7a352ce40b779b0db722ebbea7184a49dfd1dd2c8527ab80cf7094b4d1",
+      "exactLocators": [
+        {
+          "type": "note",
+          "label": "Landing describes national price/market reporting; no Furuset-bound 72h stock/priority file"
+        }
+      ],
+      "limitations": [
+        "National market/entry page only",
+        "Stop rule: national harvest/market figures are not Malmö→Furuset allocation"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B05-S01",
+      "title": "Malmö mill page (English) — live B05 re-fetch",
+      "publisher": "Lantmännen Cerealia",
+      "url": "https://www.lantmannencerealia.com/about-lantmannen-cerealia/our-office-and-production-location/malmo/",
+      "documentVersion": "Live retrieval 2026-09-09T10:28:42.242680+00:00; HTTP 200",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:28:42.242680+00:00",
+      "readScope": "Live HTML; bulk-to-bakery sentence compared to frozen R5-S03",
+      "sourceRole": "operator_site_description_not_allocation_book",
+      "accessStatus": "public_http_200_live",
+      "rights": {
+        "internalUseBasis": "public web page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/raw/B05-S01-malmo-en-live.bin",
+      "rawSha256": "1d139347fa7552fe649b1ab51f3cbf5d213096974d704b11e0d39cb255c56dba",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/text/B05-S01-malmo-en-live.txt",
+      "extractedTextSha256": "9c66edc4438072e74238c77adf918c02bc783c12805606639ae266e95f2f2ebe",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 106,
+          "end": 106,
+          "label": "Live EN bulk-to-bakery sentence"
+        }
+      ],
+      "limitations": [
+        "Live bytes may differ from frozen round-005/006 captures",
+        "Not a dated warehouse extract, COA or allocation book"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B05-S02",
+      "title": "Malmö kvarnsida (Swedish) — live B05",
+      "publisher": "Lantmännen Cerealia",
+      "url": "https://www.lantmannencerealia.se/om-lantmannen-cerealia/har-finns-vi/malmo/",
+      "documentVersion": "Live retrieval 2026-09-09T10:28:42.359248+00:00; HTTP 200",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:28:42.359248+00:00",
+      "readScope": "Live Swedish site text; bulk statement and Bassängkajen address",
+      "sourceRole": "operator_site_description_not_allocation_book",
+      "accessStatus": "public_http_200_live",
+      "rights": {
+        "internalUseBasis": "public web page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/raw/B05-S02-malmo-se-live.bin",
+      "rawSha256": "dd8a92414b24d00b670425a70af2d97f98efc8bec1a3d9c20d8fae2626f3bad1",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/text/B05-S02-malmo-se-live.txt",
+      "extractedTextSha256": "dce935795df811627e42ac6e91813aac8ae65817015b694ca2729a2ef0899420",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 165,
+          "end": 165,
+          "label": "SE: stor andel av mjölet levereras i bulk"
+        }
+      ],
+      "limitations": [
+        "Live bytes may differ from frozen round-005/006 captures",
+        "Not a dated warehouse extract, COA or allocation book"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B05-S03",
+      "title": "Malmö certifikat/historia page — live B05",
+      "publisher": "Lantmännen Cerealia",
+      "url": "https://www.lantmannencerealia.se/hallbarhet/certifikat/malmo/",
+      "documentVersion": "Live retrieval 2026-09-09T10:28:42.553800+00:00; HTTP 200",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:28:42.553800+00:00",
+      "readScope": "History/certificate page; nominal capacity sentence at text line 189",
+      "sourceRole": "facility_history_and_certificates_not_batch_coa",
+      "accessStatus": "public_http_200_live",
+      "rights": {
+        "internalUseBasis": "public web page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/raw/B05-S03-malmo-cert-history-se.bin",
+      "rawSha256": "f3263260f013671bfe06dfbd66a1ab919e41e763037732092c2d7f6bec8ffd8d",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/text/B05-S03-malmo-cert-history-se.txt",
+      "extractedTextSha256": "f37bad83612b985d44f9cb4ba4278f11e0b1e0c7480ab2614d2116e5f6549760",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 189,
+          "end": 189,
+          "label": "Historical/facility text stating 775 ton per dygn nominal mill capacity"
+        }
+      ],
+      "limitations": [
+        "Live bytes may differ from frozen round-005/006 captures",
+        "Not a dated warehouse extract, COA or allocation book"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B05-S04",
+      "title": "Jordbruksverket beredskapslager av spannmål och insatsvaror — live B05",
+      "publisher": "Jordbruksverket",
+      "url": "https://jordbruksverket.se/beredskap/sveriges-livsmedelsberedskap/beredskapslager-av-spannmal-och-insatsvaror",
+      "documentVersion": "Live retrieval 2026-09-09T10:28:42.904204+00:00; HTTP 200",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:28:42.904204+00:00",
+      "readScope": "Authority page on national grain preparedness stocks; northern counties frame agreements",
+      "sourceRole": "national_preparedness_stock_policy_not_malmo_allocation",
+      "accessStatus": "public_http_200_live",
+      "rights": {
+        "internalUseBasis": "public web page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/raw/B05-S04-jordbruksverket-beredskapslager.bin",
+      "rawSha256": "df9f717654c645c33bf5aa0e1c7d692d287ae10c1b4da1e6f6388f73779296c3",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/text/B05-S04-jordbruksverket-beredskapslager.txt",
+      "extractedTextSha256": "9a6123db8706ac145c8a94e7743f5132454bd65c33728b063a57fdf5c993247b",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 41,
+          "end": 44,
+          "label": "Northern counties preparedness stocks / ramavtal context"
+        }
+      ],
+      "limitations": [
+        "Live bytes may differ from frozen round-005/006 captures",
+        "Not a dated warehouse extract, COA or allocation book"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B05-S05",
+      "title": "nordmills.se landing — live B05",
+      "publisher": "Lantmännen Cerealia / Nord Mills",
+      "url": "https://nordmills.se/",
+      "documentVersion": "Live retrieval 2026-09-09T10:28:43.232426+00:00; HTTP 200",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:28:43.232426+00:00",
+      "readScope": "Landing/catalog pointers; no order book or batch COA",
+      "sourceRole": "public_landing_catalog_pointer_not_allocation",
+      "accessStatus": "public_http_200_live",
+      "rights": {
+        "internalUseBasis": "public web page retrieved for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/raw/B05-S05-nordmills-landing.bin",
+      "rawSha256": "5571e0cfd2d878b0faee11aa9e83a79ac5fb89097cf9c84ddc2a1f8703b430de",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/text/B05-S05-nordmills-landing.txt",
+      "extractedTextSha256": "8f75ffdcc8e515cf312d683ad116fba6daa44c86434c1644235bea71931b96e2",
+      "exactLocators": [
+        {
+          "type": "note",
+          "label": "Landing scanned; catalog pointers only; no batch COA/allocation book found"
+        }
+      ],
+      "limitations": [
+        "Live bytes may differ from frozen round-005/006 captures",
+        "Not a dated warehouse extract, COA or allocation book"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-INTAKE-001-G08",
+      "title": "R6-INTAKE-001 section G08 Parti/allokering (unsent internal template)",
+      "publisher": "Internal analysis template (Food Systems beredskap)",
+      "url": null,
+      "documentVersion": "round-006 intake-template.json + INNTAK-USENDT.md; sent=false",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:30:00Z",
+      "readScope": "G08 fields R6-G08-01..07 all null; instructions forbid contact from this package",
+      "sourceRole": "unsent_owner_intake_template",
+      "accessStatus": "internal_unsent",
+      "rights": {
+        "internalUseBasis": "internal unsent intake template",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json",
+      "rawSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-006/INNTAK-USENDT.md",
+      "extractedTextSha256": "969f57ff79a717ebcdc45241b9a76fe0a2cacfe283a9390144ee4ff2dfb828c4",
+      "exactLocators": [
+        {
+          "type": "json_pointer",
+          "pointer": "/sections",
+          "label": "R6-G08 section fields all null; sent=false"
+        }
+      ],
+      "limitations": [
+        "No owner response; template only",
+        "Not an allocation or COA"
+      ]
+    }
+  ],
+  "human_verified": false
+}

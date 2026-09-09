@@ -1,0 +1,373 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B06",
+  "runId": "B06-20260909T102531Z-22c1a4ab",
+  "createdAt": "2026-09-09T10:34:46Z",
+  "ownedGaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A5-G004",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "originalGapId": "A5-G004",
+      "question": "Matspesifikk mottaks-, lager-, terminal-, mølle- og transportkapasitet samt ledetid",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B06-O04",
+        "B06-O07",
+        "B06-O01"
+      ],
+      "overlapWithGapIds": [
+        "R5-G08",
+        "R6-G06",
+        "CLIM-G02",
+        "B06-B06-20260909T102531Z-22c1a4ab-G02",
+        "B06-B06-20260909T102531Z-22c1a4ab-G03"
+      ],
+      "missingFields": [
+        "food_specific_reserved_transport_t",
+        "terminal_throughput_t_h",
+        "node_lead_time_h_under_R5-SC01",
+        "priority_rule_id"
+      ],
+      "searchLogRefs": [
+        "B06-L001",
+        "B06-L003",
+        "B06-L004"
+      ],
+      "dataOwnerRole": "nordiske transport-/matberedskapsaktører; for C1: transportør + mølle + Furuset teknisk",
+      "nextAction": "Do not treat ordinary Svinesund hours as lead time; authorize owner matrix to named nodes",
+      "stopReason": "Open-web/A5 and official border page lack food-specific reserved capacity and crisis lead time",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "CLIM-G02",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "originalGapId": "CLIM-G02",
+      "question": "Anleggsspesifikt vann/kraft/drivstoff/tørking og faktisk mattransportkapasitet under samme sjokk",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B06-O02",
+        "B06-O05"
+      ],
+      "overlapWithGapIds": [
+        "R5-G07",
+        "R5-G08",
+        "R6-G09",
+        "A5-G004",
+        "B06-B06-20260909T102531Z-22c1a4ab-G01"
+      ],
+      "missingFields": [
+        "facility_critical_kW",
+        "facility_water_m3_h",
+        "facility_fuel_L",
+        "drying_energy_under_shock",
+        "food_transport_capacity_under_same_shock"
+      ],
+      "searchLogRefs": [
+        "B06-L002",
+        "B06-L005"
+      ],
+      "dataOwnerRole": "Drift ved begge møller og Furuset; transportør",
+      "nextAction": "Collect node/route IDs with shared dependencyId and delivery diary — not climate proxies",
+      "stopReason": "Climate sources stop at hydrological/yield exposure",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R5-G07",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "originalGapId": "R5-G07",
+      "question": "Kritiske laster, drivstoff og egnet vann under bortfall",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B06-O02",
+        "B06-O03",
+        "B06-O06"
+      ],
+      "overlapWithGapIds": [
+        "R6-G09",
+        "CLIM-G02",
+        "B06-B06-20260909T102531Z-22c1a4ab-G01"
+      ],
+      "missingFields": [
+        "critical_load_kW",
+        "energy_kWh",
+        "reserve_start_current",
+        "fuel_L",
+        "fuel_L_per_h",
+        "water_m3_h",
+        "water_reserve_m3",
+        "water_quality",
+        "telecom_dependency",
+        "staffing_on_backup"
+      ],
+      "searchLogRefs": [
+        "B06-L002",
+        "B06-L005"
+      ],
+      "dataOwnerRole": "Drift ved begge møller og mottaker (Furuset)",
+      "nextAction": "Authorize R6-G09-01..03 with dated load-test; do not infer from ventilasjonsaggregat names",
+      "stopReason": "No load-test in authorized channels",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R5-G08",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "originalGapId": "R5-G08",
+      "question": "Matvareegnet tankbil, sjåfør, rute, drivstoff og grensebehandling",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B06-O01",
+        "B06-O04",
+        "B06-O06"
+      ],
+      "overlapWithGapIds": [
+        "R6-G06",
+        "A5-G004",
+        "R6-G09",
+        "B06-B06-20260909T102531Z-22c1a4ab-G02",
+        "B06-B06-20260909T102531Z-22c1a4ab-G03"
+      ],
+      "missingFields": [
+        "tank_vehicle_id",
+        "payload_t",
+        "food_grade_wash_release",
+        "driver_availability",
+        "heavy_vehicle_route_id",
+        "fuel_for_trip_L",
+        "border_processing_event_times",
+        "shared_resource_conflicts"
+      ],
+      "searchLogRefs": [
+        "B06-L001",
+        "B06-L003",
+        "B06-L004"
+      ],
+      "dataOwnerRole": "Transportør, mølle og mottak; grenseaktør ved behov",
+      "nextAction": "Require transport order + hygiene release + measured event times under R5-SC01",
+      "stopReason": "Ordinary customs hours and brochure narrative do not demonstrate scenario transport",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R6-G06",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "originalGapId": "R6-G06",
+      "question": "Kobling og pneumatisk lossing",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B06-O03",
+        "B06-O06",
+        "B06-O04"
+      ],
+      "overlapWithGapIds": [
+        "R5-G08",
+        "R6-G05",
+        "B06-B06-20260909T102531Z-22c1a4ab-G02"
+      ],
+      "missingFields": [
+        "coupling_type_and_diameter_mm",
+        "max_unloading_pressure_bar_g",
+        "air_flow_Nm3_h_and_quality",
+        "hose_length_m_and_drawing_id",
+        "filter_venting_interlocks",
+        "unloading_rate_t_h",
+        "vehicle_access_and_payload",
+        "cleaning_previous_loads_release",
+        "receiving_hours_and_duration"
+      ],
+      "searchLogRefs": [
+        "B06-L003",
+        "B06-L005"
+      ],
+      "dataOwnerRole": "Furuset teknisk ansvarlig sammen med transportør",
+      "nextAction": "Complete unsent intake R6-G06 against as-built receiving point once B03/R6-G05 identifies it",
+      "stopReason": "No public coupling sheet; receiving point unknown per B03",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R6-G09",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "originalGapId": "R6-G09",
+      "question": "Drift under energi-/vann-/transportbortfall",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B06-O02",
+        "B06-O06",
+        "B06-O01"
+      ],
+      "overlapWithGapIds": [
+        "R5-G07",
+        "R5-G08",
+        "R5-G09",
+        "CLIM-G02",
+        "B06-B06-20260909T102531Z-22c1a4ab-G01",
+        "B06-B06-20260909T102531Z-22c1a4ab-G03"
+      ],
+      "missingFields": [
+        "critical_load_and_backup",
+        "water_need_and_reserve",
+        "fuel_start_stock_and_consumption",
+        "loading_transport_unloading_times",
+        "net_accepted_flour_by_deadline",
+        "flour_used_in_accepted_baking",
+        "shared_resource_conflicts"
+      ],
+      "searchLogRefs": [
+        "B06-L002",
+        "B06-L005"
+      ],
+      "dataOwnerRole": "Drift ved begge møller og Furuset",
+      "nextAction": "Collect R6-G09 under frozen shared resource list; building permits are not load tests",
+      "stopReason": "Scenario designed; no observed outage-operation outcomes",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    }
+  ],
+  "newSubGaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B06-B06-20260909T102531Z-22c1a4ab-G01",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "originalGapId": "R5-G07",
+      "question": "Dated per-node critical-load test and suitable water/fuel start stock covering milling, control, loading/unloading and hygiene under R5-SC01 (not ventilation unit names)",
+      "disposition": "new_precise_gap_recorded",
+      "evidenceCandidateIds": [
+        "B06-O02",
+        "B06-O03"
+      ],
+      "overlapWithGapIds": [
+        "R5-G07",
+        "R6-G09",
+        "CLIM-G02"
+      ],
+      "missingFields": [
+        "node_id",
+        "test_date",
+        "critical_kW",
+        "start_current",
+        "fuel_L_start",
+        "fuel_L_per_h",
+        "water_m3_h",
+        "water_quality_spec",
+        "telecom_dependency",
+        "staffing"
+      ],
+      "searchLogRefs": [
+        "B06-L002",
+        "B06-L005"
+      ],
+      "dataOwnerRole": "Drift Bjølsen; Drift Malmö; Drift Furuset",
+      "nextAction": "Authorized owner measurement per MAALEPROTOKOLL R5-G07 / intake R6-G09-01..03",
+      "stopReason": "Public/PBE/climate channels exhausted for measured reserve function",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B06-B06-20260909T102531Z-22c1a4ab-G02",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "originalGapId": "R6-G06",
+      "question": "Food-grade tank + Furuset as-built coupling/pneumatic unload interface sheet (type/mm, bar(g), air, hose, filters, hygiene release) for the post-move receiving point",
+      "disposition": "new_precise_gap_recorded",
+      "evidenceCandidateIds": [
+        "B06-O03",
+        "B06-O06"
+      ],
+      "overlapWithGapIds": [
+        "R6-G06",
+        "R6-G05",
+        "R5-G08"
+      ],
+      "missingFields": [
+        "receiving_point_id",
+        "coupling_type_mm",
+        "max_pressure_bar_g",
+        "air_Nm3_h",
+        "hose_m",
+        "hygiene_release_id"
+      ],
+      "searchLogRefs": [
+        "B06-L003"
+      ],
+      "dataOwnerRole": "Furuset teknisk + transportør",
+      "nextAction": "Wait for B03/R6-G05 receiving-point identity; then fill R6-G06 — no email in this run",
+      "stopReason": "Interface blocked while receiving point unknown; no public coupling sheet",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B06-B06-20260909T102531Z-22c1a4ab-G03",
+      "packageId": "B06",
+      "runId": "B06-20260909T102531Z-22c1a4ab",
+      "originalGapId": "R5-G08",
+      "question": "Measured loading / driving / border-processing / unloading event times and shared-resource bookings under R5-SC01 (distinct from ordinary Svinesund opening hours)",
+      "disposition": "new_precise_gap_recorded",
+      "evidenceCandidateIds": [
+        "B06-O01",
+        "B06-O04",
+        "B06-O06"
+      ],
+      "overlapWithGapIds": [
+        "R5-G08",
+        "R6-G09",
+        "A5-G004"
+      ],
+      "missingFields": [
+        "load_start_end",
+        "departure",
+        "border_arrival_release",
+        "unload_start_end",
+        "shared_resource_id_intervals"
+      ],
+      "searchLogRefs": [
+        "B06-L001",
+        "B06-L004"
+      ],
+      "dataOwnerRole": "Transportør, mølle, mottak; grenseaktør ved behov",
+      "nextAction": "Collect event log in authorized trial; do not substitute toll opening hours",
+      "stopReason": "Stop rule forbids treating general customs hours as crisis lead time",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    }
+  ],
+  "semanticGapClosedAny": false,
+  "human_verified": false
+}

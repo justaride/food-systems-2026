@@ -1,0 +1,206 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B12",
+  "runId": "B12-20260909T103158Z-efdd0743",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "NEW-MEAL-01",
+      "packageId": "B12",
+      "runId": "B12-20260909T103158Z-efdd0743",
+      "originalGapId": "NEW-MEAL-01",
+      "question": "Finn studie med kontinuitet under konkret avbrudd og sammenlignbar ernæring; ordinær økologi/svinnandel er utilstrekkelig.",
+      "disposition": "remains_open_method_and_measurement_need",
+      "evidenceCandidateIds": [
+        "B12-C02",
+        "B12-C03",
+        "B12-C05"
+      ],
+      "overlapWithGapIds": [
+        "MEAL-G002",
+        "MEAL-G003",
+        "MEAL-G004"
+      ],
+      "missingFields": [
+        "comparable_national_vs_circular_vs_nordic_outcomes_under_identical_disruption",
+        "nutrition_suitable_meals_eaten",
+        "multi_meal_continuity_metrics"
+      ],
+      "searchLogRefs": [
+        "B12-SL01",
+        "B12-SL02",
+        "B12-SL05"
+      ],
+      "dataOwnerRole": "pilot metodeansvarlig + navngitt kjøkken",
+      "nextAction": "Do not invent effect sizes; after owner protocol (MEAL-G001) and MEAL-T001 execution in a future authorized run, reassess. Ordinary ecology/waste shares remain insufficient.",
+      "stopReason": "Channels (round-003 meals packet + Hylte news/tertial + MeetingPlus targeted protocol search) lack a study with continuity under named disruption and comparable nutrition; stop per NEW-MEAL-01/B12 stop rules — no physical test, no broad news reformulation.",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "MEAL-G001",
+      "packageId": "B12",
+      "runId": "B12-20260909T103158Z-efdd0743",
+      "originalGapId": "MEAL-G001",
+      "question": "Hyltes eksakte øvelsesdato, tidslogg, matkontroll og næringsberegning",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B12-C01",
+        "B12-C03",
+        "B12-C06"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "exact_calendar_date_and_weekday",
+        "time_log",
+        "food_control_sheets",
+        "nutrition_calculation_raw",
+        "primary_protocol_document_id"
+      ],
+      "searchLogRefs": [
+        "B12-SL01",
+        "B12-SL03",
+        "B12-SL04",
+        "B12-SL05"
+      ],
+      "dataOwnerRole": "kommunens øvelsesledelse, måltidsfunksjon og matkontroll (Hylte)",
+      "nextAction": "Keep B12-MEAL-G001-unsent.json unsent; authorized outreach outside this package must return primary protocol bytes for a new runId",
+      "stopReason": "Municipal news + tertial 'under våren' cannot fill raw operations data; weekday/date contradiction retained; MeetingPlus titles read do not include named Patricia protocol",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "MEAL-G002",
+      "packageId": "B12",
+      "runId": "B12-20260909T103158Z-efdd0743",
+      "originalGapId": "MEAL-G002",
+      "question": "Spist ernæringsmessig egnet måltid, spiselig svinn, vann, brensel, arbeid og kostnad under identisk avbrudd",
+      "disposition": "remains_open_waiting_measurement",
+      "evidenceCandidateIds": [
+        "B12-C02",
+        "B12-C04",
+        "B12-C05"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "eaten_suitable_meals",
+        "special_diets",
+        "edible_waste_kg",
+        "water_l",
+        "fuel",
+        "labor_h",
+        "cost",
+        "identical_disruption_before_after"
+      ],
+      "searchLogRefs": [
+        "B12-SL01",
+        "B12-SL02"
+      ],
+      "dataOwnerRole": "navngitt kjøkken og måleansvarlig",
+      "nextAction": "Execute MEAL-T001 only when authorized; public guidance supplies fields but not pilot data",
+      "stopReason": "No circular effect size before compatible before/after data and input balance; one session ≠ proof; ordinary 270 g not disruption metric",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "MEAL-G003",
+      "packageId": "B12",
+      "runId": "B12-20260909T103158Z-efdd0743",
+      "originalGapId": "MEAL-G003",
+      "question": "Gjenværende lager, fornyet nødvann/brensel, kritiske leveranser og spesialkost over flere måltider",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B12-C02",
+        "B12-C04",
+        "B12-C05"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "remaining_stock_by_sku",
+        "water_fuel_renewals",
+        "critical_deliveries",
+        "special_diet_continuity_across_meals"
+      ],
+      "searchLogRefs": [
+        "B12-SL01",
+        "B12-SL02"
+      ],
+      "dataOwnerRole": "kjøkken, vannverk, logistikk og kontraktseier",
+      "nextAction": "Request existing local continuity logs; any multi-day exercise must be separately authorized — B12 does not scale one session",
+      "stopReason": "Stop rule: one preparation session is not daily capacity",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "MEAL-G004",
+      "packageId": "B12",
+      "runId": "B12-20260909T103158Z-efdd0743",
+      "originalGapId": "MEAL-G004",
+      "question": "Nordisk metodetillegg utover norsk baseline for samme kjøkken/scenario",
+      "disposition": "remains_open_waiting_method",
+      "evidenceCandidateIds": [
+        "B12-C03",
+        "B12-C05"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "specified_nordic_method_increment_content",
+        "paired_comparison_after_local_norwegian_optimization"
+      ],
+      "searchLogRefs": [
+        "B12-SL01",
+        "B12-SL02"
+      ],
+      "dataOwnerRole": "pilotens metodeansvarlige",
+      "nextAction": "Specify concrete Nordic add-on content before claiming increment; Swedish exercise/pilot funding alone is not Nordic addition over Norwegian baseline",
+      "stopReason": "Multiple national exercise narratives do not prove Nordic increment; stop without inventing method content",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B12-20260909T103158Z-efdd0743-G01",
+      "packageId": "B12",
+      "runId": "B12-20260909T103158Z-efdd0743",
+      "originalGapId": "B12-20260909T103158Z-efdd0743-G01",
+      "question": "MeetingPlus Patricia search page 2 titles not retrieved despite page/pageSize parameter attempts",
+      "disposition": "new_subgap_search_tooling_limit",
+      "evidenceCandidateIds": [
+        "B12-C06"
+      ],
+      "overlapWithGapIds": [
+        "MEAL-G001"
+      ],
+      "missingFields": [
+        "patricia_search_page2_title_list"
+      ],
+      "searchLogRefs": [
+        "B12-SL04"
+      ],
+      "dataOwnerRole": "koordinator / later run with browser JS pagination if needed",
+      "nextAction": "If owner still silent, optional follow-up run may capture page-2 titles; do not treat as proof of absence",
+      "stopReason": "UI reported 1 of 2 pages; visible page-1 titles already insufficient as protocols",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false
+    }
+  ],
+  "human_verified": false
+}

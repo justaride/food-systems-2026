@@ -1,0 +1,154 @@
+{
+  "schema": "beredskap-verification/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B09",
+  "runId": "B09-20260909T103719Z-8a62fde2",
+  "createdAt": "2026-09-09T10:42:00Z",
+  "checks": [
+    {
+      "id": "V01",
+      "name": "worktree_head_matches_planCommit",
+      "result": "passed",
+      "evidence": "git rev-parse HEAD == 5c3d735712f3b5fe929ba8043ee57a74cb318e1a == planCommit 5c3d735712f3b5fe929ba8043ee57a74cb318e1a"
+    },
+    {
+      "id": "V02",
+      "name": "foundation_commit_recorded",
+      "result": "passed",
+      "evidence": "4026a90d62edf129d4323f7f0971ace716b03983"
+    },
+    {
+      "id": "V03",
+      "name": "dependency_handoff_sha256_verified",
+      "result": "passed",
+      "evidence": {
+        "B07": "66ad992acf0567ca674c686a7d5c850ac48f4a2ae8eb7bd0eb8fbe439b82b419",
+        "B08": "443e4dd88373f1170ce6a2de02d8f9882e953cafcc571fbf4e806a8fba5b343f",
+        "bothStatus": "waiting_source"
+      }
+    },
+    {
+      "id": "V04",
+      "name": "pre_read_input_sha256",
+      "result": "passed",
+      "evidence": {
+        "AGENTS.md": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+        "FELLES-KONTRAKT.md": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+        "B09.md": "cd0369ed6d0a14d8d3efb455a30d9a60323102244af413ee2d0d142427dc6fe2",
+        "coverage.json": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+        "method/findings.json": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+        "norway/findings.json": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+        "DEFINISJONER.md": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+        "climate/findings.json": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+        "A1/data.json": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1"
+      }
+    },
+    {
+      "id": "V05",
+      "name": "private_raw_sha256_reverified",
+      "result": "passed",
+      "evidence": {
+        "METH-S01-pdf": true,
+        "METH-S05-docx": true,
+        "NO-04609": true,
+        "B07-handoff": true,
+        "B08-handoff": true
+      }
+    },
+    {
+      "id": "V06",
+      "name": "policy_and_target_profile_hashes",
+      "result": "passed",
+      "evidence": {
+        "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+        "targetProfileSha256": "d0c29f7836594a5e9944936812551c6472de2746376d7f4081044d57d77778ff",
+        "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/candidate-target-profile.json"
+      }
+    },
+    {
+      "id": "V07",
+      "name": "stop_rule_no_harmonized_calc_under_dependency_waiting_source",
+      "result": "passed",
+      "evidence": "No moisture/crop-harmonized multi-country absolute panel; no exportable-from-gross-yield; open residuals not filled"
+    },
+    {
+      "id": "V08",
+      "name": "stop_rule_no_broad_search",
+      "result": "passed",
+      "evidence": "search-log newBroadWebSearchPerformed=false; channels reused only"
+    },
+    {
+      "id": "V09",
+      "name": "no_owner_contact_sent",
+      "result": "passed",
+      "evidence": "required-document contactSent=false; path=/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/required-document-B09.json; sha256=ab8a50a713952462d355b6bb383f981b781fb963adfabb55210d400fa804eea8"
+    },
+    {
+      "id": "V10",
+      "name": "no_research_plan_or_prior_round_edits",
+      "result": "passed",
+      "evidence": "writes limited to delivery dir and private artifact root for this runId"
+    },
+    {
+      "id": "V11",
+      "name": "all_owned_gaps_have_disposition",
+      "result": "passed",
+      "evidence": [
+        "A1-G008",
+        "NEW-CLIMATE-01",
+        "CLIM-G01",
+        "R4-G005",
+        "METH-G01",
+        "METH-G02",
+        "METH-G04",
+        "R4-NO-G002",
+        "R4-NO-G003"
+      ]
+    },
+    {
+      "id": "V12",
+      "name": "human_verified_false_on_candidates",
+      "result": "passed",
+      "evidence": "all observations human_verified=false; handoff human_verified=false"
+    },
+    {
+      "id": "V13",
+      "name": "observation_evidence_and_candidate_hashes",
+      "result": "passed",
+      "evidence": {
+        "B09-C01": {
+          "evidenceSha256": "453363c4d8a54b805bf13b5a54e3b8ba9e991379adb01889b6dd6c8f5ecef2a7",
+          "candidateSha256": "ff6fdd14bd8aca19a9e8ca9a7a891e04e6a9a501bea0856db13a2838661201c2"
+        },
+        "B09-C02": {
+          "evidenceSha256": "ab34c7791b235b75557b27e919020a3bcedaed56397c19a74511bc912ca35010",
+          "candidateSha256": "f25b13e1b24df3cb18a113b8f73e2a3d42b36a8d1d089091879ad157d3365a45"
+        },
+        "B09-C03": {
+          "evidenceSha256": "54c880272dc999fe76893d92f2bb1c6e078ac3601af9b3eb94250695fa6360d8",
+          "candidateSha256": "1602652dcbf19fc154f61fbcc039c29f88420cf4e496b41d0cb6757ec1831245"
+        },
+        "B09-C04": {
+          "evidenceSha256": "649e138a939dbd80c8fcfc3ba13e62e7e7700db0e4a22a761e393608371bc057",
+          "candidateSha256": "503da083faee6624ecf802492787239e91481d016d0eee0c72ef2ca30f0c141c"
+        }
+      }
+    },
+    {
+      "id": "V14",
+      "name": "ci_deploy_auth_ui_human_authority",
+      "result": "not_executed",
+      "evidence": "Local package verification only; not CI, deploy, authenticated UI, or external human authority"
+    }
+  ],
+  "errors": [],
+  "notExecuted": [
+    "Astra master review (M-ASTRA)",
+    "CI",
+    "deployment",
+    "authenticated UI",
+    "external human authority",
+    "canonical promotion"
+  ]
+}

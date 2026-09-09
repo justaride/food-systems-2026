@@ -1,0 +1,56 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B01",
+  "runId": "B01-20260909T101901Z-dcaf4365",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R6-G02",
+      "packageId": "B01",
+      "runId": "B01-20260909T101901Z-dcaf4365",
+      "originalGapId": "R6-G02",
+      "question": "Gjeldende bulkspesifikasjon 160105",
+      "disposition": "document_need_registered_waiting_owner",
+      "evidenceCandidateIds": [
+        "B01-C01",
+        "B01-C02",
+        "B01-C03",
+        "B01-C04"
+      ],
+      "overlapWithGapIds": [
+        "R5-G05",
+        "R6-G03",
+        "R6-G04"
+      ],
+      "missingFields": [
+        "R6-G02-01 spec_revision",
+        "R6-G02-02 valid_from_to",
+        "R6-G02-03 protein_limits (g/100g + moisture/dry basis; not nutrition label)",
+        "R6-G02-04 moisture_limits",
+        "R6-G02-05 falling_number_limits",
+        "R6-G02-06 gluten_test_limits (method/unit/min/max)",
+        "R6-G02-07 ash_limits",
+        "R6-G02-08 particle_size_limits",
+        "R6-G02-09 test_methods_and_nitrogen_factor",
+        "R6-G02-10 allergen_and_food_safety_spec document ID",
+        "R6-G02-11 bulk_storage_and_shelf_life"
+      ],
+      "searchLogRefs": [
+        "B01-SL01",
+        "B01-SL02",
+        "B01-SL03"
+      ],
+      "dataOwnerRole": "Cerealia Norge produkt-/laboratorieansvarlig",
+      "nextAction": "Keep R6-INTAKE-001 G02 fields unsent; authorized owner outreach (outside this package) must return dated revision, validity window, and SKU-specific bake/safety limits with methods before R6-G02 can be reassessed in a new runId",
+      "stopReason": "B01 stop rule: round-006 already read live page and catalog; inspected R6-S01/R6-S09 channels and their frozen link inventory show no new named current specification; nutrition protein not used as limit; catalog search not repeated",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open",
+      "requiredDocument": "Datert revisjon, gyldighetsperiode og SKU-spesifikke bakeparametre med min/maks, metoder og fuktbasis; pluss allergen/krysskontakt/mattrygghet og bulkholdbarhet/lagring."
+    }
+  ]
+}

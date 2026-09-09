@@ -1,0 +1,133 @@
+{
+  "schema": "beredskap-verification/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B18",
+  "runId": "B18-20260909T103719Z-707c9a03",
+  "checkedAt": "2026-09-09T10:55:00Z",
+  "checks": [
+    {
+      "name": "worktree_head_matches_planCommit",
+      "result": "pass",
+      "evidence": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a"
+    },
+    {
+      "name": "foundation_commit_recorded",
+      "result": "pass",
+      "evidence": "4026a90d62edf129d4323f7f0971ace716b03983"
+    },
+    {
+      "name": "policy_AGENTS_md_hash",
+      "result": "pass",
+      "evidence": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140"
+    },
+    {
+      "name": "candidate_target_profile_hash",
+      "result": "pass",
+      "evidence": "1a246df8d94c62c668708f552810f8968fae08c64c41e823d6fa951d663395d3"
+    },
+    {
+      "name": "chapter_purpose_status_hash",
+      "result": "pass",
+      "evidence": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c"
+    },
+    {
+      "name": "operational_restlist_hash",
+      "result": "pass",
+      "evidence": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c"
+    },
+    {
+      "name": "synthesis_v2_hash",
+      "result": "pass",
+      "evidence": "a33e5ba24c0dc022c90a9eb7ea43a9646b7cab5ffe977e10e473cdc5cfebad1b"
+    },
+    {
+      "name": "holdbart_pdf_raw_hash",
+      "result": "pass",
+      "evidence": "b2128f7009c2fb2e562bb4efc0f744bf87613c6559ec5cecce983407a8b5e9e7"
+    },
+    {
+      "name": "holdbart_arithmetic_hash",
+      "result": "pass",
+      "evidence": "f3d48da6870b014774418e41acb9ee9c4245c266dcaddf46c63eed93b89f6ebc"
+    },
+    {
+      "name": "statfin_cell_check_hash",
+      "result": "pass",
+      "evidence": "ff85b1b5122028872c6c9fa325ddfa101336628593017034b3936754be4a5600"
+    },
+    {
+      "name": "observation_evidence_and_candidate_hashes",
+      "result": "pass",
+      "evidence": "recomputed for B18-C01..C09"
+    },
+    {
+      "name": "owned_historical_gaps_none",
+      "result": "pass",
+      "evidence": "ownedGapIds=[]"
+    },
+    {
+      "name": "new_gaps_four_present",
+      "result": "pass",
+      "evidence": "G01..G04"
+    },
+    {
+      "name": "stop_rule_no_app_or_accounting_mutation",
+      "result": "pass",
+      "evidence": "no DB/app write; PDF copied to private raw only"
+    },
+    {
+      "name": "stop_rule_holdbart_precision_not_chosen",
+      "result": "pass",
+      "evidence": "G02 waiting_owner; candidate_resolution_proposed true but not closed"
+    },
+    {
+      "name": "stop_rule_no_buyer_share_guess",
+      "result": "pass",
+      "evidence": "C02 value documentedBuyerShareWithYearUnitDenominator=null"
+    },
+    {
+      "name": "stop_rule_internal_status_not_fresh_truth",
+      "result": "pass",
+      "evidence": "FS items statusBasis preserved; 60310 treated as cited count only"
+    },
+    {
+      "name": "templateOnly_false_on_delivery_json",
+      "result": "pass",
+      "evidence": "sources/observations/gaps/search-log/verification/handoff"
+    },
+    {
+      "name": "human_verified_false",
+      "result": "pass",
+      "evidence": "all candidates and gaps"
+    },
+    {
+      "name": "no_research_plan_mutation",
+      "result": "pass",
+      "evidence": "worker did not write research-plan/ or prior rounds"
+    },
+    {
+      "name": "no_email_or_publish",
+      "result": "pass",
+      "evidence": "published false; intakes unsent"
+    },
+    {
+      "name": "coordination_B04_B13_no_mutual_wait",
+      "result": "pass",
+      "evidence": "dependencies=[] ; surfaces noted in findings"
+    },
+    {
+      "name": "candidate_hash_recompute",
+      "result": "pass",
+      "evidence": "ok"
+    }
+  ],
+  "errors": [],
+  "notChecked": [
+    "live_brreg_keyfigures_api_reproducible_2024_lookup",
+    "fresh_konkurransetilsynet_share_rebinding",
+    "live_db_recount_of_60310_primary_deliveries",
+    "CI_deploy_authenticated_UI_external_human_authority"
+  ],
+  "human_verified": false
+}

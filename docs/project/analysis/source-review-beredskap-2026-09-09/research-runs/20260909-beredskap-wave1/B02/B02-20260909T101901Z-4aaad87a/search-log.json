@@ -1,0 +1,70 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B02",
+  "runId": "B02-20260909T101901Z-4aaad87a",
+  "entries": [
+    {
+      "id": "B02-SL01",
+      "askedAt": "2026-09-09T10:25:10Z",
+      "question": "Does frozen R6-S02 contain a dated revision and full bake-parameter specification for bulk 160585?",
+      "channel": "frozen_private_raw_round006",
+      "queryOrDocument": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/manitoba-bulk.txt",
+      "result": "Art no 160585 Bulk + nutrition/ingredients only; no revision/methods/moisture/min-max",
+      "readStatus": "full_text_read_hash_verified",
+      "stopReason": null
+    },
+    {
+      "id": "B02-SL02",
+      "askedAt": "2026-09-09T10:25:10Z",
+      "question": "Does frozen R6-S10 resolve bulk-specific shelf life/storage and a signed specification for 160585?",
+      "channel": "frozen_private_raw_round006",
+      "queryOrDocument": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/se-catalog.txt",
+      "result": "Shared row 142052+160585 with Hållbarhetstid 12 mån; footer points to nordmills.se; no bulk °C/RH",
+      "readStatus": "locator_lines_read_hash_verified",
+      "stopReason": null
+    },
+    {
+      "id": "B02-SL03",
+      "askedAt": "2026-09-09T10:25:10Z",
+      "question": "Is there a newer public dated bulk specification/COA for 160585 beyond R6-S02/R6-S10?",
+      "channel": "web_search",
+      "queryOrDocument": "Lantmännen Cerealia Bagarns Manitoba 160585 produktblad OR specifikasjon OR COA bulk 2026",
+      "result": "Hits to product/index/catalog pages; bag page 142052; no public dated bulk specification/COA document",
+      "readStatus": "search_snippets_then_selected_pages_fetched",
+      "stopReason": null
+    },
+    {
+      "id": "B02-SL04",
+      "askedAt": "2026-09-09T10:22:41.021268+00:00",
+      "question": "Do live product page and nordmills.se (catalog pointer) expose a downloadable dated 160585 bulk specification?",
+      "channel": "public_http_get",
+      "queryOrDocument": "bagarns-manitoba/; nordmills.se/; vara-produktkataloger/; bageriprodukter/; bagarns-manitoba2/ identity control",
+      "result": "Live bulk text hash matches R6-S02; nordmills.se redirects to cerealia landing without 160585 spec PDF; catalog index only HT2026 PDF; bag 142052 separate",
+      "readStatus": "raw_saved_text_extracted_links_scanned",
+      "stopReason": "No functional new specification document in authorized public channels"
+    },
+    {
+      "id": "B02-SL05",
+      "askedAt": "2026-09-09T10:25:10Z",
+      "question": "site:nordmills.se Bagarns Manitoba OR 160585 specifikasjon OR produktblad OR COA",
+      "channel": "web_search",
+      "queryOrDocument": "site:nordmills.se Bagarns Manitoba OR 160585 specifikasjon OR produktblad OR COA",
+      "result": "No results",
+      "readStatus": "empty_search",
+      "stopReason": null
+    },
+    {
+      "id": "B02-SL06",
+      "askedAt": "2026-09-09T10:25:10Z",
+      "question": "Has R6-G03 owner intake been answered?",
+      "channel": "internal_round006_files",
+      "queryOrDocument": "round-006/intake-template.json + INNTAK-USENDT.md",
+      "result": "internal_unsent_template; sent=false; responsesReceived=false; all R6-G03 fields null",
+      "readStatus": "full_section_read",
+      "stopReason": "Per B02 stop rule: missing bulk specification -> data-owner stop; no further broad search reformulations"
+    }
+  ],
+  "human_verified": false
+}

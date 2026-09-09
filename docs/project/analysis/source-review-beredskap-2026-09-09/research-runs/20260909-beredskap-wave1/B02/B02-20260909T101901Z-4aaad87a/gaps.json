@@ -1,0 +1,153 @@
+{
+  "schema": "beredskap-gaps-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B02",
+  "runId": "B02-20260909T101901Z-4aaad87a",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R6-G03",
+      "packageId": "B02",
+      "runId": "B02-20260909T101901Z-4aaad87a",
+      "originalGapId": "R6-G03",
+      "question": "Gjeldende bulkspesifikasjon 160585",
+      "disposition": "remains_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B02-C01",
+        "B02-C02",
+        "B02-C03",
+        "B02-C04"
+      ],
+      "overlapWithGapIds": [
+        "R5-G05",
+        "R6-G02",
+        "R6-G04"
+      ],
+      "missingFields": [
+        "R6-G03-01 spec_revision",
+        "R6-G03-02 valid_from_to",
+        "R6-G03-03 protein_limits (g/100g + basis)",
+        "R6-G03-04 moisture_limits (masse%)",
+        "R6-G03-05 falling_number_limits (s)",
+        "R6-G03-06 gluten_test_limits (method/unit/min/max)",
+        "R6-G03-07 ash_limits (% + basis)",
+        "R6-G03-08 particle_size_limits (µm / masse%)",
+        "R6-G03-09 test_methods_and_nitrogen_factor",
+        "R6-G03-10 allergen_and_food_safety_spec",
+        "R6-G03-11 bulk_storage_and_shelf_life (°C / RH% / days) including whether catalog 12 months applies to bulk"
+      ],
+      "searchLogRefs": [
+        "B02-SL01",
+        "B02-SL02",
+        "B02-SL03",
+        "B02-SL04",
+        "B02-SL05",
+        "B02-SL06"
+      ],
+      "dataOwnerRole": "Cerealia Sverige produkt-/laboratorieansvarlig",
+      "nextAction": "Authorized owner intake of dated bulk specification/COA for SKU 160585 only; do not send from this package",
+      "stopReason": "B02 stop rule: missing bulk specification is a data-owner stop after R6-S02/R6-S10 and documented product-link channels were examined without a dated full bulk specification",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B02-20260909T101901Z-4aaad87a-G01",
+      "packageId": "B02",
+      "runId": "B02-20260909T101901Z-4aaad87a",
+      "originalGapId": "R6-G03",
+      "question": "Datert revisjon og gyldighetsperiode for operativ bulkspesifikasjon 160585",
+      "disposition": "new_subgap_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B02-C01"
+      ],
+      "overlapWithGapIds": [
+        "R6-G03"
+      ],
+      "missingFields": [
+        "spec_revision",
+        "valid_from_to",
+        "documentId",
+        "sourceFileSha256"
+      ],
+      "searchLogRefs": [
+        "B02-SL01",
+        "B02-SL03",
+        "B02-SL04"
+      ],
+      "dataOwnerRole": "Cerealia Sverige produkt-/laboratorieansvarlig",
+      "nextAction": "Obtain dated revision identity for bulk 160585",
+      "stopReason": "Public channels undated; intake unsent",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B02-20260909T101901Z-4aaad87a-G02",
+      "packageId": "B02",
+      "runId": "B02-20260909T101901Z-4aaad87a",
+      "originalGapId": "R6-G03",
+      "question": "Målemetoder og fuktbasis for 160585 sammenlignbare med Q1 og Regal 160105",
+      "disposition": "new_subgap_open_waiting_owner_and_coordination",
+      "evidenceCandidateIds": [
+        "B02-C02"
+      ],
+      "overlapWithGapIds": [
+        "R6-G03",
+        "R6-G02",
+        "R6-G04",
+        "R5-G05"
+      ],
+      "missingFields": [
+        "test_methods_and_nitrogen_factor",
+        "moisture_limits",
+        "protein_limits with basis",
+        "matched Q1 acceptance methods"
+      ],
+      "searchLogRefs": [
+        "B02-SL01",
+        "B02-SL02"
+      ],
+      "dataOwnerRole": "Cerealia Sverige produkt-/laboratorieansvarlig (methods); Furuset fag-/kvalitetsansvarlig for Q1 limits (B03)",
+      "nextAction": "Coordinate with B03 on Q1 method profile after SE owner methods exist; no equivalence from nutrition",
+      "stopReason": "Methods/moisture basis absent in SE public sources",
+      "semanticGapClosed": false,
+      "human_verified": false
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B02-20260909T101901Z-4aaad87a-G03",
+      "packageId": "B02",
+      "runId": "B02-20260909T101901Z-4aaad87a",
+      "originalGapId": "R6-G03",
+      "question": "Om katalogens 12 måneders holdbarhet gjelder bulk 160585 og under hvilke lagringsvilkår",
+      "disposition": "new_subgap_open_waiting_owner",
+      "evidenceCandidateIds": [
+        "B02-C03"
+      ],
+      "overlapWithGapIds": [
+        "R6-G03"
+      ],
+      "missingFields": [
+        "bulk_storage_and_shelf_life °C/RH%/days",
+        "explicit bulk-vs-bag applicability"
+      ],
+      "searchLogRefs": [
+        "B02-SL02",
+        "B02-SL05"
+      ],
+      "dataOwnerRole": "Cerealia Sverige produkt-/laboratorieansvarlig",
+      "nextAction": "Owner confirmation whether 12 months applies to bulk and required storage conditions",
+      "stopReason": "Catalog row shared with bag SKU; no bulk storage clause",
+      "semanticGapClosed": false,
+      "human_verified": false
+    }
+  ],
+  "human_verified": false,
+  "semanticGapClosedAny": false
+}

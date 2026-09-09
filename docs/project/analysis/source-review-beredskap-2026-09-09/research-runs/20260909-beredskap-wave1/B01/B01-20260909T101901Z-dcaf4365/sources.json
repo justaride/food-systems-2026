@@ -1,0 +1,126 @@
+{
+  "schema": "beredskap-sources/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B01",
+  "runId": "B01-20260909T101901Z-dcaf4365",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-S01",
+      "title": "Regal Hvetemel Standard bulk 160105",
+      "publisher": "Lantmännen Cerealia AS",
+      "url": "https://www.lantmannencerealia.no/produkter/alle-produkter/hvetemel-standard2/",
+      "documentVersion": "Undated live product page; retrieved 2026-09-09; no declared revision or valid-from date",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:53:00.109092+00:00",
+      "readScope": "Full frozen HTML/text from round-006; this run re-verified SHA-256 and re-read text lines 172-204 plus regal-bulk-links.json for named-spec link presence",
+      "sourceRole": "primary_public_product_page_not_signed_specification",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Public product page already captured in round-006 private artifact; internal analysis only",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/regal-bulk.html",
+      "rawSha256": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/regal-bulk.txt",
+      "extractedTextSha256": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 172,
+          "end": 185,
+          "label": "Hvetemel Standard / Art no 160105 / bulk / description / ingredients / disclaimer"
+        },
+        {
+          "type": "text_lines",
+          "start": 186,
+          "end": 204,
+          "label": "Næringsverdi per 100 g; Protein 13 g"
+        },
+        {
+          "type": "private_file",
+          "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B01/B01-20260909T101901Z-dcaf4365/regal-bulk-links-from-R6.json",
+          "sha256": "ab167cab94ac17098f38aaeac95ccf3cbd58bbb3c70e36987df7b022a77f0b6a",
+          "label": "All hrefs from frozen R6-S01 HTML; no named specification PDF"
+        }
+      ],
+      "limitations": [
+        "No declared revision ID or validity period",
+        "Page disclaimer: website may differ from packaging",
+        "Not a signed delivery specification",
+        "specificationValidityConfirmed=false in round-006 binding"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-S09",
+      "title": "Norsk produktkatalog (februar 2021)",
+      "publisher": "Lantmännen Cerealia AS",
+      "url": "https://www.lantmannencerealia.no/siteassets/3.-produkter/no/b2b_lantmannen_produktkatalog.pdf",
+      "documentVersion": "Printed February 2021; currently linked; historical catalog, not a current signed specification",
+      "publishedAt": "2021-02",
+      "accessedAt": "2026-09-09T08:54:00.114658+00:00",
+      "readScope": "Frozen PDF/text from round-006; this run re-verified SHA-256 and re-read text lines 463-478 for SKU 160105 row",
+      "sourceRole": "historical_catalog_identity_control",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Public catalog PDF already captured in round-006 private artifact; internal analysis only",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/no-catalog.pdf",
+      "rawSha256": "4d7e7415748bc8a84670daff7d56067242efc886f11904ffb05c23996aed0474",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/no-catalog.txt",
+      "extractedTextSha256": "cff4fc76912f18c650fe1c41388bc6dc70174bb8881d23cd690024b220eae2b6",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 463,
+          "end": 478,
+          "label": "PDF physical page 3 / printed page 5; first product row 160105"
+        }
+      ],
+      "limitations": [
+        "Historical February 2021 catalog",
+        "Not current signed bulk specification",
+        "Qualitative bake description; 78% extraction is catalog statement not measured current bulk yield"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-S04",
+      "title": "Regal Hvetemel Standard sekk 140898 (control reference only)",
+      "publisher": "Lantmännen Cerealia AS",
+      "url": "https://www.lantmannencerealia.no/produkter/alle-produkter/hvetemel-standard/",
+      "documentVersion": "Undated live bagged product page; control identity only for B01",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T08:53:00.482668+00:00",
+      "readScope": "Identity control only: Art no 140898 and Utmalingsgrad 78%; not used as bulk 160105 specification",
+      "sourceRole": "bagged_sku_control_reference_only",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Public product page already captured in round-006; internal identity control only",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/regal-bag.html",
+      "rawSha256": "d3b6a6400bf2ef578aefb665f794246729cf57b6e5394aa0a08299e29eaaab2c",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/regal-bag.txt",
+      "extractedTextSha256": "ff5c9368024d388604cfcb07d4ee4a13468c0d991c44643049e0aa71d0a3dbae",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 174,
+          "end": 188,
+          "label": "Bagged Art no 140898 / Utmalingsgrad 78 %"
+        }
+      ],
+      "limitations": [
+        "Out of B01 bulk scope except as identity control",
+        "Does not fill missing bulk specification limits"
+      ]
+    }
+  ]
+}

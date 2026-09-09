@@ -1,0 +1,455 @@
+{
+  "schema": "beredskap-observations-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B12",
+  "runId": "B12-20260909T103158Z-efdd0743",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B12-C01",
+      "packageId": "B12",
+      "runId": "B12-20260909T103158Z-efdd0743",
+      "claim": "Hylte municipal news still states 'Tisdagen den 16 april' for exercise Patricia while 2025-04-16 is a Wednesday; tertialrapporter only say the exercise occurred 'under våren' with matförsörjning/vattenlogistik under longer power/water outage. No public primary time log or food-control/nutrition worksheet was retrieved that resolves the weekday/date conflict.",
+      "claimType": "scoped_negative_finding_date_unresolved",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Hylte Patricia exercise sites Örnaskolan and Malmagården",
+      "period": "exercise reported spring 2025; news dated 2025-04-23",
+      "geography": "Hylte kommun, Sweden (method example) / Nordic institutional kitchen C4 target",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "MEAL-S001",
+            "rawSha256": "e51d292785420d5d696497232ac0603a28d4483d56d7a4b52eeb719042207d7f",
+            "extractedTextSha256": "70ba4d407583eb17e77a59b526add4f72a1f404b1d01754622071d6b1e00fc15",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 12,
+              "end": 17,
+              "label": "Tue 16 April wording"
+            },
+            "locatorEvidenceSha256": "baa399f3680a2eee8a13f2a25a723d8652bb1024aa0d0fe25523074f466ae235"
+          },
+          {
+            "sourceId": "B12-S23",
+            "rawSha256": "4363e1698f6b217f55d08caeb2e4b51942c4dd7c20e2354d057333fcffc31d0c",
+            "extractedTextSha256": "eb59f9a12d3c9d821753518505e8b47135635f9ec7a6a7413ef280ebfc45611b",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 527,
+              "end": 530,
+              "label": "under våren only"
+            },
+            "locatorEvidenceSha256": "3773a6873cb8836d86e851329de052a0cbeb4c3d105eaff188ebf4933407ae6c"
+          },
+          {
+            "sourceId": "B12-S26",
+            "rawSha256": "4e0c27160349eccdc4c84e87c54e7e040495ad124f6a396bcff9a3f8dd8e29ab",
+            "extractedTextSha256": "da6ce4c9932cf0d03eb2b44ff4b4aa389abc4995001bfe8915a0c041ae9e3d9f",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 160,
+              "end": 163,
+              "label": "under våren only"
+            },
+            "locatorEvidenceSha256": "3773a6873cb8836d86e851329de052a0cbeb4c3d105eaff188ebf4933407ae6c"
+          }
+        ],
+        "relevantExtractOrParaphrase": "MEAL-S001 lines 12-17: Publicerad 2025-04-23; 'Tisdagen den 16 april' ... namnet Patricia. B12-S23/S26 lines: 'Förvaltningen har under våren genomfört en realistisk krisövning' with focus matförsörjning/vattenlogistik under längre el- och vattenavbrott. Calendar check in-run: 2025-04-16 = Wednesday.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines locators; JSON objects via canonical sort_keys hash"
+      },
+      "evidenceSha256": "5f3022bfd784727c9e421248447fdc81c00372793c93e2887037a92238e4a706",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/controls/candidate-target-profile-C4.json",
+      "targetProfileSha256": "7795b679a5cba67bbe3392ff03b11f6c1d03ce3bac9d21b9332fa2aa73f49608",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C4"
+      ],
+      "gapIds": [
+        "MEAL-G001",
+        "NEW-MEAL-01"
+      ],
+      "limitations": [
+        "Weekday/date conflict retained until primary protocol",
+        "Tertial text is seasonal, not a timestamped log",
+        "No invented correction of the news weekday"
+      ],
+      "contradictions": [
+        "News weekday 'Tisdagen' vs civil calendar Wednesday for 2025-04-16"
+      ],
+      "human_verified": false,
+      "candidateSha256": "0b957aa1236a525f2df5f95f4a7e72cd451700b72ae05df89032b906dc13c50c"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B12-C02",
+      "packageId": "B12",
+      "runId": "B12-20260909T103158Z-efdd0743",
+      "claim": "Operator-reported Patricia news claims staff assembled within one hour and cooked one meal for 180 persons using gas/open fire under simulated power and running-water loss, with a four-hour establishment goal and documented food-control activity — but does not publish consumed nutrition-suitable intake, special diets, edible waste, water liters, fuel, labor hours, cost, or multi-meal stock renewal.",
+      "claimType": "operator_reported_single_session_without_balance_sheet",
+      "value": 180,
+      "unit": "personer som det ble laget ett måltid for (operator-reported)",
+      "denominator": null,
+      "population": "180 persons stated as meal recipients in news; diner count method unknown",
+      "period": "Patricia exercise as reported in 2025-04-23 news",
+      "geography": "Hylte kommun, Sweden (method example) / Nordic institutional kitchen C4 target",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "MEAL-S001",
+            "rawSha256": "e51d292785420d5d696497232ac0603a28d4483d56d7a4b52eeb719042207d7f",
+            "extractedTextSha256": "70ba4d407583eb17e77a59b526add4f72a1f404b1d01754622071d6b1e00fc15",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 16,
+              "end": 23,
+              "label": "1h/180/4h/controls"
+            },
+            "locatorEvidenceSha256": "26fccef69ab0f0f9f163ef0b41028a1021e992e930045005f120333b08ed2ef0"
+          }
+        ],
+        "relevantExtractOrParaphrase": "MEAL-S001 lines 16-23: within one hour staff gathered; outdoor kitchens; gasol/öppen eld; näringsrik måltid för 180 personer; mål inom fyra timmar; livsmedelskontroll dokumenteras; results to be analysed. Unknowns: eaten volume, nutrition calc, special diets, water/fuel/labor/cost, actual serve times, multi-day continuity.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines locators; JSON objects via canonical sort_keys hash"
+      },
+      "evidenceSha256": "788e44fc3dc49e314e38cd55e22ab50f27e4345d1bad70a5ab53951aec2584e0",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/controls/candidate-target-profile-C4.json",
+      "targetProfileSha256": "7795b679a5cba67bbe3392ff03b11f6c1d03ce3bac9d21b9332fa2aa73f49608",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C4"
+      ],
+      "gapIds": [
+        "MEAL-G002",
+        "MEAL-G003",
+        "NEW-MEAL-01"
+      ],
+      "limitations": [
+        "Stop rule: one session is not multi-day capacity",
+        "180 is reported meal output, not proven daily crisis capacity",
+        "Four hours is a goal, not measured finish time in the news text"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "e2e93c83b9634da953b440083d18c4643c64a29c6333d159daae99e42cc56843"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B12-C03",
+      "packageId": "B12",
+      "runId": "B12-20260909T103158Z-efdd0743",
+      "claim": "Hylte Samhällsbyggnad tertialrapporter confirm a spring crisis exercise under Livsmedelsverket pilot funding for robust public meals/drinking water, and later state 700000 kr support bought equipment/sustainable meals and that an exercise was conducted — still without publishing primary time/nutrition/waste/input logs or a specified Nordic method increment beyond local Swedish practice.",
+      "claimType": "municipal_report_confirms_exercise_and_funding_not_metrics",
+      "value": 700000,
+      "unit": "SEK pilot support stated in tertial 2 underlag (equipment/meals/exercise) — not an effect size",
+      "denominator": null,
+      "population": "Hylte meal unit / Samhällsbyggnad",
+      "period": "spring 2025 exercise; tertial 2 reporting 2025",
+      "geography": "Hylte kommun, Sweden (method example) / Nordic institutional kitchen C4 target",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B12-S23",
+            "rawSha256": "4363e1698f6b217f55d08caeb2e4b51942c4dd7c20e2354d057333fcffc31d0c",
+            "extractedTextSha256": "eb59f9a12d3c9d821753518505e8b47135635f9ec7a6a7413ef280ebfc45611b",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 527,
+              "end": 530,
+              "label": "pilot-funded spring exercise"
+            },
+            "locatorEvidenceSha256": "3773a6873cb8836d86e851329de052a0cbeb4c3d105eaff188ebf4933407ae6c"
+          },
+          {
+            "sourceId": "B12-S24",
+            "rawSha256": "5ce1254f4c008492e0fdba615da56099db298437157bc3c4779410d38133b01b",
+            "extractedTextSha256": "4b3d0e30b526fcf58470186e358d6e288adcbc9de16a3361bd3549232e77c453",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 1405,
+              "end": 1407,
+              "label": "700000 kr + exercise"
+            },
+            "locatorEvidenceSha256": "648bd2fb80152b19e3372f218c106716d5e43aa6a89719cace08bf6efcef6b04"
+          }
+        ],
+        "relevantExtractOrParaphrase": "S23: realistic crisis exercise with Livsmedelsverket pilot means; focus matförsörjning and water logistics under longer power/water outage. S24: participated in robustness pilot; support 700000 kr for equipment and sustainable meals; crisis exercise conducted.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines locators; JSON objects via canonical sort_keys hash"
+      },
+      "evidenceSha256": "ed35bfaa7112889fcd32b3c40c0164541511a276df0914416f80f2ec01133301",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/controls/candidate-target-profile-C4.json",
+      "targetProfileSha256": "7795b679a5cba67bbe3392ff03b11f6c1d03ce3bac9d21b9332fa2aa73f49608",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C4"
+      ],
+      "gapIds": [
+        "MEAL-G001",
+        "MEAL-G002",
+        "MEAL-G004",
+        "NEW-MEAL-01"
+      ],
+      "limitations": [
+        "Funding and occurrence ≠ measured continuity/nutrition outcomes",
+        "Swedish national pilot support is not automatically a Nordic increment over a Norwegian baseline",
+        "No MEAL-T001 before/after comparable dataset here"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "09c51cfc4b3f03db7dd1fd6085437753b0d6088d46db1d34f8b26450b92328e0"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B12-C04",
+      "packageId": "B12",
+      "runId": "B12-20260909T103158Z-efdd0743",
+      "claim": "Ordinary-ops statements in Hylte tertial 2 (mean 270 g eaten per portion; planned future beredskapsmatlagning drills; serveringssvinn handling limits) are not disruption-period multi-meal measurements and must not be read as edible-waste savings under identical outage.",
+      "claimType": "ordinary_ops_not_disruption_effect",
+      "value": 270,
+      "unit": "gram uppäten mängd per portion (ordinary-ops average stated in tertial 2)",
+      "denominator": null,
+      "population": "Hylte care/meal service ordinary ops — not Patricia disruption cohort",
+      "period": "ordinary operations as reported in 2025 tertial 2 underlag",
+      "geography": "Hylte kommun, Sweden (method example) / Nordic institutional kitchen C4 target",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B12-S24",
+            "rawSha256": "5ce1254f4c008492e0fdba615da56099db298437157bc3c4779410d38133b01b",
+            "extractedTextSha256": "4b3d0e30b526fcf58470186e358d6e288adcbc9de16a3361bd3549232e77c453",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 2255,
+              "end": 2266,
+              "label": "270g and planned drills"
+            },
+            "locatorEvidenceSha256": "28e8b56aeac51b5e144351ec748d9a254c9b75204c9c43442b1731ab527e38c2"
+          }
+        ],
+        "relevantExtractOrParaphrase": "S24 lines 2255-2266: serveringssvinn definition; uppäten mängd mat per portion i snitt 270 gram; beredskapslager challenge; planned regular exercises for kitchen staff.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines locators; JSON objects via canonical sort_keys hash"
+      },
+      "evidenceSha256": "c693ba761f98d0b639717b54d1d868201fcd33523e66b8a2919977dceebe0d4c",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/controls/candidate-target-profile-C4.json",
+      "targetProfileSha256": "7795b679a5cba67bbe3392ff03b11f6c1d03ce3bac9d21b9332fa2aa73f49608",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C4"
+      ],
+      "gapIds": [
+        "MEAL-G002",
+        "MEAL-G003"
+      ],
+      "limitations": [
+        "Stop rule: less waste may be less serving",
+        "270 g is ordinary average, not Patricia outage outcome",
+        "Planned future drills ≠ completed multi-meal measurement under identical disruption"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "5aec32329ffba748e0cef4b5e27a1fcfc25a4272a36e3fb5c87c912b3876dca2"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B12-C05",
+      "packageId": "B12",
+      "runId": "B12-20260909T103158Z-efdd0743",
+      "claim": "MEAL-T001 remains proposed_not_executed: measurement fields for suitable meals, edible waste, water, fuel, labor, cost, special diets and multi-meal stock under identical disruption are specified in round-003 guidance adaptation, but no named kitchen pilot was run in B12 and public Hylte documents do not supply the required balance-sheet.",
+      "claimType": "method_design_without_execution",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "future named institutional kitchen",
+      "period": "design asOf 2026-09-09; not executed",
+      "geography": "Hylte kommun, Sweden (method example) / Nordic institutional kitchen C4 target",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "MEAL-T001 proposed design + Livsmedelsverket handbook field taxonomy",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B12-R3-FINDINGS",
+            "rawSha256": "f4d28e30937dbe13ad678d761ea620519187a28edd352023b60355de28ca6a80",
+            "extractedTextSha256": null,
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/candidateTest",
+              "label": "MEAL-T001",
+              "recordSha256": "1243ab34780cf4e3e2f1084e0d81a05704f721bc0f70b1f65400a146a35fe91c"
+            },
+            "locatorEvidenceSha256": "1243ab34780cf4e3e2f1084e0d81a05704f721bc0f70b1f65400a146a35fe91c"
+          },
+          {
+            "sourceId": "MEAL-S004",
+            "rawSha256": "e1e899d8b311b99294a7b4df34f35f3522431d090076ec363ae1412913a73f46",
+            "extractedTextSha256": "44c8cc8692800159ead66bd5776cfa23b67879b304302969ab68a9722bf9bdd5",
+            "exactLocator": {
+              "type": "pdf_pages",
+              "pages": [
+                60,
+                61,
+                62,
+                63,
+                64,
+                65,
+                66
+              ],
+              "label": "resource/menu test matrix"
+            },
+            "locatorEvidenceSha256": "5023b44ace56863e7d8f6dd70238e4c60576ec47f75ce6b9c9edc08859f00e41"
+          },
+          {
+            "sourceId": "MEAL-S005",
+            "rawSha256": "7b1305f86a632056fd1d91ca9f2492705663b6c1c0a213adc973279761e15b10",
+            "extractedTextSha256": "d8bc586d6f4c9b3f22efefa21f0aaaa3ed0a74ed59eaefaae13e2e52593f419b",
+            "exactLocator": {
+              "type": "pdf_pages",
+              "pages": [
+                11,
+                20,
+                27,
+                28,
+                29,
+                30
+              ],
+              "label": "waste measurement method"
+            },
+            "locatorEvidenceSha256": "71e02cc82b035b5a85da90e962819f831d31c31f99b736f7130bcaa707019ae8"
+          }
+        ],
+        "relevantExtractOrParaphrase": "MEAL-T001 design: sequential pilot baseline → circular increment → named Nordic method add-on; inputs/outcomes lists include nutrition-suitable meals, edible waste, water, fuel, labor, cost; status proposed_not_executed. Handbooks supply field taxonomy only.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines locators; JSON objects via canonical sort_keys hash"
+      },
+      "evidenceSha256": "2cbf11cc213acce4d8a5fe55d106eae8eb1d35b3b0b67365068372a5410095a6",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/controls/candidate-target-profile-C4.json",
+      "targetProfileSha256": "7795b679a5cba67bbe3392ff03b11f6c1d03ce3bac9d21b9332fa2aa73f49608",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C4"
+      ],
+      "gapIds": [
+        "MEAL-G002",
+        "MEAL-G003",
+        "MEAL-G004",
+        "NEW-MEAL-01"
+      ],
+      "limitations": [
+        "Physical test not authorized in B12 stop rule",
+        "Handbook pages reused from round-003 readScope hashes; not re-visual-inspected in B12",
+        "Nordic increment content still unspecified (MEAL-G004)"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "ded941fb6a3377e9c9520a8371487329c7fd026435c8ea650087cf94f5ca3476"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B12-C06",
+      "packageId": "B12",
+      "runId": "B12-20260909T103158Z-efdd0743",
+      "claim": "Targeted MeetingPlus searches for Patricia / krisövning / matförsörjning returned public meeting attachments (tertial reports, generic crisis guidelines, unrelated 2022 'Patricia' name hits) but no document titled as Patricia exercise protocol, time log, food-control sheet or nutrition calculation among titles read on page 1; therefore MEAL-G001 remains waiting_owner rather than closed.",
+      "claimType": "scoped_search_negative_for_named_protocol",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": null,
+      "geography": "Hylte kommun, Sweden (method example) / Nordic institutional kitchen C4 target",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": null,
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B12-S16A",
+            "rawSha256": "1a0510c5c9708a9d8794427545286109af34773e609848e90aa154a2500869d1",
+            "extractedTextSha256": "89c4db2b8d8aeed2ec4e893cae02345442a3c4d46b9303eb685d450150479d5c",
+            "exactLocator": {
+              "type": "search_result_list",
+              "label": "Patricia titles page1"
+            },
+            "locatorEvidenceSha256": "89c4db2b8d8aeed2ec4e893cae02345442a3c4d46b9303eb685d450150479d5c"
+          },
+          {
+            "sourceId": "B12-S16B",
+            "rawSha256": "4dff9ca4c121be4699fb790c80bd8e38d1a2859ea2a3425ede6c79f4e882f6c6",
+            "extractedTextSha256": "aebc3437557981166a2eadf86d168415f151f5b525764bc9338289b2e59113f4",
+            "exactLocator": {
+              "type": "search_result_list",
+              "label": "krisövning titles"
+            },
+            "locatorEvidenceSha256": "aebc3437557981166a2eadf86d168415f151f5b525764bc9338289b2e59113f4"
+          },
+          {
+            "sourceId": "B12-S16C",
+            "rawSha256": "c83deb834ea19c8a48b740ba089c999b1ee113ea214bdab824f6ef62f5c0bc99",
+            "extractedTextSha256": "759e7192c2f114214bbf306387e5682b7d34bbef9b29da19387bb01b35ac6557",
+            "exactLocator": {
+              "type": "search_result_list",
+              "label": "matförsörjning titles"
+            },
+            "locatorEvidenceSha256": "759e7192c2f114214bbf306387e5682b7d34bbef9b29da19387bb01b35ac6557"
+          }
+        ],
+        "relevantExtractOrParaphrase": "Patricia: 12 results, visible titles are 2022 meddelanden/protokoll and 2025 samråd/yttrande — not övningsprotokoll. krisövning: tertial/region notes. matförsörjning: guidelines + tertial. Opened tertial bodies confirm exercise occurred without primary log fields.",
+        "extractionMethod": "SHA256 UTF-8 of joined selected splitlines with LF and one trailing LF for text_lines locators; JSON objects via canonical sort_keys hash"
+      },
+      "evidenceSha256": "429a0b0a55403d1087f15d34238d5ce6718199b30961d9d486d90ae4c5b45d6e",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/controls/candidate-target-profile-C4.json",
+      "targetProfileSha256": "7795b679a5cba67bbe3392ff03b11f6c1d03ce3bac9d21b9332fa2aa73f49608",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C4"
+      ],
+      "gapIds": [
+        "MEAL-G001"
+      ],
+      "limitations": [
+        "Not a universal claim that no protocol exists in the municipal archive",
+        "Patricia UI showed page 1 of 2; remaining titles not retrieved despite page/pageSize attempts",
+        "Owner may hold unpublished diaries/evaluation"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "8cba7ad867dd0f4eb62c754420c91a66cc287a76fef0b0713680d608ea31b0bd"
+    }
+  ],
+  "human_verified": false
+}

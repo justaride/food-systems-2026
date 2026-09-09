@@ -1,0 +1,151 @@
+{
+  "schema": "beredskap-verification/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B01",
+  "runId": "B01-20260909T101901Z-dcaf4365",
+  "createdAt": "2026-09-09T10:24:00Z",
+  "checks": [
+    {
+      "id": "V01",
+      "name": "worktree_head_matches_planCommit",
+      "result": "passed",
+      "evidence": "git rev-parse HEAD == 5c3d735712f3b5fe929ba8043ee57a74cb318e1a == planCommit"
+    },
+    {
+      "id": "V02",
+      "name": "foundation_commit_recorded",
+      "result": "passed",
+      "evidence": "4026a90d62edf129d4323f7f0971ace716b03983"
+    },
+    {
+      "id": "V03",
+      "name": "R6-S01_raw_and_text_sha256",
+      "result": "passed",
+      "evidence": {
+        "regal-bulk.html": "658b71f62b07863c0af0fc9a36dfc0d5461ba4921185ebe5aeb537fa8fc582b7",
+        "regal-bulk.txt": "2129a7b5a5104aa8ba24b91314b284b3193ca58ae907052d7d0e97d88eb8761a",
+        "no-catalog.pdf": "4d7e7415748bc8a84670daff7d56067242efc886f11904ffb05c23996aed0474",
+        "no-catalog.txt": "cff4fc76912f18c650fe1c41388bc6dc70174bb8881d23cd690024b220eae2b6",
+        "regal-bag.html": "d3b6a6400bf2ef578aefb665f794246729cf57b6e5394aa0a08299e29eaaab2c",
+        "regal-bag.txt": "ff5c9368024d388604cfcb07d4ee4a13468c0d991c44643049e0aa71d0a3dbae"
+      }
+    },
+    {
+      "id": "V04",
+      "name": "R6-S09_raw_and_text_sha256",
+      "result": "passed",
+      "evidence": {
+        "pdf": "4d7e7415748bc8a84670daff7d56067242efc886f11904ffb05c23996aed0474",
+        "txt": "cff4fc76912f18c650fe1c41388bc6dc70174bb8881d23cd690024b220eae2b6"
+      }
+    },
+    {
+      "id": "V05",
+      "name": "R6-S04_control_sha256",
+      "result": "passed",
+      "evidence": {
+        "html": "d3b6a6400bf2ef578aefb665f794246729cf57b6e5394aa0a08299e29eaaab2c",
+        "txt": "ff5c9368024d388604cfcb07d4ee4a13468c0d991c44643049e0aa71d0a3dbae"
+      }
+    },
+    {
+      "id": "V06",
+      "name": "policy_and_target_profile_hashes",
+      "result": "passed",
+      "evidence": {
+        "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+        "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f"
+      }
+    },
+    {
+      "id": "V07",
+      "name": "stop_rule_no_catalog_research_repeat",
+      "result": "passed",
+      "evidence": "search-log shows reuse of frozen channels only; newLiveFetchPerformed=false; catalogSearchRepeated=false"
+    },
+    {
+      "id": "V08",
+      "name": "nutrition_protein_not_used_as_limit",
+      "result": "passed",
+      "evidence": "B01-C02 limitations + findings Q2 explicitly refuse 13 g/100 g as acceptance limit"
+    },
+    {
+      "id": "V09",
+      "name": "no_owner_contact_sent",
+      "result": "passed",
+      "evidence": "Intake remains internal_unsent_template; nextAction documents unsent fields only"
+    },
+    {
+      "id": "V10",
+      "name": "observation_evidence_and_candidate_hashes",
+      "result": "passed",
+      "evidence": [
+        {
+          "candidateId": "B01-C01",
+          "evidenceSha256": "4c4f685720683605f7247956c95af1c3be8b8e2e9dab0e274d84026567bae0d4",
+          "candidateSha256": "f01e7f90671a594438960259e224036836b674f7d63ff7336e342d3ecc00150b"
+        },
+        {
+          "candidateId": "B01-C02",
+          "evidenceSha256": "a280109f742f1ea2b7b0128f66c6aad50df04f0b0f6105f62bd9c18015a673a6",
+          "candidateSha256": "05870911c62000d37fe9a4733c19077c37315268765c735bba3e3348560a2544"
+        },
+        {
+          "candidateId": "B01-C03",
+          "evidenceSha256": "1ab2a9c05f74bc5382f2c10d4c386dbe6122fea328f2b327872b36a0c6097fa4",
+          "candidateSha256": "a81e9b406316d12a4de55dffc967426bc223a78dc15858a1de0c9392bfd1eda4"
+        },
+        {
+          "candidateId": "B01-C04",
+          "evidenceSha256": "b1a68734bb6848236a3feb6648bca0a140dfd70658f89706bd3dc31ec67acf9b",
+          "candidateSha256": "5803ce3889e839563cb2321dc2bd41b591b77347c8fa069639e3e4961afe5374"
+        }
+      ]
+    },
+    {
+      "id": "V11",
+      "name": "gap_semantic_not_auto_closed",
+      "result": "passed",
+      "evidence": "R6-G02 semanticGapClosed=false; sourceStatusPreserved=open"
+    },
+    {
+      "id": "V12",
+      "name": "research-plan_and_prior_rounds_unmodified",
+      "result": "passed",
+      "evidence": "Delivery written only under research-runs/.../B01/...; private notes under visualizations research-runs path"
+    }
+  ],
+  "failures": [],
+  "notPerformed": [
+    {
+      "id": "NP01",
+      "name": "live_refetch_of_product_page_or_catalog",
+      "reason": "Forbidden by B01 stop rule unless a new named specification target is identified"
+    },
+    {
+      "id": "NP02",
+      "name": "data_owner_email_or_contact",
+      "reason": "Contract forbids contact; only unsent intake fields registered"
+    },
+    {
+      "id": "NP03",
+      "name": "human_review_or_canonical_promotion",
+      "reason": "Out of worker authority; human_verified remains false"
+    },
+    {
+      "id": "NP04",
+      "name": "CI_deploy_authenticated_UI_external_authority",
+      "reason": "Local worker verification only"
+    },
+    {
+      "id": "NP05",
+      "name": "model_attestation_from_session_tooling",
+      "reason": "No usable session/tool attestation available to this executor; attestedModel=null"
+    }
+  ],
+  "human_verified": false,
+  "ciVerified": false,
+  "deploymentVerified": false,
+  "readinessChanged": false
+}

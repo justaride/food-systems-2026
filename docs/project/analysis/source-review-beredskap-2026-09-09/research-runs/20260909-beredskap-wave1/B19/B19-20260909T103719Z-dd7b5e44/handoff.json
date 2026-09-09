@@ -1,0 +1,233 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B19",
+  "runId": "B19-20260909T103719Z-dd7b5e44",
+  "createdAt": "2026-09-09T10:42:54Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/git-status.txt",
+  "gitStatusSha256": "4db888589add40d4894e2cfeecea170ad19877724e32b4f932a3a590ea970c4d",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44",
+  "status": "complete_within_scope",
+  "stopReason": "Scoped provenance questions answered from named channels; remainders registered as B19 gaps without mass library processing, candidate-writer, or invented model attestation",
+  "model": {
+    "requestedModel": null,
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent session exposes no reliable model id/attestation tool metadata; historical queue receipt also has modelVersionAttested=false; values left null rather than invented"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B19.md",
+      "sha256": "fd35cc6aaadd063ebccc7c7485e07230e0a2f8dc1cb759f877bff54ebf5f5001",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/input-manifest.json",
+      "sha256": "770910bbd0fa2ad6980104117895238b9ed4923b69ed5b49fed114e0356955b4",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/provenance-addendum.json",
+      "sha256": "7bd208c91734aa0e4161372f311cd4e5ff4f3e7aea182b13e190a99632758af7",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/REVIEW-QUEUE.md",
+      "sha256": "5845458ab532e76b1d89df4d33d0409a53bc22d227d33bd4ece9b73d0da2d220",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "sha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/input-manifest.json",
+      "sha256": "d4dcbc77f68bd150134eb98edcfd66294b78c745f364397106820d9e1b1c0390",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/review-register.json",
+      "sha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/RETTELSER.md",
+      "sha256": "2face7ca5063571fcd2ae3cd7d58cadb3d3b9e190fe83b5de80765ed6c30b05e",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/findings.json",
+      "sha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/KRITISK-KONTROLL.md",
+      "sha256": "892a783e8ba699c39909d9bf0c79a1083eeecf8dcd7c60f60e7d15c0db725c28",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "sha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/source-review-beredskap/round-002/consolidated-v2/review-packet.json",
+      "sha256": "5a0934125eccdcb3fa0612baa1edaa01488dba1d24e18eeb0a0d46cd5f12fc10",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/review-queue-run-003-summary.json",
+      "sha256": "27483f10f5315452371e7fedbfbc041a79591315b2ea063816a359045d53e466",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/review-queue-run-003-job.json",
+      "sha256": "370ad1ed06399cccc5661b070ae5a8c5326a78ca62e04520378adc3aaf18555b",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/documentation/oslomet-publication.html",
+      "sha256": "b3897218cec83a9c5a30f3a028b4ae2a331304f9b5298a2363be6b7af2100ddf",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/candidate-target-profile.json",
+      "sha256": "dbef0618d29a34ee4895cb9ad843db4c079257cb39cd70eb2e0c78b49f01a1b4",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/git-status.txt",
+      "sha256": "4db888589add40d4894e2cfeecea170ad19877724e32b4f932a3a590ea970c4d",
+      "private": true,
+      "accessRequired": true
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "findings.md",
+      "sha256": "c44db87dbfd1d64fd4e9b3776d28e81a4fe6de37ed85f775239b24027b7b3dd8",
+      "private": false
+    },
+    {
+      "path": "sources.json",
+      "sha256": "5eed10a9a0654320a477c1ea022463596fe0e9e9c7daeddfe5246d1959aae838",
+      "private": false
+    },
+    {
+      "path": "observations.json",
+      "sha256": "9d23f90b33b6972e426541bc2042397733325c7e61feca0380edd87edf6d7176",
+      "private": false
+    },
+    {
+      "path": "gaps.json",
+      "sha256": "4013bb0979572c2073b5d9f1f2a3f71204975a728f25c3528622fac82ec5f8a8",
+      "private": false
+    },
+    {
+      "path": "search-log.json",
+      "sha256": "3532c1fde00b3367a1e5ca64c4d54d7e38ffd38bae7c5c86716f26ee4a285f60",
+      "private": false
+    },
+    {
+      "path": "verification.json",
+      "sha256": "6f63bb368e38ac70c819e31f5951e2bf5848aa2582f18fe6aa7e9899a1ac826e",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "B19-B19-20260909T103719Z-dd7b5e44-G01",
+      "disposition": "remainder_documented_waiting_identity_candidate_workflow",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Knowledge/source-identity owner (FS-01)"
+    },
+    {
+      "gapId": "B19-B19-20260909T103719Z-dd7b5e44-G02",
+      "disposition": "correction_traces_inventory_complete_candidates_not_applied",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Research coordinator / A1–A5 observation owners"
+    },
+    {
+      "gapId": "B19-B19-20260909T103719Z-dd7b5e44-G03",
+      "disposition": "attestation_unavailable_documented",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Platform/model-governance owner"
+    },
+    {
+      "gapId": "B19-B19-20260909T103719Z-dd7b5e44-G04",
+      "disposition": "historical_count_not_treated_as_fresh_census",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Library/corpus owner"
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "question": "Er hver videreført påstand bundet til riktig dokumentidentitet, versjon, lest del og rettighet?",
+      "result": "scoped_answer_integrity_passed_with_known_non_supported_and_dated_amendments_not_full_library"
+    },
+    {
+      "question": "Hvilke tidligere rettelser er allerede løst, og hvilke nye bindinger/synthetic-source-restanser krever egne kandidater?",
+      "result": "traces_and_addenda_inventoried_FS01_and_10_non_supported_and_1770_census_remain"
+    },
+    {
+      "question": "Hvilken modellidentitet og leserekkevidde er verktøyattestert, rapportert eller ukjent?",
+      "result": "attested_null_roles_only_read_coverage_scoped_channels"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator: route G01 synthetic-identity candidates, G02 per-observation correction candidates, G03 model attestation, G04 fresh census under new runIds; do not treat this handoff as human review or library certification.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false,
+  "coordinationWith": [
+    "coordinator"
+  ],
+  "candidateArea": "cross_cutting",
+  "purposeIds": [
+    "P4",
+    "P5"
+  ]
+}

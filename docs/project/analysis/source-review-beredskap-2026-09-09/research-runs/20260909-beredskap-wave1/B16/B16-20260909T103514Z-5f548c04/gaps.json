@@ -1,0 +1,206 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B16",
+  "runId": "B16-20260909T103514Z-5f548c04",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A4-G003",
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "originalGapId": "A4-G003",
+      "question": "Kompatibel teller, nevner og observasjonsperiode bak 2021-rapportens ca. 1 %",
+      "disposition": "waiting_source_compatible_dataset",
+      "evidenceCandidateIds": [
+        "B16-C01"
+      ],
+      "overlapWithGapIds": [],
+      "missingFields": [
+        "B16-TP-07"
+      ],
+      "searchLogRefs": [
+        "B16-SL01",
+        "B16-SL02"
+      ],
+      "dataOwnerRole": "LBHI-/departementsforvalter av 2021-grunnlaget eller Statistics Iceland",
+      "nextAction": "Obtain underlying 2021 dataset with identical definitions; do not use 344/25000 as validated fraction",
+      "stopReason": "Claim located; compatibility still missing",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A4-G004",
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "originalGapId": "A4-G004",
+      "question": "Samlet, aktuell kapasitet og driftsstatus for møller, valsing, tørking, pakking og lager",
+      "disposition": "waiting_source_capacity_definitions",
+      "evidenceCandidateIds": [
+        "B16-C03",
+        "B16-C04",
+        "B16-C05",
+        "B16-C07"
+      ],
+      "overlapWithGapIds": [
+        "A4-G005",
+        "A4-G006",
+        "A4-G007"
+      ],
+      "missingFields": [
+        "B16-TP-04",
+        "B16-TP-05",
+        "B16-TP-06"
+      ],
+      "searchLogRefs": [
+        "B16-SL03",
+        "B16-SL04",
+        "B16-SL05"
+      ],
+      "dataOwnerRole": "Navngitte kornforedlere, produsenter og anleggseiere",
+      "nextAction": "Collect dated per-plant capacity definitions separately for mill/dry/roll/pack/store",
+      "stopReason": "List≠capacity; secondary ~500 t dryer aim not national capacity",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A4-G005",
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "originalGapId": "A4-G005",
+      "question": "MAST-/kommunale tillatelser og aktuell virksomhetsliste for kornforedling",
+      "disposition": "partial_register_obtained_still_waiting_food_plant_completeness",
+      "evidenceCandidateIds": [
+        "B16-C03",
+        "B16-C07"
+      ],
+      "overlapWithGapIds": [
+        "A4-G004",
+        "A4-G006"
+      ],
+      "missingFields": [
+        "complete municipal cereal milling/rolling subset with activity legend",
+        "A981 license PDF bytes (404)"
+      ],
+      "searchLogRefs": [
+        "B16-SL03",
+        "B16-SL04"
+      ],
+      "dataOwnerRole": "MAST and relevante kommunale tilsyn",
+      "nextAction": "Obtain activity-code legend and municipal cereal-plant extracts; keep Feed Frum-3 separate from food permits",
+      "stopReason": "A4-L014 timeout cleared; Food MAST list has no cereal section; named food-mill completeness still missing",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": true,
+      "candidate_resolution_note": "Record A981 Feed and SF-2669 plant-processing class as identity evidence only — not capacity closure",
+      "sourceStatusPreserved": "inherited_open_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A4-G006",
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "originalGapId": "A4-G006",
+      "question": "Gjeldende 2025/2026-status for Þorvaldseyri/Eyrarbúið og eventuelt Korngrís som matkornforedlere",
+      "disposition": "waiting_owner_dated_ops_evidence",
+      "evidenceCandidateIds": [
+        "B16-C02",
+        "B16-C03",
+        "B16-C04"
+      ],
+      "overlapWithGapIds": [
+        "A4-G004",
+        "A4-G005"
+      ],
+      "missingFields": [
+        "B16-TP-01",
+        "B16-TP-02",
+        "B16-TP-03 food permit if any"
+      ],
+      "searchLogRefs": [
+        "B16-SL05",
+        "B16-SL03"
+      ],
+      "dataOwnerRole": "Operatørene Þorvaldseyri/Eyrarbúið og Korngrís",
+      "nextAction": "Request dated production/permit docs; unsent checklist in required-document-B16.json",
+      "stopReason": "Public pages insufficient; MAST hit is Feed drying; Korngrís future-tense/empty products",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "A4-G007",
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "originalGapId": "A4-G007",
+      "question": "Kjede fra reserve/råvare til leverbar mat ved importavbrudd",
+      "disposition": "waiting_source_linked_chain",
+      "evidenceCandidateIds": [
+        "B16-C06",
+        "B16-C05",
+        "B16-C04"
+      ],
+      "overlapWithGapIds": [
+        "A4-G001",
+        "A4-G004"
+      ],
+      "missingFields": [
+        "B16-TP-08"
+      ],
+      "searchLogRefs": [
+        "B16-SL01",
+        "B16-SL06"
+      ],
+      "dataOwnerRole": "Tverrdepartementalt beredskapsansvar, MAST og kornforedlere",
+      "nextAction": "Build hash-bound chain table only after stock+process+activation documents exist; coordinate with B15 without mutual wait",
+      "stopReason": "No linked deliverable-food chain; stop rule forbids synthesizing from lists/one farm",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B16-B16-20260909T103514Z-5f548c04-G01",
+      "packageId": "B16",
+      "runId": "B16-20260909T103514Z-5f548c04",
+      "originalGapId": null,
+      "question": "Public license PDF bytes / activity-code legend for MAST Feed Frum-3 and HD Framleiðsla-Pökkun codes",
+      "disposition": "waiting_source",
+      "evidenceCandidateIds": [
+        "B16-C03",
+        "B16-C07"
+      ],
+      "overlapWithGapIds": [
+        "A4-G005"
+      ],
+      "missingFields": [
+        "A981.pdf bytes",
+        "authoritative activity-code codebook"
+      ],
+      "searchLogRefs": [
+        "B16-SL03"
+      ],
+      "dataOwnerRole": "MAST skyrslur custodians",
+      "nextAction": "Obtain codebook or working license PDF URLs; do not infer beyond captured A981 HTML detail",
+      "stopReason": "License PDF paths returned 404",
+      "semanticGapClosed": false,
+      "human_verified": false
+    }
+  ]
+}

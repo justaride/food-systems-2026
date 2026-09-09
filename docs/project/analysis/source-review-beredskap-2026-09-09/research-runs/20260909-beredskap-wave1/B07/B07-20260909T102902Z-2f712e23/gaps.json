@@ -1,0 +1,147 @@
+{
+  "schema": "beredskap-gaps/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B07",
+  "runId": "B07-20260909T102902Z-2f712e23",
+  "gaps": [
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "R4-G001",
+      "packageId": "B07",
+      "runId": "B07-20260909T102902Z-2f712e23",
+      "originalGapId": "R4-G001",
+      "question": "Explain FI2018 Eurostat-Luke production residuals6.90/17.09kt with exact version,classification and moisture mapping",
+      "disposition": "waiting_source_exact_document_required",
+      "evidenceCandidateIds": [
+        "B07-C01",
+        "B07-C02",
+        "B07-C03",
+        "B07-C04"
+      ],
+      "overlapWithGapIds": [
+        "DKFI-G001",
+        "DKFI-G003"
+      ],
+      "missingFields": [
+        "B07-TP-01 dated_2018_Luke_to_Eurostat_transfer_or_revision_log",
+        "B07-TP-02 national_standard_moisture_pct_wheat_2018",
+        "B07-TP-03 national_standard_moisture_pct_barley_2018",
+        "B07-TP-04 eurostat_humidity_basis_for_FI_2018_cells",
+        "B07-TP-05 quantitative_bridge_dry_fresh_to_C1100_C1300_G9100"
+      ],
+      "searchLogRefs": [
+        "B07-SL01",
+        "B07-SL02"
+      ],
+      "dataOwnerRole": "Luke crop statistics transmission/method owner and/or FI Eurostat crop statistics correspondent",
+      "nextAction": "Obtain named dated 2018 transfer/revision annex + per-crop moisture + quantitative dry/fresh↔C1100/C1300/G9100 mapping; hash-bind in a new runId. Do not repeat broad search.",
+      "stopReason": "B07 stop rule: without concrete new bridge/version deliver waiting_source; one common moisture factor already insufficient in executed control; channels R5-S08/R5-S09/DKFI-S006/DKFI-S008 reused without new named transfer file",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "open",
+      "requiredDocument": "Dated 2018 Luke↔Eurostat cereal transfer/revision annex with version IDs, per-crop standard moisture, and tonne-level classification bridge for wheat/barley residuals"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "DKFI-G001",
+      "packageId": "B07",
+      "runId": "B07-20260909T102902Z-2f712e23",
+      "originalGapId": "DKFI-G001",
+      "question": "Exact Finnish national standard moisture percentage for2018 wheat/barley",
+      "disposition": "waiting_source_exact_document_required",
+      "evidenceCandidateIds": [
+        "B07-C02"
+      ],
+      "overlapWithGapIds": [
+        "R4-G001",
+        "DKFI-G003"
+      ],
+      "missingFields": [
+        "B07-TP-02 national_standard_moisture_pct_wheat_2018",
+        "B07-TP-03 national_standard_moisture_pct_barley_2018"
+      ],
+      "searchLogRefs": [
+        "B07-SL02"
+      ],
+      "dataOwnerRole": "Luke crop statistics method owner",
+      "nextAction": "Require official table-level or method-annex moisture % per crop for 2018; do not accept research-paper leads or inverse diagnostics as measured values",
+      "stopReason": "Prior official quality report + Eurostat metadata already examined (DKFI-G001); common-factor control rejects one shared moisture-only explanation; no new named moisture annex in B07 channels",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap",
+      "requiredDocument": "Official Finnish standard moisture % for 2018 wheat and barley (national publication and Eurostat delivery bases)"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "DKFI-G003",
+      "packageId": "B07",
+      "runId": "B07-20260909T102902Z-2f712e23",
+      "originalGapId": "DKFI-G003",
+      "question": "Finsk2018 produksjonsavvik mot Eurostat:+6.90kt hvete,+17.09kt bygg",
+      "disposition": "waiting_source_exact_document_required",
+      "evidenceCandidateIds": [
+        "B07-C03",
+        "B07-C01"
+      ],
+      "overlapWithGapIds": [
+        "R4-G001",
+        "DKFI-G001"
+      ],
+      "missingFields": [
+        "B07-TP-01 dated transfer/revision log",
+        "B07-TP-05 quantitative dry/fresh to C1100/C1300/G9100 bridge with tonne allocation"
+      ],
+      "searchLogRefs": [
+        "B07-SL01",
+        "B07-SL03"
+      ],
+      "dataOwnerRole": "Luke / FI Eurostat correspondent",
+      "nextAction": "Keep both series; await quantitative revision/classification annex before any harmonized residual attribution",
+      "stopReason": "Primary sources show national classification deviation for green/immature cereals but no 2018 quantity/revision bridge; dual series preserved",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "inherited_open_gap",
+      "requiredDocument": "2018 quantity/revision bridge allocating residuals to moisture and/or C1100/C1300/G9100 classification without forced series overwrite"
+    },
+    {
+      "schema": "beredskap-gap/v1",
+      "templateOnly": false,
+      "gapId": "B07-B07-20260909T102902Z-2f712e23-G01",
+      "packageId": "B07",
+      "runId": "B07-20260909T102902Z-2f712e23",
+      "originalGapId": null,
+      "question": "Named public or owner-held Luke↔Eurostat 2018 transfer/revision file identity (filename, date, version) for wheat/barley",
+      "disposition": "new_subgap_waiting_source",
+      "evidenceCandidateIds": [
+        "B07-C01"
+      ],
+      "overlapWithGapIds": [
+        "R4-G001"
+      ],
+      "missingFields": [
+        "document_filename",
+        "document_date",
+        "version_ids",
+        "sha256_of_bytes_when_obtained"
+      ],
+      "searchLogRefs": [
+        "B07-SL01"
+      ],
+      "dataOwnerRole": "Luke / FI Eurostat correspondent",
+      "nextAction": "Coordinator to acquire named file; new runId to hash-bind",
+      "stopReason": "Round-005 private FI inventory contains release+method pages only; no transfer filename",
+      "semanticGapClosed": false,
+      "human_verified": false,
+      "candidate_resolution_proposed": false,
+      "sourceStatusPreserved": "new",
+      "requiredDocument": "Named dated transfer/revision annex"
+    }
+  ]
+}

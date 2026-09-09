@@ -1,0 +1,195 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B13",
+  "runId": "B13-20260909T103514Z-3261c6cc",
+  "createdAt": "2026-09-09T10:50:00Z",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026",
+  "headCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "gitStatusEvidencePath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/git-status.txt",
+  "gitStatusSha256": "ea72822fc2ae98bf94dd20d54b5f84a92fe6c3ce5e99d29b297fdd91b03df752",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc",
+  "status": "waiting_source",
+  "stopReason": "Published SIFO/Fafo reports re-verified: Vedlegg 6 gives item/scoring but not wave item distributions; Figur 4-3/4-4 lack subgroup N/weights/SE/CI; Fafo recipient mapping has no national frame or per-site response shares. Targeted search found no separate technical annex. Unsent method request prepared. Stop rule: no national recipient prevalence; no SIFO/FIES conversion.",
+  "model": {
+    "requestedModel": null,
+    "reportedModel": null,
+    "attestedModel": null,
+    "attestationEvidencePath": null,
+    "attestationUnavailableReason": "Executor subagent session exposes no reliable model id/attestation tool metadata; values left null rather than invented"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B13.md",
+      "sha256": "25d63f56d3828c0d964298fc2f45761924935e00fd9450498d91629b170d94c7",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/input-manifest.json",
+      "sha256": "770910bbd0fa2ad6980104117895238b9ed4923b69ed5b49fed114e0356955b4",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/work-packages.json",
+      "sha256": "bab3c5d30c23dda1320fbe2c486f9876b609ab817a6fda3157ed16f039a6e5e3",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "research/agent-research-2026-09-08/resultater/A3/data.json",
+      "sha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/findings.json",
+      "sha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/review-register.json",
+      "sha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/raw/SIFO-rapport-7-2025-Familiefattigdom-parat.pdf",
+      "sha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/raw/Fafo-rapport-2026-01-Matutdeling.pdf",
+      "sha256": "900d309b024d516f6897ad076d757a1e97c66fca63a213cbb511ff4b898f55ee",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/candidate-target-profile.json",
+      "sha256": "120eb640e28b5801d64a4dd7fa33b57b3e78abba50590fb273d7f8a3aafa193a",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/unsent-method-request-B13.json",
+      "sha256": "72915392e4b3e57f1b620e13b8f9b9629d3adcfe98d5c24fc6127153c129cb68",
+      "private": true,
+      "accessRequired": true
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "findings.md",
+      "sha256": "4028c1349051476242cf1bf366c25553373fb2e14ac8da5561b00a4c08ca47fe",
+      "private": false
+    },
+    {
+      "path": "sources.json",
+      "sha256": "a18da052cb7e1d30762a8ca4a01a987e1e1ff36ec622dae3fa9e8774ed72f8b8",
+      "private": false
+    },
+    {
+      "path": "observations.json",
+      "sha256": "3a5c0cc5d2e24a935c71b71b65a938d2baf0c520857377d12632241f3a95ba1e",
+      "private": false
+    },
+    {
+      "path": "gaps.json",
+      "sha256": "2a18f17cb4fafef26c86343cef4fefa03c5fb64250f56ea1e0be486b570aa864",
+      "private": false
+    },
+    {
+      "path": "search-log.json",
+      "sha256": "00779f210f1a449e649fa91168b6e650b51f05f74611cbb2b70263ec72c0c41b",
+      "private": false
+    },
+    {
+      "path": "verification.json",
+      "sha256": "0a1db0ee1414601b708dec6db69df6e4cd3861b53a0b07b8e464415718df4f06",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "A3-G001",
+      "disposition": "partial_evidence_waiting_source",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "SIFO/OsloMet"
+    },
+    {
+      "gapId": "A3-G002",
+      "disposition": "waiting_source_exact_document_required",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "SIFO/OsloMet"
+    },
+    {
+      "gapId": "A3-G006",
+      "disposition": "waiting_source_exact_document_required",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "SIFO/OsloMet"
+    },
+    {
+      "gapId": "A3-G007",
+      "disposition": "confirmed_open_waiting_source_or_owner",
+      "semanticGapClosed": false,
+      "dataOwnerRole": "Fafo / participating food-distribution sites"
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "question": "Finnes komplette items, delutvalgs-N, vekter/frafall og usikkerhet for de konkrete figurene?",
+      "result": "partial_stop_items_scoring_found_wave_distributions_and_figure_uncertainty_missing"
+    },
+    {
+      "question": "Hva er populasjon, svarandel og seleksjon i matutdelingsdata?",
+      "result": "answered_within_scope_org_49pct_vs_recipient_mapping_without_per_site_response_share"
+    },
+    {
+      "question": "Hvilke nasjonale slutninger er tillatt, og hvilke krever mikrodata eller brostudie?",
+      "result": "answered_inference_boundary_under_stop_rule"
+    }
+  ],
+  "unansweredQuestions": [],
+  "nextStep": "Coordinator/source path: obtain B13-TP-02..TP-08 technical tables from SIFO/Fafo (unsent request prepared); hash-bind in a new runId. Do not repeat broad search. B14/B18 may consume this waiting_source terminal as hash-bound surface.",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false,
+  "coordinationWith": [
+    "coordinator",
+    "B14",
+    "B18"
+  ],
+  "candidateArea": [
+    "tverrgående"
+  ],
+  "purposeIds": [
+    "P1",
+    "P2"
+  ]
+}

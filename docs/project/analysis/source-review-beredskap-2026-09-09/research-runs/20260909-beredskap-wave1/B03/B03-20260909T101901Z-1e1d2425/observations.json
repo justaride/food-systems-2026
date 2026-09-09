@@ -1,0 +1,489 @@
+{
+  "schema": "beredskap-observations/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B03",
+  "runId": "B03-20260909T101901Z-1e1d2425",
+  "createdAt": "2026-09-09T10:24:48Z",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B03-O01",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "claim": "Applicant cover letter describes an existing east-facade flour-silo installation and proposes converting the silo room to freezer space after relocating the silos; east-side silos are to be dismantled/moved for a CO2 rig. This is application narrative, not a controlled current silo inventory or as-built reception map.",
+      "claimType": "source_statement_with_role_boundary",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Bakehuset Møllhausen Furuset, Søren Bulls vei 27 (case R5-C1-FURUSET-Q1-T72)",
+      "period": null,
+      "geography": "Oslo, Alna, Søren Bulls vei 27",
+      "commodityQuality": "Q1 analytical target (Regal 160105 reference); recipient acceptance unknown",
+      "moistureBasis": null,
+      "method": "Document review of hash-verified round-006 PBE/recipient extracts plus live PBE index re-access; no site visit, no owner contact, no calculation",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R6-S17",
+            "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+            "extractedTextSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 17,
+              "end": 18,
+              "label": "Dagens situasjon; melsilo-anlegg på østsiden"
+            }
+          },
+          {
+            "sourceId": "R6-S17",
+            "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+            "extractedTextSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 45,
+              "end": 47,
+              "label": "2. etasje; ombygging av mel-silorommet til fryserom etter flytting"
+            }
+          },
+          {
+            "sourceId": "R6-S17",
+            "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+            "extractedTextSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 83,
+              "end": 86,
+              "label": "CO2-rigg; siloene demonteres og flyttes"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": [
+          {
+            "sourceId": "R6-S17",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 17,
+              "end": 18,
+              "label": "Dagens situasjon; melsilo-anlegg på østsiden"
+            },
+            "paraphrase": "Letter states a flour-silo installation exists on the east facade extending substantially above the second floor."
+          },
+          {
+            "sourceId": "R6-S17",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 45,
+              "end": 47,
+              "label": "2. etasje; ombygging av mel-silorommet til fryserom etter flytting"
+            },
+            "paraphrase": "Proposed works include converting the flour-silo room to a freezer room after moving the flour silos."
+          },
+          {
+            "sourceId": "R6-S17",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 83,
+              "end": 86,
+              "label": "CO2-rigg; siloene demonteres og flyttes"
+            },
+            "paraphrase": "A CO2 rig is proposed on the east side; current silos at that location are to be dismantled and moved; existing foundation reused for the rig."
+          }
+        ],
+        "extractionMethod": "manual_verified_text_lines_or_keyword_inventory"
+      },
+      "evidenceSha256": "060e6979ba6472d415853665748d31744fb960c5b93a7a4f2fdd846a225fdf79",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1"
+      ],
+      "gapIds": [
+        "R6-G05",
+        "R5-G09"
+      ],
+      "limitations": [
+        "Does not state the destination location, connection type, volume, or usable capacity after the move",
+        "Must not be treated as as-built documentation of today's reception point"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "f5f623f640855b8b5d0fa2b5fddc398cbe340a36bb5fc12bd5443a4ea1ac3ca6"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B03-O02",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "claim": "Applicant states Mat i Farta will keep bakery and pastry activity on site while parts of the bakery move to Økern, and that former bakery area in 1st floor is adapted for food preparation/kitchen for the new concept. Current on-site Q1 flour need and whether bulk flour is still used are not established by this narrative.",
+      "claimType": "source_statement_with_unknown_operational_state",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Bakehuset Møllhausen Furuset, Søren Bulls vei 27 (case R5-C1-FURUSET-Q1-T72)",
+      "period": null,
+      "geography": "Oslo, Alna, Søren Bulls vei 27",
+      "commodityQuality": "Q1 analytical target (Regal 160105 reference); recipient acceptance unknown",
+      "moistureBasis": null,
+      "method": "Document review of hash-verified round-006 PBE/recipient extracts plus live PBE index re-access; no site visit, no owner contact, no calculation",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R6-S17",
+            "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+            "extractedTextSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 38,
+              "end": 47,
+              "label": "Mat i Farta concept; silo-room conversion"
+            }
+          },
+          {
+            "sourceId": "R6-S17",
+            "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+            "extractedTextSha256": "1d3c176bd931fb0ffb50998f56dd8fc158a064c65efecdc02d8869d2ccd4b12b",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 110,
+              "end": 116,
+              "label": "Videreføring av bruk; deler av bakeriet flyttes til Økern"
+            }
+          },
+          {
+            "sourceId": "R6-S03",
+            "rawSha256": "e626670978bea0ba345e15afe23ab6907aed9b008df83ba1c059aaf0f6c3e63b",
+            "extractedTextSha256": "81ac6fdec3c0bd92540a77e832b05ba0696898d04585fd562c6dac12b110bafa",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 20,
+              "end": 26,
+              "label": "Avdeling Furuset; steinovnsbrød; address"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": [
+          {
+            "sourceId": "R6-S17",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 38,
+              "end": 47,
+              "label": "Mat i Farta concept; silo-room conversion"
+            },
+            "paraphrase": "New concept Mat i Farta; building to continue as bakery and pastry with added sandwich/wrap preparation; silo room conversion after silo move."
+          },
+          {
+            "sourceId": "R6-S17",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 110,
+              "end": 116,
+              "label": "Videreføring av bruk; deler av bakeriet flyttes til Økern"
+            },
+            "paraphrase": "Overall use said not to change; bakery and pastry remain though parts of the bakery move to Økern."
+          },
+          {
+            "sourceId": "R6-S03",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 20,
+              "end": 26,
+              "label": "Avdeling Furuset; steinovnsbrød; address"
+            },
+            "paraphrase": "Public department page still presents Furuset as specializing in rustic stone-oven bread at Søren Bulls Vei 27."
+          }
+        ],
+        "extractionMethod": "manual_verified_text_lines_or_keyword_inventory"
+      },
+      "evidenceSha256": "7e13d7beae07e0f2a5d75cafb2b29ecd5c04031b31e7515bff80981f625754a3",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1"
+      ],
+      "gapIds": [
+        "R6-G01",
+        "R6-G04",
+        "R5-G01",
+        "A1-G006"
+      ],
+      "limitations": [
+        "Marketing page and application narrative are not recipe plans or Q1 acceptance records",
+        "B03 boundary forbids switching the case to Økern, bagged flour, or finished baked goods",
+        "Whether remaining Furuset activity actually uses Q1 bulk flour is unknown"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "4354c61b94d6360059b3e18524f7e3f2abefdbf68590ada7110fe6ca631dfa27"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B03-O03",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "claim": "Municipal temporary use permit dated 17.04.2026 covers the rebuild works except the lift platform and lists remaining technical completion items. Applicant letter dated 13.08.2026 states works including the lift are complete and requests ferdigattest. Applicant completion is not a municipal final certificate and neither document is an as-built silo/reception performance record.",
+      "claimType": "source_comparison_role_boundary",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Bakehuset Møllhausen Furuset, Søren Bulls vei 27 (case R5-C1-FURUSET-Q1-T72)",
+      "period": null,
+      "geography": "Oslo, Alna, Søren Bulls vei 27",
+      "commodityQuality": "Q1 analytical target (Regal 160105 reference); recipient acceptance unknown",
+      "moistureBasis": null,
+      "method": "Document review of hash-verified round-006 PBE/recipient extracts plus live PBE index re-access; no site visit, no owner contact, no calculation",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "R6-S13",
+            "rawSha256": "dcf2752a316817739942d0a9a4d14aa9b5df58cd8d4f1fc01f0b2fbf08a6f99b",
+            "extractedTextSha256": "03255f3c36d4a2191e624a3a4d4b01406b68f5dc73c33fb277ade3d2eb40a1c9",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 10,
+              "end": 40,
+              "label": "Permit date; scope excl. lift; remaining works"
+            }
+          },
+          {
+            "sourceId": "R6-S14",
+            "rawSha256": "1af0d671f6f9b7c685eb82b03f1b4690b86319f75289420eafb2cf9d058a8c18",
+            "extractedTextSha256": "b232d37d1e21bb56d53a3aa9a65ca1af592f1df444384876fed336edf4fb1d34",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 5,
+              "end": 41,
+              "label": "Applicant completion; lift finished; request ferdigattest"
+            }
+          },
+          {
+            "sourceId": "B03-S01",
+            "rawSha256": "69770c58fe4a179deef9d0a97c598b01cdd1767c77e80beb26993d6045053c38",
+            "extractedTextSha256": "3730a287e4fa586621f7626498c5b55ac270bb83908a676d70d415814a11ae4c",
+            "exactLocator": {
+              "type": "keyword_inventory",
+              "label": "journal 21 titled Søknad om ferdigattest; case status Under behandling; no municipal ferdigattest decision title observed"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": [
+          {
+            "sourceId": "R6-S13",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 10,
+              "end": 40,
+              "label": "Permit date; scope excl. lift; remaining works"
+            },
+            "paraphrase": "Temporary use permit 17.04.2026 for whole measure except lift platform; remaining works include technical installation adjustments and testing, due by 01.09.2026."
+          },
+          {
+            "sourceId": "R6-S14",
+            "exactLocator": {
+              "type": "text_lines",
+              "start": 5,
+              "end": 41,
+              "label": "Applicant completion; lift finished; request ferdigattest"
+            },
+            "paraphrase": "Letter 13.08.2026: all works under permits finished; lift platform finished; asks that ferdigattest be issued."
+          },
+          {
+            "sourceId": "B03-S01",
+            "exactLocator": {
+              "type": "keyword_inventory",
+              "label": "journal 21 titled Søknad om ferdigattest; case status Under behandling; no municipal ferdigattest decision title observed"
+            },
+            "paraphrase": "Live index still lists søknad om ferdigattest from applicant side; case status under treatment; no separate municipal ferdigattest decision title found in public title inventory."
+          }
+        ],
+        "extractionMethod": "manual_verified_text_lines_or_keyword_inventory"
+      },
+      "evidenceSha256": "9586cf2bfdaffd5cd8c1106cafda4782b835b3dd5b3c035c81c87d7d6d9ddc87",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1"
+      ],
+      "gapIds": [
+        "R6-G05",
+        "R6-G01"
+      ],
+      "limitations": [
+        "Historical silo description, application, applicant completion, and municipal ferdigattest have distinct evidentiary roles (B03 stop rule)",
+        "No municipal ferdigattest decision was identified in the public index titles re-checked in B03"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "bc1a821f399a0b8fd81ec75af6d92933b864b73eba53262a64a47f855b18d2d9"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B03-O04",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "claim": "Live re-fetch of PBE case indexes 2025/09615 and 202551929 matched round-006 raw bytes exactly. Public attachment titles include waste reports, environmental survey, gjennomføringsplan, and login-gated facades under the ferdigattest application package; no public title names as-built silo layout, innblåsingspunkt, usable silo volume, or bulk reception test.",
+      "claimType": "negative_search_result_within_channel",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Bakehuset Møllhausen Furuset, Søren Bulls vei 27 (case R5-C1-FURUSET-Q1-T72)",
+      "period": null,
+      "geography": "Oslo, Alna, Søren Bulls vei 27",
+      "commodityQuality": "Q1 analytical target (Regal 160105 reference); recipient acceptance unknown",
+      "moistureBasis": null,
+      "method": "Document review of hash-verified round-006 PBE/recipient extracts plus live PBE index re-access; no site visit, no owner contact, no calculation",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B03-S01",
+            "rawSha256": "69770c58fe4a179deef9d0a97c598b01cdd1767c77e80beb26993d6045053c38",
+            "extractedTextSha256": "3730a287e4fa586621f7626498c5b55ac270bb83908a676d70d415814a11ae4c",
+            "exactLocator": {
+              "type": "byte_identity",
+              "label": "rawSha256 equals R6-S12; keyword_count silo/innblås/as-built = 0 in extract inventory"
+            }
+          },
+          {
+            "sourceId": "B03-S02",
+            "rawSha256": "1b91ff57fab36c24d61f29c4a6c2eb53763947cc58cde8b0a76b16d8e1e145d5",
+            "extractedTextSha256": "2d4bda2cc3d2373c493284f740b467d001416e1cd0b95f1eaf0e825996f8d2a1",
+            "exactLocator": {
+              "type": "byte_identity",
+              "label": "rawSha256 equals R6-S15"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": [
+          {
+            "sourceId": "B03-S01",
+            "exactLocator": {
+              "type": "byte_identity",
+              "label": "rawSha256 equals R6-S12; keyword_count silo/innblås/as-built = 0 in extract inventory"
+            },
+            "paraphrase": "Successor case index unchanged vs R6-S12; extract keyword inventory reports zero hits for silo/innblås/as-built."
+          },
+          {
+            "sourceId": "B03-S02",
+            "exactLocator": {
+              "type": "byte_identity",
+              "label": "rawSha256 equals R6-S15"
+            },
+            "paraphrase": "Predecessor case index unchanged vs R6-S15."
+          }
+        ],
+        "extractionMethod": "manual_verified_text_lines_or_keyword_inventory"
+      },
+      "evidenceSha256": "2f7fa032bc69fb5f1ea9ea6c8d8df6e2c0c7afa7454a78f551b0f8c830496b50",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1"
+      ],
+      "gapIds": [
+        "R6-G05",
+        "R5-G09",
+        "R6-G07"
+      ],
+      "limitations": [
+        "Absence of a title is not proof a private/login drawing lacks silo detail; those drawings were not read",
+        "Stop rule: only open a concrete new attachment that hits today's reception — none identified in public titles"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "09afb75769d8e8f96d4459fdc0e0ee585030e60f626195911bed36183e6f8298"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B03-O05",
+      "packageId": "B03",
+      "runId": "B03-20260909T101901Z-1e1d2425",
+      "claim": "R6-INTAKE-001 remains unsent with all value fields null for production function (G01), recipient Q1 qualification (G04), as-built reception (G05), and need/stock (G07). Therefore recipe/batch need, acceptance rules, physical/available Q1 stock, quarantine, and deadline coverage stay unknown — not zero.",
+      "claimType": "schema_absence_of_owner_response",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": "Bakehuset Møllhausen Furuset, Søren Bulls vei 27 (case R5-C1-FURUSET-Q1-T72)",
+      "period": null,
+      "geography": "Oslo, Alna, Søren Bulls vei 27",
+      "commodityQuality": "Q1 analytical target (Regal 160105 reference); recipient acceptance unknown",
+      "moistureBasis": null,
+      "method": "Document review of hash-verified round-006 PBE/recipient extracts plus live PBE index re-access; no site visit, no owner contact, no calculation",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B03-S03",
+            "rawSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+            "extractedTextSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/sections",
+              "label": "sections G01/G04/G05/G07; sent=false; all field values null"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": [
+          {
+            "sourceId": "B03-S03",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/sections",
+              "label": "sections G01/G04/G05/G07; sent=false; all field values null"
+            },
+            "paraphrase": "Intake template documents required owner fields for G01, G04, G05, G07; JSON shows value=null on each listed field; envelope indicates not sent."
+          }
+        ],
+        "extractionMethod": "manual_verified_text_lines_or_keyword_inventory"
+      },
+      "evidenceSha256": "fee1404f5fdb6951f0a739f23b43924a429dfd8fe291e55b41b9329c0c62e1a0",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [
+        "C1"
+      ],
+      "gapIds": [
+        "R5-G01",
+        "R5-G02",
+        "R5-G05",
+        "R5-G09",
+        "R6-G01",
+        "R6-G04",
+        "R6-G05",
+        "R6-G07",
+        "A1-G006"
+      ],
+      "limitations": [
+        "No contact or email was sent in B03",
+        "Unknown operational quantities must not be replaced with numeric zero"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "ec93d6b759466a22a25a055baa5175eed6962339b4b8d27f9ae150a0526de370"
+    }
+  ]
+}

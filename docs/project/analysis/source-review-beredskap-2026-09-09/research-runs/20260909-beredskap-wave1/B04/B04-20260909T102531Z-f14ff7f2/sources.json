@@ -1,0 +1,391 @@
+{
+  "schema": "beredskap-sources-bundle/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B04",
+  "runId": "B04-20260909T102531Z-f14ff7f2",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "A1-S001",
+      "title": "Landbruksdirektoratets årsrapport 2025",
+      "publisher": "Landbruksdirektoratet / published via regjeringen.no",
+      "url": "https://www.regjeringen.no/contentassets/a34b107c580e48288f48c53b5f2b7dbf/landbruksdirektoratets-arsrapport.pdf",
+      "documentVersion": "årsrapport for 2025",
+      "publishedAt": "2026",
+      "accessedAt": "2026-09-09T10:35:00Z",
+      "readScope": "Private frozen PDF+text from A1; verified SHA-256; locator lines 3289-3297",
+      "sourceRole": "primary_year_end_stock_report",
+      "accessStatus": "private_raw_hash_verified",
+      "rights": {
+        "internalUseBasis": "public PDF retained privately for internal analysis; not redistributed",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/private-research/food-systems-A1-2026-09-08/landbruksdirektoratets-arsrapport-2025.pdf",
+      "rawSha256": "a2894161c6103832821a8a19c4604afb37bf97b2d1411abec49a893036df4d29",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/private-research/food-systems-A1-2026-09-08/landbruksdirektoratets-arsrapport-2025.txt",
+      "extractedTextSha256": "5e7fca42256b31a8a82cbab5cac6f85d2db9d1b15d7184cbbbbfb2b4a9afc745",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 3289,
+          "end": 3297,
+          "label": "30 000 tonn mathvete ved utgangen av 2025; kontrakter 2026/27 og 2028/29"
+        }
+      ],
+      "limitations": [
+        "Year-end 2025 figure — not 2026-09-08/t0",
+        "No location/quality/operator split in cited passage",
+        "Contract volumes in same passage are not physical stock at t0"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B04-S001",
+      "title": "Ekspertgruppe om investeringsbehov i verdikjeden for korn (nyhet)",
+      "publisher": "Landbruksdirektoratet",
+      "url": "https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/ekspertgruppe-om-investeringsbehov-i-verdikjeden-for-korn",
+      "documentVersion": "Publisert/sist oppdatert 2026-09-03; B04 live fetch 2026-09-09",
+      "publishedAt": "2026-09-03",
+      "accessedAt": "2026-09-09T10:35:00Z",
+      "readScope": "Full extracted HTML text; lines 80-94",
+      "sourceRole": "update_path_announcement_not_capacity_table",
+      "accessStatus": "public_http_200_frozen_this_run",
+      "rights": {
+        "internalUseBasis": "public web page for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/raw/ekspertgruppe.html",
+      "rawSha256": "b40d490ad70e9c7fe862ec6227c5ff46d8cea82605f51b53c9d4e062bf4128a4",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/text/ekspertgruppe.txt",
+      "extractedTextSha256": "cf28ceae2069f9c4bf5492ce1fd0b2bd528145fad335c03295591b0d59a322d8",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 80,
+          "end": 94,
+          "label": "Første møte; rapport innen 15. mars (år ikke i nyhetstekst)"
+        }
+      ],
+      "limitations": [
+        "News page omits calendar year for 15. mars",
+        "Not a 2026 node estimate"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B04-S002",
+      "title": "Oppnevning av ekspertgruppe om investeringsbehov i kornsektoren",
+      "publisher": "Landbruks- og matdepartementet",
+      "url": "https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/ekspertgruppe-om-investeringsbehov-i-verdikjeden-for-korn/_/attachment/inline/e1f9e873-fd91-4750-970f-92fddfdbc912:99836ec5016c4a147da7a9620bfbaf9fbf1bd8c9/Oppnevning%20av%20ekspertgruppe%20om%20investeringsbehov%20i%20kornsektoren.pdf",
+      "documentVersion": "Dato 3. juli 2026; ref 26/1429",
+      "publishedAt": "2026-07-03",
+      "accessedAt": "2026-09-09T10:35:00Z",
+      "readScope": "Full pdftotext; lines 34-35",
+      "sourceRole": "appointment_letter_deadline",
+      "accessStatus": "public_http_200_frozen_this_run",
+      "rights": {
+        "internalUseBasis": "public PDF for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/raw/oppnevning.pdf",
+      "rawSha256": "1f4b629b7a23ee2a1789d48bcccf08d485f97da5914194a8855eace6d5772cda",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/text/oppnevning.txt",
+      "extractedTextSha256": "f3a37a70c654f7d23496aebdfbd2228e088dd9adade6d0092a57488b57550dd0",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 34,
+          "end": 35,
+          "label": "Sluttrapport til LMD innen 15. mars 2027"
+        }
+      ],
+      "limitations": [
+        "Not a capacity measurement",
+        "Report not delivered as of this run"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B04-S003",
+      "title": "Mandat for ekspertgruppe om investeringsbehov i verdikjeden for korn",
+      "publisher": "Landbruks- og matdepartementet",
+      "url": "https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/ekspertgruppe-om-investeringsbehov-i-verdikjeden-for-korn/_/attachment/inline/e5072f61-1dac-4d48-9ffb-649a187a4f91:7d03ecd777c43b71c97254a0fb34d33c5cf2ad5c/Mandat%20for%20ekspertgruppe%20om%20investeringsbehov%20i%20verdikjeden%20for%20korn.pdf",
+      "documentVersion": "3.07.26",
+      "publishedAt": "2026-07-03",
+      "accessedAt": "2026-09-09T10:35:00Z",
+      "readScope": "Full pdftotext; line 35 deadline",
+      "sourceRole": "mandate_scope_and_deadline",
+      "accessStatus": "public_http_200_frozen_this_run",
+      "rights": {
+        "internalUseBasis": "public PDF for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/raw/mandat.pdf",
+      "rawSha256": "f9251e09f353714082384df8e163aae29f8acc2a6fc263dec79b09edbc533e79",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/text/mandat.txt",
+      "extractedTextSha256": "86e9bf941e000660b357f01f9b88daf25955cb7d3703f3f870c87d36ba35c927",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 35,
+          "end": 35,
+          "label": "Sluttrapport innen 15. mars 2027"
+        }
+      ],
+      "limitations": [
+        "Mandate for future report; no 2026 measured capacities"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B04-S004",
+      "title": "82 500 tonn matkorn på lager innen 2029 – er i mål med kontrakter",
+      "publisher": "Landbruksdirektoratet",
+      "url": "https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/82-500-tonn-matkorn-pa-lager-innen-2029--i-mal-med-kontrakter",
+      "documentVersion": "Publisert 2025-08-12; sist oppdatert 2026-01-29; B04 fetch 2026-09-09",
+      "publishedAt": "2025-08-12",
+      "accessedAt": "2026-09-09T10:35:00Z",
+      "readScope": "Extracted HTML; lines 102-112",
+      "sourceRole": "contract_and_target_disclosure",
+      "accessStatus": "public_http_200_frozen_this_run",
+      "rights": {
+        "internalUseBasis": "public web page for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/raw/kontrakter-82500.html",
+      "rawSha256": "90303d560a5d1e5a44032bf6d96cf11016baf3f2bc149ea43640382384ffd6f7",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/text/kontrakter-82500.txt",
+      "extractedTextSha256": "8cfaaf0c3f7a816967633a81fdfe13a2eeafbec38bbd3a5d401cfe8f195aee9e",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 102,
+          "end": 112,
+          "label": "30k+30k+22.5k kontrakter; 15k/år til 82.5k; staten eier ikke lagerkapasitet"
+        }
+      ],
+      "limitations": [
+        "Contract/plan volumes — stop rule forbids treating as t0 stock",
+        "No site-level physical stock dated 2026-09"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B04-S005",
+      "title": "Inngår kontrakter for lagring av matkorn med oppstart i 2026 og 2027",
+      "publisher": "Landbruksdirektoratet",
+      "url": "https://www.landbruksdirektoratet.no/nb/nyhetsrom/nyhetsarkiv/inngar-kontrakter-for-lagring-av-matkorn-med-oppstart-i-2026-og-2027",
+      "documentVersion": "Publisert 2025-02-14; sist oppdatert 2026-01-29; B04 fetch 2026-09-09",
+      "publishedAt": "2025-02-14",
+      "accessedAt": "2026-09-09T10:35:00Z",
+      "readScope": "Extracted HTML; lines 100-102",
+      "sourceRole": "contract_disclosure_with_2024_stock_note",
+      "accessStatus": "public_http_200_frozen_this_run",
+      "rights": {
+        "internalUseBasis": "public web page for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/raw/kontrakter-2026-2027.html",
+      "rawSha256": "308d509af7863d1c706ae5f28a773b62f077ba592c995a058b558c666a295ea8",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/text/kontrakter-2026-2027.txt",
+      "extractedTextSha256": "7db0c1ff178eb8b8a2cea04aeb21544206026bec70418c91e3d773c4e8534f01",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 100,
+          "end": 102,
+          "label": "82 500 mål; 15 000 end-2024; aktørliste"
+        }
+      ],
+      "limitations": [
+        "2024 year-end note is not a 2026-09 stock file"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B04-S006",
+      "title": "Bjølsen Valsemølle – stabil kvalitet fra Oslos siste mølle (annonsørinnhold)",
+      "publisher": "bakeri.net / Lantmännen Cerealia advertorial",
+      "url": "https://annonse.bakeri.net/bjolsen-valsemolle-stabil-kvalitet-fra-oslos-siste-molle/189432",
+      "documentVersion": "Publisert 2026-02-27; B04 fetch 2026-09-09",
+      "publishedAt": "2026-02-27",
+      "accessedAt": "2026-09-09T10:35:00Z",
+      "readScope": "Extracted HTML; lines 79-80 and 127-129",
+      "sourceRole": "operator_advertorial_not_crisis_capacity",
+      "accessStatus": "public_http_200_frozen_this_run",
+      "rights": {
+        "internalUseBasis": "public advertorial for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/raw/bjolsen.html",
+      "rawSha256": "7446087889559454ce77d6ebb945689b89560197bc0cbef84080826e989a8b2d",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/text/bjolsen.txt",
+      "extractedTextSha256": "281e97f2951f2bf6f4e2672148a20a4687877ebf5ba80e5f4de50ac649713dbf",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 79,
+          "end": 80,
+          "label": "360 tonn korn i døgnet"
+        },
+        {
+          "type": "text_lines",
+          "start": 127,
+          "end": 129,
+          "label": "rundt 3 000 tonn beredskapskorn"
+        }
+      ],
+      "limitations": [
+        "Advertorial/self-reported",
+        "Stop rule: normal production not crisis capacity",
+        "Missing ownership/release/quality/t0"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B04-S007",
+      "title": "Beredskapslagring av matkorn – forslag til utforming, rapport 17/2023",
+      "publisher": "Landbruksdirektoratet via regjeringen.no",
+      "url": "https://www.regjeringen.no/contentassets/ffddefa6bbc7435985a389bd45783665/rapport-beredskapslagring-av-matkorn-februar-2023-endelig.pdf",
+      "documentVersion": "endelig rapport",
+      "publishedAt": "2023-02-20",
+      "accessedAt": "2026-09-09T10:36:00Z",
+      "readScope": "Full PDF frozen this run; focused extracts pp.5-16 and pp.27-29",
+      "sourceRole": "historical_design_and_2023_capacity_estimate",
+      "accessStatus": "public_http_200_frozen_this_run",
+      "rights": {
+        "internalUseBasis": "public PDF for internal analysis",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/raw/rapport-2023-beredskapslagring.pdf",
+      "rawSha256": "d61b7684e8d222643e988e92cf387d9fcd23404df5d7e18a5db1abe8c3029fe6",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B04/B04-20260909T102531Z-f14ff7f2/text/rapport-2023-full.txt",
+      "extractedTextSha256": "1760385f843846c421247365ed25ff98f3a4f891c072116d433a56ae6bc18b4b",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "pathHint": "rapport-2023-pp5-16.txt",
+          "start": 469,
+          "end": 502,
+          "label": "Historisk ledig kapasitet 107270/63400/~42000"
+        },
+        {
+          "type": "text_lines",
+          "pathHint": "rapport-2023-pp27-29.txt",
+          "start": 144,
+          "end": 153,
+          "label": "Foreslått uttaksbeslutning (design)"
+        }
+      ],
+      "limitations": [
+        "2023 estimate not 2026 measurement",
+        "Design ≠ demonstrated lead time"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-INTAKE-001",
+      "title": "R6-INTAKE-001 unsent owner intake template",
+      "publisher": "Internal analysis template (round-006)",
+      "url": null,
+      "documentVersion": "status=internal_unsent_template; sent=false",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:35:00Z",
+      "readScope": "R6-G08/G09 sections; all values null; INNTAK-USENDT.md",
+      "sourceRole": "unsent_owner_intake_negative_evidence",
+      "accessStatus": "internal_file_read",
+      "rights": {
+        "internalUseBasis": "internal unsent intake; no contact authorized",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/intake-template.json",
+      "rawSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/INNTAK-USENDT.md",
+      "extractedTextSha256": "969f57ff79a717ebcdc45241b9a76fe0a2cacfe283a9390144ee4ff2dfb828c4",
+      "exactLocators": [
+        {
+          "type": "json_pointer",
+          "pointer": "/sections",
+          "label": "R6-G08/G09 fields value:null; sent:false"
+        }
+      ],
+      "limitations": [
+        "Template only; no owner responses"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R6-STATUS-DELTA",
+      "title": "round-006 status-delta.json operational quantities",
+      "publisher": "Internal analysis",
+      "url": null,
+      "documentVersion": "asOf 2026-09-09",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09T10:35:00Z",
+      "readScope": "operationalQuantities.NO/.SE all null",
+      "sourceRole": "internal_null_inventory",
+      "accessStatus": "internal_file_read",
+      "rights": {
+        "internalUseBasis": "internal analysis artifact",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/status-delta.json",
+      "rawSha256": "c0bad5f6921bb3ad7ecec19762e56cef0da9f406bd3a271a3ef32d224030bae8",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/status-delta.json",
+      "extractedTextSha256": "c0bad5f6921bb3ad7ecec19762e56cef0da9f406bd3a271a3ef32d224030bae8",
+      "exactLocators": [
+        {
+          "type": "json_pointer",
+          "pointer": "/operationalQuantities",
+          "label": "All NO/SE fields null"
+        }
+      ],
+      "limitations": [
+        "Records absence; not external source"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R5-MAALE",
+      "title": "C1-måleprotokoll — R5-C1-FURUSET-Q1-T72",
+      "publisher": "Internal analysis",
+      "url": null,
+      "documentVersion": "asOf 2026-09-09; design only",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09T10:35:00Z",
+      "readScope": "R5-G03 and R5-G06 rows",
+      "sourceRole": "measurement_protocol_not_observation",
+      "accessStatus": "internal_file_read",
+      "rights": {
+        "internalUseBasis": "internal protocol",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+      "rawSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+      "extractedTextSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+      "exactLocators": [
+        {
+          "type": "markdown_table_row",
+          "label": "R5-G03 mill stock/release; R5-G06 milling"
+        }
+      ],
+      "limitations": [
+        "Protocol designed, not executed"
+      ]
+    }
+  ],
+  "human_verified": false
+}
