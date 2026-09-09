@@ -8,14 +8,14 @@
     "readinessChanged": false
   },
   "builderSha256": "f29e7cbe5fe469dee907454d19eee7838f47c1cd0d0c1a63c4d30047f9975e7f",
-  "checkedClaims": 99,
-  "checkedDossiers": 8,
+  "checkedClaims": 133,
+  "checkedDossiers": 9,
   "checkedSourceFiles": 6,
   "documentCount": 140,
   "libraryRecordCount": 392,
   "result": "passed",
   "schema": "offline-reading-verification/v1",
-  "sourcePageBindings": 239,
+  "sourcePageBindings": 265,
   "supplementaryDocuments": 1,
   "supplementaryPagesRead": 8
 }
