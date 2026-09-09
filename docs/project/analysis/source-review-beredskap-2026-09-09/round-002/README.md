@@ -63,3 +63,7 @@ Bevarte originaler, opprinnelige agentkvitteringer, tillegg og full kjøringspak
 `/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/source-review-beredskap/round-002`
 
 Se `status.json` for nøyaktig pakkehash og `verification.json` for verifikatorhash. Tidligere runde 001 er historikk; dens kø på 16/99/12 er ikke dagens review-status.
+
+## Historisk nordisk analyse
+
+[Datert rettelse til nordisk beredskapsanalyse](NORDISK-BEREDSKAP-RETTELSE.md) bevarer korreksjonene separat. Originalens bytes beholdes fordi de inngår i en uforanderlig corpus-health-vurdering; det er ikke en ny bekreftelse av originalens påstander.
