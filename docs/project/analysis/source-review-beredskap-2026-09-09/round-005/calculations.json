@@ -1,0 +1,755 @@
+{
+  "asOf": "2026-09-09",
+  "authority": "internal_analysis_only",
+  "human_verified": false,
+  "caseId": "R5-C1-FURUSET-Q1-T72",
+  "deliveryTestPerformed": false,
+  "delivery": {
+    "national_t": null,
+    "nordic_t": null,
+    "netNeed_t": null,
+    "nordicAdditional_t": null,
+    "reason": "No recipient-bound stock, quality, allocation, throughput or delivery observations"
+  },
+  "designArithmetic": [
+    {
+      "illustrative_flour_target_t": 10,
+      "assumed_extraction_fraction": 0.7,
+      "grain_required_t": 14.285714285714286,
+      "observedRecipientDemand": false,
+      "basis": "0.78 is a February2021 Regal catalogue reference; 0.70/0.85 are analyst sensitivities; none is a measured crisis yield"
+    },
+    {
+      "illustrative_flour_target_t": 10,
+      "assumed_extraction_fraction": 0.78,
+      "grain_required_t": 12.82051282051282,
+      "observedRecipientDemand": false,
+      "basis": "0.78 is a February2021 Regal catalogue reference; 0.70/0.85 are analyst sensitivities; none is a measured crisis yield"
+    },
+    {
+      "illustrative_flour_target_t": 10,
+      "assumed_extraction_fraction": 0.85,
+      "grain_required_t": 11.764705882352942,
+      "observedRecipientDemand": false,
+      "basis": "0.78 is a February2021 Regal catalogue reference; 0.70/0.85 are analyst sensitivities; none is a measured crisis yield"
+    },
+    {
+      "illustrative_flour_target_t": 20,
+      "assumed_extraction_fraction": 0.7,
+      "grain_required_t": 28.571428571428573,
+      "observedRecipientDemand": false,
+      "basis": "0.78 is a February2021 Regal catalogue reference; 0.70/0.85 are analyst sensitivities; none is a measured crisis yield"
+    },
+    {
+      "illustrative_flour_target_t": 20,
+      "assumed_extraction_fraction": 0.78,
+      "grain_required_t": 25.64102564102564,
+      "observedRecipientDemand": false,
+      "basis": "0.78 is a February2021 Regal catalogue reference; 0.70/0.85 are analyst sensitivities; none is a measured crisis yield"
+    },
+    {
+      "illustrative_flour_target_t": 20,
+      "assumed_extraction_fraction": 0.85,
+      "grain_required_t": 23.529411764705884,
+      "observedRecipientDemand": false,
+      "basis": "0.78 is a February2021 Regal catalogue reference; 0.70/0.85 are analyst sensitivities; none is a measured crisis yield"
+    },
+    {
+      "illustrative_flour_target_t": 40,
+      "assumed_extraction_fraction": 0.7,
+      "grain_required_t": 57.142857142857146,
+      "observedRecipientDemand": false,
+      "basis": "0.78 is a February2021 Regal catalogue reference; 0.70/0.85 are analyst sensitivities; none is a measured crisis yield"
+    },
+    {
+      "illustrative_flour_target_t": 40,
+      "assumed_extraction_fraction": 0.78,
+      "grain_required_t": 51.28205128205128,
+      "observedRecipientDemand": false,
+      "basis": "0.78 is a February2021 Regal catalogue reference; 0.70/0.85 are analyst sensitivities; none is a measured crisis yield"
+    },
+    {
+      "illustrative_flour_target_t": 40,
+      "assumed_extraction_fraction": 0.85,
+      "grain_required_t": 47.05882352941177,
+      "observedRecipientDemand": false,
+      "basis": "0.78 is a February2021 Regal catalogue reference; 0.70/0.85 are analyst sensitivities; none is a measured crisis yield"
+    }
+  ],
+  "yieldDiagnostics": [
+    {
+      "country": "NO",
+      "crop_code": "C1110",
+      "year": 2015,
+      "sourceId": "R4-EU-S002",
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/0",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/18",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/24",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/12",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 85.8,
+      "production_kt": 489.44,
+      "reported_yield_t_ha": 5.53,
+      "derived_yield_t_ha": 5.704428904428904,
+      "residual_kg_ha": -174.42890442890402,
+      "status": "unresolved; original warning retained",
+      "national": {
+        "yield_kg_daa": {
+          "value": 577,
+          "jsonPointer": "/value/0",
+          "coordinates": {
+            "Region": "0",
+            "ContentsCode": "Hvete",
+            "Tid": "2015"
+          }
+        },
+        "area_daa": {
+          "value": 857600,
+          "jsonPointer": "/value/0",
+          "coordinates": {
+            "Region": "0",
+            "ContentsCode": "Hvete",
+            "Tid": "2015"
+          }
+        },
+        "production_kt": {
+          "value": 495.2,
+          "jsonPointer": "/value/0",
+          "coordinates": {
+            "Region": "0",
+            "ContentsCode": "Kveite",
+            "Tid": "2015"
+          }
+        },
+        "yield_sourceId": "R5-S18",
+        "area_sourceId": "R4-NO-S002",
+        "production_sourceId": "R4-NO-S001",
+        "conditional_yield_t_ha_at14": 5.7029069767441865,
+        "conditional_PA_t_ha_at14": 5.707111246095106,
+        "limit": "15-to-14 dry-matter conversion; NO national wheat is not silently equated to C1110"
+      }
+    },
+    {
+      "country": "NO",
+      "crop_code": "C1110",
+      "year": 2016,
+      "sourceId": "R4-EU-S002",
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/1",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/19",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/25",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/13",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 66.77,
+      "production_kt": 305.79,
+      "reported_yield_t_ha": 4.6,
+      "derived_yield_t_ha": 4.579751385352704,
+      "residual_kg_ha": 20.248614647295327,
+      "status": "unresolved; original warning retained",
+      "national": {
+        "yield_kg_daa": {
+          "value": 463,
+          "jsonPointer": "/value/1",
+          "coordinates": {
+            "Region": "0",
+            "ContentsCode": "Hvete",
+            "Tid": "2016"
+          }
+        },
+        "area_daa": {
+          "value": 667700,
+          "jsonPointer": "/value/1",
+          "coordinates": {
+            "Region": "0",
+            "ContentsCode": "Hvete",
+            "Tid": "2016"
+          }
+        },
+        "production_kt": {
+          "value": 309.4,
+          "jsonPointer": "/value/1",
+          "coordinates": {
+            "Region": "0",
+            "ContentsCode": "Kveite",
+            "Tid": "2016"
+          }
+        },
+        "yield_sourceId": "R5-S18",
+        "area_sourceId": "R4-NO-S002",
+        "production_sourceId": "R4-NO-S001",
+        "conditional_yield_t_ha_at14": 4.5761627906976745,
+        "conditional_PA_t_ha_at14": 4.579935982947362,
+        "limit": "15-to-14 dry-matter conversion; NO national wheat is not silently equated to C1110"
+      }
+    },
+    {
+      "country": "NO",
+      "crop_code": "C1110",
+      "year": 2017,
+      "sourceId": "R4-EU-S002",
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/2",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/20",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/26",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/14",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 75.75,
+      "production_kt": 395.83,
+      "reported_yield_t_ha": 5.24,
+      "derived_yield_t_ha": 5.225478547854785,
+      "residual_kg_ha": 14.52145214521483,
+      "status": "unresolved; original warning retained",
+      "national": {
+        "yield_kg_daa": {
+          "value": 529,
+          "jsonPointer": "/value/2",
+          "coordinates": {
+            "Region": "0",
+            "ContentsCode": "Hvete",
+            "Tid": "2017"
+          }
+        },
+        "area_daa": {
+          "value": 757500,
+          "jsonPointer": "/value/2",
+          "coordinates": {
+            "Region": "0",
+            "ContentsCode": "Hvete",
+            "Tid": "2017"
+          }
+        },
+        "production_kt": {
+          "value": 400.5,
+          "jsonPointer": "/value/2",
+          "coordinates": {
+            "Region": "0",
+            "ContentsCode": "Kveite",
+            "Tid": "2017"
+          }
+        },
+        "yield_sourceId": "R5-S18",
+        "area_sourceId": "R4-NO-S002",
+        "production_sourceId": "R4-NO-S001",
+        "conditional_yield_t_ha_at14": 5.228488372093023,
+        "conditional_PA_t_ha_at14": 5.225650472023947,
+        "limit": "15-to-14 dry-matter conversion; NO national wheat is not silently equated to C1110"
+      }
+    },
+    {
+      "country": "NO",
+      "crop_code": "C1300",
+      "year": 2017,
+      "sourceId": "R4-EU-S001",
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/140",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/212",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/236",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/188",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 134.86,
+      "production_kt": 567.4,
+      "reported_yield_t_ha": 4.22,
+      "derived_yield_t_ha": 4.207326115972118,
+      "residual_kg_ha": 12.673884027881499,
+      "status": "unresolved; original warning retained",
+      "national": {
+        "yield_kg_daa": {
+          "value": 426,
+          "jsonPointer": "/value/5",
+          "coordinates": {
+            "Region": "0",
+            "ContentsCode": "Bygg",
+            "Tid": "2017"
+          }
+        },
+        "area_daa": {
+          "value": 1348600,
+          "jsonPointer": "/value/8",
+          "coordinates": {
+            "Region": "0",
+            "ContentsCode": "Bygg",
+            "Tid": "2017"
+          }
+        },
+        "production_kt": {
+          "value": 574.1,
+          "jsonPointer": "/value/8",
+          "coordinates": {
+            "Region": "0",
+            "ContentsCode": "Bygg",
+            "Tid": "2017"
+          }
+        },
+        "yield_sourceId": "R5-S18",
+        "area_sourceId": "R4-NO-S002",
+        "production_sourceId": "R4-NO-S001",
+        "conditional_yield_t_ha_at14": 4.210465116279069,
+        "conditional_PA_t_ha_at14": 4.207507182297576,
+        "limit": "15-to-14 dry-matter conversion; NO national wheat is not silently equated to C1110"
+      }
+    },
+    {
+      "country": "SE",
+      "crop_code": "C1100",
+      "year": 2015,
+      "sourceId": "R4-EU-S001",
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/12",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/84",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/108",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/60",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 457.55,
+      "production_kt": 3300.4,
+      "reported_yield_t_ha": 7.22,
+      "derived_yield_t_ha": 7.213200743088187,
+      "residual_kg_ha": 6.799256911812712,
+      "status": "unresolved; original warning retained",
+      "national": {
+        "sourceId": "METH-S09",
+        "components": [
+          {
+            "yield_kg_ha": {
+              "value": 7570,
+              "jsonPointer": "/value/0",
+              "coordinates": {
+                "Region": "00",
+                "Groda": "10",
+                "ContentsCode": "000004K0",
+                "Tid": "2015"
+              }
+            },
+            "production_t": {
+              "value": 2984800,
+              "jsonPointer": "/value/6",
+              "coordinates": {
+                "Region": "00",
+                "Groda": "10",
+                "ContentsCode": "000005G3",
+                "Tid": "2015"
+              }
+            }
+          },
+          {
+            "yield_kg_ha": {
+              "value": 5000,
+              "jsonPointer": "/value/12",
+              "coordinates": {
+                "Region": "00",
+                "Groda": "20",
+                "ContentsCode": "000004K0",
+                "Tid": "2015"
+              }
+            },
+            "production_t": {
+              "value": 315600,
+              "jsonPointer": "/value/18",
+              "coordinates": {
+                "Region": "00",
+                "Groda": "20",
+                "ContentsCode": "000005G3",
+                "Tid": "2015"
+              }
+            }
+          }
+        ],
+        "limit": "No unrounded component-area weights in this slice; cannot reconstruct aggregate reported yield"
+      }
+    },
+    {
+      "country": "DK",
+      "crop_code": "C1300",
+      "year": 2015,
+      "sourceId": "R4-EU-S001",
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/120",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/192",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/216",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/168",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 631.0,
+      "production_kt": 3811.16,
+      "reported_yield_t_ha": 6.03,
+      "derived_yield_t_ha": 6.039873217115689,
+      "residual_kg_ha": -9.873217115688782,
+      "status": "unresolved; original warning retained",
+      "national": {
+        "sourceId": "DKFI-S002",
+        "cells": [
+          {
+            "csvLine": 38,
+            "OMRÅDE": "All Denmark",
+            "AFGRØDE": "Winter barley",
+            "MÆNGDE4": "Area (1000 hectare)",
+            "TID": "2015",
+            "INDHOLD": "119.1"
+          },
+          {
+            "csvLine": 44,
+            "OMRÅDE": "All Denmark",
+            "AFGRØDE": "Winter barley",
+            "MÆNGDE4": "Average yield (hkg per hectare)",
+            "TID": "2015",
+            "INDHOLD": "67.6"
+          },
+          {
+            "csvLine": 50,
+            "OMRÅDE": "All Denmark",
+            "AFGRØDE": "Winter barley",
+            "MÆNGDE4": "Production (million kg)",
+            "TID": "2015",
+            "INDHOLD": "805.2"
+          },
+          {
+            "csvLine": 56,
+            "OMRÅDE": "All Denmark",
+            "AFGRØDE": "Spring barley",
+            "MÆNGDE4": "Area (1000 hectare)",
+            "TID": "2015",
+            "INDHOLD": "512.2"
+          },
+          {
+            "csvLine": 62,
+            "OMRÅDE": "All Denmark",
+            "AFGRØDE": "Spring barley",
+            "MÆNGDE4": "Average yield (hkg per hectare)",
+            "TID": "2015",
+            "INDHOLD": "59.6"
+          },
+          {
+            "csvLine": 68,
+            "OMRÅDE": "All Denmark",
+            "AFGRØDE": "Spring barley",
+            "MÆNGDE4": "Production (million kg)",
+            "TID": "2015",
+            "INDHOLD": "3050.8"
+          }
+        ],
+        "area_kha": 631.3000000000001,
+        "production_kt_at15": 3856.0,
+        "conditional_PA_t_ha_at14": 6.0370074302196635,
+        "area_eurostat_minus_national_kha": -0.3000000000000682,
+        "limit": "2015 national sum area differs from Eurostat; matched 2018 area cannot be carried backwards"
+      }
+    },
+    {
+      "country": "FI",
+      "crop_code": "C1100",
+      "year": 2020,
+      "sourceId": "R4-EU-S001",
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/11",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/83",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/107",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/59",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 198.8,
+      "production_kt": 686.62,
+      "reported_yield_t_ha": 3.46,
+      "derived_yield_t_ha": 3.4538229376257545,
+      "residual_kg_ha": 6.177062374245423,
+      "status": "unresolved; original warning retained",
+      "national": {
+        "yield_kg_ha": {
+          "value": 3410,
+          "jsonPointer": "/value/112",
+          "coordinates": {
+            "A": "2020",
+            "MK": "SSS",
+            "INFO": "HASATO",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          }
+        },
+        "area_kha": {
+          "value": 198.8,
+          "jsonPointer": "/value/119",
+          "coordinates": {
+            "A": "2020",
+            "MK": "SSS",
+            "INFO": "KORJHAT",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          }
+        },
+        "production_kt": {
+          "value": 677.4,
+          "jsonPointer": "/value/105",
+          "coordinates": {
+            "A": "2020",
+            "MK": "SSS",
+            "INFO": "SATOKGM",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "VEHN"
+          }
+        },
+        "sourceId": "DKFI-S004",
+        "moisture_pct": null,
+        "limit": "Dried yield; moisture and item bridge not established"
+      }
+    },
+    {
+      "country": "FI",
+      "crop_code": "C1300",
+      "year": 2016,
+      "sourceId": "R4-EU-S001",
+      "locators": {
+        "area_kha": {
+          "jsonPointer": "/value/127",
+          "status": null,
+          "strucpro": "AR_THS_HA"
+        },
+        "production_kt": {
+          "jsonPointer": "/value/199",
+          "status": null,
+          "strucpro": "HPRD_HUMD_EU_THS_T"
+        },
+        "reported_yield_t_ha": {
+          "jsonPointer": "/value/223",
+          "status": null,
+          "strucpro": "YLD_HUMD_EU_T_HA"
+        },
+        "humidity_pct": {
+          "jsonPointer": "/value/175",
+          "status": null,
+          "strucpro": "HUMD_EU_PC"
+        }
+      },
+      "area_kha": 435.9,
+      "production_kt": 1600.92,
+      "reported_yield_t_ha": 3.68,
+      "derived_yield_t_ha": 3.6726772195457675,
+      "residual_kg_ha": 7.322780454232625,
+      "status": "unresolved; original warning retained",
+      "national": {
+        "yield_kg_ha": {
+          "value": 3630,
+          "jsonPointer": "/value/31",
+          "coordinates": {
+            "A": "2016",
+            "MK": "SSS",
+            "INFO": "HASATO",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          }
+        },
+        "area_kha": {
+          "value": 435.9,
+          "jsonPointer": "/value/38",
+          "coordinates": {
+            "A": "2016",
+            "MK": "SSS",
+            "INFO": "KORJHAT",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          }
+        },
+        "production_kt": {
+          "value": 1580.7,
+          "jsonPointer": "/value/24",
+          "coordinates": {
+            "A": "2016",
+            "MK": "SSS",
+            "INFO": "SATOKGM",
+            "TUOTT": "TUOTT_YHT",
+            "LJ": "OHRA"
+          }
+        },
+        "sourceId": "DKFI-S004",
+        "moisture_pct": null,
+        "limit": "Dried yield; moisture and item bridge not established"
+      }
+    }
+  ],
+  "finland2018": [
+    {
+      "crop": "wheat",
+      "national": {
+        "value": 494.7,
+        "jsonPointer": "/value/63",
+        "coordinates": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "SATOKGM",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "VEHN"
+        }
+      },
+      "national_sourceId": "DKFI-S004",
+      "eurostat_kt": 501.6,
+      "eurostat_locator": {
+        "jsonPointer": "/value/81",
+        "status": null,
+        "strucpro": "HPRD_HUMD_EU_THS_T"
+      },
+      "eurostat_sourceId": "R4-EU-S001",
+      "residual_kt": 6.900000000000034,
+      "ratio": 1.0139478471801093,
+      "ratio_interval_assuming_display_rounding": [
+        1.013744315310763,
+        1.0141514201960984
+      ],
+      "implied_national_moisture_if_only_moisture_pct": 12.80048514251061,
+      "observed_national_moisture_pct": null,
+      "limit": "Inverse diagnostic only, not a measured moisture value or attribution"
+    },
+    {
+      "crop": "barley",
+      "national": {
+        "value": 1336.1,
+        "jsonPointer": "/value/66",
+        "coordinates": {
+          "A": "2018",
+          "MK": "SSS",
+          "INFO": "SATOKGM",
+          "TUOTT": "TUOTT_YHT",
+          "LJ": "OHRA"
+        }
+      },
+      "national_sourceId": "DKFI-S004",
+      "eurostat_kt": 1353.19,
+      "eurostat_locator": {
+        "jsonPointer": "/value/201",
+        "status": null,
+        "strucpro": "HPRD_HUMD_EU_THS_T"
+      },
+      "eurostat_sourceId": "R4-EU-S001",
+      "residual_kt": 17.090000000000146,
+      "ratio": 1.012790958760572,
+      "ratio_interval_assuming_display_rounding": [
+        1.0127156382142726,
+        1.0128662849444259
+      ],
+      "implied_national_moisture_if_only_moisture_pct": 12.899977546590804,
+      "observed_national_moisture_pct": null,
+      "limit": "Inverse diagnostic only, not a measured moisture value or attribution"
+    }
+  ],
+  "commonMoistureOnlyFactorCompatibleWithBoth": false,
+  "commonFactorTestLimits": "Rejects one common multiplicative moisture-only factor with conservative +/-0.05kt bounds on both national and Eurostat values. Does not reject crop-specific moisture, mixed coverage or version effects.",
+  "missingDanishWheatYield2015": null,
+  "inputHashes": {
+    "eu_panel": "a91101d823537347924e1129df2d32c02d573eafc63bf3e927425774ad1a7d1d",
+    "eu_no": "16cba9088974cd33a0d7072f1b78f377091927522c44800d8484eb09631e9033",
+    "no_production": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967",
+    "no_area": "f55e2cd77b24354870c8848cd594775c05b455b6c8bb428848fc6b91f283d727",
+    "no_yield": "8deed02271792f4af34c3e7d160cd57845cb3ff0989035e09605885cb0fcc57e",
+    "fi": "dc2f14c611da62e385ca8deab342cb51c5d269088d371554ca086c90b2dcf286",
+    "se": "d2deffd5254ed0324971d1fc03b9849c531ef24e201af5a8cd77f25f80557fc9",
+    "dk_csv": "fff437a29bf465a2b99f16f25a5dfb382b15ee5c78331ad2b5986f9bf69b3c78",
+    "case": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff"
+  }
+}
