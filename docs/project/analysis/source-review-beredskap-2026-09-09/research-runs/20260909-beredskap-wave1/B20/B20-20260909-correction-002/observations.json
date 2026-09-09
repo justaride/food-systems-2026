@@ -1,0 +1,904 @@
+{
+  "schema": "beredskap-observations/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B20",
+  "runId": "B20-20260909-correction-002",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B20-C01",
+      "packageId": "B20",
+      "runId": "B20-20260909-correction-002",
+      "claim": "National (A), Nordic (B), and combined (C) arms for C1 do not currently share documented measured identical recipient need, Q1 acceptance limits, shock-state inputs, and 72h timeline values; protocol/target-profile design fields exist but numeric acceptance/need/delivery fields remain null, and B01–B06 terminal returns are waiting_owner (not measured delivery).",
+      "claimType": "synthesis_arm_comparability",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "wave1_synthesis_as_of_2026-09-09",
+      "geography": "Nordic / Norway beredskap C1–C5 analytical scope",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "fail-closed synthesis of terminal dependency returns against candidate-tests and MAALEPROTOKOLL/target-profile",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B20-S09",
+            "rawSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+            "extractedTextSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+            "exactLocator": {
+              "type": "markdown_section",
+              "label": "Avgrensning og sammenligning / Alternativ A B C"
+            }
+          },
+          {
+            "sourceId": "B20-S10",
+            "rawSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+            "extractedTextSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/numericAcceptanceLimits|/recipientCurrentProductionAndQ1NeedConfirmed|/deliveredAcceptedFlour_t|/nordicAdditionalEffect_t"
+            }
+          },
+          {
+            "sourceId": "B20-S07",
+            "rawSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "extractedTextSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/tests/0",
+              "label": "C1 test; numericEffect null"
+            }
+          },
+          {
+            "sourceId": "B20-S13",
+            "rawSha256": "e4a7ec6495b7d59092f602594853f6099e652e6183ac853e559979eb5f079c96",
+            "extractedTextSha256": "e4a7ec6495b7d59092f602594853f6099e652e6183ac853e559979eb5f079c96",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          },
+          {
+            "sourceId": "B20-S15",
+            "rawSha256": "f221694f5523e18c926d66cb3aa0f8cf210a8d5232071796f336edb4ba599329",
+            "extractedTextSha256": "f221694f5523e18c926d66cb3aa0f8cf210a8d5232071796f336edb4ba599329",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          },
+          {
+            "sourceId": "B20-S16",
+            "rawSha256": "13b52d78e68e3501fd13405d486ddf439e0368db13cd952f68d82134d22e4a21",
+            "extractedTextSha256": "13b52d78e68e3501fd13405d486ddf439e0368db13cd952f68d82134d22e4a21",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          },
+          {
+            "sourceId": "B20-S17",
+            "rawSha256": "d768a6134f391bfb55efa80bec49cd9f88e4eb6b8750a439055e20a67d1ca672",
+            "extractedTextSha256": "d768a6134f391bfb55efa80bec49cd9f88e4eb6b8750a439055e20a67d1ca672",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          },
+          {
+            "sourceId": "B20-S18",
+            "rawSha256": "ffa0b60f69dc190934d30d741329a9cf296a8ccb08b9b7c0c73879c48e59f9fd",
+            "extractedTextSha256": "ffa0b60f69dc190934d30d741329a9cf296a8ccb08b9b7c0c73879c48e59f9fd",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "MAALEPROTOKOLL: A/B mutually exclusive; C−A needed for Nordic additional effect; designed not executed. target-profile: numericAcceptanceLimits/need/delivery/nordicAdditionalEffect all null. candidate-tests C1 numericEffect null. B01–B06 handoffs status=waiting_owner.",
+        "extractionMethod": "hash-bound read of frozen plan registers and B01–B19 terminal returns; no new primary source hunt"
+      },
+      "evidenceSha256": "291c06d4806b774effe516d56b0e52b33d44fe6595f7675c980d56da86993b52",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [
+        "C1"
+      ],
+      "resourceIds": [],
+      "gapIds": [
+        "R5-G10",
+        "R4-G004",
+        "CLIM-G03"
+      ],
+      "limitations": [
+        "Design equality in MAALEPROTOKOLL/target-profile is not operational equality",
+        "waiting_owner terminals are dependency-complete but not scientific coverage of missing documents"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "09f2d93563af6acb538d0bd83b8a4bc8eb0ae8fe64039d08a9a4321ce24e30ab"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B20-C02",
+      "packageId": "B20",
+      "runId": "B20-20260909-correction-002",
+      "claim": "C1 paired national/Nordic/combined delivered-accepted flour effect remains unknown (null): no recipient-bound quality, own-need, stock, processing, transport, and delivery chain is complete under identical conditions in wave1 returns.",
+      "claimType": "case_effect_status",
+      "value": null,
+      "unit": "t_within_deadline",
+      "denominator": null,
+      "population": null,
+      "period": "wave1_synthesis_as_of_2026-09-09",
+      "geography": "Nordic / Norway beredskap C1–C5 analytical scope",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "fail-closed synthesis of terminal dependency returns against candidate-tests and MAALEPROTOKOLL/target-profile",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B20-S07",
+            "rawSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "extractedTextSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/tests/0/numericEffect"
+            }
+          },
+          {
+            "sourceId": "B20-S10",
+            "rawSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+            "extractedTextSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/nordicAdditionalEffect_t"
+            }
+          },
+          {
+            "sourceId": "B20-S11",
+            "rawSha256": "5a490fc94ca2067d99bf5633e997f5bfe0a321a373cadd24db903b39cada1282",
+            "extractedTextSha256": "5a490fc94ca2067d99bf5633e997f5bfe0a321a373cadd24db903b39cada1282",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/packages",
+              "label": "B01-B09 statuses"
+            }
+          },
+          {
+            "sourceId": "B20-S19",
+            "rawSha256": "66ad992acf0567ca674c686a7d5c850ac48f4a2ae8eb7bd0eb8fbe439b82b419",
+            "extractedTextSha256": "66ad992acf0567ca674c686a7d5c850ac48f4a2ae8eb7bd0eb8fbe439b82b419",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          },
+          {
+            "sourceId": "B20-S21",
+            "rawSha256": "d68bd39b20237636332cc3f67186f77f7db62e7b8bb938102fd77411923f0586",
+            "extractedTextSha256": "d68bd39b20237636332cc3f67186f77f7db62e7b8bb938102fd77411923f0586",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "C1 numericEffect=null; nordicAdditionalEffect_t=null; B01–B06 waiting_owner; B07–B09 waiting_source. Fail-closed: unknown effect.",
+        "extractionMethod": "hash-bound read of frozen plan registers and B01–B19 terminal returns; no new primary source hunt"
+      },
+      "evidenceSha256": "69590fa5a504cbe522dc303c8ba5825c7027b9b324823e4c6354170be11998aa",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [
+        "C1"
+      ],
+      "resourceIds": [],
+      "gapIds": [
+        "R4-G004",
+        "R5-G10",
+        "CLIM-G03"
+      ],
+      "limitations": [
+        "No invented tonnes; missing link keeps effect unknown",
+        "B07–B09 waiting_source block harvest/climate bridges used as comparability inputs"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "f3d652becf14601b84c3e57a8b42be7c0c91fd2f8c358518fa4d7de59a02a540"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B20-C03",
+      "packageId": "B20",
+      "runId": "B20-20260909-correction-002",
+      "claim": "C2 (sidestrøm til funksjonelt fôr) has no demonstrated extra ration function or liter→soy-equivalent effect in wave1: B10 terminal status waiting_owner with precise stops on composition, substitution, and period reconciliation.",
+      "claimType": "case_effect_status",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "wave1_synthesis_as_of_2026-09-09",
+      "geography": "Nordic / Norway beredskap C1–C5 analytical scope",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "fail-closed synthesis of terminal dependency returns against candidate-tests and MAALEPROTOKOLL/target-profile",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B20-S07",
+            "rawSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "extractedTextSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/tests/1",
+              "label": "C2"
+            }
+          },
+          {
+            "sourceId": "B20-S22",
+            "rawSha256": "792a1c1552d11aac89e3c22f6dd77693f1d5f9d35219976f4f521f3986a4ad5a",
+            "extractedTextSha256": "792a1c1552d11aac89e3c22f6dd77693f1d5f9d35219976f4f521f3986a4ad5a",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "candidate-tests C2 numericEffect null; maturity abstract_scope_retained. B10 handoff waiting_owner.",
+        "extractionMethod": "hash-bound read of frozen plan registers and B01–B19 terminal returns; no new primary source hunt"
+      },
+      "evidenceSha256": "cdd52f6701b61d44b0922e367dd426bd115c61a74250948bf55ec884e693ad47",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [
+        "C2"
+      ],
+      "resourceIds": [],
+      "gapIds": [],
+      "limitations": [
+        "C2 effect remains unknown; not a zero effect",
+        "No Nordic method add-on demonstrated"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "d8924043e473675c1e132a82bb9c68bc5c8569604ec8a3193c4804763e41adfe"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B20-C04",
+      "packageId": "B20",
+      "runId": "B20-20260909-correction-002",
+      "claim": "C3 (gjenvunnet fosfor/næring) substitution effect remains unknown: B11 waiting_owner; dose/percent conflict unresolved publicly; no sludge–struvite mass balance or Nordic pair; no national NPK total constructed.",
+      "claimType": "case_effect_status",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "wave1_synthesis_as_of_2026-09-09",
+      "geography": "Nordic / Norway beredskap C1–C5 analytical scope",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "fail-closed synthesis of terminal dependency returns against candidate-tests and MAALEPROTOKOLL/target-profile",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B20-S07",
+            "rawSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "extractedTextSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/tests/2",
+              "label": "C3"
+            }
+          },
+          {
+            "sourceId": "B20-S23",
+            "rawSha256": "772f752d0c62d2657782902694d162ccfc27087c9991491ad4e4d75e74cd7c5e",
+            "extractedTextSha256": "772f752d0c62d2657782902694d162ccfc27087c9991491ad4e4d75e74cd7c5e",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "C3 numericEffect null; B11 waiting_owner with unresolved conflicts and missing mass balance.",
+        "extractionMethod": "hash-bound read of frozen plan registers and B01–B19 terminal returns; no new primary source hunt"
+      },
+      "evidenceSha256": "cde4a3e582d985439d5ce732dfadeb1b530b38fee284a5ac9ea10d17bb93060e",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [
+        "C3"
+      ],
+      "resourceIds": [],
+      "gapIds": [],
+      "limitations": [
+        "Historical operator/trial response is not demonstrated substitution under shock",
+        "No invented NPK totals"
+      ],
+      "contradictions": [
+        "B11 documents dose/percent conflict without public erratum"
+      ],
+      "human_verified": false,
+      "candidateSha256": "22bb6aee6962bb7fde012a521bfb9022bf2f9ca0ff06dd51da1db31dd4b92549"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B20-C05",
+      "packageId": "B20",
+      "runId": "B20-20260909-correction-002",
+      "claim": "C4 (institusjonsmåltider/svinn) continuity effect under disruption remains unknown: B12 waiting_owner; MEAL-T001 not executed; Nordic method add-on unspecified; no multi-meal eaten-suitable-food / special-diet / edible-waste / labour / cost / water / fuel log.",
+      "claimType": "case_effect_status",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "wave1_synthesis_as_of_2026-09-09",
+      "geography": "Nordic / Norway beredskap C1–C5 analytical scope",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "fail-closed synthesis of terminal dependency returns against candidate-tests and MAALEPROTOKOLL/target-profile",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B20-S07",
+            "rawSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "extractedTextSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/tests/3",
+              "label": "C4"
+            }
+          },
+          {
+            "sourceId": "B20-S24",
+            "rawSha256": "e239fb1c99c631838cd207df23034e6a88340a9516ca2a4a4de4ee493e1ec1c4",
+            "extractedTextSha256": "e239fb1c99c631838cd207df23034e6a88340a9516ca2a4a4de4ee493e1ec1c4",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "C4 numericEffect null; B12 waiting_owner; protocol not executed under disruption.",
+        "extractionMethod": "hash-bound read of frozen plan registers and B01–B19 terminal returns; no new primary source hunt"
+      },
+      "evidenceSha256": "b513ed5b16dfe34d54051e9c772467b76ebb558752d1e8e25c2b0e0fa420c114",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [
+        "C4"
+      ],
+      "resourceIds": [],
+      "gapIds": [],
+      "limitations": [
+        "Swedish kitchen exercises are not transferable Norwegian capacity without a measured bridge",
+        "No invented meal counts"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "2719f60c2b4b10f00ba230a8465ba2b6ff4af81f57791bd745ee7f1976f06abd"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B20-C06",
+      "packageId": "B20",
+      "runId": "B20-20260909-correction-002",
+      "claim": "C5 Nordic assistance / Iceland chain additional effect remains unknown: B15/B17 waiting_owner; B16 complete_within_scope but documents missing food-mill capacity definitions and non-reconstructable 1% share; B05/B06 waiting_owner on Malmö allocation and shared dependencies; no activation→allocation→food-delivery chain demonstrated.",
+      "claimType": "case_effect_status",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "wave1_synthesis_as_of_2026-09-09",
+      "geography": "Nordic / Norway beredskap C1–C5 analytical scope",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "fail-closed synthesis of terminal dependency returns against candidate-tests and MAALEPROTOKOLL/target-profile",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B20-S07",
+            "rawSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "extractedTextSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/tests/4",
+              "label": "C5"
+            }
+          },
+          {
+            "sourceId": "B20-S27",
+            "rawSha256": "05fe5d77c919e34e3cdb17bf05e86598037a44aa6366a2818a2d2ab4457d7cfc",
+            "extractedTextSha256": "05fe5d77c919e34e3cdb17bf05e86598037a44aa6366a2818a2d2ab4457d7cfc",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          },
+          {
+            "sourceId": "B20-S28",
+            "rawSha256": "bbf8558fbd2fe23c4081fade5337d2ae921258fcbb2e58a6753a94a479b4c773",
+            "extractedTextSha256": "bbf8558fbd2fe23c4081fade5337d2ae921258fcbb2e58a6753a94a479b4c773",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          },
+          {
+            "sourceId": "B20-S29",
+            "rawSha256": "7f8c359d0a2548a9f262b07c2107954a3c8ecf2ffa6ec3d60c3ef1cf93f806a5",
+            "extractedTextSha256": "7f8c359d0a2548a9f262b07c2107954a3c8ecf2ffa6ec3d60c3ef1cf93f806a5",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          },
+          {
+            "sourceId": "B20-S17",
+            "rawSha256": "d768a6134f391bfb55efa80bec49cd9f88e4eb6b8750a439055e20a67d1ca672",
+            "extractedTextSha256": "d768a6134f391bfb55efa80bec49cd9f88e4eb6b8750a439055e20a67d1ca672",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "C5 numericEffect null; B16 complete_within_scope with open capacity/chain gaps; B15/B17 waiting_owner; CLIM-G03 remains open.",
+        "extractionMethod": "hash-bound read of frozen plan registers and B01–B19 terminal returns; no new primary source hunt"
+      },
+      "evidenceSha256": "a0d73fdab5e094aa2d4bde3a9c75acaf96b1cb3dca3318f8e8bd989d03421cef",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [
+        "C5"
+      ],
+      "resourceIds": [],
+      "gapIds": [
+        "CLIM-G03"
+      ],
+      "limitations": [
+        "Contract/declaration/study-plan is not demonstrated food delivery",
+        "Actor lists are not disposable capacity (B16 stop rule)"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "4b0ce84eb63fba6302e5abd569e1c95551e1d6b33dfff6aa07b89fc42abb0166"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B20-C07",
+      "packageId": "B20",
+      "runId": "B20-20260909-correction-002",
+      "claim": "B13/B14 economic/food-access indicator work (SIFO/FIES/FAOSTAT) is cross-cutting context for P1/P2 and does not demonstrate C1–C5 delivery effects; B14 complete_within_scope still leaves SIFO↔FIES crosswalk and single-year Nordic 210090 unknown; no cross-instrument ranking authorized.",
+      "claimType": "cross_cutting_limit",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "wave1_synthesis_as_of_2026-09-09",
+      "geography": "Nordic / Norway beredskap C1–C5 analytical scope",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "fail-closed synthesis of terminal dependency returns against candidate-tests and MAALEPROTOKOLL/target-profile",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B20-S25",
+            "rawSha256": "edd1367435b86c9212fcac395fb09cf4e10726104bf7ee873e243bcfda2a5e89",
+            "extractedTextSha256": "edd1367435b86c9212fcac395fb09cf4e10726104bf7ee873e243bcfda2a5e89",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          },
+          {
+            "sourceId": "B20-S26",
+            "rawSha256": "45be1df18abc16c80338afdb89e3a88b4897e9873e6087f25dd43138754e594a",
+            "extractedTextSha256": "45be1df18abc16c80338afdb89e3a88b4897e9873e6087f25dd43138754e594a",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          },
+          {
+            "sourceId": "B20-S06",
+            "rawSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "extractedTextSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/purposes"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "B14 findings: separate indicator profiles only; SIFO_FIES_crosswalk_unknown. Not used as Nordic beredskap gain.",
+        "extractionMethod": "hash-bound read of frozen plan registers and B01–B19 terminal returns; no new primary source hunt"
+      },
+      "evidenceSha256": "b6d5db64dc49e7de8f6abdd36790add62287b37f40e0d94fc5ca78da978046a6",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [],
+      "limitations": [
+        "Indicator profiles are not convertible to paired C-case tonnes",
+        "B13 waiting_source; B14 complete_within_scope with open gaps"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "24ed8af4f6e6bd340a36e3a9a03364f9e9949081b79422a0d5a0fe31542a43cb"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B20-C08",
+      "packageId": "B20",
+      "runId": "B20-20260909-correction-002",
+      "claim": "B18 complete_within_scope provides market/cost provenance constraints (no verified buyer-share series; KPI/PPI not margin; no unauthorized summing) and cannot substitute for missing physical capacity or causal C-case effects.",
+      "claimType": "cross_cutting_limit",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "wave1_synthesis_as_of_2026-09-09",
+      "geography": "Nordic / Norway beredskap C1–C5 analytical scope",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "fail-closed synthesis of terminal dependency returns against candidate-tests and MAALEPROTOKOLL/target-profile",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B20-S30",
+            "rawSha256": "b3f24d148ce96d501742498f0d30aa3c94b9f3e5bdb4e401831a49870563be5f",
+            "extractedTextSha256": "b3f24d148ce96d501742498f0d30aa3c94b9f3e5bdb4e401831a49870563be5f",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "B18 Q1–Q3 precise stops on buyer shares, margins, and summation hazards.",
+        "extractionMethod": "hash-bound read of frozen plan registers and B01–B19 terminal returns; no new primary source hunt"
+      },
+      "evidenceSha256": "84c18194e2ee205cad48bad745bb5b5ab82aa7c44cfd7212f135aa514ba9b8cf",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [],
+      "limitations": [
+        "Monetary lines ≠ physical capacity",
+        "No causal margin claims from this synthesis"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "3b58a5e2fffd76ca92fc3345d120f21c801ba11381adc5b8feb671a37cdc7290"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B20-C09",
+      "packageId": "B20",
+      "runId": "B20-20260909-correction-002",
+      "claim": "B19 complete_within_scope documents scoped provenance/integrity controls and remaining synthetic-source/correction-trace/model-attestation remainders; integrity pass is not semantic truth, human review, or C-case effect demonstration.",
+      "claimType": "integrity_boundary",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "wave1_synthesis_as_of_2026-09-09",
+      "geography": "Nordic / Norway beredskap C1–C5 analytical scope",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "fail-closed synthesis of terminal dependency returns against candidate-tests and MAALEPROTOKOLL/target-profile",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B20-S31",
+            "rawSha256": "3d581e5e8a7aea90a712678b8f92405509f162e742add47ac79e992475c35939",
+            "extractedTextSha256": "3d581e5e8a7aea90a712678b8f92405509f162e742add47ac79e992475c35939",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/status"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "B19 findings: integrity_passed_with_known_non_supported; attested_null.",
+        "extractionMethod": "hash-bound read of frozen plan registers and B01–B19 terminal returns; no new primary source hunt"
+      },
+      "evidenceSha256": "0501f6738dd874a59b40d7bead8dfc4790279eaf1c2b55356b710f7ecc58b03a",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [],
+      "limitations": [
+        "Astra must re-verify sources independently",
+        "Model attestation unavailable in this executor session as in B19"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "9326661635ade85a763eda7a64f4fe3d1a9249258204f3e777916f02b388de2d"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B20-C10",
+      "packageId": "B20",
+      "runId": "B20-20260909-correction-002",
+      "claim": "Coverage chapter dispositions for chapters 1–14 remain candidate_editorial_addendum with canonicalChangeAuthorized=false; chapter 15 is human_decision_only. Wave1 synthesis may propose conditional chapter notes only; it must not rewrite canonical manuscript or record approval.",
+      "claimType": "chapter_authority_boundary",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "wave1_synthesis_as_of_2026-09-09",
+      "geography": "Nordic / Norway beredskap C1–C5 analytical scope",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "fail-closed synthesis of terminal dependency returns against candidate-tests and MAALEPROTOKOLL/target-profile",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B20-S06",
+            "rawSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "extractedTextSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/chapters"
+            }
+          },
+          {
+            "sourceId": "B20-S08",
+            "rawSha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+            "extractedTextSha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/chapters"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "coverage.json chapters[*].disposition candidate_editorial_addendum except chapter 15 human_decision_only; canonicalChangeAuthorized false throughout listed chapters.",
+        "extractionMethod": "hash-bound read of frozen plan registers and B01–B19 terminal returns; no new primary source hunt"
+      },
+      "evidenceSha256": "db21cb70789de6f71ce7169c9abb921c2bcf62b3e43c29adce336eebbe9ad699",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "resourceIds": [],
+      "gapIds": [],
+      "limitations": [
+        "No manuscript edits performed in this run",
+        "Chapter 15 remains outside KI authority"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "b247690248453a4d8c443965469a2a9e43d276e96c51cc52aadb0e5c43cf6159"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B20-C11",
+      "packageId": "B20",
+      "runId": "B20-20260909-correction-002",
+      "claim": "Five conditional recommendation candidates for P5/chapter 10, each blocked until named evidence exists: (1) C1 paired A/B then C−A measurement under MAALEPROTOKOLL; (2) C2 owner-bound Aass composition/substitution trial; (3) C3 plant-available P substitution mass balance; (4) C4 multi-meal disruption protocol MEAL-T001; (5) C5 activation/allocation/food-delivery chain with Iceland+assistance instruments. Counterarguments and costs remain unquantified where inputs are missing; no portfolio success claim.",
+      "claimType": "conditional_recommendation_set",
+      "value": null,
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "wave1_synthesis_as_of_2026-09-09",
+      "geography": "Nordic / Norway beredskap C1–C5 analytical scope",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "fail-closed synthesis of terminal dependency returns against candidate-tests and MAALEPROTOKOLL/target-profile",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B20-S07",
+            "rawSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "extractedTextSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/effectDemonstrated"
+            }
+          },
+          {
+            "sourceId": "B20-S08",
+            "rawSha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+            "extractedTextSha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/chapters",
+              "label": "chapter 10"
+            }
+          },
+          {
+            "sourceId": "B20-S06",
+            "rawSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "extractedTextSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/purposes",
+              "label": "P5"
+            }
+          },
+          {
+            "sourceId": "B20-S11",
+            "rawSha256": "5a490fc94ca2067d99bf5633e997f5bfe0a321a373cadd24db903b39cada1282",
+            "extractedTextSha256": "5a490fc94ca2067d99bf5633e997f5bfe0a321a373cadd24db903b39cada1282",
+            "exactLocator": {
+              "type": "file",
+              "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B20/B20-20260909-correction-002/dependency-handoffs-B01-B19.json"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "candidate-tests.effectDemonstrated=false; chapter 10 round003EffectDemonstrated=false; priorAssessment: five analysis assignments, no aggregate effect. Wave1 statuses: 11 waiting_owner, 4 waiting_source, 4 complete_within_scope among B01–B19.",
+        "extractionMethod": "hash-bound read of frozen plan registers and B01–B19 terminal returns; no new primary source hunt"
+      },
+      "evidenceSha256": "edad36378effb8552e3c49d2a04f6fc08860a8bfe5d642722f2d161eb22d980b",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "resourceIds": [],
+      "gapIds": [
+        "CLIM-G03",
+        "R4-G004",
+        "R5-G10"
+      ],
+      "limitations": [
+        "Recommendations are conditional candidates only",
+        "Costs/counterarguments cannot be numeric without owner/source inputs",
+        "effectDemonstrated remains false per candidate-tests and chapter-purpose-status"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "bfdc923b40e8786ae82b6694386714e1e2ccce9ba27c12a1f350c5ea320d168c"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B20-C12",
+      "packageId": "B20",
+      "runId": "B20-20260909-correction-002",
+      "claim": "All 19 predecessor packages have hash-verified terminal handoffs (status mix: {'waiting_owner': 11, 'waiting_source': 4, 'complete_within_scope': 4}). Dependency gate for B20 is satisfied; scientific coverage for paired Nordic additional delivery (CLIM-G03), recipient-bound C1 chain (R4-G004), and paired A/B/C arms (R5-G10) is not satisfied.",
+      "claimType": "dependency_vs_coverage",
+      "value": 19,
+      "unit": "terminal_handoffs",
+      "denominator": null,
+      "population": null,
+      "period": "wave1_synthesis_as_of_2026-09-09",
+      "geography": "Nordic / Norway beredskap C1–C5 analytical scope",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "fail-closed synthesis of terminal dependency returns against candidate-tests and MAALEPROTOKOLL/target-profile",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B20-S11",
+            "rawSha256": "5a490fc94ca2067d99bf5633e997f5bfe0a321a373cadd24db903b39cada1282",
+            "extractedTextSha256": "5a490fc94ca2067d99bf5633e997f5bfe0a321a373cadd24db903b39cada1282",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/packages"
+            }
+          },
+          {
+            "sourceId": "B20-S06",
+            "rawSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "extractedTextSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/gaps/56",
+              "label": "CLIM-G03"
+            }
+          },
+          {
+            "sourceId": "B20-S06",
+            "rawSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "extractedTextSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/gaps/60",
+              "label": "R4-G004"
+            }
+          },
+          {
+            "sourceId": "B20-S06",
+            "rawSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "extractedTextSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+            "exactLocator": {
+              "type": "json_path",
+              "path": "/gaps/82",
+              "label": "R5-G10"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "dependency-handoffs-B01-B19.json: 19 packages, all sha256 verified. coverage owned gaps semanticGapClosed false.",
+        "extractionMethod": "hash-bound read of frozen plan registers and B01–B19 terminal returns; no new primary source hunt"
+      },
+      "evidenceSha256": "d77bab691624f0bd77fea800f8bff521211f4339d1d8fd2ce6db5da0407e9bf1",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "CLIM-G03",
+        "R4-G004",
+        "R5-G10"
+      ],
+      "limitations": [
+        "Terminal waiting_* ≠ gap closed",
+        "Do not claim gaps closed"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "6cff22272fdd5f2da80bedc2736ea9416a3e7924556dc9e2591d6c14aaeb8860"
+    }
+  ],
+  "human_verified": false,
+  "correctionProvenance": {
+    "previousRunId": "B20-20260909-correction-001",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B20/B20-20260909-correction-001/handoff.json",
+    "previousHandoffSha256": "e1825cafa49d362e4ae3b0d2bfafad89b20d632c94f321ab60b5ca1d98964474",
+    "newPrimaryAcquisition": false,
+    "human_verified": false
+  }
+}

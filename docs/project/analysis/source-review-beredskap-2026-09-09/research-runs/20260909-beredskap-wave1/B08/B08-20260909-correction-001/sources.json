@@ -1,0 +1,433 @@
+{
+  "schema": "beredskap-sources/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B08",
+  "runId": "B08-20260909-correction-001",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B08-S01",
+      "title": "JO 16 SM 1601 — Skörd av spannmål, trindsäd, oljeväxter, potatis och slåttervall 2015",
+      "publisher": "Jordbruksverket / SCB",
+      "url": "https://www.scb.se/contentassets/3a4a49ed774e4cb4a0f4f72b73c138d8/jo0601_2015a01_sm_jo16sm1601.pdf",
+      "documentVersion": "JO 16 SM 1601",
+      "publishedAt": "2016",
+      "accessedAt": "2026-09-09T10:32:00Z",
+      "readScope": "Full pdftotext extract; Hela riket 2015 rows in Table 1 Höstvete (lines 804–814) and Table 2 Vårvete (lines 866–878); moisture Anm. 14,0 %; footnote that green-fodder area excluded",
+      "sourceRole": "named_national_annex_component_areas",
+      "accessStatus": "retrieved_ok",
+      "rights": {
+        "internalUseBasis": "public_scb_statistical_message",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/raw/jo16sm1601.pdf",
+      "rawSha256": "a6ca107a2dcb32fb3f1295852c6045a019f4e817137b7924214008ce715432bd",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/extracts/jo16sm1601.txt",
+      "extractedTextSha256": "d25a33964b97a32f48b5548f9f1d8049a97cf682e9dde49e166e9ba616b5c9e3",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 804,
+          "end": 816,
+          "label": "Höstvete Hela riket 2015 areal/totalskörd/Anm"
+        },
+        {
+          "type": "text_lines",
+          "start": 866,
+          "end": 878,
+          "label": "Vårvete Hela riket 2015 areal/totalskörd/Anm"
+        }
+      ],
+      "limitations": [
+        "Published rounded table presentation; not microdata"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B08-S02",
+      "title": "Beskrivning av statistiken — Skörd av spannmål, trindsäd och oljeväxter 2015 (JO0601)",
+      "publisher": "SCB / Jordbruksverket",
+      "url": "https://www.scb.se/contentassets/462f77b26e0d4febbbaab8b204d960f5/jo0601_bs_2015.pdf",
+      "documentVersion": "JO0601 BS 2015",
+      "publishedAt": "2016",
+      "accessedAt": "2026-09-09T10:32:00Z",
+      "readScope": "Full pdftotext; documentation pointers to SM JO16 and fördjupad dokumentation; area basis IACS; no Eurostat transmission annex",
+      "sourceRole": "method_description",
+      "accessStatus": "retrieved_ok",
+      "rights": {
+        "internalUseBasis": "public_scb_description",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/raw/jo0601_bs_2015.pdf",
+      "rawSha256": "d9da46e06e7f376e40e1943f847771fefaf40dcfb98942058a4bc8cdc512ebc4",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/extracts/jo0601_bs_2015.txt",
+      "extractedTextSha256": "e53597a1721a972b687755854632886e547418637e9c4e6b711c4f92940d4900",
+      "exactLocators": [
+        {
+          "type": "document",
+          "label": "full_text_extract"
+        }
+      ],
+      "limitations": [
+        "Does not publish unrounded survey weights beyond SM tables"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B08-S03",
+      "title": "Eurostat metadata index (EN) — apro_cp national ESQRS file list",
+      "publisher": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/cache/metadata/en/",
+      "documentVersion": "live_index_retrieved_2026-09-09",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:32:00Z",
+      "readScope": "Index listing of apro_cp_esqrscn2_*.htm filenames; confirmed absence of apro_cp_esqrscn2_no.htm / apro_cp_esqrscn_no.htm",
+      "sourceRole": "negative_evidence_no_NO_national_crop_ESQRS",
+      "accessStatus": "retrieved_ok",
+      "rights": {
+        "internalUseBasis": "public_eurostat_metadata",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/raw/eurostat-metadata-index.html",
+      "rawSha256": "0c0f61077a6168cab8dec00cd8a56e5afd89108ccb2396cf525ad4826805c8de",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/extracts/eurostat-metadata-index.txt",
+      "extractedTextSha256": "7548e9d87fc57f4e7028a504655249ce1f6c496413e051b29801b6ea3a6588a7",
+      "exactLocators": [
+        {
+          "type": "filename_list",
+          "label": "apro_cp_esqrscn2_* entries; no _no"
+        }
+      ],
+      "limitations": [
+        "Index absence is not a claim that private EDAMIS transmission files do not exist"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B08-S04",
+      "title": "HTTP 404 body for apro_cp_esqrscn2_no.htm",
+      "publisher": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/cache/metadata/EN/apro_cp_esqrscn2_no.htm",
+      "documentVersion": "404_Not_Found",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:32:00Z",
+      "readScope": "Full 236-byte 404 HTML body",
+      "sourceRole": "negative_evidence",
+      "accessStatus": "http_404",
+      "rights": {
+        "internalUseBasis": "public_http_error_body",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/raw/apro_cp_esqrscn2_no.htm",
+      "rawSha256": "9448f8a1159c9b14e3e1b9d8eab1a6ddf88d26e1f888a34cef430c756e4e6e1e",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/extracts/apro_cp_esqrscn2_no.txt",
+      "extractedTextSha256": "8dcdd5cfe58f1d1393bfa59de3e3f04ee1ff8f4e76880e92d5b6129af1eede2f",
+      "exactLocators": [
+        {
+          "type": "http_status",
+          "value": 404
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B08-S05",
+      "title": "Crop production national ESQRS — Sweden",
+      "publisher": "Statistics Sweden / Eurostat",
+      "url": "https://ec.europa.eu/eurostat/cache/metadata/EN/apro_cp_esqrscn2_se.htm",
+      "documentVersion": "retrieved_2026-09-09",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:32:00Z",
+      "readScope": "HTML text extract; humidity survey flags; yield method answer 'Production divided by sown area' (text lines ~125–126)",
+      "sourceRole": "national_eurostat_metadata",
+      "accessStatus": "retrieved_ok",
+      "rights": {
+        "internalUseBasis": "public_eurostat_metadata",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/raw/apro_cp_esqrscn2_se.htm",
+      "rawSha256": "91a09988e89705d37d33c671e13bc78a34d9b53c1b3bad2a98e21643f3ee8bee",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/extracts/apro_cp_esqrscn2_se.txt",
+      "extractedTextSha256": "a09576e9db4cf43af4e7891a5c20cebaf9833ffddd4d4b7a7f5402c7a2abad7c",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 125,
+          "end": 126,
+          "label": "yield method sown area"
+        },
+        {
+          "type": "text_lines",
+          "start": 110,
+          "end": 118,
+          "label": "humidity data sources"
+        }
+      ],
+      "limitations": [
+        "Does not publish 2015 SE C1100 component area weights or Eurostat reported-YLD rounding rule"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B08-S06",
+      "title": "Crop production national ESQRS — Denmark",
+      "publisher": "Statistics Denmark / Eurostat",
+      "url": "https://ec.europa.eu/eurostat/cache/metadata/EN/apro_cp_esqrscn2_dk.htm",
+      "documentVersion": "retrieved_2026-09-09",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:32:00Z",
+      "readScope": "HTML text extract; final area under cultivation vs harvested-area vocabulary for vegetables; cereal yield method text; no 2015 C1100 missing-YLD cell explanation",
+      "sourceRole": "national_eurostat_metadata",
+      "accessStatus": "retrieved_ok",
+      "rights": {
+        "internalUseBasis": "public_eurostat_metadata",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/raw/apro_cp_esqrscn2_dk.htm",
+      "rawSha256": "597086d44c780a142dc27d802a17ff6be92a6fb6e2d3b78177c8af0262fee770",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/extracts/apro_cp_esqrscn2_dk.txt",
+      "extractedTextSha256": "e683e302d59fb1a9cc12a70063580e39b1b9dff2d002ebd223fa39efc552c9b9",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 63,
+          "end": 66,
+          "label": "Final area under cultivation"
+        },
+        {
+          "type": "text_lines",
+          "start": 130,
+          "end": 131,
+          "label": "yield method text"
+        }
+      ],
+      "limitations": [
+        "Not a 2015-revision annex for missing Eurostat wheat yield"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B08-S07",
+      "title": "DST statistikdokumentation — Høsten af korn, raps og bælgsæd / Indhold",
+      "publisher": "Danmarks Statistik",
+      "url": "https://www.dst.dk/da/Statistik/dokumentation/statistikdokumentation/hoesten-af-korn--raps-og-baelgsaed/indhold",
+      "documentVersion": "retrieved_2026-09-09",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:33:00Z",
+      "readScope": "Definitions: Ansøgt areal, Dyrket areal, Tørret vægt 15% corn; crop list without explicit spelt/durum bridge",
+      "sourceRole": "national_definitions",
+      "accessStatus": "retrieved_ok",
+      "rights": {
+        "internalUseBasis": "public_dst_documentation",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/raw/dst-hoest-indhold.html",
+      "rawSha256": "cf2131a3fd8d6526c1046109542e715501daf8637094dab58e4fee604a14ae37",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/extracts/dst-hoest-indhold.txt",
+      "extractedTextSha256": "cdc89b036680c148d1504fe234dcb639fb7994cb1f6ebd20afa972f4b405257c",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 109,
+          "end": 112,
+          "label": "Ansøgt/Dyrket areal definitions"
+        },
+        {
+          "type": "text_lines",
+          "start": 123,
+          "end": 123,
+          "label": "Tørret vægt 15 pct korn"
+        }
+      ],
+      "limitations": [
+        "Does not quantify 2015 Eurostat vs HST77 area residual or missing YLD cell"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B08-S08",
+      "title": "DST statistikdokumentation — Høsten af korn, raps og bælgsæd / Statistisk behandling",
+      "publisher": "Danmarks Statistik",
+      "url": "https://www.dst.dk/da/Statistik/dokumentation/statistikdokumentation/hoesten-af-korn--raps-og-baelgsaed/statistisk-behandling",
+      "documentVersion": "retrieved_2026-09-09",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:33:00Z",
+      "readScope": "Standard moisture 15% for cereals; area source agency note; no spelt/durum code bridge to Eurostat C1100",
+      "sourceRole": "national_method",
+      "accessStatus": "retrieved_ok",
+      "rights": {
+        "internalUseBasis": "public_dst_documentation",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/raw/dst-hoest-behandling.html",
+      "rawSha256": "f7af131c3ad01e766e55482d881167471cbf546a933c4e4001f2c74b5369c6af",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/extracts/dst-hoest-behandling.txt",
+      "extractedTextSha256": "706c603c10c7da0ade15c35a9db76a53ac59cb045e8291a3941c80570a5a036a",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 108,
+          "end": 112,
+          "label": "Vandprocent / standard 15 pct korn"
+        }
+      ],
+      "limitations": [
+        "Current documentation page; not dated 2015 transmission log"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B08-S09",
+      "title": "Eurostat Crop production (apro_cp) ESMS hub",
+      "publisher": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/cache/metadata/en/apro_cp_esms.htm",
+      "documentVersion": "retrieved_2026-09-09",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:32:00Z",
+      "readScope": "Framework note SAIO from 2025; units; EU vs national humidity series naming; EFTA coverage statement",
+      "sourceRole": "parent_eurostat_metadata",
+      "accessStatus": "retrieved_ok",
+      "rights": {
+        "internalUseBasis": "public_eurostat_metadata",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/raw/apro_cp_esms.htm",
+      "rawSha256": "fa2b6662e083811c73fbbd674aa07574cb335085ea00a6bd6011415ed575e47e",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/extracts/apro_cp_esms.txt",
+      "extractedTextSha256": "27001746dddf7f73050ddf0d97391646cde4febb895a9104a38dfbe21d71c858",
+      "exactLocators": [
+        {
+          "type": "document",
+          "label": "hub_page_text"
+        }
+      ],
+      "limitations": [
+        "Post-2025 SAIO framework does not backfill 2015–2017 transmission versions"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "R4-NO-S003",
+      "title": "SSB Korn og oljevekster: method",
+      "publisher": "SSB",
+      "url": "https://www.ssb.no/jord-skog-jakt-og-fiskeri/jordbruk/statistikk/korn-og-oljevekster-areal-og-avlinger",
+      "documentVersion": "retained original bytes",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Existing raw bytes and stated locators rechecked for correction; acquisition remains historical.",
+      "sourceRole": "primary_binding_correction",
+      "accessStatus": "retained_bytes_hash_verified",
+      "rights": {
+        "internalUseBasis": "internal_source_validation",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/norway/method.html",
+      "rawSha256": "8f4a964b2ed8a39d739487939d58e7399b95d9d0dcf1533f689202f1b4e3e79e",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/norway/method.txt",
+      "extractedTextSha256": "dccee0bdce57cdee9751b4792c1eade50c88dd3c4301e194e1d399b57a83695c",
+      "exactLocators": [
+        {
+          "type": "text_lines",
+          "start": 634,
+          "end": 664,
+          "label": "Internasjonal rapportering Eurostat; omfang leveranser for salg, eget bruk ikke med"
+        },
+        {
+          "type": "text_lines",
+          "start": 662,
+          "end": 664,
+          "label": "NO sale deliveries; own use excluded"
+        }
+      ],
+      "limitations": [
+        "Candidate-only correction; no new survey data or human authority."
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "METH-S09",
+      "title": "SCB SkordarL2 retained 48-cell slice",
+      "publisher": "SCB",
+      "url": null,
+      "documentVersion": "retained original bytes",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Existing raw bytes and stated locators rechecked for correction; acquisition remains historical.",
+      "sourceRole": "primary_binding_correction",
+      "accessStatus": "retained_bytes_hash_verified",
+      "rights": {
+        "internalUseBasis": "internal_source_validation",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/scb-slice.json",
+      "rawSha256": "d2deffd5254ed0324971d1fc03b9849c531ef24e201af5a8cd77f25f80557fc9",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/scb-slice.json",
+      "extractedTextSha256": "d2deffd5254ed0324971d1fc03b9849c531ef24e201af5a8cd77f25f80557fc9",
+      "exactLocators": [
+        {
+          "type": "json_values",
+          "label": "SkordarL2 2015 höst/vår yield and totals (no area dimension)"
+        },
+        {
+          "type": "json_pointer",
+          "path": "/note/1",
+          "label": "SCB 14 percent cereal moisture note"
+        }
+      ],
+      "limitations": [
+        "Candidate-only correction; no new survey data or human authority."
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "DKFI-S002",
+      "title": "DST HST data response",
+      "publisher": "Danmarks Statistik",
+      "url": "https://api.statbank.dk/v1/data",
+      "documentVersion": "retained original bytes",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09",
+      "readScope": "Existing raw bytes and stated locators rechecked for correction; acquisition remains historical.",
+      "sourceRole": "primary_binding_correction",
+      "accessStatus": "retained_bytes_hash_verified",
+      "rights": {
+        "internalUseBasis": "internal_source_validation",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-data.csv",
+      "rawSha256": "fff437a29bf465a2b99f16f25a5dfb382b15ee5c78331ad2b5986f9bf69b3c78",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/dk-fi/DK-data.csv",
+      "extractedTextSha256": "fff437a29bf465a2b99f16f25a5dfb382b15ee5c78331ad2b5986f9bf69b3c78",
+      "exactLocators": [
+        {
+          "type": "csv_rows",
+          "label": "Winter/Spring wheat and barley 2015 area/yield/production"
+        }
+      ],
+      "limitations": [
+        "Candidate-only correction; no new survey data or human authority."
+      ]
+    }
+  ],
+  "correctionProvenance": {
+    "previousRunId": "B08-20260909T102902Z-7e1f9a59",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/handoff.json",
+    "previousHandoffSha256": "443e4dd88373f1170ce6a2de02d8f9882e953cafcc571fbf4e806a8fba5b343f",
+    "newPrimaryAcquisition": false,
+    "human_verified": false
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schema": "food-systems-followup-status/v1",
+  "asOf": "2026-09-09",
+  "scope": "Local candidate research and repair preparation; current operations separately evidenced",
+  "branch": "codex/status-restlist-2026-09-09",
+  "completed": [
+    "Preserved 147 original research files byte-identically",
+    "Completed original 127-candidate master review",
+    "Appended corrections and dependency versions for seven packages",
+    "Completed separate correction review with exact reuse",
+    "Prepared four library document candidates and a 256-page index",
+    "Reconciled all 392 library queue rows",
+    "Prepared unsent source/owner requests for twenty packages",
+    "Refreshed runtime and database status evidence"
+  ],
+  "researchReview": {
+    "reviewComplete": true,
+    "originalVerdicts": {
+      "supported_with_limits": 120,
+      "needs_revision": 7
+    },
+    "currentCandidateCount": 127,
+    "newVerdicts": 47,
+    "identicalVerdictReuse": 80,
+    "currentVerdicts": {
+      "supported_with_limits": 127
+    },
+    "historicalGapReferences": 92,
+    "independentSemanticGapCount": null,
+    "semanticGapClosed": false,
+    "purposes": 5,
+    "chapters": 15,
+    "modelRequirementVerified": false,
+    "modelConfiguration": "gpt-6-astra configured in delegation; separate backend attestation unavailable",
+    "originalHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/M-ASTRA/M-ASTRA-20260909-status-audit-001/handoff.json",
+    "originalHandoffSha256": "f3a30484f270c50687b1b78fd69ad8b2c6deedb6cfc7015204f452b01d9d4833",
+    "currentHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/M-ASTRA/M-ASTRA-20260909-corrections-review-001/handoff.json",
+    "currentHandoffSha256": "86d78bef1970876d3f0dd44fbb022d10dad2188935e042f8e5992d150babf8b0",
+    "currentIntakePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/M-ASTRA/master-intake-corrections-002.json",
+    "currentIntakeSha256": "8e9ef8513def0646dbb81083d3f6e091b0ba653d252c8a90ad2e67cead12b606"
+  },
+  "workerStatusMix": {
+    "waiting_owner": 11,
+    "waiting_source": 4,
+    "complete_within_scope": 5
+  },
+  "library": {
+    "queueRows": 392,
+    "localFileCandidateRows": 187,
+    "newDocumentCandidates": 4,
+    "withoutNewDocumentCandidate": 388,
+    "physicalPageBindings": 256,
+    "productionQueueChanged": false,
+    "fullSemanticAnalysisComplete": false
+  },
+  "open": [
+    "Precise owner/source returns listed in KILDE-OG-DATAEIERBEHOV.md",
+    "Full library repair and authorized document/source binding",
+    "Model-version attestation and human review",
+    "Mandate, owner, capacity/funding, pilot and sharing decisions",
+    "RPO/RTO, retention and next restore exercise"
+  ],
+  "operationsEvidencePath": "docs/project/status/followup-2026-09-09/operational-evidence.json",
+  "operationsEvidenceSha256": "80297231ed0579dc07d967511038ee131449011c7bffb948c2d36dc8df5df492",
+  "authority": {
+    "humanReviewRecorded": false,
+    "canonicalDataChanged": false,
+    "readinessChanged": false,
+    "published": false,
+    "contactsSent": false,
+    "databaseMutation": false,
+    "newDeployment": false,
+    "newAuthenticatedUiCheck": false,
+    "newRestoreTest": false
+  }
+}

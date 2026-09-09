@@ -1,0 +1,79 @@
+{
+  "schema": "beredskap-corrections-index/v1",
+  "originalIntakeSha256": "c396993b0e0ef148c533731e615579986b08452eb0142e54aece753a66af0383",
+  "newIntakePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/M-ASTRA/master-intake-corrections-001.json",
+  "newIntakeSha256": "4f6fbdef16989a355d25f1a881e6ac55e15953ccd70969c8f641064997d20450",
+  "runs": [
+    {
+      "packageId": "B04",
+      "previousRunId": "B04-20260909T102531Z-f14ff7f2",
+      "runId": "B04-20260909-correction-001",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909-correction-001/handoff.json",
+      "handoffSha256": "13b52d78e68e3501fd13405d486ddf439e0368db13cd952f68d82134d22e4a21",
+      "candidateCount": 7,
+      "corrections": [
+        "B04-C04: subset line numbers replaced by fulltext 512–545 and 1403–1412. Selected passage hashes are unchanged."
+      ]
+    },
+    {
+      "packageId": "B08",
+      "previousRunId": "B08-20260909T102902Z-7e1f9a59",
+      "runId": "B08-20260909-correction-001",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/handoff.json",
+      "handoffSha256": "61162aa8258c3bfa8c1880e4da0c1086a72d91222bc77e25923050531f97a8aa",
+      "candidateCount": 4,
+      "corrections": [
+        "Three existing primary sources are explicitly registered for B08-C01–C04. No replacement raw bytes.",
+        "B08-C02: aggregate P/A is area-weighted component yield; values and reported Eurostat 7.22 remain distinct and unchanged."
+      ]
+    },
+    {
+      "packageId": "B13",
+      "previousRunId": "B13-20260909T103514Z-3261c6cc",
+      "runId": "B13-20260909-correction-001",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909-correction-001/handoff.json",
+      "handoffSha256": "edd1367435b86c9212fcac395fb09cf4e10726104bf7ee873e243bcfda2a5e89",
+      "candidateCount": 5,
+      "corrections": [
+        "B13-C02: Tabell 2-1 is physical PDF page 13 / printed page 11. New pdftotext page extract verified visually; total survey Ns unchanged; subgroup Ns remain missing."
+      ]
+    },
+    {
+      "packageId": "B14",
+      "previousRunId": "B14-20260909T103514Z-4679b359",
+      "runId": "B14-20260909-correction-001",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909-correction-001/handoff.json",
+      "handoffSha256": "45be1df18abc16c80338afdb89e3a88b4897e9873e6087f25dd43138754e594a",
+      "candidateCount": 7,
+      "corrections": [
+        "Input directory pointer replaced by exact raw-manifest.json matching the original expected SHA."
+      ]
+    },
+    {
+      "packageId": "B09",
+      "previousRunId": "B09-20260909T103719Z-8a62fde2",
+      "runId": "B09-20260909-correction-001",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B09/B09-20260909-correction-001/handoff.json",
+      "handoffSha256": "d68bd39b20237636332cc3f67186f77f7db62e7b8bb938102fd77411923f0586",
+      "candidateCount": 4,
+      "corrections": [
+        "Dependency B08 is rebound to its corrected return. Existing scientific claims and open gaps are retained; new hashes require fresh review."
+      ]
+    },
+    {
+      "packageId": "B20",
+      "previousRunId": "B20-20260909T104921Z-ed03e679",
+      "runId": "B20-20260909-correction-001",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B20/B20-20260909-correction-001/handoff.json",
+      "handoffSha256": "e1825cafa49d362e4ae3b0d2bfafad89b20d632c94f321ab60b5ca1d98964474",
+      "candidateCount": 12,
+      "corrections": [
+        "Input directory pointer replaced by exact synthesis-notes.json matching the original expected SHA.",
+        "B20-C12: three valid JSON array pointers replace a pipe-separated non-pointer.",
+        "B01–B19 dependency register rehashed; updated B04/B08/B09/B13/B14 returns included. No C1–C5 effect or semantic gap closure inferred."
+      ]
+    }
+  ],
+  "human_verified": false,
+  "semanticGapClosed": false
+}

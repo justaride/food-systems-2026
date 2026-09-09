@@ -1,0 +1,23 @@
+{
+  "schema": "beredskap-correction/v1",
+  "packageId": "B20",
+  "runId": "B20-20260909-correction-002",
+  "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B20/B20-20260909-correction-001/handoff.json",
+  "previousHandoffSha256": "e1825cafa49d362e4ae3b0d2bfafad89b20d632c94f321ab60b5ca1d98964474",
+  "corrections": [
+    "Input directory pointer replaced by exact synthesis-notes.json (exact file retained from preceding correction) matching the original expected SHA.",
+    "B20-C12: three valid JSON array pointers replace a pipe-separated non-pointer.",
+    "B01–B19 dependency register rehashed; updated B04/B08/B09/B13/B14 returns included. No C1–C5 effect or semantic gap closure inferred."
+  ],
+  "reviewRequiredForChangedHashes": true,
+  "previousReviewInherited": false,
+  "model": {
+    "requestedModel": null,
+    "attestedModel": null,
+    "role": "coordinator correction; original research and new review separately attributed"
+  },
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false
+}

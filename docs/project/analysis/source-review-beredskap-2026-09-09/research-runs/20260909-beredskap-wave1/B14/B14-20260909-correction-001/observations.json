@@ -1,0 +1,563 @@
+{
+  "schema": "beredskap-observations/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B14",
+  "runId": "B14-20260909-correction-001",
+  "observations": [
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B14-C01",
+      "packageId": "B14",
+      "runId": "B14-20260909-correction-001",
+      "claim": "In the frozen FAOSTAT Food Security normalized bulk file, item 210091 (3-year average prevalence of moderate or severe food insecurity, total population) has Nordic country rows with Value and confidence-interval bounds (flag E), while item 210090 (annual value) has zero Nordic Value rows; therefore comparable official single-year FAOSTAT figures for DK/FI/IS/NO/SE are not present in this open file and must not be derived from the 3-year averages.",
+      "claimType": "reported_absence_and_structure",
+      "value": {
+        "nordicAnnual210090ValueRowCount": 0,
+        "nordicThreeYear210091Example": {
+          "2021-2023": {
+            "Denmark": 7.1,
+            "Finland": 12.6,
+            "Iceland": 7.0,
+            "Norway": 6.8,
+            "Sweden": 6.0
+          },
+          "note": "Values copied from frozen bulk Value element for item 210091; intervals exist in file and in A3-O020"
+        }
+      },
+      "unit": "percent_of_total_population_3year_average_or_null_for_annual",
+      "denominator": "total_population_as_labeled_by_FAOSTAT_item",
+      "population": "Nordic national populations as FAOSTAT area labels",
+      "period": "210091 windows through 2023-2025 in frozen file; 210090 absent for Nordic",
+      "geography": "Denmark, Finland, Iceland, Norway, Sweden",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Re-read frozen A3 ZIP; enumerate Item Codes; filter Nordic rows; no arithmetic conversion of averages",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B14-S002",
+            "rawSha256": "1ccced40d8e228693c6fcc5d172de9bcaa3a1c6a1581ebde345d71c1dfa9b692",
+            "extractedTextSha256": "e3bf79bd3209ce0aa56e741a07017194d404369b6ea54bf44c122b5a33795c93",
+            "exactLocator": {
+              "type": "extract_file",
+              "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/extracts/faostat-nordic-210090-210091.json",
+              "field": "nordicAnnual210090ValueRowCount"
+            }
+          },
+          {
+            "sourceId": "B14-S001",
+            "rawSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+            "extractedTextSha256": null,
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/observations/19",
+              "observationId": "A3-O020"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "ItemCodes list both 210090 (annual value) and 210091 (3-year average). Nordic filter yields 150 rows for 210091 and 0 Value rows for 210090.",
+        "extractionMethod": "Python zipfile+csv enumeration on frozen bytes; SHA-256 of ZIP re-verified"
+      },
+      "evidenceSha256": "5683b6a45714b195cb4f5748e6103071ecd8d15dc7055125c8685cf6cfa6c089",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/target-profile-candidate.json",
+      "targetProfileSha256": "15c931ded200b39f702a70a49eaa7e46495799a4b1b2fe7e40ebbd6054a21690",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A3-G005",
+        "A3-G004"
+      ],
+      "limitations": [
+        "Stop rule: do not back-calculate single years from 3-year averages",
+        "Flag E retained; intervals must accompany any use of 210091"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "2945728db1a17d54174039f26d32c70c877656defc3c0fe1e58505f0697ed6e1"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B14-C02",
+      "packageId": "B14",
+      "runId": "B14-20260909-correction-001",
+      "claim": "Public FAO FIES data-dictionary pages report microdata Cases counts for Nordic waves (NOR2023=800; NOR2022=1002; SWE2022=1001; FIN2022=1000) and Norway 2023 study metadata reports design effect 1.73 and margin of error 4.1 percentage points with fieldwork 2023-03-20 to 2023-06-10, but open catalog pages still do not publish the FIES prevalence point estimate, response rate, or full population denominator.",
+      "claimType": "reported_observation",
+      "value": {
+        "NOR_2023": {
+          "cases": 800,
+          "designEffect": 1.73,
+          "marginOfErrorPercentagePoints": 4.1,
+          "fieldwork": [
+            "2023-03-20",
+            "2023-06-10"
+          ]
+        },
+        "NOR_2022": {
+          "cases": 1002
+        },
+        "SWE_2022": {
+          "cases": 1001
+        },
+        "FIN_2022": {
+          "cases": 1000
+        },
+        "pointEstimateOnOpenCatalog": null,
+        "responseRateOnOpenCatalog": null,
+        "populationDenominatorOnOpenCatalog": null
+      },
+      "unit": "microdata_file_cases_and_survey_metadata",
+      "denominator": null,
+      "population": "Individuals 15+ with phone access (catalog universe)",
+      "period": "FIES catalog waves 2022–2023 as cited",
+      "geography": "Norway, Sweden, Finland",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "HTML capture of public catalog/data-dictionary/study-description; no microdata download",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B14-S003",
+            "rawSha256": "3365ec844607ac849ffa53679ef043a0731ff4b9702e28c493047e44e8ce6daa",
+            "extractedTextSha256": "cada682a43f31dfe7f817568a1f740b64b86b4b7495c1bc40861e3afc51c5033",
+            "exactLocator": {
+              "type": "html_table",
+              "label": "Cases 800 / Variables 24"
+            }
+          },
+          {
+            "sourceId": "B14-S003",
+            "rawSha256": "80a4290e522a1e94be6bc18d13b4531ead32b1e31dbcc572cdc4c9751b6ce615",
+            "extractedTextSha256": "cada682a43f31dfe7f817568a1f740b64b86b4b7495c1bc40861e3afc51c5033",
+            "exactLocator": {
+              "type": "field",
+              "label": "Design effect 1.73; MoE 4.1"
+            }
+          },
+          {
+            "sourceId": "B14-S004",
+            "rawSha256": "3adf5cd24aefea54ed58abf392bfa203fd639b5240b1f86d5dbd3c19fda01b63",
+            "extractedTextSha256": "cada682a43f31dfe7f817568a1f740b64b86b4b7495c1bc40861e3afc51c5033",
+            "exactLocator": {
+              "type": "html_table",
+              "label": "NOR2022 Cases 1002; SWE2022 1001; FIN2022 1000"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Data dictionary tables show Cases/Variables; Norway 2023 study description gives DE 1.73 and MoE 4.1; abstract states microdata can compute SDG 2.1.2 but open pages do not show the prevalence number.",
+        "extractionMethod": "Regex on saved HTML for Cases td; manual confirmation of DE/MoE fields; JSON extract written privately"
+      },
+      "evidenceSha256": "603632a440b698891dd8d6854d8044364442c448bfecd4379fd12cdf6b2feb07",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/target-profile-candidate.json",
+      "targetProfileSha256": "15c931ded200b39f702a70a49eaa7e46495799a4b1b2fe7e40ebbd6054a21690",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A3-G004"
+      ],
+      "limitations": [
+        "Cases is file N, not analytical N after Rasch exclusions and not population denominator",
+        "Microdata access requires FAO research agreement; not requested this run",
+        "Country-specific sampling annex not retrieved"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "aab6d2b55dd1ee7c81b65f601cdaedab6fc9087efbdec3e0c38ccb8a7bbe8e88"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B14-C03",
+      "packageId": "B14",
+      "runId": "B14-20260909-correction-001",
+      "claim": "Finnish ISSP 2019 Social Inequality V replication data are catalogued as FSD3431 with meal-skip variable k41c and access class B (research/teaching), but download requires Aila login and was not performed; ISSP lists Social Inequality VI only as planned for 2029, so no newer ISSP Social Inequality wave with that item is released yet.",
+      "claimType": "reported_observation",
+      "value": {
+        "archiveId": "FSD3431",
+        "variable": "k41c",
+        "accessClass": "B",
+        "downloadPerformed": false,
+        "nextSocialInequalityModule": "2029 (planned)",
+        "latestCompletedSocialInequalityModule": "2019"
+      },
+      "unit": null,
+      "denominator": null,
+      "population": "Finland ISSP respondents (catalog); article used n=991 of 2500",
+      "period": "ISSP 2019 fielding; catalogue as of 2026-09-09",
+      "geography": "Finland",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Public Aila catalog tabs + ISSP by-year page; no registration/login",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B14-S006",
+            "rawSha256": "31f2959ae444a8bfc385b7c136dbdc7d22e5c9de5453aa69307f96d7d6fb6b17",
+            "extractedTextSha256": null,
+            "exactLocator": {
+              "type": "variable",
+              "id": "k41c"
+            }
+          },
+          {
+            "sourceId": "B14-S006",
+            "rawSha256": "d04537134f30a5a6ef47efd58fce03fe9a5b586a7a84d1bc9f20935b10840871",
+            "extractedTextSha256": null,
+            "exactLocator": {
+              "type": "access",
+              "label": "Aineisto käytettävissä (B); Lataa inactive until login"
+            }
+          },
+          {
+            "sourceId": "B14-S007",
+            "rawSha256": "7607eb9a541aa28edacbcd0aafe8efc99b5f605d52233113faed25166c4ec9b8",
+            "extractedTextSha256": null,
+            "exactLocator": {
+              "type": "html_section",
+              "label": "Planned 2029 Social Inequality VI"
+            }
+          },
+          {
+            "sourceId": "B14-S012",
+            "rawSha256": "79de69d4f22ba394a8b4a22bf686cfbb1c1c3e70de8e62bef1213b3d47f1600b",
+            "extractedTextSha256": "a368c85e281e3b8aaa01a4ed159f5cfb94f1cd219c580eaf6a0e8fcf1e04b10f",
+            "exactLocator": {
+              "type": "prior_article",
+              "label": "ISSP 2019 one-item analysis"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "FSD download tab: guest cannot download; must login/register. ISSP schedule shows 2019 Social Inequality V and planned 2029 VI.",
+        "extractionMethod": "Saved HTML inspection"
+      },
+      "evidenceSha256": "008617c483e6a8e5c6787e345581dfce03973d45251f90d80d8673a0097230c9",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/target-profile-candidate.json",
+      "targetProfileSha256": "15c931ded200b39f702a70a49eaa7e46495799a4b1b2fe7e40ebbd6054a21690",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A3-G010",
+        "A3-G009"
+      ],
+      "limitations": [
+        "Replication existence ≠ local hash-bound microdata in this run",
+        "2029 questionnaire content unknown"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "9c181d9b8832eff7c0889d84f8ac1a1a90c543d7dc8423f6c4a73ec58c86cb24"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B14-C04",
+      "packageId": "B14",
+      "runId": "B14-20260909-correction-001",
+      "claim": "THL Sotkanet indicator 4264 is a repeated national hardship battery (Healthy Finland / FinSote lineage, years 2013–2024) that combines (a) fear of running out of food, (b) inability to buy medicines, and (c) skipping physician visits for lack of money; it is therefore not a pure multi-item economic food-access instrument comparable to SIFO or FIES.",
+      "claimType": "instrument_classification",
+      "value": {
+        "indicatorId": 4264,
+        "items": [
+          "food_runout_fear",
+          "cannot_buy_medicines",
+          "skipped_physician_visit"
+        ],
+        "recall": "past 12 months",
+        "scoringNote": "share answering yes to at least one, several, or all items"
+      },
+      "unit": "percent_age_20plus_or_20-64_per_indicator_cut",
+      "denominator": null,
+      "population": "Finnish adults in Healthy Finland / FinSote samples",
+      "period": "2013–2024 (every second year per metadata)",
+      "geography": "Finland",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Metadata-only reading of Sotkanet indicator page",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B14-S008",
+            "rawSha256": "8ac1561fea4f852931f5a732ab7597633697dda7bfa43c1aec49826c12d8b51b",
+            "extractedTextSha256": null,
+            "exactLocator": {
+              "type": "html_section",
+              "label": "Data content three-item battery"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "Indicator mixes food, medicines, and doctor visits; response rate note for 2022 given; self-report.",
+        "extractionMethod": "HTML metadata capture"
+      },
+      "evidenceSha256": "d41e7603726de85ef8e76ce2f788d10a6cbc6e2c114690ab450dc6b7eaca9fd1",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/target-profile-candidate.json",
+      "targetProfileSha256": "15c931ded200b39f702a70a49eaa7e46495799a4b1b2fe7e40ebbd6054a21690",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A3-G009",
+        "A3-G011"
+      ],
+      "limitations": [
+        "Does not close need for Finnish FIES/SIFO-like multi-item food-only series",
+        "StatFin 132a remains separate economic ends-meet proxy"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "f49738039ae4c5e444c6d4ae20331c9ce1c9d4364f8c818bd9b41bed54cc7e44"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B14-C05",
+      "packageId": "B14",
+      "runId": "B14-20260909-correction-001",
+      "claim": "Sweden has official objective food-sales aggregates (SCB Livsmedelsförsäljning) and separate self-reported price-pressure/purchase-change survey evidence (Livsmedelsverket 2023 web panel), but no source located in B14 channels that links objective household purchase/consumption microdata to a food-insecurity measure.",
+      "claimType": "reported_absence_within_channels",
+      "value": {
+        "objectiveSalesProductFound": true,
+        "selfReportPurchaseChangeFound": true,
+        "objectivePurchaseLinkedToFoodInsecurityFound": false
+      },
+      "unit": null,
+      "denominator": null,
+      "population": "Swedish retail/household statistics users",
+      "period": "SCB product page as of 2026-09-09; Livsmedelsverket PM 2023",
+      "geography": "Sweden",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Landing-page inspection + frozen Livsmedelsverket PDF hash check; no owner contact",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B14-S009",
+            "rawSha256": "8780254050b90022fa8dae5211d5336f55f5686bbb879cb93edfefe52a31f46a",
+            "extractedTextSha256": null,
+            "exactLocator": {
+              "type": "html_section",
+              "label": "Livsmedelsförsäljning product"
+            }
+          },
+          {
+            "sourceId": "B14-S011",
+            "rawSha256": "ec327f06b702148291a3b48247db7c404dbf9caef4ace87e521adc93f2f0259b",
+            "extractedTextSha256": "4c60ef11d64b704ad66607f30e120a090c731fce4aa6f07351afb2270f087142",
+            "exactLocator": {
+              "type": "prior_observation",
+              "id": "A3-O023"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "SCB page describes sales by product group; no FI indicator. Livsmedelsverket remains self-report panel per A3.",
+        "extractionMethod": "HTML + frozen PDF hash verification"
+      },
+      "evidenceSha256": "cc3e9d1151bd364532dd4e56cfaaa288d1efe4d3a6e14f66f405fc207014645d",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/target-profile-candidate.json",
+      "targetProfileSha256": "15c931ded200b39f702a70a49eaa7e46495799a4b1b2fe7e40ebbd6054a21690",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A3-G008"
+      ],
+      "limitations": [
+        "Stop after named official channels; do not invent scanner–FI linkage"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "a3af6feb02a17cb764d46c9941b2ff1d896ccfcec9476d0965175a7689ed114f"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B14-C06",
+      "packageId": "B14",
+      "runId": "B14-20260909-correction-001",
+      "claim": "SIFO (10-item USDA-family household module, 4-week recall), FAO/FIES (8-item individual 15+, 12-month recall), Finnish ISSP k41c (single household meal-skip item), StatFin 132a (ends-meet economic proxy), and THL 4264 (mixed food/medicine/doctor hardship) can be placed in an explicit instrument matrix, but a validated quantitative crosswalk between SIFO and FIES remains unknown and must not be invented.",
+      "claimType": "method_boundary",
+      "value": {
+        "comparableAt": "separate indicator profiles with explicit unit/period/denominator",
+        "notComparableWithoutBridge": [
+          "prevalence conversion SIFO↔FIES",
+          "Nordic ranking across instruments",
+          "ISSP one-item ↔ SIFO four-category"
+        ],
+        "validatedSifoFiesCrosswalk": null
+      },
+      "unit": null,
+      "denominator": null,
+      "population": null,
+      "period": "instruments as documented 2019–2025 sources",
+      "geography": "Norway / Sweden / Finland (+ Nordic FIES context)",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "Document comparison of instrument metadata only; no equating calculation",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B14-S010",
+            "rawSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+            "extractedTextSha256": "6c2b98fb5080a1279386267d4da5362bb932b6427df4066498e4240f96fe164a",
+            "exactLocator": {
+              "type": "prior_observation",
+              "id": "A3-O001"
+            }
+          },
+          {
+            "sourceId": "B14-S001",
+            "rawSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+            "extractedTextSha256": null,
+            "exactLocator": {
+              "type": "json_pointer",
+              "pointer": "/observations/12",
+              "observationId": "A3-O013"
+            }
+          },
+          {
+            "sourceId": "B14-S006",
+            "rawSha256": "31f2959ae444a8bfc385b7c136dbdc7d22e5c9de5453aa69307f96d7d6fb6b17",
+            "extractedTextSha256": null,
+            "exactLocator": {
+              "type": "variable",
+              "id": "k41c"
+            }
+          },
+          {
+            "sourceId": "B14-S005",
+            "rawSha256": "419d81bd8778882b1c7ea4262271f2c321ae76a32f44b2a3232f5f22f5bcccc2",
+            "extractedTextSha256": "ff85b1b5122028872c6c9fa325ddfa101336628593017034b3936754be4a5600",
+            "exactLocator": {
+              "type": "table",
+              "id": "132a"
+            }
+          },
+          {
+            "sourceId": "B14-S008",
+            "rawSha256": "8ac1561fea4f852931f5a732ab7597633697dda7bfa43c1aec49826c12d8b51b",
+            "extractedTextSha256": null,
+            "exactLocator": {
+              "type": "indicator",
+              "id": 4264
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "A3 already documented SIFO vs FIES item/recall/unit differences; B14 adds FSD k41c, StatFin re-check, and THL 4264 classification; no crosswalk study found in channels.",
+        "extractionMethod": "Metadata synthesis with stop rule against conversion"
+      },
+      "evidenceSha256": "6cad20095be7cccc03d2058e34647aa9021eb6613fee7547931c568bc7e7d56e",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/target-profile-candidate.json",
+      "targetProfileSha256": "15c931ded200b39f702a70a49eaa7e46495799a4b1b2fe7e40ebbd6054a21690",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A3-G003",
+        "A3-G011"
+      ],
+      "limitations": [
+        "No SIFO–FIES validation study identified in B14 searches",
+        "SIFO local PDF sha differs from A3-S001 recorded value"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "075b725321292e9c2eb2388048e85278a5632f06ce1bae880210dd2631d3e37f"
+    },
+    {
+      "schema": "beredskap-observation/v1",
+      "templateOnly": false,
+      "candidateId": "B14-C07",
+      "packageId": "B14",
+      "runId": "B14-20260909-correction-001",
+      "claim": "Live StatFin 132a API re-query for koti_vaik_pros (life-cycle SS/31/32, years 2021–2025) returns the same 15 values and response SHA-256 as round-003 documentation, confirming the economic ends-meet series used as a Finnish proxy remains unchanged at those cells; N and confidence intervals remain absent from this extract.",
+      "claimType": "reverification",
+      "value": {
+        "values": [
+          6.6,
+          7.3,
+          8.6,
+          9.6,
+          10.3,
+          4.4,
+          3.6,
+          5.3,
+          8.2,
+          6.2,
+          14,
+          17,
+          18.6,
+          17.8,
+          23.6
+        ],
+        "responseSha256": "419d81bd8778882b1c7ea4262271f2c321ae76a32f44b2a3232f5f22f5bcccc2",
+        "matchesRound003": true,
+        "methodBreakYear": 2022
+      },
+      "unit": "percent_households",
+      "denominator": "households in life-cycle categories SS/31/32",
+      "population": "Finnish households in Income Distribution Statistics / ends-meet survey lineage",
+      "period": "2021–2025",
+      "geography": "Finland",
+      "commodityQuality": null,
+      "moistureBasis": null,
+      "method": "PxWeb API POST json-stat2; compare to round-003 cell-check",
+      "evidencePayload": {
+        "sourceBindings": [
+          {
+            "sourceId": "B14-S005",
+            "rawSha256": "419d81bd8778882b1c7ea4262271f2c321ae76a32f44b2a3232f5f22f5bcccc2",
+            "extractedTextSha256": "ff85b1b5122028872c6c9fa325ddfa101336628593017034b3936754be4a5600",
+            "exactLocator": {
+              "type": "sha256_match",
+              "response": "419d81bd8778882b1c7ea4262271f2c321ae76a32f44b2a3232f5f22f5bcccc2",
+              "round003": "419d81bd8778882b1c7ea4262271f2c321ae76a32f44b2a3232f5f22f5bcccc2"
+            }
+          }
+        ],
+        "relevantExtractOrParaphrase": "value array identical to round-003 statfin-cell-check.json cells; metadata updated timestamp 2026-03-06T06:00:00Z.",
+        "extractionMethod": "Live POST + SHA-256 compare"
+      },
+      "evidenceSha256": "f7cf3da3cc7e03ce2214a16caf7611a1ba8d962168045c94b29efc89cc24bfc9",
+      "policyPath": "AGENTS.md",
+      "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "targetProfilePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/target-profile-candidate.json",
+      "targetProfileSha256": "15c931ded200b39f702a70a49eaa7e46495799a4b1b2fe7e40ebbd6054a21690",
+      "calculationFiles": [],
+      "dependencyCandidateIds": [],
+      "resourceIds": [],
+      "gapIds": [
+        "A3-G009"
+      ],
+      "limitations": [
+        "Still not a food-insecurity prevalence",
+        "Sample N not published in this API extract"
+      ],
+      "contradictions": [],
+      "human_verified": false,
+      "candidateSha256": "0b05e5b4227ce7eaca218ab61988232d226e478a73ebe46b13f094c2a6185527"
+    }
+  ],
+  "correctionProvenance": {
+    "previousRunId": "B14-20260909T103514Z-4679b359",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/handoff.json",
+    "previousHandoffSha256": "e8e3abc18908ecf0f80012ad70128a43583e622773407b662ff4ccd5f38c9dc3",
+    "newPrimaryAcquisition": false,
+    "human_verified": false
+  }
+}

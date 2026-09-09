@@ -1,0 +1,21 @@
+{
+  "schema": "beredskap-correction/v1",
+  "packageId": "B14",
+  "runId": "B14-20260909-correction-001",
+  "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909T103514Z-4679b359/handoff.json",
+  "previousHandoffSha256": "e8e3abc18908ecf0f80012ad70128a43583e622773407b662ff4ccd5f38c9dc3",
+  "corrections": [
+    "Input directory pointer replaced by exact raw-manifest.json matching the original expected SHA."
+  ],
+  "reviewRequiredForChangedHashes": true,
+  "previousReviewInherited": false,
+  "model": {
+    "requestedModel": null,
+    "attestedModel": null,
+    "role": "coordinator correction; original research and new review separately attributed"
+  },
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false
+}

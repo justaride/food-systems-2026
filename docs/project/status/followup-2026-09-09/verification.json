@@ -1,0 +1,10 @@
+{
+  "immutableOriginalFilesInThreeLocations": 147,
+  "reproducerChecks": 4,
+  "selectedReturns": 20,
+  "selectedReturnFiles": 130,
+  "dependencyHandoffs": 21,
+  "candidateEvidencePolicyTargetBindings": 127,
+  "localMarkdownLinks": "passed",
+  "scope": "Mechanical integrity only; not scientific approval, human review, CI, deployment or restore verification"
+}

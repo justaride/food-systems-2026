@@ -1,0 +1,230 @@
+{
+  "schema": "beredskap-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B08",
+  "runId": "B08-20260909-correction-001",
+  "createdAt": "2026-09-09",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "researchBaselineCommit": "4026a90d62edf129d4323f7f0971ace716b03983",
+  "worktreePath": "/Users/gabrielfreeman/.codex/worktrees/fs-status-0909/Food Systems 2026",
+  "headCommit": "87d7516",
+  "privateArtifactRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59",
+  "status": "waiting_source",
+  "stopReason": "NO public Eurostat ESQRS/transmission annex absent (404); SE component areas from JO16SM1601 obtained but reported YLD rule still missing; DK Eurostat missing wheat YLD 2015 not imputed; named channels exhausted per stop rule",
+  "model": {
+    "requestedModel": null,
+    "attestedModel": null,
+    "role": "coordinator correction; original research and new review separately attributed"
+  },
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "sha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B08.md",
+      "sha256": "7003930795ca03c98b75d3e7c0898b4cccf64f56b0af346e76527b98f29d9acf",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/DEFINISJONER.md",
+      "sha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/norway/findings.json",
+      "sha256": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/dk-fi/findings.json",
+      "sha256": "f867a863a53894adbcc2fc2c2b2d2348ce656dd6a792ec66ff78780d4a8bc3ab",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/analysis.json",
+      "sha256": "bddcc4c08cbd443af488d31a29c34c02027f7a7a9a99bed829c3f859930250d8",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/calculations.json",
+      "sha256": "29e67aaa3a84b8ba4821d26c01fed17b779c68683ec761b49154e92acac5b8d0",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "sha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "private": false,
+      "accessRequired": false
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/target-profile-candidate.json",
+      "sha256": "5d1e4198c27c96c7cb59a7da52017490ceefdf3b1765d043491c2d92f575c8cb",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/raw/jo16sm1601.pdf",
+      "sha256": "a6ca107a2dcb32fb3f1295852c6045a019f4e817137b7924214008ce715432bd",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/raw/apro_cp_esqrscn2_no.htm",
+      "sha256": "9448f8a1159c9b14e3e1b9d8eab1a6ddf88d26e1f888a34cef430c756e4e6e1e",
+      "private": true,
+      "accessRequired": true
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/handoff.json",
+      "sha256": "443e4dd88373f1170ce6a2de02d8f9882e953cafcc571fbf4e806a8fba5b343f",
+      "private": false,
+      "accessRequired": false,
+      "role": "immutable historical return"
+    }
+  ],
+  "dependencies": [],
+  "files": [
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/correction.json",
+      "sha256": "09f710f2658a5a740ee805bd97ac7ee2537ae9eb6b67350277d0ac6bd408b028",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/findings.md",
+      "sha256": "b6cd95c246e3a202af5432c73f889318dd43dd162aa70078e52910fcf052217a",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/gaps.json",
+      "sha256": "be2fcaf83d1bcaf62729533b2e371c74da7c3179c6af9b47f793dc0b367e67bf",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/observations.json",
+      "sha256": "86e8b34e8764d020be41995e810691ec39eaece90d7c72486b3fbe8fb62fa453",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/search-log.json",
+      "sha256": "57f1bd56f4e0fdd09899309481a86fbc16bff54e182319fa26dc65c4098aacae",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/sources.json",
+      "sha256": "806be04d5a27fd855f83c0658cf6097c729fad74c500336e5762743110b447ea",
+      "private": false
+    },
+    {
+      "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/verification.json",
+      "sha256": "4fd6bfddf5838be187d65ff3bfe7ed281ff215d0ab3d342b7cbb598469ec9951",
+      "private": false
+    }
+  ],
+  "ownedGapDispositions": [
+    {
+      "gapId": "R4-G002",
+      "disposition": "partially_illuminated_waiting_source",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R4-G003",
+      "disposition": "partially_illuminated_waiting_source",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "METH-G03",
+      "disposition": "still_open_waiting_method",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R4-NO-G001",
+      "disposition": "waiting_source",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "R4-NO-G004",
+      "disposition": "waiting_source",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "DKFI-G002",
+      "disposition": "still_open_waiting_source",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "B08-B08-20260909T102902Z-7e1f9a59-G01",
+      "disposition": "new_document_need",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "B08-B08-20260909T102902Z-7e1f9a59-G02",
+      "disposition": "new_document_need",
+      "semanticGapClosed": false
+    },
+    {
+      "gapId": "B08-B08-20260909T102902Z-7e1f9a59-G03",
+      "disposition": "new_document_need",
+      "semanticGapClosed": false
+    }
+  ],
+  "answeredQuestions": [
+    {
+      "id": 2,
+      "summary": "SE 2015 component areas/weights from JO 16 SM 1601; P/A documented; reported 7.22 retained"
+    }
+  ],
+  "unansweredQuestions": [
+    {
+      "id": 1,
+      "summary": "NO dated transmission version / yield calculation rule not found publicly"
+    },
+    {
+      "id": 3,
+      "summary": "DK missing Eurostat wheat YLD 2015 unexplained; area residual retained; cultivated/harvested/crop-code bridges incomplete"
+    }
+  ],
+  "nextStep": "Coordinator/B09 may consume this hash-bound waiting_source return; further work needs new runId with named annexes G01–G03",
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false,
+  "correctionOf": {
+    "schema": "beredskap-correction/v1",
+    "packageId": "B08",
+    "runId": "B08-20260909-correction-001",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909T102902Z-7e1f9a59/handoff.json",
+    "previousHandoffSha256": "443e4dd88373f1170ce6a2de02d8f9882e953cafcc571fbf4e806a8fba5b343f",
+    "corrections": [
+      "Three existing primary sources are explicitly registered for B08-C01–C04. No replacement raw bytes.",
+      "B08-C02: aggregate P/A is area-weighted component yield; values and reported Eurostat 7.22 remain distinct and unchanged."
+    ],
+    "reviewRequiredForChangedHashes": true,
+    "previousReviewInherited": false,
+    "model": {
+      "requestedModel": null,
+      "attestedModel": null,
+      "role": "coordinator correction; original research and new review separately attributed"
+    },
+    "human_verified": false,
+    "canonicalChanges": false,
+    "readinessChanged": false,
+    "published": false
+  },
+  "astraReviewExecuted": false
+}

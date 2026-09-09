@@ -1,0 +1,21 @@
+{
+  "schema": "beredskap-correction/v1",
+  "packageId": "B13",
+  "runId": "B13-20260909-correction-001",
+  "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909T103514Z-3261c6cc/handoff.json",
+  "previousHandoffSha256": "422c3962da0b4e6127d4ea1ebcf1ee4b7664d3bb2f7560e8edc0bbe6600c64c0",
+  "corrections": [
+    "B13-C02: Tabell 2-1 is physical PDF page 13 / printed page 11. New pdftotext page extract verified visually; total survey Ns unchanged; subgroup Ns remain missing."
+  ],
+  "reviewRequiredForChangedHashes": true,
+  "previousReviewInherited": false,
+  "model": {
+    "requestedModel": null,
+    "attestedModel": null,
+    "role": "coordinator correction; original research and new review separately attributed"
+  },
+  "human_verified": false,
+  "canonicalChanges": false,
+  "readinessChanged": false,
+  "published": false
+}

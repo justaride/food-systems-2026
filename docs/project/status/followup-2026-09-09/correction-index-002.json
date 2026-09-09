@@ -1,0 +1,34 @@
+{
+  "schema": "beredskap-corrections-index/v1",
+  "originalIntakeSha256": "4f6fbdef16989a355d25f1a881e6ac55e15953ccd70969c8f641064997d20450",
+  "newIntakePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/M-ASTRA/master-intake-corrections-002.json",
+  "newIntakeSha256": "8e9ef8513def0646dbb81083d3f6e091b0ba653d252c8a90ad2e67cead12b606",
+  "runs": [
+    {
+      "packageId": "B19",
+      "previousRunId": "B19-20260909T103719Z-dd7b5e44",
+      "runId": "B19-20260909-correction-001",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B19/B19-20260909-correction-001/handoff.json",
+      "handoffSha256": "3d581e5e8a7aea90a712678b8f92405509f162e742add47ac79e992475c35939",
+      "candidateCount": 8,
+      "corrections": [
+        "B19 G03: removed incorrect FS-03 parent/overlap; gap identity and missing model attestation remain. FS-03 retains its original food-waste meaning."
+      ]
+    },
+    {
+      "packageId": "B20",
+      "previousRunId": "B20-20260909-correction-001",
+      "runId": "B20-20260909-correction-002",
+      "handoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B20/B20-20260909-correction-002/handoff.json",
+      "handoffSha256": "606ef1772d13f064a69f1239a1d6ad4e17a677faa0f497413a08d0cae573dcae",
+      "candidateCount": 12,
+      "corrections": [
+        "Input directory pointer replaced by exact synthesis-notes.json (exact file retained from preceding correction) matching the original expected SHA.",
+        "B20-C12: three valid JSON array pointers replace a pipe-separated non-pointer.",
+        "B01–B19 dependency register rehashed; updated B04/B08/B09/B13/B14 returns included. No C1–C5 effect or semantic gap closure inferred."
+      ]
+    }
+  ],
+  "human_verified": false,
+  "semanticGapClosed": false
+}

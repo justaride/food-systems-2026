@@ -1,0 +1,1797 @@
+{
+  "schema": "library-page-index/v1",
+  "physicalPages": [
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "physicalPage": 1,
+      "textSha256": "3fb62d7fe5f0a03b5d586250a877b69b16f00475e58e6a0d9129453c87003e3b",
+      "wordCount": 155,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "physicalPage": 2,
+      "textSha256": "0133b475763e0b113cabc801ec44415d0a3f278ced1d015305f31e1708920c7d",
+      "wordCount": 8,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "physicalPage": 3,
+      "textSha256": "218e94bb8debd6913d45413312199e678e1c95c3f63ec19b18504f2a139cb218",
+      "wordCount": 28,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "physicalPage": 4,
+      "textSha256": "8c170e404bc412fcf5ecbbd3c8d8af80b335d03051b38e53cddb312eef0a1936",
+      "wordCount": 14,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "physicalPage": 5,
+      "textSha256": "8c170e404bc412fcf5ecbbd3c8d8af80b335d03051b38e53cddb312eef0a1936",
+      "wordCount": 14,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "physicalPage": 6,
+      "textSha256": "8c170e404bc412fcf5ecbbd3c8d8af80b335d03051b38e53cddb312eef0a1936",
+      "wordCount": 14,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "physicalPage": 7,
+      "textSha256": "0779b7962de7ee98dd3d87d9978c1d79fe51aa7e40fae43bef2500b2140f33ae",
+      "wordCount": 2,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "physicalPage": 8,
+      "textSha256": "0779b7962de7ee98dd3d87d9978c1d79fe51aa7e40fae43bef2500b2140f33ae",
+      "wordCount": 2,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "physicalPage": 9,
+      "textSha256": "0779b7962de7ee98dd3d87d9978c1d79fe51aa7e40fae43bef2500b2140f33ae",
+      "wordCount": 2,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "physicalPage": 10,
+      "textSha256": "0779b7962de7ee98dd3d87d9978c1d79fe51aa7e40fae43bef2500b2140f33ae",
+      "wordCount": 2,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "physicalPage": 11,
+      "textSha256": "0779b7962de7ee98dd3d87d9978c1d79fe51aa7e40fae43bef2500b2140f33ae",
+      "wordCount": 2,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "physicalPage": 12,
+      "textSha256": "0779b7962de7ee98dd3d87d9978c1d79fe51aa7e40fae43bef2500b2140f33ae",
+      "wordCount": 2,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "physicalPage": 13,
+      "textSha256": "0779b7962de7ee98dd3d87d9978c1d79fe51aa7e40fae43bef2500b2140f33ae",
+      "wordCount": 2,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "physicalPage": 14,
+      "textSha256": "0779b7962de7ee98dd3d87d9978c1d79fe51aa7e40fae43bef2500b2140f33ae",
+      "wordCount": 2,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 1,
+      "textSha256": "77791c2e6c699a555321ef5b86f888f5a478293d118687dd9726242b7f73b6ac",
+      "wordCount": 8,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 2,
+      "textSha256": "9e8c553bc97b3b3367112f95e42435ec98feefc4d1b8745bad2ddbe2ae651da1",
+      "wordCount": 7,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 3,
+      "textSha256": "e500fb5e92406227a36a8e5cb98f67e47126a8ae7036e2371e4e1f686234ccd0",
+      "wordCount": 233,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 4,
+      "textSha256": "c6e9110ca44256fe3c2c9f9440335418d99cc633b472d238d1f6e87abe6eb03a",
+      "wordCount": 53,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 5,
+      "textSha256": "43a5329bab13cd11fef5ed988efa4fc22afa9ff714d439636308f4647a71efad",
+      "wordCount": 81,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 6,
+      "textSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "wordCount": 0,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 7,
+      "textSha256": "cb0182eb4a25707061b206eb429f11f43820542fa7951178f58adefcf148574b",
+      "wordCount": 592,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 8,
+      "textSha256": "f953c6b611d34b591579e1843d6d72eea3ee0b03de90cd761cbfe8ff51ac9ddf",
+      "wordCount": 653,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 9,
+      "textSha256": "35faeaea38ec64c46090d5fe0cbc99ac45bbf5e2c5af763fd194d9a86f47f53f",
+      "wordCount": 287,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 10,
+      "textSha256": "6b94a8bda043425786047e2233ca9b90da66eb876be1d62090cecf3f5ae4c9d9",
+      "wordCount": 724,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 11,
+      "textSha256": "2532e2fbeaaa719d2cdea36cb0a9d098543b3e392114eebb01b81e745558b3ad",
+      "wordCount": 128,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 12,
+      "textSha256": "ca50127bf75b7604c5c1218787ef6d3f73b02b369cf13e321ed5ee5e9625ffee",
+      "wordCount": 435,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 13,
+      "textSha256": "0bd119e4c288d3cba612e53a034a1c67f2cd59f3ad0bf9c4751925def6828452",
+      "wordCount": 804,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 14,
+      "textSha256": "d80cc11ff7483dd4e9a893b97f71532e0f9692d4b9447772e7e21abfa3687c9d",
+      "wordCount": 556,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 15,
+      "textSha256": "e2a2c2d1d510ad35dd7ff0fd3aa2a2215640626ae992f6f19be94bcba9cce8e2",
+      "wordCount": 1431,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 16,
+      "textSha256": "df1775a9bf7ea8074659764219af7de3624b400135f27c6e853a008d39d74922",
+      "wordCount": 268,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 17,
+      "textSha256": "0b7bdd5ccdcec8067a4c46aea9f56d7c13653c0d0e49364783751f2586a23d72",
+      "wordCount": 345,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 18,
+      "textSha256": "f0620bb0fdf4590295e3599216026d8f50c1f4d0dbb58a426ecb4f655d03b945",
+      "wordCount": 409,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 19,
+      "textSha256": "273e555bdc6ff2497c68b2361a40c804552588a56ee0c6e9a3bdebf493811c26",
+      "wordCount": 365,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 20,
+      "textSha256": "d094bac5f0231bfd2bbaf3933934f9445679e176632d9cfb26c44b5dd7ae0541",
+      "wordCount": 371,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 21,
+      "textSha256": "b4b97caeac240368ae9772042ac467dcd8a9ceeb9a1ae7b822394953e683cb52",
+      "wordCount": 193,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 22,
+      "textSha256": "33b95647b0e63f8f61de46fd5256d0aab92b931d24b0ddb010bd46301b3f7fef",
+      "wordCount": 538,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 23,
+      "textSha256": "b6bbd587bf4f53a724b32c3fee82d91b9f9fd3a84ead9b1249e70828dee26b1d",
+      "wordCount": 1998,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 24,
+      "textSha256": "e54e2ccd77c7d499e65082dedef2ff15a4c80332feb3b7884aa6399ef61d7fab",
+      "wordCount": 464,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 25,
+      "textSha256": "aca47c6afc95113b809ccf859b6ed06bbb7289e3b255b416a220b2a68cc1a2a7",
+      "wordCount": 527,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 26,
+      "textSha256": "729d365e1831634124c2b4eff505923cef7dac1ebd05e48f3c9c22a869cc5859",
+      "wordCount": 482,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 27,
+      "textSha256": "b0296af853d52e88597d5dd0087d824f26f4536236352ba06ad04909f3f0a41f",
+      "wordCount": 602,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 28,
+      "textSha256": "6318ac3a3389bf92ad68b08a52c8583470b50ba60d483ded1b8e8083defcf986",
+      "wordCount": 368,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 29,
+      "textSha256": "e348678b86cdc13a3e5d4a002c7507f01f386fda518d67777eb2bab7df72c9c6",
+      "wordCount": 273,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 30,
+      "textSha256": "2ddc8c60c7d85c5262d79e5d533bda6bc30919ac93765300846a40e90c0cff53",
+      "wordCount": 1412,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 31,
+      "textSha256": "34f0614231081ed6c9c8e391a8414d9cf6976eaef19386d72d2190c4ea0acd14",
+      "wordCount": 1184,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 32,
+      "textSha256": "fb7c25af429ca9dab99d9d1ca0ce40fff83b236e5f74f385c01377afd0d992fe",
+      "wordCount": 610,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 33,
+      "textSha256": "0644b5cbaa59a8566ba9fbb1ab15540e1a6a7b79dbbf6eb76bc6953df05a6864",
+      "wordCount": 542,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 34,
+      "textSha256": "be9ae57529a4b16167e1f7864235cfff31d1adb873872cdc9b2df51ab9bb1c2c",
+      "wordCount": 1375,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 35,
+      "textSha256": "28247eb6ca6b13710709a01a30033a644885242ae3aaa7a4a0ac208f2cd0edc0",
+      "wordCount": 366,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 36,
+      "textSha256": "dcd5a5a703e5e0aced551a9028567a11bba327b146a0c3eaf1906b21c3207710",
+      "wordCount": 475,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 37,
+      "textSha256": "740eec78a2bdc52ce3d76f2f54145f05dadfb50fc70548156f02c76212f1199b",
+      "wordCount": 601,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 38,
+      "textSha256": "a0bf0e088e48ccbab6f18aebfb3dc583da107f5dc7dd16175efab31701dc6da8",
+      "wordCount": 240,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 39,
+      "textSha256": "50d7237d76508a74f3fa03a0ff7100e9f3b5d3e9d63e3653e7ad6be9aff440e7",
+      "wordCount": 306,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 40,
+      "textSha256": "344800378910427eac7becf559b22d7e4af75928eb627a7f36dd90c67d46cbba",
+      "wordCount": 308,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 41,
+      "textSha256": "e5d39fd387969111557909289322f2b39e12d38a59675f42ed93479b9dde757d",
+      "wordCount": 17,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 42,
+      "textSha256": "c8a014bb41b54e84bfe7022742c5f9498ac187da92c219acd4f10bbc896adda2",
+      "wordCount": 497,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 43,
+      "textSha256": "149868c8e6ba50222e407bb57ca5b5399c3c356dc49065bdcae80cac8aae4538",
+      "wordCount": 238,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 44,
+      "textSha256": "8ebac19077111caf9f0ab4a04b90abc96a0df00881bf681e9faf15abf98eea52",
+      "wordCount": 365,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 45,
+      "textSha256": "2582caea3396147280625641acea9b1a03216697656b4d1cded3dac52cd377e3",
+      "wordCount": 617,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 46,
+      "textSha256": "b0634bf852e3d0d8ce66dec995d5c4910a7d0fc4b617cedf2fc398787904b7ae",
+      "wordCount": 219,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 47,
+      "textSha256": "1dd99c1cc7cd0779413e7755f032b901742dbfaf60c36b41374e4ec725c26fd6",
+      "wordCount": 461,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 48,
+      "textSha256": "6eafc6b12a88d35b00c4a5be6d17f234a71525cb9d067717c70f4813850cf9b9",
+      "wordCount": 543,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 49,
+      "textSha256": "49a3cdfe97675fef97a7a761c6ace6de6c4899099c15cb1d4db86698091a39ab",
+      "wordCount": 527,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 50,
+      "textSha256": "97fdfd64e040807a629cd44172ffdf04cab20534fafe047527adfe2f0cfc4e22",
+      "wordCount": 369,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 51,
+      "textSha256": "c726885b88c4a6a25376e474ffd55d196ea35527e96b65e4fdb4fffdfdc76eb6",
+      "wordCount": 755,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 52,
+      "textSha256": "c0228ddde5452a2d6094b3bab8bf263ffbb3e33b6fcd1ed1c8378b2dde2c115c",
+      "wordCount": 180,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 53,
+      "textSha256": "202ee8a39ce254c100caf1b544f690089c8186933152c0d5c65528dfe8dbe260",
+      "wordCount": 760,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 54,
+      "textSha256": "a32ce85213a5e90701932cc3544c857fcad9394341cd55d3c497c9b4645a6faf",
+      "wordCount": 163,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 55,
+      "textSha256": "6a549a07262bc6f7da1c4430ff0dbbc0991c46dcab9d9320df1b7d169283f2df",
+      "wordCount": 475,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 56,
+      "textSha256": "1f01be5a3e148dacb611696dc983c2c6942a62e7f4a87ae948c69cb5cd18e41b",
+      "wordCount": 574,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 57,
+      "textSha256": "63bf2e224e27b474a7a8d991414920cd41f73d6d716403ab4c08222711cc7b96",
+      "wordCount": 463,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 58,
+      "textSha256": "efed2d1b851b390dcf4b3c71c7d18c9b8fcae74966ff3f38e74f710cae0e975c",
+      "wordCount": 339,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 59,
+      "textSha256": "b3fdc6b17ca7d341b27e5c0b34f8424a7e324727340ae449cb764939f6e91d28",
+      "wordCount": 508,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 60,
+      "textSha256": "111820cae7979998e31d0a79917b7627fd5fd19365b49386ec2e429a83bbb951",
+      "wordCount": 649,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 61,
+      "textSha256": "360f4d50dcc418976f27890996fc8dbaeeeb0323432263a9941c04d424eba85f",
+      "wordCount": 567,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 62,
+      "textSha256": "83cd392840b92c5eac094c38784c2425fd0b0b97cdb53e08e401f0d67ac6d907",
+      "wordCount": 503,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 63,
+      "textSha256": "237f94b95e981cbd53861a5eed7095416abd56f7d0bfcd8c8be434cbc762ad5e",
+      "wordCount": 600,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 64,
+      "textSha256": "51a2bf2668fbe372bfe370dad827a17b36446816e556c2827330caae51e43119",
+      "wordCount": 575,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 65,
+      "textSha256": "ff5fd4f018636f9851d25b463d5378c70b8ec9adf53f892c5b6dec08fb3bfa35",
+      "wordCount": 605,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 66,
+      "textSha256": "c7ba650a114dd539387e6fdb80f5e2a80c6b907d1669999603b3ba1550267a1e",
+      "wordCount": 584,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 67,
+      "textSha256": "d7cd5f4f63cff8a01d83d92b28865e5e1aaf37deea24c46f2ec41b665f131537",
+      "wordCount": 319,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 68,
+      "textSha256": "49879ab5700494f70d8cc291017f0350bab25d93736028a08f2fde6ac9a392f6",
+      "wordCount": 547,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 69,
+      "textSha256": "bf0527f7169f5f6f9fb20b33be03cdf1b0367e97855a37bca36d94edc784acbc",
+      "wordCount": 383,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 70,
+      "textSha256": "30a2260fa8f43c08845c91c2e967f3c9a06bfdc56c0c1d370494d18c8f0ff0cb",
+      "wordCount": 309,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 71,
+      "textSha256": "327f1bdde05a6a8e2cbc13f720c0ad34f690b1eaf85cce142be783f734e6fa2c",
+      "wordCount": 417,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 72,
+      "textSha256": "0c19746832130cdc7276970f0690931b83c968141cdc45487e5be4c657fb9285",
+      "wordCount": 130,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 73,
+      "textSha256": "37964c3bd5a362049a3cff2b8485ae0c4678dd3cb85aa840dfbde3125ad79397",
+      "wordCount": 135,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 74,
+      "textSha256": "480342201a23d37423c45ec22a0490975717d2da8640c7a4c51e97679e83cd8e",
+      "wordCount": 281,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 75,
+      "textSha256": "52983f60bcea9a696e1a761967516ac820a8afc0d6cc026b2fea18c9b772d5dd",
+      "wordCount": 639,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "physicalPage": 76,
+      "textSha256": "d7222cc134d84baba05f3e9f767bb304c58e2fdbb8e6bfeb490b01aa42989d69",
+      "wordCount": 132,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 1,
+      "textSha256": "20b2bf03ea4f17c12bdd4b65302ae44dd28a2bdf5671d365b20bd2fd6d2df54a",
+      "wordCount": 10,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 2,
+      "textSha256": "34056571357175ae764927ab48b850a1c8824789a404197dc74584847a5e20bd",
+      "wordCount": 10,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 3,
+      "textSha256": "9b340b6b5e28b24c2ccffe1cda9da9bb3c5872a1016c439c17a4a2bfb36c2594",
+      "wordCount": 220,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 4,
+      "textSha256": "89f38b1307b71aa157c79e9c91e5e3d0fc2e74313c3d167c4e63881e4e2c98aa",
+      "wordCount": 168,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 5,
+      "textSha256": "fa716077df2c111981a32b14fa8991a90446a83b5e0cbb5dc34146f8363865fb",
+      "wordCount": 394,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 6,
+      "textSha256": "8c61c19ef368d61f336d61c4b3b06e7f4771a2e11f1cd85064f52f47e716e73c",
+      "wordCount": 507,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 7,
+      "textSha256": "bfb9e450b62f2cd3702cd4000b1bff9d6490e8e881ea6b96d3e1342463fb6755",
+      "wordCount": 453,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 8,
+      "textSha256": "467d24df40f6eb50cfa30cfab4c822a7aedb89d49b8325b0fc69ed6752de24ac",
+      "wordCount": 434,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 9,
+      "textSha256": "aafefd2e94a13bccd4c1287161dad99b0e743011202f251244f8b33b9c8a9c74",
+      "wordCount": 439,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 10,
+      "textSha256": "20c89c9ce88d316a97eb6df42c4340a7bd052749b175a6f43d4251fc5b7019dd",
+      "wordCount": 462,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 11,
+      "textSha256": "b6c4117f176cc52169f4fa588c822f86988b49f9bfc7be94898ebdda01449460",
+      "wordCount": 475,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 12,
+      "textSha256": "0d0fe3baa335dd8830e4905c76bc76135899ee378d5f4c704f1b353deed7d3aa",
+      "wordCount": 379,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 13,
+      "textSha256": "5a135cc0fdaa8d2d2617cae28975edbe66ae7108e6bfb1d6460654e3cebd088c",
+      "wordCount": 458,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 14,
+      "textSha256": "6a2c26e1f8c7969347bd399eccfb1fc97ccf65119d57b65ddb747bedeeed0870",
+      "wordCount": 475,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 15,
+      "textSha256": "4924c4d0d12afc156cd2461e2050487bd9910bf8e66279c58d3ec0b026480722",
+      "wordCount": 448,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 16,
+      "textSha256": "faef055012e7055389bcb492129b6d55d08c5818e83de5efd4d6e3b8f4665062",
+      "wordCount": 395,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 17,
+      "textSha256": "78bc4fd091d88ca055a07a7586794263e5d7ae22e971fa15a457eb7d4893d5cd",
+      "wordCount": 457,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 18,
+      "textSha256": "a06d00685f45a5042cf01942789b9f8b1415c74cd5e8ccf9ef485f859f0f3abb",
+      "wordCount": 437,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 19,
+      "textSha256": "a5829b83f7f5d8a3d0a44c51b2fbe27f3c51611a3f803eda29fd3a2175e762de",
+      "wordCount": 180,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 20,
+      "textSha256": "cef31ee95ca943117a925243340d124c22de83071d6da3c5f1e1826e5677c493",
+      "wordCount": 375,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 21,
+      "textSha256": "458ba1cf266ff29595b89987716a1415800996c8eb33a68f5ca22846ea58ffec",
+      "wordCount": 422,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 22,
+      "textSha256": "28d4f81058ef245b5112561cb956aaef310053f5430522a93a6366199c7d42b9",
+      "wordCount": 412,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 23,
+      "textSha256": "17d89ecb610c18d97df592b6fdbd01d44eb6bbd4c70ee9da1818c9c14e9ae06f",
+      "wordCount": 428,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 24,
+      "textSha256": "03e5c973872a7c334b5944f7911701ed177960084091d6198d462a3206a334c0",
+      "wordCount": 400,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 25,
+      "textSha256": "743febb4d0a8a8dc09826deb363b4c78cd1f96b2f4c362a6d9ace0f162c73cc2",
+      "wordCount": 104,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 26,
+      "textSha256": "4a0ac8857939301efb0cb2ed5faa260d434d32e447d09dc024fc4c2be722788a",
+      "wordCount": 392,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 27,
+      "textSha256": "f30f8af6b7627b8c966451dc5ea786a6a437d2a66883d46807a41f988e7264ba",
+      "wordCount": 413,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 28,
+      "textSha256": "946efa5802a3ae2241597b0bddabe6554db0ef7fbfbc0705dfad72032e2a0651",
+      "wordCount": 418,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 29,
+      "textSha256": "d7304a52f5fc138a2213a8e1e30edd24146e490adeb0434ce4d7abfd1c6c9685",
+      "wordCount": 411,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 30,
+      "textSha256": "955d683f0c4cfa1c74efaebdadef31e8c526406c66ac04a72750e28d67dbf376",
+      "wordCount": 258,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 31,
+      "textSha256": "f9db6d858d2547930206b4b9e35edfa09ab2cf701858e25e7107ac49fc4cb4d5",
+      "wordCount": 355,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 32,
+      "textSha256": "d70884eb1960fc017a6acb731406cb1147a85aeb7cede88ed8b44bb55143afed",
+      "wordCount": 331,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 33,
+      "textSha256": "7cfdddc0589591463b4bc405481b7128fa5a3a857ebffc736124bd77013389ac",
+      "wordCount": 396,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 34,
+      "textSha256": "7c8230e8e6b31be995c898411b4cf4b9f29ad2506f29903e5e613c2c23eae46c",
+      "wordCount": 408,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 35,
+      "textSha256": "7641485e530a271a25a16061559a6d47a148439b0f116a995d0e35adea5ff192",
+      "wordCount": 215,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 36,
+      "textSha256": "9c7b69ef33c083965b33685a294a16906287e37c9d99f45cac0f5ccef94b2685",
+      "wordCount": 452,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 37,
+      "textSha256": "b039b00ffdcae31937057dcd76a0c0af735f5378e3990d262db750c4671dc497",
+      "wordCount": 439,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 38,
+      "textSha256": "db0ac36912fc264cef10bfa03ba9d37bf0f08968719ac68f5266cbb717f5e40d",
+      "wordCount": 440,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 39,
+      "textSha256": "03dc9edbb31b40a5991199748c840ab2da2285b3770a2f4c08859e0e00a1c79f",
+      "wordCount": 382,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 40,
+      "textSha256": "267eac194b9a9eb95899f137aab212b2a5954e915bd35104e74490d01d727981",
+      "wordCount": 374,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 41,
+      "textSha256": "5810d468ae96cda45f9b99099ad908e5234b990bde80dfbef684be699bb13854",
+      "wordCount": 350,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 42,
+      "textSha256": "e2b39f23a94be3d4fe450ca490111b098db83fab0428b12588bcf0346a8eaa6a",
+      "wordCount": 281,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 43,
+      "textSha256": "f38beac205791300f7adb4031a0261df96bfe4d3c8ec1e1d1630232f4eebf267",
+      "wordCount": 417,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 44,
+      "textSha256": "ac39a92061e2d56a55cf52ab82e5e56676b11f223b7a16453445f68196307051",
+      "wordCount": 388,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 45,
+      "textSha256": "d8ff0e7e346d1c5fb6fc63c0a39fc16bbfa2cc87d10c64fcb5620ab1c06d1d53",
+      "wordCount": 325,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 46,
+      "textSha256": "7be351ebd18db4a7cd784c33e8b23ff74a5302acc1ff82f8a574f3cb7bebb5ea",
+      "wordCount": 327,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 47,
+      "textSha256": "31e22e8a31fb3c678d9324bd0e0b892fbc361087ab4dff91e5eaa0f84bf04102",
+      "wordCount": 260,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 48,
+      "textSha256": "95f6584daedb18fd968b891e7f91bb0493351b74333e059f4987001a18f53d5b",
+      "wordCount": 377,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 49,
+      "textSha256": "5921c1e9e301e779c08b28336d983c9cfa331f081e8e151204ffce57a236e6d9",
+      "wordCount": 249,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 50,
+      "textSha256": "5120da6eddce5682f97f8c9fc04b4af671d26fa2d324f9718f0f749cccca561a",
+      "wordCount": 438,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 51,
+      "textSha256": "bca074228c0b3dfd4b54aae50157c60337f2943ae2fe6153d1dba7d446a8e92c",
+      "wordCount": 79,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 52,
+      "textSha256": "05221e0b168898ce4a9aa4442213453702882e7fbf599f3a2cda16630c9f9d74",
+      "wordCount": 409,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 53,
+      "textSha256": "42fb5a1207e4748f25ddbafd0662b500b4155b6a405a93a26b9e798727d67ac8",
+      "wordCount": 432,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 54,
+      "textSha256": "a06eff74ec47baf15aafbb3592055a8bd59cc9e0b538854f2ea503b03c67dcaa",
+      "wordCount": 259,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 55,
+      "textSha256": "cd45969d709c6ff3142f552f01e01b3a58eaae0860151fcae74f54119f93c5a7",
+      "wordCount": 463,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 56,
+      "textSha256": "274e9029415427bd20f061d0a769562add5b860a63fe64b8d2790bd28bf23f54",
+      "wordCount": 356,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 57,
+      "textSha256": "a9ddc7eaa8499e9a3591fadaf3762e66575574ee0e2b91638dd358f707d87dc8",
+      "wordCount": 378,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 58,
+      "textSha256": "497c0618debb6a7bcc561de0d34b43333cae38b821de78200e0e38662fcee7ac",
+      "wordCount": 326,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 59,
+      "textSha256": "e0c4d4a3eb276f9210ef8d36312398333b5cf5d7db47b5c77c04ed7056e3056c",
+      "wordCount": 411,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 60,
+      "textSha256": "2f3571910655ebf961e452cc19bdf3abb863ac164d3f66b963a057397a24a1d2",
+      "wordCount": 466,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 61,
+      "textSha256": "9ce05380b84a097e728e5076c0cbe56395bdfb66ad1724720d832d80f431842a",
+      "wordCount": 359,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 62,
+      "textSha256": "30fc110109cc4bca64b6baecc786289123c6d73f20f6316194aac6156b46ede2",
+      "wordCount": 436,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 63,
+      "textSha256": "20cc56eb0ecba2130d485a8c45b6afa6ce7059444688506eeccedc32a90c0375",
+      "wordCount": 448,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 64,
+      "textSha256": "2ea82f20fdb6cb5822aec44bda0393f997a698e187f3695df50152be3a812d50",
+      "wordCount": 417,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 65,
+      "textSha256": "7351ec65ffa4ba311552d46678cd11d74e9e99975f15e0e0bc6d0d2b699db606",
+      "wordCount": 481,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 66,
+      "textSha256": "443f78560a70023e89cde16879e9a612b9b9b7c2e8d3c9b57f318421c643dca4",
+      "wordCount": 403,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 67,
+      "textSha256": "44e0edc56ca7d7d475d6468d19780e3e6f7a05d2596ad7acdacfd7125db5d88d",
+      "wordCount": 445,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 68,
+      "textSha256": "c8254dd7ceffda48aad4be390847204d478283002c502f401c213676d5689e6c",
+      "wordCount": 375,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 69,
+      "textSha256": "9de3a077ff23e51799b149cd2e1a494a235a1aa3fdb52d4986fe283d9824e473",
+      "wordCount": 438,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 70,
+      "textSha256": "f4d9684f1c90a1c85b7d57117cd703f546a57a709c76b39715ee643ed2f7e89d",
+      "wordCount": 342,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 71,
+      "textSha256": "0acc8d6fd5fa8ab176624ede522a2d13c874af81ce9258a3b17b0fa79e6ad746",
+      "wordCount": 389,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 72,
+      "textSha256": "d3115daeecde093a39787809867fa2670584ecf12e6df03886dc0bbc8c8732de",
+      "wordCount": 450,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 73,
+      "textSha256": "9fd14c799bac34344de25eebc6082c5860248e110c770ae407c6dc527999b2a8",
+      "wordCount": 441,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 74,
+      "textSha256": "00b9d94cffdd8775e3eb605bfce219b68bbeff7e53e1354047d0456e89ad9606",
+      "wordCount": 401,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 75,
+      "textSha256": "7bfc422f4c430daa7b74d6004e541353e8b7cf9a99fff27dcc144ab267d0038d",
+      "wordCount": 411,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 76,
+      "textSha256": "9ec490442b5b0a00fc3d5617a333f1b3f949756f2c7c071abc34641764dd71d0",
+      "wordCount": 384,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 77,
+      "textSha256": "5de70a3a237f1d99afd1e7bf2b28c6c9b6bc696e378be1467aa0508c4d6769b8",
+      "wordCount": 351,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 78,
+      "textSha256": "6cab78e78ef502afc84f1064c688377403f71386b9bcd18c533f416e801b49ce",
+      "wordCount": 447,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 79,
+      "textSha256": "a91059aa82654363c68e7c6712fc59c3e664c07ef472af1abf04afb6f3a76861",
+      "wordCount": 417,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 80,
+      "textSha256": "c1c71198d73d417f3af98721e30dd471769e7cdd87a0c96b000cf05ea6bdd4dc",
+      "wordCount": 378,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 81,
+      "textSha256": "efabe15ef82adfd094d2ef202765a7b050a262faeb99ad62ca864928ef6f77c9",
+      "wordCount": 405,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 82,
+      "textSha256": "95ba98cf8f2e91300dc0509189718bc80dbcb61bfe09d272cacd746184fb432c",
+      "wordCount": 332,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 83,
+      "textSha256": "a7b44e3e3982762edc6e9cc4db22cb05f5f3d56530f7d92368e9bf80bee05d27",
+      "wordCount": 358,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 84,
+      "textSha256": "ecb5665f9ba17b3649f4a657195e171ba8f3c3bdbc801c168df1cc31b83fcf48",
+      "wordCount": 405,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 85,
+      "textSha256": "530faef4122c5f736606e12ff94a239c6316cb1b32507c20297e2738d6762b62",
+      "wordCount": 233,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 86,
+      "textSha256": "f1e0b889bbdd9c7ac07ae96c85abb1f9992647d8d436698a08391adc9e59cff7",
+      "wordCount": 374,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 87,
+      "textSha256": "35bf0f7a3b86481fe0b31a26efd8ffda4359511f4a0fb8c4e27a7532fdc3bfa8",
+      "wordCount": 368,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 88,
+      "textSha256": "ecd8b849d5f9502283f82d7fe7745145c0ba1b1eec9a5a1be422b1a2168662b3",
+      "wordCount": 430,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 89,
+      "textSha256": "e975bbbca5761fd361c8ba1ed38c1c54b6e288d5f462c11022e746e47bcf7edd",
+      "wordCount": 478,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 90,
+      "textSha256": "847882517adb8f8cb29a20819d402a2235b6ea127140dc6d9ad85db74113a1e0",
+      "wordCount": 60,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 91,
+      "textSha256": "e76a11f25d615f24b9cdb4f433888a4750c4f5e41ba0dab16b61eaae2a1f1237",
+      "wordCount": 348,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 92,
+      "textSha256": "bc3159424482abaabb966c46575f11f4bc11c939e1559cf45d36c903bce7f51a",
+      "wordCount": 334,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 93,
+      "textSha256": "dceea2ed867329cf0232c4765d2c4a6c07a8df20b350c63b676df181e471b70a",
+      "wordCount": 357,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 94,
+      "textSha256": "e95ceb2be6dd8f7277a3c998bb48d55ef1b4f63d1644ec816b13644f547a3063",
+      "wordCount": 323,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 95,
+      "textSha256": "81bd4c2c43d58584b64f2de2ae22794da69953a1532cbf6310e7cf99f1c2e85f",
+      "wordCount": 241,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 96,
+      "textSha256": "35ff65ee554d88b2df4edc2c957a4019127880a1cfa955b8f15bd0eb9721f418",
+      "wordCount": 26,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 97,
+      "textSha256": "4608a52c4436f29d90c47a97244ba97d7b298406f83465a39d304bd314cb0ab6",
+      "wordCount": 346,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 98,
+      "textSha256": "d340384403876d8dcc9db084dc84415d2d7cb4aa8675e33c94bec67116717ec9",
+      "wordCount": 263,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 99,
+      "textSha256": "f09059c42895c29aa60e5036fab1bb25dbefc7fdb68506535e3ddddb81247892",
+      "wordCount": 289,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 100,
+      "textSha256": "d082ab663777214f9fc8ab1223dc39e22fde30e8b82202118db36265de1a82c3",
+      "wordCount": 375,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 101,
+      "textSha256": "39d6cd8d922c7f0d378cbd62b77f623c0704f358e6953d5e1d49540181bc997b",
+      "wordCount": 83,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 102,
+      "textSha256": "203a48253a98cd38c1fcd83af65ec3edf8ecb3e6d6f97e9adc24a00c77c44ca6",
+      "wordCount": 353,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 103,
+      "textSha256": "fd54cea1f5ab324af643fe88110cfea9929b80e92467ad0f7a6b008f0ce533c7",
+      "wordCount": 363,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 104,
+      "textSha256": "19abefda85dd5c7d548f352ae8a9bdc3805ca309c031adeb579c72935dcb6372",
+      "wordCount": 374,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 105,
+      "textSha256": "fca8eb3d68f92c7f65939304d97508fea5ac66bc898d3fb48dfb6fa89bf9c85c",
+      "wordCount": 372,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 106,
+      "textSha256": "4f6ce37cab845b613fcca207798960f4f1fef2643949e131065837e5bc341da9",
+      "wordCount": 367,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 107,
+      "textSha256": "bf3efdb12d0cbf0d5e7d512cef0dbef24a485bdb5eca7e284f5cfa51a0a12512",
+      "wordCount": 460,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 108,
+      "textSha256": "43a7a5de227b4b380c4dd0d3227327d9cad86b413f2faa7078a535f60ca0107b",
+      "wordCount": 341,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 109,
+      "textSha256": "69520dd1877e44df4c2e7b3681597ffd76e48a5e41ec6d4b3370c8233a6ddc84",
+      "wordCount": 370,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 110,
+      "textSha256": "f0f1e5a58c59c7fe31362cb45e0e20f78e7d4d53c18a1267a8c743c303c6fa49",
+      "wordCount": 371,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 111,
+      "textSha256": "a1e28ded13382acac1b63e39cc7e8d1d21bc35f44dda4a8eed4f512dab74d061",
+      "wordCount": 353,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "physicalPage": 112,
+      "textSha256": "461260e1c9611b666bbaa930bf0cbf19121b69ea68941bae20eb2b5c3b511510",
+      "wordCount": 9,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 1,
+      "textSha256": "4b503b54fe6531ab5418cb63b4f0804cb64015d15e12094824d1370ffac9fe10",
+      "wordCount": 29,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 2,
+      "textSha256": "9985aa2be81dad0ec77d0ecf8c57d7917937ccdf8e91c38e2d7cd0657bd01ca8",
+      "wordCount": 28,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 3,
+      "textSha256": "65af1fddf83cd845612febc93c8340c0ca70a961dd30badb014f1bbd722de834",
+      "wordCount": 575,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 4,
+      "textSha256": "61fba8578e1d7b6d50605a0cb3243574bb971f89617753d7f7adb94e51039471",
+      "wordCount": 507,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 5,
+      "textSha256": "8d5f134d8d2c23cd319b32c513d547252a007ac34ed6fec4631e0c45cd3c1e95",
+      "wordCount": 141,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 6,
+      "textSha256": "5e8be64e409bd5df6dbabf893dc75fb0a2a33ef1dd38ca3ea4f822b00bc04528",
+      "wordCount": 217,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 7,
+      "textSha256": "27aeb1b7297302e0b6fb27568b2c9fb25c0347831454988abb5035b4ffdcae4f",
+      "wordCount": 212,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 8,
+      "textSha256": "999ed00939707a535ee73f457c9d7259b9b44ee893b0c0caacc7e47d98c7d452",
+      "wordCount": 375,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 9,
+      "textSha256": "dbfedfb75feb86450239c4cbd18244d5ccd612b4c384113c326ca9a49e59c2d8",
+      "wordCount": 90,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 10,
+      "textSha256": "fe656b60b1560e1ab4bd9d2703eea0d9e37ca8481a795a37307750b82816b665",
+      "wordCount": 283,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 11,
+      "textSha256": "99885bf4847e7b0656aa72e2bc0a10a0b48ed88d396ba287e953043a34d591d7",
+      "wordCount": 407,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 12,
+      "textSha256": "3a3c6cb27eb798a3322e77ce534777544076fb0f64f42c8eb9f2e8eb8e520164",
+      "wordCount": 328,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 13,
+      "textSha256": "e1ce6526472bf2467573d8b89bd3dc10a69fd598919fe9ae499ee4a4d358f58b",
+      "wordCount": 343,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 14,
+      "textSha256": "1ce2d195c537407d860a0f4213533de0697aa7c898a7f1918f70026f0162de10",
+      "wordCount": 345,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 15,
+      "textSha256": "9f8680b16a50dee422c698b20734acc6311ddba552a25978006d35766df5a394",
+      "wordCount": 262,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 16,
+      "textSha256": "ad64f733ec93c8c14ee6ecd4e73e2f18b7a3a25b0cec977153856791d0cc6521",
+      "wordCount": 227,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 17,
+      "textSha256": "49f4b24f408333ec63471d843a534e9f757865257e309cc4e621bfbde6d7d2e6",
+      "wordCount": 339,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 18,
+      "textSha256": "579f79e0cec7cae8aee827becd59c6fbccc81c4fdf4e9a6a94b67132524f32b2",
+      "wordCount": 368,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 19,
+      "textSha256": "b18ee39a767b96a26ddeedf71c0cf697cca4445e06771db5ac89f2a4c94f7940",
+      "wordCount": 566,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 20,
+      "textSha256": "01953fdf086dc05eff2ee2da40e7bf41797f9b78c84b38a34e2b19ed2e73c159",
+      "wordCount": 409,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 21,
+      "textSha256": "88d5ec9bd5734c097752a3cbc843115f7d4c9e5d80a17c6c2361119884e1249f",
+      "wordCount": 337,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 22,
+      "textSha256": "b1ade5303f8be7b9c18f5aee03a8890ec8b055d9fe7e6720fe32bb9f1caff142",
+      "wordCount": 476,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 23,
+      "textSha256": "3be9d12f39f190f08659740c83784a6f615eca2ca5c5ba61bd47d0998bbe12d8",
+      "wordCount": 230,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 24,
+      "textSha256": "57afe11c14ba0ca8f5b4f82a9262849c34421807b34f312ab24c8af90da3fdf5",
+      "wordCount": 305,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 25,
+      "textSha256": "c8e4ee5aaf684dd81a8cb915c202c28982fa13f2e6b9df435afaed790c3b8a18",
+      "wordCount": 174,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 26,
+      "textSha256": "763fb95458a8c31100f1b30642c73213dde1f69dfac1d243a02a196fc0636666",
+      "wordCount": 560,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 27,
+      "textSha256": "9352a3eec02b0887fee9f02c4b2054f10126a9b5b7f0a2a9ad7b253552fa08de",
+      "wordCount": 319,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 28,
+      "textSha256": "522569c74351cbe2cb4d0a73c53f5982065bcef2365ba8d4114a4a0eecfd47ff",
+      "wordCount": 605,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 29,
+      "textSha256": "51906ec38c140a89979883d094fb9351bff698f09407db6fa183df40a3571fb8",
+      "wordCount": 152,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 30,
+      "textSha256": "933fb3c0dc18bb8cb2d5c72f6eb267b1013d927533d29a1c585694e1f9be13fe",
+      "wordCount": 587,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 31,
+      "textSha256": "b1e79a18fdc109a28a734e149b5dc350ff0af0ec0542a1ff69f816d9ea6bee24",
+      "wordCount": 489,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 32,
+      "textSha256": "e5c8f5fbcb4839fa29aa848fa4b03e95a14dc5c65eddd3d508d8e931578cfd9d",
+      "wordCount": 488,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 33,
+      "textSha256": "71e4fd1e12de5b51c5d71a1ac0c51b6fcc812ca7820b6a11f0f65077fccfa432",
+      "wordCount": 589,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 34,
+      "textSha256": "63f3287d9d4989180cd73be12035972dd29df4570b9bdee1a7eb34df8728e2a8",
+      "wordCount": 472,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 35,
+      "textSha256": "336666686a87090fd6f72045b5accbb7095e2b74a51906180f20f24743efbeea",
+      "wordCount": 613,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 36,
+      "textSha256": "8ce8eabae5ce9ace3484679e712bc2516ebc57b8b70184a639ee151dc14a0cc8",
+      "wordCount": 496,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 37,
+      "textSha256": "fa1345ead6845d21ff8895d2ef82b8901f52bf842ddcb665edc6103fe637fee6",
+      "wordCount": 612,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 38,
+      "textSha256": "5541ac67cc82f1523675fc35668ff6aad6b843cc63d3e0306357e32749a1784e",
+      "wordCount": 568,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 39,
+      "textSha256": "4645f9ac1f5a6dafbdd4d7f640ce9d6f171dc73c9b3cd3a7e2e6662530dbd0bc",
+      "wordCount": 550,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 40,
+      "textSha256": "f94aa2ecc600467495140c7567043b140aec9704bd5d57abc14cfaaae40a03fe",
+      "wordCount": 591,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 41,
+      "textSha256": "f197ad881cfca6358b7e6763644fb65c1ab44dd5e0f105762c174c5d17434fa4",
+      "wordCount": 352,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 42,
+      "textSha256": "e480649d357f19de9d1b9f7c66790fae3eb40216b678d35f5009bfde75943b01",
+      "wordCount": 415,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 43,
+      "textSha256": "eb37610d32eb7c5bcbf27f70e6c3e704d68f3652aba1222c66f1b5e9cbde5d2e",
+      "wordCount": 409,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 44,
+      "textSha256": "b43e4c953905b85ac3997b7e0a609760d4051126b964bc67d3b07c154b3b6b1b",
+      "wordCount": 474,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 45,
+      "textSha256": "061c78f2a7dc91cc12e5eac1aa95fbad5825384769c65cfd2dcde10ed2aa7301",
+      "wordCount": 151,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 46,
+      "textSha256": "0f5446c8cba28103a067d93d018709845f28c8b6bfcaf035ca3b6e34b4b1a25f",
+      "wordCount": 255,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 47,
+      "textSha256": "2f50c0ffb4f355c2dd6a53e8de194af09064c510a3043e015d5f7086af051db7",
+      "wordCount": 398,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 48,
+      "textSha256": "2eaa7e644a30c2b970b28bc54e09912ce96d397d8eeeba9f0e49d21f9a37c7b1",
+      "wordCount": 395,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 49,
+      "textSha256": "30e20c8edc989ced1e3585e795043551972b7587b876b52b8167f28d60c7ca66",
+      "wordCount": 323,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 50,
+      "textSha256": "4c22220a5abd81aca923336434b087fd849120131e88f9dc36b3b415dee86539",
+      "wordCount": 398,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 51,
+      "textSha256": "a409a3734f5ccdc8c6248337f64f2ad9047cc2753c68b45ab13084962e745c06",
+      "wordCount": 358,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 52,
+      "textSha256": "b24ed9b4bfebc5e6f8ae72768d212858977ec747a83a18351559cf72ecc86b8e",
+      "wordCount": 399,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 53,
+      "textSha256": "11ee139a12cedf88633b3e7c516967aa318fbec335959b2d642f9f21ca0452b3",
+      "wordCount": 8,
+      "fullyReadSemantically": false
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "physicalPage": 54,
+      "textSha256": "0c31769669f6789499d3b9dd5fd5b4af90f53836e29a9f133aa97f5a5ee1a10a",
+      "wordCount": 58,
+      "fullyReadSemantically": false
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "schema": "beredskap-search-log/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B09",
+  "runId": "B09-20260909-correction-001",
+  "newBroadWebSearchPerformed": false,
+  "entries": [
+    {
+      "id": "B09-SL01",
+      "question": "Which regional boundaries and moisture/quality/area definitions are actually comparable for a region×year×commodity table?",
+      "date": "2026-09-09",
+      "channel": "Reuse round-004 norway+method, round-005 DEFINISJONER, hash-bound B07/B08; no broad web search",
+      "queryOrDocument": "norway/definitions + definitionGaps; METH-O03; DEFINISJONER Historiske systemgrenser; B07/B08 handoff status",
+      "result": "National NO and SE slices definable separately; county NO continuity unverified; cross-country absolute harmonization blocked by B07/B08 waiting_source; food-grade unknown",
+      "readStatus": "read_frozen_bytes_hash_verified",
+      "stopReason": "B09 stop rule: open residual cells may block comparison; do not force numbers; no new broad search"
+    },
+    {
+      "id": "B09-SL02",
+      "question": "Do primary numerator/denominator for norskandeler and a separate food-class/need/exportable series exist in authorized channels?",
+      "date": "2026-09-09",
+      "channel": "Reuse A1 data.json A1-G008/O034–O036 + norway R4-NO-G003",
+      "queryOrDocument": "/gaps/7; A1-O034; A1-O035; A1-O036; /definitionGaps/2",
+      "result": "Reported 34%/53% without numerator/denominator; import tonnes ≠ norskandel; SSB tables do not measure food-grade/exportable/need",
+      "readStatus": "read",
+      "stopReason": "Exact primary table required; no owner email; do not invent exportable from gross yield"
+    },
+    {
+      "id": "B09-SL03",
+      "question": "Can CLIM-G01 simultaneous district food-wheat/quality/need/exportable series be closed from existing climate/method studies?",
+      "date": "2026-09-09",
+      "channel": "Reuse round-003 climate findings CLIM-G01/CLIM-CHAIN-01",
+      "queryOrDocument": "/gaps/0 CLIM-G01; /chain; /stoppingDecision",
+      "result": "Disruption defined (2018); series still missing; stop forbids correlation/reserve from summaries",
+      "readStatus": "read",
+      "stopReason": "Named next artifact is frozen compatible table with explicit missingness — not produced here"
+    },
+    {
+      "id": "B09-SL04",
+      "question": "Is exact Beillouin/Tootoonchi replication required for B09, and do code/panel/snapshots exist in inventoried attachments?",
+      "date": "2026-09-09",
+      "channel": "Reuse round-004 method findings METH-P01/O01/O02/G01/G02/checks",
+      "queryOrDocument": "METH-P01; METH-O01; METH-O02; modelReproduced=false; private method hashes re-verified",
+      "result": "Replication not required for descriptive scope; panel absent; Matlab environment absent; modelReproduced=false",
+      "readStatus": "read_frozen_bytes_hash_verified",
+      "stopReason": "METH-G01 stop: no further broad search or author contact; retain separation from paper replication"
+    },
+    {
+      "id": "B09-SL05",
+      "question": "Can Figure S1 group mapping chart cells be read from existing private render outputs?",
+      "date": "2026-09-09",
+      "channel": "Existing beillouin-supplement.txt + beillouin-render/page-2.png (prior acquisition)",
+      "queryOrDocument": "supplement text lines 7–8; page-2.png visual check",
+      "result": "Caption and country list readable (NO absent); chart cells not present in page-2 render (caption-only)",
+      "readStatus": "read_existing_private_render",
+      "stopReason": "METH-G04 stop: do not read blank chart or fabricate regional assignment; no new EMF tooling campaign"
+    },
+    {
+      "id": "B09-SL06",
+      "question": "Do hash-bound B07/B08 terminals authorize a harmonized multi-country absolute panel for B09?",
+      "date": "2026-09-09",
+      "channel": "B07/B08 handoff.json verified sha256",
+      "queryOrDocument": "B07 handoff sha256 66ad992a…; B08 handoff sha256 443e4dd8…; status waiting_source",
+      "result": "Both waiting_source; missing annexes; dual series preserved; no harmonized calculation authorized",
+      "readStatus": "hash_verified",
+      "stopReason": "FELLES-KONTRAKT: dependency stop does not authorize harmonized calculation needing missing annexes"
+    }
+  ],
+  "correctionProvenance": {
+    "previousRunId": "B09-20260909T103719Z-8a62fde2",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/handoff.json",
+    "previousHandoffSha256": "b696c15be8f3f512b9a6bcd2db34e3383d4a7684c4595961e53fb1ff7dc9b528",
+    "newPrimaryAcquisition": false,
+    "human_verified": false
+  }
+}

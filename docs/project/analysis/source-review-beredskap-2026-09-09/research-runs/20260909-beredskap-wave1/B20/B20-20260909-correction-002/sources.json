@@ -1,0 +1,1092 @@
+{
+  "schema": "beredskap-sources/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B20",
+  "runId": "B20-20260909-correction-002",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S01",
+      "title": "AGENTS.md",
+      "publisher": "Food Systems 2026",
+      "url": null,
+      "documentVersion": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "read_full",
+      "sourceRole": "project_policy",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "AGENTS.md",
+      "rawSha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "extractedTextPath": "AGENTS.md",
+      "extractedTextSha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+      "exactLocators": [
+        {
+          "type": "file",
+          "path": "AGENTS.md"
+        }
+      ],
+      "limitations": [
+        "Plan/register file; not primary empirical measurement of C-case delivery"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S02",
+      "title": "FELLES-KONTRAKT.md",
+      "publisher": "research-plan",
+      "url": null,
+      "documentVersion": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "read_full",
+      "sourceRole": "plan_contract",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "rawSha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md",
+      "extractedTextSha256": "90b37adde0c711975cdd75a6f3aa8f9032bcb100e227ccaf13716ada9c60e3c2",
+      "exactLocators": [
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/FELLES-KONTRAKT.md"
+        }
+      ],
+      "limitations": [
+        "Plan/register file; not primary empirical measurement of C-case delivery"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S03",
+      "title": "B20.md prompt",
+      "publisher": "research-plan",
+      "url": null,
+      "documentVersion": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "read_full",
+      "sourceRole": "package_prompt",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B20.md",
+      "rawSha256": "911b48b05ec20af4be7bdaca2501a51b38fd090aee2cea60cfcd8fcb8f8b3df1",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B20.md",
+      "extractedTextSha256": "911b48b05ec20af4be7bdaca2501a51b38fd090aee2cea60cfcd8fcb8f8b3df1",
+      "exactLocators": [
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/prompts/B20.md"
+        }
+      ],
+      "limitations": [
+        "Plan/register file; not primary empirical measurement of C-case delivery"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S04",
+      "title": "MASTER-ASTRA.md",
+      "publisher": "research-plan",
+      "url": null,
+      "documentVersion": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "read_full",
+      "sourceRole": "master_requirements",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/MASTER-ASTRA.md",
+      "rawSha256": "8100f06f14baeb6b3b97027e7ea01a2f3e35487af72a1017c5330cdcdecb7921",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/MASTER-ASTRA.md",
+      "extractedTextSha256": "8100f06f14baeb6b3b97027e7ea01a2f3e35487af72a1017c5330cdcdecb7921",
+      "exactLocators": [
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/MASTER-ASTRA.md"
+        }
+      ],
+      "limitations": [
+        "Plan/register file; not primary empirical measurement of C-case delivery"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S05",
+      "title": "GAP-KART.md",
+      "publisher": "research-plan",
+      "url": null,
+      "documentVersion": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "read_owned_gap_rows",
+      "sourceRole": "gap_register",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/GAP-KART.md",
+      "rawSha256": "8620c3d4b0ac61a8c1f8a96c7324fba1330072c9ba5b0920f736c82043022f43",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/GAP-KART.md",
+      "extractedTextSha256": "8620c3d4b0ac61a8c1f8a96c7324fba1330072c9ba5b0920f736c82043022f43",
+      "exactLocators": [
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/GAP-KART.md"
+        }
+      ],
+      "limitations": [
+        "Plan/register file; not primary empirical measurement of C-case delivery"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S06",
+      "title": "coverage.json",
+      "publisher": "research-plan",
+      "url": null,
+      "documentVersion": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "read_B20_gaps_chapters_purposes",
+      "sourceRole": "coverage_register",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "rawSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "extractedTextSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "exactLocators": [
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json"
+        }
+      ],
+      "limitations": [
+        "Plan/register file; not primary empirical measurement of C-case delivery"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S07",
+      "title": "candidate-tests.json",
+      "publisher": "round-003",
+      "url": null,
+      "documentVersion": null,
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "read_C1_C5_tests",
+      "sourceRole": "c_case_definitions",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/candidate-tests.json",
+      "rawSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/candidate-tests.json",
+      "extractedTextSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+      "exactLocators": [
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/candidate-tests.json"
+        }
+      ],
+      "limitations": [
+        "Plan/register file; not primary empirical measurement of C-case delivery"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S08",
+      "title": "chapter-purpose-status.json",
+      "publisher": "round-003",
+      "url": null,
+      "documentVersion": null,
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "read_chapters_1_15",
+      "sourceRole": "chapter_disposition_register",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "rawSha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json",
+      "extractedTextSha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+      "exactLocators": [
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/chapter-purpose-status.json"
+        }
+      ],
+      "limitations": [
+        "Plan/register file; not primary empirical measurement of C-case delivery"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S09",
+      "title": "MAALEPROTOKOLL.md",
+      "publisher": "round-005",
+      "url": null,
+      "documentVersion": null,
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "read_full",
+      "sourceRole": "c1_measurement_protocol",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+      "rawSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md",
+      "extractedTextSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+      "exactLocators": [
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/MAALEPROTOKOLL.md"
+        }
+      ],
+      "limitations": [
+        "Plan/register file; not primary empirical measurement of C-case delivery"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S10",
+      "title": "target-profile.json",
+      "publisher": "round-006",
+      "url": null,
+      "documentVersion": null,
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "read_full",
+      "sourceRole": "c1_target_profile",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "rawSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json",
+      "extractedTextSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+      "exactLocators": [
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/target-profile.json"
+        }
+      ],
+      "limitations": [
+        "Plan/register file; not primary empirical measurement of C-case delivery"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S11",
+      "title": "dependency-handoffs-B01-B19.json",
+      "publisher": "program_run",
+      "url": null,
+      "documentVersion": null,
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "read_full_verified_hashes",
+      "sourceRole": "dependency_register",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B20/B20-20260909-correction-002/dependency-handoffs-B01-B19.json",
+      "rawSha256": "5a490fc94ca2067d99bf5633e997f5bfe0a321a373cadd24db903b39cada1282",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B20/B20-20260909-correction-002/dependency-handoffs-B01-B19.json",
+      "extractedTextSha256": "5a490fc94ca2067d99bf5633e997f5bfe0a321a373cadd24db903b39cada1282",
+      "exactLocators": [
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B20/B20-20260909-correction-002/dependency-handoffs-B01-B19.json"
+        }
+      ],
+      "limitations": [
+        "Plan/register file; not primary empirical measurement of C-case delivery"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S12",
+      "title": "work-packages.json",
+      "publisher": "research-plan",
+      "url": null,
+      "documentVersion": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "read_B20_entry",
+      "sourceRole": "package_register",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/work-packages.json",
+      "rawSha256": "bab3c5d30c23dda1320fbe2c486f9876b609ab817a6fda3157ed16f039a6e5e3",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/work-packages.json",
+      "extractedTextSha256": "bab3c5d30c23dda1320fbe2c486f9876b609ab817a6fda3157ed16f039a6e5e3",
+      "exactLocators": [
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/work-packages.json"
+        }
+      ],
+      "limitations": [
+        "Plan/register file; not primary empirical measurement of C-case delivery"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S13",
+      "title": "B01 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B01-20260909T101901Z-dcaf4365",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B01/B01-20260909T101901Z-dcaf4365/handoff.json",
+      "rawSha256": "e4a7ec6495b7d59092f602594853f6099e652e6183ac853e559979eb5f079c96",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B01/B01-20260909T101901Z-dcaf4365/handoff.json",
+      "extractedTextSha256": "e4a7ec6495b7d59092f602594853f6099e652e6183ac853e559979eb5f079c96",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B01/B01-20260909T101901Z-dcaf4365/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_owner; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S14",
+      "title": "B02 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B02-20260909T101901Z-4aaad87a",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/handoff.json",
+      "rawSha256": "104892445dedc11d9399a4ae3dcbc3ed8d609e6cc4b8ef72bf0578992ae86ed1",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/handoff.json",
+      "extractedTextSha256": "104892445dedc11d9399a4ae3dcbc3ed8d609e6cc4b8ef72bf0578992ae86ed1",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B02/B02-20260909T101901Z-4aaad87a/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_owner; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S15",
+      "title": "B03 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B03-20260909T101901Z-1e1d2425",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/handoff.json",
+      "rawSha256": "f221694f5523e18c926d66cb3aa0f8cf210a8d5232071796f336edb4ba599329",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/handoff.json",
+      "extractedTextSha256": "f221694f5523e18c926d66cb3aa0f8cf210a8d5232071796f336edb4ba599329",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B03/B03-20260909T101901Z-1e1d2425/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_owner; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S16",
+      "title": "B04 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B04-20260909-correction-001",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909-correction-001/handoff.json",
+      "rawSha256": "13b52d78e68e3501fd13405d486ddf439e0368db13cd952f68d82134d22e4a21",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909-correction-001/handoff.json",
+      "extractedTextSha256": "13b52d78e68e3501fd13405d486ddf439e0368db13cd952f68d82134d22e4a21",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B04/B04-20260909-correction-001/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_owner; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S17",
+      "title": "B05 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B05-20260909T102531Z-5341273b",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/handoff.json",
+      "rawSha256": "d768a6134f391bfb55efa80bec49cd9f88e4eb6b8750a439055e20a67d1ca672",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/handoff.json",
+      "extractedTextSha256": "d768a6134f391bfb55efa80bec49cd9f88e4eb6b8750a439055e20a67d1ca672",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B05/B05-20260909T102531Z-5341273b/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_owner; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S18",
+      "title": "B06 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B06-20260909T102531Z-22c1a4ab",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B06/B06-20260909T102531Z-22c1a4ab/handoff.json",
+      "rawSha256": "ffa0b60f69dc190934d30d741329a9cf296a8ccb08b9b7c0c73879c48e59f9fd",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B06/B06-20260909T102531Z-22c1a4ab/handoff.json",
+      "extractedTextSha256": "ffa0b60f69dc190934d30d741329a9cf296a8ccb08b9b7c0c73879c48e59f9fd",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B06/B06-20260909T102531Z-22c1a4ab/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_owner; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S19",
+      "title": "B07 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B07-20260909T102902Z-2f712e23",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/handoff.json",
+      "rawSha256": "66ad992acf0567ca674c686a7d5c850ac48f4a2ae8eb7bd0eb8fbe439b82b419",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/handoff.json",
+      "extractedTextSha256": "66ad992acf0567ca674c686a7d5c850ac48f4a2ae8eb7bd0eb8fbe439b82b419",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_source; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S20",
+      "title": "B08 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B08-20260909-correction-001",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/handoff.json",
+      "rawSha256": "61162aa8258c3bfa8c1880e4da0c1086a72d91222bc77e25923050531f97a8aa",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/handoff.json",
+      "extractedTextSha256": "61162aa8258c3bfa8c1880e4da0c1086a72d91222bc77e25923050531f97a8aa",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_source; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S21",
+      "title": "B09 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B09-20260909-correction-001",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B09/B09-20260909-correction-001/handoff.json",
+      "rawSha256": "d68bd39b20237636332cc3f67186f77f7db62e7b8bb938102fd77411923f0586",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B09/B09-20260909-correction-001/handoff.json",
+      "extractedTextSha256": "d68bd39b20237636332cc3f67186f77f7db62e7b8bb938102fd77411923f0586",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B09/B09-20260909-correction-001/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_source; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S22",
+      "title": "B10 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B10-20260909T103158Z-3ca837d6",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/handoff.json",
+      "rawSha256": "792a1c1552d11aac89e3c22f6dd77693f1d5f9d35219976f4f521f3986a4ad5a",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/handoff.json",
+      "extractedTextSha256": "792a1c1552d11aac89e3c22f6dd77693f1d5f9d35219976f4f521f3986a4ad5a",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B10/B10-20260909T103158Z-3ca837d6/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_owner; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S23",
+      "title": "B11 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B11-20260909T103158Z-e6b97281",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/handoff.json",
+      "rawSha256": "772f752d0c62d2657782902694d162ccfc27087c9991491ad4e4d75e74cd7c5e",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/handoff.json",
+      "extractedTextSha256": "772f752d0c62d2657782902694d162ccfc27087c9991491ad4e4d75e74cd7c5e",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B11/B11-20260909T103158Z-e6b97281/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_owner; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S24",
+      "title": "B12 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B12-20260909T103158Z-efdd0743",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/handoff.json",
+      "rawSha256": "e239fb1c99c631838cd207df23034e6a88340a9516ca2a4a4de4ee493e1ec1c4",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/handoff.json",
+      "extractedTextSha256": "e239fb1c99c631838cd207df23034e6a88340a9516ca2a4a4de4ee493e1ec1c4",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B12/B12-20260909T103158Z-efdd0743/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_owner; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S25",
+      "title": "B13 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B13-20260909-correction-001",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909-correction-001/handoff.json",
+      "rawSha256": "edd1367435b86c9212fcac395fb09cf4e10726104bf7ee873e243bcfda2a5e89",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909-correction-001/handoff.json",
+      "extractedTextSha256": "edd1367435b86c9212fcac395fb09cf4e10726104bf7ee873e243bcfda2a5e89",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B13/B13-20260909-correction-001/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_source; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S26",
+      "title": "B14 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B14-20260909-correction-001",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909-correction-001/handoff.json",
+      "rawSha256": "45be1df18abc16c80338afdb89e3a88b4897e9873e6087f25dd43138754e594a",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909-correction-001/handoff.json",
+      "extractedTextSha256": "45be1df18abc16c80338afdb89e3a88b4897e9873e6087f25dd43138754e594a",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B14/B14-20260909-correction-001/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status complete_within_scope; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S27",
+      "title": "B15 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B15-20260909T103514Z-9d38b3c0",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/handoff.json",
+      "rawSha256": "05fe5d77c919e34e3cdb17bf05e86598037a44aa6366a2818a2d2ab4457d7cfc",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/handoff.json",
+      "extractedTextSha256": "05fe5d77c919e34e3cdb17bf05e86598037a44aa6366a2818a2d2ab4457d7cfc",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B15/B15-20260909T103514Z-9d38b3c0/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_owner; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S28",
+      "title": "B16 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B16-20260909T103514Z-5f548c04",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/handoff.json",
+      "rawSha256": "bbf8558fbd2fe23c4081fade5337d2ae921258fcbb2e58a6753a94a479b4c773",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/handoff.json",
+      "extractedTextSha256": "bbf8558fbd2fe23c4081fade5337d2ae921258fcbb2e58a6753a94a479b4c773",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B16/B16-20260909T103514Z-5f548c04/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status complete_within_scope; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S29",
+      "title": "B17 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B17-20260909T103719Z-fa4831c4",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/handoff.json",
+      "rawSha256": "7f8c359d0a2548a9f262b07c2107954a3c8ecf2ffa6ec3d60c3ef1cf93f806a5",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/handoff.json",
+      "extractedTextSha256": "7f8c359d0a2548a9f262b07c2107954a3c8ecf2ffa6ec3d60c3ef1cf93f806a5",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B17/B17-20260909T103719Z-fa4831c4/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status waiting_owner; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S30",
+      "title": "B18 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B18-20260909T103719Z-707c9a03",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/handoff.json",
+      "rawSha256": "b3f24d148ce96d501742498f0d30aa3c94b9f3e5bdb4e401831a49870563be5f",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/handoff.json",
+      "extractedTextSha256": "b3f24d148ce96d501742498f0d30aa3c94b9f3e5bdb4e401831a49870563be5f",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B18/B18-20260909T103719Z-707c9a03/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status complete_within_scope; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B20-S31",
+      "title": "B19 terminal handoff",
+      "publisher": "wave1_worker_return",
+      "url": null,
+      "documentVersion": "B19-20260909-correction-001",
+      "publishedAt": null,
+      "accessedAt": "2026-09-09T10:52:00Z",
+      "readScope": "handoff_plus_findings_gaps_observations",
+      "sourceRole": "dependency_terminal_return",
+      "accessStatus": "available_local",
+      "rights": {
+        "internalUseBasis": "project_internal_research",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B19/B19-20260909-correction-001/handoff.json",
+      "rawSha256": "3d581e5e8a7aea90a712678b8f92405509f162e742add47ac79e992475c35939",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B19/B19-20260909-correction-001/handoff.json",
+      "extractedTextSha256": "3d581e5e8a7aea90a712678b8f92405509f162e742add47ac79e992475c35939",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "terminalStatus"
+        },
+        {
+          "type": "file",
+          "path": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B19/B19-20260909-correction-001/findings.md"
+        }
+      ],
+      "limitations": [
+        "Terminal status complete_within_scope; waiting_* does not provide scientific coverage for missing measured fields",
+        "Worker summary is not independent primary-source proof for Astra; Astra must re-read cited sources"
+      ]
+    }
+  ],
+  "human_verified": false,
+  "correctionProvenance": {
+    "previousRunId": "B20-20260909-correction-001",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B20/B20-20260909-correction-001/handoff.json",
+    "previousHandoffSha256": "e1825cafa49d362e4ae3b0d2bfafad89b20d632c94f321ab60b5ca1d98964474",
+    "newPrimaryAcquisition": false,
+    "human_verified": false
+  }
+}

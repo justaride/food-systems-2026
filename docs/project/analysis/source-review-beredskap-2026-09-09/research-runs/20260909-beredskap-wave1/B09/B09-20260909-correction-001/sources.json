@@ -1,0 +1,294 @@
+{
+  "schema": "beredskap-sources/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B09",
+  "runId": "B09-20260909-correction-001",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B09-S-METHOD",
+      "title": "Round-004 method findings (Beillouin/Tootoonchi/SCB inventory)",
+      "publisher": "internal candidate analysis",
+      "url": null,
+      "documentVersion": "round004-method-1",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full findings.json: sources METH-S01–S09, observations METH-O01–O04, proposal METH-P01, gaps METH-G01–G04, checks",
+      "sourceRole": "pre_read_method_inventory",
+      "accessStatus": "available_in_worktree",
+      "rights": {
+        "internalUseBasis": "internal_research_candidate",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/method/findings.json",
+      "rawSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/method/findings.json",
+      "extractedTextSha256": "105fbe092301ef342e214a0e1adffc0ea4f3362c46e13e0c9f121e81428795e6",
+      "exactLocators": [
+        "/observations/0",
+        "/observations/1",
+        "/observations/2",
+        "/proposal",
+        "/gaps/0",
+        "/gaps/1",
+        "/gaps/3"
+      ],
+      "limitations": [
+        "Analyst proposal METH-P01 is not a source observation",
+        "Does not close Nordic food-grade series"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B09-S-NORWAY",
+      "title": "Round-004 Norway findings (national 2015–2020 SSB slice)",
+      "publisher": "internal candidate analysis",
+      "url": null,
+      "documentVersion": "1",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full findings.json: definitions, definitionGaps R4-NO-G001–G004, sources R4-NO-S001–S003, stopDecision",
+      "sourceRole": "pre_read_national_panel",
+      "accessStatus": "available_in_worktree",
+      "rights": {
+        "internalUseBasis": "internal_research_candidate",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/norway/findings.json",
+      "rawSha256": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-004/norway/findings.json",
+      "extractedTextSha256": "dbabb2dfd9c050358cd9069503c393886df6b1cd2e8ea275a8b1da13d5329b71",
+      "exactLocators": [
+        "/definitions",
+        "/definitionGaps/1",
+        "/definitionGaps/2",
+        "/stopDecision"
+      ],
+      "limitations": [
+        "National slice only; county continuity not verified",
+        "No food-grade/exportable quantity in selected tables"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B09-S-CLIMATE",
+      "title": "Round-003 climate findings (2018 simultaneous shock chain)",
+      "publisher": "internal candidate analysis",
+      "url": null,
+      "documentVersion": "round-003-climate-1",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Full findings.json: observations, chain CLIM-CHAIN-01, gaps CLIM-G01–G03, stoppingDecision",
+      "sourceRole": "pre_read_climate_contemporaneity",
+      "accessStatus": "available_in_worktree",
+      "rights": {
+        "internalUseBasis": "internal_research_candidate",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/climate/findings.json",
+      "rawSha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/climate/findings.json",
+      "extractedTextSha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+      "exactLocators": [
+        "/chain",
+        "/gaps/0",
+        "/observations/0",
+        "/stoppingDecision"
+      ],
+      "limitations": [
+        "effectDemonstrated=false",
+        "No convertible tonnage of food wheat delivery"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B09-S-DEFINISJONER",
+      "title": "Round-005 DEFINISJONER.md — yield alerts and system boundaries",
+      "publisher": "internal candidate analysis",
+      "url": null,
+      "documentVersion": "2026-09-09",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "Sections on Finland 2018, eight yield alerts, historical system boundaries (NO C1110 vs C1100)",
+      "sourceRole": "pre_read_definition_rests",
+      "accessStatus": "available_in_worktree",
+      "rights": {
+        "internalUseBasis": "internal_research_candidate",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/DEFINISJONER.md",
+      "rawSha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-005/DEFINISJONER.md",
+      "extractedTextSha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+      "exactLocators": [
+        "Stopp R4-G001",
+        "Stopp R4-G002",
+        "Historiske systemgrenser"
+      ],
+      "limitations": [
+        "Does not supply food-grade series",
+        "FI/NO bridges still open"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B09-S-A1",
+      "title": "A1 research package data.json — norskandel gaps and reported percentages",
+      "publisher": "internal candidate analysis",
+      "url": null,
+      "documentVersion": "agent-research-2026-09-08",
+      "publishedAt": "2026-09-08",
+      "accessedAt": "2026-09-09",
+      "readScope": "gaps[7]=A1-G008; observations A1-O034, A1-O035, A1-O036",
+      "sourceRole": "inherited_gap_and_reported_share_context",
+      "accessStatus": "available_in_worktree",
+      "rights": {
+        "internalUseBasis": "internal_research_candidate",
+        "redistributionAllowed": false
+      },
+      "rawPath": "research/agent-research-2026-09-08/resultater/A1/data.json",
+      "rawSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "extractedTextPath": "research/agent-research-2026-09-08/resultater/A1/data.json",
+      "extractedTextSha256": "3ffe90286a73cd94afcec403f4b9bd09b7b0e3f63d69d9f5d09cb522f3c966b1",
+      "exactLocators": [
+        "/gaps/7",
+        "A1-O034",
+        "A1-O035",
+        "A1-O036"
+      ],
+      "limitations": [
+        "Reported percentages without open numerator/denominator",
+        "Not a primary year table"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B09-S-METH-S05-CAPTION",
+      "title": "Beillouin supplement — Figure S1 caption (text extract) + render page-2 caption-only check",
+      "publisher": "Beillouin et al. 2020 supplementary materials (private retained bytes)",
+      "url": "https://api.figshare.com/v2/collections/5077861",
+      "documentVersion": "collection item DOCX retained round-004",
+      "publishedAt": "2020",
+      "accessedAt": "2026-09-09",
+      "readScope": "beillouin-supplement.txt lines 7–8; visual check of beillouin-render/page-2.png shows caption text only, not EMF chart cells",
+      "sourceRole": "figure_caption_inventory",
+      "accessStatus": "private_bytes_on_coordinator_machine",
+      "rights": {
+        "internalUseBasis": "retained_prior_acquisition_internal_use",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-supplement.docx",
+      "rawSha256": "faf6bc5f54a67b4694d43f8dc4b3ad6b6b5a78ac4f1955b0cdb4d0ecf51a0d9c",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/method/beillouin-supplement.txt",
+      "extractedTextSha256": "e2571e32375c818812072d523e5d747d2eb7cd84fa1f9017c36383c313060ca3",
+      "exactLocators": [
+        "text lines 7-8 Figure S1 caption",
+        "beillouin-render/page-2.png caption-only"
+      ],
+      "limitations": [
+        "EMF chart cells not readable; do not fabricate Northern Europe membership for Nordic four-country set",
+        "Norway absent from caption country list"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B09-S-NO-04609",
+      "title": "SSB 04609 Kornavling national cells (private retained JSON-stat2)",
+      "publisher": "Statistisk sentralbyrå",
+      "url": "https://data.ssb.no/api/v0/no/table/04609",
+      "documentVersion": "updated 2026-02-27T07:00:00Z per round-004",
+      "publishedAt": "2026-02-27",
+      "accessedAt": "2026-09-09",
+      "readScope": "Hash re-verify of retained national wheat/barley production response; definitions via norway findings (15% moisture; deliveries for sale)",
+      "sourceRole": "national_production_panel_bytes",
+      "accessStatus": "private_bytes_on_coordinator_machine",
+      "rights": {
+        "internalUseBasis": "SSB open data retained locally for hash binding",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/norway/04609-response.json",
+      "rawSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967",
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-004/norway/04609-response.json",
+      "extractedTextSha256": "63f9f3caea570ebe6a69dd24331068622e0511f437439a9e8ae740dcf7af7967",
+      "exactLocators": [
+        "JSON-stat2 national Region0 cells as bound in R4-NO-S001"
+      ],
+      "limitations": [
+        "Not food-grade; own-use excluded; not exportable quantity"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B09-S-B07-HANDOFF",
+      "title": "B07 hash-bound terminal handoff (waiting_source)",
+      "publisher": "internal research run",
+      "url": null,
+      "documentVersion": "B07-20260909T102902Z-2f712e23",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "handoff.json status/stopReason; findings.md; gaps.json; observations.json",
+      "sourceRole": "dependency_terminal",
+      "accessStatus": "available_in_worktree",
+      "rights": {
+        "internalUseBasis": "internal_research_candidate",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/handoff.json",
+      "rawSha256": "66ad992acf0567ca674c686a7d5c850ac48f4a2ae8eb7bd0eb8fbe439b82b419",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B07/B07-20260909T102902Z-2f712e23/handoff.json",
+      "extractedTextSha256": "66ad992acf0567ca674c686a7d5c850ac48f4a2ae8eb7bd0eb8fbe439b82b419",
+      "exactLocators": [
+        "/status",
+        "/stopReason"
+      ],
+      "limitations": [
+        "waiting_source does not authorize FI moisture/item harmonized calculation"
+      ]
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "sourceId": "B09-S-B08-HANDOFF",
+      "title": "B08 hash-bound terminal handoff (waiting_source)",
+      "publisher": "internal research run",
+      "url": null,
+      "documentVersion": "B08-20260909-correction-001",
+      "publishedAt": "2026-09-09",
+      "accessedAt": "2026-09-09",
+      "readScope": "handoff.json status/stopReason; findings.md; gaps.json; observations.json",
+      "sourceRole": "dependency_terminal",
+      "accessStatus": "available_in_worktree",
+      "rights": {
+        "internalUseBasis": "internal_research_candidate",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/handoff.json",
+      "rawSha256": "61162aa8258c3bfa8c1880e4da0c1086a72d91222bc77e25923050531f97a8aa",
+      "extractedTextPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B08/B08-20260909-correction-001/handoff.json",
+      "extractedTextSha256": "61162aa8258c3bfa8c1880e4da0c1086a72d91222bc77e25923050531f97a8aa",
+      "exactLocators": [
+        "/status",
+        "/stopReason"
+      ],
+      "limitations": [
+        "waiting_source does not authorize NO/SE/DK yield-rule harmonized calculation"
+      ]
+    }
+  ],
+  "correctionProvenance": {
+    "previousRunId": "B09-20260909T103719Z-8a62fde2",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B09/B09-20260909T103719Z-8a62fde2/handoff.json",
+    "previousHandoffSha256": "b696c15be8f3f512b9a6bcd2db34e3383d4a7684c4595961e53fb1ff7dc9b528",
+    "newPrimaryAcquisition": false,
+    "human_verified": false
+  }
+}

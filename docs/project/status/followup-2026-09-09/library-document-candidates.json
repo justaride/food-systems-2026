@@ -1,0 +1,187 @@
+{
+  "schema": "library-document-candidates/v1",
+  "sampleManifestPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/restlist/library-recovery-sample/manifest.json",
+  "sampleManifestSha256": "f94ee432a11eea249df68cd735048d5bb976df451bff3a8cc938858fde84fc16",
+  "candidates": [
+    {
+      "candidateId": "LIB-RECOVERY-20260909-ecr",
+      "libraryAnalysisRecordId": "cmsompj05017tknkx5geygmf1",
+      "existingDocumentId": "cmr1wg7rt000vc53g9qabc5mt",
+      "existingSourceDocId": "src-82",
+      "registeredTitle": "ECR Dagligvarukartan 2024/2025",
+      "proposedIdentity": {
+        "title": "Dagligvarukartan 2024",
+        "publisher": "DLF och Delfi",
+        "year": 2024,
+        "authors": null,
+        "identityPages": [
+          1
+        ],
+        "sourceType": "market_chart_publication",
+        "limitations": [
+          "2024 is publication edition; sales mainly refer to fiscal 2023 with named exceptions.",
+          "No current 2026 market claim.",
+          "PDF is visually rich; 249 extracted words are not a full representation.",
+          "Nordic comparison pages are secondary citations and do not establish harmonized national definitions."
+        ]
+      },
+      "sourceUrl": "https://dlf.se/download/1167-E8CD2BD7C83DEB69C493BFA61DBE64A0/dagligvarukartan2024-PPT.pdf",
+      "acquiredAt": "2026-09-09T01:40:00Z",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/restlist/library-recovery-sample/ecr/raw.pdf",
+      "rawSha256": "95ba5529638aac25679edc0940d26103db3948b84f34082ae364ad9a10400753",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/restlist/library-recovery-sample/ecr/text.txt",
+      "textSha256": "72147de186f43ce509e3e16e59d9611508cf901c92022bf42b97a7681b250dac",
+      "physicalPdfPages": 14,
+      "extractedWordCount": 249,
+      "coverRenderPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/status-restlist/library-recovery/ecr/cover.png",
+      "coverRenderSha256": "4ebb26ce1d7e07474243801e808b648820b8d606d314f8598a735ad787ac8b1b",
+      "identityInspection": "Cover visually inspected; colophon/author page read in frozen text when listed.",
+      "candidateStatus": "document_identity_prepared_for_controlled_review",
+      "fullSemanticAnalysisComplete": false,
+      "human_verified": false,
+      "databaseBindingPerformed": false,
+      "productionQueueChanged": false,
+      "rights": {
+        "basis": "Existing public-publisher acquisition retained privately for internal review",
+        "redistributionAuthorized": false
+      },
+      "candidateSha256": "304df9476d840e25bb4285449d572831adb0dac8d4e0e15a200436aaee0b5648"
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-baltic-sea-food",
+      "libraryAnalysisRecordId": "cmsompkkc01b1knkxpb98z8r8",
+      "existingDocumentId": null,
+      "existingSourceDocId": "src-innh-2026-08-05-001",
+      "registeredTitle": "Local food businesses and distribution models - B2B business model for the Baltic Sea Region",
+      "proposedIdentity": {
+        "title": "Local Food Business-to-Business Distribution Model",
+        "publisher": "Baltic Sea Food / Interreg Baltic Sea Region",
+        "year": null,
+        "authors": [
+          "Kjersti Bjørke, Hardanger Business Garden, Norway"
+        ],
+        "identityPages": [
+          1,
+          2
+        ],
+        "sourceType": "business_model_report",
+        "limitations": [
+          "Publication year not verified from the inspected identity pages.",
+          "Identity and navigability checked; the 76-page report has not received a full independent semantic analysis in this run."
+        ]
+      },
+      "sourceUrl": "https://www.balticseaculinary.com/docs/Business_model_BSF%20updated.pdf",
+      "acquiredAt": "2026-09-09T01:40:00Z",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/restlist/library-recovery-sample/baltic-sea-food/raw.pdf",
+      "rawSha256": "98fbc4ba8293cf4a4346a45b23fd73f4ebe98c0b332d61e576bb2e71739c9128",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/restlist/library-recovery-sample/baltic-sea-food/text.txt",
+      "textSha256": "9ace221dbd131de02e017b14dd689d4272dc903aa4bcc7e1afff0e4927dd5aa8",
+      "physicalPdfPages": 76,
+      "extractedWordCount": 36059,
+      "coverRenderPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/status-restlist/library-recovery/baltic-sea-food/cover.png",
+      "coverRenderSha256": "7f440489122cfc37c930b849240112deda289f209aebfb56a6801aa25d081f57",
+      "identityInspection": "Cover visually inspected; colophon/author page read in frozen text when listed.",
+      "candidateStatus": "document_identity_prepared_for_controlled_review",
+      "fullSemanticAnalysisComplete": false,
+      "human_verified": false,
+      "databaseBindingPerformed": false,
+      "productionQueueChanged": false,
+      "rights": {
+        "basis": "Existing public-publisher acquisition retained privately for internal review",
+        "redistributionAuthorized": false
+      },
+      "candidateSha256": "a03f27e0af29bdfca66f3f95d2873144ec95935a3aaf1107e57a99e1672558e1"
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-kkv-2025-5",
+      "libraryAnalysisRecordId": "cmsompkpt01bcknkxam8jg0zx",
+      "existingDocumentId": null,
+      "existingSourceDocId": "src-innh-2026-08-05-012",
+      "registeredTitle": "Utvardering av lagen om forbud mot otillborliga handelsmetoder (Rapport 2025:5)",
+      "proposedIdentity": {
+        "title": "Utvärdering av lagen om förbud mot otillbörliga handelsmetoder",
+        "publisher": "Konkurrensverket",
+        "year": 2025,
+        "authors": [
+          "Kristin Kindgren (projektledare)"
+        ],
+        "identityPages": [
+          1,
+          2
+        ],
+        "sourceType": "report_2025_5",
+        "limitations": [
+          "Colophon says October 2025.",
+          "Identity and page navigation are checked; no legal interpretation or full semantic analysis is supplied here."
+        ]
+      },
+      "sourceUrl": "https://www.konkurrensverket.se/globalassets/dokument/informationsmaterial/rapporter-och-broschyrer/rapportserie/rapport_2025-5.pdf",
+      "acquiredAt": "2026-09-09T01:40:00Z",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/restlist/library-recovery-sample/kkv-2025-5/raw.pdf",
+      "rawSha256": "d2421cb13d29522ac89e4482fa86504176f559ffc0d712da2f749b20ad58982c",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/restlist/library-recovery-sample/kkv-2025-5/text.txt",
+      "textSha256": "ad5fb6b9f96430ac20526f0ce79e38d1ba736a92661bc7eb028d14459c212dad",
+      "physicalPdfPages": 112,
+      "extractedWordCount": 39991,
+      "coverRenderPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/status-restlist/library-recovery/kkv-2025-5/cover.png",
+      "coverRenderSha256": "c475c950a4745dfabbf429707636a557b57204e0e7760bb381bcf45a169d4866",
+      "identityInspection": "Cover visually inspected; colophon/author page read in frozen text when listed.",
+      "candidateStatus": "document_identity_prepared_for_controlled_review",
+      "fullSemanticAnalysisComplete": false,
+      "human_verified": false,
+      "databaseBindingPerformed": false,
+      "productionQueueChanged": false,
+      "rights": {
+        "basis": "Existing public-publisher acquisition retained privately for internal review",
+        "redistributionAuthorized": false
+      },
+      "candidateSha256": "fa193c86b579652f31ca9d1fcd7f5219e50cd4882d3bef818b3bff0553064976"
+    },
+    {
+      "candidateId": "LIB-RECOVERY-20260909-matvett-or-28-24",
+      "libraryAnalysisRecordId": "cmsompkra01bfknkxjdivih2c",
+      "existingDocumentId": null,
+      "existingSourceDocId": "src-innh-2026-08-05-015",
+      "registeredTitle": "Matsvinn i norske husholdninger - Oppdaterte matkastetall og forbrukerundersokelser (OR.28.24)",
+      "proposedIdentity": {
+        "title": "Matsvinn i norske husholdninger - Oppdaterte matkastetall og forbrukerundersøkelser med anbefalinger til veien videre",
+        "publisher": "NORSUS",
+        "year": 2024,
+        "authors": [
+          "Sigrid Møyner Hohle",
+          "Aina Stensgård"
+        ],
+        "identityPages": [
+          1,
+          2
+        ],
+        "sourceType": "OR.28.24",
+        "limitations": [
+          "54 physical PDF pages versus colophon ANTALL SIDER 39; physical page locators must be preserved separately.",
+          "Identity and page navigation checked; report estimates must not be promoted to measured collected material flow."
+        ]
+      },
+      "sourceUrl": "https://www.matvett.no/uploads/documents/OR.28.24-Kartleggingsrapport-for-forbrukerleddet.pdf",
+      "acquiredAt": "2026-09-09T01:40:00Z",
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/restlist/library-recovery-sample/matvett-or-28-24/raw.pdf",
+      "rawSha256": "f92a1d715994da944c89e9113db8842ef34568365d4bbe9d46298ccbd1182dc3",
+      "textPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/restlist/library-recovery-sample/matvett-or-28-24/text.txt",
+      "textSha256": "64f686ea9b75bbe1ca0b57ddc950b67a8b5487f2ebb82c4d96df1df815be4780",
+      "physicalPdfPages": 54,
+      "extractedWordCount": 19657,
+      "coverRenderPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/status-restlist/library-recovery/matvett-or-28-24/cover.png",
+      "coverRenderSha256": "3a5b29cf9cebee14a6768b825c20d3d025bd29f90db99e4ad5d22b294a1fe691",
+      "identityInspection": "Cover visually inspected; colophon/author page read in frozen text when listed.",
+      "candidateStatus": "document_identity_prepared_for_controlled_review",
+      "fullSemanticAnalysisComplete": false,
+      "human_verified": false,
+      "databaseBindingPerformed": false,
+      "productionQueueChanged": false,
+      "rights": {
+        "basis": "Existing public-publisher acquisition retained privately for internal review",
+        "redistributionAuthorized": false
+      },
+      "candidateSha256": "5b58e780b4bfae3a129f33825a4e5a448eaca272cbf8f9dcea5f424cb71ff18c"
+    }
+  ]
+}

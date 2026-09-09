@@ -1,0 +1,425 @@
+{
+  "schema": "beredskap-master-conflicts/v1",
+  "masterRunId": "M-ASTRA-20260909-corrections-review-001",
+  "conflicts": [
+    {
+      "conflictId": "MC-01",
+      "type": "source_internal_numeric_conflict",
+      "candidateIds": [
+        "B11-C01",
+        "B11-C02"
+      ],
+      "description": "NORSØK Table 5 gives 240→410 kg DM/daa (~70.833%); Discussion says 130%; dose unit header differs from methods.",
+      "handling": "Retain both versions and the unit conflict; request erratum/raw table; no C3 effect estimate.",
+      "resolved": false,
+      "human_verified": false
+    },
+    {
+      "conflictId": "MC-02",
+      "type": "operator_period_conflict",
+      "candidateIds": [
+        "B10-C01",
+        "B10-C02"
+      ],
+      "description": "Undated over 8 million litres versus 2025-specific 7.7 million litres.",
+      "handling": "Use dated series separately; obtain reference-period/method clarification.",
+      "resolved": false,
+      "human_verified": false
+    },
+    {
+      "conflictId": "MC-03",
+      "type": "date_conflict",
+      "candidateIds": [
+        "B12-C01"
+      ],
+      "description": "Hylte says Tuesday 16 April 2025; that calendar date is Wednesday.",
+      "handling": "Do not select a new date; require primary exercise log.",
+      "resolved": false,
+      "human_verified": false
+    },
+    {
+      "conflictId": "MC-04",
+      "type": "accounting_internal_conflict",
+      "candidateIds": [
+        "B18-C07"
+      ],
+      "description": "Expense components sum NOK 556,138,448, displayed subtotal 556,138,449; operating result 22,973,971/972.",
+      "handling": "Preserve discrepancy and source pages; exact NOK versus rounded presentation is a separate human decision.",
+      "resolved": false,
+      "human_verified": false
+    },
+    {
+      "conflictId": "MC-05",
+      "type": "historical_hash_identity",
+      "candidateIds": [
+        "B13-C05",
+        "B18-C06"
+      ],
+      "description": "A3-S001 recorded SIFO hash contains ...204db0..., while retained PDF and D-S005 have ...204cb0....",
+      "handling": "Retain old record and attach candidate correction; two publisher channels remain one report.",
+      "resolved": false,
+      "human_verified": false
+    },
+    {
+      "conflictId": "MC-06",
+      "type": "instrument_reference_conflict",
+      "candidateIds": [
+        "B17-C01",
+        "B17-C03",
+        "B17-C10"
+      ],
+      "description": "Defence MoU cites similarly titled 5 November 2020 agreement; inspected trade treaty is 14 April 2005.",
+      "handling": "Require exact instrument identity and current status; no inferred replacement or protocol.",
+      "resolved": false,
+      "human_verified": false
+    },
+    {
+      "conflictId": "MC-07",
+      "type": "series_definition_residual",
+      "candidateIds": [
+        "B07-C02",
+        "B07-C03",
+        "B07-C04",
+        "B08-C02",
+        "B08-C03",
+        "B08-C04"
+      ],
+      "description": "FI production residuals and eight reported-yield/P-A warnings persist across different crop, area, moisture and revision definitions.",
+      "handling": "Retain all original values/flags; reject a single common FI factor; total P/A is area-weighted, not production-weighted.",
+      "resolved": false,
+      "human_verified": false
+    },
+    {
+      "conflictId": "MC-08",
+      "type": "concentration_basis",
+      "candidateIds": [
+        "B11-C03",
+        "B11-C04"
+      ],
+      "description": "12% P in annual product account differs from 134 g/kg DM at 97.7% DM (~13.0918% product basis).",
+      "handling": "Keep product/version/basis separate; do not average or infer availability/uptake.",
+      "resolved": false,
+      "human_verified": false
+    },
+    {
+      "conflictId": "MC-09",
+      "type": "double_counting_risk",
+      "candidateIds": [
+        "B04-C01",
+        "B04-C02",
+        "B04-C04",
+        "B05-C03",
+        "B20-C02"
+      ],
+      "description": "Contracts, stored grain, nominal mill capacity and historical free-space estimates are different views and dates; shared allocations may refer to the same grain.",
+      "handling": "No addition as separate resources; require unique batch/stock/allocation IDs and competing commitments.",
+      "resolved": false,
+      "human_verified": false
+    },
+    {
+      "conflictId": "MC-10",
+      "type": "double_counting_risk",
+      "candidateIds": [
+        "B11-C06",
+        "B20-C04"
+      ],
+      "description": "Sludge and recovered struvite share influent phosphorus; ordinary feed use is already in the baseline.",
+      "handling": "Use a reconciled baseline and output/loss balance; no gross sum as additional circular benefit.",
+      "resolved": false,
+      "human_verified": false
+    },
+    {
+      "conflictId": "MC-11",
+      "type": "shared_failure_risk",
+      "candidateIds": [
+        "B06-O02",
+        "B06-O05",
+        "B06-O07",
+        "B09-C04",
+        "B20-C01",
+        "B20-C06"
+      ],
+      "description": "Both arms may share power, fuel, water, food tankers, ports/routes and competing national demand.",
+      "handling": "Maintain dependency IDs and simultaneous-shock assumptions; no independence from geography alone.",
+      "resolved": false,
+      "human_verified": false
+    },
+    {
+      "conflictId": "MC-12",
+      "type": "instrument_noncomparability",
+      "candidateIds": [
+        "B13-C04",
+        "B14-C01",
+        "B14-C04",
+        "B14-C06",
+        "B20-C07"
+      ],
+      "description": "SIFO four-week household index, FIES three-year estimates, ISSP one item, THL mixed hardship and aggregate sales have different populations/periods/units.",
+      "handling": "Keep separate profiles; no unvalidated crosswalk, annual reconstruction or league table.",
+      "resolved": false,
+      "human_verified": false
+    },
+    {
+      "conflictId": "MC-13",
+      "type": "gap_identity_mismatch",
+      "candidateIds": [],
+      "description": "B19 gap ...-G03 concerns model attestation but originalGapId FS-03 points to the historical measured-waste-flow issue.",
+      "handling": "New B19 return must give a semantically correct reference or independent gap; preserve historical record.",
+      "resolved": true,
+      "human_verified": false,
+      "resolution": "New B19 correction makes attestation gap independent, removes FS-03 overlap and records referenceCorrection; latest intake has explicit overlay amendment. Historical FS-03 and original master remain unchanged.",
+      "semanticGapClosed": false
+    }
+  ],
+  "sharedSourceDependencies": [
+    {
+      "rawSha256": "dc0bb467419e86e9792cdb49244de25b57ec0e60de858de3837839ccefbd1366",
+      "sourceRecords": [
+        "B02/R6-S10",
+        "B05/R5-S16"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "016d1c760691ae80e7c50201048f7d3a51d498b6ab79c106a8308da09317cce7",
+      "sourceRecords": [
+        "B02/R6-INTAKE-001-G03",
+        "B03/B03-S03",
+        "B04/R6-INTAKE-001",
+        "B05/R6-INTAKE-001-G08",
+        "B06/R6-INTAKE"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "69770c58fe4a179deef9d0a97c598b01cdd1767c77e80beb26993d6045053c38",
+      "sourceRecords": [
+        "B03/B03-S01",
+        "B03/R6-S12"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "1b91ff57fab36c24d61f29c4a6c2eb53763947cc58cde8b0a76b16d8e1e145d5",
+      "sourceRecords": [
+        "B03/B03-S02",
+        "B03/R6-S15"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "435ae2dcf0b7df54497265c0fd32ac6ebccd48facf6ca126ddea21fd952a341b",
+      "sourceRecords": [
+        "B03/R6-S17",
+        "B06/R6-S17"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "0ec571be5e3fe2ae77066a8d13817af60c22c755a2df842728d51b834002813a",
+      "sourceRecords": [
+        "B04/R5-MAALE",
+        "B06/R5-PROTO",
+        "B20/B20-S09"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "967d9172c502665d74da57a8b16504ca330d047f1c717f3be6572fd465a190d4",
+      "sourceRecords": [
+        "B06/CLIM-FINDINGS",
+        "B09/B09-S-CLIMATE"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "b810d60bb5c6a0626d3eb01e5f36e91b1ad91587036a88f1a558b7026670a85c",
+      "sourceRecords": [
+        "B06/A5-DATA",
+        "B17/B17-S09"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "d33744143d4c25d7d9a01dd005a27dcfdb4d45a375dd10d1c4a9ae79f0a370ab",
+      "sourceRecords": [
+        "B07/R5-DEFINISJONER",
+        "B09/B09-S-DEFINISJONER"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "66ad992acf0567ca674c686a7d5c850ac48f4a2ae8eb7bd0eb8fbe439b82b419",
+      "sourceRecords": [
+        "B09/B09-S-B07-HANDOFF",
+        "B20/B20-S19"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "443e4dd88373f1170ce6a2de02d8f9882e953cafcc571fbf4e806a8fba5b343f",
+      "sourceRecords": [
+        "B09/B09-S-B08-HANDOFF",
+        "B20/B20-S20"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "c297d08e908cdb3631505aeda815cca871be28e92a754f1129093b71edcfd73e",
+      "sourceRecords": [
+        "B10/B10-S10",
+        "B20/B20-S07"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "3c319ff322e379204cb0b90ad4467b11bc6beb729b5ecd11093bcb5ef6762d6b",
+      "sourceRecords": [
+        "B13/B13-S001",
+        "B14/B14-S010"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "eaa0086491048b08dffb362d6b358d121881abfbd74eecca24fc74be1c46997c",
+      "sourceRecords": [
+        "B13/B13-S003",
+        "B14/B14-S001"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6",
+      "sourceRecords": [
+        "B13/B13-S004",
+        "B18/B18-S07",
+        "B19/B19-S07"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9",
+      "sourceRecords": [
+        "B13/B13-S005",
+        "B19/B19-S01"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "6b5410e12f94a7cc3ba6e0750ac76a7792e9fe8bd9665f4355baf2afdb9bb3fd",
+      "sourceRecords": [
+        "B15/B15-S009",
+        "B16/B16-S010"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "7b60db017e71a699d1783651a111936fdbf164b4c79ab2d4b737ea12d0935c1c",
+      "sourceRecords": [
+        "B18/B18-S02",
+        "B20/B20-S08"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c",
+      "sourceRecords": [
+        "B18/B18-S03",
+        "B19/B19-S05"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "7bd208c91734aa0e4161372f311cd4e5ff4f3e7aea182b13e190a99632758af7",
+      "sourceRecords": [
+        "B18/B18-S12",
+        "B19/B19-S03"
+      ],
+      "independentEvidenceCount": 1
+    },
+    {
+      "rawSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a",
+      "sourceRecords": [
+        "B19/B19-S12",
+        "B20/B20-S06"
+      ],
+      "independentEvidenceCount": 1
+    }
+  ],
+  "returnRequests": [
+    {
+      "requestId": "MR-01",
+      "packageId": "B04",
+      "candidateIds": [
+        "B04-C04"
+      ],
+      "error": "Subset text-line numbering is bound to full extracted-text hash.",
+      "requiredCorrection": "New run with full text lines 512–545 and 1403–1412 or exact separately hashed subset sources.",
+      "recheck": "Read both exact passages and rehash changed candidate/evidence and affected B20 dependencies.",
+      "currentCorrectionStatus": "resolved_in_intake_corrections_002",
+      "resolutionAuditPath": "verification.json"
+    },
+    {
+      "requestId": "MR-02",
+      "packageId": "B08",
+      "candidateIds": [
+        "B08-C01",
+        "B08-C02",
+        "B08-C03",
+        "B08-C04"
+      ],
+      "error": "Source register lacks R4-NO-S003, METH-S09, DKFI-S002; C02 wrongly says production-weighted P/A.",
+      "requiredCorrection": "Add exact recovered raw/text source records; describe total P/A as area-weighted yield; preserve unresolved official aggregation rule.",
+      "recheck": "Recheck all four source bindings, arithmetic, B09 and B20 affected dependencies.",
+      "currentCorrectionStatus": "resolved_in_intake_corrections_002",
+      "resolutionAuditPath": "verification.json"
+    },
+    {
+      "requestId": "MR-03",
+      "packageId": "B13",
+      "candidateIds": [
+        "B13-C02"
+      ],
+      "error": "Table 2-1 is physical PDF 13 / printed 11, not physical pages 11–12.",
+      "requiredCorrection": "New exact page-13 extract and locator; preserve group N/CI gap.",
+      "recheck": "Visually reread table, hash new extract/candidate/evidence and affected B20 dependency.",
+      "currentCorrectionStatus": "resolved_in_intake_corrections_002",
+      "resolutionAuditPath": "verification.json"
+    },
+    {
+      "requestId": "MR-04",
+      "packageId": "B14",
+      "candidateIds": [],
+      "error": "handoff.inputs points to directory while SHA names raw-manifest.json.",
+      "requiredCorrection": "Point input to the actual raw-manifest.json file. Alternative HTML source versions are already declared and available.",
+      "recheck": "Exact manifest and per-file hashes, new handoff and dependent B20.",
+      "currentCorrectionStatus": "resolved_in_intake_corrections_002",
+      "resolutionAuditPath": "verification.json"
+    },
+    {
+      "requestId": "MR-05",
+      "packageId": "B20",
+      "candidateIds": [
+        "B20-C12"
+      ],
+      "error": "Directory input SHA identifies synthesis-notes.json; gap-array locator is not a valid JSON Pointer.",
+      "requiredCorrection": "Use actual synthesis-notes.json path and resolvable gap indices or explicitly typed ID selector; bind all new predecessor handoffs.",
+      "recheck": "Source passages, full dependency graph and changed candidate hashes against new frozen intake.",
+      "currentCorrectionStatus": "resolved_in_intake_corrections_002",
+      "resolutionAuditPath": "verification.json"
+    },
+    {
+      "requestId": "MR-06",
+      "packageId": "B19",
+      "candidateIds": [],
+      "error": "Model-attestation gap ...-G03 is incorrectly assigned originalGapId FS-03.",
+      "requiredCorrection": "New run retains old gap and provides the correct typed relation or independent gap ID; no history rewrite.",
+      "recheck": "Gap identity/owner mapping and dependent B20 handoff.",
+      "currentCorrectionStatus": "resolved_in_intake_corrections_002",
+      "resolutionAuditPath": "verification.json"
+    }
+  ],
+  "human_verified": false,
+  "sourceContentConflictsRemainOpen": true,
+  "newBlockingCorrectionDefects": []
+}

@@ -1,0 +1,82 @@
+{
+  "schema": "beredskap-master-handoff/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "masterRunId": "M-ASTRA-20260909-status-audit-001",
+  "status": "review_complete_with_revisions_and_unverified_model_attestation",
+  "planCommit": "5c3d735712f3b5fe929ba8043ee57a74cb318e1a",
+  "intakePath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/M-ASTRA/master-intake.json",
+  "intakeSha256": "c396993b0e0ef148c533731e615579986b08452eb0142e54aece753a66af0383",
+  "requestedModel": "gpt-6-astra",
+  "reportedModel": "gpt-6-astra",
+  "attestedModel": null,
+  "attestationStatus": "model_attestation_unverified",
+  "modelRequirementVerified": false,
+  "modelConfigurationEvidence": "Parent explicitly assigned spawn_agent model=gpt-6-astra; no backend attestation artifact available to this review.",
+  "intakeComplete": true,
+  "reviewComplete": true,
+  "candidateCount": 127,
+  "gapCount": 92,
+  "human_verified": false,
+  "readinessChanged": false,
+  "published": false,
+  "privateEvidenceDirectory": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0862f-bd95-7660-802d-282c781c1c5f/status-restlist/astra-master-001",
+  "fileManifest": [
+    {
+      "path": "MASTER-RAPPORT.md",
+      "sha256": "66ccc589953e643a446fce926e0f269282b8ea1c91a4fada4b1e91b542e729a8",
+      "bytes": 9082
+    },
+    {
+      "path": "NESTE-SESJON.md",
+      "sha256": "98d656b15bffbb5231327f8cf67d27c47b6011780e9e2986897427da07a21fff",
+      "bytes": 3209
+    },
+    {
+      "path": "conflicts.json",
+      "sha256": "9483cf6c603fbde9bde042c600a15384d87a25d25bf9ce66c4aaaf3c4a0ad757",
+      "bytes": 13794
+    },
+    {
+      "path": "coverage.json",
+      "sha256": "a436cc7d73317a94a3982309b7fb549e5d5afb24e7ed7b1af710086847ed79a7",
+      "bytes": 242842
+    },
+    {
+      "path": "master-review.json",
+      "sha256": "3b5975f243e7a0f6ad856ffc3f377419d8627e32e8260b7000450d2034db8220",
+      "bytes": 837943
+    },
+    {
+      "path": "return-requests.json",
+      "sha256": "b3b85906166b6ed25dcfa6740ef3ecd216bc7e93e191a299cd92b0557b32923e",
+      "bytes": 2812
+    },
+    {
+      "path": "validate_master.py",
+      "sha256": "726df88644ebd90f6d8c4b89fc5814f65597a2bba337f6605893569285f9bf3f",
+      "bytes": 1777
+    },
+    {
+      "path": "verification.json",
+      "sha256": "7974985608c14518769c7a369365f97a078b6cb227dfd878bda7f843d8d33819",
+      "bytes": 595017
+    },
+    {
+      "path": "verify_calculations.py",
+      "sha256": "0f95c86c0d2451a7a87f868aa8b7e3e403da7387cd011e340fa577fe0f2bcc44",
+      "bytes": 7447
+    },
+    {
+      "path": "verify_extended.py",
+      "sha256": "bdcadbdf8c63ce9aefe3502d12f1800211ae845f2ae09a47bdd74570d7fee5a6",
+      "bytes": 5175
+    },
+    {
+      "path": "verify_inputs.py",
+      "sha256": "b7c44056c95a7aec017716efedea5b54f19a01e2c2d6ac8b7586d6d2072f8c79",
+      "bytes": 4197
+    }
+  ],
+  "nextAction": "Separate new-intake correction review; preserve this frozen master and all historical workers."
+}

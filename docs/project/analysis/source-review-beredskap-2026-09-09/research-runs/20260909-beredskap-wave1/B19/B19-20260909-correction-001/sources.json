@@ -1,0 +1,436 @@
+{
+  "schema": "beredskap-sources/v1",
+  "templateOnly": false,
+  "programRunId": "20260909-beredskap-wave1",
+  "packageId": "B19",
+  "runId": "B19-20260909-correction-001",
+  "sources": [
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "documentVersion": "asOf 2026-09-09; scope 127 original observations",
+      "publishedAt": "2026-09-09",
+      "url": null,
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/reviews",
+          "label": "127 review entries"
+        },
+        {
+          "type": "json_path",
+          "path": "/packetSha256",
+          "label": "bound packet hash"
+        }
+      ],
+      "limitations": [
+        "Scoped claim/source review only; not full library; not human review; not semantic truth certification"
+      ],
+      "sourceId": "B19-S01",
+      "title": "Round-002 review-register (127 scoped AI reviews)",
+      "publisher": "Food Systems internal analysis",
+      "accessedAt": "2026-09-09T10:40:00Z",
+      "readScope": "Full JSON: packetPath/packetSha256 metadata; all 127 review outcomes, proposedCorrection fields, reviewer roles, authority flags",
+      "sourceRole": "historical_review_register",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Internal analysis register in worktree; internal research only",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/review-register.json",
+      "rawSha256": "945e2083faf957dfeece5e3037b1626ea3641d8dbeea11fad3d0f30d80d2ade9"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "documentVersion": null,
+      "publishedAt": "2026-09-09",
+      "url": null,
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "document",
+          "label": "Full RETTELSER.md correction inventory"
+        }
+      ],
+      "limitations": [
+        "Traces only; does not rewrite canonical rows"
+      ],
+      "sourceId": "B19-S02",
+      "title": "Round-002 RETTELSER.md (correction traces)",
+      "publisher": "Food Systems internal analysis",
+      "accessedAt": "2026-09-09T10:40:00Z",
+      "readScope": "Full markdown: supported_with_limits / insufficient_evidence / contradicted correction guidance for A3/A4/A1/A2/A5 observations",
+      "sourceRole": "correction_trace",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Internal correction notes; original observations preserved; not canonical rewrite",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-002/RETTELSER.md",
+      "rawSha256": "2face7ca5063571fcd2ae3cd7d58cadb3d3b9e190fe83b5de80765ed6c30b05e"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "documentVersion": "asOf 2026-09-09T07:18:19.010094+00:00",
+      "publishedAt": "2026-09-09",
+      "url": null,
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/changes/0",
+          "label": "D-O004 article1 scope"
+        },
+        {
+          "type": "json_path",
+          "path": "/changes/1",
+          "label": "D-O005 publisher link binding"
+        }
+      ],
+      "limitations": [
+        "Amends observations; does not rewrite original package bytes"
+      ],
+      "sourceId": "B19-S03",
+      "title": "Round-003 provenance-addendum.json (D-O004/D-O005)",
+      "publisher": "Food Systems internal analysis",
+      "accessedAt": "2026-09-09T10:40:00Z",
+      "readScope": "Full JSON: amends D-O004/D-O005; scope clarifications; OsloMet HTML path+rawSha256",
+      "sourceRole": "dated_provenance_addendum",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Internal analysis only; authority=internal_analysis_only",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/provenance-addendum.json",
+      "rawSha256": "7bd208c91734aa0e4161372f311cd4e5ff4f3e7aea182b13e190a99632758af7"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "documentVersion": null,
+      "publishedAt": "2026-09-09",
+      "url": null,
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "section",
+          "label": "Faktisk kjøring 9. september 2026"
+        }
+      ],
+      "limitations": [
+        "Queue does not decide semantic truth; not human authority"
+      ],
+      "sourceId": "B19-S04",
+      "title": "Round-003 REVIEW-QUEUE.md",
+      "publisher": "Food Systems internal analysis",
+      "accessedAt": "2026-09-09T10:40:00Z",
+      "readScope": "Full markdown describing queue runner, 9 Sep 2026 run over historical round-002 packet, integrity-not-semantic meaning, 1770 note context via FS-11 elsewhere",
+      "sourceRole": "method_and_receipt_description",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Internal method documentation",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/REVIEW-QUEUE.md",
+      "rawSha256": "5845458ab532e76b1d89df4d33d0409a53bc22d227d33bd4ece9b73d0da2d220"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "documentVersion": "asOf 2026-09-09T07:16:34.339252+00:00",
+      "publishedAt": "2026-09-09",
+      "url": null,
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "json_pointer",
+          "path": "/items/0",
+          "label": "FS-01"
+        },
+        {
+          "type": "json_pointer",
+          "path": "/items/2",
+          "label": "FS-03"
+        },
+        {
+          "type": "json_pointer",
+          "path": "/items/10",
+          "label": "FS-11"
+        },
+        {
+          "type": "json_pointer",
+          "path": "/items/20",
+          "label": "FS-21"
+        }
+      ],
+      "limitations": [
+        "stateReverified=false in plan coverage; inherited statuses not live-reverified as production gates"
+      ],
+      "sourceId": "B19-S05",
+      "title": "Round-003 operational-restlist.json (FS boundary)",
+      "publisher": "Food Systems internal analysis",
+      "accessedAt": "2026-09-09T10:40:00Z",
+      "readScope": "Full items FS-01..FS-30 with focus on FS-01, FS-03, FS-11, FS-19, FS-20, FS-21, FS-28 assigned to B19 researchPackages",
+      "sourceRole": "operational_boundary_status",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Internal operational status only; canonicalReadinessChanged=false",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/operational-restlist.json",
+      "rawSha256": "682affff350353745676f9677bae128099a5f97108849eecda4f59af04f9895c"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "documentVersion": null,
+      "publishedAt": "2026-09-09",
+      "url": null,
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/policy",
+          "label": "AGENTS.md policy binding"
+        }
+      ],
+      "limitations": [
+        "Manifest lists private baselines; availability is machine-local"
+      ],
+      "sourceId": "B19-S06",
+      "title": "Round-006 input-manifest.json",
+      "publisher": "Food Systems internal analysis",
+      "accessedAt": "2026-09-09T10:40:00Z",
+      "readScope": "Full manifest: privateRoot, policy hash, baselines, sourceBindingsSha256, profileSha256",
+      "sourceRole": "downstream_package_manifest_control",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Internal research packaging",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-006/input-manifest.json",
+      "rawSha256": "d4dcbc77f68bd150134eb98edcfd66294b78c745f364397106820d9e1b1c0390"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "documentVersion": null,
+      "publishedAt": "2026-09-09",
+      "url": null,
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/sources",
+          "label": "D-S001..D-S005"
+        },
+        {
+          "type": "json_path",
+          "path": "/observations",
+          "label": "D-O001..D-O005"
+        }
+      ],
+      "limitations": [
+        "B19 re-verified raw/text hashes on machine; did not re-run full visual PDF page checks"
+      ],
+      "sourceId": "B19-S07",
+      "title": "Round-003 documentation findings.json (D-S001–D-S005 / D-O001–D-O005)",
+      "publisher": "Food Systems internal analysis",
+      "accessedAt": "2026-09-09T10:40:00Z",
+      "readScope": "Sources array D-S001–D-S005 with raw/text hashes and readScope; observation headers D-O001–D-O005 (not every numeric cell re-enumerated in B19 findings prose)",
+      "sourceRole": "documentation_binding_register",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Internal analysis only",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/findings.json",
+      "rawSha256": "196eda01926e6d719b96e35dffe5d5f61a7f928369a68cb0736fc11576cd6df6"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "documentVersion": null,
+      "publishedAt": "2026-09-09",
+      "url": null,
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "section",
+          "label": "Resultat + Tillegg mottatt etter kontrollen"
+        }
+      ],
+      "limitations": [
+        "Explicitly not documentation of independent models or human review"
+      ],
+      "sourceId": "B19-S08",
+      "title": "Round-003 documentation KRITISK-KONTROLL.md",
+      "publisher": "Food Systems internal analysis",
+      "accessedAt": "2026-09-09T10:40:00Z",
+      "readScope": "Full critical-control note: findings/statfin/packet hashes; D-O004/D-O005 clarifications; addendum follow-up; same-agent-family disclaimer",
+      "sourceRole": "critical_control_receipt",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Internal KI control note; not independent model attestation; not human review",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/round-003/documentation/KRITISK-KONTROLL.md",
+      "rawSha256": "892a783e8ba699c39909d9bf0c79a1083eeecf8dcd7c60f60e7d15c0db725c28"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "documentVersion": "run-003 after case-collision fix",
+      "publishedAt": "2026-09-09",
+      "url": null,
+      "extractedTextPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/review-queue-run-003-job.json",
+      "extractedTextSha256": "370ad1ed06399cccc5661b070ae5a8c5326a78ca62e04520378adc3aaf18555b",
+      "exactLocators": [
+        {
+          "type": "json_path",
+          "path": "/status",
+          "label": "summary status passed"
+        },
+        {
+          "type": "json_path",
+          "path": "/verification/modelVersionAttested",
+          "label": "job modelVersionAttested false"
+        },
+        {
+          "type": "json_path",
+          "path": "/verification/outcomes",
+          "label": "outcome counts"
+        }
+      ],
+      "limitations": [
+        "Integrity of prior receipt only; semanticTruthVerifiedByThisScript=false"
+      ],
+      "sourceId": "B19-S09",
+      "title": "Private review-queue-run-003 summary + job receipt",
+      "publisher": "Food Systems local review-queue runner",
+      "accessedAt": "2026-09-09T10:41:00Z",
+      "readScope": "summary.json status/counts; job verification.ok, observationCount=127, reviewCount=127, boundSourceCount=83, outcomes, modelVersionAttested=false, humanReview=not_performed",
+      "sourceRole": "integrity_receipt",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Private local integrity receipt; internal analysis only",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/review-queue-run-003-summary.json",
+      "rawSha256": "27483f10f5315452371e7fedbfbc041a79591315b2ea063816a359045d53e466"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "documentVersion": null,
+      "publishedAt": "2026-09-09",
+      "url": null,
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "file_hash",
+          "sha256": "5a0934125eccdcb3fa0612baa1edaa01488dba1d24e18eeb0a0d46cd5f12fc10",
+          "label": "Byte identity with register packetSha256"
+        }
+      ],
+      "limitations": [
+        "Hash-bound presence check; not a fresh semantic pass over all 127 claims"
+      ],
+      "sourceId": "B19-S10",
+      "title": "Private round-002 consolidated-v2 review-packet.json",
+      "publisher": "Food Systems internal analysis",
+      "accessedAt": "2026-09-09T10:41:00Z",
+      "readScope": "Hash identity check against review-register.packetSha256 only; no full re-read of all packet observation bodies in this B19 session",
+      "sourceRole": "bound_packet_bytes",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Private consolidated review packet; internal analysis only",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a083be-a7c3-7db2-bfa2-97227f1a107d/source-review-beredskap/round-002/consolidated-v2/review-packet.json",
+      "rawSha256": "5a0934125eccdcb3fa0612baa1edaa01488dba1d24e18eeb0a0d46cd5f12fc10"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "documentVersion": null,
+      "publishedAt": "2025-08-21",
+      "url": "https://kommunikasjon.ntb.no/pressemelding/18624855/halvparten-av-alle-aleneforeldre-i-norge-har-ikke-rad-til-nok-mat?lang=no&publisherId=15678779",
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "file_hash",
+          "sha256": "b3897218cec83a9c5a30f3a028b4ae2a331304f9b5298a2363be6b7af2100ddf",
+          "label": "Matches provenance-addendum rawSha256"
+        }
+      ],
+      "limitations": [
+        "B19 did not re-crawl live NTB; used preserved bytes"
+      ],
+      "sourceId": "B19-S11",
+      "title": "OsloMet/NTB pressemelding HTML (D-O005 publisher channel)",
+      "publisher": "OsloMet via NTB kommunikasjon",
+      "accessedAt": "2026-09-09T10:41:00Z",
+      "readScope": "Hash re-verification of preserved HTML bytes cited by provenance-addendum; locator for Dokumenter > SIFO-rapport link noted in addendum (no new live navigation this run)",
+      "sourceRole": "publisher_channel_binding",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Public press release HTML already captured privately; internal analysis citation only",
+        "redistributionAllowed": false
+      },
+      "rawPath": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a084fe-a36c-7fb1-86c2-4387109e3c36/round-003/documentation/oslomet-publication.html",
+      "rawSha256": "b3897218cec83a9c5a30f3a028b4ae2a331304f9b5298a2363be6b7af2100ddf"
+    },
+    {
+      "schema": "beredskap-source/v1",
+      "templateOnly": false,
+      "documentVersion": null,
+      "publishedAt": "2026-09-09",
+      "url": null,
+      "extractedTextPath": null,
+      "extractedTextSha256": null,
+      "exactLocators": [
+        {
+          "type": "document",
+          "label": "B19-linked chapters and FS operationalBoundary rows"
+        }
+      ],
+      "limitations": [
+        "canonicalChangeAuthorized=false on chapters; stateReverified=false on FS rows"
+      ],
+      "sourceId": "B19-S12",
+      "title": "Plan coverage.json (B19 chapter/FS dispositions)",
+      "publisher": "Food Systems research-plan",
+      "accessedAt": "2026-09-09T10:40:00Z",
+      "readScope": "chapters 3/11/13/14 ownerPackages including B19; operationalBoundary rows FS-01/03/11/19/20/21/28; purposes P4/P5",
+      "sourceRole": "plan_coverage_pointer",
+      "accessStatus": "available_on_this_machine_hash_verified",
+      "rights": {
+        "internalUseBasis": "Planning register; not execution authority for gap closure",
+        "redistributionAllowed": false
+      },
+      "rawPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-plan/coverage.json",
+      "rawSha256": "e3a07035a4d0528f00aca6817b6170dfd3032b6ed733060d1841969d8643cd7a"
+    }
+  ],
+  "correctionProvenance": {
+    "previousRunId": "B19-20260909T103719Z-dd7b5e44",
+    "previousHandoffPath": "docs/project/analysis/source-review-beredskap-2026-09-09/research-runs/20260909-beredskap-wave1/B19/B19-20260909T103719Z-dd7b5e44/handoff.json",
+    "previousHandoffSha256": "12b51f8516e26def4a7fc16fde7cd391290087845eae1b207659717b76417087",
+    "newPrimaryAcquisition": false,
+    "human_verified": false
+  }
+}
