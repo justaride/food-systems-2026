@@ -12,6 +12,7 @@ import { COUNTRY_LIST } from '@/lib/config/countries'
 import type { CountryCode } from '@/lib/config/countries'
 import type { SammenligningData, CountrySammenligning, DataPointMeta } from '@/lib/queries/sammenligning'
 import type { NoMarketShareTimeSeries } from '@/lib/queries/market-share'
+import { sumKnown } from '@/lib/data-meaning'
 
 type Props = { data: SammenligningData; noMarketShare: NoMarketShareTimeSeries }
 
@@ -281,23 +282,22 @@ export function SammenligningContent({ data, noMarketShare }: Props) {
         const empNace10 = rowsFor(data, c => c.valueChain.employmentByNace.nace10, c => c.meta.valueChain.employmentNace10)
         const co2eRetail = rowsFor(data, c => c.valueChain.co2ePerStep.retail ?? null, c => c.meta.valueChain.co2ePerStep)
 
-        const noProd = (() => {
-          const v = data.countries.no?.valueChain.valueAddedByStep ?? {}
-          return Object.values(v).reduce<number>((s, x) => s + (x ?? 0), 0)
-        })()
+        const noProd = sumKnown(Object.values(data.countries.no?.valueChain.valueAddedByStep ?? {}))
+        const noProdLabel = noProd.value === null ? '—' : `${noProd.value.toFixed(0)} mrd NOK`
+        const noProdCoverage = `${noProd.known} av ${noProd.total} registrerte ledd`
 
         return (
           <BolkSection
             number={3}
             title="Verdikjedevolum & verdiskaping"
             question="Hvor mye produseres, og hvem tjener pengene?"
-            narrative={`Norsk matsystem produserer rundt ${noProd.toFixed(0)} mrd NOK i samlet verdiskaping; sjømateksporten alene er flerfoldig over landbrukets bidrag.`}
+            narrative={`Summen av registrerte norske verdiskapingsledd er ${noProdLabel}. Dekning: ${noProdCoverage}; manglende ledd regnes ikke som null.`}
             researchStatus="local_research_needs_primary_check"
             researchStatusDetail="NO value-added er kurert; nordisk paritet er ikke harmonisert. CO2e per ledd er kun NO; SE/DK/FI/IS sjømat-eksportverdi mangler primærsjekk."
             takeaway={
               <KeyTakeaway
-                headline={`${noProd.toFixed(0)} mrd NOK total verdiskaping (NO)`}
-                subline="Sum value-added per ledd"
+                headline={`${noProdLabel} fra registrerte verdiskapingsledd (NO)`}
+                subline={`Sum av kjente verdier · ${noProdCoverage}`}
               />
             }
             charts={

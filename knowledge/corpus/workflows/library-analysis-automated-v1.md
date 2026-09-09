@@ -2,17 +2,26 @@
 
 Workflow ID: `workflow.library_analysis.automated.v1`
 
-Workflow version: `1.0.23`
+Workflow version: `1.0.24`
 
 Workflow repository path: `knowledge/corpus/workflows/library-analysis-automated-v1.md`
 
 Prompt template ID: `prompt.library_analysis.automated.v1`
 
-Prompt template version: `1.0.23`
+Prompt template version: `1.0.24`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-analysis-automated-prompt-v1.md`
 
 Status: automated-only internal candidate analysis
+
+
+## Source work packets and coverage (1.0.24)
+
+Write claims in the source language. Preserve exact names, numerical qualifiers and uncertainty. A heading or table header can provide context only when the exact evidence excerpt includes that original context and the supported content together. Never concatenate separate excerpts or infer missing context from a work-packet label.
+
+When `executionPolicy.requireItemCoverage` is true, the sealed input contains an authoritative `workPacket`. Return its `workPacketHash` and exactly one `itemCoverage` entry for every packet item: `{itemId, status, claimOrdinals, reason?}`. Use `covered` with all relevant local claim ordinals, `blocked` with an explicit source limitation and no claim ordinals, or `structural` with a reason and no claim ordinals for a heading, table header or separator. A covered claim's exact evidence must overlap that original item in the same unit. Map every claim. Cover every materially distinct fact within an item; one claim per line is not proof that all facts were extracted. Item coverage makes omissions auditable, not automatically semantically valid.
+
+For missing-context decisions, this rule governs the references to `no_material_claim` below: material content whose context is unresolved must be `blocked`, never silently discarded as nonmaterial. Extract every independently supported proposition in the same unit and block only the unresolved items. A generic subject such as `Oppryddingen` plus a date is not self-contained; a named cleanup object may be. A finite verb alone does not resolve its subject. A unit with any blocked items remains partial, even if other claims were extracted. `no_material_claim` is reserved for a wholly nonmaterial unit.
 
 ## Input gate
 

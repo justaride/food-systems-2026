@@ -650,7 +650,7 @@ test("CLI argument parsing is strict and keeps command paths absolute", () => {
   assert.throws(() => parseLibraryAnalysisAgentQueueArgs([
     "prepare-attempt", "--run-root=/tmp/run", "--queue=/tmp/queue.json",
     "--job-id=job:fixture", "--attempt=1",
-    "--expected-model-provider=openai-codex", "--expected-model-name=gpt-5.6-sol",
+    "--expected-model-provider=openai-codex", "--expected-model-name=gpt-5.6-invented",
     "--expected-model-version=unknown",
   ]), /agent_queue_cli_arguments_invalid/);
   assert.throws(() => parseLibraryAnalysisAgentQueueArgs([
@@ -1381,3 +1381,60 @@ test("tracked implementation receipt is sanitized and states only allowed gates"
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
 }
+
+test("opt-in queue emits a bound work packet and rejects omitted item coverage", async () => {
+  const fixture = makeFixture([{ sourceKind: "document", sourceKey: "document:a", text: "Alpha produced 42 units in 2024." }]);
+  const built = await runLibraryAnalysisAgentQueueCli({
+    command: "build", runRoot: fixture.runRoot, resolution: fixture.resolutionPath, manifest: fixture.manifestPath,
+    costEnvelopeHash: fixture.costHash, mergedInventoryHash: fixture.inventoryHash, runtimeCommit: "5f3eb1c", repositoryRoot: fixture.repositoryRoot,
+    policy: { maximumAttempts: 3, maximumConcurrentAnalyzers: 3, maximumCodePointsPerJob: 4000, maximumUnitsPerJob: 1, requireItemCoverage: true },
+  });
+  const queue = verifyLibraryAnalysisAgentQueue(JSON.parse(readFileSync(built.queuePath, "utf8")));
+  assert.equal(queue.executionPolicy.requireItemCoverage, true);
+  const prepared = await runLibraryAnalysisAgentQueueCli({ command: "prepare-attempt", runRoot: fixture.runRoot, queue: built.queuePath, jobId: queue.jobs[0]!.jobId, attempt: 1, expectedModel: EXPECTED_MODEL });
+  const input = JSON.parse(readFileSync(prepared.inputPath, "utf8"));
+  assert.equal(input.workPacket.items.length, 1);
+  assert.equal(input.workPacket.items[0].text, input.units[0].text);
+  const response = {
+    schema: "library-analysis-agent-segment-response/v1", queueHash: input.queueHash, jobId: input.jobId, jobHash: input.job.inputEnvelopeHash,
+    attempt: 1, inputHash: input.inputHash, model: EXPECTED_MODEL,
+    unitCoverage: [{ contentUnitId: input.units[0].id, status: "claims_extracted" }],
+    claims: [{ localOrdinal: 0, assertionType: "claim", contentUnitId: input.units[0].id, locator: input.units[0].locator, text: input.units[0].text, evidence: input.units[0].text, confidence: null }],
+    responseHash: "",
+  };
+  response.responseHash = libraryAnalysisAgentSegmentResponseHash(response);
+  const responsePath = join(fixture.base, "worker.json");
+  writeFileSync(responsePath, JSON.stringify(response), { mode: 0o600 });
+  await assert.rejects(runLibraryAnalysisAgentQueueCli({ command: "accept-attempt", runRoot: fixture.runRoot, queue: built.queuePath, attemptInput: prepared.inputPath, response: responsePath }), /work_packet_binding/);
+  assert.equal(statSync(join(fixture.runRoot, "jobs", input.jobId, "attempt-001", "response.json")).mode & 0o777, 0o400);
+});
+
+test("item coverage survives acceptance, partial source merge and validation preparation", async () => {
+  const fixture = makeFixture([{ sourceKind: "document", sourceKey: "document:a", text: "Alpha produced 42 units in 2024.\nThe cleanup was completed on 2026-09-01." }]);
+  const built = await runLibraryAnalysisAgentQueueCli({
+    command: "build", runRoot: fixture.runRoot, resolution: fixture.resolutionPath, manifest: fixture.manifestPath,
+    costEnvelopeHash: fixture.costHash, mergedInventoryHash: fixture.inventoryHash, runtimeCommit: "5f3eb1c", repositoryRoot: fixture.repositoryRoot,
+    policy: { maximumAttempts: 3, maximumConcurrentAnalyzers: 3, maximumCodePointsPerJob: 4000, maximumUnitsPerJob: 1, requireItemCoverage: true },
+  });
+  const queue = verifyLibraryAnalysisAgentQueue(JSON.parse(readFileSync(built.queuePath, "utf8")));
+  const prepared = await runLibraryAnalysisAgentQueueCli({ command: "prepare-attempt", runRoot: fixture.runRoot, queue: built.queuePath, jobId: queue.jobs[0]!.jobId, attempt: 1, expectedModel: EXPECTED_MODEL });
+  const input = JSON.parse(readFileSync(prepared.inputPath, "utf8"));
+  const response = {
+    schema: "library-analysis-agent-segment-response/v1", queueHash: input.queueHash, jobId: input.jobId, jobHash: input.job.inputEnvelopeHash,
+    attempt: 1, inputHash: input.inputHash, model: EXPECTED_MODEL,
+    unitCoverage: [{ contentUnitId: input.units[0].id, status: "claims_extracted" }],
+    claims: [{ localOrdinal: 0, assertionType: "claim", contentUnitId: input.units[0].id, locator: input.units[0].locator, text: "Alpha produced 42 units in 2024.", evidence: "Alpha produced 42 units in 2024.", confidence: null }],
+    workPacketHash: input.workPacket.workPacketHash,
+    itemCoverage: [{ itemId: input.workPacket.items[0].itemId, status: "covered", claimOrdinals: [0] }, { itemId: input.workPacket.items[1].itemId, status: "blocked", claimOrdinals: [], reason: "Cleanup object missing" }],
+    responseHash: "",
+  };
+  response.responseHash = libraryAnalysisAgentSegmentResponseHash(response);
+  const responsePath = join(fixture.base, "worker.json");
+  writeFileSync(responsePath, JSON.stringify(response), { mode: 0o600 });
+  const accepted = await runLibraryAnalysisAgentQueueCli({ command: "accept-attempt", runRoot: fixture.runRoot, queue: built.queuePath, attemptInput: prepared.inputPath, response: responsePath });
+  assert.equal(JSON.parse(readFileSync(accepted.acceptedPath, "utf8")).workPacketHash, input.workPacket.workPacketHash);
+  const merged = await runLibraryAnalysisAgentQueueCli({ command: "merge-source", runRoot: fixture.runRoot, queue: built.queuePath, sourceId: queue.sources[0]!.sourceEnvelopeHash });
+  assert.equal(merged.analysisState, "partial");
+  const validation = await runLibraryAnalysisAgentQueueCli({ command: "validate-source", mode: "prepare", runRoot: fixture.runRoot, queue: built.queuePath, sourceId: queue.sources[0]!.sourceEnvelopeHash, validatorModel: EXPECTED_MODEL });
+  assert.deepEqual(JSON.parse(readFileSync(validation.requestPath!, "utf8")).workPacket, input.workPacket);
+});

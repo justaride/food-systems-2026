@@ -16,7 +16,13 @@ describe('hvitbok chapter registry', () => {
   it('resolves a chapter by slug', () => {
     const ch = getChapterBySlug('kort-til-jan-thomas')
     assert.ok(ch)
-    assert.equal(ch?.title, 'Kort til Jan Thomas')
+    assert.equal(ch?.title, 'Ledersyntese')
+  })
+
+  it('preserves all three legacy URLs as aliases to the canonical manuscript', () => {
+    assert.equal(getChapterBySlug('kort-til-jan-thomas')?.number, '1')
+    assert.equal(getChapterBySlug('nordisk-sirkularitet')?.number, '8')
+    assert.equal(getChapterBySlug('fokusomraader')?.number, '10')
   })
 
   it('returns undefined for an unknown slug', () => {

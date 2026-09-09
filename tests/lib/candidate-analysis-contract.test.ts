@@ -189,10 +189,10 @@ test("binds analysis and validation to different workflow and prompt bytes", () 
   const analysis = candidateWorkflowProfile("library_analysis_v1");
   const validation = candidateWorkflowProfile("library_validation_v1");
 
-  assert.equal(analysis.workflow.version, "1.0.23");
-  assert.equal(analysis.prompt.version, "1.0.23");
-  assert.equal(validation.workflow.version, "1.0.23");
-  assert.equal(validation.prompt.version, "1.0.23");
+  assert.equal(analysis.workflow.version, "1.0.24");
+  assert.equal(analysis.prompt.version, "1.0.24");
+  assert.equal(validation.workflow.version, "1.0.24");
+  assert.equal(validation.prompt.version, "1.0.24");
   assert.equal(analysis.workflow.hash, createHash("sha256").update(readFileSync(analysis.workflow.path)).digest("hex"));
   assert.equal(analysis.prompt.hash, createHash("sha256").update(readFileSync(analysis.prompt.path)).digest("hex"));
   assert.equal(validation.workflow.hash, createHash("sha256").update(readFileSync(validation.workflow.path)).digest("hex"));

@@ -1,13 +1,16 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { buildLibraryAnalysisWorkPacket } from "../../src/lib/knowledge/library-analysis-work-packet";
 
 import {
   candidateAnalysisSha256,
 } from "../../src/lib/knowledge/candidate-analysis-contract";
 import {
+  LibraryAnalysisAgentModelReceiptSchema,
   LibraryAnalysisAgentSegmentResponseSchema,
   LibraryAnalysisAcceptedSegmentSchema,
   deterministicLibraryAnalysisAgentClaimId,
+  deriveLibraryAnalysisAgentTerminalState,
   libraryAnalysisAgentSegmentResponseHash,
   mergeLibraryAnalysisSourceSegments,
   validateLibraryAnalysisAgentSegmentResponse,
@@ -25,6 +28,16 @@ const EXPECTED_MODEL: LibraryAnalysisAgentModelReceipt = {
   name: "gpt-5.6-luna",
   version: "unknown",
 };
+
+test("records supported Codex workers exactly and rejects invented or foreign identities", () => {
+  for (const name of ["gpt-5.6-luna", "gpt-5.6-sol", "gpt-5.6-terra"]) {
+    const receipt = { provider: "openai-codex", name, version: "worker-receipt" };
+    assert.deepEqual(LibraryAnalysisAgentModelReceiptSchema.parse(receipt), receipt);
+    assert.equal(LibraryAnalysisAgentModelReceiptSchema.safeParse({ ...receipt, provider: "anthropic-claude-code" }).success, false);
+  }
+  assert.equal(LibraryAnalysisAgentModelReceiptSchema.safeParse({ ...EXPECTED_MODEL, name: "gpt-5.6-invented" }).success, false);
+  assert.equal(LibraryAnalysisAgentModelReceiptSchema.safeParse({ ...EXPECTED_MODEL, name: "claude-fable-5" }).success, false);
+});
 
 function unit(id: string, ordinal: number, text: string): LibraryAnalysisAgentQueueUnit {
   return {
@@ -3943,27 +3956,72 @@ test("Pilot26 1.0.23 retained locality findings are rejected from exact excerpts
   }
 });
 
-test("Pilot26 rejects blocked coverage that hides a complete proposition before inline truncation", () => {
+test("Pilot26 keeps context-incomplete cleanup material blockable while requiring named cleanup propositions", () => {
   const text = "Oppryddingen som var planlagt 2026-04-14 ble først gjennomført 2026-04-21. Se `git log` for hash-verifikasjon. Hovedfunn pa tvers av korpuset: - **Norge CR3**: 96.";
   const job = verifiedJob([text]);
-  for (const status of ["no_material_claim", "blocked"] as const) {
-    const response = segmentResponse(job, {
-      unitCoverage: [{
-        contentUnitId: job.units[0]!.descriptor.id,
-        status,
-        ...(status === "blocked" ? { reasonCode: "insufficient_context" as const } : {}),
-      }],
-      claims: [],
-    });
-    assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
-      queueHash: HASH,
-      attempt: 1,
-      inputHash: INPUT_HASH,
-      expectedModel: EXPECTED_MODEL,
-      job,
-      response,
-    }), status === "blocked" ? /blocked_(?:material_claim|complete_claim_omission)/u : /material_claim_omission/u, status);
-  }
+  const blocked = segmentResponse(job, {
+    unitCoverage: [{
+      contentUnitId: job.units[0]!.descriptor.id,
+      status: "blocked",
+      reasonCode: "insufficient_context" as const,
+    }],
+    claims: [],
+  });
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job,
+    response: blocked,
+  }));
+
+  const omitted = segmentResponse(job, {
+    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "no_material_claim" }],
+    claims: [],
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job,
+    response: omitted,
+  }), /material_claim_omission/u);
+
+  const named = "Oppryddingen av kilderegisteret ble gjennomført 2026-04-21. Hovedfunn pa tvers av korpuset: - Norge CR3: 96.";
+  const namedJob = verifiedJob([named]);
+  const namedResponse = segmentResponse(namedJob, {
+    unitCoverage: [{
+      contentUnitId: namedJob.units[0]!.descriptor.id,
+      status: "blocked",
+      reasonCode: "insufficient_context" as const,
+    }],
+    claims: [],
+  });
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: namedJob,
+    response: namedResponse,
+  }), /blocked_material_claim/u);
+
+  const mixed = "Oppryddingen ble gjennomført 2026-04-21. Oppryddingen av kilderegisteret ble gjennomført 2026-04-22. Hovedfunn pa tvers av korpuset: - Norge CR3: 96.";
+  const mixedJob = verifiedJob([mixed]);
+  const mixedResponse = segmentResponse(mixedJob, {
+    unitCoverage: [{ contentUnitId: mixedJob.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [claim(mixedJob, 0, "Oppryddingen av kilderegisteret ble gjennomført 2026-04-22.")],
+  });
+  assert.doesNotThrow(() => validateLibraryAnalysisAgentSegmentResponse({
+    queueHash: HASH,
+    attempt: 1,
+    inputHash: INPUT_HASH,
+    expectedModel: EXPECTED_MODEL,
+    job: mixedJob,
+    response: mixedResponse,
+  }));
 });
 
 test("Pilot26 1.0.23 keeps complete local counterparts eligible", () => {
@@ -5670,3 +5728,26 @@ test("merge preserves retry receipts, rejects duplicate attempts, and hashes rec
     }
   });
 }
+
+test("required item coverage binds original items and keeps limited content partial", () => {
+  const text = "# Source\nAlpha produced 42 units in 2024.\nThe cleanup was completed on 2026-09-01.";
+  const job = verifiedJob([text]);
+  const packet = buildLibraryAnalysisWorkPacket(job.units.map(({ descriptor, text }) => ({ contentUnitId: descriptor.id, locator: descriptor.locator, text })));
+  const base = segmentResponse(job, {
+    unitCoverage: [{ contentUnitId: job.units[0]!.descriptor.id, status: "claims_extracted" }],
+    claims: [claim(job, 0, "Alpha produced 42 units in 2024.")],
+  });
+  const input = { queueHash: HASH, attempt: 1, inputHash: INPUT_HASH, expectedModel: EXPECTED_MODEL, job, requireItemCoverage: true as const };
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ ...input, response: base }), /work_packet_binding/);
+  const response = rehash({ ...base, workPacketHash: packet.workPacketHash, itemCoverage: [
+    { itemId: packet.items[0]!.itemId, status: "structural", claimOrdinals: [], reason: "Heading" },
+    { itemId: packet.items[1]!.itemId, status: "covered", claimOrdinals: [0] },
+    { itemId: packet.items[2]!.itemId, status: "blocked", claimOrdinals: [], reason: "Cleanup object absent" },
+  ] });
+  const accepted = validateLibraryAnalysisAgentSegmentResponse({ ...input, response });
+  assert.equal(deriveLibraryAnalysisAgentTerminalState(accepted), "partial");
+  assert.equal(deriveLibraryAnalysisAgentTerminalState({ ...accepted, terminalState: "accepted" }), "partial");
+  assert.equal(deriveLibraryAnalysisAgentTerminalState({ ...accepted, terminalState: "quarantined" }), "quarantined");
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ ...input, response: rehash({ ...response, workPacketHash: HASH }) }), /work_packet_binding/);
+  assert.throws(() => validateLibraryAnalysisAgentSegmentResponse({ ...input, requireItemCoverage: undefined, response }), /unsolicited_item_coverage/);
+});

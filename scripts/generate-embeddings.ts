@@ -1,85 +1,98 @@
 import 'dotenv/config'
 import { PrismaClient } from '../src/generated/prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
+import {
+  EMBEDDING_DIMENSIONS,
+  EMBEDDING_MODEL,
+  assertBoundedSelection,
+  planCandidate,
+  sha256,
+  type EmbeddingCandidate,
+} from '../src/lib/embedding-job'
 
-const connectionString = process.env.DATABASE_URL!
-const adapter = new PrismaPg({ connectionString })
-const prisma = new PrismaClient({ adapter })
+type Args = { ids: string[]; limit: number | null }
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY
-const BATCH_SIZE = 20
-const MAX_CHUNK_CHARS = 8000
-
-async function getEmbedding(text: string): Promise<number[]> {
-  const truncated = text.slice(0, MAX_CHUNK_CHARS)
-  const res = await fetch('https://api.openai.com/v1/embeddings', {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${OPENAI_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      model: 'text-embedding-3-small',
-      input: truncated,
-    }),
-  })
-  if (!res.ok) {
-    const err = await res.text()
-    throw new Error(`OpenAI API error: ${res.status} ${err}`)
+function parseArgs(argv: string[]): Args {
+  const args: Args = { ids: [], limit: null }
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index]
+    if (arg === '--id') args.ids.push(argv[++index] ?? '')
+    else if (arg === '--ids') args.ids.push(...(argv[++index] ?? '').split(','))
+    else if (arg === '--limit') args.limit = Number(argv[++index])
+    else if (arg === '--apply') throw new Error('Embedding writes are disabled while normal search is active')
+    else throw new Error('Invalid embedding-plan arguments')
   }
-  const data = await res.json()
-  return data.data[0].embedding
+  args.ids = [...new Set(args.ids.map(id => id.trim()).filter(Boolean))]
+  assertBoundedSelection(args.ids, args.limit)
+  return args
+}
+
+function reportFailure() {
+  console.error('Embedding plan could not be completed')
+  process.exitCode = 1
 }
 
 async function main() {
-  if (!OPENAI_API_KEY) {
-    console.error('OPENAI_API_KEY not set in environment')
-    process.exit(1)
-  }
+  const args = parseArgs(process.argv.slice(2))
+  const connectionString = process.env.DATABASE_URL?.trim()
+  if (!connectionString) throw new Error('Database configuration is unavailable')
 
-  const docs = await prisma.$queryRawUnsafe<{ id: string; title: string; content: string }[]>(
-    `SELECT id, title, content FROM "Document" WHERE embedding IS NULL ORDER BY id`
-  )
-
-  console.log(`Found ${docs.length} documents without embeddings`)
-
-  let processed = 0
-  for (let i = 0; i < docs.length; i += BATCH_SIZE) {
-    const batch = docs.slice(i, i + BATCH_SIZE)
-    const embeddings = await Promise.all(
-      batch.map(doc => {
-        const text = `${doc.title}\n\n${doc.content}`
-        return getEmbedding(text)
-      })
+  const prisma = new PrismaClient({ adapter: new PrismaPg({ connectionString }) })
+  try {
+    const rows = await prisma.$queryRawUnsafe<Array<{
+      id: string; slug: string; title: string; content: string; documentType: string | null
+      embeddingPresent: boolean; sourceDocId: string | null; provenanceType: string | null
+      sourceCitations: EmbeddingCandidate['sourceCitations']
+    }>>(
+      `SELECT d.id, d.slug, d.title, d.content, d."documentType",
+              (d.embedding IS NOT NULL) AS "embeddingPresent",
+              sd.id AS "sourceDocId", sd."provenanceType",
+              COALESCE(jsonb_agg(jsonb_build_object(
+                'sourceDocId', sc."sourceDocId",
+                'sourceClass', sc."sourceClass"::text,
+                'citationReadiness', sc."citationReadiness"::text,
+                'verificationStatus', sc."verificationStatus"::text,
+                'url', sc.url,
+                'archivedUrl', sc."archivedUrl",
+                'accessedAt', sc."accessedAt"
+              )) FILTER (WHERE sc.id IS NOT NULL), '[]'::jsonb) AS "sourceCitations"
+       FROM "Document" d
+       LEFT JOIN "SourceDoc" sd ON sd."documentId" = d.id
+       LEFT JOIN "SourceCitation" sc ON sc."documentId" = d.id AND sc."sourceDocId" = sd.id
+       WHERE (cardinality($1::text[]) > 0 AND d.id = ANY($1::text[]))
+          OR (cardinality($1::text[]) = 0 AND d.embedding IS NULL)
+       GROUP BY d.id, sd.id, sd."provenanceType"
+       ORDER BY d.id
+       LIMIT $2`,
+      args.ids,
+      args.limit ?? args.ids.length,
     )
-
-    for (let j = 0; j < batch.length; j++) {
-      const vec = `[${embeddings[j].join(',')}]`
-      await prisma.$executeRawUnsafe(
-        `UPDATE "Document" SET embedding = $1::vector WHERE id = $2`,
-        vec,
-        batch[j].id
-      )
+    const candidates: EmbeddingCandidate[] = rows.map(row => ({
+      id: row.id,
+      slug: row.slug,
+      title: row.title,
+      content: row.content,
+      documentType: row.documentType,
+      embeddingPresent: row.embeddingPresent,
+      sourceDoc: row.sourceDocId && row.provenanceType
+        ? { id: row.sourceDocId, provenanceType: row.provenanceType }
+        : null,
+      sourceCitations: row.sourceCitations,
+    }))
+    const plan = {
+      version: 1,
+      mode: 'dry-run',
+      authority: 'technical_retrieval_only_not_source_or_claim_approval',
+      model: EMBEDDING_MODEL,
+      dimensions: EMBEDDING_DIMENSIONS,
+      requestedIds: args.ids,
+      requestedLimit: args.limit,
+      rows: candidates.map(planCandidate),
     }
-
-    processed += batch.length
-    console.log(`Embedded ${processed}/${docs.length} documents`)
+    console.log(JSON.stringify({ type: 'embedding-plan', planSha256: sha256(JSON.stringify(plan)), ...plan }, null, 2))
+  } finally {
+    await prisma.$disconnect()
   }
-
-  const total = await prisma.$queryRawUnsafe<{ count: bigint }[]>(
-    `SELECT COUNT(*) as count FROM "Document" WHERE embedding IS NOT NULL`
-  )
-  console.log(`Done. ${total[0].count} documents now have embeddings.`)
-
-  await prisma.$executeRawUnsafe(
-    `CREATE INDEX IF NOT EXISTS "Document_embedding_idx" ON "Document" USING ivfflat (embedding vector_cosine_ops) WITH (lists = 10)`
-  )
-  console.log('Created IVFFlat index on embeddings')
-
-  await prisma.$disconnect()
 }
 
-main().catch(e => {
-  console.error(e)
-  process.exit(1)
-})
+main().catch(reportFailure)

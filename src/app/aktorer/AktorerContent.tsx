@@ -101,20 +101,22 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
       <Glossary category="status" title="Statusforklaringer" />
 
       <Card>
-        <div className="grid gap-4 lg:grid-cols-[1.4fr,1fr]">
-          <div className="space-y-3">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,1.4fr),minmax(0,1fr)]">
+          <div className="min-w-0 space-y-3">
             <input
               type="text"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
+              aria-label="Søk etter aktør, tema eller ask"
               placeholder="Søk etter aktør, tema eller ask..."
               className="w-full px-4 py-3 rounded-xl border border-stone-200 bg-white text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
             />
             <div className="flex flex-wrap gap-2">
               <select
+                aria-label="Aktørtype"
                 value={typeFilter}
                 onChange={(event) => setTypeFilter(event.target.value)}
-                className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
+                className="max-w-full min-w-0 text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
               >
                 <option value="alle">Type: Alle</option>
                 {actorTypes.map(type => (
@@ -124,9 +126,10 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
                 ))}
               </select>
               <select
+                aria-label="Prioritet"
                 value={priorityFilter}
                 onChange={(event) => setPriorityFilter(event.target.value)}
-                className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
+                className="max-w-full min-w-0 text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
               >
                 <option value="alle">Prioritet: Alle</option>
                 {Object.entries(PRIORITY_LABELS).map(([value, label]) => (
@@ -136,9 +139,10 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
                 ))}
               </select>
               <select
+                aria-label="Holdning"
                 value={stanceFilter}
                 onChange={(event) => setStanceFilter(event.target.value)}
-                className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
+                className="max-w-full min-w-0 text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
               >
                 <option value="alle">Stance: Alle</option>
                 {stances.map(stance => (
@@ -148,9 +152,10 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
                 ))}
               </select>
               <select
+                aria-label="Tema"
                 value={themeFilter}
                 onChange={(event) => setThemeFilter(event.target.value)}
-                className="text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
+                className="max-w-full min-w-0 text-xs px-2.5 py-1.5 rounded-lg border border-stone-200 bg-white text-stone-600 focus:outline-none focus:ring-2 focus:ring-stone-300"
               >
                 <option value="alle">Tema: Alle</option>
                 {allThemeTags.map(tag => (
@@ -182,6 +187,11 @@ export function AktorerContent({ initial }: { initial: Awaited<ReturnType<typeof
               <div className="text-[11px] uppercase tracking-wider text-stone-400">Monitor</div>
               <div className="mt-1 text-xl font-bold text-stone-900">{quadrants.monitor}</div>
               <div className="text-xs text-stone-500">Lavere makt, lavere interesse</div>
+            </div>
+            <div className="col-span-2 rounded-xl border border-amber-200 bg-amber-50 px-3 py-3">
+              <div className="text-[11px] uppercase tracking-wider text-amber-700">Ikke vurdert</div>
+              <div className="mt-1 text-xl font-bold text-amber-950">{quadrants.unscored}</div>
+              <div className="text-xs text-amber-800">Mangler makt- eller interessescore; inngår ikke i kvadrantene</div>
             </div>
           </div>
         </div>

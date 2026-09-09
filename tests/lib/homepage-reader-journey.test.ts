@@ -5,10 +5,11 @@ import { describe, it } from 'node:test'
 const pageSource = readFileSync(new URL('../../src/app/page.tsx', import.meta.url), 'utf8')
 
 describe('homepage reader journey', () => {
-  it('renders Matsystemets snitt before internal project status and removes ambiguous hero KPIs', () => {
+  it('prioritizes current work and project status before the illustrative atlas without ambiguous hero KPIs', () => {
     assert.match(pageSource, /import \{ MatsystemetsSnitt \}/)
     assert.equal((pageSource.match(/<MatsystemetsSnitt \/>/g) ?? []).length, 1)
-    assert.ok(pageSource.indexOf('<MatsystemetsSnitt />') < pageSource.indexOf('Aktiv fase'))
+    assert.ok(pageSource.indexOf('aria-labelledby="current-work-title"') < pageSource.indexOf('Aktiv fase'))
+    assert.ok(pageSource.indexOf('Aktiv fase') < pageSource.indexOf('<MatsystemetsSnitt />'))
     assert.doesNotMatch(pageSource, /FOOD_SYSTEM_KPIS|current: '44%'|Markedskonsentrasjon.*96%/)
   })
 

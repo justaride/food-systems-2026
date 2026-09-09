@@ -2,17 +2,24 @@
 
 Workflow ID: `workflow.library_validation.automated.v1`
 
-Workflow version: `1.0.23`
+Workflow version: `1.0.24`
 
 Workflow repository path: `knowledge/corpus/workflows/library-validation-automated-v1.md`
 
 Prompt template ID: `prompt.library_validation.automated.v1`
 
-Prompt template version: `1.0.23`
+Prompt template version: `1.0.24`
 
 Prompt template repository path: `knowledge/corpus/workflows/library-validation-automated-prompt-v1.md`
 
 Status: automated-only internal candidate validation
+
+
+## Independent item review (1.0.24)
+
+When the request contains a `workPacket`, examine every original item against the supplied source and claims. Return exactly one `itemReviews` entry per item: `{itemId, disposition, claimIds, findingIds, reason}`. Use `supported` for directly supported mapped claims, `source_limited` for a source-visible limitation with no claims or findings, `issue` for a bound F1–F5 finding, or `structural` only for a heading, table header or separator with no claims or findings. Every reason must be nonempty. Map every supplied claim to a supported or issue entry. An issue must reference a finding on the same content unit. Covered evidence must overlap the original item. Check every distinct fact within the item; row coverage does not establish semantic completeness.
+
+Preserve the source language and exact named actors. Check what is actually present before declaring an actor absent. A source lacking context is not itself a fabricated claim. Missing context warrants a limitation; omission of independently extractable content warrants F5. A generic cleanup subject plus a date is unresolved unless the cleanup object is named. A finite verb alone is insufficient. Do not label two values contradictory unless metric, population, period and category match (for example, deleted versus deleted-or-renamed are different categories). Structural acceptance and model agreement never confer factual authority or external readiness.
 
 ## Input gate
 

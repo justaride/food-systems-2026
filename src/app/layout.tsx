@@ -27,11 +27,17 @@ export default async function RootLayout({
     <html lang={locale}>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <a
+            href="#main-content"
+            className="sr-only fixed left-4 top-4 z-[60] rounded-lg bg-emerald-700 px-4 py-2 text-sm font-semibold text-white focus:not-sr-only focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-emerald-700"
+          >
+            Hopp til innhold
+          </a>
           <div className="min-h-screen flex flex-col lg:flex-row">
             <Sidebar activePhase={activeIndex >= 0 ? activeIndex + 1 : 1} totalPhases={phases.length} />
             <div className="flex-1 min-w-0 flex flex-col min-h-screen">
               <Header />
-              <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-6 max-w-6xl w-full">
+              <main id="main-content" tabIndex={-1} className="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-6 max-w-6xl w-full focus:outline-none">
                 {children}
               </main>
             </div>

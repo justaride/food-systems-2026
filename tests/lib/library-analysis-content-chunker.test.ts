@@ -3,9 +3,17 @@ import test from "node:test";
 
 import {
   DEFAULT_LIBRARY_ANALYSIS_CHUNK_POLICY,
+  SECTION_LIBRARY_ANALYSIS_CHUNK_POLICY,
   chunkLogicalContentUnit,
   reconstructLogicalContentUnit,
 } from "../../src/lib/knowledge/library-analysis-content-chunker";
+
+const logical = (text: string, baseLocator = "repository:test") => ({
+  unitType: "document_section" as const,
+  baseLocator,
+  ordinal: 0,
+  text,
+});
 
 test("chunker prefers paragraph boundaries and reconstructs exact text", () => {
   const text = `${"a".repeat(7_000)}\n\n${"b".repeat(7_000)}`;
@@ -111,5 +119,35 @@ test("reconstruction rejects overlap gaps order drift and mutated chunk text", (
       chunks[1]!,
     ]),
     /library_chunk_content_hash_mismatch/,
+  );
+});
+
+test("section policy keeps company headings with their body and has a distinct hash", () => {
+  const text = `${"p".repeat(3_850)}\n\n## 1. Company\nCompany body stays with its heading.\n\n## 2. Next\nNext body.`;
+  const chunks = chunkLogicalContentUnit(logical(text), SECTION_LIBRARY_ANALYSIS_CHUNK_POLICY);
+
+  assert.equal(chunks.some((chunk) => chunk.text.includes("## 1. Company\nCompany body stays")), true);
+  assert.equal(reconstructLogicalContentUnit(chunks), text);
+  assert.notEqual(chunks[0]?.chunkPolicyHash, chunkLogicalContentUnit(
+    logical(text),
+    DEFAULT_LIBRARY_ANALYSIS_CHUNK_POLICY,
+  )[0]?.chunkPolicyHash);
+});
+
+test("section policy preserves tables, non BMP text, and bounds oversized sections", () => {
+  const table = "| Company | Value |\n| --- | --- |\n| Fjord 🧭 | 1 |\n| North | 2 |\n";
+  const text = `${"x".repeat(3_970)}\n\n${table}${"z".repeat(4_500)}`;
+  const chunks = chunkLogicalContentUnit(logical(text, "repository:table"), SECTION_LIBRARY_ANALYSIS_CHUNK_POLICY);
+
+  assert.equal(reconstructLogicalContentUnit(chunks), text);
+  assert.ok(chunks.every((chunk) => Array.from(chunk.text).length <= 4_000));
+  assert.ok(chunks.some((chunk) => chunk.text.includes(table)));
+  assert.equal(Array.from(text).length, chunks.reduce((total, chunk) => total + Array.from(chunk.text).length, 0));
+});
+
+test("section policy rejects unknown version and max combinations", () => {
+  assert.throws(
+    () => chunkLogicalContentUnit(logical("text"), { version: "1.1.0", maxCodePoints: 12_000 } as never),
+    /library_chunk_policy_invalid/,
   );
 });

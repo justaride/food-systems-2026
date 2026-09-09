@@ -1,0 +1,281 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-09-09",
+  "scope": "Alle 30 FS-funn; operativ utførelsesliste, ikke kanonisk faglig godkjenning",
+  "originalAuditSha256": "8953d6dd8e120f3893fb057bcc67d6698be4680fb496bd13c52c7428290d5275",
+  "baseCommit": "fd34549cc9e064eb9245da14d7640a62405472ce",
+  "productionAtStart": "8badda09a65c15ccb0a21c3955d6f71c54d24ef6",
+  "branch": "codex/project-completion-2026-09-09",
+  "items": [
+    {
+      "id": "FS-01",
+      "title": "Syntetisk kilde er merket trygg for AI",
+      "priority": "P0",
+      "state": "source-gated",
+      "currentEvidence": "Visnings- og importvern publisert. Historiske syntetiske kildeidentiteter er ikke automatisk omskrevet.",
+      "nextAction": "Behandle beskyttet historikk gjennom identitets- og kandidatkontroll.",
+      "originalAcceptance": "Samme dokument er blokkert i søk, bibliotek og AI-kontekst; ingen alias eller avledet sitat omgår statusen; godkjent datakjøring har før/etter-bevis."
+    },
+    {
+      "id": "FS-02",
+      "title": "Kjøperandeler bygges fra faste importantakelser",
+      "priority": "P0",
+      "state": "source-gated",
+      "currentEvidence": "Udokumenterte kjøperandeler fjernet; 60310 primærleveranser finnes.",
+      "nextAction": "Skaff dokumenterte kjøperrelasjoner. Ikke fordel volum etter antatt markedsmakt.",
+      "originalAcceptance": "Ingen fast importverdi presenteres som observert kjøper; konsentrasjon krever verifisert mottaker og riktig nevner; regresjonstest dekker manglende kjøper."
+    },
+    {
+      "id": "FS-03",
+      "title": "Estimat og bredt matsvinntall oppgraderes til målt innsamlingsflyt",
+      "priority": "P0",
+      "state": "source-gated",
+      "currentEvidence": "Kvalitet og systemgrense er beskyttet. SSB 13136 gir en kontrollert kandidat på 183 690 tonn sendt fra husholdningsinnsamling til biogass i 2024.",
+      "nextAction": "Kontroller/presenter den hashbundne kandidaten; ingen kanonisk strøm er endret.",
+      "originalAcceptance": "Ingen estimert eller feil avgrenset indikator blir measured flow; begge C3-rader avstemmes mot kilde og etterkontrolleres i UI."
+    },
+    {
+      "id": "FS-04",
+      "title": "Parallelle selskapsidentiteter inngår i økonomisummene",
+      "priority": "P0",
+      "state": "source-gated",
+      "currentEvidence": "Nofima 2023 avstemt mot to originale årsrapporter. Holdbart 2024-inntekter avstemt mot BRREG; driftsresultatet avviker med 1 NOK mellom oppstillinger.",
+      "nextAction": "Behandle de konkrete regnskapskandidatene med riktig identitet, skala, valuta og scope.",
+      "originalAcceptance": "Én valgt økonomisk enhet telles én gang per avtalt scope og år; samme tilskudd kan ikke doble totalen; alle berørte profiler og grafer følger samme identitet."
+    },
+    {
+      "id": "FS-05",
+      "title": "Bakgrunnskartet viser API KEY REQUIRED",
+      "priority": "P1",
+      "state": "released",
+      "currentEvidence": "Bakgrunnskart rettet i forrige leveranse.",
+      "nextAction": "Kontroller brukerreisen på gjeldende produksjon.",
+      "originalAcceptance": "Ingen vannmerker eller mislykkede fliser i fersk autentisert UI; lag, filter, zoom og kildelenker virker."
+    },
+    {
+      "id": "FS-06",
+      "title": "Mobilmenyen mangler 22 av 39 destinasjoner",
+      "priority": "P1",
+      "state": "released",
+      "currentEvidence": "Alle navigasjonsdestinasjoner finnes på mobil. Tastaturflyt forbedres i denne pakken.",
+      "nextAction": "Publiser og kontroller mobilmenyen etter merge.",
+      "originalAcceptance": "Alle avtalte destinasjoner kan nås på mobil; menyen har aria-expanded/aria-controls og fungerer med tastatur; 390 px og mellomstor skjerm er kontrollert."
+    },
+    {
+      "id": "FS-07",
+      "title": "Ukjent eier behandles som ett konsern i HHI",
+      "priority": "P1",
+      "state": "released",
+      "currentEvidence": "Ukjente eiere blir ikke ett konsern i HHI.",
+      "nextAction": "Bevar ukjent-andel ved videre dataarbeid.",
+      "originalAcceptance": "Unknown inngår ikke som et kjent konsern; eventuell rangering er robust for dokumentert usikkerhet; butikkproxy og omsetningsmål har atskilte navn."
+    },
+    {
+      "id": "FS-08",
+      "title": "Flere roller i ett selskap telles som kryssverv",
+      "priority": "P1",
+      "state": "released",
+      "currentEvidence": "Kryssverv teller forskjellige selskaper, ikke flere roller i samme selskap.",
+      "nextAction": "Regresjonskontroll ved leveranse.",
+      "originalAcceptance": "To roller i ett selskap gir ikke kryssstyre; dublettselskaper og utløpte verv gir ikke falske nettverk."
+    },
+    {
+      "id": "FS-09",
+      "title": "Eierskapsoversikten har tomme summer og frossen ferskhet",
+      "priority": "P1",
+      "state": "source-gated",
+      "currentEvidence": "Eierskapsoversikt og beregningsvern rettet.",
+      "nextAction": "Kildeavstem konsolidering, historisk valuta og restregnskaper.",
+      "originalAcceptance": "Kjente konsern finner forventede regnskap; alder følger faktisk kontrolltid; avstemt regnskapsomfang hindrer dobbeltsummering."
+    },
+    {
+      "id": "FS-10",
+      "title": "Prosjektstatus er spredt over utdaterte og motstridende flater",
+      "priority": "P1",
+      "state": "in-progress",
+      "currentEvidence": "Samlet arbeidskø finnes. Ny utførelsesliste samler alle 30 funn.",
+      "nextAction": "Avstem faktiske ansvarlige og beslutninger med kanonisk completion-register.",
+      "originalAcceptance": "Statuskort og frister har eier, oppdateringsdato og underlag; samme leveranse har konsistent status på alle aktive sider."
+    },
+    {
+      "id": "FS-11",
+      "title": "AI-kunnskap viser en statusflate uten et fullført behandlingsløp",
+      "priority": "P1",
+      "state": "in-progress",
+      "currentEvidence": "Full kildekø finnes; tidligere Luna-pilot er karantenesatt. Sol/Terra får eksakte modellkvitteringer.",
+      "nextAction": "Kjør avgrenset kildeanalyse med uavhengig kontroll før større køkjøring.",
+      "originalAcceptance": "Én ende-til-ende pilot er etterprøvbar; alle 1 770 poster kan gjenfinnes; legacy-status kan ikke forveksles med ny godkjenning."
+    },
+    {
+      "id": "FS-12",
+      "title": "Produsentsøk dekker bare de første 100 radene",
+      "priority": "P1",
+      "state": "released",
+      "currentEvidence": "Produsentsøk kjøres på serveren over registeret.",
+      "nextAction": "Kontroller søk og sidebytte i produksjon.",
+      "originalAcceptance": "Et kontrollert org.nr. utenfor første 100 finnes; antall treff gjelder hele søket; tomt treff er forståelig og filtrene kan deles/gjenopptas."
+    },
+    {
+      "id": "FS-13",
+      "title": "Semantisk søk er tilgjengelig som valg, men ikke aktivert",
+      "priority": "P2",
+      "state": "deferred-by-user",
+      "currentEvidence": "Brukeren valgte vanlig søk. Lokal UI viser nøkkelord, korrekt deaktivert semantisk/hybrid og 50 treff på matsvinn. Indekseringsskriptet er kun lesbar plan.",
+      "nextAction": "Bevar vanlig søk; eventuell aktivering krever egen implementert og kontrollert skrivejobb.",
+      "originalAcceptance": "Valgt søkemodus svarer til faktisk kjørt funksjon; usikre og blokkerte kilder får riktig status."
+    },
+    {
+      "id": "FS-14",
+      "title": "Store registre rendrer svært mange elementer samtidig",
+      "priority": "P2",
+      "state": "released",
+      "currentEvidence": "Store registre har serverpaginering.",
+      "nextAction": "Kontroller representative registerreiser og responstid.",
+      "originalAcceptance": "Dokumentert responstidsmål overholdes med representativt produksjonsvolum; tastaturnavigasjon og tilbakeknapp bevarer kontekst."
+    },
+    {
+      "id": "FS-15",
+      "title": "Hvitboken i appen er bare tre utkast",
+      "priority": "P1",
+      "state": "implemented-local",
+      "currentEvidence": "Leserveiledning og alle 15 v2-kapitler implementert med kildebinding.",
+      "nextAction": "Integrasjonstest, produksjonsbygg, leveranse og visuell kontroll.",
+      "originalAcceptance": "App og kanonisk syntese har datert samsvar; alle kapitler har status, målgruppe og kildespor; eventuelle eksportfiler kontrolleres visuelt."
+    },
+    {
+      "id": "FS-16",
+      "title": "Mandat, videreføring og leveranseavgrensing trenger et oppdatert vedtak",
+      "priority": "P1",
+      "state": "owner-decision",
+      "currentEvidence": "Mandat og videreføring er faktiske åpne beslutninger.",
+      "nextAction": "Avklar H03: leveranse, mottaker, eier, finansiering og videreføringssted.",
+      "originalAcceptance": "Datert beslutning identifiserer scope, eier, leveranser, ressurser og godkjenner; operative statuskort avspeiler vedtaket."
+    },
+    {
+      "id": "FS-17",
+      "title": "Partner-, pilot- og effektarbeid har reelle menneskelige restanser",
+      "priority": "P1",
+      "state": "owner-decision",
+      "currentEvidence": "Partner-, intervju-, pilot- og effekthendelser kan ikke erstattes med agentvedtak.",
+      "nextAction": "Konkret partner/pilotvalg og avtalt gjennomføring, deretter observerte resultater.",
+      "originalAcceptance": "Hvert valgt case har kilde-/partnervalidering og eksplisitt disposisjon; effektutsagn har egnet uavhengig underlag eller forblir begrenset."
+    },
+    {
+      "id": "FS-18",
+      "title": "Nordiske materialstrømmer er i hovedsak fortsatt hull",
+      "priority": "P1",
+      "state": "source-gated",
+      "currentEvidence": "Én kildeverifisert norsk 2024-kandidat på 183 690 tonn er klargjort. De 40 kanoniske hullene er fortsatt uendret.",
+      "nextAction": "Avstem kandidaten før kontrollert behandling; fortsett land/år/systemgrense for de andre hullene.",
+      "originalAcceptance": "Avtalt minimumstabell har kilde, systemgrense, enhet, tid og kontrollert status for hver celle; uobserverte strømmer forblir hull."
+    },
+    {
+      "id": "FS-19",
+      "title": "Aktuelle fakta har ikke en gjennomgående vedlikeholdsregel",
+      "priority": "P1",
+      "state": "implemented-local",
+      "currentEvidence": "Ferskhet og ukjente kontrolltidspunkter er synlige på fire domenesider.",
+      "nextAction": "Kildekontroll/ansvarlig/ny kontrollfrist mangler fortsatt for deler av grunnlaget.",
+      "originalAcceptance": "Utgått kontrolltid er synlig; ferskhet kan ikke arves fra bygge- eller genereringstid; aktive hovedclaims er kontrollert mot åpnet primærkilde."
+    },
+    {
+      "id": "FS-20",
+      "title": "Utvalgsdekning blir tidvis tolket som egenskaper ved hele systemet",
+      "priority": "P1",
+      "state": "implemented-local",
+      "currentEvidence": "Utvalg, dekning og manglende data avgrenses på fire domenesider.",
+      "nextAction": "Gjennomgå resten av domeneflatene for samme feiltype.",
+      "originalAcceptance": "Ingen nasjonal eller nordisk generalisering fra et kuratert utvalg uten begrunnelse; manglende observasjon fremstilles ikke som null aktivitet."
+    },
+    {
+      "id": "FS-21",
+      "title": "Kilde-, dokument- og vurderingsstatus må avstemmes",
+      "priority": "P1",
+      "state": "in-progress",
+      "currentEvidence": "Klassifikasjoner og fulltekst er målt separat; produksjonskandidater er fortsatt 0.",
+      "nextAction": "Avstem kildeidentitet, innhold og kvalitet før gjenbruk.",
+      "originalAcceptance": "Et utvalg kan følges gjennom hele kjeden uten statusbrudd; deknings- og mangeltall kan reproduseres; ukoblet materiale gir riktig bruksgrense."
+    },
+    {
+      "id": "FS-22",
+      "title": "Aktørkartet trenger en tydelig vei fra oversikt til handling",
+      "priority": "P1",
+      "state": "owner-decision",
+      "currentEvidence": "Arbeidskø gir vei til oppfølging.",
+      "nextAction": "Fyll faktiske eiere og neste handlinger; ikke tildel personer ansvar uten beslutning.",
+      "originalAcceptance": "Brukeren kan finne og forstå de neste prioriterte oppgavene uten å lese tusenvis av kort; hver handling har eier og kilde-/beslutningsgrunnlag."
+    },
+    {
+      "id": "FS-23",
+      "title": "39 navigasjonsvalg gir lite prioritering av brukerens oppgave",
+      "priority": "P2",
+      "state": "implemented-local",
+      "currentEvidence": "Forsiden prioriterer arbeidskø, kilder og innsikt over illustrativt atlas.",
+      "nextAction": "Kontroller mobil/desktop og faktiske neste steg.",
+      "originalAcceptance": "Tre representative oppgaver kan løses fra start uten veiledning; status og neste steg forstås av en ny intern bruker."
+    },
+    {
+      "id": "FS-24",
+      "title": "Tilgjengelighet og språk trenger en målrettet kontroll",
+      "priority": "P2",
+      "state": "in-progress",
+      "currentEvidence": "Skiplink, fokus, aktiv navigasjon og mobil Escape forbedret.",
+      "nextAction": "Kontroller flere sideformer, språk og tilgjengelighet etter integrasjon.",
+      "originalAcceptance": "Avtalte hovedreiser fungerer med tastatur; dynamisk status er forståelig for hjelpemidler; norsk/engelsk er konsekvent på prioriterte sider."
+    },
+    {
+      "id": "FS-25",
+      "title": "Felles gjenoppretting ved sidefeil er ikke etablert",
+      "priority": "P2",
+      "state": "verified-local",
+      "currentEvidence": "404 og tilbakevei virker. Kontrollert databasefeil på egen localhost:3110 viste forklaring og retry; samme knapp gjenopprettet Havbruk etter at forbindelsen kom tilbake.",
+      "nextAction": "Lever og kontroller kanonisk produksjonsflate.",
+      "originalAcceptance": "Feiltilstander har forklaring og neste handling; manglende data blir ikke automatisk null eller en blank side."
+    },
+    {
+      "id": "FS-26",
+      "title": "Lokalt verifisert kjøremiljø har driftet fra de låste kontrollene",
+      "priority": "P1",
+      "state": "verified-local",
+      "currentEvidence": "Ny eksakt Node/llhttp-forsegling; node_modules og generert Prisma-klient har verifisert ekstern rotbinding. Full suite: 2 657 tester, 2 656 bestått, 0 feil, 1 hoppet over.",
+      "nextAction": "Bevar bindingen etter prisma generate; kjør fersk preflight før beskyttede operasjoner.",
+      "originalAcceptance": "Pin/verktøykjede er bevisst avstemt, beskyttede tester passerer, og eventuell restore-/apply-operasjon har sin egen ferske preflight."
+    },
+    {
+      "id": "FS-27",
+      "title": "Avhengigheter har åpne sikkerhetsvarsler",
+      "priority": "P1",
+      "state": "verified-local",
+      "currentEvidence": "Next/eslint-config-next 16.3.4 og underavhengigheter oppdatert; npm audit viser 0 varsler. Bygg og lint består.",
+      "nextAction": "Bekreft CI og installerte produksjonsversjoner.",
+      "originalAcceptance": "Varsler er løst eller dokumentert vurdert med faktisk eksponering og eier; produksjonsavhengighetene er kontrollert på nytt."
+    },
+    {
+      "id": "FS-28",
+      "title": "Grønne kvalitetsporter dekker ikke de påviste bruker- og dataproblemene",
+      "priority": "P1",
+      "state": "verified-local",
+      "currentEvidence": "Full suite: 2 657 tester, 2 656 bestått, 0 feil, 1 hoppet over. Kilde-/datakontrakter, SQL-profil 1.0.24 og virkelige lokale brukerreiser kontrollert.",
+      "nextAction": "Sluttbygg, CI, eksakt runtime-SHA og autentisert UI.",
+      "originalAcceptance": "Feilklassene FS-01–08 har en konkret automatisk eller dokumentert manuell kontroll; eksakt release-SHA og UI-bevis følger endringen."
+    },
+    {
+      "id": "FS-29",
+      "title": "Arbeidsgrener og åpne PR-er trenger en ryddig gjennomføringskø",
+      "priority": "P2",
+      "state": "in-progress",
+      "currentEvidence": "Isolert gren fra ren reparasjonsworktree. Fire eldre PR-er kartlagt.",
+      "nextAction": "Lever denne pakken; avstem 379/381/386/359 uten å blande gammel datamutasjon.",
+      "originalAcceptance": "Hver åpen PR har en aktuell disposisjon; ingen ukjent lokal endring tas med i en release; arbeid spores til FS-ID og akseptansekriterier."
+    },
+    {
+      "id": "FS-30",
+      "title": "Driftsbevis må suppleres med gjenoppretting og brukerreiser",
+      "priority": "P2",
+      "state": "in-progress",
+      "currentEvidence": "Gjeldende produksjons-SHA og read-only datastatus kontrollert. Estate-artefakt hashverifisert og fersk kvittering hentet.",
+      "nextAction": "Kontroller slutt-SHA og autentiserte brukerreiser. Gjør operative bevis tydelige og daterte.",
+      "originalAcceptance": "Overvåking beskriver hva hver sjekk faktisk beviser; fersk gjenopprettingsøvelse og tilgangskontroll kan finnes fra samme driftsoversikt."
+    }
+  ]
+}

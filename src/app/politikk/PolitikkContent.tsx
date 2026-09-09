@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { Card } from '@/components/ui/Card'
+import { DataScopeNotice } from '@/components/ui/DataScopeNotice'
 import { COUNTRY_LIST } from '@/lib/config/countries'
 import type { CountryCode } from '@/lib/config/countries'
 import type { PolicyDocumentsByCountry } from '@/lib/queries/documents'
@@ -339,11 +340,23 @@ export function PolitikkContent({ data, timeseries, docsByCountry, backlogByCoun
           minimal eller manglende politikk.
         </p>
         <p className="text-xs text-stone-400 mt-2">
-          Datasett: <span className="font-mono">policy-landscape.json</span> · Generert{' '}
-          {data.generated}
-          {data.last_verified && <> · Verifisert {data.last_verified}</>}
+          Datasett: <span className="font-mono">policy-landscape.json</span>
         </p>
       </div>
+
+      <DataScopeNotice
+        notice={{
+          universe: 'Utvalgte politikktemaer for fem nordiske land og EU-rammeverket.',
+          selection: `${policyEntries.length} temarader i policy-landscape.json, med dynamiske dokumenttreff og en separat P1/P2-backlog.`,
+          coverage: 'Dette er en tematisk sammenligning, ikke en komplett oversikt over gjeldende rett eller alle virkemidler.',
+          period: 'År og ikrafttredelse vises per påstand der de er registrert.',
+          method: 'Redaksjonelt datasett koblet til oppgitte kilder; database- og backlogtall er støtte for videre kontroll.',
+          checkedAt: data.last_verified ?? null,
+          nextStep: 'Utpek dataansvarlig og neste kontroll, og åpne primærkilden på nytt for tidsfølsomme påstander før beslutningsbruk.',
+        }}
+        generatedAt={data.generated}
+        requiresCurrentCheck
+      />
 
       {/* Dynamic document coverage from the DB */}
       <Card>

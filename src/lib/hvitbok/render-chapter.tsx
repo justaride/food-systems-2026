@@ -6,6 +6,7 @@ import { KeyFigureBox } from '@/components/hvitbok/KeyFigureBox'
 import { CalloutBox } from '@/components/hvitbok/CalloutBox'
 import { RelatedVisuals } from '@/components/hvitbok/RelatedVisuals'
 import { EmbeddedChart } from '@/components/hvitbok/EmbeddedChart'
+import { headingAnchor } from './projection'
 
 function renderEmbed(
   chapterSlug: string,
@@ -62,11 +63,16 @@ export function renderChapter(
   return parseChapter(markdown).map((seg, i) => {
     const key = `seg-${i}`
     if (seg.kind === 'markdown') {
-      const html = marked(seg.content, { gfm: true }) as string
+      const anchored = seg.content.replace(
+        /^(#{2,4})\s+(.+)$/gm,
+        (_line, hashes: string, title: string) =>
+          `<span id="${headingAnchor(title)}"></span>\n${hashes} ${title}`,
+      )
+      const html = marked(anchored, { gfm: true }) as string
       return (
         <article
           key={key}
-          className="prose prose-stone max-w-none prose-headings:font-semibold prose-headings:tracking-tight prose-a:text-emerald-700 prose-a:no-underline hover:prose-a:underline prose-table:text-xs"
+          className="whitepaper-prose"
           dangerouslySetInnerHTML={{ __html: html }}
         />
       )
