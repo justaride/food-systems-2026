@@ -1,0 +1,740 @@
+{
+  "asOf": "2026-09-09",
+  "authority": "internal_analysis_only",
+  "humanReview": "not_performed",
+  "semanticTruthVerifiedByScript": false,
+  "passed": true,
+  "checks": [
+    {
+      "check": "17_unique_primary_source_versions",
+      "passed": true
+    },
+    {
+      "check": "R6-S01:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S01:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S01:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S01:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S01:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S02:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S02:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S02:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S02:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S02:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S03:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S03:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S03:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S03:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S03:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S04:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S04:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S04:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S04:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S04:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S05:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S05:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S05:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S05:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S05:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S06:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S06:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S06:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S06:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S06:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S07:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S07:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S07:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S07:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S07:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S08:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S08:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S08:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S08:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S08:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S09:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S09:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S09:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S09:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S09:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S10:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S10:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S10:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S10:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S10:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S11:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S11:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S11:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S11:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S11:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S12:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S12:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S12:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S12:initial_text_preserved",
+      "passed": true
+    },
+    {
+      "check": "R6-S12:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S12:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S13:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S13:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S13:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S13:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S13:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S14:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S14:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S14:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S14:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S14:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S15:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S15:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S15:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S15:initial_text_preserved",
+      "passed": true
+    },
+    {
+      "check": "R6-S15:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S15:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S16:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S16:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S16:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S16:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S16:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "R6-S17:rawPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S17:textPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S17:acquisitionReceiptPath",
+      "passed": true
+    },
+    {
+      "check": "R6-S17:private_raw",
+      "passed": true
+    },
+    {
+      "check": "R6-S17:version_and_scope",
+      "passed": true
+    },
+    {
+      "check": "evidence:noid",
+      "passed": true
+    },
+    {
+      "check": "evidence:noprotein",
+      "passed": true
+    },
+    {
+      "check": "evidence:seid",
+      "passed": true
+    },
+    {
+      "check": "evidence:seprotein",
+      "passed": true
+    },
+    {
+      "check": "evidence:bag",
+      "passed": true
+    },
+    {
+      "check": "evidence:nocat",
+      "passed": true
+    },
+    {
+      "check": "evidence:secat",
+      "passed": true
+    },
+    {
+      "check": "evidence:furuset",
+      "passed": true
+    },
+    {
+      "check": "evidence:distribution",
+      "passed": true
+    },
+    {
+      "check": "evidence:index",
+      "passed": true
+    },
+    {
+      "check": "evidence:permit",
+      "passed": true
+    },
+    {
+      "check": "evidence:completion",
+      "passed": true
+    },
+    {
+      "check": "evidence:framework",
+      "passed": true
+    },
+    {
+      "check": "evidence:silohistory",
+      "passed": true
+    },
+    {
+      "check": "evidence:silomove",
+      "passed": true
+    },
+    {
+      "check": "evidence:co2",
+      "passed": true
+    },
+    {
+      "check": "evidence:production",
+      "passed": true
+    },
+    {
+      "check": "13_unique_observations",
+      "passed": true
+    },
+    {
+      "check": "R6-O01:candidate_hash",
+      "passed": true
+    },
+    {
+      "check": "R6-O01:evidence_profile_policy",
+      "passed": true
+    },
+    {
+      "check": "R6-O02:candidate_hash",
+      "passed": true
+    },
+    {
+      "check": "R6-O02:evidence_profile_policy",
+      "passed": true
+    },
+    {
+      "check": "R6-O03:candidate_hash",
+      "passed": true
+    },
+    {
+      "check": "R6-O03:evidence_profile_policy",
+      "passed": true
+    },
+    {
+      "check": "R6-O04:candidate_hash",
+      "passed": true
+    },
+    {
+      "check": "R6-O04:evidence_profile_policy",
+      "passed": true
+    },
+    {
+      "check": "R6-O05:candidate_hash",
+      "passed": true
+    },
+    {
+      "check": "R6-O05:evidence_profile_policy",
+      "passed": true
+    },
+    {
+      "check": "R6-O06:candidate_hash",
+      "passed": true
+    },
+    {
+      "check": "R6-O06:evidence_profile_policy",
+      "passed": true
+    },
+    {
+      "check": "R6-O07:candidate_hash",
+      "passed": true
+    },
+    {
+      "check": "R6-O07:evidence_profile_policy",
+      "passed": true
+    },
+    {
+      "check": "R6-O08:candidate_hash",
+      "passed": true
+    },
+    {
+      "check": "R6-O08:evidence_profile_policy",
+      "passed": true
+    },
+    {
+      "check": "R6-O09:candidate_hash",
+      "passed": true
+    },
+    {
+      "check": "R6-O09:evidence_profile_policy",
+      "passed": true
+    },
+    {
+      "check": "R6-O10:candidate_hash",
+      "passed": true
+    },
+    {
+      "check": "R6-O10:evidence_profile_policy",
+      "passed": true
+    },
+    {
+      "check": "R6-O11:candidate_hash",
+      "passed": true
+    },
+    {
+      "check": "R6-O11:evidence_profile_policy",
+      "passed": true
+    },
+    {
+      "check": "R6-O12:candidate_hash",
+      "passed": true
+    },
+    {
+      "check": "R6-O12:evidence_profile_policy",
+      "passed": true
+    },
+    {
+      "check": "R6-O13:candidate_hash",
+      "passed": true
+    },
+    {
+      "check": "R6-O13:evidence_profile_policy",
+      "passed": true
+    },
+    {
+      "check": "baseline_hash:predecessor-119-baseline.json",
+      "passed": true
+    },
+    {
+      "check": "bytes_preserved:predecessor-119-baseline.json",
+      "passed": true
+    },
+    {
+      "check": "119_predecessor_files",
+      "passed": true
+    },
+    {
+      "check": "baseline_hash:prior-packages-baseline.json",
+      "passed": true
+    },
+    {
+      "check": "bytes_preserved:prior-packages-baseline.json",
+      "passed": true
+    },
+    {
+      "check": "baseline_hash:round005-private-baseline.json",
+      "passed": true
+    },
+    {
+      "check": "bytes_preserved:round005-private-baseline.json",
+      "passed": true
+    },
+    {
+      "check": "manifest:builder",
+      "passed": true
+    },
+    {
+      "check": "manifest:policy",
+      "passed": true
+    },
+    {
+      "check": "manifest:priorCase",
+      "passed": true
+    },
+    {
+      "check": "manifest_sources",
+      "passed": true
+    },
+    {
+      "check": "manifest_profile",
+      "passed": true
+    },
+    {
+      "check": "previous_case_and_protocol_frozen",
+      "passed": true
+    },
+    {
+      "check": "profile_unknowns",
+      "passed": true
+    },
+    {
+      "check": "12_Q1_rows_no_invented_acceptance_or_batch_values",
+      "passed": true
+    },
+    {
+      "check": "nutrition_values_bound_to_exact_bulk_SKUs",
+      "passed": true
+    },
+    {
+      "check": "70_unique_unanswered_intake_fields",
+      "passed": true
+    },
+    {
+      "check": "intake_unsent_and_bound",
+      "passed": true
+    },
+    {
+      "check": "nine_open_linked_gaps",
+      "passed": true
+    },
+    {
+      "check": "intake_covers_each_gap",
+      "passed": true
+    },
+    {
+      "check": "26_operational_quantities_unknown",
+      "passed": true
+    },
+    {
+      "check": "authority_and_prior_stops_unchanged",
+      "passed": true
+    },
+    {
+      "check": "reopened_catalog_identical:R6-S09",
+      "passed": true
+    },
+    {
+      "check": "reopened_catalog_identical:R6-S10",
+      "passed": true
+    },
+    {
+      "check": "reopened_catalog_identical:R6-S11",
+      "passed": true
+    },
+    {
+      "check": "ten_source_pages_visually_reviewed",
+      "passed": true
+    },
+    {
+      "check": "all_package_json_parse",
+      "passed": true
+    },
+    {
+      "check": "link:README.md:q1-comparison.json",
+      "passed": true
+    },
+    {
+      "check": "link:README.md:observations.json",
+      "passed": true
+    },
+    {
+      "check": "link:README.md:source-bindings.json",
+      "passed": true
+    },
+    {
+      "check": "link:README.md:evidence-bindings.json",
+      "passed": true
+    },
+    {
+      "check": "link:README.md:data-gaps.json",
+      "passed": true
+    },
+    {
+      "check": "link:README.md:INNTAK-USENDT.md",
+      "passed": true
+    },
+    {
+      "check": "link:README.md:intake-template.json",
+      "passed": true
+    },
+    {
+      "check": "link:README.md:status-delta.json",
+      "passed": true
+    },
+    {
+      "check": "link:README.md:access-review.json",
+      "passed": true
+    },
+    {
+      "check": "link:README.md:verification.json",
+      "passed": true
+    },
+    {
+      "check": "link:README.md:NESTE-SESJON.md",
+      "passed": true
+    },
+    {
+      "check": "link:INNTAK-USENDT.md:intake-template.json",
+      "passed": true
+    },
+    {
+      "check": "only_round006_and_verifier_paths_changed",
+      "passed": true
+    },
+    {
+      "check": "no_raw_source_files_inside_package",
+      "passed": true
+    },
+    {
+      "check": "git_diff_check",
+      "passed": true
+    },
+    {
+      "check": "base_ancestry",
+      "passed": true
+    }
+  ],
+  "counts": {
+    "checks": 175,
+    "sources": 17,
+    "observations": 13,
+    "gaps": 9,
+    "intakeFields": 70,
+    "preservedPredecessorFiles": 119,
+    "preservedTrackedHistoricalFiles": 64,
+    "preservedRound005PrivateWorkingFiles": 48
+  },
+  "verifierSha256": "6f2aa578a643756a6af65c360b21bb12ffd9f69e4f7bb6b708c2b3b36e79afcc",
+  "gates": {
+    "localIntegrity": "passed",
+    "CI": "not_run",
+    "migration": "not_run",
+    "deployment": "not_run",
+    "runtimeSHA": "not_checked",
+    "authenticatedProductionUI": "not_checked",
+    "DBWrites": false,
+    "canonicalPromotion": false,
+    "coverageReadinessChanged": false,
+    "contactsSent": false,
+    "testPerformed": false,
+    "push": "not_performed",
+    "PR": "not_created"
+  },
+  "limitations": [
+    "Hash checks prove integrity and reproducibility, not completeness of public search or scientific truth.",
+    "Applicant statements and municipal decisions retain distinct evidential roles.",
+    "Missing operational data stays unknown."
+  ]
+}

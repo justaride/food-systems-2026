@@ -1,0 +1,577 @@
+{
+  "schema": "beredskap-round006-intake/v1",
+  "id": "R6-INTAKE-001",
+  "status": "internal_unsent_template",
+  "sent": false,
+  "responsesReceived": false,
+  "authority": "internal_analysis_only",
+  "human_verified": false,
+  "targetProfileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f",
+  "policySha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140",
+  "instructions": "No email/contact or physical test authorized. Fields describe later owner data needs. Keep values unknown without document, date, scope and measurement basis. Any returned data is a new candidate version; never overwrite frozen rounds or record human review automatically.",
+  "responseEnvelope": {
+    "ownerRole": null,
+    "receivedAt": null,
+    "effectiveAt": null,
+    "documentId": null,
+    "documentVersion": null,
+    "sourceFileSha256": null,
+    "exactLocator": null,
+    "rightsAndPermittedUse": null
+  },
+  "sections": [
+    {
+      "gapId": "R6-G01",
+      "ownerRole": "Furuset produksjons-/prosjektansvarlig",
+      "title": "Produksjon etter ombygging",
+      "fields": [
+        {
+          "id": "R6-G01-01",
+          "name": "production_line_id",
+          "unitOrFormat": "ID",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G01-02",
+          "name": "products_made_on_site",
+          "unitOrFormat": "produkt-/resept-ID",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G01-03",
+          "name": "flour_needed_on_site",
+          "unitOrFormat": "ja/nei med dokument",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G01-04",
+          "name": "relocated_work_and_effective_date",
+          "unitOrFormat": "linje-ID / ISO8601",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G01-05",
+          "name": "current_site_document_revision",
+          "unitOrFormat": "ID / dato",
+          "value": null,
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "gapId": "R6-G02",
+      "ownerRole": "Cerealia Norge produkt-/laboratorieansvarlig",
+      "title": "Bulk 160105 leverandørspesifikasjon",
+      "fields": [
+        {
+          "id": "R6-G02-01",
+          "name": "spec_revision",
+          "unitOrFormat": "ID",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G02-02",
+          "name": "valid_from_to",
+          "unitOrFormat": "ISO8601",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G02-03",
+          "name": "protein_limits",
+          "unitOrFormat": "g/100g + basis",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G02-04",
+          "name": "moisture_limits",
+          "unitOrFormat": "masse%",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G02-05",
+          "name": "falling_number_limits",
+          "unitOrFormat": "s",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G02-06",
+          "name": "gluten_test_limits",
+          "unitOrFormat": "metode / enhet / min / maks",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G02-07",
+          "name": "ash_limits",
+          "unitOrFormat": "% + basis",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G02-08",
+          "name": "particle_size_limits",
+          "unitOrFormat": "µm / masse%",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G02-09",
+          "name": "test_methods_and_nitrogen_factor",
+          "unitOrFormat": "metode-ID / faktor",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G02-10",
+          "name": "allergen_and_food_safety_spec",
+          "unitOrFormat": "dokument-ID",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G02-11",
+          "name": "bulk_storage_and_shelf_life",
+          "unitOrFormat": "°C / RH% / dager",
+          "value": null,
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "gapId": "R6-G03",
+      "ownerRole": "Cerealia Sverige produkt-/laboratorieansvarlig",
+      "title": "Bulk 160585 leverandørspesifikasjon",
+      "fields": [
+        {
+          "id": "R6-G03-01",
+          "name": "spec_revision",
+          "unitOrFormat": "ID",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G03-02",
+          "name": "valid_from_to",
+          "unitOrFormat": "ISO8601",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G03-03",
+          "name": "protein_limits",
+          "unitOrFormat": "g/100g + basis",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G03-04",
+          "name": "moisture_limits",
+          "unitOrFormat": "masse%",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G03-05",
+          "name": "falling_number_limits",
+          "unitOrFormat": "s",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G03-06",
+          "name": "gluten_test_limits",
+          "unitOrFormat": "metode / enhet / min / maks",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G03-07",
+          "name": "ash_limits",
+          "unitOrFormat": "% + basis",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G03-08",
+          "name": "particle_size_limits",
+          "unitOrFormat": "µm / masse%",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G03-09",
+          "name": "test_methods_and_nitrogen_factor",
+          "unitOrFormat": "metode-ID / faktor",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G03-10",
+          "name": "allergen_and_food_safety_spec",
+          "unitOrFormat": "dokument-ID",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G03-11",
+          "name": "bulk_storage_and_shelf_life",
+          "unitOrFormat": "°C / RH% / dager",
+          "value": null,
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "gapId": "R6-G04",
+      "ownerRole": "Furuset fag-/kvalitetsansvarlig",
+      "title": "Q1 og kvalifisering",
+      "fields": [
+        {
+          "id": "R6-G04-01",
+          "name": "recipe_and_q1_revision",
+          "unitOrFormat": "ID / SHA256",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G04-02",
+          "name": "recipient_acceptance_limits",
+          "unitOrFormat": "parameter / enhet / min / maks",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G04-03",
+          "name": "matched_baking_protocol",
+          "unitOrFormat": "dokument-ID",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G04-04",
+          "name": "flour_batch_ids",
+          "unitOrFormat": "ID",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G04-05",
+          "name": "water_mixing_fermentation_baking",
+          "unitOrFormat": "kg / min / °C",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G04-06",
+          "name": "bread_volume_and_rejection",
+          "unitOrFormat": "ml/g / antall / %",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G04-07",
+          "name": "qualification_document",
+          "unitOrFormat": "dokument-ID; ingen KI-godkjenning",
+          "value": null,
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "gapId": "R6-G05",
+      "ownerRole": "Furuset teknisk ansvarlig",
+      "title": "Som bygget mottak",
+      "fields": [
+        {
+          "id": "R6-G05-01",
+          "name": "as_built_drawing_revision",
+          "unitOrFormat": "ID / dato",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G05-02",
+          "name": "silo_id_location_and_product",
+          "unitOrFormat": "ID / sted / SKU",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G05-03",
+          "name": "usable_silo_volume",
+          "unitOrFormat": "m³",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G05-04",
+          "name": "flour_bulk_density",
+          "unitOrFormat": "kg/m³ + metode",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G05-05",
+          "name": "maximum_load_and_available_space",
+          "unitOrFormat": "tonn; skill maksimal og faktisk ledig",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G05-06",
+          "name": "calibration_and_hygiene_record",
+          "unitOrFormat": "dokument-ID / dato",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G05-07",
+          "name": "receiving_point_id",
+          "unitOrFormat": "ID",
+          "value": null,
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "gapId": "R6-G06",
+      "ownerRole": "Furuset teknisk ansvarlig sammen med transportør",
+      "title": "Transportørgrensesnitt",
+      "fields": [
+        {
+          "id": "R6-G06-01",
+          "name": "coupling_type_and_diameter",
+          "unitOrFormat": "type / mm",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G06-02",
+          "name": "maximum_unloading_pressure",
+          "unitOrFormat": "bar(g)",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G06-03",
+          "name": "air_flow_limits_and_quality",
+          "unitOrFormat": "Nm³/h / referansevilkår / kvalitetskrav",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G06-04",
+          "name": "hose_length_and_route",
+          "unitOrFormat": "m / tegning-ID",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G06-05",
+          "name": "filter_venting_interlocks",
+          "unitOrFormat": "dokument-ID / funksjon",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G06-06",
+          "name": "unloading_rate",
+          "unitOrFormat": "tonn/time + måleforhold",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G06-07",
+          "name": "vehicle_access_and_payload",
+          "unitOrFormat": "rute / mål m / tonn",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G06-08",
+          "name": "cleaning_previous_loads_and_release",
+          "unitOrFormat": "dokument-ID",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G06-09",
+          "name": "receiving_hours_and_duration",
+          "unitOrFormat": "ISO8601 / min",
+          "value": null,
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "gapId": "R6-G07",
+      "ownerRole": "Furuset planlegging/lager",
+      "title": "Behov og lager per frist",
+      "fields": [
+        {
+          "id": "R6-G07-01",
+          "name": "order_recipe_batch_id",
+          "unitOrFormat": "ID",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G07-02",
+          "name": "q1_per_batch",
+          "unitOrFormat": "kg netto",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G07-03",
+          "name": "batch_count_and_start",
+          "unitOrFormat": "antall / ISO8601",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G07-04",
+          "name": "opening_qualified_stock_by_batch",
+          "unitOrFormat": "tonn / fukt% / ISO8601",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G07-05",
+          "name": "quarantine_reservations",
+          "unitOrFormat": "tonn / parti-ID",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G07-06",
+          "name": "closing_buffer_and_reason",
+          "unitOrFormat": "tonn / beslutningsreferanse",
+          "value": null,
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "gapId": "R6-G08",
+      "ownerRole": "Møllenes lager-, allokerings- og kvalitetsansvarlige",
+      "title": "Parti og allokering per mølle",
+      "fields": [
+        {
+          "id": "R6-G08-01",
+          "name": "grain_and_flour_batch_id",
+          "unitOrFormat": "ID; skill korn/mel",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G08-02",
+          "name": "certificate_of_analysis",
+          "unitOrFormat": "dokument-ID / dato / parameter / metode / resultat",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G08-03",
+          "name": "qualified_stock_by_location",
+          "unitOrFormat": "tonn / fukt% / sted / ISO8601",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G08-04",
+          "name": "ownership_release_right",
+          "unitOrFormat": "dokument-ID",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G08-05",
+          "name": "competing_allocations",
+          "unitOrFormat": "tonn / mottakerkode / frist",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G08-06",
+          "name": "release_and_allocation_time",
+          "unitOrFormat": "ISO8601",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G08-07",
+          "name": "grain_flour_mass_balance",
+          "unitOrFormat": "tonn / fukt% / tap / vann",
+          "value": null,
+          "evidence": null
+        }
+      ]
+    },
+    {
+      "gapId": "R6-G09",
+      "ownerRole": "Drift ved begge møller og Furuset",
+      "title": "Scenario og observerte utfall",
+      "fields": [
+        {
+          "id": "R6-G09-01",
+          "name": "critical_load_and_backup",
+          "unitOrFormat": "kW / kWh / startlast / testdato",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G09-02",
+          "name": "water_need_and_reserve",
+          "unitOrFormat": "m³/time / m³ / kvalitet",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G09-03",
+          "name": "fuel_start_stock_and_consumption",
+          "unitOrFormat": "liter / liter/time",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G09-04",
+          "name": "loading_transport_unloading_times",
+          "unitOrFormat": "ISO8601 per hendelse",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G09-05",
+          "name": "net_accepted_flour_by_deadline",
+          "unitOrFormat": "tonn / parti-ID / ISO8601",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G09-06",
+          "name": "flour_used_in_accepted_baking",
+          "unitOrFormat": "tonn / batch-ID / ISO8601",
+          "value": null,
+          "evidence": null
+        },
+        {
+          "id": "R6-G09-07",
+          "name": "shared_resource_conflicts",
+          "unitOrFormat": "ressurs-ID / tidsintervall",
+          "value": null,
+          "evidence": null
+        }
+      ]
+    }
+  ]
+}

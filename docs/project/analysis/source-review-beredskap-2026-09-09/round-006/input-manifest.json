@@ -1,0 +1,33 @@
+{
+  "schema": "beredskap-round006-manifest/v1",
+  "privateRoot": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006",
+  "baseCommit": "44e34c60df69c686633008bb11524b91310e7f9a",
+  "builder": {
+    "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/build-package.py",
+    "sha256": "729a48b4693c8648778774b072309b5ce43742ee21ac453ac1d2600725eb7fd7"
+  },
+  "policy": {
+    "path": "AGENTS.md",
+    "sha256": "8a6d73683c14203764732ba08019b7deb94a779b20beaa91aa4d9e9b66ab5140"
+  },
+  "priorCase": {
+    "path": "/Users/gabrielfreeman/.codex/worktrees/a4f5/Food Systems 2026/docs/project/analysis/source-review-beredskap-2026-09-09/round-005/case.json",
+    "sha256": "b24b040f69e7f8388a0ce9ba7ef12f89ef291fc0a36aeb917f274e08a0b69bff"
+  },
+  "baselines": [
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/predecessor-119-baseline.json",
+      "sha256": "42ece1d4f02d28e4d776a40c4eb4c649e756fb4317404f793b86ad8452aec288"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/prior-packages-baseline.json",
+      "sha256": "dcea4e43a418e86161f9f9548188d9613d7bc36dc3a5dd8dbb9122b78557f86d"
+    },
+    {
+      "path": "/Users/gabrielfreeman/.codex/visualizations/2026/09/09/01a0855c-d619-77d1-8f50-54d1006d6b0e/round-006/round005-private-baseline.json",
+      "sha256": "0674e781f78826dee5b6b0c16d19934e45895ffc5c8da772b5d92a188e9c892b"
+    }
+  ],
+  "sourceBindingsSha256": "3f07f92ce318b6675084b2ccb3d32e89e2694b1a1fcfc9b775208dfd7bf05871",
+  "profileSha256": "46c802888837cbc98005d2d9db29eb9bd48b0586e327b9d2fc96c7bb055bea2f"
+}
